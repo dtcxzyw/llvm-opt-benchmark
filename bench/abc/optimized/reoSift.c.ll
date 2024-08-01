@@ -63,8 +63,8 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 .preheader367:                                    ; preds = %.preheader367.lr.ph, %375
   %32 = phi i32 [ %19, %.preheader367.lr.ph ], [ %377, %375 ]
   %.0268503 = phi i32 [ 0, %.preheader367.lr.ph ], [ %376, %375 ]
-  %.0295502 = phi double [ %24, %.preheader367.lr.ph ], [ %.9304, %375 ]
-  %.1306501 = phi double [ %.0305, %.preheader367.lr.ph ], [ %.12, %375 ]
+  %.0295502 = phi double [ %24, %.preheader367.lr.ph ], [ %.5300, %375 ]
+  %.1306501 = phi double [ %.0305, %.preheader367.lr.ph ], [ %.7312, %375 ]
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %.preheader367.._crit_edge_crit_edge
 
@@ -504,12 +504,12 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph385:                                        ; preds = %.preheader366, %285
   %indvars.iv523 = phi i64 [ %indvars.iv.next524, %285 ], [ %53, %.preheader366 ]
   %.4281383 = phi i32 [ %.5282, %285 ], [ %.0275.lcssa, %.preheader366 ]
-  %.6291382 = phi double [ %.7292, %285 ], [ %.1306501, %.preheader366 ]
-  %.5300381 = phi double [ %.6301, %285 ], [ %.0295502, %.preheader366 ]
-  %.7312380 = phi double [ %244, %285 ], [ %.1306501, %.preheader366 ]
+  %.7292382 = phi double [ %.8293, %285 ], [ %.1306501, %.preheader366 ]
+  %.6301381 = phi double [ %.7302, %285 ], [ %.0295502, %.preheader366 ]
+  %.8313380 = phi double [ %244, %285 ], [ %.1306501, %.preheader366 ]
   %242 = trunc nsw i64 %indvars.iv523 to i32
   %243 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %242, i32 noundef 0) #6
-  %244 = fsub double %.7312380, %243
+  %244 = fsub double %.8313380, %243
   %indvars.iv.next524 = add nsw i64 %indvars.iv523, 1
   %245 = load ptr, ptr %25, align 8
   %246 = getelementptr inbounds double, ptr %245, i64 %indvars.iv.next524
@@ -523,7 +523,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %253 = fadd double %250, %252
   %254 = getelementptr inbounds %struct._reo_plane, ptr %247, i64 %indvars.iv.next524, i32 5
   store double %253, ptr %254, align 8
-  %255 = fcmp ult double %244, %.5300381
+  %255 = fcmp ult double %244, %.6301381
   %256 = trunc nsw i64 %indvars.iv.next524 to i32
   br i1 %255, label %257, label %._crit_edge386
 
@@ -537,11 +537,11 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %264 = fmul double %263, 2.000000e+00
   %265 = fdiv double %264, 3.000000e+00
   %266 = fadd double %261, %265
-  %267 = fcmp ult double %266, %.6291382
+  %267 = fcmp ult double %266, %.7292382
   br i1 %267, label %268, label %._crit_edge386
 
 268:                                              ; preds = %257
-  %269 = fcmp ogt double %.6291382, %244
+  %269 = fcmp ogt double %.7292382, %244
   br i1 %269, label %270, label %276
 
 270:                                              ; preds = %268
@@ -549,13 +549,13 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %272 = fptosi double %271 to i32
   %273 = add nsw i32 %272, 1
   %274 = sitofp i32 %273 to double
-  %275 = fcmp ogt double %.5300381, %274
-  %..5300 = select i1 %275, double %274, double %.5300381
+  %275 = fcmp ogt double %.6301381, %274
+  %..6301 = select i1 %275, double %274, double %.6301381
   br label %276
 
 276:                                              ; preds = %270, %268
-  %.6301 = phi double [ %..5300, %270 ], [ %.5300381, %268 ]
-  %.7292 = phi double [ %244, %270 ], [ %.6291382, %268 ]
+  %.7302 = phi double [ %..6301, %270 ], [ %.6301381, %268 ]
+  %.8293 = phi double [ %244, %270 ], [ %.7292382, %268 ]
   %.5282 = phi i32 [ %256, %270 ], [ %.4281383, %268 ]
   %277 = load i32, ptr %0, align 8
   %.not341 = icmp eq i32 %277, 0
@@ -585,10 +585,10 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %289, label %.lr.ph385, label %._crit_edge386, !llvm.loop !13
 
 ._crit_edge386:                                   ; preds = %285, %.lr.ph385, %257, %.preheader366
-  %.5300.lcssa = phi double [ %.0295502, %.preheader366 ], [ %.5300381, %257 ], [ %.5300381, %.lr.ph385 ], [ %.6301, %285 ]
-  %.6291.lcssa = phi double [ %.1306501, %.preheader366 ], [ %.6291382, %257 ], [ %.6291382, %.lr.ph385 ], [ %.7292, %285 ]
+  %.6301.lcssa = phi double [ %.0295502, %.preheader366 ], [ %.6301381, %257 ], [ %.6301381, %.lr.ph385 ], [ %.7302, %285 ]
+  %.7292.lcssa = phi double [ %.1306501, %.preheader366 ], [ %.7292382, %257 ], [ %.7292382, %.lr.ph385 ], [ %.8293, %285 ]
   %.4281.lcssa = phi i32 [ %.0275.lcssa, %.preheader366 ], [ %.4281383, %257 ], [ %.4281383, %.lr.ph385 ], [ %.5282, %285 ]
-  %.8313 = phi double [ %.1306501, %.preheader366 ], [ %244, %257 ], [ %244, %.lr.ph385 ], [ %244, %285 ]
+  %.9314 = phi double [ %.1306501, %.preheader366 ], [ %244, %257 ], [ %244, %.lr.ph385 ], [ %244, %285 ]
   %.6 = phi i32 [ %.0275.lcssa, %.preheader366 ], [ %256, %257 ], [ %256, %.lr.ph385 ], [ %256, %285 ]
   %290 = icmp sgt i32 %.6, 0
   br i1 %290, label %.lr.ph412.preheader, label %._crit_edge413
@@ -600,13 +600,13 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph412:                                        ; preds = %.lr.ph412.preheader, %346
   %indvars.iv526 = phi i64 [ %291, %.lr.ph412.preheader ], [ %indvars.iv.next527, %346 ]
   %.6283408 = phi i32 [ %.4281.lcssa, %.lr.ph412.preheader ], [ %.7284, %346 ]
-  %.8293407 = phi double [ %.6291.lcssa, %.lr.ph412.preheader ], [ %.9294, %346 ]
-  %.7302406 = phi double [ %.5300.lcssa, %.lr.ph412.preheader ], [ %.8303, %346 ]
-  %.9314405 = phi double [ %.8313, %.lr.ph412.preheader ], [ %294, %346 ]
+  %.9294407 = phi double [ %.7292.lcssa, %.lr.ph412.preheader ], [ %.10, %346 ]
+  %.8303406 = phi double [ %.6301.lcssa, %.lr.ph412.preheader ], [ %.9304, %346 ]
+  %.10315405 = phi double [ %.9314, %.lr.ph412.preheader ], [ %294, %346 ]
   %indvars.iv.next527 = add nsw i64 %indvars.iv526, -1
   %292 = trunc nuw nsw i64 %indvars.iv.next527 to i32
   %293 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %292, i32 noundef 1) #6
-  %294 = fsub double %.9314405, %293
+  %294 = fsub double %.10315405, %293
   %295 = load ptr, ptr %25, align 8
   %296 = getelementptr inbounds double, ptr %295, i64 %indvars.iv.next527
   %297 = load double, ptr %296, align 8
@@ -642,7 +642,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not344, label %329, label %316
 
 316:                                              ; preds = %304
-  %317 = fcmp ult double %294, %.7302406
+  %317 = fcmp ult double %294, %.8303406
   br i1 %317, label %318, label %._crit_edge413.loopexit.split.loop.exit565
 
 318:                                              ; preds = %316
@@ -655,11 +655,11 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %325 = fmul double %324, 2.000000e+00
   %326 = fdiv double %325, 3.000000e+00
   %327 = fadd double %322, %326
-  %328 = fcmp ult double %327, %.8293407
+  %328 = fcmp ult double %327, %.9294407
   br i1 %328, label %329, label %._crit_edge413.loopexit.split.loop.exit
 
 329:                                              ; preds = %318, %304
-  %330 = fcmp ult double %.8293407, %294
+  %330 = fcmp ult double %.9294407, %294
   br i1 %330, label %337, label %331
 
 331:                                              ; preds = %329
@@ -667,13 +667,13 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %333 = fptosi double %332 to i32
   %334 = add nsw i32 %333, 1
   %335 = sitofp i32 %334 to double
-  %336 = fcmp ogt double %.7302406, %335
-  %..7302 = select i1 %336, double %335, double %.7302406
+  %336 = fcmp ogt double %.8303406, %335
+  %..8303 = select i1 %336, double %335, double %.8303406
   br label %337
 
 337:                                              ; preds = %331, %329
-  %.8303 = phi double [ %..7302, %331 ], [ %.7302406, %329 ]
-  %.9294 = phi double [ %294, %331 ], [ %.8293407, %329 ]
+  %.9304 = phi double [ %..8303, %331 ], [ %.8303406, %329 ]
+  %.10 = phi double [ %294, %331 ], [ %.9294407, %329 ]
   %.7284 = phi i32 [ %292, %331 ], [ %.6283408, %329 ]
   %338 = load i32, ptr %0, align 8
   %.not345 = icmp eq i32 %338, 0
@@ -708,11 +708,11 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   br label %._crit_edge413
 
 ._crit_edge413:                                   ; preds = %346, %._crit_edge413.loopexit.split.loop.exit, %._crit_edge413.loopexit.split.loop.exit565, %._crit_edge386
-  %.7302.lcssa = phi double [ %.5300.lcssa, %._crit_edge386 ], [ %.7302406, %._crit_edge413.loopexit.split.loop.exit ], [ %.7302406, %._crit_edge413.loopexit.split.loop.exit565 ], [ %.8303, %346 ]
-  %.8293.lcssa = phi double [ %.6291.lcssa, %._crit_edge386 ], [ %.8293407, %._crit_edge413.loopexit.split.loop.exit ], [ %.8293407, %._crit_edge413.loopexit.split.loop.exit565 ], [ %.9294, %346 ]
+  %.8303.lcssa = phi double [ %.6301.lcssa, %._crit_edge386 ], [ %.8303406, %._crit_edge413.loopexit.split.loop.exit ], [ %.8303406, %._crit_edge413.loopexit.split.loop.exit565 ], [ %.9304, %346 ]
+  %.9294.lcssa = phi double [ %.7292.lcssa, %._crit_edge386 ], [ %.9294407, %._crit_edge413.loopexit.split.loop.exit ], [ %.9294407, %._crit_edge413.loopexit.split.loop.exit565 ], [ %.10, %346 ]
   %.6283.lcssa = phi i32 [ %.4281.lcssa, %._crit_edge386 ], [ %.6283408, %._crit_edge413.loopexit.split.loop.exit ], [ %.6283408, %._crit_edge413.loopexit.split.loop.exit565 ], [ %.7284, %346 ]
   %.7.in.lcssa = phi i32 [ %.6, %._crit_edge386 ], [ %348, %._crit_edge413.loopexit.split.loop.exit ], [ %349, %._crit_edge413.loopexit.split.loop.exit565 ], [ 0, %346 ]
-  %.10315 = phi double [ %.8313, %._crit_edge386 ], [ %294, %._crit_edge413.loopexit.split.loop.exit ], [ %294, %._crit_edge413.loopexit.split.loop.exit565 ], [ %294, %346 ]
+  %.11 = phi double [ %.9314, %._crit_edge386 ], [ %294, %._crit_edge413.loopexit.split.loop.exit ], [ %294, %._crit_edge413.loopexit.split.loop.exit565 ], [ %294, %346 ]
   %spec.select363 = tail call i32 @llvm.usub.sat.i32(i32 %.7.in.lcssa, i32 1)
   %350 = icmp slt i32 %spec.select363, %.6283.lcssa
   br i1 %350, label %.lr.ph434.preheader, label %.loopexit
@@ -724,10 +724,10 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph434:                                        ; preds = %.lr.ph434.preheader, %365
   %indvars.iv529 = phi i64 [ %351, %.lr.ph434.preheader ], [ %indvars.iv.next530, %365 ]
-  %.11431 = phi double [ %.10315, %.lr.ph434.preheader ], [ %355, %365 ]
+  %.12431 = phi double [ %.11, %.lr.ph434.preheader ], [ %355, %365 ]
   %353 = trunc nsw i64 %indvars.iv529 to i32
   %354 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %353, i32 noundef 0) #6
-  %355 = fsub double %.11431, %354
+  %355 = fsub double %.12431, %354
   %356 = load ptr, ptr %25, align 8
   %indvars.iv.next530 = add nsw i64 %indvars.iv529, 1
   %357 = getelementptr inbounds double, ptr %356, i64 %indvars.iv.next530
@@ -748,15 +748,15 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %366, label %.lr.ph434, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %365, %213, %._crit_edge413, %._crit_edge478
-  %.12 = phi double [ %.5310, %._crit_edge478 ], [ %.10315, %._crit_edge413 ], [ %203, %213 ], [ %355, %365 ]
-  %.9304 = phi double [ %.3298.lcssa, %._crit_edge478 ], [ %.7302.lcssa, %._crit_edge413 ], [ %.3298.lcssa, %213 ], [ %.7302.lcssa, %365 ]
-  %.10 = phi double [ %.4289.lcssa, %._crit_edge478 ], [ %.8293.lcssa, %._crit_edge413 ], [ %.4289.lcssa, %213 ], [ %.8293.lcssa, %365 ]
+  %.7312 = phi double [ %.5310, %._crit_edge478 ], [ %.11, %._crit_edge413 ], [ %203, %213 ], [ %355, %365 ]
+  %.5300 = phi double [ %.3298.lcssa, %._crit_edge478 ], [ %.8303.lcssa, %._crit_edge413 ], [ %.3298.lcssa, %213 ], [ %.8303.lcssa, %365 ]
+  %.6291 = phi double [ %.4289.lcssa, %._crit_edge478 ], [ %.9294.lcssa, %._crit_edge413 ], [ %.4289.lcssa, %213 ], [ %.9294.lcssa, %365 ]
   %367 = load i32, ptr %0, align 8
   %.not359 = icmp eq i32 %367, 0
   br i1 %.not359, label %370, label %368
 
 368:                                              ; preds = %.loopexit
-  %369 = fptosi double %.10 to i32
+  %369 = fptosi double %.6291 to i32
   store i32 %369, ptr %30, align 4
   br label %375
 
@@ -766,11 +766,11 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not360, label %373, label %372
 
 372:                                              ; preds = %370
-  store double %.12, ptr %31, align 8
+  store double %.7312, ptr %31, align 8
   br label %375
 
 373:                                              ; preds = %370
-  %374 = fptosi double %.10 to i32
+  %374 = fptosi double %.6291 to i32
   store i32 %374, ptr %28, align 4
   br label %375
 

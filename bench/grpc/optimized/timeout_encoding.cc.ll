@@ -446,46 +446,46 @@ sw.bb:                                            ; preds = %entry
   br label %sw.bb21
 
 sw.bb21:                                          ; preds = %if.else, %sw.bb
-  %p.0 = phi ptr [ %incdec.ptr, %sw.bb ], [ %buf, %if.else ]
+  %p.1 = phi ptr [ %incdec.ptr, %sw.bb ], [ %buf, %if.else ]
   %n.0 = phi i16 [ %2, %sw.bb ], [ %0, %if.else ]
   %div23 = udiv i16 %n.0, 1000
   %3 = trunc nuw nsw i16 %div23 to i8
   %conv25 = add nuw nsw i8 %3, 48
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %p.0, i64 1
-  store i8 %conv25, ptr %p.0, align 1
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %p.1, i64 1
+  store i8 %conv25, ptr %p.1, align 1
   %4 = urem i16 %n.0, 1000
   br label %sw.bb30
 
 sw.bb30:                                          ; preds = %if.else5, %sw.bb21
-  %p.1 = phi ptr [ %incdec.ptr26, %sw.bb21 ], [ %buf, %if.else5 ]
+  %p.2 = phi ptr [ %incdec.ptr26, %sw.bb21 ], [ %buf, %if.else5 ]
   %n.1 = phi i16 [ %4, %sw.bb21 ], [ %0, %if.else5 ]
   %div32 = udiv i16 %n.1, 100
   %5 = trunc nuw i16 %div32 to i8
   %conv34 = or disjoint i8 %5, 48
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %p.1, i64 1
-  store i8 %conv34, ptr %p.1, align 1
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %p.2, i64 1
+  store i8 %conv34, ptr %p.2, align 1
   %6 = urem i16 %n.1, 100
   br label %sw.bb39
 
 sw.bb39:                                          ; preds = %if.else9, %sw.bb30
-  %p.2 = phi ptr [ %incdec.ptr35, %sw.bb30 ], [ %buf, %if.else9 ]
+  %p.3 = phi ptr [ %incdec.ptr35, %sw.bb30 ], [ %buf, %if.else9 ]
   %n.2 = phi i16 [ %6, %sw.bb30 ], [ %0, %if.else9 ]
   %div41.lhs.trunc = trunc nuw i16 %n.2 to i8
   %div4136 = udiv i8 %div41.lhs.trunc, 10
   %conv43 = or disjoint i8 %div4136, 48
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %p.2, i64 1
-  store i8 %conv43, ptr %p.2, align 1
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %p.3, i64 1
+  store i8 %conv43, ptr %p.3, align 1
   %7 = urem i8 %div41.lhs.trunc, 10
   %.zext = zext nneg i8 %7 to i16
   br label %sw.bb48
 
 sw.bb48:                                          ; preds = %if.else9, %sw.bb39
-  %p.3 = phi ptr [ %incdec.ptr44, %sw.bb39 ], [ %buf, %if.else9 ]
+  %p.4 = phi ptr [ %incdec.ptr44, %sw.bb39 ], [ %buf, %if.else9 ]
   %n.3 = phi i16 [ %.zext, %sw.bb39 ], [ %0, %if.else9 ]
   %conv49 = trunc nuw i16 %n.3 to i8
   %add50 = add nuw nsw i8 %conv49, 48
-  %incdec.ptr52 = getelementptr inbounds i8, ptr %p.3, i64 1
-  store i8 %add50, ptr %p.3, align 1
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %p.4, i64 1
+  store i8 %add50, ptr %p.4, align 1
   %unit_ = getelementptr inbounds i8, ptr %this, i64 2
   %8 = load i8, ptr %unit_, align 2
   switch i8 %8, label %sw.epilog75 [
@@ -503,69 +503,69 @@ sw.bb48:                                          ; preds = %if.else9, %sw.bb39
   ]
 
 sw.bb53:                                          ; preds = %sw.bb48
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %p.3, i64 2
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %p.4, i64 2
   store i8 110, ptr %incdec.ptr52, align 1
   br label %sw.epilog75
 
 sw.bb55:                                          ; preds = %sw.bb48
-  %incdec.ptr56 = getelementptr inbounds i8, ptr %p.3, i64 2
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %p.4, i64 2
   store i8 48, ptr %incdec.ptr52, align 1
   br label %sw.bb57
 
 sw.bb57:                                          ; preds = %sw.bb55, %sw.bb48
-  %p.5 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr56, %sw.bb55 ]
-  %incdec.ptr58 = getelementptr inbounds i8, ptr %p.5, i64 1
-  store i8 48, ptr %p.5, align 1
+  %p.6 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr56, %sw.bb55 ]
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %p.6, i64 1
+  store i8 48, ptr %p.6, align 1
   br label %sw.bb59
 
 sw.bb59:                                          ; preds = %sw.bb57, %sw.bb48
-  %p.6 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr58, %sw.bb57 ]
-  %incdec.ptr60 = getelementptr inbounds i8, ptr %p.6, i64 1
-  store i8 109, ptr %p.6, align 1
+  %p.7 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr58, %sw.bb57 ]
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %p.7, i64 1
+  store i8 109, ptr %p.7, align 1
   br label %sw.epilog75
 
 sw.bb61:                                          ; preds = %sw.bb48
-  %incdec.ptr62 = getelementptr inbounds i8, ptr %p.3, i64 2
+  %incdec.ptr62 = getelementptr inbounds i8, ptr %p.4, i64 2
   store i8 48, ptr %incdec.ptr52, align 1
   br label %sw.bb63
 
 sw.bb63:                                          ; preds = %sw.bb61, %sw.bb48
-  %p.7 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr62, %sw.bb61 ]
-  %incdec.ptr64 = getelementptr inbounds i8, ptr %p.7, i64 1
-  store i8 48, ptr %p.7, align 1
+  %p.8 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr62, %sw.bb61 ]
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %p.8, i64 1
+  store i8 48, ptr %p.8, align 1
   br label %sw.bb65
 
 sw.bb65:                                          ; preds = %sw.bb63, %sw.bb48
-  %p.8 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr64, %sw.bb63 ]
-  %incdec.ptr66 = getelementptr inbounds i8, ptr %p.8, i64 1
-  store i8 83, ptr %p.8, align 1
+  %p.9 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr64, %sw.bb63 ]
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %p.9, i64 1
+  store i8 83, ptr %p.9, align 1
   br label %sw.epilog75
 
 sw.bb67:                                          ; preds = %sw.bb48
-  %incdec.ptr68 = getelementptr inbounds i8, ptr %p.3, i64 2
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %p.4, i64 2
   store i8 48, ptr %incdec.ptr52, align 1
   br label %sw.bb69
 
 sw.bb69:                                          ; preds = %sw.bb67, %sw.bb48
-  %p.9 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr68, %sw.bb67 ]
-  %incdec.ptr70 = getelementptr inbounds i8, ptr %p.9, i64 1
-  store i8 48, ptr %p.9, align 1
+  %p.10 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr68, %sw.bb67 ]
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %p.10, i64 1
+  store i8 48, ptr %p.10, align 1
   br label %sw.bb71
 
 sw.bb71:                                          ; preds = %sw.bb69, %sw.bb48
-  %p.10 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr70, %sw.bb69 ]
-  %incdec.ptr72 = getelementptr inbounds i8, ptr %p.10, i64 1
-  store i8 77, ptr %p.10, align 1
+  %p.11 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr70, %sw.bb69 ]
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %p.11, i64 1
+  store i8 77, ptr %p.11, align 1
   br label %sw.epilog75
 
 sw.bb73:                                          ; preds = %sw.bb48
-  %incdec.ptr74 = getelementptr inbounds i8, ptr %p.3, i64 2
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %p.4, i64 2
   store i8 72, ptr %incdec.ptr52, align 1
   br label %sw.epilog75
 
 sw.epilog75:                                      ; preds = %sw.bb73, %sw.bb71, %sw.bb65, %sw.bb59, %sw.bb53, %sw.bb48
-  %p.11 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr74, %sw.bb73 ], [ %incdec.ptr72, %sw.bb71 ], [ %incdec.ptr66, %sw.bb65 ], [ %incdec.ptr60, %sw.bb59 ], [ %incdec.ptr54, %sw.bb53 ]
-  %sub.ptr.lhs.cast = ptrtoint ptr %p.11 to i64
+  %p.5 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr74, %sw.bb73 ], [ %incdec.ptr72, %sw.bb71 ], [ %incdec.ptr66, %sw.bb65 ], [ %incdec.ptr60, %sw.bb59 ], [ %incdec.ptr54, %sw.bb53 ]
+  %sub.ptr.lhs.cast = ptrtoint ptr %p.5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)

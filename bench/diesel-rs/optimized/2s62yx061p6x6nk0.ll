@@ -905,8 +905,8 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i:  ; preds = %44
   br label %96
 
 96:                                               ; preds = %81, %95, %73
-  %.sroa.8.1 = phi ptr [ %.sroa.247.i.sroa.0.0.copyload, %73 ], [ %.sroa.262.i.sroa.0.0.copyload, %95 ], [ %79, %81 ]
-  %.sroa.0.1 = phi i64 [ %69, %73 ], [ %83, %95 ], [ %76, %81 ]
+  %.sroa.8.0 = phi ptr [ %.sroa.247.i.sroa.0.0.copyload, %73 ], [ %.sroa.262.i.sroa.0.0.copyload, %95 ], [ %79, %81 ]
+  %.sroa.0.064 = phi i64 [ %69, %73 ], [ %83, %95 ], [ %76, %81 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %97 = load i64, ptr %33, align 8, !range !28, !alias.scope !111, !noalias !79, !noundef !5
   %98 = icmp eq i64 %97, -9223372036854775808
@@ -988,8 +988,8 @@ common.resume:                                    ; preds = %250, %.body, %54
   br i1 %120, label %231, label %123
 
 121:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit73.i", %47
-  %.sroa.8.2.ph = phi ptr [ %43, %47 ], [ %.sroa.8.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit73.i" ]
-  %.sroa.0.2.ph = phi i64 [ %40, %47 ], [ %.sroa.0.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit73.i" ]
+  %.sroa.8.2.ph = phi ptr [ %43, %47 ], [ %.sroa.8.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit73.i" ]
+  %.sroa.0.2.ph = phi i64 [ %40, %47 ], [ %.sroa.0.064, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit73.i" ]
   %122 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.2.ph, ptr %122, align 8
   %.sroa.455.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -1241,18 +1241,18 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
   br label %235
 
 186:                                              ; preds = %174, %170
-  %.sroa.17.1 = phi i64 [ %.sroa.17.0.copyload51, %174 ], [ %.sroa.344.i.sroa.4.0.copyload, %170 ]
-  %.sroa.14.1 = phi ptr [ %.sroa.14.0.copyload48, %174 ], [ %.sroa.344.i.sroa.0.0.copyload, %170 ]
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0.copyload46, %174 ], [ %168, %170 ]
-  %.sroa.043.1 = phi i64 [ %172, %174 ], [ %165, %170 ]
+  %.sroa.17.2 = phi i64 [ %.sroa.17.0.copyload51, %174 ], [ %.sroa.344.i.sroa.4.0.copyload, %170 ]
+  %.sroa.14.2 = phi ptr [ %.sroa.14.0.copyload48, %174 ], [ %.sroa.344.i.sroa.0.0.copyload, %170 ]
+  %.sroa.10.2 = phi ptr [ %.sroa.10.0.copyload46, %174 ], [ %168, %170 ]
+  %.sroa.043.2 = phi i64 [ %172, %174 ], [ %165, %170 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !137
   br label %187
 
 187:                                              ; preds = %226, %186
-  %.sroa.17.2 = phi i64 [ %.sroa.17.1, %186 ], [ undef, %226 ]
-  %.sroa.14.2 = phi ptr [ %.sroa.14.1, %186 ], [ %221, %226 ]
-  %.sroa.10.2 = phi ptr [ %.sroa.10.1, %186 ], [ %215, %226 ]
-  %.sroa.043.2 = phi i64 [ %.sroa.043.1, %186 ], [ -9223372036854775803, %226 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.2, %186 ], [ undef, %226 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.2, %186 ], [ %221, %226 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.2, %186 ], [ %215, %226 ]
+  %.sroa.043.1 = phi i64 [ %.sroa.043.2, %186 ], [ -9223372036854775803, %226 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !170)
   %188 = load i64, ptr %20, align 8, !range !28, !alias.scope !170, !noalias !137, !noundef !5
   %189 = icmp eq i64 %188, -9223372036854775808
@@ -1433,10 +1433,10 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
   br label %239
 
 235:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit76.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit.i33"
-  %.sroa.17.3 = phi i64 [ %.sroa.17.2, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit76.i" ], [ %.sroa.17.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit.i33" ]
-  %.sroa.14.3 = phi ptr [ %.sroa.14.2, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit76.i" ], [ %.sroa.14.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit.i33" ]
-  %.sroa.10.3 = phi ptr [ %.sroa.10.2, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit76.i" ], [ %.sroa.10.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit.i33" ]
-  %.sroa.043.3 = phi i64 [ %.sroa.043.2, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit76.i" ], [ %.sroa.043.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit.i33" ]
+  %.sroa.17.3 = phi i64 [ %.sroa.17.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit76.i" ], [ %.sroa.17.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit.i33" ]
+  %.sroa.14.3 = phi ptr [ %.sroa.14.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit76.i" ], [ %.sroa.14.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit.i33" ]
+  %.sroa.10.3 = phi ptr [ %.sroa.10.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit76.i" ], [ %.sroa.10.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit.i33" ]
+  %.sroa.043.3 = phi i64 [ %.sroa.043.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit76.i" ], [ %.sroa.043.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit.i33" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   %236 = icmp eq i64 %.sroa.043.3, -9223372036854775798
   br i1 %236, label %237, label %239

@@ -666,29 +666,29 @@ define i32 @opal_bitmap_num_unset_bits(ptr nocapture noundef readonly %0, i32 no
 
 6:                                                ; preds = %.loopexit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %.01115.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %.loopexit.i ]
+  %.01115.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
   %7 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.i
   %8 = load i64, ptr %7, align 8
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
-  %.1.i = phi i32 [ %11, %.preheader.i ], [ %.01115.i, %6 ]
+  %.2.i = phi i32 [ %11, %.preheader.i ], [ %.01115.i, %6 ]
   %.0.i = phi i64 [ %10, %.preheader.i ], [ %8, %6 ]
   %9 = add i64 %.0.i, -1
   %10 = and i64 %9, %.0.i
-  %11 = add nsw i32 %.1.i, 1
+  %11 = add nsw i32 %.2.i, 1
   %.old1.not.i = icmp eq i64 %10, 0
   br i1 %.old1.not.i, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %6
-  %.2.i = phi i32 [ %.01115.i, %6 ], [ %11, %.preheader.i ]
+  %.1.i = phi i32 [ %.01115.i, %6 ], [ %11, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %opal_bitmap_num_set_bits.exit, label %6, !llvm.loop !12
 
 opal_bitmap_num_set_bits.exit:                    ; preds = %.loopexit.i, %2
-  %.011.lcssa.i = phi i32 [ 0, %2 ], [ %.2.i, %.loopexit.i ]
+  %.011.lcssa.i = phi i32 [ 0, %2 ], [ %.1.i, %.loopexit.i ]
   %12 = sub nsw i32 %1, %.011.lcssa.i
   ret i32 %12
 }
@@ -706,29 +706,29 @@ define i32 @opal_bitmap_num_set_bits(ptr nocapture noundef readonly %0, i32 noun
 
 6:                                                ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %.01115 = phi i32 [ 0, %.lr.ph ], [ %.2, %.loopexit ]
+  %.01115 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
   %7 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6, %.preheader
-  %.1 = phi i32 [ %11, %.preheader ], [ %.01115, %6 ]
+  %.2 = phi i32 [ %11, %.preheader ], [ %.01115, %6 ]
   %.0 = phi i64 [ %10, %.preheader ], [ %8, %6 ]
   %9 = add i64 %.0, -1
   %10 = and i64 %9, %.0
-  %11 = add nsw i32 %.1, 1
+  %11 = add nsw i32 %.2, 1
   %.old1.not = icmp eq i64 %10, 0
   br i1 %.old1.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %6
-  %.2 = phi i32 [ %.01115, %6 ], [ %11, %.preheader ]
+  %.1 = phi i32 [ %.01115, %6 ], [ %11, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
-  %.011.lcssa = phi i32 [ 0, %2 ], [ %.2, %.loopexit ]
+  %.011.lcssa = phi i32 [ 0, %2 ], [ %.1, %.loopexit ]
   ret i32 %.011.lcssa
 }
 

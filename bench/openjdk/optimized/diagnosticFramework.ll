@@ -132,21 +132,21 @@ define hidden void @_ZN7CmdLineC2EPKcmb(ptr nocapture noundef nonnull writeonly 
   br label %26
 
 .lr.ph20:                                         ; preds = %.preheader, %20
-  %.019 = phi ptr [ %21, %20 ], [ %.lcssa, %.preheader ]
-  %17 = load i8, ptr %.019, align 1
+  %.119 = phi ptr [ %21, %20 ], [ %.lcssa, %.preheader ]
+  %17 = load i8, ptr %.119, align 1
   %18 = zext i8 %17 to i32
   %19 = tail call i32 @isspace(i32 noundef %18) #18
   %.not16 = icmp eq i32 %19, 0
   br i1 %.not16, label %20, label %.critedge2
 
 20:                                               ; preds = %.lr.ph20
-  %21 = getelementptr inbounds i8, ptr %.019, i64 1
+  %21 = getelementptr inbounds i8, ptr %.119, i64 1
   %22 = icmp ult ptr %21, %6
   br i1 %22, label %.lr.ph20, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %.lr.ph20, %20, %.preheader
-  %.0.lcssa = phi ptr [ %.lcssa, %.preheader ], [ %21, %20 ], [ %.019, %.lr.ph20 ]
-  %23 = ptrtoint ptr %.0.lcssa to i64
+  %.1.lcssa = phi ptr [ %.lcssa, %.preheader ], [ %21, %20 ], [ %.119, %.lr.ph20 ]
+  %23 = ptrtoint ptr %.1.lcssa to i64
   %24 = ptrtoint ptr %.lcssa to i64
   %25 = sub i64 %23, %24
   br label %26
@@ -154,11 +154,11 @@ define hidden void @_ZN7CmdLineC2EPKcmb(ptr nocapture noundef nonnull writeonly 
 26:                                               ; preds = %.critedge2, %16
   %.pre-phi = phi i64 [ %23, %.critedge2 ], [ %.pre, %16 ]
   %storemerge = phi i64 [ %25, %.critedge2 ], [ 0, %16 ]
-  %.1 = phi ptr [ %.0.lcssa, %.critedge2 ], [ %.lcssa, %16 ]
+  %.0 = phi ptr [ %.1.lcssa, %.critedge2 ], [ %.lcssa, %16 ]
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %storemerge, ptr %5, align 8
-  store ptr %.1, ptr %28, align 8
+  store ptr %.0, ptr %28, align 8
   %29 = ptrtoint ptr %6 to i64
   %30 = sub i64 %29, %.pre-phi
   store i64 %30, ptr %27, align 8
@@ -1401,8 +1401,8 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
 
 9:                                                ; preds = %5
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
-  %.not46 = icmp eq i64 %10, 0
-  br i1 %.not46, label %.loopexit, label %.lr.ph
+  %.not45 = icmp eq i64 %10, 0
+  br i1 %.not45, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %11 = icmp eq i32 %0, 4
@@ -1421,12 +1421,12 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
   br label %.loopexit
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.backedge
-  %.sroa.7.04450 = phi i64 [ 0, %.lr.ph ], [ %53, %.backedge ]
+  %.sroa.7.04349 = phi i64 [ 0, %.lr.ph ], [ %53, %.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   br label %21
 
 21:                                               ; preds = %24, %.lr.ph.i
-  %.05.i = phi i64 [ %.sroa.7.04450, %.lr.ph.i ], [ %25, %24 ]
+  %.05.i = phi i64 [ %.sroa.7.04349, %.lr.ph.i ], [ %25, %24 ]
   %22 = getelementptr inbounds i8, ptr %2, i64 %.05.i
   %23 = load i8, ptr %22, align 1, !noalias !33
   %.not.i = icmp eq i8 %23, 10
@@ -1439,8 +1439,8 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
 
 .critedge.i:                                      ; preds = %24, %21
   %.0.lcssa.i = phi i64 [ %10, %24 ], [ %.05.i, %21 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.04450
-  %27 = sub i64 %.0.lcssa.i, %.sroa.7.04450
+  %26 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.04349
+  %27 = sub i64 %.0.lcssa.i, %.sroa.7.04349
   store ptr %26, ptr %6, align 8, !alias.scope !33
   %28 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa.i
   %29 = icmp sgt i64 %27, 0
@@ -1477,30 +1477,30 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
   br i1 %41, label %.lr.ph20.i.i, label %_ZN8DCmdIter4nextEv.exit
 
 .lr.ph20.i.i:                                     ; preds = %.critedge.i.i, %45
-  %.019.i.i = phi ptr [ %46, %45 ], [ %40, %.critedge.i.i ]
-  %42 = load i8, ptr %.019.i.i, align 1, !noalias !33
+  %.119.i.i = phi ptr [ %46, %45 ], [ %40, %.critedge.i.i ]
+  %42 = load i8, ptr %.119.i.i, align 1, !noalias !33
   %43 = zext i8 %42 to i32
   %44 = call i32 @isspace(i32 noundef %43) #18, !noalias !33
   %.not16.i.i = icmp eq i32 %44, 0
   br i1 %.not16.i.i, label %45, label %_ZN8DCmdIter4nextEv.exit
 
 45:                                               ; preds = %.lr.ph20.i.i
-  %46 = getelementptr inbounds i8, ptr %.019.i.i, i64 1
+  %46 = getelementptr inbounds i8, ptr %.119.i.i, i64 1
   %47 = icmp ult ptr %46, %28
   br i1 %47, label %.lr.ph20.i.i, label %_ZN8DCmdIter4nextEv.exit, !llvm.loop !8
 
 _ZN8DCmdIter4nextEv.exit:                         ; preds = %.lr.ph20.i.i, %45, %.critedge.i.i
-  %.0.lcssa.i.i = phi ptr [ %40, %.critedge.i.i ], [ %46, %45 ], [ %.019.i.i, %.lr.ph20.i.i ]
-  %48 = ptrtoint ptr %.0.lcssa.i.i to i64
+  %.1.lcssa.i.i = phi ptr [ %40, %.critedge.i.i ], [ %46, %45 ], [ %.119.i.i, %.lr.ph20.i.i ]
+  %48 = ptrtoint ptr %.1.lcssa.i.i to i64
   %49 = ptrtoint ptr %40 to i64
   %50 = sub i64 %48, %49
   store i64 %50, ptr %12, align 8, !alias.scope !33
-  store ptr %.0.lcssa.i.i, ptr %14, align 8, !alias.scope !33
+  store ptr %.1.lcssa.i.i, ptr %14, align 8, !alias.scope !33
   %51 = ptrtoint ptr %28 to i64
   %52 = sub i64 %51, %48
   store i64 %52, ptr %13, align 8, !alias.scope !33
   %53 = add i64 %.0.lcssa.i, 1
-  %54 = icmp eq ptr %.0.lcssa.i.i, %40
+  %54 = icmp eq ptr %.1.lcssa.i.i, %40
   br i1 %54, label %_ZNK7CmdLine13is_executableEv.exit.thread, label %_ZNK7CmdLine7is_stopEv.exit
 
 _ZNK7CmdLine7is_stopEv.exit:                      ; preds = %_ZN8DCmdIter4nextEv.exit
@@ -1534,57 +1534,57 @@ _ZNK7CmdLine13is_executableEv.exit.thread:        ; preds = %_ZN8DCmdIter4nextEv
   %72 = load i64, ptr %17, align 8
   %73 = getelementptr inbounds i8, ptr %71, i64 %72
   %74 = icmp sgt i64 %72, 0
-  br i1 %74, label %.lr.ph.i24, label %.critedge.i22
+  br i1 %74, label %.lr.ph.i23, label %.critedge.i22
 
-.lr.ph.i24:                                       ; preds = %70, %78
-  %.sroa.028.0 = phi ptr [ %79, %78 ], [ %71, %70 ]
-  %75 = load i8, ptr %.sroa.028.0, align 1
+.lr.ph.i23:                                       ; preds = %70, %78
+  %.sroa.027.1 = phi ptr [ %79, %78 ], [ %71, %70 ]
+  %75 = load i8, ptr %.sroa.027.1, align 1
   %76 = zext i8 %75 to i32
   %77 = call i32 @isspace(i32 noundef %76) #18
-  %.not.i25 = icmp eq i32 %77, 0
-  br i1 %.not.i25, label %.critedge.i22, label %78
+  %.not.i24 = icmp eq i32 %77, 0
+  br i1 %.not.i24, label %.critedge.i22, label %78
 
-78:                                               ; preds = %.lr.ph.i24
-  %79 = getelementptr inbounds i8, ptr %.sroa.028.0, i64 1
+78:                                               ; preds = %.lr.ph.i23
+  %79 = getelementptr inbounds i8, ptr %.sroa.027.1, i64 1
   %80 = icmp ult ptr %79, %73
-  br i1 %80, label %.lr.ph.i24, label %.critedge.i22, !llvm.loop !6
+  br i1 %80, label %.lr.ph.i23, label %.critedge.i22, !llvm.loop !6
 
-.critedge.i22:                                    ; preds = %78, %.lr.ph.i24, %70
-  %.sroa.028.1 = phi ptr [ %71, %70 ], [ %79, %78 ], [ %.sroa.028.0, %.lr.ph.i24 ]
-  %81 = icmp ult ptr %.sroa.028.1, %73
+.critedge.i22:                                    ; preds = %78, %.lr.ph.i23, %70
+  %.sroa.027.0 = phi ptr [ %71, %70 ], [ %79, %78 ], [ %.sroa.027.1, %.lr.ph.i23 ]
+  %81 = icmp ult ptr %.sroa.027.0, %73
   br i1 %81, label %.lr.ph20.i, label %_ZN7CmdLineC2EPKcmb.exit
 
 .lr.ph20.i:                                       ; preds = %.critedge.i22, %85
-  %.019.i = phi ptr [ %86, %85 ], [ %.sroa.028.1, %.critedge.i22 ]
-  %82 = load i8, ptr %.019.i, align 1
+  %.119.i = phi ptr [ %86, %85 ], [ %.sroa.027.0, %.critedge.i22 ]
+  %82 = load i8, ptr %.119.i, align 1
   %83 = zext i8 %82 to i32
   %84 = call i32 @isspace(i32 noundef %83) #18
   %.not16.i = icmp eq i32 %84, 0
   br i1 %.not16.i, label %85, label %_ZN7CmdLineC2EPKcmb.exit
 
 85:                                               ; preds = %.lr.ph20.i
-  %86 = getelementptr inbounds i8, ptr %.019.i, i64 1
+  %86 = getelementptr inbounds i8, ptr %.119.i, i64 1
   %87 = icmp ult ptr %86, %73
   br i1 %87, label %.lr.ph20.i, label %_ZN7CmdLineC2EPKcmb.exit, !llvm.loop !8
 
 _ZN7CmdLineC2EPKcmb.exit:                         ; preds = %.lr.ph20.i, %85, %.critedge.i22
-  %.0.lcssa.i23 = phi ptr [ %.sroa.028.1, %.critedge.i22 ], [ %.019.i, %.lr.ph20.i ], [ %86, %85 ]
-  %88 = ptrtoint ptr %.0.lcssa.i23 to i64
-  %89 = ptrtoint ptr %.sroa.028.1 to i64
+  %.1.lcssa.i = phi ptr [ %.sroa.027.0, %.critedge.i22 ], [ %.119.i, %.lr.ph20.i ], [ %86, %85 ]
+  %88 = ptrtoint ptr %.1.lcssa.i to i64
+  %89 = ptrtoint ptr %.sroa.027.0 to i64
   %90 = sub i64 %88, %89
   %91 = ptrtoint ptr %73 to i64
   %92 = sub i64 %91, %88
-  store ptr %.sroa.028.1, ptr %6, align 8
+  store ptr %.sroa.027.0, ptr %6, align 8
   store i64 %90, ptr %12, align 8
-  store ptr %.0.lcssa.i23, ptr %14, align 8
+  store ptr %.1.lcssa.i, ptr %14, align 8
   store i64 %92, ptr %13, align 8
   br label %93
 
 93:                                               ; preds = %_ZN7CmdLineC2EPKcmb.exit, %_ZNK7CmdLine13is_executableEv.exit.thread
   %94 = call noundef ptr @_ZN11DCmdFactory17create_local_DCmdE10DCmdSourceR7CmdLineP12outputStreamP10JavaThread(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef %4)
   %95 = load ptr, ptr %18, align 8
-  %.not38 = icmp eq ptr %95, null
-  br i1 %.not38, label %96, label %_ZN8DCmdMarkD2Ev.exit
+  %.not37 = icmp eq ptr %95, null
+  br i1 %.not37, label %96, label %_ZN8DCmdMarkD2Ev.exit
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %94, align 8
@@ -1592,8 +1592,8 @@ _ZN7CmdLineC2EPKcmb.exit:                         ; preds = %.lr.ph20.i, %85, %.
   %99 = load ptr, ptr %98, align 8
   call void %99(ptr noundef nonnull align 8 dereferenceable(17) %94, ptr noundef nonnull %6, i8 noundef signext %3, ptr noundef nonnull %4) #19
   %100 = load ptr, ptr %18, align 8
-  %.not39 = icmp eq ptr %100, null
-  br i1 %.not39, label %101, label %106
+  %.not38 = icmp eq ptr %100, null
+  br i1 %.not38, label %101, label %106
 
 101:                                              ; preds = %96
   %102 = load ptr, ptr %94, align 8
@@ -1601,12 +1601,12 @@ _ZN7CmdLineC2EPKcmb.exit:                         ; preds = %.lr.ph20.i, %85, %.
   %104 = load ptr, ptr %103, align 8
   call void %104(ptr noundef nonnull align 8 dereferenceable(17) %94, i32 noundef %0, ptr noundef nonnull %4) #19
   %105 = load ptr, ptr %18, align 8
-  %.not40 = icmp ne ptr %105, null
-  %. = zext i1 %.not40 to i32
+  %.not39 = icmp ne ptr %105, null
+  %. = zext i1 %.not39 to i32
   br label %106
 
 106:                                              ; preds = %96, %101
-  %.0 = phi i32 [ 1, %96 ], [ %., %101 ]
+  %.1 = phi i32 [ 1, %96 ], [ %., %101 ]
   %107 = load ptr, ptr %94, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 32
   %109 = load ptr, ptr %108, align 8
@@ -1621,7 +1621,7 @@ _ZN7CmdLineC2EPKcmb.exit:                         ; preds = %.lr.ph20.i, %85, %.
   br label %_ZN8DCmdMarkD2Ev.exit
 
 _ZN8DCmdMarkD2Ev.exit:                            ; preds = %113, %106, %93
-  %.1 = phi i32 [ 1, %93 ], [ %.0, %106 ], [ %.0, %113 ]
+  %.0 = phi i32 [ 1, %93 ], [ %.1, %106 ], [ %.1, %113 ]
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %7) #19
   %114 = load ptr, ptr %62, align 8
   %.not.i.i.i.i = icmp eq ptr %114, null
@@ -1644,14 +1644,14 @@ _ZN8DCmdMarkD2Ev.exit:                            ; preds = %113, %106, %93
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %116, %118
-  %switch = icmp eq i32 %.1, 0
+  %switch = icmp eq i32 %.0, 0
   %119 = icmp ult i64 %53, %10
-  %or.cond48 = and i1 %switch, %119
-  br i1 %or.cond48, label %.backedge, label %.loopexit
+  %or.cond47 = and i1 %switch, %119
+  br i1 %or.cond47, label %.backedge, label %.loopexit
 
 120:                                              ; preds = %_ZNK7CmdLine13is_executableEv.exit
-  %.old47 = icmp ult i64 %53, %10
-  br i1 %.old47, label %.backedge, label %.loopexit
+  %.old46 = icmp ult i64 %53, %10
+  br i1 %.old46, label %.backedge, label %.loopexit
 
 .backedge:                                        ; preds = %120, %_ZN12ResourceMarkD2Ev.exit
   br i1 %11, label %19, label %.lr.ph.i, !llvm.loop !37

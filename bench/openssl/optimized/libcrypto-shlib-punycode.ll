@@ -40,17 +40,17 @@ for.body15.preheader:                             ; preds = %if.then7
   br label %for.body15
 
 for.body15:                                       ; preds = %for.body15.preheader, %if.end22
-  %written_out.078 = phi i64 [ %inc28, %if.end22 ], [ 0, %for.body15.preheader ]
-  %arrayidx17 = getelementptr inbounds i8, ptr %pEncoded, i64 %written_out.078
+  %written_out.178 = phi i64 [ %inc28, %if.end22 ], [ 0, %for.body15.preheader ]
+  %arrayidx17 = getelementptr inbounds i8, ptr %pEncoded, i64 %written_out.178
   %2 = load i8, ptr %arrayidx17, align 1
   %cmp.i = icmp slt i8 %2, 0
   br i1 %cmp.i, label %return, label %if.end22
 
 if.end22:                                         ; preds = %for.body15
   %conv18 = zext nneg i8 %2 to i32
-  %arrayidx27 = getelementptr inbounds i32, ptr %pDecoded, i64 %written_out.078
+  %arrayidx27 = getelementptr inbounds i32, ptr %pDecoded, i64 %written_out.178
   store i32 %conv18, ptr %arrayidx27, align 4
-  %inc28 = add nuw nsw i64 %written_out.078, 1
+  %inc28 = add nuw nsw i64 %written_out.178, 1
   %exitcond.not = icmp eq i64 %inc28, %wide.trip.count
   br i1 %exitcond.not, label %for.end31, label %for.body15, !llvm.loop !6
 
@@ -60,13 +60,13 @@ for.end31:                                        ; preds = %if.end22
 
 if.end33:                                         ; preds = %entry, %for.end31, %for.end
   %processed_in.0 = phi i32 [ %add, %for.end31 ], [ 0, %for.end ], [ 0, %entry ]
-  %written_out.1 = phi i64 [ %wide.trip.count, %for.end31 ], [ 0, %for.end ], [ 0, %entry ]
+  %written_out.0 = phi i64 [ %wide.trip.count, %for.end31 ], [ 0, %for.end ], [ 0, %entry ]
   %conv3687 = zext i32 %processed_in.0 to i64
   %cmp3788 = icmp ult i64 %conv3687, %enc_len
   br i1 %cmp3788, label %for.cond40.preheader.lr.ph, label %if.end33.for.end123_crit_edge
 
 if.end33.for.end123_crit_edge:                    ; preds = %if.end33
-  %.pre = trunc nuw i64 %written_out.1 to i32
+  %.pre = trunc nuw i64 %written_out.0 to i32
   br label %for.end123
 
 for.cond40.preheader.lr.ph:                       ; preds = %if.end33
@@ -78,7 +78,7 @@ for.cond40.preheader:                             ; preds = %for.cond40.preheade
   %i.092 = phi i32 [ 0, %for.cond40.preheader.lr.ph ], [ %inc121, %if.end112 ]
   %loop.291 = phi i32 [ %processed_in.0, %for.cond40.preheader.lr.ph ], [ %inc49, %if.end112 ]
   %bias.090 = phi i32 [ 72, %for.cond40.preheader.lr.ph ], [ %add7.i, %if.end112 ]
-  %written_out.289 = phi i64 [ %written_out.1, %for.cond40.preheader.lr.ph ], [ %add85, %if.end112 ]
+  %written_out.289 = phi i64 [ %written_out.0, %for.cond40.preheader.lr.ph ], [ %add85, %if.end112 ]
   %conv4180 = zext i32 %loop.291 to i64
   %cmp42.not81 = icmp ult i64 %conv4180, %enc_len
   br i1 %cmp42.not81, label %if.end45.lr.ph, label %return
@@ -299,7 +299,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %if.end34
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end34 ]
-  %result.128 = phi i32 [ %result.0, %for.body.preheader ], [ %spec.select14, %if.end34 ]
+  %result.328 = phi i32 [ %result.0, %for.body.preheader ], [ %spec.select14, %if.end34 ]
   %arrayidx = getelementptr inbounds [512 x i32], ptr %buf, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   %cmp.i = icmp ult i32 %1, 128
@@ -380,35 +380,35 @@ if.end34:                                         ; preds = %if.then36.i, %if.th
   store i8 0, ptr %.sink.i.sroa.phi.ph, align 1
   %call36 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef nonnull %seed, i64 noundef %retval.0.i.ph) #6
   %tobool37.not = icmp eq i32 %call36, 0
-  %spec.select14 = select i1 %tobool37.not, i32 0, i32 %result.128
+  %spec.select14 = select i1 %tobool37.not, i32 0, i32 %result.328
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end40, label %for.body, !llvm.loop !9
 
 if.end40:                                         ; preds = %if.end34, %for.cond.preheader, %if.then15
-  %result.3 = phi i32 [ %spec.select, %if.then15 ], [ %result.0, %for.cond.preheader ], [ %spec.select14, %if.end34 ]
+  %result.1 = phi i32 [ %spec.select, %if.then15 ], [ %result.0, %for.cond.preheader ], [ %spec.select14, %if.end34 ]
   br i1 %cmp9.not, label %while.end, label %if.end44
 
 if.end44:                                         ; preds = %if.end40
   %call45 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %pkt, i64 noundef 46, i64 noundef 1) #6
   %tobool46.not = icmp eq i32 %call45, 0
-  %spec.select15 = select i1 %tobool46.not, i32 0, i32 %result.3
+  %spec.select15 = select i1 %tobool46.not, i32 0, i32 %result.1
   %add.ptr49 = getelementptr inbounds i8, ptr %call8, i64 1
   br label %while.body
 
 while.end:                                        ; preds = %if.end40
   %call50 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %pkt, i64 noundef 0, i64 noundef 1) #6
   %tobool51.not = icmp eq i32 %call50, 0
-  %spec.select16 = select i1 %tobool51.not, i32 0, i32 %result.3
+  %spec.select16 = select i1 %tobool51.not, i32 0, i32 %result.1
   br label %end
 
 end:                                              ; preds = %if.else, %codepoint2utf8.exit, %while.end
-  %result.5 = phi i32 [ -1, %codepoint2utf8.exit ], [ %spec.select16, %while.end ], [ -1, %if.else ]
+  %result.2 = phi i32 [ -1, %codepoint2utf8.exit ], [ %spec.select16, %while.end ], [ -1, %if.else ]
   call void @WPACKET_cleanup(ptr noundef nonnull %pkt) #6
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %end
-  %retval.0 = phi i32 [ %result.5, %end ], [ -1, %entry ], [ -1, %if.end ]
+  %retval.0 = phi i32 [ %result.2, %end ], [ -1, %entry ], [ -1, %if.end ]
   ret i32 %retval.0
 }
 

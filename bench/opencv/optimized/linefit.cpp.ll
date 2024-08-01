@@ -354,7 +354,7 @@ _ZN2cv3RNG7uniformEii.exit.i:                     ; preds = %123, %_ZN2cv3RNG7un
   %.3174.i = phi i32 [ %237, %214 ], [ 0, %.preheader131.i.preheader ]
   %.not173.i = phi i1 [ true, %214 ], [ false, %.preheader131.i.preheader ]
   %.1111171.i = phi double [ %.022.lcssa.i.i, %214 ], [ %.0110180.i, %.preheader131.i.preheader ]
-  %.1114170.i = phi double [ %.2115.i, %214 ], [ %.0113179.i, %.preheader131.i.preheader ]
+  %.1114170.i = phi double [ %.3116.i, %214 ], [ %.0113179.i, %.preheader131.i.preheader ]
   %.sroa.2.1168.i = phi float [ %125, %214 ], [ %.sroa.2.0177.i, %.preheader131.i.preheader ]
   %.sroa.0.1167.i = phi float [ %151, %214 ], [ %.sroa.0.0176.i, %.preheader131.i.preheader ]
   %126 = phi <2 x float> [ %239, %214 ], [ %107, %.preheader131.i.preheader ]
@@ -431,7 +431,7 @@ _ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i, %150
   br i1 %169, label %.thread.i, label %170
 
 170:                                              ; preds = %168, %_ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i
-  %.2115.i = phi double [ %.022.lcssa.i.i, %168 ], [ %.1114170.i, %_ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i ]
+  %.3116.i = phi double [ %.022.lcssa.i.i, %168 ], [ %.1114170.i, %_ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i ]
   br i1 %.not119.i, label %172, label %171
 
 171:                                              ; preds = %170
@@ -562,8 +562,8 @@ _ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i, %150
   %226 = extractelement <2 x double> %216, i64 1
   %227 = call double @llvm.fmuladd.f64(double %225, double %226, double %219)
   %228 = fmul double %227, 2.000000e+00
-  %shift240 = shufflevector <2 x double> %224, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %229 = fsub <2 x double> %224, %shift240
+  %shift239 = shufflevector <2 x double> %224, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %229 = fsub <2 x double> %224, %shift239
   %230 = extractelement <2 x double> %229, i64 0
   %231 = call double @atan2(double noundef %228, double noundef %230) #16
   %232 = fptrunc double %231 to float
@@ -585,7 +585,7 @@ _ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i, %150
 240:                                              ; preds = %214, %139
   %.sroa.0.1.lcssa.i = phi float [ %.sroa.0.1167.i, %139 ], [ %151, %214 ]
   %.sroa.2.1.lcssa.i = phi float [ %.sroa.2.1168.i, %139 ], [ %125, %214 ]
-  %.1114.lcssa.i = phi double [ %.1114170.i, %139 ], [ %.2115.i, %214 ]
+  %.1114.lcssa.i = phi double [ %.1114170.i, %139 ], [ %.3116.i, %214 ]
   %.1111.lcssa.i = phi double [ %.1111171.i, %139 ], [ %.022.lcssa.i.i, %214 ]
   %241 = phi <2 x float> [ %126, %139 ], [ %239, %214 ]
   %242 = fcmp olt double %.1111.lcssa.i, %.1114.lcssa.i
@@ -808,7 +808,7 @@ _ZN2cv3RNG7uniformEii.exit.i59:                   ; preds = %310, %_ZN2cv3RNG7un
   %.sroa.9.1199.i = phi float [ %356, %406 ], [ %.sroa.9.0209.i, %._crit_edge.i36 ]
   %.sroa.10.1198.i = phi float [ %354, %406 ], [ %.sroa.10.0208.i, %._crit_edge.i36 ]
   %.not197.i = phi i1 [ true, %406 ], [ false, %._crit_edge.i36 ]
-  %.1127196.i = phi double [ %.2128.i, %406 ], [ %.0126207.i, %._crit_edge.i36 ]
+  %.1127196.i = phi double [ %.3129.i, %406 ], [ %.0126207.i, %._crit_edge.i36 ]
   %.1131195.i = phi double [ %.041.lcssa.i.i, %406 ], [ %.0130206.i, %._crit_edge.i36 ]
   %312 = load float, ptr %288, align 8
   br i1 %.not197.i, label %313, label %.preheader153._crit_edge.i
@@ -924,7 +924,7 @@ _ZN2cvL10calcDist3DEPKNS_7Point3_IfEEiPfS4_.exit.i: ; preds = %360, %351
   br i1 %388, label %.thread.i48, label %389
 
 389:                                              ; preds = %387, %_ZN2cvL10calcDist3DEPKNS_7Point3_IfEEiPfS4_.exit.i
-  %.2128.i = phi double [ %.041.lcssa.i.i, %387 ], [ %.1127196.i, %_ZN2cvL10calcDist3DEPKNS_7Point3_IfEEiPfS4_.exit.i ]
+  %.3129.i = phi double [ %.041.lcssa.i.i, %387 ], [ %.1127196.i, %_ZN2cvL10calcDist3DEPKNS_7Point3_IfEEiPfS4_.exit.i ]
   br i1 %.not141.i, label %391, label %390
 
 390:                                              ; preds = %389
@@ -989,7 +989,7 @@ _ZN2cvL10calcDist3DEPKNS_7Point3_IfEEiPfS4_.exit.i: ; preds = %360, %351
 
 408:                                              ; preds = %406, %327
   %.1131.lcssa.i = phi double [ %.1131195.i, %327 ], [ %.041.lcssa.i.i, %406 ]
-  %.1127.lcssa.i = phi double [ %.1127196.i, %327 ], [ %.2128.i, %406 ]
+  %.1127.lcssa.i = phi double [ %.1127196.i, %327 ], [ %.3129.i, %406 ]
   %.sroa.10.1.lcssa.i = phi float [ %.sroa.10.1198.i, %327 ], [ %354, %406 ]
   %.sroa.9.1.lcssa.i = phi float [ %.sroa.9.1199.i, %327 ], [ %356, %406 ]
   %.sroa.8.1.lcssa.i = phi float [ %.sroa.8.1200.i, %327 ], [ %355, %406 ]
@@ -1376,18 +1376,18 @@ define internal fastcc void @_ZN2cvL14fitLine2D_wodsEPKNS_6Point_IfEEiPfS4_(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge
-  %.2112 = phi double [ %27, %._crit_edge ], [ %54, %.loopexit.loopexit ]
-  %.1103 = phi double [ %33, %._crit_edge ], [ %55, %.loopexit.loopexit ]
+  %.1111 = phi double [ %27, %._crit_edge ], [ %54, %.loopexit.loopexit ]
+  %.0102 = phi double [ %33, %._crit_edge ], [ %55, %.loopexit.loopexit ]
   %56 = phi <2 x double> [ %23, %._crit_edge ], [ %45, %.loopexit.loopexit ]
   %57 = phi <2 x double> [ %31, %._crit_edge ], [ %50, %.loopexit.loopexit ]
-  %58 = insertelement <2 x double> poison, double %.1103, i64 0
+  %58 = insertelement <2 x double> poison, double %.0102, i64 0
   %59 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> zeroinitializer
   %60 = fdiv <2 x double> %56, %59
-  %61 = fdiv double %.2112, %.1103
+  %61 = fdiv double %.1111, %.0102
   %62 = extractelement <2 x double> %57, i64 1
-  %63 = fdiv double %62, %.1103
+  %63 = fdiv double %62, %.0102
   %64 = extractelement <2 x double> %57, i64 0
-  %65 = fdiv double %64, %.1103
+  %65 = fdiv double %64, %.0102
   %66 = extractelement <2 x double> %60, i64 0
   %67 = fneg double %66
   %68 = tail call double @llvm.fmuladd.f64(double %67, double %66, double %61)
@@ -1682,7 +1682,7 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
 
 .lr.ph233:                                        ; preds = %25, %.lr.ph233
   %indvars.iv262 = phi i64 [ %indvars.iv.next263, %.lr.ph233 ], [ 0, %25 ]
-  %.1170229 = phi float [ %68, %.lr.ph233 ], [ 0.000000e+00, %25 ]
+  %.2171229 = phi float [ %68, %.lr.ph233 ], [ 0.000000e+00, %25 ]
   %52 = phi <2 x float> [ %67, %.lr.ph233 ], [ zeroinitializer, %25 ]
   %53 = phi <2 x float> [ %62, %.lr.ph233 ], [ zeroinitializer, %25 ]
   %54 = phi <4 x float> [ %66, %.lr.ph233 ], [ zeroinitializer, %25 ]
@@ -1699,7 +1699,7 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
   %65 = shufflevector <4 x float> %63, <4 x float> %64, <4 x i32> <i32 5, i32 5, i32 2, i32 3>
   %66 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %64, <4 x float> %65, <4 x float> %54)
   %67 = fadd <2 x float> %52, %56
-  %68 = fadd float %.1170229, %58
+  %68 = fadd float %.2171229, %58
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count265
   br i1 %exitcond266.not, label %._crit_edge, label %.lr.ph233, !llvm.loop !32
@@ -1709,7 +1709,7 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %.2171 = phi float [ %68, %._crit_edge ], [ %50, %.lr.ph ]
+  %.1170 = phi float [ %68, %._crit_edge ], [ %50, %.lr.ph ]
   %.1162 = phi float [ %69, %._crit_edge ], [ %51, %.lr.ph ]
   %70 = phi <2 x float> [ %67, %._crit_edge ], [ %49, %.lr.ph ]
   %71 = phi <2 x float> [ %62, %._crit_edge ], [ %41, %.lr.ph ]
@@ -1726,7 +1726,7 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
   %82 = extractelement <4 x float> %72, i64 1
   %83 = fdiv float %82, %.1162
   %84 = fdiv <2 x float> %70, %76
-  %85 = fdiv float %.2171, %.1162
+  %85 = fdiv float %.1170, %.1162
   %86 = extractelement <2 x float> %84, i64 0
   %87 = fneg float %86
   %88 = tail call float @llvm.fmuladd.f32(float %87, float %86, float %74)

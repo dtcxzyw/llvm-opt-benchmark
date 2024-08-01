@@ -583,8 +583,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.end58, %if.then.
 
 ehcleanup:                                        ; preds = %lpad48, %lpad45, %lpad42, %lpad3
   %42 = phi ptr [ %9, %lpad3 ], [ %2, %lpad48 ], [ %2, %lpad45 ], [ %2, %lpad42 ]
-  %ehselector.slot.0 = phi i32 [ %11, %lpad3 ], [ %41, %lpad48 ], [ %36, %lpad45 ], [ %32, %lpad42 ]
-  %exn.slot.0 = phi ptr [ %10, %lpad3 ], [ %40, %lpad48 ], [ %35, %lpad45 ], [ %31, %lpad42 ]
+  %ehselector.slot.1 = phi i32 [ %11, %lpad3 ], [ %41, %lpad48 ], [ %36, %lpad45 ], [ %32, %lpad42 ]
+  %exn.slot.1 = phi ptr [ %10, %lpad3 ], [ %40, %lpad48 ], [ %35, %lpad45 ], [ %31, %lpad42 ]
   %tobool.not.i.i.i32 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i32, label %eh.resume, label %if.then.i.i.i33
 
@@ -593,10 +593,10 @@ if.then.i.i.i33:                                  ; preds = %ehcleanup
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.then.i.i.i33, %ehcleanup, %lpad
-  %ehselector.slot.1 = phi i32 [ %8, %lpad ], [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.0, %if.then.i.i.i33 ]
-  %exn.slot.1 = phi ptr [ %7, %lpad ], [ %exn.slot.0, %ehcleanup ], [ %exn.slot.0, %if.then.i.i.i33 ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.1, 0
-  %lpad.val61 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.1, 1
+  %ehselector.slot.0 = phi i32 [ %8, %lpad ], [ %ehselector.slot.1, %ehcleanup ], [ %ehselector.slot.1, %if.then.i.i.i33 ]
+  %exn.slot.0 = phi ptr [ %7, %lpad ], [ %exn.slot.1, %ehcleanup ], [ %exn.slot.1, %if.then.i.i.i33 ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val61 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val61
 
 terminate.lpad:                                   ; preds = %lpad48
@@ -813,7 +813,7 @@ for.cond28.preheader:                             ; preds = %if.end
 
 land.rhs:                                         ; preds = %for.cond28.preheader, %for.inc59
   %indvars.iv187 = phi i64 [ 0, %for.cond28.preheader ], [ %indvars.iv.next188, %for.inc59 ]
-  %ret.0179 = phi i8 [ 0, %for.cond28.preheader ], [ %ret.1, %for.inc59 ]
+  %ret.1179 = phi i8 [ 0, %for.cond28.preheader ], [ %ret.2, %for.inc59 ]
   %arrayidx31 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %indvars.iv187
   %21 = load ptr, ptr %arrayidx31, align 8
   %tobool32.not = icmp eq ptr %21, null
@@ -883,13 +883,13 @@ delete.end:                                       ; preds = %delete.notnull, %fo
   br i1 %exitcond.not, label %for.inc59, label %for.body45, !llvm.loop !12
 
 for.inc59:                                        ; preds = %delete.end, %if.then40, %invoke.cont38
-  %ret.1 = phi i8 [ %ret.0179, %invoke.cont38 ], [ 1, %if.then40 ], [ 1, %delete.end ]
+  %ret.2 = phi i8 [ %ret.1179, %invoke.cont38 ], [ 1, %if.then40 ], [ 1, %delete.end ]
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next188, 8
   br i1 %exitcond192.not, label %if.end62, label %land.rhs, !llvm.loop !13
 
 if.end62:                                         ; preds = %land.rhs, %for.inc59, %if.end
-  %ret.2 = phi i8 [ 0, %if.end ], [ %ret.1, %for.inc59 ], [ %ret.0179, %land.rhs ]
+  %ret.0 = phi i8 [ 0, %if.end ], [ %ret.2, %for.inc59 ], [ %ret.1179, %land.rhs ]
   %mNormals = getelementptr inbounds i8, ptr %pMesh, i64 24
   %25 = load ptr, ptr %mNormals, align 8
   %tobool63.not = icmp eq ptr %25, null
@@ -971,7 +971,7 @@ for.inc111:                                       ; preds = %for.body84, %invoke
   br i1 %cmp83, label %for.body84, label %if.end117.loopexit, !llvm.loop !14
 
 if.else:                                          ; preds = %if.then71
-  %46 = and i8 %ret.2, 1
+  %46 = and i8 %ret.0, 1
   br label %cleanup
 
 if.end117.loopexit:                               ; preds = %for.inc111
@@ -1018,13 +1018,13 @@ delete.end.i110:                                  ; preds = %delete.notnull.i109
   br label %invoke.cont123
 
 invoke.cont123:                                   ; preds = %delete.end.i110, %call.i.noexc111
-  %spec.select = phi i8 [ 1, %delete.end.i110 ], [ %ret.2, %call.i.noexc111 ]
+  %spec.select = phi i8 [ 1, %delete.end.i110 ], [ %ret.0, %call.i.noexc111 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.addr.i104)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i105)
   br label %if.end126
 
 if.end126:                                        ; preds = %invoke.cont123, %if.end117
-  %ret.3 = phi i8 [ %ret.2, %if.end117 ], [ %spec.select, %invoke.cont123 ]
+  %ret.4 = phi i8 [ %ret.0, %if.end117 ], [ %spec.select, %invoke.cont123 ]
   %mTangents127 = getelementptr inbounds i8, ptr %pMesh, i64 32
   %50 = load ptr, ptr %mTangents127, align 8
   %tobool128.not = icmp eq ptr %50, null
@@ -1083,7 +1083,7 @@ delete.end137:                                    ; preds = %delete.notnull136, 
   br label %if.end139
 
 if.end139:                                        ; preds = %invoke.cont132, %delete.end137, %if.end126
-  %ret.4 = phi i8 [ 1, %delete.end137 ], [ %ret.3, %invoke.cont132 ], [ %ret.3, %if.end126 ]
+  %ret.5 = phi i8 [ 1, %delete.end137 ], [ %ret.4, %invoke.cont132 ], [ %ret.4, %if.end126 ]
   %mBitangents140 = getelementptr inbounds i8, ptr %pMesh, i64 40
   %54 = load ptr, ptr %mBitangents140, align 8
   %tobool141.not = icmp eq ptr %54, null
@@ -1141,8 +1141,8 @@ delete.end151:                                    ; preds = %delete.notnull150, 
   br label %if.end154
 
 if.end154:                                        ; preds = %invoke.cont145, %if.end139, %delete.end151, %lor.lhs.false
-  %ret.5 = phi i8 [ 1, %delete.end151 ], [ %ret.4, %invoke.cont145 ], [ %ret.4, %if.end139 ], [ %ret.2, %lor.lhs.false ]
-  %58 = and i8 %ret.5, 1
+  %ret.3 = phi i8 [ 1, %delete.end151 ], [ %ret.5, %invoke.cont145 ], [ %ret.5, %if.end139 ], [ %ret.0, %lor.lhs.false ]
+  %58 = and i8 %ret.3, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont22, %if.end154, %if.else

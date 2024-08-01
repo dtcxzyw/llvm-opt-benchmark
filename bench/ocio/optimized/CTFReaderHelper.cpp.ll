@@ -2471,14 +2471,14 @@ lpad136:                                          ; preds = %invoke.cont134
 
 catch.dispatch:                                   ; preds = %lpad136, %lpad133
   %.pn75 = phi { ptr, i32 } [ %30, %lpad136 ], [ %29, %lpad133 ]
-  %ehselector.slot.6 = extractvalue { ptr, i32 } %.pn75, 1
+  %ehselector.slot.7 = extractvalue { ptr, i32 } %.pn75, 1
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
-  %matches = icmp eq i32 %ehselector.slot.6, %31
+  %matches = icmp eq i32 %ehselector.slot.7, %31
   br i1 %matches, label %catch, label %ehcleanup300
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.6 = extractvalue { ptr, i32 } %.pn75, 0
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.6) #28
+  %exn.slot.7 = extractvalue { ptr, i32 } %.pn75, 0
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #28
   %vtable = load ptr, ptr %32, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %33 = load ptr, ptr %vfn, align 8
@@ -2646,14 +2646,14 @@ lpad202:                                          ; preds = %invoke.cont200
 
 catch.dispatch205:                                ; preds = %lpad202, %lpad199
   %.pn63 = phi { ptr, i32 } [ %46, %lpad202 ], [ %45, %lpad199 ]
-  %ehselector.slot.11 = extractvalue { ptr, i32 } %.pn63, 1
+  %ehselector.slot.12 = extractvalue { ptr, i32 } %.pn63, 1
   %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
-  %matches207 = icmp eq i32 %ehselector.slot.11, %47
+  %matches207 = icmp eq i32 %ehselector.slot.12, %47
   br i1 %matches207, label %catch208, label %ehcleanup300
 
 catch208:                                         ; preds = %catch.dispatch205
-  %exn.slot.11 = extractvalue { ptr, i32 } %.pn63, 0
-  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.11) #28
+  %exn.slot.12 = extractvalue { ptr, i32 } %.pn63, 0
+  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.12) #28
   %vtable212 = load ptr, ptr %48, align 8
   %vfn213 = getelementptr inbounds i8, ptr %vtable212, i64 16
   %49 = load ptr, ptr %vfn213, align 8
@@ -3708,8 +3708,8 @@ lpad17.body:                                      ; preds = %lpad.i.i30, %lpad.i
 
 ehcleanup:                                        ; preds = %lpad15, %lpad11
   %.pn24 = phi { ptr, i32 } [ %16, %lpad15 ], [ %15, %lpad11 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn24, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn24, 1
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn24, 0
+  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn24, 1
   invoke void @__cxa_end_catch()
           to label %ehcleanup65 unwind label %terminate.lpad
 
@@ -4070,8 +4070,8 @@ if.then.i.i.i74:                                  ; preds = %if.end64
   br label %if.end69
 
 ehcleanup65:                                      ; preds = %lpad, %ehcleanup, %lpad60.body, %lpad44, %lpad31.body, %lpad17.body
-  %ehselector.slot.1 = phi i32 [ %48, %lpad60.body ], [ %19, %lpad17.body ], [ %37, %lpad44 ], [ %30, %lpad31.body ], [ %ehselector.slot.0, %ehcleanup ], [ %9, %lpad ]
-  %exn.slot.1 = phi ptr [ %47, %lpad60.body ], [ %18, %lpad17.body ], [ %36, %lpad44 ], [ %29, %lpad31.body ], [ %exn.slot.0, %ehcleanup ], [ %8, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %48, %lpad60.body ], [ %19, %lpad17.body ], [ %37, %lpad44 ], [ %30, %lpad31.body ], [ %ehselector.slot.1, %ehcleanup ], [ %9, %lpad ]
+  %exn.slot.0 = phi ptr [ %47, %lpad60.body ], [ %18, %lpad17.body ], [ %36, %lpad44 ], [ %29, %lpad31.body ], [ %exn.slot.1, %ehcleanup ], [ %8, %lpad ]
   %50 = load ptr, ptr %dims, align 16
   %tobool.not.i.i.i77 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i.i77, label %eh.resume, label %if.then.i.i.i78
@@ -4125,8 +4125,8 @@ lpad77:                                           ; preds = %invoke.cont76
 
 ehcleanup80:                                      ; preds = %lpad77, %lpad75
   %.pn = phi { ptr, i32 } [ %54, %lpad77 ], [ %53, %lpad75 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.3 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74) #28
   br label %eh.resume
 
@@ -4136,10 +4136,10 @@ if.end81:                                         ; preds = %invoke.cont78, %whi
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i78, %ehcleanup65, %ehcleanup80
-  %ehselector.slot.3 = phi i32 [ %ehselector.slot.2, %ehcleanup80 ], [ %ehselector.slot.1, %ehcleanup65 ], [ %ehselector.slot.1, %if.then.i.i.i78 ]
-  %exn.slot.3 = phi ptr [ %exn.slot.2, %ehcleanup80 ], [ %exn.slot.1, %ehcleanup65 ], [ %exn.slot.1, %if.then.i.i.i78 ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.3, 0
-  %lpad.val84 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.3, 1
+  %ehselector.slot.2 = phi i32 [ %ehselector.slot.3, %ehcleanup80 ], [ %ehselector.slot.0, %ehcleanup65 ], [ %ehselector.slot.0, %if.then.i.i.i78 ]
+  %exn.slot.2 = phi ptr [ %exn.slot.3, %ehcleanup80 ], [ %exn.slot.0, %ehcleanup65 ], [ %exn.slot.0, %if.then.i.i.i78 ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
+  %lpad.val84 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
   resume { ptr, i32 } %lpad.val84
 
 terminate.lpad:                                   ; preds = %ehcleanup
@@ -4603,7 +4603,7 @@ while.body.lr.ph:                                 ; preds = %_ZN19OpenColorIO_v2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end125
-  %pos.053 = phi i64 [ %retval.0.i, %while.body.lr.ph ], [ %pos.2, %if.end125 ]
+  %pos.053 = phi i64 [ %retval.0.i, %while.body.lr.ph ], [ %pos.1, %if.end125 ]
   store double 0.000000e+00, ptr %data, align 8
   %cmp.not.i.i = icmp ult i64 %pos.053, %len
   br i1 %cmp.not.i.i, label %if.end.i.i, label %try.cont
@@ -4731,7 +4731,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   br label %try.cont
 
 try.cont:                                         ; preds = %while.body.i.i, %while.body.i35.i, %while.cond.i32.i, %.noexc12, %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit.i, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i, %while.body, %invoke.cont10
-  %pos.2 = phi i64 [ %pos.addr.0.i.i, %invoke.cont10 ], [ %len, %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit.i ], [ %len, %.noexc12 ], [ %len, %while.body ], [ %len, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i ], [ %pos.addr.0.i33.i, %while.cond.i32.i ], [ %len, %while.body.i35.i ], [ %len, %while.body.i.i ]
+  %pos.1 = phi i64 [ %pos.addr.0.i.i, %invoke.cont10 ], [ %len, %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit.i ], [ %len, %.noexc12 ], [ %len, %while.body ], [ %len, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i ], [ %pos.addr.0.i33.i, %while.cond.i32.i ], [ %len, %while.body.i35.i ], [ %len, %while.body.i.i ]
   %13 = load i32, ptr %m_position, align 8
   %conv = zext i32 %13 to i64
   %cmp12 = icmp ugt i64 %call, %conv
@@ -5172,7 +5172,7 @@ ehcleanup124:                                     ; preds = %lpad119.body, %lpad
   br label %eh.resume
 
 if.end125:                                        ; preds = %invoke.cont122, %if.then
-  %cmp.not = icmp eq i64 %pos.2, %len
+  %cmp.not = icmp eq i64 %pos.1, %len
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !35
 
 while.end:                                        ; preds = %while.body.i, %if.end125, %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit
@@ -5830,8 +5830,8 @@ lpad14.body:                                      ; preds = %lpad.i.i28, %lpad.i
 
 ehcleanup:                                        ; preds = %lpad12, %lpad8
   %.pn24 = phi { ptr, i32 } [ %16, %lpad12 ], [ %15, %lpad8 ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn24, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn24, 0
+  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn24, 1
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn24, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup62 unwind label %terminate.lpad
 
@@ -5984,8 +5984,8 @@ if.then.i.i.i39:                                  ; preds = %if.end61
   br label %if.end65
 
 ehcleanup62:                                      ; preds = %lpad, %ehcleanup, %lpad57, %lpad41, %lpad28, %lpad14.body
-  %exn.slot.1 = phi ptr [ %37, %lpad57 ], [ %18, %lpad14.body ], [ %31, %lpad41 ], [ %24, %lpad28 ], [ %exn.slot.0, %ehcleanup ], [ %8, %lpad ]
-  %ehselector.slot.1 = phi i32 [ %38, %lpad57 ], [ %19, %lpad14.body ], [ %32, %lpad41 ], [ %25, %lpad28 ], [ %ehselector.slot.0, %ehcleanup ], [ %9, %lpad ]
+  %exn.slot.0 = phi ptr [ %37, %lpad57 ], [ %18, %lpad14.body ], [ %31, %lpad41 ], [ %24, %lpad28 ], [ %exn.slot.1, %ehcleanup ], [ %8, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %38, %lpad57 ], [ %19, %lpad14.body ], [ %32, %lpad41 ], [ %25, %lpad28 ], [ %ehselector.slot.1, %ehcleanup ], [ %9, %lpad ]
   %40 = load ptr, ptr %dims, align 16
   %tobool.not.i.i.i41 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i41, label %eh.resume, label %if.then.i.i.i42
@@ -6038,8 +6038,8 @@ lpad73:                                           ; preds = %invoke.cont72
 
 ehcleanup76:                                      ; preds = %lpad73, %lpad71
   %.pn = phi { ptr, i32 } [ %44, %lpad73 ], [ %43, %lpad71 ]
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.3 = extractvalue { ptr, i32 } %.pn, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #28
   br label %eh.resume
 
@@ -6049,10 +6049,10 @@ if.end77:                                         ; preds = %invoke.cont74, %whi
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i42, %ehcleanup62, %ehcleanup76
-  %exn.slot.3 = phi ptr [ %exn.slot.2, %ehcleanup76 ], [ %exn.slot.1, %ehcleanup62 ], [ %exn.slot.1, %if.then.i.i.i42 ]
-  %ehselector.slot.3 = phi i32 [ %ehselector.slot.2, %ehcleanup76 ], [ %ehselector.slot.1, %ehcleanup62 ], [ %ehselector.slot.1, %if.then.i.i.i42 ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.3, 0
-  %lpad.val80 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.3, 1
+  %exn.slot.2 = phi ptr [ %exn.slot.3, %ehcleanup76 ], [ %exn.slot.0, %ehcleanup62 ], [ %exn.slot.0, %if.then.i.i.i42 ]
+  %ehselector.slot.2 = phi i32 [ %ehselector.slot.3, %ehcleanup76 ], [ %ehselector.slot.0, %ehcleanup62 ], [ %ehselector.slot.0, %if.then.i.i.i42 ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
+  %lpad.val80 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
   resume { ptr, i32 } %lpad.val80
 
 terminate.lpad:                                   ; preds = %ehcleanup
@@ -6368,7 +6368,7 @@ while.body.lr.ph:                                 ; preds = %_ZN19OpenColorIO_v2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %pos.029 = phi i64 [ %retval.0.i, %while.body.lr.ph ], [ %pos.5, %if.end ]
+  %pos.029 = phi i64 [ %retval.0.i, %while.body.lr.ph ], [ %pos.2, %if.end ]
   store float 0.000000e+00, ptr %data1, align 4
   store float 0.000000e+00, ptr %data2, align 4
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %oss.i)
@@ -6569,8 +6569,8 @@ while.body.i56.i:                                 ; preds = %while.cond.i53.i
   br i1 %exitcond.not.i59.i, label %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i, label %while.cond.i53.i, !llvm.loop !30
 
 _ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i: ; preds = %while.body.i45.i, %while.body.i56.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127FindNextTokenStart_IndexMapEPKcmm.exit.i
-  %pos.1 = phi i64 [ %pos.addr.0.i43.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127FindNextTokenStart_IndexMapEPKcmm.exit.i ], [ %pos.addr.0.i43.i, %while.body.i56.i ], [ %len, %while.body.i45.i ]
-  invoke void @_ZN19OpenColorIO_v2_4dev11ParseNumberIfEEvPKcmmRT_(ptr noundef %s, i64 noundef %pos.1, i64 noundef %len, ptr noundef nonnull align 4 dereferenceable(4) %data2)
+  %pos.3 = phi i64 [ %pos.addr.0.i43.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127FindNextTokenStart_IndexMapEPKcmm.exit.i ], [ %pos.addr.0.i43.i, %while.body.i56.i ], [ %len, %while.body.i45.i ]
+  invoke void @_ZN19OpenColorIO_v2_4dev11ParseNumberIfEEvPKcmmRT_(ptr noundef %s, i64 noundef %pos.3, i64 noundef %len, ptr noundef nonnull align 4 dereferenceable(4) %data2)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GetNextIndexPairEPKcmRmRfS4_.exit unwind label %lpad
 
 _ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.i:  ; preds = %while.cond.i53.i, %while.cond.i53.i, %while.cond.i53.i, %while.cond.i53.i, %while.cond.i53.i, %while.cond.i53.i, %while.cond.i53.i
@@ -6609,20 +6609,20 @@ unreachable.i:                                    ; preds = %invoke.cont16.i
   unreachable
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GetNextIndexPairEPKcmRmRfS4_.exit: ; preds = %while.body.i.i, %while.cond.i64.i, %while.body.i67.i, %while.body, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i, %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit.i, %.noexc11
-  %pos.2 = phi i64 [ %len, %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit.i ], [ %len, %.noexc11 ], [ %len, %while.body ], [ %len, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i ], [ %pos.addr.0.i65.i, %while.cond.i64.i ], [ %len, %while.body.i67.i ], [ %len, %while.body.i.i ]
+  %pos.5 = phi i64 [ %len, %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit.i ], [ %len, %.noexc11 ], [ %len, %while.body ], [ %len, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i ], [ %pos.addr.0.i65.i, %while.cond.i64.i ], [ %len, %while.body.i67.i ], [ %len, %while.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i)
   br label %try.cont
 
 lpad:                                             ; preds = %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.i, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i, %while.cond.preheader.i.i, %if.then3.i
-  %pos.3 = phi i64 [ %pos.addr.0.i.i, %if.then3.i ], [ %pos.1, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i ], [ %pos.addr.0.i43.i, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.i ], [ %pos.addr.0.i.i, %while.cond.preheader.i.i ]
+  %pos.1 = phi i64 [ %pos.addr.0.i.i, %if.then3.i ], [ %pos.3, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.thread.i ], [ %pos.addr.0.i43.i, %_ZN19OpenColorIO_v2_4dev9FindDelimEPKcmm.exit.i ], [ %pos.addr.0.i.i, %while.cond.preheader.i.i ]
   %13 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   br label %lpad.body
 
 lpad.body:                                        ; preds = %ehcleanup17.i, %lpad
-  %pos.4 = phi i64 [ %pos.addr.0.i.i, %ehcleanup17.i ], [ %pos.3, %lpad ]
+  %pos.4 = phi i64 [ %pos.addr.0.i.i, %ehcleanup17.i ], [ %pos.1, %lpad ]
   %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup17.i ], [ %13, %lpad ]
   %14 = extractvalue { ptr, i32 } %eh.lpad-body, 1
   %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
@@ -6652,7 +6652,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   br label %try.cont
 
 try.cont:                                         ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GetNextIndexPairEPKcmRmRfS4_.exit, %invoke.cont8
-  %pos.5 = phi i64 [ %pos.2, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GetNextIndexPairEPKcmRmRfS4_.exit ], [ %pos.4, %invoke.cont8 ]
+  %pos.2 = phi i64 [ %pos.5, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GetNextIndexPairEPKcmRmRfS4_.exit ], [ %pos.4, %invoke.cont8 ]
   %19 = load i32, ptr %m_position, align 8
   %conv = zext i32 %19 to i64
   %cmp10 = icmp ugt i64 %call, %conv
@@ -6747,7 +6747,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcS4_S4_EEEvRKNS_16XmlRead
   br label %if.end
 
 if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcS4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit, %if.then
-  %cmp.not = icmp eq i64 %pos.5, %len
+  %cmp.not = icmp eq i64 %pos.2, %len
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !60
 
 while.end:                                        ; preds = %while.body.i, %if.end, %_ZN19OpenColorIO_v2_4dev18FindNextTokenStartEPKcmm.exit
@@ -16106,7 +16106,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad5
   br label %ehcleanup21
 
 lpad19:                                           ; preds = %if.then, %invoke.cont18
-  %data.sroa.0.1 = phi ptr [ %data.sroa.0.0, %if.then ], [ null, %invoke.cont18 ]
+  %data.sroa.0.2 = phi ptr [ %data.sroa.0.0, %if.then ], [ null, %invoke.cont18 ]
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup47
@@ -16139,13 +16139,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit15:                  ; preds = %invoke.cont43, %try
   ret void
 
 ehcleanup47:                                      ; preds = %ehcleanup45, %lpad19
-  %data.sroa.0.2 = phi ptr [ %data.sroa.0.0, %ehcleanup45 ], [ %data.sroa.0.1, %lpad19 ]
+  %data.sroa.0.1 = phi ptr [ %data.sroa.0.0, %ehcleanup45 ], [ %data.sroa.0.2, %lpad19 ]
   %lpad.val50.merged = phi { ptr, i32 } [ %.pn6, %ehcleanup45 ], [ %12, %lpad19 ]
-  %tobool.not.i.i.i16 = icmp eq ptr %data.sroa.0.2, null
+  %tobool.not.i.i.i16 = icmp eq ptr %data.sroa.0.1, null
   br i1 %tobool.not.i.i.i16, label %_ZNSt6vectorIdSaIdEED2Ev.exit18, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %ehcleanup47
-  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.2) #30
+  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.1) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit18
 
 _ZNSt6vectorIdSaIdEED2Ev.exit18:                  ; preds = %lpad, %ehcleanup21, %ehcleanup47, %if.then.i.i.i17
@@ -17399,8 +17399,8 @@ lpad12:                                           ; preds = %invoke.cont11
 
 ehcleanup:                                        ; preds = %lpad12, %lpad10
   %.pn23 = phi { ptr, i32 } [ %11, %lpad12 ], [ %10, %lpad10 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn23, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn23, 1
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn23, 0
+  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn23, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #28
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -17515,14 +17515,14 @@ lpad44:                                           ; preds = %try.cont48, %invoke
 
 ehcleanup46:                                      ; preds = %lpad41, %lpad37
   %.pn21 = phi { ptr, i32 } [ %26, %lpad41 ], [ %25, %lpad37 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn21, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn21, 1
+  %exn.slot.3 = extractvalue { ptr, i32 } %.pn21, 0
+  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn21, 1
   invoke void @__cxa_end_catch()
           to label %ehcleanup52 unwind label %terminate.lpad
 
 ehcleanup52:                                      ; preds = %lpad27, %ehcleanup46, %lpad44
-  %ehselector.slot.2 = phi i32 [ %29, %lpad44 ], [ %ehselector.slot.1, %ehcleanup46 ], [ %19, %lpad27 ]
-  %exn.slot.2 = phi ptr [ %28, %lpad44 ], [ %exn.slot.1, %ehcleanup46 ], [ %18, %lpad27 ]
+  %ehselector.slot.2 = phi i32 [ %29, %lpad44 ], [ %ehselector.slot.3, %ehcleanup46 ], [ %19, %lpad27 ]
+  %exn.slot.2 = phi ptr [ %28, %lpad44 ], [ %exn.slot.3, %ehcleanup46 ], [ %18, %lpad27 ]
   %30 = load ptr, ptr %data, align 16
   %tobool.not.i.i.i29 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i29, label %eh.resume, label %if.then.i.i.i30
@@ -17579,8 +17579,8 @@ lpad61:                                           ; preds = %invoke.cont60
 
 ehcleanup64:                                      ; preds = %lpad61, %lpad59
   %.pn = phi { ptr, i32 } [ %34, %lpad61 ], [ %33, %lpad59 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.4 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #28
   br label %eh.resume
 
@@ -17588,10 +17588,10 @@ if.end65:                                         ; preds = %if.end53.thread, %i
   ret void
 
 eh.resume:                                        ; preds = %lpad, %if.then.i.i.i30, %ehcleanup52, %ehcleanup, %ehcleanup64
-  %ehselector.slot.4 = phi i32 [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.3, %ehcleanup64 ], [ %ehselector.slot.2, %ehcleanup52 ], [ %ehselector.slot.2, %if.then.i.i.i30 ], [ %6, %lpad ]
-  %exn.slot.4 = phi ptr [ %exn.slot.0, %ehcleanup ], [ %exn.slot.3, %ehcleanup64 ], [ %exn.slot.2, %ehcleanup52 ], [ %exn.slot.2, %if.then.i.i.i30 ], [ %5, %lpad ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.4, 0
-  %lpad.val68 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.4, 1
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup ], [ %ehselector.slot.4, %ehcleanup64 ], [ %ehselector.slot.2, %ehcleanup52 ], [ %ehselector.slot.2, %if.then.i.i.i30 ], [ %6, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup ], [ %exn.slot.4, %ehcleanup64 ], [ %exn.slot.2, %ehcleanup52 ], [ %exn.slot.2, %if.then.i.i.i30 ], [ %5, %lpad ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val68 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val68
 
 terminate.lpad:                                   ; preds = %ehcleanup46, %ehcleanup
@@ -24726,7 +24726,7 @@ lpad21:                                           ; preds = %invoke.cont17
   br label %ehcleanup
 
 lpad23:                                           ; preds = %if.else71, %if.then56, %if.else, %if.then32, %try.cont, %invoke.cont22
-  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %if.then32 ], [ %data.sroa.0.1, %if.then56 ], [ %data.sroa.0.1, %if.else71 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont22 ]
+  %data.sroa.0.3 = phi ptr [ %data.sroa.0.1, %if.then32 ], [ %data.sroa.0.1, %if.then56 ], [ %data.sroa.0.1, %if.else71 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont22 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup81
@@ -24843,13 +24843,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit44:                  ; preds = %if.end79, %if.then.
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !235
 
 ehcleanup81:                                      ; preds = %lpad.i.i, %lpad.i.i37, %lpad23, %lpad66, %lpad42
-  %data.sroa.0.5 = phi ptr [ %data.sroa.0.1, %lpad42 ], [ %data.sroa.0.1, %lpad66 ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.2, %lpad23 ], [ %data.sroa.0.1, %lpad.i.i37 ]
+  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %lpad42 ], [ %data.sroa.0.1, %lpad66 ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.3, %lpad23 ], [ %data.sroa.0.1, %lpad.i.i37 ]
   %lpad.val94.merged = phi { ptr, i32 } [ %21, %lpad42 ], [ %28, %lpad66 ], [ %17, %lpad.i.i ], [ %20, %lpad23 ], [ %27, %lpad.i.i37 ]
-  %tobool.not.i.i.i45 = icmp eq ptr %data.sroa.0.5, null
+  %tobool.not.i.i.i45 = icmp eq ptr %data.sroa.0.2, null
   br i1 %tobool.not.i.i.i45, label %_ZNSt6vectorIdSaIdEED2Ev.exit47, label %if.then.i.i.i46
 
 if.then.i.i.i46:                                  ; preds = %ehcleanup81
-  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.5) #30
+  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.2) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit47
 
 _ZNSt6vectorIdSaIdEED2Ev.exit47:                  ; preds = %lpad, %ehcleanup, %ehcleanup81, %if.then.i.i.i46
@@ -25497,7 +25497,7 @@ lpad21:                                           ; preds = %invoke.cont17
   br label %ehcleanup
 
 lpad23:                                           ; preds = %if.else69, %if.then54, %if.else, %if.then32, %try.cont, %invoke.cont22
-  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %if.then32 ], [ %data.sroa.0.1, %if.then54 ], [ %data.sroa.0.1, %if.else69 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont22 ]
+  %data.sroa.0.3 = phi ptr [ %data.sroa.0.1, %if.then32 ], [ %data.sroa.0.1, %if.then54 ], [ %data.sroa.0.1, %if.else69 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont22 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup79
@@ -25608,13 +25608,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit39:                  ; preds = %if.end77, %if.then.
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !248
 
 ehcleanup79:                                      ; preds = %lpad.i.i, %lpad.i.i33, %lpad23, %lpad64, %lpad42
-  %data.sroa.0.5 = phi ptr [ %data.sroa.0.1, %lpad42 ], [ %data.sroa.0.1, %lpad64 ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.2, %lpad23 ], [ %data.sroa.0.1, %lpad.i.i33 ]
+  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %lpad42 ], [ %data.sroa.0.1, %lpad64 ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.3, %lpad23 ], [ %data.sroa.0.1, %lpad.i.i33 ]
   %lpad.val88.merged = phi { ptr, i32 } [ %21, %lpad42 ], [ %26, %lpad64 ], [ %17, %lpad.i.i ], [ %20, %lpad23 ], [ %25, %lpad.i.i33 ]
-  %tobool.not.i.i.i40 = icmp eq ptr %data.sroa.0.5, null
+  %tobool.not.i.i.i40 = icmp eq ptr %data.sroa.0.2, null
   br i1 %tobool.not.i.i.i40, label %common.resume, label %if.then.i.i.i41
 
 if.then.i.i.i41:                                  ; preds = %ehcleanup79
-  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.5) #30
+  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.2) #30
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad, %if.then.i.i.i41, %ehcleanup79, %ehcleanup, %ehcleanup.i
@@ -25935,7 +25935,7 @@ lpad21:                                           ; preds = %invoke.cont17
   br label %ehcleanup
 
 lpad23:                                           ; preds = %if.else93, %if.then78, %if.else69, %if.then54, %if.else, %if.then32, %try.cont, %invoke.cont22
-  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %if.then32 ], [ %data.sroa.0.1, %if.then54 ], [ %data.sroa.0.1, %if.then78 ], [ %data.sroa.0.1, %if.else93 ], [ %data.sroa.0.1, %if.else69 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont22 ]
+  %data.sroa.0.3 = phi ptr [ %data.sroa.0.1, %if.then32 ], [ %data.sroa.0.1, %if.then54 ], [ %data.sroa.0.1, %if.then78 ], [ %data.sroa.0.1, %if.else93 ], [ %data.sroa.0.1, %if.else69 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont22 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup104
@@ -26203,13 +26203,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit58:                  ; preds = %if.end102, %if.then
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !267
 
 ehcleanup104:                                     ; preds = %lpad.i.i, %lpad23, %lpad.i.i49, %lpad.i.i38, %lpad88.body, %lpad64, %lpad42
-  %data.sroa.0.6 = phi ptr [ %data.sroa.0.1, %lpad42 ], [ %data.sroa.0.1, %lpad64 ], [ %data.sroa.0.1, %lpad88.body ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.1, %lpad.i.i38 ], [ %data.sroa.0.2, %lpad23 ], [ %data.sroa.0.1, %lpad.i.i49 ]
+  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %lpad42 ], [ %data.sroa.0.1, %lpad64 ], [ %data.sroa.0.1, %lpad88.body ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.1, %lpad.i.i38 ], [ %data.sroa.0.3, %lpad23 ], [ %data.sroa.0.1, %lpad.i.i49 ]
   %lpad.val115.merged = phi { ptr, i32 } [ %21, %lpad42 ], [ %26, %lpad64 ], [ %eh.lpad-body54, %lpad88.body ], [ %17, %lpad.i.i ], [ %25, %lpad.i.i38 ], [ %20, %lpad23 ], [ %30, %lpad.i.i49 ]
-  %tobool.not.i.i.i60 = icmp eq ptr %data.sroa.0.6, null
+  %tobool.not.i.i.i60 = icmp eq ptr %data.sroa.0.2, null
   br i1 %tobool.not.i.i.i60, label %common.resume, label %if.then.i.i.i61
 
 if.then.i.i.i61:                                  ; preds = %ehcleanup104
-  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.6) #30
+  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.2) #30
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad, %if.then.i.i.i61, %ehcleanup104, %ehcleanup, %ehcleanup.i68
@@ -26420,7 +26420,7 @@ lpad21:                                           ; preds = %invoke.cont17
   br label %ehcleanup
 
 lpad23:                                           ; preds = %if.else, %if.then32, %try.cont, %invoke.cont22
-  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %if.then32 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont22 ]
+  %data.sroa.0.3 = phi ptr [ %data.sroa.0.1, %if.then32 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont22 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup54
@@ -26469,13 +26469,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %if.end52, %if.then.
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !274
 
 ehcleanup54:                                      ; preds = %lpad23, %lpad.i.i, %lpad42
-  %data.sroa.0.4 = phi ptr [ %data.sroa.0.1, %lpad42 ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.2, %lpad23 ]
+  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %lpad42 ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.3, %lpad23 ]
   %lpad.val62.merged = phi { ptr, i32 } [ %21, %lpad42 ], [ %17, %lpad.i.i ], [ %20, %lpad23 ]
-  %tobool.not.i.i.i25 = icmp eq ptr %data.sroa.0.4, null
+  %tobool.not.i.i.i25 = icmp eq ptr %data.sroa.0.2, null
   br i1 %tobool.not.i.i.i25, label %_ZNSt6vectorIdSaIdEED2Ev.exit27, label %if.then.i.i.i26
 
 if.then.i.i.i26:                                  ; preds = %ehcleanup54
-  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.4) #30
+  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.2) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit27
 
 _ZNSt6vectorIdSaIdEED2Ev.exit27:                  ; preds = %lpad, %ehcleanup, %ehcleanup54, %if.then.i.i.i26
@@ -30593,7 +30593,7 @@ lpad22:                                           ; preds = %invoke.cont18
   br label %ehcleanup
 
 lpad24:                                           ; preds = %if.else130, %if.then109, %if.else99, %if.then82, %if.else72, %if.then57, %if.else, %if.then33, %try.cont, %invoke.cont23
-  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %if.then33 ], [ %data.sroa.0.1, %if.then57 ], [ %data.sroa.0.1, %if.then82 ], [ %data.sroa.0.1, %if.then109 ], [ %data.sroa.0.1, %if.else130 ], [ %data.sroa.0.1, %if.else99 ], [ %data.sroa.0.1, %if.else72 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont23 ]
+  %data.sroa.0.3 = phi ptr [ %data.sroa.0.1, %if.then33 ], [ %data.sroa.0.1, %if.then57 ], [ %data.sroa.0.1, %if.then82 ], [ %data.sroa.0.1, %if.then109 ], [ %data.sroa.0.1, %if.else130 ], [ %data.sroa.0.1, %if.else99 ], [ %data.sroa.0.1, %if.else72 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont23 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup142
@@ -30822,13 +30822,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit86:                  ; preds = %if.end140, %if.then
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !315
 
 ehcleanup142:                                     ; preds = %lpad.i.i, %lpad.i.i67, %lpad.i.i79, %lpad24, %lpad.i.i55, %lpad125, %lpad94, %lpad67, %lpad43
-  %data.sroa.0.7 = phi ptr [ %data.sroa.0.1, %lpad43 ], [ %data.sroa.0.1, %lpad67 ], [ %data.sroa.0.1, %lpad94 ], [ %data.sroa.0.1, %lpad125 ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.1, %lpad.i.i55 ], [ %data.sroa.0.1, %lpad.i.i67 ], [ %data.sroa.0.2, %lpad24 ], [ %data.sroa.0.1, %lpad.i.i79 ]
+  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %lpad43 ], [ %data.sroa.0.1, %lpad67 ], [ %data.sroa.0.1, %lpad94 ], [ %data.sroa.0.1, %lpad125 ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.1, %lpad.i.i55 ], [ %data.sroa.0.1, %lpad.i.i67 ], [ %data.sroa.0.3, %lpad24 ], [ %data.sroa.0.1, %lpad.i.i79 ]
   %lpad.val173.merged = phi { ptr, i32 } [ %21, %lpad43 ], [ %28, %lpad67 ], [ %33, %lpad94 ], [ %38, %lpad125 ], [ %17, %lpad.i.i ], [ %27, %lpad.i.i55 ], [ %32, %lpad.i.i67 ], [ %20, %lpad24 ], [ %37, %lpad.i.i79 ]
-  %tobool.not.i.i.i87 = icmp eq ptr %data.sroa.0.7, null
+  %tobool.not.i.i.i87 = icmp eq ptr %data.sroa.0.2, null
   br i1 %tobool.not.i.i.i87, label %_ZNSt6vectorIdSaIdEED2Ev.exit89, label %if.then.i.i.i88
 
 if.then.i.i.i88:                                  ; preds = %ehcleanup142
-  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.7) #30
+  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.2) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit89
 
 _ZNSt6vectorIdSaIdEED2Ev.exit89:                  ; preds = %lpad, %ehcleanup, %ehcleanup142, %if.then.i.i.i88
@@ -31089,7 +31089,7 @@ lpad21:                                           ; preds = %invoke.cont17
   br label %ehcleanup
 
 lpad23:                                           ; preds = %if.else, %if.then32, %try.cont, %invoke.cont22
-  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %if.then32 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont22 ]
+  %data.sroa.0.3 = phi ptr [ %data.sroa.0.1, %if.then32 ], [ %data.sroa.0.1, %if.else ], [ %data.sroa.0.1, %try.cont ], [ null, %invoke.cont22 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup54
@@ -31138,13 +31138,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %if.end52, %if.then.
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !322
 
 ehcleanup54:                                      ; preds = %lpad23, %lpad.i.i, %lpad42
-  %data.sroa.0.4 = phi ptr [ %data.sroa.0.1, %lpad42 ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.2, %lpad23 ]
+  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %lpad42 ], [ %data.sroa.0.1, %lpad.i.i ], [ %data.sroa.0.3, %lpad23 ]
   %lpad.val62.merged = phi { ptr, i32 } [ %21, %lpad42 ], [ %17, %lpad.i.i ], [ %20, %lpad23 ]
-  %tobool.not.i.i.i25 = icmp eq ptr %data.sroa.0.4, null
+  %tobool.not.i.i.i25 = icmp eq ptr %data.sroa.0.2, null
   br i1 %tobool.not.i.i.i25, label %_ZNSt6vectorIdSaIdEED2Ev.exit27, label %if.then.i.i.i26
 
 if.then.i.i.i26:                                  ; preds = %ehcleanup54
-  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.4) #30
+  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.2) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit27
 
 _ZNSt6vectorIdSaIdEED2Ev.exit27:                  ; preds = %lpad, %ehcleanup, %ehcleanup54, %if.then.i.i.i26
@@ -33041,11 +33041,11 @@ lpad.i15.i:                                       ; preds = %invoke.cont12.i
 
 ehcleanup23.i:                                    ; preds = %lpad.i15.i, %lpad.i4.i
   %.pn.pn.i = phi { ptr, i32 } [ %0, %lpad.i4.i ], [ %1, %lpad.i15.i ]
-  %arrayinit.endOfInit.1.idx.i = phi i64 [ 32, %lpad.i4.i ], [ 56, %lpad.i15.i ]
+  %arrayinit.endOfInit.0.idx.i = phi i64 [ 32, %lpad.i4.i ], [ 56, %lpad.i15.i ]
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i, %ehcleanup23.i
-  %arraydestroy.elementPast.idx.i = phi i64 [ %arraydestroy.elementPast.add.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.i ], [ %arrayinit.endOfInit.1.idx.i, %ehcleanup23.i ]
+  %arraydestroy.elementPast.idx.i = phi i64 [ %arraydestroy.elementPast.add.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.i ], [ %arrayinit.endOfInit.0.idx.i, %ehcleanup23.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -24
   %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %m_ctfParams, i64 %arraydestroy.elementPast.add.i
   %2 = load ptr, ptr %arraydestroy.element.ptr.i, align 8
@@ -40991,7 +40991,7 @@ lpad11:                                           ; preds = %invoke.cont7
   br label %ehcleanup
 
 lpad13:                                           ; preds = %if.else68, %if.else53, %if.else, %if.end, %invoke.cont12
-  %data.sroa.0.1 = phi ptr [ %data.sroa.0.0, %if.else68 ], [ %data.sroa.0.0, %if.else53 ], [ %data.sroa.0.0, %if.else ], [ %data.sroa.0.0, %if.end ], [ null, %invoke.cont12 ]
+  %data.sroa.0.2 = phi ptr [ %data.sroa.0.0, %if.else68 ], [ %data.sroa.0.0, %if.else53 ], [ %data.sroa.0.0, %if.else ], [ %data.sroa.0.0, %if.end ], [ null, %invoke.cont12 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup87
@@ -41470,9 +41470,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit147:                 ; preds = %if.end86, %if.then.
   ret void
 
 ehcleanup87:                                      ; preds = %ehcleanup24, %lpad13
-  %data.sroa.0.2 = phi ptr [ %data.sroa.0.1, %lpad13 ], [ %data.sroa.0.0, %ehcleanup24 ]
+  %data.sroa.0.1 = phi ptr [ %data.sroa.0.2, %lpad13 ], [ %data.sroa.0.0, %ehcleanup24 ]
   %lpad.val90.merged = phi { ptr, i32 } [ %16, %lpad13 ], [ %.pn8, %ehcleanup24 ]
-  %tobool.not.i.i.i148 = icmp eq ptr %data.sroa.0.2, null
+  %tobool.not.i.i.i148 = icmp eq ptr %data.sroa.0.1, null
   br i1 %tobool.not.i.i.i148, label %_ZNSt6vectorIdSaIdEED2Ev.exit150, label %if.then.i.i.i149
 
 if.then.i.i.i149.sink.split:                      ; preds = %lpad36, %lpad50, %lpad65, %lpad80
@@ -41483,8 +41483,8 @@ if.then.i.i.i149.sink.split:                      ; preds = %lpad36, %lpad50, %l
 
 if.then.i.i.i149:                                 ; preds = %if.then.i.i.i149.sink.split, %ehcleanup87
   %lpad.val90.merged163 = phi { ptr, i32 } [ %lpad.val90.merged, %ehcleanup87 ], [ %lpad.val90.merged163.ph, %if.then.i.i.i149.sink.split ]
-  %data.sroa.0.2162 = phi ptr [ %data.sroa.0.2, %ehcleanup87 ], [ %data.sroa.0.0, %if.then.i.i.i149.sink.split ]
-  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.2162) #30
+  %data.sroa.0.1162 = phi ptr [ %data.sroa.0.1, %ehcleanup87 ], [ %data.sroa.0.0, %if.then.i.i.i149.sink.split ]
+  call void @_ZdlPv(ptr noundef nonnull %data.sroa.0.1162) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit150
 
 _ZNSt6vectorIdSaIdEED2Ev.exit150:                 ; preds = %lpad, %ehcleanup, %ehcleanup87, %if.then.i.i.i149

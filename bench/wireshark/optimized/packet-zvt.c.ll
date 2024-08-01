@@ -1000,29 +1000,29 @@ define internal fastcc i32 @dissect_zvt_tlv_seq(ptr noundef %0, i32 noundef %1, 
   br i1 %21, label %.preheader.i, label %dissect_zvt_tlv_tag.exit
 
 .preheader.i:                                     ; preds = %.lr.ph, %24
-  %.035.i = phi i32 [ %29, %24 ], [ %18, %.lr.ph ]
-  %.034.i = phi i32 [ %30, %24 ], [ %19, %.lr.ph ]
-  %22 = sub i32 %.034.i, %.04072
+  %.136.i = phi i32 [ %29, %24 ], [ %18, %.lr.ph ]
+  %.1.i = phi i32 [ %30, %24 ], [ %19, %.lr.ph ]
+  %22 = sub i32 %.1.i, %.04072
   %23 = icmp ugt i32 %22, 4
   br i1 %23, label %dissect_zvt_tlv_tag.exit.thread, label %24
 
 24:                                               ; preds = %.preheader.i
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.034.i) #5
-  %26 = shl i32 %.035.i, 8
+  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.i) #5
+  %26 = shl i32 %.136.i, 8
   %27 = and i8 %25, 127
   %28 = zext nneg i8 %27 to i32
   %29 = or disjoint i32 %26, %28
-  %30 = add i32 %.034.i, 1
+  %30 = add i32 %.1.i, 1
   %.not.i = icmp sgt i8 %25, -1
   br i1 %.not.i, label %dissect_zvt_tlv_tag.exit, label %.preheader.i, !llvm.loop !9
 
 dissect_zvt_tlv_tag.exit:                         ; preds = %24, %.lr.ph
-  %.136.i = phi i32 [ %18, %.lr.ph ], [ %29, %24 ]
-  %.1.i = phi i32 [ %19, %.lr.ph ], [ %30, %24 ]
+  %.035.i = phi i32 [ %18, %.lr.ph ], [ %29, %24 ]
+  %.034.i = phi i32 [ %19, %.lr.ph ], [ %30, %24 ]
   %31 = load i32, ptr @hf_zvt_tlv_tag, align 4
-  %32 = sub i32 %.1.i, %.04072
-  %33 = call ptr @val_to_str_ext_const(i32 noundef %.136.i, ptr noundef nonnull @tlv_tags_ext, ptr noundef nonnull @.str.174) #5
-  %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %16, i32 noundef %31, ptr noundef %0, i32 noundef %.04072, i32 noundef %32, i32 noundef %.136.i, ptr noundef nonnull @.str.176, ptr noundef %33, i32 noundef %.136.i) #5
+  %32 = sub i32 %.034.i, %.04072
+  %33 = call ptr @val_to_str_ext_const(i32 noundef %.035.i, ptr noundef nonnull @tlv_tags_ext, ptr noundef nonnull @.str.174) #5
+  %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %16, i32 noundef %31, ptr noundef %0, i32 noundef %.04072, i32 noundef %32, i32 noundef %.035.i, ptr noundef nonnull @.str.176, ptr noundef %33, i32 noundef %.035.i) #5
   %35 = load i32, ptr @ett_zvt_tlv_tag, align 4
   %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #5
   %37 = load i32, ptr @hf_zvt_tlv_tag_class, align 4
@@ -1034,7 +1034,7 @@ dissect_zvt_tlv_tag.exit:                         ; preds = %24, %.lr.ph
 
 42:                                               ; preds = %dissect_zvt_tlv_tag.exit
   %43 = load i32, ptr @hf_zvt_tlv_len, align 4
-  %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.i) #5
+  %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.034.i) #5
   %45 = zext nneg i8 %44 to i16
   %.not.i51 = icmp sgt i8 %44, -1
   br i1 %.not.i51, label %55, label %46
@@ -1051,13 +1051,13 @@ dissect_zvt_tlv_tag.exit:                         ; preds = %24, %.lr.ph
   br label %dissect_zvt_tlv_len.exit
 
 48:                                               ; preds = %46
-  %49 = add i32 %.1.i, 1
+  %49 = add i32 %.034.i, 1
   %50 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %49) #5
   %51 = zext i8 %50 to i16
   br label %55
 
 52:                                               ; preds = %46
-  %53 = add i32 %.1.i, 1
+  %53 = add i32 %.034.i, 1
   %54 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %53) #5
   br label %55
 
@@ -1065,15 +1065,15 @@ dissect_zvt_tlv_tag.exit:                         ; preds = %24, %.lr.ph
   %.021.i = phi i16 [ %51, %48 ], [ %54, %52 ], [ %45, %42 ]
   %.0.i52 = phi i32 [ 2, %48 ], [ 3, %52 ], [ 1, %42 ]
   %56 = zext i16 %.021.i to i32
-  %57 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %43, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0.i52, i32 noundef %56) #5
-  %58 = add i32 %.0.i52, %.1.i
+  %57 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %43, ptr noundef %0, i32 noundef %.034.i, i32 noundef %.0.i52, i32 noundef %56) #5
+  %58 = add i32 %.0.i52, %.034.i
   br label %dissect_zvt_tlv_len.exit
 
 dissect_zvt_tlv_len.exit:                         ; preds = %.dissect_zvt_tlv_len.exit_crit_edge, %55
   %.pre-phi = phi i32 [ %.pre, %.dissect_zvt_tlv_len.exit_crit_edge ], [ %56, %55 ]
   %.022.i65 = phi i32 [ -1, %.dissect_zvt_tlv_len.exit_crit_edge ], [ %.0.i52, %55 ]
   %.163 = phi i16 [ %.071, %.dissect_zvt_tlv_len.exit_crit_edge ], [ %.021.i, %55 ]
-  %59 = phi i32 [ %.1.i, %.dissect_zvt_tlv_len.exit_crit_edge ], [ %58, %55 ]
+  %59 = phi i32 [ %.034.i, %.dissect_zvt_tlv_len.exit_crit_edge ], [ %58, %55 ]
   %60 = load ptr, ptr %7, align 8
   %61 = add i32 %.022.i65, %32
   %62 = add nuw i32 %61, %.pre-phi
@@ -1083,7 +1083,7 @@ dissect_zvt_tlv_len.exit:                         ; preds = %.dissect_zvt_tlv_le
 
 64:                                               ; preds = %dissect_zvt_tlv_len.exit
   %65 = load ptr, ptr @tlv_table, align 8
-  %66 = zext i32 %.136.i to i64
+  %66 = zext i32 %.035.i to i64
   %67 = inttoptr i64 %66 to ptr
   %68 = call ptr @g_hash_table_lookup(ptr noundef %65, ptr noundef %67) #5
   %.not49 = icmp eq ptr %68, null

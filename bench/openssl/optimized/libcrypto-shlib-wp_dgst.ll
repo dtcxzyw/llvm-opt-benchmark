@@ -138,9 +138,9 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end52
-  %bits.addr.1175 = phi i64 [ %bits.addr.0.lcssa, %while.body.lr.ph ], [ %bits.addr.3, %if.end52 ]
-  %inp.1174 = phi ptr [ %inp.0.lcssa, %while.body.lr.ph ], [ %inp.3, %if.end52 ]
-  %bitoff.1173 = phi i32 [ %bitoff.0.lcssa, %while.body.lr.ph ], [ %bitoff.3, %if.end52 ]
+  %bits.addr.1175 = phi i64 [ %bits.addr.0.lcssa, %while.body.lr.ph ], [ %bits.addr.2, %if.end52 ]
+  %inp.1174 = phi ptr [ %inp.0.lcssa, %while.body.lr.ph ], [ %inp.2, %if.end52 ]
+  %bitoff.1173 = phi i32 [ %bitoff.0.lcssa, %while.body.lr.ph ], [ %bitoff.2, %if.end52 ]
   %cmp20 = icmp ne i32 %bitoff.1173, 0
   %tobool23.not = icmp ult i64 %bits.addr.1175, 512
   %or.cond112 = or i1 %cmp20, %tobool23.not
@@ -183,17 +183,17 @@ if.else42:                                        ; preds = %if.else
   br label %if.end50
 
 if.end50:                                         ; preds = %if.else42, %if.then32
-  %bitoff.2 = phi i32 [ 0, %if.then32 ], [ %add49, %if.else42 ]
-  %inp.2 = phi ptr [ %add.ptr39, %if.then32 ], [ %inp.1174, %if.else42 ]
-  %bits.addr.2 = phi i64 [ %sub34, %if.then32 ], [ 0, %if.else42 ]
-  store i32 %bitoff.2, ptr %bitoff1, align 8
+  %bitoff.3 = phi i32 [ 0, %if.then32 ], [ %add49, %if.else42 ]
+  %inp.3 = phi ptr [ %add.ptr39, %if.then32 ], [ %inp.1174, %if.else42 ]
+  %bits.addr.3 = phi i64 [ %sub34, %if.then32 ], [ 0, %if.else42 ]
+  store i32 %bitoff.3, ptr %bitoff1, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end50, %if.then24
-  %bitoff.3 = phi i32 [ 0, %if.then24 ], [ %bitoff.2, %if.end50 ]
-  %inp.3 = phi ptr [ %add.ptr, %if.then24 ], [ %inp.2, %if.end50 ]
-  %bits.addr.3 = phi i64 [ %rem26, %if.then24 ], [ %bits.addr.2, %if.end50 ]
-  %tobool.not = icmp eq i64 %bits.addr.3, 0
+  %bitoff.2 = phi i32 [ 0, %if.then24 ], [ %bitoff.3, %if.end50 ]
+  %inp.2 = phi ptr [ %add.ptr, %if.then24 ], [ %inp.3, %if.end50 ]
+  %bits.addr.2 = phi i64 [ %rem26, %if.then24 ], [ %bits.addr.3, %if.end50 ]
+  %tobool.not = icmp eq i64 %bits.addr.2, 0
   br i1 %tobool.not, label %if.end179, label %while.body, !llvm.loop !7
 
 if.then84:                                        ; preds = %while.body56.lr.ph.split, %if.end176

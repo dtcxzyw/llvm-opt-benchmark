@@ -1082,7 +1082,7 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr nocapture no
   br label %52
 
 52:                                               ; preds = %116, %32
-  %.060 = phi ptr [ null, %32 ], [ %.1, %116 ]
+  %.060 = phi ptr [ null, %32 ], [ %.2, %116 ]
   %53 = load volatile i32, ptr @InterruptPending, align 4
   %.not66 = icmp eq i32 %53, 0
   br i1 %.not66, label %55, label %54
@@ -1142,7 +1142,7 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr nocapture no
   br label %79
 
 79:                                               ; preds = %76, %74
-  %.1 = phi ptr [ %78, %76 ], [ %.060, %74 ]
+  %.2 = phi ptr [ %78, %76 ], [ %.060, %74 ]
   %80 = call ptr @brin_deform_tuple(ptr noundef %35, ptr noundef nonnull %73, ptr noundef null) #10
   %81 = call fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr noundef %35, ptr noundef %80, ptr noundef %1, ptr noundef %2)
   %82 = load i32, ptr %9, align 4
@@ -1196,11 +1196,11 @@ BufferGetPage.exit:                               ; preds = %86, %92
   br i1 %115, label %.loopexit, label %116
 
 116:                                              ; preds = %BufferGetPage.exit
-  call void @MemoryContextReset(ptr noundef %.1) #10
+  call void @MemoryContextReset(ptr noundef %.2) #10
   br label %52
 
 .loopexit:                                        ; preds = %BufferGetPage.exit, %72, %83
-  %.2 = phi ptr [ %.1, %83 ], [ %.060, %72 ], [ %.1, %BufferGetPage.exit ]
+  %.1 = phi ptr [ %.2, %83 ], [ %.060, %72 ], [ %.2, %BufferGetPage.exit ]
   %117 = load i32, ptr %9, align 4
   %.not73 = icmp eq i32 %117, 0
   br i1 %.not73, label %119, label %118
@@ -1211,11 +1211,11 @@ BufferGetPage.exit:                               ; preds = %86, %92
 
 119:                                              ; preds = %118, %.loopexit
   store ptr %14, ptr @CurrentMemoryContext, align 8
-  %.not69 = icmp eq ptr %.2, null
+  %.not69 = icmp eq ptr %.1, null
   br i1 %.not69, label %121, label %120
 
 120:                                              ; preds = %119
-  call void @MemoryContextDelete(ptr noundef nonnull %.2) #10
+  call void @MemoryContextDelete(ptr noundef nonnull %.1) #10
   br label %121
 
 121:                                              ; preds = %120, %119
@@ -1584,7 +1584,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
 134:                                              ; preds = %.lr.ph223, %221
   %135 = phi i32 [ %131, %.lr.ph223 ], [ %222, %221 ]
   %.0167222 = phi i32 [ 1, %.lr.ph223 ], [ %223, %221 ]
-  %.0171221 = phi i8 [ 1, %.lr.ph223 ], [ %.3, %221 ]
+  %.1172221 = phi i8 [ 1, %.lr.ph223 ], [ %.2173, %221 ]
   %136 = add i32 %.0167222, -1
   %137 = sext i32 %136 to i64
   %138 = getelementptr i32, ptr %54, i64 %137
@@ -1729,26 +1729,26 @@ check_null_keys.exit.thread:                      ; preds = %155, %check_null_ke
   br i1 %.not202, label %.thread196, label %208
 
 .loopexit:                                        ; preds = %.preheader, %197
-  %.2173 = phi i8 [ %207, %197 ], [ %.0171221, %.preheader ]
-  %220 = trunc nuw i8 %.2173 to i1
+  %.3 = phi i8 [ %207, %197 ], [ %.1172221, %.preheader ]
+  %220 = trunc nuw i8 %.3 to i1
   br i1 %220, label %.loopexit._crit_edge, label %.thread
 
 .loopexit._crit_edge:                             ; preds = %208, %.loopexit
-  %.2173259 = phi i8 [ %.2173, %.loopexit ], [ 1, %208 ]
+  %.3259 = phi i8 [ %.3, %.loopexit ], [ 1, %208 ]
   %.pre254 = load ptr, ptr %31, align 8
   %.pre255 = load i32, ptr %.pre254, align 8
   br label %221
 
 221:                                              ; preds = %.loopexit._crit_edge, %check_null_keys.exit.thread, %141
   %222 = phi i32 [ %135, %141 ], [ %.pre255, %.loopexit._crit_edge ], [ %135, %check_null_keys.exit.thread ]
-  %.3 = phi i8 [ %.0171221, %141 ], [ %.2173259, %.loopexit._crit_edge ], [ %.0171221, %check_null_keys.exit.thread ]
+  %.2173 = phi i8 [ %.1172221, %141 ], [ %.3259, %.loopexit._crit_edge ], [ %.1172221, %check_null_keys.exit.thread ]
   %223 = add i32 %.0167222, 1
   %.not187 = icmp sgt i32 %223, %222
   br i1 %.not187, label %.thread, label %134, !llvm.loop !15
 
 .thread:                                          ; preds = %221, %.loopexit
-  %.4 = phi i8 [ %.3, %221 ], [ %.2173, %.loopexit ]
-  %224 = trunc nuw i8 %.4 to i1
+  %.0171 = phi i8 [ %.2173, %221 ], [ %.3, %.loopexit ]
+  %224 = trunc nuw i8 %.0171 to i1
   br i1 %224, label %.preheader206, label %.thread196
 
 .preheader206:                                    ; preds = %.preheader208, %120, %123, %.thread

@@ -2000,7 +2000,7 @@ if.end22:                                         ; preds = %invoke.cont10
           to label %cleanup unwind label %lpad9
 
 cleanup:                                          ; preds = %if.end22, %invoke.cont21
-  %retval.0 = phi i1 [ false, %invoke.cont21 ], [ %call24, %if.end22 ]
+  %retval.1 = phi i1 [ false, %invoke.cont21 ], [ %call24, %if.end22 ]
   %20 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %20, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -2028,7 +2028,7 @@ _ZN7rocksdb6StatusD2Ev.exit14:                    ; preds = %ehcleanup25, %_ZNKS
   br label %ehcleanup27
 
 cleanup26:                                        ; preds = %entry, %_ZN7rocksdb6StatusD2Ev.exit
-  %retval.1 = phi i1 [ %retval.0, %_ZN7rocksdb6StatusD2Ev.exit ], [ false, %entry ]
+  %retval.0 = phi i1 [ %retval.1, %_ZN7rocksdb6StatusD2Ev.exit ], [ false, %entry ]
   invoke void @_ZN7rocksdb4port7RWMutex10ReadUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %rwlock_)
           to label %_ZN7rocksdb8ReadLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -2040,7 +2040,7 @@ terminate.lpad.i:                                 ; preds = %cleanup26
   unreachable
 
 _ZN7rocksdb8ReadLockD2Ev.exit:                    ; preds = %cleanup26
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup27:                                      ; preds = %_ZN7rocksdb6StatusD2Ev.exit14, %lpad7
   %.pn5.pn = phi { ptr, i32 } [ %.pn5, %_ZN7rocksdb6StatusD2Ev.exit14 ], [ %16, %lpad7 ]

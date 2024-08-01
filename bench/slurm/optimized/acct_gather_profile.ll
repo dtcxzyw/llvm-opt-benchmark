@@ -545,20 +545,20 @@ define range(i32 -1, 32) i32 @acct_gather_profile_from_string(ptr noundef %0) lo
   %8 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #14
   %.not15 = icmp eq ptr %8, null
   %9 = or disjoint i32 %spec.select, 4
-  %.1 = select i1 %.not15, i32 %spec.select, i32 %9
+  %.2 = select i1 %.not15, i32 %spec.select, i32 %9
   %10 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #14
   %.not16 = icmp eq ptr %10, null
-  %11 = or disjoint i32 %.1, 8
-  %.2 = select i1 %.not16, i32 %.1, i32 %11
+  %11 = or disjoint i32 %.2, 8
+  %.3 = select i1 %.not16, i32 %.2, i32 %11
   %12 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #14
   %.not17 = icmp eq ptr %12, null
-  %13 = or disjoint i32 %.2, 16
-  %spec.select18 = select i1 %.not17, i32 %.2, i32 %13
+  %13 = or disjoint i32 %.3, 16
+  %spec.select18 = select i1 %.not17, i32 %.3, i32 %13
   br label %14
 
 14:                                               ; preds = %6, %4, %2, %1
-  %.3 = phi i32 [ 0, %1 ], [ 1, %2 ], [ -1, %4 ], [ %spec.select18, %6 ]
-  ret i32 %.3
+  %.0 = phi i32 [ 0, %1 ], [ 1, %2 ], [ -1, %4 ], [ %spec.select18, %6 ]
+  ret i32 %.0
 }
 
 declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #4

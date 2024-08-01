@@ -3265,7 +3265,7 @@ lpad152.body:                                     ; preds = %lpad.i, %lpad5.i, %
   br label %ehcleanup187
 
 if.end163:                                        ; preds = %for.cond, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit285, %invoke.cont142, %cleanup.done132
-  %hasSkolem.2 = phi i8 [ 1, %cleanup.done132 ], [ 0, %invoke.cont142 ], [ 0, %for.cond ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit285 ]
+  %hasSkolem.0 = phi i8 [ 1, %cleanup.done132 ], [ 0, %invoke.cont142 ], [ 0, %for.cond ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit285 ]
   %147 = load ptr, ptr %cur, align 8
   store ptr %147, ptr %ref.tmp165, align 8
   %bf.load.i.i287 = load i64, ptr %147, align 8
@@ -3314,7 +3314,7 @@ if.then.i.i.i306:                                 ; preds = %invoke.cont168
 
 invoke.cont170:                                   ; preds = %invoke.cont168, %if.then.i.i.i306
   %second.i.i.i307 = getelementptr inbounds i8, ptr %call169, i64 48
-  store i8 %hasSkolem.2, ptr %second.i.i.i307, align 8
+  store i8 %hasSkolem.0, ptr %second.i.i.i307, align 8
   %153 = load ptr, ptr %ref.tmp165, align 8
   %bf.load.i.i311 = load i64, ptr %153, align 8
   %154 = and i64 %bf.load.i.i311, 1152920405095219200

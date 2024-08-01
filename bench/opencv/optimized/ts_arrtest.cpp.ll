@@ -1008,7 +1008,7 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   br label %154
 
 154:                                              ; preds = %145, %143
-  %.sroa.09.sroa.0.2 = phi i32 [ %153, %145 ], [ 0, %143 ]
+  %.sroa.09.sroa.0.3 = phi i32 [ %153, %145 ], [ 0, %143 ]
   %155 = icmp sgt i32 %.sroa.7.0, %.val129
   br i1 %155, label %156, label %165
 
@@ -1025,7 +1025,7 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   br label %165
 
 165:                                              ; preds = %154, %156, %142
-  %.sroa.09.sroa.0.3 = phi i32 [ %.sroa.09.sroa.0.2, %156 ], [ %.sroa.09.sroa.0.2, %154 ], [ 0, %142 ]
+  %.sroa.09.sroa.0.2 = phi i32 [ %.sroa.09.sroa.0.3, %156 ], [ %.sroa.09.sroa.0.3, %154 ], [ 0, %142 ]
   %.sroa.09.sroa.4.2 = phi i32 [ %164, %156 ], [ 0, %154 ], [ 0, %142 ]
   %.sroa.5.2 = phi i64 [ %.sroa.0.0.insert.insert.i, %156 ], [ %.sroa.0.0.insert.insert.i, %154 ], [ 0, %142 ]
   br i1 %108, label %166, label %191
@@ -1066,7 +1066,7 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   %190 = load ptr, ptr %189, align 8
   %.sroa.09.sroa.4.0.insert.ext14 = zext i32 %.sroa.09.sroa.4.2 to i64
   %.sroa.09.sroa.4.0.insert.shift15 = shl nuw i64 %.sroa.09.sroa.4.0.insert.ext14, 32
-  %.sroa.09.sroa.0.0.insert.ext11 = zext i32 %.sroa.09.sroa.0.3 to i64
+  %.sroa.09.sroa.0.0.insert.ext11 = zext i32 %.sroa.09.sroa.0.2 to i64
   %.sroa.09.sroa.0.0.insert.insert13 = or disjoint i64 %.sroa.09.sroa.4.0.insert.shift15, %.sroa.09.sroa.0.0.insert.ext11
   invoke void @cvSetImageROI(ptr noundef %190, i64 %.sroa.09.sroa.0.0.insert.insert13, i64 %.sroa.5.2)
           to label %213 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1096,7 +1096,7 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   %208 = load ptr, ptr %207, align 8
   %.sroa.09.sroa.4.0.insert.ext = zext i32 %.sroa.09.sroa.4.2 to i64
   %.sroa.09.sroa.4.0.insert.shift = shl nuw i64 %.sroa.09.sroa.4.0.insert.ext, 32
-  %.sroa.09.sroa.0.0.insert.ext = zext i32 %.sroa.09.sroa.0.3 to i64
+  %.sroa.09.sroa.0.0.insert.ext = zext i32 %.sroa.09.sroa.0.2 to i64
   %.sroa.09.sroa.0.0.insert.insert = or disjoint i64 %.sroa.09.sroa.4.0.insert.shift, %.sroa.09.sroa.0.0.insert.ext
   %209 = invoke ptr @cvGetSubRect(ptr noundef %208, ptr noundef nonnull %6, i64 %.sroa.09.sroa.0.0.insert.insert, i64 %.sroa.5.2)
           to label %210 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit

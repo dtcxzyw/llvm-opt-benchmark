@@ -145,7 +145,7 @@ if.end88:                                         ; preds = %if.end85, %if.end70
   br i1 %cmp19, label %while.body, label %if.end94, !llvm.loop !6
 
 while.end.thread:                                 ; preds = %if.then20, %if.end27, %if.then34, %if.end40, %for.body, %if.end53
-  %err.3.ph = phi i32 [ %call50, %for.body ], [ %call56, %if.end53 ], [ %call23, %if.then20 ], [ %call29, %if.end27 ], [ %call36, %if.then34 ], [ %call43, %if.end40 ]
+  %err.1.ph = phi i32 [ %call50, %for.body ], [ %call56, %if.end53 ], [ %call23, %if.then20 ], [ %call29, %if.end27 ], [ %call36, %if.then34 ], [ %call43, %if.end40 ]
   %call9069 = call i32 @wc_HashFree(ptr noundef nonnull %hash, i32 noundef %call) #6
   br label %return
 
@@ -157,7 +157,7 @@ if.end94:                                         ; preds = %if.end88, %while.co
   br label %return
 
 return:                                           ; preds = %while.end.thread, %if.end94, %if.end14, %if.end, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %call11, %if.end ], [ %call15, %if.end14 ], [ %., %if.end94 ], [ %err.3.ph, %while.end.thread ]
+  %retval.0 = phi i32 [ -173, %entry ], [ %call11, %if.end ], [ %call15, %if.end14 ], [ %., %if.end94 ], [ %err.1.ph, %while.end.thread ]
   ret i32 %retval.0
 }
 
@@ -279,21 +279,21 @@ for.body.i.i.us:                                  ; preds = %if.end62.us, %for.b
   br i1 %exitcond.not.i.i.us, label %if.end.i.us, label %for.body.i.i.us, !llvm.loop !8
 
 if.end.i.us:                                      ; preds = %for.body.i.i.us, %if.end62.us
-  %count.addr.1.i.us = phi i32 [ %cond.i.us.mux, %if.end62.us ], [ %rem8.i.us, %for.body.i.i.us ]
-  %b.1.i.us = phi ptr [ %output.addr.045.us, %if.end62.us ], [ %incdec.ptr1.i.i.us, %for.body.i.i.us ]
-  %m.1.i.us = phi ptr [ %buffer, %if.end62.us ], [ %incdec.ptr.i.i.us, %for.body.i.i.us ]
-  %cmp928.not.i.us = icmp eq i32 %count.addr.1.i.us, 0
+  %count.addr.0.i.us = phi i32 [ %cond.i.us.mux, %if.end62.us ], [ %rem8.i.us, %for.body.i.i.us ]
+  %b.0.i.us = phi ptr [ %output.addr.045.us, %if.end62.us ], [ %incdec.ptr1.i.i.us, %for.body.i.i.us ]
+  %m.0.i.us = phi ptr [ %buffer, %if.end62.us ], [ %incdec.ptr.i.i.us, %for.body.i.i.us ]
+  %cmp928.not.i.us = icmp eq i32 %count.addr.0.i.us, 0
   br i1 %cmp928.not.i.us, label %xorbuf.exit.us, label %for.body.preheader.i.us
 
 for.body.preheader.i.us:                          ; preds = %if.end.i.us
-  %wide.trip.count.i.us = zext i32 %count.addr.1.i.us to i64
+  %wide.trip.count.i.us = zext i32 %count.addr.0.i.us to i64
   br label %for.body.i.us
 
 for.body.i.us:                                    ; preds = %for.body.i.us, %for.body.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %for.body.preheader.i.us ], [ %indvars.iv.next.i.us, %for.body.i.us ]
-  %arrayidx.i.us = getelementptr inbounds i8, ptr %m.1.i.us, i64 %indvars.iv.i.us
+  %arrayidx.i.us = getelementptr inbounds i8, ptr %m.0.i.us, i64 %indvars.iv.i.us
   %7 = load i8, ptr %arrayidx.i.us, align 1
-  %arrayidx13.i.us = getelementptr inbounds i8, ptr %b.1.i.us, i64 %indvars.iv.i.us
+  %arrayidx13.i.us = getelementptr inbounds i8, ptr %b.0.i.us, i64 %indvars.iv.i.us
   %8 = load i8, ptr %arrayidx13.i.us, align 1
   %xor1516.i.us = xor i8 %8, %7
   store i8 %xor1516.i.us, ptr %arrayidx13.i.us, align 1
@@ -364,12 +364,12 @@ if.end41:                                         ; preds = %if.end34
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end41, %while.body, %if.end34, %for.body, %for.cond45.if.end70_crit_edge.us, %while.body.us, %if.end34.us, %for.body.us, %if.end55.us, %for.body48.us, %if.then15
-  %ret.5 = phi i32 [ %call17, %if.then15 ], [ %call51.us, %for.body48.us ], [ %call58.us, %if.end55.us ], [ %call26.us, %for.body.us ], [ 0, %for.cond45.if.end70_crit_edge.us ], [ %call20.us, %while.body.us ], [ %call37.us, %if.end34.us ], [ %call26, %for.body ], [ 0, %if.end41 ], [ %call20, %while.body ], [ %call37, %if.end34 ]
+  %ret.2 = phi i32 [ %call17, %if.then15 ], [ %call51.us, %for.body48.us ], [ %call58.us, %if.end55.us ], [ %call26.us, %for.body.us ], [ 0, %for.cond45.if.end70_crit_edge.us ], [ %call20.us, %while.body.us ], [ %call37.us, %if.end34.us ], [ %call26, %for.body ], [ 0, %if.end41 ], [ %call20, %while.body ], [ %call37, %if.end34 ]
   call void @wc_HmacFree(ptr noundef nonnull %hmac) #6
   br label %return
 
 return:                                           ; preds = %if.end12, %while.end, %if.end, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -173, %if.end ], [ %ret.5, %while.end ], [ %call13, %if.end12 ]
+  %retval.0 = phi i32 [ -173, %entry ], [ -173, %if.end ], [ %ret.2, %while.end ], [ %call13, %if.end12 ]
   ret i32 %retval.0
 }
 
@@ -662,14 +662,14 @@ if.else167:                                       ; preds = %if.else151
   br label %if.end176
 
 if.end176:                                        ; preds = %if.else133, %if.else125, %if.end117, %if.then142, %if.else167, %if.then154
-  %ret.3 = phi i32 [ %call145, %if.then142 ], [ %call166, %if.then154 ], [ %call171, %if.else167 ], [ -111, %if.end117 ], [ -115, %if.else125 ], [ -113, %if.else133 ]
+  %ret.5 = phi i32 [ %call145, %if.then142 ], [ %call166, %if.then154 ], [ %call171, %if.else167 ], [ -111, %if.end117 ], [ -115, %if.else125 ], [ -113, %if.else133 ]
   call void @sp_clear(ptr noundef nonnull %i1) #6
   call void @sp_clear(ptr noundef nonnull %res) #6
-  %cmp179 = icmp slt i32 %ret.3, 0
+  %cmp179 = icmp slt i32 %ret.5, 0
   br i1 %cmp179, label %while.end.sink.split, label %for.cond107
 
 if.end190:                                        ; preds = %for.cond107, %for.cond107.preheader
-  %ret.2.lcssa = phi i32 [ 0, %for.cond107.preheader ], [ %ret.3, %for.cond107 ]
+  %ret.3.lcssa = phi i32 [ 0, %for.cond107.preheader ], [ %ret.5, %for.cond107 ]
   %cond.i = call noundef i32 @llvm.umin.i32(i32 %kLen.addr.0102, i32 %call9)
   %conv193 = zext nneg i32 %cond.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %output.addr.0103, ptr nonnull align 16 %Ai, i64 %conv193, i1 false)
@@ -680,12 +680,12 @@ if.end190:                                        ; preds = %for.cond107, %for.c
   br i1 %cmp61, label %while.body, label %while.end, !llvm.loop !17
 
 while.end.sink.split:                             ; preds = %if.end101, %for.end80, %if.else, %if.else92, %for.body110, %if.end176
-  %ret.5.ph = phi i32 [ -110, %for.body110 ], [ %ret.3, %if.end176 ], [ %retval.0.i, %if.end101 ], [ -115, %if.else92 ], [ -111, %if.else ], [ -110, %for.end80 ]
+  %ret.1.ph = phi i32 [ -110, %for.body110 ], [ %ret.5, %if.end176 ], [ %retval.0.i, %if.end101 ], [ -115, %if.else92 ], [ -111, %if.else ], [ -110, %for.end80 ]
   call void @sp_clear(ptr noundef nonnull %B1) #6
   br label %while.end
 
 while.end:                                        ; preds = %if.end190, %DoPKCS12Hash.exit, %while.end.sink.split, %while.cond.preheader
-  %ret.5 = phi i32 [ %call16.fr, %while.cond.preheader ], [ %ret.5.ph, %while.end.sink.split ], [ %ret.2.lcssa, %if.end190 ], [ %retval.0.i, %DoPKCS12Hash.exit ]
+  %ret.1 = phi i32 [ %call16.fr, %while.cond.preheader ], [ %ret.1.ph, %while.end.sink.split ], [ %ret.3.lcssa, %if.end190 ], [ %retval.0.i, %DoPKCS12Hash.exit ]
   br i1 %cmp32, label %return, label %if.then200
 
 if.then200:                                       ; preds = %while.end
@@ -693,7 +693,7 @@ if.then200:                                       ; preds = %while.end
   br label %return
 
 return:                                           ; preds = %while.end, %if.then200, %if.then34, %if.end19, %if.end15, %if.end12, %if.end, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %call9, %if.end ], [ -192, %if.end12 ], [ %call16.fr, %if.end15 ], [ -192, %if.end19 ], [ -125, %if.then34 ], [ %ret.5, %if.then200 ], [ %ret.5, %while.end ]
+  %retval.0 = phi i32 [ -173, %entry ], [ %call9, %if.end ], [ -192, %if.end12 ], [ %call16.fr, %if.end15 ], [ -192, %if.end19 ], [ -125, %if.then34 ], [ %ret.1, %if.then200 ], [ %ret.1, %while.end ]
   ret i32 %retval.0
 }
 

@@ -1053,10 +1053,10 @@ if.then:                                          ; preds = %for.body
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then, %for.body
-  %fixup.1 = phi ptr [ %spec.select23, %if.then ], [ @default_fixup_args, %for.body ]
+  %fixup.0 = phi ptr [ %spec.select23, %if.then ], [ @default_fixup_args, %for.body ]
   store ptr %pctx, ptr %ctx, align 8
   store ptr %params.addr.02529, ptr %params15, align 8
-  %call16 = call i32 %fixup.1(i32 noundef 7, ptr noundef %call.i, ptr noundef nonnull %ctx) #8
+  %call16 = call i32 %fixup.0(i32 noundef 7, ptr noundef %call.i, ptr noundef nonnull %ctx) #8
   %cmp17 = icmp sgt i32 %call16, 0
   %9 = load i32, ptr %action_type12, align 8
   %cmp19 = icmp ne i32 %9, 0
@@ -1077,7 +1077,7 @@ if.end23:                                         ; preds = %if.then20, %if.end1
 
 if.then25:                                        ; preds = %if.end23
   store i32 %ret.0, ptr %p1, align 4
-  %call27 = call i32 %fixup.1(i32 noundef 8, ptr noundef %call.i, ptr noundef nonnull %ctx) #8
+  %call27 = call i32 %fixup.0(i32 noundef 8, ptr noundef %call.i, ptr noundef nonnull %ctx) #8
   %13 = load i32, ptr %p1, align 4
   br label %if.end29
 
@@ -2314,12 +2314,12 @@ if.else96:                                        ; preds = %if.else89
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then92, %if.else96, %if.then85
-  %ret.0 = phi i32 [ -2, %if.then85 ], [ %call49, %if.then92 ], [ %call49, %if.else96 ]
+  %ret.1 = phi i32 [ -2, %if.then85 ], [ %call49, %if.then92 ], [ %call49, %if.else96 ]
   store ptr null, ptr %p272, align 8
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.end101, %if.end48, %entry, %if.then38, %if.then32, %sw.bb21, %sw.bb, %if.then9
-  %retval.0 = phi i32 [ 1, %if.then9 ], [ -2, %if.then32 ], [ -2, %if.then38 ], [ %call24, %sw.bb21 ], [ %call20, %sw.bb ], [ %call, %entry ], [ %call49, %if.end48 ], [ %ret.0, %if.end101 ], [ %call49, %lor.lhs.false ]
+  %retval.0 = phi i32 [ 1, %if.then9 ], [ -2, %if.then32 ], [ -2, %if.then38 ], [ %call24, %sw.bb21 ], [ %call20, %sw.bb ], [ %call, %entry ], [ %call49, %if.end48 ], [ %ret.1, %if.end101 ], [ %call49, %lor.lhs.false ]
   ret i32 %retval.0
 }
 
@@ -2841,21 +2841,21 @@ for.body.lr.ph:                                   ; preds = %if.then34
   br i1 %cmp3869, label %if.end47, label %for.inc
 
 for.body:                                         ; preds = %for.inc
-  %incdec.ptr = getelementptr inbounds i8, ptr %kdf_type_map.addr.05670, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %kdf_type_map.addr.15670, i64 16
   %7 = load i32, ptr %incdec.ptr, align 8
   %cmp38 = icmp eq i32 %5, %7
   br i1 %cmp38, label %if.end47, label %for.inc, !llvm.loop !12
 
 for.inc:                                          ; preds = %for.body.lr.ph, %for.body
-  %kdf_type_map.addr.05670 = phi ptr [ %incdec.ptr, %for.body ], [ %kdf_type_map, %for.body.lr.ph ]
-  %kdf_type_str = getelementptr inbounds i8, ptr %kdf_type_map.addr.05670, i64 24
+  %kdf_type_map.addr.15670 = phi ptr [ %incdec.ptr, %for.body ], [ %kdf_type_map, %for.body.lr.ph ]
+  %kdf_type_str = getelementptr inbounds i8, ptr %kdf_type_map.addr.15670, i64 24
   %8 = load ptr, ptr %kdf_type_str, align 8
   %cmp35.not = icmp eq ptr %8, null
   br i1 %cmp35.not, label %return, label %for.body, !llvm.loop !12
 
 if.end47:                                         ; preds = %for.body, %for.body.lr.ph
   %.lcssa = phi ptr [ %4, %for.body.lr.ph ], [ %8, %for.body ]
-  %kdf_type_map.addr.056.lcssa = phi ptr [ %kdf_type_map, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
+  %kdf_type_map.addr.156.lcssa = phi ptr [ %kdf_type_map, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
   %p242 = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %.lcssa, ptr %p242, align 8
   %call49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.lcssa) #9
@@ -2864,7 +2864,7 @@ if.end47:                                         ; preds = %for.body, %for.body
   br label %if.end52
 
 if.end52:                                         ; preds = %land.lhs.true, %if.end47, %land.lhs.true30, %lor.lhs.false
-  %kdf_type_map.addr.1 = phi ptr [ %kdf_type_map.addr.056.lcssa, %if.end47 ], [ %kdf_type_map, %land.lhs.true30 ], [ %kdf_type_map, %lor.lhs.false ], [ %kdf_type_map, %land.lhs.true ]
+  %kdf_type_map.addr.0 = phi ptr [ %kdf_type_map.addr.156.lcssa, %if.end47 ], [ %kdf_type_map, %land.lhs.true30 ], [ %kdf_type_map, %lor.lhs.false ], [ %kdf_type_map, %land.lhs.true ]
   %call53 = tail call i32 @default_fixup_args(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx)
   %cmp54 = icmp slt i32 %call53, 1
   br i1 %cmp54, label %return, label %if.end57
@@ -2892,7 +2892,7 @@ land.lhs.true67:                                  ; preds = %if.end57
 if.then71:                                        ; preds = %land.lhs.true67, %land.lhs.true60
   %p172 = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 -1, ptr %p172, align 4
-  %kdf_type_str7457 = getelementptr inbounds i8, ptr %kdf_type_map.addr.1, i64 8
+  %kdf_type_str7457 = getelementptr inbounds i8, ptr %kdf_type_map.addr.0, i64 8
   %11 = load ptr, ptr %kdf_type_str7457, align 8
   %cmp75.not58 = icmp eq ptr %11, null
   br i1 %cmp75.not58, label %for.end89, label %for.body77.lr.ph
@@ -2903,7 +2903,7 @@ for.body77.lr.ph:                                 ; preds = %if.then71
 
 for.body77:                                       ; preds = %for.body77.lr.ph, %for.inc87
   %12 = phi ptr [ %11, %for.body77.lr.ph ], [ %15, %for.inc87 ]
-  %kdf_type_map.addr.259 = phi ptr [ %kdf_type_map.addr.1, %for.body77.lr.ph ], [ %incdec.ptr88, %for.inc87 ]
+  %kdf_type_map.addr.259 = phi ptr [ %kdf_type_map.addr.0, %for.body77.lr.ph ], [ %incdec.ptr88, %for.inc87 ]
   %13 = load ptr, ptr %p278, align 8
   %call80 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %13, ptr noundef nonnull %12) #8
   %cmp81 = icmp eq i32 %call80, 0
@@ -2922,7 +2922,7 @@ for.inc87:                                        ; preds = %for.body77
   br i1 %cmp75.not, label %for.end89, label %for.body77, !llvm.loop !13
 
 for.end89:                                        ; preds = %for.inc87, %if.then71, %if.then83
-  %ret.1 = phi i32 [ 1, %if.then83 ], [ -1, %if.then71 ], [ -1, %for.inc87 ]
+  %ret.2 = phi i32 [ 1, %if.then83 ], [ -1, %if.then71 ], [ -1, %for.inc87 ]
   %p290 = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr null, ptr %p290, align 8
   br label %return
@@ -2933,7 +2933,7 @@ if.then98:                                        ; preds = %land.lhs.true67
   br label %return
 
 return:                                           ; preds = %for.inc, %if.then34, %land.lhs.true67, %if.end57, %land.lhs.true60, %if.end17.thread, %if.then98, %for.end89, %if.end52, %if.end17, %if.then2, %entry
-  %retval.0 = phi i32 [ %call, %entry ], [ 0, %if.then2 ], [ %call18, %if.end17 ], [ %call53, %if.end52 ], [ %ret.1, %for.end89 ], [ %call53, %if.then98 ], [ %call1846, %if.end17.thread ], [ %call53, %land.lhs.true60 ], [ %call53, %if.end57 ], [ %call53, %land.lhs.true67 ], [ -2, %if.then34 ], [ -2, %for.inc ]
+  %retval.0 = phi i32 [ %call, %entry ], [ 0, %if.then2 ], [ %call18, %if.end17 ], [ %call53, %if.end52 ], [ %ret.2, %for.end89 ], [ %call53, %if.then98 ], [ %call1846, %if.end17.thread ], [ %call53, %land.lhs.true60 ], [ %call53, %if.end57 ], [ %call53, %land.lhs.true67 ], [ -2, %if.then34 ], [ -2, %for.inc ]
   ret i32 %retval.0
 }
 

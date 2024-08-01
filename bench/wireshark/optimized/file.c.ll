@@ -814,8 +814,8 @@ progress_is_slow.exit:                            ; preds = %142, %138
   %149 = uitofp nneg i64 %148 to float
   %150 = fdiv float %143, %149
   %151 = icmp slt i64 %148, 0
-  %.0.i131 = select i1 %151, float %144, float %150
-  %152 = fcmp ogt float %.0.i131, 1.000000e+00
+  %.1.i = select i1 %151, float %144, float %150
+  %152 = fcmp ogt float %.1.i, 1.000000e+00
   br i1 %152, label %153, label %calc_progbar_val.exit
 
 153:                                              ; preds = %146
@@ -823,12 +823,12 @@ progress_is_slow.exit:                            ; preds = %142, %138
 
 calc_progbar_val.exit:                            ; preds = %progress_is_slow.exit, %146, %153
   %.012.i = phi i64 [ %148, %153 ], [ %148, %146 ], [ %81, %progress_is_slow.exit ]
-  %.1.i = phi float [ 1.000000e+00, %153 ], [ %.0.i131, %146 ], [ %144, %progress_is_slow.exit ]
+  %.0.i131 = phi float [ 1.000000e+00, %153 ], [ %.1.i, %146 ], [ %144, %progress_is_slow.exit ]
   %154 = sdiv i64 %133, 1024
   %155 = sdiv i64 %.012.i, 1024
   %156 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %23, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %154, i64 noundef %155) #21
   %157 = load ptr, ptr %106, align 8
-  %158 = call ptr @delayed_create_progress_dlg(ptr noundef %157, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %69, float noundef %.1.i) #21
+  %158 = call ptr @delayed_create_progress_dlg(ptr noundef %157, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %69, float noundef %.0.i131) #21
   store volatile ptr %158, ptr %9, align 8
   br label %progress_is_slow.exit.thread
 
@@ -854,8 +854,8 @@ progress_is_slow.exit.thread:                     ; preds = %138, %142, %131, %c
   %169 = uitofp nneg i64 %168 to float
   %170 = fdiv float %163, %169
   %171 = icmp slt i64 %168, 0
-  %.0.i134 = select i1 %171, float %164, float %170
-  %172 = fcmp ogt float %.0.i134, 1.000000e+00
+  %.1.i134 = select i1 %171, float %164, float %170
+  %172 = fcmp ogt float %.1.i134, 1.000000e+00
   br i1 %172, label %173, label %calc_progbar_val.exit135
 
 173:                                              ; preds = %166
@@ -863,12 +863,12 @@ progress_is_slow.exit.thread:                     ; preds = %138, %142, %131, %c
 
 calc_progbar_val.exit135:                         ; preds = %162, %166, %173
   %.012.i132 = phi i64 [ %168, %173 ], [ %168, %166 ], [ %81, %162 ]
-  %.1.i133 = phi float [ 1.000000e+00, %173 ], [ %.0.i134, %166 ], [ %164, %162 ]
+  %.0.i133 = phi float [ 1.000000e+00, %173 ], [ %.1.i134, %166 ], [ %164, %162 ]
   %174 = sdiv i64 %133, 1024
   %175 = sdiv i64 %.012.i132, 1024
   %176 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %23, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %174, i64 noundef %175) #21
   %.0..0..0..0.37 = load volatile ptr, ptr %9, align 8
-  call void @update_progress_dlg(ptr noundef %.0..0..0..0.37, float noundef %.1.i133, ptr noundef nonnull %23) #21
+  call void @update_progress_dlg(ptr noundef %.0..0..0..0.37, float noundef %.0.i133, ptr noundef nonnull %23) #21
   %177 = call i64 @g_get_monotonic_time() #21
   %178 = sub i64 %177, %70
   %179 = sdiv i64 %178, 1000
@@ -1473,7 +1473,7 @@ define internal fastcc void @rescan_packets(ptr noundef %0, ptr noundef %1, ptr 
   br label %79
 
 79:                                               ; preds = %77, %73
-  %.0152 = phi i32 [ 1, %73 ], [ %spec.select, %77 ]
+  %.1153 = phi i32 [ 1, %73 ], [ %spec.select, %77 ]
   %.not202 = icmp eq ptr %50, null
   br i1 %.not202, label %80, label %82
 
@@ -1484,13 +1484,13 @@ define internal fastcc void @rescan_packets(ptr noundef %0, ptr noundef %1, ptr 
   br label %82
 
 82:                                               ; preds = %80, %79
-  %.0154 = phi ptr [ %50, %79 ], [ %spec.select217, %80 ]
+  %.1155 = phi ptr [ %50, %79 ], [ %spec.select217, %80 ]
   call void @packet_list_clear() #21
   br label %83
 
 83:                                               ; preds = %82, %59
-  %.1155 = phi ptr [ %.0154, %82 ], [ %50, %59 ]
-  %.1153 = phi i32 [ %.0152, %82 ], [ %61, %59 ]
+  %.0154 = phi ptr [ %.1155, %82 ], [ %50, %59 ]
+  %.0152 = phi i32 [ %.1153, %82 ], [ %61, %59 ]
   %.0149 = phi i32 [ 1, %82 ], [ 0, %59 ]
   %84 = getelementptr inbounds i8, ptr %0, i64 296
   store i32 0, ptr %84, align 8
@@ -1526,7 +1526,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %83
   %96 = getelementptr inbounds i8, ptr %0, i64 80
   %97 = load i32, ptr %96, align 8
   %98 = load ptr, ptr %0, align 8
-  call void @epan_dissect_init(ptr noundef nonnull %10, ptr noundef %98, i32 noundef %.1153, i32 noundef 0) #21
+  call void @epan_dissect_init(ptr noundef nonnull %10, ptr noundef %98, i32 noundef %.0152, i32 noundef 0) #21
   br i1 %64, label %99, label %104
 
 99:                                               ; preds = %cf_callback_invoke.exit
@@ -1562,7 +1562,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %83
   %.0168269 = phi ptr [ null, %.lr.ph ], [ %.1169234, %164 ]
   %.0170268 = phi ptr [ null, %.lr.ph ], [ %.1171, %164 ]
   %.0173267 = phi i32 [ 0, %.lr.ph ], [ %130, %164 ]
-  %.0174266 = phi ptr [ null, %.lr.ph ], [ %.1175, %164 ]
+  %.0174266 = phi ptr [ null, %.lr.ph ], [ %.2176, %164 ]
   %109 = load ptr, ptr %105, align 8
   %110 = call ptr @frame_data_sequence_find(ptr noundef %109, i32 noundef %.0150277) #21
   %111 = icmp eq ptr %.0174266, null
@@ -1574,7 +1574,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %83
   br label %115
 
 115:                                              ; preds = %112, %108
-  %.1175 = phi ptr [ %114, %112 ], [ %.0174266, %108 ]
+  %.2176 = phi ptr [ %114, %112 ], [ %.0174266, %108 ]
   %116 = call double @g_timer_elapsed(ptr noundef %12, ptr noundef null) #21
   %117 = fcmp ogt double %116, 1.500000e-01
   br i1 %117, label %118, label %125
@@ -1583,12 +1583,12 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %83
   %119 = sitofp i32 %.0173267 to float
   %120 = uitofp i32 %.0147278 to float
   %121 = fdiv float %119, %120
-  %.not205 = icmp eq ptr %.1175, null
+  %.not205 = icmp eq ptr %.2176, null
   br i1 %.not205, label %124, label %122
 
 122:                                              ; preds = %118
   %123 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 100, ptr noundef nonnull @.str.49, i32 noundef %.0173267, i32 noundef %.0147278) #21
-  call void @update_progress_dlg(ptr noundef nonnull %.1175, float noundef %121, ptr noundef nonnull %9) #21
+  call void @update_progress_dlg(ptr noundef nonnull %.2176, float noundef %121, ptr noundef nonnull %9) #21
   br label %124
 
 124:                                              ; preds = %122, %118
@@ -1661,7 +1661,7 @@ cf_read_record.exit.thread:                       ; preds = %133
   %.1171 = phi ptr [ %.0170268, %145 ], [ %spec.select218, %148 ]
   %.1164 = phi i32 [ %.0163272, %145 ], [ %spec.select219, %148 ]
   %153 = load ptr, ptr %23, align 8
-  call fastcc void @add_packet_to_packet_list(ptr noundef nonnull %110, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %153, ptr noundef %.1155, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.0149)
+  call fastcc void @add_packet_to_packet_list(ptr noundef nonnull %110, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %153, ptr noundef %.0154, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.0149)
   %154 = load i16, ptr %134, align 2
   %155 = and i16 %154, 1
   %156 = icmp ne i16 %155, 0
@@ -1712,7 +1712,7 @@ cf_read_record.exit.thread:                       ; preds = %133
   %.0163258 = phi i32 [ %.0163272, %cf_read_record.exit.thread ], [ -1, %104 ], [ %.1164, %164 ], [ %.0163272, %125 ], [ %.0163272, %127 ]
   %.0161256 = phi i32 [ %.0161273, %cf_read_record.exit.thread ], [ -1, %104 ], [ %.1162236, %164 ], [ %.0161273, %125 ], [ %.0161273, %127 ]
   %.0150254 = phi i32 [ %.0150277, %cf_read_record.exit.thread ], [ 1, %104 ], [ %166, %164 ], [ %.0150277, %125 ], [ %.0150277, %127 ]
-  %.2176 = phi ptr [ %.1175, %cf_read_record.exit.thread ], [ null, %104 ], [ %.1175, %127 ], [ %.1175, %125 ], [ %.1175, %164 ]
+  %.1175 = phi ptr [ %.2176, %cf_read_record.exit.thread ], [ null, %104 ], [ %.2176, %127 ], [ %.2176, %125 ], [ %.2176, %164 ]
   %.1 = phi i32 [ 0, %cf_read_record.exit.thread ], [ 0, %104 ], [ 0, %164 ], [ %126, %125 ], [ 0, %127 ]
   call void @epan_dissect_cleanup(ptr noundef nonnull %10) #21
   call void @wtap_rec_cleanup(ptr noundef nonnull %7) #21
@@ -1740,11 +1740,11 @@ cf_read_record.exit.thread:                       ; preds = %133
   br i1 %.not211, label %.loopexit, label %171, !llvm.loop !10
 
 .loopexit:                                        ; preds = %171, %168, %.loopexit252
-  %.not212 = icmp eq ptr %.2176, null
+  %.not212 = icmp eq ptr %.1175, null
   br i1 %.not212, label %176, label %175
 
 175:                                              ; preds = %.loopexit
-  call void @destroy_progress_dlg(ptr noundef nonnull %.2176) #21
+  call void @destroy_progress_dlg(ptr noundef nonnull %.1175) #21
   br label %176
 
 176:                                              ; preds = %175, %.loopexit
@@ -2841,7 +2841,7 @@ define internal fastcc range(i32 0, 3) i32 @process_specified_records(ptr nounde
   %.04870 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %64 ]
   %.04969 = phi i32 [ 0, %.lr.ph ], [ %49, %64 ]
   %.05068 = phi i32 [ 1, %.lr.ph ], [ %65, %64 ]
-  %.05167 = phi ptr [ null, %.lr.ph ], [ %.152, %64 ]
+  %.05167 = phi ptr [ null, %.lr.ph ], [ %.2, %64 ]
   %30 = load ptr, ptr %25, align 8
   %31 = call ptr @frame_data_sequence_find(ptr noundef %30, i32 noundef %.05068) #21
   %32 = icmp eq ptr %.05167, null
@@ -2854,8 +2854,8 @@ define internal fastcc range(i32 0, 3) i32 @process_specified_records(ptr nounde
   br label %36
 
 36:                                               ; preds = %33, %29
-  %.152 = phi ptr [ %35, %33 ], [ %.05167, %29 ]
-  %.not59 = icmp eq ptr %.152, null
+  %.2 = phi ptr [ %35, %33 ], [ %.05167, %29 ]
+  %.not59 = icmp eq ptr %.2, null
   br i1 %.not59, label %46, label %37
 
 37:                                               ; preds = %36
@@ -2869,7 +2869,7 @@ define internal fastcc range(i32 0, 3) i32 @process_specified_records(ptr nounde
   %43 = uitofp i32 %42 to float
   %44 = fdiv float %41, %43
   %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 100, ptr noundef nonnull @.str.51, i32 noundef %.04969, i32 noundef %42) #21
-  call void @update_progress_dlg(ptr noundef nonnull %.152, float noundef %44, ptr noundef nonnull %12) #21
+  call void @update_progress_dlg(ptr noundef nonnull %.2, float noundef %44, ptr noundef nonnull %12) #21
   call void @g_timer_start(ptr noundef %13) #21
   br label %46
 
@@ -2929,11 +2929,11 @@ cf_read_record.exit.thread:                       ; preds = %52
 
 .loopexit:                                        ; preds = %64, %46, %50, %61, %cf_read_record.exit.thread
   %.053 = phi i32 [ 2, %cf_read_record.exit.thread ], [ 0, %64 ], [ 1, %46 ], [ 0, %50 ], [ 2, %61 ]
-  %.not63 = icmp eq ptr %.152, null
+  %.not63 = icmp eq ptr %.2, null
   br i1 %.not63, label %.loopexit.thread, label %67
 
 67:                                               ; preds = %.loopexit
-  call void @destroy_progress_dlg(ptr noundef nonnull %.152) #21
+  call void @destroy_progress_dlg(ptr noundef nonnull %.2) #21
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %22, %67, %.loopexit
@@ -3072,7 +3072,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
 
 55:                                               ; preds = %.lr.ph109, %125
   %indvars.iv = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next, %125 ]
-  %.073107 = phi ptr [ %29, %.lr.ph109 ], [ %.3, %125 ]
+  %.073107 = phi ptr [ %29, %.lr.ph109 ], [ %.1, %125 ]
   %.074106 = phi i32 [ 0, %.lr.ph109 ], [ %.175, %125 ]
   %.080105 = phi i32 [ 0, %.lr.ph109 ], [ %.181, %125 ]
   %56 = load ptr, ptr @prefs, align 8
@@ -3161,11 +3161,11 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
 111:                                              ; preds = %99, %87
   %112 = phi ptr [ %.pre114, %99 ], [ %92, %87 ]
   %113 = phi i32 [ %.pre, %99 ], [ %88, %87 ]
-  %.1 = phi ptr [ %110, %99 ], [ %.073107, %87 ]
+  %.2 = phi ptr [ %110, %99 ], [ %.073107, %87 ]
   %114 = sext i32 %95 to i64
-  %115 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1, i64 noundef %114, ptr noundef nonnull @.str.25, i32 noundef %113, ptr noundef %112) #21
+  %115 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.2, i64 noundef %114, ptr noundef nonnull @.str.25, i32 noundef %113, ptr noundef %112) #21
   %116 = sext i32 %spec.select99 to i64
-  %117 = getelementptr i8, ptr %.1, i64 %116
+  %117 = getelementptr i8, ptr %.2, i64 %116
   %118 = load i32, ptr %51, align 8
   %119 = add i32 %118, -1
   %120 = zext i32 %119 to i64
@@ -3178,14 +3178,14 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   br label %123
 
 123:                                              ; preds = %121, %111
-  %.2 = phi ptr [ %122, %121 ], [ %117, %111 ]
+  %.3 = phi ptr [ %122, %121 ], [ %117, %111 ]
   %124 = add i32 %.074106, 1
   br label %125
 
 125:                                              ; preds = %60, %55, %123
   %.181 = phi i32 [ %.080105, %55 ], [ %.080105, %60 ], [ %96, %123 ]
   %.175 = phi i32 [ %.074106, %55 ], [ %.074106, %60 ], [ %124, %123 ]
-  %.3 = phi ptr [ %.073107, %55 ], [ %.073107, %60 ], [ %.2, %123 ]
+  %.1 = phi ptr [ %.073107, %55 ], [ %.073107, %60 ], [ %.3, %123 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %51, align 8
   %127 = sext i32 %126 to i64
@@ -3193,7 +3193,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   br i1 %128, label %55, label %._crit_edge110, !llvm.loop !17
 
 ._crit_edge110:                                   ; preds = %125, %47
-  %.073.lcssa = phi ptr [ %29, %47 ], [ %.3, %125 ]
+  %.073.lcssa = phi ptr [ %29, %47 ], [ %.1, %125 ]
   store i8 0, ptr %.073.lcssa, align 1
   %129 = load i32, ptr %9, align 8
   store i32 %129, ptr %13, align 8
@@ -7750,7 +7750,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %16
 
 76:                                               ; preds = %64, %74
   %.sink = phi ptr [ %75, %74 ], [ %1, %64 ]
-  %.0105 = phi ptr [ %75, %74 ], [ null, %64 ]
+  %.2 = phi ptr [ %75, %74 ], [ null, %64 ]
   %77 = call ptr @wtap_dump_open(ptr noundef %.sink, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %7) #21
   %78 = getelementptr inbounds i8, ptr %11, i64 32
   %79 = load ptr, ptr %78, align 8
@@ -7780,11 +7780,11 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %16
 
 89:                                               ; preds = %84
   %90 = call i32 @wtap_dump_close(ptr noundef nonnull %77, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %7) #21
-  %.not114 = icmp eq ptr %.0105, null
+  %.not114 = icmp eq ptr %.2, null
   br i1 %.not114, label %93, label %91
 
 91:                                               ; preds = %89
-  %92 = call i32 @unlink(ptr noundef nonnull %.0105) #21
+  %92 = call i32 @unlink(ptr noundef nonnull %.2) #21
   br label %93
 
 93:                                               ; preds = %91, %89
@@ -7809,11 +7809,11 @@ cf_callback_invoke.exit133:                       ; preds = %.lr.ph.i129, %93
   br label %cf_callback_invoke.exit161
 
 99:                                               ; preds = %84
-  %.not115 = icmp eq ptr %.0105, null
+  %.not115 = icmp eq ptr %.2, null
   br i1 %.not115, label %102, label %100
 
 100:                                              ; preds = %99
-  %101 = call i32 @unlink(ptr noundef nonnull %.0105) #21
+  %101 = call i32 @unlink(ptr noundef nonnull %.2) #21
   br label %102
 
 102:                                              ; preds = %100, %99
@@ -7838,7 +7838,7 @@ cf_callback_invoke.exit133:                       ; preds = %.lr.ph.i129, %93
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %109
-  %.1106 = phi ptr [ %.0105, %109 ], [ %56, %55 ]
+  %.1106 = phi ptr [ %.2, %109 ], [ %56, %55 ]
   %.1 = phi i32 [ 2, %109 ], [ 1, %55 ]
   %.not117 = icmp eq ptr %.1106, null
   br i1 %.not117, label %.critedge.thread, label %110
@@ -8064,14 +8064,14 @@ cf_callback_invoke.exit147:                       ; preds = %.lr.ph.i150, %.lr.p
   br label %cf_callback_invoke.exit161
 
 192:                                              ; preds = %55, %106, %102, %81
-  %.2 = phi ptr [ %.0105, %81 ], [ %.0105, %106 ], [ %.0105, %102 ], [ %56, %55 ]
-  %.not126 = icmp eq ptr %.2, null
+  %.0105 = phi ptr [ %.2, %81 ], [ %.2, %106 ], [ %.2, %102 ], [ %56, %55 ]
+  %.not126 = icmp eq ptr %.0105, null
   br i1 %.not126, label %.thread, label %193
 
 193:                                              ; preds = %.thread168, %192
-  %.2171 = phi ptr [ %.1106, %.thread168 ], [ %.2, %192 ]
-  %194 = call i32 @unlink(ptr noundef nonnull %.2171) #21
-  call void @g_free(ptr noundef nonnull %.2171) #21
+  %.0105171 = phi ptr [ %.1106, %.thread168 ], [ %.0105, %192 ]
+  %194 = call i32 @unlink(ptr noundef nonnull %.0105171) #21
+  call void @g_free(ptr noundef nonnull %.0105171) #21
   br label %.thread
 
 .thread:                                          ; preds = %52, %60, %193, %192
@@ -8412,8 +8412,8 @@ progress_is_slow.exit:                            ; preds = %81, %77
   %89 = uitofp nneg i64 %88 to float
   %90 = fdiv float %83, %89
   %91 = icmp slt i64 %88, 0
-  %.0.i88 = select i1 %91, float %84, float %90
-  %92 = fcmp ogt float %.0.i88, 1.000000e+00
+  %.1.i = select i1 %91, float %84, float %90
+  %92 = fcmp ogt float %.1.i, 1.000000e+00
   br i1 %92, label %93, label %progress_is_slow.exit.thread
 
 93:                                               ; preds = %86
@@ -8421,17 +8421,17 @@ progress_is_slow.exit:                            ; preds = %81, %77
 
 progress_is_slow.exit.thread:                     ; preds = %93, %86, %progress_is_slow.exit
   %.012.i = phi i64 [ %88, %93 ], [ %88, %86 ], [ %51, %progress_is_slow.exit ]
-  %.1.i = phi float [ 1.000000e+00, %93 ], [ %.0.i88, %86 ], [ %84, %progress_is_slow.exit ]
+  %.0.i88 = phi float [ 1.000000e+00, %93 ], [ %.1.i, %86 ], [ %84, %progress_is_slow.exit ]
   %94 = sdiv i64 %82, 1024
   %95 = sdiv i64 %.012.i, 1024
   %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %94, i64 noundef %95) #21
   %97 = load ptr, ptr %59, align 8
-  %98 = call ptr @delayed_create_progress_dlg(ptr noundef %97, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %52, float noundef %.1.i) #21
+  %98 = call ptr @delayed_create_progress_dlg(ptr noundef %97, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %52, float noundef %.0.i88) #21
   %.not81 = icmp eq ptr %98, null
   br i1 %.not81, label %progress_is_slow.exit.thread.thread, label %progress_is_slow.exit.thread.thread107
 
 progress_is_slow.exit.thread.thread107:           ; preds = %70, %progress_is_slow.exit.thread
-  %.1110 = phi ptr [ %98, %progress_is_slow.exit.thread ], [ %.071112, %70 ]
+  %.3110 = phi ptr [ %98, %progress_is_slow.exit.thread ], [ %.071112, %70 ]
   %99 = call double @g_timer_elapsed(ptr noundef %10, ptr noundef null) #21
   %100 = fcmp ogt double %99, 1.500000e-01
   br i1 %100, label %101, label %progress_is_slow.exit.thread.thread
@@ -8449,8 +8449,8 @@ progress_is_slow.exit.thread.thread107:           ; preds = %70, %progress_is_sl
   %109 = uitofp nneg i64 %108 to float
   %110 = fdiv float %103, %109
   %111 = icmp slt i64 %108, 0
-  %.0.i91 = select i1 %111, float %104, float %110
-  %112 = fcmp ogt float %.0.i91, 1.000000e+00
+  %.1.i91 = select i1 %111, float %104, float %110
+  %112 = fcmp ogt float %.1.i91, 1.000000e+00
   br i1 %112, label %113, label %calc_progbar_val.exit92
 
 113:                                              ; preds = %106
@@ -8458,11 +8458,11 @@ progress_is_slow.exit.thread.thread107:           ; preds = %70, %progress_is_sl
 
 calc_progbar_val.exit92:                          ; preds = %101, %106, %113
   %.012.i89 = phi i64 [ %108, %113 ], [ %108, %106 ], [ %51, %101 ]
-  %.1.i90 = phi float [ 1.000000e+00, %113 ], [ %.0.i91, %106 ], [ %104, %101 ]
+  %.0.i90 = phi float [ 1.000000e+00, %113 ], [ %.1.i91, %106 ], [ %104, %101 ]
   %114 = sdiv i64 %102, 1024
   %115 = sdiv i64 %.012.i89, 1024
   %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %114, i64 noundef %115) #21
-  call void @update_progress_dlg(ptr noundef nonnull %.1110, float noundef %.1.i90, ptr noundef nonnull %9) #21
+  call void @update_progress_dlg(ptr noundef nonnull %.3110, float noundef %.0.i90, ptr noundef nonnull %9) #21
   %117 = call i64 @g_get_monotonic_time() #21
   %118 = sub i64 %117, %53
   %119 = sdiv i64 %118, 1000
@@ -8472,7 +8472,7 @@ calc_progbar_val.exit92:                          ; preds = %101, %106, %113
   br label %progress_is_slow.exit.thread.thread
 
 progress_is_slow.exit.thread.thread:              ; preds = %77, %81, %progress_is_slow.exit.thread, %progress_is_slow.exit.thread.thread107, %calc_progbar_val.exit92, %69
-  %.2 = phi ptr [ %.1110, %calc_progbar_val.exit92 ], [ %.1110, %progress_is_slow.exit.thread.thread107 ], [ null, %progress_is_slow.exit.thread ], [ %.071112, %69 ], [ null, %81 ], [ null, %77 ]
+  %.2 = phi ptr [ %.3110, %calc_progbar_val.exit92 ], [ %.3110, %progress_is_slow.exit.thread.thread107 ], [ null, %progress_is_slow.exit.thread ], [ %.071112, %69 ], [ null, %81 ], [ null, %77 ]
   %120 = load i32, ptr %52, align 8
   %.not82 = icmp eq i32 %120, 0
   br i1 %.not82, label %121, label %progress_is_slow.exit.thread.thread._crit_edge
@@ -8525,15 +8525,15 @@ cf_add_encapsulation_type.exit:                   ; preds = %131, %._crit_edge.i
   br i1 %.not78, label %progress_is_slow.exit.thread.thread._crit_edge, label %62, !llvm.loop !53
 
 progress_is_slow.exit.thread.thread._crit_edge:   ; preds = %136, %progress_is_slow.exit.thread.thread, %cf_callback_invoke.exit
-  %.3 = phi ptr [ null, %cf_callback_invoke.exit ], [ %.2, %progress_is_slow.exit.thread.thread ], [ %.2, %136 ]
+  %.1 = phi ptr [ null, %cf_callback_invoke.exit ], [ %.2, %progress_is_slow.exit.thread.thread ], [ %.2, %136 ]
   call void @wtap_rec_cleanup(ptr noundef nonnull %4) #21
   call void @ws_buffer_free(ptr noundef nonnull %5) #21
   call void @g_free(ptr noundef %41) #21
-  %.not83 = icmp eq ptr %.3, null
+  %.not83 = icmp eq ptr %.1, null
   br i1 %.not83, label %140, label %139
 
 139:                                              ; preds = %progress_is_slow.exit.thread.thread._crit_edge
-  call void @destroy_progress_dlg(ptr noundef nonnull %.3) #21
+  call void @destroy_progress_dlg(ptr noundef nonnull %.1) #21
   br label %140
 
 140:                                              ; preds = %139, %progress_is_slow.exit.thread.thread._crit_edge

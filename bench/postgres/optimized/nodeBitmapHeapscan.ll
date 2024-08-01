@@ -667,15 +667,15 @@ BitmapDoneInitializingSharedState.exit:           ; preds = %81, %83
   br label %96
 
 96:                                               ; preds = %85, %91, %37, %42
-  %.1105 = phi ptr [ %87, %91 ], [ %87, %85 ], [ null, %42 ], [ null, %37 ]
-  %.1 = phi ptr [ null, %91 ], [ null, %85 ], [ %38, %42 ], [ %38, %37 ]
+  %.2106 = phi ptr [ %87, %91 ], [ %87, %85 ], [ null, %42 ], [ null, %37 ]
+  %.2 = phi ptr [ null, %91 ], [ null, %85 ], [ %38, %42 ], [ %38, %37 ]
   store i8 1, ptr %19, align 8
   br label %97
 
 97:                                               ; preds = %.thread, %96, %22
-  %.1108 = phi ptr [ %18, %22 ], [ null, %96 ], [ %18, %.thread ]
-  %.2106 = phi ptr [ null, %22 ], [ %.1105, %96 ], [ %26, %.thread ]
-  %.2 = phi ptr [ %24, %22 ], [ %.1, %96 ], [ null, %.thread ]
+  %.0107 = phi ptr [ %18, %22 ], [ null, %96 ], [ %18, %.thread ]
+  %.1105 = phi ptr [ null, %22 ], [ %.2106, %96 ], [ %26, %.thread ]
+  %.1 = phi ptr [ %24, %22 ], [ %.2, %96 ], [ null, %.thread ]
   %98 = getelementptr inbounds i8, ptr %4, i64 24
   %99 = getelementptr inbounds i8, ptr %0, i64 304
   %100 = getelementptr inbounds i8, ptr %4, i64 16
@@ -696,7 +696,7 @@ BitmapDoneInitializingSharedState.exit:           ; preds = %81, %83
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %97
-  %.2109 = phi ptr [ %.1108, %97 ], [ %.2109.be, %.backedge.backedge ]
+  %.2109 = phi ptr [ %.0107, %97 ], [ %.2109.be, %.backedge.backedge ]
   %115 = load volatile i32, ptr @InterruptPending, align 4
   %.not119 = icmp eq i32 %115, 0
   br i1 %.not119, label %117, label %116
@@ -713,11 +713,11 @@ BitmapDoneInitializingSharedState.exit:           ; preds = %81, %83
   br i1 %16, label %120, label %122
 
 120:                                              ; preds = %119
-  %121 = call ptr @tbm_iterate(ptr noundef %.2) #6
+  %121 = call ptr @tbm_iterate(ptr noundef %.1) #6
   br label %124
 
 122:                                              ; preds = %119
-  %123 = call ptr @tbm_shared_iterate(ptr noundef %.2106) #6
+  %123 = call ptr @tbm_shared_iterate(ptr noundef %.1105) #6
   br label %124
 
 124:                                              ; preds = %122, %120

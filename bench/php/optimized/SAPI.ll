@@ -1124,13 +1124,13 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br label %51
 
 51:                                               ; preds = %.preheader252, %53
-  %.0185 = phi i64 [ %52, %53 ], [ %32, %.preheader252 ]
-  %52 = add i64 %.0185, -1
+  %.1 = phi i64 [ %52, %53 ], [ %32, %.preheader252 ]
+  %52 = add i64 %.1, -1
   %.not213 = icmp eq i64 %52, 0
   br i1 %.not213, label %.critedge, label %53
 
 53:                                               ; preds = %51
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0185
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.1
   %54 = load i8, ptr %gep, align 1
   %55 = sext i8 %54 to i64
   %56 = getelementptr inbounds i16, ptr %43, i64 %55
@@ -1145,7 +1145,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br label %60
 
 60:                                               ; preds = %.critedge, %41
-  %.1 = phi i64 [ %52, %.critedge ], [ %32, %41 ]
+  %.0185 = phi i64 [ %52, %.critedge ], [ %32, %41 ]
   %61 = icmp eq i32 %0, 2
   br i1 %61, label %63, label %.preheader
 
@@ -1154,11 +1154,11 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %62, label %63, label %._crit_edge.thread
 
 .preheader:                                       ; preds = %60
-  %.not260 = icmp eq i64 %.1, 0
+  %.not260 = icmp eq i64 %.0185, 0
   br i1 %.not260, label %._crit_edge.thread, label %.lr.ph
 
 63:                                               ; preds = %.thread, %60
-  %.1266 = phi i64 [ 0, %.thread ], [ %.1, %60 ]
+  %.0185266 = phi i64 [ 0, %.thread ], [ %.0185, %60 ]
   %64 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 58) #19
   %.not231 = icmp eq ptr %64, null
   br i1 %.not231, label %67, label %65
@@ -1177,7 +1177,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
 69:                                               ; preds = %67
   store ptr %31, ptr %3, align 8
   %70 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %.1266, ptr %70, align 8
+  store i64 %.0185266, ptr %70, align 8
   %71 = call i32 %68(ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160)) #18
   br label %72
 
@@ -1192,18 +1192,18 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   %75 = load ptr, ptr %.02.i, align 8
   %76 = getelementptr inbounds i8, ptr %.02.i, i64 24
   %77 = load i64, ptr %76, align 8
-  %78 = icmp ugt i64 %77, %.1266
+  %78 = icmp ugt i64 %77, %.0185266
   br i1 %78, label %79, label %94
 
 79:                                               ; preds = %.lr.ph.i
   %80 = load ptr, ptr %74, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 %.1266
+  %81 = getelementptr inbounds i8, ptr %80, i64 %.0185266
   %82 = load i8, ptr %81, align 1
   %83 = icmp eq i8 %82, 58
   br i1 %83, label %84, label %94
 
 84:                                               ; preds = %79
-  %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef readonly %31, i64 noundef %.1266) #19
+  %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef readonly %31, i64 noundef %.0185266) #19
   %.not27.i = icmp eq i32 %85, 0
   br i1 %.not27.i, label %86, label %94
 
@@ -1260,7 +1260,7 @@ sapi_remove_header.exit:                          ; preds = %94, %72
 102:                                              ; preds = %.lr.ph
   %103 = add i32 %.0187253, 1
   %104 = zext i32 %103 to i64
-  %105 = icmp ugt i64 %.1, %104
+  %105 = icmp ugt i64 %.0185, %104
   br i1 %105, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.thread:                               ; preds = %.preheader, %.thread
@@ -1272,8 +1272,8 @@ sapi_remove_header.exit:                          ; preds = %94, %72
 ._crit_edge:                                      ; preds = %102
   store ptr %31, ptr %3, align 8
   %107 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %.1, ptr %107, align 8
-  %108 = icmp ugt i64 %.1, 4
+  store i64 %.0185, ptr %107, align 8
+  %108 = icmp ugt i64 %.0185, 4
   br i1 %108, label %109, label %119
 
 109:                                              ; preds = %._crit_edge
@@ -1313,7 +1313,7 @@ sapi_update_response_code.exit236:                ; preds = %111
 
 119:                                              ; preds = %._crit_edge.thread, %109, %._crit_edge
   %120 = phi ptr [ %106, %._crit_edge.thread ], [ %107, %109 ], [ %107, %._crit_edge ]
-  %.1267270272 = phi i64 [ 0, %._crit_edge.thread ], [ %.1, %109 ], [ %.1, %._crit_edge ]
+  %.0185267270272 = phi i64 [ 0, %._crit_edge.thread ], [ %.0185, %109 ], [ %.0185, %._crit_edge ]
   %121 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 58) #19
   %.not217 = icmp eq ptr %121, null
   br i1 %.not217, label %209, label %122
@@ -1328,7 +1328,7 @@ sapi_update_response_code.exit236:                ; preds = %111
   %125 = getelementptr inbounds i8, ptr %121, i64 1
   %126 = ptrtoint ptr %125 to i64
   %127 = ptrtoint ptr %31 to i64
-  %.neg = add i64 %.1267270272, %127
+  %.neg = add i64 %.0185267270272, %127
   %128 = sub i64 %.neg, %126
   %129 = load i8, ptr %125, align 1
   %130 = icmp eq i8 %129, 32

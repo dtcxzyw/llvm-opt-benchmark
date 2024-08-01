@@ -1860,8 +1860,8 @@ if.end:                                           ; preds = %_ZN4toku8locktree7s
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %entry
-  %released.1 = phi i1 [ %cmp3.not, %if.end ], [ false, %entry ]
-  ret i1 %released.1
+  %released.0 = phi i1 [ %cmp3.not, %if.end ], [ false, %entry ]
+  ret i1 %released.0
 }
 
 ; Function Attrs: mustprogress uwtable

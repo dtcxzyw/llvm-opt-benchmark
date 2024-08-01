@@ -24,13 +24,13 @@ define i32 @close_blockdriver(ptr noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %11, %6
-  %.0 = phi i32 [ %12, %11 ], [ 0, %6 ]
+  %.1 = phi i32 [ %12, %11 ], [ 0, %6 ]
   tail call void @inode_release(ptr noundef nonnull %0) #2
   br label %14
 
 14:                                               ; preds = %1, %13
-  %.1 = phi i32 [ %.0, %13 ], [ -15, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %13 ], [ -15, %1 ]
+  ret i32 %.0
 }
 
 declare void @inode_release(ptr noundef) local_unnamed_addr #1

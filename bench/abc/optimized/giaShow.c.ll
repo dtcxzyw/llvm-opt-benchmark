@@ -164,7 +164,7 @@ Vec_BitStart.exit:                                ; preds = %2, %10
 
 51:                                               ; preds = %.lr.ph491, %.critedge2
   %indvars.iv548 = phi i64 [ %47, %.lr.ph491 ], [ %indvars.iv.next549, %.critedge2 ]
-  %.0489 = phi i32 [ 0, %.lr.ph491 ], [ %.3, %.critedge2 ]
+  %.0489 = phi i32 [ 0, %.lr.ph491 ], [ %.1, %.critedge2 ]
   %.0302488 = phi i32 [ 0, %.lr.ph491 ], [ %.1303, %.critedge2 ]
   %indvars.iv.next549 = add nsw i64 %indvars.iv548, -1
   %.val419.val = load ptr, ptr %48, align 8
@@ -203,7 +203,7 @@ Vec_BitStart.exit:                                ; preds = %2, %10
 72:                                               ; preds = %.lr.ph485, %92
   %indvars.iv545 = phi i64 [ 0, %.lr.ph485 ], [ %indvars.iv.next546, %92 ]
   %73 = phi ptr [ %68, %.lr.ph485 ], [ %96, %92 ]
-  %.1484 = phi i32 [ %.0489, %.lr.ph485 ], [ %.2, %92 ]
+  %.2484 = phi i32 [ %.0489, %.lr.ph485 ], [ %.3, %92 ]
   %74 = getelementptr inbounds i8, ptr %73, i64 4
   %75 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv545
   %76 = load i32, ptr %75, align 4
@@ -224,11 +224,11 @@ Vec_BitStart.exit:                                ; preds = %2, %10
   %89 = load i32, ptr %88, align 4
   %90 = or i32 %89, %85
   store i32 %90, ptr %88, align 4
-  %91 = add nsw i32 %.1484, 1
+  %91 = add nsw i32 %.2484, 1
   br label %92
 
 92:                                               ; preds = %72, %83
-  %.2 = phi i32 [ %.1484, %72 ], [ %91, %83 ]
+  %.3 = phi i32 [ %.2484, %72 ], [ %91, %83 ]
   %indvars.iv.next546 = add nuw nsw i64 %indvars.iv545, 1
   %.val425.val = load ptr, ptr %50, align 8
   %93 = getelementptr inbounds i32, ptr %.val425.val, i64 %indvars.iv.next549
@@ -242,7 +242,7 @@ Vec_BitStart.exit:                                ; preds = %2, %10
 
 .critedge2:                                       ; preds = %92, %63, %51, %54
   %.1303 = phi i32 [ %.0302488, %54 ], [ %.0302488, %51 ], [ %64, %63 ], [ %64, %92 ]
-  %.3 = phi i32 [ %.0489, %54 ], [ %.0489, %51 ], [ %.0489, %63 ], [ %.2, %92 ]
+  %.1 = phi i32 [ %.0489, %54 ], [ %.0489, %51 ], [ %.0489, %63 ], [ %.3, %92 ]
   %100 = icmp sgt i64 %indvars.iv548, 2
   br i1 %100, label %51, label %._crit_edge, !llvm.loop !7
 
@@ -274,7 +274,7 @@ Vec_BitFree.exit:                                 ; preds = %105, %106
   br label %Vec_BitFree.exit471
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge
-  %.0.lcssa608 = phi i32 [ %.3, %._crit_edge ], [ 0, %.critedge ]
+  %.0.lcssa608 = phi i32 [ %.1, %._crit_edge ], [ 0, %.critedge ]
   %.0302.lcssa607 = phi i32 [ %.1303, %._crit_edge ], [ 0, %.critedge ]
   %109 = call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.1)
   %110 = icmp eq ptr %109, null

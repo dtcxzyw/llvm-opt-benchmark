@@ -120,7 +120,7 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
 
 .lr.ph76.i.i:                                     ; preds = %.loopexit56.i.i, %43
   %.04374.i.i = phi i32 [ %.2.i.i, %.loopexit56.i.i ], [ 0, %43 ]
-  %.04673.i.i = phi i32 [ %.3.i.i, %.loopexit56.i.i ], [ 0, %43 ]
+  %.04673.i.i = phi i32 [ %.248.i.i, %.loopexit56.i.i ], [ 0, %43 ]
   %46 = add i32 %.04374.i.i, %.reass.i
   %47 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %46) #7
   %48 = add nsw i32 %.04374.i.i, 1
@@ -134,7 +134,7 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
 
 52:                                               ; preds = %50, %.lr.ph76.i.i
   %.172.i.i = phi i32 [ %48, %.lr.ph76.i.i ], [ %.2.i.i, %50 ]
-  %.14771.i.i = phi i32 [ %.04673.i.i, %.lr.ph76.i.i ], [ %.3.i.i, %50 ]
+  %.14771.i.i = phi i32 [ %.04673.i.i, %.lr.ph76.i.i ], [ %.248.i.i, %50 ]
   %.05170.i.i = phi i32 [ 0, %.lr.ph76.i.i ], [ %51, %50 ]
   %53 = shl nuw nsw i32 1, %.05170.i.i
   %54 = and i32 %53, %49
@@ -180,26 +180,26 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
   br label %76
 
 76:                                               ; preds = %80, %._crit_edge.i.i
-  %.24869.i.i = phi i32 [ %.14771.i.i, %._crit_edge.i.i ], [ %81, %80 ]
+  %.369.i.i = phi i32 [ %.14771.i.i, %._crit_edge.i.i ], [ %81, %80 ]
   %.05068.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %82, %80 ]
-  %.not.i.i = icmp ult i32 %73, %.24869.i.i
+  %.not.i.i = icmp ult i32 %73, %.369.i.i
   br i1 %.not.i.i, label %77, label %uncompress_chunk.exit.thread.i
 
 77:                                               ; preds = %76
-  %78 = add i32 %74, %.24869.i.i
+  %78 = add i32 %74, %.369.i.i
   %79 = call i32 @wmem_array_try_index(ptr noundef %14, i32 noundef %78, ptr noundef nonnull %5) #7
   %.not54.i.i = icmp eq i32 %79, 0
   br i1 %.not54.i.i, label %80, label %uncompress_chunk.exit.thread.i
 
 80:                                               ; preds = %77
   call void @wmem_array_append(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 1) #7
-  %81 = add i32 %.24869.i.i, 1
+  %81 = add i32 %.369.i.i, 1
   %82 = add nuw nsw i32 %.05068.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.05068.i.i, %75
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %76, !llvm.loop !9
 
 .loopexit.i.i:                                    ; preds = %80, %57
-  %.3.i.i = phi i32 [ %61, %57 ], [ %81, %80 ]
+  %.248.i.i = phi i32 [ %61, %57 ], [ %81, %80 ]
   %.2.i.i = phi i32 [ %60, %57 ], [ %65, %80 ]
   %83 = icmp eq i32 %.2.i.i, %38
   br i1 %83, label %.loopexit.i, label %50

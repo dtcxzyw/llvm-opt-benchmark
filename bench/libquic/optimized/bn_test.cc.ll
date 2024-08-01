@@ -1408,7 +1408,7 @@ if.end271:                                        ; preds = %invoke.cont268
   br label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit231
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit231: ; preds = %if.end271, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %invoke.cont85, %invoke.cont95, %invoke.cont105, %invoke.cont115, %invoke.cont124, %invoke.cont134, %invoke.cont143, %invoke.cont153, %invoke.cont163, %invoke.cont173, %invoke.cont183, %invoke.cont197, %invoke.cont193, %invoke.cont210, %invoke.cont207, %invoke.cont220, %invoke.cont230, %invoke.cont240, %invoke.cont268, %invoke.cont265, %invoke.cont262, %invoke.cont259, %invoke.cont255, %invoke.cont251, %invoke.cont247, %invoke.cont64
-  %retval.0313 = phi i32 [ 1, %invoke.cont64 ], [ 1, %invoke.cont247 ], [ 1, %invoke.cont251 ], [ 1, %invoke.cont255 ], [ 1, %invoke.cont259 ], [ 1, %invoke.cont262 ], [ 1, %invoke.cont265 ], [ 1, %invoke.cont268 ], [ 1, %invoke.cont240 ], [ 1, %invoke.cont230 ], [ 1, %invoke.cont220 ], [ 1, %invoke.cont207 ], [ 1, %invoke.cont210 ], [ 1, %invoke.cont193 ], [ 1, %invoke.cont197 ], [ 1, %invoke.cont183 ], [ 1, %invoke.cont173 ], [ 1, %invoke.cont163 ], [ 1, %invoke.cont153 ], [ 1, %invoke.cont143 ], [ 1, %invoke.cont134 ], [ 1, %invoke.cont124 ], [ 1, %invoke.cont115 ], [ 1, %invoke.cont105 ], [ 1, %invoke.cont95 ], [ 1, %invoke.cont85 ], [ 1, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ 0, %if.end271 ]
+  %retval.2313 = phi i32 [ 1, %invoke.cont64 ], [ 1, %invoke.cont247 ], [ 1, %invoke.cont251 ], [ 1, %invoke.cont255 ], [ 1, %invoke.cont259 ], [ 1, %invoke.cont262 ], [ 1, %invoke.cont265 ], [ 1, %invoke.cont268 ], [ 1, %invoke.cont240 ], [ 1, %invoke.cont230 ], [ 1, %invoke.cont220 ], [ 1, %invoke.cont207 ], [ 1, %invoke.cont210 ], [ 1, %invoke.cont193 ], [ 1, %invoke.cont197 ], [ 1, %invoke.cont183 ], [ 1, %invoke.cont173 ], [ 1, %invoke.cont163 ], [ 1, %invoke.cont153 ], [ 1, %invoke.cont143 ], [ 1, %invoke.cont134 ], [ 1, %invoke.cont124 ], [ 1, %invoke.cont115 ], [ 1, %invoke.cont105 ], [ 1, %invoke.cont95 ], [ 1, %invoke.cont85 ], [ 1, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ 0, %if.end271 ]
   store ptr null, ptr %sample, align 8
   br label %cleanup274
 
@@ -1418,7 +1418,7 @@ ehcleanup:                                        ; preds = %lpad84, %lpad77, %l
   br label %ehcleanup275
 
 cleanup274:                                       ; preds = %invoke.cont56, %invoke.cont47, %invoke.cont38, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit231
-  %retval.1.ph = phi i32 [ 1, %invoke.cont56 ], [ 1, %invoke.cont47 ], [ 1, %invoke.cont38 ], [ %retval.0313, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit231 ]
+  %retval.1.ph = phi i32 [ 1, %invoke.cont56 ], [ 1, %invoke.cont47 ], [ 1, %invoke.cont38 ], [ %retval.2313, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit231 ]
   %.pr314 = load ptr, ptr %ctx, align 8
   %cmp.not.i232 = icmp eq ptr %.pr314, null
   br i1 %cmp.not.i232, label %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit, label %if.then.i233
@@ -1446,7 +1446,7 @@ ehcleanup275:                                     ; preds = %ehcleanup87.i, %lpa
 
 cleanup276:                                       ; preds = %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit, %if.else, %if.then3
   %bc_file.sroa.0.0334 = phi ptr [ %bc_file.sroa.0.0340, %if.then3 ], [ %bc_file.sroa.0.0340, %if.else ], [ %bc_file.sroa.0.0.lcssa, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit ]
-  %retval.2 = phi i32 [ 1, %if.then3 ], [ 1, %if.else ], [ %retval.1317, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit ]
+  %retval.0 = phi i32 [ 1, %if.then3 ], [ 1, %if.else ], [ %retval.1317, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit ]
   %cmp.not.i236 = icmp eq ptr %bc_file.sroa.0.0334, null
   br i1 %cmp.not.i236, label %_ZNSt10unique_ptrI8_IO_FILE10FileCloserED2Ev.exit, label %if.then.i237
 
@@ -1455,7 +1455,7 @@ if.then.i237:                                     ; preds = %cleanup276
   br label %_ZNSt10unique_ptrI8_IO_FILE10FileCloserED2Ev.exit
 
 _ZNSt10unique_ptrI8_IO_FILE10FileCloserED2Ev.exit: ; preds = %cleanup276, %if.then.i237
-  ret i32 %retval.2
+  ret i32 %retval.0
 
 ehcleanup277:                                     ; preds = %ehcleanup275, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup275 ], [ %3, %lpad ]
@@ -1781,12 +1781,12 @@ invoke.cont96:                                    ; preds = %invoke.cont91
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont36, %invoke.cont29, %invoke.cont66, %invoke.cont59, %for.cond, %for.cond.us, %invoke.cont29.us, %invoke.cont36.us, %invoke.cont59.us, %invoke.cont66.us, %lor.lhs.false15, %invoke.cont96, %invoke.cont12
-  %retval.0 = phi i1 [ false, %invoke.cont12 ], [ false, %lor.lhs.false15 ], [ false, %invoke.cont96 ], [ %exitcond40.not, %invoke.cont66.us ], [ %exitcond40.not, %invoke.cont59.us ], [ %exitcond40.not, %invoke.cont36.us ], [ %exitcond40.not, %invoke.cont29.us ], [ %exitcond40.not, %for.cond.us ], [ %exitcond.not, %for.cond ], [ %exitcond.not, %invoke.cont59 ], [ %exitcond.not, %invoke.cont66 ], [ %exitcond.not, %invoke.cont29 ], [ %exitcond.not, %invoke.cont36 ]
+  %retval.1 = phi i1 [ false, %invoke.cont12 ], [ false, %lor.lhs.false15 ], [ false, %invoke.cont96 ], [ %exitcond40.not, %invoke.cont66.us ], [ %exitcond40.not, %invoke.cont59.us ], [ %exitcond40.not, %invoke.cont36.us ], [ %exitcond40.not, %invoke.cont29.us ], [ %exitcond40.not, %for.cond.us ], [ %exitcond.not, %for.cond ], [ %exitcond.not, %invoke.cont59 ], [ %exitcond.not, %invoke.cont66 ], [ %exitcond.not, %invoke.cont29 ], [ %exitcond.not, %invoke.cont36 ]
   %cmp.not.i23 = icmp eq ptr %call13, null
   br i1 %cmp.not.i23, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i24
 
 if.then.i24:                                      ; preds = %invoke.cont22, %cleanup
-  %retval.043 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont22 ]
+  %retval.143 = phi i1 [ %retval.1, %cleanup ], [ false, %invoke.cont22 ]
   invoke void @BN_free(ptr noundef nonnull %call13)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -1798,7 +1798,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i24
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i24
-  %retval.044 = phi i1 [ %retval.0, %cleanup ], [ %retval.043, %if.then.i24 ]
+  %retval.144 = phi i1 [ %retval.1, %cleanup ], [ %retval.143, %if.then.i24 ]
   %cmp.not.i25 = icmp eq ptr %call10, null
   br i1 %cmp.not.i25, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit28, label %if.then.i26
 
@@ -1838,8 +1838,8 @@ ehcleanup103:                                     ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then.i30, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit28, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.exit, %lor.lhs.false
-  %retval.1 = phi i1 [ false, %lor.lhs.false ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.exit ], [ %retval.044, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit28 ], [ %retval.044, %if.then.i30 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.exit ], [ %retval.144, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit28 ], [ %retval.144, %if.then.i30 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6000,7 +6000,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont145, %in
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont145, %invoke.cont122, %invoke.cont130, %invoke.cont138, %invoke.cont73, %invoke.cont79, %invoke.cont85, %invoke.cont92, %invoke.cont100, %invoke.cont108
-  %retval.0 = phi i1 [ false, %invoke.cont108 ], [ false, %invoke.cont100 ], [ false, %invoke.cont92 ], [ false, %invoke.cont85 ], [ false, %invoke.cont79 ], [ false, %invoke.cont73 ], [ false, %invoke.cont138 ], [ false, %invoke.cont130 ], [ false, %invoke.cont122 ], [ true, %invoke.cont145 ], [ false, %cleanup.sink.split ]
+  %retval.1 = phi i1 [ false, %invoke.cont108 ], [ false, %invoke.cont100 ], [ false, %invoke.cont92 ], [ false, %invoke.cont85 ], [ false, %invoke.cont79 ], [ false, %invoke.cont73 ], [ false, %invoke.cont138 ], [ false, %invoke.cont130 ], [ false, %invoke.cont122 ], [ true, %invoke.cont145 ], [ false, %cleanup.sink.split ]
   call void @_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mont) #18
   br label %if.then.i
 
@@ -6009,7 +6009,7 @@ cleanup152:                                       ; preds = %lor.lhs.false13, %i
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then44, %if.then69, %cleanup, %invoke.cont26, %invoke.cont22, %invoke.cont35, %invoke.cont49, %invoke.cont60, %cleanup152
-  %retval.14 = phi i1 [ false, %cleanup152 ], [ %retval.0, %cleanup ], [ false, %if.then69 ], [ false, %if.then44 ], [ false, %invoke.cont26 ], [ false, %invoke.cont22 ], [ false, %invoke.cont35 ], [ false, %invoke.cont49 ], [ false, %invoke.cont60 ]
+  %retval.04 = phi i1 [ false, %cleanup152 ], [ %retval.1, %cleanup ], [ false, %if.then69 ], [ false, %if.then44 ], [ false, %invoke.cont26 ], [ false, %invoke.cont22 ], [ false, %invoke.cont35 ], [ false, %invoke.cont49 ], [ false, %invoke.cont60 ]
   invoke void @BN_free(ptr noundef nonnull %call10)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -6021,7 +6021,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup152, %if.then.i
-  %retval.15 = phi i1 [ false, %cleanup152 ], [ %retval.14, %if.then.i ]
+  %retval.05 = phi i1 [ false, %cleanup152 ], [ %retval.04, %if.then.i ]
   store ptr null, ptr %e, align 8
   %cmp.not.i18 = icmp eq ptr %call7, null
   br i1 %cmp.not.i18, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21, label %if.then.i19
@@ -6085,7 +6085,7 @@ terminate.lpad.i32:                               ; preds = %if.then.i31
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit33: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29, %if.then.i31
-  ret i1 %retval.15
+  ret i1 %retval.05
 
 ehcleanup:                                        ; preds = %lpad78, %lpad21
   %.pn = phi { ptr, i32 } [ %11, %lpad78 ], [ %4, %lpad21 ]
@@ -8394,7 +8394,7 @@ cleanup:                                          ; preds = %invoke.cont30
   br label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
 
 if.then.i:                                        ; preds = %invoke.cont42, %if.then45
-  %cleanup.dest.slot.0.ph = phi i32 [ 0, %invoke.cont42 ], [ 1, %if.then45 ]
+  %cleanup.dest.slot.1.ph = phi i32 [ 0, %invoke.cont42 ], [ 1, %if.then45 ]
   invoke void @BN_free(ptr noundef nonnull %call31)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -8406,12 +8406,12 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i
-  %cleanup.dest.slot.030 = phi i32 [ 1, %cleanup ], [ %cleanup.dest.slot.0.ph, %if.then.i ]
+  %cleanup.dest.slot.130 = phi i32 [ 1, %cleanup ], [ %cleanup.dest.slot.1.ph, %if.then.i ]
   store ptr null, ptr %bn2, align 8
   br label %cleanup50
 
 cleanup50:                                        ; preds = %invoke.cont25, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then9, %if.then
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then ], [ 1, %if.then9 ], [ %cleanup.dest.slot.030, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ 1, %invoke.cont25 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then ], [ 1, %if.then9 ], [ %cleanup.dest.slot.130, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ 1, %invoke.cont25 ]
   %cmp.not.i18 = icmp eq ptr %storemerge.i, null
   br i1 %cmp.not.i18, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21, label %if.then.i19
 
@@ -8428,7 +8428,7 @@ terminate.lpad.i20:                               ; preds = %if.then.i19
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21: ; preds = %cleanup50, %if.then.i19
   store ptr null, ptr %bn, align 8
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %for.cond, label %return
 
 ehcleanup:                                        ; preds = %lpad36, %lpad
@@ -8774,7 +8774,7 @@ if.then75:                                        ; preds = %invoke.cont72
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont72, %if.then75, %if.then66, %if.then50
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then50 ], [ 1, %if.then66 ], [ 1, %if.then75 ], [ 0, %invoke.cont72 ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %if.then50 ], [ 1, %if.then66 ], [ 1, %if.then75 ], [ 0, %invoke.cont72 ]
   %cmp.not.i31 = icmp eq ptr %10, null
   br i1 %cmp.not.i31, label %if.then.i35, label %if.then.i32
 
@@ -8783,7 +8783,7 @@ if.then.i32:                                      ; preds = %cleanup
   br label %if.then.i35
 
 if.then.i35:                                      ; preds = %if.then13, %if.then22, %if.then41, %cleanup, %if.then.i32
-  %cleanup.dest.slot.1.ph = phi i32 [ %cleanup.dest.slot.0, %if.then.i32 ], [ %cleanup.dest.slot.0, %cleanup ], [ 1, %if.then41 ], [ 1, %if.then22 ], [ 1, %if.then13 ]
+  %cleanup.dest.slot.1.ph = phi i32 [ %cleanup.dest.slot.2, %if.then.i32 ], [ %cleanup.dest.slot.2, %cleanup ], [ 1, %if.then41 ], [ 1, %if.then22 ], [ 1, %if.then13 ]
   invoke void @BN_free(ptr noundef nonnull %call1)
           to label %if.then.i37 unwind label %terminate.lpad.i
 
@@ -8996,7 +8996,7 @@ if.then180:                                       ; preds = %invoke.cont177
   br label %if.then.i53
 
 if.then.i53:                                      ; preds = %if.then171, %if.then180, %invoke.cont177
-  %cleanup.dest.slot.4.ph = phi i32 [ 0, %invoke.cont177 ], [ 1, %if.then180 ], [ 1, %if.then171 ]
+  %cleanup.dest.slot.5.ph = phi i32 [ 0, %invoke.cont177 ], [ 1, %if.then180 ], [ 1, %if.then171 ]
   invoke void @BN_free(ptr noundef nonnull %storemerge.i49)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55 unwind label %terminate.lpad.i54
 
@@ -9008,12 +9008,12 @@ terminate.lpad.i54:                               ; preds = %if.then.i53
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55: ; preds = %invoke.cont155, %if.then.i53
-  %cleanup.dest.slot.488 = phi i32 [ %cleanup.dest.slot.4.ph, %if.then.i53 ], [ 1, %invoke.cont155 ]
+  %cleanup.dest.slot.588 = phi i32 [ %cleanup.dest.slot.5.ph, %if.then.i53 ], [ 1, %invoke.cont155 ]
   store ptr null, ptr %bn2153, align 8
   br label %if.then.i57
 
 if.then.i57:                                      ; preds = %if.then148, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55
-  %cleanup.dest.slot.5.ph = phi i32 [ %cleanup.dest.slot.488, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55 ], [ 1, %if.then148 ]
+  %cleanup.dest.slot.4.ph = phi i32 [ %cleanup.dest.slot.588, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55 ], [ 1, %if.then148 ]
   invoke void @BN_free(ptr noundef nonnull %call135)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 unwind label %terminate.lpad.i58
 
@@ -9026,7 +9026,7 @@ terminate.lpad.i58:                               ; preds = %if.then.i57
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59: ; preds = %if.then.i57
   store ptr null, ptr %bn134, align 8
-  %switch29 = icmp eq i32 %cleanup.dest.slot.5.ph, 0
+  %switch29 = icmp eq i32 %cleanup.dest.slot.4.ph, 0
   br i1 %switch29, label %for.cond130, label %return
 
 for.end192:                                       ; preds = %for.cond130
@@ -9078,7 +9078,7 @@ if.end212:                                        ; preds = %invoke.cont205
           to label %if.then.i66 unwind label %lpad198
 
 if.then.i66:                                      ; preds = %if.then208, %if.end212
-  %retval.9.ph = phi i1 [ true, %if.end212 ], [ false, %if.then208 ]
+  %retval.10.ph = phi i1 [ true, %if.end212 ], [ false, %if.then208 ]
   invoke void @BN_free(ptr noundef nonnull %storemerge.i63)
           to label %return unwind label %terminate.lpad.i67
 
@@ -9090,8 +9090,8 @@ terminate.lpad.i67:                               ; preds = %if.then.i66
   unreachable
 
 return:                                           ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39, %for.body, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44, %for.body87, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, %for.body132, %if.then.i66, %for.end192
-  %retval.10 = phi i1 [ %retval.9.ph, %if.then.i66 ], [ false, %for.end192 ], [ false, %for.body132 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 ], [ false, %for.body87 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44 ], [ false, %for.body ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39 ]
-  ret i1 %retval.10
+  %retval.4 = phi i1 [ %retval.10.ph, %if.then.i66 ], [ false, %for.end192 ], [ false, %for.body132 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 ], [ false, %for.body87 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44 ], [ false, %for.body ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39 ]
+  ret i1 %retval.4
 
 eh.resume:                                        ; preds = %lpad142, %lpad161, %lpad, %ehcleanup, %lpad198, %lpad97
   %bn193.sink = phi ptr [ %bn193, %lpad198 ], [ %bn89, %lpad97 ], [ %bn, %ehcleanup ], [ %bn, %lpad ], [ %bn134, %lpad161 ], [ %bn134, %lpad142 ]

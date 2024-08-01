@@ -1553,11 +1553,11 @@ if.then.i.i.i:                                    ; preds = %_ZN7testing15Assert
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %if.then.i.i.i
-  %u.sroa.0.1.in.i.i.i = phi i64 [ %10, %_ZN7testing15AssertionResultD2Ev.exit ], [ %call.i2.i.i.i14, %if.then.i.i.i ]
-  %u.sroa.0.1.i.i.i = trunc i64 %u.sroa.0.1.in.i.i.i to i32
-  store i32 %u.sroa.0.1.i.i.i, ptr %ref.tmp15, align 4
+  %u.sroa.0.0.in.i.i.i = phi i64 [ %10, %_ZN7testing15AssertionResultD2Ev.exit ], [ %call.i2.i.i.i14, %if.then.i.i.i ]
+  %u.sroa.0.0.i.i.i = trunc i64 %u.sroa.0.0.in.i.i.i to i32
+  store i32 %u.sroa.0.0.i.i.i, ptr %ref.tmp15, align 4
   store i32 1, ptr %ref.tmp19, align 4
-  %cmp.i.i15 = icmp eq i32 %u.sroa.0.1.i.i.i, 1
+  %cmp.i.i15 = icmp eq i32 %u.sroa.0.0.i.i.i, 1
   br i1 %cmp.i.i15, label %if.then.i.i17, label %if.end.i.i16
 
 if.then.i.i17:                                    ; preds = %invoke.cont17

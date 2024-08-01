@@ -107,7 +107,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br label %43
 
 43:                                               ; preds = %41, %40
-  %.3.i = phi ptr [ %42, %41 ], [ %3, %40 ]
+  %.4.i = phi ptr [ %42, %41 ], [ %3, %40 ]
   %notmask.i = shl nsw i32 -1, %37
   %44 = xor i32 %notmask.i, -1
   %45 = sub nuw nsw i32 8, %37
@@ -115,9 +115,9 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   %47 = load i8, ptr %.045.lcssa.i, align 1
   %48 = zext i8 %47 to i32
   %49 = and i32 %46, %48
-  %50 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3.i, ptr noundef nonnull @.str, i32 noundef %49) #9
+  %50 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.4.i, ptr noundef nonnull @.str, i32 noundef %49) #9
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i8, ptr %.3.i, i64 %51
+  %52 = getelementptr i8, ptr %.4.i, i64 %51
   %53 = ptrtoint ptr %52 to i64
   %54 = ptrtoint ptr %.148.lcssa.i to i64
   %.neg.i = add i64 %.1.lcssa.i, %54
@@ -125,13 +125,13 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br label %56
 
 56:                                               ; preds = %43, %._crit_edge.i, %._crit_edge.thread.i
-  %.4.i = phi ptr [ %52, %43 ], [ %.148.lcssa.i, %._crit_edge.i ], [ %15, %._crit_edge.thread.i ]
+  %.3.i = phi ptr [ %52, %43 ], [ %.148.lcssa.i, %._crit_edge.i ], [ %15, %._crit_edge.thread.i ]
   %.2.i = phi i64 [ %55, %43 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %16, %._crit_edge.thread.i ]
   %57 = icmp ult i64 %.2.i, 5
   br i1 %57, label %.loopexit.i, label %58
 
 58:                                               ; preds = %56
-  %59 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.4.i, ptr noundef nonnull @.str.1, i32 noundef %2) #9
+  %59 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3.i, ptr noundef nonnull @.str.1, i32 noundef %2) #9
   br label %inet_cidr_ntop_ipv4.exit
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %56, %38, %13
@@ -289,18 +289,18 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
 
 .lr.ph149.split.us.split.us.i:                    ; preds = %.lr.ph149.split.us.i, %128
   %.0147.us.us.i = phi ptr [ %139, %128 ], [ %6, %.lr.ph149.split.us.i ]
-  %.097146.us.us.i = phi ptr [ %138, %128 ], [ %7, %.lr.ph149.split.us.i ]
+  %.198146.us.us.i = phi ptr [ %138, %128 ], [ %7, %.lr.ph149.split.us.i ]
   %.0112145.us.us.i = phi i32 [ %140, %128 ], [ 0, %.lr.ph149.split.us.i ]
-  %.not121.us.us.i = icmp eq ptr %.097146.us.us.i, %7
+  %.not121.us.us.i = icmp eq ptr %.198146.us.us.i, %7
   br i1 %.not121.us.us.i, label %128, label %126
 
 126:                                              ; preds = %.lr.ph149.split.us.split.us.i
-  %127 = getelementptr i8, ptr %.097146.us.us.i, i64 1
-  store i8 58, ptr %.097146.us.us.i, align 1
+  %127 = getelementptr i8, ptr %.198146.us.us.i, i64 1
+  store i8 58, ptr %.198146.us.us.i, align 1
   br label %128
 
 128:                                              ; preds = %126, %.lr.ph149.split.us.split.us.i
-  %.3.us.us.i = phi ptr [ %127, %126 ], [ %7, %.lr.ph149.split.us.split.us.i ]
+  %.5.us.us.i = phi ptr [ %127, %126 ], [ %7, %.lr.ph149.split.us.split.us.i ]
   %129 = load i8, ptr %.0147.us.us.i, align 1
   %130 = zext i8 %129 to i32
   %131 = shl nuw nsw i32 %130, 8
@@ -308,9 +308,9 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = or disjoint i32 %131, %134
-  %136 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3.us.us.i, ptr noundef nonnull @.str.2, i32 noundef %135) #9
+  %136 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.5.us.us.i, ptr noundef nonnull @.str.2, i32 noundef %135) #9
   %137 = sext i32 %136 to i64
-  %138 = getelementptr i8, ptr %.3.us.us.i, i64 %137
+  %138 = getelementptr i8, ptr %.5.us.us.i, i64 %137
   %139 = getelementptr i8, ptr %.0147.us.us.i, i64 2
   %140 = add nuw nsw i32 %.0112145.us.us.i, 1
   %exitcond170.not.i = icmp eq i32 %140, %spec.store.select.i
@@ -318,7 +318,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
 
 .lr.ph149.split.us.split.i:                       ; preds = %.lr.ph149.split.us.split.i.preheader, %165
   %.0147.us.i = phi ptr [ %.1.us.i, %165 ], [ %6, %.lr.ph149.split.us.split.i.preheader ]
-  %.097146.us.i = phi ptr [ %.4.us.i, %165 ], [ %7, %.lr.ph149.split.us.split.i.preheader ]
+  %.198146.us.i = phi ptr [ %.4.us.i, %165 ], [ %7, %.lr.ph149.split.us.split.i.preheader ]
   %.0112145.us.i = phi i32 [ %166, %165 ], [ 0, %.lr.ph149.split.us.split.i.preheader ]
   %.not120.us.i = icmp sge i32 %.0112145.us.i, %.2111.i
   %141 = icmp slt i32 %.0112145.us.i, %124
@@ -326,16 +326,16 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br i1 %142, label %157, label %143
 
 143:                                              ; preds = %.lr.ph149.split.us.split.i
-  %.not121.us.i = icmp eq ptr %.097146.us.i, %7
+  %.not121.us.i = icmp eq ptr %.198146.us.i, %7
   br i1 %.not121.us.i, label %146, label %144
 
 144:                                              ; preds = %143
-  %145 = getelementptr i8, ptr %.097146.us.i, i64 1
-  store i8 58, ptr %.097146.us.i, align 1
+  %145 = getelementptr i8, ptr %.198146.us.i, i64 1
+  store i8 58, ptr %.198146.us.i, align 1
   br label %146
 
 146:                                              ; preds = %144, %143
-  %.3.us.i = phi ptr [ %145, %144 ], [ %7, %143 ]
+  %.5.us.i = phi ptr [ %145, %144 ], [ %7, %143 ]
   %147 = load i8, ptr %.0147.us.i, align 1
   %148 = zext i8 %147 to i32
   %149 = shl nuw nsw i32 %148, 8
@@ -343,9 +343,9 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = or disjoint i32 %149, %152
-  %154 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3.us.i, ptr noundef nonnull @.str.2, i32 noundef %153) #9
+  %154 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.5.us.i, ptr noundef nonnull @.str.2, i32 noundef %153) #9
   %155 = sext i32 %154 to i64
-  %156 = getelementptr i8, ptr %.3.us.i, i64 %155
+  %156 = getelementptr i8, ptr %.5.us.i, i64 %155
   br label %165
 
 157:                                              ; preds = %.lr.ph149.split.us.split.i
@@ -353,22 +353,22 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br i1 %158, label %159, label %161
 
 159:                                              ; preds = %157
-  %160 = getelementptr i8, ptr %.097146.us.i, i64 1
-  store i8 58, ptr %.097146.us.i, align 1
+  %160 = getelementptr i8, ptr %.198146.us.i, i64 1
+  store i8 58, ptr %.198146.us.i, align 1
   br label %161
 
 161:                                              ; preds = %159, %157
-  %.198.us.i = phi ptr [ %160, %159 ], [ %.097146.us.i, %157 ]
+  %.2.us.i = phi ptr [ %160, %159 ], [ %.198146.us.i, %157 ]
   %162 = icmp eq i32 %.0112145.us.i, %125
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %161
-  %164 = getelementptr i8, ptr %.198.us.i, i64 1
-  store i8 58, ptr %.198.us.i, align 1
+  %164 = getelementptr i8, ptr %.2.us.i, i64 1
+  store i8 58, ptr %.2.us.i, align 1
   br label %165
 
 165:                                              ; preds = %163, %161, %146
-  %.4.us.i = phi ptr [ %156, %146 ], [ %164, %163 ], [ %.198.us.i, %161 ]
+  %.4.us.i = phi ptr [ %156, %146 ], [ %164, %163 ], [ %.2.us.i, %161 ]
   %.1.us.i = getelementptr i8, ptr %.0147.us.i, i64 2
   %166 = add nuw nsw i32 %.0112145.us.i, 1
   %exitcond.not.i = icmp eq i32 %166, %spec.store.select.i
@@ -381,7 +381,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
 
 .lr.ph149.split.split.i:                          ; preds = %216, %.lr.ph149.split.split.preheader.i
   %.0147.i = phi ptr [ %.1.i, %216 ], [ %6, %.lr.ph149.split.split.preheader.i ]
-  %.097146.i = phi ptr [ %.4.i16, %216 ], [ %7, %.lr.ph149.split.split.preheader.i ]
+  %.198146.i = phi ptr [ %.4.i15, %216 ], [ %7, %.lr.ph149.split.split.preheader.i ]
   %.0112145.i = phi i32 [ %217, %216 ], [ 0, %.lr.ph149.split.split.preheader.i ]
   %169 = icmp slt i32 %.0112145.i, %.2108.fr.i
   br i1 %169, label %170, label %180
@@ -391,22 +391,22 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br i1 %171, label %172, label %174
 
 172:                                              ; preds = %170
-  %173 = getelementptr i8, ptr %.097146.i, i64 1
-  store i8 58, ptr %.097146.i, align 1
+  %173 = getelementptr i8, ptr %.198146.i, i64 1
+  store i8 58, ptr %.198146.i, align 1
   br label %174
 
 174:                                              ; preds = %172, %170
-  %.198.i = phi ptr [ %173, %172 ], [ %.097146.i, %170 ]
+  %.2.i16 = phi ptr [ %173, %172 ], [ %.198146.i, %170 ]
   %175 = icmp eq i32 %.0112145.i, %168
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %174
-  %177 = getelementptr i8, ptr %.198.i, i64 1
-  store i8 58, ptr %.198.i, align 1
+  %177 = getelementptr i8, ptr %.2.i16, i64 1
+  store i8 58, ptr %.2.i16, align 1
   br label %178
 
 178:                                              ; preds = %176, %174
-  %.2.i17 = phi ptr [ %177, %176 ], [ %.198.i, %174 ]
+  %.3.i17 = phi ptr [ %177, %176 ], [ %.2.i16, %174 ]
   %179 = getelementptr i8, ptr %.0147.i, i64 2
   br label %216
 
@@ -417,8 +417,8 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
 182:                                              ; preds = %180
   %183 = icmp eq i32 %.0112145.i, 6
   %184 = select i1 %183, i8 58, i8 46
-  %185 = getelementptr i8, ptr %.097146.i, i64 1
-  store i8 %184, ptr %.097146.i, align 1
+  %185 = getelementptr i8, ptr %.198146.i, i64 1
+  store i8 %184, ptr %.198146.i, align 1
   %186 = getelementptr i8, ptr %.0147.i, i64 1
   %187 = load i8, ptr %.0147.i, align 1
   %188 = zext i8 %187 to i32
@@ -441,16 +441,16 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br label %216
 
 201:                                              ; preds = %180
-  %.not121.i = icmp eq ptr %.097146.i, %7
+  %.not121.i = icmp eq ptr %.198146.i, %7
   br i1 %.not121.i, label %204, label %202
 
 202:                                              ; preds = %201
-  %203 = getelementptr i8, ptr %.097146.i, i64 1
-  store i8 58, ptr %.097146.i, align 1
+  %203 = getelementptr i8, ptr %.198146.i, i64 1
+  store i8 58, ptr %.198146.i, align 1
   br label %204
 
 204:                                              ; preds = %202, %201
-  %.3.i15 = phi ptr [ %203, %202 ], [ %7, %201 ]
+  %.5.i = phi ptr [ %203, %202 ], [ %7, %201 ]
   %205 = load i8, ptr %.0147.i, align 1
   %206 = zext i8 %205 to i32
   %207 = shl nuw nsw i32 %206, 8
@@ -458,22 +458,22 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   %209 = load i8, ptr %208, align 1
   %210 = zext i8 %209 to i32
   %211 = or disjoint i32 %207, %210
-  %212 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3.i15, ptr noundef nonnull @.str.2, i32 noundef %211) #9
+  %212 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.5.i, ptr noundef nonnull @.str.2, i32 noundef %211) #9
   %213 = sext i32 %212 to i64
-  %214 = getelementptr i8, ptr %.3.i15, i64 %213
+  %214 = getelementptr i8, ptr %.5.i, i64 %213
   %215 = getelementptr i8, ptr %.0147.i, i64 2
   br label %216
 
 216:                                              ; preds = %204, %193, %182, %178
-  %.4.i16 = phi ptr [ %.2.i17, %178 ], [ %200, %193 ], [ %191, %182 ], [ %214, %204 ]
+  %.4.i15 = phi ptr [ %.3.i17, %178 ], [ %200, %193 ], [ %191, %182 ], [ %214, %204 ]
   %.1.i = phi ptr [ %179, %178 ], [ %195, %193 ], [ %186, %182 ], [ %215, %204 ]
   %217 = add nuw nsw i32 %.0112145.i, 1
   %exitcond171.not.i = icmp eq i32 %217, %spec.store.select.i
   br i1 %exitcond171.not.i, label %.loopexit.i14, label %.lr.ph149.split.split.i, !llvm.loop !8
 
 .loopexit.i14:                                    ; preds = %216, %165, %128, %66
-  %.5.i = phi ptr [ %68, %66 ], [ %138, %128 ], [ %.4.us.i, %165 ], [ %.4.i16, %216 ]
-  %218 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.5.i, ptr noundef nonnull @.str.1, i32 noundef %2) #9
+  %.097.i = phi ptr [ %68, %66 ], [ %138, %128 ], [ %.4.us.i, %165 ], [ %.4.i15, %216 ]
+  %218 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.097.i, ptr noundef nonnull @.str.1, i32 noundef %2) #9
   %219 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
   %220 = add i64 %219, 1
   %221 = icmp ugt i64 %220, %4

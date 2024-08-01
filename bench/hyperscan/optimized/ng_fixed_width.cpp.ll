@@ -512,7 +512,7 @@ do.end10.cleanup_crit_edge:                       ; preds = %do.end10
 
 cleanup:                                          ; preds = %do.end10.cleanup_crit_edge, %invoke.cont5
   %44 = phi ptr [ %31, %invoke.cont5 ], [ %.pre27, %do.end10.cleanup_crit_edge ]
-  %retval.0 = phi i1 [ false, %invoke.cont5 ], [ %call13, %do.end10.cleanup_crit_edge ]
+  %retval.1 = phi i1 [ false, %invoke.cont5 ], [ %call13, %do.end10.cleanup_crit_edge ]
   %tobool.not.i.i.i6 = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i6, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit8, label %if.then.i.i.i7
 
@@ -535,8 +535,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i14:                ; preds = %if.then.i.i.i.i.i.i
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i14, %if.then.i.i.i.i.i.i.i.i.i11, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit8, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %if.end ], [ %retval.0, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit8 ], [ %retval.0, %if.then.i.i.i.i.i.i.i.i.i11 ], [ %retval.0, %if.then.i.i.i.i.i.i.i.i.i.i.i.i14 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %retval.1, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit8 ], [ %retval.1, %if.then.i.i.i.i.i.i.i.i.i11 ], [ %retval.1, %if.then.i.i.i.i.i.i.i.i.i.i.i.i14 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
   resume { ptr, i32 } %eh.lpad-body

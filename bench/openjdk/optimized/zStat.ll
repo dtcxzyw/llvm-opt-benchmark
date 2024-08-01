@@ -6825,9 +6825,9 @@ define hidden noundef double @_ZN12ZStatWorkers16accumulated_timeEv(ptr nocaptur
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %1
-  %.sroa.05.1 = phi i64 [ %.sroa.05.0.copyload, %1 ], [ %19, %.preheader ]
-  %.sroa.4.1 = phi i64 [ %.sroa.4.0.copyload, %1 ], [ %20, %.preheader ]
-  %21 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.05.1, i64 %.sroa.4.1) #20
+  %.sroa.05.0 = phi i64 [ %.sroa.05.0.copyload, %1 ], [ %19, %.preheader ]
+  %.sroa.4.0 = phi i64 [ %.sroa.4.0.copyload, %1 ], [ %20, %.preheader ]
+  %21 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.05.0, i64 %.sroa.4.0) #20
   ret double %21
 }
 
@@ -6905,9 +6905,9 @@ define hidden { double, double } @_ZN12ZStatWorkers5statsEv(ptr noundef nonnull 
   br label %_ZN12ZStatWorkers16accumulated_timeEv.exit
 
 _ZN12ZStatWorkers16accumulated_timeEv.exit:       ; preds = %1, %.preheader.i
-  %.sroa.05.1.i = phi i64 [ %.sroa.05.0.copyload.i, %1 ], [ %19, %.preheader.i ]
-  %.sroa.4.1.i = phi i64 [ %.sroa.4.0.copyload.i, %1 ], [ %21, %.preheader.i ]
-  %22 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.05.1.i, i64 %.sroa.4.1.i) #20
+  %.sroa.05.0.i = phi i64 [ %.sroa.05.0.copyload.i, %1 ], [ %19, %.preheader.i ]
+  %.sroa.4.0.i = phi i64 [ %.sroa.4.0.copyload.i, %1 ], [ %21, %.preheader.i ]
+  %22 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.05.0.i, i64 %.sroa.4.0.i) #20
   %23 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #20
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   %.sroa.01.0.copyload.i = load i64, ptr %24, align 8
@@ -6932,8 +6932,8 @@ _ZN12ZStatWorkers16accumulated_timeEv.exit:       ; preds = %1, %.preheader.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %_ZN12ZStatWorkers16accumulated_timeEv.exit, %26
   %.sroa.01.0.i = phi i64 [ %.sroa.01.0.copyload.i, %_ZN12ZStatWorkers16accumulated_timeEv.exit ], [ %31, %26 ]
-  %.sroa.4.0.i = phi i64 [ %.sroa.4.0.copyload.i2, %_ZN12ZStatWorkers16accumulated_timeEv.exit ], [ %33, %26 ]
-  %34 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.01.0.i, i64 %.sroa.4.0.i) #20
+  %.sroa.4.0.i4 = phi i64 [ %.sroa.4.0.copyload.i2, %_ZN12ZStatWorkers16accumulated_timeEv.exit ], [ %33, %26 ]
+  %34 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.01.0.i, i64 %.sroa.4.0.i4) #20
   %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
   %.fca.0.insert = insertvalue { double, double } poison, double %22, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %34, 1

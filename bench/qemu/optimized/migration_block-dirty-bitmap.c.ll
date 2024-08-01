@@ -1508,19 +1508,19 @@ if.else102.i:                                     ; preds = %if.then90.i
   br label %if.end103.i
 
 if.end103.i:                                      ; preds = %if.else102.i, %if.then95.i
-  %bitmap_name.0.i = phi ptr [ %29, %if.else102.i ], [ %bitmap_alias.i, %if.then95.i ]
+  %bitmap_name.1.i = phi ptr [ %29, %if.else102.i ], [ %bitmap_alias.i, %if.then95.i ]
   store ptr %call93.i, ptr %bmap_inner104.i, align 8
   %.pre.i = load i8, ptr %cancelled.i, align 8
   br label %if.end105.i
 
 if.end105.i:                                      ; preds = %if.end103.i, %if.end83.i
   %30 = phi i8 [ %.pre.i, %if.end103.i ], [ %27, %if.end83.i ]
-  %bitmap_name.1.i = phi ptr [ %bitmap_name.0.i, %if.end103.i ], [ %bitmap_alias.i, %if.end83.i ]
+  %bitmap_name.0.i = phi ptr [ %bitmap_name.1.i, %if.end103.i ], [ %bitmap_alias.i, %if.end83.i ]
   %tobool107.i = trunc i8 %30 to i1
   br i1 %tobool107.i, label %if.end20, label %if.then108.i
 
 if.then108.i:                                     ; preds = %if.end105.i
-  %call111.i = call i64 @g_strlcpy(ptr noundef nonnull %bitmap_name109.i, ptr noundef %bitmap_name.1.i, i64 noundef 1024) #11
+  %call111.i = call i64 @g_strlcpy(ptr noundef nonnull %bitmap_name109.i, ptr noundef %bitmap_name.0.i, i64 noundef 1024) #11
   %31 = load ptr, ptr %bs.i, align 8
   %call115.i = call ptr @bdrv_find_dirty_bitmap(ptr noundef %31, ptr noundef nonnull %bitmap_name109.i) #11
   store ptr %call115.i, ptr %bitmap.i, align 8
@@ -1934,8 +1934,8 @@ cleanup.i:                                        ; preds = %lor.lhs.false.i81
   br label %if.end39
 
 if.end35:                                         ; preds = %cleanup.thread.i, %dirty_bitmap_load_start.exit
-  %ret.0 = phi i32 [ %retval.0.i34, %dirty_bitmap_load_start.exit ], [ %retval.0.ph.i, %cleanup.thread.i ]
-  %tobool36.not = icmp eq i32 %ret.0, 0
+  %ret.1 = phi i32 [ %retval.0.i34, %dirty_bitmap_load_start.exit ], [ %retval.0.ph.i, %cleanup.thread.i ]
+  %tobool36.not = icmp eq i32 %ret.1, 0
   br i1 %tobool36.not, label %if.end39, label %fail.loopexit
 
 if.end39:                                         ; preds = %for.cond.i, %if.then6.i, %trace_dirty_bitmap_load_bits_zeroes.exit.i, %cleanup.i, %if.then12.i56, %if.then10.i54, %if.end6.i, %trace_dirty_bitmap_load_complete.exit.i, %if.else27, %if.end35
@@ -1988,13 +1988,13 @@ trace_dirty_bitmap_load_success.exit:             ; preds = %do.end, %land.lhs.t
   br label %fail
 
 fail.loopexit:                                    ; preds = %if.end39, %if.end35, %if.then19
-  %ret.2.ph = phi i32 [ -22, %if.then19 ], [ %ret.0, %if.end35 ], [ %call38, %if.end39 ]
+  %ret.0.ph = phi i32 [ -22, %if.then19 ], [ %ret.1, %if.end35 ], [ %call38, %if.end39 ]
   call fastcc void @cancel_incoming_locked(ptr noundef nonnull %load)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock9, ptr noundef nonnull @.str.35, i32 noundef 132) #11
   br label %fail
 
 fail:                                             ; preds = %fail.loopexit, %trace_dirty_bitmap_load_success.exit
-  %ret.3 = phi i32 [ 0, %trace_dirty_bitmap_load_success.exit ], [ %ret.2.ph, %fail.loopexit ]
+  %ret.3 = phi i32 [ 0, %trace_dirty_bitmap_load_success.exit ], [ %ret.0.ph, %fail.loopexit ]
   br i1 %tobool11.not.i, label %return, label %if.then47
 
 if.then47:                                        ; preds = %fail

@@ -1250,9 +1250,9 @@ Vec_PtrFreeP.exit:                                ; preds = %214, %215
   br label %216
 
 216:                                              ; preds = %.thread, %Vec_PtrFreeP.exit, %212
-  %.1127 = phi ptr [ null, %Vec_PtrFreeP.exit ], [ %23, %212 ], [ %23, %.thread ]
+  %.0126 = phi ptr [ null, %Vec_PtrFreeP.exit ], [ %23, %212 ], [ %23, %.thread ]
   tail call void @Aig_ManCleanMarkB(ptr noundef %0) #10
-  ret ptr %.1127
+  ret ptr %.0126
 }
 
 declare void @Aig_ManCleanMarkB(ptr noundef) local_unnamed_addr #1

@@ -387,7 +387,7 @@ invoke.cont33:                                    ; preds = %if.then32
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %invoke.cont30, %invoke.cont33, %if.then10
-  %retval.0 = phi i32 [ 1, %if.then10 ], [ 1, %invoke.cont33 ], [ 0, %invoke.cont30 ]
+  %retval.1 = phi i32 [ 1, %if.then10 ], [ 1, %invoke.cont33 ], [ 0, %invoke.cont30 ]
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %options, i64 96
   %10 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %10, null
@@ -462,8 +462,8 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %return
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %cleanup, %entry
-  %retval.1 = phi i32 [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %retval.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %retval.0, %if.end8.sink.split.i.i.i.i.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %retval.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %retval.1, %if.end8.sink.split.i.i.i.i.i ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -802,8 +802,8 @@ if.then.i.i90:                                    ; preds = %if.then.i87
   br label %ehcleanup63
 
 if.end53:                                         ; preds = %if.then.i.i74, %if.then.i71, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit69, %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit
-  %security_connector.sroa.0.1 = phi ptr [ %8, %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit ], [ %28, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit69 ], [ %28, %if.then.i71 ], [ %28, %if.then.i.i74 ]
-  %cmp.i = icmp eq ptr %security_connector.sroa.0.1, null
+  %security_connector.sroa.0.3 = phi ptr [ %8, %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit ], [ %28, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit69 ], [ %28, %if.then.i71 ], [ %28, %if.then.i.i74 ]
+  %cmp.i = icmp eq ptr %security_connector.sroa.0.3, null
   br i1 %cmp.i, label %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit103, label %if.end57
 
 if.end57:                                         ; preds = %if.end53
@@ -821,7 +821,7 @@ invoke.cont60:                                    ; preds = %if.end57
   br label %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit103
 
 _ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit103: ; preds = %if.end53, %if.else, %if.then15, %invoke.cont60
-  %.sink = phi ptr [ %security_connector.sroa.0.1, %invoke.cont60 ], [ null, %if.then15 ], [ null, %if.else ], [ null, %if.end53 ]
+  %.sink = phi ptr [ %security_connector.sroa.0.3, %invoke.cont60 ], [ null, %if.then15 ], [ null, %if.else ], [ null, %if.end53 ]
   store ptr %.sink, ptr %agg.result, align 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %overridden_target_name, i64 32
   %42 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -846,7 +846,7 @@ ehcleanup:                                        ; preds = %_ZN9grpc_core13RefC
 
 if.then.i105:                                     ; preds = %ehcleanup.thread133, %ehcleanup
   %lpad.thr_comm.split-lp138 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp135, %ehcleanup.thread133 ], [ %lpad.thr_comm.split-lp, %ehcleanup ]
-  %security_connector.sroa.0.0.ph137 = phi ptr [ %security_connector.sroa.0.1, %ehcleanup.thread133 ], [ %8, %ehcleanup ]
+  %security_connector.sroa.0.0.ph137 = phi ptr [ %security_connector.sroa.0.3, %ehcleanup.thread133 ], [ %8, %ehcleanup ]
   %refs_.i.i106 = getelementptr inbounds i8, ptr %security_connector.sroa.0.0.ph137, i64 8
   %43 = atomicrmw sub ptr %refs_.i.i106, i64 1 acq_rel, align 8
   %cmp.i.i.i107 = icmp eq i64 %43, 1

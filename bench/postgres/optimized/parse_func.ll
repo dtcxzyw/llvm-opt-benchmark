@@ -2466,7 +2466,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr nocapture nounde
 
 71:                                               ; preds = %.lr.ph296, %.critedge331
   %indvars.iv350 = phi i64 [ 0, %.lr.ph296 ], [ %indvars.iv.next351, %.critedge331 ]
-  %.0158295 = phi i1 [ false, %.lr.ph296 ], [ %.1159, %.critedge331 ]
+  %.0158295 = phi i1 [ false, %.lr.ph296 ], [ %.2160, %.critedge331 ]
   %72 = getelementptr [100 x i32], ptr %4, i64 0, i64 %indvars.iv350
   %73 = load i32, ptr %72, align 4
   %.not217 = icmp eq i32 %73, 705
@@ -2543,14 +2543,14 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr nocapture nounde
   br i1 %.not219, label %.critedge331, label %.thread
 
 .critedge331:                                     ; preds = %74, %._crit_edge292, %._crit_edge292.thread, %71
-  %.1159 = phi i1 [ %.0158295, %71 ], [ true, %._crit_edge292.thread ], [ true, %._crit_edge292 ], [ true, %74 ]
+  %.2160 = phi i1 [ %.0158295, %71 ], [ true, %._crit_edge292.thread ], [ true, %._crit_edge292 ], [ true, %74 ]
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count352
   br i1 %exitcond353.not, label %._crit_edge297, label %71, !llvm.loop !19
 
 ._crit_edge297:                                   ; preds = %.critedge331
-  %brmerge.not = select i1 %.1159, i1 %.not218287, i1 false
-  %.2199.lcssa383388.mux = select i1 %.1159, ptr null, ptr %.2199.lcssa383388
+  %brmerge.not = select i1 %.2160, i1 %.not218287, i1 false
+  %.2199.lcssa383388.mux = select i1 %.2160, ptr null, ptr %.2199.lcssa383388
   br i1 %brmerge.not, label %.lr.ph302.us.outer, label %.thread
 
 .lr.ph302.us.outer:                               ; preds = %._crit_edge297, %119
@@ -2635,7 +2635,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr nocapture nounde
   br i1 %124, label %.thread233, label %.thread
 
 .thread:                                          ; preds = %._crit_edge292.thread, %._crit_edge297, %._crit_edge310.thread407, %._crit_edge310
-  %.5202 = phi ptr [ %.2199.lcssa383388.mux, %._crit_edge297 ], [ %.0190306.us, %._crit_edge310 ], [ %.2199.lcssa383388, %._crit_edge310.thread407 ], [ %.2199.lcssa383388, %._crit_edge292.thread ]
+  %.4201 = phi ptr [ %.2199.lcssa383388.mux, %._crit_edge297 ], [ %.0190306.us, %._crit_edge310 ], [ %.2199.lcssa383388, %._crit_edge310.thread407 ], [ %.2199.lcssa383388, %._crit_edge292.thread ]
   %125 = icmp sge i32 %.0161.lcssa, %0
   %brmerge463 = or i1 %125, %10
   br i1 %brmerge463, label %.thread233, label %.lr.ph318.preheader
@@ -2646,7 +2646,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr nocapture nounde
 
 .lr.ph318:                                        ; preds = %.lr.ph318.preheader, %132
   %indvars.iv359 = phi i64 [ 0, %.lr.ph318.preheader ], [ %indvars.iv.next360, %132 ]
-  %.0317 = phi i32 [ 705, %.lr.ph318.preheader ], [ %.1, %132 ]
+  %.0317 = phi i32 [ 705, %.lr.ph318.preheader ], [ %.2, %132 ]
   %126 = getelementptr [100 x i32], ptr %4, i64 0, i64 %indvars.iv359
   %127 = load i32, ptr %126, align 4
   %128 = icmp eq i32 %127, 705
@@ -2661,13 +2661,13 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr nocapture nounde
   br i1 %.not222, label %132, label %.thread233
 
 132:                                              ; preds = %129, %131, %.lr.ph318
-  %.1 = phi i32 [ %.0317, %.lr.ph318 ], [ %.0317, %131 ], [ %127, %129 ]
+  %.2 = phi i32 [ %.0317, %.lr.ph318 ], [ %.0317, %131 ], [ %127, %129 ]
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond363.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count362
   br i1 %exitcond363.not, label %._crit_edge319, label %.lr.ph318, !llvm.loop !22
 
 ._crit_edge319:                                   ; preds = %132
-  %.not223 = icmp eq i32 %.1, 705
+  %.not223 = icmp eq i32 %.2, 705
   br i1 %.not223, label %.thread233, label %.preheader238
 
 .preheader238:                                    ; preds = %._crit_edge319
@@ -2678,19 +2678,19 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr nocapture nounde
   br label %.lr.ph322
 
 .preheader:                                       ; preds = %.lr.ph322, %.preheader238
-  %.not224323 = icmp eq ptr %.5202, null
+  %.not224323 = icmp eq ptr %.4201, null
   br i1 %.not224323, label %.thread233, label %.lr.ph327.outer
 
 .lr.ph327.outer:                                  ; preds = %.preheader, %.thread424
   %133 = phi i1 [ true, %.thread424 ], [ false, %.preheader ]
   %.6188325.ph = phi ptr [ %.4196324, %.thread424 ], [ null, %.preheader ]
-  %.4196324.ph = phi ptr [ %140, %.thread424 ], [ %.5202, %.preheader ]
+  %.4196324.ph = phi ptr [ %140, %.thread424 ], [ %.4201, %.preheader ]
   br label %.lr.ph327
 
 .lr.ph322:                                        ; preds = %.lr.ph322.preheader, %.lr.ph322
   %indvars.iv364 = phi i64 [ 0, %.lr.ph322.preheader ], [ %indvars.iv.next365, %.lr.ph322 ]
   %134 = getelementptr [100 x i32], ptr %4, i64 0, i64 %indvars.iv364
-  store i32 %.1, ptr %134, align 4
+  store i32 %.2, ptr %134, align 4
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond368.not = icmp eq i64 %indvars.iv.next365, %wide.trip.count367
   br i1 %exitcond368.not, label %.preheader, label %.lr.ph322, !llvm.loop !23

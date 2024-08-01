@@ -277,7 +277,7 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %.04661 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %61 ]
+  %.04661 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %61 ]
   %23 = load i64, ptr %10, align 8
   %24 = add nsw i64 %23, 1
   store i64 %24, ptr %10, align 8
@@ -331,9 +331,9 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
   br label %._crit_edge68
 
 ._crit_edge68:                                    ; preds = %._crit_edge68.loopexit, %38
-  %.1.lcssa = phi i32 [ %.04661, %38 ], [ %46, %._crit_edge68.loopexit ]
+  %.2.lcssa = phi i32 [ %.04661, %38 ], [ %46, %._crit_edge68.loopexit ]
   %47 = load ptr, ptr %17, align 8
-  call void @Msat_ClauseVecShrink(ptr noundef %47, i32 noundef %.1.lcssa) #6
+  call void @Msat_ClauseVecShrink(ptr noundef %47, i32 noundef %.2.lcssa) #6
   %48 = load ptr, ptr %5, align 8
   call void @Msat_QueueClear(ptr noundef %48) #6
   br label %.loopexit
@@ -359,13 +359,13 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
   br label %61
 
 61:                                               ; preds = %51, %56, %33
-  %.2 = phi i32 [ %.04661, %51 ], [ %58, %56 ], [ %35, %33 ]
+  %.1 = phi i32 [ %.04661, %51 ], [ %58, %56 ], [ %35, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %61, %12
-  %.046.lcssa = phi i32 [ 0, %12 ], [ %.2, %61 ]
+  %.046.lcssa = phi i32 [ 0, %12 ], [ %.1, %61 ]
   %62 = load ptr, ptr %17, align 8
   call void @Msat_ClauseVecShrink(ptr noundef %62, i32 noundef %.046.lcssa) #6
   %63 = load ptr, ptr %5, align 8

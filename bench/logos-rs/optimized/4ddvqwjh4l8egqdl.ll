@@ -288,10 +288,10 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
           to label %59 unwind label %45
 
 .thread47:                                        ; preds = %79, %74, %72, %70, %75
-  %.sroa.011.1.ph = phi i1 [ true, %75 ], [ true, %70 ], [ false, %72 ], [ false, %74 ], [ false, %79 ]
-  %.sroa.010.1.ph = phi i1 [ false, %75 ], [ true, %70 ], [ true, %72 ], [ false, %74 ], [ false, %79 ]
-  %.sroa.09.1.ph = phi i1 [ true, %75 ], [ false, %70 ], [ true, %72 ], [ false, %74 ], [ false, %79 ]
-  %.sroa.07.1.ph = phi i1 [ true, %75 ], [ true, %70 ], [ true, %72 ], [ false, %74 ], [ false, %79 ]
+  %.sroa.011.0.ph = phi i1 [ true, %75 ], [ true, %70 ], [ false, %72 ], [ false, %74 ], [ false, %79 ]
+  %.sroa.010.0.ph = phi i1 [ false, %75 ], [ true, %70 ], [ true, %72 ], [ false, %74 ], [ false, %79 ]
+  %.sroa.09.0.ph = phi i1 [ true, %75 ], [ false, %70 ], [ true, %72 ], [ false, %74 ], [ false, %79 ]
+  %.sroa.07.0.ph = phi i1 [ true, %75 ], [ true, %70 ], [ true, %72 ], [ false, %74 ], [ false, %79 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -319,10 +319,10 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
           to label %54 unwind label %52
 
 .thread:                                          ; preds = %76, %.body, %.thread47, %.thread34, %52
-  %.sroa.011.2 = phi i1 [ true, %52 ], [ true, %.thread34 ], [ %.sroa.011.1.ph, %.thread47 ], [ true, %76 ], [ false, %.body ]
-  %.sroa.010.2 = phi i1 [ true, %52 ], [ true, %.thread34 ], [ %.sroa.010.1.ph, %.thread47 ], [ false, %76 ], [ false, %.body ]
-  %.sroa.09.2 = phi i1 [ true, %52 ], [ true, %.thread34 ], [ %.sroa.09.1.ph, %.thread47 ], [ true, %76 ], [ false, %.body ]
-  %.sroa.07.2 = phi i1 [ true, %52 ], [ true, %.thread34 ], [ %.sroa.07.1.ph, %.thread47 ], [ true, %76 ], [ false, %.body ]
+  %.sroa.011.2 = phi i1 [ true, %52 ], [ true, %.thread34 ], [ %.sroa.011.0.ph, %.thread47 ], [ true, %76 ], [ false, %.body ]
+  %.sroa.010.2 = phi i1 [ true, %52 ], [ true, %.thread34 ], [ %.sroa.010.0.ph, %.thread47 ], [ false, %76 ], [ false, %.body ]
+  %.sroa.09.2 = phi i1 [ true, %52 ], [ true, %.thread34 ], [ %.sroa.09.0.ph, %.thread47 ], [ true, %76 ], [ false, %.body ]
+  %.sroa.07.2 = phi i1 [ true, %52 ], [ true, %.thread34 ], [ %.sroa.07.0.ph, %.thread47 ], [ true, %76 ], [ false, %.body ]
   %.pn17 = phi { ptr, i32 } [ %53, %52 ], [ %.pn1545, %.thread34 ], [ %lpad.thr_comm, %.thread47 ], [ %78, %76 ], [ %64, %.body ]
   %50 = load i32, ptr %27, align 8
   %51 = icmp eq i32 %50, 1

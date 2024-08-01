@@ -617,26 +617,26 @@ _ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
   br i1 %199, label %.loopexit75.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %234, %.lr.ph.i
-  %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i56, %.lr.ph.i ], [ 0, %234 ]
-  %.06577.i = phi i1 [ %.166.i, %.lr.ph.i ], [ true, %234 ]
-  %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i55, 1
-  %235 = getelementptr inbounds i32, ptr %.06285.i, i64 %indvars.iv.next.i56
+  %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i55, %.lr.ph.i ], [ 0, %234 ]
+  %.16677.i = phi i1 [ %.2.i56, %.lr.ph.i ], [ true, %234 ]
+  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
+  %235 = getelementptr inbounds i32, ptr %.06285.i, i64 %indvars.iv.next.i55
   %236 = load i32, ptr %235, align 4
   %237 = sext i32 %236 to i64
   %238 = getelementptr inbounds %struct.t_atom, ptr %202, i64 %237
   %239 = load float, ptr %238, align 4
   %240 = fcmp uge float %239, 1.500000e+00
-  %.166.i = select i1 %240, i1 %.06577.i, i1 false
-  %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, %wide.trip.count.i53
+  %.2.i56 = select i1 %240, i1 %.16677.i, i1 false
+  %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i53
   br i1 %exitcond.not.i57, label %.loopexit75.i, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit75.i:                                    ; preds = %.lr.ph.i, %234
-  %.2.i54 = phi i1 [ true, %234 ], [ %.166.i, %.lr.ph.i ]
+  %.065.i = phi i1 [ true, %234 ], [ %.2.i56, %.lr.ph.i ]
   br i1 %204, label %.loopexit.i, label %.lr.ph80.i
 
 .lr.ph80.i:                                       ; preds = %.loopexit75.i, %253
   %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %253 ], [ 0, %.loopexit75.i ]
-  %.379.i = phi i1 [ %.4.i, %253 ], [ %.2.i54, %.loopexit75.i ]
+  %.479.i = phi i1 [ %.5.i, %253 ], [ %.065.i, %.loopexit75.i ]
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %241 = getelementptr inbounds i32, ptr %.06285.i, i64 %indvars.iv.next99.i
   %242 = load i32, ptr %241, align 4
@@ -657,13 +657,13 @@ _ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
   br label %253
 
 253:                                              ; preds = %252, %247, %.lr.ph80.i
-  %.4.i = phi i1 [ false, %252 ], [ %.379.i, %247 ], [ %.379.i, %.lr.ph80.i ]
+  %.5.i = phi i1 [ false, %252 ], [ %.479.i, %247 ], [ %.479.i, %.lr.ph80.i ]
   %exitcond101.not.i = icmp eq i64 %indvars.iv.next99.i, %wide.trip.count.i53
   br i1 %exitcond101.not.i, label %.loopexit.i, label %.lr.ph80.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %253, %.loopexit75.i
-  %.5.i = phi i1 [ %.2.i54, %.loopexit75.i ], [ %.4.i, %253 ]
-  br i1 %.5.i, label %254, label %278
+  %.3.i = phi i1 [ %.065.i, %.loopexit75.i ], [ %.5.i, %253 ]
+  br i1 %.3.i, label %254, label %278
 
 254:                                              ; preds = %.loopexit.i
   %255 = sext i32 %220 to i64

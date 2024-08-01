@@ -1205,8 +1205,8 @@ _ZN5osgeo4proj2io13JSONFormatter17MakeObjectContextEPKcb.exit: ; preds = %58
 
 93:                                               ; preds = %91, %89
   %.pn48 = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
-  %.1 = extractvalue { ptr, i32 } %.pn48, 0
-  %.138 = extractvalue { ptr, i32 } %.pn48, 1
+  %.2 = extractvalue { ptr, i32 } %.pn48, 0
+  %.239 = extractvalue { ptr, i32 } %.pn48, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #32
   br label %133
 
@@ -1223,8 +1223,8 @@ _ZN5osgeo4proj2io13JSONFormatter17MakeObjectContextEPKcb.exit: ; preds = %58
 
 98:                                               ; preds = %96, %94
   %.pn50 = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
-  %.2 = extractvalue { ptr, i32 } %.pn50, 0
-  %.239 = extractvalue { ptr, i32 } %.pn50, 1
+  %.3 = extractvalue { ptr, i32 } %.pn50, 0
+  %.340 = extractvalue { ptr, i32 } %.pn50, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #32
   br label %133
 
@@ -1241,8 +1241,8 @@ _ZN5osgeo4proj2io13JSONFormatter17MakeObjectContextEPKcb.exit: ; preds = %58
 
 103:                                              ; preds = %101, %99
   %.pn52 = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ]
-  %.3 = extractvalue { ptr, i32 } %.pn52, 0
-  %.340 = extractvalue { ptr, i32 } %.pn52, 1
+  %.4 = extractvalue { ptr, i32 } %.pn52, 0
+  %.441 = extractvalue { ptr, i32 } %.pn52, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #32
   br label %133
 
@@ -1259,8 +1259,8 @@ _ZN5osgeo4proj2io13JSONFormatter17MakeObjectContextEPKcb.exit: ; preds = %58
 
 108:                                              ; preds = %106, %104
   %.pn54 = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ]
-  %.4 = extractvalue { ptr, i32 } %.pn54, 0
-  %.441 = extractvalue { ptr, i32 } %.pn54, 1
+  %.5 = extractvalue { ptr, i32 } %.pn54, 0
+  %.542 = extractvalue { ptr, i32 } %.pn54, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #32
   br label %131
 
@@ -1284,8 +1284,8 @@ _ZN5osgeo4proj2io13JSONFormatter17MakeObjectContextEPKcb.exit: ; preds = %58
 
 117:                                              ; preds = %115, %113
   %.pn56 = phi { ptr, i32 } [ %116, %115 ], [ %114, %113 ]
-  %.5 = extractvalue { ptr, i32 } %.pn56, 0
-  %.542 = extractvalue { ptr, i32 } %.pn56, 1
+  %.7 = extractvalue { ptr, i32 } %.pn56, 0
+  %.744 = extractvalue { ptr, i32 } %.pn56, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #32
   br label %131
 
@@ -1325,8 +1325,8 @@ _ZN5osgeo4proj22CPLJSonStreamingWriter3AddEi.exit: ; preds = %88, %126
           to label %131 unwind label %136
 
 131:                                              ; preds = %127, %.body, %117, %109, %108
-  %.643 = phi i32 [ %112, %109 ], [ %130, %127 ], [ %121, %.body ], [ %.542, %117 ], [ %.441, %108 ]
-  %.6 = phi ptr [ %111, %109 ], [ %129, %127 ], [ %120, %.body ], [ %.5, %117 ], [ %.4, %108 ]
+  %.643 = phi i32 [ %112, %109 ], [ %130, %127 ], [ %121, %.body ], [ %.744, %117 ], [ %.542, %108 ]
+  %.6 = phi ptr [ %111, %109 ], [ %129, %127 ], [ %120, %.body ], [ %.7, %117 ], [ %.5, %108 ]
   call void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #32
   br label %133
 
@@ -1335,11 +1335,11 @@ _ZN5osgeo4proj22CPLJSonStreamingWriter3AddEi.exit: ; preds = %88, %126
   ret void
 
 133:                                              ; preds = %131, %103, %98, %93, %35, %34
-  %.744 = phi i32 [ %.643, %131 ], [ %38, %35 ], [ %.340, %103 ], [ %.239, %98 ], [ %.138, %93 ], [ %.037, %34 ]
-  %.7 = phi ptr [ %.6, %131 ], [ %37, %35 ], [ %.3, %103 ], [ %.2, %98 ], [ %.1, %93 ], [ %.0, %34 ]
+  %.138 = phi i32 [ %.643, %131 ], [ %38, %35 ], [ %.441, %103 ], [ %.340, %98 ], [ %.239, %93 ], [ %.037, %34 ]
+  %.1 = phi ptr [ %.6, %131 ], [ %37, %35 ], [ %.4, %103 ], [ %.3, %98 ], [ %.2, %93 ], [ %.0, %34 ]
   call void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  %134 = insertvalue { ptr, i32 } poison, ptr %.7, 0
-  %135 = insertvalue { ptr, i32 } %134, i32 %.744, 1
+  %134 = insertvalue { ptr, i32 } poison, ptr %.1, 0
+  %135 = insertvalue { ptr, i32 } %134, i32 %.138, 1
   resume { ptr, i32 } %135
 
 136:                                              ; preds = %127

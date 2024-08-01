@@ -227,7 +227,7 @@ if.end:                                           ; preds = %invoke.cont15
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont15, %if.end
-  %retval.0 = phi ptr [ %v2, %if.end ], [ null, %invoke.cont15 ]
+  %retval.1 = phi ptr [ %v2, %if.end ], [ null, %invoke.cont15 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %temp) #13
   br label %return
 
@@ -247,8 +247,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.bb, %entry, %sw.epilog, %sw.bb20, %sw.bb18, %cleanup, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %invoke.cont4
-  %retval.1 = phi ptr [ null, %sw.epilog ], [ inttoptr (i64 80 to ptr), %sw.bb20 ], [ null, %sw.bb18 ], [ %retval.0, %cleanup ], [ @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, %sw.bb11 ], [ @_ZN4absl13base_internal11FastTypeTagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9dummy_varE, %sw.bb9 ], [ null, %sw.bb7 ], [ null, %sw.bb5 ], [ null, %invoke.cont4 ], [ inttoptr (i64 32 to ptr), %entry ], [ %call5.i.i14, %sw.bb ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ inttoptr (i64 80 to ptr), %sw.bb20 ], [ null, %sw.bb18 ], [ %retval.1, %cleanup ], [ @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, %sw.bb11 ], [ @_ZN4absl13base_internal11FastTypeTagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9dummy_varE, %sw.bb9 ], [ null, %sw.bb7 ], [ null, %sw.bb5 ], [ null, %invoke.cont4 ], [ inttoptr (i64 32 to ptr), %entry ], [ %call5.i.i14, %sw.bb ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -467,9 +467,9 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %"_ZNK3$_0clEv.exit"
 
 "_ZNK3$_0clEv.exit":                              ; preds = %entry, %if.then.i.i.i.i
-  %u.sroa.0.1.in.i.i.i.i = phi i64 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
-  %u.sroa.0.1.i.i.i.i = trunc i64 %u.sroa.0.1.in.i.i.i.i to i32
-  tail call void @_ZN4absl12log_internal21RawSetStderrThresholdENS_18LogSeverityAtLeastE(i32 noundef %u.sroa.0.1.i.i.i.i)
+  %u.sroa.0.0.in.i.i.i.i = phi i64 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
+  %u.sroa.0.0.i.i.i.i = trunc i64 %u.sroa.0.0.in.i.i.i.i to i32
+  tail call void @_ZN4absl12log_internal21RawSetStderrThresholdENS_18LogSeverityAtLeastE(i32 noundef %u.sroa.0.0.i.i.i.i)
   ret void
 }
 
@@ -502,9 +502,9 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %"_ZNK3$_1clEv.exit"
 
 "_ZNK3$_1clEv.exit":                              ; preds = %entry, %if.then.i.i.i.i
-  %u.sroa.0.1.in.i.i.i.i = phi i64 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
-  %u.sroa.0.1.i.i.i.i = trunc i64 %u.sroa.0.1.in.i.i.i.i to i32
-  tail call void @_ZN4absl12log_internal17RawSetMinLogLevelENS_18LogSeverityAtLeastE(i32 noundef %u.sroa.0.1.i.i.i.i)
+  %u.sroa.0.0.in.i.i.i.i = phi i64 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
+  %u.sroa.0.0.i.i.i.i = trunc i64 %u.sroa.0.0.in.i.i.i.i to i32
+  tail call void @_ZN4absl12log_internal17RawSetMinLogLevelENS_18LogSeverityAtLeastE(i32 noundef %u.sroa.0.0.i.i.i.i)
   ret void
 }
 
@@ -738,8 +738,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %"_ZNK3$_3clEv.exit"
 
 "_ZNK3$_3clEv.exit":                              ; preds = %invoke.cont.thread.i.i.i.i, %if.then.i.i.i.i
-  %u.sroa.0.1.i.i.i.i = phi i1 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %tobool.i.i.i.i.i, %invoke.cont.thread.i.i.i.i ]
-  tail call void @_ZN4absl12log_internal18RawEnableLogPrefixEb(i1 noundef zeroext %u.sroa.0.1.i.i.i.i)
+  %u.sroa.0.0.i.i.i.i = phi i1 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %tobool.i.i.i.i.i, %invoke.cont.thread.i.i.i.i ]
+  tail call void @_ZN4absl12log_internal18RawEnableLogPrefixEb(i1 noundef zeroext %u.sroa.0.0.i.i.i.i)
   ret void
 }
 
@@ -759,9 +759,9 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %"_ZNK3$_4clEv.exit"
 
 "_ZNK3$_4clEv.exit":                              ; preds = %entry, %if.then.i.i.i.i
-  %u.sroa.0.1.in.i.i.i.i = phi i64 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
-  %u.sroa.0.1.i.i.i.i = trunc i64 %u.sroa.0.1.in.i.i.i.i to i32
-  %call2.i = tail call noundef i32 @_ZN4absl12log_internal21UpdateGlobalVLogLevelEi(i32 noundef %u.sroa.0.1.i.i.i.i)
+  %u.sroa.0.0.in.i.i.i.i = phi i64 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
+  %u.sroa.0.0.i.i.i.i = trunc i64 %u.sroa.0.0.in.i.i.i.i to i32
+  %call2.i = tail call noundef i32 @_ZN4absl12log_internal21UpdateGlobalVLogLevelEi(i32 noundef %u.sroa.0.0.i.i.i.i)
   ret void
 }
 

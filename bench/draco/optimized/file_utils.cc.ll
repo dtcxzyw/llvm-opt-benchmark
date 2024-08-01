@@ -572,8 +572,8 @@ _ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i11: ; preds =
   br label %_ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit12
 
 _ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit12: ; preds = %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i11, %41, %6, %2
-  %.2 = phi i1 [ false, %2 ], [ %.010.i14, %41 ], [ %.010.i14, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i11 ], [ false, %6 ]
-  ret i1 %.2
+  %.0 = phi i1 [ false, %2 ], [ %.010.i14, %41 ], [ %.010.i14, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i11 ], [ false, %6 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

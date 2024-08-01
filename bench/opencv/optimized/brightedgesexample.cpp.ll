@@ -512,7 +512,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %162
 
 161:                                              ; preds = %59, %107
-  %.031 = phi i32 [ 0, %107 ], [ -1, %59 ]
+  %.132 = phi i32 [ 0, %107 ], [ -1, %59 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #6
   br label %164
@@ -528,9 +528,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %.body
 
 164:                                              ; preds = %42, %161
-  %.132 = phi i32 [ %.031, %161 ], [ 0, %42 ]
+  %.031 = phi i32 [ %.132, %161 ], [ 0, %42 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  ret i32 %.132
+  ret i32 %.031
 
 .body:                                            ; preds = %54, %163, %52
   %.pn66 = phi { ptr, i32 } [ %.pn63.pn, %163 ], [ %.pn34, %52 ], [ %55, %54 ]

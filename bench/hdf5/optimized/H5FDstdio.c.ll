@@ -302,8 +302,8 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   br label %76
 
 76:                                               ; preds = %74, %46
-  %.2 = phi ptr [ %47, %46 ], [ %75, %74 ]
-  %.not62 = icmp eq ptr %.2, null
+  %.1 = phi ptr [ %47, %46 ], [ %75, %74 ]
+  %.not62 = icmp eq ptr %.1, null
   br i1 %.not62, label %77, label %.thread
 
 77:                                               ; preds = %76
@@ -318,13 +318,13 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 
 .thread:                                          ; preds = %70, %67, %76
   %.04868 = phi i32 [ 1, %76 ], [ 1, %70 ], [ 0, %67 ]
-  %.267 = phi ptr [ %.2, %76 ], [ %41, %70 ], [ %41, %67 ]
+  %.167 = phi ptr [ %.1, %76 ], [ %41, %70 ], [ %41, %67 ]
   %85 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #14
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %96
 
 87:                                               ; preds = %.thread
-  %88 = tail call i32 @fclose(ptr noundef nonnull %.267)
+  %88 = tail call i32 @fclose(ptr noundef nonnull %.167)
   %89 = tail call i32 @H5open() #12
   %90 = load i64, ptr @H5E_ERR_CLS_g, align 8
   %91 = tail call i32 @H5open() #12
@@ -336,14 +336,14 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 
 96:                                               ; preds = %.thread
   %97 = getelementptr inbounds i8, ptr %85, i64 80
-  store ptr %.267, ptr %97, align 8
+  store ptr %.167, ptr %97, align 8
   %98 = getelementptr inbounds i8, ptr %85, i64 128
   store i32 3, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %85, i64 112
   store i64 -1, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %85, i64 120
   store i32 %.04868, ptr %100, align 8
-  %101 = tail call i32 @fseeko64(ptr noundef nonnull %.267, i64 noundef 0, i32 noundef 2)
+  %101 = tail call i32 @fseeko64(ptr noundef nonnull %.167, i64 noundef 0, i32 noundef 2)
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %103, label %104
 
@@ -378,7 +378,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 
 118:                                              ; preds = %114
   call void @free(ptr noundef nonnull %85) #12
-  %119 = call i32 @fclose(ptr noundef nonnull %.267)
+  %119 = call i32 @fclose(ptr noundef nonnull %.167)
   %120 = call i32 @H5open() #12
   %121 = load i64, ptr @H5E_ERR_CLS_g, align 8
   %122 = call i32 @H5open() #12
@@ -398,7 +398,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 
 132:                                              ; preds = %127
   call void @free(ptr noundef nonnull %85) #12
-  %133 = call i32 @fclose(ptr noundef nonnull %.267)
+  %133 = call i32 @fclose(ptr noundef nonnull %.167)
   %134 = call i32 @H5open() #12
   %135 = load i64, ptr @H5E_ERR_CLS_g, align 8
   %136 = call i32 @H5open() #12
@@ -415,7 +415,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 
 144:                                              ; preds = %141
   call void @free(ptr noundef nonnull %85) #12
-  %145 = call i32 @fclose(ptr noundef nonnull %.267)
+  %145 = call i32 @fclose(ptr noundef nonnull %.167)
   %146 = call i32 @H5open() #12
   %147 = load i64, ptr @H5E_ERR_CLS_g, align 8
   %148 = call i32 @H5open() #12

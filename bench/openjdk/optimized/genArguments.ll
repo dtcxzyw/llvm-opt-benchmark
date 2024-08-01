@@ -556,27 +556,27 @@ define hidden void @_ZN12GenArguments20initialize_size_infoEv(ptr noundef nonnul
   br label %92
 
 92:                                               ; preds = %88, %86, %81
-  %.134 = phi i64 [ %82, %81 ], [ %.1, %86 ], [ %spec.select, %88 ]
-  %.031 = phi i64 [ %83, %81 ], [ %87, %86 ], [ %spec.select43, %88 ]
+  %.2 = phi i64 [ %82, %81 ], [ %.1, %86 ], [ %spec.select, %88 ]
+  %.132 = phi i64 [ %83, %81 ], [ %87, %86 ], [ %spec.select43, %88 ]
   %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not48 = icmp eq ptr %93, null
   br i1 %.not48, label %96, label %94
 
 94:                                               ; preds = %92
   %95 = load i64, ptr @MinNewSize, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %95, i64 noundef %.134, i64 noundef %.1)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %95, i64 noundef %.2, i64 noundef %.1)
   br label %96
 
 96:                                               ; preds = %94, %92, %61
-  %.2 = phi i64 [ %.134, %94 ], [ %.134, %92 ], [ %.033, %61 ]
-  %.132 = phi i64 [ %.031, %94 ], [ %.031, %92 ], [ %71, %61 ]
+  %.134 = phi i64 [ %.2, %94 ], [ %.2, %92 ], [ %.033, %61 ]
+  %.031 = phi i64 [ %.132, %94 ], [ %.132, %92 ], [ %71, %61 ]
   %97 = load i64, ptr @NewSize, align 8
-  %.not40 = icmp eq i64 %97, %.2
+  %.not40 = icmp eq i64 %97, %.134
   br i1 %.not40, label %100, label %98
 
 98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i64 %.2, ptr %3, align 8
+  store i64 %.134, ptr %3, align 8
   %99 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1195, i32 noundef 6, ptr noundef nonnull %3, i32 noundef 5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %100
@@ -595,11 +595,11 @@ define hidden void @_ZN12GenArguments20initialize_size_infoEv(ptr noundef nonnul
 
 104:                                              ; preds = %102, %100
   %105 = load i64, ptr @OldSize, align 8
-  %.not42 = icmp eq i64 %105, %.132
+  %.not42 = icmp eq i64 %105, %.031
   br i1 %.not42, label %107, label %106
 
 106:                                              ; preds = %104
-  store i64 %.132, ptr @OldSize, align 8
+  store i64 %.031, ptr @OldSize, align 8
   br label %107
 
 107:                                              ; preds = %106, %104
@@ -610,7 +610,7 @@ define hidden void @_ZN12GenArguments20initialize_size_infoEv(ptr noundef nonnul
 109:                                              ; preds = %107
   %110 = load i64, ptr @MinOldSize, align 8
   %111 = load i64, ptr @MaxOldSize, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %110, i64 noundef %.132, i64 noundef %111)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %110, i64 noundef %.031, i64 noundef %111)
   br label %112
 
 112:                                              ; preds = %107, %109

@@ -500,17 +500,17 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %104
 
 select.unfold:                                    ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h330877b38caed909E.exit.i", %124
   %127 = phi i8 [ %64, %124 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h330877b38caed909E.exit.i" ]
-  %.sroa.4.1.i = phi i64 [ %126, %124 ], [ %123, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h330877b38caed909E.exit.i" ]
+  %.sroa.4.0.i = phi i64 [ %126, %124 ], [ %123, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h330877b38caed909E.exit.i" ]
   %.pn = phi i64 [ %125, %124 ], [ %.pre.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h330877b38caed909E.exit.i" ]
-  %.sroa.0.1.i = getelementptr inbounds i8, ptr %.val.i, i64 %.pn
+  %.sroa.0.0.i = getelementptr inbounds i8, ptr %.val.i, i64 %.pn
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  store ptr %.sroa.0.1.i, ptr %16, align 8
-  store i64 %.sroa.4.1.i, ptr %57, align 8
-  %128 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %.sroa.4.1.i
+  store ptr %.sroa.0.0.i, ptr %16, align 8
+  store i64 %.sroa.4.0.i, ptr %57, align 8
+  %128 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.sroa.4.0.i
   br label %129
 
 129:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i", %select.unfold
-  %130 = phi ptr [ %168, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i" ], [ %.sroa.0.1.i, %select.unfold ]
+  %130 = phi ptr [ %168, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i" ], [ %.sroa.0.0.i, %select.unfold ]
   %131 = icmp eq ptr %130, %128
   br i1 %131, label %173, label %132
 
@@ -594,15 +594,15 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   br i1 %176, label %213, label %214
 
 178:                                              ; preds = %173
-  %179 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6e63d9c0fc150a32E"(i64 noundef %.sroa.4.1.i, i1 noundef zeroext false)
+  %179 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6e63d9c0fc150a32E"(i64 noundef %.sroa.4.0.i, i1 noundef zeroext false)
   %180 = extractvalue { i64, ptr } %179, 0
   %181 = extractvalue { i64, ptr } %179, 1
   %182 = icmp ne ptr %181, null
   call void @llvm.assume(i1 %182)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr nonnull align 1 %.sroa.0.1.i, i64 %.sroa.4.1.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.4.0.i, i1 false)
   store i64 %180, ptr %14, align 8
   store ptr %181, ptr %.sroa.455.0..sroa_idx, align 8
-  store i64 %.sroa.4.1.i, ptr %.sroa.556.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i, ptr %.sroa.556.0..sroa_idx, align 8
   br label %183
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %173
@@ -626,7 +626,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %173
   br label %183
 
 183:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %178
-  %184 = phi i64 [ %.pre121, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ %.sroa.4.1.i, %178 ]
+  %184 = phi i64 [ %.pre121, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ %.sroa.4.0.i, %178 ]
   %185 = phi ptr [ %.pre, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ %181, %178 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %186 = invoke noundef i32 @_ZN6uucore8features4mode9get_umask17h7bd1810f5ba10428E()

@@ -616,7 +616,7 @@ land.rhs.i.i:                                     ; preds = %if.end34.i.i, %land
   %call1461.i.i = phi i32 [ %call1455.i.i, %land.rhs.lr.ph.i.i ], [ %call14.i.i, %if.end34.i.i ]
   %cetable.059.i.i = phi ptr [ %cesBuffer.i.i, %land.rhs.lr.ph.i.i ], [ %cetable.1.i.i, %if.end34.i.i ]
   %offset.058.i.i = phi i32 [ 0, %land.rhs.lr.ph.i.i ], [ %offset.1.i.i, %if.end34.i.i ]
-  %cetablesize.057.i.i = phi i32 [ 256, %land.rhs.lr.ph.i.i ], [ %cetablesize.3.i.i, %if.end34.i.i ]
+  %cetablesize.057.i.i = phi i32 [ 256, %land.rhs.lr.ph.i.i ], [ %cetablesize.1.i.i, %if.end34.i.i ]
   %37 = load i32, ptr %status, align 4
   %cmp.i39.i.i = icmp sgt i32 %37, 0
   br i1 %cmp.i39.i.i, label %while.end.i.i, label %while.body.i.i
@@ -687,7 +687,7 @@ do.body.i.i.i:                                    ; preds = %_ZL14allocateMemory
   br label %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i
 
 _ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i: ; preds = %do.body.i.i.i, %entry.if.end7_crit_edge.i.i.i
-  %cetablesize.1.i.i = phi i32 [ %add1.i.i.i, %do.body.i.i.i ], [ %cetablesize.057.i.i, %entry.if.end7_crit_edge.i.i.i ]
+  %cetablesize.2.i.i = phi i32 [ %add1.i.i.i, %do.body.i.i.i ], [ %cetablesize.057.i.i, %entry.if.end7_crit_edge.i.i.i ]
   %idxprom.pre-phi.i.i.i = phi i64 [ %conv5.i.i.i, %do.body.i.i.i ], [ %.pre13.i.i.i, %entry.if.end7_crit_edge.i.i.i ]
   %destination.addr.0.i.i.i = phi ptr [ %call.i.i.i.i, %do.body.i.i.i ], [ %cetable.059.i.i, %entry.if.end7_crit_edge.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %destination.addr.0.i.i.i, i64 %idxprom.pre-phi.i.i.i
@@ -707,7 +707,7 @@ if.then32.i.i:                                    ; preds = %if.end26.i.i
   br label %if.end34.i.i
 
 if.end34.i.i:                                     ; preds = %if.then32.i.i, %if.end26.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i, %if.then1.i.i.i
-  %cetablesize.3.i.i = phi i32 [ %cetablesize.057.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %cetablesize.1.i.i, %if.end26.i.i ], [ %cetablesize.1.i.i, %if.then32.i.i ], [ %cetablesize.057.i.i, %if.then1.i.i.i ]
+  %cetablesize.1.i.i = phi i32 [ %cetablesize.057.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %cetablesize.2.i.i, %if.end26.i.i ], [ %cetablesize.2.i.i, %if.then32.i.i ], [ %cetablesize.057.i.i, %if.then1.i.i.i ]
   %offset.1.i.i = phi i32 [ %offset.058.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %add.i.i69.i, %if.end26.i.i ], [ %add.i.i69.i, %if.then32.i.i ], [ %offset.058.i.i, %if.then1.i.i.i ]
   %cetable.1.i.i = phi ptr [ %cetable.059.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %destination.addr.0.i.i.i, %if.end26.i.i ], [ %destination.addr.0.i.i.i, %if.then32.i.i ], [ %cetable.059.i.i, %if.then1.i.i.i ]
   %call14.i.i = tail call i32 @ucol_next_75(ptr noundef %coleiter.0.i.i, ptr noundef nonnull %status)
@@ -3120,7 +3120,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc216
   %mLimit.0 = phi i32 [ %mLimit.2, %for.inc216 ], [ -1, %for.cond.preheader ]
-  %mStart.0 = phi i32 [ %mStart.1, %for.inc216 ], [ -1, %for.cond.preheader ]
+  %mStart.0 = phi i32 [ %mStart.2, %for.inc216 ], [ -1, %for.cond.preheader ]
   %targetIx.0 = phi i32 [ %inc217, %for.inc216 ], [ 0, %for.cond.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   %8 = load i32, ptr %bufSize.i, align 8
@@ -3623,9 +3623,9 @@ for.inc108:                                       ; preds = %if.end33.i294, %if.
 
 if.end111:                                        ; preds = %if.end27.i290, %if.end.i268, %_ZL12compareCE64slls.exit309, %invoke.cont80, %if.end33.i294, %if.else101, %land.lhs.true72, %invoke.cont67
   %maxLimit.0 = phi i32 [ %62, %invoke.cont67 ], [ %62, %land.lhs.true72 ], [ %74, %if.else101 ], [ %74, %if.end33.i294 ], [ %74, %invoke.cont80 ], [ %74, %_ZL12compareCE64slls.exit309 ], [ %74, %if.end.i268 ], [ %74, %if.end27.i290 ]
-  %found.1.shrunk = phi i1 [ true, %invoke.cont67 ], [ %cmp74.not, %land.lhs.true72 ], [ %cmp104, %if.else101 ], [ %cmp84, %if.end33.i294 ], [ %cmp84, %invoke.cont80 ], [ %cmp84, %_ZL12compareCE64slls.exit309 ], [ %cmp84, %if.end.i268 ], [ %cmp84, %if.end27.i290 ]
+  %found.2.shrunk = phi i1 [ true, %invoke.cont67 ], [ %cmp74.not, %land.lhs.true72 ], [ %cmp104, %if.else101 ], [ %cmp84, %if.end33.i294 ], [ %cmp84, %invoke.cont80 ], [ %cmp84, %_ZL12compareCE64slls.exit309 ], [ %cmp84, %if.end.i268 ], [ %cmp84, %if.end27.i290 ]
   %nextCEI.0 = phi ptr [ %retval.0.i209, %invoke.cont67 ], [ %retval.0.i209, %land.lhs.true72 ], [ %retval.0.i243, %if.else101 ], [ %retval.0.i243, %if.end33.i294 ], [ %retval.0.i243, %invoke.cont80 ], [ %retval.0.i243, %_ZL12compareCE64slls.exit309 ], [ %retval.0.i243, %if.end.i268 ], [ %retval.0.i243, %if.end27.i290 ]
-  %found.1 = zext i1 %found.1.shrunk to i8
+  %found.2 = zext i1 %found.2.shrunk to i8
   %82 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %82, 1
   br i1 %cmp.i.i, label %if.end.i.i, label %for.end218.loopexit
@@ -3675,7 +3675,7 @@ if.end5.i:                                        ; preds = %call14.i.i.noexc, %
 invoke.cont112.thread:                            ; preds = %if.end5.i
   %call6.i313.fr = freeze i8 %call6.i313
   %tobool114.not = icmp eq i8 %call6.i313.fr, 0
-  %spec.select448 = select i1 %tobool114.not, i8 0, i8 %found.1
+  %spec.select448 = select i1 %tobool114.not, i8 0, i8 %found.2
   %.pre = load i32, ptr %status, align 4
   %cmp.i314 = icmp slt i32 %.pre, 1
   br i1 %cmp.i314, label %if.end121, label %for.end218.loopexit
@@ -3908,7 +3908,7 @@ land.lhs.true179:                                 ; preds = %invoke.cont175
   br label %if.end186
 
 if.end186:                                        ; preds = %land.lhs.true179, %invoke.cont170, %invoke.cont175, %if.end164
-  %mLimit.1.ph = phi i32 [ %spec.select121, %land.lhs.true179 ], [ %51, %invoke.cont170 ], [ %maxLimit.0, %if.end164 ], [ %maxLimit.0, %invoke.cont175 ]
+  %mLimit.3.ph = phi i32 [ %spec.select121, %land.lhs.true179 ], [ %51, %invoke.cont170 ], [ %maxLimit.0, %if.end164 ], [ %maxLimit.0, %invoke.cont175 ]
   %.pr = load i32, ptr %status, align 4
   %cmp.i368 = icmp slt i32 %.pr, 1
   br i1 %cmp.i368, label %if.end191, label %for.end218.loopexit
@@ -3918,7 +3918,7 @@ if.end191:                                        ; preds = %if.end186
   br i1 %tobool192.not, label %if.then193, label %if.end207
 
 if.then193:                                       ; preds = %if.end191
-  %cmp194 = icmp sgt i32 %mLimit.1.ph, %maxLimit.0
+  %cmp194 = icmp sgt i32 %mLimit.3.ph, %maxLimit.0
   %spec.select117 = select i1 %cmp194, i8 0, i8 %spec.select115
   %135 = load ptr, ptr %strsrch, align 8
   %breakIter.i.i373 = getelementptr inbounds i8, ptr %135, i64 24
@@ -3958,7 +3958,7 @@ call14.i.i.noexc389:                              ; preds = %call11.i.i.noexc387
 
 if.end5.i375:                                     ; preds = %call14.i.i.noexc389, %if.end4.i.i377, %if.then193
   %retval.0.i7.i376 = phi ptr [ %144, %call14.i.i.noexc389 ], [ %137, %if.end4.i.i377 ], [ %136, %if.then193 ]
-  %call6.i392 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i376, i32 noundef %mLimit.1.ph)
+  %call6.i392 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i376, i32 noundef %mLimit.3.ph)
           to label %invoke.cont197.thread unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont197.thread:                            ; preds = %if.end5.i375
@@ -3970,42 +3970,42 @@ invoke.cont197.thread:                            ; preds = %if.end5.i375
   br i1 %cmp.i394, label %if.end207, label %for.end218.loopexit
 
 if.end207:                                        ; preds = %invoke.cont197.thread, %if.end191
-  %found.6 = phi i8 [ %spec.select115, %if.end191 ], [ %spec.select449, %invoke.cont197.thread ]
-  %call209 = invoke fastcc noundef signext i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr noundef nonnull %strsrch, i32 noundef %50, i32 noundef %mLimit.1.ph)
+  %found.5 = phi i8 [ %spec.select115, %if.end191 ], [ %spec.select449, %invoke.cont197.thread ]
+  %call209 = invoke fastcc noundef signext i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr noundef nonnull %strsrch, i32 noundef %50, i32 noundef %mLimit.3.ph)
           to label %invoke.cont208 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont208:                                   ; preds = %if.end207
   %tobool210.not = icmp eq i8 %call209, 0
-  %tobool213.not450 = icmp eq i8 %found.6, 0
+  %tobool213.not450 = icmp eq i8 %found.5, 0
   %tobool213.not = select i1 %tobool210.not, i1 true, i1 %tobool213.not450
   br i1 %tobool213.not, label %for.inc216, label %for.end218.loopexit
 
 for.inc216:                                       ; preds = %invoke.cont208, %lor.lhs.false50
-  %mLimit.2 = phi i32 [ %mLimit.1.ph, %invoke.cont208 ], [ %mLimit.0, %lor.lhs.false50 ]
-  %mStart.1 = phi i32 [ %50, %invoke.cont208 ], [ %mStart.0, %lor.lhs.false50 ]
+  %mLimit.2 = phi i32 [ %mLimit.3.ph, %invoke.cont208 ], [ %mLimit.0, %lor.lhs.false50 ]
+  %mStart.2 = phi i32 [ %50, %invoke.cont208 ], [ %mStart.0, %lor.lhs.false50 ]
   %inc217 = add nuw nsw i32 %targetIx.0, 1
   br label %for.cond, !llvm.loop !10
 
 for.end218.loopexit:                              ; preds = %call14.i.i.noexc389, %call14.i.i.noexc, %if.end111, %invoke.cont112.thread, %if.end186, %invoke.cont197.thread, %invoke.cont208, %lor.lhs.false50, %call14.i.i.noexc342, %land.lhs.true169
-  %mLimit.3.ph = phi i32 [ %mLimit.0, %invoke.cont112.thread ], [ %mLimit.1.ph, %if.end186 ], [ %mLimit.1.ph, %invoke.cont208 ], [ %mLimit.1.ph, %invoke.cont197.thread ], [ %mLimit.0, %lor.lhs.false50 ], [ %51, %call14.i.i.noexc342 ], [ %51, %land.lhs.true169 ], [ %mLimit.0, %if.end111 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.1.ph, %call14.i.i.noexc389 ]
-  %mStart.2.ph = phi i32 [ %50, %invoke.cont112.thread ], [ %50, %if.end186 ], [ %50, %invoke.cont208 ], [ %50, %invoke.cont197.thread ], [ %mStart.0, %lor.lhs.false50 ], [ %50, %call14.i.i.noexc342 ], [ %50, %land.lhs.true169 ], [ %50, %if.end111 ], [ %50, %call14.i.i.noexc ], [ %50, %call14.i.i.noexc389 ]
-  %found.8.ph = phi i8 [ %spec.select448, %invoke.cont112.thread ], [ %spec.select115, %if.end186 ], [ 1, %invoke.cont208 ], [ %spec.select449, %invoke.cont197.thread ], [ 0, %lor.lhs.false50 ], [ %spec.select115, %call14.i.i.noexc342 ], [ %spec.select115, %land.lhs.true169 ], [ %found.1, %if.end111 ], [ %found.1, %call14.i.i.noexc ], [ %spec.select117, %call14.i.i.noexc389 ]
+  %mLimit.1.ph = phi i32 [ %mLimit.0, %invoke.cont112.thread ], [ %mLimit.3.ph, %if.end186 ], [ %mLimit.3.ph, %invoke.cont208 ], [ %mLimit.3.ph, %invoke.cont197.thread ], [ %mLimit.0, %lor.lhs.false50 ], [ %51, %call14.i.i.noexc342 ], [ %51, %land.lhs.true169 ], [ %mLimit.0, %if.end111 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.3.ph, %call14.i.i.noexc389 ]
+  %mStart.1.ph = phi i32 [ %50, %invoke.cont112.thread ], [ %50, %if.end186 ], [ %50, %invoke.cont208 ], [ %50, %invoke.cont197.thread ], [ %mStart.0, %lor.lhs.false50 ], [ %50, %call14.i.i.noexc342 ], [ %50, %land.lhs.true169 ], [ %50, %if.end111 ], [ %50, %call14.i.i.noexc ], [ %50, %call14.i.i.noexc389 ]
+  %found.0.ph = phi i8 [ %spec.select448, %invoke.cont112.thread ], [ %spec.select115, %if.end186 ], [ 1, %invoke.cont208 ], [ %spec.select449, %invoke.cont197.thread ], [ 0, %lor.lhs.false50 ], [ %spec.select115, %call14.i.i.noexc342 ], [ %spec.select115, %land.lhs.true169 ], [ %found.2, %if.end111 ], [ %found.2, %call14.i.i.noexc ], [ %spec.select117, %call14.i.i.noexc389 ]
   %.pre500 = load i32, ptr %status, align 4
   %145 = icmp slt i32 %.pre500, 1
-  %146 = select i1 %145, i8 %found.8.ph, i8 0
+  %146 = select i1 %145, i8 %found.0.ph, i8 0
   br label %for.end218
 
 for.end218:                                       ; preds = %for.end218.loopexit, %if.then20
   %cmp.i396 = phi i8 [ 0, %if.then20 ], [ %146, %for.end218.loopexit ]
-  %mLimit.3 = phi i32 [ %mLimit.0, %if.then20 ], [ %mLimit.3.ph, %for.end218.loopexit ]
-  %mStart.2 = phi i32 [ %mStart.0, %if.then20 ], [ %mStart.2.ph, %for.end218.loopexit ]
+  %mLimit.1 = phi i32 [ %mLimit.0, %if.then20 ], [ %mLimit.1.ph, %for.end218.loopexit ]
+  %mStart.1 = phi i32 [ %mStart.0, %if.then20 ], [ %mStart.1.ph, %for.end218.loopexit ]
   %cmp225 = icmp eq i8 %cmp.i396, 0
-  %mLimit.4 = select i1 %cmp225, i32 -1, i32 %mLimit.3
+  %mLimit.4 = select i1 %cmp225, i32 -1, i32 %mLimit.1
   %cmp228.not = icmp eq ptr %matchStart, null
   br i1 %cmp228.not, label %if.end230, label %if.then229
 
 if.then229:                                       ; preds = %for.end218
-  %mStart.3 = select i1 %cmp225, i32 -1, i32 %mStart.2
+  %mStart.3 = select i1 %cmp225, i32 -1, i32 %mStart.1
   store i32 %mStart.3, ptr %matchStart, align 4
   br label %if.end230
 
@@ -4018,7 +4018,7 @@ if.then232:                                       ; preds = %if.end230
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end230, %if.then232, %if.end12
-  %retval.0 = phi i8 [ 0, %if.end12 ], [ %cmp.i396, %if.then232 ], [ %cmp.i396, %if.end230 ]
+  %retval.1 = phi i8 [ 0, %if.end12 ], [ %cmp.i396, %if.then232 ], [ %cmp.i396, %if.end230 ]
   %buf.i398 = getelementptr inbounds i8, ptr %ceb, i64 1536
   %147 = load ptr, ptr %buf.i398, align 8
   %cmp.not.i399 = icmp eq ptr %147, %ceb
@@ -4036,8 +4036,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i400
   unreachable
 
 return:                                           ; preds = %if.then.i400, %cleanup, %entry, %if.then7
-  %retval.1 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i400 ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i400 ]
+  ret i8 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4771,8 +4771,8 @@ for.cond39.preheader:                             ; preds = %if.end33
   br label %for.cond39
 
 for.cond39:                                       ; preds = %for.cond39.preheader, %for.inc203
-  %mLimit.0 = phi i32 [ %mLimit.3, %for.inc203 ], [ -1, %for.cond39.preheader ]
-  %mStart.0 = phi i32 [ %mStart.1, %for.inc203 ], [ -1, %for.cond39.preheader ]
+  %mLimit.0 = phi i32 [ %mLimit.2, %for.inc203 ], [ -1, %for.cond39.preheader ]
+  %mStart.0 = phi i32 [ %mStart.2, %for.inc203 ], [ -1, %for.cond39.preheader ]
   %targetIx.2 = phi i32 [ %add204, %for.inc203 ], [ %targetIx.1, %for.cond39.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i128)
   %31 = load i32, ptr %bufSize.i129, align 8
@@ -5201,7 +5201,7 @@ land.lhs.true116:                                 ; preds = %invoke.cont111
   br label %if.end120
 
 if.end120:                                        ; preds = %land.lhs.true116, %invoke.cont111
-  %found.3 = phi i8 [ %spec.select107, %invoke.cont111 ], [ %spec.select108, %land.lhs.true116 ]
+  %found.4 = phi i8 [ %spec.select107, %invoke.cont111 ], [ %spec.select108, %land.lhs.true116 ]
   %98 = load ptr, ptr %strsrch, align 8
   %99 = load ptr, ptr %98, align 8
   %cmp123.not = icmp eq ptr %99, null
@@ -5361,13 +5361,13 @@ land.lhs.true164:                                 ; preds = %invoke.cont160
   br label %if.end170
 
 if.end170:                                        ; preds = %land.lhs.true164, %invoke.cont160, %if.end157
-  %mLimit.1 = phi i32 [ %95, %invoke.cont160 ], [ %95, %if.end157 ], [ %spec.select115, %land.lhs.true164 ]
+  %mLimit.3 = phi i32 [ %95, %invoke.cont160 ], [ %95, %if.end157 ], [ %spec.select115, %land.lhs.true164 ]
   %tobool171.not = icmp eq i8 %allowMidclusterMatch.0, 0
   br i1 %tobool171.not, label %if.then172, label %if.end194
 
 if.then172:                                       ; preds = %if.end170
-  %cmp173 = icmp sgt i32 %mLimit.1, %95
-  %spec.select110 = select i1 %cmp173, i8 0, i8 %found.3
+  %cmp173 = icmp sgt i32 %mLimit.3, %95
+  %spec.select110 = select i1 %cmp173, i8 0, i8 %found.4
   %127 = load i32, ptr %status, align 4
   %cmp.i.i303 = icmp slt i32 %127, 1
   br i1 %cmp.i.i303, label %if.end.i.i305, label %for.end205.loopexit
@@ -5411,7 +5411,7 @@ call14.i.i.noexc322:                              ; preds = %call11.i.i.noexc320
 
 if.end5.i308:                                     ; preds = %call14.i.i.noexc322, %if.end4.i.i310, %if.end.i.i305
   %retval.0.i7.i309 = phi ptr [ %137, %call14.i.i.noexc322 ], [ %130, %if.end4.i.i310 ], [ %129, %if.end.i.i305 ]
-  %call6.i325 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i309, i32 noundef %mLimit.1)
+  %call6.i325 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i309, i32 noundef %mLimit.3)
           to label %invoke.cont176.thread unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont176.thread:                            ; preds = %if.end5.i308
@@ -5472,43 +5472,43 @@ invoke.cont189:                                   ; preds = %call14.i.i.noexc348
   br label %if.end194
 
 if.end194:                                        ; preds = %if.end170, %invoke.cont176.thread, %invoke.cont189
-  %mLimit.2 = phi i32 [ %mLimit.1, %if.end170 ], [ %mLimit.1, %invoke.cont176.thread ], [ %cond, %invoke.cont189 ]
-  %found.6 = phi i8 [ %found.3, %if.end170 ], [ %spec.select392, %invoke.cont176.thread ], [ %spec.select107, %invoke.cont189 ]
-  %call196 = invoke fastcc noundef signext i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr noundef nonnull %strsrch, i32 noundef %72, i32 noundef %mLimit.2)
+  %mLimit.4 = phi i32 [ %mLimit.3, %if.end170 ], [ %mLimit.3, %invoke.cont176.thread ], [ %cond, %invoke.cont189 ]
+  %found.7 = phi i8 [ %found.4, %if.end170 ], [ %spec.select392, %invoke.cont176.thread ], [ %spec.select107, %invoke.cont189 ]
+  %call196 = invoke fastcc noundef signext i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr noundef nonnull %strsrch, i32 noundef %72, i32 noundef %mLimit.4)
           to label %invoke.cont195 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont195:                                   ; preds = %if.end194
   %tobool197.not = icmp eq i8 %call196, 0
-  %tobool200.not393 = icmp eq i8 %found.6, 0
+  %tobool200.not393 = icmp eq i8 %found.7, 0
   %tobool200.not = select i1 %tobool197.not, i1 true, i1 %tobool200.not393
   br i1 %tobool200.not, label %for.inc203, label %for.end205.loopexit
 
 for.inc203:                                       ; preds = %invoke.cont195, %lor.lhs.false78
-  %mLimit.3 = phi i32 [ %mLimit.2, %invoke.cont195 ], [ %mLimit.0, %lor.lhs.false78 ]
-  %mStart.1 = phi i32 [ %72, %invoke.cont195 ], [ %mStart.0, %lor.lhs.false78 ]
+  %mLimit.2 = phi i32 [ %mLimit.4, %invoke.cont195 ], [ %mLimit.0, %lor.lhs.false78 ]
+  %mStart.2 = phi i32 [ %72, %invoke.cont195 ], [ %mStart.0, %lor.lhs.false78 ]
   %add204 = add nuw nsw i32 %targetIx.2, 1
   br label %for.cond39, !llvm.loop !16
 
 for.end205.loopexit:                              ; preds = %call14.i.i.noexc322, %if.then172, %invoke.cont94, %invoke.cont176.thread, %invoke.cont195, %lor.lhs.false78, %call14.i.i.noexc, %invoke.cont91
-  %mLimit.4.ph = phi i32 [ %mLimit.0, %invoke.cont94 ], [ %mLimit.2, %invoke.cont195 ], [ %mLimit.1, %invoke.cont176.thread ], [ %mLimit.0, %lor.lhs.false78 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.0, %invoke.cont91 ], [ %mLimit.1, %if.then172 ], [ %mLimit.1, %call14.i.i.noexc322 ]
-  %mStart.2.ph = phi i32 [ %72, %invoke.cont94 ], [ %72, %invoke.cont195 ], [ %72, %invoke.cont176.thread ], [ %mStart.0, %lor.lhs.false78 ], [ %72, %call14.i.i.noexc ], [ %72, %invoke.cont91 ], [ %72, %if.then172 ], [ %72, %call14.i.i.noexc322 ]
-  %found.8.ph = phi i8 [ %spec.select, %invoke.cont94 ], [ 1, %invoke.cont195 ], [ %spec.select392, %invoke.cont176.thread ], [ 0, %lor.lhs.false78 ], [ 1, %call14.i.i.noexc ], [ 1, %invoke.cont91 ], [ %spec.select110, %if.then172 ], [ %spec.select110, %call14.i.i.noexc322 ]
+  %mLimit.1.ph = phi i32 [ %mLimit.0, %invoke.cont94 ], [ %mLimit.4, %invoke.cont195 ], [ %mLimit.3, %invoke.cont176.thread ], [ %mLimit.0, %lor.lhs.false78 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.0, %invoke.cont91 ], [ %mLimit.3, %if.then172 ], [ %mLimit.3, %call14.i.i.noexc322 ]
+  %mStart.1.ph = phi i32 [ %72, %invoke.cont94 ], [ %72, %invoke.cont195 ], [ %72, %invoke.cont176.thread ], [ %mStart.0, %lor.lhs.false78 ], [ %72, %call14.i.i.noexc ], [ %72, %invoke.cont91 ], [ %72, %if.then172 ], [ %72, %call14.i.i.noexc322 ]
+  %found.0.ph = phi i8 [ %spec.select, %invoke.cont94 ], [ 1, %invoke.cont195 ], [ %spec.select392, %invoke.cont176.thread ], [ 0, %lor.lhs.false78 ], [ 1, %call14.i.i.noexc ], [ 1, %invoke.cont91 ], [ %spec.select110, %if.then172 ], [ %spec.select110, %call14.i.i.noexc322 ]
   %.pre434 = load i32, ptr %status, align 4
   %149 = icmp slt i32 %.pre434, 1
-  %150 = select i1 %149, i8 %found.8.ph, i8 0
+  %150 = select i1 %149, i8 %found.0.ph, i8 0
   br label %for.end205
 
 for.end205:                                       ; preds = %for.end205.loopexit, %if.then43
   %cmp.i353 = phi i8 [ 0, %if.then43 ], [ %150, %for.end205.loopexit ]
-  %mLimit.4 = phi i32 [ %mLimit.0, %if.then43 ], [ %mLimit.4.ph, %for.end205.loopexit ]
-  %mStart.2 = phi i32 [ %mStart.0, %if.then43 ], [ %mStart.2.ph, %for.end205.loopexit ]
+  %mLimit.1 = phi i32 [ %mLimit.0, %if.then43 ], [ %mLimit.1.ph, %for.end205.loopexit ]
+  %mStart.1 = phi i32 [ %mStart.0, %if.then43 ], [ %mStart.1.ph, %for.end205.loopexit ]
   %cmp212 = icmp eq i8 %cmp.i353, 0
-  %mLimit.5 = select i1 %cmp212, i32 -1, i32 %mLimit.4
+  %mLimit.5 = select i1 %cmp212, i32 -1, i32 %mLimit.1
   %cmp215.not = icmp eq ptr %matchStart, null
   br i1 %cmp215.not, label %if.end217, label %if.then216
 
 if.then216:                                       ; preds = %for.end205
-  %mStart.3 = select i1 %cmp212, i32 -1, i32 %mStart.2
+  %mStart.3 = select i1 %cmp212, i32 -1, i32 %mStart.1
   store i32 %mStart.3, ptr %matchStart, align 4
   br label %if.end217
 
@@ -5521,7 +5521,7 @@ if.then219:                                       ; preds = %if.end217
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then16, %if.end217, %if.then219, %if.end33, %invoke.cont
-  %retval.0 = phi i8 [ 0, %invoke.cont ], [ 0, %if.end33 ], [ %cmp.i353, %if.then219 ], [ %cmp.i353, %if.end217 ], [ 0, %if.then16 ]
+  %retval.1 = phi i8 [ 0, %invoke.cont ], [ 0, %if.end33 ], [ %cmp.i353, %if.then219 ], [ %cmp.i353, %if.end217 ], [ 0, %if.then16 ]
   %buf.i355 = getelementptr inbounds i8, ptr %ceb, i64 1536
   %151 = load ptr, ptr %buf.i355, align 8
   %cmp.not.i356 = icmp eq ptr %151, %ceb
@@ -5539,8 +5539,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i357
   unreachable
 
 return:                                           ; preds = %if.then.i357, %cleanup, %entry, %if.then7
-  %retval.1 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i357 ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i357 ]
+  ret i8 %retval.0
 }
 
 declare i32 @ubrk_following_75(ptr noundef, i32 noundef) local_unnamed_addr #1

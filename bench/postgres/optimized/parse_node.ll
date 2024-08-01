@@ -238,8 +238,8 @@ define dso_local noundef ptr @transformContainerSubscripts(ptr noundef %0, ptr n
   br label %transformContainerType.exit
 
 transformContainerType.exit:                      ; preds = %.sink.split.i, %9, %11, %6
-  %.1 = phi i32 [ %2, %6 ], [ %10, %9 ], [ 1028, %11 ], [ 1005, %.sink.split.i ]
-  %12 = call ptr @getSubscriptingRoutines(i32 noundef %.1, ptr noundef nonnull %8) #7
+  %.034 = phi i32 [ %2, %6 ], [ %10, %9 ], [ 1028, %11 ], [ 1005, %.sink.split.i ]
+  %12 = call ptr @getSubscriptingRoutines(i32 noundef %.034, ptr noundef nonnull %8) #7
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %18, label %.preheader
 
@@ -263,7 +263,7 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %19)
   %20 = call i32 @errcode(i32 noundef 67141764) #7
-  %21 = call ptr @format_type_be(i32 noundef %.1) #7
+  %21 = call ptr @format_type_be(i32 noundef %.034) #7
   %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %21) #7
   %23 = call i32 @exprLocation(ptr noundef %1) #7
   %24 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %23)
@@ -287,7 +287,7 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   %31 = call noundef ptr @palloc0(i64 noundef 56) #7
   store i32 12, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %31, i64 4
-  store i32 %.1, ptr %32, align 4
+  store i32 %.034, ptr %32, align 4
   %33 = load i32, ptr %8, align 4
   %34 = getelementptr inbounds i8, ptr %31, i64 8
   store i32 %33, ptr %34, align 8
@@ -309,7 +309,7 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %43)
   %44 = call i32 @errcode(i32 noundef 67141764) #7
-  %45 = call ptr @format_type_be(i32 noundef %.1) #7
+  %45 = call ptr @format_type_be(i32 noundef %.034) #7
   %46 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %45) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 328, ptr noundef nonnull @__func__.transformContainerSubscripts) #7
   unreachable

@@ -146,14 +146,14 @@ cleanup:                                          ; preds = %for.end
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.inc16.i, %if.end10.i, %for.body4.i, %if.else, %cleanup
-  %retval.022 = phi i32 [ %call7, %cleanup ], [ 1, %if.else ], [ 0, %for.body4.i ], [ 0, %if.end10.i ], [ 1, %for.inc16.i ]
+  %retval.122 = phi i32 [ %call7, %cleanup ], [ 1, %if.else ], [ 0, %for.body4.i ], [ 0, %if.end10.i ], [ 1, %for.inc16.i ]
   %11 = phi ptr [ %.pre, %cleanup ], [ %call5.i.i.i.i.i.i, %if.else ], [ %call5.i.i.i.i.i.i, %for.body4.i ], [ %call5.i.i.i.i.i.i, %if.end10.i ], [ %call5.i.i.i.i.i.i, %for.inc16.i ]
   call void @_ZdlPv(ptr noundef nonnull %11) #11
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %entry
-  %retval.1 = phi i32 [ 1, %entry ], [ %call7, %cleanup ], [ %retval.022, %if.then.i.i.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 1, %entry ], [ %call7, %cleanup ], [ %retval.122, %if.then.i.i.i ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

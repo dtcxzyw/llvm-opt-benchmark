@@ -1352,7 +1352,7 @@ _ZNSt6vectorIN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEESaIS3_EE5clearEv.e
   br label %cleanup214
 
 cleanup214:                                       ; preds = %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit127, %if.end161, %for.end152, %_ZNSt6vectorIN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEESaIS3_EE5clearEv.exit
-  %retval.sroa.0.4 = phi ptr [ %call4.i, %_ZNSt6vectorIN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEESaIS3_EE5clearEv.exit ], [ null, %for.end152 ], [ null, %if.end161 ], [ null, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit127 ]
+  %retval.sroa.0.3 = phi ptr [ %call4.i, %_ZNSt6vectorIN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEESaIS3_EE5clearEv.exit ], [ null, %for.end152 ], [ null, %if.end161 ], [ null, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit127 ]
   call void @_ZN2v817ValueDeserializerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %deserializer) #26
   %89 = load ptr, ptr %shared_array_buffers, align 8
   %tobool.not.i.i.i137 = icmp eq ptr %89, null
@@ -1364,7 +1364,7 @@ if.then.i.i.i138:                                 ; preds = %cleanup214
 
 if.then.i141:                                     ; preds = %cleanup107, %cleanup214, %if.then.i.i.i138
   %_M_finish.i.i7.i189 = phi ptr [ %_M_finish.i.i7.i, %cleanup107 ], [ %_M_finish.i.i7.i190, %cleanup214 ], [ %_M_finish.i.i7.i190, %if.then.i.i.i138 ]
-  %retval.sroa.0.5 = phi ptr [ null, %cleanup107 ], [ %retval.sroa.0.4, %cleanup214 ], [ %retval.sroa.0.4, %if.then.i.i.i138 ]
+  %retval.sroa.0.2 = phi ptr [ null, %cleanup107 ], [ %retval.sroa.0.3, %cleanup214 ], [ %retval.sroa.0.3, %if.then.i.i.i138 ]
   %this.val.val.i = load ptr, ptr %host_objects, align 8
   %this.val.val1.i = load ptr, ptr %_M_finish.i.i7.i189, align 8
   %cmp.i.not12.i.i = icmp eq ptr %this.val.val.i, %this.val.val1.i
@@ -1447,7 +1447,7 @@ if.then.i.i.i148:                                 ; preds = %_ZSt8_DestroyIPN4no
 _ZNSt6vectorIN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEES3_EvT_S5_RSaIT0_E.exit.i, %if.then.i.i.i148
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #26
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #26
-  ret ptr %retval.sroa.0.5
+  ret ptr %retval.sroa.0.2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1740,9 +1740,9 @@ _ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.lr.ph: ; pred
 _ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit: ; preds = %_ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.lr.ph, %for.inc
   %conv468 = phi i64 [ 0, %_ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.lr.ph ], [ %conv, %for.inc ]
   %i.0467 = phi i32 [ 0, %_ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.lr.ph ], [ %inc, %for.inc ]
-  %array_buffers.sroa.0.0466 = phi ptr [ null, %_ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.lr.ph ], [ %array_buffers.sroa.0.2, %for.inc ]
-  %array_buffers.sroa.7.0465 = phi ptr [ null, %_ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.lr.ph ], [ %array_buffers.sroa.7.2, %for.inc ]
-  %array_buffers.sroa.15.0464 = phi ptr [ null, %_ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.lr.ph ], [ %array_buffers.sroa.15.2, %for.inc ]
+  %array_buffers.sroa.0.0466 = phi ptr [ null, %_ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.lr.ph ], [ %array_buffers.sroa.0.1, %for.inc ]
+  %array_buffers.sroa.7.0465 = phi ptr [ null, %_ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.lr.ph ], [ %array_buffers.sroa.7.1, %for.inc ]
+  %array_buffers.sroa.15.0464 = phi ptr [ null, %_ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.lr.ph ], [ %array_buffers.sroa.15.1, %for.inc ]
   %4 = load ptr, ptr %buf_.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.v8::Local.14", ptr %4, i64 %conv468
   %entry_val.sroa.0.0.copyload = load ptr, ptr %arrayidx.i, align 8
@@ -2006,10 +2006,10 @@ _ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE17_M_realloc_insertIJRKS3_EE
 
 _ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE9push_backERKS3_.exit: ; preds = %if.then.i92, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %agg.tmp139.sroa.0.0.copyload = phi ptr [ %agg.tmp139.sroa.0.0.copyload.pre, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %16, %if.then.i92 ]
-  %array_buffers.sroa.15.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %array_buffers.sroa.15.0464, %if.then.i92 ]
+  %array_buffers.sroa.15.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %array_buffers.sroa.15.0464, %if.then.i92 ]
   %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %array_buffers.sroa.7.0465, %if.then.i92 ]
-  %array_buffers.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %array_buffers.sroa.0.0466, %if.then.i92 ]
-  %array_buffers.sroa.7.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 8
+  %array_buffers.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %array_buffers.sroa.0.0466, %if.then.i92 ]
+  %array_buffers.sroa.7.2 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 8
   call void @_ZN2v815ValueSerializer19TransferArrayBufferEjNS_5LocalINS_11ArrayBufferEEE(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i32 noundef %conv138, ptr %agg.tmp139.sroa.0.0.copyload) #26
   br label %for.inc
 
@@ -2228,7 +2228,7 @@ if.then.i151:                                     ; preds = %_ZN4node17BaseObjec
   br label %if.end210
 
 if.end210:                                        ; preds = %do.end8.i, %_ZN4node6UnwrapINS_10BaseObjectEEEPT_N2v85LocalINS4_5ValueEEE.exit, %if.end203, %if.then.i151, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEaSINS_6worker14JSTransferableELb0EEERS2_RKNS0_IT_XT0_EEE.exit
-  %host_object.sroa.0.1 = phi ptr [ %49, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEaSINS_6worker14JSTransferableELb0EEERS2_RKNS0_IT_XT0_EEE.exit ], [ %49, %if.then.i151 ], [ null, %if.end203 ], [ null, %_ZN4node6UnwrapINS_10BaseObjectEEEPT_N2v85LocalINS4_5ValueEEE.exit ], [ %retval.i13.0.i.i.i, %do.end8.i ]
+  %host_object.sroa.0.0 = phi ptr [ %49, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEaSINS_6worker14JSTransferableELb0EEERS2_RKNS0_IT_XT0_EEE.exit ], [ %49, %if.then.i151 ], [ null, %if.end203 ], [ null, %_ZN4node6UnwrapINS_10BaseObjectEEEPT_N2v85LocalINS4_5ValueEEE.exit ], [ %retval.i13.0.i.i.i, %do.end8.i ]
   %50 = load ptr, ptr %isolate_data_.i.i36, align 8
   %message_port_constructor_template_.i.i = getelementptr inbounds i8, ptr %50, i64 2776
   %51 = load ptr, ptr %message_port_constructor_template_.i.i, align 8
@@ -2236,14 +2236,14 @@ if.end210:                                        ; preds = %do.end8.i, %_ZN4nod
   br i1 %call225, label %land.rhs, label %if.end244
 
 land.rhs:                                         ; preds = %if.end210
-  %cmp.i154.not = icmp eq ptr %host_object.sroa.0.1, null
+  %cmp.i154.not = icmp eq ptr %host_object.sroa.0.0, null
   br i1 %cmp.i154.not, label %if.then229, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %data_.i = getelementptr inbounds i8, ptr %host_object.sroa.0.1, i64 88
+  %data_.i = getelementptr inbounds i8, ptr %host_object.sroa.0.0, i64 88
   %52 = load ptr, ptr %data_.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %52, null
-  %state_.i.i = getelementptr inbounds i8, ptr %host_object.sroa.0.1, i64 56
+  %state_.i.i = getelementptr inbounds i8, ptr %host_object.sroa.0.0, i64 56
   %53 = load i32, ptr %state_.i.i, align 8
   %54 = add i32 %53, -1
   %spec.select.i.i = icmp ult i32 %54, 2
@@ -2311,25 +2311,25 @@ for.body.i.i.i:                                   ; preds = %if.end22.i.i.i, %fo
   %__trip_count.052.i.i.i = phi i64 [ %shr.i.i.i, %for.body.lr.ph.i.i.i ], [ %dec.i.i.i, %if.end22.i.i.i ]
   %__first.sroa.0.051.i.i.i = phi ptr [ %57, %for.body.lr.ph.i.i.i ], [ %incdec.ptr.i14.i.i.i, %if.end22.i.i.i ]
   %60 = load ptr, ptr %__first.sroa.0.051.i.i.i, align 8
-  %cmp.i.i.i.i.i178 = icmp eq ptr %60, %host_object.sroa.0.1
+  %cmp.i.i.i.i.i178 = icmp eq ptr %60, %host_object.sroa.0.0
   br i1 %cmp.i.i.i.i.i178, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4node17BaseObjectPtrImplINS2_10BaseObjectELb0EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 8
   %61 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
-  %cmp.i.i9.i.i.i = icmp eq ptr %61, %host_object.sroa.0.1
+  %cmp.i.i9.i.i.i = icmp eq ptr %61, %host_object.sroa.0.0
   br i1 %cmp.i.i9.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4node17BaseObjectPtrImplINS2_10BaseObjectELb0EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.loopexit.split.loop.exit, label %if.end10.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
   %incdec.ptr.i10.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 16
   %62 = load ptr, ptr %incdec.ptr.i10.i.i.i, align 8
-  %cmp.i.i11.i.i.i = icmp eq ptr %62, %host_object.sroa.0.1
+  %cmp.i.i11.i.i.i = icmp eq ptr %62, %host_object.sroa.0.0
   br i1 %cmp.i.i11.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4node17BaseObjectPtrImplINS2_10BaseObjectELb0EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.loopexit.split.loop.exit564, label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end10.i.i.i
   %incdec.ptr.i12.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 24
   %63 = load ptr, ptr %incdec.ptr.i12.i.i.i, align 8
-  %cmp.i.i13.i.i.i = icmp eq ptr %63, %host_object.sroa.0.1
+  %cmp.i.i13.i.i.i = icmp eq ptr %63, %host_object.sroa.0.0
   br i1 %cmp.i.i13.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4node17BaseObjectPtrImplINS2_10BaseObjectELb0EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.loopexit.split.loop.exit566, label %if.end22.i.i.i
 
 if.end22.i.i.i:                                   ; preds = %if.end16.i.i.i
@@ -2355,7 +2355,7 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
   %64 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i, align 8
-  %cmp.i.i19.i.i.i = icmp eq ptr %64, %host_object.sroa.0.1
+  %cmp.i.i19.i.i.i = icmp eq ptr %64, %host_object.sroa.0.0
   br i1 %cmp.i.i19.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4node17BaseObjectPtrImplINS2_10BaseObjectELb0EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit, label %if.end29.i.i.i
 
 if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
@@ -2365,7 +2365,7 @@ if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
 sw.bb31.i.i.i:                                    ; preds = %for.end.i.i.i, %if.end29.i.i.i
   %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i, %if.end29.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %65 = load ptr, ptr %__first.sroa.0.1.i.i.i, align 8
-  %cmp.i.i21.i.i.i = icmp eq ptr %65, %host_object.sroa.0.1
+  %cmp.i.i21.i.i.i = icmp eq ptr %65, %host_object.sroa.0.0
   br i1 %cmp.i.i21.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4node17BaseObjectPtrImplINS2_10BaseObjectELb0EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit, label %if.end36.i.i.i
 
 if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
@@ -2375,7 +2375,7 @@ if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
 sw.bb38.i.i.i:                                    ; preds = %for.end.i.i.i, %if.end36.i.i.i
   %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %66 = load ptr, ptr %__first.sroa.0.2.i.i.i, align 8
-  %cmp.i.i23.i.i.i = icmp eq ptr %66, %host_object.sroa.0.1
+  %cmp.i.i23.i.i.i = icmp eq ptr %66, %host_object.sroa.0.0
   %spec.select.i.i.i = select i1 %cmp.i.i23.i.i.i, ptr %__first.sroa.0.2.i.i.i, ptr %58
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4node17BaseObjectPtrImplINS2_10BaseObjectELb0EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit
 
@@ -2441,20 +2441,20 @@ _ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEE
   br label %cleanup
 
 if.end295:                                        ; preds = %for.end.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4node17BaseObjectPtrImplINS2_10BaseObjectELb0EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit
-  %cmp.i202.not = icmp eq ptr %host_object.sroa.0.1, null
+  %cmp.i202.not = icmp eq ptr %host_object.sroa.0.0, null
   br i1 %cmp.i202.not, label %for.inc, label %land.lhs.true297
 
 land.lhs.true297:                                 ; preds = %if.end295
-  %vtable = load ptr, ptr %host_object.sroa.0.1, align 8
+  %vtable = load ptr, ptr %host_object.sroa.0.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %68 = load ptr, ptr %vfn, align 8
-  %call299 = call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(32) %host_object.sroa.0.1) #26
+  %call299 = call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(32) %host_object.sroa.0.0) #26
   %cmp300 = icmp eq i32 %call299, 1
   br i1 %cmp300, label %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb0EE12pointer_dataEv.exit.i.i, label %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread390
 
 _ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb0EE12pointer_dataEv.exit.i.i: ; preds = %land.lhs.true297
-  store ptr %host_object.sroa.0.1, ptr %agg.tmp302, align 8
-  %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %host_object.sroa.0.1) #26
+  store ptr %host_object.sroa.0.0, ptr %agg.tmp302, align 8
+  %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %host_object.sroa.0.0) #26
   %cmp2.not.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %cmp2.not.i.i, label %do.body6.i.i, label %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEC2ERKS2_.exit
 
@@ -2501,21 +2501,21 @@ if.then.i211:                                     ; preds = %_ZN4node6worker12_G
   br label %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread390
 
 cleanup:                                          ; preds = %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit201, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit173
-  %cmp.not.i214 = icmp eq ptr %host_object.sroa.0.1, null
+  %cmp.not.i214 = icmp eq ptr %host_object.sroa.0.0, null
   br i1 %cmp.not.i214, label %cleanup375, label %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217
 
 _ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread390: ; preds = %if.then.i211, %_ZN4node6worker12_GLOBAL__N_118SerializerDelegate13AddHostObjectENS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE.exit, %_ZN4node6worker12_GLOBAL__N_118SerializerDelegate13AddHostObjectENS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE.exit.thread, %land.lhs.true297
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %host_object.sroa.0.1) #26
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %host_object.sroa.0.0) #26
   br label %for.inc
 
 _ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217: ; preds = %cleanup
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %host_object.sroa.0.1) #26
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %host_object.sroa.0.0) #26
   br label %cleanup375
 
 for.inc:                                          ; preds = %if.end295, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread390, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE9push_backERKS3_.exit
-  %array_buffers.sroa.15.2 = phi ptr [ %array_buffers.sroa.15.1, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE9push_backERKS3_.exit ], [ %array_buffers.sroa.15.0464, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread390 ], [ %array_buffers.sroa.15.0464, %if.end295 ]
-  %array_buffers.sroa.7.2 = phi ptr [ %array_buffers.sroa.7.1, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE9push_backERKS3_.exit ], [ %array_buffers.sroa.7.0465, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread390 ], [ %array_buffers.sroa.7.0465, %if.end295 ]
-  %array_buffers.sroa.0.2 = phi ptr [ %array_buffers.sroa.0.1, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE9push_backERKS3_.exit ], [ %array_buffers.sroa.0.0466, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread390 ], [ %array_buffers.sroa.0.0466, %if.end295 ]
+  %array_buffers.sroa.15.1 = phi ptr [ %array_buffers.sroa.15.2, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE9push_backERKS3_.exit ], [ %array_buffers.sroa.15.0464, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread390 ], [ %array_buffers.sroa.15.0464, %if.end295 ]
+  %array_buffers.sroa.7.1 = phi ptr [ %array_buffers.sroa.7.2, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE9push_backERKS3_.exit ], [ %array_buffers.sroa.7.0465, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread390 ], [ %array_buffers.sroa.7.0465, %if.end295 ]
+  %array_buffers.sroa.0.1 = phi ptr [ %array_buffers.sroa.0.2, %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EE9push_backERKS3_.exit ], [ %array_buffers.sroa.0.0466, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread390 ], [ %array_buffers.sroa.0.0466, %if.end295 ]
   %inc = add i32 %i.0467, 1
   %conv = zext i32 %inc to i64
   %75 = load i64, ptr %transfer_list_v, align 8
@@ -2523,8 +2523,8 @@ for.inc:                                          ; preds = %if.end295, %_ZN4nod
   br i1 %cmp, label %_ZNK4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %do.end18
-  %array_buffers.sroa.7.0.lcssa = phi ptr [ null, %do.end18 ], [ %array_buffers.sroa.7.2, %for.inc ]
-  %array_buffers.sroa.0.0.lcssa = phi ptr [ null, %do.end18 ], [ %array_buffers.sroa.0.2, %for.inc ]
+  %array_buffers.sroa.7.0.lcssa = phi ptr [ null, %do.end18 ], [ %array_buffers.sroa.7.1, %for.inc ]
+  %array_buffers.sroa.0.0.lcssa = phi ptr [ null, %do.end18 ], [ %array_buffers.sroa.0.1, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %nested_transferables.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp32.i)
@@ -3171,7 +3171,7 @@ do.end368:                                        ; preds = %if.end354
 
 cleanup375:                                       ; preds = %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread384, %cleanup, %if.end309, %do.end368, %if.then352, %if.then307, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit114, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit88, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit69, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit52, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit
   %array_buffers.sroa.0.0417 = phi ptr [ %array_buffers.sroa.0.0466, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit52 ], [ %array_buffers.sroa.0.0466, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit69 ], [ %array_buffers.sroa.0.0466, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit88 ], [ %array_buffers.sroa.0.0466, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217 ], [ %array_buffers.sroa.0.0466, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit114 ], [ %array_buffers.sroa.0.0466, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit ], [ %array_buffers.sroa.0.0.lcssa, %if.then307 ], [ %array_buffers.sroa.0.0.lcssa, %if.then352 ], [ %array_buffers.sroa.0.0.lcssa, %do.end368 ], [ %array_buffers.sroa.0.0.lcssa, %if.end309 ], [ %array_buffers.sroa.0.0466, %cleanup ], [ %array_buffers.sroa.0.0466, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread384 ]
-  %retval.sroa.0.3 = phi i16 [ 0, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit52 ], [ 0, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit69 ], [ 0, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit88 ], [ 0, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217 ], [ 0, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit114 ], [ 0, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit ], [ 0, %if.then307 ], [ 0, %if.then352 ], [ 257, %do.end368 ], [ 0, %if.end309 ], [ 0, %cleanup ], [ 0, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread384 ]
+  %retval.sroa.0.1 = phi i16 [ 0, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit52 ], [ 0, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit69 ], [ 0, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit88 ], [ 0, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217 ], [ 0, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit114 ], [ 0, %_ZN4node6worker12_GLOBAL__N_123ThrowDataCloneExceptionEN2v85LocalINS2_7ContextEEENS3_INS2_6StringEEE.exit ], [ 0, %if.then307 ], [ 0, %if.then352 ], [ 257, %do.end368 ], [ 0, %if.end309 ], [ 0, %cleanup ], [ 0, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit217.thread384 ]
   %tobool.not.i.i.i312 = icmp eq ptr %array_buffers.sroa.0.0417, null
   br i1 %tobool.not.i.i.i312, label %_ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EED2Ev.exit, label %if.then.i.i.i313
 
@@ -3256,7 +3256,7 @@ if.then.i.i.i9.i:                                 ; preds = %_ZSt8_DestroyIPN2v8
 _ZN4node6worker12_GLOBAL__N_118SerializerDelegateD2Ev.exit: ; preds = %_ZSt8_DestroyIPN2v86GlobalINS0_17SharedArrayBufferEEES3_EvT_S5_RSaIT0_E.exit.i.i, %if.then.i.i.i9.i
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #26
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #26
-  ret i16 %retval.sroa.0.3
+  ret i16 %retval.sroa.0.1
 }
 
 declare void @_ZN2v815ValueSerializerC1EPNS_7IsolateEPNS0_8DelegateE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef) unnamed_addr #0
@@ -7566,7 +7566,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2v85LocalINS2_5ValueEEESt6vectorIS5_S
 
 cleanup:                                          ; preds = %if.end214, %if.end177, %if.end171, %while.body, %while.end, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2v85LocalINS2_5ValueEEESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit
   %entries.sroa.0.059 = phi ptr [ %entries.sroa.0.0.lcssa, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2v85LocalINS2_5ValueEEESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit ], [ %entries.sroa.0.0.lcssa, %while.end ], [ %entries.sroa.0.065, %while.body ], [ %entries.sroa.0.065, %if.end171 ], [ %entries.sroa.0.065, %if.end177 ], [ %entries.sroa.0.065, %if.end214 ]
-  %retval.sroa.0.0 = phi i16 [ 257, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2v85LocalINS2_5ValueEEESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit ], [ 257, %while.end ], [ 0, %if.end214 ], [ 0, %if.end177 ], [ 1, %if.end171 ], [ 0, %while.body ]
+  %retval.sroa.0.1 = phi i16 [ 257, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2v85LocalINS2_5ValueEEESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit ], [ 257, %while.end ], [ 0, %if.end214 ], [ 0, %if.end177 ], [ 1, %if.end171 ], [ 0, %while.body ]
   %tobool.not.i.i.i46 = icmp eq ptr %entries.sroa.0.059, null
   br i1 %tobool.not.i.i.i46, label %return, label %if.then.i.i.i47
 
@@ -7575,8 +7575,8 @@ if.then.i.i.i47:                                  ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit, %for.cond, %while.cond.preheader, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EE25AllocateSufficientStorageEm.exit, %if.then.i.i.i47, %cleanup, %if.end139, %if.end106, %if.end100, %if.end75, %if.end69, %if.end35, %entry
-  %retval.sroa.0.1 = phi i16 [ 1, %entry ], [ 0, %if.end35 ], [ 1, %if.end69 ], [ 0, %if.end75 ], [ 1, %if.end100 ], [ 0, %if.end106 ], [ 1, %if.end139 ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i.i.i47 ], [ 257, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EE25AllocateSufficientStorageEm.exit ], [ 257, %while.cond.preheader ], [ 0, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit ], [ 257, %for.cond ]
-  ret i16 %retval.sroa.0.1
+  %retval.sroa.0.0 = phi i16 [ 1, %entry ], [ 0, %if.end35 ], [ 1, %if.end69 ], [ 0, %if.end75 ], [ 1, %if.end100 ], [ 0, %if.end106 ], [ 1, %if.end139 ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.1, %if.then.i.i.i47 ], [ 257, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EE25AllocateSufficientStorageEm.exit ], [ 257, %while.cond.preheader ], [ 0, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit ], [ 257, %for.cond ]
+  ret i16 %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12077,13 +12077,13 @@ do.end87:                                         ; preds = %do.body75
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end54, %do.end87
-  %retval.sroa.0.0 = phi ptr [ %call4.i, %do.end87 ], [ null, %if.end54 ]
+  %retval.sroa.0.1 = phi ptr [ %call4.i, %do.end87 ], [ null, %if.end54 ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #26
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %_ZN4node6UnwrapINS_6worker14JSTransferableEEEPT_N2v85LocalINS5_5ValueEEE.exit, %_ZNK4node10BaseObject6objectEPN2v87IsolateE.exit, %entry, %cleanup
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ null, %entry ], [ %retval.sroa.0.0.i.i.i, %_ZNK4node10BaseObject6objectEPN2v87IsolateE.exit ], [ %call.i.i, %if.end.i.i ], [ null, %_ZN4node6UnwrapINS_6worker14JSTransferableEEEPT_N2v85LocalINS5_5ValueEEE.exit ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.1, %cleanup ], [ null, %entry ], [ %retval.sroa.0.0.i.i.i, %_ZNK4node10BaseObject6objectEPN2v87IsolateE.exit ], [ %call.i.i, %if.end.i.i ], [ null, %_ZN4node6UnwrapINS_6worker14JSTransferableEEEPT_N2v85LocalINS5_5ValueEEE.exit ]
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

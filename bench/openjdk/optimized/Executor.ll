@@ -452,9 +452,9 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit63:            ; preds = %94
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp, %.body59, %.body45
   %.pn30 = phi { ptr, i32 } [ %eh.lpad-body46, %.body45 ], [ %eh.lpad-body60, %.body59 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit90, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp91, %.loopexit.loopexit.split-lp ]
-  %.2 = extractvalue { ptr, i32 } %.pn30, 0
+  %.3 = extractvalue { ptr, i32 } %.pn30, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
-  %112 = call ptr @__cxa_begin_catch(ptr %.2) #11
+  %112 = call ptr @__cxa_begin_catch(ptr %.3) #11
   %113 = call i32 @pclose(ptr noundef nonnull %17)
   invoke void @__cxa_rethrow() #12
           to label %120 unwind label %114

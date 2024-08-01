@@ -1827,7 +1827,7 @@ _Z9opt_givenP7OPTARGSPKc.exit315.thread:          ; preds = %_Z9opt_givenP7OPTAR
   br label %398
 
 .loopexit:                                        ; preds = %384, %.preheader355, %390
-  %.0191 = phi ptr [ %393, %390 ], [ null, %.preheader355 ], [ null, %384 ]
+  %.2 = phi ptr [ %393, %390 ], [ null, %.preheader355 ], [ null, %384 ]
   invoke void @proj_string_list_destroy(ptr noundef nonnull %381)
           to label %399 unwind label %396
 
@@ -1837,7 +1837,7 @@ _Z9opt_givenP7OPTARGSPKc.exit315.thread:          ; preds = %_Z9opt_givenP7OPTAR
   br label %430
 
 399:                                              ; preds = %382, %.loopexit
-  %.1192 = phi ptr [ %.0191, %.loopexit ], [ null, %382 ]
+  %.1192 = phi ptr [ %.2, %.loopexit ], [ null, %382 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #25
   %400 = icmp eq ptr %.1192, null
@@ -2149,12 +2149,12 @@ tailrecurse.preheader.i.outer:                    ; preds = %tailrecurse.prehead
   br label %tailrecurse.preheader.i.outer353
 
 .preheader19.i.i.preheader:                       ; preds = %523, %.preheader19.i.i.preheader
-  %.1.i.i = phi ptr [ %531, %.preheader19.i.i.preheader ], [ %.0195, %523 ]
-  %528 = load i8, ptr %.1.i.i, align 1
+  %.2.i.i = phi ptr [ %531, %.preheader19.i.i.preheader ], [ %.0195, %523 ]
+  %528 = load i8, ptr %.2.i.i, align 1
   %529 = sext i8 %528 to i32
   %530 = call i32 @isspace(i32 noundef %529) #26
   %.not.i.i = icmp eq i32 %530, 0
-  %531 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %531 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
   br i1 %.not.i.i, label %_ZL6columnPci.exit, label %.preheader19.i.i.preheader, !llvm.loop !18
 
 _ZL6columnPci.exit:                               ; preds = %.preheader19.i.i.preheader
@@ -2329,8 +2329,8 @@ _Z14opt_input_loopP7OPTARGSi.exit:                ; preds = %492, %thread-pre-sp
   br label %601
 
 601:                                              ; preds = %.thread345, %468, %473, %449, %452, %437, %444, %_Z7opt_argP7OPTARGSPKc.exit319, %306, %2, %600, %_Z7opt_argP7OPTARGSPKc.exit292, %123, %47
-  %.1 = phi i32 [ 0, %47 ], [ 0, %123 ], [ 1, %_Z7opt_argP7OPTARGSPKc.exit292 ], [ 0, %600 ], [ 0, %2 ], [ 1, %306 ], [ 1, %_Z7opt_argP7OPTARGSPKc.exit319 ], [ 1, %444 ], [ 1, %437 ], [ 1, %452 ], [ 1, %449 ], [ 1, %473 ], [ 1, %468 ], [ 1, %.thread345 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %47 ], [ 0, %123 ], [ 1, %_Z7opt_argP7OPTARGSPKc.exit292 ], [ 0, %600 ], [ 0, %2 ], [ 1, %306 ], [ 1, %_Z7opt_argP7OPTARGSPKc.exit319 ], [ 1, %444 ], [ 1, %437 ], [ 1, %452 ], [ 1, %449 ], [ 1, %473 ], [ 1, %468 ], [ 1, %.thread345 ]
+  ret i32 %.0
 
 602:                                              ; preds = %430, %339
   %.pn255.pn = phi { ptr, i32 } [ %.pn255, %430 ], [ %340, %339 ]
@@ -2542,16 +2542,16 @@ define hidden void @_Z16parse_input_linePKcPidd(ptr dead_on_unwind noalias nocap
 
 .preheader19.i.i:                                 ; preds = %.critedge.i.i, %.preheader20.i.i
   %.026.i.i = phi i32 [ 0, %.preheader20.i.i ], [ %29, %.critedge.i.i ]
-  %.01425.i.i = phi ptr [ %1, %.preheader20.i.i ], [ %.2.lcssa.i.i, %.critedge.i.i ]
+  %.01425.i.i = phi ptr [ %1, %.preheader20.i.i ], [ %.3.lcssa.i.i, %.critedge.i.i ]
   br label %16
 
 16:                                               ; preds = %16, %.preheader19.i.i
-  %.1.i.i = phi ptr [ %20, %16 ], [ %.01425.i.i, %.preheader19.i.i ]
-  %17 = load i8, ptr %.1.i.i, align 1
+  %.2.i.i = phi ptr [ %20, %16 ], [ %.01425.i.i, %.preheader19.i.i ]
+  %17 = load i8, ptr %.2.i.i, align 1
   %18 = sext i8 %17 to i32
   %19 = call i32 @isspace(i32 noundef %18) #26
   %.not.i.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %20 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
   br i1 %.not.i.i, label %21, label %16, !llvm.loop !18
 
 21:                                               ; preds = %16
@@ -2564,25 +2564,25 @@ define hidden void @_Z16parse_input_linePKcPidd(ptr dead_on_unwind noalias nocap
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %26
   %23 = phi i8 [ %28, %26 ], [ %17, %.preheader.i.i ]
-  %.222.i.i = phi ptr [ %27, %26 ], [ %.1.i.i, %.preheader.i.i ]
+  %.322.i.i = phi ptr [ %27, %26 ], [ %.2.i.i, %.preheader.i.i ]
   %24 = sext i8 %23 to i32
   %25 = call i32 @isspace(i32 noundef %24) #26
   %.not18.i.i = icmp eq i32 %25, 0
   br i1 %.not18.i.i, label %26, label %.critedge.i.i
 
 26:                                               ; preds = %.lr.ph.i.i
-  %27 = getelementptr inbounds i8, ptr %.222.i.i, i64 1
+  %27 = getelementptr inbounds i8, ptr %.322.i.i, i64 1
   %28 = load i8, ptr %27, align 1
   %.not17.i.i = icmp eq i8 %28, 0
   br i1 %.not17.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !20
 
 .critedge.i.i:                                    ; preds = %26, %.lr.ph.i.i, %.preheader.i.i
-  %.2.lcssa.i.i = phi ptr [ %.1.i.i, %.preheader.i.i ], [ %.222.i.i, %.lr.ph.i.i ], [ %27, %26 ]
+  %.3.lcssa.i.i = phi ptr [ %.2.i.i, %.preheader.i.i ], [ %.322.i.i, %.lr.ph.i.i ], [ %27, %26 ]
   %29 = add nuw nsw i32 %.026.i.i, 1
   br label %.preheader19.i.i
 
 _ZL4coldPKci.exit:                                ; preds = %21, %5
-  %.013.i.i = phi ptr [ %1, %5 ], [ %.1.i.i, %21 ]
+  %.013.i.i = phi ptr [ %1, %5 ], [ %.2.i.i, %21 ]
   %30 = call noundef double @_Z11proj_strtodPKcPPc(ptr noundef %.013.i.i, ptr noundef nonnull %9)
   %31 = load ptr, ptr %9, align 8
   %32 = icmp eq ptr %31, %.013.i.i
@@ -2600,16 +2600,16 @@ _ZL4coldPKci.exit:                                ; preds = %21, %5
 
 .preheader19.i.i19:                               ; preds = %.critedge.i.i29, %.preheader20.i.i18
   %.026.i.i20 = phi i32 [ 0, %.preheader20.i.i18 ], [ %50, %.critedge.i.i29 ]
-  %.01425.i.i21 = phi ptr [ %1, %.preheader20.i.i18 ], [ %.2.lcssa.i.i30, %.critedge.i.i29 ]
+  %.01425.i.i21 = phi ptr [ %1, %.preheader20.i.i18 ], [ %.3.lcssa.i.i30, %.critedge.i.i29 ]
   br label %37
 
 37:                                               ; preds = %37, %.preheader19.i.i19
-  %.1.i.i22 = phi ptr [ %41, %37 ], [ %.01425.i.i21, %.preheader19.i.i19 ]
-  %38 = load i8, ptr %.1.i.i22, align 1
+  %.2.i.i22 = phi ptr [ %41, %37 ], [ %.01425.i.i21, %.preheader19.i.i19 ]
+  %38 = load i8, ptr %.2.i.i22, align 1
   %39 = sext i8 %38 to i32
   %40 = call i32 @isspace(i32 noundef %39) #26
   %.not.i.i23 = icmp eq i32 %40, 0
-  %41 = getelementptr inbounds i8, ptr %.1.i.i22, i64 1
+  %41 = getelementptr inbounds i8, ptr %.2.i.i22, i64 1
   br i1 %.not.i.i23, label %42, label %37, !llvm.loop !18
 
 42:                                               ; preds = %37
@@ -2622,25 +2622,25 @@ _ZL4coldPKci.exit:                                ; preds = %21, %5
 
 .lr.ph.i.i26:                                     ; preds = %.preheader.i.i24, %47
   %44 = phi i8 [ %49, %47 ], [ %38, %.preheader.i.i24 ]
-  %.222.i.i27 = phi ptr [ %48, %47 ], [ %.1.i.i22, %.preheader.i.i24 ]
+  %.322.i.i27 = phi ptr [ %48, %47 ], [ %.2.i.i22, %.preheader.i.i24 ]
   %45 = sext i8 %44 to i32
   %46 = call i32 @isspace(i32 noundef %45) #26
   %.not18.i.i28 = icmp eq i32 %46, 0
   br i1 %.not18.i.i28, label %47, label %.critedge.i.i29
 
 47:                                               ; preds = %.lr.ph.i.i26
-  %48 = getelementptr inbounds i8, ptr %.222.i.i27, i64 1
+  %48 = getelementptr inbounds i8, ptr %.322.i.i27, i64 1
   %49 = load i8, ptr %48, align 1
   %.not17.i.i31 = icmp eq i8 %49, 0
   br i1 %.not17.i.i31, label %.critedge.i.i29, label %.lr.ph.i.i26, !llvm.loop !20
 
 .critedge.i.i29:                                  ; preds = %47, %.lr.ph.i.i26, %.preheader.i.i24
-  %.2.lcssa.i.i30 = phi ptr [ %.1.i.i22, %.preheader.i.i24 ], [ %.222.i.i27, %.lr.ph.i.i26 ], [ %48, %47 ]
+  %.3.lcssa.i.i30 = phi ptr [ %.2.i.i22, %.preheader.i.i24 ], [ %.322.i.i27, %.lr.ph.i.i26 ], [ %48, %47 ]
   %50 = add nuw nsw i32 %.026.i.i20, 1
   br label %.preheader19.i.i19
 
 _ZL4coldPKci.exit34:                              ; preds = %42, %_ZL4coldPKci.exit
-  %.013.i.i32 = phi ptr [ %1, %_ZL4coldPKci.exit ], [ %.1.i.i22, %42 ]
+  %.013.i.i32 = phi ptr [ %1, %_ZL4coldPKci.exit ], [ %.2.i.i22, %42 ]
   %51 = call noundef double @_Z11proj_strtodPKcPPc(ptr noundef %.013.i.i32, ptr noundef nonnull %8)
   %52 = load ptr, ptr %8, align 8
   %53 = icmp eq ptr %52, %.013.i.i32
@@ -2662,16 +2662,16 @@ _ZL4coldPKci.exit34:                              ; preds = %42, %_ZL4coldPKci.e
 
 .preheader19.i.i36:                               ; preds = %.critedge.i.i46, %.preheader20.i.i35
   %.026.i.i37 = phi i32 [ 0, %.preheader20.i.i35 ], [ %73, %.critedge.i.i46 ]
-  %.01425.i.i38 = phi ptr [ %1, %.preheader20.i.i35 ], [ %.2.lcssa.i.i47, %.critedge.i.i46 ]
+  %.01425.i.i38 = phi ptr [ %1, %.preheader20.i.i35 ], [ %.3.lcssa.i.i47, %.critedge.i.i46 ]
   br label %60
 
 60:                                               ; preds = %60, %.preheader19.i.i36
-  %.1.i.i39 = phi ptr [ %64, %60 ], [ %.01425.i.i38, %.preheader19.i.i36 ]
-  %61 = load i8, ptr %.1.i.i39, align 1
+  %.2.i.i39 = phi ptr [ %64, %60 ], [ %.01425.i.i38, %.preheader19.i.i36 ]
+  %61 = load i8, ptr %.2.i.i39, align 1
   %62 = sext i8 %61 to i32
   %63 = call i32 @isspace(i32 noundef %62) #26
   %.not.i.i40 = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %.1.i.i39, i64 1
+  %64 = getelementptr inbounds i8, ptr %.2.i.i39, i64 1
   br i1 %.not.i.i40, label %65, label %60, !llvm.loop !18
 
 65:                                               ; preds = %60
@@ -2684,25 +2684,25 @@ _ZL4coldPKci.exit34:                              ; preds = %42, %_ZL4coldPKci.e
 
 .lr.ph.i.i43:                                     ; preds = %.preheader.i.i41, %70
   %67 = phi i8 [ %72, %70 ], [ %61, %.preheader.i.i41 ]
-  %.222.i.i44 = phi ptr [ %71, %70 ], [ %.1.i.i39, %.preheader.i.i41 ]
+  %.322.i.i44 = phi ptr [ %71, %70 ], [ %.2.i.i39, %.preheader.i.i41 ]
   %68 = sext i8 %67 to i32
   %69 = call i32 @isspace(i32 noundef %68) #26
   %.not18.i.i45 = icmp eq i32 %69, 0
   br i1 %.not18.i.i45, label %70, label %.critedge.i.i46
 
 70:                                               ; preds = %.lr.ph.i.i43
-  %71 = getelementptr inbounds i8, ptr %.222.i.i44, i64 1
+  %71 = getelementptr inbounds i8, ptr %.322.i.i44, i64 1
   %72 = load i8, ptr %71, align 1
   %.not17.i.i48 = icmp eq i8 %72, 0
   br i1 %.not17.i.i48, label %.critedge.i.i46, label %.lr.ph.i.i43, !llvm.loop !20
 
 .critedge.i.i46:                                  ; preds = %70, %.lr.ph.i.i43, %.preheader.i.i41
-  %.2.lcssa.i.i47 = phi ptr [ %.1.i.i39, %.preheader.i.i41 ], [ %.222.i.i44, %.lr.ph.i.i43 ], [ %71, %70 ]
+  %.3.lcssa.i.i47 = phi ptr [ %.2.i.i39, %.preheader.i.i41 ], [ %.322.i.i44, %.lr.ph.i.i43 ], [ %71, %70 ]
   %73 = add nuw nsw i32 %.026.i.i37, 1
   br label %.preheader19.i.i36
 
 _ZL4coldPKci.exit51:                              ; preds = %65, %55
-  %.013.i.i49 = phi ptr [ %1, %55 ], [ %.1.i.i39, %65 ]
+  %.013.i.i49 = phi ptr [ %1, %55 ], [ %.2.i.i39, %65 ]
   %74 = call noundef double @_Z11proj_strtodPKcPPc(ptr noundef %.013.i.i49, ptr noundef nonnull %7)
   %75 = load ptr, ptr %7, align 8
   %76 = icmp eq ptr %75, %.013.i.i49
@@ -2728,16 +2728,16 @@ _ZL4coldPKci.exit51:                              ; preds = %65, %55
 
 .preheader19.i.i53:                               ; preds = %.critedge.i.i63, %.preheader20.i.i52
   %.026.i.i54 = phi i32 [ 0, %.preheader20.i.i52 ], [ %97, %.critedge.i.i63 ]
-  %.01425.i.i55 = phi ptr [ %1, %.preheader20.i.i52 ], [ %.2.lcssa.i.i64, %.critedge.i.i63 ]
+  %.01425.i.i55 = phi ptr [ %1, %.preheader20.i.i52 ], [ %.3.lcssa.i.i64, %.critedge.i.i63 ]
   br label %84
 
 84:                                               ; preds = %84, %.preheader19.i.i53
-  %.1.i.i56 = phi ptr [ %88, %84 ], [ %.01425.i.i55, %.preheader19.i.i53 ]
-  %85 = load i8, ptr %.1.i.i56, align 1
+  %.2.i.i56 = phi ptr [ %88, %84 ], [ %.01425.i.i55, %.preheader19.i.i53 ]
+  %85 = load i8, ptr %.2.i.i56, align 1
   %86 = sext i8 %85 to i32
   %87 = call i32 @isspace(i32 noundef %86) #26
   %.not.i.i57 = icmp eq i32 %87, 0
-  %88 = getelementptr inbounds i8, ptr %.1.i.i56, i64 1
+  %88 = getelementptr inbounds i8, ptr %.2.i.i56, i64 1
   br i1 %.not.i.i57, label %89, label %84, !llvm.loop !18
 
 89:                                               ; preds = %84
@@ -2750,25 +2750,25 @@ _ZL4coldPKci.exit51:                              ; preds = %65, %55
 
 .lr.ph.i.i60:                                     ; preds = %.preheader.i.i58, %94
   %91 = phi i8 [ %96, %94 ], [ %85, %.preheader.i.i58 ]
-  %.222.i.i61 = phi ptr [ %95, %94 ], [ %.1.i.i56, %.preheader.i.i58 ]
+  %.322.i.i61 = phi ptr [ %95, %94 ], [ %.2.i.i56, %.preheader.i.i58 ]
   %92 = sext i8 %91 to i32
   %93 = call i32 @isspace(i32 noundef %92) #26
   %.not18.i.i62 = icmp eq i32 %93, 0
   br i1 %.not18.i.i62, label %94, label %.critedge.i.i63
 
 94:                                               ; preds = %.lr.ph.i.i60
-  %95 = getelementptr inbounds i8, ptr %.222.i.i61, i64 1
+  %95 = getelementptr inbounds i8, ptr %.322.i.i61, i64 1
   %96 = load i8, ptr %95, align 1
   %.not17.i.i65 = icmp eq i8 %96, 0
   br i1 %.not17.i.i65, label %.critedge.i.i63, label %.lr.ph.i.i60, !llvm.loop !20
 
 .critedge.i.i63:                                  ; preds = %94, %.lr.ph.i.i60, %.preheader.i.i58
-  %.2.lcssa.i.i64 = phi ptr [ %.1.i.i56, %.preheader.i.i58 ], [ %.222.i.i61, %.lr.ph.i.i60 ], [ %95, %94 ]
+  %.3.lcssa.i.i64 = phi ptr [ %.2.i.i56, %.preheader.i.i58 ], [ %.322.i.i61, %.lr.ph.i.i60 ], [ %95, %94 ]
   %97 = add nuw nsw i32 %.026.i.i54, 1
   br label %.preheader19.i.i53
 
 _ZL4coldPKci.exit68:                              ; preds = %89, %79
-  %.013.i.i66 = phi ptr [ %1, %79 ], [ %.1.i.i56, %89 ]
+  %.013.i.i66 = phi ptr [ %1, %79 ], [ %.2.i.i56, %89 ]
   %98 = call noundef double @_Z11proj_strtodPKcPPc(ptr noundef %.013.i.i66, ptr noundef nonnull %6)
   %99 = load ptr, ptr %6, align 8
   %100 = icmp eq ptr %99, %.013.i.i66
@@ -2812,16 +2812,16 @@ define internal fastcc noundef ptr @_ZL6columnPci(ptr noundef readonly %0, i32 n
 
 .preheader19.i:                                   ; preds = %.critedge.i, %.preheader20.i
   %.026.i = phi i32 [ 0, %.preheader20.i ], [ %18, %.critedge.i ]
-  %.01425.i = phi ptr [ %0, %.preheader20.i ], [ %.2.lcssa.i, %.critedge.i ]
+  %.01425.i = phi ptr [ %0, %.preheader20.i ], [ %.3.lcssa.i, %.critedge.i ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader19.i
-  %.1.i = phi ptr [ %9, %5 ], [ %.01425.i, %.preheader19.i ]
-  %6 = load i8, ptr %.1.i, align 1
+  %.2.i = phi ptr [ %9, %5 ], [ %.01425.i, %.preheader19.i ]
+  %6 = load i8, ptr %.2.i, align 1
   %7 = sext i8 %6 to i32
   %8 = tail call i32 @isspace(i32 noundef %7) #26
   %.not.i = icmp eq i32 %8, 0
-  %9 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %9 = getelementptr inbounds i8, ptr %.2.i, i64 1
   br i1 %.not.i, label %10, label %5, !llvm.loop !18
 
 10:                                               ; preds = %5
@@ -2834,25 +2834,25 @@ define internal fastcc noundef ptr @_ZL6columnPci(ptr noundef readonly %0, i32 n
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %15
   %12 = phi i8 [ %17, %15 ], [ %6, %.preheader.i ]
-  %.222.i = phi ptr [ %16, %15 ], [ %.1.i, %.preheader.i ]
+  %.322.i = phi ptr [ %16, %15 ], [ %.2.i, %.preheader.i ]
   %13 = sext i8 %12 to i32
   %14 = tail call i32 @isspace(i32 noundef %13) #26
   %.not18.i = icmp eq i32 %14, 0
   br i1 %.not18.i, label %15, label %.critedge.i
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds i8, ptr %.222.i, i64 1
+  %16 = getelementptr inbounds i8, ptr %.322.i, i64 1
   %17 = load i8, ptr %16, align 1
   %.not17.i = icmp eq i8 %17, 0
   br i1 %.not17.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !20
 
 .critedge.i:                                      ; preds = %15, %.lr.ph.i, %.preheader.i
-  %.2.lcssa.i = phi ptr [ %.1.i, %.preheader.i ], [ %16, %15 ], [ %.222.i, %.lr.ph.i ]
+  %.3.lcssa.i = phi ptr [ %.2.i, %.preheader.i ], [ %16, %15 ], [ %.322.i, %.lr.ph.i ]
   %18 = add nuw nsw i32 %.026.i, 1
   br label %.preheader19.i
 
 _ZL6columnPKci.exit:                              ; preds = %10, %2
-  %.013.i = phi ptr [ %0, %2 ], [ %.1.i, %10 ]
+  %.013.i = phi ptr [ %0, %2 ], [ %.2.i, %10 ]
   ret ptr %.013.i
 }
 

@@ -513,8 +513,8 @@ define noundef zeroext i1 @_ZN4File5CloseEv(ptr noundef nonnull align 8 derefere
   br label %20
 
 20:                                               ; preds = %.thread5, %.thread, %18, %14, %10
-  %.14 = phi i1 [ true, %.thread ], [ false, %18 ], [ false, %14 ], [ true, %10 ], [ true, %.thread5 ]
-  ret i1 %.14
+  %.04 = phi i1 [ true, %.thread ], [ false, %18 ], [ false, %14 ], [ true, %10 ], [ true, %.thread5 ]
+  ret i1 %.04
 }
 
 declare void @_ZN12ErrorHandler10CloseErrorEPKw(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef) local_unnamed_addr #5
@@ -720,8 +720,8 @@ _ZN4File10DirectReadEPvm.exit:                    ; preds = %._crit_edge.i, %30
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN4File10DirectReadEPvm.exit54
   %.03564 = phi i64 [ %58, %_ZN4File10DirectReadEPvm.exit54 ], [ 0, %.preheader ]
-  %.03663 = phi i32 [ %56, %_ZN4File10DirectReadEPvm.exit54 ], [ 0, %.preheader ]
-  %.13862 = phi i32 [ %spec.select, %_ZN4File10DirectReadEPvm.exit54 ], [ %.037.ph, %.preheader ]
+  %.163 = phi i32 [ %56, %_ZN4File10DirectReadEPvm.exit54 ], [ 0, %.preheader ]
+  %.262 = phi i32 [ %spec.select, %_ZN4File10DirectReadEPvm.exit54 ], [ %.037.ph, %.preheader ]
   %41 = add i64 %.03564, %.039
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 40
@@ -748,10 +748,10 @@ _ZN4File10DirectReadEPvm.exit54:                  ; preds = %._crit_edge.i52, %5
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %53, -1
   %55 = select i1 %54, i32 512, i32 %53
-  %56 = add nsw i32 %55, %.03663
+  %56 = add nsw i32 %55, %.163
   %.not = icmp eq i32 %56, -1
   %57 = select i1 %.not, i32 0, i32 %56
-  %spec.select = add nsw i32 %57, %.13862
+  %spec.select = add nsw i32 %57, %.262
   %58 = add i64 %.03564, 512
   %59 = icmp ult i64 %58, %.040.ph
   br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !6
@@ -794,9 +794,9 @@ split:                                            ; preds = %60, %._crit_edge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %_ZN4File10DirectReadEPvm.exit, %_ZN4File10DirectReadEPvm.exit54, %.preheader, %72
-  %.3 = phi i32 [ %.037.ph, %72 ], [ %.037.ph, %.preheader ], [ %spec.select, %_ZN4File10DirectReadEPvm.exit54 ], [ %.037.ph, %_ZN4File10DirectReadEPvm.exit ], [ %.037.ph, %35 ]
-  %.1 = phi i32 [ -1, %72 ], [ 0, %.preheader ], [ %56, %_ZN4File10DirectReadEPvm.exit54 ], [ -1, %35 ], [ %33, %_ZN4File10DirectReadEPvm.exit ]
-  %73 = add nsw i32 %.1, %.3
+  %.138 = phi i32 [ %.037.ph, %72 ], [ %.037.ph, %.preheader ], [ %spec.select, %_ZN4File10DirectReadEPvm.exit54 ], [ %.037.ph, %_ZN4File10DirectReadEPvm.exit ], [ %.037.ph, %35 ]
+  %.036 = phi i32 [ -1, %72 ], [ 0, %.preheader ], [ %56, %_ZN4File10DirectReadEPvm.exit54 ], [ -1, %35 ], [ %33, %_ZN4File10DirectReadEPvm.exit ]
+  %73 = add nsw i32 %.036, %.138
   %74 = load i32, ptr %20, align 4
   %75 = icmp eq i32 %74, 1
   br i1 %75, label %76, label %85
@@ -804,9 +804,9 @@ split:                                            ; preds = %60, %._crit_edge
 76:                                               ; preds = %.loopexit
   %77 = load i8, ptr %25, align 8
   %78 = trunc i8 %77 to i1
-  %79 = icmp slt i32 %.1, 1
+  %79 = icmp slt i32 %.036, 1
   %or.cond.not = or i1 %79, %78
-  %80 = zext nneg i32 %.1 to i64
+  %80 = zext nneg i32 %.036 to i64
   %81 = icmp ule i64 %.040.ph, %80
   %or.cond51.not = select i1 %or.cond.not, i1 true, i1 %81
   br i1 %or.cond51.not, label %85, label %82

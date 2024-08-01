@@ -440,7 +440,7 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
 
 .lr.ph.i.i:                                       ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i", %70
   %.sroa.06.029.i.i = phi ptr [ %.sroa.06.0.i.i, %70 ], [ %.sroa.06.026.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i" ]
-  %.sroa.012.028.i.i = phi ptr [ %.sroa.012.1.i.i, %70 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i" ]
+  %.sroa.012.128.i.i = phi ptr [ %.sroa.012.2.i.i, %70 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i" ]
   %66 = load i8, ptr %.sroa.06.029.i.i, align 1
   %67 = sext i8 %66 to i32
   %memchr.i.i.i.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.44, i32 %67, i64 6)
@@ -448,20 +448,20 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
   br i1 %.not17.i.i, label %68, label %70
 
 68:                                               ; preds = %.lr.ph.i.i
-  store i8 %66, ptr %.sroa.012.028.i.i, align 1
-  %69 = getelementptr inbounds i8, ptr %.sroa.012.028.i.i, i64 1
+  store i8 %66, ptr %.sroa.012.128.i.i, align 1
+  %69 = getelementptr inbounds i8, ptr %.sroa.012.128.i.i, i64 1
   br label %70
 
 70:                                               ; preds = %68, %.lr.ph.i.i
-  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.028.i.i, %.lr.ph.i.i ], [ %69, %68 ]
+  %.sroa.012.2.i.i = phi ptr [ %.sroa.012.128.i.i, %.lr.ph.i.i ], [ %69, %68 ]
   %.sroa.06.0.i.i = getelementptr inbounds i8, ptr %.sroa.06.029.i.i, i64 1
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, %23
   br i1 %.not.i.i, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1ET_SE_SE_T0_.exit", label %.lr.ph.i.i, !llvm.loop !11
 
 "_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1ET_SE_SE_T0_.exit": ; preds = %70, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i", %._crit_edge.i.i.i.i
-  %.sroa.012.2.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i" ], [ %23, %._crit_edge.i.i.i.i ], [ %.sroa.012.1.i.i, %70 ]
+  %.sroa.012.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i" ], [ %23, %._crit_edge.i.i.i.i ], [ %.sroa.012.2.i.i, %70 ]
   %71 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
-  %72 = invoke ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.sroa.012.2.i.i, ptr %71)
+  %72 = invoke ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.sroa.012.0.i.i, ptr %71)
           to label %77 unwind label %75
 
 73:                                               ; preds = %3

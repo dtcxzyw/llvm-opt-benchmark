@@ -74,28 +74,28 @@ define i64 @pg_popcount(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.021 = phi ptr [ %10, %.lr.ph ], [ %0, %2 ]
-  %.01120 = phi i64 [ %14, %.lr.ph ], [ 0, %2 ]
-  %.01219 = phi i32 [ %15, %.lr.ph ], [ %1, %2 ]
+  %.120 = phi i64 [ %14, %.lr.ph ], [ 0, %2 ]
+  %.11319 = phi i32 [ %15, %.lr.ph ], [ %1, %2 ]
   %9 = load ptr, ptr @pg_popcount64, align 8
   %10 = getelementptr i8, ptr %.021, i64 8
   %11 = load i64, ptr %.021, align 8
   %12 = tail call i32 %9(i64 noundef %11) #4
   %13 = sext i32 %12 to i64
-  %14 = add i64 %.01120, %13
-  %15 = add nsw i32 %.01219, -8
-  %16 = icmp ugt i32 %.01219, 15
+  %14 = add i64 %.120, %13
+  %15 = add nsw i32 %.11319, -8
+  %16 = icmp ugt i32 %.11319, 15
   br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %2
   %.015 = phi ptr [ %0, %2 ], [ %10, %.lr.ph ]
-  %.113 = phi i32 [ %1, %2 ], [ %15, %.lr.ph ]
-  %.1 = phi i64 [ 0, %2 ], [ %14, %.lr.ph ]
-  %.not24 = icmp eq i32 %.113, 0
+  %.012 = phi i32 [ %1, %2 ], [ %15, %.lr.ph ]
+  %.011 = phi i64 [ 0, %2 ], [ %14, %.lr.ph ]
+  %.not24 = icmp eq i32 %.012, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.loopexit, %.lr.ph28
-  %.227 = phi i64 [ %24, %.lr.ph28 ], [ %.1, %.loopexit ]
-  %.21426 = phi i32 [ %17, %.lr.ph28 ], [ %.113, %.loopexit ]
+  %.227 = phi i64 [ %24, %.lr.ph28 ], [ %.011, %.loopexit ]
+  %.21426 = phi i32 [ %17, %.lr.ph28 ], [ %.012, %.loopexit ]
   %.11625 = phi ptr [ %18, %.lr.ph28 ], [ %.015, %.loopexit ]
   %17 = add i32 %.21426, -1
   %18 = getelementptr i8, ptr %.11625, i64 1
@@ -109,7 +109,7 @@ define i64 @pg_popcount(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph28, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph28, %.loopexit
-  %.2.lcssa = phi i64 [ %.1, %.loopexit ], [ %24, %.lr.ph28 ]
+  %.2.lcssa = phi i64 [ %.011, %.loopexit ], [ %24, %.lr.ph28 ]
   ret i64 %.2.lcssa
 }
 

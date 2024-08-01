@@ -121,13 +121,13 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %54, %50, %43
 
 66:                                               ; preds = %64, %ompi_datatype_copy_content_same_ddt.exit.thread
   %.0145 = phi ptr [ %65, %64 ], [ %1, %ompi_datatype_copy_content_same_ddt.exit.thread ]
-  %.0137 = phi ptr [ %62, %64 ], [ null, %ompi_datatype_copy_content_same_ddt.exit.thread ]
+  %.1138 = phi ptr [ %62, %64 ], [ null, %ompi_datatype_copy_content_same_ddt.exit.thread ]
   %67 = icmp sgt i32 %21, 0
   br i1 %67, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %66, %102
   %.1133222 = phi ptr [ %.2, %102 ], [ %45, %66 ]
-  %.0134221 = phi ptr [ %.1135, %102 ], [ %.0141, %66 ]
+  %.0134221 = phi ptr [ %.2136, %102 ], [ %.0141, %66 ]
   %.0140220 = phi i32 [ %104, %102 ], [ 1, %66 ]
   %.0146219 = phi i32 [ %103, %102 ], [ 0, %66 ]
   %68 = and i32 %.0140220, %19
@@ -224,7 +224,7 @@ ompi_datatype_copy_content_same_ddt.exit189:      ; preds = %.lr.ph.i180, %96, %
   br label %102
 
 102:                                              ; preds = %ompi_datatype_copy_content_same_ddt.exit189, %101, %90, %79
-  %.1135 = phi ptr [ %.0134221, %79 ], [ %.0134221, %90 ], [ %45, %101 ], [ %45, %ompi_datatype_copy_content_same_ddt.exit189 ]
+  %.2136 = phi ptr [ %.0134221, %79 ], [ %.0134221, %90 ], [ %45, %101 ], [ %45, %ompi_datatype_copy_content_same_ddt.exit189 ]
   %.2 = phi ptr [ %.1133222, %79 ], [ %.1133222, %90 ], [ %.0145, %101 ], [ %.0145, %ompi_datatype_copy_content_same_ddt.exit189 ]
   %103 = add nuw nsw i32 %.0146219, 1
   %104 = shl i32 %.0140220, 1
@@ -233,7 +233,7 @@ ompi_datatype_copy_content_same_ddt.exit189:      ; preds = %.lr.ph.i180, %96, %
 
 .loopexit:                                        ; preds = %102, %66, %76
   %.1133212 = phi ptr [ %.1133222, %76 ], [ %45, %66 ], [ %.2, %102 ]
-  %.2136 = phi ptr [ %.0145, %76 ], [ %.0141, %66 ], [ %.1135, %102 ]
+  %.1135 = phi ptr [ %.0145, %76 ], [ %.0141, %66 ], [ %.2136, %102 ]
   %105 = icmp eq i32 %19, 0
   %106 = icmp eq i32 %.val175, %5
   br i1 %105, label %107, label %112
@@ -242,12 +242,12 @@ ompi_datatype_copy_content_same_ddt.exit189:      ; preds = %.lr.ph.i180, %96, %
   br i1 %106, label %108, label %109
 
 108:                                              ; preds = %107
-  tail call fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %3, i64 noundef %26, ptr noundef %.0145, ptr noundef %.2136)
+  tail call fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %3, i64 noundef %26, ptr noundef %.0145, ptr noundef %.1135)
   br label %ompi_datatype_copy_content_same_ddt.exit
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %111 = tail call i32 %110(ptr noundef %.2136, i64 noundef %26, ptr noundef %3, i32 noundef %5, i32 noundef -21, i32 noundef 4, ptr noundef %6) #6
+  %111 = tail call i32 %110(ptr noundef %.1135, i64 noundef %26, ptr noundef %3, i32 noundef %5, i32 noundef -21, i32 noundef 4, ptr noundef %6) #6
   br label %ompi_datatype_copy_content_same_ddt.exit
 
 112:                                              ; preds = %.loopexit
@@ -265,7 +265,7 @@ ompi_datatype_copy_content_same_ddt.exit189:      ; preds = %.lr.ph.i180, %96, %
 
 ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i, %86, %61, %109, %108, %113, %116, %112, %76
   %.0144 = phi i32 [ %78, %76 ], [ 0, %108 ], [ %111, %109 ], [ %115, %116 ], [ %115, %113 ], [ 0, %112 ], [ -2, %61 ], [ %88, %86 ], [ %53, %.lr.ph.i ]
-  %.1138 = phi ptr [ %.0137, %76 ], [ %.0137, %108 ], [ %.0137, %109 ], [ %.0137, %116 ], [ %.0137, %113 ], [ %.0137, %112 ], [ null, %61 ], [ %.0137, %86 ], [ null, %.lr.ph.i ]
+  %.0137 = phi ptr [ %.1138, %76 ], [ %.1138, %108 ], [ %.1138, %109 ], [ %.1138, %116 ], [ %.1138, %113 ], [ %.1138, %112 ], [ null, %61 ], [ %.1138, %86 ], [ null, %.lr.ph.i ]
   %.1 = phi ptr [ %.0, %76 ], [ %.0, %108 ], [ %.0, %109 ], [ %.0, %116 ], [ %.0, %113 ], [ %.0, %112 ], [ %.0, %61 ], [ %.0, %86 ], [ %48, %.lr.ph.i ]
   %.not166 = icmp eq ptr %.1, null
   br i1 %.not166, label %118, label %117
@@ -276,11 +276,11 @@ ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i, %86, %61,
 
 118:                                              ; preds = %ompi_datatype_copy_content_same_ddt.exit, %117
   tail call void @free(ptr noundef %41) #6
-  %.not167 = icmp eq ptr %.1138, null
+  %.not167 = icmp eq ptr %.0137, null
   br i1 %.not167, label %120, label %119
 
 119:                                              ; preds = %118
-  tail call void @free(ptr noundef nonnull %.1138) #6
+  tail call void @free(ptr noundef nonnull %.0137) #6
   br label %120
 
 120:                                              ; preds = %.thread, %118, %119, %opal_datatype_span.exit, %11

@@ -314,7 +314,7 @@ define hidden i32 @dissect_mqpcf_parm(ptr noundef %0, ptr noundef %1, ptr nounde
 37:                                               ; preds = %.lr.ph770, %dissect_mqpcf_parm_int.exit
   %.0768 = phi i32 [ %3, %.lr.ph770 ], [ %466, %dissect_mqpcf_parm_int.exit ]
   %.0676767 = phi i32 [ 0, %.lr.ph770 ], [ %467, %dissect_mqpcf_parm_int.exit ]
-  %.0681766 = phi ptr [ null, %.lr.ph770 ], [ %.4, %dissect_mqpcf_parm_int.exit ]
+  %.0681766 = phi ptr [ null, %.lr.ph770 ], [ %.1682, %dissect_mqpcf_parm_int.exit ]
   %38 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0768) #8
   %39 = icmp ult i32 %38, 12
   br i1 %39, label %40, label %43
@@ -396,15 +396,15 @@ dissect_mqpcf_parm_getintval.exit.thread:         ; preds = %67, %64, %dissect_m
   br label %75
 
 75:                                               ; preds = %dissect_mqpcf_parm_getintval.exit.thread, %70
-  %.1682 = phi ptr [ %72, %70 ], [ %74, %dissect_mqpcf_parm_getintval.exit.thread ]
+  %.2683 = phi ptr [ %72, %70 ], [ %74, %dissect_mqpcf_parm_getintval.exit.thread ]
   %76 = load i32, ptr @hf_mq_pcf_prmtyp, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %.1682, i32 noundef %76, ptr noundef %0, i32 noundef %.0768, i32 noundef 4, i32 noundef %5) #8
+  %77 = call ptr @proto_tree_add_item(ptr noundef %.2683, i32 noundef %76, ptr noundef %0, i32 noundef %.0768, i32 noundef 4, i32 noundef %5) #8
   %78 = load i32, ptr @hf_mq_pcf_prmlen, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %.1682, i32 noundef %78, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef %5) #8
+  %79 = call ptr @proto_tree_add_item(ptr noundef %.2683, i32 noundef %78, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef %5) #8
   %80 = load i32, ptr @hf_mq_pcf_prmid, align 4
   %81 = load i32, ptr @hf_mq_pcf_prmidnovals, align 4
   %82 = select i1 %.not, i32 %81, i32 %80
-  %83 = call ptr @proto_tree_add_item(ptr noundef %.1682, i32 noundef %82, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef %5) #8
+  %83 = call ptr @proto_tree_add_item(ptr noundef %.2683, i32 noundef %82, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef %5) #8
   %84 = load i32, ptr @hf_mq_pcf_int, align 4
   br i1 %.not, label %dissect_mqpcf_parm_getintval.exit.i.thread, label %85
 
@@ -424,11 +424,11 @@ dissect_mqpcf_parm_getintval.exit.i:              ; preds = %85
   br i1 %.not41.i, label %92, label %90
 
 90:                                               ; preds = %dissect_mqpcf_parm_getintval.exit.i
-  %91 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.1682, i32 noundef %84, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef %66, ptr noundef nonnull @.str.122, ptr noundef nonnull %88, i32 noundef %66) #8
+  %91 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.2683, i32 noundef %84, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef %66, ptr noundef nonnull @.str.122, ptr noundef nonnull %88, i32 noundef %66) #8
   br label %dissect_mqpcf_parm_int.exit
 
 92:                                               ; preds = %dissect_mqpcf_parm_getintval.exit.i.thread, %dissect_mqpcf_parm_getintval.exit.i
-  %93 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.1682, i32 noundef %84, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef %66, ptr noundef nonnull @.str.123, i32 noundef %66, i32 noundef %66) #8
+  %93 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.2683, i32 noundef %84, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef %66, ptr noundef nonnull @.str.123, i32 noundef %66, i32 noundef %66) #8
   br label %dissect_mqpcf_parm_int.exit
 
 94:                                               ; preds = %63
@@ -748,19 +748,19 @@ dissect_mqpcf_parm_grp.exit:                      ; preds = %.lr.ph745, %244
 
 299:                                              ; preds = %292, %294, %296
   %.pre-phi795 = phi i32 [ %283, %292 ], [ %283, %294 ], [ %.pre794, %296 ]
-  %.2683 = phi ptr [ %293, %292 ], [ %295, %294 ], [ %298, %296 ]
+  %.3684 = phi ptr [ %293, %292 ], [ %295, %294 ], [ %298, %296 ]
   %300 = load i32, ptr @hf_mq_pcf_prmtyp, align 4
-  %301 = call ptr @proto_tree_add_item(ptr noundef %.2683, i32 noundef %300, ptr noundef %0, i32 noundef %.0768, i32 noundef 4, i32 noundef %5) #8
+  %301 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %300, ptr noundef %0, i32 noundef %.0768, i32 noundef 4, i32 noundef %5) #8
   %302 = load i32, ptr @hf_mq_pcf_prmlen, align 4
-  %303 = call ptr @proto_tree_add_item(ptr noundef %.2683, i32 noundef %302, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef %5) #8
+  %303 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %302, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef %5) #8
   %304 = load i32, ptr @hf_mq_pcf_prmid, align 4
   %305 = load i32, ptr @hf_mq_pcf_prmidnovals, align 4
   %306 = select i1 %.not, i32 %305, i32 %304
-  %307 = call ptr @proto_tree_add_item(ptr noundef %.2683, i32 noundef %306, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef %5) #8
+  %307 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %306, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef %5) #8
   %308 = load i32, ptr @hf_mq_pcf_prmstrlen, align 4
-  %309 = call ptr @proto_tree_add_item(ptr noundef %.2683, i32 noundef %308, ptr noundef %0, i32 noundef %279, i32 noundef 4, i32 noundef %5) #8
+  %309 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %308, ptr noundef %0, i32 noundef %279, i32 noundef 4, i32 noundef %5) #8
   %310 = load i32, ptr @hf_mq_pcf_bytestring, align 4
-  %311 = call ptr @proto_tree_add_item(ptr noundef %.2683, i32 noundef %310, ptr noundef %0, i32 noundef %.pre-phi795, i32 noundef %280, i32 noundef %5) #8
+  %311 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %310, ptr noundef %0, i32 noundef %.pre-phi795, i32 noundef %280, i32 noundef %5) #8
   br label %dissect_mqpcf_parm_int.exit
 
 312:                                              ; preds = %63
@@ -858,21 +858,21 @@ dissect_mqpcf_parm_grp.exit:                      ; preds = %.lr.ph745, %244
 
 393:                                              ; preds = %388, %375
   %.pre-phi = phi i32 [ %.pre, %388 ], [ %377, %375 ]
-  %.3684 = phi ptr [ %392, %388 ], [ %387, %375 ]
+  %.4 = phi ptr [ %392, %388 ], [ %387, %375 ]
   %394 = load i32, ptr @hf_mq_pcf_prmtyp, align 4
-  %395 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %394, ptr noundef %0, i32 noundef %.0768, i32 noundef 4, i32 noundef %5) #8
+  %395 = call ptr @proto_tree_add_item(ptr noundef %.4, i32 noundef %394, ptr noundef %0, i32 noundef %.0768, i32 noundef 4, i32 noundef %5) #8
   %396 = load i32, ptr @hf_mq_pcf_prmlen, align 4
-  %397 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %396, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef %5) #8
+  %397 = call ptr @proto_tree_add_item(ptr noundef %.4, i32 noundef %396, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef %5) #8
   %398 = load i32, ptr @hf_mq_pcf_prmid, align 4
   %399 = load i32, ptr @hf_mq_pcf_prmidnovals, align 4
   %400 = select i1 %.not, i32 %399, i32 %398
-  %401 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %400, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef %5) #8
+  %401 = call ptr @proto_tree_add_item(ptr noundef %.4, i32 noundef %400, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef %5) #8
   %402 = load i32, ptr @hf_mq_pcf_filterop, align 4
-  %403 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %402, ptr noundef %0, i32 noundef %371, i32 noundef 4, i32 noundef %5) #8
+  %403 = call ptr @proto_tree_add_item(ptr noundef %.4, i32 noundef %402, ptr noundef %0, i32 noundef %371, i32 noundef 4, i32 noundef %5) #8
   %404 = load i32, ptr @hf_mq_pcf_prmstrlen, align 4
-  %405 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %404, ptr noundef %0, i32 noundef %373, i32 noundef 4, i32 noundef %5) #8
+  %405 = call ptr @proto_tree_add_item(ptr noundef %.4, i32 noundef %404, ptr noundef %0, i32 noundef %373, i32 noundef 4, i32 noundef %5) #8
   %406 = load i32, ptr @hf_mq_pcf_bytestring, align 4
-  %407 = call ptr @proto_tree_add_item(ptr noundef %.3684, i32 noundef %406, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %374, i32 noundef %5) #8
+  %407 = call ptr @proto_tree_add_item(ptr noundef %.4, i32 noundef %406, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %374, i32 noundef %5) #8
   br label %dissect_mqpcf_parm_int.exit
 
 408:                                              ; preds = %63
@@ -951,7 +951,7 @@ dissect_mqpcf_parm_grp.exit:                      ; preds = %.lr.ph745, %244
   br label %dissect_mqpcf_parm_int.exit
 
 dissect_mqpcf_parm_int.exit:                      ; preds = %92, %90, %._crit_edge763, %462, %._crit_edge, %240, %._crit_edge756, %179, %408, %393, %333, %312, %299, %268, %dissect_mqpcf_parm_grp.exit, %.thread, %63
-  %.4 = phi ptr [ %.0681766, %63 ], [ %320, %312 ], [ %.2683, %299 ], [ %270, %268 ], [ %353, %333 ], [ %248, %dissect_mqpcf_parm_grp.exit ], [ %193, %240 ], [ %193, %._crit_edge ], [ %137, %179 ], [ %137, %._crit_edge756 ], [ %114, %.thread ], [ %.3684, %393 ], [ %413, %408 ], [ %432, %462 ], [ %432, %._crit_edge763 ], [ %.1682, %90 ], [ %.1682, %92 ]
+  %.1682 = phi ptr [ %.0681766, %63 ], [ %320, %312 ], [ %.3684, %299 ], [ %270, %268 ], [ %353, %333 ], [ %248, %dissect_mqpcf_parm_grp.exit ], [ %193, %240 ], [ %193, %._crit_edge ], [ %137, %179 ], [ %137, %._crit_edge756 ], [ %114, %.thread ], [ %.4, %393 ], [ %413, %408 ], [ %432, %462 ], [ %432, %._crit_edge763 ], [ %.2683, %90 ], [ %.2683, %92 ]
   %.0678 = phi i32 [ %.0768, %63 ], [ %.0768, %312 ], [ %.0768, %299 ], [ %.0768, %268 ], [ %.0768, %333 ], [ %267, %dissect_mqpcf_parm_grp.exit ], [ %.0768, %240 ], [ %.0768, %._crit_edge ], [ %.0768, %179 ], [ %.0768, %._crit_edge756 ], [ %.0768, %.thread ], [ %.0768, %393 ], [ %.0768, %408 ], [ %.0768, %462 ], [ %.0768, %._crit_edge763 ], [ %.0768, %90 ], [ %.0768, %92 ]
   %466 = add i32 %.0678, %52
   %467 = add nuw i32 %.0676767, 1

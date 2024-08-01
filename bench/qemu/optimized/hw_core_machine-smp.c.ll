@@ -373,9 +373,9 @@ if.then298:                                       ; preds = %if.end295
   br label %if.end306
 
 if.end306:                                        ; preds = %if.then280, %if.then258, %if.then240, %if.then220, %if.end295, %if.then298
-  %sockets.1 = phi i32 [ %conv25, %if.then298 ], [ %conv25, %if.end295 ], [ %div292, %if.then280 ], [ %cond264, %if.then258 ], [ %conv25, %if.then240 ], [ %div, %if.then220 ]
-  %cores.1 = phi i32 [ %conv49, %if.then298 ], [ %conv49, %if.end295 ], [ %conv49, %if.then280 ], [ %div276, %if.then258 ], [ %div252, %if.then240 ], [ %cond226, %if.then220 ]
-  %threads.1 = phi i32 [ %div304, %if.then298 ], [ %conv57, %if.end295 ], [ %cond286, %if.then280 ], [ %cond270, %if.then258 ], [ %cond246, %if.then240 ], [ %cond232, %if.then220 ]
+  %sockets.0 = phi i32 [ %conv25, %if.then298 ], [ %conv25, %if.end295 ], [ %div292, %if.then280 ], [ %cond264, %if.then258 ], [ %conv25, %if.then240 ], [ %div, %if.then220 ]
+  %cores.0 = phi i32 [ %conv49, %if.then298 ], [ %conv49, %if.end295 ], [ %conv49, %if.then280 ], [ %div276, %if.then258 ], [ %div252, %if.then240 ], [ %cond226, %if.then220 ]
+  %threads.0 = phi i32 [ %div304, %if.then298 ], [ %conv57, %if.end295 ], [ %cond286, %if.then280 ], [ %cond270, %if.then258 ], [ %cond246, %if.then240 ], [ %cond232, %if.then220 ]
   %cmp307.not = icmp eq i32 %cond214, 0
   br i1 %cmp307.not, label %cond.false310, label %if.end306.cond.end317_crit_edge
 
@@ -383,28 +383,28 @@ if.end306.cond.end317_crit_edge:                  ; preds = %if.end306
   %.pre = mul i32 %cond171, %cond184
   %.pre192 = mul i32 %.pre, %cond152
   %.pre193 = mul i32 %.pre192, %cond158
-  %.pre194 = mul i32 %.pre193, %threads.1
-  %.pre195 = mul i32 %.pre194, %cores.1
-  %.pre196 = mul i32 %.pre195, %sockets.1
+  %.pre194 = mul i32 %.pre193, %threads.0
+  %.pre195 = mul i32 %.pre194, %cores.0
+  %.pre196 = mul i32 %.pre195, %sockets.0
   br label %cond.end317
 
 cond.false310:                                    ; preds = %if.end306.thread, %if.end306
-  %threads.1191 = phi i32 [ %cond208, %if.end306.thread ], [ %threads.1, %if.end306 ]
-  %cores.1189 = phi i32 [ %cond202, %if.end306.thread ], [ %cores.1, %if.end306 ]
-  %sockets.1187 = phi i32 [ %cond196, %if.end306.thread ], [ %sockets.1, %if.end306 ]
+  %threads.0191 = phi i32 [ %cond208, %if.end306.thread ], [ %threads.0, %if.end306 ]
+  %cores.0189 = phi i32 [ %cond202, %if.end306.thread ], [ %cores.0, %if.end306 ]
+  %sockets.0187 = phi i32 [ %cond196, %if.end306.thread ], [ %sockets.0, %if.end306 ]
   %mul311 = mul i32 %cond171, %cond184
   %mul312 = mul i32 %mul311, %cond152
   %mul313 = mul i32 %mul312, %cond158
-  %mul314 = mul i32 %mul313, %threads.1191
-  %mul315 = mul i32 %mul314, %cores.1189
-  %mul316 = mul i32 %mul315, %sockets.1187
+  %mul314 = mul i32 %mul313, %threads.0191
+  %mul315 = mul i32 %mul314, %cores.0189
+  %mul316 = mul i32 %mul315, %sockets.0187
   br label %cond.end317
 
 cond.end317:                                      ; preds = %if.end306.cond.end317_crit_edge, %cond.false310
   %mul350.pre-phi = phi i32 [ %.pre196, %if.end306.cond.end317_crit_edge ], [ %mul316, %cond.false310 ]
-  %threads.1190 = phi i32 [ %threads.1, %if.end306.cond.end317_crit_edge ], [ %threads.1191, %cond.false310 ]
-  %cores.1188 = phi i32 [ %cores.1, %if.end306.cond.end317_crit_edge ], [ %cores.1189, %cond.false310 ]
-  %sockets.1186 = phi i32 [ %sockets.1, %if.end306.cond.end317_crit_edge ], [ %sockets.1187, %cond.false310 ]
+  %threads.0190 = phi i32 [ %threads.0, %if.end306.cond.end317_crit_edge ], [ %threads.0191, %cond.false310 ]
+  %cores.0188 = phi i32 [ %cores.0, %if.end306.cond.end317_crit_edge ], [ %cores.0189, %cond.false310 ]
+  %sockets.0186 = phi i32 [ %sockets.0, %if.end306.cond.end317_crit_edge ], [ %sockets.0187, %cond.false310 ]
   %cond318 = phi i32 [ %cond214, %if.end306.cond.end317_crit_edge ], [ %mul316, %cond.false310 ]
   %cond324 = select i1 %cmp185, i32 %cond318, i32 %conv
   %smp = getelementptr inbounds i8, ptr %ms, i64 288
@@ -414,15 +414,15 @@ cond.end317:                                      ; preds = %if.end306.cond.end3
   %books329 = getelementptr inbounds i8, ptr %ms, i64 296
   store i32 %cond171, ptr %books329, align 8
   %sockets331 = getelementptr inbounds i8, ptr %ms, i64 300
-  store i32 %sockets.1186, ptr %sockets331, align 4
+  store i32 %sockets.0186, ptr %sockets331, align 4
   %dies333 = getelementptr inbounds i8, ptr %ms, i64 304
   store i32 %cond152, ptr %dies333, align 8
   %clusters335 = getelementptr inbounds i8, ptr %ms, i64 308
   store i32 %cond158, ptr %clusters335, align 4
   %cores337 = getelementptr inbounds i8, ptr %ms, i64 312
-  store i32 %cores.1188, ptr %cores337, align 8
+  store i32 %cores.0188, ptr %cores337, align 8
   %threads339 = getelementptr inbounds i8, ptr %ms, i64 316
-  store i32 %threads.1190, ptr %threads339, align 4
+  store i32 %threads.0190, ptr %threads339, align 4
   %max_cpus = getelementptr inbounds i8, ptr %ms, i64 320
   store i32 %cond318, ptr %max_cpus, align 8
   %32 = load i8, ptr %has_clusters, align 8

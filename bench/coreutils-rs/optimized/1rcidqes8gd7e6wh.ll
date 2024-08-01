@@ -389,7 +389,7 @@ define noundef ptr @_ZN6uu_yes4exec17hab79ba36dc20148eE(ptr noalias noundef nonn
   br i1 %25, label %.preheader, label %.loopexit22
 
 .loopexit22:                                      ; preds = %24, %20, %18, %13
-  %.1 = phi ptr [ %17, %13 ], [ null, %18 ], [ %21, %20 ], [ %23, %24 ]
+  %.0 = phi ptr [ %17, %13 ], [ null, %18 ], [ %21, %20 ], [ %23, %24 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
@@ -415,7 +415,7 @@ define noundef ptr @_ZN6uu_yes4exec17hab79ba36dc20148eE(ptr noalias noundef nonn
 "_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h64bb83ac337b1872E.exit": ; preds = %.loopexit22, %31, %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %.1
+  ret ptr %.0
 
 36:                                               ; preds = %8
   %37 = landingpad { ptr, i32 }

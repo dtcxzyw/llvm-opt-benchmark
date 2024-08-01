@@ -62,7 +62,7 @@ define dso_local ptr @parallel_vacuum_init(ptr noundef %0, ptr noundef %1, i32 n
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %32 ]
-  %.03243.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %32 ]
+  %.03243.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %32 ]
   %.03342.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.134.i, %32 ]
   %15 = getelementptr ptr, ptr %1, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
@@ -93,14 +93,14 @@ define dso_local ptr @parallel_vacuum_init(ptr noundef %0, ptr noundef %1, i32 n
 
 32:                                               ; preds = %27, %23, %.lr.ph.i
   %.134.i = phi i32 [ %.03342.i, %.lr.ph.i ], [ %.03342.i, %23 ], [ %spec.select41.i, %27 ]
-  %.2.i = phi i32 [ %.03243.i, %.lr.ph.i ], [ %.03243.i, %23 ], [ %spec.select.i, %27 ]
+  %.1.i = phi i32 [ %.03243.i, %.lr.ph.i ], [ %.03243.i, %23 ], [ %spec.select.i, %27 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %32, %.preheader.i
   %.033.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.134.i, %32 ]
-  %.032.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.2.i, %32 ]
+  %.032.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %32 ]
   %33 = tail call i32 @llvm.smax.i32(i32 %.032.lcssa.i, i32 %.033.lcssa.i)
   %34 = add i32 %33, -1
   %35 = icmp slt i32 %34, 1
@@ -253,7 +253,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
 
 125:                                              ; preds = %.lr.ph202, %155
   %indvars.iv = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next, %155 ]
-  %.0182201 = phi i32 [ 0, %.lr.ph202 ], [ %.2, %155 ]
+  %.0182201 = phi i32 [ 0, %.lr.ph202 ], [ %.1, %155 ]
   %126 = getelementptr i8, ptr %9, i64 %indvars.iv
   %127 = load i8, ptr %126, align 1
   %128 = trunc i8 %127 to i1
@@ -305,13 +305,13 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   br label %155
 
 155:                                              ; preds = %150, %152, %125
-  %.2 = phi i32 [ %spec.select, %152 ], [ %spec.select, %150 ], [ %.0182201, %125 ]
+  %.1 = phi i32 [ %spec.select, %152 ], [ %spec.select, %150 ], [ %.0182201, %125 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %125, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %155, %.loopexit198
-  %.0182.lcssa = phi i32 [ 0, %.loopexit198 ], [ %.2, %155 ]
+  %.0182.lcssa = phi i32 [ 0, %.loopexit198 ], [ %.1, %155 ]
   %156 = load ptr, ptr %102, align 8
   tail call void @shm_toc_insert(ptr noundef %156, i64 noundef 6, ptr noundef %104) #9
   %157 = getelementptr inbounds i8, ptr %43, i64 40

@@ -1057,15 +1057,15 @@ spl_fixedarray_init.exit145:                      ; preds = %.lr.ph.i.i142
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %153, %107, %spl_fixedarray_init.exit145, %spl_fixedarray_init.exit, %12
-  %.sroa.0.2 = phi i64 [ 0, %12 ], [ %58, %spl_fixedarray_init.exit ], [ %109, %spl_fixedarray_init.exit145 ], [ %58, %107 ], [ %109, %153 ]
-  %.sroa.8.2 = phi ptr [ null, %12 ], [ %59, %spl_fixedarray_init.exit ], [ %110, %spl_fixedarray_init.exit145 ], [ %59, %107 ], [ %110, %153 ]
+  %.sroa.0.0 = phi i64 [ 0, %12 ], [ %58, %spl_fixedarray_init.exit ], [ %109, %spl_fixedarray_init.exit145 ], [ %58, %107 ], [ %109, %153 ]
+  %.sroa.8.0 = phi ptr [ null, %12 ], [ %59, %spl_fixedarray_init.exit ], [ %110, %spl_fixedarray_init.exit145 ], [ %59, %107 ], [ %110, %153 ]
   %156 = load ptr, ptr @spl_ce_SplFixedArray, align 8
   %157 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %156) #12
   %158 = load ptr, ptr %1, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 -32
-  store i64 %.sroa.0.2, ptr %159, align 8
+  store i64 %.sroa.0.0, ptr %159, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %158, i64 -24
-  store ptr %.sroa.8.2, ptr %.sroa.8.0..sroa_idx, align 8
+  store ptr %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %158, i64 -16
   store i64 -1, ptr %.sroa.12.0..sroa_idx, align 8
   br label %160

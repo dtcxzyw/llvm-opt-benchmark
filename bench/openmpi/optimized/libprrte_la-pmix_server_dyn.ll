@@ -4531,7 +4531,7 @@ define internal void @connect_release(i32 noundef %0, ptr noundef %1, ptr nounde
   br label %89
 
 89:                                               ; preds = %.lr.ph112, %143
-  %.056110 = phi i1 [ true, %.lr.ph112 ], [ %.2, %143 ]
+  %.056110 = phi i1 [ true, %.lr.ph112 ], [ %.1, %143 ]
   store i32 1, ptr %6, align 4
   %90 = call i32 @PMIx_Data_unpack(ptr noundef null, ptr noundef nonnull %1, ptr noundef %78, ptr noundef nonnull %6, i16 noundef zeroext 24) #13
   switch i32 %90, label %91 [
@@ -4680,7 +4680,7 @@ pmix_obj_run_destructors.exit94:                  ; preds = %.lr.ph.i91, %._crit
   br label %143
 
 143:                                              ; preds = %89, %91, %142
-  %.2 = phi i1 [ %.056110, %91 ], [ false, %142 ], [ %.056110, %89 ]
+  %.1 = phi i1 [ %.056110, %91 ], [ false, %142 ], [ %.056110, %89 ]
   store i32 1, ptr %6, align 4
   %144 = call i32 @PMIx_Data_unpack(ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %6, i16 noundef zeroext 60) #13
   %145 = icmp eq i32 %144, 0

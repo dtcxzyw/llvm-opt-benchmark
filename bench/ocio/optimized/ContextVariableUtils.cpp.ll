@@ -1618,7 +1618,7 @@ if.end62:                                         ; preds = %if.end8.sink.split.
   br label %cleanup63
 
 cleanup63:                                        ; preds = %if.end8.sink.split.i.i.i.i266, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i263, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i253, %cleanup58, %invoke.cont, %if.end62
-  %cleanup.dest.slot.4 = phi i1 [ false, %if.end62 ], [ true, %invoke.cont ], [ true, %cleanup58 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i253 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i263 ], [ true, %if.end8.sink.split.i.i.i.i266 ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %if.end62 ], [ true, %invoke.cont ], [ true, %cleanup58 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i253 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i263 ], [ true, %if.end8.sink.split.i.i.i.i266 ]
   %_M_refcount.i.i276 = getelementptr inbounds i8, ptr %tr, i64 8
   %122 = load ptr, ptr %_M_refcount.i.i276, align 8
   %cmp.not.i.i.i277 = icmp eq ptr %122, null
@@ -1693,7 +1693,7 @@ if.end8.sink.split.i.i.i.i298:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19ColorSpaceTransformEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19ColorSpaceTransformEED2Ev.exit: ; preds = %cleanup63, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i285, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i295, %if.end8.sink.split.i.i.i.i298
-  ret i1 %cleanup.dest.slot.4
+  ret i1 %cleanup.dest.slot.0
 
 ehcleanup66:                                      ; preds = %ehcleanup61, %lpad
   %.pn25 = phi { ptr, i32 } [ %8, %lpad ], [ %.pn23, %ehcleanup61 ]

@@ -990,7 +990,7 @@ for.end72.i.i.i:                                  ; preds = %for.inc70.i.i.i, %f
 resolveAliasToConverter.exit.i.i:                 ; preds = %for.end72.i.i.i, %if.then65.i.i.i, %if.then.i.i.i56
   %138 = phi i16 [ %.pre.i, %for.end72.i.i.i ], [ %125, %if.then65.i.i.i ], [ %125, %if.then.i.i.i56 ]
   %139 = phi i16 [ %.pre.i.i33, %for.end72.i.i.i ], [ %124, %if.then65.i.i.i ], [ %124, %if.then.i.i.i56 ]
-  %oldTagNum.0.i.i = phi i16 [ -1, %for.end72.i.i.i ], [ 0, %if.then65.i.i.i ], [ %130, %if.then.i.i.i56 ]
+  %oldTagNum.3.i.i = phi i16 [ -1, %for.end72.i.i.i ], [ 0, %if.then65.i.i.i ], [ %130, %if.then.i.i.i56 ]
   %currConvNum.0.i.i = phi i16 [ -1, %for.end72.i.i.i ], [ %135, %if.then65.i.i.i ], [ %131, %if.then.i.i.i56 ]
   store i16 %currConvNum.0.i.i, ptr %call11.i, align 2
   %add.i.i = add i16 %138, %conv1.i
@@ -1008,8 +1008,8 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %indvars.iv.i.i = phi i64 [ 1, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %lastName.0113.i.i = phi ptr [ %add.ptr.i.i49, %for.body.preheader.i.i ], [ %lastName.1.i.i, %for.inc.i.i ]
   %oldConvNum.0112.i.i = phi i16 [ %currConvNum.0.i.i, %for.body.preheader.i.i ], [ %oldConvNum.1.i.i, %for.inc.i.i ]
-  %uniqueAliasIdx.0110.i.i = phi i32 [ 1, %for.body.preheader.i.i ], [ %uniqueAliasIdx.1.i.i, %for.inc.i.i ]
-  %oldTagNum.1109.i.i = phi i16 [ %oldTagNum.0.i.i, %for.body.preheader.i.i ], [ %oldTagNum.3.i.i, %for.inc.i.i ]
+  %uniqueAliasIdx.1110.i.i = phi i32 [ 1, %for.body.preheader.i.i ], [ %uniqueAliasIdx.2.i.i, %for.inc.i.i ]
+  %oldTagNum.0109.i.i = phi i16 [ %oldTagNum.3.i.i, %for.body.preheader.i.i ], [ %oldTagNum.2.i.i, %for.inc.i.i ]
   %arrayidx12.i.i = getelementptr inbounds [65535 x i16], ptr @knownAliases, i64 0, i64 %indvars.iv.i.i
   %140 = load i16, ptr %arrayidx12.i.i, align 2
   %141 = load i16, ptr @tagCount, align 2
@@ -1134,15 +1134,15 @@ resolveAliasToConverter.exit92.i.i:               ; preds = %for.end72.i58.i.i, 
   br i1 %cmp18.i.i, label %if.then20.i.i52, label %if.else98.i.i
 
 if.then20.i.i52:                                  ; preds = %resolveAliasToConverter.exit92.i.i
-  %cmp23.i.i = icmp ult i16 %currTagNum.0.i.i, %oldTagNum.1109.i.i
+  %cmp23.i.i = icmp ult i16 %currTagNum.0.i.i, %oldTagNum.0109.i.i
   %cmp26.i.i = icmp ugt i16 %currTagNum.0.i.i, 1
   %or.cond.i.i = and i1 %cmp23.i.i, %cmp26.i.i
-  %cmp29.i.i = icmp eq i16 %oldTagNum.1109.i.i, 0
+  %cmp29.i.i = icmp eq i16 %oldTagNum.0109.i.i, 0
   %or.cond1.i.i = or i1 %cmp29.i.i, %or.cond.i.i
   br i1 %or.cond1.i.i, label %if.then31.i.i, label %if.else.i.i53
 
 if.then31.i.i:                                    ; preds = %if.then20.i.i52
-  %sub.i.i = add i32 %uniqueAliasIdx.0110.i.i, -1
+  %sub.i.i = add i32 %uniqueAliasIdx.1110.i.i, -1
   %idxprom32.i.i = zext i32 %sub.i.i to i64
   %arrayidx33.i.i = getelementptr inbounds i16, ptr %call11.i, i64 %idxprom32.i.i
   store i16 %currConvNum.1.i.i, ptr %arrayidx33.i.i, align 2
@@ -1187,22 +1187,22 @@ if.then64.i.i:                                    ; preds = %if.else.i.i53
   br i1 %cmp79.not.i.i, label %if.end86.sink.split.i.i, label %if.end86.sink.split.sink.split.i.i
 
 if.end86.sink.split.sink.split.i.i:               ; preds = %if.then64.i.i, %if.then43.i.i
-  %oldTagNum.2.ph.ph.i.i = phi i16 [ %currTagNum.0.i.i, %if.then43.i.i ], [ %oldTagNum.1109.i.i, %if.then64.i.i ]
+  %oldTagNum.1.ph.ph.i.i = phi i16 [ %currTagNum.0.i.i, %if.then43.i.i ], [ %oldTagNum.0109.i.i, %if.then64.i.i ]
   %call82.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44)
   br label %if.end86.sink.split.i.i
 
 if.end86.sink.split.i.i:                          ; preds = %if.end86.sink.split.sink.split.i.i, %if.then64.i.i, %if.then43.i.i
-  %oldTagNum.2.ph.i.i = phi i16 [ %currTagNum.0.i.i, %if.then43.i.i ], [ %oldTagNum.1109.i.i, %if.then64.i.i ], [ %oldTagNum.2.ph.ph.i.i, %if.end86.sink.split.sink.split.i.i ]
+  %oldTagNum.1.ph.i.i = phi i16 [ %currTagNum.0.i.i, %if.then43.i.i ], [ %oldTagNum.0109.i.i, %if.then64.i.i ], [ %oldTagNum.1.ph.ph.i.i, %if.end86.sink.split.sink.split.i.i ]
   %putchar.i.i = call i32 @putchar(i32 10)
   br label %if.end86.i.i
 
 if.end86.i.i:                                     ; preds = %if.end86.sink.split.i.i, %if.else.i.i53, %if.then31.i.i
-  %oldTagNum.2.i.i = phi i16 [ %currTagNum.0.i.i, %if.then31.i.i ], [ %oldTagNum.1109.i.i, %if.else.i.i53 ], [ %oldTagNum.2.ph.i.i, %if.end86.sink.split.i.i ]
+  %oldTagNum.1.i.i = phi i16 [ %currTagNum.0.i.i, %if.then31.i.i ], [ %oldTagNum.0109.i.i, %if.else.i.i53 ], [ %oldTagNum.1.ph.i.i, %if.end86.sink.split.i.i ]
   %cmp89.not.i.i = icmp eq i16 %oldConvNum.0112.i.i, %currConvNum.1.i.i
   br i1 %cmp89.not.i.i, label %if.end115.i.i, label %if.then91.i.i
 
 if.then91.i.i:                                    ; preds = %if.end86.i.i
-  %sub92.i.i = add i32 %uniqueAliasIdx.0110.i.i, -1
+  %sub92.i.i = add i32 %uniqueAliasIdx.1110.i.i, -1
   %idxprom93.i.i = zext i32 %sub92.i.i to i64
   %arrayidx94.i.i = getelementptr inbounds i16, ptr %call11.i, i64 %idxprom93.i.i
   %158 = load i16, ptr %arrayidx94.i.i, align 2
@@ -1211,22 +1211,22 @@ if.then91.i.i:                                    ; preds = %if.end86.i.i
   br label %if.end115.i.i
 
 if.else98.i.i:                                    ; preds = %resolveAliasToConverter.exit92.i.i
-  %idxprom99.i.i = zext i32 %uniqueAliasIdx.0110.i.i to i64
+  %idxprom99.i.i = zext i32 %uniqueAliasIdx.1110.i.i to i64
   %arrayidx100.i.i = getelementptr inbounds i16, ptr %call11.i, i64 %idxprom99.i.i
   store i16 %currConvNum.1.i.i, ptr %arrayidx100.i.i, align 2
   %160 = load i16, ptr %arrayidx12.i.i, align 2
   %add105.i.i = add i16 %160, %conv1.i
   %arrayidx108.i.i = getelementptr inbounds i16, ptr %call8.i, i64 %idxprom99.i.i
   store i16 %add105.i.i, ptr %arrayidx108.i.i, align 2
-  %inc109.i.i = add i32 %uniqueAliasIdx.0110.i.i, 1
+  %inc109.i.i = add i32 %uniqueAliasIdx.1110.i.i, 1
   %conv112.i.i = zext i16 %160 to i64
   %shl113.i.i = shl nuw nsw i64 %conv112.i.i, 1
   %add.ptr114.i.i = getelementptr inbounds i8, ptr @stringStore, i64 %shl113.i.i
   br label %if.end115.i.i
 
 if.end115.i.i:                                    ; preds = %if.else98.i.i, %if.then91.i.i, %if.end86.i.i
-  %oldTagNum.3.i.i = phi i16 [ %oldTagNum.2.i.i, %if.end86.i.i ], [ %oldTagNum.2.i.i, %if.then91.i.i ], [ %currTagNum.0.i.i, %if.else98.i.i ]
-  %uniqueAliasIdx.1.i.i = phi i32 [ %uniqueAliasIdx.0110.i.i, %if.end86.i.i ], [ %uniqueAliasIdx.0110.i.i, %if.then91.i.i ], [ %inc109.i.i, %if.else98.i.i ]
+  %oldTagNum.2.i.i = phi i16 [ %oldTagNum.1.i.i, %if.end86.i.i ], [ %oldTagNum.1.i.i, %if.then91.i.i ], [ %currTagNum.0.i.i, %if.else98.i.i ]
+  %uniqueAliasIdx.2.i.i = phi i32 [ %uniqueAliasIdx.1110.i.i, %if.end86.i.i ], [ %uniqueAliasIdx.1110.i.i, %if.then91.i.i ], [ %inc109.i.i, %if.else98.i.i ]
   %oldConvNum.1.i.i = phi i16 [ %oldConvNum.0112.i.i, %if.end86.i.i ], [ %oldConvNum.0112.i.i, %if.then91.i.i ], [ %currConvNum.1.i.i, %if.else98.i.i ]
   %lastName.1.i.i = phi ptr [ %lastName.0113.i.i, %if.end86.i.i ], [ %lastName.0113.i.i, %if.then91.i.i ], [ %add.ptr114.i.i, %if.else98.i.i ]
   %idxprom116.i.i = zext i16 %currConvNum.1.i.i to i64
@@ -1240,7 +1240,7 @@ if.end115.i.i:                                    ; preds = %if.else98.i.i, %if.
   br i1 %cmp123.not.i.i, label %for.inc.i.i, label %if.then125.i.i
 
 if.then125.i.i:                                   ; preds = %if.end115.i.i
-  %sub126.i.i = add i32 %uniqueAliasIdx.1.i.i, -1
+  %sub126.i.i = add i32 %uniqueAliasIdx.2.i.i, -1
   %idxprom127.i.i = zext i32 %sub126.i.i to i64
   %arrayidx128.i.i = getelementptr inbounds i16, ptr %call11.i, i64 %idxprom127.i.i
   %162 = load i16, ptr %arrayidx128.i.i, align 2
@@ -1256,7 +1256,7 @@ for.inc.i.i:                                      ; preds = %if.then125.i.i, %if
   br i1 %cmp9.i.i51, label %for.body.i.i, label %resolveAliases.exit.i, !llvm.loop !22
 
 resolveAliases.exit.i:                            ; preds = %for.inc.i.i, %resolveAliasToConverter.exit.i.i, %if.end56
-  %uniqueAliasIdx.2.i.i = phi i32 [ 0, %if.end56 ], [ 1, %resolveAliasToConverter.exit.i.i ], [ %uniqueAliasIdx.1.i.i, %for.inc.i.i ]
+  %uniqueAliasIdx.0.i.i = phi i32 [ 0, %if.end56 ], [ 1, %resolveAliasToConverter.exit.i.i ], [ %uniqueAliasIdx.2.i.i, %for.inc.i.i ]
   store i16 0, ptr @aliasListsSize, align 2
   %166 = load i16, ptr @tagCount, align 2
   %cmp115.not.i = icmp eq i16 %166, 0
@@ -1483,8 +1483,8 @@ for.end23.i:                                      ; preds = %for.inc21.i, %resol
   %211 = load i16, ptr @tagCount, align 2
   %conv28.i = zext i16 %211 to i32
   call void @udata_write32(ptr noundef %call50, i32 noundef %conv28.i) #16
-  call void @udata_write32(ptr noundef %call50, i32 noundef %uniqueAliasIdx.2.i.i) #16
-  call void @udata_write32(ptr noundef %call50, i32 noundef %uniqueAliasIdx.2.i.i) #16
+  call void @udata_write32(ptr noundef %call50, i32 noundef %uniqueAliasIdx.0.i.i) #16
+  call void @udata_write32(ptr noundef %call50, i32 noundef %uniqueAliasIdx.0.i.i) #16
   %212 = load i16, ptr @tagCount, align 2
   %conv29.i = zext i16 %212 to i32
   %213 = load i16, ptr @converterCount, align 2
@@ -1551,7 +1551,7 @@ for.end67.i:                                      ; preds = %for.body62.i, %for.
   call void @udata_write16(ptr noundef %call50, i16 noundef zeroext %230) #16
   %231 = load i16, ptr getelementptr inbounds (i8, ptr @tags, i64 65528), align 8
   call void @udata_write16(ptr noundef %call50, i16 noundef zeroext %231) #16
-  %mul69.i = shl i32 %uniqueAliasIdx.2.i.i, 1
+  %mul69.i = shl i32 %uniqueAliasIdx.0.i.i, 1
   call void @udata_writeBlock(ptr noundef %call50, ptr noundef %call8.i, i32 noundef %mul69.i) #16
   call void @udata_writeBlock(ptr noundef %call50, ptr noundef %call11.i, i32 noundef %mul69.i) #16
   %232 = load i16, ptr @converterCount, align 2

@@ -10188,7 +10188,7 @@ generateProperInputVector.exit.thread71:          ; preds = %7
 
 52:                                               ; preds = %.lr.ph10, %164
   %indvars.iv34 = phi i64 [ 0, %.lr.ph10 ], [ %indvars.iv.next35, %164 ]
-  %.01376 = phi i32 [ 0, %.lr.ph10 ], [ %.3140, %164 ]
+  %.01376 = phi i32 [ 0, %.lr.ph10 ], [ %.1138, %164 ]
   %53 = load ptr, ptr %49, align 8
   %54 = load ptr, ptr %50, align 8
   %55 = getelementptr i32, ptr %54, i64 %indvars.iv34
@@ -10222,7 +10222,7 @@ generateProperInputVector.exit.thread71:          ; preds = %7
 72:                                               ; preds = %.lr.ph, %154
   %73 = phi ptr [ %68, %.lr.ph ], [ %155, %154 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %154 ]
-  %.11384 = phi i32 [ %.01376, %.lr.ph ], [ %.2139, %154 ]
+  %.21394 = phi i32 [ %.01376, %.lr.ph ], [ %.3140, %154 ]
   %74 = getelementptr i8, ptr %73, i64 8
   %.val161 = load ptr, ptr %74, align 8
   %75 = getelementptr inbounds i32, ptr %.val161, i64 %indvars.iv
@@ -10377,13 +10377,13 @@ Vec_IntPush.exit170:                              ; preds = %.Vec_IntGrow.exit10
   %151 = sext i32 %149 to i64
   %152 = getelementptr inbounds i32, ptr %148, i64 %151
   store i32 %65, ptr %152, align 4
-  %153 = add nsw i32 %.11384, 1
+  %153 = add nsw i32 %.21394, 1
   %.pre = load ptr, ptr %67, align 8
   br label %154
 
 154:                                              ; preds = %72, %Vec_IntPush.exit170
   %155 = phi ptr [ %.pre, %Vec_IntPush.exit170 ], [ %73, %72 ]
-  %.2139 = phi i32 [ %153, %Vec_IntPush.exit170 ], [ %.11384, %72 ]
+  %.3140 = phi i32 [ %153, %Vec_IntPush.exit170 ], [ %.21394, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %156 = getelementptr i8, ptr %155, i64 4
   %.val155 = load i32, ptr %156, align 4
@@ -10407,19 +10407,19 @@ Vec_IntPush.exit170:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not149, label %164, label %163
 
 163:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.1138.lcssa75 = phi i32 [ %.2139, %._crit_edge.thread ], [ %.01376, %._crit_edge ]
+  %.2139.lcssa75 = phi i32 [ %.3140, %._crit_edge.thread ], [ %.01376, %._crit_edge ]
   tail call void @free(ptr noundef nonnull %66) #24
   br label %164
 
 164:                                              ; preds = %163, %._crit_edge, %52
-  %.3140 = phi i32 [ %.1138.lcssa75, %163 ], [ %.01376, %._crit_edge ], [ %.01376, %52 ]
+  %.1138 = phi i32 [ %.2139.lcssa75, %163 ], [ %.01376, %._crit_edge ], [ %.01376, %52 ]
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge11, label %52, !llvm.loop !139
 
 ._crit_edge11:                                    ; preds = %164, %.thread, %47
   %165 = phi ptr [ %48, %47 ], [ %46, %.thread ], [ %48, %164 ]
-  %.0137.lcssa = phi i32 [ 0, %47 ], [ 0, %.thread ], [ %.3140, %164 ]
+  %.0137.lcssa = phi i32 [ 0, %47 ], [ 0, %.thread ], [ %.1138, %164 ]
   %166 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #26
   %167 = add nsw i32 %12, 1
   %168 = sext i32 %167 to i64
@@ -10611,10 +10611,10 @@ define internal fastcc i32 @select_smallest_max_connected_cell(ptr nocapture nou
   br label %20
 
 20:                                               ; preds = %.lr.ph78, %.loopexit
-  %.05277 = phi i32 [ -1, %.lr.ph78 ], [ %.2, %.loopexit ]
-  %.05476 = phi i32 [ %4, %.lr.ph78 ], [ %.256, %.loopexit ]
+  %.05277 = phi i32 [ -1, %.lr.ph78 ], [ %.153, %.loopexit ]
+  %.05476 = phi i32 [ %4, %.lr.ph78 ], [ %.155, %.loopexit ]
   %.15875 = phi i32 [ %13, %.lr.ph78 ], [ %58, %.loopexit ]
-  %.05974 = phi i32 [ -1, %.lr.ph78 ], [ %.261, %.loopexit ]
+  %.05974 = phi i32 [ -1, %.lr.ph78 ], [ %.160, %.loopexit ]
   %21 = sext i32 %.15875 to i64
   %22 = getelementptr inbounds i32, ptr %8, i64 %21
   %23 = load i32, ptr %22, align 4
@@ -10638,9 +10638,9 @@ define internal fastcc i32 @select_smallest_max_connected_cell(ptr nocapture nou
   %35 = icmp slt i32 %23, %.05476
   %36 = icmp slt i32 %.05277, 0
   %or.cond91 = select i1 %35, i1 true, i1 %36
-  %.16092 = select i1 %or.cond91, i32 %.15875, i32 %.05974
-  %.15593 = select i1 %or.cond91, i32 %23, i32 %.05476
-  %.15394 = select i1 %or.cond91, i32 0, i32 %.05277
+  %.26192 = select i1 %or.cond91, i32 %.15875, i32 %.05974
+  %.25693 = select i1 %or.cond91, i32 %23, i32 %.05476
+  %.294 = select i1 %or.cond91, i32 0, i32 %.05277
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %24
@@ -10675,9 +10675,9 @@ define internal fastcc i32 @select_smallest_max_connected_cell(ptr nocapture nou
   %48 = icmp slt i32 %23, %.05476
   %49 = icmp sgt i32 %.1, %.05277
   %or.cond = select i1 %48, i1 true, i1 %49
-  %.160 = select i1 %or.cond, i32 %.15875, i32 %.05974
-  %.155 = select i1 %or.cond, i32 %23, i32 %.05476
-  %.153 = select i1 %or.cond, i32 %.1, i32 %.05277
+  %.261 = select i1 %or.cond, i32 %.15875, i32 %.05974
+  %.256 = select i1 %or.cond, i32 %23, i32 %.05476
+  %.2 = select i1 %or.cond, i32 %.1, i32 %.05277
   br i1 %34, label %.lr.ph73, label %.loopexit
 
 .lr.ph73:                                         ; preds = %._crit_edge
@@ -10698,16 +10698,16 @@ define internal fastcc i32 @select_smallest_max_connected_cell(ptr nocapture nou
   br i1 %exitcond89.not, label %.loopexit, label %52, !llvm.loop !148
 
 .loopexit:                                        ; preds = %52, %._crit_edge.thread, %._crit_edge, %20
-  %.261 = phi i32 [ %.05974, %20 ], [ %.160, %._crit_edge ], [ %.16092, %._crit_edge.thread ], [ %.160, %52 ]
-  %.256 = phi i32 [ %.05476, %20 ], [ %.155, %._crit_edge ], [ %.15593, %._crit_edge.thread ], [ %.155, %52 ]
-  %.2 = phi i32 [ %.05277, %20 ], [ %.153, %._crit_edge ], [ %.15394, %._crit_edge.thread ], [ %.153, %52 ]
+  %.160 = phi i32 [ %.05974, %20 ], [ %.261, %._crit_edge ], [ %.26192, %._crit_edge.thread ], [ %.261, %52 ]
+  %.155 = phi i32 [ %.05476, %20 ], [ %.256, %._crit_edge ], [ %.25693, %._crit_edge.thread ], [ %.256, %52 ]
+  %.153 = phi i32 [ %.05277, %20 ], [ %.2, %._crit_edge ], [ %.294, %._crit_edge.thread ], [ %.2, %52 ]
   %57 = getelementptr inbounds i32, ptr %19, i64 %21
   %58 = load i32, ptr %57, align 4
   %59 = icmp slt i32 %58, %2
   br i1 %59, label %20, label %._crit_edge79, !llvm.loop !149
 
 ._crit_edge79:                                    ; preds = %.loopexit, %.preheader
-  %.059.lcssa = phi i32 [ -1, %.preheader ], [ %.261, %.loopexit ]
+  %.059.lcssa = phi i32 [ -1, %.preheader ], [ %.160, %.loopexit ]
   %.not63 = icmp eq ptr %6, null
   br i1 %.not63, label %61, label %60
 

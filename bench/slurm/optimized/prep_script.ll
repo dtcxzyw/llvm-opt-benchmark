@@ -41,7 +41,7 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %7, %10, %2
-  %.0 = phi i32 [ -1, %7 ], [ 0, %10 ], [ 0, %2 ]
+  %.1 = phi i32 [ -1, %7 ], [ 0, %10 ], [ 0, %2 ]
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 336), align 8
   %.not3 = icmp eq ptr %12, null
   br i1 %.not3, label %20, label %13
@@ -61,8 +61,8 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %11, %19, %16, %0
-  %.1 = phi i32 [ -1, %16 ], [ %.0, %19 ], [ %.0, %11 ], [ 0, %0 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %16 ], [ %.1, %19 ], [ %.1, %11 ], [ 0, %0 ]
+  ret i32 %.0
 }
 
 declare zeroext i1 @running_in_slurmctld() local_unnamed_addr #1

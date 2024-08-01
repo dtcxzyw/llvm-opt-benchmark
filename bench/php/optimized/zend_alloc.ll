@@ -9435,7 +9435,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   unreachable
 
 118:                                              ; preds = %zend_mm_chunk_alloc.exit, %zend_mm_chunk_alloc.exit213
-  %.1184 = phi ptr [ %.0.i212, %zend_mm_chunk_alloc.exit213 ], [ %.0.i, %zend_mm_chunk_alloc.exit ]
+  %.3 = phi ptr [ %.0.i212, %zend_mm_chunk_alloc.exit213 ], [ %.0.i, %zend_mm_chunk_alloc.exit ]
   %119 = load i64, ptr %65, align 8
   %120 = add i64 %119, 2097152
   %121 = getelementptr inbounds i8, ptr %0, i64 280
@@ -9446,7 +9446,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   br label %123
 
 123:                                              ; preds = %118, %68
-  %.2185 = phi ptr [ %67, %68 ], [ %.1184, %118 ]
+  %.2185 = phi ptr [ %67, %68 ], [ %.3, %118 ]
   %124 = getelementptr inbounds i8, ptr %0, i64 328
   %125 = load i32, ptr %124, align 8
   %126 = add nsw i32 %125, 1
@@ -9496,7 +9496,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
 
 .loopexit214:                                     ; preds = %41, %20, %51, %130, %39
   %150 = phi i32 [ 511, %130 ], [ %8, %39 ], [ %8, %51 ], [ %8, %20 ], [ %8, %41 ]
-  %.3 = phi ptr [ %.2185, %130 ], [ %.0183, %39 ], [ %.0183, %51 ], [ %.0183, %20 ], [ %.0183, %41 ]
+  %.1184 = phi ptr [ %.2185, %130 ], [ %.0183, %39 ], [ %.0183, %51 ], [ %.0183, %20 ], [ %.0183, %41 ]
   %.0182 = phi i32 [ 1, %130 ], [ %29, %39 ], [ %29, %51 ], [ %.0179, %20 ], [ %.0179, %41 ]
   %151 = icmp ugt i32 %.0181, 2
   %152 = icmp ult i32 %1, 8
@@ -9504,9 +9504,9 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   br i1 %or.cond4, label %153, label %168
 
 153:                                              ; preds = %.loopexit214
-  %154 = getelementptr inbounds i8, ptr %.3, i64 8
+  %154 = getelementptr inbounds i8, ptr %.1184, i64 8
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %.3, i64 16
+  %156 = getelementptr inbounds i8, ptr %.1184, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 8
   store ptr %155, ptr %158, align 8
@@ -9520,20 +9520,20 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   %164 = load ptr, ptr %3, align 8
   store ptr %164, ptr %156, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 8
-  store ptr %.3, ptr %165, align 8
+  store ptr %.1184, ptr %165, align 8
   %166 = load ptr, ptr %154, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 16
-  store ptr %.3, ptr %167, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.3, i64 24
+  store ptr %.1184, ptr %167, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.1184, i64 24
   %.pre298 = load i32, ptr %.phi.trans.insert, align 8
   br label %168
 
 168:                                              ; preds = %153, %.loopexit214
   %169 = phi i32 [ %.pre298, %153 ], [ %150, %.loopexit214 ]
-  %170 = getelementptr inbounds i8, ptr %.3, i64 24
+  %170 = getelementptr inbounds i8, ptr %.1184, i64 24
   %171 = sub i32 %169, %1
   store i32 %171, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %.3, i64 456
+  %172 = getelementptr inbounds i8, ptr %.1184, i64 456
   %173 = icmp eq i32 %1, 1
   br i1 %173, label %174, label %179
 
@@ -9568,7 +9568,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
 .lr.ph264.preheader:                              ; preds = %185
   %192 = shl nsw i64 %188, 3
   %193 = add nsw i64 %192, 464
-  %scevgep = getelementptr i8, ptr %.3, i64 %193
+  %scevgep = getelementptr i8, ptr %.1184, i64 %193
   %194 = add nsw i32 %183, -2
   %195 = sub nsw i32 %194, %180
   %196 = zext i32 %195 to i64
@@ -9604,11 +9604,11 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   %215 = or i64 %214, %.sink334
   store i64 %215, ptr %213, align 8
   %216 = or i32 %1, 1073741824
-  %217 = getelementptr inbounds i8, ptr %.3, i64 520
+  %217 = getelementptr inbounds i8, ptr %.1184, i64 520
   %218 = zext i32 %.0182 to i64
   %219 = getelementptr inbounds [512 x i32], ptr %217, i64 0, i64 %218
   store i32 %216, ptr %219, align 4
-  %220 = getelementptr inbounds i8, ptr %.3, i64 28
+  %220 = getelementptr inbounds i8, ptr %.1184, i64 28
   %221 = load i32, ptr %220, align 4
   %222 = icmp eq i32 %.0182, %221
   br i1 %222, label %223, label %225
@@ -9619,7 +9619,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   br label %225
 
 225:                                              ; preds = %223, %212
-  %226 = getelementptr inbounds %struct._zend_mm_page, ptr %.3, i64 %218
+  %226 = getelementptr inbounds %struct._zend_mm_page, ptr %.1184, i64 %218
   ret ptr %226
 }
 

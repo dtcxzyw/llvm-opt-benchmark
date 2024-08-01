@@ -7388,7 +7388,7 @@ define internal fastcc zeroext i1 @ractor_deregister_take(ptr noundef %0, ptr no
 
 13:                                               ; preds = %.lr.ph, %28
   %14 = phi i32 [ %9, %.lr.ph ], [ %29, %28 ]
-  %.021 = phi i8 [ 0, %.lr.ph ], [ %.1, %28 ]
+  %.121 = phi i8 [ 0, %.lr.ph ], [ %.2, %28 ]
   %.01920 = phi i32 [ 0, %.lr.ph ], [ %30, %28 ]
   %15 = load ptr, ptr %3, align 8
   %16 = load i32, ptr %11, align 8
@@ -7414,13 +7414,13 @@ define internal fastcc zeroext i1 @ractor_deregister_take(ptr noundef %0, ptr no
 
 28:                                               ; preds = %13, %23, %27
   %29 = phi i32 [ %.pre, %27 ], [ %14, %23 ], [ %14, %13 ]
-  %.1 = phi i8 [ 1, %27 ], [ %.021, %23 ], [ %.021, %13 ]
+  %.2 = phi i8 [ 1, %27 ], [ %.121, %23 ], [ %.121, %13 ]
   %30 = add nuw nsw i32 %.01920, 1
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %13, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %28
-  %32 = trunc nuw i8 %.1 to i1
+  %32 = trunc nuw i8 %.2 to i1
   %33 = icmp sgt i32 %29, 0
   %or.cond = and i1 %33, %32
   br i1 %or.cond, label %.lr.ph.i, label %ractor_queue_compact.exit
@@ -7471,9 +7471,9 @@ ractor_queue_advance.exit.i:                      ; preds = %56, %50
   br i1 %58, label %38, label %ractor_queue_compact.exit, !llvm.loop !10
 
 ractor_queue_compact.exit:                        ; preds = %ractor_queue_advance.exit.i, %38, %.preheader, %2, %._crit_edge
-  %.2 = phi i8 [ %.1, %._crit_edge ], [ 0, %2 ], [ 0, %.preheader ], [ %.1, %38 ], [ %.1, %ractor_queue_advance.exit.i ]
+  %.0 = phi i8 [ %.2, %._crit_edge ], [ 0, %2 ], [ 0, %.preheader ], [ %.2, %38 ], [ %.2, %ractor_queue_advance.exit.i ]
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %4) #20
-  %59 = trunc nuw i8 %.2 to i1
+  %59 = trunc nuw i8 %.0 to i1
   ret i1 %59
 }
 

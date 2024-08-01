@@ -11486,10 +11486,10 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread
-  %vs.0 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
+  %vs.1 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %27, i64 8
   %42 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %42, ptr %arrayidx28, align 8
   %inc29 = add i32 %29, 1
   store i32 %inc29, ptr %28, align 4
@@ -11515,7 +11515,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
-  %vs.1 = phi ptr [ %31, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %31, %sw.bb ]
+  %vs.0 = phi ptr [ %31, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %31, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %29, %sw.bb ]
   %bf.load.i49 = load i32, ptr %27, align 8
   %inc.i50 = add i32 %bf.load.i49, 1
@@ -11530,7 +11530,7 @@ if.end.i52:                                       ; preds = %sw.bb, %if.end25, %
   %44 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %sz.0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %vs.1, ptr %45, align 8
+  store ptr %vs.0, ptr %45, align 8
   %bf.load.i53 = load i32, ptr %c.195, align 8
   %dec.i = add i32 %bf.load.i53, 1073741823
   %bf.value.i54 = and i32 %dec.i, 1073741823
@@ -13757,7 +13757,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont32.i.i
           to label %cleanup.i.i unwind label %lpad.i.i
 
 cleanup.i.i:                                      ; preds = %if.then.i.i.i, %invoke.cont32.i.i, %if.then26.i.i, %invoke.cont.i.i
-  %retval.0.i.i = phi ptr [ %85, %if.then26.i.i ], [ null, %invoke.cont.i.i ], [ %87, %invoke.cont32.i.i ], [ %87, %if.then.i.i.i ]
+  %retval.1.i.i = phi ptr [ %85, %if.then26.i.i ], [ null, %invoke.cont.i.i ], [ %87, %invoke.cont32.i.i ], [ %87, %if.then.i.i.i ]
   %90 = load ptr, ptr %d.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %90, null
   br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg10process_eqEP9func_declP4exprS5_.exit.i, label %if.then.i.i.i.i.i
@@ -13783,14 +13783,14 @@ terminate.lpad.i.i.i:                             ; preds = %if.then2.i.i.i.i.i
   unreachable
 
 _ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg10process_eqEP9func_declP4exprS5_.exit.i: ; preds = %if.then2.i.i.i.i.i, %if.then.i.i.i.i.i, %cleanup.i.i, %if.then17.i.i, %if.end10.i.i, %if.end5.i.i, %if.else.i.i
-  %retval.1.i.i = phi ptr [ %84, %if.then17.i.i ], [ null, %if.else.i.i ], [ null, %if.end5.i.i ], [ %retval.0.i.i, %cleanup.i.i ], [ %retval.0.i.i, %if.then.i.i.i.i.i ], [ %retval.0.i.i, %if.then2.i.i.i.i.i ], [ null, %if.end10.i.i ]
+  %retval.0.i.i = phi ptr [ %84, %if.then17.i.i ], [ null, %if.else.i.i ], [ null, %if.end5.i.i ], [ %retval.1.i.i, %cleanup.i.i ], [ %retval.1.i.i, %if.then.i.i.i.i.i ], [ %retval.1.i.i, %if.then2.i.i.i.i.i ], [ null, %if.end10.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %d.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u23.i.i)
   br label %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit
 
 _ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit: ; preds = %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit8.i162.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit8.i.i, %if.then12, %if.then.i, %if.end.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i, %if.then.i81.i, %if.end9.i, %if.end9.thread.i, %if.then18.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit90.thread.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit90.i, %if.then.i92.i, %land.lhs.true27.i, %if.then33.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit101.thread.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit101.i, %if.then.i103.i, %sw.bb40.i, %if.then46.i, %if.end47.i, %if.then49.i, %if.then.i111.i, %for.body.lr.ph.i.i, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i, %if.then61.i, %if.end62.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i.i, %for.body.lr.ph.i128.i, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit141.i, %if.then77.i, %if.end78.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i149.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg10process_eqEP9func_declP4exprS5_.exit.i
-  %retval.0.i = phi ptr [ %retval.1.i.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg10process_eqEP9func_declP4exprS5_.exit.i ], [ %68, %if.then77.i ], [ %53, %if.then61.i ], [ %43, %if.then46.i ], [ %20, %if.then18.i ], [ %30, %if.then33.i ], [ null, %land.lhs.true27.i ], [ null, %sw.bb40.i ], [ null, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i ], [ null, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit141.i ], [ null, %if.then12 ], [ %12, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i ], [ %12, %if.then.i81.i ], [ %22, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit90.thread.i ], [ %26, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit90.i ], [ %26, %if.then.i92.i ], [ %32, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit101.thread.i ], [ %36, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit101.i ], [ %36, %if.then.i103.i ], [ %12, %if.end.i ], [ null, %if.end9.thread.i ], [ null, %if.end9.i ], [ null, %for.body.lr.ph.i.i ], [ null, %for.body.lr.ph.i128.i ], [ %.pre197.i, %if.then.i111.i ], [ %.pre197.i, %if.then49.i ], [ %.pre197.i, %if.end47.i ], [ %.pre196.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i.i ], [ %.pre196.i, %if.end62.i ], [ %.pre.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i149.i ], [ %.pre.i, %if.end78.i ], [ %12, %if.then.i ], [ %.pre196.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit8.i.i ], [ %.pre.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit8.i162.i ]
+  %retval.0.i = phi ptr [ %retval.0.i.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg10process_eqEP9func_declP4exprS5_.exit.i ], [ %68, %if.then77.i ], [ %53, %if.then61.i ], [ %43, %if.then46.i ], [ %20, %if.then18.i ], [ %30, %if.then33.i ], [ null, %land.lhs.true27.i ], [ null, %sw.bb40.i ], [ null, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i ], [ null, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit141.i ], [ null, %if.then12 ], [ %12, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i ], [ %12, %if.then.i81.i ], [ %22, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit90.thread.i ], [ %26, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit90.i ], [ %26, %if.then.i92.i ], [ %32, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit101.thread.i ], [ %36, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit101.i ], [ %36, %if.then.i103.i ], [ %12, %if.end.i ], [ null, %if.end9.thread.i ], [ null, %if.end9.i ], [ null, %for.body.lr.ph.i.i ], [ null, %for.body.lr.ph.i128.i ], [ %.pre197.i, %if.then.i111.i ], [ %.pre197.i, %if.then49.i ], [ %.pre197.i, %if.end47.i ], [ %.pre196.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i.i ], [ %.pre196.i, %if.end62.i ], [ %.pre.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit.i149.i ], [ %.pre.i, %if.end78.i ], [ %12, %if.then.i ], [ %.pre196.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit8.i.i ], [ %.pre.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7add_defEP4exprS3_.exit8.i162.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %r.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %r16.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %r31.i)
@@ -14089,7 +14089,7 @@ lpad40.i.i:                                       ; preds = %invoke.cont39.i.i
   br label %eh.resume.i.i
 
 cleanup.i.i49:                                    ; preds = %if.then.i.i.i54, %invoke.cont48.i.i, %if.end33.if.end51_crit_edge.i.i, %if.then32.i.i, %land.lhs.true23.i.i, %invoke.cont21.i.i, %land.lhs.true.i.i, %if.end12.i.i
-  %retval.0.i.i50 = phi ptr [ %126, %if.then32.i.i ], [ null, %land.lhs.true23.i.i ], [ null, %invoke.cont21.i.i ], [ null, %land.lhs.true.i.i ], [ null, %if.end12.i.i ], [ %.pre.i.i, %if.end33.if.end51_crit_edge.i.i ], [ %129, %invoke.cont48.i.i ], [ %129, %if.then.i.i.i54 ]
+  %retval.1.i.i50 = phi ptr [ %126, %if.then32.i.i ], [ null, %land.lhs.true23.i.i ], [ null, %invoke.cont21.i.i ], [ null, %land.lhs.true.i.i ], [ null, %if.end12.i.i ], [ %.pre.i.i, %if.end33.if.end51_crit_edge.i.i ], [ %129, %invoke.cont48.i.i ], [ %129, %if.then.i.i.i54 ]
   %133 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %133, ptr noundef nonnull align 8 dereferenceable(16) %val.i.i)
           to label %.noexc.i47.i.i unwind label %terminate.lpad.i46.i.i
@@ -14112,7 +14112,7 @@ eh.resume.i.i:                                    ; preds = %lpad40.i.i, %lpad15
   br label %common.resume
 
 _ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_arith_mulEP9func_decljPKP4expr.exit.i: ; preds = %.noexc.i47.i.i, %.noexc.i.i.i, %if.end6.i.i, %if.then5.i.i
-  %retval.1.i.i51 = phi ptr [ %103, %if.then5.i.i ], [ %retval.0.i.i50, %.noexc.i47.i.i ], [ %.pre56.i.i, %.noexc.i.i.i ], [ %.pre56.i.i, %if.end6.i.i ]
+  %retval.0.i.i51 = phi ptr [ %103, %if.then5.i.i ], [ %retval.1.i.i50, %.noexc.i47.i.i ], [ %.pre56.i.i, %.noexc.i.i.i ], [ %.pre56.i.i, %if.end6.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %r.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i)
@@ -14415,7 +14415,7 @@ if.then.i.i.i134:                                 ; preds = %invoke.cont46.i.i13
           to label %cleanup.i.i122 unwind label %lpad17.i.i
 
 cleanup.i.i122:                                   ; preds = %if.then.i.i.i134, %invoke.cont46.i.i132, %invoke.cont36.if.end49_crit_edge.i.i, %if.then32.i.i129, %invoke.cont26.i.i, %invoke.cont23.i.i, %land.lhs.true.i.i125, %invoke.cont14.i.i
-  %retval.0.i.i123 = phi ptr [ %162, %if.then32.i.i129 ], [ null, %invoke.cont26.i.i ], [ null, %invoke.cont23.i.i ], [ null, %land.lhs.true.i.i125 ], [ null, %invoke.cont14.i.i ], [ %.pre.i.i136, %invoke.cont36.if.end49_crit_edge.i.i ], [ %167, %invoke.cont46.i.i132 ], [ %167, %if.then.i.i.i134 ]
+  %retval.1.i.i123 = phi ptr [ %162, %if.then32.i.i129 ], [ null, %invoke.cont26.i.i ], [ null, %invoke.cont23.i.i ], [ null, %land.lhs.true.i.i125 ], [ null, %invoke.cont14.i.i ], [ %.pre.i.i136, %invoke.cont36.if.end49_crit_edge.i.i ], [ %167, %invoke.cont46.i.i132 ], [ %167, %if.then.i.i.i134 ]
   %171 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %171, ptr noundef nonnull align 8 dereferenceable(16) %inv.i.i)
           to label %.noexc.i60.i.i unwind label %terminate.lpad.i59.i.i
@@ -14454,7 +14454,7 @@ eh.resume.i.i126:                                 ; preds = %lpad17.i.i, %lpad.l
   br label %common.resume
 
 _ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_mulEP9func_decljPKP4expr.exit.i: ; preds = %.noexc.i64.i.i, %.noexc.i.i.i167, %if.end6.i.i150, %if.then5.i.i149
-  %retval.1.i.i124 = phi ptr [ %147, %if.then5.i.i149 ], [ %retval.0.i.i123, %.noexc.i64.i.i ], [ %.pre74.i.i, %.noexc.i.i.i167 ], [ %.pre74.i.i, %if.end6.i.i150 ]
+  %retval.0.i.i124 = phi ptr [ %147, %if.then5.i.i149 ], [ %retval.1.i.i123, %.noexc.i64.i.i ], [ %.pre74.i.i, %.noexc.i.i.i167 ], [ %.pre74.i.i, %if.end6.i.i150 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %r.i.i63)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i64)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bv_size.i.i)
@@ -15312,7 +15312,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   br label %common.resume
 
 _ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_appEP9func_decljPKP4expr.exit: ; preds = %if.then21, %_ZNK4decl13get_family_idEv.exit.i184, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_mulEP9func_decljPKP4expr.exit.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_divEP9func_declP4exprS5_.exit.i, %sw.bb9.i104, %sw.bb13.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_concatEP9func_decljPKP4expr.exit.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg15process_extractEP9func_declP4expr.exit.i, %sw.bb22.i, %if.then26.i, %if.end.i85, %if.then28.i, %if.then.i129.i, %for.body.lr.ph.i.i75, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i82, %if.then41.i, %if.end42.i, %invoke.cont47.i
-  %retval.0.i77 = phi ptr [ %290, %if.then41.i ], [ %281, %if.then26.i ], [ %retval.0.i94.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg15process_extractEP9func_declP4expr.exit.i ], [ %retval.0.i70.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_concatEP9func_decljPKP4expr.exit.i ], [ %call16.i, %sw.bb13.i ], [ %call12.i106, %sw.bb9.i104 ], [ %retval.0.i46.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_divEP9func_declP4exprS5_.exit.i ], [ %retval.1.i.i124, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_mulEP9func_decljPKP4expr.exit.i ], [ %call3.i185, %_ZNK4decl13get_family_idEv.exit.i184 ], [ null, %sw.bb22.i ], [ null, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i82 ], [ null, %if.then21 ], [ null, %for.body.lr.ph.i.i75 ], [ %.pre146.i, %if.then.i129.i ], [ %.pre146.i, %if.then28.i ], [ %.pre146.i, %if.end.i85 ], [ %.pre145.i, %invoke.cont47.i ], [ %.pre145.i, %if.end42.i ]
+  %retval.0.i77 = phi ptr [ %290, %if.then41.i ], [ %281, %if.then26.i ], [ %retval.0.i94.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg15process_extractEP9func_declP4expr.exit.i ], [ %retval.0.i70.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_concatEP9func_decljPKP4expr.exit.i ], [ %call16.i, %sw.bb13.i ], [ %call12.i106, %sw.bb9.i104 ], [ %retval.0.i46.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_divEP9func_declP4exprS5_.exit.i ], [ %retval.0.i.i124, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_mulEP9func_decljPKP4expr.exit.i ], [ %call3.i185, %_ZNK4decl13get_family_idEv.exit.i184 ], [ null, %sw.bb22.i ], [ null, %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i82 ], [ null, %if.then21 ], [ null, %for.body.lr.ph.i.i75 ], [ %.pre146.i, %if.then.i129.i ], [ %.pre146.i, %if.then28.i ], [ %.pre146.i, %if.end.i85 ], [ %.pre145.i, %invoke.cont47.i ], [ %.pre145.i, %if.end42.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %r.i67)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %r39.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -15349,7 +15349,7 @@ if.then36:                                        ; preds = %if.else33
   br label %if.end43
 
 if.end43:                                         ; preds = %sw.bb9.i, %sw.bb6.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_arith_mulEP9func_decljPKP4expr.exit.i, %_ZNK4decl13get_family_idEv.exit.i, %if.then26, %if.then36, %if.then31, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_appEP9func_decljPKP4expr.exit, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit
-  %u.0 = phi ptr [ %retval.0.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit ], [ %retval.0.i77, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_appEP9func_decljPKP4expr.exit ], [ %call27, %if.then26 ], [ %call32, %if.then31 ], [ %call37, %if.then36 ], [ %call12.i, %sw.bb9.i ], [ %call8.i, %sw.bb6.i ], [ %retval.1.i.i51, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_arith_mulEP9func_decljPKP4expr.exit.i ], [ %call3.i, %_ZNK4decl13get_family_idEv.exit.i ]
+  %u.0 = phi ptr [ %retval.0.i, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit ], [ %retval.0.i77, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_appEP9func_decljPKP4expr.exit ], [ %call27, %if.then26 ], [ %call32, %if.then31 ], [ %call37, %if.then36 ], [ %call12.i, %sw.bb9.i ], [ %call8.i, %sw.bb6.i ], [ %retval.0.i.i51, %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_arith_mulEP9func_decljPKP4expr.exit.i ], [ %call3.i, %_ZNK4decl13get_family_idEv.exit.i ]
   %cmp44 = icmp eq ptr %u.0, null
   br i1 %cmp44, label %return, label %if.end.i187
 
@@ -17977,8 +17977,8 @@ invoke.cont159:                                   ; preds = %invoke.cont157
   br label %return
 
 return:                                           ; preds = %for.cond108, %_ZNK11ast_manager11is_uninterpEPK4sort.exit114, %_ZNK11ast_manager11is_uninterpEPK4sort.exit114, %_Z16get_array_domainPK4sortj.exit, %if.then103, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_Z15get_array_rangePK4sort.exit, %.noexc.i, %if.end100, %invoke.cont159, %cleanup, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit87, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %retval.1 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit87 ], [ %call80, %cleanup ], [ true, %invoke.cont159 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %if.end100 ], [ true, %.noexc.i ], [ false, %_Z15get_array_rangePK4sort.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit ], [ false, %if.then103 ], [ false, %_Z16get_array_domainPK4sortj.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit114 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit114 ], [ false, %for.cond108 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit87 ], [ %call80, %cleanup ], [ true, %invoke.cont159 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %if.end100 ], [ true, %.noexc.i ], [ false, %_Z15get_array_rangePK4sort.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit ], [ false, %if.then103 ], [ false, %_Z16get_array_domainPK4sortj.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit114 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit114 ], [ false, %for.cond108 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad137, %ehcleanup99, %lpad
   %.pn41 = phi { ptr, i32 } [ %23, %lpad ], [ %.pn39, %ehcleanup99 ], [ %lpad.phi229, %lpad137 ]
@@ -21287,10 +21287,10 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN1
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread
-  %vs.0 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i.i ]
+  %vs.1 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %27, i64 8
   %42 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %42, ptr %arrayidx28, align 8
   %inc29 = add i32 %29, 1
   store i32 %inc29, ptr %28, align 4
@@ -21316,7 +21316,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
-  %vs.1 = phi ptr [ %31, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %31, %sw.bb ]
+  %vs.0 = phi ptr [ %31, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %31, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %29, %sw.bb ]
   %bf.load.i49 = load i32, ptr %27, align 8
   %inc.i50 = add i32 %bf.load.i49, 1
@@ -21331,7 +21331,7 @@ if.end.i52:                                       ; preds = %sw.bb, %if.end25, %
   %44 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %sz.0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %vs.1, ptr %45, align 8
+  store ptr %vs.0, ptr %45, align 8
   %bf.load.i53 = load i32, ptr %c.195, align 8
   %dec.i = add i32 %bf.load.i53, 1073741823
   %bf.value.i54 = and i32 %dec.i, 1073741823

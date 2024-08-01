@@ -2549,7 +2549,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit: ; preds = %14, %_ZNSt8_R
   br label %34
 
 34:                                               ; preds = %32, %.preheader107.preheader
-  %.1 = phi i32 [ %33, %32 ], [ %.0102, %.preheader107.preheader ]
+  %.2 = phi i32 [ %33, %32 ], [ %.0102, %.preheader107.preheader ]
   %.sroa.270.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
   %.sroa.371.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.not41108 = icmp slt i32 %0, 1
@@ -2651,14 +2651,14 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit: ; preds = %14, %_ZNSt8_R
   br label %82
 
 82:                                               ; preds = %28, %.thread
-  %.2104 = phi i32 [ %.1, %.thread ], [ %.0102, %28 ]
-  call void @glCallList(i32 noundef %.2104)
+  %.1104 = phi i32 [ %.2, %.thread ], [ %.0102, %28 ]
+  call void @glCallList(i32 noundef %.1104)
   br i1 %.0, label %83, label %.critedge
 
 83:                                               ; preds = %82
   store i32 %0, ptr %7, align 4
   %84 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %.2104, ptr %84, align 4
+  store i32 %.1104, ptr %84, align 4
   %85 = call { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE17_M_emplace_uniqueIJS0_IiiEEEES0_ISt17_Rb_tree_iteratorIS2_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN3vcg7Add_Ons4ConeEiffbE12Disp_listMap, ptr noundef nonnull align 4 dereferenceable(8) %7)
   br label %.critedge
 

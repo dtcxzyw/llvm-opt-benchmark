@@ -493,22 +493,22 @@ pmix_obj_run_destructors.exit169:                 ; preds = %.lr.ph.i166, %189
   br i1 %205, label %.lr.ph.i171, label %prefix.exit
 
 .lr.ph.i171:                                      ; preds = %.preheader.i, %.lr.ph.i171
-  %.09.i = phi i32 [ %206, %.lr.ph.i171 ], [ 0, %.preheader.i ]
+  %.19.i = phi i32 [ %206, %.lr.ph.i171 ], [ 0, %.preheader.i ]
   %.068.i = phi i32 [ %207, %.lr.ph.i171 ], [ %202, %.preheader.i ]
-  %206 = add nuw nsw i32 %.09.i, 1
+  %206 = add nuw nsw i32 %.19.i, 1
   %207 = lshr exact i32 %.068.i, 1
   %208 = and i32 %.068.i, 2
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %.lr.ph.i171, label %.loopexit.loopexit.i, !llvm.loop !10
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i171
-  %210 = sub nsw i32 31, %.09.i
+  %210 = sub nsw i32 31, %.19.i
   br label %prefix.exit
 
 prefix.exit:                                      ; preds = %200, %.preheader.i, %.loopexit.loopexit.i
-  %.1.i = phi i32 [ 0, %200 ], [ 32, %.preheader.i ], [ %210, %.loopexit.loopexit.i ]
+  %.0.i = phi i32 [ 0, %200 ], [ 32, %.preheader.i ], [ %210, %.loopexit.loopexit.i ]
   %211 = getelementptr inbounds i8, ptr %57, i64 552
-  store i32 %.1.i, ptr %211, align 8
+  store i32 %.0.i, ptr %211, align 8
   %212 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35111, ptr noundef %36) #11
   %213 = icmp slt i32 %212, 0
   br i1 %213, label %214, label %217

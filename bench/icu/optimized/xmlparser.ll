@@ -831,7 +831,7 @@ while.cond.preheader:                             ; preds = %invoke.cont66
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %cleanup
-  %charset.0 = phi ptr [ %charset.1, %cleanup ], [ %call15, %while.cond.preheader ]
+  %charset.0 = phi ptr [ %charset.2, %cleanup ], [ %call15, %while.cond.preheader ]
   %pos.0 = phi i32 [ %pos.1, %cleanup ], [ %add, %while.cond.preheader ]
   %cmp70 = icmp slt i32 %pos.0, %call65
   br i1 %cmp70, label %land.rhs, label %while.end
@@ -989,7 +989,7 @@ if.end99:                                         ; preds = %if.end99.critedge, 
           to label %cleanup unwind label %lpad81
 
 cleanup:                                          ; preds = %if.end99, %if.then94
-  %charset.1 = phi ptr [ %charsetBuffer, %if.then94 ], [ %charset.0, %if.end99 ]
+  %charset.2 = phi ptr [ %charsetBuffer, %if.then94 ], [ %charset.0, %if.end99 ]
   %switch = phi i1 [ false, %if.then94 ], [ true, %if.end99 ]
   %pos.1 = phi i32 [ %pos.0, %if.then94 ], [ %call102, %if.end99 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %attValue) #11
@@ -1007,9 +1007,9 @@ ehcleanup105:                                     ; preds = %ehcleanup103, %lpad
   br label %ehcleanup186
 
 while.end:                                        ; preds = %cleanup, %while.cond, %invoke.cont73
-  %charset.2 = phi ptr [ %charset.1, %cleanup ], [ %charset.0, %invoke.cont73 ], [ %charset.0, %while.cond ]
-  %cmp106 = icmp eq ptr %charset.2, null
-  %spec.store.select = select i1 %cmp106, ptr @.str.16, ptr %charset.2
+  %charset.1 = phi ptr [ %charset.2, %cleanup ], [ %charset.0, %invoke.cont73 ], [ %charset.0, %while.cond ]
+  %cmp106 = icmp eq ptr %charset.1, null
+  %spec.store.select = select i1 %cmp106, ptr @.str.16, ptr %charset.1
   br label %if.then20.invoke
 
 if.end112:                                        ; preds = %if.then20.invoke, %invoke.cont59
@@ -1619,9 +1619,9 @@ for.end.loopexit:                                 ; preds = %invoke.cont130
   br label %for.end
 
 for.end:                                          ; preds = %if.end152, %for.end.loopexit
-  %el.2163 = phi ptr [ null, %for.end.loopexit ], [ %el.0.ph, %if.end152 ]
+  %el.1163 = phi ptr [ null, %for.end.loopexit ], [ %el.0.ph, %if.end152 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %s) #11
-  %cmp155.not = icmp eq ptr %el.2163, null
+  %cmp155.not = icmp eq ptr %el.1163, null
   %39 = load i32, ptr %count.i.i, align 8
   %cmp.i.i98.not = icmp eq i32 %39, 0
   %or.cond = select i1 %cmp155.not, i1 %cmp.i.i98.not, i1 false

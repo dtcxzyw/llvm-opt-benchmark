@@ -732,7 +732,7 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %306
   %79 = phi i64 [ %307, %306 ], [ %.pre, %.lr.ph.preheader ]
-  %.073 = phi i64 [ %.3, %306 ], [ 0, %.lr.ph.preheader ]
+  %.073 = phi i64 [ %.2, %306 ], [ 0, %.lr.ph.preheader ]
   %.03372 = phi i16 [ %.235, %306 ], [ %15, %.lr.ph.preheader ]
   %80 = call i32 @pthread_mutex_lock(ptr noundef nonnull @decay_lock) #15
   %.not53 = icmp eq i32 %80, 0
@@ -788,19 +788,19 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   br label %97
 
 97:                                               ; preds = %94, %92
-  %.2 = phi i64 [ %96, %94 ], [ %.1, %92 ]
-  %.not56 = icmp slt i64 %79, %.2
+  %.3 = phi i64 [ %96, %94 ], [ %.1, %92 ]
+  %.not56 = icmp slt i64 %79, %.3
   br i1 %.not56, label %100, label %98
 
 98:                                               ; preds = %97
   call fastcc void @_reset_usage()
-  store i64 %.2, ptr %8, align 8
-  %99 = call fastcc i64 @_next_reset(i16 noundef zeroext %.134, i64 noundef %.2)
+  store i64 %.3, ptr %8, align 8
+  %99 = call fastcc i64 @_next_reset(i16 noundef zeroext %.134, i64 noundef %.3)
   br label %100
 
 100:                                              ; preds = %97, %98, %91, %90
   %.235 = phi i16 [ %.134, %90 ], [ 0, %91 ], [ %.134, %98 ], [ %.134, %97 ]
-  %.3 = phi i64 [ %.1, %90 ], [ %.1, %91 ], [ %99, %98 ], [ %.2, %97 ]
+  %.2 = phi i64 [ %.1, %90 ], [ %.1, %91 ], [ %99, %98 ], [ %.3, %97 ]
   %101 = load i32, ptr @flags, align 4
   %102 = and i32 %101, 32
   %.not57 = icmp eq i32 %102, 0
@@ -1135,14 +1135,14 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   br i1 %259, label %.lr.ph.i67, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %256, %252, %235
-  %.027.i = phi i32 [ %255, %252 ], [ 0, %235 ], [ 0, %256 ]
+  %.1.i = phi i32 [ %255, %252 ], [ 0, %235 ], [ 0, %256 ]
   %260 = call i32 @fsync(i32 noundef %228) #15
   %261 = call i32 @close(i32 noundef %228) #15
   br label %262
 
 262:                                              ; preds = %.loopexit.i, %230
-  %.1.i = phi i32 [ %234, %230 ], [ %.027.i, %.loopexit.i ]
-  %.not33.i = icmp eq i32 %.1.i, 0
+  %.027.i = phi i32 [ %234, %230 ], [ %.1.i, %.loopexit.i ]
+  %.not33.i = icmp eq i32 %.027.i, 0
   br i1 %.not33.i, label %263, label %287
 
 263:                                              ; preds = %262

@@ -134,7 +134,7 @@ ehcleanup123.thread:                              ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
-  %ehselector.slot.792 = extractvalue { ptr, i32 } %1, 1
+  %ehselector.slot.092 = extractvalue { ptr, i32 } %1, 1
   br label %if.then.i86
 
 invoke.cont9:                                     ; preds = %entry, %if.then
@@ -600,25 +600,25 @@ ehcleanup123:                                     ; preds = %lpad14, %ehcleanup1
   %.pn31.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn31.pn.pn.pn, %ehcleanup117 ], [ %3, %lpad14 ]
   call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_q) #11
   call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_p) #11
-  %ehselector.slot.7 = extractvalue { ptr, i32 } %.pn31.pn.pn.pn.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn31.pn.pn.pn.pn, 1
   br i1 %tobool.i, label %if.then.i86, label %_ZN10z3_log_ctxD2Ev.exit87
 
 if.then.i86:                                      ; preds = %ehcleanup123.thread, %ehcleanup123
-  %ehselector.slot.796 = phi i32 [ %ehselector.slot.792, %ehcleanup123.thread ], [ %ehselector.slot.7, %ehcleanup123 ]
+  %ehselector.slot.096 = phi i32 [ %ehselector.slot.092, %ehcleanup123.thread ], [ %ehselector.slot.0, %ehcleanup123 ]
   %.pn31.pn.pn.pn.pn.pn94 = phi { ptr, i32 } [ %1, %ehcleanup123.thread ], [ %.pn31.pn.pn.pn.pn, %ehcleanup123 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit87
 
 _ZN10z3_log_ctxD2Ev.exit87:                       ; preds = %ehcleanup123, %if.then.i86
-  %ehselector.slot.795 = phi i32 [ %ehselector.slot.7, %ehcleanup123 ], [ %ehselector.slot.796, %if.then.i86 ]
+  %ehselector.slot.095 = phi i32 [ %ehselector.slot.0, %ehcleanup123 ], [ %ehselector.slot.096, %if.then.i86 ]
   %.pn31.pn.pn.pn.pn.pn93 = phi { ptr, i32 } [ %.pn31.pn.pn.pn.pn, %ehcleanup123 ], [ %.pn31.pn.pn.pn.pn.pn94, %if.then.i86 ]
   %67 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #11
-  %matches = icmp eq i32 %ehselector.slot.795, %67
+  %matches = icmp eq i32 %ehselector.slot.095, %67
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %_ZN10z3_log_ctxD2Ev.exit87
-  %exn.slot.7 = extractvalue { ptr, i32 } %.pn31.pn.pn.pn.pn.pn93, 0
-  %68 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #11
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn31.pn.pn.pn.pn.pn93, 0
+  %68 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #11
   invoke void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef nonnull align 8 dereferenceable(8) %68)
           to label %invoke.cont127 unwind label %lpad124
 

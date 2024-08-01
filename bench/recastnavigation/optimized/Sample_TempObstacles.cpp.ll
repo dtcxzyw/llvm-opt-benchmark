@@ -806,7 +806,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   br label %.loopexit
 
 .loopexit:                                        ; preds = %138, %313, %.invoke, %.loopexit.loopexit, %.preheader, %107
-  %.085 = phi i32 [ 0, %107 ], [ 0, %.preheader ], [ %323, %.loopexit.loopexit ], [ 0, %.invoke ], [ 0, %313 ], [ 0, %138 ]
+  %.1 = phi i32 [ 0, %107 ], [ 0, %.preheader ], [ %323, %.loopexit.loopexit ], [ 0, %.invoke ], [ 0, %313 ], [ 0, %138 ]
   %324 = load ptr, ptr %8, align 8
   invoke void @_Z17rcFreeHeightFieldP13rcHeightfield(ptr noundef %324)
           to label %325 unwind label %.loopexit.split-lp.i
@@ -871,8 +871,8 @@ _ZN20RasterizationContextD2Ev.exit:               ; preds = %340
   br label %343
 
 343:                                              ; preds = %_ZN20RasterizationContextD2Ev.exit, %21
-  %.1 = phi i32 [ %.085, %_ZN20RasterizationContextD2Ev.exit ], [ 0, %21 ]
-  ret i32 %.1
+  %.085 = phi i32 [ %.1, %_ZN20RasterizationContextD2Ev.exit ], [ 0, %21 ]
+  ret i32 %.085
 }
 
 declare void @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10), i32 noundef, ptr noundef, ...) local_unnamed_addr #3

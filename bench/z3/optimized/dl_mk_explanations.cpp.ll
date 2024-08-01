@@ -1462,13 +1462,13 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i:        ; preds = %invoke.cont27
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i, %invoke.cont27, %invoke.cont18, %invoke.cont22
-  %retval.0 = phi ptr [ null, %invoke.cont22 ], [ null, %invoke.cont18 ], [ %call28, %invoke.cont27 ], [ %call28, %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i ]
+  %retval.1 = phi ptr [ null, %invoke.cont22 ], [ null, %invoke.cont18 ], [ %call28, %invoke.cont27 ], [ %call28, %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i ]
   call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ctr) #16
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit7.i.i, %_Z16containers_equalIPKjS1_EbRKT_S4_RKT0_S7_.exit, %_ZNK7datalog18relation_signatureneERKS0_.exit, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ null, %_ZNK7datalog18relation_signatureneERKS0_.exit ], [ null, %_Z16containers_equalIPKjS1_EbRKT_S4_RKT0_S7_.exit ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit7.i.i ], [ null, %land.rhs.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ null, %_ZNK7datalog18relation_signatureneERKS0_.exit ], [ null, %_Z16containers_equalIPKjS1_EbRKT_S4_RKT0_S7_.exit ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit7.i.i ], [ null, %land.rhs.i ]
+  ret ptr %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7counter5countEjPKji(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0

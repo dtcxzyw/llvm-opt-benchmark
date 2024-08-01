@@ -1096,7 +1096,7 @@ for.inc164.i.i:                                   ; preds = %_ZNK6hermes2vm9Arra
   br i1 %exitcond92.not.i.i, label %cleanup.i.i, label %for.body.i.i, !llvm.loop !12
 
 cleanup.i.i:                                      ; preds = %for.inc164.i.i, %if.then95.i.i, %for.body.i.i, %if.end49.i.i
-  %retval.0.i.i = phi i32 [ 1, %if.end49.i.i ], [ 1, %for.inc164.i.i ], [ 0, %if.then95.i.i ], [ 0, %for.body.i.i ]
+  %retval.1.i.i = phi i32 [ 1, %if.end49.i.i ], [ 1, %for.inc164.i.i ], [ 0, %if.then95.i.i ], [ 0, %for.body.i.i ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i.i) #12
   br label %_ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.i
 
@@ -1111,10 +1111,10 @@ _ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0
   br label %if.end26.i
 
 _ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.i: ; preds = %cleanup.i.i, %if.then36.i.i
-  %retval.1.i.i = phi i32 [ %call38.i.i, %if.then36.i.i ], [ %retval.0.i.i, %cleanup.i.i ]
+  %retval.0.i.i = phi i32 [ %call38.i.i, %if.then36.i.i ], [ %retval.1.i.i, %cleanup.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i.i)
-  %cmp.i = icmp eq i32 %retval.1.i.i, 0
+  %cmp.i = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp.i, label %cleanup, label %if.end26.i
 
 if.end26.i:                                       ; preds = %_ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.i, %_ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.thread54.i

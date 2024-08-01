@@ -875,7 +875,7 @@ if.end21:                                         ; preds = %if.end, %if.end11
   br label %0
 
 0:                                                ; preds = %land.lhs.true13, %if.then16, %if.end21
-  %privlen.040 = phi i64 [ 0, %if.end21 ], [ 0, %land.lhs.true13 ], [ %call17, %if.then16 ]
+  %privlen.140 = phi i64 [ 0, %if.end21 ], [ 0, %land.lhs.true13 ], [ %call17, %if.then16 ]
   %publen.03138 = phi i64 [ %publen.031, %if.end21 ], [ %publen.0, %land.lhs.true13 ], [ %publen.0, %if.then16 ]
   %1 = phi ptr [ %.str.7..str.8, %if.end21 ], [ @.str.6, %land.lhs.true13 ], [ @.str.6, %if.then16 ]
   %call29 = call i32 @BIO_indent(ptr noundef %bp, i32 noundef %off, i32 noundef 128) #4
@@ -889,7 +889,7 @@ if.end31:                                         ; preds = %0
   br i1 %cmp34, label %if.then65, label %if.end36
 
 if.end36:                                         ; preds = %if.end31
-  %cmp37.not = icmp eq i64 %privlen.040, 0
+  %cmp37.not = icmp eq i64 %privlen.140, 0
   br i1 %cmp37.not, label %if.end47, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
@@ -900,7 +900,7 @@ if.then38:                                        ; preds = %if.end36
 if.end42:                                         ; preds = %if.then38
   %2 = load ptr, ptr %priv, align 8
   %add = add nsw i32 %off, 4
-  %call43 = call i32 @ASN1_buf_print(ptr noundef %bp, ptr noundef %2, i64 noundef %privlen.040, i32 noundef %add) #4
+  %call43 = call i32 @ASN1_buf_print(ptr noundef %bp, ptr noundef %2, i64 noundef %privlen.140, i32 noundef %add) #4
   %cmp44 = icmp eq i32 %call43, 0
   br i1 %cmp44, label %if.then65, label %if.end47
 
@@ -926,7 +926,7 @@ err:                                              ; preds = %if.end47, %if.end53
   br i1 %tobool61.not, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %0, %if.end53, %if.then49, %if.end42, %if.then38, %if.end31, %if.then16, %if.then5, %err
-  %privlen.146 = phi i64 [ %privlen.040, %err ], [ %privlen.040, %0 ], [ %privlen.040, %if.end53 ], [ %privlen.040, %if.then49 ], [ %privlen.040, %if.end42 ], [ %privlen.040, %if.then38 ], [ %privlen.040, %if.end31 ], [ 0, %if.then16 ], [ 0, %if.then5 ]
+  %privlen.046 = phi i64 [ %privlen.140, %err ], [ %privlen.140, %0 ], [ %privlen.140, %if.end53 ], [ %privlen.140, %if.then49 ], [ %privlen.140, %if.end42 ], [ %privlen.140, %if.then38 ], [ %privlen.140, %if.end31 ], [ 0, %if.then16 ], [ 0, %if.then5 ]
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 340, ptr noundef nonnull @__func__.do_EC_KEY_print) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524304, ptr noundef null) #4
@@ -934,9 +934,9 @@ if.then65:                                        ; preds = %0, %if.end53, %if.t
 
 if.end66:                                         ; preds = %if.then65, %err
   %ret.047 = phi i32 [ 0, %if.then65 ], [ 1, %err ]
-  %privlen.145 = phi i64 [ %privlen.146, %if.then65 ], [ %privlen.040, %err ]
+  %privlen.045 = phi i64 [ %privlen.046, %if.then65 ], [ %privlen.140, %err ]
   %4 = load ptr, ptr %priv, align 8
-  call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %privlen.145, ptr noundef nonnull @.str.2, i32 noundef 341) #4
+  call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %privlen.045, ptr noundef nonnull @.str.2, i32 noundef 341) #4
   %5 = load ptr, ptr %pub, align 8
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef 342) #4
   br label %return

@@ -268,9 +268,9 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
   %.0150 = phi i32 [ 0, %.critedge ], [ %.2152222, %.thread301 ]
   %.0147 = phi i64 [ 0, %.critedge ], [ %.2149, %.thread301 ]
   %.0144 = phi i64 [ 0, %.critedge ], [ %58, %.thread301 ]
-  %.1140 = phi ptr [ %.0139.lcssa, %.critedge ], [ %.2141231, %.thread301 ]
+  %.1140 = phi ptr [ %.0139.lcssa, %.critedge ], [ %.3142231, %.thread301 ]
   %.1137 = phi i32 [ %spec.store.select, %.critedge ], [ 0, %.thread301 ]
-  %.1 = phi i64 [ %.0135.lcssa, %.critedge ], [ %.2233, %.thread301 ]
+  %.1 = phi i64 [ %.0135.lcssa, %.critedge ], [ %.3233, %.thread301 ]
   %24 = getelementptr inbounds i8, ptr %.1140, i64 %.0144
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %26 [
@@ -355,12 +355,12 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
 52:                                               ; preds = %.thread292.thread, %.thread._crit_edge, %.thread292
   %53 = phi i8 [ %.pre, %.thread._crit_edge ], [ %40, %.thread292 ], [ 91, %.thread292.thread ]
   %54 = phi i64 [ 0, %.thread._crit_edge ], [ %41, %.thread292 ], [ %44, %.thread292.thread ]
-  %.2235 = phi i64 [ %48, %.thread._crit_edge ], [ %.1, %.thread292 ], [ %.1, %.thread292.thread ]
-  %.2141230 = phi ptr [ %51, %.thread._crit_edge ], [ %.1140, %.thread292 ], [ %.1140, %.thread292.thread ]
+  %.3235 = phi i64 [ %48, %.thread._crit_edge ], [ %.1, %.thread292 ], [ %.1, %.thread292.thread ]
+  %.3142230 = phi ptr [ %51, %.thread._crit_edge ], [ %.1140, %.thread292 ], [ %.1140, %.thread292.thread ]
   %.2146227 = phi i64 [ -1, %.thread._crit_edge ], [ %.1145296, %.thread292 ], [ %.0144, %.thread292.thread ]
   %.1148225 = phi i64 [ -1, %.thread._crit_edge ], [ %.0147, %.thread292 ], [ %.0147, %.thread292.thread ]
   %.2152224 = phi i32 [ 0, %.thread._crit_edge ], [ %.0150, %.thread292 ], [ 1, %.thread292.thread ]
-  %55 = getelementptr i8, ptr %0, i64 %.2235
+  %55 = getelementptr i8, ptr %0, i64 %.3235
   %56 = getelementptr i8, ptr %55, i64 %.1148225
   store i8 %53, ptr %56, align 1
   br label %.thread301
@@ -370,8 +370,8 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
   br i1 %.not208, label %append.exit, label %.thread301
 
 .thread301:                                       ; preds = %.thread292.thread, %57, %52
-  %.2233 = phi i64 [ %.2235, %52 ], [ %.1, %57 ], [ %.1, %.thread292.thread ]
-  %.2141231 = phi ptr [ %.2141230, %52 ], [ %.1140, %57 ], [ %.1140, %.thread292.thread ]
+  %.3233 = phi i64 [ %.3235, %52 ], [ %.1, %57 ], [ %.1, %.thread292.thread ]
+  %.3142231 = phi ptr [ %.3142230, %52 ], [ %.1140, %57 ], [ %.1140, %.thread292.thread ]
   %.2146228 = phi i64 [ %.2146227, %52 ], [ %.1145296, %57 ], [ %.0144, %.thread292.thread ]
   %.2152222 = phi i32 [ %.2152224, %52 ], [ %.0150, %57 ], [ 1, %.thread292.thread ]
   %.1154 = phi i32 [ %.0153, %52 ], [ 1, %57 ], [ 1, %.thread292.thread ]
@@ -380,11 +380,11 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
   br label %23, !llvm.loop !12
 
 .critedge3:                                       ; preds = %26, %23, %23, %32, %28
-  %.3142 = phi ptr [ %29, %28 ], [ %.1140, %32 ], [ %.1140, %23 ], [ %.1140, %23 ], [ %.1140, %26 ]
-  %.3 = phi i64 [ %30, %28 ], [ %.1, %32 ], [ %.1, %23 ], [ %.1, %23 ], [ %.1, %26 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 %.3
+  %.2141 = phi ptr [ %29, %28 ], [ %.1140, %32 ], [ %.1140, %23 ], [ %.1140, %23 ], [ %.1140, %26 ]
+  %.2 = phi i64 [ %30, %28 ], [ %.1, %32 ], [ %.1, %23 ], [ %.1, %23 ], [ %.1, %26 ]
+  %59 = getelementptr inbounds i8, ptr %0, i64 %.2
   store i8 0, ptr %59, align 1
-  %60 = load i8, ptr %.3142, align 1
+  %60 = load i8, ptr %.2141, align 1
   %.not179 = icmp eq i8 %60, 0
   br i1 %.not179, label %61, label %101
 
@@ -440,7 +440,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
 
 .thread243:                                       ; preds = %66, %63, %72, %71
   %.2138246 = phi i32 [ 0, %72 ], [ %.1137, %71 ], [ %., %66 ], [ %.1137, %63 ]
-  %84 = add i64 %.3, 17
+  %84 = add i64 %.2, 17
   %85 = tail call noalias ptr @malloc(i64 noundef %84) #14
   %86 = icmp eq ptr %85, null
   br i1 %86, label %append.exit, label %87
@@ -451,9 +451,9 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
   store ptr %85, ptr %89, align 8
   store ptr null, ptr %85, align 8
   %90 = getelementptr inbounds i8, ptr %85, i64 8
-  %91 = add i64 %.3, 1
+  %91 = add i64 %.2, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull readonly align 1 %0, i64 %91, i1 false)
-  %92 = icmp ne i64 %.3, 0
+  %92 = icmp ne i64 %.2, 0
   %93 = and i1 %92, %88
   %or.cond.i = and i1 %62, %93
   br i1 %or.cond.i, label %94, label %100
@@ -465,7 +465,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
   br i1 %.not.i, label %100, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds [1 x i8], ptr %90, i64 0, i64 %.3
+  %98 = getelementptr inbounds [1 x i8], ptr %90, i64 0, i64 %.2
   store i8 47, ptr %98, align 1
   %99 = getelementptr inbounds [1 x i8], ptr %90, i64 0, i64 %91
   store i8 0, ptr %99, align 1
@@ -476,14 +476,14 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
   br label %append.exit
 
 101:                                              ; preds = %.critedge3
-  %102 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.3142, i32 noundef 47) #13
+  %102 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2141, i32 noundef 47) #13
   %.not187 = icmp eq ptr %102, null
   %brmerge = or i1 %.not187, %.not177
   br i1 %brmerge, label %112, label %.preheader
 
 .preheader:                                       ; preds = %101, %104
   %.0143 = phi ptr [ %105, %104 ], [ %102, %101 ]
-  %103 = icmp ugt ptr %.0143, %.3142
+  %103 = icmp ugt ptr %.0143, %.2141
   br i1 %103, label %104, label %.critedge9
 
 104:                                              ; preds = %.preheader
@@ -506,7 +506,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
 112:                                              ; preds = %101, %.critedge9
   %.0156 = phi ptr [ %102, %101 ], [ %spec.select212, %.critedge9 ]
   %.0155 = phi i8 [ 47, %101 ], [ %spec.select213, %.critedge9 ]
-  %.not190 = icmp eq i64 %.3, 0
+  %.not190 = icmp eq i64 %.2, 0
   %113 = select i1 %.not190, ptr @.str, ptr %0
   %114 = tail call ptr @opendir(ptr noundef %113)
   %.not191 = icmp eq ptr %114, null
@@ -531,7 +531,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
 
 .lr.ph274:                                        ; preds = %121
   %.not199 = icmp eq ptr %.0156, null
-  %124 = sub i64 256, %.3
+  %124 = sub i64 256, %.2
   %125 = lshr i32 %4, 3
   %126 = and i32 %125, 4
   %127 = or disjoint i32 %126, 2
@@ -575,7 +575,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
 .thread251:                                       ; preds = %.thread249, %139
   %140 = phi ptr [ %133, %139 ], [ %137, %.thread249 ]
   %141 = phi i64 [ %134, %139 ], [ %138, %.thread249 ]
-  %142 = tail call i32 @fnmatch(ptr noundef nonnull %.3142, ptr noundef nonnull %140, i32 noundef %127) #13
+  %142 = tail call i32 @fnmatch(ptr noundef nonnull %.2141, ptr noundef nonnull %140, i32 noundef %127) #13
   %.not205 = icmp eq i32 %142, 0
   br i1 %.not205, label %143, label %.backedge
 
@@ -590,7 +590,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
 
 147:                                              ; preds = %146, %143
   %148 = phi ptr [ %.0156, %146 ], [ @.str.1, %143 ]
-  %149 = add i64 %141, %.3
+  %149 = add i64 %141, %.2
   %150 = load i8, ptr %129, align 1
   %151 = zext i8 %150 to i32
   %152 = tail call fastcc i32 @do_glob(ptr noundef %0, i64 noundef %149, i32 noundef %151, ptr noundef nonnull %148, i32 noundef %4, ptr noundef %5, ptr noundef %6)

@@ -352,19 +352,19 @@ if.else44:                                        ; preds = %for.body
   %19 = shl i16 %18, 1
   %spec.select = and i16 %19, 2
   %20 = and i16 %18, 4
-  %ev.1 = or disjoint i16 %spec.select, %20
-  %21 = or disjoint i16 %ev.1, 128
+  %ev.2 = or disjoint i16 %spec.select, %20
+  %21 = or disjoint i16 %ev.2, 128
   br i1 %tobool42.not, label %if.end65, label %if.end68
 
 if.end65:                                         ; preds = %if.else44
-  %tobool66.not = icmp eq i16 %ev.1, 0
+  %tobool66.not = icmp eq i16 %ev.2, 0
   br i1 %tobool66.not, label %for.inc, label %if.end68
 
 if.end68:                                         ; preds = %if.else44, %for.body, %if.end65
-  %ev.245 = phi i16 [ %ev.1, %if.end65 ], [ %21, %if.else44 ], [ 6, %for.body ]
+  %ev.045 = phi i16 [ %ev.2, %if.end65 ], [ %21, %if.else44 ], [ 6, %for.body ]
   %data = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %22 = load i32, ptr %data, align 1
-  %23 = or i16 %ev.245, 32
+  %23 = or i16 %ev.045, 32
   call void @evmap_io_active_(ptr noundef %base, i32 noundef %22, i16 noundef signext %23) #5
   br label %for.inc
 

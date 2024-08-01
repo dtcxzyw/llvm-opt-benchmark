@@ -281,10 +281,10 @@ define internal noundef i32 @dissect_fb_zero(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph275.i.i.i:                                  ; preds = %50, %244
   %.0217273.i.i.i = phi i32 [ %108, %244 ], [ %66, %50 ]
   %.0218272.i.i.i = phi i32 [ %245, %244 ], [ %62, %50 ]
-  %.0219271.i.i.i = phi i32 [ %.4.i.i.i, %244 ], [ 0, %50 ]
+  %.0219271.i.i.i = phi i32 [ %.1.i.i.i, %244 ], [ 0, %50 ]
   %.0220270.i.i.i = phi i32 [ %.1221249.i.i.i, %244 ], [ 0, %50 ]
   %.0222269.i.i.i = phi i32 [ %.1223248.i.i.i, %244 ], [ 0, %50 ]
-  %.0224268.i.i.i = phi i32 [ %.2226247.i.i.i, %244 ], [ 1, %50 ]
+  %.0224268.i.i.i = phi i32 [ %.1225247.i.i.i, %244 ], [ 1, %50 ]
   %69 = load i32, ptr @hf_fb_zero_tags, align 4
   %70 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %69, ptr noundef %0, i32 noundef %.0217273.i.i.i, i32 noundef 8, i32 noundef 0) #3
   %71 = load i32, ptr @ett_fb_zero_tag_value, align 4
@@ -322,7 +322,7 @@ proto_item_set_generated.exit.thread.i.i.i:       ; preds = %.lr.ph275.i.i.i
   br label %93
 
 93:                                               ; preds = %90, %86
-  %.1225.i.i.i = phi i32 [ %.0224268.i.i.i, %86 ], [ 0, %90 ]
+  %.2226.i.i.i = phi i32 [ %.0224268.i.i.i, %86 ], [ 0, %90 ]
   %94 = add i32 %87, %.0220270.i.i.i
   %95 = load i32, ptr @hf_fb_zero_tag_length, align 4
   %96 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %95, ptr noundef %0, i32 noundef %80, i32 noundef 4, i32 noundef %87) #3
@@ -344,7 +344,7 @@ proto_item_set_generated.exit.thread.i.i.i:       ; preds = %.lr.ph275.i.i.i
   br label %proto_item_set_generated.exit.i.i.i
 
 proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
-  %.not235.i.i.i = icmp eq i32 %.1225.i.i.i, 0
+  %.not235.i.i.i = icmp eq i32 %.2226.i.i.i, 0
   br i1 %.not235.i.i.i, label %107, label %104
 
 104:                                              ; preds = %proto_item_set_generated.exit.i.i.i
@@ -356,7 +356,7 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   %.not235250.i.i.i = phi i1 [ true, %proto_item_set_generated.exit.thread.i.i.i ], [ false, %104 ], [ true, %proto_item_set_generated.exit.i.i.i ]
   %.1221249.i.i.i = phi i32 [ %.0220270.i.i.i, %proto_item_set_generated.exit.thread.i.i.i ], [ %94, %104 ], [ %94, %proto_item_set_generated.exit.i.i.i ]
   %.1223248.i.i.i = phi i32 [ %.0222269.i.i.i, %proto_item_set_generated.exit.thread.i.i.i ], [ %87, %104 ], [ %87, %proto_item_set_generated.exit.i.i.i ]
-  %.2226247.i.i.i = phi i32 [ 0, %proto_item_set_generated.exit.thread.i.i.i ], [ %.1225.i.i.i, %104 ], [ 0, %proto_item_set_generated.exit.i.i.i ]
+  %.1225247.i.i.i = phi i32 [ 0, %proto_item_set_generated.exit.thread.i.i.i ], [ %.2226.i.i.i, %104 ], [ 0, %proto_item_set_generated.exit.i.i.i ]
   %108 = add i32 %.0217273.i.i.i, 8
   switch i32 %76, label %234 [
     i32 1397639424, label %109
@@ -426,9 +426,9 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   br i1 %138, label %.lr.ph263.i.i.i, label %._crit_edge264.i.i.i
 
 .lr.ph263.i.i.i:                                  ; preds = %.preheader.i.i.i, %.lr.ph263.i.i.i
-  %.1262.i.i.i = phi i32 [ %146, %.lr.ph263.i.i.i ], [ %.0219271.i.i.i, %.preheader.i.i.i ]
+  %.2262.i.i.i = phi i32 [ %146, %.lr.ph263.i.i.i ], [ %.0219271.i.i.i, %.preheader.i.i.i ]
   %139 = load i32, ptr @hf_fb_zero_tag_aead, align 4
-  %140 = add i32 %.1262.i.i.i, %68
+  %140 = add i32 %.2262.i.i.i, %68
   %141 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %139, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0) #3
   %142 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %140) #3
   %143 = call ptr @val_to_str_const(i32 noundef %142, ptr noundef nonnull @tag_aead_vals, ptr noundef nonnull @.str.6) #3
@@ -436,16 +436,16 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   %144 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %140) #3
   %145 = call ptr @val_to_str_const(i32 noundef %144, ptr noundef nonnull @tag_aead_vals, ptr noundef nonnull @.str.6) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.88, ptr noundef %145) #3
-  %146 = add i32 %.1262.i.i.i, 4
+  %146 = add i32 %.2262.i.i.i, 4
   %147 = load i32, ptr %5, align 4
   %148 = sub i32 %147, %146
   %149 = icmp ugt i32 %148, 3
   br i1 %149, label %.lr.ph263.i.i.i, label %._crit_edge264.i.i.i, !llvm.loop !4
 
 ._crit_edge264.i.i.i:                             ; preds = %.lr.ph263.i.i.i, %.preheader.i.i.i
-  %.1.lcssa.i.i.i = phi i32 [ %.0219271.i.i.i, %.preheader.i.i.i ], [ %146, %.lr.ph263.i.i.i ]
+  %.2.lcssa.i.i.i = phi i32 [ %.0219271.i.i.i, %.preheader.i.i.i ], [ %146, %.lr.ph263.i.i.i ]
   %.lcssa253.i.i.i = phi i32 [ %136, %.preheader.i.i.i ], [ %147, %.lr.ph263.i.i.i ]
-  %.not241.i.i.i = icmp eq i32 %.lcssa253.i.i.i, %.1.lcssa.i.i.i
+  %.not241.i.i.i = icmp eq i32 %.lcssa253.i.i.i, %.2.lcssa.i.i.i
   br i1 %.not241.i.i.i, label %244, label %150
 
 150:                                              ; preds = %._crit_edge264.i.i.i
@@ -529,20 +529,20 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   br i1 %195, label %.lr.ph258.i.i.i, label %._crit_edge259.i.i.i
 
 .lr.ph258.i.i.i:                                  ; preds = %188, %.lr.ph258.i.i.i
-  %.2256.i.i.i = phi i32 [ %199, %.lr.ph258.i.i.i ], [ %192, %188 ]
+  %.3256.i.i.i = phi i32 [ %199, %.lr.ph258.i.i.i ], [ %192, %188 ]
   %196 = load i32, ptr @hf_fb_zero_tag_pubs, align 4
-  %197 = add i32 %.2256.i.i.i, %68
+  %197 = add i32 %.3256.i.i.i, %68
   %198 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %196, ptr noundef %0, i32 noundef %197, i32 noundef 3, i32 noundef -2147483648) #3
-  %199 = add i32 %.2256.i.i.i, 3
+  %199 = add i32 %.3256.i.i.i, 3
   %200 = load i32, ptr %5, align 4
   %201 = sub i32 %200, %199
   %202 = icmp ugt i32 %201, 2
   br i1 %202, label %.lr.ph258.i.i.i, label %._crit_edge259.i.i.i, !llvm.loop !6
 
 ._crit_edge259.i.i.i:                             ; preds = %.lr.ph258.i.i.i, %188
-  %.2.lcssa.i.i.i = phi i32 [ %192, %188 ], [ %199, %.lr.ph258.i.i.i ]
+  %.3.lcssa.i.i.i = phi i32 [ %192, %188 ], [ %199, %.lr.ph258.i.i.i ]
   %.lcssa252.i.i.i = phi i32 [ %193, %188 ], [ %200, %.lr.ph258.i.i.i ]
-  %.not238.i.i.i = icmp eq i32 %.lcssa252.i.i.i, %.2.lcssa.i.i.i
+  %.not238.i.i.i = icmp eq i32 %.lcssa252.i.i.i, %.3.lcssa.i.i.i
   br i1 %.not238.i.i.i, label %244, label %203
 
 203:                                              ; preds = %._crit_edge259.i.i.i
@@ -560,9 +560,9 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   br i1 %209, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader251.i.i.i, %.lr.ph.i.i.i
-  %.3254.i.i.i = phi i32 [ %217, %.lr.ph.i.i.i ], [ %.0219271.i.i.i, %.preheader251.i.i.i ]
+  %.4254.i.i.i = phi i32 [ %217, %.lr.ph.i.i.i ], [ %.0219271.i.i.i, %.preheader251.i.i.i ]
   %210 = load i32, ptr @hf_fb_zero_tag_kexs, align 4
-  %211 = add i32 %.3254.i.i.i, %68
+  %211 = add i32 %.4254.i.i.i, %68
   %212 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %210, ptr noundef %0, i32 noundef %211, i32 noundef 4, i32 noundef 0) #3
   %213 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %211) #3
   %214 = call ptr @val_to_str_const(i32 noundef %213, ptr noundef nonnull @tag_kexs_vals, ptr noundef nonnull @.str.6) #3
@@ -570,16 +570,16 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   %215 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %211) #3
   %216 = call ptr @val_to_str_const(i32 noundef %215, ptr noundef nonnull @tag_kexs_vals, ptr noundef nonnull @.str.6) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.88, ptr noundef %216) #3
-  %217 = add i32 %.3254.i.i.i, 4
+  %217 = add i32 %.4254.i.i.i, 4
   %218 = load i32, ptr %5, align 4
   %219 = sub i32 %218, %217
   %220 = icmp ugt i32 %219, 3
   br i1 %220, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader251.i.i.i
-  %.3.lcssa.i.i.i = phi i32 [ %.0219271.i.i.i, %.preheader251.i.i.i ], [ %217, %.lr.ph.i.i.i ]
+  %.4.lcssa.i.i.i = phi i32 [ %.0219271.i.i.i, %.preheader251.i.i.i ], [ %217, %.lr.ph.i.i.i ]
   %.lcssa.i.i.i = phi i32 [ %207, %.preheader251.i.i.i ], [ %218, %.lr.ph.i.i.i ]
-  %.not237.i.i.i = icmp eq i32 %.lcssa.i.i.i, %.3.lcssa.i.i.i
+  %.not237.i.i.i = icmp eq i32 %.lcssa.i.i.i, %.4.lcssa.i.i.i
   br i1 %.not237.i.i.i, label %244, label %221
 
 221:                                              ; preds = %._crit_edge.i.i.i
@@ -621,7 +621,7 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   br label %244
 
 244:                                              ; preds = %239, %234, %229, %226, %224, %221, %._crit_edge.i.i.i, %206, %203, %._crit_edge259.i.i.i, %185, %182, %175, %172, %170, %164, %161, %159, %154, %153, %150, %._crit_edge264.i.i.i, %135, %130, %129, %122, %119, %117, %110, %109
-  %.4.i.i.i = phi i32 [ %243, %239 ], [ %.0219271.i.i.i, %234 ], [ %228, %226 ], [ %233, %229 ], [ %.0219271.i.i.i, %224 ], [ %223, %221 ], [ %.3.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.0219271.i.i.i, %206 ], [ %187, %185 ], [ %205, %203 ], [ %.2.lcssa.i.i.i, %._crit_edge259.i.i.i ], [ %.0219271.i.i.i, %182 ], [ %174, %172 ], [ %181, %175 ], [ %.0219271.i.i.i, %170 ], [ %163, %161 ], [ %169, %164 ], [ %.0219271.i.i.i, %159 ], [ %158, %154 ], [ %.0219271.i.i.i, %153 ], [ %152, %150 ], [ %.1.lcssa.i.i.i, %._crit_edge264.i.i.i ], [ %.0219271.i.i.i, %135 ], [ %134, %130 ], [ %.0219271.i.i.i, %129 ], [ %121, %119 ], [ %128, %122 ], [ %.0219271.i.i.i, %117 ], [ %116, %110 ], [ %.0219271.i.i.i, %109 ]
+  %.1.i.i.i = phi i32 [ %243, %239 ], [ %.0219271.i.i.i, %234 ], [ %228, %226 ], [ %233, %229 ], [ %.0219271.i.i.i, %224 ], [ %223, %221 ], [ %.4.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.0219271.i.i.i, %206 ], [ %187, %185 ], [ %205, %203 ], [ %.3.lcssa.i.i.i, %._crit_edge259.i.i.i ], [ %.0219271.i.i.i, %182 ], [ %174, %172 ], [ %181, %175 ], [ %.0219271.i.i.i, %170 ], [ %163, %161 ], [ %169, %164 ], [ %.0219271.i.i.i, %159 ], [ %158, %154 ], [ %.0219271.i.i.i, %153 ], [ %152, %150 ], [ %.2.lcssa.i.i.i, %._crit_edge264.i.i.i ], [ %.0219271.i.i.i, %135 ], [ %134, %130 ], [ %.0219271.i.i.i, %129 ], [ %121, %119 ], [ %128, %122 ], [ %.0219271.i.i.i, %117 ], [ %116, %110 ], [ %.0219271.i.i.i, %109 ]
   %245 = add nsw i32 %.0218272.i.i.i, -1
   %.not.i.i.i = icmp eq i32 %245, 0
   br i1 %.not.i.i.i, label %._crit_edge276.i.i.i, label %.lr.ph275.i.i.i, !llvm.loop !8

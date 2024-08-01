@@ -1751,7 +1751,7 @@ define dso_local i32 @io_init_tasks_stdio(ptr noundef %0) local_unnamed_addr #0 
   br label %io_get_file_flags.exit.i
 
 io_get_file_flags.exit.i:                         ; preds = %30, %29, %24
-  %.1.i.i = phi i32 [ 1601, %29 ], [ %..i.i, %30 ], [ 1089, %24 ]
+  %.0.i.i = phi i32 [ 1601, %29 ], [ %..i.i, %30 ], [ 1089, %24 ]
   %34 = load i32, ptr %14, align 8
   %35 = and i32 %34, 4
   %.not.i = icmp eq i32 %35, 0
@@ -2238,7 +2238,7 @@ _create_task_out_eio.exit.i:                      ; preds = %254, %227
   br label %281
 
 281:                                              ; preds = %279, %276
-  %282 = or disjoint i32 %.1.i.i, 524288
+  %282 = or disjoint i32 %.0.i.i, 524288
   %283 = getelementptr inbounds i8, ptr %27, i64 100
   br label %284
 
@@ -2479,7 +2479,7 @@ _create_task_out_eio.exit161.i:                   ; preds = %372, %348
   br label %413
 
 413:                                              ; preds = %411, %408
-  %414 = or disjoint i32 %.1.i.i, 524288
+  %414 = or disjoint i32 %.0.i.i, 524288
   %415 = getelementptr inbounds i8, ptr %27, i64 104
   br label %416
 
@@ -4009,8 +4009,8 @@ define dso_local range(i32 1089, 1602) i32 @io_get_file_flags(ptr nocapture noun
   br label %9
 
 9:                                                ; preds = %1, %4, %5
-  %.1 = phi i32 [ 1601, %4 ], [ %., %5 ], [ 1089, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 1601, %4 ], [ %., %5 ], [ 1089, %1 ]
+  ret i32 %.0
 }
 
 declare ptr @slurm_conf_lock() local_unnamed_addr #4

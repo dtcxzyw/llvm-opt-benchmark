@@ -1852,7 +1852,7 @@ if.end136:                                        ; preds = %invoke.cont130, %if
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont37, %for.inc.i, %invoke.cont130, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i261, %if.then110, %if.end136, %if.end133, %invoke.cont98
-  %retval.0 = phi i1 [ true, %invoke.cont98 ], [ %call131, %invoke.cont130 ], [ true, %if.end133 ], [ %call138, %if.end136 ], [ false, %if.then110 ], [ false, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i261 ], [ false, %for.inc.i ], [ true, %invoke.cont37 ]
+  %retval.1 = phi i1 [ true, %invoke.cont98 ], [ %call131, %invoke.cont130 ], [ true, %if.end133 ], [ %call138, %if.end136 ], [ false, %if.then110 ], [ false, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i261 ], [ false, %for.inc.i ], [ true, %invoke.cont37 ]
   %163 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %163, ptr noundef nonnull align 8 dereferenceable(16) %gcds)
           to label %.noexc.i286 unwind label %terminate.lpad.i285
@@ -1869,8 +1869,8 @@ terminate.lpad.i285:                              ; preds = %.noexc.i286, %clean
   unreachable
 
 return:                                           ; preds = %.noexc.i286, %entry
-  %retval.1 = phi i1 [ true, %entry ], [ %retval.0, %.noexc.i286 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %entry ], [ %retval.1, %.noexc.i286 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK2lp10lar_solver15column_is_fixedEj(ptr noundef nonnull align 8 dereferenceable(1888), i32 noundef) local_unnamed_addr #0
@@ -2983,7 +2983,7 @@ lpad75:                                           ; preds = %lpad75.loopexit.spl
   br label %ehcleanup83
 
 cleanup:                                          ; preds = %for.inc.i, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i, %if.then78, %call4.i.i.i.i.noexc174, %if.then.i.i.i.i172, %invoke.cont76
-  %retval.0 = phi i1 [ true, %if.then.i.i.i.i172 ], [ true, %invoke.cont76 ], [ true, %call4.i.i.i.i.noexc174 ], [ false, %if.then78 ], [ false, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i ], [ false, %for.inc.i ]
+  %retval.1 = phi i1 [ true, %if.then.i.i.i.i172 ], [ true, %invoke.cont76 ], [ true, %call4.i.i.i.i.noexc174 ], [ false, %if.then78 ], [ false, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i ], [ false, %for.inc.i ]
   %78 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(16) %u1)
           to label %.noexc.i180 unwind label %terminate.lpad.i179
@@ -3021,7 +3021,7 @@ ehcleanup83:                                      ; preds = %lpad75, %lpad.i152,
   br label %ehcleanup85
 
 cleanup84:                                        ; preds = %.noexc.i184, %invoke.cont60
-  %retval.1 = phi i1 [ true, %invoke.cont60 ], [ %retval.0, %.noexc.i184 ]
+  %retval.0 = phi i1 [ true, %invoke.cont60 ], [ %retval.1, %.noexc.i184 ]
   %84 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %84, ptr noundef nonnull align 8 dereferenceable(16) %a)
           to label %.noexc.i188 unwind label %terminate.lpad.i187
@@ -3086,7 +3086,7 @@ terminate.lpad.i199:                              ; preds = %.noexc.i200, %_ZN8r
   unreachable
 
 _ZN8rationalD2Ev.exit202:                         ; preds = %.noexc.i200
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup85:                                      ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %ehcleanup83, %lpad.i136, %ehcleanup
   %.pn12.pn = phi { ptr, i32 } [ %.pn12, %ehcleanup ], [ %.pn, %ehcleanup83 ], [ %55, %lpad.i136 ], [ %lpad.loopexit205, %lpad7.loopexit ], [ %lpad.loopexit.split-lp206, %lpad7.loopexit.split-lp ]
@@ -3722,7 +3722,7 @@ if.end60:                                         ; preds = %.noexc.i176, %invok
           to label %cleanup63 unwind label %lpad46
 
 cleanup63:                                        ; preds = %if.end60, %invoke.cont47
-  %retval.3 = phi i1 [ true, %invoke.cont47 ], [ %call62, %if.end60 ]
+  %retval.4 = phi i1 [ true, %invoke.cont47 ], [ %call62, %if.end60 ]
   %87 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %87, ptr noundef nonnull align 8 dereferenceable(16) %offset)
           to label %.noexc.i180 unwind label %terminate.lpad.i179
@@ -3755,7 +3755,7 @@ terminate.lpad.i183:                              ; preds = %.noexc.i184, %clean
   unreachable
 
 cleanup65:                                        ; preds = %_ZN8rationalD2Ev.exit63, %.noexc.i184, %.noexc.i180, %invoke.cont40
-  %retval.4 = phi i1 [ true, %invoke.cont40 ], [ %retval.3, %.noexc.i180 ], [ true, %.noexc.i184 ], [ true, %_ZN8rationalD2Ev.exit63 ]
+  %retval.2 = phi i1 [ true, %invoke.cont40 ], [ %retval.4, %.noexc.i180 ], [ true, %.noexc.i184 ], [ true, %_ZN8rationalD2Ev.exit63 ]
   %93 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %93, ptr noundef nonnull align 8 dereferenceable(16) %modulus)
           to label %.noexc.i188 unwind label %terminate.lpad.i187
@@ -3772,7 +3772,7 @@ terminate.lpad.i187:                              ; preds = %.noexc.i188, %clean
   unreachable
 
 _ZN8rationalD2Ev.exit190:                         ; preds = %.noexc.i188
-  ret i1 %retval.4
+  ret i1 %retval.2
 
 ehcleanup66:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad46.body, %ehcleanup, %lpad15
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %21, %lpad15 ], [ %eh.lpad-body82, %lpad46.body ], [ %lpad.loopexit192, %lpad.loopexit ], [ %lpad.loopexit.split-lp193, %lpad.loopexit.split-lp ]

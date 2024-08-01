@@ -727,14 +727,14 @@ if.end9.loopexit:                                 ; preds = %do.body.i28
   br label %if.end9
 
 if.end9:                                          ; preds = %do.body.i, %do.body.i18, %if.end9.loopexit
-  %path.3 = phi ptr [ %scevgep132, %if.end9.loopexit ], [ %scevgep130, %do.body.i18 ], [ %scevgep, %do.body.i ]
+  %path.0 = phi ptr [ %scevgep132, %if.end9.loopexit ], [ %scevgep130, %do.body.i18 ], [ %scevgep, %do.body.i ]
   %tobool42.not = phi i1 [ %tobool.not.i31.le, %if.end9.loopexit ], [ false, %do.body.i18 ], [ true, %do.body.i ]
   %tobool30.not = phi i1 [ %tobool.not.i31.le, %if.end9.loopexit ], [ true, %do.body.i18 ], [ false, %do.body.i ]
-  %tobool.not = icmp eq ptr %path.3, null
+  %tobool.not = icmp eq ptr %path.0, null
   br i1 %tobool.not, label %if.then11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end9
-  %6 = load i8, ptr %path.3, align 1
+  %6 = load i8, ptr %path.0, align 1
   switch i8 %6, label %if.then22 [
     i8 0, label %if.then11
     i8 47, label %lor.lhs.false20
@@ -801,7 +801,7 @@ tr2_dst_trace_disable.exit:                       ; preds = %if.end16, %if.then.
   br label %return
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false
-  %call21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path.3) #13
+  %call21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path.0) #13
   %cmp = icmp ugt i64 %call21, 107
   br i1 %cmp, label %if.then22, label %if.end29
 
@@ -839,7 +839,7 @@ tr2_dst_want_warning.exit56:                      ; preds = %if.then22, %if.end5
 if.then25:                                        ; preds = %tr2_dst_want_warning.exit56
   %16 = load i32, ptr %dst, align 4
   %call27 = tail call ptr @tr2_sysenv_display_name(i32 noundef %16) #12
-  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.17, ptr noundef nonnull %path.3, ptr noundef %call27) #12
+  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.17, ptr noundef nonnull %path.0, ptr noundef %call27) #12
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then25, %tr2_dst_want_warning.exit56
@@ -881,7 +881,7 @@ if.then31.if.end35_crit_edge:                     ; preds = %if.then31
 if.end.i:                                         ; preds = %if.then31
   store i16 1, ptr %sa.i, align 2
   %sun_path.i = getelementptr inbounds i8, ptr %sa.i, i64 2
-  %call1.i = call i64 @gitstrlcpy(ptr noundef nonnull %sun_path.i, ptr noundef nonnull %path.3, i64 noundef 108) #12
+  %call1.i = call i64 @gitstrlcpy(ptr noundef nonnull %sun_path.i, ptr noundef nonnull %path.0, i64 noundef 108) #12
   %call2.i = call i32 @connect(i32 noundef %call.i69, ptr nonnull %sa.i, i32 noundef 110) #12
   %cmp3.i = icmp eq i32 %call2.i, -1
   br i1 %cmp3.i, label %if.then4.i, label %tr2_dst_try_uds_connect.exit
@@ -917,7 +917,7 @@ if.then43:                                        ; preds = %if.end35, %if.end40
 if.end.i74:                                       ; preds = %if.then43
   store i16 1, ptr %sa.i71, align 2
   %sun_path.i75 = getelementptr inbounds i8, ptr %sa.i71, i64 2
-  %call1.i76 = call i64 @gitstrlcpy(ptr noundef nonnull %sun_path.i75, ptr noundef nonnull %path.3, i64 noundef 108) #12
+  %call1.i76 = call i64 @gitstrlcpy(ptr noundef nonnull %sun_path.i75, ptr noundef nonnull %path.0, i64 noundef 108) #12
   %call2.i77 = call i32 @connect(i32 noundef %call.i72, ptr nonnull %sa.i71, i32 noundef 110) #12
   %cmp3.i78 = icmp eq i32 %call2.i77, -1
   br i1 %cmp3.i78, label %if.then4.i81, label %tr2_dst_try_uds_connect.exit84
@@ -974,7 +974,7 @@ if.then51:                                        ; preds = %tr2_dst_want_warnin
   %call54 = tail call ptr @__errno_location() #15
   %26 = load i32, ptr %call54, align 4
   %call55 = call ptr @strerror(i32 noundef %26) #12
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str.18, ptr noundef nonnull %path.3, ptr noundef %call53, ptr noundef %call55) #12
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.18, ptr noundef nonnull %path.0, ptr noundef %call53, ptr noundef %call55) #12
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then51, %tr2_dst_want_warning.exit97
@@ -1001,9 +1001,9 @@ tr2_dst_trace_disable.exit110:                    ; preds = %if.end56, %if.then.
   br label %return
 
 connected:                                        ; preds = %tr2_dst_try_uds_connect.exit84, %tr2_dst_try_uds_connect.exit
-  %fd.3 = phi i32 [ %call.i72, %tr2_dst_try_uds_connect.exit84 ], [ %call.i69, %tr2_dst_try_uds_connect.exit ]
+  %fd.0 = phi i32 [ %call.i72, %tr2_dst_try_uds_connect.exit84 ], [ %call.i69, %tr2_dst_try_uds_connect.exit ]
   %fd57 = getelementptr inbounds i8, ptr %dst, i64 4
-  store i32 %fd.3, ptr %fd57, align 4
+  store i32 %fd.0, ptr %fd57, align 4
   %need_close = getelementptr inbounds i8, ptr %dst, i64 8
   %bf.load = load i8, ptr %need_close, align 4
   %bf.set60 = or i8 %bf.load, 3
@@ -1011,7 +1011,7 @@ connected:                                        ; preds = %tr2_dst_try_uds_con
   br label %return
 
 return:                                           ; preds = %connected, %tr2_dst_trace_disable.exit110, %tr2_dst_trace_disable.exit68, %tr2_dst_trace_disable.exit
-  %retval.0 = phi i32 [ 0, %tr2_dst_trace_disable.exit68 ], [ 0, %tr2_dst_trace_disable.exit110 ], [ %fd.3, %connected ], [ 0, %tr2_dst_trace_disable.exit ]
+  %retval.0 = phi i32 [ 0, %tr2_dst_trace_disable.exit68 ], [ 0, %tr2_dst_trace_disable.exit110 ], [ %fd.0, %connected ], [ 0, %tr2_dst_trace_disable.exit ]
   ret i32 %retval.0
 }
 

@@ -451,9 +451,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -885,7 +885,7 @@ if.else.i3:                                       ; preds = %invoke.cont155.i
 
 while.cond161.outer.i:                            ; preds = %while.cond161.outer.backedge.i, %if.else.i3
   %26 = phi ptr [ %call154.i, %if.else.i3 ], [ %28, %while.cond161.outer.backedge.i ]
-  %specialTypes.0.ph.i = phi i32 [ 0, %if.else.i3 ], [ %or.i, %while.cond161.outer.backedge.i ]
+  %specialTypes.1.ph.i = phi i32 [ 0, %if.else.i3 ], [ %or.i, %while.cond161.outer.backedge.i ]
   br label %while.cond161.i
 
 while.cond161.i:                                  ; preds = %if.end403.i, %while.cond161.outer.i
@@ -932,7 +932,7 @@ invoke.cont182.i:                                 ; preds = %if.end179.i
 
 while.cond161.outer.backedge.i:                   ; preds = %if.end192.i, %if.end187.i, %invoke.cont182.i
   %.sink.i = phi i32 [ 2, %if.end187.i ], [ 4, %if.end192.i ], [ 1, %invoke.cont182.i ]
-  %or.i = or i32 %.sink.i, %specialTypes.0.ph.i
+  %or.i = or i32 %.sink.i, %specialTypes.1.ph.i
   br label %while.cond161.outer.i, !llvm.loop !8
 
 if.end187.i:                                      ; preds = %invoke.cont182.i
@@ -1430,7 +1430,7 @@ if.end418.i:                                      ; preds = %invoke.cont414.i
   store ptr %bcpKeyId.0.i, ptr %bcpId419.i, align 8
   store ptr %call80.i, ptr %call415.i, align 8
   %specialTypes421.i = getelementptr inbounds i8, ptr %call415.i, i64 24
-  store i32 %specialTypes.0.ph.i, ptr %specialTypes421.i, align 8
+  store i32 %specialTypes.1.ph.i, ptr %specialTypes421.i, align 8
   %typeMap.i = getelementptr inbounds i8, ptr %call415.i, i64 16
   %79 = load ptr, ptr %typeMap.i, align 8
   %cmp.not.i229.i = icmp eq ptr %79, null
@@ -1462,13 +1462,13 @@ if.end429.i:                                      ; preds = %if.then426.i, %invo
   br label %cleanup434thread-pre-split.i
 
 cleanup434thread-pre-split.i:                     ; preds = %if.end429.i, %if.then417.i, %if.end409.i
-  %cleanup.dest.slot.3.ph.i = phi i32 [ %.115.i, %if.end429.i ], [ 3, %if.end409.i ], [ 3, %if.then417.i ]
+  %cleanup.dest.slot.4.ph.i = phi i32 [ %.115.i, %if.end429.i ], [ 3, %if.end409.i ], [ 3, %if.then417.i ]
   %.pr399.i = load ptr, ptr %typeMapResByKey.i, align 8
   br label %cleanup434.i
 
 cleanup434.i:                                     ; preds = %cleanup434thread-pre-split.i, %invoke.cont155.i
   %83 = phi ptr [ %.pr399.i, %cleanup434thread-pre-split.i ], [ %call154.i, %invoke.cont155.i ]
-  %cleanup.dest.slot.3.i = phi i32 [ %cleanup.dest.slot.3.ph.i, %cleanup434thread-pre-split.i ], [ 3, %invoke.cont155.i ]
+  %cleanup.dest.slot.4.i = phi i32 [ %cleanup.dest.slot.4.ph.i, %cleanup434thread-pre-split.i ], [ 3, %invoke.cont155.i ]
   %cmp.not.i234.i = icmp eq ptr %83, null
   br i1 %cmp.not.i234.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit237.i, label %if.then.i235.i
 
@@ -1521,7 +1521,7 @@ cleanup440.thread.i:                              ; preds = %invoke.cont109.i, %
 
 cleanup440.i:                                     ; preds = %if.then.i243.i, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit241.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %uBcpKeyId.i) #12
-  %switch116.i = icmp eq i32 %cleanup.dest.slot.3.i, 0
+  %switch116.i = icmp eq i32 %cleanup.dest.slot.4.i, 0
   br i1 %switch116.i, label %while.cond.i, label %cleanup440.while.end444thread-pre-split.loopexit_crit_edge.i
 
 cleanup440.while.end444thread-pre-split.loopexit_crit_edge.i: ; preds = %cleanup440.i

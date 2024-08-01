@@ -207,17 +207,17 @@ if.else:                                          ; preds = %if.end16
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then18
-  %ret.0 = phi ptr [ %3, %if.then18 ], [ %call9, %if.else ]
+  %ret.1 = phi ptr [ %3, %if.then18 ], [ %call9, %if.else ]
   %4 = load ptr, ptr %spki, align 8
   call void @free(ptr noundef %4) #5
-  %call22 = call ptr @EVP_PKEY_up_ref(ptr noundef %ret.0) #5
+  %call22 = call ptr @EVP_PKEY_up_ref(ptr noundef %ret.1) #5
   br label %return
 
 error:                                            ; preds = %if.end4, %entry, %if.then15
   %5 = phi ptr [ null, %entry ], [ %.pre12, %if.end4 ], [ %.pre, %if.then15 ]
-  %ret.1 = phi ptr [ null, %entry ], [ null, %if.end4 ], [ %call9, %if.then15 ]
+  %ret.0 = phi ptr [ null, %entry ], [ null, %if.end4 ], [ %call9, %if.then15 ]
   call void @free(ptr noundef %5) #5
-  call void @EVP_PKEY_free(ptr noundef %ret.1) #5
+  call void @EVP_PKEY_free(ptr noundef %ret.0) #5
   br label %return
 
 return:                                           ; preds = %error, %if.end21, %if.then2

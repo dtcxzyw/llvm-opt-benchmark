@@ -2857,8 +2857,8 @@ define range(i32 0, 2) i32 @Abc_NodeMakeSCCFree(ptr nocapture noundef readonly %
 
 .lr.ph.i.us.us:                                   ; preds = %.lr.ph.us, %30
   %indvars.iv.i.us.us = phi i64 [ %indvars.iv.next.i.us.us, %30 ], [ 0, %.lr.ph.us ]
-  %.027.i.us.us = phi i32 [ %.2.i.us.us, %30 ], [ 1, %.lr.ph.us ]
-  %.01626.i.us.us = phi i32 [ %.218.i.us.us, %30 ], [ 1, %.lr.ph.us ]
+  %.027.i.us.us = phi i32 [ %.1.i.us.us, %30 ], [ 1, %.lr.ph.us ]
+  %.01626.i.us.us = phi i32 [ %.117.i.us.us, %30 ], [ 1, %.lr.ph.us ]
   %18 = getelementptr inbounds i8, ptr %.03660.us, i64 %indvars.iv.i.us.us
   %19 = load i8, ptr %18, align 1
   %20 = getelementptr inbounds i8, ptr %.04056.us.us, i64 %indvars.iv.i.us.us
@@ -2875,27 +2875,27 @@ define range(i32 0, 2) i32 @Abc_NodeMakeSCCFree(ptr nocapture noundef readonly %
   br i1 %26, label %27, label %.thread.us.us
 
 27:                                               ; preds = %25, %23
-  %.117.i.us.us = phi i32 [ %.01626.i.us.us, %23 ], [ 0, %25 ]
-  %.1.i.us.us = phi i32 [ 0, %23 ], [ %.027.i.us.us, %25 ]
-  %28 = icmp ne i32 %.117.i.us.us, 0
-  %29 = icmp ne i32 %.1.i.us.us, 0
+  %.218.i.us.us = phi i32 [ %.01626.i.us.us, %23 ], [ 0, %25 ]
+  %.2.i.us.us = phi i32 [ 0, %23 ], [ %.027.i.us.us, %25 ]
+  %28 = icmp ne i32 %.218.i.us.us, 0
+  %29 = icmp ne i32 %.2.i.us.us, 0
   %or.cond.i.us.us = select i1 %28, i1 true, i1 %29
   br i1 %or.cond.i.us.us, label %30, label %.thread.us.us
 
 30:                                               ; preds = %27, %.lr.ph.i.us.us
-  %.218.i.us.us = phi i32 [ %.01626.i.us.us, %.lr.ph.i.us.us ], [ %.117.i.us.us, %27 ]
-  %.2.i.us.us = phi i32 [ %.027.i.us.us, %.lr.ph.i.us.us ], [ %.1.i.us.us, %27 ]
+  %.117.i.us.us = phi i32 [ %.01626.i.us.us, %.lr.ph.i.us.us ], [ %.218.i.us.us, %27 ]
+  %.1.i.us.us = phi i32 [ %.027.i.us.us, %.lr.ph.i.us.us ], [ %.2.i.us.us, %27 ]
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us.us, label %Abc_CubeContain.exit.us.us, label %.lr.ph.i.us.us, !llvm.loop !48
 
 Abc_CubeContain.exit.us.us:                       ; preds = %30
-  %31 = shl nuw nsw i32 %.2.i.us.us, 1
-  %32 = or i32 %31, %.218.i.us.us
+  %31 = shl nuw nsw i32 %.1.i.us.us, 1
+  %32 = or i32 %31, %.117.i.us.us
   %33 = icmp ne i32 %32, 0
   %34 = zext i1 %33 to i32
   %35 = add nsw i32 %.158.us.us, %34
-  %36 = and i32 %.218.i.us.us, 1
+  %36 = and i32 %.117.i.us.us, 1
   %.not45.us.us = icmp eq i32 %36, 0
   br i1 %.not45.us.us, label %37, label %.thread.us.us.sink.split
 

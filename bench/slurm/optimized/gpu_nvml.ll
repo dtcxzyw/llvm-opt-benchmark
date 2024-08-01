@@ -1923,8 +1923,8 @@ define void @gpu_p_step_hardware_init(ptr noundef %0, ptr noundef %1) local_unna
 
 .lr.ph.i:                                         ; preds = %174, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %174 ]
-  %.03256.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %.2.i, %174 ]
-  %.03355.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.235.i, %174 ]
+  %.03256.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %.1.i, %174 ]
+  %.03355.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.134.i, %174 ]
   %.03654.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.137.i, %174 ]
   %83 = load i32, ptr %12, align 4
   store i32 %83, ptr %16, align 4
@@ -2127,7 +2127,7 @@ _nvml_set_freqs.exit.i:                           ; preds = %131, %130
   br label %166
 
 166:                                              ; preds = %164, %161, %160, %158
-  %.134.i = phi i32 [ %159, %158 ], [ %.03355.i, %164 ], [ %.03355.i, %161 ], [ %.03355.i, %160 ]
+  %.235.i = phi i32 [ %159, %158 ], [ %.03355.i, %164 ], [ %.03355.i, %161 ], [ %.03355.i, %160 ]
   %167 = load i8, ptr %11, align 1
   %168 = trunc i8 %167 to i1
   %.not50.i = xor i1 %168, true
@@ -2141,20 +2141,20 @@ _nvml_set_freqs.exit.i:                           ; preds = %131, %130
   br label %173
 
 173:                                              ; preds = %169, %166
-  %.1.i = phi i1 [ true, %169 ], [ %.03256.i, %166 ]
+  %.2.i = phi i1 [ true, %169 ], [ %.03256.i, %166 ]
   call void @slurm_xfree(ptr noundef nonnull %14) #12
   br label %174
 
 174:                                              ; preds = %173, %_nvml_get_handle.exit.i, %90, %87
   %.137.i = phi i32 [ %93, %173 ], [ %93, %_nvml_get_handle.exit.i ], [ %.03654.i, %90 ], [ %.03654.i, %87 ]
-  %.235.i = phi i32 [ %.134.i, %173 ], [ %.03355.i, %_nvml_get_handle.exit.i ], [ %.03355.i, %90 ], [ %.03355.i, %87 ]
-  %.2.i = phi i1 [ %.1.i, %173 ], [ %.03256.i, %_nvml_get_handle.exit.i ], [ %.03256.i, %90 ], [ %.03256.i, %87 ]
+  %.134.i = phi i32 [ %.235.i, %173 ], [ %.03355.i, %_nvml_get_handle.exit.i ], [ %.03355.i, %90 ], [ %.03355.i, %87 ]
+  %.1.i = phi i1 [ %.2.i, %173 ], [ %.03256.i, %_nvml_get_handle.exit.i ], [ %.03256.i, %90 ], [ %.03256.i, %87 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %174
-  %.not.i = icmp eq i32 %.235.i, %.137.i
+  %.not.i = icmp eq i32 %.134.i, %.137.i
   br i1 %.not.i, label %_set_freq.exit, label %175
 
 175:                                              ; preds = %._crit_edge.i
@@ -2169,12 +2169,12 @@ _nvml_set_freqs.exit.i:                           ; preds = %131, %130
   br i1 %180, label %181, label %182
 
 181:                                              ; preds = %178
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.135, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_freq, ptr noundef nonnull @__func__._set_freq, i32 noundef %.235.i, i32 noundef %.137.i) #12
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.135, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_freq, ptr noundef nonnull @__func__._set_freq, i32 noundef %.134.i, i32 noundef %.137.i) #12
   br label %182
 
 182:                                              ; preds = %181, %178, %175
   %183 = load ptr, ptr @stderr, align 8
-  %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef nonnull @.str.136, i32 noundef %.235.i, i32 noundef %.137.i) #15
+  %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef nonnull @.str.136, i32 noundef %.134.i, i32 noundef %.137.i) #15
   br label %_set_freq.exit
 
 _set_freq.exit:                                   ; preds = %62, %65, %81, %._crit_edge.i, %182
@@ -2645,13 +2645,13 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture n
 
 .preheader31:                                     ; preds = %2, %21
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %21 ], [ 511, %2 ]
-  %.02737 = phi i32 [ %.3, %21 ], [ 32767, %2 ]
+  %.02737 = phi i32 [ %.2, %21 ], [ 32767, %2 ]
   %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv43
   br label %7
 
 7:                                                ; preds = %.preheader31, %.loopexit
   %indvars.iv40 = phi i64 [ 7, %.preheader31 ], [ %indvars.iv.next41, %.loopexit ]
-  %.135 = phi i32 [ %.02737, %.preheader31 ], [ %.3, %.loopexit ]
+  %.135 = phi i32 [ %.02737, %.preheader31 ], [ %.2, %.loopexit ]
   %8 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv40
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
@@ -2690,7 +2690,7 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %13
-  %.3 = phi i32 [ %14, %13 ], [ %20, %.loopexit.loopexit ]
+  %.2 = phi i32 [ %14, %13 ], [ %20, %.loopexit.loopexit ]
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
   %.not46 = icmp eq i64 %indvars.iv40, 0
   br i1 %.not46, label %21, label %7, !llvm.loop !21

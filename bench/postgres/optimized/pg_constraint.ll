@@ -1759,18 +1759,18 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03341 = phi ptr [ null, %.lr.ph.preheader ], [ %51, %.lr.ph ]
+  %.141 = phi ptr [ null, %.lr.ph.preheader ], [ %51, %.lr.ph ]
   %47 = getelementptr i16, ptr %46, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2
   %49 = sext i16 %48 to i32
   %50 = add nsw i32 %49, 7
-  %51 = call ptr @bms_add_member(ptr noundef %.03341, i32 noundef %50) #10
+  %51 = call ptr @bms_add_member(ptr noundef %.141, i32 noundef %50) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %14, %4
-  %.1 = phi ptr [ null, %14 ], [ null, %4 ], [ null, %45 ], [ %51, %.lr.ph ]
+  %.033 = phi ptr [ null, %14 ], [ null, %4 ], [ null, %45 ], [ %51, %.lr.ph ]
   call void @systable_endscan(ptr noundef %12) #10
   %52 = load i32, ptr %3, align 4
   %.not40 = icmp ne i32 %52, 0
@@ -1788,7 +1788,7 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 
 58:                                               ; preds = %.loopexit
   call void @table_close(ptr noundef %7, i32 noundef 1) #10
-  ret ptr %.1
+  ret ptr %.033
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2095,18 +2095,18 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03547 = phi ptr [ null, %.lr.ph.preheader ], [ %64, %.lr.ph ]
+  %.147 = phi ptr [ null, %.lr.ph.preheader ], [ %64, %.lr.ph ]
   %60 = getelementptr i16, ptr %59, i64 %indvars.iv
   %61 = load i16, ptr %60, align 2
   %62 = sext i16 %61 to i32
   %63 = add nsw i32 %62, 7
-  %64 = call ptr @bms_add_member(ptr noundef %.03547, i32 noundef %63) #10
+  %64 = call ptr @bms_add_member(ptr noundef %.147, i32 noundef %63) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58
-  %.035.lcssa = phi ptr [ null, %58 ], [ %64, %.lr.ph ]
+  %.1.lcssa = phi ptr [ null, %58 ], [ %64, %.lr.ph ]
   %65 = load ptr, ptr %21, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 22
   %67 = load i8, ptr %66, align 2
@@ -2117,10 +2117,10 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %20, %._crit_edge
-  %.1 = phi ptr [ %.035.lcssa, %._crit_edge ], [ null, %20 ], [ null, %9 ]
+  %.035 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %20 ], [ null, %9 ]
   call void @systable_endscan(ptr noundef %8) #10
   call void @table_close(ptr noundef %6, i32 noundef 1) #10
-  ret ptr %.1
+  ret ptr %.035
 }
 
 ; Function Attrs: nounwind uwtable

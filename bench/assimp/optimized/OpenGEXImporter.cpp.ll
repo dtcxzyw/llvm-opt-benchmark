@@ -9258,7 +9258,7 @@ lpad8.body.i:                                     ; preds = %lpad8.i, %lpad.i1
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad8.body.i, %lpad5.i, %lpad.i9
-  %arrayinit.endOfInit.0.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 96), %lpad8.body.i ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64), %lpad.i9 ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64), %lpad5.i ]
+  %arrayinit.endOfInit.2.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 96), %lpad8.body.i ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64), %lpad.i9 ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 64), %lpad5.i ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body27.i, %lpad8.body.i ], [ %8, %lpad.i9 ], [ %14, %lpad5.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #25
   br label %ehcleanup11.i
@@ -9269,7 +9269,7 @@ ehcleanup11.thread.i:                             ; preds = %lpad.i, %lpad.i29
   br label %eh.resume.i
 
 ehcleanup11.i:                                    ; preds = %ehcleanup.i, %lpad2.i, %lpad.i19
-  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.0.i, %ehcleanup.i ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32), %lpad.i19 ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32), %lpad2.i ]
+  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup.i ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32), %lpad.i19 ], [ getelementptr inbounds (i8, ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 32), %lpad2.i ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %5, %lpad.i19 ], [ %13, %lpad2.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #25

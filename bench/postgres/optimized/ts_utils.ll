@@ -145,11 +145,11 @@ define dso_local void @readstoplist(ptr noundef %0, ptr nocapture noundef %1, pt
   %34 = shl i32 %.040.ph68, 1
   %35 = sext i32 %34 to i64
   %36 = shl nsw i64 %35, 3
-  %37 = call ptr @repalloc(ptr noundef %.041.ph67, i64 noundef %36) #7
+  %37 = call ptr @repalloc(ptr noundef %.142.ph67, i64 noundef %36) #7
   br label %38
 
 38:                                               ; preds = %31, %33, %27
-  %.142 = phi ptr [ %32, %31 ], [ %37, %33 ], [ %.041.ph67, %27 ]
+  %.2 = phi ptr [ %32, %31 ], [ %37, %33 ], [ %.142.ph67, %27 ]
   %.1 = phi i32 [ 64, %31 ], [ %34, %33 ], [ %.040.ph68, %27 ]
   br i1 %.not53, label %49, label %39
 
@@ -157,11 +157,11 @@ define dso_local void @readstoplist(ptr noundef %0, ptr nocapture noundef %1, pt
   %40 = call ptr %2(ptr noundef nonnull %15) #7
   %41 = load i32, ptr %1, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr ptr, ptr %.142, i64 %42
+  %43 = getelementptr ptr, ptr %.2, i64 %42
   store ptr %40, ptr %43, align 8
   %44 = load i32, ptr %1, align 8
   %45 = sext i32 %44 to i64
-  %46 = getelementptr ptr, ptr %.142, i64 %45
+  %46 = getelementptr ptr, ptr %.2, i64 %45
   %47 = load ptr, ptr %46, align 8
   %.not54 = icmp eq ptr %47, %15
   br i1 %.not54, label %.outer, label %48
@@ -173,7 +173,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr nocapture noundef %1, pt
 49:                                               ; preds = %38
   %50 = load i32, ptr %1, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr ptr, ptr %.142, i64 %51
+  %52 = getelementptr ptr, ptr %.2, i64 %51
   store ptr %15, ptr %52, align 8
   br label %.outer
 
@@ -188,7 +188,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr nocapture noundef %1, pt
 .preheader.lr.ph:                                 ; preds = %.preheader.lr.ph.lr.ph, %.outer
   %56 = phi ptr [ %10, %.preheader.lr.ph.lr.ph ], [ %55, %.outer ]
   %.040.ph68 = phi i32 [ 0, %.preheader.lr.ph.lr.ph ], [ %.1, %.outer ]
-  %.041.ph67 = phi ptr [ null, %.preheader.lr.ph.lr.ph ], [ %.142, %.outer ]
+  %.142.ph67 = phi ptr [ null, %.preheader.lr.ph.lr.ph ], [ %.2, %.outer ]
   br label %.preheader
 
 .thread:                                          ; preds = %5, %3
@@ -197,12 +197,12 @@ define dso_local void @readstoplist(ptr noundef %0, ptr nocapture noundef %1, pt
   br label %64
 
 .outer._crit_edge:                                ; preds = %.outer, %25, %.preheader57
-  %.041.ph.lcssa = phi ptr [ null, %.preheader57 ], [ %.041.ph67, %25 ], [ %.142, %.outer ]
+  %.142.ph.lcssa = phi ptr [ null, %.preheader57 ], [ %.142.ph67, %25 ], [ %.2, %.outer ]
   call void @tsearch_readline_end(ptr noundef nonnull %4) #7
   call void @pfree(ptr noundef %8) #7
   %58 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %.041.ph.lcssa, ptr %58, align 8
-  %.not49 = icmp eq ptr %.041.ph.lcssa, null
+  store ptr %.142.ph.lcssa, ptr %58, align 8
+  %.not49 = icmp eq ptr %.142.ph.lcssa, null
   br i1 %.not49, label %64, label %59
 
 59:                                               ; preds = %.outer._crit_edge
@@ -212,7 +212,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr nocapture noundef %1, pt
 
 62:                                               ; preds = %59
   %63 = zext nneg i32 %60 to i64
-  call void @pg_qsort(ptr noundef nonnull %.041.ph.lcssa, i64 noundef %63, i64 noundef 8, ptr noundef nonnull @pg_qsort_strcmp) #7
+  call void @pg_qsort(ptr noundef nonnull %.142.ph.lcssa, i64 noundef %63, i64 noundef 8, ptr noundef nonnull @pg_qsort_strcmp) #7
   br label %64
 
 64:                                               ; preds = %.thread, %62, %59, %.outer._crit_edge

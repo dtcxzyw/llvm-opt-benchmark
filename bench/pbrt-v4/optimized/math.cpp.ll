@@ -1930,19 +1930,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp8.not53, label %for.body.i19.preheader.preheader, label %for.body
 
 while.cond.preheader:                             ; preds = %for.inc
-  %cmp.i.not3.i18 = icmp eq ptr %smallPrimes.sroa.0.2, %smallPrimes.sroa.9.2
+  %cmp.i.not3.i18 = icmp eq ptr %smallPrimes.sroa.0.1, %smallPrimes.sroa.9.1
   br i1 %cmp.i.not3.i18, label %while.end, label %for.body.i19.preheader.preheader
 
 for.body.i19.preheader.preheader:                 ; preds = %if.end, %while.cond.preheader
-  %smallPrimes.sroa.9.0.lcssa71 = phi ptr [ %smallPrimes.sroa.9.2, %while.cond.preheader ], [ %add.ptr.i1.i, %if.end ]
-  %smallPrimes.sroa.0.0.lcssa69 = phi ptr [ %smallPrimes.sroa.0.2, %while.cond.preheader ], [ %call5.i.i.i.i2.i, %if.end ]
+  %smallPrimes.sroa.9.0.lcssa71 = phi ptr [ %smallPrimes.sroa.9.1, %while.cond.preheader ], [ %add.ptr.i1.i, %if.end ]
+  %smallPrimes.sroa.0.0.lcssa69 = phi ptr [ %smallPrimes.sroa.0.1, %while.cond.preheader ], [ %call5.i.i.i.i2.i, %if.end ]
   br label %for.body.i19.preheader
 
 for.body:                                         ; preds = %if.end, %for.inc
   %storemerge57 = phi i32 [ %add14, %for.inc ], [ 3, %if.end ]
-  %smallPrimes.sroa.16.056 = phi ptr [ %smallPrimes.sroa.16.2, %for.inc ], [ %add.ptr.i1.i, %if.end ]
-  %smallPrimes.sroa.9.055 = phi ptr [ %smallPrimes.sroa.9.2, %for.inc ], [ %add.ptr.i1.i, %if.end ]
-  %smallPrimes.sroa.0.054 = phi ptr [ %smallPrimes.sroa.0.2, %for.inc ], [ %call5.i.i.i.i2.i, %if.end ]
+  %smallPrimes.sroa.16.056 = phi ptr [ %smallPrimes.sroa.16.1, %for.inc ], [ %add.ptr.i1.i, %if.end ]
+  %smallPrimes.sroa.9.055 = phi ptr [ %smallPrimes.sroa.9.1, %for.inc ], [ %add.ptr.i1.i, %if.end ]
+  %smallPrimes.sroa.0.054 = phi ptr [ %smallPrimes.sroa.0.1, %for.inc ], [ %call5.i.i.i.i2.i, %if.end ]
   %cmp.i.not3.i = icmp eq ptr %smallPrimes.sroa.0.054, %smallPrimes.sroa.9.055
   br i1 %cmp.i.not3.i, label %if.then11, label %for.body.i
 
@@ -2045,9 +2045,9 @@ if.then.i.i.i16:                                  ; preds = %lpad5
   br label %eh.resume
 
 for.inc:                                          ; preds = %land.lhs.true.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %if.then.i
-  %smallPrimes.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %smallPrimes.sroa.0.054, %if.then.i ], [ %smallPrimes.sroa.0.054, %land.lhs.true.i ]
-  %smallPrimes.sroa.9.2 = phi ptr [ %incdec.ptr.i.i12, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ], [ %smallPrimes.sroa.9.055, %land.lhs.true.i ]
-  %smallPrimes.sroa.16.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %smallPrimes.sroa.16.056, %if.then.i ], [ %smallPrimes.sroa.16.056, %land.lhs.true.i ]
+  %smallPrimes.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %smallPrimes.sroa.0.054, %if.then.i ], [ %smallPrimes.sroa.0.054, %land.lhs.true.i ]
+  %smallPrimes.sroa.9.1 = phi ptr [ %incdec.ptr.i.i12, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ], [ %smallPrimes.sroa.9.055, %land.lhs.true.i ]
+  %smallPrimes.sroa.16.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %smallPrimes.sroa.16.056, %if.then.i ], [ %smallPrimes.sroa.16.056, %land.lhs.true.i ]
   %add14 = add nuw nsw i32 %storemerge57, 2
   %call.i = tail call noundef double @sqrt(double noundef %conv.i) #21
   %conv = fptosi double %call.i to i32
@@ -2079,7 +2079,7 @@ while.body:                                       ; preds = %land.lhs.true.i22
   br label %for.body.i19.preheader
 
 while.end:                                        ; preds = %for.inc.i25, %while.cond.preheader
-  %smallPrimes.sroa.0.0.lcssa70 = phi ptr [ %smallPrimes.sroa.0.2, %while.cond.preheader ], [ %smallPrimes.sroa.0.0.lcssa69, %for.inc.i25 ]
+  %smallPrimes.sroa.0.0.lcssa70 = phi ptr [ %smallPrimes.sroa.0.1, %while.cond.preheader ], [ %smallPrimes.sroa.0.0.lcssa69, %for.inc.i25 ]
   %x.addr.145 = phi i32 [ %spec.select, %while.cond.preheader ], [ %x.addr.160, %for.inc.i25 ]
   %tobool.not.i.i.i30 = icmp eq ptr %smallPrimes.sroa.0.0.lcssa70, null
   br i1 %tobool.not.i.i.i30, label %return, label %if.then.i.i.i31

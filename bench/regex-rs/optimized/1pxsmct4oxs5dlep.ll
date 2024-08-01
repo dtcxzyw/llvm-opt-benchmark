@@ -5549,10 +5549,10 @@ define hidden { ptr, i64 } @_ZN12regex_syntax7unicode16SimpleCaseFolder7mapping1
   br label %54
 
 54:                                               ; preds = %45, %48, %10, %37
-  %.sroa.5.1 = phi i64 [ %39, %37 ], [ 0, %10 ], [ 0, %45 ], [ %53, %48 ]
-  %.sroa.0.1 = phi ptr [ %41, %37 ], [ @anon.ee024262027212e939cdd9996d089225.2.llvm.16611923841924356903, %10 ], [ @anon.ee024262027212e939cdd9996d089225.2.llvm.16611923841924356903, %45 ], [ %51, %48 ]
-  %55 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %56 = insertvalue { ptr, i64 } %55, i64 %.sroa.5.1, 1
+  %.sroa.5.0 = phi i64 [ %39, %37 ], [ 0, %10 ], [ 0, %45 ], [ %53, %48 ]
+  %.sroa.0.0 = phi ptr [ %41, %37 ], [ @anon.ee024262027212e939cdd9996d089225.2.llvm.16611923841924356903, %10 ], [ @anon.ee024262027212e939cdd9996d089225.2.llvm.16611923841924356903, %45 ], [ %51, %48 ]
+  %55 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %56 = insertvalue { ptr, i64 } %55, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %56
 }
 

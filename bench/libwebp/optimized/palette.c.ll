@@ -213,7 +213,7 @@ define hidden i32 @GetColorPalette(ptr nocapture noundef readonly %0, ptr nounde
 
 .preheader:                                       ; preds = %._crit_edge76, %52
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %52 ], [ 0, %._crit_edge76 ]
-  %.378 = phi i32 [ %.4, %52 ], [ 0, %._crit_edge76 ]
+  %.478 = phi i32 [ %.5, %52 ], [ 0, %._crit_edge76 ]
   %44 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 %indvars.iv83
   %45 = load i8, ptr %44, align 1
   %.not51 = icmp eq i8 %45, 0
@@ -222,25 +222,25 @@ define hidden i32 @GetColorPalette(ptr nocapture noundef readonly %0, ptr nounde
 46:                                               ; preds = %.preheader
   %47 = getelementptr inbounds [1024 x i32], ptr %4, i64 0, i64 %indvars.iv83
   %48 = load i32, ptr %47, align 4
-  %49 = sext i32 %.378 to i64
+  %49 = sext i32 %.478 to i64
   %50 = getelementptr inbounds i32, ptr %1, i64 %49
   store i32 %48, ptr %50, align 4
-  %51 = add nsw i32 %.378, 1
+  %51 = add nsw i32 %.478, 1
   br label %52
 
 52:                                               ; preds = %.preheader, %46
-  %.4 = phi i32 [ %51, %46 ], [ %.378, %.preheader ]
+  %.5 = phi i32 [ %51, %46 ], [ %.478, %.preheader ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 1024
   br i1 %exitcond86.not, label %53, label %.preheader, !llvm.loop !8
 
 53:                                               ; preds = %52
-  %54 = sext i32 %.4 to i64
+  %54 = sext i32 %.5 to i64
   tail call void @qsort(ptr noundef nonnull %1, i64 noundef %54, i64 noundef 4, ptr noundef nonnull @PaletteCompareColorsForQsort) #10
   br label %.loopexit54
 
 .loopexit54:                                      ; preds = %._crit_edge.us, %._crit_edge76, %53
-  %.040 = phi i32 [ %.4, %53 ], [ %.043.lcssa, %._crit_edge76 ], [ 257, %._crit_edge.us ]
+  %.040 = phi i32 [ %.5, %53 ], [ %.043.lcssa, %._crit_edge76 ], [ 257, %._crit_edge.us ]
   ret i32 %.040
 }
 
@@ -818,7 +818,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
 296:                                              ; preds = %319, %.lr.ph.i
   %indvars.iv165.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next166.i, %319 ]
   %.088133.i = phi i32 [ 0, %.lr.ph.i ], [ %.189.i, %319 ]
-  %.091132.i = phi ptr [ %9, %.lr.ph.i ], [ %.293.i, %319 ]
+  %.091132.i = phi ptr [ %9, %.lr.ph.i ], [ %.192.i, %319 ]
   %297 = icmp eq i64 %indvars.iv165.i, %292
   %298 = icmp eq i64 %indvars.iv165.i, %291
   %or.cond.i = select i1 %297, i1 true, i1 %298
@@ -850,7 +850,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   br label %319
 
 319:                                              ; preds = %299, %296
-  %.293.i = phi ptr [ %.091132.i, %296 ], [ %spec.select.i24, %299 ]
+  %.192.i = phi ptr [ %.091132.i, %296 ], [ %spec.select.i24, %299 ]
   %.189.i = phi i32 [ %.088133.i, %296 ], [ %318, %299 ]
   %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next166.i, %121
@@ -863,12 +863,12 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
 320:                                              ; preds = %.loopexit120.i, %.preheader.i26
   %indvars.iv = phi i64 [ %351, %.loopexit120.i ], [ %295, %.preheader.i26 ]
   %indvars.iv175.i = phi i64 [ %indvars.iv.next176.i, %.loopexit120.i ], [ %294, %.preheader.i26 ]
-  %.3149.i = phi ptr [ %spec.select111.i, %.loopexit120.i ], [ %.293.i, %.preheader.i26 ]
+  %.3149.i = phi ptr [ %spec.select111.i, %.loopexit120.i ], [ %.192.i, %.preheader.i26 ]
   %.095147.i = phi i32 [ %.196.i, %.loopexit120.i ], [ 1, %.preheader.i26 ]
-  %.097146.i = phi i32 [ %.198.i, %.loopexit120.i ], [ 0, %.preheader.i26 ]
+  %.198146.i = phi i32 [ %.299.i, %.loopexit120.i ], [ 0, %.preheader.i26 ]
   %321 = load i8, ptr %.3149.i, align 4
   %322 = add i32 %.095147.i, 1
-  %323 = urem i32 %.097146.i, %3
+  %323 = urem i32 %.198146.i, %3
   %.not108135.i = icmp eq i32 %323, %322
   br i1 %.not108135.i, label %._crit_edge.thread.i, label %.lr.ph138.i
 
@@ -878,7 +878,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   %326 = add i32 %325, %3
   %327 = zext i8 %321 to i32
   %328 = mul i32 %327, %3
-  %invariant.op.i = add i32 %.097146.i, 1
+  %invariant.op.i = add i32 %.198146.i, 1
   br label %329
 
 329:                                              ; preds = %329, %.lr.ph138.i
@@ -908,14 +908,14 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   br i1 %345, label %346, label %._crit_edge.thread.i
 
 346:                                              ; preds = %._crit_edge.i
-  %347 = icmp eq i32 %.097146.i, 0
-  %.v.i = select i1 %347, i32 %3, i32 %.097146.i
+  %347 = icmp eq i32 %.198146.i, 0
+  %.v.i = select i1 %347, i32 %3, i32 %.198146.i
   %348 = add i32 %.v.i, -1
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %346, %._crit_edge.i, %320
   %.sink.i = phi i32 [ %348, %346 ], [ %322, %320 ], [ %322, %._crit_edge.i ]
-  %.198.i = phi i32 [ %348, %346 ], [ %.097146.i, %320 ], [ %.097146.i, %._crit_edge.i ]
+  %.299.i = phi i32 [ %348, %346 ], [ %.198146.i, %320 ], [ %.198146.i, %._crit_edge.i ]
   %.196.i = phi i32 [ %.095147.i, %346 ], [ %322, %320 ], [ %322, %._crit_edge.i ]
   %349 = zext i32 %.sink.i to i64
   %350 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 %349
@@ -955,14 +955,14 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   br i1 %exitcond174.not.i, label %.loopexit120.i, label %356, !llvm.loop !21
 
 .lr.ph152.preheader.i:                            ; preds = %._crit_edge.thread.i, %CoOccurrenceFindMax.exit.i
-  %.299.i = phi i32 [ 0, %CoOccurrenceFindMax.exit.i ], [ %.198.i, %._crit_edge.thread.i ]
+  %.097.i = phi i32 [ 0, %CoOccurrenceFindMax.exit.i ], [ %.299.i, %._crit_edge.thread.i ]
   call void @WebPSafeFree(ptr noundef nonnull %108) #10
   br label %.lr.ph152.i
 
 .lr.ph152.i:                                      ; preds = %.lr.ph152.i, %.lr.ph152.preheader.i
   %indvars.iv178.i = phi i64 [ 0, %.lr.ph152.preheader.i ], [ %indvars.iv.next179.i, %.lr.ph152.i ]
   %370 = trunc nuw i64 %indvars.iv178.i to i32
-  %371 = add i32 %.299.i, %370
+  %371 = add i32 %.097.i, %370
   %372 = urem i32 %371, %3
   %373 = zext i32 %372 to i64
   %374 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 %373

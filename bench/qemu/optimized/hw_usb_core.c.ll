@@ -2031,7 +2031,7 @@ if.end:                                           ; preds = %if.then13, %if.then
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end, %land.lhs.true, %for.body3
-  %first.2 = phi i32 [ 0, %if.end ], [ %first.032, %land.lhs.true ], [ %first.032, %for.body3 ]
+  %first.1 = phi i32 [ 0, %if.end ], [ %first.032, %land.lhs.true ], [ %first.032, %for.body3 ]
   %arrayidx29 = getelementptr [15 x %struct.USBEndpoint], ptr %ep_out, i64 0, i64 %indvars.iv
   %type30 = getelementptr inbounds i8, ptr %arrayidx29, i64 2
   %14 = load i8, ptr %type30, align 2
@@ -2046,7 +2046,7 @@ land.lhs.true34:                                  ; preds = %if.end27
   br i1 %cmp40, label %if.then42, label %for.inc
 
 if.then42:                                        ; preds = %land.lhs.true34
-  %tobool43.not = icmp eq i32 %first.2, 0
+  %tobool43.not = icmp eq i32 %first.1, 0
   br i1 %tobool43.not, label %if.end49, label %if.then44
 
 if.then44:                                        ; preds = %if.then42
@@ -2069,7 +2069,7 @@ if.end49:                                         ; preds = %if.then44, %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end27, %land.lhs.true34, %if.end49
-  %first.4 = phi i32 [ 0, %if.end49 ], [ %first.2, %land.lhs.true34 ], [ %first.2, %if.end27 ]
+  %first.4 = phi i32 [ 0, %if.end49 ], [ %first.1, %land.lhs.true34 ], [ %first.1, %if.end27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
   br i1 %exitcond.not, label %for.inc62, label %for.body3, !llvm.loop !11

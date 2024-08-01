@@ -373,7 +373,7 @@ define hidden void @_ZN8async_io6driver8block_on17hd98293694af0ada8E(ptr noalias
   br label %_ZN7tracing4span4Span8do_enter17hbc9c1a32e0d90029E.exit
 
 49:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h9d67df26919f87a1E.exit"
-  br i1 %.2, label %524, label %.body32.thread
+  br i1 %.3, label %524, label %.body32.thread
 
 .body32.thread38:                                 ; preds = %60, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.thread, %55
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -435,13 +435,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
           to label %_ZN7tracing4span4Span8do_enter17hbc9c1a32e0d90029E.exit unwind label %68
 
 "_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h9d67df26919f87a1E.exit": ; preds = %"_ZN4core3ptr254drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$$LP$$RP$$C$async_executor..Executor..run$LT$$LP$$RP$$C$core..future..pending..Pending$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7e3b733b22200500E.exit", %499, %68
-  %.2 = phi i1 [ %.3, %68 ], [ false, %499 ], [ false, %"_ZN4core3ptr254drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$$LP$$RP$$C$async_executor..Executor..run$LT$$LP$$RP$$C$core..future..pending..Pending$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7e3b733b22200500E.exit" ]
+  %.3 = phi i1 [ %.2, %68 ], [ false, %499 ], [ false, %"_ZN4core3ptr254drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$$LP$$RP$$C$async_executor..Executor..run$LT$$LP$$RP$$C$core..future..pending..Pending$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7e3b733b22200500E.exit" ]
   %.pn15 = phi { ptr, i32 } [ %69, %68 ], [ %.pn, %499 ], [ %.pn, %"_ZN4core3ptr254drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$$LP$$RP$$C$async_executor..Executor..run$LT$$LP$$RP$$C$core..future..pending..Pending$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7e3b733b22200500E.exit" ]
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h69eb9e1cbda42f23E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %46) #11
           to label %49 unwind label %522
 
 68:                                               ; preds = %505, %67
-  %.3 = phi i1 [ true, %67 ], [ false, %505 ]
+  %.2 = phi i1 [ true, %67 ], [ false, %505 ]
   %69 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h9d67df26919f87a1E.exit"
@@ -472,17 +472,17 @@ _ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i: ; 
   br i1 %76, label %81, label %83
 
 77:                                               ; preds = %.body.i.i, %79
-  %.0273.i.i = phi i8 [ %.2275.i.i, %.body.i.i ], [ %.1274.i.i, %79 ]
-  %.0269.i.i = phi i8 [ %.2271.i.i, %.body.i.i ], [ %.1270.i.i, %79 ]
-  %.0265.i.i = phi i1 [ false, %.body.i.i ], [ %.1266.i.i, %79 ]
+  %.1274.i.i = phi i8 [ %.2275.i.i, %.body.i.i ], [ %.0273.i.i, %79 ]
+  %.1270.i.i = phi i8 [ %.3272.i.i, %.body.i.i ], [ %.0269.i.i, %79 ]
+  %.1266.i.i = phi i1 [ false, %.body.i.i ], [ %.0265.i.i, %79 ]
   %.pn310.pn.i.i = phi { ptr, i32 } [ %.pn310.i.i, %.body.i.i ], [ %80, %79 ]
-  %78 = trunc nuw i8 %.0273.i.i to i1
+  %78 = trunc nuw i8 %.1274.i.i to i1
   br i1 %78, label %477, label %.body365.i.i
 
 79:                                               ; preds = %.critedge.i.i, %83
-  %.1274.i.i = phi i8 [ %.2275.i.i, %.critedge.i.i ], [ 0, %83 ]
-  %.1270.i.i = phi i8 [ %.2271.i.i, %.critedge.i.i ], [ 0, %83 ]
-  %.1266.i.i = phi i1 [ false, %.critedge.i.i ], [ true, %83 ]
+  %.0273.i.i = phi i8 [ %.2275.i.i, %.critedge.i.i ], [ 0, %83 ]
+  %.0269.i.i = phi i8 [ %.3272.i.i, %.critedge.i.i ], [ 0, %83 ]
+  %.0265.i.i = phi i1 [ false, %.critedge.i.i ], [ true, %83 ]
   %80 = landingpad { ptr, i32 }
           cleanup
   br label %77
@@ -499,7 +499,7 @@ _ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i: ; 
 
 84:                                               ; preds = %122, %81
   %.2275.i.i = phi i8 [ 1, %122 ], [ 0, %81 ]
-  %.2271.i.i = phi i8 [ 0, %122 ], [ 1, %81 ]
+  %.3272.i.i = phi i8 [ 0, %122 ], [ 1, %81 ]
   %.0.i.i = phi ptr [ %42, %122 ], [ %82, %81 ]
   %85 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %86 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
@@ -897,7 +897,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
 
 "_ZN4core3ptr127drop_in_place$LT$$LP$parking..Parker$C$core..task..wake..Waker$C$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$RP$$GT$17hee68c1eb95112344E.exit.i.i": ; preds = %239, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit7.i.i.i", %210
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42), !noalias !104
-  %212 = trunc nuw i8 %.2271.i.i to i1
+  %212 = trunc nuw i8 %.3272.i.i to i1
   br i1 %212, label %245, label %493
 
 213:                                              ; preds = %210
@@ -979,10 +979,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
   unreachable
 
 .body365.i.i:                                     ; preds = %477, %243, %232, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i", %77
-  %.3272.i.i = phi i8 [ %.0269.i.i, %477 ], [ %.0269.i.i, %77 ], [ %.2271.i.i, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ %.2271.i.i, %232 ], [ %.2271.i.i, %243 ]
-  %.2.i.i = phi i1 [ %.0265.i.i, %477 ], [ %.0265.i.i, %77 ], [ false, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ false, %232 ], [ false, %243 ]
+  %.2271.i.i = phi i8 [ %.1270.i.i, %477 ], [ %.1270.i.i, %77 ], [ %.3272.i.i, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ %.3272.i.i, %232 ], [ %.3272.i.i, %243 ]
+  %.2.i.i = phi i1 [ %.1266.i.i, %477 ], [ %.1266.i.i, %77 ], [ false, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ false, %232 ], [ false, %243 ]
   %.pn310.pn.pn.i.i = phi { ptr, i32 } [ %.pn310.pn.i.i, %477 ], [ %.pn310.pn.i.i, %77 ], [ %.pn.i.i.i, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ %.pn.i.i.i, %232 ], [ %244, %243 ]
-  %242 = trunc nuw i8 %.3272.i.i to i1
+  %242 = trunc nuw i8 %.2271.i.i to i1
   br i1 %242, label %478, label %248
 
 243:                                              ; preds = %239
@@ -1029,9 +1029,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
           to label %260 unwind label %.loopexit.split-lp641.loopexit.i.i, !noalias !104
 
 .loopexit.split-lp641.i.i:                        ; preds = %.loopexit.split-lp.i.i, %.loopexit.split-lp641.loopexit.split-lp.i.i, %.loopexit.split-lp641.loopexit.i.i
-  %.0279.i.i = phi i8 [ %.2281.i.i, %.loopexit.split-lp.i.i ], [ %.1280.ph.ph.i.i, %.loopexit.split-lp641.loopexit.i.i ], [ %.1280.ph.ph655.i.i, %.loopexit.split-lp641.loopexit.split-lp.i.i ]
+  %.1280.i.i = phi i8 [ %.2281.i.i, %.loopexit.split-lp.i.i ], [ %.0279.ph.ph.i.i, %.loopexit.split-lp641.loopexit.i.i ], [ %.0279.ph.ph655.i.i, %.loopexit.split-lp641.loopexit.split-lp.i.i ]
   %.pn.i.i = phi { ptr, i32 } [ %lpad.phi.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit656.i.i, %.loopexit.split-lp641.loopexit.i.i ], [ %lpad.loopexit.split-lp657.i.i, %.loopexit.split-lp641.loopexit.split-lp.i.i ]
-  %259 = trunc nuw i8 %.0279.i.i to i1
+  %259 = trunc nuw i8 %.1280.i.i to i1
   br i1 %259, label %402, label %.body.i.i
 
 .loopexit.split-lp641.thread.i.i:                 ; preds = %"_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe6da69e9bb066f1E.llvm.14408593437386099104.exit.i.i.i", %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread575.i.i"
@@ -1040,13 +1040,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
   br label %402
 
 .loopexit.split-lp641.loopexit.i.i:               ; preds = %"_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe6da69e9bb066f1E.llvm.14408593437386099104.exit.i395.i.i", %.critedge329.i.i, %257
-  %.1280.ph.ph.i.i = phi i8 [ 1, %257 ], [ %.3282.i.i, %.critedge329.i.i ], [ %.3282.i.i, %"_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe6da69e9bb066f1E.llvm.14408593437386099104.exit.i395.i.i" ]
+  %.0279.ph.ph.i.i = phi i8 [ 1, %257 ], [ %.3282.i.i, %.critedge329.i.i ], [ %.3282.i.i, %"_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe6da69e9bb066f1E.llvm.14408593437386099104.exit.i395.i.i" ]
   %lpad.loopexit656.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp641.i.i
 
 .loopexit.split-lp641.loopexit.split-lp.i.i:      ; preds = %338, %300
-  %.1280.ph.ph655.i.i = phi i8 [ 1, %300 ], [ %.3282.i.i, %338 ]
+  %.0279.ph.ph655.i.i = phi i8 [ 1, %300 ], [ %.3282.i.i, %338 ]
   %lpad.loopexit.split-lp657.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp641.i.i

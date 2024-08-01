@@ -577,7 +577,7 @@ for.body.lr.ph.i.i:                               ; preds = %do.end.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %len.076.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %len.2.i.i, %for.inc.i.i ]
+  %len.076.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %len.1.i.i, %for.inc.i.i ]
   %55 = load ptr, ptr @diff_queued_diff, align 8
   %arrayidx.i.i113 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv.i.i
   %56 = load ptr, ptr %arrayidx.i.i113, align 8
@@ -804,7 +804,7 @@ if.else42.i.i:                                    ; preds = %if.end19.i.i
   br label %do.body51.i.i
 
 do.body51.i.i:                                    ; preds = %if.else42.i.i, %if.then35.i.i, %is_null_oid.exit53.i.i, %if.then27.i.i
-  %len.1.i.i = phi i32 [ %len.076.i.i, %if.then27.i.i ], [ %len.076.i.i, %if.then35.i.i ], [ %len.076.i.i, %is_null_oid.exit53.i.i ], [ %inc.i.i, %if.else42.i.i ]
+  %len.2.i.i = phi i32 [ %len.076.i.i, %if.then27.i.i ], [ %len.076.i.i, %if.then35.i.i ], [ %len.076.i.i, %is_null_oid.exit53.i.i ], [ %inc.i.i, %if.else42.i.i ]
   %90 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i63.i.i = icmp eq i32 %90, 0
   %bf.load.i64.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
@@ -823,7 +823,7 @@ if.then54.i.i:                                    ; preds = %do.body51.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then54.i.i, %do.body51.i.i, %if.then11.i.i, %do.body8.i.i
-  %len.2.i.i = phi i32 [ %len.076.i.i, %if.then11.i.i ], [ %len.076.i.i, %do.body8.i.i ], [ %len.1.i.i, %if.then54.i.i ], [ %len.1.i.i, %do.body51.i.i ]
+  %len.1.i.i = phi i32 [ %len.076.i.i, %if.then11.i.i ], [ %len.076.i.i, %do.body8.i.i ], [ %len.2.i.i, %if.then54.i.i ], [ %len.2.i.i, %do.body51.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %91 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %92 = sext i32 %91 to i64
@@ -831,7 +831,7 @@ for.inc.i.i:                                      ; preds = %if.then54.i.i, %do.
   br i1 %cmp.i.i114, label %for.body.i.i, label %diff_tree_remote.exit.i, !llvm.loop !7
 
 diff_tree_remote.exit.i:                          ; preds = %for.inc.i.i, %do.end.i.i
-  %len.0.lcssa.i.i = phi i32 [ 0, %do.end.i.i ], [ %len.2.i.i, %for.inc.i.i ]
+  %len.0.lcssa.i.i = phi i32 [ 0, %do.end.i.i ], [ %len.1.i.i, %for.inc.i.i ]
   call void @diff_flush(ptr noundef nonnull %opt.i.i) #14
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %opt.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %occupied.i.i)
@@ -2319,8 +2319,8 @@ if.then25:                                        ; preds = %while.body, %while.
   br label %if.end38
 
 if.else26:                                        ; preds = %if.end20, %if.else8, %if.end20.us71, %if.else8.us64, %if.end20.us, %if.else8.us, %if.end20.us.us, %if.else8.us.us, %entry, %if.else16
-  %i.2.ph = phi i32 [ %inc17, %if.else16 ], [ %cond, %entry ], [ %dec.us.us, %if.end20.us.us ], [ %i.044.us.us, %if.else8.us.us ], [ %dec.us, %if.end20.us ], [ %i.044.us, %if.else8.us ], [ %dec.us70, %if.end20.us71 ], [ %i.044.us52, %if.else8.us64 ], [ %dec, %if.end20 ], [ %i.044, %if.else8 ]
-  %spec.store.select38 = tail call i32 @llvm.smax.i32(i32 %i.2.ph, i32 0)
+  %i.1.ph = phi i32 [ %inc17, %if.else16 ], [ %cond, %entry ], [ %dec.us.us, %if.end20.us.us ], [ %i.044.us.us, %if.else8.us.us ], [ %dec.us, %if.end20.us ], [ %i.044.us, %if.else8.us ], [ %dec.us70, %if.end20.us71 ], [ %i.044.us52, %if.else8.us64 ], [ %dec, %if.end20 ], [ %i.044, %if.else8 ]
+  %spec.store.select38 = tail call i32 @llvm.smax.i32(i32 %i.1.ph, i32 0)
   store i32 0, ptr %occupied, align 4
   %tobool27.not = icmp ne i32 %insert_new, 0
   %cmp29 = icmp slt i32 %spec.store.select38, %len

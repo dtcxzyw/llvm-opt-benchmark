@@ -2606,7 +2606,7 @@ invoke.cont188:                                   ; preds = %_ZN4absl12lts_20230
   br label %cleanup201
 
 cleanup201:                                       ; preds = %invoke.cont188, %cleanup176
-  %cleanup.dest.slot.7 = phi i32 [ 1, %cleanup176 ], [ %spec.select, %invoke.cont188 ]
+  %cleanup.dest.slot.8 = phi i32 [ 1, %cleanup176 ], [ %spec.select, %invoke.cont188 ]
   %59 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %59, 0
   br i1 %tobool.not.i.i.i.i, label %cleanup202, label %if.end.i.i.i.i
@@ -2666,7 +2666,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   br label %cleanup202
 
 cleanup202:                                       ; preds = %invoke.cont13.i.i.i.i, %cleanup201, %cleanup153
-  %cleanup.dest.slot.8 = phi i32 [ 1, %cleanup153 ], [ %cleanup.dest.slot.7, %cleanup201 ], [ %cleanup.dest.slot.7, %invoke.cont13.i.i.i.i ]
+  %cleanup.dest.slot.6 = phi i32 [ 1, %cleanup153 ], [ %cleanup.dest.slot.8, %cleanup201 ], [ %cleanup.dest.slot.8, %invoke.cont13.i.i.i.i ]
   %68 = load i64, ptr %group_desc, align 8
   %and.i.i.i1.i.i = and i64 %68, 1
   %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
@@ -2684,7 +2684,7 @@ terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit: ; preds = %cleanup202, %if.then.i.i3.i.i
-  %cond1 = icmp eq i32 %cleanup.dest.slot.8, 5
+  %cond1 = icmp eq i32 %cleanup.dest.slot.6, 5
   br i1 %cond1, label %sw.epilog, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 ehcleanup204:                                     ; preds = %lpad168, %lpad143
@@ -2746,8 +2746,8 @@ sw.epilog:                                        ; preds = %do.body110, %do.bod
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then22, %if.end4.i, %if.then3.i, %if.end48, %invoke.cont37.thread, %invoke.cont30.thread, %invoke.cont23.thread, %if.end.i, %if.else.i, %if.else.i79, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit, %sw.epilog
-  %cleanup.dest.slot.9270 = phi i32 [ 2, %if.then3.i ], [ 2, %if.end48 ], [ 2, %if.end4.i ], [ 2, %invoke.cont37.thread ], [ 2, %invoke.cont30.thread ], [ 2, %invoke.cont23.thread ], [ 2, %if.else.i79 ], [ 2, %if.else.i ], [ 2, %if.end.i ], [ %cleanup.dest.slot.8, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit ], [ 0, %sw.epilog ], [ 2, %if.then22 ]
-  %switch = icmp eq i32 %cleanup.dest.slot.9270, 1
+  %cleanup.dest.slot.0270 = phi i32 [ 2, %if.then3.i ], [ 2, %if.end48 ], [ 2, %if.end4.i ], [ 2, %invoke.cont37.thread ], [ 2, %invoke.cont30.thread ], [ 2, %invoke.cont23.thread ], [ 2, %if.else.i79 ], [ 2, %if.else.i ], [ 2, %if.end.i ], [ %cleanup.dest.slot.6, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit ], [ 0, %sw.epilog ], [ 2, %if.then22 ]
+  %switch = icmp eq i32 %cleanup.dest.slot.0270, 1
   br i1 %switch, label %return, label %while.body
 
 _ZNSt6vectorIiSaIiEED2Ev.exit233:                 ; preds = %ehcleanup204, %lpad.i55, %lpad.i183, %lpad.i222, %lpad.i152, %lpad.i123, %lpad.i
@@ -3639,7 +3639,7 @@ terminate.lpad.i4.i:                              ; preds = %if.then.i.i3.i
   unreachable
 
 cleanup107:                                       ; preds = %if.then.i.i3.i, %if.else.i, %invoke.cont13.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i, %cleanup52
-  %cleanup.dest.slot.6 = phi i32 [ 1, %cleanup52 ], [ %cleanup.dest.slot.5, %_ZN4absl12lts_202308026StatusD2Ev.exit.i ], [ %cleanup.dest.slot.5, %invoke.cont13.i.i.i.i.i ], [ %cleanup.dest.slot.5, %if.else.i ], [ %cleanup.dest.slot.5, %if.then.i.i3.i ]
+  %cleanup.dest.slot.3 = phi i32 [ 1, %cleanup52 ], [ %cleanup.dest.slot.5, %_ZN4absl12lts_202308026StatusD2Ev.exit.i ], [ %cleanup.dest.slot.5, %invoke.cont13.i.i.i.i.i ], [ %cleanup.dest.slot.5, %if.else.i ], [ %cleanup.dest.slot.5, %if.then.i.i3.i ]
   %41 = load i64, ptr %inner_desc, align 8
   %and.i.i.i1.i.i = and i64 %41, 1
   %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
@@ -3657,7 +3657,7 @@ terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit: ; preds = %cleanup107, %if.then.i.i3.i.i
-  %switch40 = icmp eq i32 %cleanup.dest.slot.6, 1
+  %switch40 = icmp eq i32 %cleanup.dest.slot.3, 1
   br i1 %switch40, label %return, label %sw.epilog173
 
 ehcleanup109:                                     ; preds = %lpad66, %lpad42

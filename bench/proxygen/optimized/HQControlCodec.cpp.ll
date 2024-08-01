@@ -2181,9 +2181,9 @@ invoke.cont38:                                    ; preds = %_ZN5folly2toINSt7__
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont38, %invoke.cont35
-  %retval.0 = phi i64 [ 0, %invoke.cont35 ], [ %6, %invoke.cont38 ]
+  %retval.1 = phi i64 [ 0, %invoke.cont35 ], [ %6, %invoke.cont38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %updateString) #25
-  ret i64 %retval.0
+  ret i64 %retval.1
 }
 
 declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #0
@@ -2301,9 +2301,9 @@ invoke.cont38:                                    ; preds = %_ZN5folly2toINSt7__
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont38, %invoke.cont35
-  %retval.0 = phi i64 [ 0, %invoke.cont35 ], [ %6, %invoke.cont38 ]
+  %retval.1 = phi i64 [ 0, %invoke.cont35 ], [ %6, %invoke.cont38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %updateString) #25
-  ret i64 %retval.0
+  ret i64 %retval.1
 }
 
 ; Function Attrs: nounwind

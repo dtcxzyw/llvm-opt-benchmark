@@ -1678,11 +1678,11 @@ _ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit: ; preds = %71, %76
 
 121:                                              ; preds = %117, %119
   %.pn = phi { ptr, i32 } [ %120, %119 ], [ %118, %117 ]
-  %.1 = phi i1 [ %.0, %119 ], [ true, %117 ]
+  %.2 = phi i1 [ %.0, %119 ], [ true, %117 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  br i1 %.1, label %122, label %common.resume
+  br i1 %.2, label %122, label %common.resume
 
 122:                                              ; preds = %.thread, %121
   %.pn.pn52 = phi { ptr, i32 } [ %116, %.thread ], [ %.pn, %121 ]

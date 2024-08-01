@@ -1238,7 +1238,7 @@ wg_kdf.exit72.i.i:                                ; preds = %401
   br i1 %.not16.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %405, %412
-  %.sroa.082.1.i.i = phi i32 [ %.sroa.082.2.i.i, %412 ], [ %.sroa.082.0.i.i, %405 ]
+  %.sroa.082.2.i.i = phi i32 [ %.sroa.082.3.i.i, %412 ], [ %.sroa.082.0.i.i, %405 ]
   %406 = phi i32 [ %413, %412 ], [ %.sroa.082.0.i.i, %405 ]
   switch i32 %406, label %412 [
     i32 0, label %.sink.split.i.i.i
@@ -1263,14 +1263,14 @@ wg_kdf.exit72.i.i:                                ; preds = %401
   br label %412
 
 412:                                              ; preds = %.sink.split.i.i.i, %.lr.ph.i.i.i
-  %.sroa.082.2.i.i = phi i32 [ %.sroa.082.1.i.i, %.lr.ph.i.i.i ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %.sroa.082.3.i.i = phi i32 [ %.sroa.082.2.i.i, %.lr.ph.i.i.i ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
   %413 = phi i32 [ %406, %.lr.ph.i.i.i ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
   %.1.i.i.i = phi ptr [ null, %.lr.ph.i.i.i ], [ %411, %.sink.split.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.i:                                ; preds = %412, %405
-  %.sroa.082.3.i.i = phi i32 [ %.sroa.082.0.i.i, %405 ], [ %.sroa.082.2.i.i, %412 ]
+  %.sroa.082.1.i.i = phi i32 [ %.sroa.082.0.i.i, %405 ], [ %.sroa.082.3.i.i, %412 ]
   %.0.lcssa.i.i.i = phi ptr [ %.sroa.483.0.i.i, %405 ], [ %.1.i.i.i, %412 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa.i.i.i, i64 32, i1 false)
   %414 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
@@ -1278,7 +1278,7 @@ wg_kdf.exit72.i.i:                                ; preds = %401
   br label %416
 
 416:                                              ; preds = %._crit_edge.i.i.i, %408
-  %.sroa.082.4.ph.i.i = phi i32 [ 3, %408 ], [ %.sroa.082.3.i.i, %._crit_edge.i.i.i ]
+  %.sroa.082.4.ph.i.i = phi i32 [ 3, %408 ], [ %.sroa.082.1.i.i, %._crit_edge.i.i.i ]
   %.sroa.483.1.ph.i.i = phi ptr [ null, %408 ], [ %415, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %417 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef 32, ptr noundef nonnull %16, i64 noundef 32) #15

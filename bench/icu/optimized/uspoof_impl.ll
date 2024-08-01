@@ -1543,12 +1543,12 @@ if.end55:                                         ; preds = %invoke.cont51, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont51, %invoke.cont28, %invoke.cont31, %invoke.cont35, %invoke.cont22, %if.end55
-  %retval.0 = phi i32 [ 1342177280, %if.end55 ], [ 1610612736, %invoke.cont22 ], [ 805306368, %invoke.cont35 ], [ 805306368, %invoke.cont31 ], [ 805306368, %invoke.cont28 ], [ 1073741824, %invoke.cont51 ]
+  %retval.2 = phi i32 [ 1342177280, %if.end55 ], [ 1610612736, %invoke.cont22 ], [ 805306368, %invoke.cont35 ], [ 805306368, %invoke.cont31 ], [ 805306368, %invoke.cont28 ], [ 1073741824, %invoke.cont51 ]
   call void @_ZN6icu_759ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %resolvedNoLatn) #21
   br label %cleanup56
 
 cleanup56:                                        ; preds = %invoke.cont15, %invoke.cont, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 1610612736, %invoke.cont ], [ 536870912, %invoke.cont15 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ 1610612736, %invoke.cont ], [ 536870912, %invoke.cont15 ]
   call void @_ZN6icu_759ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %resolvedScriptSet) #21
   br label %return
 
@@ -1558,8 +1558,8 @@ ehcleanup:                                        ; preds = %lpad21, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %for.cond, %if.end, %entry, %cleanup56
-  %retval.2 = phi i32 [ %retval.1, %cleanup56 ], [ 1610612736, %entry ], [ 268435456, %if.end ], [ 268435456, %for.cond ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ %retval.1, %cleanup56 ], [ 1610612736, %entry ], [ 268435456, %if.end ], [ 268435456, %for.cond ]
+  ret i32 %retval.0
 }
 
 declare noundef signext i8 @_ZNK6icu_7510UnicodeSet11containsAllERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #3
@@ -1692,13 +1692,13 @@ if.end12:                                         ; preds = %invoke.cont9, %invo
   br label %cleanup
 
 cleanup:                                          ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %invoke.cont9, %if.end12
-  %retval.0 = phi i1 [ false, %if.end12 ], [ true, %invoke.cont9 ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ]
+  %retval.1 = phi i1 [ false, %if.end12 ], [ true, %invoke.cont9 ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skelStr) #21
   br label %return
 
 return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %_ZN6icu_75L42isIllegalCombiningDotLeadCharacterNoLookupEi.exit, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ true, %_ZN6icu_75L42isIllegalCombiningDotLeadCharacterNoLookupEi.exit ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ true, %_ZN6icu_75L42isIllegalCombiningDotLeadCharacterNoLookupEi.exit ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1713,7 +1713,7 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
-  %lo.0 = phi i32 [ 0, %entry ], [ %lo.1, %do.cond ]
+  %lo.0 = phi i32 [ 0, %entry ], [ %lo.2, %do.cond ]
   %hi.0 = phi i32 [ %1, %entry ], [ %hi.1, %do.cond ]
   %add = add nsw i32 %hi.0, %lo.0
   %div = sdiv i32 %add, 2
@@ -1729,14 +1729,14 @@ if.else:                                          ; preds = %do.body
   br i1 %cmp4, label %do.cond, label %do.end
 
 do.cond:                                          ; preds = %if.else, %do.body
-  %lo.1 = phi i32 [ %lo.0, %do.body ], [ %div, %if.else ]
+  %lo.2 = phi i32 [ %lo.0, %do.body ], [ %div, %if.else ]
   %hi.1 = phi i32 [ %div, %do.body ], [ %hi.0, %if.else ]
-  %sub = sub nsw i32 %hi.1, %lo.1
+  %sub = sub nsw i32 %hi.1, %lo.2
   %cmp8 = icmp sgt i32 %sub, 1
   br i1 %cmp8, label %do.body, label %do.cond.do.end_crit_edge, !llvm.loop !13
 
 do.cond.do.end_crit_edge:                         ; preds = %do.cond
-  %idxprom.i18.phi.trans.insert = sext i32 %lo.1 to i64
+  %idxprom.i18.phi.trans.insert = sext i32 %lo.2 to i64
   %arrayidx.i19.phi.trans.insert = getelementptr inbounds i32, ptr %2, i64 %idxprom.i18.phi.trans.insert
   %.pre = load i32, ptr %arrayidx.i19.phi.trans.insert, align 4
   br label %do.end

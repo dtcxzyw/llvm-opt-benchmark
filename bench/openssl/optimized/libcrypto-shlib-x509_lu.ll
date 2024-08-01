@@ -977,21 +977,21 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %cmp20, label %return, label %if.end42
 
 if.end42:                                         ; preds = %X509_LOOKUP_by_subject_ex.exit, %for.end, %X509_OBJECT_retrieve_by_subject.exit
-  %tmp.1 = phi ptr [ %retval.0.i, %for.end ], [ %retval.0.i, %X509_OBJECT_retrieve_by_subject.exit ], [ %stmp, %X509_LOOKUP_by_subject_ex.exit ]
-  %17 = load i32, ptr %tmp.1, align 8
+  %tmp.0 = phi ptr [ %retval.0.i, %for.end ], [ %retval.0.i, %X509_OBJECT_retrieve_by_subject.exit ], [ %stmp, %X509_LOOKUP_by_subject_ex.exit ]
+  %17 = load i32, ptr %tmp.0, align 8
   switch i32 %17, label %if.end46 [
     i32 2, label %sw.bb2.i
     i32 1, label %sw.bb1.i
   ]
 
 sw.bb1.i:                                         ; preds = %if.end42
-  %data.i = getelementptr inbounds i8, ptr %tmp.1, i64 8
+  %data.i = getelementptr inbounds i8, ptr %tmp.0, i64 8
   %18 = load ptr, ptr %data.i, align 8
   %call.i33 = call i32 @X509_up_ref(ptr noundef %18) #6
   br label %X509_OBJECT_up_ref_count.exit
 
 sw.bb2.i:                                         ; preds = %if.end42
-  %data3.i = getelementptr inbounds i8, ptr %tmp.1, i64 8
+  %data3.i = getelementptr inbounds i8, ptr %tmp.0, i64 8
   %19 = load ptr, ptr %data3.i, align 8
   %call4.i = call i32 @X509_CRL_up_ref(ptr noundef %19) #6
   br label %X509_OBJECT_up_ref_count.exit
@@ -1002,13 +1002,13 @@ X509_OBJECT_up_ref_count.exit:                    ; preds = %sw.bb1.i, %sw.bb2.i
   br i1 %tobool44.not, label %return, label %X509_OBJECT_up_ref_count.exit.if.end46_crit_edge
 
 X509_OBJECT_up_ref_count.exit.if.end46_crit_edge: ; preds = %X509_OBJECT_up_ref_count.exit
-  %.pre = load i32, ptr %tmp.1, align 8
+  %.pre = load i32, ptr %tmp.0, align 8
   br label %if.end46
 
 if.end46:                                         ; preds = %X509_OBJECT_up_ref_count.exit.if.end46_crit_edge, %if.end42
   %20 = phi i32 [ %.pre, %X509_OBJECT_up_ref_count.exit.if.end46_crit_edge ], [ %17, %if.end42 ]
   store i32 %20, ptr %ret, align 8
-  %data49 = getelementptr inbounds i8, ptr %tmp.1, i64 8
+  %data49 = getelementptr inbounds i8, ptr %tmp.0, i64 8
   %21 = load ptr, ptr %data49, align 8
   %data50 = getelementptr inbounds i8, ptr %ret, i64 8
   store ptr %21, ptr %data50, align 8
@@ -2056,7 +2056,7 @@ if.end22:                                         ; preds = %if.end18
   br i1 %or.cond, label %for.body, label %if.end57thread-pre-split
 
 for.body:                                         ; preds = %if.end22, %for.inc
-  %ret.064 = phi i32 [ %ret.1, %for.inc ], [ 0, %if.end22 ]
+  %ret.164 = phi i32 [ %ret.2, %for.inc ], [ 0, %if.end22 ]
   %i.063 = phi i32 [ %inc, %for.inc ], [ %call6.i, %if.end22 ]
   %15 = load ptr, ptr %objs, align 8
   %call31 = call ptr @OPENSSL_sk_value(ptr noundef %15, i32 noundef %i.063) #6
@@ -2103,7 +2103,7 @@ if.then53:                                        ; preds = %lor.lhs.false, %if.
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end35, %if.then53, %lor.lhs.false
-  %ret.1 = phi i32 [ 1, %if.then53 ], [ 1, %lor.lhs.false ], [ %ret.064, %if.end35 ]
+  %ret.2 = phi i32 [ 1, %if.then53 ], [ 1, %lor.lhs.false ], [ %ret.164, %if.end35 ]
   %inc = add nsw i32 %i.063, 1
   %25 = load i32, ptr %nmatch, align 4
   %add = add nsw i32 %25, %call6.i
@@ -2111,13 +2111,13 @@ for.inc:                                          ; preds = %if.end35, %if.then5
   br i1 %cmp28, label %for.body, label %if.end57thread-pre-split, !llvm.loop !12
 
 if.end57thread-pre-split:                         ; preds = %for.inc, %for.body, %if.end22
-  %ret.2.ph = phi i32 [ 0, %if.end22 ], [ %ret.1, %for.inc ], [ %ret.064, %for.body ]
+  %ret.0.ph = phi i32 [ 0, %if.end22 ], [ %ret.2, %for.inc ], [ %ret.164, %for.body ]
   %.pr = load ptr, ptr %issuer, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end57thread-pre-split, %if.then44
   %26 = phi ptr [ %.pr, %if.end57thread-pre-split ], [ %20, %if.then44 ]
-  %ret.2 = phi i32 [ %ret.2.ph, %if.end57thread-pre-split ], [ 1, %if.then44 ]
+  %ret.0 = phi i32 [ %ret.0.ph, %if.end57thread-pre-split ], [ 1, %if.then44 ]
   %cmp58.not = icmp eq ptr %26, null
   br i1 %cmp58.not, label %if.end62, label %land.lhs.true
 
@@ -2131,7 +2131,7 @@ if.then61:                                        ; preds = %land.lhs.true
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then61, %land.lhs.true, %if.end57
-  %ret.3 = phi i32 [ %ret.2, %land.lhs.true ], [ -1, %if.then61 ], [ %ret.2, %if.end57 ]
+  %ret.3 = phi i32 [ %ret.0, %land.lhs.true ], [ -1, %if.then61 ], [ %ret.0, %if.end57 ]
   %27 = load ptr, ptr %lock.i, align 8
   %call.i59 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %27) #6
   br label %return

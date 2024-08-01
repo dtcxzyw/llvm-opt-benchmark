@@ -2247,23 +2247,23 @@ define ptr @Saig_ManRetimeMinArea(ptr noundef %0, i32 noundef %1, i32 noundef %2
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %Vec_PtrFree.exit99.us
   %9 = phi i1 [ true, %Vec_PtrFree.exit99.us ], [ false, %.lr.ph ]
   %.077123.us = phi i32 [ %20, %Vec_PtrFree.exit99.us ], [ 0, %.lr.ph ]
-  %.080122.us = phi ptr [ %16, %Vec_PtrFree.exit99.us ], [ %7, %.lr.ph ]
-  %10 = getelementptr i8, ptr %.080122.us, i64 104
-  %.080.val.us = load i32, ptr %10, align 8
-  %11 = icmp eq i32 %.080.val.us, 0
+  %.181122.us = phi ptr [ %16, %Vec_PtrFree.exit99.us ], [ %7, %.lr.ph ]
+  %10 = getelementptr i8, ptr %.181122.us, i64 104
+  %.181.val.us = load i32, ptr %10, align 8
+  %11 = icmp eq i32 %.181.val.us, 0
   br i1 %11, label %.loopexit111, label %12
 
 12:                                               ; preds = %.lr.ph.split.us
-  %13 = tail call ptr @Nwk_ManDeriveRetimingCut(ptr noundef nonnull %.080122.us, i32 noundef 1, i32 noundef 0) #13
+  %13 = tail call ptr @Nwk_ManDeriveRetimingCut(ptr noundef nonnull %.181122.us, i32 noundef 1, i32 noundef 0) #13
   %14 = getelementptr i8, ptr %13, i64 4
   %.val93.us = load i32, ptr %14, align 4
-  %.080.val97.us = load i32, ptr %10, align 8
-  %.not85.us = icmp slt i32 %.val93.us, %.080.val97.us
+  %.181.val97.us = load i32, ptr %10, align 8
+  %.not85.us = icmp slt i32 %.val93.us, %.181.val97.us
   br i1 %.not85.us, label %15, label %.split.us
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @Saig_ManRetimeDupForward(ptr noundef nonnull %.080122.us, ptr noundef nonnull %13)
-  tail call void @Aig_ManStop(ptr noundef nonnull %.080122.us) #13
+  %16 = tail call ptr @Saig_ManRetimeDupForward(ptr noundef nonnull %.181122.us, ptr noundef nonnull %13)
+  tail call void @Aig_ManStop(ptr noundef nonnull %.181122.us) #13
   %17 = getelementptr inbounds i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i98.us = icmp eq ptr %18, null
@@ -2282,23 +2282,23 @@ Vec_PtrFree.exit99.us:                            ; preds = %19, %15
 .lr.ph.split:                                     ; preds = %.lr.ph, %Vec_PtrFree.exit99
   %21 = phi i1 [ true, %Vec_PtrFree.exit99 ], [ false, %.lr.ph ]
   %.077123 = phi i32 [ %37, %Vec_PtrFree.exit99 ], [ 0, %.lr.ph ]
-  %.080122 = phi ptr [ %33, %Vec_PtrFree.exit99 ], [ %7, %.lr.ph ]
-  %22 = getelementptr i8, ptr %.080122, i64 104
-  %.080.val = load i32, ptr %22, align 8
-  %23 = icmp eq i32 %.080.val, 0
+  %.181122 = phi ptr [ %33, %Vec_PtrFree.exit99 ], [ %7, %.lr.ph ]
+  %22 = getelementptr i8, ptr %.181122, i64 104
+  %.181.val = load i32, ptr %22, align 8
+  %23 = icmp eq i32 %.181.val, 0
   br i1 %23, label %.loopexit111, label %24
 
 24:                                               ; preds = %.lr.ph.split
-  %25 = tail call ptr @Nwk_ManDeriveRetimingCut(ptr noundef nonnull %.080122, i32 noundef 1, i32 noundef %5) #13
+  %25 = tail call ptr @Nwk_ManDeriveRetimingCut(ptr noundef nonnull %.181122, i32 noundef 1, i32 noundef %5) #13
   %26 = getelementptr i8, ptr %25, i64 4
   %.val93 = load i32, ptr %26, align 4
-  %.080.val97 = load i32, ptr %22, align 8
-  %.not85 = icmp slt i32 %.val93, %.080.val97
+  %.181.val97 = load i32, ptr %22, align 8
+  %.not85 = icmp slt i32 %.val93, %.181.val97
   br i1 %.not85, label %32, label %.split.us
 
 .split.us:                                        ; preds = %24, %12
   %.us-phi126 = phi ptr [ %13, %12 ], [ %25, %24 ]
-  %.us-phi127 = phi ptr [ %.080122.us, %12 ], [ %.080122, %24 ]
+  %.us-phi127 = phi ptr [ %.181122.us, %12 ], [ %.181122, %24 ]
   %.us-phi128 = phi i1 [ %9, %12 ], [ %21, %24 ]
   %or.cond = or i1 %.not86, %.us-phi128
   br i1 %or.cond, label %28, label %27
@@ -2322,8 +2322,8 @@ Vec_PtrFree.exit:                                 ; preds = %28, %31
   br label %.loopexit111
 
 32:                                               ; preds = %24
-  %33 = tail call ptr @Saig_ManRetimeDupForward(ptr noundef nonnull %.080122, ptr noundef nonnull %25)
-  tail call void @Aig_ManStop(ptr noundef nonnull %.080122) #13
+  %33 = tail call ptr @Saig_ManRetimeDupForward(ptr noundef nonnull %.181122, ptr noundef nonnull %25)
+  tail call void @Aig_ManStop(ptr noundef nonnull %.181122) #13
   %34 = getelementptr inbounds i8, ptr %25, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not.i98 = icmp eq ptr %35, null
@@ -2341,7 +2341,7 @@ Vec_PtrFree.exit99:                               ; preds = %32, %36
   br i1 %exitcond.not, label %.loopexit111, label %.lr.ph.split, !llvm.loop !38
 
 .loopexit111:                                     ; preds = %.lr.ph.split, %Vec_PtrFree.exit99, %.lr.ph.split.us, %Vec_PtrFree.exit99.us, %Vec_PtrFree.exit, %6
-  %.181 = phi ptr [ %7, %6 ], [ %.us-phi127, %Vec_PtrFree.exit ], [ %.080122.us, %.lr.ph.split.us ], [ %16, %Vec_PtrFree.exit99.us ], [ %.080122, %.lr.ph.split ], [ %33, %Vec_PtrFree.exit99 ]
+  %.080 = phi ptr [ %7, %6 ], [ %.us-phi127, %Vec_PtrFree.exit ], [ %.181122.us, %.lr.ph.split.us ], [ %16, %Vec_PtrFree.exit99.us ], [ %.181122, %.lr.ph.split ], [ %33, %Vec_PtrFree.exit99 ]
   %38 = or i32 %4, %2
   %or.cond3.not = icmp eq i32 %38, 0
   br i1 %or.cond3.not, label %.preheader, label %60
@@ -2357,7 +2357,7 @@ Vec_PtrFree.exit99:                               ; preds = %32, %36
   %.1141 = phi i32 [ 0, %.lr.ph142 ], [ 1, %58 ]
   %40 = phi i1 [ false, %.lr.ph142 ], [ true, %58 ]
   %.178140 = phi i32 [ 0, %.lr.ph142 ], [ %59, %58 ]
-  %.282139 = phi ptr [ %.181, %.lr.ph142 ], [ %53, %58 ]
+  %.282139 = phi ptr [ %.080, %.lr.ph142 ], [ %53, %58 ]
   %41 = getelementptr i8, ptr %.282139, i64 104
   %.282.val = load i32, ptr %41, align 8
   %42 = icmp eq i32 %.282.val, 0
@@ -2430,17 +2430,17 @@ Vec_PtrFree.exit103:                              ; preds = %52, %56
   br label %63
 
 63:                                               ; preds = %.lr.ph133, %83
-  %.2132 = phi i32 [ 0, %.lr.ph133 ], [ 1, %83 ]
+  %.3132 = phi i32 [ 0, %.lr.ph133 ], [ 1, %83 ]
   %64 = phi i1 [ false, %.lr.ph133 ], [ true, %83 ]
   %.279131 = phi i32 [ 0, %.lr.ph133 ], [ %84, %83 ]
-  %.383130 = phi ptr [ %.181, %.lr.ph133 ], [ %69, %83 ]
-  %65 = getelementptr i8, ptr %.383130, i64 104
-  %.383.val95 = load i32, ptr %65, align 8
-  %66 = icmp eq i32 %.383.val95, 0
+  %.4130 = phi ptr [ %.080, %.lr.ph133 ], [ %69, %83 ]
+  %65 = getelementptr i8, ptr %.4130, i64 104
+  %.4.val95 = load i32, ptr %65, align 8
+  %66 = icmp eq i32 %.4.val95, 0
   br i1 %66, label %.loopexit, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call ptr @Aig_ManDupSimple(ptr noundef nonnull %.383130) #13
+  %68 = tail call ptr @Aig_ManDupSimple(ptr noundef nonnull %.4130) #13
   %69 = tail call ptr @Saig_ManRetimeMinAreaBackward(ptr noundef %68, i32 noundef %5)
   tail call void @Aig_ManStop(ptr noundef %68) #13
   %70 = icmp eq ptr %69, null
@@ -2453,9 +2453,9 @@ Vec_PtrFree.exit103:                              ; preds = %52, %56
 72:                                               ; preds = %67
   %73 = getelementptr i8, ptr %69, i64 112
   %.val94 = load i32, ptr %73, align 8
-  %74 = getelementptr i8, ptr %.383130, i64 112
-  %.383.val = load i32, ptr %74, align 8
-  %75 = sub nsw i32 %.val94, %.383.val
+  %74 = getelementptr i8, ptr %.4130, i64 112
+  %.4.val = load i32, ptr %74, align 8
+  %75 = sub nsw i32 %.val94, %.4.val
   %76 = getelementptr inbounds i8, ptr %69, i64 104
   %77 = load i32, ptr %76, align 8
   %78 = add nsw i32 %77, %75
@@ -2464,8 +2464,8 @@ Vec_PtrFree.exit103:                              ; preds = %52, %56
   %80 = load i32, ptr %79, align 4
   %81 = sub nsw i32 %80, %75
   store i32 %81, ptr %79, align 4
-  store i32 %.383.val, ptr %73, align 8
-  tail call void @Aig_ManStop(ptr noundef nonnull %.383130) #13
+  store i32 %.4.val, ptr %73, align 8
+  tail call void @Aig_ManStop(ptr noundef nonnull %.4130) #13
   br i1 %.not90, label %83, label %82
 
 82:                                               ; preds = %72
@@ -2478,21 +2478,21 @@ Vec_PtrFree.exit103:                              ; preds = %52, %56
   br i1 %exitcond172.not, label %.loopexit, label %63, !llvm.loop !40
 
 .loopexit:                                        ; preds = %83, %63, %39, %58, %71, %Vec_PtrFree.exit101
-  %.4 = phi ptr [ %.383130, %71 ], [ %.282139, %Vec_PtrFree.exit101 ], [ %.282139, %39 ], [ %53, %58 ], [ %69, %83 ], [ %.383130, %63 ]
-  %.3 = phi i32 [ %.2132, %71 ], [ %.1141, %Vec_PtrFree.exit101 ], [ %.1141, %39 ], [ 1, %58 ], [ 1, %83 ], [ %.2132, %63 ]
-  %85 = icmp ne i32 %.3, 0
+  %.383 = phi ptr [ %.4130, %71 ], [ %.282139, %Vec_PtrFree.exit101 ], [ %.282139, %39 ], [ %53, %58 ], [ %69, %83 ], [ %.4130, %63 ]
+  %.2 = phi i32 [ %.3132, %71 ], [ %.1141, %Vec_PtrFree.exit101 ], [ %.1141, %39 ], [ 1, %58 ], [ 1, %83 ], [ %.3132, %63 ]
+  %85 = icmp ne i32 %.2, 0
   %or.cond13 = and i1 %or.cond3.not, %85
   br i1 %or.cond13, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %.loopexit, %71
   %str.2.sink = phi ptr [ @str.2, %71 ], [ @str.3, %.loopexit ]
-  %.4107.ph = phi ptr [ %.383130, %71 ], [ %.4, %.loopexit ]
+  %.383107.ph = phi ptr [ %.4130, %71 ], [ %.383, %.loopexit ]
   %puts91 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.2.sink)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %60, %.preheader, %.loopexit
-  %.4107 = phi ptr [ %.4, %.loopexit ], [ %.181, %60 ], [ %.181, %.preheader ], [ %.4107.ph, %.thread.sink.split ]
-  ret ptr %.4107
+  %.383107 = phi ptr [ %.383, %.loopexit ], [ %.080, %60 ], [ %.080, %.preheader ], [ %.383107.ph, %.thread.sink.split ]
+  ret ptr %.383107
 }
 
 declare ptr @Aig_ManDupSimple(ptr noundef) local_unnamed_addr #1

@@ -68,19 +68,19 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not203, label %.thread, label %33
 
 33:                                               ; preds = %.thread228, %29
-  %.0164231 = phi ptr [ %25, %.thread228 ], [ %31, %29 ]
+  %.1231 = phi ptr [ %25, %.thread228 ], [ %31, %29 ]
   %34 = icmp slt i32 %.fr278, 0
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.0164231, i64 16
+  %36 = getelementptr inbounds i8, ptr %.1231, i64 16
   %37 = load ptr, ptr %36, align 8
   br label %.thread
 
 38:                                               ; preds = %33
   %39 = zext nneg i32 %.fr278 to i64
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds i8, ptr %.0164231, i64 %40
+  %41 = getelementptr inbounds i8, ptr %.1231, i64 %40
   br label %.thread
 
 42:                                               ; preds = %20
@@ -121,8 +121,8 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %59
 
 59:                                               ; preds = %.lr.ph, %74
-  %.2275 = phi ptr [ %56, %.lr.ph ], [ %60, %74 ]
-  %60 = load ptr, ptr %.2275, align 8
+  %.3275 = phi ptr [ %56, %.lr.ph ], [ %60, %74 ]
+  %60 = load ptr, ptr %.3275, align 8
   %61 = load ptr, ptr %51, align 8
   %.not199 = icmp eq ptr %61, null
   br i1 %.not199, label %70, label %62
@@ -131,12 +131,12 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %53, label %63, label %66
 
 63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %.2275, i64 16
+  %64 = getelementptr inbounds i8, ptr %.3275, i64 16
   %65 = load ptr, ptr %64, align 8
   br label %68
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %.2275, i64 %58
+  %67 = getelementptr inbounds i8, ptr %.3275, i64 %58
   br label %68
 
 68:                                               ; preds = %66, %63
@@ -150,7 +150,7 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %70
-  tail call void @free(ptr noundef nonnull %.2275) #6
+  tail call void @free(ptr noundef nonnull %.3275) #6
   br label %74
 
 74:                                               ; preds = %70, %73
@@ -225,7 +225,7 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %.thread
 
 103:                                              ; preds = %95, %90
-  %.3 = phi ptr [ %92, %90 ], [ %94, %95 ]
+  %.4 = phi ptr [ %92, %90 ], [ %94, %95 ]
   %104 = load ptr, ptr %4, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8
@@ -235,21 +235,21 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 107:                                              ; preds = %103
   %108 = getelementptr inbounds i8, ptr %106, i64 8
   %109 = load ptr, ptr %108, align 8
-  store ptr %.3, ptr %109, align 8
+  store ptr %.4, ptr %109, align 8
   %110 = load ptr, ptr %108, align 8
-  %111 = getelementptr inbounds i8, ptr %.3, i64 8
+  %111 = getelementptr inbounds i8, ptr %.4, i64 8
   store ptr %110, ptr %111, align 8
   br label %114
 
 112:                                              ; preds = %103
-  store ptr %.3, ptr %105, align 8
-  %113 = getelementptr inbounds i8, ptr %.3, i64 8
+  store ptr %.4, ptr %105, align 8
+  %113 = getelementptr inbounds i8, ptr %.4, i64 8
   br label %114
 
 114:                                              ; preds = %112, %107
   %.sink = phi ptr [ %113, %112 ], [ %108, %107 ]
-  store ptr %.3, ptr %.sink, align 8
-  store ptr null, ptr %.3, align 8
+  store ptr %.4, ptr %.sink, align 8
+  store ptr null, ptr %.4, align 8
   %115 = load ptr, ptr %4, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 28
   %117 = load i32, ptr %116, align 4
@@ -265,19 +265,19 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 121:                                              ; preds = %119, %114
   %122 = phi ptr [ %.pre, %119 ], [ %115, %114 ]
   %123 = getelementptr inbounds i8, ptr %122, i64 8
-  store ptr %.3, ptr %123, align 8
+  store ptr %.4, ptr %123, align 8
   %124 = icmp slt i32 %.fr278, 0
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %.3, i64 16
+  %126 = getelementptr inbounds i8, ptr %.4, i64 16
   %127 = load ptr, ptr %126, align 8
   br label %.thread
 
 128:                                              ; preds = %121
   %129 = zext nneg i32 %.fr278 to i64
   %130 = sub nsw i64 0, %129
-  %131 = getelementptr inbounds i8, ptr %.3, i64 %130
+  %131 = getelementptr inbounds i8, ptr %.4, i64 %130
   br label %.thread
 
 132:                                              ; preds = %81
@@ -343,20 +343,20 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %161, label %.critedge.split.us.split.us, label %.critedge.split.us.split
 
 .critedge.split.us.split.us:                      ; preds = %.critedge.split.us, %173
-  %.4.in.us.us = phi ptr [ %.4.us.us, %173 ], [ %155, %.critedge.split.us ]
-  %.4.us.us = load ptr, ptr %.4.in.us.us, align 8
-  %.not208.us.us = icmp eq ptr %.4.us.us, null
+  %.6.in.us.us = phi ptr [ %.6.us.us, %173 ], [ %155, %.critedge.split.us ]
+  %.6.us.us = load ptr, ptr %.6.in.us.us, align 8
+  %.not208.us.us = icmp eq ptr %.6.us.us, null
   br i1 %.not208.us.us, label %.thread, label %162
 
 162:                                              ; preds = %.critedge.split.us.split.us
   br i1 %156, label %165, label %163
 
 163:                                              ; preds = %162
-  %164 = getelementptr inbounds i8, ptr %.4.us.us, i64 %158
+  %164 = getelementptr inbounds i8, ptr %.6.us.us, i64 %158
   br label %168
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %.4.us.us, i64 16
+  %166 = getelementptr inbounds i8, ptr %.6.us.us, i64 16
   %167 = load ptr, ptr %166, align 8
   br label %168
 
@@ -379,13 +379,13 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %156, label %.critedge.split.us.split.split.us.split, label %.critedge.split.us.split.split.split
 
 .critedge.split.us.split.split.us.split:          ; preds = %.critedge.split.us.split, %177
-  %.4.in.us.us260 = phi ptr [ %.4.us.us261, %177 ], [ %155, %.critedge.split.us.split ]
-  %.4.us.us261 = load ptr, ptr %.4.in.us.us260, align 8
-  %.not208.us.us262 = icmp eq ptr %.4.us.us261, null
+  %.6.in.us.us260 = phi ptr [ %.6.us.us261, %177 ], [ %155, %.critedge.split.us.split ]
+  %.6.us.us261 = load ptr, ptr %.6.in.us.us260, align 8
+  %.not208.us.us262 = icmp eq ptr %.6.us.us261, null
   br i1 %.not208.us.us262, label %.thread, label %177
 
 177:                                              ; preds = %.critedge.split.us.split.split.us.split
-  %178 = getelementptr inbounds i8, ptr %.4.us.us261, i64 16
+  %178 = getelementptr inbounds i8, ptr %.6.us.us261, i64 16
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds i8, ptr %179, i64 %.pre-phi
   %bcmp280 = tail call i32 @bcmp(ptr %154, ptr %180, i64 %160)
@@ -393,13 +393,13 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %181, label %.loopexit243, label %.critedge.split.us.split.split.us.split
 
 .critedge.split.us.split.split.split:             ; preds = %.critedge.split.us.split, %182
-  %.4.in.us = phi ptr [ %.4.us, %182 ], [ %155, %.critedge.split.us.split ]
-  %.4.us = load ptr, ptr %.4.in.us, align 8
-  %.not208.us = icmp eq ptr %.4.us, null
+  %.6.in.us = phi ptr [ %.6.us, %182 ], [ %155, %.critedge.split.us.split ]
+  %.6.us = load ptr, ptr %.6.in.us, align 8
+  %.not208.us = icmp eq ptr %.6.us, null
   br i1 %.not208.us, label %.thread, label %182
 
 182:                                              ; preds = %.critedge.split.us.split.split.split
-  %183 = getelementptr inbounds i8, ptr %.4.us, i64 %158
+  %183 = getelementptr inbounds i8, ptr %.6.us, i64 %158
   %184 = getelementptr inbounds i8, ptr %183, i64 %.pre-phi
   %bcmp = tail call i32 @bcmp(ptr %154, ptr nonnull %184, i64 %160)
   %185 = icmp eq i32 %bcmp, 0
@@ -412,13 +412,13 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %159, label %.critedge.split.split.us.split.us, label %.critedge.split.split.us.split
 
 .critedge.split.split.us.split.us:                ; preds = %.critedge.split.split.us, %186
-  %.4.in.us245.us = phi ptr [ %.4.us246.us, %186 ], [ %155, %.critedge.split.split.us ]
-  %.4.us246.us = load ptr, ptr %.4.in.us245.us, align 8
-  %.not208.us247.us = icmp eq ptr %.4.us246.us, null
+  %.6.in.us245.us = phi ptr [ %.6.us246.us, %186 ], [ %155, %.critedge.split.split.us ]
+  %.6.us246.us = load ptr, ptr %.6.in.us245.us, align 8
+  %.not208.us247.us = icmp eq ptr %.6.us246.us, null
   br i1 %.not208.us247.us, label %.thread, label %186
 
 186:                                              ; preds = %.critedge.split.split.us.split.us
-  %187 = getelementptr inbounds i8, ptr %.4.us246.us, i64 16
+  %187 = getelementptr inbounds i8, ptr %.6.us246.us, i64 16
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 %.pre-phi
   %190 = load ptr, ptr %189, align 8
@@ -427,13 +427,13 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %192, label %.loopexit243, label %.critedge.split.split.us.split.us
 
 .critedge.split.split.us.split:                   ; preds = %.critedge.split.split.us, %193
-  %.4.in.us245 = phi ptr [ %.4.us246, %193 ], [ %155, %.critedge.split.split.us ]
-  %.4.us246 = load ptr, ptr %.4.in.us245, align 8
-  %.not208.us247 = icmp eq ptr %.4.us246, null
+  %.6.in.us245 = phi ptr [ %.6.us246, %193 ], [ %155, %.critedge.split.split.us ]
+  %.6.us246 = load ptr, ptr %.6.in.us245, align 8
+  %.not208.us247 = icmp eq ptr %.6.us246, null
   br i1 %.not208.us247, label %.thread, label %193
 
 193:                                              ; preds = %.critedge.split.split.us.split
-  %194 = getelementptr inbounds i8, ptr %.4.us246, i64 16
+  %194 = getelementptr inbounds i8, ptr %.6.us246, i64 16
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 %.pre-phi
   %197 = tail call i32 %.fr277(ptr noundef %0, ptr noundef %154, ptr noundef %196, ptr noundef nonnull %12) #6
@@ -444,13 +444,13 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %159, label %.critedge.split.split.split.us, label %.critedge.split.split.split
 
 .critedge.split.split.split.us:                   ; preds = %.critedge.split.split, %199
-  %.4.in.us250 = phi ptr [ %.4.us251, %199 ], [ %155, %.critedge.split.split ]
-  %.4.us251 = load ptr, ptr %.4.in.us250, align 8
-  %.not208.us252 = icmp eq ptr %.4.us251, null
+  %.6.in.us250 = phi ptr [ %.6.us251, %199 ], [ %155, %.critedge.split.split ]
+  %.6.us251 = load ptr, ptr %.6.in.us250, align 8
+  %.not208.us252 = icmp eq ptr %.6.us251, null
   br i1 %.not208.us252, label %.thread, label %199
 
 199:                                              ; preds = %.critedge.split.split.split.us
-  %200 = getelementptr inbounds i8, ptr %.4.us251, i64 %158
+  %200 = getelementptr inbounds i8, ptr %.6.us251, i64 %158
   %201 = getelementptr inbounds i8, ptr %200, i64 %.pre-phi
   %202 = load ptr, ptr %201, align 8
   %203 = tail call i32 %.fr277(ptr noundef %0, ptr noundef %154, ptr noundef %202, ptr noundef nonnull %12) #6
@@ -458,32 +458,32 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %204, label %.loopexit243, label %.critedge.split.split.split.us
 
 .critedge.split.split.split:                      ; preds = %.critedge.split.split, %205
-  %.4.in = phi ptr [ %.4, %205 ], [ %155, %.critedge.split.split ]
-  %.4 = load ptr, ptr %.4.in, align 8
-  %.not208 = icmp eq ptr %.4, null
+  %.6.in = phi ptr [ %.6, %205 ], [ %155, %.critedge.split.split ]
+  %.6 = load ptr, ptr %.6.in, align 8
+  %.not208 = icmp eq ptr %.6, null
   br i1 %.not208, label %.thread, label %205
 
 205:                                              ; preds = %.critedge.split.split.split
-  %206 = getelementptr inbounds i8, ptr %.4, i64 %158
+  %206 = getelementptr inbounds i8, ptr %.6, i64 %158
   %207 = getelementptr inbounds i8, ptr %206, i64 %.pre-phi
   %208 = tail call i32 %.fr277(ptr noundef %0, ptr noundef %154, ptr noundef nonnull %207, ptr noundef nonnull %12) #6
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %.loopexit243, label %.critedge.split.split.split
 
 .loopexit243:                                     ; preds = %205, %199, %193, %186, %182, %177, %173, %146
-  %.5.ph = phi ptr [ %136, %146 ], [ %.4.us.us, %173 ], [ %.4.us.us261, %177 ], [ %.4.us, %182 ], [ %.4.us246.us, %186 ], [ %.4.us246, %193 ], [ %.4.us251, %199 ], [ %.4, %205 ]
+  %.5.ph = phi ptr [ %136, %146 ], [ %.6.us.us, %173 ], [ %.6.us.us261, %177 ], [ %.6.us, %182 ], [ %.6.us246.us, %186 ], [ %.6.us246, %193 ], [ %.6.us251, %199 ], [ %.6, %205 ]
   %210 = and i32 %2, 4098
   %.not211 = icmp eq i32 %210, 0
   br i1 %.not211, label %270, label %211
 
 211:                                              ; preds = %.loopexit243, %44
-  %.6 = phi ptr [ %.5.ph, %.loopexit243 ], [ %47, %44 ]
-  %212 = load ptr, ptr %.6, align 8
+  %.2 = phi ptr [ %.5.ph, %.loopexit243 ], [ %47, %44 ]
+  %212 = load ptr, ptr %.2, align 8
   %.not215 = icmp eq ptr %212, null
   br i1 %.not215, label %217, label %213
 
 213:                                              ; preds = %211
-  %214 = getelementptr inbounds i8, ptr %.6, i64 8
+  %214 = getelementptr inbounds i8, ptr %.2, i64 8
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds i8, ptr %212, i64 8
   store ptr %215, ptr %216, align 8
@@ -493,8 +493,8 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %218 = load ptr, ptr %4, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 16
   %220 = load ptr, ptr %219, align 8
-  %221 = icmp eq ptr %.6, %220
-  %222 = load ptr, ptr %.6, align 8
+  %221 = icmp eq ptr %.2, %220
+  %222 = load ptr, ptr %.2, align 8
   br i1 %221, label %223, label %231
 
 223:                                              ; preds = %217
@@ -513,12 +513,12 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %239
 
 231:                                              ; preds = %217
-  %232 = getelementptr inbounds i8, ptr %.6, i64 8
+  %232 = getelementptr inbounds i8, ptr %.2, i64 8
   %233 = load ptr, ptr %232, align 8
   store ptr %222, ptr %233, align 8
   %234 = getelementptr inbounds i8, ptr %220, i64 8
   %235 = load ptr, ptr %234, align 8
-  %236 = icmp eq ptr %.6, %235
+  %236 = icmp eq ptr %.2, %235
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %231
@@ -530,11 +530,11 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %240 = load ptr, ptr %4, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 8
   %242 = load ptr, ptr %241, align 8
-  %243 = icmp eq ptr %.6, %242
+  %243 = icmp eq ptr %.2, %242
   br i1 %243, label %244, label %246
 
 244:                                              ; preds = %239
-  %245 = load ptr, ptr %.6, align 8
+  %245 = load ptr, ptr %.2, align 8
   br label %246
 
 246:                                              ; preds = %239, %244
@@ -549,14 +549,14 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %252, label %253, label %256
 
 253:                                              ; preds = %246
-  %254 = getelementptr inbounds i8, ptr %.6, i64 16
+  %254 = getelementptr inbounds i8, ptr %.2, i64 16
   %255 = load ptr, ptr %254, align 8
   br label %260
 
 256:                                              ; preds = %246
   %257 = zext nneg i32 %.fr278 to i64
   %258 = sub nsw i64 0, %257
-  %259 = getelementptr inbounds i8, ptr %.6, i64 %258
+  %259 = getelementptr inbounds i8, ptr %.2, i64 %258
   br label %260
 
 260:                                              ; preds = %256, %253
@@ -579,7 +579,7 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %268, label %269, label %.thread
 
 269:                                              ; preds = %266
-  tail call void @free(ptr noundef nonnull %.6) #6
+  tail call void @free(ptr noundef nonnull %.2) #6
   br label %.thread
 
 270:                                              ; preds = %.loopexit243

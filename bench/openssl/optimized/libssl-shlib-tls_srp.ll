@@ -984,11 +984,11 @@ if.end45:                                         ; preds = %if.end39
 
 err:                                              ; preds = %if.end45, %if.then44, %if.then38, %if.then18, %if.then
   %u.1 = phi ptr [ %u.0, %if.then ], [ %call7, %if.then18 ], [ %call7, %if.then38 ], [ %call7, %if.then44 ], [ %call7, %if.end45 ]
-  %K.1 = phi ptr [ null, %if.then ], [ null, %if.then18 ], [ null, %if.then38 ], [ %call36, %if.then44 ], [ %call36, %if.end45 ]
+  %K.0 = phi ptr [ null, %if.then ], [ null, %if.then18 ], [ null, %if.then38 ], [ %call36, %if.then44 ], [ %call36, %if.end45 ]
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then18 ], [ 0, %if.then38 ], [ 0, %if.then44 ], [ %call48, %if.end45 ]
   %passwd.0 = phi ptr [ null, %if.then ], [ null, %if.then18 ], [ %call16, %if.then38 ], [ %call16, %if.then44 ], [ %call16, %if.end45 ]
   %x.0 = phi ptr [ null, %if.then ], [ null, %if.then18 ], [ %call25, %if.then38 ], [ %call25, %if.then44 ], [ %call25, %if.end45 ]
-  tail call void @BN_clear_free(ptr noundef %K.1) #7
+  tail call void @BN_clear_free(ptr noundef %K.0) #7
   tail call void @BN_clear_free(ptr noundef %x.0) #7
   %cmp49.not = icmp eq ptr %passwd.0, null
   br i1 %cmp49.not, label %if.end53, label %if.then51

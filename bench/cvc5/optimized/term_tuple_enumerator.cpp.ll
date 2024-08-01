@@ -1052,8 +1052,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %i
   br i1 %call.i3738, label %cond.end, label %return
 
 return:                                           ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %land.lhs.true
-  %retval.2 = phi i1 [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ false, %land.lhs.true ]
-  ret i1 %retval.2
+  %retval.1 = phi i1 [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ false, %land.lhs.true ]
+  ret i1 %retval.1
 }
 
 ; Function Attrs: mustprogress uwtable

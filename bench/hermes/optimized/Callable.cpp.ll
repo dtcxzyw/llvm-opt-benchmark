@@ -1489,7 +1489,7 @@ if.end163:                                        ; preds = %if.end132
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end163, %if.end132, %_ZN6hermes2vm6HandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit, %_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
-  %retval.0 = phi i32 [ 0, %_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ], [ 0, %_ZN6hermes2vm6HandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit ], [ 0, %if.end132 ], [ %., %if.end163 ]
+  %retval.1 = phi i32 [ 0, %_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ], [ 0, %_ZN6hermes2vm6HandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit ], [ 0, %if.end132 ], [ %., %if.end163 ]
   %48 = load ptr, ptr %boundName, align 8
   %cmp.i.i.i.i110 = icmp eq ptr %48, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i110, label %return, label %if.then.i.i.i111
@@ -1499,8 +1499,8 @@ if.then.i.i.i111:                                 ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i111, %cleanup, %if.end48, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %if.end
-  %retval.1 = phi i32 [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 0, %if.end48 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i111 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 0, %if.end48 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i111 ]
+  ret i32 %retval.0
 }
 
 declare noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), i32, i16, ptr) local_unnamed_addr #1
@@ -2287,8 +2287,8 @@ if.end46:                                         ; preds = %if.end78.i, %for.in
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end46, %if.then45, %if.then30
-  %retval.sroa.0.0 = phi i32 [ %call31, %if.then30 ], [ 0, %if.then45 ], [ %44, %if.end46 ]
-  %retval.sroa.6.0 = phi i64 [ -1688849860263936, %if.then30 ], [ -1688849860263936, %if.then45 ], [ %45, %if.end46 ]
+  %retval.sroa.0.1 = phi i32 [ %call31, %if.then30 ], [ 0, %if.then45 ], [ %44, %if.end46 ]
+  %retval.sroa.6.1 = phi i64 [ -1688849860263936, %if.then30 ], [ -1688849860263936, %if.then45 ], [ %45, %if.end46 ]
   %46 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %dec.i = add i32 %46, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
@@ -2296,10 +2296,10 @@ cleanup:                                          ; preds = %if.end46, %if.then4
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit, %cleanup, %if.then12
-  %retval.sroa.0.1 = phi i32 [ %call13, %if.then12 ], [ %retval.sroa.0.0, %cleanup ], [ 0, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit ], [ 0, %entry ]
-  %retval.sroa.6.1 = phi i64 [ -1688849860263936, %if.then12 ], [ %retval.sroa.6.0, %cleanup ], [ -1688849860263936, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit ], [ -1688849860263936, %entry ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.1, 1
+  %retval.sroa.0.0 = phi i32 [ %call13, %if.then12 ], [ %retval.sroa.0.1, %cleanup ], [ 0, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit ], [ 0, %entry ]
+  %retval.sroa.6.0 = phi i64 [ -1688849860263936, %if.then12 ], [ %retval.sroa.6.1, %cleanup ], [ -1688849860263936, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit ], [ -1688849860263936, %entry ]
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 
@@ -3423,8 +3423,8 @@ cond.end:                                         ; preds = %for.end, %cond.fals
 
 bail:                                             ; preds = %cond.end, %if.then13
   %.pre-phi = phi i64 [ %14, %cond.end ], [ %.pre, %if.then13 ]
-  %retval.sroa.0.0 = phi i32 [ %19, %cond.end ], [ %call16, %if.then13 ]
-  %retval.sroa.6.0 = phi i64 [ %20, %cond.end ], [ -1688849860263936, %if.then13 ]
+  %retval.sroa.0.1 = phi i32 [ %19, %cond.end ], [ %call16, %if.then13 ]
+  %retval.sroa.6.1 = phi i64 [ %20, %cond.end ], [ -1688849860263936, %if.then13 ]
   %arrayidx.i100 = getelementptr inbounds i8, ptr %1, i64 -8
   store i64 0, ptr %arrayidx.i100, align 8
   %arrayidx9.i = getelementptr inbounds i8, ptr %1, i64 -16
@@ -3441,13 +3441,13 @@ bail:                                             ; preds = %cond.end, %if.then1
   br label %cleanup
 
 cleanup:                                          ; preds = %bail, %if.then
-  %retval.sroa.0.1 = phi i32 [ %call1, %if.then ], [ %retval.sroa.0.0, %bail ]
-  %retval.sroa.6.1 = phi i64 [ -1688849860263936, %if.then ], [ %retval.sroa.6.0, %bail ]
+  %retval.sroa.0.0 = phi i32 [ %call1, %if.then ], [ %retval.sroa.0.1, %bail ]
+  %retval.sroa.6.0 = phi i64 [ -1688849860263936, %if.then ], [ %retval.sroa.6.1, %bail ]
   %21 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %dec.i = add i32 %21, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.1, 1
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 

@@ -7392,12 +7392,12 @@ terminate.lpad.i.i.i10:                           ; preds = %if.then.i.i.i8
 
 for.body:                                         ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit, %for.inc
   %__first.sroa.0.027 = phi ptr [ %__first.sroa.0.0, %for.inc ], [ %__first.sroa.0.024, %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit ]
-  %retval.sroa.0.026 = phi ptr [ %retval.sroa.0.1, %for.inc ], [ %call, %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit ]
+  %retval.sroa.0.126 = phi ptr [ %retval.sroa.0.2, %for.inc ], [ %call, %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit ]
   %call12 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(32) %__pred, ptr nonnull %__first.sroa.0.027)
   br i1 %call12, label %for.inc, label %if.then13
 
 if.then13:                                        ; preds = %for.body
-  %13 = load ptr, ptr %retval.sroa.0.026, align 8
+  %13 = load ptr, ptr %retval.sroa.0.126, align 8
   %14 = load ptr, ptr %__first.sroa.0.027, align 8
   %cmp.not.i = icmp eq ptr %13, %14
   br i1 %cmp.not.i, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, label %if.then.i
@@ -7423,7 +7423,7 @@ if.then13.i.i:                                    ; preds = %if.then.i.i13
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i, %if.then.i.i13, %if.then.i
   %16 = load ptr, ptr %__first.sroa.0.027, align 8
-  store ptr %16, ptr %retval.sroa.0.026, align 8
+  store ptr %16, ptr %retval.sroa.0.126, align 8
   %bf.load.i2.i = load i64, ptr %16, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i2.i, 40
   %17 = trunc nuw nsw i64 %bf.lshr.i.i to i32
@@ -7450,18 +7450,18 @@ if.then13.i4.i:                                   ; preds = %if.else.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %if.then13, %if.then.i5.i, %if.else.i.i, %if.then13.i4.i
-  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %retval.sroa.0.026, i64 8
+  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %retval.sroa.0.126, i64 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.026, %for.body ], [ %incdec.ptr.i14, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ]
+  %retval.sroa.0.2 = phi ptr [ %retval.sroa.0.126, %for.body ], [ %incdec.ptr.i14, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ]
   %__first.sroa.0.0 = getelementptr inbounds i8, ptr %__first.sroa.0.027, i64 8
   %cmp.i12.not = icmp eq ptr %__first.sroa.0.0, %__last.coerce
   br i1 %cmp.i12.not, label %return, label %for.body, !llvm.loop !34
 
 return:                                           ; preds = %for.inc, %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit
-  %retval.sroa.0.2 = phi ptr [ %call, %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit ], [ %retval.sroa.0.1, %for.inc ]
-  ret ptr %retval.sroa.0.2
+  %retval.sroa.0.0 = phi ptr [ %call, %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit ], [ %retval.sroa.0.2, %for.inc ]
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress uwtable

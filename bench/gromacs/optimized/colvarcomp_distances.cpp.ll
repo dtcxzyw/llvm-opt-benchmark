@@ -6556,7 +6556,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit: ; preds = %1
 
 58:                                               ; preds = %.lr.ph, %269
   %59 = phi ptr [ %21, %.lr.ph ], [ %271, %269 ]
-  %.0216 = phi double [ 0.000000e+00, %.lr.ph ], [ %.us-phi, %269 ]
+  %.1216 = phi double [ 0.000000e+00, %.lr.ph ], [ %.us-phi, %269 ]
   %.021215 = phi i64 [ 0, %.lr.ph ], [ %270, %269 ]
   %60 = getelementptr inbounds i8, ptr %59, i64 1200
   %61 = load ptr, ptr %60, align 8
@@ -6790,7 +6790,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit: ; preds = %1
   br label %.preheader
 
 .preheader:                                       ; preds = %75, %.split.us
-  %.1214 = phi double [ %.0216, %75 ], [ %.us-phi, %.split.us ]
+  %.2214 = phi double [ %.1216, %75 ], [ %.us-phi, %.split.us ]
   %.019212 = phi i64 [ 0, %75 ], [ %268, %.split.us ]
   %228 = trunc nuw nsw i64 %.019212 to i32
   %229 = icmp eq i64 %.019212, 2
@@ -6801,7 +6801,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit: ; preds = %1
   ]
 
 _ZN12colvarmodule7rvectorixEi.exit.us:            ; preds = %.preheader, %_ZN12colvarmodule7rvectorixEi.exit25.us
-  %.2204.us = phi double [ %239, %_ZN12colvarmodule7rvectorixEi.exit25.us ], [ %.1214, %.preheader ]
+  %.3204.us = phi double [ %239, %_ZN12colvarmodule7rvectorixEi.exit25.us ], [ %.2214, %.preheader ]
   %.018203.us = phi i64 [ %240, %_ZN12colvarmodule7rvectorixEi.exit25.us ], [ 0, %.preheader ]
   %230 = getelementptr inbounds %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %205, i64 %.018203.us
   %231 = load ptr, ptr %230, align 8
@@ -6822,13 +6822,13 @@ _ZN12colvarmodule7rvectorixEi.exit.us:            ; preds = %.preheader, %_ZN12c
 _ZN12colvarmodule7rvectorixEi.exit25.us:          ; preds = %236, %235, %_ZN12colvarmodule7rvectorixEi.exit.us
   %237 = phi ptr [ %226, %235 ], [ %227, %236 ], [ %225, %_ZN12colvarmodule7rvectorixEi.exit.us ]
   %238 = load double, ptr %237, align 8
-  %239 = call double @llvm.fmuladd.f64(double %233, double %238, double %.2204.us)
+  %239 = call double @llvm.fmuladd.f64(double %233, double %238, double %.3204.us)
   %240 = add nuw nsw i64 %.018203.us, 1
   %exitcond221.not = icmp eq i64 %240, 3
   br i1 %exitcond221.not, label %.split.us, label %_ZN12colvarmodule7rvectorixEi.exit.us, !llvm.loop !192
 
 _ZN12colvarmodule7rvectorixEi.exit.us208:         ; preds = %.preheader, %_ZN12colvarmodule7rvectorixEi.exit25.us209
-  %.2204.us206 = phi double [ %250, %_ZN12colvarmodule7rvectorixEi.exit25.us209 ], [ %.1214, %.preheader ]
+  %.3204.us206 = phi double [ %250, %_ZN12colvarmodule7rvectorixEi.exit25.us209 ], [ %.2214, %.preheader ]
   %.018203.us207 = phi i64 [ %251, %_ZN12colvarmodule7rvectorixEi.exit25.us209 ], [ 0, %.preheader ]
   %241 = getelementptr inbounds %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %205, i64 %.018203.us207
   %242 = load ptr, ptr %241, align 8
@@ -6849,13 +6849,13 @@ _ZN12colvarmodule7rvectorixEi.exit.us208:         ; preds = %.preheader, %_ZN12c
 _ZN12colvarmodule7rvectorixEi.exit25.us209:       ; preds = %247, %246, %_ZN12colvarmodule7rvectorixEi.exit.us208
   %248 = phi ptr [ %226, %246 ], [ %227, %247 ], [ %225, %_ZN12colvarmodule7rvectorixEi.exit.us208 ]
   %249 = load double, ptr %248, align 8
-  %250 = call double @llvm.fmuladd.f64(double %244, double %249, double %.2204.us206)
+  %250 = call double @llvm.fmuladd.f64(double %244, double %249, double %.3204.us206)
   %251 = add nuw nsw i64 %.018203.us207, 1
   %exitcond.not = icmp eq i64 %251, 3
   br i1 %exitcond.not, label %.split.us, label %_ZN12colvarmodule7rvectorixEi.exit.us208, !llvm.loop !192
 
 _ZN12colvarmodule7rvectorixEi.exit:               ; preds = %.preheader, %_ZN12colvarmodule7rvectorixEi.exit25
-  %.2204 = phi double [ %262, %_ZN12colvarmodule7rvectorixEi.exit25 ], [ %.1214, %.preheader ]
+  %.3204 = phi double [ %262, %_ZN12colvarmodule7rvectorixEi.exit25 ], [ %.2214, %.preheader ]
   %.018203 = phi i64 [ %263, %_ZN12colvarmodule7rvectorixEi.exit25 ], [ 0, %.preheader ]
   %252 = getelementptr inbounds %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %205, i64 %.018203
   %253 = load ptr, ptr %252, align 8
@@ -6877,7 +6877,7 @@ _ZN12colvarmodule7rvectorixEi.exit:               ; preds = %.preheader, %_ZN12c
 _ZN12colvarmodule7rvectorixEi.exit25:             ; preds = %_ZN12colvarmodule7rvectorixEi.exit, %258, %259
   %260 = phi ptr [ %226, %258 ], [ %227, %259 ], [ %225, %_ZN12colvarmodule7rvectorixEi.exit ]
   %261 = load double, ptr %260, align 8
-  %262 = call double @llvm.fmuladd.f64(double %256, double %261, double %.2204)
+  %262 = call double @llvm.fmuladd.f64(double %256, double %261, double %.3204)
   %263 = add nuw nsw i64 %.018203, 1
   %exitcond222.not = icmp eq i64 %263, 3
   br i1 %exitcond222.not, label %.split.us, label %_ZN12colvarmodule7rvectorixEi.exit, !llvm.loop !192
@@ -6928,7 +6928,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i: ; preds = %267, %2
   br i1 %280, label %58, label %._crit_edge, !llvm.loop !194
 
 ._crit_edge:                                      ; preds = %269, %.preheader201
-  %.0.lcssa = phi double [ 0.000000e+00, %.preheader201 ], [ %.us-phi, %269 ]
+  %.1.lcssa = phi double [ 0.000000e+00, %.preheader201 ], [ %.us-phi, %269 ]
   %281 = load ptr, ptr %5, align 8
   %282 = load ptr, ptr %13, align 8
   %.not.i.i.i28 = icmp eq ptr %282, %281
@@ -7011,7 +7011,7 @@ _ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EED2Ev.exit.i: ; 
   resume { ptr, i32 } %.pn
 
 _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %301, %_ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EED2Ev.exit.i, %1
-  %.3 = phi double [ 0.000000e+00, %1 ], [ %.0.lcssa, %_ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EED2Ev.exit.i ], [ %.0.lcssa, %301 ]
+  %.0 = phi double [ 0.000000e+00, %1 ], [ %.1.lcssa, %_ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EED2Ev.exit.i ], [ %.1.lcssa, %301 ]
   %302 = getelementptr inbounds i8, ptr %0, i64 640
   %303 = load double, ptr %302, align 8
   %304 = fcmp ogt double %303, 0.000000e+00
@@ -7036,7 +7036,7 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %301, %_ZNSt6vector
   %321 = uitofp i64 %320 to double
   %322 = call double @llvm.fmuladd.f64(double %321, double 3.000000e+00, double -1.000000e+00)
   %323 = fsub double %322, %312
-  %324 = fsub double %323, %.3
+  %324 = fsub double %323, %.0
   %325 = fdiv double %324, %303
   br label %326
 

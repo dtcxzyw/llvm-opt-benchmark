@@ -4104,7 +4104,7 @@ if.end21:                                         ; preds = %if.then17
   br i1 %cmp23.not, label %if.end26, label %Py_XDECREF.exit
 
 if.end26:                                         ; preds = %if.end21, %if.end15
-  %modulename.0 = phi ptr [ %call18, %if.end21 ], [ null, %if.end15 ]
+  %modulename.1 = phi ptr [ %call18, %if.end21 ], [ null, %if.end15 ]
   %6 = getelementptr i8, ptr %spec.select, i64 8
   %spec.select.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %spec.select.val, i64 168
@@ -4129,27 +4129,27 @@ if.else:                                          ; preds = %if.end26
   br i1 %cmp32, label %Py_XDECREF.exit, label %if.then.i20
 
 if.then.i20:                                      ; preds = %if.end.i.i18, %if.then29, %if.else
-  %bases.0 = phi ptr [ %call31, %if.else ], [ %spec.select, %if.then29 ], [ %spec.select, %if.end.i.i18 ]
+  %bases.1 = phi ptr [ %call31, %if.else ], [ %spec.select, %if.then29 ], [ %spec.select, %if.end.i.i18 ]
   %add.ptr = getelementptr i8, ptr %call1, i64 1
-  %call36 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef nonnull @PyType_Type, ptr noundef nonnull @.str.16, ptr noundef %add.ptr, ptr noundef nonnull %bases.0, ptr noundef nonnull %dict.addr.0) #16
-  %10 = load i64, ptr %bases.0, align 8
+  %call36 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef nonnull @PyType_Type, ptr noundef nonnull @.str.16, ptr noundef %add.ptr, ptr noundef nonnull %bases.1, ptr noundef nonnull %dict.addr.0) #16
+  %10 = load i64, ptr %bases.1, align 8
   %11 = and i64 %10, 2147483648
   %cmp.i2.not.i21 = icmp eq i64 %11, 0
   br i1 %cmp.i2.not.i21, label %if.end.i.i22, label %Py_XDECREF.exit
 
 if.end.i.i22:                                     ; preds = %if.then.i20
   %dec.i.i23 = add i64 %10, -1
-  store i64 %dec.i.i23, ptr %bases.0, align 8
+  store i64 %dec.i.i23, ptr %bases.1, align 8
   %cmp.i.i24 = icmp eq i64 %dec.i.i23, 0
   br i1 %cmp.i.i24, label %if.then1.i.i25, label %Py_XDECREF.exit
 
 if.then1.i.i25:                                   ; preds = %if.end.i.i22
-  tail call void @_Py_Dealloc(ptr noundef nonnull %bases.0) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %bases.1) #16
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.else, %if.end21, %if.then17, %if.end11, %if.then.i20, %if.end.i.i22, %if.then1.i.i25
   %result.049 = phi ptr [ %call36, %if.then.i20 ], [ %call36, %if.end.i.i22 ], [ %call36, %if.then1.i.i25 ], [ null, %if.end11 ], [ null, %if.then17 ], [ null, %if.end21 ], [ null, %if.else ]
-  %modulename.147 = phi ptr [ %modulename.0, %if.then.i20 ], [ %modulename.0, %if.end.i.i22 ], [ %modulename.0, %if.then1.i.i25 ], [ null, %if.end11 ], [ null, %if.then17 ], [ %call18, %if.end21 ], [ %modulename.0, %if.else ]
+  %modulename.047 = phi ptr [ %modulename.1, %if.then.i20 ], [ %modulename.1, %if.end.i.i22 ], [ %modulename.1, %if.then1.i.i25 ], [ null, %if.end11 ], [ null, %if.then17 ], [ %call18, %if.end21 ], [ %modulename.1, %if.else ]
   %cmp.not.i26 = icmp eq ptr %mydict.0, null
   br i1 %cmp.not.i26, label %Py_XDECREF.exit33, label %if.then.i27
 
@@ -4170,25 +4170,25 @@ if.then1.i.i32:                                   ; preds = %if.end.i.i29
   br label %Py_XDECREF.exit33
 
 Py_XDECREF.exit33:                                ; preds = %Py_XDECREF.exit, %if.then.i27, %if.end.i.i29, %if.then1.i.i32
-  %cmp.not.i34 = icmp eq ptr %modulename.147, null
+  %cmp.not.i34 = icmp eq ptr %modulename.047, null
   br i1 %cmp.not.i34, label %return, label %if.then.i35
 
 if.then.i35:                                      ; preds = %Py_XDECREF.exit33
-  %14 = load i64, ptr %modulename.147, align 8
+  %14 = load i64, ptr %modulename.047, align 8
   %15 = and i64 %14, 2147483648
   %cmp.i2.not.i36 = icmp eq i64 %15, 0
   br i1 %cmp.i2.not.i36, label %if.end.i.i37, label %return
 
 if.end.i.i37:                                     ; preds = %if.then.i35
   %dec.i.i38 = add i64 %14, -1
-  store i64 %dec.i.i38, ptr %modulename.147, align 8
+  store i64 %dec.i.i38, ptr %modulename.047, align 8
   %cmp.i.i39 = icmp eq i64 %dec.i.i38, 0
   br i1 %cmp.i.i39, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end.i.i37, %if.end.i.i
-  %modulename.147.sink = phi ptr [ %call.i, %if.end.i.i ], [ %modulename.147, %if.end.i.i37 ]
+  %modulename.047.sink = phi ptr [ %call.i, %if.end.i.i ], [ %modulename.047, %if.end.i.i37 ]
   %retval.0.ph = phi ptr [ null, %if.end.i.i ], [ %result.049, %if.end.i.i37 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %modulename.147.sink) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %modulename.047.sink) #16
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then6, %if.end.i.i37, %if.then.i35, %Py_XDECREF.exit33, %if.end.i.i, %if.then.i, %if.then
@@ -4976,7 +4976,7 @@ if.then1.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then1.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then26, %if.then23, %if.end21
-  %err_msg.0 = phi ptr [ %call24, %if.then23 ], [ null, %if.end21 ], [ null, %if.then26 ], [ null, %if.then.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i.i ], [ null, %if.then1.i.i.i.i.i.i ]
+  %err_msg.1 = phi ptr [ %call24, %if.then23 ], [ null, %if.end21 ], [ null, %if.then26 ], [ null, %if.then.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i.i ], [ null, %if.then1.i.i.i.i.i.i ]
   %22 = load ptr, ptr %exc_type, align 8
   %23 = load ptr, ptr %exc_value, align 8
   %call.i = tail call ptr @PyStructSequence_New(ptr noundef nonnull @UnraisableHookArgsType) #16
@@ -5023,8 +5023,8 @@ if.end.i.i29.i:                                   ; preds = %_Py_NewRef.exit26.i
 
 _Py_NewRef.exit30.i:                              ; preds = %if.end.i.i29.i, %_Py_NewRef.exit26.i
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call.i, i64 noundef 2, ptr noundef nonnull %spec.store.select1.i) #16
-  %cmp20.i = icmp eq ptr %err_msg.0, null
-  %spec.store.select4.i = select i1 %cmp20.i, ptr @_Py_NoneStruct, ptr %err_msg.0
+  %cmp20.i = icmp eq ptr %err_msg.1, null
+  %spec.store.select4.i = select i1 %cmp20.i, ptr @_Py_NoneStruct, ptr %err_msg.1
   %27 = load i32, ptr %spec.store.select4.i, align 8
   %add.i.i31.i = add i32 %27, 1
   %cmp.i.i32.i = icmp eq i32 %add.i.i31.i, 0
@@ -5168,31 +5168,31 @@ if.then1.i:                                       ; preds = %if.end.i
 
 do.body.sink.split:                               ; preds = %if.end.i72, %if.end.i.i
   %tobool48.not.ph = phi ptr [ @.str.48, %if.end.i.i ], [ @.str.51, %if.end.i72 ]
-  %obj.addr.0.ph = phi ptr [ %obj, %if.end.i.i ], [ null, %if.end.i72 ]
+  %obj.addr.1.ph = phi ptr [ %obj, %if.end.i.i ], [ null, %if.end.i72 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #16
   br label %do.body
 
 do.body:                                          ; preds = %do.body.sink.split, %if.end.i.i, %if.then34.i, %if.end28, %Py_DECREF.exit59, %if.end.i72, %if.then39
   %tobool48.not = phi ptr [ @.str.51, %if.then39 ], [ @.str.51, %if.end.i72 ], [ @.str.52, %Py_DECREF.exit59 ], [ @.str.48, %if.end28 ], [ @.str.48, %if.then34.i ], [ @.str.48, %if.end.i.i ], [ %tobool48.not.ph, %do.body.sink.split ]
-  %obj.addr.0 = phi ptr [ null, %if.then39 ], [ null, %if.end.i72 ], [ %call33, %Py_DECREF.exit59 ], [ %obj, %if.end28 ], [ %obj, %if.then34.i ], [ %obj, %if.end.i.i ], [ %obj.addr.0.ph, %do.body.sink.split ]
+  %obj.addr.1 = phi ptr [ null, %if.then39 ], [ null, %if.end.i72 ], [ %call33, %Py_DECREF.exit59 ], [ %obj, %if.end28 ], [ %obj, %if.then34.i ], [ %obj, %if.end.i.i ], [ %obj.addr.1.ph, %do.body.sink.split ]
   %call49 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %tobool48.not) #16
-  %cmp.not.i = icmp eq ptr %err_msg.0, null
+  %cmp.not.i = icmp eq ptr %err_msg.1, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i66
 
 if.then.i66:                                      ; preds = %do.body
-  %42 = load i64, ptr %err_msg.0, align 8
+  %42 = load i64, ptr %err_msg.1, align 8
   %43 = and i64 %42, 2147483648
   %cmp.i2.not.i = icmp eq i64 %43, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i68, label %Py_XDECREF.exit
 
 if.end.i.i68:                                     ; preds = %if.then.i66
   %dec.i.i69 = add i64 %42, -1
-  store i64 %dec.i.i69, ptr %err_msg.0, align 8
+  store i64 %dec.i.i69, ptr %err_msg.1, align 8
   %cmp.i.i70 = icmp eq i64 %dec.i.i69, 0
   br i1 %cmp.i.i70, label %if.then1.i.i71, label %Py_XDECREF.exit
 
 if.then1.i.i71:                                   ; preds = %if.end.i.i68
-  tail call void @_Py_Dealloc(ptr noundef nonnull %err_msg.0) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %err_msg.1) #16
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %do.body, %if.then.i66, %if.end.i.i68, %if.then1.i.i71
@@ -5305,14 +5305,14 @@ default_hook:                                     ; preds = %_PyErr_Fetch.exit.t
   %56 = phi ptr [ %storemerge.i114, %_PyErr_Fetch.exit116 ], [ %12, %if.then35 ], [ %12, %if.then1.i84 ], [ %12, %if.end.i81 ], [ %12, %if.then42 ], [ %12, %if.then1.i66 ], [ %12, %if.end.i63 ], [ null, %_PyErr_Fetch.exit.thread ]
   %57 = phi ptr [ %50, %_PyErr_Fetch.exit116 ], [ %23, %if.then35 ], [ %23, %if.then1.i84 ], [ %23, %if.end.i81 ], [ %23, %if.then42 ], [ %23, %if.then1.i66 ], [ %23, %if.end.i63 ], [ null, %_PyErr_Fetch.exit.thread ]
   %58 = phi ptr [ %55, %_PyErr_Fetch.exit116 ], [ %22, %if.then35 ], [ %22, %if.then1.i84 ], [ %22, %if.end.i81 ], [ %22, %if.then42 ], [ %22, %if.then1.i66 ], [ %22, %if.end.i63 ], [ null, %_PyErr_Fetch.exit.thread ]
-  %err_msg.1 = phi ptr [ %call49, %_PyErr_Fetch.exit116 ], [ %err_msg.0, %if.then35 ], [ %err_msg.0, %if.then1.i84 ], [ %err_msg.0, %if.end.i81 ], [ %err_msg.0, %if.then42 ], [ %err_msg.0, %if.then1.i66 ], [ %err_msg.0, %if.end.i63 ], [ null, %_PyErr_Fetch.exit.thread ]
-  %obj.addr.1 = phi ptr [ %obj.addr.0, %_PyErr_Fetch.exit116 ], [ %obj, %if.then35 ], [ %obj, %if.then1.i84 ], [ %obj, %if.end.i81 ], [ %obj, %if.then42 ], [ %obj, %if.then1.i66 ], [ %obj, %if.end.i63 ], [ %obj, %_PyErr_Fetch.exit.thread ]
-  %call50 = tail call fastcc i32 @write_unraisable_exc(ptr noundef nonnull %1, ptr noundef %58, ptr noundef %57, ptr noundef %56, ptr noundef %err_msg.1, ptr noundef %obj.addr.1)
+  %err_msg.0 = phi ptr [ %call49, %_PyErr_Fetch.exit116 ], [ %err_msg.1, %if.then35 ], [ %err_msg.1, %if.then1.i84 ], [ %err_msg.1, %if.end.i81 ], [ %err_msg.1, %if.then42 ], [ %err_msg.1, %if.then1.i66 ], [ %err_msg.1, %if.end.i63 ], [ null, %_PyErr_Fetch.exit.thread ]
+  %obj.addr.0 = phi ptr [ %obj.addr.1, %_PyErr_Fetch.exit116 ], [ %obj, %if.then35 ], [ %obj, %if.then1.i84 ], [ %obj, %if.end.i81 ], [ %obj, %if.then42 ], [ %obj, %if.then1.i66 ], [ %obj, %if.end.i63 ], [ %obj, %_PyErr_Fetch.exit.thread ]
+  %call50 = tail call fastcc i32 @write_unraisable_exc(ptr noundef nonnull %1, ptr noundef %58, ptr noundef %57, ptr noundef %56, ptr noundef %err_msg.0, ptr noundef %obj.addr.0)
   br label %done
 
 done:                                             ; preds = %if.end.i, %if.then1.i, %if.then46, %default_hook
   %59 = phi ptr [ %58, %default_hook ], [ %22, %if.then46 ], [ %22, %if.then1.i ], [ %22, %if.end.i ]
-  %err_msg.2 = phi ptr [ %err_msg.1, %default_hook ], [ %err_msg.0, %if.then46 ], [ %err_msg.0, %if.then1.i ], [ %err_msg.0, %if.end.i ]
+  %err_msg.2 = phi ptr [ %err_msg.0, %default_hook ], [ %err_msg.1, %if.then46 ], [ %err_msg.1, %if.then1.i ], [ %err_msg.1, %if.end.i ]
   %cmp.not.i117 = icmp eq ptr %59, null
   br i1 %cmp.not.i117, label %Py_XDECREF.exit125, label %if.then.i118
 

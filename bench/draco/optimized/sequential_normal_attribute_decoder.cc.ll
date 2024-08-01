@@ -1371,7 +1371,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 111:                                              ; preds = %106, %103
   %112 = phi i32 [ %104, %103 ], [ %108, %106 ]
-  %.013.i = phi i32 [ %105, %103 ], [ %110, %106 ]
+  %.1.i = phi i32 [ %105, %103 ], [ %110, %106 ]
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %114, label %116
 
@@ -1386,11 +1386,11 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
   br label %120
 
 120:                                              ; preds = %116, %114, %96
-  %.1.i = phi i32 [ %98, %96 ], [ %.013.i, %114 ], [ %.013.i, %116 ]
+  %.013.i = phi i32 [ %98, %96 ], [ %.1.i, %114 ], [ %.1.i, %116 ]
   %.0.i = phi i32 [ %100, %96 ], [ %115, %114 ], [ %119, %116 ]
-  %121 = icmp eq i32 %.1.i, 0
+  %121 = icmp eq i32 %.013.i, 0
   %122 = icmp eq i32 %.0.i, 0
-  %123 = or i32 %.0.i, %.1.i
+  %123 = or i32 %.0.i, %.013.i
   %or.cond.i.i11 = icmp eq i32 %123, 0
   %.pre.i.i = load i32, ptr %43, align 8
   br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %124
@@ -1401,7 +1401,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
   br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %126
 
 126:                                              ; preds = %124
-  %127 = icmp eq i32 %.pre.i.i, %.1.i
+  %127 = icmp eq i32 %.pre.i.i, %.013.i
   %or.cond3.i.i = and i1 %122, %127
   br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %128
 
@@ -1436,12 +1436,12 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 141:                                              ; preds = %140
   %142 = load i32, ptr %41, align 8
-  %143 = icmp sgt i32 %142, %.1.i
+  %143 = icmp sgt i32 %142, %.013.i
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %141
   %factor41.i.i = shl i32 %142, 1
-  %145 = sub i32 %factor41.i.i, %.1.i
+  %145 = sub i32 %factor41.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 146:                                              ; preds = %141, %140
@@ -1449,17 +1449,17 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 147:                                              ; preds = %146
   %148 = load i32, ptr %41, align 8
-  %149 = icmp slt i32 %148, %.1.i
+  %149 = icmp slt i32 %148, %.013.i
   br i1 %149, label %150, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 150:                                              ; preds = %147
   %factor.i.i = shl i32 %148, 1
-  %151 = sub i32 %factor.i.i, %.1.i
+  %151 = sub i32 %factor.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 _ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %120, %124, %126, %132, %138, %144, %146, %147, %150
-  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.1.i, %126 ], [ %.pre.i.i, %120 ]
-  %.0.i.i = phi i32 [ 0, %132 ], [ %.1.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.1.i, %147 ], [ %.1.i, %146 ], [ %.0.i, %124 ], [ %.1.i, %126 ], [ %.pre.i.i, %120 ]
+  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
+  %.0.i.i = phi i32 [ 0, %132 ], [ %.013.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.013.i, %147 ], [ %.013.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
   %152 = shl nuw nsw i64 %indvars.iv, 1
   %153 = getelementptr inbounds i32, ptr %1, i64 %152
   %154 = getelementptr inbounds i32, ptr %2, i64 %152
@@ -3339,7 +3339,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 111:                                              ; preds = %106, %103
   %112 = phi i32 [ %104, %103 ], [ %108, %106 ]
-  %.013.i = phi i32 [ %105, %103 ], [ %110, %106 ]
+  %.1.i = phi i32 [ %105, %103 ], [ %110, %106 ]
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %114, label %116
 
@@ -3354,11 +3354,11 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
   br label %120
 
 120:                                              ; preds = %116, %114, %96
-  %.1.i = phi i32 [ %98, %96 ], [ %.013.i, %114 ], [ %.013.i, %116 ]
+  %.013.i = phi i32 [ %98, %96 ], [ %.1.i, %114 ], [ %.1.i, %116 ]
   %.0.i = phi i32 [ %100, %96 ], [ %115, %114 ], [ %119, %116 ]
-  %121 = icmp eq i32 %.1.i, 0
+  %121 = icmp eq i32 %.013.i, 0
   %122 = icmp eq i32 %.0.i, 0
-  %123 = or i32 %.0.i, %.1.i
+  %123 = or i32 %.0.i, %.013.i
   %or.cond.i.i11 = icmp eq i32 %123, 0
   %.pre.i.i = load i32, ptr %43, align 8
   br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %124
@@ -3369,7 +3369,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
   br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %126
 
 126:                                              ; preds = %124
-  %127 = icmp eq i32 %.pre.i.i, %.1.i
+  %127 = icmp eq i32 %.pre.i.i, %.013.i
   %or.cond3.i.i = and i1 %122, %127
   br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %128
 
@@ -3404,12 +3404,12 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 141:                                              ; preds = %140
   %142 = load i32, ptr %41, align 8
-  %143 = icmp sgt i32 %142, %.1.i
+  %143 = icmp sgt i32 %142, %.013.i
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %141
   %factor41.i.i = shl i32 %142, 1
-  %145 = sub i32 %factor41.i.i, %.1.i
+  %145 = sub i32 %factor41.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 146:                                              ; preds = %141, %140
@@ -3417,17 +3417,17 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 147:                                              ; preds = %146
   %148 = load i32, ptr %41, align 8
-  %149 = icmp slt i32 %148, %.1.i
+  %149 = icmp slt i32 %148, %.013.i
   br i1 %149, label %150, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 150:                                              ; preds = %147
   %factor.i.i = shl i32 %148, 1
-  %151 = sub i32 %factor.i.i, %.1.i
+  %151 = sub i32 %factor.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 _ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %120, %124, %126, %132, %138, %144, %146, %147, %150
-  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.1.i, %126 ], [ %.pre.i.i, %120 ]
-  %.0.i.i = phi i32 [ 0, %132 ], [ %.1.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.1.i, %147 ], [ %.1.i, %146 ], [ %.0.i, %124 ], [ %.1.i, %126 ], [ %.pre.i.i, %120 ]
+  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
+  %.0.i.i = phi i32 [ 0, %132 ], [ %.013.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.013.i, %147 ], [ %.013.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
   %152 = shl nuw nsw i64 %indvars.iv, 1
   %153 = getelementptr inbounds i32, ptr %1, i64 %152
   %154 = getelementptr inbounds i32, ptr %2, i64 %152
@@ -4701,7 +4701,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 111:                                              ; preds = %106, %103
   %112 = phi i32 [ %104, %103 ], [ %108, %106 ]
-  %.013.i = phi i32 [ %105, %103 ], [ %110, %106 ]
+  %.1.i = phi i32 [ %105, %103 ], [ %110, %106 ]
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %114, label %116
 
@@ -4716,11 +4716,11 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
   br label %120
 
 120:                                              ; preds = %116, %114, %96
-  %.1.i = phi i32 [ %98, %96 ], [ %.013.i, %114 ], [ %.013.i, %116 ]
+  %.013.i = phi i32 [ %98, %96 ], [ %.1.i, %114 ], [ %.1.i, %116 ]
   %.0.i = phi i32 [ %100, %96 ], [ %115, %114 ], [ %119, %116 ]
-  %121 = icmp eq i32 %.1.i, 0
+  %121 = icmp eq i32 %.013.i, 0
   %122 = icmp eq i32 %.0.i, 0
-  %123 = or i32 %.0.i, %.1.i
+  %123 = or i32 %.0.i, %.013.i
   %or.cond.i.i11 = icmp eq i32 %123, 0
   %.pre.i.i = load i32, ptr %43, align 8
   br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %124
@@ -4731,7 +4731,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
   br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %126
 
 126:                                              ; preds = %124
-  %127 = icmp eq i32 %.pre.i.i, %.1.i
+  %127 = icmp eq i32 %.pre.i.i, %.013.i
   %or.cond3.i.i = and i1 %122, %127
   br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %128
 
@@ -4766,12 +4766,12 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 141:                                              ; preds = %140
   %142 = load i32, ptr %41, align 8
-  %143 = icmp sgt i32 %142, %.1.i
+  %143 = icmp sgt i32 %142, %.013.i
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %141
   %factor41.i.i = shl i32 %142, 1
-  %145 = sub i32 %factor41.i.i, %.1.i
+  %145 = sub i32 %factor41.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 146:                                              ; preds = %141, %140
@@ -4779,17 +4779,17 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 147:                                              ; preds = %146
   %148 = load i32, ptr %41, align 8
-  %149 = icmp slt i32 %148, %.1.i
+  %149 = icmp slt i32 %148, %.013.i
   br i1 %149, label %150, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 150:                                              ; preds = %147
   %factor.i.i = shl i32 %148, 1
-  %151 = sub i32 %factor.i.i, %.1.i
+  %151 = sub i32 %factor.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 _ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %120, %124, %126, %132, %138, %144, %146, %147, %150
-  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.1.i, %126 ], [ %.pre.i.i, %120 ]
-  %.0.i.i = phi i32 [ 0, %132 ], [ %.1.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.1.i, %147 ], [ %.1.i, %146 ], [ %.0.i, %124 ], [ %.1.i, %126 ], [ %.pre.i.i, %120 ]
+  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
+  %.0.i.i = phi i32 [ 0, %132 ], [ %.013.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.013.i, %147 ], [ %.013.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
   %152 = shl nuw nsw i64 %indvars.iv, 1
   %153 = getelementptr inbounds i32, ptr %1, i64 %152
   %154 = getelementptr inbounds i32, ptr %2, i64 %152
@@ -5927,7 +5927,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 111:                                              ; preds = %106, %103
   %112 = phi i32 [ %104, %103 ], [ %108, %106 ]
-  %.013.i = phi i32 [ %105, %103 ], [ %110, %106 ]
+  %.1.i = phi i32 [ %105, %103 ], [ %110, %106 ]
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %114, label %116
 
@@ -5942,11 +5942,11 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
   br label %120
 
 120:                                              ; preds = %116, %114, %96
-  %.1.i = phi i32 [ %98, %96 ], [ %.013.i, %114 ], [ %.013.i, %116 ]
+  %.013.i = phi i32 [ %98, %96 ], [ %.1.i, %114 ], [ %.1.i, %116 ]
   %.0.i = phi i32 [ %100, %96 ], [ %115, %114 ], [ %119, %116 ]
-  %121 = icmp eq i32 %.1.i, 0
+  %121 = icmp eq i32 %.013.i, 0
   %122 = icmp eq i32 %.0.i, 0
-  %123 = or i32 %.0.i, %.1.i
+  %123 = or i32 %.0.i, %.013.i
   %or.cond.i.i11 = icmp eq i32 %123, 0
   %.pre.i.i = load i32, ptr %43, align 8
   br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %124
@@ -5957,7 +5957,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
   br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %126
 
 126:                                              ; preds = %124
-  %127 = icmp eq i32 %.pre.i.i, %.1.i
+  %127 = icmp eq i32 %.pre.i.i, %.013.i
   %or.cond3.i.i = and i1 %122, %127
   br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %128
 
@@ -5992,12 +5992,12 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 141:                                              ; preds = %140
   %142 = load i32, ptr %41, align 8
-  %143 = icmp sgt i32 %142, %.1.i
+  %143 = icmp sgt i32 %142, %.013.i
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %141
   %factor41.i.i = shl i32 %142, 1
-  %145 = sub i32 %factor41.i.i, %.1.i
+  %145 = sub i32 %factor41.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 146:                                              ; preds = %141, %140
@@ -6005,17 +6005,17 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
 
 147:                                              ; preds = %146
   %148 = load i32, ptr %41, align 8
-  %149 = icmp slt i32 %148, %.1.i
+  %149 = icmp slt i32 %148, %.013.i
   br i1 %149, label %150, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 150:                                              ; preds = %147
   %factor.i.i = shl i32 %148, 1
-  %151 = sub i32 %factor.i.i, %.1.i
+  %151 = sub i32 %factor.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 _ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %120, %124, %126, %132, %138, %144, %146, %147, %150
-  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.1.i, %126 ], [ %.pre.i.i, %120 ]
-  %.0.i.i = phi i32 [ 0, %132 ], [ %.1.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.1.i, %147 ], [ %.1.i, %146 ], [ %.0.i, %124 ], [ %.1.i, %126 ], [ %.pre.i.i, %120 ]
+  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
+  %.0.i.i = phi i32 [ 0, %132 ], [ %.013.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.013.i, %147 ], [ %.013.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
   %152 = shl nuw nsw i64 %indvars.iv, 1
   %153 = getelementptr inbounds i32, ptr %1, i64 %152
   %154 = getelementptr inbounds i32, ptr %2, i64 %152

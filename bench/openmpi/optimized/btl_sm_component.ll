@@ -965,17 +965,17 @@ mca_btl_sm_check_fboxes.exit:                     ; preds = %81
   br label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %166, %154
-  %.091.i.i.i.i = phi i32 [ 32, %166 ], [ %146, %154 ]
-  %.089.i.i.i.i = phi i32 [ %175, %166 ], [ %163, %154 ]
-  %.087.i.i.i.i = phi ptr [ %177, %166 ], [ %152, %154 ]
-  %.0.i.i.i.i = phi i8 [ %171, %166 ], [ %142, %154 ]
-  %178 = icmp ult i32 %.089.i.i.i.i, 32
+  %.192.i.i.i.i = phi i32 [ 32, %166 ], [ %146, %154 ]
+  %.190.i.i.i.i = phi i32 [ %175, %166 ], [ %163, %154 ]
+  %.188.i.i.i.i = phi ptr [ %177, %166 ], [ %152, %154 ]
+  %.1.i.i.i.i = phi i8 [ %171, %166 ], [ %142, %154 ]
+  %178 = icmp ult i32 %.190.i.i.i.i, 32
   br i1 %178, label %179, label %185
 
 179:                                              ; preds = %.critedge.i.i.i.i
-  %180 = zext nneg i8 %.0.i.i.i.i to i32
+  %180 = zext nneg i8 %.1.i.i.i.i to i32
   %181 = shl nuw i32 %180, 31
-  %182 = or disjoint i32 %181, %.091.i.i.i.i
+  %182 = or disjoint i32 %181, %.192.i.i.i.i
   store i32 %182, ptr %110, align 4
   fence release
   %183 = load i8, ptr @opal_uses_threads, align 1
@@ -983,22 +983,22 @@ mca_btl_sm_check_fboxes.exit:                     ; preds = %81
   br i1 %184, label %sm_fifo_write_ep.exit.i.i, label %sm_fifo_write_ep.exit.thread20.i.i
 
 185:                                              ; preds = %.critedge.i.i.i.i, %138
-  %.192.i.i.i.i = phi i32 [ %.091.i.i.i.i, %.critedge.i.i.i.i ], [ %146, %138 ]
-  %.190.i.i.i.i = phi i32 [ %.089.i.i.i.i, %.critedge.i.i.i.i ], [ %150, %138 ]
-  %.188.i.i.i.i = phi ptr [ %.087.i.i.i.i, %.critedge.i.i.i.i ], [ %152, %138 ]
-  %.1.i.i.i.i = phi i8 [ %.0.i.i.i.i, %.critedge.i.i.i.i ], [ %142, %138 ]
-  %186 = getelementptr inbounds i8, ptr %.188.i.i.i.i, i64 8
+  %.091.i.i.i.i = phi i32 [ %.192.i.i.i.i, %.critedge.i.i.i.i ], [ %146, %138 ]
+  %.089.i.i.i.i = phi i32 [ %.190.i.i.i.i, %.critedge.i.i.i.i ], [ %150, %138 ]
+  %.087.i.i.i.i = phi ptr [ %.188.i.i.i.i, %.critedge.i.i.i.i ], [ %152, %138 ]
+  %.0.i.i.i.i = phi i8 [ %.1.i.i.i.i, %.critedge.i.i.i.i ], [ %142, %138 ]
+  %186 = getelementptr inbounds i8, ptr %.087.i.i.i.i, i64 8
   store i64 %128, ptr %186, align 1
-  %187 = add nuw i32 %.192.i.i.i.i, 32
+  %187 = add nuw i32 %.091.i.i.i.i, 32
   %188 = icmp eq i32 %131, %187
   br i1 %188, label %189, label %191
 
 189:                                              ; preds = %185
-  %190 = xor i8 %.1.i.i.i.i, 1
+  %190 = xor i8 %.0.i.i.i.i, 1
   br label %197
 
 191:                                              ; preds = %185
-  %192 = icmp ugt i32 %.190.i.i.i.i, 32
+  %192 = icmp ugt i32 %.089.i.i.i.i, 32
   br i1 %192, label %193, label %197
 
 193:                                              ; preds = %191
@@ -1010,14 +1010,14 @@ mca_btl_sm_check_fboxes.exit:                     ; preds = %81
 
 197:                                              ; preds = %193, %191, %189
   %.293.i.i.i.i = phi i32 [ 32, %189 ], [ %187, %193 ], [ %187, %191 ]
-  %.2.i.i.i.i = phi i8 [ %190, %189 ], [ %.1.i.i.i.i, %193 ], [ %.1.i.i.i.i, %191 ]
+  %.2.i.i.i.i = phi i8 [ %190, %189 ], [ %.0.i.i.i.i, %193 ], [ %.0.i.i.i.i, %191 ]
   %198 = load i16, ptr %113, align 8
   %199 = add i16 %198, 1
   store i16 %199, ptr %113, align 8
-  %200 = getelementptr inbounds i8, ptr %.188.i.i.i.i, i64 4
+  %200 = getelementptr inbounds i8, ptr %.087.i.i.i.i, i64 4
   store i32 0, ptr %200, align 4
   fence release
-  store i32 8, ptr %.188.i.i.i.i, align 8
+  store i32 8, ptr %.087.i.i.i.i, align 8
   fence release
   %.sroa.3.4.insert.ext.i109.i.i.i.i = zext i16 %198 to i32
   %.sroa.3.4.insert.shift.i110.i.i.i.i = shl nuw i32 %.sroa.3.4.insert.ext.i109.i.i.i.i, 16

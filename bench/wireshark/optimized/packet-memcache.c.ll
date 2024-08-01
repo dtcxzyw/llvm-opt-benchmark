@@ -774,7 +774,7 @@ define internal fastcc void @dissect_value(ptr noundef %0, ptr noundef %1, ptr n
   br label %18
 
 18:                                               ; preds = %10, %13, %15
-  %.0172 = phi ptr [ %17, %15 ], [ %12, %13 ], [ %12, %10 ]
+  %.1173 = phi ptr [ %17, %15 ], [ %12, %13 ], [ %12, %10 ]
   %19 = icmp eq i8 %5, 0
   %20 = icmp eq i8 %5, 9
   %or.cond5 = or i1 %19, %20
@@ -818,7 +818,7 @@ define internal fastcc void @dissect_value(ptr noundef %0, ptr noundef %1, ptr n
   %42 = zext i8 %5 to i32
   %43 = tail call ptr @val_to_str(i32 noundef %42, ptr noundef nonnull @opcode_vals, ptr noundef nonnull @.str.158) #8
   %44 = select i1 %.not176, ptr @.str.48, ptr @.str.110
-  %45 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0172, ptr noundef nonnull @ei_value_unknown, ptr noundef nonnull @.str.164, ptr noundef %43, ptr noundef nonnull %44) #8
+  %45 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.1173, ptr noundef nonnull @ei_value_unknown, ptr noundef nonnull @.str.164, ptr noundef %43, ptr noundef nonnull %44) #8
   br label %.thread211
 
 46:                                               ; preds = %7
@@ -981,7 +981,7 @@ sub_2.i:                                          ; preds = %sub_1130.i
   br i1 %63, label %64, label %.thread.i.thread
 
 64:                                               ; preds = %55, %52, %39, %61, %58, %49, %46, %45, %.tail128.i, %sub_1.i
-  %.057 = phi i8 [ -1, %61 ], [ -1, %58 ], [ -1, %46 ], [ -1, %49 ], [ 0, %45 ], [ -1, %.tail128.i ], [ -1, %sub_1.i ], [ 16, %39 ], [ 11, %52 ], [ 4, %55 ]
+  %.2 = phi i8 [ -1, %61 ], [ -1, %58 ], [ -1, %46 ], [ -1, %49 ], [ 0, %45 ], [ -1, %.tail128.i ], [ -1, %sub_1.i ], [ 16, %39 ], [ 11, %52 ], [ 4, %55 ]
   %.sink.i = phi ptr [ %10, %61 ], [ %10, %58 ], [ %10, %46 ], [ %10, %49 ], [ %8, %45 ], [ %10, %.tail128.i ], [ %10, %sub_1.i ], [ %10, %39 ], [ %10, %52 ], [ %10, %55 ]
   store i32 1, ptr %.sink.i, align 4
   %.0..0..0.56.pr.pre = load i32, ptr %8, align 4
@@ -1106,7 +1106,7 @@ thread-pre-split:                                 ; preds = %.thread.i.thread70,
   %.0.55 = phi i32 [ %.0..0..0.55.pr.pre, %64 ], [ 0, %.tail132.i ], [ 0, %.tail137.i ], [ 0, %.tail142.i ], [ 0, %.tail147.i ], [ 0, %.thread.i.thread62 ], [ 0, %90 ], [ 0, %93 ], [ 0, %96 ], [ 0, %.thread.i.thread64 ], [ 0, %.thread.i.thread66 ], [ 0, %103 ], [ 0, %.thread.i.thread68 ], [ 0, %108 ], [ 0, %111 ], [ 0, %.thread.i.thread70 ]
   %.0.56 = phi i1 [ %65, %64 ], [ false, %.tail132.i ], [ true, %.tail137.i ], [ true, %.tail142.i ], [ true, %.tail147.i ], [ false, %.thread.i.thread62 ], [ false, %90 ], [ false, %93 ], [ false, %96 ], [ false, %.thread.i.thread64 ], [ true, %.thread.i.thread66 ], [ false, %103 ], [ true, %.thread.i.thread68 ], [ true, %108 ], [ false, %111 ], [ false, %.thread.i.thread70 ]
   %.058.ph = phi ptr [ @memcache_response_dissector, %64 ], [ @memcache_request_dissector, %.tail132.i ], [ @memcache_request_dissector, %.tail137.i ], [ @memcache_request_dissector, %.tail142.i ], [ @memcache_request_dissector, %.tail147.i ], [ @memcache_request_dissector, %.thread.i.thread62 ], [ @memcache_request_dissector, %90 ], [ @memcache_request_dissector, %93 ], [ @memcache_request_dissector, %96 ], [ @memcache_request_dissector, %.thread.i.thread64 ], [ @memcache_request_dissector, %.thread.i.thread66 ], [ @memcache_request_dissector, %103 ], [ @memcache_request_dissector, %.thread.i.thread68 ], [ @memcache_request_dissector, %108 ], [ @memcache_request_dissector, %111 ], [ @memcache_request_dissector, %.thread.i.thread70 ]
-  %.3.ph = phi i8 [ %.057, %64 ], [ 0, %.tail132.i ], [ 1, %.tail137.i ], [ 2, %.tail142.i ], [ -15, %.tail147.i ], [ -16, %.thread.i.thread62 ], [ 5, %90 ], [ 6, %93 ], [ 7, %96 ], [ 16, %.thread.i.thread64 ], [ 14, %.thread.i.thread66 ], [ 4, %103 ], [ 3, %.thread.i.thread68 ], [ 15, %108 ], [ 11, %111 ], [ 8, %.thread.i.thread70 ]
+  %.3.ph = phi i8 [ %.2, %64 ], [ 0, %.tail132.i ], [ 1, %.tail137.i ], [ 2, %.tail142.i ], [ -15, %.tail147.i ], [ -16, %.thread.i.thread62 ], [ 5, %90 ], [ 6, %93 ], [ 7, %96 ], [ 16, %.thread.i.thread64 ], [ 14, %.thread.i.thread66 ], [ 4, %103 ], [ 3, %.thread.i.thread68 ], [ 15, %108 ], [ 11, %111 ], [ 8, %.thread.i.thread70 ]
   %116 = load i32, ptr @memcache_desegment_headers, align 4
   %117 = load i32, ptr @memcache_desegment_body, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -2094,15 +2094,15 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph:                                           ; preds = %182, %.lr.ph
   %185 = phi i32 [ %192, %.lr.ph ], [ %183, %182 ]
-  %.2265 = phi i32 [ %191, %.lr.ph ], [ %20, %182 ]
+  %.3265 = phi i32 [ %191, %.lr.ph ], [ %20, %182 ]
   %.1244264 = phi ptr [ %186, %.lr.ph ], [ %15, %182 ]
-  call fastcc void @dissect_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.2265, i32 noundef %185, i8 noundef zeroext %6, i32 noundef 1)
+  call fastcc void @dissect_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.3265, i32 noundef %185, i8 noundef zeroext %6, i32 noundef 1)
   %186 = load ptr, ptr %8, align 8
   %187 = ptrtoint ptr %186 to i64
   %188 = ptrtoint ptr %.1244264 to i64
   %189 = sub i64 %187, %188
   %190 = trunc i64 %189 to i32
-  %191 = add i32 %.2265, %190
+  %191 = add i32 %.3265, %190
   %192 = call i32 @get_token_len(ptr noundef %186, ptr noundef %5, ptr noundef nonnull %8) #8
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %.loopexit, label %.lr.ph, !llvm.loop !10

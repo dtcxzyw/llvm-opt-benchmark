@@ -157,8 +157,8 @@ _ZNSt12_Vector_baseIPN5logos5PointESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN5logos5PointESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN5logos5PointESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i: ; preds = %3, %16, %_ZNSt12_Vector_baseIPN5logos5PointESaIS2_EE11_M_allocateEm.exit.i.i
-  %.sroa.0.0 = phi ptr [ %15, %_ZNSt12_Vector_baseIPN5logos5PointESaIS2_EE11_M_allocateEm.exit.i.i ], [ %15, %16 ], [ null, %3 ]
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %12
+  %.sroa.0.1 = phi ptr [ %15, %_ZNSt12_Vector_baseIPN5logos5PointESaIS2_EE11_M_allocateEm.exit.i.i ], [ %15, %16 ], [ null, %3 ]
+  %17 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 %12
   %.not41 = icmp eq ptr %8, %9
   br i1 %.not41, label %._crit_edge44, label %.lr.ph43
 
@@ -182,7 +182,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN5logos5PointESt6vectorIS4_SaIS4_EEE
   br label %.invoke
 
 .lr.ph43.split:                                   ; preds = %.lr.ph43.split.preheader, %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit
-  %.sroa.028.042 = phi ptr [ %104, %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit ], [ %.sroa.0.0, %.lr.ph43.split.preheader ]
+  %.sroa.028.042 = phi ptr [ %104, %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit ], [ %.sroa.0.1, %.lr.ph43.split.preheader ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br i1 %.not51, label %_ZNSt6vectorIPN5logos5PointESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPN5logos5PointESaIS2_EE11_M_allocateEm.exit.i
 
@@ -394,22 +394,22 @@ _ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit:    ; preds = %._crit_edge, %103
   br label %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit13
 
 ._crit_edge44:                                    ; preds = %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN5logos5PointESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i
-  %.not.i.i.i14 = icmp eq ptr %.sroa.0.0, null
+  %.not.i.i.i14 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i14, label %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit15, label %106
 
 106:                                              ; preds = %._crit_edge44
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #15
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #15
   br label %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit15
 
 _ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit15:  ; preds = %._crit_edge44, %106
   ret void
 
 _ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit13:  ; preds = %105, %.loopexit.split-lp
-  %.not.i.i.i16 = icmp eq ptr %.sroa.0.0, null
+  %.not.i.i.i16 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i16, label %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit17, label %107
 
 107:                                              ; preds = %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit13
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #15
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #15
   br label %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit17
 
 _ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit17:  ; preds = %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit13, %107

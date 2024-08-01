@@ -10051,7 +10051,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit25: ; preds = %94, %96
   br label %101
 
 101:                                              ; preds = %99, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit25
-  %.019 = phi i32 [ 1, %99 ], [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit25 ]
+  %.1 = phi i32 [ 1, %99 ], [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit25 ]
   br i1 %.not.i.i24, label %_ZN11MutexLockerD2Ev.exit, label %102
 
 102:                                              ; preds = %101
@@ -10059,7 +10059,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit25: ; preds = %94, %96
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %102, %101, %86
-  %.1 = phi i32 [ %93, %86 ], [ %.019, %101 ], [ %.019, %102 ]
+  %.019 = phi i32 [ %93, %86 ], [ %.1, %101 ], [ %.1, %102 ]
   call void @_ZN9CodeCache23mark_for_deoptimizationEP19DeoptimizationScopeP6Method(ptr noundef nonnull %6, ptr noundef nonnull %61) #15
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit28, label %103
@@ -10074,7 +10074,7 @@ _ZN11MutexLockerD2Ev.exit28:                      ; preds = %_ZN11MutexLockerD2E
   br label %104
 
 104:                                              ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit22, %_ZN11MutexLockerD2Ev.exit28
-  %.0 = phi i32 [ %.1, %_ZN11MutexLockerD2Ev.exit28 ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit22 ]
+  %.0 = phi i32 [ %.019, %_ZN11MutexLockerD2Ev.exit28 ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit22 ]
   store ptr null, ptr %56, align 8
   %105 = load ptr, ptr %29, align 8
   %.not.i29 = icmp eq ptr %105, null
@@ -10353,7 +10353,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN11MutexLockerC2E
   br label %103
 
 103:                                              ; preds = %96, %99
-  %.0 = phi i8 [ %102, %99 ], [ 0, %96 ]
+  %.1 = phi i8 [ %102, %99 ], [ 0, %96 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %104
 
@@ -10362,7 +10362,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN11MutexLockerC2E
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %104, %103, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit19
-  %.1 = phi i8 [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit19 ], [ %.0, %103 ], [ %.0, %104 ]
+  %.0 = phi i8 [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit19 ], [ %.1, %103 ], [ %.1, %104 ]
   store ptr null, ptr %55, align 8
   %105 = load ptr, ptr %28, align 8
   %.not.i22 = icmp eq ptr %105, null
@@ -10405,7 +10405,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   store volatile i32 4, ptr %17, align 4
-  ret i8 %.1
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10696,7 +10696,7 @@ _ZL24is_excluded_for_compilerP16AbstractCompilerR12methodHandle.exit37: ; preds 
   br label %_ZL24can_be_compiled_at_levelR12methodHandlehi.exit
 
 _ZL24can_be_compiled_at_levelR12methodHandlehi.exit: ; preds = %118, %_ZN13CompileBroker8compilerEi.exit, %128, %126, %_ZL24is_excluded_for_compilerP16AbstractCompilerR12methodHandle.exit37, %_ZL24is_excluded_for_compilerP16AbstractCompilerR12methodHandle.exit34, %112, %109
-  %.0.shrunk = phi i1 [ %110, %109 ], [ %113, %112 ], [ false, %_ZL24is_excluded_for_compilerP16AbstractCompilerR12methodHandle.exit34 ], [ false, %_ZL24is_excluded_for_compilerP16AbstractCompilerR12methodHandle.exit37 ], [ %127, %126 ], [ %129, %128 ], [ false, %_ZN13CompileBroker8compilerEi.exit ], [ false, %118 ]
+  %.1.shrunk = phi i1 [ %110, %109 ], [ %113, %112 ], [ false, %_ZL24is_excluded_for_compilerP16AbstractCompilerR12methodHandle.exit34 ], [ false, %_ZL24is_excluded_for_compilerP16AbstractCompilerR12methodHandle.exit37 ], [ %127, %126 ], [ %129, %128 ], [ false, %_ZN13CompileBroker8compilerEi.exit ], [ false, %118 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %130
 
@@ -10705,7 +10705,7 @@ _ZL24can_be_compiled_at_levelR12methodHandlehi.exit: ; preds = %118, %_ZN13Compi
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %130, %_ZL24can_be_compiled_at_levelR12methodHandlehi.exit, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit31, %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit, %38
-  %.1.shrunk = phi i1 [ false, %38 ], [ false, %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit31 ], [ %.0.shrunk, %_ZL24can_be_compiled_at_levelR12methodHandlehi.exit ], [ %.0.shrunk, %130 ]
+  %.0.shrunk = phi i1 [ false, %38 ], [ false, %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit31 ], [ %.1.shrunk, %_ZL24can_be_compiled_at_levelR12methodHandlehi.exit ], [ %.1.shrunk, %130 ]
   %131 = getelementptr inbounds i8, ptr %10, i64 1312
   store ptr null, ptr %131, align 8
   %132 = load ptr, ptr %29, align 8
@@ -10732,7 +10732,7 @@ _ZN25WeakPreserveExceptionMarkD2Ev.exit:          ; preds = %_ZN11MutexLockerD2E
 
 _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit, %139
   %140 = phi ptr [ %137, %_ZN25WeakPreserveExceptionMarkD2Ev.exit ], [ %.pre.i.i, %139 ]
-  %.1 = zext i1 %.1.shrunk to i8
+  %.0 = zext i1 %.0.shrunk to i8
   %141 = getelementptr inbounds i8, ptr %135, i64 8
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 24
@@ -10751,7 +10751,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %152) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   store volatile i32 4, ptr %18, align 4
-  ret i8 %.1
+  ret i8 %.0
 }
 
 declare noundef signext i8 @_ZN17CompilationPolicy21highest_compile_levelEv() local_unnamed_addr #1
@@ -11371,12 +11371,12 @@ _ZN16AbstractCompiler22is_intrinsic_availableERK12methodHandleP12DirectiveSet.ex
   br label %163
 
 163:                                              ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit42, %_ZN16AbstractCompiler22is_intrinsic_availableERK12methodHandleP12DirectiveSet.exit
-  %.0 = phi i8 [ %162, %_ZN16AbstractCompiler22is_intrinsic_availableERK12methodHandleP12DirectiveSet.exit ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit42 ]
+  %.1 = phi i8 [ %162, %_ZN16AbstractCompiler22is_intrinsic_availableERK12methodHandleP12DirectiveSet.exit ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit42 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   br label %164
 
 164:                                              ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit36, %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit, %39, %163
-  %.1 = phi i8 [ %.0, %163 ], [ 0, %39 ], [ 0, %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit36 ]
+  %.0 = phi i8 [ %.1, %163 ], [ 0, %39 ], [ 0, %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit36 ]
   %165 = getelementptr inbounds i8, ptr %11, i64 1312
   store ptr null, ptr %165, align 8
   %166 = load ptr, ptr %30, align 8
@@ -11421,7 +11421,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %186) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   store volatile i32 4, ptr %19, align 4
-  ret i8 %.1
+  ret i8 %.0
 }
 
 declare noundef ptr @_ZN15DirectivesStack20getMatchingDirectiveERK12methodHandleP16AbstractCompiler(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
@@ -12426,7 +12426,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %57, %_ZN26GrowableA
 .split.us:                                        ; preds = %.split.us.preheader, %126
   %indvars.iv = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next, %126 ]
   %.03866.us = phi i1 [ false, %.split.us.preheader ], [ %.1.us, %126 ]
-  %.04065.us = phi i32 [ 0, %.split.us.preheader ], [ %127, %126 ]
+  %.14165.us = phi i32 [ 0, %.split.us.preheader ], [ %127, %126 ]
   %117 = getelementptr inbounds [60 x i8], ptr %116, i64 0, i64 %indvars.iv
   %118 = load i8, ptr %117, align 1
   %119 = add i8 %118, 1
@@ -12445,7 +12445,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %57, %_ZN26GrowableA
 126:                                              ; preds = %123, %.split.us
   %.1.us = phi i1 [ true, %123 ], [ %.03866.us, %.split.us ]
   %.0.us = phi i32 [ %125, %123 ], [ %.mux.us, %.split.us ]
-  %127 = add i32 %.0.us, %.04065.us
+  %127 = add i32 %.0.us, %.14165.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next, 30
   br i1 %exitcond70.not, label %.loopexit, label %.split.us, !llvm.loop !15
@@ -12500,12 +12500,12 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %57, %_ZN26GrowableA
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %147, %145, %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %.3 = phi i32 [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ %.242, %145 ], [ %.242, %147 ]
+  %.040 = phi i32 [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ %.242, %145 ], [ %.242, %147 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   br label %148
 
 148:                                              ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit51, %_ZN12ResourceMarkD2Ev.exit
-  %.039 = phi i32 [ %.3, %_ZN12ResourceMarkD2Ev.exit ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit51 ]
+  %.039 = phi i32 [ %.040, %_ZN12ResourceMarkD2Ev.exit ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit51 ]
   store ptr null, ptr %55, align 8
   %149 = load ptr, ptr %28, align 8
   %.not.i54 = icmp eq ptr %149, null
@@ -13911,7 +13911,7 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %59,
   br label %91
 
 91:                                               ; preds = %89, %83, %75, %72, %67, %69
-  %.0 = phi i1 [ true, %69 ], [ true, %67 ], [ true, %72 ], [ true, %75 ], [ false, %83 ], [ false, %89 ]
+  %.2 = phi i1 [ true, %69 ], [ true, %67 ], [ true, %72 ], [ true, %75 ], [ false, %83 ], [ false, %89 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %92
 
 92:                                               ; preds = %91
@@ -13919,13 +13919,13 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %59,
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %92, %91, %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %.1 = phi i1 [ false, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ %.0, %91 ], [ %.0, %92 ]
+  %.1 = phi i1 [ false, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ %.2, %91 ], [ %.2, %92 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   br label %93
 
 93:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %24, %20, %14
-  %.2 = phi i1 [ false, %14 ], [ false, %20 ], [ false, %24 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ]
-  ret i1 %.2
+  %.0 = phi i1 [ false, %14 ], [ false, %20 ], [ false, %24 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ]
+  ret i1 %.0
 }
 
 declare noundef ptr @_ZN13CompileBroker14compile_methodERK12methodHandleiiS2_iN11CompileTask13CompileReasonEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -14811,7 +14811,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %96, %100, %104
   br label %117
 
 117:                                              ; preds = %116, %109
-  %.022 = phi i32 [ -1, %109 ], [ %.0, %116 ]
+  %.1 = phi i32 [ -1, %109 ], [ %.0, %116 ]
   %118 = load ptr, ptr %87, align 8
   %.not.i.i.i.i27 = icmp eq ptr %118, null
   br i1 %.not.i.i.i.i27, label %120, label %119
@@ -14837,7 +14837,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %120, %122
   br label %123
 
 123:                                              ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit25, %_ZN12ResourceMarkD2Ev.exit
-  %.1 = phi i32 [ %.022, %_ZN12ResourceMarkD2Ev.exit ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit25 ]
+  %.022 = phi i32 [ %.1, %_ZN12ResourceMarkD2Ev.exit ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit25 ]
   store ptr null, ptr %56, align 8
   %124 = load ptr, ptr %29, align 8
   %.not.i28 = icmp eq ptr %124, null
@@ -14880,7 +14880,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %37) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   store volatile i32 4, ptr %18, align 4
-  ret i32 %.1
+  ret i32 %.022
 }
 
 declare noundef ptr @_ZN13InlineMatcher20parse_inline_patternEPcRPKc(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
@@ -15126,7 +15126,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %98, %102, %106
   br label %117
 
 117:                                              ; preds = %114, %111
-  %.0 = phi i32 [ -1, %111 ], [ %116, %114 ]
+  %.1 = phi i32 [ -1, %111 ], [ %116, %114 ]
   %118 = load ptr, ptr %89, align 8
   %.not.i.i.i.i24 = icmp eq ptr %118, null
   br i1 %.not.i.i.i.i24, label %120, label %119
@@ -15152,7 +15152,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %120, %122
   br label %123
 
 123:                                              ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit22, %_ZN12ResourceMarkD2Ev.exit
-  %.1 = phi i32 [ %.0, %_ZN12ResourceMarkD2Ev.exit ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit22 ]
+  %.0 = phi i32 [ %.1, %_ZN12ResourceMarkD2Ev.exit ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit22 ]
   store ptr null, ptr %56, align 8
   %124 = load ptr, ptr %29, align 8
   %.not.i25 = icmp eq ptr %124, null
@@ -15195,7 +15195,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %37) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   store volatile i32 4, ptr %18, align 4
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare noundef ptr @_ZN12BasicMatcher20parse_method_patternEPcRPKcb(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #1
@@ -16467,7 +16467,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %44, %3
   br label %_ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i
 
 _ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %54, %51, %47
-  %.023 = phi i8 [ 0, %47 ], [ %57, %54 ], [ 0, %51 ]
+  %.1 = phi i8 [ 0, %47 ], [ %57, %54 ], [ 0, %51 ]
   %58 = phi i1 [ false, %47 ], [ true, %54 ], [ false, %51 ]
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 1360
@@ -16476,8 +16476,8 @@ _ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %54, %5
   br label %62
 
 62:                                               ; preds = %_ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  %.1 = phi i8 [ %.023, %_ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
-  %.0.i = phi i1 [ %58, %_ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.023 = phi i8 [ %.1, %_ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.1.i = phi i1 [ %58, %_ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
   %63 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %64 = trunc i8 %63 to i1
   store volatile i32 6, ptr %15, align 4
@@ -16511,7 +16511,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 _ZL9GetVMFlagIbLi0EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %72
   store volatile i32 6, ptr %15, align 4
-  br i1 %.0.i, label %73, label %_ZL9GetVMFlagIbLi0EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
+  br i1 %.1.i, label %73, label %_ZL9GetVMFlagIbLi0EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
 
 73:                                               ; preds = %_ZL9GetVMFlagIbLi0EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #15
@@ -16519,7 +16519,7 @@ _ZL9GetVMFlagIbLi0EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %15, align 4
   %74 = getelementptr i8, ptr %7, i64 800
   %.val = load ptr, ptr %74, align 8
-  %75 = call fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h(ptr %.val, ptr noundef nonnull %0, i8 noundef zeroext %.1)
+  %75 = call fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h(ptr %.val, ptr noundef nonnull %0, i8 noundef zeroext %.023)
   %76 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %77 = trunc i8 %76 to i1
   store volatile i32 6, ptr %15, align 4
@@ -16895,7 +16895,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
   br label %_ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i
 
 _ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %27, %23
-  %.09 = phi i64 [ 0, %23 ], [ %33, %30 ], [ 0, %27 ]
+  %.1 = phi i64 [ 0, %23 ], [ %33, %30 ], [ 0, %27 ]
   %34 = phi i1 [ false, %23 ], [ true, %30 ], [ false, %27 ]
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 1360
@@ -16904,8 +16904,8 @@ _ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   br label %38
 
 38:                                               ; preds = %_ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  %.1 = phi i64 [ %.09, %_ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
-  %.0.i = phi i1 [ %34, %_ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.09 = phi i64 [ %.1, %_ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.1.i = phi i1 [ %34, %_ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
   %39 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %40 = trunc i8 %39 to i1
   store volatile i32 6, ptr %7, align 4
@@ -16941,7 +16941,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 _ZL9GetVMFlagIiLi1EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %50
   store volatile i32 6, ptr %7, align 4
-  br i1 %.0.i, label %51, label %_ZL9GetVMFlagIiLi1EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
+  br i1 %.1.i, label %51, label %_ZL9GetVMFlagIiLi1EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
 
 51:                                               ; preds = %_ZL9GetVMFlagIiLi1EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
@@ -16949,7 +16949,7 @@ _ZL9GetVMFlagIiLi1EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %52 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %52, align 8
-  %53 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.1)
+  %53 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %54 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %55 = trunc i8 %54 to i1
   store volatile i32 6, ptr %7, align 4
@@ -17172,7 +17172,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
   br label %_ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i
 
 _ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %27, %23
-  %.09 = phi i64 [ 0, %23 ], [ %33, %30 ], [ 0, %27 ]
+  %.1 = phi i64 [ 0, %23 ], [ %33, %30 ], [ 0, %27 ]
   %34 = phi i1 [ false, %23 ], [ true, %30 ], [ false, %27 ]
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 1360
@@ -17181,8 +17181,8 @@ _ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   br label %38
 
 38:                                               ; preds = %_ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  %.1 = phi i64 [ %.09, %_ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
-  %.0.i = phi i1 [ %34, %_ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.09 = phi i64 [ %.1, %_ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ 0, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.1.i = phi i1 [ %34, %_ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
   %39 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %40 = trunc i8 %39 to i1
   store volatile i32 6, ptr %7, align 4
@@ -17218,7 +17218,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 _ZL9GetVMFlagIjLi2EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %50
   store volatile i32 6, ptr %7, align 4
-  br i1 %.0.i, label %51, label %_ZL9GetVMFlagIjLi2EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
+  br i1 %.1.i, label %51, label %_ZL9GetVMFlagIjLi2EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
 
 51:                                               ; preds = %_ZL9GetVMFlagIjLi2EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
@@ -17226,7 +17226,7 @@ _ZL9GetVMFlagIjLi2EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %52 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %52, align 8
-  %53 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.1)
+  %53 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %54 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %55 = trunc i8 %54 to i1
   store volatile i32 6, ptr %7, align 4
@@ -17448,7 +17448,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
   br label %_ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i
 
 _ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %27, %23
-  %.09 = phi i64 [ undef, %23 ], [ %32, %30 ], [ undef, %27 ]
+  %.1 = phi i64 [ undef, %23 ], [ %32, %30 ], [ undef, %27 ]
   %33 = phi i1 [ false, %23 ], [ true, %30 ], [ false, %27 ]
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 1360
@@ -17457,8 +17457,8 @@ _ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   br label %37
 
 37:                                               ; preds = %_ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  %.1 = phi i64 [ %.09, %_ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
-  %.0.i = phi i1 [ %33, %_ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.09 = phi i64 [ %.1, %_ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.1.i = phi i1 [ %33, %_ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
   %38 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %39 = trunc i8 %38 to i1
   store volatile i32 6, ptr %7, align 4
@@ -17494,7 +17494,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 _ZL9GetVMFlagIlLi3EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %49
   store volatile i32 6, ptr %7, align 4
-  br i1 %.0.i, label %50, label %_ZL9GetVMFlagIlLi3EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
+  br i1 %.1.i, label %50, label %_ZL9GetVMFlagIlLi3EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
 
 50:                                               ; preds = %_ZL9GetVMFlagIlLi3EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
@@ -17502,7 +17502,7 @@ _ZL9GetVMFlagIlLi3EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %51 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %51, align 8
-  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.1)
+  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %53 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %54 = trunc i8 %53 to i1
   store volatile i32 6, ptr %7, align 4
@@ -17724,7 +17724,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
   br label %_ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i
 
 _ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %27, %23
-  %.09 = phi i64 [ undef, %23 ], [ %32, %30 ], [ undef, %27 ]
+  %.1 = phi i64 [ undef, %23 ], [ %32, %30 ], [ undef, %27 ]
   %33 = phi i1 [ false, %23 ], [ true, %30 ], [ false, %27 ]
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 1360
@@ -17733,8 +17733,8 @@ _ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   br label %37
 
 37:                                               ; preds = %_ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  %.1 = phi i64 [ %.09, %_ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
-  %.0.i = phi i1 [ %33, %_ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.09 = phi i64 [ %.1, %_ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.1.i = phi i1 [ %33, %_ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
   %38 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %39 = trunc i8 %38 to i1
   store volatile i32 6, ptr %7, align 4
@@ -17770,7 +17770,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 _ZL9GetVMFlagImLi4EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %49
   store volatile i32 6, ptr %7, align 4
-  br i1 %.0.i, label %50, label %_ZL9GetVMFlagImLi4EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
+  br i1 %.1.i, label %50, label %_ZL9GetVMFlagImLi4EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
 
 50:                                               ; preds = %_ZL9GetVMFlagImLi4EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
@@ -17778,7 +17778,7 @@ _ZL9GetVMFlagImLi4EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %51 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %51, align 8
-  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.1)
+  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %53 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %54 = trunc i8 %53 to i1
   store volatile i32 6, ptr %7, align 4
@@ -18000,7 +18000,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
   br label %_ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i
 
 _ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %27, %23
-  %.09 = phi i64 [ undef, %23 ], [ %32, %30 ], [ undef, %27 ]
+  %.1 = phi i64 [ undef, %23 ], [ %32, %30 ], [ undef, %27 ]
   %33 = phi i1 [ false, %23 ], [ true, %30 ], [ false, %27 ]
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 1360
@@ -18009,8 +18009,8 @@ _ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   br label %37
 
 37:                                               ; preds = %_ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  %.1 = phi i64 [ %.09, %_ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
-  %.0.i = phi i1 [ %33, %_ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.09 = phi i64 [ %.1, %_ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.1.i = phi i1 [ %33, %_ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
   %38 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %39 = trunc i8 %38 to i1
   store volatile i32 6, ptr %7, align 4
@@ -18046,7 +18046,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 _ZL9GetVMFlagImLi5EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %49
   store volatile i32 6, ptr %7, align 4
-  br i1 %.0.i, label %50, label %_ZL9GetVMFlagImLi5EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
+  br i1 %.1.i, label %50, label %_ZL9GetVMFlagImLi5EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
 
 50:                                               ; preds = %_ZL9GetVMFlagImLi5EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
@@ -18054,7 +18054,7 @@ _ZL9GetVMFlagImLi5EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %51 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %51, align 8
-  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.1)
+  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %53 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %54 = trunc i8 %53 to i1
   store volatile i32 6, ptr %7, align 4
@@ -18276,7 +18276,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
   br label %_ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i
 
 _ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %27, %23
-  %.09 = phi i64 [ undef, %23 ], [ %32, %30 ], [ undef, %27 ]
+  %.1 = phi i64 [ undef, %23 ], [ %32, %30 ], [ undef, %27 ]
   %33 = phi i1 [ false, %23 ], [ true, %30 ], [ false, %27 ]
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 1360
@@ -18285,8 +18285,8 @@ _ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   br label %37
 
 37:                                               ; preds = %_ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  %.1 = phi i64 [ %.09, %_ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
-  %.0.i = phi i1 [ %33, %_ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.09 = phi i64 [ %.1, %_ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.1.i = phi i1 [ %33, %_ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
   %38 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %39 = trunc i8 %38 to i1
   store volatile i32 6, ptr %7, align 4
@@ -18322,7 +18322,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 _ZL9GetVMFlagImLi6EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %49
   store volatile i32 6, ptr %7, align 4
-  br i1 %.0.i, label %50, label %_ZL9GetVMFlagImLi6EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
+  br i1 %.1.i, label %50, label %_ZL9GetVMFlagImLi6EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
 
 50:                                               ; preds = %_ZL9GetVMFlagImLi6EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
@@ -18330,7 +18330,7 @@ _ZL9GetVMFlagImLi6EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %51 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %51, align 8
-  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.1)
+  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %53 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %54 = trunc i8 %53 to i1
   store volatile i32 6, ptr %7, align 4
@@ -18496,7 +18496,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %44, %3
   br label %_ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i
 
 _ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %54, %51, %47
-  %.023 = phi double [ undef, %47 ], [ %56, %54 ], [ undef, %51 ]
+  %.1 = phi double [ undef, %47 ], [ %56, %54 ], [ undef, %51 ]
   %57 = phi i1 [ false, %47 ], [ true, %54 ], [ false, %51 ]
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 1360
@@ -18505,8 +18505,8 @@ _ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %54, %5
   br label %61
 
 61:                                               ; preds = %_ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  %.1 = phi double [ %.023, %_ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
-  %.0.i = phi i1 [ %57, %_ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.023 = phi double [ %.1, %_ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.1.i = phi i1 [ %57, %_ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
   %62 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %63 = trunc i8 %62 to i1
   store volatile i32 6, ptr %15, align 4
@@ -18540,7 +18540,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 _ZL9GetVMFlagIdLi7EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %71
   store volatile i32 6, ptr %15, align 4
-  br i1 %.0.i, label %72, label %_ZL9GetVMFlagIdLi7EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
+  br i1 %.1.i, label %72, label %_ZL9GetVMFlagIdLi7EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
 
 72:                                               ; preds = %_ZL9GetVMFlagIdLi7EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #15
@@ -18548,7 +18548,7 @@ _ZL9GetVMFlagIdLi7EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %15, align 4
   %73 = getelementptr i8, ptr %7, i64 800
   %.val = load ptr, ptr %73, align 8
-  %74 = call fastcc noundef ptr @_ZL9doubleBoxP10JavaThreadP7JNIEnv_d(ptr %.val, ptr noundef nonnull %0, double noundef %.1)
+  %74 = call fastcc noundef ptr @_ZL9doubleBoxP10JavaThreadP7JNIEnv_d(ptr %.val, ptr noundef nonnull %0, double noundef %.023)
   %75 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %76 = trunc i8 %75 to i1
   store volatile i32 6, ptr %15, align 4
@@ -18867,7 +18867,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %44, %3
   br label %_ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i
 
 _ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i: ; preds = %55, %51, %47
-  %.0 = phi ptr [ undef, %47 ], [ %57, %55 ], [ undef, %51 ]
+  %.126 = phi ptr [ undef, %47 ], [ %57, %55 ], [ undef, %51 ]
   %58 = phi i1 [ false, %47 ], [ true, %55 ], [ false, %51 ]
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 1360
@@ -18876,8 +18876,8 @@ _ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i: ; preds = %55, 
   br label %62
 
 62:                                               ; preds = %_ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  %.126 = phi ptr [ %.0, %_ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
-  %.0.i = phi i1 [ %58, %_ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.0 = phi ptr [ %.126, %_ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i ], [ undef, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
+  %.1.i = phi i1 [ %58, %_ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i ]
   %63 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %64 = trunc i8 %63 to i1
   store volatile i32 6, ptr %15, align 4
@@ -18911,7 +18911,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 _ZL9GetVMFlagIPKcLi8EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %72
   store volatile i32 6, ptr %15, align 4
-  br i1 %.0.i, label %73, label %_ZL9GetVMFlagIPKcLi8EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
+  br i1 %.1.i, label %73, label %_ZL9GetVMFlagIPKcLi8EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread
 
 73:                                               ; preds = %_ZL9GetVMFlagIPKcLi8EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #15
@@ -18920,7 +18920,7 @@ _ZL9GetVMFlagIPKcLi8EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN1
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 1336
   %76 = load ptr, ptr %75, align 8
-  %77 = call noundef ptr %76(ptr noundef nonnull %0, ptr noundef %.126) #15
+  %77 = call noundef ptr %76(ptr noundef nonnull %0, ptr noundef %.0) #15
   %78 = load volatile i32, ptr %8, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %79 = add i32 %78, -57005
@@ -22609,13 +22609,13 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit91: ; preds = %197, %
   br label %219
 
 219:                                              ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit91, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit90, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit89, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit88, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit87, %215
-  %.0 = phi ptr [ %131, %215 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit87 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit88 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit89 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit90 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit91 ]
+  %.3 = phi ptr [ %131, %215 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit87 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit88 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit89 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit90 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit91 ]
   %220 = load ptr, ptr %7, align 8
   call void @_ZN2os4freeEPv(ptr noundef %220) #15
   br label %221
 
 221:                                              ; preds = %127, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit86, %219
-  %.1 = phi ptr [ %.0, %219 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit86 ], [ null, %127 ]
+  %.2 = phi ptr [ %.3, %219 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit86 ], [ null, %127 ]
   %222 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %223 = trunc i8 %222 to i1
   store volatile i32 6, ptr %18, align 4
@@ -22652,12 +22652,12 @@ _ZN20ThreadToNativeFromVMD2Ev.exit:               ; preds = %_ZN18SafepointMecha
   br label %232
 
 232:                                              ; preds = %105, %_ZN20ThreadToNativeFromVMD2Ev.exit
-  %.2 = phi ptr [ %.1, %_ZN20ThreadToNativeFromVMD2Ev.exit ], [ null, %105 ]
+  %.1 = phi ptr [ %.2, %_ZN20ThreadToNativeFromVMD2Ev.exit ], [ null, %105 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   br label %233
 
 233:                                              ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit84, %232
-  %.3 = phi ptr [ %.2, %232 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit84 ]
+  %.0 = phi ptr [ %.1, %232 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit84 ]
   %234 = load ptr, ptr %40, align 8
   %.not.i.i.i.i95 = icmp eq ptr %234, null
   br i1 %.not.i.i.i.i95, label %236, label %235
@@ -22721,7 +22721,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   store volatile i32 4, ptr %18, align 4
-  ret ptr %.3
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
@@ -23830,7 +23830,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit52: ; preds = %141, %
   br i1 %.not85, label %.loopexit, label %132, !llvm.loop !23
 
 .loopexit:                                        ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit51, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit52, %150, %.preheader, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit48, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit47
-  %.1 = phi ptr [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit47 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit48 ], [ %123, %.preheader ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit51 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit52 ], [ %123, %150 ]
+  %.2 = phi ptr [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit47 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit48 ], [ %123, %.preheader ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit51 ], [ null, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit52 ], [ %123, %150 ]
   %151 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %152 = trunc i8 %151 to i1
   store volatile i32 6, ptr %15, align 4
@@ -23874,7 +23874,7 @@ _ZN20ThreadToNativeFromVMD2Ev.exit:               ; preds = %_ZN18SafepointMecha
   br label %_ZN13GrowableArrayIP12CodeBlobStubED2Ev.exit
 
 _ZN13GrowableArrayIP12CodeBlobStubED2Ev.exit:     ; preds = %_ZN20ThreadToNativeFromVMD2Ev.exit, %.critedge, %161
-  %.2 = phi ptr [ %.1, %_ZN20ThreadToNativeFromVMD2Ev.exit ], [ null, %.critedge ], [ null, %161 ]
+  %.1 = phi ptr [ %.2, %_ZN20ThreadToNativeFromVMD2Ev.exit ], [ null, %.critedge ], [ null, %161 ]
   %162 = load ptr, ptr %39, align 8
   %.not.i.i.i.i59 = icmp eq ptr %162, null
   br i1 %.not.i.i.i.i59, label %164, label %163
@@ -23940,7 +23940,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %188) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   store volatile i32 4, ptr %15, align 4
-  ret ptr %.2
+  ret ptr %.1
 }
 
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
@@ -31094,7 +31094,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i: ; preds = %94, 
   br label %106
 
 106:                                              ; preds = %104, %102, %96, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i
-  %.0.i = phi i1 [ %105, %104 ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i ], [ false, %96 ], [ false, %102 ]
+  %.1.i = phi i1 [ %105, %104 ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i ], [ false, %96 ], [ false, %102 ]
   %107 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %108 = trunc i8 %107 to i1
   store volatile i32 6, ptr %18, align 4
@@ -31134,7 +31134,7 @@ _ZL15GetMethodOptionIbEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; pr
   store volatile i32 6, ptr %18, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %.0.i, label %117, label %132
+  br i1 %.1.i, label %117, label %132
 
 117:                                              ; preds = %_ZL15GetMethodOptionIbEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #15
@@ -31459,7 +31459,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i: ; preds = %94, 
   br label %106
 
 106:                                              ; preds = %104, %102, %96, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i
-  %.0.i = phi i1 [ %105, %104 ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i ], [ false, %96 ], [ false, %102 ]
+  %.1.i = phi i1 [ %105, %104 ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i ], [ false, %96 ], [ false, %102 ]
   %107 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %108 = trunc i8 %107 to i1
   store volatile i32 6, ptr %18, align 4
@@ -31499,7 +31499,7 @@ _ZL15GetMethodOptionIlEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; pr
   store volatile i32 6, ptr %18, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %.0.i, label %117, label %131
+  br i1 %.1.i, label %117, label %131
 
 117:                                              ; preds = %_ZL15GetMethodOptionIlEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #15
@@ -31823,7 +31823,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i: ; preds = %94, 
   br label %106
 
 106:                                              ; preds = %104, %102, %96, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i
-  %.0.i = phi i1 [ %105, %104 ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i ], [ false, %96 ], [ false, %102 ]
+  %.1.i = phi i1 [ %105, %104 ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i ], [ false, %96 ], [ false, %102 ]
   %107 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %108 = trunc i8 %107 to i1
   store volatile i32 6, ptr %18, align 4
@@ -31863,7 +31863,7 @@ _ZL15GetMethodOptionImEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; pr
   store volatile i32 6, ptr %18, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %.0.i, label %117, label %131
+  br i1 %.1.i, label %117, label %131
 
 117:                                              ; preds = %_ZL15GetMethodOptionImEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #15
@@ -32187,7 +32187,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i: ; preds = %94, 
   br label %106
 
 106:                                              ; preds = %104, %102, %96, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i
-  %.0.i = phi i1 [ %105, %104 ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i ], [ false, %96 ], [ false, %102 ]
+  %.1.i = phi i1 [ %105, %104 ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i ], [ false, %96 ], [ false, %102 ]
   %107 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %108 = trunc i8 %107 to i1
   store volatile i32 6, ptr %18, align 4
@@ -32227,7 +32227,7 @@ _ZL15GetMethodOptionIdEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; pr
   store volatile i32 6, ptr %18, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %.0.i, label %117, label %131
+  br i1 %.1.i, label %117, label %131
 
 117:                                              ; preds = %_ZL15GetMethodOptionIdEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #15
@@ -32551,7 +32551,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i: ; preds = %94, 
   br label %106
 
 106:                                              ; preds = %104, %102, %96, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i
-  %.0.i = phi i1 [ %105, %104 ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i ], [ false, %96 ], [ false, %102 ]
+  %.1.i = phi i1 [ %105, %104 ], [ false, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit29.i ], [ false, %96 ], [ false, %102 ]
   %107 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %108 = trunc i8 %107 to i1
   store volatile i32 6, ptr %18, align 4
@@ -32591,7 +32591,7 @@ _ZL15GetMethodOptionIPKcEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; 
   store volatile i32 6, ptr %18, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %.0.i, label %117, label %138
+  br i1 %.1.i, label %117, label %138
 
 117:                                              ; preds = %_ZL15GetMethodOptionIPKcEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #15
@@ -49588,9 +49588,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
@@ -49837,9 +49837,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit

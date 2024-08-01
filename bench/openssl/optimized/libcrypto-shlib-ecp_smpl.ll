@@ -288,7 +288,7 @@ if.then9:                                         ; preds = %if.then7
 
 if.end14:                                         ; preds = %if.then9, %if.then7
   %ctx.addr.0 = phi ptr [ %call10, %if.then9 ], [ %ctx, %if.then7 ]
-  %new_ctx.0 = phi ptr [ %call10, %if.then9 ], [ null, %if.then7 ]
+  %new_ctx.1 = phi ptr [ %call10, %if.then9 ], [ null, %if.then7 ]
   br i1 %cmp3, label %if.then16, label %if.end24
 
 if.then16:                                        ; preds = %if.end14
@@ -335,12 +335,12 @@ if.then44:                                        ; preds = %if.end42
   br i1 %tobool47.not, label %err, label %if.end52
 
 if.end52:                                         ; preds = %if.then26, %if.end24, %if.then44, %if.end42, %if.end2
-  %new_ctx.1 = phi ptr [ %new_ctx.0, %if.then26 ], [ %new_ctx.0, %if.end24 ], [ null, %if.then44 ], [ null, %if.end42 ], [ null, %if.end2 ]
+  %new_ctx.0 = phi ptr [ %new_ctx.1, %if.then26 ], [ %new_ctx.1, %if.end24 ], [ null, %if.then44 ], [ null, %if.end42 ], [ null, %if.end2 ]
   br label %err
 
 err:                                              ; preds = %if.then44, %if.then36, %if.then26, %if.then16, %if.end52
   %ret.0 = phi i32 [ 1, %if.end52 ], [ 0, %if.then26 ], [ 0, %if.then16 ], [ 0, %if.then44 ], [ 0, %if.then36 ]
-  %new_ctx.2 = phi ptr [ %new_ctx.1, %if.end52 ], [ %new_ctx.0, %if.then26 ], [ %new_ctx.0, %if.then16 ], [ null, %if.then44 ], [ null, %if.then36 ]
+  %new_ctx.2 = phi ptr [ %new_ctx.0, %if.end52 ], [ %new_ctx.1, %if.then26 ], [ %new_ctx.1, %if.then16 ], [ null, %if.then44 ], [ null, %if.then36 ]
   tail call void @BN_CTX_free(ptr noundef %new_ctx.2) #4
   br label %return
 
@@ -3554,13 +3554,13 @@ if.then49:                                        ; preds = %if.end47
   br i1 %tobool52.not, label %err, label %if.end56
 
 if.end56:                                         ; preds = %if.end47, %if.then49, %if.end22, %if.then24
-  %new_ctx.1 = phi ptr [ %new_ctx.0, %if.then24 ], [ %new_ctx.0, %if.end22 ], [ null, %if.then49 ], [ null, %if.end47 ]
+  %new_ctx.2 = phi ptr [ %new_ctx.0, %if.then24 ], [ %new_ctx.0, %if.end22 ], [ null, %if.then49 ], [ null, %if.end47 ]
   br label %err
 
 err:                                              ; preds = %if.then49, %if.then41, %if.then33, %if.then24, %if.then15, %if.then7, %if.end56
-  %new_ctx.2 = phi ptr [ %new_ctx.1, %if.end56 ], [ %new_ctx.0, %if.then24 ], [ %new_ctx.0, %if.then15 ], [ %new_ctx.0, %if.then7 ], [ null, %if.then49 ], [ null, %if.then41 ], [ null, %if.then33 ]
+  %new_ctx.1 = phi ptr [ %new_ctx.2, %if.end56 ], [ %new_ctx.0, %if.then24 ], [ %new_ctx.0, %if.then15 ], [ %new_ctx.0, %if.then7 ], [ null, %if.then49 ], [ null, %if.then41 ], [ null, %if.then33 ]
   %ret.0 = phi i32 [ 1, %if.end56 ], [ 0, %if.then24 ], [ 0, %if.then15 ], [ 0, %if.then7 ], [ 0, %if.then49 ], [ 0, %if.then41 ], [ 0, %if.then33 ]
-  tail call void @BN_CTX_free(ptr noundef %new_ctx.2) #4
+  tail call void @BN_CTX_free(ptr noundef %new_ctx.1) #4
   br label %return
 
 return:                                           ; preds = %if.then2, %err

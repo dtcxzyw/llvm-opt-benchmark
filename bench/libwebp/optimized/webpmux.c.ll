@@ -1823,10 +1823,10 @@ CreateMux.exit219.thread.i:                       ; preds = %774, %762
   br label %Process.exit
 
 796:                                              ; preds = %783, %734, %691, %._crit_edge338.i
-  %.4.i = phi ptr [ %772, %783 ], [ %723, %734 ], [ %681, %691 ], [ %571, %._crit_edge338.i ]
+  %.1276.i = phi ptr [ %772, %783 ], [ %723, %734 ], [ %681, %691 ], [ %571, %._crit_edge338.i ]
   %797 = load ptr, ptr %472, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
-  %798 = call i32 @WebPMuxAssemble(ptr noundef nonnull %.4.i, ptr noundef nonnull %20) #12
+  %798 = call i32 @WebPMuxAssemble(ptr noundef nonnull %.1276.i, ptr noundef nonnull %20) #12
   %.not.i220.i = icmp eq i32 %798, 1
   br i1 %.not.i220.i, label %806, label %799
 
@@ -2046,23 +2046,23 @@ DuplicateMuxHeader.exit.i:                        ; preds = %861
   %899 = icmp slt i32 %898, 1
   %900 = load i32, ptr %47, align 4
   %spec.select.i7 = call i32 @llvm.smin.i32(i32 %898, i32 %900)
-  %.0133.i = select i1 %899, i32 1, i32 %spec.select.i7
+  %.1.i = select i1 %899, i32 1, i32 %spec.select.i7
   %901 = icmp ugt i32 %885, 2
   %902 = load i32, ptr %873, align 4
-  %903 = select i1 %901, i32 %902, i32 %.0133.i
+  %903 = select i1 %901, i32 %902, i32 %.1.i
   %904 = icmp eq i32 %903, 0
   %905 = call i32 @llvm.smin.i32(i32 %903, i32 %900)
   %spec.select190.i = select i1 %904, i32 %900, i32 %905
   br label %906
 
 906:                                              ; preds = %897, %895
-  %.1.i = phi i32 [ 1, %895 ], [ %.0133.i, %897 ]
+  %.0133.i = phi i32 [ 1, %895 ], [ %.1.i, %897 ]
   %.0.i8 = phi i32 [ %896, %895 ], [ %spec.select190.i, %897 ]
-  %.not173324.i = icmp sgt i32 %.1.i, %.0.i8
+  %.not173324.i = icmp sgt i32 %.0133.i, %.0.i8
   br i1 %.not173324.i, label %._crit_edge.i, label %.lr.ph326.preheader.i
 
 .lr.ph326.preheader.i:                            ; preds = %906
-  %907 = sext i32 %.1.i to i64
+  %907 = sext i32 %.0133.i to i64
   %908 = add i32 %.0.i8, 1
   br label %.lr.ph326.i
 
@@ -2134,9 +2134,9 @@ DuplicateMuxHeader.exit.i:                        ; preds = %861
   br label %.loopexit312.i
 
 .loopexit312.i:                                   ; preds = %881, %._crit_edge334.i, %927, %918, %890
-  %.6.i = phi ptr [ %812, %890 ], [ %833, %._crit_edge334.i ], [ %812, %918 ], [ %812, %927 ], [ %812, %881 ]
+  %.2277.i = phi ptr [ %812, %890 ], [ %833, %._crit_edge334.i ], [ %812, %918 ], [ %812, %927 ], [ %812, %881 ]
   %.0137.i = phi ptr [ %833, %890 ], [ null, %._crit_edge334.i ], [ %833, %918 ], [ %833, %927 ], [ %833, %881 ]
-  %.0134.i = phi i32 [ 0, %890 ], [ %935, %._crit_edge334.i ], [ 0, %918 ], [ 0, %927 ], [ 0, %881 ]
+  %.1135.i = phi i32 [ 0, %890 ], [ %935, %._crit_edge334.i ], [ 0, %918 ], [ 0, %927 ], [ 0, %881 ]
   call void @WebPFree(ptr noundef nonnull %865) #12
   call void @WebPMuxDelete(ptr noundef %.0137.i) #12
   br label %Process.exit
@@ -2515,9 +2515,9 @@ DisplayInfo.exit.i:                               ; preds = %.critedge46.i.i, %1
   br label %Process.exit
 
 Process.exit:                                     ; preds = %619, %622, %InitializeConfig.exit, %CreateMux.exit.thread.i, %GetFrame.exit.i, %552, %563, %566, %582, %602, %616, %646, %655, %663, %671, %CreateMux.exit204.thread.i, %686, %698, %716, %CreateMux.exit209.thread.i, %731, %738, %759, %CreateMux.exit219.thread.i, %780, %786, %793, %WriteWebP.exit.i, %CreateMux.exit225.thread.i, %821, %827, %DuplicateMuxHeader.exit.thread.i, %DuplicateMuxHeader.exit.i, %.loopexit312.i, %CreateMux.exit233.thread.i, %951, %962, %WriteWebP.exit236.i, %CreateMux.exit240.thread.i, %DisplayInfo.exit.i
-  %.9.i = phi ptr [ null, %InitializeConfig.exit ], [ %981, %DisplayInfo.exit.i ], [ %939, %WriteWebP.exit236.i ], [ %939, %951 ], [ %939, %962 ], [ %812, %827 ], [ %812, %DuplicateMuxHeader.exit.i ], [ %.6.i, %.loopexit312.i ], [ %812, %821 ], [ null, %793 ], [ null, %759 ], [ %.4.i, %WriteWebP.exit.i ], [ %772, %786 ], [ %772, %780 ], [ null, %716 ], [ %723, %738 ], [ %723, %731 ], [ %681, %686 ], [ %681, %698 ], [ null, %582 ], [ %571, %663 ], [ %571, %646 ], [ %571, %655 ], [ %571, %616 ], [ %571, %602 ], [ %571, %671 ], [ %483, %566 ], [ %483, %563 ], [ %483, %552 ], [ %483, %GetFrame.exit.i ], [ null, %CreateMux.exit.thread.i ], [ null, %CreateMux.exit204.thread.i ], [ null, %CreateMux.exit209.thread.i ], [ null, %CreateMux.exit219.thread.i ], [ null, %CreateMux.exit225.thread.i ], [ %812, %DuplicateMuxHeader.exit.thread.i ], [ null, %CreateMux.exit233.thread.i ], [ null, %CreateMux.exit240.thread.i ], [ %571, %622 ], [ %571, %619 ]
-  %.1135.i = phi i32 [ 1, %InitializeConfig.exit ], [ %.0.i242.i, %DisplayInfo.exit.i ], [ %.0.i235.i, %WriteWebP.exit236.i ], [ 0, %951 ], [ 0, %962 ], [ %831, %827 ], [ %820, %DuplicateMuxHeader.exit.i ], [ %.0134.i, %.loopexit312.i ], [ 0, %821 ], [ 0, %793 ], [ 0, %759 ], [ %.0.i221.i, %WriteWebP.exit.i ], [ 0, %786 ], [ 0, %780 ], [ 0, %716 ], [ 0, %738 ], [ 0, %731 ], [ 0, %686 ], [ 0, %698 ], [ 0, %582 ], [ 0, %663 ], [ 0, %646 ], [ 0, %655 ], [ 0, %616 ], [ 0, %602 ], [ 0, %671 ], [ 0, %566 ], [ %565, %563 ], [ 0, %552 ], [ %546, %GetFrame.exit.i ], [ 0, %CreateMux.exit.thread.i ], [ 0, %CreateMux.exit204.thread.i ], [ 0, %CreateMux.exit209.thread.i ], [ 0, %CreateMux.exit219.thread.i ], [ 0, %CreateMux.exit225.thread.i ], [ %820, %DuplicateMuxHeader.exit.thread.i ], [ 0, %CreateMux.exit233.thread.i ], [ 0, %CreateMux.exit240.thread.i ], [ 0, %622 ], [ 0, %619 ]
-  call void @WebPMuxDelete(ptr noundef %.9.i) #12
+  %.0275.i = phi ptr [ null, %InitializeConfig.exit ], [ %981, %DisplayInfo.exit.i ], [ %939, %WriteWebP.exit236.i ], [ %939, %951 ], [ %939, %962 ], [ %812, %827 ], [ %812, %DuplicateMuxHeader.exit.i ], [ %.2277.i, %.loopexit312.i ], [ %812, %821 ], [ null, %793 ], [ null, %759 ], [ %.1276.i, %WriteWebP.exit.i ], [ %772, %786 ], [ %772, %780 ], [ null, %716 ], [ %723, %738 ], [ %723, %731 ], [ %681, %686 ], [ %681, %698 ], [ null, %582 ], [ %571, %663 ], [ %571, %646 ], [ %571, %655 ], [ %571, %616 ], [ %571, %602 ], [ %571, %671 ], [ %483, %566 ], [ %483, %563 ], [ %483, %552 ], [ %483, %GetFrame.exit.i ], [ null, %CreateMux.exit.thread.i ], [ null, %CreateMux.exit204.thread.i ], [ null, %CreateMux.exit209.thread.i ], [ null, %CreateMux.exit219.thread.i ], [ null, %CreateMux.exit225.thread.i ], [ %812, %DuplicateMuxHeader.exit.thread.i ], [ null, %CreateMux.exit233.thread.i ], [ null, %CreateMux.exit240.thread.i ], [ %571, %622 ], [ %571, %619 ]
+  %.0134.i = phi i32 [ 1, %InitializeConfig.exit ], [ %.0.i242.i, %DisplayInfo.exit.i ], [ %.0.i235.i, %WriteWebP.exit236.i ], [ 0, %951 ], [ 0, %962 ], [ %831, %827 ], [ %820, %DuplicateMuxHeader.exit.i ], [ %.1135.i, %.loopexit312.i ], [ 0, %821 ], [ 0, %793 ], [ 0, %759 ], [ %.0.i221.i, %WriteWebP.exit.i ], [ 0, %786 ], [ 0, %780 ], [ 0, %716 ], [ 0, %738 ], [ 0, %731 ], [ 0, %686 ], [ 0, %698 ], [ 0, %582 ], [ 0, %663 ], [ 0, %646 ], [ 0, %655 ], [ 0, %616 ], [ 0, %602 ], [ 0, %671 ], [ 0, %566 ], [ %565, %563 ], [ 0, %552 ], [ %546, %GetFrame.exit.i ], [ 0, %CreateMux.exit.thread.i ], [ 0, %CreateMux.exit204.thread.i ], [ 0, %CreateMux.exit209.thread.i ], [ 0, %CreateMux.exit219.thread.i ], [ 0, %CreateMux.exit225.thread.i ], [ %820, %DuplicateMuxHeader.exit.thread.i ], [ 0, %CreateMux.exit233.thread.i ], [ 0, %CreateMux.exit240.thread.i ], [ 0, %622 ], [ 0, %619 ]
+  call void @WebPMuxDelete(ptr noundef %.0275.i) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42)
@@ -2528,7 +2528,7 @@ Process.exit:                                     ; preds = %619, %622, %Initial
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %49)
-  %1128 = xor i32 %.1135.i, 1
+  %1128 = xor i32 %.0134.i, 1
   br label %1129
 
 InitializeConfig.exit.thread:                     ; preds = %153, %ParseCommandLine.exit.thread.i, %156, %2

@@ -746,16 +746,16 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_El.exit: ; preds = %if.then.i.i, %cond.end.i.i
-  %it.sroa.10.0 = phi ptr [ %15, %if.then.i.i ], [ %add.ptr.i.i.i, %cond.end.i.i ]
-  %it.sroa.14.0 = phi ptr [ %16, %if.then.i.i ], [ %add.ptr11.i.i, %cond.end.i.i ]
+  %it.sroa.10.1 = phi ptr [ %15, %if.then.i.i ], [ %add.ptr.i.i.i, %cond.end.i.i ]
+  %it.sroa.14.1 = phi ptr [ %16, %if.then.i.i ], [ %add.ptr11.i.i, %cond.end.i.i ]
   %storemerge.i.i = phi ptr [ %add.ptr.i.i47, %if.then.i.i ], [ %add.ptr15.i.i, %cond.end.i.i ]
   %18 = load ptr, ptr %_M_finish.i, align 8, !noalias !16
   %cmp.i.i55.not76 = icmp eq ptr %storemerge.i.i, %18
   br i1 %cmp.i.i55.not76, label %for.end27, label %for.body17
 
 for.body17:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_El.exit, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit65
-  %it.sroa.14.179 = phi ptr [ %it.sroa.14.2, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit65 ], [ %it.sroa.14.0, %_ZStplRKSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_El.exit ]
-  %it.sroa.10.178 = phi ptr [ %it.sroa.10.2, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit65 ], [ %it.sroa.10.0, %_ZStplRKSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_El.exit ]
+  %it.sroa.14.079 = phi ptr [ %it.sroa.14.2, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit65 ], [ %it.sroa.14.1, %_ZStplRKSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_El.exit ]
+  %it.sroa.10.078 = phi ptr [ %it.sroa.10.2, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit65 ], [ %it.sroa.10.1, %_ZStplRKSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_El.exit ]
   %it.sroa.0.077 = phi ptr [ %it.sroa.0.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit65 ], [ %storemerge.i.i, %_ZStplRKSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_El.exit ]
   %call19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %new_value, ptr noundef nonnull align 8 dereferenceable(32) %delim_)
   %19 = load ptr, ptr %it.sroa.0.077, align 8
@@ -763,19 +763,19 @@ for.body17:                                       ; preds = %_ZStplRKSt15_Deque_
   %20 = load i64, ptr %size_.i56, align 8
   %call24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %new_value, ptr noundef %19, i64 noundef %20)
   %incdec.ptr.i57 = getelementptr inbounds i8, ptr %it.sroa.0.077, i64 16
-  %cmp.i59 = icmp eq ptr %incdec.ptr.i57, %it.sroa.10.178
+  %cmp.i59 = icmp eq ptr %incdec.ptr.i57, %it.sroa.10.078
   br i1 %cmp.i59, label %if.then.i60, label %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit65
 
 if.then.i60:                                      ; preds = %for.body17
-  %add.ptr.i62 = getelementptr inbounds i8, ptr %it.sroa.14.179, i64 8
+  %add.ptr.i62 = getelementptr inbounds i8, ptr %it.sroa.14.079, i64 8
   %21 = load ptr, ptr %add.ptr.i62, align 8
   %add.ptr.i.i64 = getelementptr inbounds i8, ptr %21, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit65
 
 _ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit65: ; preds = %for.body17, %if.then.i60
   %it.sroa.0.1 = phi ptr [ %21, %if.then.i60 ], [ %incdec.ptr.i57, %for.body17 ]
-  %it.sroa.10.2 = phi ptr [ %add.ptr.i.i64, %if.then.i60 ], [ %it.sroa.10.178, %for.body17 ]
-  %it.sroa.14.2 = phi ptr [ %add.ptr.i62, %if.then.i60 ], [ %it.sroa.14.179, %for.body17 ]
+  %it.sroa.10.2 = phi ptr [ %add.ptr.i.i64, %if.then.i60 ], [ %it.sroa.10.078, %for.body17 ]
+  %it.sroa.14.2 = phi ptr [ %add.ptr.i62, %if.then.i60 ], [ %it.sroa.14.079, %for.body17 ]
   %22 = load ptr, ptr %_M_finish.i, align 8, !noalias !16
   %cmp.i.i55.not = icmp eq ptr %it.sroa.0.1, %22
   br i1 %cmp.i.i55.not, label %for.end27, label %for.body17, !llvm.loop !19

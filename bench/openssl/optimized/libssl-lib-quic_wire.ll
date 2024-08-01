@@ -1251,24 +1251,24 @@ for.body.preheader:                               ; preds = %PACKET_get_quic_vli
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.093 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %pkt.sroa.0.492 = phi ptr [ %add.ptr.i.i47, %for.inc ], [ %add.ptr.i.i24, %for.body.preheader ]
-  %pkt.sroa.15.491 = phi i64 [ %sub.i.i48, %for.inc ], [ %sub.i.i25, %for.body.preheader ]
-  %cmp.i28 = icmp eq i64 %pkt.sroa.15.491, 0
+  %pkt.sroa.0.092 = phi ptr [ %add.ptr.i.i47, %for.inc ], [ %add.ptr.i.i24, %for.body.preheader ]
+  %pkt.sroa.15.091 = phi i64 [ %sub.i.i48, %for.inc ], [ %sub.i.i25, %for.body.preheader ]
+  %cmp.i28 = icmp eq i64 %pkt.sroa.15.091, 0
   br i1 %cmp.i28, label %return, label %if.end.i29
 
 if.end.i29:                                       ; preds = %for.body
-  %8 = load i8, ptr %pkt.sroa.0.492, align 1
+  %8 = load i8, ptr %pkt.sroa.0.092, align 1
   %9 = lshr i8 %8, 6
   %shr.i.i30 = zext nneg i8 %9 to i32
   %shl.i.i31 = shl nuw nsw i32 1, %shr.i.i30
   %conv1.i.i32 = zext nneg i32 %shl.i.i31 to i64
-  %cmp3.i33 = icmp ult i64 %pkt.sroa.15.491, %conv1.i.i32
+  %cmp3.i33 = icmp ult i64 %pkt.sroa.15.091, %conv1.i.i32
   br i1 %cmp3.i33, label %return, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %if.end.i29
-  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %pkt.sroa.0.492, i64 %conv1.i.i32
-  %sub.i.i36 = sub nuw i64 %pkt.sroa.15.491, %conv1.i.i32
-  %cmp.i40 = icmp eq i64 %pkt.sroa.15.491, %conv1.i.i32
+  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %pkt.sroa.0.092, i64 %conv1.i.i32
+  %sub.i.i36 = sub nuw i64 %pkt.sroa.15.091, %conv1.i.i32
+  %cmp.i40 = icmp eq i64 %pkt.sroa.15.091, %conv1.i.i32
   br i1 %cmp.i40, label %return, label %if.end.i41
 
 if.end.i41:                                       ; preds = %lor.lhs.false11

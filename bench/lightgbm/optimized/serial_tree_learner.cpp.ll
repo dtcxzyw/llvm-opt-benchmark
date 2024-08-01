@@ -6715,13 +6715,13 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %._crit_edge
   br label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i.i
 
 _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.thread, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc30
-  %.sroa.063.0838893 = phi ptr [ %64, %.noexc30 ], [ %64, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.thread ]
+  %.sroa.063.1838893 = phi ptr [ %64, %.noexc30 ], [ %64, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.thread ]
   %90 = phi i64 [ %86, %.noexc30 ], [ %86, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.thread ]
   %.sroa.056.0 = phi ptr [ %88, %.noexc30 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.thread ]
   %.tr.i = trunc i64 %90 to i32
   %91 = shl i32 %.tr.i, 3
   store ptr @_ZZN8LightGBM7Network9GlobalSumIdEESt6vectorIT_SaIS3_EEPS5_ENUlPKcPciiE_8__invokeES8_S9_ii, ptr %10, align 8, !noalias !14
-  invoke void @_ZN8LightGBM7Network9AllreduceEPciiS1_RKPFvPKcS1_iiE(ptr noundef %.sroa.063.0838893, i32 noundef %91, i32 noundef 8, ptr noundef %.sroa.056.0, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZN8LightGBM7Network9AllreduceEPciiS1_RKPFvPKcS1_iiE(ptr noundef %.sroa.063.1838893, i32 noundef %91, i32 noundef 8, ptr noundef %.sroa.056.0, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %95 unwind label %92, !noalias !14
 
 92:                                               ; preds = %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i.i
@@ -6736,11 +6736,11 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIdS
 
 95:                                               ; preds = %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %.not.i.i.i.i.i31 = icmp eq ptr %.sroa.063.0838893, null
+  %.not.i.i.i.i.i31 = icmp eq ptr %.sroa.063.1838893, null
   br i1 %.not.i.i.i.i.i31, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %96
 
 96:                                               ; preds = %95
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.063.0838893) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.063.1838893) #33
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %96, %95
@@ -6845,19 +6845,19 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %118, %115
   br i1 %141, label %.lr.ph75, label %._crit_edge76.thread, !llvm.loop !20
 
 142:                                              ; preds = %.noexc7.i33, %.noexc.i37, %.noexc7.i, %.noexc.i
-  %.sroa.063.1 = phi ptr [ %64, %.noexc.i ], [ %.sroa.056.0, %.noexc.i37 ], [ %.sroa.056.0, %.noexc7.i33 ], [ %64, %.noexc7.i ]
+  %.sroa.063.0 = phi ptr [ %64, %.noexc.i ], [ %.sroa.056.0, %.noexc.i37 ], [ %.sroa.056.0, %.noexc7.i33 ], [ %64, %.noexc7.i ]
   %143 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %142, %114, %112, %92, %94
-  %.sroa.063.3 = phi ptr [ %.sroa.063.0838893, %94 ], [ %.sroa.063.0838893, %92 ], [ %.sroa.063.1, %142 ], [ %.sroa.056.0, %114 ], [ %.sroa.056.0, %112 ]
+  %.sroa.063.2 = phi ptr [ %.sroa.063.1838893, %94 ], [ %.sroa.063.1838893, %92 ], [ %.sroa.063.0, %142 ], [ %.sroa.056.0, %114 ], [ %.sroa.056.0, %112 ]
   %eh.lpad-body = phi { ptr, i32 } [ %93, %94 ], [ %93, %92 ], [ %143, %142 ], [ %113, %114 ], [ %113, %112 ]
-  %.not.i.i.i44 = icmp eq ptr %.sroa.063.3, null
+  %.not.i.i.i44 = icmp eq ptr %.sroa.063.2, null
   br i1 %.not.i.i.i44, label %_ZNSt6vectorIdSaIdEED2Ev.exit45, label %144
 
 144:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.063.3) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.063.2) #33
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit45
 
 ._crit_edge76:                                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -15000,8 +15000,8 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 108:                                              ; preds = %141, %.lr.ph.i
   %.034.i = phi i64 [ 0, %.lr.ph.i ], [ %142, %141 ]
-  %.02633.i = phi i8 [ 1, %.lr.ph.i ], [ %.1.i, %141 ]
-  %.02732.i = phi i8 [ 1, %.lr.ph.i ], [ %.229.i, %141 ]
+  %.133.i = phi i8 [ 1, %.lr.ph.i ], [ %.2.i, %141 ]
+  %.12832.i = phi i8 [ 1, %.lr.ph.i ], [ %.3.i, %141 ]
   %109 = getelementptr inbounds i32, ptr %101, i64 %.034.i
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, %90
@@ -15028,11 +15028,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not30.i, label %124, label %126
 
 124:                                              ; preds = %115
-  %125 = trunc nuw i8 %.02633.i to i1
+  %125 = trunc nuw i8 %.133.i to i1
   br i1 %125, label %126, label %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
 
 126:                                              ; preds = %124, %115, %112
-  %.128.i = phi i8 [ %.02732.i, %112 ], [ %.02732.i, %115 ], [ 0, %124 ]
+  %.229.i = phi i8 [ %.12832.i, %112 ], [ %.12832.i, %115 ], [ 0, %124 ]
   %.not20.i = icmp ugt i32 %94, %114
   br i1 %.not20.i, label %141, label %127
 
@@ -15051,11 +15051,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not31.i, label %141, label %136
 
 136:                                              ; preds = %127
-  %137 = trunc nuw i8 %.128.i to i1
+  %137 = trunc nuw i8 %.229.i to i1
   br i1 %137, label %141, label %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread104
 
 _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread104: ; preds = %136
-  %138 = and i8 %.128.i, 1
+  %138 = and i8 %.229.i, 1
   %139 = icmp eq i8 %138, 0
   %140 = icmp ne i32 %90, %6
   %or.cond.not107 = or i1 %140, %.not.i.i
@@ -15064,8 +15064,8 @@ _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vector
   br i1 %139, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
 
 141:                                              ; preds = %136, %127, %126, %108
-  %.229.i = phi i8 [ %.128.i, %126 ], [ %.128.i, %136 ], [ %.128.i, %127 ], [ %.02732.i, %108 ]
-  %.1.i = phi i8 [ %.02633.i, %126 ], [ 0, %136 ], [ %.02633.i, %127 ], [ %.02633.i, %108 ]
+  %.3.i = phi i8 [ %.229.i, %126 ], [ %.229.i, %136 ], [ %.229.i, %127 ], [ %.12832.i, %108 ]
+  %.2.i = phi i8 [ %.133.i, %126 ], [ 0, %136 ], [ %.133.i, %127 ], [ %.133.i, %108 ]
   %142 = add nuw i64 %.034.i, 1
   %exitcond.not.i = icmp eq i64 %142, %umax.i
   br i1 %exitcond.not.i, label %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit, label %108, !llvm.loop !70
@@ -15078,10 +15078,10 @@ _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vector
   br label %148
 
 _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit: ; preds = %124, %141
-  %.3.ph.i = phi i8 [ %.229.i, %141 ], [ 0, %124 ]
-  %.2.ph.i = phi i8 [ %.1.i, %141 ], [ %.02633.i, %124 ]
-  %144 = and i8 %.3.ph.i, 1
-  %145 = trunc nuw i8 %.2.ph.i to i1
+  %.027.ph.i = phi i8 [ %.3.i, %141 ], [ 0, %124 ]
+  %.026.ph.i = phi i8 [ %.2.i, %141 ], [ %.133.i, %124 ]
+  %144 = and i8 %.027.ph.i, 1
+  %145 = trunc nuw i8 %.026.ph.i to i1
   %146 = icmp eq i8 %144, 0
   %147 = icmp ne i32 %90, %6
   %or.cond.not = or i1 %147, %.not.i.i
@@ -15092,7 +15092,7 @@ _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vector
 148:                                              ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
   %narrow103 = phi i1 [ %narrow98, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %narrow, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
   %or.cond.not101 = phi i1 [ %or.cond.not96, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %or.cond.not, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
-  %.3.i100 = phi i1 [ false, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %146, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
+  %.027.i100 = phi i1 [ false, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %146, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
   %.not57 = icmp ugt i32 %94, %10
   %.0 = select i1 %or.cond.not101, i1 true, i1 %.not57
   %149 = getelementptr inbounds i8, ptr %85, i64 16
@@ -15101,7 +15101,7 @@ _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vector
   %152 = load i32, ptr %151, align 4
   %153 = and i1 %.0, %9
   tail call void @_ZN8LightGBM27IntermediateLeafConstraints26GoDownToFindLeavesToUpdateEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEEbiRKNS_9SplitInfoEbbjRKS1_ISE_SaISE_EE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %152, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(122) %7, i1 noundef zeroext %.tr8491, i1 noundef zeroext %153, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  br i1 %.3.i100, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
+  br i1 %.027.i100, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
 
 154:                                              ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
   br i1 %146, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
@@ -18915,8 +18915,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tail
 
 49:                                               ; preds = %79, %.lr.ph.i
   %.034.i = phi i64 [ 0, %.lr.ph.i ], [ %80, %79 ]
-  %.02633.i = phi i8 [ 1, %.lr.ph.i ], [ %.1.i, %79 ]
-  %.02732.i = phi i8 [ 1, %.lr.ph.i ], [ %.229.i, %79 ]
+  %.133.i = phi i8 [ 1, %.lr.ph.i ], [ %.2.i, %79 ]
+  %.12832.i = phi i8 [ 1, %.lr.ph.i ], [ %.3.i, %79 ]
   %50 = getelementptr inbounds i32, ptr %42, i64 %.034.i
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, %31
@@ -18943,11 +18943,11 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tail
   br i1 %.not30.i, label %65, label %67
 
 65:                                               ; preds = %56
-  %66 = trunc nuw i8 %.02633.i to i1
+  %66 = trunc nuw i8 %.133.i to i1
   br i1 %66, label %67, label %.loopexit.loopexit.i
 
 67:                                               ; preds = %65, %56, %53
-  %.128.i = phi i8 [ %.02732.i, %53 ], [ %.02732.i, %56 ], [ 0, %65 ]
+  %.229.i = phi i8 [ %.12832.i, %53 ], [ %.12832.i, %56 ], [ 0, %65 ]
   %.not20.i = icmp ugt i32 %35, %55
   br i1 %.not20.i, label %79, label %68
 
@@ -18966,26 +18966,26 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tail
   br i1 %.not31.i, label %79, label %77
 
 77:                                               ; preds = %68
-  %78 = trunc nuw i8 %.128.i to i1
+  %78 = trunc nuw i8 %.229.i to i1
   br i1 %78, label %79, label %.loopexit.loopexit.i
 
 79:                                               ; preds = %77, %68, %67, %49
-  %.229.i = phi i8 [ %.128.i, %67 ], [ %.128.i, %77 ], [ %.128.i, %68 ], [ %.02732.i, %49 ]
-  %.1.i = phi i8 [ %.02633.i, %67 ], [ 0, %77 ], [ %.02633.i, %68 ], [ %.02633.i, %49 ]
+  %.3.i = phi i8 [ %.229.i, %67 ], [ %.229.i, %77 ], [ %.229.i, %68 ], [ %.12832.i, %49 ]
+  %.2.i = phi i8 [ %.133.i, %67 ], [ 0, %77 ], [ %.133.i, %68 ], [ %.133.i, %49 ]
   %80 = add nuw i64 %.034.i, 1
   %exitcond.not.i = icmp eq i64 %80, %umax.i
   br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %49, !llvm.loop !70
 
 .loopexit.loopexit.i:                             ; preds = %79, %77, %65
-  %.3.ph.i = phi i8 [ %.229.i, %79 ], [ 0, %65 ], [ %.128.i, %77 ]
-  %.2.ph.i = phi i8 [ %.1.i, %79 ], [ %.02633.i, %65 ], [ 0, %77 ]
-  %81 = trunc nuw i8 %.2.ph.i to i1
-  %82 = trunc nuw i8 %.3.ph.i to i1
+  %.027.ph.i = phi i8 [ %.3.i, %79 ], [ 0, %65 ], [ %.229.i, %77 ]
+  %.026.ph.i = phi i8 [ %.2.i, %79 ], [ %.133.i, %65 ], [ 0, %77 ]
+  %81 = trunc nuw i8 %.026.ph.i to i1
+  %82 = trunc nuw i8 %.027.ph.i to i1
   br label %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
 
 _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit: ; preds = %24, %.preheader.i, %.loopexit.loopexit.i
-  %.3.i = phi i1 [ true, %24 ], [ true, %.preheader.i ], [ %82, %.loopexit.loopexit.i ]
-  %.2.i = phi i1 [ true, %24 ], [ true, %.preheader.i ], [ %81, %.loopexit.loopexit.i ]
+  %.027.i = phi i1 [ true, %24 ], [ true, %.preheader.i ], [ %82, %.loopexit.loopexit.i ]
+  %.026.i = phi i1 [ true, %24 ], [ true, %.preheader.i ], [ %81, %.loopexit.loopexit.i ]
   %83 = icmp eq i32 %31, %1
   %84 = and i1 %15, %83
   br i1 %84, label %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit, label %85
@@ -19019,9 +19019,9 @@ _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vector
 _ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit: ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit, %85, %96, %97, %98
   %.sroa.0.0.i = phi i1 [ false, %98 ], [ true, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ], [ true, %85 ], [ true, %97 ], [ true, %96 ]
   %.not.not.not = phi i1 [ false, %98 ], [ false, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ], [ false, %85 ], [ true, %97 ], [ true, %96 ]
-  %.3.i.not = xor i1 %.3.i, true
-  %brmerge = select i1 %.sroa.0.0.i, i1 true, i1 %.3.i.not
-  %or.cond71 = select i1 %.2.i, i1 %brmerge, i1 false
+  %.027.i.not = xor i1 %.027.i, true
+  %brmerge = select i1 %.sroa.0.0.i, i1 true, i1 %.027.i.not
+  %or.cond71 = select i1 %.026.i, i1 %brmerge, i1 false
   br i1 %or.cond71, label %99, label %106
 
 99:                                               ; preds = %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
@@ -19036,8 +19036,8 @@ _ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.
   br label %106
 
 106:                                              ; preds = %99, %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
-  %brmerge.not = and i1 %.2.i, %.not.not.not
-  %or.cond = select i1 %.3.i.not, i1 true, i1 %brmerge.not
+  %brmerge.not = and i1 %.026.i, %.not.not.not
+  %or.cond = select i1 %.027.i.not, i1 true, i1 %brmerge.not
   br i1 %or.cond, label %.loopexit, label %tailrecurse
 
 tailrecurse:                                      ; preds = %106
@@ -19080,7 +19080,7 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedLeafConstraints17UpdateConstrain
 
 18:                                               ; preds = %.lr.ph, %116
   %19 = phi ptr [ %16, %.lr.ph ], [ %117, %116 ]
-  %.0142 = phi i8 [ 0, %.lr.ph ], [ %.2, %116 ]
+  %.0142 = phi i8 [ 0, %.lr.ph ], [ %.3, %116 ]
   %.081141 = phi i64 [ 0, %.lr.ph ], [ %118, %116 ]
   %20 = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds double, ptr %20, i64 %.081141
@@ -19105,7 +19105,7 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedLeafConstraints17UpdateConstrain
 
 32:                                               ; preds = %27, %18
   %33 = phi i32 [ %.pre154, %27 ], [ %24, %18 ]
-  %.1 = phi i8 [ 1, %27 ], [ %.0142, %18 ]
+  %.2 = phi i8 [ 1, %27 ], [ %.0142, %18 ]
   %34 = icmp ugt i32 %33, %25
   %.pre156 = load i32, ptr %10, align 4
   br i1 %34, label %35, label %69
@@ -19140,7 +19140,7 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedLeafConstraints17UpdateConstrain
   br label %53
 
 53:                                               ; preds = %50, %35
-  %54 = trunc nuw i8 %.1 to i1
+  %54 = trunc nuw i8 %.2 to i1
   br i1 %54, label %69, label %55
 
 55:                                               ; preds = %53
@@ -19170,7 +19170,7 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedLeafConstraints17UpdateConstrain
 69:                                               ; preds = %58, %53, %61, %.critedge, %32
   %70 = phi i32 [ %.pre156, %53 ], [ %.pre155, %61 ], [ %.pre156, %.critedge ], [ %.pre156, %32 ], [ %.pre156, %58 ]
   %.182 = phi i64 [ %.081141, %53 ], [ %68, %61 ], [ %.081141, %.critedge ], [ %.081141, %32 ], [ %.081141, %58 ]
-  %.2 = phi i8 [ %.1, %53 ], [ 1, %61 ], [ 1, %.critedge ], [ %.1, %32 ], [ 1, %58 ]
+  %.3 = phi i8 [ %.2, %53 ], [ 1, %61 ], [ 1, %.critedge ], [ %.2, %32 ], [ 1, %58 ]
   %71 = load ptr, ptr %13, align 8
   %72 = getelementptr inbounds i32, ptr %71, i64 %.182
   %73 = load i32, ptr %72, align 4
@@ -19271,7 +19271,7 @@ _ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EE.exit: ; preds
 
 .loopexit:                                        ; preds = %116, %69, %77, %78, %85
   %125 = phi i1 [ true, %85 ], [ true, %78 ], [ true, %77 ], [ %74, %69 ], [ %74, %116 ]
-  %126 = trunc nuw i8 %.2 to i1
+  %126 = trunc nuw i8 %.3 to i1
   br i1 %126, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %7, %.loopexit
@@ -23254,8 +23254,8 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIiEclISt23mersen
   br i1 %26, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionIiE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit, !llvm.loop !119
 
 _ZNSt24uniform_int_distributionIiE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit: ; preds = %.lr.ph.i, %12, %19
-  %.1.i = phi i64 [ %17, %12 ], [ %17, %19 ], [ %24, %.lr.ph.i ]
-  %27 = lshr i64 %.1.i, 32
+  %.0.i = phi i64 [ %17, %12 ], [ %17, %19 ], [ %24, %.lr.ph.i ]
+  %27 = lshr i64 %.0.i, 32
   br label %.loopexit
 
 28:                                               ; preds = %3
@@ -25230,7 +25230,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0138 = phi i32 [ 0, %.lr.ph ], [ %.1, %94 ]
   %.0109137 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %94 ]
   %.0111136 = phi i32 [ %18, %.lr.ph ], [ %.1112, %94 ]
-  %.0113135 = phi i32 [ 0, %.lr.ph ], [ %.2, %94 ]
+  %.0113135 = phi i32 [ 0, %.lr.ph ], [ %.1114, %94 ]
   %32 = add nsw i64 %indvars.iv, %28
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 12
@@ -25313,7 +25313,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %94
 
 94:                                               ; preds = %91, %93, %68, %66, %38, %53, %31
-  %.2 = phi i32 [ %.0113135, %31 ], [ %41, %38 ], [ %41, %53 ], [ %41, %66 ], [ %41, %68 ], [ %41, %93 ], [ %41, %91 ]
+  %.1114 = phi i32 [ %.0113135, %31 ], [ %41, %38 ], [ %41, %53 ], [ %41, %66 ], [ %41, %68 ], [ %41, %93 ], [ %41, %91 ]
   %.1112 = phi i32 [ %.0111136, %31 ], [ %.0111136, %38 ], [ %.0111136, %53 ], [ %.0111136, %66 ], [ %.0111136, %68 ], [ %8, %93 ], [ %.0111136, %91 ]
   %.1110 = phi double [ %.0109137, %31 ], [ %.0109137, %38 ], [ %.0109137, %53 ], [ %.0109137, %66 ], [ %.0109137, %68 ], [ %89, %93 ], [ %.0109137, %91 ]
   %.1 = phi i32 [ %.0138, %31 ], [ %.0138, %38 ], [ %.0138, %53 ], [ %.0138, %66 ], [ %.0138, %68 ], [ %41, %93 ], [ %.0138, %91 ]
@@ -25822,7 +25822,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0136 = phi i64 [ 0, %.lr.ph ], [ %.1, %91 ]
   %.0107135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1108, %91 ]
   %.0109134 = phi i32 [ %14, %.lr.ph ], [ %.1110, %91 ]
-  %.0111133 = phi i64 [ 0, %.lr.ph ], [ %.2, %91 ]
+  %.0111133 = phi i64 [ 0, %.lr.ph ], [ %.1112, %91 ]
   %29 = add nsw i64 %indvars.iv, %25
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 12
@@ -25905,7 +25905,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %91
 
 91:                                               ; preds = %88, %90, %65, %63, %35, %50, %28
-  %.2 = phi i64 [ %.0111133, %28 ], [ %38, %35 ], [ %38, %50 ], [ %38, %63 ], [ %38, %65 ], [ %38, %90 ], [ %38, %88 ]
+  %.1112 = phi i64 [ %.0111133, %28 ], [ %38, %35 ], [ %38, %50 ], [ %38, %63 ], [ %38, %65 ], [ %38, %90 ], [ %38, %88 ]
   %.1110 = phi i32 [ %.0109134, %28 ], [ %.0109134, %35 ], [ %.0109134, %50 ], [ %.0109134, %63 ], [ %.0109134, %65 ], [ %8, %90 ], [ %.0109134, %88 ]
   %.1108 = phi double [ %.0107135, %28 ], [ %.0107135, %35 ], [ %.0107135, %50 ], [ %.0107135, %63 ], [ %.0107135, %65 ], [ %86, %90 ], [ %.0107135, %88 ]
   %.1 = phi i64 [ %.0136, %28 ], [ %.0136, %35 ], [ %.0136, %50 ], [ %.0136, %63 ], [ %.0136, %65 ], [ %38, %90 ], [ %.0136, %88 ]
@@ -26416,7 +26416,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0138 = phi i64 [ 0, %.lr.ph ], [ %.1, %97 ]
   %.0109137 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %97 ]
   %.0111136 = phi i32 [ %14, %.lr.ph ], [ %.1112, %97 ]
-  %.0113135 = phi i64 [ 0, %.lr.ph ], [ %.2, %97 ]
+  %.0113135 = phi i64 [ 0, %.lr.ph ], [ %.1114, %97 ]
   %29 = add nsw i64 %indvars.iv, %25
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 12
@@ -26506,7 +26506,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %97
 
 97:                                               ; preds = %94, %96, %71, %69, %35, %56, %28
-  %.2 = phi i64 [ %.0113135, %28 ], [ %44, %35 ], [ %44, %56 ], [ %44, %69 ], [ %44, %71 ], [ %44, %96 ], [ %44, %94 ]
+  %.1114 = phi i64 [ %.0113135, %28 ], [ %44, %35 ], [ %44, %56 ], [ %44, %69 ], [ %44, %71 ], [ %44, %96 ], [ %44, %94 ]
   %.1112 = phi i32 [ %.0111136, %28 ], [ %.0111136, %35 ], [ %.0111136, %56 ], [ %.0111136, %69 ], [ %.0111136, %71 ], [ %8, %96 ], [ %.0111136, %94 ]
   %.1110 = phi double [ %.0109137, %28 ], [ %.0109137, %35 ], [ %.0109137, %56 ], [ %.0109137, %69 ], [ %.0109137, %71 ], [ %92, %96 ], [ %.0109137, %94 ]
   %.1 = phi i64 [ %.0138, %28 ], [ %.0138, %35 ], [ %.0138, %56 ], [ %.0138, %69 ], [ %.0138, %71 ], [ %44, %96 ], [ %.0138, %94 ]
@@ -27209,17 +27209,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0120144 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1121144 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0120144, %31
+  %32 = sub nsw i32 %.1121144, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !137
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0122 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1121 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0120 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not145 = icmp sgt i32 %.0122, %26
   br i1 %.not145, label %._crit_edge, label %.lr.ph151
 
@@ -27231,7 +27231,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i32 [ 0, %.lr.ph151 ], [ %.1, %95 ]
   %.0116149 = phi double [ 0xFFF0000000000000, %.lr.ph151 ], [ %.1117, %95 ]
   %.0118148 = phi i32 [ %18, %.lr.ph151 ], [ %.1119, %95 ]
-  %.2147 = phi i32 [ %.1121, %.lr.ph151 ], [ %.3, %95 ]
+  %.2147 = phi i32 [ %.0120, %.lr.ph151 ], [ %.3, %95 ]
   %.1123146 = phi i32 [ %.0122, %.lr.ph151 ], [ %96, %95 ]
   %35 = icmp sgt i32 %.1123146, -1
   br i1 %35, label %36, label %41
@@ -27813,17 +27813,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0118142 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1119142 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0118142, %28
+  %29 = sub nsw i64 %.1119142, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !140
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0120 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0118 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not143 = icmp sgt i32 %.0120, %23
   br i1 %.not143, label %._crit_edge, label %.lr.ph149
 
@@ -27835,7 +27835,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0148 = phi i64 [ 0, %.lr.ph149 ], [ %.1, %92 ]
   %.0114147 = phi double [ 0xFFF0000000000000, %.lr.ph149 ], [ %.1115, %92 ]
   %.0116146 = phi i32 [ %14, %.lr.ph149 ], [ %.1117, %92 ]
-  %.2145 = phi i64 [ %.1119, %.lr.ph149 ], [ %.3, %92 ]
+  %.2145 = phi i64 [ %.0118, %.lr.ph149 ], [ %.3, %92 ]
   %.1121144 = phi i32 [ %.0120, %.lr.ph149 ], [ %93, %92 ]
   %32 = icmp sgt i32 %.1121144, -1
   br i1 %32, label %33, label %38
@@ -28419,7 +28419,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0122150 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1123150 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -28429,14 +28429,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0122150, %34
+  %35 = sub i64 %.1123150, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !143
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0124 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1123 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not151 = icmp sgt i32 %.0124, %23
   br i1 %.not151, label %._crit_edge, label %.lr.ph157
 
@@ -28448,7 +28448,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0156 = phi i64 [ 0, %.lr.ph157 ], [ %.1, %104 ]
   %.0118155 = phi double [ 0xFFF0000000000000, %.lr.ph157 ], [ %.1119, %104 ]
   %.0120154 = phi i32 [ %14, %.lr.ph157 ], [ %.1121, %104 ]
-  %.2153 = phi i64 [ %.1123, %.lr.ph157 ], [ %.3, %104 ]
+  %.2153 = phi i64 [ %.0122, %.lr.ph157 ], [ %.3, %104 ]
   %.1125152 = phi i32 [ %.0124, %.lr.ph157 ], [ %105, %104 ]
   %38 = icmp sgt i32 %.1125152, -1
   br i1 %38, label %39, label %50
@@ -30201,9 +30201,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.086123 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.187, %81 ]
   %.088122 = phi i32 [ 0, %.lr.ph ], [ %.189, %81 ]
   %.090121 = phi i32 [ %13, %.lr.ph ], [ %.191, %81 ]
-  %.093119 = phi i32 [ 0, %.lr.ph ], [ %.2, %81 ]
-  %.095118 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.297, %81 ]
-  %.098117 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2100, %81 ]
+  %.093119 = phi i32 [ 0, %.lr.ph ], [ %.194, %81 ]
+  %.095118 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.196, %81 ]
+  %.098117 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %81 ]
   %25 = add nsw i64 %indvars.iv, %21
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 12
@@ -30282,9 +30282,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   br label %81
 
 81:                                               ; preds = %78, %80, %64, %62, %31, %52, %24
-  %.2100 = phi double [ %.098117, %24 ], [ %36, %31 ], [ %36, %52 ], [ %36, %62 ], [ %36, %64 ], [ %36, %80 ], [ %36, %78 ]
-  %.297 = phi double [ %.095118, %24 ], [ %42, %31 ], [ %42, %52 ], [ %42, %62 ], [ %42, %64 ], [ %42, %80 ], [ %42, %78 ]
-  %.2 = phi i32 [ %.093119, %24 ], [ %46, %31 ], [ %46, %52 ], [ %46, %62 ], [ %46, %64 ], [ %46, %80 ], [ %46, %78 ]
+  %.199 = phi double [ %.098117, %24 ], [ %36, %31 ], [ %36, %52 ], [ %36, %62 ], [ %36, %64 ], [ %36, %80 ], [ %36, %78 ]
+  %.196 = phi double [ %.095118, %24 ], [ %42, %31 ], [ %42, %52 ], [ %42, %62 ], [ %42, %64 ], [ %42, %80 ], [ %42, %78 ]
+  %.194 = phi i32 [ %.093119, %24 ], [ %46, %31 ], [ %46, %52 ], [ %46, %62 ], [ %46, %64 ], [ %46, %80 ], [ %46, %78 ]
   %.191 = phi i32 [ %.090121, %24 ], [ %.090121, %31 ], [ %.090121, %52 ], [ %.090121, %62 ], [ %.090121, %64 ], [ %7, %80 ], [ %.090121, %78 ]
   %.189 = phi i32 [ %.088122, %24 ], [ %.088122, %31 ], [ %.088122, %52 ], [ %.088122, %62 ], [ %.088122, %64 ], [ %46, %80 ], [ %.088122, %78 ]
   %.187 = phi double [ %.086123, %24 ], [ %.086123, %31 ], [ %.086123, %52 ], [ %.086123, %62 ], [ %.086123, %64 ], [ %76, %80 ], [ %.086123, %78 ]
@@ -30785,9 +30785,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0107139 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0109138 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0114136 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1108139 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1110138 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1115136 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -30801,18 +30801,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0107139, %29
-  %39 = fsub double %.0109138, %34
-  %40 = sub nsw i32 %.0114136, %37
+  %38 = fsub double %.1108139, %29
+  %39 = fsub double %.1110138, %34
+  %40 = sub nsw i32 %.1115136, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !151
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0118 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1115 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1110 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1108 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0114 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0109 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0107 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not142 = icmp sgt i32 %.0118, %18
   br i1 %.not142, label %._crit_edge, label %.lr.ph152
 
@@ -30830,9 +30830,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0101149 = phi double [ 0xFFF0000000000000, %.lr.ph152 ], [ %.1102, %101 ]
   %.0103148 = phi i32 [ 0, %.lr.ph152 ], [ %.1104, %101 ]
   %.0105147 = phi i32 [ %13, %.lr.ph152 ], [ %.1106, %101 ]
-  %.2146 = phi double [ %.1108, %.lr.ph152 ], [ %.3, %101 ]
-  %.2111145 = phi double [ %.1110, %.lr.ph152 ], [ %.3112, %101 ]
-  %.2116144 = phi i32 [ %.1115, %.lr.ph152 ], [ %.3117, %101 ]
+  %.2146 = phi double [ %.0107, %.lr.ph152 ], [ %.3, %101 ]
+  %.2111145 = phi double [ %.0109, %.lr.ph152 ], [ %.3112, %101 ]
+  %.2116144 = phi i32 [ %.0114, %.lr.ph152 ], [ %.3117, %101 ]
   %46 = icmp sgt i64 %indvars.iv173, -1
   br i1 %46, label %47, label %64
 
@@ -31987,7 +31987,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0140 = phi i32 [ 0, %.lr.ph ], [ %.1, %143 ]
   %.0109139 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %143 ]
   %.0111138 = phi i32 [ %18, %.lr.ph ], [ %.1112, %143 ]
-  %.0113137 = phi i32 [ 0, %.lr.ph ], [ %.2, %143 ]
+  %.0113137 = phi i32 [ 0, %.lr.ph ], [ %.1114, %143 ]
   %34 = add nsw i64 %indvars.iv, %30
   %35 = load i32, ptr %27, align 4
   %36 = trunc nsw i64 %34 to i32
@@ -32139,7 +32139,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17F
   br label %143
 
 143:                                              ; preds = %140, %142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %65, %38, %52, %33
-  %.2 = phi i32 [ %.0113137, %33 ], [ %41, %38 ], [ %41, %52 ], [ %41, %65 ], [ %41, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %142 ], [ %41, %140 ]
+  %.1114 = phi i32 [ %.0113137, %33 ], [ %41, %38 ], [ %41, %52 ], [ %41, %65 ], [ %41, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %142 ], [ %41, %140 ]
   %.1112 = phi i32 [ %.0111138, %33 ], [ %.0111138, %38 ], [ %.0111138, %52 ], [ %.0111138, %65 ], [ %.0111138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %8, %142 ], [ %.0111138, %140 ]
   %.1110 = phi double [ %.0109139, %33 ], [ %.0109139, %38 ], [ %.0109139, %52 ], [ %.0109139, %65 ], [ %.0109139, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %138, %142 ], [ %.0109139, %140 ]
   %.1 = phi i32 [ %.0140, %33 ], [ %.0140, %38 ], [ %.0140, %52 ], [ %.0140, %65 ], [ %.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %142 ], [ %.0140, %140 ]
@@ -32685,7 +32685,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0138 = phi i64 [ 0, %.lr.ph ], [ %.1, %140 ]
   %.0107137 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1108, %140 ]
   %.0109136 = phi i32 [ %14, %.lr.ph ], [ %.1110, %140 ]
-  %.0111135 = phi i64 [ 0, %.lr.ph ], [ %.2, %140 ]
+  %.0111135 = phi i64 [ 0, %.lr.ph ], [ %.1112, %140 ]
   %31 = add nsw i64 %indvars.iv, %27
   %32 = load i32, ptr %24, align 4
   %33 = trunc nsw i64 %31 to i32
@@ -32837,7 +32837,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17F
   br label %140
 
 140:                                              ; preds = %137, %139, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %62, %35, %49, %30
-  %.2 = phi i64 [ %.0111135, %30 ], [ %38, %35 ], [ %38, %49 ], [ %38, %62 ], [ %38, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %38, %139 ], [ %38, %137 ]
+  %.1112 = phi i64 [ %.0111135, %30 ], [ %38, %35 ], [ %38, %49 ], [ %38, %62 ], [ %38, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %38, %139 ], [ %38, %137 ]
   %.1110 = phi i32 [ %.0109136, %30 ], [ %.0109136, %35 ], [ %.0109136, %49 ], [ %.0109136, %62 ], [ %.0109136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %8, %139 ], [ %.0109136, %137 ]
   %.1108 = phi double [ %.0107137, %30 ], [ %.0107137, %35 ], [ %.0107137, %49 ], [ %.0107137, %62 ], [ %.0107137, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %135, %139 ], [ %.0107137, %137 ]
   %.1 = phi i64 [ %.0138, %30 ], [ %.0138, %35 ], [ %.0138, %49 ], [ %.0138, %62 ], [ %.0138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %38, %139 ], [ %.0138, %137 ]
@@ -33385,7 +33385,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0140 = phi i64 [ 0, %.lr.ph ], [ %.1, %146 ]
   %.0109139 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %146 ]
   %.0111138 = phi i32 [ %14, %.lr.ph ], [ %.1112, %146 ]
-  %.0113137 = phi i64 [ 0, %.lr.ph ], [ %.2, %146 ]
+  %.0113137 = phi i64 [ 0, %.lr.ph ], [ %.1114, %146 ]
   %31 = add nsw i64 %indvars.iv, %27
   %32 = load i32, ptr %24, align 4
   %33 = trunc nsw i64 %31 to i32
@@ -33544,7 +33544,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17F
   br label %146
 
 146:                                              ; preds = %143, %145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %68, %35, %55, %30
-  %.2 = phi i64 [ %.0113137, %30 ], [ %44, %35 ], [ %44, %55 ], [ %44, %68 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %145 ], [ %44, %143 ]
+  %.1114 = phi i64 [ %.0113137, %30 ], [ %44, %35 ], [ %44, %55 ], [ %44, %68 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %145 ], [ %44, %143 ]
   %.1112 = phi i32 [ %.0111138, %30 ], [ %.0111138, %35 ], [ %.0111138, %55 ], [ %.0111138, %68 ], [ %.0111138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %8, %145 ], [ %.0111138, %143 ]
   %.1110 = phi double [ %.0109139, %30 ], [ %.0109139, %35 ], [ %.0109139, %55 ], [ %.0109139, %68 ], [ %.0109139, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %141, %145 ], [ %.0109139, %143 ]
   %.1 = phi i64 [ %.0140, %30 ], [ %.0140, %35 ], [ %.0140, %55 ], [ %.0140, %68 ], [ %.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %145 ], [ %.0140, %143 ]
@@ -34248,17 +34248,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0120146 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1121146 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0120146, %31
+  %32 = sub nsw i32 %.1121146, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !161
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0122 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1121 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0120 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not147 = icmp sgt i32 %.0122, %26
   br i1 %.not147, label %._crit_edge, label %.lr.ph153
 
@@ -34271,7 +34271,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0152 = phi i32 [ 0, %.lr.ph153 ], [ %.1, %144 ]
   %.0116151 = phi double [ 0xFFF0000000000000, %.lr.ph153 ], [ %.1117, %144 ]
   %.0118150 = phi i32 [ %18, %.lr.ph153 ], [ %.1119, %144 ]
-  %.2149 = phi i32 [ %.1121, %.lr.ph153 ], [ %.3, %144 ]
+  %.2149 = phi i32 [ %.0120, %.lr.ph153 ], [ %.3, %144 ]
   %.1123148 = phi i32 [ %.0122, %.lr.ph153 ], [ %145, %144 ]
   %36 = icmp sgt i32 %.1123148, -1
   br i1 %36, label %37, label %42
@@ -34958,17 +34958,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0118144 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1119144 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0118144, %28
+  %29 = sub nsw i64 %.1119144, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !164
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0120 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0118 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not145 = icmp sgt i32 %.0120, %23
   br i1 %.not145, label %._crit_edge, label %.lr.ph151
 
@@ -34981,7 +34981,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i64 [ 0, %.lr.ph151 ], [ %.1, %141 ]
   %.0114149 = phi double [ 0xFFF0000000000000, %.lr.ph151 ], [ %.1115, %141 ]
   %.0116148 = phi i32 [ %14, %.lr.ph151 ], [ %.1117, %141 ]
-  %.2147 = phi i64 [ %.1119, %.lr.ph151 ], [ %.3, %141 ]
+  %.2147 = phi i64 [ %.0118, %.lr.ph151 ], [ %.3, %141 ]
   %.1121146 = phi i32 [ %.0120, %.lr.ph151 ], [ %142, %141 ]
   %33 = icmp sgt i32 %.1121146, -1
   br i1 %33, label %34, label %39
@@ -35670,7 +35670,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0122152 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1123152 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -35680,14 +35680,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0122152, %34
+  %35 = sub i64 %.1123152, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !167
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0124 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1123 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not153 = icmp sgt i32 %.0124, %23
   br i1 %.not153, label %._crit_edge, label %.lr.ph159
 
@@ -35700,7 +35700,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0158 = phi i64 [ 0, %.lr.ph159 ], [ %.1, %153 ]
   %.0118157 = phi double [ 0xFFF0000000000000, %.lr.ph159 ], [ %.1119, %153 ]
   %.0120156 = phi i32 [ %14, %.lr.ph159 ], [ %.1121, %153 ]
-  %.2155 = phi i64 [ %.1123, %.lr.ph159 ], [ %.3, %153 ]
+  %.2155 = phi i64 [ %.0122, %.lr.ph159 ], [ %.3, %153 ]
   %.1125154 = phi i32 [ %.0124, %.lr.ph159 ], [ %154, %153 ]
   %39 = icmp sgt i32 %.1125154, -1
   br i1 %39, label %40, label %51
@@ -37858,9 +37858,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.086125 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.187, %130 ]
   %.088124 = phi i32 [ 0, %.lr.ph ], [ %.189, %130 ]
   %.090123 = phi i32 [ %13, %.lr.ph ], [ %.191, %130 ]
-  %.093121 = phi i32 [ 0, %.lr.ph ], [ %.2, %130 ]
-  %.095120 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.297, %130 ]
-  %.098119 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2100, %130 ]
+  %.093121 = phi i32 [ 0, %.lr.ph ], [ %.194, %130 ]
+  %.095120 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.196, %130 ]
+  %.098119 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %130 ]
   %28 = add nsw i64 %indvars.iv, %24
   %29 = load i32, ptr %19, align 4
   %30 = trunc nsw i64 %28 to i32
@@ -38007,9 +38007,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17F
   br label %130
 
 130:                                              ; preds = %127, %129, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %61, %32, %51, %27
-  %.2100 = phi double [ %.098119, %27 ], [ %36, %32 ], [ %36, %51 ], [ %36, %61 ], [ %36, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %36, %129 ], [ %36, %127 ]
-  %.297 = phi double [ %.095120, %27 ], [ %42, %32 ], [ %42, %51 ], [ %42, %61 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %42, %129 ], [ %42, %127 ]
-  %.2 = phi i32 [ %.093121, %27 ], [ %46, %32 ], [ %46, %51 ], [ %46, %61 ], [ %46, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %129 ], [ %46, %127 ]
+  %.199 = phi double [ %.098119, %27 ], [ %36, %32 ], [ %36, %51 ], [ %36, %61 ], [ %36, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %36, %129 ], [ %36, %127 ]
+  %.196 = phi double [ %.095120, %27 ], [ %42, %32 ], [ %42, %51 ], [ %42, %61 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %42, %129 ], [ %42, %127 ]
+  %.194 = phi i32 [ %.093121, %27 ], [ %46, %32 ], [ %46, %51 ], [ %46, %61 ], [ %46, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %129 ], [ %46, %127 ]
   %.191 = phi i32 [ %.090123, %27 ], [ %.090123, %32 ], [ %.090123, %51 ], [ %.090123, %61 ], [ %.090123, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %7, %129 ], [ %.090123, %127 ]
   %.189 = phi i32 [ %.088124, %27 ], [ %.088124, %32 ], [ %.088124, %51 ], [ %.088124, %61 ], [ %.088124, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %129 ], [ %.088124, %127 ]
   %.187 = phi double [ %.086125, %27 ], [ %.086125, %32 ], [ %.086125, %51 ], [ %.086125, %61 ], [ %.086125, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %125, %129 ], [ %.086125, %127 ]
@@ -38622,9 +38622,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0107141 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0109140 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0114138 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1108141 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1110140 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1115138 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -38638,18 +38638,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0107141, %29
-  %39 = fsub double %.0109140, %34
-  %40 = sub nsw i32 %.0114138, %37
+  %38 = fsub double %.1108141, %29
+  %39 = fsub double %.1110140, %34
+  %40 = sub nsw i32 %.1115138, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !175
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0118 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1115 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1110 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1108 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0114 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0109 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0107 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not144 = icmp sgt i32 %.0118, %18
   br i1 %.not144, label %._crit_edge, label %.lr.ph154
 
@@ -38669,9 +38669,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0101151 = phi double [ 0xFFF0000000000000, %.lr.ph154 ], [ %.1102, %150 ]
   %.0103150 = phi i32 [ 0, %.lr.ph154 ], [ %.1104, %150 ]
   %.0105149 = phi i32 [ %13, %.lr.ph154 ], [ %.1106, %150 ]
-  %.2148 = phi double [ %.1108, %.lr.ph154 ], [ %.3, %150 ]
-  %.2111147 = phi double [ %.1110, %.lr.ph154 ], [ %.3112, %150 ]
-  %.2116146 = phi i32 [ %.1115, %.lr.ph154 ], [ %.3117, %150 ]
+  %.2148 = phi double [ %.0107, %.lr.ph154 ], [ %.3, %150 ]
+  %.2111147 = phi double [ %.0109, %.lr.ph154 ], [ %.3112, %150 ]
+  %.2116146 = phi i32 [ %.0114, %.lr.ph154 ], [ %.3117, %150 ]
   %48 = icmp sgt i64 %indvars.iv175, -1
   br i1 %48, label %49, label %65
 
@@ -40809,7 +40809,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0134 = phi i32 [ 0, %.lr.ph ], [ %.1, %150 ]
   %.0109133 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %150 ]
   %.0111132 = phi i32 [ %18, %.lr.ph ], [ %.1112, %150 ]
-  %.0113131 = phi i32 [ 0, %.lr.ph ], [ %.2, %150 ]
+  %.0113131 = phi i32 [ 0, %.lr.ph ], [ %.1114, %150 ]
   %37 = add nsw i64 %indvars.iv, %30
   %38 = load i32, ptr %27, align 4
   %39 = trunc nsw i64 %37 to i32
@@ -40951,7 +40951,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %150
 
 150:                                              ; preds = %147, %149, %70, %68, %41, %55, %36
-  %.2 = phi i32 [ %.0113131, %36 ], [ %44, %41 ], [ %44, %55 ], [ %44, %68 ], [ %44, %70 ], [ %44, %149 ], [ %44, %147 ]
+  %.1114 = phi i32 [ %.0113131, %36 ], [ %44, %41 ], [ %44, %55 ], [ %44, %68 ], [ %44, %70 ], [ %44, %149 ], [ %44, %147 ]
   %.1112 = phi i32 [ %.0111132, %36 ], [ %.0111132, %41 ], [ %.0111132, %55 ], [ %.0111132, %68 ], [ %.0111132, %70 ], [ %8, %149 ], [ %.0111132, %147 ]
   %.1110 = phi double [ %.0109133, %36 ], [ %.0109133, %41 ], [ %.0109133, %55 ], [ %.0109133, %68 ], [ %.0109133, %70 ], [ %145, %149 ], [ %.0109133, %147 ]
   %.1 = phi i32 [ %.0134, %36 ], [ %.0134, %41 ], [ %.0134, %55 ], [ %.0134, %68 ], [ %.0134, %70 ], [ %44, %149 ], [ %.0134, %147 ]
@@ -41442,7 +41442,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0132 = phi i64 [ 0, %.lr.ph ], [ %.1, %142 ]
   %.0107131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1108, %142 ]
   %.0109130 = phi i32 [ %14, %.lr.ph ], [ %.1110, %142 ]
-  %.0111129 = phi i64 [ 0, %.lr.ph ], [ %.2, %142 ]
+  %.0111129 = phi i64 [ 0, %.lr.ph ], [ %.1112, %142 ]
   %32 = add nsw i64 %indvars.iv, %27
   %33 = load i32, ptr %24, align 4
   %34 = trunc nsw i64 %32 to i32
@@ -41581,7 +41581,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %142
 
 142:                                              ; preds = %139, %141, %65, %63, %36, %50, %31
-  %.2 = phi i64 [ %.0111129, %31 ], [ %39, %36 ], [ %39, %50 ], [ %39, %63 ], [ %39, %65 ], [ %39, %141 ], [ %39, %139 ]
+  %.1112 = phi i64 [ %.0111129, %31 ], [ %39, %36 ], [ %39, %50 ], [ %39, %63 ], [ %39, %65 ], [ %39, %141 ], [ %39, %139 ]
   %.1110 = phi i32 [ %.0109130, %31 ], [ %.0109130, %36 ], [ %.0109130, %50 ], [ %.0109130, %63 ], [ %.0109130, %65 ], [ %8, %141 ], [ %.0109130, %139 ]
   %.1108 = phi double [ %.0107131, %31 ], [ %.0107131, %36 ], [ %.0107131, %50 ], [ %.0107131, %63 ], [ %.0107131, %65 ], [ %137, %141 ], [ %.0107131, %139 ]
   %.1 = phi i64 [ %.0132, %31 ], [ %.0132, %36 ], [ %.0132, %50 ], [ %.0132, %63 ], [ %.0132, %65 ], [ %39, %141 ], [ %.0132, %139 ]
@@ -42074,7 +42074,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0134 = phi i64 [ 0, %.lr.ph ], [ %.1, %148 ]
   %.0109133 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %148 ]
   %.0111132 = phi i32 [ %14, %.lr.ph ], [ %.1112, %148 ]
-  %.0113131 = phi i64 [ 0, %.lr.ph ], [ %.2, %148 ]
+  %.0113131 = phi i64 [ 0, %.lr.ph ], [ %.1114, %148 ]
   %32 = add nsw i64 %indvars.iv, %27
   %33 = load i32, ptr %24, align 4
   %34 = trunc nsw i64 %32 to i32
@@ -42220,7 +42220,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %148
 
 148:                                              ; preds = %145, %147, %71, %69, %36, %56, %31
-  %.2 = phi i64 [ %.0113131, %31 ], [ %45, %36 ], [ %45, %56 ], [ %45, %69 ], [ %45, %71 ], [ %45, %147 ], [ %45, %145 ]
+  %.1114 = phi i64 [ %.0113131, %31 ], [ %45, %36 ], [ %45, %56 ], [ %45, %69 ], [ %45, %71 ], [ %45, %147 ], [ %45, %145 ]
   %.1112 = phi i32 [ %.0111132, %31 ], [ %.0111132, %36 ], [ %.0111132, %56 ], [ %.0111132, %69 ], [ %.0111132, %71 ], [ %8, %147 ], [ %.0111132, %145 ]
   %.1110 = phi double [ %.0109133, %31 ], [ %.0109133, %36 ], [ %.0109133, %56 ], [ %.0109133, %69 ], [ %.0109133, %71 ], [ %143, %147 ], [ %.0109133, %145 ]
   %.1 = phi i64 [ %.0134, %31 ], [ %.0134, %36 ], [ %.0134, %56 ], [ %.0134, %69 ], [ %.0134, %71 ], [ %45, %147 ], [ %.0134, %145 ]
@@ -42862,17 +42862,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0120140 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1121140 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0120140, %31
+  %32 = sub nsw i32 %.1121140, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !185
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0122 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1121 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0120 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not141 = icmp sgt i32 %.0122, %26
   br i1 %.not141, label %._crit_edge, label %.lr.ph147
 
@@ -42888,7 +42888,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0146 = phi i32 [ 0, %.lr.ph147 ], [ %.1, %151 ]
   %.0116145 = phi double [ 0xFFF0000000000000, %.lr.ph147 ], [ %.1117, %151 ]
   %.0118144 = phi i32 [ %18, %.lr.ph147 ], [ %.1119, %151 ]
-  %.2143 = phi i32 [ %.1121, %.lr.ph147 ], [ %.3, %151 ]
+  %.2143 = phi i32 [ %.0120, %.lr.ph147 ], [ %.3, %151 ]
   %.1123142 = phi i32 [ %.0122, %.lr.ph147 ], [ %152, %151 ]
   %39 = icmp sgt i32 %.1123142, -1
   br i1 %39, label %40, label %45
@@ -43509,17 +43509,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0118138 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1119138 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0118138, %28
+  %29 = sub nsw i64 %.1119138, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !188
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0120 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0118 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not139 = icmp sgt i32 %.0120, %23
   br i1 %.not139, label %._crit_edge, label %.lr.ph145
 
@@ -43533,7 +43533,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0144 = phi i64 [ 0, %.lr.ph145 ], [ %.1, %143 ]
   %.0114143 = phi double [ 0xFFF0000000000000, %.lr.ph145 ], [ %.1115, %143 ]
   %.0116142 = phi i32 [ %14, %.lr.ph145 ], [ %.1117, %143 ]
-  %.2141 = phi i64 [ %.1119, %.lr.ph145 ], [ %.3, %143 ]
+  %.2141 = phi i64 [ %.0118, %.lr.ph145 ], [ %.3, %143 ]
   %.1121140 = phi i32 [ %.0120, %.lr.ph145 ], [ %144, %143 ]
   %34 = icmp sgt i32 %.1121140, -1
   br i1 %34, label %35, label %40
@@ -44153,7 +44153,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0122146 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1123146 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -44163,14 +44163,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0122146, %34
+  %35 = sub i64 %.1123146, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !191
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0124 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1123 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not147 = icmp sgt i32 %.0124, %23
   br i1 %.not147, label %._crit_edge, label %.lr.ph153
 
@@ -44184,7 +44184,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0152 = phi i64 [ 0, %.lr.ph153 ], [ %.1, %155 ]
   %.0118151 = phi double [ 0xFFF0000000000000, %.lr.ph153 ], [ %.1119, %155 ]
   %.0120150 = phi i32 [ %14, %.lr.ph153 ], [ %.1121, %155 ]
-  %.2149 = phi i64 [ %.1123, %.lr.ph153 ], [ %.3, %155 ]
+  %.2149 = phi i64 [ %.0122, %.lr.ph153 ], [ %.3, %155 ]
   %.1125148 = phi i32 [ %.0124, %.lr.ph153 ], [ %156, %155 ]
   %40 = icmp sgt i32 %.1125148, -1
   br i1 %40, label %41, label %52
@@ -46149,9 +46149,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.086119 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.187, %132 ]
   %.088118 = phi i32 [ 0, %.lr.ph ], [ %.189, %132 ]
   %.090117 = phi i32 [ %13, %.lr.ph ], [ %.191, %132 ]
-  %.093115 = phi i32 [ 0, %.lr.ph ], [ %.2, %132 ]
-  %.095114 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.297, %132 ]
-  %.098113 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2100, %132 ]
+  %.093115 = phi i32 [ 0, %.lr.ph ], [ %.194, %132 ]
+  %.095114 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.196, %132 ]
+  %.098113 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %132 ]
   %29 = add nsw i64 %indvars.iv, %24
   %30 = load i32, ptr %19, align 4
   %31 = trunc nsw i64 %29 to i32
@@ -46285,9 +46285,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   br label %132
 
 132:                                              ; preds = %129, %131, %64, %62, %33, %52, %28
-  %.2100 = phi double [ %.098113, %28 ], [ %37, %33 ], [ %37, %52 ], [ %37, %62 ], [ %37, %64 ], [ %37, %131 ], [ %37, %129 ]
-  %.297 = phi double [ %.095114, %28 ], [ %43, %33 ], [ %43, %52 ], [ %43, %62 ], [ %43, %64 ], [ %43, %131 ], [ %43, %129 ]
-  %.2 = phi i32 [ %.093115, %28 ], [ %47, %33 ], [ %47, %52 ], [ %47, %62 ], [ %47, %64 ], [ %47, %131 ], [ %47, %129 ]
+  %.199 = phi double [ %.098113, %28 ], [ %37, %33 ], [ %37, %52 ], [ %37, %62 ], [ %37, %64 ], [ %37, %131 ], [ %37, %129 ]
+  %.196 = phi double [ %.095114, %28 ], [ %43, %33 ], [ %43, %52 ], [ %43, %62 ], [ %43, %64 ], [ %43, %131 ], [ %43, %129 ]
+  %.194 = phi i32 [ %.093115, %28 ], [ %47, %33 ], [ %47, %52 ], [ %47, %62 ], [ %47, %64 ], [ %47, %131 ], [ %47, %129 ]
   %.191 = phi i32 [ %.090117, %28 ], [ %.090117, %33 ], [ %.090117, %52 ], [ %.090117, %62 ], [ %.090117, %64 ], [ %7, %131 ], [ %.090117, %129 ]
   %.189 = phi i32 [ %.088118, %28 ], [ %.088118, %33 ], [ %.088118, %52 ], [ %.088118, %62 ], [ %.088118, %64 ], [ %47, %131 ], [ %.088118, %129 ]
   %.187 = phi double [ %.086119, %28 ], [ %.086119, %33 ], [ %.086119, %52 ], [ %.086119, %62 ], [ %.086119, %64 ], [ %127, %131 ], [ %.086119, %129 ]
@@ -46838,9 +46838,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0107135 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0109134 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0114132 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1108135 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1110134 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1115132 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -46854,18 +46854,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0107135, %29
-  %39 = fsub double %.0109134, %34
-  %40 = sub nsw i32 %.0114132, %37
+  %38 = fsub double %.1108135, %29
+  %39 = fsub double %.1110134, %34
+  %40 = sub nsw i32 %.1115132, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !199
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0118 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1115 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1110 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1108 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0114 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0109 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0107 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not138 = icmp sgt i32 %.0118, %18
   br i1 %.not138, label %._crit_edge, label %.lr.ph148
 
@@ -46886,9 +46886,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0101145 = phi double [ 0xFFF0000000000000, %.lr.ph148 ], [ %.1102, %152 ]
   %.0103144 = phi i32 [ 0, %.lr.ph148 ], [ %.1104, %152 ]
   %.0105143 = phi i32 [ %13, %.lr.ph148 ], [ %.1106, %152 ]
-  %.2142 = phi double [ %.1108, %.lr.ph148 ], [ %.3, %152 ]
-  %.2111141 = phi double [ %.1110, %.lr.ph148 ], [ %.3112, %152 ]
-  %.2116140 = phi i32 [ %.1115, %.lr.ph148 ], [ %.3117, %152 ]
+  %.2142 = phi double [ %.0107, %.lr.ph148 ], [ %.3, %152 ]
+  %.2111141 = phi double [ %.0109, %.lr.ph148 ], [ %.3112, %152 ]
+  %.2116140 = phi i32 [ %.0114, %.lr.ph148 ], [ %.3117, %152 ]
   %49 = icmp sgt i64 %indvars.iv169, -1
   br i1 %49, label %50, label %66
 
@@ -48101,7 +48101,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0135 = phi i32 [ 0, %.lr.ph ], [ %.1, %107 ]
   %.0109134 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %107 ]
   %.0111133 = phi i32 [ %18, %.lr.ph ], [ %.1112, %107 ]
-  %.0113132 = phi i32 [ 0, %.lr.ph ], [ %.2, %107 ]
+  %.0113132 = phi i32 [ 0, %.lr.ph ], [ %.1114, %107 ]
   %36 = add nsw i64 %indvars.iv, %30
   %37 = load i32, ptr %27, align 4
   %38 = trunc nsw i64 %36 to i32
@@ -48194,7 +48194,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %107
 
 107:                                              ; preds = %104, %106, %69, %67, %40, %54, %35
-  %.2 = phi i32 [ %.0113132, %35 ], [ %43, %40 ], [ %43, %54 ], [ %43, %67 ], [ %43, %69 ], [ %43, %106 ], [ %43, %104 ]
+  %.1114 = phi i32 [ %.0113132, %35 ], [ %43, %40 ], [ %43, %54 ], [ %43, %67 ], [ %43, %69 ], [ %43, %106 ], [ %43, %104 ]
   %.1112 = phi i32 [ %.0111133, %35 ], [ %.0111133, %40 ], [ %.0111133, %54 ], [ %.0111133, %67 ], [ %.0111133, %69 ], [ %8, %106 ], [ %.0111133, %104 ]
   %.1110 = phi double [ %.0109134, %35 ], [ %.0109134, %40 ], [ %.0109134, %54 ], [ %.0109134, %67 ], [ %.0109134, %69 ], [ %102, %106 ], [ %.0109134, %104 ]
   %.1 = phi i32 [ %.0135, %35 ], [ %.0135, %40 ], [ %.0135, %54 ], [ %.0135, %67 ], [ %.0135, %69 ], [ %43, %106 ], [ %.0135, %104 ]
@@ -48605,7 +48605,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0133 = phi i64 [ 0, %.lr.ph ], [ %.1, %104 ]
   %.0107132 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1108, %104 ]
   %.0109131 = phi i32 [ %14, %.lr.ph ], [ %.1110, %104 ]
-  %.0111130 = phi i64 [ 0, %.lr.ph ], [ %.2, %104 ]
+  %.0111130 = phi i64 [ 0, %.lr.ph ], [ %.1112, %104 ]
   %33 = add nsw i64 %indvars.iv, %27
   %34 = load i32, ptr %24, align 4
   %35 = trunc nsw i64 %33 to i32
@@ -48698,7 +48698,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %104
 
 104:                                              ; preds = %101, %103, %66, %64, %37, %51, %32
-  %.2 = phi i64 [ %.0111130, %32 ], [ %40, %37 ], [ %40, %51 ], [ %40, %64 ], [ %40, %66 ], [ %40, %103 ], [ %40, %101 ]
+  %.1112 = phi i64 [ %.0111130, %32 ], [ %40, %37 ], [ %40, %51 ], [ %40, %64 ], [ %40, %66 ], [ %40, %103 ], [ %40, %101 ]
   %.1110 = phi i32 [ %.0109131, %32 ], [ %.0109131, %37 ], [ %.0109131, %51 ], [ %.0109131, %64 ], [ %.0109131, %66 ], [ %8, %103 ], [ %.0109131, %101 ]
   %.1108 = phi double [ %.0107132, %32 ], [ %.0107132, %37 ], [ %.0107132, %51 ], [ %.0107132, %64 ], [ %.0107132, %66 ], [ %99, %103 ], [ %.0107132, %101 ]
   %.1 = phi i64 [ %.0133, %32 ], [ %.0133, %37 ], [ %.0133, %51 ], [ %.0133, %64 ], [ %.0133, %66 ], [ %40, %103 ], [ %.0133, %101 ]
@@ -49111,7 +49111,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0135 = phi i64 [ 0, %.lr.ph ], [ %.1, %110 ]
   %.0109134 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %110 ]
   %.0111133 = phi i32 [ %14, %.lr.ph ], [ %.1112, %110 ]
-  %.0113132 = phi i64 [ 0, %.lr.ph ], [ %.2, %110 ]
+  %.0113132 = phi i64 [ 0, %.lr.ph ], [ %.1114, %110 ]
   %33 = add nsw i64 %indvars.iv, %27
   %34 = load i32, ptr %24, align 4
   %35 = trunc nsw i64 %33 to i32
@@ -49211,7 +49211,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %110
 
 110:                                              ; preds = %107, %109, %72, %70, %37, %57, %32
-  %.2 = phi i64 [ %.0113132, %32 ], [ %46, %37 ], [ %46, %57 ], [ %46, %70 ], [ %46, %72 ], [ %46, %109 ], [ %46, %107 ]
+  %.1114 = phi i64 [ %.0113132, %32 ], [ %46, %37 ], [ %46, %57 ], [ %46, %70 ], [ %46, %72 ], [ %46, %109 ], [ %46, %107 ]
   %.1112 = phi i32 [ %.0111133, %32 ], [ %.0111133, %37 ], [ %.0111133, %57 ], [ %.0111133, %70 ], [ %.0111133, %72 ], [ %8, %109 ], [ %.0111133, %107 ]
   %.1110 = phi double [ %.0109134, %32 ], [ %.0109134, %37 ], [ %.0109134, %57 ], [ %.0109134, %70 ], [ %.0109134, %72 ], [ %105, %109 ], [ %.0109134, %107 ]
   %.1 = phi i64 [ %.0135, %32 ], [ %.0135, %37 ], [ %.0135, %57 ], [ %.0135, %70 ], [ %.0135, %72 ], [ %46, %109 ], [ %.0135, %107 ]
@@ -49752,17 +49752,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0120141 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1121141 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0120141, %31
+  %32 = sub nsw i32 %.1121141, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !209
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0122 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1121 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0120 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not142 = icmp sgt i32 %.0122, %26
   br i1 %.not142, label %._crit_edge, label %.lr.ph148
 
@@ -49777,7 +49777,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0147 = phi i32 [ 0, %.lr.ph148 ], [ %.1, %108 ]
   %.0116146 = phi double [ 0xFFF0000000000000, %.lr.ph148 ], [ %.1117, %108 ]
   %.0118145 = phi i32 [ %18, %.lr.ph148 ], [ %.1119, %108 ]
-  %.2144 = phi i32 [ %.1121, %.lr.ph148 ], [ %.3, %108 ]
+  %.2144 = phi i32 [ %.0120, %.lr.ph148 ], [ %.3, %108 ]
   %.1123143 = phi i32 [ %.0122, %.lr.ph148 ], [ %109, %108 ]
   %38 = icmp sgt i32 %.1123143, -1
   br i1 %38, label %39, label %44
@@ -50268,17 +50268,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0118139 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1119139 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0118139, %28
+  %29 = sub nsw i64 %.1119139, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !212
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0120 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0118 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not140 = icmp sgt i32 %.0120, %23
   br i1 %.not140, label %._crit_edge, label %.lr.ph146
 
@@ -50293,7 +50293,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0145 = phi i64 [ 0, %.lr.ph146 ], [ %.1, %105 ]
   %.0114144 = phi double [ 0xFFF0000000000000, %.lr.ph146 ], [ %.1115, %105 ]
   %.0116143 = phi i32 [ %14, %.lr.ph146 ], [ %.1117, %105 ]
-  %.2142 = phi i64 [ %.1119, %.lr.ph146 ], [ %.3, %105 ]
+  %.2142 = phi i64 [ %.0118, %.lr.ph146 ], [ %.3, %105 ]
   %.1121141 = phi i32 [ %.0120, %.lr.ph146 ], [ %106, %105 ]
   %35 = icmp sgt i32 %.1121141, -1
   br i1 %35, label %36, label %41
@@ -50786,7 +50786,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0122147 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1123147 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -50796,14 +50796,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0122147, %34
+  %35 = sub i64 %.1123147, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !215
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0124 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1123 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not148 = icmp sgt i32 %.0124, %23
   br i1 %.not148, label %._crit_edge, label %.lr.ph154
 
@@ -50818,7 +50818,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0153 = phi i64 [ 0, %.lr.ph154 ], [ %.1, %117 ]
   %.0118152 = phi double [ 0xFFF0000000000000, %.lr.ph154 ], [ %.1119, %117 ]
   %.0120151 = phi i32 [ %14, %.lr.ph154 ], [ %.1121, %117 ]
-  %.2150 = phi i64 [ %.1123, %.lr.ph154 ], [ %.3, %117 ]
+  %.2150 = phi i64 [ %.0122, %.lr.ph154 ], [ %.3, %117 ]
   %.1125149 = phi i32 [ %.0124, %.lr.ph154 ], [ %118, %117 ]
   %41 = icmp sgt i32 %.1125149, -1
   br i1 %41, label %42, label %53
@@ -52414,7 +52414,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.086120 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.187, %100 ]
   %.088119 = phi i32 [ 0, %.lr.ph ], [ %.189, %100 ]
   %.090118 = phi i32 [ %13, %.lr.ph ], [ %.191, %100 ]
-  %.093116 = phi i32 [ 0, %.lr.ph ], [ %.2, %100 ]
+  %.093116 = phi i32 [ 0, %.lr.ph ], [ %.194, %100 ]
   %28 = phi <2 x double> [ <double 0x3CD203AFA0000000, double 0.000000e+00>, %.lr.ph ], [ %101, %100 ]
   %29 = add nsw i64 %indvars.iv, %24
   %30 = load i32, ptr %19, align 4
@@ -52510,7 +52510,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   br label %100
 
 100:                                              ; preds = %97, %99, %66, %64, %33, %53, %27
-  %.2 = phi i32 [ %.093116, %27 ], [ %48, %33 ], [ %48, %53 ], [ %48, %64 ], [ %48, %66 ], [ %48, %99 ], [ %48, %97 ]
+  %.194 = phi i32 [ %.093116, %27 ], [ %48, %33 ], [ %48, %53 ], [ %48, %64 ], [ %48, %66 ], [ %48, %99 ], [ %48, %97 ]
   %.191 = phi i32 [ %.090118, %27 ], [ %.090118, %33 ], [ %.090118, %53 ], [ %.090118, %64 ], [ %.090118, %66 ], [ %7, %99 ], [ %.090118, %97 ]
   %.189 = phi i32 [ %.088119, %27 ], [ %.088119, %33 ], [ %.088119, %53 ], [ %.088119, %64 ], [ %.088119, %66 ], [ %48, %99 ], [ %.088119, %97 ]
   %.187 = phi double [ %.086120, %27 ], [ %.086120, %33 ], [ %.086120, %53 ], [ %.086120, %64 ], [ %.086120, %66 ], [ %95, %99 ], [ %.086120, %97 ]
@@ -52966,7 +52966,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.0114133 = phi i32 [ %3, %.lr.ph ], [ %44, %28 ]
+  %.1115133 = phi i32 [ %3, %.lr.ph ], [ %44, %28 ]
   %29 = phi <2 x double> [ %24, %.lr.ph ], [ %43, %28 ]
   %sext = shl i64 %indvars.iv, 33
   %30 = ashr exact i64 %sext, 29
@@ -52984,14 +52984,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %41 = insertelement <2 x double> poison, double %32, i64 0
   %42 = insertelement <2 x double> %41, double %37, i64 1
   %43 = fsub <2 x double> %29, %42
-  %44 = sub nsw i32 %.0114133, %40
+  %44 = sub nsw i32 %.1115133, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !223
 
 .loopexit:                                        ; preds = %28, %20, %9
   %.0118 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %28 ]
-  %.1115 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %44, %28 ]
+  %.0114 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %44, %28 ]
   %45 = phi <2 x double> [ <double 0.000000e+00, double 0x3CD203AFA0000000>, %9 ], [ %24, %20 ], [ %43, %28 ]
   %.not139 = icmp sgt i32 %.0118, %18
   br i1 %.not139, label %._crit_edge, label %.lr.ph149
@@ -53012,7 +53012,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0101146 = phi double [ 0xFFF0000000000000, %.lr.ph149 ], [ %.1102, %126 ]
   %.0103145 = phi i32 [ 0, %.lr.ph149 ], [ %.1104, %126 ]
   %.0105144 = phi i32 [ %13, %.lr.ph149 ], [ %.1106, %126 ]
-  %.2116141 = phi i32 [ %.1115, %.lr.ph149 ], [ %.3117, %126 ]
+  %.2116141 = phi i32 [ %.0114, %.lr.ph149 ], [ %.3117, %126 ]
   %53 = phi <2 x double> [ %45, %.lr.ph149 ], [ %73, %126 ]
   %54 = icmp sgt i64 %indvars.iv170, -1
   br i1 %54, label %55, label %72
@@ -54921,7 +54921,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0136 = phi i32 [ 0, %.lr.ph ], [ %.1, %144 ]
   %.0109135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %144 ]
   %.0111134 = phi i32 [ %18, %.lr.ph ], [ %.1112, %144 ]
-  %.0113133 = phi i32 [ 0, %.lr.ph ], [ %.2, %144 ]
+  %.0113133 = phi i32 [ 0, %.lr.ph ], [ %.1114, %144 ]
   %35 = add nsw i64 %indvars.iv, %30
   %36 = load i32, ptr %27, align 4
   %37 = trunc nsw i64 %35 to i32
@@ -55069,7 +55069,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17F
   br label %144
 
 144:                                              ; preds = %141, %143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %66, %39, %53, %34
-  %.2 = phi i32 [ %.0113133, %34 ], [ %42, %39 ], [ %42, %53 ], [ %42, %66 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %42, %143 ], [ %42, %141 ]
+  %.1114 = phi i32 [ %.0113133, %34 ], [ %42, %39 ], [ %42, %53 ], [ %42, %66 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %42, %143 ], [ %42, %141 ]
   %.1112 = phi i32 [ %.0111134, %34 ], [ %.0111134, %39 ], [ %.0111134, %53 ], [ %.0111134, %66 ], [ %.0111134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %8, %143 ], [ %.0111134, %141 ]
   %.1110 = phi double [ %.0109135, %34 ], [ %.0109135, %39 ], [ %.0109135, %53 ], [ %.0109135, %66 ], [ %.0109135, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %139, %143 ], [ %.0109135, %141 ]
   %.1 = phi i32 [ %.0136, %34 ], [ %.0136, %39 ], [ %.0136, %53 ], [ %.0136, %66 ], [ %.0136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %42, %143 ], [ %.0136, %141 ]
@@ -55597,7 +55597,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0134 = phi i64 [ 0, %.lr.ph ], [ %.1, %141 ]
   %.0107133 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1108, %141 ]
   %.0109132 = phi i32 [ %14, %.lr.ph ], [ %.1110, %141 ]
-  %.0111131 = phi i64 [ 0, %.lr.ph ], [ %.2, %141 ]
+  %.0111131 = phi i64 [ 0, %.lr.ph ], [ %.1112, %141 ]
   %32 = add nsw i64 %indvars.iv, %27
   %33 = load i32, ptr %24, align 4
   %34 = trunc nsw i64 %32 to i32
@@ -55745,7 +55745,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17F
   br label %141
 
 141:                                              ; preds = %138, %140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %63, %36, %50, %31
-  %.2 = phi i64 [ %.0111131, %31 ], [ %39, %36 ], [ %39, %50 ], [ %39, %63 ], [ %39, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %39, %140 ], [ %39, %138 ]
+  %.1112 = phi i64 [ %.0111131, %31 ], [ %39, %36 ], [ %39, %50 ], [ %39, %63 ], [ %39, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %39, %140 ], [ %39, %138 ]
   %.1110 = phi i32 [ %.0109132, %31 ], [ %.0109132, %36 ], [ %.0109132, %50 ], [ %.0109132, %63 ], [ %.0109132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %8, %140 ], [ %.0109132, %138 ]
   %.1108 = phi double [ %.0107133, %31 ], [ %.0107133, %36 ], [ %.0107133, %50 ], [ %.0107133, %63 ], [ %.0107133, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %136, %140 ], [ %.0107133, %138 ]
   %.1 = phi i64 [ %.0134, %31 ], [ %.0134, %36 ], [ %.0134, %50 ], [ %.0134, %63 ], [ %.0134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %39, %140 ], [ %.0134, %138 ]
@@ -56275,7 +56275,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0136 = phi i64 [ 0, %.lr.ph ], [ %.1, %147 ]
   %.0109135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %147 ]
   %.0111134 = phi i32 [ %14, %.lr.ph ], [ %.1112, %147 ]
-  %.0113133 = phi i64 [ 0, %.lr.ph ], [ %.2, %147 ]
+  %.0113133 = phi i64 [ 0, %.lr.ph ], [ %.1114, %147 ]
   %32 = add nsw i64 %indvars.iv, %27
   %33 = load i32, ptr %24, align 4
   %34 = trunc nsw i64 %32 to i32
@@ -56430,7 +56430,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17F
   br label %147
 
 147:                                              ; preds = %144, %146, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %69, %36, %56, %31
-  %.2 = phi i64 [ %.0113133, %31 ], [ %45, %36 ], [ %45, %56 ], [ %45, %69 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %146 ], [ %45, %144 ]
+  %.1114 = phi i64 [ %.0113133, %31 ], [ %45, %36 ], [ %45, %56 ], [ %45, %69 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %146 ], [ %45, %144 ]
   %.1112 = phi i32 [ %.0111134, %31 ], [ %.0111134, %36 ], [ %.0111134, %56 ], [ %.0111134, %69 ], [ %.0111134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %8, %146 ], [ %.0111134, %144 ]
   %.1110 = phi double [ %.0109135, %31 ], [ %.0109135, %36 ], [ %.0109135, %56 ], [ %.0109135, %69 ], [ %.0109135, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %142, %146 ], [ %.0109135, %144 ]
   %.1 = phi i64 [ %.0136, %31 ], [ %.0136, %36 ], [ %.0136, %56 ], [ %.0136, %69 ], [ %.0136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %146 ], [ %.0136, %144 ]
@@ -57109,17 +57109,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0120142 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1121142 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0120142, %31
+  %32 = sub nsw i32 %.1121142, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !233
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0122 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1121 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0120 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not143 = icmp sgt i32 %.0122, %26
   br i1 %.not143, label %._crit_edge, label %.lr.ph149
 
@@ -57133,7 +57133,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0148 = phi i32 [ 0, %.lr.ph149 ], [ %.1, %145 ]
   %.0116147 = phi double [ 0xFFF0000000000000, %.lr.ph149 ], [ %.1117, %145 ]
   %.0118146 = phi i32 [ %18, %.lr.ph149 ], [ %.1119, %145 ]
-  %.2145 = phi i32 [ %.1121, %.lr.ph149 ], [ %.3, %145 ]
+  %.2145 = phi i32 [ %.0120, %.lr.ph149 ], [ %.3, %145 ]
   %.1123144 = phi i32 [ %.0122, %.lr.ph149 ], [ %146, %145 ]
   %37 = icmp sgt i32 %.1123144, -1
   br i1 %37, label %38, label %43
@@ -57797,17 +57797,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0118140 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1119140 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0118140, %28
+  %29 = sub nsw i64 %.1119140, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !236
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0120 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0118 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not141 = icmp sgt i32 %.0120, %23
   br i1 %.not141, label %._crit_edge, label %.lr.ph147
 
@@ -57821,7 +57821,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0146 = phi i64 [ 0, %.lr.ph147 ], [ %.1, %142 ]
   %.0114145 = phi double [ 0xFFF0000000000000, %.lr.ph147 ], [ %.1115, %142 ]
   %.0116144 = phi i32 [ %14, %.lr.ph147 ], [ %.1117, %142 ]
-  %.2143 = phi i64 [ %.1119, %.lr.ph147 ], [ %.3, %142 ]
+  %.2143 = phi i64 [ %.0118, %.lr.ph147 ], [ %.3, %142 ]
   %.1121142 = phi i32 [ %.0120, %.lr.ph147 ], [ %143, %142 ]
   %34 = icmp sgt i32 %.1121142, -1
   br i1 %34, label %35, label %40
@@ -58487,7 +58487,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0122148 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1123148 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -58497,14 +58497,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0122148, %34
+  %35 = sub i64 %.1123148, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !239
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0124 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1123 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not149 = icmp sgt i32 %.0124, %23
   br i1 %.not149, label %._crit_edge, label %.lr.ph155
 
@@ -58518,7 +58518,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0154 = phi i64 [ 0, %.lr.ph155 ], [ %.1, %154 ]
   %.0118153 = phi double [ 0xFFF0000000000000, %.lr.ph155 ], [ %.1119, %154 ]
   %.0120152 = phi i32 [ %14, %.lr.ph155 ], [ %.1121, %154 ]
-  %.2151 = phi i64 [ %.1123, %.lr.ph155 ], [ %.3, %154 ]
+  %.2151 = phi i64 [ %.0122, %.lr.ph155 ], [ %.3, %154 ]
   %.1125150 = phi i32 [ %.0124, %.lr.ph155 ], [ %155, %154 ]
   %40 = icmp sgt i32 %.1125150, -1
   br i1 %40, label %41, label %52
@@ -60608,9 +60608,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.086121 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.187, %131 ]
   %.088120 = phi i32 [ 0, %.lr.ph ], [ %.189, %131 ]
   %.090119 = phi i32 [ %13, %.lr.ph ], [ %.191, %131 ]
-  %.093117 = phi i32 [ 0, %.lr.ph ], [ %.2, %131 ]
-  %.095116 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.297, %131 ]
-  %.098115 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2100, %131 ]
+  %.093117 = phi i32 [ 0, %.lr.ph ], [ %.194, %131 ]
+  %.095116 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.196, %131 ]
+  %.098115 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %131 ]
   %29 = add nsw i64 %indvars.iv, %24
   %30 = load i32, ptr %19, align 4
   %31 = trunc nsw i64 %29 to i32
@@ -60753,9 +60753,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17F
   br label %131
 
 131:                                              ; preds = %128, %130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %62, %33, %52, %28
-  %.2100 = phi double [ %.098115, %28 ], [ %37, %33 ], [ %37, %52 ], [ %37, %62 ], [ %37, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %37, %130 ], [ %37, %128 ]
-  %.297 = phi double [ %.095116, %28 ], [ %43, %33 ], [ %43, %52 ], [ %43, %62 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %130 ], [ %43, %128 ]
-  %.2 = phi i32 [ %.093117, %28 ], [ %47, %33 ], [ %47, %52 ], [ %47, %62 ], [ %47, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %47, %130 ], [ %47, %128 ]
+  %.199 = phi double [ %.098115, %28 ], [ %37, %33 ], [ %37, %52 ], [ %37, %62 ], [ %37, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %37, %130 ], [ %37, %128 ]
+  %.196 = phi double [ %.095116, %28 ], [ %43, %33 ], [ %43, %52 ], [ %43, %62 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %130 ], [ %43, %128 ]
+  %.194 = phi i32 [ %.093117, %28 ], [ %47, %33 ], [ %47, %52 ], [ %47, %62 ], [ %47, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %47, %130 ], [ %47, %128 ]
   %.191 = phi i32 [ %.090119, %28 ], [ %.090119, %33 ], [ %.090119, %52 ], [ %.090119, %62 ], [ %.090119, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %7, %130 ], [ %.090119, %128 ]
   %.189 = phi i32 [ %.088120, %28 ], [ %.088120, %33 ], [ %.088120, %52 ], [ %.088120, %62 ], [ %.088120, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %47, %130 ], [ %.088120, %128 ]
   %.187 = phi double [ %.086121, %28 ], [ %.086121, %33 ], [ %.086121, %52 ], [ %.086121, %62 ], [ %.086121, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %126, %130 ], [ %.086121, %128 ]
@@ -61348,9 +61348,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0107137 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0109136 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0114134 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1108137 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1110136 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1115134 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -61364,18 +61364,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0107137, %29
-  %39 = fsub double %.0109136, %34
-  %40 = sub nsw i32 %.0114134, %37
+  %38 = fsub double %.1108137, %29
+  %39 = fsub double %.1110136, %34
+  %40 = sub nsw i32 %.1115134, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !247
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0118 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1115 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1110 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1108 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0114 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0109 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0107 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not140 = icmp sgt i32 %.0118, %18
   br i1 %.not140, label %._crit_edge, label %.lr.ph150
 
@@ -61396,9 +61396,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0101147 = phi double [ 0xFFF0000000000000, %.lr.ph150 ], [ %.1102, %151 ]
   %.0103146 = phi i32 [ 0, %.lr.ph150 ], [ %.1104, %151 ]
   %.0105145 = phi i32 [ %13, %.lr.ph150 ], [ %.1106, %151 ]
-  %.2144 = phi double [ %.1108, %.lr.ph150 ], [ %.3, %151 ]
-  %.2111143 = phi double [ %.1110, %.lr.ph150 ], [ %.3112, %151 ]
-  %.2116142 = phi i32 [ %.1115, %.lr.ph150 ], [ %.3117, %151 ]
+  %.2144 = phi double [ %.0107, %.lr.ph150 ], [ %.3, %151 ]
+  %.2111143 = phi double [ %.0109, %.lr.ph150 ], [ %.3112, %151 ]
+  %.2116142 = phi i32 [ %.0114, %.lr.ph150 ], [ %.3117, %151 ]
   %49 = icmp sgt i64 %indvars.iv171, -1
   br i1 %49, label %50, label %66
 
@@ -62719,7 +62719,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0136 = phi i32 [ 0, %.lr.ph ], [ %.1, %121 ]
   %.0109135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %121 ]
   %.0111134 = phi i32 [ %18, %.lr.ph ], [ %.1112, %121 ]
-  %.0113133 = phi i32 [ 0, %.lr.ph ], [ %.2, %121 ]
+  %.0113133 = phi i32 [ 0, %.lr.ph ], [ %.1114, %121 ]
   %34 = add nsw i64 %indvars.iv, %30
   %35 = load i32, ptr %27, align 4
   %36 = trunc nsw i64 %34 to i32
@@ -62843,7 +62843,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17F
   br label %121
 
 121:                                              ; preds = %118, %120, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %65, %38, %52, %33
-  %.2 = phi i32 [ %.0113133, %33 ], [ %41, %38 ], [ %41, %52 ], [ %41, %65 ], [ %41, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %120 ], [ %41, %118 ]
+  %.1114 = phi i32 [ %.0113133, %33 ], [ %41, %38 ], [ %41, %52 ], [ %41, %65 ], [ %41, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %120 ], [ %41, %118 ]
   %.1112 = phi i32 [ %.0111134, %33 ], [ %.0111134, %38 ], [ %.0111134, %52 ], [ %.0111134, %65 ], [ %.0111134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %8, %120 ], [ %.0111134, %118 ]
   %.1110 = phi double [ %.0109135, %33 ], [ %.0109135, %38 ], [ %.0109135, %52 ], [ %.0109135, %65 ], [ %.0109135, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %116, %120 ], [ %.0109135, %118 ]
   %.1 = phi i32 [ %.0136, %33 ], [ %.0136, %38 ], [ %.0136, %52 ], [ %.0136, %65 ], [ %.0136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %120 ], [ %.0136, %118 ]
@@ -63309,7 +63309,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0134 = phi i64 [ 0, %.lr.ph ], [ %.1, %118 ]
   %.0107133 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1108, %118 ]
   %.0109132 = phi i32 [ %14, %.lr.ph ], [ %.1110, %118 ]
-  %.0111131 = phi i64 [ 0, %.lr.ph ], [ %.2, %118 ]
+  %.0111131 = phi i64 [ 0, %.lr.ph ], [ %.1112, %118 ]
   %31 = add nsw i64 %indvars.iv, %27
   %32 = load i32, ptr %24, align 4
   %33 = trunc nsw i64 %31 to i32
@@ -63433,7 +63433,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17F
   br label %118
 
 118:                                              ; preds = %115, %117, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %62, %35, %49, %30
-  %.2 = phi i64 [ %.0111131, %30 ], [ %38, %35 ], [ %38, %49 ], [ %38, %62 ], [ %38, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %38, %117 ], [ %38, %115 ]
+  %.1112 = phi i64 [ %.0111131, %30 ], [ %38, %35 ], [ %38, %49 ], [ %38, %62 ], [ %38, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %38, %117 ], [ %38, %115 ]
   %.1110 = phi i32 [ %.0109132, %30 ], [ %.0109132, %35 ], [ %.0109132, %49 ], [ %.0109132, %62 ], [ %.0109132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %8, %117 ], [ %.0109132, %115 ]
   %.1108 = phi double [ %.0107133, %30 ], [ %.0107133, %35 ], [ %.0107133, %49 ], [ %.0107133, %62 ], [ %.0107133, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %113, %117 ], [ %.0107133, %115 ]
   %.1 = phi i64 [ %.0134, %30 ], [ %.0134, %35 ], [ %.0134, %49 ], [ %.0134, %62 ], [ %.0134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %38, %117 ], [ %.0134, %115 ]
@@ -63901,7 +63901,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0136 = phi i64 [ 0, %.lr.ph ], [ %.1, %124 ]
   %.0109135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %124 ]
   %.0111134 = phi i32 [ %14, %.lr.ph ], [ %.1112, %124 ]
-  %.0113133 = phi i64 [ 0, %.lr.ph ], [ %.2, %124 ]
+  %.0113133 = phi i64 [ 0, %.lr.ph ], [ %.1114, %124 ]
   %31 = add nsw i64 %indvars.iv, %27
   %32 = load i32, ptr %24, align 4
   %33 = trunc nsw i64 %31 to i32
@@ -64032,7 +64032,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17F
   br label %124
 
 124:                                              ; preds = %121, %123, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %68, %35, %55, %30
-  %.2 = phi i64 [ %.0113133, %30 ], [ %44, %35 ], [ %44, %55 ], [ %44, %68 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %123 ], [ %44, %121 ]
+  %.1114 = phi i64 [ %.0113133, %30 ], [ %44, %35 ], [ %44, %55 ], [ %44, %68 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %123 ], [ %44, %121 ]
   %.1112 = phi i32 [ %.0111134, %30 ], [ %.0111134, %35 ], [ %.0111134, %55 ], [ %.0111134, %68 ], [ %.0111134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %8, %123 ], [ %.0111134, %121 ]
   %.1110 = phi double [ %.0109135, %30 ], [ %.0109135, %35 ], [ %.0109135, %55 ], [ %.0109135, %68 ], [ %.0109135, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %119, %123 ], [ %.0109135, %121 ]
   %.1 = phi i64 [ %.0136, %30 ], [ %.0136, %35 ], [ %.0136, %55 ], [ %.0136, %68 ], [ %.0136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %123 ], [ %.0136, %121 ]
@@ -64641,17 +64641,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0120142 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1121142 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0120142, %31
+  %32 = sub nsw i32 %.1121142, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !257
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0122 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1121 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0120 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not143 = icmp sgt i32 %.0122, %26
   br i1 %.not143, label %._crit_edge, label %.lr.ph149
 
@@ -64664,7 +64664,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0148 = phi i32 [ 0, %.lr.ph149 ], [ %.1, %122 ]
   %.0116147 = phi double [ 0xFFF0000000000000, %.lr.ph149 ], [ %.1117, %122 ]
   %.0118146 = phi i32 [ %18, %.lr.ph149 ], [ %.1119, %122 ]
-  %.2145 = phi i32 [ %.1121, %.lr.ph149 ], [ %.3, %122 ]
+  %.2145 = phi i32 [ %.0120, %.lr.ph149 ], [ %.3, %122 ]
   %.1123144 = phi i32 [ %.0122, %.lr.ph149 ], [ %123, %122 ]
   %36 = icmp sgt i32 %.1123144, -1
   br i1 %36, label %37, label %42
@@ -65243,17 +65243,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0118140 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1119140 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0118140, %28
+  %29 = sub nsw i64 %.1119140, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !260
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0120 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0118 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not141 = icmp sgt i32 %.0120, %23
   br i1 %.not141, label %._crit_edge, label %.lr.ph147
 
@@ -65266,7 +65266,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0146 = phi i64 [ 0, %.lr.ph147 ], [ %.1, %119 ]
   %.0114145 = phi double [ 0xFFF0000000000000, %.lr.ph147 ], [ %.1115, %119 ]
   %.0116144 = phi i32 [ %14, %.lr.ph147 ], [ %.1117, %119 ]
-  %.2143 = phi i64 [ %.1119, %.lr.ph147 ], [ %.3, %119 ]
+  %.2143 = phi i64 [ %.0118, %.lr.ph147 ], [ %.3, %119 ]
   %.1121142 = phi i32 [ %.0120, %.lr.ph147 ], [ %120, %119 ]
   %33 = icmp sgt i32 %.1121142, -1
   br i1 %33, label %34, label %39
@@ -65847,7 +65847,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0122148 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1123148 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -65857,14 +65857,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0122148, %34
+  %35 = sub i64 %.1123148, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !263
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0124 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1123 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not149 = icmp sgt i32 %.0124, %23
   br i1 %.not149, label %._crit_edge, label %.lr.ph155
 
@@ -65877,7 +65877,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0154 = phi i64 [ 0, %.lr.ph155 ], [ %.1, %131 ]
   %.0118153 = phi double [ 0xFFF0000000000000, %.lr.ph155 ], [ %.1119, %131 ]
   %.0120152 = phi i32 [ %14, %.lr.ph155 ], [ %.1121, %131 ]
-  %.2151 = phi i64 [ %.1123, %.lr.ph155 ], [ %.3, %131 ]
+  %.2151 = phi i64 [ %.0122, %.lr.ph155 ], [ %.3, %131 ]
   %.1125150 = phi i32 [ %.0124, %.lr.ph155 ], [ %132, %131 ]
   %39 = icmp sgt i32 %.1125150, -1
   br i1 %39, label %40, label %51
@@ -67720,9 +67720,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.086121 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.187, %108 ]
   %.088120 = phi i32 [ 0, %.lr.ph ], [ %.189, %108 ]
   %.090119 = phi i32 [ %13, %.lr.ph ], [ %.191, %108 ]
-  %.093117 = phi i32 [ 0, %.lr.ph ], [ %.2, %108 ]
-  %.095116 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.297, %108 ]
-  %.098115 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2100, %108 ]
+  %.093117 = phi i32 [ 0, %.lr.ph ], [ %.194, %108 ]
+  %.095116 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.196, %108 ]
+  %.098115 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %108 ]
   %28 = add nsw i64 %indvars.iv, %24
   %29 = load i32, ptr %19, align 4
   %30 = trunc nsw i64 %28 to i32
@@ -67841,9 +67841,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17F
   br label %108
 
 108:                                              ; preds = %105, %107, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %61, %32, %51, %27
-  %.2100 = phi double [ %.098115, %27 ], [ %36, %32 ], [ %36, %51 ], [ %36, %61 ], [ %36, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %36, %107 ], [ %36, %105 ]
-  %.297 = phi double [ %.095116, %27 ], [ %42, %32 ], [ %42, %51 ], [ %42, %61 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %42, %107 ], [ %42, %105 ]
-  %.2 = phi i32 [ %.093117, %27 ], [ %46, %32 ], [ %46, %51 ], [ %46, %61 ], [ %46, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %107 ], [ %46, %105 ]
+  %.199 = phi double [ %.098115, %27 ], [ %36, %32 ], [ %36, %51 ], [ %36, %61 ], [ %36, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %36, %107 ], [ %36, %105 ]
+  %.196 = phi double [ %.095116, %27 ], [ %42, %32 ], [ %42, %51 ], [ %42, %61 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %42, %107 ], [ %42, %105 ]
+  %.194 = phi i32 [ %.093117, %27 ], [ %46, %32 ], [ %46, %51 ], [ %46, %61 ], [ %46, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %107 ], [ %46, %105 ]
   %.191 = phi i32 [ %.090119, %27 ], [ %.090119, %32 ], [ %.090119, %51 ], [ %.090119, %61 ], [ %.090119, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %7, %107 ], [ %.090119, %105 ]
   %.189 = phi i32 [ %.088120, %27 ], [ %.088120, %32 ], [ %.088120, %51 ], [ %.088120, %61 ], [ %.088120, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %107 ], [ %.088120, %105 ]
   %.187 = phi double [ %.086121, %27 ], [ %.086121, %32 ], [ %.086121, %51 ], [ %.086121, %61 ], [ %.086121, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %103, %107 ], [ %.086121, %105 ]
@@ -68361,9 +68361,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0107137 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0109136 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0114134 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1108137 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1110136 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1115134 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -68377,18 +68377,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0107137, %29
-  %39 = fsub double %.0109136, %34
-  %40 = sub nsw i32 %.0114134, %37
+  %38 = fsub double %.1108137, %29
+  %39 = fsub double %.1110136, %34
+  %40 = sub nsw i32 %.1115134, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !271
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0118 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1115 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1110 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1108 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0114 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0109 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0107 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not140 = icmp sgt i32 %.0118, %18
   br i1 %.not140, label %._crit_edge, label %.lr.ph150
 
@@ -68408,9 +68408,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0101147 = phi double [ 0xFFF0000000000000, %.lr.ph150 ], [ %.1102, %128 ]
   %.0103146 = phi i32 [ 0, %.lr.ph150 ], [ %.1104, %128 ]
   %.0105145 = phi i32 [ %13, %.lr.ph150 ], [ %.1106, %128 ]
-  %.2144 = phi double [ %.1108, %.lr.ph150 ], [ %.3, %128 ]
-  %.2111143 = phi double [ %.1110, %.lr.ph150 ], [ %.3112, %128 ]
-  %.2116142 = phi i32 [ %.1115, %.lr.ph150 ], [ %.3117, %128 ]
+  %.2144 = phi double [ %.0107, %.lr.ph150 ], [ %.3, %128 ]
+  %.2111143 = phi double [ %.0109, %.lr.ph150 ], [ %.3112, %128 ]
+  %.2116142 = phi i32 [ %.0114, %.lr.ph150 ], [ %.3117, %128 ]
   %48 = icmp sgt i64 %indvars.iv171, -1
   br i1 %48, label %49, label %65
 
@@ -70344,7 +70344,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0132 = phi i32 [ 0, %.lr.ph ], [ %.1, %133 ]
   %.0109131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %133 ]
   %.0111130 = phi i32 [ %18, %.lr.ph ], [ %.1112, %133 ]
-  %.0113129 = phi i32 [ 0, %.lr.ph ], [ %.2, %133 ]
+  %.0113129 = phi i32 [ 0, %.lr.ph ], [ %.1114, %133 ]
   %35 = add nsw i64 %indvars.iv, %30
   %36 = load i32, ptr %27, align 4
   %37 = trunc nsw i64 %35 to i32
@@ -70465,7 +70465,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %133
 
 133:                                              ; preds = %130, %132, %68, %66, %39, %53, %34
-  %.2 = phi i32 [ %.0113129, %34 ], [ %42, %39 ], [ %42, %53 ], [ %42, %66 ], [ %42, %68 ], [ %42, %132 ], [ %42, %130 ]
+  %.1114 = phi i32 [ %.0113129, %34 ], [ %42, %39 ], [ %42, %53 ], [ %42, %66 ], [ %42, %68 ], [ %42, %132 ], [ %42, %130 ]
   %.1112 = phi i32 [ %.0111130, %34 ], [ %.0111130, %39 ], [ %.0111130, %53 ], [ %.0111130, %66 ], [ %.0111130, %68 ], [ %8, %132 ], [ %.0111130, %130 ]
   %.1110 = phi double [ %.0109131, %34 ], [ %.0109131, %39 ], [ %.0109131, %53 ], [ %.0109131, %66 ], [ %.0109131, %68 ], [ %128, %132 ], [ %.0109131, %130 ]
   %.1 = phi i32 [ %.0132, %34 ], [ %.0132, %39 ], [ %.0132, %53 ], [ %.0132, %66 ], [ %.0132, %68 ], [ %42, %132 ], [ %.0132, %130 ]
@@ -70886,7 +70886,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0130 = phi i64 [ 0, %.lr.ph ], [ %.1, %130 ]
   %.0107129 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1108, %130 ]
   %.0109128 = phi i32 [ %14, %.lr.ph ], [ %.1110, %130 ]
-  %.0111127 = phi i64 [ 0, %.lr.ph ], [ %.2, %130 ]
+  %.0111127 = phi i64 [ 0, %.lr.ph ], [ %.1112, %130 ]
   %32 = add nsw i64 %indvars.iv, %27
   %33 = load i32, ptr %24, align 4
   %34 = trunc nsw i64 %32 to i32
@@ -71007,7 +71007,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %130
 
 130:                                              ; preds = %127, %129, %65, %63, %36, %50, %31
-  %.2 = phi i64 [ %.0111127, %31 ], [ %39, %36 ], [ %39, %50 ], [ %39, %63 ], [ %39, %65 ], [ %39, %129 ], [ %39, %127 ]
+  %.1112 = phi i64 [ %.0111127, %31 ], [ %39, %36 ], [ %39, %50 ], [ %39, %63 ], [ %39, %65 ], [ %39, %129 ], [ %39, %127 ]
   %.1110 = phi i32 [ %.0109128, %31 ], [ %.0109128, %36 ], [ %.0109128, %50 ], [ %.0109128, %63 ], [ %.0109128, %65 ], [ %8, %129 ], [ %.0109128, %127 ]
   %.1108 = phi double [ %.0107129, %31 ], [ %.0107129, %36 ], [ %.0107129, %50 ], [ %.0107129, %63 ], [ %.0107129, %65 ], [ %125, %129 ], [ %.0107129, %127 ]
   %.1 = phi i64 [ %.0130, %31 ], [ %.0130, %36 ], [ %.0130, %50 ], [ %.0130, %63 ], [ %.0130, %65 ], [ %39, %129 ], [ %.0130, %127 ]
@@ -71430,7 +71430,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0132 = phi i64 [ 0, %.lr.ph ], [ %.1, %136 ]
   %.0109131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %136 ]
   %.0111130 = phi i32 [ %14, %.lr.ph ], [ %.1112, %136 ]
-  %.0113129 = phi i64 [ 0, %.lr.ph ], [ %.2, %136 ]
+  %.0113129 = phi i64 [ 0, %.lr.ph ], [ %.1114, %136 ]
   %32 = add nsw i64 %indvars.iv, %27
   %33 = load i32, ptr %24, align 4
   %34 = trunc nsw i64 %32 to i32
@@ -71558,7 +71558,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %136
 
 136:                                              ; preds = %133, %135, %71, %69, %36, %56, %31
-  %.2 = phi i64 [ %.0113129, %31 ], [ %45, %36 ], [ %45, %56 ], [ %45, %69 ], [ %45, %71 ], [ %45, %135 ], [ %45, %133 ]
+  %.1114 = phi i64 [ %.0113129, %31 ], [ %45, %36 ], [ %45, %56 ], [ %45, %69 ], [ %45, %71 ], [ %45, %135 ], [ %45, %133 ]
   %.1112 = phi i32 [ %.0111130, %31 ], [ %.0111130, %36 ], [ %.0111130, %56 ], [ %.0111130, %69 ], [ %.0111130, %71 ], [ %8, %135 ], [ %.0111130, %133 ]
   %.1110 = phi double [ %.0109131, %31 ], [ %.0109131, %36 ], [ %.0109131, %56 ], [ %.0109131, %69 ], [ %.0109131, %71 ], [ %131, %135 ], [ %.0109131, %133 ]
   %.1 = phi i64 [ %.0132, %31 ], [ %.0132, %36 ], [ %.0132, %56 ], [ %.0132, %69 ], [ %.0132, %71 ], [ %45, %135 ], [ %.0132, %133 ]
@@ -72110,17 +72110,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0120138 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1121138 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0120138, %31
+  %32 = sub nsw i32 %.1121138, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !281
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0122 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1121 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0120 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not139 = icmp sgt i32 %.0122, %26
   br i1 %.not139, label %._crit_edge, label %.lr.ph145
 
@@ -72134,7 +72134,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0144 = phi i32 [ 0, %.lr.ph145 ], [ %.1, %134 ]
   %.0116143 = phi double [ 0xFFF0000000000000, %.lr.ph145 ], [ %.1117, %134 ]
   %.0118142 = phi i32 [ %18, %.lr.ph145 ], [ %.1119, %134 ]
-  %.2141 = phi i32 [ %.1121, %.lr.ph145 ], [ %.3, %134 ]
+  %.2141 = phi i32 [ %.0120, %.lr.ph145 ], [ %.3, %134 ]
   %.1123140 = phi i32 [ %.0122, %.lr.ph145 ], [ %135, %134 ]
   %37 = icmp sgt i32 %.1123140, -1
   br i1 %37, label %38, label %43
@@ -72664,17 +72664,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0118136 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1119136 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0118136, %28
+  %29 = sub nsw i64 %.1119136, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !284
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0120 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0118 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not137 = icmp sgt i32 %.0120, %23
   br i1 %.not137, label %._crit_edge, label %.lr.ph143
 
@@ -72688,7 +72688,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0142 = phi i64 [ 0, %.lr.ph143 ], [ %.1, %131 ]
   %.0114141 = phi double [ 0xFFF0000000000000, %.lr.ph143 ], [ %.1115, %131 ]
   %.0116140 = phi i32 [ %14, %.lr.ph143 ], [ %.1117, %131 ]
-  %.2139 = phi i64 [ %.1119, %.lr.ph143 ], [ %.3, %131 ]
+  %.2139 = phi i64 [ %.0118, %.lr.ph143 ], [ %.3, %131 ]
   %.1121138 = phi i32 [ %.0120, %.lr.ph143 ], [ %132, %131 ]
   %34 = icmp sgt i32 %.1121138, -1
   br i1 %34, label %35, label %40
@@ -73220,7 +73220,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0122144 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1123144 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -73230,14 +73230,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0122144, %34
+  %35 = sub i64 %.1123144, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !287
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0124 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1123 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not145 = icmp sgt i32 %.0124, %23
   br i1 %.not145, label %._crit_edge, label %.lr.ph151
 
@@ -73251,7 +73251,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i64 [ 0, %.lr.ph151 ], [ %.1, %143 ]
   %.0118149 = phi double [ 0xFFF0000000000000, %.lr.ph151 ], [ %.1119, %143 ]
   %.0120148 = phi i32 [ %14, %.lr.ph151 ], [ %.1121, %143 ]
-  %.2147 = phi i64 [ %.1123, %.lr.ph151 ], [ %.3, %143 ]
+  %.2147 = phi i64 [ %.0122, %.lr.ph151 ], [ %.3, %143 ]
   %.1125146 = phi i32 [ %.0124, %.lr.ph151 ], [ %144, %143 ]
   %40 = icmp sgt i32 %.1125146, -1
   br i1 %40, label %41, label %52
@@ -74951,9 +74951,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.086117 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.187, %120 ]
   %.088116 = phi i32 [ 0, %.lr.ph ], [ %.189, %120 ]
   %.090115 = phi i32 [ %13, %.lr.ph ], [ %.191, %120 ]
-  %.093113 = phi i32 [ 0, %.lr.ph ], [ %.2, %120 ]
-  %.095112 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.297, %120 ]
-  %.098111 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2100, %120 ]
+  %.093113 = phi i32 [ 0, %.lr.ph ], [ %.194, %120 ]
+  %.095112 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.196, %120 ]
+  %.098111 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %120 ]
   %29 = add nsw i64 %indvars.iv, %24
   %30 = load i32, ptr %19, align 4
   %31 = trunc nsw i64 %29 to i32
@@ -75069,9 +75069,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   br label %120
 
 120:                                              ; preds = %117, %119, %64, %62, %33, %52, %28
-  %.2100 = phi double [ %.098111, %28 ], [ %37, %33 ], [ %37, %52 ], [ %37, %62 ], [ %37, %64 ], [ %37, %119 ], [ %37, %117 ]
-  %.297 = phi double [ %.095112, %28 ], [ %43, %33 ], [ %43, %52 ], [ %43, %62 ], [ %43, %64 ], [ %43, %119 ], [ %43, %117 ]
-  %.2 = phi i32 [ %.093113, %28 ], [ %47, %33 ], [ %47, %52 ], [ %47, %62 ], [ %47, %64 ], [ %47, %119 ], [ %47, %117 ]
+  %.199 = phi double [ %.098111, %28 ], [ %37, %33 ], [ %37, %52 ], [ %37, %62 ], [ %37, %64 ], [ %37, %119 ], [ %37, %117 ]
+  %.196 = phi double [ %.095112, %28 ], [ %43, %33 ], [ %43, %52 ], [ %43, %62 ], [ %43, %64 ], [ %43, %119 ], [ %43, %117 ]
+  %.194 = phi i32 [ %.093113, %28 ], [ %47, %33 ], [ %47, %52 ], [ %47, %62 ], [ %47, %64 ], [ %47, %119 ], [ %47, %117 ]
   %.191 = phi i32 [ %.090115, %28 ], [ %.090115, %33 ], [ %.090115, %52 ], [ %.090115, %62 ], [ %.090115, %64 ], [ %7, %119 ], [ %.090115, %117 ]
   %.189 = phi i32 [ %.088116, %28 ], [ %.088116, %33 ], [ %.088116, %52 ], [ %.088116, %62 ], [ %.088116, %64 ], [ %47, %119 ], [ %.088116, %117 ]
   %.187 = phi double [ %.086117, %28 ], [ %.086117, %33 ], [ %.086117, %52 ], [ %.086117, %62 ], [ %.086117, %64 ], [ %115, %119 ], [ %.086117, %117 ]
@@ -75542,9 +75542,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0107133 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0109132 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0114130 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1108133 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1110132 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1115130 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -75558,18 +75558,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0107133, %29
-  %39 = fsub double %.0109132, %34
-  %40 = sub nsw i32 %.0114130, %37
+  %38 = fsub double %.1108133, %29
+  %39 = fsub double %.1110132, %34
+  %40 = sub nsw i32 %.1115130, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !295
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0118 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1115 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1110 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1108 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0114 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0109 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0107 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not136 = icmp sgt i32 %.0118, %18
   br i1 %.not136, label %._crit_edge, label %.lr.ph146
 
@@ -75590,9 +75590,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0101143 = phi double [ 0xFFF0000000000000, %.lr.ph146 ], [ %.1102, %140 ]
   %.0103142 = phi i32 [ 0, %.lr.ph146 ], [ %.1104, %140 ]
   %.0105141 = phi i32 [ %13, %.lr.ph146 ], [ %.1106, %140 ]
-  %.2140 = phi double [ %.1108, %.lr.ph146 ], [ %.3, %140 ]
-  %.2111139 = phi double [ %.1110, %.lr.ph146 ], [ %.3112, %140 ]
-  %.2116138 = phi i32 [ %.1115, %.lr.ph146 ], [ %.3117, %140 ]
+  %.2140 = phi double [ %.0107, %.lr.ph146 ], [ %.3, %140 ]
+  %.2111139 = phi double [ %.0109, %.lr.ph146 ], [ %.3112, %140 ]
+  %.2116138 = phi i32 [ %.0114, %.lr.ph146 ], [ %.3117, %140 ]
   %49 = icmp sgt i64 %indvars.iv167, -1
   br i1 %49, label %50, label %66
 
@@ -76631,7 +76631,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0132 = phi i32 [ 0, %.lr.ph ], [ %.1, %92 ]
   %.0109131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %92 ]
   %.0111130 = phi i32 [ %18, %.lr.ph ], [ %.1112, %92 ]
-  %.0113129 = phi i32 [ 0, %.lr.ph ], [ %.2, %92 ]
+  %.0113129 = phi i32 [ 0, %.lr.ph ], [ %.1114, %92 ]
   %36 = add nsw i64 %indvars.iv, %30
   %37 = load i32, ptr %27, align 4
   %38 = trunc nsw i64 %36 to i32
@@ -76709,7 +76709,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %92
 
 92:                                               ; preds = %89, %91, %69, %67, %40, %54, %35
-  %.2 = phi i32 [ %.0113129, %35 ], [ %43, %40 ], [ %43, %54 ], [ %43, %67 ], [ %43, %69 ], [ %43, %91 ], [ %43, %89 ]
+  %.1114 = phi i32 [ %.0113129, %35 ], [ %43, %40 ], [ %43, %54 ], [ %43, %67 ], [ %43, %69 ], [ %43, %91 ], [ %43, %89 ]
   %.1112 = phi i32 [ %.0111130, %35 ], [ %.0111130, %40 ], [ %.0111130, %54 ], [ %.0111130, %67 ], [ %.0111130, %69 ], [ %8, %91 ], [ %.0111130, %89 ]
   %.1110 = phi double [ %.0109131, %35 ], [ %.0109131, %40 ], [ %.0109131, %54 ], [ %.0109131, %67 ], [ %.0109131, %69 ], [ %87, %91 ], [ %.0109131, %89 ]
   %.1 = phi i32 [ %.0132, %35 ], [ %.0132, %40 ], [ %.0132, %54 ], [ %.0132, %67 ], [ %.0132, %69 ], [ %43, %91 ], [ %.0132, %89 ]
@@ -77053,7 +77053,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0130 = phi i64 [ 0, %.lr.ph ], [ %.1, %89 ]
   %.0107129 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1108, %89 ]
   %.0109128 = phi i32 [ %14, %.lr.ph ], [ %.1110, %89 ]
-  %.0111127 = phi i64 [ 0, %.lr.ph ], [ %.2, %89 ]
+  %.0111127 = phi i64 [ 0, %.lr.ph ], [ %.1112, %89 ]
   %33 = add nsw i64 %indvars.iv, %27
   %34 = load i32, ptr %24, align 4
   %35 = trunc nsw i64 %33 to i32
@@ -77131,7 +77131,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %89
 
 89:                                               ; preds = %86, %88, %66, %64, %37, %51, %32
-  %.2 = phi i64 [ %.0111127, %32 ], [ %40, %37 ], [ %40, %51 ], [ %40, %64 ], [ %40, %66 ], [ %40, %88 ], [ %40, %86 ]
+  %.1112 = phi i64 [ %.0111127, %32 ], [ %40, %37 ], [ %40, %51 ], [ %40, %64 ], [ %40, %66 ], [ %40, %88 ], [ %40, %86 ]
   %.1110 = phi i32 [ %.0109128, %32 ], [ %.0109128, %37 ], [ %.0109128, %51 ], [ %.0109128, %64 ], [ %.0109128, %66 ], [ %8, %88 ], [ %.0109128, %86 ]
   %.1108 = phi double [ %.0107129, %32 ], [ %.0107129, %37 ], [ %.0107129, %51 ], [ %.0107129, %64 ], [ %.0107129, %66 ], [ %84, %88 ], [ %.0107129, %86 ]
   %.1 = phi i64 [ %.0130, %32 ], [ %.0130, %37 ], [ %.0130, %51 ], [ %.0130, %64 ], [ %.0130, %66 ], [ %40, %88 ], [ %.0130, %86 ]
@@ -77477,7 +77477,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0132 = phi i64 [ 0, %.lr.ph ], [ %.1, %95 ]
   %.0109131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1110, %95 ]
   %.0111130 = phi i32 [ %14, %.lr.ph ], [ %.1112, %95 ]
-  %.0113129 = phi i64 [ 0, %.lr.ph ], [ %.2, %95 ]
+  %.0113129 = phi i64 [ 0, %.lr.ph ], [ %.1114, %95 ]
   %33 = add nsw i64 %indvars.iv, %27
   %34 = load i32, ptr %24, align 4
   %35 = trunc nsw i64 %33 to i32
@@ -77562,7 +77562,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %95
 
 95:                                               ; preds = %92, %94, %72, %70, %37, %57, %32
-  %.2 = phi i64 [ %.0113129, %32 ], [ %46, %37 ], [ %46, %57 ], [ %46, %70 ], [ %46, %72 ], [ %46, %94 ], [ %46, %92 ]
+  %.1114 = phi i64 [ %.0113129, %32 ], [ %46, %37 ], [ %46, %57 ], [ %46, %70 ], [ %46, %72 ], [ %46, %94 ], [ %46, %92 ]
   %.1112 = phi i32 [ %.0111130, %32 ], [ %.0111130, %37 ], [ %.0111130, %57 ], [ %.0111130, %70 ], [ %.0111130, %72 ], [ %8, %94 ], [ %.0111130, %92 ]
   %.1110 = phi double [ %.0109131, %32 ], [ %.0109131, %37 ], [ %.0109131, %57 ], [ %.0109131, %70 ], [ %.0109131, %72 ], [ %90, %94 ], [ %.0109131, %92 ]
   %.1 = phi i64 [ %.0132, %32 ], [ %.0132, %37 ], [ %.0132, %57 ], [ %.0132, %70 ], [ %.0132, %72 ], [ %46, %94 ], [ %.0132, %92 ]
@@ -78023,17 +78023,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0120138 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1121138 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0120138, %31
+  %32 = sub nsw i32 %.1121138, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !305
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0122 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1121 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0120 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not139 = icmp sgt i32 %.0122, %26
   br i1 %.not139, label %._crit_edge, label %.lr.ph145
 
@@ -78048,7 +78048,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0144 = phi i32 [ 0, %.lr.ph145 ], [ %.1, %93 ]
   %.0116143 = phi double [ 0xFFF0000000000000, %.lr.ph145 ], [ %.1117, %93 ]
   %.0118142 = phi i32 [ %18, %.lr.ph145 ], [ %.1119, %93 ]
-  %.2141 = phi i32 [ %.1121, %.lr.ph145 ], [ %.3, %93 ]
+  %.2141 = phi i32 [ %.0120, %.lr.ph145 ], [ %.3, %93 ]
   %.1123140 = phi i32 [ %.0122, %.lr.ph145 ], [ %94, %93 ]
   %38 = icmp sgt i32 %.1123140, -1
   br i1 %38, label %39, label %44
@@ -78457,17 +78457,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0118136 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1119136 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0118136, %28
+  %29 = sub nsw i64 %.1119136, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !308
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0120 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0118 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not137 = icmp sgt i32 %.0120, %23
   br i1 %.not137, label %._crit_edge, label %.lr.ph143
 
@@ -78482,7 +78482,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0142 = phi i64 [ 0, %.lr.ph143 ], [ %.1, %90 ]
   %.0114141 = phi double [ 0xFFF0000000000000, %.lr.ph143 ], [ %.1115, %90 ]
   %.0116140 = phi i32 [ %14, %.lr.ph143 ], [ %.1117, %90 ]
-  %.2139 = phi i64 [ %.1119, %.lr.ph143 ], [ %.3, %90 ]
+  %.2139 = phi i64 [ %.0118, %.lr.ph143 ], [ %.3, %90 ]
   %.1121138 = phi i32 [ %.0120, %.lr.ph143 ], [ %91, %90 ]
   %35 = icmp sgt i32 %.1121138, -1
   br i1 %35, label %36, label %41
@@ -78893,7 +78893,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0122144 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1123144 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -78903,14 +78903,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0122144, %34
+  %35 = sub i64 %.1123144, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !311
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0124 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1123 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not145 = icmp sgt i32 %.0124, %23
   br i1 %.not145, label %._crit_edge, label %.lr.ph151
 
@@ -78925,7 +78925,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i64 [ 0, %.lr.ph151 ], [ %.1, %102 ]
   %.0118149 = phi double [ 0xFFF0000000000000, %.lr.ph151 ], [ %.1119, %102 ]
   %.0120148 = phi i32 [ %14, %.lr.ph151 ], [ %.1121, %102 ]
-  %.2147 = phi i64 [ %.1123, %.lr.ph151 ], [ %.3, %102 ]
+  %.2147 = phi i64 [ %.0122, %.lr.ph151 ], [ %.3, %102 ]
   %.1125146 = phi i32 [ %.0124, %.lr.ph151 ], [ %103, %102 ]
   %41 = icmp sgt i32 %.1125146, -1
   br i1 %41, label %42, label %53
@@ -80271,7 +80271,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.086117 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.187, %85 ]
   %.088116 = phi i32 [ 0, %.lr.ph ], [ %.189, %85 ]
   %.090115 = phi i32 [ %13, %.lr.ph ], [ %.191, %85 ]
-  %.093113 = phi i32 [ 0, %.lr.ph ], [ %.2, %85 ]
+  %.093113 = phi i32 [ 0, %.lr.ph ], [ %.194, %85 ]
   %28 = phi <2 x double> [ <double 0x3CD203AFA0000000, double 0.000000e+00>, %.lr.ph ], [ %86, %85 ]
   %29 = add nsw i64 %indvars.iv, %24
   %30 = load i32, ptr %19, align 4
@@ -80352,7 +80352,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   br label %85
 
 85:                                               ; preds = %82, %84, %66, %64, %33, %53, %27
-  %.2 = phi i32 [ %.093113, %27 ], [ %48, %33 ], [ %48, %53 ], [ %48, %64 ], [ %48, %66 ], [ %48, %84 ], [ %48, %82 ]
+  %.194 = phi i32 [ %.093113, %27 ], [ %48, %33 ], [ %48, %53 ], [ %48, %64 ], [ %48, %66 ], [ %48, %84 ], [ %48, %82 ]
   %.191 = phi i32 [ %.090115, %27 ], [ %.090115, %33 ], [ %.090115, %53 ], [ %.090115, %64 ], [ %.090115, %66 ], [ %7, %84 ], [ %.090115, %82 ]
   %.189 = phi i32 [ %.088116, %27 ], [ %.088116, %33 ], [ %.088116, %53 ], [ %.088116, %64 ], [ %.088116, %66 ], [ %48, %84 ], [ %.088116, %82 ]
   %.187 = phi double [ %.086117, %27 ], [ %.086117, %33 ], [ %.086117, %53 ], [ %.086117, %64 ], [ %.086117, %66 ], [ %80, %84 ], [ %.086117, %82 ]
@@ -80722,7 +80722,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.0114130 = phi i32 [ %3, %.lr.ph ], [ %44, %28 ]
+  %.1115130 = phi i32 [ %3, %.lr.ph ], [ %44, %28 ]
   %29 = phi <2 x double> [ %24, %.lr.ph ], [ %43, %28 ]
   %sext = shl i64 %indvars.iv, 33
   %30 = ashr exact i64 %sext, 29
@@ -80740,14 +80740,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %41 = insertelement <2 x double> poison, double %32, i64 0
   %42 = insertelement <2 x double> %41, double %37, i64 1
   %43 = fsub <2 x double> %29, %42
-  %44 = sub nsw i32 %.0114130, %40
+  %44 = sub nsw i32 %.1115130, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !319
 
 .loopexit:                                        ; preds = %28, %20, %9
   %.0118 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %28 ]
-  %.1115 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %44, %28 ]
+  %.0114 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %44, %28 ]
   %45 = phi <2 x double> [ <double 0.000000e+00, double 0x3CD203AFA0000000>, %9 ], [ %24, %20 ], [ %43, %28 ]
   %.not136 = icmp sgt i32 %.0118, %18
   br i1 %.not136, label %._crit_edge, label %.lr.ph146
@@ -80768,7 +80768,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0101143 = phi double [ 0xFFF0000000000000, %.lr.ph146 ], [ %.1102, %111 ]
   %.0103142 = phi i32 [ 0, %.lr.ph146 ], [ %.1104, %111 ]
   %.0105141 = phi i32 [ %13, %.lr.ph146 ], [ %.1106, %111 ]
-  %.2116138 = phi i32 [ %.1115, %.lr.ph146 ], [ %.3117, %111 ]
+  %.2116138 = phi i32 [ %.0114, %.lr.ph146 ], [ %.3117, %111 ]
   %53 = phi <2 x double> [ %45, %.lr.ph146 ], [ %73, %111 ]
   %54 = icmp sgt i64 %indvars.iv167, -1
   br i1 %54, label %55, label %72
@@ -82549,7 +82549,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0154 = phi i32 [ 0, %.lr.ph ], [ %.1, %116 ]
   %.0115153 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %116 ]
   %.0117152 = phi i32 [ %18, %.lr.ph ], [ %.1118, %116 ]
-  %.0119151 = phi i32 [ 0, %.lr.ph ], [ %.2, %116 ]
+  %.0119151 = phi i32 [ 0, %.lr.ph ], [ %.1120, %116 ]
   %.sroa.0.0149 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0148 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %116 ]
   %.sroa.0141.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0141.1, %116 ]
@@ -82658,7 +82658,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0141.1 = phi double [ %.sroa.0141.0147, %38 ], [ %.sroa.0141.0147, %45 ], [ %.sroa.0141.0147, %60 ], [ %105, %100 ], [ %105, %115 ], [ %.sroa.0141.0147, %98 ], [ %.sroa.0141.0147, %75 ], [ %.sroa.0141.0147, %73 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0148, %38 ], [ %.sroa.4.0148, %45 ], [ %.sroa.4.0148, %60 ], [ %112, %100 ], [ %112, %115 ], [ %.sroa.4.0148, %98 ], [ %.sroa.4.0148, %75 ], [ %.sroa.4.0148, %73 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0149, %38 ], [ %.sroa.0.0149, %45 ], [ %.sroa.0.0149, %60 ], [ %111, %100 ], [ %111, %115 ], [ %.sroa.0.0149, %98 ], [ %.sroa.0.0149, %75 ], [ %.sroa.0.0149, %73 ]
-  %.2 = phi i32 [ %.0119151, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %100 ], [ %48, %115 ], [ %48, %98 ], [ %48, %75 ], [ %48, %73 ]
+  %.1120 = phi i32 [ %.0119151, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %100 ], [ %48, %115 ], [ %48, %98 ], [ %48, %75 ], [ %48, %73 ]
   %.1118 = phi i32 [ %.0117152, %38 ], [ %.0117152, %45 ], [ %.0117152, %60 ], [ %.0117152, %100 ], [ %8, %115 ], [ %.0117152, %98 ], [ %.0117152, %75 ], [ %.0117152, %73 ]
   %.1116 = phi double [ %.0115153, %38 ], [ %.0115153, %45 ], [ %.0115153, %60 ], [ %.0115153, %100 ], [ %96, %115 ], [ %.0115153, %98 ], [ %.0115153, %75 ], [ %.0115153, %73 ]
   %.1 = phi i32 [ %.0154, %38 ], [ %.0154, %45 ], [ %.0154, %60 ], [ %.0154, %100 ], [ %48, %115 ], [ %.0154, %98 ], [ %.0154, %75 ], [ %.0154, %73 ]
@@ -83300,7 +83300,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0152 = phi i64 [ 0, %.lr.ph ], [ %.1, %113 ]
   %.0113151 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1114, %113 ]
   %.0115150 = phi i32 [ %14, %.lr.ph ], [ %.1116, %113 ]
-  %.0117149 = phi i64 [ 0, %.lr.ph ], [ %.2, %113 ]
+  %.0117149 = phi i64 [ 0, %.lr.ph ], [ %.1118, %113 ]
   %.sroa.0.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0146 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %113 ]
   %.sroa.0139.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0139.1, %113 ]
@@ -83409,7 +83409,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0139.1 = phi double [ %.sroa.0139.0145, %35 ], [ %.sroa.0139.0145, %42 ], [ %.sroa.0139.0145, %57 ], [ %102, %97 ], [ %102, %112 ], [ %.sroa.0139.0145, %95 ], [ %.sroa.0139.0145, %72 ], [ %.sroa.0139.0145, %70 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0146, %35 ], [ %.sroa.4.0146, %42 ], [ %.sroa.4.0146, %57 ], [ %109, %97 ], [ %109, %112 ], [ %.sroa.4.0146, %95 ], [ %.sroa.4.0146, %72 ], [ %.sroa.4.0146, %70 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0147, %35 ], [ %.sroa.0.0147, %42 ], [ %.sroa.0.0147, %57 ], [ %108, %97 ], [ %108, %112 ], [ %.sroa.0.0147, %95 ], [ %.sroa.0.0147, %72 ], [ %.sroa.0.0147, %70 ]
-  %.2 = phi i64 [ %.0117149, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %97 ], [ %45, %112 ], [ %45, %95 ], [ %45, %72 ], [ %45, %70 ]
+  %.1118 = phi i64 [ %.0117149, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %97 ], [ %45, %112 ], [ %45, %95 ], [ %45, %72 ], [ %45, %70 ]
   %.1116 = phi i32 [ %.0115150, %35 ], [ %.0115150, %42 ], [ %.0115150, %57 ], [ %.0115150, %97 ], [ %8, %112 ], [ %.0115150, %95 ], [ %.0115150, %72 ], [ %.0115150, %70 ]
   %.1114 = phi double [ %.0113151, %35 ], [ %.0113151, %42 ], [ %.0113151, %57 ], [ %.0113151, %97 ], [ %93, %112 ], [ %.0113151, %95 ], [ %.0113151, %72 ], [ %.0113151, %70 ]
   %.1 = phi i64 [ %.0152, %35 ], [ %.0152, %42 ], [ %.0152, %57 ], [ %.0152, %97 ], [ %45, %112 ], [ %.0152, %95 ], [ %.0152, %72 ], [ %.0152, %70 ]
@@ -84053,7 +84053,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0154 = phi i64 [ 0, %.lr.ph ], [ %.1, %119 ]
   %.0115153 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %119 ]
   %.0117152 = phi i32 [ %14, %.lr.ph ], [ %.1118, %119 ]
-  %.0119151 = phi i64 [ 0, %.lr.ph ], [ %.2, %119 ]
+  %.0119151 = phi i64 [ 0, %.lr.ph ], [ %.1120, %119 ]
   %.sroa.0.0149 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %119 ]
   %.sroa.4.0148 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %119 ]
   %.sroa.0141.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0141.1, %119 ]
@@ -84169,7 +84169,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0141.1 = phi double [ %.sroa.0141.0147, %35 ], [ %.sroa.0141.0147, %42 ], [ %.sroa.0141.0147, %63 ], [ %108, %103 ], [ %108, %118 ], [ %.sroa.0141.0147, %101 ], [ %.sroa.0141.0147, %78 ], [ %.sroa.0141.0147, %76 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0148, %35 ], [ %.sroa.4.0148, %42 ], [ %.sroa.4.0148, %63 ], [ %115, %103 ], [ %115, %118 ], [ %.sroa.4.0148, %101 ], [ %.sroa.4.0148, %78 ], [ %.sroa.4.0148, %76 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0149, %35 ], [ %.sroa.0.0149, %42 ], [ %.sroa.0.0149, %63 ], [ %114, %103 ], [ %114, %118 ], [ %.sroa.0.0149, %101 ], [ %.sroa.0.0149, %78 ], [ %.sroa.0.0149, %76 ]
-  %.2 = phi i64 [ %.0119151, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %103 ], [ %51, %118 ], [ %51, %101 ], [ %51, %78 ], [ %51, %76 ]
+  %.1120 = phi i64 [ %.0119151, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %103 ], [ %51, %118 ], [ %51, %101 ], [ %51, %78 ], [ %51, %76 ]
   %.1118 = phi i32 [ %.0117152, %35 ], [ %.0117152, %42 ], [ %.0117152, %63 ], [ %.0117152, %103 ], [ %8, %118 ], [ %.0117152, %101 ], [ %.0117152, %78 ], [ %.0117152, %76 ]
   %.1116 = phi double [ %.0115153, %35 ], [ %.0115153, %42 ], [ %.0115153, %63 ], [ %.0115153, %103 ], [ %99, %118 ], [ %.0115153, %101 ], [ %.0115153, %78 ], [ %.0115153, %76 ]
   %.1 = phi i64 [ %.0154, %35 ], [ %.0154, %42 ], [ %.0154, %63 ], [ %.0154, %103 ], [ %51, %118 ], [ %.0154, %101 ], [ %.0154, %78 ], [ %.0154, %76 ]
@@ -85053,17 +85053,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0126156 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1127156 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0126156, %38
+  %39 = sub nsw i32 %.1127156, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !329
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0128 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1127 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0126 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not157 = icmp sgt i32 %.0128, %33
   br i1 %.not157, label %._crit_edge, label %.lr.ph167
 
@@ -85075,7 +85075,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0166 = phi i32 [ 0, %.lr.ph167 ], [ %.1, %117 ]
   %.0122165 = phi double [ 0xFFF0000000000000, %.lr.ph167 ], [ %.1123, %117 ]
   %.0124164 = phi i32 [ %18, %.lr.ph167 ], [ %.1125, %117 ]
-  %.2163 = phi i32 [ %.1127, %.lr.ph167 ], [ %.3, %117 ]
+  %.2163 = phi i32 [ %.0126, %.lr.ph167 ], [ %.3, %117 ]
   %.1129162 = phi i32 [ %.0128, %.lr.ph167 ], [ %118, %117 ]
   %.sroa.0.0161 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph167 ], [ %.sroa.0.1, %117 ]
   %.sroa.4.0160 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph167 ], [ %.sroa.4.1, %117 ]
@@ -85818,17 +85818,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0124154 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1125154 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0124154, %35
+  %36 = sub nsw i64 %.1125154, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !332
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0126 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0124 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not155 = icmp sgt i32 %.0126, %30
   br i1 %.not155, label %._crit_edge, label %.lr.ph165
 
@@ -85840,7 +85840,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0164 = phi i64 [ 0, %.lr.ph165 ], [ %.1, %114 ]
   %.0120163 = phi double [ 0xFFF0000000000000, %.lr.ph165 ], [ %.1121, %114 ]
   %.0122162 = phi i32 [ %14, %.lr.ph165 ], [ %.1123, %114 ]
-  %.2161 = phi i64 [ %.1125, %.lr.ph165 ], [ %.3, %114 ]
+  %.2161 = phi i64 [ %.0124, %.lr.ph165 ], [ %.3, %114 ]
   %.1127160 = phi i32 [ %.0126, %.lr.ph165 ], [ %115, %114 ]
   %.sroa.0.0159 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.0.1, %114 ]
   %.sroa.4.0158 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.4.1, %114 ]
@@ -86585,7 +86585,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0128162 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1129162 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -86595,14 +86595,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0128162, %41
+  %42 = sub i64 %.1129162, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !335
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0130 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1129 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0128 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not163 = icmp sgt i32 %.0130, %30
   br i1 %.not163, label %._crit_edge, label %.lr.ph173
 
@@ -86614,7 +86614,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0172 = phi i64 [ 0, %.lr.ph173 ], [ %.1, %126 ]
   %.0124171 = phi double [ 0xFFF0000000000000, %.lr.ph173 ], [ %.1125, %126 ]
   %.0126170 = phi i32 [ %14, %.lr.ph173 ], [ %.1127, %126 ]
-  %.2169 = phi i64 [ %.1129, %.lr.ph173 ], [ %.3, %126 ]
+  %.2169 = phi i64 [ %.0128, %.lr.ph173 ], [ %.3, %126 ]
   %.1131168 = phi i32 [ %.0130, %.lr.ph173 ], [ %127, %126 ]
   %.sroa.0.0167 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph173 ], [ %.sroa.0.1, %126 ]
   %.sroa.4.0166 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph173 ], [ %.sroa.4.1, %126 ]
@@ -88694,9 +88694,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.092139 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.193, %103 ]
   %.094138 = phi i32 [ 0, %.lr.ph ], [ %.195, %103 ]
   %.096137 = phi i32 [ %13, %.lr.ph ], [ %.197, %103 ]
-  %.098136 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %103 ]
-  %.0100135 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.2102, %103 ]
-  %.0103134 = phi i32 [ 0, %.lr.ph ], [ %.2105, %103 ]
+  %.098136 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %103 ]
+  %.0100135 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.1101, %103 ]
+  %.0103134 = phi i32 [ 0, %.lr.ph ], [ %.1104, %103 ]
   %.sroa.0.0132 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %103 ]
   %.sroa.4.0131 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %103 ]
   %.sroa.0124.0130 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0124.1, %103 ]
@@ -88801,9 +88801,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.sroa.0124.1 = phi double [ %.sroa.0124.0130, %31 ], [ %.sroa.0124.0130, %38 ], [ %.sroa.0124.0130, %59 ], [ %92, %87 ], [ %92, %102 ], [ %.sroa.0124.0130, %85 ], [ %.sroa.0124.0130, %71 ], [ %.sroa.0124.0130, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0131, %31 ], [ %.sroa.4.0131, %38 ], [ %.sroa.4.0131, %59 ], [ %99, %87 ], [ %99, %102 ], [ %.sroa.4.0131, %85 ], [ %.sroa.4.0131, %71 ], [ %.sroa.4.0131, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0132, %31 ], [ %.sroa.0.0132, %38 ], [ %.sroa.0.0132, %59 ], [ %98, %87 ], [ %98, %102 ], [ %.sroa.0.0132, %85 ], [ %.sroa.0.0132, %71 ], [ %.sroa.0.0132, %69 ]
-  %.2105 = phi i32 [ %.0103134, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %87 ], [ %53, %102 ], [ %53, %85 ], [ %53, %71 ], [ %53, %69 ]
-  %.2102 = phi double [ %.0100135, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %87 ], [ %49, %102 ], [ %49, %85 ], [ %49, %71 ], [ %49, %69 ]
-  %.2 = phi double [ %.098136, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %87 ], [ %43, %102 ], [ %43, %85 ], [ %43, %71 ], [ %43, %69 ]
+  %.1104 = phi i32 [ %.0103134, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %87 ], [ %53, %102 ], [ %53, %85 ], [ %53, %71 ], [ %53, %69 ]
+  %.1101 = phi double [ %.0100135, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %87 ], [ %49, %102 ], [ %49, %85 ], [ %49, %71 ], [ %49, %69 ]
+  %.199 = phi double [ %.098136, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %87 ], [ %43, %102 ], [ %43, %85 ], [ %43, %71 ], [ %43, %69 ]
   %.197 = phi i32 [ %.096137, %31 ], [ %.096137, %38 ], [ %.096137, %59 ], [ %.096137, %87 ], [ %7, %102 ], [ %.096137, %85 ], [ %.096137, %71 ], [ %.096137, %69 ]
   %.195 = phi i32 [ %.094138, %31 ], [ %.094138, %38 ], [ %.094138, %59 ], [ %.094138, %87 ], [ %53, %102 ], [ %.094138, %85 ], [ %.094138, %71 ], [ %.094138, %69 ]
   %.193 = phi double [ %.092139, %31 ], [ %.092139, %38 ], [ %.092139, %59 ], [ %.092139, %87 ], [ %83, %102 ], [ %.092139, %85 ], [ %.092139, %71 ], [ %.092139, %69 ]
@@ -89439,9 +89439,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0113151 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0115150 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0119149 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1114151 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1116150 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1120149 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -89455,18 +89455,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0113151, %36
-  %46 = fsub double %.0115150, %41
-  %47 = sub nsw i32 %.0119149, %44
+  %45 = fsub double %.1114151, %36
+  %46 = fsub double %.1116150, %41
+  %47 = sub nsw i32 %.1120149, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !343
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0123 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1120 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1116 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1114 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0119 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0115 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0113 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not154 = icmp sgt i32 %.0123, %25
   br i1 %.not154, label %._crit_edge, label %.lr.ph168
 
@@ -89484,9 +89484,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0107165 = phi double [ 0xFFF0000000000000, %.lr.ph168 ], [ %.1108, %123 ]
   %.0109164 = phi i32 [ 0, %.lr.ph168 ], [ %.1110, %123 ]
   %.0111163 = phi i32 [ %13, %.lr.ph168 ], [ %.1112, %123 ]
-  %.2162 = phi double [ %.1114, %.lr.ph168 ], [ %.3, %123 ]
-  %.2117161 = phi double [ %.1116, %.lr.ph168 ], [ %.3118, %123 ]
-  %.2121160 = phi i32 [ %.1120, %.lr.ph168 ], [ %.3122, %123 ]
+  %.2162 = phi double [ %.0113, %.lr.ph168 ], [ %.3, %123 ]
+  %.2117161 = phi double [ %.0115, %.lr.ph168 ], [ %.3118, %123 ]
+  %.2121160 = phi i32 [ %.0119, %.lr.ph168 ], [ %.3122, %123 ]
   %.sroa.0.0158 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0.1, %123 ]
   %.sroa.4.0157 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.4.1, %123 ]
   %.sroa.0144.0156 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0144.1, %123 ]
@@ -90807,7 +90807,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0154 = phi i32 [ 0, %.lr.ph ], [ %.1, %116 ]
   %.0115153 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %116 ]
   %.0117152 = phi i32 [ %18, %.lr.ph ], [ %.1118, %116 ]
-  %.0119151 = phi i32 [ 0, %.lr.ph ], [ %.2, %116 ]
+  %.0119151 = phi i32 [ 0, %.lr.ph ], [ %.1120, %116 ]
   %.sroa.0.0149 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0148 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %116 ]
   %.sroa.0141.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0141.1, %116 ]
@@ -90916,7 +90916,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0141.1 = phi double [ %.sroa.0141.0147, %38 ], [ %.sroa.0141.0147, %45 ], [ %.sroa.0141.0147, %60 ], [ %105, %100 ], [ %105, %115 ], [ %.sroa.0141.0147, %98 ], [ %.sroa.0141.0147, %75 ], [ %.sroa.0141.0147, %73 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0148, %38 ], [ %.sroa.4.0148, %45 ], [ %.sroa.4.0148, %60 ], [ %112, %100 ], [ %112, %115 ], [ %.sroa.4.0148, %98 ], [ %.sroa.4.0148, %75 ], [ %.sroa.4.0148, %73 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0149, %38 ], [ %.sroa.0.0149, %45 ], [ %.sroa.0.0149, %60 ], [ %111, %100 ], [ %111, %115 ], [ %.sroa.0.0149, %98 ], [ %.sroa.0.0149, %75 ], [ %.sroa.0.0149, %73 ]
-  %.2 = phi i32 [ %.0119151, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %100 ], [ %48, %115 ], [ %48, %98 ], [ %48, %75 ], [ %48, %73 ]
+  %.1120 = phi i32 [ %.0119151, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %100 ], [ %48, %115 ], [ %48, %98 ], [ %48, %75 ], [ %48, %73 ]
   %.1118 = phi i32 [ %.0117152, %38 ], [ %.0117152, %45 ], [ %.0117152, %60 ], [ %.0117152, %100 ], [ %8, %115 ], [ %.0117152, %98 ], [ %.0117152, %75 ], [ %.0117152, %73 ]
   %.1116 = phi double [ %.0115153, %38 ], [ %.0115153, %45 ], [ %.0115153, %60 ], [ %.0115153, %100 ], [ %96, %115 ], [ %.0115153, %98 ], [ %.0115153, %75 ], [ %.0115153, %73 ]
   %.1 = phi i32 [ %.0154, %38 ], [ %.0154, %45 ], [ %.0154, %60 ], [ %.0154, %100 ], [ %48, %115 ], [ %.0154, %98 ], [ %.0154, %75 ], [ %.0154, %73 ]
@@ -91504,7 +91504,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0152 = phi i64 [ 0, %.lr.ph ], [ %.1, %113 ]
   %.0113151 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1114, %113 ]
   %.0115150 = phi i32 [ %14, %.lr.ph ], [ %.1116, %113 ]
-  %.0117149 = phi i64 [ 0, %.lr.ph ], [ %.2, %113 ]
+  %.0117149 = phi i64 [ 0, %.lr.ph ], [ %.1118, %113 ]
   %.sroa.0.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0146 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %113 ]
   %.sroa.0139.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0139.1, %113 ]
@@ -91613,7 +91613,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0139.1 = phi double [ %.sroa.0139.0145, %35 ], [ %.sroa.0139.0145, %42 ], [ %.sroa.0139.0145, %57 ], [ %102, %97 ], [ %102, %112 ], [ %.sroa.0139.0145, %95 ], [ %.sroa.0139.0145, %72 ], [ %.sroa.0139.0145, %70 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0146, %35 ], [ %.sroa.4.0146, %42 ], [ %.sroa.4.0146, %57 ], [ %109, %97 ], [ %109, %112 ], [ %.sroa.4.0146, %95 ], [ %.sroa.4.0146, %72 ], [ %.sroa.4.0146, %70 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0147, %35 ], [ %.sroa.0.0147, %42 ], [ %.sroa.0.0147, %57 ], [ %108, %97 ], [ %108, %112 ], [ %.sroa.0.0147, %95 ], [ %.sroa.0.0147, %72 ], [ %.sroa.0.0147, %70 ]
-  %.2 = phi i64 [ %.0117149, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %97 ], [ %45, %112 ], [ %45, %95 ], [ %45, %72 ], [ %45, %70 ]
+  %.1118 = phi i64 [ %.0117149, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %97 ], [ %45, %112 ], [ %45, %95 ], [ %45, %72 ], [ %45, %70 ]
   %.1116 = phi i32 [ %.0115150, %35 ], [ %.0115150, %42 ], [ %.0115150, %57 ], [ %.0115150, %97 ], [ %8, %112 ], [ %.0115150, %95 ], [ %.0115150, %72 ], [ %.0115150, %70 ]
   %.1114 = phi double [ %.0113151, %35 ], [ %.0113151, %42 ], [ %.0113151, %57 ], [ %.0113151, %97 ], [ %93, %112 ], [ %.0113151, %95 ], [ %.0113151, %72 ], [ %.0113151, %70 ]
   %.1 = phi i64 [ %.0152, %35 ], [ %.0152, %42 ], [ %.0152, %57 ], [ %.0152, %97 ], [ %45, %112 ], [ %.0152, %95 ], [ %.0152, %72 ], [ %.0152, %70 ]
@@ -92203,7 +92203,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0154 = phi i64 [ 0, %.lr.ph ], [ %.1, %119 ]
   %.0115153 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %119 ]
   %.0117152 = phi i32 [ %14, %.lr.ph ], [ %.1118, %119 ]
-  %.0119151 = phi i64 [ 0, %.lr.ph ], [ %.2, %119 ]
+  %.0119151 = phi i64 [ 0, %.lr.ph ], [ %.1120, %119 ]
   %.sroa.0.0149 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %119 ]
   %.sroa.4.0148 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %119 ]
   %.sroa.0141.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0141.1, %119 ]
@@ -92319,7 +92319,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0141.1 = phi double [ %.sroa.0141.0147, %35 ], [ %.sroa.0141.0147, %42 ], [ %.sroa.0141.0147, %63 ], [ %108, %103 ], [ %108, %118 ], [ %.sroa.0141.0147, %101 ], [ %.sroa.0141.0147, %78 ], [ %.sroa.0141.0147, %76 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0148, %35 ], [ %.sroa.4.0148, %42 ], [ %.sroa.4.0148, %63 ], [ %115, %103 ], [ %115, %118 ], [ %.sroa.4.0148, %101 ], [ %.sroa.4.0148, %78 ], [ %.sroa.4.0148, %76 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0149, %35 ], [ %.sroa.0.0149, %42 ], [ %.sroa.0.0149, %63 ], [ %114, %103 ], [ %114, %118 ], [ %.sroa.0.0149, %101 ], [ %.sroa.0.0149, %78 ], [ %.sroa.0.0149, %76 ]
-  %.2 = phi i64 [ %.0119151, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %103 ], [ %51, %118 ], [ %51, %101 ], [ %51, %78 ], [ %51, %76 ]
+  %.1120 = phi i64 [ %.0119151, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %103 ], [ %51, %118 ], [ %51, %101 ], [ %51, %78 ], [ %51, %76 ]
   %.1118 = phi i32 [ %.0117152, %35 ], [ %.0117152, %42 ], [ %.0117152, %63 ], [ %.0117152, %103 ], [ %8, %118 ], [ %.0117152, %101 ], [ %.0117152, %78 ], [ %.0117152, %76 ]
   %.1116 = phi double [ %.0115153, %35 ], [ %.0115153, %42 ], [ %.0115153, %63 ], [ %.0115153, %103 ], [ %99, %118 ], [ %.0115153, %101 ], [ %.0115153, %78 ], [ %.0115153, %76 ]
   %.1 = phi i64 [ %.0154, %35 ], [ %.0154, %42 ], [ %.0154, %63 ], [ %.0154, %103 ], [ %51, %118 ], [ %.0154, %101 ], [ %.0154, %78 ], [ %.0154, %76 ]
@@ -93203,17 +93203,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0126156 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1127156 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0126156, %38
+  %39 = sub nsw i32 %.1127156, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !353
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0128 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1127 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0126 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not157 = icmp sgt i32 %.0128, %33
   br i1 %.not157, label %._crit_edge, label %.lr.ph167
 
@@ -93225,7 +93225,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0166 = phi i32 [ 0, %.lr.ph167 ], [ %.1, %117 ]
   %.0122165 = phi double [ 0xFFF0000000000000, %.lr.ph167 ], [ %.1123, %117 ]
   %.0124164 = phi i32 [ %18, %.lr.ph167 ], [ %.1125, %117 ]
-  %.2163 = phi i32 [ %.1127, %.lr.ph167 ], [ %.3, %117 ]
+  %.2163 = phi i32 [ %.0126, %.lr.ph167 ], [ %.3, %117 ]
   %.1129162 = phi i32 [ %.0128, %.lr.ph167 ], [ %118, %117 ]
   %.sroa.0.0161 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph167 ], [ %.sroa.0.1, %117 ]
   %.sroa.4.0160 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph167 ], [ %.sroa.4.1, %117 ]
@@ -93914,17 +93914,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0124154 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1125154 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0124154, %35
+  %36 = sub nsw i64 %.1125154, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !356
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0126 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0124 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not155 = icmp sgt i32 %.0126, %30
   br i1 %.not155, label %._crit_edge, label %.lr.ph165
 
@@ -93936,7 +93936,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0164 = phi i64 [ 0, %.lr.ph165 ], [ %.1, %114 ]
   %.0120163 = phi double [ 0xFFF0000000000000, %.lr.ph165 ], [ %.1121, %114 ]
   %.0122162 = phi i32 [ %14, %.lr.ph165 ], [ %.1123, %114 ]
-  %.2161 = phi i64 [ %.1125, %.lr.ph165 ], [ %.3, %114 ]
+  %.2161 = phi i64 [ %.0124, %.lr.ph165 ], [ %.3, %114 ]
   %.1127160 = phi i32 [ %.0126, %.lr.ph165 ], [ %115, %114 ]
   %.sroa.0.0159 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.0.1, %114 ]
   %.sroa.4.0158 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.4.1, %114 ]
@@ -94627,7 +94627,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0128162 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1129162 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -94637,14 +94637,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0128162, %41
+  %42 = sub i64 %.1129162, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !359
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0130 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1129 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0128 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not163 = icmp sgt i32 %.0130, %30
   br i1 %.not163, label %._crit_edge, label %.lr.ph173
 
@@ -94656,7 +94656,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0172 = phi i64 [ 0, %.lr.ph173 ], [ %.1, %126 ]
   %.0124171 = phi double [ 0xFFF0000000000000, %.lr.ph173 ], [ %.1125, %126 ]
   %.0126170 = phi i32 [ %14, %.lr.ph173 ], [ %.1127, %126 ]
-  %.2169 = phi i64 [ %.1129, %.lr.ph173 ], [ %.3, %126 ]
+  %.2169 = phi i64 [ %.0128, %.lr.ph173 ], [ %.3, %126 ]
   %.1131168 = phi i32 [ %.0130, %.lr.ph173 ], [ %127, %126 ]
   %.sroa.0.0167 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph173 ], [ %.sroa.0.1, %126 ]
   %.sroa.4.0166 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph173 ], [ %.sroa.4.1, %126 ]
@@ -96838,9 +96838,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.092139 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.193, %103 ]
   %.094138 = phi i32 [ 0, %.lr.ph ], [ %.195, %103 ]
   %.096137 = phi i32 [ %13, %.lr.ph ], [ %.197, %103 ]
-  %.098136 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %103 ]
-  %.0100135 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.2102, %103 ]
-  %.0103134 = phi i32 [ 0, %.lr.ph ], [ %.2105, %103 ]
+  %.098136 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %103 ]
+  %.0100135 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.1101, %103 ]
+  %.0103134 = phi i32 [ 0, %.lr.ph ], [ %.1104, %103 ]
   %.sroa.0.0132 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %103 ]
   %.sroa.4.0131 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %103 ]
   %.sroa.0124.0130 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0124.1, %103 ]
@@ -96945,9 +96945,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.sroa.0124.1 = phi double [ %.sroa.0124.0130, %31 ], [ %.sroa.0124.0130, %38 ], [ %.sroa.0124.0130, %59 ], [ %92, %87 ], [ %92, %102 ], [ %.sroa.0124.0130, %85 ], [ %.sroa.0124.0130, %71 ], [ %.sroa.0124.0130, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0131, %31 ], [ %.sroa.4.0131, %38 ], [ %.sroa.4.0131, %59 ], [ %99, %87 ], [ %99, %102 ], [ %.sroa.4.0131, %85 ], [ %.sroa.4.0131, %71 ], [ %.sroa.4.0131, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0132, %31 ], [ %.sroa.0.0132, %38 ], [ %.sroa.0.0132, %59 ], [ %98, %87 ], [ %98, %102 ], [ %.sroa.0.0132, %85 ], [ %.sroa.0.0132, %71 ], [ %.sroa.0.0132, %69 ]
-  %.2105 = phi i32 [ %.0103134, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %87 ], [ %53, %102 ], [ %53, %85 ], [ %53, %71 ], [ %53, %69 ]
-  %.2102 = phi double [ %.0100135, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %87 ], [ %49, %102 ], [ %49, %85 ], [ %49, %71 ], [ %49, %69 ]
-  %.2 = phi double [ %.098136, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %87 ], [ %43, %102 ], [ %43, %85 ], [ %43, %71 ], [ %43, %69 ]
+  %.1104 = phi i32 [ %.0103134, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %87 ], [ %53, %102 ], [ %53, %85 ], [ %53, %71 ], [ %53, %69 ]
+  %.1101 = phi double [ %.0100135, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %87 ], [ %49, %102 ], [ %49, %85 ], [ %49, %71 ], [ %49, %69 ]
+  %.199 = phi double [ %.098136, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %87 ], [ %43, %102 ], [ %43, %85 ], [ %43, %71 ], [ %43, %69 ]
   %.197 = phi i32 [ %.096137, %31 ], [ %.096137, %38 ], [ %.096137, %59 ], [ %.096137, %87 ], [ %7, %102 ], [ %.096137, %85 ], [ %.096137, %71 ], [ %.096137, %69 ]
   %.195 = phi i32 [ %.094138, %31 ], [ %.094138, %38 ], [ %.094138, %59 ], [ %.094138, %87 ], [ %53, %102 ], [ %.094138, %85 ], [ %.094138, %71 ], [ %.094138, %69 ]
   %.193 = phi double [ %.092139, %31 ], [ %.092139, %38 ], [ %.092139, %59 ], [ %.092139, %87 ], [ %83, %102 ], [ %.092139, %85 ], [ %.092139, %71 ], [ %.092139, %69 ]
@@ -97606,9 +97606,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0113151 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0115150 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0119149 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1114151 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1116150 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1120149 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -97622,18 +97622,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0113151, %36
-  %46 = fsub double %.0115150, %41
-  %47 = sub nsw i32 %.0119149, %44
+  %45 = fsub double %.1114151, %36
+  %46 = fsub double %.1116150, %41
+  %47 = sub nsw i32 %.1120149, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !367
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0123 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1120 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1116 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1114 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0119 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0115 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0113 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not154 = icmp sgt i32 %.0123, %25
   br i1 %.not154, label %._crit_edge, label %.lr.ph168
 
@@ -97651,9 +97651,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0107165 = phi double [ 0xFFF0000000000000, %.lr.ph168 ], [ %.1108, %123 ]
   %.0109164 = phi i32 [ 0, %.lr.ph168 ], [ %.1110, %123 ]
   %.0111163 = phi i32 [ %13, %.lr.ph168 ], [ %.1112, %123 ]
-  %.2162 = phi double [ %.1114, %.lr.ph168 ], [ %.3, %123 ]
-  %.2117161 = phi double [ %.1116, %.lr.ph168 ], [ %.3118, %123 ]
-  %.2121160 = phi i32 [ %.1120, %.lr.ph168 ], [ %.3122, %123 ]
+  %.2162 = phi double [ %.0113, %.lr.ph168 ], [ %.3, %123 ]
+  %.2117161 = phi double [ %.0115, %.lr.ph168 ], [ %.3118, %123 ]
+  %.2121160 = phi i32 [ %.0119, %.lr.ph168 ], [ %.3122, %123 ]
   %.sroa.0.0158 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0.1, %123 ]
   %.sroa.4.0157 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.4.1, %123 ]
   %.sroa.0144.0156 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0144.1, %123 ]
@@ -99812,7 +99812,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i32 [ 0, %.lr.ph ], [ %.1, %116 ]
   %.0115149 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %116 ]
   %.0117148 = phi i32 [ %18, %.lr.ph ], [ %.1118, %116 ]
-  %.0119147 = phi i32 [ 0, %.lr.ph ], [ %.2, %116 ]
+  %.0119147 = phi i32 [ 0, %.lr.ph ], [ %.1120, %116 ]
   %.sroa.0.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0144 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %116 ]
   %.sroa.0137.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0137.1, %116 ]
@@ -99921,7 +99921,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0137.1 = phi double [ %.sroa.0137.0143, %38 ], [ %.sroa.0137.0143, %45 ], [ %.sroa.0137.0143, %60 ], [ %105, %100 ], [ %105, %115 ], [ %.sroa.0137.0143, %98 ], [ %.sroa.0137.0143, %75 ], [ %.sroa.0137.0143, %73 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0144, %38 ], [ %.sroa.4.0144, %45 ], [ %.sroa.4.0144, %60 ], [ %112, %100 ], [ %112, %115 ], [ %.sroa.4.0144, %98 ], [ %.sroa.4.0144, %75 ], [ %.sroa.4.0144, %73 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0145, %38 ], [ %.sroa.0.0145, %45 ], [ %.sroa.0.0145, %60 ], [ %111, %100 ], [ %111, %115 ], [ %.sroa.0.0145, %98 ], [ %.sroa.0.0145, %75 ], [ %.sroa.0.0145, %73 ]
-  %.2 = phi i32 [ %.0119147, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %100 ], [ %48, %115 ], [ %48, %98 ], [ %48, %75 ], [ %48, %73 ]
+  %.1120 = phi i32 [ %.0119147, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %100 ], [ %48, %115 ], [ %48, %98 ], [ %48, %75 ], [ %48, %73 ]
   %.1118 = phi i32 [ %.0117148, %38 ], [ %.0117148, %45 ], [ %.0117148, %60 ], [ %.0117148, %100 ], [ %8, %115 ], [ %.0117148, %98 ], [ %.0117148, %75 ], [ %.0117148, %73 ]
   %.1116 = phi double [ %.0115149, %38 ], [ %.0115149, %45 ], [ %.0115149, %60 ], [ %.0115149, %100 ], [ %96, %115 ], [ %.0115149, %98 ], [ %.0115149, %75 ], [ %.0115149, %73 ]
   %.1 = phi i32 [ %.0150, %38 ], [ %.0150, %45 ], [ %.0150, %60 ], [ %.0150, %100 ], [ %48, %115 ], [ %.0150, %98 ], [ %.0150, %75 ], [ %.0150, %73 ]
@@ -100483,7 +100483,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0148 = phi i64 [ 0, %.lr.ph ], [ %.1, %113 ]
   %.0113147 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1114, %113 ]
   %.0115146 = phi i32 [ %14, %.lr.ph ], [ %.1116, %113 ]
-  %.0117145 = phi i64 [ 0, %.lr.ph ], [ %.2, %113 ]
+  %.0117145 = phi i64 [ 0, %.lr.ph ], [ %.1118, %113 ]
   %.sroa.0.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0142 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %113 ]
   %.sroa.0135.0141 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0135.1, %113 ]
@@ -100592,7 +100592,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0135.1 = phi double [ %.sroa.0135.0141, %35 ], [ %.sroa.0135.0141, %42 ], [ %.sroa.0135.0141, %57 ], [ %102, %97 ], [ %102, %112 ], [ %.sroa.0135.0141, %95 ], [ %.sroa.0135.0141, %72 ], [ %.sroa.0135.0141, %70 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0142, %35 ], [ %.sroa.4.0142, %42 ], [ %.sroa.4.0142, %57 ], [ %109, %97 ], [ %109, %112 ], [ %.sroa.4.0142, %95 ], [ %.sroa.4.0142, %72 ], [ %.sroa.4.0142, %70 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0143, %35 ], [ %.sroa.0.0143, %42 ], [ %.sroa.0.0143, %57 ], [ %108, %97 ], [ %108, %112 ], [ %.sroa.0.0143, %95 ], [ %.sroa.0.0143, %72 ], [ %.sroa.0.0143, %70 ]
-  %.2 = phi i64 [ %.0117145, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %97 ], [ %45, %112 ], [ %45, %95 ], [ %45, %72 ], [ %45, %70 ]
+  %.1118 = phi i64 [ %.0117145, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %97 ], [ %45, %112 ], [ %45, %95 ], [ %45, %72 ], [ %45, %70 ]
   %.1116 = phi i32 [ %.0115146, %35 ], [ %.0115146, %42 ], [ %.0115146, %57 ], [ %.0115146, %97 ], [ %8, %112 ], [ %.0115146, %95 ], [ %.0115146, %72 ], [ %.0115146, %70 ]
   %.1114 = phi double [ %.0113147, %35 ], [ %.0113147, %42 ], [ %.0113147, %57 ], [ %.0113147, %97 ], [ %93, %112 ], [ %.0113147, %95 ], [ %.0113147, %72 ], [ %.0113147, %70 ]
   %.1 = phi i64 [ %.0148, %35 ], [ %.0148, %42 ], [ %.0148, %57 ], [ %.0148, %97 ], [ %45, %112 ], [ %.0148, %95 ], [ %.0148, %72 ], [ %.0148, %70 ]
@@ -101156,7 +101156,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i64 [ 0, %.lr.ph ], [ %.1, %119 ]
   %.0115149 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %119 ]
   %.0117148 = phi i32 [ %14, %.lr.ph ], [ %.1118, %119 ]
-  %.0119147 = phi i64 [ 0, %.lr.ph ], [ %.2, %119 ]
+  %.0119147 = phi i64 [ 0, %.lr.ph ], [ %.1120, %119 ]
   %.sroa.0.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %119 ]
   %.sroa.4.0144 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %119 ]
   %.sroa.0137.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0137.1, %119 ]
@@ -101272,7 +101272,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0137.1 = phi double [ %.sroa.0137.0143, %35 ], [ %.sroa.0137.0143, %42 ], [ %.sroa.0137.0143, %63 ], [ %108, %103 ], [ %108, %118 ], [ %.sroa.0137.0143, %101 ], [ %.sroa.0137.0143, %78 ], [ %.sroa.0137.0143, %76 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0144, %35 ], [ %.sroa.4.0144, %42 ], [ %.sroa.4.0144, %63 ], [ %115, %103 ], [ %115, %118 ], [ %.sroa.4.0144, %101 ], [ %.sroa.4.0144, %78 ], [ %.sroa.4.0144, %76 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0145, %35 ], [ %.sroa.0.0145, %42 ], [ %.sroa.0.0145, %63 ], [ %114, %103 ], [ %114, %118 ], [ %.sroa.0.0145, %101 ], [ %.sroa.0.0145, %78 ], [ %.sroa.0.0145, %76 ]
-  %.2 = phi i64 [ %.0119147, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %103 ], [ %51, %118 ], [ %51, %101 ], [ %51, %78 ], [ %51, %76 ]
+  %.1120 = phi i64 [ %.0119147, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %103 ], [ %51, %118 ], [ %51, %101 ], [ %51, %78 ], [ %51, %76 ]
   %.1118 = phi i32 [ %.0117148, %35 ], [ %.0117148, %42 ], [ %.0117148, %63 ], [ %.0117148, %103 ], [ %8, %118 ], [ %.0117148, %101 ], [ %.0117148, %78 ], [ %.0117148, %76 ]
   %.1116 = phi double [ %.0115149, %35 ], [ %.0115149, %42 ], [ %.0115149, %63 ], [ %.0115149, %103 ], [ %99, %118 ], [ %.0115149, %101 ], [ %.0115149, %78 ], [ %.0115149, %76 ]
   %.1 = phi i64 [ %.0150, %35 ], [ %.0150, %42 ], [ %.0150, %63 ], [ %.0150, %103 ], [ %51, %118 ], [ %.0150, %101 ], [ %.0150, %78 ], [ %.0150, %76 ]
@@ -102116,17 +102116,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0126152 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1127152 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0126152, %38
+  %39 = sub nsw i32 %.1127152, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !377
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0128 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1127 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0126 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not153 = icmp sgt i32 %.0128, %33
   br i1 %.not153, label %._crit_edge, label %.lr.ph163
 
@@ -102138,7 +102138,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0162 = phi i32 [ 0, %.lr.ph163 ], [ %.1, %117 ]
   %.0122161 = phi double [ 0xFFF0000000000000, %.lr.ph163 ], [ %.1123, %117 ]
   %.0124160 = phi i32 [ %18, %.lr.ph163 ], [ %.1125, %117 ]
-  %.2159 = phi i32 [ %.1127, %.lr.ph163 ], [ %.3, %117 ]
+  %.2159 = phi i32 [ %.0126, %.lr.ph163 ], [ %.3, %117 ]
   %.1129158 = phi i32 [ %.0128, %.lr.ph163 ], [ %118, %117 ]
   %.sroa.0.0157 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0.1, %117 ]
   %.sroa.4.0156 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.4.1, %117 ]
@@ -102801,17 +102801,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0124150 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1125150 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0124150, %35
+  %36 = sub nsw i64 %.1125150, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !380
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0126 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0124 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not151 = icmp sgt i32 %.0126, %30
   br i1 %.not151, label %._crit_edge, label %.lr.ph161
 
@@ -102823,7 +102823,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0160 = phi i64 [ 0, %.lr.ph161 ], [ %.1, %114 ]
   %.0120159 = phi double [ 0xFFF0000000000000, %.lr.ph161 ], [ %.1121, %114 ]
   %.0122158 = phi i32 [ %14, %.lr.ph161 ], [ %.1123, %114 ]
-  %.2157 = phi i64 [ %.1125, %.lr.ph161 ], [ %.3, %114 ]
+  %.2157 = phi i64 [ %.0124, %.lr.ph161 ], [ %.3, %114 ]
   %.1127156 = phi i32 [ %.0126, %.lr.ph161 ], [ %115, %114 ]
   %.sroa.0.0155 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph161 ], [ %.sroa.0.1, %114 ]
   %.sroa.4.0154 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph161 ], [ %.sroa.4.1, %114 ]
@@ -103488,7 +103488,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0128158 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1129158 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -103498,14 +103498,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0128158, %41
+  %42 = sub i64 %.1129158, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !383
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0130 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1129 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0128 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not159 = icmp sgt i32 %.0130, %30
   br i1 %.not159, label %._crit_edge, label %.lr.ph169
 
@@ -103517,7 +103517,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0168 = phi i64 [ 0, %.lr.ph169 ], [ %.1, %126 ]
   %.0124167 = phi double [ 0xFFF0000000000000, %.lr.ph169 ], [ %.1125, %126 ]
   %.0126166 = phi i32 [ %14, %.lr.ph169 ], [ %.1127, %126 ]
-  %.2165 = phi i64 [ %.1129, %.lr.ph169 ], [ %.3, %126 ]
+  %.2165 = phi i64 [ %.0128, %.lr.ph169 ], [ %.3, %126 ]
   %.1131164 = phi i32 [ %.0130, %.lr.ph169 ], [ %127, %126 ]
   %.sroa.0.0163 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph169 ], [ %.sroa.0.1, %126 ]
   %.sroa.4.0162 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph169 ], [ %.sroa.4.1, %126 ]
@@ -105606,9 +105606,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.092135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.193, %103 ]
   %.094134 = phi i32 [ 0, %.lr.ph ], [ %.195, %103 ]
   %.096133 = phi i32 [ %13, %.lr.ph ], [ %.197, %103 ]
-  %.098132 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %103 ]
-  %.0100131 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.2102, %103 ]
-  %.0103130 = phi i32 [ 0, %.lr.ph ], [ %.2105, %103 ]
+  %.098132 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %103 ]
+  %.0100131 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.1101, %103 ]
+  %.0103130 = phi i32 [ 0, %.lr.ph ], [ %.1104, %103 ]
   %.sroa.0.0128 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %103 ]
   %.sroa.4.0127 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %103 ]
   %.sroa.0120.0126 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0120.1, %103 ]
@@ -105713,9 +105713,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.sroa.0120.1 = phi double [ %.sroa.0120.0126, %31 ], [ %.sroa.0120.0126, %38 ], [ %.sroa.0120.0126, %59 ], [ %92, %87 ], [ %92, %102 ], [ %.sroa.0120.0126, %85 ], [ %.sroa.0120.0126, %71 ], [ %.sroa.0120.0126, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0127, %31 ], [ %.sroa.4.0127, %38 ], [ %.sroa.4.0127, %59 ], [ %99, %87 ], [ %99, %102 ], [ %.sroa.4.0127, %85 ], [ %.sroa.4.0127, %71 ], [ %.sroa.4.0127, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0128, %31 ], [ %.sroa.0.0128, %38 ], [ %.sroa.0.0128, %59 ], [ %98, %87 ], [ %98, %102 ], [ %.sroa.0.0128, %85 ], [ %.sroa.0.0128, %71 ], [ %.sroa.0.0128, %69 ]
-  %.2105 = phi i32 [ %.0103130, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %87 ], [ %53, %102 ], [ %53, %85 ], [ %53, %71 ], [ %53, %69 ]
-  %.2102 = phi double [ %.0100131, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %87 ], [ %49, %102 ], [ %49, %85 ], [ %49, %71 ], [ %49, %69 ]
-  %.2 = phi double [ %.098132, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %87 ], [ %43, %102 ], [ %43, %85 ], [ %43, %71 ], [ %43, %69 ]
+  %.1104 = phi i32 [ %.0103130, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %87 ], [ %53, %102 ], [ %53, %85 ], [ %53, %71 ], [ %53, %69 ]
+  %.1101 = phi double [ %.0100131, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %87 ], [ %49, %102 ], [ %49, %85 ], [ %49, %71 ], [ %49, %69 ]
+  %.199 = phi double [ %.098132, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %87 ], [ %43, %102 ], [ %43, %85 ], [ %43, %71 ], [ %43, %69 ]
   %.197 = phi i32 [ %.096133, %31 ], [ %.096133, %38 ], [ %.096133, %59 ], [ %.096133, %87 ], [ %7, %102 ], [ %.096133, %85 ], [ %.096133, %71 ], [ %.096133, %69 ]
   %.195 = phi i32 [ %.094134, %31 ], [ %.094134, %38 ], [ %.094134, %59 ], [ %.094134, %87 ], [ %53, %102 ], [ %.094134, %85 ], [ %.094134, %71 ], [ %.094134, %69 ]
   %.193 = phi double [ %.092135, %31 ], [ %.092135, %38 ], [ %.092135, %59 ], [ %.092135, %87 ], [ %83, %102 ], [ %.092135, %85 ], [ %.092135, %71 ], [ %.092135, %69 ]
@@ -106342,9 +106342,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0113147 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0115146 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0119145 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1114147 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1116146 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1120145 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -106358,18 +106358,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0113147, %36
-  %46 = fsub double %.0115146, %41
-  %47 = sub nsw i32 %.0119145, %44
+  %45 = fsub double %.1114147, %36
+  %46 = fsub double %.1116146, %41
+  %47 = sub nsw i32 %.1120145, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !391
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0123 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1120 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1116 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1114 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0119 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0115 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0113 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not150 = icmp sgt i32 %.0123, %25
   br i1 %.not150, label %._crit_edge, label %.lr.ph164
 
@@ -106387,9 +106387,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0107161 = phi double [ 0xFFF0000000000000, %.lr.ph164 ], [ %.1108, %123 ]
   %.0109160 = phi i32 [ 0, %.lr.ph164 ], [ %.1110, %123 ]
   %.0111159 = phi i32 [ %13, %.lr.ph164 ], [ %.1112, %123 ]
-  %.2158 = phi double [ %.1114, %.lr.ph164 ], [ %.3, %123 ]
-  %.2117157 = phi double [ %.1116, %.lr.ph164 ], [ %.3118, %123 ]
-  %.2121156 = phi i32 [ %.1120, %.lr.ph164 ], [ %.3122, %123 ]
+  %.2158 = phi double [ %.0113, %.lr.ph164 ], [ %.3, %123 ]
+  %.2117157 = phi double [ %.0115, %.lr.ph164 ], [ %.3118, %123 ]
+  %.2121156 = phi i32 [ %.0119, %.lr.ph164 ], [ %.3122, %123 ]
   %.sroa.0.0154 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph164 ], [ %.sroa.0.1, %123 ]
   %.sroa.4.0153 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph164 ], [ %.sroa.4.1, %123 ]
   %.sroa.0140.0152 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph164 ], [ %.sroa.0140.1, %123 ]
@@ -107797,7 +107797,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0151 = phi i32 [ 0, %.lr.ph ], [ %.1, %173 ]
   %.0115150 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %173 ]
   %.0117149 = phi i32 [ %18, %.lr.ph ], [ %.1118, %173 ]
-  %.0119148 = phi i32 [ 0, %.lr.ph ], [ %.2, %173 ]
+  %.0119148 = phi i32 [ 0, %.lr.ph ], [ %.1120, %173 ]
   %.sroa.0.0146 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %173 ]
   %.sroa.4.0145 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %173 ]
   %.sroa.0138.0144 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0138.1, %173 ]
@@ -107995,7 +107995,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0138.1 = phi double [ %.sroa.0138.0144, %38 ], [ %.sroa.0138.0144, %45 ], [ %.sroa.0138.0144, %60 ], [ %162, %157 ], [ %162, %172 ], [ %.sroa.0138.0144, %155 ], [ %.sroa.0138.0144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0138.0144, %73 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0145, %38 ], [ %.sroa.4.0145, %45 ], [ %.sroa.4.0145, %60 ], [ %169, %157 ], [ %169, %172 ], [ %.sroa.4.0145, %155 ], [ %.sroa.4.0145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0145, %73 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0146, %38 ], [ %.sroa.0.0146, %45 ], [ %.sroa.0.0146, %60 ], [ %168, %157 ], [ %168, %172 ], [ %.sroa.0.0146, %155 ], [ %.sroa.0.0146, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0146, %73 ]
-  %.2 = phi i32 [ %.0119148, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %157 ], [ %48, %172 ], [ %48, %155 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %48, %73 ]
+  %.1120 = phi i32 [ %.0119148, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %157 ], [ %48, %172 ], [ %48, %155 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %48, %73 ]
   %.1118 = phi i32 [ %.0117149, %38 ], [ %.0117149, %45 ], [ %.0117149, %60 ], [ %.0117149, %157 ], [ %8, %172 ], [ %.0117149, %155 ], [ %.0117149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0117149, %73 ]
   %.1116 = phi double [ %.0115150, %38 ], [ %.0115150, %45 ], [ %.0115150, %60 ], [ %.0115150, %157 ], [ %.0.i, %172 ], [ %.0115150, %155 ], [ %.0115150, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115150, %73 ]
   %.1 = phi i32 [ %.0151, %38 ], [ %.0151, %45 ], [ %.0151, %60 ], [ %.0151, %157 ], [ %48, %172 ], [ %.0151, %155 ], [ %.0151, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0151, %73 ]
@@ -108592,7 +108592,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0149 = phi i64 [ 0, %.lr.ph ], [ %.1, %170 ]
   %.0113148 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1114, %170 ]
   %.0115147 = phi i32 [ %14, %.lr.ph ], [ %.1116, %170 ]
-  %.0117146 = phi i64 [ 0, %.lr.ph ], [ %.2, %170 ]
+  %.0117146 = phi i64 [ 0, %.lr.ph ], [ %.1118, %170 ]
   %.sroa.0.0144 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %170 ]
   %.sroa.4.0143 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %170 ]
   %.sroa.0136.0142 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0136.1, %170 ]
@@ -108790,7 +108790,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0136.1 = phi double [ %.sroa.0136.0142, %35 ], [ %.sroa.0136.0142, %42 ], [ %.sroa.0136.0142, %57 ], [ %159, %154 ], [ %159, %169 ], [ %.sroa.0136.0142, %152 ], [ %.sroa.0136.0142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0136.0142, %70 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0143, %35 ], [ %.sroa.4.0143, %42 ], [ %.sroa.4.0143, %57 ], [ %166, %154 ], [ %166, %169 ], [ %.sroa.4.0143, %152 ], [ %.sroa.4.0143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0143, %70 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0144, %35 ], [ %.sroa.0.0144, %42 ], [ %.sroa.0.0144, %57 ], [ %165, %154 ], [ %165, %169 ], [ %.sroa.0.0144, %152 ], [ %.sroa.0.0144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0144, %70 ]
-  %.2 = phi i64 [ %.0117146, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %154 ], [ %45, %169 ], [ %45, %152 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %70 ]
+  %.1118 = phi i64 [ %.0117146, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %154 ], [ %45, %169 ], [ %45, %152 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %70 ]
   %.1116 = phi i32 [ %.0115147, %35 ], [ %.0115147, %42 ], [ %.0115147, %57 ], [ %.0115147, %154 ], [ %8, %169 ], [ %.0115147, %152 ], [ %.0115147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115147, %70 ]
   %.1114 = phi double [ %.0113148, %35 ], [ %.0113148, %42 ], [ %.0113148, %57 ], [ %.0113148, %154 ], [ %.0.i, %169 ], [ %.0113148, %152 ], [ %.0113148, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0113148, %70 ]
   %.1 = phi i64 [ %.0149, %35 ], [ %.0149, %42 ], [ %.0149, %57 ], [ %.0149, %154 ], [ %45, %169 ], [ %.0149, %152 ], [ %.0149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0149, %70 ]
@@ -109389,7 +109389,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0151 = phi i64 [ 0, %.lr.ph ], [ %.1, %176 ]
   %.0115150 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %176 ]
   %.0117149 = phi i32 [ %14, %.lr.ph ], [ %.1118, %176 ]
-  %.0119148 = phi i64 [ 0, %.lr.ph ], [ %.2, %176 ]
+  %.0119148 = phi i64 [ 0, %.lr.ph ], [ %.1120, %176 ]
   %.sroa.0.0146 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %176 ]
   %.sroa.4.0145 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %176 ]
   %.sroa.0138.0144 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0138.1, %176 ]
@@ -109594,7 +109594,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0138.1 = phi double [ %.sroa.0138.0144, %35 ], [ %.sroa.0138.0144, %42 ], [ %.sroa.0138.0144, %63 ], [ %165, %160 ], [ %165, %175 ], [ %.sroa.0138.0144, %158 ], [ %.sroa.0138.0144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0138.0144, %76 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0145, %35 ], [ %.sroa.4.0145, %42 ], [ %.sroa.4.0145, %63 ], [ %172, %160 ], [ %172, %175 ], [ %.sroa.4.0145, %158 ], [ %.sroa.4.0145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0145, %76 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0146, %35 ], [ %.sroa.0.0146, %42 ], [ %.sroa.0.0146, %63 ], [ %171, %160 ], [ %171, %175 ], [ %.sroa.0.0146, %158 ], [ %.sroa.0.0146, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0146, %76 ]
-  %.2 = phi i64 [ %.0119148, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %160 ], [ %51, %175 ], [ %51, %158 ], [ %51, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %51, %76 ]
+  %.1120 = phi i64 [ %.0119148, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %160 ], [ %51, %175 ], [ %51, %158 ], [ %51, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %51, %76 ]
   %.1118 = phi i32 [ %.0117149, %35 ], [ %.0117149, %42 ], [ %.0117149, %63 ], [ %.0117149, %160 ], [ %8, %175 ], [ %.0117149, %158 ], [ %.0117149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0117149, %76 ]
   %.1116 = phi double [ %.0115150, %35 ], [ %.0115150, %42 ], [ %.0115150, %63 ], [ %.0115150, %160 ], [ %.0.i, %175 ], [ %.0115150, %158 ], [ %.0115150, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115150, %76 ]
   %.1 = phi i64 [ %.0151, %35 ], [ %.0151, %42 ], [ %.0151, %63 ], [ %.0151, %160 ], [ %51, %175 ], [ %.0151, %158 ], [ %.0151, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0151, %76 ]
@@ -110327,17 +110327,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0126153 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1127153 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0126153, %38
+  %39 = sub nsw i32 %.1127153, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !401
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0128 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1127 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0126 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not154 = icmp sgt i32 %.0128, %33
   br i1 %.not154, label %._crit_edge, label %.lr.ph164
 
@@ -110349,7 +110349,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0163 = phi i32 [ 0, %.lr.ph164 ], [ %.1, %174 ]
   %.0122162 = phi double [ 0xFFF0000000000000, %.lr.ph164 ], [ %.1123, %174 ]
   %.0124161 = phi i32 [ %18, %.lr.ph164 ], [ %.1125, %174 ]
-  %.2160 = phi i32 [ %.1127, %.lr.ph164 ], [ %.3, %174 ]
+  %.2160 = phi i32 [ %.0126, %.lr.ph164 ], [ %.3, %174 ]
   %.1129159 = phi i32 [ %.0128, %.lr.ph164 ], [ %175, %174 ]
   %.sroa.0.0158 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph164 ], [ %.sroa.0.1, %174 ]
   %.sroa.4.0157 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph164 ], [ %.sroa.4.1, %174 ]
@@ -111136,17 +111136,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0124151 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1125151 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0124151, %35
+  %36 = sub nsw i64 %.1125151, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !404
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0126 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0124 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not152 = icmp sgt i32 %.0126, %30
   br i1 %.not152, label %._crit_edge, label %.lr.ph162
 
@@ -111158,7 +111158,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0161 = phi i64 [ 0, %.lr.ph162 ], [ %.1, %171 ]
   %.0120160 = phi double [ 0xFFF0000000000000, %.lr.ph162 ], [ %.1121, %171 ]
   %.0122159 = phi i32 [ %14, %.lr.ph162 ], [ %.1123, %171 ]
-  %.2158 = phi i64 [ %.1125, %.lr.ph162 ], [ %.3, %171 ]
+  %.2158 = phi i64 [ %.0124, %.lr.ph162 ], [ %.3, %171 ]
   %.1127157 = phi i32 [ %.0126, %.lr.ph162 ], [ %172, %171 ]
   %.sroa.0.0156 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.0.1, %171 ]
   %.sroa.4.0155 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.4.1, %171 ]
@@ -111947,7 +111947,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0128159 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1129159 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -111957,14 +111957,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0128159, %41
+  %42 = sub i64 %.1129159, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !407
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0130 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1129 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0128 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not160 = icmp sgt i32 %.0130, %30
   br i1 %.not160, label %._crit_edge, label %.lr.ph170
 
@@ -111976,7 +111976,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0169 = phi i64 [ 0, %.lr.ph170 ], [ %.1, %183 ]
   %.0124168 = phi double [ 0xFFF0000000000000, %.lr.ph170 ], [ %.1125, %183 ]
   %.0126167 = phi i32 [ %14, %.lr.ph170 ], [ %.1127, %183 ]
-  %.2166 = phi i64 [ %.1129, %.lr.ph170 ], [ %.3, %183 ]
+  %.2166 = phi i64 [ %.0128, %.lr.ph170 ], [ %.3, %183 ]
   %.1131165 = phi i32 [ %.0130, %.lr.ph170 ], [ %184, %183 ]
   %.sroa.0.0164 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph170 ], [ %.sroa.0.1, %183 ]
   %.sroa.4.0163 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph170 ], [ %.sroa.4.1, %183 ]
@@ -114325,9 +114325,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.092136 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.193, %160 ]
   %.094135 = phi i32 [ 0, %.lr.ph ], [ %.195, %160 ]
   %.096134 = phi i32 [ %13, %.lr.ph ], [ %.197, %160 ]
-  %.098133 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %160 ]
-  %.0100132 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.2102, %160 ]
-  %.0103131 = phi i32 [ 0, %.lr.ph ], [ %.2105, %160 ]
+  %.098133 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %160 ]
+  %.0100132 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.1101, %160 ]
+  %.0103131 = phi i32 [ 0, %.lr.ph ], [ %.1104, %160 ]
   %.sroa.0.0129 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %160 ]
   %.sroa.4.0128 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %160 ]
   %.sroa.0121.0127 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0121.1, %160 ]
@@ -114521,9 +114521,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0121.1 = phi double [ %.sroa.0121.0127, %31 ], [ %.sroa.0121.0127, %38 ], [ %.sroa.0121.0127, %59 ], [ %149, %144 ], [ %149, %159 ], [ %.sroa.0121.0127, %142 ], [ %.sroa.0121.0127, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0121.0127, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0128, %31 ], [ %.sroa.4.0128, %38 ], [ %.sroa.4.0128, %59 ], [ %156, %144 ], [ %156, %159 ], [ %.sroa.4.0128, %142 ], [ %.sroa.4.0128, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0128, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0129, %31 ], [ %.sroa.0.0129, %38 ], [ %.sroa.0.0129, %59 ], [ %155, %144 ], [ %155, %159 ], [ %.sroa.0.0129, %142 ], [ %.sroa.0.0129, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0129, %69 ]
-  %.2105 = phi i32 [ %.0103131, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %144 ], [ %53, %159 ], [ %53, %142 ], [ %53, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %53, %69 ]
-  %.2102 = phi double [ %.0100132, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %144 ], [ %49, %159 ], [ %49, %142 ], [ %49, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %49, %69 ]
-  %.2 = phi double [ %.098133, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %144 ], [ %43, %159 ], [ %43, %142 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %69 ]
+  %.1104 = phi i32 [ %.0103131, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %144 ], [ %53, %159 ], [ %53, %142 ], [ %53, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %53, %69 ]
+  %.1101 = phi double [ %.0100132, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %144 ], [ %49, %159 ], [ %49, %142 ], [ %49, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %49, %69 ]
+  %.199 = phi double [ %.098133, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %144 ], [ %43, %159 ], [ %43, %142 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %69 ]
   %.197 = phi i32 [ %.096134, %31 ], [ %.096134, %38 ], [ %.096134, %59 ], [ %.096134, %144 ], [ %7, %159 ], [ %.096134, %142 ], [ %.096134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.096134, %69 ]
   %.195 = phi i32 [ %.094135, %31 ], [ %.094135, %38 ], [ %.094135, %59 ], [ %.094135, %144 ], [ %53, %159 ], [ %.094135, %142 ], [ %.094135, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.094135, %69 ]
   %.193 = phi double [ %.092136, %31 ], [ %.092136, %38 ], [ %.092136, %59 ], [ %.092136, %144 ], [ %.0.i, %159 ], [ %.092136, %142 ], [ %.092136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.092136, %69 ]
@@ -115165,9 +115165,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0113148 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0115147 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0119146 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1114148 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1116147 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1120146 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -115181,18 +115181,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0113148, %36
-  %46 = fsub double %.0115147, %41
-  %47 = sub nsw i32 %.0119146, %44
+  %45 = fsub double %.1114148, %36
+  %46 = fsub double %.1116147, %41
+  %47 = sub nsw i32 %.1120146, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !415
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0123 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1120 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1116 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1114 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0119 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0115 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0113 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not151 = icmp sgt i32 %.0123, %25
   br i1 %.not151, label %._crit_edge, label %.lr.ph165
 
@@ -115210,9 +115210,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0107162 = phi double [ 0xFFF0000000000000, %.lr.ph165 ], [ %.1108, %180 ]
   %.0109161 = phi i32 [ 0, %.lr.ph165 ], [ %.1110, %180 ]
   %.0111160 = phi i32 [ %13, %.lr.ph165 ], [ %.1112, %180 ]
-  %.2159 = phi double [ %.1114, %.lr.ph165 ], [ %.3, %180 ]
-  %.2117158 = phi double [ %.1116, %.lr.ph165 ], [ %.3118, %180 ]
-  %.2121157 = phi i32 [ %.1120, %.lr.ph165 ], [ %.3122, %180 ]
+  %.2159 = phi double [ %.0113, %.lr.ph165 ], [ %.3, %180 ]
+  %.2117158 = phi double [ %.0115, %.lr.ph165 ], [ %.3118, %180 ]
+  %.2121157 = phi i32 [ %.0119, %.lr.ph165 ], [ %.3122, %180 ]
   %.sroa.0.0155 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.0.1, %180 ]
   %.sroa.4.0154 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.4.1, %180 ]
   %.sroa.0141.0153 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.0141.1, %180 ]
@@ -117424,7 +117424,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0152 = phi i32 [ 0, %.lr.ph ], [ %.1, %116 ]
   %.0115151 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %116 ]
   %.0117150 = phi i32 [ %18, %.lr.ph ], [ %.1118, %116 ]
-  %.0119149 = phi i32 [ 0, %.lr.ph ], [ %.2, %116 ]
+  %.0119149 = phi i32 [ 0, %.lr.ph ], [ %.1120, %116 ]
   %.sroa.0.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0146 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %116 ]
   %.sroa.0139.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0139.1, %116 ]
@@ -117533,7 +117533,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0139.1 = phi double [ %.sroa.0139.0145, %38 ], [ %.sroa.0139.0145, %45 ], [ %.sroa.0139.0145, %60 ], [ %105, %100 ], [ %105, %115 ], [ %.sroa.0139.0145, %98 ], [ %.sroa.0139.0145, %75 ], [ %.sroa.0139.0145, %73 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0146, %38 ], [ %.sroa.4.0146, %45 ], [ %.sroa.4.0146, %60 ], [ %112, %100 ], [ %112, %115 ], [ %.sroa.4.0146, %98 ], [ %.sroa.4.0146, %75 ], [ %.sroa.4.0146, %73 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0147, %38 ], [ %.sroa.0.0147, %45 ], [ %.sroa.0.0147, %60 ], [ %111, %100 ], [ %111, %115 ], [ %.sroa.0.0147, %98 ], [ %.sroa.0.0147, %75 ], [ %.sroa.0.0147, %73 ]
-  %.2 = phi i32 [ %.0119149, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %100 ], [ %48, %115 ], [ %48, %98 ], [ %48, %75 ], [ %48, %73 ]
+  %.1120 = phi i32 [ %.0119149, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %100 ], [ %48, %115 ], [ %48, %98 ], [ %48, %75 ], [ %48, %73 ]
   %.1118 = phi i32 [ %.0117150, %38 ], [ %.0117150, %45 ], [ %.0117150, %60 ], [ %.0117150, %100 ], [ %8, %115 ], [ %.0117150, %98 ], [ %.0117150, %75 ], [ %.0117150, %73 ]
   %.1116 = phi double [ %.0115151, %38 ], [ %.0115151, %45 ], [ %.0115151, %60 ], [ %.0115151, %100 ], [ %96, %115 ], [ %.0115151, %98 ], [ %.0115151, %75 ], [ %.0115151, %73 ]
   %.1 = phi i32 [ %.0152, %38 ], [ %.0152, %45 ], [ %.0152, %60 ], [ %.0152, %100 ], [ %48, %115 ], [ %.0152, %98 ], [ %.0152, %75 ], [ %.0152, %73 ]
@@ -118123,7 +118123,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i64 [ 0, %.lr.ph ], [ %.1, %113 ]
   %.0113149 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1114, %113 ]
   %.0115148 = phi i32 [ %14, %.lr.ph ], [ %.1116, %113 ]
-  %.0117147 = phi i64 [ 0, %.lr.ph ], [ %.2, %113 ]
+  %.0117147 = phi i64 [ 0, %.lr.ph ], [ %.1118, %113 ]
   %.sroa.0.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0144 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %113 ]
   %.sroa.0137.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0137.1, %113 ]
@@ -118232,7 +118232,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0137.1 = phi double [ %.sroa.0137.0143, %35 ], [ %.sroa.0137.0143, %42 ], [ %.sroa.0137.0143, %57 ], [ %102, %97 ], [ %102, %112 ], [ %.sroa.0137.0143, %95 ], [ %.sroa.0137.0143, %72 ], [ %.sroa.0137.0143, %70 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0144, %35 ], [ %.sroa.4.0144, %42 ], [ %.sroa.4.0144, %57 ], [ %109, %97 ], [ %109, %112 ], [ %.sroa.4.0144, %95 ], [ %.sroa.4.0144, %72 ], [ %.sroa.4.0144, %70 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0145, %35 ], [ %.sroa.0.0145, %42 ], [ %.sroa.0.0145, %57 ], [ %108, %97 ], [ %108, %112 ], [ %.sroa.0.0145, %95 ], [ %.sroa.0.0145, %72 ], [ %.sroa.0.0145, %70 ]
-  %.2 = phi i64 [ %.0117147, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %97 ], [ %45, %112 ], [ %45, %95 ], [ %45, %72 ], [ %45, %70 ]
+  %.1118 = phi i64 [ %.0117147, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %97 ], [ %45, %112 ], [ %45, %95 ], [ %45, %72 ], [ %45, %70 ]
   %.1116 = phi i32 [ %.0115148, %35 ], [ %.0115148, %42 ], [ %.0115148, %57 ], [ %.0115148, %97 ], [ %8, %112 ], [ %.0115148, %95 ], [ %.0115148, %72 ], [ %.0115148, %70 ]
   %.1114 = phi double [ %.0113149, %35 ], [ %.0113149, %42 ], [ %.0113149, %57 ], [ %.0113149, %97 ], [ %93, %112 ], [ %.0113149, %95 ], [ %.0113149, %72 ], [ %.0113149, %70 ]
   %.1 = phi i64 [ %.0150, %35 ], [ %.0150, %42 ], [ %.0150, %57 ], [ %.0150, %97 ], [ %45, %112 ], [ %.0150, %95 ], [ %.0150, %72 ], [ %.0150, %70 ]
@@ -118824,7 +118824,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0152 = phi i64 [ 0, %.lr.ph ], [ %.1, %119 ]
   %.0115151 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %119 ]
   %.0117150 = phi i32 [ %14, %.lr.ph ], [ %.1118, %119 ]
-  %.0119149 = phi i64 [ 0, %.lr.ph ], [ %.2, %119 ]
+  %.0119149 = phi i64 [ 0, %.lr.ph ], [ %.1120, %119 ]
   %.sroa.0.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %119 ]
   %.sroa.4.0146 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %119 ]
   %.sroa.0139.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0139.1, %119 ]
@@ -118940,7 +118940,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0139.1 = phi double [ %.sroa.0139.0145, %35 ], [ %.sroa.0139.0145, %42 ], [ %.sroa.0139.0145, %63 ], [ %108, %103 ], [ %108, %118 ], [ %.sroa.0139.0145, %101 ], [ %.sroa.0139.0145, %78 ], [ %.sroa.0139.0145, %76 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0146, %35 ], [ %.sroa.4.0146, %42 ], [ %.sroa.4.0146, %63 ], [ %115, %103 ], [ %115, %118 ], [ %.sroa.4.0146, %101 ], [ %.sroa.4.0146, %78 ], [ %.sroa.4.0146, %76 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0147, %35 ], [ %.sroa.0.0147, %42 ], [ %.sroa.0.0147, %63 ], [ %114, %103 ], [ %114, %118 ], [ %.sroa.0.0147, %101 ], [ %.sroa.0.0147, %78 ], [ %.sroa.0.0147, %76 ]
-  %.2 = phi i64 [ %.0119149, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %103 ], [ %51, %118 ], [ %51, %101 ], [ %51, %78 ], [ %51, %76 ]
+  %.1120 = phi i64 [ %.0119149, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %103 ], [ %51, %118 ], [ %51, %101 ], [ %51, %78 ], [ %51, %76 ]
   %.1118 = phi i32 [ %.0117150, %35 ], [ %.0117150, %42 ], [ %.0117150, %63 ], [ %.0117150, %103 ], [ %8, %118 ], [ %.0117150, %101 ], [ %.0117150, %78 ], [ %.0117150, %76 ]
   %.1116 = phi double [ %.0115151, %35 ], [ %.0115151, %42 ], [ %.0115151, %63 ], [ %.0115151, %103 ], [ %99, %118 ], [ %.0115151, %101 ], [ %.0115151, %78 ], [ %.0115151, %76 ]
   %.1 = phi i64 [ %.0152, %35 ], [ %.0152, %42 ], [ %.0152, %63 ], [ %.0152, %103 ], [ %51, %118 ], [ %.0152, %101 ], [ %.0152, %78 ], [ %.0152, %76 ]
@@ -119817,17 +119817,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0126154 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1127154 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0126154, %38
+  %39 = sub nsw i32 %.1127154, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !425
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0128 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1127 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0126 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not155 = icmp sgt i32 %.0128, %33
   br i1 %.not155, label %._crit_edge, label %.lr.ph165
 
@@ -119839,7 +119839,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0164 = phi i32 [ 0, %.lr.ph165 ], [ %.1, %117 ]
   %.0122163 = phi double [ 0xFFF0000000000000, %.lr.ph165 ], [ %.1123, %117 ]
   %.0124162 = phi i32 [ %18, %.lr.ph165 ], [ %.1125, %117 ]
-  %.2161 = phi i32 [ %.1127, %.lr.ph165 ], [ %.3, %117 ]
+  %.2161 = phi i32 [ %.0126, %.lr.ph165 ], [ %.3, %117 ]
   %.1129160 = phi i32 [ %.0128, %.lr.ph165 ], [ %118, %117 ]
   %.sroa.0.0159 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.0.1, %117 ]
   %.sroa.4.0158 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.4.1, %117 ]
@@ -120530,17 +120530,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0124152 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1125152 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0124152, %35
+  %36 = sub nsw i64 %.1125152, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !428
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0126 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0124 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not153 = icmp sgt i32 %.0126, %30
   br i1 %.not153, label %._crit_edge, label %.lr.ph163
 
@@ -120552,7 +120552,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0162 = phi i64 [ 0, %.lr.ph163 ], [ %.1, %114 ]
   %.0120161 = phi double [ 0xFFF0000000000000, %.lr.ph163 ], [ %.1121, %114 ]
   %.0122160 = phi i32 [ %14, %.lr.ph163 ], [ %.1123, %114 ]
-  %.2159 = phi i64 [ %.1125, %.lr.ph163 ], [ %.3, %114 ]
+  %.2159 = phi i64 [ %.0124, %.lr.ph163 ], [ %.3, %114 ]
   %.1127158 = phi i32 [ %.0126, %.lr.ph163 ], [ %115, %114 ]
   %.sroa.0.0157 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0.1, %114 ]
   %.sroa.4.0156 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.4.1, %114 ]
@@ -121245,7 +121245,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0128160 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1129160 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -121255,14 +121255,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0128160, %41
+  %42 = sub i64 %.1129160, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !431
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0130 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1129 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0128 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not161 = icmp sgt i32 %.0130, %30
   br i1 %.not161, label %._crit_edge, label %.lr.ph171
 
@@ -121274,7 +121274,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0170 = phi i64 [ 0, %.lr.ph171 ], [ %.1, %126 ]
   %.0124169 = phi double [ 0xFFF0000000000000, %.lr.ph171 ], [ %.1125, %126 ]
   %.0126168 = phi i32 [ %14, %.lr.ph171 ], [ %.1127, %126 ]
-  %.2167 = phi i64 [ %.1129, %.lr.ph171 ], [ %.3, %126 ]
+  %.2167 = phi i64 [ %.0128, %.lr.ph171 ], [ %.3, %126 ]
   %.1131166 = phi i32 [ %.0130, %.lr.ph171 ], [ %127, %126 ]
   %.sroa.0.0165 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph171 ], [ %.sroa.0.1, %126 ]
   %.sroa.4.0164 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph171 ], [ %.sroa.4.1, %126 ]
@@ -123448,9 +123448,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.092137 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.193, %103 ]
   %.094136 = phi i32 [ 0, %.lr.ph ], [ %.195, %103 ]
   %.096135 = phi i32 [ %13, %.lr.ph ], [ %.197, %103 ]
-  %.098134 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %103 ]
-  %.0100133 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.2102, %103 ]
-  %.0103132 = phi i32 [ 0, %.lr.ph ], [ %.2105, %103 ]
+  %.098134 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %103 ]
+  %.0100133 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.1101, %103 ]
+  %.0103132 = phi i32 [ 0, %.lr.ph ], [ %.1104, %103 ]
   %.sroa.0.0130 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %103 ]
   %.sroa.4.0129 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %103 ]
   %.sroa.0122.0128 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0122.1, %103 ]
@@ -123555,9 +123555,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.sroa.0122.1 = phi double [ %.sroa.0122.0128, %31 ], [ %.sroa.0122.0128, %38 ], [ %.sroa.0122.0128, %59 ], [ %92, %87 ], [ %92, %102 ], [ %.sroa.0122.0128, %85 ], [ %.sroa.0122.0128, %71 ], [ %.sroa.0122.0128, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0129, %31 ], [ %.sroa.4.0129, %38 ], [ %.sroa.4.0129, %59 ], [ %99, %87 ], [ %99, %102 ], [ %.sroa.4.0129, %85 ], [ %.sroa.4.0129, %71 ], [ %.sroa.4.0129, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0130, %31 ], [ %.sroa.0.0130, %38 ], [ %.sroa.0.0130, %59 ], [ %98, %87 ], [ %98, %102 ], [ %.sroa.0.0130, %85 ], [ %.sroa.0.0130, %71 ], [ %.sroa.0.0130, %69 ]
-  %.2105 = phi i32 [ %.0103132, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %87 ], [ %53, %102 ], [ %53, %85 ], [ %53, %71 ], [ %53, %69 ]
-  %.2102 = phi double [ %.0100133, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %87 ], [ %49, %102 ], [ %49, %85 ], [ %49, %71 ], [ %49, %69 ]
-  %.2 = phi double [ %.098134, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %87 ], [ %43, %102 ], [ %43, %85 ], [ %43, %71 ], [ %43, %69 ]
+  %.1104 = phi i32 [ %.0103132, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %87 ], [ %53, %102 ], [ %53, %85 ], [ %53, %71 ], [ %53, %69 ]
+  %.1101 = phi double [ %.0100133, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %87 ], [ %49, %102 ], [ %49, %85 ], [ %49, %71 ], [ %49, %69 ]
+  %.199 = phi double [ %.098134, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %87 ], [ %43, %102 ], [ %43, %85 ], [ %43, %71 ], [ %43, %69 ]
   %.197 = phi i32 [ %.096135, %31 ], [ %.096135, %38 ], [ %.096135, %59 ], [ %.096135, %87 ], [ %7, %102 ], [ %.096135, %85 ], [ %.096135, %71 ], [ %.096135, %69 ]
   %.195 = phi i32 [ %.094136, %31 ], [ %.094136, %38 ], [ %.094136, %59 ], [ %.094136, %87 ], [ %53, %102 ], [ %.094136, %85 ], [ %.094136, %71 ], [ %.094136, %69 ]
   %.193 = phi double [ %.092137, %31 ], [ %.092137, %38 ], [ %.092137, %59 ], [ %.092137, %87 ], [ %83, %102 ], [ %.092137, %85 ], [ %.092137, %71 ], [ %.092137, %69 ]
@@ -124217,9 +124217,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0113149 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0115148 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0119147 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1114149 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1116148 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1120147 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -124233,18 +124233,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0113149, %36
-  %46 = fsub double %.0115148, %41
-  %47 = sub nsw i32 %.0119147, %44
+  %45 = fsub double %.1114149, %36
+  %46 = fsub double %.1116148, %41
+  %47 = sub nsw i32 %.1120147, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !439
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0123 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1120 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1116 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1114 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0119 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0115 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0113 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not152 = icmp sgt i32 %.0123, %25
   br i1 %.not152, label %._crit_edge, label %.lr.ph166
 
@@ -124262,9 +124262,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0107163 = phi double [ 0xFFF0000000000000, %.lr.ph166 ], [ %.1108, %123 ]
   %.0109162 = phi i32 [ 0, %.lr.ph166 ], [ %.1110, %123 ]
   %.0111161 = phi i32 [ %13, %.lr.ph166 ], [ %.1112, %123 ]
-  %.2160 = phi double [ %.1114, %.lr.ph166 ], [ %.3, %123 ]
-  %.2117159 = phi double [ %.1116, %.lr.ph166 ], [ %.3118, %123 ]
-  %.2121158 = phi i32 [ %.1120, %.lr.ph166 ], [ %.3122, %123 ]
+  %.2160 = phi double [ %.0113, %.lr.ph166 ], [ %.3, %123 ]
+  %.2117159 = phi double [ %.0115, %.lr.ph166 ], [ %.3118, %123 ]
+  %.2121158 = phi i32 [ %.0119, %.lr.ph166 ], [ %.3122, %123 ]
   %.sroa.0.0156 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph166 ], [ %.sroa.0.1, %123 ]
   %.sroa.4.0155 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph166 ], [ %.sroa.4.1, %123 ]
   %.sroa.0142.0154 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph166 ], [ %.sroa.0142.1, %123 ]
@@ -125744,7 +125744,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0154 = phi i32 [ 0, %.lr.ph ], [ %.1, %172 ]
   %.0115153 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %172 ]
   %.0117152 = phi i32 [ %18, %.lr.ph ], [ %.1118, %172 ]
-  %.0119151 = phi i32 [ 0, %.lr.ph ], [ %.2, %172 ]
+  %.0119151 = phi i32 [ 0, %.lr.ph ], [ %.1120, %172 ]
   %.sroa.0.0149 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %172 ]
   %.sroa.4.0148 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %172 ]
   %.sroa.0141.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0141.1, %172 ]
@@ -125951,7 +125951,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17F
   %.sroa.0141.1 = phi double [ %.sroa.0141.0147, %38 ], [ %.sroa.0141.0147, %45 ], [ %.sroa.0141.0147, %60 ], [ %161, %156 ], [ %161, %171 ], [ %.sroa.0141.0147, %154 ], [ %.sroa.0141.0147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0141.0147, %73 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0148, %38 ], [ %.sroa.4.0148, %45 ], [ %.sroa.4.0148, %60 ], [ %168, %156 ], [ %168, %171 ], [ %.sroa.4.0148, %154 ], [ %.sroa.4.0148, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0148, %73 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0149, %38 ], [ %.sroa.0.0149, %45 ], [ %.sroa.0.0149, %60 ], [ %167, %156 ], [ %167, %171 ], [ %.sroa.0.0149, %154 ], [ %.sroa.0.0149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0149, %73 ]
-  %.2 = phi i32 [ %.0119151, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %156 ], [ %48, %171 ], [ %48, %154 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %48, %73 ]
+  %.1120 = phi i32 [ %.0119151, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %156 ], [ %48, %171 ], [ %48, %154 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %48, %73 ]
   %.1118 = phi i32 [ %.0117152, %38 ], [ %.0117152, %45 ], [ %.0117152, %60 ], [ %.0117152, %156 ], [ %8, %171 ], [ %.0117152, %154 ], [ %.0117152, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0117152, %73 ]
   %.1116 = phi double [ %.0115153, %38 ], [ %.0115153, %45 ], [ %.0115153, %60 ], [ %.0115153, %156 ], [ %.0.i, %171 ], [ %.0115153, %154 ], [ %.0115153, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115153, %73 ]
   %.1 = phi i32 [ %.0154, %38 ], [ %.0154, %45 ], [ %.0154, %60 ], [ %.0154, %156 ], [ %48, %171 ], [ %.0154, %154 ], [ %.0154, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0154, %73 ]
@@ -126585,7 +126585,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0152 = phi i64 [ 0, %.lr.ph ], [ %.1, %169 ]
   %.0113151 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1114, %169 ]
   %.0115150 = phi i32 [ %14, %.lr.ph ], [ %.1116, %169 ]
-  %.0117149 = phi i64 [ 0, %.lr.ph ], [ %.2, %169 ]
+  %.0117149 = phi i64 [ 0, %.lr.ph ], [ %.1118, %169 ]
   %.sroa.0.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %169 ]
   %.sroa.4.0146 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %169 ]
   %.sroa.0139.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0139.1, %169 ]
@@ -126792,7 +126792,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17F
   %.sroa.0139.1 = phi double [ %.sroa.0139.0145, %35 ], [ %.sroa.0139.0145, %42 ], [ %.sroa.0139.0145, %57 ], [ %158, %153 ], [ %158, %168 ], [ %.sroa.0139.0145, %151 ], [ %.sroa.0139.0145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0139.0145, %70 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0146, %35 ], [ %.sroa.4.0146, %42 ], [ %.sroa.4.0146, %57 ], [ %165, %153 ], [ %165, %168 ], [ %.sroa.4.0146, %151 ], [ %.sroa.4.0146, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0146, %70 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0147, %35 ], [ %.sroa.0.0147, %42 ], [ %.sroa.0.0147, %57 ], [ %164, %153 ], [ %164, %168 ], [ %.sroa.0.0147, %151 ], [ %.sroa.0.0147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0147, %70 ]
-  %.2 = phi i64 [ %.0117149, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %153 ], [ %45, %168 ], [ %45, %151 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %70 ]
+  %.1118 = phi i64 [ %.0117149, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %153 ], [ %45, %168 ], [ %45, %151 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %70 ]
   %.1116 = phi i32 [ %.0115150, %35 ], [ %.0115150, %42 ], [ %.0115150, %57 ], [ %.0115150, %153 ], [ %8, %168 ], [ %.0115150, %151 ], [ %.0115150, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115150, %70 ]
   %.1114 = phi double [ %.0113151, %35 ], [ %.0113151, %42 ], [ %.0113151, %57 ], [ %.0113151, %153 ], [ %.0.i, %168 ], [ %.0113151, %151 ], [ %.0113151, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0113151, %70 ]
   %.1 = phi i64 [ %.0152, %35 ], [ %.0152, %42 ], [ %.0152, %57 ], [ %.0152, %153 ], [ %45, %168 ], [ %.0152, %151 ], [ %.0152, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0152, %70 ]
@@ -127428,7 +127428,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0154 = phi i64 [ 0, %.lr.ph ], [ %.1, %175 ]
   %.0115153 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %175 ]
   %.0117152 = phi i32 [ %14, %.lr.ph ], [ %.1118, %175 ]
-  %.0119151 = phi i64 [ 0, %.lr.ph ], [ %.2, %175 ]
+  %.0119151 = phi i64 [ 0, %.lr.ph ], [ %.1120, %175 ]
   %.sroa.0.0149 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %175 ]
   %.sroa.4.0148 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %175 ]
   %.sroa.0141.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0141.1, %175 ]
@@ -127642,7 +127642,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17F
   %.sroa.0141.1 = phi double [ %.sroa.0141.0147, %35 ], [ %.sroa.0141.0147, %42 ], [ %.sroa.0141.0147, %63 ], [ %164, %159 ], [ %164, %174 ], [ %.sroa.0141.0147, %157 ], [ %.sroa.0141.0147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0141.0147, %76 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0148, %35 ], [ %.sroa.4.0148, %42 ], [ %.sroa.4.0148, %63 ], [ %171, %159 ], [ %171, %174 ], [ %.sroa.4.0148, %157 ], [ %.sroa.4.0148, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0148, %76 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0149, %35 ], [ %.sroa.0.0149, %42 ], [ %.sroa.0.0149, %63 ], [ %170, %159 ], [ %170, %174 ], [ %.sroa.0.0149, %157 ], [ %.sroa.0.0149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0149, %76 ]
-  %.2 = phi i64 [ %.0119151, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %159 ], [ %51, %174 ], [ %51, %157 ], [ %51, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %51, %76 ]
+  %.1120 = phi i64 [ %.0119151, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %159 ], [ %51, %174 ], [ %51, %157 ], [ %51, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %51, %76 ]
   %.1118 = phi i32 [ %.0117152, %35 ], [ %.0117152, %42 ], [ %.0117152, %63 ], [ %.0117152, %159 ], [ %8, %174 ], [ %.0117152, %157 ], [ %.0117152, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0117152, %76 ]
   %.1116 = phi double [ %.0115153, %35 ], [ %.0115153, %42 ], [ %.0115153, %63 ], [ %.0115153, %159 ], [ %.0.i, %174 ], [ %.0115153, %157 ], [ %.0115153, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115153, %76 ]
   %.1 = phi i64 [ %.0154, %35 ], [ %.0154, %42 ], [ %.0154, %63 ], [ %.0154, %159 ], [ %51, %174 ], [ %.0154, %157 ], [ %.0154, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0154, %76 ]
@@ -128423,17 +128423,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0126156 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1127156 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0126156, %38
+  %39 = sub nsw i32 %.1127156, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !449
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0128 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1127 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0126 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not157 = icmp sgt i32 %.0128, %33
   br i1 %.not157, label %._crit_edge, label %.lr.ph167
 
@@ -128445,7 +128445,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0166 = phi i32 [ 0, %.lr.ph167 ], [ %.1, %173 ]
   %.0122165 = phi double [ 0xFFF0000000000000, %.lr.ph167 ], [ %.1123, %173 ]
   %.0124164 = phi i32 [ %18, %.lr.ph167 ], [ %.1125, %173 ]
-  %.2163 = phi i32 [ %.1127, %.lr.ph167 ], [ %.3, %173 ]
+  %.2163 = phi i32 [ %.0126, %.lr.ph167 ], [ %.3, %173 ]
   %.1129162 = phi i32 [ %.0128, %.lr.ph167 ], [ %174, %173 ]
   %.sroa.0.0161 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph167 ], [ %.sroa.0.1, %173 ]
   %.sroa.4.0160 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph167 ], [ %.sroa.4.1, %173 ]
@@ -129278,17 +129278,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0124154 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1125154 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0124154, %35
+  %36 = sub nsw i64 %.1125154, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !452
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0126 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0124 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not155 = icmp sgt i32 %.0126, %30
   br i1 %.not155, label %._crit_edge, label %.lr.ph165
 
@@ -129300,7 +129300,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0164 = phi i64 [ 0, %.lr.ph165 ], [ %.1, %170 ]
   %.0120163 = phi double [ 0xFFF0000000000000, %.lr.ph165 ], [ %.1121, %170 ]
   %.0122162 = phi i32 [ %14, %.lr.ph165 ], [ %.1123, %170 ]
-  %.2161 = phi i64 [ %.1125, %.lr.ph165 ], [ %.3, %170 ]
+  %.2161 = phi i64 [ %.0124, %.lr.ph165 ], [ %.3, %170 ]
   %.1127160 = phi i32 [ %.0126, %.lr.ph165 ], [ %171, %170 ]
   %.sroa.0.0159 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.0.1, %170 ]
   %.sroa.4.0158 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.4.1, %170 ]
@@ -130135,7 +130135,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0128162 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1129162 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -130145,14 +130145,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0128162, %41
+  %42 = sub i64 %.1129162, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !455
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0130 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1129 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0128 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not163 = icmp sgt i32 %.0130, %30
   br i1 %.not163, label %._crit_edge, label %.lr.ph173
 
@@ -130164,7 +130164,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0172 = phi i64 [ 0, %.lr.ph173 ], [ %.1, %182 ]
   %.0124171 = phi double [ 0xFFF0000000000000, %.lr.ph173 ], [ %.1125, %182 ]
   %.0126170 = phi i32 [ %14, %.lr.ph173 ], [ %.1127, %182 ]
-  %.2169 = phi i64 [ %.1129, %.lr.ph173 ], [ %.3, %182 ]
+  %.2169 = phi i64 [ %.0128, %.lr.ph173 ], [ %.3, %182 ]
   %.1131168 = phi i32 [ %.0130, %.lr.ph173 ], [ %183, %182 ]
   %.sroa.0.0167 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph173 ], [ %.sroa.0.1, %182 ]
   %.sroa.4.0166 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph173 ], [ %.sroa.4.1, %182 ]
@@ -132661,9 +132661,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.092139 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.193, %159 ]
   %.094138 = phi i32 [ 0, %.lr.ph ], [ %.195, %159 ]
   %.096137 = phi i32 [ %13, %.lr.ph ], [ %.197, %159 ]
-  %.098136 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %159 ]
-  %.0100135 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.2102, %159 ]
-  %.0103134 = phi i32 [ 0, %.lr.ph ], [ %.2105, %159 ]
+  %.098136 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %159 ]
+  %.0100135 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.1101, %159 ]
+  %.0103134 = phi i32 [ 0, %.lr.ph ], [ %.1104, %159 ]
   %.sroa.0.0132 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %159 ]
   %.sroa.4.0131 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %159 ]
   %.sroa.0124.0130 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0124.1, %159 ]
@@ -132866,9 +132866,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17F
   %.sroa.0124.1 = phi double [ %.sroa.0124.0130, %31 ], [ %.sroa.0124.0130, %38 ], [ %.sroa.0124.0130, %59 ], [ %148, %143 ], [ %148, %158 ], [ %.sroa.0124.0130, %141 ], [ %.sroa.0124.0130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0124.0130, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0131, %31 ], [ %.sroa.4.0131, %38 ], [ %.sroa.4.0131, %59 ], [ %155, %143 ], [ %155, %158 ], [ %.sroa.4.0131, %141 ], [ %.sroa.4.0131, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0131, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0132, %31 ], [ %.sroa.0.0132, %38 ], [ %.sroa.0.0132, %59 ], [ %154, %143 ], [ %154, %158 ], [ %.sroa.0.0132, %141 ], [ %.sroa.0.0132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0132, %69 ]
-  %.2105 = phi i32 [ %.0103134, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %143 ], [ %53, %158 ], [ %53, %141 ], [ %53, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %53, %69 ]
-  %.2102 = phi double [ %.0100135, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %143 ], [ %49, %158 ], [ %49, %141 ], [ %49, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %49, %69 ]
-  %.2 = phi double [ %.098136, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %143 ], [ %43, %158 ], [ %43, %141 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %69 ]
+  %.1104 = phi i32 [ %.0103134, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %143 ], [ %53, %158 ], [ %53, %141 ], [ %53, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %53, %69 ]
+  %.1101 = phi double [ %.0100135, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %143 ], [ %49, %158 ], [ %49, %141 ], [ %49, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %49, %69 ]
+  %.199 = phi double [ %.098136, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %143 ], [ %43, %158 ], [ %43, %141 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %69 ]
   %.197 = phi i32 [ %.096137, %31 ], [ %.096137, %38 ], [ %.096137, %59 ], [ %.096137, %143 ], [ %7, %158 ], [ %.096137, %141 ], [ %.096137, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.096137, %69 ]
   %.195 = phi i32 [ %.094138, %31 ], [ %.094138, %38 ], [ %.094138, %59 ], [ %.094138, %143 ], [ %53, %158 ], [ %.094138, %141 ], [ %.094138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.094138, %69 ]
   %.193 = phi double [ %.092139, %31 ], [ %.092139, %38 ], [ %.092139, %59 ], [ %.092139, %143 ], [ %.0.i, %158 ], [ %.092139, %141 ], [ %.092139, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.092139, %69 ]
@@ -133558,9 +133558,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0113151 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0115150 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0119149 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1114151 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1116150 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1120149 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -133574,18 +133574,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0113151, %36
-  %46 = fsub double %.0115150, %41
-  %47 = sub nsw i32 %.0119149, %44
+  %45 = fsub double %.1114151, %36
+  %46 = fsub double %.1116150, %41
+  %47 = sub nsw i32 %.1120149, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !463
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0123 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1120 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1116 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1114 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0119 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0115 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0113 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not154 = icmp sgt i32 %.0123, %25
   br i1 %.not154, label %._crit_edge, label %.lr.ph168
 
@@ -133603,9 +133603,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0107165 = phi double [ 0xFFF0000000000000, %.lr.ph168 ], [ %.1108, %179 ]
   %.0109164 = phi i32 [ 0, %.lr.ph168 ], [ %.1110, %179 ]
   %.0111163 = phi i32 [ %13, %.lr.ph168 ], [ %.1112, %179 ]
-  %.2162 = phi double [ %.1114, %.lr.ph168 ], [ %.3, %179 ]
-  %.2117161 = phi double [ %.1116, %.lr.ph168 ], [ %.3118, %179 ]
-  %.2121160 = phi i32 [ %.1120, %.lr.ph168 ], [ %.3122, %179 ]
+  %.2162 = phi double [ %.0113, %.lr.ph168 ], [ %.3, %179 ]
+  %.2117161 = phi double [ %.0115, %.lr.ph168 ], [ %.3118, %179 ]
+  %.2121160 = phi i32 [ %.0119, %.lr.ph168 ], [ %.3122, %179 ]
   %.sroa.0.0158 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0.1, %179 ]
   %.sroa.4.0157 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.4.1, %179 ]
   %.sroa.0144.0156 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0144.1, %179 ]
@@ -135944,7 +135944,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0149 = phi i32 [ 0, %.lr.ph ], [ %.1, %184 ]
   %.0115148 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %184 ]
   %.0117147 = phi i32 [ %18, %.lr.ph ], [ %.1118, %184 ]
-  %.0119146 = phi i32 [ 0, %.lr.ph ], [ %.2, %184 ]
+  %.0119146 = phi i32 [ 0, %.lr.ph ], [ %.1120, %184 ]
   %.sroa.0.0144 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %184 ]
   %.sroa.4.0143 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %184 ]
   %.sroa.0136.0142 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0136.1, %184 ]
@@ -136148,7 +136148,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17F
   %.sroa.0136.1 = phi double [ %.sroa.0136.0142, %39 ], [ %.sroa.0136.0142, %46 ], [ %.sroa.0136.0142, %61 ], [ %173, %168 ], [ %173, %183 ], [ %.sroa.0136.0142, %166 ], [ %.sroa.0136.0142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0136.0142, %74 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0143, %39 ], [ %.sroa.4.0143, %46 ], [ %.sroa.4.0143, %61 ], [ %180, %168 ], [ %180, %183 ], [ %.sroa.4.0143, %166 ], [ %.sroa.4.0143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0143, %74 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0144, %39 ], [ %.sroa.0.0144, %46 ], [ %.sroa.0.0144, %61 ], [ %179, %168 ], [ %179, %183 ], [ %.sroa.0.0144, %166 ], [ %.sroa.0.0144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0144, %74 ]
-  %.2 = phi i32 [ %.0119146, %39 ], [ %49, %46 ], [ %49, %61 ], [ %49, %168 ], [ %49, %183 ], [ %49, %166 ], [ %49, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %49, %74 ]
+  %.1120 = phi i32 [ %.0119146, %39 ], [ %49, %46 ], [ %49, %61 ], [ %49, %168 ], [ %49, %183 ], [ %49, %166 ], [ %49, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %49, %74 ]
   %.1118 = phi i32 [ %.0117147, %39 ], [ %.0117147, %46 ], [ %.0117147, %61 ], [ %.0117147, %168 ], [ %8, %183 ], [ %.0117147, %166 ], [ %.0117147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0117147, %74 ]
   %.1116 = phi double [ %.0115148, %39 ], [ %.0115148, %46 ], [ %.0115148, %61 ], [ %.0115148, %168 ], [ %.0.i, %183 ], [ %.0115148, %166 ], [ %.0115148, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115148, %74 ]
   %.1 = phi i32 [ %.0149, %39 ], [ %.0149, %46 ], [ %.0149, %61 ], [ %.0149, %168 ], [ %49, %183 ], [ %.0149, %166 ], [ %.0149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0149, %74 ]
@@ -136775,7 +136775,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0147 = phi i64 [ 0, %.lr.ph ], [ %.1, %181 ]
   %.0113146 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1114, %181 ]
   %.0115145 = phi i32 [ %14, %.lr.ph ], [ %.1116, %181 ]
-  %.0117144 = phi i64 [ 0, %.lr.ph ], [ %.2, %181 ]
+  %.0117144 = phi i64 [ 0, %.lr.ph ], [ %.1118, %181 ]
   %.sroa.0.0142 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %181 ]
   %.sroa.4.0141 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %181 ]
   %.sroa.0134.0140 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0134.1, %181 ]
@@ -136979,7 +136979,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17F
   %.sroa.0134.1 = phi double [ %.sroa.0134.0140, %36 ], [ %.sroa.0134.0140, %43 ], [ %.sroa.0134.0140, %58 ], [ %170, %165 ], [ %170, %180 ], [ %.sroa.0134.0140, %163 ], [ %.sroa.0134.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0134.0140, %71 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0141, %36 ], [ %.sroa.4.0141, %43 ], [ %.sroa.4.0141, %58 ], [ %177, %165 ], [ %177, %180 ], [ %.sroa.4.0141, %163 ], [ %.sroa.4.0141, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0141, %71 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0142, %36 ], [ %.sroa.0.0142, %43 ], [ %.sroa.0.0142, %58 ], [ %176, %165 ], [ %176, %180 ], [ %.sroa.0.0142, %163 ], [ %.sroa.0.0142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0142, %71 ]
-  %.2 = phi i64 [ %.0117144, %36 ], [ %46, %43 ], [ %46, %58 ], [ %46, %165 ], [ %46, %180 ], [ %46, %163 ], [ %46, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %71 ]
+  %.1118 = phi i64 [ %.0117144, %36 ], [ %46, %43 ], [ %46, %58 ], [ %46, %165 ], [ %46, %180 ], [ %46, %163 ], [ %46, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %71 ]
   %.1116 = phi i32 [ %.0115145, %36 ], [ %.0115145, %43 ], [ %.0115145, %58 ], [ %.0115145, %165 ], [ %8, %180 ], [ %.0115145, %163 ], [ %.0115145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115145, %71 ]
   %.1114 = phi double [ %.0113146, %36 ], [ %.0113146, %43 ], [ %.0113146, %58 ], [ %.0113146, %165 ], [ %.0.i, %180 ], [ %.0113146, %163 ], [ %.0113146, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0113146, %71 ]
   %.1 = phi i64 [ %.0147, %36 ], [ %.0147, %43 ], [ %.0147, %58 ], [ %.0147, %165 ], [ %46, %180 ], [ %.0147, %163 ], [ %.0147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0147, %71 ]
@@ -137608,7 +137608,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0149 = phi i64 [ 0, %.lr.ph ], [ %.1, %187 ]
   %.0115148 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %187 ]
   %.0117147 = phi i32 [ %14, %.lr.ph ], [ %.1118, %187 ]
-  %.0119146 = phi i64 [ 0, %.lr.ph ], [ %.2, %187 ]
+  %.0119146 = phi i64 [ 0, %.lr.ph ], [ %.1120, %187 ]
   %.sroa.0.0144 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %187 ]
   %.sroa.4.0143 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %187 ]
   %.sroa.0136.0142 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0136.1, %187 ]
@@ -137819,7 +137819,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17F
   %.sroa.0136.1 = phi double [ %.sroa.0136.0142, %36 ], [ %.sroa.0136.0142, %43 ], [ %.sroa.0136.0142, %64 ], [ %176, %171 ], [ %176, %186 ], [ %.sroa.0136.0142, %169 ], [ %.sroa.0136.0142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0136.0142, %77 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0143, %36 ], [ %.sroa.4.0143, %43 ], [ %.sroa.4.0143, %64 ], [ %183, %171 ], [ %183, %186 ], [ %.sroa.4.0143, %169 ], [ %.sroa.4.0143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0143, %77 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0144, %36 ], [ %.sroa.0.0144, %43 ], [ %.sroa.0.0144, %64 ], [ %182, %171 ], [ %182, %186 ], [ %.sroa.0.0144, %169 ], [ %.sroa.0.0144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0144, %77 ]
-  %.2 = phi i64 [ %.0119146, %36 ], [ %52, %43 ], [ %52, %64 ], [ %52, %171 ], [ %52, %186 ], [ %52, %169 ], [ %52, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %52, %77 ]
+  %.1120 = phi i64 [ %.0119146, %36 ], [ %52, %43 ], [ %52, %64 ], [ %52, %171 ], [ %52, %186 ], [ %52, %169 ], [ %52, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %52, %77 ]
   %.1118 = phi i32 [ %.0117147, %36 ], [ %.0117147, %43 ], [ %.0117147, %64 ], [ %.0117147, %171 ], [ %8, %186 ], [ %.0117147, %169 ], [ %.0117147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0117147, %77 ]
   %.1116 = phi double [ %.0115148, %36 ], [ %.0115148, %43 ], [ %.0115148, %64 ], [ %.0115148, %171 ], [ %.0.i, %186 ], [ %.0115148, %169 ], [ %.0115148, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115148, %77 ]
   %.1 = phi i64 [ %.0149, %36 ], [ %.0149, %43 ], [ %.0149, %64 ], [ %.0149, %171 ], [ %52, %186 ], [ %.0149, %169 ], [ %.0149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0149, %77 ]
@@ -138581,17 +138581,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0126151 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1127151 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0126151, %38
+  %39 = sub nsw i32 %.1127151, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !473
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0128 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1127 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0126 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not152 = icmp sgt i32 %.0128, %33
   br i1 %.not152, label %._crit_edge, label %.lr.ph162
 
@@ -138604,7 +138604,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0161 = phi i32 [ 0, %.lr.ph162 ], [ %.1, %185 ]
   %.0122160 = phi double [ 0xFFF0000000000000, %.lr.ph162 ], [ %.1123, %185 ]
   %.0124159 = phi i32 [ %18, %.lr.ph162 ], [ %.1125, %185 ]
-  %.2158 = phi i32 [ %.1127, %.lr.ph162 ], [ %.3, %185 ]
+  %.2158 = phi i32 [ %.0126, %.lr.ph162 ], [ %.3, %185 ]
   %.1129157 = phi i32 [ %.0128, %.lr.ph162 ], [ %186, %185 ]
   %.sroa.0.0156 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.0.1, %185 ]
   %.sroa.4.0155 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.4.1, %185 ]
@@ -139426,17 +139426,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0124149 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1125149 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0124149, %35
+  %36 = sub nsw i64 %.1125149, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !476
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0126 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0124 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not150 = icmp sgt i32 %.0126, %30
   br i1 %.not150, label %._crit_edge, label %.lr.ph160
 
@@ -139449,7 +139449,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0159 = phi i64 [ 0, %.lr.ph160 ], [ %.1, %182 ]
   %.0120158 = phi double [ 0xFFF0000000000000, %.lr.ph160 ], [ %.1121, %182 ]
   %.0122157 = phi i32 [ %14, %.lr.ph160 ], [ %.1123, %182 ]
-  %.2156 = phi i64 [ %.1125, %.lr.ph160 ], [ %.3, %182 ]
+  %.2156 = phi i64 [ %.0124, %.lr.ph160 ], [ %.3, %182 ]
   %.1127155 = phi i32 [ %.0126, %.lr.ph160 ], [ %183, %182 ]
   %.sroa.0.0154 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.0.1, %182 ]
   %.sroa.4.0153 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.4.1, %182 ]
@@ -140273,7 +140273,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0128157 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1129157 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -140283,14 +140283,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0128157, %41
+  %42 = sub i64 %.1129157, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !479
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0130 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1129 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0128 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not158 = icmp sgt i32 %.0130, %30
   br i1 %.not158, label %._crit_edge, label %.lr.ph168
 
@@ -140303,7 +140303,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0167 = phi i64 [ 0, %.lr.ph168 ], [ %.1, %194 ]
   %.0124166 = phi double [ 0xFFF0000000000000, %.lr.ph168 ], [ %.1125, %194 ]
   %.0126165 = phi i32 [ %14, %.lr.ph168 ], [ %.1127, %194 ]
-  %.2164 = phi i64 [ %.1129, %.lr.ph168 ], [ %.3, %194 ]
+  %.2164 = phi i64 [ %.0128, %.lr.ph168 ], [ %.3, %194 ]
   %.1131163 = phi i32 [ %.0130, %.lr.ph168 ], [ %195, %194 ]
   %.sroa.0.0162 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0.1, %194 ]
   %.sroa.4.0161 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.4.1, %194 ]
@@ -142752,9 +142752,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.092134 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.193, %171 ]
   %.094133 = phi i32 [ 0, %.lr.ph ], [ %.195, %171 ]
   %.096132 = phi i32 [ %13, %.lr.ph ], [ %.197, %171 ]
-  %.098131 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %171 ]
-  %.0100130 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.2102, %171 ]
-  %.0103129 = phi i32 [ 0, %.lr.ph ], [ %.2105, %171 ]
+  %.098131 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %171 ]
+  %.0100130 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.1101, %171 ]
+  %.0103129 = phi i32 [ 0, %.lr.ph ], [ %.1104, %171 ]
   %.sroa.0.0127 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %171 ]
   %.sroa.4.0126 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %171 ]
   %.sroa.0119.0125 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0119.1, %171 ]
@@ -142954,9 +142954,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17F
   %.sroa.0119.1 = phi double [ %.sroa.0119.0125, %32 ], [ %.sroa.0119.0125, %39 ], [ %.sroa.0119.0125, %60 ], [ %160, %155 ], [ %160, %170 ], [ %.sroa.0119.0125, %153 ], [ %.sroa.0119.0125, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0119.0125, %70 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0126, %32 ], [ %.sroa.4.0126, %39 ], [ %.sroa.4.0126, %60 ], [ %167, %155 ], [ %167, %170 ], [ %.sroa.4.0126, %153 ], [ %.sroa.4.0126, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0126, %70 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0127, %32 ], [ %.sroa.0.0127, %39 ], [ %.sroa.0.0127, %60 ], [ %166, %155 ], [ %166, %170 ], [ %.sroa.0.0127, %153 ], [ %.sroa.0.0127, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0127, %70 ]
-  %.2105 = phi i32 [ %.0103129, %32 ], [ %54, %39 ], [ %54, %60 ], [ %54, %155 ], [ %54, %170 ], [ %54, %153 ], [ %54, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %54, %70 ]
-  %.2102 = phi double [ %.0100130, %32 ], [ %50, %39 ], [ %50, %60 ], [ %50, %155 ], [ %50, %170 ], [ %50, %153 ], [ %50, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %50, %70 ]
-  %.2 = phi double [ %.098131, %32 ], [ %44, %39 ], [ %44, %60 ], [ %44, %155 ], [ %44, %170 ], [ %44, %153 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %70 ]
+  %.1104 = phi i32 [ %.0103129, %32 ], [ %54, %39 ], [ %54, %60 ], [ %54, %155 ], [ %54, %170 ], [ %54, %153 ], [ %54, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %54, %70 ]
+  %.1101 = phi double [ %.0100130, %32 ], [ %50, %39 ], [ %50, %60 ], [ %50, %155 ], [ %50, %170 ], [ %50, %153 ], [ %50, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %50, %70 ]
+  %.199 = phi double [ %.098131, %32 ], [ %44, %39 ], [ %44, %60 ], [ %44, %155 ], [ %44, %170 ], [ %44, %153 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %70 ]
   %.197 = phi i32 [ %.096132, %32 ], [ %.096132, %39 ], [ %.096132, %60 ], [ %.096132, %155 ], [ %7, %170 ], [ %.096132, %153 ], [ %.096132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.096132, %70 ]
   %.195 = phi i32 [ %.094133, %32 ], [ %.094133, %39 ], [ %.094133, %60 ], [ %.094133, %155 ], [ %54, %170 ], [ %.094133, %153 ], [ %.094133, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.094133, %70 ]
   %.193 = phi double [ %.092134, %32 ], [ %.092134, %39 ], [ %.092134, %60 ], [ %.092134, %155 ], [ %.0.i, %170 ], [ %.092134, %153 ], [ %.092134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.092134, %70 ]
@@ -143637,9 +143637,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0113146 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0115145 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0119144 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1114146 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1116145 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1120144 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -143653,18 +143653,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0113146, %36
-  %46 = fsub double %.0115145, %41
-  %47 = sub nsw i32 %.0119144, %44
+  %45 = fsub double %.1114146, %36
+  %46 = fsub double %.1116145, %41
+  %47 = sub nsw i32 %.1120144, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !487
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0123 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1120 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1116 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1114 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0119 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0115 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0113 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not149 = icmp sgt i32 %.0123, %25
   br i1 %.not149, label %._crit_edge, label %.lr.ph163
 
@@ -143683,9 +143683,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0107160 = phi double [ 0xFFF0000000000000, %.lr.ph163 ], [ %.1108, %191 ]
   %.0109159 = phi i32 [ 0, %.lr.ph163 ], [ %.1110, %191 ]
   %.0111158 = phi i32 [ %13, %.lr.ph163 ], [ %.1112, %191 ]
-  %.2157 = phi double [ %.1114, %.lr.ph163 ], [ %.3, %191 ]
-  %.2117156 = phi double [ %.1116, %.lr.ph163 ], [ %.3118, %191 ]
-  %.2121155 = phi i32 [ %.1120, %.lr.ph163 ], [ %.3122, %191 ]
+  %.2157 = phi double [ %.0113, %.lr.ph163 ], [ %.3, %191 ]
+  %.2117156 = phi double [ %.0115, %.lr.ph163 ], [ %.3118, %191 ]
+  %.2121155 = phi i32 [ %.0119, %.lr.ph163 ], [ %.3122, %191 ]
   %.sroa.0.0153 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0.1, %191 ]
   %.sroa.4.0152 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.4.1, %191 ]
   %.sroa.0139.0151 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0139.1, %191 ]
@@ -145153,7 +145153,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0149 = phi i32 [ 0, %.lr.ph ], [ %.1, %151 ]
   %.0115148 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %151 ]
   %.0117147 = phi i32 [ %18, %.lr.ph ], [ %.1118, %151 ]
-  %.0119146 = phi i32 [ 0, %.lr.ph ], [ %.2, %151 ]
+  %.0119146 = phi i32 [ 0, %.lr.ph ], [ %.1120, %151 ]
   %.sroa.0.0144 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %151 ]
   %.sroa.4.0143 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %151 ]
   %.sroa.0136.0142 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0136.1, %151 ]
@@ -145323,7 +145323,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0136.1 = phi double [ %.sroa.0136.0142, %38 ], [ %.sroa.0136.0142, %45 ], [ %.sroa.0136.0142, %60 ], [ %140, %135 ], [ %140, %150 ], [ %.sroa.0136.0142, %133 ], [ %.sroa.0136.0142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0136.0142, %73 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0143, %38 ], [ %.sroa.4.0143, %45 ], [ %.sroa.4.0143, %60 ], [ %147, %135 ], [ %147, %150 ], [ %.sroa.4.0143, %133 ], [ %.sroa.4.0143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0143, %73 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0144, %38 ], [ %.sroa.0.0144, %45 ], [ %.sroa.0.0144, %60 ], [ %146, %135 ], [ %146, %150 ], [ %.sroa.0.0144, %133 ], [ %.sroa.0.0144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0144, %73 ]
-  %.2 = phi i32 [ %.0119146, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %135 ], [ %48, %150 ], [ %48, %133 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %48, %73 ]
+  %.1120 = phi i32 [ %.0119146, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %135 ], [ %48, %150 ], [ %48, %133 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %48, %73 ]
   %.1118 = phi i32 [ %.0117147, %38 ], [ %.0117147, %45 ], [ %.0117147, %60 ], [ %.0117147, %135 ], [ %8, %150 ], [ %.0117147, %133 ], [ %.0117147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0117147, %73 ]
   %.1116 = phi double [ %.0115148, %38 ], [ %.0115148, %45 ], [ %.0115148, %60 ], [ %.0115148, %135 ], [ %.0.i, %150 ], [ %.0115148, %133 ], [ %.0115148, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115148, %73 ]
   %.1 = phi i32 [ %.0149, %38 ], [ %.0149, %45 ], [ %.0149, %60 ], [ %.0149, %135 ], [ %48, %150 ], [ %.0149, %133 ], [ %.0149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0149, %73 ]
@@ -145840,7 +145840,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0147 = phi i64 [ 0, %.lr.ph ], [ %.1, %148 ]
   %.0113146 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1114, %148 ]
   %.0115145 = phi i32 [ %14, %.lr.ph ], [ %.1116, %148 ]
-  %.0117144 = phi i64 [ 0, %.lr.ph ], [ %.2, %148 ]
+  %.0117144 = phi i64 [ 0, %.lr.ph ], [ %.1118, %148 ]
   %.sroa.0.0142 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %148 ]
   %.sroa.4.0141 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %148 ]
   %.sroa.0134.0140 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0134.1, %148 ]
@@ -146010,7 +146010,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0134.1 = phi double [ %.sroa.0134.0140, %35 ], [ %.sroa.0134.0140, %42 ], [ %.sroa.0134.0140, %57 ], [ %137, %132 ], [ %137, %147 ], [ %.sroa.0134.0140, %130 ], [ %.sroa.0134.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0134.0140, %70 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0141, %35 ], [ %.sroa.4.0141, %42 ], [ %.sroa.4.0141, %57 ], [ %144, %132 ], [ %144, %147 ], [ %.sroa.4.0141, %130 ], [ %.sroa.4.0141, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0141, %70 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0142, %35 ], [ %.sroa.0.0142, %42 ], [ %.sroa.0.0142, %57 ], [ %143, %132 ], [ %143, %147 ], [ %.sroa.0.0142, %130 ], [ %.sroa.0.0142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0142, %70 ]
-  %.2 = phi i64 [ %.0117144, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %132 ], [ %45, %147 ], [ %45, %130 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %70 ]
+  %.1118 = phi i64 [ %.0117144, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %132 ], [ %45, %147 ], [ %45, %130 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %70 ]
   %.1116 = phi i32 [ %.0115145, %35 ], [ %.0115145, %42 ], [ %.0115145, %57 ], [ %.0115145, %132 ], [ %8, %147 ], [ %.0115145, %130 ], [ %.0115145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115145, %70 ]
   %.1114 = phi double [ %.0113146, %35 ], [ %.0113146, %42 ], [ %.0113146, %57 ], [ %.0113146, %132 ], [ %.0.i, %147 ], [ %.0113146, %130 ], [ %.0113146, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0113146, %70 ]
   %.1 = phi i64 [ %.0147, %35 ], [ %.0147, %42 ], [ %.0147, %57 ], [ %.0147, %132 ], [ %45, %147 ], [ %.0147, %130 ], [ %.0147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0147, %70 ]
@@ -146529,7 +146529,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0149 = phi i64 [ 0, %.lr.ph ], [ %.1, %154 ]
   %.0115148 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1116, %154 ]
   %.0117147 = phi i32 [ %14, %.lr.ph ], [ %.1118, %154 ]
-  %.0119146 = phi i64 [ 0, %.lr.ph ], [ %.2, %154 ]
+  %.0119146 = phi i64 [ 0, %.lr.ph ], [ %.1120, %154 ]
   %.sroa.0.0144 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %154 ]
   %.sroa.4.0143 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %154 ]
   %.sroa.0136.0142 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0136.1, %154 ]
@@ -146706,7 +146706,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0136.1 = phi double [ %.sroa.0136.0142, %35 ], [ %.sroa.0136.0142, %42 ], [ %.sroa.0136.0142, %63 ], [ %143, %138 ], [ %143, %153 ], [ %.sroa.0136.0142, %136 ], [ %.sroa.0136.0142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0136.0142, %76 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0143, %35 ], [ %.sroa.4.0143, %42 ], [ %.sroa.4.0143, %63 ], [ %150, %138 ], [ %150, %153 ], [ %.sroa.4.0143, %136 ], [ %.sroa.4.0143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0143, %76 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0144, %35 ], [ %.sroa.0.0144, %42 ], [ %.sroa.0.0144, %63 ], [ %149, %138 ], [ %149, %153 ], [ %.sroa.0.0144, %136 ], [ %.sroa.0.0144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0144, %76 ]
-  %.2 = phi i64 [ %.0119146, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %138 ], [ %51, %153 ], [ %51, %136 ], [ %51, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %51, %76 ]
+  %.1120 = phi i64 [ %.0119146, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %138 ], [ %51, %153 ], [ %51, %136 ], [ %51, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %51, %76 ]
   %.1118 = phi i32 [ %.0117147, %35 ], [ %.0117147, %42 ], [ %.0117147, %63 ], [ %.0117147, %138 ], [ %8, %153 ], [ %.0117147, %136 ], [ %.0117147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0117147, %76 ]
   %.1116 = phi double [ %.0115148, %35 ], [ %.0115148, %42 ], [ %.0115148, %63 ], [ %.0115148, %138 ], [ %.0.i, %153 ], [ %.0115148, %136 ], [ %.0115148, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0115148, %76 ]
   %.1 = phi i64 [ %.0149, %35 ], [ %.0149, %42 ], [ %.0149, %63 ], [ %.0149, %138 ], [ %51, %153 ], [ %.0149, %136 ], [ %.0149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.0149, %76 ]
@@ -147346,17 +147346,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0126151 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1127151 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0126151, %38
+  %39 = sub nsw i32 %.1127151, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !497
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0128 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1127 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0126 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not152 = icmp sgt i32 %.0128, %33
   br i1 %.not152, label %._crit_edge, label %.lr.ph162
 
@@ -147368,7 +147368,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0161 = phi i32 [ 0, %.lr.ph162 ], [ %.1, %152 ]
   %.0122160 = phi double [ 0xFFF0000000000000, %.lr.ph162 ], [ %.1123, %152 ]
   %.0124159 = phi i32 [ %18, %.lr.ph162 ], [ %.1125, %152 ]
-  %.2158 = phi i32 [ %.1127, %.lr.ph162 ], [ %.3, %152 ]
+  %.2158 = phi i32 [ %.0126, %.lr.ph162 ], [ %.3, %152 ]
   %.1129157 = phi i32 [ %.0128, %.lr.ph162 ], [ %153, %152 ]
   %.sroa.0.0156 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.0.1, %152 ]
   %.sroa.4.0155 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.4.1, %152 ]
@@ -148047,17 +148047,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0124149 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1125149 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0124149, %35
+  %36 = sub nsw i64 %.1125149, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !500
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0126 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0124 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not150 = icmp sgt i32 %.0126, %30
   br i1 %.not150, label %._crit_edge, label %.lr.ph160
 
@@ -148069,7 +148069,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0159 = phi i64 [ 0, %.lr.ph160 ], [ %.1, %149 ]
   %.0120158 = phi double [ 0xFFF0000000000000, %.lr.ph160 ], [ %.1121, %149 ]
   %.0122157 = phi i32 [ %14, %.lr.ph160 ], [ %.1123, %149 ]
-  %.2156 = phi i64 [ %.1125, %.lr.ph160 ], [ %.3, %149 ]
+  %.2156 = phi i64 [ %.0124, %.lr.ph160 ], [ %.3, %149 ]
   %.1127155 = phi i32 [ %.0126, %.lr.ph160 ], [ %150, %149 ]
   %.sroa.0.0154 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.0.1, %149 ]
   %.sroa.4.0153 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.4.1, %149 ]
@@ -148750,7 +148750,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0128157 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1129157 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -148760,14 +148760,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0128157, %41
+  %42 = sub i64 %.1129157, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !503
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0130 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1129 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0128 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not158 = icmp sgt i32 %.0130, %30
   br i1 %.not158, label %._crit_edge, label %.lr.ph168
 
@@ -148779,7 +148779,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0167 = phi i64 [ 0, %.lr.ph168 ], [ %.1, %161 ]
   %.0124166 = phi double [ 0xFFF0000000000000, %.lr.ph168 ], [ %.1125, %161 ]
   %.0126165 = phi i32 [ %14, %.lr.ph168 ], [ %.1127, %161 ]
-  %.2164 = phi i64 [ %.1129, %.lr.ph168 ], [ %.3, %161 ]
+  %.2164 = phi i64 [ %.0128, %.lr.ph168 ], [ %.3, %161 ]
   %.1131163 = phi i32 [ %.0130, %.lr.ph168 ], [ %162, %161 ]
   %.sroa.0.0162 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0.1, %161 ]
   %.sroa.4.0161 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.4.1, %161 ]
@@ -150813,9 +150813,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.092134 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.193, %138 ]
   %.094133 = phi i32 [ 0, %.lr.ph ], [ %.195, %138 ]
   %.096132 = phi i32 [ %13, %.lr.ph ], [ %.197, %138 ]
-  %.098131 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %138 ]
-  %.0100130 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.2102, %138 ]
-  %.0103129 = phi i32 [ 0, %.lr.ph ], [ %.2105, %138 ]
+  %.098131 = phi double [ 0.000000e+00, %.lr.ph ], [ %.199, %138 ]
+  %.0100130 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.1101, %138 ]
+  %.0103129 = phi i32 [ 0, %.lr.ph ], [ %.1104, %138 ]
   %.sroa.0.0127 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %138 ]
   %.sroa.4.0126 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %138 ]
   %.sroa.0119.0125 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0119.1, %138 ]
@@ -150981,9 +150981,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0119.1 = phi double [ %.sroa.0119.0125, %31 ], [ %.sroa.0119.0125, %38 ], [ %.sroa.0119.0125, %59 ], [ %127, %122 ], [ %127, %137 ], [ %.sroa.0119.0125, %120 ], [ %.sroa.0119.0125, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0119.0125, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0126, %31 ], [ %.sroa.4.0126, %38 ], [ %.sroa.4.0126, %59 ], [ %134, %122 ], [ %134, %137 ], [ %.sroa.4.0126, %120 ], [ %.sroa.4.0126, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.4.0126, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0127, %31 ], [ %.sroa.0.0127, %38 ], [ %.sroa.0.0127, %59 ], [ %133, %122 ], [ %133, %137 ], [ %.sroa.0.0127, %120 ], [ %.sroa.0.0127, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.sroa.0.0127, %69 ]
-  %.2105 = phi i32 [ %.0103129, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %122 ], [ %53, %137 ], [ %53, %120 ], [ %53, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %53, %69 ]
-  %.2102 = phi double [ %.0100130, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %122 ], [ %49, %137 ], [ %49, %120 ], [ %49, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %49, %69 ]
-  %.2 = phi double [ %.098131, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %122 ], [ %43, %137 ], [ %43, %120 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %69 ]
+  %.1104 = phi i32 [ %.0103129, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %122 ], [ %53, %137 ], [ %53, %120 ], [ %53, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %53, %69 ]
+  %.1101 = phi double [ %.0100130, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %122 ], [ %49, %137 ], [ %49, %120 ], [ %49, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %49, %69 ]
+  %.199 = phi double [ %.098131, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %122 ], [ %43, %137 ], [ %43, %120 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %69 ]
   %.197 = phi i32 [ %.096132, %31 ], [ %.096132, %38 ], [ %.096132, %59 ], [ %.096132, %122 ], [ %7, %137 ], [ %.096132, %120 ], [ %.096132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.096132, %69 ]
   %.195 = phi i32 [ %.094133, %31 ], [ %.094133, %38 ], [ %.094133, %59 ], [ %.094133, %122 ], [ %53, %137 ], [ %.094133, %120 ], [ %.094133, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.094133, %69 ]
   %.193 = phi double [ %.092134, %31 ], [ %.092134, %38 ], [ %.092134, %59 ], [ %.092134, %122 ], [ %.0.i, %137 ], [ %.092134, %120 ], [ %.092134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %.092134, %69 ]
@@ -151526,9 +151526,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0113146 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0115145 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0119144 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1114146 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1116145 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1120144 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -151542,18 +151542,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0113146, %36
-  %46 = fsub double %.0115145, %41
-  %47 = sub nsw i32 %.0119144, %44
+  %45 = fsub double %.1114146, %36
+  %46 = fsub double %.1116145, %41
+  %47 = sub nsw i32 %.1120144, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !511
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0123 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1120 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1116 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1114 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0119 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0115 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0113 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not149 = icmp sgt i32 %.0123, %25
   br i1 %.not149, label %._crit_edge, label %.lr.ph163
 
@@ -151571,9 +151571,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0107160 = phi double [ 0xFFF0000000000000, %.lr.ph163 ], [ %.1108, %158 ]
   %.0109159 = phi i32 [ 0, %.lr.ph163 ], [ %.1110, %158 ]
   %.0111158 = phi i32 [ %13, %.lr.ph163 ], [ %.1112, %158 ]
-  %.2157 = phi double [ %.1114, %.lr.ph163 ], [ %.3, %158 ]
-  %.2117156 = phi double [ %.1116, %.lr.ph163 ], [ %.3118, %158 ]
-  %.2121155 = phi i32 [ %.1120, %.lr.ph163 ], [ %.3122, %158 ]
+  %.2157 = phi double [ %.0113, %.lr.ph163 ], [ %.3, %158 ]
+  %.2117156 = phi double [ %.0115, %.lr.ph163 ], [ %.3118, %158 ]
+  %.2121155 = phi i32 [ %.0119, %.lr.ph163 ], [ %.3122, %158 ]
   %.sroa.0.0153 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0.1, %158 ]
   %.sroa.4.0152 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.4.1, %158 ]
   %.sroa.0139.0151 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0139.1, %158 ]
@@ -153569,7 +153569,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0134 = phi i32 [ 0, %.lr.ph ], [ %.1, %91 ]
   %.0106133 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %91 ]
   %.0108132 = phi i32 [ %18, %.lr.ph ], [ %.1109, %91 ]
-  %.0110131 = phi i32 [ 0, %.lr.ph ], [ %.2, %91 ]
+  %.0110131 = phi i32 [ 0, %.lr.ph ], [ %.1111, %91 ]
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 12
   %33 = load i32, ptr %32, align 4
@@ -153648,7 +153648,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %91
 
 91:                                               ; preds = %88, %90, %65, %37, %52, %30
-  %.2 = phi i32 [ %.0110131, %30 ], [ %40, %37 ], [ %40, %52 ], [ %40, %65 ], [ %40, %90 ], [ %40, %88 ]
+  %.1111 = phi i32 [ %.0110131, %30 ], [ %40, %37 ], [ %40, %52 ], [ %40, %65 ], [ %40, %90 ], [ %40, %88 ]
   %.1109 = phi i32 [ %.0108132, %30 ], [ %.0108132, %37 ], [ %.0108132, %52 ], [ %.0108132, %65 ], [ %35, %90 ], [ %.0108132, %88 ]
   %.1107 = phi double [ %.0106133, %30 ], [ %.0106133, %37 ], [ %.0106133, %52 ], [ %.0106133, %65 ], [ %86, %90 ], [ %.0106133, %88 ]
   %.1 = phi i32 [ %.0134, %30 ], [ %.0134, %37 ], [ %.0134, %52 ], [ %.0134, %65 ], [ %40, %90 ], [ %.0134, %88 ]
@@ -154151,7 +154151,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0132 = phi i64 [ 0, %.lr.ph ], [ %.1, %88 ]
   %.0104131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1105, %88 ]
   %.0106130 = phi i32 [ %14, %.lr.ph ], [ %.1107, %88 ]
-  %.0108129 = phi i64 [ 0, %.lr.ph ], [ %.2, %88 ]
+  %.0108129 = phi i64 [ 0, %.lr.ph ], [ %.1109, %88 ]
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4
@@ -154230,7 +154230,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %88
 
 88:                                               ; preds = %85, %87, %62, %34, %49, %27
-  %.2 = phi i64 [ %.0108129, %27 ], [ %37, %34 ], [ %37, %49 ], [ %37, %62 ], [ %37, %87 ], [ %37, %85 ]
+  %.1109 = phi i64 [ %.0108129, %27 ], [ %37, %34 ], [ %37, %49 ], [ %37, %62 ], [ %37, %87 ], [ %37, %85 ]
   %.1107 = phi i32 [ %.0106130, %27 ], [ %.0106130, %34 ], [ %.0106130, %49 ], [ %.0106130, %62 ], [ %32, %87 ], [ %.0106130, %85 ]
   %.1105 = phi double [ %.0104131, %27 ], [ %.0104131, %34 ], [ %.0104131, %49 ], [ %.0104131, %62 ], [ %83, %87 ], [ %.0104131, %85 ]
   %.1 = phi i64 [ %.0132, %27 ], [ %.0132, %34 ], [ %.0132, %49 ], [ %.0132, %62 ], [ %37, %87 ], [ %.0132, %85 ]
@@ -154735,7 +154735,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0134 = phi i64 [ 0, %.lr.ph ], [ %.1, %94 ]
   %.0106133 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %94 ]
   %.0108132 = phi i32 [ %14, %.lr.ph ], [ %.1109, %94 ]
-  %.0110131 = phi i64 [ 0, %.lr.ph ], [ %.2, %94 ]
+  %.0110131 = phi i64 [ 0, %.lr.ph ], [ %.1111, %94 ]
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4
@@ -154821,7 +154821,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %94
 
 94:                                               ; preds = %91, %93, %68, %34, %55, %27
-  %.2 = phi i64 [ %.0110131, %27 ], [ %43, %34 ], [ %43, %55 ], [ %43, %68 ], [ %43, %93 ], [ %43, %91 ]
+  %.1111 = phi i64 [ %.0110131, %27 ], [ %43, %34 ], [ %43, %55 ], [ %43, %68 ], [ %43, %93 ], [ %43, %91 ]
   %.1109 = phi i32 [ %.0108132, %27 ], [ %.0108132, %34 ], [ %.0108132, %55 ], [ %.0108132, %68 ], [ %32, %93 ], [ %.0108132, %91 ]
   %.1107 = phi double [ %.0106133, %27 ], [ %.0106133, %34 ], [ %.0106133, %55 ], [ %.0106133, %68 ], [ %89, %93 ], [ %.0106133, %91 ]
   %.1 = phi i64 [ %.0134, %27 ], [ %.0134, %34 ], [ %.0134, %55 ], [ %.0134, %68 ], [ %43, %93 ], [ %.0134, %91 ]
@@ -155474,17 +155474,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0117139 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1118139 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0117139, %31
+  %32 = sub nsw i32 %.1118139, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !521
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0119 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1118 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0117 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not140 = icmp sgt i32 %.0119, %26
   br i1 %.not140, label %._crit_edge, label %.lr.ph146
 
@@ -155496,7 +155496,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0145 = phi i32 [ 0, %.lr.ph146 ], [ %.1, %94 ]
   %.0113144 = phi double [ 0xFFF0000000000000, %.lr.ph146 ], [ %.1114, %94 ]
   %.0115143 = phi i32 [ %18, %.lr.ph146 ], [ %.1116, %94 ]
-  %.2142 = phi i32 [ %.1118, %.lr.ph146 ], [ %.3, %94 ]
+  %.2142 = phi i32 [ %.0117, %.lr.ph146 ], [ %.3, %94 ]
   %.1120141 = phi i32 [ %.0119, %.lr.ph146 ], [ %95, %94 ]
   %35 = icmp sgt i32 %.1120141, -1
   br i1 %35, label %36, label %41
@@ -156070,17 +156070,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0115137 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1116137 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0115137, %28
+  %29 = sub nsw i64 %.1116137, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !524
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0117 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1116 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0115 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not138 = icmp sgt i32 %.0117, %23
   br i1 %.not138, label %._crit_edge, label %.lr.ph144
 
@@ -156092,7 +156092,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0143 = phi i64 [ 0, %.lr.ph144 ], [ %.1, %91 ]
   %.0111142 = phi double [ 0xFFF0000000000000, %.lr.ph144 ], [ %.1112, %91 ]
   %.0113141 = phi i32 [ %14, %.lr.ph144 ], [ %.1114, %91 ]
-  %.2140 = phi i64 [ %.1116, %.lr.ph144 ], [ %.3, %91 ]
+  %.2140 = phi i64 [ %.0115, %.lr.ph144 ], [ %.3, %91 ]
   %.1118139 = phi i32 [ %.0117, %.lr.ph144 ], [ %92, %91 ]
   %32 = icmp sgt i32 %.1118139, -1
   br i1 %32, label %33, label %38
@@ -156668,7 +156668,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0119145 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1120145 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -156678,14 +156678,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0119145, %34
+  %35 = sub i64 %.1120145, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !527
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0121 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1120 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not146 = icmp sgt i32 %.0121, %23
   br i1 %.not146, label %._crit_edge, label %.lr.ph152
 
@@ -156697,7 +156697,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0151 = phi i64 [ 0, %.lr.ph152 ], [ %.1, %103 ]
   %.0115150 = phi double [ 0xFFF0000000000000, %.lr.ph152 ], [ %.1116, %103 ]
   %.0117149 = phi i32 [ %14, %.lr.ph152 ], [ %.1118, %103 ]
-  %.2148 = phi i64 [ %.1120, %.lr.ph152 ], [ %.3, %103 ]
+  %.2148 = phi i64 [ %.0119, %.lr.ph152 ], [ %.3, %103 ]
   %.1122147 = phi i32 [ %.0121, %.lr.ph152 ], [ %104, %103 ]
   %38 = icmp sgt i32 %.1122147, -1
   br i1 %38, label %39, label %50
@@ -158535,9 +158535,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.083119 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.184, %78 ]
   %.085118 = phi i32 [ 0, %.lr.ph ], [ %.186, %78 ]
   %.087117 = phi i32 [ %13, %.lr.ph ], [ %.188, %78 ]
-  %.090115 = phi i32 [ 0, %.lr.ph ], [ %.2, %78 ]
-  %.092114 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.294, %78 ]
-  %.095113 = phi double [ 0.000000e+00, %.lr.ph ], [ %.297, %78 ]
+  %.090115 = phi i32 [ 0, %.lr.ph ], [ %.191, %78 ]
+  %.092114 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.193, %78 ]
+  %.095113 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %78 ]
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4
@@ -158612,9 +158612,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   br label %78
 
 78:                                               ; preds = %75, %77, %61, %30, %51, %23
-  %.297 = phi double [ %.095113, %23 ], [ %35, %30 ], [ %35, %51 ], [ %35, %61 ], [ %35, %77 ], [ %35, %75 ]
-  %.294 = phi double [ %.092114, %23 ], [ %41, %30 ], [ %41, %51 ], [ %41, %61 ], [ %41, %77 ], [ %41, %75 ]
-  %.2 = phi i32 [ %.090115, %23 ], [ %45, %30 ], [ %45, %51 ], [ %45, %61 ], [ %45, %77 ], [ %45, %75 ]
+  %.196 = phi double [ %.095113, %23 ], [ %35, %30 ], [ %35, %51 ], [ %35, %61 ], [ %35, %77 ], [ %35, %75 ]
+  %.193 = phi double [ %.092114, %23 ], [ %41, %30 ], [ %41, %51 ], [ %41, %61 ], [ %41, %77 ], [ %41, %75 ]
+  %.191 = phi i32 [ %.090115, %23 ], [ %45, %30 ], [ %45, %51 ], [ %45, %61 ], [ %45, %77 ], [ %45, %75 ]
   %.188 = phi i32 [ %.087117, %23 ], [ %.087117, %30 ], [ %.087117, %51 ], [ %.087117, %61 ], [ %28, %77 ], [ %.087117, %75 ]
   %.186 = phi i32 [ %.085118, %23 ], [ %.085118, %30 ], [ %.085118, %51 ], [ %.085118, %61 ], [ %45, %77 ], [ %.085118, %75 ]
   %.184 = phi double [ %.083119, %23 ], [ %.083119, %30 ], [ %.083119, %51 ], [ %.083119, %61 ], [ %73, %77 ], [ %.083119, %75 ]
@@ -159181,9 +159181,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0104134 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0106133 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0111131 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1105134 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1107133 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1112131 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -159197,18 +159197,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0104134, %29
-  %39 = fsub double %.0106133, %34
-  %40 = sub nsw i32 %.0111131, %37
+  %38 = fsub double %.1105134, %29
+  %39 = fsub double %.1107133, %34
+  %40 = sub nsw i32 %.1112131, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !535
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0115 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1112 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1107 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1105 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0111 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0106 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0104 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not137 = icmp sgt i32 %.0115, %18
   br i1 %.not137, label %._crit_edge, label %.lr.ph147
 
@@ -159226,9 +159226,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.098144 = phi double [ 0xFFF0000000000000, %.lr.ph147 ], [ %.199, %100 ]
   %.0100143 = phi i32 [ 0, %.lr.ph147 ], [ %.1101, %100 ]
   %.0102142 = phi i32 [ %13, %.lr.ph147 ], [ %.1103, %100 ]
-  %.2141 = phi double [ %.1105, %.lr.ph147 ], [ %.3, %100 ]
-  %.2108140 = phi double [ %.1107, %.lr.ph147 ], [ %.3109, %100 ]
-  %.2113139 = phi i32 [ %.1112, %.lr.ph147 ], [ %.3114, %100 ]
+  %.2141 = phi double [ %.0104, %.lr.ph147 ], [ %.3, %100 ]
+  %.2108140 = phi double [ %.0106, %.lr.ph147 ], [ %.3109, %100 ]
+  %.2113139 = phi i32 [ %.0111, %.lr.ph147 ], [ %.3114, %100 ]
   %46 = icmp sgt i64 %indvars.iv168, -1
   br i1 %46, label %47, label %64
 
@@ -160490,7 +160490,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0136 = phi i32 [ 0, %.lr.ph ], [ %.1, %140 ]
   %.0106135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %140 ]
   %.0108134 = phi i32 [ %18, %.lr.ph ], [ %.1109, %140 ]
-  %.0110133 = phi i32 [ 0, %.lr.ph ], [ %.2, %140 ]
+  %.0110133 = phi i32 [ 0, %.lr.ph ], [ %.1111, %140 ]
   %33 = load i32, ptr %27, align 4
   %34 = trunc i64 %indvars.iv to i32
   %35 = add i32 %34, %25
@@ -160638,7 +160638,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17F
   br label %140
 
 140:                                              ; preds = %137, %139, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %37, %51, %32
-  %.2 = phi i32 [ %.0110133, %32 ], [ %40, %37 ], [ %40, %51 ], [ %40, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %40, %139 ], [ %40, %137 ]
+  %.1111 = phi i32 [ %.0110133, %32 ], [ %40, %37 ], [ %40, %51 ], [ %40, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %40, %139 ], [ %40, %137 ]
   %.1109 = phi i32 [ %.0108134, %32 ], [ %.0108134, %37 ], [ %.0108134, %51 ], [ %.0108134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %35, %139 ], [ %.0108134, %137 ]
   %.1107 = phi double [ %.0106135, %32 ], [ %.0106135, %37 ], [ %.0106135, %51 ], [ %.0106135, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %135, %139 ], [ %.0106135, %137 ]
   %.1 = phi i32 [ %.0136, %32 ], [ %.0136, %37 ], [ %.0136, %51 ], [ %.0136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %40, %139 ], [ %.0136, %137 ]
@@ -161178,7 +161178,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0134 = phi i64 [ 0, %.lr.ph ], [ %.1, %137 ]
   %.0104133 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1105, %137 ]
   %.0106132 = phi i32 [ %14, %.lr.ph ], [ %.1107, %137 ]
-  %.0108131 = phi i64 [ 0, %.lr.ph ], [ %.2, %137 ]
+  %.0108131 = phi i64 [ 0, %.lr.ph ], [ %.1109, %137 ]
   %30 = load i32, ptr %24, align 4
   %31 = trunc i64 %indvars.iv to i32
   %32 = add i32 %31, %22
@@ -161326,7 +161326,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17F
   br label %137
 
 137:                                              ; preds = %134, %136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %34, %48, %29
-  %.2 = phi i64 [ %.0108131, %29 ], [ %37, %34 ], [ %37, %48 ], [ %37, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %37, %136 ], [ %37, %134 ]
+  %.1109 = phi i64 [ %.0108131, %29 ], [ %37, %34 ], [ %37, %48 ], [ %37, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %37, %136 ], [ %37, %134 ]
   %.1107 = phi i32 [ %.0106132, %29 ], [ %.0106132, %34 ], [ %.0106132, %48 ], [ %.0106132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %32, %136 ], [ %.0106132, %134 ]
   %.1105 = phi double [ %.0104133, %29 ], [ %.0104133, %34 ], [ %.0104133, %48 ], [ %.0104133, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %132, %136 ], [ %.0104133, %134 ]
   %.1 = phi i64 [ %.0134, %29 ], [ %.0134, %34 ], [ %.0134, %48 ], [ %.0134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %37, %136 ], [ %.0134, %134 ]
@@ -161868,7 +161868,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0136 = phi i64 [ 0, %.lr.ph ], [ %.1, %143 ]
   %.0106135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %143 ]
   %.0108134 = phi i32 [ %14, %.lr.ph ], [ %.1109, %143 ]
-  %.0110133 = phi i64 [ 0, %.lr.ph ], [ %.2, %143 ]
+  %.0110133 = phi i64 [ 0, %.lr.ph ], [ %.1111, %143 ]
   %30 = load i32, ptr %24, align 4
   %31 = trunc i64 %indvars.iv to i32
   %32 = add i32 %31, %22
@@ -162023,7 +162023,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17F
   br label %143
 
 143:                                              ; preds = %140, %142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %34, %54, %29
-  %.2 = phi i64 [ %.0110133, %29 ], [ %43, %34 ], [ %43, %54 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %142 ], [ %43, %140 ]
+  %.1111 = phi i64 [ %.0110133, %29 ], [ %43, %34 ], [ %43, %54 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %142 ], [ %43, %140 ]
   %.1109 = phi i32 [ %.0108134, %29 ], [ %.0108134, %34 ], [ %.0108134, %54 ], [ %.0108134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %32, %142 ], [ %.0108134, %140 ]
   %.1107 = phi double [ %.0106135, %29 ], [ %.0106135, %34 ], [ %.0106135, %54 ], [ %.0106135, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %138, %142 ], [ %.0106135, %140 ]
   %.1 = phi i64 [ %.0136, %29 ], [ %.0136, %34 ], [ %.0136, %54 ], [ %.0136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %142 ], [ %.0136, %140 ]
@@ -162702,17 +162702,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0117141 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1118141 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0117141, %31
+  %32 = sub nsw i32 %.1118141, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !545
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0119 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1118 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0117 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not142 = icmp sgt i32 %.0119, %26
   br i1 %.not142, label %._crit_edge, label %.lr.ph148
 
@@ -162725,7 +162725,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0147 = phi i32 [ 0, %.lr.ph148 ], [ %.1, %143 ]
   %.0113146 = phi double [ 0xFFF0000000000000, %.lr.ph148 ], [ %.1114, %143 ]
   %.0115145 = phi i32 [ %18, %.lr.ph148 ], [ %.1116, %143 ]
-  %.2144 = phi i32 [ %.1118, %.lr.ph148 ], [ %.3, %143 ]
+  %.2144 = phi i32 [ %.0117, %.lr.ph148 ], [ %.3, %143 ]
   %.1120143 = phi i32 [ %.0119, %.lr.ph148 ], [ %144, %143 ]
   %36 = icmp sgt i32 %.1120143, -1
   br i1 %36, label %37, label %42
@@ -163404,17 +163404,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0115139 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1116139 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0115139, %28
+  %29 = sub nsw i64 %.1116139, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !548
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0117 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1116 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0115 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not140 = icmp sgt i32 %.0117, %23
   br i1 %.not140, label %._crit_edge, label %.lr.ph146
 
@@ -163427,7 +163427,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0145 = phi i64 [ 0, %.lr.ph146 ], [ %.1, %140 ]
   %.0111144 = phi double [ 0xFFF0000000000000, %.lr.ph146 ], [ %.1112, %140 ]
   %.0113143 = phi i32 [ %14, %.lr.ph146 ], [ %.1114, %140 ]
-  %.2142 = phi i64 [ %.1116, %.lr.ph146 ], [ %.3, %140 ]
+  %.2142 = phi i64 [ %.0115, %.lr.ph146 ], [ %.3, %140 ]
   %.1118141 = phi i32 [ %.0117, %.lr.ph146 ], [ %141, %140 ]
   %33 = icmp sgt i32 %.1118141, -1
   br i1 %33, label %34, label %39
@@ -164108,7 +164108,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0119147 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1120147 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -164118,14 +164118,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0119147, %34
+  %35 = sub i64 %.1120147, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !551
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0121 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1120 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not148 = icmp sgt i32 %.0121, %23
   br i1 %.not148, label %._crit_edge, label %.lr.ph154
 
@@ -164138,7 +164138,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0153 = phi i64 [ 0, %.lr.ph154 ], [ %.1, %152 ]
   %.0115152 = phi double [ 0xFFF0000000000000, %.lr.ph154 ], [ %.1116, %152 ]
   %.0117151 = phi i32 [ %14, %.lr.ph154 ], [ %.1118, %152 ]
-  %.2150 = phi i64 [ %.1120, %.lr.ph154 ], [ %.3, %152 ]
+  %.2150 = phi i64 [ %.0119, %.lr.ph154 ], [ %.3, %152 ]
   %.1122149 = phi i32 [ %.0121, %.lr.ph154 ], [ %153, %152 ]
   %39 = icmp sgt i32 %.1122149, -1
   br i1 %39, label %40, label %51
@@ -166211,9 +166211,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.083121 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.184, %127 ]
   %.085120 = phi i32 [ 0, %.lr.ph ], [ %.186, %127 ]
   %.087119 = phi i32 [ %13, %.lr.ph ], [ %.188, %127 ]
-  %.090117 = phi i32 [ 0, %.lr.ph ], [ %.2, %127 ]
-  %.092116 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.294, %127 ]
-  %.095115 = phi double [ 0.000000e+00, %.lr.ph ], [ %.297, %127 ]
+  %.090117 = phi i32 [ 0, %.lr.ph ], [ %.191, %127 ]
+  %.092116 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.193, %127 ]
+  %.095115 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %127 ]
   %27 = load i32, ptr %19, align 4
   %28 = trunc i64 %indvars.iv to i32
   %29 = add i32 %28, %17
@@ -166356,9 +166356,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17F
   br label %127
 
 127:                                              ; preds = %124, %126, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %31, %50, %26
-  %.297 = phi double [ %.095115, %26 ], [ %35, %31 ], [ %35, %50 ], [ %35, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %35, %126 ], [ %35, %124 ]
-  %.294 = phi double [ %.092116, %26 ], [ %41, %31 ], [ %41, %50 ], [ %41, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %126 ], [ %41, %124 ]
-  %.2 = phi i32 [ %.090117, %26 ], [ %45, %31 ], [ %45, %50 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %126 ], [ %45, %124 ]
+  %.196 = phi double [ %.095115, %26 ], [ %35, %31 ], [ %35, %50 ], [ %35, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %35, %126 ], [ %35, %124 ]
+  %.193 = phi double [ %.092116, %26 ], [ %41, %31 ], [ %41, %50 ], [ %41, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %126 ], [ %41, %124 ]
+  %.191 = phi i32 [ %.090117, %26 ], [ %45, %31 ], [ %45, %50 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %126 ], [ %45, %124 ]
   %.188 = phi i32 [ %.087119, %26 ], [ %.087119, %31 ], [ %.087119, %50 ], [ %.087119, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %29, %126 ], [ %.087119, %124 ]
   %.186 = phi i32 [ %.085120, %26 ], [ %.085120, %31 ], [ %.085120, %50 ], [ %.085120, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %126 ], [ %.085120, %124 ]
   %.184 = phi double [ %.083121, %26 ], [ %.083121, %31 ], [ %.083121, %50 ], [ %.083121, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb1ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %122, %126 ], [ %.083121, %124 ]
@@ -166946,9 +166946,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0104136 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0106135 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0111133 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1105136 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1107135 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1112133 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -166962,18 +166962,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0104136, %29
-  %39 = fsub double %.0106135, %34
-  %40 = sub nsw i32 %.0111133, %37
+  %38 = fsub double %.1105136, %29
+  %39 = fsub double %.1107135, %34
+  %40 = sub nsw i32 %.1112133, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !559
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0115 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1112 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1107 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1105 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0111 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0106 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0104 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not139 = icmp sgt i32 %.0115, %18
   br i1 %.not139, label %._crit_edge, label %.lr.ph149
 
@@ -166993,9 +166993,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.098146 = phi double [ 0xFFF0000000000000, %.lr.ph149 ], [ %.199, %149 ]
   %.0100145 = phi i32 [ 0, %.lr.ph149 ], [ %.1101, %149 ]
   %.0102144 = phi i32 [ %13, %.lr.ph149 ], [ %.1103, %149 ]
-  %.2143 = phi double [ %.1105, %.lr.ph149 ], [ %.3, %149 ]
-  %.2108142 = phi double [ %.1107, %.lr.ph149 ], [ %.3109, %149 ]
-  %.2113141 = phi i32 [ %.1112, %.lr.ph149 ], [ %.3114, %149 ]
+  %.2143 = phi double [ %.0104, %.lr.ph149 ], [ %.3, %149 ]
+  %.2108142 = phi double [ %.0106, %.lr.ph149 ], [ %.3109, %149 ]
+  %.2113141 = phi i32 [ %.0111, %.lr.ph149 ], [ %.3114, %149 ]
   %48 = icmp sgt i64 %indvars.iv170, -1
   br i1 %48, label %49, label %65
 
@@ -169056,7 +169056,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0130 = phi i32 [ 0, %.lr.ph ], [ %.1, %147 ]
   %.0106129 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %147 ]
   %.0108128 = phi i32 [ %18, %.lr.ph ], [ %.1109, %147 ]
-  %.0110127 = phi i32 [ 0, %.lr.ph ], [ %.2, %147 ]
+  %.0110127 = phi i32 [ 0, %.lr.ph ], [ %.1111, %147 ]
   %36 = load i32, ptr %27, align 4
   %37 = trunc i64 %indvars.iv to i32
   %38 = add i32 %37, %25
@@ -169194,7 +169194,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %147
 
 147:                                              ; preds = %144, %146, %67, %40, %54, %35
-  %.2 = phi i32 [ %.0110127, %35 ], [ %43, %40 ], [ %43, %54 ], [ %43, %67 ], [ %43, %146 ], [ %43, %144 ]
+  %.1111 = phi i32 [ %.0110127, %35 ], [ %43, %40 ], [ %43, %54 ], [ %43, %67 ], [ %43, %146 ], [ %43, %144 ]
   %.1109 = phi i32 [ %.0108128, %35 ], [ %.0108128, %40 ], [ %.0108128, %54 ], [ %.0108128, %67 ], [ %38, %146 ], [ %.0108128, %144 ]
   %.1107 = phi double [ %.0106129, %35 ], [ %.0106129, %40 ], [ %.0106129, %54 ], [ %.0106129, %67 ], [ %142, %146 ], [ %.0106129, %144 ]
   %.1 = phi i32 [ %.0130, %35 ], [ %.0130, %40 ], [ %.0130, %54 ], [ %.0130, %67 ], [ %43, %146 ], [ %.0130, %144 ]
@@ -169679,7 +169679,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0128 = phi i64 [ 0, %.lr.ph ], [ %.1, %139 ]
   %.0104127 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1105, %139 ]
   %.0106126 = phi i32 [ %14, %.lr.ph ], [ %.1107, %139 ]
-  %.0108125 = phi i64 [ 0, %.lr.ph ], [ %.2, %139 ]
+  %.0108125 = phi i64 [ 0, %.lr.ph ], [ %.1109, %139 ]
   %31 = load i32, ptr %24, align 4
   %32 = trunc i64 %indvars.iv to i32
   %33 = add i32 %32, %22
@@ -169814,7 +169814,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %139
 
 139:                                              ; preds = %136, %138, %62, %35, %49, %30
-  %.2 = phi i64 [ %.0108125, %30 ], [ %38, %35 ], [ %38, %49 ], [ %38, %62 ], [ %38, %138 ], [ %38, %136 ]
+  %.1109 = phi i64 [ %.0108125, %30 ], [ %38, %35 ], [ %38, %49 ], [ %38, %62 ], [ %38, %138 ], [ %38, %136 ]
   %.1107 = phi i32 [ %.0106126, %30 ], [ %.0106126, %35 ], [ %.0106126, %49 ], [ %.0106126, %62 ], [ %33, %138 ], [ %.0106126, %136 ]
   %.1105 = phi double [ %.0104127, %30 ], [ %.0104127, %35 ], [ %.0104127, %49 ], [ %.0104127, %62 ], [ %134, %138 ], [ %.0104127, %136 ]
   %.1 = phi i64 [ %.0128, %30 ], [ %.0128, %35 ], [ %.0128, %49 ], [ %.0128, %62 ], [ %38, %138 ], [ %.0128, %136 ]
@@ -170301,7 +170301,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0130 = phi i64 [ 0, %.lr.ph ], [ %.1, %145 ]
   %.0106129 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %145 ]
   %.0108128 = phi i32 [ %14, %.lr.ph ], [ %.1109, %145 ]
-  %.0110127 = phi i64 [ 0, %.lr.ph ], [ %.2, %145 ]
+  %.0110127 = phi i64 [ 0, %.lr.ph ], [ %.1111, %145 ]
   %31 = load i32, ptr %24, align 4
   %32 = trunc i64 %indvars.iv to i32
   %33 = add i32 %32, %22
@@ -170443,7 +170443,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %145
 
 145:                                              ; preds = %142, %144, %68, %35, %55, %30
-  %.2 = phi i64 [ %.0110127, %30 ], [ %44, %35 ], [ %44, %55 ], [ %44, %68 ], [ %44, %144 ], [ %44, %142 ]
+  %.1111 = phi i64 [ %.0110127, %30 ], [ %44, %35 ], [ %44, %55 ], [ %44, %68 ], [ %44, %144 ], [ %44, %142 ]
   %.1109 = phi i32 [ %.0108128, %30 ], [ %.0108128, %35 ], [ %.0108128, %55 ], [ %.0108128, %68 ], [ %33, %144 ], [ %.0108128, %142 ]
   %.1107 = phi double [ %.0106129, %30 ], [ %.0106129, %35 ], [ %.0106129, %55 ], [ %.0106129, %68 ], [ %140, %144 ], [ %.0106129, %142 ]
   %.1 = phi i64 [ %.0130, %30 ], [ %.0130, %35 ], [ %.0130, %55 ], [ %.0130, %68 ], [ %44, %144 ], [ %.0130, %142 ]
@@ -171060,17 +171060,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0117135 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1118135 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0117135, %31
+  %32 = sub nsw i32 %.1118135, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !569
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0119 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1118 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0117 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not136 = icmp sgt i32 %.0119, %26
   br i1 %.not136, label %._crit_edge, label %.lr.ph142
 
@@ -171086,7 +171086,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0141 = phi i32 [ 0, %.lr.ph142 ], [ %.1, %150 ]
   %.0113140 = phi double [ 0xFFF0000000000000, %.lr.ph142 ], [ %.1114, %150 ]
   %.0115139 = phi i32 [ %18, %.lr.ph142 ], [ %.1116, %150 ]
-  %.2138 = phi i32 [ %.1118, %.lr.ph142 ], [ %.3, %150 ]
+  %.2138 = phi i32 [ %.0117, %.lr.ph142 ], [ %.3, %150 ]
   %.1120137 = phi i32 [ %.0119, %.lr.ph142 ], [ %151, %150 ]
   %39 = icmp sgt i32 %.1120137, -1
   br i1 %39, label %40, label %45
@@ -171699,17 +171699,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0115133 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1116133 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0115133, %28
+  %29 = sub nsw i64 %.1116133, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !572
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0117 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1116 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0115 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not134 = icmp sgt i32 %.0117, %23
   br i1 %.not134, label %._crit_edge, label %.lr.ph140
 
@@ -171723,7 +171723,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0139 = phi i64 [ 0, %.lr.ph140 ], [ %.1, %142 ]
   %.0111138 = phi double [ 0xFFF0000000000000, %.lr.ph140 ], [ %.1112, %142 ]
   %.0113137 = phi i32 [ %14, %.lr.ph140 ], [ %.1114, %142 ]
-  %.2136 = phi i64 [ %.1116, %.lr.ph140 ], [ %.3, %142 ]
+  %.2136 = phi i64 [ %.0115, %.lr.ph140 ], [ %.3, %142 ]
   %.1118135 = phi i32 [ %.0117, %.lr.ph140 ], [ %143, %142 ]
   %34 = icmp sgt i32 %.1118135, -1
   br i1 %34, label %35, label %40
@@ -172335,7 +172335,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0119141 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1120141 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -172345,14 +172345,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0119141, %34
+  %35 = sub i64 %.1120141, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !575
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0121 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1120 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not142 = icmp sgt i32 %.0121, %23
   br i1 %.not142, label %._crit_edge, label %.lr.ph148
 
@@ -172366,7 +172366,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0147 = phi i64 [ 0, %.lr.ph148 ], [ %.1, %154 ]
   %.0115146 = phi double [ 0xFFF0000000000000, %.lr.ph148 ], [ %.1116, %154 ]
   %.0117145 = phi i32 [ %14, %.lr.ph148 ], [ %.1118, %154 ]
-  %.2144 = phi i64 [ %.1120, %.lr.ph148 ], [ %.3, %154 ]
+  %.2144 = phi i64 [ %.0119, %.lr.ph148 ], [ %.3, %154 ]
   %.1122143 = phi i32 [ %.0121, %.lr.ph148 ], [ %155, %154 ]
   %40 = icmp sgt i32 %.1122143, -1
   br i1 %40, label %41, label %52
@@ -174240,9 +174240,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.083115 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.184, %129 ]
   %.085114 = phi i32 [ 0, %.lr.ph ], [ %.186, %129 ]
   %.087113 = phi i32 [ %13, %.lr.ph ], [ %.188, %129 ]
-  %.090111 = phi i32 [ 0, %.lr.ph ], [ %.2, %129 ]
-  %.092110 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.294, %129 ]
-  %.095109 = phi double [ 0.000000e+00, %.lr.ph ], [ %.297, %129 ]
+  %.090111 = phi i32 [ 0, %.lr.ph ], [ %.191, %129 ]
+  %.092110 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.193, %129 ]
+  %.095109 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %129 ]
   %28 = load i32, ptr %19, align 4
   %29 = trunc i64 %indvars.iv to i32
   %30 = add i32 %29, %17
@@ -174372,9 +174372,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   br label %129
 
 129:                                              ; preds = %126, %128, %61, %32, %51, %27
-  %.297 = phi double [ %.095109, %27 ], [ %36, %32 ], [ %36, %51 ], [ %36, %61 ], [ %36, %128 ], [ %36, %126 ]
-  %.294 = phi double [ %.092110, %27 ], [ %42, %32 ], [ %42, %51 ], [ %42, %61 ], [ %42, %128 ], [ %42, %126 ]
-  %.2 = phi i32 [ %.090111, %27 ], [ %46, %32 ], [ %46, %51 ], [ %46, %61 ], [ %46, %128 ], [ %46, %126 ]
+  %.196 = phi double [ %.095109, %27 ], [ %36, %32 ], [ %36, %51 ], [ %36, %61 ], [ %36, %128 ], [ %36, %126 ]
+  %.193 = phi double [ %.092110, %27 ], [ %42, %32 ], [ %42, %51 ], [ %42, %61 ], [ %42, %128 ], [ %42, %126 ]
+  %.191 = phi i32 [ %.090111, %27 ], [ %46, %32 ], [ %46, %51 ], [ %46, %61 ], [ %46, %128 ], [ %46, %126 ]
   %.188 = phi i32 [ %.087113, %27 ], [ %.087113, %32 ], [ %.087113, %51 ], [ %.087113, %61 ], [ %30, %128 ], [ %.087113, %126 ]
   %.186 = phi i32 [ %.085114, %27 ], [ %.085114, %32 ], [ %.085114, %51 ], [ %.085114, %61 ], [ %46, %128 ], [ %.085114, %126 ]
   %.184 = phi double [ %.083115, %27 ], [ %.083115, %32 ], [ %.083115, %51 ], [ %.083115, %61 ], [ %124, %128 ], [ %.083115, %126 ]
@@ -174894,9 +174894,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0104130 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0106129 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0111127 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1105130 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1107129 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1112127 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -174910,18 +174910,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0104130, %29
-  %39 = fsub double %.0106129, %34
-  %40 = sub nsw i32 %.0111127, %37
+  %38 = fsub double %.1105130, %29
+  %39 = fsub double %.1107129, %34
+  %40 = sub nsw i32 %.1112127, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !583
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0115 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1112 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1107 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1105 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0111 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0106 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0104 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not133 = icmp sgt i32 %.0115, %18
   br i1 %.not133, label %._crit_edge, label %.lr.ph143
 
@@ -174942,9 +174942,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.098140 = phi double [ 0xFFF0000000000000, %.lr.ph143 ], [ %.199, %151 ]
   %.0100139 = phi i32 [ 0, %.lr.ph143 ], [ %.1101, %151 ]
   %.0102138 = phi i32 [ %13, %.lr.ph143 ], [ %.1103, %151 ]
-  %.2137 = phi double [ %.1105, %.lr.ph143 ], [ %.3, %151 ]
-  %.2108136 = phi double [ %.1107, %.lr.ph143 ], [ %.3109, %151 ]
-  %.2113135 = phi i32 [ %.1112, %.lr.ph143 ], [ %.3114, %151 ]
+  %.2137 = phi double [ %.0104, %.lr.ph143 ], [ %.3, %151 ]
+  %.2108136 = phi double [ %.0106, %.lr.ph143 ], [ %.3109, %151 ]
+  %.2113135 = phi i32 [ %.0111, %.lr.ph143 ], [ %.3114, %151 ]
   %49 = icmp sgt i64 %indvars.iv164, -1
   br i1 %49, label %50, label %66
 
@@ -176068,7 +176068,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0131 = phi i32 [ 0, %.lr.ph ], [ %.1, %104 ]
   %.0106130 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %104 ]
   %.0108129 = phi i32 [ %18, %.lr.ph ], [ %.1109, %104 ]
-  %.0110128 = phi i32 [ 0, %.lr.ph ], [ %.2, %104 ]
+  %.0110128 = phi i32 [ 0, %.lr.ph ], [ %.1111, %104 ]
   %35 = load i32, ptr %27, align 4
   %36 = trunc i64 %indvars.iv to i32
   %37 = add i32 %36, %25
@@ -176157,7 +176157,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %104
 
 104:                                              ; preds = %101, %103, %66, %39, %53, %34
-  %.2 = phi i32 [ %.0110128, %34 ], [ %42, %39 ], [ %42, %53 ], [ %42, %66 ], [ %42, %103 ], [ %42, %101 ]
+  %.1111 = phi i32 [ %.0110128, %34 ], [ %42, %39 ], [ %42, %53 ], [ %42, %66 ], [ %42, %103 ], [ %42, %101 ]
   %.1109 = phi i32 [ %.0108129, %34 ], [ %.0108129, %39 ], [ %.0108129, %53 ], [ %.0108129, %66 ], [ %37, %103 ], [ %.0108129, %101 ]
   %.1107 = phi double [ %.0106130, %34 ], [ %.0106130, %39 ], [ %.0106130, %53 ], [ %.0106130, %66 ], [ %99, %103 ], [ %.0106130, %101 ]
   %.1 = phi i32 [ %.0131, %34 ], [ %.0131, %39 ], [ %.0131, %53 ], [ %.0131, %66 ], [ %42, %103 ], [ %.0131, %101 ]
@@ -176562,7 +176562,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0129 = phi i64 [ 0, %.lr.ph ], [ %.1, %101 ]
   %.0104128 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1105, %101 ]
   %.0106127 = phi i32 [ %14, %.lr.ph ], [ %.1107, %101 ]
-  %.0108126 = phi i64 [ 0, %.lr.ph ], [ %.2, %101 ]
+  %.0108126 = phi i64 [ 0, %.lr.ph ], [ %.1109, %101 ]
   %32 = load i32, ptr %24, align 4
   %33 = trunc i64 %indvars.iv to i32
   %34 = add i32 %33, %22
@@ -176651,7 +176651,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %101
 
 101:                                              ; preds = %98, %100, %63, %36, %50, %31
-  %.2 = phi i64 [ %.0108126, %31 ], [ %39, %36 ], [ %39, %50 ], [ %39, %63 ], [ %39, %100 ], [ %39, %98 ]
+  %.1109 = phi i64 [ %.0108126, %31 ], [ %39, %36 ], [ %39, %50 ], [ %39, %63 ], [ %39, %100 ], [ %39, %98 ]
   %.1107 = phi i32 [ %.0106127, %31 ], [ %.0106127, %36 ], [ %.0106127, %50 ], [ %.0106127, %63 ], [ %34, %100 ], [ %.0106127, %98 ]
   %.1105 = phi double [ %.0104128, %31 ], [ %.0104128, %36 ], [ %.0104128, %50 ], [ %.0104128, %63 ], [ %96, %100 ], [ %.0104128, %98 ]
   %.1 = phi i64 [ %.0129, %31 ], [ %.0129, %36 ], [ %.0129, %50 ], [ %.0129, %63 ], [ %39, %100 ], [ %.0129, %98 ]
@@ -177058,7 +177058,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0131 = phi i64 [ 0, %.lr.ph ], [ %.1, %107 ]
   %.0106130 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %107 ]
   %.0108129 = phi i32 [ %14, %.lr.ph ], [ %.1109, %107 ]
-  %.0110128 = phi i64 [ 0, %.lr.ph ], [ %.2, %107 ]
+  %.0110128 = phi i64 [ 0, %.lr.ph ], [ %.1111, %107 ]
   %32 = load i32, ptr %24, align 4
   %33 = trunc i64 %indvars.iv to i32
   %34 = add i32 %33, %22
@@ -177154,7 +177154,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %107
 
 107:                                              ; preds = %104, %106, %69, %36, %56, %31
-  %.2 = phi i64 [ %.0110128, %31 ], [ %45, %36 ], [ %45, %56 ], [ %45, %69 ], [ %45, %106 ], [ %45, %104 ]
+  %.1111 = phi i64 [ %.0110128, %31 ], [ %45, %36 ], [ %45, %56 ], [ %45, %69 ], [ %45, %106 ], [ %45, %104 ]
   %.1109 = phi i32 [ %.0108129, %31 ], [ %.0108129, %36 ], [ %.0108129, %56 ], [ %.0108129, %69 ], [ %34, %106 ], [ %.0108129, %104 ]
   %.1107 = phi double [ %.0106130, %31 ], [ %.0106130, %36 ], [ %.0106130, %56 ], [ %.0106130, %69 ], [ %102, %106 ], [ %.0106130, %104 ]
   %.1 = phi i64 [ %.0131, %31 ], [ %.0131, %36 ], [ %.0131, %56 ], [ %.0131, %69 ], [ %45, %106 ], [ %.0131, %104 ]
@@ -177670,17 +177670,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0117136 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1118136 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0117136, %31
+  %32 = sub nsw i32 %.1118136, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !593
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0119 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1118 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0117 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not137 = icmp sgt i32 %.0119, %26
   br i1 %.not137, label %._crit_edge, label %.lr.ph143
 
@@ -177695,7 +177695,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0142 = phi i32 [ 0, %.lr.ph143 ], [ %.1, %107 ]
   %.0113141 = phi double [ 0xFFF0000000000000, %.lr.ph143 ], [ %.1114, %107 ]
   %.0115140 = phi i32 [ %18, %.lr.ph143 ], [ %.1116, %107 ]
-  %.2139 = phi i32 [ %.1118, %.lr.ph143 ], [ %.3, %107 ]
+  %.2139 = phi i32 [ %.0117, %.lr.ph143 ], [ %.3, %107 ]
   %.1120138 = phi i32 [ %.0119, %.lr.ph143 ], [ %108, %107 ]
   %38 = icmp sgt i32 %.1120138, -1
   br i1 %38, label %39, label %44
@@ -178178,17 +178178,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0115134 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1116134 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0115134, %28
+  %29 = sub nsw i64 %.1116134, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !596
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0117 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1116 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0115 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not135 = icmp sgt i32 %.0117, %23
   br i1 %.not135, label %._crit_edge, label %.lr.ph141
 
@@ -178203,7 +178203,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0140 = phi i64 [ 0, %.lr.ph141 ], [ %.1, %104 ]
   %.0111139 = phi double [ 0xFFF0000000000000, %.lr.ph141 ], [ %.1112, %104 ]
   %.0113138 = phi i32 [ %14, %.lr.ph141 ], [ %.1114, %104 ]
-  %.2137 = phi i64 [ %.1116, %.lr.ph141 ], [ %.3, %104 ]
+  %.2137 = phi i64 [ %.0115, %.lr.ph141 ], [ %.3, %104 ]
   %.1118136 = phi i32 [ %.0117, %.lr.ph141 ], [ %105, %104 ]
   %35 = icmp sgt i32 %.1118136, -1
   br i1 %35, label %36, label %41
@@ -178688,7 +178688,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0119142 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1120142 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -178698,14 +178698,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0119142, %34
+  %35 = sub i64 %.1120142, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !599
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0121 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1120 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not143 = icmp sgt i32 %.0121, %23
   br i1 %.not143, label %._crit_edge, label %.lr.ph149
 
@@ -178720,7 +178720,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0148 = phi i64 [ 0, %.lr.ph149 ], [ %.1, %116 ]
   %.0115147 = phi double [ 0xFFF0000000000000, %.lr.ph149 ], [ %.1116, %116 ]
   %.0117146 = phi i32 [ %14, %.lr.ph149 ], [ %.1118, %116 ]
-  %.2145 = phi i64 [ %.1120, %.lr.ph149 ], [ %.3, %116 ]
+  %.2145 = phi i64 [ %.0119, %.lr.ph149 ], [ %.3, %116 ]
   %.1122144 = phi i32 [ %.0121, %.lr.ph149 ], [ %117, %116 ]
   %41 = icmp sgt i32 %.1122144, -1
   br i1 %41, label %42, label %53
@@ -180225,7 +180225,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.083116 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.184, %97 ]
   %.085115 = phi i32 [ 0, %.lr.ph ], [ %.186, %97 ]
   %.087114 = phi i32 [ %13, %.lr.ph ], [ %.188, %97 ]
-  %.090112 = phi i32 [ 0, %.lr.ph ], [ %.2, %97 ]
+  %.090112 = phi i32 [ 0, %.lr.ph ], [ %.191, %97 ]
   %27 = phi <2 x double> [ <double 0x3CD203AFA0000000, double 0.000000e+00>, %.lr.ph ], [ %98, %97 ]
   %28 = load i32, ptr %19, align 4
   %29 = trunc i64 %indvars.iv to i32
@@ -180317,7 +180317,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   br label %97
 
 97:                                               ; preds = %94, %96, %63, %32, %52, %26
-  %.2 = phi i32 [ %.090112, %26 ], [ %47, %32 ], [ %47, %52 ], [ %47, %63 ], [ %47, %96 ], [ %47, %94 ]
+  %.191 = phi i32 [ %.090112, %26 ], [ %47, %32 ], [ %47, %52 ], [ %47, %63 ], [ %47, %96 ], [ %47, %94 ]
   %.188 = phi i32 [ %.087114, %26 ], [ %.087114, %32 ], [ %.087114, %52 ], [ %.087114, %63 ], [ %30, %96 ], [ %.087114, %94 ]
   %.186 = phi i32 [ %.085115, %26 ], [ %.085115, %32 ], [ %.085115, %52 ], [ %.085115, %63 ], [ %47, %96 ], [ %.085115, %94 ]
   %.184 = phi double [ %.083116, %26 ], [ %.083116, %32 ], [ %.083116, %52 ], [ %.083116, %63 ], [ %92, %96 ], [ %.083116, %94 ]
@@ -180742,7 +180742,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.0111128 = phi i32 [ %3, %.lr.ph ], [ %44, %28 ]
+  %.1112128 = phi i32 [ %3, %.lr.ph ], [ %44, %28 ]
   %29 = phi <2 x double> [ %24, %.lr.ph ], [ %43, %28 ]
   %sext = shl i64 %indvars.iv, 33
   %30 = ashr exact i64 %sext, 29
@@ -180760,14 +180760,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %41 = insertelement <2 x double> poison, double %32, i64 0
   %42 = insertelement <2 x double> %41, double %37, i64 1
   %43 = fsub <2 x double> %29, %42
-  %44 = sub nsw i32 %.0111128, %40
+  %44 = sub nsw i32 %.1112128, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !607
 
 .loopexit:                                        ; preds = %28, %20, %9
   %.0115 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %28 ]
-  %.1112 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %44, %28 ]
+  %.0111 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %44, %28 ]
   %45 = phi <2 x double> [ <double 0.000000e+00, double 0x3CD203AFA0000000>, %9 ], [ %24, %20 ], [ %43, %28 ]
   %.not134 = icmp sgt i32 %.0115, %18
   br i1 %.not134, label %._crit_edge, label %.lr.ph144
@@ -180788,7 +180788,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.098141 = phi double [ 0xFFF0000000000000, %.lr.ph144 ], [ %.199, %125 ]
   %.0100140 = phi i32 [ 0, %.lr.ph144 ], [ %.1101, %125 ]
   %.0102139 = phi i32 [ %13, %.lr.ph144 ], [ %.1103, %125 ]
-  %.2113136 = phi i32 [ %.1112, %.lr.ph144 ], [ %.3114, %125 ]
+  %.2113136 = phi i32 [ %.0111, %.lr.ph144 ], [ %.3114, %125 ]
   %53 = phi <2 x double> [ %45, %.lr.ph144 ], [ %73, %125 ]
   %54 = icmp sgt i64 %indvars.iv165, -1
   br i1 %54, label %55, label %72
@@ -182620,7 +182620,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0132 = phi i32 [ 0, %.lr.ph ], [ %.1, %141 ]
   %.0106131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %141 ]
   %.0108130 = phi i32 [ %18, %.lr.ph ], [ %.1109, %141 ]
-  %.0110129 = phi i32 [ 0, %.lr.ph ], [ %.2, %141 ]
+  %.0110129 = phi i32 [ 0, %.lr.ph ], [ %.1111, %141 ]
   %34 = load i32, ptr %27, align 4
   %35 = trunc i64 %indvars.iv to i32
   %36 = add i32 %35, %25
@@ -182764,7 +182764,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17F
   br label %141
 
 141:                                              ; preds = %138, %140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %38, %52, %33
-  %.2 = phi i32 [ %.0110129, %33 ], [ %41, %38 ], [ %41, %52 ], [ %41, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %140 ], [ %41, %138 ]
+  %.1111 = phi i32 [ %.0110129, %33 ], [ %41, %38 ], [ %41, %52 ], [ %41, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %140 ], [ %41, %138 ]
   %.1109 = phi i32 [ %.0108130, %33 ], [ %.0108130, %38 ], [ %.0108130, %52 ], [ %.0108130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %36, %140 ], [ %.0108130, %138 ]
   %.1107 = phi double [ %.0106131, %33 ], [ %.0106131, %38 ], [ %.0106131, %52 ], [ %.0106131, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %136, %140 ], [ %.0106131, %138 ]
   %.1 = phi i32 [ %.0132, %33 ], [ %.0132, %38 ], [ %.0132, %52 ], [ %.0132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %140 ], [ %.0132, %138 ]
@@ -183286,7 +183286,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0130 = phi i64 [ 0, %.lr.ph ], [ %.1, %138 ]
   %.0104129 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1105, %138 ]
   %.0106128 = phi i32 [ %14, %.lr.ph ], [ %.1107, %138 ]
-  %.0108127 = phi i64 [ 0, %.lr.ph ], [ %.2, %138 ]
+  %.0108127 = phi i64 [ 0, %.lr.ph ], [ %.1109, %138 ]
   %31 = load i32, ptr %24, align 4
   %32 = trunc i64 %indvars.iv to i32
   %33 = add i32 %32, %22
@@ -183430,7 +183430,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17F
   br label %138
 
 138:                                              ; preds = %135, %137, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %35, %49, %30
-  %.2 = phi i64 [ %.0108127, %30 ], [ %38, %35 ], [ %38, %49 ], [ %38, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %38, %137 ], [ %38, %135 ]
+  %.1109 = phi i64 [ %.0108127, %30 ], [ %38, %35 ], [ %38, %49 ], [ %38, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %38, %137 ], [ %38, %135 ]
   %.1107 = phi i32 [ %.0106128, %30 ], [ %.0106128, %35 ], [ %.0106128, %49 ], [ %.0106128, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %33, %137 ], [ %.0106128, %135 ]
   %.1105 = phi double [ %.0104129, %30 ], [ %.0104129, %35 ], [ %.0104129, %49 ], [ %.0104129, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %133, %137 ], [ %.0104129, %135 ]
   %.1 = phi i64 [ %.0130, %30 ], [ %.0130, %35 ], [ %.0130, %49 ], [ %.0130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %38, %137 ], [ %.0130, %135 ]
@@ -183954,7 +183954,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0132 = phi i64 [ 0, %.lr.ph ], [ %.1, %144 ]
   %.0106131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %144 ]
   %.0108130 = phi i32 [ %14, %.lr.ph ], [ %.1109, %144 ]
-  %.0110129 = phi i64 [ 0, %.lr.ph ], [ %.2, %144 ]
+  %.0110129 = phi i64 [ 0, %.lr.ph ], [ %.1111, %144 ]
   %31 = load i32, ptr %24, align 4
   %32 = trunc i64 %indvars.iv to i32
   %33 = add i32 %32, %22
@@ -184105,7 +184105,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17F
   br label %144
 
 144:                                              ; preds = %141, %143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %35, %55, %30
-  %.2 = phi i64 [ %.0110129, %30 ], [ %44, %35 ], [ %44, %55 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %143 ], [ %44, %141 ]
+  %.1111 = phi i64 [ %.0110129, %30 ], [ %44, %35 ], [ %44, %55 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %143 ], [ %44, %141 ]
   %.1109 = phi i32 [ %.0108130, %30 ], [ %.0108130, %35 ], [ %.0108130, %55 ], [ %.0108130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %33, %143 ], [ %.0108130, %141 ]
   %.1107 = phi double [ %.0106131, %30 ], [ %.0106131, %35 ], [ %.0106131, %55 ], [ %.0106131, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %139, %143 ], [ %.0106131, %141 ]
   %.1 = phi i64 [ %.0132, %30 ], [ %.0132, %35 ], [ %.0132, %55 ], [ %.0132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %44, %143 ], [ %.0132, %141 ]
@@ -184759,17 +184759,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0117137 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1118137 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0117137, %31
+  %32 = sub nsw i32 %.1118137, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !617
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0119 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1118 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0117 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not138 = icmp sgt i32 %.0119, %26
   br i1 %.not138, label %._crit_edge, label %.lr.ph144
 
@@ -184783,7 +184783,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0143 = phi i32 [ 0, %.lr.ph144 ], [ %.1, %144 ]
   %.0113142 = phi double [ 0xFFF0000000000000, %.lr.ph144 ], [ %.1114, %144 ]
   %.0115141 = phi i32 [ %18, %.lr.ph144 ], [ %.1116, %144 ]
-  %.2140 = phi i32 [ %.1118, %.lr.ph144 ], [ %.3, %144 ]
+  %.2140 = phi i32 [ %.0117, %.lr.ph144 ], [ %.3, %144 ]
   %.1120139 = phi i32 [ %.0119, %.lr.ph144 ], [ %145, %144 ]
   %37 = icmp sgt i32 %.1120139, -1
   br i1 %37, label %38, label %43
@@ -185439,17 +185439,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0115135 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1116135 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0115135, %28
+  %29 = sub nsw i64 %.1116135, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !620
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0117 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1116 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0115 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not136 = icmp sgt i32 %.0117, %23
   br i1 %.not136, label %._crit_edge, label %.lr.ph142
 
@@ -185463,7 +185463,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0141 = phi i64 [ 0, %.lr.ph142 ], [ %.1, %141 ]
   %.0111140 = phi double [ 0xFFF0000000000000, %.lr.ph142 ], [ %.1112, %141 ]
   %.0113139 = phi i32 [ %14, %.lr.ph142 ], [ %.1114, %141 ]
-  %.2138 = phi i64 [ %.1116, %.lr.ph142 ], [ %.3, %141 ]
+  %.2138 = phi i64 [ %.0115, %.lr.ph142 ], [ %.3, %141 ]
   %.1118137 = phi i32 [ %.0117, %.lr.ph142 ], [ %142, %141 ]
   %34 = icmp sgt i32 %.1118137, -1
   br i1 %34, label %35, label %40
@@ -186121,7 +186121,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0119143 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1120143 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -186131,14 +186131,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0119143, %34
+  %35 = sub i64 %.1120143, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !623
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0121 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1120 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not144 = icmp sgt i32 %.0121, %23
   br i1 %.not144, label %._crit_edge, label %.lr.ph150
 
@@ -186152,7 +186152,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0149 = phi i64 [ 0, %.lr.ph150 ], [ %.1, %153 ]
   %.0115148 = phi double [ 0xFFF0000000000000, %.lr.ph150 ], [ %.1116, %153 ]
   %.0117147 = phi i32 [ %14, %.lr.ph150 ], [ %.1118, %153 ]
-  %.2146 = phi i64 [ %.1120, %.lr.ph150 ], [ %.3, %153 ]
+  %.2146 = phi i64 [ %.0119, %.lr.ph150 ], [ %.3, %153 ]
   %.1122145 = phi i32 [ %.0121, %.lr.ph150 ], [ %154, %153 ]
   %40 = icmp sgt i32 %.1122145, -1
   br i1 %40, label %41, label %52
@@ -188157,9 +188157,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.083117 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.184, %128 ]
   %.085116 = phi i32 [ 0, %.lr.ph ], [ %.186, %128 ]
   %.087115 = phi i32 [ %13, %.lr.ph ], [ %.188, %128 ]
-  %.090113 = phi i32 [ 0, %.lr.ph ], [ %.2, %128 ]
-  %.092112 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.294, %128 ]
-  %.095111 = phi double [ 0.000000e+00, %.lr.ph ], [ %.297, %128 ]
+  %.090113 = phi i32 [ 0, %.lr.ph ], [ %.191, %128 ]
+  %.092112 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.193, %128 ]
+  %.095111 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %128 ]
   %28 = load i32, ptr %19, align 4
   %29 = trunc i64 %indvars.iv to i32
   %30 = add i32 %29, %17
@@ -188298,9 +188298,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17F
   br label %128
 
 128:                                              ; preds = %125, %127, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %32, %51, %27
-  %.297 = phi double [ %.095111, %27 ], [ %36, %32 ], [ %36, %51 ], [ %36, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %36, %127 ], [ %36, %125 ]
-  %.294 = phi double [ %.092112, %27 ], [ %42, %32 ], [ %42, %51 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %42, %127 ], [ %42, %125 ]
-  %.2 = phi i32 [ %.090113, %27 ], [ %46, %32 ], [ %46, %51 ], [ %46, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %127 ], [ %46, %125 ]
+  %.196 = phi double [ %.095111, %27 ], [ %36, %32 ], [ %36, %51 ], [ %36, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %36, %127 ], [ %36, %125 ]
+  %.193 = phi double [ %.092112, %27 ], [ %42, %32 ], [ %42, %51 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %42, %127 ], [ %42, %125 ]
+  %.191 = phi i32 [ %.090113, %27 ], [ %46, %32 ], [ %46, %51 ], [ %46, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %127 ], [ %46, %125 ]
   %.188 = phi i32 [ %.087115, %27 ], [ %.087115, %32 ], [ %.087115, %51 ], [ %.087115, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %30, %127 ], [ %.087115, %125 ]
   %.186 = phi i32 [ %.085116, %27 ], [ %.085116, %32 ], [ %.085116, %51 ], [ %.085116, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %46, %127 ], [ %.085116, %125 ]
   %.184 = phi double [ %.083117, %27 ], [ %.083117, %32 ], [ %.083117, %51 ], [ %.083117, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %123, %127 ], [ %.083117, %125 ]
@@ -188868,9 +188868,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0104132 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0106131 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0111129 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1105132 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1107131 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1112129 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -188884,18 +188884,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0104132, %29
-  %39 = fsub double %.0106131, %34
-  %40 = sub nsw i32 %.0111129, %37
+  %38 = fsub double %.1105132, %29
+  %39 = fsub double %.1107131, %34
+  %40 = sub nsw i32 %.1112129, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !631
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0115 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1112 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1107 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1105 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0111 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0106 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0104 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not135 = icmp sgt i32 %.0115, %18
   br i1 %.not135, label %._crit_edge, label %.lr.ph145
 
@@ -188916,9 +188916,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.098142 = phi double [ 0xFFF0000000000000, %.lr.ph145 ], [ %.199, %150 ]
   %.0100141 = phi i32 [ 0, %.lr.ph145 ], [ %.1101, %150 ]
   %.0102140 = phi i32 [ %13, %.lr.ph145 ], [ %.1103, %150 ]
-  %.2139 = phi double [ %.1105, %.lr.ph145 ], [ %.3, %150 ]
-  %.2108138 = phi double [ %.1107, %.lr.ph145 ], [ %.3109, %150 ]
-  %.2113137 = phi i32 [ %.1112, %.lr.ph145 ], [ %.3114, %150 ]
+  %.2139 = phi double [ %.0104, %.lr.ph145 ], [ %.3, %150 ]
+  %.2108138 = phi double [ %.0106, %.lr.ph145 ], [ %.3109, %150 ]
+  %.2113137 = phi i32 [ %.0111, %.lr.ph145 ], [ %.3114, %150 ]
   %49 = icmp sgt i64 %indvars.iv166, -1
   br i1 %49, label %50, label %66
 
@@ -190150,7 +190150,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0132 = phi i32 [ 0, %.lr.ph ], [ %.1, %118 ]
   %.0106131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %118 ]
   %.0108130 = phi i32 [ %18, %.lr.ph ], [ %.1109, %118 ]
-  %.0110129 = phi i32 [ 0, %.lr.ph ], [ %.2, %118 ]
+  %.0110129 = phi i32 [ 0, %.lr.ph ], [ %.1111, %118 ]
   %33 = load i32, ptr %27, align 4
   %34 = trunc i64 %indvars.iv to i32
   %35 = add i32 %34, %25
@@ -190270,7 +190270,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17F
   br label %118
 
 118:                                              ; preds = %115, %117, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %37, %51, %32
-  %.2 = phi i32 [ %.0110129, %32 ], [ %40, %37 ], [ %40, %51 ], [ %40, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %40, %117 ], [ %40, %115 ]
+  %.1111 = phi i32 [ %.0110129, %32 ], [ %40, %37 ], [ %40, %51 ], [ %40, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %40, %117 ], [ %40, %115 ]
   %.1109 = phi i32 [ %.0108130, %32 ], [ %.0108130, %37 ], [ %.0108130, %51 ], [ %.0108130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %35, %117 ], [ %.0108130, %115 ]
   %.1107 = phi double [ %.0106131, %32 ], [ %.0106131, %37 ], [ %.0106131, %51 ], [ %.0106131, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %113, %117 ], [ %.0106131, %115 ]
   %.1 = phi i32 [ %.0132, %32 ], [ %.0132, %37 ], [ %.0132, %51 ], [ %.0132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %40, %117 ], [ %.0132, %115 ]
@@ -190730,7 +190730,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0130 = phi i64 [ 0, %.lr.ph ], [ %.1, %115 ]
   %.0104129 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1105, %115 ]
   %.0106128 = phi i32 [ %14, %.lr.ph ], [ %.1107, %115 ]
-  %.0108127 = phi i64 [ 0, %.lr.ph ], [ %.2, %115 ]
+  %.0108127 = phi i64 [ 0, %.lr.ph ], [ %.1109, %115 ]
   %30 = load i32, ptr %24, align 4
   %31 = trunc i64 %indvars.iv to i32
   %32 = add i32 %31, %22
@@ -190850,7 +190850,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17F
   br label %115
 
 115:                                              ; preds = %112, %114, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %34, %48, %29
-  %.2 = phi i64 [ %.0108127, %29 ], [ %37, %34 ], [ %37, %48 ], [ %37, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %37, %114 ], [ %37, %112 ]
+  %.1109 = phi i64 [ %.0108127, %29 ], [ %37, %34 ], [ %37, %48 ], [ %37, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %37, %114 ], [ %37, %112 ]
   %.1107 = phi i32 [ %.0106128, %29 ], [ %.0106128, %34 ], [ %.0106128, %48 ], [ %.0106128, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %32, %114 ], [ %.0106128, %112 ]
   %.1105 = phi double [ %.0104129, %29 ], [ %.0104129, %34 ], [ %.0104129, %48 ], [ %.0104129, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %110, %114 ], [ %.0104129, %112 ]
   %.1 = phi i64 [ %.0130, %29 ], [ %.0130, %34 ], [ %.0130, %48 ], [ %.0130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %37, %114 ], [ %.0130, %112 ]
@@ -191312,7 +191312,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0132 = phi i64 [ 0, %.lr.ph ], [ %.1, %121 ]
   %.0106131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %121 ]
   %.0108130 = phi i32 [ %14, %.lr.ph ], [ %.1109, %121 ]
-  %.0110129 = phi i64 [ 0, %.lr.ph ], [ %.2, %121 ]
+  %.0110129 = phi i64 [ 0, %.lr.ph ], [ %.1111, %121 ]
   %30 = load i32, ptr %24, align 4
   %31 = trunc i64 %indvars.iv to i32
   %32 = add i32 %31, %22
@@ -191439,7 +191439,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17F
   br label %121
 
 121:                                              ; preds = %118, %120, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %34, %54, %29
-  %.2 = phi i64 [ %.0110129, %29 ], [ %43, %34 ], [ %43, %54 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %120 ], [ %43, %118 ]
+  %.1111 = phi i64 [ %.0110129, %29 ], [ %43, %34 ], [ %43, %54 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %120 ], [ %43, %118 ]
   %.1109 = phi i32 [ %.0108130, %29 ], [ %.0108130, %34 ], [ %.0108130, %54 ], [ %.0108130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %32, %120 ], [ %.0108130, %118 ]
   %.1107 = phi double [ %.0106131, %29 ], [ %.0106131, %34 ], [ %.0106131, %54 ], [ %.0106131, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %116, %120 ], [ %.0106131, %118 ]
   %.1 = phi i64 [ %.0132, %29 ], [ %.0132, %34 ], [ %.0132, %54 ], [ %.0132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %43, %120 ], [ %.0132, %118 ]
@@ -192023,17 +192023,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0117137 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1118137 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0117137, %31
+  %32 = sub nsw i32 %.1118137, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !641
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0119 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1118 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0117 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not138 = icmp sgt i32 %.0119, %26
   br i1 %.not138, label %._crit_edge, label %.lr.ph144
 
@@ -192046,7 +192046,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0143 = phi i32 [ 0, %.lr.ph144 ], [ %.1, %121 ]
   %.0113142 = phi double [ 0xFFF0000000000000, %.lr.ph144 ], [ %.1114, %121 ]
   %.0115141 = phi i32 [ %18, %.lr.ph144 ], [ %.1116, %121 ]
-  %.2140 = phi i32 [ %.1118, %.lr.ph144 ], [ %.3, %121 ]
+  %.2140 = phi i32 [ %.0117, %.lr.ph144 ], [ %.3, %121 ]
   %.1120139 = phi i32 [ %.0119, %.lr.ph144 ], [ %122, %121 ]
   %36 = icmp sgt i32 %.1120139, -1
   br i1 %36, label %37, label %42
@@ -192617,17 +192617,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0115135 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1116135 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0115135, %28
+  %29 = sub nsw i64 %.1116135, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !644
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0117 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1116 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0115 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not136 = icmp sgt i32 %.0117, %23
   br i1 %.not136, label %._crit_edge, label %.lr.ph142
 
@@ -192640,7 +192640,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0141 = phi i64 [ 0, %.lr.ph142 ], [ %.1, %118 ]
   %.0111140 = phi double [ 0xFFF0000000000000, %.lr.ph142 ], [ %.1112, %118 ]
   %.0113139 = phi i32 [ %14, %.lr.ph142 ], [ %.1114, %118 ]
-  %.2138 = phi i64 [ %.1116, %.lr.ph142 ], [ %.3, %118 ]
+  %.2138 = phi i64 [ %.0115, %.lr.ph142 ], [ %.3, %118 ]
   %.1118137 = phi i32 [ %.0117, %.lr.ph142 ], [ %119, %118 ]
   %33 = icmp sgt i32 %.1118137, -1
   br i1 %33, label %34, label %39
@@ -193213,7 +193213,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0119143 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1120143 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -193223,14 +193223,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0119143, %34
+  %35 = sub i64 %.1120143, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !647
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0121 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1120 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not144 = icmp sgt i32 %.0121, %23
   br i1 %.not144, label %._crit_edge, label %.lr.ph150
 
@@ -193243,7 +193243,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0149 = phi i64 [ 0, %.lr.ph150 ], [ %.1, %130 ]
   %.0115148 = phi double [ 0xFFF0000000000000, %.lr.ph150 ], [ %.1116, %130 ]
   %.0117147 = phi i32 [ %14, %.lr.ph150 ], [ %.1118, %130 ]
-  %.2146 = phi i64 [ %.1120, %.lr.ph150 ], [ %.3, %130 ]
+  %.2146 = phi i64 [ %.0119, %.lr.ph150 ], [ %.3, %130 ]
   %.1122145 = phi i32 [ %.0121, %.lr.ph150 ], [ %131, %130 ]
   %39 = icmp sgt i32 %.1122145, -1
   br i1 %39, label %40, label %51
@@ -195001,9 +195001,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.083117 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.184, %105 ]
   %.085116 = phi i32 [ 0, %.lr.ph ], [ %.186, %105 ]
   %.087115 = phi i32 [ %13, %.lr.ph ], [ %.188, %105 ]
-  %.090113 = phi i32 [ 0, %.lr.ph ], [ %.2, %105 ]
-  %.092112 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.294, %105 ]
-  %.095111 = phi double [ 0.000000e+00, %.lr.ph ], [ %.297, %105 ]
+  %.090113 = phi i32 [ 0, %.lr.ph ], [ %.191, %105 ]
+  %.092112 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.193, %105 ]
+  %.095111 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %105 ]
   %27 = load i32, ptr %19, align 4
   %28 = trunc i64 %indvars.iv to i32
   %29 = add i32 %28, %17
@@ -195118,9 +195118,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17F
   br label %105
 
 105:                                              ; preds = %102, %104, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit, %31, %50, %26
-  %.297 = phi double [ %.095111, %26 ], [ %35, %31 ], [ %35, %50 ], [ %35, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %35, %104 ], [ %35, %102 ]
-  %.294 = phi double [ %.092112, %26 ], [ %41, %31 ], [ %41, %50 ], [ %41, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %104 ], [ %41, %102 ]
-  %.2 = phi i32 [ %.090113, %26 ], [ %45, %31 ], [ %45, %50 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %104 ], [ %45, %102 ]
+  %.196 = phi double [ %.095111, %26 ], [ %35, %31 ], [ %35, %50 ], [ %35, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %35, %104 ], [ %35, %102 ]
+  %.193 = phi double [ %.092112, %26 ], [ %41, %31 ], [ %41, %50 ], [ %41, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %41, %104 ], [ %41, %102 ]
+  %.191 = phi i32 [ %.090113, %26 ], [ %45, %31 ], [ %45, %50 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %104 ], [ %45, %102 ]
   %.188 = phi i32 [ %.087115, %26 ], [ %.087115, %31 ], [ %.087115, %50 ], [ %.087115, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %29, %104 ], [ %.087115, %102 ]
   %.186 = phi i32 [ %.085116, %26 ], [ %.085116, %31 ], [ %.085116, %50 ], [ %.085116, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %45, %104 ], [ %.085116, %102 ]
   %.184 = phi double [ %.083117, %26 ], [ %.083117, %31 ], [ %.083117, %50 ], [ %.083117, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb0ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ], [ %100, %104 ], [ %.083117, %102 ]
@@ -195613,9 +195613,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0104132 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0106131 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0111129 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1105132 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1107131 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1112129 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -195629,18 +195629,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0104132, %29
-  %39 = fsub double %.0106131, %34
-  %40 = sub nsw i32 %.0111129, %37
+  %38 = fsub double %.1105132, %29
+  %39 = fsub double %.1107131, %34
+  %40 = sub nsw i32 %.1112129, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !655
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0115 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1112 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1107 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1105 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0111 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0106 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0104 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not135 = icmp sgt i32 %.0115, %18
   br i1 %.not135, label %._crit_edge, label %.lr.ph145
 
@@ -195660,9 +195660,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.098142 = phi double [ 0xFFF0000000000000, %.lr.ph145 ], [ %.199, %127 ]
   %.0100141 = phi i32 [ 0, %.lr.ph145 ], [ %.1101, %127 ]
   %.0102140 = phi i32 [ %13, %.lr.ph145 ], [ %.1103, %127 ]
-  %.2139 = phi double [ %.1105, %.lr.ph145 ], [ %.3, %127 ]
-  %.2108138 = phi double [ %.1107, %.lr.ph145 ], [ %.3109, %127 ]
-  %.2113137 = phi i32 [ %.1112, %.lr.ph145 ], [ %.3114, %127 ]
+  %.2139 = phi double [ %.0104, %.lr.ph145 ], [ %.3, %127 ]
+  %.2108138 = phi double [ %.0106, %.lr.ph145 ], [ %.3109, %127 ]
+  %.2113137 = phi i32 [ %.0111, %.lr.ph145 ], [ %.3114, %127 ]
   %48 = icmp sgt i64 %indvars.iv166, -1
   br i1 %48, label %49, label %65
 
@@ -197507,7 +197507,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0128 = phi i32 [ 0, %.lr.ph ], [ %.1, %130 ]
   %.0106127 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %130 ]
   %.0108126 = phi i32 [ %18, %.lr.ph ], [ %.1109, %130 ]
-  %.0110125 = phi i32 [ 0, %.lr.ph ], [ %.2, %130 ]
+  %.0110125 = phi i32 [ 0, %.lr.ph ], [ %.1111, %130 ]
   %34 = load i32, ptr %27, align 4
   %35 = trunc i64 %indvars.iv to i32
   %36 = add i32 %35, %25
@@ -197624,7 +197624,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %130
 
 130:                                              ; preds = %127, %129, %65, %38, %52, %33
-  %.2 = phi i32 [ %.0110125, %33 ], [ %41, %38 ], [ %41, %52 ], [ %41, %65 ], [ %41, %129 ], [ %41, %127 ]
+  %.1111 = phi i32 [ %.0110125, %33 ], [ %41, %38 ], [ %41, %52 ], [ %41, %65 ], [ %41, %129 ], [ %41, %127 ]
   %.1109 = phi i32 [ %.0108126, %33 ], [ %.0108126, %38 ], [ %.0108126, %52 ], [ %.0108126, %65 ], [ %36, %129 ], [ %.0108126, %127 ]
   %.1107 = phi double [ %.0106127, %33 ], [ %.0106127, %38 ], [ %.0106127, %52 ], [ %.0106127, %65 ], [ %125, %129 ], [ %.0106127, %127 ]
   %.1 = phi i32 [ %.0128, %33 ], [ %.0128, %38 ], [ %.0128, %52 ], [ %.0128, %65 ], [ %41, %129 ], [ %.0128, %127 ]
@@ -198039,7 +198039,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0126 = phi i64 [ 0, %.lr.ph ], [ %.1, %127 ]
   %.0104125 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1105, %127 ]
   %.0106124 = phi i32 [ %14, %.lr.ph ], [ %.1107, %127 ]
-  %.0108123 = phi i64 [ 0, %.lr.ph ], [ %.2, %127 ]
+  %.0108123 = phi i64 [ 0, %.lr.ph ], [ %.1109, %127 ]
   %31 = load i32, ptr %24, align 4
   %32 = trunc i64 %indvars.iv to i32
   %33 = add i32 %32, %22
@@ -198156,7 +198156,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %127
 
 127:                                              ; preds = %124, %126, %62, %35, %49, %30
-  %.2 = phi i64 [ %.0108123, %30 ], [ %38, %35 ], [ %38, %49 ], [ %38, %62 ], [ %38, %126 ], [ %38, %124 ]
+  %.1109 = phi i64 [ %.0108123, %30 ], [ %38, %35 ], [ %38, %49 ], [ %38, %62 ], [ %38, %126 ], [ %38, %124 ]
   %.1107 = phi i32 [ %.0106124, %30 ], [ %.0106124, %35 ], [ %.0106124, %49 ], [ %.0106124, %62 ], [ %33, %126 ], [ %.0106124, %124 ]
   %.1105 = phi double [ %.0104125, %30 ], [ %.0104125, %35 ], [ %.0104125, %49 ], [ %.0104125, %62 ], [ %122, %126 ], [ %.0104125, %124 ]
   %.1 = phi i64 [ %.0126, %30 ], [ %.0126, %35 ], [ %.0126, %49 ], [ %.0126, %62 ], [ %38, %126 ], [ %.0126, %124 ]
@@ -198573,7 +198573,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0128 = phi i64 [ 0, %.lr.ph ], [ %.1, %133 ]
   %.0106127 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %133 ]
   %.0108126 = phi i32 [ %14, %.lr.ph ], [ %.1109, %133 ]
-  %.0110125 = phi i64 [ 0, %.lr.ph ], [ %.2, %133 ]
+  %.0110125 = phi i64 [ 0, %.lr.ph ], [ %.1111, %133 ]
   %31 = load i32, ptr %24, align 4
   %32 = trunc i64 %indvars.iv to i32
   %33 = add i32 %32, %22
@@ -198697,7 +198697,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %133
 
 133:                                              ; preds = %130, %132, %68, %35, %55, %30
-  %.2 = phi i64 [ %.0110125, %30 ], [ %44, %35 ], [ %44, %55 ], [ %44, %68 ], [ %44, %132 ], [ %44, %130 ]
+  %.1111 = phi i64 [ %.0110125, %30 ], [ %44, %35 ], [ %44, %55 ], [ %44, %68 ], [ %44, %132 ], [ %44, %130 ]
   %.1109 = phi i32 [ %.0108126, %30 ], [ %.0108126, %35 ], [ %.0108126, %55 ], [ %.0108126, %68 ], [ %33, %132 ], [ %.0108126, %130 ]
   %.1107 = phi double [ %.0106127, %30 ], [ %.0106127, %35 ], [ %.0106127, %55 ], [ %.0106127, %68 ], [ %128, %132 ], [ %.0106127, %130 ]
   %.1 = phi i64 [ %.0128, %30 ], [ %.0128, %35 ], [ %.0128, %55 ], [ %.0128, %68 ], [ %44, %132 ], [ %.0128, %130 ]
@@ -199224,17 +199224,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0117133 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1118133 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0117133, %31
+  %32 = sub nsw i32 %.1118133, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !665
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0119 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1118 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0117 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not134 = icmp sgt i32 %.0119, %26
   br i1 %.not134, label %._crit_edge, label %.lr.ph140
 
@@ -199248,7 +199248,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0139 = phi i32 [ 0, %.lr.ph140 ], [ %.1, %133 ]
   %.0113138 = phi double [ 0xFFF0000000000000, %.lr.ph140 ], [ %.1114, %133 ]
   %.0115137 = phi i32 [ %18, %.lr.ph140 ], [ %.1116, %133 ]
-  %.2136 = phi i32 [ %.1118, %.lr.ph140 ], [ %.3, %133 ]
+  %.2136 = phi i32 [ %.0117, %.lr.ph140 ], [ %.3, %133 ]
   %.1120135 = phi i32 [ %.0119, %.lr.ph140 ], [ %134, %133 ]
   %37 = icmp sgt i32 %.1120135, -1
   br i1 %37, label %38, label %43
@@ -199770,17 +199770,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0115131 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1116131 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0115131, %28
+  %29 = sub nsw i64 %.1116131, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !668
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0117 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1116 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0115 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not132 = icmp sgt i32 %.0117, %23
   br i1 %.not132, label %._crit_edge, label %.lr.ph138
 
@@ -199794,7 +199794,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0137 = phi i64 [ 0, %.lr.ph138 ], [ %.1, %130 ]
   %.0111136 = phi double [ 0xFFF0000000000000, %.lr.ph138 ], [ %.1112, %130 ]
   %.0113135 = phi i32 [ %14, %.lr.ph138 ], [ %.1114, %130 ]
-  %.2134 = phi i64 [ %.1116, %.lr.ph138 ], [ %.3, %130 ]
+  %.2134 = phi i64 [ %.0115, %.lr.ph138 ], [ %.3, %130 ]
   %.1118133 = phi i32 [ %.0117, %.lr.ph138 ], [ %131, %130 ]
   %34 = icmp sgt i32 %.1118133, -1
   br i1 %34, label %35, label %40
@@ -200318,7 +200318,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0119139 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1120139 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -200328,14 +200328,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0119139, %34
+  %35 = sub i64 %.1120139, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !671
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0121 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1120 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not140 = icmp sgt i32 %.0121, %23
   br i1 %.not140, label %._crit_edge, label %.lr.ph146
 
@@ -200349,7 +200349,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0145 = phi i64 [ 0, %.lr.ph146 ], [ %.1, %142 ]
   %.0115144 = phi double [ 0xFFF0000000000000, %.lr.ph146 ], [ %.1116, %142 ]
   %.0117143 = phi i32 [ %14, %.lr.ph146 ], [ %.1118, %142 ]
-  %.2142 = phi i64 [ %.1120, %.lr.ph146 ], [ %.3, %142 ]
+  %.2142 = phi i64 [ %.0119, %.lr.ph146 ], [ %.3, %142 ]
   %.1122141 = phi i32 [ %.0121, %.lr.ph146 ], [ %143, %142 ]
   %40 = icmp sgt i32 %.1122141, -1
   br i1 %40, label %41, label %52
@@ -201958,9 +201958,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.083113 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.184, %117 ]
   %.085112 = phi i32 [ 0, %.lr.ph ], [ %.186, %117 ]
   %.087111 = phi i32 [ %13, %.lr.ph ], [ %.188, %117 ]
-  %.090109 = phi i32 [ 0, %.lr.ph ], [ %.2, %117 ]
-  %.092108 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.294, %117 ]
-  %.095107 = phi double [ 0.000000e+00, %.lr.ph ], [ %.297, %117 ]
+  %.090109 = phi i32 [ 0, %.lr.ph ], [ %.191, %117 ]
+  %.092108 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.193, %117 ]
+  %.095107 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %117 ]
   %28 = load i32, ptr %19, align 4
   %29 = trunc i64 %indvars.iv to i32
   %30 = add i32 %29, %17
@@ -202072,9 +202072,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   br label %117
 
 117:                                              ; preds = %114, %116, %61, %32, %51, %27
-  %.297 = phi double [ %.095107, %27 ], [ %36, %32 ], [ %36, %51 ], [ %36, %61 ], [ %36, %116 ], [ %36, %114 ]
-  %.294 = phi double [ %.092108, %27 ], [ %42, %32 ], [ %42, %51 ], [ %42, %61 ], [ %42, %116 ], [ %42, %114 ]
-  %.2 = phi i32 [ %.090109, %27 ], [ %46, %32 ], [ %46, %51 ], [ %46, %61 ], [ %46, %116 ], [ %46, %114 ]
+  %.196 = phi double [ %.095107, %27 ], [ %36, %32 ], [ %36, %51 ], [ %36, %61 ], [ %36, %116 ], [ %36, %114 ]
+  %.193 = phi double [ %.092108, %27 ], [ %42, %32 ], [ %42, %51 ], [ %42, %61 ], [ %42, %116 ], [ %42, %114 ]
+  %.191 = phi i32 [ %.090109, %27 ], [ %46, %32 ], [ %46, %51 ], [ %46, %61 ], [ %46, %116 ], [ %46, %114 ]
   %.188 = phi i32 [ %.087111, %27 ], [ %.087111, %32 ], [ %.087111, %51 ], [ %.087111, %61 ], [ %30, %116 ], [ %.087111, %114 ]
   %.186 = phi i32 [ %.085112, %27 ], [ %.085112, %32 ], [ %.085112, %51 ], [ %.085112, %61 ], [ %46, %116 ], [ %.085112, %114 ]
   %.184 = phi double [ %.083113, %27 ], [ %.083113, %32 ], [ %.083113, %51 ], [ %.083113, %61 ], [ %112, %116 ], [ %.083113, %114 ]
@@ -202514,9 +202514,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0104128 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
-  %.0106127 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
-  %.0111125 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
+  %.1105128 = phi double [ %1, %.lr.ph ], [ %38, %26 ]
+  %.1107127 = phi double [ %21, %.lr.ph ], [ %39, %26 ]
+  %.1112125 = phi i32 [ %3, %.lr.ph ], [ %40, %26 ]
   %sext = shl i64 %indvars.iv, 33
   %27 = ashr exact i64 %sext, 29
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
@@ -202530,18 +202530,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %35 = fmul double %15, %34
   %36 = fadd double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
-  %38 = fsub double %.0104128, %29
-  %39 = fsub double %.0106127, %34
-  %40 = sub nsw i32 %.0111125, %37
+  %38 = fsub double %.1105128, %29
+  %39 = fsub double %.1107127, %34
+  %40 = sub nsw i32 %.1112125, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !679
 
 .loopexit:                                        ; preds = %26, %20, %9
   %.0115 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %26 ]
-  %.1112 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
-  %.1107 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
-  %.1105 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
+  %.0111 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %40, %26 ]
+  %.0106 = phi double [ 0x3CD203AFA0000000, %9 ], [ %21, %20 ], [ %39, %26 ]
+  %.0104 = phi double [ 0.000000e+00, %9 ], [ %1, %20 ], [ %38, %26 ]
   %.not131 = icmp sgt i32 %.0115, %18
   br i1 %.not131, label %._crit_edge, label %.lr.ph141
 
@@ -202562,9 +202562,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.098138 = phi double [ 0xFFF0000000000000, %.lr.ph141 ], [ %.199, %139 ]
   %.0100137 = phi i32 [ 0, %.lr.ph141 ], [ %.1101, %139 ]
   %.0102136 = phi i32 [ %13, %.lr.ph141 ], [ %.1103, %139 ]
-  %.2135 = phi double [ %.1105, %.lr.ph141 ], [ %.3, %139 ]
-  %.2108134 = phi double [ %.1107, %.lr.ph141 ], [ %.3109, %139 ]
-  %.2113133 = phi i32 [ %.1112, %.lr.ph141 ], [ %.3114, %139 ]
+  %.2135 = phi double [ %.0104, %.lr.ph141 ], [ %.3, %139 ]
+  %.2108134 = phi double [ %.0106, %.lr.ph141 ], [ %.3109, %139 ]
+  %.2113133 = phi i32 [ %.0111, %.lr.ph141 ], [ %.3114, %139 ]
   %49 = icmp sgt i64 %indvars.iv162, -1
   br i1 %49, label %50, label %66
 
@@ -203526,7 +203526,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0128 = phi i32 [ 0, %.lr.ph ], [ %.1, %89 ]
   %.0106127 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %89 ]
   %.0108126 = phi i32 [ %18, %.lr.ph ], [ %.1109, %89 ]
-  %.0110125 = phi i32 [ 0, %.lr.ph ], [ %.2, %89 ]
+  %.0110125 = phi i32 [ 0, %.lr.ph ], [ %.1111, %89 ]
   %35 = load i32, ptr %27, align 4
   %36 = trunc i64 %indvars.iv to i32
   %37 = add i32 %36, %25
@@ -203600,7 +203600,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %89
 
 89:                                               ; preds = %86, %88, %66, %39, %53, %34
-  %.2 = phi i32 [ %.0110125, %34 ], [ %42, %39 ], [ %42, %53 ], [ %42, %66 ], [ %42, %88 ], [ %42, %86 ]
+  %.1111 = phi i32 [ %.0110125, %34 ], [ %42, %39 ], [ %42, %53 ], [ %42, %66 ], [ %42, %88 ], [ %42, %86 ]
   %.1109 = phi i32 [ %.0108126, %34 ], [ %.0108126, %39 ], [ %.0108126, %53 ], [ %.0108126, %66 ], [ %37, %88 ], [ %.0108126, %86 ]
   %.1107 = phi double [ %.0106127, %34 ], [ %.0106127, %39 ], [ %.0106127, %53 ], [ %.0106127, %66 ], [ %84, %88 ], [ %.0106127, %86 ]
   %.1 = phi i32 [ %.0128, %34 ], [ %.0128, %39 ], [ %.0128, %53 ], [ %.0128, %66 ], [ %42, %88 ], [ %.0128, %86 ]
@@ -203938,7 +203938,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0126 = phi i64 [ 0, %.lr.ph ], [ %.1, %86 ]
   %.0104125 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1105, %86 ]
   %.0106124 = phi i32 [ %14, %.lr.ph ], [ %.1107, %86 ]
-  %.0108123 = phi i64 [ 0, %.lr.ph ], [ %.2, %86 ]
+  %.0108123 = phi i64 [ 0, %.lr.ph ], [ %.1109, %86 ]
   %32 = load i32, ptr %24, align 4
   %33 = trunc i64 %indvars.iv to i32
   %34 = add i32 %33, %22
@@ -204012,7 +204012,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %86
 
 86:                                               ; preds = %83, %85, %63, %36, %50, %31
-  %.2 = phi i64 [ %.0108123, %31 ], [ %39, %36 ], [ %39, %50 ], [ %39, %63 ], [ %39, %85 ], [ %39, %83 ]
+  %.1109 = phi i64 [ %.0108123, %31 ], [ %39, %36 ], [ %39, %50 ], [ %39, %63 ], [ %39, %85 ], [ %39, %83 ]
   %.1107 = phi i32 [ %.0106124, %31 ], [ %.0106124, %36 ], [ %.0106124, %50 ], [ %.0106124, %63 ], [ %34, %85 ], [ %.0106124, %83 ]
   %.1105 = phi double [ %.0104125, %31 ], [ %.0104125, %36 ], [ %.0104125, %50 ], [ %.0104125, %63 ], [ %81, %85 ], [ %.0104125, %83 ]
   %.1 = phi i64 [ %.0126, %31 ], [ %.0126, %36 ], [ %.0126, %50 ], [ %.0126, %63 ], [ %39, %85 ], [ %.0126, %83 ]
@@ -204352,7 +204352,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0128 = phi i64 [ 0, %.lr.ph ], [ %.1, %92 ]
   %.0106127 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1107, %92 ]
   %.0108126 = phi i32 [ %14, %.lr.ph ], [ %.1109, %92 ]
-  %.0110125 = phi i64 [ 0, %.lr.ph ], [ %.2, %92 ]
+  %.0110125 = phi i64 [ 0, %.lr.ph ], [ %.1111, %92 ]
   %32 = load i32, ptr %24, align 4
   %33 = trunc i64 %indvars.iv to i32
   %34 = add i32 %33, %22
@@ -204433,7 +204433,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   br label %92
 
 92:                                               ; preds = %89, %91, %69, %36, %56, %31
-  %.2 = phi i64 [ %.0110125, %31 ], [ %45, %36 ], [ %45, %56 ], [ %45, %69 ], [ %45, %91 ], [ %45, %89 ]
+  %.1111 = phi i64 [ %.0110125, %31 ], [ %45, %36 ], [ %45, %56 ], [ %45, %69 ], [ %45, %91 ], [ %45, %89 ]
   %.1109 = phi i32 [ %.0108126, %31 ], [ %.0108126, %36 ], [ %.0108126, %56 ], [ %.0108126, %69 ], [ %34, %91 ], [ %.0108126, %89 ]
   %.1107 = phi double [ %.0106127, %31 ], [ %.0106127, %36 ], [ %.0106127, %56 ], [ %.0106127, %69 ], [ %87, %91 ], [ %.0106127, %89 ]
   %.1 = phi i64 [ %.0128, %31 ], [ %.0128, %36 ], [ %.0128, %56 ], [ %.0128, %69 ], [ %45, %91 ], [ %.0128, %89 ]
@@ -204869,17 +204869,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0117133 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.1118133 = phi i32 [ %17, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
-  %32 = sub nsw i32 %.0117133, %31
+  %32 = sub nsw i32 %.1118133, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !689
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0119 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1118 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
+  %.0117 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %32, %.lr.ph ]
   %.not134 = icmp sgt i32 %.0119, %26
   br i1 %.not134, label %._crit_edge, label %.lr.ph140
 
@@ -204894,7 +204894,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0139 = phi i32 [ 0, %.lr.ph140 ], [ %.1, %92 ]
   %.0113138 = phi double [ 0xFFF0000000000000, %.lr.ph140 ], [ %.1114, %92 ]
   %.0115137 = phi i32 [ %18, %.lr.ph140 ], [ %.1116, %92 ]
-  %.2136 = phi i32 [ %.1118, %.lr.ph140 ], [ %.3, %92 ]
+  %.2136 = phi i32 [ %.0117, %.lr.ph140 ], [ %.3, %92 ]
   %.1120135 = phi i32 [ %.0119, %.lr.ph140 ], [ %93, %92 ]
   %38 = icmp sgt i32 %.1120135, -1
   br i1 %38, label %39, label %44
@@ -205295,17 +205295,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0115131 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.1116131 = phi i64 [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %27 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = sub nsw i64 %.0115131, %28
+  %29 = sub nsw i64 %.1116131, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !692
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0117 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1116 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.0115 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.not132 = icmp sgt i32 %.0117, %23
   br i1 %.not132, label %._crit_edge, label %.lr.ph138
 
@@ -205320,7 +205320,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0137 = phi i64 [ 0, %.lr.ph138 ], [ %.1, %89 ]
   %.0111136 = phi double [ 0xFFF0000000000000, %.lr.ph138 ], [ %.1112, %89 ]
   %.0113135 = phi i32 [ %14, %.lr.ph138 ], [ %.1114, %89 ]
-  %.2134 = phi i64 [ %.1116, %.lr.ph138 ], [ %.3, %89 ]
+  %.2134 = phi i64 [ %.0115, %.lr.ph138 ], [ %.3, %89 ]
   %.1118133 = phi i32 [ %.0117, %.lr.ph138 ], [ %90, %89 ]
   %35 = icmp sgt i32 %.1118133, -1
   br i1 %35, label %36, label %41
@@ -205723,7 +205723,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0119139 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1120139 = phi i64 [ %1, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 16
@@ -205733,14 +205733,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %32 = and i32 %28, 65535
   %33 = zext nneg i32 %32 to i64
   %34 = or disjoint i64 %31, %33
-  %35 = sub i64 %.0119139, %34
+  %35 = sub i64 %.1120139, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !695
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0121 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1120 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
+  %.0119 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %35, %.lr.ph ]
   %.not140 = icmp sgt i32 %.0121, %23
   br i1 %.not140, label %._crit_edge, label %.lr.ph146
 
@@ -205755,7 +205755,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0145 = phi i64 [ 0, %.lr.ph146 ], [ %.1, %101 ]
   %.0115144 = phi double [ 0xFFF0000000000000, %.lr.ph146 ], [ %.1116, %101 ]
   %.0117143 = phi i32 [ %14, %.lr.ph146 ], [ %.1118, %101 ]
-  %.2142 = phi i64 [ %.1120, %.lr.ph146 ], [ %.3, %101 ]
+  %.2142 = phi i64 [ %.0119, %.lr.ph146 ], [ %.3, %101 ]
   %.1122141 = phi i32 [ %.0121, %.lr.ph146 ], [ %102, %101 ]
   %41 = icmp sgt i32 %.1122141, -1
   br i1 %41, label %42, label %53
@@ -207016,7 +207016,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.083113 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.184, %82 ]
   %.085112 = phi i32 [ 0, %.lr.ph ], [ %.186, %82 ]
   %.087111 = phi i32 [ %13, %.lr.ph ], [ %.188, %82 ]
-  %.090109 = phi i32 [ 0, %.lr.ph ], [ %.2, %82 ]
+  %.090109 = phi i32 [ 0, %.lr.ph ], [ %.191, %82 ]
   %27 = phi <2 x double> [ <double 0x3CD203AFA0000000, double 0.000000e+00>, %.lr.ph ], [ %83, %82 ]
   %28 = load i32, ptr %19, align 4
   %29 = trunc i64 %indvars.iv to i32
@@ -207093,7 +207093,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   br label %82
 
 82:                                               ; preds = %79, %81, %63, %32, %52, %26
-  %.2 = phi i32 [ %.090109, %26 ], [ %47, %32 ], [ %47, %52 ], [ %47, %63 ], [ %47, %81 ], [ %47, %79 ]
+  %.191 = phi i32 [ %.090109, %26 ], [ %47, %32 ], [ %47, %52 ], [ %47, %63 ], [ %47, %81 ], [ %47, %79 ]
   %.188 = phi i32 [ %.087111, %26 ], [ %.087111, %32 ], [ %.087111, %52 ], [ %.087111, %63 ], [ %30, %81 ], [ %.087111, %79 ]
   %.186 = phi i32 [ %.085112, %26 ], [ %.085112, %32 ], [ %.085112, %52 ], [ %.085112, %63 ], [ %47, %81 ], [ %.085112, %79 ]
   %.184 = phi double [ %.083113, %26 ], [ %.083113, %32 ], [ %.083113, %52 ], [ %.083113, %63 ], [ %77, %81 ], [ %.083113, %79 ]
@@ -207438,7 +207438,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.0111125 = phi i32 [ %3, %.lr.ph ], [ %44, %28 ]
+  %.1112125 = phi i32 [ %3, %.lr.ph ], [ %44, %28 ]
   %29 = phi <2 x double> [ %24, %.lr.ph ], [ %43, %28 ]
   %sext = shl i64 %indvars.iv, 33
   %30 = ashr exact i64 %sext, 29
@@ -207456,14 +207456,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %41 = insertelement <2 x double> poison, double %32, i64 0
   %42 = insertelement <2 x double> %41, double %37, i64 1
   %43 = fsub <2 x double> %29, %42
-  %44 = sub nsw i32 %.0111125, %40
+  %44 = sub nsw i32 %.1112125, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !703
 
 .loopexit:                                        ; preds = %28, %20, %9
   %.0115 = phi i32 [ 0, %9 ], [ -1, %20 ], [ -1, %28 ]
-  %.1112 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %44, %28 ]
+  %.0111 = phi i32 [ 0, %9 ], [ %3, %20 ], [ %44, %28 ]
   %45 = phi <2 x double> [ <double 0.000000e+00, double 0x3CD203AFA0000000>, %9 ], [ %24, %20 ], [ %43, %28 ]
   %.not131 = icmp sgt i32 %.0115, %18
   br i1 %.not131, label %._crit_edge, label %.lr.ph141
@@ -207484,7 +207484,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.098138 = phi double [ 0xFFF0000000000000, %.lr.ph141 ], [ %.199, %110 ]
   %.0100137 = phi i32 [ 0, %.lr.ph141 ], [ %.1101, %110 ]
   %.0102136 = phi i32 [ %13, %.lr.ph141 ], [ %.1103, %110 ]
-  %.2113133 = phi i32 [ %.1112, %.lr.ph141 ], [ %.3114, %110 ]
+  %.2113133 = phi i32 [ %.0111, %.lr.ph141 ], [ %.3114, %110 ]
   %53 = phi <2 x double> [ %45, %.lr.ph141 ], [ %73, %110 ]
   %54 = icmp sgt i64 %indvars.iv162, -1
   br i1 %54, label %55, label %72
@@ -209274,7 +209274,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i32 [ 0, %.lr.ph ], [ %.1, %113 ]
   %.0112149 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %113 ]
   %.0114148 = phi i32 [ %18, %.lr.ph ], [ %.1115, %113 ]
-  %.0116147 = phi i32 [ 0, %.lr.ph ], [ %.2, %113 ]
+  %.0116147 = phi i32 [ 0, %.lr.ph ], [ %.1117, %113 ]
   %.sroa.0.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0144 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %113 ]
   %.sroa.0137.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0137.1, %113 ]
@@ -209379,7 +209379,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0137.1 = phi double [ %.sroa.0137.0143, %37 ], [ %.sroa.0137.0143, %44 ], [ %.sroa.0137.0143, %59 ], [ %102, %97 ], [ %102, %112 ], [ %.sroa.0137.0143, %95 ], [ %.sroa.0137.0143, %72 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0144, %37 ], [ %.sroa.4.0144, %44 ], [ %.sroa.4.0144, %59 ], [ %109, %97 ], [ %109, %112 ], [ %.sroa.4.0144, %95 ], [ %.sroa.4.0144, %72 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0145, %37 ], [ %.sroa.0.0145, %44 ], [ %.sroa.0.0145, %59 ], [ %108, %97 ], [ %108, %112 ], [ %.sroa.0.0145, %95 ], [ %.sroa.0.0145, %72 ]
-  %.2 = phi i32 [ %.0116147, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %97 ], [ %47, %112 ], [ %47, %95 ], [ %47, %72 ]
+  %.1117 = phi i32 [ %.0116147, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %97 ], [ %47, %112 ], [ %47, %95 ], [ %47, %72 ]
   %.1115 = phi i32 [ %.0114148, %37 ], [ %.0114148, %44 ], [ %.0114148, %59 ], [ %.0114148, %97 ], [ %42, %112 ], [ %.0114148, %95 ], [ %.0114148, %72 ]
   %.1113 = phi double [ %.0112149, %37 ], [ %.0112149, %44 ], [ %.0112149, %59 ], [ %.0112149, %97 ], [ %93, %112 ], [ %.0112149, %95 ], [ %.0112149, %72 ]
   %.1 = phi i32 [ %.0150, %37 ], [ %.0150, %44 ], [ %.0150, %59 ], [ %.0150, %97 ], [ %47, %112 ], [ %.0150, %95 ], [ %.0150, %72 ]
@@ -210015,7 +210015,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0148 = phi i64 [ 0, %.lr.ph ], [ %.1, %110 ]
   %.0110147 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1111, %110 ]
   %.0112146 = phi i32 [ %14, %.lr.ph ], [ %.1113, %110 ]
-  %.0114145 = phi i64 [ 0, %.lr.ph ], [ %.2, %110 ]
+  %.0114145 = phi i64 [ 0, %.lr.ph ], [ %.1115, %110 ]
   %.sroa.0.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %110 ]
   %.sroa.4.0142 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %110 ]
   %.sroa.0135.0141 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0135.1, %110 ]
@@ -210120,7 +210120,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0135.1 = phi double [ %.sroa.0135.0141, %34 ], [ %.sroa.0135.0141, %41 ], [ %.sroa.0135.0141, %56 ], [ %99, %94 ], [ %99, %109 ], [ %.sroa.0135.0141, %92 ], [ %.sroa.0135.0141, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0142, %34 ], [ %.sroa.4.0142, %41 ], [ %.sroa.4.0142, %56 ], [ %106, %94 ], [ %106, %109 ], [ %.sroa.4.0142, %92 ], [ %.sroa.4.0142, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0143, %34 ], [ %.sroa.0.0143, %41 ], [ %.sroa.0.0143, %56 ], [ %105, %94 ], [ %105, %109 ], [ %.sroa.0.0143, %92 ], [ %.sroa.0.0143, %69 ]
-  %.2 = phi i64 [ %.0114145, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %94 ], [ %44, %109 ], [ %44, %92 ], [ %44, %69 ]
+  %.1115 = phi i64 [ %.0114145, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %94 ], [ %44, %109 ], [ %44, %92 ], [ %44, %69 ]
   %.1113 = phi i32 [ %.0112146, %34 ], [ %.0112146, %41 ], [ %.0112146, %56 ], [ %.0112146, %94 ], [ %39, %109 ], [ %.0112146, %92 ], [ %.0112146, %69 ]
   %.1111 = phi double [ %.0110147, %34 ], [ %.0110147, %41 ], [ %.0110147, %56 ], [ %.0110147, %94 ], [ %90, %109 ], [ %.0110147, %92 ], [ %.0110147, %69 ]
   %.1 = phi i64 [ %.0148, %34 ], [ %.0148, %41 ], [ %.0148, %56 ], [ %.0148, %94 ], [ %44, %109 ], [ %.0148, %92 ], [ %.0148, %69 ]
@@ -210758,7 +210758,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i64 [ 0, %.lr.ph ], [ %.1, %116 ]
   %.0112149 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %116 ]
   %.0114148 = phi i32 [ %14, %.lr.ph ], [ %.1115, %116 ]
-  %.0116147 = phi i64 [ 0, %.lr.ph ], [ %.2, %116 ]
+  %.0116147 = phi i64 [ 0, %.lr.ph ], [ %.1117, %116 ]
   %.sroa.0.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0144 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %116 ]
   %.sroa.0137.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0137.1, %116 ]
@@ -210870,7 +210870,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0137.1 = phi double [ %.sroa.0137.0143, %34 ], [ %.sroa.0137.0143, %41 ], [ %.sroa.0137.0143, %62 ], [ %105, %100 ], [ %105, %115 ], [ %.sroa.0137.0143, %98 ], [ %.sroa.0137.0143, %75 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0144, %34 ], [ %.sroa.4.0144, %41 ], [ %.sroa.4.0144, %62 ], [ %112, %100 ], [ %112, %115 ], [ %.sroa.4.0144, %98 ], [ %.sroa.4.0144, %75 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0145, %34 ], [ %.sroa.0.0145, %41 ], [ %.sroa.0.0145, %62 ], [ %111, %100 ], [ %111, %115 ], [ %.sroa.0.0145, %98 ], [ %.sroa.0.0145, %75 ]
-  %.2 = phi i64 [ %.0116147, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %100 ], [ %50, %115 ], [ %50, %98 ], [ %50, %75 ]
+  %.1117 = phi i64 [ %.0116147, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %100 ], [ %50, %115 ], [ %50, %98 ], [ %50, %75 ]
   %.1115 = phi i32 [ %.0114148, %34 ], [ %.0114148, %41 ], [ %.0114148, %62 ], [ %.0114148, %100 ], [ %39, %115 ], [ %.0114148, %98 ], [ %.0114148, %75 ]
   %.1113 = phi double [ %.0112149, %34 ], [ %.0112149, %41 ], [ %.0112149, %62 ], [ %.0112149, %100 ], [ %96, %115 ], [ %.0112149, %98 ], [ %.0112149, %75 ]
   %.1 = phi i64 [ %.0150, %34 ], [ %.0150, %41 ], [ %.0150, %62 ], [ %.0150, %100 ], [ %50, %115 ], [ %.0150, %98 ], [ %.0150, %75 ]
@@ -211659,17 +211659,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0123151 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1124151 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0123151, %38
+  %39 = sub nsw i32 %.1124151, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !713
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0125 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1124 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0123 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not152 = icmp sgt i32 %.0125, %33
   br i1 %.not152, label %._crit_edge, label %.lr.ph162
 
@@ -211681,7 +211681,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0161 = phi i32 [ 0, %.lr.ph162 ], [ %.1, %116 ]
   %.0119160 = phi double [ 0xFFF0000000000000, %.lr.ph162 ], [ %.1120, %116 ]
   %.0121159 = phi i32 [ %18, %.lr.ph162 ], [ %.1122, %116 ]
-  %.2158 = phi i32 [ %.1124, %.lr.ph162 ], [ %.3, %116 ]
+  %.2158 = phi i32 [ %.0123, %.lr.ph162 ], [ %.3, %116 ]
   %.1126157 = phi i32 [ %.0125, %.lr.ph162 ], [ %117, %116 ]
   %.sroa.0.0156 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0155 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.4.1, %116 ]
@@ -212417,17 +212417,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0121149 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1122149 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0121149, %35
+  %36 = sub nsw i64 %.1122149, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !716
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0123 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0121 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not150 = icmp sgt i32 %.0123, %30
   br i1 %.not150, label %._crit_edge, label %.lr.ph160
 
@@ -212439,7 +212439,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0159 = phi i64 [ 0, %.lr.ph160 ], [ %.1, %113 ]
   %.0117158 = phi double [ 0xFFF0000000000000, %.lr.ph160 ], [ %.1118, %113 ]
   %.0119157 = phi i32 [ %14, %.lr.ph160 ], [ %.1120, %113 ]
-  %.2156 = phi i64 [ %.1122, %.lr.ph160 ], [ %.3, %113 ]
+  %.2156 = phi i64 [ %.0121, %.lr.ph160 ], [ %.3, %113 ]
   %.1124155 = phi i32 [ %.0123, %.lr.ph160 ], [ %114, %113 ]
   %.sroa.0.0154 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0153 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.4.1, %113 ]
@@ -213177,7 +213177,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0125157 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1126157 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -213187,14 +213187,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0125157, %41
+  %42 = sub i64 %.1126157, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !719
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0127 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1126 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not158 = icmp sgt i32 %.0127, %30
   br i1 %.not158, label %._crit_edge, label %.lr.ph168
 
@@ -213206,7 +213206,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0167 = phi i64 [ 0, %.lr.ph168 ], [ %.1, %125 ]
   %.0121166 = phi double [ 0xFFF0000000000000, %.lr.ph168 ], [ %.1122, %125 ]
   %.0123165 = phi i32 [ %14, %.lr.ph168 ], [ %.1124, %125 ]
-  %.2164 = phi i64 [ %.1126, %.lr.ph168 ], [ %.3, %125 ]
+  %.2164 = phi i64 [ %.0125, %.lr.ph168 ], [ %.3, %125 ]
   %.1128163 = phi i32 [ %.0127, %.lr.ph168 ], [ %126, %125 ]
   %.sroa.0.0162 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0.1, %125 ]
   %.sroa.4.0161 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.4.1, %125 ]
@@ -215470,9 +215470,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.089135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.190, %100 ]
   %.091134 = phi i32 [ 0, %.lr.ph ], [ %.192, %100 ]
   %.093133 = phi i32 [ %13, %.lr.ph ], [ %.194, %100 ]
-  %.095132 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %100 ]
-  %.097131 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.299, %100 ]
-  %.0100130 = phi i32 [ 0, %.lr.ph ], [ %.2102, %100 ]
+  %.095132 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %100 ]
+  %.097131 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.198, %100 ]
+  %.0100130 = phi i32 [ 0, %.lr.ph ], [ %.1101, %100 ]
   %.sroa.0.0128 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %100 ]
   %.sroa.4.0127 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %100 ]
   %.sroa.0120.0126 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0120.1, %100 ]
@@ -215573,9 +215573,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.sroa.0120.1 = phi double [ %.sroa.0120.0126, %30 ], [ %.sroa.0120.0126, %37 ], [ %.sroa.0120.0126, %58 ], [ %89, %84 ], [ %89, %99 ], [ %.sroa.0120.0126, %82 ], [ %.sroa.0120.0126, %68 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0127, %30 ], [ %.sroa.4.0127, %37 ], [ %.sroa.4.0127, %58 ], [ %96, %84 ], [ %96, %99 ], [ %.sroa.4.0127, %82 ], [ %.sroa.4.0127, %68 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0128, %30 ], [ %.sroa.0.0128, %37 ], [ %.sroa.0.0128, %58 ], [ %95, %84 ], [ %95, %99 ], [ %.sroa.0.0128, %82 ], [ %.sroa.0.0128, %68 ]
-  %.2102 = phi i32 [ %.0100130, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %84 ], [ %52, %99 ], [ %52, %82 ], [ %52, %68 ]
-  %.299 = phi double [ %.097131, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %84 ], [ %48, %99 ], [ %48, %82 ], [ %48, %68 ]
-  %.2 = phi double [ %.095132, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %84 ], [ %42, %99 ], [ %42, %82 ], [ %42, %68 ]
+  %.1101 = phi i32 [ %.0100130, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %84 ], [ %52, %99 ], [ %52, %82 ], [ %52, %68 ]
+  %.198 = phi double [ %.097131, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %84 ], [ %48, %99 ], [ %48, %82 ], [ %48, %68 ]
+  %.196 = phi double [ %.095132, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %84 ], [ %42, %99 ], [ %42, %82 ], [ %42, %68 ]
   %.194 = phi i32 [ %.093133, %30 ], [ %.093133, %37 ], [ %.093133, %58 ], [ %.093133, %84 ], [ %35, %99 ], [ %.093133, %82 ], [ %.093133, %68 ]
   %.192 = phi i32 [ %.091134, %30 ], [ %.091134, %37 ], [ %.091134, %58 ], [ %.091134, %84 ], [ %52, %99 ], [ %.091134, %82 ], [ %.091134, %68 ]
   %.190 = phi double [ %.089135, %30 ], [ %.089135, %37 ], [ %.089135, %58 ], [ %.089135, %84 ], [ %80, %99 ], [ %.089135, %82 ], [ %.089135, %68 ]
@@ -216278,9 +216278,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0110146 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0112145 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0116144 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1111146 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1113145 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1117144 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -216294,18 +216294,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0110146, %36
-  %46 = fsub double %.0112145, %41
-  %47 = sub nsw i32 %.0116144, %44
+  %45 = fsub double %.1111146, %36
+  %46 = fsub double %.1113145, %41
+  %47 = sub nsw i32 %.1117144, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !727
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0120 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1117 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1113 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1111 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0116 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0112 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0110 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not149 = icmp sgt i32 %.0120, %25
   br i1 %.not149, label %._crit_edge, label %.lr.ph163
 
@@ -216323,9 +216323,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0104160 = phi double [ 0xFFF0000000000000, %.lr.ph163 ], [ %.1105, %122 ]
   %.0106159 = phi i32 [ 0, %.lr.ph163 ], [ %.1107, %122 ]
   %.0108158 = phi i32 [ %13, %.lr.ph163 ], [ %.1109, %122 ]
-  %.2157 = phi double [ %.1111, %.lr.ph163 ], [ %.3, %122 ]
-  %.2114156 = phi double [ %.1113, %.lr.ph163 ], [ %.3115, %122 ]
-  %.2118155 = phi i32 [ %.1117, %.lr.ph163 ], [ %.3119, %122 ]
+  %.2157 = phi double [ %.0110, %.lr.ph163 ], [ %.3, %122 ]
+  %.2114156 = phi double [ %.0112, %.lr.ph163 ], [ %.3115, %122 ]
+  %.2118155 = phi i32 [ %.0116, %.lr.ph163 ], [ %.3119, %122 ]
   %.sroa.0.0153 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0.1, %122 ]
   %.sroa.4.0152 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.4.1, %122 ]
   %.sroa.0139.0151 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0139.1, %122 ]
@@ -217753,7 +217753,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i32 [ 0, %.lr.ph ], [ %.1, %113 ]
   %.0112149 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %113 ]
   %.0114148 = phi i32 [ %18, %.lr.ph ], [ %.1115, %113 ]
-  %.0116147 = phi i32 [ 0, %.lr.ph ], [ %.2, %113 ]
+  %.0116147 = phi i32 [ 0, %.lr.ph ], [ %.1117, %113 ]
   %.sroa.0.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0144 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %113 ]
   %.sroa.0137.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0137.1, %113 ]
@@ -217858,7 +217858,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0137.1 = phi double [ %.sroa.0137.0143, %37 ], [ %.sroa.0137.0143, %44 ], [ %.sroa.0137.0143, %59 ], [ %102, %97 ], [ %102, %112 ], [ %.sroa.0137.0143, %95 ], [ %.sroa.0137.0143, %72 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0144, %37 ], [ %.sroa.4.0144, %44 ], [ %.sroa.4.0144, %59 ], [ %109, %97 ], [ %109, %112 ], [ %.sroa.4.0144, %95 ], [ %.sroa.4.0144, %72 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0145, %37 ], [ %.sroa.0.0145, %44 ], [ %.sroa.0.0145, %59 ], [ %108, %97 ], [ %108, %112 ], [ %.sroa.0.0145, %95 ], [ %.sroa.0.0145, %72 ]
-  %.2 = phi i32 [ %.0116147, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %97 ], [ %47, %112 ], [ %47, %95 ], [ %47, %72 ]
+  %.1117 = phi i32 [ %.0116147, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %97 ], [ %47, %112 ], [ %47, %95 ], [ %47, %72 ]
   %.1115 = phi i32 [ %.0114148, %37 ], [ %.0114148, %44 ], [ %.0114148, %59 ], [ %.0114148, %97 ], [ %42, %112 ], [ %.0114148, %95 ], [ %.0114148, %72 ]
   %.1113 = phi double [ %.0112149, %37 ], [ %.0112149, %44 ], [ %.0112149, %59 ], [ %.0112149, %97 ], [ %93, %112 ], [ %.0112149, %95 ], [ %.0112149, %72 ]
   %.1 = phi i32 [ %.0150, %37 ], [ %.0150, %44 ], [ %.0150, %59 ], [ %.0150, %97 ], [ %47, %112 ], [ %.0150, %95 ], [ %.0150, %72 ]
@@ -218440,7 +218440,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0148 = phi i64 [ 0, %.lr.ph ], [ %.1, %110 ]
   %.0110147 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1111, %110 ]
   %.0112146 = phi i32 [ %14, %.lr.ph ], [ %.1113, %110 ]
-  %.0114145 = phi i64 [ 0, %.lr.ph ], [ %.2, %110 ]
+  %.0114145 = phi i64 [ 0, %.lr.ph ], [ %.1115, %110 ]
   %.sroa.0.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %110 ]
   %.sroa.4.0142 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %110 ]
   %.sroa.0135.0141 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0135.1, %110 ]
@@ -218545,7 +218545,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0135.1 = phi double [ %.sroa.0135.0141, %34 ], [ %.sroa.0135.0141, %41 ], [ %.sroa.0135.0141, %56 ], [ %99, %94 ], [ %99, %109 ], [ %.sroa.0135.0141, %92 ], [ %.sroa.0135.0141, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0142, %34 ], [ %.sroa.4.0142, %41 ], [ %.sroa.4.0142, %56 ], [ %106, %94 ], [ %106, %109 ], [ %.sroa.4.0142, %92 ], [ %.sroa.4.0142, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0143, %34 ], [ %.sroa.0.0143, %41 ], [ %.sroa.0.0143, %56 ], [ %105, %94 ], [ %105, %109 ], [ %.sroa.0.0143, %92 ], [ %.sroa.0.0143, %69 ]
-  %.2 = phi i64 [ %.0114145, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %94 ], [ %44, %109 ], [ %44, %92 ], [ %44, %69 ]
+  %.1115 = phi i64 [ %.0114145, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %94 ], [ %44, %109 ], [ %44, %92 ], [ %44, %69 ]
   %.1113 = phi i32 [ %.0112146, %34 ], [ %.0112146, %41 ], [ %.0112146, %56 ], [ %.0112146, %94 ], [ %39, %109 ], [ %.0112146, %92 ], [ %.0112146, %69 ]
   %.1111 = phi double [ %.0110147, %34 ], [ %.0110147, %41 ], [ %.0110147, %56 ], [ %.0110147, %94 ], [ %90, %109 ], [ %.0110147, %92 ], [ %.0110147, %69 ]
   %.1 = phi i64 [ %.0148, %34 ], [ %.0148, %41 ], [ %.0148, %56 ], [ %.0148, %94 ], [ %44, %109 ], [ %.0148, %92 ], [ %.0148, %69 ]
@@ -219129,7 +219129,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i64 [ 0, %.lr.ph ], [ %.1, %116 ]
   %.0112149 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %116 ]
   %.0114148 = phi i32 [ %14, %.lr.ph ], [ %.1115, %116 ]
-  %.0116147 = phi i64 [ 0, %.lr.ph ], [ %.2, %116 ]
+  %.0116147 = phi i64 [ 0, %.lr.ph ], [ %.1117, %116 ]
   %.sroa.0.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0144 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %116 ]
   %.sroa.0137.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0137.1, %116 ]
@@ -219241,7 +219241,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0137.1 = phi double [ %.sroa.0137.0143, %34 ], [ %.sroa.0137.0143, %41 ], [ %.sroa.0137.0143, %62 ], [ %105, %100 ], [ %105, %115 ], [ %.sroa.0137.0143, %98 ], [ %.sroa.0137.0143, %75 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0144, %34 ], [ %.sroa.4.0144, %41 ], [ %.sroa.4.0144, %62 ], [ %112, %100 ], [ %112, %115 ], [ %.sroa.4.0144, %98 ], [ %.sroa.4.0144, %75 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0145, %34 ], [ %.sroa.0.0145, %41 ], [ %.sroa.0.0145, %62 ], [ %111, %100 ], [ %111, %115 ], [ %.sroa.0.0145, %98 ], [ %.sroa.0.0145, %75 ]
-  %.2 = phi i64 [ %.0116147, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %100 ], [ %50, %115 ], [ %50, %98 ], [ %50, %75 ]
+  %.1117 = phi i64 [ %.0116147, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %100 ], [ %50, %115 ], [ %50, %98 ], [ %50, %75 ]
   %.1115 = phi i32 [ %.0114148, %34 ], [ %.0114148, %41 ], [ %.0114148, %62 ], [ %.0114148, %100 ], [ %39, %115 ], [ %.0114148, %98 ], [ %.0114148, %75 ]
   %.1113 = phi double [ %.0112149, %34 ], [ %.0112149, %41 ], [ %.0112149, %62 ], [ %.0112149, %100 ], [ %96, %115 ], [ %.0112149, %98 ], [ %.0112149, %75 ]
   %.1 = phi i64 [ %.0150, %34 ], [ %.0150, %41 ], [ %.0150, %62 ], [ %.0150, %100 ], [ %50, %115 ], [ %.0150, %98 ], [ %.0150, %75 ]
@@ -219967,17 +219967,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0123151 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1124151 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0123151, %38
+  %39 = sub nsw i32 %.1124151, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !737
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0125 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1124 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0123 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not152 = icmp sgt i32 %.0125, %33
   br i1 %.not152, label %._crit_edge, label %.lr.ph162
 
@@ -219989,7 +219989,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0161 = phi i32 [ 0, %.lr.ph162 ], [ %.1, %116 ]
   %.0119160 = phi double [ 0xFFF0000000000000, %.lr.ph162 ], [ %.1120, %116 ]
   %.0121159 = phi i32 [ %18, %.lr.ph162 ], [ %.1122, %116 ]
-  %.2158 = phi i32 [ %.1124, %.lr.ph162 ], [ %.3, %116 ]
+  %.2158 = phi i32 [ %.0123, %.lr.ph162 ], [ %.3, %116 ]
   %.1126157 = phi i32 [ %.0125, %.lr.ph162 ], [ %117, %116 ]
   %.sroa.0.0156 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0155 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.4.1, %116 ]
@@ -220671,17 +220671,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0121149 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1122149 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0121149, %35
+  %36 = sub nsw i64 %.1122149, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !740
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0123 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0121 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not150 = icmp sgt i32 %.0123, %30
   br i1 %.not150, label %._crit_edge, label %.lr.ph160
 
@@ -220693,7 +220693,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0159 = phi i64 [ 0, %.lr.ph160 ], [ %.1, %113 ]
   %.0117158 = phi double [ 0xFFF0000000000000, %.lr.ph160 ], [ %.1118, %113 ]
   %.0119157 = phi i32 [ %14, %.lr.ph160 ], [ %.1120, %113 ]
-  %.2156 = phi i64 [ %.1122, %.lr.ph160 ], [ %.3, %113 ]
+  %.2156 = phi i64 [ %.0121, %.lr.ph160 ], [ %.3, %113 ]
   %.1124155 = phi i32 [ %.0123, %.lr.ph160 ], [ %114, %113 ]
   %.sroa.0.0154 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0153 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.4.1, %113 ]
@@ -221377,7 +221377,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0125157 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1126157 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -221387,14 +221387,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0125157, %41
+  %42 = sub i64 %.1126157, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !743
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0127 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1126 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not158 = icmp sgt i32 %.0127, %30
   br i1 %.not158, label %._crit_edge, label %.lr.ph168
 
@@ -221406,7 +221406,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0167 = phi i64 [ 0, %.lr.ph168 ], [ %.1, %125 ]
   %.0121166 = phi double [ 0xFFF0000000000000, %.lr.ph168 ], [ %.1122, %125 ]
   %.0123165 = phi i32 [ %14, %.lr.ph168 ], [ %.1124, %125 ]
-  %.2164 = phi i64 [ %.1126, %.lr.ph168 ], [ %.3, %125 ]
+  %.2164 = phi i64 [ %.0125, %.lr.ph168 ], [ %.3, %125 ]
   %.1128163 = phi i32 [ %.0127, %.lr.ph168 ], [ %126, %125 ]
   %.sroa.0.0162 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0.1, %125 ]
   %.sroa.4.0161 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.4.1, %125 ]
@@ -223503,9 +223503,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.089135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.190, %100 ]
   %.091134 = phi i32 [ 0, %.lr.ph ], [ %.192, %100 ]
   %.093133 = phi i32 [ %13, %.lr.ph ], [ %.194, %100 ]
-  %.095132 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %100 ]
-  %.097131 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.299, %100 ]
-  %.0100130 = phi i32 [ 0, %.lr.ph ], [ %.2102, %100 ]
+  %.095132 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %100 ]
+  %.097131 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.198, %100 ]
+  %.0100130 = phi i32 [ 0, %.lr.ph ], [ %.1101, %100 ]
   %.sroa.0.0128 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %100 ]
   %.sroa.4.0127 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %100 ]
   %.sroa.0120.0126 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0120.1, %100 ]
@@ -223606,9 +223606,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.sroa.0120.1 = phi double [ %.sroa.0120.0126, %30 ], [ %.sroa.0120.0126, %37 ], [ %.sroa.0120.0126, %58 ], [ %89, %84 ], [ %89, %99 ], [ %.sroa.0120.0126, %82 ], [ %.sroa.0120.0126, %68 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0127, %30 ], [ %.sroa.4.0127, %37 ], [ %.sroa.4.0127, %58 ], [ %96, %84 ], [ %96, %99 ], [ %.sroa.4.0127, %82 ], [ %.sroa.4.0127, %68 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0128, %30 ], [ %.sroa.0.0128, %37 ], [ %.sroa.0.0128, %58 ], [ %95, %84 ], [ %95, %99 ], [ %.sroa.0.0128, %82 ], [ %.sroa.0.0128, %68 ]
-  %.2102 = phi i32 [ %.0100130, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %84 ], [ %52, %99 ], [ %52, %82 ], [ %52, %68 ]
-  %.299 = phi double [ %.097131, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %84 ], [ %48, %99 ], [ %48, %82 ], [ %48, %68 ]
-  %.2 = phi double [ %.095132, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %84 ], [ %42, %99 ], [ %42, %82 ], [ %42, %68 ]
+  %.1101 = phi i32 [ %.0100130, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %84 ], [ %52, %99 ], [ %52, %82 ], [ %52, %68 ]
+  %.198 = phi double [ %.097131, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %84 ], [ %48, %99 ], [ %48, %82 ], [ %48, %68 ]
+  %.196 = phi double [ %.095132, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %84 ], [ %42, %99 ], [ %42, %82 ], [ %42, %68 ]
   %.194 = phi i32 [ %.093133, %30 ], [ %.093133, %37 ], [ %.093133, %58 ], [ %.093133, %84 ], [ %35, %99 ], [ %.093133, %82 ], [ %.093133, %68 ]
   %.192 = phi i32 [ %.091134, %30 ], [ %.091134, %37 ], [ %.091134, %58 ], [ %.091134, %84 ], [ %52, %99 ], [ %.091134, %82 ], [ %.091134, %68 ]
   %.190 = phi double [ %.089135, %30 ], [ %.089135, %37 ], [ %.089135, %58 ], [ %.089135, %84 ], [ %80, %99 ], [ %.089135, %82 ], [ %.089135, %68 ]
@@ -224243,9 +224243,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0110146 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0112145 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0116144 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1111146 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1113145 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1117144 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -224259,18 +224259,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0110146, %36
-  %46 = fsub double %.0112145, %41
-  %47 = sub nsw i32 %.0116144, %44
+  %45 = fsub double %.1111146, %36
+  %46 = fsub double %.1113145, %41
+  %47 = sub nsw i32 %.1117144, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !751
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0120 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1117 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1113 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1111 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0116 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0112 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0110 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not149 = icmp sgt i32 %.0120, %25
   br i1 %.not149, label %._crit_edge, label %.lr.ph163
 
@@ -224288,9 +224288,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0104160 = phi double [ 0xFFF0000000000000, %.lr.ph163 ], [ %.1105, %122 ]
   %.0106159 = phi i32 [ 0, %.lr.ph163 ], [ %.1107, %122 ]
   %.0108158 = phi i32 [ %13, %.lr.ph163 ], [ %.1109, %122 ]
-  %.2157 = phi double [ %.1111, %.lr.ph163 ], [ %.3, %122 ]
-  %.2114156 = phi double [ %.1113, %.lr.ph163 ], [ %.3115, %122 ]
-  %.2118155 = phi i32 [ %.1117, %.lr.ph163 ], [ %.3119, %122 ]
+  %.2157 = phi double [ %.0110, %.lr.ph163 ], [ %.3, %122 ]
+  %.2114156 = phi double [ %.0112, %.lr.ph163 ], [ %.3115, %122 ]
+  %.2118155 = phi i32 [ %.0116, %.lr.ph163 ], [ %.3119, %122 ]
   %.sroa.0.0153 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0.1, %122 ]
   %.sroa.4.0152 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.4.1, %122 ]
   %.sroa.0139.0151 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0139.1, %122 ]
@@ -226372,7 +226372,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0146 = phi i32 [ 0, %.lr.ph ], [ %.1, %113 ]
   %.0112145 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %113 ]
   %.0114144 = phi i32 [ %18, %.lr.ph ], [ %.1115, %113 ]
-  %.0116143 = phi i32 [ 0, %.lr.ph ], [ %.2, %113 ]
+  %.0116143 = phi i32 [ 0, %.lr.ph ], [ %.1117, %113 ]
   %.sroa.0.0141 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0140 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %113 ]
   %.sroa.0133.0139 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0133.1, %113 ]
@@ -226477,7 +226477,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0133.1 = phi double [ %.sroa.0133.0139, %37 ], [ %.sroa.0133.0139, %44 ], [ %.sroa.0133.0139, %59 ], [ %102, %97 ], [ %102, %112 ], [ %.sroa.0133.0139, %95 ], [ %.sroa.0133.0139, %72 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0140, %37 ], [ %.sroa.4.0140, %44 ], [ %.sroa.4.0140, %59 ], [ %109, %97 ], [ %109, %112 ], [ %.sroa.4.0140, %95 ], [ %.sroa.4.0140, %72 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0141, %37 ], [ %.sroa.0.0141, %44 ], [ %.sroa.0.0141, %59 ], [ %108, %97 ], [ %108, %112 ], [ %.sroa.0.0141, %95 ], [ %.sroa.0.0141, %72 ]
-  %.2 = phi i32 [ %.0116143, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %97 ], [ %47, %112 ], [ %47, %95 ], [ %47, %72 ]
+  %.1117 = phi i32 [ %.0116143, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %97 ], [ %47, %112 ], [ %47, %95 ], [ %47, %72 ]
   %.1115 = phi i32 [ %.0114144, %37 ], [ %.0114144, %44 ], [ %.0114144, %59 ], [ %.0114144, %97 ], [ %42, %112 ], [ %.0114144, %95 ], [ %.0114144, %72 ]
   %.1113 = phi double [ %.0112145, %37 ], [ %.0112145, %44 ], [ %.0112145, %59 ], [ %.0112145, %97 ], [ %93, %112 ], [ %.0112145, %95 ], [ %.0112145, %72 ]
   %.1 = phi i32 [ %.0146, %37 ], [ %.0146, %44 ], [ %.0146, %59 ], [ %.0146, %97 ], [ %47, %112 ], [ %.0146, %95 ], [ %.0146, %72 ]
@@ -227033,7 +227033,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0144 = phi i64 [ 0, %.lr.ph ], [ %.1, %110 ]
   %.0110143 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1111, %110 ]
   %.0112142 = phi i32 [ %14, %.lr.ph ], [ %.1113, %110 ]
-  %.0114141 = phi i64 [ 0, %.lr.ph ], [ %.2, %110 ]
+  %.0114141 = phi i64 [ 0, %.lr.ph ], [ %.1115, %110 ]
   %.sroa.0.0139 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %110 ]
   %.sroa.4.0138 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %110 ]
   %.sroa.0131.0137 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0131.1, %110 ]
@@ -227138,7 +227138,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0131.1 = phi double [ %.sroa.0131.0137, %34 ], [ %.sroa.0131.0137, %41 ], [ %.sroa.0131.0137, %56 ], [ %99, %94 ], [ %99, %109 ], [ %.sroa.0131.0137, %92 ], [ %.sroa.0131.0137, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0138, %34 ], [ %.sroa.4.0138, %41 ], [ %.sroa.4.0138, %56 ], [ %106, %94 ], [ %106, %109 ], [ %.sroa.4.0138, %92 ], [ %.sroa.4.0138, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0139, %34 ], [ %.sroa.0.0139, %41 ], [ %.sroa.0.0139, %56 ], [ %105, %94 ], [ %105, %109 ], [ %.sroa.0.0139, %92 ], [ %.sroa.0.0139, %69 ]
-  %.2 = phi i64 [ %.0114141, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %94 ], [ %44, %109 ], [ %44, %92 ], [ %44, %69 ]
+  %.1115 = phi i64 [ %.0114141, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %94 ], [ %44, %109 ], [ %44, %92 ], [ %44, %69 ]
   %.1113 = phi i32 [ %.0112142, %34 ], [ %.0112142, %41 ], [ %.0112142, %56 ], [ %.0112142, %94 ], [ %39, %109 ], [ %.0112142, %92 ], [ %.0112142, %69 ]
   %.1111 = phi double [ %.0110143, %34 ], [ %.0110143, %41 ], [ %.0110143, %56 ], [ %.0110143, %94 ], [ %90, %109 ], [ %.0110143, %92 ], [ %.0110143, %69 ]
   %.1 = phi i64 [ %.0144, %34 ], [ %.0144, %41 ], [ %.0144, %56 ], [ %.0144, %94 ], [ %44, %109 ], [ %.0144, %92 ], [ %.0144, %69 ]
@@ -227696,7 +227696,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0146 = phi i64 [ 0, %.lr.ph ], [ %.1, %116 ]
   %.0112145 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %116 ]
   %.0114144 = phi i32 [ %14, %.lr.ph ], [ %.1115, %116 ]
-  %.0116143 = phi i64 [ 0, %.lr.ph ], [ %.2, %116 ]
+  %.0116143 = phi i64 [ 0, %.lr.ph ], [ %.1117, %116 ]
   %.sroa.0.0141 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0140 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %116 ]
   %.sroa.0133.0139 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0133.1, %116 ]
@@ -227808,7 +227808,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0133.1 = phi double [ %.sroa.0133.0139, %34 ], [ %.sroa.0133.0139, %41 ], [ %.sroa.0133.0139, %62 ], [ %105, %100 ], [ %105, %115 ], [ %.sroa.0133.0139, %98 ], [ %.sroa.0133.0139, %75 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0140, %34 ], [ %.sroa.4.0140, %41 ], [ %.sroa.4.0140, %62 ], [ %112, %100 ], [ %112, %115 ], [ %.sroa.4.0140, %98 ], [ %.sroa.4.0140, %75 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0141, %34 ], [ %.sroa.0.0141, %41 ], [ %.sroa.0.0141, %62 ], [ %111, %100 ], [ %111, %115 ], [ %.sroa.0.0141, %98 ], [ %.sroa.0.0141, %75 ]
-  %.2 = phi i64 [ %.0116143, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %100 ], [ %50, %115 ], [ %50, %98 ], [ %50, %75 ]
+  %.1117 = phi i64 [ %.0116143, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %100 ], [ %50, %115 ], [ %50, %98 ], [ %50, %75 ]
   %.1115 = phi i32 [ %.0114144, %34 ], [ %.0114144, %41 ], [ %.0114144, %62 ], [ %.0114144, %100 ], [ %39, %115 ], [ %.0114144, %98 ], [ %.0114144, %75 ]
   %.1113 = phi double [ %.0112145, %34 ], [ %.0112145, %41 ], [ %.0112145, %62 ], [ %.0112145, %100 ], [ %96, %115 ], [ %.0112145, %98 ], [ %.0112145, %75 ]
   %.1 = phi i64 [ %.0146, %34 ], [ %.0146, %41 ], [ %.0146, %62 ], [ %.0146, %100 ], [ %50, %115 ], [ %.0146, %98 ], [ %.0146, %75 ]
@@ -228497,17 +228497,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0123147 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1124147 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0123147, %38
+  %39 = sub nsw i32 %.1124147, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !761
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0125 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1124 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0123 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not148 = icmp sgt i32 %.0125, %33
   br i1 %.not148, label %._crit_edge, label %.lr.ph158
 
@@ -228519,7 +228519,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0157 = phi i32 [ 0, %.lr.ph158 ], [ %.1, %116 ]
   %.0119156 = phi double [ 0xFFF0000000000000, %.lr.ph158 ], [ %.1120, %116 ]
   %.0121155 = phi i32 [ %18, %.lr.ph158 ], [ %.1122, %116 ]
-  %.2154 = phi i32 [ %.1124, %.lr.ph158 ], [ %.3, %116 ]
+  %.2154 = phi i32 [ %.0123, %.lr.ph158 ], [ %.3, %116 ]
   %.1126153 = phi i32 [ %.0125, %.lr.ph158 ], [ %117, %116 ]
   %.sroa.0.0152 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph158 ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0151 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph158 ], [ %.sroa.4.1, %116 ]
@@ -229175,17 +229175,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0121145 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1122145 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0121145, %35
+  %36 = sub nsw i64 %.1122145, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !764
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0123 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0121 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not146 = icmp sgt i32 %.0123, %30
   br i1 %.not146, label %._crit_edge, label %.lr.ph156
 
@@ -229197,7 +229197,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0155 = phi i64 [ 0, %.lr.ph156 ], [ %.1, %113 ]
   %.0117154 = phi double [ 0xFFF0000000000000, %.lr.ph156 ], [ %.1118, %113 ]
   %.0119153 = phi i32 [ %14, %.lr.ph156 ], [ %.1120, %113 ]
-  %.2152 = phi i64 [ %.1122, %.lr.ph156 ], [ %.3, %113 ]
+  %.2152 = phi i64 [ %.0121, %.lr.ph156 ], [ %.3, %113 ]
   %.1124151 = phi i32 [ %.0123, %.lr.ph156 ], [ %114, %113 ]
   %.sroa.0.0150 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph156 ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0149 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph156 ], [ %.sroa.4.1, %113 ]
@@ -229855,7 +229855,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0125153 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1126153 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -229865,14 +229865,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0125153, %41
+  %42 = sub i64 %.1126153, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !767
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0127 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1126 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not154 = icmp sgt i32 %.0127, %30
   br i1 %.not154, label %._crit_edge, label %.lr.ph164
 
@@ -229884,7 +229884,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0163 = phi i64 [ 0, %.lr.ph164 ], [ %.1, %125 ]
   %.0121162 = phi double [ 0xFFF0000000000000, %.lr.ph164 ], [ %.1122, %125 ]
   %.0123161 = phi i32 [ %14, %.lr.ph164 ], [ %.1124, %125 ]
-  %.2160 = phi i64 [ %.1126, %.lr.ph164 ], [ %.3, %125 ]
+  %.2160 = phi i64 [ %.0125, %.lr.ph164 ], [ %.3, %125 ]
   %.1128159 = phi i32 [ %.0127, %.lr.ph164 ], [ %126, %125 ]
   %.sroa.0.0158 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph164 ], [ %.sroa.0.1, %125 ]
   %.sroa.4.0157 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph164 ], [ %.sroa.4.1, %125 ]
@@ -231882,9 +231882,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.089131 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.190, %100 ]
   %.091130 = phi i32 [ 0, %.lr.ph ], [ %.192, %100 ]
   %.093129 = phi i32 [ %13, %.lr.ph ], [ %.194, %100 ]
-  %.095128 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %100 ]
-  %.097127 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.299, %100 ]
-  %.0100126 = phi i32 [ 0, %.lr.ph ], [ %.2102, %100 ]
+  %.095128 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %100 ]
+  %.097127 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.198, %100 ]
+  %.0100126 = phi i32 [ 0, %.lr.ph ], [ %.1101, %100 ]
   %.sroa.0.0124 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %100 ]
   %.sroa.4.0123 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %100 ]
   %.sroa.0116.0122 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0116.1, %100 ]
@@ -231985,9 +231985,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.sroa.0116.1 = phi double [ %.sroa.0116.0122, %30 ], [ %.sroa.0116.0122, %37 ], [ %.sroa.0116.0122, %58 ], [ %89, %84 ], [ %89, %99 ], [ %.sroa.0116.0122, %82 ], [ %.sroa.0116.0122, %68 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0123, %30 ], [ %.sroa.4.0123, %37 ], [ %.sroa.4.0123, %58 ], [ %96, %84 ], [ %96, %99 ], [ %.sroa.4.0123, %82 ], [ %.sroa.4.0123, %68 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0124, %30 ], [ %.sroa.0.0124, %37 ], [ %.sroa.0.0124, %58 ], [ %95, %84 ], [ %95, %99 ], [ %.sroa.0.0124, %82 ], [ %.sroa.0.0124, %68 ]
-  %.2102 = phi i32 [ %.0100126, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %84 ], [ %52, %99 ], [ %52, %82 ], [ %52, %68 ]
-  %.299 = phi double [ %.097127, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %84 ], [ %48, %99 ], [ %48, %82 ], [ %48, %68 ]
-  %.2 = phi double [ %.095128, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %84 ], [ %42, %99 ], [ %42, %82 ], [ %42, %68 ]
+  %.1101 = phi i32 [ %.0100126, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %84 ], [ %52, %99 ], [ %52, %82 ], [ %52, %68 ]
+  %.198 = phi double [ %.097127, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %84 ], [ %48, %99 ], [ %48, %82 ], [ %48, %68 ]
+  %.196 = phi double [ %.095128, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %84 ], [ %42, %99 ], [ %42, %82 ], [ %42, %68 ]
   %.194 = phi i32 [ %.093129, %30 ], [ %.093129, %37 ], [ %.093129, %58 ], [ %.093129, %84 ], [ %35, %99 ], [ %.093129, %82 ], [ %.093129, %68 ]
   %.192 = phi i32 [ %.091130, %30 ], [ %.091130, %37 ], [ %.091130, %58 ], [ %.091130, %84 ], [ %52, %99 ], [ %.091130, %82 ], [ %.091130, %68 ]
   %.190 = phi double [ %.089131, %30 ], [ %.089131, %37 ], [ %.089131, %58 ], [ %.089131, %84 ], [ %80, %99 ], [ %.089131, %82 ], [ %.089131, %68 ]
@@ -232584,9 +232584,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0110142 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0112141 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0116140 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1111142 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1113141 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1117140 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -232600,18 +232600,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0110142, %36
-  %46 = fsub double %.0112141, %41
-  %47 = sub nsw i32 %.0116140, %44
+  %45 = fsub double %.1111142, %36
+  %46 = fsub double %.1113141, %41
+  %47 = sub nsw i32 %.1117140, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !775
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0120 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1117 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1113 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1111 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0116 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0112 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0110 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not145 = icmp sgt i32 %.0120, %25
   br i1 %.not145, label %._crit_edge, label %.lr.ph159
 
@@ -232629,9 +232629,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0104156 = phi double [ 0xFFF0000000000000, %.lr.ph159 ], [ %.1105, %122 ]
   %.0106155 = phi i32 [ 0, %.lr.ph159 ], [ %.1107, %122 ]
   %.0108154 = phi i32 [ %13, %.lr.ph159 ], [ %.1109, %122 ]
-  %.2153 = phi double [ %.1111, %.lr.ph159 ], [ %.3, %122 ]
-  %.2114152 = phi double [ %.1113, %.lr.ph159 ], [ %.3115, %122 ]
-  %.2118151 = phi i32 [ %.1117, %.lr.ph159 ], [ %.3119, %122 ]
+  %.2153 = phi double [ %.0110, %.lr.ph159 ], [ %.3, %122 ]
+  %.2114152 = phi double [ %.0112, %.lr.ph159 ], [ %.3115, %122 ]
+  %.2118151 = phi i32 [ %.0116, %.lr.ph159 ], [ %.3119, %122 ]
   %.sroa.0.0149 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph159 ], [ %.sroa.0.1, %122 ]
   %.sroa.4.0148 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph159 ], [ %.sroa.4.1, %122 ]
   %.sroa.0135.0147 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph159 ], [ %.sroa.0135.1, %122 ]
@@ -233950,7 +233950,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0147 = phi i32 [ 0, %.lr.ph ], [ %.1, %170 ]
   %.0112146 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %170 ]
   %.0114145 = phi i32 [ %18, %.lr.ph ], [ %.1115, %170 ]
-  %.0116144 = phi i32 [ 0, %.lr.ph ], [ %.2, %170 ]
+  %.0116144 = phi i32 [ 0, %.lr.ph ], [ %.1117, %170 ]
   %.sroa.0.0142 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %170 ]
   %.sroa.4.0141 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %170 ]
   %.sroa.0134.0140 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0134.1, %170 ]
@@ -234144,7 +234144,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0134.1 = phi double [ %.sroa.0134.0140, %37 ], [ %.sroa.0134.0140, %44 ], [ %.sroa.0134.0140, %59 ], [ %159, %154 ], [ %159, %169 ], [ %.sroa.0134.0140, %152 ], [ %.sroa.0134.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0141, %37 ], [ %.sroa.4.0141, %44 ], [ %.sroa.4.0141, %59 ], [ %166, %154 ], [ %166, %169 ], [ %.sroa.4.0141, %152 ], [ %.sroa.4.0141, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0142, %37 ], [ %.sroa.0.0142, %44 ], [ %.sroa.0.0142, %59 ], [ %165, %154 ], [ %165, %169 ], [ %.sroa.0.0142, %152 ], [ %.sroa.0.0142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i32 [ %.0116144, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %154 ], [ %47, %169 ], [ %47, %152 ], [ %47, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1117 = phi i32 [ %.0116144, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %154 ], [ %47, %169 ], [ %47, %152 ], [ %47, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1115 = phi i32 [ %.0114145, %37 ], [ %.0114145, %44 ], [ %.0114145, %59 ], [ %.0114145, %154 ], [ %42, %169 ], [ %.0114145, %152 ], [ %.0114145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi double [ %.0112146, %37 ], [ %.0112146, %44 ], [ %.0112146, %59 ], [ %.0112146, %154 ], [ %.0.i, %169 ], [ %.0112146, %152 ], [ %.0112146, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i32 [ %.0147, %37 ], [ %.0147, %44 ], [ %.0147, %59 ], [ %.0147, %154 ], [ %47, %169 ], [ %.0147, %152 ], [ %.0147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -234735,7 +234735,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0145 = phi i64 [ 0, %.lr.ph ], [ %.1, %167 ]
   %.0110144 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1111, %167 ]
   %.0112143 = phi i32 [ %14, %.lr.ph ], [ %.1113, %167 ]
-  %.0114142 = phi i64 [ 0, %.lr.ph ], [ %.2, %167 ]
+  %.0114142 = phi i64 [ 0, %.lr.ph ], [ %.1115, %167 ]
   %.sroa.0.0140 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %167 ]
   %.sroa.4.0139 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %167 ]
   %.sroa.0132.0138 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0132.1, %167 ]
@@ -234929,7 +234929,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0132.1 = phi double [ %.sroa.0132.0138, %34 ], [ %.sroa.0132.0138, %41 ], [ %.sroa.0132.0138, %56 ], [ %156, %151 ], [ %156, %166 ], [ %.sroa.0132.0138, %149 ], [ %.sroa.0132.0138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0139, %34 ], [ %.sroa.4.0139, %41 ], [ %.sroa.4.0139, %56 ], [ %163, %151 ], [ %163, %166 ], [ %.sroa.4.0139, %149 ], [ %.sroa.4.0139, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0140, %34 ], [ %.sroa.0.0140, %41 ], [ %.sroa.0.0140, %56 ], [ %162, %151 ], [ %162, %166 ], [ %.sroa.0.0140, %149 ], [ %.sroa.0.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i64 [ %.0114142, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %151 ], [ %44, %166 ], [ %44, %149 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1115 = phi i64 [ %.0114142, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %151 ], [ %44, %166 ], [ %44, %149 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi i32 [ %.0112143, %34 ], [ %.0112143, %41 ], [ %.0112143, %56 ], [ %.0112143, %151 ], [ %39, %166 ], [ %.0112143, %149 ], [ %.0112143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1111 = phi double [ %.0110144, %34 ], [ %.0110144, %41 ], [ %.0110144, %56 ], [ %.0110144, %151 ], [ %.0.i, %166 ], [ %.0110144, %149 ], [ %.0110144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i64 [ %.0145, %34 ], [ %.0145, %41 ], [ %.0145, %56 ], [ %.0145, %151 ], [ %44, %166 ], [ %.0145, %149 ], [ %.0145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -235522,7 +235522,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0147 = phi i64 [ 0, %.lr.ph ], [ %.1, %173 ]
   %.0112146 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %173 ]
   %.0114145 = phi i32 [ %14, %.lr.ph ], [ %.1115, %173 ]
-  %.0116144 = phi i64 [ 0, %.lr.ph ], [ %.2, %173 ]
+  %.0116144 = phi i64 [ 0, %.lr.ph ], [ %.1117, %173 ]
   %.sroa.0.0142 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %173 ]
   %.sroa.4.0141 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %173 ]
   %.sroa.0134.0140 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0134.1, %173 ]
@@ -235723,7 +235723,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0134.1 = phi double [ %.sroa.0134.0140, %34 ], [ %.sroa.0134.0140, %41 ], [ %.sroa.0134.0140, %62 ], [ %162, %157 ], [ %162, %172 ], [ %.sroa.0134.0140, %155 ], [ %.sroa.0134.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0141, %34 ], [ %.sroa.4.0141, %41 ], [ %.sroa.4.0141, %62 ], [ %169, %157 ], [ %169, %172 ], [ %.sroa.4.0141, %155 ], [ %.sroa.4.0141, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0142, %34 ], [ %.sroa.0.0142, %41 ], [ %.sroa.0.0142, %62 ], [ %168, %157 ], [ %168, %172 ], [ %.sroa.0.0142, %155 ], [ %.sroa.0.0142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i64 [ %.0116144, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %157 ], [ %50, %172 ], [ %50, %155 ], [ %50, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1117 = phi i64 [ %.0116144, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %157 ], [ %50, %172 ], [ %50, %155 ], [ %50, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1115 = phi i32 [ %.0114145, %34 ], [ %.0114145, %41 ], [ %.0114145, %62 ], [ %.0114145, %157 ], [ %39, %172 ], [ %.0114145, %155 ], [ %.0114145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi double [ %.0112146, %34 ], [ %.0112146, %41 ], [ %.0112146, %62 ], [ %.0112146, %157 ], [ %.0.i, %172 ], [ %.0112146, %155 ], [ %.0112146, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i64 [ %.0147, %34 ], [ %.0147, %41 ], [ %.0147, %62 ], [ %.0147, %157 ], [ %50, %172 ], [ %.0147, %155 ], [ %.0147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -236432,17 +236432,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0123148 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1124148 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0123148, %38
+  %39 = sub nsw i32 %.1124148, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !785
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0125 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1124 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0123 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not149 = icmp sgt i32 %.0125, %33
   br i1 %.not149, label %._crit_edge, label %.lr.ph159
 
@@ -236454,7 +236454,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0158 = phi i32 [ 0, %.lr.ph159 ], [ %.1, %173 ]
   %.0119157 = phi double [ 0xFFF0000000000000, %.lr.ph159 ], [ %.1120, %173 ]
   %.0121156 = phi i32 [ %18, %.lr.ph159 ], [ %.1122, %173 ]
-  %.2155 = phi i32 [ %.1124, %.lr.ph159 ], [ %.3, %173 ]
+  %.2155 = phi i32 [ %.0123, %.lr.ph159 ], [ %.3, %173 ]
   %.1126154 = phi i32 [ %.0125, %.lr.ph159 ], [ %174, %173 ]
   %.sroa.0.0153 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph159 ], [ %.sroa.0.1, %173 ]
   %.sroa.4.0152 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph159 ], [ %.sroa.4.1, %173 ]
@@ -237234,17 +237234,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0121146 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1122146 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0121146, %35
+  %36 = sub nsw i64 %.1122146, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !788
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0123 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0121 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not147 = icmp sgt i32 %.0123, %30
   br i1 %.not147, label %._crit_edge, label %.lr.ph157
 
@@ -237256,7 +237256,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0156 = phi i64 [ 0, %.lr.ph157 ], [ %.1, %170 ]
   %.0117155 = phi double [ 0xFFF0000000000000, %.lr.ph157 ], [ %.1118, %170 ]
   %.0119154 = phi i32 [ %14, %.lr.ph157 ], [ %.1120, %170 ]
-  %.2153 = phi i64 [ %.1122, %.lr.ph157 ], [ %.3, %170 ]
+  %.2153 = phi i64 [ %.0121, %.lr.ph157 ], [ %.3, %170 ]
   %.1124152 = phi i32 [ %.0123, %.lr.ph157 ], [ %171, %170 ]
   %.sroa.0.0151 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph157 ], [ %.sroa.0.1, %170 ]
   %.sroa.4.0150 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph157 ], [ %.sroa.4.1, %170 ]
@@ -238038,7 +238038,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0125154 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1126154 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -238048,14 +238048,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0125154, %41
+  %42 = sub i64 %.1126154, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !791
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0127 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1126 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not155 = icmp sgt i32 %.0127, %30
   br i1 %.not155, label %._crit_edge, label %.lr.ph165
 
@@ -238067,7 +238067,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0164 = phi i64 [ 0, %.lr.ph165 ], [ %.1, %182 ]
   %.0121163 = phi double [ 0xFFF0000000000000, %.lr.ph165 ], [ %.1122, %182 ]
   %.0123162 = phi i32 [ %14, %.lr.ph165 ], [ %.1124, %182 ]
-  %.2161 = phi i64 [ %.1126, %.lr.ph165 ], [ %.3, %182 ]
+  %.2161 = phi i64 [ %.0125, %.lr.ph165 ], [ %.3, %182 ]
   %.1128160 = phi i32 [ %.0127, %.lr.ph165 ], [ %183, %182 ]
   %.sroa.0.0159 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.0.1, %182 ]
   %.sroa.4.0158 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph165 ], [ %.sroa.4.1, %182 ]
@@ -240325,9 +240325,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.089132 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.190, %157 ]
   %.091131 = phi i32 [ 0, %.lr.ph ], [ %.192, %157 ]
   %.093130 = phi i32 [ %13, %.lr.ph ], [ %.194, %157 ]
-  %.095129 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %157 ]
-  %.097128 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.299, %157 ]
-  %.0100127 = phi i32 [ 0, %.lr.ph ], [ %.2102, %157 ]
+  %.095129 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %157 ]
+  %.097128 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.198, %157 ]
+  %.0100127 = phi i32 [ 0, %.lr.ph ], [ %.1101, %157 ]
   %.sroa.0.0125 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %157 ]
   %.sroa.4.0124 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %157 ]
   %.sroa.0117.0123 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0117.1, %157 ]
@@ -240517,9 +240517,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0117.1 = phi double [ %.sroa.0117.0123, %30 ], [ %.sroa.0117.0123, %37 ], [ %.sroa.0117.0123, %58 ], [ %146, %141 ], [ %146, %156 ], [ %.sroa.0117.0123, %139 ], [ %.sroa.0117.0123, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0124, %30 ], [ %.sroa.4.0124, %37 ], [ %.sroa.4.0124, %58 ], [ %153, %141 ], [ %153, %156 ], [ %.sroa.4.0124, %139 ], [ %.sroa.4.0124, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0125, %30 ], [ %.sroa.0.0125, %37 ], [ %.sroa.0.0125, %58 ], [ %152, %141 ], [ %152, %156 ], [ %.sroa.0.0125, %139 ], [ %.sroa.0.0125, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2102 = phi i32 [ %.0100127, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %141 ], [ %52, %156 ], [ %52, %139 ], [ %52, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.299 = phi double [ %.097128, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %141 ], [ %48, %156 ], [ %48, %139 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi double [ %.095129, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %141 ], [ %42, %156 ], [ %42, %139 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1101 = phi i32 [ %.0100127, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %141 ], [ %52, %156 ], [ %52, %139 ], [ %52, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.198 = phi double [ %.097128, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %141 ], [ %48, %156 ], [ %48, %139 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.196 = phi double [ %.095129, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %141 ], [ %42, %156 ], [ %42, %139 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.194 = phi i32 [ %.093130, %30 ], [ %.093130, %37 ], [ %.093130, %58 ], [ %.093130, %141 ], [ %35, %156 ], [ %.093130, %139 ], [ %.093130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.192 = phi i32 [ %.091131, %30 ], [ %.091131, %37 ], [ %.091131, %58 ], [ %.091131, %141 ], [ %52, %156 ], [ %.091131, %139 ], [ %.091131, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.190 = phi double [ %.089132, %30 ], [ %.089132, %37 ], [ %.089132, %58 ], [ %.089132, %141 ], [ %.0.i, %156 ], [ %.089132, %139 ], [ %.089132, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb1ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -241131,9 +241131,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0110143 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0112142 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0116141 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1111143 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1113142 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1117141 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -241147,18 +241147,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0110143, %36
-  %46 = fsub double %.0112142, %41
-  %47 = sub nsw i32 %.0116141, %44
+  %45 = fsub double %.1111143, %36
+  %46 = fsub double %.1113142, %41
+  %47 = sub nsw i32 %.1117141, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !799
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0120 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1117 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1113 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1111 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0116 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0112 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0110 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not146 = icmp sgt i32 %.0120, %25
   br i1 %.not146, label %._crit_edge, label %.lr.ph160
 
@@ -241176,9 +241176,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0104157 = phi double [ 0xFFF0000000000000, %.lr.ph160 ], [ %.1105, %179 ]
   %.0106156 = phi i32 [ 0, %.lr.ph160 ], [ %.1107, %179 ]
   %.0108155 = phi i32 [ %13, %.lr.ph160 ], [ %.1109, %179 ]
-  %.2154 = phi double [ %.1111, %.lr.ph160 ], [ %.3, %179 ]
-  %.2114153 = phi double [ %.1113, %.lr.ph160 ], [ %.3115, %179 ]
-  %.2118152 = phi i32 [ %.1117, %.lr.ph160 ], [ %.3119, %179 ]
+  %.2154 = phi double [ %.0110, %.lr.ph160 ], [ %.3, %179 ]
+  %.2114153 = phi double [ %.0112, %.lr.ph160 ], [ %.3115, %179 ]
+  %.2118152 = phi i32 [ %.0116, %.lr.ph160 ], [ %.3119, %179 ]
   %.sroa.0.0150 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.0.1, %179 ]
   %.sroa.4.0149 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.4.1, %179 ]
   %.sroa.0136.0148 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.0136.1, %179 ]
@@ -243313,7 +243313,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0148 = phi i32 [ 0, %.lr.ph ], [ %.1, %113 ]
   %.0112147 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %113 ]
   %.0114146 = phi i32 [ %18, %.lr.ph ], [ %.1115, %113 ]
-  %.0116145 = phi i32 [ 0, %.lr.ph ], [ %.2, %113 ]
+  %.0116145 = phi i32 [ 0, %.lr.ph ], [ %.1117, %113 ]
   %.sroa.0.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0142 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %113 ]
   %.sroa.0135.0141 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0135.1, %113 ]
@@ -243418,7 +243418,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0135.1 = phi double [ %.sroa.0135.0141, %37 ], [ %.sroa.0135.0141, %44 ], [ %.sroa.0135.0141, %59 ], [ %102, %97 ], [ %102, %112 ], [ %.sroa.0135.0141, %95 ], [ %.sroa.0135.0141, %72 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0142, %37 ], [ %.sroa.4.0142, %44 ], [ %.sroa.4.0142, %59 ], [ %109, %97 ], [ %109, %112 ], [ %.sroa.4.0142, %95 ], [ %.sroa.4.0142, %72 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0143, %37 ], [ %.sroa.0.0143, %44 ], [ %.sroa.0.0143, %59 ], [ %108, %97 ], [ %108, %112 ], [ %.sroa.0.0143, %95 ], [ %.sroa.0.0143, %72 ]
-  %.2 = phi i32 [ %.0116145, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %97 ], [ %47, %112 ], [ %47, %95 ], [ %47, %72 ]
+  %.1117 = phi i32 [ %.0116145, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %97 ], [ %47, %112 ], [ %47, %95 ], [ %47, %72 ]
   %.1115 = phi i32 [ %.0114146, %37 ], [ %.0114146, %44 ], [ %.0114146, %59 ], [ %.0114146, %97 ], [ %42, %112 ], [ %.0114146, %95 ], [ %.0114146, %72 ]
   %.1113 = phi double [ %.0112147, %37 ], [ %.0112147, %44 ], [ %.0112147, %59 ], [ %.0112147, %97 ], [ %93, %112 ], [ %.0112147, %95 ], [ %.0112147, %72 ]
   %.1 = phi i32 [ %.0148, %37 ], [ %.0148, %44 ], [ %.0148, %59 ], [ %.0148, %97 ], [ %47, %112 ], [ %.0148, %95 ], [ %.0148, %72 ]
@@ -244002,7 +244002,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0146 = phi i64 [ 0, %.lr.ph ], [ %.1, %110 ]
   %.0110145 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1111, %110 ]
   %.0112144 = phi i32 [ %14, %.lr.ph ], [ %.1113, %110 ]
-  %.0114143 = phi i64 [ 0, %.lr.ph ], [ %.2, %110 ]
+  %.0114143 = phi i64 [ 0, %.lr.ph ], [ %.1115, %110 ]
   %.sroa.0.0141 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %110 ]
   %.sroa.4.0140 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %110 ]
   %.sroa.0133.0139 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0133.1, %110 ]
@@ -244107,7 +244107,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0133.1 = phi double [ %.sroa.0133.0139, %34 ], [ %.sroa.0133.0139, %41 ], [ %.sroa.0133.0139, %56 ], [ %99, %94 ], [ %99, %109 ], [ %.sroa.0133.0139, %92 ], [ %.sroa.0133.0139, %69 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0140, %34 ], [ %.sroa.4.0140, %41 ], [ %.sroa.4.0140, %56 ], [ %106, %94 ], [ %106, %109 ], [ %.sroa.4.0140, %92 ], [ %.sroa.4.0140, %69 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0141, %34 ], [ %.sroa.0.0141, %41 ], [ %.sroa.0.0141, %56 ], [ %105, %94 ], [ %105, %109 ], [ %.sroa.0.0141, %92 ], [ %.sroa.0.0141, %69 ]
-  %.2 = phi i64 [ %.0114143, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %94 ], [ %44, %109 ], [ %44, %92 ], [ %44, %69 ]
+  %.1115 = phi i64 [ %.0114143, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %94 ], [ %44, %109 ], [ %44, %92 ], [ %44, %69 ]
   %.1113 = phi i32 [ %.0112144, %34 ], [ %.0112144, %41 ], [ %.0112144, %56 ], [ %.0112144, %94 ], [ %39, %109 ], [ %.0112144, %92 ], [ %.0112144, %69 ]
   %.1111 = phi double [ %.0110145, %34 ], [ %.0110145, %41 ], [ %.0110145, %56 ], [ %.0110145, %94 ], [ %90, %109 ], [ %.0110145, %92 ], [ %.0110145, %69 ]
   %.1 = phi i64 [ %.0146, %34 ], [ %.0146, %41 ], [ %.0146, %56 ], [ %.0146, %94 ], [ %44, %109 ], [ %.0146, %92 ], [ %.0146, %69 ]
@@ -244693,7 +244693,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0148 = phi i64 [ 0, %.lr.ph ], [ %.1, %116 ]
   %.0112147 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %116 ]
   %.0114146 = phi i32 [ %14, %.lr.ph ], [ %.1115, %116 ]
-  %.0116145 = phi i64 [ 0, %.lr.ph ], [ %.2, %116 ]
+  %.0116145 = phi i64 [ 0, %.lr.ph ], [ %.1117, %116 ]
   %.sroa.0.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0142 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %116 ]
   %.sroa.0135.0141 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0135.1, %116 ]
@@ -244805,7 +244805,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.sroa.0135.1 = phi double [ %.sroa.0135.0141, %34 ], [ %.sroa.0135.0141, %41 ], [ %.sroa.0135.0141, %62 ], [ %105, %100 ], [ %105, %115 ], [ %.sroa.0135.0141, %98 ], [ %.sroa.0135.0141, %75 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0142, %34 ], [ %.sroa.4.0142, %41 ], [ %.sroa.4.0142, %62 ], [ %112, %100 ], [ %112, %115 ], [ %.sroa.4.0142, %98 ], [ %.sroa.4.0142, %75 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0143, %34 ], [ %.sroa.0.0143, %41 ], [ %.sroa.0.0143, %62 ], [ %111, %100 ], [ %111, %115 ], [ %.sroa.0.0143, %98 ], [ %.sroa.0.0143, %75 ]
-  %.2 = phi i64 [ %.0116145, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %100 ], [ %50, %115 ], [ %50, %98 ], [ %50, %75 ]
+  %.1117 = phi i64 [ %.0116145, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %100 ], [ %50, %115 ], [ %50, %98 ], [ %50, %75 ]
   %.1115 = phi i32 [ %.0114146, %34 ], [ %.0114146, %41 ], [ %.0114146, %62 ], [ %.0114146, %100 ], [ %39, %115 ], [ %.0114146, %98 ], [ %.0114146, %75 ]
   %.1113 = phi double [ %.0112147, %34 ], [ %.0112147, %41 ], [ %.0112147, %62 ], [ %.0112147, %100 ], [ %96, %115 ], [ %.0112147, %98 ], [ %.0112147, %75 ]
   %.1 = phi i64 [ %.0148, %34 ], [ %.0148, %41 ], [ %.0148, %62 ], [ %.0148, %100 ], [ %50, %115 ], [ %.0148, %98 ], [ %.0148, %75 ]
@@ -245527,17 +245527,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0123149 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1124149 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0123149, %38
+  %39 = sub nsw i32 %.1124149, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !809
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0125 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1124 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0123 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not150 = icmp sgt i32 %.0125, %33
   br i1 %.not150, label %._crit_edge, label %.lr.ph160
 
@@ -245549,7 +245549,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0159 = phi i32 [ 0, %.lr.ph160 ], [ %.1, %116 ]
   %.0119158 = phi double [ 0xFFF0000000000000, %.lr.ph160 ], [ %.1120, %116 ]
   %.0121157 = phi i32 [ %18, %.lr.ph160 ], [ %.1122, %116 ]
-  %.2156 = phi i32 [ %.1124, %.lr.ph160 ], [ %.3, %116 ]
+  %.2156 = phi i32 [ %.0123, %.lr.ph160 ], [ %.3, %116 ]
   %.1126155 = phi i32 [ %.0125, %.lr.ph160 ], [ %117, %116 ]
   %.sroa.0.0154 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.0.1, %116 ]
   %.sroa.4.0153 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.4.1, %116 ]
@@ -246233,17 +246233,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0121147 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1122147 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0121147, %35
+  %36 = sub nsw i64 %.1122147, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !812
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0123 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0121 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not148 = icmp sgt i32 %.0123, %30
   br i1 %.not148, label %._crit_edge, label %.lr.ph158
 
@@ -246255,7 +246255,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0157 = phi i64 [ 0, %.lr.ph158 ], [ %.1, %113 ]
   %.0117156 = phi double [ 0xFFF0000000000000, %.lr.ph158 ], [ %.1118, %113 ]
   %.0119155 = phi i32 [ %14, %.lr.ph158 ], [ %.1120, %113 ]
-  %.2154 = phi i64 [ %.1122, %.lr.ph158 ], [ %.3, %113 ]
+  %.2154 = phi i64 [ %.0121, %.lr.ph158 ], [ %.3, %113 ]
   %.1124153 = phi i32 [ %.0123, %.lr.ph158 ], [ %114, %113 ]
   %.sroa.0.0152 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph158 ], [ %.sroa.0.1, %113 ]
   %.sroa.4.0151 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph158 ], [ %.sroa.4.1, %113 ]
@@ -246941,7 +246941,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0125155 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1126155 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -246951,14 +246951,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0125155, %41
+  %42 = sub i64 %.1126155, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !815
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0127 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1126 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not156 = icmp sgt i32 %.0127, %30
   br i1 %.not156, label %._crit_edge, label %.lr.ph166
 
@@ -246970,7 +246970,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0165 = phi i64 [ 0, %.lr.ph166 ], [ %.1, %125 ]
   %.0121164 = phi double [ 0xFFF0000000000000, %.lr.ph166 ], [ %.1122, %125 ]
   %.0123163 = phi i32 [ %14, %.lr.ph166 ], [ %.1124, %125 ]
-  %.2162 = phi i64 [ %.1126, %.lr.ph166 ], [ %.3, %125 ]
+  %.2162 = phi i64 [ %.0125, %.lr.ph166 ], [ %.3, %125 ]
   %.1128161 = phi i32 [ %.0127, %.lr.ph166 ], [ %126, %125 ]
   %.sroa.0.0160 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph166 ], [ %.sroa.0.1, %125 ]
   %.sroa.4.0159 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph166 ], [ %.sroa.4.1, %125 ]
@@ -249059,9 +249059,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.089133 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.190, %100 ]
   %.091132 = phi i32 [ 0, %.lr.ph ], [ %.192, %100 ]
   %.093131 = phi i32 [ %13, %.lr.ph ], [ %.194, %100 ]
-  %.095130 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %100 ]
-  %.097129 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.299, %100 ]
-  %.0100128 = phi i32 [ 0, %.lr.ph ], [ %.2102, %100 ]
+  %.095130 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %100 ]
+  %.097129 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.198, %100 ]
+  %.0100128 = phi i32 [ 0, %.lr.ph ], [ %.1101, %100 ]
   %.sroa.0.0126 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %100 ]
   %.sroa.4.0125 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %100 ]
   %.sroa.0118.0124 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0118.1, %100 ]
@@ -249162,9 +249162,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.sroa.0118.1 = phi double [ %.sroa.0118.0124, %30 ], [ %.sroa.0118.0124, %37 ], [ %.sroa.0118.0124, %58 ], [ %89, %84 ], [ %89, %99 ], [ %.sroa.0118.0124, %82 ], [ %.sroa.0118.0124, %68 ]
   %.sroa.4.1 = phi double [ %.sroa.4.0125, %30 ], [ %.sroa.4.0125, %37 ], [ %.sroa.4.0125, %58 ], [ %96, %84 ], [ %96, %99 ], [ %.sroa.4.0125, %82 ], [ %.sroa.4.0125, %68 ]
   %.sroa.0.1 = phi double [ %.sroa.0.0126, %30 ], [ %.sroa.0.0126, %37 ], [ %.sroa.0.0126, %58 ], [ %95, %84 ], [ %95, %99 ], [ %.sroa.0.0126, %82 ], [ %.sroa.0.0126, %68 ]
-  %.2102 = phi i32 [ %.0100128, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %84 ], [ %52, %99 ], [ %52, %82 ], [ %52, %68 ]
-  %.299 = phi double [ %.097129, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %84 ], [ %48, %99 ], [ %48, %82 ], [ %48, %68 ]
-  %.2 = phi double [ %.095130, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %84 ], [ %42, %99 ], [ %42, %82 ], [ %42, %68 ]
+  %.1101 = phi i32 [ %.0100128, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %84 ], [ %52, %99 ], [ %52, %82 ], [ %52, %68 ]
+  %.198 = phi double [ %.097129, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %84 ], [ %48, %99 ], [ %48, %82 ], [ %48, %68 ]
+  %.196 = phi double [ %.095130, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %84 ], [ %42, %99 ], [ %42, %82 ], [ %42, %68 ]
   %.194 = phi i32 [ %.093131, %30 ], [ %.093131, %37 ], [ %.093131, %58 ], [ %.093131, %84 ], [ %35, %99 ], [ %.093131, %82 ], [ %.093131, %68 ]
   %.192 = phi i32 [ %.091132, %30 ], [ %.091132, %37 ], [ %.091132, %58 ], [ %.091132, %84 ], [ %52, %99 ], [ %.091132, %82 ], [ %.091132, %68 ]
   %.190 = phi double [ %.089133, %30 ], [ %.089133, %37 ], [ %.089133, %58 ], [ %.089133, %84 ], [ %80, %99 ], [ %.089133, %82 ], [ %.089133, %68 ]
@@ -249800,9 +249800,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0110144 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0112143 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0116142 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1111144 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1113143 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1117142 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -249816,18 +249816,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0110144, %36
-  %46 = fsub double %.0112143, %41
-  %47 = sub nsw i32 %.0116142, %44
+  %45 = fsub double %.1111144, %36
+  %46 = fsub double %.1113143, %41
+  %47 = sub nsw i32 %.1117142, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !823
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0120 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1117 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1113 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1111 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0116 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0112 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0110 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not147 = icmp sgt i32 %.0120, %25
   br i1 %.not147, label %._crit_edge, label %.lr.ph161
 
@@ -249845,9 +249845,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0104158 = phi double [ 0xFFF0000000000000, %.lr.ph161 ], [ %.1105, %122 ]
   %.0106157 = phi i32 [ 0, %.lr.ph161 ], [ %.1107, %122 ]
   %.0108156 = phi i32 [ %13, %.lr.ph161 ], [ %.1109, %122 ]
-  %.2155 = phi double [ %.1111, %.lr.ph161 ], [ %.3, %122 ]
-  %.2114154 = phi double [ %.1113, %.lr.ph161 ], [ %.3115, %122 ]
-  %.2118153 = phi i32 [ %.1117, %.lr.ph161 ], [ %.3119, %122 ]
+  %.2155 = phi double [ %.0110, %.lr.ph161 ], [ %.3, %122 ]
+  %.2114154 = phi double [ %.0112, %.lr.ph161 ], [ %.3115, %122 ]
+  %.2118153 = phi i32 [ %.0116, %.lr.ph161 ], [ %.3119, %122 ]
   %.sroa.0.0151 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph161 ], [ %.sroa.0.1, %122 ]
   %.sroa.4.0150 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph161 ], [ %.sroa.4.1, %122 ]
   %.sroa.0137.0149 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph161 ], [ %.sroa.0137.1, %122 ]
@@ -251238,7 +251238,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i32 [ 0, %.lr.ph ], [ %.1, %169 ]
   %.0112149 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %169 ]
   %.0114148 = phi i32 [ %18, %.lr.ph ], [ %.1115, %169 ]
-  %.0116147 = phi i32 [ 0, %.lr.ph ], [ %.2, %169 ]
+  %.0116147 = phi i32 [ 0, %.lr.ph ], [ %.1117, %169 ]
   %.sroa.0.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %169 ]
   %.sroa.4.0144 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %169 ]
   %.sroa.0137.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0137.1, %169 ]
@@ -251441,7 +251441,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17F
   %.sroa.0137.1 = phi double [ %.sroa.0137.0143, %37 ], [ %.sroa.0137.0143, %44 ], [ %.sroa.0137.0143, %59 ], [ %158, %153 ], [ %158, %168 ], [ %.sroa.0137.0143, %151 ], [ %.sroa.0137.0143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0144, %37 ], [ %.sroa.4.0144, %44 ], [ %.sroa.4.0144, %59 ], [ %165, %153 ], [ %165, %168 ], [ %.sroa.4.0144, %151 ], [ %.sroa.4.0144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0145, %37 ], [ %.sroa.0.0145, %44 ], [ %.sroa.0.0145, %59 ], [ %164, %153 ], [ %164, %168 ], [ %.sroa.0.0145, %151 ], [ %.sroa.0.0145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i32 [ %.0116147, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %153 ], [ %47, %168 ], [ %47, %151 ], [ %47, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1117 = phi i32 [ %.0116147, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %153 ], [ %47, %168 ], [ %47, %151 ], [ %47, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1115 = phi i32 [ %.0114148, %37 ], [ %.0114148, %44 ], [ %.0114148, %59 ], [ %.0114148, %153 ], [ %42, %168 ], [ %.0114148, %151 ], [ %.0114148, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi double [ %.0112149, %37 ], [ %.0112149, %44 ], [ %.0112149, %59 ], [ %.0112149, %153 ], [ %.0.i, %168 ], [ %.0112149, %151 ], [ %.0112149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i32 [ %.0150, %37 ], [ %.0150, %44 ], [ %.0150, %59 ], [ %.0150, %153 ], [ %47, %168 ], [ %.0150, %151 ], [ %.0150, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -252069,7 +252069,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0148 = phi i64 [ 0, %.lr.ph ], [ %.1, %166 ]
   %.0110147 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1111, %166 ]
   %.0112146 = phi i32 [ %14, %.lr.ph ], [ %.1113, %166 ]
-  %.0114145 = phi i64 [ 0, %.lr.ph ], [ %.2, %166 ]
+  %.0114145 = phi i64 [ 0, %.lr.ph ], [ %.1115, %166 ]
   %.sroa.0.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %166 ]
   %.sroa.4.0142 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %166 ]
   %.sroa.0135.0141 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0135.1, %166 ]
@@ -252272,7 +252272,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17F
   %.sroa.0135.1 = phi double [ %.sroa.0135.0141, %34 ], [ %.sroa.0135.0141, %41 ], [ %.sroa.0135.0141, %56 ], [ %155, %150 ], [ %155, %165 ], [ %.sroa.0135.0141, %148 ], [ %.sroa.0135.0141, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0142, %34 ], [ %.sroa.4.0142, %41 ], [ %.sroa.4.0142, %56 ], [ %162, %150 ], [ %162, %165 ], [ %.sroa.4.0142, %148 ], [ %.sroa.4.0142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0143, %34 ], [ %.sroa.0.0143, %41 ], [ %.sroa.0.0143, %56 ], [ %161, %150 ], [ %161, %165 ], [ %.sroa.0.0143, %148 ], [ %.sroa.0.0143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i64 [ %.0114145, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %150 ], [ %44, %165 ], [ %44, %148 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1115 = phi i64 [ %.0114145, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %150 ], [ %44, %165 ], [ %44, %148 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi i32 [ %.0112146, %34 ], [ %.0112146, %41 ], [ %.0112146, %56 ], [ %.0112146, %150 ], [ %39, %165 ], [ %.0112146, %148 ], [ %.0112146, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1111 = phi double [ %.0110147, %34 ], [ %.0110147, %41 ], [ %.0110147, %56 ], [ %.0110147, %150 ], [ %.0.i, %165 ], [ %.0110147, %148 ], [ %.0110147, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i64 [ %.0148, %34 ], [ %.0148, %41 ], [ %.0148, %56 ], [ %.0148, %150 ], [ %44, %165 ], [ %.0148, %148 ], [ %.0148, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -252902,7 +252902,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0150 = phi i64 [ 0, %.lr.ph ], [ %.1, %172 ]
   %.0112149 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %172 ]
   %.0114148 = phi i32 [ %14, %.lr.ph ], [ %.1115, %172 ]
-  %.0116147 = phi i64 [ 0, %.lr.ph ], [ %.2, %172 ]
+  %.0116147 = phi i64 [ 0, %.lr.ph ], [ %.1117, %172 ]
   %.sroa.0.0145 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %172 ]
   %.sroa.4.0144 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %172 ]
   %.sroa.0137.0143 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0137.1, %172 ]
@@ -253112,7 +253112,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17F
   %.sroa.0137.1 = phi double [ %.sroa.0137.0143, %34 ], [ %.sroa.0137.0143, %41 ], [ %.sroa.0137.0143, %62 ], [ %161, %156 ], [ %161, %171 ], [ %.sroa.0137.0143, %154 ], [ %.sroa.0137.0143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0144, %34 ], [ %.sroa.4.0144, %41 ], [ %.sroa.4.0144, %62 ], [ %168, %156 ], [ %168, %171 ], [ %.sroa.4.0144, %154 ], [ %.sroa.4.0144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0145, %34 ], [ %.sroa.0.0145, %41 ], [ %.sroa.0.0145, %62 ], [ %167, %156 ], [ %167, %171 ], [ %.sroa.0.0145, %154 ], [ %.sroa.0.0145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i64 [ %.0116147, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %156 ], [ %50, %171 ], [ %50, %154 ], [ %50, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1117 = phi i64 [ %.0116147, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %156 ], [ %50, %171 ], [ %50, %154 ], [ %50, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1115 = phi i32 [ %.0114148, %34 ], [ %.0114148, %41 ], [ %.0114148, %62 ], [ %.0114148, %156 ], [ %39, %171 ], [ %.0114148, %154 ], [ %.0114148, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi double [ %.0112149, %34 ], [ %.0112149, %41 ], [ %.0112149, %62 ], [ %.0112149, %156 ], [ %.0.i, %171 ], [ %.0112149, %154 ], [ %.0112149, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i64 [ %.0150, %34 ], [ %.0150, %41 ], [ %.0150, %62 ], [ %.0150, %156 ], [ %50, %171 ], [ %.0150, %154 ], [ %.0150, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -253869,17 +253869,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0123151 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1124151 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0123151, %38
+  %39 = sub nsw i32 %.1124151, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !833
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0125 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1124 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0123 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not152 = icmp sgt i32 %.0125, %33
   br i1 %.not152, label %._crit_edge, label %.lr.ph162
 
@@ -253891,7 +253891,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0161 = phi i32 [ 0, %.lr.ph162 ], [ %.1, %172 ]
   %.0119160 = phi double [ 0xFFF0000000000000, %.lr.ph162 ], [ %.1120, %172 ]
   %.0121159 = phi i32 [ %18, %.lr.ph162 ], [ %.1122, %172 ]
-  %.2158 = phi i32 [ %.1124, %.lr.ph162 ], [ %.3, %172 ]
+  %.2158 = phi i32 [ %.0123, %.lr.ph162 ], [ %.3, %172 ]
   %.1126157 = phi i32 [ %.0125, %.lr.ph162 ], [ %173, %172 ]
   %.sroa.0.0156 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.0.1, %172 ]
   %.sroa.4.0155 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph162 ], [ %.sroa.4.1, %172 ]
@@ -254717,17 +254717,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0121149 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1122149 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0121149, %35
+  %36 = sub nsw i64 %.1122149, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !836
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0123 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0121 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not150 = icmp sgt i32 %.0123, %30
   br i1 %.not150, label %._crit_edge, label %.lr.ph160
 
@@ -254739,7 +254739,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0159 = phi i64 [ 0, %.lr.ph160 ], [ %.1, %169 ]
   %.0117158 = phi double [ 0xFFF0000000000000, %.lr.ph160 ], [ %.1118, %169 ]
   %.0119157 = phi i32 [ %14, %.lr.ph160 ], [ %.1120, %169 ]
-  %.2156 = phi i64 [ %.1122, %.lr.ph160 ], [ %.3, %169 ]
+  %.2156 = phi i64 [ %.0121, %.lr.ph160 ], [ %.3, %169 ]
   %.1124155 = phi i32 [ %.0123, %.lr.ph160 ], [ %170, %169 ]
   %.sroa.0.0154 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.0.1, %169 ]
   %.sroa.4.0153 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph160 ], [ %.sroa.4.1, %169 ]
@@ -255567,7 +255567,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0125157 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1126157 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -255577,14 +255577,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0125157, %41
+  %42 = sub i64 %.1126157, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !839
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0127 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1126 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not158 = icmp sgt i32 %.0127, %30
   br i1 %.not158, label %._crit_edge, label %.lr.ph168
 
@@ -255596,7 +255596,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0167 = phi i64 [ 0, %.lr.ph168 ], [ %.1, %181 ]
   %.0121166 = phi double [ 0xFFF0000000000000, %.lr.ph168 ], [ %.1122, %181 ]
   %.0123165 = phi i32 [ %14, %.lr.ph168 ], [ %.1124, %181 ]
-  %.2164 = phi i64 [ %.1126, %.lr.ph168 ], [ %.3, %181 ]
+  %.2164 = phi i64 [ %.0125, %.lr.ph168 ], [ %.3, %181 ]
   %.1128163 = phi i32 [ %.0127, %.lr.ph168 ], [ %182, %181 ]
   %.sroa.0.0162 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.0.1, %181 ]
   %.sroa.4.0161 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph168 ], [ %.sroa.4.1, %181 ]
@@ -258008,9 +258008,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.089135 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.190, %156 ]
   %.091134 = phi i32 [ 0, %.lr.ph ], [ %.192, %156 ]
   %.093133 = phi i32 [ %13, %.lr.ph ], [ %.194, %156 ]
-  %.095132 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %156 ]
-  %.097131 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.299, %156 ]
-  %.0100130 = phi i32 [ 0, %.lr.ph ], [ %.2102, %156 ]
+  %.095132 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %156 ]
+  %.097131 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.198, %156 ]
+  %.0100130 = phi i32 [ 0, %.lr.ph ], [ %.1101, %156 ]
   %.sroa.0.0128 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %156 ]
   %.sroa.4.0127 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %156 ]
   %.sroa.0120.0126 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0120.1, %156 ]
@@ -258209,9 +258209,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17F
   %.sroa.0120.1 = phi double [ %.sroa.0120.0126, %30 ], [ %.sroa.0120.0126, %37 ], [ %.sroa.0120.0126, %58 ], [ %145, %140 ], [ %145, %155 ], [ %.sroa.0120.0126, %138 ], [ %.sroa.0120.0126, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0127, %30 ], [ %.sroa.4.0127, %37 ], [ %.sroa.4.0127, %58 ], [ %152, %140 ], [ %152, %155 ], [ %.sroa.4.0127, %138 ], [ %.sroa.4.0127, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0128, %30 ], [ %.sroa.0.0128, %37 ], [ %.sroa.0.0128, %58 ], [ %151, %140 ], [ %151, %155 ], [ %.sroa.0.0128, %138 ], [ %.sroa.0.0128, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2102 = phi i32 [ %.0100130, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %140 ], [ %52, %155 ], [ %52, %138 ], [ %52, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.299 = phi double [ %.097131, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %140 ], [ %48, %155 ], [ %48, %138 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi double [ %.095132, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %140 ], [ %42, %155 ], [ %42, %138 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1101 = phi i32 [ %.0100130, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %140 ], [ %52, %155 ], [ %52, %138 ], [ %52, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.198 = phi double [ %.097131, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %140 ], [ %48, %155 ], [ %48, %138 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.196 = phi double [ %.095132, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %140 ], [ %42, %155 ], [ %42, %138 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.194 = phi i32 [ %.093133, %30 ], [ %.093133, %37 ], [ %.093133, %58 ], [ %.093133, %140 ], [ %35, %155 ], [ %.093133, %138 ], [ %.093133, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.192 = phi i32 [ %.091134, %30 ], [ %.091134, %37 ], [ %.091134, %58 ], [ %.091134, %140 ], [ %52, %155 ], [ %.091134, %138 ], [ %.091134, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.190 = phi double [ %.089135, %30 ], [ %.089135, %37 ], [ %.089135, %58 ], [ %.089135, %140 ], [ %.0.i, %155 ], [ %.089135, %138 ], [ %.089135, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb1ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -258877,9 +258877,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0110146 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0112145 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0116144 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1111146 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1113145 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1117144 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -258893,18 +258893,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0110146, %36
-  %46 = fsub double %.0112145, %41
-  %47 = sub nsw i32 %.0116144, %44
+  %45 = fsub double %.1111146, %36
+  %46 = fsub double %.1113145, %41
+  %47 = sub nsw i32 %.1117144, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !847
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0120 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1117 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1113 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1111 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0116 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0112 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0110 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not149 = icmp sgt i32 %.0120, %25
   br i1 %.not149, label %._crit_edge, label %.lr.ph163
 
@@ -258922,9 +258922,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0104160 = phi double [ 0xFFF0000000000000, %.lr.ph163 ], [ %.1105, %178 ]
   %.0106159 = phi i32 [ 0, %.lr.ph163 ], [ %.1107, %178 ]
   %.0108158 = phi i32 [ %13, %.lr.ph163 ], [ %.1109, %178 ]
-  %.2157 = phi double [ %.1111, %.lr.ph163 ], [ %.3, %178 ]
-  %.2114156 = phi double [ %.1113, %.lr.ph163 ], [ %.3115, %178 ]
-  %.2118155 = phi i32 [ %.1117, %.lr.ph163 ], [ %.3119, %178 ]
+  %.2157 = phi double [ %.0110, %.lr.ph163 ], [ %.3, %178 ]
+  %.2114156 = phi double [ %.0112, %.lr.ph163 ], [ %.3115, %178 ]
+  %.2118155 = phi i32 [ %.0116, %.lr.ph163 ], [ %.3119, %178 ]
   %.sroa.0.0153 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0.1, %178 ]
   %.sroa.4.0152 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.4.1, %178 ]
   %.sroa.0139.0151 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0139.1, %178 ]
@@ -261174,7 +261174,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0145 = phi i32 [ 0, %.lr.ph ], [ %.1, %181 ]
   %.0112144 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %181 ]
   %.0114143 = phi i32 [ %18, %.lr.ph ], [ %.1115, %181 ]
-  %.0116142 = phi i32 [ 0, %.lr.ph ], [ %.2, %181 ]
+  %.0116142 = phi i32 [ 0, %.lr.ph ], [ %.1117, %181 ]
   %.sroa.0.0140 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %181 ]
   %.sroa.4.0139 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %181 ]
   %.sroa.0132.0138 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0132.1, %181 ]
@@ -261374,7 +261374,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17F
   %.sroa.0132.1 = phi double [ %.sroa.0132.0138, %38 ], [ %.sroa.0132.0138, %45 ], [ %.sroa.0132.0138, %60 ], [ %170, %165 ], [ %170, %180 ], [ %.sroa.0132.0138, %163 ], [ %.sroa.0132.0138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0139, %38 ], [ %.sroa.4.0139, %45 ], [ %.sroa.4.0139, %60 ], [ %177, %165 ], [ %177, %180 ], [ %.sroa.4.0139, %163 ], [ %.sroa.4.0139, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0140, %38 ], [ %.sroa.0.0140, %45 ], [ %.sroa.0.0140, %60 ], [ %176, %165 ], [ %176, %180 ], [ %.sroa.0.0140, %163 ], [ %.sroa.0.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i32 [ %.0116142, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %165 ], [ %48, %180 ], [ %48, %163 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1117 = phi i32 [ %.0116142, %38 ], [ %48, %45 ], [ %48, %60 ], [ %48, %165 ], [ %48, %180 ], [ %48, %163 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1115 = phi i32 [ %.0114143, %38 ], [ %.0114143, %45 ], [ %.0114143, %60 ], [ %.0114143, %165 ], [ %43, %180 ], [ %.0114143, %163 ], [ %.0114143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi double [ %.0112144, %38 ], [ %.0112144, %45 ], [ %.0112144, %60 ], [ %.0112144, %165 ], [ %.0.i, %180 ], [ %.0112144, %163 ], [ %.0112144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i32 [ %.0145, %38 ], [ %.0145, %45 ], [ %.0145, %60 ], [ %.0145, %165 ], [ %48, %180 ], [ %.0145, %163 ], [ %.0145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -261995,7 +261995,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0143 = phi i64 [ 0, %.lr.ph ], [ %.1, %178 ]
   %.0110142 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1111, %178 ]
   %.0112141 = phi i32 [ %14, %.lr.ph ], [ %.1113, %178 ]
-  %.0114140 = phi i64 [ 0, %.lr.ph ], [ %.2, %178 ]
+  %.0114140 = phi i64 [ 0, %.lr.ph ], [ %.1115, %178 ]
   %.sroa.0.0138 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %178 ]
   %.sroa.4.0137 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %178 ]
   %.sroa.0130.0136 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0130.1, %178 ]
@@ -262195,7 +262195,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17F
   %.sroa.0130.1 = phi double [ %.sroa.0130.0136, %35 ], [ %.sroa.0130.0136, %42 ], [ %.sroa.0130.0136, %57 ], [ %167, %162 ], [ %167, %177 ], [ %.sroa.0130.0136, %160 ], [ %.sroa.0130.0136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0137, %35 ], [ %.sroa.4.0137, %42 ], [ %.sroa.4.0137, %57 ], [ %174, %162 ], [ %174, %177 ], [ %.sroa.4.0137, %160 ], [ %.sroa.4.0137, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0138, %35 ], [ %.sroa.0.0138, %42 ], [ %.sroa.0.0138, %57 ], [ %173, %162 ], [ %173, %177 ], [ %.sroa.0.0138, %160 ], [ %.sroa.0.0138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i64 [ %.0114140, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %162 ], [ %45, %177 ], [ %45, %160 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1115 = phi i64 [ %.0114140, %35 ], [ %45, %42 ], [ %45, %57 ], [ %45, %162 ], [ %45, %177 ], [ %45, %160 ], [ %45, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi i32 [ %.0112141, %35 ], [ %.0112141, %42 ], [ %.0112141, %57 ], [ %.0112141, %162 ], [ %40, %177 ], [ %.0112141, %160 ], [ %.0112141, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1111 = phi double [ %.0110142, %35 ], [ %.0110142, %42 ], [ %.0110142, %57 ], [ %.0110142, %162 ], [ %.0.i, %177 ], [ %.0110142, %160 ], [ %.0110142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i64 [ %.0143, %35 ], [ %.0143, %42 ], [ %.0143, %57 ], [ %.0143, %162 ], [ %45, %177 ], [ %.0143, %160 ], [ %.0143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -262818,7 +262818,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0145 = phi i64 [ 0, %.lr.ph ], [ %.1, %184 ]
   %.0112144 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %184 ]
   %.0114143 = phi i32 [ %14, %.lr.ph ], [ %.1115, %184 ]
-  %.0116142 = phi i64 [ 0, %.lr.ph ], [ %.2, %184 ]
+  %.0116142 = phi i64 [ 0, %.lr.ph ], [ %.1117, %184 ]
   %.sroa.0.0140 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %184 ]
   %.sroa.4.0139 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %184 ]
   %.sroa.0132.0138 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0132.1, %184 ]
@@ -263025,7 +263025,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17F
   %.sroa.0132.1 = phi double [ %.sroa.0132.0138, %35 ], [ %.sroa.0132.0138, %42 ], [ %.sroa.0132.0138, %63 ], [ %173, %168 ], [ %173, %183 ], [ %.sroa.0132.0138, %166 ], [ %.sroa.0132.0138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0139, %35 ], [ %.sroa.4.0139, %42 ], [ %.sroa.4.0139, %63 ], [ %180, %168 ], [ %180, %183 ], [ %.sroa.4.0139, %166 ], [ %.sroa.4.0139, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0140, %35 ], [ %.sroa.0.0140, %42 ], [ %.sroa.0.0140, %63 ], [ %179, %168 ], [ %179, %183 ], [ %.sroa.0.0140, %166 ], [ %.sroa.0.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i64 [ %.0116142, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %168 ], [ %51, %183 ], [ %51, %166 ], [ %51, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1117 = phi i64 [ %.0116142, %35 ], [ %51, %42 ], [ %51, %63 ], [ %51, %168 ], [ %51, %183 ], [ %51, %166 ], [ %51, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1115 = phi i32 [ %.0114143, %35 ], [ %.0114143, %42 ], [ %.0114143, %63 ], [ %.0114143, %168 ], [ %40, %183 ], [ %.0114143, %166 ], [ %.0114143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi double [ %.0112144, %35 ], [ %.0112144, %42 ], [ %.0112144, %63 ], [ %.0112144, %168 ], [ %.0.i, %183 ], [ %.0112144, %166 ], [ %.0112144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i64 [ %.0145, %35 ], [ %.0145, %42 ], [ %.0145, %63 ], [ %.0145, %168 ], [ %51, %183 ], [ %.0145, %166 ], [ %.0145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -263763,17 +263763,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0123146 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1124146 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0123146, %38
+  %39 = sub nsw i32 %.1124146, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !857
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0125 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1124 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0123 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not147 = icmp sgt i32 %.0125, %33
   br i1 %.not147, label %._crit_edge, label %.lr.ph157
 
@@ -263786,7 +263786,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0156 = phi i32 [ 0, %.lr.ph157 ], [ %.1, %184 ]
   %.0119155 = phi double [ 0xFFF0000000000000, %.lr.ph157 ], [ %.1120, %184 ]
   %.0121154 = phi i32 [ %18, %.lr.ph157 ], [ %.1122, %184 ]
-  %.2153 = phi i32 [ %.1124, %.lr.ph157 ], [ %.3, %184 ]
+  %.2153 = phi i32 [ %.0123, %.lr.ph157 ], [ %.3, %184 ]
   %.1126152 = phi i32 [ %.0125, %.lr.ph157 ], [ %185, %184 ]
   %.sroa.0.0151 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph157 ], [ %.sroa.0.1, %184 ]
   %.sroa.4.0150 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph157 ], [ %.sroa.4.1, %184 ]
@@ -264601,17 +264601,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0121144 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1122144 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0121144, %35
+  %36 = sub nsw i64 %.1122144, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !860
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0123 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0121 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not145 = icmp sgt i32 %.0123, %30
   br i1 %.not145, label %._crit_edge, label %.lr.ph155
 
@@ -264624,7 +264624,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0154 = phi i64 [ 0, %.lr.ph155 ], [ %.1, %181 ]
   %.0117153 = phi double [ 0xFFF0000000000000, %.lr.ph155 ], [ %.1118, %181 ]
   %.0119152 = phi i32 [ %14, %.lr.ph155 ], [ %.1120, %181 ]
-  %.2151 = phi i64 [ %.1122, %.lr.ph155 ], [ %.3, %181 ]
+  %.2151 = phi i64 [ %.0121, %.lr.ph155 ], [ %.3, %181 ]
   %.1124150 = phi i32 [ %.0123, %.lr.ph155 ], [ %182, %181 ]
   %.sroa.0.0149 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph155 ], [ %.sroa.0.1, %181 ]
   %.sroa.4.0148 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph155 ], [ %.sroa.4.1, %181 ]
@@ -265441,7 +265441,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0125152 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1126152 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -265451,14 +265451,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0125152, %41
+  %42 = sub i64 %.1126152, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !863
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0127 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1126 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not153 = icmp sgt i32 %.0127, %30
   br i1 %.not153, label %._crit_edge, label %.lr.ph163
 
@@ -265471,7 +265471,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0162 = phi i64 [ 0, %.lr.ph163 ], [ %.1, %193 ]
   %.0121161 = phi double [ 0xFFF0000000000000, %.lr.ph163 ], [ %.1122, %193 ]
   %.0123160 = phi i32 [ %14, %.lr.ph163 ], [ %.1124, %193 ]
-  %.2159 = phi i64 [ %.1126, %.lr.ph163 ], [ %.3, %193 ]
+  %.2159 = phi i64 [ %.0125, %.lr.ph163 ], [ %.3, %193 ]
   %.1128158 = phi i32 [ %.0127, %.lr.ph163 ], [ %194, %193 ]
   %.sroa.0.0157 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0.1, %193 ]
   %.sroa.4.0156 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.4.1, %193 ]
@@ -267829,9 +267829,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.089130 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.190, %168 ]
   %.091129 = phi i32 [ 0, %.lr.ph ], [ %.192, %168 ]
   %.093128 = phi i32 [ %13, %.lr.ph ], [ %.194, %168 ]
-  %.095127 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %168 ]
-  %.097126 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.299, %168 ]
-  %.0100125 = phi i32 [ 0, %.lr.ph ], [ %.2102, %168 ]
+  %.095127 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %168 ]
+  %.097126 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.198, %168 ]
+  %.0100125 = phi i32 [ 0, %.lr.ph ], [ %.1101, %168 ]
   %.sroa.0.0123 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %168 ]
   %.sroa.4.0122 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %168 ]
   %.sroa.0115.0121 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0115.1, %168 ]
@@ -268027,9 +268027,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17F
   %.sroa.0115.1 = phi double [ %.sroa.0115.0121, %31 ], [ %.sroa.0115.0121, %38 ], [ %.sroa.0115.0121, %59 ], [ %157, %152 ], [ %157, %167 ], [ %.sroa.0115.0121, %150 ], [ %.sroa.0115.0121, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0122, %31 ], [ %.sroa.4.0122, %38 ], [ %.sroa.4.0122, %59 ], [ %164, %152 ], [ %164, %167 ], [ %.sroa.4.0122, %150 ], [ %.sroa.4.0122, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0123, %31 ], [ %.sroa.0.0123, %38 ], [ %.sroa.0.0123, %59 ], [ %163, %152 ], [ %163, %167 ], [ %.sroa.0.0123, %150 ], [ %.sroa.0.0123, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2102 = phi i32 [ %.0100125, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %152 ], [ %53, %167 ], [ %53, %150 ], [ %53, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.299 = phi double [ %.097126, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %152 ], [ %49, %167 ], [ %49, %150 ], [ %49, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi double [ %.095127, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %152 ], [ %43, %167 ], [ %43, %150 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1101 = phi i32 [ %.0100125, %31 ], [ %53, %38 ], [ %53, %59 ], [ %53, %152 ], [ %53, %167 ], [ %53, %150 ], [ %53, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.198 = phi double [ %.097126, %31 ], [ %49, %38 ], [ %49, %59 ], [ %49, %152 ], [ %49, %167 ], [ %49, %150 ], [ %49, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.196 = phi double [ %.095127, %31 ], [ %43, %38 ], [ %43, %59 ], [ %43, %152 ], [ %43, %167 ], [ %43, %150 ], [ %43, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.194 = phi i32 [ %.093128, %31 ], [ %.093128, %38 ], [ %.093128, %59 ], [ %.093128, %152 ], [ %36, %167 ], [ %.093128, %150 ], [ %.093128, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.192 = phi i32 [ %.091129, %31 ], [ %.091129, %38 ], [ %.091129, %59 ], [ %.091129, %152 ], [ %53, %167 ], [ %.091129, %150 ], [ %.091129, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.190 = phi double [ %.089130, %31 ], [ %.089130, %38 ], [ %.089130, %59 ], [ %.089130, %152 ], [ %.0.i, %167 ], [ %.089130, %150 ], [ %.089130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb1EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -268680,9 +268680,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0110141 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0112140 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0116139 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1111141 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1113140 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1117139 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -268696,18 +268696,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0110141, %36
-  %46 = fsub double %.0112140, %41
-  %47 = sub nsw i32 %.0116139, %44
+  %45 = fsub double %.1111141, %36
+  %46 = fsub double %.1113140, %41
+  %47 = sub nsw i32 %.1117139, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !871
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0120 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1117 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1113 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1111 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0116 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0112 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0110 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not144 = icmp sgt i32 %.0120, %25
   br i1 %.not144, label %._crit_edge, label %.lr.ph158
 
@@ -268726,9 +268726,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0104155 = phi double [ 0xFFF0000000000000, %.lr.ph158 ], [ %.1105, %190 ]
   %.0106154 = phi i32 [ 0, %.lr.ph158 ], [ %.1107, %190 ]
   %.0108153 = phi i32 [ %13, %.lr.ph158 ], [ %.1109, %190 ]
-  %.2152 = phi double [ %.1111, %.lr.ph158 ], [ %.3, %190 ]
-  %.2114151 = phi double [ %.1113, %.lr.ph158 ], [ %.3115, %190 ]
-  %.2118150 = phi i32 [ %.1117, %.lr.ph158 ], [ %.3119, %190 ]
+  %.2152 = phi double [ %.0110, %.lr.ph158 ], [ %.3, %190 ]
+  %.2114151 = phi double [ %.0112, %.lr.ph158 ], [ %.3115, %190 ]
+  %.2118150 = phi i32 [ %.0116, %.lr.ph158 ], [ %.3119, %190 ]
   %.sroa.0.0148 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph158 ], [ %.sroa.0.1, %190 ]
   %.sroa.4.0147 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph158 ], [ %.sroa.4.1, %190 ]
   %.sroa.0134.0146 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph158 ], [ %.sroa.0134.1, %190 ]
@@ -270119,7 +270119,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0145 = phi i32 [ 0, %.lr.ph ], [ %.1, %148 ]
   %.0112144 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %148 ]
   %.0114143 = phi i32 [ %18, %.lr.ph ], [ %.1115, %148 ]
-  %.0116142 = phi i32 [ 0, %.lr.ph ], [ %.2, %148 ]
+  %.0116142 = phi i32 [ 0, %.lr.ph ], [ %.1117, %148 ]
   %.sroa.0.0140 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %148 ]
   %.sroa.4.0139 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %148 ]
   %.sroa.0132.0138 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0132.1, %148 ]
@@ -270285,7 +270285,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0132.1 = phi double [ %.sroa.0132.0138, %37 ], [ %.sroa.0132.0138, %44 ], [ %.sroa.0132.0138, %59 ], [ %137, %132 ], [ %137, %147 ], [ %.sroa.0132.0138, %130 ], [ %.sroa.0132.0138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0139, %37 ], [ %.sroa.4.0139, %44 ], [ %.sroa.4.0139, %59 ], [ %144, %132 ], [ %144, %147 ], [ %.sroa.4.0139, %130 ], [ %.sroa.4.0139, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0140, %37 ], [ %.sroa.0.0140, %44 ], [ %.sroa.0.0140, %59 ], [ %143, %132 ], [ %143, %147 ], [ %.sroa.0.0140, %130 ], [ %.sroa.0.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i32 [ %.0116142, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %132 ], [ %47, %147 ], [ %47, %130 ], [ %47, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1117 = phi i32 [ %.0116142, %37 ], [ %47, %44 ], [ %47, %59 ], [ %47, %132 ], [ %47, %147 ], [ %47, %130 ], [ %47, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1115 = phi i32 [ %.0114143, %37 ], [ %.0114143, %44 ], [ %.0114143, %59 ], [ %.0114143, %132 ], [ %42, %147 ], [ %.0114143, %130 ], [ %.0114143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi double [ %.0112144, %37 ], [ %.0112144, %44 ], [ %.0112144, %59 ], [ %.0112144, %132 ], [ %.0.i, %147 ], [ %.0112144, %130 ], [ %.0112144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i32 [ %.0145, %37 ], [ %.0145, %44 ], [ %.0145, %59 ], [ %.0145, %132 ], [ %47, %147 ], [ %.0145, %130 ], [ %.0145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -270796,7 +270796,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0143 = phi i64 [ 0, %.lr.ph ], [ %.1, %145 ]
   %.0110142 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1111, %145 ]
   %.0112141 = phi i32 [ %14, %.lr.ph ], [ %.1113, %145 ]
-  %.0114140 = phi i64 [ 0, %.lr.ph ], [ %.2, %145 ]
+  %.0114140 = phi i64 [ 0, %.lr.ph ], [ %.1115, %145 ]
   %.sroa.0.0138 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %145 ]
   %.sroa.4.0137 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %145 ]
   %.sroa.0130.0136 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0130.1, %145 ]
@@ -270962,7 +270962,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0130.1 = phi double [ %.sroa.0130.0136, %34 ], [ %.sroa.0130.0136, %41 ], [ %.sroa.0130.0136, %56 ], [ %134, %129 ], [ %134, %144 ], [ %.sroa.0130.0136, %127 ], [ %.sroa.0130.0136, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0137, %34 ], [ %.sroa.4.0137, %41 ], [ %.sroa.4.0137, %56 ], [ %141, %129 ], [ %141, %144 ], [ %.sroa.4.0137, %127 ], [ %.sroa.4.0137, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0138, %34 ], [ %.sroa.0.0138, %41 ], [ %.sroa.0.0138, %56 ], [ %140, %129 ], [ %140, %144 ], [ %.sroa.0.0138, %127 ], [ %.sroa.0.0138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i64 [ %.0114140, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %129 ], [ %44, %144 ], [ %44, %127 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1115 = phi i64 [ %.0114140, %34 ], [ %44, %41 ], [ %44, %56 ], [ %44, %129 ], [ %44, %144 ], [ %44, %127 ], [ %44, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi i32 [ %.0112141, %34 ], [ %.0112141, %41 ], [ %.0112141, %56 ], [ %.0112141, %129 ], [ %39, %144 ], [ %.0112141, %127 ], [ %.0112141, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1111 = phi double [ %.0110142, %34 ], [ %.0110142, %41 ], [ %.0110142, %56 ], [ %.0110142, %129 ], [ %.0.i, %144 ], [ %.0110142, %127 ], [ %.0110142, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i64 [ %.0143, %34 ], [ %.0143, %41 ], [ %.0143, %56 ], [ %.0143, %129 ], [ %44, %144 ], [ %.0143, %127 ], [ %.0143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -271475,7 +271475,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0145 = phi i64 [ 0, %.lr.ph ], [ %.1, %151 ]
   %.0112144 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.1113, %151 ]
   %.0114143 = phi i32 [ %14, %.lr.ph ], [ %.1115, %151 ]
-  %.0116142 = phi i64 [ 0, %.lr.ph ], [ %.2, %151 ]
+  %.0116142 = phi i64 [ 0, %.lr.ph ], [ %.1117, %151 ]
   %.sroa.0.0140 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %151 ]
   %.sroa.4.0139 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %151 ]
   %.sroa.0132.0138 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0132.1, %151 ]
@@ -271648,7 +271648,7 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0132.1 = phi double [ %.sroa.0132.0138, %34 ], [ %.sroa.0132.0138, %41 ], [ %.sroa.0132.0138, %62 ], [ %140, %135 ], [ %140, %150 ], [ %.sroa.0132.0138, %133 ], [ %.sroa.0132.0138, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0139, %34 ], [ %.sroa.4.0139, %41 ], [ %.sroa.4.0139, %62 ], [ %147, %135 ], [ %147, %150 ], [ %.sroa.4.0139, %133 ], [ %.sroa.4.0139, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0140, %34 ], [ %.sroa.0.0140, %41 ], [ %.sroa.0.0140, %62 ], [ %146, %135 ], [ %146, %150 ], [ %.sroa.0.0140, %133 ], [ %.sroa.0.0140, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi i64 [ %.0116142, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %135 ], [ %50, %150 ], [ %50, %133 ], [ %50, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1117 = phi i64 [ %.0116142, %34 ], [ %50, %41 ], [ %50, %62 ], [ %50, %135 ], [ %50, %150 ], [ %50, %133 ], [ %50, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1115 = phi i32 [ %.0114143, %34 ], [ %.0114143, %41 ], [ %.0114143, %62 ], [ %.0114143, %135 ], [ %39, %150 ], [ %.0114143, %133 ], [ %.0114143, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1113 = phi double [ %.0112144, %34 ], [ %.0112144, %41 ], [ %.0112144, %62 ], [ %.0112144, %135 ], [ %.0.i, %150 ], [ %.0112144, %133 ], [ %.0112144, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.1 = phi i64 [ %.0145, %34 ], [ %.0145, %41 ], [ %.0145, %62 ], [ %.0145, %135 ], [ %50, %150 ], [ %.0145, %133 ], [ %.0145, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -272264,17 +272264,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0123146 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.1124146 = phi i32 [ %17, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %37 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %.0123146, %38
+  %39 = sub nsw i32 %.1124146, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !881
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0125 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1124 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
+  %.0123 = phi i32 [ 0, %10 ], [ %17, %.preheader ], [ %39, %.lr.ph ]
   %.not147 = icmp sgt i32 %.0125, %33
   br i1 %.not147, label %._crit_edge, label %.lr.ph157
 
@@ -272286,7 +272286,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0156 = phi i32 [ 0, %.lr.ph157 ], [ %.1, %151 ]
   %.0119155 = phi double [ 0xFFF0000000000000, %.lr.ph157 ], [ %.1120, %151 ]
   %.0121154 = phi i32 [ %18, %.lr.ph157 ], [ %.1122, %151 ]
-  %.2153 = phi i32 [ %.1124, %.lr.ph157 ], [ %.3, %151 ]
+  %.2153 = phi i32 [ %.0123, %.lr.ph157 ], [ %.3, %151 ]
   %.1126152 = phi i32 [ %.0125, %.lr.ph157 ], [ %152, %151 ]
   %.sroa.0.0151 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph157 ], [ %.sroa.0.1, %151 ]
   %.sroa.4.0150 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph157 ], [ %.sroa.4.1, %151 ]
@@ -272958,17 +272958,17 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0121144 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.1122144 = phi i64 [ %1, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = sub nsw i64 %.0121144, %35
+  %36 = sub nsw i64 %.1122144, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !884
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0123 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1122 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
+  %.0121 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %36, %.lr.ph ]
   %.not145 = icmp sgt i32 %.0123, %30
   br i1 %.not145, label %._crit_edge, label %.lr.ph155
 
@@ -272980,7 +272980,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0154 = phi i64 [ 0, %.lr.ph155 ], [ %.1, %148 ]
   %.0117153 = phi double [ 0xFFF0000000000000, %.lr.ph155 ], [ %.1118, %148 ]
   %.0119152 = phi i32 [ %14, %.lr.ph155 ], [ %.1120, %148 ]
-  %.2151 = phi i64 [ %.1122, %.lr.ph155 ], [ %.3, %148 ]
+  %.2151 = phi i64 [ %.0121, %.lr.ph155 ], [ %.3, %148 ]
   %.1124150 = phi i32 [ %.0123, %.lr.ph155 ], [ %149, %148 ]
   %.sroa.0.0149 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph155 ], [ %.sroa.0.1, %148 ]
   %.sroa.4.0148 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph155 ], [ %.sroa.4.1, %148 ]
@@ -273654,7 +273654,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0125152 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
+  %.1126152 = phi i64 [ %1, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %34 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 16
@@ -273664,14 +273664,14 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %39 = and i32 %35, 65535
   %40 = zext nneg i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %42 = sub i64 %.0125152, %41
+  %42 = sub i64 %.1126152, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !887
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.0127 = phi i32 [ 0, %10 ], [ -1, %.preheader ], [ -1, %.lr.ph ]
-  %.1126 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
+  %.0125 = phi i64 [ 0, %10 ], [ %1, %.preheader ], [ %42, %.lr.ph ]
   %.not153 = icmp sgt i32 %.0127, %30
   br i1 %.not153, label %._crit_edge, label %.lr.ph163
 
@@ -273683,7 +273683,7 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram32FindBestThresholdSeque
   %.0162 = phi i64 [ 0, %.lr.ph163 ], [ %.1, %160 ]
   %.0121161 = phi double [ 0xFFF0000000000000, %.lr.ph163 ], [ %.1122, %160 ]
   %.0123160 = phi i32 [ %14, %.lr.ph163 ], [ %.1124, %160 ]
-  %.2159 = phi i64 [ %.1126, %.lr.ph163 ], [ %.3, %160 ]
+  %.2159 = phi i64 [ %.0125, %.lr.ph163 ], [ %.3, %160 ]
   %.1128158 = phi i32 [ %.0127, %.lr.ph163 ], [ %161, %160 ]
   %.sroa.0.0157 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.0.1, %160 ]
   %.sroa.4.0156 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph163 ], [ %.sroa.4.1, %160 ]
@@ -275632,9 +275632,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.089130 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.190, %135 ]
   %.091129 = phi i32 [ 0, %.lr.ph ], [ %.192, %135 ]
   %.093128 = phi i32 [ %13, %.lr.ph ], [ %.194, %135 ]
-  %.095127 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %135 ]
-  %.097126 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.299, %135 ]
-  %.0100125 = phi i32 [ 0, %.lr.ph ], [ %.2102, %135 ]
+  %.095127 = phi double [ 0.000000e+00, %.lr.ph ], [ %.196, %135 ]
+  %.097126 = phi double [ 0x3CD203AFA0000000, %.lr.ph ], [ %.198, %135 ]
+  %.0100125 = phi i32 [ 0, %.lr.ph ], [ %.1101, %135 ]
   %.sroa.0.0123 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0.1, %135 ]
   %.sroa.4.0122 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.4.1, %135 ]
   %.sroa.0115.0121 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ], [ %.sroa.0115.1, %135 ]
@@ -275796,9 +275796,9 @@ _ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17F
   %.sroa.0115.1 = phi double [ %.sroa.0115.0121, %30 ], [ %.sroa.0115.0121, %37 ], [ %.sroa.0115.0121, %58 ], [ %124, %119 ], [ %124, %134 ], [ %.sroa.0115.0121, %117 ], [ %.sroa.0115.0121, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.4.1 = phi double [ %.sroa.4.0122, %30 ], [ %.sroa.4.0122, %37 ], [ %.sroa.4.0122, %58 ], [ %131, %119 ], [ %131, %134 ], [ %.sroa.4.0122, %117 ], [ %.sroa.4.0122, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.sroa.0.1 = phi double [ %.sroa.0.0123, %30 ], [ %.sroa.0.0123, %37 ], [ %.sroa.0.0123, %58 ], [ %130, %119 ], [ %130, %134 ], [ %.sroa.0.0123, %117 ], [ %.sroa.0.0123, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2102 = phi i32 [ %.0100125, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %119 ], [ %52, %134 ], [ %52, %117 ], [ %52, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.299 = phi double [ %.097126, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %119 ], [ %48, %134 ], [ %48, %117 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
-  %.2 = phi double [ %.095127, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %119 ], [ %42, %134 ], [ %42, %117 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.1101 = phi i32 [ %.0100125, %30 ], [ %52, %37 ], [ %52, %58 ], [ %52, %119 ], [ %52, %134 ], [ %52, %117 ], [ %52, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.198 = phi double [ %.097126, %30 ], [ %48, %37 ], [ %48, %58 ], [ %48, %119 ], [ %48, %134 ], [ %48, %117 ], [ %48, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
+  %.196 = phi double [ %.095127, %30 ], [ %42, %37 ], [ %42, %58 ], [ %42, %119 ], [ %42, %134 ], [ %42, %117 ], [ %42, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.194 = phi i32 [ %.093128, %30 ], [ %.093128, %37 ], [ %.093128, %58 ], [ %.093128, %119 ], [ %35, %134 ], [ %.093128, %117 ], [ %.093128, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.192 = phi i32 [ %.091129, %30 ], [ %.091129, %37 ], [ %.091129, %58 ], [ %.091129, %119 ], [ %52, %134 ], [ %.091129, %117 ], [ %.091129, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
   %.190 = phi double [ %.089130, %30 ], [ %.089130, %37 ], [ %.089130, %58 ], [ %.089130, %119 ], [ %.0.i, %134 ], [ %.089130, %117 ], [ %.089130, %_ZN8LightGBM16FeatureHistogram13GetSplitGainsILb1ELb0ELb0ELb0EEEddddddddPKNS_17FeatureConstraintEadiid.exit ]
@@ -276317,9 +276317,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0110141 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
-  %.0112140 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
-  %.0116139 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
+  %.1111141 = phi double [ %1, %.lr.ph ], [ %45, %33 ]
+  %.1113140 = phi double [ %28, %.lr.ph ], [ %46, %33 ]
+  %.1117139 = phi i32 [ %3, %.lr.ph ], [ %47, %33 ]
   %sext = shl i64 %indvars.iv, 33
   %34 = ashr exact i64 %sext, 29
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
@@ -276333,18 +276333,18 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %42 = fmul double %15, %41
   %43 = fadd double %42, 5.000000e-01
   %44 = fptosi double %43 to i32
-  %45 = fsub double %.0110141, %36
-  %46 = fsub double %.0112140, %41
-  %47 = sub nsw i32 %.0116139, %44
+  %45 = fsub double %.1111141, %36
+  %46 = fsub double %.1113140, %41
+  %47 = sub nsw i32 %.1117139, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !895
 
 .loopexit:                                        ; preds = %33, %27, %9
   %.0120 = phi i32 [ 0, %9 ], [ -1, %27 ], [ -1, %33 ]
-  %.1117 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
-  %.1113 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
-  %.1111 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
+  %.0116 = phi i32 [ 0, %9 ], [ %3, %27 ], [ %47, %33 ]
+  %.0112 = phi double [ 0x3CD203AFA0000000, %9 ], [ %28, %27 ], [ %46, %33 ]
+  %.0110 = phi double [ 0.000000e+00, %9 ], [ %1, %27 ], [ %45, %33 ]
   %.not144 = icmp sgt i32 %.0120, %25
   br i1 %.not144, label %._crit_edge, label %.lr.ph158
 
@@ -276362,9 +276362,9 @@ define linkonce_odr void @_ZN8LightGBM16FeatureHistogram29FindBestThresholdSeque
   %.0104155 = phi double [ 0xFFF0000000000000, %.lr.ph158 ], [ %.1105, %157 ]
   %.0106154 = phi i32 [ 0, %.lr.ph158 ], [ %.1107, %157 ]
   %.0108153 = phi i32 [ %13, %.lr.ph158 ], [ %.1109, %157 ]
-  %.2152 = phi double [ %.1111, %.lr.ph158 ], [ %.3, %157 ]
-  %.2114151 = phi double [ %.1113, %.lr.ph158 ], [ %.3115, %157 ]
-  %.2118150 = phi i32 [ %.1117, %.lr.ph158 ], [ %.3119, %157 ]
+  %.2152 = phi double [ %.0110, %.lr.ph158 ], [ %.3, %157 ]
+  %.2114151 = phi double [ %.0112, %.lr.ph158 ], [ %.3115, %157 ]
+  %.2118150 = phi i32 [ %.0116, %.lr.ph158 ], [ %.3119, %157 ]
   %.sroa.0.0148 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph158 ], [ %.sroa.0.1, %157 ]
   %.sroa.4.0147 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph158 ], [ %.sroa.4.1, %157 ]
   %.sroa.0134.0146 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph158 ], [ %.sroa.0134.1, %157 ]
@@ -278217,8 +278217,8 @@ _ZN24json11_internal_lightgbm4JsonD2Ev.exit:      ; preds = %143, %161, %174, %_
 
 209:                                              ; preds = %_ZN8LightGBM9SplitInfoD2Ev.exit339, %_ZN24json11_internal_lightgbm4JsonD2Ev.exit
   %.082 = phi i8 [ 1, %_ZN24json11_internal_lightgbm4JsonD2Ev.exit ], [ %.183, %_ZN8LightGBM9SplitInfoD2Ev.exit339 ]
-  %.079 = phi i32 [ 0, %_ZN24json11_internal_lightgbm4JsonD2Ev.exit ], [ %.180, %_ZN8LightGBM9SplitInfoD2Ev.exit339 ]
-  %.072 = phi i1 [ false, %_ZN24json11_internal_lightgbm4JsonD2Ev.exit ], [ %.173, %_ZN8LightGBM9SplitInfoD2Ev.exit339 ]
+  %.079 = phi i32 [ 0, %_ZN24json11_internal_lightgbm4JsonD2Ev.exit ], [ %.281, %_ZN8LightGBM9SplitInfoD2Ev.exit339 ]
+  %.072 = phi i1 [ false, %_ZN24json11_internal_lightgbm4JsonD2Ev.exit ], [ %.2, %_ZN8LightGBM9SplitInfoD2Ev.exit339 ]
   %210 = load ptr, ptr %81, align 8
   %211 = load ptr, ptr %179, align 8
   %212 = icmp eq ptr %210, %211
@@ -280088,9 +280088,9 @@ _ZNSt4pairIN24json11_internal_lightgbm4JsonEiED2Ev.exit329: ; preds = %_ZNSt4pai
 
 _ZNSt13unordered_mapIiN8LightGBM9SplitInfoESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE4findERS7_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %445, %.preheader, %430, %_ZNSt4pairIN24json11_internal_lightgbm4JsonEiED2Ev.exit329
   %.183 = phi i8 [ %478, %_ZNSt4pairIN24json11_internal_lightgbm4JsonEiED2Ev.exit329 ], [ %.082, %430 ], [ %.082, %.preheader ], [ %.082, %445 ], [ %.082, %.lr.ph.i.i.i.i ]
-  %.180 = phi i32 [ %1005, %_ZNSt4pairIN24json11_internal_lightgbm4JsonEiED2Ev.exit329 ], [ %.079, %430 ], [ %.079, %.preheader ], [ %.079, %445 ], [ %.079, %.lr.ph.i.i.i.i ]
+  %.281 = phi i32 [ %1005, %_ZNSt4pairIN24json11_internal_lightgbm4JsonEiED2Ev.exit329 ], [ %.079, %430 ], [ %.079, %.preheader ], [ %.079, %445 ], [ %.079, %.lr.ph.i.i.i.i ]
   %switch = phi i1 [ true, %_ZNSt4pairIN24json11_internal_lightgbm4JsonEiED2Ev.exit329 ], [ false, %430 ], [ false, %.preheader ], [ false, %445 ], [ false, %.lr.ph.i.i.i.i ]
-  %.173 = phi i1 [ %.072, %_ZNSt4pairIN24json11_internal_lightgbm4JsonEiED2Ev.exit329 ], [ true, %430 ], [ true, %.preheader ], [ true, %445 ], [ true, %.lr.ph.i.i.i.i ]
+  %.2 = phi i1 [ %.072, %_ZNSt4pairIN24json11_internal_lightgbm4JsonEiED2Ev.exit329 ], [ true, %430 ], [ true, %.preheader ], [ true, %445 ], [ true, %.lr.ph.i.i.i.i ]
   %1012 = load ptr, ptr %197, align 8
   %.not.i.i.i.i.i330 = icmp eq ptr %1012, null
   br i1 %.not.i.i.i.i.i330, label %_ZNSt4pairIN24json11_internal_lightgbm4JsonEiED2Ev.exit336, label %1013
@@ -280209,9 +280209,9 @@ _ZN8LightGBM9SplitInfoD2Ev.exit341:               ; preds = %1052, %1054
   br label %_ZN8LightGBM9SplitInfoD2Ev.exit343
 
 1057:                                             ; preds = %_ZN8LightGBM9SplitInfoD2Ev.exit339, %209
-  %.281 = phi i32 [ %.180, %_ZN8LightGBM9SplitInfoD2Ev.exit339 ], [ %.079, %209 ]
-  %.2 = phi i1 [ %.173, %_ZN8LightGBM9SplitInfoD2Ev.exit339 ], [ %.072, %209 ]
-  br i1 %.2, label %1058, label %1114
+  %.180 = phi i32 [ %.281, %_ZN8LightGBM9SplitInfoD2Ev.exit339 ], [ %.079, %209 ]
+  %.173 = phi i1 [ %.2, %_ZN8LightGBM9SplitInfoD2Ev.exit339 ], [ %.072, %209 ]
+  br i1 %.173, label %1058, label %1114
 
 1058:                                             ; preds = %1057
   %1059 = load ptr, ptr %200, align 8
@@ -280312,11 +280312,11 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   %1112 = load i32, ptr %4, align 4
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %1112, i32 %1111)
   store i32 %.sroa.speculated, ptr %4, align 4
-  %1113 = add nsw i32 %.281, 1
+  %1113 = add nsw i32 %.180, 1
   br label %1114
 
 1114:                                             ; preds = %1057, %1106, %1096
-  %.0 = phi i32 [ %1100, %1096 ], [ %1113, %1106 ], [ %.281, %1057 ]
+  %.1 = phi i32 [ %1100, %1096 ], [ %1113, %1106 ], [ %.180, %1057 ]
   %1115 = getelementptr inbounds i8, ptr %11, i64 16
   %1116 = load ptr, ptr %1115, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %1116)
@@ -280529,8 +280529,8 @@ _ZN8LightGBM9SplitInfoD2Ev.exit343:               ; preds = %.loopexit, %.loopex
   resume { ptr, i32 } %.pn137.pn
 
 1202:                                             ; preds = %5, %_ZN24json11_internal_lightgbm4JsonD2Ev.exit361
-  %.1 = phi i32 [ %.0, %_ZN24json11_internal_lightgbm4JsonD2Ev.exit361 ], [ 0, %5 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %_ZN24json11_internal_lightgbm4JsonD2Ev.exit361 ], [ 0, %5 ]
+  ret i32 %.0
 }
 
 declare void @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputEPNS_4TreeEPKNS_6ConfigEPKNS_13DataPartitionEPKfSA_RKSt8functionIFiiEE(ptr noundef nonnull align 8 dereferenceable(5336), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2

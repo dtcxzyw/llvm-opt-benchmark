@@ -9986,8 +9986,8 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   br label %66
 
 66:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit.i", %50
-  %.sroa.14.sroa.0.0 = phi i64 [ %.sroa.728.i.sroa.0.0.copyload22, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit.i" ], [ %.sroa.718.i.sroa.0.0.copyload25, %50 ]
-  %.sroa.9.0 = phi i64 [ %54, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit.i" ], [ %46, %50 ]
+  %.sroa.14.sroa.0.1 = phi i64 [ %.sroa.728.i.sroa.0.0.copyload22, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit.i" ], [ %.sroa.718.i.sroa.0.0.copyload25, %50 ]
+  %.sroa.9.2 = phi i64 [ %54, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit.i" ], [ %46, %50 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1702
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1717
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb90b82ba8fda85baE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
@@ -10021,8 +10021,8 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   unreachable
 
 77:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit86.i", %41
-  %.sroa.14.sroa.0.1 = phi i64 [ %.sroa.14.sroa.0.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit86.i" ], [ %.sroa.78.i.sroa.0.0.copyload29, %41 ]
-  %.sroa.9.1 = phi i64 [ %.sroa.9.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit86.i" ], [ %37, %41 ]
+  %.sroa.14.sroa.0.0 = phi i64 [ %.sroa.14.sroa.0.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit86.i" ], [ %.sroa.78.i.sroa.0.0.copyload29, %41 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.2, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit86.i" ], [ %37, %41 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1702
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1726
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb90b82ba8fda85baE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
@@ -10050,8 +10050,8 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   br label %.thread
 
 .thread:                                          ; preds = %32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit88.i"
-  %.sroa.14.sroa.0.2 = phi i64 [ %.sroa.14.sroa.0.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit88.i" ], [ %.sroa.7.i.sroa.0.0.copyload33, %32 ]
-  %.sroa.9.2 = phi i64 [ %.sroa.9.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit88.i" ], [ %28, %32 ]
+  %.sroa.14.sroa.0.3 = phi i64 [ %.sroa.14.sroa.0.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit88.i" ], [ %.sroa.7.i.sroa.0.0.copyload33, %32 ]
+  %.sroa.9.0 = phi i64 [ %.sroa.9.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit88.i" ], [ %28, %32 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !1702
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.728.i.sroa.7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.718.i.sroa.7)
@@ -10118,12 +10118,12 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   br label %97
 
 95:                                               ; preds = %.thread, %89
-  %.sroa.14.sroa.0.3 = phi i64 [ %90, %89 ], [ %.sroa.14.sroa.0.2, %.thread ]
-  %.sroa.9.316 = phi i64 [ %.sroa.4.0.copyload, %89 ], [ %.sroa.9.2, %.thread ]
+  %.sroa.14.sroa.0.2 = phi i64 [ %90, %89 ], [ %.sroa.14.sroa.0.3, %.thread ]
+  %.sroa.9.316 = phi i64 [ %.sroa.4.0.copyload, %89 ], [ %.sroa.9.0, %.thread ]
   %96 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.9.316, ptr %96, align 8, !alias.scope !1738
   %.sroa.14.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.14.sroa.0.3, ptr %.sroa.14.8..sroa_idx, align 8, !alias.scope !1738
+  store i64 %.sroa.14.sroa.0.2, ptr %.sroa.14.8..sroa_idx, align 8, !alias.scope !1738
   %.sroa.14.sroa.9.0..sroa.14.8..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.sroa.9.0..sroa.14.8..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.sroa.9, i64 16, i1 false), !alias.scope !1738
   br label %97
@@ -12010,7 +12010,7 @@ common.ret:                                       ; preds = %789, %793
   %201 = phi ptr [ %288, %"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17hde8efb8cf445980dE.exit.i" ], [ %123, %227 ], [ %123, %196 ], [ %123, %176 ]
   %202 = phi ptr [ %289, %"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17hde8efb8cf445980dE.exit.i" ], [ %124, %227 ], [ %124, %196 ], [ %124, %176 ]
   %.sroa.0447.0.i = phi i8 [ 1, %"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17hde8efb8cf445980dE.exit.i" ], [ 1, %227 ], [ 0, %196 ], [ 0, %176 ]
-  %.sroa.12450.0.i = phi ptr [ %.sroa.12450.1.i, %"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17hde8efb8cf445980dE.exit.i" ], [ %162, %227 ], [ undef, %196 ], [ undef, %176 ]
+  %.sroa.12450.0.i = phi ptr [ %.sroa.12450.2.i, %"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17hde8efb8cf445980dE.exit.i" ], [ %162, %227 ], [ undef, %196 ], [ undef, %176 ]
   %203 = getelementptr inbounds i8, ptr %1, i64 130
   store i8 0, ptr %203, align 2, !noalias !1874
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63), !noalias !1874
@@ -12276,7 +12276,7 @@ common.ret:                                       ; preds = %789, %793
 "_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17hde8efb8cf445980dE.exit.i": ; preds = %775, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i", %409, %285
   %288 = phi ptr [ %410, %409 ], [ %238, %285 ], [ %410, %775 ], [ %410, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ]
   %289 = phi ptr [ %411, %409 ], [ %239, %285 ], [ %411, %775 ], [ %411, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ]
-  %.sroa.12450.1.i = phi ptr [ %.sroa.12450.2.i, %409 ], [ %287, %285 ], [ %.sroa.12450.2.i, %775 ], [ %.sroa.12450.2.i, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ]
+  %.sroa.12450.2.i = phi ptr [ %.sroa.12450.3.i, %409 ], [ %287, %285 ], [ %.sroa.12450.3.i, %775 ], [ %.sroa.12450.3.i, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ]
   %290 = getelementptr inbounds i8, ptr %1, i64 128
   store i8 0, ptr %290, align 8, !noalias !1874
   br label %.thread460.i
@@ -12709,7 +12709,7 @@ common.ret:                                       ; preds = %789, %793
 409:                                              ; preds = %"_ZN4core3ptr203drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20231231100000_node_name_identity_attributes..IdentityAttributesRow$GT$$GT$17h2f86f977ebe8f140E.exit302.i", %408
   %410 = phi ptr [ %526, %"_ZN4core3ptr203drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20231231100000_node_name_identity_attributes..IdentityAttributesRow$GT$$GT$17h2f86f977ebe8f140E.exit302.i" ], [ %338, %408 ]
   %411 = phi ptr [ %527, %"_ZN4core3ptr203drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20231231100000_node_name_identity_attributes..IdentityAttributesRow$GT$$GT$17h2f86f977ebe8f140E.exit302.i" ], [ %339, %408 ]
-  %.sroa.12450.2.i = phi ptr [ %.sroa.12450.3.i, %"_ZN4core3ptr203drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20231231100000_node_name_identity_attributes..IdentityAttributesRow$GT$$GT$17h2f86f977ebe8f140E.exit302.i" ], [ %391, %408 ]
+  %.sroa.12450.3.i = phi ptr [ %.sroa.12450.4.i, %"_ZN4core3ptr203drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20231231100000_node_name_identity_attributes..IdentityAttributesRow$GT$$GT$17h2f86f977ebe8f140E.exit302.i" ], [ %391, %408 ]
   %412 = getelementptr inbounds i8, ptr %1, i64 128
   %413 = load i8, ptr %412, align 8, !range !604, !noalias !1874, !noundef !4
   %414 = trunc nuw i8 %413 to i1
@@ -13127,7 +13127,7 @@ common.ret:                                       ; preds = %789, %793
 "_ZN4core3ptr203drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20231231100000_node_name_identity_attributes..IdentityAttributesRow$GT$$GT$17h2f86f977ebe8f140E.exit302.i": ; preds = %752, %729, %704, %525
   %526 = phi ptr [ %464, %525 ], [ %539, %704 ], [ %713, %729 ], [ %736, %752 ]
   %527 = phi ptr [ %465, %525 ], [ %540, %704 ], [ %714, %729 ], [ %737, %752 ]
-  %.sroa.12450.3.i = phi ptr [ %510, %525 ], [ %554, %704 ], [ %728, %729 ], [ %751, %752 ]
+  %.sroa.12450.4.i = phi ptr [ %510, %525 ], [ %554, %704 ], [ %728, %729 ], [ %751, %752 ]
   %528 = getelementptr inbounds i8, ptr %1, i64 129
   store i8 0, ptr %528, align 1, !noalias !1874
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54), !noalias !1874
@@ -14920,7 +14920,7 @@ common.ret:                                       ; preds = %690, %694
 "_ZN4core3ptr462drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..NodeNameRow$GT$$C$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..AuthorityAttributes..migrate_authority_attributes_to_members..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b9b7f65e1e883dcE.exit284.i": ; preds = %657, %632, %261
   %262 = phi ptr [ %186, %261 ], [ %579, %632 ], [ %641, %657 ]
   %263 = phi ptr [ %187, %261 ], [ %580, %632 ], [ %642, %657 ]
-  %.sroa.9406.1.i = phi ptr [ %233, %261 ], [ %.sroa.9406.2.i, %632 ], [ %656, %657 ]
+  %.sroa.9406.2.i = phi ptr [ %233, %261 ], [ %.sroa.9406.3.i, %632 ], [ %656, %657 ]
   %264 = getelementptr inbounds i8, ptr %1, i64 194
   store i8 0, ptr %264, align 2, !noalias !2276
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %57), !noalias !2276
@@ -16032,7 +16032,7 @@ common.ret:                                       ; preds = %690, %694
 "_ZN4core3ptr194drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..IdentityAttributesRow$GT$$GT$17h209bf85d2afc2e92E.exit279.i": ; preds = %618, %577, %295
   %579 = phi ptr [ %387, %618 ], [ %550, %577 ], [ %279, %295 ]
   %580 = phi ptr [ %388, %618 ], [ %551, %577 ], [ %280, %295 ]
-  %.sroa.9406.2.i = phi ptr [ %440, %618 ], [ %565, %577 ], [ %294, %295 ]
+  %.sroa.9406.3.i = phi ptr [ %440, %618 ], [ %565, %577 ], [ %294, %295 ]
   %581 = getelementptr inbounds i8, ptr %1, i64 193
   store i8 0, ptr %581, align 1, !noalias !2276
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53), !noalias !2276
@@ -16341,8 +16341,8 @@ common.ret:                                       ; preds = %690, %694
 686:                                              ; preds = %676, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i", %659, %"_ZN4core3ptr462drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..NodeNameRow$GT$$C$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..AuthorityAttributes..migrate_authority_attributes_to_members..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b9b7f65e1e883dcE.exit284.i", %136
   %687 = phi ptr [ %641, %659 ], [ %262, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ %262, %676 ], [ %262, %"_ZN4core3ptr462drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..NodeNameRow$GT$$C$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..AuthorityAttributes..migrate_authority_attributes_to_members..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b9b7f65e1e883dcE.exit284.i" ], [ %97, %136 ]
   %688 = phi ptr [ %642, %659 ], [ %263, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ %263, %676 ], [ %263, %"_ZN4core3ptr462drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..NodeNameRow$GT$$C$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..AuthorityAttributes..migrate_authority_attributes_to_members..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b9b7f65e1e883dcE.exit284.i" ], [ %98, %136 ]
-  %.sroa.0403.3.i = phi i8 [ 0, %659 ], [ 1, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ 1, %676 ], [ 1, %"_ZN4core3ptr462drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..NodeNameRow$GT$$C$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..AuthorityAttributes..migrate_authority_attributes_to_members..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b9b7f65e1e883dcE.exit284.i" ], [ 1, %136 ]
-  %.sroa.9406.3.i = phi ptr [ undef, %659 ], [ %.sroa.9406.1.i, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ %.sroa.9406.1.i, %676 ], [ %.sroa.9406.1.i, %"_ZN4core3ptr462drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..NodeNameRow$GT$$C$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..AuthorityAttributes..migrate_authority_attributes_to_members..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b9b7f65e1e883dcE.exit284.i" ], [ %138, %136 ]
+  %.sroa.0403.1.i = phi i8 [ 0, %659 ], [ 1, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ 1, %676 ], [ 1, %"_ZN4core3ptr462drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..NodeNameRow$GT$$C$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..AuthorityAttributes..migrate_authority_attributes_to_members..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b9b7f65e1e883dcE.exit284.i" ], [ 1, %136 ]
+  %.sroa.9406.1.i = phi ptr [ undef, %659 ], [ %.sroa.9406.2.i, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ %.sroa.9406.2.i, %676 ], [ %.sroa.9406.2.i, %"_ZN4core3ptr462drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..NodeNameRow$GT$$C$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100001_add_authority_tables..AuthorityAttributes..migrate_authority_attributes_to_members..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b9b7f65e1e883dcE.exit284.i" ], [ %138, %136 ]
   %689 = getelementptr inbounds i8, ptr %1, i64 192
   store i8 0, ptr %689, align 8, !noalias !2276
   store i8 1, ptr %687, align 1, !noalias !2276
@@ -16376,11 +16376,11 @@ common.ret:                                       ; preds = %690, %694
   br label %67
 
 694:                                              ; preds = %686
-  store i8 %.sroa.0403.3.i, ptr %0, align 8
+  store i8 %.sroa.0403.1.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.422.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.9406.3.i, ptr %.sroa.422.0..sroa_idx, align 8
+  store ptr %.sroa.9406.1.i, ptr %.sroa.422.0..sroa_idx, align 8
   br label %common.ret
 
 .body14:                                          ; preds = %684, %.body288.i

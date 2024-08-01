@@ -640,8 +640,8 @@ _ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRKiS4_iEENSt8__de
   %indvars.iv268 = phi i64 [ 0, %.lr.ph221 ], [ %indvars.iv.next269, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
   %.093219 = phi i32 [ 0, %.lr.ph221 ], [ %.194, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
   %.sroa.0137.1217 = phi ptr [ null, %.lr.ph221 ], [ %.sroa.0137.4, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
-  %.sroa.8.1216 = phi ptr [ null, %.lr.ph221 ], [ %.sroa.8.3, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
-  %.sroa.16.1215 = phi ptr [ null, %.lr.ph221 ], [ %.sroa.16.3, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
+  %.sroa.8.1216 = phi ptr [ null, %.lr.ph221 ], [ %.sroa.8.2, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
+  %.sroa.16.1215 = phi ptr [ null, %.lr.ph221 ], [ %.sroa.16.2, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
   %105 = load ptr, ptr %103, align 8
   %106 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv268
   %107 = load ptr, ptr %106, align 8
@@ -737,10 +737,10 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %128
-  %.sroa.16.2 = phi ptr [ %149, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.16.1215, %128 ]
+  %.sroa.16.3 = phi ptr [ %149, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.16.1215, %128 ]
   %.pn173 = phi ptr [ %147, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.8.1216, %128 ]
-  %.sroa.0137.2 = phi ptr [ %143, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.0137.1217, %128 ]
-  %.sroa.8.2 = getelementptr inbounds i8, ptr %.pn173, i64 4
+  %.sroa.0137.5 = phi ptr [ %143, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.0137.1217, %128 ]
+  %.sroa.8.3 = getelementptr inbounds i8, ptr %.pn173, i64 4
   %150 = load ptr, ptr %112, align 8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %152, label %155
@@ -773,7 +773,7 @@ _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit113: ; preds = %152, %155
   br label %.loopexit.split-lp175
 
 .loopexit.split-lp175.loopexit:                   ; preds = %155, %140, %118
-  %.sroa.0137.3.ph.ph = phi ptr [ %.sroa.0137.2, %155 ], [ %.sroa.0137.1217, %140 ], [ %.sroa.0137.1217, %118 ]
+  %.sroa.0137.2.ph.ph = phi ptr [ %.sroa.0137.5, %155 ], [ %.sroa.0137.1217, %140 ], [ %.sroa.0137.1217, %118 ]
   %lpad.loopexit179 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp175
@@ -789,16 +789,16 @@ _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit113: ; preds = %152, %155
   br label %.loopexit.split-lp175
 
 _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread: ; preds = %104, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit113
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1215, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109 ], [ %.sroa.16.2, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit113 ], [ %.sroa.16.1215, %104 ]
-  %.sroa.8.3 = phi ptr [ %.sroa.8.1216, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109 ], [ %.sroa.8.2, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit113 ], [ %.sroa.8.1216, %104 ]
-  %.sroa.0137.4 = phi ptr [ %.sroa.0137.1217, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109 ], [ %.sroa.0137.2, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit113 ], [ %.sroa.0137.1217, %104 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1215, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109 ], [ %.sroa.16.3, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit113 ], [ %.sroa.16.1215, %104 ]
+  %.sroa.8.2 = phi ptr [ %.sroa.8.1216, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109 ], [ %.sroa.8.3, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit113 ], [ %.sroa.8.1216, %104 ]
+  %.sroa.0137.4 = phi ptr [ %.sroa.0137.1217, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109 ], [ %.sroa.0137.5, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit113 ], [ %.sroa.0137.1217, %104 ]
   %.194 = phi i32 [ %.093219, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109 ], [ %161, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit113 ], [ %.093219, %104 ]
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
   br i1 %exitcond272.not, label %._crit_edge222, label %104, !llvm.loop !24
 
 ._crit_edge222:                                   ; preds = %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread, %.lr.ph244
-  %.sroa.8.1.lcssa = phi ptr [ null, %.lr.ph244 ], [ %.sroa.8.3, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
+  %.sroa.8.1.lcssa = phi ptr [ null, %.lr.ph244 ], [ %.sroa.8.2, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
   %.sroa.0137.1.lcssa = phi ptr [ null, %.lr.ph244 ], [ %.sroa.0137.4, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
   %.093.lcssa = phi i32 [ 0, %.lr.ph244 ], [ %.194, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit109.thread ]
   invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %.sroa.0137.1.lcssa, ptr %.sroa.8.1.lcssa)
@@ -1092,13 +1092,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge240, %26
   br i1 %.not169, label %._crit_edge245, label %.lr.ph244
 
 .loopexit.split-lp175:                            ; preds = %.loopexit174, %.loopexit.split-lp175.loopexit.split-lp.loopexit, %.loopexit.split-lp175.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp175.loopexit, %227
-  %.sroa.0137.5 = phi ptr [ %.sroa.0137.1.lcssa, %227 ], [ %.sroa.0137.1.lcssa, %.loopexit174 ], [ %.sroa.0137.3.ph.ph, %.loopexit.split-lp175.loopexit ], [ %.sroa.0137.1.lcssa, %.loopexit.split-lp175.loopexit.split-lp.loopexit ], [ %.sroa.0137.1217, %.loopexit.split-lp175.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0137.3 = phi ptr [ %.sroa.0137.1.lcssa, %227 ], [ %.sroa.0137.1.lcssa, %.loopexit174 ], [ %.sroa.0137.2.ph.ph, %.loopexit.split-lp175.loopexit ], [ %.sroa.0137.1.lcssa, %.loopexit.split-lp175.loopexit.split-lp.loopexit ], [ %.sroa.0137.1217, %.loopexit.split-lp175.loopexit.split-lp.loopexit.split-lp ]
   %.pn103 = phi { ptr, i32 } [ %.pn.pn, %227 ], [ %lpad.loopexit176, %.loopexit174 ], [ %lpad.loopexit179, %.loopexit.split-lp175.loopexit ], [ %lpad.loopexit182, %.loopexit.split-lp175.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp183, %.loopexit.split-lp175.loopexit.split-lp.loopexit.split-lp ]
-  %.not.i.i.i121 = icmp eq ptr %.sroa.0137.5, null
+  %.not.i.i.i121 = icmp eq ptr %.sroa.0137.3, null
   br i1 %.not.i.i.i121, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit126, label %270
 
 270:                                              ; preds = %.loopexit.split-lp175
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0137.5) #16
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0137.3) #16
   br label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit126
 
 ._crit_edge245:                                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRKiS4_iEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit

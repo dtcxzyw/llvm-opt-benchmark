@@ -260,13 +260,13 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 
 141:                                              ; preds = %.lr.ph209, %156
   %indvars.iv258 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next259, %156 ]
-  %.4166207 = phi i32 [ 0, %.lr.ph209 ], [ %.5167, %156 ]
-  %.0172206 = phi i32 [ -1, %.lr.ph209 ], [ %.1173, %156 ]
+  %.5167207 = phi i32 [ 0, %.lr.ph209 ], [ %.6168, %156 ]
+  %.1173206 = phi i32 [ -1, %.lr.ph209 ], [ %.2174, %156 ]
   %142 = getelementptr inbounds i8, ptr %140, i64 %indvars.iv258
   %143 = load i8, ptr %142, align 1
   %144 = sext i8 %143 to i32
   %145 = tail call i32 @Extra_TruthPolarize(i32 noundef %.0170, i32 noundef %144, i32 noundef %24) #5
-  %146 = icmp ugt i32 %.0172206, %145
+  %146 = icmp ugt i32 %.1173206, %145
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %141
@@ -275,20 +275,20 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   br label %156
 
 149:                                              ; preds = %141
-  %150 = icmp eq i32 %.0172206, %145
+  %150 = icmp eq i32 %.1173206, %145
   br i1 %150, label %151, label %156
 
 151:                                              ; preds = %149
   %152 = load i8, ptr %142, align 1
-  %153 = add nsw i32 %.4166207, 1
-  %154 = sext i32 %.4166207 to i64
+  %153 = add nsw i32 %.5167207, 1
+  %154 = sext i32 %.5167207 to i64
   %155 = getelementptr inbounds i8, ptr %79, i64 %154
   store i8 %152, ptr %155, align 1
   br label %156
 
 156:                                              ; preds = %147, %151, %149
-  %.1173 = phi i32 [ %145, %147 ], [ %.0172206, %151 ], [ %.0172206, %149 ]
-  %.5167 = phi i32 [ 1, %147 ], [ %153, %151 ], [ %.4166207, %149 ]
+  %.2174 = phi i32 [ %145, %147 ], [ %.1173206, %151 ], [ %.1173206, %149 ]
+  %.6168 = phi i32 [ 1, %147 ], [ %153, %151 ], [ %.5167207, %149 ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
   br i1 %exitcond262.not, label %.loopexit.sink.split, label %141, !llvm.loop !9
@@ -318,13 +318,13 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 
 164:                                              ; preds = %.lr.ph202, %181
   %indvars.iv253 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next254, %181 ]
-  %.6168200 = phi i32 [ 0, %.lr.ph202 ], [ %.7169, %181 ]
-  %.2174199 = phi i32 [ -1, %.lr.ph202 ], [ %.3175, %181 ]
+  %.7169200 = phi i32 [ 0, %.lr.ph202 ], [ %.8, %181 ]
+  %.3175199 = phi i32 [ -1, %.lr.ph202 ], [ %.4176, %181 ]
   %165 = getelementptr inbounds i8, ptr %162, i64 %indvars.iv253
   %166 = load i8, ptr %165, align 1
   %167 = sext i8 %166 to i32
   %168 = tail call i32 @Extra_TruthPolarize(i32 noundef %.0177, i32 noundef %167, i32 noundef %24) #5
-  %169 = icmp ugt i32 %.2174199, %168
+  %169 = icmp ugt i32 %.3175199, %168
   br i1 %169, label %170, label %173
 
 170:                                              ; preds = %164
@@ -334,34 +334,34 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   br label %181
 
 173:                                              ; preds = %164
-  %174 = icmp eq i32 %.2174199, %168
+  %174 = icmp eq i32 %.3175199, %168
   br i1 %174, label %175, label %181
 
 175:                                              ; preds = %173
   %176 = load i8, ptr %165, align 1
   %177 = or i8 %176, %163
-  %178 = add nsw i32 %.6168200, 1
-  %179 = sext i32 %.6168200 to i64
+  %178 = add nsw i32 %.7169200, 1
+  %179 = sext i32 %.7169200 to i64
   %180 = getelementptr inbounds i8, ptr %79, i64 %179
   store i8 %177, ptr %180, align 1
   br label %181
 
 181:                                              ; preds = %170, %175, %173
-  %.3175 = phi i32 [ %168, %170 ], [ %.2174199, %175 ], [ %.2174199, %173 ]
-  %.7169 = phi i32 [ 1, %170 ], [ %178, %175 ], [ %.6168200, %173 ]
+  %.4176 = phi i32 [ %168, %170 ], [ %.3175199, %175 ], [ %.3175199, %173 ]
+  %.8 = phi i32 [ 1, %170 ], [ %178, %175 ], [ %.7169200, %173 ]
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %exitcond257.not = icmp eq i64 %indvars.iv.next254, %wide.trip.count256
   br i1 %exitcond257.not, label %.loopexit.sink.split, label %164, !llvm.loop !10
 
 .preheader191:                                    ; preds = %186, %.preheader192
-  %.8.lcssa = phi i32 [ 0, %.preheader192 ], [ %133, %186 ]
+  %.9.lcssa = phi i32 [ 0, %.preheader192 ], [ %133, %186 ]
   %182 = icmp sgt i32 %132, 0
   br i1 %182, label %.lr.ph197, label %._crit_edge
 
 .lr.ph197:                                        ; preds = %.preheader191
   %183 = load ptr, ptr %8, align 8
   %184 = trunc i32 %25 to i8
-  %185 = zext nneg i32 %.8.lcssa to i64
+  %185 = zext nneg i32 %.9.lcssa to i64
   %wide.trip.count251 = zext nneg i32 %132 to i64
   br label %190
 
@@ -393,7 +393,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader191
-  %.9.lcssa = phi i32 [ %.8.lcssa, %.preheader191 ], [ %195, %._crit_edge.loopexit ]
+  %.10.lcssa = phi i32 [ %.9.lcssa, %.preheader191 ], [ %195, %._crit_edge.loopexit ]
   %196 = load ptr, ptr %9, align 8
   %197 = load i8, ptr %196, align 1
   %198 = sext i8 %197 to i32
@@ -402,19 +402,19 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 
 .loopexit.sink.split:                             ; preds = %181, %156, %._crit_edge
   %.sink = phi ptr [ %136, %._crit_edge ], [ %134, %156 ], [ %136, %181 ]
-  %.4176.ph = phi i32 [ %199, %._crit_edge ], [ %.1173, %156 ], [ %.3175, %181 ]
-  %.10.ph = phi i32 [ %.9.lcssa, %._crit_edge ], [ %.5167, %156 ], [ %.7169, %181 ]
+  %.0172.ph = phi i32 [ %199, %._crit_edge ], [ %.2174, %156 ], [ %.4176, %181 ]
+  %.1163.ph = phi i32 [ %.10.lcssa, %._crit_edge ], [ %.6168, %156 ], [ %.8, %181 ]
   %.pre = load i32, ptr %.sink, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %127, %114, %100, %87, %.loopexit.sink.split, %.preheader190, %.preheader, %121, %107, %93, %81
-  %.4176 = phi i32 [ %84, %81 ], [ %96, %93 ], [ -1, %107 ], [ -1, %121 ], [ -1, %.preheader ], [ -1, %.preheader190 ], [ %.4176.ph, %.loopexit.sink.split ], [ %84, %87 ], [ %96, %100 ], [ -1, %114 ], [ -1, %127 ]
+  %.0172 = phi i32 [ %84, %81 ], [ %96, %93 ], [ -1, %107 ], [ -1, %121 ], [ -1, %.preheader ], [ -1, %.preheader190 ], [ %.0172.ph, %.loopexit.sink.split ], [ %84, %87 ], [ %96, %100 ], [ -1, %114 ], [ -1, %127 ]
   %.0171 = phi i32 [ 0, %81 ], [ 0, %93 ], [ %110, %107 ], [ %124, %121 ], [ %135, %.preheader ], [ %137, %.preheader190 ], [ %.pre, %.loopexit.sink.split ], [ 0, %87 ], [ 0, %100 ], [ %110, %114 ], [ %124, %127 ]
-  %.10 = phi i32 [ 0, %81 ], [ 0, %93 ], [ 0, %107 ], [ 0, %121 ], [ 0, %.preheader ], [ 0, %.preheader190 ], [ %.10.ph, %.loopexit.sink.split ], [ %82, %87 ], [ %94, %100 ], [ %108, %114 ], [ %122, %127 ]
+  %.1163 = phi i32 [ 0, %81 ], [ 0, %93 ], [ 0, %107 ], [ 0, %121 ], [ 0, %.preheader ], [ 0, %.preheader190 ], [ %.1163.ph, %.loopexit.sink.split ], [ %82, %87 ], [ %94, %100 ], [ %108, %114 ], [ %122, %127 ]
   br i1 %29, label %200, label %206
 
 200:                                              ; preds = %.loopexit
-  %201 = and i32 %.4176, 255
+  %201 = and i32 %.0172, 255
   %202 = shl i32 %.0171, 8
   %203 = and i32 %202, 65280
   %204 = or disjoint i32 %203, %201
@@ -429,14 +429,14 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   ]
 
 207:                                              ; preds = %206
-  %208 = and i32 %.4176, 65535
+  %208 = and i32 %.0172, 65535
   %209 = shl i32 %.0171, 16
   %210 = or disjoint i32 %209, %208
   store i32 %210, ptr %78, align 8
   br label %213
 
 211:                                              ; preds = %206
-  store i32 %.4176, ptr %78, align 8
+  store i32 %.0172, ptr %78, align 8
   %212 = getelementptr inbounds i8, ptr %78, i64 4
   store i32 %.0171, ptr %212, align 4
   br label %213
@@ -447,7 +447,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   br label %214
 
 214:                                              ; preds = %213, %11
-  %.0 = phi i32 [ %22, %11 ], [ %.10, %213 ]
+  %.0 = phi i32 [ %22, %11 ], [ %.1163, %213 ]
   ret i32 %.0
 }
 

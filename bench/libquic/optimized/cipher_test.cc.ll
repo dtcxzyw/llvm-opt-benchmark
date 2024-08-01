@@ -837,9 +837,9 @@ if.then.i.i.i103:                                 ; preds = %_ZNSt6vectorIhSaIhE
   br label %ehcleanup205
 
 cleanup204:                                       ; preds = %if.then.i.i.i85, %_ZNSt6vectorIhSaIhEED2Ev.exit83, %if.then7, %invoke.cont3
-  %retval.2 = phi i1 [ false, %invoke.cont3 ], [ false, %if.then7 ], [ %retval.1, %_ZNSt6vectorIhSaIhEED2Ev.exit83 ], [ %retval.1, %if.then.i.i.i85 ]
+  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ false, %if.then7 ], [ %retval.1, %_ZNSt6vectorIhSaIhEED2Ev.exit83 ], [ %retval.1, %if.then.i.i.i85 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cipher_str) #14
-  ret i1 %retval.2
+  ret i1 %retval.0
 
 ehcleanup205:                                     ; preds = %if.then.i.i.i103, %_ZNSt6vectorIhSaIhEED2Ev.exit101, %lpad4, %ehcleanup
   %.pn41 = phi { ptr, i32 } [ %2, %lpad4 ], [ %.pn, %ehcleanup ], [ %.pn39, %_ZNSt6vectorIhSaIhEED2Ev.exit101 ], [ %.pn39, %if.then.i.i.i103 ]
@@ -1295,7 +1295,7 @@ if.end188:                                        ; preds = %if.end162, %invoke.
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then99.invoke, %invoke.cont176, %invoke.cont184, %invoke.cont159, %if.then60, %if.end188
-  %retval.0 = phi i1 [ true, %if.end188 ], [ false, %if.then60 ], [ false, %invoke.cont159 ], [ false, %invoke.cont184 ], [ false, %invoke.cont176 ], [ false, %if.then99.invoke ]
+  %retval.1 = phi i1 [ true, %if.end188 ], [ false, %if.then60 ], [ false, %invoke.cont159 ], [ false, %invoke.cont184 ], [ false, %invoke.cont176 ], [ false, %if.then99.invoke ]
   %45 = load ptr, ptr %result, align 8
   %tobool.not.i.i.i133 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i133, label %cleanup190, label %if.then.i.i.i134
@@ -1305,7 +1305,7 @@ if.then.i.i.i134:                                 ; preds = %cleanup
   br label %cleanup190
 
 cleanup190:                                       ; preds = %if.then.i.i.i134, %cleanup, %invoke.cont47, %if.then34, %invoke.cont21, %invoke.cont4
-  %retval.1 = phi i1 [ false, %invoke.cont4 ], [ false, %invoke.cont21 ], [ false, %if.then34 ], [ false, %invoke.cont47 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i134 ]
+  %retval.0 = phi i1 [ false, %invoke.cont4 ], [ false, %invoke.cont21 ], [ false, %if.then34 ], [ false, %invoke.cont47 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i134 ]
   %call.i = invoke noundef i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %ctx)
           to label %_ZN20ScopedOpenSSLContextI17evp_cipher_ctx_stiXadL_Z19EVP_CIPHER_CTX_initEEXadL_Z22EVP_CIPHER_CTX_cleanupEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -1317,7 +1317,7 @@ terminate.lpad.i:                                 ; preds = %cleanup190
   unreachable
 
 _ZN20ScopedOpenSSLContextI17evp_cipher_ctx_stiXadL_Z19EVP_CIPHER_CTX_initEEXadL_Z22EVP_CIPHER_CTX_cleanupEEED2Ev.exit: ; preds = %cleanup190
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup191:                                     ; preds = %if.then.i.i.i, %lpad65, %lpad54, %ehcleanup, %lpad
   %.pn49 = phi { ptr, i32 } [ %13, %lpad54 ], [ %0, %lpad ], [ %.pn, %ehcleanup ], [ %lpad.phi, %lpad65 ], [ %lpad.phi, %if.then.i.i.i ]

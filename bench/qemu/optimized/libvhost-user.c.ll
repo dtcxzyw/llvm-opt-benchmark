@@ -517,9 +517,9 @@ if.else36:                                        ; preds = %do.body28
   br label %do.cond42
 
 do.cond42:                                        ; preds = %if.then30, %if.else36
-  %rc.0.in = phi i64 [ %call34, %if.then30 ], [ %call39, %if.else36 ]
-  %rc.0 = trunc i64 %rc.0.in to i32
-  %cmp43 = icmp slt i32 %rc.0, 0
+  %rc.1.in = phi i64 [ %call34, %if.then30 ], [ %call39, %if.else36 ]
+  %rc.1 = trunc i64 %rc.1.in to i32
+  %cmp43 = icmp slt i32 %rc.1, 0
   br i1 %cmp43, label %land.rhs45, label %if.end56
 
 land.rhs45:                                       ; preds = %do.cond42
@@ -534,8 +534,8 @@ do.body28.backedge:                               ; preds = %land.rhs45, %land.r
   br label %do.body28
 
 if.end56:                                         ; preds = %do.cond42, %do.end
-  %rc.1 = phi i32 [ %conv18.lcssa, %do.end ], [ %rc.0, %do.cond42 ]
-  %cmp57 = icmp sgt i32 %rc.1, 0
+  %rc.0 = phi i32 [ %conv18.lcssa, %do.end ], [ %rc.1, %do.cond42 ]
+  %cmp57 = icmp sgt i32 %rc.0, 0
   br i1 %cmp57, label %return, label %if.end56.if.then59_crit_edge
 
 if.end56.if.then59_crit_edge:                     ; preds = %if.end56
@@ -1716,8 +1716,8 @@ if.end.i:                                         ; preds = %while.cond.preheade
   %6 = phi i16 [ %36, %if.end103 ], [ %3, %while.cond.preheader ]
   %idx.0386 = phi i32 [ %inc, %if.end103 ], [ %conv, %while.cond.preheader ]
   %total_bufs.0385 = phi i32 [ %total_bufs.1, %if.end103 ], [ 0, %while.cond.preheader ]
-  %out_total.0384 = phi i32 [ %out_total.2, %if.end103 ], [ 0, %while.cond.preheader ]
-  %in_total.0383 = phi i32 [ %in_total.2, %if.end103 ], [ 0, %while.cond.preheader ]
+  %out_total.1384 = phi i32 [ %out_total.3, %if.end103 ], [ 0, %while.cond.preheader ]
+  %in_total.1383 = phi i32 [ %in_total.3, %if.end103 ], [ 0, %while.cond.preheader ]
   %tobool.not.i = icmp eq i16 %6, %5
   br i1 %tobool.not.i, label %done, label %while.body
 
@@ -1893,8 +1893,8 @@ if.end6.i:                                        ; preds = %if.then5.i.i
   br i1 %tobool.not.i52, label %if.end67, label %for.cond.preheader.i.i
 
 if.end63:                                         ; preds = %vu_gpa_to_va.exit.thread74, %vu_gpa_to_va.exit
-  %desc.0 = phi ptr [ %add.ptr18.i, %vu_gpa_to_va.exit ], [ %add.ptr18.i81, %vu_gpa_to_va.exit.thread74 ]
-  %tobool64.not = icmp eq ptr %desc.0, null
+  %desc.1 = phi ptr [ %add.ptr18.i, %vu_gpa_to_va.exit ], [ %add.ptr18.i81, %vu_gpa_to_va.exit.thread74 ]
+  %tobool64.not = icmp eq ptr %desc.1, null
   br i1 %tobool64.not, label %if.then65, label %if.end67
 
 if.then65:                                        ; preds = %if.then56, %for.cond.preheader.i, %if.end34, %if.end63, %for.inc.i, %if.then5.i.i, %for.inc.i.i
@@ -1905,13 +1905,13 @@ if.end67:                                         ; preds = %if.end6.i, %if.end6
   %i.0 = phi i32 [ %conv.i, %if.end17 ], [ 0, %if.end63 ], [ 0, %if.end6.i ]
   %max.0 = phi i32 [ %7, %if.end17 ], [ %div42, %if.end63 ], [ %div42, %if.end6.i ]
   %num_bufs.0 = phi i32 [ %total_bufs.0385, %if.end17 ], [ 0, %if.end63 ], [ 0, %if.end6.i ]
-  %desc.1 = phi ptr [ %9, %if.end17 ], [ %desc.0, %if.end63 ], [ %desc_buf, %if.end6.i ]
+  %desc.0 = phi ptr [ %9, %if.end17 ], [ %desc.1, %if.end63 ], [ %desc_buf, %if.end6.i ]
   br label %do.body
 
 do.body:                                          ; preds = %if.end.i55, %if.end67
   %i.1 = phi i32 [ %i.0, %if.end67 ], [ %conv5.i, %if.end.i55 ]
-  %in_total.1 = phi i32 [ %in_total.0383, %if.end67 ], [ %in_total.2, %if.end.i55 ]
-  %out_total.1 = phi i32 [ %out_total.0384, %if.end67 ], [ %out_total.2, %if.end.i55 ]
+  %in_total.2 = phi i32 [ %in_total.1383, %if.end67 ], [ %in_total.3, %if.end.i55 ]
+  %out_total.2 = phi i32 [ %out_total.1384, %if.end67 ], [ %out_total.3, %if.end.i55 ]
   %num_bufs.1 = phi i32 [ %num_bufs.0, %if.end67 ], [ %inc68, %if.end.i55 ]
   %inc68 = add i32 %num_bufs.1, 1
   %cmp69 = icmp ugt i32 %inc68, %max.0
@@ -1923,18 +1923,18 @@ if.then71:                                        ; preds = %do.body
 
 if.end72:                                         ; preds = %do.body
   %idxprom73 = zext nneg i32 %i.1 to i64
-  %flags75 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom73, i32 2
+  %flags75 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom73, i32 2
   %31 = load i16, ptr %flags75, align 4
   %32 = and i16 %31, 2
   %tobool79.not = icmp eq i16 %32, 0
-  %len87 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom73, i32 1
+  %len87 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom73, i32 1
   %33 = load i32, ptr %len87, align 8
   %add = select i1 %tobool79.not, i32 0, i32 %33
-  %in_total.2 = add i32 %in_total.1, %add
+  %in_total.3 = add i32 %in_total.2, %add
   %add89 = select i1 %tobool79.not, i32 %33, i32 0
-  %out_total.2 = add i32 %out_total.1, %add89
-  %cmp91.not = icmp ult i32 %in_total.2, %max_in_bytes
-  %cmp93.not = icmp ult i32 %out_total.2, %max_out_bytes
+  %out_total.3 = add i32 %out_total.2, %add89
+  %cmp91.not = icmp ult i32 %in_total.3, %max_in_bytes
+  %cmp93.not = icmp ult i32 %out_total.3, %max_out_bytes
   %or.cond = select i1 %cmp91.not, i1 true, i1 %cmp93.not
   br i1 %or.cond, label %if.end96, label %done
 
@@ -1944,7 +1944,7 @@ if.end96:                                         ; preds = %if.end72
   br i1 %tobool.not.i54, label %if.end103, label %if.end.i55
 
 if.end.i55:                                       ; preds = %if.end96
-  %next3.i = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom73, i32 3
+  %next3.i = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom73, i32 3
   %35 = load i16, ptr %next3.i, align 2
   %conv5.i = zext i16 %35 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
@@ -1971,13 +1971,13 @@ if.end103:                                        ; preds = %if.end96
   br i1 %cmp.i, label %while.end.thread, label %if.end.i
 
 done:                                             ; preds = %if.end.i, %if.end72, %if.then29, %if.then33, %if.then65, %if.then71, %virtqueue_get_head.exit, %virtqueue_read_next_desc.exit.thread94, %while.end.thread, %entry, %lor.lhs.false
-  %in_total.3 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %while.end.thread ], [ 0, %virtqueue_read_next_desc.exit.thread94 ], [ 0, %virtqueue_get_head.exit ], [ 0, %if.then71 ], [ 0, %if.then65 ], [ 0, %if.then33 ], [ 0, %if.then29 ], [ %in_total.2, %if.end72 ], [ %in_total.0383, %if.end.i ]
-  %out_total.3 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %while.end.thread ], [ 0, %virtqueue_read_next_desc.exit.thread94 ], [ 0, %virtqueue_get_head.exit ], [ 0, %if.then71 ], [ 0, %if.then65 ], [ 0, %if.then33 ], [ 0, %if.then29 ], [ %out_total.2, %if.end72 ], [ %out_total.0384, %if.end.i ]
+  %in_total.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %while.end.thread ], [ 0, %virtqueue_read_next_desc.exit.thread94 ], [ 0, %virtqueue_get_head.exit ], [ 0, %if.then71 ], [ 0, %if.then65 ], [ 0, %if.then33 ], [ 0, %if.then29 ], [ %in_total.3, %if.end72 ], [ %in_total.1383, %if.end.i ]
+  %out_total.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %while.end.thread ], [ 0, %virtqueue_read_next_desc.exit.thread94 ], [ 0, %virtqueue_get_head.exit ], [ 0, %if.then71 ], [ 0, %if.then65 ], [ 0, %if.then33 ], [ 0, %if.then29 ], [ %out_total.3, %if.end72 ], [ %out_total.1384, %if.end.i ]
   %tobool113.not = icmp eq ptr %in_bytes, null
   br i1 %tobool113.not, label %if.end115, label %if.then114
 
 if.then114:                                       ; preds = %done
-  store i32 %in_total.3, ptr %in_bytes, align 4
+  store i32 %in_total.0, ptr %in_bytes, align 4
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then114, %done
@@ -1985,7 +1985,7 @@ if.end115:                                        ; preds = %if.then114, %done
   br i1 %tobool116.not, label %if.end118, label %if.then117
 
 if.then117:                                       ; preds = %if.end115
-  store i32 %out_total.3, ptr %out_bytes, align 4
+  store i32 %out_total.0, ptr %out_bytes, align 4
   br label %if.end118
 
 if.end118:                                        ; preds = %if.then117, %if.end115
@@ -2628,14 +2628,14 @@ if.end6.i:                                        ; preds = %if.then5.i.i
   br i1 %tobool.not.i, label %if.end37, label %for.cond.preheader.i.i
 
 if.end33:                                         ; preds = %vu_gpa_to_va.exit.thread17, %vu_gpa_to_va.exit
-  %desc.0 = phi ptr [ %add.ptr18.i, %vu_gpa_to_va.exit ], [ %add.ptr18.i24, %vu_gpa_to_va.exit.thread17 ]
-  %tobool34.not = icmp eq ptr %desc.0, null
+  %desc.1 = phi ptr [ %add.ptr18.i, %vu_gpa_to_va.exit ], [ %add.ptr18.i24, %vu_gpa_to_va.exit.thread17 ]
+  %tobool34.not = icmp eq ptr %desc.1, null
   br i1 %tobool34.not, label %return.sink.split, label %if.end37
 
 if.end37:                                         ; preds = %if.end6.i, %if.end33, %entry
   %i.0 = phi i32 [ %idx, %entry ], [ 0, %if.end33 ], [ 0, %if.end6.i ]
   %max.0 = phi i32 [ %vq.0.val, %entry ], [ %div34, %if.end33 ], [ %div34, %if.end6.i ]
-  %desc.1 = phi ptr [ %vq.8.val, %entry ], [ %desc.0, %if.end33 ], [ %desc_buf, %if.end6.i ]
+  %desc.0 = phi ptr [ %vq.8.val, %entry ], [ %desc.1, %if.end33 ], [ %desc_buf, %if.end6.i ]
   br label %do.body
 
 do.body:                                          ; preds = %if.end.i, %if.end37
@@ -2643,7 +2643,7 @@ do.body:                                          ; preds = %if.end.i, %if.end37
   %22 = phi i32 [ 0, %if.end37 ], [ %30, %if.end.i ]
   %i.1 = phi i32 [ %i.0, %if.end37 ], [ %conv5.i, %if.end.i ]
   %idxprom38 = zext i32 %i.1 to i64
-  %flags40 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom38, i32 2
+  %flags40 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom38, i32 2
   %23 = load i16, ptr %flags40, align 4
   %24 = and i16 %23, 2
   %tobool44.not = icmp eq i16 %24, 0
@@ -2653,9 +2653,9 @@ if.then45:                                        ; preds = %do.body
   %idx.ext = zext i32 %21 to i64
   %add.ptr = getelementptr %struct.iovec, ptr %iov, i64 %idx.ext
   %sub = sub i32 1024, %21
-  %arrayidx48 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom38
+  %arrayidx48 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom38
   %25 = load i64, ptr %arrayidx48, align 8
-  %len53 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom38, i32 1
+  %len53 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom38, i32 1
   %26 = load i32, ptr %len53, align 8
   %conv55 = zext i32 %26 to i64
   %call56 = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %dev, ptr noundef nonnull %in_num, ptr noundef %add.ptr, i32 noundef %sub, i64 noundef %25, i64 noundef %conv55)
@@ -2670,9 +2670,9 @@ if.else:                                          ; preds = %do.body
   br i1 %tobool59.not, label %if.end61, label %return.sink.split
 
 if.end61:                                         ; preds = %if.else
-  %arrayidx64 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom38
+  %arrayidx64 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom38
   %27 = load i64, ptr %arrayidx64, align 8
-  %len69 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom38, i32 1
+  %len69 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom38, i32 1
   %28 = load i32, ptr %len69, align 8
   %conv71 = zext i32 %28 to i64
   %call72 = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %dev, ptr noundef nonnull %out_num, ptr noundef nonnull %iov, i32 noundef 1024, i64 noundef %27, i64 noundef %conv71)
@@ -2691,7 +2691,7 @@ if.end75:                                         ; preds = %if.end61.if.end75_c
 
 if.end79:                                         ; preds = %if.end75
   %idxprom.i = sext i32 %i.1 to i64
-  %arrayidx.i40 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom.i
+  %arrayidx.i40 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom.i
   %flags.i = getelementptr inbounds i8, ptr %arrayidx.i40, i64 12
   %31 = load i16, ptr %flags.i, align 4
   %32 = and i16 %31, 1
@@ -2987,8 +2987,8 @@ if.end6.i.i:                                      ; preds = %if.then5.i.i.i
   br i1 %tobool.not.i.i, label %if.end38.i, label %for.cond.preheader.i.i.i
 
 if.end34.i:                                       ; preds = %vu_gpa_to_va.exit.i, %vu_gpa_to_va.exit.thread13.i
-  %desc.0.i = phi ptr [ %add.ptr18.i.i, %vu_gpa_to_va.exit.i ], [ %add.ptr18.i20.i, %vu_gpa_to_va.exit.thread13.i ]
-  %tobool35.not.i = icmp eq ptr %desc.0.i, null
+  %desc.1.i = phi ptr [ %add.ptr18.i.i, %vu_gpa_to_va.exit.i ], [ %add.ptr18.i20.i, %vu_gpa_to_va.exit.thread13.i ]
+  %tobool35.not.i = icmp eq ptr %desc.1.i, null
   br i1 %tobool35.not.i, label %if.then36.i, label %if.end38.i
 
 if.then36.i:                                      ; preds = %for.inc.i.i, %if.then5.i.i.i, %for.inc.i.i.i, %if.end34.i, %if.then27.i, %for.cond.preheader.i.i, %if.end.i
@@ -2998,7 +2998,7 @@ if.then36.i:                                      ; preds = %for.inc.i.i, %if.th
 if.end38.i:                                       ; preds = %if.end6.i.i, %if.end34.i, %if.end
   %i.0.i = phi i32 [ %elem.val, %if.end ], [ 0, %if.end34.i ], [ 0, %if.end6.i.i ]
   %max.0.i = phi i32 [ %vq.val, %if.end ], [ %div27.i, %if.end34.i ], [ %div27.i, %if.end6.i.i ]
-  %desc.1.i = phi ptr [ %vq.val10, %if.end ], [ %desc.0.i, %if.end34.i ], [ %desc_buf.i, %if.end6.i.i ]
+  %desc.0.i = phi ptr [ %vq.val10, %if.end ], [ %desc.1.i, %if.end34.i ], [ %desc_buf.i, %if.end6.i.i ]
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i.i, %if.end38.i
@@ -3015,17 +3015,17 @@ if.then41.i:                                      ; preds = %do.body.i
 
 if.end42.i:                                       ; preds = %do.body.i
   %idxprom43.i = zext i32 %i.1.i to i64
-  %flags45.i = getelementptr %struct.vring_desc, ptr %desc.1.i, i64 %idxprom43.i, i32 2
+  %flags45.i = getelementptr %struct.vring_desc, ptr %desc.0.i, i64 %idxprom43.i, i32 2
   %24 = load i16, ptr %flags45.i, align 4
   %25 = and i16 %24, 2
   %tobool49.not.i = icmp eq i16 %25, 0
   br i1 %tobool49.not.i, label %do.cond.i, label %if.then50.i
 
 if.then50.i:                                      ; preds = %if.end42.i
-  %len53.i = getelementptr %struct.vring_desc, ptr %desc.1.i, i64 %idxprom43.i, i32 1
+  %len53.i = getelementptr %struct.vring_desc, ptr %desc.0.i, i64 %idxprom43.i, i32 1
   %26 = load i32, ptr %len53.i, align 8
   %cond.i = tail call i32 @llvm.umin.i32(i32 %26, i32 %len.addr.0.i)
-  %arrayidx60.i = getelementptr %struct.vring_desc, ptr %desc.1.i, i64 %idxprom43.i
+  %arrayidx60.i = getelementptr %struct.vring_desc, ptr %desc.0.i, i64 %idxprom43.i
   %27 = load i64, ptr %arrayidx60.i, align 8
   %conv63.i = zext i32 %cond.i to i64
   tail call fastcc void @vu_log_write(ptr noundef %dev, i64 noundef %27, i64 noundef %conv63.i)
@@ -3039,7 +3039,7 @@ do.cond.i:                                        ; preds = %if.then50.i, %if.en
 
 land.rhs67.i:                                     ; preds = %do.cond.i
   %idxprom.i.i = sext i32 %i.1.i to i64
-  %arrayidx.i32.i = getelementptr %struct.vring_desc, ptr %desc.1.i, i64 %idxprom.i.i
+  %arrayidx.i32.i = getelementptr %struct.vring_desc, ptr %desc.0.i, i64 %idxprom.i.i
   %flags.i.i = getelementptr inbounds i8, ptr %arrayidx.i32.i, i64 12
   %28 = load i16, ptr %flags.i.i, align 4
   %29 = and i16 %28, 1

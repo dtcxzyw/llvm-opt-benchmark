@@ -190,7 +190,7 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
 
 55:                                               ; preds = %.lr.ph154, %76
   %indvars.iv167 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next168, %76 ]
-  %.086153 = phi ptr [ %5, %.lr.ph154 ], [ %.1, %76 ]
+  %.1153 = phi ptr [ %5, %.lr.ph154 ], [ %.2, %76 ]
   %56 = load ptr, ptr %54, align 8
   %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv167
   %58 = load ptr, ptr %57, align 8
@@ -212,12 +212,12 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds ptr, ptr %.pre183, i64 %indvars.iv167
-  store ptr %.086153, ptr %65, align 8
+  store ptr %.1153, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %58, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = mul nsw i32 %67, %25
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds double, ptr %.086153, i64 %69
+  %70 = getelementptr inbounds double, ptr %.1153, i64 %69
   br label %76
 
 71:                                               ; preds = %_ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i, %.noexc3.i.i120, %.noexc.i.i121
@@ -247,7 +247,7 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
   br label %76
 
 76:                                               ; preds = %64, %73
-  %.1 = phi ptr [ %70, %64 ], [ %.086153, %73 ]
+  %.2 = phi ptr [ %70, %64 ], [ %.1153, %73 ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
   br i1 %exitcond171.not, label %._crit_edge155.loopexit, label %55, !llvm.loop !6
@@ -257,7 +257,7 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
   br label %.thread
 
 .thread:                                          ; preds = %52, %._crit_edge155.loopexit
-  %.sink = phi ptr [ %5, %52 ], [ %.1, %._crit_edge155.loopexit ]
+  %.sink = phi ptr [ %5, %52 ], [ %.2, %._crit_edge155.loopexit ]
   %77 = phi ptr [ %.mux, %52 ], [ %.pre184, %._crit_edge155.loopexit ]
   %.not102135 = icmp eq ptr %3, null
   %spec.select136 = select i1 %.not102135, ptr %.sink, ptr %3
@@ -368,11 +368,11 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
   %.05478.i.i.i.i = phi i64 [ %.054.i.i.i.i, %.lr.ph.i.i.i.i ], [ 4, %119 ]
   %.054.in77.i.i.i.i = phi i64 [ %.05478.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %119 ]
   %storemerge76.i.i.i.i = phi <2 x double> [ %130, %.lr.ph.i.i.i.i ], [ %122, %119 ]
-  %.07275.i.i.i.i = phi <2 x double> [ %127, %.lr.ph.i.i.i.i ], [ %117, %119 ]
+  %.17375.i.i.i.i = phi <2 x double> [ %127, %.lr.ph.i.i.i.i ], [ %117, %119 ]
   %124 = getelementptr inbounds double, ptr %spec.select136, i64 %.05478.i.i.i.i
   %125 = load <2 x double>, ptr %124, align 1
   %126 = fmul <2 x double> %125, %125
-  %127 = fadd <2 x double> %.07275.i.i.i.i, %126
+  %127 = fadd <2 x double> %.17375.i.i.i.i, %126
   %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
   %128 = load <2 x double>, ptr %gep.i.i.i.i, align 1
   %129 = fmul <2 x double> %128, %128
@@ -382,9 +382,9 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
   br i1 %131, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %119
-  %.072.lcssa.i.i.i.i = phi <2 x double> [ %117, %119 ], [ %127, %.lr.ph.i.i.i.i ]
+  %.173.lcssa.i.i.i.i = phi <2 x double> [ %117, %119 ], [ %127, %.lr.ph.i.i.i.i ]
   %storemerge.lcssa.i.i.i.i = phi <2 x double> [ %122, %119 ], [ %130, %.lr.ph.i.i.i.i ]
-  %132 = fadd <2 x double> %.072.lcssa.i.i.i.i, %storemerge.lcssa.i.i.i.i
+  %132 = fadd <2 x double> %.173.lcssa.i.i.i.i, %storemerge.lcssa.i.i.i.i
   %133 = icmp sgt i64 %114, %112
   br i1 %133, label %134, label %139
 
@@ -396,9 +396,9 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
   br label %139
 
 139:                                              ; preds = %134, %._crit_edge.i.i.i.i, %115
-  %.173.i.i.i.i = phi <2 x double> [ %138, %134 ], [ %132, %._crit_edge.i.i.i.i ], [ %117, %115 ]
-  %shift = shufflevector <2 x double> %.173.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %140 = fadd <2 x double> %.173.i.i.i.i, %shift
+  %.072.i.i.i.i = phi <2 x double> [ %138, %134 ], [ %132, %._crit_edge.i.i.i.i ], [ %117, %115 ]
+  %shift = shufflevector <2 x double> %.072.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %140 = fadd <2 x double> %.072.i.i.i.i, %shift
   %141 = extractelement <2 x double> %140, i64 0
   %142 = icmp slt i64 %114, %108
   br i1 %142, label %.lr.ph83.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE11squaredNormEv.exit

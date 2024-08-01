@@ -1385,13 +1385,13 @@ cleanup:                                          ; preds = %_ZN4node6crypto10By
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.end39, %lor.lhs.false43, %if.end26, %lor.lhs.false, %lor.lhs.false4, %lor.lhs.false8, %cleanup
-  %retval.1.ph = phi i1 [ false, %if.end39 ], [ false, %lor.lhs.false43 ], [ false, %if.end26 ], [ false, %lor.lhs.false ], [ false, %lor.lhs.false4 ], [ false, %lor.lhs.false8 ], [ %cmp54, %cleanup ]
+  %retval.0.ph = phi i1 [ false, %if.end39 ], [ false, %lor.lhs.false43 ], [ false, %if.end26 ], [ false, %lor.lhs.false ], [ false, %lor.lhs.false4 ], [ false, %lor.lhs.false8 ], [ %cmp54, %cleanup ]
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %call) #18
   br label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit: ; preds = %entry, %if.then.i
-  %retval.127 = phi i1 [ %retval.1.ph, %if.then.i ], [ false, %entry ]
-  ret i1 %retval.127
+  %retval.027 = phi i1 [ %retval.0.ph, %if.then.i ], [ false, %entry ]
+  ret i1 %retval.027
 }
 
 declare ptr @EVP_PKEY_CTX_new_id(i32 noundef, ptr noundef) local_unnamed_addr #0

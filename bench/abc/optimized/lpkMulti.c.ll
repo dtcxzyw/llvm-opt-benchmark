@@ -674,7 +674,7 @@ Kit_DsdLitSupport.exit116:                        ; preds = %30, %51, %67
 
 105:                                              ; preds = %.lr.ph136, %119
   %indvars.iv150 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next151, %119 ]
-  %.283135 = phi i32 [ %.182, %.lr.ph136 ], [ %.3, %119 ]
+  %.3135 = phi i32 [ %.182, %.lr.ph136 ], [ %.4, %119 ]
   %106 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv150
   %107 = load i32, ptr %106, align 4
   %.not101 = icmp eq i32 %107, 0
@@ -695,17 +695,17 @@ Kit_DsdLitSupport.exit116:                        ; preds = %30, %51, %67
 
 117:                                              ; preds = %112
   store i32 1, ptr %109, align 4
-  %118 = add nsw i32 %.283135, 1
+  %118 = add nsw i32 %.3135, 1
   br label %119
 
 119:                                              ; preds = %105, %108, %112, %117
-  %.3 = phi i32 [ %.283135, %105 ], [ %118, %117 ], [ %.283135, %112 ], [ %.283135, %108 ]
+  %.4 = phi i32 [ %.3135, %105 ], [ %118, %117 ], [ %.3135, %112 ], [ %.3135, %108 ]
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
   br i1 %exitcond154.not, label %.loopexit, label %105, !llvm.loop !22
 
 .loopexit:                                        ; preds = %119, %.preheader118, %5, %._crit_edge130, %._crit_edge
-  %.097 = phi i32 [ 0, %._crit_edge ], [ %.182, %._crit_edge130 ], [ 0, %5 ], [ 0, %.preheader118 ], [ %.3, %119 ]
+  %.097 = phi i32 [ 0, %._crit_edge ], [ %.182, %._crit_edge130 ], [ 0, %5 ], [ 0, %.preheader118 ], [ %.4, %119 ]
   ret i32 %.097
 }
 

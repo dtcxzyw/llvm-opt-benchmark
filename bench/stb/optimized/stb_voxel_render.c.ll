@@ -309,7 +309,7 @@ if.then126:                                       ; preds = %if.then123
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then126, %if.then123
-  %retval.sroa.0.1 = phi i8 [ %retval.sroa.0.0, %if.then123 ], [ %spec.select119, %if.then126 ]
+  %retval.sroa.0.2 = phi i8 [ %retval.sroa.0.0, %if.then123 ], [ %spec.select119, %if.then126 ]
   %overlay_tex2 = getelementptr inbounds i8, ptr %mm, i64 184
   %23 = load ptr, ptr %overlay_tex2, align 8
   %tobool139.not = icmp eq ptr %23, null
@@ -325,7 +325,7 @@ if.then140:                                       ; preds = %if.end137
   br label %if.end151
 
 if.end151:                                        ; preds = %if.then140, %if.end137
-  %retval.sroa.7.1 = phi i8 [ %retval.sroa.7.0, %if.end137 ], [ %spec.select120, %if.then140 ]
+  %retval.sroa.7.2 = phi i8 [ %retval.sroa.7.0, %if.end137 ], [ %spec.select120, %if.then140 ]
   %overlay_color = getelementptr inbounds i8, ptr %mm, i64 192
   %25 = load ptr, ptr %overlay_color, align 8
   %tobool153.not = icmp eq ptr %25, null
@@ -341,7 +341,7 @@ if.then154:                                       ; preds = %if.end151
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then154, %if.end151
-  %retval.sroa.13.2 = phi i8 [ %retval.sroa.13.1, %if.end151 ], [ %spec.select121, %if.then154 ]
+  %retval.sroa.13.3 = phi i8 [ %retval.sroa.13.1, %if.end151 ], [ %spec.select121, %if.then154 ]
   %overlay_side_texrot = getelementptr inbounds i8, ptr %mm, i64 200
   %27 = load ptr, ptr %overlay_side_texrot, align 8
   %tobool167 = icmp ne ptr %27, null
@@ -359,22 +359,22 @@ if.then170:                                       ; preds = %if.end165
 
 if.end180:                                        ; preds = %if.then109, %if.then170, %if.end165, %if.end106
   %facerot.1 = phi i32 [ %shr177, %if.then170 ], [ %facerot.0, %if.end165 ], [ %facerot.0, %if.then109 ], [ %facerot.0, %if.end106 ]
-  %retval.sroa.13.3 = phi i8 [ %retval.sroa.13.2, %if.then170 ], [ %retval.sroa.13.2, %if.end165 ], [ %retval.sroa.13.1, %if.then109 ], [ %retval.sroa.13.1, %if.end106 ]
-  %retval.sroa.7.2 = phi i8 [ %retval.sroa.7.1, %if.then170 ], [ %retval.sroa.7.1, %if.end165 ], [ %retval.sroa.7.0, %if.then109 ], [ %retval.sroa.7.0, %if.end106 ]
-  %retval.sroa.0.2 = phi i8 [ %retval.sroa.0.1, %if.then170 ], [ %retval.sroa.0.1, %if.end165 ], [ %retval.sroa.0.0, %if.then109 ], [ %retval.sroa.0.0, %if.end106 ]
+  %retval.sroa.13.2 = phi i8 [ %retval.sroa.13.3, %if.then170 ], [ %retval.sroa.13.3, %if.end165 ], [ %retval.sroa.13.1, %if.then109 ], [ %retval.sroa.13.1, %if.end106 ]
+  %retval.sroa.7.1 = phi i8 [ %retval.sroa.7.2, %if.then170 ], [ %retval.sroa.7.2, %if.end165 ], [ %retval.sroa.7.0, %if.then109 ], [ %retval.sroa.7.0, %if.end106 ]
+  %retval.sroa.0.1 = phi i8 [ %retval.sroa.0.2, %if.then170 ], [ %retval.sroa.0.2, %if.end165 ], [ %retval.sroa.0.0, %if.then109 ], [ %retval.sroa.0.0, %if.end106 ]
   %tex2_for_tex1 = getelementptr inbounds i8, ptr %mm, i64 216
   %29 = load ptr, ptr %tex2_for_tex1, align 8
   %tobool182.not = icmp eq ptr %29, null
   br i1 %tobool182.not, label %if.end190, label %if.then183
 
 if.then183:                                       ; preds = %if.end180
-  %idxprom187 = zext i8 %retval.sroa.0.2 to i64
+  %idxprom187 = zext i8 %retval.sroa.0.1 to i64
   %arrayidx188 = getelementptr inbounds i8, ptr %29, i64 %idxprom187
   %30 = load i8, ptr %arrayidx188, align 1
   br label %if.end190
 
 if.end190:                                        ; preds = %if.then183, %if.end180
-  %retval.sroa.7.3 = phi i8 [ %30, %if.then183 ], [ %retval.sroa.7.2, %if.end180 ]
+  %retval.sroa.7.3 = phi i8 [ %30, %if.then183 ], [ %retval.sroa.7.1, %if.end180 ]
   %tex2192 = getelementptr inbounds i8, ptr %mm, i64 64
   %31 = load ptr, ptr %tex2192, align 8
   %tobool193.not = icmp eq ptr %31, null
@@ -442,7 +442,7 @@ if.then238:                                       ; preds = %if.then225
   br label %if.end244
 
 if.end244:                                        ; preds = %if.then225, %if.then238, %if.end216
-  %retval.sroa.13.4 = phi i8 [ %43, %if.then238 ], [ %retval.sroa.13.3, %if.then225 ], [ %retval.sroa.13.3, %if.end216 ]
+  %retval.sroa.13.4 = phi i8 [ %43, %if.then238 ], [ %retval.sroa.13.2, %if.then225 ], [ %retval.sroa.13.2, %if.end216 ]
   %color2 = getelementptr inbounds i8, ptr %mm, i64 264
   %44 = load ptr, ptr %color2, align 8
   %tobool246.not = icmp eq ptr %44, null
@@ -466,7 +466,7 @@ if.then256:                                       ; preds = %if.then247
   br label %if.end262
 
 if.end262:                                        ; preds = %if.then256, %if.then247
-  %retval.sroa.13.5 = phi i8 [ %47, %if.then256 ], [ %retval.sroa.13.4, %if.then247 ]
+  %retval.sroa.13.6 = phi i8 [ %47, %if.then256 ], [ %retval.sroa.13.4, %if.then247 ]
   %color3 = getelementptr inbounds i8, ptr %mm, i64 280
   %48 = load ptr, ptr %color3, align 8
   %tobool264.not = icmp eq ptr %48, null
@@ -488,17 +488,17 @@ if.then274:                                       ; preds = %land.lhs.true265
   br label %if.end281
 
 if.end281:                                        ; preds = %if.end262, %land.lhs.true265, %if.then274, %if.end244
-  %retval.sroa.13.6 = phi i8 [ %51, %if.then274 ], [ %retval.sroa.13.5, %land.lhs.true265 ], [ %retval.sroa.13.5, %if.end262 ], [ %retval.sroa.13.4, %if.end244 ]
+  %retval.sroa.13.5 = phi i8 [ %51, %if.then274 ], [ %retval.sroa.13.6, %land.lhs.true265 ], [ %retval.sroa.13.6, %if.end262 ], [ %retval.sroa.13.4, %if.end244 ]
   %52 = shl i32 %normal, 26
   %53 = shl nuw i32 %facerot.1, 24
   %retval.sroa.20.0.insert.ext = add i32 %53, %52
-  %retval.sroa.13.0.insert.ext = zext i8 %retval.sroa.13.6 to i32
+  %retval.sroa.13.0.insert.ext = zext i8 %retval.sroa.13.5 to i32
   %retval.sroa.13.0.insert.shift = shl nuw nsw i32 %retval.sroa.13.0.insert.ext, 16
   %retval.sroa.13.0.insert.insert = or disjoint i32 %retval.sroa.13.0.insert.shift, %retval.sroa.20.0.insert.ext
   %retval.sroa.7.0.insert.ext = zext i8 %retval.sroa.7.5 to i32
   %retval.sroa.7.0.insert.shift = shl nuw nsw i32 %retval.sroa.7.0.insert.ext, 8
   %retval.sroa.7.0.insert.insert = or disjoint i32 %retval.sroa.13.0.insert.insert, %retval.sroa.7.0.insert.shift
-  %retval.sroa.0.0.insert.ext = zext i8 %retval.sroa.0.2 to i32
+  %retval.sroa.0.0.insert.ext = zext i8 %retval.sroa.0.1 to i32
   %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.7.0.insert.insert, %retval.sroa.0.0.insert.ext
   ret i32 %retval.sroa.0.0.insert.insert
 }
@@ -1841,9 +1841,9 @@ if.end579.sink.split:                             ; preds = %if.then564, %if.the
   br label %if.end579
 
 if.end579:                                        ; preds = %if.end579.sink.split, %if.else569
-  %mesh.1 = phi i8 [ %mesh.0, %if.else569 ], [ %120, %if.end579.sink.split ]
+  %mesh.2 = phi i8 [ %mesh.0, %if.else569 ], [ %120, %if.end579.sink.split ]
   %output_cur = getelementptr inbounds i8, ptr %mm, i64 608
-  %idxprom580 = zext i8 %mesh.1 to i64
+  %idxprom580 = zext i8 %mesh.2 to i64
   %arrayidx581 = getelementptr inbounds [2 x [3 x ptr]], ptr %output_cur, i64 0, i64 %idxprom580
   %121 = load ptr, ptr %arrayidx581, align 8
   %output_size = getelementptr inbounds i8, ptr %mm, i64 776
@@ -1886,7 +1886,7 @@ cond.end:                                         ; preds = %if.then599, %cond.t
   %cond = phi i32 [ %conv605, %cond.true ], [ 4, %if.then599 ]
   %bf.value = shl nuw nsw i8 %rot.1, 4
   %arrayidx606 = getelementptr inbounds i8, ptr %vmesh, i64 64
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.value, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx606, i8 noundef zeroext %mesh.1, i32 noundef %cond)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.value, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx606, i8 noundef zeroext %mesh.2, i32 noundef %cond)
   br label %if.end608
 
 if.end608:                                        ; preds = %cond.end, %if.then596
@@ -1911,22 +1911,22 @@ if.else639:                                       ; preds = %if.end592
 if.then642:                                       ; preds = %if.else639
   %bf.value644 = shl nuw nsw i8 %rot.1, 4
   %arrayidx648 = getelementptr inbounds i8, ptr %vmesh, i64 64
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.value644, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx648, i8 noundef zeroext %mesh.1, i32 noundef 4)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.value644, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx648, i8 noundef zeroext %mesh.2, i32 noundef 4)
   br label %if.end652
 
 if.end652:                                        ; preds = %if.then642, %if.else639
-  %rotate.sroa.0.1 = phi i8 [ %bf.value644, %if.then642 ], [ 0, %if.else639 ]
+  %rotate.sroa.0.2 = phi i8 [ %bf.value644, %if.then642 ], [ 0, %if.else639 ]
   %and653 = and i32 %visible_faces.5, 32
   %tobool654.not = icmp eq i32 %and653, 0
   br i1 %tobool654.not, label %if.end673, label %if.end673.sink.split
 
 if.end673.sink.split:                             ; preds = %if.end652, %cond.true616, %if.then611
-  %rotate.sroa.0.1.sink = phi i8 [ %rotate.sroa.0.0, %if.then611 ], [ %rotate.sroa.0.0, %cond.true616 ], [ %rotate.sroa.0.1, %if.end652 ]
+  %rotate.sroa.0.2.sink = phi i8 [ %rotate.sroa.0.0, %if.then611 ], [ %rotate.sroa.0.0, %cond.true616 ], [ %rotate.sroa.0.2, %if.end652 ]
   %.sink = phi i32 [ 5, %if.then611 ], [ %conv619, %cond.true616 ], [ 5, %if.end652 ]
-  %126 = sub nsw i8 0, %rotate.sroa.0.1.sink
+  %126 = sub nsw i8 0, %rotate.sroa.0.2.sink
   %bf.shl665 = and i8 %126, 48
   %arrayidx668 = getelementptr inbounds i8, ptr %vmesh, i64 80
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.shl665, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx668, i8 noundef zeroext %mesh.1, i32 noundef %.sink)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.shl665, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx668, i8 noundef zeroext %mesh.2, i32 noundef %.sink)
   br label %if.end673
 
 if.end673:                                        ; preds = %if.end673.sink.split, %if.end652, %if.end608
@@ -1956,7 +1956,7 @@ if.end723:                                        ; preds = %if.else708, %if.the
 
 if.then729:                                       ; preds = %if.end723
   %arrayidx730 = getelementptr inbounds i8, ptr %vmesh, i64 16
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 1, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx730, i8 noundef zeroext %mesh.1, i32 noundef 1)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 1, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx730, i8 noundef zeroext %mesh.2, i32 noundef 1)
   br label %if.end734
 
 if.end734:                                        ; preds = %if.then729, %if.end723
@@ -1966,7 +1966,7 @@ if.end734:                                        ; preds = %if.then729, %if.end
 
 if.then737:                                       ; preds = %if.end734
   %arrayidx738 = getelementptr inbounds i8, ptr %vmesh, i64 48
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 3, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx738, i8 noundef zeroext %mesh.1, i32 noundef 3)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 3, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx738, i8 noundef zeroext %mesh.2, i32 noundef 3)
   br label %if.end742
 
 if.end742:                                        ; preds = %if.then737, %if.end734
@@ -1975,7 +1975,7 @@ if.end742:                                        ; preds = %if.then737, %if.end
   br i1 %tobool744.not, label %if.end750, label %if.then745
 
 if.then745:                                       ; preds = %if.end742
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 0, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %vmesh, i8 noundef zeroext %mesh.1, i32 noundef 0)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 0, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %vmesh, i8 noundef zeroext %mesh.2, i32 noundef 0)
   br label %if.end750
 
 if.end750:                                        ; preds = %if.then745, %if.end742
@@ -1985,11 +1985,11 @@ if.end750:                                        ; preds = %if.then745, %if.end
 
 if.then753:                                       ; preds = %if.end750
   %arrayidx754 = getelementptr inbounds i8, ptr %vmesh, i64 32
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 2, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx754, i8 noundef zeroext %mesh.1, i32 noundef 2)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 2, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx754, i8 noundef zeroext %mesh.2, i32 noundef 2)
   br label %if.end759
 
 if.end759:                                        ; preds = %if.end750, %if.then753, %if.end521
-  %mesh.2 = phi i8 [ %mesh.1, %if.then753 ], [ %mesh.1, %if.end750 ], [ %mesh.0, %if.end521 ]
+  %mesh.1 = phi i8 [ %mesh.2, %if.then753 ], [ %mesh.2, %if.end750 ], [ %mesh.0, %if.end521 ]
   %cmp761 = icmp ugt i8 %spec.store.select, 11
   br i1 %cmp761, label %if.then763, label %if.end1327
 
@@ -2212,7 +2212,7 @@ for.end1045:                                      ; preds = %for.body1030
   %narrow692 = add nuw i24 %narrow691, %178
   %add1056 = zext i24 %narrow692 to i32
   %output_cur1059 = getelementptr inbounds i8, ptr %mm, i64 608
-  %idxprom1060 = zext i8 %mesh.2 to i64
+  %idxprom1060 = zext i8 %mesh.1 to i64
   %arrayidx1061 = getelementptr inbounds [2 x [3 x ptr]], ptr %output_cur1059, i64 0, i64 %idxprom1060
   %180 = load ptr, ptr %arrayidx1061, align 8
   %output_size1063 = getelementptr inbounds i8, ptr %mm, i64 776
@@ -2242,7 +2242,7 @@ if.then1081:                                      ; preds = %if.end1078
 
 if.then1085:                                      ; preds = %if.then1081
   %arrayidx1086 = getelementptr inbounds i8, ptr %vmesh764, i64 64
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1086, i8 noundef zeroext %mesh.2, i32 noundef 4)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1086, i8 noundef zeroext %mesh.1, i32 noundef 4)
   br label %if.end1133
 
 if.else1090:                                      ; preds = %if.then1081
@@ -2257,7 +2257,7 @@ if.then1099:                                      ; preds = %if.else1090
   br i1 %cmp1101, label %if.end1133.thread, label %if.else1109
 
 if.else1109:                                      ; preds = %if.then1099
-  call void @stbvox_make_12_split_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1104, i8 noundef zeroext %mesh.2, ptr noundef nonnull %ht)
+  call void @stbvox_make_12_split_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1104, i8 noundef zeroext %mesh.1, ptr noundef nonnull %ht)
   br label %if.end1133
 
 if.else1116:                                      ; preds = %if.else1090
@@ -2268,7 +2268,7 @@ if.else1116:                                      ; preds = %if.else1090
   %arrayidx1127 = getelementptr inbounds [4 x [4 x [4 x i8]]], ptr @stbvox_planar_face_up_normal, i64 0, i64 %idxprom1120, i64 %idxprom1123, i64 %idxprom1126
   %183 = load i8, ptr %arrayidx1127, align 1
   %conv1128 = zext i8 %183 to i32
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1117, i8 noundef zeroext %mesh.2, i32 noundef %conv1128)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1117, i8 noundef zeroext %mesh.1, i32 noundef %conv1128)
   br label %if.end1133
 
 if.end1133:                                       ; preds = %if.then1085, %if.else1109, %if.else1116, %if.end1078
@@ -2277,7 +2277,7 @@ if.end1133:                                       ; preds = %if.then1085, %if.el
   br i1 %tobool1135.not, label %if.end1190, label %if.then1136
 
 if.end1133.thread:                                ; preds = %if.then1099
-  call void @stbvox_make_03_split_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1104, i8 noundef zeroext %mesh.2, ptr noundef nonnull %ht)
+  call void @stbvox_make_03_split_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1104, i8 noundef zeroext %mesh.1, ptr noundef nonnull %ht)
   %and1134697 = and i32 %visible_faces.5, 32
   %tobool1135.not698 = icmp eq i32 %and1134697, 0
   br i1 %tobool1135.not698, label %if.end1190, label %if.then1140
@@ -2288,7 +2288,7 @@ if.then1136:                                      ; preds = %if.end1133
 
 if.then1140:                                      ; preds = %if.end1133.thread, %if.then1136
   %arrayidx1141 = getelementptr inbounds i8, ptr %vmesh764, i64 80
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1141, i8 noundef zeroext %mesh.2, i32 noundef 5)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1141, i8 noundef zeroext %mesh.1, i32 noundef 5)
   br label %if.end1190
 
 if.else1145:                                      ; preds = %if.then1136
@@ -2303,11 +2303,11 @@ if.then1154:                                      ; preds = %if.else1145
   br i1 %cmp1156, label %if.then1158, label %if.else1164
 
 if.then1158:                                      ; preds = %if.then1154
-  call void @stbvox_make_03_split_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1159, i8 noundef zeroext %mesh.2, ptr noundef nonnull %ht)
+  call void @stbvox_make_03_split_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1159, i8 noundef zeroext %mesh.1, ptr noundef nonnull %ht)
   br label %if.end1190
 
 if.else1164:                                      ; preds = %if.then1154
-  call void @stbvox_make_12_split_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1159, i8 noundef zeroext %mesh.2, ptr noundef nonnull %ht)
+  call void @stbvox_make_12_split_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1159, i8 noundef zeroext %mesh.1, ptr noundef nonnull %ht)
   br label %if.end1190
 
 if.else1171:                                      ; preds = %if.else1145
@@ -2321,7 +2321,7 @@ if.else1171:                                      ; preds = %if.else1145
   %arrayidx1184 = getelementptr inbounds [32 x i8], ptr @stbvox_reverse_face, i64 0, i64 %idxprom1183
   %185 = load i8, ptr %arrayidx1184, align 1
   %conv1185 = zext i8 %185 to i32
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1172, i8 noundef zeroext %mesh.2, i32 noundef %conv1185)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1172, i8 noundef zeroext %mesh.1, i32 noundef %conv1185)
   br label %if.end1190
 
 if.end1190:                                       ; preds = %if.end1133.thread, %if.then1140, %if.then1158, %if.else1164, %if.else1171, %if.end1133
@@ -2359,14 +2359,14 @@ land.lhs.true1251:                                ; preds = %lor.lhs.false1249
 
 if.end1266:                                       ; preds = %if.end1246
   %arrayidx1262 = getelementptr inbounds i8, ptr %vmesh764, i64 16
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate766.sroa.0.0, i32 noundef 1, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1262, i8 noundef zeroext %mesh.2, i32 noundef 1)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate766.sroa.0.0, i32 noundef 1, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1262, i8 noundef zeroext %mesh.1, i32 noundef 1)
   %and1267 = and i32 %visible_faces.5, 8
   %tobool1268.not = icmp eq i32 %and1267, 0
   br i1 %tobool1268.not, label %lor.lhs.false1269, label %if.then1281
 
 if.end1266.thread714:                             ; preds = %land.lhs.true1251
   %arrayidx1262715 = getelementptr inbounds i8, ptr %vmesh764, i64 16
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate766.sroa.0.0, i32 noundef 1, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1262715, i8 noundef zeroext %mesh.2, i32 noundef 1)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate766.sroa.0.0, i32 noundef 1, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1262715, i8 noundef zeroext %mesh.1, i32 noundef 1)
   %and1267716 = and i32 %visible_faces.5, 8
   %tobool1268.not717 = icmp ne i32 %and1267716, 0
   %brmerge = or i1 %tobool1268.not717, %or.cond786
@@ -2391,7 +2391,7 @@ land.lhs.true1271:                                ; preds = %lor.lhs.false1269
 
 if.then1281:                                      ; preds = %if.end1266.thread702, %if.end1266.thread714, %if.end1266.thread, %land.lhs.true1271, %if.end1266
   %arrayidx1282 = getelementptr inbounds i8, ptr %vmesh764, i64 48
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate766.sroa.0.0, i32 noundef 3, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1282, i8 noundef zeroext %mesh.2, i32 noundef 3)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate766.sroa.0.0, i32 noundef 3, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1282, i8 noundef zeroext %mesh.1, i32 noundef 3)
   br label %if.end1286
 
 if.end1286:                                       ; preds = %if.end1266.thread, %if.then1281, %lor.lhs.false1269
@@ -2416,7 +2416,7 @@ land.lhs.true1291:                                ; preds = %lor.lhs.false1289
   br i1 %or.cond4.old, label %if.end1306, label %if.end1306.thread710
 
 if.end1306:                                       ; preds = %if.end1286, %land.lhs.true1291, %if.end1286.thread
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate766.sroa.0.0, i32 noundef 0, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %vmesh764, i8 noundef zeroext %mesh.2, i32 noundef 0)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate766.sroa.0.0, i32 noundef 0, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %vmesh764, i8 noundef zeroext %mesh.1, i32 noundef 0)
   %and1307 = and i32 %visible_faces.5, 4
   %tobool1308.not = icmp ne i32 %and1307, 0
   %or.cond5.old = select i1 %cmp933784, i1 true, i1 %cmp942787
@@ -2438,7 +2438,7 @@ if.end1306.thread:                                ; preds = %lor.lhs.false1289
 
 if.then1321:                                      ; preds = %if.end1306.thread710, %if.end1306.thread, %if.end1306
   %arrayidx1322 = getelementptr inbounds i8, ptr %vmesh764, i64 32
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate766.sroa.0.0, i32 noundef 2, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1322, i8 noundef zeroext %mesh.2, i32 noundef 2)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate766.sroa.0.0, i32 noundef 2, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1322, i8 noundef zeroext %mesh.1, i32 noundef 2)
   br label %if.end1327
 
 if.end1327:                                       ; preds = %if.end1306, %if.end1306.thread710, %if.end1306.thread, %if.then1321, %if.end759

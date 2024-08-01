@@ -82,7 +82,7 @@ define hidden noundef ptr @base64uri_tvb_to_new_tvb(ptr noundef %0, i32 noundef 
   %.04064.i.i = phi i32 [ %.141.i.i, %41 ], [ 0, %15 ]
   %.sroa.0.163.i.i = phi i8 [ %.sroa.0.2.i.i, %41 ], [ 0, %15 ]
   %.04362.i.i = phi ptr [ %18, %41 ], [ %4, %15 ]
-  %.04461.i.i = phi ptr [ %.3.i.i, %41 ], [ %11, %15 ]
+  %.04461.i.i = phi ptr [ %.145.i.i, %41 ], [ %11, %15 ]
   %18 = getelementptr i8, ptr %.04362.i.i, i64 1
   %19 = load i8, ptr %.04362.i.i, align 1
   %20 = zext i8 %19 to i64
@@ -115,18 +115,18 @@ define hidden noundef ptr @base64uri_tvb_to_new_tvb(ptr noundef %0, i32 noundef 
   br label %37
 
 37:                                               ; preds = %33, %29
-  %.145.i.i = phi ptr [ %36, %33 ], [ %32, %29 ]
+  %.246.i.i = phi ptr [ %36, %33 ], [ %32, %29 ]
   %.not59.i.i = icmp eq i8 %19, 61
   br i1 %.not59.i.i, label %41, label %38
 
 38:                                               ; preds = %37
   %39 = trunc i32 %26 to i8
-  %40 = getelementptr i8, ptr %.145.i.i, i64 1
-  store i8 %39, ptr %.145.i.i, align 1
+  %40 = getelementptr i8, ptr %.246.i.i, i64 1
+  store i8 %39, ptr %.246.i.i, align 1
   br label %41
 
 41:                                               ; preds = %38, %37, %23, %.lr.ph.i.i
-  %.3.i.i = phi ptr [ %.04461.i.i, %23 ], [ %.04461.i.i, %.lr.ph.i.i ], [ %40, %38 ], [ %.145.i.i, %37 ]
+  %.145.i.i = phi ptr [ %.04461.i.i, %23 ], [ %.04461.i.i, %.lr.ph.i.i ], [ %40, %38 ], [ %.246.i.i, %37 ]
   %.sroa.0.2.i.i = phi i8 [ %19, %23 ], [ %.sroa.0.163.i.i, %.lr.ph.i.i ], [ %19, %38 ], [ 61, %37 ]
   %.141.i.i = phi i32 [ %26, %23 ], [ %.04064.i.i, %.lr.ph.i.i ], [ %26, %38 ], [ %26, %37 ]
   %.2.i.i = phi i32 [ %27, %23 ], [ %.165.i.i, %.lr.ph.i.i ], [ 0, %38 ], [ 0, %37 ]
@@ -134,7 +134,7 @@ define hidden noundef ptr @base64uri_tvb_to_new_tvb(ptr noundef %0, i32 noundef 
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !4
 
 ._crit_edge.i.i:                                  ; preds = %41, %15
-  %.044.lcssa.i.i = phi ptr [ %11, %15 ], [ %.3.i.i, %41 ]
+  %.044.lcssa.i.i = phi ptr [ %11, %15 ], [ %.145.i.i, %41 ]
   %42 = ptrtoint ptr %.044.lcssa.i.i to i64
   %43 = ptrtoint ptr %11 to i64
   %44 = sub i64 %42, %43

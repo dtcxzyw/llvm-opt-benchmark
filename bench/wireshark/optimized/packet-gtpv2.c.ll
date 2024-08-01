@@ -3950,10 +3950,10 @@ define hidden void @dissect_gtpv2_twan_identifier(ptr noundef %0, ptr noundef %1
   br label %87
 
 87:                                               ; preds = %62, %81, %73, %77
-  %.4 = phi i32 [ %68, %62 ], [ %86, %81 ], [ %76, %73 ], [ %80, %77 ]
+  %.5 = phi i32 [ %68, %62 ], [ %86, %81 ], [ %76, %73 ], [ %80, %77 ]
   %88 = load i32, ptr @hf_gtpv2_twan_circuit_id_len, align 4
-  %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14) #10
-  %90 = add i32 %.4, 1
+  %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14) #10
+  %90 = add i32 %.5, 1
   %91 = load i32, ptr @hf_gtpv2_twan_circuit_id, align 4
   %92 = load i32, ptr %14, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef %92, i32 noundef 0) #10
@@ -3962,13 +3962,13 @@ define hidden void @dissect_gtpv2_twan_identifier(ptr noundef %0, ptr noundef %1
   br label %96
 
 96:                                               ; preds = %87, %60
-  %.5 = phi i32 [ %95, %87 ], [ %.3, %60 ]
+  %.4 = phi i32 [ %95, %87 ], [ %.3, %60 ]
   %97 = zext i16 %4 to i32
-  %98 = icmp slt i32 %.5, %97
+  %98 = icmp slt i32 %.4, %97
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %96
-  %100 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef %.5, i32 noundef -1, ptr noundef nonnull @.str.14) #10
+  %100 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef %.4, i32 noundef -1, ptr noundef nonnull @.str.14) #10
   br label %101
 
 101:                                              ; preds = %99, %96
@@ -4533,22 +4533,22 @@ define internal i32 @dissect_gtpv2(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %131
 
 131:                                              ; preds = %.critedge.i, %126
-  %.0.i = phi ptr [ %125, %126 ], [ %130, %.critedge.i ]
-  %132 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %.1.i = phi ptr [ %125, %126 ], [ %130, %.critedge.i ]
+  %132 = getelementptr inbounds i8, ptr %.1.i, i64 28
   store i32 %101, ptr %132, align 4
   %133 = getelementptr inbounds i8, ptr %1, i64 20
   %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %135 = getelementptr inbounds i8, ptr %.1.i, i64 4
   store i32 %134, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %136 = getelementptr inbounds i8, ptr %.1.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false)
-  %137 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %137 = getelementptr inbounds i8, ptr %.1.i, i64 24
   store i32 0, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %138 = getelementptr inbounds i8, ptr %.1.i, i64 32
   store i32 %19, ptr %138, align 8
-  store i32 1, ptr %.0.i, align 8
+  store i32 1, ptr %.1.i, align 8
   %139 = load ptr, ptr %.0120, align 8
-  %140 = call ptr @wmem_map_insert(ptr noundef %139, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i) #10
+  %140 = call ptr @wmem_map_insert(ptr noundef %139, ptr noundef nonnull %.1.i, ptr noundef nonnull %.1.i) #10
   br label %gtpv2_match_response.exit
 
 141:                                              ; preds = %122, %122, %122, %122, %122, %122, %122, %122, %122, %122, %122, %122, %122, %122, %122, %122, %122
@@ -4581,13 +4581,13 @@ thread-pre-split.i:                               ; preds = %147, %144
 
 154:                                              ; preds = %thread-pre-split.i, %120
   %155 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %121, %120 ]
-  %.1.ph.i = phi ptr [ %143, %thread-pre-split.i ], [ %119, %120 ]
+  %.0.ph.i = phi ptr [ %143, %thread-pre-split.i ], [ %119, %120 ]
   %.not77.i = icmp eq i32 %155, 0
   br i1 %.not77.i, label %168, label %156
 
 156:                                              ; preds = %154
   %157 = load i32, ptr @hf_gtpv2_response_in, align 4
-  %158 = getelementptr inbounds i8, ptr %.1.ph.i, i64 24
+  %158 = getelementptr inbounds i8, ptr %.0.ph.i, i64 24
   %159 = load i32, ptr %158, align 8
   %160 = call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %157, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %159) #10
   %.not.i.i = icmp eq ptr %160, null
@@ -4608,7 +4608,7 @@ thread-pre-split.i:                               ; preds = %147, %144
 
 168:                                              ; preds = %154
   %169 = load i32, ptr @hf_gtpv2_response_to, align 4
-  %170 = getelementptr inbounds i8, ptr %.1.ph.i, i64 4
+  %170 = getelementptr inbounds i8, ptr %.0.ph.i, i64 4
   %171 = load i32, ptr %170, align 4
   %172 = call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %169, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %171) #10
   %.not.i83.i = icmp eq ptr %172, null
@@ -4628,7 +4628,7 @@ thread-pre-split.i:                               ; preds = %147, %144
   br label %proto_item_set_generated.exit85.i
 
 proto_item_set_generated.exit85.i:                ; preds = %176, %173, %168
-  %180 = getelementptr inbounds i8, ptr %.1.ph.i, i64 8
+  %180 = getelementptr inbounds i8, ptr %.0.ph.i, i64 8
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %104, ptr noundef nonnull %180) #10
   %181 = load i32, ptr @hf_gtpv2_response_time, align 4
   %182 = call ptr @proto_tree_add_time(ptr noundef %27, i32 noundef %181, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #10
@@ -4709,7 +4709,7 @@ gtpv2_match_response.exit:                        ; preds = %122, %131, %141
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %221 = load i32, ptr @gtpv2_tap, align 4
-  call void @tap_queue_packet(i32 noundef %221, ptr noundef nonnull %1, ptr noundef nonnull %.1.ph.i) #10
+  call void @tap_queue_packet(i32 noundef %221, ptr noundef nonnull %1, ptr noundef nonnull %.0.ph.i) #10
   br label %222
 
 222:                                              ; preds = %gtpv2_match_response.exit, %220

@@ -394,10 +394,10 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 
 120:                                              ; preds = %.lr.ph, %346
   %.0338508 = phi i32 [ 0, %.lr.ph ], [ %351, %346 ]
-  %.0339507 = phi i32 [ 0, %.lr.ph ], [ %.3576, %346 ]
+  %.0339507 = phi i32 [ 0, %.lr.ph ], [ %.4576, %346 ]
   %.0344506 = phi double [ %55, %.lr.ph ], [ %217, %346 ]
   %.0347505 = phi double [ 0.000000e+00, %.lr.ph ], [ %219, %346 ]
-  %.0350504 = phi double [ -1.000000e+00, %.lr.ph ], [ %.2352, %346 ]
+  %.0350504 = phi double [ -1.000000e+00, %.lr.ph ], [ %.3353, %346 ]
   %.0359503 = phi double [ 0.000000e+00, %.lr.ph ], [ %212, %346 ]
   %.sroa.0.0502 = phi double [ %54, %.lr.ph ], [ %295, %346 ]
   %121 = load i32, ptr %12, align 4
@@ -518,10 +518,10 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   %192 = phi i1 [ true, %185 ], [ false, %290 ]
   %193 = phi i1 [ false, %185 ], [ true, %290 ]
   %.0501 = phi double [ 1.000000e+00, %185 ], [ 2.000000e+00, %290 ]
-  %.1500 = phi i32 [ %.0339507, %185 ], [ %.3, %290 ]
+  %.1500 = phi i32 [ %.0339507, %185 ], [ %.4, %290 ]
   %.1345499 = phi double [ %.0344506, %185 ], [ %217, %290 ]
   %.1348498 = phi double [ %.0347505, %185 ], [ %219, %290 ]
-  %.1351497 = phi double [ %.0350504, %185 ], [ %.2352, %290 ]
+  %.1351497 = phi double [ %.0350504, %185 ], [ %.3353, %290 ]
   %.1360496 = phi double [ %.0359503, %185 ], [ %212, %290 ]
   br i1 %192, label %194, label %206
 
@@ -542,7 +542,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 206:                                              ; preds = %191, %194
   %.sink632 = phi ptr [ %108, %194 ], [ %117, %191 ]
   %.0362 = phi double [ %205, %194 ], [ %.1351497, %191 ]
-  %.2352 = phi double [ %199, %194 ], [ %.1351497, %191 ]
+  %.3353 = phi double [ %199, %194 ], [ %.1351497, %191 ]
   %207 = load ptr, ptr %.sink632, align 8
   %208 = fmul double %.1360496, %.1360496
   %209 = fmul double %208, %.1348498
@@ -703,13 +703,13 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br i1 %289, label %290, label %.thread.thread
 
 290:                                              ; preds = %226, %282
-  %.2356 = phi double [ %288, %282 ], [ %222, %226 ]
-  %.3 = phi i32 [ 1, %282 ], [ %.1500, %226 ]
+  %.4358 = phi double [ %288, %282 ], [ %222, %226 ]
+  %.4 = phi i32 [ 1, %282 ], [ %.1500, %226 ]
   br i1 %192, label %191, label %.thread572, !llvm.loop !4
 
 .thread572:                                       ; preds = %228, %290
-  %.3576 = phi i32 [ %.3, %290 ], [ %.1500, %228 ]
-  %.2356575 = phi double [ %.2356, %290 ], [ %222, %228 ]
+  %.4576 = phi i32 [ %.4, %290 ], [ %.1500, %228 ]
+  %.4358575 = phi double [ %.4358, %290 ], [ %222, %228 ]
   %291 = load ptr, ptr %52, align 8
   %292 = load ptr, ptr %104, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 8
@@ -821,8 +821,8 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br i1 %353, label %120, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %346, %102
-  %.4358 = phi double [ -1.000000e+00, %102 ], [ %.2356575, %346 ]
-  %354 = fcmp olt double %.4358, %55
+  %.1355 = phi double [ -1.000000e+00, %102 ], [ %.4358575, %346 ]
+  %354 = fcmp olt double %.1355, %55
   br i1 %354, label %.thread.thread, label %.loopexit
 
 .thread.thread:                                   ; preds = %206, %282, %.thread

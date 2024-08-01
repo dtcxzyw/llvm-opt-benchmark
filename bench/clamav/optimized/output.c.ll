@@ -326,17 +326,17 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 128:                                              ; preds = %.critedge.thread, %.critedge, %124
   %.268 = phi ptr [ %.16796, %.critedge ], [ %127, %124 ], [ %.16796, %.critedge.thread ]
   %.164 = phi i32 [ %.06397, %.critedge ], [ %125, %124 ], [ %.06397, %.critedge.thread ]
-  %.162 = phi i32 [ %117, %.critedge ], [ %104, %124 ], [ %117, %.critedge.thread ]
+  %.2 = phi i32 [ %117, %.critedge ], [ %104, %124 ], [ %117, %.critedge.thread ]
   %129 = icmp sgt i32 %.164, 0
   br i1 %129, label %102, label %.critedge._crit_edge.loopexit
 
 .critedge._crit_edge.loopexit:                    ; preds = %.critedge, %106, %128
-  %.2.ph = phi i32 [ %.162, %128 ], [ %104, %106 ], [ -1, %.critedge ]
-  %130 = icmp sgt i32 %.2.ph, -1
+  %.162.ph = phi i32 [ %.2, %128 ], [ %104, %106 ], [ -1, %.critedge ]
+  %130 = icmp sgt i32 %.162.ph, -1
   br label %.critedge._crit_edge
 
 .critedge._crit_edge:                             ; preds = %.critedge._crit_edge.loopexit, %88
-  %.2 = phi i1 [ true, %88 ], [ %130, %.critedge._crit_edge.loopexit ]
+  %.162 = phi i1 [ true, %88 ], [ %130, %.critedge._crit_edge.loopexit ]
   %131 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mdprintf_mutex) #17
   %132 = icmp ugt i64 %.060, 512
   br i1 %132, label %133, label %134
@@ -346,7 +346,7 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   br label %134
 
 134:                                              ; preds = %133, %.critedge._crit_edge
-  %135 = select i1 %.2, i32 %spec.select, i32 -1
+  %135 = select i1 %.162, i32 %spec.select, i32 -1
   br label %136
 
 136:                                              ; preds = %85, %87, %134
@@ -1152,9 +1152,9 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   br label %104
 
 104:                                              ; preds = %90, %101, %99, %103, %102, %93, %95, %86
-  %.2 = phi ptr [ %spec.select, %86 ], [ %7, %90 ], [ %7, %93 ], [ %spec.select69, %95 ], [ %7, %101 ], [ %7, %99 ], [ %7, %102 ], [ %7, %103 ]
+  %.1 = phi ptr [ %spec.select, %86 ], [ %7, %90 ], [ %7, %93 ], [ %spec.select69, %95 ], [ %7, %101 ], [ %7, %99 ], [ %7, %102 ], [ %7, %103 ]
   %105 = load ptr, ptr @stdout, align 8
-  %106 = icmp eq ptr %.2, %105
+  %106 = icmp eq ptr %.1, %105
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %104

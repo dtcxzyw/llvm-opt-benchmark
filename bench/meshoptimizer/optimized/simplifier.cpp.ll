@@ -1452,7 +1452,7 @@ for.body.lr.ph.i441.lr.ph:                        ; preds = %invoke.cont51
 
 for.body.lr.ph.i441:                              ; preds = %for.body.lr.ph.i441.lr.ph, %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit
   %result_count.0753 = phi i64 [ %index_count, %for.body.lr.ph.i441.lr.ph ], [ %write.1.i, %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit ]
-  %result_error.0752 = phi float [ 0.000000e+00, %for.body.lr.ph.i441.lr.ph ], [ %result_error.3, %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit ]
+  %result_error.0752 = phi float [ 0.000000e+00, %for.body.lr.ph.i441.lr.ph ], [ %result_error.4, %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit ]
   %div.i436 = udiv i64 %result_count.0753, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.i, i8 0, i64 %mul.i, i1 false)
   br i1 %tobool.not.i442, label %for.body.us.i492, label %for.body.i443
@@ -2023,7 +2023,7 @@ for.body.lr.ph.i573:                              ; preds = %for.body, %_ZN7mesh
   br label %for.body.i574
 
 for.body.i574:                                    ; preds = %for.inc.i589, %for.body.lr.ph.i573
-  %result_error.1 = phi float [ %result_error.0752, %for.body.lr.ph.i573 ], [ %result_error.2, %for.inc.i589 ]
+  %result_error.2 = phi float [ %result_error.0752, %for.body.lr.ph.i573 ], [ %result_error.3, %for.inc.i589 ]
   %edge_collapses.0109.i = phi i64 [ 0, %for.body.lr.ph.i573 ], [ %edge_collapses.1.i, %for.inc.i589 ]
   %triangle_collapses.0108.i = phi i64 [ 0, %for.body.lr.ph.i573 ], [ %triangle_collapses.1.i, %for.inc.i589 ]
   %edge_collapse_goal.0107.i = phi i64 [ %div63.i, %for.body.lr.ph.i573 ], [ %edge_collapse_goal.1.i, %for.inc.i589 ]
@@ -2316,12 +2316,12 @@ if.end72.i:                                       ; preds = %do.body.i, %if.end7
   %add.i650 = add i64 %conv82.i, %triangle_collapses.0108.i
   %inc83.i = add i64 %edge_collapses.0109.i, 1
   %667 = load float, ptr %577, align 4
-  %cmp84.i651 = fcmp olt float %result_error.1, %667
-  %..i = select i1 %cmp84.i651, float %667, float %result_error.1
+  %cmp84.i651 = fcmp olt float %result_error.2, %667
+  %..i = select i1 %cmp84.i651, float %667, float %result_error.2
   br label %for.inc.i589
 
 for.inc.i589:                                     ; preds = %if.end72.i, %if.then26.i, %if.end14.i
-  %result_error.2 = phi float [ %..i, %if.end72.i ], [ %result_error.1, %if.then26.i ], [ %result_error.1, %if.end14.i ]
+  %result_error.3 = phi float [ %..i, %if.end72.i ], [ %result_error.2, %if.then26.i ], [ %result_error.2, %if.end14.i ]
   %edge_collapse_goal.1.i = phi i64 [ %edge_collapse_goal.0107.i, %if.end72.i ], [ %inc.i654, %if.then26.i ], [ %edge_collapse_goal.0107.i, %if.end14.i ]
   %triangle_collapses.1.i = phi i64 [ %add.i650, %if.end72.i ], [ %triangle_collapses.0108.i, %if.then26.i ], [ %triangle_collapses.0108.i, %if.end14.i ]
   %edge_collapses.1.i = phi i64 [ %inc83.i, %if.end72.i ], [ %edge_collapses.0109.i, %if.then26.i ], [ %edge_collapses.0109.i, %if.end14.i ]
@@ -2330,7 +2330,7 @@ for.inc.i589:                                     ; preds = %if.end72.i, %if.the
   br i1 %exitcond.not.i590, label %invoke.cont64, label %for.body.i574, !llvm.loop !37
 
 invoke.cont64:                                    ; preds = %for.inc.i589, %cond.end.i, %for.body.i574
-  %result_error.3 = phi float [ %result_error.1, %cond.end.i ], [ %result_error.2, %for.inc.i589 ], [ %result_error.1, %for.body.i574 ]
+  %result_error.4 = phi float [ %result_error.2, %cond.end.i ], [ %result_error.3, %for.inc.i589 ], [ %result_error.2, %for.body.i574 ]
   %edge_collapses.0.lcssa.i = phi i64 [ %edge_collapses.0109.i, %cond.end.i ], [ %edge_collapses.1.i, %for.inc.i589 ], [ %edge_collapses.0109.i, %for.body.i574 ]
   %cmp66 = icmp eq i64 %edge_collapses.0.lcssa.i, 0
   br i1 %cmp66, label %while.end, label %if.end68
@@ -2448,12 +2448,12 @@ _ZN7meshoptL16remapIndexBufferEPjmPKj.exit:       ; preds = %for.inc.i707
 
 while.end:                                        ; preds = %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit, %_ZN7meshoptL17pickEdgeCollapsesEPNS_8CollapseEmPKjmS3_PKhS3_.exit, %invoke.cont64, %_ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit501, %invoke.cont51
   %result_count.0.lcssa = phi i64 [ %index_count, %invoke.cont51 ], [ %index_count, %_ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit501 ], [ %result_count.0753, %invoke.cont64 ], [ %result_count.0753, %_ZN7meshoptL17pickEdgeCollapsesEPNS_8CollapseEmPKjmS3_PKhS3_.exit ], [ %write.1.i, %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit ]
-  %result_error.4 = phi float [ 0.000000e+00, %invoke.cont51 ], [ 0.000000e+00, %_ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit501 ], [ %result_error.3, %invoke.cont64 ], [ %result_error.0752, %_ZN7meshoptL17pickEdgeCollapsesEPNS_8CollapseEmPKjmS3_PKhS3_.exit ], [ %result_error.3, %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit ]
+  %result_error.1 = phi float [ 0.000000e+00, %invoke.cont51 ], [ 0.000000e+00, %_ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit501 ], [ %result_error.4, %invoke.cont64 ], [ %result_error.0752, %_ZN7meshoptL17pickEdgeCollapsesEPNS_8CollapseEmPKjmS3_PKhS3_.exit ], [ %result_error.4, %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit ]
   %tobool73.not = icmp eq ptr %out_result_error, null
   br i1 %tobool73.not, label %if.end76, label %if.then74
 
 if.then74:                                        ; preds = %while.end
-  %call75 = tail call float @sqrtf(float noundef %result_error.4) #15
+  %call75 = tail call float @sqrtf(float noundef %result_error.1) #15
   store float %call75, ptr %out_result_error, align 4
   br label %if.end76
 
@@ -4146,7 +4146,7 @@ _ZN7meshoptL13fillCellRemapEPjPfmPKjPKNS_9ReservoirEPKNS_7Vector3EPKfmfm.exit: ;
 
 cleanup:                                          ; preds = %for.end, %_ZN7meshoptL13fillCellRemapEPjPfmPKjPKNS_9ReservoirEPKNS_7Vector3EPKfmfm.exit
   %92 = phi i64 [ 7, %_ZN7meshoptL13fillCellRemapEPjPfmPKjPKNS_9ReservoirEPKNS_7Vector3EPKfmfm.exit ], [ 3, %for.end ]
-  %retval.0 = phi i64 [ %result.0.lcssa.i142205, %_ZN7meshoptL13fillCellRemapEPjPfmPKjPKNS_9ReservoirEPKNS_7Vector3EPKfmfm.exit ], [ 0, %for.end ]
+  %retval.1 = phi i64 [ %result.0.lcssa.i142205, %_ZN7meshoptL13fillCellRemapEPjPfmPKjPKNS_9ReservoirEPKNS_7Vector3EPKfmfm.exit ], [ 0, %for.end ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i198, %cleanup
@@ -4170,8 +4170,8 @@ terminate.lpad.i:                                 ; preds = %for.body.i198
   unreachable
 
 return:                                           ; preds = %for.cond.i, %entry
-  %retval.1 = phi i64 [ 0, %entry ], [ %retval.0, %for.cond.i ]
-  ret i64 %retval.1
+  %retval.0 = phi i64 [ 0, %entry ], [ %retval.1, %for.cond.i ]
+  ret i64 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

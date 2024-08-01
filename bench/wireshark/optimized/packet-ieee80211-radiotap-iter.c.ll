@@ -269,7 +269,7 @@ find_override.exit:                               ; preds = %82
   br i1 %.not15.i.not, label %find_override.exit.thread, label %.thread188
 
 .thread188:                                       ; preds = %find_override.exit
-  %.2.in191 = lshr i8 %88, 4
+  %.3.in191 = lshr i8 %88, 4
   br label %113
 
 find_override.exit.thread:                        ; preds = %81, %.preheader.i, %77, %find_override.exit
@@ -293,7 +293,7 @@ find_override.exit.thread:                        ; preds = %81, %.preheader.i, 
   %99 = getelementptr %struct.radiotap_align_size, ptr %97, i64 %98
   %100 = load i8, ptr %99, align 4
   %101 = and i8 %100, 15
-  %.2.in = lshr i8 %100, 4
+  %.3.in = lshr i8 %100, 4
   %.not116 = icmp eq i8 %101, 0
   br i1 %.not116, label %.thread161, label %113
 
@@ -330,23 +330,23 @@ switch.lookup:                                    ; preds = %.thread
   br label %113
 
 113:                                              ; preds = %switch.lookup, %.thread188, %96
-  %.3153.shrunk = phi i8 [ %101, %96 ], [ %89, %.thread188 ], [ %switch.masked, %switch.lookup ]
-  %.3.shrunk = phi i8 [ %.2.in, %96 ], [ %.2.in191, %.thread188 ], [ %switch.masked205, %switch.lookup ]
-  %.3 = zext nneg i8 %.3.shrunk to i32
-  %.3153 = zext nneg i8 %.3153.shrunk to i32
+  %.2152.shrunk = phi i8 [ %101, %96 ], [ %89, %.thread188 ], [ %switch.masked, %switch.lookup ]
+  %.2.shrunk = phi i8 [ %.3.in, %96 ], [ %.3.in191, %.thread188 ], [ %switch.masked205, %switch.lookup ]
+  %.2 = zext nneg i8 %.2.shrunk to i32
+  %.2152 = zext nneg i8 %.2152.shrunk to i32
   %114 = load ptr, ptr %4, align 8
   %115 = load ptr, ptr %0, align 8
   %116 = ptrtoint ptr %114 to i64
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
-  %119 = add nsw i32 %.3153, -1
+  %119 = add nsw i32 %.2152, -1
   %120 = trunc i64 %118 to i32
   %121 = and i32 %119, %120
   %.not119 = icmp eq i32 %121, 0
   br i1 %.not119, label %126, label %122
 
 122:                                              ; preds = %113
-  %123 = sub nsw i32 %.3153, %121
+  %123 = sub nsw i32 %.2152, %121
   %124 = sext i32 %123 to i64
   %125 = getelementptr i8, ptr %114, i64 %124
   store ptr %125, ptr %4, align 8
@@ -365,7 +365,7 @@ switch.lookup:                                    ; preds = %.thread
   br label %177
 
 128:                                              ; preds = %126
-  %129 = zext nneg i8 %.3.shrunk to i64
+  %129 = zext nneg i8 %.2.shrunk to i64
   %130 = getelementptr i8, ptr %127, i64 %129
   %131 = ptrtoint ptr %130 to i64
   %132 = sub i64 %131, %117
@@ -446,7 +446,7 @@ find_ns.exit:                                     ; preds = %163, %135, %.prehea
 
 173:                                              ; preds = %find_ns.exit
   %174 = zext i16 %170 to i32
-  %175 = add nuw nsw i32 %.3, %174
+  %175 = add nuw nsw i32 %.2, %174
   br label %177
 
 176:                                              ; preds = %126
@@ -457,7 +457,7 @@ find_ns.exit:                                     ; preds = %163, %135, %.prehea
 
 177:                                              ; preds = %._crit_edge, %find_ns.exit, %173
   %.pre-phi = phi i64 [ %.pre179, %._crit_edge ], [ %134, %find_ns.exit ], [ %134, %173 ]
-  %.4 = phi i32 [ %.3, %._crit_edge ], [ %.3, %find_ns.exit ], [ %175, %173 ]
+  %.4 = phi i32 [ %.2, %._crit_edge ], [ %.2, %find_ns.exit ], [ %175, %173 ]
   store i32 %spec.select167170, ptr %13, align 4
   store ptr %127, ptr %14, align 8
   store i32 %.4, ptr %15, align 8

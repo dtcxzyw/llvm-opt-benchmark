@@ -148,7 +148,7 @@ if.end6:                                          ; preds = %land.lhs.true.i, %i
 do.body:                                          ; preds = %do.cond, %if.end6
   %buf.addr.0 = phi ptr [ %buf, %if.end6 ], [ %buf.addr.1, %do.cond ]
   %len.addr.0 = phi i64 [ %len, %if.end6 ], [ %len.addr.1, %do.cond ]
-  %got.0 = phi i64 [ 0, %if.end6 ], [ %got.1, %do.cond ]
+  %got.0 = phi i64 [ 0, %if.end6 ], [ %got.2, %do.cond ]
   %spec.select53 = tail call i64 @llvm.umin.i64(i64 %len.addr.0, i64 4294967295)
   %spec.select = trunc nuw i64 %spec.select53 to i32
   %7 = load i32, ptr %state, align 8
@@ -204,11 +204,11 @@ if.else43:                                        ; preds = %lor.lhs.false
   br i1 %cmp45, label %do.body.i, label %if.else53
 
 do.body.i:                                        ; preds = %if.else43, %if.end5.i
-  %n.1 = phi i32 [ %add.i39, %if.end5.i ], [ 0, %if.else43 ]
-  %sub.i34 = sub i32 %spec.select, %n.1
+  %n.2 = phi i32 [ %add.i39, %if.end5.i ], [ 0, %if.else43 ]
+  %sub.i34 = sub i32 %spec.select, %n.2
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %sub.i34, i32 1073741824)
   %15 = load i32, ptr %fd.i, align 4
-  %idx.ext.i35 = zext i32 %n.1 to i64
+  %idx.ext.i35 = zext i32 %n.2 to i64
   %add.ptr.i36 = getelementptr inbounds i8, ptr %buf.addr.0, i64 %idx.ext.i35
   %conv.i37 = zext nneg i32 %spec.select.i to i64
   %call.i38 = tail call i64 @read(i32 noundef %15, ptr noundef %add.ptr.i36, i64 noundef %conv.i37) #12
@@ -217,7 +217,7 @@ do.body.i:                                        ; preds = %if.else43, %if.end5
   br i1 %cmp2.i, label %do.end.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %do.body.i
-  %add.i39 = add i32 %n.1, %conv1.i
+  %add.i39 = add i32 %n.2, %conv1.i
   %cmp6.i = icmp ult i32 %add.i39, %spec.select
   br i1 %cmp6.i, label %do.body.i, label %if.end68, !llvm.loop !6
 
@@ -249,8 +249,8 @@ if.end60:                                         ; preds = %if.else53
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end5.i, %if.then16.i, %if.end60, %if.then13
-  %n.3 = phi i32 [ %17, %if.end60 ], [ %spec.select52, %if.then13 ], [ %n.1, %if.then16.i ], [ %add.i39, %if.end5.i ]
-  %conv69 = zext i32 %n.3 to i64
+  %n.1 = phi i32 [ %17, %if.end60 ], [ %spec.select52, %if.then13 ], [ %n.2, %if.then16.i ], [ %add.i39, %if.end5.i ]
+  %conv69 = zext i32 %n.1 to i64
   %sub70 = sub i64 %len.addr.0, %conv69
   %add.ptr72 = getelementptr inbounds i8, ptr %buf.addr.0, i64 %conv69
   %add = add i64 %got.0, %conv69
@@ -262,12 +262,12 @@ if.end68:                                         ; preds = %if.end5.i, %if.then
 do.cond:                                          ; preds = %if.then37, %if.end68
   %buf.addr.1 = phi ptr [ %add.ptr72, %if.end68 ], [ %buf.addr.0, %if.then37 ]
   %len.addr.1 = phi i64 [ %sub70, %if.end68 ], [ %len.addr.0, %if.then37 ]
-  %got.1 = phi i64 [ %add, %if.end68 ], [ %got.0, %if.then37 ]
+  %got.2 = phi i64 [ %add, %if.end68 ], [ %got.0, %if.then37 ]
   %tobool77.not = icmp eq i64 %len.addr.1, 0
   br i1 %tobool77.not, label %return, label %do.body, !llvm.loop !7
 
 return:                                           ; preds = %if.else19.i, %do.cond, %if.else53, %if.then37, %gz_load.exit, %if.then31, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ 0, %gz_load.exit ], [ %got.0, %if.then31 ], [ %got.1, %do.cond ], [ 0, %if.else53 ], [ 0, %if.then37 ], [ 0, %if.else19.i ]
+  %retval.0 = phi i64 [ 0, %entry ], [ 0, %gz_load.exit ], [ %got.0, %if.then31 ], [ %got.2, %do.cond ], [ 0, %if.else53 ], [ 0, %if.then37 ], [ 0, %if.else19.i ]
   ret i64 %retval.0
 }
 
@@ -855,7 +855,7 @@ do.body.preheader:                                ; preds = %if.end16
 do.body:                                          ; preds = %do.body.preheader, %if.end29
   %9 = phi i32 [ %sub49, %if.end29 ], [ %.pre, %do.body.preheader ]
   %left.0 = phi i32 [ %sub55, %if.end29 ], [ %sub, %do.body.preheader ]
-  %buf.addr.0 = phi ptr [ %add.ptr57, %if.end29 ], [ %buf, %do.body.preheader ]
+  %buf.addr.1 = phi ptr [ %add.ptr57, %if.end29 ], [ %buf, %do.body.preheader ]
   %cmp19 = icmp eq i32 %9, 0
   br i1 %cmp19, label %land.lhs.true20, label %if.end29
 
@@ -888,7 +888,7 @@ if.end29:                                         ; preds = %do.body, %if.end24
   %add = add i32 %conv42, 1
   %n.0 = select i1 %cmp37.not, i32 %left.0., i32 %add
   %conv46 = zext i32 %n.0 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.0, ptr align 1 %11, i64 %conv46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.1, ptr align 1 %11, i64 %conv46, i1 false)
   %12 = load i32, ptr %file, align 8
   %sub49 = sub i32 %12, %n.0
   store i32 %sub49, ptr %file, align 8
@@ -899,18 +899,18 @@ if.end29:                                         ; preds = %do.body, %if.end24
   %add54 = add nsw i64 %14, %conv46
   store i64 %add54, ptr %pos, align 8
   %sub55 = sub i32 %left.0, %n.0
-  %add.ptr57 = getelementptr inbounds i8, ptr %buf.addr.0, i64 %conv46
+  %add.ptr57 = getelementptr inbounds i8, ptr %buf.addr.1, i64 %conv46
   %tobool58 = icmp ne i32 %sub55, 0
   %15 = and i1 %cmp37.not, %tobool58
   br i1 %15, label %do.body, label %if.end61, !llvm.loop !9
 
 if.end61:                                         ; preds = %if.end29, %if.then28
-  %buf.addr.1 = phi ptr [ %buf.addr.0, %if.then28 ], [ %add.ptr57, %if.end29 ]
-  %cmp62 = icmp eq ptr %buf.addr.1, %buf
+  %buf.addr.0 = phi ptr [ %buf.addr.1, %if.then28 ], [ %add.ptr57, %if.end29 ]
+  %cmp62 = icmp eq ptr %buf.addr.0, %buf
   br i1 %cmp62, label %return, label %if.end65
 
 if.end65:                                         ; preds = %if.end61
-  store i8 0, ptr %buf.addr.1, align 1
+  store i8 0, ptr %buf.addr.0, align 1
   br label %return
 
 return:                                           ; preds = %if.else19.i, %land.lhs.true20, %if.end16, %if.end61, %if.end, %lor.lhs.false5, %entry, %if.end65

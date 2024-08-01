@@ -143,9 +143,9 @@ while.cond.preheader:                             ; preds = %invoke.cont2
   br i1 %tobool4.not46, label %if.else15, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond.preheader, %invoke.cont7
-  %to_delete.sroa.0.050 = phi ptr [ %to_delete.sroa.0.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
+  %to_delete.sroa.0.050 = phi ptr [ %to_delete.sroa.0.2, %invoke.cont7 ], [ null, %while.cond.preheader ]
   %next.049 = phi ptr [ %9, %invoke.cont7 ], [ %5, %while.cond.preheader ]
-  %to_delete.sroa.5.048 = phi ptr [ %to_delete.sroa.5.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
+  %to_delete.sroa.5.048 = phi ptr [ %to_delete.sroa.5.2, %invoke.cont7 ], [ null, %while.cond.preheader ]
   %to_delete.sroa.10.047 = phi ptr [ %to_delete.sroa.10.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
   %is_snapshot_5 = getelementptr inbounds i8, ptr %next.049, i64 8
   %7 = load i8, ptr %is_snapshot_5, align 8
@@ -216,8 +216,8 @@ _ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRK
 invoke.cont7:                                     ; preds = %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i
   %to_delete.sroa.10.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.10.047, %if.then.i ]
   %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.5.048, %if.then.i ]
-  %to_delete.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.0.050, %if.then.i ]
-  %to_delete.sroa.5.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
+  %to_delete.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.0.050, %if.then.i ]
+  %to_delete.sroa.5.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   %dq_next_8 = getelementptr inbounds i8, ptr %next.049, i64 24
   %9 = load ptr, ptr %dq_next_8, align 8
   %tobool4.not = icmp eq ptr %9, null
@@ -230,17 +230,17 @@ if.end:                                           ; preds = %invoke.cont2
   br i1 %tobool11.not, label %if.else15, label %if.then12
 
 if.then12:                                        ; preds = %land.rhs, %if.end
-  %to_delete.sroa.0.236 = phi ptr [ null, %if.end ], [ %to_delete.sroa.0.050, %land.rhs ]
+  %to_delete.sroa.0.136 = phi ptr [ null, %if.end ], [ %to_delete.sroa.0.050, %land.rhs ]
   %next.135 = phi ptr [ %5, %if.end ], [ %next.049, %land.rhs ]
-  %to_delete.sroa.5.234 = phi ptr [ null, %if.end ], [ %to_delete.sroa.5.048, %land.rhs ]
+  %to_delete.sroa.5.134 = phi ptr [ null, %if.end ], [ %to_delete.sroa.5.048, %land.rhs ]
   %10 = load ptr, ptr %dq_prev_, align 8
   %dq_prev_14 = getelementptr inbounds i8, ptr %next.135, i64 16
   store ptr %10, ptr %dq_prev_14, align 8
   br label %if.end17
 
 if.else15:                                        ; preds = %invoke.cont7, %while.cond.preheader, %if.end
-  %to_delete.sroa.0.228 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.0.1, %invoke.cont7 ]
-  %to_delete.sroa.5.226 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.5.1, %invoke.cont7 ]
+  %to_delete.sroa.0.128 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.0.2, %invoke.cont7 ]
+  %to_delete.sroa.5.126 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.5.2, %invoke.cont7 ]
   %dq_tail = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load ptr, ptr %dq_prev_, align 8
   %12 = ptrtoint ptr %11 to i64
@@ -248,13 +248,13 @@ if.else15:                                        ; preds = %invoke.cont7, %whil
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else15, %if.then12
-  %to_delete.sroa.0.227 = phi ptr [ %to_delete.sroa.0.228, %if.else15 ], [ %to_delete.sroa.0.236, %if.then12 ]
-  %to_delete.sroa.5.225 = phi ptr [ %to_delete.sroa.5.226, %if.else15 ], [ %to_delete.sroa.5.234, %if.then12 ]
+  %to_delete.sroa.0.127 = phi ptr [ %to_delete.sroa.0.128, %if.else15 ], [ %to_delete.sroa.0.136, %if.then12 ]
+  %to_delete.sroa.5.125 = phi ptr [ %to_delete.sroa.5.126, %if.else15 ], [ %to_delete.sroa.5.134, %if.then12 ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %for.cond.preheader unwind label %terminate.lpad.i
 
 for.cond.preheader:                               ; preds = %if.end17
-  %cmp.i.not52 = icmp eq ptr %to_delete.sroa.0.227, %to_delete.sroa.5.225
+  %cmp.i.not52 = icmp eq ptr %to_delete.sroa.0.127, %to_delete.sroa.5.125
   br i1 %cmp.i.not52, label %for.end, label %for.body
 
 terminate.lpad.i:                                 ; preds = %if.end17
@@ -265,7 +265,7 @@ terminate.lpad.i:                                 ; preds = %if.end17
   unreachable
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %__begin3.sroa.0.053 = phi ptr [ %incdec.ptr.i8, %for.inc ], [ %to_delete.sroa.0.227, %for.cond.preheader ]
+  %__begin3.sroa.0.053 = phi ptr [ %incdec.ptr.i8, %for.inc ], [ %to_delete.sroa.0.127, %for.cond.preheader ]
   %15 = load ptr, ptr %__begin3.sroa.0.053, align 8
   %isnull = icmp eq ptr %15, null
   br i1 %isnull, label %for.inc, label %delete.notnull
@@ -279,15 +279,15 @@ delete.notnull:                                   ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %delete.notnull
   %incdec.ptr.i8 = getelementptr inbounds i8, ptr %__begin3.sroa.0.053, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i8, %to_delete.sroa.5.225
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i8, %to_delete.sroa.5.125
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %tobool.not.i.i.i9 = icmp eq ptr %to_delete.sroa.0.227, null
+  %tobool.not.i.i.i9 = icmp eq ptr %to_delete.sroa.0.127, null
   br i1 %tobool.not.i.i.i9, label %if.end24, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef nonnull %to_delete.sroa.0.227) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %to_delete.sroa.0.127) #15
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then.i.i.i10, %for.end, %invoke.cont
@@ -754,7 +754,7 @@ if.end13:                                         ; preds = %for.body
   br i1 %tobool9.not, label %cleanup, label %for.body, !llvm.loop !9
 
 cleanup:                                          ; preds = %if.end13, %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit, %if.then11
-  %retval.0 = phi i1 [ %lnot, %if.then11 ], [ true, %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit ], [ true, %if.end13 ]
+  %retval.1 = phi i1 [ %lnot, %if.then11 ], [ true, %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit ], [ true, %if.end13 ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %return unwind label %terminate.lpad.i
 
@@ -766,8 +766,8 @@ terminate.lpad.i:                                 ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %cleanup, %if.end3, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %if.end3 ], [ %retval.0, %cleanup ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %if.end3 ], [ %retval.1, %cleanup ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

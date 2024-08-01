@@ -574,11 +574,11 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
 
 .lr.ph:                                           ; preds = %282, %.lr.ph
   %.0602610 = phi i32 [ %304, %.lr.ph ], [ 0, %282 ]
-  %.0603609 = phi i32 [ %303, %.lr.ph ], [ 13, %282 ]
-  %288 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0603609) #2
+  %.1609 = phi i32 [ %303, %.lr.ph ], [ 13, %282 ]
+  %288 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.1609) #2
   %289 = load i32, ptr @hf_ssh_sftp_name_fn_len, align 4
-  %290 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %289, ptr noundef %0, i32 noundef %.0603609, i32 noundef 4, i32 noundef 0) #2
-  %291 = add i32 %.0603609, 4
+  %290 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %289, ptr noundef %0, i32 noundef %.1609, i32 noundef 4, i32 noundef 0) #2
+  %291 = add i32 %.1609, 4
   %292 = load i32, ptr @hf_ssh_sftp_name_fn, align 4
   %293 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %292, ptr noundef %0, i32 noundef %291, i32 noundef %288, i32 noundef 2) #2
   %294 = add i32 %288, %291
@@ -611,7 +611,7 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %282, %311, %305, %272, %260, %238, %217, %205, %193, %181, %169, %157, %143, %131, %119, %97, %79, %67, %50, %46, %42
-  %.1 = phi i32 [ %312, %311 ], [ %310, %305 ], [ %281, %272 ], [ %271, %260 ], [ %259, %238 ], [ %237, %217 ], [ %216, %205 ], [ %204, %193 ], [ %192, %181 ], [ %180, %169 ], [ %168, %157 ], [ %156, %143 ], [ %142, %131 ], [ %130, %119 ], [ %118, %97 ], [ %96, %79 ], [ %78, %67 ], [ %66, %50 ], [ 9, %46 ], [ 9, %42 ], [ 13, %282 ], [ %303, %.lr.ph ]
+  %.0603 = phi i32 [ %312, %311 ], [ %310, %305 ], [ %281, %272 ], [ %271, %260 ], [ %259, %238 ], [ %237, %217 ], [ %216, %205 ], [ %204, %193 ], [ %192, %181 ], [ %180, %169 ], [ %168, %157 ], [ %156, %143 ], [ %142, %131 ], [ %130, %119 ], [ %118, %97 ], [ %96, %79 ], [ %78, %67 ], [ %66, %50 ], [ 9, %46 ], [ 9, %42 ], [ 13, %282 ], [ %303, %.lr.ph ]
   %313 = tail call ptr @wmem_strbuf_get_str(ptr noundef %28) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.117, ptr noundef %313) #2
   %314 = add i32 %15, 4
@@ -619,7 +619,7 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
   br label %315
 
 315:                                              ; preds = %.loopexit, %20, %10
-  %.0 = phi i32 [ %13, %10 ], [ %24, %20 ], [ %.1, %.loopexit ]
+  %.0 = phi i32 [ %13, %10 ], [ %24, %20 ], [ %.0603, %.loopexit ]
   ret i32 %.0
 }
 

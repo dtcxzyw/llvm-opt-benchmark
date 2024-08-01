@@ -509,8 +509,8 @@ for.body98.lr.ph:                                 ; preds = %_ZN4absl12lts_20230
   br label %for.body98
 
 for.body98:                                       ; preds = %for.body98.lr.ph, %for.inc174
-  %pem_root_certs_to_report.sroa.0.0187 = phi i64 [ undef, %for.body98.lr.ph ], [ %pem_root_certs_to_report.sroa.0.2, %for.inc174 ]
-  %pem_root_certs_to_report.sroa.2.0186 = phi ptr [ undef, %for.body98.lr.ph ], [ %pem_root_certs_to_report.sroa.2.2, %for.inc174 ]
+  %pem_root_certs_to_report.sroa.0.0187 = phi i64 [ undef, %for.body98.lr.ph ], [ %pem_root_certs_to_report.sroa.0.1, %for.inc174 ]
+  %pem_root_certs_to_report.sroa.2.0186 = phi ptr [ undef, %for.body98.lr.ph ], [ %pem_root_certs_to_report.sroa.2.1, %for.inc174 ]
   %__begin290.sroa.0.0185 = phi ptr [ %.pre188, %for.body98.lr.ph ], [ %call.i154, %for.inc174 ]
   %_M_storage.i.i80 = getelementptr inbounds i8, ptr %__begin290.sroa.0.0185, i64 32
   %38 = load ptr, ptr %_M_storage.i.i80, align 8
@@ -609,12 +609,12 @@ _ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic
   br label %if.end165
 
 if.end165:                                        ; preds = %if.else145, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit, %invoke.cont156
-  %pem_root_certs_to_report.sroa.3.1 = phi i8 [ 0, %invoke.cont156 ], [ 1, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ 0, %if.else145 ]
-  %pem_root_certs_to_report.sroa.2.1 = phi ptr [ %pem_root_certs_to_report.sroa.2.0186, %invoke.cont156 ], [ %.sink.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ %pem_root_certs_to_report.sroa.2.0186, %if.else145 ]
-  %pem_root_certs_to_report.sroa.0.1 = phi i64 [ %pem_root_certs_to_report.sroa.0.0187, %invoke.cont156 ], [ %.sink2.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ %pem_root_certs_to_report.sroa.0.0187, %if.else145 ]
-  store i64 %pem_root_certs_to_report.sroa.0.1, ptr %agg.tmp166, align 8
-  store ptr %pem_root_certs_to_report.sroa.2.1, ptr %pem_root_certs_to_report.sroa.2.0.agg.tmp166.sroa_idx, align 8
-  store i8 %pem_root_certs_to_report.sroa.3.1, ptr %pem_root_certs_to_report.sroa.3.0.agg.tmp166.sroa_idx, align 8
+  %pem_root_certs_to_report.sroa.3.0 = phi i8 [ 0, %invoke.cont156 ], [ 1, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ 0, %if.else145 ]
+  %pem_root_certs_to_report.sroa.2.2 = phi ptr [ %pem_root_certs_to_report.sroa.2.0186, %invoke.cont156 ], [ %.sink.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ %pem_root_certs_to_report.sroa.2.0186, %if.else145 ]
+  %pem_root_certs_to_report.sroa.0.2 = phi i64 [ %pem_root_certs_to_report.sroa.0.0187, %invoke.cont156 ], [ %.sink2.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ %pem_root_certs_to_report.sroa.0.0187, %if.else145 ]
+  store i64 %pem_root_certs_to_report.sroa.0.2, ptr %agg.tmp166, align 8
+  store ptr %pem_root_certs_to_report.sroa.2.2, ptr %pem_root_certs_to_report.sroa.2.0.agg.tmp166.sroa_idx, align 8
+  store i8 %pem_root_certs_to_report.sroa.3.0, ptr %pem_root_certs_to_report.sroa.3.0.agg.tmp166.sroa_idx, align 8
   store i8 0, ptr %_M_engaged.i.i.i.i.i133, align 8
   %48 = load i8, ptr %_M_engaged.i.i58, align 8
   %tobool.i.i.i.i.i134 = trunc i8 %48 to i1
@@ -713,8 +713,8 @@ if.then.i.i.i.i.i.i.i.i152:                       ; preds = %invoke.cont.i.i.i.i
   br label %for.inc174
 
 for.inc174:                                       ; preds = %land.rhs.i.i118, %if.then.i.i.i.i.i.i.i.i152, %invoke.cont.i.i.i.i.i.i150, %invoke.cont172, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit125
-  %pem_root_certs_to_report.sroa.2.2 = phi ptr [ %pem_root_certs_to_report.sroa.2.0186, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit125 ], [ %pem_root_certs_to_report.sroa.2.1, %invoke.cont172 ], [ %pem_root_certs_to_report.sroa.2.1, %invoke.cont.i.i.i.i.i.i150 ], [ %pem_root_certs_to_report.sroa.2.1, %if.then.i.i.i.i.i.i.i.i152 ], [ %pem_root_certs_to_report.sroa.2.0186, %land.rhs.i.i118 ]
-  %pem_root_certs_to_report.sroa.0.2 = phi i64 [ %pem_root_certs_to_report.sroa.0.0187, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit125 ], [ %pem_root_certs_to_report.sroa.0.1, %invoke.cont172 ], [ %pem_root_certs_to_report.sroa.0.1, %invoke.cont.i.i.i.i.i.i150 ], [ %pem_root_certs_to_report.sroa.0.1, %if.then.i.i.i.i.i.i.i.i152 ], [ %pem_root_certs_to_report.sroa.0.0187, %land.rhs.i.i118 ]
+  %pem_root_certs_to_report.sroa.2.1 = phi ptr [ %pem_root_certs_to_report.sroa.2.0186, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit125 ], [ %pem_root_certs_to_report.sroa.2.2, %invoke.cont172 ], [ %pem_root_certs_to_report.sroa.2.2, %invoke.cont.i.i.i.i.i.i150 ], [ %pem_root_certs_to_report.sroa.2.2, %if.then.i.i.i.i.i.i.i.i152 ], [ %pem_root_certs_to_report.sroa.2.0186, %land.rhs.i.i118 ]
+  %pem_root_certs_to_report.sroa.0.1 = phi i64 [ %pem_root_certs_to_report.sroa.0.0187, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit125 ], [ %pem_root_certs_to_report.sroa.0.2, %invoke.cont172 ], [ %pem_root_certs_to_report.sroa.0.2, %invoke.cont.i.i.i.i.i.i150 ], [ %pem_root_certs_to_report.sroa.0.2, %if.then.i.i.i.i.i.i.i.i152 ], [ %pem_root_certs_to_report.sroa.0.0187, %land.rhs.i.i118 ]
   %call.i154 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin290.sroa.0.0185) #20
   %cmp.i79.not = icmp eq ptr %call.i154, %add.ptr.i.i78
   br i1 %cmp.i79.not, label %for.end176, label %for.body98
@@ -2565,7 +2565,7 @@ lpad41:                                           ; preds = %if.then.i7.i120, %_
 if.end58:                                         ; preds = %invoke.cont51, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit, %invoke.cont37
   %updated_root_certs.sroa.2.0 = phi ptr [ undef, %invoke.cont51 ], [ %.sink.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ undef, %invoke.cont37 ]
   %updated_root_certs.sroa.0.0 = phi i64 [ undef, %invoke.cont51 ], [ %.sink2.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ undef, %invoke.cont37 ]
-  %updated_root_certs.sroa.3.1 = phi i8 [ 0, %invoke.cont51 ], [ 1, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ 0, %invoke.cont37 ]
+  %updated_root_certs.sroa.3.0 = phi i8 [ 0, %invoke.cont51 ], [ 1, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ 0, %invoke.cont37 ]
   %already_watching_identity_for_root_cert.0.shrunk = phi i1 [ %cmp.i.i44, %invoke.cont51 ], [ %cmp.i.i44, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ false, %invoke.cont37 ]
   %start_watching_root_cert.0.shrunk = phi i1 [ %cmp.i.i42, %invoke.cont51 ], [ %cmp.i.i42, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ false, %invoke.cont37 ]
   %39 = load i8, ptr %_M_engaged.i.i29, align 8
@@ -2694,7 +2694,7 @@ if.then80:                                        ; preds = %invoke.cont77
 if.end85:                                         ; preds = %invoke.cont77, %if.then80, %if.end58
   %already_watching_root_for_identity_cert.0.shrunk = phi i1 [ %cmp.i.i66, %invoke.cont77 ], [ %cmp.i.i66, %if.then80 ], [ false, %if.end58 ]
   %start_watching_identity_cert.0.shrunk = phi i1 [ %cmp.i.i64, %invoke.cont77 ], [ %cmp.i.i64, %if.then80 ], [ false, %if.end58 ]
-  %tobool.i.i125 = trunc nuw i8 %updated_root_certs.sroa.3.1 to i1
+  %tobool.i.i125 = trunc nuw i8 %updated_root_certs.sroa.3.0 to i1
   %.pre228 = load i8, ptr %_M_engaged.i.i.i.i.i39, align 8
   %.pre229 = trunc i8 %.pre228 to i1
   br i1 %tobool.i.i125, label %if.then88, label %lor.lhs.false
@@ -2708,7 +2708,7 @@ if.then88.thread:                                 ; preds = %lor.lhs.false
   %updated_root_certs.sroa.2.0.agg.tmp.sroa_idx231 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %updated_root_certs.sroa.2.0, ptr %updated_root_certs.sroa.2.0.agg.tmp.sroa_idx231, align 8
   %updated_root_certs.sroa.3.0.agg.tmp.sroa_idx232 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store i8 %updated_root_certs.sroa.3.1, ptr %updated_root_certs.sroa.3.0.agg.tmp.sroa_idx232, align 8
+  store i8 %updated_root_certs.sroa.3.0, ptr %updated_root_certs.sroa.3.0.agg.tmp.sroa_idx232, align 8
   %_M_engaged.i.i.i.i.i129233 = getelementptr inbounds i8, ptr %agg.tmp89, i64 24
   store i8 0, ptr %_M_engaged.i.i.i.i.i129233, align 8
   br label %if.then.i.i.i.i.i131
@@ -2719,7 +2719,7 @@ if.then88:                                        ; preds = %if.end85
   %updated_root_certs.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %updated_root_certs.sroa.2.0, ptr %updated_root_certs.sroa.2.0.agg.tmp.sroa_idx, align 8
   %updated_root_certs.sroa.3.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store i8 %updated_root_certs.sroa.3.1, ptr %updated_root_certs.sroa.3.0.agg.tmp.sroa_idx, align 8
+  store i8 %updated_root_certs.sroa.3.0, ptr %updated_root_certs.sroa.3.0.agg.tmp.sroa_idx, align 8
   %_M_engaged.i.i.i.i.i129 = getelementptr inbounds i8, ptr %agg.tmp89, i64 24
   store i8 0, ptr %_M_engaged.i.i.i.i.i129, align 8
   br i1 %.pre229, label %if.then.i.i.i.i.i131, label %_ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEEC2EOS5_.exit
@@ -3570,8 +3570,8 @@ if.then43:                                        ; preds = %invoke.cont35
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then43, %invoke.cont35, %invoke.cont15
-  %already_watching_identity_for_root_cert.0.shrunk = phi i1 [ %cmp.i.i52, %invoke.cont35 ], [ false, %invoke.cont15 ], [ false, %if.then43 ]
-  %stop_watching_root_cert.0.shrunk = phi i1 [ %cmp.i.i, %invoke.cont35 ], [ false, %invoke.cont15 ], [ %cmp.i.i, %if.then43 ]
+  %already_watching_identity_for_root_cert.1.shrunk = phi i1 [ %cmp.i.i52, %invoke.cont35 ], [ false, %invoke.cont15 ], [ false, %if.then43 ]
+  %stop_watching_root_cert.1.shrunk = phi i1 [ %cmp.i.i, %invoke.cont35 ], [ false, %invoke.cont15 ], [ %cmp.i.i, %if.then43 ]
   %25 = load i8, ptr %_M_engaged.i.i.i.i.i18, align 8
   %tobool.i.i60 = trunc i8 %25 to i1
   br i1 %tobool.i.i60, label %if.then54, label %cleanup
@@ -3665,10 +3665,10 @@ if.then89:                                        ; preds = %invoke.cont77
 
 cleanup:                                          ; preds = %invoke.cont, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i, %if.then89, %if.end52, %invoke.cont77, %invoke.cont3
   %cmp.i155 = phi i1 [ true, %invoke.cont3 ], [ false, %invoke.cont77 ], [ false, %if.end52 ], [ false, %if.then89 ], [ true, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ true, %invoke.cont ]
-  %already_watching_root_for_identity_cert.1 = phi i1 [ false, %invoke.cont3 ], [ %cmp.i.i96, %invoke.cont77 ], [ false, %if.end52 ], [ false, %if.then89 ], [ false, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ false, %invoke.cont ]
-  %stop_watching_identity_cert.1 = phi i1 [ false, %invoke.cont3 ], [ %cmp.i.i94, %invoke.cont77 ], [ false, %if.end52 ], [ %cmp.i.i94, %if.then89 ], [ false, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ false, %invoke.cont ]
-  %already_watching_identity_for_root_cert.1 = phi i1 [ false, %invoke.cont3 ], [ %already_watching_identity_for_root_cert.0.shrunk, %invoke.cont77 ], [ %already_watching_identity_for_root_cert.0.shrunk, %if.end52 ], [ %already_watching_identity_for_root_cert.0.shrunk, %if.then89 ], [ false, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ false, %invoke.cont ]
-  %stop_watching_root_cert.1 = phi i1 [ false, %invoke.cont3 ], [ %stop_watching_root_cert.0.shrunk, %invoke.cont77 ], [ %stop_watching_root_cert.0.shrunk, %if.end52 ], [ %stop_watching_root_cert.0.shrunk, %if.then89 ], [ false, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ false, %invoke.cont ]
+  %already_watching_root_for_identity_cert.0 = phi i1 [ false, %invoke.cont3 ], [ %cmp.i.i96, %invoke.cont77 ], [ false, %if.end52 ], [ false, %if.then89 ], [ false, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ false, %invoke.cont ]
+  %stop_watching_identity_cert.0 = phi i1 [ false, %invoke.cont3 ], [ %cmp.i.i94, %invoke.cont77 ], [ false, %if.end52 ], [ %cmp.i.i94, %if.then89 ], [ false, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ false, %invoke.cont ]
+  %already_watching_identity_for_root_cert.0 = phi i1 [ false, %invoke.cont3 ], [ %already_watching_identity_for_root_cert.1.shrunk, %invoke.cont77 ], [ %already_watching_identity_for_root_cert.1.shrunk, %if.end52 ], [ %already_watching_identity_for_root_cert.1.shrunk, %if.then89 ], [ false, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ false, %invoke.cont ]
+  %stop_watching_root_cert.0 = phi i1 [ false, %invoke.cont3 ], [ %stop_watching_root_cert.1.shrunk, %invoke.cont77 ], [ %stop_watching_root_cert.1.shrunk, %if.end52 ], [ %stop_watching_root_cert.1.shrunk, %if.then89 ], [ false, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ false, %invoke.cont ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit105 unwind label %terminate.lpad.i104
 
@@ -3725,7 +3725,7 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i.i
 
 _ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ERKSG_ISA_E.exit: ; preds = %if.then102, %land.rhs.i.i, %if.end.i.i.i
   %43 = phi i1 [ %not..i, %if.then102 ], [ %42, %if.end.i.i.i ], [ true, %land.rhs.i.i ]
-  %brmerge17 = or i1 %stop_watching_identity_cert.1, %stop_watching_root_cert.1
+  %brmerge17 = or i1 %stop_watching_identity_cert.0, %stop_watching_root_cert.0
   %or.cond = and i1 %brmerge17, %43
   br i1 %or.cond, label %if.then109, label %if.else
 
@@ -3734,8 +3734,8 @@ if.then109:                                       ; preds = %_ZSteqINSt7__cxx111
           to label %invoke.cont113 unwind label %lpad103
 
 invoke.cont113:                                   ; preds = %if.then109
-  %lnot115 = xor i1 %stop_watching_root_cert.1, true
-  %lnot117 = xor i1 %stop_watching_identity_cert.1, true
+  %lnot115 = xor i1 %stop_watching_root_cert.0, true
+  %lnot117 = xor i1 %stop_watching_identity_cert.0, true
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr3.i)
   %frombool.i = zext i1 %lnot115 to i8
@@ -3776,7 +3776,7 @@ lpad118:                                          ; preds = %if.end.i, %if.then.
   br label %ehcleanup
 
 if.else:                                          ; preds = %lor.rhs.i, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ERKSG_ISA_E.exit
-  br i1 %stop_watching_root_cert.1, label %if.then121, label %if.end129
+  br i1 %stop_watching_root_cert.0, label %if.then121, label %if.end129
 
 if.then121:                                       ; preds = %if.else
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp123, ptr noundef nonnull align 8 dereferenceable(32) %root_cert_name)
@@ -3786,7 +3786,7 @@ invoke.cont125:                                   ; preds = %if.then121
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr.i110)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr3.i111)
   store i8 0, ptr %__args.addr.i110, align 1
-  %frombool4.i112 = zext i1 %already_watching_identity_for_root_cert.1 to i8
+  %frombool4.i112 = zext i1 %already_watching_identity_for_root_cert.0 to i8
   store i8 %frombool4.i112, ptr %__args.addr3.i111, align 1
   %48 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i114 = icmp eq ptr %48, null
@@ -3818,7 +3818,7 @@ lpad127:                                          ; preds = %if.end.i115, %if.th
   br label %ehcleanup
 
 if.end129:                                        ; preds = %invoke.cont128, %if.else
-  br i1 %stop_watching_identity_cert.1, label %if.then131, label %if.end141
+  br i1 %stop_watching_identity_cert.0, label %if.then131, label %if.end141
 
 if.then131:                                       ; preds = %if.end129
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp133, ptr noundef nonnull align 8 dereferenceable(32) %identity_cert_name)
@@ -3827,7 +3827,7 @@ if.then131:                                       ; preds = %if.end129
 invoke.cont135:                                   ; preds = %if.then131
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr.i121)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr3.i122)
-  %frombool.i123 = zext i1 %already_watching_root_for_identity_cert.1 to i8
+  %frombool.i123 = zext i1 %already_watching_root_for_identity_cert.0 to i8
   store i8 %frombool.i123, ptr %__args.addr.i121, align 1
   store i8 0, ptr %__args.addr3.i122, align 1
   %51 = load ptr, ptr %_M_manager.i.i.i, align 8

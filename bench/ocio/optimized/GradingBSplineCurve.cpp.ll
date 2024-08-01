@@ -1964,7 +1964,7 @@ if.else25:                                        ; preds = %invoke.cont.if.else
 
 for.body.i50:                                     ; preds = %if.else25, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i
   %i.0332.i = phi i64 [ %add.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i ], [ 0, %if.else25 ]
-  %secantSlope.sroa.0.0331.i = phi ptr [ %secantSlope.sroa.0.1.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i ], [ null, %if.else25 ]
+  %secantSlope.sroa.0.0331.i = phi ptr [ %secantSlope.sroa.0.2.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i ], [ null, %if.else25 ]
   %secantSlope.sroa.13.0330.i = phi ptr [ %secantSlope.sroa.13.1.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i ], [ null, %if.else25 ]
   %secantSlope.sroa.17.0329.i = phi ptr [ %secantSlope.sroa.17.1.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i ], [ null, %if.else25 ]
   %secantLen.sroa.0.0328.i = phi ptr [ %secantLen.sroa.0.1.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i ], [ null, %if.else25 ]
@@ -2046,7 +2046,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS
 invoke.cont.i:                                    ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i, %if.then.i.i.i
   %secantSlope.sroa.17.1.i = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i ], [ %secantSlope.sroa.17.0329.i, %if.then.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i.pn.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i ], [ %secantSlope.sroa.13.0330.i, %if.then.i.i.i ]
-  %secantSlope.sroa.0.1.i = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i ], [ %secantSlope.sroa.0.0331.i, %if.then.i.i.i ]
+  %secantSlope.sroa.0.2.i = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i ], [ %secantSlope.sroa.0.0331.i, %if.then.i.i.i ]
   %secantSlope.sroa.13.1.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.pn.i, i64 4
   %mul11.i = fmul float %sub9.i, %sub9.i
   %20 = tail call float @llvm.fmuladd.f32(float %sub4.i, float %sub4.i, float %mul11.i)
@@ -2130,21 +2130,21 @@ lpad.thread.loopexit.split-lp.i:                  ; preds = %if.then.i.i.i211.i
   br label %if.then.i.i.i.i
 
 lpad.loopexit303.i:                               ; preds = %cond.true.i.i.i.i67.i, %cond.true.i.i.i.i.i
-  %secantSlope.sroa.0.2.ph.ph.i = phi ptr [ %secantSlope.sroa.0.1.i, %cond.true.i.i.i.i67.i ], [ %secantSlope.sroa.0.0331.i, %cond.true.i.i.i.i.i ]
+  %secantSlope.sroa.0.1.ph.ph.i = phi ptr [ %secantSlope.sroa.0.2.i, %cond.true.i.i.i.i67.i ], [ %secantSlope.sroa.0.0331.i, %cond.true.i.i.i.i.i ]
   %lpad.loopexit306.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.loopexit.split-lp304.i:                      ; preds = %cond.true.i.i.i235.i, %cond.true.i.i.i.i155.i, %cond.true.i.i.i114.i, %cond.true.i.i.i.i, %if.then.i.i.i93.invoke.i, %if.then.i.i.i.i81.i, %if.then.i.i.i.i.i
   %secantLen.sroa.0.0323.i = phi ptr [ %secantLen.sroa.0.0328.i, %if.then.i.i.i.i.i ], [ %secantLen.sroa.0.0328.i, %if.then.i.i.i.i81.i ], [ %secantLen.sroa.0.0.lcssa.i, %cond.true.i.i.i114.i ], [ %secantLen.sroa.0.0.lcssa.i, %cond.true.i.i.i.i ], [ %secantLen.sroa.0.0.lcssa.i, %cond.true.i.i.i235.i ], [ %secantLen.sroa.0.0.lcssa.i, %cond.true.i.i.i.i155.i ], [ %secantLen.sroa.0.0.lcssa.i, %if.then.i.i.i93.invoke.i ]
-  %secantSlope.sroa.0.2.ph.ph305.i = phi ptr [ %secantSlope.sroa.0.0331.i, %if.then.i.i.i.i.i ], [ %secantSlope.sroa.0.1.i, %if.then.i.i.i.i81.i ], [ %secantSlope.sroa.0.0.lcssa.i, %cond.true.i.i.i114.i ], [ %secantSlope.sroa.0.0.lcssa.i, %cond.true.i.i.i.i ], [ %secantSlope.sroa.0.0.lcssa.i, %cond.true.i.i.i235.i ], [ %secantSlope.sroa.0.0.lcssa.i, %cond.true.i.i.i.i155.i ], [ %secantSlope.sroa.0.0.lcssa.i, %if.then.i.i.i93.invoke.i ]
+  %secantSlope.sroa.0.1.ph.ph305.i = phi ptr [ %secantSlope.sroa.0.0331.i, %if.then.i.i.i.i.i ], [ %secantSlope.sroa.0.2.i, %if.then.i.i.i.i81.i ], [ %secantSlope.sroa.0.0.lcssa.i, %cond.true.i.i.i114.i ], [ %secantSlope.sroa.0.0.lcssa.i, %cond.true.i.i.i.i ], [ %secantSlope.sroa.0.0.lcssa.i, %cond.true.i.i.i235.i ], [ %secantSlope.sroa.0.0.lcssa.i, %cond.true.i.i.i.i155.i ], [ %secantSlope.sroa.0.0.lcssa.i, %if.then.i.i.i93.invoke.i ]
   %lpad.loopexit.split-lp307.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.i:                                           ; preds = %lpad.loopexit.split-lp304.i, %lpad.loopexit303.i
   %secantLen.sroa.0.0322.i = phi ptr [ %secantLen.sroa.0.0328.i, %lpad.loopexit303.i ], [ %secantLen.sroa.0.0323.i, %lpad.loopexit.split-lp304.i ]
-  %secantSlope.sroa.0.2.ph.i = phi ptr [ %secantSlope.sroa.0.2.ph.ph.i, %lpad.loopexit303.i ], [ %secantSlope.sroa.0.2.ph.ph305.i, %lpad.loopexit.split-lp304.i ]
+  %secantSlope.sroa.0.1.ph.i = phi ptr [ %secantSlope.sroa.0.1.ph.ph.i, %lpad.loopexit303.i ], [ %secantSlope.sroa.0.1.ph.ph305.i, %lpad.loopexit.split-lp304.i ]
   %lpad.phi308.i = phi { ptr, i32 } [ %lpad.loopexit306.i, %lpad.loopexit303.i ], [ %lpad.loopexit.split-lp307.i, %lpad.loopexit.split-lp304.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %secantLen.sroa.0.0322.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -2152,23 +2152,23 @@ lpad.i:                                           ; preds = %lpad.loopexit.split
 if.then.i.i.i.i:                                  ; preds = %lpad.i, %lpad.thread.loopexit.split-lp.i, %lpad.thread.loopexit.i
   %secantLen.sroa.0.0324.i = phi ptr [ %secantLen.sroa.0.0322.i, %lpad.i ], [ %secantLen.sroa.0.0.lcssa.i, %lpad.thread.loopexit.split-lp.i ], [ %secantLen.sroa.0.0.lcssa.i, %lpad.thread.loopexit.i ]
   %lpad.phi301.i = phi { ptr, i32 } [ %lpad.phi308.i, %lpad.i ], [ %lpad.loopexit.split-lp.i, %lpad.thread.loopexit.split-lp.i ], [ %lpad.loopexit.i, %lpad.thread.loopexit.i ]
-  %secantSlope.sroa.0.2299.i = phi ptr [ %secantSlope.sroa.0.2.ph.i, %lpad.i ], [ %secantSlope.sroa.0.0.lcssa.i, %lpad.thread.loopexit.split-lp.i ], [ %secantSlope.sroa.0.0.lcssa.i, %lpad.thread.loopexit.i ]
+  %secantSlope.sroa.0.1299.i = phi ptr [ %secantSlope.sroa.0.1.ph.i, %lpad.i ], [ %secantSlope.sroa.0.0.lcssa.i, %lpad.thread.loopexit.split-lp.i ], [ %secantSlope.sroa.0.0.lcssa.i, %lpad.thread.loopexit.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %secantLen.sroa.0.0324.i) #23
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %lpad.i
   %lpad.phi302.i = phi { ptr, i32 } [ %lpad.phi308.i, %lpad.i ], [ %lpad.phi301.i, %if.then.i.i.i.i ]
-  %secantSlope.sroa.0.2300.i = phi ptr [ %secantSlope.sroa.0.2.ph.i, %lpad.i ], [ %secantSlope.sroa.0.2299.i, %if.then.i.i.i.i ]
-  %tobool.not.i.i.i86.i = icmp eq ptr %secantSlope.sroa.0.2300.i, null
+  %secantSlope.sroa.0.1300.i = phi ptr [ %secantSlope.sroa.0.1.ph.i, %lpad.i ], [ %secantSlope.sroa.0.1299.i, %if.then.i.i.i.i ]
+  %tobool.not.i.i.i86.i = icmp eq ptr %secantSlope.sroa.0.1300.i, null
   br i1 %tobool.not.i.i.i86.i, label %ehcleanup, label %if.then.i.i.i87.i
 
 if.then.i.i.i87.i:                                ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %secantSlope.sroa.0.2300.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %secantSlope.sroa.0.1300.i) #23
   br label %ehcleanup
 
 for.end.i52:                                      ; preds = %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i, %if.else25
   %secantLen.sroa.0.0.lcssa.i = phi ptr [ null, %if.else25 ], [ %secantLen.sroa.0.1.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i ]
-  %secantSlope.sroa.0.0.lcssa.i = phi ptr [ null, %if.else25 ], [ %secantSlope.sroa.0.1.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i ]
+  %secantSlope.sroa.0.0.lcssa.i = phi ptr [ null, %if.else25 ], [ %secantSlope.sroa.0.2.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i ]
   %cmp15.i = icmp eq i64 %sub.ptr.sub.i.i49.pre-phi, 16
   br i1 %cmp15.i, label %if.then.i54, label %while.cond.preheader.i
 

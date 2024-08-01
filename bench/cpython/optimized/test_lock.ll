@@ -981,8 +981,8 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
 for.body11.us.us:                                 ; preds = %while.body.us.us, %for.body11.us.us
   %5 = phi double [ %value12.promoted.us.us, %while.body.us.us ], [ %add13.us.us, %for.body11.us.us ]
   %i8.026.us.us = phi i32 [ 0, %while.body.us.us ], [ %inc16.us.us, %for.body11.us.us ]
-  %my_value.225.us.us = phi double [ %my_value.029.us.us, %while.body.us.us ], [ %add13.us.us, %for.body11.us.us ]
-  %add13.us.us = fadd double %my_value.225.us.us, %5
+  %my_value.325.us.us = phi double [ %my_value.029.us.us, %while.body.us.us ], [ %add13.us.us, %for.body11.us.us ]
+  %add13.us.us = fadd double %my_value.325.us.us, %5
   %inc16.us.us = add nuw nsw i32 %i8.026.us.us, 1
   %exitcond44.not = icmp eq i32 %inc16.us.us, %.fr
   br i1 %exitcond44.not, label %for.cond9.for.end17_crit_edge.us.us, label %for.body11.us.us, !llvm.loop !17

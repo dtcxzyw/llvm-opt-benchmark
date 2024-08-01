@@ -3153,7 +3153,7 @@ _ZNK2cv2ml18DTreesImplForBoost12predictTreesERKNS_5RangeERKNS_3MatEi.exit: ; pre
 
 .lr.ph183:                                        ; preds = %.lr.ph183.preheader, %185
   %indvars.iv228 = phi i64 [ 0, %.lr.ph183.preheader ], [ %indvars.iv.next229, %185 ]
-  %.2115180 = phi double [ 0.000000e+00, %.lr.ph183.preheader ], [ %196, %185 ]
+  %.3116180 = phi double [ 0.000000e+00, %.lr.ph183.preheader ], [ %196, %185 ]
   %165 = load ptr, ptr %12, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 256
   %167 = load ptr, ptr %166, align 8
@@ -3207,7 +3207,7 @@ _ZNK2cv2ml18DTreesImplForBoost12predictTreesERKNS_5RangeERKNS_3MatEi.exit: ; pre
   %193 = fmul double %174, %192
   %194 = call double @exp(double noundef %193) #20
   %195 = fmul double %189, %194
-  %196 = fadd double %.2115180, %195
+  %196 = fadd double %.3116180, %195
   %197 = load ptr, ptr %12, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 184
   %199 = load ptr, ptr %198, align 8
@@ -3219,7 +3219,7 @@ _ZNK2cv2ml18DTreesImplForBoost12predictTreesERKNS_5RangeERKNS_3MatEi.exit: ; pre
 
 201:                                              ; preds = %.lr.ph179, %242
   %indvars.iv223 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next224, %242 ]
-  %.3116177 = phi double [ 0.000000e+00, %.lr.ph179 ], [ %228, %242 ]
+  %.4117177 = phi double [ 0.000000e+00, %.lr.ph179 ], [ %228, %242 ]
   %202 = load ptr, ptr %12, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 256
   %204 = load ptr, ptr %203, align 8
@@ -3249,7 +3249,7 @@ _ZNK2cv2ml18DTreesImplForBoost12predictTreesERKNS_5RangeERKNS_3MatEi.exit: ; pre
   %226 = load ptr, ptr %224, align 8
   %227 = getelementptr inbounds double, ptr %226, i64 %225
   store double %.sroa.speculated159, ptr %227, align 8
-  %228 = fadd double %.3116177, %.sroa.speculated159
+  %228 = fadd double %.4117177, %.sroa.speculated159
   %229 = load ptr, ptr %12, align 8
   %230 = getelementptr inbounds i8, ptr %229, i64 232
   %231 = load ptr, ptr %230, align 8
@@ -3307,8 +3307,8 @@ _ZNK2cv2ml18DTreesImplForBoost12predictTreesERKNS_5RangeERKNS_3MatEi.exit: ; pre
   br label %.loopexit.split-lp
 
 _ZN2cv2ml18DTreesImplForBoost9scaleTreeEid.exit:  ; preds = %242, %185, %156
-  %.4117 = phi double [ %.1114.lcssa, %156 ], [ %196, %185 ], [ %228, %242 ]
-  %251 = fcmp ogt double %.4117, 0x3E80000000000000
+  %.2115 = phi double [ %.1114.lcssa, %156 ], [ %196, %185 ], [ %228, %242 ]
+  %251 = fcmp ogt double %.2115, 0x3E80000000000000
   br i1 %251, label %252, label %_ZN2cv2ml18DTreesImplForBoost16normalizeWeightsEv.exit
 
 252:                                              ; preds = %_ZN2cv2ml18DTreesImplForBoost9scaleTreeEid.exit

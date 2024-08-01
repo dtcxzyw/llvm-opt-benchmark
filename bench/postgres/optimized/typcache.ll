@@ -2397,7 +2397,7 @@ fastgetattr.exit:                                 ; preds = %86
 
 .thread:                                          ; preds = %..thread_crit_edge, %152
   %158 = phi ptr [ %154, %152 ], [ %.pre, %..thread_crit_edge ]
-  %.3 = phi ptr [ %155, %152 ], [ %.086147, %..thread_crit_edge ]
+  %.4 = phi ptr [ %155, %152 ], [ %.086147, %..thread_crit_edge ]
   %159 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %158, ptr @CurrentMemoryContext, align 8
   %160 = call noundef ptr @palloc0(i64 noundef 32) #16
@@ -2409,9 +2409,9 @@ fastgetattr.exit:                                 ; preds = %86
   store ptr %162, ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %160, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, i8 0, i64 16, i1 false)
-  %165 = load ptr, ptr %.3, align 8
+  %165 = load ptr, ptr %.4, align 8
   %166 = call ptr @lcons(ptr noundef nonnull %160, ptr noundef %165) #16
-  store ptr %166, ptr %.3, align 8
+  store ptr %166, ptr %.4, align 8
   store ptr %159, ptr @CurrentMemoryContext, align 8
   br label %168
 
@@ -2419,13 +2419,13 @@ fastgetattr.exit:                                 ; preds = %86
   br i1 %32, label %175, label %168
 
 168:                                              ; preds = %.thread, %167
-  %.4113 = phi ptr [ %.3, %.thread ], [ %.086147, %167 ]
-  %169 = getelementptr inbounds i8, ptr %.4113, i64 8
+  %.3113 = phi ptr [ %.4, %.thread ], [ %.086147, %167 ]
+  %169 = getelementptr inbounds i8, ptr %.3113, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = load ptr, ptr @CacheMemoryContext, align 8
   call void @MemoryContextSetParent(ptr noundef %170, ptr noundef %171) #16
-  store ptr %.4113, ptr %4, align 8
-  %172 = getelementptr inbounds i8, ptr %.4113, i64 16
+  store ptr %.3113, ptr %4, align 8
+  %172 = getelementptr inbounds i8, ptr %.3113, i64 16
   %173 = load i64, ptr %172, align 8
   %174 = add i64 %173, 1
   store i64 %174, ptr %172, align 8
@@ -3866,16 +3866,16 @@ define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unna
   br i1 %.not96, label %41, label %66, !llvm.loop !16
 
 66:                                               ; preds = %._crit_edge110, %41
-  %.290 = phi ptr [ %.079.lcssa..088, %._crit_edge110 ], [ %.088, %41 ]
-  %.2 = phi i32 [ %..086, %._crit_edge110 ], [ %.086, %41 ]
+  %.189 = phi ptr [ %.079.lcssa..088, %._crit_edge110 ], [ %.088, %41 ]
+  %.187 = phi i32 [ %..086, %._crit_edge110 ], [ %.086, %41 ]
   %67 = load ptr, ptr @CacheMemoryContext, align 8
   %68 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %67, ptr @CurrentMemoryContext, align 8
   %69 = shl nsw i64 %39, 3
   %70 = add nsw i64 %69, 20
   %71 = call ptr @palloc(i64 noundef %70) #16
-  store i32 %.2, ptr %71, align 8
-  %72 = call ptr @bms_copy(ptr noundef %.290) #16
+  store i32 %.187, ptr %71, align 8
+  %72 = call ptr @bms_copy(ptr noundef %.189) #16
   %73 = getelementptr inbounds i8, ptr %71, i64 8
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %71, i64 16
@@ -3884,7 +3884,7 @@ define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unna
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %75, ptr align 4 %.0.lcssa, i64 %69, i1 false)
   store ptr %68, ptr @CurrentMemoryContext, align 8
   call void @pfree(ptr noundef %.0.lcssa) #16
-  call void @bms_free(ptr noundef %.290) #16
+  call void @bms_free(ptr noundef %.189) #16
   %76 = getelementptr inbounds i8, ptr %0, i64 472
   %77 = load ptr, ptr %76, align 8
   %.not97 = icmp eq ptr %77, null
@@ -4036,7 +4036,7 @@ load_typcache_tupdesc.exit:                       ; preds = %15
 .lr.ph:                                           ; preds = %31, %58
   %36 = phi i32 [ %59, %58 ], [ %34, %31 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %31 ]
-  %.043 = phi i32 [ %.5, %58 ], [ 491520, %31 ]
+  %.043 = phi i32 [ %.2, %58 ], [ 491520, %31 ]
   %37 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %33, i64 0, i64 %indvars.iv
   %38 = getelementptr inbounds i8, ptr %37, i64 95
   %39 = load i8, ptr %38, align 1
@@ -4056,18 +4056,18 @@ load_typcache_tupdesc.exit:                       ; preds = %15
   %49 = load i32, ptr %48, align 4
   %.not39 = icmp eq i32 %49, 0
   %50 = and i32 %spec.select, -65537
-  %.2 = select i1 %.not39, i32 %50, i32 %spec.select
+  %.4 = select i1 %.not39, i32 %50, i32 %spec.select
   %51 = getelementptr inbounds i8, ptr %44, i64 64
   %52 = load i32, ptr %51, align 8
   %.not40 = icmp eq i32 %52, 0
-  %53 = and i32 %.2, -131073
-  %.3 = select i1 %.not40, i32 %53, i32 %.2
+  %53 = and i32 %.4, -131073
+  %.5 = select i1 %.not40, i32 %53, i32 %.4
   %54 = getelementptr inbounds i8, ptr %44, i64 68
   %55 = load i32, ptr %54, align 4
   %.not41 = icmp eq i32 %55, 0
-  %56 = and i32 %.3, -262145
-  %.4 = select i1 %.not41, i32 %56, i32 %.3
-  %57 = icmp eq i32 %.4, 0
+  %56 = and i32 %.5, -262145
+  %.6 = select i1 %.not41, i32 %56, i32 %.5
+  %57 = icmp eq i32 %.6, 0
   br i1 %57, label %._crit_edge, label %._crit_edge47
 
 ._crit_edge47:                                    ; preds = %41
@@ -4076,17 +4076,17 @@ load_typcache_tupdesc.exit:                       ; preds = %15
 
 58:                                               ; preds = %._crit_edge47, %.lr.ph
   %59 = phi i32 [ %36, %.lr.ph ], [ %.pre48, %._crit_edge47 ]
-  %.5 = phi i32 [ %.043, %.lr.ph ], [ %.4, %._crit_edge47 ]
+  %.2 = phi i32 [ %.043, %.lr.ph ], [ %.6, %._crit_edge47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %58, %41, %31
-  %.6 = phi i32 [ 491520, %31 ], [ 0, %41 ], [ %.5, %58 ]
+  %.1 = phi i32 [ 491520, %31 ], [ 0, %41 ], [ %.2, %58 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 464
   %63 = load i32, ptr %62, align 8
-  %64 = or i32 %63, %.6
+  %64 = or i32 %63, %.1
   store i32 %64, ptr %62, align 8
   tail call void @DecrTupleDescRefCount(ptr noundef nonnull %32) #16
   br label %86

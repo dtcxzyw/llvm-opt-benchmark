@@ -2252,8 +2252,8 @@ if.end:                                           ; preds = %if.else, %if.else5
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end, %if.then
-  %loopback_available.1 = phi i1 [ false, %if.then ], [ %cmp3, %if.end ]
-  ret i1 %loopback_available.1
+  %loopback_available.0 = phi i1 [ false, %if.then ], [ %cmp3, %if.end ]
+  ret i1 %loopback_available.0
 }
 
 ; Function Attrs: mustprogress uwtable

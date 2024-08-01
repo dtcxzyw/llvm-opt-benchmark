@@ -282,7 +282,7 @@ opal_datatype_span.exit297:                       ; preds = %ompi_datatype_copy_
   br label %90
 
 90:                                               ; preds = %87, %81
-  %.sroa.8.0 = phi ptr [ %85, %87 ], [ null, %81 ]
+  %.sroa.8.1 = phi ptr [ %85, %87 ], [ null, %81 ]
   %.not367 = icmp slt i32 %22, 0
   br i1 %.not367, label %._crit_edge373, label %.lr.ph372
 
@@ -464,11 +464,11 @@ opal_datatype_span.exit297:                       ; preds = %ompi_datatype_copy_
 
 ._crit_edge373:                                   ; preds = %._crit_edge363, %.lr.ph372, %90
   call void @free(ptr noundef %75) #8
-  %.not271 = icmp eq ptr %.sroa.8.0, null
+  %.not271 = icmp eq ptr %.sroa.8.1, null
   br i1 %.not271, label %176, label %175
 
 175:                                              ; preds = %._crit_edge373
-  call void @free(ptr noundef nonnull %.sroa.8.0) #8
+  call void @free(ptr noundef nonnull %.sroa.8.1) #8
   br label %176
 
 176:                                              ; preds = %175, %._crit_edge373
@@ -603,7 +603,7 @@ opal_datatype_span.exit297:                       ; preds = %ompi_datatype_copy_
   %.1235 = phi ptr [ null, %._crit_edge ], [ %.0234, %129 ], [ %.0234, %135 ], [ %.0234, %166 ], [ null, %212 ], [ null, %217 ], [ null, %204 ], [ null, %182 ]
   %.1233 = phi ptr [ null, %._crit_edge ], [ %.0232, %129 ], [ %.0232, %135 ], [ %.0232, %166 ], [ null, %212 ], [ null, %217 ], [ null, %204 ], [ null, %182 ]
   %.0231 = phi ptr [ %195, %._crit_edge ], [ null, %129 ], [ null, %135 ], [ null, %166 ], [ %195, %212 ], [ %195, %217 ], [ %195, %204 ], [ null, %182 ]
-  %.sroa.8.1 = phi ptr [ null, %._crit_edge ], [ %.sroa.8.0, %129 ], [ %.sroa.8.0, %135 ], [ %.sroa.8.0, %166 ], [ null, %212 ], [ null, %217 ], [ null, %204 ], [ null, %182 ]
+  %.sroa.8.0 = phi ptr [ null, %._crit_edge ], [ %.sroa.8.1, %129 ], [ %.sroa.8.1, %135 ], [ %.sroa.8.1, %166 ], [ null, %212 ], [ null, %217 ], [ null, %204 ], [ null, %182 ]
   %.0227 = phi i32 [ %231, %._crit_edge ], [ %169, %166 ], [ %140, %135 ], [ %134, %129 ], [ %223, %217 ], [ %216, %212 ], [ %210, %204 ], [ %188, %182 ]
   %.sroa.0.0 = phi ptr [ null, %._crit_edge ], [ %75, %129 ], [ %75, %135 ], [ %75, %166 ], [ null, %212 ], [ null, %217 ], [ null, %204 ], [ null, %182 ]
   %232 = icmp eq i32 %.0227, 18
@@ -629,7 +629,7 @@ opal_datatype_span.exit297:                       ; preds = %ompi_datatype_copy_
 
 .thread:                                          ; preds = %236, %239, %192, %84, %opal_datatype_span.exit297, %opal_datatype_span.exit, %.loopexit334
   %.sroa.0.0327 = phi ptr [ %.sroa.0.0, %.loopexit334 ], [ null, %192 ], [ %75, %84 ], [ null, %opal_datatype_span.exit297 ], [ null, %opal_datatype_span.exit ], [ %.sroa.0.0, %239 ], [ %.sroa.0.0, %236 ]
-  %.sroa.8.1326 = phi ptr [ %.sroa.8.1, %.loopexit334 ], [ null, %192 ], [ null, %84 ], [ null, %opal_datatype_span.exit297 ], [ null, %opal_datatype_span.exit ], [ %.sroa.8.1, %239 ], [ %.sroa.8.1, %236 ]
+  %.sroa.8.0326 = phi ptr [ %.sroa.8.0, %.loopexit334 ], [ null, %192 ], [ null, %84 ], [ null, %opal_datatype_span.exit297 ], [ null, %opal_datatype_span.exit ], [ %.sroa.8.0, %239 ], [ %.sroa.8.0, %236 ]
   %.0231325 = phi ptr [ %.0231, %.loopexit334 ], [ null, %192 ], [ null, %84 ], [ null, %opal_datatype_span.exit297 ], [ null, %opal_datatype_span.exit ], [ %.0231, %239 ], [ %.0231, %236 ]
   %.1233324 = phi ptr [ %.1233, %.loopexit334 ], [ null, %192 ], [ %.0232, %84 ], [ %.0232, %opal_datatype_span.exit297 ], [ %1, %opal_datatype_span.exit ], [ %.1233, %239 ], [ %.1233, %236 ]
   %.1235323 = phi ptr [ %.1235, %.loopexit334 ], [ null, %192 ], [ %.0234, %84 ], [ %.0234, %opal_datatype_span.exit297 ], [ null, %opal_datatype_span.exit ], [ %.1235, %239 ], [ %.1235, %236 ]
@@ -713,7 +713,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %256
   br i1 %exitcond410.not, label %.loopexit, label %.lr.ph376, !llvm.loop !15
 
 .loopexit:                                        ; preds = %266, %263, %257
-  %.2229 = phi i32 [ %.1228, %257 ], [ 18, %266 ], [ %265, %263 ]
+  %.3230 = phi i32 [ %.1228, %257 ], [ 18, %266 ], [ %265, %263 ]
   %267 = icmp sgt i32 %10, 0
   br i1 %267, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit311
 
@@ -762,7 +762,7 @@ ompi_request_cancel.exit.i310:                    ; preds = %276, %273
   br i1 %exitcond.not.i308, label %ompi_coll_base_free_reqs.exit311, label %.lr.ph.i302, !llvm.loop !14
 
 ompi_coll_base_free_reqs.exit311:                 ; preds = %284, %.preheader, %.loopexit, %ompi_coll_base_free_reqs.exit
-  %.3230 = phi i32 [ %.1228, %ompi_coll_base_free_reqs.exit ], [ %.2229, %.loopexit ], [ 18, %.preheader ], [ %.2229, %284 ]
+  %.2229 = phi i32 [ %.1228, %ompi_coll_base_free_reqs.exit ], [ %.3230, %.loopexit ], [ 18, %.preheader ], [ %.3230, %284 ]
   %.not282 = icmp eq ptr %.sroa.0.0327, null
   br i1 %.not282, label %286, label %285
 
@@ -771,11 +771,11 @@ ompi_coll_base_free_reqs.exit311:                 ; preds = %284, %.preheader, %
   br label %286
 
 286:                                              ; preds = %285, %ompi_coll_base_free_reqs.exit311
-  %.not283 = icmp eq ptr %.sroa.8.1326, null
+  %.not283 = icmp eq ptr %.sroa.8.0326, null
   br i1 %.not283, label %288, label %287
 
 287:                                              ; preds = %286
-  call void @free(ptr noundef nonnull %.sroa.8.1326) #8
+  call void @free(ptr noundef nonnull %.sroa.8.0326) #8
   br label %288
 
 288:                                              ; preds = %287, %286
@@ -787,7 +787,7 @@ ompi_coll_base_free_reqs.exit311:                 ; preds = %284, %.preheader, %
   br label %.loopexit341
 
 .loopexit341:                                     ; preds = %189, %.preheader340, %288, %289, %177, %176, %._crit_edge
-  %.0210 = phi i32 [ 0, %._crit_edge ], [ 0, %176 ], [ 0, %177 ], [ %.3230, %289 ], [ %.3230, %288 ], [ 0, %.preheader340 ], [ 0, %189 ]
+  %.0210 = phi i32 [ 0, %._crit_edge ], [ 0, %176 ], [ 0, %177 ], [ %.2229, %289 ], [ %.2229, %288 ], [ 0, %.preheader340 ], [ 0, %189 ]
   ret i32 %.0210
 }
 
@@ -1571,7 +1571,7 @@ opal_datatype_span.exit:                          ; preds = %29, %39
 
 .lr.ph.i.preheader:                               ; preds = %57, %.thread
   %.0301407 = phi ptr [ %56, %.thread ], [ %1, %57 ]
-  %.0319404 = phi ptr [ %54, %.thread ], [ null, %57 ]
+  %.1320404 = phi ptr [ %54, %.thread ], [ null, %57 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %59
@@ -1594,7 +1594,7 @@ opal_datatype_span.exit:                          ; preds = %29, %39
 
 ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %59, %57
   %.0301406 = phi ptr [ %1, %57 ], [ %.0301407, %59 ]
-  %.0319405 = phi ptr [ null, %57 ], [ %.0319404, %59 ]
+  %.1320405 = phi ptr [ null, %57 ], [ %.1320404, %59 ]
   %64 = sub nsw i32 %.val385.val, %21
   %65 = shl nsw i32 %64, 1
   %66 = icmp slt i32 %.val, %65
@@ -1910,18 +1910,18 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %145, %147
   br i1 %.not372, label %206, label %ompi_datatype_copy_content_same_ddt.exit.thread427, !llvm.loop !19
 
 ompi_datatype_copy_content_same_ddt.exit.thread427: ; preds = %.lr.ph.i, %ompi_coll_base_sendrecv.exit, %231, %206, %72, %78, %82, %88, %._crit_edge, %203, %219, %95, %191
-  %.6439 = phi i32 [ %77, %72 ], [ %81, %78 ], [ %188, %._crit_edge ], [ %230, %219 ], [ 0, %203 ], [ %87, %82 ], [ %90, %88 ], [ -2, %95 ], [ %198, %191 ], [ 0, %206 ], [ %241, %231 ], [ %.0.i389, %ompi_coll_base_sendrecv.exit ], [ %58, %.lr.ph.i ]
+  %.0302439 = phi i32 [ %77, %72 ], [ %81, %78 ], [ %188, %._crit_edge ], [ %230, %219 ], [ 0, %203 ], [ %87, %82 ], [ %90, %88 ], [ -2, %95 ], [ %198, %191 ], [ 0, %206 ], [ %241, %231 ], [ %.0.i389, %ompi_coll_base_sendrecv.exit ], [ %58, %.lr.ph.i ]
   %.0305438 = phi ptr [ null, %72 ], [ null, %78 ], [ %98, %._crit_edge ], [ %98, %219 ], [ %98, %203 ], [ null, %82 ], [ null, %88 ], [ %98, %95 ], [ %98, %191 ], [ %98, %206 ], [ %98, %231 ], [ %98, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
   %.0306437 = phi ptr [ null, %72 ], [ null, %78 ], [ %100, %._crit_edge ], [ %100, %219 ], [ %100, %203 ], [ null, %82 ], [ null, %88 ], [ %100, %95 ], [ %100, %191 ], [ %100, %206 ], [ %100, %231 ], [ %100, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
   %.0308436 = phi ptr [ null, %72 ], [ null, %78 ], [ %99, %._crit_edge ], [ %99, %219 ], [ %99, %203 ], [ null, %82 ], [ null, %88 ], [ %99, %95 ], [ %99, %191 ], [ %99, %206 ], [ %99, %231 ], [ %99, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
   %.0309435 = phi ptr [ null, %72 ], [ null, %78 ], [ %101, %._crit_edge ], [ %101, %219 ], [ %101, %203 ], [ null, %82 ], [ null, %88 ], [ %101, %95 ], [ %101, %191 ], [ %101, %206 ], [ %101, %231 ], [ %101, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
-  %.1320434 = phi ptr [ %.0319405, %72 ], [ %.0319405, %78 ], [ %.0319405, %._crit_edge ], [ %.0319405, %219 ], [ %.0319405, %203 ], [ %.0319405, %82 ], [ %.0319405, %88 ], [ %.0319405, %95 ], [ %.0319405, %191 ], [ %.0319405, %206 ], [ %.0319405, %231 ], [ %.0319405, %ompi_coll_base_sendrecv.exit ], [ %.0319404, %.lr.ph.i ]
+  %.0319434 = phi ptr [ %.1320405, %72 ], [ %.1320405, %78 ], [ %.1320405, %._crit_edge ], [ %.1320405, %219 ], [ %.1320405, %203 ], [ %.1320405, %82 ], [ %.1320405, %88 ], [ %.1320405, %95 ], [ %.1320405, %191 ], [ %.1320405, %206 ], [ %.1320405, %231 ], [ %.1320405, %ompi_coll_base_sendrecv.exit ], [ %.1320404, %.lr.ph.i ]
   tail call void @free(ptr noundef nonnull %48) #8
-  %.not375 = icmp eq ptr %.1320434, null
+  %.not375 = icmp eq ptr %.0319434, null
   br i1 %.not375, label %243, label %242
 
 242:                                              ; preds = %ompi_datatype_copy_content_same_ddt.exit.thread427
-  tail call void @free(ptr noundef nonnull %.1320434) #8
+  tail call void @free(ptr noundef nonnull %.0319434) #8
   br label %243
 
 243:                                              ; preds = %242, %ompi_datatype_copy_content_same_ddt.exit.thread427
@@ -1957,7 +1957,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread427: ; preds = %.lr.ph.i, %ompi_c
   br label %.thread480
 
 .thread480:                                       ; preds = %.thread553, %opal_datatype_span.exit, %249, %250, %8, %27
-  %.0299 = phi i32 [ %28, %27 ], [ 13, %8 ], [ %.6439, %250 ], [ %.6439, %249 ], [ -2, %opal_datatype_span.exit ], [ -2, %.thread553 ]
+  %.0299 = phi i32 [ %28, %27 ], [ 13, %8 ], [ %.0302439, %250 ], [ %.0302439, %249 ], [ -2, %opal_datatype_span.exit ], [ -2, %.thread553 ]
   ret i32 %.0299
 }
 

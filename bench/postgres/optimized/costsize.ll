@@ -758,24 +758,24 @@ clamp_row_est.exit:                               ; preds = %extract_nonindex_co
   br label %165
 
 165:                                              ; preds = %159, %155
-  %.0.i130 = phi double [ %158, %155 ], [ %164, %159 ]
-  %166 = call double @llvm.ceil.f64(double %.0.i130)
+  %.1.i130 = phi double [ %158, %155 ], [ %164, %159 ]
+  %166 = call double @llvm.ceil.f64(double %.1.i130)
   br label %index_pages_fetched.exit
 
 index_pages_fetched.exit:                         ; preds = %142, %147, %165
-  %.1.i129 = phi double [ %148, %147 ], [ %166, %165 ], [ %128, %142 ]
+  %.0.i129 = phi double [ %148, %147 ], [ %166, %165 ], [ %128, %142 ]
   br i1 %19, label %167, label %173
 
 167:                                              ; preds = %index_pages_fetched.exit
   %168 = getelementptr inbounds i8, ptr %16, i64 208
   %169 = load double, ptr %168, align 8
   %170 = fsub double 1.000000e+00, %169
-  %171 = fmul double %.1.i129, %170
+  %171 = fmul double %.0.i129, %170
   %172 = call double @llvm.ceil.f64(double %171)
   br label %173
 
 173:                                              ; preds = %167, %index_pages_fetched.exit
-  %.0103 = phi double [ %172, %167 ], [ %.1.i129, %index_pages_fetched.exit ]
+  %.0103 = phi double [ %172, %167 ], [ %.0.i129, %index_pages_fetched.exit ]
   %174 = load double, ptr %11, align 8
   %175 = fmul double %.0103, %174
   %176 = fdiv double %175, %2
@@ -820,24 +820,24 @@ index_pages_fetched.exit:                         ; preds = %142, %147, %165
   br label %205
 
 205:                                              ; preds = %199, %195
-  %.0.i133 = phi double [ %198, %195 ], [ %204, %199 ]
-  %206 = call double @llvm.ceil.f64(double %.0.i133)
+  %.1.i133 = phi double [ %198, %195 ], [ %204, %199 ]
+  %206 = call double @llvm.ceil.f64(double %.1.i133)
   br label %index_pages_fetched.exit134
 
 index_pages_fetched.exit134:                      ; preds = %182, %187, %205
-  %.1.i132 = phi double [ %188, %187 ], [ %206, %205 ], [ %128, %182 ]
+  %.0.i132 = phi double [ %188, %187 ], [ %206, %205 ], [ %128, %182 ]
   br i1 %19, label %207, label %213
 
 207:                                              ; preds = %index_pages_fetched.exit134
   %208 = getelementptr inbounds i8, ptr %16, i64 208
   %209 = load double, ptr %208, align 8
   %210 = fsub double 1.000000e+00, %209
-  %211 = fmul double %.1.i132, %210
+  %211 = fmul double %.0.i132, %210
   %212 = call double @llvm.ceil.f64(double %211)
   br label %213
 
 213:                                              ; preds = %207, %index_pages_fetched.exit134
-  %.1104 = phi double [ %212, %207 ], [ %.1.i132, %index_pages_fetched.exit134 ]
+  %.1104 = phi double [ %212, %207 ], [ %.0.i132, %index_pages_fetched.exit134 ]
   %214 = fmul double %174, %.1104
   %215 = fdiv double %214, %2
   br label %289
@@ -900,24 +900,24 @@ index_pages_fetched.exit134:                      ; preds = %182, %187, %205
   br label %260
 
 260:                                              ; preds = %254, %250
-  %.0.i137 = phi double [ %253, %250 ], [ %259, %254 ]
-  %261 = call double @llvm.ceil.f64(double %.0.i137)
+  %.1.i137 = phi double [ %253, %250 ], [ %259, %254 ]
+  %261 = call double @llvm.ceil.f64(double %.1.i137)
   br label %index_pages_fetched.exit138
 
 index_pages_fetched.exit138:                      ; preds = %237, %242, %260
-  %.1.i136 = phi double [ %243, %242 ], [ %261, %260 ], [ %223, %237 ]
+  %.0.i136 = phi double [ %243, %242 ], [ %261, %260 ], [ %223, %237 ]
   br i1 %19, label %262, label %268
 
 262:                                              ; preds = %index_pages_fetched.exit138
   %263 = getelementptr inbounds i8, ptr %16, i64 208
   %264 = load double, ptr %263, align 8
   %265 = fsub double 1.000000e+00, %264
-  %266 = fmul double %.1.i136, %265
+  %266 = fmul double %.0.i136, %265
   %267 = call double @llvm.ceil.f64(double %266)
   br label %268
 
 268:                                              ; preds = %262, %index_pages_fetched.exit138
-  %.2 = phi double [ %267, %262 ], [ %.1.i136, %index_pages_fetched.exit138 ]
+  %.2 = phi double [ %267, %262 ], [ %.0.i136, %index_pages_fetched.exit138 ]
   %269 = load double, ptr %11, align 8
   %270 = fmul double %.2, %269
   %271 = load double, ptr %8, align 8
@@ -1138,13 +1138,13 @@ define dso_local double @index_pages_fetched(double noundef %0, i32 noundef %1, 
   br label %43
 
 43:                                               ; preds = %37, %33
-  %.0 = phi double [ %36, %33 ], [ %42, %37 ]
-  %44 = tail call double @llvm.ceil.f64(double %.0)
+  %.1 = phi double [ %36, %33 ], [ %42, %37 ]
+  %44 = tail call double @llvm.ceil.f64(double %.1)
   br label %45
 
 45:                                               ; preds = %20, %25, %43
-  %.1 = phi double [ %26, %25 ], [ %44, %43 ], [ %6, %20 ]
-  ret double %.1
+  %.0 = phi double [ %26, %25 ], [ %44, %43 ], [ %6, %20 ]
+  ret double %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1494,13 +1494,13 @@ clamp_row_est.exit:                               ; preds = %cost_bitmap_tree_no
   br label %97
 
 97:                                               ; preds = %91, %87
-  %.0.i56 = phi double [ %90, %87 ], [ %96, %91 ]
-  %98 = tail call double @llvm.ceil.f64(double %.0.i56)
+  %.1.i = phi double [ %90, %87 ], [ %96, %91 ]
+  %98 = tail call double @llvm.ceil.f64(double %.1.i)
   br label %index_pages_fetched.exit
 
 index_pages_fetched.exit:                         ; preds = %74, %79, %97
-  %.1.i = phi double [ %80, %79 ], [ %98, %97 ], [ %60, %74 ]
-  %99 = fdiv double %.1.i, %3
+  %.0.i56 = phi double [ %80, %79 ], [ %98, %97 ], [ %60, %74 ]
+  %99 = fdiv double %.0.i56, %3
   br label %100
 
 100:                                              ; preds = %index_pages_fetched.exit, %clamp_row_est.exit
@@ -3761,10 +3761,10 @@ define dso_local void @cost_agg(ptr nocapture noundef writeonly %0, ptr noundef 
   br label %36
 
 36:                                               ; preds = %.loopexit, %32, %29
-  %.0126 = phi double [ %8, %29 ], [ %35, %32 ], [ %8, %.loopexit ]
-  %.0124 = phi double [ %7, %29 ], [ %34, %32 ], [ %7, %.loopexit ]
+  %.1127 = phi double [ %8, %29 ], [ %35, %32 ], [ %8, %.loopexit ]
+  %.1125 = phi double [ %7, %29 ], [ %34, %32 ], [ %7, %.loopexit ]
   %37 = load double, ptr %.0.sroa.phi159, align 8
-  %38 = fadd double %.0126, %37
+  %38 = fadd double %.1127, %37
   %39 = load double, ptr %.0.sroa.phi159.sroa.phi178, align 8
   %40 = tail call double @llvm.fmuladd.f64(double %39, double %9, double %38)
   %41 = load double, ptr @cpu_operator_cost, align 8
@@ -3780,9 +3780,9 @@ define dso_local void @cost_agg(ptr nocapture noundef writeonly %0, ptr noundef 
   %49 = trunc i8 %48 to i1
   %50 = load double, ptr @disable_cost, align 8
   %51 = fadd double %50, %8
-  %.1125 = select i1 %49, double %8, double %51
+  %.2 = select i1 %49, double %8, double %51
   %52 = load double, ptr %.0.sroa.phi159, align 8
-  %53 = fadd double %52, %.1125
+  %53 = fadd double %52, %.2
   %54 = load double, ptr %.0.sroa.phi159.sroa.phi178, align 8
   %55 = tail call double @llvm.fmuladd.f64(double %54, double %9, double %53)
   %56 = load double, ptr @cpu_operator_cost, align 8
@@ -3795,14 +3795,14 @@ define dso_local void @cost_agg(ptr nocapture noundef writeonly %0, ptr noundef 
 
 62:                                               ; preds = %36, %47
   %.sink205 = phi double [ %46, %36 ], [ %61, %47 ]
-  %.2 = phi double [ %.0124, %36 ], [ %61, %47 ]
+  %.0124 = phi double [ %.1125, %36 ], [ %61, %47 ]
   %63 = load double, ptr %.0.sroa.phi159.sroa.phi181, align 8
   %64 = tail call double @llvm.fmuladd.f64(double %63, double %5, double %.sink205)
   %65 = load double, ptr @cpu_tuple_cost, align 8
   %66 = tail call double @llvm.fmuladd.f64(double %65, double %5, double %64)
   %67 = and i32 %2, -2
   %or.cond7 = icmp eq i32 %67, 2
-  %68 = insertelement <2 x double> poison, double %.2, i64 0
+  %68 = insertelement <2 x double> poison, double %.0124, i64 0
   %69 = insertelement <2 x double> %68, double %66, i64 1
   br i1 %or.cond7, label %70, label %132
 
@@ -5955,8 +5955,8 @@ clamp_row_est.exit:                               ; preds = %get_parallel_diviso
   br label %.thread
 
 .lr.ph191:                                        ; preds = %.lr.ph, %109
-  %.0120175190 = phi double [ %.1121, %109 ], [ 1.000000e+00, %.lr.ph ]
-  %.0117177189 = phi double [ %.1118, %109 ], [ 1.000000e+00, %.lr.ph ]
+  %.1121175190 = phi double [ %.2122, %109 ], [ 1.000000e+00, %.lr.ph ]
+  %.1118177189 = phi double [ %.2119, %109 ], [ 1.000000e+00, %.lr.ph ]
   %indvars.iv188 = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.lr.ph ]
   %71 = load ptr, ptr %65, align 8
   %72 = getelementptr %union.ListCell, ptr %71, i64 %indvars.iv188
@@ -6036,13 +6036,13 @@ get_leftop.exit:                                  ; preds = %100, %104
 
 109:                                              ; preds = %.sink.split, %96, %80
   %.sink = phi i64 [ 224, %80 ], [ 216, %96 ], [ %.sink.ph, %.sink.split ]
-  %.2115 = phi double [ %82, %80 ], [ %98, %96 ], [ %108, %.sink.split ]
+  %.1114 = phi double [ %82, %80 ], [ %98, %96 ], [ %108, %.sink.split ]
   %110 = getelementptr inbounds i8, ptr %73, i64 %.sink
   %.0112 = load double, ptr %110, align 8
-  %111 = fcmp ogt double %.0117177189, %.2115
-  %.1118 = select i1 %111, double %.2115, double %.0117177189
-  %112 = fcmp ogt double %.0120175190, %.0112
-  %.1121 = select i1 %112, double %.0112, double %.0120175190
+  %111 = fcmp ogt double %.1118177189, %.1114
+  %.2119 = select i1 %111, double %.1114, double %.1118177189
+  %112 = fcmp ogt double %.1121175190, %.0112
+  %.2122 = select i1 %112, double %.0112, double %.1121175190
   %indvars.iv.next = add nuw nsw i64 %indvars.iv188, 1
   %113 = load i32, ptr %64, align 4
   %114 = sext i32 %113 to i64
@@ -6050,9 +6050,9 @@ get_leftop.exit:                                  ; preds = %100, %104
   br i1 %115, label %.lr.ph191, label %.thread
 
 .thread:                                          ; preds = %109, %.lr.ph, %.preheader, %69
-  %.2122 = phi double [ 0.000000e+00, %69 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %.lr.ph ], [ %.1121, %109 ]
-  %.2119 = phi double [ %70, %69 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %.lr.ph ], [ %.1118, %109 ]
-  %116 = fmul double %15, %.2122
+  %.0120 = phi double [ 0.000000e+00, %69 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %.lr.ph ], [ %.2122, %109 ]
+  %.0117 = phi double [ %70, %69 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %.lr.ph ], [ %.2119, %109 ]
+  %116 = fmul double %15, %.0120
   %117 = fcmp ogt double %116, 1.000000e+100
   %118 = fcmp uno double %116, 0.000000e+00
   %or.cond.i141 = or i1 %117, %118
@@ -6170,7 +6170,7 @@ cost_qual_eval.exit150:                           ; preds = %cost_qual_eval.exit
   %169 = fadd double %168, 1.000000e+00
   %170 = fdiv double 2.000000e+00, %169
   %171 = fmul double %.sroa.4169.0.copyload, %166
-  %172 = fmul double %15, %.2119
+  %172 = fmul double %15, %.0117
   %173 = fmul double %172, %170
   %174 = fcmp ogt double %173, 1.000000e+100
   %175 = fcmp uno double %173, 0.000000e+00
@@ -6215,7 +6215,7 @@ clamp_row_est.exit156:                            ; preds = %clamp_row_est.exit1
 
 194:                                              ; preds = %158
   %195 = fmul double %13, %.sroa.4169.0.copyload
-  %196 = fmul double %15, %.2119
+  %196 = fmul double %15, %.0117
   %197 = fcmp ogt double %196, 1.000000e+100
   %198 = fcmp uno double %196, 0.000000e+00
   %or.cond.i157 = or i1 %197, %198
@@ -6454,7 +6454,7 @@ clamp_row_est.exit:                               ; preds = %37, %42, %44
   br label %57
 
 57:                                               ; preds = %48, %55, %clamp_row_est.exit
-  %.sroa.6.0 = phi double [ %56, %55 ], [ %54, %48 ], [ %47, %clamp_row_est.exit ]
+  %.sroa.6.1 = phi double [ %56, %55 ], [ %54, %48 ], [ %47, %clamp_row_est.exit ]
   %58 = getelementptr inbounds i8, ptr %1, i64 64
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
@@ -6472,16 +6472,16 @@ clamp_row_est.exit:                               ; preds = %37, %42, %44
 
 66:                                               ; preds = %61, %57
   %67 = phi double [ %.pre, %61 ], [ %33, %57 ]
-  %68 = fadd double %.sroa.6.0, %67
+  %68 = fadd double %.sroa.6.1, %67
   br label %69
 
 69:                                               ; preds = %64, %66, %25
-  %.sroa.6.1 = phi double [ %.sroa.6.0.copyload, %25 ], [ %.sroa.6.0, %64 ], [ %68, %66 ]
+  %.sroa.6.0 = phi double [ %.sroa.6.0.copyload, %25 ], [ %.sroa.6.1, %64 ], [ %68, %66 ]
   %.sroa.0.0 = phi double [ %30, %25 ], [ %65, %64 ], [ %.sroa.0.0.copyload, %66 ]
   %70 = getelementptr inbounds i8, ptr %1, i64 80
   store double %.sroa.0.0, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %1, i64 88
-  store double %.sroa.6.1, ptr %71, align 8
+  store double %.sroa.6.0, ptr %71, align 8
   ret void
 }
 
@@ -7209,19 +7209,19 @@ define internal fastcc void @set_rel_width(ptr noundef %0, ptr nocapture noundef
 
 144:                                              ; preds = %.lr.ph115, %144
   %indvars.iv117 = phi i64 [ 1, %.lr.ph115 ], [ %indvars.iv.next118, %144 ]
-  %.079113 = phi i64 [ 24, %.lr.ph115 ], [ %149, %144 ]
+  %.1113 = phi i64 [ 24, %.lr.ph115 ], [ %149, %144 ]
   %145 = sub nsw i64 %indvars.iv117, %131
   %146 = getelementptr i32, ptr %128, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
-  %149 = add i64 %.079113, %148
+  %149 = add i64 %.1113, %148
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond = icmp eq i64 %indvars.iv.next118, %wide.trip.count
   br i1 %exitcond, label %.loopexit, label %144, !llvm.loop !12
 
 .loopexit:                                        ; preds = %144, %.preheader, %133
-  %.1 = phi i64 [ %143, %133 ], [ 24, %.preheader ], [ %149, %144 ]
-  %.04.i = call i64 @llvm.umin.i64(i64 %.1, i64 1073741823)
+  %.079 = phi i64 [ %143, %133 ], [ 24, %.preheader ], [ %149, %144 ]
+  %.04.i = call i64 @llvm.umin.i64(i64 %.079, i64 1073741823)
   %.0.i = trunc nuw nsw i64 %.04.i to i32
   %150 = getelementptr inbounds i8, ptr %1, i64 136
   %151 = load ptr, ptr %150, align 8
@@ -7231,7 +7231,7 @@ define internal fastcc void @set_rel_width(ptr noundef %0, ptr nocapture noundef
   %155 = sub nsw i64 0, %154
   %156 = getelementptr i32, ptr %151, i64 %155
   store i32 %.0.i, ptr %156, align 4
-  %157 = add i64 %.1, %.080107.lcssa
+  %157 = add i64 %.079, %.080107.lcssa
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %23, %.loopexit, %._crit_edge
@@ -7313,8 +7313,8 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
   br i1 %15, label %.lr.ph, label %get_foreign_key_join_selectivity.exit
 
 .lr.ph:                                           ; preds = %.lr.ph162.i, %.loopexit.i
-  %.094159.i13 = phi ptr [ %.498.i, %.loopexit.i ], [ %5, %.lr.ph162.i ]
-  %.0160.i12 = phi double [ %.4.i, %.loopexit.i ], [ 1.000000e+00, %.lr.ph162.i ]
+  %.094159.i13 = phi ptr [ %.195.i, %.loopexit.i ], [ %5, %.lr.ph162.i ]
+  %.0160.i12 = phi double [ %.1.i, %.loopexit.i ], [ 1.000000e+00, %.lr.ph162.i ]
   %indvars.iv178.i11 = phi i64 [ %indvars.iv.next179.i, %.loopexit.i ], [ 0, %.lr.ph162.i ]
   %16 = load ptr, ptr %12, align 8
   %17 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv178.i11
@@ -7360,8 +7360,8 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
   br label %39
 
 39:                                               ; preds = %37, %35
-  %.195.i = phi ptr [ %38, %37 ], [ %.094159.i13, %35 ]
-  %.not116141.i = icmp eq ptr %.195.i, null
+  %.296.i = phi ptr [ %38, %37 ], [ %.094159.i13, %35 ]
+  %.not116141.i = icmp eq ptr %.296.i, null
   br i1 %.not116141.i, label %._crit_edge.thread.i, label %.lr.ph149.i
 
 .lr.ph149.i:                                      ; preds = %39
@@ -7371,10 +7371,10 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
   br label %43
 
 43:                                               ; preds = %.critedge.i, %.lr.ph149.i
-  %.296147.i = phi ptr [ %.195.i, %.lr.ph149.i ], [ %.397.i, %.critedge.i ]
+  %.397147.i = phi ptr [ %.296.i, %.lr.ph149.i ], [ %.498.i, %.critedge.i ]
   %.0102145.i = phi ptr [ null, %.lr.ph149.i ], [ %.1103.i, %.critedge.i ]
   %.sroa.5.0143.i = phi i32 [ 0, %.lr.ph149.i ], [ %81, %.critedge.i ]
-  %.sroa.0.0142.i = phi ptr [ %.195.i, %.lr.ph149.i ], [ %.sroa.0.1.i, %.critedge.i ]
+  %.sroa.0.0142.i = phi ptr [ %.296.i, %.lr.ph149.i ], [ %.sroa.0.1.i, %.critedge.i ]
   %44 = getelementptr inbounds i8, ptr %.sroa.0.0142.i, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = icmp slt i32 %.sroa.5.0143.i, %45
@@ -7448,7 +7448,7 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
 
 .split.us.i:                                      ; preds = %59, %70, %66
   %78 = add i32 %.sroa.5.0143.i, -1
-  %79 = tail call ptr @list_delete_nth_cell(ptr noundef %.296147.i, i32 noundef %.sroa.5.0143.i) #17
+  %79 = tail call ptr @list_delete_nth_cell(ptr noundef %.397147.i, i32 noundef %.sroa.5.0143.i) #17
   %80 = tail call ptr @lappend(ptr noundef %.0102145.i, ptr noundef %52) #17
   br label %.critedge.i
 
@@ -7456,14 +7456,14 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
   %.sroa.0.1.i = phi ptr [ %79, %.split.us.i ], [ %.sroa.0.0142.i, %47 ], [ %.sroa.0.0142.i, %74 ], [ %.sroa.0.0142.i, %63 ]
   %.sroa.5.1.i = phi i32 [ %78, %.split.us.i ], [ %.sroa.5.0143.i, %47 ], [ %.sroa.5.0143.i, %74 ], [ %.sroa.5.0143.i, %63 ]
   %.1103.i = phi ptr [ %80, %.split.us.i ], [ %.0102145.i, %47 ], [ %.0102145.i, %74 ], [ %.0102145.i, %63 ]
-  %.397.i = phi ptr [ %79, %.split.us.i ], [ %.296147.i, %47 ], [ %.296147.i, %74 ], [ %.296147.i, %63 ]
+  %.498.i = phi ptr [ %79, %.split.us.i ], [ %.397147.i, %47 ], [ %.397147.i, %74 ], [ %.397147.i, %63 ]
   %81 = add i32 %.sroa.5.1.i, 1
   %.not116.i = icmp eq ptr %.sroa.0.1.i, null
   br i1 %.not116.i, label %._crit_edge.i, label %43, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %43
   %.0102.lcssa.i = phi ptr [ %.1103.i, %.critedge.i ], [ %.0102145.i, %43 ]
-  %.296.lcssa.i = phi ptr [ %.397.i, %.critedge.i ], [ %.296147.i, %43 ]
+  %.397.lcssa.i = phi ptr [ %.498.i, %.critedge.i ], [ %.397147.i, %43 ]
   %82 = icmp eq ptr %.0102.lcssa.i, null
   br i1 %82, label %._crit_edge.thread.i, label %list_length.exit.i
 
@@ -7482,9 +7482,9 @@ list_length.exit.i:                               ; preds = %._crit_edge.i
   br i1 %.not118.i, label %94, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %list_length.exit.i, %._crit_edge.i, %39
-  %.296.lcssa185.i = phi ptr [ %.296.lcssa.i, %list_length.exit.i ], [ %.296.lcssa.i, %._crit_edge.i ], [ null, %39 ]
+  %.397.lcssa185.i = phi ptr [ %.397.lcssa.i, %list_length.exit.i ], [ %.397.lcssa.i, %._crit_edge.i ], [ null, %39 ]
   %.0102.lcssa184.i = phi ptr [ %.0102.lcssa.i, %list_length.exit.i ], [ null, %._crit_edge.i ], [ null, %39 ]
-  %93 = tail call ptr @list_concat(ptr noundef %.296.lcssa185.i, ptr noundef %.0102.lcssa184.i) #17
+  %93 = tail call ptr @list_concat(ptr noundef %.397.lcssa185.i, ptr noundef %.0102.lcssa184.i) #17
   br label %.loopexit.i
 
 94:                                               ; preds = %list_length.exit.i
@@ -7505,7 +7505,7 @@ list_length.exit.i:                               ; preds = %._crit_edge.i
 105:                                              ; preds = %102, %94
   %.sink.i = phi double [ %104, %102 ], [ 1.000000e+00, %94 ]
   %106 = fdiv double %.sink.i, %101
-  %.1.i = fmul double %.0160.i12, %106
+  %.2.i = fmul double %.0160.i12, %106
   %107 = load i32, ptr %87, align 4
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.preheader.i, label %.loopexit.i
@@ -7521,7 +7521,7 @@ list_length.exit.i:                               ; preds = %._crit_edge.i
 
 112:                                              ; preds = %128, %.lr.ph156.i
   %indvars.iv175.i = phi i64 [ 0, %.lr.ph156.i ], [ %indvars.iv.next176.i, %128 ]
-  %.2155.i = phi double [ %.1.i, %.lr.ph156.i ], [ %.3.i, %128 ]
+  %.3155.i = phi double [ %.2.i, %.lr.ph156.i ], [ %.4.i, %128 ]
   %113 = getelementptr [32 x ptr], ptr %41, i64 0, i64 %indvars.iv175.i
   %114 = load ptr, ptr %113, align 8
   %.not119.i = icmp eq ptr %114, null
@@ -7546,11 +7546,11 @@ list_length.exit.i:                               ; preds = %._crit_edge.i
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %123
-  %127 = fdiv double %.2155.i, %124
+  %127 = fdiv double %.3155.i, %124
   br label %128
 
 128:                                              ; preds = %126, %123, %119, %115, %112
-  %.3.i = phi double [ %127, %126 ], [ %.2155.i, %123 ], [ %.2155.i, %119 ], [ %.2155.i, %115 ], [ %.2155.i, %112 ]
+  %.4.i = phi double [ %127, %126 ], [ %.3155.i, %123 ], [ %.3155.i, %119 ], [ %.3155.i, %115 ], [ %.3155.i, %112 ]
   %indvars.iv.next176.i = add nuw nsw i64 %indvars.iv175.i, 1
   %129 = load i32, ptr %40, align 4
   %130 = sext i32 %129 to i64
@@ -7558,8 +7558,8 @@ list_length.exit.i:                               ; preds = %._crit_edge.i
   br i1 %131, label %112, label %.loopexit.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %128, %.preheader.i, %105, %._crit_edge.thread.i, %33, %30, %26
-  %.498.i = phi ptr [ %.094159.i13, %33 ], [ %93, %._crit_edge.thread.i ], [ %.296.lcssa.i, %105 ], [ %.094159.i13, %30 ], [ %.094159.i13, %26 ], [ %.296.lcssa.i, %.preheader.i ], [ %.296.lcssa.i, %128 ]
-  %.4.i = phi double [ %.0160.i12, %33 ], [ %.0160.i12, %._crit_edge.thread.i ], [ %.1.i, %105 ], [ %.0160.i12, %30 ], [ %.0160.i12, %26 ], [ %.1.i, %.preheader.i ], [ %.3.i, %128 ]
+  %.195.i = phi ptr [ %.094159.i13, %33 ], [ %93, %._crit_edge.thread.i ], [ %.397.lcssa.i, %105 ], [ %.094159.i13, %30 ], [ %.094159.i13, %26 ], [ %.397.lcssa.i, %.preheader.i ], [ %.397.lcssa.i, %128 ]
+  %.1.i = phi double [ %.0160.i12, %33 ], [ %.0160.i12, %._crit_edge.thread.i ], [ %.2.i, %105 ], [ %.0160.i12, %30 ], [ %.0160.i12, %26 ], [ %.2.i, %.preheader.i ], [ %.4.i, %128 ]
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i11, 1
   %132 = load i32, ptr %11, align 4
   %133 = sext i32 %132 to i64
@@ -7567,19 +7567,19 @@ list_length.exit.i:                               ; preds = %._crit_edge.i
   br i1 %134, label %.lr.ph, label %._crit_edge163.i
 
 ._crit_edge163.i:                                 ; preds = %.loopexit.i
-  %135 = fcmp olt double %.4.i, 0.000000e+00
+  %135 = fcmp olt double %.1.i, 0.000000e+00
   br i1 %135, label %get_foreign_key_join_selectivity.exit, label %136
 
 136:                                              ; preds = %._crit_edge163.i
-  %137 = fcmp ogt double %.4.i, 1.000000e+00
+  %137 = fcmp ogt double %.1.i, 1.000000e+00
   br i1 %137, label %138, label %get_foreign_key_join_selectivity.exit
 
 138:                                              ; preds = %136
   br label %get_foreign_key_join_selectivity.exit
 
 get_foreign_key_join_selectivity.exit:            ; preds = %.lr.ph162.i, %6, %._crit_edge163.i, %136, %138
-  %.06 = phi ptr [ %5, %6 ], [ %.498.i, %._crit_edge163.i ], [ %.498.i, %138 ], [ %.498.i, %136 ], [ %5, %.lr.ph162.i ]
-  %.5.i = phi double [ 1.000000e+00, %6 ], [ 0.000000e+00, %._crit_edge163.i ], [ 1.000000e+00, %138 ], [ %.4.i, %136 ], [ 1.000000e+00, %.lr.ph162.i ]
+  %.06 = phi ptr [ %5, %6 ], [ %.195.i, %._crit_edge163.i ], [ %.195.i, %138 ], [ %.195.i, %136 ], [ %5, %.lr.ph162.i ]
+  %.5.i = phi double [ 1.000000e+00, %6 ], [ 0.000000e+00, %._crit_edge163.i ], [ 1.000000e+00, %138 ], [ %.1.i, %136 ], [ 1.000000e+00, %.lr.ph162.i ]
   %139 = shl nuw i32 1, %8
   %140 = and i32 %139, 110
   %.not = icmp eq i32 %140, 0
@@ -7668,8 +7668,8 @@ get_foreign_key_join_selectivity.exit:            ; preds = %.lr.ph162.i, %6, %.
   %176 = fmul double %175, %.5.i
   %177 = fmul double %176, %.0
   %178 = fcmp olt double %177, %2
-  %.071 = select i1 %178, double %2, double %177
-  %179 = fmul double %.066, %.071
+  %.172 = select i1 %178, double %2, double %177
+  %179 = fmul double %.066, %.172
   br label %198
 
 180:                                              ; preds = %169
@@ -7677,10 +7677,10 @@ get_foreign_key_join_selectivity.exit:            ; preds = %.lr.ph162.i, %6, %.
   %182 = fmul double %181, %.5.i
   %183 = fmul double %182, %.0
   %184 = fcmp olt double %183, %2
-  %.172 = select i1 %184, double %2, double %183
-  %185 = fcmp olt double %.172, %3
-  %.2 = select i1 %185, double %3, double %.172
-  %186 = fmul double %.066, %.2
+  %.2 = select i1 %184, double %2, double %183
+  %185 = fcmp olt double %.2, %3
+  %.3 = select i1 %185, double %3, double %.2
+  %186 = fmul double %.066, %.3
   br label %198
 
 187:                                              ; preds = %169
@@ -7703,18 +7703,18 @@ get_foreign_key_join_selectivity.exit:            ; preds = %.lr.ph162.i, %6, %.
   unreachable
 
 198:                                              ; preds = %190, %187, %180, %174, %170
-  %.3 = phi double [ %194, %190 ], [ %189, %187 ], [ %186, %180 ], [ %179, %174 ], [ %173, %170 ]
-  %199 = fcmp ogt double %.3, 1.000000e+100
-  %200 = fcmp uno double %.3, 0.000000e+00
+  %.071 = phi double [ %194, %190 ], [ %189, %187 ], [ %186, %180 ], [ %179, %174 ], [ %173, %170 ]
+  %199 = fcmp ogt double %.071, 1.000000e+100
+  %200 = fcmp uno double %.071, 0.000000e+00
   %or.cond.i81 = or i1 %199, %200
   br i1 %or.cond.i81, label %clamp_row_est.exit, label %201
 
 201:                                              ; preds = %198
-  %202 = fcmp ugt double %.3, 1.000000e+00
+  %202 = fcmp ugt double %.071, 1.000000e+00
   br i1 %202, label %203, label %clamp_row_est.exit
 
 203:                                              ; preds = %201
-  %204 = tail call double @llvm.rint.f64(double %.3)
+  %204 = tail call double @llvm.rint.f64(double %.071)
   br label %clamp_row_est.exit
 
 clamp_row_est.exit:                               ; preds = %198, %201, %203
@@ -8694,12 +8694,12 @@ define internal fastcc double @get_indexpath_pages(ptr nocapture noundef readonl
 
 .lr.ph47:                                         ; preds = %.lr.ph, %.lr.ph47
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph47 ], [ 0, %.lr.ph ]
-  %.14145 = phi double [ %29, %.lr.ph47 ], [ 0.000000e+00, %.lr.ph ]
+  %.24145 = phi double [ %29, %.lr.ph47 ], [ 0.000000e+00, %.lr.ph ]
   %25 = load ptr, ptr %22, align 8
   %26 = getelementptr %union.ListCell, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = tail call fastcc double @get_indexpath_pages(ptr noundef %27)
-  %29 = fadd double %.14145, %28
+  %29 = fadd double %.24145, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %21, align 4
   %31 = sext i32 %30 to i64
@@ -8723,8 +8723,8 @@ define internal fastcc double @get_indexpath_pages(ptr nocapture noundef readonl
   unreachable
 
 .thread:                                          ; preds = %.lr.ph47, %.lr.ph59, %18, %.lr.ph, %3, %.lr.ph51, %33
-  %.2 = phi double [ %38, %33 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph51 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %.lr.ph ], [ %14, %.lr.ph59 ], [ %29, %.lr.ph47 ]
-  ret double %.2
+  %.1 = phi double [ %38, %33 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %.lr.ph51 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %.lr.ph ], [ %14, %.lr.ph59 ], [ %29, %.lr.ph47 ]
+  ret double %.1
 }
 
 declare zeroext i1 @is_redundant_with_indexclauses(ptr noundef, ptr noundef) local_unnamed_addr #3

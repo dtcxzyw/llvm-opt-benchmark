@@ -695,12 +695,12 @@ invoke.cont94:                                    ; preds = %invoke.cont93
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont89, %invoke.cont94
-  %retval.0 = phi i32 [ %cond, %invoke.cont94 ], [ -1, %invoke.cont89 ]
+  %retval.2 = phi i32 [ %cond, %invoke.cont94 ], [ -1, %invoke.cont89 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %password) #13
   br label %cleanup97
 
 cleanup97:                                        ; preds = %cleanup, %invoke.cont69, %invoke.cont53
-  %retval.1 = phi i32 [ -1, %invoke.cont53 ], [ -1, %invoke.cont69 ], [ %retval.0, %cleanup ]
+  %retval.1 = phi i32 [ -1, %invoke.cont53 ], [ -1, %invoke.cont69 ], [ %retval.2, %cleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %username) #13
   br label %return
 
@@ -710,8 +710,8 @@ ehcleanup:                                        ; preds = %lpad78, %lpad74, %l
   br label %eh.resume
 
 return:                                           ; preds = %entry, %cleanup97, %if.then28, %if.then17, %if.then7
-  %retval.2 = phi i32 [ -1, %if.then7 ], [ -1, %if.then17 ], [ -1, %if.then28 ], [ %retval.1, %cleanup97 ], [ -1, %entry ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ -1, %if.then7 ], [ -1, %if.then17 ], [ -1, %if.then28 ], [ %retval.1, %cleanup97 ], [ -1, %entry ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad ]

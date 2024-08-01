@@ -296,7 +296,7 @@ while.body.i:                                     ; preds = %if.end22.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end14.i
 
 if.then13.i:                                      ; preds = %while.body.i, %if.end5.i
-  %buf.0.lcssa.i = phi ptr [ null, %if.end5.i ], [ %call1121.i, %while.body.i ]
+  %buf.1.lcssa.i = phi ptr [ null, %if.end5.i ], [ %call1121.i, %while.body.i ]
   store ptr null, ptr %p.i, align 8
   br label %while.end.i
 
@@ -319,7 +319,7 @@ if.end22.i:                                       ; preds = %if.end18.i
 
 while.end.i:                                      ; preds = %if.end22.i, %if.end18.i, %if.end14.i, %if.then13.i
   %cmp28.i = phi i1 [ true, %if.then13.i ], [ false, %if.end18.i ], [ true, %if.end22.i ], [ false, %if.end14.i ]
-  %buf.1.i = phi ptr [ %buf.0.lcssa.i, %if.then13.i ], [ %call1121.i, %if.end14.i ], [ %call1121.i, %if.end18.i ], [ %call1121.i, %if.end22.i ]
+  %buf.2.i = phi ptr [ %buf.1.lcssa.i, %if.then13.i ], [ %call1121.i, %if.end14.i ], [ %call1121.i, %if.end18.i ], [ %call1121.i, %if.end22.i ]
   call void @PyEval_RestoreThread(ptr noundef %call6.i) #4
   %4 = load ptr, ptr %p.i, align 8
   %cmp26.i = icmp eq ptr %4, null
@@ -343,8 +343,8 @@ if.end33.i:                                       ; preds = %while.end.i
 
 out.i:                                            ; preds = %if.end33.i, %if.else.i, %if.then29.i, %if.end.i
   %retval1.0.i = phi ptr [ null, %if.end.i ], [ null, %if.then29.i ], [ null, %if.else.i ], [ %call34.i, %if.end33.i ]
-  %buf.2.i = phi ptr [ null, %if.end.i ], [ %buf.1.i, %if.then29.i ], [ %buf.1.i, %if.else.i ], [ %buf.1.i, %if.end33.i ]
-  call void @PyMem_RawFree(ptr noundef %buf.2.i) #4
+  %buf.0.i = phi ptr [ null, %if.end.i ], [ %buf.2.i, %if.then29.i ], [ %buf.2.i, %if.else.i ], [ %buf.2.i, %if.end33.i ]
+  call void @PyMem_RawFree(ptr noundef %buf.0.i) #4
   %6 = load i64, ptr %call.i, align 8
   %7 = and i64 %6, 2147483648
   %cmp.i36.not.i = icmp eq i64 %7, 0

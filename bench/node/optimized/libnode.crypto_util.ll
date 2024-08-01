@@ -2491,8 +2491,8 @@ if.end220:                                        ; preds = %_ZN4node13OneByteSt
   br label %return
 
 return:                                           ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit37, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit32, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %entry, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit48, %if.end220
-  %retval.sroa.0.1 = phi i16 [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit48 ], [ 257, %if.end220 ], [ 257, %entry ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit32 ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit37 ]
-  ret i16 %retval.sroa.0.1
+  %retval.sroa.0.0 = phi i16 [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit48 ], [ 257, %if.end220 ], [ 257, %entry ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit32 ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit37 ]
+  ret i16 %retval.sroa.0.0
 }
 
 declare ptr @ERR_lib_error_string(i64 noundef) local_unnamed_addr #0

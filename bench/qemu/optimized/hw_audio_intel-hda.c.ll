@@ -842,7 +842,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end12
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end92
   %4 = phi ptr [ %2, %land.rhs.lr.ph ], [ %23, %if.end92 ]
-  %irq.078 = phi i1 [ false, %land.rhs.lr.ph ], [ %irq.2, %if.end92 ]
+  %irq.078 = phi i1 [ false, %land.rhs.lr.ph ], [ %irq.1, %if.end92 ]
   %left.077 = phi i32 [ %len, %land.rhs.lr.ph ], [ %sub63, %if.end92 ]
   %s.176 = phi i32 [ %3, %land.rhs.lr.ph ], [ %dec, %if.end92 ]
   %buf.addr.075 = phi ptr [ %buf, %land.rhs.lr.ph ], [ %add.ptr62, %if.end92 ]
@@ -932,12 +932,12 @@ if.then88:                                        ; preds = %if.then72
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then72, %if.then88, %do.end
-  %irq.2 = phi i1 [ %spec.select67, %if.then88 ], [ %spec.select67, %if.then72 ], [ %irq.078, %do.end ]
+  %irq.1 = phi i1 [ %spec.select67, %if.then88 ], [ %spec.select67, %if.then72 ], [ %irq.078, %do.end ]
   %cmp13.not = icmp eq i32 %sub63, 0
   br i1 %cmp13.not, label %while.end, label %land.rhs, !llvm.loop !11
 
 while.end:                                        ; preds = %land.rhs, %if.end92, %if.end12
-  %irq.0.lcssa = phi i1 [ false, %if.end12 ], [ %irq.2, %if.end92 ], [ %irq.078, %land.rhs ]
+  %irq.0.lcssa = phi i1 [ false, %if.end12 ], [ %irq.1, %if.end92 ], [ %irq.078, %land.rhs ]
   %dp_lbase = getelementptr i8, ptr %call.i, i64 224
   %28 = load i32, ptr %dp_lbase, align 8
   %and93 = and i32 %28, 1
@@ -1065,7 +1065,7 @@ if.else.i:                                        ; preds = %if.end4.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.else.i, %if.then5.i8
-  %ret.1.i = phi i32 [ %7, %if.then5.i8 ], [ %and.i, %if.else.i ]
+  %ret.0.i = phi i32 [ %7, %if.then5.i8 ], [ %and.i, %if.else.i ]
   %debug.i4 = getelementptr inbounds i8, ptr %opaque, i64 4168
   %10 = load i32, ptr %debug.i4, align 8
   %tobool11.not.i = icmp eq i32 %10, 0
@@ -1087,7 +1087,7 @@ land.lhs.true.i:                                  ; preds = %if.then12.i
 land.lhs.true16.i:                                ; preds = %land.lhs.true.i
   %last_val.i = getelementptr inbounds i8, ptr %opaque, i64 4152
   %13 = load i32, ptr %last_val.i, align 8
-  %cmp17.i = icmp eq i32 %13, %ret.1.i
+  %cmp17.i = icmp eq i32 %13, %ret.0.i
   br i1 %cmp17.i, label %if.then18.i, label %if.else34.i
 
 if.then18.i:                                      ; preds = %land.lhs.true16.i
@@ -1153,7 +1153,7 @@ if.then54.i:                                      ; preds = %do.body50.i
   %28 = load ptr, ptr %name55.i, align 16
   %call56.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.19, ptr noundef %28) #12
   %29 = load ptr, ptr @stderr, align 8
-  %call58.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.146, ptr noundef nonnull %0, i32 noundef %ret.1.i, i32 noundef %conv) #12
+  %call58.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.146, ptr noundef nonnull %0, i32 noundef %ret.0.i, i32 noundef %conv) #12
   br label %do.end60.i
 
 do.end60.i:                                       ; preds = %if.then54.i, %do.body50.i, %do.body38.i
@@ -1161,7 +1161,7 @@ do.end60.i:                                       ; preds = %if.then54.i, %do.bo
   %last_reg62.i = getelementptr inbounds i8, ptr %opaque, i64 4144
   store ptr %add.ptr.i, ptr %last_reg62.i, align 16
   %last_val63.i = getelementptr inbounds i8, ptr %opaque, i64 4152
-  store i32 %ret.1.i, ptr %last_val63.i, align 8
+  store i32 %ret.0.i, ptr %last_val63.i, align 8
   %conv64.i = trunc i64 %call13.i to i32
   %last_sec65.i = getelementptr inbounds i8, ptr %opaque, i64 4160
   store i32 %conv64.i, ptr %last_sec65.i, align 16
@@ -1173,7 +1173,7 @@ return.sink.split.i:                              ; preds = %do.end60.i, %do.end
   br label %intel_hda_reg_read.exit
 
 intel_hda_reg_read.exit:                          ; preds = %if.then5.i, %do.body.i, %if.end10.i, %if.then18.i, %return.sink.split.i
-  %retval.0.i5 = phi i32 [ %ret.1.i, %if.then18.i ], [ %ret.1.i, %if.end10.i ], [ %ret.1.i, %return.sink.split.i ], [ 0, %do.body.i ], [ 0, %if.then5.i ]
+  %retval.0.i5 = phi i32 [ %ret.0.i, %if.then18.i ], [ %ret.0.i, %if.end10.i ], [ %ret.0.i, %return.sink.split.i ], [ 0, %do.body.i ], [ 0, %if.then5.i ]
   %conv2 = zext i32 %retval.0.i5 to i64
   ret i64 %conv2
 }

@@ -1795,16 +1795,16 @@ lpad190.loopexit.split-lp:                        ; preds = %if.then214, %if.end
 
 lpad190:                                          ; preds = %lpad190.loopexit.split-lp, %lpad190.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad190.loopexit ], [ %lpad.loopexit.split-lp, %lpad190.loopexit.split-lp ]
-  %cmp.not.i = icmp eq ptr %afSum.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %afSum.sroa.0.0, null
   br i1 %cmp.not.i, label %ehcleanup, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %lpad190.thread205, %lpad190
   %67 = phi { ptr, i32 } [ %84, %lpad190.thread205 ], [ %lpad.phi, %lpad190 ]
-  call void @_ZdaPv(ptr noundef nonnull %afSum.sroa.0.1) #21
+  call void @_ZdaPv(ptr noundef nonnull %afSum.sroa.0.0) #21
   br label %ehcleanup
 
 for.body209.preheader:                            ; preds = %if.end184, %for.body197.preheader
-  %afSum.sroa.0.1 = phi ptr [ null, %if.end184 ], [ %call192, %for.body197.preheader ]
+  %afSum.sroa.0.0 = phi ptr [ null, %if.end184 ], [ %call192, %for.body197.preheader ]
   br label %for.body209
 
 for.cond206.loopexit:                             ; preds = %for.inc264
@@ -1836,7 +1836,7 @@ invoke.cont216:                                   ; preds = %if.then214
   unreachable
 
 if.end225:                                        ; preds = %for.body209
-  invoke void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMeshPK6aiBonePf(ptr nonnull align 8 poison, ptr noundef nonnull %pMesh, ptr noundef nonnull %69, ptr noundef %afSum.sroa.0.1)
+  invoke void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMeshPK6aiBonePf(ptr nonnull align 8 poison, ptr noundef nonnull %pMesh, ptr noundef nonnull %69, ptr noundef %afSum.sroa.0.0)
           to label %invoke.cont230 unwind label %lpad190.loopexit
 
 invoke.cont230:                                   ; preds = %if.end225
@@ -1887,7 +1887,7 @@ for.inc264:                                       ; preds = %for.body235, %_ZNK8
 for.body274:                                      ; preds = %for.cond271.preheader, %for.inc298
   %81 = phi i32 [ %85, %for.inc298 ], [ %.pre347, %for.cond271.preheader ]
   %indvars.iv343 = phi i64 [ %indvars.iv.next344, %for.inc298 ], [ 0, %for.cond271.preheader ]
-  %arrayidx.i170 = getelementptr inbounds float, ptr %afSum.sroa.0.1, i64 %indvars.iv343
+  %arrayidx.i170 = getelementptr inbounds float, ptr %afSum.sroa.0.0, i64 %indvars.iv343
   %82 = load float, ptr %arrayidx.i170, align 4
   %tobool278 = fcmp une float %82, 0.000000e+00
   br i1 %tobool278, label %land.lhs.true279, label %for.inc298
@@ -1921,11 +1921,11 @@ for.inc298:                                       ; preds = %if.then291.for.inc2
   br i1 %cmp273, label %for.body274, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i175, !llvm.loop !24
 
 for.end300:                                       ; preds = %for.cond271.preheader
-  %cmp.not.i174 = icmp eq ptr %afSum.sroa.0.1, null
+  %cmp.not.i174 = icmp eq ptr %afSum.sroa.0.0, null
   br i1 %cmp.not.i174, label %if.end306, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i175
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i175: ; preds = %for.inc298, %for.end300
-  call void @_ZdaPv(ptr noundef nonnull %afSum.sroa.0.1) #21
+  call void @_ZdaPv(ptr noundef nonnull %afSum.sroa.0.0) #21
   br label %if.end306
 
 if.else:                                          ; preds = %for.end177

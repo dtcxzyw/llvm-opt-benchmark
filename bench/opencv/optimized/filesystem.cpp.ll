@@ -1089,9 +1089,9 @@ define noundef zeroext i1 @_ZN2cv5utils2fs17createDirectoriesERKNSt7__cxx1112bas
           to label %45 unwind label %.loopexit.split-lp
 
 45:                                               ; preds = %43, %42, %29, %.thread17, %18, %21, %24
-  %.1 = phi i1 [ false, %42 ], [ true, %24 ], [ true, %21 ], [ true, %18 ], [ true, %.thread17 ], [ true, %29 ], [ %44, %43 ]
+  %.011 = phi i1 [ false, %42 ], [ true, %24 ], [ true, %21 ], [ true, %18 ], [ true, %.thread17 ], [ true, %29 ], [ %44, %43 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  ret i1 %.1
+  ret i1 %.011
 
 46:                                               ; preds = %.loopexit, %.loopexit.split-lp, %40
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1926,9 +1926,9 @@ define void @_ZN2cv5utils2fs17getCacheDirectoryB5cxx11EPKcS3_(ptr dead_on_unwind
 
 212:                                              ; preds = %210, %208
   %.pn174 = phi { ptr, i32 } [ %211, %210 ], [ %209, %208 ]
-  %.9 = extractvalue { ptr, i32 } %.pn174, 0
+  %.12 = extractvalue { ptr, i32 } %.pn174, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #18
-  %213 = call ptr @__cxa_begin_catch(ptr %.9) #18
+  %213 = call ptr @__cxa_begin_catch(ptr %.12) #18
   invoke void @__cxa_end_catch()
           to label %214 unwind label %.loopexit.split-lp
 

@@ -49,7 +49,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
 
 .preheader:                                       ; preds = %19, %.preheader
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.preheader ], [ 8, %19 ]
-  %.06998 = phi i32 [ %.170, %.preheader ], [ 15, %19 ]
+  %.17098 = phi i32 [ %.271, %.preheader ], [ 15, %19 ]
   %.17497 = phi double [ %.275, %.preheader ], [ %.073, %19 ]
   %21 = getelementptr inbounds [0 x double], ptr @g_dtoa_scale_up, i64 0, i64 %indvars.iv108
   %22 = load double, ptr %21, align 8
@@ -59,51 +59,51 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %.neg = shl nsw i32 -1, %25
   %.275 = select i1 %24, double %23, double %.17497
   %26 = select i1 %24, i32 %.neg, i32 0
-  %.170 = add i32 %26, %.06998
+  %.271 = add i32 %26, %.17098
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, -1
   %.not118 = icmp eq i64 %indvars.iv108, 0
   br i1 %.not118, label %.loopexit91, label %.preheader, !llvm.loop !6
 
 .preheader92:                                     ; preds = %19, %.preheader92
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader92 ], [ 8, %19 ]
-  %.27195 = phi i32 [ %.372, %.preheader92 ], [ 15, %19 ]
-  %.37694 = phi double [ %.477, %.preheader92 ], [ %.073, %19 ]
+  %.495 = phi i32 [ %.5, %.preheader92 ], [ 15, %19 ]
+  %.47794 = phi double [ %.578, %.preheader92 ], [ %.073, %19 ]
   %27 = getelementptr inbounds [0 x double], ptr @g_dtoa_scale_down, i64 0, i64 %indvars.iv
   %28 = load double, ptr %27, align 8
-  %29 = fmul double %.37694, %28
+  %29 = fmul double %.47794, %28
   %30 = fcmp ult double %29, 1.000000e+15
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = shl nuw i32 1, %31
-  %.477 = select i1 %30, double %.37694, double %29
+  %.578 = select i1 %30, double %.47794, double %29
   %33 = select i1 %30, i32 0, i32 %32
-  %.372 = add nsw i32 %33, %.27195
+  %.5 = add nsw i32 %33, %.495
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not117 = icmp eq i64 %indvars.iv, 0
   br i1 %.not117, label %.loopexit91, label %.preheader92, !llvm.loop !8
 
 .loopexit91:                                      ; preds = %.preheader92, %.preheader
-  %.578 = phi double [ %.275, %.preheader ], [ %.477, %.preheader92 ]
-  %.4 = phi i32 [ %.170, %.preheader ], [ %.372, %.preheader92 ]
+  %.376 = phi double [ %.275, %.preheader ], [ %.578, %.preheader92 ]
+  %.372 = phi i32 [ %.271, %.preheader ], [ %.5, %.preheader92 ]
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %38, label %34
 
 34:                                               ; preds = %.loopexit91
-  %35 = tail call i32 @llvm.smax.i32(i32 %.4, i32 -1)
+  %35 = tail call i32 @llvm.smax.i32(i32 %.372, i32 -1)
   %36 = add i32 %3, 1
   %37 = add i32 %36, %35
   %. = tail call i32 @llvm.smin.i32(i32 %37, i32 %2)
   br label %38
 
 38:                                               ; preds = %34, %.loopexit91
-  %.080 = phi i32 [ %., %34 ], [ %2, %.loopexit91 ]
-  %39 = sext i32 %.080 to i64
+  %.181 = phi i32 [ %., %34 ], [ %2, %.loopexit91 ]
+  %39 = sext i32 %.181 to i64
   %40 = getelementptr inbounds [0 x double], ptr @g_dtoa_round, i64 0, i64 %39
   %41 = load double, ptr %40, align 8
-  %42 = fadd double %.578, %41
+  %42 = fadd double %.376, %41
   %43 = fcmp oge double %42, 1.000000e+16
   %44 = zext i1 %43 to i32
-  %.5 = add nsw i32 %.4, %44
-  %45 = icmp sgt i32 %.080, 0
+  %.6 = add nsw i32 %.372, %44
+  %45 = icmp sgt i32 %.181, 0
   br i1 %45, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %38
@@ -111,7 +111,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %.679 = select i1 %43, double %46, double %42
   %47 = fptoui double %.679 to i64
   %48 = getelementptr inbounds i8, ptr %1, i64 5
-  %wide.trip.count = zext nneg i32 %.080 to i64
+  %wide.trip.count = zext nneg i32 %.181 to i64
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
@@ -130,17 +130,17 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !9
 
 .loopexit:                                        ; preds = %49, %.lr.ph104, %38, %7, %14, %17
-  %.181 = phi i32 [ %2, %14 ], [ %2, %17 ], [ %2, %7 ], [ %.080, %38 ], [ %2, %.lr.ph104 ], [ %.080, %49 ]
-  %.6 = phi i32 [ 0, %14 ], [ 0, %17 ], [ 0, %7 ], [ %.5, %38 ], [ 0, %.lr.ph104 ], [ %.5, %49 ]
+  %.080 = phi i32 [ %2, %14 ], [ %2, %17 ], [ %2, %7 ], [ %.181, %38 ], [ %2, %.lr.ph104 ], [ %.181, %49 ]
+  %.069 = phi i32 [ 0, %14 ], [ 0, %17 ], [ 0, %7 ], [ %.6, %38 ], [ 0, %.lr.ph104 ], [ %.6, %49 ]
   %.168 = phi i8 [ %15, %14 ], [ %18, %17 ], [ %8, %7 ], [ %.067, %38 ], [ %8, %.lr.ph104 ], [ %.067, %49 ]
   %56 = getelementptr inbounds i8, ptr %1, i64 5
-  %57 = sext i32 %.181 to i64
+  %57 = sext i32 %.080 to i64
   %58 = getelementptr inbounds [16 x i8], ptr %56, i64 0, i64 %57
   store i8 0, ptr %58, align 1
   %59 = getelementptr inbounds i8, ptr %1, i64 4
   store i8 %.168, ptr %59, align 4
-  store i32 %.6, ptr %1, align 4
-  ret i32 %.181
+  store i32 %.069, ptr %1, align 4
+  ret i32 %.080
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

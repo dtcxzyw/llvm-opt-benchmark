@@ -4920,7 +4920,7 @@ trace_lsi_do_msgout.exit.i:                       ; preds = %if.else.i.i.i437, %
   br i1 %tobool4.not306.i, label %sw.epilog153, label %while.body.i
 
 while.body.i:                                     ; preds = %trace_lsi_do_msgout.exit.i, %sw.epilog98.i
-  %current_req.1307.i = phi ptr [ %current_req.4.i, %sw.epilog98.i ], [ %current_req.0.i, %trace_lsi_do_msgout.exit.i ]
+  %current_req.1307.i = phi ptr [ %current_req.2.i, %sw.epilog98.i ], [ %current_req.0.i, %trace_lsi_do_msgout.exit.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.i.i)
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %151 = load i32, ptr %dnad195, align 8
@@ -5390,7 +5390,7 @@ if.then55.i:                                      ; preds = %land.lhs.true.i
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.then55.i, %land.lhs.true.i, %trace_lsi_do_msgout_abort.exit.i
-  %current_req.2.i = phi ptr [ null, %if.then55.i ], [ %current_req.1307.i, %land.lhs.true.i ], [ null, %trace_lsi_do_msgout_abort.exit.i ]
+  %current_req.3.i = phi ptr [ null, %if.then55.i ], [ %current_req.1307.i, %land.lhs.true.i ], [ null, %trace_lsi_do_msgout_abort.exit.i ]
   %246 = load i8, ptr %scntl1239, align 1
   %247 = and i8 %246, -17
   store i8 %247, ptr %scntl1239, align 1
@@ -5519,7 +5519,7 @@ if.then75.i:                                      ; preds = %if.end72.i
   br label %if.end78.i
 
 if.end78.i:                                       ; preds = %if.then75.i, %if.end72.i
-  %current_req.3.i = phi ptr [ null, %if.then75.i ], [ %current_req.1307.i, %if.end72.i ]
+  %current_req.4.i = phi ptr [ null, %if.then75.i ], [ %current_req.1307.i, %if.end72.i ]
   %270 = load ptr, ptr %queue.i.i547, align 8
   %tobool79.not304.i = icmp eq ptr %270, null
   br i1 %tobool79.not304.i, label %for.end.i, label %land.rhs.i
@@ -5606,13 +5606,13 @@ trace_lsi_do_msgout_select.exit.i:                ; preds = %if.else.i.i289.i, %
   br label %sw.epilog98thread-pre-split.i
 
 sw.epilog98thread-pre-split.i:                    ; preds = %trace_lsi_do_msgout_select.exit.i, %for.end.i, %if.end57.i, %do.end46.i, %do.end.i, %trace_lsi_do_msgout_simplequeue.exit.i, %trace_lsi_do_msgout_noop.exit.i, %trace_lsi_do_msgout_disconnect.exit.i
-  %current_req.4.ph.i = phi ptr [ %current_req.1307.i, %trace_lsi_do_msgout_disconnect.exit.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_noop.exit.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_simplequeue.exit.i ], [ %current_req.1307.i, %do.end.i ], [ %current_req.1307.i, %do.end46.i ], [ %current_req.2.i, %if.end57.i ], [ %current_req.3.i, %for.end.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_select.exit.i ]
+  %current_req.2.ph.i = phi ptr [ %current_req.1307.i, %trace_lsi_do_msgout_disconnect.exit.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_noop.exit.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_simplequeue.exit.i ], [ %current_req.1307.i, %do.end.i ], [ %current_req.1307.i, %do.end46.i ], [ %current_req.3.i, %if.end57.i ], [ %current_req.4.i, %for.end.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_select.exit.i ]
   %.pr.i = load i32, ptr %dbc, align 4
   br label %sw.epilog98.i
 
 sw.epilog98.i:                                    ; preds = %sw.epilog98thread-pre-split.i, %trace_lsi_do_msgout_ignored.exit166.i, %trace_lsi_do_msgout_ignored.exit147.i, %trace_lsi_do_msgout_ignored.exit.i
   %291 = phi i32 [ %.pr.i, %sw.epilog98thread-pre-split.i ], [ %197, %trace_lsi_do_msgout_ignored.exit.i ], [ %206, %trace_lsi_do_msgout_ignored.exit147.i ], [ %215, %trace_lsi_do_msgout_ignored.exit166.i ]
-  %current_req.4.i = phi ptr [ %current_req.4.ph.i, %sw.epilog98thread-pre-split.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_ignored.exit.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_ignored.exit147.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_ignored.exit166.i ]
+  %current_req.2.i = phi ptr [ %current_req.2.ph.i, %sw.epilog98thread-pre-split.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_ignored.exit.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_ignored.exit147.i ], [ %current_req.1307.i, %trace_lsi_do_msgout_ignored.exit166.i ]
   %tobool4.not.i = icmp eq i32 %291, 0
   br i1 %tobool4.not.i, label %sw.epilog153, label %while.body.i, !llvm.loop !10
 
@@ -6379,7 +6379,7 @@ if.then384:                                       ; preds = %sw.bb382
   br label %if.end386
 
 if.end386:                                        ; preds = %if.then384, %sw.bb382
-  %op0.1 = phi i8 [ %call385, %if.then384 ], [ 0, %sw.bb382 ]
+  %op0.2 = phi i8 [ %call385, %if.then384 ], [ 0, %sw.bb382 ]
   br i1 %tobool373.not, label %sw.epilog393, label %if.then389
 
 if.then389:                                       ; preds = %if.end386
@@ -6388,7 +6388,7 @@ if.then389:                                       ; preds = %if.end386
 
 sw.epilog393:                                     ; preds = %if.end386, %if.then379, %if.then389, %sw.bb375
   %op1.0 = phi i8 [ %443, %if.then389 ], [ %conv361, %sw.bb375 ], [ %conv361, %if.then379 ], [ %conv361, %if.end386 ]
-  %op0.2 = phi i8 [ %op0.1, %if.then389 ], [ %442, %sw.bb375 ], [ %call380, %if.then379 ], [ %op0.1, %if.end386 ]
+  %op0.0 = phi i8 [ %op0.2, %if.then389 ], [ %442, %sw.bb375 ], [ %call380, %if.then379 ], [ %op0.2, %if.end386 ]
   switch i32 %and365, label %default.unreachable900 [
     i32 0, label %sw.epilog464
     i32 1, label %sw.bb395
@@ -6401,8 +6401,8 @@ sw.epilog393:                                     ; preds = %if.end386, %if.then
   ]
 
 sw.bb395:                                         ; preds = %sw.epilog393
-  %conv396 = zext i8 %op0.2 to i32
-  %shr397 = lshr i8 %op0.2, 7
+  %conv396 = zext i8 %op0.0 to i32
+  %shr397 = lshr i8 %op0.0, 7
   %shl400 = shl nuw nsw i32 %conv396, 1
   %444 = load i32, ptr %carry491, align 8
   %or402 = or i32 %444, %shl400
@@ -6412,28 +6412,28 @@ sw.bb395:                                         ; preds = %sw.epilog393
   br label %sw.epilog464
 
 sw.bb406:                                         ; preds = %sw.epilog393
-  %or409308 = or i8 %op0.2, %op1.0
+  %or409308 = or i8 %op0.0, %op1.0
   br label %sw.epilog464
 
 sw.bb411:                                         ; preds = %sw.epilog393
-  %xor307 = xor i8 %op0.2, %op1.0
+  %xor307 = xor i8 %op0.0, %op1.0
   br label %sw.epilog464
 
 sw.bb415:                                         ; preds = %sw.epilog393
-  %and418306 = and i8 %op0.2, %op1.0
+  %and418306 = and i8 %op0.0, %op1.0
   br label %sw.epilog464
 
 sw.bb420:                                         ; preds = %sw.epilog393
-  %and422 = and i8 %op0.2, 1
+  %and422 = and i8 %op0.0, 1
   %445 = load i32, ptr %carry491, align 8
   %.tr = trunc i32 %445 to i8
-  %conv429 = call i8 @llvm.fshl.i8(i8 %.tr, i8 %op0.2, i8 7)
+  %conv429 = call i8 @llvm.fshl.i8(i8 %.tr, i8 %op0.0, i8 7)
   %conv430 = zext nneg i8 %and422 to i32
   store i32 %conv430, ptr %carry491, align 8
   br label %sw.epilog464
 
 sw.bb432:                                         ; preds = %sw.epilog393
-  %add435 = add i8 %op0.2, %op1.0
+  %add435 = add i8 %op0.0, %op1.0
   %cmp439 = icmp ult i8 %add435, %op1.0
   %conv440 = zext i1 %cmp439 to i32
   store i32 %conv440, ptr %carry491, align 8
@@ -6442,7 +6442,7 @@ sw.bb432:                                         ; preds = %sw.epilog393
 sw.bb442:                                         ; preds = %sw.epilog393
   %446 = load i32, ptr %carry491, align 8
   %447 = trunc i32 %446 to i8
-  %448 = add i8 %op0.2, %op1.0
+  %448 = add i8 %op0.0, %op1.0
   %conv448 = add i8 %448, %447
   %tobool450.not = icmp eq i32 %446, 0
   br i1 %tobool450.not, label %if.else457, label %if.then451

@@ -64,16 +64,16 @@ define double @sqrt(double noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03438 = phi x86_fp80 [ %40, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %38 = fdiv x86_fp80 %15, %.03438
-  %39 = fadd x86_fp80 %.03438, %38
+  %.138 = phi x86_fp80 [ %40, %.lr.ph ], [ %27, %.lr.ph.preheader ]
+  %38 = fdiv x86_fp80 %15, %.138
+  %39 = fadd x86_fp80 %.138, %38
   %40 = fmul x86_fp80 %39, 0xK3FFE8000000000000000
-  %41 = fcmp une x86_fp80 %40, %.03438
+  %41 = fcmp une x86_fp80 %40, %.138
   br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %37, %32
-  %.1 = phi x86_fp80 [ %27, %32 ], [ 0xKBFFF8000000000000000, %37 ], [ %40, %.lr.ph ]
-  %42 = fptrunc x86_fp80 %.1 to double
+  %.034 = phi x86_fp80 [ %27, %32 ], [ 0xKBFFF8000000000000000, %37 ], [ %40, %.lr.ph ]
+  %42 = fptrunc x86_fp80 %.034 to double
   br label %43
 
 43:                                               ; preds = %9, %7, %5, %.loopexit, %3

@@ -1958,8 +1958,8 @@ check_hash.exit26.thread.i.thread43:              ; preds = %thread-pre-split.i
   br label %62
 
 thread-pre-split.thread.i:                        ; preds = %check_hash.exit.i, %ruby_nonempty_memcpy.exit, %39, %39, %thread-pre-split.i
-  %.131 = phi i32 [ %46, %thread-pre-split.i ], [ %0, %39 ], [ %0, %39 ], [ %0, %ruby_nonempty_memcpy.exit ], [ %0, %check_hash.exit.i ]
-  %.128 = phi i64 [ %44, %thread-pre-split.i ], [ 4, %39 ], [ 4, %39 ], [ 4, %ruby_nonempty_memcpy.exit ], [ 4, %check_hash.exit.i ]
+  %.030 = phi i32 [ %46, %thread-pre-split.i ], [ %0, %39 ], [ %0, %39 ], [ %0, %ruby_nonempty_memcpy.exit ], [ %0, %check_hash.exit.i ]
+  %.027 = phi i64 [ %44, %thread-pre-split.i ], [ 4, %39 ], [ 4, %39 ], [ 4, %ruby_nonempty_memcpy.exit ], [ 4, %check_hash.exit.i ]
   %47 = load i64, ptr %29, align 8
   %48 = and i64 %47, 7
   %49 = icmp ne i64 %48, 0
@@ -1987,7 +1987,7 @@ check_hash.exit26.thread.i.thread:                ; preds = %thread-pre-split.th
   br label %rb_check_arity.exit.i.i
 
 check_hash.exit26.thread.i:                       ; preds = %check_hash.exit26.i
-  %59 = add nsw i32 %.131, -1
+  %59 = add nsw i32 %.030, -1
   %60 = getelementptr i8, ptr %29, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   %61 = icmp eq i32 %59, 0
@@ -2000,7 +2000,7 @@ check_hash.exit26.thread.i:                       ; preds = %check_hash.exit26.i
 rb_check_arity.exit.i.i:                          ; preds = %check_hash.exit26.thread.i.thread, %check_hash.exit26.thread.i
   %63 = phi ptr [ %29, %check_hash.exit26.thread.i.thread ], [ %60, %check_hash.exit26.thread.i ]
   %.02940 = phi i64 [ 4, %check_hash.exit26.thread.i.thread ], [ %57, %check_hash.exit26.thread.i ]
-  %.23239 = phi i32 [ %.131, %check_hash.exit26.thread.i.thread ], [ %59, %check_hash.exit26.thread.i ]
+  %.13139 = phi i32 [ %.030, %check_hash.exit26.thread.i.thread ], [ %59, %check_hash.exit26.thread.i ]
   store i64 0, ptr %14, align 8
   %64 = load i64, ptr %63, align 8
   %65 = call i64 @rb_check_array_type(i64 noundef %64) #26
@@ -2054,7 +2054,7 @@ RARRAY_AREF.exit19.i.i:                           ; preds = %78, %76
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %RARRAY_AREF.exit19.i.i, %rb_check_arity.exit.i.i
-  %wide.trip.count.i.i = zext nneg i32 %.23239 to i64
+  %wide.trip.count.i.i = zext nneg i32 %.13139 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -2078,14 +2078,14 @@ rb_check_argv.exit.i:                             ; preds = %.lr.ph.i.i
 92:                                               ; preds = %rb_check_argv.exit.i
   %93 = load i64, ptr %63, align 8
   %.not24.i = icmp ne i32 %2, 0
-  %94 = icmp eq i32 %.23239, 1
+  %94 = icmp eq i32 %.13139, 1
   %or.cond = and i1 %.not24.i, %94
-  %spec.select = select i1 %or.cond, i32 0, i32 %.23239
+  %spec.select = select i1 %or.cond, i32 0, i32 %.13139
   %spec.select48 = select i1 %or.cond, ptr null, ptr %63
   br label %rb_exec_getargs.exit
 
 rb_exec_getargs.exit:                             ; preds = %92, %rb_check_argv.exit.i
-  %.3 = phi i32 [ %.23239, %rb_check_argv.exit.i ], [ %spec.select, %92 ]
+  %.3 = phi i32 [ %.13139, %rb_check_argv.exit.i ], [ %spec.select, %92 ]
   %.1 = phi ptr [ %63, %rb_check_argv.exit.i ], [ %spec.select48, %92 ]
   %.0.i = phi i64 [ %.pre.i.i, %rb_check_argv.exit.i ], [ %93, %92 ]
   %95 = load i64, ptr %15, align 8
@@ -2099,11 +2099,11 @@ rb_exec_getargs.exit:                             ; preds = %92, %rb_check_argv.
   store i64 %95, ptr %7, align 8
   %96 = call ptr @rb_check_typeddata(i64 noundef %95, ptr noundef nonnull @exec_arg_data_type) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %96, i8 0, i64 176, i1 false)
-  %97 = icmp eq i64 %.128, 4
+  %97 = icmp eq i64 %.027, 4
   br i1 %97, label %rb_check_exec_options.exit.i, label %98
 
 98:                                               ; preds = %rb_exec_getargs.exit
-  %99 = inttoptr i64 %.128 to ptr
+  %99 = inttoptr i64 %.027 to ptr
   %100 = load i64, ptr %99, align 8
   %101 = and i64 %100, 32768
   %.not.i.i.i.i.i = icmp eq i64 %101, 0
@@ -2115,7 +2115,7 @@ rb_exec_getargs.exit:                             ; preds = %92, %rb_check_argv.
   br label %RHASH_EMPTY_P.exit.i.i
 
 105:                                              ; preds = %98
-  %106 = add i64 %.128, 24
+  %106 = add i64 %.027, 24
   %107 = inttoptr i64 %106 to ptr
   %108 = getelementptr inbounds i8, ptr %107, i64 16
   %109 = load i64, ptr %108, align 8
@@ -2127,7 +2127,7 @@ RHASH_EMPTY_P.exit.i.i:                           ; preds = %105, %102
   br i1 %110, label %rb_check_exec_options.exit.i, label %111
 
 111:                                              ; preds = %RHASH_EMPTY_P.exit.i.i
-  %112 = call i32 @rb_hash_stlike_foreach(i64 noundef %.128, ptr noundef nonnull @check_exec_options_i, i64 noundef %95) #26
+  %112 = call i32 @rb_hash_stlike_foreach(i64 noundef %.027, ptr noundef nonnull @check_exec_options_i, i64 noundef %95) #26
   br label %rb_check_exec_options.exit.i
 
 rb_check_exec_options.exit.i:                     ; preds = %111, %RHASH_EMPTY_P.exit.i.i, %rb_exec_getargs.exit
@@ -2321,12 +2321,12 @@ RSTRING_PTR.exit136.i:                            ; preds = %180, %174
 
 .preheader164.i.backedge:                         ; preds = %.critedge.i, %.loopexit.i
   %.be = phi i8 [ %.pr.i, %.critedge.i ], [ %.pre181.i, %.loopexit.i ]
-  %.2.i.be = phi ptr [ %183, %.critedge.i ], [ %.3.i, %.loopexit.i ]
+  %.2.i.be = phi ptr [ %183, %.critedge.i ], [ %.4.i, %.loopexit.i ]
   br label %.preheader164.i, !llvm.loop !29
 
 .preheader.i:                                     ; preds = %.preheader164.i, %185
   %184 = phi i8 [ %.pre.i11, %185 ], [ %182, %.preheader164.i ]
-  %.3.i = phi ptr [ %186, %185 ], [ %.2.i, %.preheader164.i ]
+  %.4.i = phi ptr [ %186, %185 ], [ %.2.i, %.preheader164.i ]
   switch i8 %184, label %185 [
     i8 0, label %.loopexit.i
     i8 32, label %.loopexit.i
@@ -2334,17 +2334,17 @@ RSTRING_PTR.exit136.i:                            ; preds = %180, %174
   ]
 
 185:                                              ; preds = %.preheader.i
-  %186 = getelementptr i8, ptr %.3.i, i64 1
+  %186 = getelementptr i8, ptr %.4.i, i64 1
   %.pre.i11 = load i8, ptr %186, align 1
   br label %.preheader.i, !llvm.loop !30
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.preheader.i, %.preheader.i
-  %187 = ptrtoint ptr %.3.i to i64
+  %187 = ptrtoint ptr %.4.i to i64
   %188 = ptrtoint ptr %.2.i to i64
   %189 = sub i64 %187, %188
   %190 = call i64 @rb_str_cat(i64 noundef %175, ptr noundef nonnull %.2.i, i64 noundef %189) #26
   %191 = call i64 @rb_str_cat(i64 noundef %175, ptr noundef nonnull @.str.191, i64 noundef 1) #26
-  %.pre181.i = load i8, ptr %.3.i, align 1
+  %.pre181.i = load i8, ptr %.4.i, align 1
   %.not122.i = icmp eq i8 %.pre181.i, 0
   br i1 %.not122.i, label %._crit_edge.i, label %.preheader164.i.backedge
 
@@ -4337,7 +4337,7 @@ fd_set_cloexec.exit.i:                            ; preds = %287, %285, %275
 
 303:                                              ; preds = %.loopexit.i, %.lr.ph271.i
   %.3270.i = phi i64 [ 0, %.lr.ph271.i ], [ %366, %.loopexit.i ]
-  %.0176269.i = phi i32 [ -1, %.lr.ph271.i ], [ %.2178.i, %.loopexit.i ]
+  %.0176269.i = phi i32 [ -1, %.lr.ph271.i ], [ %.1177.i, %.loopexit.i ]
   %304 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %167, i64 %.3270.i
   %305 = load i32, ptr %304, align 8
   %306 = icmp eq i32 %305, -1
@@ -4475,17 +4475,17 @@ fd_set_cloexec.exit232.i:                         ; preds = %350, %345, %342, %f
   br i1 %.not197.i, label %.loopexit.i, label %.lr.ph268.i, !llvm.loop !80
 
 .loopexit.i:                                      ; preds = %363, %fd_set_cloexec.exit232.i, %fd_clear_cloexec.exit.i, %303
-  %.2178.i = phi i32 [ %.0176269.i, %303 ], [ %.0176269.i, %fd_clear_cloexec.exit.i ], [ %.0176269.sink.i, %fd_set_cloexec.exit232.i ], [ %.0176269.sink.i, %363 ]
+  %.1177.i = phi i32 [ %.0176269.i, %303 ], [ %.0176269.i, %fd_clear_cloexec.exit.i ], [ %.0176269.sink.i, %fd_set_cloexec.exit232.i ], [ %.0176269.sink.i, %363 ]
   %366 = add nuw nsw i64 %.3270.i, 1
   %exitcond275.not.i = icmp eq i64 %366, %.0.i.i
   br i1 %exitcond275.not.i, label %._crit_edge272.i, label %303, !llvm.loop !81
 
 ._crit_edge272.i:                                 ; preds = %.loopexit.i
-  %.not194.i = icmp eq i32 %.2178.i, -1
+  %.not194.i = icmp eq i32 %.1177.i, -1
   br i1 %.not194.i, label %run_exec_dup2.exit, label %367
 
 367:                                              ; preds = %._crit_edge272.i
-  %368 = call fastcc i32 @close_unless_reserved(i32 noundef %.2178.i)
+  %368 = call fastcc i32 @close_unless_reserved(i32 noundef %.1177.i)
   %369 = icmp eq i32 %368, -1
   br i1 %369, label %370, label %run_exec_dup2.exit
 
@@ -5272,7 +5272,7 @@ after_fork_ruby.exit.i:                           ; preds = %disable_child_handl
   br i1 %.not.i, label %handle_fork_error.exit, label %handle_fork_error.exit.thread
 
 handle_fork_error.exit.thread:                    ; preds = %28, %25, %24, %31
-  %.sroa.2.2.ph = phi i32 [ 0, %25 ], [ 0, %28 ], [ 0, %24 ], [ %33, %31 ]
+  %.sroa.2.3.ph = phi i32 [ 0, %25 ], [ 0, %28 ], [ 0, %24 ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %rb_fork_ruby2.exit
 
@@ -5289,7 +5289,7 @@ handle_fork_error.exit:                           ; preds = %30, %31
   br i1 %39, label %.split23.us.i, label %.lr.ph
 
 rb_fork_ruby2.exit:                               ; preds = %after_fork_ruby.exit.i, %handle_fork_error.exit.thread, %after_fork_ruby.exit.thread.i
-  %.sroa.2.3 = phi i32 [ 0, %after_fork_ruby.exit.thread.i ], [ %.sroa.2.2.ph, %handle_fork_error.exit.thread ], [ 0, %after_fork_ruby.exit.i ]
+  %.sroa.2.1 = phi i32 [ 0, %after_fork_ruby.exit.thread.i ], [ %.sroa.2.3.ph, %handle_fork_error.exit.thread ], [ 0, %after_fork_ruby.exit.i ]
   %.0.i = phi i32 [ 0, %after_fork_ruby.exit.thread.i ], [ -1, %handle_fork_error.exit.thread ], [ %16, %after_fork_ruby.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
@@ -5297,7 +5297,7 @@ rb_fork_ruby2.exit:                               ; preds = %after_fork_ruby.exi
   br i1 %.not, label %41, label %40
 
 40:                                               ; preds = %rb_fork_ruby2.exit
-  store i32 %.sroa.2.3, ptr %0, align 4
+  store i32 %.sroa.2.1, ptr %0, align 4
   br label %41
 
 41:                                               ; preds = %40, %rb_fork_ruby2.exit
@@ -8617,7 +8617,7 @@ rb_check_arity.exit:                              ; preds = %3
   br label %12
 
 12:                                               ; preds = %10, %6, %rb_check_arity.exit
-  %.09 = phi i32 [ 0, %rb_check_arity.exit ], [ %11, %10 ], [ 0, %6 ]
+  %.1 = phi i32 [ 0, %rb_check_arity.exit ], [ %11, %10 ], [ 0, %6 ]
   %13 = load i64, ptr %1, align 8
   %14 = icmp eq i64 %13, 4
   br i1 %14, label %18, label %15
@@ -8628,7 +8628,7 @@ rb_check_arity.exit:                              ; preds = %3
   br label %18
 
 18:                                               ; preds = %15, %12, %rb_check_arity.exit
-  %.1 = phi i32 [ 0, %rb_check_arity.exit ], [ %.09, %12 ], [ %.09, %15 ]
+  %.09 = phi i32 [ 0, %rb_check_arity.exit ], [ %.1, %12 ], [ %.1, %15 ]
   %.0 = phi i1 [ true, %rb_check_arity.exit ], [ true, %12 ], [ %17, %15 ]
   %19 = load i64, ptr @rb_stdout, align 8
   %20 = tail call i64 @rb_io_flush(i64 noundef %19) #26
@@ -8654,7 +8654,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 29:                                               ; preds = %27, %25
   %.010.i = phi i32 [ 0, %25 ], [ %28, %27 ]
-  %.not12.i = icmp eq i32 %.1, 0
+  %.not12.i = icmp eq i32 %.09, 0
   br i1 %.not12.i, label %30, label %rb_daemon.exit
 
 30:                                               ; preds = %29
@@ -10937,7 +10937,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @check_exec_fds_1(ptr noca
 
 10:                                               ; preds = %.preheader, %74
   %.032 = phi i64 [ %75, %74 ], [ 0, %.preheader ]
-  %.0 = phi i32 [ %.2, %74 ], [ %2, %.preheader ]
+  %.1 = phi i32 [ %.3, %74 ], [ %2, %.preheader ]
   %11 = load i64, ptr %5, align 8
   %12 = and i64 %11, 8192
   %.not.i = icmp eq i64 %12, 0
@@ -11029,7 +11029,7 @@ RARRAY_AREF.exit42:                               ; preds = %48, %50
 55:                                               ; preds = %42, %39, %RARRAY_AREF.exit42
   %.sink = phi i64 [ %54, %RARRAY_AREF.exit42 ], [ 20, %39 ], [ -1, %42 ]
   %56 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %34, i64 noundef %.sink) #26
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0, i32 %32)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.1, i32 %32)
   %57 = load i64, ptr %8, align 8
   %58 = icmp eq i64 %57, %3
   br i1 %58, label %62, label %59
@@ -11064,13 +11064,13 @@ RARRAY_AREF.exit45:                               ; preds = %65, %67
   br label %74
 
 74:                                               ; preds = %RARRAY_AREF.exit45, %59
-  %.2 = phi i32 [ %spec.select, %59 ], [ %spec.select36, %RARRAY_AREF.exit45 ]
+  %.3 = phi i32 [ %spec.select, %59 ], [ %spec.select36, %RARRAY_AREF.exit45 ]
   %75 = add nuw nsw i64 %.032, 1
   br label %10, !llvm.loop !144
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %4
-  %.3 = phi i32 [ %2, %4 ], [ %.0, %rb_array_len.exit ], [ %.0, %rb_array_len.exit.thread ]
-  ret i32 %.3
+  %.0 = phi i32 [ %2, %4 ], [ %.1, %rb_array_len.exit ], [ %.1, %rb_array_len.exit.thread ]
+  ret i32 %.0
 }
 
 declare i64 @rb_hash_lookup(i64 noundef, i64 noundef) local_unnamed_addr #2

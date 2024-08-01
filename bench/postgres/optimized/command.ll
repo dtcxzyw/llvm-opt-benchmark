@@ -3008,13 +3008,13 @@ sub_0:                                            ; preds = %2
   br label %19
 
 19:                                               ; preds = %16, %14, %11, %.tail.thread
-  %.016 = phi ptr [ %0, %11 ], [ %0, %14 ], [ %3, %16 ], [ %0, %.tail.thread ]
-  %20 = call noalias ptr @fopen(ptr noundef nonnull %.016, ptr noundef nonnull @.str.17)
+  %.1 = phi ptr [ %0, %11 ], [ %0, %14 ], [ %3, %16 ], [ %0, %.tail.thread ]
+  %20 = call noalias ptr @fopen(ptr noundef nonnull %.1, ptr noundef nonnull @.str.17)
   %.not22 = icmp eq ptr %20, null
   br i1 %.not22, label %21, label %24
 
 21:                                               ; preds = %19
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %.016) #17
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %.1) #17
   br label %33
 
 22:                                               ; preds = %.tail
@@ -3023,10 +3023,10 @@ sub_0:                                            ; preds = %2
 
 24:                                               ; preds = %22, %19, %4
   %.017 = phi ptr [ %20, %19 ], [ %23, %22 ], [ %5, %4 ]
-  %.1 = phi ptr [ %.016, %19 ], [ @.str.19, %22 ], [ null, %4 ]
+  %.016 = phi ptr [ %.1, %19 ], [ @.str.19, %22 ], [ null, %4 ]
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 328), align 8
-  store ptr %.1, ptr getelementptr inbounds (i8, ptr @pset, i64 328), align 8
-  %.not23 = icmp eq ptr %.1, null
+  store ptr %.016, ptr getelementptr inbounds (i8, ptr @pset, i64 328), align 8
+  %.not23 = icmp eq ptr %.016, null
   %26 = zext i1 %.not23 to i32
   call void @pg_logging_config(i32 noundef %26) #17
   %27 = call i32 @MainLoop(ptr noundef %.017) #17
@@ -4507,11 +4507,11 @@ define internal fastcc range(i32 0, 6) i32 @exec_command_d(ptr noundef %0, i1 no
   br label %34
 
 34:                                               ; preds = %21, %32, %30, %28, %26, %24
-  %.0137.shrunk = phi i1 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ true, %21 ]
-  %.0136 = phi i32 [ 2, %32 ], [ 2, %30 ], [ 2, %28 ], [ 2, %26 ], [ 2, %24 ], [ 0, %21 ]
+  %.1138.shrunk = phi i1 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ true, %21 ]
+  %.1 = phi i32 [ 2, %32 ], [ 2, %30 ], [ 2, %28 ], [ 2, %26 ], [ 2, %24 ], [ 0, %21 ]
   tail call void @free(ptr noundef %.0135) #17
   tail call void @free(ptr noundef %5) #17
-  %cond.fr192 = freeze i1 %.0137.shrunk
+  %cond.fr192 = freeze i1 %.1138.shrunk
   br i1 %cond.fr192, label %ignore_slash_options.exit.thread, label %147
 
 35:                                               ; preds = %4
@@ -4858,7 +4858,7 @@ ignore_slash_options.exit:                        ; preds = %12
   br i1 %cond.fr, label %ignore_slash_options.exit.thread, label %147
 
 ignore_slash_options.exit.thread:                 ; preds = %.lr.ph.i, %142, %13, %34, %35, %37, %44, %42, %46, %.tail.thread, %52, %55, %60, %62, %64, %66, %68, %70, %72, %74, %79, %81, %83, %97, %95, %105, %103, %107, %109, %114, %116, %118, %120, %125, %127, %129, %131, %136, %134, %138, %140, %ignore_slash_options.exit.thread151, %ignore_slash_options.exit
-  %.2149 = phi i32 [ 2, %ignore_slash_options.exit ], [ 0, %ignore_slash_options.exit.thread151 ], [ 2, %140 ], [ 2, %138 ], [ 2, %134 ], [ 2, %136 ], [ 2, %131 ], [ 2, %129 ], [ 2, %127 ], [ 2, %125 ], [ 2, %120 ], [ 2, %118 ], [ 2, %116 ], [ 2, %114 ], [ 2, %109 ], [ 2, %107 ], [ 2, %103 ], [ 2, %105 ], [ 2, %95 ], [ 2, %97 ], [ 2, %83 ], [ 2, %81 ], [ 2, %79 ], [ 2, %74 ], [ 2, %72 ], [ 2, %70 ], [ 2, %68 ], [ 2, %66 ], [ 2, %64 ], [ 2, %62 ], [ 2, %60 ], [ 2, %55 ], [ 2, %52 ], [ 2, %.tail.thread ], [ 2, %46 ], [ 2, %42 ], [ 2, %44 ], [ 2, %37 ], [ 2, %35 ], [ %.0136, %34 ], [ 2, %13 ], [ 2, %142 ], [ 2, %.lr.ph.i ]
+  %.2149 = phi i32 [ 2, %ignore_slash_options.exit ], [ 0, %ignore_slash_options.exit.thread151 ], [ 2, %140 ], [ 2, %138 ], [ 2, %134 ], [ 2, %136 ], [ 2, %131 ], [ 2, %129 ], [ 2, %127 ], [ 2, %125 ], [ 2, %120 ], [ 2, %118 ], [ 2, %116 ], [ 2, %114 ], [ 2, %109 ], [ 2, %107 ], [ 2, %103 ], [ 2, %105 ], [ 2, %95 ], [ 2, %97 ], [ 2, %83 ], [ 2, %81 ], [ 2, %79 ], [ 2, %74 ], [ 2, %72 ], [ 2, %70 ], [ 2, %68 ], [ 2, %66 ], [ 2, %64 ], [ 2, %62 ], [ 2, %60 ], [ 2, %55 ], [ 2, %52 ], [ 2, %.tail.thread ], [ 2, %46 ], [ 2, %42 ], [ 2, %44 ], [ 2, %37 ], [ 2, %35 ], [ %.1, %34 ], [ 2, %13 ], [ 2, %142 ], [ 2, %.lr.ph.i ]
   br label %147
 
 147:                                              ; preds = %13, %34, %35, %37, %44, %42, %46, %.tail.thread, %52, %55, %60, %62, %64, %66, %68, %70, %72, %74, %79, %81, %83, %97, %95, %105, %103, %107, %109, %114, %116, %118, %120, %125, %127, %129, %131, %136, %134, %138, %140, %ignore_slash_options.exit, %ignore_slash_options.exit.thread
@@ -5136,7 +5136,7 @@ strip_lineno_from_objdesc.exit:                   ; preds = %60
 sub_0:                                            ; preds = %71, %74
   %77 = phi i8 [ %76, %74 ], [ %73, %71 ]
   %.068 = phi ptr [ %75, %74 ], [ %72, %71 ]
-  %.03567 = phi i32 [ %97, %74 ], [ %.0.i.ph52, %71 ]
+  %.13667 = phi i32 [ %97, %74 ], [ %.0.i.ph52, %71 ]
   %78 = zext i8 %77 to i32
   %79 = add nsw i32 %78, -65
   %.not76 = icmp eq i32 %79, 0
@@ -5173,15 +5173,15 @@ sub_2:                                            ; preds = %sub_1
   br i1 %95, label %.loopexit, label %96
 
 96:                                               ; preds = %93
-  %97 = add i32 %.03567, 1
+  %97 = add i32 %.13667, 1
   %98 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.068, i32 noundef 10) #18
   %.not44 = icmp eq ptr %98, null
   br i1 %.not44, label %.loopexit, label %74
 
 .loopexit:                                        ; preds = %74, %96, %93, %90, %.tail, %.thread, %71, %69
-  %.136.ph = phi i32 [ %.0.i.ph52, %69 ], [ %.0.i.ph52, %71 ], [ -1, %.thread ], [ %97, %74 ], [ %97, %96 ], [ %.03567, %93 ], [ %.03567, %90 ], [ %.03567, %.tail ]
+  %.035.ph = phi i32 [ %.0.i.ph52, %69 ], [ %.0.i.ph52, %71 ], [ -1, %.thread ], [ %97, %74 ], [ %97, %96 ], [ %.13667, %93 ], [ %.13667, %90 ], [ %.13667, %.tail ]
   store i8 0, ptr %6, align 1
-  %99 = call fastcc zeroext i1 @do_edit(ptr noundef null, ptr noundef nonnull %2, i32 noundef %.136.ph, i1 noundef zeroext true, ptr noundef nonnull %6)
+  %99 = call fastcc zeroext i1 @do_edit(ptr noundef null, ptr noundef nonnull %2, i32 noundef %.035.ph, i1 noundef zeroext true, ptr noundef nonnull %6)
   br i1 %99, label %100, label %105
 
 100:                                              ; preds = %.loopexit
@@ -5237,7 +5237,7 @@ define internal fastcc void @exec_command_echo(ptr noundef %0, i1 noundef zeroex
 
 .lr.ph:                                           ; preds = %11, %33
   %13 = phi ptr [ %34, %33 ], [ %12, %11 ]
-  %.01521 = phi i1 [ %.2, %33 ], [ true, %11 ]
+  %.01521 = phi i1 [ %.1, %33 ], [ true, %11 ]
   %.01620 = phi i8 [ %.117, %33 ], [ 0, %11 ]
   br i1 %.01521, label %14, label %.critedge
 
@@ -5284,7 +5284,7 @@ sub_2:                                            ; preds = %sub_1
 
 33:                                               ; preds = %.tail, %31
   %.117 = phi i8 [ %.01620, %31 ], [ 1, %.tail ]
-  %.2 = phi i1 [ false, %31 ], [ true, %.tail ]
+  %.1 = phi i1 [ false, %31 ], [ true, %.tail ]
   call void @free(ptr noundef nonnull %13) #17
   %34 = call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4, i1 noundef zeroext false) #17
   %.not = icmp eq ptr %34, null
@@ -5666,7 +5666,7 @@ define internal fastcc range(i32 1, 6) i32 @exec_command_g(ptr noundef %0, i1 no
 
 .split.us.i:                                      ; preds = %9, %36
   %.030.us.i = phi ptr [ null, %36 ], [ %10, %9 ]
-  %.028.us.i = phi i8 [ %.129.us.fr.i, %36 ], [ 1, %9 ]
+  %.028.us.i = phi i8 [ %.2.us.fr.i, %36 ], [ 1, %9 ]
   %.not.us.i = icmp eq ptr %.030.us.i, null
   br i1 %.not.us.i, label %11, label %13
 
@@ -5724,8 +5724,8 @@ define internal fastcc range(i32 1, 6) i32 @exec_command_g(ptr noundef %0, i1 no
 
 .thread.us.i:                                     ; preds = %29, %20, %13
   %.147.us.i = phi i1 [ %19, %29 ], [ true, %20 ], [ false, %13 ]
-  %.129.us.i = phi i8 [ %34, %29 ], [ %.028.us.i, %20 ], [ %.028.us.i, %13 ]
-  %.129.us.fr.i = freeze i8 %.129.us.i
+  %.2.us.i = phi i8 [ %34, %29 ], [ %.028.us.i, %20 ], [ %.028.us.i, %13 ]
+  %.2.us.fr.i = freeze i8 %.2.us.i
   br i1 %.not.us.i, label %35, label %36
 
 35:                                               ; preds = %.thread.us.i
@@ -5797,7 +5797,7 @@ define internal fastcc range(i32 1, 6) i32 @exec_command_g(ptr noundef %0, i1 no
   br i1 %.147.i, label %process_command_g_options.exit, label %.split.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %36
-  %53 = trunc i8 %.129.us.fr.i to i1
+  %53 = trunc i8 %.2.us.fr.i to i1
   br i1 %53, label %process_command_g_options.exit, label %54
 
 54:                                               ; preds = %.loopexit.i, %.thread78.i
@@ -6430,7 +6430,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_password(ptr noundef %0
   br label %37
 
 37:                                               ; preds = %22, %27, %35
-  %.1 = phi i32 [ 5, %27 ], [ %36, %35 ], [ 5, %22 ]
+  %.018 = phi i32 [ 5, %27 ], [ %36, %35 ], [ 5, %22 ]
   call void @free(ptr noundef %.020) #17
   call void @free(ptr noundef %17) #17
   call void @free(ptr noundef %.019) #17
@@ -6450,7 +6450,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_password(ptr noundef %0
   br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !7
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %38, %37, %8
-  %.0 = phi i32 [ 5, %8 ], [ %.1, %37 ], [ 2, %38 ], [ 2, %.lr.ph.i ]
+  %.0 = phi i32 [ 5, %8 ], [ %.018, %37 ], [ 2, %38 ], [ 2, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -7157,7 +7157,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_set(ptr noundef %0, i1 
   br label %22
 
 22:                                               ; preds = %._crit_edge, %5
-  %.1 = phi i32 [ %spec.select, %._crit_edge ], [ 2, %5 ]
+  %.019 = phi i32 [ %spec.select, %._crit_edge ], [ 2, %5 ]
   tail call void @free(ptr noundef %3) #17
   br label %ignore_slash_options.exit
 
@@ -7172,7 +7172,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_set(ptr noundef %0, i1 
   br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !7
 
 ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %23, %22
-  %.2 = phi i32 [ %.1, %22 ], [ 2, %23 ], [ 2, %.lr.ph.i ]
+  %.2 = phi i32 [ %.019, %22 ], [ 2, %23 ], [ 2, %.lr.ph.i ]
   ret i32 %.2
 }
 
@@ -7624,7 +7624,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_write(ptr noundef %0, i
   br label %.thread.thread
 
 24:                                               ; preds = %.thread50, %16
-  %.02353 = phi ptr [ %22, %.thread50 ], [ %20, %16 ]
+  %.12453 = phi ptr [ %22, %.thread50 ], [ %20, %16 ]
   %25 = getelementptr inbounds i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
   %.not33 = icmp eq i64 %26, 0
@@ -7643,14 +7643,14 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_write(ptr noundef %0, i
 .sink.split:                                      ; preds = %28, %24
   %.sink55 = phi ptr [ %3, %24 ], [ %4, %28 ]
   %31 = load ptr, ptr %.sink55, align 8
-  %32 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.02353, ptr noundef nonnull @.str.263, ptr noundef %31) #17
+  %32 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.12453, ptr noundef nonnull @.str.263, ptr noundef %31) #17
   br label %33
 
 33:                                               ; preds = %.sink.split, %27, %28
   br i1 %15, label %34, label %39
 
 34:                                               ; preds = %33
-  %35 = call i32 @pclose(ptr noundef nonnull %.02353)
+  %35 = call i32 @pclose(ptr noundef nonnull %.12453)
   %.not36 = icmp eq i32 %35, 0
   br i1 %.not36, label %.thread.thread47, label %36
 
@@ -7661,12 +7661,12 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_write(ptr noundef %0, i
   br label %.thread.thread47
 
 .thread.thread47:                                 ; preds = %34, %36
-  %.126 = phi i32 [ 5, %36 ], [ 2, %34 ]
+  %.2 = phi i32 [ 5, %36 ], [ 2, %34 ]
   call void @SetShellResultVariables(i32 noundef %35) #17
   br label %45
 
 39:                                               ; preds = %33
-  %40 = call i32 @fclose(ptr noundef nonnull %.02353)
+  %40 = call i32 @fclose(ptr noundef nonnull %.12453)
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %42, label %.thread.thread
 
@@ -7681,12 +7681,12 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_write(ptr noundef %0, i
   br label %45
 
 45:                                               ; preds = %.thread, %.thread.thread47
-  %.249 = phi i32 [ %.126, %.thread.thread47 ], [ 5, %.thread ]
+  %.12649 = phi i32 [ %.2, %.thread.thread47 ], [ 5, %.thread ]
   call void @restore_sigpipe_trap() #17
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %39, %42, %.thread.thread54, %11, %9, %45
-  %.244 = phi i32 [ %.249, %45 ], [ 5, %9 ], [ 5, %11 ], [ 5, %.thread.thread54 ], [ 2, %39 ], [ 5, %42 ]
+  %.12644 = phi i32 [ %.12649, %45 ], [ 5, %9 ], [ 5, %11 ], [ 5, %.thread.thread54 ], [ 2, %39 ], [ 5, %42 ]
   %46 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %46) #17
   br label %49
@@ -7697,7 +7697,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_write(ptr noundef %0, i
   br label %49
 
 49:                                               ; preds = %47, %.thread.thread
-  %.3 = phi i32 [ %.244, %.thread.thread ], [ 2, %47 ]
+  %.3 = phi i32 [ %.12644, %.thread.thread ], [ 2, %47 ]
   ret i32 %.3
 }
 
@@ -8566,7 +8566,7 @@ define internal fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.loopexit.loopexit.split.loop.exit27, %5
-  %.1 = phi i32 [ 0, %5 ], [ %10, %.loopexit.loopexit.split.loop.exit27 ], [ 100, %8 ]
+  %.017 = phi i32 [ 0, %5 ], [ %10, %.loopexit.loopexit.split.loop.exit27 ], [ 100, %8 ]
   %11 = getelementptr i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 102
@@ -8574,16 +8574,16 @@ define internal fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %.loopexit
   %15 = getelementptr i8, ptr %1, i64 2
-  %16 = call zeroext i1 @describeFunctions(ptr noundef %15, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %.1, i1 noundef zeroext %3, i1 noundef zeroext %4) #17
+  %16 = call zeroext i1 @describeFunctions(ptr noundef %15, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %.017, i1 noundef zeroext %3, i1 noundef zeroext %4) #17
   br label %19
 
 17:                                               ; preds = %.loopexit
-  %18 = call zeroext i1 @describeOperators(ptr noundef %2, ptr noundef nonnull %6, i32 noundef %.1, i1 noundef zeroext %3, i1 noundef zeroext %4) #17
+  %18 = call zeroext i1 @describeOperators(ptr noundef %2, ptr noundef nonnull %6, i32 noundef %.017, i1 noundef zeroext %3, i1 noundef zeroext %4) #17
   br label %19
 
 19:                                               ; preds = %17, %14
   %.0.in = phi i1 [ %16, %14 ], [ %18, %17 ]
-  %20 = add i32 %.1, -1
+  %20 = add i32 %.017, -1
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
@@ -9155,12 +9155,12 @@ define internal fastcc noundef zeroext i1 @get_create_object_cmd(i32 noundef %0,
   br label %53
 
 53:                                               ; preds = %52, %48
-  %.1 = phi i1 [ %cond, %48 ], [ false, %52 ]
+  %.3 = phi i1 [ %cond, %48 ], [ false, %52 ]
   tail call void @appendPQExpBufferChar(ptr noundef %2, i8 noundef signext 41) #17
   br label %54
 
 54:                                               ; preds = %53, %45, %42
-  %.2 = phi i1 [ %.1, %53 ], [ %cond, %45 ], [ %cond, %42 ]
+  %.2 = phi i1 [ %.3, %53 ], [ %cond, %45 ], [ %cond, %42 ]
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %2, ptr noundef nonnull @.str.221, ptr noundef %36) #17
   %55 = getelementptr inbounds i8, ptr %2, i64 8
   %56 = load i64, ptr %55, align 8
@@ -9196,7 +9196,7 @@ define internal fastcc noundef zeroext i1 @get_create_object_cmd(i32 noundef %0,
   br label %70
 
 70:                                               ; preds = %66, %67, %69, %32
-  %.3 = phi i1 [ %.2, %69 ], [ %.2, %67 ], [ %.2, %66 ], [ true, %32 ]
+  %.055 = phi i1 [ %.2, %69 ], [ %.2, %67 ], [ %.2, %66 ], [ true, %32 ]
   %71 = getelementptr inbounds i8, ptr %2, i64 8
   %72 = load i64, ptr %71, align 8
   %.not63 = icmp eq i64 %72, 0
@@ -9219,7 +9219,7 @@ define internal fastcc noundef zeroext i1 @get_create_object_cmd(i32 noundef %0,
   br label %80
 
 80:                                               ; preds = %70, %73, %78, %79
-  %.4 = phi i1 [ %.3, %78 ], [ %.3, %73 ], [ %.3, %70 ], [ false, %79 ]
+  %.4 = phi i1 [ %.055, %78 ], [ %.055, %73 ], [ %.055, %70 ], [ false, %79 ]
   tail call void @PQclear(ptr noundef %24) #17
   br label %echo_hidden_command.exit
 

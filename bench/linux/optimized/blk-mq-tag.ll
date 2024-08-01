@@ -731,7 +731,7 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr nocapture nounde
 
 .thread.split:                                    ; preds = %.thread, %.thread.splitthread-pre-split
   %18 = phi ptr [ %.pr, %.thread.splitthread-pre-split ], [ %16, %.thread ]
-  %.0 = phi i32 [ %.14, %.thread.splitthread-pre-split ], [ 0, %.thread ]
+  %.1 = phi i32 [ %.2, %.thread.splitthread-pre-split ], [ 0, %.thread ]
   %19 = phi i64 [ %200, %.thread.splitthread-pre-split ], [ 0, %.thread ]
   %20 = icmp eq ptr %18, null
   br i1 %20, label %bt_tags_for_each.exit15, label %21
@@ -769,7 +769,7 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr nocapture nounde
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.loopexit.us.i, %.lr.ph.i
-  %.1 = phi i32 [ %.0, %.lr.ph.i ], [ %.2, %.loopexit.us.i ]
+  %.4 = phi i32 [ %.1, %.lr.ph.i ], [ %.5, %.loopexit.us.i ]
   %40 = phi i32 [ %.pre16.i, %.lr.ph.i ], [ %69, %.loopexit.us.i ]
   %41 = phi i32 [ %39, %.lr.ph.i ], [ %72, %.loopexit.us.i ]
   %42 = phi i32 [ 0, %.lr.ph.i ], [ %71, %.loopexit.us.i ]
@@ -806,7 +806,7 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr nocapture nounde
   br i1 %67, label %.lr.ph11.us.i, label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %108, %63, %.lr.ph.split.us.i
-  %.2 = phi i32 [ %.1, %.lr.ph.split.us.i ], [ %.1, %63 ], [ %.5, %108 ]
+  %.5 = phi i32 [ %.4, %.lr.ph.split.us.i ], [ %.4, %63 ], [ %.7, %108 ]
   %68 = add i32 %42, 1
   %69 = load i32, ptr %36, align 8
   %70 = icmp ult i32 %68, %69
@@ -817,7 +817,7 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr nocapture nounde
   br i1 %73, label %.lr.ph.split.us.i, label %bt_tags_for_each.exit, !llvm.loop !22
 
 .lr.ph11.us.i:                                    ; preds = %63, %108
-  %.3 = phi i32 [ %.5, %108 ], [ %.1, %63 ]
+  %.6 = phi i32 [ %.7, %108 ], [ %.4, %63 ]
   %74 = phi i32 [ %112, %108 ], [ %66, %63 ]
   %75 = phi i64 [ %111, %108 ], [ %65, %63 ]
   %76 = load i32, ptr %35, align 4
@@ -873,7 +873,7 @@ blk_mq_tagset_count_completed_rqs.exit:           ; preds = %.thread6.us.us.i
   %105 = load volatile i32, ptr %102, align 8
   %106 = icmp eq i32 %105, 2
   %107 = zext i1 %106 to i32
-  %spec.select = add i32 %.3, %107
+  %spec.select = add i32 %.6, %107
   call void @blk_mq_put_rq_ref(ptr noundef nonnull %83) #9
   br label %108
 
@@ -882,7 +882,7 @@ blk_mq_tagset_count_completed_rqs.exit:           ; preds = %.thread6.us.us.i
   br label %108
 
 108:                                              ; preds = %blk_mq_tagset_count_completed_rqs.exit, %.critedge.i, %.thread6.us.us.thread.i
-  %.5 = phi i32 [ %.3, %.thread6.us.us.thread.i ], [ %.3, %.critedge.i ], [ %spec.select, %blk_mq_tagset_count_completed_rqs.exit ]
+  %.7 = phi i32 [ %.6, %.thread6.us.us.thread.i ], [ %.6, %.critedge.i ], [ %spec.select, %blk_mq_tagset_count_completed_rqs.exit ]
   %109 = add i64 %75, 1
   %110 = and i64 %109, 4294967295
   %111 = call i64 @_find_next_bit(ptr noundef nonnull %3, i64 noundef %64, i64 noundef %110) #9
@@ -891,7 +891,7 @@ blk_mq_tagset_count_completed_rqs.exit:           ; preds = %.thread6.us.us.i
   br i1 %113, label %.lr.ph11.us.i, label %.loopexit.us.i, !llvm.loop !27
 
 bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34, %29, %25
-  %.7 = phi i32 [ %.0, %25 ], [ %.0, %29 ], [ %.0, %34 ], [ %.2, %.loopexit.us.i ]
+  %.3 = phi i32 [ %.1, %25 ], [ %.1, %29 ], [ %.1, %34 ], [ %.5, %.loopexit.us.i ]
   %114 = getelementptr inbounds i8, ptr %23, i64 16
   %115 = getelementptr inbounds i8, ptr %23, i64 144
   %116 = load ptr, ptr %115, align 8
@@ -912,7 +912,7 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   br label %.lr.ph.split.us.i7
 
 .lr.ph.split.us.i7:                               ; preds = %.loopexit.us.i8, %.lr.ph.i5
-  %.8 = phi i32 [ %.7, %.lr.ph.i5 ], [ %.9, %.loopexit.us.i8 ]
+  %.9 = phi i32 [ %.3, %.lr.ph.i5 ], [ %.10, %.loopexit.us.i8 ]
   %124 = phi i32 [ %.pre16.i6, %.lr.ph.i5 ], [ %153, %.loopexit.us.i8 ]
   %125 = phi i32 [ %123, %.lr.ph.i5 ], [ %156, %.loopexit.us.i8 ]
   %126 = phi i32 [ 0, %.lr.ph.i5 ], [ %155, %.loopexit.us.i8 ]
@@ -949,7 +949,7 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   br i1 %151, label %.lr.ph11.us.i9, label %.loopexit.us.i8
 
 .loopexit.us.i8:                                  ; preds = %194, %147, %.lr.ph.split.us.i7
-  %.9 = phi i32 [ %.8, %.lr.ph.split.us.i7 ], [ %.8, %147 ], [ %.12, %194 ]
+  %.10 = phi i32 [ %.9, %.lr.ph.split.us.i7 ], [ %.9, %147 ], [ %.12, %194 ]
   %152 = add i32 %126, 1
   %153 = load i32, ptr %120, align 8
   %154 = icmp ult i32 %152, %153
@@ -960,7 +960,7 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   br i1 %157, label %.lr.ph.split.us.i7, label %bt_tags_for_each.exit15, !llvm.loop !22
 
 .lr.ph11.us.i9:                                   ; preds = %147, %194
-  %.10 = phi i32 [ %.12, %194 ], [ %.8, %147 ]
+  %.11 = phi i32 [ %.12, %194 ], [ %.9, %147 ]
   %158 = phi i32 [ %198, %194 ], [ %150, %147 ]
   %159 = phi i64 [ %197, %194 ], [ %149, %147 ]
   %160 = load i32, ptr %119, align 4
@@ -1018,7 +1018,7 @@ blk_mq_tagset_count_completed_rqs.exit16:         ; preds = %.thread6.us.us.i12
   %191 = load volatile i32, ptr %188, align 8
   %192 = icmp eq i32 %191, 2
   %193 = zext i1 %192 to i32
-  %spec.select21 = add i32 %.10, %193
+  %spec.select21 = add i32 %.11, %193
   call void @blk_mq_put_rq_ref(ptr noundef nonnull %169) #9
   br label %194
 
@@ -1027,7 +1027,7 @@ blk_mq_tagset_count_completed_rqs.exit16:         ; preds = %.thread6.us.us.i12
   br label %194
 
 194:                                              ; preds = %blk_mq_tagset_count_completed_rqs.exit16, %.critedge.i14, %.thread6.us.us.thread.i10
-  %.12 = phi i32 [ %.10, %.thread6.us.us.thread.i10 ], [ %.10, %.critedge.i14 ], [ %spec.select21, %blk_mq_tagset_count_completed_rqs.exit16 ]
+  %.12 = phi i32 [ %.11, %.thread6.us.us.thread.i10 ], [ %.11, %.critedge.i14 ], [ %spec.select21, %blk_mq_tagset_count_completed_rqs.exit16 ]
   %195 = add i64 %159, 1
   %196 = and i64 %195, 4294967295
   %197 = call i64 @_find_next_bit(ptr noundef nonnull %2, i64 noundef %148, i64 noundef %196) #9
@@ -1036,13 +1036,13 @@ blk_mq_tagset_count_completed_rqs.exit16:         ; preds = %.thread6.us.us.i12
   br i1 %199, label %.lr.ph11.us.i9, label %.loopexit.us.i8, !llvm.loop !27
 
 bt_tags_for_each.exit15:                          ; preds = %.loopexit.us.i8, %118, %bt_tags_for_each.exit, %21, %.thread.split
-  %.14 = phi i32 [ %.0, %.thread.split ], [ %.0, %21 ], [ %.7, %bt_tags_for_each.exit ], [ %.7, %118 ], [ %.9, %.loopexit.us.i8 ]
+  %.2 = phi i32 [ %.1, %.thread.split ], [ %.1, %21 ], [ %.3, %bt_tags_for_each.exit ], [ %.3, %118 ], [ %.10, %.loopexit.us.i8 ]
   %200 = add nuw nsw i64 %19, 1
   %201 = icmp eq i64 %200, %15
   br i1 %201, label %.split.us, label %.thread.splitthread-pre-split, !llvm.loop !28
 
 .split.us:                                        ; preds = %bt_tags_for_each.exit15
-  %202 = icmp eq i32 %.14, 0
+  %202 = icmp eq i32 %.2, 0
   br i1 %202, label %.thread19, label %203
 
 203:                                              ; preds = %.split.us

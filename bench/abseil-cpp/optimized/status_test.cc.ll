@@ -14419,18 +14419,18 @@ ehcleanup66:                                      ; preds = %arraydestroy.body61
 
 ehcleanup67:                                      ; preds = %ehcleanup66, %lpad46
   %.pn3.pn = phi { ptr, i32 } [ %.pn3, %ehcleanup66 ], [ %90, %lpad46 ]
-  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.element48, %ehcleanup66 ], [ %arrayinit.endOfInit.1, %lpad46 ]
-  %cleanup.isactive.1 = phi i1 [ %93, %ehcleanup66 ], [ false, %lpad46 ]
+  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.element48, %ehcleanup66 ], [ %arrayinit.endOfInit.1, %lpad46 ]
+  %cleanup.isactive.2 = phi i1 [ %93, %ehcleanup66 ], [ false, %lpad46 ]
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43) #20
   br label %ehcleanup69
 
 ehcleanup69:                                      ; preds = %lpad41, %ehcleanup67
   %.pn3.pn.pn = phi { ptr, i32 } [ %.pn3.pn, %ehcleanup67 ], [ %89, %lpad41 ]
-  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup67 ], [ %arrayinit.endOfInit.0, %lpad41 ]
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup67 ], [ false, %lpad41 ]
+  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.4, %ehcleanup67 ], [ %arrayinit.endOfInit.0, %lpad41 ]
+  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.2, %ehcleanup67 ], [ false, %lpad41 ]
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp37) #20
   %arraydestroy.isempty = icmp eq ptr %ref.tmp36, %arrayinit.endOfInit.3
-  %or.cond = select i1 %cleanup.isactive.2, i1 true, i1 %arraydestroy.isempty
+  %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %ehcleanup145, label %arraydestroy.body70
 
 arraydestroy.body70:                              ; preds = %ehcleanup69, %arraydestroy.body70

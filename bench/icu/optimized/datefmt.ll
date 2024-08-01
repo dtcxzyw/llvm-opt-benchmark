@@ -739,7 +739,7 @@ if.then13:                                        ; preds = %if.then10
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then4, %if.then13, %if.then10
-  %d.0 = phi double [ 0.000000e+00, %if.then13 ], [ %call.i, %if.then10 ], [ 0.000000e+00, %if.then4 ]
+  %d.1 = phi double [ 0.000000e+00, %if.then13 ], [ %call.i, %if.then10 ], [ 0.000000e+00, %if.then4 ]
   %vtable15 = load ptr, ptr %call, align 8
   %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 8
   %6 = load ptr, ptr %vfn16, align 8
@@ -747,8 +747,8 @@ delete.notnull:                                   ; preds = %if.then4, %if.then1
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then, %delete.notnull, %entry
-  %d.1 = phi double [ %d.0, %delete.notnull ], [ 0.000000e+00, %if.then ], [ 0.000000e+00, %entry ]
-  ret double %d.1
+  %d.0 = phi double [ %d.1, %delete.notnull ], [ 0.000000e+00, %if.then ], [ 0.000000e+00, %entry ]
+  ret double %d.0
 }
 
 declare void @_ZN6icu_758Calendar5clearEv(ptr noundef nonnull align 8 dereferenceable(618)) local_unnamed_addr #4
@@ -822,7 +822,7 @@ if.then13.i:                                      ; preds = %call.i.i.noexc
   br label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then13.i, %call.i.i.noexc, %.noexc3
-  %d.0.i = phi double [ 0.000000e+00, %if.then13.i ], [ %call.i.i4, %call.i.i.noexc ], [ 0.000000e+00, %.noexc3 ]
+  %d.1.i = phi double [ 0.000000e+00, %if.then13.i ], [ %call.i.i4, %call.i.i.noexc ], [ 0.000000e+00, %.noexc3 ]
   %vtable15.i = load ptr, ptr %call.i2, align 8
   %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 8
   %6 = load ptr, ptr %vfn16.i, align 8
@@ -832,13 +832,13 @@ delete.notnull.i:                                 ; preds = %if.then13.i, %call.
 
 invoke.cont:                                      ; preds = %delete.notnull.i, %call.i.noexc
   %7 = phi i32 [ %.pre, %delete.notnull.i ], [ %.pre6, %call.i.noexc ]
-  %d.1.i = phi double [ %d.0.i, %delete.notnull.i ], [ 0.000000e+00, %call.i.noexc ]
+  %d.0.i = phi double [ %d.1.i, %delete.notnull.i ], [ 0.000000e+00, %call.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
   %cmp = icmp eq i32 %7, 0
   br i1 %cmp, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %invoke.cont.thread, %invoke.cont
-  %d.1.i10 = phi double [ 0.000000e+00, %invoke.cont.thread ], [ %d.1.i, %invoke.cont ]
+  %d.0.i10 = phi double [ 0.000000e+00, %invoke.cont.thread ], [ %d.0.i, %invoke.cont ]
   store i32 1, ptr %status, align 4
   br label %if.end6
 
@@ -849,12 +849,12 @@ lpad:                                             ; preds = %if.then10.i, %.noex
   resume { ptr, i32 } %8
 
 if.end6:                                          ; preds = %if.then5, %invoke.cont
-  %d.1.i9 = phi double [ %d.1.i10, %if.then5 ], [ %d.1.i, %invoke.cont ]
+  %d.0.i9 = phi double [ %d.0.i10, %if.then5 ], [ %d.0.i, %invoke.cont ]
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pos) #13
   br label %return
 
 return:                                           ; preds = %entry, %if.end6
-  %retval.0 = phi double [ %d.1.i9, %if.end6 ], [ 0.000000e+00, %entry ]
+  %retval.0 = phi double [ %d.0.i9, %if.end6 ], [ 0.000000e+00, %entry ]
   ret double %retval.0
 }
 
@@ -905,7 +905,7 @@ if.then13.i:                                      ; preds = %if.then10.i
   br label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then13.i, %if.then10.i, %if.then4.i
-  %d.0.i = phi double [ 0.000000e+00, %if.then13.i ], [ %call.i.i, %if.then10.i ], [ 0.000000e+00, %if.then4.i ]
+  %d.1.i = phi double [ 0.000000e+00, %if.then13.i ], [ %call.i.i, %if.then10.i ], [ 0.000000e+00, %if.then4.i ]
   %vtable15.i = load ptr, ptr %call.i, align 8
   %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 8
   %6 = load ptr, ptr %vfn16.i, align 8
@@ -913,9 +913,9 @@ delete.notnull.i:                                 ; preds = %if.then13.i, %if.th
   br label %_ZNK6icu_7510DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit
 
 _ZNK6icu_7510DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit: ; preds = %entry, %if.then.i, %delete.notnull.i
-  %d.1.i = phi double [ %d.0.i, %delete.notnull.i ], [ 0.000000e+00, %if.then.i ], [ 0.000000e+00, %entry ]
+  %d.0.i = phi double [ %d.1.i, %delete.notnull.i ], [ 0.000000e+00, %if.then.i ], [ 0.000000e+00, %entry ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
-  call void @_ZN6icu_7511Formattable7setDateEd(ptr noundef nonnull align 8 dereferenceable(112) %result, double noundef %d.1.i)
+  call void @_ZN6icu_7511Formattable7setDateEd(ptr noundef nonnull align 8 dereferenceable(112) %result, double noundef %d.0.i)
   ret void
 }
 
@@ -1287,27 +1287,27 @@ if.end24:                                         ; preds = %invoke.cont18
           to label %cleanup unwind label %ehcleanup
 
 cleanup:                                          ; preds = %if.end24, %invoke.cont18, %invoke.cont12
-  %calendar.sroa.0.1 = phi ptr [ null, %if.end24 ], [ %calendarToAdopt, %invoke.cont18 ], [ %calendarToAdopt, %invoke.cont12 ]
-  %retval.0 = phi ptr [ %call19, %if.end24 ], [ null, %invoke.cont18 ], [ null, %invoke.cont12 ]
+  %calendar.sroa.0.3 = phi ptr [ null, %if.end24 ], [ %calendarToAdopt, %invoke.cont18 ], [ %calendarToAdopt, %invoke.cont12 ]
+  %retval.1 = phi ptr [ %call19, %if.end24 ], [ null, %invoke.cont18 ], [ null, %invoke.cont12 ]
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %localeWithCalendar) #13
   br label %cleanup30
 
 cleanup30:                                        ; preds = %entry, %cleanup
-  %calendar.sroa.0.2 = phi ptr [ %calendar.sroa.0.1, %cleanup ], [ %calendarToAdopt, %entry ]
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ]
-  %isnull.i = icmp eq ptr %calendar.sroa.0.2, null
+  %calendar.sroa.0.0 = phi ptr [ %calendar.sroa.0.3, %cleanup ], [ %calendarToAdopt, %entry ]
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ]
+  %isnull.i = icmp eq ptr %calendar.sroa.0.0, null
   br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %cleanup30
-  %vtable.i = load ptr, ptr %calendar.sroa.0.2, align 8
+  %vtable.i = load ptr, ptr %calendar.sroa.0.0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %6 = load ptr, ptr %vfn.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(618) %calendar.sroa.0.2) #13
+  call void %6(ptr noundef nonnull align 8 dereferenceable(618) %calendar.sroa.0.0) #13
   br label %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit: ; preds = %cleanup30.thread, %cleanup30, %delete.notnull.i
-  %retval.126 = phi ptr [ null, %cleanup30.thread ], [ %retval.1, %cleanup30 ], [ %retval.1, %delete.notnull.i ]
-  ret ptr %retval.126
+  %retval.026 = phi ptr [ null, %cleanup30.thread ], [ %retval.0, %cleanup30 ], [ %retval.0, %delete.notnull.i ]
+  ret ptr %retval.026
 
 ehcleanup.thread33:                               ; preds = %if.end17, %invoke.cont10, %invoke.cont6
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -1935,7 +1935,7 @@ delete.notnull.i13:                               ; preds = %cleanup.done
   br label %cleanup25
 
 cleanup25:                                        ; preds = %if.then.i, %new.cont, %if.end19, %delete.notnull.i13, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %delete.notnull.i13 ], [ %call3, %if.end19 ], [ null, %new.cont ], [ null, %if.then.i ]
+  %retval.0 = phi ptr [ null, %entry ], [ null, %delete.notnull.i13 ], [ %call3, %if.end19 ], [ null, %new.cont ], [ null, %if.then.i ]
   %isnull.i17 = icmp eq ptr %call, null
   br i1 %isnull.i17, label %_ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit, label %delete.notnull.i18
 
@@ -1947,7 +1947,7 @@ delete.notnull.i18:                               ; preds = %cleanup25
   br label %_ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit: ; preds = %cleanup25, %delete.notnull.i18
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup26:                                      ; preds = %cleanup.action14, %_ZN6icu_7512LocalPointerINS_18DateFmtBestPatternEED2Ev.exit
   %.pn7 = phi { ptr, i32 } [ %6, %_ZN6icu_7512LocalPointerINS_18DateFmtBestPatternEED2Ev.exit ], [ %.pn35, %cleanup.action14 ]

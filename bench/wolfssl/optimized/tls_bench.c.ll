@@ -531,7 +531,7 @@ if.end37:                                         ; preds = %while.end, %if.end3
   %argTestMaxSize.0341655 = phi i32 [ %argTestMaxSize.0341656, %if.end35 ], [ %argTestMaxSize.0372, %while.end ]
   %argTestPacketSize.0350653 = phi i32 [ %argTestPacketSize.0350654, %if.end35 ], [ %argTestPacketSize.0371, %while.end ]
   %argRuntimeSec.0368651 = phi i32 [ %argRuntimeSec.0368652, %if.end35 ], [ %argRuntimeSec.0369, %while.end ]
-  %ciphers.0 = phi ptr [ %call32, %if.end35 ], [ null, %while.end ]
+  %ciphers.1 = phi ptr [ %call32, %if.end35 ], [ null, %while.end ]
   %cipher.0 = phi ptr [ %call32, %if.end35 ], [ %argCipherList.0370, %while.end ]
   %tobool.not = icmp eq i32 %argDoGroups.0257674, 0
   br i1 %tobool.not, label %if.end43, label %if.then38
@@ -688,7 +688,7 @@ if.end63:                                         ; preds = %if.then57, %if.end5
   br label %land.rhs
 
 land.rhs:                                         ; preds = %if.end63, %for.end314
-  %ret.1498 = phi i32 [ 0, %if.end63 ], [ %ret.6, %for.end314 ]
+  %ret.2498 = phi i32 [ 0, %if.end63 ], [ %ret.4, %for.end314 ]
   %cipher.1497 = phi ptr [ %cipher.0, %if.end63 ], [ %add.ptr, %for.end314 ]
   %41 = load i8, ptr %cipher.1497, align 1
   %cmp69.not = icmp eq i8 %41, 0
@@ -730,7 +730,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv630 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next631, %for.inc312 ]
   %46 = phi ptr [ %43, %for.body.lr.ph ], [ %109, %for.inc312 ]
   %arrayidx82445 = phi ptr [ @groups, %for.body.lr.ph ], [ %arrayidx82, %for.inc312 ]
-  %ret.2444 = phi i32 [ %ret.1498, %for.body.lr.ph ], [ %ret.5, %for.inc312 ]
+  %ret.3444 = phi i32 [ %ret.2498, %for.body.lr.ph ], [ %ret.5, %for.inc312 ]
   %cmp87 = icmp eq i16 %45, 0
   %spec.select133 = select i1 %cmp87, ptr @.str.5, ptr %46
   br i1 %tobool.not, label %if.end101, label %land.lhs.true93
@@ -745,7 +745,7 @@ if.end101:                                        ; preds = %land.lhs.true93, %f
 
 for.body105:                                      ; preds = %if.end101, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end101 ]
-  %ret.3396 = phi i32 [ %ret.4, %for.inc ], [ %ret.2444, %if.end101 ]
+  %ret.6396 = phi i32 [ %ret.7, %for.inc ], [ %ret.3444, %if.end101 ]
   %arrayidx107 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv
   %48 = getelementptr inbounds i8, ptr %arrayidx107, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33368) %48, i8 0, i64 33360, i1 false)
@@ -859,7 +859,7 @@ if.then168:                                       ; preds = %do.body163
   unreachable
 
 for.inc:                                          ; preds = %if.then127, %do.body163, %if.then131
-  %ret.4 = phi i32 [ %call128, %if.then127 ], [ %call132, %if.then131 ], [ %ret.3396, %do.body163 ]
+  %ret.7 = phi i32 [ %call128, %if.then127 ], [ %call132, %if.then131 ], [ %ret.6396, %do.body163 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body105, !llvm.loop !7
@@ -920,7 +920,7 @@ if.then201:                                       ; preds = %land.lhs.true197.us
   unreachable
 
 do.end209:                                        ; preds = %for.cond180.do.cond_crit_edge.us, %for.end.thread, %do.body179.preheader
-  %ret.3.lcssa679681 = phi i32 [ %ret.4, %do.body179.preheader ], [ %ret.2444, %for.end.thread ], [ %ret.4, %for.cond180.do.cond_crit_edge.us ]
+  %ret.6.lcssa679681 = phi i32 [ %ret.7, %do.body179.preheader ], [ %ret.3444, %for.end.thread ], [ %ret.7, %for.cond180.do.cond_crit_edge.us ]
   br i1 %tobool78.not, label %if.end235, label %if.then211
 
 if.then211:                                       ; preds = %do.end209
@@ -929,7 +929,7 @@ if.then211:                                       ; preds = %do.end209
   br label %if.end214
 
 if.end214:                                        ; preds = %if.then211, %for.end
-  %ret.3.lcssa678 = phi i32 [ %ret.3.lcssa679681, %if.then211 ], [ %ret.4, %for.end ]
+  %ret.6.lcssa678 = phi i32 [ %ret.6.lcssa679681, %if.then211 ], [ %ret.7, %for.end ]
   br i1 %brmerge, label %if.end235, label %for.body220
 
 for.body220:                                      ; preds = %if.end214, %for.inc232
@@ -1013,50 +1013,50 @@ for.inc232:                                       ; preds = %if.end227, %if.then
   br i1 %exitcond624.not, label %if.end235, label %for.body220, !llvm.loop !9
 
 if.end235:                                        ; preds = %for.inc232, %if.end214, %do.end209
-  %ret.3.lcssa677 = phi i32 [ %ret.3.lcssa678, %if.end214 ], [ %ret.3.lcssa679681, %do.end209 ], [ %ret.3.lcssa678, %for.inc232 ]
+  %ret.6.lcssa677 = phi i32 [ %ret.6.lcssa678, %if.end214 ], [ %ret.6.lcssa679681, %do.end209 ], [ %ret.6.lcssa678, %for.inc232 ]
   br i1 %cmp103394, label %for.body239, label %for.end286
 
 for.body239:                                      ; preds = %if.end235, %for.body239
   %indvars.iv625 = phi i64 [ %indvars.iv.next626, %for.body239 ], [ 0, %if.end235 ]
-  %cli_comb.sroa.0.2416 = phi double [ %add251, %for.body239 ], [ 0.000000e+00, %if.end235 ]
-  %srv_comb.sroa.16.2415 = phi i32 [ %add276, %for.body239 ], [ 0, %if.end235 ]
-  %srv_comb.sroa.13.2414 = phi i32 [ %add262, %for.body239 ], [ 0, %if.end235 ]
-  %srv_comb.sroa.10.2413 = phi i32 [ %add248, %for.body239 ], [ 0, %if.end235 ]
-  %cli_comb.sroa.16.2408 = phi i32 [ %add272, %for.body239 ], [ 0, %if.end235 ]
-  %cli_comb.sroa.13.2407 = phi i32 [ %add258, %for.body239 ], [ 0, %if.end235 ]
-  %cli_comb.sroa.10.2406 = phi i32 [ %add244, %for.body239 ], [ 0, %if.end235 ]
-  %cli_comb.sroa.7.2405 = phi double [ %add279, %for.body239 ], [ 0.000000e+00, %if.end235 ]
+  %cli_comb.sroa.0.4416 = phi double [ %add251, %for.body239 ], [ 0.000000e+00, %if.end235 ]
+  %srv_comb.sroa.16.4415 = phi i32 [ %add276, %for.body239 ], [ 0, %if.end235 ]
+  %srv_comb.sroa.13.4414 = phi i32 [ %add262, %for.body239 ], [ 0, %if.end235 ]
+  %srv_comb.sroa.10.4413 = phi i32 [ %add248, %for.body239 ], [ 0, %if.end235 ]
+  %cli_comb.sroa.16.4408 = phi i32 [ %add272, %for.body239 ], [ 0, %if.end235 ]
+  %cli_comb.sroa.13.4407 = phi i32 [ %add258, %for.body239 ], [ 0, %if.end235 ]
+  %cli_comb.sroa.10.4406 = phi i32 [ %add244, %for.body239 ], [ 0, %if.end235 ]
+  %cli_comb.sroa.7.4405 = phi double [ %add279, %for.body239 ], [ 0.000000e+00, %if.end235 ]
   %80 = phi <4 x double> [ %96, %for.body239 ], [ zeroinitializer, %if.end235 ]
   %arrayidx241 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv625
   %client_stats242 = getelementptr inbounds i8, ptr %arrayidx241, i64 33328
   %connCount = getelementptr inbounds i8, ptr %arrayidx241, i64 33352
   %81 = load i32, ptr %connCount, align 8
-  %add244 = add nsw i32 %81, %cli_comb.sroa.10.2406
+  %add244 = add nsw i32 %81, %cli_comb.sroa.10.4406
   %server_stats245 = getelementptr inbounds i8, ptr %arrayidx241, i64 33288
   %connCount246 = getelementptr inbounds i8, ptr %arrayidx241, i64 33312
   %82 = load i32, ptr %connCount246, align 8
-  %add248 = add nsw i32 %82, %srv_comb.sroa.10.2413
+  %add248 = add nsw i32 %82, %srv_comb.sroa.10.4413
   %83 = load double, ptr %client_stats242, align 8
-  %add251 = fadd double %cli_comb.sroa.0.2416, %83
+  %add251 = fadd double %cli_comb.sroa.0.4416, %83
   %84 = load double, ptr %server_stats245, align 8
   %rxTotal = getelementptr inbounds i8, ptr %arrayidx241, i64 33356
   %85 = load i32, ptr %rxTotal, align 4
-  %add258 = add nsw i32 %85, %cli_comb.sroa.13.2407
+  %add258 = add nsw i32 %85, %cli_comb.sroa.13.4407
   %rxTotal260 = getelementptr inbounds i8, ptr %arrayidx241, i64 33316
   %86 = load i32, ptr %rxTotal260, align 4
-  %add262 = add nsw i32 %86, %srv_comb.sroa.13.2414
+  %add262 = add nsw i32 %86, %srv_comb.sroa.13.4414
   %rxTime = getelementptr inbounds i8, ptr %arrayidx241, i64 33336
   %87 = load double, ptr %rxTime, align 8
   %rxTime267 = getelementptr inbounds i8, ptr %arrayidx241, i64 33296
   %txTotal = getelementptr inbounds i8, ptr %arrayidx241, i64 33360
   %88 = load i32, ptr %txTotal, align 8
-  %add272 = add nsw i32 %88, %cli_comb.sroa.16.2408
+  %add272 = add nsw i32 %88, %cli_comb.sroa.16.4408
   %txTotal274 = getelementptr inbounds i8, ptr %arrayidx241, i64 33320
   %89 = load i32, ptr %txTotal274, align 8
-  %add276 = add nsw i32 %89, %srv_comb.sroa.16.2415
+  %add276 = add nsw i32 %89, %srv_comb.sroa.16.4415
   %txTime = getelementptr inbounds i8, ptr %arrayidx241, i64 33344
   %90 = load double, ptr %txTime, align 8
-  %add279 = fadd double %cli_comb.sroa.7.2405, %90
+  %add279 = fadd double %cli_comb.sroa.7.4405, %90
   %91 = load <2 x double>, ptr %rxTime267, align 8
   %92 = insertelement <4 x double> poison, double %84, i64 0
   %93 = insertelement <4 x double> %92, double %87, i64 1
@@ -1068,15 +1068,15 @@ for.body239:                                      ; preds = %if.end235, %for.bod
   br i1 %exitcond629.not, label %for.end286, label %for.body239, !llvm.loop !10
 
 for.end286:                                       ; preds = %for.body239, %for.end.thread, %if.end235
-  %ret.3.lcssa677685 = phi i32 [ %ret.3.lcssa677, %if.end235 ], [ %ret.2444, %for.end.thread ], [ %ret.3.lcssa677, %for.body239 ]
-  %cli_comb.sroa.7.2.lcssa = phi double [ 0.000000e+00, %if.end235 ], [ 0.000000e+00, %for.end.thread ], [ %add279, %for.body239 ]
-  %cli_comb.sroa.10.2.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add244, %for.body239 ]
-  %cli_comb.sroa.13.2.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add258, %for.body239 ]
-  %cli_comb.sroa.16.2.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add272, %for.body239 ]
-  %srv_comb.sroa.10.2.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add248, %for.body239 ]
-  %srv_comb.sroa.13.2.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add262, %for.body239 ]
-  %srv_comb.sroa.16.2.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add276, %for.body239 ]
-  %cli_comb.sroa.0.2.lcssa = phi double [ 0.000000e+00, %if.end235 ], [ 0.000000e+00, %for.end.thread ], [ %add251, %for.body239 ]
+  %ret.6.lcssa677685 = phi i32 [ %ret.6.lcssa677, %if.end235 ], [ %ret.3444, %for.end.thread ], [ %ret.6.lcssa677, %for.body239 ]
+  %cli_comb.sroa.7.4.lcssa = phi double [ 0.000000e+00, %if.end235 ], [ 0.000000e+00, %for.end.thread ], [ %add279, %for.body239 ]
+  %cli_comb.sroa.10.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add244, %for.body239 ]
+  %cli_comb.sroa.13.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add258, %for.body239 ]
+  %cli_comb.sroa.16.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add272, %for.body239 ]
+  %srv_comb.sroa.10.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add248, %for.body239 ]
+  %srv_comb.sroa.13.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add262, %for.body239 ]
+  %srv_comb.sroa.16.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add276, %for.body239 ]
+  %cli_comb.sroa.0.4.lcssa = phi double [ 0.000000e+00, %if.end235 ], [ 0.000000e+00, %for.end.thread ], [ %add251, %for.body239 ]
   %97 = phi <4 x double> [ zeroinitializer, %if.end235 ], [ zeroinitializer, %for.end.thread ], [ %96, %for.body239 ]
   %98 = load ptr, ptr @stderr, align 8
   br i1 %tobool78.not, label %if.else290, label %if.then288
@@ -1092,24 +1092,24 @@ if.else290:                                       ; preds = %for.end286
 if.then293:                                       ; preds = %if.else290
   %99 = load ptr, ptr %call48, align 8
   %100 = load ptr, ptr @stderr, align 8
-  %add20.i165 = add nsw i32 %srv_comb.sroa.16.2.lcssa, %srv_comb.sroa.13.2.lcssa
+  %add20.i165 = add nsw i32 %srv_comb.sroa.16.4.lcssa, %srv_comb.sroa.13.4.lcssa
   %101 = extractelement <4 x double> %97, i64 2
   %mul23.i168 = fmul double %101, 1.000000e+03
   %102 = extractelement <4 x double> %97, i64 3
   %mul25.i170 = fmul double %102, 1.000000e+03
-  %conv27.i171 = sitofp i32 %srv_comb.sroa.13.2.lcssa to double
+  %conv27.i171 = sitofp i32 %srv_comb.sroa.13.4.lcssa to double
   %div29.i172 = fdiv double %conv27.i171, %101
   %div30.i173 = fmul double %div29.i172, 0x3F50000000000000
   %div31.i174 = fmul double %div30.i173, 0x3F50000000000000
-  %conv33.i175 = sitofp i32 %srv_comb.sroa.16.2.lcssa to double
+  %conv33.i175 = sitofp i32 %srv_comb.sroa.16.4.lcssa to double
   %div35.i176 = fdiv double %conv33.i175, %102
   %div36.i177 = fmul double %div35.i176, 0x3F50000000000000
   %div37.i178 = fmul double %div36.i177, 0x3F50000000000000
   %103 = extractelement <4 x double> %97, i64 0
   %mul39.i179 = fmul double %103, 1.000000e+03
-  %conv43.i180 = sitofp i32 %srv_comb.sroa.10.2.lcssa to double
+  %conv43.i180 = sitofp i32 %srv_comb.sroa.10.4.lcssa to double
   %div44.i181 = fdiv double %mul39.i179, %conv43.i180
-  %call45.i182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.17, ptr noundef %99, ptr noundef nonnull %spec.select133, i32 noundef %add20.i165, i32 noundef %srv_comb.sroa.10.2.lcssa, double noundef %mul23.i168, double noundef %mul25.i170, double noundef %div31.i174, double noundef %div37.i178, double noundef %mul39.i179, double noundef %div44.i181) #18
+  %call45.i182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.17, ptr noundef %99, ptr noundef nonnull %spec.select133, i32 noundef %add20.i165, i32 noundef %srv_comb.sroa.10.4.lcssa, double noundef %mul23.i168, double noundef %mul25.i170, double noundef %div31.i174, double noundef %div37.i178, double noundef %mul39.i179, double noundef %div44.i181) #18
   br label %if.end296
 
 if.end296:                                        ; preds = %if.then293, %if.else290
@@ -1118,22 +1118,22 @@ if.end296:                                        ; preds = %if.then293, %if.els
 if.then298:                                       ; preds = %if.end296
   %104 = load ptr, ptr %call48, align 8
   %105 = load ptr, ptr @stderr, align 8
-  %add20.i185 = add nsw i32 %cli_comb.sroa.16.2.lcssa, %cli_comb.sroa.13.2.lcssa
+  %add20.i185 = add nsw i32 %cli_comb.sroa.16.4.lcssa, %cli_comb.sroa.13.4.lcssa
   %106 = extractelement <4 x double> %97, i64 1
   %mul23.i188 = fmul double %106, 1.000000e+03
-  %mul25.i190 = fmul double %cli_comb.sroa.7.2.lcssa, 1.000000e+03
-  %conv27.i191 = sitofp i32 %cli_comb.sroa.13.2.lcssa to double
+  %mul25.i190 = fmul double %cli_comb.sroa.7.4.lcssa, 1.000000e+03
+  %conv27.i191 = sitofp i32 %cli_comb.sroa.13.4.lcssa to double
   %div29.i192 = fdiv double %conv27.i191, %106
   %div30.i193 = fmul double %div29.i192, 0x3F50000000000000
   %div31.i194 = fmul double %div30.i193, 0x3F50000000000000
-  %conv33.i195 = sitofp i32 %cli_comb.sroa.16.2.lcssa to double
-  %div35.i196 = fdiv double %conv33.i195, %cli_comb.sroa.7.2.lcssa
+  %conv33.i195 = sitofp i32 %cli_comb.sroa.16.4.lcssa to double
+  %div35.i196 = fdiv double %conv33.i195, %cli_comb.sroa.7.4.lcssa
   %div36.i197 = fmul double %div35.i196, 0x3F50000000000000
   %div37.i198 = fmul double %div36.i197, 0x3F50000000000000
-  %mul39.i199 = fmul double %cli_comb.sroa.0.2.lcssa, 1.000000e+03
-  %conv43.i200 = sitofp i32 %cli_comb.sroa.10.2.lcssa to double
+  %mul39.i199 = fmul double %cli_comb.sroa.0.4.lcssa, 1.000000e+03
+  %conv43.i200 = sitofp i32 %cli_comb.sroa.10.4.lcssa to double
   %div44.i201 = fdiv double %mul39.i199, %conv43.i200
-  %call45.i202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.18, ptr noundef %104, ptr noundef nonnull %spec.select133, i32 noundef %add20.i185, i32 noundef %cli_comb.sroa.10.2.lcssa, double noundef %mul23.i188, double noundef %mul25.i190, double noundef %div31.i194, double noundef %div37.i198, double noundef %mul39.i199, double noundef %div44.i201) #18
+  %call45.i202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.18, ptr noundef %104, ptr noundef nonnull %spec.select133, i32 noundef %add20.i185, i32 noundef %cli_comb.sroa.10.4.lcssa, double noundef %mul23.i188, double noundef %mul25.i190, double noundef %div31.i194, double noundef %div37.i198, double noundef %mul39.i199, double noundef %div44.i201) #18
   br label %if.end302
 
 if.end302:                                        ; preds = %if.end296, %if.then298, %if.then288
@@ -1146,7 +1146,7 @@ lor.lhs.false304:                                 ; preds = %if.end302
 
 for.inc312:                                       ; preds = %lor.lhs.false304, %land.lhs.true93
   %108 = phi i16 [ %107, %lor.lhs.false304 ], [ %45, %land.lhs.true93 ]
-  %ret.5 = phi i32 [ %ret.3.lcssa677685, %lor.lhs.false304 ], [ %ret.2444, %land.lhs.true93 ]
+  %ret.5 = phi i32 [ %ret.6.lcssa677685, %lor.lhs.false304 ], [ %ret.3444, %land.lhs.true93 ]
   %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
   %arrayidx82 = getelementptr inbounds [22 x %struct.group_info], ptr @groups, i64 0, i64 %indvars.iv.next631
   %name = getelementptr inbounds i8, ptr %arrayidx82, i64 8
@@ -1155,16 +1155,16 @@ for.inc312:                                       ; preds = %lor.lhs.false304, %
   br i1 %cmp83.not, label %for.end314, label %for.body, !llvm.loop !11
 
 for.end314:                                       ; preds = %for.inc312, %lor.lhs.false304, %if.end302, %if.end81
-  %ret.6 = phi i32 [ %ret.1498, %if.end81 ], [ %ret.3.lcssa677685, %if.end302 ], [ %ret.3.lcssa677685, %lor.lhs.false304 ], [ %ret.5, %for.inc312 ]
+  %ret.4 = phi i32 [ %ret.2498, %if.end81 ], [ %ret.6.lcssa677685, %if.end302 ], [ %ret.6.lcssa677685, %lor.lhs.false304 ], [ %ret.5, %for.inc312 ]
   %add.ptr = getelementptr inbounds i8, ptr %call72, i64 1
   br i1 %cmp73.not, label %exit, label %land.rhs
 
 exit:                                             ; preds = %land.rhs, %for.end314, %if.end43, %if.then57, %SetupSupportedGroups.exit, %if.else, %sw.default, %if.then18, %ShowCiphers.exit, %sw.bb
   %argServerOnly.0304 = phi i32 [ %argServerOnly.0376, %sw.default ], [ %argServerOnly.0376, %if.then18 ], [ %argServerOnly.0376, %ShowCiphers.exit ], [ %argServerOnly.0376, %sw.bb ], [ %argServerOnly.0303664, %SetupSupportedGroups.exit ], [ %argServerOnly.0303664, %if.then57 ], [ %argServerOnly.0303665, %if.else ], [ %argServerOnly.0303664, %if.end43 ], [ %argServerOnly.0303664, %for.end314 ], [ %argServerOnly.0303664, %land.rhs ]
   %argLocalMem.0267 = phi i32 [ %argLocalMem.0380, %sw.default ], [ %argLocalMem.0380, %if.then18 ], [ %argLocalMem.0380, %ShowCiphers.exit ], [ %argLocalMem.0380, %sw.bb ], [ %argLocalMem.0266672, %SetupSupportedGroups.exit ], [ 0, %if.then57 ], [ %argLocalMem.0266673, %if.else ], [ %argLocalMem.0266672, %if.end43 ], [ %argLocalMem.0266672, %for.end314 ], [ %argLocalMem.0266672, %land.rhs ]
-  %ciphers.1 = phi ptr [ null, %sw.default ], [ null, %if.then18 ], [ null, %ShowCiphers.exit ], [ null, %sw.bb ], [ %ciphers.0, %SetupSupportedGroups.exit ], [ %ciphers.0, %if.then57 ], [ null, %if.else ], [ %ciphers.0, %if.end43 ], [ %ciphers.0, %for.end314 ], [ %ciphers.0, %land.rhs ]
+  %ciphers.0 = phi ptr [ null, %sw.default ], [ null, %if.then18 ], [ null, %ShowCiphers.exit ], [ null, %sw.bb ], [ %ciphers.1, %SetupSupportedGroups.exit ], [ %ciphers.1, %if.then57 ], [ null, %if.else ], [ %ciphers.1, %if.end43 ], [ %ciphers.1, %for.end314 ], [ %ciphers.1, %land.rhs ]
   %theadInfo.0 = phi ptr [ null, %sw.default ], [ null, %if.then18 ], [ null, %ShowCiphers.exit ], [ null, %sw.bb ], [ null, %SetupSupportedGroups.exit ], [ %call48, %if.then57 ], [ null, %if.else ], [ null, %if.end43 ], [ %call48, %for.end314 ], [ %call48, %land.rhs ]
-  %ret.7 = phi i32 [ 2, %sw.default ], [ 2, %if.then18 ], [ 0, %ShowCiphers.exit ], [ 0, %sw.bb ], [ 0, %SetupSupportedGroups.exit ], [ -1, %if.then57 ], [ 0, %if.else ], [ -125, %if.end43 ], [ %ret.1498, %land.rhs ], [ %ret.6, %for.end314 ]
+  %ret.0 = phi i32 [ 2, %sw.default ], [ 2, %if.then18 ], [ 0, %ShowCiphers.exit ], [ 0, %sw.bb ], [ 0, %SetupSupportedGroups.exit ], [ -1, %if.then57 ], [ 0, %if.else ], [ -125, %if.end43 ], [ %ret.2498, %land.rhs ], [ %ret.4, %for.end314 ]
   %tobool322 = icmp eq i32 %argServerOnly.0304, 0
   %tobool324 = icmp ne i32 %argLocalMem.0267, 0
   %or.cond3 = select i1 %tobool322, i1 true, i1 %tobool324
@@ -1190,11 +1190,11 @@ if.then329:                                       ; preds = %if.end326
   br label %if.end330
 
 if.end330:                                        ; preds = %if.then329, %if.end326
-  %tobool332.not = icmp eq ptr %ciphers.1, null
+  %tobool332.not = icmp eq ptr %ciphers.0, null
   br i1 %tobool332.not, label %if.end334, label %if.then333
 
 if.then333:                                       ; preds = %if.end330
-  call void @wolfSSL_Free(ptr noundef nonnull %ciphers.1) #16
+  call void @wolfSSL_Free(ptr noundef nonnull %ciphers.0) #16
   br label %if.end334
 
 if.end334:                                        ; preds = %if.then333, %if.end330
@@ -1202,11 +1202,11 @@ if.end334:                                        ; preds = %if.then333, %if.end
 
 if.then336:                                       ; preds = %if.end334
   %return_code337 = getelementptr inbounds i8, ptr %args, i64 16
-  store i32 %ret.7, ptr %return_code337, align 8
+  store i32 %ret.0, ptr %return_code337, align 8
   br label %if.end338
 
 if.end338:                                        ; preds = %if.then336, %if.end334
-  ret i32 %ret.7
+  ret i32 %ret.0
 }
 
 declare i32 @wolfSSL_Init() local_unnamed_addr #1
@@ -1404,8 +1404,8 @@ if.else16:                                        ; preds = %if.end10
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else16, %if.then14
-  %ret.0 = phi i32 [ %call15, %if.then14 ], [ %call17, %if.else16 ]
-  %cmp19.not = icmp eq i32 %ret.0, 1
+  %ret.1 = phi i32 [ %call15, %if.then14 ], [ %call17, %if.else16 ]
+  %cmp19.not = icmp eq i32 %ret.1, 1
   br i1 %cmp19.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %if.end18
@@ -1498,7 +1498,7 @@ if.then49:                                        ; preds = %if.end43
 
 while.body:                                       ; preds = %while.body.lr.ph, %CloseAndCleanupSocket.exit
   %haveShownPeerInfo.0295 = phi i32 [ 0, %while.body.lr.ph ], [ %haveShownPeerInfo.1, %CloseAndCleanupSocket.exit ]
-  %ret.1294 = phi i32 [ 1, %while.body.lr.ph ], [ 0, %CloseAndCleanupSocket.exit ]
+  %ret.2294 = phi i32 [ 1, %while.body.lr.ph ], [ 0, %CloseAndCleanupSocket.exit ]
   %23 = load i32, ptr %packetSize, align 4
   %24 = load i32, ptr %useLocalMem, align 4
   %tobool54.not = icmp eq i32 %24, 0
@@ -1631,7 +1631,7 @@ SetupSocketAndConnect.exit:                       ; preds = %if.end42.i, %if.the
   br label %if.end61
 
 if.end61:                                         ; preds = %SetupSocketAndConnect.exit, %while.body
-  %ret.2 = phi i32 [ %ret.1294, %while.body ], [ 0, %SetupSocketAndConnect.exit ]
+  %ret.3 = phi i32 [ %ret.2294, %while.body ], [ 0, %SetupSocketAndConnect.exit ]
   %call62 = call ptr @wolfSSL_new(ptr noundef nonnull %call5) #16
   %cmp63 = icmp eq ptr %call62, null
   br i1 %cmp63, label %if.then65, label %if.end67
@@ -1984,29 +1984,29 @@ CloseAndCleanupSocket.exit:                       ; preds = %while.end, %if.then
   br i1 %tobool52.not, label %while.body, label %if.end184, !llvm.loop !14
 
 exit:                                             ; preds = %if.then169, %if.then159, %if.then143, %if.then113, %if.then85, %if.then76, %if.then34, %if.then28, %if.then21
-  %ret.4 = phi i32 [ %ret.0, %if.then21 ], [ %call25, %if.then28 ], [ %call31, %if.then34 ], [ %call73, %if.then76 ], [ %call87, %if.then85 ], [ %call115, %if.then113 ], [ %call145, %if.then143 ], [ %call161, %if.then159 ], [ %call171, %if.then169 ]
-  %cli_ssl.1 = phi ptr [ null, %if.then21 ], [ null, %if.then28 ], [ null, %if.then34 ], [ %call62, %if.then76 ], [ %call62, %if.then85 ], [ %call62, %if.then113 ], [ %call62, %if.then143 ], [ %call62, %if.then159 ], [ %call62, %if.then169 ]
+  %ret.0 = phi i32 [ %ret.1, %if.then21 ], [ %call25, %if.then28 ], [ %call31, %if.then34 ], [ %call73, %if.then76 ], [ %call87, %if.then85 ], [ %call115, %if.then113 ], [ %call145, %if.then143 ], [ %call161, %if.then159 ], [ %call171, %if.then169 ]
+  %cli_ssl.0 = phi ptr [ null, %if.then21 ], [ null, %if.then28 ], [ null, %if.then34 ], [ %call62, %if.then76 ], [ %call62, %if.then85 ], [ %call62, %if.then113 ], [ %call62, %if.then143 ], [ %call62, %if.then159 ], [ %call62, %if.then169 ]
   %readBuf.0 = phi ptr [ null, %if.then21 ], [ null, %if.then28 ], [ null, %if.then34 ], [ %call46, %if.then76 ], [ %call46, %if.then85 ], [ %call46, %if.then113 ], [ %call46, %if.then143 ], [ %call46, %if.then159 ], [ %call46, %if.then169 ]
   %writeBuf.0 = phi ptr [ null, %if.then21 ], [ null, %if.then28 ], [ null, %if.then34 ], [ %call38, %if.then76 ], [ %call38, %if.then85 ], [ %call38, %if.then113 ], [ %call38, %if.then143 ], [ %call38, %if.then159 ], [ %call38, %if.then169 ]
-  %or.cond1 = icmp ugt i32 %ret.4, 1
+  %or.cond1 = icmp ugt i32 %ret.0, 1
   br i1 %or.cond1, label %if.then180, label %if.end184
 
 if.then180:                                       ; preds = %SetupSocketAndConnect.exit.thread, %if.then49, %if.then41, %if.then8, %exit
   %writeBuf.0223 = phi ptr [ %writeBuf.0, %exit ], [ %call38, %SetupSocketAndConnect.exit.thread ], [ %call38, %if.then49 ], [ null, %if.then41 ], [ null, %if.then8 ]
   %readBuf.0221 = phi ptr [ %readBuf.0, %exit ], [ %call46, %SetupSocketAndConnect.exit.thread ], [ null, %if.then49 ], [ null, %if.then41 ], [ null, %if.then8 ]
-  %cli_ssl.1219 = phi ptr [ %cli_ssl.1, %exit ], [ null, %SetupSocketAndConnect.exit.thread ], [ null, %if.then49 ], [ null, %if.then41 ], [ null, %if.then8 ]
-  %ret.4217 = phi i32 [ %ret.4, %exit ], [ -1, %SetupSocketAndConnect.exit.thread ], [ -125, %if.then49 ], [ -125, %if.then41 ], [ -125, %if.then8 ]
+  %cli_ssl.0219 = phi ptr [ %cli_ssl.0, %exit ], [ null, %SetupSocketAndConnect.exit.thread ], [ null, %if.then49 ], [ null, %if.then41 ], [ null, %if.then8 ]
+  %ret.0217 = phi i32 [ %ret.0, %exit ], [ -1, %SetupSocketAndConnect.exit.thread ], [ -125, %if.then49 ], [ -125, %if.then41 ], [ -125, %if.then8 ]
   %107 = load ptr, ptr @stderr, align 8
-  %conv181 = sext i32 %ret.4217 to i64
+  %conv181 = sext i32 %ret.0217 to i64
   %call182 = call ptr @wolfSSL_ERR_reason_error_string(i64 noundef %conv181) #16
-  %call183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.92, i32 noundef %ret.4217, ptr noundef %call182) #18
+  %call183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.92, i32 noundef %ret.0217, ptr noundef %call182) #18
   br label %if.end184
 
 if.end184:                                        ; preds = %CloseAndCleanupSocket.exit, %while.cond.preheader, %if.then65, %if.then180, %exit
   %writeBuf.0222 = phi ptr [ %writeBuf.0223, %if.then180 ], [ %writeBuf.0, %exit ], [ %call38, %if.then65 ], [ %call38, %while.cond.preheader ], [ %call38, %CloseAndCleanupSocket.exit ]
   %readBuf.0220 = phi ptr [ %readBuf.0221, %if.then180 ], [ %readBuf.0, %exit ], [ %call46, %if.then65 ], [ %call46, %while.cond.preheader ], [ %call46, %CloseAndCleanupSocket.exit ]
-  %cli_ssl.1218 = phi ptr [ %cli_ssl.1219, %if.then180 ], [ %cli_ssl.1, %exit ], [ null, %if.then65 ], [ null, %while.cond.preheader ], [ null, %CloseAndCleanupSocket.exit ]
-  %ret.4216 = phi i32 [ %ret.4217, %if.then180 ], [ %ret.4, %exit ], [ %ret.2, %if.then65 ], [ 1, %while.cond.preheader ], [ 0, %CloseAndCleanupSocket.exit ]
+  %cli_ssl.0218 = phi ptr [ %cli_ssl.0219, %if.then180 ], [ %cli_ssl.0, %exit ], [ null, %if.then65 ], [ null, %while.cond.preheader ], [ null, %CloseAndCleanupSocket.exit ]
+  %ret.0216 = phi i32 [ %ret.0217, %if.then180 ], [ %ret.0, %exit ], [ %ret.3, %if.then65 ], [ 1, %while.cond.preheader ], [ 0, %CloseAndCleanupSocket.exit ]
   %sockFd186 = getelementptr inbounds i8, ptr %info, i64 56
   %108 = load i32, ptr %sockFd186, align 4
   %cmp.not.i204 = icmp eq i32 %108, -1
@@ -2018,11 +2018,11 @@ if.then.i205:                                     ; preds = %if.end184
   br label %CloseAndCleanupSocket.exit208
 
 CloseAndCleanupSocket.exit208:                    ; preds = %if.end184, %if.then.i205
-  %cmp187.not = icmp eq ptr %cli_ssl.1218, null
+  %cmp187.not = icmp eq ptr %cli_ssl.0218, null
   br i1 %cmp187.not, label %if.end190, label %if.then189
 
 if.then189:                                       ; preds = %CloseAndCleanupSocket.exit208
-  call void @wolfSSL_free(ptr noundef nonnull %cli_ssl.1218) #16
+  call void @wolfSSL_free(ptr noundef nonnull %cli_ssl.0218) #16
   br label %if.end190
 
 if.end190:                                        ; preds = %if.then189, %CloseAndCleanupSocket.exit208
@@ -2050,8 +2050,8 @@ if.then200:                                       ; preds = %if.end197
 
 if.end201:                                        ; preds = %if.then200, %if.end197
   %ret203 = getelementptr inbounds i8, ptr %info, i64 60
-  store i32 %ret.4216, ptr %ret203, align 4
-  ret i32 %ret.4216
+  store i32 %ret.0216, ptr %ret203, align 4
+  ret i32 %ret.0216
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2104,8 +2104,8 @@ if.else15:                                        ; preds = %if.end9
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else15, %if.then13
-  %ret.0 = phi i32 [ %call14, %if.then13 ], [ %call16, %if.else15 ]
-  %cmp18.not = icmp eq i32 %ret.0, 1
+  %ret.1 = phi i32 [ %call14, %if.then13 ], [ %call16, %if.else15 ]
+  %cmp18.not = icmp eq i32 %ret.1, 1
   br i1 %cmp18.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
@@ -2128,8 +2128,8 @@ if.else28:                                        ; preds = %if.end22
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else28, %if.then26
-  %ret.1 = phi i32 [ %call27, %if.then26 ], [ %call29, %if.else28 ]
-  %cmp31.not = icmp eq i32 %ret.1, 1
+  %ret.2 = phi i32 [ %call27, %if.then26 ], [ %call29, %if.else28 ]
+  %cmp31.not = icmp eq i32 %ret.2, 1
   br i1 %cmp31.not, label %if.end35, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
@@ -2515,26 +2515,26 @@ CloseAndCleanupSocket.exit:                       ; preds = %while.end, %if.then
   br i1 %tobool56.not, label %while.body, label %if.end162, !llvm.loop !16
 
 exit:                                             ; preds = %if.else130, %if.else92, %if.then146, %if.then79, %if.then46, %if.then40, %if.then33, %if.then20
-  %srv_ssl.1 = phi ptr [ null, %if.then20 ], [ null, %if.then33 ], [ null, %if.then40 ], [ null, %if.then46 ], [ %call65, %if.then79 ], [ %call65, %if.else92 ], [ %call65, %if.else130 ], [ %call65, %if.then146 ]
-  %ret.5 = phi i32 [ %ret.0, %if.then20 ], [ %ret.1, %if.then33 ], [ %call37, %if.then40 ], [ %call43, %if.then46 ], [ %call76, %if.then79 ], [ %call94, %if.else92 ], [ %call132, %if.else130 ], [ %call148, %if.then146 ]
+  %srv_ssl.0 = phi ptr [ null, %if.then20 ], [ null, %if.then33 ], [ null, %if.then40 ], [ null, %if.then46 ], [ %call65, %if.then79 ], [ %call65, %if.else92 ], [ %call65, %if.else130 ], [ %call65, %if.then146 ]
+  %ret.0 = phi i32 [ %ret.1, %if.then20 ], [ %ret.2, %if.then33 ], [ %call37, %if.then40 ], [ %call43, %if.then46 ], [ %call76, %if.then79 ], [ %call94, %if.else92 ], [ %call132, %if.else130 ], [ %call148, %if.then146 ]
   %readBuf.0 = phi ptr [ null, %if.then20 ], [ null, %if.then33 ], [ null, %if.then40 ], [ null, %if.then46 ], [ %call50, %if.then79 ], [ %call50, %if.else92 ], [ %call50, %if.else130 ], [ %call50, %if.then146 ]
-  %or.cond = icmp ugt i32 %ret.5, 1
+  %or.cond = icmp ugt i32 %ret.0, 1
   br i1 %or.cond, label %if.then158, label %if.end162
 
 if.then158:                                       ; preds = %SocketWaitClient.exit, %if.then68, %if.then53, %if.then7, %exit
   %readBuf.0167 = phi ptr [ %readBuf.0, %exit ], [ %call50, %SocketWaitClient.exit ], [ %call50, %if.then68 ], [ null, %if.then53 ], [ null, %if.then7 ]
-  %ret.5165 = phi i32 [ %ret.5, %exit ], [ %retval.0.i, %SocketWaitClient.exit ], [ -125, %if.then68 ], [ -125, %if.then53 ], [ -125, %if.then7 ]
-  %srv_ssl.1163 = phi ptr [ %srv_ssl.1, %exit ], [ null, %SocketWaitClient.exit ], [ null, %if.then68 ], [ null, %if.then53 ], [ null, %if.then7 ]
+  %ret.0165 = phi i32 [ %ret.0, %exit ], [ %retval.0.i, %SocketWaitClient.exit ], [ -125, %if.then68 ], [ -125, %if.then53 ], [ -125, %if.then7 ]
+  %srv_ssl.0163 = phi ptr [ %srv_ssl.0, %exit ], [ null, %SocketWaitClient.exit ], [ null, %if.then68 ], [ null, %if.then53 ], [ null, %if.then7 ]
   %75 = load ptr, ptr @stderr, align 8
-  %conv159 = sext i32 %ret.5165 to i64
+  %conv159 = sext i32 %ret.0165 to i64
   %call160 = call ptr @wolfSSL_ERR_reason_error_string(i64 noundef %conv159) #16
-  %call161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.134, i32 noundef %ret.5165, ptr noundef %call160) #18
+  %call161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.134, i32 noundef %ret.0165, ptr noundef %call160) #18
   br label %if.end162
 
 if.end162:                                        ; preds = %CloseAndCleanupSocket.exit, %while.cond.preheader, %if.then125, %if.then89, %if.then158, %exit
   %readBuf.0166 = phi ptr [ %readBuf.0167, %if.then158 ], [ %readBuf.0, %exit ], [ %call50, %if.then89 ], [ %call50, %if.then125 ], [ %call50, %while.cond.preheader ], [ %call50, %CloseAndCleanupSocket.exit ]
-  %ret.5164 = phi i32 [ %ret.5165, %if.then158 ], [ %ret.5, %exit ], [ 0, %if.then89 ], [ 0, %if.then125 ], [ 1, %while.cond.preheader ], [ 0, %CloseAndCleanupSocket.exit ]
-  %srv_ssl.1162 = phi ptr [ %srv_ssl.1163, %if.then158 ], [ %srv_ssl.1, %exit ], [ %call65, %if.then89 ], [ %call65, %if.then125 ], [ null, %while.cond.preheader ], [ null, %CloseAndCleanupSocket.exit ]
+  %ret.0164 = phi i32 [ %ret.0165, %if.then158 ], [ %ret.0, %exit ], [ 0, %if.then89 ], [ 0, %if.then125 ], [ 1, %while.cond.preheader ], [ 0, %CloseAndCleanupSocket.exit ]
+  %srv_ssl.0162 = phi ptr [ %srv_ssl.0163, %if.then158 ], [ %srv_ssl.0, %exit ], [ %call65, %if.then89 ], [ %call65, %if.then125 ], [ null, %while.cond.preheader ], [ null, %CloseAndCleanupSocket.exit ]
   %sockFd164 = getelementptr inbounds i8, ptr %info, i64 68
   %76 = load i32, ptr %sockFd164, align 4
   %cmp.not.i151 = icmp eq i32 %76, -1
@@ -2546,11 +2546,11 @@ if.then.i152:                                     ; preds = %if.end162
   br label %CloseAndCleanupSocket.exit155
 
 CloseAndCleanupSocket.exit155:                    ; preds = %if.end162, %if.then.i152
-  %cmp165.not = icmp eq ptr %srv_ssl.1162, null
+  %cmp165.not = icmp eq ptr %srv_ssl.0162, null
   br i1 %cmp165.not, label %if.end168, label %if.then167
 
 if.then167:                                       ; preds = %CloseAndCleanupSocket.exit155
-  call void @wolfSSL_free(ptr noundef nonnull %srv_ssl.1162) #16
+  call void @wolfSSL_free(ptr noundef nonnull %srv_ssl.0162) #16
   br label %if.end168
 
 if.end168:                                        ; preds = %if.then167, %CloseAndCleanupSocket.exit155
@@ -2570,8 +2570,8 @@ if.then174:                                       ; preds = %if.end172
 
 if.end175:                                        ; preds = %if.then174, %if.end172
   %ret177 = getelementptr inbounds i8, ptr %info, i64 72
-  store i32 %ret.5164, ptr %ret177, align 8
-  ret i32 %ret.5164
+  store i32 %ret.0164, ptr %ret177, align 8
+  ret i32 %ret.0164
 }
 
 declare i32 @wolfSSL_CondInit(ptr noundef) local_unnamed_addr #1

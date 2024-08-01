@@ -487,9 +487,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2538,8 +2538,8 @@ for.body.i60:                                     ; preds = %for.body.lr.ph.i55,
   br i1 %27, label %for.body.i60, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit, !llvm.loop !16
 
 _ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit: ; preds = %for.body.i60, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74, %sw.bb4
-  %result.2.i = phi i64 [ 0, %sw.bb4 ], [ %add.us.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74 ], [ %add.i67, %for.body.i60 ]
-  %conv6 = uitofp i64 %result.2.i to double
+  %result.1.i = phi i64 [ 0, %sw.bb4 ], [ %add.us.i, %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74 ], [ %add.i67, %for.body.i60 ]
+  %conv6 = uitofp i64 %result.1.i to double
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -2612,19 +2612,19 @@ for.end.i107:                                     ; preds = %for.body.i92, %_ZNK
   br i1 %cmp9.i109, label %return, label %land.rhs10.i
 
 land.rhs10.i:                                     ; preds = %for.end.i107, %while.body.i
-  %result.1.i = phi i64 [ %div.i, %while.body.i ], [ %result.0.lcssa.i108, %for.end.i107 ]
-  %rem.i = urem i64 %result.1.i, 10
-  %div.i = udiv i64 %result.1.i, 10
+  %result.2.i = phi i64 [ %div.i, %while.body.i ], [ %result.0.lcssa.i108, %for.end.i107 ]
+  %rem.i = urem i64 %result.2.i, 10
+  %div.i = udiv i64 %result.2.i, 10
   %cmp11.i = icmp eq i64 %rem.i, 0
   br i1 %cmp11.i, label %while.body.i, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit129.loopexit
 
 while.body.i:                                     ; preds = %land.rhs10.i
-  %cmp9.old.not.i = icmp ult i64 %result.1.i, 10
+  %cmp9.old.not.i = icmp ult i64 %result.2.i, 10
   br i1 %cmp9.old.not.i, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit129.loopexit, label %land.rhs10.i
 
 _ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit129.loopexit: ; preds = %while.body.i, %land.rhs10.i
-  %result.2.i110.ph = phi i64 [ %result.1.i, %land.rhs10.i ], [ 0, %while.body.i ]
-  %36 = uitofp i64 %result.2.i110.ph to double
+  %result.1.i110.ph = phi i64 [ %result.2.i, %land.rhs10.i ], [ 0, %while.body.i ]
+  %36 = uitofp i64 %result.1.i110.ph to double
   br label %return
 
 sw.bb10:                                          ; preds = %entry
@@ -2841,19 +2841,19 @@ for.end:                                          ; preds = %for.body, %_ZNK6icu
   br i1 %or.cond.not, label %if.end13, label %land.rhs10
 
 land.rhs10:                                       ; preds = %for.end, %while.body
-  %result.1 = phi i64 [ %div, %while.body ], [ %result.0.lcssa, %for.end ]
-  %rem = urem i64 %result.1, 10
-  %div = udiv i64 %result.1, 10
+  %result.2 = phi i64 [ %div, %while.body ], [ %result.0.lcssa, %for.end ]
+  %rem = urem i64 %result.2, 10
+  %div = udiv i64 %result.2, 10
   %cmp11 = icmp eq i64 %rem, 0
   br i1 %cmp11, label %while.body, label %if.end13
 
 while.body:                                       ; preds = %land.rhs10
-  %cmp9.old.not = icmp ult i64 %result.1, 10
+  %cmp9.old.not = icmp ult i64 %result.2, 10
   br i1 %cmp9.old.not, label %if.end13, label %land.rhs10
 
 if.end13:                                         ; preds = %land.rhs10, %while.body, %entry, %for.end
-  %result.2 = phi i64 [ %result.0.lcssa, %for.end ], [ 0, %entry ], [ %result.1, %land.rhs10 ], [ 0, %while.body ]
-  ret i64 %result.2
+  %result.1 = phi i64 [ %result.0.lcssa, %for.end ], [ 0, %entry ], [ %result.2, %land.rhs10 ], [ 0, %while.body ]
+  ret i64 %result.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -3861,26 +3861,26 @@ for.end:                                          ; preds = %for.body, %for.cond
   br label %if.end29
 
 for.body21:                                       ; preds = %for.cond19.preheader, %for.body21
-  %n.addr.122 = phi double [ %div22, %for.body21 ], [ %n, %for.cond19.preheader ]
+  %n.addr.222 = phi double [ %div22, %for.body21 ], [ %n, %for.cond19.preheader ]
   %i18.021 = phi i32 [ %add, %for.body21 ], [ %conv12, %for.cond19.preheader ]
-  %div22 = fdiv double %n.addr.122, 1.000000e+22
+  %div22 = fdiv double %n.addr.222, 1.000000e+22
   %add = add nsw i32 %i18.021, 22
   %cmp20 = icmp ult i32 %i18.021, -43
   br i1 %cmp20, label %for.body21, label %for.end24, !llvm.loop !23
 
 for.end24:                                        ; preds = %for.body21, %for.cond19.preheader
   %i18.0.lcssa = phi i32 [ %conv12, %for.cond19.preheader ], [ %add, %for.body21 ]
-  %n.addr.1.lcssa = phi double [ %n, %for.cond19.preheader ], [ %div22, %for.body21 ]
+  %n.addr.2.lcssa = phi double [ %n, %for.cond19.preheader ], [ %div22, %for.body21 ]
   %sub25 = sub nsw i32 0, %i18.0.lcssa
   %idxprom26 = zext nneg i32 %sub25 to i64
   %arrayidx27 = getelementptr inbounds [22 x double], ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 0, i64 %idxprom26
   %7 = load double, ptr %arrayidx27, align 8
-  %div28 = fdiv double %n.addr.1.lcssa, %7
+  %div28 = fdiv double %n.addr.2.lcssa, %7
   br label %if.end29
 
 if.end29:                                         ; preds = %for.end24, %for.end
-  %n.addr.2 = phi double [ %mul17, %for.end ], [ %div28, %for.end24 ]
-  %call = tail call double @uprv_round_75(double noundef %n.addr.2)
+  %n.addr.1 = phi double [ %mul17, %for.end ], [ %div28, %for.end24 ]
+  %call = tail call double @uprv_round_75(double noundef %n.addr.1)
   %conv30 = fptosi double %call to i64
   %cmp31.not = icmp eq i64 %conv30, 0
   br i1 %cmp31.not, label %if.end34, label %if.then32
@@ -5775,25 +5775,25 @@ switch.early.test117:                             ; preds = %land.lhs.true208
   ]
 
 if.end224:                                        ; preds = %for.inc, %if.end8.i161, %for.inc.us, %if.end.i173.us, %if.else47, %if.end205, %if.else43, %if.else39
-  %section.1 = phi i32 [ 1, %if.else39 ], [ 3, %if.else43 ], [ %cmp221, %if.end205 ], [ 2, %if.else47 ], [ 2, %for.inc.us ], [ 3, %if.end.i173.us ], [ 2, %for.inc ], [ 3, %if.end8.i161 ]
+  %section.0 = phi i32 [ 1, %if.else39 ], [ 3, %if.else43 ], [ %cmp221, %if.end205 ], [ 2, %if.else47 ], [ 2, %for.inc.us ], [ 3, %if.end.i173.us ], [ 2, %for.inc ], [ 3, %if.end8.i161 ]
   br i1 %nickel, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %switch.early.test117, %if.else32, %if.end224
-  %section.1376 = phi i32 [ %section.1, %if.end224 ], [ %., %if.else32 ], [ %cmp221, %switch.early.test117 ]
+  %section.0376 = phi i32 [ %section.0, %if.end224 ], [ %., %if.else32 ], [ %cmp221, %switch.early.test117 ]
   %48 = add i8 %retval.0.i120, -8
   %or.cond18 = icmp ult i8 %48, -6
   br i1 %or.cond18, label %cond.end, label %lor.lhs.false231
 
 lor.lhs.false231:                                 ; preds = %cond.true
   %cmp233 = icmp eq i8 %retval.0.i120, 2
-  %cmp235 = icmp ne i32 %section.1376, 3
+  %cmp235 = icmp ne i32 %section.0376, 3
   %or.cond19 = and i1 %cmp233, %cmp235
   br i1 %or.cond19, label %cond.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.else28, %lor.lhs.false231
-  %section.1376387392 = phi i32 [ %section.1376, %lor.lhs.false231 ], [ 3, %if.else28 ]
+  %section.0376387392 = phi i32 [ %section.0376, %lor.lhs.false231 ], [ 3, %if.else28 ]
   %cmp237 = icmp eq i8 %retval.0.i120, 7
-  %cmp238 = icmp eq i32 %section.1376387392, 3
+  %cmp238 = icmp eq i32 %section.0376387392, 3
   %49 = and i1 %cmp237, %cmp238
   br label %cond.end
 
@@ -5803,13 +5803,13 @@ cond.false:                                       ; preds = %if.end224
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then24, %cond.true, %lor.rhs, %lor.lhs.false231, %cond.false
-  %section.1375 = phi i32 [ %section.1, %cond.false ], [ %section.1376, %cond.true ], [ %section.1376387392, %lor.rhs ], [ %section.1376, %lor.lhs.false231 ], [ 1, %if.then24 ]
+  %section.0375 = phi i32 [ %section.0, %cond.false ], [ %section.0376, %cond.true ], [ %section.0376387392, %lor.rhs ], [ %section.0376, %lor.lhs.false231 ], [ 1, %if.then24 ]
   %cond = phi i1 [ %cmp240, %cond.false ], [ true, %cond.true ], [ %49, %lor.rhs ], [ true, %lor.lhs.false231 ], [ true, %if.then24 ]
   %flags.i = getelementptr inbounds i8, ptr %this, i64 20
   %51 = load i8, ptr %flags.i, align 4
   %52 = and i8 %51, 1
   %cmp.i276 = icmp ne i8 %52, 0
-  %call244 = tail call noundef zeroext i1 @_ZN6icu_756number4impl13roundingutils20getRoundingDirectionEbbNS2_7SectionE25UNumberFormatRoundingModeR10UErrorCode(i1 noundef zeroext %cond, i1 noundef zeroext %cmp.i276, i32 noundef %section.1375, i32 noundef %roundingMode, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call244 = tail call noundef zeroext i1 @_ZN6icu_756number4impl13roundingutils20getRoundingDirectionEbbNS2_7SectionE25UNumberFormatRoundingModeR10UErrorCode(i1 noundef zeroext %cond, i1 noundef zeroext %cmp.i276, i32 noundef %section.0375, i32 noundef %roundingMode, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %53 = load i32, ptr %status, align 4
   %cmp.i277 = icmp slt i32 %53, 1
   br i1 %cmp.i277, label %if.end249, label %if.end298

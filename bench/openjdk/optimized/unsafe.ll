@@ -6913,11 +6913,11 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %_ZL9throw_newP7JNIEnv_PKc.exit50.i
 
 103:                                              ; preds = %80, %70
-  %.043.i = phi ptr [ %83, %80 ], [ %9, %70 ]
+  %.1.i = phi ptr [ %83, %80 ], [ %9, %70 ]
   %104 = load ptr, ptr %0, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 1768
   %106 = load ptr, ptr %105, align 8
-  call void %106(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %78, ptr noundef nonnull %.043.i) #12
+  call void %106(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %78, ptr noundef nonnull %.1.i) #12
   %.not52.i = icmp eq i32 %74, 0
   br i1 %.not52.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
@@ -6927,7 +6927,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 .lr.ph.i:                                         ; preds = %111, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %111 ]
-  %107 = getelementptr inbounds i8, ptr %.043.i, i64 %indvars.iv.i
+  %107 = getelementptr inbounds i8, ptr %.1.i, i64 %indvars.iv.i
   %108 = load i8, ptr %107, align 1
   %109 = icmp eq i8 %108, 46
   br i1 %109, label %110, label %111
@@ -6942,15 +6942,15 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %111, %103, %69
-  %.1.i = phi ptr [ null, %69 ], [ %.043.i, %103 ], [ %.043.i, %111 ]
-  %112 = call ptr @JVM_DefineClass(ptr noundef nonnull %0, ptr noundef %.1.i, ptr noundef %6, ptr noundef nonnull %42, i32 noundef %5, ptr noundef %7) #12
-  %113 = icmp ne ptr %.1.i, null
-  %114 = icmp ne ptr %.1.i, %9
+  %.043.i = phi ptr [ null, %69 ], [ %.1.i, %103 ], [ %.1.i, %111 ]
+  %112 = call ptr @JVM_DefineClass(ptr noundef nonnull %0, ptr noundef %.043.i, ptr noundef %6, ptr noundef nonnull %42, i32 noundef %5, ptr noundef %7) #12
+  %113 = icmp ne ptr %.043.i, null
+  %114 = icmp ne ptr %.043.i, %9
   %or.cond.i = and i1 %113, %114
   br i1 %or.cond.i, label %115, label %_ZL9throw_newP7JNIEnv_PKc.exit50.i
 
 115:                                              ; preds = %.loopexit.i
-  call void @_Z8FreeHeapPv(ptr noundef nonnull %.1.i) #12
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %.043.i) #12
   br label %_ZL9throw_newP7JNIEnv_PKc.exit50.i
 
 _ZL9throw_newP7JNIEnv_PKc.exit50.i:               ; preds = %115, %.loopexit.i, %99, %95, %62
@@ -17420,8 +17420,8 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
 

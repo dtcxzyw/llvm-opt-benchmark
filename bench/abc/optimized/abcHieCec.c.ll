@@ -410,7 +410,7 @@ define i32 @Abc_NtkDeriveFlatGiaSop(ptr noundef %0, ptr nocapture noundef readon
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
   %13 = phi i8 [ %7, %.preheader.lr.ph ], [ %28, %.critedge ]
   %.051 = phi ptr [ %2, %.preheader.lr.ph ], [ %27, %.critedge ]
-  %.13850 = phi i32 [ 1, %.preheader.lr.ph ], [ %26, %.critedge ]
+  %.250 = phi i32 [ 1, %.preheader.lr.ph ], [ %26, %.critedge ]
   br label %14
 
 14:                                               ; preds = %.preheader, %24
@@ -449,7 +449,7 @@ define i32 @Abc_NtkDeriveFlatGiaSop(ptr noundef %0, ptr nocapture noundef readon
 
 .critedge:                                        ; preds = %14, %14
   %25 = xor i32 %.034, 1
-  %26 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.13850, i32 noundef %25) #20
+  %26 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.250, i32 noundef %25) #20
   %27 = getelementptr inbounds i8, ptr %.051, i64 %9
   %28 = load i8, ptr %27, align 1
   %.not40 = icmp eq i8 %28, 0
@@ -460,11 +460,11 @@ define i32 @Abc_NtkDeriveFlatGiaSop(ptr noundef %0, ptr nocapture noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.loopexit, %.preheader45, %.preheader44
-  %.2 = phi i32 [ 0, %.preheader44 ], [ 0, %.preheader45 ], [ %29, %.loopexit.loopexit ], [ %12, %.lr.ph ]
+  %.138 = phi i32 [ 0, %.preheader44 ], [ 0, %.preheader45 ], [ %29, %.loopexit.loopexit ], [ %12, %.lr.ph ]
   %30 = tail call i32 @Abc_SopIsComplement(ptr noundef %2) #20
   %.not43 = icmp ne i32 %30, 0
   %31 = zext i1 %.not43 to i32
-  %spec.select = xor i32 %.2, %31
+  %spec.select = xor i32 %.138, %31
   ret i32 %spec.select
 }
 

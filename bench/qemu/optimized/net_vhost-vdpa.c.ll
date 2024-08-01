@@ -278,12 +278,12 @@ if.then71:                                        ; preds = %for.end
   br i1 %tobool75.not, label %err, label %cleanup
 
 err:                                              ; preds = %for.body, %if.then71
-  %i.063 = phi i32 [ %retval.0.i56, %if.then71 ], [ %11, %for.body ]
-  %cmp8266 = icmp sgt i32 %i.063, 0
+  %i.163 = phi i32 [ %retval.0.i56, %if.then71 ], [ %11, %for.body ]
+  %cmp8266 = icmp sgt i32 %i.163, 0
   br i1 %cmp8266, label %for.body84.preheader, label %if.end90
 
 for.body84.preheader:                             ; preds = %err
-  %15 = zext nneg i32 %i.063 to i64
+  %15 = zext nneg i32 %i.163 to i64
   br label %for.body84
 
 for.body84:                                       ; preds = %for.body84.preheader, %for.body84
@@ -296,14 +296,14 @@ for.body84:                                       ; preds = %for.body84.preheade
   br i1 %cmp82, label %for.body84, label %if.end90, !llvm.loop !7
 
 if.end90:                                         ; preds = %for.body84, %vhost_vdpa_net_valid_svq_features.exit.thread, %vhost_vdpa_get_features.exit.thread, %vhost_vdpa_net_valid_svq_features.exit, %if.then48, %err
-  %ncs.061 = phi ptr [ %call59, %err ], [ null, %if.then48 ], [ null, %vhost_vdpa_net_valid_svq_features.exit ], [ null, %vhost_vdpa_get_features.exit.thread ], [ null, %vhost_vdpa_net_valid_svq_features.exit.thread ], [ %call59, %for.body84 ]
+  %ncs.161 = phi ptr [ %call59, %err ], [ null, %if.then48 ], [ null, %vhost_vdpa_net_valid_svq_features.exit ], [ null, %vhost_vdpa_get_features.exit.thread ], [ null, %vhost_vdpa_net_valid_svq_features.exit.thread ], [ %call59, %for.body84 ]
   %call91 = call i32 @qemu_close(i32 noundef %vdpa_device_fd.0) #13
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end, %if.then71, %if.end90, %if.then36, %if.then24, %if.then16, %if.then9, %if.then2
-  %ncs.1 = phi ptr [ null, %if.then2 ], [ null, %if.then24 ], [ %ncs.061, %if.end90 ], [ null, %if.then36 ], [ %call59, %for.end ], [ %call59, %if.then71 ], [ null, %if.then16 ], [ null, %if.then9 ]
+  %ncs.0 = phi ptr [ null, %if.then2 ], [ null, %if.then24 ], [ %ncs.161, %if.end90 ], [ null, %if.then36 ], [ %call59, %for.end ], [ %call59, %if.then71 ], [ null, %if.then16 ], [ null, %if.then9 ]
   %retval.0 = phi i32 [ -1, %if.then2 ], [ -1, %if.then24 ], [ -1, %if.end90 ], [ %sub.i, %if.then36 ], [ 0, %for.end ], [ 0, %if.then71 ], [ %sub, %if.then16 ], [ -1, %if.then9 ]
-  call void @g_free(ptr noundef %ncs.1) #13
+  call void @g_free(ptr noundef %ncs.0) #13
   ret i32 %retval.0
 }
 

@@ -1166,8 +1166,8 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 .preheader3125:                                   ; preds = %.preheader3125.preheader, %.preheader3125
   %indvars.iv3494 = phi i64 [ %24, %.preheader3125.preheader ], [ %indvars.iv.next3495, %.preheader3125 ]
   %.025613282 = phi i32 [ %22, %.preheader3125.preheader ], [ %35, %.preheader3125 ]
-  %.sroa.0.03280 = phi i64 [ 0, %.preheader3125.preheader ], [ %33, %.preheader3125 ]
-  %.sroa.262.03279 = phi i64 [ 0, %.preheader3125.preheader ], [ %34, %.preheader3125 ]
+  %.sroa.0.13280 = phi i64 [ 0, %.preheader3125.preheader ], [ %33, %.preheader3125 ]
+  %.sroa.262.13279 = phi i64 [ 0, %.preheader3125.preheader ], [ %34, %.preheader3125 ]
   %indvars.iv.next3495 = add nsw i64 %indvars.iv3494, -1
   %25 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next3495
   %26 = load i8, ptr %25, align 1
@@ -1175,10 +1175,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %28 = getelementptr inbounds i64, ptr %8, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 255
-  %31 = lshr i64 %.sroa.0.03280, %30
+  %31 = lshr i64 %.sroa.0.13280, %30
   %32 = and i64 %29, -256
   %33 = or i64 %31, %32
-  %34 = add i64 %29, %.sroa.262.03279
+  %34 = add i64 %29, %.sroa.262.13279
   %35 = add nsw i32 %.025613282, -1
   %36 = icmp ugt i32 %.025613282, 1
   br i1 %36, label %.preheader3125, label %37, !llvm.loop !37
@@ -1197,22 +1197,22 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   br label %46
 
 46:                                               ; preds = %37, %21
-  %.sroa.262.1 = phi i64 [ %43, %37 ], [ 0, %21 ]
+  %.sroa.262.0 = phi i64 [ %43, %37 ], [ 0, %21 ]
   %.sroa.428.0 = phi ptr [ %spec.store.select, %37 ], [ %0, %21 ]
-  %.sroa.0.1 = phi i64 [ %33, %37 ], [ 0, %21 ]
-  %.12563 = phi i32 [ %38, %37 ], [ %20, %21 ]
-  %47 = and i32 %.12563, 7
+  %.sroa.0.0 = phi i64 [ %33, %37 ], [ 0, %21 ]
+  %.02562 = phi i32 [ %38, %37 ], [ %20, %21 ]
+  %47 = and i32 %.02562, 7
   %.not2661 = icmp eq i32 %47, 0
   br i1 %.not2661, label %79, label %.preheader3124.preheader
 
 .preheader3124.preheader:                         ; preds = %46
-  %48 = sext i32 %.12563 to i64
+  %48 = sext i32 %.02562 to i64
   br label %.preheader3124
 
 .preheader3124:                                   ; preds = %.preheader3124.preheader, %.preheader3124
   %indvars.iv3497 = phi i64 [ 1, %.preheader3124.preheader ], [ %indvars.iv.next3498, %.preheader3124 ]
-  %.sroa.0.23284 = phi i64 [ %.sroa.0.1, %.preheader3124.preheader ], [ %57, %.preheader3124 ]
-  %.sroa.262.23283 = phi i64 [ %.sroa.262.1, %.preheader3124.preheader ], [ %58, %.preheader3124 ]
+  %.sroa.0.33284 = phi i64 [ %.sroa.0.0, %.preheader3124.preheader ], [ %57, %.preheader3124 ]
+  %.sroa.262.33283 = phi i64 [ %.sroa.262.0, %.preheader3124.preheader ], [ %58, %.preheader3124 ]
   %49 = sub nsw i64 %48, %indvars.iv3497
   %50 = getelementptr inbounds i8, ptr %2, i64 %49
   %51 = load i8, ptr %50, align 1
@@ -1220,15 +1220,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %53 = getelementptr inbounds i64, ptr %8, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, 255
-  %56 = lshr i64 %.sroa.0.23284, %55
+  %56 = lshr i64 %.sroa.0.33284, %55
   %57 = or i64 %56, %54
-  %58 = add i64 %54, %.sroa.262.23283
+  %58 = add i64 %54, %.sroa.262.33283
   %indvars.iv.next3498 = add nuw nsw i64 %indvars.iv3497, 1
   %exitcond3500.not = icmp eq i64 %indvars.iv.next3498, 4
   br i1 %exitcond3500.not, label %59, label %.preheader3124, !llvm.loop !38
 
 59:                                               ; preds = %.preheader3124
-  %60 = add nsw i32 %.12563, -4
+  %60 = add nsw i32 %.02562, -4
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i8, ptr %2, i64 %61
   %63 = load i8, ptr %62, align 1
@@ -1252,10 +1252,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   br label %79
 
 79:                                               ; preds = %59, %46
-  %.sroa.262.3 = phi i64 [ %.sroa.262.1, %46 ], [ %76, %59 ]
+  %.sroa.262.2 = phi i64 [ %.sroa.262.0, %46 ], [ %76, %59 ]
   %.sroa.428.1 = phi ptr [ %.sroa.428.0, %46 ], [ %spec.store.select2662, %59 ]
-  %.sroa.0.3 = phi i64 [ %.sroa.0.1, %46 ], [ %70, %59 ]
-  %.22564 = phi i32 [ %.12563, %46 ], [ %60, %59 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %46 ], [ %70, %59 ]
+  %.22564 = phi i32 [ %.02562, %46 ], [ %60, %59 ]
   %invariant.gep3292 = getelementptr i8, ptr %2, i64 -8
   %80 = icmp sgt i32 %.22564, 0
   br i1 %80, label %.preheader.preheader, label %.loopexit
@@ -1266,9 +1266,9 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 .preheader:                                       ; preds = %.preheader.preheader, %122
   %indvars.iv3509 = phi i64 [ %81, %.preheader.preheader ], [ %indvars.iv.next3510, %122 ]
-  %.sroa.0.43296 = phi i64 [ %.sroa.0.3, %.preheader.preheader ], [ %135, %122 ]
+  %.sroa.0.43296 = phi i64 [ %.sroa.0.2, %.preheader.preheader ], [ %135, %122 ]
   %.sroa.428.23295 = phi ptr [ %.sroa.428.1, %.preheader.preheader ], [ %spec.store.select2664, %122 ]
-  %.sroa.262.43294 = phi i64 [ %.sroa.262.3, %.preheader.preheader ], [ %141, %122 ]
+  %.sroa.262.43294 = phi i64 [ %.sroa.262.2, %.preheader.preheader ], [ %141, %122 ]
   br label %82
 
 82:                                               ; preds = %.preheader, %82
@@ -1380,8 +1380,8 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 .preheader3133:                                   ; preds = %.preheader3133.preheader, %.preheader3133
   %indvars.iv3458 = phi i64 [ %149, %.preheader3133.preheader ], [ %indvars.iv.next3459, %.preheader3133 ]
   %.025733237 = phi i32 [ %147, %.preheader3133.preheader ], [ %160, %.preheader3133 ]
-  %.sroa.0.63236 = phi i64 [ 0, %.preheader3133.preheader ], [ %158, %.preheader3133 ]
-  %.sroa.262.63235 = phi i64 [ 0, %.preheader3133.preheader ], [ %159, %.preheader3133 ]
+  %.sroa.0.83236 = phi i64 [ 0, %.preheader3133.preheader ], [ %158, %.preheader3133 ]
+  %.sroa.262.83235 = phi i64 [ 0, %.preheader3133.preheader ], [ %159, %.preheader3133 ]
   %indvars.iv.next3459 = add nsw i64 %indvars.iv3458, -1
   %150 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next3459
   %151 = load i8, ptr %150, align 1
@@ -1389,10 +1389,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %153 = getelementptr inbounds i64, ptr %8, i64 %152
   %154 = load i64, ptr %153, align 8
   %155 = and i64 %154, 255
-  %156 = lshr i64 %.sroa.0.63236, %155
+  %156 = lshr i64 %.sroa.0.83236, %155
   %157 = and i64 %154, -256
   %158 = or i64 %156, %157
-  %159 = add i64 %154, %.sroa.262.63235
+  %159 = add i64 %154, %.sroa.262.83235
   %160 = add nsw i32 %.025733237, -1
   %161 = icmp ugt i32 %.025733237, 1
   br i1 %161, label %.preheader3133, label %162, !llvm.loop !37
@@ -1410,21 +1410,21 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 170:                                              ; preds = %162, %146
   %.sroa.262.7 = phi i64 [ %168, %162 ], [ 0, %146 ]
-  %.sroa.428.3 = phi ptr [ %169, %162 ], [ %0, %146 ]
+  %.sroa.428.4 = phi ptr [ %169, %162 ], [ %0, %146 ]
   %.sroa.0.7 = phi i64 [ %158, %162 ], [ 0, %146 ]
-  %.12570 = phi i32 [ %163, %162 ], [ %20, %146 ]
-  %171 = srem i32 %.12570, 10
+  %.02569 = phi i32 [ %163, %162 ], [ %20, %146 ]
+  %171 = srem i32 %.02569, 10
   %.not2659 = icmp eq i32 %171, 0
   br i1 %.not2659, label %202, label %.preheader3132.preheader
 
 .preheader3132.preheader:                         ; preds = %170
-  %172 = sext i32 %.12570 to i64
+  %172 = sext i32 %.02569 to i64
   br label %.preheader3132
 
 .preheader3132:                                   ; preds = %.preheader3132.preheader, %.preheader3132
   %indvars.iv3461 = phi i64 [ 1, %.preheader3132.preheader ], [ %indvars.iv.next3462, %.preheader3132 ]
-  %.sroa.0.83240 = phi i64 [ %.sroa.0.7, %.preheader3132.preheader ], [ %181, %.preheader3132 ]
-  %.sroa.262.83239 = phi i64 [ %.sroa.262.7, %.preheader3132.preheader ], [ %182, %.preheader3132 ]
+  %.sroa.0.103240 = phi i64 [ %.sroa.0.7, %.preheader3132.preheader ], [ %181, %.preheader3132 ]
+  %.sroa.262.103239 = phi i64 [ %.sroa.262.7, %.preheader3132.preheader ], [ %182, %.preheader3132 ]
   %173 = sub nsw i64 %172, %indvars.iv3461
   %174 = getelementptr inbounds i8, ptr %2, i64 %173
   %175 = load i8, ptr %174, align 1
@@ -1432,15 +1432,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %177 = getelementptr inbounds i64, ptr %8, i64 %176
   %178 = load i64, ptr %177, align 8
   %179 = and i64 %178, 255
-  %180 = lshr i64 %.sroa.0.83240, %179
+  %180 = lshr i64 %.sroa.0.103240, %179
   %181 = or i64 %180, %178
-  %182 = add i64 %178, %.sroa.262.83239
+  %182 = add i64 %178, %.sroa.262.103239
   %indvars.iv.next3462 = add nuw nsw i64 %indvars.iv3461, 1
   %exitcond3464.not = icmp eq i64 %indvars.iv.next3462, 5
   br i1 %exitcond3464.not, label %183, label %.preheader3132, !llvm.loop !38
 
 183:                                              ; preds = %.preheader3132
-  %184 = add nsw i32 %.12570, -5
+  %184 = add nsw i32 %.02569, -5
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds i8, ptr %2, i64 %185
   %187 = load i8, ptr %186, align 1
@@ -1457,15 +1457,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %198 = sub nsw i64 64, %196
   %199 = lshr i64 %194, %198
   %200 = and i64 %195, 7
-  store i64 %199, ptr %.sroa.428.3, align 1
-  %201 = getelementptr inbounds i8, ptr %.sroa.428.3, i64 %197
+  store i64 %199, ptr %.sroa.428.4, align 1
+  %201 = getelementptr inbounds i8, ptr %.sroa.428.4, i64 %197
   br label %202
 
 202:                                              ; preds = %183, %170
   %.sroa.262.9 = phi i64 [ %.sroa.262.7, %170 ], [ %200, %183 ]
-  %.sroa.428.4 = phi ptr [ %.sroa.428.3, %170 ], [ %201, %183 ]
+  %.sroa.428.5 = phi ptr [ %.sroa.428.4, %170 ], [ %201, %183 ]
   %.sroa.0.9 = phi i64 [ %.sroa.0.7, %170 ], [ %194, %183 ]
-  %.22571 = phi i32 [ %.12570, %170 ], [ %184, %183 ]
+  %.22571 = phi i32 [ %.02569, %170 ], [ %184, %183 ]
   %invariant.gep3248 = getelementptr i8, ptr %2, i64 -10
   %203 = icmp sgt i32 %.22571, 0
   br i1 %203, label %.preheader3130.preheader, label %.loopexit
@@ -1476,15 +1476,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 .preheader3130:                                   ; preds = %.preheader3130.preheader, %242
   %indvars.iv3473 = phi i64 [ %204, %.preheader3130.preheader ], [ %indvars.iv.next3474, %242 ]
-  %.sroa.0.103252 = phi i64 [ %.sroa.0.9, %.preheader3130.preheader ], [ %257, %242 ]
-  %.sroa.428.53251 = phi ptr [ %.sroa.428.4, %.preheader3130.preheader ], [ %264, %242 ]
-  %.sroa.262.103250 = phi i64 [ %.sroa.262.9, %.preheader3130.preheader ], [ %263, %242 ]
+  %.sroa.0.113252 = phi i64 [ %.sroa.0.9, %.preheader3130.preheader ], [ %257, %242 ]
+  %.sroa.428.63251 = phi ptr [ %.sroa.428.5, %.preheader3130.preheader ], [ %264, %242 ]
+  %.sroa.262.113250 = phi i64 [ %.sroa.262.9, %.preheader3130.preheader ], [ %263, %242 ]
   br label %205
 
 205:                                              ; preds = %.preheader3130, %205
   %indvars.iv3465 = phi i64 [ 1, %.preheader3130 ], [ %indvars.iv.next3466, %205 ]
-  %.sroa.0.113243 = phi i64 [ %.sroa.0.103252, %.preheader3130 ], [ %214, %205 ]
-  %.sroa.262.113242 = phi i64 [ %.sroa.262.103250, %.preheader3130 ], [ %215, %205 ]
+  %.sroa.0.123243 = phi i64 [ %.sroa.0.113252, %.preheader3130 ], [ %214, %205 ]
+  %.sroa.262.123242 = phi i64 [ %.sroa.262.113250, %.preheader3130 ], [ %215, %205 ]
   %206 = sub nsw i64 %indvars.iv3473, %indvars.iv3465
   %207 = getelementptr inbounds i8, ptr %2, i64 %206
   %208 = load i8, ptr %207, align 1
@@ -1492,9 +1492,9 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %210 = getelementptr inbounds i64, ptr %8, i64 %209
   %211 = load i64, ptr %210, align 8
   %212 = and i64 %211, 255
-  %213 = lshr i64 %.sroa.0.113243, %212
+  %213 = lshr i64 %.sroa.0.123243, %212
   %214 = or i64 %213, %211
-  %215 = add i64 %211, %.sroa.262.113242
+  %215 = add i64 %211, %.sroa.262.123242
   %indvars.iv.next3466 = add nuw nsw i64 %indvars.iv3465, 1
   %exitcond3468.not = icmp eq i64 %indvars.iv.next3466, 5
   br i1 %exitcond3468.not, label %216, label %205, !llvm.loop !39
@@ -1514,7 +1514,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %228 = and i64 %227, 255
   %229 = sub nsw i64 64, %228
   %230 = lshr i64 %226, %229
-  store i64 %230, ptr %.sroa.428.53251, align 1
+  store i64 %230, ptr %.sroa.428.63251, align 1
   br label %231
 
 231:                                              ; preds = %216, %231
@@ -1538,7 +1538,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 242:                                              ; preds = %231
   %243 = lshr i64 %228, 3
   %244 = and i64 %227, 7
-  %245 = getelementptr inbounds i8, ptr %.sroa.428.53251, i64 %243
+  %245 = getelementptr inbounds i8, ptr %.sroa.428.63251, i64 %243
   %gep3249 = getelementptr i8, ptr %invariant.gep3248, i64 %indvars.iv3473
   %246 = load i8, ptr %gep3249, align 1
   %247 = zext i8 %246 to i64
@@ -1577,8 +1577,8 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 .preheader3137:                                   ; preds = %.preheader3137.preheader, %.preheader3137
   %indvars.iv3440 = phi i64 [ %269, %.preheader3137.preheader ], [ %indvars.iv.next3441, %.preheader3137 ]
   %.025563215 = phi i32 [ %267, %.preheader3137.preheader ], [ %280, %.preheader3137 ]
-  %.sroa.0.123214 = phi i64 [ 0, %.preheader3137.preheader ], [ %278, %.preheader3137 ]
-  %.sroa.262.123213 = phi i64 [ 0, %.preheader3137.preheader ], [ %279, %.preheader3137 ]
+  %.sroa.0.143214 = phi i64 [ 0, %.preheader3137.preheader ], [ %278, %.preheader3137 ]
+  %.sroa.262.143213 = phi i64 [ 0, %.preheader3137.preheader ], [ %279, %.preheader3137 ]
   %indvars.iv.next3441 = add nsw i64 %indvars.iv3440, -1
   %270 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next3441
   %271 = load i8, ptr %270, align 1
@@ -1586,10 +1586,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %273 = getelementptr inbounds i64, ptr %8, i64 %272
   %274 = load i64, ptr %273, align 8
   %275 = and i64 %274, 255
-  %276 = lshr i64 %.sroa.0.123214, %275
+  %276 = lshr i64 %.sroa.0.143214, %275
   %277 = and i64 %274, -256
   %278 = or i64 %276, %277
-  %279 = add i64 %274, %.sroa.262.123213
+  %279 = add i64 %274, %.sroa.262.143213
   %280 = add nsw i32 %.025563215, -1
   %281 = icmp ugt i32 %.025563215, 1
   br i1 %281, label %.preheader3137, label %282, !llvm.loop !37
@@ -1607,21 +1607,21 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 290:                                              ; preds = %282, %266
   %.sroa.262.13 = phi i64 [ %288, %282 ], [ 0, %266 ]
-  %.sroa.428.6 = phi ptr [ %289, %282 ], [ %0, %266 ]
+  %.sroa.428.7 = phi ptr [ %289, %282 ], [ %0, %266 ]
   %.sroa.0.13 = phi i64 [ %278, %282 ], [ 0, %266 ]
-  %.12553 = phi i32 [ %283, %282 ], [ %20, %266 ]
-  %291 = srem i32 %.12553, 10
+  %.02552 = phi i32 [ %283, %282 ], [ %20, %266 ]
+  %291 = srem i32 %.02552, 10
   %.not2658 = icmp eq i32 %291, 0
   br i1 %.not2658, label %321, label %.preheader3136.preheader
 
 .preheader3136.preheader:                         ; preds = %290
-  %292 = sext i32 %.12553 to i64
+  %292 = sext i32 %.02552 to i64
   br label %.preheader3136
 
 .preheader3136:                                   ; preds = %.preheader3136.preheader, %.preheader3136
   %indvars.iv3443 = phi i64 [ 1, %.preheader3136.preheader ], [ %indvars.iv.next3444, %.preheader3136 ]
-  %.sroa.0.143218 = phi i64 [ %.sroa.0.13, %.preheader3136.preheader ], [ %301, %.preheader3136 ]
-  %.sroa.262.143217 = phi i64 [ %.sroa.262.13, %.preheader3136.preheader ], [ %302, %.preheader3136 ]
+  %.sroa.0.163218 = phi i64 [ %.sroa.0.13, %.preheader3136.preheader ], [ %301, %.preheader3136 ]
+  %.sroa.262.163217 = phi i64 [ %.sroa.262.13, %.preheader3136.preheader ], [ %302, %.preheader3136 ]
   %293 = sub nsw i64 %292, %indvars.iv3443
   %294 = getelementptr inbounds i8, ptr %2, i64 %293
   %295 = load i8, ptr %294, align 1
@@ -1629,15 +1629,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %297 = getelementptr inbounds i64, ptr %8, i64 %296
   %298 = load i64, ptr %297, align 8
   %299 = and i64 %298, 255
-  %300 = lshr i64 %.sroa.0.143218, %299
+  %300 = lshr i64 %.sroa.0.163218, %299
   %301 = or i64 %300, %298
-  %302 = add i64 %298, %.sroa.262.143217
+  %302 = add i64 %298, %.sroa.262.163217
   %indvars.iv.next3444 = add nuw nsw i64 %indvars.iv3443, 1
   %exitcond3446.not = icmp eq i64 %indvars.iv.next3444, 5
   br i1 %exitcond3446.not, label %303, label %.preheader3136, !llvm.loop !38
 
 303:                                              ; preds = %.preheader3136
-  %304 = add nsw i32 %.12553, -5
+  %304 = add nsw i32 %.02552, -5
   %305 = sext i32 %304 to i64
   %306 = getelementptr inbounds i8, ptr %2, i64 %305
   %307 = load i8, ptr %306, align 1
@@ -1653,15 +1653,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %317 = sub nsw i64 64, %315
   %318 = lshr i64 %313, %317
   %319 = and i64 %314, 7
-  store i64 %318, ptr %.sroa.428.6, align 1
-  %320 = getelementptr inbounds i8, ptr %.sroa.428.6, i64 %316
+  store i64 %318, ptr %.sroa.428.7, align 1
+  %320 = getelementptr inbounds i8, ptr %.sroa.428.7, i64 %316
   br label %321
 
 321:                                              ; preds = %303, %290
   %.sroa.262.15 = phi i64 [ %.sroa.262.13, %290 ], [ %319, %303 ]
-  %.sroa.428.7 = phi ptr [ %.sroa.428.6, %290 ], [ %320, %303 ]
+  %.sroa.428.8 = phi ptr [ %.sroa.428.7, %290 ], [ %320, %303 ]
   %.sroa.0.15 = phi i64 [ %.sroa.0.13, %290 ], [ %313, %303 ]
-  %.22554 = phi i32 [ %.12553, %290 ], [ %304, %303 ]
+  %.22554 = phi i32 [ %.02552, %290 ], [ %304, %303 ]
   %invariant.gep3226 = getelementptr i8, ptr %2, i64 -10
   %322 = icmp sgt i32 %.22554, 0
   br i1 %322, label %.preheader3134.preheader, label %.loopexit
@@ -1672,15 +1672,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 .preheader3134:                                   ; preds = %.preheader3134.preheader, %360
   %indvars.iv3455 = phi i64 [ %323, %.preheader3134.preheader ], [ %indvars.iv.next3456, %360 ]
-  %.sroa.0.163230 = phi i64 [ %.sroa.0.15, %.preheader3134.preheader ], [ %374, %360 ]
-  %.sroa.428.83229 = phi ptr [ %.sroa.428.7, %.preheader3134.preheader ], [ %381, %360 ]
-  %.sroa.262.163228 = phi i64 [ %.sroa.262.15, %.preheader3134.preheader ], [ %380, %360 ]
+  %.sroa.0.173230 = phi i64 [ %.sroa.0.15, %.preheader3134.preheader ], [ %374, %360 ]
+  %.sroa.428.93229 = phi ptr [ %.sroa.428.8, %.preheader3134.preheader ], [ %381, %360 ]
+  %.sroa.262.173228 = phi i64 [ %.sroa.262.15, %.preheader3134.preheader ], [ %380, %360 ]
   br label %324
 
 324:                                              ; preds = %.preheader3134, %324
   %indvars.iv3447 = phi i64 [ 1, %.preheader3134 ], [ %indvars.iv.next3448, %324 ]
-  %.sroa.0.173221 = phi i64 [ %.sroa.0.163230, %.preheader3134 ], [ %333, %324 ]
-  %.sroa.262.173220 = phi i64 [ %.sroa.262.163228, %.preheader3134 ], [ %334, %324 ]
+  %.sroa.0.183221 = phi i64 [ %.sroa.0.173230, %.preheader3134 ], [ %333, %324 ]
+  %.sroa.262.183220 = phi i64 [ %.sroa.262.173228, %.preheader3134 ], [ %334, %324 ]
   %325 = sub nsw i64 %indvars.iv3455, %indvars.iv3447
   %326 = getelementptr inbounds i8, ptr %2, i64 %325
   %327 = load i8, ptr %326, align 1
@@ -1688,9 +1688,9 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %329 = getelementptr inbounds i64, ptr %8, i64 %328
   %330 = load i64, ptr %329, align 8
   %331 = and i64 %330, 255
-  %332 = lshr i64 %.sroa.0.173221, %331
+  %332 = lshr i64 %.sroa.0.183221, %331
   %333 = or i64 %332, %330
-  %334 = add i64 %330, %.sroa.262.173220
+  %334 = add i64 %330, %.sroa.262.183220
   %indvars.iv.next3448 = add nuw nsw i64 %indvars.iv3447, 1
   %exitcond3450.not = icmp eq i64 %indvars.iv.next3448, 5
   br i1 %exitcond3450.not, label %335, label %324, !llvm.loop !39
@@ -1709,7 +1709,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %346 = and i64 %345, 255
   %347 = sub nsw i64 64, %346
   %348 = lshr i64 %344, %347
-  store i64 %348, ptr %.sroa.428.83229, align 1
+  store i64 %348, ptr %.sroa.428.93229, align 1
   br label %349
 
 349:                                              ; preds = %335, %349
@@ -1733,7 +1733,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 360:                                              ; preds = %349
   %361 = lshr i64 %346, 3
   %362 = and i64 %345, 7
-  %363 = getelementptr inbounds i8, ptr %.sroa.428.83229, i64 %361
+  %363 = getelementptr inbounds i8, ptr %.sroa.428.93229, i64 %361
   %gep3227 = getelementptr i8, ptr %invariant.gep3226, i64 %indvars.iv3455
   %364 = load i8, ptr %gep3227, align 1
   %365 = zext i8 %364 to i64
@@ -1771,8 +1771,8 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 .preheader3141:                                   ; preds = %.preheader3141.preheader, %.preheader3141
   %indvars.iv3422 = phi i64 [ %386, %.preheader3141.preheader ], [ %indvars.iv.next3423, %.preheader3141 ]
   %.025483193 = phi i32 [ %384, %.preheader3141.preheader ], [ %397, %.preheader3141 ]
-  %.sroa.0.183192 = phi i64 [ 0, %.preheader3141.preheader ], [ %395, %.preheader3141 ]
-  %.sroa.262.183191 = phi i64 [ 0, %.preheader3141.preheader ], [ %396, %.preheader3141 ]
+  %.sroa.0.203192 = phi i64 [ 0, %.preheader3141.preheader ], [ %395, %.preheader3141 ]
+  %.sroa.262.203191 = phi i64 [ 0, %.preheader3141.preheader ], [ %396, %.preheader3141 ]
   %indvars.iv.next3423 = add nsw i64 %indvars.iv3422, -1
   %387 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next3423
   %388 = load i8, ptr %387, align 1
@@ -1780,10 +1780,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %390 = getelementptr inbounds i64, ptr %8, i64 %389
   %391 = load i64, ptr %390, align 8
   %392 = and i64 %391, 255
-  %393 = lshr i64 %.sroa.0.183192, %392
+  %393 = lshr i64 %.sroa.0.203192, %392
   %394 = and i64 %391, -256
   %395 = or i64 %393, %394
-  %396 = add i64 %391, %.sroa.262.183191
+  %396 = add i64 %391, %.sroa.262.203191
   %397 = add nsw i32 %.025483193, -1
   %398 = icmp ugt i32 %.025483193, 1
   br i1 %398, label %.preheader3141, label %399, !llvm.loop !37
@@ -1801,21 +1801,21 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 407:                                              ; preds = %399, %383
   %.sroa.262.19 = phi i64 [ %405, %399 ], [ 0, %383 ]
-  %.sroa.428.9 = phi ptr [ %406, %399 ], [ %0, %383 ]
+  %.sroa.428.10 = phi ptr [ %406, %399 ], [ %0, %383 ]
   %.sroa.0.19 = phi i64 [ %395, %399 ], [ 0, %383 ]
-  %.12545 = phi i32 [ %400, %399 ], [ %20, %383 ]
-  %408 = srem i32 %.12545, 12
+  %.02544 = phi i32 [ %400, %399 ], [ %20, %383 ]
+  %408 = srem i32 %.02544, 12
   %.not2657 = icmp eq i32 %408, 0
   br i1 %.not2657, label %439, label %.preheader3140.preheader
 
 .preheader3140.preheader:                         ; preds = %407
-  %409 = sext i32 %.12545 to i64
+  %409 = sext i32 %.02544 to i64
   br label %.preheader3140
 
 .preheader3140:                                   ; preds = %.preheader3140.preheader, %.preheader3140
   %indvars.iv3425 = phi i64 [ 1, %.preheader3140.preheader ], [ %indvars.iv.next3426, %.preheader3140 ]
-  %.sroa.0.203196 = phi i64 [ %.sroa.0.19, %.preheader3140.preheader ], [ %418, %.preheader3140 ]
-  %.sroa.262.203195 = phi i64 [ %.sroa.262.19, %.preheader3140.preheader ], [ %419, %.preheader3140 ]
+  %.sroa.0.223196 = phi i64 [ %.sroa.0.19, %.preheader3140.preheader ], [ %418, %.preheader3140 ]
+  %.sroa.262.223195 = phi i64 [ %.sroa.262.19, %.preheader3140.preheader ], [ %419, %.preheader3140 ]
   %410 = sub nsw i64 %409, %indvars.iv3425
   %411 = getelementptr inbounds i8, ptr %2, i64 %410
   %412 = load i8, ptr %411, align 1
@@ -1823,15 +1823,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %414 = getelementptr inbounds i64, ptr %8, i64 %413
   %415 = load i64, ptr %414, align 8
   %416 = and i64 %415, 255
-  %417 = lshr i64 %.sroa.0.203196, %416
+  %417 = lshr i64 %.sroa.0.223196, %416
   %418 = or i64 %417, %415
-  %419 = add i64 %415, %.sroa.262.203195
+  %419 = add i64 %415, %.sroa.262.223195
   %indvars.iv.next3426 = add nuw nsw i64 %indvars.iv3425, 1
   %exitcond3428.not = icmp eq i64 %indvars.iv.next3426, 6
   br i1 %exitcond3428.not, label %420, label %.preheader3140, !llvm.loop !38
 
 420:                                              ; preds = %.preheader3140
-  %421 = add nsw i32 %.12545, -6
+  %421 = add nsw i32 %.02544, -6
   %422 = sext i32 %421 to i64
   %423 = getelementptr inbounds i8, ptr %2, i64 %422
   %424 = load i8, ptr %423, align 1
@@ -1848,15 +1848,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %435 = sub nsw i64 64, %433
   %436 = lshr i64 %431, %435
   %437 = and i64 %432, 7
-  store i64 %436, ptr %.sroa.428.9, align 1
-  %438 = getelementptr inbounds i8, ptr %.sroa.428.9, i64 %434
+  store i64 %436, ptr %.sroa.428.10, align 1
+  %438 = getelementptr inbounds i8, ptr %.sroa.428.10, i64 %434
   br label %439
 
 439:                                              ; preds = %420, %407
   %.sroa.262.21 = phi i64 [ %.sroa.262.19, %407 ], [ %437, %420 ]
-  %.sroa.428.10 = phi ptr [ %.sroa.428.9, %407 ], [ %438, %420 ]
+  %.sroa.428.11 = phi ptr [ %.sroa.428.10, %407 ], [ %438, %420 ]
   %.sroa.0.21 = phi i64 [ %.sroa.0.19, %407 ], [ %431, %420 ]
-  %.22546 = phi i32 [ %.12545, %407 ], [ %421, %420 ]
+  %.22546 = phi i32 [ %.02544, %407 ], [ %421, %420 ]
   %invariant.gep3204 = getelementptr i8, ptr %2, i64 -12
   %440 = icmp sgt i32 %.22546, 0
   br i1 %440, label %.preheader3138.preheader, label %.loopexit
@@ -1867,15 +1867,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 .preheader3138:                                   ; preds = %.preheader3138.preheader, %479
   %indvars.iv3437 = phi i64 [ %441, %.preheader3138.preheader ], [ %indvars.iv.next3438, %479 ]
-  %.sroa.0.223208 = phi i64 [ %.sroa.0.21, %.preheader3138.preheader ], [ %494, %479 ]
-  %.sroa.428.113207 = phi ptr [ %.sroa.428.10, %.preheader3138.preheader ], [ %501, %479 ]
-  %.sroa.262.223206 = phi i64 [ %.sroa.262.21, %.preheader3138.preheader ], [ %500, %479 ]
+  %.sroa.0.233208 = phi i64 [ %.sroa.0.21, %.preheader3138.preheader ], [ %494, %479 ]
+  %.sroa.428.123207 = phi ptr [ %.sroa.428.11, %.preheader3138.preheader ], [ %501, %479 ]
+  %.sroa.262.233206 = phi i64 [ %.sroa.262.21, %.preheader3138.preheader ], [ %500, %479 ]
   br label %442
 
 442:                                              ; preds = %.preheader3138, %442
   %indvars.iv3429 = phi i64 [ 1, %.preheader3138 ], [ %indvars.iv.next3430, %442 ]
-  %.sroa.0.233199 = phi i64 [ %.sroa.0.223208, %.preheader3138 ], [ %451, %442 ]
-  %.sroa.262.233198 = phi i64 [ %.sroa.262.223206, %.preheader3138 ], [ %452, %442 ]
+  %.sroa.0.243199 = phi i64 [ %.sroa.0.233208, %.preheader3138 ], [ %451, %442 ]
+  %.sroa.262.243198 = phi i64 [ %.sroa.262.233206, %.preheader3138 ], [ %452, %442 ]
   %443 = sub nsw i64 %indvars.iv3437, %indvars.iv3429
   %444 = getelementptr inbounds i8, ptr %2, i64 %443
   %445 = load i8, ptr %444, align 1
@@ -1883,9 +1883,9 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %447 = getelementptr inbounds i64, ptr %8, i64 %446
   %448 = load i64, ptr %447, align 8
   %449 = and i64 %448, 255
-  %450 = lshr i64 %.sroa.0.233199, %449
+  %450 = lshr i64 %.sroa.0.243199, %449
   %451 = or i64 %450, %448
-  %452 = add i64 %448, %.sroa.262.233198
+  %452 = add i64 %448, %.sroa.262.243198
   %indvars.iv.next3430 = add nuw nsw i64 %indvars.iv3429, 1
   %exitcond3432.not = icmp eq i64 %indvars.iv.next3430, 6
   br i1 %exitcond3432.not, label %453, label %442, !llvm.loop !39
@@ -1905,7 +1905,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %465 = and i64 %464, 255
   %466 = sub nsw i64 64, %465
   %467 = lshr i64 %463, %466
-  store i64 %467, ptr %.sroa.428.113207, align 1
+  store i64 %467, ptr %.sroa.428.123207, align 1
   br label %468
 
 468:                                              ; preds = %453, %468
@@ -1929,7 +1929,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 479:                                              ; preds = %468
   %480 = lshr i64 %465, 3
   %481 = and i64 %464, 7
-  %482 = getelementptr inbounds i8, ptr %.sroa.428.113207, i64 %480
+  %482 = getelementptr inbounds i8, ptr %.sroa.428.123207, i64 %480
   %gep3205 = getelementptr i8, ptr %invariant.gep3204, i64 %indvars.iv3437
   %483 = load i8, ptr %gep3205, align 1
   %484 = zext i8 %483 to i64
@@ -1968,8 +1968,8 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 .preheader3145:                                   ; preds = %.preheader3145.preheader, %.preheader3145
   %indvars.iv3404 = phi i64 [ %506, %.preheader3145.preheader ], [ %indvars.iv.next3405, %.preheader3145 ]
   %.025403171 = phi i32 [ %504, %.preheader3145.preheader ], [ %517, %.preheader3145 ]
-  %.sroa.0.243170 = phi i64 [ 0, %.preheader3145.preheader ], [ %515, %.preheader3145 ]
-  %.sroa.262.243169 = phi i64 [ 0, %.preheader3145.preheader ], [ %516, %.preheader3145 ]
+  %.sroa.0.263170 = phi i64 [ 0, %.preheader3145.preheader ], [ %515, %.preheader3145 ]
+  %.sroa.262.263169 = phi i64 [ 0, %.preheader3145.preheader ], [ %516, %.preheader3145 ]
   %indvars.iv.next3405 = add nsw i64 %indvars.iv3404, -1
   %507 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next3405
   %508 = load i8, ptr %507, align 1
@@ -1977,10 +1977,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %510 = getelementptr inbounds i64, ptr %8, i64 %509
   %511 = load i64, ptr %510, align 8
   %512 = and i64 %511, 255
-  %513 = lshr i64 %.sroa.0.243170, %512
+  %513 = lshr i64 %.sroa.0.263170, %512
   %514 = and i64 %511, -256
   %515 = or i64 %513, %514
-  %516 = add i64 %511, %.sroa.262.243169
+  %516 = add i64 %511, %.sroa.262.263169
   %517 = add nsw i32 %.025403171, -1
   %518 = icmp ugt i32 %.025403171, 1
   br i1 %518, label %.preheader3145, label %519, !llvm.loop !37
@@ -1998,21 +1998,21 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 527:                                              ; preds = %519, %503
   %.sroa.262.25 = phi i64 [ %525, %519 ], [ 0, %503 ]
-  %.sroa.428.12 = phi ptr [ %526, %519 ], [ %0, %503 ]
+  %.sroa.428.13 = phi ptr [ %526, %519 ], [ %0, %503 ]
   %.sroa.0.25 = phi i64 [ %515, %519 ], [ 0, %503 ]
-  %.12537 = phi i32 [ %520, %519 ], [ %20, %503 ]
-  %528 = srem i32 %.12537, 14
+  %.02536 = phi i32 [ %520, %519 ], [ %20, %503 ]
+  %528 = srem i32 %.02536, 14
   %.not2656 = icmp eq i32 %528, 0
   br i1 %.not2656, label %559, label %.preheader3144.preheader
 
 .preheader3144.preheader:                         ; preds = %527
-  %529 = sext i32 %.12537 to i64
+  %529 = sext i32 %.02536 to i64
   br label %.preheader3144
 
 .preheader3144:                                   ; preds = %.preheader3144.preheader, %.preheader3144
   %indvars.iv3407 = phi i64 [ 1, %.preheader3144.preheader ], [ %indvars.iv.next3408, %.preheader3144 ]
-  %.sroa.0.263174 = phi i64 [ %.sroa.0.25, %.preheader3144.preheader ], [ %538, %.preheader3144 ]
-  %.sroa.262.263173 = phi i64 [ %.sroa.262.25, %.preheader3144.preheader ], [ %539, %.preheader3144 ]
+  %.sroa.0.283174 = phi i64 [ %.sroa.0.25, %.preheader3144.preheader ], [ %538, %.preheader3144 ]
+  %.sroa.262.283173 = phi i64 [ %.sroa.262.25, %.preheader3144.preheader ], [ %539, %.preheader3144 ]
   %530 = sub nsw i64 %529, %indvars.iv3407
   %531 = getelementptr inbounds i8, ptr %2, i64 %530
   %532 = load i8, ptr %531, align 1
@@ -2020,15 +2020,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %534 = getelementptr inbounds i64, ptr %8, i64 %533
   %535 = load i64, ptr %534, align 8
   %536 = and i64 %535, 255
-  %537 = lshr i64 %.sroa.0.263174, %536
+  %537 = lshr i64 %.sroa.0.283174, %536
   %538 = or i64 %537, %535
-  %539 = add i64 %535, %.sroa.262.263173
+  %539 = add i64 %535, %.sroa.262.283173
   %indvars.iv.next3408 = add nuw nsw i64 %indvars.iv3407, 1
   %exitcond3410.not = icmp eq i64 %indvars.iv.next3408, 7
   br i1 %exitcond3410.not, label %540, label %.preheader3144, !llvm.loop !38
 
 540:                                              ; preds = %.preheader3144
-  %541 = add nsw i32 %.12537, -7
+  %541 = add nsw i32 %.02536, -7
   %542 = sext i32 %541 to i64
   %543 = getelementptr inbounds i8, ptr %2, i64 %542
   %544 = load i8, ptr %543, align 1
@@ -2045,15 +2045,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %555 = sub nsw i64 64, %553
   %556 = lshr i64 %551, %555
   %557 = and i64 %552, 7
-  store i64 %556, ptr %.sroa.428.12, align 1
-  %558 = getelementptr inbounds i8, ptr %.sroa.428.12, i64 %554
+  store i64 %556, ptr %.sroa.428.13, align 1
+  %558 = getelementptr inbounds i8, ptr %.sroa.428.13, i64 %554
   br label %559
 
 559:                                              ; preds = %540, %527
   %.sroa.262.27 = phi i64 [ %.sroa.262.25, %527 ], [ %557, %540 ]
-  %.sroa.428.13 = phi ptr [ %.sroa.428.12, %527 ], [ %558, %540 ]
+  %.sroa.428.14 = phi ptr [ %.sroa.428.13, %527 ], [ %558, %540 ]
   %.sroa.0.27 = phi i64 [ %.sroa.0.25, %527 ], [ %551, %540 ]
-  %.22538 = phi i32 [ %.12537, %527 ], [ %541, %540 ]
+  %.22538 = phi i32 [ %.02536, %527 ], [ %541, %540 ]
   %invariant.gep3182 = getelementptr i8, ptr %2, i64 -14
   %560 = icmp sgt i32 %.22538, 0
   br i1 %560, label %.preheader3142.preheader, label %.loopexit
@@ -2064,15 +2064,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 .preheader3142:                                   ; preds = %.preheader3142.preheader, %599
   %indvars.iv3419 = phi i64 [ %561, %.preheader3142.preheader ], [ %indvars.iv.next3420, %599 ]
-  %.sroa.0.283186 = phi i64 [ %.sroa.0.27, %.preheader3142.preheader ], [ %614, %599 ]
-  %.sroa.428.143185 = phi ptr [ %.sroa.428.13, %.preheader3142.preheader ], [ %621, %599 ]
-  %.sroa.262.283184 = phi i64 [ %.sroa.262.27, %.preheader3142.preheader ], [ %620, %599 ]
+  %.sroa.0.293186 = phi i64 [ %.sroa.0.27, %.preheader3142.preheader ], [ %614, %599 ]
+  %.sroa.428.153185 = phi ptr [ %.sroa.428.14, %.preheader3142.preheader ], [ %621, %599 ]
+  %.sroa.262.293184 = phi i64 [ %.sroa.262.27, %.preheader3142.preheader ], [ %620, %599 ]
   br label %562
 
 562:                                              ; preds = %.preheader3142, %562
   %indvars.iv3411 = phi i64 [ 1, %.preheader3142 ], [ %indvars.iv.next3412, %562 ]
-  %.sroa.0.293177 = phi i64 [ %.sroa.0.283186, %.preheader3142 ], [ %571, %562 ]
-  %.sroa.262.293176 = phi i64 [ %.sroa.262.283184, %.preheader3142 ], [ %572, %562 ]
+  %.sroa.0.303177 = phi i64 [ %.sroa.0.293186, %.preheader3142 ], [ %571, %562 ]
+  %.sroa.262.303176 = phi i64 [ %.sroa.262.293184, %.preheader3142 ], [ %572, %562 ]
   %563 = sub nsw i64 %indvars.iv3419, %indvars.iv3411
   %564 = getelementptr inbounds i8, ptr %2, i64 %563
   %565 = load i8, ptr %564, align 1
@@ -2080,9 +2080,9 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %567 = getelementptr inbounds i64, ptr %8, i64 %566
   %568 = load i64, ptr %567, align 8
   %569 = and i64 %568, 255
-  %570 = lshr i64 %.sroa.0.293177, %569
+  %570 = lshr i64 %.sroa.0.303177, %569
   %571 = or i64 %570, %568
-  %572 = add i64 %568, %.sroa.262.293176
+  %572 = add i64 %568, %.sroa.262.303176
   %indvars.iv.next3412 = add nuw nsw i64 %indvars.iv3411, 1
   %exitcond3414.not = icmp eq i64 %indvars.iv.next3412, 7
   br i1 %exitcond3414.not, label %573, label %562, !llvm.loop !39
@@ -2102,7 +2102,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %585 = and i64 %584, 255
   %586 = sub nsw i64 64, %585
   %587 = lshr i64 %583, %586
-  store i64 %587, ptr %.sroa.428.143185, align 1
+  store i64 %587, ptr %.sroa.428.153185, align 1
   br label %588
 
 588:                                              ; preds = %573, %588
@@ -2126,7 +2126,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 599:                                              ; preds = %588
   %600 = lshr i64 %585, 3
   %601 = and i64 %584, 7
-  %602 = getelementptr inbounds i8, ptr %.sroa.428.143185, i64 %600
+  %602 = getelementptr inbounds i8, ptr %.sroa.428.153185, i64 %600
   %gep3183 = getelementptr i8, ptr %invariant.gep3182, i64 %indvars.iv3419
   %603 = load i8, ptr %gep3183, align 1
   %604 = zext i8 %603 to i64
@@ -2165,8 +2165,8 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 .preheader3149:                                   ; preds = %.preheader3149.preheader, %.preheader3149
   %indvars.iv = phi i64 [ %626, %.preheader3149.preheader ], [ %indvars.iv.next, %.preheader3149 ]
   %.025323152 = phi i32 [ %624, %.preheader3149.preheader ], [ %637, %.preheader3149 ]
-  %.sroa.0.303151 = phi i64 [ 0, %.preheader3149.preheader ], [ %635, %.preheader3149 ]
-  %.sroa.262.303150 = phi i64 [ 0, %.preheader3149.preheader ], [ %636, %.preheader3149 ]
+  %.sroa.0.323151 = phi i64 [ 0, %.preheader3149.preheader ], [ %635, %.preheader3149 ]
+  %.sroa.262.323150 = phi i64 [ 0, %.preheader3149.preheader ], [ %636, %.preheader3149 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %627 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next
   %628 = load i8, ptr %627, align 1
@@ -2174,10 +2174,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %630 = getelementptr inbounds i64, ptr %8, i64 %629
   %631 = load i64, ptr %630, align 8
   %632 = and i64 %631, 255
-  %633 = lshr i64 %.sroa.0.303151, %632
+  %633 = lshr i64 %.sroa.0.323151, %632
   %634 = and i64 %631, -256
   %635 = or i64 %633, %634
-  %636 = add i64 %631, %.sroa.262.303150
+  %636 = add i64 %631, %.sroa.262.323150
   %637 = add nsw i32 %.025323152, -1
   %638 = icmp ugt i32 %.025323152, 1
   br i1 %638, label %.preheader3149, label %639, !llvm.loop !37
@@ -2195,21 +2195,21 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 647:                                              ; preds = %639, %623
   %.sroa.262.31 = phi i64 [ %645, %639 ], [ 0, %623 ]
-  %.sroa.428.15 = phi ptr [ %646, %639 ], [ %0, %623 ]
+  %.sroa.428.16 = phi ptr [ %646, %639 ], [ %0, %623 ]
   %.sroa.0.31 = phi i64 [ %635, %639 ], [ 0, %623 ]
-  %.12529 = phi i32 [ %640, %639 ], [ %20, %623 ]
-  %648 = and i32 %.12529, 15
+  %.02528 = phi i32 [ %640, %639 ], [ %20, %623 ]
+  %648 = and i32 %.02528, 15
   %.not2655 = icmp eq i32 %648, 0
   br i1 %.not2655, label %679, label %.preheader3148.preheader
 
 .preheader3148.preheader:                         ; preds = %647
-  %649 = sext i32 %.12529 to i64
+  %649 = sext i32 %.02528 to i64
   br label %.preheader3148
 
 .preheader3148:                                   ; preds = %.preheader3148.preheader, %.preheader3148
   %indvars.iv3390 = phi i64 [ 1, %.preheader3148.preheader ], [ %indvars.iv.next3391, %.preheader3148 ]
-  %.sroa.0.323155 = phi i64 [ %.sroa.0.31, %.preheader3148.preheader ], [ %658, %.preheader3148 ]
-  %.sroa.262.323154 = phi i64 [ %.sroa.262.31, %.preheader3148.preheader ], [ %659, %.preheader3148 ]
+  %.sroa.0.343155 = phi i64 [ %.sroa.0.31, %.preheader3148.preheader ], [ %658, %.preheader3148 ]
+  %.sroa.262.343154 = phi i64 [ %.sroa.262.31, %.preheader3148.preheader ], [ %659, %.preheader3148 ]
   %650 = sub nsw i64 %649, %indvars.iv3390
   %651 = getelementptr inbounds i8, ptr %2, i64 %650
   %652 = load i8, ptr %651, align 1
@@ -2217,15 +2217,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %654 = getelementptr inbounds i64, ptr %8, i64 %653
   %655 = load i64, ptr %654, align 8
   %656 = and i64 %655, 255
-  %657 = lshr i64 %.sroa.0.323155, %656
+  %657 = lshr i64 %.sroa.0.343155, %656
   %658 = or i64 %657, %655
-  %659 = add i64 %655, %.sroa.262.323154
+  %659 = add i64 %655, %.sroa.262.343154
   %indvars.iv.next3391 = add nuw nsw i64 %indvars.iv3390, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next3391, 8
   br i1 %exitcond.not, label %660, label %.preheader3148, !llvm.loop !38
 
 660:                                              ; preds = %.preheader3148
-  %661 = add nsw i32 %.12529, -8
+  %661 = add nsw i32 %.02528, -8
   %662 = sext i32 %661 to i64
   %663 = getelementptr inbounds i8, ptr %2, i64 %662
   %664 = load i8, ptr %663, align 1
@@ -2242,15 +2242,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %675 = sub nsw i64 64, %673
   %676 = lshr i64 %671, %675
   %677 = and i64 %672, 7
-  store i64 %676, ptr %.sroa.428.15, align 1
-  %678 = getelementptr inbounds i8, ptr %.sroa.428.15, i64 %674
+  store i64 %676, ptr %.sroa.428.16, align 1
+  %678 = getelementptr inbounds i8, ptr %.sroa.428.16, i64 %674
   br label %679
 
 679:                                              ; preds = %660, %647
   %.sroa.262.33 = phi i64 [ %.sroa.262.31, %647 ], [ %677, %660 ]
-  %.sroa.428.16 = phi ptr [ %.sroa.428.15, %647 ], [ %678, %660 ]
+  %.sroa.428.17 = phi ptr [ %.sroa.428.16, %647 ], [ %678, %660 ]
   %.sroa.0.33 = phi i64 [ %.sroa.0.31, %647 ], [ %671, %660 ]
-  %.22530 = phi i32 [ %.12529, %647 ], [ %661, %660 ]
+  %.22530 = phi i32 [ %.02528, %647 ], [ %661, %660 ]
   %invariant.gep = getelementptr i8, ptr %2, i64 -16
   %680 = icmp sgt i32 %.22530, 0
   br i1 %680, label %.preheader3146.preheader, label %.loopexit
@@ -2261,15 +2261,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 .preheader3146:                                   ; preds = %.preheader3146.preheader, %719
   %indvars.iv3401 = phi i64 [ %681, %.preheader3146.preheader ], [ %indvars.iv.next3402, %719 ]
-  %.sroa.0.343165 = phi i64 [ %.sroa.0.33, %.preheader3146.preheader ], [ %734, %719 ]
-  %.sroa.428.173164 = phi ptr [ %.sroa.428.16, %.preheader3146.preheader ], [ %741, %719 ]
-  %.sroa.262.343163 = phi i64 [ %.sroa.262.33, %.preheader3146.preheader ], [ %740, %719 ]
+  %.sroa.0.353165 = phi i64 [ %.sroa.0.33, %.preheader3146.preheader ], [ %734, %719 ]
+  %.sroa.428.183164 = phi ptr [ %.sroa.428.17, %.preheader3146.preheader ], [ %741, %719 ]
+  %.sroa.262.353163 = phi i64 [ %.sroa.262.33, %.preheader3146.preheader ], [ %740, %719 ]
   br label %682
 
 682:                                              ; preds = %.preheader3146, %682
   %indvars.iv3393 = phi i64 [ 1, %.preheader3146 ], [ %indvars.iv.next3394, %682 ]
-  %.sroa.0.353158 = phi i64 [ %.sroa.0.343165, %.preheader3146 ], [ %691, %682 ]
-  %.sroa.262.353157 = phi i64 [ %.sroa.262.343163, %.preheader3146 ], [ %692, %682 ]
+  %.sroa.0.363158 = phi i64 [ %.sroa.0.353165, %.preheader3146 ], [ %691, %682 ]
+  %.sroa.262.363157 = phi i64 [ %.sroa.262.353163, %.preheader3146 ], [ %692, %682 ]
   %683 = sub nsw i64 %indvars.iv3401, %indvars.iv3393
   %684 = getelementptr inbounds i8, ptr %2, i64 %683
   %685 = load i8, ptr %684, align 1
@@ -2277,9 +2277,9 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %687 = getelementptr inbounds i64, ptr %8, i64 %686
   %688 = load i64, ptr %687, align 8
   %689 = and i64 %688, 255
-  %690 = lshr i64 %.sroa.0.353158, %689
+  %690 = lshr i64 %.sroa.0.363158, %689
   %691 = or i64 %690, %688
-  %692 = add i64 %688, %.sroa.262.353157
+  %692 = add i64 %688, %.sroa.262.363157
   %indvars.iv.next3394 = add nuw nsw i64 %indvars.iv3393, 1
   %exitcond3396.not = icmp eq i64 %indvars.iv.next3394, 8
   br i1 %exitcond3396.not, label %693, label %682, !llvm.loop !39
@@ -2299,7 +2299,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %705 = and i64 %704, 255
   %706 = sub nsw i64 64, %705
   %707 = lshr i64 %703, %706
-  store i64 %707, ptr %.sroa.428.173164, align 1
+  store i64 %707, ptr %.sroa.428.183164, align 1
   br label %708
 
 708:                                              ; preds = %693, %708
@@ -2323,7 +2323,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 719:                                              ; preds = %708
   %720 = lshr i64 %705, 3
   %721 = and i64 %704, 7
-  %722 = getelementptr inbounds i8, ptr %.sroa.428.173164, i64 %720
+  %722 = getelementptr inbounds i8, ptr %.sroa.428.183164, i64 %720
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv3401
   %723 = load i8, ptr %gep, align 1
   %724 = zext i8 %723 to i64
@@ -2362,8 +2362,8 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 .preheader3129:                                   ; preds = %.preheader3129.preheader, %.preheader3129
   %indvars.iv3476 = phi i64 [ %746, %.preheader3129.preheader ], [ %indvars.iv.next3477, %.preheader3129 ]
   %.025243259 = phi i32 [ %744, %.preheader3129.preheader ], [ %757, %.preheader3129 ]
-  %.sroa.0.363258 = phi i64 [ 0, %.preheader3129.preheader ], [ %755, %.preheader3129 ]
-  %.sroa.262.363257 = phi i64 [ 0, %.preheader3129.preheader ], [ %756, %.preheader3129 ]
+  %.sroa.0.383258 = phi i64 [ 0, %.preheader3129.preheader ], [ %755, %.preheader3129 ]
+  %.sroa.262.383257 = phi i64 [ 0, %.preheader3129.preheader ], [ %756, %.preheader3129 ]
   %indvars.iv.next3477 = add nsw i64 %indvars.iv3476, -1
   %747 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next3477
   %748 = load i8, ptr %747, align 1
@@ -2371,10 +2371,10 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %750 = getelementptr inbounds i64, ptr %8, i64 %749
   %751 = load i64, ptr %750, align 8
   %752 = and i64 %751, 255
-  %753 = lshr i64 %.sroa.0.363258, %752
+  %753 = lshr i64 %.sroa.0.383258, %752
   %754 = and i64 %751, -256
   %755 = or i64 %753, %754
-  %756 = add i64 %751, %.sroa.262.363257
+  %756 = add i64 %751, %.sroa.262.383257
   %757 = add nsw i32 %.025243259, -1
   %758 = icmp ugt i32 %.025243259, 1
   br i1 %758, label %.preheader3129, label %759, !llvm.loop !37
@@ -2392,21 +2392,21 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 767:                                              ; preds = %759, %743
   %.sroa.262.37 = phi i64 [ %765, %759 ], [ 0, %743 ]
-  %.sroa.428.18 = phi ptr [ %766, %759 ], [ %0, %743 ]
+  %.sroa.428.19 = phi ptr [ %766, %759 ], [ %0, %743 ]
   %.sroa.0.37 = phi i64 [ %755, %759 ], [ 0, %743 ]
-  %.1 = phi i32 [ %760, %759 ], [ %20, %743 ]
-  %768 = srem i32 %.1, 18
+  %.0 = phi i32 [ %760, %759 ], [ %20, %743 ]
+  %768 = srem i32 %.0, 18
   %.not2660 = icmp eq i32 %768, 0
   br i1 %.not2660, label %798, label %.preheader3128.preheader
 
 .preheader3128.preheader:                         ; preds = %767
-  %769 = sext i32 %.1 to i64
+  %769 = sext i32 %.0 to i64
   br label %.preheader3128
 
 .preheader3128:                                   ; preds = %.preheader3128.preheader, %.preheader3128
   %indvars.iv3479 = phi i64 [ 1, %.preheader3128.preheader ], [ %indvars.iv.next3480, %.preheader3128 ]
-  %.sroa.0.383262 = phi i64 [ %.sroa.0.37, %.preheader3128.preheader ], [ %778, %.preheader3128 ]
-  %.sroa.262.383261 = phi i64 [ %.sroa.262.37, %.preheader3128.preheader ], [ %779, %.preheader3128 ]
+  %.sroa.0.403262 = phi i64 [ %.sroa.0.37, %.preheader3128.preheader ], [ %778, %.preheader3128 ]
+  %.sroa.262.403261 = phi i64 [ %.sroa.262.37, %.preheader3128.preheader ], [ %779, %.preheader3128 ]
   %770 = sub nsw i64 %769, %indvars.iv3479
   %771 = getelementptr inbounds i8, ptr %2, i64 %770
   %772 = load i8, ptr %771, align 1
@@ -2414,15 +2414,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %774 = getelementptr inbounds i64, ptr %8, i64 %773
   %775 = load i64, ptr %774, align 8
   %776 = and i64 %775, 255
-  %777 = lshr i64 %.sroa.0.383262, %776
+  %777 = lshr i64 %.sroa.0.403262, %776
   %778 = or i64 %777, %775
-  %779 = add i64 %775, %.sroa.262.383261
+  %779 = add i64 %775, %.sroa.262.403261
   %indvars.iv.next3480 = add nuw nsw i64 %indvars.iv3479, 1
   %exitcond3482.not = icmp eq i64 %indvars.iv.next3480, 9
   br i1 %exitcond3482.not, label %780, label %.preheader3128, !llvm.loop !38
 
 780:                                              ; preds = %.preheader3128
-  %781 = add nsw i32 %.1, -9
+  %781 = add nsw i32 %.0, -9
   %782 = sext i32 %781 to i64
   %783 = getelementptr inbounds i8, ptr %2, i64 %782
   %784 = load i8, ptr %783, align 1
@@ -2438,15 +2438,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %794 = sub nsw i64 64, %792
   %795 = lshr i64 %790, %794
   %796 = and i64 %791, 7
-  store i64 %795, ptr %.sroa.428.18, align 1
-  %797 = getelementptr inbounds i8, ptr %.sroa.428.18, i64 %793
+  store i64 %795, ptr %.sroa.428.19, align 1
+  %797 = getelementptr inbounds i8, ptr %.sroa.428.19, i64 %793
   br label %798
 
 798:                                              ; preds = %780, %767
   %.sroa.262.39 = phi i64 [ %.sroa.262.37, %767 ], [ %796, %780 ]
-  %.sroa.428.19 = phi ptr [ %.sroa.428.18, %767 ], [ %797, %780 ]
+  %.sroa.428.20 = phi ptr [ %.sroa.428.19, %767 ], [ %797, %780 ]
   %.sroa.0.39 = phi i64 [ %.sroa.0.37, %767 ], [ %790, %780 ]
-  %.2 = phi i32 [ %.1, %767 ], [ %781, %780 ]
+  %.2 = phi i32 [ %.0, %767 ], [ %781, %780 ]
   %invariant.gep3270 = getelementptr i8, ptr %2, i64 -18
   %799 = icmp sgt i32 %.2, 0
   br i1 %799, label %.preheader3126.preheader, label %.loopexit
@@ -2457,15 +2457,15 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 
 .preheader3126:                                   ; preds = %.preheader3126.preheader, %837
   %indvars.iv3491 = phi i64 [ %800, %.preheader3126.preheader ], [ %indvars.iv.next3492, %837 ]
-  %.sroa.0.403274 = phi i64 [ %.sroa.0.39, %.preheader3126.preheader ], [ %851, %837 ]
-  %.sroa.428.203273 = phi ptr [ %.sroa.428.19, %.preheader3126.preheader ], [ %858, %837 ]
-  %.sroa.262.403272 = phi i64 [ %.sroa.262.39, %.preheader3126.preheader ], [ %857, %837 ]
+  %.sroa.0.413274 = phi i64 [ %.sroa.0.39, %.preheader3126.preheader ], [ %851, %837 ]
+  %.sroa.428.213273 = phi ptr [ %.sroa.428.20, %.preheader3126.preheader ], [ %858, %837 ]
+  %.sroa.262.413272 = phi i64 [ %.sroa.262.39, %.preheader3126.preheader ], [ %857, %837 ]
   br label %801
 
 801:                                              ; preds = %.preheader3126, %801
   %indvars.iv3483 = phi i64 [ 1, %.preheader3126 ], [ %indvars.iv.next3484, %801 ]
-  %.sroa.0.413265 = phi i64 [ %.sroa.0.403274, %.preheader3126 ], [ %810, %801 ]
-  %.sroa.262.413264 = phi i64 [ %.sroa.262.403272, %.preheader3126 ], [ %811, %801 ]
+  %.sroa.0.423265 = phi i64 [ %.sroa.0.413274, %.preheader3126 ], [ %810, %801 ]
+  %.sroa.262.423264 = phi i64 [ %.sroa.262.413272, %.preheader3126 ], [ %811, %801 ]
   %802 = sub nsw i64 %indvars.iv3491, %indvars.iv3483
   %803 = getelementptr inbounds i8, ptr %2, i64 %802
   %804 = load i8, ptr %803, align 1
@@ -2473,9 +2473,9 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %806 = getelementptr inbounds i64, ptr %8, i64 %805
   %807 = load i64, ptr %806, align 8
   %808 = and i64 %807, 255
-  %809 = lshr i64 %.sroa.0.413265, %808
+  %809 = lshr i64 %.sroa.0.423265, %808
   %810 = or i64 %809, %807
-  %811 = add i64 %807, %.sroa.262.413264
+  %811 = add i64 %807, %.sroa.262.423264
   %indvars.iv.next3484 = add nuw nsw i64 %indvars.iv3483, 1
   %exitcond3486.not = icmp eq i64 %indvars.iv.next3484, 9
   br i1 %exitcond3486.not, label %812, label %801, !llvm.loop !39
@@ -2494,7 +2494,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %823 = and i64 %822, 255
   %824 = sub nsw i64 64, %823
   %825 = lshr i64 %821, %824
-  store i64 %825, ptr %.sroa.428.203273, align 1
+  store i64 %825, ptr %.sroa.428.213273, align 1
   br label %826
 
 826:                                              ; preds = %812, %826
@@ -2518,7 +2518,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
 837:                                              ; preds = %826
   %838 = lshr i64 %823, 3
   %839 = and i64 %822, 7
-  %840 = getelementptr inbounds i8, ptr %.sroa.428.203273, i64 %838
+  %840 = getelementptr inbounds i8, ptr %.sroa.428.213273, i64 %838
   %gep3271 = getelementptr i8, ptr %invariant.gep3270, i64 %indvars.iv3491
   %841 = load i8, ptr %gep3271, align 1
   %842 = zext i8 %841 to i64
@@ -2544,18 +2544,18 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   br i1 %859, label %.preheader3126, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %719, %599, %479, %360, %242, %837, %122, %679, %559, %439, %321, %202, %798, %79
-  %.sroa.262.42 = phi i64 [ %.sroa.262.3, %79 ], [ %.sroa.262.39, %798 ], [ %.sroa.262.9, %202 ], [ %.sroa.262.15, %321 ], [ %.sroa.262.21, %439 ], [ %.sroa.262.27, %559 ], [ %.sroa.262.33, %679 ], [ %141, %122 ], [ %857, %837 ], [ %263, %242 ], [ %380, %360 ], [ %500, %479 ], [ %620, %599 ], [ %740, %719 ]
-  %.sroa.428.21 = phi ptr [ %.sroa.428.1, %79 ], [ %.sroa.428.19, %798 ], [ %.sroa.428.4, %202 ], [ %.sroa.428.7, %321 ], [ %.sroa.428.10, %439 ], [ %.sroa.428.13, %559 ], [ %.sroa.428.16, %679 ], [ %spec.store.select2664, %122 ], [ %858, %837 ], [ %264, %242 ], [ %381, %360 ], [ %501, %479 ], [ %621, %599 ], [ %741, %719 ]
-  %.sroa.0.42 = phi i64 [ %.sroa.0.3, %79 ], [ %.sroa.0.39, %798 ], [ %.sroa.0.9, %202 ], [ %.sroa.0.15, %321 ], [ %.sroa.0.21, %439 ], [ %.sroa.0.27, %559 ], [ %.sroa.0.33, %679 ], [ %135, %122 ], [ %851, %837 ], [ %257, %242 ], [ %374, %360 ], [ %494, %479 ], [ %614, %599 ], [ %734, %719 ]
-  %860 = lshr i64 %.sroa.0.42, 1
+  %.sroa.262.6 = phi i64 [ %.sroa.262.2, %79 ], [ %.sroa.262.39, %798 ], [ %.sroa.262.9, %202 ], [ %.sroa.262.15, %321 ], [ %.sroa.262.21, %439 ], [ %.sroa.262.27, %559 ], [ %.sroa.262.33, %679 ], [ %141, %122 ], [ %857, %837 ], [ %263, %242 ], [ %380, %360 ], [ %500, %479 ], [ %620, %599 ], [ %740, %719 ]
+  %.sroa.428.3 = phi ptr [ %.sroa.428.1, %79 ], [ %.sroa.428.20, %798 ], [ %.sroa.428.5, %202 ], [ %.sroa.428.8, %321 ], [ %.sroa.428.11, %439 ], [ %.sroa.428.14, %559 ], [ %.sroa.428.17, %679 ], [ %spec.store.select2664, %122 ], [ %858, %837 ], [ %264, %242 ], [ %381, %360 ], [ %501, %479 ], [ %621, %599 ], [ %741, %719 ]
+  %.sroa.0.6 = phi i64 [ %.sroa.0.2, %79 ], [ %.sroa.0.39, %798 ], [ %.sroa.0.9, %202 ], [ %.sroa.0.15, %321 ], [ %.sroa.0.21, %439 ], [ %.sroa.0.27, %559 ], [ %.sroa.0.33, %679 ], [ %135, %122 ], [ %851, %837 ], [ %257, %242 ], [ %374, %360 ], [ %494, %479 ], [ %614, %599 ], [ %734, %719 ]
+  %860 = lshr i64 %.sroa.0.6, 1
   %861 = or disjoint i64 %860, -9223372036854775808
-  %862 = add nuw nsw i64 %.sroa.262.42, -9223372036854775807
+  %862 = add nuw nsw i64 %.sroa.262.6, -9223372036854775807
   %863 = and i64 %862, 255
   %864 = lshr i64 %863, 3
   %865 = sub nuw nsw i64 64, %863
   %866 = lshr i64 %861, %865
-  store i64 %866, ptr %.sroa.428.21, align 1
-  %867 = getelementptr inbounds i8, ptr %.sroa.428.21, i64 %864
+  store i64 %866, ptr %.sroa.428.3, align 1
+  %867 = getelementptr inbounds i8, ptr %.sroa.428.3, i64 %864
   %868 = icmp ugt ptr %867, %12
   %spec.store.select.i = select i1 %868, ptr %12, ptr %867
   %.not.i = icmp ult ptr %spec.store.select.i, %12

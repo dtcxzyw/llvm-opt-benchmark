@@ -3067,7 +3067,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE9push_backEPS1_.exit.i, %for.body.lr.ph.i
-  %d_rules.sroa.7.0 = phi ptr [ null, %for.body.lr.ph.i ], [ %d_rules.sroa.7.2, %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE9push_backEPS1_.exit.i ]
+  %d_rules.sroa.7.2 = phi ptr [ null, %for.body.lr.ph.i ], [ %d_rules.sroa.7.3, %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE9push_backEPS1_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE9push_backEPS1_.exit.i ]
   %arrayidx.i21 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.i
   %8 = load ptr, ptr %arrayidx.i21, align 8
@@ -3075,13 +3075,13 @@ for.body.i:                                       ; preds = %_ZN15ref_vector_cor
           to label %.noexc unwind label %ehcleanup
 
 .noexc:                                           ; preds = %for.body.i
-  %cmp.i.i.i = icmp eq ptr %d_rules.sroa.7.0, null
+  %cmp.i.i.i = icmp eq ptr %d_rules.sroa.7.2, null
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %.noexc
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.0, i64 -4
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.2, i64 -4
   %9 = load i32, ptr %arrayidx.i.i.i, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.0, i64 -8
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.2, i64 -8
   %10 = load i32, ptr %arrayidx4.i.i.i, align 4
   %cmp5.i.i.i = icmp eq i32 %9, %10
   br i1 %cmp5.i.i.i, label %if.else.i, label %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE9push_backEPS1_.exit.i
@@ -3169,7 +3169,7 @@ unreachable.i:                                    ; preds = %invoke.cont.i
 .noexc24:                                         ; preds = %call25.i.noexc, %call.i.noexc
   %.pre1.i.i.i = phi i32 [ 0, %call.i.noexc ], [ %.pre1.i.i.i.pre, %call25.i.noexc ]
   %call.i108.pn = phi ptr [ %call.i108, %call.i.noexc ], [ %call25.i109, %call25.i.noexc ]
-  %d_rules.sroa.7.1 = getelementptr inbounds i8, ptr %call.i108.pn, i64 8
+  %d_rules.sroa.7.6 = getelementptr inbounds i8, ptr %call.i108.pn, i64 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
   %arrayidx10.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i108.pn, i64 4
@@ -3178,12 +3178,12 @@ unreachable.i:                                    ; preds = %invoke.cont.i
 
 _ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE9push_backEPS1_.exit.i: ; preds = %.noexc24, %lor.lhs.false.i.i.i
   %13 = phi i32 [ %.pre, %.noexc24 ], [ %9, %lor.lhs.false.i.i.i ]
-  %d_rules.sroa.7.2 = phi ptr [ %d_rules.sroa.7.1, %.noexc24 ], [ %d_rules.sroa.7.0, %lor.lhs.false.i.i.i ]
+  %d_rules.sroa.7.3 = phi ptr [ %d_rules.sroa.7.6, %.noexc24 ], [ %d_rules.sroa.7.2, %lor.lhs.false.i.i.i ]
   %14 = phi i32 [ %.pre1.i.i.i, %.noexc24 ], [ %9, %lor.lhs.false.i.i.i ]
   %idx.ext.i.i.i22 = zext i32 %14 to i64
-  %add.ptr.i.i.i23 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.2, i64 %idx.ext.i.i.i22
+  %add.ptr.i.i.i23 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.3, i64 %idx.ext.i.i.i22
   store ptr %8, ptr %add.ptr.i.i.i23, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.2, i64 -4
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.3, i64 -4
   %inc.i.i.i = add i32 %13, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3191,7 +3191,7 @@ _ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerE
   br i1 %exitcond.not.i, label %invoke.cont23.thread.lr.ph, label %for.body.i, !llvm.loop !15
 
 invoke.cont23.thread.lr.ph:                       ; preds = %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE9push_backEPS1_.exit.i
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.2, i64 -4
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.3, i64 -4
   %15 = load i32, ptr %arrayidx.i.i, align 4
   %16 = zext i32 %15 to i64
   %cmp140280.not = icmp eq i32 %15, 0
@@ -3199,7 +3199,7 @@ invoke.cont23.thread.lr.ph:                       ; preds = %_ZN15ref_vector_cor
 
 invoke.cont26:                                    ; preds = %invoke.cont23.thread.lr.ph, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74
   %indvars.iv281 = phi i64 [ %indvars.iv.next, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74 ], [ 0, %invoke.cont23.thread.lr.ph ]
-  %arrayidx.i.i26 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.2, i64 %indvars.iv281
+  %arrayidx.i.i26 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.3, i64 %indvars.iv281
   %17 = load ptr, ptr %arrayidx.i.i26, align 8
   %18 = load ptr, ptr %rm, align 8
   store ptr %17, ptr %r1, align 8
@@ -3227,7 +3227,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.prehe
   %j.0170 = phi i32 [ %inc, %for.inc ], [ %21, %invoke.cont40.preheader ]
   %23 = load ptr, ptr %r1, align 8
   %idxprom.i.i35 = zext i32 %j.0170 to i64
-  %arrayidx.i.i36 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.2, i64 %idxprom.i.i35
+  %arrayidx.i.i36 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.3, i64 %idxprom.i.i35
   %24 = load ptr, ptr %arrayidx.i.i36, align 8
   %m_uninterp_cnt.i.i = getelementptr inbounds i8, ptr %23, i64 68
   %25 = load i32, ptr %m_uninterp_cnt.i.i, align 4
@@ -3286,7 +3286,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
   %36 = load i32, ptr %arrayidx.i.i, align 4
   %37 = add i32 %36, -1
   %38 = zext i32 %37 to i64
-  %arrayidx.i1.i.i = getelementptr inbounds ptr, ptr %d_rules.sroa.7.2, i64 %38
+  %arrayidx.i1.i.i = getelementptr inbounds ptr, ptr %d_rules.sroa.7.3, i64 %38
   %39 = load ptr, ptr %arrayidx.i1.i.i, align 8
   invoke void @_ZN7datalog12rule_manager7inc_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %4, ptr noundef %39)
           to label %.noexc58 unwind label %lpad33.loopexit
@@ -3301,7 +3301,7 @@ _ZN6vectorIPN7datalog4ruleELb0EjE4backEv.exit.i:  ; preds = %.noexc58
   %41 = load i32, ptr %arrayidx.i.i, align 4
   %42 = add i32 %41, -1
   %43 = zext i32 %42 to i64
-  %arrayidx.i1.i.i65 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.2, i64 %43
+  %arrayidx.i1.i.i65 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.3, i64 %43
   %44 = load ptr, ptr %arrayidx.i1.i.i65, align 8
   store i32 %42, ptr %arrayidx.i.i, align 4
   invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %4, ptr noundef %44)
@@ -3392,12 +3392,12 @@ _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74: ; preds = %invoke.co
 _ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i: ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74, %invoke.cont23.thread.lr.ph
   %.lcssa261 = phi i32 [ %15, %invoke.cont23.thread.lr.ph ], [ %55, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74 ]
   %.lcssa = phi i64 [ %16, %invoke.cont23.thread.lr.ph ], [ %56, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74 ]
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %d_rules.sroa.7.2, i64 %.lcssa
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %d_rules.sroa.7.3, i64 %.lcssa
   %cmp3.i.not.i.i = icmp eq i32 %.lcssa261, 0
   br i1 %cmp3.i.not.i.i, label %if.then.i.i.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i, %.noexc.i.i
-  %it.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %.noexc.i.i ], [ %d_rules.sroa.7.2, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i ]
+  %it.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %.noexc.i.i ], [ %d_rules.sroa.7.3, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i ]
   %57 = load ptr, ptr %it.04.i.i.i, align 8
   invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %4, ptr noundef %57)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -3408,7 +3408,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK6vectorIPN7data
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %if.then.i.i.i.i.i, !llvm.loop !17
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.2, i64 -8
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.3, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i)
           to label %_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -3450,21 +3450,21 @@ _ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map
 ehcleanup:                                        ; preds = %for.body.i
   %lpad.loopexit.split-lp148 = landingpad { ptr, i32 }
           cleanup
-  %cmp.i.i.i79 = icmp eq ptr %d_rules.sroa.7.0, null
+  %cmp.i.i.i79 = icmp eq ptr %d_rules.sroa.7.2, null
   br i1 %cmp.i.i.i79, label %if.end.i.i101, label %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80
 
 _ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80: ; preds = %lpad11.loopexit, %if.then.i.i69, %lpad33, %ehcleanup.thread208, %ehcleanup.i, %cleanup.action.i, %ehcleanup
   %.pn145 = phi { ptr, i32 } [ %lpad.loopexit.split-lp148, %ehcleanup ], [ %12, %cleanup.action.i ], [ %11, %ehcleanup.i ], [ %lpad.loopexit.split-lp148210, %ehcleanup.thread208 ], [ %lpad.loopexit147, %lpad11.loopexit ], [ %lpad.phi, %if.then.i.i69 ], [ %lpad.phi, %lpad33 ]
-  %d_rules.sroa.7.6144 = phi ptr [ %d_rules.sroa.7.0, %ehcleanup ], [ %d_rules.sroa.7.0, %cleanup.action.i ], [ %d_rules.sroa.7.0, %ehcleanup.i ], [ %d_rules.sroa.7.0, %ehcleanup.thread208 ], [ %d_rules.sroa.7.2, %lpad11.loopexit ], [ %d_rules.sroa.7.2, %if.then.i.i69 ], [ %d_rules.sroa.7.2, %lpad33 ]
-  %arrayidx.i.i.i81 = getelementptr inbounds i8, ptr %d_rules.sroa.7.6144, i64 -4
+  %d_rules.sroa.7.1144 = phi ptr [ %d_rules.sroa.7.2, %ehcleanup ], [ %d_rules.sroa.7.2, %cleanup.action.i ], [ %d_rules.sroa.7.2, %ehcleanup.i ], [ %d_rules.sroa.7.2, %ehcleanup.thread208 ], [ %d_rules.sroa.7.3, %lpad11.loopexit ], [ %d_rules.sroa.7.3, %if.then.i.i69 ], [ %d_rules.sroa.7.3, %lpad33 ]
+  %arrayidx.i.i.i81 = getelementptr inbounds i8, ptr %d_rules.sroa.7.1144, i64 -4
   %63 = load i32, ptr %arrayidx.i.i.i81, align 4
   %64 = zext i32 %63 to i64
-  %add.ptr.i.i82 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.6144, i64 %64
+  %add.ptr.i.i82 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.1144, i64 %64
   %cmp3.i.not.i.i83 = icmp eq i32 %63, 0
   br i1 %cmp3.i.not.i.i83, label %if.then.i.i.i.i.i93, label %for.body.i.i.i84
 
 for.body.i.i.i84:                                 ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80, %.noexc.i.i87
-  %it.04.i.i.i85 = phi ptr [ %incdec.ptr.i.i.i88, %.noexc.i.i87 ], [ %d_rules.sroa.7.6144, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80 ]
+  %it.04.i.i.i85 = phi ptr [ %incdec.ptr.i.i.i88, %.noexc.i.i87 ], [ %d_rules.sroa.7.1144, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80 ]
   %65 = load ptr, ptr %it.04.i.i.i85, align 8
   invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %4, ptr noundef %65)
           to label %.noexc.i.i87 unwind label %terminate.lpad.i.i86
@@ -3475,7 +3475,7 @@ for.body.i.i.i84:                                 ; preds = %_ZNK6vectorIPN7data
   br i1 %cmp.i1.i.i89, label %for.body.i.i.i84, label %if.then.i.i.i.i.i93, !llvm.loop !17
 
 if.then.i.i.i.i.i93:                              ; preds = %.noexc.i.i87, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80
-  %add.ptr.i.i.i.i.i.i94 = getelementptr inbounds i8, ptr %d_rules.sroa.7.6144, i64 -8
+  %add.ptr.i.i.i.i.i.i94 = getelementptr inbounds i8, ptr %d_rules.sroa.7.1144, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i94)
           to label %if.end.i.i101 unwind label %terminate.lpad.i.i.i.i95
 

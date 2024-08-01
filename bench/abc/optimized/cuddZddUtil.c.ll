@@ -448,8 +448,8 @@ cuddZddP.exit.thread:                             ; preds = %23, %cuddZddP.exit
   br label %29
 
 29:                                               ; preds = %cuddZddP.exit.thread, %cuddZddP.exit, %14
-  %.2.shrunk = phi i1 [ %narrow, %14 ], [ false, %cuddZddP.exit.thread ], [ %narrow, %cuddZddP.exit ]
-  %.2 = zext i1 %.2.shrunk to i32
+  %.3.shrunk = phi i1 [ %narrow, %14 ], [ false, %cuddZddP.exit.thread ], [ %narrow, %cuddZddP.exit ]
+  %.3 = zext i1 %.3.shrunk to i32
   %30 = icmp eq i32 %3, 2
   %31 = icmp ugt i32 %3, 3
   %or.cond3 = or i1 %30, %31
@@ -491,14 +491,14 @@ Cudd_zddPrintMinterm.exit:                        ; preds = %.lr.ph.i, %.prehead
   br label %43
 
 43:                                               ; preds = %Cudd_zddPrintMinterm.exit, %41
-  %44 = phi i32 [ 0, %41 ], [ %.2, %Cudd_zddPrintMinterm.exit ]
+  %44 = phi i32 [ 0, %41 ], [ %.3, %Cudd_zddPrintMinterm.exit ]
   %45 = load ptr, ptr %19, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %45)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %43, %29, %9
   %.sink40 = phi ptr [ %10, %9 ], [ %19, %29 ], [ %19, %43 ]
-  %.029.ph = phi i32 [ 1, %9 ], [ %.2, %29 ], [ %44, %43 ]
+  %.029.ph = phi i32 [ 1, %9 ], [ %.3, %29 ], [ %44, %43 ]
   %46 = load ptr, ptr %.sink40, align 8
   %47 = tail call i32 @fflush(ptr noundef %46)
   br label %48

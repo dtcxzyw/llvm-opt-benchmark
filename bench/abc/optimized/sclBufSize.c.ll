@@ -3515,7 +3515,7 @@ Abc_ObjIsBarBuf.exit237.thread:                   ; preds = %381, %389, %391, %A
 409:                                              ; preds = %.lr.ph269, %.critedge
   %indvars.iv279 = phi i64 [ 0, %.lr.ph269 ], [ %indvars.iv.next280, %.critedge ]
   %.val168268 = phi ptr [ %.val168264, %.lr.ph269 ], [ %.val168, %.critedge ]
-  %.0117267 = phi float [ 0.000000e+00, %.lr.ph269 ], [ %453, %.critedge ]
+  %.1267 = phi float [ 0.000000e+00, %.lr.ph269 ], [ %453, %.critedge ]
   %410 = getelementptr i8, ptr %.val168268, i64 8
   %.val169.val = load ptr, ptr %410, align 8
   %411 = getelementptr inbounds ptr, ptr %.val169.val, i64 %indvars.iv279
@@ -3605,8 +3605,8 @@ Scl_LibHandleInputDriver.exit:                    ; preds = %419, %436
 
 .critedge:                                        ; preds = %Scl_LibHandleInputDriver.exit, %409
   %.0116 = phi float [ %451, %Scl_LibHandleInputDriver.exit ], [ %417, %409 ]
-  %452 = fcmp ogt float %.0117267, %.0116
-  %453 = select i1 %452, float %.0117267, float %.0116
+  %452 = fcmp ogt float %.1267, %.0116
+  %453 = select i1 %452, float %.1267, float %.0116
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %454 = load ptr, ptr %19, align 8
   %455 = getelementptr i8, ptr %454, i64 56
@@ -3622,7 +3622,7 @@ Scl_LibHandleInputDriver.exit:                    ; preds = %419, %436
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge8.loopexit, %.critedge.preheader, %.critedge.thread
-  %.1 = phi double [ 0.000000e+00, %.critedge.thread ], [ 0.000000e+00, %.critedge.preheader ], [ %459, %.critedge8.loopexit ]
+  %.0117 = phi double [ 0.000000e+00, %.critedge.thread ], [ 0.000000e+00, %.critedge.preheader ], [ %459, %.critedge8.loopexit ]
   %460 = load ptr, ptr %0, align 8
   %461 = getelementptr inbounds i8, ptr %460, i64 28
   %462 = load i32, ptr %461, align 4
@@ -3643,7 +3643,7 @@ Scl_LibHandleInputDriver.exit:                    ; preds = %419, %436
   %473 = getelementptr i8, ptr %.val154, i64 4
   %.val154.val = load i32, ptr %473, align 4
   %474 = sub nsw i32 %.val154.val, %.val156.val
-  %475 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %465, i32 noundef %467, i32 noundef %469, i32 noundef %470, i32 noundef %474, double noundef %.1)
+  %475 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %465, i32 noundef %467, i32 noundef %469, i32 noundef %470, i32 noundef %474, double noundef %.0117)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %476 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #23
   %477 = icmp slt i32 %476, 0

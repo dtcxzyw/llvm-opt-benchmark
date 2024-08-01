@@ -354,9 +354,9 @@ define hidden i64 @_ZNK20G1CommittedRegionMap17next_active_rangeEj(ptr nocapture
   br label %29
 
 29:                                               ; preds = %27, %16
-  %.1.ph.i.i.i = phi i64 [ %14, %16 ], [ %26, %27 ]
+  %.027.ph.i.i.i = phi i64 [ %14, %16 ], [ %26, %27 ]
   %.026.ph.i.i.i = phi i64 [ %4, %16 ], [ %28, %27 ]
-  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %31 = add nuw i64 %.026.ph.i.i.i, %30
   %32 = icmp ult i64 %31, %6
   br i1 %32, label %_ZNK6BitMap18find_first_set_bitEm.exit, label %.loopexit.i.i.i
@@ -419,9 +419,9 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
   br label %62
 
 62:                                               ; preds = %59, %48
-  %.1.ph.i.i.i10 = phi i64 [ %46, %48 ], [ %60, %59 ]
+  %.027.ph.i.i.i10 = phi i64 [ %46, %48 ], [ %60, %59 ]
   %.026.ph.i.i.i11 = phi i64 [ %37, %48 ], [ %61, %59 ]
-  %63 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i10, i1 true)
+  %63 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i10, i1 true)
   %64 = add nuw i64 %.026.ph.i.i.i11, %63
   %65 = icmp ult i64 %64, %6
   br i1 %65, label %_ZNK6BitMap20find_first_clear_bitEm.exit, label %.loopexit.i.i.i7
@@ -485,9 +485,9 @@ define hidden i64 @_ZNK20G1CommittedRegionMap22next_committable_rangeEj(ptr noca
   br label %31
 
 31:                                               ; preds = %28, %17
-  %.1.ph.i.i.i = phi i64 [ %15, %17 ], [ %29, %28 ]
+  %.027.ph.i.i.i = phi i64 [ %15, %17 ], [ %29, %28 ]
   %.026.ph.i.i.i = phi i64 [ %4, %17 ], [ %30, %28 ]
-  %32 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %32 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %33 = add nuw i64 %.026.ph.i.i.i, %32
   %34 = icmp ult i64 %33, %6
   br i1 %34, label %_ZNK6BitMap20find_first_clear_bitEm.exit, label %.loopexit.i.i.i
@@ -548,9 +548,9 @@ _ZNK6BitMap20find_first_clear_bitEm.exit._ZNK6BitMap18find_first_set_bitEm.exit_
   br label %62
 
 62:                                               ; preds = %60, %49
-  %.1.ph.i.i.i10 = phi i64 [ %47, %49 ], [ %59, %60 ]
+  %.027.ph.i.i.i10 = phi i64 [ %47, %49 ], [ %59, %60 ]
   %.026.ph.i.i.i11 = phi i64 [ %39, %49 ], [ %61, %60 ]
-  %63 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i10, i1 true)
+  %63 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i10, i1 true)
   %64 = add nuw i64 %.026.ph.i.i.i11, %63
   %65 = icmp ult i64 %64, %6
   br i1 %65, label %_ZNK6BitMap18find_first_set_bitEm.exit, label %.loopexit.i.i.i7
@@ -612,9 +612,9 @@ define hidden i64 @_ZNK20G1CommittedRegionMap19next_inactive_rangeEj(ptr nocaptu
   br label %29
 
 29:                                               ; preds = %27, %16
-  %.1.ph.i.i.i = phi i64 [ %14, %16 ], [ %26, %27 ]
+  %.027.ph.i.i.i = phi i64 [ %14, %16 ], [ %26, %27 ]
   %.026.ph.i.i.i = phi i64 [ %4, %16 ], [ %28, %27 ]
-  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %31 = add nuw i64 %.026.ph.i.i.i, %30
   %32 = icmp ult i64 %31, %6
   br i1 %32, label %_ZNK6BitMap18find_first_set_bitEm.exit, label %.loopexit.i.i.i
@@ -679,9 +679,9 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
   br label %64
 
 64:                                               ; preds = %61, %50
-  %.1.ph.i.i.i10 = phi i64 [ %48, %50 ], [ %62, %61 ]
+  %.027.ph.i.i.i10 = phi i64 [ %48, %50 ], [ %62, %61 ]
   %.026.ph.i.i.i11 = phi i64 [ %39, %50 ], [ %63, %61 ]
-  %65 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i10, i1 true)
+  %65 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i10, i1 true)
   %66 = add nuw i64 %.026.ph.i.i.i11, %65
   %67 = icmp ult i64 %66, %6
   br i1 %67, label %_ZNK6BitMap20find_first_clear_bitEm.exit, label %.loopexit.i.i.i7

@@ -200,14 +200,14 @@ land.lhs.true112:                                 ; preds = %if.then100
   br label %if.end120
 
 if.end120:                                        ; preds = %land.lhs.true36, %if.then14, %land.lhs.true45, %land.lhs.true55, %lor.lhs.false79, %land.lhs.true112, %if.end94, %if.then100, %if.end72
-  %ret.8 = phi i32 [ %ret.5, %if.end72 ], [ -112, %if.then100 ], [ %spec.select26, %if.end94 ], [ %spec.select28, %land.lhs.true112 ], [ 0, %lor.lhs.false79 ], [ -120, %land.lhs.true36 ], [ -111, %if.then14 ], [ -110, %land.lhs.true45 ], [ -114, %land.lhs.true55 ]
+  %ret.6 = phi i32 [ %ret.5, %if.end72 ], [ -112, %if.then100 ], [ %spec.select26, %if.end94 ], [ %spec.select28, %land.lhs.true112 ], [ 0, %lor.lhs.false79 ], [ -120, %land.lhs.true36 ], [ -111, %if.then14 ], [ -110, %land.lhs.true45 ], [ -114, %land.lhs.true55 ]
   call void @sp_clear(ptr noundef nonnull %y) #13
   call void @sp_clear(ptr noundef nonnull %p) #13
   call void @sp_clear(ptr noundef nonnull %q) #13
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end120
-  %retval.0 = phi i32 [ %ret.8, %if.end120 ], [ -173, %entry ], [ -110, %if.end ]
+  %retval.0 = phi i32 [ %ret.6, %if.end120 ], [ -173, %entry ], [ -110, %if.end ]
   ret i32 %retval.0
 }
 
@@ -401,13 +401,13 @@ if.then75:                                        ; preds = %if.then64
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then54, %if.end5, %if.then64, %if.then37, %if.then24, %if.then14, %if.then75, %if.then47
-  %ret.5 = phi i32 [ 0, %if.then47 ], [ %spec.select16, %if.then75 ], [ -110, %if.then24 ], [ -111, %if.then14 ], [ -120, %if.then37 ], [ -114, %if.then64 ], [ -111, %if.end5 ], [ -110, %if.then54 ]
+  %ret.3 = phi i32 [ 0, %if.then47 ], [ %spec.select16, %if.then75 ], [ -110, %if.then24 ], [ -111, %if.then14 ], [ -120, %if.then37 ], [ -114, %if.then64 ], [ -111, %if.end5 ], [ -110, %if.then54 ]
   call void @sp_forcezero(ptr noundef nonnull %x) #13
   call void @sp_clear(ptr noundef nonnull %q) #13
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end85
-  %retval.0 = phi i32 [ %ret.5, %if.end85 ], [ -173, %entry ], [ -110, %if.end ]
+  %retval.0 = phi i32 [ %ret.3, %if.end85 ], [ -173, %entry ], [ -110, %if.end ]
   ret i32 %retval.0
 }
 
@@ -909,15 +909,15 @@ if.then9:                                         ; preds = %entry
   %3 = load i8, ptr %p, align 1
   %cmp10 = icmp eq i8 %3, 0
   %dec = sext i1 %cmp10 to i32
-  %pSz.addr.0 = add i32 %dec, %pSz
-  %p.addr.0.idx = zext i1 %cmp10 to i64
-  %p.addr.0 = getelementptr inbounds i8, ptr %p, i64 %p.addr.0.idx
+  %pSz.addr.1 = add i32 %dec, %pSz
+  %p.addr.1.idx = zext i1 %cmp10 to i64
+  %p.addr.1 = getelementptr inbounds i8, ptr %p, i64 %p.addr.1.idx
   %4 = load i8, ptr %g, align 1
   %cmp16 = icmp eq i8 %4, 0
-  %g.addr.0.idx = zext i1 %cmp16 to i64
-  %g.addr.0 = getelementptr inbounds i8, ptr %g, i64 %g.addr.0.idx
+  %g.addr.1.idx = zext i1 %cmp16 to i64
+  %g.addr.1 = getelementptr inbounds i8, ptr %g, i64 %g.addr.1.idx
   %dec19 = sext i1 %cmp16 to i32
-  %gSz.addr.0 = add i32 %dec19, %gSz
+  %gSz.addr.1 = add i32 %dec19, %gSz
   %cmp22.not = icmp eq ptr %q, null
   br i1 %cmp22.not, label %if.end33, label %if.then24
 
@@ -932,24 +932,24 @@ if.then29:                                        ; preds = %if.then24
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then24, %if.then29, %if.then9
-  %q.addr.0 = phi ptr [ %incdec.ptr31, %if.then29 ], [ %q, %if.then24 ], [ null, %if.then9 ]
-  %qSz.addr.0 = phi i32 [ %dec30, %if.then29 ], [ %qSz, %if.then24 ], [ %qSz, %if.then9 ]
+  %q.addr.1 = phi ptr [ %incdec.ptr31, %if.then29 ], [ %q, %if.then24 ], [ null, %if.then9 ]
+  %qSz.addr.1 = phi i32 [ %dec30, %if.then29 ], [ %qSz, %if.then24 ], [ %qSz, %if.then9 ]
   %call = tail call i32 @sp_init(ptr noundef nonnull %key) #13
   %cmp35.not = icmp eq i32 %call, 0
   br i1 %cmp35.not, label %if.then42, label %if.end50
 
 if.then42:                                        ; preds = %if.end33
-  %call44 = tail call i32 @sp_read_unsigned_bin(ptr noundef nonnull %key, ptr noundef nonnull %p.addr.0, i32 noundef %pSz.addr.0) #13
+  %call44 = tail call i32 @sp_read_unsigned_bin(ptr noundef nonnull %key, ptr noundef nonnull %p.addr.1, i32 noundef %pSz.addr.1) #13
   %cmp45.not = icmp eq i32 %call44, 0
   %. = select i1 %cmp45.not, i32 0, i32 -158
   %key. = select i1 %cmp45.not, ptr %key, ptr null
   br label %if.end50
 
 if.end50:                                         ; preds = %entry, %if.end33, %if.then42
-  %qSz.addr.171 = phi i32 [ %qSz.addr.0, %if.then42 ], [ %qSz.addr.0, %if.end33 ], [ %qSz, %entry ]
-  %q.addr.169 = phi ptr [ %q.addr.0, %if.then42 ], [ %q.addr.0, %if.end33 ], [ %q, %entry ]
-  %gSz.addr.167 = phi i32 [ %gSz.addr.0, %if.then42 ], [ %gSz.addr.0, %if.end33 ], [ %gSz, %entry ]
-  %g.addr.165 = phi ptr [ %g.addr.0, %if.then42 ], [ %g.addr.0, %if.end33 ], [ %g, %entry ]
+  %qSz.addr.071 = phi i32 [ %qSz.addr.1, %if.then42 ], [ %qSz.addr.1, %if.end33 ], [ %qSz, %entry ]
+  %q.addr.069 = phi ptr [ %q.addr.1, %if.then42 ], [ %q.addr.1, %if.end33 ], [ %q, %entry ]
+  %gSz.addr.067 = phi i32 [ %gSz.addr.1, %if.then42 ], [ %gSz.addr.1, %if.end33 ], [ %gSz, %entry ]
+  %g.addr.065 = phi ptr [ %g.addr.1, %if.then42 ], [ %g.addr.1, %if.end33 ], [ %g, %entry ]
   %ret.2 = phi i32 [ %., %if.then42 ], [ -110, %if.end33 ], [ -173, %entry ]
   %keyP.0 = phi ptr [ %key., %if.then42 ], [ null, %if.end33 ], [ null, %entry ]
   %6 = or i32 %ret.2, %trusted
@@ -970,16 +970,16 @@ if.else58:                                        ; preds = %if.then53
   br label %if.end60
 
 if.end60:                                         ; preds = %if.else58, %if.then56
-  %ret.3 = phi i32 [ %call57, %if.then56 ], [ %call59, %if.else58 ]
-  %cmp61 = icmp eq i32 %ret.3, 0
+  %ret.4 = phi i32 [ %call57, %if.then56 ], [ %call59, %if.else58 ]
+  %cmp61 = icmp eq i32 %ret.4, 0
   %7 = load i32, ptr %isPrime, align 4
   %cmp64 = icmp eq i32 %7, 0
   %or.cond5 = select i1 %cmp61, i1 %cmp64, i1 false
   br i1 %or.cond5, label %if.end116.thread108, label %if.end68
 
 if.end68:                                         ; preds = %if.end60, %if.end50
-  %ret.4 = phi i32 [ %ret.2, %if.end50 ], [ %ret.3, %if.end60 ]
-  %cmp69 = icmp eq i32 %ret.4, 0
+  %ret.3 = phi i32 [ %ret.2, %if.end50 ], [ %ret.4, %if.end60 ]
+  %cmp69 = icmp eq i32 %ret.3, 0
   br i1 %cmp69, label %land.lhs.true71, label %if.end116.thread108
 
 land.lhs.true71:                                  ; preds = %if.end68
@@ -989,10 +989,10 @@ land.lhs.true71:                                  ; preds = %if.end68
   br i1 %cmp74.not, label %if.end89, label %if.end116.thread108
 
 if.end89:                                         ; preds = %land.lhs.true71
-  %call82 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %g72, ptr noundef %g.addr.165, i32 noundef %gSz.addr.167) #13
+  %call82 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %g72, ptr noundef %g.addr.065, i32 noundef %gSz.addr.067) #13
   %cmp83.not = icmp eq i32 %call82, 0
   %.55 = select i1 %cmp83.not, i32 0, i32 -158
-  %cmp93 = icmp ne ptr %q.addr.169, null
+  %cmp93 = icmp ne ptr %q.addr.069, null
   %or.cond6 = select i1 %cmp83.not, i1 %cmp93, i1 false
   br i1 %or.cond6, label %if.then95, label %if.end102
 
@@ -1011,7 +1011,7 @@ if.end102:                                        ; preds = %if.then95, %if.end8
 
 if.then108:                                       ; preds = %if.end102
   %q109 = getelementptr inbounds i8, ptr %key, i64 2080
-  %call110 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %q109, ptr noundef nonnull %q.addr.169, i32 noundef %qSz.addr.171) #13
+  %call110 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %q109, ptr noundef nonnull %q.addr.069, i32 noundef %qSz.addr.071) #13
   %cmp111.not = icmp eq i32 %call110, 0
   br i1 %cmp111.not, label %if.end116.thread, label %if.end116
 
@@ -1027,7 +1027,7 @@ if.end116:                                        ; preds = %if.then108, %if.end
   br i1 %or.cond8, label %if.then122, label %do.end131
 
 if.end116.thread108:                              ; preds = %if.end60, %land.lhs.true71, %if.end68
-  %ret.5.ph = phi i32 [ -110, %land.lhs.true71 ], [ %ret.4, %if.end68 ], [ -243, %if.end60 ]
+  %ret.5.ph = phi i32 [ -110, %land.lhs.true71 ], [ %ret.3, %if.end68 ], [ -243, %if.end60 ]
   br i1 %cmp, label %if.end125, label %do.end131
 
 if.then122:                                       ; preds = %if.end116

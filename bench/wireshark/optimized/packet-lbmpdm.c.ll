@@ -463,7 +463,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %.0111 = phi i8 [ %60, %.lr.ph ], [ %108, %dissect_segment_data.exit ]
   %.085109 = phi i32 [ %64, %.lr.ph ], [ %438, %dissect_segment_data.exit ]
   %.086108 = phi i32 [ %61, %.lr.ph ], [ %437, %dissect_segment_data.exit ]
-  %.087107 = phi i32 [ 16, %.lr.ph ], [ %436, %dissect_segment_data.exit ]
+  %.1107 = phi i32 [ 16, %.lr.ph ], [ %436, %dissect_segment_data.exit ]
   %.sroa.8.0106 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.1, %dissect_segment_data.exit ]
   %108 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.085109) #7
   %109 = add i32 %.085109, 4
@@ -1078,7 +1078,7 @@ dissect_segment_data.exit.sink.split:             ; preds = %112, %127, %418
 
 dissect_segment_data.exit:                        ; preds = %411, %220, %153, %dissect_segment_data.exit.sink.split, %297, %.preheader.i92, %.preheader.i
   %.sroa.8.1 = phi ptr [ %.sroa.8.0106, %.preheader.i ], [ %204, %.preheader.i92 ], [ %.sroa.8.0106, %297 ], [ %.sroa.8.0106, %dissect_segment_data.exit.sink.split ], [ %.sroa.8.0106, %153 ], [ %204, %220 ], [ %.sroa.8.0106, %411 ]
-  %436 = add i32 %111, %.087107
+  %436 = add i32 %111, %.1107
   %437 = sub i32 %.086108, %111
   %438 = add i32 %111, %.085109
   %439 = icmp ne i8 %108, -1

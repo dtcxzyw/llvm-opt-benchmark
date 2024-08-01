@@ -989,18 +989,18 @@ _ZN3std2fs8metadata17hbb5aded539c6484bE.exit:     ; preds = %53, %58
   br label %59
 
 59:                                               ; preds = %_ZN3std2fs8metadata17hbb5aded539c6484bE.exit, %_ZN3std2fs16symlink_metadata17h220e95c872895f25E.exit
-  %.sroa.941.2 = phi ptr [ %51, %_ZN3std2fs16symlink_metadata17h220e95c872895f25E.exit ], [ %57, %_ZN3std2fs8metadata17hbb5aded539c6484bE.exit ]
-  %.sroa.0.2 = phi i64 [ %48, %_ZN3std2fs16symlink_metadata17h220e95c872895f25E.exit ], [ %54, %_ZN3std2fs8metadata17hbb5aded539c6484bE.exit ]
-  %60 = icmp eq i64 %.sroa.0.2, 2
+  %.sroa.941.0 = phi ptr [ %51, %_ZN3std2fs16symlink_metadata17h220e95c872895f25E.exit ], [ %57, %_ZN3std2fs8metadata17hbb5aded539c6484bE.exit ]
+  %.sroa.0.046 = phi i64 [ %48, %_ZN3std2fs16symlink_metadata17h220e95c872895f25E.exit ], [ %54, %_ZN3std2fs8metadata17hbb5aded539c6484bE.exit ]
+  %60 = icmp eq i64 %.sroa.0.046, 2
   br i1 %60, label %72, label %61
 
 61:                                               ; preds = %59
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.1344, i64 160, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.1344)
-  store i64 %.sroa.0.2, ptr %14, align 8
+  store i64 %.sroa.0.046, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %.sroa.941.2, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.941.0, ptr %.sroa.4.0..sroa_idx, align 8
   %62 = getelementptr inbounds i8, ptr %14, i64 32
   %63 = getelementptr inbounds i8, ptr %14, i64 40
   %64 = load i64, ptr %63, align 8, !noundef !5
@@ -1017,11 +1017,11 @@ _ZN3std2fs8metadata17hbb5aded539c6484bE.exit:     ; preds = %53, %58
           to label %77 unwind label %75
 
 72:                                               ; preds = %59
-  %73 = icmp ne ptr %.sroa.941.2, null
+  %73 = icmp ne ptr %.sroa.941.0, null
   call void @llvm.assume(i1 %73)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.1344)
   %74 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.941.2, ptr %74, align 16
+  store ptr %.sroa.941.0, ptr %74, align 16
   store i128 2, ptr %0, align 16
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %14)
   br label %102

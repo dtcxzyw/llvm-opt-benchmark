@@ -1195,12 +1195,12 @@ define internal fastcc range(i32 0, 2) i32 @splay(ptr nocapture noundef readonly
   br i1 %.not94, label %89, label %cmp.exit101
 
 cmp.exit101:                                      ; preds = %42, %36, %50
-  %.1 = phi ptr [ %28, %50 ], [ %.073, %36 ], [ %.073, %42 ]
+  %.2 = phi ptr [ %28, %50 ], [ %.073, %36 ], [ %.073, %42 ]
   %54 = getelementptr inbounds i8, ptr %.076, i64 16
-  store ptr %.1, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %.1, i64 32
+  store ptr %.2, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %.2, i64 32
   store ptr %.076, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %.1, i64 16
+  %56 = getelementptr inbounds i8, ptr %.2, i64 16
   br label %88
 
 cmp.exit:                                         ; preds = %24
@@ -1264,25 +1264,25 @@ cmp.exit104.thread113:                            ; preds = %74, %72, %66
   br i1 %.not91, label %89, label %cmp.exit104.thread
 
 cmp.exit104.thread:                               ; preds = %74, %68, %59, %81
-  %.2 = phi ptr [ %58, %81 ], [ %.073, %59 ], [ %.073, %68 ], [ %.073, %74 ]
+  %.4 = phi ptr [ %58, %81 ], [ %.073, %59 ], [ %.073, %68 ], [ %.073, %74 ]
   %85 = getelementptr inbounds i8, ptr %.074, i64 24
-  store ptr %.2, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %.2, i64 32
+  store ptr %.4, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %.4, i64 32
   store ptr %.074, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %.2, i64 24
+  %87 = getelementptr inbounds i8, ptr %.4, i64 24
   br label %88
 
 88:                                               ; preds = %cmp.exit104.thread, %cmp.exit101
-  %.177 = phi ptr [ %.1, %cmp.exit101 ], [ %.076, %cmp.exit104.thread ]
-  %.175 = phi ptr [ %.074, %cmp.exit101 ], [ %.2, %cmp.exit104.thread ]
+  %.177 = phi ptr [ %.2, %cmp.exit101 ], [ %.076, %cmp.exit104.thread ]
+  %.175 = phi ptr [ %.074, %cmp.exit101 ], [ %.4, %cmp.exit104.thread ]
   %.3.in = phi ptr [ %56, %cmp.exit101 ], [ %87, %cmp.exit104.thread ]
   %.3 = load ptr, ptr %.3.in, align 8
   br label %8
 
 89:                                               ; preds = %cmp.exit, %81, %cmp.exit.thread108, %50, %26
-  %.4 = phi ptr [ %28, %50 ], [ %.073, %26 ], [ %58, %81 ], [ %.073, %cmp.exit.thread108 ], [ %.073, %cmp.exit ]
+  %.1 = phi ptr [ %28, %50 ], [ %.073, %26 ], [ %58, %81 ], [ %.073, %cmp.exit.thread108 ], [ %.073, %cmp.exit ]
   %.0 = phi i32 [ 0, %50 ], [ 0, %26 ], [ 0, %81 ], [ 0, %cmp.exit.thread108 ], [ 1, %cmp.exit ]
-  %90 = getelementptr inbounds i8, ptr %.4, i64 16
+  %90 = getelementptr inbounds i8, ptr %.1, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %.074, i64 24
   store ptr %91, ptr %92, align 8
@@ -1295,7 +1295,7 @@ cmp.exit104.thread:                               ; preds = %74, %68, %59, %81
   br label %95
 
 95:                                               ; preds = %93, %89
-  %96 = getelementptr inbounds i8, ptr %.4, i64 24
+  %96 = getelementptr inbounds i8, ptr %.1, i64 24
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %.076, i64 16
   store ptr %97, ptr %98, align 8
@@ -1316,7 +1316,7 @@ cmp.exit104.thread:                               ; preds = %74, %68, %59, %81
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds i8, ptr %103, i64 32
-  store ptr %.4, ptr %105, align 8
+  store ptr %.1, ptr %105, align 8
   br label %106
 
 106:                                              ; preds = %104, %101
@@ -1328,13 +1328,13 @@ cmp.exit104.thread:                               ; preds = %74, %68, %59, %81
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds i8, ptr %108, i64 32
-  store ptr %.4, ptr %110, align 8
+  store ptr %.1, ptr %110, align 8
   br label %111
 
 111:                                              ; preds = %109, %106
-  %112 = getelementptr inbounds i8, ptr %.4, i64 32
+  %112 = getelementptr inbounds i8, ptr %.1, i64 32
   store ptr null, ptr %112, align 8
-  store ptr %.4, ptr %5, align 8
+  store ptr %.1, ptr %5, align 8
   br label %113
 
 113:                                              ; preds = %3, %111

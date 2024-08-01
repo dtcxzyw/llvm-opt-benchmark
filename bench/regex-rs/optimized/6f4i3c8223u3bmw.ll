@@ -2871,7 +2871,7 @@ define hidden noalias noundef nonnull ptr @_ZN14regex_automata3nfa8thompson3nfa5
   unreachable
 
 33:                                               ; preds = %.body
-  br i1 %.2, label %226, label %225
+  br i1 %.3, label %226, label %225
 
 34:                                               ; preds = %32
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -2970,7 +2970,7 @@ define hidden noalias noundef nonnull ptr @_ZN14regex_automata3nfa8thompson3nfa5
   unreachable
 
 .body:                                            ; preds = %60, %56, %.body35
-  %.2 = phi i1 [ %76, %.body35 ], [ false, %60 ], [ true, %56 ]
+  %.3 = phi i1 [ %76, %.body35 ], [ false, %60 ], [ true, %56 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body36, %.body35 ], [ %61, %60 ], [ %57, %56 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..primitives..StateID$GT$$GT$17hb6b242916587e3aeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #30
           to label %33 unwind label %223

@@ -703,16 +703,16 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph33.i, %.
   br i1 %.not57, label %100, label %.preheader64
 
 .preheader64:                                     ; preds = %.thread, %89
-  %.2116 = phi i64 [ %70, %.thread ], [ 0, %89 ]
+  %.047116 = phi i64 [ %70, %.thread ], [ 0, %89 ]
   %92 = phi ptr [ %30, %.thread ], [ %18, %89 ]
   %93 = phi ptr [ %25, %.thread ], [ null, %89 ]
-  %94 = getelementptr inbounds %struct.plugin_param_t, ptr %92, i64 %.2116
+  %94 = getelementptr inbounds %struct.plugin_param_t, ptr %92, i64 %.047116
   %95 = load ptr, ptr %94, align 8
   %.not5882 = icmp eq ptr %95, null
   br i1 %.not5882, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader64, %.lr.ph
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.lr.ph ], [ %.2116, %.preheader64 ]
+  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.lr.ph ], [ %.047116, %.preheader64 ]
   %96 = phi ptr [ %98, %.lr.ph ], [ %94, %.preheader64 ]
   tail call void @slurm_xfree(ptr noundef nonnull %96) #13
   %97 = getelementptr inbounds %struct.plugin_param_t, ptr %92, i64 %indvars.iv105, i32 1

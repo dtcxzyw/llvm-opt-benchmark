@@ -5769,7 +5769,7 @@ _ZL16is_constant_zeroP11Instruction.exit:         ; preds = %240
   br label %_ZL16is_constant_zeroP11Instruction.exit.thread
 
 _ZL16is_constant_zeroP11Instruction.exit.thread:  ; preds = %_ZL16is_constant_zeroP11Instruction.exit, %240, %234, %236, %229
-  %.4 = phi i32 [ %235, %236 ], [ %235, %234 ], [ %.3140, %229 ], [ %235, %240 ], [ %spec.select317, %_ZL16is_constant_zeroP11Instruction.exit ]
+  %.5 = phi i32 [ %235, %236 ], [ %235, %234 ], [ %.3140, %229 ], [ %235, %240 ], [ %spec.select317, %_ZL16is_constant_zeroP11Instruction.exit ]
   %250 = load ptr, ptr %13, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 208
   %252 = load ptr, ptr %251, align 8
@@ -5778,7 +5778,7 @@ _ZL16is_constant_zeroP11Instruction.exit.thread:  ; preds = %_ZL16is_constant_ze
   br i1 %.not172, label %_ZL16is_constant_zeroP11Instruction.exit234.thread, label %254
 
 254:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.exit.thread
-  %255 = and i32 %.4, -3
+  %255 = and i32 %.5, -3
   %.not173 = icmp eq ptr %.0141, null
   br i1 %.not173, label %_ZL16is_constant_zeroP11Instruction.exit234.thread, label %256
 
@@ -5803,12 +5803,12 @@ _ZL16is_constant_zeroP11Instruction.exit234:      ; preds = %260
   %267 = load i32, ptr %266, align 8
   %.fr326 = freeze i32 %267
   %268 = icmp eq i32 %.fr326, 0
-  %269 = and i32 %.4, -67
+  %269 = and i32 %.5, -67
   %spec.select318 = select i1 %268, i32 %269, i32 %255
   br label %_ZL16is_constant_zeroP11Instruction.exit234.thread
 
 _ZL16is_constant_zeroP11Instruction.exit234.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.exit234, %260, %254, %256, %_ZL16is_constant_zeroP11Instruction.exit.thread
-  %.5 = phi i32 [ %255, %256 ], [ %255, %254 ], [ %.4, %_ZL16is_constant_zeroP11Instruction.exit.thread ], [ %255, %260 ], [ %spec.select318, %_ZL16is_constant_zeroP11Instruction.exit234 ]
+  %.6 = phi i32 [ %255, %256 ], [ %255, %254 ], [ %.5, %_ZL16is_constant_zeroP11Instruction.exit.thread ], [ %255, %260 ], [ %spec.select318, %_ZL16is_constant_zeroP11Instruction.exit234 ]
   %270 = getelementptr i8, ptr %11, i64 24
   %.val195 = load ptr, ptr %270, align 8
   %271 = load ptr, ptr %.val195, align 8
@@ -5822,13 +5822,13 @@ _ZL17positive_constantP11Instruction.exit:        ; preds = %_ZL16is_constant_ze
   %275 = getelementptr inbounds i8, ptr %274, i64 16
   %276 = load i32, ptr %275, align 8
   %.fr327 = freeze i32 %276
-  %277 = and i32 %.5, -5
+  %277 = and i32 %.6, -5
   %278 = icmp slt i32 %.fr327, 0
-  %spec.select319 = select i1 %278, i32 %.5, i32 %277
+  %spec.select319 = select i1 %278, i32 %.6, i32 %277
   br label %_ZL17positive_constantP11Instruction.exit.thread
 
 _ZL17positive_constantP11Instruction.exit.thread: ; preds = %_ZL17positive_constantP11Instruction.exit, %_ZL16is_constant_zeroP11Instruction.exit234.thread
-  %279 = phi i32 [ %.5, %_ZL16is_constant_zeroP11Instruction.exit234.thread ], [ %spec.select319, %_ZL17positive_constantP11Instruction.exit ]
+  %279 = phi i32 [ %.6, %_ZL16is_constant_zeroP11Instruction.exit234.thread ], [ %spec.select319, %_ZL17positive_constantP11Instruction.exit ]
   %280 = getelementptr i8, ptr %15, i64 24
   %.val196 = load ptr, ptr %280, align 8
   %281 = load ptr, ptr %.val196, align 8
@@ -5902,13 +5902,13 @@ _ZL16is_constant_zeroP11Instruction.exit245:      ; preds = %308
   br label %_ZL16is_constant_zeroP11Instruction.exit245.thread
 
 _ZL16is_constant_zeroP11Instruction.exit245.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.exit245, %308, %304
-  %.9 = phi i32 [ %299, %304 ], [ %309, %308 ], [ %spec.select322, %_ZL16is_constant_zeroP11Instruction.exit245 ]
+  %.11 = phi i32 [ %299, %304 ], [ %309, %308 ], [ %spec.select322, %_ZL16is_constant_zeroP11Instruction.exit245 ]
   %318 = load ptr, ptr %305, align 8
   %319 = icmp eq ptr %318, %13
   br i1 %319, label %320, label %_ZL16is_constant_zeroP11Instruction.exit248.thread
 
 320:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.exit245.thread
-  %321 = and i32 %.9, -19
+  %321 = and i32 %.11, -19
   %.val193 = load ptr, ptr %280, align 8
   %322 = load ptr, ptr %.val193, align 8
   %323 = getelementptr inbounds i8, ptr %322, i64 136
@@ -5922,18 +5922,18 @@ _ZL16is_constant_zeroP11Instruction.exit248:      ; preds = %320
   %327 = load i32, ptr %326, align 8
   %.fr331 = freeze i32 %327
   %328 = icmp eq i32 %.fr331, 0
-  %329 = and i32 %.9, -83
+  %329 = and i32 %.11, -83
   %spec.select323 = select i1 %328, i32 %329, i32 %321
   br label %_ZL16is_constant_zeroP11Instruction.exit248.thread
 
 _ZL16is_constant_zeroP11Instruction.exit248.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.exit248, %320, %_ZL16is_constant_zeroP11Instruction.exit245.thread, %_ZL17positive_constantP11Instruction.exit242.thread
-  %.10 = phi i32 [ %.9, %_ZL16is_constant_zeroP11Instruction.exit245.thread ], [ %299, %_ZL17positive_constantP11Instruction.exit242.thread ], [ %321, %320 ], [ %spec.select323, %_ZL16is_constant_zeroP11Instruction.exit248 ]
+  %.10 = phi i32 [ %.11, %_ZL16is_constant_zeroP11Instruction.exit245.thread ], [ %299, %_ZL17positive_constantP11Instruction.exit242.thread ], [ %321, %320 ], [ %spec.select323, %_ZL16is_constant_zeroP11Instruction.exit248 ]
   %330 = and i32 %.10, -129
   %spec.select187 = select i1 %.0133278, i32 %330, i32 %.10
   br label %331
 
 331:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.exit248.thread, %199
-  %.11 = phi i32 [ %.3140, %199 ], [ %spec.select187, %_ZL16is_constant_zeroP11Instruction.exit248.thread ]
+  %.4 = phi i32 [ %.3140, %199 ], [ %spec.select187, %_ZL16is_constant_zeroP11Instruction.exit248.thread ]
   %332 = getelementptr inbounds i8, ptr %11, i64 24
   %333 = load ptr, ptr %332, align 8
   %334 = load ptr, ptr %333, align 8
@@ -5957,8 +5957,8 @@ _ZL16is_constant_zeroP11Instruction.exit248.thread: ; preds = %_ZL16is_constant_
   %349 = getelementptr inbounds i8, ptr %343, i64 16
   %350 = load i32, ptr %349, align 8
   %.not175 = icmp slt i32 %348, %350
-  %351 = and i32 %.11, -257
-  %spec.select188 = select i1 %.not175, i32 %.11, i32 %351
+  %351 = and i32 %.4, -257
+  %spec.select188 = select i1 %.not175, i32 %.4, i32 %351
   br i1 %.not168, label %_ZL16is_constant_zeroP11Instruction.exit255.thread, label %352
 
 352:                                              ; preds = %346
@@ -6050,11 +6050,11 @@ _ZL16is_constant_zeroP11Instruction.exit255:      ; preds = %387
   br i1 %394, label %395, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
 
 395:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.exit255, %385
-  %396 = and i32 %.11, -257
+  %396 = and i32 %.4, -257
   br label %_ZL16is_constant_zeroP11Instruction.exit255.thread
 
 _ZL16is_constant_zeroP11Instruction.exit255.thread: ; preds = %387, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252, %_ZL16is_constant_zeroP11Instruction.exit255, %395, %346, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
-  %.13 = phi i32 [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %spec.select188, %346 ], [ %396, %395 ], [ %.11, %_ZL16is_constant_zeroP11Instruction.exit255 ], [ %spec.select189, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313 ], [ %.11, %387 ]
+  %.13 = phi i32 [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %spec.select188, %346 ], [ %396, %395 ], [ %.4, %_ZL16is_constant_zeroP11Instruction.exit255 ], [ %spec.select189, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313 ], [ %.4, %387 ]
   %.not332 = icmp eq ptr %9, %13
   %397 = and i32 %.13, -129
   %.14 = select i1 %.not332, i32 %397, i32 %.13
@@ -20163,12 +20163,12 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %.thread
   br label %58
 
 58:                                               ; preds = %54, %52
-  %.090 = phi ptr [ %53, %52 ], [ %50, %54 ]
-  %.082 = phi i64 [ %4, %52 ], [ %57, %54 ]
+  %.191 = phi ptr [ %53, %52 ], [ %50, %54 ]
+  %.1 = phi i64 [ %4, %52 ], [ %57, %54 ]
   %59 = icmp eq ptr %.087132137, null
-  %60 = icmp ne ptr %.090, null
+  %60 = icmp ne ptr %.191, null
   %or.cond = and i1 %59, %60
-  %.188 = select i1 %or.cond, ptr %.090, ptr %.087132137
+  %.2 = select i1 %or.cond, ptr %.191, ptr %.087132137
   %.not101 = icmp eq ptr %9, null
   %.not102 = icmp eq ptr %9, %8
   %or.cond106 = or i1 %.not101, %.not102
@@ -20189,41 +20189,41 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %.thread
 
 70:                                               ; preds = %67, %61
   %.092 = phi i1 [ %69, %67 ], [ true, %61 ]
-  %71 = icmp eq ptr %.188, null
+  %71 = icmp eq ptr %.2, null
   %or.cond3 = and i1 %71, %.092
-  %spec.select108 = select i1 %or.cond3, ptr %.090, ptr %.188
+  %spec.select108 = select i1 %or.cond3, ptr %.191, ptr %.2
   br label %72
 
 72:                                               ; preds = %70, %58
-  %.2 = phi ptr [ %.188, %58 ], [ %spec.select108, %70 ]
-  %73 = icmp eq ptr %.2, null
+  %.3 = phi ptr [ %.2, %58 ], [ %spec.select108, %70 ]
+  %73 = icmp eq ptr %.3, null
   br i1 %73, label %.thread138, label %74
 
 74:                                               ; preds = %72
-  %75 = icmp ult i64 %.082, 2
-  %76 = and i64 %.082, 2
+  %75 = icmp ult i64 %.1, 2
+  %76 = and i64 %.1, 2
   %77 = icmp ne i64 %76, 0
   %or.cond.i109 = or i1 %75, %77
-  %78 = and i64 %.082, -4
+  %78 = and i64 %.1, -4
   %79 = inttoptr i64 %78 to ptr
   %.0.i110 = select i1 %or.cond.i109, ptr null, ptr %79
-  %80 = icmp ne ptr %.0.i110, %.2
+  %80 = icmp ne ptr %.0.i110, %.3
   br label %81
 
 81:                                               ; preds = %74, %46
-  %.191 = phi i1 [ false, %46 ], [ %60, %74 ]
-  %.3 = phi ptr [ %.089126, %46 ], [ %.2, %74 ]
+  %.090 = phi i1 [ false, %46 ], [ %60, %74 ]
+  %.188 = phi ptr [ %.089126, %46 ], [ %.3, %74 ]
   %.186 = phi i1 [ false, %46 ], [ %80, %74 ]
-  %.184 = phi ptr [ null, %46 ], [ %50, %74 ]
-  %.1 = phi i64 [ %4, %46 ], [ %.082, %74 ]
+  %.083 = phi ptr [ null, %46 ], [ %50, %74 ]
+  %.082 = phi i64 [ %4, %46 ], [ %.1, %74 ]
   %brmerge107 = or i1 %13, %.186
   br i1 %brmerge107, label %.thread138, label %208
 
 .thread138:                                       ; preds = %.thread151, %72, %81
-  %.1148 = phi i64 [ %.1, %81 ], [ %.082, %72 ], [ %4, %.thread151 ]
-  %.184147 = phi ptr [ %.184, %81 ], [ %50, %72 ], [ null, %.thread151 ]
-  %.3146 = phi ptr [ %.3, %81 ], [ null, %72 ], [ null, %.thread151 ]
-  %.191145 = phi i1 [ %.191, %81 ], [ %60, %72 ], [ false, %.thread151 ]
+  %.082148 = phi i64 [ %.082, %81 ], [ %.1, %72 ], [ %4, %.thread151 ]
+  %.083147 = phi ptr [ %.083, %81 ], [ %50, %72 ], [ null, %.thread151 ]
+  %.188146 = phi ptr [ %.188, %81 ], [ null, %72 ], [ null, %.thread151 ]
+  %.090145 = phi i1 [ %.090, %81 ], [ %60, %72 ], [ false, %.thread151 ]
   %82 = load i64, ptr %6, align 8
   %83 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %84 = icmp eq i64 %82, %83
@@ -20471,11 +20471,11 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit123: ; preds = %195, %200
   %206 = shl i32 %.0.i.i118, 14
   %207 = or disjoint i32 %206, 4243
   %.sroa.015.0.i.i.i119 = sext i32 %207 to i64
-  call void @_ZN8LIR_List12profile_typeEP11LIR_Address7LIR_OprP7ciKlasslS2_bb(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef %.0.i.i.i115, i64 %196, ptr noundef %.3146, i64 noundef %.1148, i64 %.sroa.015.0.i.i.i119, i1 noundef zeroext %7, i1 noundef zeroext %.191145)
+  call void @_ZN8LIR_List12profile_typeEP11LIR_Address7LIR_OprP7ciKlasslS2_bb(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef %.0.i.i.i115, i64 %196, ptr noundef %.188146, i64 noundef %.082148, i64 %.sroa.015.0.i.i.i119, i1 noundef zeroext %7, i1 noundef zeroext %.090145)
   br label %208
 
 208:                                              ; preds = %.thread151, %81, %40, %10, %_ZN12LIRGenerator20new_pointer_registerEv.exit123
-  %.0 = phi ptr [ %.184147, %_ZN12LIRGenerator20new_pointer_registerEv.exit123 ], [ null, %10 ], [ null, %40 ], [ %.184, %81 ], [ null, %.thread151 ]
+  %.0 = phi ptr [ %.083147, %_ZN12LIRGenerator20new_pointer_registerEv.exit123 ], [ null, %10 ], [ null, %40 ], [ %.083, %81 ], [ null, %.thread151 ]
   ret ptr %.0
 }
 

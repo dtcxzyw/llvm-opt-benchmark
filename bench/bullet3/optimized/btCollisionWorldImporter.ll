@@ -2874,7 +2874,7 @@ sw.bb:                                            ; preds = %entry
   br label %common.ret
 
 common.ret:                                       ; preds = %sw.bb178, %entry, %if.end227, %if.then235, %sw.epilog167, %if.then169, %switch.lookup, %_ZN14btCapsuleShape16deSerializeFloatEP18btCapsuleShapeData.exit, %sw.bb, %sw.epilog.thread, %sw.default164, %sw.default90, %sw.default67, %sw.bb241, %for.inc265, %sw.bb4
-  %common.ret.op = phi ptr [ %call11, %sw.bb4 ], [ null, %sw.bb178 ], [ null, %entry ], [ %call230, %if.then235 ], [ %call230, %if.end227 ], [ %shape.1429, %if.then169 ], [ null, %sw.epilog167 ], [ %call24, %_ZN14btCapsuleShape16deSerializeFloatEP18btCapsuleShapeData.exit ], [ null, %switch.lookup ], [ %call, %sw.bb ], [ null, %sw.epilog.thread ], [ null, %sw.default164 ], [ null, %sw.default90 ], [ null, %sw.default67 ], [ %call244, %sw.bb241 ], [ %call244, %for.inc265 ]
+  %common.ret.op = phi ptr [ %call11, %sw.bb4 ], [ null, %sw.bb178 ], [ null, %entry ], [ %call230, %if.then235 ], [ %call230, %if.end227 ], [ %shape.2429, %if.then169 ], [ null, %sw.epilog167 ], [ %call24, %_ZN14btCapsuleShape16deSerializeFloatEP18btCapsuleShapeData.exit ], [ null, %switch.lookup ], [ %call, %sw.bb ], [ null, %sw.epilog.thread ], [ null, %sw.default164 ], [ null, %sw.default90 ], [ null, %sw.default67 ], [ %call244, %sw.bb241 ], [ %call244, %for.inc265 ]
   ret ptr %common.ret.op
 
 sw.bb4:                                           ; preds = %entry
@@ -3385,22 +3385,22 @@ sw.default164:                                    ; preds = %sw.bb26
   br label %common.ret
 
 sw.epilog167:                                     ; preds = %sw.bb72, %sw.bb78, %sw.bb84, %sw.bb49, %sw.bb55, %sw.bb61, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %sw.bb40, %sw.bb32
-  %shape.1 = phi ptr [ %call115, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit ], [ %call89, %sw.bb84 ], [ %call83, %sw.bb78 ], [ %call77, %sw.bb72 ], [ %call66, %sw.bb61 ], [ %call60, %sw.bb55 ], [ %call54, %sw.bb49 ], [ %call44, %sw.bb40 ], [ %call39, %sw.bb32 ]
-  %tobool168.not = icmp eq ptr %shape.1, null
+  %shape.2 = phi ptr [ %call115, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit ], [ %call89, %sw.bb84 ], [ %call83, %sw.bb78 ], [ %call77, %sw.bb72 ], [ %call66, %sw.bb61 ], [ %call60, %sw.bb55 ], [ %call54, %sw.bb49 ], [ %call44, %sw.bb40 ], [ %call39, %sw.bb32 ]
+  %tobool168.not = icmp eq ptr %shape.2, null
   br i1 %tobool168.not, label %common.ret, label %if.then169
 
 if.then169:                                       ; preds = %sw.epilog167.thread426, %sw.epilog167
-  %shape.1429 = phi ptr [ %call149, %sw.epilog167.thread426 ], [ %shape.1, %sw.epilog167 ]
+  %shape.2429 = phi ptr [ %call149, %sw.epilog167.thread426 ], [ %shape.2, %sw.epilog167 ]
   %69 = load float, ptr %m_collisionMargin, align 8
-  %vtable171 = load ptr, ptr %shape.1429, align 8
+  %vtable171 = load ptr, ptr %shape.2429, align 8
   %vfn172 = getelementptr inbounds i8, ptr %vtable171, i64 88
   %70 = load ptr, ptr %vfn172, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(32) %shape.1429, float noundef %69)
+  call void %70(ptr noundef nonnull align 8 dereferenceable(32) %shape.2429, float noundef %69)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %localScaling173, ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling28, i64 16, i1 false)
-  %vtable175 = load ptr, ptr %shape.1429, align 8
+  %vtable175 = load ptr, ptr %shape.2429, align 8
   %vfn176 = getelementptr inbounds i8, ptr %vtable175, i64 48
   %71 = load ptr, ptr %vfn176, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(32) %shape.1429, ptr noundef nonnull align 4 dereferenceable(16) %localScaling173)
+  call void %71(ptr noundef nonnull align 8 dereferenceable(32) %shape.2429, ptr noundef nonnull align 4 dereferenceable(16) %localScaling173)
   br label %common.ret
 
 sw.bb178:                                         ; preds = %entry
@@ -6229,8 +6229,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc306
   %indvars.iv369 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next370, %for.inc306 ]
-  %meshPart.sroa.15.0336 = phi i32 [ undef, %for.body.lr.ph ], [ %meshPart.sroa.15.3, %for.inc306 ]
-  %meshPart.sroa.10316.0335 = phi ptr [ undef, %for.body.lr.ph ], [ %meshPart.sroa.10316.3, %for.inc306 ]
+  %meshPart.sroa.15.0336 = phi i32 [ undef, %for.body.lr.ph ], [ %meshPart.sroa.15.1, %for.inc306 ]
+  %meshPart.sroa.10316.0335 = phi ptr [ undef, %for.body.lr.ph ], [ %meshPart.sroa.10316.1, %for.inc306 ]
   %2 = load ptr, ptr %meshData, align 8
   %m_numTriangles = getelementptr inbounds %struct.btMeshPartData, ptr %2, i64 %indvars.iv369, i32 6
   %3 = load i32, ptr %m_numTriangles, align 8
@@ -6462,9 +6462,9 @@ for.body41:                                       ; preds = %for.body41.preheade
   br i1 %exitcond346.not, label %if.end, label %for.body41, !llvm.loop !59
 
 if.end:                                           ; preds = %for.body41, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit, %if.else
-  %meshPart.sroa.10316.1 = phi ptr [ %meshPart.sroa.10316.0335, %if.else ], [ %call36, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit ], [ %call36, %for.body41 ]
-  %meshPart.sroa.15.1 = phi i32 [ %meshPart.sroa.15.0336, %if.else ], [ 6, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit ], [ 6, %for.body41 ]
-  %meshPart.sroa.29.0 = phi i32 [ 2, %if.else ], [ 3, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit ], [ 3, %for.body41 ]
+  %meshPart.sroa.10316.2 = phi ptr [ %meshPart.sroa.10316.0335, %if.else ], [ %call36, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit ], [ %call36, %for.body41 ]
+  %meshPart.sroa.15.2 = phi i32 [ %meshPart.sroa.15.0336, %if.else ], [ 6, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit ], [ 6, %for.body41 ]
+  %meshPart.sroa.29.1 = phi i32 [ 2, %if.else ], [ 3, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit ], [ 3, %for.body41 ]
   %39 = load ptr, ptr %meshData, align 8
   %m_indices16 = getelementptr inbounds %struct.btMeshPartData, ptr %39, i64 %indvars.iv369, i32 5
   %40 = load ptr, ptr %m_indices16, align 8
@@ -6572,9 +6572,9 @@ for.body97:                                       ; preds = %for.body97.preheade
   br i1 %exitcond352.not, label %if.end111, label %for.body97, !llvm.loop !60
 
 if.end111:                                        ; preds = %for.body97, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit166, %if.end
-  %meshPart.sroa.10316.2 = phi ptr [ %meshPart.sroa.10316.1, %if.end ], [ %call90, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit166 ], [ %call90, %for.body97 ]
-  %meshPart.sroa.15.2 = phi i32 [ %meshPart.sroa.15.1, %if.end ], [ 6, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit166 ], [ 6, %for.body97 ]
-  %meshPart.sroa.29.1 = phi i32 [ %meshPart.sroa.29.0, %if.end ], [ 3, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit166 ], [ 3, %for.body97 ]
+  %meshPart.sroa.10316.3 = phi ptr [ %meshPart.sroa.10316.2, %if.end ], [ %call90, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit166 ], [ %call90, %for.body97 ]
+  %meshPart.sroa.15.3 = phi i32 [ %meshPart.sroa.15.2, %if.end ], [ 6, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit166 ], [ 6, %for.body97 ]
+  %meshPart.sroa.29.2 = phi i32 [ %meshPart.sroa.29.1, %if.end ], [ 3, %_ZN20btAlignedObjectArrayIPsE9push_backERKS0_.exit166 ], [ 3, %for.body97 ]
   %54 = load ptr, ptr %meshData, align 8
   %m_3indices8 = getelementptr inbounds %struct.btMeshPartData, ptr %54, i64 %indvars.iv369, i32 4
   %55 = load ptr, ptr %m_3indices8, align 8
@@ -6695,9 +6695,9 @@ for.body128:                                      ; preds = %for.body128.prehead
   br i1 %exitcond358.not, label %if.end169, label %for.body128, !llvm.loop !62
 
 if.end169:                                        ; preds = %for.body16, %for.body128, %_ZN20btAlignedObjectArrayIPiE9push_backERKS0_.exit, %_ZN20btAlignedObjectArrayIPhE9push_backERKS0_.exit, %if.end111
-  %meshPart.sroa.10316.3 = phi ptr [ %meshPart.sroa.10316.2, %if.end111 ], [ %call123, %_ZN20btAlignedObjectArrayIPhE9push_backERKS0_.exit ], [ %call11, %_ZN20btAlignedObjectArrayIPiE9push_backERKS0_.exit ], [ %call123, %for.body128 ], [ %call11, %for.body16 ]
-  %meshPart.sroa.15.3 = phi i32 [ %meshPart.sroa.15.2, %if.end111 ], [ 3, %_ZN20btAlignedObjectArrayIPhE9push_backERKS0_.exit ], [ 12, %_ZN20btAlignedObjectArrayIPiE9push_backERKS0_.exit ], [ 3, %for.body128 ], [ 12, %for.body16 ]
-  %meshPart.sroa.29.2 = phi i32 [ %meshPart.sroa.29.1, %if.end111 ], [ 5, %_ZN20btAlignedObjectArrayIPhE9push_backERKS0_.exit ], [ 2, %_ZN20btAlignedObjectArrayIPiE9push_backERKS0_.exit ], [ 5, %for.body128 ], [ 2, %for.body16 ]
+  %meshPart.sroa.10316.1 = phi ptr [ %meshPart.sroa.10316.3, %if.end111 ], [ %call123, %_ZN20btAlignedObjectArrayIPhE9push_backERKS0_.exit ], [ %call11, %_ZN20btAlignedObjectArrayIPiE9push_backERKS0_.exit ], [ %call123, %for.body128 ], [ %call11, %for.body16 ]
+  %meshPart.sroa.15.1 = phi i32 [ %meshPart.sroa.15.3, %if.end111 ], [ 3, %_ZN20btAlignedObjectArrayIPhE9push_backERKS0_.exit ], [ 12, %_ZN20btAlignedObjectArrayIPiE9push_backERKS0_.exit ], [ 3, %for.body128 ], [ 12, %for.body16 ]
+  %meshPart.sroa.29.0 = phi i32 [ %meshPart.sroa.29.2, %if.end111 ], [ 5, %_ZN20btAlignedObjectArrayIPhE9push_backERKS0_.exit ], [ 2, %_ZN20btAlignedObjectArrayIPiE9push_backERKS0_.exit ], [ 5, %for.body128 ], [ 2, %for.body16 ]
   %76 = load ptr, ptr %meshData, align 8
   %arrayidx172 = getelementptr inbounds %struct.btMeshPartData, ptr %76, i64 %indvars.iv369
   %77 = load ptr, ptr %arrayidx172, align 8
@@ -6945,7 +6945,7 @@ if.end298:                                        ; preds = %for.body183, %for.b
   %meshPart.sroa.24.0 = phi ptr [ %call241, %_ZN20btAlignedObjectArrayIP19btVector3DoubleDataE9push_backERKS1_.exit ], [ %call178, %_ZN20btAlignedObjectArrayIP18btVector3FloatDataE9push_backERKS1_.exit ], [ %call241, %for.body246 ], [ %call178, %for.body183 ]
   %meshPart.sroa.27.0 = phi i32 [ 32, %_ZN20btAlignedObjectArrayIP19btVector3DoubleDataE9push_backERKS1_.exit ], [ 16, %_ZN20btAlignedObjectArrayIP18btVector3FloatDataE9push_backERKS1_.exit ], [ 32, %for.body246 ], [ 16, %for.body183 ]
   %meshPart.sroa.35.0 = phi i32 [ 1, %_ZN20btAlignedObjectArrayIP19btVector3DoubleDataE9push_backERKS1_.exit ], [ 0, %_ZN20btAlignedObjectArrayIP18btVector3FloatDataE9push_backERKS1_.exit ], [ 1, %for.body246 ], [ 0, %for.body183 ]
-  %tobool300 = icmp ne ptr %meshPart.sroa.10316.3, null
+  %tobool300 = icmp ne ptr %meshPart.sroa.10316.1, null
   %tobool302 = icmp ne ptr %meshPart.sroa.24.0, null
   %or.cond = and i1 %tobool300, %tobool302
   br i1 %or.cond, label %if.then303, label %for.inc306
@@ -7022,9 +7022,9 @@ _ZN26btTriangleIndexVertexArray14addIndexedMeshERK13btIndexedMesh14PHY_ScalarTyp
   %arrayidx.i.i = getelementptr inbounds %struct.btIndexedMesh, ptr %129, i64 %idxprom.i.i
   store i32 %3, ptr %arrayidx.i.i, align 8
   %meshPart.sroa.10316.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  store ptr %meshPart.sroa.10316.3, ptr %meshPart.sroa.10316.0.arrayidx.i.i.sroa_idx, align 8
+  store ptr %meshPart.sroa.10316.1, ptr %meshPart.sroa.10316.0.arrayidx.i.i.sroa_idx, align 8
   %meshPart.sroa.15.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  store i32 %meshPart.sroa.15.3, ptr %meshPart.sroa.15.0.arrayidx.i.i.sroa_idx, align 8
+  store i32 %meshPart.sroa.15.1, ptr %meshPart.sroa.15.0.arrayidx.i.i.sroa_idx, align 8
   %meshPart.sroa.19.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 20
   store i32 %4, ptr %meshPart.sroa.19.0.arrayidx.i.i.sroa_idx, align 4
   %meshPart.sroa.24.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
@@ -7032,7 +7032,7 @@ _ZN26btTriangleIndexVertexArray14addIndexedMeshERK13btIndexedMesh14PHY_ScalarTyp
   %meshPart.sroa.27.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   store i32 %meshPart.sroa.27.0, ptr %meshPart.sroa.27.0.arrayidx.i.i.sroa_idx, align 8
   %meshPart.sroa.29.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 36
-  store i32 %meshPart.sroa.29.2, ptr %meshPart.sroa.29.0.arrayidx.i.i.sroa_idx, align 4
+  store i32 %meshPart.sroa.29.0, ptr %meshPart.sroa.29.0.arrayidx.i.i.sroa_idx, align 4
   %meshPart.sroa.35.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
   store i32 %meshPart.sroa.35.0, ptr %meshPart.sroa.35.0.arrayidx.i.i.sroa_idx, align 8
   %130 = load i32, ptr %m_size.i.i.i, align 4
@@ -7041,7 +7041,7 @@ _ZN26btTriangleIndexVertexArray14addIndexedMeshERK13btIndexedMesh14PHY_ScalarTyp
   %131 = load ptr, ptr %m_data.i.i.i.i, align 8
   %idxprom.i2.i = sext i32 %130 to i64
   %m_indexType.i282 = getelementptr inbounds %struct.btIndexedMesh, ptr %131, i64 %idxprom.i2.i, i32 7
-  store i32 %meshPart.sroa.29.2, ptr %m_indexType.i282, align 4
+  store i32 %meshPart.sroa.29.0, ptr %m_indexType.i282, align 4
   br label %for.inc306
 
 for.inc306:                                       ; preds = %if.end298, %_ZN26btTriangleIndexVertexArray14addIndexedMeshERK13btIndexedMesh14PHY_ScalarType.exit

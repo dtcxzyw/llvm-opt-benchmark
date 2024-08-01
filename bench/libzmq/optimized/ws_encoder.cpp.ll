@@ -283,7 +283,7 @@ if.then98:                                        ; preds = %if.end95
   %_mask122 = getelementptr inbounds i8, ptr %this, i64 89
   %19 = load i8, ptr %_mask122, align 1
   %tobool120.mask = and i8 %18, 1
-  %mask_index.0 = zext nneg i8 %tobool120.mask to i64
+  %mask_index.1 = zext nneg i8 %tobool120.mask to i64
   %xor31 = select i1 %tobool120, i8 %19, i8 0
   %cond128.in = xor i8 %xor31, %protocol_flags.1
   %inc131 = add nuw nsw i32 %offset.2, 1
@@ -295,7 +295,7 @@ if.then98:                                        ; preds = %if.end95
 
 if.end134:                                        ; preds = %if.then98, %if.end95
   %20 = phi ptr [ %.pre66, %if.then98 ], [ %.pre67, %if.end95 ]
-  %mask_index.1 = phi i64 [ %mask_index.0, %if.then98 ], [ 0, %if.end95 ]
+  %mask_index.0 = phi i64 [ %mask_index.1, %if.then98 ], [ 0, %if.end95 ]
   %offset.3 = phi i32 [ %inc131, %if.then98 ], [ %offset.2, %if.end95 ]
   %flags.i61 = getelementptr inbounds i8, ptr %20, i64 43
   %21 = load i8, ptr %flags.i61, align 1
@@ -312,7 +312,7 @@ if.then137:                                       ; preds = %if.end134
 
 cond.true140:                                     ; preds = %if.then137
   %_mask141 = getelementptr inbounds i8, ptr %this, i64 89
-  %arrayidx144 = getelementptr inbounds [4 x i8], ptr %_mask141, i64 0, i64 %mask_index.1
+  %arrayidx144 = getelementptr inbounds [4 x i8], ptr %_mask141, i64 0, i64 %mask_index.0
   %24 = load i8, ptr %arrayidx144, align 1
   %25 = xor i8 %24, 1
   br label %if.end177.sink.split
@@ -324,7 +324,7 @@ if.then158:                                       ; preds = %if.end134
 
 cond.true161:                                     ; preds = %if.then158
   %_mask162 = getelementptr inbounds i8, ptr %this, i64 89
-  %arrayidx165 = getelementptr inbounds [4 x i8], ptr %_mask162, i64 0, i64 %mask_index.1
+  %arrayidx165 = getelementptr inbounds [4 x i8], ptr %_mask162, i64 0, i64 %mask_index.0
   %27 = load i8, ptr %arrayidx165, align 1
   br label %if.end177.sink.split
 

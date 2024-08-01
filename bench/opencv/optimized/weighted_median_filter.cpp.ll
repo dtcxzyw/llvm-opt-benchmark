@@ -2060,7 +2060,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit.i:     ; preds = %.sink.split.i.i, %8
 
 873:                                              ; preds = %.loopexit.i118, %.lr.ph429.i
   %indvars.iv466.i = phi i64 [ 0, %.lr.ph429.i ], [ %indvars.iv.next467.i, %.loopexit.i118 ]
-  %.0290427.i = phi i32 [ -1, %.lr.ph429.i ], [ %.3293389.i, %.loopexit.i118 ]
+  %.0290427.i = phi i32 [ -1, %.lr.ph429.i ], [ %.2292389.i, %.loopexit.i118 ]
   %874 = load ptr, ptr %133, align 8, !noalias !40
   %875 = load ptr, ptr %728, align 8, !noalias !40
   %876 = load i64, ptr %875, align 8
@@ -2190,7 +2190,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit341.i:  ; preds = %.sink.split.i338.i,
 
 .preheader.i119:                                  ; preds = %977, %.preheader.preheader.i
   %indvars.iv455.i = phi i64 [ %940, %.preheader.preheader.i ], [ %indvars.iv.next456.i, %977 ]
-  %.2.i = phi float [ %894, %.preheader.preheader.i ], [ %978, %977 ]
+  %.3.i = phi float [ %894, %.preheader.preheader.i ], [ %978, %977 ]
   %941 = icmp eq i64 %indvars.iv455.i, 255
   br i1 %941, label %.critedge.thread.i, label %942
 
@@ -2264,7 +2264,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit348.i:  ; preds = %.sink.split.i345.i,
   br i1 %.not308.i, label %977, label %947, !llvm.loop !50
 
 977:                                              ; preds = %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit348.i
-  %978 = fadd float %.2.i, %955
+  %978 = fadd float %.3.i, %955
   %.old8.i = fcmp olt float %978, 0.000000e+00
   br i1 %.old8.i, label %.preheader.i119, label %.critedge.loopexit.i
 
@@ -2277,17 +2277,17 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit348.i:  ; preds = %.sink.split.i345.i,
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.loopexit434.i, %.critedge.loopexit.i, %938, %.preheader398.i
-  %.3293.i = phi i32 [ %.0290427.i, %938 ], [ %.0290427.i, %.preheader398.i ], [ %979, %.critedge.loopexit.i ], [ %980, %.critedge.loopexit434.i ]
-  %.3.i = phi float [ %894, %938 ], [ %894, %.preheader398.i ], [ %978, %.critedge.loopexit.i ], [ %935, %.critedge.loopexit434.i ]
-  %.not309.i = icmp eq i32 %.3293.i, -1
+  %.2292.i = phi i32 [ %.0290427.i, %938 ], [ %.0290427.i, %.preheader398.i ], [ %979, %.critedge.loopexit.i ], [ %980, %.critedge.loopexit434.i ]
+  %.2.i = phi float [ %894, %938 ], [ %894, %.preheader398.i ], [ %978, %.critedge.loopexit.i ], [ %935, %.critedge.loopexit434.i ]
+  %.not309.i = icmp eq i32 %.2292.i, -1
   br i1 %.not309.i, label %992, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.preheader.i119, %.critedge.i
-  %.3390.i = phi float [ %.3.i, %.critedge.i ], [ %.2.i, %.preheader.i119 ]
-  %.3293388.i = phi i32 [ %.3293.i, %.critedge.i ], [ 255, %.preheader.i119 ]
-  %981 = fcmp olt float %.3390.i, 0.000000e+00
+  %.2390.i = phi float [ %.2.i, %.critedge.i ], [ %.3.i, %.preheader.i119 ]
+  %.2292388.i = phi i32 [ %.2292.i, %.critedge.i ], [ 255, %.preheader.i119 ]
+  %981 = fcmp olt float %.2390.i, 0.000000e+00
   %982 = zext i1 %981 to i32
-  %.sink.i = add nuw nsw i32 %.3293388.i, %982
+  %.sink.i = add nuw nsw i32 %.2292388.i, %982
   %983 = load ptr, ptr %731, align 8, !alias.scope !40
   %984 = load ptr, ptr %732, align 8, !alias.scope !40
   %985 = load i64, ptr %984, align 8
@@ -2301,7 +2301,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit348.i:  ; preds = %.sink.split.i345.i,
   br label %992
 
 992:                                              ; preds = %.critedge.thread.i, %.critedge.i
-  %.3293389.i = phi i32 [ -1, %.critedge.i ], [ %.3293388.i, %.critedge.thread.i ]
+  %.2292389.i = phi i32 [ -1, %.critedge.i ], [ %.2292388.i, %.critedge.thread.i ]
   %993 = trunc nuw nsw i64 %indvars.iv466.i to i32
   %994 = add i32 %733, %993
   %995 = icmp slt i32 %994, %745
@@ -2367,7 +2367,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit348.i:  ; preds = %.sink.split.i345.i,
   %1038 = add nsw i32 %1037, 1
   store i32 %1038, ptr %1024, align 4
   %1039 = getelementptr inbounds i32, ptr %770, i64 %1023
-  %.not315392.i = icmp sgt i32 %1017, %.3293389.i
+  %.not315392.i = icmp sgt i32 %1017, %.2292389.i
   %1040 = select i1 %.not315392.i, i32 -1, i32 1
   br label %1045
 
@@ -2375,7 +2375,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit348.i:  ; preds = %.sink.split.i345.i,
   %1042 = add nsw i32 %1025, 1
   store i32 %1042, ptr %1024, align 4
   %1043 = getelementptr inbounds i32, ptr %770, i64 %1023
-  %.not315.i = icmp sgt i32 %1017, %.3293389.i
+  %.not315.i = icmp sgt i32 %1017, %.2292389.i
   %1044 = select i1 %.not315.i, i32 -1, i32 1
   %.not.i349.i = icmp eq i32 %1022, 0
   br i1 %.not.i349.i, label %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit355_crit_edge.i, label %1045
@@ -2501,13 +2501,13 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit355.i:  ; preds = %.sink.split.i352.i,
   %1115 = getelementptr inbounds i32, ptr %1107, i64 %1114
   store i32 %1109, ptr %1115, align 4
   %1116 = getelementptr inbounds i32, ptr %770, i64 %1098
-  %.not313395.i = icmp sgt i32 %1092, %.3293389.i
+  %.not313395.i = icmp sgt i32 %1092, %.2292389.i
   %1117 = select i1 %.not313395.i, i32 1, i32 -1
   br label %1121
 
 1118:                                             ; preds = %1090
   %1119 = getelementptr inbounds i32, ptr %770, i64 %1098
-  %.not313.i = icmp sgt i32 %1092, %.3293389.i
+  %.not313.i = icmp sgt i32 %1092, %.2292389.i
   %1120 = select i1 %.not313.i, i32 1, i32 -1
   %.not.i356.i = icmp eq i32 %1097, 0
   br i1 %.not.i356.i, label %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit362_crit_edge.i, label %1121

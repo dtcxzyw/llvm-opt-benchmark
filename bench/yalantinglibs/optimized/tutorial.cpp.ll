@@ -632,7 +632,7 @@ lpad27:                                           ; preds = %if.else.i.i.i.i, %i
   br label %ehcleanup74
 
 cleanup:                                          ; preds = %invoke.cont34, %invoke.cont37
-  %retval.0 = phi i32 [ -1, %invoke.cont37 ], [ 0, %invoke.cont34 ]
+  %retval.1 = phi i32 [ -1, %invoke.cont37 ], [ 0, %invoke.cont34 ]
   %18 = load ptr, ptr %buffer, align 8
   %cmp.i.i.i = icmp eq ptr %18, %6
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i11
@@ -753,7 +753,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i.i21, 
   br label %ehcleanup74
 
 cleanup73:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
-  %retval.1 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19 ], [ %retval.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %retval.2 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19 ], [ %retval.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @_ZNSt13basic_fstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(264) %input) #18
   %31 = load ptr, ptr %address_book, align 8
   %_M_finish.i.i23 = getelementptr inbounds i8, ptr %address_book, i64 8
@@ -792,8 +792,8 @@ ehcleanup76:                                      ; preds = %ehcleanup74, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %if.then.i.i.i.i25, %invoke.cont.i.i, %if.then
-  %retval.2 = phi i32 [ -1, %if.then ], [ %retval.1, %invoke.cont.i.i ], [ %retval.1, %if.then.i.i.i.i25 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ -1, %if.then ], [ %retval.2, %invoke.cont.i.i ], [ %retval.2, %if.then.i.i.i.i25 ]
+  ret i32 %retval.0
 }
 
 declare void @_ZNSt13basic_fstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef, i32 noundef) unnamed_addr #0

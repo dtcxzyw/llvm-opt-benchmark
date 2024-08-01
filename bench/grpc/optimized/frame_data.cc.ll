@@ -221,7 +221,7 @@ do.end.cont:                                      ; preds = %do.end.else, %do.en
   %hdr.sroa.5.0106118144163195218 = phi i8 [ %conv688, %do.end.then ], [ %hdr.sroa.5.0.copyload, %do.end.else ]
   %hdr.sroa.7.0146161197216 = phi i8 [ %conv11116, %do.end.then ], [ %hdr.sroa.7.0.copyload, %do.end.else ]
   %hdr.sroa.9.0199214 = phi i8 [ %conv17159, %do.end.then ], [ %hdr.sroa.9.0.copyload, %do.end.else ]
-  %hdr.sroa.10.1 = phi ptr [ %1, %do.end.then ], [ %hdr.sroa.10.0.copyload, %do.end.else ]
+  %hdr.sroa.10.0 = phi ptr [ %1, %do.end.then ], [ %hdr.sroa.10.0.copyload, %do.end.else ]
   store ptr %hdr.sroa.0.0.copyload, ptr %agg.tmp, align 8
   %hdr.sroa.3.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i8 %hdr.sroa.3.0.copyload, ptr %hdr.sroa.3.0.agg.tmp.sroa_idx, align 8
@@ -240,7 +240,7 @@ do.end.cont:                                      ; preds = %do.end.else, %do.en
   %hdr.sroa.9.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 15
   store i8 %hdr.sroa.9.0199214, ptr %hdr.sroa.9.0.agg.tmp.sroa_idx, align 1
   %hdr.sroa.10.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store ptr %hdr.sroa.10.1, ptr %hdr.sroa.10.0.agg.tmp.sroa_idx, align 8
+  store ptr %hdr.sroa.10.0, ptr %hdr.sroa.10.0.agg.tmp.sroa_idx, align 8
   %hdr.sroa.13.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store i64 %hdr.sroa.13.0.copyload, ptr %hdr.sroa.13.0.agg.tmp.sroa_idx, align 8
   call void @grpc_slice_buffer_add(ptr noundef %outbuf, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp)

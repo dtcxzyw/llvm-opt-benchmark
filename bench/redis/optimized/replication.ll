@@ -1046,8 +1046,8 @@ if.then65:                                        ; preds = %if.then23
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then65, %if.then23
-  %start_node.1 = phi ptr [ %18, %if.then65 ], [ %start_node.070, %if.then23 ]
-  %start_pos.1 = phi i64 [ 0, %if.then65 ], [ %start_pos.071, %if.then23 ]
+  %start_node.2 = phi ptr [ %18, %if.then65 ], [ %start_node.070, %if.then23 ]
+  %start_pos.2 = phi i64 [ 0, %if.then65 ], [ %start_pos.071, %if.then23 ]
   %add.ptr68 = getelementptr inbounds i8, ptr %s.addr.173, i64 %cond56
   %sub69 = sub i64 %len.addr.172, %cond56
   %19 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4440), align 8
@@ -1062,8 +1062,8 @@ if.end67:                                         ; preds = %if.then65, %if.then
 
 if.end73:                                         ; preds = %if.end67, %if.end21
   %tobool22.not74 = phi i1 [ true, %if.end67 ], [ false, %if.end21 ]
-  %start_node.2 = phi ptr [ %start_node.1, %if.end67 ], [ %2, %if.end21 ]
-  %start_pos.2 = phi i64 [ %start_pos.1, %if.end67 ], [ %5, %if.end21 ]
+  %start_node.1 = phi ptr [ %start_node.2, %if.end67 ], [ %2, %if.end21 ]
+  %start_pos.1 = phi i64 [ %start_pos.2, %if.end67 ], [ %5, %if.end21 ]
   %len.addr.2 = phi i64 [ %sub69, %if.end67 ], [ 0, %if.end21 ]
   %s.addr.2 = phi ptr [ %add.ptr68, %if.end67 ], [ %add.ptr17, %if.end21 ]
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1464), align 8
@@ -1073,7 +1073,7 @@ if.end73:                                         ; preds = %if.end67, %if.end21
   br i1 %tobool76.not77, label %while.end, label %while.body77.lr.ph
 
 while.body77.lr.ph:                               ; preds = %if.end73
-  %value86 = getelementptr inbounds i8, ptr %start_node.2, i64 16
+  %value86 = getelementptr inbounds i8, ptr %start_node.1, i64 16
   br i1 %tobool22.not74, label %while.body77.us, label %while.body77
 
 while.body77.us:                                  ; preds = %while.body77.lr.ph, %while.cond74.backedge.us
@@ -1099,9 +1099,9 @@ if.end82.us:                                      ; preds = %canFeedReplicaReplB
   br i1 %cmp83.us, label %if.then84.us, label %if.end89.us
 
 if.then84.us:                                     ; preds = %if.end82.us
-  store ptr %start_node.2, ptr %ref_repl_buf_node.us, align 8
+  store ptr %start_node.1, ptr %ref_repl_buf_node.us, align 8
   %ref_block_pos.us = getelementptr inbounds i8, ptr %23, i64 704
-  store i64 %start_pos.2, ptr %ref_block_pos.us, align 8
+  store i64 %start_pos.1, ptr %ref_block_pos.us, align 8
   %27 = load ptr, ptr %value86, align 8
   %28 = load i32, ptr %27, align 8
   %inc88.us = add nsw i32 %28, 1
@@ -1140,9 +1140,9 @@ if.end82:                                         ; preds = %canFeedReplicaReplB
   br i1 %cmp83, label %if.then84, label %while.cond74.backedge
 
 if.then84:                                        ; preds = %if.end82
-  store ptr %start_node.2, ptr %ref_repl_buf_node, align 8
+  store ptr %start_node.1, ptr %ref_repl_buf_node, align 8
   %ref_block_pos = getelementptr inbounds i8, ptr %29, i64 704
-  store i64 %start_pos.2, ptr %ref_block_pos, align 8
+  store i64 %start_pos.1, ptr %ref_block_pos, align 8
   %33 = load ptr, ptr %value86, align 8
   %34 = load i32, ptr %33, align 8
   %inc88 = add nsw i32 %34, 1
@@ -1161,13 +1161,13 @@ while.end:                                        ; preds = %while.cond74.backed
   br i1 %cmp95, label %if.then96, label %if.end108
 
 if.then96:                                        ; preds = %while.end
-  store ptr %start_node.2, ptr %35, align 8
-  %value98 = getelementptr inbounds i8, ptr %start_node.2, i64 16
+  store ptr %start_node.1, ptr %35, align 8
+  %value98 = getelementptr inbounds i8, ptr %start_node.1, i64 16
   %37 = load ptr, ptr %value98, align 8
   %38 = load i32, ptr %37, align 8
   %inc100 = add nsw i32 %38, 1
   store i32 %inc100, ptr %37, align 8
-  %cmp102 = icmp eq i64 %start_pos.2, 0
+  %cmp102 = icmp eq i64 %start_pos.1, 0
   %39 = and i1 %tobool22.not74, %cmp102
   br i1 %39, label %if.end108, label %cond.false106
 
@@ -7878,7 +7878,7 @@ if.end308:                                        ; preds = %while.body
   br label %if.end311
 
 if.end311:                                        ; preds = %if.end308, %if.end280
-  %dfd.2 = phi i32 [ -1, %if.end280 ], [ %call291, %if.end308 ]
+  %dfd.1 = phi i32 [ -1, %if.end280 ], [ %call291, %if.end308 ]
   %69 = load ptr, ptr %conn, align 8
   %set_read_handler.i122 = getelementptr inbounds i8, ptr %69, i64 160
   %70 = load ptr, ptr %set_read_handler.i122, align 8
@@ -7919,11 +7919,11 @@ if.end332:                                        ; preds = %do.body328
   br label %if.end338
 
 error:                                            ; preds = %connGetInfo.exit, %do.body316
-  %cmp334.not = icmp eq i32 %dfd.2, -1
+  %cmp334.not = icmp eq i32 %dfd.1, -1
   br i1 %cmp334.not, label %if.end338, label %if.then336
 
 if.then336:                                       ; preds = %error
-  %call337 = call i32 @close(i32 noundef %dfd.2) #22
+  %call337 = call i32 @close(i32 noundef %dfd.1) #22
   br label %if.end338
 
 if.end338:                                        ; preds = %if.end304, %do.body300, %if.end276, %do.body272, %if.end238, %if.end220, %do.body216, %do.end131, %do.end46, %if.end332, %do.body328, %do.end352, %if.end5, %do.body, %if.then336, %error
@@ -10061,8 +10061,8 @@ if.end26:                                         ; preds = %if.end8
   br i1 %tobool27.not, label %if.end37, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %while.cond.backedge, %if.end26.thread, %if.end26
-  %replica.111 = phi ptr [ %11, %if.end26.thread ], [ %call, %if.end26 ], [ %11, %while.cond.backedge ]
-  %repl_ack_off29 = getelementptr inbounds i8, ptr %replica.111, i64 320
+  %replica.011 = phi ptr [ %11, %if.end26.thread ], [ %call, %if.end26 ], [ %11, %while.cond.backedge ]
+  %repl_ack_off29 = getelementptr inbounds i8, ptr %replica.011, i64 320
   %20 = load i64, ptr %repl_ack_off29, align 8
   %21 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4440), align 8
   %cmp30 = icmp eq i64 %20, %21

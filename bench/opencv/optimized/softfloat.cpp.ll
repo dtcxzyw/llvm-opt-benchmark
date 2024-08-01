@@ -1156,28 +1156,28 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %81
   %.084.lcssa.i = phi i64 [ %86, %81 ], [ %96, %.lr.ph.i ]
-  %.080.lcssa.i = phi i32 [ %85, %81 ], [ %95, %.lr.ph.i ]
+  %.181.lcssa.i = phi i32 [ %85, %81 ], [ %95, %.lr.ph.i ]
   %.lcssa3.i = phi i32 [ %91, %81 ], [ %100, %.lr.ph.i ]
   %102 = trunc i64 %.084.lcssa.i to i32
   %103 = and i32 %102, 31
   %104 = xor i32 %103, 31
   %105 = lshr i32 %.lcssa3.i, %104
   %106 = add nsw i32 %102, 30
-  %107 = shl i32 %.080.lcssa.i, %106
+  %107 = shl i32 %.181.lcssa.i, %106
   %108 = mul i32 %105, %.pre.i
   %109 = sub i32 %107, %108
   br label %110
 
 110:                                              ; preds = %._crit_edge.i, %78, %75, %73
   %.082.i = phi i32 [ 0, %73 ], [ 1, %78 ], [ 0, %75 ], [ %105, %._crit_edge.i ]
-  %.181.i = phi i32 [ %74, %73 ], [ %80, %78 ], [ %76, %75 ], [ %109, %._crit_edge.i ]
+  %.080.i = phi i32 [ %74, %73 ], [ %80, %78 ], [ %76, %75 ], [ %109, %._crit_edge.i ]
   %.1.i = phi i64 [ %72, %73 ], [ %72, %78 ], [ %72, %75 ], [ %87, %._crit_edge.i ]
   %111 = trunc i64 %.1.i to i32
   br label %112
 
 112:                                              ; preds = %112, %110
   %.183.i = phi i32 [ %.082.i, %110 ], [ %113, %112 ]
-  %.2.i = phi i32 [ %.181.i, %110 ], [ %114, %112 ]
+  %.2.i = phi i32 [ %.080.i, %110 ], [ %114, %112 ]
   %113 = add i32 %.183.i, 1
   %114 = sub i32 %.2.i, %111
   %.not98.i = icmp sgt i32 %114, -1
@@ -3078,11 +3078,11 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 .lr.ph:                                           ; preds = %81, %.lr.ph
   %91 = phi i64 [ %100, %.lr.ph ], [ %89, %81 ]
-  %.0928 = phi i64 [ %spec.select121, %.lr.ph ], [ %85, %81 ]
+  %.1938 = phi i64 [ %spec.select121, %.lr.ph ], [ %85, %81 ]
   %.0977 = phi i64 [ %98, %.lr.ph ], [ %86, %81 ]
   %92 = add nuw i64 %91, 2147483648
   %93 = lshr i64 %92, 32
-  %94 = shl i64 %.0928, 29
+  %94 = shl i64 %.1938, 29
   %95 = mul i64 %93, %87
   %96 = sub i64 %94, %95
   %.not1113 = icmp slt i64 %96, 0
@@ -3096,7 +3096,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 ._crit_edge:                                      ; preds = %.lr.ph, %81
   %.097.lcssa = phi i64 [ %86, %81 ], [ %98, %.lr.ph ]
-  %.092.lcssa = phi i64 [ %85, %81 ], [ %spec.select121, %.lr.ph ]
+  %.193.lcssa = phi i64 [ %85, %81 ], [ %spec.select121, %.lr.ph ]
   %.lcssa6 = phi i64 [ %89, %81 ], [ %100, %.lr.ph ]
   %102 = lshr i64 %.lcssa6, 32
   %103 = trunc nuw i64 %102 to i32
@@ -3105,7 +3105,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %106 = xor i32 %105, 31
   %107 = lshr i32 %103, %106
   %108 = add nsw i64 %.097.lcssa, 30
-  %109 = shl i64 %.092.lcssa, %108
+  %109 = shl i64 %.193.lcssa, %108
   %110 = zext i32 %107 to i64
   %111 = mul i64 %87, %110
   %112 = sub i64 %109, %111
@@ -3118,29 +3118,29 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
 
 115:                                              ; preds = %76, %._crit_edge, %74
   %.094 = phi i32 [ 0, %74 ], [ %107, %._crit_edge ], [ %79, %76 ]
-  %.2 = phi i64 [ %75, %74 ], [ %112, %._crit_edge ], [ %spec.select, %76 ]
+  %.092 = phi i64 [ %75, %74 ], [ %112, %._crit_edge ], [ %spec.select, %76 ]
   %.1 = phi i64 [ %73, %74 ], [ %87, %._crit_edge ], [ %73, %76 ]
   br label %116
 
 116:                                              ; preds = %116, %115
-  %.195 = phi i32 [ %.094, %115 ], [ %117, %116 ]
-  %.3 = phi i64 [ %.2, %115 ], [ %118, %116 ]
-  %117 = add i32 %.195, 1
-  %118 = sub i64 %.3, %.1
+  %.296 = phi i32 [ %.094, %115 ], [ %117, %116 ]
+  %.4 = phi i64 [ %.092, %115 ], [ %118, %116 ]
+  %117 = add i32 %.296, 1
+  %118 = sub i64 %.4, %.1
   %.not114 = icmp sgt i64 %118, -1
   br i1 %.not114, label %116, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %116, %113
-  %.296 = phi i32 [ %107, %113 ], [ %117, %116 ]
-  %.4 = phi i64 [ %112, %113 ], [ %118, %116 ]
-  %.091 = phi i64 [ %114, %113 ], [ %.3, %116 ]
-  %119 = add i64 %.091, %.4
+  %.195 = phi i32 [ %107, %113 ], [ %117, %116 ]
+  %.3 = phi i64 [ %112, %113 ], [ %118, %116 ]
+  %.091 = phi i64 [ %114, %113 ], [ %.4, %116 ]
+  %119 = add i64 %.091, %.3
   %.not115 = icmp sgt i64 %119, -1
   br i1 %.not115, label %120, label %122
 
 120:                                              ; preds = %.loopexit
   %.not116 = icmp ne i64 %119, 0
-  %121 = and i32 %.296, 1
+  %121 = and i32 %.195, 1
   %.not117 = icmp eq i32 %121, 0
   %or.cond122 = select i1 %.not116, i1 true, i1 %.not117
   br i1 %or.cond122, label %123, label %122
@@ -3149,7 +3149,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   br label %123
 
 123:                                              ; preds = %122, %120
-  %.5 = phi i64 [ %.091, %122 ], [ %.4, %120 ]
+  %.5 = phi i64 [ %.091, %122 ], [ %.3, %120 ]
   %spec.select123 = tail call i64 @llvm.abs.i64(i64 %.5, i1 false)
   %124 = xor i64 %.5, %.0.val
   %spec.select124 = icmp slt i64 %124, 0
@@ -3684,14 +3684,14 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit181.i.i: ; preds = %135, %133
   br label %151
 
 151:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit181.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
-  %.0132.i.i = phi i64 [ %.0125.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %.0137.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit181.i.i ]
-  %.0130.i.i = phi i64 [ %132, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %150, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit181.i.i ]
-  %152 = icmp ult i64 %.0130.i.i, 1073741824
+  %.1133.i.i = phi i64 [ %.0125.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %.0137.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit181.i.i ]
+  %.1131.i.i = phi i64 [ %132, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %150, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit181.i.i ]
+  %152 = icmp ult i64 %.1131.i.i, 1073741824
   br i1 %152, label %153, label %220
 
 153:                                              ; preds = %151
-  %154 = add nsw i64 %.0132.i.i, -1
-  %155 = shl nuw nsw i64 %.0130.i.i, 1
+  %154 = add nsw i64 %.1133.i.i, -1
+  %155 = shl nuw nsw i64 %.1131.i.i, 1
   br label %220
 
 156:                                              ; preds = %113
@@ -3756,8 +3756,8 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i: ; preds = %180, %178
   br label %190
 
 190:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i, %175, %174, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit182.i.i
-  %.0134.i.i = phi i1 [ %17, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit182.i.i ], [ %22, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i ], [ %176, %175 ], [ %22, %174 ]
-  %.1133.i.i = phi i64 [ %.0125.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit182.i.i ], [ %.0137.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i ], [ %.0137.i.i, %175 ], [ %.0137.i.i, %174 ]
+  %.1135.i.i = phi i1 [ %17, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit182.i.i ], [ %22, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i ], [ %176, %175 ], [ %22, %174 ]
+  %.2.i.i = phi i64 [ %.0125.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit182.i.i ], [ %.0137.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i ], [ %.0137.i.i, %175 ], [ %.0137.i.i, %174 ]
   %.0128.i.i = phi i64 [ %170, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit182.i.i ], [ %189, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i ], [ %177, %175 ], [ %173, %174 ]
   %191 = lshr i64 %.0128.i.i, 32
   %.not.i.i.i = icmp ult i64 %.0128.i.i, 4294967296
@@ -3781,7 +3781,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i: ; preds = %180, %178
   %202 = add i8 %.214.i.i.i, %201
   %203 = add i8 %202, -1
   %204 = sext i8 %203 to i64
-  %205 = sub nsw i64 %.1133.i.i, %204
+  %205 = sub nsw i64 %.2.i.i, %204
   %206 = add i8 %202, -33
   %207 = icmp slt i8 %206, 0
   br i1 %207, label %208, label %217
@@ -3804,21 +3804,21 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i: ; preds = %180, %178
   br label %220
 
 220:                                              ; preds = %217, %208, %153, %151, %88
-  %.1135.i.i = phi i1 [ %22, %153 ], [ %22, %151 ], [ %.0134.i.i, %208 ], [ %.0134.i.i, %217 ], [ %22, %88 ]
-  %.2.i.i = phi i64 [ %154, %153 ], [ %.0132.i.i, %151 ], [ %205, %208 ], [ %205, %217 ], [ %89, %88 ]
-  %.1131.i.i = phi i64 [ %155, %153 ], [ %.0130.i.i, %151 ], [ %216, %208 ], [ %219, %217 ], [ %94, %88 ]
-  %221 = trunc i64 %.1131.i.i to i8
-  %222 = trunc i64 %.2.i.i to i32
+  %.0134.i.i = phi i1 [ %22, %153 ], [ %22, %151 ], [ %.1135.i.i, %208 ], [ %.1135.i.i, %217 ], [ %22, %88 ]
+  %.0132.i.i = phi i64 [ %154, %153 ], [ %.1133.i.i, %151 ], [ %205, %208 ], [ %205, %217 ], [ %89, %88 ]
+  %.0130.i.i = phi i64 [ %155, %153 ], [ %.1131.i.i, %151 ], [ %216, %208 ], [ %219, %217 ], [ %94, %88 ]
+  %221 = trunc i64 %.0130.i.i to i8
+  %222 = trunc i64 %.0132.i.i to i32
   %223 = icmp ugt i32 %222, 252
   br i1 %223, label %224, label %251
 
 224:                                              ; preds = %220
-  %225 = icmp slt i64 %.2.i.i, 0
+  %225 = icmp slt i64 %.0132.i.i, 0
   br i1 %225, label %226, label %245
 
 226:                                              ; preds = %224
-  %227 = trunc i64 %.1131.i.i to i32
-  %228 = sub nsw i64 0, %.2.i.i
+  %227 = trunc i64 %.0130.i.i to i32
+  %228 = sub nsw i64 0, %.0132.i.i
   %229 = icmp ult i64 %228, 31
   br i1 %229, label %230, label %239
 
@@ -3845,20 +3845,20 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i: ; preds = %239, %230
   br label %251
 
 245:                                              ; preds = %224
-  %246 = icmp ugt i64 %.2.i.i, 253
-  %247 = add i64 %.1131.i.i, -2147483584
+  %246 = icmp ugt i64 %.0132.i.i, 253
+  %247 = add i64 %.0130.i.i, -2147483584
   %248 = icmp ult i64 %247, -2147483648
   %or.cond.i.i.i = or i1 %246, %248
   br i1 %or.cond.i.i.i, label %249, label %251
 
 249:                                              ; preds = %245
-  %250 = select i1 %.1135.i.i, i64 4286578688, i64 2139095040
+  %250 = select i1 %.0134.i.i, i64 4286578688, i64 2139095040
   br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
 
 251:                                              ; preds = %245, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i, %220
-  %.041.i.i.i = phi i64 [ %.1131.i.i, %220 ], [ %.1131.i.i, %245 ], [ %243, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ]
+  %.041.i.i.i = phi i64 [ %.0130.i.i, %220 ], [ %.0130.i.i, %245 ], [ %243, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ]
   %.039.in.i.i.i = phi i8 [ %221, %220 ], [ %221, %245 ], [ %244, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ]
-  %.038.i.i.i = phi i64 [ %.2.i.i, %220 ], [ 253, %245 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ]
+  %.038.i.i.i = phi i64 [ %.0132.i.i, %220 ], [ 253, %245 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ]
   %.039.i.i.i = and i8 %.039.in.i.i.i, 127
   %252 = add i64 %.041.i.i.i, 64
   %253 = lshr i64 %252, 7
@@ -3868,7 +3868,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i: ; preds = %239, %230
   %256 = and i64 %253, %255
   %.not49.i.i.i = icmp eq i64 %256, 0
   %257 = shl nsw i64 %.038.i.i.i, 23
-  %258 = select i1 %.1135.i.i, i64 2147483648, i64 0
+  %258 = select i1 %.0134.i.i, i64 2147483648, i64 0
   %259 = select i1 %.not49.i.i.i, i64 0, i64 %257
   %260 = add i64 %259, %258
   %261 = and i64 %260, 4286578688
@@ -4241,7 +4241,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %165, %163, %158, %1
   %.sroa.029.0.i.i = phi i64 [ 0, %155 ], [ 0, %145 ], [ 0, %152 ], [ %162, %158 ], [ %172, %165 ], [ 1, %163 ]
   %.sroa.4.0.i.i = phi i64 [ 0, %155 ], [ 0, %145 ], [ 0, %152 ], [ %160, %158 ], [ 0, %165 ], [ 0, %163 ]
   %.sroa.23.1.i.i = phi i64 [ %.sroa.23.0.i.i, %155 ], [ %151, %145 ], [ %154, %152 ], [ %.sroa.23.0.i.i, %158 ], [ %.sroa.23.0.i.i, %165 ], [ %.sroa.23.0.i.i, %163 ]
-  %.1170.i.i = phi i64 [ %.0169.i.i, %155 ], [ %.0163.i.i, %145 ], [ %.0163.i.i, %152 ], [ %.0169.i.i, %158 ], [ %.0169.i.i, %165 ], [ %.0169.i.i, %163 ]
+  %.2.i.i = phi i64 [ %.0169.i.i, %155 ], [ %.0163.i.i, %145 ], [ %.0163.i.i, %152 ], [ %.0169.i.i, %158 ], [ %.0169.i.i, %165 ], [ %.0169.i.i, %163 ]
   %.unshifted203.i.i = xor i64 %.lobit186188.i.i, %7
   %173 = icmp sgt i64 %.unshifted203.i.i, -1
   br i1 %173, label %177, label %194
@@ -4279,7 +4279,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i: ; preds = %139
   br i1 %190, label %191, label %253
 
 191:                                              ; preds = %186
-  %192 = add nsw i64 %.1170.i.i, -1
+  %192 = add nsw i64 %.2.i.i, -1
   %193 = shl nuw nsw i64 %189, 1
   br label %253
 
@@ -4289,7 +4289,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i: ; preds = %139
 .thread292.i.i:                                   ; preds = %194, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i
   %.sroa.044.1278301.i.i = phi i64 [ %.sroa.044.0.i.i, %194 ], [ %176, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i ]
   %.sroa.23.1280300.i.i = phi i64 [ %.sroa.23.1.i.i, %194 ], [ %174, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i ]
-  %.1170282299.i.i = phi i64 [ %.1170.i.i, %194 ], [ %.0163.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i ]
+  %.2282299.i.i = phi i64 [ %.2.i.i, %194 ], [ %.0163.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i ]
   %195 = sub i64 0, %.sroa.044.1278301.i.i
   %196 = sub i64 %136, %.sroa.23.1280300.i.i
   %197 = icmp ne i64 %.sroa.044.1278301.i.i, 0
@@ -4327,15 +4327,15 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i: ; preds = %139
   br label %213
 
 213:                                              ; preds = %208, %204, %203, %.thread292.i.i
-  %.1170282298.i.i = phi i64 [ %.1170282299.i.i, %.thread292.i.i ], [ %.1170.i.i, %208 ], [ %.1170.i.i, %204 ], [ %.1170.i.i, %203 ]
+  %.2282298.i.i = phi i64 [ %.2282299.i.i, %.thread292.i.i ], [ %.2.i.i, %208 ], [ %.2.i.i, %204 ], [ %.2.i.i, %203 ]
   %.sroa.044.2.i.i = phi i64 [ %195, %.thread292.i.i ], [ %209, %208 ], [ %205, %204 ], [ %.sroa.044.0.i.i, %203 ]
   %.sroa.23.2.i.i = phi i64 [ %198, %.thread292.i.i ], [ %212, %208 ], [ %207, %204 ], [ %201, %203 ]
-  %.0165.i.i = phi i1 [ %14, %.thread292.i.i ], [ %19, %208 ], [ %18, %204 ], [ %19, %203 ]
+  %.1.i.i = phi i1 [ %14, %.thread292.i.i ], [ %19, %208 ], [ %18, %204 ], [ %19, %203 ]
   %.not207.i.i = icmp eq i64 %.sroa.23.2.i.i, 0
-  %214 = add nsw i64 %.1170282298.i.i, -64
+  %214 = add nsw i64 %.2282298.i.i, -64
   %.sroa.044.3.i.i = select i1 %.not207.i.i, i64 0, i64 %.sroa.044.2.i.i
   %.sroa.23.3.i.i = select i1 %.not207.i.i, i64 %.sroa.044.2.i.i, i64 %.sroa.23.2.i.i
-  %.2.i.i = select i1 %.not207.i.i, i64 %214, i64 %.1170282298.i.i
+  %.3.i.i = select i1 %.not207.i.i, i64 %214, i64 %.2282298.i.i
   %215 = lshr i64 %.sroa.23.3.i.i, 32
   %.not.i.i.i = icmp ult i64 %.sroa.23.3.i.i, 4294967296
   %spec.select.i.i.i = select i1 %.not.i.i.i, i8 32, i8 0
@@ -4358,7 +4358,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i: ; preds = %139
   %226 = add i8 %.214.i.i.i, %225
   %227 = add i8 %226, -1
   %228 = sext i8 %227 to i64
-  %229 = sub nsw i64 %.2.i.i, %228
+  %229 = sub nsw i64 %.3.i.i, %228
   %230 = icmp slt i8 %227, 0
   br i1 %230, label %231, label %240
 
@@ -4386,58 +4386,58 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i: ; preds = %139
   br label %249
 
 249:                                              ; preds = %240, %231
-  %.1172.i.i = phi i64 [ %239, %231 ], [ %247, %240 ]
+  %.2173.i.i = phi i64 [ %239, %231 ], [ %247, %240 ]
   %.sroa.044.4.i.i = phi i64 [ %.sroa.044.3.i.i, %231 ], [ %248, %240 ]
   %250 = icmp ne i64 %.sroa.044.4.i.i, 0
   %251 = zext i1 %250 to i64
-  %252 = or i64 %.1172.i.i, %251
+  %252 = or i64 %.2173.i.i, %251
   br label %253
 
 253:                                              ; preds = %249, %191, %186, %109
-  %.2173.i.i = phi i64 [ %193, %191 ], [ %189, %186 ], [ %252, %249 ], [ %114, %109 ]
-  %.3.i.i = phi i64 [ %192, %191 ], [ %.1170.i.i, %186 ], [ %229, %249 ], [ %110, %109 ]
-  %.1.i.i = phi i1 [ %19, %191 ], [ %19, %186 ], [ %.0165.i.i, %249 ], [ %19, %109 ]
-  %254 = and i64 %.3.i.i, 65535
+  %.0171.i.i = phi i64 [ %193, %191 ], [ %189, %186 ], [ %252, %249 ], [ %114, %109 ]
+  %.1170.i.i = phi i64 [ %192, %191 ], [ %.2.i.i, %186 ], [ %229, %249 ], [ %110, %109 ]
+  %.0165.i.i = phi i1 [ %19, %191 ], [ %19, %186 ], [ %.1.i.i, %249 ], [ %19, %109 ]
+  %254 = and i64 %.1170.i.i, 65535
   %255 = icmp ugt i64 %254, 2044
   br i1 %255, label %256, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i
 
 256:                                              ; preds = %253
-  %257 = icmp slt i64 %.3.i.i, 0
+  %257 = icmp slt i64 %.1170.i.i, 0
   br i1 %257, label %258, label %271
 
 258:                                              ; preds = %256
-  %259 = sub nsw i64 0, %.3.i.i
+  %259 = sub nsw i64 0, %.1170.i.i
   %260 = icmp ult i64 %259, 63
   br i1 %260, label %261, label %268
 
 261:                                              ; preds = %258
-  %262 = lshr i64 %.2173.i.i, %259
-  %263 = and i64 %.3.i.i, 63
-  %264 = shl i64 %.2173.i.i, %263
+  %262 = lshr i64 %.0171.i.i, %259
+  %263 = and i64 %.1170.i.i, 63
+  %264 = shl i64 %.0171.i.i, %263
   %265 = icmp ne i64 %264, 0
   %266 = zext i1 %265 to i64
   %267 = or i64 %262, %266
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i
 
 268:                                              ; preds = %258
-  %269 = icmp ne i64 %.2173.i.i, 0
+  %269 = icmp ne i64 %.0171.i.i, 0
   %270 = zext i1 %269 to i64
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i
 
 271:                                              ; preds = %256
-  %272 = icmp ugt i64 %.3.i.i, 2045
-  %273 = add i64 %.2173.i.i, 512
+  %272 = icmp ugt i64 %.1170.i.i, 2045
+  %273 = add i64 %.0171.i.i, 512
   %274 = icmp slt i64 %273, 0
   %or.cond.i.i.i = or i1 %272, %274
   br i1 %or.cond.i.i.i, label %275, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i
 
 275:                                              ; preds = %271
-  %276 = select i1 %.1.i.i, i64 -4503599627370496, i64 9218868437227405312
+  %276 = select i1 %.0165.i.i, i64 -4503599627370496, i64 9218868437227405312
   br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i: ; preds = %271, %268, %261, %253
-  %.041.i.i.i = phi i64 [ %.2173.i.i, %253 ], [ %.2173.i.i, %271 ], [ %267, %261 ], [ %270, %268 ]
-  %.038.i.i.i = phi i64 [ %.3.i.i, %253 ], [ 2045, %271 ], [ 0, %261 ], [ 0, %268 ]
+  %.041.i.i.i = phi i64 [ %.0171.i.i, %253 ], [ %.0171.i.i, %271 ], [ %267, %261 ], [ %270, %268 ]
+  %.038.i.i.i = phi i64 [ %.1170.i.i, %253 ], [ 2045, %271 ], [ 0, %261 ], [ 0, %268 ]
   %.039.i.i.i = and i64 %.041.i.i.i, 1023
   %277 = add i64 %.041.i.i.i, 512
   %278 = lshr i64 %277, 10
@@ -4447,7 +4447,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i: ; preds = %271, %268, %261, %2
   %281 = and i64 %278, %280
   %.not49.i.i.i = icmp eq i64 %281, 0
   %282 = shl i64 %.038.i.i.i, 52
-  %283 = select i1 %.1.i.i, i64 -9223372036854775808, i64 0
+  %283 = select i1 %.0165.i.i, i64 -9223372036854775808, i64 0
   %284 = select i1 %.not49.i.i.i, i64 0, i64 %282
   %285 = or disjoint i64 %281, %283
   %286 = add i64 %285, %284
@@ -5272,17 +5272,17 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %156
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
 _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %147, %149, %156, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %165
-  %.1.sink.i = phi i64 [ %storemerge, %147 ], [ %storemerge, %156 ], [ %.0.i.i19, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %176, %165 ], [ %spec.select.i20, %149 ]
-  %.unshifted.i.i = xor i64 %.1.sink.i, %storemerge
+  %.0.sink.i = phi i64 [ %storemerge, %147 ], [ %storemerge, %156 ], [ %.0.i.i19, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %176, %165 ], [ %spec.select.i20, %149 ]
+  %.unshifted.i.i = xor i64 %.0.sink.i, %storemerge
   %177 = icmp sgt i64 %.unshifted.i.i, -1
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.1.sink.i, i1 noundef zeroext %106), !alias.scope !126
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %106), !alias.scope !126
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 179:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.1.sink.i, i1 noundef zeroext %106), !alias.scope !126
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %106), !alias.scope !126
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %178, %179
@@ -5672,17 +5672,17 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %129
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
 _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %120, %122, %129, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %138
-  %.1.sink.i = phi i64 [ %storemerge, %120 ], [ %storemerge, %129 ], [ %.0.i.i16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %149, %138 ], [ %spec.select.i, %122 ]
-  %.unshifted.i.i = xor i64 %.1.sink.i, %storemerge
+  %.0.sink.i = phi i64 [ %storemerge, %120 ], [ %storemerge, %129 ], [ %.0.i.i16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %149, %138 ], [ %spec.select.i, %122 ]
+  %.unshifted.i.i = xor i64 %.0.sink.i, %storemerge
   %150 = icmp sgt i64 %.unshifted.i.i, -1
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.1.sink.i, i1 noundef zeroext %79), !alias.scope !188
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %79), !alias.scope !188
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 152:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.1.sink.i, i1 noundef zeroext %79), !alias.scope !188
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %79), !alias.scope !188
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %151, %152
@@ -6879,8 +6879,8 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %149
   br label %170
 
 170:                                              ; preds = %158, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %142
-  %.1.i = phi i64 [ %.0.i.i20, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %169, %158 ], [ %spec.select.i22, %142 ]
-  %171 = trunc i64 %.1.i to i32
+  %.0.i = phi i64 [ %.0.i.i20, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %169, %158 ], [ %spec.select.i22, %142 ]
+  %171 = trunc i64 %.0.i to i32
   br label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit
 
 _ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit:    ; preds = %141, %149, %170
@@ -7498,20 +7498,20 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %149
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
 _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %141, %142, %149, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %158
-  %.1.sink.i = phi i64 [ %46, %141 ], [ %46, %149 ], [ %.0.i.i17, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %169, %158 ], [ %spec.select.i19, %142 ]
+  %.0.sink.i = phi i64 [ %46, %141 ], [ %46, %149 ], [ %.0.i.i17, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %169, %158 ], [ %spec.select.i19, %142 ]
   br i1 %or.cond.i.i29.i, label %170, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
 170:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  %171 = and i64 %.1.sink.i, 9218868437227405312
+  %171 = and i64 %.0.sink.i, 9218868437227405312
   %172 = icmp ne i64 %171, 9218868437227405312
-  %173 = and i64 %.1.sink.i, 4503599627370495
+  %173 = and i64 %.0.sink.i, 4503599627370495
   %.not14.i.i = icmp eq i64 %173, 0
   %or.cond18.i.i = or i1 %172, %.not14.i.i
   br i1 %or.cond18.i.i, label %_ZNK2cv10softdoubleeqERKS0_.exit, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
 _ZNK2cv10softdoubleeqERKS0_.exit:                 ; preds = %170
-  %174 = icmp eq i64 %46, %.1.sink.i
-  %175 = or i64 %.1.sink.i, %46
+  %174 = icmp eq i64 %46, %.0.sink.i
+  %175 = or i64 %.0.sink.i, %46
   %176 = and i64 %175, 9223372036854775807
   %.not15.i.i = icmp eq i64 %176, 0
   %177 = select i1 %174, i1 true, i1 %.not15.i.i
@@ -8456,33 +8456,33 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit78:     ; preds = %67, %77
 82:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit
   %.062 = phi i64 [ %33, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %81, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78 ]
   %.061 = phi i64 [ %59, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %32, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78 ]
-  %.058 = phi i64 [ %8, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %5, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78 ]
+  %.1 = phi i64 [ %8, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %5, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78 ]
   %83 = add nuw nsw i64 %.062, 536870912
   %84 = add nuw nsw i64 %83, %.061
   %85 = icmp ult i64 %84, 1073741824
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %82
-  %87 = add nsw i64 %.058, -1
+  %87 = add nsw i64 %.1, -1
   %88 = shl nuw nsw i64 %84, 1
   br label %89
 
 89:                                               ; preds = %82, %86, %28
   %.059.in.in = phi i64 [ %31, %86 ], [ %31, %82 ], [ %17, %28 ]
-  %.1 = phi i64 [ %87, %86 ], [ %.058, %82 ], [ %5, %28 ]
+  %.058 = phi i64 [ %87, %86 ], [ %.1, %82 ], [ %5, %28 ]
   %.0 = phi i64 [ %88, %86 ], [ %84, %82 ], [ %29, %28 ]
   %.not80 = icmp eq i64 %.059.in.in, 0
   %90 = trunc i64 %.0 to i8
-  %91 = icmp ugt i64 %.1, 252
+  %91 = icmp ugt i64 %.058, 252
   br i1 %91, label %92, label %111
 
 92:                                               ; preds = %89
-  %93 = icmp slt i64 %.1, 0
+  %93 = icmp slt i64 %.058, 0
   br i1 %93, label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i, label %105
 
 _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %92
   %94 = trunc i64 %.0 to i32
-  %95 = trunc nsw i64 %.1 to i32
+  %95 = trunc nsw i64 %.058 to i32
   %96 = sub nsw i32 0, %95
   %97 = lshr i32 %94, %96
   %98 = and i32 %95, 31
@@ -8495,7 +8495,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %92
   br label %111
 
 105:                                              ; preds = %92
-  %106 = icmp ne i64 %.1, 253
+  %106 = icmp ne i64 %.058, 253
   %107 = add nsw i64 %.0, -2147483584
   %108 = icmp ult i64 %107, -2147483648
   %or.cond.i = or i1 %106, %108
@@ -8508,7 +8508,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %92
 111:                                              ; preds = %105, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i, %89
   %.041.i = phi i64 [ %.0, %89 ], [ %.0, %105 ], [ %103, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
   %.039.in.i = phi i8 [ %90, %89 ], [ %90, %105 ], [ %104, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
-  %.038.i = phi i64 [ %.1, %89 ], [ 253, %105 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+  %.038.i = phi i64 [ %.058, %89 ], [ 253, %105 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
   %.039.i = and i8 %.039.in.i, 127
   %112 = add nuw nsw i64 %.041.i, 64
   %113 = lshr i64 %112, 7
@@ -8754,54 +8754,54 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwin
   %.not64 = icmp eq i64 %9, 0
   %49 = or disjoint i64 %23, 2305843009213693952
   %50 = shl nuw nsw i64 %10, 10
-  %.054 = select i1 %.not64, i64 %50, i64 %49
+  %.155 = select i1 %.not64, i64 %50, i64 %49
   %51 = icmp ult i64 %11, 63
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %48
-  %53 = lshr i64 %.054, %11
+  %53 = lshr i64 %.155, %11
   %54 = sub nsw i64 0, %11
   %55 = and i64 %54, 63
-  %56 = shl i64 %.054, %55
+  %56 = shl i64 %.155, %55
   %57 = icmp ne i64 %56, 0
   %58 = zext i1 %57 to i64
   %59 = or i64 %53, %58
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit
 
 60:                                               ; preds = %48
-  %61 = icmp ne i64 %.054, 0
+  %61 = icmp ne i64 %.155, 0
   %62 = zext i1 %61 to i64
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit:       ; preds = %60, %52, %42, %35
-  %.155 = phi i64 [ %23, %35 ], [ %23, %42 ], [ %59, %52 ], [ %62, %60 ]
+  %.054 = phi i64 [ %23, %35 ], [ %23, %42 ], [ %59, %52 ], [ %62, %60 ]
   %.153 = phi i64 [ %41, %35 ], [ %44, %42 ], [ %22, %52 ], [ %22, %60 ]
-  %.050 = phi i64 [ %9, %35 ], [ %9, %42 ], [ %6, %52 ], [ %6, %60 ]
-  %63 = add nuw nsw i64 %.155, 2305843009213693952
+  %.1 = phi i64 [ %9, %35 ], [ %9, %42 ], [ %6, %52 ], [ %6, %60 ]
+  %63 = add nuw nsw i64 %.054, 2305843009213693952
   %64 = add nuw nsw i64 %63, %.153
   %65 = icmp ult i64 %64, 4611686018427387904
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit
-  %67 = add nsw i64 %.050, -1
+  %67 = add nsw i64 %.1, -1
   %68 = shl nuw nsw i64 %64, 1
   br label %69
 
 69:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit, %66, %17
-  %.1 = phi i64 [ %67, %66 ], [ %.050, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit ], [ %6, %17 ]
+  %.050 = phi i64 [ %67, %66 ], [ %.1, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit ], [ %6, %17 ]
   %.0 = phi i64 [ %68, %66 ], [ %64, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit ], [ %20, %17 ]
-  %70 = and i64 %.1, 65535
+  %70 = and i64 %.050, 65535
   %71 = icmp ugt i64 %70, 2044
   br i1 %71, label %72, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 72:                                               ; preds = %69
-  %73 = icmp slt i64 %.1, 0
+  %73 = icmp slt i64 %.050, 0
   br i1 %73, label %74, label %82
 
 74:                                               ; preds = %72
-  %75 = sub nsw i64 0, %.1
+  %75 = sub nsw i64 0, %.050
   %76 = lshr i64 %.0, %75
-  %77 = and i64 %.1, 63
+  %77 = and i64 %.050, 63
   %78 = shl i64 %.0, %77
   %79 = icmp ne i64 %78, 0
   %80 = zext i1 %79 to i64
@@ -8809,7 +8809,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit:       ; preds = %60, %52, %42, %35
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 82:                                               ; preds = %72
-  %83 = icmp ugt i64 %.1, 2045
+  %83 = icmp ugt i64 %.050, 2045
   %84 = add nuw i64 %.0, 512
   %85 = icmp slt i64 %84, 0
   %or.cond.i = or i1 %83, %85
@@ -8821,7 +8821,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit:       ; preds = %60, %52, %42, %35
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %82, %74, %69
   %.041.i = phi i64 [ %.0, %69 ], [ %.0, %82 ], [ %81, %74 ]
-  %.038.i = phi i64 [ %.1, %69 ], [ 2045, %82 ], [ 0, %74 ]
+  %.038.i = phi i64 [ %.050, %69 ], [ 2045, %82 ], [ 0, %74 ]
   %.039.i = and i64 %.041.i, 1023
   %88 = add nuw i64 %.041.i, 512
   %89 = lshr i64 %88, 10

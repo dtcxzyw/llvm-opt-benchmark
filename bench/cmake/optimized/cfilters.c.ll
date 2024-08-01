@@ -1115,7 +1115,7 @@ define dso_local i32 @Curl_conn_cf_cntrl(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %13
-  %.019.us = phi i32 [ %.1.us, %13 ], [ 0, %.lr.ph ]
+  %.019.us = phi i32 [ %.2.us, %13 ], [ 0, %.lr.ph ]
   %.01218.us = phi ptr [ %15, %13 ], [ %0, %.lr.ph ]
   %7 = load ptr, ptr %.01218.us, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 80
@@ -1128,7 +1128,7 @@ define dso_local i32 @Curl_conn_cf_cntrl(ptr noundef %0, ptr noundef %1, i1 noun
   br label %13
 
 13:                                               ; preds = %11, %.lr.ph.split.us
-  %.1.us = phi i32 [ %.019.us, %.lr.ph.split.us ], [ %12, %11 ]
+  %.2.us = phi i32 [ %.019.us, %.lr.ph.split.us ], [ %12, %11 ]
   %14 = getelementptr inbounds i8, ptr %.01218.us, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not15.us = icmp eq ptr %15, null
@@ -1154,8 +1154,8 @@ define dso_local i32 @Curl_conn_cf_cntrl(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %.not15, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %23, %20, %13, %6
-  %.2 = phi i32 [ 0, %6 ], [ %.1.us, %13 ], [ %21, %20 ], [ 0, %23 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %6 ], [ %.2.us, %13 ], [ %21, %20 ], [ 0, %23 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable

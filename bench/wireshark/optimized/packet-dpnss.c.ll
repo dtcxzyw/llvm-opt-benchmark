@@ -1089,8 +1089,8 @@ define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %
   %128 = zext nneg i8 %126 to i32
   %129 = tail call ptr @val_to_str(i32 noundef %128, ptr noundef nonnull @dpnss_LbL_msg_short_type_vals, ptr noundef nonnull @.str.188) #2
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.187, ptr noundef %129) #2
-  %.not.i22 = icmp eq ptr %10, null
-  br i1 %.not.i22, label %dissect_dpnss_cc_msg.exit, label %130
+  %.not.i23 = icmp eq ptr %10, null
+  br i1 %.not.i23, label %dissect_dpnss_cc_msg.exit, label %130
 
 130:                                              ; preds = %121
   switch i8 %126, label %167 [

@@ -3979,7 +3979,7 @@ define zeroext i1 @CheckCollisionPointPoly(<2 x float> %0, ptr nocapture noundef
 7:                                                ; preds = %5, %29
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %29 ]
   %.031 = phi i32 [ %6, %5 ], [ %30, %29 ]
-  %.02729 = phi i1 [ false, %5 ], [ %.1, %29 ]
+  %.129 = phi i1 [ false, %5 ], [ %.2, %29 ]
   %8 = getelementptr inbounds %struct.Vector2, ptr %1, i64 %indvars.iv
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   %10 = load float, ptr %9, align 4
@@ -4005,19 +4005,19 @@ define zeroext i1 @CheckCollisionPointPoly(<2 x float> %0, ptr nocapture noundef
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %17
-  %28 = xor i1 %.02729, true
+  %28 = xor i1 %.129, true
   br label %29
 
 29:                                               ; preds = %7, %17, %27
-  %.1 = phi i1 [ %28, %27 ], [ %.02729, %17 ], [ %.02729, %7 ]
+  %.2 = phi i1 [ %28, %27 ], [ %.129, %17 ], [ %.129, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %7
 
 .loopexit:                                        ; preds = %29, %3
-  %.2 = phi i1 [ false, %3 ], [ %.1, %29 ]
-  ret i1 %.2
+  %.027 = phi i1 [ false, %3 ], [ %.2, %29 ]
+  ret i1 %.027
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -4200,8 +4200,8 @@ define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <
   br label %.thread
 
 .thread:                                          ; preds = %77, %67, %57, %47, %83, %84, %5
-  %.1 = phi i1 [ true, %84 ], [ true, %83 ], [ false, %5 ], [ false, %47 ], [ false, %57 ], [ false, %67 ], [ false, %77 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %84 ], [ true, %83 ], [ false, %5 ], [ false, %47 ], [ false, %57 ], [ false, %67 ], [ false, %77 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

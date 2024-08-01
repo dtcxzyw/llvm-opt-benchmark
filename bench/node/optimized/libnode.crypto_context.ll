@@ -1618,11 +1618,11 @@ _ZN4node9Utf8ValueD2Ev.exit:                      ; preds = %cleanup, %if.then.i
   br i1 %switch, label %if.end184, label %return
 
 if.end184:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273, %_ZN4node9Utf8ValueD2Ev.exit, %if.end.i384
-  %min_version.2 = phi i32 [ %min_version.1, %_ZN4node9Utf8ValueD2Ev.exit ], [ %call64, %if.end.i384 ], [ %call64, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273 ]
-  %max_version.2 = phi i32 [ %max_version.1, %_ZN4node9Utf8ValueD2Ev.exit ], [ %spec.store.select, %if.end.i384 ], [ %spec.store.select, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273 ]
-  %method.2 = phi ptr [ %method.1, %_ZN4node9Utf8ValueD2Ev.exit ], [ %call77, %if.end.i384 ], [ %call77, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273 ]
+  %min_version.0 = phi i32 [ %min_version.1, %_ZN4node9Utf8ValueD2Ev.exit ], [ %call64, %if.end.i384 ], [ %call64, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273 ]
+  %max_version.0 = phi i32 [ %max_version.1, %_ZN4node9Utf8ValueD2Ev.exit ], [ %spec.store.select, %if.end.i384 ], [ %spec.store.select, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273 ]
+  %method.0 = phi ptr [ %method.1, %_ZN4node9Utf8ValueD2Ev.exit ], [ %call77, %if.end.i384 ], [ %call77, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273 ]
   %ctx_ = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
-  %call185 = call ptr @SSL_CTX_new(ptr noundef %method.2) #20
+  %call185 = call ptr @SSL_CTX_new(ptr noundef %method.0) #20
   %53 = load ptr, ptr %ctx_, align 8
   store ptr %call185, ptr %ctx_, align 8
   %tobool.not.i.i = icmp eq ptr %53, null
@@ -1656,10 +1656,10 @@ if.end190:                                        ; preds = %_ZNSt10unique_ptrI1
   %59 = load ptr, ptr %ctx_, align 8
   %call208 = call i64 @SSL_CTX_ctrl(ptr noundef %59, i32 noundef 44, i64 noundef 899, ptr noundef null) #20
   %60 = load ptr, ptr %ctx_, align 8
-  %conv = sext i32 %min_version.2 to i64
+  %conv = sext i32 %min_version.0 to i64
   %call211 = call i64 @SSL_CTX_ctrl(ptr noundef %60, i32 noundef 123, i64 noundef %conv, ptr noundef null) #20
   %61 = load ptr, ptr %ctx_, align 8
-  %conv214 = sext i32 %max_version.2 to i64
+  %conv214 = sext i32 %max_version.0 to i64
   %call215 = call i64 @SSL_CTX_ctrl(ptr noundef %61, i32 noundef 124, i64 noundef %conv214, ptr noundef null) #20
   %ticket_key_name_ = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 80
   %call217 = call i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef nonnull %ticket_key_name_, i64 noundef 16) #20
@@ -4042,9 +4042,9 @@ if.end106:                                        ; preds = %if.then102, %_ZN4no
   br i1 %cmp96, label %for.body, label %cleanup, !llvm.loop !9
 
 if.then112.critedge:                              ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit60, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit, %if.end76, %if.end85
-  %p12.sroa.0.0 = phi ptr [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit60 ], [ %45, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit ], [ %45, %if.end76 ], [ %45, %if.end85 ]
-  %pkey.sroa.0.0 = phi ptr [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit60 ], [ null, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit ], [ %47, %if.end76 ], [ %47, %if.end85 ]
-  %extra_certs.sroa.0.0 = phi ptr [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit60 ], [ null, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit ], [ %49, %if.end76 ], [ %49, %if.end85 ]
+  %p12.sroa.0.1 = phi ptr [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit60 ], [ %45, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit ], [ %45, %if.end76 ], [ %45, %if.end85 ]
+  %pkey.sroa.0.1 = phi ptr [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit60 ], [ null, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit ], [ %47, %if.end76 ], [ %47, %if.end85 ]
+  %extra_certs.sroa.0.1 = phi ptr [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit60 ], [ null, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit ], [ %49, %if.end76 ], [ %49, %if.end85 ]
   %call113 = call i64 @ERR_get_error() #20
   %call114 = call ptr @ERR_reason_error_string(i64 noundef %call113) #20
   %cmp115.not = icmp eq ptr %call114, null
@@ -4070,14 +4070,14 @@ _ZN4node11Environment10ThrowErrorEPKc.exit:       ; preds = %if.then112.critedge
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end106, %for.cond.preheader, %_ZN4node11Environment10ThrowErrorEPKc.exit, %if.then75, %if.then72
-  %p12.sroa.0.1 = phi ptr [ %p12.sroa.0.0, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %45, %if.then75 ], [ %45, %if.then72 ], [ %45, %for.cond.preheader ], [ %45, %if.end106 ]
-  %pkey.sroa.0.1 = phi ptr [ %pkey.sroa.0.0, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %47, %if.then75 ], [ null, %if.then72 ], [ %47, %for.cond.preheader ], [ %47, %if.end106 ]
-  %extra_certs.sroa.0.1 = phi ptr [ %extra_certs.sroa.0.0, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %49, %if.then75 ], [ %49, %if.then72 ], [ %49, %for.cond.preheader ], [ %49, %if.end106 ]
-  %cmp.not.i = icmp eq ptr %extra_certs.sroa.0.1, null
+  %p12.sroa.0.0 = phi ptr [ %p12.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %45, %if.then75 ], [ %45, %if.then72 ], [ %45, %for.cond.preheader ], [ %45, %if.end106 ]
+  %pkey.sroa.0.0 = phi ptr [ %pkey.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %47, %if.then75 ], [ null, %if.then72 ], [ %47, %for.cond.preheader ], [ %47, %if.end106 ]
+  %extra_certs.sroa.0.0 = phi ptr [ %extra_certs.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %49, %if.then75 ], [ %49, %if.then72 ], [ %49, %for.cond.preheader ], [ %49, %if.end106 ]
+  %cmp.not.i = icmp eq ptr %extra_certs.sroa.0.0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit, label %if.then.i75
 
 if.then.i75:                                      ; preds = %cleanup
-  call void @OPENSSL_sk_pop_free(ptr noundef nonnull %extra_certs.sroa.0.1, ptr noundef nonnull @X509_free) #20
+  call void @OPENSSL_sk_pop_free(ptr noundef nonnull %extra_certs.sroa.0.0, ptr noundef nonnull @X509_free) #20
   br label %_ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit
 
 _ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit: ; preds = %cleanup, %if.then.i75
@@ -4091,19 +4091,19 @@ if.then.i78:                                      ; preds = %_ZNSt10unique_ptrI1
 
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit, %if.then.i78
   store ptr null, ptr %cert, align 8
-  %cmp.not.i80 = icmp eq ptr %pkey.sroa.0.1, null
+  %cmp.not.i80 = icmp eq ptr %pkey.sroa.0.0, null
   br i1 %cmp.not.i80, label %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEED2Ev.exit, label %if.then.i81
 
 if.then.i81:                                      ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit
-  call void @EVP_PKEY_free(ptr noundef nonnull %pkey.sroa.0.1) #20
+  call void @EVP_PKEY_free(ptr noundef nonnull %pkey.sroa.0.0) #20
   br label %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit, %if.then.i81
-  %cmp.not.i83 = icmp eq ptr %p12.sroa.0.1, null
+  %cmp.not.i83 = icmp eq ptr %p12.sroa.0.0, null
   br i1 %cmp.not.i83, label %cleanup120, label %if.then.i84
 
 if.then.i84:                                      ; preds = %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEED2Ev.exit
-  call void @PKCS12_free(ptr noundef nonnull %p12.sroa.0.1) #20
+  call void @PKCS12_free(ptr noundef nonnull %p12.sroa.0.0) #20
   br label %cleanup120
 
 cleanup120:                                       ; preds = %if.then.i84, %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEED2Ev.exit, %if.then40, %if.then25
@@ -7869,13 +7869,13 @@ if.then8:                                         ; preds = %_ZN4node6crypto14Ma
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit, %if.then8
-  %retval.sroa.0.0 = phi i16 [ 0, %if.then8 ], [ 257, %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit ]
+  %retval.sroa.0.1 = phi i16 [ 0, %if.then8 ], [ 257, %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit ]
   call void @ERR_clear_error() #20
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.sroa.0.1 = phi i16 [ 0, %if.then ], [ %retval.sroa.0.0, %cleanup ]
-  ret i16 %retval.sroa.0.1
+  %retval.sroa.0.0 = phi i16 [ 0, %if.then ], [ %retval.sroa.0.1, %cleanup ]
+  ret i16 %retval.sroa.0.0
 }
 
 declare noundef i32 @_ZNK4node6crypto13KeyObjectData10GetKeyTypeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
@@ -8059,7 +8059,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit
   %call519 = phi ptr [ %call5, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit ], [ %call516, %if.end ]
-  %cert_store.018 = phi ptr [ %cert_store.1, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit ], [ %call3, %if.end ]
+  %cert_store.018 = phi ptr [ %cert_store.2, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit ], [ %call3, %if.end ]
   %3 = load atomic i8, ptr @_ZGVZN4node6crypto24GetOrCreateRootCertStoreEvE5store acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %3, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit, !prof !5
@@ -8087,8 +8087,8 @@ if.then8:                                         ; preds = %_ZN4node6crypto24Ge
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit, %if.then8
-  %cert_store.1 = phi ptr [ %call9, %if.then8 ], [ %cert_store.018, %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit ]
-  %call14 = tail call i32 @X509_STORE_add_cert(ptr noundef %cert_store.1, ptr noundef nonnull %call519) #20
+  %cert_store.2 = phi ptr [ %call9, %if.then8 ], [ %cert_store.018, %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit ]
+  %call14 = tail call i32 @X509_STORE_add_cert(ptr noundef %cert_store.2, ptr noundef nonnull %call519) #20
   %cmp15.not = icmp eq i32 %call14, 1
   br i1 %cmp15.not, label %do.body23, label %do.body19
 
@@ -8203,9 +8203,9 @@ if.then.i:                                        ; preds = %do.body27
   br label %cleanup42
 
 cleanup42:                                        ; preds = %if.then.i, %cleanup.thread, %entry
-  %retval.sroa.0.1 = phi i16 [ 1, %entry ], [ 0, %cleanup.thread ], [ 257, %if.then.i ]
+  %retval.sroa.0.0 = phi i16 [ 1, %entry ], [ 0, %cleanup.thread ], [ 257, %if.then.i ]
   tail call void @ERR_clear_error() #20
-  ret i16 %retval.sroa.0.1
+  ret i16 %retval.sroa.0.0
 }
 
 declare ptr @PEM_read_bio_X509_CRL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -8333,7 +8333,7 @@ if.then19:                                        ; preds = %do.end16
   br i1 %cmp40, label %for.body, label %if.then39
 
 for.body:                                         ; preds = %if.then19, %for.inc
-  %issuer.042 = phi ptr [ %issuer.1, %for.inc ], [ null, %if.then19 ]
+  %issuer.142 = phi ptr [ %issuer.2, %for.inc ], [ null, %if.then19 ]
   %i.041 = phi i32 [ %inc, %for.inc ], [ 0, %if.then19 ]
   %call24 = tail call ptr @OPENSSL_sk_value(ptr noundef %extra_certs, i32 noundef %i.041) #20
   %call25 = tail call i64 @SSL_CTX_ctrl(ptr noundef %ctx, i32 noundef 89, i64 noundef 1, ptr noundef %call24) #20
@@ -8341,7 +8341,7 @@ for.body:                                         ; preds = %if.then19, %for.inc
   br i1 %tobool26.not, label %if.end56, label %if.end28
 
 if.end28:                                         ; preds = %for.body
-  %cmp29.not = icmp eq ptr %issuer.042, null
+  %cmp29.not = icmp eq ptr %issuer.142, null
   br i1 %cmp29.not, label %lor.lhs.false, label %for.inc
 
 lor.lhs.false:                                    ; preds = %if.end28
@@ -8352,14 +8352,14 @@ lor.lhs.false:                                    ; preds = %if.end28
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false, %if.end28
-  %issuer.1 = phi ptr [ %issuer.042, %if.end28 ], [ %spec.select, %lor.lhs.false ]
+  %issuer.2 = phi ptr [ %issuer.142, %if.end28 ], [ %spec.select, %lor.lhs.false ]
   %inc = add nuw nsw i32 %i.041, 1
   %call22 = tail call i32 @OPENSSL_sk_num(ptr noundef %extra_certs) #20
   %cmp = icmp slt i32 %inc, %call22
   br i1 %cmp, label %for.body, label %if.then37, !llvm.loop !11
 
 if.then37:                                        ; preds = %for.inc
-  %cmp38 = icmp eq ptr %issuer.1, null
+  %cmp38 = icmp eq ptr %issuer.2, null
   br i1 %cmp38, label %if.then39, label %if.else
 
 if.then39:                                        ; preds = %if.then19, %if.then37
@@ -8387,7 +8387,7 @@ _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.e
   br label %land.lhs.true
 
 if.else:                                          ; preds = %if.then37
-  %call42 = tail call ptr @X509_dup(ptr noundef nonnull %issuer.1) #20
+  %call42 = tail call ptr @X509_dup(ptr noundef nonnull %issuer.2) #20
   %7 = load ptr, ptr %issuer_, align 8
   store ptr %call42, ptr %issuer_, align 8
   %tobool.not.i.i = icmp eq ptr %7, null

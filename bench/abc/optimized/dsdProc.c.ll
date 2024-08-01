@@ -1080,11 +1080,11 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   br i1 %exitcond.not.i754, label %dsdKernelCopyListPlusOne.exit755, label %.lr.ph.i751, !llvm.loop !6
 
 dsdKernelCopyListPlusOne.exit755:                 ; preds = %.lr.ph.i751, %440, %432
-  %.0548 = phi ptr [ %435, %432 ], [ %444, %440 ], [ %444, %.lr.ph.i751 ]
+  %.1549 = phi ptr [ %435, %432 ], [ %444, %440 ], [ %444, %.lr.ph.i751 ]
   br i1 %410, label %454, label %dsdKernelCopyListPlusOne.exit
 
 454:                                              ; preds = %dsdKernelCopyListPlusOne.exit755
-  %455 = ptrtoint ptr %.0548 to i64
+  %455 = ptrtoint ptr %.1549 to i64
   %456 = xor i64 %455, 1
   %457 = inttoptr i64 %456 to ptr
   br label %dsdKernelCopyListPlusOne.exit
@@ -1145,11 +1145,11 @@ dsdKernelCopyListPlusOne.exit755:                 ; preds = %.lr.ph.i751, %440, 
   br i1 %exitcond.not.i761, label %dsdKernelCopyListPlusOne.exit762, label %.lr.ph.i758, !llvm.loop !6
 
 dsdKernelCopyListPlusOne.exit762:                 ; preds = %.lr.ph.i758, %475, %467
-  %.1549 = phi ptr [ %470, %467 ], [ %479, %475 ], [ %479, %.lr.ph.i758 ]
+  %.2 = phi ptr [ %470, %467 ], [ %479, %475 ], [ %479, %.lr.ph.i758 ]
   br i1 %412, label %dsdKernelCopyListPlusOne.exit, label %489
 
 489:                                              ; preds = %dsdKernelCopyListPlusOne.exit762
-  %490 = ptrtoint ptr %.1549 to i64
+  %490 = ptrtoint ptr %.2 to i64
   %491 = xor i64 %490, 1
   %492 = inttoptr i64 %491 to ptr
   br label %dsdKernelCopyListPlusOne.exit
@@ -2235,7 +2235,7 @@ dsdKernelFindContainingComponent.exit801:         ; preds = %.lr.ph1111, %.lr.ph
   br label %._crit_edge956
 
 ._crit_edge956:                                   ; preds = %._crit_edge956.loopexit, %810
-  %.1569.lcssa = phi i16 [ 1, %810 ], [ %1079, %._crit_edge956.loopexit ]
+  %.2570.lcssa = phi i16 [ 1, %810 ], [ %1079, %._crit_edge956.loopexit ]
   %.2566.lcssa = phi ptr [ %811, %810 ], [ %.3567, %._crit_edge956.loopexit ]
   %.2563.lcssa = phi ptr [ %813, %810 ], [ %.3, %._crit_edge956.loopexit ]
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %17, ptr noundef %.2566.lcssa) #11
@@ -2247,18 +2247,18 @@ dsdKernelFindContainingComponent.exit801:         ; preds = %.lr.ph1111, %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge956
-  %.5 = phi i16 [ %.1569.lcssa, %._crit_edge956 ], [ %1080, %.loopexit.loopexit ]
+  %.1569 = phi i16 [ %.2570.lcssa, %._crit_edge956 ], [ %1080, %.loopexit.loopexit ]
   %1081 = getelementptr inbounds i8, ptr %728, i64 40
-  store i16 %.5, ptr %1081, align 8
+  store i16 %.1569, ptr %1081, align 8
   br label %dsdKernelCopyListPlusOne.exit
 
 dsdKernelCopyListPlusOne.exit:                    ; preds = %371, %.lr.ph.i713, %.lr.ph.i, %.lr.ph.i738, %.lr.ph.i719, %.lr.ph.i693, %347, %164, %82, %dsdKernelCopyListPlusOne.exit776, %587, %dsdKernelCopyListPlusOne.exit769, %562, %dsdKernelCopyListPlusOne.exit762, %489, %dsdKernelCopyListPlusOne.exit755, %454, %225, %dsdKernelCopyListPlusOne.exit730, %.lr.ph.i732, %65, %dsdKernelCopyListPlusOne.exit704, %.lr.ph.i706, %.loopexit, %dsdKernelCopyListPlusOne.exit783, %495
-  %.2 = phi ptr [ %68, %65 ], [ %146, %dsdKernelCopyListPlusOne.exit704 ], [ %161, %.lr.ph.i706 ], [ %228, %225 ], [ %214, %dsdKernelCopyListPlusOne.exit730 ], [ %239, %.lr.ph.i732 ], [ %457, %454 ], [ %.0548, %dsdKernelCopyListPlusOne.exit755 ], [ %498, %495 ], [ %565, %562 ], [ %552, %dsdKernelCopyListPlusOne.exit769 ], [ %590, %587 ], [ %573, %dsdKernelCopyListPlusOne.exit776 ], [ %705, %dsdKernelCopyListPlusOne.exit783 ], [ %728, %.loopexit ], [ %.1549, %dsdKernelCopyListPlusOne.exit762 ], [ %492, %489 ], [ %89, %82 ], [ %171, %164 ], [ %356, %347 ], [ %102, %.lr.ph.i693 ], [ %187, %.lr.ph.i719 ], [ %232, %.lr.ph.i738 ], [ %89, %.lr.ph.i ], [ %171, %.lr.ph.i713 ], [ %356, %371 ]
+  %.0548 = phi ptr [ %68, %65 ], [ %146, %dsdKernelCopyListPlusOne.exit704 ], [ %161, %.lr.ph.i706 ], [ %228, %225 ], [ %214, %dsdKernelCopyListPlusOne.exit730 ], [ %239, %.lr.ph.i732 ], [ %457, %454 ], [ %.1549, %dsdKernelCopyListPlusOne.exit755 ], [ %498, %495 ], [ %565, %562 ], [ %552, %dsdKernelCopyListPlusOne.exit769 ], [ %590, %587 ], [ %573, %dsdKernelCopyListPlusOne.exit776 ], [ %705, %dsdKernelCopyListPlusOne.exit783 ], [ %728, %.loopexit ], [ %.2, %dsdKernelCopyListPlusOne.exit762 ], [ %492, %489 ], [ %89, %82 ], [ %171, %164 ], [ %356, %347 ], [ %102, %.lr.ph.i693 ], [ %187, %.lr.ph.i719 ], [ %232, %.lr.ph.i738 ], [ %89, %.lr.ph.i ], [ %171, %.lr.ph.i713 ], [ %356, %371 ]
   %.0533 = phi ptr [ null, %65 ], [ %114, %dsdKernelCopyListPlusOne.exit704 ], [ %114, %.lr.ph.i706 ], [ %204, %225 ], [ %204, %dsdKernelCopyListPlusOne.exit730 ], [ %204, %.lr.ph.i732 ], [ %258, %454 ], [ %258, %dsdKernelCopyListPlusOne.exit755 ], [ %258, %495 ], [ %258, %562 ], [ %258, %dsdKernelCopyListPlusOne.exit769 ], [ %258, %587 ], [ %258, %dsdKernelCopyListPlusOne.exit776 ], [ %258, %dsdKernelCopyListPlusOne.exit783 ], [ %258, %.loopexit ], [ %258, %dsdKernelCopyListPlusOne.exit762 ], [ %258, %489 ], [ %78, %82 ], [ %114, %164 ], [ %258, %347 ], [ %78, %.lr.ph.i693 ], [ %114, %.lr.ph.i719 ], [ %204, %.lr.ph.i738 ], [ %78, %.lr.ph.i ], [ %114, %.lr.ph.i713 ], [ %258, %371 ]
-  %1082 = ptrtoint ptr %.2 to i64
+  %1082 = ptrtoint ptr %.0548 to i64
   %1083 = and i64 %1082, -2
   %1084 = inttoptr i64 %1083 to ptr
-  %1085 = icmp eq ptr %.2, %1084
+  %1085 = icmp eq ptr %.0548, %1084
   %1086 = or i64 %18, 1
   %1087 = inttoptr i64 %1086 to ptr
   %.sink = select i1 %1085, ptr %20, ptr %1087
@@ -2268,7 +2268,7 @@ dsdKernelCopyListPlusOne.exit:                    ; preds = %371, %.lr.ph.i713, 
   %1089 = getelementptr inbounds i8, ptr %1084, i64 16
   store ptr %.0533, ptr %1089, align 8
   %1090 = load ptr, ptr %21, align 8
-  %1091 = call i32 @st__insert(ptr noundef %1090, ptr noundef nonnull %20, ptr noundef %.2) #11
+  %1091 = call i32 @st__insert(ptr noundef %1090, ptr noundef nonnull %20, ptr noundef %.0548) #11
   %1092 = load i32, ptr @s_CacheEntries, align 4
   %1093 = add nsw i32 %1092, 1
   store i32 %1093, ptr @s_CacheEntries, align 4

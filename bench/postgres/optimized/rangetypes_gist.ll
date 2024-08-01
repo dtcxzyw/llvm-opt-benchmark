@@ -1238,15 +1238,15 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
 
 40:                                               ; preds = %.lr.ph
   %41 = lshr i32 %38, 3
-  %.1.i = and i32 %41, 3
+  %.2.i = and i32 %41, 3
   %42 = lshr i32 %38, 5
   %43 = and i32 %42, 4
-  %spec.select11.i = or disjoint i32 %.1.i, %43
+  %spec.select11.i = or disjoint i32 %.2.i, %43
   br label %get_gist_range_class.exit
 
 get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
-  %.2.i = phi i32 [ 8, %.lr.ph ], [ %spec.select11.i, %40 ]
-  %44 = zext nneg i32 %.2.i to i64
+  %.0.i = phi i32 [ 8, %.lr.ph ], [ %spec.select11.i, %40 ]
+  %44 = zext nneg i32 %.0.i to i64
   %45 = getelementptr [9 x i32], ptr %6, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
@@ -1345,12 +1345,12 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %.0186276.i = phi ptr [ %69, %.lr.ph249.lr.ph.i ], [ %101, %range_gist_consider_split.exit.i ]
   %.0190275.i = phi i32 [ 0, %.lr.ph249.lr.ph.i ], [ %.1191.lcssa.i, %range_gist_consider_split.exit.i ]
   %.0194274.i = phi i64 [ 0, %.lr.ph249.lr.ph.i ], [ %indvars.iv.i, %range_gist_consider_split.exit.i ]
-  %.sroa.33.0273.i = phi i32 [ 0, %.lr.ph249.lr.ph.i ], [ %.sroa.33.1.i, %range_gist_consider_split.exit.i ]
-  %.sroa.29.0272.i = phi float [ 0.000000e+00, %.lr.ph249.lr.ph.i ], [ %.sroa.29.1.i, %range_gist_consider_split.exit.i ]
-  %.sroa.25.0271.i = phi float [ 0.000000e+00, %.lr.ph249.lr.ph.i ], [ %.sroa.25.1.i, %range_gist_consider_split.exit.i ]
-  %.sroa.21.0270.i = phi ptr [ null, %.lr.ph249.lr.ph.i ], [ %.sroa.21.1.i, %range_gist_consider_split.exit.i ]
-  %.sroa.17224.0269.i = phi ptr [ null, %.lr.ph249.lr.ph.i ], [ %.sroa.17224.1.i, %range_gist_consider_split.exit.i ]
-  %.sroa.11.0268.i = phi i8 [ 1, %.lr.ph249.lr.ph.i ], [ %.sroa.11.1.i, %range_gist_consider_split.exit.i ]
+  %.sroa.33.0273.i = phi i32 [ 0, %.lr.ph249.lr.ph.i ], [ %.sroa.33.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.29.0272.i = phi float [ 0.000000e+00, %.lr.ph249.lr.ph.i ], [ %.sroa.29.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.25.0271.i = phi float [ 0.000000e+00, %.lr.ph249.lr.ph.i ], [ %.sroa.25.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.21.0270.i = phi ptr [ null, %.lr.ph249.lr.ph.i ], [ %.sroa.21.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.17224.0269.i = phi ptr [ null, %.lr.ph249.lr.ph.i ], [ %.sroa.17224.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.11.0268.i = phi i8 [ 1, %.lr.ph249.lr.ph.i ], [ %.sroa.11.2.i, %range_gist_consider_split.exit.i ]
   %sext.i = shl i64 %.0194274.i, 32
   %88 = ashr exact i64 %sext.i, 32
   br label %89
@@ -1450,22 +1450,22 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   br label %range_gist_consider_split.exit.i
 
 range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129, %.critedge2.i
-  %.sroa.11.1.i = phi i8 [ 0, %.critedge.i.i ], [ %.sroa.11.0268.i, %129 ], [ %.sroa.11.0268.i, %.critedge2.i ]
-  %.sroa.17224.1.i = phi ptr [ %.1183247.i, %.critedge.i.i ], [ %.sroa.17224.0269.i, %129 ], [ %.sroa.17224.0269.i, %.critedge2.i ]
-  %.sroa.21.1.i = phi ptr [ %101, %.critedge.i.i ], [ %.sroa.21.0270.i, %129 ], [ %.sroa.21.0270.i, %.critedge2.i ]
-  %.sroa.25.1.i = phi float [ %112, %.critedge.i.i ], [ %.sroa.25.0271.i, %129 ], [ %.sroa.25.0271.i, %.critedge2.i ]
-  %.sroa.29.1.i = phi float [ %.043.i.i, %.critedge.i.i ], [ %.sroa.29.0272.i, %129 ], [ %.sroa.29.0272.i, %.critedge2.i ]
-  %.sroa.33.1.i = phi i32 [ %132, %.critedge.i.i ], [ %.sroa.33.0273.i, %129 ], [ %.sroa.33.0273.i, %.critedge2.i ]
+  %.sroa.11.2.i = phi i8 [ 0, %.critedge.i.i ], [ %.sroa.11.0268.i, %129 ], [ %.sroa.11.0268.i, %.critedge2.i ]
+  %.sroa.17224.2.i = phi ptr [ %.1183247.i, %.critedge.i.i ], [ %.sroa.17224.0269.i, %129 ], [ %.sroa.17224.0269.i, %.critedge2.i ]
+  %.sroa.21.2.i = phi ptr [ %101, %.critedge.i.i ], [ %.sroa.21.0270.i, %129 ], [ %.sroa.21.0270.i, %.critedge2.i ]
+  %.sroa.25.2.i = phi float [ %112, %.critedge.i.i ], [ %.sroa.25.0271.i, %129 ], [ %.sroa.25.0271.i, %.critedge2.i ]
+  %.sroa.29.2.i = phi float [ %.043.i.i, %.critedge.i.i ], [ %.sroa.29.0272.i, %129 ], [ %.sroa.29.0272.i, %.critedge2.i ]
+  %.sroa.33.2.i = phi i32 [ %132, %.critedge.i.i ], [ %.sroa.33.0273.i, %129 ], [ %.sroa.33.0273.i, %.critedge2.i ]
   %133 = icmp sgt i32 %65, %99
   br i1 %133, label %.lr.ph249.i, label %.lr.ph287.lr.ph.i
 
 .lr.ph287.lr.ph.i:                                ; preds = %range_gist_consider_split.exit.i, %93
-  %.sroa.11.0.lcssa.i = phi i8 [ %.sroa.11.0268.i, %93 ], [ %.sroa.11.1.i, %range_gist_consider_split.exit.i ]
-  %.sroa.17224.0.lcssa.i = phi ptr [ %.sroa.17224.0269.i, %93 ], [ %.sroa.17224.1.i, %range_gist_consider_split.exit.i ]
-  %.sroa.21.0.lcssa.i = phi ptr [ %.sroa.21.0270.i, %93 ], [ %.sroa.21.1.i, %range_gist_consider_split.exit.i ]
-  %.sroa.25.0.lcssa.i = phi float [ %.sroa.25.0271.i, %93 ], [ %.sroa.25.1.i, %range_gist_consider_split.exit.i ]
-  %.sroa.29.0.lcssa.i = phi float [ %.sroa.29.0272.i, %93 ], [ %.sroa.29.1.i, %range_gist_consider_split.exit.i ]
-  %.sroa.33.0.lcssa.i = phi i32 [ %.sroa.33.0273.i, %93 ], [ %.sroa.33.1.i, %range_gist_consider_split.exit.i ]
+  %.sroa.11.0.lcssa.i = phi i8 [ %.sroa.11.0268.i, %93 ], [ %.sroa.11.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.17224.0.lcssa.i = phi ptr [ %.sroa.17224.0269.i, %93 ], [ %.sroa.17224.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.21.0.lcssa.i = phi ptr [ %.sroa.21.0270.i, %93 ], [ %.sroa.21.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.25.0.lcssa.i = phi float [ %.sroa.25.0271.i, %93 ], [ %.sroa.25.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.29.0.lcssa.i = phi float [ %.sroa.29.0272.i, %93 ], [ %.sroa.29.2.i, %range_gist_consider_split.exit.i ]
+  %.sroa.33.0.lcssa.i = phi i32 [ %.sroa.33.0273.i, %93 ], [ %.sroa.33.2.i, %range_gist_consider_split.exit.i ]
   %134 = sext i32 %66 to i64
   %135 = getelementptr %struct.NonEmptyRange, ptr %70, i64 %134, i32 1
   %136 = getelementptr %struct.NonEmptyRange, ptr %69, i64 %134, i32 1
@@ -1476,12 +1476,12 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
   %.1187311.i = phi ptr [ %136, %.lr.ph287.lr.ph.i ], [ %.2188285.i, %range_gist_consider_split.exit212.i ]
   %.2192310.i = phi i32 [ %66, %.lr.ph287.lr.ph.i ], [ %148, %range_gist_consider_split.exit212.i ]
   %.2196309.i = phi i32 [ %66, %.lr.ph287.lr.ph.i ], [ %.3197.lcssa.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.33.2308.i = phi i32 [ %.sroa.33.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.33.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.29.2307.i = phi float [ %.sroa.29.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.29.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.25.2306.i = phi float [ %.sroa.25.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.25.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.21.2305.i = phi ptr [ %.sroa.21.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.21.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.17224.2304.i = phi ptr [ %.sroa.17224.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.17224.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.11.2303.i = phi i8 [ %.sroa.11.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.11.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.33.1308.i = phi i32 [ %.sroa.33.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.33.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.29.1307.i = phi float [ %.sroa.29.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.29.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.25.1306.i = phi float [ %.sroa.25.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.25.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.21.1305.i = phi ptr [ %.sroa.21.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.21.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.17224.1304.i = phi ptr [ %.sroa.17224.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.17224.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.11.1303.i = phi i8 [ %.sroa.11.0.lcssa.i, %.lr.ph287.lr.ph.i ], [ %.sroa.11.3.i, %range_gist_consider_split.exit212.i ]
   %137 = zext i32 %.2192310.i to i64
   br label %138
 
@@ -1566,14 +1566,14 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
 
 178:                                              ; preds = %175, %168
   %.043.i207.i = phi float [ %174, %168 ], [ %177, %175 ]
-  %179 = trunc nuw i8 %.sroa.11.2303.i to i1
-  %180 = fcmp olt float %.043.i207.i, %.sroa.29.2307.i
+  %179 = trunc nuw i8 %.sroa.11.1303.i to i1
+  %180 = fcmp olt float %.043.i207.i, %.sroa.29.1307.i
   %or.cond235.i = select i1 %179, i1 true, i1 %180
   br i1 %or.cond235.i, label %.critedge.i208.i, label %181
 
 181:                                              ; preds = %178
-  %182 = fcmp oeq float %.043.i207.i, %.sroa.29.2307.i
-  %183 = fcmp ogt float %164, %.sroa.25.2306.i
+  %182 = fcmp oeq float %.043.i207.i, %.sroa.29.1307.i
+  %183 = fcmp ogt float %164, %.sroa.25.1306.i
   %or.cond236.i = select i1 %182, i1 %183, i1 false
   br i1 %or.cond236.i, label %.critedge.i208.i, label %range_gist_consider_split.exit212.i
 
@@ -1582,21 +1582,21 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
   br label %range_gist_consider_split.exit212.i
 
 range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %181, %.critedge6.i
-  %.sroa.11.3.i = phi i8 [ 0, %.critedge.i208.i ], [ %.sroa.11.2303.i, %181 ], [ %.sroa.11.2303.i, %.critedge6.i ]
-  %.sroa.17224.3.i = phi ptr [ %150, %.critedge.i208.i ], [ %.sroa.17224.2304.i, %181 ], [ %.sroa.17224.2304.i, %.critedge6.i ]
-  %.sroa.21.3.i = phi ptr [ %.2188285.i, %.critedge.i208.i ], [ %.sroa.21.2305.i, %181 ], [ %.sroa.21.2305.i, %.critedge6.i ]
-  %.sroa.25.3.i = phi float [ %164, %.critedge.i208.i ], [ %.sroa.25.2306.i, %181 ], [ %.sroa.25.2306.i, %.critedge6.i ]
-  %.sroa.29.3.i = phi float [ %.043.i207.i, %.critedge.i208.i ], [ %.sroa.29.2307.i, %181 ], [ %.sroa.29.2307.i, %.critedge6.i ]
-  %.sroa.33.3.i = phi i32 [ %184, %.critedge.i208.i ], [ %.sroa.33.2308.i, %181 ], [ %.sroa.33.2308.i, %.critedge6.i ]
+  %.sroa.11.3.i = phi i8 [ 0, %.critedge.i208.i ], [ %.sroa.11.1303.i, %181 ], [ %.sroa.11.1303.i, %.critedge6.i ]
+  %.sroa.17224.3.i = phi ptr [ %150, %.critedge.i208.i ], [ %.sroa.17224.1304.i, %181 ], [ %.sroa.17224.1304.i, %.critedge6.i ]
+  %.sroa.21.3.i = phi ptr [ %.2188285.i, %.critedge.i208.i ], [ %.sroa.21.1305.i, %181 ], [ %.sroa.21.1305.i, %.critedge6.i ]
+  %.sroa.25.3.i = phi float [ %164, %.critedge.i208.i ], [ %.sroa.25.1306.i, %181 ], [ %.sroa.25.1306.i, %.critedge6.i ]
+  %.sroa.29.3.i = phi float [ %.043.i207.i, %.critedge.i208.i ], [ %.sroa.29.1307.i, %181 ], [ %.sroa.29.1307.i, %.critedge6.i ]
+  %.sroa.33.3.i = phi i32 [ %184, %.critedge.i208.i ], [ %.sroa.33.1308.i, %181 ], [ %.sroa.33.1308.i, %.critedge6.i ]
   %185 = icmp sgt i32 %148, -1
   br i1 %185, label %.lr.ph287.i, label %._crit_edge288.i
 
 ._crit_edge288.i:                                 ; preds = %range_gist_consider_split.exit212.i, %143
-  %.sroa.11.2.lcssa.i = phi i8 [ %.sroa.11.2303.i, %143 ], [ %.sroa.11.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.17224.2.lcssa.i = phi ptr [ %.sroa.17224.2304.i, %143 ], [ %.sroa.17224.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.21.2.lcssa.i = phi ptr [ %.sroa.21.2305.i, %143 ], [ %.sroa.21.3.i, %range_gist_consider_split.exit212.i ]
-  %.sroa.33.2.lcssa.i = phi i32 [ %.sroa.33.2308.i, %143 ], [ %.sroa.33.3.i, %range_gist_consider_split.exit212.i ]
-  %186 = trunc nuw i8 %.sroa.11.2.lcssa.i to i1
+  %.sroa.11.1.lcssa.i = phi i8 [ %.sroa.11.1303.i, %143 ], [ %.sroa.11.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.17224.1.lcssa.i = phi ptr [ %.sroa.17224.1304.i, %143 ], [ %.sroa.17224.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.21.1.lcssa.i = phi ptr [ %.sroa.21.1305.i, %143 ], [ %.sroa.21.3.i, %range_gist_consider_split.exit212.i ]
+  %.sroa.33.1.lcssa.i = phi i32 [ %.sroa.33.1308.i, %143 ], [ %.sroa.33.3.i, %range_gist_consider_split.exit212.i ]
+  %186 = trunc nuw i8 %.sroa.11.1.lcssa.i to i1
   br i1 %186, label %._crit_edge288.thread.i, label %.lr.ph323.i
 
 ._crit_edge288.thread.critedge.i:                 ; preds = %60
@@ -1717,12 +1717,12 @@ range_gist_fallback_split.exit.i:                 ; preds = %._crit_edge.loopexi
   %233 = inttoptr i64 %232 to ptr
   %234 = call ptr @pg_detoast_datum(ptr noundef %233) #10
   call void @range_deserialize(ptr noundef %21, ptr noundef %234, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
-  %235 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %4, ptr noundef %.sroa.17224.2.lcssa.i) #10
+  %235 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %4, ptr noundef %.sroa.17224.1.lcssa.i) #10
   %236 = icmp slt i32 %235, 1
   br i1 %236, label %237, label %269
 
 237:                                              ; preds = %228
-  %238 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %3, ptr noundef %.sroa.21.2.lcssa.i) #10
+  %238 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %3, ptr noundef %.sroa.21.1.lcssa.i) #10
   %239 = icmp sgt i32 %238, -1
   br i1 %239, label %240, label %258
 
@@ -1734,13 +1734,13 @@ range_gist_fallback_split.exit.i:                 ; preds = %._crit_edge.loopexi
 
 243:                                              ; preds = %240
   %244 = load i64, ptr %3, align 8
-  %245 = load i64, ptr %.sroa.21.2.lcssa.i, align 8
+  %245 = load i64, ptr %.sroa.21.1.lcssa.i, align 8
   %246 = load i32, ptr %87, align 4
   %247 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %246, i64 noundef %244, i64 noundef %245) #10
   %248 = bitcast i64 %247 to double
   %.inv.i.i = fcmp oge double %248, 0.000000e+00
   %..i214.i = select i1 %.inv.i.i, double %248, double 0.000000e+00
-  %249 = load i64, ptr %.sroa.17224.2.lcssa.i, align 8
+  %249 = load i64, ptr %.sroa.17224.1.lcssa.i, align 8
   %250 = load i64, ptr %4, align 8
   %251 = load i32, ptr %87, align 4
   %252 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %251, i64 noundef %249, i64 noundef %250) #10
@@ -1820,8 +1820,8 @@ range_gist_fallback_split.exit.i:                 ; preds = %._crit_edge.loopexi
 286:                                              ; preds = %307, %284
   %287 = phi i32 [ 0, %284 ], [ %314, %307 ]
   %.2330.i = phi i16 [ 0, %284 ], [ %313, %307 ]
-  %.3329.i = phi ptr [ %.2172.i, %284 ], [ %.5.i, %307 ]
-  %.3176328.i = phi ptr [ %.2175.i, %284 ], [ %.5178.i, %307 ]
+  %.4329.i = phi ptr [ %.2172.i, %284 ], [ %.6.i, %307 ]
+  %.4177328.i = phi ptr [ %.2175.i, %284 ], [ %.6179.i, %307 ]
   %288 = zext i16 %.2330.i to i64
   %289 = getelementptr %struct.CommonEntry, ptr %227, i64 %288
   %290 = load i32, ptr %289, align 8
@@ -1830,7 +1830,7 @@ range_gist_fallback_split.exit.i:                 ; preds = %._crit_edge.loopexi
   %293 = load i64, ptr %292, align 8
   %294 = inttoptr i64 %293 to ptr
   %295 = call ptr @pg_detoast_datum(ptr noundef %294) #10
-  %296 = icmp sgt i32 %.sroa.33.2.lcssa.i, %287
+  %296 = icmp sgt i32 %.sroa.33.1.lcssa.i, %287
   br i1 %296, label %297, label %302
 
 297:                                              ; preds = %286
@@ -1839,7 +1839,7 @@ range_gist_fallback_split.exit.i:                 ; preds = %._crit_edge.loopexi
   br i1 %299, label %300, label %307
 
 300:                                              ; preds = %297
-  %301 = call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.3329.i, ptr noundef %295)
+  %301 = call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.4329.i, ptr noundef %295)
   br label %.sink.split.i
 
 302:                                              ; preds = %286
@@ -1848,14 +1848,14 @@ range_gist_fallback_split.exit.i:                 ; preds = %._crit_edge.loopexi
   br i1 %304, label %305, label %307
 
 305:                                              ; preds = %302
-  %306 = call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.3176328.i, ptr noundef %295)
+  %306 = call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.4177328.i, ptr noundef %295)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %305, %300
   %.sink409.i = phi ptr [ %225, %305 ], [ %224, %300 ]
   %.sink406.ph.i = phi ptr [ %30, %305 ], [ %13, %300 ]
-  %.5178.ph.i = phi ptr [ %306, %305 ], [ %.3176328.i, %300 ]
-  %.5.ph.i = phi ptr [ %.3329.i, %305 ], [ %301, %300 ]
+  %.6179.ph.i = phi ptr [ %306, %305 ], [ %.4177328.i, %300 ]
+  %.6.ph.i = phi ptr [ %.4329.i, %305 ], [ %301, %300 ]
   %.pre362.i = load i32, ptr %.sink409.i, align 8
   br label %307
 
@@ -1863,8 +1863,8 @@ range_gist_fallback_split.exit.i:                 ; preds = %._crit_edge.loopexi
   %.sink406.i = phi ptr [ %13, %297 ], [ %30, %302 ], [ %.sink406.ph.i, %.sink.split.i ]
   %.sink405.i = phi i32 [ %298, %297 ], [ %303, %302 ], [ %.pre362.i, %.sink.split.i ]
   %.sink404.i = phi ptr [ %224, %297 ], [ %225, %302 ], [ %.sink409.i, %.sink.split.i ]
-  %.5178.i = phi ptr [ %.3176328.i, %297 ], [ %295, %302 ], [ %.5178.ph.i, %.sink.split.i ]
-  %.5.i = phi ptr [ %295, %297 ], [ %.3329.i, %302 ], [ %.5.ph.i, %.sink.split.i ]
+  %.6179.i = phi ptr [ %.4177328.i, %297 ], [ %295, %302 ], [ %.6179.ph.i, %.sink.split.i ]
+  %.6.i = phi ptr [ %295, %297 ], [ %.4329.i, %302 ], [ %.6.ph.i, %.sink.split.i ]
   %308 = trunc i32 %290 to i16
   %309 = load ptr, ptr %.sink406.i, align 8
   %310 = add i32 %.sink405.i, 1
@@ -1878,12 +1878,12 @@ range_gist_fallback_split.exit.i:                 ; preds = %._crit_edge.loopexi
   br i1 %315, label %286, label %.loopexit.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %307, %._crit_edge324.i
-  %.6179.i = phi ptr [ %.2175.i, %._crit_edge324.i ], [ %.5178.i, %307 ]
-  %.6.i = phi ptr [ %.2172.i, %._crit_edge324.i ], [ %.5.i, %307 ]
-  %316 = ptrtoint ptr %.6.i to i64
+  %.3176.i = phi ptr [ %.2175.i, %._crit_edge324.i ], [ %.6179.i, %307 ]
+  %.3.i = phi ptr [ %.2172.i, %._crit_edge324.i ], [ %.6.i, %307 ]
+  %316 = ptrtoint ptr %.3.i to i64
   %317 = getelementptr inbounds i8, ptr %13, i64 16
   store i64 %316, ptr %317, align 8
-  %318 = ptrtoint ptr %.6179.i to i64
+  %318 = ptrtoint ptr %.3176.i to i64
   br label %range_gist_double_sorting_split.exit
 
 range_gist_double_sorting_split.exit:             ; preds = %range_gist_fallback_split.exit.i, %.loopexit.i
@@ -2073,8 +2073,8 @@ range_gist_fallback_split.exit:                   ; preds = %322, %._crit_edge.l
   br label %404
 
 404:                                              ; preds = %431, %.lr.ph.i86
-  %.038.i87 = phi ptr [ null, %.lr.ph.i86 ], [ %.2.i96, %431 ]
-  %.03037.i88 = phi ptr [ null, %.lr.ph.i86 ], [ %.232.i95, %431 ]
+  %.038.i87 = phi ptr [ null, %.lr.ph.i86 ], [ %.2.i95, %431 ]
+  %.03037.i88 = phi ptr [ null, %.lr.ph.i86 ], [ %.232.i94, %431 ]
   %.03336.i89 = phi i16 [ 1, %.lr.ph.i86 ], [ %436, %431 ]
   %405 = zext i16 %.03336.i89 to i64
   %406 = getelementptr [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %405
@@ -2089,15 +2089,15 @@ range_gist_fallback_split.exit:                   ; preds = %322, %._crit_edge.l
 
 413:                                              ; preds = %404
   %414 = lshr i32 %411, 3
-  %.1.i.i = and i32 %414, 3
+  %.2.i.i107 = and i32 %414, 3
   %415 = lshr i32 %411, 5
   %416 = and i32 %415, 4
-  %spec.select11.i.i = or disjoint i32 %.1.i.i, %416
+  %spec.select11.i.i = or disjoint i32 %.2.i.i107, %416
   br label %get_gist_range_class.exit.i
 
 get_gist_range_class.exit.i:                      ; preds = %413, %404
-  %.2.i.i91 = phi i32 [ 8, %404 ], [ %spec.select11.i.i, %413 ]
-  %417 = zext nneg i32 %.2.i.i91 to i64
+  %.0.i.i = phi i32 [ 8, %404 ], [ %spec.select11.i.i, %413 ]
+  %417 = zext nneg i32 %.0.i.i to i64
   %418 = getelementptr i32, ptr %7, i64 %417
   %419 = load i32, ptr %418, align 4
   %420 = icmp eq i32 %419, 0
@@ -2110,7 +2110,7 @@ get_gist_range_class.exit.i:                      ; preds = %413, %404
 
 424:                                              ; preds = %421
   %425 = tail call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.038.i87, ptr noundef %409)
-  br label %.sink.split.i102
+  br label %.sink.split.i101
 
 426:                                              ; preds = %get_gist_range_class.exit.i
   %427 = load i32, ptr %401, align 8
@@ -2119,44 +2119,44 @@ get_gist_range_class.exit.i:                      ; preds = %413, %404
 
 429:                                              ; preds = %426
   %430 = tail call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.03037.i88, ptr noundef %409)
-  br label %.sink.split.i102
+  br label %.sink.split.i101
 
-.sink.split.i102:                                 ; preds = %429, %424
-  %.sink.i103 = phi ptr [ %401, %429 ], [ %400, %424 ]
-  %.sink46.ph.i104 = phi ptr [ %30, %429 ], [ %13, %424 ]
-  %.232.ph.i105 = phi ptr [ %430, %429 ], [ %.03037.i88, %424 ]
-  %.2.ph.i106 = phi ptr [ %.038.i87, %429 ], [ %425, %424 ]
-  %.pre.i107 = load i32, ptr %.sink.i103, align 8
+.sink.split.i101:                                 ; preds = %429, %424
+  %.sink.i102 = phi ptr [ %401, %429 ], [ %400, %424 ]
+  %.sink46.ph.i103 = phi ptr [ %30, %429 ], [ %13, %424 ]
+  %.232.ph.i104 = phi ptr [ %430, %429 ], [ %.03037.i88, %424 ]
+  %.2.ph.i105 = phi ptr [ %.038.i87, %429 ], [ %425, %424 ]
+  %.pre.i106 = load i32, ptr %.sink.i102, align 8
   br label %431
 
-431:                                              ; preds = %.sink.split.i102, %426, %421
-  %.sink46.i92 = phi ptr [ %13, %421 ], [ %30, %426 ], [ %.sink46.ph.i104, %.sink.split.i102 ]
-  %.sink45.i93 = phi i32 [ %422, %421 ], [ %427, %426 ], [ %.pre.i107, %.sink.split.i102 ]
-  %.sink44.i94 = phi ptr [ %400, %421 ], [ %401, %426 ], [ %.sink.i103, %.sink.split.i102 ]
-  %.232.i95 = phi ptr [ %.03037.i88, %421 ], [ %409, %426 ], [ %.232.ph.i105, %.sink.split.i102 ]
-  %.2.i96 = phi ptr [ %409, %421 ], [ %.038.i87, %426 ], [ %.2.ph.i106, %.sink.split.i102 ]
-  %432 = load ptr, ptr %.sink46.i92, align 8
-  %433 = add i32 %.sink45.i93, 1
-  store i32 %433, ptr %.sink44.i94, align 8
-  %434 = sext i32 %.sink45.i93 to i64
+431:                                              ; preds = %.sink.split.i101, %426, %421
+  %.sink46.i91 = phi ptr [ %13, %421 ], [ %30, %426 ], [ %.sink46.ph.i103, %.sink.split.i101 ]
+  %.sink45.i92 = phi i32 [ %422, %421 ], [ %427, %426 ], [ %.pre.i106, %.sink.split.i101 ]
+  %.sink44.i93 = phi ptr [ %400, %421 ], [ %401, %426 ], [ %.sink.i102, %.sink.split.i101 ]
+  %.232.i94 = phi ptr [ %.03037.i88, %421 ], [ %409, %426 ], [ %.232.ph.i104, %.sink.split.i101 ]
+  %.2.i95 = phi ptr [ %409, %421 ], [ %.038.i87, %426 ], [ %.2.ph.i105, %.sink.split.i101 ]
+  %432 = load ptr, ptr %.sink46.i91, align 8
+  %433 = add i32 %.sink45.i92, 1
+  store i32 %433, ptr %.sink44.i93, align 8
+  %434 = sext i32 %.sink45.i92 to i64
   %435 = getelementptr i16, ptr %432, i64 %434
   store i16 %.03336.i89, ptr %435, align 2
   %436 = add i16 %.03336.i89, 1
-  %.not.i97 = icmp ugt i16 %436, %403
-  br i1 %.not.i97, label %._crit_edge.loopexit.i98, label %404, !llvm.loop !17
+  %.not.i96 = icmp ugt i16 %436, %403
+  br i1 %.not.i96, label %._crit_edge.loopexit.i97, label %404, !llvm.loop !17
 
-._crit_edge.loopexit.i98:                         ; preds = %431
-  %437 = ptrtoint ptr %.2.i96 to i64
-  %438 = ptrtoint ptr %.232.i95 to i64
+._crit_edge.loopexit.i97:                         ; preds = %431
+  %437 = ptrtoint ptr %.2.i95 to i64
+  %438 = ptrtoint ptr %.232.i94 to i64
   br label %range_gist_class_split.exit
 
-range_gist_class_split.exit:                      ; preds = %397, %._crit_edge.loopexit.i98
-  %.030.lcssa.i100 = phi i64 [ 0, %397 ], [ %438, %._crit_edge.loopexit.i98 ]
-  %.0.lcssa.i101 = phi i64 [ 0, %397 ], [ %437, %._crit_edge.loopexit.i98 ]
+range_gist_class_split.exit:                      ; preds = %397, %._crit_edge.loopexit.i97
+  %.030.lcssa.i99 = phi i64 [ 0, %397 ], [ %438, %._crit_edge.loopexit.i97 ]
+  %.0.lcssa.i100 = phi i64 [ 0, %397 ], [ %437, %._crit_edge.loopexit.i97 ]
   %439 = getelementptr inbounds i8, ptr %13, i64 16
-  store i64 %.0.lcssa.i101, ptr %439, align 8
+  store i64 %.0.lcssa.i100, ptr %439, align 8
   %440 = getelementptr inbounds i8, ptr %13, i64 48
-  store i64 %.030.lcssa.i100, ptr %440, align 8
+  store i64 %.030.lcssa.i99, ptr %440, align 8
   br label %441
 
 441:                                              ; preds = %range_gist_double_sorting_split.exit, %321, %range_gist_fallback_split.exit, %320, %range_gist_class_split.exit

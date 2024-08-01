@@ -466,11 +466,11 @@ if.then22:                                        ; preds = %if.then18
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then18, %if.then22
-  %pk.0 = phi ptr [ %call1.i19, %if.then22 ], [ null, %if.then18 ]
+  %pk.2 = phi ptr [ %call1.i19, %if.then22 ], [ null, %if.then18 ]
   call void @OSSL_ENCODER_CTX_free(ptr noundef %call19) #8
   %6 = load ptr, ptr %der, align 8
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 361) #8
-  %cmp27 = icmp eq ptr %pk.0, null
+  %cmp27 = icmp eq ptr %pk.2, null
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.else16, %if.end26
@@ -480,7 +480,7 @@ if.then28:                                        ; preds = %if.else16, %if.end2
   br label %error
 
 if.end29:                                         ; preds = %if.then9, %if.end26
-  %pk.125 = phi ptr [ %pk.0, %if.end26 ], [ %call1.i, %if.then9 ]
+  %pk.125 = phi ptr [ %pk.2, %if.end26 ], [ %call1.i, %if.then9 ]
   %7 = load ptr, ptr %x, align 8
   call void @ASN1_item_free(ptr noundef %7, ptr noundef nonnull @X509_PUBKEY_it.local_it) #8
   %call30 = call i32 @EVP_PKEY_up_ref(ptr noundef nonnull %pkey) #8
@@ -509,8 +509,8 @@ if.end38:                                         ; preds = %if.then36, %if.end3
   br label %return
 
 error:                                            ; preds = %if.then32, %if.then28, %if.else, %if.then13, %if.then5
-  %pk.2 = phi ptr [ null, %if.then5 ], [ null, %if.then28 ], [ %pk.125, %if.then32 ], [ %call1.i, %if.then13 ], [ %call1.i, %if.else ]
-  call void @ASN1_item_free(ptr noundef %pk.2, ptr noundef nonnull @X509_PUBKEY_it.local_it) #8
+  %pk.0 = phi ptr [ null, %if.then5 ], [ null, %if.then28 ], [ %pk.125, %if.then32 ], [ %call1.i, %if.then13 ], [ %call1.i, %if.else ]
+  call void @ASN1_item_free(ptr noundef %pk.0, ptr noundef nonnull @X509_PUBKEY_it.local_it) #8
   br label %return
 
 return:                                           ; preds = %error, %if.end38, %if.then
@@ -832,13 +832,13 @@ if.else39:                                        ; preds = %if.then33
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then30, %if.else39, %if.then36, %land.lhs.true27, %land.lhs.true24, %if.then16
-  %ret.1 = phi i32 [ %conv, %if.then36 ], [ %conv, %if.else39 ], [ %conv, %if.then30 ], [ -1, %land.lhs.true27 ], [ -1, %land.lhs.true24 ], [ -1, %if.then16 ]
+  %ret.2 = phi i32 [ %conv, %if.then36 ], [ %conv, %if.else39 ], [ %conv, %if.then30 ], [ -1, %land.lhs.true27 ], [ -1, %land.lhs.true24 ], [ -1, %if.then16 ]
   %call45 = call i32 @BIO_free(ptr noundef %call19) #8
   call void @OSSL_ENCODER_CTX_free(ptr noundef %call17) #8
   br label %return
 
 return:                                           ; preds = %if.end14, %if.end44, %if.else, %if.then2, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.then2 ], [ %ret.0, %if.end14 ], [ %ret.1, %if.end44 ], [ -1, %if.else ]
+  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.then2 ], [ %ret.0, %if.end14 ], [ %ret.2, %if.end44 ], [ -1, %if.else ]
   ret i32 %retval.0
 }
 
@@ -1963,7 +1963,7 @@ if.end39:                                         ; preds = %if.then34
 
 if.end40:                                         ; preds = %if.end39, %if.then31
   %in_saved.0 = phi ptr [ %call35, %if.end39 ], [ %0, %if.then31 ]
-  %tmpbuf.0 = phi ptr [ %call35, %if.end39 ], [ null, %if.then31 ]
+  %tmpbuf.2 = phi ptr [ %call35, %if.end39 ], [ null, %if.then31 ]
   store ptr %in_saved.0, ptr %p, align 8
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %7, align 8
@@ -2000,17 +2000,17 @@ if.then60:                                        ; preds = %if.then54
   br label %end
 
 if.end65:                                         ; preds = %if.end17, %if.end46, %if.then54, %land.lhs.true29
-  %dctx.0 = phi ptr [ null, %land.lhs.true29 ], [ %call51, %if.then54 ], [ null, %if.end46 ], [ null, %if.end17 ]
-  %tmpbuf.1 = phi ptr [ null, %land.lhs.true29 ], [ %tmpbuf.0, %if.then54 ], [ %tmpbuf.0, %if.end46 ], [ null, %if.end17 ]
+  %dctx.1 = phi ptr [ null, %land.lhs.true29 ], [ %call51, %if.then54 ], [ null, %if.end46 ], [ null, %if.end17 ]
+  %tmpbuf.1 = phi ptr [ null, %land.lhs.true29 ], [ %tmpbuf.2, %if.then54 ], [ %tmpbuf.2, %if.end46 ], [ null, %if.end17 ]
   %call66 = call i32 @ERR_pop_to_mark() #8
   br label %end
 
 end:                                              ; preds = %if.end65, %if.then60, %if.then44, %if.then24
   %ret.0 = phi i32 [ -1, %if.then24 ], [ 1, %if.end65 ], [ 0, %if.then44 ], [ 0, %if.then60 ]
-  %dctx.1 = phi ptr [ null, %if.then24 ], [ %dctx.0, %if.end65 ], [ null, %if.then44 ], [ %call51, %if.then60 ]
-  %tmpbuf.2 = phi ptr [ null, %if.then24 ], [ %tmpbuf.1, %if.end65 ], [ %tmpbuf.0, %if.then44 ], [ %tmpbuf.0, %if.then60 ]
-  call void @OSSL_DECODER_CTX_free(ptr noundef %dctx.1) #8
-  call void @CRYPTO_free(ptr noundef %tmpbuf.2, ptr noundef nonnull @.str, i32 noundef 234) #8
+  %dctx.0 = phi ptr [ null, %if.then24 ], [ %dctx.1, %if.end65 ], [ null, %if.then44 ], [ %call51, %if.then60 ]
+  %tmpbuf.0 = phi ptr [ null, %if.then24 ], [ %tmpbuf.1, %if.end65 ], [ %tmpbuf.2, %if.then44 ], [ %tmpbuf.2, %if.then60 ]
+  call void @OSSL_DECODER_CTX_free(ptr noundef %dctx.0) #8
+  call void @CRYPTO_free(ptr noundef %tmpbuf.0, ptr noundef nonnull @.str, i32 noundef 234) #8
   br label %return
 
 return:                                           ; preds = %if.then34, %if.end4, %land.lhs.true, %end, %if.then16, %if.then3

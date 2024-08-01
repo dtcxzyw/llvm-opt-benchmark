@@ -164,18 +164,18 @@ define ptr @cuddAllocNode(ptr noundef %0) local_unnamed_addr #1 {
 
 56:                                               ; preds = %._crit_edge, %42
   %57 = phi i64 [ %36, %42 ], [ %.pre67, %._crit_edge ]
-  %.1.ph = phi ptr [ %44, %42 ], [ %52, %._crit_edge ]
+  %.055.ph = phi ptr [ %44, %42 ], [ %52, %._crit_edge ]
   %58 = add i64 %57, 40920
   store i64 %58, ptr %35, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 392
   %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %.1.ph, align 8
-  store ptr %.1.ph, ptr %59, align 8
-  %61 = ptrtoint ptr %.1.ph to i64
+  store ptr %60, ptr %.055.ph, align 8
+  store ptr %.055.ph, ptr %59, align 8
+  %61 = ptrtoint ptr %.055.ph to i64
   %62 = and i64 %61, 31
   %63 = sub nuw nsw i64 32, %62
   %64 = lshr i64 %63, 3
-  %65 = getelementptr inbounds ptr, ptr %.1.ph, i64 %64
+  %65 = getelementptr inbounds ptr, ptr %.055.ph, i64 %64
   br label %66
 
 66:                                               ; preds = %66, %56
@@ -3462,8 +3462,8 @@ ddResizeTable.exit:                               ; preds = %333
   br label %467
 
 467:                                              ; preds = %467, %450
-  %.2 = phi ptr [ %466, %450 ], [ %471, %467 ]
-  %.2123 = load ptr, ptr %.2, align 8
+  %.3 = phi ptr [ %466, %450 ], [ %471, %467 ]
+  %.2123 = load ptr, ptr %.3, align 8
   %468 = getelementptr inbounds i8, ptr %.2123, i64 16
   %469 = load ptr, ptr %468, align 8
   %470 = icmp ugt ptr %469, %2
@@ -3500,7 +3500,7 @@ ddResizeTable.exit:                               ; preds = %333
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph200.preheader, %.preheader142, %422
-  %.4 = phi ptr [ %.1120154, %422 ], [ %.2, %.preheader142 ], [ %.2, %.lr.ph200.preheader ], [ %484, %.critedge2.loopexit ]
+  %.2 = phi ptr [ %.1120154, %422 ], [ %.3, %.preheader142 ], [ %.3, %.lr.ph200.preheader ], [ %484, %.critedge2.loopexit ]
   %485 = getelementptr inbounds i8, ptr %0, i64 656
   %486 = load i32, ptr %485, align 8
   %487 = tail call ptr @cuddAllocNode(ptr noundef %0)
@@ -3539,8 +3539,8 @@ ddResizeTable.exit:                               ; preds = %333
   br label %513
 
 513:                                              ; preds = %513, %496
-  %.5 = phi ptr [ %512, %496 ], [ %517, %513 ]
-  %.0 = load ptr, ptr %.5, align 8
+  %.6 = phi ptr [ %512, %496 ], [ %517, %513 ]
+  %.0 = load ptr, ptr %.6, align 8
   %514 = getelementptr inbounds i8, ptr %.0, i64 16
   %515 = load ptr, ptr %514, align 8
   %516 = icmp ugt ptr %515, %2
@@ -3577,16 +3577,16 @@ ddResizeTable.exit:                               ; preds = %333
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.lr.ph206.preheader, %.preheader, %489
-  %.7 = phi ptr [ %.4, %489 ], [ %.5, %.preheader ], [ %.5, %.lr.ph206.preheader ], [ %530, %.critedge4.loopexit ]
+  %.5 = phi ptr [ %.2, %489 ], [ %.6, %.preheader ], [ %.6, %.lr.ph206.preheader ], [ %530, %.critedge4.loopexit ]
   store i32 %1, ptr %487, align 8
   %531 = getelementptr inbounds i8, ptr %487, i64 16
   store ptr %2, ptr %531, align 8
   %532 = getelementptr inbounds i8, ptr %487, i64 24
   store ptr %3, ptr %532, align 8
-  %533 = load ptr, ptr %.7, align 8
+  %533 = load ptr, ptr %.5, align 8
   %534 = getelementptr inbounds i8, ptr %487, i64 8
   store ptr %533, ptr %534, align 8
-  store ptr %487, ptr %.7, align 8
+  store ptr %487, ptr %.5, align 8
   %535 = getelementptr inbounds i8, ptr %2, i64 4
   %536 = load i32, ptr %535, align 4
   %537 = add i32 %536, 1

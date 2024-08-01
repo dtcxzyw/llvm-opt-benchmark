@@ -220,7 +220,7 @@ define i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 .lr.ph:                                           ; preds = %16, %39
   %19 = phi i32 [ %40, %39 ], [ %17, %16 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %16 ]
-  %.130 = phi i32 [ %.3, %39 ], [ 0, %16 ]
+  %.230 = phi i32 [ %.3, %39 ], [ 0, %16 ]
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
@@ -246,7 +246,7 @@ define i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   br label %33
 
 33:                                               ; preds = %29, %26
-  %34 = add nsw i32 %.130, 1
+  %34 = add nsw i32 %.230, 1
   br label %38
 
 35:                                               ; preds = %23
@@ -256,14 +256,14 @@ define i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   br label %38
 
 38:                                               ; preds = %35, %33
-  %.2 = phi i32 [ %34, %33 ], [ %.130, %35 ]
+  %.4 = phi i32 [ %34, %33 ], [ %.230, %35 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #10
   %.pre = load i32, ptr %6, align 4
   br label %39
 
 39:                                               ; preds = %.lr.ph, %38
   %40 = phi i32 [ %.pre, %38 ], [ %19, %.lr.ph ]
-  %.3 = phi i32 [ %.2, %38 ], [ %.130, %.lr.ph ]
+  %.3 = phi i32 [ %.4, %38 ], [ %.230, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41

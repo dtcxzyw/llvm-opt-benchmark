@@ -266,14 +266,14 @@ lpad4:                                            ; preds = %invoke.cont3
 
 catch.dispatch:                                   ; preds = %lpad4, %lpad2
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %3, %lpad4 ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn, 1
   %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #10
-  %matches = icmp eq i32 %ehselector.slot.0, %4
+  %matches = icmp eq i32 %ehselector.slot.1, %4
   br i1 %matches, label %catch, label %ehcleanup
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %5 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #10
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #10
   %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %6 = load ptr, ptr %vfn, align 8

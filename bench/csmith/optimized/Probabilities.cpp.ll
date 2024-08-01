@@ -942,9 +942,9 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit38:         ; preds = %13
 
 27:                                               ; preds = %.lr.ph, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit
   %.sroa.092.0144 = phi ptr [ %21, %.lr.ph ], [ %126, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit ]
-  %.sroa.081.0143 = phi ptr [ null, %.lr.ph ], [ %.sroa.081.2, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit ]
-  %.sroa.7.0142 = phi ptr [ null, %.lr.ph ], [ %.sroa.7.2, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit ]
-  %.sroa.12.0141 = phi ptr [ null, %.lr.ph ], [ %.sroa.12.2, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit ]
+  %.sroa.081.0143 = phi ptr [ null, %.lr.ph ], [ %.sroa.081.1, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit ]
+  %.sroa.7.0142 = phi ptr [ null, %.lr.ph ], [ %.sroa.7.1, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit ]
+  %.sroa.12.0141 = phi ptr [ null, %.lr.ph ], [ %.sroa.12.1, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit ]
   %28 = getelementptr inbounds i8, ptr %.sroa.092.0144, i64 32
   %29 = getelementptr inbounds i8, ptr %.sroa.092.0144, i64 36
   %30 = load i32, ptr %29, align 4
@@ -1236,9 +1236,9 @@ _ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx1
   br label %127
 
 _ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %100, %98
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0141, %98 ], [ %123, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.12.0141, %100 ]
-  %.sroa.7.2 = phi ptr [ %.sroa.7.0142, %98 ], [ %121, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %101, %100 ]
-  %.sroa.081.2 = phi ptr [ %.sroa.081.0143, %98 ], [ %116, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.081.0143, %100 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0141, %98 ], [ %123, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.12.0141, %100 ]
+  %.sroa.7.1 = phi ptr [ %.sroa.7.0142, %98 ], [ %121, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %101, %100 ]
+  %.sroa.081.1 = phi ptr [ %.sroa.081.0143, %98 ], [ %116, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.081.0143, %100 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   %126 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.092.0144) #24
   %.not104 = icmp eq ptr %126, %22
@@ -1250,12 +1250,12 @@ _ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6ve
   br label %.body
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit
-  %128 = ptrtoint ptr %.sroa.7.2 to i64
+  %128 = ptrtoint ptr %.sroa.7.1 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit38
   %.sroa.7.0.lcssa = phi i64 [ 0, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit38 ], [ %128, %._crit_edge.loopexit ]
-  %.sroa.081.0.lcssa = phi ptr [ null, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit38 ], [ %.sroa.081.2, %._crit_edge.loopexit ]
+  %.sroa.081.0.lcssa = phi ptr [ null, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit38 ], [ %.sroa.081.1, %._crit_edge.loopexit ]
   %129 = ptrtoint ptr %.sroa.081.0.lcssa to i64
   %130 = sub i64 %.sroa.7.0.lcssa, %129
   %131 = lshr exact i64 %130, 3
@@ -1754,7 +1754,7 @@ define dso_local void @_ZN13GroupProbElem12dump_defaultERSo(ptr noundef nonnull 
   br i1 %.not5.i, label %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit.i
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit.i ], [ null, %2 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit.i ], [ null, %2 ]
   %.sroa.13.0 = phi ptr [ %.sroa.13.1, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit.i ], [ null, %2 ]
   %15 = phi ptr [ %.sroa.8.1, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit.i ], [ null, %2 ]
   %.sroa.02.06.i = phi ptr [ %41, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit.i ], [ %13, %2 ]
@@ -1769,7 +1769,7 @@ define dso_local void @_ZN13GroupProbElem12dump_defaultERSo(ptr noundef nonnull 
 
 19:                                               ; preds = %.lr.ph.i
   %20 = ptrtoint ptr %.sroa.13.0 to i64
-  %21 = ptrtoint ptr %.sroa.0.0 to i64
+  %21 = ptrtoint ptr %.sroa.0.1 to i64
   %22 = sub i64 %20, %21
   %23 = icmp eq i64 %22, 9223372036854775800
   br i1 %23, label %24, label %_ZNKSt6vectorIP14SingleProbElemSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1805,16 +1805,16 @@ _ZNSt12_Vector_baseIP14SingleProbElemSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds
   br i1 %36, label %37, label %_ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
 37:                                               ; preds = %_ZNSt12_Vector_baseIP14SingleProbElemSaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %.sroa.0.0, i64 %22, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %.sroa.0.1, i64 %22, i1 false)
   br label %_ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
 _ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %37, %_ZNSt12_Vector_baseIP14SingleProbElemSaIS1_EE11_M_allocateEm.exit.i.i.i
   %38 = getelementptr inbounds i8, ptr %33, i64 %22
-  %.not.i17.i.i.i = icmp eq ptr %.sroa.0.0, null
+  %.not.i17.i.i.i = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %39
 
 39:                                               ; preds = %_ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #23
   br label %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
@@ -1822,7 +1822,7 @@ _ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx1
   br label %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit.i
 
 _ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %17
-  %.sroa.0.1 = phi ptr [ %33, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.0.0, %17 ]
+  %.sroa.0.2 = phi ptr [ %33, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.0.1, %17 ]
   %.pn = phi ptr [ %38, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %15, %17 ]
   %.sroa.13.1 = phi ptr [ %40, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.13.0, %17 ]
   %.sroa.8.1 = getelementptr inbounds i8, ptr %.pn, i64 8
@@ -1835,9 +1835,9 @@ _ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit.loo
   br label %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit
 
 _ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit: ; preds = %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit.loopexit, %2
-  %.sroa.0.2 = phi ptr [ null, %2 ], [ %.sroa.0.1, %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit.loopexit ]
+  %.sroa.0.3 = phi ptr [ null, %2 ], [ %.sroa.0.2, %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit.loopexit ]
   %.sroa.8.2 = phi i64 [ 0, %2 ], [ %42, %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit.loopexit ]
-  %43 = ptrtoint ptr %.sroa.0.2 to i64
+  %43 = ptrtoint ptr %.sroa.0.3 to i64
   %44 = sub i64 %.sroa.8.2, %43
   %45 = ashr exact i64 %44, 3
   %46 = add nsw i64 %45, -1
@@ -1846,7 +1846,7 @@ _ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit: ; 
 
 .lr.ph:                                           ; preds = %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit, %54
   %.035 = phi i64 [ %55, %54 ], [ 0, %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit ]
-  %47 = getelementptr inbounds ptr, ptr %.sroa.0.2, i64 %.035
+  %47 = getelementptr inbounds ptr, ptr %.sroa.0.3, i64 %.035
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 32
@@ -1885,13 +1885,13 @@ _ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit: ; 
 
 56:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi30 = phi { ptr, i32 } [ %lpad.loopexit28, %.loopexit ], [ %lpad.loopexit.split-lp29, %.loopexit.split-lp ]
-  %.not.i.i.i = icmp eq ptr %.sroa.0.0, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIP14SingleProbElemSaIS1_EED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %56
   %lpad.phi26 = phi { ptr, i32 } [ %lpad.phi30, %56 ], [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
-  %.sroa.0.325 = phi ptr [ %.sroa.0.0, %56 ], [ %.sroa.0.2, %.thread.loopexit ], [ %.sroa.0.2, %.thread.loopexit.split-lp ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.325) #23
+  %.sroa.0.025 = phi ptr [ %.sroa.0.1, %56 ], [ %.sroa.0.3, %.thread.loopexit ], [ %.sroa.0.3, %.thread.loopexit.split-lp ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.025) #23
   br label %_ZNSt6vectorIP14SingleProbElemSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP14SingleProbElemSaIS1_EED2Ev.exit:  ; preds = %56, %.thread
@@ -1899,7 +1899,7 @@ _ZNSt6vectorIP14SingleProbElemSaIS1_EED2Ev.exit:  ; preds = %56, %.thread
   resume { ptr, i32 } %lpad.phi27
 
 ._crit_edge:                                      ; preds = %54, %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit
-  %57 = getelementptr inbounds ptr, ptr %.sroa.0.2, i64 %46
+  %57 = getelementptr inbounds ptr, ptr %.sroa.0.3, i64 %46
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 32
@@ -1912,7 +1912,7 @@ _ZNSt6vectorIP14SingleProbElemSaIS1_EED2Ev.exit:  ; preds = %56, %.thread
           to label %_ZNSt6vectorIP14SingleProbElemSaIS1_EED2Ev.exit15 unwind label %.thread.loopexit.split-lp
 
 _ZNSt6vectorIP14SingleProbElemSaIS1_EED2Ev.exit15: ; preds = %62
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3) #23
   ret void
 }
 
@@ -5549,9 +5549,9 @@ _ZN13Probabilities10parse_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br label %34
 
 34:                                               ; preds = %9, %_ZN13Probabilities10parse_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread
-  %.1 = phi i1 [ %18, %_ZN13Probabilities10parse_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread ], [ false, %9 ]
+  %.07 = phi i1 [ %18, %_ZN13Probabilities10parse_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread ], [ false, %9 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %4) #22
-  ret i1 %.1
+  ret i1 %.07
 
 35:                                               ; preds = %25, %11
   %.pn = phi { ptr, i32 } [ %lpad.phi, %25 ], [ %12, %11 ]
@@ -6077,9 +6077,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %38, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %16
-  %.1 = phi i1 [ false, %16 ], [ %26, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %26, %38 ]
+  %.010 = phi i1 [ false, %16 ], [ %26, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %26, %38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  ret i1 %.1
+  ret i1 %.010
 
 39:                                               ; preds = %29, %10
   %.pn = phi { ptr, i32 } [ %11, %10 ], [ %30, %29 ]

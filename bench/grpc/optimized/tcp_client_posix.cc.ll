@@ -1505,7 +1505,7 @@ terminate.lpad.i143:                              ; preds = %lpad129
   unreachable
 
 cleanup:                                          ; preds = %invoke.cont142, %if.then.i.i117, %_ZN4absl12lts_202308026StatusD2Ev.exit114, %if.then.i.i58, %invoke.cont55
-  %retval.0 = phi i64 [ 0, %invoke.cont55 ], [ 0, %if.then.i.i58 ], [ 0, %_ZN4absl12lts_202308026StatusD2Ev.exit114 ], [ 0, %if.then.i.i117 ], [ %connection_id.0, %invoke.cont142 ]
+  %retval.1 = phi i64 [ 0, %invoke.cont55 ], [ 0, %if.then.i.i58 ], [ 0, %_ZN4absl12lts_202308026StatusD2Ev.exit114 ], [ 0, %if.then.i.i117 ], [ %connection_id.0, %invoke.cont142 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #22
   br label %cleanup146
 
@@ -1515,7 +1515,7 @@ ehcleanup145:                                     ; preds = %lpad129, %lpad.i50,
   br label %ehcleanup147
 
 cleanup146:                                       ; preds = %if.then.i.i35, %_ZN4absl12lts_202308026StatusD2Ev.exit, %cleanup
-  %retval.1 = phi i64 [ %retval.0, %cleanup ], [ 0, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ 0, %if.then.i.i35 ]
+  %retval.0 = phi i64 [ %retval.1, %cleanup ], [ 0, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ 0, %if.then.i.i35 ]
   %99 = load i64, ptr %addr_uri, align 8
   %cmp.i.i.i.i146 = icmp eq i64 %99, 0
   br i1 %cmp.i.i.i.i146, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -1542,7 +1542,7 @@ terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
   unreachable
 
 _ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %if.else.i.i, %if.then.i.i3.i.i
-  ret i64 %retval.1
+  ret i64 %retval.0
 
 ehcleanup147:                                     ; preds = %lpad, %ehcleanup145, %lpad20, %lpad13
   %.pn26.pn = phi { ptr, i32 } [ %.pn26, %ehcleanup145 ], [ %22, %lpad20 ], [ %21, %lpad13 ], [ %20, %lpad ]
@@ -3208,7 +3208,7 @@ if.end21:                                         ; preds = %_ZN4absl12lts_20230
           to label %cleanup unwind label %lpad3
 
 cleanup:                                          ; preds = %if.then.i.i26, %invoke.cont19, %if.end21
-  %retval.0 = phi i64 [ %call25, %if.end21 ], [ 0, %invoke.cont19 ], [ 0, %if.then.i.i26 ]
+  %retval.1 = phi i64 [ %call25, %if.end21 ], [ 0, %invoke.cont19 ], [ 0, %if.then.i.i26 ]
   %20 = load i64, ptr %error, align 8
   %and.i.i.i29 = and i64 %20, 1
   %cmp.i.i.i30 = icmp eq i64 %and.i.i.i29, 0
@@ -3268,8 +3268,8 @@ ehcleanup26:                                      ; preds = %lpad18, %ehcleanup,
   resume { ptr, i32 } %.pn9
 
 return:                                           ; preds = %if.then.i.i.i, %if.then.i.i37, %if.end.i, %if.then
-  %retval.1 = phi i64 [ %call2, %if.then ], [ %retval.0, %if.end.i ], [ %retval.0, %if.then.i.i37 ], [ %retval.0, %if.then.i.i.i ]
-  ret i64 %retval.1
+  %retval.0 = phi i64 [ %call2, %if.then ], [ %retval.1, %if.end.i ], [ %retval.1, %if.then.i.i37 ], [ %retval.1, %if.then.i.i.i ]
+  ret i64 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

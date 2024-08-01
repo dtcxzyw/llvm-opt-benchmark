@@ -8877,8 +8877,8 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   br i1 %1314, label %.preheader1.i226, label %1317
 
 .preheader1.i226:                                 ; preds = %1313, %.preheader1.i226
-  %.0100.i = phi i32 [ %1315, %.preheader1.i226 ], [ %1310, %1313 ]
-  %1315 = add nsw i32 %.0100.i, %.fr15.i
+  %.1101.i = phi i32 [ %1315, %.preheader1.i226 ], [ %1310, %1313 ]
+  %1315 = add nsw i32 %.1101.i, %.fr15.i
   %1316 = icmp slt i32 %1315, 0
   br i1 %1316, label %.preheader1.i226, label %.loopexit2.i, !llvm.loop !109
 
@@ -8887,22 +8887,22 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   br i1 %.not.i225, label %.loopexit2.i, label %.preheader3.i
 
 .preheader3.i:                                    ; preds = %1317, %.preheader3.i
-  %.1101.i = phi i32 [ %1318, %.preheader3.i ], [ %1310, %1317 ]
-  %1318 = sub nsw i32 %.1101.i, %.fr15.i
+  %.2102.i = phi i32 [ %1318, %.preheader3.i ], [ %1310, %1317 ]
+  %1318 = sub nsw i32 %.2102.i, %.fr15.i
   %.not114.i = icmp slt i32 %1318, %.fr15.i
   br i1 %.not114.i, label %.loopexit2.i, label %.preheader3.i, !llvm.loop !110
 
 .loopexit2.i:                                     ; preds = %.preheader3.i, %.preheader1.i226, %1317, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit120.i
-  %.2102.i = phi i32 [ %1310, %1317 ], [ %1310, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit120.i ], [ %1315, %.preheader1.i226 ], [ %1318, %.preheader3.i ]
-  %1319 = icmp sgt i32 %.2102.i, -1
-  %1320 = icmp slt i32 %.2102.i, %.fr15.i
+  %.0100.i = phi i32 [ %1310, %1317 ], [ %1310, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit120.i ], [ %1315, %.preheader1.i226 ], [ %1318, %.preheader3.i ]
+  %1319 = icmp sgt i32 %.0100.i, -1
+  %1320 = icmp slt i32 %.0100.i, %.fr15.i
   %or.cond.i = and i1 %1319, %1320
   br i1 %or.cond.i, label %1321, label %1329
 
 1321:                                             ; preds = %.loopexit2.i
   %1322 = load ptr, ptr %968, align 8
   %1323 = load ptr, ptr %1322, align 8
-  %1324 = zext nneg i32 %.2102.i to i64
+  %1324 = zext nneg i32 %.0100.i to i64
   %1325 = getelementptr inbounds double, ptr %1323, i64 %1324
   %1326 = load double, ptr %1325, align 8
   %1327 = fadd double %1326, 1.000000e+00
@@ -11427,7 +11427,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
 284:                                              ; preds = %.lr.ph80, %.loopexit19
   %indvars.iv147 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next148, %.loopexit19 ]
   %.024678 = phi double [ 0.000000e+00, %.lr.ph80 ], [ %.1, %.loopexit19 ]
-  %.026576 = phi i32 [ 1, %.lr.ph80 ], [ %.2267, %.loopexit19 ]
+  %.026576 = phi i32 [ 1, %.lr.ph80 ], [ %.1266, %.loopexit19 ]
   %.127075 = phi float [ 0xC415AF1D80000000, %.lr.ph80 ], [ %.4273, %.loopexit19 ]
   %.127574 = phi float [ 0x4415AF1D80000000, %.lr.ph80 ], [ %.5279, %.loopexit19 ]
   %285 = load ptr, ptr %9, align 8
@@ -11460,11 +11460,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br label %304
 
 304:                                              ; preds = %299, %295
-  %.1266 = phi i32 [ %spec.store.select, %299 ], [ %.026576, %295 ]
+  %.2267 = phi i32 [ %spec.store.select, %299 ], [ %.026576, %295 ]
   br i1 %3, label %308, label %305
 
 305:                                              ; preds = %304
-  %306 = sitofp i32 %.1266 to double
+  %306 = sitofp i32 %.2267 to double
   %307 = fmul double %296, %306
   store double %307, ptr %273, align 8
   br label %308
@@ -11473,9 +11473,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br label %308
 
 308:                                              ; preds = %284, %.fold.split, %305, %304
-  %.2267 = phi i32 [ %.1266, %304 ], [ %.1266, %305 ], [ %.026576, %284 ], [ %.026576, %.fold.split ]
+  %.1266 = phi i32 [ %.2267, %304 ], [ %.2267, %305 ], [ %.026576, %284 ], [ %.026576, %.fold.split ]
   %.1 = phi double [ %.024678, %304 ], [ %.024678, %305 ], [ %293, %284 ], [ %.024678, %.fold.split ]
-  %309 = srem i32 %294, %.2267
+  %309 = srem i32 %294, %.1266
   %310 = icmp eq i32 %309, 0
   br i1 %310, label %311, label %..critedge_crit_edge
 
@@ -11512,7 +11512,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
 .lr.ph68.split.us.split.us:                       ; preds = %.lr.ph68.split.us, %346
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %346 ], [ 0, %.lr.ph68.split.us ]
   %.227163.us.us = phi float [ %.3272.us.us, %346 ], [ %.127075, %.lr.ph68.split.us ]
-  %.227662.us.us = phi float [ %.4278.us.us, %346 ], [ %.127574, %.lr.ph68.split.us ]
+  %.227662.us.us = phi float [ %.3277.us.us, %346 ], [ %.127574, %.lr.ph68.split.us ]
   br i1 %.not304, label %326, label %321
 
 321:                                              ; preds = %.lr.ph68.split.us.split.us
@@ -11540,7 +11540,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   %340 = fpext float %.227662.us.us to double
   %341 = fcmp olt double %339, %340
   %342 = fptrunc double %339 to float
-  %.3277.us.us = select i1 %341, float %342, float %.227662.us.us
+  %.4278.us.us = select i1 %341, float %342, float %.227662.us.us
   %343 = fpext float %.227163.us.us to double
   %344 = fcmp ogt double %339, %343
   br i1 %344, label %345, label %346
@@ -11549,7 +11549,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br label %346
 
 346:                                              ; preds = %345, %326, %321
-  %.4278.us.us = phi float [ %.3277.us.us, %345 ], [ %.3277.us.us, %326 ], [ %.227662.us.us, %321 ]
+  %.3277.us.us = phi float [ %.4278.us.us, %345 ], [ %.4278.us.us, %326 ], [ %.227662.us.us, %321 ]
   %.3272.us.us = phi float [ %342, %345 ], [ %.227163.us.us, %326 ], [ %.227163.us.us, %321 ]
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count145
@@ -11558,7 +11558,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
 .lr.ph68.split.us.split:                          ; preds = %.lr.ph68.split.us, %366
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %366 ], [ 0, %.lr.ph68.split.us ]
   %.227163.us = phi float [ %.3272.us, %366 ], [ %.127075, %.lr.ph68.split.us ]
-  %.227662.us = phi float [ %.4278.us, %366 ], [ %.127574, %.lr.ph68.split.us ]
+  %.227662.us = phi float [ %.3277.us, %366 ], [ %.127574, %.lr.ph68.split.us ]
   br i1 %.not304, label %.preheader17.us, label %347
 
 347:                                              ; preds = %.lr.ph68.split.us.split
@@ -11582,7 +11582,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   %357 = fpext float %.227662.us to double
   %358 = fcmp olt double %356, %357
   %359 = fptrunc double %356 to float
-  %.3277.us = select i1 %358, float %359, float %.227662.us
+  %.4278.us = select i1 %358, float %359, float %.227662.us
   %360 = fpext float %.227163.us to double
   %361 = fcmp ogt double %356, %360
   br i1 %361, label %365, label %366
@@ -11601,7 +11601,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br label %366
 
 366:                                              ; preds = %365, %._crit_edge60.us, %347
-  %.4278.us = phi float [ %.3277.us, %365 ], [ %.3277.us, %._crit_edge60.us ], [ %.227662.us, %347 ]
+  %.3277.us = phi float [ %.4278.us, %365 ], [ %.4278.us, %._crit_edge60.us ], [ %.227662.us, %347 ]
   %.3272.us = phi float [ %359, %365 ], [ %.227163.us, %._crit_edge60.us ], [ %.227163.us, %347 ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count145
@@ -11740,8 +11740,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br i1 %443, label %.preheader, label %446
 
 .preheader:                                       ; preds = %442, %.preheader
-  %.0248 = phi i32 [ %444, %.preheader ], [ %439, %442 ]
-  %444 = add nsw i32 %.0248, %.0247
+  %.1249 = phi i32 [ %444, %.preheader ], [ %439, %442 ]
+  %444 = add nsw i32 %.1249, %.0247
   %445 = icmp slt i32 %444, 0
   br i1 %445, label %.preheader, label %.loopexit, !llvm.loop !139
 
@@ -11750,15 +11750,15 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br i1 %.not307, label %.loopexit, label %.preheader15
 
 .preheader15:                                     ; preds = %446, %.preheader15
-  %.1249 = phi i32 [ %447, %.preheader15 ], [ %439, %446 ]
-  %447 = sub nsw i32 %.1249, %.0247
+  %.2 = phi i32 [ %447, %.preheader15 ], [ %439, %446 ]
+  %447 = sub nsw i32 %.2, %.0247
   %.not308 = icmp slt i32 %447, %.0247
   br i1 %.not308, label %.loopexit, label %.preheader15, !llvm.loop !140
 
 .loopexit:                                        ; preds = %.preheader15, %.preheader, %446, %434
-  %.2 = phi i32 [ %439, %446 ], [ %439, %434 ], [ %444, %.preheader ], [ %447, %.preheader15 ]
-  %448 = icmp sgt i32 %.2, -1
-  %449 = icmp slt i32 %.2, %.0247
+  %.0248 = phi i32 [ %439, %446 ], [ %439, %434 ], [ %444, %.preheader ], [ %447, %.preheader15 ]
+  %448 = icmp sgt i32 %.0248, -1
+  %449 = icmp slt i32 %.0248, %.0247
   %or.cond312 = select i1 %448, i1 %449, i1 false
   br i1 %or.cond312, label %450, label %.loopexit._crit_edge
 
@@ -11771,7 +11771,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   %452 = sext i32 %374 to i64
   %453 = getelementptr inbounds ptr, ptr %451, i64 %452
   %454 = load ptr, ptr %453, align 8
-  %455 = zext nneg i32 %.2 to i64
+  %455 = zext nneg i32 %.0248 to i64
   %456 = getelementptr inbounds double, ptr %454, i64 %455
   %457 = load double, ptr %456, align 8
   %458 = fadd double %457, 1.000000e+00
@@ -11817,7 +11817,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %81, %84
   br label %.loopexit20
 
 .loopexit19:                                      ; preds = %468, %366, %346, %.preheader18, %.critedge
-  %.5279 = phi float [ %.127574, %.critedge ], [ %.127574, %.preheader18 ], [ %.4278.us.us, %346 ], [ %.4278.us, %366 ], [ %.127574, %468 ]
+  %.5279 = phi float [ %.127574, %.critedge ], [ %.127574, %.preheader18 ], [ %.3277.us.us, %346 ], [ %.3277.us, %366 ], [ %.127574, %468 ]
   %.4273 = phi float [ %.127075, %.critedge ], [ %.127075, %.preheader18 ], [ %.3272.us.us, %346 ], [ %.3272.us, %366 ], [ %.127075, %468 ]
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count151

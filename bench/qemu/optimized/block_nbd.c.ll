@@ -2456,7 +2456,7 @@ land.lhs.true:                                    ; preds = %if.then45
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true, %if.then45
-  %rc.0 = phi i32 [ %call48, %if.then45 ], [ %spec.select, %land.lhs.true ]
+  %rc.1 = phi i32 [ %call48, %if.then45 ], [ %spec.select, %land.lhs.true ]
   %14 = load ptr, ptr %0, align 8
   call void @qio_channel_set_cork(ptr noundef %14, i1 noundef zeroext false) #15
   br label %if.end62
@@ -2466,9 +2466,9 @@ if.else59:                                        ; preds = %if.end43
   br label %if.end62
 
 if.end62:                                         ; preds = %if.else59, %if.end57
-  %rc.1 = phi i32 [ %rc.0, %if.end57 ], [ %call61, %if.else59 ]
+  %rc.2 = phi i32 [ %rc.1, %if.end57 ], [ %call61, %if.else59 ]
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %send_mutex) #15
-  %cmp64 = icmp slt i32 %rc.1, 0
+  %cmp64 = icmp slt i32 %rc.2, 0
   br i1 %cmp64, label %err, label %if.end88
 
 err:                                              ; preds = %if.end62
@@ -2485,7 +2485,7 @@ if.then.i:                                        ; preds = %err
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %err
-  %cmp1.i = icmp eq i32 %rc.1, -5
+  %cmp1.i = icmp eq i32 %rc.2, -5
   br i1 %cmp1.i, label %if.then2.i, label %if.end9.sink.split.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -2512,7 +2512,7 @@ if.then78:                                        ; preds = %if.then2.i, %if.end
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then, %if.end, %if.then78
-  %rc.2566075 = phi i32 [ %rc.1, %if.then78 ], [ -5, %if.end ], [ -5, %if.then ]
+  %rc.0566075 = phi i32 [ %rc.2, %if.then78 ], [ -5, %if.end ], [ -5, %if.then ]
   %19 = load i32, ptr %in_flight, align 8
   %dec = add i32 %19, -1
   store i32 %dec, ptr %in_flight, align 8
@@ -2521,7 +2521,7 @@ if.end83:                                         ; preds = %if.then, %if.end, %
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end83, %if.end62
-  %rc.3 = phi i32 [ %rc.2566075, %if.end83 ], [ %rc.1, %if.end62 ]
+  %rc.3 = phi i32 [ %rc.0566075, %if.end83 ], [ %rc.2, %if.end62 ]
   ret i32 %rc.3
 }
 
@@ -4211,9 +4211,9 @@ if.else.i24:                                      ; preds = %if.end.i
   br label %if.end.i25
 
 if.end.i25:                                       ; preds = %if.else.i24, %nbd_channel_error.exit.i
-  %local_reply.i.sroa.0.2 = phi i32 [ 0, %nbd_channel_error.exit.i ], [ %local_reply.i.sroa.0.0.copyload, %if.else.i24 ]
-  %local_reply.i.sroa.5.2 = phi i16 [ 0, %nbd_channel_error.exit.i ], [ %local_reply.i.sroa.5.0.copyload, %if.else.i24 ]
-  %local_reply.i.sroa.6.2 = phi i16 [ 0, %nbd_channel_error.exit.i ], [ %local_reply.i.sroa.6.0.copyload, %if.else.i24 ]
+  %local_reply.i.sroa.0.5 = phi i32 [ 0, %nbd_channel_error.exit.i ], [ %local_reply.i.sroa.0.0.copyload, %if.else.i24 ]
+  %local_reply.i.sroa.5.5 = phi i16 [ 0, %nbd_channel_error.exit.i ], [ %local_reply.i.sroa.5.0.copyload, %if.else.i24 ]
+  %local_reply.i.sroa.6.5 = phi i16 [ 0, %nbd_channel_error.exit.i ], [ %local_reply.i.sroa.6.0.copyload, %if.else.i24 ]
   store i64 0, ptr %cookie3.i, align 8
   call void @qemu_co_mutex_lock(ptr noundef nonnull %receive_mutex.i.i) #15
   br label %for.body.i.i
@@ -4282,7 +4282,7 @@ if.then1.i.i:                                     ; preds = %if.else.i
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then1.i.i, %if.else.i, %nbd_iter_channel_error.exit.i
-  %cmp.i.i = icmp eq i32 %local_reply.i.sroa.0.2, 1732535960
+  %cmp.i.i = icmp eq i32 %local_reply.i.sroa.0.5, 1732535960
   %18 = load i32, ptr %iter.i, align 8
   %cmp12.i = icmp slt i32 %18, 0
   %or.cond72 = select i1 %cmp.i.i, i1 true, i1 %cmp12.i
@@ -4290,8 +4290,8 @@ if.end9.i:                                        ; preds = %if.then1.i.i, %if.e
 
 if.end14.i:                                       ; preds = %if.end9.i
   store i8 1, ptr %only_structured.i, align 1
-  %cmp16.i = icmp eq i16 %local_reply.i.sroa.6.2, 0
-  %19 = and i16 %local_reply.i.sroa.5.2, 1
+  %cmp16.i = icmp eq i16 %local_reply.i.sroa.6.5, 0
+  %19 = and i16 %local_reply.i.sroa.5.5, 1
   %tobool20.not.i = icmp eq i16 %19, 0
   br i1 %cmp16.i, label %if.then18.i, label %if.end24.i
 

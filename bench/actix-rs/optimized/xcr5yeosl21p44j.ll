@@ -7738,13 +7738,13 @@ _ZN5tokio7runtime4task7harness11cancel_task17h307d7367aa61ee3eE.llvm.14837436092
   br label %72
 
 72:                                               ; preds = %58, %_ZN5tokio7runtime4task7harness11cancel_task17h307d7367aa61ee3eE.llvm.14837436092785038340.exit12, %71, %70
-  %.0 = phi i8 [ 3, %71 ], [ 1, %70 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h307d7367aa61ee3eE.llvm.14837436092785038340.exit12 ], [ 2, %58 ]
+  %.2 = phi i8 [ 3, %71 ], [ 1, %70 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h307d7367aa61ee3eE.llvm.14837436092785038340.exit12 ], [ 2, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %73
 
 73:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h307d7367aa61ee3eE.llvm.14837436092785038340.exit, %72, %1, %60
-  %.2 = phi i8 [ 0, %60 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h307d7367aa61ee3eE.llvm.14837436092785038340.exit ], [ %.0, %72 ], [ %10, %1 ], [ %10, %1 ]
-  ret i8 %.2
+  %.1 = phi i8 [ 0, %60 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h307d7367aa61ee3eE.llvm.14837436092785038340.exit ], [ %.2, %72 ], [ %10, %1 ], [ %10, %1 ]
+  ret i8 %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7950,13 +7950,13 @@ _ZN5tokio7runtime4task7harness11cancel_task17hca0c76b597c79538E.llvm.14837436092
   br label %74
 
 74:                                               ; preds = %59, %_ZN5tokio7runtime4task7harness11cancel_task17hca0c76b597c79538E.llvm.14837436092785038340.exit12, %73, %72
-  %.0 = phi i8 [ 3, %73 ], [ 1, %72 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hca0c76b597c79538E.llvm.14837436092785038340.exit12 ], [ 2, %59 ]
+  %.2 = phi i8 [ 3, %73 ], [ 1, %72 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hca0c76b597c79538E.llvm.14837436092785038340.exit12 ], [ 2, %59 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %75
 
 75:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17hca0c76b597c79538E.llvm.14837436092785038340.exit, %74, %1, %61
-  %.2 = phi i8 [ 0, %61 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hca0c76b597c79538E.llvm.14837436092785038340.exit ], [ %.0, %74 ], [ %10, %1 ], [ %10, %1 ]
-  ret i8 %.2
+  %.1 = phi i8 [ 0, %61 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hca0c76b597c79538E.llvm.14837436092785038340.exit ], [ %.2, %74 ], [ %10, %1 ], [ %10, %1 ]
+  ret i8 %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8162,13 +8162,13 @@ _ZN5tokio7runtime4task7harness11cancel_task17h71b2cdbfe9c43396E.llvm.14837436092
   br label %74
 
 74:                                               ; preds = %59, %_ZN5tokio7runtime4task7harness11cancel_task17h71b2cdbfe9c43396E.llvm.14837436092785038340.exit12, %73, %72
-  %.0 = phi i8 [ 3, %73 ], [ 1, %72 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h71b2cdbfe9c43396E.llvm.14837436092785038340.exit12 ], [ 2, %59 ]
+  %.2 = phi i8 [ 3, %73 ], [ 1, %72 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h71b2cdbfe9c43396E.llvm.14837436092785038340.exit12 ], [ 2, %59 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %75
 
 75:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h71b2cdbfe9c43396E.llvm.14837436092785038340.exit, %74, %1, %61
-  %.2 = phi i8 [ 0, %61 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h71b2cdbfe9c43396E.llvm.14837436092785038340.exit ], [ %.0, %74 ], [ %10, %1 ], [ %10, %1 ]
-  ret i8 %.2
+  %.1 = phi i8 [ 0, %61 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h71b2cdbfe9c43396E.llvm.14837436092785038340.exit ], [ %.2, %74 ], [ %10, %1 ], [ %10, %1 ]
+  ret i8 %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8372,13 +8372,13 @@ _ZN5tokio7runtime4task7harness11cancel_task17h6c0925badfa18708E.llvm.14837436092
   br label %72
 
 72:                                               ; preds = %58, %_ZN5tokio7runtime4task7harness11cancel_task17h6c0925badfa18708E.llvm.14837436092785038340.exit12, %71, %70
-  %.0 = phi i8 [ 3, %71 ], [ 1, %70 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h6c0925badfa18708E.llvm.14837436092785038340.exit12 ], [ 2, %58 ]
+  %.2 = phi i8 [ 3, %71 ], [ 1, %70 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h6c0925badfa18708E.llvm.14837436092785038340.exit12 ], [ 2, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %73
 
 73:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h6c0925badfa18708E.llvm.14837436092785038340.exit, %72, %1, %60
-  %.2 = phi i8 [ 0, %60 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h6c0925badfa18708E.llvm.14837436092785038340.exit ], [ %.0, %72 ], [ %10, %1 ], [ %10, %1 ]
-  ret i8 %.2
+  %.1 = phi i8 [ 0, %60 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h6c0925badfa18708E.llvm.14837436092785038340.exit ], [ %.2, %72 ], [ %10, %1 ], [ %10, %1 ]
+  ret i8 %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8597,13 +8597,13 @@ _ZN5tokio7runtime4task7harness11cancel_task17hb89987c691458acaE.llvm.14837436092
   br label %69
 
 69:                                               ; preds = %57, %_ZN5tokio7runtime4task7harness11cancel_task17hb89987c691458acaE.llvm.14837436092785038340.exit12, %68, %67
-  %.0 = phi i8 [ 3, %68 ], [ 1, %67 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb89987c691458acaE.llvm.14837436092785038340.exit12 ], [ 2, %57 ]
+  %.2 = phi i8 [ 3, %68 ], [ 1, %67 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb89987c691458acaE.llvm.14837436092785038340.exit12 ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %70
 
 70:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17hb89987c691458acaE.llvm.14837436092785038340.exit, %69, %1, %59
-  %.2 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb89987c691458acaE.llvm.14837436092785038340.exit ], [ %.0, %69 ], [ %10, %1 ], [ %10, %1 ]
-  ret i8 %.2
+  %.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb89987c691458acaE.llvm.14837436092785038340.exit ], [ %.2, %69 ], [ %10, %1 ], [ %10, %1 ]
+  ret i8 %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14302,7 +14302,7 @@ default.unreachable134:                           ; preds = %198, %164, %89, %3
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit49"
 
 "_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48": ; preds = %78, %82
-  %.sroa.797.2 = phi ptr [ %84, %82 ], [ %65, %78 ]
+  %.sroa.797.3 = phi ptr [ %84, %82 ], [ %65, %78 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %85
 
@@ -14318,13 +14318,13 @@ common.ret:                                       ; preds = %297, %159, %85
   ret void
 
 85:                                               ; preds = %293, %160, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit", %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48"
-  %.sroa.096.3 = phi ptr [ null, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ null, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.0.0.i, %160 ], [ %.sroa.793.0.ph, %293 ]
-  %.sroa.797.3 = phi ptr [ %.sroa.797.2, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ %.sroa.797.0, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.3.0.i, %160 ], [ %.sroa.994.0.ph, %293 ]
+  %.sroa.096.2 = phi ptr [ null, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ null, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.0.0.i, %160 ], [ %.sroa.793.0.ph, %293 ]
+  %.sroa.797.2 = phi ptr [ %.sroa.797.3, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ %.sroa.797.0, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.3.0.i, %160 ], [ %.sroa.994.0.ph, %293 ]
   %.sroa.13.0 = phi i64 [ undef, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ undef, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.4.0.i, %160 ], [ %.sroa.1095.0.ph, %293 ]
   %86 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.096.3, ptr %86, align 8
+  store ptr %.sroa.096.2, ptr %86, align 8
   %.sroa.797.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.797.3, ptr %.sroa.797.0..sroa_idx, align 8
+  store ptr %.sroa.797.2, ptr %.sroa.797.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8

@@ -327,7 +327,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8uEPKhS2_PiS3_ii(ptr noc
 .lr.ph367.split.us.i:                             ; preds = %118, %.lr.ph367.split.us.preheader.i
   %indvars.iv469.i = phi i64 [ 0, %.lr.ph367.split.us.preheader.i ], [ %indvars.iv.next470.i, %118 ]
   %.5366.us.i = phi ptr [ %0, %.lr.ph367.split.us.preheader.i ], [ %119, %118 ]
-  %.4301365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.5302.us.i, %118 ]
+  %.5302365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.6.us.i, %118 ]
   %106 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv469.i
   %107 = load i8, ptr %106, align 1
   %.not331.us.i = icmp eq i8 %107, 0
@@ -352,14 +352,14 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8uEPKhS2_PiS3_ii(ptr noc
   br i1 %exitcond468.not.i, label %._crit_edge363.us.i, label %.preheader.us.i, !llvm.loop !10
 
 118:                                              ; preds = %._crit_edge363.us.i, %.lr.ph367.split.us.i
-  %.5302.us.i = phi i32 [ %120, %._crit_edge363.us.i ], [ %.4301365.us.i, %.lr.ph367.split.us.i ]
+  %.6.us.i = phi i32 [ %120, %._crit_edge363.us.i ], [ %.5302365.us.i, %.lr.ph367.split.us.i ]
   %indvars.iv.next470.i = add nuw nsw i64 %indvars.iv469.i, 1
   %119 = getelementptr inbounds i8, ptr %.5366.us.i, i64 %105
   %exitcond473.not.i = icmp eq i64 %indvars.iv.next470.i, %wide.trip.count472.i
   br i1 %exitcond473.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IhiiEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.us.i, !llvm.loop !11
 
 ._crit_edge363.us.i:                              ; preds = %.preheader.us.i
-  %120 = add nsw i32 %.4301365.us.i, 1
+  %120 = add nsw i32 %.5302365.us.i, 1
   br label %118
 
 121:                                              ; preds = %102
@@ -435,7 +435,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8uEPKhS2_PiS3_ii(ptr noc
   %.0286340.i = phi i32 [ %141, %.lr.ph.preheader.i ], [ %.1287.i, %169 ]
   %.0288339.i = phi i32 [ %139, %.lr.ph.preheader.i ], [ %.1289.i, %169 ]
   %.0290338.i = phi i32 [ %137, %.lr.ph.preheader.i ], [ %.1291.i, %169 ]
-  %.2299337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.3300.i, %169 ]
+  %.3300337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4301.i, %169 ]
   %148 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %149 = load i8, ptr %148, align 1
   %.not332.i = icmp eq i8 %149, 0
@@ -459,11 +459,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8uEPKhS2_PiS3_ii(ptr noc
   %165 = add nsw i32 %.0286340.i, %164
   %166 = mul nuw nsw i32 %164, %164
   %167 = add nsw i32 %166, %.0280343.i
-  %168 = add nsw i32 %.2299337.i, 1
+  %168 = add nsw i32 %.3300337.i, 1
   br label %169
 
 169:                                              ; preds = %150, %.lr.ph.i
-  %.3300.i = phi i32 [ %168, %150 ], [ %.2299337.i, %.lr.ph.i ]
+  %.4301.i = phi i32 [ %168, %150 ], [ %.3300337.i, %.lr.ph.i ]
   %.1291.i = phi i32 [ %157, %150 ], [ %.0290338.i, %.lr.ph.i ]
   %.1289.i = phi i32 [ %161, %150 ], [ %.0288339.i, %.lr.ph.i ]
   %.1287.i = phi i32 [ %165, %150 ], [ %.0286340.i, %.lr.ph.i ]
@@ -476,7 +476,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8uEPKhS2_PiS3_ii(ptr noc
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %169, %136
-  %.2299.lcssa.i = phi i32 [ 0, %136 ], [ %.3300.i, %169 ]
+  %.3300.lcssa.i = phi i32 [ 0, %136 ], [ %.4301.i, %169 ]
   %.0290.lcssa.i = phi i32 [ %137, %136 ], [ %.1291.i, %169 ]
   %.0288.lcssa.i = phi i32 [ %139, %136 ], [ %.1289.i, %169 ]
   %.0286.lcssa.i = phi i32 [ %141, %136 ], [ %.1287.i, %169 ]
@@ -493,18 +493,18 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8uEPKhS2_PiS3_ii(ptr noc
 
 .lr.ph367.split.i:                                ; preds = %.lr.ph367.i, %.lr.ph367.split.i
   %indvars.iv459.i = phi i64 [ %indvars.iv.next460.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
-  %.4301365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
+  %.5302365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
   %171 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv459.i
   %172 = load i8, ptr %171, align 1
   %.not331.i = icmp ne i8 %172, 0
   %173 = zext i1 %.not331.i to i32
-  %spec.select.i = add nuw nsw i32 %.4301365.i, %173
+  %spec.select.i = add nuw nsw i32 %.5302365.i, %173
   %indvars.iv.next460.i = add nuw nsw i64 %indvars.iv459.i, 1
   %exitcond463.not.i = icmp eq i64 %indvars.iv.next460.i, %wide.trip.count472.i
   br i1 %exitcond463.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IhiiEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.i, !llvm.loop !11
 
 _ZN2cv12cpu_baselineL7sumsqr_IhiiEEiPKT_PKhPT0_PT1_ii.exit: ; preds = %.lr.ph367.split.i, %118, %._crit_edge420.i, %._crit_edge.i, %._crit_edge357.i, %.preheader334.i, %79
-  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.2299.lcssa.i, %._crit_edge.i ], [ %4, %79 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.5302.us.i, %118 ], [ %spec.select.i, %.lr.ph367.split.i ]
+  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.3300.lcssa.i, %._crit_edge.i ], [ %4, %79 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.6.us.i, %118 ], [ %spec.select.i, %.lr.ph367.split.i ]
   %174 = getelementptr inbounds i8, ptr %7, i64 8
   %175 = load i32, ptr %174, align 8
   %.not.i7 = icmp eq i32 %175, 0
@@ -753,7 +753,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8sEPKaPKhPiS5_ii(ptr noc
 .lr.ph367.split.us.i:                             ; preds = %118, %.lr.ph367.split.us.preheader.i
   %indvars.iv469.i = phi i64 [ 0, %.lr.ph367.split.us.preheader.i ], [ %indvars.iv.next470.i, %118 ]
   %.5366.us.i = phi ptr [ %0, %.lr.ph367.split.us.preheader.i ], [ %119, %118 ]
-  %.4301365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.5302.us.i, %118 ]
+  %.5302365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.6.us.i, %118 ]
   %106 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv469.i
   %107 = load i8, ptr %106, align 1
   %.not331.us.i = icmp eq i8 %107, 0
@@ -778,14 +778,14 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8sEPKaPKhPiS5_ii(ptr noc
   br i1 %exitcond468.not.i, label %._crit_edge363.us.i, label %.preheader.us.i, !llvm.loop !19
 
 118:                                              ; preds = %._crit_edge363.us.i, %.lr.ph367.split.us.i
-  %.5302.us.i = phi i32 [ %120, %._crit_edge363.us.i ], [ %.4301365.us.i, %.lr.ph367.split.us.i ]
+  %.6.us.i = phi i32 [ %120, %._crit_edge363.us.i ], [ %.5302365.us.i, %.lr.ph367.split.us.i ]
   %indvars.iv.next470.i = add nuw nsw i64 %indvars.iv469.i, 1
   %119 = getelementptr inbounds i8, ptr %.5366.us.i, i64 %105
   %exitcond473.not.i = icmp eq i64 %indvars.iv.next470.i, %wide.trip.count472.i
   br i1 %exitcond473.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IaiiEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.us.i, !llvm.loop !20
 
 ._crit_edge363.us.i:                              ; preds = %.preheader.us.i
-  %120 = add nsw i32 %.4301365.us.i, 1
+  %120 = add nsw i32 %.5302365.us.i, 1
   br label %118
 
 121:                                              ; preds = %102
@@ -861,7 +861,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8sEPKaPKhPiS5_ii(ptr noc
   %.0286340.i = phi i32 [ %141, %.lr.ph.preheader.i ], [ %.1287.i, %169 ]
   %.0288339.i = phi i32 [ %139, %.lr.ph.preheader.i ], [ %.1289.i, %169 ]
   %.0290338.i = phi i32 [ %137, %.lr.ph.preheader.i ], [ %.1291.i, %169 ]
-  %.2299337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.3300.i, %169 ]
+  %.3300337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4301.i, %169 ]
   %148 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %149 = load i8, ptr %148, align 1
   %.not332.i = icmp eq i8 %149, 0
@@ -885,11 +885,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8sEPKaPKhPiS5_ii(ptr noc
   %165 = add nsw i32 %.0286340.i, %164
   %166 = mul nsw i32 %164, %164
   %167 = add nsw i32 %166, %.0280343.i
-  %168 = add nsw i32 %.2299337.i, 1
+  %168 = add nsw i32 %.3300337.i, 1
   br label %169
 
 169:                                              ; preds = %150, %.lr.ph.i
-  %.3300.i = phi i32 [ %168, %150 ], [ %.2299337.i, %.lr.ph.i ]
+  %.4301.i = phi i32 [ %168, %150 ], [ %.3300337.i, %.lr.ph.i ]
   %.1291.i = phi i32 [ %157, %150 ], [ %.0290338.i, %.lr.ph.i ]
   %.1289.i = phi i32 [ %161, %150 ], [ %.0288339.i, %.lr.ph.i ]
   %.1287.i = phi i32 [ %165, %150 ], [ %.0286340.i, %.lr.ph.i ]
@@ -902,7 +902,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8sEPKaPKhPiS5_ii(ptr noc
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %169, %136
-  %.2299.lcssa.i = phi i32 [ 0, %136 ], [ %.3300.i, %169 ]
+  %.3300.lcssa.i = phi i32 [ 0, %136 ], [ %.4301.i, %169 ]
   %.0290.lcssa.i = phi i32 [ %137, %136 ], [ %.1291.i, %169 ]
   %.0288.lcssa.i = phi i32 [ %139, %136 ], [ %.1289.i, %169 ]
   %.0286.lcssa.i = phi i32 [ %141, %136 ], [ %.1287.i, %169 ]
@@ -919,18 +919,18 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL7sqsum8sEPKaPKhPiS5_ii(ptr noc
 
 .lr.ph367.split.i:                                ; preds = %.lr.ph367.i, %.lr.ph367.split.i
   %indvars.iv459.i = phi i64 [ %indvars.iv.next460.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
-  %.4301365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
+  %.5302365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
   %171 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv459.i
   %172 = load i8, ptr %171, align 1
   %.not331.i = icmp ne i8 %172, 0
   %173 = zext i1 %.not331.i to i32
-  %spec.select.i = add nuw nsw i32 %.4301365.i, %173
+  %spec.select.i = add nuw nsw i32 %.5302365.i, %173
   %indvars.iv.next460.i = add nuw nsw i64 %indvars.iv459.i, 1
   %exitcond463.not.i = icmp eq i64 %indvars.iv.next460.i, %wide.trip.count472.i
   br i1 %exitcond463.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IaiiEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.i, !llvm.loop !20
 
 _ZN2cv12cpu_baselineL7sumsqr_IaiiEEiPKT_PKhPT0_PT1_ii.exit: ; preds = %.lr.ph367.split.i, %118, %._crit_edge420.i, %._crit_edge.i, %._crit_edge357.i, %.preheader334.i, %79
-  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.2299.lcssa.i, %._crit_edge.i ], [ %4, %79 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.5302.us.i, %118 ], [ %spec.select.i, %.lr.ph367.split.i ]
+  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.3300.lcssa.i, %._crit_edge.i ], [ %4, %79 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.6.us.i, %118 ], [ %spec.select.i, %.lr.ph367.split.i ]
   %174 = getelementptr inbounds i8, ptr %7, i64 8
   %175 = load i32, ptr %174, align 8
   %.not.i7 = icmp eq i32 %175, 0
@@ -1157,7 +1157,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16uEPKtPKhPiPdii(ptr noc
 .lr.ph367.split.us.i:                             ; preds = %113, %.lr.ph367.split.us.preheader.i
   %indvars.iv469.i = phi i64 [ 0, %.lr.ph367.split.us.preheader.i ], [ %indvars.iv.next470.i, %113 ]
   %.5366.us.i = phi ptr [ %0, %.lr.ph367.split.us.preheader.i ], [ %114, %113 ]
-  %.4301365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.5302.us.i, %113 ]
+  %.5302365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.6.us.i, %113 ]
   %101 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv469.i
   %102 = load i8, ptr %101, align 1
   %.not331.us.i = icmp eq i8 %102, 0
@@ -1182,14 +1182,14 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16uEPKtPKhPiPdii(ptr noc
   br i1 %exitcond468.not.i, label %._crit_edge363.us.i, label %.preheader.us.i, !llvm.loop !28
 
 113:                                              ; preds = %._crit_edge363.us.i, %.lr.ph367.split.us.i
-  %.5302.us.i = phi i32 [ %115, %._crit_edge363.us.i ], [ %.4301365.us.i, %.lr.ph367.split.us.i ]
+  %.6.us.i = phi i32 [ %115, %._crit_edge363.us.i ], [ %.5302365.us.i, %.lr.ph367.split.us.i ]
   %indvars.iv.next470.i = add nuw nsw i64 %indvars.iv469.i, 1
   %114 = getelementptr inbounds i16, ptr %.5366.us.i, i64 %100
   %exitcond473.not.i = icmp eq i64 %indvars.iv.next470.i, %wide.trip.count472.i
   br i1 %exitcond473.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_ItidEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.us.i, !llvm.loop !29
 
 ._crit_edge363.us.i:                              ; preds = %.preheader.us.i
-  %115 = add nsw i32 %.4301365.us.i, 1
+  %115 = add nsw i32 %.5302365.us.i, 1
   br label %113
 
 116:                                              ; preds = %97
@@ -1257,7 +1257,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16uEPKtPKhPiPdii(ptr noc
   %.4344.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %159, %156 ]
   %.0280343.i = phi double [ %137, %.lr.ph.preheader.i ], [ %.1281.i, %156 ]
   %.0286340.i = phi i32 [ %134, %.lr.ph.preheader.i ], [ %.1287.i, %156 ]
-  %.2299337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.3300.i, %156 ]
+  %.3300337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4301.i, %156 ]
   %139 = phi <2 x i32> [ %132, %.lr.ph.preheader.i ], [ %157, %156 ]
   %140 = phi <2 x double> [ %135, %.lr.ph.preheader.i ], [ %158, %156 ]
   %141 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
@@ -1277,11 +1277,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16uEPKtPKhPiPdii(ptr noc
   %152 = add nsw i32 %.0286340.i, %151
   %153 = uitofp i16 %145 to double
   %154 = call double @llvm.fmuladd.f64(double %153, double %153, double %.0280343.i)
-  %155 = add nsw i32 %.2299337.i, 1
+  %155 = add nsw i32 %.3300337.i, 1
   br label %156
 
 156:                                              ; preds = %143, %.lr.ph.i
-  %.3300.i = phi i32 [ %155, %143 ], [ %.2299337.i, %.lr.ph.i ]
+  %.4301.i = phi i32 [ %155, %143 ], [ %.3300337.i, %.lr.ph.i ]
   %.1287.i = phi i32 [ %152, %143 ], [ %.0286340.i, %.lr.ph.i ]
   %.1281.i = phi double [ %154, %143 ], [ %.0280343.i, %.lr.ph.i ]
   %157 = phi <2 x i32> [ %148, %143 ], [ %139, %.lr.ph.i ]
@@ -1292,7 +1292,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16uEPKtPKhPiPdii(ptr noc
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %156, %131
-  %.2299.lcssa.i = phi i32 [ 0, %131 ], [ %.3300.i, %156 ]
+  %.3300.lcssa.i = phi i32 [ 0, %131 ], [ %.4301.i, %156 ]
   %.0286.lcssa.i = phi i32 [ %134, %131 ], [ %.1287.i, %156 ]
   %.0280.lcssa.i = phi double [ %137, %131 ], [ %.1281.i, %156 ]
   %160 = phi <2 x i32> [ %132, %131 ], [ %157, %156 ]
@@ -1305,18 +1305,18 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16uEPKtPKhPiPdii(ptr noc
 
 .lr.ph367.split.i:                                ; preds = %.lr.ph367.i, %.lr.ph367.split.i
   %indvars.iv459.i = phi i64 [ %indvars.iv.next460.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
-  %.4301365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
+  %.5302365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
   %162 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv459.i
   %163 = load i8, ptr %162, align 1
   %.not331.i = icmp ne i8 %163, 0
   %164 = zext i1 %.not331.i to i32
-  %spec.select.i = add nuw nsw i32 %.4301365.i, %164
+  %spec.select.i = add nuw nsw i32 %.5302365.i, %164
   %indvars.iv.next460.i = add nuw nsw i64 %indvars.iv459.i, 1
   %exitcond463.not.i = icmp eq i64 %indvars.iv.next460.i, %wide.trip.count472.i
   br i1 %exitcond463.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_ItidEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.i, !llvm.loop !29
 
 _ZN2cv12cpu_baselineL7sumsqr_ItidEEiPKT_PKhPT0_PT1_ii.exit: ; preds = %.lr.ph367.split.i, %113, %._crit_edge420.i, %._crit_edge.i, %._crit_edge357.i, %.preheader334.i, %67
-  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.2299.lcssa.i, %._crit_edge.i ], [ %4, %67 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.5302.us.i, %113 ], [ %spec.select.i, %.lr.ph367.split.i ]
+  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.3300.lcssa.i, %._crit_edge.i ], [ %4, %67 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.6.us.i, %113 ], [ %spec.select.i, %.lr.ph367.split.i ]
   %165 = getelementptr inbounds i8, ptr %7, i64 8
   %166 = load i32, ptr %165, align 8
   %.not.i7 = icmp eq i32 %166, 0
@@ -1556,7 +1556,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16sEPKsPKhPiPdii(ptr noc
 .lr.ph367.split.us.i:                             ; preds = %120, %.lr.ph367.split.us.preheader.i
   %indvars.iv469.i = phi i64 [ 0, %.lr.ph367.split.us.preheader.i ], [ %indvars.iv.next470.i, %120 ]
   %.5366.us.i = phi ptr [ %0, %.lr.ph367.split.us.preheader.i ], [ %121, %120 ]
-  %.4301365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.5302.us.i, %120 ]
+  %.5302365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.6.us.i, %120 ]
   %108 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv469.i
   %109 = load i8, ptr %108, align 1
   %.not331.us.i = icmp eq i8 %109, 0
@@ -1581,14 +1581,14 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16sEPKsPKhPiPdii(ptr noc
   br i1 %exitcond468.not.i, label %._crit_edge363.us.i, label %.preheader.us.i, !llvm.loop !37
 
 120:                                              ; preds = %._crit_edge363.us.i, %.lr.ph367.split.us.i
-  %.5302.us.i = phi i32 [ %122, %._crit_edge363.us.i ], [ %.4301365.us.i, %.lr.ph367.split.us.i ]
+  %.6.us.i = phi i32 [ %122, %._crit_edge363.us.i ], [ %.5302365.us.i, %.lr.ph367.split.us.i ]
   %indvars.iv.next470.i = add nuw nsw i64 %indvars.iv469.i, 1
   %121 = getelementptr inbounds i16, ptr %.5366.us.i, i64 %107
   %exitcond473.not.i = icmp eq i64 %indvars.iv.next470.i, %wide.trip.count472.i
   br i1 %exitcond473.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IsidEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.us.i, !llvm.loop !38
 
 ._crit_edge363.us.i:                              ; preds = %.preheader.us.i
-  %122 = add nsw i32 %.4301365.us.i, 1
+  %122 = add nsw i32 %.5302365.us.i, 1
   br label %120
 
 123:                                              ; preds = %104
@@ -1660,7 +1660,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16sEPKsPKhPiPdii(ptr noc
   %.0286340.i = phi i32 [ %143, %.lr.ph.preheader.i ], [ %.1287.i, %168 ]
   %.0288339.i = phi i32 [ %141, %.lr.ph.preheader.i ], [ %.1289.i, %168 ]
   %.0290338.i = phi i32 [ %139, %.lr.ph.preheader.i ], [ %.1291.i, %168 ]
-  %.2299337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.3300.i, %168 ]
+  %.3300337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4301.i, %168 ]
   %148 = phi <2 x double> [ %144, %.lr.ph.preheader.i ], [ %169, %168 ]
   %149 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %150 = load i8, ptr %149, align 1
@@ -1683,11 +1683,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16sEPKsPKhPiPdii(ptr noc
   %164 = add nsw i32 %.0286340.i, %163
   %165 = sitofp i16 %153 to double
   %166 = call double @llvm.fmuladd.f64(double %165, double %165, double %.0280343.i)
-  %167 = add nsw i32 %.2299337.i, 1
+  %167 = add nsw i32 %.3300337.i, 1
   br label %168
 
 168:                                              ; preds = %151, %.lr.ph.i
-  %.3300.i = phi i32 [ %167, %151 ], [ %.2299337.i, %.lr.ph.i ]
+  %.4301.i = phi i32 [ %167, %151 ], [ %.3300337.i, %.lr.ph.i ]
   %.1291.i = phi i32 [ %157, %151 ], [ %.0290338.i, %.lr.ph.i ]
   %.1289.i = phi i32 [ %161, %151 ], [ %.0288339.i, %.lr.ph.i ]
   %.1287.i = phi i32 [ %164, %151 ], [ %.0286340.i, %.lr.ph.i ]
@@ -1699,7 +1699,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16sEPKsPKhPiPdii(ptr noc
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %168, %138
-  %.2299.lcssa.i = phi i32 [ 0, %138 ], [ %.3300.i, %168 ]
+  %.3300.lcssa.i = phi i32 [ 0, %138 ], [ %.4301.i, %168 ]
   %.0290.lcssa.i = phi i32 [ %139, %138 ], [ %.1291.i, %168 ]
   %.0288.lcssa.i = phi i32 [ %141, %138 ], [ %.1289.i, %168 ]
   %.0286.lcssa.i = phi i32 [ %143, %138 ], [ %.1287.i, %168 ]
@@ -1714,18 +1714,18 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum16sEPKsPKhPiPdii(ptr noc
 
 .lr.ph367.split.i:                                ; preds = %.lr.ph367.i, %.lr.ph367.split.i
   %indvars.iv459.i = phi i64 [ %indvars.iv.next460.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
-  %.4301365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
+  %.5302365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
   %172 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv459.i
   %173 = load i8, ptr %172, align 1
   %.not331.i = icmp ne i8 %173, 0
   %174 = zext i1 %.not331.i to i32
-  %spec.select.i = add nuw nsw i32 %.4301365.i, %174
+  %spec.select.i = add nuw nsw i32 %.5302365.i, %174
   %indvars.iv.next460.i = add nuw nsw i64 %indvars.iv459.i, 1
   %exitcond463.not.i = icmp eq i64 %indvars.iv.next460.i, %wide.trip.count472.i
   br i1 %exitcond463.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IsidEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.i, !llvm.loop !38
 
 _ZN2cv12cpu_baselineL7sumsqr_IsidEEiPKT_PKhPT0_PT1_ii.exit: ; preds = %.lr.ph367.split.i, %120, %._crit_edge420.i, %._crit_edge.i, %._crit_edge357.i, %.preheader334.i, %74
-  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.2299.lcssa.i, %._crit_edge.i ], [ %4, %74 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.5302.us.i, %120 ], [ %spec.select.i, %.lr.ph367.split.i ]
+  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.3300.lcssa.i, %._crit_edge.i ], [ %4, %74 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.6.us.i, %120 ], [ %spec.select.i, %.lr.ph367.split.i ]
   %175 = getelementptr inbounds i8, ptr %7, i64 8
   %176 = load i32, ptr %175, align 8
   %.not.i7 = icmp eq i32 %176, 0
@@ -1953,7 +1953,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32sEPKiPKhPdS5_ii(ptr no
 .lr.ph367.split.us.i:                             ; preds = %114, %.lr.ph367.split.us.preheader.i
   %indvars.iv469.i = phi i64 [ 0, %.lr.ph367.split.us.preheader.i ], [ %indvars.iv.next470.i, %114 ]
   %.5366.us.i = phi ptr [ %0, %.lr.ph367.split.us.preheader.i ], [ %115, %114 ]
-  %.4301365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.5302.us.i, %114 ]
+  %.5302365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.6.us.i, %114 ]
   %103 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv469.i
   %104 = load i8, ptr %103, align 1
   %.not331.us.i = icmp eq i8 %104, 0
@@ -1977,14 +1977,14 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32sEPKiPKhPdS5_ii(ptr no
   br i1 %exitcond468.not.i, label %._crit_edge363.us.i, label %.preheader.us.i, !llvm.loop !46
 
 114:                                              ; preds = %._crit_edge363.us.i, %.lr.ph367.split.us.i
-  %.5302.us.i = phi i32 [ %116, %._crit_edge363.us.i ], [ %.4301365.us.i, %.lr.ph367.split.us.i ]
+  %.6.us.i = phi i32 [ %116, %._crit_edge363.us.i ], [ %.5302365.us.i, %.lr.ph367.split.us.i ]
   %indvars.iv.next470.i = add nuw nsw i64 %indvars.iv469.i, 1
   %115 = getelementptr inbounds i32, ptr %.5366.us.i, i64 %102
   %exitcond473.not.i = icmp eq i64 %indvars.iv.next470.i, %wide.trip.count472.i
   br i1 %exitcond473.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IiddEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.us.i, !llvm.loop !47
 
 ._crit_edge363.us.i:                              ; preds = %.preheader.us.i
-  %116 = add nsw i32 %.4301365.us.i, 1
+  %116 = add nsw i32 %.5302365.us.i, 1
   br label %114
 
 117:                                              ; preds = %99
@@ -2051,7 +2051,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32sEPKiPKhPdS5_ii(ptr no
   %.4344.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %157, %154 ]
   %.0280343.i = phi double [ %137, %.lr.ph.preheader.i ], [ %.1281.i, %154 ]
   %.0286340.i = phi double [ %134, %.lr.ph.preheader.i ], [ %.1287.i, %154 ]
-  %.2299337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.3300.i, %154 ]
+  %.3300337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4301.i, %154 ]
   %139 = phi <2 x double> [ %132, %.lr.ph.preheader.i ], [ %155, %154 ]
   %140 = phi <2 x double> [ %135, %.lr.ph.preheader.i ], [ %156, %154 ]
   %141 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
@@ -2069,11 +2069,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32sEPKiPKhPdS5_ii(ptr no
   %150 = sitofp i32 %145 to double
   %151 = fadd double %.0286340.i, %150
   %152 = call double @llvm.fmuladd.f64(double %150, double %150, double %.0280343.i)
-  %153 = add nsw i32 %.2299337.i, 1
+  %153 = add nsw i32 %.3300337.i, 1
   br label %154
 
 154:                                              ; preds = %143, %.lr.ph.i
-  %.3300.i = phi i32 [ %153, %143 ], [ %.2299337.i, %.lr.ph.i ]
+  %.4301.i = phi i32 [ %153, %143 ], [ %.3300337.i, %.lr.ph.i ]
   %.1287.i = phi double [ %151, %143 ], [ %.0286340.i, %.lr.ph.i ]
   %.1281.i = phi double [ %152, %143 ], [ %.0280343.i, %.lr.ph.i ]
   %155 = phi <2 x double> [ %148, %143 ], [ %139, %.lr.ph.i ]
@@ -2084,7 +2084,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32sEPKiPKhPdS5_ii(ptr no
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %154, %131
-  %.2299.lcssa.i = phi i32 [ 0, %131 ], [ %.3300.i, %154 ]
+  %.3300.lcssa.i = phi i32 [ 0, %131 ], [ %.4301.i, %154 ]
   %.0286.lcssa.i = phi double [ %134, %131 ], [ %.1287.i, %154 ]
   %.0280.lcssa.i = phi double [ %137, %131 ], [ %.1281.i, %154 ]
   %158 = phi <2 x double> [ %132, %131 ], [ %155, %154 ]
@@ -2097,18 +2097,18 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32sEPKiPKhPdS5_ii(ptr no
 
 .lr.ph367.split.i:                                ; preds = %.lr.ph367.i, %.lr.ph367.split.i
   %indvars.iv459.i = phi i64 [ %indvars.iv.next460.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
-  %.4301365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
+  %.5302365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
   %160 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv459.i
   %161 = load i8, ptr %160, align 1
   %.not331.i = icmp ne i8 %161, 0
   %162 = zext i1 %.not331.i to i32
-  %spec.select.i = add nuw nsw i32 %.4301365.i, %162
+  %spec.select.i = add nuw nsw i32 %.5302365.i, %162
   %indvars.iv.next460.i = add nuw nsw i64 %indvars.iv459.i, 1
   %exitcond463.not.i = icmp eq i64 %indvars.iv.next460.i, %wide.trip.count472.i
   br i1 %exitcond463.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IiddEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.i, !llvm.loop !47
 
 _ZN2cv12cpu_baselineL7sumsqr_IiddEEiPKT_PKhPT0_PT1_ii.exit: ; preds = %.lr.ph367.split.i, %114, %._crit_edge420.i, %._crit_edge.i, %._crit_edge357.i, %.preheader334.i, %63
-  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.2299.lcssa.i, %._crit_edge.i ], [ %4, %63 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.5302.us.i, %114 ], [ %spec.select.i, %.lr.ph367.split.i ]
+  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.3300.lcssa.i, %._crit_edge.i ], [ %4, %63 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.6.us.i, %114 ], [ %spec.select.i, %.lr.ph367.split.i ]
   %163 = getelementptr inbounds i8, ptr %7, i64 8
   %164 = load i32, ptr %163, align 8
   %.not.i7 = icmp eq i32 %164, 0
@@ -2336,7 +2336,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32fEPKfPKhPdS5_ii(ptr no
 .lr.ph367.split.us.i:                             ; preds = %114, %.lr.ph367.split.us.preheader.i
   %indvars.iv469.i = phi i64 [ 0, %.lr.ph367.split.us.preheader.i ], [ %indvars.iv.next470.i, %114 ]
   %.5366.us.i = phi ptr [ %0, %.lr.ph367.split.us.preheader.i ], [ %115, %114 ]
-  %.4301365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.5302.us.i, %114 ]
+  %.5302365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.6.us.i, %114 ]
   %103 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv469.i
   %104 = load i8, ptr %103, align 1
   %.not331.us.i = icmp eq i8 %104, 0
@@ -2360,14 +2360,14 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32fEPKfPKhPdS5_ii(ptr no
   br i1 %exitcond468.not.i, label %._crit_edge363.us.i, label %.preheader.us.i, !llvm.loop !55
 
 114:                                              ; preds = %._crit_edge363.us.i, %.lr.ph367.split.us.i
-  %.5302.us.i = phi i32 [ %116, %._crit_edge363.us.i ], [ %.4301365.us.i, %.lr.ph367.split.us.i ]
+  %.6.us.i = phi i32 [ %116, %._crit_edge363.us.i ], [ %.5302365.us.i, %.lr.ph367.split.us.i ]
   %indvars.iv.next470.i = add nuw nsw i64 %indvars.iv469.i, 1
   %115 = getelementptr inbounds float, ptr %.5366.us.i, i64 %102
   %exitcond473.not.i = icmp eq i64 %indvars.iv.next470.i, %wide.trip.count472.i
   br i1 %exitcond473.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IfddEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.us.i, !llvm.loop !56
 
 ._crit_edge363.us.i:                              ; preds = %.preheader.us.i
-  %116 = add nsw i32 %.4301365.us.i, 1
+  %116 = add nsw i32 %.5302365.us.i, 1
   br label %114
 
 117:                                              ; preds = %99
@@ -2434,7 +2434,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32fEPKfPKhPdS5_ii(ptr no
   %.4344.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %157, %154 ]
   %.0280343.i = phi double [ %137, %.lr.ph.preheader.i ], [ %.1281.i, %154 ]
   %.0286340.i = phi double [ %134, %.lr.ph.preheader.i ], [ %.1287.i, %154 ]
-  %.2299337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.3300.i, %154 ]
+  %.3300337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4301.i, %154 ]
   %139 = phi <2 x double> [ %132, %.lr.ph.preheader.i ], [ %155, %154 ]
   %140 = phi <2 x double> [ %135, %.lr.ph.preheader.i ], [ %156, %154 ]
   %141 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
@@ -2452,11 +2452,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32fEPKfPKhPdS5_ii(ptr no
   %150 = fpext float %145 to double
   %151 = fadd double %.0286340.i, %150
   %152 = call double @llvm.fmuladd.f64(double %150, double %150, double %.0280343.i)
-  %153 = add nsw i32 %.2299337.i, 1
+  %153 = add nsw i32 %.3300337.i, 1
   br label %154
 
 154:                                              ; preds = %143, %.lr.ph.i
-  %.3300.i = phi i32 [ %153, %143 ], [ %.2299337.i, %.lr.ph.i ]
+  %.4301.i = phi i32 [ %153, %143 ], [ %.3300337.i, %.lr.ph.i ]
   %.1287.i = phi double [ %151, %143 ], [ %.0286340.i, %.lr.ph.i ]
   %.1281.i = phi double [ %152, %143 ], [ %.0280343.i, %.lr.ph.i ]
   %155 = phi <2 x double> [ %148, %143 ], [ %139, %.lr.ph.i ]
@@ -2467,7 +2467,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32fEPKfPKhPdS5_ii(ptr no
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !58
 
 ._crit_edge.i:                                    ; preds = %154, %131
-  %.2299.lcssa.i = phi i32 [ 0, %131 ], [ %.3300.i, %154 ]
+  %.3300.lcssa.i = phi i32 [ 0, %131 ], [ %.4301.i, %154 ]
   %.0286.lcssa.i = phi double [ %134, %131 ], [ %.1287.i, %154 ]
   %.0280.lcssa.i = phi double [ %137, %131 ], [ %.1281.i, %154 ]
   %158 = phi <2 x double> [ %132, %131 ], [ %155, %154 ]
@@ -2480,18 +2480,18 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum32fEPKfPKhPdS5_ii(ptr no
 
 .lr.ph367.split.i:                                ; preds = %.lr.ph367.i, %.lr.ph367.split.i
   %indvars.iv459.i = phi i64 [ %indvars.iv.next460.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
-  %.4301365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
+  %.5302365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
   %160 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv459.i
   %161 = load i8, ptr %160, align 1
   %.not331.i = icmp ne i8 %161, 0
   %162 = zext i1 %.not331.i to i32
-  %spec.select.i = add nuw nsw i32 %.4301365.i, %162
+  %spec.select.i = add nuw nsw i32 %.5302365.i, %162
   %indvars.iv.next460.i = add nuw nsw i64 %indvars.iv459.i, 1
   %exitcond463.not.i = icmp eq i64 %indvars.iv.next460.i, %wide.trip.count472.i
   br i1 %exitcond463.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IfddEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.i, !llvm.loop !56
 
 _ZN2cv12cpu_baselineL7sumsqr_IfddEEiPKT_PKhPT0_PT1_ii.exit: ; preds = %.lr.ph367.split.i, %114, %._crit_edge420.i, %._crit_edge.i, %._crit_edge357.i, %.preheader334.i, %63
-  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.2299.lcssa.i, %._crit_edge.i ], [ %4, %63 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.5302.us.i, %114 ], [ %spec.select.i, %.lr.ph367.split.i ]
+  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.3300.lcssa.i, %._crit_edge.i ], [ %4, %63 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.6.us.i, %114 ], [ %spec.select.i, %.lr.ph367.split.i ]
   %163 = getelementptr inbounds i8, ptr %7, i64 8
   %164 = load i32, ptr %163, align 8
   %.not.i7 = icmp eq i32 %164, 0
@@ -2713,7 +2713,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum64fEPKdPKhPdS5_ii(ptr no
 .lr.ph367.split.us.i:                             ; preds = %107, %.lr.ph367.split.us.preheader.i
   %indvars.iv469.i = phi i64 [ 0, %.lr.ph367.split.us.preheader.i ], [ %indvars.iv.next470.i, %107 ]
   %.5366.us.i = phi ptr [ %0, %.lr.ph367.split.us.preheader.i ], [ %108, %107 ]
-  %.4301365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.5302.us.i, %107 ]
+  %.5302365.us.i = phi i32 [ 0, %.lr.ph367.split.us.preheader.i ], [ %.6.us.i, %107 ]
   %97 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv469.i
   %98 = load i8, ptr %97, align 1
   %.not331.us.i = icmp eq i8 %98, 0
@@ -2736,14 +2736,14 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum64fEPKdPKhPdS5_ii(ptr no
   br i1 %exitcond468.not.i, label %._crit_edge363.us.i, label %.preheader.us.i, !llvm.loop !64
 
 107:                                              ; preds = %._crit_edge363.us.i, %.lr.ph367.split.us.i
-  %.5302.us.i = phi i32 [ %109, %._crit_edge363.us.i ], [ %.4301365.us.i, %.lr.ph367.split.us.i ]
+  %.6.us.i = phi i32 [ %109, %._crit_edge363.us.i ], [ %.5302365.us.i, %.lr.ph367.split.us.i ]
   %indvars.iv.next470.i = add nuw nsw i64 %indvars.iv469.i, 1
   %108 = getelementptr inbounds double, ptr %.5366.us.i, i64 %96
   %exitcond473.not.i = icmp eq i64 %indvars.iv.next470.i, %wide.trip.count472.i
   br i1 %exitcond473.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IdddEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.us.i, !llvm.loop !65
 
 ._crit_edge363.us.i:                              ; preds = %.preheader.us.i
-  %109 = add nsw i32 %.4301365.us.i, 1
+  %109 = add nsw i32 %.5302365.us.i, 1
   br label %107
 
 110:                                              ; preds = %93
@@ -2809,7 +2809,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum64fEPKdPKhPdS5_ii(ptr no
   %.4344.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %147, %144 ]
   %.0280343.i = phi double [ %129, %.lr.ph.preheader.i ], [ %.1281.i, %144 ]
   %.0286340.i = phi double [ %126, %.lr.ph.preheader.i ], [ %.1287.i, %144 ]
-  %.2299337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.3300.i, %144 ]
+  %.3300337.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4301.i, %144 ]
   %131 = phi <2 x double> [ %124, %.lr.ph.preheader.i ], [ %145, %144 ]
   %132 = phi <2 x double> [ %127, %.lr.ph.preheader.i ], [ %146, %144 ]
   %133 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
@@ -2825,11 +2825,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum64fEPKdPKhPdS5_ii(ptr no
   %140 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %136, <2 x double> %136, <2 x double> %132)
   %141 = fadd double %.0286340.i, %138
   %142 = call double @llvm.fmuladd.f64(double %138, double %138, double %.0280343.i)
-  %143 = add nsw i32 %.2299337.i, 1
+  %143 = add nsw i32 %.3300337.i, 1
   br label %144
 
 144:                                              ; preds = %135, %.lr.ph.i
-  %.3300.i = phi i32 [ %143, %135 ], [ %.2299337.i, %.lr.ph.i ]
+  %.4301.i = phi i32 [ %143, %135 ], [ %.3300337.i, %.lr.ph.i ]
   %.1287.i = phi double [ %141, %135 ], [ %.0286340.i, %.lr.ph.i ]
   %.1281.i = phi double [ %142, %135 ], [ %.0280343.i, %.lr.ph.i ]
   %145 = phi <2 x double> [ %139, %135 ], [ %131, %.lr.ph.i ]
@@ -2840,7 +2840,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum64fEPKdPKhPdS5_ii(ptr no
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !67
 
 ._crit_edge.i:                                    ; preds = %144, %123
-  %.2299.lcssa.i = phi i32 [ 0, %123 ], [ %.3300.i, %144 ]
+  %.3300.lcssa.i = phi i32 [ 0, %123 ], [ %.4301.i, %144 ]
   %.0286.lcssa.i = phi double [ %126, %123 ], [ %.1287.i, %144 ]
   %.0280.lcssa.i = phi double [ %129, %123 ], [ %.1281.i, %144 ]
   %148 = phi <2 x double> [ %124, %123 ], [ %145, %144 ]
@@ -2853,18 +2853,18 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL8sqsum64fEPKdPKhPdS5_ii(ptr no
 
 .lr.ph367.split.i:                                ; preds = %.lr.ph367.i, %.lr.ph367.split.i
   %indvars.iv459.i = phi i64 [ %indvars.iv.next460.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
-  %.4301365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
+  %.5302365.i = phi i32 [ %spec.select.i, %.lr.ph367.split.i ], [ 0, %.lr.ph367.i ]
   %150 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv459.i
   %151 = load i8, ptr %150, align 1
   %.not331.i = icmp ne i8 %151, 0
   %152 = zext i1 %.not331.i to i32
-  %spec.select.i = add nuw nsw i32 %.4301365.i, %152
+  %spec.select.i = add nuw nsw i32 %.5302365.i, %152
   %indvars.iv.next460.i = add nuw nsw i64 %indvars.iv459.i, 1
   %exitcond463.not.i = icmp eq i64 %indvars.iv.next460.i, %wide.trip.count472.i
   br i1 %exitcond463.not.i, label %_ZN2cv12cpu_baselineL7sumsqr_IdddEEiPKT_PKhPT0_PT1_ii.exit, label %.lr.ph367.split.i, !llvm.loop !65
 
 _ZN2cv12cpu_baselineL7sumsqr_IdddEEiPKT_PKhPT0_PT1_ii.exit: ; preds = %.lr.ph367.split.i, %107, %._crit_edge420.i, %._crit_edge.i, %._crit_edge357.i, %.preheader334.i, %59
-  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.2299.lcssa.i, %._crit_edge.i ], [ %4, %59 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.5302.us.i, %107 ], [ %spec.select.i, %.lr.ph367.split.i ]
+  %.0.i = phi i32 [ %.0297.lcssa.i, %._crit_edge357.i ], [ %.3300.lcssa.i, %._crit_edge.i ], [ %4, %59 ], [ 0, %.preheader334.i ], [ %4, %._crit_edge420.i ], [ %.6.us.i, %107 ], [ %spec.select.i, %.lr.ph367.split.i ]
   %153 = getelementptr inbounds i8, ptr %7, i64 8
   %154 = load i32, ptr %153, align 8
   %.not.i7 = icmp eq i32 %154, 0
@@ -4131,7 +4131,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us:             ; preds = %_ZNK2cv3Mat8elemSiz
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.us.split.preheader: ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.thread, %_ZNK2cv3Mat8elemSizeEv.exit.split.us
   %.0383395 = phi i32 [ %270, %_ZNK2cv3Mat8elemSizeEv.exit.split.us ], [ %241, %_ZNK2cv3Mat8elemSizeEv.exit.thread ]
-  %.1187384394 = phi ptr [ %spec.select, %_ZNK2cv3Mat8elemSizeEv.exit.split.us ], [ %251, %_ZNK2cv3Mat8elemSizeEv.exit.thread ]
+  %.0186384394 = phi ptr [ %spec.select, %_ZNK2cv3Mat8elemSizeEv.exit.split.us ], [ %251, %_ZNK2cv3Mat8elemSizeEv.exit.thread ]
   %.0185385393 = phi ptr [ %264, %_ZNK2cv3Mat8elemSizeEv.exit.split.us ], [ %249, %_ZNK2cv3Mat8elemSizeEv.exit.thread ]
   %.0184386392 = phi i64 [ %.0184, %_ZNK2cv3Mat8elemSizeEv.exit.split.us ], [ 0, %_ZNK2cv3Mat8elemSizeEv.exit.thread ]
   %288 = phi ptr [ %281, %_ZNK2cv3Mat8elemSizeEv.exit.split.us ], [ %284, %_ZNK2cv3Mat8elemSizeEv.exit.thread ]
@@ -4270,7 +4270,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us.split:       ; preds = %_ZNK2cv3Mat8elemSiz
   %.1182304.us313 = phi i32 [ %337, %345 ], [ %.0181.us, %.preheader286.us.preheader ]
   %334 = sub nsw i32 %241, %.0177306.us311
   %.sroa.speculated249.us314 = call i32 @llvm.smin.i32(i32 %.0383395, i32 %334)
-  %335 = invoke noundef i32 %210(ptr noundef %333, ptr noundef %332, ptr noundef %.0185385393, ptr noundef %.1187384394, i32 noundef %.sroa.speculated249.us314, i32 noundef %92)
+  %335 = invoke noundef i32 %210(ptr noundef %333, ptr noundef %332, ptr noundef %.0185385393, ptr noundef %.0186384394, i32 noundef %.sroa.speculated249.us314, i32 noundef %92)
           to label %336 unwind label %.loopexit287.split.split.us
 
 336:                                              ; preds = %.preheader286.us

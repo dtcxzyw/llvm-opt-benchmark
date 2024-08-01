@@ -1997,20 +1997,20 @@ for.body25.preheader.i:                           ; preds = %if.then.i
 
 for.body25.i:                                     ; preds = %for.body25.i, %for.body25.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body25.preheader.i ], [ %indvars.iv.next.i, %for.body25.i ]
-  %result_or.037.i = phi <4 x i64> [ zeroinitializer, %for.body25.preheader.i ], [ %or.i64.i, %for.body25.i ]
+  %result_or.137.i = phi <4 x i64> [ zeroinitializer, %for.body25.preheader.i ], [ %or.i64.i, %for.body25.i ]
   %add.ptr27.i = getelementptr inbounds <4 x i64>, ptr %add.ptr18.i, i64 %indvars.iv.i
   %17 = load <4 x i64>, ptr %add.ptr27.i, align 1
   %add.ptr30.i = getelementptr inbounds <4 x i64>, ptr %add.ptr20.i, i64 %indvars.iv.i
   %18 = load <4 x i64>, ptr %add.ptr30.i, align 1
   %xor.i69.i = xor <4 x i64> %18, %17
-  %or.i64.i = or <4 x i64> %xor.i69.i, %result_or.037.i
+  %or.i64.i = or <4 x i64> %xor.i69.i, %result_or.137.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body25.i, !llvm.loop !34
 
 for.end.i:                                        ; preds = %for.body25.i, %if.then.i
   %j.0.lcssa.i = phi i32 [ 0, %if.then.i ], [ %smax.i, %for.body25.i ]
-  %result_or.0.lcssa.i = phi <4 x i64> [ zeroinitializer, %if.then.i ], [ %or.i64.i, %for.body25.i ]
+  %result_or.1.lcssa.i = phi <4 x i64> [ zeroinitializer, %if.then.i ], [ %or.i64.i, %for.body25.i ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 5
   %sub34.i = sub i32 %.sroa.speculated.i, %mul.i
   %conv.i.i = trunc i32 %sub34.i to i8
@@ -2026,12 +2026,12 @@ for.end.i:                                        ; preds = %for.body25.i, %if.t
   %21 = load <4 x i64>, ptr %add.ptr42.i, align 1
   %xor.i.i = xor <4 x i64> %21, %20
   %and.i.i = and <4 x i64> %xor.i.i, %19
-  %or.i.i = or <4 x i64> %and.i.i, %result_or.0.lcssa.i
+  %or.i.i = or <4 x i64> %and.i.i, %result_or.1.lcssa.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %for.body.i
-  %result_or.1.i = phi <4 x i64> [ %or.i.i, %for.end.i ], [ zeroinitializer, %for.body.i ]
-  %22 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %result_or.1.i, <4 x i64> %result_or.1.i)
+  %result_or.0.i = phi <4 x i64> [ %or.i.i, %for.end.i ], [ zeroinitializer, %for.body.i ]
+  %22 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %result_or.0.i, <4 x i64> %result_or.0.i)
   %cmp49.i = icmp eq i32 %sub.i, %sub.i.i
   %23 = trunc i32 %22 to i8
   %24 = sub i8 0, %23
@@ -2104,20 +2104,20 @@ for.body25.preheader.i88:                         ; preds = %if.then.i61
 
 for.body25.i92:                                   ; preds = %for.body25.i92, %for.body25.preheader.i88
   %indvars.iv.i93 = phi i64 [ 0, %for.body25.preheader.i88 ], [ %indvars.iv.next.i98, %for.body25.i92 ]
-  %result_or.038.i = phi <4 x i64> [ zeroinitializer, %for.body25.preheader.i88 ], [ %or.i64.i97, %for.body25.i92 ]
+  %result_or.138.i = phi <4 x i64> [ zeroinitializer, %for.body25.preheader.i88 ], [ %or.i64.i97, %for.body25.i92 ]
   %add.ptr27.i94 = getelementptr inbounds <4 x i64>, ptr %add.ptr18.i64, i64 %indvars.iv.i93
   %36 = load <4 x i64>, ptr %add.ptr27.i94, align 1
   %add.ptr30.i95 = getelementptr inbounds <4 x i64>, ptr %add.ptr20.i66, i64 %indvars.iv.i93
   %37 = load <4 x i64>, ptr %add.ptr30.i95, align 1
   %xor.i69.i96 = xor <4 x i64> %37, %36
-  %or.i64.i97 = or <4 x i64> %xor.i69.i96, %result_or.038.i
+  %or.i64.i97 = or <4 x i64> %xor.i69.i96, %result_or.138.i
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i91
   br i1 %exitcond.not.i99, label %for.end.i67, label %for.body25.i92, !llvm.loop !36
 
 for.end.i67:                                      ; preds = %for.body25.i92, %if.then.i61
   %j.0.lcssa.i68 = phi i32 [ 0, %if.then.i61 ], [ %smax.i90, %for.body25.i92 ]
-  %result_or.0.lcssa.i69 = phi <4 x i64> [ zeroinitializer, %if.then.i61 ], [ %or.i64.i97, %for.body25.i92 ]
+  %result_or.1.lcssa.i69 = phi <4 x i64> [ zeroinitializer, %if.then.i61 ], [ %or.i64.i97, %for.body25.i92 ]
   %mul.i70 = shl nuw nsw i32 %j.0.lcssa.i68, 5
   %sub34.i71 = sub i32 %.sroa.speculated.i59, %mul.i70
   %conv.i.i72 = trunc i32 %sub34.i71 to i8
@@ -2133,12 +2133,12 @@ for.end.i67:                                      ; preds = %for.body25.i92, %if
   %40 = load <4 x i64>, ptr %add.ptr42.i79, align 1
   %xor.i.i80 = xor <4 x i64> %40, %39
   %and.i.i81 = and <4 x i64> %xor.i.i80, %38
-  %or.i.i82 = or <4 x i64> %and.i.i81, %result_or.0.lcssa.i69
+  %or.i.i82 = or <4 x i64> %and.i.i81, %result_or.1.lcssa.i69
   br label %if.end.i83
 
 if.end.i83:                                       ; preds = %for.end.i67, %for.body.i46
-  %result_or.1.i84 = phi <4 x i64> [ %or.i.i82, %for.end.i67 ], [ zeroinitializer, %for.body.i46 ]
-  %41 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %result_or.1.i84, <4 x i64> %result_or.1.i84)
+  %result_or.0.i84 = phi <4 x i64> [ %or.i.i82, %for.end.i67 ], [ zeroinitializer, %for.body.i46 ]
+  %41 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %result_or.0.i84, <4 x i64> %result_or.0.i84)
   %cmp49.i85 = icmp eq i32 %sub.i52, %sub15.i.i
   %42 = trunc i32 %41 to i8
   %43 = sub i8 0, %42
@@ -2212,20 +2212,20 @@ for.body23.preheader.i:                           ; preds = %if.then.i124
 
 for.body23.i:                                     ; preds = %for.body23.i, %for.body23.preheader.i
   %indvars.iv.i146 = phi i64 [ 0, %for.body23.preheader.i ], [ %indvars.iv.next.i148, %for.body23.i ]
-  %result_or.037.i147 = phi <4 x i64> [ zeroinitializer, %for.body23.preheader.i ], [ %or.i61.i, %for.body23.i ]
+  %result_or.137.i147 = phi <4 x i64> [ zeroinitializer, %for.body23.preheader.i ], [ %or.i61.i, %for.body23.i ]
   %add.ptr25.i = getelementptr inbounds <4 x i64>, ptr %add.ptr16.i, i64 %indvars.iv.i146
   %54 = load <4 x i64>, ptr %add.ptr25.i, align 1
   %add.ptr28.i = getelementptr inbounds <4 x i64>, ptr %add.ptr18.i126, i64 %indvars.iv.i146
   %55 = load <4 x i64>, ptr %add.ptr28.i, align 1
   %xor.i66.i = xor <4 x i64> %55, %54
-  %or.i61.i = or <4 x i64> %xor.i66.i, %result_or.037.i147
+  %or.i61.i = or <4 x i64> %xor.i66.i, %result_or.137.i147
   %indvars.iv.next.i148 = add nuw nsw i64 %indvars.iv.i146, 1
   %exitcond.not.i149 = icmp eq i64 %indvars.iv.next.i148, %wide.trip.count.i145
   br i1 %exitcond.not.i149, label %for.end.i127, label %for.body23.i, !llvm.loop !38
 
 for.end.i127:                                     ; preds = %for.body23.i, %if.then.i124
   %j.0.lcssa.i128 = phi i32 [ 0, %if.then.i124 ], [ %smax.i144, %for.body23.i ]
-  %result_or.0.lcssa.i129 = phi <4 x i64> [ zeroinitializer, %if.then.i124 ], [ %or.i61.i, %for.body23.i ]
+  %result_or.1.lcssa.i129 = phi <4 x i64> [ zeroinitializer, %if.then.i124 ], [ %or.i61.i, %for.body23.i ]
   %mul.i130 = shl nuw nsw i32 %j.0.lcssa.i128, 5
   %sub32.i = sub i32 %.sroa.speculated.i123, %mul.i130
   %conv.i.i131 = trunc i32 %sub32.i to i8
@@ -2241,12 +2241,12 @@ for.end.i127:                                     ; preds = %for.body23.i, %if.t
   %58 = load <4 x i64>, ptr %add.ptr40.i, align 1
   %xor.i.i136 = xor <4 x i64> %58, %57
   %and.i.i137 = and <4 x i64> %xor.i.i136, %56
-  %or.i.i138 = or <4 x i64> %and.i.i137, %result_or.0.lcssa.i129
+  %or.i.i138 = or <4 x i64> %and.i.i137, %result_or.1.lcssa.i129
   br label %if.end.i139
 
 if.end.i139:                                      ; preds = %for.end.i127, %for.body.i110
-  %result_or.1.i140 = phi <4 x i64> [ %or.i.i138, %for.end.i127 ], [ zeroinitializer, %for.body.i110 ]
-  %59 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %result_or.1.i140, <4 x i64> %result_or.1.i140)
+  %result_or.0.i140 = phi <4 x i64> [ %or.i.i138, %for.end.i127 ], [ zeroinitializer, %for.body.i110 ]
+  %59 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %result_or.0.i140, <4 x i64> %result_or.0.i140)
   %cmp47.i = icmp eq i32 %sub.i116, %sub.i.i122
   %60 = trunc i32 %59 to i8
   %61 = sub i8 0, %60
@@ -2316,20 +2316,20 @@ for.body23.preheader.i209:                        ; preds = %if.then.i181
 
 for.body23.i214:                                  ; preds = %for.body23.i214, %for.body23.preheader.i209
   %indvars.iv.i215 = phi i64 [ 0, %for.body23.preheader.i209 ], [ %indvars.iv.next.i221, %for.body23.i214 ]
-  %result_or.038.i216 = phi <4 x i64> [ zeroinitializer, %for.body23.preheader.i209 ], [ %or.i61.i220, %for.body23.i214 ]
+  %result_or.138.i216 = phi <4 x i64> [ zeroinitializer, %for.body23.preheader.i209 ], [ %or.i61.i220, %for.body23.i214 ]
   %add.ptr25.i217 = getelementptr inbounds <4 x i64>, ptr %add.ptr16.i184, i64 %indvars.iv.i215
   %72 = load <4 x i64>, ptr %add.ptr25.i217, align 1
   %add.ptr28.i218 = getelementptr inbounds <4 x i64>, ptr %add.ptr18.i186, i64 %indvars.iv.i215
   %73 = load <4 x i64>, ptr %add.ptr28.i218, align 1
   %xor.i66.i219 = xor <4 x i64> %73, %72
-  %or.i61.i220 = or <4 x i64> %xor.i66.i219, %result_or.038.i216
+  %or.i61.i220 = or <4 x i64> %xor.i66.i219, %result_or.138.i216
   %indvars.iv.next.i221 = add nuw nsw i64 %indvars.iv.i215, 1
   %exitcond.not.i222 = icmp eq i64 %indvars.iv.next.i221, %wide.trip.count.i213
   br i1 %exitcond.not.i222, label %for.end.i187, label %for.body23.i214, !llvm.loop !40
 
 for.end.i187:                                     ; preds = %for.body23.i214, %if.then.i181
   %j.0.lcssa.i188 = phi i32 [ 0, %if.then.i181 ], [ %smax.i212, %for.body23.i214 ]
-  %result_or.0.lcssa.i189 = phi <4 x i64> [ zeroinitializer, %if.then.i181 ], [ %or.i61.i220, %for.body23.i214 ]
+  %result_or.1.lcssa.i189 = phi <4 x i64> [ zeroinitializer, %if.then.i181 ], [ %or.i61.i220, %for.body23.i214 ]
   %mul.i190 = shl nuw nsw i32 %j.0.lcssa.i188, 5
   %sub32.i191 = sub i32 %.sroa.speculated.i179, %mul.i190
   %conv.i.i192 = trunc i32 %sub32.i191 to i8
@@ -2345,12 +2345,12 @@ for.end.i187:                                     ; preds = %for.body23.i214, %i
   %76 = load <4 x i64>, ptr %add.ptr40.i199, align 1
   %xor.i.i200 = xor <4 x i64> %76, %75
   %and.i.i201 = and <4 x i64> %xor.i.i200, %74
-  %or.i.i202 = or <4 x i64> %and.i.i201, %result_or.0.lcssa.i189
+  %or.i.i202 = or <4 x i64> %and.i.i201, %result_or.1.lcssa.i189
   br label %if.end.i203
 
 if.end.i203:                                      ; preds = %for.end.i187, %for.body.i160
-  %result_or.1.i204 = phi <4 x i64> [ %or.i.i202, %for.end.i187 ], [ zeroinitializer, %for.body.i160 ]
-  %77 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %result_or.1.i204, <4 x i64> %result_or.1.i204)
+  %result_or.0.i204 = phi <4 x i64> [ %or.i.i202, %for.end.i187 ], [ zeroinitializer, %for.body.i160 ]
+  %77 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %result_or.0.i204, <4 x i64> %result_or.0.i204)
   %cmp47.i205 = icmp eq i32 %sub.i166, %sub15.i.i178
   %78 = trunc i32 %77 to i8
   %79 = sub i8 0, %78

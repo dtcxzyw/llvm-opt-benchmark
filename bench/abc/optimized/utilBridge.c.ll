@@ -1080,14 +1080,14 @@ define noundef ptr @Gia_ManFromBridgeReadBody(i32 %0, ptr nocapture noundef read
   br label %Gia_AigerReadUnsigned.exit
 
 Gia_AigerReadUnsigned.exit:                       ; preds = %3, %._crit_edge.loopexit.i
-  %.0 = phi ptr [ %4, %3 ], [ %14, %._crit_edge.loopexit.i ]
+  %.4244 = phi ptr [ %4, %3 ], [ %14, %._crit_edge.loopexit.i ]
   %.06.lcssa.i = phi i32 [ 0, %3 ], [ %17, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %13, %._crit_edge.loopexit.i ]
   %.lcssa.i = phi i32 [ %6, %3 ], [ %16, %._crit_edge.loopexit.i ]
   %18 = shl i32 %.lcssa.i, %.06.lcssa.i
   %19 = or i32 %18, %.0.lcssa.i
-  %20 = getelementptr inbounds i8, ptr %.0, i64 1
-  %21 = load i8, ptr %.0, align 1
+  %20 = getelementptr inbounds i8, ptr %.4244, i64 1
+  %21 = load i8, ptr %.4244, align 1
   %22 = zext i8 %21 to i32
   %.not7.i81 = icmp sgt i8 %21, -1
   br i1 %.not7.i81, label %Gia_AigerReadUnsigned.exit90, label %.lr.ph.i82
@@ -1113,14 +1113,14 @@ Gia_AigerReadUnsigned.exit:                       ; preds = %3, %._crit_edge.loo
   br label %Gia_AigerReadUnsigned.exit90
 
 Gia_AigerReadUnsigned.exit90:                     ; preds = %Gia_AigerReadUnsigned.exit, %._crit_edge.loopexit.i86
-  %.1241 = phi ptr [ %20, %Gia_AigerReadUnsigned.exit ], [ %30, %._crit_edge.loopexit.i86 ]
+  %.5245 = phi ptr [ %20, %Gia_AigerReadUnsigned.exit ], [ %30, %._crit_edge.loopexit.i86 ]
   %.06.lcssa.i87 = phi i32 [ 0, %Gia_AigerReadUnsigned.exit ], [ %33, %._crit_edge.loopexit.i86 ]
   %.0.lcssa.i88 = phi i32 [ 0, %Gia_AigerReadUnsigned.exit ], [ %29, %._crit_edge.loopexit.i86 ]
   %.lcssa.i89 = phi i32 [ %22, %Gia_AigerReadUnsigned.exit ], [ %32, %._crit_edge.loopexit.i86 ]
   %34 = shl i32 %.lcssa.i89, %.06.lcssa.i87
   %35 = or i32 %34, %.0.lcssa.i88
-  %36 = getelementptr inbounds i8, ptr %.1241, i64 1
-  %37 = load i8, ptr %.1241, align 1
+  %36 = getelementptr inbounds i8, ptr %.5245, i64 1
+  %37 = load i8, ptr %.5245, align 1
   %38 = zext i8 %37 to i32
   %.not7.i92 = icmp sgt i8 %37, -1
   br i1 %.not7.i92, label %Vec_IntPush.exit, label %.lr.ph.i93
@@ -1146,7 +1146,7 @@ Gia_AigerReadUnsigned.exit90:                     ; preds = %Gia_AigerReadUnsign
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Gia_AigerReadUnsigned.exit90, %._crit_edge.loopexit.i97
-  %.2242 = phi ptr [ %36, %Gia_AigerReadUnsigned.exit90 ], [ %46, %._crit_edge.loopexit.i97 ]
+  %.6 = phi ptr [ %36, %Gia_AigerReadUnsigned.exit90 ], [ %46, %._crit_edge.loopexit.i97 ]
   %.06.lcssa.i98 = phi i32 [ 0, %Gia_AigerReadUnsigned.exit90 ], [ %49, %._crit_edge.loopexit.i97 ]
   %.0.lcssa.i99 = phi i32 [ 0, %Gia_AigerReadUnsigned.exit90 ], [ %45, %._crit_edge.loopexit.i97 ]
   %.lcssa.i100 = phi i32 [ %38, %Gia_AigerReadUnsigned.exit90 ], [ %48, %._crit_edge.loopexit.i97 ]
@@ -1327,15 +1327,15 @@ Vec_IntPush.exit122:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond336.not, label %.preheader247, label %.lr.ph285, !llvm.loop !19
 
 .preheader:                                       ; preds = %Vec_IntPush.exit152, %.preheader247
-  %.3243.lcssa = phi ptr [ %.2242, %.preheader247 ], [ %.5245, %Vec_IntPush.exit152 ]
+  %.0.lcssa = phi ptr [ %.6, %.preheader247 ], [ %.8, %Vec_IntPush.exit152 ]
   br i1 %64, label %.lr.ph291, label %._crit_edge
 
 129:                                              ; preds = %.lr.ph288, %Vec_IntPush.exit152
   %130 = phi ptr [ %.promoted, %.lr.ph288 ], [ %313, %Vec_IntPush.exit152 ]
   %.2287 = phi i32 [ 0, %.lr.ph288 ], [ %318, %Vec_IntPush.exit152 ]
-  %.3243286 = phi ptr [ %.2242, %.lr.ph288 ], [ %.5245, %Vec_IntPush.exit152 ]
-  %131 = getelementptr inbounds i8, ptr %.3243286, i64 1
-  %132 = load i8, ptr %.3243286, align 1
+  %.0286 = phi ptr [ %.6, %.lr.ph288 ], [ %.8, %Vec_IntPush.exit152 ]
+  %131 = getelementptr inbounds i8, ptr %.0286, i64 1
+  %132 = load i8, ptr %.0286, align 1
   %133 = zext i8 %132 to i32
   %.not7.i124 = icmp sgt i8 %132, -1
   br i1 %.not7.i124, label %Gia_AigerReadUnsigned.exit133, label %.lr.ph.i125
@@ -1361,14 +1361,14 @@ Vec_IntPush.exit122:                              ; preds = %.Vec_IntGrow.exit10
   br label %Gia_AigerReadUnsigned.exit133
 
 Gia_AigerReadUnsigned.exit133:                    ; preds = %129, %._crit_edge.loopexit.i129
-  %.4244 = phi ptr [ %131, %129 ], [ %141, %._crit_edge.loopexit.i129 ]
+  %.7 = phi ptr [ %131, %129 ], [ %141, %._crit_edge.loopexit.i129 ]
   %.06.lcssa.i130 = phi i32 [ 0, %129 ], [ %144, %._crit_edge.loopexit.i129 ]
   %.0.lcssa.i131 = phi i32 [ 0, %129 ], [ %140, %._crit_edge.loopexit.i129 ]
   %.lcssa.i132 = phi i32 [ %133, %129 ], [ %143, %._crit_edge.loopexit.i129 ]
   %145 = shl i32 %.lcssa.i132, %.06.lcssa.i130
   %146 = or i32 %145, %.0.lcssa.i131
-  %147 = getelementptr inbounds i8, ptr %.4244, i64 1
-  %148 = load i8, ptr %.4244, align 1
+  %147 = getelementptr inbounds i8, ptr %.7, i64 1
+  %148 = load i8, ptr %.7, align 1
   %149 = zext i8 %148 to i32
   %.not7.i135 = icmp sgt i8 %148, -1
   br i1 %.not7.i135, label %Gia_AigerReadUnsigned.exit144, label %.lr.ph.i136
@@ -1394,7 +1394,7 @@ Gia_AigerReadUnsigned.exit133:                    ; preds = %129, %._crit_edge.l
   br label %Gia_AigerReadUnsigned.exit144
 
 Gia_AigerReadUnsigned.exit144:                    ; preds = %Gia_AigerReadUnsigned.exit133, %._crit_edge.loopexit.i140
-  %.5245 = phi ptr [ %147, %Gia_AigerReadUnsigned.exit133 ], [ %157, %._crit_edge.loopexit.i140 ]
+  %.8 = phi ptr [ %147, %Gia_AigerReadUnsigned.exit133 ], [ %157, %._crit_edge.loopexit.i140 ]
   %.06.lcssa.i141 = phi i32 [ 0, %Gia_AigerReadUnsigned.exit133 ], [ %160, %._crit_edge.loopexit.i140 ]
   %.0.lcssa.i142 = phi i32 [ 0, %Gia_AigerReadUnsigned.exit133 ], [ %156, %._crit_edge.loopexit.i140 ]
   %.lcssa.i143 = phi i32 [ %149, %Gia_AigerReadUnsigned.exit133 ], [ %159, %._crit_edge.loopexit.i140 ]
@@ -1635,9 +1635,9 @@ Vec_IntPush.exit152:                              ; preds = %Vec_IntPush.exit152
 
 .lr.ph291:                                        ; preds = %.preheader, %Gia_AigerReadUnsigned.exit163
   %.3290 = phi i32 [ %324, %Gia_AigerReadUnsigned.exit163 ], [ 0, %.preheader ]
-  %.6289 = phi ptr [ %.7, %Gia_AigerReadUnsigned.exit163 ], [ %.3243.lcssa, %.preheader ]
-  %319 = getelementptr inbounds i8, ptr %.6289, i64 1
-  %320 = load i8, ptr %.6289, align 1
+  %.1241289 = phi ptr [ %.9, %Gia_AigerReadUnsigned.exit163 ], [ %.0.lcssa, %.preheader ]
+  %319 = getelementptr inbounds i8, ptr %.1241289, i64 1
+  %320 = load i8, ptr %.1241289, align 1
   %.not7.i154 = icmp sgt i8 %320, -1
   br i1 %.not7.i154, label %Gia_AigerReadUnsigned.exit163, label %.lr.ph.i155
 
@@ -1649,15 +1649,15 @@ Vec_IntPush.exit152:                              ; preds = %Vec_IntPush.exit152
   br i1 %.not.i158, label %Gia_AigerReadUnsigned.exit163, label %.lr.ph.i155, !llvm.loop !17
 
 Gia_AigerReadUnsigned.exit163:                    ; preds = %.lr.ph.i155, %.lr.ph291
-  %.7 = phi ptr [ %319, %.lr.ph291 ], [ %322, %.lr.ph.i155 ]
+  %.9 = phi ptr [ %319, %.lr.ph291 ], [ %322, %.lr.ph.i155 ]
   %324 = add nuw nsw i32 %.3290, 1
   %exitcond338.not = icmp eq i32 %324, %35
   br i1 %exitcond338.not, label %._crit_edge, label %.lr.ph291, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %Gia_AigerReadUnsigned.exit163, %.preheader
-  %.6.lcssa = phi ptr [ %.3243.lcssa, %.preheader ], [ %.7, %Gia_AigerReadUnsigned.exit163 ]
-  %325 = getelementptr inbounds i8, ptr %.6.lcssa, i64 1
-  %326 = load i8, ptr %.6.lcssa, align 1
+  %.1241.lcssa = phi ptr [ %.0.lcssa, %.preheader ], [ %.9, %Gia_AigerReadUnsigned.exit163 ]
+  %325 = getelementptr inbounds i8, ptr %.1241.lcssa, i64 1
+  %326 = load i8, ptr %.1241.lcssa, align 1
   %327 = zext i8 %326 to i32
   %.not7.i165 = icmp sgt i8 %326, -1
   br i1 %.not7.i165, label %Gia_AigerReadUnsigned.exit174, label %.lr.ph.i166
@@ -1683,7 +1683,7 @@ Gia_AigerReadUnsigned.exit163:                    ; preds = %.lr.ph.i155, %.lr.p
   br label %Gia_AigerReadUnsigned.exit174
 
 Gia_AigerReadUnsigned.exit174:                    ; preds = %._crit_edge, %._crit_edge.loopexit.i170
-  %.8 = phi ptr [ %325, %._crit_edge ], [ %335, %._crit_edge.loopexit.i170 ]
+  %.10 = phi ptr [ %325, %._crit_edge ], [ %335, %._crit_edge.loopexit.i170 ]
   %.06.lcssa.i171 = phi i32 [ 0, %._crit_edge ], [ %338, %._crit_edge.loopexit.i170 ]
   %.0.lcssa.i172 = phi i32 [ 0, %._crit_edge ], [ %334, %._crit_edge.loopexit.i170 ]
   %.lcssa.i173 = phi i32 [ %327, %._crit_edge ], [ %337, %._crit_edge.loopexit.i170 ]
@@ -1698,9 +1698,9 @@ Gia_AigerReadUnsigned.exit174:                    ; preds = %._crit_edge, %._cri
 
 342:                                              ; preds = %.lr.ph295, %Gia_AigerReadUnsigned.exit185
   %.4294 = phi i32 [ 0, %.lr.ph295 ], [ %366, %Gia_AigerReadUnsigned.exit185 ]
-  %.9293 = phi ptr [ %.8, %.lr.ph295 ], [ %.10, %Gia_AigerReadUnsigned.exit185 ]
-  %343 = getelementptr inbounds i8, ptr %.9293, i64 1
-  %344 = load i8, ptr %.9293, align 1
+  %.2242293 = phi ptr [ %.10, %.lr.ph295 ], [ %.11, %Gia_AigerReadUnsigned.exit185 ]
+  %343 = getelementptr inbounds i8, ptr %.2242293, i64 1
+  %344 = load i8, ptr %.2242293, align 1
   %345 = zext i8 %344 to i32
   %.not7.i176 = icmp sgt i8 %344, -1
   br i1 %.not7.i176, label %Gia_AigerReadUnsigned.exit185, label %.lr.ph.i177
@@ -1726,7 +1726,7 @@ Gia_AigerReadUnsigned.exit174:                    ; preds = %._crit_edge, %._cri
   br label %Gia_AigerReadUnsigned.exit185
 
 Gia_AigerReadUnsigned.exit185:                    ; preds = %342, %._crit_edge.loopexit.i181
-  %.10 = phi ptr [ %343, %342 ], [ %353, %._crit_edge.loopexit.i181 ]
+  %.11 = phi ptr [ %343, %342 ], [ %353, %._crit_edge.loopexit.i181 ]
   %.06.lcssa.i182 = phi i32 [ 0, %342 ], [ %356, %._crit_edge.loopexit.i181 ]
   %.0.lcssa.i183 = phi i32 [ 0, %342 ], [ %352, %._crit_edge.loopexit.i181 ]
   %.lcssa.i184 = phi i32 [ %345, %342 ], [ %355, %._crit_edge.loopexit.i181 ]
@@ -1745,13 +1745,13 @@ Gia_AigerReadUnsigned.exit185:                    ; preds = %342, %._crit_edge.l
   br i1 %exitcond339.not, label %._crit_edge296, label %342, !llvm.loop !22
 
 ._crit_edge296:                                   ; preds = %Gia_AigerReadUnsigned.exit185, %Gia_AigerReadUnsigned.exit174
-  %.9.lcssa = phi ptr [ %.8, %Gia_AigerReadUnsigned.exit174 ], [ %.10, %Gia_AigerReadUnsigned.exit185 ]
-  %367 = load i8, ptr %.9.lcssa, align 1
+  %.2242.lcssa = phi ptr [ %.10, %Gia_AigerReadUnsigned.exit174 ], [ %.11, %Gia_AigerReadUnsigned.exit185 ]
+  %367 = load i8, ptr %.2242.lcssa, align 1
   %.not7.i187 = icmp sgt i8 %367, -1
   br i1 %.not7.i187, label %Gia_AigerReadUnsigned.exit196, label %.lr.ph.i188
 
 .lr.ph.i188:                                      ; preds = %._crit_edge296, %.lr.ph.i188
-  %.pn = phi ptr [ %368, %.lr.ph.i188 ], [ %.9.lcssa, %._crit_edge296 ]
+  %.pn = phi ptr [ %368, %.lr.ph.i188 ], [ %.2242.lcssa, %._crit_edge296 ]
   %368 = getelementptr inbounds i8, ptr %.pn, i64 1
   %369 = load i8, ptr %368, align 1
   %.not.i191 = icmp sgt i8 %369, -1
@@ -1782,9 +1782,9 @@ Vec_IntAlloc.exit:                                ; preds = %Gia_AigerReadUnsign
 
 .lr.ph300:                                        ; preds = %Vec_IntAlloc.exit, %Vec_IntPush.exit237
   %.5299 = phi i32 [ %429, %Vec_IntPush.exit237 ], [ 0, %Vec_IntAlloc.exit ]
-  %.13298 = phi ptr [ %.14, %Vec_IntPush.exit237 ], [ %.3243.lcssa, %Vec_IntAlloc.exit ]
-  %379 = getelementptr inbounds i8, ptr %.13298, i64 1
-  %380 = load i8, ptr %.13298, align 1
+  %.3243298 = phi ptr [ %.14, %Vec_IntPush.exit237 ], [ %.0.lcssa, %Vec_IntAlloc.exit ]
+  %379 = getelementptr inbounds i8, ptr %.3243298, i64 1
+  %380 = load i8, ptr %.3243298, align 1
   %381 = zext i8 %380 to i32
   %.not7.i221 = icmp sgt i8 %380, -1
   br i1 %.not7.i221, label %Gia_AigerReadUnsigned.exit230, label %.lr.ph.i222

@@ -3817,86 +3817,86 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.body167
 
 .body167:                                         ; preds = %220, %88, %.body172
-  %.159 = phi i1 [ %228, %.body172 ], [ false, %88 ], [ false, %220 ]
+  %.1371 = phi i1 [ %228, %.body172 ], [ false, %88 ], [ false, %220 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body172 ], [ %89, %88 ], [ %221, %220 ]
-  %.0 = phi ptr [ %90, %.body172 ], [ %86, %88 ], [ %86, %220 ]
+  %.13 = phi ptr [ %90, %.body172 ], [ %86, %88 ], [ %86, %220 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #19
   br label %.body162
 
 .body162:                                         ; preds = %218, %84, %.body167
-  %.260 = phi i1 [ %.159, %.body167 ], [ false, %84 ], [ false, %218 ]
+  %.1270 = phi i1 [ %.1371, %.body167 ], [ false, %84 ], [ false, %218 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body167 ], [ %85, %84 ], [ %219, %218 ]
-  %.1 = phi ptr [ %.0, %.body167 ], [ %82, %84 ], [ %82, %218 ]
+  %.12 = phi ptr [ %.13, %.body167 ], [ %82, %84 ], [ %82, %218 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #19
   br label %.body157
 
 .body157:                                         ; preds = %216, %80, %.body162
-  %.361 = phi i1 [ %.260, %.body162 ], [ false, %80 ], [ false, %216 ]
+  %.1169 = phi i1 [ %.1270, %.body162 ], [ false, %80 ], [ false, %216 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body162 ], [ %81, %80 ], [ %217, %216 ]
-  %.2 = phi ptr [ %.1, %.body162 ], [ %78, %80 ], [ %78, %216 ]
+  %.11 = phi ptr [ %.12, %.body162 ], [ %78, %80 ], [ %78, %216 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #19
   br label %.body152
 
 .body152:                                         ; preds = %214, %76, %.body157
-  %.462 = phi i1 [ %.361, %.body157 ], [ false, %76 ], [ false, %214 ]
+  %.1068 = phi i1 [ %.1169, %.body157 ], [ false, %76 ], [ false, %214 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.body157 ], [ %77, %76 ], [ %215, %214 ]
-  %.3 = phi ptr [ %.2, %.body157 ], [ %74, %76 ], [ %74, %214 ]
+  %.10 = phi ptr [ %.11, %.body157 ], [ %74, %76 ], [ %74, %214 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #19
   br label %.body147
 
 .body147:                                         ; preds = %212, %72, %.body152
-  %.563 = phi i1 [ %.462, %.body152 ], [ false, %72 ], [ false, %212 ]
+  %.967 = phi i1 [ %.1068, %.body152 ], [ false, %72 ], [ false, %212 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %.body152 ], [ %73, %72 ], [ %213, %212 ]
-  %.4 = phi ptr [ %.3, %.body152 ], [ %70, %72 ], [ %70, %212 ]
+  %.9 = phi ptr [ %.10, %.body152 ], [ %70, %72 ], [ %70, %212 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #19
   br label %.body142
 
 .body142:                                         ; preds = %210, %68, %.body147
-  %.664 = phi i1 [ %.563, %.body147 ], [ false, %68 ], [ false, %210 ]
+  %.866 = phi i1 [ %.967, %.body147 ], [ false, %68 ], [ false, %210 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %.body147 ], [ %69, %68 ], [ %211, %210 ]
-  %.5 = phi ptr [ %.4, %.body147 ], [ %66, %68 ], [ %66, %210 ]
+  %.8 = phi ptr [ %.9, %.body147 ], [ %66, %68 ], [ %66, %210 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #19
   br label %.body137
 
 .body137:                                         ; preds = %208, %64, %.body142
-  %.765 = phi i1 [ %.664, %.body142 ], [ false, %64 ], [ false, %208 ]
+  %.765 = phi i1 [ %.866, %.body142 ], [ false, %64 ], [ false, %208 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %.body142 ], [ %65, %64 ], [ %209, %208 ]
-  %.6 = phi ptr [ %.5, %.body142 ], [ %62, %64 ], [ %62, %208 ]
+  %.7 = phi ptr [ %.8, %.body142 ], [ %62, %64 ], [ %62, %208 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #19
   br label %.body132
 
 .body132:                                         ; preds = %206, %60, %.body137
-  %.866 = phi i1 [ %.765, %.body137 ], [ false, %60 ], [ false, %206 ]
+  %.664 = phi i1 [ %.765, %.body137 ], [ false, %60 ], [ false, %206 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %.body137 ], [ %61, %60 ], [ %207, %206 ]
-  %.7 = phi ptr [ %.6, %.body137 ], [ %58, %60 ], [ %58, %206 ]
+  %.6 = phi ptr [ %.7, %.body137 ], [ %58, %60 ], [ %58, %206 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #19
   br label %.body127
 
 .body127:                                         ; preds = %204, %56, %.body132
-  %.967 = phi i1 [ %.866, %.body132 ], [ false, %56 ], [ false, %204 ]
+  %.563 = phi i1 [ %.664, %.body132 ], [ false, %56 ], [ false, %204 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body132 ], [ %57, %56 ], [ %205, %204 ]
-  %.8 = phi ptr [ %.7, %.body132 ], [ %54, %56 ], [ %54, %204 ]
+  %.5 = phi ptr [ %.6, %.body132 ], [ %54, %56 ], [ %54, %204 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
   br label %.body122
 
 .body122:                                         ; preds = %202, %52, %.body127
-  %.1068 = phi i1 [ %.967, %.body127 ], [ false, %52 ], [ false, %202 ]
+  %.462 = phi i1 [ %.563, %.body127 ], [ false, %52 ], [ false, %202 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body127 ], [ %53, %52 ], [ %203, %202 ]
-  %.9 = phi ptr [ %.8, %.body127 ], [ %50, %52 ], [ %50, %202 ]
+  %.4 = phi ptr [ %.5, %.body127 ], [ %50, %52 ], [ %50, %202 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #19
   br label %.body117
 
 .body117:                                         ; preds = %200, %48, %.body122
-  %.1169 = phi i1 [ %.1068, %.body122 ], [ false, %48 ], [ false, %200 ]
+  %.361 = phi i1 [ %.462, %.body122 ], [ false, %48 ], [ false, %200 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body122 ], [ %49, %48 ], [ %201, %200 ]
-  %.10 = phi ptr [ %.9, %.body122 ], [ %46, %48 ], [ %46, %200 ]
+  %.3 = phi ptr [ %.4, %.body122 ], [ %46, %48 ], [ %46, %200 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   br label %.body112
 
 .body112:                                         ; preds = %198, %44, %.body117
-  %.1270 = phi i1 [ %.1169, %.body117 ], [ false, %44 ], [ false, %198 ]
+  %.260 = phi i1 [ %.361, %.body117 ], [ false, %44 ], [ false, %198 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body117 ], [ %45, %44 ], [ %199, %198 ]
-  %.11 = phi ptr [ %.10, %.body117 ], [ %42, %44 ], [ %42, %198 ]
+  %.2 = phi ptr [ %.3, %.body117 ], [ %42, %44 ], [ %42, %198 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
   br label %.body
 
@@ -3906,17 +3906,17 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.loopexit256
 
 .body:                                            ; preds = %.body112, %40, %196
-  %.1371 = phi i1 [ %.1270, %.body112 ], [ false, %40 ], [ false, %196 ]
+  %.159 = phi i1 [ %.260, %.body112 ], [ false, %40 ], [ false, %196 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body112 ], [ %41, %40 ], [ %197, %196 ]
-  %.12 = phi ptr [ %.11, %.body112 ], [ %38, %40 ], [ %38, %196 ]
+  %.1 = phi ptr [ %.2, %.body112 ], [ %38, %40 ], [ %38, %196 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
-  %229 = icmp eq ptr %6, %.12
-  %or.cond = select i1 %.1371, i1 true, i1 %229
+  %229 = icmp eq ptr %6, %.1
+  %or.cond = select i1 %.159, i1 true, i1 %229
   br i1 %or.cond, label %.loopexit256, label %.preheader255
 
 .preheader255:                                    ; preds = %.body, %.preheader255
-  %230 = phi ptr [ %231, %.preheader255 ], [ %.12, %.body ]
+  %230 = phi ptr [ %231, %.preheader255 ], [ %.1, %.body ]
   %231 = getelementptr inbounds i8, ptr %230, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %231) #19
   %232 = icmp eq ptr %231, %6
@@ -3960,8 +3960,8 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.body189
 
 .body189:                                         ; preds = %237, %128, %.body194
-  %.177 = phi i1 [ %245, %.body194 ], [ false, %128 ], [ false, %237 ]
-  %.073 = phi ptr [ %130, %.body194 ], [ %126, %128 ], [ %126, %237 ]
+  %.278 = phi i1 [ %245, %.body194 ], [ false, %128 ], [ false, %237 ]
+  %.275 = phi ptr [ %130, %.body194 ], [ %126, %128 ], [ %126, %237 ]
   %.pn95.pn = phi { ptr, i32 } [ %.pn95, %.body194 ], [ %129, %128 ], [ %238, %237 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #19
   br label %.body179
@@ -3972,12 +3972,12 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.loopexit254
 
 .body179:                                         ; preds = %.body189, %124, %235
-  %.278 = phi i1 [ %.177, %.body189 ], [ false, %124 ], [ false, %235 ]
-  %.174 = phi ptr [ %.073, %.body189 ], [ %122, %124 ], [ %122, %235 ]
+  %.177 = phi i1 [ %.278, %.body189 ], [ false, %124 ], [ false, %235 ]
+  %.174 = phi ptr [ %.275, %.body189 ], [ %122, %124 ], [ %122, %235 ]
   %.pn95.pn.pn = phi { ptr, i32 } [ %.pn95.pn, %.body189 ], [ %125, %124 ], [ %236, %235 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #19
-  br i1 %.278, label %.loopexit254, label %.preheader
+  br i1 %.177, label %.loopexit254, label %.preheader
 
 .preheader:                                       ; preds = %.body179, %.preheader
   %246 = phi ptr [ %247, %.preheader ], [ %.174, %.body179 ]
@@ -5555,8 +5555,8 @@ _ZNSt6vectorIN15cmDocumentation17RequestedHelpItemESaIS1_EE9push_backEOS1_.exit2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN15cmDocumentation17RequestedHelpItemESaIS1_EE9push_backEOS1_.exit266, %37, %._crit_edge.loopexit, %53, %_ZNSt6vectorIN15cmDocumentation17RequestedHelpItemESaIS1_EE9push_backEOS1_.exit
-  %.2147 = phi i1 [ true, %_ZNSt6vectorIN15cmDocumentation17RequestedHelpItemESaIS1_EE9push_backEOS1_.exit ], [ %55, %53 ], [ %497, %._crit_edge.loopexit ], [ false, %37 ], [ true, %_ZNSt6vectorIN15cmDocumentation17RequestedHelpItemESaIS1_EE9push_backEOS1_.exit266 ]
-  ret i1 %.2147
+  %.0145 = phi i1 [ true, %_ZNSt6vectorIN15cmDocumentation17RequestedHelpItemESaIS1_EE9push_backEOS1_.exit ], [ %55, %53 ], [ %497, %._crit_edge.loopexit ], [ false, %37 ], [ true, %_ZNSt6vectorIN15cmDocumentation17RequestedHelpItemESaIS1_EE9push_backEOS1_.exit266 ]
+  ret i1 %.0145
 
 498:                                              ; preds = %134, %.body, %282, %302, %313, %464, %35
   %.sink345 = phi ptr [ %23, %35 ], [ %40, %464 ], [ %40, %313 ], [ %40, %302 ], [ %40, %282 ], [ %40, %.body ], [ %40, %134 ]
@@ -11313,7 +11313,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body350.i
 
 .body350.i:                                       ; preds = %256, %.body360.i, %248, %161
-  %.187.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1368), %256 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1440), %.body360.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1368), %161 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1368), %248 ]
+  %.38124.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1368), %256 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1440), %.body360.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1368), %161 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1368), %248 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.ph.i, %256 ], [ %.pn.i, %.body360.i ], [ %162, %161 ], [ %249, %248 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #19
@@ -11326,7 +11326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body340.i
 
 .body340.i:                                       ; preds = %257, %.body350.i, %244, %155
-  %.389.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1296), %257 ], [ %.187.i, %.body350.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1296), %155 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1296), %244 ]
+  %.36122.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1296), %257 ], [ %.38124.i, %.body350.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1296), %155 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1296), %244 ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.ph.i, %257 ], [ %.pn.pn.pn.i, %.body350.i ], [ %156, %155 ], [ %245, %244 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #19
@@ -11339,7 +11339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body330.i
 
 .body330.i:                                       ; preds = %258, %.body340.i, %240, %149
-  %.591.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1224), %258 ], [ %.389.i, %.body340.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1224), %149 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1224), %240 ]
+  %.34120.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1224), %258 ], [ %.36122.i, %.body340.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1224), %149 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1224), %240 ]
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.ph.i, %258 ], [ %.pn.pn.pn.pn.pn.i, %.body340.i ], [ %150, %149 ], [ %241, %240 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #19
@@ -11352,7 +11352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body320.i
 
 .body320.i:                                       ; preds = %259, %.body330.i, %236, %143
-  %.793.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1152), %259 ], [ %.591.i, %.body330.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1152), %143 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1152), %236 ]
+  %.32118.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1152), %259 ], [ %.34120.i, %.body330.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1152), %143 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1152), %236 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %259 ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %.body330.i ], [ %144, %143 ], [ %237, %236 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #19
@@ -11365,7 +11365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body310.i
 
 .body310.i:                                       ; preds = %260, %.body320.i, %232, %137
-  %.995.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1080), %260 ], [ %.793.i, %.body320.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1080), %137 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1080), %232 ]
+  %.30116.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1080), %260 ], [ %.32118.i, %.body320.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1080), %137 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1080), %232 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %260 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body320.i ], [ %138, %137 ], [ %233, %232 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #19
@@ -11378,7 +11378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body300.i
 
 .body300.i:                                       ; preds = %261, %.body310.i, %228, %131
-  %.1197.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1008), %261 ], [ %.995.i, %.body310.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1008), %131 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1008), %228 ]
+  %.28114.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1008), %261 ], [ %.30116.i, %.body310.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1008), %131 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 1008), %228 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %261 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body310.i ], [ %132, %131 ], [ %229, %228 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #19
@@ -11391,7 +11391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body290.i
 
 .body290.i:                                       ; preds = %262, %.body300.i, %224, %125
-  %.1399.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 936), %262 ], [ %.1197.i, %.body300.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 936), %125 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 936), %224 ]
+  %.26112.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 936), %262 ], [ %.28114.i, %.body300.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 936), %125 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 936), %224 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %262 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body300.i ], [ %126, %125 ], [ %225, %224 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #19
@@ -11404,7 +11404,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body280.i
 
 .body280.i:                                       ; preds = %263, %.body290.i, %220, %119
-  %.15101.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 864), %263 ], [ %.1399.i, %.body290.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 864), %119 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 864), %220 ]
+  %.24110.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 864), %263 ], [ %.26112.i, %.body290.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 864), %119 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 864), %220 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %263 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body290.i ], [ %120, %119 ], [ %221, %220 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #19
@@ -11417,7 +11417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body270.i
 
 .body270.i:                                       ; preds = %264, %.body280.i, %216, %113
-  %.17103.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 792), %264 ], [ %.15101.i, %.body280.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 792), %113 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 792), %216 ]
+  %.22108.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 792), %264 ], [ %.24110.i, %.body280.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 792), %113 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 792), %216 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %264 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body280.i ], [ %114, %113 ], [ %217, %216 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #19
@@ -11430,7 +11430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body260.i
 
 .body260.i:                                       ; preds = %265, %.body270.i, %212, %107
-  %.19105.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 720), %265 ], [ %.17103.i, %.body270.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 720), %107 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 720), %212 ]
+  %.20106.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 720), %265 ], [ %.22108.i, %.body270.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 720), %107 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 720), %212 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %265 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body270.i ], [ %108, %107 ], [ %213, %212 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #19
@@ -11443,7 +11443,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body250.i
 
 .body250.i:                                       ; preds = %266, %.body260.i, %208, %101
-  %.21107.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 648), %266 ], [ %.19105.i, %.body260.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 648), %101 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 648), %208 ]
+  %.18104.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 648), %266 ], [ %.20106.i, %.body260.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 648), %101 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 648), %208 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %266 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body260.i ], [ %102, %101 ], [ %209, %208 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #19
@@ -11456,7 +11456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body240.i
 
 .body240.i:                                       ; preds = %267, %.body250.i, %204, %95
-  %.23109.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 576), %267 ], [ %.21107.i, %.body250.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 576), %95 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 576), %204 ]
+  %.16102.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 576), %267 ], [ %.18104.i, %.body250.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 576), %95 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 576), %204 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %267 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body250.i ], [ %96, %95 ], [ %205, %204 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #19
@@ -11469,7 +11469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body230.i
 
 .body230.i:                                       ; preds = %268, %.body240.i, %200, %89
-  %.25111.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 504), %268 ], [ %.23109.i, %.body240.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 504), %89 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 504), %200 ]
+  %.14100.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 504), %268 ], [ %.16102.i, %.body240.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 504), %89 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 504), %200 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %268 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body240.i ], [ %90, %89 ], [ %201, %200 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #19
@@ -11482,7 +11482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body220.i
 
 .body220.i:                                       ; preds = %269, %.body230.i, %196, %83
-  %.27113.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 432), %269 ], [ %.25111.i, %.body230.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 432), %83 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 432), %196 ]
+  %.1298.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 432), %269 ], [ %.14100.i, %.body230.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 432), %83 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 432), %196 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %269 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body230.i ], [ %84, %83 ], [ %197, %196 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #19
@@ -11495,7 +11495,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body210.i
 
 .body210.i:                                       ; preds = %270, %.body220.i, %192, %77
-  %.29115.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 360), %270 ], [ %.27113.i, %.body220.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 360), %77 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 360), %192 ]
+  %.1096.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 360), %270 ], [ %.1298.i, %.body220.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 360), %77 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 360), %192 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %270 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body220.i ], [ %78, %77 ], [ %193, %192 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
@@ -11508,7 +11508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body200.i
 
 .body200.i:                                       ; preds = %271, %.body210.i, %188, %71
-  %.31117.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 288), %271 ], [ %.29115.i, %.body210.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 288), %71 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 288), %188 ]
+  %.894.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 288), %271 ], [ %.1096.i, %.body210.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 288), %71 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 288), %188 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %271 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body210.i ], [ %72, %71 ], [ %189, %188 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
@@ -11521,7 +11521,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body190.i
 
 .body190.i:                                       ; preds = %272, %.body200.i, %184, %65
-  %.33119.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 216), %272 ], [ %.31117.i, %.body200.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 216), %65 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 216), %184 ]
+  %.692.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 216), %272 ], [ %.894.i, %.body200.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 216), %65 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 216), %184 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %272 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body200.i ], [ %66, %65 ], [ %185, %184 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -11534,7 +11534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %.body180.i
 
 .body180.i:                                       ; preds = %273, %.body190.i, %180, %59
-  %.35121.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 144), %273 ], [ %.33119.i, %.body190.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 144), %59 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 144), %180 ]
+  %.490.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 144), %273 ], [ %.692.i, %.body190.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 144), %59 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 144), %180 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %273 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body190.i ], [ %60, %59 ], [ %181, %180 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
@@ -11558,16 +11558,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367.i:
   br label %common.resume
 
 .body.i:                                          ; preds = %274, %.body180.i, %176, %53
-  %.37123.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 72), %274 ], [ %.35121.i, %.body180.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 72), %53 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 72), %176 ]
+  %.288.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 72), %274 ], [ %.490.i, %.body180.i ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 72), %53 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE, i64 72), %176 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %274 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body180.i ], [ %54, %53 ], [ %177, %176 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  %276 = icmp eq ptr %.37123.i, @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE
+  %276 = icmp eq ptr %.288.i, @_ZN12_GLOBAL__N_130cmDocumentationStandardOptionsE
   br i1 %276, label %common.resume, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %.preheader.i
-  %277 = phi ptr [ %278, %.preheader.i ], [ %.37123.i, %.body.i ]
+  %277 = phi ptr [ %278, %.preheader.i ], [ %.288.i, %.body.i ]
   %278 = getelementptr inbounds i8, ptr %277, i64 -72
   %279 = getelementptr inbounds i8, ptr %277, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %279) #19

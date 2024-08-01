@@ -1138,12 +1138,12 @@ if.then101:                                       ; preds = %if.end98
 
 cleanup104.sink.split:                            ; preds = %if.then88, %if.then84, %if.then65, %if.then61
   %decision75.sink.sroa.phi = phi ptr [ %decision75.sink.sroa.gep, %if.then61 ], [ %decision75.sink.sroa.gep81, %if.then65 ], [ %decision75.sink.sroa.gep82, %if.then84 ], [ %decision75.sink.sroa.gep83, %if.then88 ]
-  %retval.3.ph = phi i1 [ false, %if.then61 ], [ false, %if.then65 ], [ true, %if.then84 ], [ true, %if.then88 ]
+  %retval.2.ph = phi i1 [ false, %if.then61 ], [ false, %if.then65 ], [ true, %if.then84 ], [ true, %if.then88 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %decision75.sink.sroa.phi) #19
   br label %cleanup104
 
 cleanup104:                                       ; preds = %cleanup104.sink.split, %if.end98, %if.then101
-  %retval.3 = phi i1 [ false, %if.then101 ], [ false, %if.end98 ], [ %retval.3.ph, %cleanup104.sink.split ]
+  %retval.2 = phi i1 [ false, %if.then101 ], [ false, %if.end98 ], [ %retval.2.ph, %cleanup104.sink.split ]
   %71 = load ptr, ptr %deny_engine, align 8
   %cmp.not.i.i = icmp eq ptr %71, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_19AuthorizationEngineEED2Ev.exit.i, label %if.then.i.i
@@ -1180,7 +1180,7 @@ if.then.i.i5.i:                                   ; preds = %if.then.i2.i
   br label %_ZN34grpc_authorization_policy_provider20AuthorizationEnginesD2Ev.exit
 
 _ZN34grpc_authorization_policy_provider20AuthorizationEnginesD2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_19AuthorizationEngineEED2Ev.exit.i, %if.then.i2.i, %if.then.i.i5.i
-  ret i1 %retval.3
+  ret i1 %retval.2
 
 ehcleanup105:                                     ; preds = %lpad85, %lpad62, %lpad51
   %.pn12 = phi { ptr, i32 } [ %63, %lpad51 ], [ %69, %lpad85 ], [ %64, %lpad62 ]

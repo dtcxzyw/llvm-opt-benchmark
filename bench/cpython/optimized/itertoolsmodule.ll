@@ -4573,7 +4573,7 @@ if.then25:                                        ; preds = %if.else22
   br label %if.end27
 
 if.end27:                                         ; preds = %if.else22, %if.then25, %if.end.i69, %if.then1.i72, %if.end20
-  %result.0 = phi ptr [ %call17, %if.end20 ], [ %call17, %if.then1.i72 ], [ %call17, %if.end.i69 ], [ %2, %if.else22 ], [ %2, %if.then25 ]
+  %result.1 = phi ptr [ %call17, %if.end20 ], [ %call17, %if.then1.i72 ], [ %call17, %if.end.i69 ], [ %2, %if.else22 ], [ %2, %if.then25 ]
   %add = sub i64 %.val, %4
   br label %for.cond28
 
@@ -4614,7 +4614,7 @@ for.cond52.preheader:                             ; preds = %for.body44, %if.end
 
 for.body54.lr.ph:                                 ; preds = %for.cond52.preheader
   %ob_item56 = getelementptr inbounds i8, ptr %0, i64 24
-  %ob_item58 = getelementptr inbounds i8, ptr %result.0, i64 24
+  %ob_item58 = getelementptr inbounds i8, ptr %result.1, i64 24
   br label %for.body54
 
 for.body44:                                       ; preds = %for.body44.preheader, %for.body44
@@ -4667,14 +4667,14 @@ for.inc60:                                        ; preds = %if.end.i, %if.then1
   br i1 %exitcond82.not, label %if.end63, label %for.body54, !llvm.loop !12
 
 if.end63:                                         ; preds = %for.inc60, %Py_INCREF.exit92, %for.cond52.preheader, %if.end9
-  %result.1 = phi ptr [ %call6, %if.end9 ], [ %result.0, %for.cond52.preheader ], [ %call6, %Py_INCREF.exit92 ], [ %result.0, %for.inc60 ]
-  %33 = load i32, ptr %result.1, align 8
+  %result.0 = phi ptr [ %call6, %if.end9 ], [ %result.1, %for.cond52.preheader ], [ %call6, %Py_INCREF.exit92 ], [ %result.1, %for.inc60 ]
+  %33 = load i32, ptr %result.0, align 8
   %add.i.i = add i32 %33, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end63
-  store i32 %add.i.i, ptr %result.1, align 8
+  store i32 %add.i.i, ptr %result.0, align 8
   br label %return
 
 empty:                                            ; preds = %for.cond28, %if.then15, %if.then5
@@ -4682,7 +4682,7 @@ empty:                                            ; preds = %for.cond28, %if.the
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end63, %entry, %empty
-  %retval.0 = phi ptr [ null, %empty ], [ null, %entry ], [ %result.1, %if.end63 ], [ %result.1, %if.end.i.i ]
+  %retval.0 = phi ptr [ null, %empty ], [ null, %entry ], [ %result.0, %if.end63 ], [ %result.0, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -6203,7 +6203,7 @@ if.then27:                                        ; preds = %if.else24
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else24, %if.then27, %if.end.i59, %if.then1.i62, %if.end22
-  %result.0 = phi ptr [ %call19, %if.end22 ], [ %call19, %if.then1.i62 ], [ %call19, %if.end.i59 ], [ %2, %if.else24 ], [ %2, %if.then27 ]
+  %result.1 = phi ptr [ %call19, %if.end22 ], [ %call19, %if.then1.i62 ], [ %call19, %if.end.i59 ], [ %2, %if.else24 ], [ %2, %if.then27 ]
   %sub33 = add i64 %.val, -1
   br label %for.cond30
 
@@ -6228,7 +6228,7 @@ if.end40:                                         ; preds = %land.rhs
   br i1 %cmp4562, label %for.body46.lr.ph, label %if.end53
 
 for.body46.lr.ph:                                 ; preds = %if.end40
-  %ob_item48 = getelementptr inbounds i8, ptr %result.0, i64 24
+  %ob_item48 = getelementptr inbounds i8, ptr %result.1, i64 24
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.lr.ph, %for.inc50
@@ -6269,14 +6269,14 @@ for.inc50:                                        ; preds = %if.end.i, %if.then1
   br i1 %exitcond.not, label %if.end53, label %for.body46, !llvm.loop !19
 
 if.end53:                                         ; preds = %for.inc50, %Py_INCREF.exit82, %if.end40, %if.then12, %if.end9
-  %result.1 = phi ptr [ %call6, %if.end9 ], [ %call6, %if.then12 ], [ %result.0, %if.end40 ], [ %call6, %Py_INCREF.exit82 ], [ %result.0, %for.inc50 ]
-  %26 = load i32, ptr %result.1, align 8
+  %result.0 = phi ptr [ %call6, %if.end9 ], [ %call6, %if.then12 ], [ %result.1, %if.end40 ], [ %call6, %Py_INCREF.exit82 ], [ %result.1, %for.inc50 ]
+  %26 = load i32, ptr %result.0, align 8
   %add.i.i = add i32 %26, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end53
-  store i32 %add.i.i, ptr %result.1, align 8
+  store i32 %add.i.i, ptr %result.0, align 8
   br label %return
 
 empty:                                            ; preds = %for.cond30, %if.then17, %if.then5
@@ -6284,7 +6284,7 @@ empty:                                            ; preds = %for.cond30, %if.the
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end53, %entry, %empty
-  %retval.0 = phi ptr [ null, %empty ], [ null, %entry ], [ %result.1, %if.end53 ], [ %result.1, %if.end.i.i ]
+  %retval.0 = phi ptr [ null, %empty ], [ null, %entry ], [ %result.0, %if.end53 ], [ %result.0, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -9260,7 +9260,7 @@ if.then33:                                        ; preds = %land.lhs.true30
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else, %if.then33, %land.lhs.true30, %if.end28
-  %start.033 = phi i64 [ -1, %if.then33 ], [ -1, %land.lhs.true30 ], [ %call27, %if.end28 ], [ 0, %if.else ]
+  %start.133 = phi i64 [ -1, %if.then33 ], [ -1, %land.lhs.true30 ], [ %call27, %if.end28 ], [ 0, %if.else ]
   %8 = load ptr, ptr %a2, align 8
   %cmp35.not = icmp eq ptr %8, @_Py_NoneStruct
   br i1 %cmp35.not, label %if.end46, label %if.then36
@@ -9287,8 +9287,8 @@ if.end43:                                         ; preds = %if.then42, %if.then
 
 if.end46:                                         ; preds = %if.end34, %if.then36, %if.then13, %if.then15
   %stop.0 = phi i64 [ %call16, %if.then15 ], [ -1, %if.then13 ], [ %call37, %if.then36 ], [ -1, %if.end34 ]
-  %start.1 = phi i64 [ 0, %if.then15 ], [ 0, %if.then13 ], [ %start.033, %if.then36 ], [ %start.033, %if.end34 ]
-  %cmp47 = icmp slt i64 %start.1, 0
+  %start.0 = phi i64 [ 0, %if.then15 ], [ 0, %if.then13 ], [ %start.133, %if.then36 ], [ %start.133, %if.end34 ]
+  %cmp47 = icmp slt i64 %start.0, 0
   %cmp49 = icmp slt i64 %stop.0, -1
   %or.cond2 = or i1 %cmp49, %cmp47
   br i1 %or.cond2, label %if.then50, label %if.end51
@@ -9330,7 +9330,7 @@ if.then66:                                        ; preds = %land.lhs.true59, %i
   br label %return
 
 if.end67:                                         ; preds = %if.end51, %if.end64
-  %step.142 = phi i64 [ %call56, %if.end64 ], [ 1, %if.end51 ]
+  %step.042 = phi i64 [ %call56, %if.end64 ], [ 1, %if.end51 ]
   %15 = load ptr, ptr %seq, align 8
   %call68 = call ptr @PyObject_GetIter(ptr noundef %15) #8
   %cmp69 = icmp eq ptr %call68, null
@@ -9363,11 +9363,11 @@ if.end75:                                         ; preds = %if.end71
   %it76 = getelementptr inbounds i8, ptr %call72, i64 16
   store ptr %call68, ptr %it76, align 8
   %next = getelementptr inbounds i8, ptr %call72, i64 24
-  store i64 %start.1, ptr %next, align 8
+  store i64 %start.0, ptr %next, align 8
   %stop77 = getelementptr inbounds i8, ptr %call72, i64 32
   store i64 %stop.0, ptr %stop77, align 8
   %step78 = getelementptr inbounds i8, ptr %call72, i64 40
-  store i64 %step.142, ptr %step78, align 8
+  store i64 %step.042, ptr %step78, align 8
   %cnt = getelementptr inbounds i8, ptr %call72, i64 48
   store i64 0, ptr %cnt, align 8
   br label %return
@@ -10149,7 +10149,7 @@ if.then29:                                        ; preds = %if.else26
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else26, %if.then29, %if.end.i85, %if.then1.i88, %if.end24
-  %result.0 = phi ptr [ %call21, %if.end24 ], [ %call21, %if.then1.i88 ], [ %call21, %if.end.i85 ], [ %3, %if.else26 ], [ %3, %if.then29 ]
+  %result.1 = phi ptr [ %call21, %if.end24 ], [ %call21, %if.then1.i88 ], [ %call21, %if.end.i85 ], [ %3, %if.else26 ], [ %3, %if.then29 ]
   %i.194 = add i64 %5, -1
   %cmp3395 = icmp sgt i64 %i.194, -1
   br i1 %cmp3395, label %for.body34.lr.ph, label %empty
@@ -10204,7 +10204,7 @@ if.else54:                                        ; preds = %for.body34
 
 for.body64.lr.ph:                                 ; preds = %if.else54
   %ob_item66 = getelementptr inbounds i8, ptr %0, i64 24
-  %ob_item68 = getelementptr inbounds i8, ptr %result.0, i64 24
+  %ob_item68 = getelementptr inbounds i8, ptr %result.1, i64 24
   br label %for.body64
 
 for.body64:                                       ; preds = %for.body64.lr.ph, %for.inc70
@@ -10247,14 +10247,14 @@ for.inc70:                                        ; preds = %if.end.i, %if.then1
   br i1 %exitcond.not, label %if.end79, label %for.body64, !llvm.loop !27
 
 if.end79:                                         ; preds = %for.inc70, %Py_INCREF.exit108, %if.else54, %if.end10
-  %result.1 = phi ptr [ %call7, %if.end10 ], [ %result.0, %if.else54 ], [ %call7, %Py_INCREF.exit108 ], [ %result.0, %for.inc70 ]
-  %32 = load i32, ptr %result.1, align 8
+  %result.0 = phi ptr [ %call7, %if.end10 ], [ %result.1, %if.else54 ], [ %call7, %Py_INCREF.exit108 ], [ %result.1, %for.inc70 ]
+  %32 = load i32, ptr %result.0, align 8
   %add.i.i = add i32 %32, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end79
-  store i32 %add.i.i, ptr %result.1, align 8
+  store i32 %add.i.i, ptr %result.0, align 8
   br label %return
 
 empty:                                            ; preds = %for.end49, %if.end31, %if.then19, %if.else, %if.then6
@@ -10262,7 +10262,7 @@ empty:                                            ; preds = %for.end49, %if.end3
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end79, %entry, %empty
-  %retval.0 = phi ptr [ null, %empty ], [ null, %entry ], [ %result.1, %if.end79 ], [ %result.1, %if.end.i.i ]
+  %retval.0 = phi ptr [ null, %empty ], [ null, %entry ], [ %result.0, %if.end79 ], [ %result.0, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -11094,14 +11094,14 @@ if.then29:                                        ; preds = %if.else26
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else26, %if.then29, %if.end.i75, %if.then1.i78, %if.end24
-  %result.0 = phi ptr [ %call21, %if.end24 ], [ %call21, %if.then1.i78 ], [ %call21, %if.end.i75 ], [ %1, %if.else26 ], [ %1, %if.then29 ]
+  %result.1 = phi ptr [ %call21, %if.end24 ], [ %call21, %if.then1.i78 ], [ %call21, %if.end.i75 ], [ %1, %if.else26 ], [ %1, %if.then29 ]
   %i.179 = add i64 %.val68, -1
   %cmp3380 = icmp sgt i64 %i.179, -1
   br i1 %cmp3380, label %for.body34.lr.ph, label %empty
 
 for.body34.lr.ph:                                 ; preds = %if.end31
   %ob_item35 = getelementptr inbounds i8, ptr %0, i64 24
-  %ob_item46 = getelementptr inbounds i8, ptr %result.0, i64 24
+  %ob_item46 = getelementptr inbounds i8, ptr %result.1, i64 24
   br label %for.body34
 
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.inc55
@@ -11187,14 +11187,14 @@ for.inc55:                                        ; preds = %Py_INCREF.exit102, 
   br i1 %cmp33, label %for.body34, label %empty, !llvm.loop !36
 
 if.end60:                                         ; preds = %Py_INCREF.exit110, %if.end7, %Py_INCREF.exit, %if.then1.i, %if.end.i
-  %result.1 = phi ptr [ %result.0, %if.end.i ], [ %result.0, %if.then1.i ], [ %result.0, %Py_INCREF.exit ], [ %call4, %if.end7 ], [ %call4, %Py_INCREF.exit110 ]
-  %34 = load i32, ptr %result.1, align 8
+  %result.0 = phi ptr [ %result.1, %if.end.i ], [ %result.1, %if.then1.i ], [ %result.1, %Py_INCREF.exit ], [ %call4, %if.end7 ], [ %call4, %Py_INCREF.exit110 ]
+  %34 = load i32, ptr %result.0, align 8
   %add.i.i = add i32 %34, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end60
-  store i32 %add.i.i, ptr %result.1, align 8
+  store i32 %add.i.i, ptr %result.0, align 8
   br label %return
 
 empty:                                            ; preds = %for.inc55, %for.body, %if.end31, %if.then19, %if.then3
@@ -11202,7 +11202,7 @@ empty:                                            ; preds = %for.inc55, %for.bod
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end60, %entry, %empty
-  %retval.0 = phi ptr [ null, %empty ], [ null, %entry ], [ %result.1, %if.end60 ], [ %result.1, %if.end.i.i ]
+  %retval.0 = phi ptr [ null, %empty ], [ null, %entry ], [ %result.0, %if.end60 ], [ %result.0, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -13990,7 +13990,7 @@ if.then12:                                        ; preds = %if.then9
   br label %return
 
 if.end15:                                         ; preds = %if.end, %land.lhs.true1, %land.lhs.true, %entry
-  %fillvalue.1 = phi ptr [ %call7, %if.end ], [ @_Py_NoneStruct, %land.lhs.true1 ], [ @_Py_NoneStruct, %land.lhs.true ], [ @_Py_NoneStruct, %entry ]
+  %fillvalue.0 = phi ptr [ %call7, %if.end ], [ @_Py_NoneStruct, %land.lhs.true1 ], [ @_Py_NoneStruct, %land.lhs.true ], [ @_Py_NoneStruct, %entry ]
   %3 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %3, align 8
   %call17 = tail call ptr @PyTuple_New(i64 noundef %args.val) #8
@@ -14137,18 +14137,18 @@ if.end39:                                         ; preds = %for.end35
   store i64 %args.val, ptr %numactive, align 8
   %result42 = getelementptr inbounds i8, ptr %call36, i64 40
   store ptr %call265860, ptr %result42, align 8
-  %15 = load i32, ptr %fillvalue.1, align 8
+  %15 = load i32, ptr %fillvalue.0, align 8
   %add.i.i = add i32 %15, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %_Py_NewRef.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end39
-  store i32 %add.i.i, ptr %fillvalue.1, align 8
+  store i32 %add.i.i, ptr %fillvalue.0, align 8
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end39, %if.end.i.i
   %fillvalue44 = getelementptr inbounds i8, ptr %call36, i64 48
-  store ptr %fillvalue.1, ptr %fillvalue44, align 8
+  store ptr %fillvalue.0, ptr %fillvalue44, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then1.i, %Py_DECREF.exit53, %if.end.i57, %if.then1.i60, %if.then28, %if.end.i66, %if.then1.i69, %if.then24, %if.end15, %if.then9, %if.then12, %_Py_NewRef.exit

@@ -1870,7 +1870,7 @@ if.then56:                                        ; preds = %if.end53
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit5.i46, %lor.lhs.false.i51, %_ZN2dd6solver8canceledEv.exit.i58, %lor.lhs.false8.i61, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit5.i, %lor.lhs.false.i, %_ZN2dd6solver8canceledEv.exit.i, %lor.lhs.false8.i, %_ZN2dd6solver8equationD2Ev.exit.i.i, %if.end53, %if.then56
-  %retval.0.ph = phi i1 [ true, %_ZN2dd6solver8equationD2Ev.exit.i.i ], [ true, %if.end53 ], [ true, %if.then56 ], [ false, %lor.lhs.false8.i ], [ false, %_ZN2dd6solver8canceledEv.exit.i ], [ false, %lor.lhs.false.i ], [ false, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit5.i ], [ false, %lor.lhs.false8.i61 ], [ false, %_ZN2dd6solver8canceledEv.exit.i58 ], [ false, %lor.lhs.false.i51 ], [ false, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit5.i46 ]
+  %retval.1.ph = phi i1 [ true, %_ZN2dd6solver8equationD2Ev.exit.i.i ], [ true, %if.end53 ], [ true, %if.then56 ], [ false, %lor.lhs.false8.i ], [ false, %_ZN2dd6solver8canceledEv.exit.i ], [ false, %lor.lhs.false.i ], [ false, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit5.i ], [ false, %lor.lhs.false8.i61 ], [ false, %_ZN2dd6solver8canceledEv.exit.i58 ], [ false, %lor.lhs.false.i51 ], [ false, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit5.i46 ]
   %.pr = load ptr, ptr %e3.i, align 8
   %tobool.not.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i, label %return, label %if.then.i
@@ -1918,7 +1918,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i89
 return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i89, %if.then.i.i.i.i
   %m_solved.i.i.i.i73.sink101 = phi ptr [ %m_solved.i.i.i.i, %if.then.i.i.i.i ], [ %m_solved.i.i.i.i73, %if.then.i.i.i.i89 ]
   %.pr.sink.ph = phi ptr [ %call28, %if.then.i.i.i.i ], [ %.pr, %if.then.i.i.i.i89 ]
-  %retval.1.ph.ph = phi i1 [ false, %if.then.i.i.i.i ], [ %retval.0.ph, %if.then.i.i.i.i89 ]
+  %retval.0.ph.ph = phi i1 [ false, %if.then.i.i.i.i ], [ %retval.1.ph, %if.then.i.i.i.i89 ]
   %.pre.i.i.i.i90 = load ptr, ptr %m_solved.i.i.i.i73.sink101, align 8
   %arrayidx8.phi.trans.insert.i.i.i.i91 = getelementptr inbounds i8, ptr %.pre.i.i.i.i90, i64 -4
   %.pre1.i.i.i.i92 = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i.i91, align 4
@@ -1929,7 +1929,7 @@ return.sink.split:                                ; preds = %return.sink.split.s
   %.sink = phi ptr [ %15, %lor.lhs.false.i.i.i.i ], [ %70, %lor.lhs.false.i.i.i.i81 ], [ %.pre.i.i.i.i90, %return.sink.split.sink.split ]
   %.pr.sink = phi ptr [ %call28, %lor.lhs.false.i.i.i.i ], [ %.pr, %lor.lhs.false.i.i.i.i81 ], [ %.pr.sink.ph, %return.sink.split.sink.split ]
   %m_solved.i.i.i.i73.sink = phi ptr [ %m_solved.i.i.i.i, %lor.lhs.false.i.i.i.i ], [ %m_solved.i.i.i.i73, %lor.lhs.false.i.i.i.i81 ], [ %m_solved.i.i.i.i73.sink101, %return.sink.split.sink.split ]
-  %retval.1.ph = phi i1 [ false, %lor.lhs.false.i.i.i.i ], [ %retval.0.ph, %lor.lhs.false.i.i.i.i81 ], [ %retval.1.ph.ph, %return.sink.split.sink.split ]
+  %retval.0.ph = phi i1 [ false, %lor.lhs.false.i.i.i.i ], [ %retval.1.ph, %lor.lhs.false.i.i.i.i81 ], [ %retval.0.ph.ph, %return.sink.split.sink.split ]
   %idx.ext.i.i.i.i85 = zext i32 %.sink100 to i64
   %add.ptr.i.i.i.i86 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i.i.i85
   store ptr %.pr.sink, ptr %add.ptr.i.i.i.i86, align 8
@@ -1941,8 +1941,8 @@ return.sink.split:                                ; preds = %return.sink.split.s
   br label %return
 
 return:                                           ; preds = %return.sink.split, %cleanup, %if.end27
-  %retval.1 = phi i1 [ false, %if.end27 ], [ %retval.0.ph, %cleanup ], [ %retval.1.ph, %return.sink.split ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.end27 ], [ %retval.1.ph, %cleanup ], [ %retval.0.ph, %return.sink.split ]
+  ret i1 %retval.0
 }
 
 declare void @__cxa_end_catch() local_unnamed_addr
@@ -2849,7 +2849,7 @@ _ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit: ; preds =
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit, %invoke.cont3, %if.then13
-  %retval.0 = phi i1 [ false, %if.then13 ], [ false, %invoke.cont3 ], [ true, %_ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit ]
+  %retval.1 = phi i1 [ false, %if.then13 ], [ false, %invoke.cont3 ], [ true, %_ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit ]
   %29 = load ptr, ptr %m.i14, align 8
   %30 = load i32, ptr %r, align 8
   %31 = load ptr, ptr %29, align 8
@@ -2911,8 +2911,8 @@ _ZN2dd3pddD2Ev.exit76:                            ; preds = %ehcleanup, %if.then
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i.i59, %_ZN2dd3pddD2Ev.exit52, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0, %_ZN2dd3pddD2Ev.exit52 ], [ %retval.0, %if.then.i.i59 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %_ZN2dd3pddD2Ev.exit52 ], [ %retval.1, %if.then.i.i59 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable

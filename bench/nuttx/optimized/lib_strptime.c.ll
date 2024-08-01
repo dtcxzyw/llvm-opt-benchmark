@@ -106,7 +106,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
 .lr.ph.backedge:                                  ; preds = %21, %_conv_num.exit298
   %.be = phi i8 [ %23, %21 ], [ %411, %_conv_num.exit298 ]
   %.095593.be = phi ptr [ %22, %21 ], [ %.398, %_conv_num.exit298 ]
-  %.0375592.be = phi ptr [ %.1376, %21 ], [ %.27, %_conv_num.exit298 ]
+  %.0375592.be = phi ptr [ %.1376, %21 ], [ %.2377, %_conv_num.exit298 ]
   br label %.lr.ph, !llvm.loop !8
 
 24:                                               ; preds = %.lr.ph
@@ -115,12 +115,12 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not110, label %.preheader428, label %.loopexit
 
 .preheader428:                                    ; preds = %24, %.preheader428.backedge
-  %.196 = phi ptr [ %26, %.preheader428.backedge ], [ %25, %24 ]
+  %.297 = phi ptr [ %26, %.preheader428.backedge ], [ %25, %24 ]
   %.not111 = phi i1 [ false, %.preheader428.backedge ], [ true, %24 ]
   %.not114 = phi i1 [ %.not114.be, %.preheader428.backedge ], [ true, %24 ]
   %.not116 = phi i1 [ %.not116.be, %.preheader428.backedge ], [ true, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.196, i64 1
-  %27 = load i8, ptr %.196, align 1
+  %26 = getelementptr inbounds i8, ptr %.297, i64 1
+  %27 = load i8, ptr %.297, align 1
   switch i8 %27, label %_conv_num.exit.thread [
     i8 37, label %.loopexit
     i8 69, label %30
@@ -159,7 +159,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   ]
 
 .loopexit:                                        ; preds = %.preheader428, %24
-  %.297 = phi ptr [ %25, %24 ], [ %26, %.preheader428 ]
+  %.196 = phi ptr [ %25, %24 ], [ %26, %.preheader428 ]
   %.093 = phi i8 [ %14, %24 ], [ %27, %.preheader428 ]
   %28 = getelementptr inbounds i8, ptr %.0375592, i64 1
   %29 = load i8, ptr %.0375592, align 1
@@ -259,10 +259,10 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   br i1 %exitcond771.not, label %_conv_num.exit.thread, label %.preheader, !llvm.loop !9
 
 .thread:                                          ; preds = %.preheader, %59
-  %.2382.ph = phi i64 [ %56, %.preheader ], [ %62, %59 ]
+  %.3382.ph = phi i64 [ %56, %.preheader ], [ %62, %59 ]
   %66 = trunc nuw nsw i64 %indvars.iv768 to i32
   store i32 %66, ptr %8, align 8
-  %67 = getelementptr inbounds i8, ptr %.0375592, i64 %.2382.ph
+  %67 = getelementptr inbounds i8, ptr %.0375592, i64 %.3382.ph
   br label %_conv_num.exit298
 
 68:                                               ; preds = %.preheader428, %.preheader428, %.preheader428
@@ -291,10 +291,10 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   br i1 %exitcond.not, label %_conv_num.exit.thread, label %.preheader426, !llvm.loop !10
 
 .thread384:                                       ; preds = %.preheader426, %74
-  %.4386.ph = phi i64 [ %71, %.preheader426 ], [ %77, %74 ]
+  %.5386.ph = phi i64 [ %71, %.preheader426 ], [ %77, %74 ]
   %81 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %81, ptr %10, align 8
-  %82 = getelementptr inbounds i8, ptr %.0375592, i64 %.4386.ph
+  %82 = getelementptr inbounds i8, ptr %.0375592, i64 %.5386.ph
   br label %_conv_num.exit298
 
 83:                                               ; preds = %.preheader428
@@ -1023,23 +1023,23 @@ _conv_num.exit349:                                ; preds = %.critedge.i345
   br i1 %.not111, label %.preheader427, label %_conv_num.exit.thread
 
 .preheader427:                                    ; preds = %406, %.preheader427
-  %.26 = phi ptr [ %410, %.preheader427 ], [ %.0375592, %406 ]
-  %407 = load i8, ptr %.26, align 1
+  %.3378 = phi ptr [ %410, %.preheader427 ], [ %.0375592, %406 ]
+  %407 = load i8, ptr %.3378, align 1
   %408 = zext i8 %407 to i32
   %409 = tail call i32 @isspace(i32 noundef %408) #3
   %.not112 = icmp eq i32 %409, 0
-  %410 = getelementptr inbounds i8, ptr %.26, i64 1
+  %410 = getelementptr inbounds i8, ptr %.3378, i64 1
   br i1 %.not112, label %_conv_num.exit298, label %.preheader427, !llvm.loop !13
 
 _conv_num.exit298:                                ; preds = %.preheader427, %_conv_num.exit349, %_conv_num.exit315, %.critedge.i294, %_conv_num.exit281, %_conv_num.exit247, %_conv_num.exit213, %_conv_num.exit196, %_conv_num.exit179, %51, %48, %45, %42, %39, %36, %33, %.loopexit, %_conv_num.exit332, %290, %279, %267, %214, %_conv_num.exit, %.thread384, %.thread
-  %.27 = phi ptr [ %395, %_conv_num.exit349 ], [ %370, %_conv_num.exit332 ], [ %scevgep, %_conv_num.exit315 ], [ %306, %_conv_num.exit281 ], [ %280, %279 ], [ %291, %290 ], [ %255, %267 ], [ %230, %_conv_num.exit247 ], [ %202, %214 ], [ %176, %_conv_num.exit213 ], [ %150, %_conv_num.exit196 ], [ %123, %_conv_num.exit179 ], [ %97, %_conv_num.exit ], [ %82, %.thread384 ], [ %67, %.thread ], [ %52, %51 ], [ %49, %48 ], [ %46, %45 ], [ %43, %42 ], [ %40, %39 ], [ %37, %36 ], [ %34, %33 ], [ %28, %.loopexit ], [ %331, %.critedge.i294 ], [ %.26, %.preheader427 ]
-  %.398 = phi ptr [ %26, %_conv_num.exit349 ], [ %26, %_conv_num.exit332 ], [ %26, %_conv_num.exit315 ], [ %26, %_conv_num.exit281 ], [ %26, %279 ], [ %26, %290 ], [ %26, %267 ], [ %26, %_conv_num.exit247 ], [ %26, %214 ], [ %26, %_conv_num.exit213 ], [ %26, %_conv_num.exit196 ], [ %26, %_conv_num.exit179 ], [ %26, %_conv_num.exit ], [ %26, %.thread384 ], [ %26, %.thread ], [ %26, %51 ], [ %26, %48 ], [ %26, %45 ], [ %26, %42 ], [ %26, %39 ], [ %26, %36 ], [ %26, %33 ], [ %.297, %.loopexit ], [ %26, %.critedge.i294 ], [ %26, %.preheader427 ]
+  %.2377 = phi ptr [ %395, %_conv_num.exit349 ], [ %370, %_conv_num.exit332 ], [ %scevgep, %_conv_num.exit315 ], [ %306, %_conv_num.exit281 ], [ %280, %279 ], [ %291, %290 ], [ %255, %267 ], [ %230, %_conv_num.exit247 ], [ %202, %214 ], [ %176, %_conv_num.exit213 ], [ %150, %_conv_num.exit196 ], [ %123, %_conv_num.exit179 ], [ %97, %_conv_num.exit ], [ %82, %.thread384 ], [ %67, %.thread ], [ %52, %51 ], [ %49, %48 ], [ %46, %45 ], [ %43, %42 ], [ %40, %39 ], [ %37, %36 ], [ %34, %33 ], [ %28, %.loopexit ], [ %331, %.critedge.i294 ], [ %.3378, %.preheader427 ]
+  %.398 = phi ptr [ %26, %_conv_num.exit349 ], [ %26, %_conv_num.exit332 ], [ %26, %_conv_num.exit315 ], [ %26, %_conv_num.exit281 ], [ %26, %279 ], [ %26, %290 ], [ %26, %267 ], [ %26, %_conv_num.exit247 ], [ %26, %214 ], [ %26, %_conv_num.exit213 ], [ %26, %_conv_num.exit196 ], [ %26, %_conv_num.exit179 ], [ %26, %_conv_num.exit ], [ %26, %.thread384 ], [ %26, %.thread ], [ %26, %51 ], [ %26, %48 ], [ %26, %45 ], [ %26, %42 ], [ %26, %39 ], [ %26, %36 ], [ %26, %33 ], [ %.196, %.loopexit ], [ %26, %.critedge.i294 ], [ %26, %.preheader427 ]
   %411 = load i8, ptr %.398, align 1
   %.not591 = icmp eq i8 %411, 0
   br i1 %.not591, label %.outer._crit_edge, label %.lr.ph.backedge
 
 .outer._crit_edge:                                ; preds = %_conv_num.exit298, %21, %4
-  %.0375.lcssa = phi ptr [ %0, %4 ], [ %.27, %_conv_num.exit298 ], [ %.1376, %21 ]
+  %.0375.lcssa = phi ptr [ %0, %4 ], [ %.2377, %_conv_num.exit298 ], [ %.1376, %21 ]
   %412 = getelementptr inbounds i8, ptr %3, i64 4
   %413 = load i32, ptr %412, align 4
   %.not108 = icmp eq i32 %413, -1

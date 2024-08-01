@@ -1137,7 +1137,7 @@ _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exi
 
 .preheader628:                                    ; preds = %.preheader628.preheader, %1633
   %indvars.iv = phi i64 [ 0, %.preheader628.preheader ], [ %indvars.iv.next, %1633 ]
-  %.1691151 = phi i1 [ false, %.preheader628.preheader ], [ %.15, %1633 ]
+  %.3711151 = phi i1 [ false, %.preheader628.preheader ], [ %.472, %1633 ]
   %227 = load ptr, ptr %217, align 8, !noalias !6
   %228 = getelementptr inbounds %"class.zxing::Ref.53", ptr %227, i64 %indvars.iv
   %229 = load ptr, ptr %228, align 8, !noalias !6
@@ -1248,9 +1248,9 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %274
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %862
-  %.2701120 = phi i1 [ %.573, %862 ], [ %.1691151, %.lr.ph.preheader ]
+  %.5731120 = phi i1 [ %.674, %862 ], [ %.3711151, %.lr.ph.preheader ]
   %.0841118 = phi i32 [ %863, %862 ], [ 0, %.lr.ph.preheader ]
-  %.0851117 = phi i8 [ %.287, %862 ], [ 0, %.lr.ph.preheader ]
+  %.0851117 = phi i8 [ %.186, %862 ], [ 0, %.lr.ph.preheader ]
   %281 = trunc nuw i8 %.0851117 to i1
   br i1 %281, label %._crit_edge, label %282
 
@@ -2327,7 +2327,7 @@ _ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit: ; preds = 
   %750 = load i8, ptr %45, align 8
   %751 = trunc i8 %750 to i1
   %.mask = and i8 %750, 1
-  %..270 = select i1 %751, i1 true, i1 %.2701120
+  %..573 = select i1 %751, i1 true, i1 %.5731120
   %752 = load ptr, ptr %21, align 8
   %.not.i288 = icmp eq ptr %752, null
   br i1 %.not.i288, label %_ZN5zxing3RefINS_6ResultEED2Ev.exit, label %753
@@ -2524,9 +2524,9 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit298: ; preds = %821, %82
   br label %864
 
 _ZN5zxing3RefINS_6ResultEED2Ev.exit:              ; preds = %758, %753, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit, %545, %548, %552
-  %.1119.shrunk = phi i8 [ 10, %552 ], [ 10, %548 ], [ 10, %545 ], [ %.mask, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit ], [ %.mask, %753 ], [ %.mask, %758 ]
-  %.186 = phi i8 [ %.0851117, %552 ], [ %.0851117, %548 ], [ %.0851117, %545 ], [ 1, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit ], [ 1, %753 ], [ 1, %758 ]
-  %.472 = phi i1 [ %.2701120, %552 ], [ %.2701120, %548 ], [ %.2701120, %545 ], [ %..270, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit ], [ %..270, %753 ], [ %..270, %758 ]
+  %.3121.shrunk = phi i8 [ 10, %552 ], [ 10, %548 ], [ 10, %545 ], [ %.mask, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit ], [ %.mask, %753 ], [ %.mask, %758 ]
+  %.287 = phi i8 [ %.0851117, %552 ], [ %.0851117, %548 ], [ %.0851117, %545 ], [ 1, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit ], [ 1, %753 ], [ 1, %758 ]
+  %.7 = phi i1 [ %.5731120, %552 ], [ %.5731120, %548 ], [ %.5731120, %545 ], [ %..573, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit ], [ %..573, %753 ], [ %..573, %758 ]
   %832 = load ptr, ptr %16, align 8
   %.not.i299 = icmp eq ptr %832, null
   br i1 %.not.i299, label %_ZN5zxing3RefINS_13DecoderResultEED2Ev.exit, label %833
@@ -2548,9 +2548,9 @@ _ZN5zxing3RefINS_6ResultEED2Ev.exit:              ; preds = %758, %753, %_ZNSt6v
   br label %_ZN5zxing3RefINS_13DecoderResultEED2Ev.exit
 
 _ZN5zxing3RefINS_13DecoderResultEED2Ev.exit:      ; preds = %838, %833, %_ZN5zxing3RefINS_6ResultEED2Ev.exit, %425, %428, %432
-  %.2120.shrunk = phi i8 [ 10, %432 ], [ 10, %428 ], [ 10, %425 ], [ %.1119.shrunk, %_ZN5zxing3RefINS_6ResultEED2Ev.exit ], [ %.1119.shrunk, %833 ], [ %.1119.shrunk, %838 ]
-  %.287 = phi i8 [ %.0851117, %432 ], [ %.0851117, %428 ], [ %.0851117, %425 ], [ %.186, %_ZN5zxing3RefINS_6ResultEED2Ev.exit ], [ %.186, %833 ], [ %.186, %838 ]
-  %.573 = phi i1 [ %.2701120, %432 ], [ %.2701120, %428 ], [ %.2701120, %425 ], [ %.472, %_ZN5zxing3RefINS_6ResultEED2Ev.exit ], [ %.472, %833 ], [ %.472, %838 ]
+  %.2120.shrunk = phi i8 [ 10, %432 ], [ 10, %428 ], [ 10, %425 ], [ %.3121.shrunk, %_ZN5zxing3RefINS_6ResultEED2Ev.exit ], [ %.3121.shrunk, %833 ], [ %.3121.shrunk, %838 ]
+  %.186 = phi i8 [ %.0851117, %432 ], [ %.0851117, %428 ], [ %.0851117, %425 ], [ %.287, %_ZN5zxing3RefINS_6ResultEED2Ev.exit ], [ %.287, %833 ], [ %.287, %838 ]
+  %.674 = phi i1 [ %.5731120, %432 ], [ %.5731120, %428 ], [ %.5731120, %425 ], [ %.7, %_ZN5zxing3RefINS_6ResultEED2Ev.exit ], [ %.7, %833 ], [ %.7, %838 ]
   %842 = load ptr, ptr %14, align 8
   %.not.i300 = icmp eq ptr %842, null
   br i1 %.not.i300, label %_ZN5zxing3RefINS_14DetectorResultEED2Ev.exit, label %843
@@ -2687,8 +2687,8 @@ _ZN5zxing3RefINS_14DetectorResultEED2Ev.exit308:  ; preds = %891, %886, %_ZN5zxi
   br i1 %900, label %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit310.sink.split, label %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit310
 
 ._crit_edge:                                      ; preds = %862, %.lr.ph
-  %.085.lcssa = phi i8 [ %.287, %862 ], [ %.0851117, %.lr.ph ]
-  %.270.lcssa = phi i1 [ %.573, %862 ], [ %.2701120, %.lr.ph ]
+  %.085.lcssa = phi i8 [ %.186, %862 ], [ %.0851117, %.lr.ph ]
+  %.573.lcssa = phi i1 [ %.674, %862 ], [ %.5731120, %.lr.ph ]
   br i1 %.not.i.i221, label %.loopexit1513, label %.lr.ph1142.preheader
 
 .lr.ph1142.preheader:                             ; preds = %._crit_edge
@@ -2701,7 +2701,7 @@ _ZN5zxing3RefINS_14DetectorResultEED2Ev.exit308:  ; preds = %891, %886, %_ZN5zxi
   br i1 %exitcond1450.not, label %.loopexit1513, label %.lr.ph1142, !llvm.loop !16
 
 .lr.ph1142:                                       ; preds = %.lr.ph1142.preheader, %901
-  %.6741140 = phi i1 [ %.13, %901 ], [ %.270.lcssa, %.lr.ph1142.preheader ]
+  %.101140 = phi i1 [ %.17, %901 ], [ %.573.lcssa, %.lr.ph1142.preheader ]
   %.0761137 = phi i32 [ %902, %901 ], [ 0, %.lr.ph1142.preheader ]
   %.3881136 = phi i8 [ %.994, %901 ], [ %.085.lcssa, %.lr.ph1142.preheader ]
   %903 = trunc nuw i8 %.3881136 to i1
@@ -2745,9 +2745,9 @@ _ZN5zxing3RefINS_14DetectorResultEED2Ev.exit308:  ; preds = %891, %886, %_ZN5zxi
 
 .lr.ph1132:                                       ; preds = %.preheader, %1565
   %924 = phi ptr [ %1568, %1565 ], [ %919, %.preheader ]
-  %.71131 = phi i1 [ %.10, %1565 ], [ %.6741140, %.preheader ]
+  %.121131 = phi i1 [ %.13, %1565 ], [ %.101140, %.preheader ]
   %.0751130 = phi i64 [ %1566, %1565 ], [ 1, %.preheader ]
-  %.4891129 = phi i8 [ %.691, %1565 ], [ %.3881136, %.preheader ]
+  %.5901129 = phi i8 [ %.691, %1565 ], [ %.3881136, %.preheader ]
   %925 = load ptr, ptr %5, align 8
   %926 = getelementptr inbounds i8, ptr %925, i64 56
   %927 = load ptr, ptr %926, align 8
@@ -4030,7 +4030,7 @@ _ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit431: ; preds
   %1463 = load i8, ptr %45, align 8
   %1464 = trunc i8 %1463 to i1
   %.mask615 = and i8 %1463, 1
-  %..7 = select i1 %1464, i1 true, i1 %.71131
+  %..12 = select i1 %1464, i1 true, i1 %.121131
   %1465 = load ptr, ptr %37, align 8
   %.not.i432 = icmp eq ptr %1465, null
   br i1 %.not.i432, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit379, label %1466
@@ -4227,9 +4227,9 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit443: ; preds = %1534, %1
   br label %1574
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit379: ; preds = %1471, %1466, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit431, %1274, %1271, %1270, %1267, %1266, %1263, %1262, %1259, %1258, %1255, %1254, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit378
-  %.4122.shrunk = phi i8 [ 16, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit378 ], [ 16, %1254 ], [ 16, %1255 ], [ 16, %1258 ], [ 16, %1259 ], [ 16, %1262 ], [ 16, %1263 ], [ 16, %1266 ], [ 16, %1267 ], [ 16, %1270 ], [ 16, %1271 ], [ 16, %1274 ], [ %.mask615, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit431 ], [ %.mask615, %1466 ], [ %.mask615, %1471 ]
-  %.590 = phi i8 [ %.4891129, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit378 ], [ %.4891129, %1254 ], [ %.4891129, %1255 ], [ %.4891129, %1258 ], [ %.4891129, %1259 ], [ %.4891129, %1262 ], [ %.4891129, %1263 ], [ %.4891129, %1266 ], [ %.4891129, %1267 ], [ %.4891129, %1270 ], [ %.4891129, %1271 ], [ %.4891129, %1274 ], [ 1, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit431 ], [ 1, %1466 ], [ 1, %1471 ]
-  %.9 = phi i1 [ %.71131, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit378 ], [ %.71131, %1254 ], [ %.71131, %1255 ], [ %.71131, %1258 ], [ %.71131, %1259 ], [ %.71131, %1262 ], [ %.71131, %1263 ], [ %.71131, %1266 ], [ %.71131, %1267 ], [ %.71131, %1270 ], [ %.71131, %1271 ], [ %.71131, %1274 ], [ %..7, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit431 ], [ %..7, %1466 ], [ %..7, %1471 ]
+  %.7125.shrunk = phi i8 [ 16, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit378 ], [ 16, %1254 ], [ 16, %1255 ], [ 16, %1258 ], [ 16, %1259 ], [ 16, %1262 ], [ 16, %1263 ], [ 16, %1266 ], [ 16, %1267 ], [ 16, %1270 ], [ 16, %1271 ], [ 16, %1274 ], [ %.mask615, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit431 ], [ %.mask615, %1466 ], [ %.mask615, %1471 ]
+  %.792 = phi i8 [ %.5901129, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit378 ], [ %.5901129, %1254 ], [ %.5901129, %1255 ], [ %.5901129, %1258 ], [ %.5901129, %1259 ], [ %.5901129, %1262 ], [ %.5901129, %1263 ], [ %.5901129, %1266 ], [ %.5901129, %1267 ], [ %.5901129, %1270 ], [ %.5901129, %1271 ], [ %.5901129, %1274 ], [ 1, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit431 ], [ 1, %1466 ], [ 1, %1471 ]
+  %.14 = phi i1 [ %.121131, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit378 ], [ %.121131, %1254 ], [ %.121131, %1255 ], [ %.121131, %1258 ], [ %.121131, %1259 ], [ %.121131, %1262 ], [ %.121131, %1263 ], [ %.121131, %1266 ], [ %.121131, %1267 ], [ %.121131, %1270 ], [ %.121131, %1271 ], [ %.121131, %1274 ], [ %..12, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit431 ], [ %..12, %1466 ], [ %..12, %1471 ]
   %1545 = load ptr, ptr %33, align 8
   %.not.i444 = icmp eq ptr %1545, null
   br i1 %.not.i444, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit342, label %1546
@@ -4251,9 +4251,9 @@ _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit3
   br label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit342
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit342: ; preds = %1551, %1546, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit379, %1074, %1071, %1070, %1067, %1066, %1063, %1062, %1059, %1058, %1055, %1054, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit341
-  %.5123.shrunk = phi i8 [ 16, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit341 ], [ 16, %1054 ], [ 16, %1055 ], [ 16, %1058 ], [ 16, %1059 ], [ 16, %1062 ], [ 16, %1063 ], [ 16, %1066 ], [ 16, %1067 ], [ 16, %1070 ], [ 16, %1071 ], [ 16, %1074 ], [ %.4122.shrunk, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit379 ], [ %.4122.shrunk, %1546 ], [ %.4122.shrunk, %1551 ]
-  %.691 = phi i8 [ %.4891129, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit341 ], [ %.4891129, %1054 ], [ %.4891129, %1055 ], [ %.4891129, %1058 ], [ %.4891129, %1059 ], [ %.4891129, %1062 ], [ %.4891129, %1063 ], [ %.4891129, %1066 ], [ %.4891129, %1067 ], [ %.4891129, %1070 ], [ %.4891129, %1071 ], [ %.4891129, %1074 ], [ %.590, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit379 ], [ %.590, %1546 ], [ %.590, %1551 ]
-  %.10 = phi i1 [ %.71131, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit341 ], [ %.71131, %1054 ], [ %.71131, %1055 ], [ %.71131, %1058 ], [ %.71131, %1059 ], [ %.71131, %1062 ], [ %.71131, %1063 ], [ %.71131, %1066 ], [ %.71131, %1067 ], [ %.71131, %1070 ], [ %.71131, %1071 ], [ %.71131, %1074 ], [ %.9, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit379 ], [ %.9, %1546 ], [ %.9, %1551 ]
+  %.6124.shrunk = phi i8 [ 16, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit341 ], [ 16, %1054 ], [ 16, %1055 ], [ 16, %1058 ], [ 16, %1059 ], [ 16, %1062 ], [ 16, %1063 ], [ 16, %1066 ], [ 16, %1067 ], [ 16, %1070 ], [ 16, %1071 ], [ 16, %1074 ], [ %.7125.shrunk, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit379 ], [ %.7125.shrunk, %1546 ], [ %.7125.shrunk, %1551 ]
+  %.691 = phi i8 [ %.5901129, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit341 ], [ %.5901129, %1054 ], [ %.5901129, %1055 ], [ %.5901129, %1058 ], [ %.5901129, %1059 ], [ %.5901129, %1062 ], [ %.5901129, %1063 ], [ %.5901129, %1066 ], [ %.5901129, %1067 ], [ %.5901129, %1070 ], [ %.5901129, %1071 ], [ %.5901129, %1074 ], [ %.792, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit379 ], [ %.792, %1546 ], [ %.792, %1551 ]
+  %.13 = phi i1 [ %.121131, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit341 ], [ %.121131, %1054 ], [ %.121131, %1055 ], [ %.121131, %1058 ], [ %.121131, %1059 ], [ %.121131, %1062 ], [ %.121131, %1063 ], [ %.121131, %1066 ], [ %.121131, %1067 ], [ %.121131, %1070 ], [ %.121131, %1071 ], [ %.121131, %1074 ], [ %.14, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit379 ], [ %.14, %1546 ], [ %.14, %1551 ]
   %1555 = load ptr, ptr %31, align 8
   %.not.i446 = icmp eq ptr %1555, null
   br i1 %.not.i446, label %_ZN5zxing3RefINS_14DetectorResultEED2Ev.exit447, label %1556
@@ -4275,7 +4275,7 @@ _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit3
   br label %_ZN5zxing3RefINS_14DetectorResultEED2Ev.exit447
 
 _ZN5zxing3RefINS_14DetectorResultEED2Ev.exit447:  ; preds = %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit342, %1556, %1561
-  switch i8 %.5123.shrunk, label %.split.loop.exit1125 [
+  switch i8 %.6124.shrunk, label %.split.loop.exit1125 [
     i8 0, label %1565
     i8 16, label %1565
   ]
@@ -4358,15 +4358,15 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit344: ; preds = %1591, %1
   br label %_ZN5zxing3RefINS_14DetectorResultEED2Ev.exit453
 
 .split.loop.exit1125:                             ; preds = %_ZN5zxing3RefINS_14DetectorResultEED2Ev.exit447
-  %.5123.le = zext nneg i8 %.5123.shrunk to i32
+  %.6124.le = zext nneg i8 %.6124.shrunk to i32
   %.pre = load ptr, ptr %30, align 8
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %1565, %.preheader, %.split.loop.exit1125
   %1605 = phi ptr [ %.pre, %.split.loop.exit1125 ], [ %919, %.preheader ], [ %1568, %1565 ]
-  %.6124 = phi i32 [ %.5123.le, %.split.loop.exit1125 ], [ 0, %.preheader ], [ 0, %1565 ]
-  %.792 = phi i8 [ %.691, %.split.loop.exit1125 ], [ %.3881136, %.preheader ], [ %.691, %1565 ]
-  %.11 = phi i1 [ %.10, %.split.loop.exit1125 ], [ %.6741140, %.preheader ], [ %.10, %1565 ]
+  %.9127 = phi i32 [ %.6124.le, %.split.loop.exit1125 ], [ 0, %.preheader ], [ 0, %1565 ]
+  %.893 = phi i8 [ %.691, %.split.loop.exit1125 ], [ %.3881136, %.preheader ], [ %.691, %1565 ]
+  %.16 = phi i1 [ %.13, %.split.loop.exit1125 ], [ %.101140, %.preheader ], [ %.13, %1565 ]
   %.not.i.i.i454 = icmp eq ptr %1605, null
   br i1 %.not.i.i.i454, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %1606
 
@@ -4385,9 +4385,9 @@ _ZN5zxing3RefINS_14DetectorResultEED2Ev.exit453:  ; preds = %1601, %1596, %_ZN5z
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit456
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1606, %.split.loop.exit, %908
-  %.7125 = phi i32 [ 0, %908 ], [ %.6124, %.split.loop.exit ], [ %.6124, %1606 ]
-  %.994 = phi i8 [ %.3881136, %908 ], [ %.792, %.split.loop.exit ], [ %.792, %1606 ]
-  %.13 = phi i1 [ %.6741140, %908 ], [ %.11, %.split.loop.exit ], [ %.11, %1606 ]
+  %.10128 = phi i32 [ 0, %908 ], [ %.9127, %.split.loop.exit ], [ %.9127, %1606 ]
+  %.994 = phi i8 [ %.3881136, %908 ], [ %.893, %.split.loop.exit ], [ %.893, %1606 ]
+  %.17 = phi i1 [ %.101140, %908 ], [ %.16, %.split.loop.exit ], [ %.16, %1606 ]
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEEE, i64 16), ptr %29, align 8
   %1609 = load ptr, ptr %102, align 8
   %.not.i457 = icmp eq ptr %1609, null
@@ -4411,7 +4411,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1606, %.split.loop.
 
 _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit458: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %1610, %1615
   store ptr null, ptr %102, align 8
-  %cond = icmp eq i32 %.7125, 0
+  %cond = icmp eq i32 %.10128, 0
   br i1 %cond, label %901, label %.loopexit1513
 
 _ZNSt6vectorIiSaIiEED2Ev.exit456:                 ; preds = %1608, %_ZN5zxing3RefINS_14DetectorResultEED2Ev.exit453, %1075
@@ -4434,14 +4434,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit456:                 ; preds = %1608, %_ZN5zxing3Re
   br label %.loopexit1513
 
 .loopexit1513:                                    ; preds = %901, %.lr.ph1142, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit458, %.loopexit627, %._crit_edge
-  %.8126.ph = phi i32 [ 0, %._crit_edge ], [ %.2120.le, %.loopexit627 ], [ 0, %901 ], [ 0, %.lr.ph1142 ], [ %.7125, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit458 ]
-  %.14.ph = phi i1 [ %.270.lcssa, %._crit_edge ], [ %.573, %.loopexit627 ], [ %.13, %901 ], [ %.6741140, %.lr.ph1142 ], [ %.13, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit458 ]
+  %.5123.ph = phi i32 [ 0, %._crit_edge ], [ %.2120.le, %.loopexit627 ], [ 0, %901 ], [ 0, %.lr.ph1142 ], [ %.10128, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit458 ]
+  %.9.ph = phi i1 [ %.573.lcssa, %._crit_edge ], [ %.674, %.loopexit627 ], [ %.17, %901 ], [ %.101140, %.lr.ph1142 ], [ %.17, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit458 ]
   call void @_ZdlPv(ptr noundef nonnull %278) #17
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit, %239, %248, %.loopexit1513
-  %.9127 = phi i32 [ 7, %239 ], [ 7, %248 ], [ %.8126.ph, %.loopexit1513 ], [ 0, %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit ]
-  %.15 = phi i1 [ %.1691151, %239 ], [ %.1691151, %248 ], [ %.14.ph, %.loopexit1513 ], [ %.1691151, %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit ]
+  %.1119 = phi i32 [ 7, %239 ], [ 7, %248 ], [ %.5123.ph, %.loopexit1513 ], [ 0, %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit ]
+  %.472 = phi i1 [ %.3711151, %239 ], [ %.3711151, %248 ], [ %.9.ph, %.loopexit1513 ], [ %.3711151, %_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj.exit ]
   %1625 = getelementptr inbounds i8, ptr %231, i64 8
   %1626 = load i32, ptr %1625, align 8
   %1627 = add i32 %1626, -1
@@ -4458,7 +4458,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN5zxing6qrcode12Q
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit
 
 _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit: ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit, %1629
-  switch i32 %.9127, label %.loopexit629 [
+  switch i32 %.1119, label %.loopexit629 [
     i32 0, label %1633
     i32 7, label %1633
   ]
@@ -4512,8 +4512,8 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit310: ; preds = %_ZN5zxin
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit469
 
 .loopexit629:                                     ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit, %1633, %173, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit220
-  %.10128 = phi i32 [ 4, %173 ], [ 4, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit220 ], [ 0, %1633 ], [ %.9127, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit ]
-  %.16 = phi i1 [ false, %173 ], [ false, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit220 ], [ %.15, %1633 ], [ %.15, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit ]
+  %.0118 = phi i32 [ 4, %173 ], [ 4, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit220 ], [ 0, %1633 ], [ %.1119, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit ]
+  %.270 = phi i1 [ false, %173 ], [ false, %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit220 ], [ %.472, %1633 ], [ %.472, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit ]
   %1647 = load i32, ptr %129, align 8
   %1648 = add i32 %1647, -1
   store i32 %1648, ptr %129, align 8
@@ -4529,7 +4529,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit310: ; preds = %_ZN5zxin
   br label %_ZN5zxing3RefINS_6qrcode8DetectorEED2Ev.exit
 
 _ZN5zxing3RefINS_6qrcode8DetectorEED2Ev.exit:     ; preds = %.loopexit629, %1650
-  switch i32 %.10128, label %1661 [
+  switch i32 %.0118, label %1661 [
     i32 0, label %.critedge
     i32 4, label %.critedge
   ]
@@ -4551,7 +4551,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit469: ; preds = %209, %211,
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit213
 
 1661:                                             ; preds = %_ZN5zxing3RefINS_6qrcode8DetectorEED2Ev.exit
-  br i1 %.16, label %.critedge, label %1662
+  br i1 %.270, label %.critedge, label %1662
 
 1662:                                             ; preds = %1661
   %1663 = load ptr, ptr %0, align 8

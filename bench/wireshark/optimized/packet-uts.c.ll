@@ -633,9 +633,9 @@ testchar.exit391.thread:                          ; preds = %127, %131, %134, %t
   br label %testchar.exit364.thread
 
 testchar.exit364.thread:                          ; preds = %26, %30, %testchar.exit373.thread, %testchar.exit370.thread, %testchar.exit367.thread, %80, %103, %104, %88, %74, %136, %167, %166, %186, %214, %236, %238, %240, %228, %198, %174, %147, %120, %testchar.exit376, %testchar.exit361
-  %.1452 = phi i8 [ %36, %236 ], [ %36, %238 ], [ %36, %240 ], [ %36, %228 ], [ %36, %214 ], [ %36, %198 ], [ %36, %186 ], [ %36, %174 ], [ %36, %166 ], [ %36, %167 ], [ %36, %147 ], [ %36, %136 ], [ %36, %120 ], [ %36, %74 ], [ %36, %80 ], [ %36, %88 ], [ %36, %103 ], [ %36, %104 ], [ %36, %testchar.exit376 ], [ 0, %testchar.exit361 ], [ 0, %testchar.exit367.thread ], [ %36, %testchar.exit370.thread ], [ %36, %testchar.exit373.thread ], [ 0, %30 ], [ 0, %26 ]
-  %.1450 = phi i8 [ %41, %236 ], [ %41, %238 ], [ %41, %240 ], [ %41, %228 ], [ %41, %214 ], [ %41, %198 ], [ %41, %186 ], [ %41, %174 ], [ %41, %166 ], [ %41, %167 ], [ %41, %147 ], [ %41, %136 ], [ %41, %120 ], [ 80, %74 ], [ %41, %80 ], [ %41, %88 ], [ %41, %103 ], [ %41, %104 ], [ %41, %testchar.exit376 ], [ 0, %testchar.exit361 ], [ 0, %testchar.exit367.thread ], [ 0, %testchar.exit370.thread ], [ %41, %testchar.exit373.thread ], [ 0, %30 ], [ 0, %26 ]
-  %.1 = phi i8 [ %46, %236 ], [ %46, %238 ], [ %46, %240 ], [ %46, %228 ], [ %46, %214 ], [ %46, %198 ], [ %46, %186 ], [ %46, %174 ], [ %46, %166 ], [ %46, %167 ], [ %46, %147 ], [ %46, %136 ], [ 112, %120 ], [ 112, %74 ], [ 112, %80 ], [ %46, %88 ], [ %46, %103 ], [ %46, %104 ], [ %46, %testchar.exit376 ], [ 0, %testchar.exit361 ], [ 0, %testchar.exit367.thread ], [ 0, %testchar.exit370.thread ], [ 0, %testchar.exit373.thread ], [ 0, %30 ], [ 0, %26 ]
+  %.0452 = phi i8 [ %36, %236 ], [ %36, %238 ], [ %36, %240 ], [ %36, %228 ], [ %36, %214 ], [ %36, %198 ], [ %36, %186 ], [ %36, %174 ], [ %36, %166 ], [ %36, %167 ], [ %36, %147 ], [ %36, %136 ], [ %36, %120 ], [ %36, %74 ], [ %36, %80 ], [ %36, %88 ], [ %36, %103 ], [ %36, %104 ], [ %36, %testchar.exit376 ], [ 0, %testchar.exit361 ], [ 0, %testchar.exit367.thread ], [ %36, %testchar.exit370.thread ], [ %36, %testchar.exit373.thread ], [ 0, %30 ], [ 0, %26 ]
+  %.0450 = phi i8 [ %41, %236 ], [ %41, %238 ], [ %41, %240 ], [ %41, %228 ], [ %41, %214 ], [ %41, %198 ], [ %41, %186 ], [ %41, %174 ], [ %41, %166 ], [ %41, %167 ], [ %41, %147 ], [ %41, %136 ], [ %41, %120 ], [ 80, %74 ], [ %41, %80 ], [ %41, %88 ], [ %41, %103 ], [ %41, %104 ], [ %41, %testchar.exit376 ], [ 0, %testchar.exit361 ], [ 0, %testchar.exit367.thread ], [ 0, %testchar.exit370.thread ], [ %41, %testchar.exit373.thread ], [ 0, %30 ], [ 0, %26 ]
+  %.0 = phi i8 [ %46, %236 ], [ %46, %238 ], [ %46, %240 ], [ %46, %228 ], [ %46, %214 ], [ %46, %198 ], [ %46, %186 ], [ %46, %174 ], [ %46, %166 ], [ %46, %167 ], [ %46, %147 ], [ %46, %136 ], [ 112, %120 ], [ 112, %74 ], [ 112, %80 ], [ %46, %88 ], [ %46, %103 ], [ %46, %104 ], [ %46, %testchar.exit376 ], [ 0, %testchar.exit361 ], [ 0, %testchar.exit367.thread ], [ 0, %testchar.exit370.thread ], [ 0, %testchar.exit373.thread ], [ 0, %30 ], [ 0, %26 ]
   %.0292 = phi i32 [ 4, %236 ], [ 4, %238 ], [ 4, %240 ], [ 4, %228 ], [ 4, %214 ], [ 4, %198 ], [ 4, %186 ], [ 4, %174 ], [ 4, %166 ], [ 4, %167 ], [ 4, %147 ], [ 4, %136 ], [ 4, %120 ], [ 4, %74 ], [ 4, %80 ], [ 4, %88 ], [ 4, %103 ], [ 4, %104 ], [ 4, %testchar.exit376 ], [ 0, %testchar.exit361 ], [ 0, %testchar.exit367.thread ], [ 0, %testchar.exit370.thread ], [ 0, %testchar.exit373.thread ], [ 0, %30 ], [ 0, %26 ]
   %248 = phi i1 [ true, %236 ], [ true, %238 ], [ true, %240 ], [ true, %228 ], [ true, %214 ], [ true, %198 ], [ true, %186 ], [ true, %174 ], [ false, %166 ], [ false, %167 ], [ false, %147 ], [ false, %136 ], [ true, %120 ], [ true, %74 ], [ true, %80 ], [ true, %88 ], [ true, %103 ], [ true, %104 ], [ true, %testchar.exit376 ], [ true, %testchar.exit361 ], [ true, %testchar.exit367.thread ], [ true, %testchar.exit370.thread ], [ true, %testchar.exit373.thread ], [ true, %30 ], [ true, %26 ]
   %.0291 = phi i32 [ -1, %236 ], [ -1, %238 ], [ -1, %240 ], [ -1, %228 ], [ -1, %214 ], [ -1, %198 ], [ -1, %186 ], [ -1, %174 ], [ 5, %166 ], [ 5, %167 ], [ 7, %147 ], [ 6, %136 ], [ -1, %120 ], [ -1, %74 ], [ -1, %80 ], [ -1, %88 ], [ -1, %103 ], [ -1, %104 ], [ -1, %testchar.exit376 ], [ -1, %testchar.exit361 ], [ -1, %testchar.exit367.thread ], [ -1, %testchar.exit370.thread ], [ -1, %testchar.exit373.thread ], [ -1, %30 ], [ -1, %26 ]
@@ -661,27 +661,27 @@ testchar.exit364.thread:                          ; preds = %26, %30, %testchar.
   br i1 %251, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %testchar.exit364.thread, %257
-  %.1293483 = phi i32 [ %258, %257 ], [ %.0292, %testchar.exit364.thread ]
-  %252 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1293483) #2
+  %.1293484 = phi i32 [ %258, %257 ], [ %.0292, %testchar.exit364.thread ]
+  %252 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1293484) #2
   %253 = and i8 %252, 127
   %254 = icmp eq i8 %253, 3
   br i1 %254, label %255, label %257
 
 255:                                              ; preds = %.lr.ph
-  %spec.select = select i1 %248, i32 %.1293483, i32 %.0291
-  %256 = add i32 %.1293483, 1
+  %spec.select = select i1 %248, i32 %.1293484, i32 %.0291
+  %256 = add i32 %.1293484, 1
   br label %.loopexit
 
 257:                                              ; preds = %.lr.ph
-  %258 = add i32 %.1293483, 1
+  %258 = add i32 %.1293484, 1
   %259 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %258) #2
   %260 = icmp sgt i32 %259, 0
   br i1 %260, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %257, %testchar.exit364.thread, %255
   %.2294 = phi i32 [ %256, %255 ], [ %.0292, %testchar.exit364.thread ], [ %258, %257 ]
-  %.2 = phi i32 [ %spec.select, %255 ], [ %.0291, %testchar.exit364.thread ], [ %.0291, %257 ]
-  %.0283 = phi i32 [ %.1293483, %255 ], [ 0, %testchar.exit364.thread ], [ 0, %257 ]
+  %.1 = phi i32 [ %spec.select, %255 ], [ %.0291, %testchar.exit364.thread ], [ %.0291, %257 ]
+  %.0283 = phi i32 [ %.1293484, %255 ], [ 0, %testchar.exit364.thread ], [ 0, %257 ]
   %261 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2294) #2
   %.not342 = icmp eq i32 %261, 0
   %spec.select355 = select i1 %.not342, i32 0, i32 %.2294
@@ -704,10 +704,10 @@ testchar.exit364.thread:                          ; preds = %26, %30, %testchar.
 
 272:                                              ; preds = %262
   %273 = load i32, ptr @ett_header_uts, align 4
-  %274 = call ptr @proto_tree_add_subtree(ptr noundef %266, ptr noundef %0, i32 noundef 0, i32 noundef %.2, i32 noundef %273, ptr noundef null, ptr noundef nonnull @.str.52) #2
+  %274 = call ptr @proto_tree_add_subtree(ptr noundef %266, ptr noundef %0, i32 noundef 0, i32 noundef %.1, i32 noundef %273, ptr noundef null, ptr noundef nonnull @.str.52) #2
   %275 = load i32, ptr @proto_uts, align 4
   %276 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %274, i32 noundef %275, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @.str.53) #2
-  %277 = icmp eq i8 %.1452, 32
+  %277 = icmp eq i8 %.0452, 32
   br i1 %277, label %278, label %281
 
 278:                                              ; preds = %272
@@ -716,13 +716,13 @@ testchar.exit364.thread:                          ; preds = %26, %30, %testchar.
   br label %285
 
 281:                                              ; preds = %272
-  %282 = zext nneg i8 %.1452 to i32
+  %282 = zext nneg i8 %.0452 to i32
   %283 = load i32, ptr @hf_rid, align 4
   %284 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %274, i32 noundef %283, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %282, ptr noundef nonnull @.str.55, i32 noundef %282) #2
   br label %285
 
 285:                                              ; preds = %281, %278
-  %286 = icmp eq i8 %.1450, 80
+  %286 = icmp eq i8 %.0450, 80
   br i1 %286, label %287, label %290
 
 287:                                              ; preds = %285
@@ -731,13 +731,13 @@ testchar.exit364.thread:                          ; preds = %26, %30, %testchar.
   br label %294
 
 290:                                              ; preds = %285
-  %291 = zext nneg i8 %.1450 to i32
+  %291 = zext nneg i8 %.0450 to i32
   %292 = load i32, ptr @hf_sid, align 4
   %293 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %274, i32 noundef %292, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %291, ptr noundef nonnull @.str.57, i32 noundef %291) #2
   br label %294
 
 294:                                              ; preds = %290, %287
-  %295 = icmp eq i8 %.1, 112
+  %295 = icmp eq i8 %.0, 112
   br i1 %295, label %296, label %299
 
 296:                                              ; preds = %294
@@ -746,7 +746,7 @@ testchar.exit364.thread:                          ; preds = %26, %30, %testchar.
   br label %303
 
 299:                                              ; preds = %294
-  %300 = zext nneg i8 %.1 to i32
+  %300 = zext nneg i8 %.0 to i32
   %301 = load i32, ptr @hf_did, align 4
   %302 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %274, i32 noundef %301, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %300, ptr noundef nonnull @.str.59, i32 noundef %300) #2
   br label %303

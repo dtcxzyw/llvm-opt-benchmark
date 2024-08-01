@@ -10144,14 +10144,14 @@ lpad27:                                           ; preds = %invoke.cont28, %inv
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad27, %lpad25
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad27 ], [ true, %lpad25 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.0, %lpad27 ], [ true, %lpad25 ]
   %.pn = phi { ptr, i32 } [ %7, %lpad27 ], [ %6, %lpad25 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp19) #37
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %lpad21, %ehcleanup
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup ], [ true, %lpad21 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.3, %ehcleanup ], [ true, %lpad21 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad21 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #37
   call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #37
@@ -17177,14 +17177,14 @@ lpad10:                                           ; preds = %invoke.cont9
 
 catch.dispatch:                                   ; preds = %lpad10, %lpad8
   %.pn = phi { ptr, i32 } [ %13, %lpad10 ], [ %12, %lpad8 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn, 1
   %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
-  %matches = icmp eq i32 %ehselector.slot.0, %14
+  %matches = icmp eq i32 %ehselector.slot.1, %14
   br i1 %matches, label %catch82, label %catch.fallthrough
 
 catch82:                                          ; preds = %catch.dispatch
-  %15 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #37
+  %15 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #37
   %16 = load ptr, ptr %rt_, align 8
   %runtime_85 = getelementptr inbounds i8, ptr %16, i64 128
   %17 = load ptr, ptr %runtime_85, align 8
@@ -17201,8 +17201,8 @@ invoke.cont94:                                    ; preds = %catch82
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
-  %matches13 = icmp eq i32 %ehselector.slot.0, %19
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #37
+  %matches13 = icmp eq i32 %ehselector.slot.1, %19
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #37
   br i1 %matches13, label %invoke.cont45, label %catch
 
 invoke.cont45:                                    ; preds = %catch.fallthrough
@@ -17947,14 +17947,14 @@ ehcleanup:                                        ; preds = %lpad21, %lpad6
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
-  %matches = icmp eq i32 %ehselector.slot.1, %31
+  %matches = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches, label %catch95, label %catch.fallthrough
 
 catch95:                                          ; preds = %catch.dispatch
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #37
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #37
   %33 = load ptr, ptr %rt_, align 8
   %runtime_98 = getelementptr inbounds i8, ptr %33, i64 128
   %34 = load ptr, ptr %runtime_98, align 8
@@ -17971,8 +17971,8 @@ invoke.cont108:                                   ; preds = %catch95
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
-  %matches59 = icmp eq i32 %ehselector.slot.1, %36
-  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #37
+  %matches59 = icmp eq i32 %ehselector.slot.0, %36
+  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #37
   br i1 %matches59, label %invoke.cont73, label %catch
 
 invoke.cont73:                                    ; preds = %catch.fallthrough
@@ -18592,14 +18592,14 @@ ehcleanup:                                        ; preds = %lpad27, %lpad25
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad19
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %25, %lpad19 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn, 1
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
-  %matches = icmp eq i32 %ehselector.slot.1, %28
+  %matches = icmp eq i32 %ehselector.slot.2, %28
   br i1 %matches, label %catch61, label %catch.fallthrough
 
 catch61:                                          ; preds = %catch.dispatch
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #37
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #37
   %value_.i = getelementptr inbounds i8, ptr %29, i64 40
   %30 = load ptr, ptr %value_.i, align 8
   %call67 = invoke i64 @_ZN8facebook6hermes17HermesRuntimeImpl11hvFromValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(16) %30)
@@ -18613,8 +18613,8 @@ invoke.cont70:                                    ; preds = %catch61
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
-  %matches30 = icmp eq i32 %ehselector.slot.1, %31
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #37
+  %matches30 = icmp eq i32 %ehselector.slot.2, %31
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #37
   br i1 %matches30, label %invoke.cont43, label %catch
 
 invoke.cont43:                                    ; preds = %catch.fallthrough

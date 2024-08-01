@@ -212,7 +212,7 @@ land.lhs.true:                                    ; preds = %if.end
   %cmp5 = icmp eq i32 %and, 16384
   %st_size = getelementptr inbounds i8, ptr %statbuf, i64 48
   %22 = load i64, ptr %st_size, align 8
-  %expected_size.0 = select i1 %cmp5, i64 -1, i64 %22
+  %expected_size.1 = select i1 %cmp5, i64 -1, i64 %22
   %st_mtim = getelementptr inbounds i8, ptr %statbuf, i64 88
   %23 = load i64, ptr %st_mtim, align 8
   %filetime = getelementptr inbounds i8, ptr %data, i64 5072
@@ -238,11 +238,11 @@ if.then18:                                        ; preds = %if.then14
 
 if.then22:                                        ; preds = %land.lhs.true, %land.lhs.true12, %if.then14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %accept_ranges, ptr noundef nonnull align 16 dereferenceable(24) @__const.file_do.accept_ranges, i64 24, i1 false)
-  %cmp25 = icmp sgt i64 %expected_size.0, -1
+  %cmp25 = icmp sgt i64 %expected_size.1, -1
   br i1 %cmp25, label %if.then27, label %if.end43
 
 if.then27:                                        ; preds = %if.then22
-  %call28 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %header, i64 noundef 80, ptr noundef nonnull @.str.2, i64 noundef %expected_size.0) #9
+  %call28 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %header, i64 noundef 80, ptr noundef nonnull @.str.2, i64 noundef %expected_size.1) #9
   %conv30 = sext i32 %call28 to i64
   %call31 = call i32 @Curl_client_write(ptr noundef nonnull %data, i32 noundef 4, ptr noundef nonnull %header, i64 noundef %conv30) #9
   %tobool32.not = icmp eq i32 %call31, 0
@@ -295,14 +295,14 @@ if.end49:                                         ; preds = %if.end43
   br i1 %tobool65.not, label %if.end67, label %return
 
 if.end67:                                         ; preds = %if.end49
-  call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %data, i64 noundef %expected_size.0) #9
+  call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %data, i64 noundef %expected_size.1) #9
   %bf.load70 = load i16, ptr %no_body, align 1
   %36 = and i16 %bf.load70, 4096
   %tobool74.not = icmp eq i16 %36, 0
   br i1 %tobool74.not, label %if.end77, label %return
 
 if.end77:                                         ; preds = %if.end, %if.end67
-  %expected_size.193 = phi i64 [ %expected_size.0, %if.end67 ], [ -1, %if.end ]
+  %expected_size.093 = phi i64 [ %expected_size.1, %if.end67 ], [ -1, %if.end ]
   %call78 = call i32 @Curl_range(ptr noundef nonnull %data) #9
   %tobool79.not = icmp eq i32 %call78, 0
   br i1 %tobool79.not, label %if.end81, label %return
@@ -333,11 +333,11 @@ if.end93:                                         ; preds = %if.end88, %if.end81
   br i1 %cmp96, label %if.then98, label %if.end108
 
 if.then98:                                        ; preds = %if.end93
-  %cmp101.not = icmp sgt i64 %39, %expected_size.193
+  %cmp101.not = icmp sgt i64 %39, %expected_size.093
   br i1 %cmp101.not, label %if.else, label %if.then103
 
 if.then103:                                       ; preds = %if.then98
-  %sub106 = sub nsw i64 %expected_size.193, %39
+  %sub106 = sub nsw i64 %expected_size.093, %39
   br label %if.end108
 
 if.else:                                          ; preds = %if.then98
@@ -345,7 +345,7 @@ if.else:                                          ; preds = %if.then98
   br label %return
 
 if.end108:                                        ; preds = %if.then103, %if.end93
-  %expected_size.2 = phi i64 [ %sub106, %if.then103 ], [ %expected_size.193, %if.end93 ]
+  %expected_size.2 = phi i64 [ %sub106, %if.then103 ], [ %expected_size.093, %if.end93 ]
   %maxdownload = getelementptr inbounds i8, ptr %data, i64 232
   %40 = load i64, ptr %maxdownload, align 8
   %cmp110 = icmp sgt i64 %40, 0

@@ -2778,7 +2778,7 @@ define noundef zeroext i1 @_ZNK2cv4gapi5fluid6Buffer4Priv4fullEv(ptr nocapture n
   br label %15
 
 15:                                               ; preds = %12, %15
-  %.012 = phi i32 [ %14, %12 ], [ %.sroa.speculated, %15 ]
+  %.112 = phi i32 [ %14, %12 ], [ %.sroa.speculated, %15 ]
   %.sroa.05.011 = phi ptr [ %8, %12 ], [ %23, %15 ]
   %16 = load ptr, ptr %.sroa.05.011, align 8
   %17 = load ptr, ptr %16, align 8
@@ -2787,20 +2787,20 @@ define noundef zeroext i1 @_ZNK2cv4gapi5fluid6Buffer4Priv4fullEv(ptr nocapture n
   %20 = getelementptr inbounds i8, ptr %17, i64 104
   %21 = load i32, ptr %20, align 8
   %22 = sub nsw i32 %19, %21
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %22, i32 %.012)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %22, i32 %.112)
   %23 = getelementptr inbounds i8, ptr %.sroa.05.011, i64 8
   %.not = icmp eq ptr %23, %10
   br i1 %.not, label %.loopexit, label %15
 
 .loopexit:                                        ; preds = %15, %1
-  %.1 = phi i32 [ %6, %1 ], [ %.sroa.speculated, %15 ]
+  %.0 = phi i32 [ %6, %1 ], [ %.sroa.speculated, %15 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 132
   %25 = load i32, ptr %24, align 4
   %26 = sub i32 %6, %25
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   %28 = load i32, ptr %27, align 8
   %.sroa.speculated.i = tail call noundef i32 @llvm.smin.i32(i32 %28, i32 %26)
-  %29 = sub i32 %25, %.1
+  %29 = sub i32 %25, %.0
   %30 = add i32 %29, %.sroa.speculated.i
   %31 = getelementptr inbounds i8, ptr %0, i64 160
   %32 = load ptr, ptr %31, align 8

@@ -210,7 +210,7 @@ define internal void @merged_2v_upsample(ptr noundef %0, ptr noundef %1, ptr noc
   %31 = load i32, ptr %5, align 4
   %32 = sub i32 %6, %31
   %spec.select = tail call i32 @llvm.umin.i32(i32 %30, i32 %32)
-  %.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 2)
+  %.2 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 2)
   %33 = zext i32 %31 to i64
   %34 = getelementptr inbounds ptr, ptr %4, i64 %33
   %35 = load ptr, ptr %34, align 8
@@ -242,13 +242,13 @@ define internal void @merged_2v_upsample(ptr noundef %0, ptr noundef %1, ptr noc
   br label %50
 
 50:                                               ; preds = %45, %23
-  %.2 = phi i32 [ 1, %23 ], [ %.1, %45 ]
+  %.034 = phi i32 [ 1, %23 ], [ %.2, %45 ]
   %51 = load i32, ptr %5, align 4
-  %52 = add i32 %51, %.2
+  %52 = add i32 %51, %.034
   store i32 %52, ptr %5, align 4
   %53 = getelementptr inbounds i8, ptr %10, i64 96
   %54 = load i32, ptr %53, align 8
-  %55 = sub i32 %54, %.2
+  %55 = sub i32 %54, %.034
   store i32 %55, ptr %53, align 8
   %56 = load i32, ptr %11, align 8
   %.not37 = icmp eq i32 %56, 0

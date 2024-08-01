@@ -1157,10 +1157,10 @@ _ZN8AstCStmtC2EP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
 
 .body136:                                         ; preds = %286, %.body144
   %.pn83 = phi { ptr, i32 } [ %eh.lpad-body145, %.body144 ], [ %287, %286 ]
-  %.1 = phi i1 [ %.0.lpad-body, %.body144 ], [ true, %286 ]
+  %.3 = phi i1 [ %.0.lpad-body, %.body144 ], [ true, %286 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  br i1 %.1, label %.body136.thread, label %290
+  br i1 %.3, label %.body136.thread, label %290
 
 .body136.thread:                                  ; preds = %283, %261, %.body136.thread159, %.body136
   %.pn83.pn.pn158 = phi { ptr, i32 } [ %.pn83, %.body136 ], [ %285, %.body136.thread159 ], [ %262, %261 ], [ %284, %283 ]

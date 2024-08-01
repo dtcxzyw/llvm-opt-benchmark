@@ -189,7 +189,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end22
-  %res.0158 = phi i32 [ 1, %while.body.lr.ph ], [ %res.1, %if.end22 ]
+  %res.0158 = phi i32 [ 1, %while.body.lr.ph ], [ %res.2, %if.end22 ]
   %call10 = call i32 @test_readstanza(ptr noundef nonnull %call1) #7
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %end, label %if.end13
@@ -205,17 +205,17 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp149.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.then15, %for.inc.i
-  %pc.sroa.1554.1 = phi i64 [ %pc.sroa.1554.2, %for.inc.i ], [ 0, %if.then15 ]
-  %pc.sroa.18.1 = phi i32 [ %pc.sroa.18.2, %for.inc.i ], [ 0, %if.then15 ]
-  %pc.sroa.12.1 = phi i32 [ %pc.sroa.12.2, %for.inc.i ], [ 0, %if.then15 ]
-  %pc.sroa.2157.1 = phi i64 [ %pc.sroa.2157.2, %for.inc.i ], [ 0, %if.then15 ]
-  %pc.sroa.24.1 = phi double [ %pc.sroa.24.2, %for.inc.i ], [ 0.000000e+00, %if.then15 ]
-  %pc.sroa.27.1 = phi i32 [ %pc.sroa.27.2, %for.inc.i ], [ 0, %if.then15 ]
-  %pc.sroa.30.1 = phi i32 [ %pc.sroa.30.2, %for.inc.i ], [ 0, %if.then15 ]
-  %pc.sroa.33.1 = phi i32 [ %pc.sroa.33.2, %for.inc.i ], [ 0, %if.then15 ]
-  %pc.sroa.36.1 = phi i32 [ %pc.sroa.36.2, %for.inc.i ], [ 0, %if.then15 ]
-  %pc.sroa.39.1 = phi i32 [ %pc.sroa.39.2, %for.inc.i ], [ 0, %if.then15 ]
-  %pc.sroa.0.1 = phi ptr [ %pc.sroa.0.2, %for.inc.i ], [ null, %if.then15 ]
+  %pc.sroa.1554.3 = phi i64 [ %pc.sroa.1554.4, %for.inc.i ], [ 0, %if.then15 ]
+  %pc.sroa.18.3 = phi i32 [ %pc.sroa.18.4, %for.inc.i ], [ 0, %if.then15 ]
+  %pc.sroa.12.3 = phi i32 [ %pc.sroa.12.4, %for.inc.i ], [ 0, %if.then15 ]
+  %pc.sroa.2157.3 = phi i64 [ %pc.sroa.2157.4, %for.inc.i ], [ 0, %if.then15 ]
+  %pc.sroa.24.3 = phi double [ %pc.sroa.24.4, %for.inc.i ], [ 0.000000e+00, %if.then15 ]
+  %pc.sroa.27.3 = phi i32 [ %pc.sroa.27.4, %for.inc.i ], [ 0, %if.then15 ]
+  %pc.sroa.30.3 = phi i32 [ %pc.sroa.30.4, %for.inc.i ], [ 0, %if.then15 ]
+  %pc.sroa.33.3 = phi i32 [ %pc.sroa.33.4, %for.inc.i ], [ 0, %if.then15 ]
+  %pc.sroa.36.3 = phi i32 [ %pc.sroa.36.4, %for.inc.i ], [ 0, %if.then15 ]
+  %pc.sroa.39.3 = phi i32 [ %pc.sroa.39.4, %for.inc.i ], [ 0, %if.then15 ]
+  %pc.sroa.0.3 = phi ptr [ %pc.sroa.0.4, %for.inc.i ], [ null, %if.then15 ]
   %i.0157.i = phi i32 [ %inc117.i, %for.inc.i ], [ 0, %if.then15 ]
   %type.0156.i = phi ptr [ %type.1.i, %for.inc.i ], [ null, %if.then15 ]
   %pp.0155.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %pairs.i, %if.then15 ]
@@ -395,17 +395,17 @@ if.else101.i:                                     ; preds = %if.else82.i
   br label %param_conversion_load_stanza.exit.thread
 
 if.end109.i:                                      ; preds = %if.then97.i, %if.end92.i, %if.then78.i, %if.end73.i, %if.then58.i, %if.end53.i, %if.then39.i, %if.end34.i, %if.then20.i, %if.end16.i, %if.end.i
-  %pc.sroa.1554.2 = phi i64 [ %pc.sroa.1554.1, %if.end.i ], [ %pc.sroa.1554.1, %if.end16.i ], [ %pc.sroa.1554.1, %if.then20.i ], [ %pc.sroa.1554.1, %if.end34.i ], [ %call41.i, %if.then39.i ], [ %pc.sroa.1554.1, %if.end53.i ], [ %pc.sroa.1554.1, %if.then58.i ], [ %pc.sroa.1554.1, %if.end73.i ], [ %pc.sroa.1554.1, %if.then78.i ], [ %pc.sroa.1554.1, %if.end92.i ], [ %pc.sroa.1554.1, %if.then97.i ]
-  %pc.sroa.18.2 = phi i32 [ %pc.sroa.18.1, %if.end.i ], [ %pc.sroa.18.1, %if.end16.i ], [ %pc.sroa.18.1, %if.then20.i ], [ %pc.sroa.18.1, %if.end34.i ], [ %pc.sroa.18.1, %if.then39.i ], [ %pc.sroa.18.1, %if.end53.i ], [ %conv61.i, %if.then58.i ], [ %pc.sroa.18.1, %if.end73.i ], [ %pc.sroa.18.1, %if.then78.i ], [ %pc.sroa.18.1, %if.end92.i ], [ %pc.sroa.18.1, %if.then97.i ]
-  %pc.sroa.12.2 = phi i32 [ %pc.sroa.12.1, %if.end.i ], [ %pc.sroa.12.1, %if.end16.i ], [ %conv.i, %if.then20.i ], [ %pc.sroa.12.1, %if.end34.i ], [ %pc.sroa.12.1, %if.then39.i ], [ %pc.sroa.12.1, %if.end53.i ], [ %pc.sroa.12.1, %if.then58.i ], [ %pc.sroa.12.1, %if.end73.i ], [ %pc.sroa.12.1, %if.then78.i ], [ %pc.sroa.12.1, %if.end92.i ], [ %pc.sroa.12.1, %if.then97.i ]
-  %pc.sroa.2157.2 = phi i64 [ %pc.sroa.2157.1, %if.end.i ], [ %pc.sroa.2157.1, %if.end16.i ], [ %pc.sroa.2157.1, %if.then20.i ], [ %pc.sroa.2157.1, %if.end34.i ], [ %pc.sroa.2157.1, %if.then39.i ], [ %pc.sroa.2157.1, %if.end53.i ], [ %pc.sroa.2157.1, %if.then58.i ], [ %pc.sroa.2157.1, %if.end73.i ], [ %call80.i, %if.then78.i ], [ %pc.sroa.2157.1, %if.end92.i ], [ %pc.sroa.2157.1, %if.then97.i ]
-  %pc.sroa.24.2 = phi double [ %pc.sroa.24.1, %if.end.i ], [ %pc.sroa.24.1, %if.end16.i ], [ %pc.sroa.24.1, %if.then20.i ], [ %pc.sroa.24.1, %if.end34.i ], [ %pc.sroa.24.1, %if.then39.i ], [ %pc.sroa.24.1, %if.end53.i ], [ %pc.sroa.24.1, %if.then58.i ], [ %pc.sroa.24.1, %if.end73.i ], [ %pc.sroa.24.1, %if.then78.i ], [ %pc.sroa.24.1, %if.end92.i ], [ %call99.i, %if.then97.i ]
-  %pc.sroa.27.2 = phi i32 [ %pc.sroa.27.1, %if.end.i ], [ %pc.sroa.27.1, %if.end16.i ], [ 1, %if.then20.i ], [ %pc.sroa.27.1, %if.end34.i ], [ %pc.sroa.27.1, %if.then39.i ], [ %pc.sroa.27.1, %if.end53.i ], [ %pc.sroa.27.1, %if.then58.i ], [ %pc.sroa.27.1, %if.end73.i ], [ %pc.sroa.27.1, %if.then78.i ], [ %pc.sroa.27.1, %if.end92.i ], [ %pc.sroa.27.1, %if.then97.i ]
-  %pc.sroa.30.2 = phi i32 [ %pc.sroa.30.1, %if.end.i ], [ %pc.sroa.30.1, %if.end16.i ], [ %pc.sroa.30.1, %if.then20.i ], [ %pc.sroa.30.1, %if.end34.i ], [ 1, %if.then39.i ], [ %pc.sroa.30.1, %if.end53.i ], [ %pc.sroa.30.1, %if.then58.i ], [ %pc.sroa.30.1, %if.end73.i ], [ %pc.sroa.30.1, %if.then78.i ], [ %pc.sroa.30.1, %if.end92.i ], [ %pc.sroa.30.1, %if.then97.i ]
-  %pc.sroa.33.2 = phi i32 [ %pc.sroa.33.1, %if.end.i ], [ %pc.sroa.33.1, %if.end16.i ], [ %pc.sroa.33.1, %if.then20.i ], [ %pc.sroa.33.1, %if.end34.i ], [ %pc.sroa.33.1, %if.then39.i ], [ %pc.sroa.33.1, %if.end53.i ], [ 1, %if.then58.i ], [ %pc.sroa.33.1, %if.end73.i ], [ %pc.sroa.33.1, %if.then78.i ], [ %pc.sroa.33.1, %if.end92.i ], [ %pc.sroa.33.1, %if.then97.i ]
-  %pc.sroa.36.2 = phi i32 [ %pc.sroa.36.1, %if.end.i ], [ %pc.sroa.36.1, %if.end16.i ], [ %pc.sroa.36.1, %if.then20.i ], [ %pc.sroa.36.1, %if.end34.i ], [ %pc.sroa.36.1, %if.then39.i ], [ %pc.sroa.36.1, %if.end53.i ], [ %pc.sroa.36.1, %if.then58.i ], [ %pc.sroa.36.1, %if.end73.i ], [ 1, %if.then78.i ], [ %pc.sroa.36.1, %if.end92.i ], [ %pc.sroa.36.1, %if.then97.i ]
-  %pc.sroa.39.2 = phi i32 [ %pc.sroa.39.1, %if.end.i ], [ %pc.sroa.39.1, %if.end16.i ], [ %pc.sroa.39.1, %if.then20.i ], [ %pc.sroa.39.1, %if.end34.i ], [ %pc.sroa.39.1, %if.then39.i ], [ %pc.sroa.39.1, %if.end53.i ], [ %pc.sroa.39.1, %if.then58.i ], [ %pc.sroa.39.1, %if.end73.i ], [ %pc.sroa.39.1, %if.then78.i ], [ %pc.sroa.39.1, %if.end92.i ], [ 1, %if.then97.i ]
-  %pc.sroa.0.2 = phi ptr [ %call4.i, %if.end.i ], [ %pc.sroa.0.1, %if.end16.i ], [ %pc.sroa.0.1, %if.then20.i ], [ %pc.sroa.0.1, %if.end34.i ], [ %pc.sroa.0.1, %if.then39.i ], [ %pc.sroa.0.1, %if.end53.i ], [ %pc.sroa.0.1, %if.then58.i ], [ %pc.sroa.0.1, %if.end73.i ], [ %pc.sroa.0.1, %if.then78.i ], [ %pc.sroa.0.1, %if.end92.i ], [ %pc.sroa.0.1, %if.then97.i ]
+  %pc.sroa.1554.4 = phi i64 [ %pc.sroa.1554.3, %if.end.i ], [ %pc.sroa.1554.3, %if.end16.i ], [ %pc.sroa.1554.3, %if.then20.i ], [ %pc.sroa.1554.3, %if.end34.i ], [ %call41.i, %if.then39.i ], [ %pc.sroa.1554.3, %if.end53.i ], [ %pc.sroa.1554.3, %if.then58.i ], [ %pc.sroa.1554.3, %if.end73.i ], [ %pc.sroa.1554.3, %if.then78.i ], [ %pc.sroa.1554.3, %if.end92.i ], [ %pc.sroa.1554.3, %if.then97.i ]
+  %pc.sroa.18.4 = phi i32 [ %pc.sroa.18.3, %if.end.i ], [ %pc.sroa.18.3, %if.end16.i ], [ %pc.sroa.18.3, %if.then20.i ], [ %pc.sroa.18.3, %if.end34.i ], [ %pc.sroa.18.3, %if.then39.i ], [ %pc.sroa.18.3, %if.end53.i ], [ %conv61.i, %if.then58.i ], [ %pc.sroa.18.3, %if.end73.i ], [ %pc.sroa.18.3, %if.then78.i ], [ %pc.sroa.18.3, %if.end92.i ], [ %pc.sroa.18.3, %if.then97.i ]
+  %pc.sroa.12.4 = phi i32 [ %pc.sroa.12.3, %if.end.i ], [ %pc.sroa.12.3, %if.end16.i ], [ %conv.i, %if.then20.i ], [ %pc.sroa.12.3, %if.end34.i ], [ %pc.sroa.12.3, %if.then39.i ], [ %pc.sroa.12.3, %if.end53.i ], [ %pc.sroa.12.3, %if.then58.i ], [ %pc.sroa.12.3, %if.end73.i ], [ %pc.sroa.12.3, %if.then78.i ], [ %pc.sroa.12.3, %if.end92.i ], [ %pc.sroa.12.3, %if.then97.i ]
+  %pc.sroa.2157.4 = phi i64 [ %pc.sroa.2157.3, %if.end.i ], [ %pc.sroa.2157.3, %if.end16.i ], [ %pc.sroa.2157.3, %if.then20.i ], [ %pc.sroa.2157.3, %if.end34.i ], [ %pc.sroa.2157.3, %if.then39.i ], [ %pc.sroa.2157.3, %if.end53.i ], [ %pc.sroa.2157.3, %if.then58.i ], [ %pc.sroa.2157.3, %if.end73.i ], [ %call80.i, %if.then78.i ], [ %pc.sroa.2157.3, %if.end92.i ], [ %pc.sroa.2157.3, %if.then97.i ]
+  %pc.sroa.24.4 = phi double [ %pc.sroa.24.3, %if.end.i ], [ %pc.sroa.24.3, %if.end16.i ], [ %pc.sroa.24.3, %if.then20.i ], [ %pc.sroa.24.3, %if.end34.i ], [ %pc.sroa.24.3, %if.then39.i ], [ %pc.sroa.24.3, %if.end53.i ], [ %pc.sroa.24.3, %if.then58.i ], [ %pc.sroa.24.3, %if.end73.i ], [ %pc.sroa.24.3, %if.then78.i ], [ %pc.sroa.24.3, %if.end92.i ], [ %call99.i, %if.then97.i ]
+  %pc.sroa.27.4 = phi i32 [ %pc.sroa.27.3, %if.end.i ], [ %pc.sroa.27.3, %if.end16.i ], [ 1, %if.then20.i ], [ %pc.sroa.27.3, %if.end34.i ], [ %pc.sroa.27.3, %if.then39.i ], [ %pc.sroa.27.3, %if.end53.i ], [ %pc.sroa.27.3, %if.then58.i ], [ %pc.sroa.27.3, %if.end73.i ], [ %pc.sroa.27.3, %if.then78.i ], [ %pc.sroa.27.3, %if.end92.i ], [ %pc.sroa.27.3, %if.then97.i ]
+  %pc.sroa.30.4 = phi i32 [ %pc.sroa.30.3, %if.end.i ], [ %pc.sroa.30.3, %if.end16.i ], [ %pc.sroa.30.3, %if.then20.i ], [ %pc.sroa.30.3, %if.end34.i ], [ 1, %if.then39.i ], [ %pc.sroa.30.3, %if.end53.i ], [ %pc.sroa.30.3, %if.then58.i ], [ %pc.sroa.30.3, %if.end73.i ], [ %pc.sroa.30.3, %if.then78.i ], [ %pc.sroa.30.3, %if.end92.i ], [ %pc.sroa.30.3, %if.then97.i ]
+  %pc.sroa.33.4 = phi i32 [ %pc.sroa.33.3, %if.end.i ], [ %pc.sroa.33.3, %if.end16.i ], [ %pc.sroa.33.3, %if.then20.i ], [ %pc.sroa.33.3, %if.end34.i ], [ %pc.sroa.33.3, %if.then39.i ], [ %pc.sroa.33.3, %if.end53.i ], [ 1, %if.then58.i ], [ %pc.sroa.33.3, %if.end73.i ], [ %pc.sroa.33.3, %if.then78.i ], [ %pc.sroa.33.3, %if.end92.i ], [ %pc.sroa.33.3, %if.then97.i ]
+  %pc.sroa.36.4 = phi i32 [ %pc.sroa.36.3, %if.end.i ], [ %pc.sroa.36.3, %if.end16.i ], [ %pc.sroa.36.3, %if.then20.i ], [ %pc.sroa.36.3, %if.end34.i ], [ %pc.sroa.36.3, %if.then39.i ], [ %pc.sroa.36.3, %if.end53.i ], [ %pc.sroa.36.3, %if.then58.i ], [ %pc.sroa.36.3, %if.end73.i ], [ 1, %if.then78.i ], [ %pc.sroa.36.3, %if.end92.i ], [ %pc.sroa.36.3, %if.then97.i ]
+  %pc.sroa.39.4 = phi i32 [ %pc.sroa.39.3, %if.end.i ], [ %pc.sroa.39.3, %if.end16.i ], [ %pc.sroa.39.3, %if.then20.i ], [ %pc.sroa.39.3, %if.end34.i ], [ %pc.sroa.39.3, %if.then39.i ], [ %pc.sroa.39.3, %if.end53.i ], [ %pc.sroa.39.3, %if.then58.i ], [ %pc.sroa.39.3, %if.end73.i ], [ %pc.sroa.39.3, %if.then78.i ], [ %pc.sroa.39.3, %if.end92.i ], [ 1, %if.then97.i ]
+  %pc.sroa.0.4 = phi ptr [ %call4.i, %if.end.i ], [ %pc.sroa.0.3, %if.end16.i ], [ %pc.sroa.0.3, %if.then20.i ], [ %pc.sroa.0.3, %if.end34.i ], [ %pc.sroa.0.3, %if.then39.i ], [ %pc.sroa.0.3, %if.end53.i ], [ %pc.sroa.0.3, %if.then58.i ], [ %pc.sroa.0.3, %if.end73.i ], [ %pc.sroa.0.3, %if.then78.i ], [ %pc.sroa.0.3, %if.end92.i ], [ %pc.sroa.0.3, %if.then97.i ]
   %def_i32.1.i = phi i32 [ %def_i32.0150.i, %if.end.i ], [ 1, %if.end16.i ], [ 1, %if.then20.i ], [ %def_i32.0150.i, %if.end34.i ], [ %def_i32.0150.i, %if.then39.i ], [ %def_i32.0150.i, %if.end53.i ], [ %def_i32.0150.i, %if.then58.i ], [ %def_i32.0150.i, %if.end73.i ], [ %def_i32.0150.i, %if.then78.i ], [ %def_i32.0150.i, %if.end92.i ], [ %def_i32.0150.i, %if.then97.i ]
   %def_i64.1.i = phi i32 [ %def_i64.0151.i, %if.end.i ], [ %def_i64.0151.i, %if.end16.i ], [ %def_i64.0151.i, %if.then20.i ], [ 1, %if.end34.i ], [ 1, %if.then39.i ], [ %def_i64.0151.i, %if.end53.i ], [ %def_i64.0151.i, %if.then58.i ], [ %def_i64.0151.i, %if.end73.i ], [ %def_i64.0151.i, %if.then78.i ], [ %def_i64.0151.i, %if.end92.i ], [ %def_i64.0151.i, %if.then97.i ]
   %def_u32.1.i = phi i32 [ %def_u32.0152.i, %if.end.i ], [ %def_u32.0152.i, %if.end16.i ], [ %def_u32.0152.i, %if.then20.i ], [ %def_u32.0152.i, %if.end34.i ], [ %def_u32.0152.i, %if.then39.i ], [ 1, %if.end53.i ], [ 1, %if.then58.i ], [ %def_u32.0152.i, %if.end73.i ], [ %def_u32.0152.i, %if.then78.i ], [ %def_u32.0152.i, %if.end92.i ], [ %def_u32.0152.i, %if.then97.i ]
@@ -444,17 +444,17 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then15
-  %pc.sroa.1554.3 = phi i64 [ %pc.sroa.1554.2, %for.end.loopexit.i ], [ 0, %if.then15 ]
-  %pc.sroa.18.3 = phi i32 [ %pc.sroa.18.2, %for.end.loopexit.i ], [ 0, %if.then15 ]
-  %pc.sroa.12.3 = phi i32 [ %pc.sroa.12.2, %for.end.loopexit.i ], [ 0, %if.then15 ]
-  %pc.sroa.2157.3 = phi i64 [ %pc.sroa.2157.2, %for.end.loopexit.i ], [ 0, %if.then15 ]
-  %pc.sroa.24.3 = phi double [ %pc.sroa.24.2, %for.end.loopexit.i ], [ 0.000000e+00, %if.then15 ]
-  %pc.sroa.27.3 = phi i32 [ %pc.sroa.27.2, %for.end.loopexit.i ], [ 0, %if.then15 ]
-  %pc.sroa.30.3 = phi i32 [ %pc.sroa.30.2, %for.end.loopexit.i ], [ 0, %if.then15 ]
-  %pc.sroa.33.3 = phi i32 [ %pc.sroa.33.2, %for.end.loopexit.i ], [ 0, %if.then15 ]
-  %pc.sroa.36.3 = phi i32 [ %pc.sroa.36.2, %for.end.loopexit.i ], [ 0, %if.then15 ]
-  %pc.sroa.39.3 = phi i32 [ %pc.sroa.39.2, %for.end.loopexit.i ], [ 0, %if.then15 ]
-  %pc.sroa.0.3 = phi ptr [ %pc.sroa.0.2, %for.end.loopexit.i ], [ null, %if.then15 ]
+  %pc.sroa.1554.2 = phi i64 [ %pc.sroa.1554.4, %for.end.loopexit.i ], [ 0, %if.then15 ]
+  %pc.sroa.18.2 = phi i32 [ %pc.sroa.18.4, %for.end.loopexit.i ], [ 0, %if.then15 ]
+  %pc.sroa.12.2 = phi i32 [ %pc.sroa.12.4, %for.end.loopexit.i ], [ 0, %if.then15 ]
+  %pc.sroa.2157.2 = phi i64 [ %pc.sroa.2157.4, %for.end.loopexit.i ], [ 0, %if.then15 ]
+  %pc.sroa.24.2 = phi double [ %pc.sroa.24.4, %for.end.loopexit.i ], [ 0.000000e+00, %if.then15 ]
+  %pc.sroa.27.2 = phi i32 [ %pc.sroa.27.4, %for.end.loopexit.i ], [ 0, %if.then15 ]
+  %pc.sroa.30.2 = phi i32 [ %pc.sroa.30.4, %for.end.loopexit.i ], [ 0, %if.then15 ]
+  %pc.sroa.33.2 = phi i32 [ %pc.sroa.33.4, %for.end.loopexit.i ], [ 0, %if.then15 ]
+  %pc.sroa.36.2 = phi i32 [ %pc.sroa.36.4, %for.end.loopexit.i ], [ 0, %if.then15 ]
+  %pc.sroa.39.2 = phi i32 [ %pc.sroa.39.4, %for.end.loopexit.i ], [ 0, %if.then15 ]
+  %pc.sroa.0.2 = phi ptr [ %pc.sroa.0.4, %for.end.loopexit.i ], [ null, %if.then15 ]
   %def_i32.0.lcssa.i = phi i32 [ %43, %for.end.loopexit.i ], [ 0, %if.then15 ]
   %def_i64.0.lcssa.i = phi i32 [ %41, %for.end.loopexit.i ], [ 0, %if.then15 ]
   %def_u32.0.lcssa.i = phi i32 [ %39, %for.end.loopexit.i ], [ 0, %if.then15 ]
@@ -481,7 +481,7 @@ if.then126.i:                                     ; preds = %if.end122.i
   br i1 %tobool130.not.i, label %if.then136.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then126.i
-  %cmp132.i = icmp ne i32 %pc.sroa.27.3, 0
+  %cmp132.i = icmp ne i32 %pc.sroa.27.2, 0
   %conv133.i = zext i1 %cmp132.i to i32
   %call134.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 133, ptr noundef nonnull @.str.37, i32 noundef %conv133.i) #7
   %tobool135.not.i = icmp eq i32 %call134.i, 0
@@ -493,8 +493,8 @@ if.then136.i:                                     ; preds = %lor.lhs.false.i, %i
   br label %param_conversion_load_stanza.exit.thread
 
 if.end138.i:                                      ; preds = %lor.lhs.false.i
-  store i32 %pc.sroa.12.3, ptr @param_conversion_load_stanza.ref_i32, align 4
-  store i32 %pc.sroa.12.3, ptr @param_conversion_load_stanza.datum_i32, align 4
+  store i32 %pc.sroa.12.2, ptr @param_conversion_load_stanza.ref_i32, align 4
+  store i32 %pc.sroa.12.2, ptr @param_conversion_load_stanza.datum_i32, align 4
   br label %lor.lhs.false
 
 if.else140.i:                                     ; preds = %if.end122.i
@@ -508,7 +508,7 @@ if.then144.i:                                     ; preds = %if.else140.i
   br i1 %tobool148.not.i, label %if.then155.i, label %lor.lhs.false149.i
 
 lor.lhs.false149.i:                               ; preds = %if.then144.i
-  %cmp151.i = icmp ne i32 %pc.sroa.30.3, 0
+  %cmp151.i = icmp ne i32 %pc.sroa.30.2, 0
   %conv152.i = zext i1 %cmp151.i to i32
   %call153.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 142, ptr noundef nonnull @.str.40, i32 noundef %conv152.i) #7
   %tobool154.not.i = icmp eq i32 %call153.i, 0
@@ -520,8 +520,8 @@ if.then155.i:                                     ; preds = %lor.lhs.false149.i,
   br label %param_conversion_load_stanza.exit.thread
 
 if.end157.i:                                      ; preds = %lor.lhs.false149.i
-  store i64 %pc.sroa.1554.3, ptr @param_conversion_load_stanza.ref_i64, align 8
-  store i64 %pc.sroa.1554.3, ptr @param_conversion_load_stanza.datum_i64, align 8
+  store i64 %pc.sroa.1554.2, ptr @param_conversion_load_stanza.ref_i64, align 8
+  store i64 %pc.sroa.1554.2, ptr @param_conversion_load_stanza.datum_i64, align 8
   br label %lor.lhs.false
 
 if.else162.i:                                     ; preds = %if.else140.i
@@ -535,7 +535,7 @@ if.then166.i:                                     ; preds = %if.else162.i
   br i1 %tobool170.not.i, label %if.then177.i, label %lor.lhs.false171.i
 
 lor.lhs.false171.i:                               ; preds = %if.then166.i
-  %cmp173.i = icmp ne i32 %pc.sroa.33.3, 0
+  %cmp173.i = icmp ne i32 %pc.sroa.33.2, 0
   %conv174.i = zext i1 %cmp173.i to i32
   %call175.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 151, ptr noundef nonnull @.str.43, i32 noundef %conv174.i) #7
   %tobool176.not.i = icmp eq i32 %call175.i, 0
@@ -547,8 +547,8 @@ if.then177.i:                                     ; preds = %lor.lhs.false171.i,
   br label %param_conversion_load_stanza.exit.thread
 
 if.end179.i:                                      ; preds = %lor.lhs.false171.i
-  store i32 %pc.sroa.18.3, ptr @param_conversion_load_stanza.ref_u32, align 4
-  store i32 %pc.sroa.18.3, ptr @param_conversion_load_stanza.datum_u32, align 4
+  store i32 %pc.sroa.18.2, ptr @param_conversion_load_stanza.ref_u32, align 4
+  store i32 %pc.sroa.18.2, ptr @param_conversion_load_stanza.datum_u32, align 4
   br label %lor.lhs.false
 
 if.else184.i:                                     ; preds = %if.else162.i
@@ -562,7 +562,7 @@ if.then188.i:                                     ; preds = %if.else184.i
   br i1 %tobool192.not.i, label %if.then199.i, label %lor.lhs.false193.i
 
 lor.lhs.false193.i:                               ; preds = %if.then188.i
-  %cmp195.i = icmp ne i32 %pc.sroa.36.3, 0
+  %cmp195.i = icmp ne i32 %pc.sroa.36.2, 0
   %conv196.i = zext i1 %cmp195.i to i32
   %call197.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 160, ptr noundef nonnull @.str.46, i32 noundef %conv196.i) #7
   %tobool198.not.i = icmp eq i32 %call197.i, 0
@@ -574,8 +574,8 @@ if.then199.i:                                     ; preds = %lor.lhs.false193.i,
   br label %param_conversion_load_stanza.exit.thread
 
 if.end201.i:                                      ; preds = %lor.lhs.false193.i
-  store i64 %pc.sroa.2157.3, ptr @param_conversion_load_stanza.ref_u64, align 8
-  store i64 %pc.sroa.2157.3, ptr @param_conversion_load_stanza.datum_u64, align 8
+  store i64 %pc.sroa.2157.2, ptr @param_conversion_load_stanza.ref_u64, align 8
+  store i64 %pc.sroa.2157.2, ptr @param_conversion_load_stanza.datum_u64, align 8
   br label %lor.lhs.false
 
 if.else206.i:                                     ; preds = %if.else184.i
@@ -589,7 +589,7 @@ if.then210.i:                                     ; preds = %if.else206.i
   br i1 %tobool214.not.i, label %if.then221.i, label %lor.lhs.false215.i
 
 lor.lhs.false215.i:                               ; preds = %if.then210.i
-  %cmp217.i = icmp ne i32 %pc.sroa.39.3, 0
+  %cmp217.i = icmp ne i32 %pc.sroa.39.2, 0
   %conv218.i = zext i1 %cmp217.i to i32
   %call219.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 169, ptr noundef nonnull @.str.49, i32 noundef %conv218.i) #7
   %tobool220.not.i = icmp eq i32 %call219.i, 0
@@ -601,8 +601,8 @@ if.then221.i:                                     ; preds = %lor.lhs.false215.i,
   br label %param_conversion_load_stanza.exit.thread
 
 if.end223.i:                                      ; preds = %lor.lhs.false215.i
-  store double %pc.sroa.24.3, ptr @param_conversion_load_stanza.ref_d, align 8
-  store double %pc.sroa.24.3, ptr @param_conversion_load_stanza.datum_d, align 8
+  store double %pc.sroa.24.2, ptr @param_conversion_load_stanza.ref_d, align 8
+  store double %pc.sroa.24.2, ptr @param_conversion_load_stanza.datum_d, align 8
   br label %lor.lhs.false
 
 if.else228.i:                                     ; preds = %if.else206.i
@@ -615,9 +615,9 @@ param_conversion_load_stanza.exit.thread:         ; preds = %if.then3.i, %if.the
   br label %if.end22
 
 lor.lhs.false:                                    ; preds = %if.end223.i, %if.end201.i, %if.end179.i, %if.end157.i, %if.end138.i
-  %pc.sroa.4265.1 = phi ptr [ @param_conversion_load_stanza.ref_i32, %if.end138.i ], [ @param_conversion_load_stanza.ref_i64, %if.end157.i ], [ @param_conversion_load_stanza.ref_u32, %if.end179.i ], [ @param_conversion_load_stanza.ref_u64, %if.end201.i ], [ @param_conversion_load_stanza.ref_d, %if.end223.i ]
-  %pc.sroa.52.1 = phi ptr [ @param_conversion_load_stanza.datum_i32, %if.end138.i ], [ @param_conversion_load_stanza.datum_i64, %if.end157.i ], [ @param_conversion_load_stanza.datum_u32, %if.end179.i ], [ @param_conversion_load_stanza.datum_u64, %if.end201.i ], [ @param_conversion_load_stanza.datum_d, %if.end223.i ]
-  %pc.sroa.67.1 = phi i64 [ 4, %if.end138.i ], [ 8, %if.end157.i ], [ 4, %if.end179.i ], [ 8, %if.end201.i ], [ 8, %if.end223.i ]
+  %pc.sroa.4265.2 = phi ptr [ @param_conversion_load_stanza.ref_i32, %if.end138.i ], [ @param_conversion_load_stanza.ref_i64, %if.end157.i ], [ @param_conversion_load_stanza.ref_u32, %if.end179.i ], [ @param_conversion_load_stanza.ref_u64, %if.end201.i ], [ @param_conversion_load_stanza.ref_d, %if.end223.i ]
+  %pc.sroa.52.2 = phi ptr [ @param_conversion_load_stanza.datum_i32, %if.end138.i ], [ @param_conversion_load_stanza.datum_i64, %if.end157.i ], [ @param_conversion_load_stanza.datum_u32, %if.end179.i ], [ @param_conversion_load_stanza.datum_u64, %if.end201.i ], [ @param_conversion_load_stanza.datum_d, %if.end223.i ]
+  %pc.sroa.67.2 = phi i64 [ 4, %if.end138.i ], [ 8, %if.end157.i ], [ 4, %if.end179.i ], [ 8, %if.end201.i ], [ 8, %if.end223.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   %51 = load i32, ptr %curr102.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %i32.i10)
@@ -625,8 +625,8 @@ lor.lhs.false:                                    ; preds = %if.end223.i, %if.en
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u32.i12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %u64.i13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i14)
-  %tobool.not.i16 = icmp eq i32 %pc.sroa.27.3, 0
-  %call.i17 = call i32 @OSSL_PARAM_get_int32(ptr noundef %pc.sroa.0.3, ptr noundef nonnull %i32.i10) #7
+  %tobool.not.i16 = icmp eq i32 %pc.sroa.27.2, 0
+  %call.i17 = call i32 @OSSL_PARAM_get_int32(ptr noundef %pc.sroa.0.2, ptr noundef nonnull %i32.i10) #7
   %cmp.i18 = icmp ne i32 %call.i17, 0
   %conv.i19 = zext i1 %cmp.i18 to i32
   br i1 %tobool.not.i16, label %if.then.i41, label %if.else.i20
@@ -649,16 +649,16 @@ if.else.i20:                                      ; preds = %lor.lhs.false
 
 lor.lhs.false13.i:                                ; preds = %if.else.i20
   %52 = load i32, ptr %i32.i10, align 4
-  %cmp15.i = icmp eq i32 %52, %pc.sroa.12.3
+  %cmp15.i = icmp eq i32 %52, %pc.sroa.12.2
   %conv16.i = zext i1 %cmp15.i to i32
   %call19.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 200, ptr noundef nonnull @.str.56, i32 noundef %conv16.i) #7
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %param_conversion_test.exit, label %if.end22.i
 
 if.end22.i:                                       ; preds = %lor.lhs.false13.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.1, i8 44, i64 %pc.sroa.67.1, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.2, i8 44, i64 %pc.sroa.67.2, i1 false)
   %53 = load i32, ptr %i32.i10, align 4
-  %call24.i = call i32 @OSSL_PARAM_set_int32(ptr noundef %pc.sroa.0.3, i32 noundef %53) #7
+  %call24.i = call i32 @OSSL_PARAM_set_int32(ptr noundef %pc.sroa.0.2, i32 noundef %53) #7
   %cmp25.i = icmp ne i32 %call24.i, 0
   %conv26.i = zext i1 %cmp25.i to i32
   %call27.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 205, ptr noundef nonnull @.str.58, i32 noundef %conv26.i) #7
@@ -666,13 +666,13 @@ if.end22.i:                                       ; preds = %lor.lhs.false13.i
   br i1 %tobool28.not.i, label %param_conversion_test.exit, label %lor.lhs.false29.i
 
 lor.lhs.false29.i:                                ; preds = %if.end22.i
-  %call33.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 206, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.1, i64 noundef %pc.sroa.67.1, ptr noundef nonnull %pc.sroa.4265.1, i64 noundef %pc.sroa.67.1) #7
+  %call33.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 206, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.2, i64 noundef %pc.sroa.67.2, ptr noundef nonnull %pc.sroa.4265.2, i64 noundef %pc.sroa.67.2) #7
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %param_conversion_test.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %lor.lhs.false29.i, %lor.lhs.false.i42
-  %tobool38.not.i = icmp eq i32 %pc.sroa.30.3, 0
-  %call41.i26 = call i32 @OSSL_PARAM_get_int64(ptr noundef %pc.sroa.0.3, ptr noundef nonnull %i64.i11) #7
+  %tobool38.not.i = icmp eq i32 %pc.sroa.30.2, 0
+  %call41.i26 = call i32 @OSSL_PARAM_get_int64(ptr noundef %pc.sroa.0.2, ptr noundef nonnull %i64.i11) #7
   %cmp42.i = icmp ne i32 %call41.i26, 0
   %conv43.i = zext i1 %cmp42.i to i32
   br i1 %tobool38.not.i, label %if.then39.i40, label %if.else52.i
@@ -695,16 +695,16 @@ if.else52.i:                                      ; preds = %if.end37.i
 
 lor.lhs.false59.i:                                ; preds = %if.else52.i
   %54 = load i64, ptr %i64.i11, align 8
-  %cmp61.i = icmp eq i64 %54, %pc.sroa.1554.3
+  %cmp61.i = icmp eq i64 %54, %pc.sroa.1554.2
   %conv62.i = zext i1 %cmp61.i to i32
   %call65.i27 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 221, ptr noundef nonnull @.str.64, i32 noundef %conv62.i) #7
   %tobool66.not.i = icmp eq i32 %call65.i27, 0
   br i1 %tobool66.not.i, label %param_conversion_test.exit, label %if.end68.i
 
 if.end68.i:                                       ; preds = %lor.lhs.false59.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.1, i8 44, i64 %pc.sroa.67.1, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.2, i8 44, i64 %pc.sroa.67.2, i1 false)
   %55 = load i64, ptr %i64.i11, align 8
-  %call72.i = call i32 @OSSL_PARAM_set_int64(ptr noundef %pc.sroa.0.3, i64 noundef %55) #7
+  %call72.i = call i32 @OSSL_PARAM_set_int64(ptr noundef %pc.sroa.0.2, i64 noundef %55) #7
   %cmp73.i = icmp ne i32 %call72.i, 0
   %conv74.i = zext i1 %cmp73.i to i32
   %call75.i28 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 226, ptr noundef nonnull @.str.66, i32 noundef %conv74.i) #7
@@ -712,13 +712,13 @@ if.end68.i:                                       ; preds = %lor.lhs.false59.i
   br i1 %tobool76.not.i, label %param_conversion_test.exit, label %lor.lhs.false77.i
 
 lor.lhs.false77.i:                                ; preds = %if.end68.i
-  %call82.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 227, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.1, i64 noundef %pc.sroa.67.1, ptr noundef nonnull %pc.sroa.4265.1, i64 noundef %pc.sroa.67.1) #7
+  %call82.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 227, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.2, i64 noundef %pc.sroa.67.2, ptr noundef nonnull %pc.sroa.4265.2, i64 noundef %pc.sroa.67.2) #7
   %tobool83.not.i = icmp eq i32 %call82.i, 0
   br i1 %tobool83.not.i, label %param_conversion_test.exit, label %if.end86.i
 
 if.end86.i:                                       ; preds = %lor.lhs.false77.i, %lor.lhs.false46.i
-  %tobool87.not.i = icmp eq i32 %pc.sroa.33.3, 0
-  %call90.i = call i32 @OSSL_PARAM_get_uint32(ptr noundef %pc.sroa.0.3, ptr noundef nonnull %u32.i12) #7
+  %tobool87.not.i = icmp eq i32 %pc.sroa.33.2, 0
+  %call90.i = call i32 @OSSL_PARAM_get_uint32(ptr noundef %pc.sroa.0.2, ptr noundef nonnull %u32.i12) #7
   %cmp91.i = icmp ne i32 %call90.i, 0
   %conv92.i = zext i1 %cmp91.i to i32
   br i1 %tobool87.not.i, label %if.then88.i, label %if.else101.i30
@@ -741,16 +741,16 @@ if.else101.i30:                                   ; preds = %if.end86.i
 
 lor.lhs.false108.i:                               ; preds = %if.else101.i30
   %56 = load i32, ptr %u32.i12, align 4
-  %cmp110.i = icmp eq i32 %56, %pc.sroa.18.3
+  %cmp110.i = icmp eq i32 %56, %pc.sroa.18.2
   %conv111.i = zext i1 %cmp110.i to i32
   %call114.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 242, ptr noundef nonnull @.str.70, i32 noundef %conv111.i) #7
   %tobool115.not.i = icmp eq i32 %call114.i, 0
   br i1 %tobool115.not.i, label %param_conversion_test.exit, label %if.end117.i
 
 if.end117.i:                                      ; preds = %lor.lhs.false108.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.1, i8 44, i64 %pc.sroa.67.1, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.2, i8 44, i64 %pc.sroa.67.2, i1 false)
   %57 = load i32, ptr %u32.i12, align 4
-  %call121.i = call i32 @OSSL_PARAM_set_uint32(ptr noundef %pc.sroa.0.3, i32 noundef %57) #7
+  %call121.i = call i32 @OSSL_PARAM_set_uint32(ptr noundef %pc.sroa.0.2, i32 noundef %57) #7
   %cmp122.i = icmp ne i32 %call121.i, 0
   %conv123.i = zext i1 %cmp122.i to i32
   %call124.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 247, ptr noundef nonnull @.str.72, i32 noundef %conv123.i) #7
@@ -758,13 +758,13 @@ if.end117.i:                                      ; preds = %lor.lhs.false108.i
   br i1 %tobool125.not.i, label %param_conversion_test.exit, label %lor.lhs.false126.i
 
 lor.lhs.false126.i:                               ; preds = %if.end117.i
-  %call131.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 248, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.1, i64 noundef %pc.sroa.67.1, ptr noundef nonnull %pc.sroa.4265.1, i64 noundef %pc.sroa.67.1) #7
+  %call131.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 248, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.2, i64 noundef %pc.sroa.67.2, ptr noundef nonnull %pc.sroa.4265.2, i64 noundef %pc.sroa.67.2) #7
   %tobool132.not.i = icmp eq i32 %call131.i, 0
   br i1 %tobool132.not.i, label %param_conversion_test.exit, label %if.end135.i
 
 if.end135.i:                                      ; preds = %lor.lhs.false126.i, %lor.lhs.false95.i
-  %tobool136.not.i = icmp eq i32 %pc.sroa.36.3, 0
-  %call139.i = call i32 @OSSL_PARAM_get_uint64(ptr noundef %pc.sroa.0.3, ptr noundef nonnull %u64.i13) #7
+  %tobool136.not.i = icmp eq i32 %pc.sroa.36.2, 0
+  %call139.i = call i32 @OSSL_PARAM_get_uint64(ptr noundef %pc.sroa.0.2, ptr noundef nonnull %u64.i13) #7
   %cmp140.i = icmp ne i32 %call139.i, 0
   %conv141.i = zext i1 %cmp140.i to i32
   br i1 %tobool136.not.i, label %if.then137.i, label %if.else150.i
@@ -787,16 +787,16 @@ if.else150.i:                                     ; preds = %if.end135.i
 
 lor.lhs.false157.i:                               ; preds = %if.else150.i
   %58 = load i64, ptr %u64.i13, align 8
-  %cmp159.i = icmp eq i64 %58, %pc.sroa.2157.3
+  %cmp159.i = icmp eq i64 %58, %pc.sroa.2157.2
   %conv160.i = zext i1 %cmp159.i to i32
   %call163.i32 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 263, ptr noundef nonnull @.str.76, i32 noundef %conv160.i) #7
   %tobool164.not.i = icmp eq i32 %call163.i32, 0
   br i1 %tobool164.not.i, label %param_conversion_test.exit, label %if.end166.i
 
 if.end166.i:                                      ; preds = %lor.lhs.false157.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.1, i8 44, i64 %pc.sroa.67.1, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.2, i8 44, i64 %pc.sroa.67.2, i1 false)
   %59 = load i64, ptr %u64.i13, align 8
-  %call170.i = call i32 @OSSL_PARAM_set_uint64(ptr noundef %pc.sroa.0.3, i64 noundef %59) #7
+  %call170.i = call i32 @OSSL_PARAM_set_uint64(ptr noundef %pc.sroa.0.2, i64 noundef %59) #7
   %cmp171.i = icmp ne i32 %call170.i, 0
   %conv172.i = zext i1 %cmp171.i to i32
   %call173.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 268, ptr noundef nonnull @.str.78, i32 noundef %conv172.i) #7
@@ -804,13 +804,13 @@ if.end166.i:                                      ; preds = %lor.lhs.false157.i
   br i1 %tobool174.not.i, label %param_conversion_test.exit, label %lor.lhs.false175.i
 
 lor.lhs.false175.i:                               ; preds = %if.end166.i
-  %call180.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.1, i64 noundef %pc.sroa.67.1, ptr noundef nonnull %pc.sroa.4265.1, i64 noundef %pc.sroa.67.1) #7
+  %call180.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.2, i64 noundef %pc.sroa.67.2, ptr noundef nonnull %pc.sroa.4265.2, i64 noundef %pc.sroa.67.2) #7
   %tobool181.not.i = icmp eq i32 %call180.i, 0
   br i1 %tobool181.not.i, label %param_conversion_test.exit, label %if.end184.i
 
 if.end184.i:                                      ; preds = %lor.lhs.false175.i, %lor.lhs.false144.i
-  %tobool185.not.i = icmp eq i32 %pc.sroa.39.3, 0
-  %call188.i = call i32 @OSSL_PARAM_get_double(ptr noundef %pc.sroa.0.3, ptr noundef nonnull %d.i14) #7
+  %tobool185.not.i = icmp eq i32 %pc.sroa.39.2, 0
+  %call188.i = call i32 @OSSL_PARAM_get_double(ptr noundef %pc.sroa.0.2, ptr noundef nonnull %d.i14) #7
   %cmp189.i = icmp ne i32 %call188.i, 0
   %conv190.i = zext i1 %cmp189.i to i32
   br i1 %tobool185.not.i, label %if.then186.i, label %if.else199.i
@@ -837,23 +837,23 @@ if.end207.i:                                      ; preds = %if.else199.i
   br i1 %cmp208.i34, label %if.else221.i, label %if.then210.i35
 
 if.then210.i35:                                   ; preds = %if.end207.i
-  %cmp213.i = fcmp ord double %pc.sroa.24.3, 0.000000e+00
+  %cmp213.i = fcmp ord double %pc.sroa.24.2, 0.000000e+00
   %conv214.i = zext i1 %cmp213.i to i32
   %call217.i = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 300, ptr noundef nonnull @.str.83, i32 noundef %conv214.i) #7
   %tobool218.not.i = icmp eq i32 %call217.i, 0
   br i1 %tobool218.not.i, label %param_conversion_test.exit, label %if.end231.i
 
 if.else221.i:                                     ; preds = %if.end207.i
-  %cmp223.i = fcmp oeq double %60, %pc.sroa.24.3
+  %cmp223.i = fcmp oeq double %60, %pc.sroa.24.2
   %conv224.i = zext i1 %cmp223.i to i32
   %call227.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 304, ptr noundef nonnull @.str.85, i32 noundef %conv224.i) #7
   %tobool228.not.i = icmp eq i32 %call227.i, 0
   br i1 %tobool228.not.i, label %param_conversion_test.exit, label %if.end231.i
 
 if.end231.i:                                      ; preds = %if.else221.i, %if.then210.i35
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.1, i8 44, i64 %pc.sroa.67.1, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.2, i8 44, i64 %pc.sroa.67.2, i1 false)
   %61 = load double, ptr %d.i14, align 8
-  %call235.i = call i32 @OSSL_PARAM_set_double(ptr noundef %pc.sroa.0.3, double noundef %61) #7
+  %call235.i = call i32 @OSSL_PARAM_set_double(ptr noundef %pc.sroa.0.2, double noundef %61) #7
   %cmp236.i = icmp ne i32 %call235.i, 0
   %conv237.i = zext i1 %cmp236.i to i32
   %call238.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 309, ptr noundef nonnull @.str.87, i32 noundef %conv237.i) #7
@@ -861,7 +861,7 @@ if.end231.i:                                      ; preds = %if.else221.i, %if.t
   br i1 %tobool239.not.i, label %param_conversion_test.exit, label %lor.lhs.false240.i
 
 lor.lhs.false240.i:                               ; preds = %if.end231.i
-  %call245.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 310, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.1, i64 noundef %pc.sroa.67.1, ptr noundef nonnull %pc.sroa.4265.1, i64 noundef %pc.sroa.67.1) #7
+  %call245.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 310, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.2, i64 noundef %pc.sroa.67.2, ptr noundef nonnull %pc.sroa.4265.2, i64 noundef %pc.sroa.67.2) #7
   %tobool246.not.i = icmp eq i32 %call245.i, 0
   br i1 %tobool246.not.i, label %param_conversion_test.exit, label %param_conversion_test.exit.thread
 
@@ -884,7 +884,7 @@ param_conversion_test.exit:                       ; preds = %if.then.i41, %lor.l
   br label %if.end22
 
 if.end22:                                         ; preds = %param_conversion_load_stanza.exit.thread, %param_conversion_test.exit, %param_conversion_test.exit.thread, %if.end13
-  %res.1 = phi i32 [ %res.0158, %if.end13 ], [ %res.0158, %param_conversion_test.exit.thread ], [ 0, %param_conversion_test.exit ], [ 0, %param_conversion_load_stanza.exit.thread ]
+  %res.2 = phi i32 [ %res.0158, %if.end13 ], [ %res.0158, %param_conversion_test.exit.thread ], [ 0, %param_conversion_test.exit ], [ 0, %param_conversion_load_stanza.exit.thread ]
   call void @test_clearstanza(ptr noundef nonnull %call1) #7
   %62 = load ptr, ptr %fp, align 8
   %call7 = call i64 @BIO_ctrl(ptr noundef %62, i32 noundef 2, i64 noundef 0, ptr noundef null) #7
@@ -893,13 +893,13 @@ if.end22:                                         ; preds = %param_conversion_lo
   br i1 %tobool9.not, label %while.body, label %end, !llvm.loop !7
 
 end:                                              ; preds = %if.end22, %while.body, %while.cond.preheader
-  %res.2 = phi i32 [ 1, %while.cond.preheader ], [ 0, %while.body ], [ %res.1, %if.end22 ]
+  %res.1 = phi i32 [ 1, %while.cond.preheader ], [ 0, %while.body ], [ %res.2, %if.end22 ]
   %call23 = call i32 @test_end_file(ptr noundef nonnull %call1) #7
   call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str.14, i32 noundef 347) #7
   br label %return
 
 return:                                           ; preds = %entry, %end, %if.then5
-  %retval.0 = phi i32 [ %res.2, %end ], [ 0, %if.then5 ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %res.1, %end ], [ 0, %if.then5 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

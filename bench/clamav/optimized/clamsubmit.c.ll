@@ -361,7 +361,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %26 = phi i32 [ %42, %41 ], [ %24, %23 ]
   %.0193361 = phi ptr [ %.1194, %41 ], [ null, %23 ]
   %.0196360 = phi i8 [ %.1197, %41 ], [ 0, %23 ]
-  %.0201359 = phi ptr [ %.1202, %41 ], [ null, %23 ]
+  %.1202359 = phi ptr [ %.2, %41 ], [ null, %23 ]
   %.0203358 = phi ptr [ %.1204, %41 ], [ null, %23 ]
   %.0205357 = phi ptr [ %.1206, %41 ], [ null, %23 ]
   switch i32 %26, label %39 [
@@ -411,7 +411,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 41:                                               ; preds = %38, %36, %34, %32, %30, %28
   %.1206 = phi ptr [ %.0205357, %38 ], [ %.0205357, %36 ], [ %.0205357, %34 ], [ %.0205357, %32 ], [ %31, %30 ], [ %.0205357, %28 ]
   %.1204 = phi ptr [ %.0203358, %38 ], [ %.0203358, %36 ], [ %.0203358, %34 ], [ %.0203358, %32 ], [ %.0203358, %30 ], [ %29, %28 ]
-  %.1202 = phi ptr [ %.0201359, %38 ], [ %.0201359, %36 ], [ %35, %34 ], [ %33, %32 ], [ %.0201359, %30 ], [ %.0201359, %28 ]
+  %.2 = phi ptr [ %.1202359, %38 ], [ %.1202359, %36 ], [ %35, %34 ], [ %33, %32 ], [ %.1202359, %30 ], [ %.1202359, %28 ]
   %.1197 = phi i8 [ %.0196360, %38 ], [ %.0196360, %36 ], [ 1, %34 ], [ %.0196360, %32 ], [ %.0196360, %30 ], [ %.0196360, %28 ]
   %.1194 = phi ptr [ %.0193361, %38 ], [ %37, %36 ], [ %.0193361, %34 ], [ %.0193361, %32 ], [ %.0193361, %30 ], [ %.0193361, %28 ]
   %42 = call i32 @my_getopt(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.25) #12
@@ -422,7 +422,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %44 = icmp ne ptr %.1206, null
   %45 = icmp ne ptr %.1204, null
   %or.cond = select i1 %44, i1 %45, i1 false
-  %46 = icmp ne ptr %.1202, null
+  %46 = icmp ne ptr %.2, null
   %or.cond3 = select i1 %or.cond, i1 %46, i1 false
   br i1 %or.cond3, label %48, label %._crit_edge.thread
 
@@ -446,12 +446,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 55:                                               ; preds = %48
-  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1202) #14
+  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #14
   %57 = icmp eq i64 %56, 1
   br i1 %57, label %58, label %65
 
 58:                                               ; preds = %55
-  %59 = load i8, ptr %.1202, align 1
+  %59 = load i8, ptr %.2, align 1
   %60 = icmp eq i8 %59, 45
   br i1 %60, label %61, label %65
 
@@ -465,8 +465,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.thread332
 
 65:                                               ; preds = %61, %58, %55
-  %.2 = phi ptr [ %.1202, %58 ], [ %.1202, %55 ], [ %62, %61 ]
-  %.0198 = phi i32 [ 0, %58 ], [ 0, %55 ], [ 1, %61 ]
+  %.3 = phi ptr [ %.2, %58 ], [ %.2, %55 ], [ %62, %61 ]
+  %.1199 = phi i32 [ 0, %58 ], [ 0, %55 ], [ 1, %61 ]
   %66 = load i8, ptr @g_debug, align 1
   %67 = trunc i8 %66 to i1
   br i1 %67, label %68, label %77
@@ -575,7 +575,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %123
 
 123:                                              ; preds = %121, %93
-  %.0190 = phi ptr [ %117, %121 ], [ null, %93 ]
+  %.1191 = phi ptr [ %117, %121 ], [ null, %93 ]
   store i32 0, ptr %6, align 8
   %124 = getelementptr inbounds i8, ptr %7, i64 8
   %125 = load ptr, ptr %124, align 8
@@ -609,19 +609,19 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %345
 
 142:                                              ; preds = %138, %127
-  %.0189 = phi ptr [ null, %127 ], [ %134, %138 ]
+  %.1 = phi ptr [ null, %127 ], [ %134, %138 ]
   %.str.44..str.45 = select i1 %49, ptr @.str.44, ptr @.str.45
   %143 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10002, ptr noundef nonnull %.str.44..str.45) #12
   %144 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 80, i32 noundef 1) #12
-  %.not257 = icmp eq ptr %.0189, null
+  %.not257 = icmp eq ptr %.1, null
   br i1 %.not257, label %147, label %145
 
 145:                                              ; preds = %142
-  %146 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10022, ptr noundef nonnull %.0189) #12
+  %146 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10022, ptr noundef nonnull %.1) #12
   br label %147
 
 147:                                              ; preds = %145, %142
-  %148 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0190) #14
+  %148 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1191) #14
   %149 = trunc i64 %148 to i32
   %150 = add i32 %149, 15
   %151 = sext i32 %150 to i64
@@ -634,7 +634,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.thread
 
 156:                                              ; preds = %147
-  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %152, i64 noundef %151, ptr noundef nonnull @.str.47, ptr noundef %.0190) #12
+  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %152, i64 noundef %151, ptr noundef nonnull @.str.47, ptr noundef %.1191) #12
   %158 = icmp sgt i32 %157, %150
   br i1 %158, label %343, label %159
 
@@ -836,7 +836,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 270:                                              ; preds = %264
   %271 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.69, i32 noundef 4, ptr noundef nonnull %266, i32 noundef 17) #12
-  %272 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.71, i32 noundef 10, ptr noundef nonnull %.2, i32 noundef 17) #12
+  %272 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.71, i32 noundef 10, ptr noundef nonnull %.3, i32 noundef 17) #12
   %273 = call ptr @curl_slist_append(ptr noundef null, ptr noundef nonnull @.str.72) #12
   %274 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %205, i32 noundef 10023, ptr noundef %273) #12
   %275 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %205, i32 noundef 10002, ptr noundef nonnull @.str.73) #12
@@ -874,12 +874,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not257, label %291, label %289
 
 289:                                              ; preds = %287
-  %290 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10022, ptr noundef nonnull %.0189) #12
+  %290 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10022, ptr noundef nonnull %.1) #12
   br label %291
 
 291:                                              ; preds = %289, %287
   %292 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.75, i32 noundef 4, ptr noundef nonnull @.str.76, i32 noundef 17) #12
-  %293 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.77, i32 noundef 4, ptr noundef %.0190, i32 noundef 17) #12
+  %293 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.77, i32 noundef 4, ptr noundef %.1191, i32 noundef 17) #12
   %294 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.78, i32 noundef 4, ptr noundef nonnull %199, i32 noundef 17) #12
   %295 = select i1 %49, ptr @.str.80, ptr @.str.81
   %296 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 4, ptr noundef nonnull %295, i32 noundef 17) #12
@@ -982,8 +982,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.0207291330 = phi ptr [ null, %.thread.thread314 ], [ %.0207291, %.thread ]
   %.0200293328 = phi i32 [ 1, %.thread.thread314 ], [ %.0200293, %.thread ]
   %.0195295326 = phi ptr [ null, %.thread.thread314 ], [ %.0195295, %.thread ]
-  %.1297324 = phi ptr [ %134, %.thread.thread314 ], [ %.0189, %.thread ]
-  call void @free(ptr noundef nonnull %.1297324) #12
+  %.0189297324 = phi ptr [ %134, %.thread.thread314 ], [ %.1, %.thread ]
+  call void @free(ptr noundef nonnull %.0189297324) #12
   br label %346
 
 346:                                              ; preds = %345, %.thread
@@ -999,11 +999,11 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.thread332
 
 .thread332:                                       ; preds = %63, %136, %119, %110, %104, %99, %89, %14, %347, %346
-  %.1191296307346 = phi ptr [ %.0190, %347 ], [ %.0190, %346 ], [ null, %14 ], [ null, %89 ], [ null, %99 ], [ null, %104 ], [ null, %110 ], [ null, %119 ], [ %.0190, %136 ], [ null, %63 ]
+  %.0190296307346 = phi ptr [ %.1191, %347 ], [ %.1191, %346 ], [ null, %14 ], [ null, %89 ], [ null, %99 ], [ null, %104 ], [ null, %110 ], [ null, %119 ], [ %.1191, %136 ], [ null, %63 ]
   %.0195295308345 = phi ptr [ %.0195295308, %347 ], [ %.0195295308, %346 ], [ null, %14 ], [ null, %89 ], [ null, %99 ], [ null, %104 ], [ null, %110 ], [ null, %119 ], [ null, %136 ], [ null, %63 ]
-  %.1199294309344 = phi i32 [ %.0198, %347 ], [ %.0198, %346 ], [ 0, %14 ], [ %.0198, %89 ], [ %.0198, %99 ], [ %.0198, %104 ], [ %.0198, %110 ], [ %.0198, %119 ], [ %.0198, %136 ], [ 0, %63 ]
+  %.0198294309344 = phi i32 [ %.1199, %347 ], [ %.1199, %346 ], [ 0, %14 ], [ %.1199, %89 ], [ %.1199, %99 ], [ %.1199, %104 ], [ %.1199, %110 ], [ %.1199, %119 ], [ %.1199, %136 ], [ 0, %63 ]
   %.0200293310343 = phi i32 [ %.0200293310, %347 ], [ %.0200293310, %346 ], [ 1, %14 ], [ 1, %89 ], [ 1, %99 ], [ 1, %104 ], [ 1, %110 ], [ 1, %119 ], [ 1, %136 ], [ 1, %63 ]
-  %.3292311342 = phi ptr [ %.2, %347 ], [ %.2, %346 ], [ null, %14 ], [ %.2, %89 ], [ %.2, %99 ], [ %.2, %104 ], [ %.2, %110 ], [ %.2, %119 ], [ %.2, %136 ], [ null, %63 ]
+  %.0201292311342 = phi ptr [ %.3, %347 ], [ %.3, %346 ], [ null, %14 ], [ %.3, %89 ], [ %.3, %99 ], [ %.3, %104 ], [ %.3, %110 ], [ %.3, %119 ], [ %.3, %136 ], [ null, %63 ]
   %.0208290313341 = phi ptr [ %.0208290313, %347 ], [ %.0208290313, %346 ], [ null, %14 ], [ null, %89 ], [ null, %99 ], [ null, %104 ], [ null, %110 ], [ null, %119 ], [ null, %136 ], [ null, %63 ]
   %348 = load ptr, ptr %4, align 8
   %.not272 = icmp eq ptr %348, null
@@ -1070,22 +1070,22 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %368
 
 368:                                              ; preds = %367, %366
-  %.not279 = icmp eq ptr %.1191296307346, null
+  %.not279 = icmp eq ptr %.0190296307346, null
   br i1 %.not279, label %370, label %369
 
 369:                                              ; preds = %368
-  call void @free(ptr noundef nonnull %.1191296307346) #12
+  call void @free(ptr noundef nonnull %.0190296307346) #12
   br label %370
 
 370:                                              ; preds = %369, %368
-  %371 = icmp ne i32 %.1199294309344, 0
-  %372 = icmp ne ptr %.3292311342, null
+  %371 = icmp ne i32 %.0198294309344, 0
+  %372 = icmp ne ptr %.0201292311342, null
   %or.cond7 = select i1 %371, i1 %372, i1 false
   br i1 %or.cond7, label %373, label %375
 
 373:                                              ; preds = %370
-  %374 = call i32 @remove(ptr noundef nonnull %.3292311342) #12
-  call void @free(ptr noundef nonnull %.3292311342) #12
+  %374 = call i32 @remove(ptr noundef nonnull %.0201292311342) #12
+  call void @free(ptr noundef nonnull %.0201292311342) #12
   br label %375
 
 375:                                              ; preds = %373, %370

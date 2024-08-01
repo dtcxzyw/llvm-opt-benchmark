@@ -14478,7 +14478,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -14520,12 +14520,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.033 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv17 = trunc i64 %11 to i8
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.132, i64 1
-  store i8 %conv17, ptr %indices.addr.132, align 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.232, i64 1
+  store i8 %conv17, ptr %indices.addr.232, align 1
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !226
@@ -14542,7 +14542,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -14653,7 +14653,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -14695,12 +14695,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.033 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv17 = trunc i64 %11 to i8
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.132, i64 1
-  store i8 %conv17, ptr %indices.addr.132, align 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.232, i64 1
+  store i8 %conv17, ptr %indices.addr.232, align 1
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !228
@@ -14717,7 +14717,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -14828,7 +14828,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -14870,12 +14870,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.033 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv16 = trunc i64 %11 to i8
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.132, i64 1
-  store i8 %conv16, ptr %indices.addr.132, align 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.232, i64 1
+  store i8 %conv16, ptr %indices.addr.232, align 1
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !230
@@ -14892,7 +14892,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -15003,7 +15003,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -15045,12 +15045,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.033 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv16 = trunc i64 %11 to i8
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.132, i64 1
-  store i8 %conv16, ptr %indices.addr.132, align 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.232, i64 1
+  store i8 %conv16, ptr %indices.addr.232, align 1
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !232
@@ -15067,7 +15067,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -15178,7 +15178,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -15220,12 +15220,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.033 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv17 = trunc i64 %11 to i16
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.132, i64 2
-  store i16 %conv17, ptr %indices.addr.132, align 2
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.232, i64 2
+  store i16 %conv17, ptr %indices.addr.232, align 2
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !234
@@ -15242,7 +15242,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -15353,7 +15353,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -15395,12 +15395,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.033 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv17 = trunc i64 %11 to i16
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.132, i64 2
-  store i16 %conv17, ptr %indices.addr.132, align 2
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.232, i64 2
+  store i16 %conv17, ptr %indices.addr.232, align 2
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !236
@@ -15417,7 +15417,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -15528,7 +15528,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -15570,12 +15570,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.033 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv16 = trunc i64 %11 to i16
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.132, i64 2
-  store i16 %conv16, ptr %indices.addr.132, align 2
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.232, i64 2
+  store i16 %conv16, ptr %indices.addr.232, align 2
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !238
@@ -15592,7 +15592,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -15703,7 +15703,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -15745,12 +15745,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.033 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv16 = trunc i64 %11 to i16
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.132, i64 2
-  store i16 %conv16, ptr %indices.addr.132, align 2
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.232, i64 2
+  store i16 %conv16, ptr %indices.addr.232, align 2
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !240
@@ -15767,7 +15767,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -15878,7 +15878,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -15920,12 +15920,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.033 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv17 = trunc i64 %11 to i32
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.132, i64 4
-  store i32 %conv17, ptr %indices.addr.132, align 4
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.232, i64 4
+  store i32 %conv17, ptr %indices.addr.232, align 4
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !242
@@ -15942,7 +15942,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -16053,7 +16053,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -16095,12 +16095,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.033 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv17 = trunc i64 %11 to i32
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.132, i64 4
-  store i32 %conv17, ptr %indices.addr.132, align 4
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.232, i64 4
+  store i32 %conv17, ptr %indices.addr.232, align 4
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !244
@@ -16117,7 +16117,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr18, %for.body15 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -16228,7 +16228,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -16270,12 +16270,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.033 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv16 = trunc i64 %11 to i32
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.132, i64 4
-  store i32 %conv16, ptr %indices.addr.132, align 4
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.232, i64 4
+  store i32 %conv16, ptr %indices.addr.232, align 4
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !246
@@ -16292,7 +16292,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -16403,7 +16403,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -16445,12 +16445,12 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.033 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
   %conv16 = trunc i64 %11 to i32
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.132, i64 4
-  store i32 %conv16, ptr %indices.addr.132, align 4
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.232, i64 4
+  store i32 %conv16, ptr %indices.addr.232, align 4
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !248
@@ -16467,7 +16467,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body14 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -16578,7 +16578,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -16620,11 +16620,11 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.033 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr17, %for.body15 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr17, %for.body15 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.132, i64 8
-  store i64 %11, ptr %indices.addr.132, align 8
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.232, i64 8
+  store i64 %11, ptr %indices.addr.232, align 8
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !250
@@ -16641,7 +16641,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body15 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body15 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -16752,7 +16752,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -16794,11 +16794,11 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.033 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr17, %for.body15 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr17, %for.body15 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.132, i64 8
-  store i64 %11, ptr %indices.addr.132, align 8
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.232, i64 8
+  store i64 %11, ptr %indices.addr.232, align 8
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !252
@@ -16815,7 +16815,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body15 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr17, %for.body15 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -16926,7 +16926,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -16968,11 +16968,11 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.033 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr16, %for.body14 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr16, %for.body14 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
-  %incdec.ptr16 = getelementptr inbounds i8, ptr %indices.addr.132, i64 8
-  store i64 %11, ptr %indices.addr.132, align 8
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %indices.addr.232, i64 8
+  store i64 %11, ptr %indices.addr.232, align 8
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !254
@@ -16989,7 +16989,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr16, %for.body14 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr16, %for.body14 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64
@@ -17100,7 +17100,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %n.037 = phi i64 [ %call5, %for.body.lr.ph ], [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
-  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.2, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
+  %indices.addr.036 = phi ptr [ %indices, %for.body.lr.ph ], [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   %values.addr.035 = phi ptr [ %values, %for.body.lr.ph ], [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ]
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
@@ -17142,11 +17142,11 @@ if.then:                                          ; preds = %invoke.cont6
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.033 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
-  %indices.addr.132 = phi ptr [ %incdec.ptr16, %for.body14 ], [ %indices.addr.036, %if.then ]
+  %indices.addr.232 = phi ptr [ %incdec.ptr16, %for.body14 ], [ %indices.addr.036, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.033
   %11 = load i64, ptr %add.ptr.i12, align 8
-  %incdec.ptr16 = getelementptr inbounds i8, ptr %indices.addr.132, i64 8
-  store i64 %11, ptr %indices.addr.132, align 8
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %indices.addr.232, i64 8
+  store i64 %11, ptr %indices.addr.232, align 8
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !256
@@ -17163,7 +17163,7 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.035, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
-  %indices.addr.2 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr16, %for.body14 ]
+  %indices.addr.1 = phi ptr [ %indices.addr.036, %invoke.cont6 ], [ %indices.addr.036, %if.then ], [ %incdec.ptr16, %for.body14 ]
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %14 = load ptr, ptr %shape_.i, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %13 to i64

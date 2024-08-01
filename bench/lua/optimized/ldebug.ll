@@ -98,14 +98,14 @@ while.end.i:                                      ; preds = %land.rhs.i, %while.
   br label %getbaseline.exit
 
 getbaseline.exit:                                 ; preds = %if.then.i, %while.end.i
-  %basepc.0 = phi i32 [ -1, %if.then.i ], [ %9, %while.end.i ]
+  %basepc.1 = phi i32 [ -1, %if.then.i ], [ %9, %while.end.i ]
   %retval.0.in.i = phi ptr [ %linedefined.i, %if.then.i ], [ %line.i, %while.end.i ]
   %retval.0.i = load i32, ptr %retval.0.in.i, align 4
-  %cmp15 = icmp slt i32 %basepc.0, %pc
+  %cmp15 = icmp slt i32 %basepc.1, %pc
   br i1 %cmp15, label %while.body.preheader, label %return
 
 while.body.preheader:                             ; preds = %getbaseline.exit
-  %10 = sext i32 %basepc.0 to i64
+  %10 = sext i32 %basepc.1 to i64
   %wide.trip.count = sext i32 %pc to i64
   br label %while.body
 
@@ -839,14 +839,14 @@ while.end.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i, %
   br label %getbaseline.exit.i.i.i
 
 getbaseline.exit.i.i.i:                           ; preds = %while.end.i.i.i.i, %if.then.i.i.i.i
-  %basepc.0.i.i.i = phi i32 [ -1, %if.then.i.i.i.i ], [ %32, %while.end.i.i.i.i ]
+  %basepc.1.i.i.i = phi i32 [ -1, %if.then.i.i.i.i ], [ %32, %while.end.i.i.i.i ]
   %retval.0.in.i.i.i.i = phi ptr [ %linedefined.i.i.i.i, %if.then.i.i.i.i ], [ %line.i.i.i.i, %while.end.i.i.i.i ]
   %retval.0.i.i.i.i = load i32, ptr %retval.0.in.i.i.i.i, align 4
-  %cmp15.i.i.i = icmp slt i32 %basepc.0.i.i.i, %sub.i.i.i
+  %cmp15.i.i.i = icmp slt i32 %basepc.1.i.i.i, %sub.i.i.i
   br i1 %cmp15.i.i.i, label %while.body.preheader.i.i.i, label %cond.end.i
 
 while.body.preheader.i.i.i:                       ; preds = %getbaseline.exit.i.i.i
-  %33 = sext i32 %basepc.0.i.i.i to i64
+  %33 = sext i32 %basepc.1.i.i.i to i64
   %wide.trip.count.i.i.i = sext i32 %sub.i.i.i to i64
   br label %while.body.i.i.i
 
@@ -1085,8 +1085,8 @@ getbaseline.exit.i.i.i36:                         ; preds = %while.cond.i.i.i.i3
 
 while.body.preheader.i.i.i41:                     ; preds = %getbaseline.exit.i.i.i36, %getbaseline.exit.i.i.thread.i
   %retval.0.i.i.i66.i = phi i32 [ %retval.0.i.i.i63.i, %getbaseline.exit.i.i.thread.i ], [ %retval.0.i.i.i.i39, %getbaseline.exit.i.i.i36 ]
-  %basepc.0.i.i65.i = phi i32 [ -1, %getbaseline.exit.i.i.thread.i ], [ %69, %getbaseline.exit.i.i.i36 ]
-  %70 = sext i32 %basepc.0.i.i65.i to i64
+  %basepc.1.i.i65.i = phi i32 [ -1, %getbaseline.exit.i.i.thread.i ], [ %69, %getbaseline.exit.i.i.i36 ]
+  %70 = sext i32 %basepc.1.i.i65.i to i64
   br label %while.body.i.i.i42
 
 while.body.i.i.i42:                               ; preds = %while.body.i.i.i42, %while.body.preheader.i.i.i41
@@ -1173,10 +1173,10 @@ while.end.i.i.i39.i:                              ; preds = %land.rhs.i.i.i35.i,
   br label %getbaseline.exit.i.i44.i
 
 getbaseline.exit.i.i44.i:                         ; preds = %while.end.i.i.i39.i, %lor.lhs.false.i.i.i27.i, %if.else.i.i24.i
-  %basepc.0.i.i45.i = phi i32 [ %87, %while.end.i.i.i39.i ], [ -1, %lor.lhs.false.i.i.i27.i ], [ -1, %if.else.i.i24.i ]
+  %basepc.1.i.i45.i = phi i32 [ %87, %while.end.i.i.i39.i ], [ -1, %lor.lhs.false.i.i.i27.i ], [ -1, %if.else.i.i24.i ]
   %retval.0.in.i.i.i46.i = phi ptr [ %line.i.i.i43.i, %while.end.i.i.i39.i ], [ %linedefined.i, %lor.lhs.false.i.i.i27.i ], [ %linedefined.i, %if.else.i.i24.i ]
   %retval.0.i.i.i47.i = load i32, ptr %retval.0.in.i.i.i46.i, align 4
-  %88 = sext i32 %basepc.0.i.i45.i to i64
+  %88 = sext i32 %basepc.1.i.i45.i to i64
   %cmp15.i.i48.i = icmp sgt i64 %indvars.iv.i, %88
   br i1 %cmp15.i.i48.i, label %while.body.i.i50.i, label %nextline.exit60.i
 
@@ -1597,14 +1597,14 @@ while.end.i.i.i:                                  ; preds = %land.rhs.i.i.i, %wh
   br label %getbaseline.exit.i.i
 
 getbaseline.exit.i.i:                             ; preds = %while.end.i.i.i, %if.then.i.i.i
-  %basepc.0.i.i = phi i32 [ -1, %if.then.i.i.i ], [ %20, %while.end.i.i.i ]
+  %basepc.1.i.i = phi i32 [ -1, %if.then.i.i.i ], [ %20, %while.end.i.i.i ]
   %retval.0.in.i.i.i = phi ptr [ %linedefined.i.i.i, %if.then.i.i.i ], [ %line.i.i.i, %while.end.i.i.i ]
   %retval.0.i.i.i = load i32, ptr %retval.0.in.i.i.i, align 4
-  %cmp15.i.i = icmp slt i32 %basepc.0.i.i, %sub.i.i
+  %cmp15.i.i = icmp slt i32 %basepc.1.i.i, %sub.i.i
   br i1 %cmp15.i.i, label %while.body.preheader.i.i, label %getcurrentline.exit
 
 while.body.preheader.i.i:                         ; preds = %getbaseline.exit.i.i
-  %21 = sext i32 %basepc.0.i.i to i64
+  %21 = sext i32 %basepc.1.i.i to i64
   %wide.trip.count.i.i = sext i32 %sub.i.i to i64
   br label %while.body.i.i
 
@@ -2059,14 +2059,14 @@ while.end.i.i.i:                                  ; preds = %land.rhs.i.i.i, %wh
   br label %getbaseline.exit.i.i
 
 getbaseline.exit.i.i:                             ; preds = %while.end.i.i.i, %if.then.i.i.i
-  %basepc.0.i.i = phi i32 [ -1, %if.then.i.i.i ], [ %31, %while.end.i.i.i ]
+  %basepc.1.i.i = phi i32 [ -1, %if.then.i.i.i ], [ %31, %while.end.i.i.i ]
   %retval.0.in.i.i.i = phi ptr [ %linedefined.i.i.i, %if.then.i.i.i ], [ %line.i.i.i, %while.end.i.i.i ]
   %retval.0.i.i.i = load i32, ptr %retval.0.in.i.i.i, align 4
-  %cmp15.i.i = icmp slt i32 %basepc.0.i.i, %spec.select
+  %cmp15.i.i = icmp slt i32 %basepc.1.i.i, %spec.select
   br i1 %cmp15.i.i, label %while.body.preheader.i.i, label %if.else.i13.i
 
 while.body.preheader.i.i:                         ; preds = %getbaseline.exit.i.i
-  %32 = sext i32 %basepc.0.i.i to i64
+  %32 = sext i32 %basepc.1.i.i to i64
   %wide.trip.count.i.i = sext i32 %spec.select to i64
   br label %while.body.i.i
 
@@ -2126,14 +2126,14 @@ while.end.i.i29.i:                                ; preds = %land.rhs.i.i25.i, %
   br label %getbaseline.exit.i34.i
 
 getbaseline.exit.i34.i:                           ; preds = %while.end.i.i29.i, %if.then.i.i50.i
-  %basepc.0.i35.i = phi i32 [ -1, %if.then.i.i50.i ], [ %41, %while.end.i.i29.i ]
+  %basepc.1.i35.i = phi i32 [ -1, %if.then.i.i50.i ], [ %41, %while.end.i.i29.i ]
   %retval.0.in.i.i36.i = phi ptr [ %linedefined.i.i51.i, %if.then.i.i50.i ], [ %line.i.i33.i, %while.end.i.i29.i ]
   %retval.0.i.i37.i = load i32, ptr %retval.0.in.i.i36.i, align 4
-  %cmp15.i38.i = icmp slt i32 %basepc.0.i35.i, %sub
+  %cmp15.i38.i = icmp slt i32 %basepc.1.i35.i, %sub
   br i1 %cmp15.i38.i, label %while.body.preheader.i40.i, label %luaG_getfuncline.exit52.i
 
 while.body.preheader.i40.i:                       ; preds = %getbaseline.exit.i34.i
-  %42 = sext i32 %basepc.0.i35.i to i64
+  %42 = sext i32 %basepc.1.i35.i to i64
   %wide.trip.count.i41.i = sext i32 %sub to i64
   br label %while.body.i42.i
 
@@ -2208,14 +2208,14 @@ while.end.i.i:                                    ; preds = %land.rhs.i.i, %whil
   br label %getbaseline.exit.i
 
 getbaseline.exit.i:                               ; preds = %while.end.i.i, %if.then.i.i
-  %basepc.0.i = phi i32 [ -1, %if.then.i.i ], [ %52, %while.end.i.i ]
+  %basepc.1.i = phi i32 [ -1, %if.then.i.i ], [ %52, %while.end.i.i ]
   %retval.0.in.i.i = phi ptr [ %linedefined.i.i, %if.then.i.i ], [ %line.i.i, %while.end.i.i ]
   %retval.0.i.i43 = load i32, ptr %retval.0.in.i.i, align 4
-  %cmp15.i = icmp slt i32 %basepc.0.i, %sub
+  %cmp15.i = icmp slt i32 %basepc.1.i, %sub
   br i1 %cmp15.i, label %while.body.preheader.i, label %luaG_getfuncline.exit
 
 while.body.preheader.i:                           ; preds = %getbaseline.exit.i
-  %53 = sext i32 %basepc.0.i to i64
+  %53 = sext i32 %basepc.1.i to i64
   %wide.trip.count.i = sext i32 %sub to i64
   br label %while.body.i
 
@@ -2524,7 +2524,7 @@ for.body.preheader.i:                             ; preds = %if.end
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %setreg.08.i = phi i32 [ -1, %for.body.preheader.i ], [ %setreg.1.i, %for.inc.i ]
-  %jmptarget.07.i = phi i32 [ 0, %for.body.preheader.i ], [ %jmptarget.23.i, %for.inc.i ]
+  %jmptarget.07.i = phi i32 [ 0, %for.body.preheader.i ], [ %jmptarget.13.i, %for.inc.i ]
   %arrayidx7.i = getelementptr inbounds i32, ptr %p.val, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx7.i, align 4
   %and9.i = and i32 %4, 127
@@ -2553,7 +2553,7 @@ sw.epilog.thread.i:                               ; preds = %for.body.i
   %add30.i = add i32 %6, %shr10.i
   %cmp31.not.not.i = icmp sgt i32 %add30.i, %spec.select.i
   %7 = tail call i32 @llvm.smax.i32(i32 %add30.i, i32 %jmptarget.07.i)
-  %jmptarget.1.i = select i1 %cmp31.not.not.i, i32 %jmptarget.07.i, i32 %7
+  %jmptarget.2.i = select i1 %cmp31.not.not.i, i32 %jmptarget.07.i, i32 %7
   br label %for.inc.i
 
 sw.default.i:                                     ; preds = %for.body.i
@@ -2583,7 +2583,7 @@ if.then48.i:                                      ; preds = %sw.epilog.i, %sw.de
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then48.i, %sw.epilog.i, %sw.default.i, %sw.epilog.thread.i, %sw.bb22.i, %sw.bb18.i
-  %jmptarget.23.i = phi i32 [ %jmptarget.07.i, %if.then48.i ], [ %jmptarget.07.i, %sw.epilog.i ], [ %jmptarget.1.i, %sw.epilog.thread.i ], [ %jmptarget.07.i, %sw.default.i ], [ %jmptarget.07.i, %sw.bb22.i ], [ %jmptarget.07.i, %sw.bb18.i ]
+  %jmptarget.13.i = phi i32 [ %jmptarget.07.i, %if.then48.i ], [ %jmptarget.07.i, %sw.epilog.i ], [ %jmptarget.2.i, %sw.epilog.thread.i ], [ %jmptarget.07.i, %sw.default.i ], [ %jmptarget.07.i, %sw.bb22.i ], [ %jmptarget.07.i, %sw.bb18.i ]
   %setreg.1.i = phi i32 [ %.pc.i.i, %if.then48.i ], [ %setreg.08.i, %sw.epilog.i ], [ %setreg.08.i, %sw.epilog.thread.i ], [ %setreg.08.i, %sw.default.i ], [ %setreg.08.i, %sw.bb22.i ], [ %setreg.08.i, %sw.bb18.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

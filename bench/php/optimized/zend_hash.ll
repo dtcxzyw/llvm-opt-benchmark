@@ -1051,9 +1051,9 @@ zend_hash_iterators_lower_pos.exit:               ; preds = %137, %126
   %143 = phi i32 [ %.lcssa, %.lr.ph ], [ %217, %216 ]
   %144 = phi i32 [ %139, %.lr.ph ], [ %218, %216 ]
   %.3253 = phi ptr [ %.1.lcssa, %.lr.ph ], [ %145, %216 ]
-  %.0186252 = phi i32 [ %.0.lcssa.i, %.lr.ph ], [ %.3189, %216 ]
+  %.0186252 = phi i32 [ %.0.lcssa.i, %.lr.ph ], [ %.1187, %216 ]
   %.2195251 = phi ptr [ %.1.lcssa, %.lr.ph ], [ %.3196, %216 ]
-  %.2199249 = phi i32 [ %.1182.lcssa, %.lr.ph ], [ %.3200, %216 ]
+  %.3200249 = phi i32 [ %.1182.lcssa, %.lr.ph ], [ %.4, %216 ]
   %145 = getelementptr inbounds i8, ptr %.3253, i64 32
   %146 = getelementptr inbounds i8, ptr %.3253, i64 40
   %147 = load i32, ptr %146, align 8
@@ -1084,13 +1084,13 @@ zend_hash_iterators_lower_pos.exit:               ; preds = %137, %126
   store i32 %163, ptr %164, align 4
   %165 = load ptr, ptr %42, align 8
   %166 = getelementptr inbounds i32, ptr %165, i64 %161
-  store i32 %.2199249, ptr %166, align 4
+  store i32 %.3200249, ptr %166, align 4
   %167 = load i32, ptr %141, align 4
   %168 = icmp eq i32 %167, %144
   br i1 %168, label %169, label %170
 
 169:                                              ; preds = %148
-  store i32 %.2199249, ptr %141, align 4
+  store i32 %.3200249, ptr %141, align 4
   br label %170
 
 170:                                              ; preds = %169, %148
@@ -1123,7 +1123,7 @@ _zend_hash_iterators_update.exit.us.us:           ; preds = %.preheader241.split
   br label %_zend_hash_iterators_update.exit.us.us
 
 _zend_hash_iterators_update.exit.us:              ; preds = %.preheader241.split.us, %zend_hash_iterators_lower_pos.exit231.loopexit.us
-  %.1187.us = phi i32 [ %.1.i226.us, %zend_hash_iterators_lower_pos.exit231.loopexit.us ], [ %.0186252, %.preheader241.split.us ]
+  %.3189.us = phi i32 [ %.1.i226.us, %zend_hash_iterators_lower_pos.exit231.loopexit.us ], [ %.0186252, %.preheader241.split.us ]
   br label %.lr.ph.i223.us
 
 .lr.ph.i223.us:                                   ; preds = %_zend_hash_iterators_update.exit.us, %184
@@ -1136,7 +1136,7 @@ _zend_hash_iterators_update.exit.us:              ; preds = %.preheader241.split
 180:                                              ; preds = %.lr.ph.i223.us
   %181 = getelementptr inbounds i8, ptr %.01216.i225.us, i64 8
   %182 = load i32, ptr %181, align 8
-  %.not14.not.i229.us.not = icmp ugt i32 %182, %.1187.us
+  %.not14.not.i229.us.not = icmp ugt i32 %182, %.3189.us
   %183 = tail call i32 @llvm.umin.i32(i32 %182, i32 %.017.i224.us)
   %spec.select.i230.us = select i1 %.not14.not.i229.us.not, i32 %183, i32 %.017.i224.us
   br label %184
@@ -1159,7 +1159,7 @@ zend_hash_iterators_lower_pos.exit231.loopexit.us: ; preds = %184
   %187 = phi i8 [ %.pr, %.preheader241.splitthread-pre-split ], [ 1, %.preheader241 ]
   %.pre270 = phi ptr [ %.pre270276, %.preheader241.splitthread-pre-split ], [ %173, %.preheader241 ]
   %.pr.pre268 = phi i32 [ %.pr.pre268273, %.preheader241.splitthread-pre-split ], [ %.pr.us, %.preheader241 ]
-  %.1187 = phi i32 [ %.0.lcssa.i228, %.preheader241.splitthread-pre-split ], [ %.0186252, %.preheader241 ]
+  %.3189 = phi i32 [ %.0.lcssa.i228, %.preheader241.splitthread-pre-split ], [ %.0186252, %.preheader241 ]
   %.not213 = icmp eq i8 %187, 0
   br i1 %.not213, label %_zend_hash_iterators_update.exit, label %188
 
@@ -1182,11 +1182,11 @@ _zend_hash_iterators_update.exit.thread:          ; preds = %188
 194:                                              ; preds = %.lr.ph.i220
   %195 = getelementptr inbounds i8, ptr %.010.i, i64 8
   %196 = load i32, ptr %195, align 8
-  %197 = icmp eq i32 %196, %.1187
+  %197 = icmp eq i32 %196, %.3189
   br i1 %197, label %198, label %199
 
 198:                                              ; preds = %194
-  store i32 %.2199249, ptr %195, align 8
+  store i32 %.3200249, ptr %195, align 8
   br label %199
 
 199:                                              ; preds = %198, %194, %.lr.ph.i220
@@ -1202,7 +1202,7 @@ _zend_hash_iterators_update.exit.loopexit:        ; preds = %199
 _zend_hash_iterators_update.exit:                 ; preds = %_zend_hash_iterators_update.exit.loopexit, %.preheader241.split
   %.pre270277 = phi ptr [ %.pre, %_zend_hash_iterators_update.exit.loopexit ], [ %.pre270, %.preheader241.split ]
   %.pr.pre268274 = phi i32 [ %.pr.pre, %_zend_hash_iterators_update.exit.loopexit ], [ %.pr.pre268, %.preheader241.split ]
-  %201 = add i32 %.1187, 1
+  %201 = add i32 %.3189, 1
   %202 = zext i32 %.pr.pre268274 to i64
   %203 = getelementptr inbounds %struct._HashTableIterator, ptr %.pre270277, i64 %202
   %204 = load i32, ptr %59, align 8
@@ -1242,21 +1242,21 @@ zend_hash_iterators_lower_pos.exit231:            ; preds = %211, %_zend_hash_it
   %.pre271 = phi i32 [ %.pre271.pre, %..loopexit242_crit_edge ], [ %176, %.preheader241.split.us.split.us ], [ %176, %zend_hash_iterators_lower_pos.exit231.loopexit.us ], [ %.pre271280, %zend_hash_iterators_lower_pos.exit231 ]
   %.2188 = phi i32 [ %.0186252, %..loopexit242_crit_edge ], [ %176, %.preheader241.split.us.split.us ], [ %.1.i226.us, %zend_hash_iterators_lower_pos.exit231.loopexit.us ], [ %.0.lcssa.i228, %zend_hash_iterators_lower_pos.exit231 ]
   %214 = getelementptr inbounds i8, ptr %.2195251, i64 32
-  %215 = add i32 %.2199249, 1
+  %215 = add i32 %.3200249, 1
   br label %216
 
 216:                                              ; preds = %.loopexit242, %142
   %217 = phi i32 [ %.pre271, %.loopexit242 ], [ %143, %142 ]
-  %.3200 = phi i32 [ %215, %.loopexit242 ], [ %.2199249, %142 ]
+  %.4 = phi i32 [ %215, %.loopexit242 ], [ %.3200249, %142 ]
   %.3196 = phi ptr [ %214, %.loopexit242 ], [ %.2195251, %142 ]
-  %.3189 = phi i32 [ %.2188, %.loopexit242 ], [ %.0186252, %142 ]
+  %.1187 = phi i32 [ %.2188, %.loopexit242 ], [ %.0186252, %142 ]
   %218 = add nuw i32 %144, 1
   %219 = icmp ult i32 %218, %217
   br i1 %219, label %142, label %.loopexit
 
 .loopexit:                                        ; preds = %216, %122, %zend_hash_iterators_lower_pos.exit, %.preheader240
-  %.4 = phi i32 [ %.1182.lcssa, %.preheader240 ], [ %.1182.lcssa, %zend_hash_iterators_lower_pos.exit ], [ %.1198, %122 ], [ %.3200, %216 ]
-  store i32 %.4, ptr %59, align 8
+  %.2199 = phi i32 [ %.1182.lcssa, %.preheader240 ], [ %.1182.lcssa, %zend_hash_iterators_lower_pos.exit ], [ %.1198, %122 ], [ %.4, %216 ]
+  store i32 %.2199, ptr %59, align 8
   br label %.loopexit245
 
 .lr.ph299:                                        ; preds = %.preheader244.preheader, %.preheader244
@@ -1282,7 +1282,7 @@ zend_hash_iterators_lower_pos.exit231:            ; preds = %211, %_zend_hash_it
   br i1 %234, label %.preheader244, label %.loopexit245
 
 .loopexit245:                                     ; preds = %.lr.ph299, %.loopexit
-  %235 = phi i32 [ %.4, %.loopexit ], [ %233, %.lr.ph299 ]
+  %235 = phi i32 [ %.2199, %.loopexit ], [ %233, %.lr.ph299 ]
   %236 = getelementptr inbounds i8, ptr %0, i64 10
   %237 = load i8, ptr %236, align 2
   %.not214 = icmp eq i8 %237, 0
@@ -1852,8 +1852,8 @@ define i32 @zend_hash_get_current_pos(ptr nocapture noundef readonly %0) local_u
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %25, %.critedge.loopexit36.split.loop.exit, %.critedge.loopexit.split.loop.exit, %.preheader18, %.preheader
-  %.2 = phi i32 [ %3, %.preheader ], [ %3, %.preheader18 ], [ %26, %.critedge.loopexit.split.loop.exit ], [ %27, %.critedge.loopexit36.split.loop.exit ], [ %8, %25 ], [ %8, %20 ]
-  ret i32 %.2
+  %.1 = phi i32 [ %3, %.preheader ], [ %3, %.preheader18 ], [ %26, %.critedge.loopexit.split.loop.exit ], [ %27, %.critedge.loopexit36.split.loop.exit ], [ %8, %25 ], [ %8, %20 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2140,9 +2140,9 @@ define i32 @zend_hash_iterator_pos(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %.critedge
 
 .critedge:                                        ; preds = %65, %70, %.critedge.loopexit104.split.loop.exit, %.critedge.loopexit.split.loop.exit, %.preheader83, %.preheader
-  %.2 = phi i32 [ %49, %.preheader ], [ %49, %.preheader83 ], [ %71, %.critedge.loopexit.split.loop.exit ], [ %72, %.critedge.loopexit104.split.loop.exit ], [ %53, %70 ], [ %53, %65 ]
+  %.1 = phi i32 [ %49, %.preheader ], [ %49, %.preheader83 ], [ %71, %.critedge.loopexit.split.loop.exit ], [ %72, %.critedge.loopexit104.split.loop.exit ], [ %53, %70 ], [ %53, %65 ]
   %73 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.2, ptr %73, align 8
+  store i32 %.1, ptr %73, align 8
   br label %74
 
 74:                                               ; preds = %.critedge81, %.critedge, %2
@@ -2350,9 +2350,9 @@ define i32 @zend_hash_iterator_pos_ex(i32 noundef %0, ptr nocapture noundef %1) 
   br label %.critedge
 
 .critedge:                                        ; preds = %82, %87, %.critedge.loopexit120.split.loop.exit, %.critedge.loopexit.split.loop.exit, %.preheader98, %.preheader
-  %.2 = phi i32 [ %66, %.preheader ], [ %66, %.preheader98 ], [ %88, %.critedge.loopexit.split.loop.exit ], [ %89, %.critedge.loopexit120.split.loop.exit ], [ %70, %87 ], [ %70, %82 ]
+  %.1 = phi i32 [ %66, %.preheader ], [ %66, %.preheader98 ], [ %88, %.critedge.loopexit.split.loop.exit ], [ %89, %.critedge.loopexit120.split.loop.exit ], [ %70, %87 ], [ %70, %82 ]
   %90 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %.2, ptr %90, align 8
+  store i32 %.1, ptr %90, align 8
   br label %91
 
 91:                                               ; preds = %.critedge96, %.critedge, %2
@@ -3133,8 +3133,8 @@ zend_hash_iterators_lower_pos.exit:               ; preds = %451, %438
   br i1 %.not18142064, label %.loopexit, label %.lr.ph2074
 
 .lr.ph2074:                                       ; preds = %zend_hash_iterators_lower_pos.exit, %.critedge1848
-  %.016632073 = phi i32 [ %.31666, %.critedge1848 ], [ %.0.lcssa.i, %zend_hash_iterators_lower_pos.exit ]
-  %.216692071 = phi i32 [ %.31670, %.critedge1848 ], [ %.01681, %zend_hash_iterators_lower_pos.exit ]
+  %.016632073 = phi i32 [ %.11664, %.critedge1848 ], [ %.0.lcssa.i, %zend_hash_iterators_lower_pos.exit ]
+  %.316702071 = phi i32 [ %.41671, %.critedge1848 ], [ %.01681, %zend_hash_iterators_lower_pos.exit ]
   %.316762070 = phi ptr [ %.41677, %.critedge1848 ], [ %.01673, %zend_hash_iterators_lower_pos.exit ]
   %.216802069 = phi ptr [ %559, %.critedge1848 ], [ %372, %zend_hash_iterators_lower_pos.exit ]
   %.216832065 = phi i32 [ %558, %.critedge1848 ], [ %371, %zend_hash_iterators_lower_pos.exit ]
@@ -3226,13 +3226,13 @@ zend_hash_iterators_lower_pos.exit:               ; preds = %451, %438
   store i32 %504, ptr %505, align 4
   %506 = load ptr, ptr %271, align 8
   %507 = getelementptr inbounds i32, ptr %506, i64 %502
-  store i32 %.216692071, ptr %507, align 4
+  store i32 %.316702071, ptr %507, align 4
   %508 = load i32, ptr %250, align 4
   %509 = icmp eq i32 %508, %.216832065
   br i1 %509, label %510, label %511
 
 510:                                              ; preds = %.critedge1886
-  store i32 %.216692071, ptr %255, align 4
+  store i32 %.316702071, ptr %255, align 4
   br label %511
 
 511:                                              ; preds = %510, %.critedge1886
@@ -3261,8 +3261,8 @@ _zend_hash_iterators_update.exit.us.us:           ; preds = %.preheader2018.spli
   br label %_zend_hash_iterators_update.exit.us.us
 
 _zend_hash_iterators_update.exit.us:              ; preds = %.preheader2018.split.us, %zend_hash_iterators_lower_pos.exit1910.loopexit.us
-  %.11664.us = phi i32 [ %.1.i1905.us, %zend_hash_iterators_lower_pos.exit1910.loopexit.us ], [ %.016632073, %.preheader2018.split.us ]
-  %519 = add i32 %.11664.us, 1
+  %.31666.us = phi i32 [ %.1.i1905.us, %zend_hash_iterators_lower_pos.exit1910.loopexit.us ], [ %.016632073, %.preheader2018.split.us ]
+  %519 = add i32 %.31666.us, 1
   br label %.lr.ph.i1902.us
 
 .lr.ph.i1902.us:                                  ; preds = %_zend_hash_iterators_update.exit.us, %526
@@ -3298,7 +3298,7 @@ zend_hash_iterators_lower_pos.exit1910.loopexit.us: ; preds = %526
   %529 = phi i8 [ %.pr, %.preheader2018.splitthread-pre-split ], [ 1, %.preheader2018 ]
   %.pre2167 = phi ptr [ %.pre21672197, %.preheader2018.splitthread-pre-split ], [ %514, %.preheader2018 ]
   %.pr.pre2164 = phi i32 [ %.pr.pre21642194, %.preheader2018.splitthread-pre-split ], [ %.pr.us, %.preheader2018 ]
-  %.11664 = phi i32 [ %.0.lcssa.i1907, %.preheader2018.splitthread-pre-split ], [ %.016632073, %.preheader2018 ]
+  %.31666 = phi i32 [ %.0.lcssa.i1907, %.preheader2018.splitthread-pre-split ], [ %.016632073, %.preheader2018 ]
   %.not1820 = icmp eq i8 %529, 0
   br i1 %.not1820, label %_zend_hash_iterators_update.exit, label %530
 
@@ -3321,11 +3321,11 @@ _zend_hash_iterators_update.exit.thread:          ; preds = %530
 536:                                              ; preds = %.lr.ph.i1899
   %537 = getelementptr inbounds i8, ptr %.010.i, i64 8
   %538 = load i32, ptr %537, align 8
-  %539 = icmp eq i32 %538, %.11664
+  %539 = icmp eq i32 %538, %.31666
   br i1 %539, label %540, label %541
 
 540:                                              ; preds = %536
-  store i32 %.216692071, ptr %537, align 8
+  store i32 %.316702071, ptr %537, align 8
   br label %541
 
 541:                                              ; preds = %540, %536, %.lr.ph.i1899
@@ -3341,7 +3341,7 @@ _zend_hash_iterators_update.exit.loopexit:        ; preds = %541
 _zend_hash_iterators_update.exit:                 ; preds = %_zend_hash_iterators_update.exit.loopexit, %.preheader2018.split
   %.pre21672198 = phi ptr [ %.pre2166, %_zend_hash_iterators_update.exit.loopexit ], [ %.pre2167, %.preheader2018.split ]
   %.pr.pre21642195 = phi i32 [ %.pr.pre, %_zend_hash_iterators_update.exit.loopexit ], [ %.pr.pre2164, %.preheader2018.split ]
-  %543 = add i32 %.11664, 1
+  %543 = add i32 %.31666, 1
   %544 = zext i32 %.pr.pre21642195 to i64
   %545 = getelementptr inbounds %struct._HashTableIterator, ptr %.pre21672198, i64 %544
   %546 = load i32, ptr %440, align 8
@@ -3378,14 +3378,14 @@ zend_hash_iterators_lower_pos.exit1910:           ; preds = %553, %_zend_hash_it
 
 .loopexit2019:                                    ; preds = %zend_hash_iterators_lower_pos.exit1910, %zend_hash_iterators_lower_pos.exit1910.loopexit.us, %.preheader2018.split.us.split.us, %511
   %.21665 = phi i32 [ %.016632073, %511 ], [ %517, %.preheader2018.split.us.split.us ], [ %.1.i1905.us, %zend_hash_iterators_lower_pos.exit1910.loopexit.us ], [ %.0.lcssa.i1907, %zend_hash_iterators_lower_pos.exit1910 ]
-  %556 = add i32 %.216692071, 1
+  %556 = add i32 %.316702071, 1
   %557 = getelementptr inbounds i8, ptr %.316762070, i64 32
   br label %.critedge1848
 
 .critedge1848:                                    ; preds = %456, %.loopexit2019
   %.41677 = phi ptr [ %557, %.loopexit2019 ], [ %.316762070, %456 ]
-  %.31670 = phi i32 [ %556, %.loopexit2019 ], [ %.216692071, %456 ]
-  %.31666 = phi i32 [ %.21665, %.loopexit2019 ], [ %.016632073, %456 ]
+  %.41671 = phi i32 [ %556, %.loopexit2019 ], [ %.316702071, %456 ]
+  %.11664 = phi i32 [ %.21665, %.loopexit2019 ], [ %.016632073, %456 ]
   %558 = add i32 %.216832065, 1
   %559 = getelementptr inbounds i8, ptr %.216802069, i64 32
   %.not1814 = icmp eq ptr %559, %290
@@ -3699,8 +3699,8 @@ zend_hash_iterators_lower_pos.exit1925:           ; preds = %713, %700
   br i1 %.not17932045, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %zend_hash_iterators_lower_pos.exit1925, %.critedge1860
-  %.016302054 = phi i32 [ %.31633, %.critedge1860 ], [ %.0.lcssa.i1922, %zend_hash_iterators_lower_pos.exit1925 ]
-  %.216362052 = phi i32 [ %.31637, %.critedge1860 ], [ %.01648, %zend_hash_iterators_lower_pos.exit1925 ]
+  %.016302054 = phi i32 [ %.11631, %.critedge1860 ], [ %.0.lcssa.i1922, %zend_hash_iterators_lower_pos.exit1925 ]
+  %.316372052 = phi i32 [ %.41638, %.critedge1860 ], [ %.01648, %zend_hash_iterators_lower_pos.exit1925 ]
   %.316432051 = phi ptr [ %.41644, %.critedge1860 ], [ %.01640, %zend_hash_iterators_lower_pos.exit1925 ]
   %.216472050 = phi ptr [ %819, %.critedge1860 ], [ %636, %zend_hash_iterators_lower_pos.exit1925 ]
   %.216502046 = phi i32 [ %818, %.critedge1860 ], [ %635, %zend_hash_iterators_lower_pos.exit1925 ]
@@ -3795,13 +3795,13 @@ zend_hash_iterators_lower_pos.exit1925:           ; preds = %713, %700
   store i32 %764, ptr %765, align 4
   %766 = load ptr, ptr %271, align 8
   %767 = getelementptr inbounds i32, ptr %766, i64 %762
-  store i32 %.216362052, ptr %767, align 4
+  store i32 %.316372052, ptr %767, align 4
   %768 = load i32, ptr %250, align 4
   %769 = icmp eq i32 %768, %.216502046
   br i1 %769, label %770, label %771
 
 770:                                              ; preds = %.critedge1858
-  store i32 %.216362052, ptr %255, align 4
+  store i32 %.316372052, ptr %255, align 4
   br label %771
 
 771:                                              ; preds = %770, %.critedge1858
@@ -3830,8 +3830,8 @@ _zend_hash_iterators_update.exit1930.us.us:       ; preds = %.preheader2024.spli
   br label %_zend_hash_iterators_update.exit1930.us.us
 
 _zend_hash_iterators_update.exit1930.us:          ; preds = %.preheader2024.split.us, %zend_hash_iterators_lower_pos.exit1940.loopexit.us
-  %.11631.us = phi i32 [ %.1.i1935.us, %zend_hash_iterators_lower_pos.exit1940.loopexit.us ], [ %.016302054, %.preheader2024.split.us ]
-  %779 = add i32 %.11631.us, 1
+  %.31633.us = phi i32 [ %.1.i1935.us, %zend_hash_iterators_lower_pos.exit1940.loopexit.us ], [ %.016302054, %.preheader2024.split.us ]
+  %779 = add i32 %.31633.us, 1
   br label %.lr.ph.i1932.us
 
 .lr.ph.i1932.us:                                  ; preds = %_zend_hash_iterators_update.exit1930.us, %786
@@ -3867,7 +3867,7 @@ zend_hash_iterators_lower_pos.exit1940.loopexit.us: ; preds = %786
   %789 = phi i8 [ %.pr2212, %.preheader2024.splitthread-pre-split ], [ 1, %.preheader2024 ]
   %.pre2161 = phi ptr [ %.pre21612191, %.preheader2024.splitthread-pre-split ], [ %774, %.preheader2024 ]
   %.pr1992.pre2158 = phi i32 [ %.pr1992.pre21582188, %.preheader2024.splitthread-pre-split ], [ %.pr1992.us, %.preheader2024 ]
-  %.11631 = phi i32 [ %.0.lcssa.i1937, %.preheader2024.splitthread-pre-split ], [ %.016302054, %.preheader2024 ]
+  %.31633 = phi i32 [ %.0.lcssa.i1937, %.preheader2024.splitthread-pre-split ], [ %.016302054, %.preheader2024 ]
   %.not1800 = icmp eq i8 %789, 0
   br i1 %.not1800, label %_zend_hash_iterators_update.exit1930, label %790
 
@@ -3890,11 +3890,11 @@ _zend_hash_iterators_update.exit1930.thread:      ; preds = %790
 796:                                              ; preds = %.lr.ph.i1927
   %797 = getelementptr inbounds i8, ptr %.010.i1928, i64 8
   %798 = load i32, ptr %797, align 8
-  %799 = icmp eq i32 %798, %.11631
+  %799 = icmp eq i32 %798, %.31633
   br i1 %799, label %800, label %801
 
 800:                                              ; preds = %796
-  store i32 %.216362052, ptr %797, align 8
+  store i32 %.316372052, ptr %797, align 8
   br label %801
 
 801:                                              ; preds = %800, %796, %.lr.ph.i1927
@@ -3910,7 +3910,7 @@ _zend_hash_iterators_update.exit1930.loopexit:    ; preds = %801
 _zend_hash_iterators_update.exit1930:             ; preds = %_zend_hash_iterators_update.exit1930.loopexit, %.preheader2024.split
   %.pre21612192 = phi ptr [ %.pre2160, %_zend_hash_iterators_update.exit1930.loopexit ], [ %.pre2161, %.preheader2024.split ]
   %.pr1992.pre21582189 = phi i32 [ %.pr1992.pre, %_zend_hash_iterators_update.exit1930.loopexit ], [ %.pr1992.pre2158, %.preheader2024.split ]
-  %803 = add i32 %.11631, 1
+  %803 = add i32 %.31633, 1
   %804 = zext i32 %.pr1992.pre21582189 to i64
   %805 = getelementptr inbounds %struct._HashTableIterator, ptr %.pre21612192, i64 %804
   %806 = load i32, ptr %702, align 8
@@ -3947,14 +3947,14 @@ zend_hash_iterators_lower_pos.exit1940:           ; preds = %813, %_zend_hash_it
 
 .loopexit2025:                                    ; preds = %zend_hash_iterators_lower_pos.exit1940, %zend_hash_iterators_lower_pos.exit1940.loopexit.us, %.preheader2024.split.us.split.us, %771
   %.21632 = phi i32 [ %.016302054, %771 ], [ %777, %.preheader2024.split.us.split.us ], [ %.1.i1935.us, %zend_hash_iterators_lower_pos.exit1940.loopexit.us ], [ %.0.lcssa.i1937, %zend_hash_iterators_lower_pos.exit1940 ]
-  %816 = add i32 %.216362052, 1
+  %816 = add i32 %.316372052, 1
   %817 = getelementptr inbounds i8, ptr %.316432051, i64 32
   br label %.critedge1860
 
 .critedge1860:                                    ; preds = %720, %.loopexit2025
   %.41644 = phi ptr [ %817, %.loopexit2025 ], [ %.316432051, %720 ]
-  %.31637 = phi i32 [ %816, %.loopexit2025 ], [ %.216362052, %720 ]
-  %.31633 = phi i32 [ %.21632, %.loopexit2025 ], [ %.016302054, %720 ]
+  %.41638 = phi i32 [ %816, %.loopexit2025 ], [ %.316372052, %720 ]
+  %.11631 = phi i32 [ %.21632, %.loopexit2025 ], [ %.016302054, %720 ]
   %818 = add i32 %.216502046, 1
   %819 = getelementptr inbounds i8, ptr %.216472050, i64 32
   %.not1793 = icmp eq ptr %819, %290
@@ -4255,8 +4255,8 @@ zend_hash_iterators_lower_pos.exit1950:           ; preds = %967, %954
   br i1 %.not17692106, label %.loopexit, label %.lr.ph2116
 
 .lr.ph2116:                                       ; preds = %zend_hash_iterators_lower_pos.exit1950, %.critedge1866
-  %.015972115 = phi i32 [ %.31600, %.critedge1866 ], [ %.0.lcssa.i1947, %zend_hash_iterators_lower_pos.exit1950 ]
-  %.216032113 = phi i32 [ %.31604, %.critedge1866 ], [ %.01615, %zend_hash_iterators_lower_pos.exit1950 ]
+  %.015972115 = phi i32 [ %.11598, %.critedge1866 ], [ %.0.lcssa.i1947, %zend_hash_iterators_lower_pos.exit1950 ]
+  %.316042113 = phi i32 [ %.41605, %.critedge1866 ], [ %.01615, %zend_hash_iterators_lower_pos.exit1950 ]
   %.316102112 = phi ptr [ %.41611, %.critedge1866 ], [ %.01607, %zend_hash_iterators_lower_pos.exit1950 ]
   %.216142111 = phi ptr [ %1085, %.critedge1866 ], [ %878, %zend_hash_iterators_lower_pos.exit1950 ]
   %.216172107 = phi i32 [ %1084, %.critedge1866 ], [ %877, %zend_hash_iterators_lower_pos.exit1950 ]
@@ -4367,13 +4367,13 @@ zend_hash_iterators_lower_pos.exit1950:           ; preds = %967, %954
   store i32 %1030, ptr %1031, align 4
   %1032 = load ptr, ptr %271, align 8
   %1033 = getelementptr inbounds i32, ptr %1032, i64 %1028
-  store i32 %.216032113, ptr %1033, align 4
+  store i32 %.316042113, ptr %1033, align 4
   %1034 = load i32, ptr %250, align 4
   %1035 = icmp eq i32 %1034, %.216172107
   br i1 %1035, label %1036, label %1037
 
 1036:                                             ; preds = %1022
-  store i32 %.216032113, ptr %255, align 4
+  store i32 %.316042113, ptr %255, align 4
   br label %1037
 
 1037:                                             ; preds = %1036, %1022
@@ -4402,8 +4402,8 @@ _zend_hash_iterators_update.exit1955.us.us:       ; preds = %.preheader2006.spli
   br label %_zend_hash_iterators_update.exit1955.us.us
 
 _zend_hash_iterators_update.exit1955.us:          ; preds = %.preheader2006.split.us, %zend_hash_iterators_lower_pos.exit1965.loopexit.us
-  %.11598.us = phi i32 [ %.1.i1960.us, %zend_hash_iterators_lower_pos.exit1965.loopexit.us ], [ %.015972115, %.preheader2006.split.us ]
-  %1045 = add i32 %.11598.us, 1
+  %.31600.us = phi i32 [ %.1.i1960.us, %zend_hash_iterators_lower_pos.exit1965.loopexit.us ], [ %.015972115, %.preheader2006.split.us ]
+  %1045 = add i32 %.31600.us, 1
   br label %.lr.ph.i1957.us
 
 .lr.ph.i1957.us:                                  ; preds = %_zend_hash_iterators_update.exit1955.us, %1052
@@ -4439,7 +4439,7 @@ zend_hash_iterators_lower_pos.exit1965.loopexit.us: ; preds = %1052
   %1055 = phi i8 [ %.pr2213, %.preheader2006.splitthread-pre-split ], [ 1, %.preheader2006 ]
   %.pre2186 = phi ptr [ %.pre21862209, %.preheader2006.splitthread-pre-split ], [ %1040, %.preheader2006 ]
   %.pr2002.pre2183 = phi i32 [ %.pr2002.pre21832206, %.preheader2006.splitthread-pre-split ], [ %.pr2002.us, %.preheader2006 ]
-  %.11598 = phi i32 [ %.0.lcssa.i1962, %.preheader2006.splitthread-pre-split ], [ %.015972115, %.preheader2006 ]
+  %.31600 = phi i32 [ %.0.lcssa.i1962, %.preheader2006.splitthread-pre-split ], [ %.015972115, %.preheader2006 ]
   %.not1777 = icmp eq i8 %1055, 0
   br i1 %.not1777, label %_zend_hash_iterators_update.exit1955, label %1056
 
@@ -4462,11 +4462,11 @@ _zend_hash_iterators_update.exit1955.thread:      ; preds = %1056
 1062:                                             ; preds = %.lr.ph.i1952
   %1063 = getelementptr inbounds i8, ptr %.010.i1953, i64 8
   %1064 = load i32, ptr %1063, align 8
-  %1065 = icmp eq i32 %1064, %.11598
+  %1065 = icmp eq i32 %1064, %.31600
   br i1 %1065, label %1066, label %1067
 
 1066:                                             ; preds = %1062
-  store i32 %.216032113, ptr %1063, align 8
+  store i32 %.316042113, ptr %1063, align 8
   br label %1067
 
 1067:                                             ; preds = %1066, %1062, %.lr.ph.i1952
@@ -4482,7 +4482,7 @@ _zend_hash_iterators_update.exit1955.loopexit:    ; preds = %1067
 _zend_hash_iterators_update.exit1955:             ; preds = %_zend_hash_iterators_update.exit1955.loopexit, %.preheader2006.split
   %.pre21862210 = phi ptr [ %.pre2185, %_zend_hash_iterators_update.exit1955.loopexit ], [ %.pre2186, %.preheader2006.split ]
   %.pr2002.pre21832207 = phi i32 [ %.pr2002.pre, %_zend_hash_iterators_update.exit1955.loopexit ], [ %.pr2002.pre2183, %.preheader2006.split ]
-  %1069 = add i32 %.11598, 1
+  %1069 = add i32 %.31600, 1
   %1070 = zext i32 %.pr2002.pre21832207 to i64
   %1071 = getelementptr inbounds %struct._HashTableIterator, ptr %.pre21862210, i64 %1070
   %1072 = load i32, ptr %956, align 8
@@ -4519,14 +4519,14 @@ zend_hash_iterators_lower_pos.exit1965:           ; preds = %1079, %_zend_hash_i
 
 .loopexit2007:                                    ; preds = %zend_hash_iterators_lower_pos.exit1965, %zend_hash_iterators_lower_pos.exit1965.loopexit.us, %.preheader2006.split.us.split.us, %1037
   %.21599 = phi i32 [ %.015972115, %1037 ], [ %1043, %.preheader2006.split.us.split.us ], [ %.1.i1960.us, %zend_hash_iterators_lower_pos.exit1965.loopexit.us ], [ %.0.lcssa.i1962, %zend_hash_iterators_lower_pos.exit1965 ]
-  %1082 = add i32 %.216032113, 1
+  %1082 = add i32 %.316042113, 1
   %1083 = getelementptr inbounds i8, ptr %.316102112, i64 32
   br label %.critedge1866
 
 .critedge1866:                                    ; preds = %972, %.loopexit2007
   %.41611 = phi ptr [ %1083, %.loopexit2007 ], [ %.316102112, %972 ]
-  %.31604 = phi i32 [ %1082, %.loopexit2007 ], [ %.216032113, %972 ]
-  %.31600 = phi i32 [ %.21599, %.loopexit2007 ], [ %.015972115, %972 ]
+  %.41605 = phi i32 [ %1082, %.loopexit2007 ], [ %.316042113, %972 ]
+  %.11598 = phi i32 [ %.21599, %.loopexit2007 ], [ %.015972115, %972 ]
   %1084 = add i32 %.216172107, 1
   %1085 = getelementptr inbounds i8, ptr %.216142111, i64 32
   %.not1769 = icmp eq ptr %1085, %290
@@ -4850,8 +4850,8 @@ zend_hash_iterators_lower_pos.exit1975:           ; preds = %1243, %1230
   br i1 %.not17422085, label %.loopexit, label %.lr.ph2095
 
 .lr.ph2095:                                       ; preds = %zend_hash_iterators_lower_pos.exit1975, %.critedge1878
-  %.015652094 = phi i32 [ %.31568, %.critedge1878 ], [ %.0.lcssa.i1972, %zend_hash_iterators_lower_pos.exit1975 ]
-  %.215712092 = phi i32 [ %.31572, %.critedge1878 ], [ %.01582, %zend_hash_iterators_lower_pos.exit1975 ]
+  %.015652094 = phi i32 [ %.11566, %.critedge1878 ], [ %.0.lcssa.i1972, %zend_hash_iterators_lower_pos.exit1975 ]
+  %.315722092 = phi i32 [ %.4, %.critedge1878 ], [ %.01582, %zend_hash_iterators_lower_pos.exit1975 ]
   %.315772091 = phi ptr [ %.41578, %.critedge1878 ], [ %.01574, %zend_hash_iterators_lower_pos.exit1975 ]
   %.215812090 = phi ptr [ %1359, %.critedge1878 ], [ %1156, %zend_hash_iterators_lower_pos.exit1975 ]
   %.215842086 = phi i32 [ %1358, %.critedge1878 ], [ %1155, %zend_hash_iterators_lower_pos.exit1975 ]
@@ -4965,13 +4965,13 @@ zend_hash_iterators_lower_pos.exit1975:           ; preds = %1243, %1230
   store i32 %1304, ptr %1305, align 4
   %1306 = load ptr, ptr %271, align 8
   %1307 = getelementptr inbounds i32, ptr %1306, i64 %1302
-  store i32 %.215712092, ptr %1307, align 4
+  store i32 %.315722092, ptr %1307, align 4
   %1308 = load i32, ptr %250, align 4
   %1309 = icmp eq i32 %1308, %.215842086
   br i1 %1309, label %1310, label %1311
 
 1310:                                             ; preds = %1296
-  store i32 %.215712092, ptr %255, align 4
+  store i32 %.315722092, ptr %255, align 4
   br label %1311
 
 1311:                                             ; preds = %1310, %1296
@@ -5000,8 +5000,8 @@ _zend_hash_iterators_update.exit1980.us.us:       ; preds = %.preheader2012.spli
   br label %_zend_hash_iterators_update.exit1980.us.us
 
 _zend_hash_iterators_update.exit1980.us:          ; preds = %.preheader2012.split.us, %zend_hash_iterators_lower_pos.exit1990.loopexit.us
-  %.11566.us = phi i32 [ %.1.i1985.us, %zend_hash_iterators_lower_pos.exit1990.loopexit.us ], [ %.015652094, %.preheader2012.split.us ]
-  %1319 = add i32 %.11566.us, 1
+  %.31568.us = phi i32 [ %.1.i1985.us, %zend_hash_iterators_lower_pos.exit1990.loopexit.us ], [ %.015652094, %.preheader2012.split.us ]
+  %1319 = add i32 %.31568.us, 1
   br label %.lr.ph.i1982.us
 
 .lr.ph.i1982.us:                                  ; preds = %_zend_hash_iterators_update.exit1980.us, %1326
@@ -5037,7 +5037,7 @@ zend_hash_iterators_lower_pos.exit1990.loopexit.us: ; preds = %1326
   %1329 = phi i8 [ %.pr2214, %.preheader2012.splitthread-pre-split ], [ 1, %.preheader2012 ]
   %.pre2177 = phi ptr [ %.pre21772203, %.preheader2012.splitthread-pre-split ], [ %1314, %.preheader2012 ]
   %.pr2004.pre2174 = phi i32 [ %.pr2004.pre21742200, %.preheader2012.splitthread-pre-split ], [ %.pr2004.us, %.preheader2012 ]
-  %.11566 = phi i32 [ %.0.lcssa.i1987, %.preheader2012.splitthread-pre-split ], [ %.015652094, %.preheader2012 ]
+  %.31568 = phi i32 [ %.0.lcssa.i1987, %.preheader2012.splitthread-pre-split ], [ %.015652094, %.preheader2012 ]
   %.not1751 = icmp eq i8 %1329, 0
   br i1 %.not1751, label %_zend_hash_iterators_update.exit1980, label %1330
 
@@ -5060,11 +5060,11 @@ _zend_hash_iterators_update.exit1980.thread:      ; preds = %1330
 1336:                                             ; preds = %.lr.ph.i1977
   %1337 = getelementptr inbounds i8, ptr %.010.i1978, i64 8
   %1338 = load i32, ptr %1337, align 8
-  %1339 = icmp eq i32 %1338, %.11566
+  %1339 = icmp eq i32 %1338, %.31568
   br i1 %1339, label %1340, label %1341
 
 1340:                                             ; preds = %1336
-  store i32 %.215712092, ptr %1337, align 8
+  store i32 %.315722092, ptr %1337, align 8
   br label %1341
 
 1341:                                             ; preds = %1340, %1336, %.lr.ph.i1977
@@ -5080,7 +5080,7 @@ _zend_hash_iterators_update.exit1980.loopexit:    ; preds = %1341
 _zend_hash_iterators_update.exit1980:             ; preds = %_zend_hash_iterators_update.exit1980.loopexit, %.preheader2012.split
   %.pre21772204 = phi ptr [ %.pre2176, %_zend_hash_iterators_update.exit1980.loopexit ], [ %.pre2177, %.preheader2012.split ]
   %.pr2004.pre21742201 = phi i32 [ %.pr2004.pre, %_zend_hash_iterators_update.exit1980.loopexit ], [ %.pr2004.pre2174, %.preheader2012.split ]
-  %1343 = add i32 %.11566, 1
+  %1343 = add i32 %.31568, 1
   %1344 = zext i32 %.pr2004.pre21742201 to i64
   %1345 = getelementptr inbounds %struct._HashTableIterator, ptr %.pre21772204, i64 %1344
   %1346 = load i32, ptr %1232, align 8
@@ -5117,14 +5117,14 @@ zend_hash_iterators_lower_pos.exit1990:           ; preds = %1353, %_zend_hash_i
 
 .loopexit2013:                                    ; preds = %zend_hash_iterators_lower_pos.exit1990, %zend_hash_iterators_lower_pos.exit1990.loopexit.us, %.preheader2012.split.us.split.us, %1311
   %.21567 = phi i32 [ %.015652094, %1311 ], [ %1317, %.preheader2012.split.us.split.us ], [ %.1.i1985.us, %zend_hash_iterators_lower_pos.exit1990.loopexit.us ], [ %.0.lcssa.i1987, %zend_hash_iterators_lower_pos.exit1990 ]
-  %1356 = add i32 %.215712092, 1
+  %1356 = add i32 %.315722092, 1
   %1357 = getelementptr inbounds i8, ptr %.315772091, i64 32
   br label %.critedge1878
 
 .critedge1878:                                    ; preds = %1250, %.loopexit2013
   %.41578 = phi ptr [ %1357, %.loopexit2013 ], [ %.315772091, %1250 ]
-  %.31572 = phi i32 [ %1356, %.loopexit2013 ], [ %.215712092, %1250 ]
-  %.31568 = phi i32 [ %.21567, %.loopexit2013 ], [ %.015652094, %1250 ]
+  %.4 = phi i32 [ %1356, %.loopexit2013 ], [ %.315722092, %1250 ]
+  %.11566 = phi i32 [ %.21567, %.loopexit2013 ], [ %.015652094, %1250 ]
   %1358 = add i32 %.215842086, 1
   %1359 = getelementptr inbounds i8, ptr %.215812090, i64 32
   %.not1742 = icmp eq ptr %1359, %290
@@ -5151,7 +5151,7 @@ zend_hash_iterators_lower_pos.exit1990:           ; preds = %1353, %_zend_hash_i
   br i1 %.not1760, label %.loopexit, label %1103
 
 .loopexit:                                        ; preds = %.critedge1850, %.critedge1860, %.critedge1856, %.critedge1882, %.critedge1848, %.critedge1846, %1360, %.critedge1878, %.critedge1874, %1086, %.critedge1866, %.critedge1864, %zend_hash_iterators_lower_pos.exit1925, %.preheader2022, %zend_hash_iterators_lower_pos.exit, %.preheader2016, %zend_hash_iterators_lower_pos.exit1975, %.preheader2010, %zend_hash_iterators_lower_pos.exit1950, %.preheader
-  %.01528 = phi i32 [ %.01615, %.preheader ], [ %.01615, %zend_hash_iterators_lower_pos.exit1950 ], [ %.01582, %.preheader2010 ], [ %.01582, %zend_hash_iterators_lower_pos.exit1975 ], [ %.01681, %.preheader2016 ], [ %.01681, %zend_hash_iterators_lower_pos.exit ], [ %.01648, %.preheader2022 ], [ %.01648, %zend_hash_iterators_lower_pos.exit1925 ], [ %.11602, %.critedge1864 ], [ %.31604, %.critedge1866 ], [ %1098, %1086 ], [ %.11570, %.critedge1874 ], [ %.31572, %.critedge1878 ], [ %1372, %1360 ], [ %.11668, %.critedge1846 ], [ %.31670, %.critedge1848 ], [ %368, %.critedge1882 ], [ %.11635, %.critedge1856 ], [ %.31637, %.critedge1860 ], [ %632, %.critedge1850 ]
+  %.01528 = phi i32 [ %.01615, %.preheader ], [ %.01615, %zend_hash_iterators_lower_pos.exit1950 ], [ %.01582, %.preheader2010 ], [ %.01582, %zend_hash_iterators_lower_pos.exit1975 ], [ %.01681, %.preheader2016 ], [ %.01681, %zend_hash_iterators_lower_pos.exit ], [ %.01648, %.preheader2022 ], [ %.01648, %zend_hash_iterators_lower_pos.exit1925 ], [ %.11602, %.critedge1864 ], [ %.41605, %.critedge1866 ], [ %1098, %1086 ], [ %.11570, %.critedge1874 ], [ %.4, %.critedge1878 ], [ %1372, %1360 ], [ %.11668, %.critedge1846 ], [ %.41671, %.critedge1848 ], [ %368, %.critedge1882 ], [ %.11635, %.critedge1856 ], [ %.41638, %.critedge1860 ], [ %632, %.critedge1850 ]
   %1375 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %.01528, ptr %1375, align 8
   %1376 = getelementptr inbounds i8, ptr %2, i64 28
@@ -10099,14 +10099,14 @@ define void @zend_hash_del_bucket(ptr noundef %0, ptr noundef %1) local_unnamed_
 .preheader100:                                    ; preds = %2, %.preheader100
   %.pn.in = phi i32 [ %24, %.preheader100 ], [ %22, %2 ]
   %.pn = zext i32 %.pn.in to i64
-  %.079 = getelementptr inbounds %struct._Bucket, ptr %8, i64 %.pn
-  %23 = getelementptr inbounds i8, ptr %.079, i64 12
+  %.1 = getelementptr inbounds %struct._Bucket, ptr %8, i64 %.pn
+  %23 = getelementptr inbounds i8, ptr %.1, i64 12
   %24 = load i32, ptr %23, align 4
   %.not90 = icmp eq i32 %24, %13
   br i1 %.not90, label %.loopexit101, label %.preheader100
 
 .loopexit101:                                     ; preds = %.preheader100, %2
-  %.1 = phi ptr [ null, %2 ], [ %.079, %.preheader100 ]
+  %.079 = phi ptr [ null, %2 ], [ %.1, %.preheader100 ]
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not91 = icmp eq ptr %26, null
@@ -10146,13 +10146,13 @@ define void @zend_hash_del_bucket(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %41
 
 41:                                               ; preds = %40, %.loopexit101
-  %.not94 = icmp eq ptr %.1, null
+  %.not94 = icmp eq ptr %.079, null
   %42 = getelementptr inbounds i8, ptr %1, i64 12
   %43 = load i32, ptr %42, align 4
   br i1 %.not94, label %46, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %.1, i64 12
+  %45 = getelementptr inbounds i8, ptr %.079, i64 12
   br label %54
 
 46:                                               ; preds = %41
@@ -13122,14 +13122,14 @@ define void @zend_hash_graceful_destroy(ptr noundef %0) local_unnamed_addr #0 {
 .preheader182:                                    ; preds = %72, %.preheader182
   %.pn.in = phi i32 [ %83, %.preheader182 ], [ %81, %72 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0147 = getelementptr inbounds %struct._Bucket, ptr %78, i64 %.pn
-  %82 = getelementptr inbounds i8, ptr %.0147, i64 12
+  %.1148 = getelementptr inbounds %struct._Bucket, ptr %78, i64 %.pn
+  %82 = getelementptr inbounds i8, ptr %.1148, i64 12
   %83 = load i32, ptr %82, align 4
   %.not163 = icmp eq i32 %83, %.1198
   br i1 %.not163, label %.loopexit183, label %.preheader182
 
 .loopexit183:                                     ; preds = %.preheader182, %72
-  %.1148 = phi ptr [ null, %72 ], [ %.0147, %.preheader182 ]
+  %.0147 = phi ptr [ null, %72 ], [ %.1148, %.preheader182 ]
   %84 = getelementptr inbounds i8, ptr %.0200, i64 24
   %85 = load ptr, ptr %84, align 8
   %.not164 = icmp eq ptr %85, null
@@ -13169,13 +13169,13 @@ define void @zend_hash_graceful_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br label %100
 
 100:                                              ; preds = %99, %.loopexit183
-  %.not167 = icmp eq ptr %.1148, null
+  %.not167 = icmp eq ptr %.0147, null
   %101 = getelementptr inbounds i8, ptr %.0200, i64 12
   %102 = load i32, ptr %101, align 4
   br i1 %.not167, label %105, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %.1148, i64 12
+  %104 = getelementptr inbounds i8, ptr %.0147, i64 12
   br label %113
 
 105:                                              ; preds = %100
@@ -13468,14 +13468,14 @@ define void @zend_hash_graceful_reverse_destroy(ptr noundef %0) local_unnamed_ad
 .preheader186:                                    ; preds = %75, %.preheader186
   %.pn.in = phi i32 [ %86, %.preheader186 ], [ %84, %75 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0148 = getelementptr inbounds %struct._Bucket, ptr %81, i64 %.pn
-  %85 = getelementptr inbounds i8, ptr %.0148, i64 12
+  %.1149 = getelementptr inbounds %struct._Bucket, ptr %81, i64 %.pn
+  %85 = getelementptr inbounds i8, ptr %.1149, i64 12
   %86 = load i32, ptr %85, align 4
   %.not166 = icmp eq i32 %86, %70
   br i1 %.not166, label %.loopexit187, label %.preheader186
 
 .loopexit187:                                     ; preds = %.preheader186, %75
-  %.1149 = phi ptr [ null, %75 ], [ %.0148, %.preheader186 ]
+  %.0148 = phi ptr [ null, %75 ], [ %.1149, %.preheader186 ]
   %87 = getelementptr inbounds i8, ptr %.0206, i64 -8
   %88 = load ptr, ptr %87, align 8
   %.not167 = icmp eq ptr %88, null
@@ -13515,13 +13515,13 @@ define void @zend_hash_graceful_reverse_destroy(ptr noundef %0) local_unnamed_ad
   br label %103
 
 103:                                              ; preds = %102, %.loopexit187
-  %.not170 = icmp eq ptr %.1149, null
+  %.not170 = icmp eq ptr %.0148, null
   %104 = getelementptr inbounds i8, ptr %.0206, i64 -20
   %105 = load i32, ptr %104, align 4
   br i1 %.not170, label %108, label %106
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %.1149, i64 12
+  %107 = getelementptr inbounds i8, ptr %.0148, i64 12
   br label %116
 
 108:                                              ; preds = %103
@@ -13832,15 +13832,15 @@ define void @zend_hash_apply(ptr noundef %0, ptr nocapture noundef readonly %1) 
 .preheader182:                                    ; preds = %85, %.preheader182
   %.pn.in = phi i32 [ %97, %.preheader182 ], [ %94, %85 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0146 = getelementptr inbounds %struct._Bucket, ptr %91, i64 %.pn
-  %96 = getelementptr inbounds i8, ptr %.0146, i64 12
+  %.1147 = getelementptr inbounds %struct._Bucket, ptr %91, i64 %.pn
+  %96 = getelementptr inbounds i8, ptr %.1147, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = zext i32 %97 to i64
   %.not163 = icmp eq i64 %indvars.iv210, %98
   br i1 %.not163, label %.loopexit183, label %.preheader182
 
 .loopexit183:                                     ; preds = %.preheader182, %85
-  %.1147 = phi ptr [ null, %85 ], [ %.0146, %.preheader182 ]
+  %.0146 = phi ptr [ null, %85 ], [ %.1147, %.preheader182 ]
   %99 = getelementptr inbounds i8, ptr %78, i64 24
   %100 = load ptr, ptr %99, align 8
   %.not164 = icmp eq ptr %100, null
@@ -13880,13 +13880,13 @@ define void @zend_hash_apply(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %115
 
 115:                                              ; preds = %114, %.loopexit183
-  %.not167 = icmp eq ptr %.1147, null
+  %.not167 = icmp eq ptr %.0146, null
   %116 = getelementptr inbounds i8, ptr %78, i64 12
   %117 = load i32, ptr %116, align 4
   br i1 %.not167, label %120, label %118
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %.1147, i64 12
+  %119 = getelementptr inbounds i8, ptr %.0146, i64 12
   br label %128
 
 120:                                              ; preds = %115
@@ -14182,15 +14182,15 @@ define void @zend_hash_apply_with_argument(ptr noundef %0, ptr nocapture noundef
 .preheader184:                                    ; preds = %86, %.preheader184
   %.pn.in = phi i32 [ %98, %.preheader184 ], [ %95, %86 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0148 = getelementptr inbounds %struct._Bucket, ptr %92, i64 %.pn
-  %97 = getelementptr inbounds i8, ptr %.0148, i64 12
+  %.1149 = getelementptr inbounds %struct._Bucket, ptr %92, i64 %.pn
+  %97 = getelementptr inbounds i8, ptr %.1149, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
   %.not165 = icmp eq i64 %indvars.iv212, %99
   br i1 %.not165, label %.loopexit185, label %.preheader184
 
 .loopexit185:                                     ; preds = %.preheader184, %86
-  %.1149 = phi ptr [ null, %86 ], [ %.0148, %.preheader184 ]
+  %.0148 = phi ptr [ null, %86 ], [ %.1149, %.preheader184 ]
   %100 = getelementptr inbounds i8, ptr %79, i64 24
   %101 = load ptr, ptr %100, align 8
   %.not166 = icmp eq ptr %101, null
@@ -14230,13 +14230,13 @@ define void @zend_hash_apply_with_argument(ptr noundef %0, ptr nocapture noundef
   br label %116
 
 116:                                              ; preds = %115, %.loopexit185
-  %.not169 = icmp eq ptr %.1149, null
+  %.not169 = icmp eq ptr %.0148, null
   %117 = getelementptr inbounds i8, ptr %79, i64 12
   %118 = load i32, ptr %117, align 4
   br i1 %.not169, label %121, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %.1149, i64 12
+  %120 = getelementptr inbounds i8, ptr %.0148, i64 12
   br label %129
 
 121:                                              ; preds = %116
@@ -14546,15 +14546,15 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
 .preheader187:                                    ; preds = %95, %.preheader187
   %.pn.in = phi i32 [ %106, %.preheader187 ], [ %103, %95 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0151 = getelementptr inbounds %struct._Bucket, ptr %100, i64 %.pn
-  %105 = getelementptr inbounds i8, ptr %.0151, i64 12
+  %.1152 = getelementptr inbounds %struct._Bucket, ptr %100, i64 %.pn
+  %105 = getelementptr inbounds i8, ptr %.1152, i64 12
   %106 = load i32, ptr %105, align 4
   %107 = zext i32 %106 to i64
   %.not168 = icmp eq i64 %indvars.iv213, %107
   br i1 %.not168, label %.loopexit188, label %.preheader187
 
 .loopexit188:                                     ; preds = %.preheader187, %95
-  %.1152 = phi ptr [ null, %95 ], [ %.0151, %.preheader187 ]
+  %.0151 = phi ptr [ null, %95 ], [ %.1152, %.preheader187 ]
   %108 = load ptr, ptr %91, align 8
   %.not169 = icmp eq ptr %108, null
   br i1 %.not169, label %123, label %109
@@ -14593,13 +14593,13 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
   br label %123
 
 123:                                              ; preds = %122, %.loopexit188
-  %.not172 = icmp eq ptr %.1152, null
+  %.not172 = icmp eq ptr %.0151, null
   %124 = getelementptr inbounds i8, ptr %84, i64 12
   %125 = load i32, ptr %124, align 4
   br i1 %.not172, label %128, label %126
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %.1152, i64 12
+  %127 = getelementptr inbounds i8, ptr %.0151, i64 12
   br label %136
 
 128:                                              ; preds = %123
@@ -14897,14 +14897,14 @@ define void @zend_hash_reverse_apply(ptr noundef %0, ptr nocapture noundef reado
 .preheader188:                                    ; preds = %81, %.preheader188
   %.pn.in = phi i32 [ %92, %.preheader188 ], [ %90, %81 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0151 = getelementptr inbounds %struct._Bucket, ptr %87, i64 %.pn
-  %91 = getelementptr inbounds i8, ptr %.0151, i64 12
+  %.1152 = getelementptr inbounds %struct._Bucket, ptr %87, i64 %.pn
+  %91 = getelementptr inbounds i8, ptr %.1152, i64 12
   %92 = load i32, ptr %91, align 4
   %.not171 = icmp eq i32 %92, %71
   br i1 %.not171, label %.loopexit189, label %.preheader188
 
 .loopexit189:                                     ; preds = %.preheader188, %81
-  %.1152 = phi ptr [ null, %81 ], [ %.0151, %.preheader188 ]
+  %.0151 = phi ptr [ null, %81 ], [ %.1152, %.preheader188 ]
   %93 = getelementptr inbounds i8, ptr %74, i64 24
   %94 = load ptr, ptr %93, align 8
   %.not172 = icmp eq ptr %94, null
@@ -14944,13 +14944,13 @@ define void @zend_hash_reverse_apply(ptr noundef %0, ptr nocapture noundef reado
   br label %109
 
 109:                                              ; preds = %108, %.loopexit189
-  %.not175 = icmp eq ptr %.1152, null
+  %.not175 = icmp eq ptr %.0151, null
   %110 = getelementptr inbounds i8, ptr %74, i64 12
   %111 = load i32, ptr %110, align 4
   br i1 %.not175, label %114, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %.1152, i64 12
+  %113 = getelementptr inbounds i8, ptr %.0151, i64 12
   br label %122
 
 114:                                              ; preds = %109
@@ -16722,8 +16722,8 @@ define void @zend_hash_internal_pointer_reset_ex(ptr nocapture noundef readonly 
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %12, %23, %.critedge.loopexit.split.loop.exit, %.preheader17, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader17 ], [ %24, %.critedge.loopexit.split.loop.exit ], [ %7, %23 ], [ %7, %17 ], [ %.019, %12 ]
-  store i32 %.2, ptr %1, align 4
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader17 ], [ %24, %.critedge.loopexit.split.loop.exit ], [ %7, %23 ], [ %7, %17 ], [ %.019, %12 ]
+  store i32 %.1, ptr %1, align 4
   ret void
 }
 
@@ -17212,8 +17212,8 @@ define range(i32 1, 4) i32 @zend_hash_get_current_key_type_ex(ptr nocapture noun
   br i1 %exitcond.not, label %.critedge.thread, label %21
 
 .critedge.thread:                                 ; preds = %25, %20, %.preheader
-  %.2.ph = phi i32 [ %3, %.preheader ], [ %8, %20 ], [ %8, %25 ]
-  %.not54 = icmp ult i32 %.2.ph, %8
+  %.1.ph = phi i32 [ %3, %.preheader ], [ %8, %20 ], [ %8, %25 ]
+  %.not54 = icmp ult i32 %.1.ph, %8
   %.mux48 = select i1 %.not54, i32 2, i32 3
   br label %35
 
@@ -17226,8 +17226,8 @@ define range(i32 1, 4) i32 @zend_hash_get_current_key_type_ex(ptr nocapture noun
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit49, %.critedge.loopexit, %.preheader28
-  %.2 = phi i32 [ %3, %.preheader28 ], [ %26, %.critedge.loopexit ], [ %27, %.critedge.loopexit49 ]
-  %28 = icmp uge i32 %.2, %8
+  %.1 = phi i32 [ %3, %.preheader28 ], [ %26, %.critedge.loopexit ], [ %27, %.critedge.loopexit49 ]
+  %28 = icmp uge i32 %.1, %8
   %brmerge = or i1 %.not, %28
   %.mux = select i1 %28, i32 3, i32 2
   br i1 %brmerge, label %35, label %29
@@ -17235,7 +17235,7 @@ define range(i32 1, 4) i32 @zend_hash_get_current_key_type_ex(ptr nocapture noun
 29:                                               ; preds = %.critedge
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = zext i32 %.2 to i64
+  %32 = zext i32 %.1 to i64
   %33 = getelementptr inbounds %struct._Bucket, ptr %31, i64 %32, i32 2
   %34 = load ptr, ptr %33, align 8
   %.not26 = icmp eq ptr %34, null
@@ -17433,7 +17433,7 @@ define void @zend_hash_sort_ex(ptr noundef %0, ptr nocapture noundef readonly %1
 28:                                               ; preds = %.lr.ph, %43
   %29 = phi i32 [ %17, %.lr.ph ], [ %44, %43 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %.1187 = phi i32 [ 0, %.lr.ph ], [ %.2, %43 ]
+  %.2187 = phi i32 [ 0, %.lr.ph ], [ %.3, %43 ]
   %30 = load ptr, ptr %19, align 8
   %31 = getelementptr inbounds %struct._Bucket, ptr %30, i64 %indvars.iv
   %32 = getelementptr inbounds i8, ptr %31, i64 8
@@ -17442,7 +17442,7 @@ define void @zend_hash_sort_ex(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %34, label %43, label %35
 
 35:                                               ; preds = %28
-  %36 = zext i32 %.1187 to i64
+  %36 = zext i32 %.2187 to i64
   %.not170 = icmp eq i64 %indvars.iv, %36
   br i1 %.not170, label %39, label %37
 
@@ -17455,22 +17455,22 @@ define void @zend_hash_sort_ex(ptr noundef %0, ptr nocapture noundef readonly %1
 39:                                               ; preds = %37, %35
   %40 = phi ptr [ %.pre211, %37 ], [ %30, %35 ]
   %41 = getelementptr inbounds %struct._Bucket, ptr %40, i64 %36, i32 0, i32 2
-  store i32 %.1187, ptr %41, align 4
-  %42 = add i32 %.1187, 1
+  store i32 %.2187, ptr %41, align 4
+  %42 = add i32 %.2187, 1
   %.pre212 = load i32, ptr %16, align 8
   br label %43
 
 43:                                               ; preds = %28, %39
   %44 = phi i32 [ %29, %28 ], [ %.pre212, %39 ]
-  %.2 = phi i32 [ %.1187, %28 ], [ %42, %39 ]
+  %.3 = phi i32 [ %.2187, %28 ], [ %42, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = zext i32 %44 to i64
   %46 = icmp ult i64 %indvars.iv.next, %45
   br i1 %46, label %28, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %43, %.preheader185
-  %.1.lcssa = phi i32 [ 0, %.preheader185 ], [ %.2, %43 ]
-  store i32 %.1.lcssa, ptr %16, align 8
+  %.2.lcssa = phi i32 [ 0, %.preheader185 ], [ %.3, %43 ]
+  store i32 %.2.lcssa, ptr %16, align 8
   br label %.loopexit184
 
 .loopexit184.loopexit:                            ; preds = %21
@@ -17478,8 +17478,8 @@ define void @zend_hash_sort_ex(ptr noundef %0, ptr nocapture noundef readonly %1
   br label %.loopexit184
 
 .loopexit184:                                     ; preds = %.loopexit184.loopexit, %.preheader, %._crit_edge
-  %48 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader ], [ %25, %.loopexit184.loopexit ]
-  %.3 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader ], [ %47, %.loopexit184.loopexit ]
+  %48 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 0, %.preheader ], [ %25, %.loopexit184.loopexit ]
+  %.1 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 0, %.preheader ], [ %47, %.loopexit184.loopexit ]
   %49 = load i32, ptr %10, align 8
   %50 = and i32 %49, 4
   %.not171 = icmp eq i32 %50, 0
@@ -17526,11 +17526,11 @@ define void @zend_hash_sort_ex(ptr noundef %0, ptr nocapture noundef readonly %1
   tail call void %1(ptr noundef %69, i64 noundef %70, i64 noundef 32, ptr noundef %2, ptr noundef nonnull @zend_hash_bucket_renum_swap) #28
   %71 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %71, align 4
-  %.not202 = icmp eq i32 %.3, 0
+  %.not202 = icmp eq i32 %.1, 0
   br i1 %.not202, label %._crit_edge193, label %.lr.ph192.preheader
 
 .lr.ph192.preheader:                              ; preds = %.critedge
-  %wide.trip.count = zext i32 %.3 to i64
+  %wide.trip.count = zext i32 %.1 to i64
   br label %.lr.ph192
 
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %91
@@ -17749,7 +17749,7 @@ define i32 @zend_hash_compare(ptr noundef %0, ptr noundef readonly %1, ptr nocap
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %96
   %29 = phi i32 [ %97, %96 ], [ %21, %.lr.ph ]
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %96 ], [ 0, %.lr.ph ]
-  %.0101164.us = phi i32 [ %.5.us, %96 ], [ 0, %.lr.ph ]
+  %.0101164.us = phi i32 [ %.1.us, %96 ], [ 0, %.lr.ph ]
   %30 = load i32, ptr %22, align 8
   %31 = and i32 %30, 4
   %.not125.us = icmp eq i32 %31, 0
@@ -17786,27 +17786,27 @@ define i32 @zend_hash_compare(ptr noundef %0, ptr noundef readonly %1, ptr nocap
   br i1 %.not126.us, label %.preheader.us, label %.preheader138.us
 
 .preheader138.us:                                 ; preds = %45, %.preheader138.us
-  %.1.us = phi i32 [ %55, %.preheader138.us ], [ %.0101164.us, %45 ]
-  %50 = icmp ne i32 %.1.us, %48
+  %.2.us = phi i32 [ %55, %.preheader138.us ], [ %.0101164.us, %45 ]
+  %50 = icmp ne i32 %.2.us, %48
   tail call void @llvm.assume(i1 %50)
-  %51 = zext i32 %.1.us to i64
+  %51 = zext i32 %.2.us to i64
   %52 = getelementptr inbounds %struct._zval_struct, ptr %49, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load i8, ptr %53, align 8
   %.not128.us = icmp eq i8 %54, 0
-  %55 = add i32 %.1.us, 1
+  %55 = add i32 %.2.us, 1
   br i1 %.not128.us, label %.preheader138.us, label %.loopexit139.us
 
 .preheader.us:                                    ; preds = %45, %.preheader.us
-  %.2.us = phi i32 [ %61, %.preheader.us ], [ %.0101164.us, %45 ]
-  %56 = icmp ne i32 %.2.us, %48
+  %.4.us = phi i32 [ %61, %.preheader.us ], [ %.0101164.us, %45 ]
+  %56 = icmp ne i32 %.4.us, %48
   tail call void @llvm.assume(i1 %56)
-  %57 = zext i32 %.2.us to i64
+  %57 = zext i32 %.4.us to i64
   %58 = getelementptr inbounds %struct._Bucket, ptr %49, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = load i8, ptr %59, align 8
   %.not127.us = icmp eq i8 %60, 0
-  %61 = add i32 %.2.us, 1
+  %61 = add i32 %.4.us, 1
   br i1 %.not127.us, label %.preheader.us, label %.loopexit.us
 
 .loopexit139.us:                                  ; preds = %.preheader138.us, %.loopexit.us
@@ -17814,7 +17814,7 @@ define i32 @zend_hash_compare(ptr noundef %0, ptr noundef readonly %1, ptr nocap
   %.0109.us = phi ptr [ %58, %.loopexit.us ], [ %52, %.preheader138.us ]
   %.0106.us = phi i64 [ %101, %.loopexit.us ], [ %51, %.preheader138.us ]
   %.0103.us = phi ptr [ %103, %.loopexit.us ], [ null, %.preheader138.us ]
-  %.3.us = phi i32 [ %.2.us, %.loopexit.us ], [ %.1.us, %.preheader138.us ]
+  %.3.us = phi i32 [ %.4.us, %.loopexit.us ], [ %.2.us, %.preheader138.us ]
   %63 = icmp eq ptr %.0102.us, null
   %64 = icmp eq ptr %.0103.us, null
   %or.cond.us = select i1 %63, i1 %64, i1 false
@@ -17890,7 +17890,7 @@ zend_hash_index_find.exit.us:                     ; preds = %77, %73
 
 96:                                               ; preds = %._crit_edge, %95, %41
   %97 = phi i32 [ %29, %41 ], [ %29, %95 ], [ %.pre, %._crit_edge ]
-  %.5.us = phi i32 [ %.0101164.us, %41 ], [ %78, %95 ], [ %78, %._crit_edge ]
+  %.1.us = phi i32 [ %.0101164.us, %41 ], [ %78, %95 ], [ %78, %._crit_edge ]
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %98 = zext i32 %97 to i64
   %99 = icmp ult i64 %indvars.iv.next216, %98
@@ -18281,7 +18281,7 @@ define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture no
 .lr.ph85.split.us:                                ; preds = %.lr.ph85, %68
   %59 = phi i32 [ %69, %68 ], [ %12, %.lr.ph85 ]
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %68 ], [ %54, %.lr.ph85 ]
-  %.25483.us = phi ptr [ %.355.us, %68 ], [ %55, %.lr.ph85 ]
+  %.35583.us = phi ptr [ %.4.us, %68 ], [ %55, %.lr.ph85 ]
   %60 = load ptr, ptr %16, align 8
   %61 = getelementptr inbounds %struct._Bucket, ptr %60, i64 %indvars.iv113
   %62 = getelementptr inbounds i8, ptr %61, i64 8
@@ -18290,15 +18290,15 @@ define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %64, label %68, label %65
 
 65:                                               ; preds = %.lr.ph85.split.us
-  %66 = tail call i32 %1(ptr noundef %.25483.us, ptr noundef nonnull %61) #28
+  %66 = tail call i32 %1(ptr noundef %.35583.us, ptr noundef nonnull %61) #28
   %67 = icmp sgt i32 %66, 0
-  %spec.select62.us = select i1 %67, ptr %61, ptr %.25483.us
+  %spec.select62.us = select i1 %67, ptr %61, ptr %.35583.us
   %.pre118 = load i32, ptr %11, align 8
   br label %68
 
 68:                                               ; preds = %65, %.lr.ph85.split.us
   %69 = phi i32 [ %59, %.lr.ph85.split.us ], [ %.pre118, %65 ]
-  %.355.us = phi ptr [ %.25483.us, %.lr.ph85.split.us ], [ %spec.select62.us, %65 ]
+  %.4.us = phi ptr [ %.35583.us, %.lr.ph85.split.us ], [ %spec.select62.us, %65 ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %70 = zext i32 %69 to i64
   %71 = icmp ult i64 %indvars.iv.next114, %70
@@ -18312,7 +18312,7 @@ define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture no
 .lr.ph85.split:                                   ; preds = %.lr.ph85, %84
   %75 = phi i32 [ %85, %84 ], [ %12, %.lr.ph85 ]
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %84 ], [ %54, %.lr.ph85 ]
-  %.25483 = phi ptr [ %.355, %84 ], [ %55, %.lr.ph85 ]
+  %.35583 = phi ptr [ %.4, %84 ], [ %55, %.lr.ph85 ]
   %76 = load ptr, ptr %16, align 8
   %77 = getelementptr inbounds %struct._Bucket, ptr %76, i64 %indvars.iv108
   %78 = getelementptr inbounds i8, ptr %77, i64 8
@@ -18321,22 +18321,22 @@ define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %80, label %84, label %81
 
 81:                                               ; preds = %.lr.ph85.split
-  %82 = tail call i32 %1(ptr noundef %.25483, ptr noundef nonnull %77) #28
+  %82 = tail call i32 %1(ptr noundef %.35583, ptr noundef nonnull %77) #28
   %83 = icmp slt i32 %82, 0
-  %spec.select61 = select i1 %83, ptr %77, ptr %.25483
+  %spec.select61 = select i1 %83, ptr %77, ptr %.35583
   %.pre117 = load i32, ptr %11, align 8
   br label %84
 
 84:                                               ; preds = %81, %.lr.ph85.split
   %85 = phi i32 [ %75, %.lr.ph85.split ], [ %.pre117, %81 ]
-  %.355 = phi ptr [ %.25483, %.lr.ph85.split ], [ %spec.select61, %81 ]
+  %.4 = phi ptr [ %.35583, %.lr.ph85.split ], [ %spec.select61, %81 ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %86 = zext i32 %85 to i64
   %87 = icmp ult i64 %indvars.iv.next109, %86
   br i1 %87, label %.lr.ph85.split, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %49, %33, %72, %84, %68, %.preheader67, %.preheader65, %.preheader63, %.preheader, %3
-  %.0 = phi ptr [ null, %3 ], [ %55, %.preheader ], [ null, %.preheader63 ], [ %20, %.preheader65 ], [ null, %.preheader67 ], [ %.355.us, %68 ], [ %.355, %84 ], [ null, %72 ], [ %.153.us, %33 ], [ %.153, %49 ], [ null, %37 ]
+  %.0 = phi ptr [ null, %3 ], [ %55, %.preheader ], [ null, %.preheader63 ], [ %20, %.preheader65 ], [ null, %.preheader67 ], [ %.4.us, %68 ], [ %.4, %84 ], [ null, %72 ], [ %.153.us, %33 ], [ %.153, %49 ], [ null, %37 ]
   ret ptr %.0
 }
 
@@ -18906,20 +18906,20 @@ _zend_new_array.exit:                             ; preds = %_zend_handle_numeri
   br i1 %153, label %._crit_edge.i120, label %.lr.ph.i116
 
 ._crit_edge.i120:                                 ; preds = %164, %149
-  %.0123 = phi i64 [ %151, %149 ], [ %167, %164 ]
+  %.2 = phi i64 [ %151, %149 ], [ %167, %164 ]
   br i1 %144, label %154, label %159
 
 154:                                              ; preds = %._crit_edge.i120
-  %155 = add i64 %.0123, -1
+  %155 = add i64 %.2, -1
   %156 = icmp slt i64 %155, 0
   br i1 %156, label %.critedge109, label %157
 
 157:                                              ; preds = %154
-  %158 = sub i64 0, %.0123
+  %158 = sub i64 0, %.2
   br label %_zend_handle_numeric_str_ex.exit122
 
 159:                                              ; preds = %._crit_edge.i120
-  %160 = icmp slt i64 %.0123, 0
+  %160 = icmp slt i64 %.2, 0
   br i1 %160, label %.critedge109, label %_zend_handle_numeric_str_ex.exit122
 
 .lr.ph.i116:                                      ; preds = %149, %164
@@ -18939,8 +18939,8 @@ _zend_new_array.exit:                             ; preds = %_zend_handle_numeri
   br i1 %169, label %._crit_edge.i120, label %.lr.ph.i116
 
 _zend_handle_numeric_str_ex.exit122:              ; preds = %159, %157, %128
-  %.4 = phi i64 [ %104, %128 ], [ %158, %157 ], [ %.0123, %159 ]
-  %170 = tail call ptr @zend_hash_index_update(ptr noundef nonnull %70, i64 noundef %.4, ptr noundef %.1)
+  %.0123 = phi i64 [ %104, %128 ], [ %158, %157 ], [ %.2, %159 ]
+  %170 = tail call ptr @zend_hash_index_update(ptr noundef nonnull %70, i64 noundef %.0123, ptr noundef %.1)
   br label %172
 
 .critedge109:                                     ; preds = %.lr.ph.i116, %159, %154, %142, %129, %137, %138

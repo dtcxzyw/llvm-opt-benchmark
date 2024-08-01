@@ -2437,7 +2437,7 @@ cleanup.sink.split:                               ; preds = %call.i.i.noexc, %ca
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont41, %for.end240, %invoke.cont261, %land.lhs.true, %invoke.cont130, %cleanup.sink.split
-  %retval.0 = phi i32 [ -1, %cleanup.sink.split ], [ -1, %invoke.cont130 ], [ %spec.select, %for.end240 ], [ 0, %invoke.cont261 ], [ -1, %land.lhs.true ], [ -1, %invoke.cont41 ]
+  %retval.1 = phi i32 [ -1, %cleanup.sink.split ], [ -1, %invoke.cont130 ], [ %spec.select, %for.end240 ], [ 0, %invoke.cont261 ], [ -1, %land.lhs.true ], [ -1, %invoke.cont41 ]
   %76 = load ptr, ptr %_buf.i88, align 8
   %cmp.not.i126 = icmp eq ptr %76, %pollfds
   %isnull.i127 = icmp eq ptr %76, null
@@ -2449,8 +2449,8 @@ delete.notnull.i129:                              ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %delete.notnull.i129, %cleanup, %_ZL16as_socket_base_tPv.exit.thread, %if.then16, %if.end19, %if.then12, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
-  %retval.1 = phi i32 [ %retval.0.i81, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit ], [ -1, %if.then12 ], [ %call20, %if.end19 ], [ 0, %if.then16 ], [ -1, %_ZL16as_socket_base_tPv.exit.thread ], [ %retval.0, %cleanup ], [ %retval.0, %delete.notnull.i129 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.0.i81, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit ], [ -1, %if.then12 ], [ %call20, %if.end19 ], [ 0, %if.then16 ], [ -1, %_ZL16as_socket_base_tPv.exit.thread ], [ %retval.1, %cleanup ], [ %retval.1, %delete.notnull.i129 ]
+  ret i32 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK3zmq13socket_base_t14is_thread_safeEv(ptr noundef nonnull align 8 dereferenceable(1825)) local_unnamed_addr #2

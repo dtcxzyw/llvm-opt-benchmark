@@ -904,11 +904,11 @@ _ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i
   br label %207
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$4find17hc6926125bb80bb2aE.exit": ; preds = %_ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i, %.sink.split.i.i, %122, %207, %183, %186, %.split, %.critedge.i.i, %.thread.i.i.i, %.thread22.i.i.i, %96, %152
-  %.sroa.6.3.i = phi i64 [ undef, %.critedge.i.i ], [ undef, %.thread22.i.i.i ], [ %20, %.thread.i.i.i ], [ undef, %96 ], [ undef, %152 ], [ %196, %.split ], [ %160, %186 ], [ undef, %183 ], [ undef, %207 ], [ %105, %122 ], [ undef, %.sink.split.i.i ], [ %20, %_ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i ]
+  %.sroa.6.1.i = phi i64 [ undef, %.critedge.i.i ], [ undef, %.thread22.i.i.i ], [ %20, %.thread.i.i.i ], [ undef, %96 ], [ undef, %152 ], [ %196, %.split ], [ %160, %186 ], [ undef, %183 ], [ undef, %207 ], [ %105, %122 ], [ undef, %.sink.split.i.i ], [ %20, %_ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i ]
   %not.switch.i = phi i64 [ 0, %.critedge.i.i ], [ 0, %.thread22.i.i.i ], [ 1, %.thread.i.i.i ], [ 0, %96 ], [ 0, %152 ], [ 1, %.split ], [ 1, %186 ], [ 0, %183 ], [ 0, %207 ], [ 1, %122 ], [ 0, %.sink.split.i.i ], [ 1, %_ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4), !noalias !68
   %225 = insertvalue { i64, i64 } poison, i64 %not.switch.i, 0
-  %226 = insertvalue { i64, i64 } %225, i64 %.sroa.6.3.i, 1
+  %226 = insertvalue { i64, i64 } %225, i64 %.sroa.6.1.i, 1
   ret { i64, i64 } %226
 }
 

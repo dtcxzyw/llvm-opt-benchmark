@@ -249,10 +249,10 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   br label %57
 
 57:                                               ; preds = %54, %51
-  %.0.i = phi i32 [ %55, %54 ], [ 0, %51 ]
+  %.1.i = phi i32 [ %55, %54 ], [ 0, %51 ]
   %58 = tail call ptr @wmem_file_scope() #3
   %59 = tail call noalias ptr @wmem_alloc(ptr noundef %58, i64 noundef 4) #3
-  store i32 %.0.i, ptr %59, align 4
+  store i32 %.1.i, ptr %59, align 4
   %60 = tail call ptr @wmem_file_scope() #3
   %61 = load i32, ptr @proto_soupbintcp, align 4
   tail call void @p_add_proto_data(ptr noundef %60, ptr noundef nonnull %1, i32 noundef %61, i32 noundef %8, ptr noundef nonnull %59) #3
@@ -270,13 +270,13 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   br label %68
 
 68:                                               ; preds = %66, %62, %57, %49
-  %.1.i = phi i32 [ %67, %66 ], [ %.0.i, %57 ], [ 0, %49 ], [ 0, %62 ]
+  %.2.i = phi i32 [ %67, %66 ], [ %.1.i, %57 ], [ 0, %49 ], [ 0, %62 ]
   %69 = load ptr, ptr %13, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.58, i32 noundef %.1.i) #3
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.58, i32 noundef %.2.i) #3
   br label %70
 
 70:                                               ; preds = %68, %22, %16, %4
-  %.2.i = phi i32 [ %.1.i, %68 ], [ 0, %4 ], [ 0, %22 ], [ 0, %16 ]
+  %.0.i = phi i32 [ %.2.i, %68 ], [ 0, %4 ], [ 0, %22 ], [ 0, %16 ]
   %71 = icmp ne ptr %2, null
   br i1 %71, label %72, label %122
 
@@ -332,9 +332,9 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   br label %dissect_soupbintcp_common.exit
 
 .thread125.i:                                     ; preds = %72
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef nonnull @.str.62, i32 noundef %.2.i) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef nonnull @.str.62, i32 noundef %.0.i) #3
   %101 = load i32, ptr @hf_soupbintcp_seq_num, align 4
-  %102 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %76, i32 noundef %101, ptr noundef %0, i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.63, i32 noundef %.2.i) #3
+  %102 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %76, i32 noundef %101, ptr noundef %0, i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.63, i32 noundef %.0.i) #3
   br label %123
 
 103:                                              ; preds = %72

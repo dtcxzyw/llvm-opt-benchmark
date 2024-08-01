@@ -576,29 +576,29 @@ define void @_ZNK3gmx19IndexGroupsAndNames7indicesERKNSt7__cxx1112basic_stringIc
   br label %35
 
 35:                                               ; preds = %33, %31
-  %.123 = phi i1 [ %.022, %33 ], [ true, %31 ]
+  %.527 = phi i1 [ %.022, %33 ], [ true, %31 ]
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #21
   br label %36
 
 36:                                               ; preds = %35, %29
-  %.224 = phi i1 [ %.123, %35 ], [ true, %29 ]
+  %.426 = phi i1 [ %.527, %35 ], [ true, %29 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %35 ], [ %30, %29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   br label %37
 
 37:                                               ; preds = %36, %27
-  %.325 = phi i1 [ %.224, %36 ], [ true, %27 ]
+  %.325 = phi i1 [ %.426, %36 ], [ true, %27 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %36 ], [ %28, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   br label %38
 
 38:                                               ; preds = %25, %37
-  %.426 = phi i1 [ %.325, %37 ], [ true, %25 ]
+  %.224 = phi i1 [ %.325, %37 ], [ true, %25 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %37 ], [ %26, %25 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #21
-  br i1 %.426, label %39, label %.body
+  br i1 %.224, label %39, label %.body
 
 39:                                               ; preds = %.thread, %38
   %.pn.pn.pn.pn.pn37 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn.pn.pn.pn, %38 ]
@@ -4006,7 +4006,7 @@ define void @_Z24gmx_ana_index_make_blockP8t_blockaPK10gmx_mtop_tP15gmx_ana_inde
 
 .lr.ph161.split.us.split.us:                      ; preds = %.lr.ph161.split.us, %.loopexit.us.us
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.loopexit.us.us ], [ 0, %.lr.ph161.split.us ]
-  %.0150159.us.us = phi i32 [ %.3.us.us, %.loopexit.us.us ], [ 0, %.lr.ph161.split.us ]
+  %.0150159.us.us = phi i32 [ %.1.us.us, %.loopexit.us.us ], [ 0, %.lr.ph161.split.us ]
   %87 = load ptr, ptr %79, align 8
   %88 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv186
   %89 = load i32, ptr %88, align 4
@@ -4033,10 +4033,10 @@ define void @_Z24gmx_ana_index_make_blockP8t_blockaPK10gmx_mtop_tP15gmx_ana_inde
   br label %106
 
 106:                                              ; preds = %160, %91
-  %.1.us.us = phi i32 [ %.0150159.us.us, %91 ], [ %163, %160 ]
+  %.2.us.us = phi i32 [ %.0150159.us.us, %91 ], [ %163, %160 ]
   %.026.i.us.us = phi i32 [ %104, %91 ], [ %.127.i.us.us, %160 ]
   %.0.i.us.us = phi i32 [ -1, %91 ], [ %.1.i.us.us, %160 ]
-  %107 = sext i32 %.1.us.us to i64
+  %107 = sext i32 %.2.us.us to i64
   %108 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %105, i64 %107
   %109 = getelementptr inbounds i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
@@ -4123,7 +4123,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
   br i1 %.not132.us.us.not, label %.lr.ph158.us.us, label %.loopexit.us.us, !llvm.loop !52
 
 .loopexit.us.us:                                  ; preds = %.lr.ph158.us.us, %.critedge5.us.us, %.lr.ph161.split.us.split.us
-  %.3.us.us = phi i32 [ %.0150159.us.us, %.lr.ph161.split.us.split.us ], [ %.1.us.us, %.critedge5.us.us ], [ %.1.us.us, %.lr.ph158.us.us ]
+  %.1.us.us = phi i32 [ %.0150159.us.us, %.lr.ph161.split.us.split.us ], [ %.2.us.us, %.critedge5.us.us ], [ %.2.us.us, %.lr.ph158.us.us ]
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %157 = load i32, ptr %2, align 8
   %158 = sext i32 %157 to i64
@@ -4131,8 +4131,8 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
   br i1 %159, label %.lr.ph161.split.us.split.us, label %._crit_edge, !llvm.loop !53
 
 160:                                              ; preds = %112, %106
-  %.127.i.us.us = phi i32 [ %.1.us.us, %106 ], [ %.026.i.us.us, %112 ]
-  %.1.i.us.us = phi i32 [ %.0.i.us.us, %106 ], [ %.1.us.us, %112 ]
+  %.127.i.us.us = phi i32 [ %.2.us.us, %106 ], [ %.026.i.us.us, %112 ]
+  %.1.i.us.us = phi i32 [ %.0.i.us.us, %106 ], [ %.2.us.us, %112 ]
   %161 = add i32 %.127.i.us.us, 1
   %162 = add i32 %161, %.1.i.us.us
   %163 = ashr i32 %162, 1
@@ -4140,7 +4140,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
 
 .lr.ph161.split.us.split.us163:                   ; preds = %.lr.ph161.split.us, %.loopexit151.us.us
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %.loopexit151.us.us ], [ 0, %.lr.ph161.split.us ]
-  %.0150159.us.us165 = phi i32 [ %.3.us.us166, %.loopexit151.us.us ], [ 0, %.lr.ph161.split.us ]
+  %.0150159.us.us165 = phi i32 [ %.1.us.us166, %.loopexit151.us.us ], [ 0, %.lr.ph161.split.us ]
   %164 = load ptr, ptr %79, align 8
   %165 = getelementptr inbounds i32, ptr %164, i64 %indvars.iv176
   %166 = load i32, ptr %165, align 4
@@ -4167,10 +4167,10 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
   br label %183
 
 183:                                              ; preds = %209, %168
-  %.2.us.us = phi i32 [ %.0150159.us.us165, %168 ], [ %212, %209 ]
+  %.3.us.us = phi i32 [ %.0150159.us.us165, %168 ], [ %212, %209 ]
   %.026.i135.us.us = phi i32 [ %181, %168 ], [ %.127.i138.us.us, %209 ]
   %.0.i136.us.us = phi i32 [ -1, %168 ], [ %.1.i139.us.us, %209 ]
-  %184 = sext i32 %.2.us.us to i64
+  %184 = sext i32 %.3.us.us to i64
   %185 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %182, i64 %184
   %186 = getelementptr inbounds i8, ptr %185, i64 4
   %187 = load i32, ptr %186, align 4
@@ -4210,15 +4210,15 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit140.us.us: ; preds = %189
   br i1 %208, label %.lr.ph.us.us, label %.loopexit151.us.us, !llvm.loop !55
 
 209:                                              ; preds = %189, %183
-  %.127.i138.us.us = phi i32 [ %.2.us.us, %183 ], [ %.026.i135.us.us, %189 ]
-  %.1.i139.us.us = phi i32 [ %.0.i136.us.us, %183 ], [ %.2.us.us, %189 ]
+  %.127.i138.us.us = phi i32 [ %.3.us.us, %183 ], [ %.026.i135.us.us, %189 ]
+  %.1.i139.us.us = phi i32 [ %.0.i136.us.us, %183 ], [ %.3.us.us, %189 ]
   %210 = add i32 %.127.i138.us.us, 1
   %211 = add i32 %210, %.1.i139.us.us
   %212 = ashr i32 %211, 1
   br label %183, !llvm.loop !54
 
 .loopexit151.us.us:                               ; preds = %.lr.ph.us.us, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit140.us.us, %.lr.ph161.split.us.split.us163
-  %.3.us.us166 = phi i32 [ %.0150159.us.us165, %.lr.ph161.split.us.split.us163 ], [ %.2.us.us, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit140.us.us ], [ %.2.us.us, %.lr.ph.us.us ]
+  %.1.us.us166 = phi i32 [ %.0150159.us.us165, %.lr.ph161.split.us.split.us163 ], [ %.3.us.us, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit140.us.us ], [ %.3.us.us, %.lr.ph.us.us ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %213 = load i32, ptr %2, align 8
   %214 = sext i32 %213 to i64

@@ -300,13 +300,13 @@ define internal fastcc i32 @block_cipher_df(ptr noundef %0, ptr nocapture nounde
   br i1 %53, label %48, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %35, %50, %48, %44, %24
-  %.151 = phi i32 [ %26, %24 ], [ %45, %44 ], [ 0, %50 ], [ %49, %48 ], [ %38, %35 ]
+  %.050 = phi i32 [ %26, %24 ], [ %45, %44 ], [ 0, %50 ], [ %49, %48 ], [ %38, %35 ]
   call void @mbedtls_aes_free(ptr noundef nonnull %8) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 416) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 48) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 32) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 16) #13
-  %.not65 = icmp eq i32 %.151, 0
+  %.not65 = icmp eq i32 %.050, 0
   br i1 %.not65, label %55, label %54
 
 54:                                               ; preds = %.loopexit
@@ -314,7 +314,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef %0, ptr nocapture nounde
   br label %55
 
 55:                                               ; preds = %.loopexit, %54, %3
-  %.046 = phi i32 [ -56, %3 ], [ %.151, %54 ], [ 0, %.loopexit ]
+  %.046 = phi i32 [ -56, %3 ], [ %.050, %54 ], [ 0, %.loopexit ]
   ret i32 %.046
 }
 

@@ -415,12 +415,12 @@ _Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit:            ; preds = %for.end.i86, %delet
 
 for.body38:                                       ; preds = %for.body38.lr.ph, %for.body38
   %indvars.iv95 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next96, %for.body38 ]
-  %bHas.592 = phi i1 [ %bHas.4, %for.body38.lr.ph ], [ %spec.select, %for.body38 ]
+  %bHas.692 = phi i1 [ %bHas.4, %for.body38.lr.ph ], [ %spec.select, %for.body38 ]
   %51 = load ptr, ptr %mMeshes39, align 8
   %arrayidx41 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv95
   %52 = load ptr, ptr %arrayidx41, align 8
   %call42 = call noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %52)
-  %spec.select = select i1 %call42, i1 true, i1 %bHas.592
+  %spec.select = select i1 %call42, i1 true, i1 %bHas.692
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %53 = load i32, ptr %mNumMeshes36, align 8
   %54 = zext i32 %53 to i64
@@ -438,7 +438,7 @@ lor.lhs.false:                                    ; preds = %if.end48
   br i1 %tobool52.not, label %if.then53, label %if.end61
 
 if.then53:                                        ; preds = %for.cond35.preheader, %_Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit, %lor.lhs.false, %if.end48
-  %bHas.7106 = phi i1 [ %spec.select, %lor.lhs.false ], [ %spec.select, %if.end48 ], [ %bHas.4, %for.cond35.preheader ], [ true, %_Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit ]
+  %bHas.5106 = phi i1 [ %spec.select, %lor.lhs.false ], [ %spec.select, %if.end48 ], [ %bHas.4, %for.cond35.preheader ], [ true, %_Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit ]
   %mNumMeshes49107 = getelementptr inbounds i8, ptr %pScene, i64 16
   %57 = load i32, ptr %pScene, align 8
   %or = or i32 %57, 1
@@ -453,11 +453,11 @@ if.then57:                                        ; preds = %if.then53
   %59 = load i32, ptr %pScene, align 8
   %and59 = and i32 %59, -9
   store i32 %and59, ptr %pScene, align 8
-  br i1 %bHas.7106, label %if.then63, label %if.else65
+  br i1 %bHas.5106, label %if.then63, label %if.else65
 
 if.end61:                                         ; preds = %if.then53, %lor.lhs.false
-  %bHas.7105 = phi i1 [ %bHas.7106, %if.then53 ], [ %spec.select, %lor.lhs.false ]
-  br i1 %bHas.7105, label %if.then63, label %if.else65
+  %bHas.5105 = phi i1 [ %bHas.5106, %if.then53 ], [ %spec.select, %lor.lhs.false ]
+  br i1 %bHas.5105, label %if.then63, label %if.else65
 
 if.then63:                                        ; preds = %if.then57, %if.end61
   %call64 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()

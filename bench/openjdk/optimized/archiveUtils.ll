@@ -318,9 +318,9 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
   br label %34
 
 34:                                               ; preds = %32, %25
-  %.1.ph.i.i.i.i.i = phi i64 [ %23, %25 ], [ %31, %32 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %23, %25 ], [ %31, %32 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %25 ], [ %33, %32 ]
-  %35 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %35 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %36 = add i64 %.026.ph.i.i.i.i.i, %35
   %37 = icmp ult i64 %36, %14
   br i1 %37, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZNK6BitMap7iterateI23ArchivePtrBitmapCleanerEEbPT_.exit

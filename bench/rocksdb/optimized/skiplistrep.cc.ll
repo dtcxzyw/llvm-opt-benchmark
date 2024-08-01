@@ -2107,7 +2107,7 @@ while.cond3.preheader.i:                          ; preds = %if.end.i, %while.co
   %x.063.i = phi ptr [ %13, %while.cond3.preheader.preheader.i ], [ %19, %if.end.i ]
   %limit_node.062.i = phi ptr [ null, %while.cond3.preheader.preheader.i ], [ %limit_node.1.i, %if.end.i ]
   %lvl_nodes.sroa.18.061.i = phi ptr [ null, %while.cond3.preheader.preheader.i ], [ %lvl_nodes.sroa.18.1.lcssa.i, %if.end.i ]
-  %lvl_nodes.sroa.0.060.i = phi ptr [ null, %while.cond3.preheader.preheader.i ], [ %lvl_nodes.sroa.0.1.lcssa.i, %if.end.i ]
+  %lvl_nodes.sroa.0.160.i = phi ptr [ null, %while.cond3.preheader.preheader.i ], [ %lvl_nodes.sroa.0.2.lcssa.i, %if.end.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp4.not51.i = icmp eq ptr %x.063.i, %limit_node.062.i
   br i1 %cmp4.not51.i, label %while.end.i, label %while.body5.lr.ph.i
@@ -2119,18 +2119,18 @@ while.body5.lr.ph.i:                              ; preds = %while.cond3.prehead
 while.body5.i:                                    ; preds = %invoke.cont6.i, %while.body5.lr.ph.i
   %storemerge55.i = phi ptr [ %x.063.i, %while.body5.lr.ph.i ], [ %atomic-temp.i.0.i.i.i, %invoke.cont6.i ]
   %lvl_nodes.sroa.18.154.i = phi ptr [ %lvl_nodes.sroa.18.061.i, %while.body5.lr.ph.i ], [ %lvl_nodes.sroa.18.2.i, %invoke.cont6.i ]
-  %lvl_nodes.sroa.10.253.i = phi ptr [ %lvl_nodes.sroa.0.060.i, %while.body5.lr.ph.i ], [ %lvl_nodes.sroa.10.3.i, %invoke.cont6.i ]
-  %lvl_nodes.sroa.0.152.i = phi ptr [ %lvl_nodes.sroa.0.060.i, %while.body5.lr.ph.i ], [ %lvl_nodes.sroa.0.2.i, %invoke.cont6.i ]
-  %cmp.not.i.i = icmp eq ptr %lvl_nodes.sroa.10.253.i, %lvl_nodes.sroa.18.154.i
+  %lvl_nodes.sroa.10.153.i = phi ptr [ %lvl_nodes.sroa.0.160.i, %while.body5.lr.ph.i ], [ %lvl_nodes.sroa.10.3.i, %invoke.cont6.i ]
+  %lvl_nodes.sroa.0.252.i = phi ptr [ %lvl_nodes.sroa.0.160.i, %while.body5.lr.ph.i ], [ %lvl_nodes.sroa.0.3.i, %invoke.cont6.i ]
+  %cmp.not.i.i = icmp eq ptr %lvl_nodes.sroa.10.153.i, %lvl_nodes.sroa.18.154.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body5.i
-  store ptr %storemerge55.i, ptr %lvl_nodes.sroa.10.253.i, align 8
+  store ptr %storemerge55.i, ptr %lvl_nodes.sroa.10.153.i, align 8
   br label %invoke.cont6.i
 
 if.else.i.i:                                      ; preds = %while.body5.i
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %lvl_nodes.sroa.18.154.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %lvl_nodes.sroa.0.152.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %lvl_nodes.sroa.0.252.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -2165,16 +2165,16 @@ _ZNSt12_Vector_baseIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparato
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %lvl_nodes.sroa.0.152.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %lvl_nodes.sroa.0.252.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i.i
 
 _ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %tobool.not.i.i.i.i = icmp eq ptr %lvl_nodes.sroa.0.152.i, null
+  %tobool.not.i.i.i.i = icmp eq ptr %lvl_nodes.sroa.0.252.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.152.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.252.i) #21
   br label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i.i
@@ -2182,8 +2182,8 @@ _ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4Nod
   br label %invoke.cont6.i
 
 invoke.cont6.i:                                   ; preds = %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, %if.then.i.i
-  %lvl_nodes.sroa.0.2.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %lvl_nodes.sroa.0.152.i, %if.then.i.i ]
-  %add.ptr.i.i.i.i.i.pn.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %lvl_nodes.sroa.10.253.i, %if.then.i.i ]
+  %lvl_nodes.sroa.0.3.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %lvl_nodes.sroa.0.252.i, %if.then.i.i ]
+  %add.ptr.i.i.i.i.i.pn.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %lvl_nodes.sroa.10.153.i, %if.then.i.i ]
   %lvl_nodes.sroa.18.2.i = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %lvl_nodes.sroa.18.154.i, %if.then.i.i ]
   %lvl_nodes.sroa.10.3.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn.i, i64 8
   %add.ptr.i.i = getelementptr inbounds %"struct.std::atomic.29", ptr %storemerge55.i, i64 %idx.neg.i.i
@@ -2204,16 +2204,16 @@ lpad.loopexit.split-lp.i:                         ; preds = %if.then.i.i.i.i
 
 lpad.i:                                           ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit38.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp39.i, %lpad.loopexit.split-lp.i ]
-  %tobool.not.i.i.i8.i = icmp eq ptr %lvl_nodes.sroa.0.152.i, null
+  %tobool.not.i.i.i8.i = icmp eq ptr %lvl_nodes.sroa.0.252.i, null
   br i1 %tobool.not.i.i.i8.i, label %lpad.body, label %if.then.i.i.i9.i
 
 if.then.i.i.i9.i:                                 ; preds = %lpad.i
-  call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.152.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.252.i) #21
   br label %lpad.body
 
 while.end.i:                                      ; preds = %invoke.cont6.i, %while.cond3.preheader.i
-  %lvl_nodes.sroa.0.1.lcssa.i = phi ptr [ %lvl_nodes.sroa.0.060.i, %while.cond3.preheader.i ], [ %lvl_nodes.sroa.0.2.i, %invoke.cont6.i ]
-  %lvl_nodes.sroa.10.2.lcssa.i = phi ptr [ %lvl_nodes.sroa.0.060.i, %while.cond3.preheader.i ], [ %lvl_nodes.sroa.10.3.i, %invoke.cont6.i ]
+  %lvl_nodes.sroa.0.2.lcssa.i = phi ptr [ %lvl_nodes.sroa.0.160.i, %while.cond3.preheader.i ], [ %lvl_nodes.sroa.0.3.i, %invoke.cont6.i ]
+  %lvl_nodes.sroa.10.1.lcssa.i = phi ptr [ %lvl_nodes.sroa.0.160.i, %while.cond3.preheader.i ], [ %lvl_nodes.sroa.10.3.i, %invoke.cont6.i ]
   %lvl_nodes.sroa.18.1.lcssa.i = phi ptr [ %lvl_nodes.sroa.18.061.i, %while.cond3.preheader.i ], [ %lvl_nodes.sroa.18.2.i, %invoke.cont6.i ]
   %18 = load i32, ptr %call.i32, align 4
   %conv.i.i = zext i32 %18 to i64
@@ -2227,12 +2227,12 @@ while.end.i:                                      ; preds = %invoke.cont6.i, %wh
   %spec.select.i.i = select i1 %cmp.i.i28, i32 %sub.i.i, i32 %conv2.i.i
   store i32 %spec.select.i.i, ptr %call.i32, align 4
   %conv.i29 = zext i32 %spec.select.i.i to i64
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %lvl_nodes.sroa.10.2.lcssa.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %lvl_nodes.sroa.0.1.lcssa.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %lvl_nodes.sroa.10.1.lcssa.i to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %lvl_nodes.sroa.0.2.lcssa.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %rem.i = urem i64 %conv.i29, %sub.ptr.div.i.i
-  %add.ptr.i11.i = getelementptr inbounds ptr, ptr %lvl_nodes.sroa.0.1.lcssa.i, i64 %rem.i
+  %add.ptr.i11.i = getelementptr inbounds ptr, ptr %lvl_nodes.sroa.0.2.lcssa.i, i64 %rem.i
   %19 = load ptr, ptr %add.ptr.i11.i, align 8
   %add.i30 = add nuw nsw i64 %rem.i, 1
   %conv13.i = and i64 %add.i30, 4294967295
@@ -2240,7 +2240,7 @@ while.end.i:                                      ; preds = %invoke.cont6.i, %wh
   br i1 %cmp15.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end.i
-  %add.ptr.i17.i = getelementptr inbounds ptr, ptr %lvl_nodes.sroa.0.1.lcssa.i, i64 %conv13.i
+  %add.ptr.i17.i = getelementptr inbounds ptr, ptr %lvl_nodes.sroa.0.2.lcssa.i, i64 %conv13.i
   %20 = load ptr, ptr %add.ptr.i17.i, align 8
   br label %if.end.i
 
@@ -2250,7 +2250,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.e
   br i1 %cmp.i31, label %while.cond3.preheader.i, label %while.end19.i, !llvm.loop !16
 
 while.end19.i:                                    ; preds = %if.end.i, %call.i.noexc
-  %lvl_nodes.sroa.0.0.lcssa.i = phi ptr [ null, %call.i.noexc ], [ %lvl_nodes.sroa.0.1.lcssa.i, %if.end.i ]
+  %lvl_nodes.sroa.0.1.lcssa.i = phi ptr [ null, %call.i.noexc ], [ %lvl_nodes.sroa.0.2.lcssa.i, %if.end.i ]
   %x.0.lcssa.i = phi ptr [ %13, %call.i.noexc ], [ %19, %if.end.i ]
   %21 = load ptr, ptr %head_.i, align 8
   %cmp21.i = icmp ne ptr %x.0.lcssa.i, %21
@@ -2265,11 +2265,11 @@ cond.true.i:                                      ; preds = %while.end19.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %while.end19.i
   %cond.i = phi ptr [ %atomic-temp.i.0.i.i19.i, %cond.true.i ], [ %x.0.lcssa.i, %while.end19.i ]
-  %tobool.not.i.i.i20.i = icmp eq ptr %lvl_nodes.sroa.0.0.lcssa.i, null
+  %tobool.not.i.i.i20.i = icmp eq ptr %lvl_nodes.sroa.0.1.lcssa.i, null
   br i1 %tobool.not.i.i.i20.i, label %invoke.cont21, label %if.then.i.i.i21.i
 
 if.then.i.i.i21.i:                                ; preds = %cond.end.i
-  call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.0.lcssa.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.1.lcssa.i) #21
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %cond.end.i, %if.then.i.i.i21.i
@@ -2514,13 +2514,13 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit: ; pr
   br i1 %7, label %while.end, label %while.cond, !llvm.loop !21
 
 while.end:                                        ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit, %while.cond
-  %max_height.17 = phi i32 [ %max_height.0, %while.cond ], [ %rv.0.copyload.i, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit ]
+  %max_height.1 = phi i32 [ %max_height.0, %while.cond ], [ %rv.0.copyload.i, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit ]
   %9 = load i32, ptr %splice, align 8
-  %cmp6 = icmp slt i32 %9, %max_height.17
+  %cmp6 = icmp slt i32 %9, %max_height.1
   br i1 %cmp6, label %if.then7, label %while.cond11.preheader
 
 while.cond11.preheader:                           ; preds = %while.end
-  %cmp12148 = icmp sgt i32 %max_height.17, 0
+  %cmp12148 = icmp sgt i32 %max_height.1, 0
   br i1 %cmp12148, label %while.body13.lr.ph, label %if.end78
 
 while.body13.lr.ph:                               ; preds = %while.cond11.preheader
@@ -2534,23 +2534,23 @@ if.then7:                                         ; preds = %while.end
   %10 = load ptr, ptr %head_, align 8
   %prev_ = getelementptr inbounds i8, ptr %splice, i64 8
   %11 = load ptr, ptr %prev_, align 8
-  %idxprom = sext i32 %max_height.17 to i64
+  %idxprom = sext i32 %max_height.1 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
   store ptr %10, ptr %arrayidx, align 8
   %next_ = getelementptr inbounds i8, ptr %splice, i64 16
   %12 = load ptr, ptr %next_, align 8
   %arrayidx9 = getelementptr inbounds ptr, ptr %12, i64 %idxprom
   store ptr null, ptr %arrayidx9, align 8
-  store i32 %max_height.17, ptr %splice, align 8
+  store i32 %max_height.1, ptr %splice, align 8
   br label %if.end75
 
 while.body13:                                     ; preds = %while.body13.lr.ph, %if.end73
-  %recompute_height.0149 = phi i32 [ 0, %while.body13.lr.ph ], [ %recompute_height.3, %if.end73 ]
+  %recompute_height.1149 = phi i32 [ 0, %while.body13.lr.ph ], [ %recompute_height.2, %if.end73 ]
   %13 = load ptr, ptr %prev_14, align 8
-  %idxprom15 = zext nneg i32 %recompute_height.0149 to i64
+  %idxprom15 = zext nneg i32 %recompute_height.1149 to i64
   %arrayidx16 = getelementptr inbounds ptr, ptr %13, i64 %idxprom15
   %14 = load ptr, ptr %arrayidx16, align 8
-  %idx.ext.i = sext i32 %recompute_height.0149 to i64
+  %idx.ext.i = sext i32 %recompute_height.1149 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds %"struct.std::atomic.29", ptr %14, i64 %idx.neg.i
   %15 = load atomic i64, ptr %add.ptr.i acquire, align 8
@@ -2562,7 +2562,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   br i1 %cmp21.not, label %if.else23, label %if.then22
 
 if.then22:                                        ; preds = %while.body13
-  %inc = add nuw nsw i32 %recompute_height.0149, 1
+  %inc = add nuw nsw i32 %recompute_height.1149, 1
   br label %if.end73
 
 if.else23:                                        ; preds = %while.body13
@@ -2649,23 +2649,23 @@ if.end73.loopexit160:                             ; preds = %while.cond38
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end73.loopexit160, %if.end73.loopexit, %if.then22
-  %recompute_height.3 = phi i32 [ %inc, %if.then22 ], [ %32, %if.end73.loopexit ], [ %33, %if.end73.loopexit160 ]
-  %cmp12 = icmp slt i32 %recompute_height.3, %max_height.17
+  %recompute_height.2 = phi i32 [ %inc, %if.then22 ], [ %32, %if.end73.loopexit ], [ %33, %if.end73.loopexit160 ]
+  %cmp12 = icmp slt i32 %recompute_height.2, %max_height.1
   br i1 %cmp12, label %while.body13, label %if.end75, !llvm.loop !24
 
 if.end75.loopexit.split.loop.exit:                ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit127
-  %recompute_height.0149.mux.le = select i1 %cmp3.i126, i32 %max_height.17, i32 %recompute_height.0149
+  %recompute_height.1149.mux.le = select i1 %cmp3.i126, i32 %max_height.1, i32 %recompute_height.1149
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end75.loopexit.split.loop.exit, %if.else48, %if.end73, %if.then33, %if.then7
-  %recompute_height.4 = phi i32 [ %max_height.17, %if.then7 ], [ %recompute_height.0149.mux.le, %if.end75.loopexit.split.loop.exit ], [ %recompute_height.0149, %if.else48 ], [ %recompute_height.3, %if.end73 ], [ %max_height.17, %if.then33 ]
-  %cmp76 = icmp sgt i32 %recompute_height.4, 0
+  %recompute_height.0 = phi i32 [ %max_height.1, %if.then7 ], [ %recompute_height.1149.mux.le, %if.end75.loopexit.split.loop.exit ], [ %recompute_height.1149, %if.else48 ], [ %recompute_height.2, %if.end73 ], [ %max_height.1, %if.then33 ]
+  %cmp76 = icmp sgt i32 %recompute_height.0, 0
   br i1 %cmp76, label %for.body.lr.ph.i, label %if.end78
 
 for.body.lr.ph.i:                                 ; preds = %if.end75
   %prev_.i = getelementptr inbounds i8, ptr %splice, i64 8
   %next_.i = getelementptr inbounds i8, ptr %splice, i64 16
-  %34 = zext nneg i32 %recompute_height.4 to i64
+  %34 = zext nneg i32 %recompute_height.0 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i, %for.body.lr.ph.i
@@ -2749,7 +2749,7 @@ _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLe
   br i1 %cmp.i, label %for.body.i, label %if.end78, !llvm.loop !26
 
 if.end78:                                         ; preds = %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i, %while.cond11.preheader, %if.end75
-  %recompute_height.4179 = phi i32 [ %recompute_height.4, %if.end75 ], [ 0, %while.cond11.preheader ], [ %recompute_height.4, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i ]
+  %recompute_height.0179 = phi i32 [ %recompute_height.0, %if.end75 ], [ 0, %while.cond11.preheader ], [ %recompute_height.0, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i ]
   %cmp79152 = icmp slt i32 %rv.0.copyload.i, 1
   br i1 %cmp79152, label %return, label %for.body.lr.ph
 
@@ -2758,7 +2758,7 @@ for.body.lr.ph:                                   ; preds = %if.end78
   %next_86 = getelementptr inbounds i8, ptr %splice, i64 16
   %head_124 = getelementptr inbounds i8, ptr %this, i64 24
   %48 = ptrtoint ptr %add.ptr to i64
-  %49 = sext i32 %recompute_height.4179 to i64
+  %49 = sext i32 %recompute_height.0179 to i64
   %50 = zext nneg i32 %rv.0.copyload.i to i64
   %wide.trip.count = zext nneg i32 %rv.0.copyload.i to i64
   br label %for.body
@@ -2925,13 +2925,13 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit: ; pr
   br i1 %7, label %while.end, label %while.cond, !llvm.loop !30
 
 while.end:                                        ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit, %while.cond
-  %max_height.17 = phi i32 [ %max_height.0, %while.cond ], [ %rv.0.copyload.i, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit ]
+  %max_height.1 = phi i32 [ %max_height.0, %while.cond ], [ %rv.0.copyload.i, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit ]
   %9 = load i32, ptr %splice, align 8
-  %cmp6 = icmp slt i32 %9, %max_height.17
+  %cmp6 = icmp slt i32 %9, %max_height.1
   br i1 %cmp6, label %if.then7, label %while.cond11.preheader
 
 while.cond11.preheader:                           ; preds = %while.end
-  %cmp12143 = icmp sgt i32 %max_height.17, 0
+  %cmp12143 = icmp sgt i32 %max_height.1, 0
   br i1 %cmp12143, label %while.body13.lr.ph, label %if.end78
 
 while.body13.lr.ph:                               ; preds = %while.cond11.preheader
@@ -2945,23 +2945,23 @@ if.then7:                                         ; preds = %while.end
   %10 = load ptr, ptr %head_, align 8
   %prev_ = getelementptr inbounds i8, ptr %splice, i64 8
   %11 = load ptr, ptr %prev_, align 8
-  %idxprom = sext i32 %max_height.17 to i64
+  %idxprom = sext i32 %max_height.1 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
   store ptr %10, ptr %arrayidx, align 8
   %next_ = getelementptr inbounds i8, ptr %splice, i64 16
   %12 = load ptr, ptr %next_, align 8
   %arrayidx9 = getelementptr inbounds ptr, ptr %12, i64 %idxprom
   store ptr null, ptr %arrayidx9, align 8
-  store i32 %max_height.17, ptr %splice, align 8
+  store i32 %max_height.1, ptr %splice, align 8
   br label %if.end75
 
 while.body13:                                     ; preds = %while.body13.lr.ph, %if.end73
-  %recompute_height.0144 = phi i32 [ 0, %while.body13.lr.ph ], [ %recompute_height.3, %if.end73 ]
+  %recompute_height.1144 = phi i32 [ 0, %while.body13.lr.ph ], [ %recompute_height.2, %if.end73 ]
   %13 = load ptr, ptr %prev_14, align 8
-  %idxprom15 = zext nneg i32 %recompute_height.0144 to i64
+  %idxprom15 = zext nneg i32 %recompute_height.1144 to i64
   %arrayidx16 = getelementptr inbounds ptr, ptr %13, i64 %idxprom15
   %14 = load ptr, ptr %arrayidx16, align 8
-  %idx.ext.i = sext i32 %recompute_height.0144 to i64
+  %idx.ext.i = sext i32 %recompute_height.1144 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds %"struct.std::atomic.29", ptr %14, i64 %idx.neg.i
   %15 = load atomic i64, ptr %add.ptr.i acquire, align 8
@@ -2973,7 +2973,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   br i1 %cmp21.not, label %if.else23, label %if.then22
 
 if.then22:                                        ; preds = %while.body13
-  %inc = add nuw nsw i32 %recompute_height.0144, 1
+  %inc = add nuw nsw i32 %recompute_height.1144, 1
   br label %if.end73
 
 if.else23:                                        ; preds = %while.body13
@@ -3060,23 +3060,23 @@ if.end73.loopexit164:                             ; preds = %while.cond38
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end73.loopexit164, %if.end73.loopexit, %if.then22
-  %recompute_height.3 = phi i32 [ %inc, %if.then22 ], [ %32, %if.end73.loopexit ], [ %33, %if.end73.loopexit164 ]
-  %cmp12 = icmp slt i32 %recompute_height.3, %max_height.17
+  %recompute_height.2 = phi i32 [ %inc, %if.then22 ], [ %32, %if.end73.loopexit ], [ %33, %if.end73.loopexit164 ]
+  %cmp12 = icmp slt i32 %recompute_height.2, %max_height.1
   br i1 %cmp12, label %while.body13, label %if.end75, !llvm.loop !33
 
 if.end75.loopexit.split.loop.exit:                ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit124
-  %recompute_height.0144.mux.le = select i1 %cmp3.i123, i32 %max_height.17, i32 %recompute_height.0144
+  %recompute_height.1144.mux.le = select i1 %cmp3.i123, i32 %max_height.1, i32 %recompute_height.1144
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end75.loopexit.split.loop.exit, %if.else48, %if.end73, %if.then33, %if.then7
-  %recompute_height.4 = phi i32 [ %max_height.17, %if.then7 ], [ %recompute_height.0144.mux.le, %if.end75.loopexit.split.loop.exit ], [ %recompute_height.0144, %if.else48 ], [ %recompute_height.3, %if.end73 ], [ %max_height.17, %if.then33 ]
-  %cmp76 = icmp sgt i32 %recompute_height.4, 0
+  %recompute_height.0 = phi i32 [ %max_height.1, %if.then7 ], [ %recompute_height.1144.mux.le, %if.end75.loopexit.split.loop.exit ], [ %recompute_height.1144, %if.else48 ], [ %recompute_height.2, %if.end73 ], [ %max_height.1, %if.then33 ]
+  %cmp76 = icmp sgt i32 %recompute_height.0, 0
   br i1 %cmp76, label %for.body.lr.ph.i, label %if.end78
 
 for.body.lr.ph.i:                                 ; preds = %if.end75
   %prev_.i = getelementptr inbounds i8, ptr %splice, i64 8
   %next_.i = getelementptr inbounds i8, ptr %splice, i64 16
-  %34 = zext nneg i32 %recompute_height.4 to i64
+  %34 = zext nneg i32 %recompute_height.0 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i, %for.body.lr.ph.i
@@ -4004,7 +4004,7 @@ while.cond3.preheader:                            ; preds = %while.cond3.prehead
   %x.063 = phi ptr [ %0, %while.cond3.preheader.preheader ], [ %6, %if.end ]
   %limit_node.062 = phi ptr [ null, %while.cond3.preheader.preheader ], [ %limit_node.1, %if.end ]
   %lvl_nodes.sroa.18.061 = phi ptr [ null, %while.cond3.preheader.preheader ], [ %lvl_nodes.sroa.18.1.lcssa, %if.end ]
-  %lvl_nodes.sroa.0.060 = phi ptr [ null, %while.cond3.preheader.preheader ], [ %lvl_nodes.sroa.0.1.lcssa, %if.end ]
+  %lvl_nodes.sroa.0.160 = phi ptr [ null, %while.cond3.preheader.preheader ], [ %lvl_nodes.sroa.0.2.lcssa, %if.end ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp4.not51 = icmp eq ptr %x.063, %limit_node.062
   br i1 %cmp4.not51, label %while.end, label %while.body5.lr.ph
@@ -4016,18 +4016,18 @@ while.body5.lr.ph:                                ; preds = %while.cond3.prehead
 while.body5:                                      ; preds = %while.body5.lr.ph, %invoke.cont6
   %storemerge55 = phi ptr [ %x.063, %while.body5.lr.ph ], [ %atomic-temp.i.0.i.i, %invoke.cont6 ]
   %lvl_nodes.sroa.18.154 = phi ptr [ %lvl_nodes.sroa.18.061, %while.body5.lr.ph ], [ %lvl_nodes.sroa.18.2, %invoke.cont6 ]
-  %lvl_nodes.sroa.10.253 = phi ptr [ %lvl_nodes.sroa.0.060, %while.body5.lr.ph ], [ %lvl_nodes.sroa.10.3, %invoke.cont6 ]
-  %lvl_nodes.sroa.0.152 = phi ptr [ %lvl_nodes.sroa.0.060, %while.body5.lr.ph ], [ %lvl_nodes.sroa.0.2, %invoke.cont6 ]
-  %cmp.not.i = icmp eq ptr %lvl_nodes.sroa.10.253, %lvl_nodes.sroa.18.154
+  %lvl_nodes.sroa.10.153 = phi ptr [ %lvl_nodes.sroa.0.160, %while.body5.lr.ph ], [ %lvl_nodes.sroa.10.3, %invoke.cont6 ]
+  %lvl_nodes.sroa.0.252 = phi ptr [ %lvl_nodes.sroa.0.160, %while.body5.lr.ph ], [ %lvl_nodes.sroa.0.3, %invoke.cont6 ]
+  %cmp.not.i = icmp eq ptr %lvl_nodes.sroa.10.153, %lvl_nodes.sroa.18.154
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body5
-  store ptr %storemerge55, ptr %lvl_nodes.sroa.10.253, align 8
+  store ptr %storemerge55, ptr %lvl_nodes.sroa.10.153, align 8
   br label %invoke.cont6
 
 if.else.i:                                        ; preds = %while.body5
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %lvl_nodes.sroa.18.154 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %lvl_nodes.sroa.0.152 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %lvl_nodes.sroa.0.252 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE12_M_check_lenEmPKc.exit.i.i
@@ -4062,16 +4062,16 @@ _ZNSt12_Vector_baseIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparato
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %lvl_nodes.sroa.0.152, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %lvl_nodes.sroa.0.252, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i
 
 _ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i.i = icmp eq ptr %lvl_nodes.sroa.0.152, null
+  %tobool.not.i.i.i = icmp eq ptr %lvl_nodes.sroa.0.252, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.152) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.252) #21
   br label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i
@@ -4079,8 +4079,8 @@ _ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4Nod
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, %if.then.i
-  %lvl_nodes.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %lvl_nodes.sroa.0.152, %if.then.i ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %lvl_nodes.sroa.10.253, %if.then.i ]
+  %lvl_nodes.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %lvl_nodes.sroa.0.252, %if.then.i ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %lvl_nodes.sroa.10.153, %if.then.i ]
   %lvl_nodes.sroa.18.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %lvl_nodes.sroa.18.154, %if.then.i ]
   %lvl_nodes.sroa.10.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   %add.ptr.i = getelementptr inbounds %"struct.std::atomic.29", ptr %storemerge55, i64 %idx.neg.i
@@ -4101,19 +4101,19 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit38, %lpad.loopexit ], [ %lpad.loopexit.split-lp39, %lpad.loopexit.split-lp ]
-  %tobool.not.i.i.i8 = icmp eq ptr %lvl_nodes.sroa.0.152, null
+  %tobool.not.i.i.i8 = icmp eq ptr %lvl_nodes.sroa.0.252, null
   br i1 %tobool.not.i.i.i8, label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EED2Ev.exit, label %if.then.i.i.i9
 
 if.then.i.i.i9:                                   ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.152) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.252) #21
   br label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i9
   resume { ptr, i32 } %lpad.phi
 
 while.end:                                        ; preds = %invoke.cont6, %while.cond3.preheader
-  %lvl_nodes.sroa.0.1.lcssa = phi ptr [ %lvl_nodes.sroa.0.060, %while.cond3.preheader ], [ %lvl_nodes.sroa.0.2, %invoke.cont6 ]
-  %lvl_nodes.sroa.10.2.lcssa = phi ptr [ %lvl_nodes.sroa.0.060, %while.cond3.preheader ], [ %lvl_nodes.sroa.10.3, %invoke.cont6 ]
+  %lvl_nodes.sroa.0.2.lcssa = phi ptr [ %lvl_nodes.sroa.0.160, %while.cond3.preheader ], [ %lvl_nodes.sroa.0.3, %invoke.cont6 ]
+  %lvl_nodes.sroa.10.1.lcssa = phi ptr [ %lvl_nodes.sroa.0.160, %while.cond3.preheader ], [ %lvl_nodes.sroa.10.3, %invoke.cont6 ]
   %lvl_nodes.sroa.18.1.lcssa = phi ptr [ %lvl_nodes.sroa.18.061, %while.cond3.preheader ], [ %lvl_nodes.sroa.18.2, %invoke.cont6 ]
   %5 = load i32, ptr %call, align 4
   %conv.i = zext i32 %5 to i64
@@ -4127,12 +4127,12 @@ while.end:                                        ; preds = %invoke.cont6, %whil
   %spec.select.i = select i1 %cmp.i, i32 %sub.i, i32 %conv2.i
   store i32 %spec.select.i, ptr %call, align 4
   %conv = zext i32 %spec.select.i to i64
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %lvl_nodes.sroa.10.2.lcssa to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %lvl_nodes.sroa.0.1.lcssa to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %lvl_nodes.sroa.10.1.lcssa to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %lvl_nodes.sroa.0.2.lcssa to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %rem = urem i64 %conv, %sub.ptr.div.i
-  %add.ptr.i11 = getelementptr inbounds ptr, ptr %lvl_nodes.sroa.0.1.lcssa, i64 %rem
+  %add.ptr.i11 = getelementptr inbounds ptr, ptr %lvl_nodes.sroa.0.2.lcssa, i64 %rem
   %6 = load ptr, ptr %add.ptr.i11, align 8
   %add = add nuw nsw i64 %rem, 1
   %conv13 = and i64 %add, 4294967295
@@ -4140,7 +4140,7 @@ while.end:                                        ; preds = %invoke.cont6, %whil
   br i1 %cmp15, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %add.ptr.i17 = getelementptr inbounds ptr, ptr %lvl_nodes.sroa.0.1.lcssa, i64 %conv13
+  %add.ptr.i17 = getelementptr inbounds ptr, ptr %lvl_nodes.sroa.0.2.lcssa, i64 %conv13
   %7 = load ptr, ptr %add.ptr.i17, align 8
   br label %if.end
 
@@ -4150,7 +4150,7 @@ if.end:                                           ; preds = %if.then, %while.end
   br i1 %cmp, label %while.cond3.preheader, label %while.end19, !llvm.loop !16
 
 while.end19:                                      ; preds = %if.end, %entry
-  %lvl_nodes.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %lvl_nodes.sroa.0.1.lcssa, %if.end ]
+  %lvl_nodes.sroa.0.1.lcssa = phi ptr [ null, %entry ], [ %lvl_nodes.sroa.0.2.lcssa, %if.end ]
   %x.0.lcssa = phi ptr [ %0, %entry ], [ %6, %if.end ]
   %8 = load ptr, ptr %head_, align 8
   %cmp21 = icmp ne ptr %x.0.lcssa, %8
@@ -4165,11 +4165,11 @@ cond.true:                                        ; preds = %while.end19
 
 cond.end:                                         ; preds = %while.end19, %cond.true
   %cond = phi ptr [ %atomic-temp.i.0.i.i19, %cond.true ], [ %x.0.lcssa, %while.end19 ]
-  %tobool.not.i.i.i20 = icmp eq ptr %lvl_nodes.sroa.0.0.lcssa, null
+  %tobool.not.i.i.i20 = icmp eq ptr %lvl_nodes.sroa.0.1.lcssa, null
   br i1 %tobool.not.i.i.i20, label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EED2Ev.exit22, label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %cond.end
-  tail call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.0.lcssa) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %lvl_nodes.sroa.0.1.lcssa) #21
   br label %_ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EED2Ev.exit22
 
 _ZNSt6vectorIPN7rocksdb14InlineSkipListIRKNS0_11MemTableRep13KeyComparatorEE4NodeESaIS8_EED2Ev.exit22: ; preds = %cond.end, %if.then.i.i.i21

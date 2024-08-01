@@ -356,9 +356,9 @@ opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
   br i1 %.not, label %110, label %.preheader247
 
 .preheader247:                                    ; preds = %95, %99
-  %.0188 = phi i32 [ %104, %99 ], [ 0, %95 ]
-  %.0184 = phi i32 [ %100, %99 ], [ 2, %95 ]
-  %exitcond.not = icmp eq i32 %.0184, %13
+  %.2190 = phi i32 [ %104, %99 ], [ 0, %95 ]
+  %.1185 = phi i32 [ %100, %99 ], [ 2, %95 ]
+  %exitcond.not = icmp eq i32 %.1185, %13
   br i1 %exitcond.not, label %97, label %99
 
 97:                                               ; preds = %.preheader247
@@ -366,26 +366,26 @@ opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
   br label %.loopexit
 
 99:                                               ; preds = %.preheader247
-  %100 = add nuw i32 %.0184, 1
-  %101 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0184) #4
+  %100 = add nuw i32 %.1185, 1
+  %101 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1185) #4
   %102 = icmp eq i8 %101, -1
   %narrow = tail call i8 @llvm.umin.i8(i8 %101, i8 -2)
   %103 = zext i8 %narrow to i32
-  %104 = add i32 %.0188, %103
+  %104 = add i32 %.2190, %103
   br i1 %102, label %.preheader247, label %105, !llvm.loop !4
 
 105:                                              ; preds = %99
   %106 = load i32, ptr @hf_opus_padding_size, align 4
-  %107 = add nsw i32 %.0184, -1
+  %107 = add nsw i32 %.1185, -1
   %108 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %106, ptr noundef %0, i32 noundef 2, i32 noundef %107, i32 noundef %104) #4
   %109 = sub i32 %13, %104
   br label %110
 
 110:                                              ; preds = %105, %95
   %.1189 = phi i32 [ %104, %105 ], [ 0, %95 ]
-  %.1185 = phi i32 [ %100, %105 ], [ 2, %95 ]
+  %.0184 = phi i32 [ %100, %105 ], [ 2, %95 ]
   %.0183 = phi i32 [ %109, %105 ], [ %13, %95 ]
-  %.not201 = icmp slt i32 %.1185, %.0183
+  %.not201 = icmp slt i32 %.0184, %.0183
   br i1 %.not201, label %113, label %111
 
 111:                                              ; preds = %110
@@ -403,7 +403,7 @@ opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
 
 .preheader245:                                    ; preds = %.preheader245.preheader, %134
   %indvars.iv = phi i64 [ 0, %.preheader245.preheader ], [ %indvars.iv.next, %134 ]
-  %.2186253 = phi i32 [ %.1185, %.preheader245.preheader ], [ %137, %134 ]
+  %.2186253 = phi i32 [ %.0184, %.preheader245.preheader ], [ %137, %134 ]
   %114 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2186253) #4
   %115 = add i32 %.2186253, 1
   %116 = icmp slt i32 %115, %.0183
@@ -477,7 +477,7 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
   br label %.loopexit
 
 148:                                              ; preds = %113
-  %149 = sub i32 %.0183, %.1185
+  %149 = sub i32 %.0183, %.0184
   %150 = sdiv i32 %149, %71
   %151 = mul i32 %150, %71
   %.not203 = icmp eq i32 %151, %149
@@ -497,7 +497,7 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
   %indvars.iv272 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next273, %155 ]
   %156 = trunc nuw nsw i64 %indvars.iv272 to i32
   %157 = mul i32 %150, %156
-  %158 = add i32 %157, %.1185
+  %158 = add i32 %157, %.0184
   %159 = trunc i32 %158 to i16
   %160 = getelementptr [48 x %struct.FRAME_T], ptr %5, i64 0, i64 %indvars.iv272
   store i16 %159, ptr %160, align 4
@@ -509,7 +509,7 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
 
 .loopexit243:                                     ; preds = %155, %144, %55, %29, %20
   %.0191 = phi i32 [ %71, %144 ], [ 2, %55 ], [ 2, %29 ], [ 1, %20 ], [ %71, %155 ]
-  %.2190 = phi i32 [ %.1189, %144 ], [ 0, %55 ], [ 0, %29 ], [ 0, %20 ], [ %.1189, %155 ]
+  %.0188 = phi i32 [ %.1189, %144 ], [ 0, %55 ], [ 0, %29 ], [ 0, %20 ], [ %.1189, %155 ]
   %umax281 = tail call i32 @llvm.umax.i32(i32 %.0191, i32 1)
   %wide.trip.count282 = zext nneg i32 %umax281 to i64
   br label %162
@@ -537,20 +537,20 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
   br i1 %exitcond283.not, label %175, label %162, !llvm.loop !9
 
 175:                                              ; preds = %169
-  %.not205 = icmp eq i32 %.2190, 0
+  %.not205 = icmp eq i32 %.0188, 0
   br i1 %.not205, label %.loopexit, label %176
 
 176:                                              ; preds = %175
   %177 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %178 = sub i32 %177, %.2190
+  %178 = sub i32 %177, %.0188
   %179 = load i32, ptr @hf_opus_padding, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %179, ptr noundef %0, i32 noundef %178, i32 noundef %.2190, i32 noundef 0) #4
-  %181 = icmp sgt i32 %.2190, 0
+  %180 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %179, ptr noundef %0, i32 noundef %178, i32 noundef %.0188, i32 noundef 0) #4
+  %181 = icmp sgt i32 %.0188, 0
   br i1 %181, label %.lr.ph, label %.loopexit
 
 182:                                              ; preds = %.lr.ph
   %183 = add nuw nsw i32 %.0259, 1
-  %exitcond284.not = icmp eq i32 %183, %.2190
+  %exitcond284.not = icmp eq i32 %183, %.0188
   br i1 %exitcond284.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %176, %182

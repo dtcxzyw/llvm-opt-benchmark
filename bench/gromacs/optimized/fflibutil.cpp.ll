@@ -728,14 +728,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit50:        ; preds = %._crit_edge, %90
 
 .body:                                            ; preds = %54, %21, %91, %56
   %.pn30.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn30.pn.pn.pn, %91 ], [ %57, %56 ], [ %55, %54 ], [ %22, %21 ]
-  %.622 = extractvalue { ptr, i32 } %.pn30.pn.pn.pn.pn, 1
+  %.016 = extractvalue { ptr, i32 } %.pn30.pn.pn.pn.pn, 1
   %92 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #15
-  %93 = icmp eq i32 %.622, %92
+  %93 = icmp eq i32 %.016, %92
   br i1 %93, label %94, label %99
 
 94:                                               ; preds = %.body
-  %.6 = extractvalue { ptr, i32 } %.pn30.pn.pn.pn.pn, 0
-  %95 = call ptr @__cxa_begin_catch(ptr %.6) #15
+  %.0 = extractvalue { ptr, i32 } %.pn30.pn.pn.pn.pn, 0
+  %95 = call ptr @__cxa_begin_catch(ptr %.0) #15
   invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %95) #17
           to label %96 unwind label %97
 

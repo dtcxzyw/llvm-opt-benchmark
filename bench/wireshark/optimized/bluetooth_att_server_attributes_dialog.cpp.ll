@@ -2912,7 +2912,7 @@ _ZN8QVariant9fromValueIjEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_
   br label %.body237
 
 .loopexit309:                                     ; preds = %411, %375, %_ZN7QStringD2Ev.exit160, %_ZN7QStringD2Ev.exit114, %46
-  %.1.ph = phi i32 [ 1, %_ZN7QStringD2Ev.exit160 ], [ 1, %_ZN7QStringD2Ev.exit114 ], [ 0, %46 ], [ 1, %375 ], [ 1, %411 ]
+  %.065.ph = phi i32 [ 1, %_ZN7QStringD2Ev.exit160 ], [ 1, %_ZN7QStringD2Ev.exit114 ], [ 0, %46 ], [ 1, %375 ], [ 1, %411 ]
   %.pr = load ptr, ptr %25, align 16
   %.not.i.i.i248 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i248, label %_ZN7QStringD2Ev.exit251thread-pre-split, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i249
@@ -2933,7 +2933,7 @@ _ZN7QStringD2Ev.exit251thread-pre-split:          ; preds = %424, %_ZN17QArrayDa
 
 _ZN7QStringD2Ev.exit251:                          ; preds = %_ZN7QStringD2Ev.exit251thread-pre-split, %5
   %426 = phi ptr [ %.pr308, %_ZN7QStringD2Ev.exit251thread-pre-split ], [ null, %5 ]
-  %.1307 = phi i32 [ %.1.ph, %_ZN7QStringD2Ev.exit251thread-pre-split ], [ 0, %5 ]
+  %.065307 = phi i32 [ %.065.ph, %_ZN7QStringD2Ev.exit251thread-pre-split ], [ 0, %5 ]
   %.not.i.i.i252 = icmp eq ptr %426, null
   br i1 %.not.i.i.i252, label %_ZN7QStringD2Ev.exit255, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i253
 
@@ -2963,7 +2963,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i257:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit259
 
 _ZN7QStringD2Ev.exit259:                          ; preds = %_ZN7QStringD2Ev.exit255, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i257, %432
-  ret i32 %.1307
+  ret i32 %.065307
 
 .body237:                                         ; preds = %.loopexit, %.loopexit.split-lp, %357, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i225, %353, %201, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i152, %.body140, %195, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i148, %.body126, %122, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i107, %.body96, %116, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i103, %.body, %386, %398, %392, %421, %419, %.body200
   %.pn86 = phi { ptr, i32 } [ %422, %421 ], [ %420, %419 ], [ %.pn84, %.body200 ], [ %387, %386 ], [ %393, %392 ], [ %399, %398 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i103 ], [ %eh.lpad-body, %116 ], [ %eh.lpad-body97, %.body96 ], [ %eh.lpad-body97, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i107 ], [ %eh.lpad-body97, %122 ], [ %eh.lpad-body127, %.body126 ], [ %eh.lpad-body127, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i148 ], [ %eh.lpad-body127, %195 ], [ %eh.lpad-body141, %.body140 ], [ %eh.lpad-body141, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i152 ], [ %eh.lpad-body141, %201 ], [ %354, %353 ], [ %354, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i225 ], [ %354, %357 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]

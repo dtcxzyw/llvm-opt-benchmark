@@ -783,7 +783,7 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %46 = phi ptr [ %44, %.preheader152 ], [ %135, %._crit_edge ]
   %47 = phi ptr [ %44, %.preheader152 ], [ %136, %._crit_edge ]
   %48 = phi ptr [ %44, %.preheader152 ], [ %137, %._crit_edge ]
-  %.0182 = phi i32 [ %5, %.preheader152 ], [ %.1.lcssa, %._crit_edge ]
+  %.1182 = phi i32 [ %5, %.preheader152 ], [ %.2.lcssa, %._crit_edge ]
   %49 = phi i1 [ true, %.preheader152 ], [ false, %._crit_edge ]
   %.0110180 = phi i32 [ 0, %.preheader152 ], [ 1, %._crit_edge ]
   %50 = getelementptr i8, ptr %48, i64 40
@@ -796,7 +796,7 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
 .lr.ph170:                                        ; preds = %.preheader151
   %53 = trunc nuw nsw i32 %.0110180 to i8
   %54 = sub nsw i8 0, %53
-  %55 = sext i32 %.0182 to i64
+  %55 = sext i32 %.1182 to i64
   %56 = load i32, ptr %6, align 8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %.critedge2, label %.lr.ph332
@@ -838,7 +838,7 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %78 = phi ptr [ %46, %.preheader151 ], [ %46, %.lr.ph170 ], [ %73, %58 ], [ %73, %.lr.ph332 ]
   %79 = phi ptr [ %47, %.preheader151 ], [ %47, %.lr.ph170 ], [ %73, %58 ], [ %73, %.lr.ph332 ]
   %80 = phi ptr [ %48, %.preheader151 ], [ %48, %.lr.ph170 ], [ %73, %58 ], [ %73, %.lr.ph332 ]
-  %81 = add nsw i32 %.0182, 1
+  %81 = add nsw i32 %.1182, 1
   %82 = load i32, ptr %3, align 4
   %83 = icmp eq i32 %81, %82
   br i1 %83, label %.loopexit, label %.preheader149
@@ -861,9 +861,9 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   br label %.preheader148
 
 .preheader148.us:                                 ; preds = %.preheader148.lr.ph, %94
-  %.1179.us = phi i32 [ %92, %94 ], [ %81, %.preheader148.lr.ph ]
+  %.2179.us = phi i32 [ %92, %94 ], [ %81, %.preheader148.lr.ph ]
   %.0113178.us = phi i32 [ %95, %94 ], [ 0, %.preheader148.lr.ph ]
-  %92 = add nsw i32 %.1179.us, 1
+  %92 = add nsw i32 %.2179.us, 1
   %93 = icmp eq i32 %92, %82
   br i1 %93, label %.loopexit, label %94
 
@@ -950,12 +950,12 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %135 = phi ptr [ %78, %.preheader149 ], [ %132, %97 ], [ %78, %94 ]
   %136 = phi ptr [ %79, %.preheader149 ], [ %132, %97 ], [ %79, %94 ]
   %137 = phi ptr [ %80, %.preheader149 ], [ %132, %97 ], [ %79, %94 ]
-  %.1.lcssa = phi i32 [ %81, %.preheader149 ], [ %133, %97 ], [ %92, %94 ]
+  %.2.lcssa = phi i32 [ %81, %.preheader149 ], [ %133, %97 ], [ %92, %94 ]
   br i1 %49, label %.preheader151, label %.loopexit153, !llvm.loop !17
 
 .loopexit153:                                     ; preds = %._crit_edge, %.critedge
   %138 = phi ptr [ %44, %.critedge ], [ %135, %._crit_edge ]
-  %.2 = phi i32 [ %5, %.critedge ], [ %.1.lcssa, %._crit_edge ]
+  %.0 = phi i32 [ %5, %.critedge ], [ %.2.lcssa, %._crit_edge ]
   %139 = getelementptr inbounds i8, ptr %0, i64 80
   %140 = load i32, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %0, i64 84
@@ -994,7 +994,7 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   %158 = phi i1 [ true, %.loopexit153 ], [ false, %._crit_edge196 ]
   %indvars.iv247.sroa.phi.sroa.speculated = phi i32 [ %.294, %.loopexit153 ], [ %.295, %._crit_edge196 ]
   %indvars.iv247.sroa.phi = phi ptr [ %.sroa.0388, %.loopexit153 ], [ %.sroa.2389, %._crit_edge196 ]
-  %.3200 = phi i32 [ %.2, %.loopexit153 ], [ %.4.lcssa, %._crit_edge196 ]
+  %.3200 = phi i32 [ %.0, %.loopexit153 ], [ %.4.lcssa, %._crit_edge196 ]
   %159 = icmp sgt i32 %indvars.iv247.sroa.phi.sroa.speculated, 0
   br i1 %159, label %.preheader145.lr.ph, label %._crit_edge196
 

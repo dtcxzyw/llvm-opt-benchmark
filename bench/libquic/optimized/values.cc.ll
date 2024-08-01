@@ -1277,7 +1277,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont13
   %delimiter_position.029 = phi i64 [ %call, %for.body.lr.ph ], [ %call15, %invoke.cont13 ]
-  %current_dictionary.028 = phi ptr [ %this, %for.body.lr.ph ], [ %child_dictionary.1, %invoke.cont13 ]
+  %current_dictionary.028 = phi ptr [ %this, %for.body.lr.ph ], [ %child_dictionary.0, %invoke.cont13 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %current_path, i64 noundef 0, i64 noundef %delimiter_position.029)
           to label %invoke.cont unwind label %lpad.loopexit
 
@@ -1402,7 +1402,7 @@ lpad2.body:                                       ; preds = %_ZNSt10unique_ptrIN
   br label %ehcleanup22
 
 if.end:                                           ; preds = %invoke.cont4, %_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS_5ValueE.exit
-  %child_dictionary.1 = phi ptr [ %6, %invoke.cont4 ], [ %call7, %_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS_5ValueE.exit ]
+  %child_dictionary.0 = phi ptr [ %6, %invoke.cont4 ], [ %call7, %_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS_5ValueE.exit ]
   %add = add nuw i64 %delimiter_position.029, 1
   %call14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %current_path, i64 noundef 0, i64 noundef %add)
           to label %invoke.cont13 unwind label %lpad2
@@ -1414,7 +1414,7 @@ invoke.cont13:                                    ; preds = %if.end
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %invoke.cont13, %entry
-  %current_dictionary.0.lcssa = phi ptr [ %this, %entry ], [ %child_dictionary.1, %invoke.cont13 ]
+  %current_dictionary.0.lcssa = phi ptr [ %this, %entry ], [ %child_dictionary.0, %invoke.cont13 ]
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, ptr noundef nonnull align 8 dereferenceable(32) %current_path)
           to label %invoke.cont17 unwind label %lpad.loopexit.split-lp
 
@@ -3222,7 +3222,7 @@ if.end:                                           ; preds = %lor.lhs.false.i.i
           to label %if.end9 unwind label %lpad
 
 if.end9:                                          ; preds = %if.end, %entry
-  %current_dictionary.1 = phi ptr [ %this, %entry ], [ %4, %if.end ]
+  %current_dictionary.0 = phi ptr [ %this, %entry ], [ %4, %if.end ]
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %current_path)
           to label %invoke.cont11 unwind label %lpad
 
@@ -3230,10 +3230,10 @@ invoke.cont11:                                    ; preds = %if.end9
   %8 = load ptr, ptr %agg.tmp10, align 8
   %9 = getelementptr inbounds i8, ptr %agg.tmp10, i64 8
   %10 = load i64, ptr %9, align 8
-  %vtable = load ptr, ptr %current_dictionary.1, align 8
+  %vtable = load ptr, ptr %current_dictionary.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %11 = load ptr, ptr %vfn, align 8
-  %call13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(64) %current_dictionary.1, ptr %8, i64 %10, ptr noundef %out_value)
+  %call13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(64) %current_dictionary.0, ptr %8, i64 %10, ptr noundef %out_value)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %invoke.cont4.thread, %invoke.cont11
@@ -4105,8 +4105,8 @@ lor.lhs.false25:                                  ; preds = %if.end20, %if.end
   br label %return
 
 return:                                           ; preds = %while.body, %lor.lhs.false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %land.rhs, %lor.lhs.false25, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %cmp.i.i25, %lor.lhs.false25 ], [ false, %land.rhs ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ false, %lor.lhs.false ], [ false, %while.body ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp.i.i25, %lor.lhs.false25 ], [ false, %land.rhs ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ false, %lor.lhs.false ], [ false, %while.body ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6385,10 +6385,10 @@ lpad.i:                                           ; preds = %for.body.i
   br label %ehcleanup22.i
 
 if.end.i:                                         ; preds = %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EE5resetEPS1_.exit, %if.then.i
-  %ref.tmp.sroa.0.1 = phi ptr [ %ref.tmp.sroa.0.072, %if.then.i ], [ %call14.i, %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EE5resetEPS1_.exit ]
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.1, i64 24
+  %ref.tmp.sroa.0.4 = phi ptr [ %ref.tmp.sroa.0.072, %if.then.i ], [ %call14.i, %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EE5resetEPS1_.exit ]
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.4, i64 24
   %7 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.1, i64 32
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.4, i64 32
   %8 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -6401,7 +6401,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit25
 
 if.else.i.i.i:                                    ; preds = %if.end.i
-  %list_.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.1, i64 16
+  %list_.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.4, i64 16
   %10 = load ptr, ptr %list_.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
@@ -6479,7 +6479,7 @@ lpad18.i.loopexit.split-lp:                       ; preds = %if.then.i.i
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit25: ; preds = %if.then.i.i.i, %.noexc, %invoke.cont8.i
-  %ref.tmp.sroa.0.258 = phi ptr [ %ref.tmp.sroa.0.072, %invoke.cont8.i ], [ %ref.tmp.sroa.0.1, %.noexc ], [ %ref.tmp.sroa.0.1, %if.then.i.i.i ]
+  %ref.tmp.sroa.0.258 = phi ptr [ %ref.tmp.sroa.0.072, %invoke.cont8.i ], [ %ref.tmp.sroa.0.4, %.noexc ], [ %ref.tmp.sroa.0.4, %if.then.i.i.i ]
   store ptr null, ptr %child_copy.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.i.sroa.0.071, i64 8
   %cmp.i40.not = icmp eq ptr %incdec.ptr.i, %2
@@ -6492,7 +6492,7 @@ _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %if.then11.i
 
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %lpad18.i.loopexit, %lpad18.i.loopexit.split-lp, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i
   %.pn.i84 = phi { ptr, i32 } [ %13, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i ], [ %lpad.loopexit, %lpad18.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad18.i.loopexit.split-lp ]
-  %ref.tmp.sroa.0.383 = phi ptr [ null, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i ], [ %ref.tmp.sroa.0.1, %lpad18.i.loopexit ], [ %ref.tmp.sroa.0.1, %lpad18.i.loopexit.split-lp ]
+  %ref.tmp.sroa.0.383 = phi ptr [ null, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i ], [ %ref.tmp.sroa.0.4, %lpad18.i.loopexit ], [ %ref.tmp.sroa.0.4, %lpad18.i.loopexit.split-lp ]
   %vtable.i.i28 = load ptr, ptr %4, align 8
   %vfn.i.i29 = getelementptr inbounds i8, ptr %vtable.i.i28, i64 8
   %14 = load ptr, ptr %vfn.i.i29, align 8
@@ -6501,16 +6501,16 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %lpa
   br label %ehcleanup22.i
 
 ehcleanup22.i:                                    ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit, %lpad.i
-  %ref.tmp.sroa.0.4 = phi ptr [ %ref.tmp.sroa.0.383, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ %ref.tmp.sroa.0.072, %lpad.i ]
+  %ref.tmp.sroa.0.1 = phi ptr [ %ref.tmp.sroa.0.383, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ %ref.tmp.sroa.0.072, %lpad.i ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i84, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ %6, %lpad.i ]
-  %cmp.not.i10 = icmp eq ptr %ref.tmp.sroa.0.4, null
+  %cmp.not.i10 = icmp eq ptr %ref.tmp.sroa.0.1, null
   br i1 %cmp.not.i10, label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit15, label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i11
 
 _ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i11: ; preds = %ehcleanup22.i
-  %vtable.i.i12 = load ptr, ptr %ref.tmp.sroa.0.4, align 8
+  %vtable.i.i12 = load ptr, ptr %ref.tmp.sroa.0.1, align 8
   %vfn.i.i13 = getelementptr inbounds i8, ptr %vtable.i.i12, i64 8
   %15 = load ptr, ptr %vfn.i.i13, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.sroa.0.4) #26
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.sroa.0.1) #26
   br label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit15
 
 _ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit15: ; preds = %ehcleanup22.i, %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i11

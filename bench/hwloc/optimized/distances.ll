@@ -2454,32 +2454,32 @@ define range(i32 -1, 1) i32 @hwloc_distances_add_values(ptr nocapture readnone %
   br i1 %23, label %24, label %36
 
 24:                                               ; preds = %21, %._crit_edge
-  %.029 = phi ptr [ %1, %._crit_edge ], [ null, %21 ]
+  %.1 = phi ptr [ %1, %._crit_edge ], [ null, %21 ]
   tail call void @free(ptr noundef %14) #25
   tail call void @free(ptr noundef %18) #25
   br label %25
 
 25:                                               ; preds = %24, %11
-  %.1 = phi ptr [ %1, %11 ], [ %.029, %24 ]
-  %.not34 = icmp eq ptr %.1, null
+  %.029 = phi ptr [ %1, %11 ], [ %.1, %24 ]
+  %.not34 = icmp eq ptr %.029, null
   br i1 %.not34, label %36, label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %.1, align 8
+  %27 = load ptr, ptr %.029, align 8
   tail call void @free(ptr noundef %27) #25
-  %28 = getelementptr inbounds i8, ptr %.1, i64 32
+  %28 = getelementptr inbounds i8, ptr %.029, i64 32
   %29 = load ptr, ptr %28, align 8
   tail call void @free(ptr noundef %29) #25
-  %30 = getelementptr inbounds i8, ptr %.1, i64 64
+  %30 = getelementptr inbounds i8, ptr %.029, i64 64
   %31 = load ptr, ptr %30, align 8
   tail call void @free(ptr noundef %31) #25
-  %32 = getelementptr inbounds i8, ptr %.1, i64 16
+  %32 = getelementptr inbounds i8, ptr %.029, i64 16
   %33 = load ptr, ptr %32, align 8
   tail call void @free(ptr noundef %33) #25
-  %34 = getelementptr inbounds i8, ptr %.1, i64 40
+  %34 = getelementptr inbounds i8, ptr %.029, i64 40
   %35 = load ptr, ptr %34, align 8
   tail call void @free(ptr noundef %35) #25
-  tail call void @free(ptr noundef nonnull %.1) #25
+  tail call void @free(ptr noundef nonnull %.029) #25
   br label %36
 
 36:                                               ; preds = %25, %26, %21

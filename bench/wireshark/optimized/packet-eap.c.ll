@@ -1431,16 +1431,16 @@ proto_item_set_generated.exit:                    ; preds = %310, %307, %304, %3
 
 .sink.split:                                      ; preds = %323, %334, %317, %318
   %teap_handle.sink = phi ptr [ @peap_handle, %318 ], [ @diameter_avps_handle, %317 ], [ @teap_handle, %334 ], [ @teap_handle, %323 ]
-  %.3.ph = phi ptr [ %.1469, %318 ], [ %.1469, %317 ], [ %336, %334 ], [ %.1469, %323 ]
+  %.2.ph = phi ptr [ %.1469, %318 ], [ %.1469, %317 ], [ %336, %334 ], [ %.1469, %323 ]
   %337 = load ptr, ptr @tls_handle, align 8
   %338 = load ptr, ptr %teap_handle.sink, align 8
   call void @tls_set_appdata_dissector(ptr noundef %337, ptr noundef nonnull %1, ptr noundef %338) #6
   br label %339
 
 339:                                              ; preds = %.sink.split, %317
-  %.3 = phi ptr [ %.1469, %317 ], [ %.3.ph, %.sink.split ]
+  %.2 = phi ptr [ %.1469, %317 ], [ %.2.ph, %.sink.split ]
   %340 = load ptr, ptr @tls_handle, align 8
-  %341 = call i32 @call_dissector(ptr noundef %340, ptr noundef %.3, ptr noundef nonnull %1, ptr noundef %105) #6
+  %341 = call i32 @call_dissector(ptr noundef %340, ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %105) #6
   br label %dissect_eap_aka.exit
 
 342:                                              ; preds = %153
@@ -1816,13 +1816,13 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br label %35
 
 35:                                               ; preds = %30, %18
-  %.0204.i = phi ptr [ %22, %18 ], [ %34, %30 ]
+  %.1205.i = phi ptr [ %22, %18 ], [ %34, %30 ]
   br label %36
 
 36:                                               ; preds = %36, %35
   %.0198.i = phi i32 [ 0, %35 ], [ %40, %36 ]
   %37 = zext i32 %.0198.i to i64
-  %38 = getelementptr ptr, ptr %.0204.i, i64 %37
+  %38 = getelementptr ptr, ptr %.1205.i, i64 %37
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %39, null
   %40 = add i32 %.0198.i, 1
@@ -1836,7 +1836,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr i8, ptr %.0204.i, i64 8
+  %45 = getelementptr i8, ptr %.1205.i, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 @g_ascii_strncasecmp(ptr noundef %46, ptr noundef nonnull @.str.505, i64 noundef 23) #6
   %.not217.i = icmp eq i32 %47, 0
@@ -1859,22 +1859,22 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br label %dissect_eap_identity_wlan.exit
 
 57:                                               ; preds = %53
-  %58 = getelementptr i8, ptr %.0204.i, i64 8
+  %58 = getelementptr i8, ptr %.1205.i, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr @g_strsplit_set(ptr noundef %59, ptr noundef nonnull @.str.506, i32 noundef -1) #6
   br label %61
 
 61:                                               ; preds = %61, %57
-  %.0197.i = phi i32 [ 0, %57 ], [ %65, %61 ]
-  %62 = zext i32 %.0197.i to i64
+  %.1.i = phi i32 [ 0, %57 ], [ %65, %61 ]
+  %62 = zext i32 %.1.i to i64
   %63 = getelementptr ptr, ptr %60, i64 %62
   %64 = load ptr, ptr %63, align 8
   %.not212.i = icmp eq ptr %64, null
-  %65 = add i32 %.0197.i, 1
+  %65 = add i32 %.1.i, 1
   br i1 %.not212.i, label %66, label %61, !llvm.loop !7
 
 66:                                               ; preds = %61
-  %.not213.i = icmp eq i32 %.0197.i, 5
+  %.not213.i = icmp eq i32 %.1.i, 5
   br i1 %.not213.i, label %67, label %78
 
 67:                                               ; preds = %66
@@ -1903,8 +1903,8 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br label %dissect_eap_identity_wlan.exit
 
 81:                                               ; preds = %74, %44
-  %.0201.i = phi ptr [ null, %44 ], [ %60, %74 ]
-  %.1.i = phi i32 [ 0, %44 ], [ 5, %74 ]
+  %.1202.i = phi ptr [ null, %44 ], [ %60, %74 ]
+  %.0197.i = phi i32 [ 0, %44 ], [ 5, %74 ]
   %82 = load i32, ptr @ett_identity, align 4
   %83 = tail call ptr @proto_item_add_subtree(ptr noundef %2, i32 noundef %82) #6
   %84 = load i32, ptr @hf_eap_identity_prefix, align 4
@@ -1937,7 +1937,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   %95 = add nsw i32 %4, -1
   %96 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %93, ptr noundef %0, i32 noundef %94, i32 noundef %95, i32 noundef 0) #6
   %97 = load i32, ptr @hf_eap_identity, align 4
-  %98 = load ptr, ptr %.0204.i, align 8
+  %98 = load ptr, ptr %.1205.i, align 8
   %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #7
   %100 = trunc i64 %99 to i32
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %97, ptr noundef %0, i32 noundef %94, i32 noundef %100, i32 noundef 0) #6
@@ -1948,7 +1948,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   %104 = add i32 %3, 1
   %105 = add nsw i32 %4, -1
   %106 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %103, ptr noundef %0, i32 noundef %104, i32 noundef %105, i32 noundef 0) #6
-  %107 = load ptr, ptr %.0204.i, align 8
+  %107 = load ptr, ptr %.1205.i, align 8
   %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #7
   %109 = trunc i64 %108 to i32
   %110 = add i32 %109, -1
@@ -1961,7 +1961,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   %115 = add nsw i32 %4, -1
   %116 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %113, ptr noundef %0, i32 noundef %114, i32 noundef %115, i32 noundef 0) #6
   %117 = load i32, ptr @hf_eap_identity, align 4
-  %118 = load ptr, ptr %.0204.i, align 8
+  %118 = load ptr, ptr %.1205.i, align 8
   %119 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #7
   %120 = trunc i64 %119 to i32
   %121 = add i32 %120, -1
@@ -1974,7 +1974,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   %126 = add nsw i32 %4, -1
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %124, ptr noundef %0, i32 noundef %125, i32 noundef %126, i32 noundef 0) #6
   %128 = load i32, ptr @hf_eap_identity, align 4
-  %129 = load ptr, ptr %.0204.i, align 8
+  %129 = load ptr, ptr %.1205.i, align 8
   %130 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #7
   %131 = trunc i64 %130 to i32
   %132 = add i32 %131, -1
@@ -1987,7 +1987,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   %137 = add nsw i32 %4, -1
   %138 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %135, ptr noundef %0, i32 noundef %136, i32 noundef %137, i32 noundef 0) #6
   %139 = load i32, ptr @hf_eap_identity, align 4
-  %140 = load ptr, ptr %.0204.i, align 8
+  %140 = load ptr, ptr %.1205.i, align 8
   %141 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %140) #7
   %142 = trunc i64 %141 to i32
   %143 = add i32 %142, -1
@@ -1998,7 +1998,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   %146 = load i32, ptr @hf_eap_identity_full, align 4
   %147 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %146, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #6
   %148 = load i32, ptr @hf_eap_identity, align 4
-  %149 = load ptr, ptr %.0204.i, align 8
+  %149 = load ptr, ptr %.1205.i, align 8
   %150 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %149) #7
   %151 = trunc i64 %150 to i32
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %148, ptr noundef %0, i32 noundef %3, i32 noundef %151, i32 noundef 0) #6
@@ -2010,7 +2010,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   %156 = add nsw i32 %4, -1
   %157 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %154, ptr noundef %0, i32 noundef %155, i32 noundef %156, i32 noundef 0) #6
   %158 = load i32, ptr @hf_eap_identity, align 4
-  %159 = load ptr, ptr %.0204.i, align 8
+  %159 = load ptr, ptr %.1205.i, align 8
   %160 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %159) #7
   %161 = trunc i64 %160 to i32
   %162 = add i32 %161, -1
@@ -2022,11 +2022,11 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br i1 %.not210.i, label %166, label %221
 
 166:                                              ; preds = %165
-  %167 = getelementptr i8, ptr %.0204.i, i64 8
+  %167 = getelementptr i8, ptr %.1205.i, i64 8
   %168 = load ptr, ptr %167, align 8
   %169 = tail call ptr @g_strsplit_set(ptr noundef %168, ptr noundef nonnull @.str.511, i32 noundef -1) #6
   %170 = load i32, ptr @hf_eap_identity_certificate_sn, align 4
-  %171 = load ptr, ptr %.0204.i, align 8
+  %171 = load ptr, ptr %.1205.i, align 8
   %172 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %171) #7
   %173 = trunc i64 %172 to i32
   %174 = add i32 %3, 26
@@ -2040,7 +2040,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br i1 %.not222.i, label %181, label %dissect_eap_identity_wlan.exit
 
 181:                                              ; preds = %166
-  %182 = getelementptr i8, ptr %.0204.i, i64 16
+  %182 = getelementptr i8, ptr %.1205.i, i64 16
   %183 = load ptr, ptr %182, align 8
   %184 = tail call i32 @g_ascii_strncasecmp(ptr noundef %183, ptr noundef nonnull @.str.512, i64 noundef 5) #6
   %.not223.i = icmp eq i32 %184, 0
@@ -2052,7 +2052,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br label %188
 
 188:                                              ; preds = %188, %185
-  %.2.i = phi i32 [ %.1.i, %185 ], [ %192, %188 ]
+  %.2.i = phi i32 [ %.0197.i, %185 ], [ %192, %188 ]
   %189 = zext i32 %.2.i to i64
   %190 = getelementptr ptr, ptr %187, i64 %189
   %191 = load ptr, ptr %190, align 8
@@ -2113,7 +2113,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br i1 %.not232.i, label %dissect_eap_identity_wlan.exit, label %231
 
 221:                                              ; preds = %165
-  %222 = getelementptr i8, ptr %.0201.i, i64 8
+  %222 = getelementptr i8, ptr %.1202.i, i64 8
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr i8, ptr %223, i64 3
   %225 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %224, ptr noundef nonnull @.str.516, ptr noundef nonnull %6) #6
@@ -2121,7 +2121,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br i1 %.not219.i, label %dissect_eap_identity_wlan.exit, label %226
 
 226:                                              ; preds = %221
-  %227 = getelementptr i8, ptr %.0201.i, i64 16
+  %227 = getelementptr i8, ptr %.1202.i, i64 16
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr i8, ptr %228, i64 3
   %230 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %229, ptr noundef nonnull @.str.516, ptr noundef nonnull %7) #6
@@ -2129,8 +2129,8 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br i1 %.not220.i, label %dissect_eap_identity_wlan.exit, label %231
 
 231:                                              ; preds = %226, %217
-  %.1202.i = phi ptr [ %187, %217 ], [ %.0201.i, %226 ]
-  %.0199.i = phi ptr [ %169, %217 ], [ null, %226 ]
+  %.2203.i = phi ptr [ %187, %217 ], [ %.1202.i, %226 ]
+  %.1200.i = phi ptr [ %169, %217 ], [ null, %226 ]
   %232 = load i32, ptr %7, align 4
   %233 = mul i32 %232, 100
   %234 = load i32, ptr %6, align 4
@@ -2145,36 +2145,36 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   %hf_eap_identity_mcc_mnc_3digits.val.i = load i32, ptr @hf_eap_identity_mcc_mnc_3digits, align 4
   %hf_eap_identity_mcc_mnc_2digits.val.i = load i32, ptr @hf_eap_identity_mcc_mnc_2digits, align 4
   %.0.i = select i1 %.not233.i, i32 %hf_eap_identity_mcc_mnc_3digits.val.i, i32 %hf_eap_identity_mcc_mnc_2digits.val.i
-  %241 = load ptr, ptr %.1202.i, align 8
+  %241 = load ptr, ptr %.2203.i, align 8
   %.not234.i = icmp eq ptr %241, null
   br i1 %.not234.i, label %dissect_eap_identity_wlan.exit, label %242
 
 242:                                              ; preds = %231
-  %243 = getelementptr i8, ptr %.1202.i, i64 8
+  %243 = getelementptr i8, ptr %.2203.i, i64 8
   %244 = load ptr, ptr %243, align 8
   %.not235.i = icmp eq ptr %244, null
   br i1 %.not235.i, label %dissect_eap_identity_wlan.exit, label %245
 
 245:                                              ; preds = %242
-  %246 = getelementptr i8, ptr %.1202.i, i64 16
+  %246 = getelementptr i8, ptr %.2203.i, i64 16
   %247 = load ptr, ptr %246, align 8
   %.not236.i = icmp eq ptr %247, null
   br i1 %.not236.i, label %dissect_eap_identity_wlan.exit, label %248
 
 248:                                              ; preds = %245
-  %249 = getelementptr i8, ptr %.1202.i, i64 24
+  %249 = getelementptr i8, ptr %.2203.i, i64 24
   %250 = load ptr, ptr %249, align 8
   %.not237.i = icmp eq ptr %250, null
   br i1 %.not237.i, label %dissect_eap_identity_wlan.exit, label %251
 
 251:                                              ; preds = %248
-  %252 = load ptr, ptr %.0204.i, align 8
+  %252 = load ptr, ptr %.1205.i, align 8
   %253 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %252) #7
   %254 = trunc i64 %253 to i32
   br i1 %.not210.i, label %255, label %291
 
 255:                                              ; preds = %251
-  %256 = getelementptr i8, ptr %.0204.i, i64 8
+  %256 = getelementptr i8, ptr %.1205.i, i64 8
   %257 = load ptr, ptr %256, align 8
   %258 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %257) #7
   %259 = trunc i64 %258 to i32
@@ -2186,13 +2186,13 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   %265 = add i32 %264, -3
   %266 = call ptr @proto_tree_add_uint(ptr noundef %83, i32 noundef %.0.i, ptr noundef %0, i32 noundef %262, i32 noundef %265, i32 noundef %240) #6
   %267 = load i32, ptr @hf_eap_identity_mcc, align 4
-  %268 = load ptr, ptr %.0204.i, align 8
+  %268 = load ptr, ptr %.1205.i, align 8
   %269 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %268) #7
   %270 = trunc i64 %269 to i32
   %271 = load ptr, ptr %256, align 8
   %272 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %271) #7
   %273 = trunc i64 %272 to i32
-  %274 = load ptr, ptr %.1202.i, align 8
+  %274 = load ptr, ptr %.2203.i, align 8
   %275 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #7
   %276 = trunc i64 %275 to i32
   %277 = load ptr, ptr %246, align 8
@@ -2219,7 +2219,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   %296 = add i32 %295, -3
   %297 = call ptr @proto_tree_add_uint(ptr noundef %83, i32 noundef %.0.i, ptr noundef %0, i32 noundef %293, i32 noundef %296, i32 noundef %240) #6
   %298 = load i32, ptr @hf_eap_identity_mcc, align 4
-  %299 = load ptr, ptr %.0204.i, align 8
+  %299 = load ptr, ptr %.1205.i, align 8
   %300 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %299) #7
   %301 = add i64 %300, 6
   %302 = load ptr, ptr %243, align 8
@@ -2237,12 +2237,12 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br label %dissect_eap_identity_wlan.exit
 
 dissect_eap_identity_wlan.exit:                   ; preds = %14, %26, %48, %54, %78, %166, %181, %193, %194, %197, %201, %205, %209, %213, %217, %221, %226, %231, %242, %245, %248, %255, %291
-  %.1205.i = phi ptr [ null, %14 ], [ %.0204.i, %48 ], [ %.0204.i, %166 ], [ %.0204.i, %181 ], [ %.0204.i, %255 ], [ %.0204.i, %291 ], [ %.0204.i, %248 ], [ %.0204.i, %245 ], [ %.0204.i, %242 ], [ %.0204.i, %231 ], [ %.0204.i, %54 ], [ %.0204.i, %78 ], [ null, %26 ], [ %.0204.i, %209 ], [ %.0204.i, %205 ], [ %.0204.i, %201 ], [ %.0204.i, %197 ], [ %.0204.i, %194 ], [ %.0204.i, %193 ], [ %.0204.i, %217 ], [ %.0204.i, %213 ], [ %.0204.i, %226 ], [ %.0204.i, %221 ]
-  %.2203.i = phi ptr [ null, %14 ], [ null, %48 ], [ %.0201.i, %166 ], [ %.0201.i, %181 ], [ %.1202.i, %255 ], [ %.1202.i, %291 ], [ %.1202.i, %248 ], [ %.1202.i, %245 ], [ %.1202.i, %242 ], [ %.1202.i, %231 ], [ null, %54 ], [ %60, %78 ], [ null, %26 ], [ %187, %209 ], [ %187, %205 ], [ %187, %201 ], [ %187, %197 ], [ %187, %194 ], [ %187, %193 ], [ %187, %217 ], [ %187, %213 ], [ %.0201.i, %226 ], [ %.0201.i, %221 ]
-  %.1200.i = phi ptr [ null, %14 ], [ null, %48 ], [ %169, %166 ], [ %169, %181 ], [ %.0199.i, %255 ], [ %.0199.i, %291 ], [ %.0199.i, %248 ], [ %.0199.i, %245 ], [ %.0199.i, %242 ], [ %.0199.i, %231 ], [ null, %54 ], [ null, %78 ], [ null, %26 ], [ %169, %209 ], [ %169, %205 ], [ %169, %201 ], [ %169, %197 ], [ %169, %194 ], [ %169, %193 ], [ %169, %217 ], [ %169, %213 ], [ null, %226 ], [ null, %221 ]
-  call void @g_strfreev(ptr noundef %.1205.i) #6
-  call void @g_strfreev(ptr noundef %.2203.i) #6
-  call void @g_strfreev(ptr noundef %.1200.i) #6
+  %.0204.i = phi ptr [ null, %14 ], [ %.1205.i, %48 ], [ %.1205.i, %166 ], [ %.1205.i, %181 ], [ %.1205.i, %255 ], [ %.1205.i, %291 ], [ %.1205.i, %248 ], [ %.1205.i, %245 ], [ %.1205.i, %242 ], [ %.1205.i, %231 ], [ %.1205.i, %54 ], [ %.1205.i, %78 ], [ null, %26 ], [ %.1205.i, %209 ], [ %.1205.i, %205 ], [ %.1205.i, %201 ], [ %.1205.i, %197 ], [ %.1205.i, %194 ], [ %.1205.i, %193 ], [ %.1205.i, %217 ], [ %.1205.i, %213 ], [ %.1205.i, %226 ], [ %.1205.i, %221 ]
+  %.0201.i = phi ptr [ null, %14 ], [ null, %48 ], [ %.1202.i, %166 ], [ %.1202.i, %181 ], [ %.2203.i, %255 ], [ %.2203.i, %291 ], [ %.2203.i, %248 ], [ %.2203.i, %245 ], [ %.2203.i, %242 ], [ %.2203.i, %231 ], [ null, %54 ], [ %60, %78 ], [ null, %26 ], [ %187, %209 ], [ %187, %205 ], [ %187, %201 ], [ %187, %197 ], [ %187, %194 ], [ %187, %193 ], [ %187, %217 ], [ %187, %213 ], [ %.1202.i, %226 ], [ %.1202.i, %221 ]
+  %.0199.i = phi ptr [ null, %14 ], [ null, %48 ], [ %169, %166 ], [ %169, %181 ], [ %.1200.i, %255 ], [ %.1200.i, %291 ], [ %.1200.i, %248 ], [ %.1200.i, %245 ], [ %.1200.i, %242 ], [ %.1200.i, %231 ], [ null, %54 ], [ null, %78 ], [ null, %26 ], [ %169, %209 ], [ %169, %205 ], [ %169, %201 ], [ %169, %197 ], [ %169, %194 ], [ %169, %193 ], [ %169, %217 ], [ %169, %213 ], [ null, %226 ], [ null, %221 ]
+  call void @g_strfreev(ptr noundef %.0204.i) #6
+  call void @g_strfreev(ptr noundef %.0201.i) #6
+  call void @g_strfreev(ptr noundef %.0199.i) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   ret void
@@ -2617,12 +2617,12 @@ define internal fastcc void @dissect_eap_pax(ptr noundef %0, ptr noundef %1, ptr
   br label %71
 
 71:                                               ; preds = %62, %36
-  %.0 = phi i32 [ %70, %62 ], [ %59, %36 ]
+  %.1 = phi i32 [ %70, %62 ], [ %59, %36 ]
   %72 = add nsw i32 %3, 5
-  %73 = sub i32 %72, %.0
+  %73 = sub i32 %72, %.1
   store i32 %73, ptr %7, align 4
   %74 = load i32, ptr @hf_eap_pax_mac_icv, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %74, ptr noundef %1, i32 noundef %.0, i32 noundef %73, i32 noundef 0) #6
+  %75 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %74, ptr noundef %1, i32 noundef %.1, i32 noundef %73, i32 noundef 0) #6
   br label %116
 
 76:                                               ; preds = %4
@@ -2650,12 +2650,12 @@ define internal fastcc void @dissect_eap_pax(ptr noundef %0, ptr noundef %1, ptr
   br label %95
 
 95:                                               ; preds = %86, %76
-  %.1 = phi i32 [ %94, %86 ], [ %83, %76 ]
+  %.2 = phi i32 [ %94, %86 ], [ %83, %76 ]
   %96 = add nsw i32 %3, 5
-  %97 = sub i32 %96, %.1
+  %97 = sub i32 %96, %.2
   store i32 %97, ptr %7, align 4
   %98 = load i32, ptr @hf_eap_pax_mac_icv, align 4
-  %99 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %98, ptr noundef %1, i32 noundef %.1, i32 noundef %97, i32 noundef 0) #6
+  %99 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %98, ptr noundef %1, i32 noundef %.2, i32 noundef %97, i32 noundef 0) #6
   br label %116
 
 100:                                              ; preds = %4
@@ -2675,12 +2675,12 @@ define internal fastcc void @dissect_eap_pax(ptr noundef %0, ptr noundef %1, ptr
   br label %111
 
 111:                                              ; preds = %103, %100
-  %.2 = phi i32 [ %110, %103 ], [ 10, %100 ]
+  %.3 = phi i32 [ %110, %103 ], [ 10, %100 ]
   %112 = add nsw i32 %3, 5
-  %113 = sub i32 %112, %.2
+  %113 = sub i32 %112, %.3
   store i32 %113, ptr %7, align 4
   %114 = load i32, ptr @hf_eap_pax_mac_icv, align 4
-  %115 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %114, ptr noundef %1, i32 noundef %.2, i32 noundef %113, i32 noundef 0) #6
+  %115 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %114, ptr noundef %1, i32 noundef %.3, i32 noundef %113, i32 noundef 0) #6
   br label %116
 
 116:                                              ; preds = %4, %111, %95, %71, %24
@@ -2907,12 +2907,12 @@ define internal fastcc void @dissect_eap_gpsk(ptr noundef %0, ptr noundef %1, pt
   br label %66
 
 66:                                               ; preds = %61, %26
-  %.0 = phi i32 [ %65, %61 ], [ %59, %26 ]
+  %.1 = phi i32 [ %65, %61 ], [ %59, %26 ]
   %67 = add nsw i32 %3, 5
-  %68 = sub i32 %67, %.0
+  %68 = sub i32 %67, %.1
   store i32 %68, ptr %6, align 4
   %69 = load i32, ptr @hf_eap_gpsk_payload_mac, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %69, ptr noundef %1, i32 noundef %.0, i32 noundef %68, i32 noundef 0) #6
+  %70 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %69, ptr noundef %1, i32 noundef %.1, i32 noundef %68, i32 noundef 0) #6
   br label %128
 
 71:                                               ; preds = %4
@@ -2950,12 +2950,12 @@ define internal fastcc void @dissect_eap_gpsk(ptr noundef %0, ptr noundef %1, pt
   br label %100
 
 100:                                              ; preds = %95, %71
-  %.1 = phi i32 [ %99, %95 ], [ %93, %71 ]
+  %.2 = phi i32 [ %99, %95 ], [ %93, %71 ]
   %101 = add nsw i32 %3, 5
-  %102 = sub i32 %101, %.1
+  %102 = sub i32 %101, %.2
   store i32 %102, ptr %6, align 4
   %103 = load i32, ptr @hf_eap_gpsk_payload_mac, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %103, ptr noundef %1, i32 noundef %.1, i32 noundef %102, i32 noundef 0) #6
+  %104 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %103, ptr noundef %1, i32 noundef %.2, i32 noundef %102, i32 noundef 0) #6
   br label %128
 
 105:                                              ; preds = %4
@@ -2973,12 +2973,12 @@ define internal fastcc void @dissect_eap_gpsk(ptr noundef %0, ptr noundef %1, pt
   br label %114
 
 114:                                              ; preds = %109, %105
-  %.2 = phi i32 [ %113, %109 ], [ 8, %105 ]
+  %.3 = phi i32 [ %113, %109 ], [ 8, %105 ]
   %115 = add nsw i32 %3, 5
-  %116 = sub i32 %115, %.2
+  %116 = sub i32 %115, %.3
   store i32 %116, ptr %6, align 4
   %117 = load i32, ptr @hf_eap_gpsk_payload_mac, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %117, ptr noundef %1, i32 noundef %.2, i32 noundef %116, i32 noundef 0) #6
+  %118 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %117, ptr noundef %1, i32 noundef %.3, i32 noundef %116, i32 noundef 0) #6
   br label %128
 
 119:                                              ; preds = %4

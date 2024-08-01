@@ -185,11 +185,11 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   br label %14
 
 14:                                               ; preds = %66, %5
-  %.061115 = phi i64 [ 0, %5 ], [ %.1, %66 ]
+  %.061115 = phi i64 [ 0, %5 ], [ %.2, %66 ]
   %.062114 = phi i32 [ 0, %5 ], [ %69, %66 ]
-  %.064113 = phi i32 [ 0, %5 ], [ %.165, %66 ]
-  %.067112 = phi i32 [ 0, %5 ], [ %.168, %66 ]
-  %.070111 = phi i32 [ 0, %5 ], [ %.171, %66 ]
+  %.064113 = phi i32 [ 0, %5 ], [ %.266, %66 ]
+  %.067112 = phi i32 [ 0, %5 ], [ %.269, %66 ]
+  %.070111 = phi i32 [ 0, %5 ], [ %.272, %66 ]
   %15 = getelementptr i8, ptr %10, i64 %.061115
   %16 = trunc i64 %.061115 to i32
   %17 = sub nsw i32 262144, %16
@@ -291,11 +291,11 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   br label %66
 
 66:                                               ; preds = %40, %24, %64, %43, %30, %35
-  %.171 = phi i32 [ %.070111, %30 ], [ %.070111, %35 ], [ %.070111, %43 ], [ %.070111, %64 ], [ 1, %24 ], [ %.070111, %40 ]
-  %.168 = phi i32 [ %.067112, %30 ], [ 1, %35 ], [ %.067112, %43 ], [ %.067112, %64 ], [ %.067112, %24 ], [ %.067112, %40 ]
-  %.165 = phi i32 [ %.064113, %30 ], [ %.064113, %35 ], [ %.064113, %43 ], [ %.064113, %64 ], [ %.064113, %24 ], [ 1, %40 ]
-  %.1 = phi i64 [ %21, %30 ], [ %21, %35 ], [ %21, %43 ], [ %65, %64 ], [ %21, %24 ], [ %21, %40 ]
-  %67 = add i64 %.1, -262143
+  %.272 = phi i32 [ %.070111, %30 ], [ %.070111, %35 ], [ %.070111, %43 ], [ %.070111, %64 ], [ 1, %24 ], [ %.070111, %40 ]
+  %.269 = phi i32 [ %.067112, %30 ], [ 1, %35 ], [ %.067112, %43 ], [ %.067112, %64 ], [ %.067112, %24 ], [ %.067112, %40 ]
+  %.266 = phi i32 [ %.064113, %30 ], [ %.064113, %35 ], [ %.064113, %43 ], [ %.064113, %64 ], [ %.064113, %24 ], [ 1, %40 ]
+  %.2 = phi i64 [ %21, %30 ], [ %21, %35 ], [ %21, %43 ], [ %65, %64 ], [ %21, %24 ], [ %21, %40 ]
+  %67 = add i64 %.2, -262143
   %68 = icmp ult i64 %67, -262145
   %69 = add nuw nsw i32 %.062114, 1
   %exitcond.not = icmp eq i32 %69, 100
@@ -303,14 +303,14 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   br i1 %or.cond146, label %70, label %14, !llvm.loop !6
 
 70:                                               ; preds = %66, %14
-  %.272 = phi i32 [ %.171, %66 ], [ %.070111, %14 ]
-  %.269 = phi i32 [ %.168, %66 ], [ %.067112, %14 ]
-  %.266 = phi i32 [ %.165, %66 ], [ %.064113, %14 ]
-  %.2 = phi i64 [ %.1, %66 ], [ %.061115, %14 ]
-  %71 = icmp ne i32 %.272, 0
-  %72 = icmp ne i32 %.269, 0
+  %.171 = phi i32 [ %.272, %66 ], [ %.070111, %14 ]
+  %.168 = phi i32 [ %.269, %66 ], [ %.067112, %14 ]
+  %.165 = phi i32 [ %.266, %66 ], [ %.064113, %14 ]
+  %.1 = phi i64 [ %.2, %66 ], [ %.061115, %14 ]
+  %71 = icmp ne i32 %.171, 0
+  %72 = icmp ne i32 %.168, 0
   %or.cond = select i1 %71, i1 %72, i1 false
-  %73 = icmp ne i32 %.266, 0
+  %73 = icmp ne i32 %.165, 0
   %or.cond3 = select i1 %or.cond, i1 %73, i1 false
   br i1 %or.cond3, label %77, label %.loopexit
 
@@ -328,14 +328,14 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   br i1 %.not82, label %.loopexit, label %.thread92
 
 .thread92:                                        ; preds = %.thread, %77
-  %.29195 = phi i64 [ %.2, %77 ], [ %21, %.thread ]
+  %.19195 = phi i64 [ %.1, %77 ], [ %21, %.thread ]
   store i32 4, ptr %1, align 8
   %79 = call ptr @wtap_block_create(i32 noundef 10) #9
   %80 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 3, ptr %81, align 4
-  %82 = trunc i64 %.29195 to i32
+  %82 = trunc i64 %.19195 to i32
   %83 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 %82, ptr %83, align 8
   br label %.loopexit

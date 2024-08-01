@@ -442,12 +442,12 @@ php_ini_builder_finish.exit:                      ; preds = %38, %40
   br label %62
 
 62:                                               ; preds = %58, %60, %54
-  %.043 = phi i32 [ %59, %58 ], [ %61, %60 ], [ 0, %54 ]
+  %.144 = phi i32 [ %59, %58 ], [ %61, %60 ], [ 0, %54 ]
   store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %63
 
 63:                                               ; preds = %php_ini_builder_finish.exit, %62, %24, %19
-  %.144 = phi i32 [ %.043, %62 ], [ 1, %24 ], [ 0, %19 ], [ 1, %php_ini_builder_finish.exit ]
+  %.043 = phi i32 [ %.144, %62 ], [ 1, %24 ], [ 0, %19 ], [ 1, %php_ini_builder_finish.exit ]
   %.not48 = phi i1 [ false, %62 ], [ true, %24 ], [ true, %19 ], [ true, %php_ini_builder_finish.exit ]
   %.not49 = phi i1 [ false, %62 ], [ true, %24 ], [ true, %19 ], [ false, %php_ini_builder_finish.exit ]
   %.not47 = icmp eq ptr %.037.ph121, null
@@ -475,7 +475,7 @@ php_ini_builder_finish.exit:                      ; preds = %38, %40
 
 69:                                               ; preds = %68, %67
   call void @cleanup_ps_args(ptr noundef nonnull %7) #23
-  call void @exit(i32 noundef %.144) #27
+  call void @exit(i32 noundef %.043) #27
   unreachable
 }
 
@@ -657,17 +657,17 @@ print_modules.exit:                               ; preds = %56, %37
   br label %64
 
 64:                                               ; preds = %.backedge, %61
-  %.0361 = phi i32 [ 1, %61 ], [ %.0361.be, %.backedge ]
-  %.0355 = phi i1 [ false, %61 ], [ %.0355.be, %.backedge ]
+  %.3364 = phi i32 [ 1, %61 ], [ %.3364.be, %.backedge ]
+  %.3358 = phi i1 [ false, %61 ], [ %.3358.be, %.backedge ]
   %.0353 = phi ptr [ null, %61 ], [ %.0353.be, %.backedge ]
-  %.0347 = phi i8 [ 0, %61 ], [ %.0347.be, %.backedge ]
-  %.0330 = phi ptr [ null, %61 ], [ %.0330.be, %.backedge ]
-  %.0324 = phi ptr [ null, %61 ], [ %.0324.be, %.backedge ]
-  %.0317 = phi ptr [ null, %61 ], [ %.0317.be, %.backedge ]
-  %.0311 = phi ptr [ null, %61 ], [ %.0311.be, %.backedge ]
-  %.0305 = phi ptr [ null, %61 ], [ %.0305.be, %.backedge ]
-  %.0299 = phi ptr [ null, %61 ], [ %.0299.be, %.backedge ]
-  %.0298 = phi i32 [ 1, %61 ], [ %.0298.be, %.backedge ]
+  %.3350 = phi i8 [ 0, %61 ], [ %.3350.be, %.backedge ]
+  %.3333 = phi ptr [ null, %61 ], [ %.3333.be, %.backedge ]
+  %.3327 = phi ptr [ null, %61 ], [ %.3327.be, %.backedge ]
+  %.3320 = phi ptr [ null, %61 ], [ %.3320.be, %.backedge ]
+  %.3314 = phi ptr [ null, %61 ], [ %.3314.be, %.backedge ]
+  %.3308 = phi ptr [ null, %61 ], [ %.3308.be, %.backedge ]
+  %.3302 = phi ptr [ null, %61 ], [ %.3302.be, %.backedge ]
+  %.3 = phi i32 [ 1, %61 ], [ %.3.be, %.backedge ]
   %65 = call i32 @php_getopt(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @OPTIONS, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2) #23
   switch i32 %65, label %.backedge [
     i32 -1, label %131
@@ -698,24 +698,24 @@ print_modules.exit:                               ; preds = %56, %37
   br i1 %.not389, label %.backedge, label %68
 
 68:                                               ; preds = %66
-  %69 = trunc nuw i8 %.0347 to i1
+  %69 = trunc nuw i8 %.3350 to i1
   br i1 %69, label %.backedge, label %70
 
 70:                                               ; preds = %68
-  %.not390 = icmp eq i32 %.0298, 1
+  %.not390 = icmp eq i32 %.3, 1
   %.0353..str.97 = select i1 %.not390, ptr %.0353, ptr @.str.97
-  %..0347 = select i1 %.not390, i8 1, i8 %.0347
+  %..3350 = select i1 %.not390, i8 1, i8 %.3350
   br label %.backedge
 
 71:                                               ; preds = %64
-  switch i32 %.0298, label %.backedge [
+  switch i32 %.3, label %.backedge [
     i32 7, label %72
     i32 1, label %75
   ]
 
 72:                                               ; preds = %71
-  %73 = icmp ne ptr %.0311, null
-  %74 = icmp ne ptr %.0330, null
+  %73 = icmp ne ptr %.3314, null
+  %74 = icmp ne ptr %.3333, null
   %or.cond = select i1 %73, i1 true, i1 %74
   br i1 %or.cond, label %.backedge, label %75
 
@@ -724,33 +724,33 @@ print_modules.exit:                               ; preds = %56, %37
   br label %.backedge
 
 77:                                               ; preds = %64
-  %78 = and i32 %.0298, -2
+  %78 = and i32 %.3, -2
   %or.cond3 = icmp eq i32 %78, 6
   br i1 %or.cond3, label %.backedge, label %79
 
 79:                                               ; preds = %77
-  %.not387 = icmp eq ptr %.0330, null
+  %.not387 = icmp eq ptr %.3333, null
   %80 = load ptr, ptr %7, align 8
   %spec.select = select i1 %.not387, ptr %.0353, ptr @.str.66
-  %spec.select416 = select i1 %.not387, ptr %80, ptr %.0330
+  %spec.select416 = select i1 %.not387, ptr %80, ptr %.3333
   br label %.backedge
 
 .backedge:                                        ; preds = %79, %111, %109, %105, %103, %104, %99, %97, %98, %91, %92, %87, %83, %84, %77, %71, %72, %70, %66, %64, %81, %68, %128, %127, %125, %123, %121, %119, %117, %116, %113, %107, %101, %95, %89, %82, %75
-  %.0361.be = phi i32 [ %.0361, %125 ], [ %.0361, %123 ], [ %.0361, %121 ], [ %.0361, %119 ], [ %.0361, %117 ], [ %.0361, %116 ], [ %.0361, %113 ], [ %.0361, %107 ], [ %.0361, %101 ], [ %.0361, %95 ], [ %.0361, %89 ], [ %.0361, %127 ], [ %.0361, %81 ], [ %.0361, %82 ], [ %.0361, %75 ], [ %130, %128 ], [ %.0361, %68 ], [ %.0361, %64 ], [ %.0361, %66 ], [ %.0361, %70 ], [ %.0361, %72 ], [ %.0361, %71 ], [ %.0361, %77 ], [ %.0361, %84 ], [ %.0361, %83 ], [ %.0361, %87 ], [ %.0361, %92 ], [ %.0361, %91 ], [ %.0361, %98 ], [ %.0361, %97 ], [ %.0361, %99 ], [ %.0361, %104 ], [ %.0361, %103 ], [ %.0361, %105 ], [ %.0361, %109 ], [ %.0361, %111 ], [ %.0361, %79 ]
-  %.0355.be = phi i1 [ %.0355, %125 ], [ %.0355, %123 ], [ %.0355, %121 ], [ %.0355, %119 ], [ %.0355, %117 ], [ true, %116 ], [ %.0355, %113 ], [ %.0355, %107 ], [ %.0355, %101 ], [ %.0355, %95 ], [ %.0355, %89 ], [ %.0355, %127 ], [ %.0355, %81 ], [ %.0355, %82 ], [ %.0355, %75 ], [ %.0355, %128 ], [ %.0355, %68 ], [ %.0355, %64 ], [ %.0355, %66 ], [ %.0355, %70 ], [ %.0355, %72 ], [ %.0355, %71 ], [ %.0355, %77 ], [ %.0355, %84 ], [ %.0355, %83 ], [ %.0355, %87 ], [ %.0355, %92 ], [ %.0355, %91 ], [ %.0355, %98 ], [ %.0355, %97 ], [ %.0355, %99 ], [ %.0355, %104 ], [ %.0355, %103 ], [ %.0355, %105 ], [ %.0355, %109 ], [ %.0355, %111 ], [ %.0355, %79 ]
+  %.3364.be = phi i32 [ %.3364, %125 ], [ %.3364, %123 ], [ %.3364, %121 ], [ %.3364, %119 ], [ %.3364, %117 ], [ %.3364, %116 ], [ %.3364, %113 ], [ %.3364, %107 ], [ %.3364, %101 ], [ %.3364, %95 ], [ %.3364, %89 ], [ %.3364, %127 ], [ %.3364, %81 ], [ %.3364, %82 ], [ %.3364, %75 ], [ %130, %128 ], [ %.3364, %68 ], [ %.3364, %64 ], [ %.3364, %66 ], [ %.3364, %70 ], [ %.3364, %72 ], [ %.3364, %71 ], [ %.3364, %77 ], [ %.3364, %84 ], [ %.3364, %83 ], [ %.3364, %87 ], [ %.3364, %92 ], [ %.3364, %91 ], [ %.3364, %98 ], [ %.3364, %97 ], [ %.3364, %99 ], [ %.3364, %104 ], [ %.3364, %103 ], [ %.3364, %105 ], [ %.3364, %109 ], [ %.3364, %111 ], [ %.3364, %79 ]
+  %.3358.be = phi i1 [ %.3358, %125 ], [ %.3358, %123 ], [ %.3358, %121 ], [ %.3358, %119 ], [ %.3358, %117 ], [ true, %116 ], [ %.3358, %113 ], [ %.3358, %107 ], [ %.3358, %101 ], [ %.3358, %95 ], [ %.3358, %89 ], [ %.3358, %127 ], [ %.3358, %81 ], [ %.3358, %82 ], [ %.3358, %75 ], [ %.3358, %128 ], [ %.3358, %68 ], [ %.3358, %64 ], [ %.3358, %66 ], [ %.3358, %70 ], [ %.3358, %72 ], [ %.3358, %71 ], [ %.3358, %77 ], [ %.3358, %84 ], [ %.3358, %83 ], [ %.3358, %87 ], [ %.3358, %92 ], [ %.3358, %91 ], [ %.3358, %98 ], [ %.3358, %97 ], [ %.3358, %99 ], [ %.3358, %104 ], [ %.3358, %103 ], [ %.3358, %105 ], [ %.3358, %109 ], [ %.3358, %111 ], [ %.3358, %79 ]
   %.0353.be = phi ptr [ %.0353, %125 ], [ %.0353, %123 ], [ %.0353, %121 ], [ %.0353, %119 ], [ %.0353, %117 ], [ %.0353, %116 ], [ %.0353, %113 ], [ %.0353, %107 ], [ %.0353, %101 ], [ %.0353, %95 ], [ %.0353, %89 ], [ %.0353, %127 ], [ %.0353, %81 ], [ %.0353, %82 ], [ %.0353, %75 ], [ %.0353, %128 ], [ %.0353, %68 ], [ %.0353, %64 ], [ @.str.64, %66 ], [ %.0353..str.97, %70 ], [ @.str.65, %72 ], [ @.str.97, %71 ], [ @.str.97, %77 ], [ @.str.67, %84 ], [ @.str.97, %83 ], [ @.str.97, %87 ], [ @.str.65, %92 ], [ @.str.97, %91 ], [ @.str.68, %98 ], [ @.str.97, %97 ], [ @.str.97, %99 ], [ @.str.69, %104 ], [ @.str.97, %103 ], [ @.str.97, %105 ], [ %.str.70..0353, %109 ], [ %.str.71..0353, %111 ], [ %spec.select, %79 ]
-  %.0347.be = phi i8 [ %.0347, %125 ], [ %.0347, %123 ], [ %.0347, %121 ], [ %.0347, %119 ], [ %.0347, %117 ], [ %.0347, %116 ], [ %.0347, %113 ], [ %.0347, %107 ], [ %.0347, %101 ], [ %.0347, %95 ], [ %.0347, %89 ], [ %.0347, %127 ], [ %.0347, %81 ], [ %.0347, %82 ], [ %.0347, %75 ], [ %.0347, %128 ], [ %.0347, %68 ], [ %.0347, %64 ], [ %.0347, %66 ], [ %..0347, %70 ], [ %.0347, %72 ], [ %.0347, %71 ], [ %.0347, %77 ], [ %.0347, %84 ], [ %.0347, %83 ], [ %.0347, %87 ], [ %.0347, %92 ], [ %.0347, %91 ], [ %.0347, %98 ], [ %.0347, %97 ], [ %.0347, %99 ], [ %.0347, %104 ], [ %.0347, %103 ], [ %.0347, %105 ], [ %.0347, %109 ], [ %.0347, %111 ], [ %.0347, %79 ]
-  %.0330.be = phi ptr [ %.0330, %125 ], [ %.0330, %123 ], [ %.0330, %121 ], [ %.0330, %119 ], [ %.0330, %117 ], [ %.0330, %116 ], [ %.0330, %113 ], [ %.0330, %107 ], [ %.0330, %101 ], [ %.0330, %95 ], [ %.0330, %89 ], [ %.0330, %127 ], [ %.0330, %81 ], [ %.0330, %82 ], [ %76, %75 ], [ %.0330, %128 ], [ %.0330, %68 ], [ %.0330, %64 ], [ %.0330, %66 ], [ %.0330, %70 ], [ %.0330, %72 ], [ %.0330, %71 ], [ %.0330, %77 ], [ %.0330, %84 ], [ %.0330, %83 ], [ %.0330, %87 ], [ %.0330, %92 ], [ %.0330, %91 ], [ %.0330, %98 ], [ %.0330, %97 ], [ %.0330, %99 ], [ %.0330, %104 ], [ %.0330, %103 ], [ %.0330, %105 ], [ %.0330, %109 ], [ %.0330, %111 ], [ %spec.select416, %79 ]
-  %.0324.be = phi ptr [ %.0324, %125 ], [ %.0324, %123 ], [ %.0324, %121 ], [ %.0324, %119 ], [ %.0324, %117 ], [ %.0324, %116 ], [ %.0324, %113 ], [ %108, %107 ], [ %.0324, %101 ], [ %.0324, %95 ], [ %.0324, %89 ], [ %.0324, %127 ], [ %.0324, %81 ], [ %.0324, %82 ], [ %.0324, %75 ], [ %.0324, %128 ], [ %.0324, %68 ], [ %.0324, %64 ], [ %.0324, %66 ], [ %.0324, %70 ], [ %.0324, %72 ], [ %.0324, %71 ], [ %.0324, %77 ], [ %.0324, %84 ], [ %.0324, %83 ], [ %.0324, %87 ], [ %.0324, %92 ], [ %.0324, %91 ], [ %.0324, %98 ], [ %.0324, %97 ], [ %.0324, %99 ], [ %.0324, %104 ], [ %.0324, %103 ], [ %.0324, %105 ], [ %.0324, %109 ], [ %.0324, %111 ], [ %.0324, %79 ]
-  %.0317.be = phi ptr [ %.0317, %125 ], [ %.0317, %123 ], [ %.0317, %121 ], [ %.0317, %119 ], [ %.0317, %117 ], [ %.0317, %116 ], [ %.0317, %113 ], [ %.0317, %107 ], [ %102, %101 ], [ %.0317, %95 ], [ %.0317, %89 ], [ %.0317, %127 ], [ %.0317, %81 ], [ %.0317, %82 ], [ %.0317, %75 ], [ %.0317, %128 ], [ %.0317, %68 ], [ %.0317, %64 ], [ %.0317, %66 ], [ %.0317, %70 ], [ %.0317, %72 ], [ %.0317, %71 ], [ %.0317, %77 ], [ %.0317, %84 ], [ %.0317, %83 ], [ %.0317, %87 ], [ %.0317, %92 ], [ %.0317, %91 ], [ %.0317, %98 ], [ %.0317, %97 ], [ %.0317, %99 ], [ %.0317, %104 ], [ %.0317, %103 ], [ %.0317, %105 ], [ %.0317, %109 ], [ %.0317, %111 ], [ %.0317, %79 ]
-  %.0311.be = phi ptr [ %.0311, %125 ], [ %.0311, %123 ], [ %.0311, %121 ], [ %.0311, %119 ], [ %.0311, %117 ], [ %.0311, %116 ], [ %.0311, %113 ], [ %.0311, %107 ], [ %.0311, %101 ], [ %96, %95 ], [ %.0311, %89 ], [ %.0311, %127 ], [ %.0311, %81 ], [ %.0311, %82 ], [ %.0311, %75 ], [ %.0311, %128 ], [ %.0311, %68 ], [ %.0311, %64 ], [ %.0311, %66 ], [ %.0311, %70 ], [ %.0311, %72 ], [ %.0311, %71 ], [ %.0311, %77 ], [ %.0311, %84 ], [ %.0311, %83 ], [ %.0311, %87 ], [ %.0311, %92 ], [ %.0311, %91 ], [ %.0311, %98 ], [ %.0311, %97 ], [ %.0311, %99 ], [ %.0311, %104 ], [ %.0311, %103 ], [ %.0311, %105 ], [ %.0311, %109 ], [ %.0311, %111 ], [ %.0311, %79 ]
-  %.0305.be = phi ptr [ %.0305, %125 ], [ %.0305, %123 ], [ %.0305, %121 ], [ %.0305, %119 ], [ %.0305, %117 ], [ %.0305, %116 ], [ %.0305, %113 ], [ %.0305, %107 ], [ %.0305, %101 ], [ %.0305, %95 ], [ %90, %89 ], [ %.0305, %127 ], [ %.0305, %81 ], [ %.0305, %82 ], [ %.0305, %75 ], [ %.0305, %128 ], [ %.0305, %68 ], [ %.0305, %64 ], [ %.0305, %66 ], [ %.0305, %70 ], [ %.0305, %72 ], [ %.0305, %71 ], [ %.0305, %77 ], [ %.0305, %84 ], [ %.0305, %83 ], [ %.0305, %87 ], [ %.0305, %92 ], [ %.0305, %91 ], [ %.0305, %98 ], [ %.0305, %97 ], [ %.0305, %99 ], [ %.0305, %104 ], [ %.0305, %103 ], [ %.0305, %105 ], [ %.0305, %109 ], [ %.0305, %111 ], [ %.0305, %79 ]
-  %.0299.be = phi ptr [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %.0299, %116 ], [ %.0299, %113 ], [ %.0299, %107 ], [ %.0299, %101 ], [ %.0299, %95 ], [ %.0299, %89 ], [ %.0299, %127 ], [ %.0299, %81 ], [ %.0299, %82 ], [ %.0299, %75 ], [ %.0299, %128 ], [ %.0299, %68 ], [ %.0299, %64 ], [ %.0299, %66 ], [ %.0299, %70 ], [ %.0299, %72 ], [ %.0299, %71 ], [ %.0299, %77 ], [ %.0299, %84 ], [ %.0299, %83 ], [ %.0299, %87 ], [ %.0299, %92 ], [ %.0299, %91 ], [ %.0299, %98 ], [ %.0299, %97 ], [ %.0299, %99 ], [ %.0299, %104 ], [ %.0299, %103 ], [ %.0299, %105 ], [ %.0299, %109 ], [ %.0299, %111 ], [ %.0299, %79 ]
-  %.0298.be = phi i32 [ 11, %125 ], [ 12, %123 ], [ 10, %121 ], [ 9, %119 ], [ 8, %117 ], [ %.0298, %116 ], [ %.0298, %113 ], [ 7, %107 ], [ 7, %101 ], [ 7, %95 ], [ 6, %89 ], [ 13, %127 ], [ %.0298, %81 ], [ 4, %82 ], [ 7, %75 ], [ %.0298, %128 ], [ %.0298, %68 ], [ %.0298, %64 ], [ %.0298, %66 ], [ %.0298, %70 ], [ 7, %72 ], [ %.0298, %71 ], [ %.0298, %77 ], [ 6, %84 ], [ %.0298, %83 ], [ 1, %87 ], [ 7, %92 ], [ %.0298, %91 ], [ 7, %98 ], [ %.0298, %97 ], [ 1, %99 ], [ 7, %104 ], [ %.0298, %103 ], [ 1, %105 ], [ %.0298., %109 ], [ %.0298.415, %111 ], [ %.0298, %79 ]
+  %.3350.be = phi i8 [ %.3350, %125 ], [ %.3350, %123 ], [ %.3350, %121 ], [ %.3350, %119 ], [ %.3350, %117 ], [ %.3350, %116 ], [ %.3350, %113 ], [ %.3350, %107 ], [ %.3350, %101 ], [ %.3350, %95 ], [ %.3350, %89 ], [ %.3350, %127 ], [ %.3350, %81 ], [ %.3350, %82 ], [ %.3350, %75 ], [ %.3350, %128 ], [ %.3350, %68 ], [ %.3350, %64 ], [ %.3350, %66 ], [ %..3350, %70 ], [ %.3350, %72 ], [ %.3350, %71 ], [ %.3350, %77 ], [ %.3350, %84 ], [ %.3350, %83 ], [ %.3350, %87 ], [ %.3350, %92 ], [ %.3350, %91 ], [ %.3350, %98 ], [ %.3350, %97 ], [ %.3350, %99 ], [ %.3350, %104 ], [ %.3350, %103 ], [ %.3350, %105 ], [ %.3350, %109 ], [ %.3350, %111 ], [ %.3350, %79 ]
+  %.3333.be = phi ptr [ %.3333, %125 ], [ %.3333, %123 ], [ %.3333, %121 ], [ %.3333, %119 ], [ %.3333, %117 ], [ %.3333, %116 ], [ %.3333, %113 ], [ %.3333, %107 ], [ %.3333, %101 ], [ %.3333, %95 ], [ %.3333, %89 ], [ %.3333, %127 ], [ %.3333, %81 ], [ %.3333, %82 ], [ %76, %75 ], [ %.3333, %128 ], [ %.3333, %68 ], [ %.3333, %64 ], [ %.3333, %66 ], [ %.3333, %70 ], [ %.3333, %72 ], [ %.3333, %71 ], [ %.3333, %77 ], [ %.3333, %84 ], [ %.3333, %83 ], [ %.3333, %87 ], [ %.3333, %92 ], [ %.3333, %91 ], [ %.3333, %98 ], [ %.3333, %97 ], [ %.3333, %99 ], [ %.3333, %104 ], [ %.3333, %103 ], [ %.3333, %105 ], [ %.3333, %109 ], [ %.3333, %111 ], [ %spec.select416, %79 ]
+  %.3327.be = phi ptr [ %.3327, %125 ], [ %.3327, %123 ], [ %.3327, %121 ], [ %.3327, %119 ], [ %.3327, %117 ], [ %.3327, %116 ], [ %.3327, %113 ], [ %108, %107 ], [ %.3327, %101 ], [ %.3327, %95 ], [ %.3327, %89 ], [ %.3327, %127 ], [ %.3327, %81 ], [ %.3327, %82 ], [ %.3327, %75 ], [ %.3327, %128 ], [ %.3327, %68 ], [ %.3327, %64 ], [ %.3327, %66 ], [ %.3327, %70 ], [ %.3327, %72 ], [ %.3327, %71 ], [ %.3327, %77 ], [ %.3327, %84 ], [ %.3327, %83 ], [ %.3327, %87 ], [ %.3327, %92 ], [ %.3327, %91 ], [ %.3327, %98 ], [ %.3327, %97 ], [ %.3327, %99 ], [ %.3327, %104 ], [ %.3327, %103 ], [ %.3327, %105 ], [ %.3327, %109 ], [ %.3327, %111 ], [ %.3327, %79 ]
+  %.3320.be = phi ptr [ %.3320, %125 ], [ %.3320, %123 ], [ %.3320, %121 ], [ %.3320, %119 ], [ %.3320, %117 ], [ %.3320, %116 ], [ %.3320, %113 ], [ %.3320, %107 ], [ %102, %101 ], [ %.3320, %95 ], [ %.3320, %89 ], [ %.3320, %127 ], [ %.3320, %81 ], [ %.3320, %82 ], [ %.3320, %75 ], [ %.3320, %128 ], [ %.3320, %68 ], [ %.3320, %64 ], [ %.3320, %66 ], [ %.3320, %70 ], [ %.3320, %72 ], [ %.3320, %71 ], [ %.3320, %77 ], [ %.3320, %84 ], [ %.3320, %83 ], [ %.3320, %87 ], [ %.3320, %92 ], [ %.3320, %91 ], [ %.3320, %98 ], [ %.3320, %97 ], [ %.3320, %99 ], [ %.3320, %104 ], [ %.3320, %103 ], [ %.3320, %105 ], [ %.3320, %109 ], [ %.3320, %111 ], [ %.3320, %79 ]
+  %.3314.be = phi ptr [ %.3314, %125 ], [ %.3314, %123 ], [ %.3314, %121 ], [ %.3314, %119 ], [ %.3314, %117 ], [ %.3314, %116 ], [ %.3314, %113 ], [ %.3314, %107 ], [ %.3314, %101 ], [ %96, %95 ], [ %.3314, %89 ], [ %.3314, %127 ], [ %.3314, %81 ], [ %.3314, %82 ], [ %.3314, %75 ], [ %.3314, %128 ], [ %.3314, %68 ], [ %.3314, %64 ], [ %.3314, %66 ], [ %.3314, %70 ], [ %.3314, %72 ], [ %.3314, %71 ], [ %.3314, %77 ], [ %.3314, %84 ], [ %.3314, %83 ], [ %.3314, %87 ], [ %.3314, %92 ], [ %.3314, %91 ], [ %.3314, %98 ], [ %.3314, %97 ], [ %.3314, %99 ], [ %.3314, %104 ], [ %.3314, %103 ], [ %.3314, %105 ], [ %.3314, %109 ], [ %.3314, %111 ], [ %.3314, %79 ]
+  %.3308.be = phi ptr [ %.3308, %125 ], [ %.3308, %123 ], [ %.3308, %121 ], [ %.3308, %119 ], [ %.3308, %117 ], [ %.3308, %116 ], [ %.3308, %113 ], [ %.3308, %107 ], [ %.3308, %101 ], [ %.3308, %95 ], [ %90, %89 ], [ %.3308, %127 ], [ %.3308, %81 ], [ %.3308, %82 ], [ %.3308, %75 ], [ %.3308, %128 ], [ %.3308, %68 ], [ %.3308, %64 ], [ %.3308, %66 ], [ %.3308, %70 ], [ %.3308, %72 ], [ %.3308, %71 ], [ %.3308, %77 ], [ %.3308, %84 ], [ %.3308, %83 ], [ %.3308, %87 ], [ %.3308, %92 ], [ %.3308, %91 ], [ %.3308, %98 ], [ %.3308, %97 ], [ %.3308, %99 ], [ %.3308, %104 ], [ %.3308, %103 ], [ %.3308, %105 ], [ %.3308, %109 ], [ %.3308, %111 ], [ %.3308, %79 ]
+  %.3302.be = phi ptr [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %.3302, %116 ], [ %.3302, %113 ], [ %.3302, %107 ], [ %.3302, %101 ], [ %.3302, %95 ], [ %.3302, %89 ], [ %.3302, %127 ], [ %.3302, %81 ], [ %.3302, %82 ], [ %.3302, %75 ], [ %.3302, %128 ], [ %.3302, %68 ], [ %.3302, %64 ], [ %.3302, %66 ], [ %.3302, %70 ], [ %.3302, %72 ], [ %.3302, %71 ], [ %.3302, %77 ], [ %.3302, %84 ], [ %.3302, %83 ], [ %.3302, %87 ], [ %.3302, %92 ], [ %.3302, %91 ], [ %.3302, %98 ], [ %.3302, %97 ], [ %.3302, %99 ], [ %.3302, %104 ], [ %.3302, %103 ], [ %.3302, %105 ], [ %.3302, %109 ], [ %.3302, %111 ], [ %.3302, %79 ]
+  %.3.be = phi i32 [ 11, %125 ], [ 12, %123 ], [ 10, %121 ], [ 9, %119 ], [ 8, %117 ], [ %.3, %116 ], [ %.3, %113 ], [ 7, %107 ], [ 7, %101 ], [ 7, %95 ], [ 6, %89 ], [ 13, %127 ], [ %.3, %81 ], [ 4, %82 ], [ 7, %75 ], [ %.3, %128 ], [ %.3, %68 ], [ %.3, %64 ], [ %.3, %66 ], [ %.3, %70 ], [ 7, %72 ], [ %.3, %71 ], [ %.3, %77 ], [ 6, %84 ], [ %.3, %83 ], [ 1, %87 ], [ 7, %92 ], [ %.3, %91 ], [ 7, %98 ], [ %.3, %97 ], [ 1, %99 ], [ 7, %104 ], [ %.3, %103 ], [ 1, %105 ], [ %.3., %109 ], [ %.3.415, %111 ], [ %.3, %79 ]
   br label %64
 
 81:                                               ; preds = %64
-  %.not386 = icmp eq i32 %.0298, 1
+  %.not386 = icmp eq i32 %.3, 1
   br i1 %.not386, label %82, label %.backedge
 
 82:                                               ; preds = %81
@@ -758,19 +758,19 @@ print_modules.exit:                               ; preds = %56, %37
   br label %.backedge
 
 83:                                               ; preds = %64
-  switch i32 %.0298, label %.backedge [
+  switch i32 %.3, label %.backedge [
     i32 6, label %84
     i32 1, label %87
   ]
 
 84:                                               ; preds = %83
-  %85 = icmp ne ptr %.0305, null
-  %86 = icmp ne ptr %.0330, null
+  %85 = icmp ne ptr %.3308, null
+  %86 = icmp ne ptr %.3333, null
   %or.cond5 = select i1 %85, i1 true, i1 %86
   br i1 %or.cond5, label %.backedge, label %89
 
 87:                                               ; preds = %83
-  %88 = trunc nuw i8 %.0347 to i1
+  %88 = trunc nuw i8 %.3350 to i1
   br i1 %88, label %.backedge, label %89
 
 89:                                               ; preds = %87, %84
@@ -778,14 +778,14 @@ print_modules.exit:                               ; preds = %56, %37
   br label %.backedge
 
 91:                                               ; preds = %64
-  switch i32 %.0298, label %.backedge [
+  switch i32 %.3, label %.backedge [
     i32 7, label %92
     i32 1, label %95
   ]
 
 92:                                               ; preds = %91
-  %93 = icmp ne ptr %.0311, null
-  %94 = icmp ne ptr %.0330, null
+  %93 = icmp ne ptr %.3314, null
+  %94 = icmp ne ptr %.3333, null
   %or.cond7 = select i1 %93, i1 true, i1 %94
   br i1 %or.cond7, label %.backedge, label %95
 
@@ -794,17 +794,17 @@ print_modules.exit:                               ; preds = %56, %37
   br label %.backedge
 
 97:                                               ; preds = %64
-  switch i32 %.0298, label %.backedge [
+  switch i32 %.3, label %.backedge [
     i32 7, label %98
     i32 1, label %99
   ]
 
 98:                                               ; preds = %97
-  %.not383 = icmp eq ptr %.0317, null
+  %.not383 = icmp eq ptr %.3320, null
   br i1 %.not383, label %101, label %.backedge
 
 99:                                               ; preds = %97
-  %100 = trunc nuw i8 %.0347 to i1
+  %100 = trunc nuw i8 %.3350 to i1
   br i1 %100, label %.backedge, label %101
 
 101:                                              ; preds = %99, %98
@@ -812,17 +812,17 @@ print_modules.exit:                               ; preds = %56, %37
   br label %.backedge
 
 103:                                              ; preds = %64
-  switch i32 %.0298, label %.backedge [
+  switch i32 %.3, label %.backedge [
     i32 7, label %104
     i32 1, label %105
   ]
 
 104:                                              ; preds = %103
-  %.not381 = icmp eq ptr %.0324, null
+  %.not381 = icmp eq ptr %.3327, null
   br i1 %.not381, label %107, label %.backedge
 
 105:                                              ; preds = %103
-  %106 = trunc nuw i8 %.0347 to i1
+  %106 = trunc nuw i8 %.3350 to i1
   br i1 %106, label %.backedge, label %107
 
 107:                                              ; preds = %105, %104
@@ -830,17 +830,17 @@ print_modules.exit:                               ; preds = %56, %37
   br label %.backedge
 
 109:                                              ; preds = %64
-  %110 = and i32 %.0298, -2
+  %110 = and i32 %.3, -2
   %or.cond9 = icmp eq i32 %110, 6
   %.str.70..0353 = select i1 %or.cond9, ptr @.str.70, ptr %.0353
-  %.0298. = select i1 %or.cond9, i32 %.0298, i32 2
+  %.3. = select i1 %or.cond9, i32 %.3, i32 2
   br label %.backedge
 
 111:                                              ; preds = %64
-  %112 = and i32 %.0298, -2
+  %112 = and i32 %.3, -2
   %or.cond11 = icmp eq i32 %112, 6
   %.str.71..0353 = select i1 %or.cond11, ptr @.str.71, ptr %.0353
-  %.0298.415 = select i1 %or.cond11, i32 %.0298, i32 5
+  %.3.415 = select i1 %or.cond11, i32 %.3, i32 5
   br label %.backedge
 
 113:                                              ; preds = %64
@@ -890,7 +890,7 @@ print_modules.exit:                               ; preds = %56, %37
   br label %413
 
 135:                                              ; preds = %131
-  %136 = trunc nuw i8 %.0347 to i1
+  %136 = trunc nuw i8 %.3350 to i1
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %135
@@ -900,7 +900,7 @@ print_modules.exit:                               ; preds = %56, %37
   br label %140
 
 140:                                              ; preds = %137, %135
-  %141 = icmp sgt i32 %.0361, 1
+  %141 = icmp sgt i32 %.3364, 1
   br i1 %141, label %142, label %147
 
 142:                                              ; preds = %140
@@ -909,36 +909,36 @@ print_modules.exit:                               ; preds = %56, %37
   br label %.sink.split
 
 .sink.split:                                      ; preds = %408, %142
-  %.2363.ph = phi i32 [ %.0361, %142 ], [ %404, %408 ]
-  %.2357.ph = phi i1 [ %.0355, %142 ], [ %.4359, %408 ]
-  %.2349.ph = phi i8 [ %.0347, %142 ], [ %.4351, %408 ]
-  %.2332.ph = phi ptr [ %.0330, %142 ], [ %.5335, %408 ]
-  %.2326.ph = phi ptr [ %.0324, %142 ], [ %.4328, %408 ]
-  %.2319.ph = phi ptr [ %.0317, %142 ], [ %.4321, %408 ]
-  %.2313.ph = phi ptr [ %.0311, %142 ], [ %.4315, %408 ]
-  %.2307.ph = phi ptr [ %.0305, %142 ], [ %.4309, %408 ]
-  %.2301.ph = phi ptr [ %.0299, %142 ], [ %.4303, %408 ]
-  %.2.ph = phi i32 [ %.0298, %142 ], [ %.4, %408 ]
+  %.5366.ph = phi i32 [ %.3364, %142 ], [ %404, %408 ]
+  %.5360.ph = phi i1 [ %.3358, %142 ], [ %.2357, %408 ]
+  %.5352.ph = phi i8 [ %.3350, %142 ], [ %.2349, %408 ]
+  %.5335.ph = phi ptr [ %.3333, %142 ], [ %.2332, %408 ]
+  %.5329.ph = phi ptr [ %.3327, %142 ], [ %.2326, %408 ]
+  %.5322.ph = phi ptr [ %.3320, %142 ], [ %.2319, %408 ]
+  %.5316.ph = phi ptr [ %.3314, %142 ], [ %.2313, %408 ]
+  %.5310.ph = phi ptr [ %.3308, %142 ], [ %.2307, %408 ]
+  %.5304.ph = phi ptr [ %.3302, %142 ], [ %.2301, %408 ]
+  %.5.ph = phi i32 [ %.3, %142 ], [ %.2, %408 ]
   %145 = load ptr, ptr @stdout, align 8
   %146 = call i32 @fflush(ptr noundef %145)
   br label %147
 
 147:                                              ; preds = %.sink.split, %.tail428, %140
-  %.2363 = phi i32 [ %.0361, %140 ], [ %.4365, %.tail428 ], [ %.2363.ph, %.sink.split ]
-  %.2357 = phi i1 [ %.0355, %140 ], [ %.4359, %.tail428 ], [ %.2357.ph, %.sink.split ]
-  %.2349 = phi i8 [ %.0347, %140 ], [ %.4351, %.tail428 ], [ %.2349.ph, %.sink.split ]
-  %.2332 = phi ptr [ %.0330, %140 ], [ null, %.tail428 ], [ %.2332.ph, %.sink.split ]
-  %.2326 = phi ptr [ %.0324, %140 ], [ %.4328, %.tail428 ], [ %.2326.ph, %.sink.split ]
-  %.2319 = phi ptr [ %.0317, %140 ], [ %.4321, %.tail428 ], [ %.2319.ph, %.sink.split ]
-  %.2313 = phi ptr [ %.0311, %140 ], [ %.4315, %.tail428 ], [ %.2313.ph, %.sink.split ]
-  %.2307 = phi ptr [ %.0305, %140 ], [ %.4309, %.tail428 ], [ %.2307.ph, %.sink.split ]
-  %.2301 = phi ptr [ %.0299, %140 ], [ %.4303, %.tail428 ], [ %.2301.ph, %.sink.split ]
-  %.2 = phi i32 [ %.0298, %140 ], [ 4, %.tail428 ], [ %.2.ph, %.sink.split ]
+  %.5366 = phi i32 [ %.3364, %140 ], [ %.2363, %.tail428 ], [ %.5366.ph, %.sink.split ]
+  %.5360 = phi i1 [ %.3358, %140 ], [ %.2357, %.tail428 ], [ %.5360.ph, %.sink.split ]
+  %.5352 = phi i8 [ %.3350, %140 ], [ %.2349, %.tail428 ], [ %.5352.ph, %.sink.split ]
+  %.5335 = phi ptr [ %.3333, %140 ], [ null, %.tail428 ], [ %.5335.ph, %.sink.split ]
+  %.5329 = phi ptr [ %.3327, %140 ], [ %.2326, %.tail428 ], [ %.5329.ph, %.sink.split ]
+  %.5322 = phi ptr [ %.3320, %140 ], [ %.2319, %.tail428 ], [ %.5322.ph, %.sink.split ]
+  %.5316 = phi ptr [ %.3314, %140 ], [ %.2313, %.tail428 ], [ %.5316.ph, %.sink.split ]
+  %.5310 = phi ptr [ %.3308, %140 ], [ %.2307, %.tail428 ], [ %.5310.ph, %.sink.split ]
+  %.5304 = phi ptr [ %.3302, %140 ], [ %.2301, %.tail428 ], [ %.5304.ph, %.sink.split ]
+  %.5 = phi i32 [ %.3, %140 ], [ 4, %.tail428 ], [ %.5.ph, %.sink.split ]
   %148 = load i32, ptr %8, align 4
   %149 = icmp slt i32 %148, %0
-  %150 = icmp eq ptr %.2332, null
+  %150 = icmp eq ptr %.5335, null
   %or.cond13.not398 = select i1 %149, i1 %150, i1 false
-  %151 = add nsw i32 %.2, -8
+  %151 = add nsw i32 %.5, -8
   %152 = icmp ult i32 %151, -2
   %or.cond17 = select i1 %or.cond13.not398, i1 %152, i1 false
   br i1 %or.cond17, label %sub_0, label %171
@@ -980,26 +980,26 @@ sub_2:                                            ; preds = %sub_1
   br label %171
 
 171:                                              ; preds = %168, %147
-  %.3333 = phi ptr [ %169, %168 ], [ %.2332, %147 ]
-  %.not = icmp eq ptr %.3333, null
+  %.6 = phi ptr [ %169, %168 ], [ %.5335, %147 ]
+  %.not = icmp eq ptr %.6, null
   br i1 %.not, label %.thread, label %172
 
 172:                                              ; preds = %171
   %173 = call i32 @virtual_cwd_activate() #23
-  %174 = call noalias ptr @fopen(ptr noundef nonnull %.3333, ptr noundef nonnull @.str.98)
+  %174 = call noalias ptr @fopen(ptr noundef nonnull %.6, ptr noundef nonnull @.str.98)
   %.not.i417 = icmp eq ptr %174, null
   br i1 %.not.i417, label %cli_seek_file_begin.exit.thread, label %177
 
 cli_seek_file_begin.exit.thread:                  ; preds = %172
   %175 = load ptr, ptr @stderr, align 8
-  %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.99, ptr noundef nonnull %.3333) #29
+  %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.99, ptr noundef nonnull %.6) #29
   br label %413
 
 177:                                              ; preds = %172
-  call void @zend_stream_init_fp(ptr noundef nonnull %5, ptr noundef nonnull %174, ptr noundef nonnull %.3333) #23
+  call void @zend_stream_init_fp(ptr noundef nonnull %5, ptr noundef nonnull %174, ptr noundef nonnull %.6) #23
   %178 = getelementptr inbounds i8, ptr %5, i64 57
   store i8 1, ptr %178, align 1
-  %179 = call ptr @tsrm_realpath(ptr noundef nonnull %.3333, ptr noundef nonnull %10) #23
+  %179 = call ptr @tsrm_realpath(ptr noundef nonnull %.6, ptr noundef nonnull %10) #23
   %.not400 = icmp eq ptr %179, null
   br i1 %.not400, label %182, label %180
 
@@ -1008,18 +1008,18 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   br label %182
 
 182:                                              ; preds = %180, %177
-  %.1340 = phi ptr [ %181, %180 ], [ null, %177 ]
-  store ptr %.3333, ptr @script_filename, align 8
-  store ptr %.3333, ptr @php_self, align 8
+  %.4343 = phi ptr [ %181, %180 ], [ null, %177 ]
+  store ptr %.6, ptr @script_filename, align 8
+  store ptr %.6, ptr @php_self, align 8
   br label %189
 
 .thread:                                          ; preds = %.tail, %171
   store ptr @.str.75, ptr @php_self, align 8
-  %183 = icmp slt i32 %.2, 6
+  %183 = icmp slt i32 %.5, 6
   br i1 %183, label %184, label %189
 
 184:                                              ; preds = %.thread
-  %185 = trunc nuw i8 %.2349 to i1
+  %185 = trunc nuw i8 %.5352 to i1
   br i1 %185, label %189, label %186
 
 186:                                              ; preds = %184
@@ -1031,10 +1031,10 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   br label %189
 
 189:                                              ; preds = %.thread, %184, %186, %182
-  %190 = phi ptr [ %.3333, %182 ], [ @.str.75, %184 ], [ %.pre, %186 ], [ @.str.75, %.thread ]
+  %190 = phi ptr [ %.6, %182 ], [ @.str.75, %184 ], [ %.pre, %186 ], [ @.str.75, %.thread ]
   %191 = phi i1 [ true, %182 ], [ false, %184 ], [ false, %186 ], [ false, %.thread ]
-  %.3333422 = phi ptr [ %.3333, %182 ], [ null, %184 ], [ null, %186 ], [ null, %.thread ]
-  %.2341 = phi ptr [ %.1340, %182 ], [ null, %184 ], [ null, %186 ], [ null, %.thread ]
+  %.6422 = phi ptr [ %.6, %182 ], [ null, %184 ], [ null, %186 ], [ null, %.thread ]
+  %.5344 = phi ptr [ %.4343, %182 ], [ null, %184 ], [ null, %186 ], [ null, %.thread ]
   %192 = load i32, ptr %8, align 4
   %193 = add i32 %0, 1
   %194 = sub i32 %193, %192
@@ -1043,8 +1043,8 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   %196 = getelementptr ptr, ptr %1, i64 %195
   %197 = getelementptr i8, ptr %196, i64 -8
   %198 = load ptr, ptr %197, align 8
-  %.not401 = icmp eq ptr %.2341, null
-  %199 = select i1 %.not401, ptr %190, ptr %.2341
+  %.not401 = icmp eq ptr %.5344, null
+  %199 = select i1 %.not401, ptr %190, ptr %.5344
   store ptr %199, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 40), align 8
   store ptr %190, ptr %197, align 8
   store ptr %197, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
@@ -1065,7 +1065,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   call void @zend_register_bool_constant(ptr noundef nonnull @.str.77, i64 noundef 21, i1 noundef zeroext %206, i32 noundef 0, i32 noundef 0) #23
   store ptr %198, ptr %197, align 8
   %207 = icmp sgt i32 %0, 1
-  %or.cond442 = and i1 %.2357, %207
+  %or.cond442 = and i1 %.5360, %207
   br i1 %or.cond442, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %204
@@ -1088,7 +1088,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   %213 = load ptr, ptr %212, align 8
   %214 = call zeroext i1 @zend_is_auto_global(ptr noundef %213) #23
   store i8 0, ptr getelementptr inbounds (i8, ptr @core_globals, i64 482), align 2
-  switch i32 %.2, label %376 [
+  switch i32 %.5, label %376 [
     i32 1, label %215
     i32 4, label %222
     i32 5, label %231
@@ -1105,7 +1105,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
 
 215:                                              ; preds = %.loopexit
   call fastcc void @cli_register_file_handles()
-  %216 = trunc nuw i8 %.2349 to i1
+  %216 = trunc nuw i8 %.5352 to i1
   br i1 %216, label %217, label %220
 
 217:                                              ; preds = %215
@@ -1155,11 +1155,11 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
 
 239:                                              ; preds = %.loopexit
   call fastcc void @cli_register_file_handles()
-  %240 = call i32 @zend_eval_string_ex(ptr noundef %.2307, ptr noundef null, ptr noundef nonnull @.str.80, i1 noundef zeroext true) #23
+  %240 = call i32 @zend_eval_string_ex(ptr noundef %.5310, ptr noundef null, ptr noundef nonnull @.str.80, i1 noundef zeroext true) #23
   br label %376
 
 241:                                              ; preds = %.loopexit
-  %242 = icmp eq ptr %.2313, null
+  %242 = icmp eq ptr %.5316, null
   %or.cond19 = and i1 %242, %191
   br i1 %or.cond19, label %243, label %255
 
@@ -1190,11 +1190,11 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
 
 255:                                              ; preds = %254, %241
   call fastcc void @cli_register_file_handles()
-  %.not410 = icmp eq ptr %.2319, null
+  %.not410 = icmp eq ptr %.5322, null
   br i1 %.not410, label %258, label %256
 
 256:                                              ; preds = %255
-  %257 = call i32 @zend_eval_string_ex(ptr noundef nonnull %.2319, ptr noundef null, ptr noundef nonnull @.str.81, i1 noundef zeroext true) #23
+  %257 = call i32 @zend_eval_string_ex(ptr noundef nonnull %.5322, ptr noundef null, ptr noundef nonnull @.str.81, i1 noundef zeroext true) #23
   br label %258
 
 258:                                              ; preds = %256, %255
@@ -1261,25 +1261,25 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   br i1 %242, label %285, label %283
 
 283:                                              ; preds = %.critedge21
-  %284 = call i32 @zend_eval_string_ex(ptr noundef nonnull %.2313, ptr noundef null, ptr noundef nonnull @.str.84, i1 noundef zeroext true) #23
+  %284 = call i32 @zend_eval_string_ex(ptr noundef nonnull %.5316, ptr noundef null, ptr noundef nonnull @.str.84, i1 noundef zeroext true) #23
   br label %293
 
 285:                                              ; preds = %.critedge21
   br i1 %191, label %286, label %293
 
 286:                                              ; preds = %285
-  %287 = call noalias ptr @fopen(ptr noundef %.3333422, ptr noundef nonnull @.str.98)
+  %287 = call noalias ptr @fopen(ptr noundef %.6422, ptr noundef nonnull @.str.98)
   %.not.i418 = icmp eq ptr %287, null
   br i1 %.not.i418, label %288, label %291
 
 288:                                              ; preds = %286
   %289 = load ptr, ptr @stderr, align 8
-  %290 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %289, ptr noundef nonnull @.str.99, ptr noundef %.3333422) #29
+  %290 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %289, ptr noundef nonnull @.str.99, ptr noundef %.6422) #29
   store i32 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
   br label %293
 
 291:                                              ; preds = %286
-  call void @zend_stream_init_fp(ptr noundef nonnull %5, ptr noundef nonnull %287, ptr noundef %.3333422) #23
+  call void @zend_stream_init_fp(ptr noundef nonnull %5, ptr noundef nonnull %287, ptr noundef %.6422) #23
   store i8 1, ptr %263, align 1
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 152), align 8
   %292 = call zeroext i1 @php_execute_script(ptr noundef nonnull %5) #23
@@ -1292,15 +1292,15 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   br i1 %295, label %264, label %.critedge
 
 .critedge:                                        ; preds = %264, %293, %258
-  %.not412 = icmp eq ptr %.2326, null
+  %.not412 = icmp eq ptr %.5329, null
   br i1 %.not412, label %376, label %296
 
 296:                                              ; preds = %.critedge
-  %297 = call i32 @zend_eval_string_ex(ptr noundef nonnull %.2326, ptr noundef null, ptr noundef nonnull @.str.85, i1 noundef zeroext true) #23
+  %297 = call i32 @zend_eval_string_ex(ptr noundef nonnull %.5329, ptr noundef null, ptr noundef nonnull @.str.85, i1 noundef zeroext true) #23
   br label %376
 
 298:                                              ; preds = %.loopexit
-  %299 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.2301, ptr noundef nonnull dereferenceable(1) @.str.86) #25
+  %299 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.5304, ptr noundef nonnull dereferenceable(1) @.str.86) #25
   %.not407 = icmp eq ptr %299, null
   %reflection_function_ptr.reflection_method_ptr = select i1 %.not407, ptr @reflection_function_ptr, ptr @reflection_method_ptr
   br label %302
@@ -1314,7 +1314,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
 302:                                              ; preds = %.loopexit, %298, %300, %301
   %.0323.in = phi ptr [ @reflection_zend_extension_ptr, %301 ], [ @reflection_extension_ptr, %300 ], [ %reflection_function_ptr.reflection_method_ptr, %298 ], [ @reflection_class_ptr, %.loopexit ]
   %.0323 = load ptr, ptr %.0323.in, align 8
-  %303 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2301) #25
+  %303 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5304) #25
   %304 = and i64 %303, -8
   %305 = add i64 %304, 32
   %306 = call noalias ptr @_emalloc(i64 noundef %305) #28
@@ -1326,7 +1326,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   %309 = getelementptr inbounds i8, ptr %306, i64 16
   store i64 %303, ptr %309, align 8
   %310 = getelementptr inbounds i8, ptr %306, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %310, ptr align 1 %.2301, i64 %303, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %310, ptr align 1 %.5304, i64 %303, i1 false)
   %311 = getelementptr inbounds [1 x i8], ptr %310, i64 0, i64 %303
   store i8 0, ptr %311, align 1
   store ptr %306, ptr %14, align 8
@@ -1396,14 +1396,14 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   br label %376
 
 348:                                              ; preds = %.loopexit
-  %349 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2301) #25
-  %350 = call ptr @zend_str_tolower_dup(ptr noundef %.2301, i64 noundef %349) #23
+  %349 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5304) #25
+  %350 = call ptr @zend_str_tolower_dup(ptr noundef %.5304, i64 noundef %349) #23
   %351 = call ptr @zend_hash_str_find(ptr noundef nonnull @module_registry, ptr noundef %350, i64 noundef %349) #23
   %.not405 = icmp eq ptr %351, null
   br i1 %.not405, label %352, label %358
 
 352:                                              ; preds = %348
-  %353 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2301, ptr noundef nonnull dereferenceable(5) @.str.88) #25
+  %353 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.5304, ptr noundef nonnull dereferenceable(5) @.str.88) #25
   %.not406 = icmp eq i32 %353, 0
   br i1 %.not406, label %354, label %355
 
@@ -1413,7 +1413,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
 
 355:                                              ; preds = %352
   %356 = load ptr, ptr @zend_printf, align 8
-  %357 = call i64 (ptr, ...) %356(ptr noundef nonnull @.str.89, ptr noundef %.2301) #23
+  %357 = call i64 (ptr, ...) %356(ptr noundef nonnull @.str.89, ptr noundef %.5304) #23
   store i32 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
   br label %360
 
@@ -1447,32 +1447,32 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   br label %376
 
 376:                                              ; preds = %.loopexit, %239, %347, %360, %361, %220, %217, %229, %227, %296, %.critedge, %2
-  %.3364 = phi i32 [ %.2363, %.loopexit ], [ %.2363, %361 ], [ %.2363, %360 ], [ %.2363, %347 ], [ %.2363, %296 ], [ %.2363, %.critedge ], [ %.2363, %239 ], [ %.2363, %227 ], [ %.2363, %229 ], [ %.2363, %217 ], [ %.2363, %220 ], [ 1, %2 ]
-  %.3358 = phi i1 [ %.2357, %.loopexit ], [ %.2357, %361 ], [ %.2357, %360 ], [ %.2357, %347 ], [ %.2357, %296 ], [ %.2357, %.critedge ], [ %.2357, %239 ], [ %.2357, %227 ], [ %.2357, %229 ], [ %.2357, %217 ], [ %.2357, %220 ], [ false, %2 ]
-  %.3350 = phi i8 [ %.2349, %.loopexit ], [ %.2349, %361 ], [ %.2349, %360 ], [ %.2349, %347 ], [ %.2349, %296 ], [ %.2349, %.critedge ], [ %.2349, %239 ], [ %.2349, %227 ], [ %.2349, %229 ], [ %.2349, %217 ], [ %.2349, %220 ], [ 0, %2 ]
-  %.3342 = phi ptr [ %.2341, %.loopexit ], [ %.2341, %361 ], [ %.2341, %360 ], [ %.2341, %347 ], [ %.2341, %296 ], [ %.2341, %.critedge ], [ %.2341, %239 ], [ %.2341, %227 ], [ %.2341, %229 ], [ %.2341, %217 ], [ %.2341, %220 ], [ null, %2 ]
-  %.4334 = phi ptr [ %.3333422, %.loopexit ], [ %.3333422, %361 ], [ %.3333422, %360 ], [ %.3333422, %347 ], [ %.3333422, %296 ], [ %.3333422, %.critedge ], [ %.3333422, %239 ], [ %.3333422, %227 ], [ %.3333422, %229 ], [ %.3333422, %217 ], [ %.3333422, %220 ], [ null, %2 ]
-  %.3327 = phi ptr [ %.2326, %.loopexit ], [ %.2326, %361 ], [ %.2326, %360 ], [ %.2326, %347 ], [ %.2326, %296 ], [ null, %.critedge ], [ %.2326, %239 ], [ %.2326, %227 ], [ %.2326, %229 ], [ %.2326, %217 ], [ %.2326, %220 ], [ null, %2 ]
-  %.3320 = phi ptr [ %.2319, %.loopexit ], [ %.2319, %361 ], [ %.2319, %360 ], [ %.2319, %347 ], [ %.2319, %296 ], [ %.2319, %.critedge ], [ %.2319, %239 ], [ %.2319, %227 ], [ %.2319, %229 ], [ %.2319, %217 ], [ %.2319, %220 ], [ null, %2 ]
-  %.3314 = phi ptr [ %.2313, %.loopexit ], [ %.2313, %361 ], [ %.2313, %360 ], [ %.2313, %347 ], [ %.2313, %296 ], [ %.2313, %.critedge ], [ %.2313, %239 ], [ %.2313, %227 ], [ %.2313, %229 ], [ %.2313, %217 ], [ %.2313, %220 ], [ null, %2 ]
-  %.3308 = phi ptr [ %.2307, %.loopexit ], [ %.2307, %361 ], [ %.2307, %360 ], [ %.2307, %347 ], [ %.2307, %296 ], [ %.2307, %.critedge ], [ %.2307, %239 ], [ %.2307, %227 ], [ %.2307, %229 ], [ %.2307, %217 ], [ %.2307, %220 ], [ null, %2 ]
-  %.3302 = phi ptr [ %.2301, %.loopexit ], [ %.2301, %361 ], [ %.2301, %360 ], [ %.2301, %347 ], [ %.2301, %296 ], [ %.2301, %.critedge ], [ %.2301, %239 ], [ %.2301, %227 ], [ %.2301, %229 ], [ %.2301, %217 ], [ %.2301, %220 ], [ null, %2 ]
-  %.3 = phi i32 [ %.2, %.loopexit ], [ 13, %361 ], [ 11, %360 ], [ %.2, %347 ], [ 7, %296 ], [ 7, %.critedge ], [ 6, %239 ], [ 4, %227 ], [ 4, %229 ], [ 1, %217 ], [ 1, %220 ], [ 1, %2 ]
+  %.0361 = phi i32 [ %.5366, %.loopexit ], [ %.5366, %361 ], [ %.5366, %360 ], [ %.5366, %347 ], [ %.5366, %296 ], [ %.5366, %.critedge ], [ %.5366, %239 ], [ %.5366, %227 ], [ %.5366, %229 ], [ %.5366, %217 ], [ %.5366, %220 ], [ 1, %2 ]
+  %.0355 = phi i1 [ %.5360, %.loopexit ], [ %.5360, %361 ], [ %.5360, %360 ], [ %.5360, %347 ], [ %.5360, %296 ], [ %.5360, %.critedge ], [ %.5360, %239 ], [ %.5360, %227 ], [ %.5360, %229 ], [ %.5360, %217 ], [ %.5360, %220 ], [ false, %2 ]
+  %.0347 = phi i8 [ %.5352, %.loopexit ], [ %.5352, %361 ], [ %.5352, %360 ], [ %.5352, %347 ], [ %.5352, %296 ], [ %.5352, %.critedge ], [ %.5352, %239 ], [ %.5352, %227 ], [ %.5352, %229 ], [ %.5352, %217 ], [ %.5352, %220 ], [ 0, %2 ]
+  %.0339 = phi ptr [ %.5344, %.loopexit ], [ %.5344, %361 ], [ %.5344, %360 ], [ %.5344, %347 ], [ %.5344, %296 ], [ %.5344, %.critedge ], [ %.5344, %239 ], [ %.5344, %227 ], [ %.5344, %229 ], [ %.5344, %217 ], [ %.5344, %220 ], [ null, %2 ]
+  %.0330 = phi ptr [ %.6422, %.loopexit ], [ %.6422, %361 ], [ %.6422, %360 ], [ %.6422, %347 ], [ %.6422, %296 ], [ %.6422, %.critedge ], [ %.6422, %239 ], [ %.6422, %227 ], [ %.6422, %229 ], [ %.6422, %217 ], [ %.6422, %220 ], [ null, %2 ]
+  %.0324 = phi ptr [ %.5329, %.loopexit ], [ %.5329, %361 ], [ %.5329, %360 ], [ %.5329, %347 ], [ %.5329, %296 ], [ null, %.critedge ], [ %.5329, %239 ], [ %.5329, %227 ], [ %.5329, %229 ], [ %.5329, %217 ], [ %.5329, %220 ], [ null, %2 ]
+  %.0317 = phi ptr [ %.5322, %.loopexit ], [ %.5322, %361 ], [ %.5322, %360 ], [ %.5322, %347 ], [ %.5322, %296 ], [ %.5322, %.critedge ], [ %.5322, %239 ], [ %.5322, %227 ], [ %.5322, %229 ], [ %.5322, %217 ], [ %.5322, %220 ], [ null, %2 ]
+  %.0311 = phi ptr [ %.5316, %.loopexit ], [ %.5316, %361 ], [ %.5316, %360 ], [ %.5316, %347 ], [ %.5316, %296 ], [ %.5316, %.critedge ], [ %.5316, %239 ], [ %.5316, %227 ], [ %.5316, %229 ], [ %.5316, %217 ], [ %.5316, %220 ], [ null, %2 ]
+  %.0305 = phi ptr [ %.5310, %.loopexit ], [ %.5310, %361 ], [ %.5310, %360 ], [ %.5310, %347 ], [ %.5310, %296 ], [ %.5310, %.critedge ], [ %.5310, %239 ], [ %.5310, %227 ], [ %.5310, %229 ], [ %.5310, %217 ], [ %.5310, %220 ], [ null, %2 ]
+  %.0299 = phi ptr [ %.5304, %.loopexit ], [ %.5304, %361 ], [ %.5304, %360 ], [ %.5304, %347 ], [ %.5304, %296 ], [ %.5304, %.critedge ], [ %.5304, %239 ], [ %.5304, %227 ], [ %.5304, %229 ], [ %.5304, %217 ], [ %.5304, %220 ], [ null, %2 ]
+  %.0298 = phi i32 [ %.5, %.loopexit ], [ 13, %361 ], [ 11, %360 ], [ %.5, %347 ], [ 7, %296 ], [ 7, %.critedge ], [ 6, %239 ], [ 4, %227 ], [ 4, %229 ], [ 1, %217 ], [ 1, %220 ], [ 1, %2 ]
   store ptr %20, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %377
 
 377:                                              ; preds = %235, %238, %231, %234, %413, %376, %print_modules.exit, %30, %29
-  %.4365 = phi i32 [ %.5366, %413 ], [ %.3364, %376 ], [ 1, %print_modules.exit ], [ 1, %30 ], [ 1, %29 ], [ %.2363, %234 ], [ %.2363, %231 ], [ %.2363, %238 ], [ %.2363, %235 ]
-  %.4359 = phi i1 [ %.5360, %413 ], [ %.3358, %376 ], [ false, %print_modules.exit ], [ false, %30 ], [ false, %29 ], [ %.2357, %234 ], [ %.2357, %231 ], [ %.2357, %238 ], [ %.2357, %235 ]
-  %.4351 = phi i8 [ %.5352, %413 ], [ %.3350, %376 ], [ 0, %print_modules.exit ], [ 0, %30 ], [ 0, %29 ], [ %.2349, %234 ], [ %.2349, %231 ], [ %.2349, %238 ], [ %.2349, %235 ]
-  %.4343 = phi ptr [ %.6345, %413 ], [ %.3342, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.2341, %234 ], [ %.2341, %231 ], [ %.2341, %238 ], [ %.2341, %235 ]
-  %.5335 = phi ptr [ %.6, %413 ], [ %.4334, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.3333422, %234 ], [ %.3333422, %231 ], [ %.3333422, %238 ], [ %.3333422, %235 ]
-  %.4328 = phi ptr [ %.5329, %413 ], [ %.3327, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.2326, %234 ], [ %.2326, %231 ], [ %.2326, %238 ], [ %.2326, %235 ]
-  %.4321 = phi ptr [ %.5322, %413 ], [ %.3320, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.2319, %234 ], [ %.2319, %231 ], [ %.2319, %238 ], [ %.2319, %235 ]
-  %.4315 = phi ptr [ %.5316, %413 ], [ %.3314, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.2313, %234 ], [ %.2313, %231 ], [ %.2313, %238 ], [ %.2313, %235 ]
-  %.4309 = phi ptr [ %.5310, %413 ], [ %.3308, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.2307, %234 ], [ %.2307, %231 ], [ %.2307, %238 ], [ %.2307, %235 ]
-  %.4303 = phi ptr [ %.5304, %413 ], [ %.3302, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.2301, %234 ], [ %.2301, %231 ], [ %.2301, %238 ], [ %.2301, %235 ]
-  %.4 = phi i32 [ %.5, %413 ], [ %.3, %376 ], [ 1, %print_modules.exit ], [ 1, %30 ], [ 1, %29 ], [ 5, %234 ], [ 5, %231 ], [ 2, %238 ], [ 2, %235 ]
+  %.2363 = phi i32 [ %.1362, %413 ], [ %.0361, %376 ], [ 1, %print_modules.exit ], [ 1, %30 ], [ 1, %29 ], [ %.5366, %234 ], [ %.5366, %231 ], [ %.5366, %238 ], [ %.5366, %235 ]
+  %.2357 = phi i1 [ %.1356, %413 ], [ %.0355, %376 ], [ false, %print_modules.exit ], [ false, %30 ], [ false, %29 ], [ %.5360, %234 ], [ %.5360, %231 ], [ %.5360, %238 ], [ %.5360, %235 ]
+  %.2349 = phi i8 [ %.1348, %413 ], [ %.0347, %376 ], [ 0, %print_modules.exit ], [ 0, %30 ], [ 0, %29 ], [ %.5352, %234 ], [ %.5352, %231 ], [ %.5352, %238 ], [ %.5352, %235 ]
+  %.2341 = phi ptr [ %.1340, %413 ], [ %.0339, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.5344, %234 ], [ %.5344, %231 ], [ %.5344, %238 ], [ %.5344, %235 ]
+  %.2332 = phi ptr [ %.1331, %413 ], [ %.0330, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.6422, %234 ], [ %.6422, %231 ], [ %.6422, %238 ], [ %.6422, %235 ]
+  %.2326 = phi ptr [ %.1325, %413 ], [ %.0324, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.5329, %234 ], [ %.5329, %231 ], [ %.5329, %238 ], [ %.5329, %235 ]
+  %.2319 = phi ptr [ %.1318, %413 ], [ %.0317, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.5322, %234 ], [ %.5322, %231 ], [ %.5322, %238 ], [ %.5322, %235 ]
+  %.2313 = phi ptr [ %.1312, %413 ], [ %.0311, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.5316, %234 ], [ %.5316, %231 ], [ %.5316, %238 ], [ %.5316, %235 ]
+  %.2307 = phi ptr [ %.1306, %413 ], [ %.0305, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.5310, %234 ], [ %.5310, %231 ], [ %.5310, %238 ], [ %.5310, %235 ]
+  %.2301 = phi ptr [ %.1300, %413 ], [ %.0299, %376 ], [ null, %print_modules.exit ], [ null, %30 ], [ null, %29 ], [ %.5304, %234 ], [ %.5304, %231 ], [ %.5304, %238 ], [ %.5304, %235 ]
+  %.2 = phi i32 [ %.1, %413 ], [ %.0298, %376 ], [ 1, %print_modules.exit ], [ 1, %30 ], [ 1, %29 ], [ 5, %234 ], [ 5, %231 ], [ 2, %238 ], [ 2, %235 ]
   %378 = load ptr, ptr %19, align 8
   %.not391 = icmp eq ptr %378, null
   br i1 %.not391, label %380, label %379
@@ -1492,15 +1492,15 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
   br label %382
 
 382:                                              ; preds = %381, %380
-  %.not393 = icmp eq ptr %.4343, null
+  %.not393 = icmp eq ptr %.2341, null
   br i1 %.not393, label %384, label %383
 
 383:                                              ; preds = %382
-  call void @free(ptr noundef nonnull %.4343) #23
+  call void @free(ptr noundef nonnull %.2341) #23
   br label %384
 
 384:                                              ; preds = %383, %382
-  %385 = icmp eq i32 %.4, 4
+  %385 = icmp eq i32 %.2, 4
   br i1 %385, label %386, label %403
 
 386:                                              ; preds = %384
@@ -1538,7 +1538,7 @@ sub_2431:                                         ; preds = %sub_1430
   br i1 %.not394, label %403, label %147
 
 403:                                              ; preds = %.tail428, %386, %384
-  %404 = add nsw i32 %.4365, -1
+  %404 = add nsw i32 %.2363, -1
   %.not395 = icmp eq i32 %404, 0
   br i1 %.not395, label %411, label %405
 
@@ -1557,17 +1557,17 @@ sub_2431:                                         ; preds = %sub_1430
   ret i32 %412
 
 413:                                              ; preds = %cli_seek_file_begin.exit.thread, %34, %26, %202, %132
-  %.5366 = phi i32 [ 1, %34 ], [ %.2363, %202 ], [ 1, %26 ], [ %.0361, %132 ], [ %.2363, %cli_seek_file_begin.exit.thread ]
-  %.5360 = phi i1 [ false, %34 ], [ %.2357, %202 ], [ false, %26 ], [ %.0355, %132 ], [ %.2357, %cli_seek_file_begin.exit.thread ]
-  %.5352 = phi i8 [ 0, %34 ], [ %.2349, %202 ], [ 0, %26 ], [ %.0347, %132 ], [ %.2349, %cli_seek_file_begin.exit.thread ]
-  %.6345 = phi ptr [ null, %34 ], [ %.2341, %202 ], [ null, %26 ], [ null, %132 ], [ null, %cli_seek_file_begin.exit.thread ]
-  %.6 = phi ptr [ null, %34 ], [ %.3333422, %202 ], [ null, %26 ], [ %.0330, %132 ], [ %.3333, %cli_seek_file_begin.exit.thread ]
-  %.5329 = phi ptr [ null, %34 ], [ %.2326, %202 ], [ null, %26 ], [ %.0324, %132 ], [ %.2326, %cli_seek_file_begin.exit.thread ]
-  %.5322 = phi ptr [ null, %34 ], [ %.2319, %202 ], [ null, %26 ], [ %.0317, %132 ], [ %.2319, %cli_seek_file_begin.exit.thread ]
-  %.5316 = phi ptr [ null, %34 ], [ %.2313, %202 ], [ null, %26 ], [ %.0311, %132 ], [ %.2313, %cli_seek_file_begin.exit.thread ]
-  %.5310 = phi ptr [ null, %34 ], [ %.2307, %202 ], [ null, %26 ], [ %.0305, %132 ], [ %.2307, %cli_seek_file_begin.exit.thread ]
-  %.5304 = phi ptr [ null, %34 ], [ %.2301, %202 ], [ null, %26 ], [ %.0299, %132 ], [ %.2301, %cli_seek_file_begin.exit.thread ]
-  %.5 = phi i32 [ 1, %34 ], [ %.2, %202 ], [ 1, %26 ], [ %.0298, %132 ], [ %.2, %cli_seek_file_begin.exit.thread ]
+  %.1362 = phi i32 [ 1, %34 ], [ %.5366, %202 ], [ 1, %26 ], [ %.3364, %132 ], [ %.5366, %cli_seek_file_begin.exit.thread ]
+  %.1356 = phi i1 [ false, %34 ], [ %.5360, %202 ], [ false, %26 ], [ %.3358, %132 ], [ %.5360, %cli_seek_file_begin.exit.thread ]
+  %.1348 = phi i8 [ 0, %34 ], [ %.5352, %202 ], [ 0, %26 ], [ %.3350, %132 ], [ %.5352, %cli_seek_file_begin.exit.thread ]
+  %.1340 = phi ptr [ null, %34 ], [ %.5344, %202 ], [ null, %26 ], [ null, %132 ], [ null, %cli_seek_file_begin.exit.thread ]
+  %.1331 = phi ptr [ null, %34 ], [ %.6422, %202 ], [ null, %26 ], [ %.3333, %132 ], [ %.6, %cli_seek_file_begin.exit.thread ]
+  %.1325 = phi ptr [ null, %34 ], [ %.5329, %202 ], [ null, %26 ], [ %.3327, %132 ], [ %.5329, %cli_seek_file_begin.exit.thread ]
+  %.1318 = phi ptr [ null, %34 ], [ %.5322, %202 ], [ null, %26 ], [ %.3320, %132 ], [ %.5322, %cli_seek_file_begin.exit.thread ]
+  %.1312 = phi ptr [ null, %34 ], [ %.5316, %202 ], [ null, %26 ], [ %.3314, %132 ], [ %.5316, %cli_seek_file_begin.exit.thread ]
+  %.1306 = phi ptr [ null, %34 ], [ %.5310, %202 ], [ null, %26 ], [ %.3308, %132 ], [ %.5310, %cli_seek_file_begin.exit.thread ]
+  %.1300 = phi ptr [ null, %34 ], [ %.5304, %202 ], [ null, %26 ], [ %.3302, %132 ], [ %.5304, %cli_seek_file_begin.exit.thread ]
+  %.1 = phi i32 [ 1, %34 ], [ %.5, %202 ], [ 1, %26 ], [ %.3, %132 ], [ %.5, %cli_seek_file_begin.exit.thread ]
   call void @sapi_deactivate() #23
   call void @zend_ini_deactivate() #23
   store i32 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4

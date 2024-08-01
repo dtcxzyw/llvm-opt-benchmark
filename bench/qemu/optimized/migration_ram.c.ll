@@ -377,7 +377,7 @@ while.end11:                                      ; preds = %for.body, %migrate_
   br i1 %tobool.not, label %if.then.i.i, label %for.body, !llvm.loop !8
 
 if.then.i.i:                                      ; preds = %if.else, %while.end11, %rcu_read_auto_lock.exit
-  %ret.2 = phi i32 [ 0, %rcu_read_auto_lock.exit ], [ 0, %while.end11 ], [ %call2, %if.else ]
+  %ret.1 = phi i32 [ 0, %rcu_read_auto_lock.exit ], [ 0, %while.end11 ], [ %call2, %if.else ]
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %4 = load i32, ptr %depth.i.i.i.i, align 4
@@ -409,7 +409,7 @@ while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
-  ret i32 %ret.2
+  ret i32 %ret.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1573,7 +1573,7 @@ for.end64:                                        ; preds = %while.end60, %fail
   br label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %while.end27, %rcu_read_auto_lock.exit, %for.end64
-  %retval.0 = phi i32 [ -1, %for.end64 ], [ 0, %rcu_read_auto_lock.exit ], [ 0, %while.end27 ]
+  %retval.1 = phi i32 [ -1, %for.end64 ], [ 0, %rcu_read_auto_lock.exit ], [ 0, %while.end27 ]
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %38 = load i32, ptr %depth.i.i.i.i, align 4
@@ -1605,8 +1605,8 @@ while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i, %entry
-  %retval.1 = phi i32 [ %call, %entry ], [ %retval.0, %if.end.i.i.i.i ], [ %retval.0, %while.end.i.i.i.i ], [ %retval.0, %while.end21.i.i.i.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call, %entry ], [ %retval.1, %if.end.i.i.i.i ], [ %retval.1, %while.end.i.i.i.i ], [ %retval.1, %while.end21.i.i.i.i ]
+  ret i32 %retval.0
 }
 
 declare void @memory_region_ref(ptr noundef) local_unnamed_addr #1
@@ -3840,7 +3840,7 @@ if.else.i:                                        ; preds = %for.end.i
 
 for.body54.i:                                     ; preds = %for.cond51.preheader.i, %for.inc68.i
   %addr.046.i = phi i64 [ %add69.i, %for.inc68.i ], [ 0, %for.cond51.preheader.i ]
-  %num_dirty.245.i = phi i64 [ %num_dirty.3.i, %for.inc68.i ], [ 0, %for.cond51.preheader.i ]
+  %num_dirty.345.i = phi i64 [ %num_dirty.4.i, %for.inc68.i ], [ 0, %for.cond51.preheader.i ]
   %add56.i = add i64 %addr.046.i, %1
   %call57.i = tail call zeroext i1 @cpu_physical_memory_test_and_clear_dirty(i64 noundef %add56.i, i64 noundef 4096, i32 noundef 2) #18
   br i1 %call57.i, label %if.then58.i, label %for.inc68.i
@@ -3857,24 +3857,24 @@ if.then58.i:                                      ; preds = %for.body54.i
   %17 = xor i64 %16, -1
   %18 = lshr i64 %17, %rem.i.i
   %inc65.i = and i64 %18, 1
-  %spec.select42.i = add i64 %inc65.i, %num_dirty.245.i
+  %spec.select42.i = add i64 %inc65.i, %num_dirty.345.i
   br label %for.inc68.i
 
 for.inc68.i:                                      ; preds = %if.then58.i, %for.body54.i
-  %num_dirty.3.i = phi i64 [ %num_dirty.245.i, %for.body54.i ], [ %spec.select42.i, %if.then58.i ]
+  %num_dirty.4.i = phi i64 [ %num_dirty.345.i, %for.body54.i ], [ %spec.select42.i, %if.then58.i ]
   %add69.i = add i64 %addr.046.i, 4096
   %cmp52.i = icmp ult i64 %add69.i, %0
   br i1 %cmp52.i, label %for.body54.i, label %cpu_physical_memory_sync_dirty_bitmap.exit, !llvm.loop !66
 
 cpu_physical_memory_sync_dirty_bitmap.exit:       ; preds = %for.inc68.i, %for.cond51.preheader.i, %if.then44.i, %if.else.i
-  %num_dirty.4.i = phi i64 [ %num_dirty.0.lcssa.i, %if.then44.i ], [ %num_dirty.0.lcssa.i, %if.else.i ], [ 0, %for.cond51.preheader.i ], [ %num_dirty.3.i, %for.inc68.i ]
+  %num_dirty.2.i = phi i64 [ %num_dirty.0.lcssa.i, %if.then44.i ], [ %num_dirty.0.lcssa.i, %if.else.i ], [ 0, %for.cond51.preheader.i ], [ %num_dirty.4.i, %for.inc68.i ]
   %migration_dirty_pages = getelementptr inbounds i8, ptr %rs, i64 224
   %19 = load i64, ptr %migration_dirty_pages, align 8
-  %add = add i64 %19, %num_dirty.4.i
+  %add = add i64 %19, %num_dirty.2.i
   store i64 %add, ptr %migration_dirty_pages, align 8
   %num_dirty_pages_period = getelementptr inbounds i8, ptr %rs, i64 168
   %20 = load i64, ptr %num_dirty_pages_period, align 8
-  %add1 = add i64 %20, %num_dirty.4.i
+  %add1 = add i64 %20, %num_dirty.2.i
   store i64 %add1, ptr %num_dirty_pages_period, align 8
   ret void
 }
@@ -4282,7 +4282,7 @@ if.end35:                                         ; preds = %if.else, %if.then24
 
 if.end44:                                         ; preds = %if.end35, %trace_ram_load_postcopy_loop.exit
   %matches_target_page_size.1 = phi i8 [ %frombool, %if.end35 ], [ %matches_target_page_size.092, %trace_ram_load_postcopy_loop.exit ]
-  %place_needed.2 = phi i1 [ %spec.select, %if.end35 ], [ %place_needed.093, %trace_ram_load_postcopy_loop.exit ]
+  %place_needed.1 = phi i1 [ %spec.select, %if.end35 ], [ %place_needed.093, %trace_ram_load_postcopy_loop.exit ]
   %page_buffer.0 = phi ptr [ %add.ptr, %if.end35 ], [ null, %trace_ram_load_postcopy_loop.exit ]
   %block.0 = phi ptr [ %call10, %if.end35 ], [ null, %trace_ram_load_postcopy_loop.exit ]
   %and45 = and i32 %1, 4063
@@ -4367,17 +4367,17 @@ sw.default:                                       ; preds = %if.end44
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb78, %land.lhs.true, %if.then83, %if.then60, %if.else62, %if.end53, %if.then55, %sw.default, %sw.bb77, %if.end76, %if.then75, %if.then51
-  %ret.1 = phi i32 [ -22, %sw.default ], [ 0, %if.then83 ], [ 0, %land.lhs.true ], [ 0, %sw.bb78 ], [ 0, %sw.bb77 ], [ -22, %if.then75 ], [ 0, %if.end76 ], [ 0, %if.else62 ], [ 0, %if.then60 ], [ -22, %if.then51 ], [ 0, %if.end53 ], [ 0, %if.then55 ]
-  br i1 %place_needed.2, label %if.then86, label %if.end88
+  %ret.2 = phi i32 [ -22, %sw.default ], [ 0, %if.then83 ], [ 0, %land.lhs.true ], [ 0, %sw.bb78 ], [ 0, %sw.bb77 ], [ -22, %if.then75 ], [ 0, %if.end76 ], [ 0, %if.else62 ], [ 0, %if.then60 ], [ -22, %if.then51 ], [ 0, %if.end53 ], [ 0, %if.then55 ]
+  br i1 %place_needed.1, label %if.then86, label %if.end88
 
 if.then86:                                        ; preds = %sw.epilog
   %call87 = call i32 @wait_for_decompress_done() #18
-  %or = or i32 %call87, %ret.1
+  %or = or i32 %call87, %ret.2
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then86, %sw.epilog
-  %ret.2 = phi i32 [ %or, %if.then86 ], [ %ret.1, %sw.epilog ]
-  %tobool89.not = icmp eq i32 %ret.2, 0
+  %ret.3 = phi i32 [ %or, %if.then86 ], [ %ret.2, %sw.epilog ]
+  %tobool89.not = icmp eq i32 %ret.3, 0
   br i1 %tobool89.not, label %land.lhs.true90, label %if.end110
 
 land.lhs.true90:                                  ; preds = %if.end88
@@ -4390,9 +4390,9 @@ if.then93:                                        ; preds = %land.lhs.true90
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then93, %land.lhs.true90
-  %ret.3 = phi i32 [ %call94, %if.then93 ], [ 0, %land.lhs.true90 ]
-  %tobool96.not = icmp eq i32 %ret.3, 0
-  %brmerge.not = and i1 %place_needed.2, %tobool96.not
+  %ret.4 = phi i32 [ %call94, %if.then93 ], [ 0, %land.lhs.true90 ]
+  %tobool96.not = icmp eq i32 %ret.4, 0
+  %brmerge.not = and i1 %place_needed.1, %tobool96.not
   br i1 %brmerge.not, label %if.then100, label %if.end110
 
 if.then100:                                       ; preds = %if.end95
@@ -4411,21 +4411,21 @@ if.else106:                                       ; preds = %if.then100
   br label %if.end109
 
 if.end109:                                        ; preds = %if.else106, %if.then103
-  %ret.4 = phi i32 [ %call105, %if.then103 ], [ %call108, %if.else106 ]
+  %ret.6 = phi i32 [ %call105, %if.then103 ], [ %call108, %if.else106 ]
   call void @postcopy_temp_page_reset(ptr noundef %arrayidx) #18
   br label %if.end110
 
 if.end110:                                        ; preds = %if.end88, %if.end95, %if.end109
-  %place_needed.3 = phi i1 [ %place_needed.2, %if.end95 ], [ false, %if.end109 ], [ %place_needed.2, %if.end88 ]
-  %ret.5 = phi i32 [ %ret.3, %if.end95 ], [ %ret.4, %if.end109 ], [ %ret.2, %if.end88 ]
+  %place_needed.3 = phi i1 [ %place_needed.1, %if.end95 ], [ false, %if.end109 ], [ %place_needed.1, %if.end88 ]
+  %ret.5 = phi i32 [ %ret.4, %if.end95 ], [ %ret.6, %if.end109 ], [ %ret.3, %if.end88 ]
   %and = and i32 %1, 16
   %25 = or i32 %and, %ret.5
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %while.body, label %while.end, !llvm.loop !74
 
 while.end:                                        ; preds = %if.then9, %while.body, %if.end110, %if.then30, %if.then16
-  %ret.6 = phi i32 [ -22, %if.then16 ], [ -22, %if.then30 ], [ -22, %if.then9 ], [ %ret.5, %if.end110 ], [ %call3, %while.body ]
-  ret i32 %ret.6
+  %ret.1 = phi i32 [ -22, %if.then16 ], [ -22, %if.then30 ], [ -22, %if.then9 ], [ %ret.5, %if.end110 ], [ %call3, %while.body ]
+  ret i32 %ret.1
 }
 
 declare ptr @migration_incoming_get_current() local_unnamed_addr #1
@@ -6800,7 +6800,7 @@ if.end45:                                         ; preds = %if.then39, %if.end3
   br label %while.cond, !llvm.loop !102
 
 for.inc:                                          ; preds = %if.end23, %lor.rhs, %while.body, %if.then31, %trace_ram_save_iterate_big_wait.exit
-  %done.2 = phi i32 [ 0, %if.then31 ], [ 0, %trace_ram_save_iterate_big_wait.exit ], [ 0, %while.body ], [ 0, %lor.rhs ], [ 1, %if.end23 ]
+  %done.4 = phi i32 [ 0, %if.then31 ], [ 0, %trace_ram_save_iterate_big_wait.exit ], [ 0, %while.body ], [ 0, %lor.rhs ], [ 1, %if.end23 ]
   %call.i.i32 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i33 = getelementptr inbounds i8, ptr %call.i.i32, i64 12
   %16 = load i32, ptr %depth.i.i33, align 4
@@ -6836,7 +6836,7 @@ qemu_lockable_auto_unlock.exit:                   ; preds = %while.end21.i.i, %w
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %qemu_lockable_auto_unlock.exit, %entry
-  %done.4 = phi i32 [ 0, %entry ], [ %done.2, %qemu_lockable_auto_unlock.exit ]
+  %done.0 = phi i32 [ 0, %entry ], [ %done.4, %qemu_lockable_auto_unlock.exit ]
   %call57 = tail call ptr @migrate_get_current() #18
   %state = getelementptr inbounds i8, ptr %call57, i64 776
   %18 = load i32, ptr %state, align 8
@@ -6873,11 +6873,11 @@ if.end74:                                         ; preds = %if.else.i, %if.end7
   %call73 = tail call i32 @qemu_fflush(ptr noundef %f) #18
   %call73.fr = freeze i32 %call73
   %cmp75 = icmp slt i32 %call73.fr, 0
-  %spec.select = select i1 %cmp75, i32 %call73.fr, i32 %done.4
+  %spec.select = select i1 %cmp75, i32 %call73.fr, i32 %done.0
   br label %return
 
 return:                                           ; preds = %if.end74, %land.lhs.true, %if.then66
-  %retval.0 = phi i32 [ %call67, %if.then66 ], [ %done.4, %land.lhs.true ], [ %spec.select, %if.end74 ]
+  %retval.0 = phi i32 [ %call67, %if.then66 ], [ %done.0, %land.lhs.true ], [ %spec.select, %if.end74 ]
   ret i32 %retval.0
 }
 
@@ -7128,7 +7128,7 @@ for.body:                                         ; preds = %rcu_read_auto_lock.
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end93.i, %for.body
-  %ret.0119.i = phi i32 [ 0, %for.body ], [ %ret.2105.i, %if.end93.i ]
+  %ret.0119.i = phi i32 [ 0, %for.body ], [ %ret.3105.i, %if.end93.i ]
   %i.0118.i = phi i32 [ 0, %for.body ], [ %inc.i, %if.end93.i ]
   %and3.i = and i32 %i.0118.i, 32767
   %cmp.i = icmp eq i32 %and3.i, 0
@@ -7279,9 +7279,9 @@ if.end2.i72.i:                                    ; preds = %if.end.i69.i
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.end2.i72.i, %if.then1.i74.i, %offset_in_ramblock.exit.i65.i, %land.lhs.true.i.i62.i, %if.else.i, %if.end2.i.i, %host_from_ram_block_offset.exit.i
-  %host.0.i = phi ptr [ %retval.0.i.i, %host_from_ram_block_offset.exit.i ], [ %add.ptr.i60.i, %if.end2.i.i ], [ %retval.0.i.i, %if.else.i ], [ %retval.0.i.i, %land.lhs.true.i.i62.i ], [ %retval.0.i.i, %offset_in_ramblock.exit.i65.i ], [ %retval.0.i.i, %if.then1.i74.i ], [ %retval.0.i.i, %if.end2.i72.i ]
-  %host_bak.0.i = phi ptr [ null, %host_from_ram_block_offset.exit.i ], [ null, %if.end2.i.i ], [ null, %if.else.i ], [ null, %land.lhs.true.i.i62.i ], [ null, %offset_in_ramblock.exit.i65.i ], [ null, %if.then1.i74.i ], [ %add.ptr.i73.i, %if.end2.i72.i ]
-  %tobool34.not.i = icmp eq ptr %host.0.i, null
+  %host.1.i = phi ptr [ %retval.0.i.i, %host_from_ram_block_offset.exit.i ], [ %add.ptr.i60.i, %if.end2.i.i ], [ %retval.0.i.i, %if.else.i ], [ %retval.0.i.i, %land.lhs.true.i.i62.i ], [ %retval.0.i.i, %offset_in_ramblock.exit.i65.i ], [ %retval.0.i.i, %if.then1.i74.i ], [ %retval.0.i.i, %if.end2.i72.i ]
+  %host_bak.1.i = phi ptr [ null, %host_from_ram_block_offset.exit.i ], [ null, %if.end2.i.i ], [ null, %if.else.i ], [ null, %land.lhs.true.i.i62.i ], [ null, %offset_in_ramblock.exit.i65.i ], [ null, %if.then1.i74.i ], [ %add.ptr.i73.i, %if.end2.i72.i ]
+  %tobool34.not.i = icmp eq ptr %host.1.i, null
   br i1 %tobool34.not.i, label %if.then35.i, label %if.end36.i
 
 if.then35.i:                                      ; preds = %if.end33.i, %offset_in_ramblock.exit.i56.i, %land.lhs.true.i.i53.i, %if.then29.i, %if.then1.i.i
@@ -7295,7 +7295,7 @@ if.end36.i:                                       ; preds = %if.end33.i
 if.then38.i:                                      ; preds = %if.end36.i
   %32 = getelementptr i8, ptr %call24.i, i64 24
   %rb.val.i.i = load ptr, ptr %32, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %host.0.i to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %host.1.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %rb.val.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %shr.i.i77.i = lshr i64 %sub.ptr.sub.i.i.i, 12
@@ -7334,11 +7334,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call10.i.i.i = call i32 @qemu_get_thread_id() #18
   %39 = load i64, ptr %_now.i.i.i, align 8
   %40 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i.i, i64 noundef %39, i64 noundef %40, ptr noundef nonnull %idstr.i, i64 noundef %and11.i, i32 noundef %conv.i, ptr noundef nonnull %host.0.i) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i.i, i64 noundef %39, i64 noundef %40, ptr noundef nonnull %idstr.i, i64 noundef %and11.i, i32 noundef %conv.i, ptr noundef nonnull %host.1.i) #18
   br label %trace_ram_load_loop.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, ptr noundef nonnull %idstr.i, i64 noundef %and11.i, i32 noundef %conv.i, ptr noundef nonnull %host.0.i) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, ptr noundef nonnull %idstr.i, i64 noundef %and11.i, i32 noundef %conv.i, ptr noundef nonnull %host.1.i) #18
   br label %trace_ram_load_loop.exit.i
 
 trace_ram_load_loop.exit.i:                       ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end39.i
@@ -7346,8 +7346,8 @@ trace_ram_load_loop.exit.i:                       ; preds = %if.else.i.i.i, %if.
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %trace_ram_load_loop.exit.i, %if.end20.i
-  %host.1.i = phi ptr [ %host.0.i, %trace_ram_load_loop.exit.i ], [ null, %if.end20.i ]
-  %host_bak.1.i = phi ptr [ %host_bak.0.i, %trace_ram_load_loop.exit.i ], [ null, %if.end20.i ]
+  %host.0.i = phi ptr [ %host.1.i, %trace_ram_load_loop.exit.i ], [ null, %if.end20.i ]
+  %host_bak.0.i = phi ptr [ %host_bak.1.i, %trace_ram_load_loop.exit.i ], [ null, %if.end20.i ]
   %and41.i = and i32 %14, 4063
   switch i32 %and41.i, label %sw.default.i [
     i32 4, label %sw.bb.i
@@ -7497,15 +7497,15 @@ if.then49.i:                                      ; preds = %sw.bb43.i
   br label %if.end93.i
 
 if.end51.i:                                       ; preds = %sw.bb43.i
-  %call.i82.i = call zeroext i1 @buffer_is_zero(ptr noundef %host.1.i, i64 noundef 4096) #18
+  %call.i82.i = call zeroext i1 @buffer_is_zero(ptr noundef %host.0.i, i64 noundef 4096) #18
   br i1 %call.i82.i, label %sw.epilog.i, label %if.then.i83.i
 
 if.then.i83.i:                                    ; preds = %if.end51.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %host.1.i, i8 0, i64 4096, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %host.0.i, i8 0, i64 4096, i1 false)
   br label %sw.epilog.i
 
 sw.bb52.i:                                        ; preds = %if.end40.i
-  %call53.i = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %host.1.i, i64 noundef 4096) #18
+  %call53.i = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %host.0.i, i64 noundef 4096) #18
   br label %sw.epilog.i
 
 sw.bb54.i:                                        ; preds = %if.end40.i
@@ -7524,7 +7524,7 @@ if.then62.i:                                      ; preds = %lor.lhs.false.i, %s
   br label %if.end93.i
 
 if.end63.i:                                       ; preds = %lor.lhs.false.i
-  call void @decompress_data_with_multi_threads(ptr noundef %f, ptr noundef %host.1.i, i32 noundef %call55.i) #18
+  call void @decompress_data_with_multi_threads(ptr noundef %f, ptr noundef %host.0.i, i32 noundef %call55.i) #18
   br label %sw.epilog.i
 
 sw.bb64.i:                                        ; preds = %if.end40.i
@@ -7544,7 +7544,7 @@ if.end4.i.i:                                      ; preds = %if.end.i88.i
   %conv.i89.i = zext nneg i32 %call1.i.i to i64
   %call5.i90.i = call i64 @qemu_get_buffer_in_place(ptr noundef %f, ptr noundef nonnull %loaded_data.i.i, i64 noundef %conv.i89.i) #18
   %50 = load ptr, ptr %loaded_data.i.i, align 8
-  %call6.i.i = call i32 @xbzrle_decode_buffer(ptr noundef %50, i32 noundef %call1.i.i, ptr noundef %host.1.i, i32 noundef 4096) #18
+  %call6.i.i = call i32 @xbzrle_decode_buffer(ptr noundef %50, i32 noundef %call1.i.i, ptr noundef %host.0.i, i32 noundef 4096) #18
   %cmp7.i.i = icmp eq i32 %call6.i.i, -1
   br i1 %cmp7.i.i, label %if.then68.i, label %load_xbzrle.exit.i
 
@@ -7580,30 +7580,30 @@ sw.default.i:                                     ; preds = %if.end40.i
   br label %if.end93.i
 
 sw.epilog.i:                                      ; preds = %if.then77.i, %land.lhs.true74.i, %sw.bb71.i, %sw.bb70.i, %load_xbzrle.exit.i, %if.end63.i, %sw.bb52.i, %if.then.i83.i, %if.end51.i, %parse_ramblocks.exit.i
-  %ret.1.i = phi i32 [ %ret.0119.i, %if.then77.i ], [ %ret.0119.i, %land.lhs.true74.i ], [ %ret.0119.i, %sw.bb71.i ], [ %ret.0119.i, %sw.bb70.i ], [ %ret.0119.i, %load_xbzrle.exit.i ], [ %ret.0119.i, %if.end63.i ], [ %ret.0119.i, %sw.bb52.i ], [ %ret.0.lcssa.i.i, %parse_ramblocks.exit.i ], [ %ret.0119.i, %if.end51.i ], [ %ret.0119.i, %if.then.i83.i ]
-  %tobool85.not.i = icmp eq i32 %ret.1.i, 0
+  %ret.2.i = phi i32 [ %ret.0119.i, %if.then77.i ], [ %ret.0119.i, %land.lhs.true74.i ], [ %ret.0119.i, %sw.bb71.i ], [ %ret.0119.i, %sw.bb70.i ], [ %ret.0119.i, %load_xbzrle.exit.i ], [ %ret.0119.i, %if.end63.i ], [ %ret.0119.i, %sw.bb52.i ], [ %ret.0.lcssa.i.i, %parse_ramblocks.exit.i ], [ %ret.0119.i, %if.end51.i ], [ %ret.0119.i, %if.then.i83.i ]
+  %tobool85.not.i = icmp eq i32 %ret.2.i, 0
   br i1 %tobool85.not.i, label %if.end88.i, label %if.end93.i
 
 if.end88.i:                                       ; preds = %sw.epilog.i, %if.end40.i
   %call87.i = call i32 @qemu_file_get_error(ptr noundef %f) #18
   %tobool89.i = icmp eq i32 %call87.i, 0
-  %tobool91.i = icmp ne ptr %host_bak.1.i, null
+  %tobool91.i = icmp ne ptr %host_bak.0.i, null
   %or.cond.i = and i1 %tobool91.i, %tobool89.i
   br i1 %or.cond.i, label %if.then92.i, label %if.end93.i
 
 if.then92.i:                                      ; preds = %if.end88.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %host_bak.1.i, ptr noundef nonnull align 1 dereferenceable(4096) %host.1.i, i64 4096, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %host_bak.0.i, ptr noundef nonnull align 1 dereferenceable(4096) %host.0.i, i64 4096, i1 false)
   br label %if.end93.i
 
 if.end93.i:                                       ; preds = %if.then92.i, %if.end88.i, %sw.epilog.i, %sw.default.i, %if.then68.i, %if.then62.i, %if.then49.i
-  %ret.2105.i = phi i32 [ 0, %if.then92.i ], [ %call87.i, %if.end88.i ], [ %ret.1.i, %sw.epilog.i ], [ -22, %sw.default.i ], [ -22, %if.then68.i ], [ -22, %if.then62.i ], [ -22, %if.then49.i ]
+  %ret.3105.i = phi i32 [ 0, %if.then92.i ], [ %call87.i, %if.end88.i ], [ %ret.2.i, %sw.epilog.i ], [ -22, %sw.default.i ], [ -22, %if.then68.i ], [ -22, %if.then62.i ], [ -22, %if.then49.i ]
   %and.i = and i32 %14, 16
-  %51 = or i32 %ret.2105.i, %and.i
+  %51 = or i32 %ret.3105.i, %and.i
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %while.body.i, label %ram_load_precopy.exit, !llvm.loop !104
 
 ram_load_precopy.exit:                            ; preds = %if.end93.i, %if.then18.i, %if.then35.i
-  %ret.3.i = phi i32 [ -22, %if.then18.i ], [ -22, %if.then35.i ], [ %ret.2105.i, %if.end93.i ]
+  %ret.1.i = phi i32 [ -22, %if.then18.i ], [ -22, %if.then35.i ], [ %ret.3105.i, %if.end93.i ]
   %call94.i = call i32 @wait_for_decompress_done() #18
   %call.i.i10 = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i11 = getelementptr inbounds i8, ptr %call.i.i10, i64 12
@@ -7636,7 +7636,7 @@ while.end21.i.i:                                  ; preds = %while.end.i.i14
   br label %rcu_read_auto_unlock.exit
 
 rcu_read_auto_unlock.exit:                        ; preds = %if.end.i.i13, %while.end.i.i14, %while.end21.i.i
-  %or95.i.le = or i32 %call94.i, %ret.3.i
+  %or95.i.le = or i32 %call94.i, %ret.1.i
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 return:                                           ; preds = %entry, %trace_ram_load_complete.exit
@@ -8389,7 +8389,7 @@ if.then14.i.i:                                    ; preds = %if.end7.i.i
   br label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then14.i.i, %if.end7.i.i
-  %p.0.i = phi ptr [ %add.ptr.i20, %if.end7.i.i ], [ %call9.i.i, %if.then14.i.i ]
+  %p.1.i = phi ptr [ %add.ptr.i20, %if.end7.i.i ], [ %call9.i.i, %if.then14.i.i ]
   switch i32 %call10.i.i, label %if.end23.i.i [
     i32 0, label %if.then17.i.i
     i32 -1, label %if.then20.i.i
@@ -8523,7 +8523,7 @@ ram_transferred_add.exit.i.i:                     ; preds = %if.else.i.i15.i, %s
   br label %if.end10.i
 
 if.end6.thread46.i:                               ; preds = %trace_save_xbzrle_page_overflow.exit.i.i, %if.else.i.i34, %if.then2.i.i32, %if.then.i.i31
-  %p.1.ph.i = phi ptr [ %call5.i.i, %if.else.i.i34 ], [ %add.ptr.i20, %if.then2.i.i32 ], [ %add.ptr.i20, %if.then.i.i31 ], [ %p.0.i, %trace_save_xbzrle_page_overflow.exit.i.i ]
+  %p.2.ph.i = phi ptr [ %call5.i.i, %if.else.i.i34 ], [ %add.ptr.i20, %if.then2.i.i32 ], [ %add.ptr.i20, %if.then.i.i31 ], [ %p.1.i, %trace_save_xbzrle_page_overflow.exit.i.i ]
   %last_stage49.i = getelementptr inbounds i8, ptr %rs, i64 201
   %69 = load i8, ptr %last_stage49.i, align 1
   %tobool450.i = trunc i8 %69 to i1
@@ -8531,7 +8531,7 @@ if.end6.thread46.i:                               ; preds = %trace_save_xbzrle_p
 
 if.then7.i26:                                     ; preds = %if.end6.thread46.i, %land.lhs.true.i, %XBZRLE_cache_lock.exit.i23
   %send_async.044.i = phi i1 [ %tobool450.i, %if.end6.thread46.i ], [ true, %land.lhs.true.i ], [ true, %XBZRLE_cache_lock.exit.i23 ]
-  %p.243.i = phi ptr [ %p.1.ph.i, %if.end6.thread46.i ], [ %add.ptr.i20, %land.lhs.true.i ], [ %add.ptr.i20, %XBZRLE_cache_lock.exit.i23 ]
+  %p.043.i = phi ptr [ %p.2.ph.i, %if.end6.thread46.i ], [ %add.ptr.i20, %land.lhs.true.i ], [ %add.ptr.i20, %XBZRLE_cache_lock.exit.i23 ]
   %70 = load ptr, ptr %pss, align 8
   %last_sent_block.i.i16.i = getelementptr inbounds i8, ptr %pss, i64 8
   %71 = load ptr, ptr %last_sent_block.i.i16.i, align 8
@@ -8575,11 +8575,11 @@ land.rhs.i.i:                                     ; preds = %if.then.i32.i
 
 land.end.i.i:                                     ; preds = %land.rhs.i.i, %if.then.i32.i
   %73 = phi i1 [ false, %if.then.i32.i ], [ %call3.i33.i, %land.rhs.i.i ]
-  tail call void @qemu_put_buffer_async(ptr noundef %70, ptr noundef %p.243.i, i64 noundef 4096, i1 noundef zeroext %73) #18
+  tail call void @qemu_put_buffer_async(ptr noundef %70, ptr noundef %p.043.i, i64 noundef 4096, i1 noundef zeroext %73) #18
   br label %if.end.i.i27
 
 if.else.i31.i:                                    ; preds = %ram_transferred_add.exit.i29.i
-  tail call void @qemu_put_buffer(ptr noundef %70, ptr noundef %p.243.i, i64 noundef 4096) #18
+  tail call void @qemu_put_buffer(ptr noundef %70, ptr noundef %p.043.i, i64 noundef 4096) #18
   br label %if.end.i.i27
 
 if.end.i.i27:                                     ; preds = %if.else.i31.i, %land.end.i.i

@@ -989,24 +989,24 @@ _ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.exi
   br label %136
 
 136:                                              ; preds = %135, %99
-  %.3.i = phi i1 [ true, %99 ], [ %trunc24.i, %135 ]
+  %.2.i = phi i1 [ true, %99 ], [ %trunc24.i, %135 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25), !noalias !110
   br label %137
 
 137:                                              ; preds = %136, %89
-  %.4.i = phi i1 [ true, %89 ], [ %.3.i, %136 ]
+  %.1.i = phi i1 [ true, %89 ], [ %.2.i, %136 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26), !noalias !110
   br label %138
 
 138:                                              ; preds = %137, %72, %.thread49.i
-  %.5.i = phi i1 [ true, %72 ], [ %.4.i, %137 ], [ true, %.thread49.i ]
+  %.0.i = phi i1 [ true, %72 ], [ %.1.i, %137 ], [ true, %.thread49.i ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %29), !noalias !110
   br label %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest17h8e779b1f61e573adE.exit
 
 _ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest17h8e779b1f61e573adE.exit: ; preds = %133, %138
-  %.0.i = phi i1 [ %.5.i, %138 ], [ true, %133 ]
+  %.5.i = phi i1 [ %.0.i, %138 ], [ true, %133 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
-  ret i1 %.0.i
+  ret i1 %.5.i
 }
 
 ; Function Attrs: nonlazybind uwtable

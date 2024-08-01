@@ -1791,7 +1791,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_3mcc8CCheckerEEES4_EvT_S6_RSaIT0_E.exit.i: ; preds =
   br label %_ZNSt6vectorIN2cv3PtrINS0_3mcc8CCheckerEEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3PtrINS0_3mcc8CCheckerEEESaIS4_EED2Ev.exit: ; preds = %682, %_ZSt8_DestroyIPN2cv3PtrINS0_3mcc8CCheckerEEES4_EvT_S6_RSaIT0_E.exit.i, %187
-  %.0 = phi i32 [ 2, %187 ], [ 0, %_ZSt8_DestroyIPN2cv3PtrINS0_3mcc8CCheckerEEES4_EvT_S6_RSaIT0_E.exit.i ], [ 0, %682 ]
+  %.3 = phi i32 [ 2, %187 ], [ 0, %_ZSt8_DestroyIPN2cv3PtrINS0_3mcc8CCheckerEEES4_EvT_S6_RSaIT0_E.exit.i ], [ 0, %682 ]
   %683 = getelementptr inbounds i8, ptr %28, i64 8
   %684 = load ptr, ptr %683, align 8
   %.not.i.i.i.i159 = icmp eq ptr %684, null
@@ -1880,7 +1880,7 @@ _ZN2cv3PtrINS_3mcc16CCheckerDetectorEED2Ev.exit:  ; preds = %_ZNSt6vectorIN2cv3P
   br label %722
 
 721:                                              ; preds = %134, %_ZN2cv3PtrINS_3mcc16CCheckerDetectorEED2Ev.exit
-  %.1 = phi i32 [ %.0, %_ZN2cv3PtrINS_3mcc16CCheckerDetectorEED2Ev.exit ], [ 1, %134 ]
+  %.2 = phi i32 [ %.3, %_ZN2cv3PtrINS_3mcc16CCheckerDetectorEED2Ev.exit ], [ 1, %134 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #10
   br label %723
 
@@ -1890,7 +1890,7 @@ _ZN2cv3PtrINS_3mcc16CCheckerDetectorEED2Ev.exit:  ; preds = %_ZNSt6vectorIN2cv3P
   br label %724
 
 723:                                              ; preds = %125, %721
-  %.2 = phi i32 [ %.1, %721 ], [ 0, %125 ]
+  %.1 = phi i32 [ %.2, %721 ], [ 0, %125 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #10
   br label %725
 
@@ -1900,9 +1900,9 @@ _ZN2cv3PtrINS_3mcc16CCheckerDetectorEED2Ev.exit:  ; preds = %_ZNSt6vectorIN2cv3P
   br label %726
 
 725:                                              ; preds = %.critedge.thread, %723
-  %.3 = phi i32 [ %.2, %723 ], [ 0, %.critedge.thread ]
+  %.0 = phi i32 [ %.1, %723 ], [ 0, %.critedge.thread ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #10
-  ret i32 %.3
+  ret i32 %.0
 
 726:                                              ; preds = %89, %724, %113, %110, %105, %90, %84
   %.pn105 = phi { ptr, i32 } [ %91, %90 ], [ %.pn86.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %724 ], [ %.pn70, %113 ], [ %.pn68, %110 ], [ %.pn66, %105 ], [ %.pn64, %89 ], [ %.pn62, %84 ]

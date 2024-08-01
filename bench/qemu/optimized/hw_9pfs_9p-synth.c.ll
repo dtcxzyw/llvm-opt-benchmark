@@ -178,13 +178,13 @@ v9fs_add_dir_node.exit52:                         ; preds = %if.end.i36, %if.the
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body, %v9fs_add_dir_node.exit52
-  %retval.0 = phi i32 [ 0, %v9fs_add_dir_node.exit52 ], [ -17, %for.body ]
+  %retval.1 = phi i32 [ 0, %v9fs_add_dir_node.exit52 ], [ -17, %for.body ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @synth_mutex, ptr noundef nonnull @.str.3, i32 noundef 132) #18
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %glib_autoptr_cleanup_QemuLockable.exit
-  %retval.1 = phi i32 [ %retval.0, %glib_autoptr_cleanup_QemuLockable.exit ], [ -11, %entry ], [ -22, %lor.lhs.false ], [ -22, %if.end ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_QemuLockable.exit ], [ -11, %entry ], [ -22, %lor.lhs.false ], [ -22, %if.end ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -270,13 +270,13 @@ if.then42:                                        ; preds = %for.end
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body, %for.end, %if.then42
-  %retval.0 = phi i32 [ 0, %if.then42 ], [ 0, %for.end ], [ -17, %for.body ]
+  %retval.1 = phi i32 [ 0, %if.then42 ], [ 0, %for.end ], [ -17, %for.body ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @synth_mutex, ptr noundef nonnull @.str.3, i32 noundef 132) #18
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %glib_autoptr_cleanup_QemuLockable.exit
-  %retval.1 = phi i32 [ %retval.0, %glib_autoptr_cleanup_QemuLockable.exit ], [ -11, %entry ], [ -22, %lor.lhs.false ], [ -22, %if.end ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_QemuLockable.exit ], [ -11, %entry ], [ -22, %lor.lhs.false ], [ -22, %if.end ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: allocsize(0,1)

@@ -218,7 +218,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %76, label %.critedge2.thread.sink.split.i, label %91
 
 77:                                               ; preds = %73, %68
-  %.3 = phi i8 [ %spec.select44, %68 ], [ %74, %73 ]
+  %.4 = phi i8 [ %spec.select44, %68 ], [ %74, %73 ]
   br label %78
 
 78:                                               ; preds = %80, %77
@@ -263,7 +263,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 93:                                               ; preds = %78
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %94 = and i8 %.3, 41
+  %94 = and i8 %.4, 41
   %.not = icmp eq i8 %94, 0
   br i1 %.not, label %95, label %103
 
@@ -281,7 +281,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %129
 
 103:                                              ; preds = %95, %93
-  %104 = and i8 %.3, 81
+  %104 = and i8 %.4, 81
   %.not22 = icmp eq i8 %104, 0
   br i1 %.not22, label %105, label %113
 
@@ -299,7 +299,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %129
 
 113:                                              ; preds = %.thread40, %105, %103
-  %.53943 = phi i8 [ 1, %.thread40 ], [ %.3, %105 ], [ %.3, %103 ]
+  %.53943 = phi i8 [ 1, %.thread40 ], [ %.4, %105 ], [ %.4, %103 ]
   %114 = getelementptr inbounds i8, ptr %5, i64 8
   %115 = lshr i8 %.53943, 3
   %.lobit = and i8 %115, 1
@@ -6455,25 +6455,25 @@ range_cmp_bound_values.exit.thread.thread:        ; preds = %24, %22, %27, %47, 
   br label %57
 
 57:                                               ; preds = %53, %range_cmp_bound_values.exit.thread.thread
-  %.069 = phi i8 [ 8, %range_cmp_bound_values.exit.thread.thread ], [ %spec.select, %53 ]
+  %.1 = phi i8 [ 8, %range_cmp_bound_values.exit.thread.thread ], [ %spec.select, %53 ]
   %58 = load i8, ptr %10, align 8
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %57
-  %61 = or disjoint i8 %.069, 16
+  %61 = or disjoint i8 %.1, 16
   br label %67
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds i8, ptr %2, i64 9
   %64 = load i8, ptr %63, align 1
   %65 = trunc i8 %64 to i1
-  %66 = or disjoint i8 %.069, 4
-  %spec.select76 = select i1 %65, i8 %66, i8 %.069
+  %66 = or disjoint i8 %.1, 4
+  %spec.select76 = select i1 %65, i8 %66, i8 %.1
   br label %67
 
 67:                                               ; preds = %62, %range_cmp_bound_values.exit.thread.thread133, %47, %5, %60
-  %.1 = phi i8 [ %61, %60 ], [ 1, %5 ], [ 1, %47 ], [ 1, %range_cmp_bound_values.exit.thread.thread133 ], [ %spec.select76, %62 ]
+  %.069 = phi i8 [ %61, %60 ], [ 1, %5 ], [ 1, %47 ], [ 1, %range_cmp_bound_values.exit.thread.thread133 ], [ %spec.select76, %62 ]
   %68 = getelementptr inbounds i8, ptr %0, i64 280
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8
@@ -6485,7 +6485,7 @@ range_cmp_bound_values.exit.thread.thread:        ; preds = %24, %22, %27, %47, 
   %76 = load i8, ptr %75, align 1
   %77 = getelementptr inbounds i8, ptr %69, i64 12
   %78 = load i8, ptr %77, align 4
-  %79 = zext nneg i8 %.1 to i32
+  %79 = zext nneg i8 %.069 to i32
   %80 = and i32 %79, 41
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %81, label %datum_compute_size.exit
@@ -6757,7 +6757,7 @@ datum_compute_size.exit94:                        ; preds = %190, %144, %datum_c
 
 207:                                              ; preds = %204, %203
   %.173 = phi ptr [ %.072, %203 ], [ %206, %204 ]
-  store i8 %.1, ptr %.173, align 1
+  store i8 %.069, ptr %.173, align 1
   br label %208
 
 208:                                              ; preds = %40, %range_cmp_bound_values.exit.thread100, %207
@@ -7858,8 +7858,8 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
 
 9:                                                ; preds = %.backedge, %8
   %.031 = phi i1 [ false, %8 ], [ %.031.be, %.backedge ]
-  %.030 = phi ptr [ %1, %8 ], [ %.030.be, %.backedge ]
-  %.pr = load i8, ptr %.030, align 1
+  %.1 = phi ptr [ %1, %8 ], [ %.1.be, %.backedge ]
+  %.pr = load i8, ptr %.1, align 1
   br i1 %.031, label %.critedge, label %10
 
 10:                                               ; preds = %9
@@ -7870,7 +7870,7 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
   ]
 
 .critedge:                                        ; preds = %9, %10
-  %11 = getelementptr i8, ptr %.030, i64 1
+  %11 = getelementptr i8, ptr %.1, i64 1
   switch i8 %.pr, label %.sink.split [
     i8 0, label %12
     i8 92, label %18
@@ -7905,7 +7905,7 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
   br label %37
 
 27:                                               ; preds = %18
-  %28 = getelementptr i8, ptr %.030, i64 2
+  %28 = getelementptr i8, ptr %.1, i64 2
   br label %.sink.split
 
 29:                                               ; preds = %.critedge
@@ -7917,19 +7917,19 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
   br i1 %32, label %33, label %.backedge
 
 33:                                               ; preds = %30
-  %34 = getelementptr i8, ptr %.030, i64 2
+  %34 = getelementptr i8, ptr %.1, i64 2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge, %27, %33
   %.sink = phi i8 [ 34, %33 ], [ %19, %27 ], [ %.pr, %.critedge ]
   %.132.ph = phi i1 [ true, %33 ], [ %.031, %27 ], [ %.031, %.critedge ]
-  %.1.ph = phi ptr [ %34, %33 ], [ %28, %27 ], [ %11, %.critedge ]
+  %.2.ph = phi ptr [ %34, %33 ], [ %28, %27 ], [ %11, %.critedge ]
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %.sink) #14
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %30, %29
   %.031.be = phi i1 [ true, %29 ], [ false, %30 ], [ %.132.ph, %.sink.split ]
-  %.030.be = phi ptr [ %11, %29 ], [ %11, %30 ], [ %.1.ph, %.sink.split ]
+  %.1.be = phi ptr [ %11, %29 ], [ %11, %30 ], [ %.2.ph, %.sink.split ]
   br label %9, !llvm.loop !18
 
 .critedge38:                                      ; preds = %10, %10, %10
@@ -7939,13 +7939,13 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
 36:                                               ; preds = %5, %5, %5, %.critedge38
   %storemerge36 = phi ptr [ %35, %.critedge38 ], [ null, %5 ], [ null, %5 ], [ null, %5 ]
   %storemerge = phi i8 [ 0, %.critedge38 ], [ 1, %5 ], [ 1, %5 ], [ 1, %5 ]
-  %.2 = phi ptr [ %.030, %.critedge38 ], [ %1, %5 ], [ %1, %5 ], [ %1, %5 ]
+  %.030 = phi ptr [ %.1, %.critedge38 ], [ %1, %5 ], [ %1, %5 ], [ %1, %5 ]
   store ptr %storemerge36, ptr %2, align 8
   store i8 %storemerge, ptr %3, align 1
   br label %37
 
 37:                                               ; preds = %23, %21, %14, %12, %36
-  %.0 = phi ptr [ %.2, %36 ], [ null, %12 ], [ null, %14 ], [ null, %21 ], [ null, %23 ]
+  %.0 = phi ptr [ %.030, %36 ], [ null, %12 ], [ null, %14 ], [ null, %21 ], [ null, %23 ]
   ret ptr %.0
 }
 

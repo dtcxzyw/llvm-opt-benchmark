@@ -120,7 +120,7 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noca
 
 .lr.ph41.split.us:                                ; preds = %.lr.ph41.split.us.preheader, %..loopexit29_crit_edge.us
   %indvars.iv47 = phi i64 [ 0, %.lr.ph41.split.us.preheader ], [ %indvars.iv.next48, %..loopexit29_crit_edge.us ]
-  %.02240.us = phi i32 [ %1, %.lr.ph41.split.us.preheader ], [ %.4.us, %..loopexit29_crit_edge.us ]
+  %.02240.us = phi i32 [ %1, %.lr.ph41.split.us.preheader ], [ %.1.us, %..loopexit29_crit_edge.us ]
   %18 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %13, i64 %indvars.iv47
   %19 = getelementptr inbounds i8, ptr %18, i64 12
   %20 = load i8, ptr %19, align 4
@@ -129,7 +129,7 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noca
 
 22:                                               ; preds = %.preheader.us, %.loopexit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %.loopexit.us ]
-  %.135.us = phi i32 [ %.02240.us, %.preheader.us ], [ %.3.us, %.loopexit.us ]
+  %.235.us = phi i32 [ %.02240.us, %.preheader.us ], [ %.3.us, %.loopexit.us ]
   %23 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %17, i64 %indvars.iv
   %24 = getelementptr inbounds i8, ptr %23, i64 12
   %25 = load i8, ptr %24, align 4
@@ -147,28 +147,28 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noca
   %.sroa.0.0.copyload.i.us = load i32, ptr %38, align 4
   %32 = getelementptr inbounds i8, ptr %23, i64 16
   %.sroa.0.0.copyload.i24.us = load i32, ptr %32, align 4
-  %33 = shl i32 %.sroa.0.0.copyload.i24.us, %.135.us
+  %33 = shl i32 %.sroa.0.0.copyload.i24.us, %.235.us
   %34 = and i32 %33, %.sroa.0.0.copyload.i.us
   %.not2832.us = icmp eq i32 %34, 0
   br i1 %.not2832.us, label %.loopexit.us, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %31, %.lr.ph.us
-  %.234.us = phi i32 [ %36, %.lr.ph.us ], [ %.135.us, %31 ]
+  %.434.us = phi i32 [ %36, %.lr.ph.us ], [ %.235.us, %31 ]
   %.sroa.0.033.us = phi i32 [ %35, %.lr.ph.us ], [ %33, %31 ]
   %35 = shl i32 %.sroa.0.033.us, 1
-  %36 = add i32 %.234.us, 1
+  %36 = add i32 %.434.us, 1
   %37 = and i32 %35, %.sroa.0.0.copyload.i.us
   %.not28.us = icmp eq i32 %37, 0
   br i1 %.not28.us, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !6
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %31, %27, %22
-  %.3.us = phi i32 [ %.135.us, %22 ], [ %.135.us, %27 ], [ %.135.us, %31 ], [ %36, %.lr.ph.us ]
+  %.3.us = phi i32 [ %.235.us, %22 ], [ %.235.us, %27 ], [ %.235.us, %31 ], [ %36, %.lr.ph.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit29_crit_edge.us, label %22, !llvm.loop !8
 
 ..loopexit29_crit_edge.us:                        ; preds = %.loopexit.us, %.lr.ph41.split.us
-  %.4.us = phi i32 [ %.02240.us, %.lr.ph41.split.us ], [ %.3.us, %.loopexit.us ]
+  %.1.us = phi i32 [ %.02240.us, %.lr.ph41.split.us ], [ %.3.us, %.loopexit.us ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %.loopexit31, label %.lr.ph41.split.us, !llvm.loop !9
@@ -178,7 +178,7 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noca
   br label %22
 
 .loopexit31:                                      ; preds = %..loopexit29_crit_edge.us, %.lr.ph41, %.preheader30, %3
-  %.0 = phi i32 [ %1, %3 ], [ %1, %.preheader30 ], [ %1, %.lr.ph41 ], [ %.4.us, %..loopexit29_crit_edge.us ]
+  %.0 = phi i32 [ %1, %3 ], [ %1, %.preheader30 ], [ %1, %.lr.ph41 ], [ %.1.us, %..loopexit29_crit_edge.us ]
   ret i32 %.0
 }
 
@@ -239,17 +239,17 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr nocapture 
   br i1 %.not5566, label %.loopexit, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %27, %.lr.ph69
-  %.03768 = phi i32 [ %34, %.lr.ph69 ], [ %.077, %27 ]
+  %.13868 = phi i32 [ %34, %.lr.ph69 ], [ %.077, %27 ]
   %.sroa.050.067 = phi i32 [ %33, %.lr.ph69 ], [ %31, %27 ]
   %33 = shl i32 %.sroa.050.067, 1
-  %34 = add i32 %.03768, 1
+  %34 = add i32 %.13868, 1
   %35 = and i32 %33, %28
   %.not55 = icmp eq i32 %35, 0
   br i1 %.not55, label %.loopexit, label %.lr.ph69, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph69, %27, %22
-  %.138 = phi i32 [ %.077, %22 ], [ %.077, %27 ], [ %34, %.lr.ph69 ]
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %.04172, i32 %.138)
+  %.037 = phi i32 [ %.077, %22 ], [ %.077, %27 ], [ %34, %.lr.ph69 ]
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %.04172, i32 %.037)
   %36 = add i32 %.04073, 1
   %.not44 = icmp ugt i32 %36, %18
   br i1 %.not44, label %._crit_edge, label %22, !llvm.loop !11
@@ -569,7 +569,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 
 .lr.ph41.split.us.i:                              ; preds = %..loopexit29_crit_edge.us.i, %.lr.ph41.split.us.preheader.i
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph41.split.us.preheader.i ], [ %indvars.iv.next48.i, %..loopexit29_crit_edge.us.i ]
-  %.02240.us.i = phi i32 [ 0, %.lr.ph41.split.us.preheader.i ], [ %.4.us.i, %..loopexit29_crit_edge.us.i ]
+  %.02240.us.i = phi i32 [ 0, %.lr.ph41.split.us.preheader.i ], [ %.1.us.i, %..loopexit29_crit_edge.us.i ]
   %59 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %54, i64 %indvars.iv47.i
   %60 = getelementptr inbounds i8, ptr %59, i64 12
   %61 = load i8, ptr %60, align 4
@@ -578,7 +578,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 
 63:                                               ; preds = %.preheader.us.i, %.loopexit.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %.loopexit.us.i ]
-  %.135.us.i = phi i32 [ %.02240.us.i, %.preheader.us.i ], [ %.3.us.i, %.loopexit.us.i ]
+  %.235.us.i = phi i32 [ %.02240.us.i, %.preheader.us.i ], [ %.3.us.i, %.loopexit.us.i ]
   %64 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %58, i64 %indvars.iv.i
   %65 = getelementptr inbounds i8, ptr %64, i64 12
   %66 = load i8, ptr %65, align 4
@@ -596,28 +596,28 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   %.sroa.0.0.copyload.i.us.i = load i32, ptr %79, align 4
   %73 = getelementptr inbounds i8, ptr %64, i64 16
   %.sroa.0.0.copyload.i24.us.i = load i32, ptr %73, align 4
-  %74 = shl i32 %.sroa.0.0.copyload.i24.us.i, %.135.us.i
+  %74 = shl i32 %.sroa.0.0.copyload.i24.us.i, %.235.us.i
   %75 = and i32 %74, %.sroa.0.0.copyload.i.us.i
   %.not2832.us.i = icmp eq i32 %75, 0
   br i1 %.not2832.us.i, label %.loopexit.us.i, label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %72, %.lr.ph.us.i
-  %.234.us.i = phi i32 [ %77, %.lr.ph.us.i ], [ %.135.us.i, %72 ]
+  %.434.us.i = phi i32 [ %77, %.lr.ph.us.i ], [ %.235.us.i, %72 ]
   %.sroa.0.033.us.i = phi i32 [ %76, %.lr.ph.us.i ], [ %74, %72 ]
   %76 = shl i32 %.sroa.0.033.us.i, 1
-  %77 = add i32 %.234.us.i, 1
+  %77 = add i32 %.434.us.i, 1
   %78 = and i32 %76, %.sroa.0.0.copyload.i.us.i
   %.not28.us.i = icmp eq i32 %78, 0
   br i1 %.not28.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !6
 
 .loopexit.us.i:                                   ; preds = %.lr.ph.us.i, %72, %68, %63
-  %.3.us.i = phi i32 [ %.135.us.i, %63 ], [ %.135.us.i, %68 ], [ %.135.us.i, %72 ], [ %77, %.lr.ph.us.i ]
+  %.3.us.i = phi i32 [ %.235.us.i, %63 ], [ %.235.us.i, %68 ], [ %.235.us.i, %72 ], [ %77, %.lr.ph.us.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit29_crit_edge.us.i, label %63, !llvm.loop !8
 
 ..loopexit29_crit_edge.us.i:                      ; preds = %.loopexit.us.i, %.lr.ph41.split.us.i
-  %.4.us.i = phi i32 [ %.02240.us.i, %.lr.ph41.split.us.i ], [ %.3.us.i, %.loopexit.us.i ]
+  %.1.us.i = phi i32 [ %.02240.us.i, %.lr.ph41.split.us.i ], [ %.3.us.i, %.loopexit.us.i ]
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count50.i
   br i1 %exitcond51.not.i, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %.lr.ph41.split.us.i, !llvm.loop !9
@@ -727,7 +727,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 
 .lr.ph41.split.us.i47:                            ; preds = %..loopexit29_crit_edge.us.i65, %.lr.ph41.split.us.preheader.i44
   %indvars.iv47.i48 = phi i64 [ 0, %.lr.ph41.split.us.preheader.i44 ], [ %indvars.iv.next48.i67, %..loopexit29_crit_edge.us.i65 ]
-  %.02240.us.i49 = phi i32 [ %.030, %.lr.ph41.split.us.preheader.i44 ], [ %.4.us.i66, %..loopexit29_crit_edge.us.i65 ]
+  %.02240.us.i49 = phi i32 [ %.030, %.lr.ph41.split.us.preheader.i44 ], [ %.1.us.i66, %..loopexit29_crit_edge.us.i65 ]
   %135 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %130, i64 %indvars.iv47.i48
   %136 = getelementptr inbounds i8, ptr %135, i64 12
   %137 = load i8, ptr %136, align 4
@@ -736,7 +736,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 
 139:                                              ; preds = %.preheader.us.i50, %.loopexit.us.i61
   %indvars.iv.i51 = phi i64 [ 0, %.preheader.us.i50 ], [ %indvars.iv.next.i63, %.loopexit.us.i61 ]
-  %.135.us.i52 = phi i32 [ %.02240.us.i49, %.preheader.us.i50 ], [ %.3.us.i62, %.loopexit.us.i61 ]
+  %.235.us.i52 = phi i32 [ %.02240.us.i49, %.preheader.us.i50 ], [ %.3.us.i62, %.loopexit.us.i61 ]
   %140 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %134, i64 %indvars.iv.i51
   %141 = getelementptr inbounds i8, ptr %140, i64 12
   %142 = load i8, ptr %141, align 4
@@ -754,28 +754,28 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   %.sroa.0.0.copyload.i.us.i54 = load i32, ptr %155, align 4
   %149 = getelementptr inbounds i8, ptr %140, i64 16
   %.sroa.0.0.copyload.i24.us.i55 = load i32, ptr %149, align 4
-  %150 = shl i32 %.sroa.0.0.copyload.i24.us.i55, %.135.us.i52
+  %150 = shl i32 %.sroa.0.0.copyload.i24.us.i55, %.235.us.i52
   %151 = and i32 %150, %.sroa.0.0.copyload.i.us.i54
   %.not2832.us.i56 = icmp eq i32 %151, 0
   br i1 %.not2832.us.i56, label %.loopexit.us.i61, label %.lr.ph.us.i57
 
 .lr.ph.us.i57:                                    ; preds = %148, %.lr.ph.us.i57
-  %.234.us.i58 = phi i32 [ %153, %.lr.ph.us.i57 ], [ %.135.us.i52, %148 ]
+  %.434.us.i58 = phi i32 [ %153, %.lr.ph.us.i57 ], [ %.235.us.i52, %148 ]
   %.sroa.0.033.us.i59 = phi i32 [ %152, %.lr.ph.us.i57 ], [ %150, %148 ]
   %152 = shl i32 %.sroa.0.033.us.i59, 1
-  %153 = add i32 %.234.us.i58, 1
+  %153 = add i32 %.434.us.i58, 1
   %154 = and i32 %152, %.sroa.0.0.copyload.i.us.i54
   %.not28.us.i60 = icmp eq i32 %154, 0
   br i1 %.not28.us.i60, label %.loopexit.us.i61, label %.lr.ph.us.i57, !llvm.loop !6
 
 .loopexit.us.i61:                                 ; preds = %.lr.ph.us.i57, %148, %144, %139
-  %.3.us.i62 = phi i32 [ %.135.us.i52, %139 ], [ %.135.us.i52, %144 ], [ %.135.us.i52, %148 ], [ %153, %.lr.ph.us.i57 ]
+  %.3.us.i62 = phi i32 [ %.235.us.i52, %139 ], [ %.235.us.i52, %144 ], [ %.235.us.i52, %148 ], [ %153, %.lr.ph.us.i57 ]
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, %wide.trip.count.i46
   br i1 %exitcond.not.i64, label %..loopexit29_crit_edge.us.i65, label %139, !llvm.loop !8
 
 ..loopexit29_crit_edge.us.i65:                    ; preds = %.loopexit.us.i61, %.lr.ph41.split.us.i47
-  %.4.us.i66 = phi i32 [ %.02240.us.i49, %.lr.ph41.split.us.i47 ], [ %.3.us.i62, %.loopexit.us.i61 ]
+  %.1.us.i66 = phi i32 [ %.02240.us.i49, %.lr.ph41.split.us.i47 ], [ %.3.us.i62, %.loopexit.us.i61 ]
   %indvars.iv.next48.i67 = add nuw nsw i64 %indvars.iv47.i48, 1
   %exitcond51.not.i68 = icmp eq i64 %indvars.iv.next48.i67, %wide.trip.count50.i45
   br i1 %exitcond51.not.i68, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %.lr.ph41.split.us.i47, !llvm.loop !9
@@ -785,7 +785,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   br label %139
 
 _ZNK8Pipeline23functional_unit_latencyEjPKS_.exit: ; preds = %..loopexit29_crit_edge.us.i65, %..loopexit29_crit_edge.us.i, %.lr.ph41.i41, %.preheader30.i39, %.critedge, %.lr.ph41.i, %.preheader30.i, %44, %29, %2, %25
-  %.031 = phi i32 [ %28, %25 ], [ 0, %2 ], [ 0, %29 ], [ 0, %44 ], [ 0, %.preheader30.i ], [ 0, %.lr.ph41.i ], [ %.030, %.critedge ], [ %.030, %.preheader30.i39 ], [ %.030, %.lr.ph41.i41 ], [ %.4.us.i, %..loopexit29_crit_edge.us.i ], [ %.4.us.i66, %..loopexit29_crit_edge.us.i65 ]
+  %.031 = phi i32 [ %28, %25 ], [ 0, %2 ], [ 0, %29 ], [ 0, %44 ], [ 0, %.preheader30.i ], [ 0, %.lr.ph41.i ], [ %.030, %.critedge ], [ %.030, %.preheader30.i39 ], [ %.030, %.lr.ph41.i41 ], [ %.1.us.i, %..loopexit29_crit_edge.us.i ], [ %.1.us.i66, %..loopexit29_crit_edge.us.i65 ]
   ret i32 %.031
 }
 

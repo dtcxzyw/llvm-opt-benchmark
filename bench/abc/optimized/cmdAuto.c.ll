@@ -242,7 +242,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %33
   br label %.lr.ph58.us
 
 .lr.ph58.us:                                      ; preds = %.lr.ph58.us.preheader, %..loopexit_crit_edge.us
-  %.03962.us = phi i32 [ %.3.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph58.us.preheader ]
+  %.03962.us = phi i32 [ %.2.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph58.us.preheader ]
   %42 = phi i32 [ %64, %..loopexit_crit_edge.us ], [ %31, %.lr.ph58.us.preheader ]
   %43 = icmp sgt i32 %42, 0
   %44 = zext i1 %43 to i32
@@ -251,7 +251,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %33
 45:                                               ; preds = %.lr.ph58.us, %63
   %indvars.iv69 = phi i64 [ 0, %.lr.ph58.us ], [ %indvars.iv.next70, %63 ]
   %46 = phi i32 [ %42, %.lr.ph58.us ], [ %64, %63 ]
-  %.156.us = phi i32 [ %.03962.us, %.lr.ph58.us ], [ %.3.us, %63 ]
+  %.156.us = phi i32 [ %.03962.us, %.lr.ph58.us ], [ %.2.us, %63 ]
   %.14155.us = phi i32 [ %44, %.lr.ph58.us ], [ %.242.us, %63 ]
   %47 = getelementptr inbounds [100 x %struct.Cmd_AutoData_t_], ptr %4, i64 0, i64 %indvars.iv69
   %48 = getelementptr inbounds i8, ptr %47, i64 24
@@ -272,7 +272,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %33
   br label %56
 
 56:                                               ; preds = %52, %50
-  %.2.us = phi i32 [ %55, %52 ], [ %.156.us, %50 ]
+  %.3.us = phi i32 [ %55, %52 ], [ %.156.us, %50 ]
   %57 = icmp eq i32 %46, 0
   br i1 %57, label %63, label %58
 
@@ -288,7 +288,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %33
 63:                                               ; preds = %58, %56, %45
   %64 = phi i32 [ 0, %56 ], [ %59, %58 ], [ %46, %45 ]
   %.242.us = phi i32 [ %.14155.us, %56 ], [ %.14155.us, %58 ], [ 1, %45 ]
-  %.3.us = phi i32 [ %.2.us, %56 ], [ %.2.us, %58 ], [ %.156.us, %45 ]
+  %.2.us = phi i32 [ %.3.us, %56 ], [ %.3.us, %58 ], [ %.156.us, %45 ]
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %..loopexit_crit_edge.us, label %45, !llvm.loop !8
@@ -305,7 +305,7 @@ Vec_PtrDup.exit.split:                            ; preds = %Vec_PtrDup.exit
   br label %.loopexit
 
 .split.us:                                        ; preds = %..loopexit_crit_edge.us, %Vec_PtrDup.exit.split
-  %.us-phi63 = phi i32 [ 0, %Vec_PtrDup.exit.split ], [ %.3.us, %..loopexit_crit_edge.us ]
+  %.us-phi63 = phi i32 [ 0, %Vec_PtrDup.exit.split ], [ %.2.us, %..loopexit_crit_edge.us ]
   %.not.i51 = icmp eq ptr %37, null
   br i1 %.not.i51, label %Vec_PtrFree.exit, label %66
 

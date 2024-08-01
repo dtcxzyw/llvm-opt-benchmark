@@ -1558,19 +1558,19 @@ define internal fastcc void @spl_array_set_array(ptr nocapture noundef readonly 
   br label %54
 
 54:                                               ; preds = %49, %48
-  %.0 = phi i64 [ %53, %49 ], [ %3, %48 ]
+  %.1 = phi i64 [ %53, %49 ], [ %3, %48 ]
   %55 = load ptr, ptr %0, align 8
   %56 = icmp eq ptr %55, %.pre
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %54
-  %58 = or i64 %.0, 16777216
+  %58 = or i64 %.1, 16777216
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %59, align 8
   br label %92
 
 60:                                               ; preds = %54
-  %61 = or i64 %.0, 33554432
+  %61 = or i64 %.1, 33554432
   %62 = load i32, ptr %6, align 8
   store ptr %.pre, ptr %1, align 8
   %63 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1624,11 +1624,11 @@ define internal fastcc void @spl_array_set_array(ptr nocapture noundef readonly 
   br label %92
 
 92:                                               ; preds = %65, %60, %57, %84, %89, %14, %17, %38, %31, %20
-  %.1 = phi i64 [ %3, %17 ], [ %3, %14 ], [ %3, %38 ], [ %3, %31 ], [ %3, %20 ], [ %58, %57 ], [ %61, %65 ], [ %61, %60 ], [ %3, %89 ], [ %3, %84 ]
+  %.0 = phi i64 [ %3, %17 ], [ %3, %14 ], [ %3, %38 ], [ %3, %31 ], [ %3, %20 ], [ %58, %57 ], [ %61, %65 ], [ %61, %60 ], [ %3, %89 ], [ %3, %84 ]
   %93 = getelementptr inbounds i8, ptr %1, i64 20
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, -50331649
-  %96 = trunc i64 %.1 to i32
+  %96 = trunc i64 %.0 to i32
   %97 = or i32 %95, %96
   store i32 %97, ptr %93, align 4
   %98 = getelementptr inbounds i8, ptr %1, i64 16

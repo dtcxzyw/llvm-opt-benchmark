@@ -954,10 +954,10 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc, %2
 
 370:                                              ; preds = %.lr.ph475, %507
   %.0259473 = phi i32 [ 0, %.lr.ph475 ], [ %508, %507 ]
-  %.sroa.0371.2472 = phi <2 x float> [ %363, %.lr.ph475 ], [ %478, %507 ]
+  %.sroa.0371.3472 = phi <2 x float> [ %363, %.lr.ph475 ], [ %478, %507 ]
   %.sroa.0363.0471 = phi float [ 0.000000e+00, %.lr.ph475 ], [ %482, %507 ]
   %.sroa.3.0470 = phi float [ 0.000000e+00, %.lr.ph475 ], [ %484, %507 ]
-  %371 = call <2 x float> @llvm.floor.v2f32(<2 x float> %.sroa.0371.2472)
+  %371 = call <2 x float> @llvm.floor.v2f32(<2 x float> %.sroa.0371.3472)
   %372 = fptosi <2 x float> %371 to <2 x i32>
   %373 = load i32, ptr %9, align 8
   %374 = sub nsw i32 0, %373
@@ -999,7 +999,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc, %2
 
 393:                                              ; preds = %384
   %394 = sitofp <2 x i32> %372 to <2 x float>
-  %395 = fsub <2 x float> %.sroa.0371.2472, %394
+  %395 = fsub <2 x float> %.sroa.0371.3472, %394
   %396 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %395
   %397 = extractelement <2 x float> %396, i64 0
   %398 = extractelement <2 x float> %396, i64 1
@@ -1116,7 +1116,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc, %2
   %475 = fmul <2 x float> %474, %364
   %476 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %369, <2 x float> %473, <2 x float> %475)
   %477 = fmul <2 x float> %367, %476
-  %478 = fadd <2 x float> %.sroa.0371.2472, %477
+  %478 = fadd <2 x float> %.sroa.0371.3472, %477
   %479 = fadd <2 x float> %14, %478
   %480 = load ptr, ptr %60, align 8
   %481 = getelementptr inbounds %"class.cv::Point_", ptr %480, i64 %indvars.iv533
@@ -4471,21 +4471,21 @@ _ZNK2cv11_InputArray6getMatEi.exit180:            ; preds = %165, %168
   br i1 %226, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %224, %212
-  %.0110 = phi i32 [ %200, %212 ], [ %227, %224 ]
-  %.0108 = phi i32 [ 1, %212 ], [ 2, %224 ]
-  %.not236 = icmp eq i32 %.0110, 0
+  %.1111 = phi i32 [ %200, %212 ], [ %227, %224 ]
+  %.1109 = phi i32 [ 1, %212 ], [ 2, %224 ]
+  %.not236 = icmp eq i32 %.1111, 0
   br i1 %.not236, label %260, label %.thread
 
 .thread:                                          ; preds = %224, %214, %select.unfold
-  %.0108224 = phi i32 [ %.0108, %select.unfold ], [ 1, %224 ], [ 1, %214 ]
-  %.0110222 = phi i32 [ %.0110, %select.unfold ], [ %200, %224 ], [ %200, %214 ]
+  %.1109224 = phi i32 [ %.1109, %select.unfold ], [ 1, %224 ], [ 1, %214 ]
+  %.1111222 = phi i32 [ %.1111, %select.unfold ], [ %200, %224 ], [ %200, %214 ]
   store i32 0, ptr %28, align 4
   %228 = getelementptr inbounds i8, ptr %28, i64 4
   store i32 0, ptr %228, align 4
   store i32 0, ptr %29, align 4
   %229 = getelementptr inbounds i8, ptr %29, i64 4
   store i32 0, ptr %229, align 4
-  %230 = zext nneg i32 %.0108224 to i64
+  %230 = zext nneg i32 %.1109224 to i64
   %231 = getelementptr inbounds %"class.cv::Mat", ptr %194, i64 %230
   invoke void @_ZNK2cv3Mat9locateROIERNS_5Size_IiEERNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %231, ptr noundef nonnull align 4 dereferenceable(8) %28, ptr noundef nonnull align 4 dereferenceable(8) %29)
           to label %232 unwind label %202
@@ -4551,19 +4551,19 @@ select.unfold:                                    ; preds = %224, %212
   br label %539
 
 260:                                              ; preds = %246, %select.unfold
-  %.0108223 = phi i32 [ %.0108224, %246 ], [ %.0108, %select.unfold ]
-  %.0110221 = phi i32 [ %.0110222, %246 ], [ 0, %select.unfold ]
+  %.1109223 = phi i32 [ %.1109224, %246 ], [ %.1109, %select.unfold ]
+  %.1111221 = phi i32 [ %.1111222, %246 ], [ 0, %select.unfold ]
   %261 = load i32, ptr %60, align 8
-  %262 = icmp slt i32 %.0110221, %261
+  %262 = icmp slt i32 %.1111221, %261
   br i1 %262, label %263, label %264
 
 263:                                              ; preds = %260
-  store i32 %.0110221, ptr %60, align 8
+  store i32 %.1111221, ptr %60, align 8
   br label %264
 
 264:                                              ; preds = %260, %263, %188
-  %.1111 = phi i32 [ %.0110221, %263 ], [ %.0110221, %260 ], [ -1, %188 ]
-  %.1109 = phi i32 [ %.0108223, %263 ], [ %.0108223, %260 ], [ 1, %188 ]
+  %.0110 = phi i32 [ %.1111221, %263 ], [ %.1111221, %260 ], [ -1, %188 ]
+  %.0108 = phi i32 [ %.1109223, %263 ], [ %.1109223, %260 ], [ 1, %188 ]
   %265 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %266 unwind label %202
 
@@ -4640,21 +4640,21 @@ select.unfold:                                    ; preds = %224, %212
   br i1 %302, label %select.unfold225, label %.thread227
 
 select.unfold225:                                 ; preds = %300, %288
-  %.0106 = phi i32 [ %278, %288 ], [ %303, %300 ]
-  %.0104 = phi i32 [ 1, %288 ], [ 2, %300 ]
-  %.not237 = icmp eq i32 %.0106, 0
+  %.1107 = phi i32 [ %278, %288 ], [ %303, %300 ]
+  %.1105 = phi i32 [ 1, %288 ], [ 2, %300 ]
+  %.not237 = icmp eq i32 %.1107, 0
   br i1 %.not237, label %336, label %.thread227
 
 .thread227:                                       ; preds = %300, %290, %select.unfold225
-  %.0104233 = phi i32 [ %.0104, %select.unfold225 ], [ 1, %300 ], [ 1, %290 ]
-  %.0106231 = phi i32 [ %.0106, %select.unfold225 ], [ %278, %300 ], [ %278, %290 ]
+  %.1105233 = phi i32 [ %.1105, %select.unfold225 ], [ 1, %300 ], [ 1, %290 ]
+  %.1107231 = phi i32 [ %.1107, %select.unfold225 ], [ %278, %300 ], [ %278, %290 ]
   store i32 0, ptr %34, align 4
   %304 = getelementptr inbounds i8, ptr %34, i64 4
   store i32 0, ptr %304, align 4
   store i32 0, ptr %35, align 4
   %305 = getelementptr inbounds i8, ptr %35, i64 4
   store i32 0, ptr %305, align 4
-  %306 = zext nneg i32 %.0104233 to i64
+  %306 = zext nneg i32 %.1105233 to i64
   %307 = getelementptr inbounds %"class.cv::Mat", ptr %272, i64 %306
   invoke void @_ZNK2cv3Mat9locateROIERNS_5Size_IiEERNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %307, ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35)
           to label %308 unwind label %202
@@ -4720,20 +4720,20 @@ select.unfold225:                                 ; preds = %300, %288
   br label %539
 
 336:                                              ; preds = %322, %select.unfold225
-  %.0104232 = phi i32 [ %.0104233, %322 ], [ %.0104, %select.unfold225 ]
-  %.0106230 = phi i32 [ %.0106231, %322 ], [ 0, %select.unfold225 ]
+  %.1105232 = phi i32 [ %.1105233, %322 ], [ %.1105, %select.unfold225 ]
+  %.1107230 = phi i32 [ %.1107231, %322 ], [ 0, %select.unfold225 ]
   %337 = load i32, ptr %60, align 8
-  %338 = icmp slt i32 %.0106230, %337
+  %338 = icmp slt i32 %.1107230, %337
   br i1 %338, label %339, label %340
 
 339:                                              ; preds = %336
-  store i32 %.0106230, ptr %60, align 8
+  store i32 %.1107230, ptr %60, align 8
   br label %340
 
 340:                                              ; preds = %336, %339, %266
-  %.1107 = phi i32 [ %.0106230, %339 ], [ %.0106230, %336 ], [ -1, %266 ]
-  %.1105 = phi i32 [ %.0104232, %339 ], [ %.0104232, %336 ], [ 1, %266 ]
-  %341 = icmp slt i32 %.1111, 0
+  %.0106 = phi i32 [ %.1107230, %339 ], [ %.1107230, %336 ], [ -1, %266 ]
+  %.0104 = phi i32 [ %.1105232, %339 ], [ %.1105232, %336 ], [ 1, %266 ]
+  %341 = icmp slt i32 %.0110, 0
   br i1 %341, label %342, label %350
 
 342:                                              ; preds = %340
@@ -4757,7 +4757,7 @@ select.unfold225:                                 ; preds = %300, %288
   br label %539
 
 350:                                              ; preds = %347, %340
-  %351 = icmp slt i32 %.1107, 0
+  %351 = icmp slt i32 %.0106, 0
   br i1 %351, label %352, label %360
 
 352:                                              ; preds = %350
@@ -4816,7 +4816,7 @@ select.unfold225:                                 ; preds = %300, %288
   %378 = fmul double %.sroa.speculated.sink, %.sroa.speculated.sink
   store double %378, ptr %377, align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #27
-  %379 = icmp eq i32 %.1109, 1
+  %379 = icmp eq i32 %.0108, 1
   br i1 %379, label %380, label %398
 
 380:                                              ; preds = %376
@@ -4873,8 +4873,8 @@ select.unfold225:                                 ; preds = %300, %288
   %422 = getelementptr inbounds i8, ptr %53, i64 96
   %423 = getelementptr inbounds i8, ptr %53, i64 100
   %424 = zext nneg i32 %399 to i64
-  %425 = zext nneg i32 %.1109 to i64
-  %426 = zext nneg i32 %.1105 to i64
+  %425 = zext nneg i32 %.0108 to i64
+  %426 = zext nneg i32 %.0104 to i64
   br label %427
 
 427:                                              ; preds = %.lr.ph241, %514

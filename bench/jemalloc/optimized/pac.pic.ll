@@ -604,7 +604,7 @@ if.end.i.us.i.preheader:                          ; preds = %for.body.lr.ph.i, %
   br label %if.end.i.us.i
 
 if.end.i.us.i:                                    ; preds = %if.end.i.us.i.preheader, %edata_list_inactive_remove.exit.us.i
-  %14 = phi ptr [ %decay_extents.sroa.0.2, %edata_list_inactive_remove.exit.us.i ], [ %decay_extents.sroa.0.131, %if.end.i.us.i.preheader ]
+  %14 = phi ptr [ %decay_extents.sroa.0.3, %edata_list_inactive_remove.exit.us.i ], [ %decay_extents.sroa.0.131, %if.end.i.us.i.preheader ]
   %nmadvise.05.us.i = phi i64 [ %inc.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
   %nunmapped.04.us.i = phi i64 [ %add14.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
   %npurged.03.us.i = phi i64 [ %add.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
@@ -638,7 +638,7 @@ do.body9.i.us.i:                                  ; preds = %if.end.i.us.i
   br label %edata_list_inactive_remove.exit.us.i
 
 edata_list_inactive_remove.exit.us.i:             ; preds = %if.end.i.us.i, %do.body9.i.us.i
-  %decay_extents.sroa.0.2 = phi ptr [ %16, %do.body9.i.us.i ], [ null, %if.end.i.us.i ]
+  %decay_extents.sroa.0.3 = phi ptr [ %16, %do.body9.i.us.i ], [ null, %if.end.i.us.i ]
   %29 = getelementptr i8, ptr %14, i64 16
   %edata.0.val.us.i = load i64, ptr %29, align 8
   %shr.us.i = lshr i64 %edata.0.val.us.i, 12
@@ -646,11 +646,11 @@ edata_list_inactive_remove.exit.us.i:             ; preds = %if.end.i.us.i, %do.
   %add.us.i = add i64 %shr.us.i, %npurged.03.us.i
   tail call void @extent_dalloc_wrapper(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i16, ptr noundef nonnull %14) #8
   %add14.us.i = add i64 %shr.us.i, %nunmapped.04.us.i
-  %cmp4.not.us.i = icmp eq ptr %decay_extents.sroa.0.2, null
+  %cmp4.not.us.i = icmp eq ptr %decay_extents.sroa.0.3, null
   br i1 %cmp4.not.us.i, label %pac_decay_stashed.exit, label %if.end.i.us.i, !llvm.loop !6
 
 if.end.i.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
-  %30 = phi ptr [ %decay_extents.sroa.0.3, %for.inc.i ], [ %decay_extents.sroa.0.131, %for.body.lr.ph.i ]
+  %30 = phi ptr [ %decay_extents.sroa.0.2, %for.inc.i ], [ %decay_extents.sroa.0.131, %for.body.lr.ph.i ]
   %nmadvise.05.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %nunmapped.04.i = phi i64 [ %nunmapped.1.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %npurged.03.i = phi i64 [ %add.i21, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
@@ -684,7 +684,7 @@ do.body9.i.i:                                     ; preds = %if.end.i.i
   br label %edata_list_inactive_remove.exit.i
 
 edata_list_inactive_remove.exit.i:                ; preds = %if.end.i.i, %do.body9.i.i
-  %decay_extents.sroa.0.3 = phi ptr [ %32, %do.body9.i.i ], [ null, %if.end.i.i ]
+  %decay_extents.sroa.0.2 = phi ptr [ %32, %do.body9.i.i ], [ null, %if.end.i.i ]
   %45 = getelementptr i8, ptr %30, i64 16
   %edata.0.val.i = load i64, ptr %45, align 8
   %shr.i20 = lshr i64 %edata.0.val.i, 12
@@ -710,7 +710,7 @@ sw.bb13.i:                                        ; preds = %if.then.i, %edata_l
 
 for.inc.i:                                        ; preds = %sw.bb13.i, %if.then11.i
   %nunmapped.1.i = phi i64 [ %add14.i, %sw.bb13.i ], [ %nunmapped.04.i, %if.then11.i ]
-  %cmp4.not.i = icmp eq ptr %decay_extents.sroa.0.3, null
+  %cmp4.not.i = icmp eq ptr %decay_extents.sroa.0.2, null
   br i1 %cmp4.not.i, label %pac_decay_stashed.exit, label %if.end.i.i, !llvm.loop !6
 
 pac_decay_stashed.exit:                           ; preds = %for.inc.i, %edata_list_inactive_remove.exit.us.i, %land.end.i, %land.end.thread.i

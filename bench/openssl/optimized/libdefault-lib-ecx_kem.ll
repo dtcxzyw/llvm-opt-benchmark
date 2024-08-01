@@ -284,9 +284,9 @@ if.end17.i.i:                                     ; preds = %if.end11.i.i
   br label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %if.end17.i.i, %if.end5.i.i
-  %seed.0.i.i = phi ptr [ %tmpbuf.i.i, %if.end17.i.i ], [ %8, %if.end5.i.i ]
-  %seedlen.0.i.i = phi i64 [ %16, %if.end17.i.i ], [ %9, %if.end5.i.i ]
-  %call21.i.i = call i32 @ossl_ecx_dhkem_derive_private(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call2.i.i, ptr noundef nonnull %seed.0.i.i, i64 noundef %seedlen.0.i.i)
+  %seed.1.i.i = phi ptr [ %tmpbuf.i.i, %if.end17.i.i ], [ %8, %if.end5.i.i ]
+  %seedlen.1.i.i = phi i64 [ %16, %if.end17.i.i ], [ %9, %if.end5.i.i ]
+  %call21.i.i = call i32 @ossl_ecx_dhkem_derive_private(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call2.i.i, ptr noundef nonnull %seed.1.i.i, i64 noundef %seedlen.1.i.i)
   %tobool.not.i.i = icmp eq i32 %call21.i.i, 0
   br i1 %tobool.not.i.i, label %if.then29.i.i, label %if.end23.i.i
 
@@ -303,20 +303,20 @@ err.i.i:                                          ; preds = %if.end23.i.i
   br label %if.end30.i.i
 
 if.then29.i.i:                                    ; preds = %if.end23.i.i, %if.end20.i.i, %if.end11.i.i, %if.then8.i.i, %if.end.i.i
-  %seed.1.ph.i.i = phi ptr [ %seed.0.i.i, %if.end20.i.i ], [ %seed.0.i.i, %if.end23.i.i ], [ %8, %if.end11.i.i ], [ %8, %if.then8.i.i ], [ %8, %if.end.i.i ]
-  %seedlen.1.ph.i.i = phi i64 [ %seedlen.0.i.i, %if.end20.i.i ], [ %seedlen.0.i.i, %if.end23.i.i ], [ %9, %if.end11.i.i ], [ %9, %if.then8.i.i ], [ %9, %if.end.i.i ]
+  %seed.0.ph.i.i = phi ptr [ %seed.1.i.i, %if.end20.i.i ], [ %seed.1.i.i, %if.end23.i.i ], [ %8, %if.end11.i.i ], [ %8, %if.then8.i.i ], [ %8, %if.end.i.i ]
+  %seedlen.0.ph.i.i = phi i64 [ %seedlen.1.i.i, %if.end20.i.i ], [ %seedlen.1.i.i, %if.end23.i.i ], [ %9, %if.end11.i.i ], [ %9, %if.then8.i.i ], [ %9, %if.end.i.i ]
   call void @ossl_ecx_key_free(ptr noundef nonnull %call.i.i) #5
   br label %if.end30.i.i
 
 if.end30.i.i:                                     ; preds = %if.then29.i.i, %err.i.i
-  %seedlen.125.i.i = phi i64 [ %seedlen.0.i.i, %err.i.i ], [ %seedlen.1.ph.i.i, %if.then29.i.i ]
-  %seed.123.i.i = phi ptr [ %seed.0.i.i, %err.i.i ], [ %seed.1.ph.i.i, %if.then29.i.i ]
+  %seedlen.025.i.i = phi i64 [ %seedlen.1.i.i, %err.i.i ], [ %seedlen.0.ph.i.i, %if.then29.i.i ]
+  %seed.023.i.i = phi ptr [ %seed.1.i.i, %err.i.i ], [ %seed.0.ph.i.i, %if.then29.i.i ]
   %key.0.i.i = phi ptr [ %call.i.i, %err.i.i ], [ null, %if.then29.i.i ]
-  %cmp31.not.i.i = icmp eq ptr %seed.123.i.i, %8
+  %cmp31.not.i.i = icmp eq ptr %seed.023.i.i, %8
   br i1 %cmp31.not.i.i, label %derivekey.exit.i, label %if.then32.i.i
 
 if.then32.i.i:                                    ; preds = %if.end30.i.i
-  call void @OPENSSL_cleanse(ptr noundef %seed.123.i.i, i64 noundef %seedlen.125.i.i) #5
+  call void @OPENSSL_cleanse(ptr noundef %seed.023.i.i, i64 noundef %seedlen.025.i.i) #5
   br label %derivekey.exit.i
 
 derivekey.exit.i:                                 ; preds = %if.then32.i.i, %if.end30.i.i
@@ -880,7 +880,7 @@ if.then27:                                        ; preds = %if.end17.thread
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end22, %if.then27
-  %dhkmlen.04253 = phi i64 [ %add, %if.then27 ], [ %2, %if.end22 ]
+  %dhkmlen.14253 = phi i64 [ %add, %if.then27 ], [ %2, %if.end22 ]
   %add184450 = phi i64 [ %add1840, %if.then27 ], [ %add18, %if.end22 ]
   %kdfname = getelementptr inbounds i8, ptr %ctx, i64 56
   %6 = load ptr, ptr %kdfname, align 8
@@ -915,7 +915,7 @@ if.end.i32:                                       ; preds = %if.end35
   %conv4.i = trunc i16 %11 to i8
   %arrayidx5.i = getelementptr inbounds i8, ptr %suiteid.i, i64 1
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
-  %call.i33 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %call31, ptr noundef nonnull %prk.i, i64 noundef %10, ptr noundef null, i64 noundef 0, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %suiteid.i, i64 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %dhkm, i64 noundef %dhkmlen.04253) #5
+  %call.i33 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %call31, ptr noundef nonnull %prk.i, i64 noundef %10, ptr noundef null, i64 noundef 0, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %suiteid.i, i64 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %dhkm, i64 noundef %dhkmlen.14253) #5
   %tobool.not.i34 = icmp eq i32 %call.i33, 0
   br i1 %tobool.not.i34, label %dhkem_extract_and_expand.exit.thread57, label %dhkem_extract_and_expand.exit
 
@@ -938,10 +938,10 @@ dhkem_extract_and_expand.exit:                    ; preds = %if.end.i32
   br label %err
 
 err:                                              ; preds = %12, %dhkem_extract_and_expand.exit, %if.end17.thread, %ecx_pubkey.exit.thread, %if.end30, %if.end17, %if.then4, %entry
-  %dhkmlen.1 = phi i64 [ %2, %if.end17 ], [ %dhkmlen.04253, %if.end30 ], [ %2, %if.then4 ], [ 0, %entry ], [ %2, %ecx_pubkey.exit.thread ], [ %add, %if.end17.thread ], [ %dhkmlen.04253, %dhkem_extract_and_expand.exit ], [ %dhkmlen.04253, %12 ]
+  %dhkmlen.0 = phi i64 [ %2, %if.end17 ], [ %dhkmlen.14253, %if.end30 ], [ %2, %if.then4 ], [ 0, %entry ], [ %2, %ecx_pubkey.exit.thread ], [ %add, %if.end17.thread ], [ %dhkmlen.14253, %dhkem_extract_and_expand.exit ], [ %dhkmlen.14253, %12 ]
   %kdfctx.0 = phi ptr [ null, %if.end17 ], [ null, %if.end30 ], [ null, %if.then4 ], [ null, %entry ], [ null, %ecx_pubkey.exit.thread ], [ null, %if.end17.thread ], [ %call31, %dhkem_extract_and_expand.exit ], [ %call31, %12 ]
   %ret.0 = phi i32 [ 0, %if.end17 ], [ 0, %if.end30 ], [ 0, %if.then4 ], [ 0, %entry ], [ 0, %ecx_pubkey.exit.thread ], [ 0, %if.end17.thread ], [ 1, %dhkem_extract_and_expand.exit ], [ 0, %12 ]
-  call void @OPENSSL_cleanse(ptr noundef nonnull %dhkm, i64 noundef %dhkmlen.1) #5
+  call void @OPENSSL_cleanse(ptr noundef nonnull %dhkm, i64 noundef %dhkmlen.0) #5
   call void @EVP_KDF_CTX_free(ptr noundef %kdfctx.0) #5
   ret i32 %ret.0
 }

@@ -2114,7 +2114,7 @@ define hidden void @invoker_completeInvokeRequest(ptr noundef %0) local_unnamed_
   br label %60
 
 60:                                               ; preds = %56, %52
-  %.0 = phi i8 [ %55, %52 ], [ %59, %56 ]
+  %.1 = phi i8 [ %55, %52 ], [ %59, %56 ]
   %61 = getelementptr inbounds i8, ptr %17, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds i8, ptr %17, i64 72
@@ -2176,7 +2176,7 @@ isReferenceTag.exit:                              ; preds = %73, %75, %switch.ea
   %86 = phi i64 [ undef, %.thread ], [ %66, %isReferenceTag.exit ], [ %66, %60 ]
   %.041 = phi i32 [ 0, %.thread ], [ %62, %isReferenceTag.exit ], [ %62, %60 ]
   %.040 = phi i1 [ false, %.thread ], [ %82, %isReferenceTag.exit ], [ true, %60 ]
-  %.1 = phi i8 [ 0, %.thread ], [ %.0, %isReferenceTag.exit ], [ %.0, %60 ]
+  %.0 = phi i8 [ 0, %.thread ], [ %.1, %isReferenceTag.exit ], [ %.1, %60 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store ptr null, ptr %2, align 8
@@ -2305,7 +2305,7 @@ deleteGlobalArgumentRefs.exit:                    ; preds = %.lr.ph.i, %114, %98
 
 128:                                              ; preds = %125
   call void @outStream_initReply(ptr noundef nonnull %4, i32 noundef %.041) #5
-  %129 = call zeroext i16 @outStream_writeValue(ptr noundef %7, ptr noundef nonnull %4, i8 noundef signext %.1, i64 %86) #5
+  %129 = call zeroext i16 @outStream_writeValue(ptr noundef %7, ptr noundef nonnull %4, i8 noundef signext %.0, i64 %86) #5
   %130 = call zeroext i16 @outStream_writeObjectTag(ptr noundef %7, ptr noundef nonnull %4, ptr noundef %85) #5
   %131 = call zeroext i16 @outStream_writeObjectRef(ptr noundef %7, ptr noundef nonnull %4, ptr noundef %85) #5
   %132 = icmp ne ptr %84, null

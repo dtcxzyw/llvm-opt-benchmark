@@ -3703,9 +3703,9 @@ if.end178:                                        ; preds = %if.end174
   %or.cond1 = select i1 %cmp200, i1 %cmp203, i1 false
   %mul206 = fmul float %247, 0x3EE4F8B580000000
   %pHit.sroa.0.0.vec.insert937 = insertelement <2 x float> %271, float %mul206, i64 0
-  %pHit.sroa.0.1 = select i1 %or.cond1, <2 x float> %pHit.sroa.0.0.vec.insert937, <2 x float> %271
-  %pHit.sroa.0.4.vec.extract = extractelement <2 x float> %pHit.sroa.0.1, i64 1
-  %pHit.sroa.0.0.vec.extract939 = extractelement <2 x float> %pHit.sroa.0.1, i64 0
+  %pHit.sroa.0.2 = select i1 %or.cond1, <2 x float> %pHit.sroa.0.0.vec.insert937, <2 x float> %271
+  %pHit.sroa.0.4.vec.extract = extractelement <2 x float> %pHit.sroa.0.2, i64 1
+  %pHit.sroa.0.0.vec.extract939 = extractelement <2 x float> %pHit.sroa.0.2, i64 0
   %call.i889 = call noundef float @atan2f(float noundef %pHit.sroa.0.4.vec.extract, float noundef %pHit.sroa.0.0.vec.extract939) #17
   %274 = load float, ptr %zMin, align 4
   %275 = load float, ptr %this, align 8
@@ -3718,7 +3718,7 @@ if.end178:                                        ; preds = %if.end174
 lor.lhs.false224:                                 ; preds = %if.end178
   %cmp212 = fcmp olt float %call.i889, 0.000000e+00
   %add214 = fadd float %call.i889, 0x401921FB60000000
-  %phi.1 = select i1 %cmp212, float %add214, float %call.i889
+  %phi.2 = select i1 %cmp212, float %add214, float %call.i889
   %zMax225 = getelementptr inbounds i8, ptr %this, i64 8
   %276 = load float, ptr %zMax225, align 8
   %cmp227 = fcmp olt float %276, %275
@@ -3726,7 +3726,7 @@ lor.lhs.false224:                                 ; preds = %if.end178
   %or.cond22 = select i1 %cmp227, i1 %cmp231, i1 false
   %phiMax233 = getelementptr inbounds i8, ptr %this, i64 20
   %277 = load float, ptr %phiMax233, align 4
-  %cmp234 = fcmp ogt float %phi.1, %277
+  %cmp234 = fcmp ogt float %phi.2, %277
   %or.cond23 = select i1 %or.cond22, i1 true, i1 %cmp234
   br i1 %or.cond23, label %if.then235, label %if.end237
 
@@ -3736,18 +3736,18 @@ if.then235:                                       ; preds = %lor.lhs.false224, %
 
 if.end237:                                        ; preds = %lor.lhs.false224, %lor.lhs.false161
   %div.i.i893.pre-phi = phi float [ %div.i.i834, %lor.lhs.false224 ], [ %div.i.i783, %lor.lhs.false161 ]
-  %pHit.sroa.0.2 = phi <2 x float> [ %pHit.sroa.0.1, %lor.lhs.false224 ], [ %pHit.sroa.0.0, %lor.lhs.false161 ]
+  %pHit.sroa.0.1 = phi <2 x float> [ %pHit.sroa.0.2, %lor.lhs.false224 ], [ %pHit.sroa.0.0, %lor.lhs.false161 ]
   %pHit.sroa.23.0 = phi float [ %mul3.i888, %lor.lhs.false224 ], [ %mul3.i, %lor.lhs.false161 ]
-  %phi.2 = phi float [ %phi.1, %lor.lhs.false224 ], [ %phi.0, %lor.lhs.false161 ]
+  %phi.1 = phi float [ %phi.2, %lor.lhs.false224 ], [ %phi.0, %lor.lhs.false161 ]
   %set.i894 = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i8 1, ptr %set.i894, align 4
   store float %div.i.i893.pre-phi, ptr %agg.result, align 4
   %ref.tmp238.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store <2 x float> %pHit.sroa.0.2, ptr %ref.tmp238.sroa.2.0.agg.result.sroa_idx, align 4
+  store <2 x float> %pHit.sroa.0.1, ptr %ref.tmp238.sroa.2.0.agg.result.sroa_idx, align 4
   %ref.tmp238.sroa.2.sroa.2.0.ref.tmp238.sroa.2.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
   store float %pHit.sroa.23.0, ptr %ref.tmp238.sroa.2.sroa.2.0.ref.tmp238.sroa.2.0.agg.result.sroa_idx.sroa_idx, align 4
   %ref.tmp238.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store float %phi.2, ptr %ref.tmp238.sroa.3.0.agg.result.sroa_idx, align 4
+  store float %phi.1, ptr %ref.tmp238.sroa.3.0.agg.result.sroa_idx, align 4
   br label %return
 
 return:                                           ; preds = %if.end237, %if.then235, %if.then177, %if.then173, %if.then121, %if.then114, %if.then
@@ -8129,14 +8129,14 @@ if.end164:                                        ; preds = %if.end160
   %call.i869 = call noundef float @atan2f(float noundef %255, float noundef %254) #17
   %cmp197 = fcmp olt float %call.i869, 0.000000e+00
   %add199 = fadd float %call.i869, 0x401921FB60000000
-  %phi.1 = select i1 %cmp197, float %add199, float %call.i869
+  %phi.2 = select i1 %cmp197, float %add199, float %call.i869
   %256 = load float, ptr %zMin, align 8
   %cmp203 = fcmp olt float %add6.i861, %256
   %257 = load float, ptr %zMax, align 4
   %cmp207 = fcmp ogt float %add6.i861, %257
   %or.cond18 = select i1 %cmp203, i1 true, i1 %cmp207
   %258 = load float, ptr %phiMax, align 8
-  %cmp210 = fcmp ogt float %phi.1, %258
+  %cmp210 = fcmp ogt float %phi.2, %258
   %or.cond19 = select i1 %or.cond18, i1 true, i1 %cmp210
   br i1 %or.cond19, label %if.then211, label %if.end213
 
@@ -8148,7 +8148,7 @@ if.end213:                                        ; preds = %if.end164, %if.end1
   %div.i.i873.pre-phi = phi float [ %div.i.i831, %if.end164 ], [ %div.i.i786, %if.end119 ]
   %pHit.sroa.0.0 = phi <2 x float> [ %253, %if.end164 ], [ %225, %if.end119 ]
   %pHit.sroa.17.0 = phi float [ %add6.i861, %if.end164 ], [ %add6.i, %if.end119 ]
-  %phi.2 = phi float [ %phi.1, %if.end164 ], [ %phi.0, %if.end119 ]
+  %phi.1 = phi float [ %phi.2, %if.end164 ], [ %phi.0, %if.end119 ]
   %set.i874 = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i8 1, ptr %set.i874, align 4
   store float %div.i.i873.pre-phi, ptr %agg.result, align 4
@@ -8157,7 +8157,7 @@ if.end213:                                        ; preds = %if.end164, %if.end1
   %ref.tmp214.sroa.2.sroa.2.0.ref.tmp214.sroa.2.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
   store float %pHit.sroa.17.0, ptr %ref.tmp214.sroa.2.sroa.2.0.ref.tmp214.sroa.2.0.agg.result.sroa_idx.sroa_idx, align 4
   %ref.tmp214.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store float %phi.2, ptr %ref.tmp214.sroa.3.0.agg.result.sroa_idx, align 4
+  store float %phi.1, ptr %ref.tmp214.sroa.3.0.agg.result.sroa_idx, align 4
   br label %return
 
 return:                                           ; preds = %if.end213, %if.then211, %if.then163, %if.then159, %if.then117, %if.then110, %if.then

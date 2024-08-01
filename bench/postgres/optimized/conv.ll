@@ -393,7 +393,7 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture n
   unreachable
 
 18:                                               ; preds = %.lr.ph, %store_coded_char.exit
-  %.0200 = phi ptr [ %0, %.lr.ph ], [ %.4, %store_coded_char.exit ]
+  %.0200 = phi ptr [ %0, %.lr.ph ], [ %.2, %store_coded_char.exit ]
   %.0112199 = phi i32 [ %1, %.lr.ph ], [ %190, %store_coded_char.exit ]
   %.0117198 = phi ptr [ %2, %.lr.ph ], [ %.1118, %store_coded_char.exit ]
   %19 = load i8, ptr %.0200, align 1
@@ -743,30 +743,30 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture n
   unreachable
 
 store_coded_char.exit:                            ; preds = %182, %180, %157, %155, %132, %130, %27
-  %.1120 = phi i32 [ 1, %27 ], [ %55, %130 ], [ %55, %132 ], [ %22, %155 ], [ %22, %157 ], [ %22, %180 ], [ %22, %182 ]
+  %.0119 = phi i32 [ 1, %27 ], [ %55, %130 ], [ %55, %132 ], [ %22, %155 ], [ %22, %157 ], [ %22, %180 ], [ %22, %182 ]
   %.1118 = phi ptr [ %30, %27 ], [ %.2.i, %130 ], [ %134, %132 ], [ %.2.i147, %155 ], [ %159, %157 ], [ %.2.i156, %180 ], [ %184, %182 ]
   %.2114 = phi i32 [ %.0112199, %27 ], [ %54, %130 ], [ %54, %132 ], [ %.0112199, %155 ], [ %.0112199, %157 ], [ %.0112199, %180 ], [ %.0112199, %182 ]
-  %.4 = phi ptr [ %28, %27 ], [ %106, %130 ], [ %106, %132 ], [ %41, %155 ], [ %41, %157 ], [ %41, %180 ], [ %41, %182 ]
-  %190 = sub nsw i32 %.2114, %.1120
+  %.2 = phi ptr [ %28, %27 ], [ %106, %130 ], [ %106, %132 ], [ %41, %155 ], [ %41, %157 ], [ %41, %180 ], [ %41, %182 ]
+  %190 = sub nsw i32 %.2114, %.0119
   %191 = icmp sgt i32 %190, 0
   br i1 %191, label %18, label %.thread, !llvm.loop !11
 
 .loopexit:                                        ; preds = %24, %21, %18, %57
-  %.3115 = phi i32 [ %54, %57 ], [ %.0112199, %18 ], [ %.0112199, %21 ], [ %.0112199, %24 ]
-  %.5 = phi ptr [ %60, %57 ], [ %.0200, %18 ], [ %.0200, %21 ], [ %.0200, %24 ]
-  %192 = icmp slt i32 %.3115, 1
+  %.1113 = phi i32 [ %54, %57 ], [ %.0112199, %18 ], [ %.0112199, %21 ], [ %.0112199, %24 ]
+  %.1 = phi ptr [ %60, %57 ], [ %.0200, %18 ], [ %.0200, %21 ], [ %.0200, %24 ]
+  %192 = icmp slt i32 %.1113, 1
   %brmerge = or i1 %192, %8
   br i1 %brmerge, label %.thread, label %193
 
 193:                                              ; preds = %.loopexit
-  call void @report_invalid_encoding(i32 noundef 6, ptr noundef %.5, i32 noundef %.3115) #7
+  call void @report_invalid_encoding(i32 noundef 6, ptr noundef %.1, i32 noundef %.1113) #7
   unreachable
 
 .thread:                                          ; preds = %store_coded_char.exit, %.preheader, %65, %185, %.loopexit
   %.0117188 = phi ptr [ %.0117198, %.loopexit ], [ %.0117198, %65 ], [ %.0117198, %185 ], [ %2, %.preheader ], [ %.1118, %store_coded_char.exit ]
-  %.5164 = phi ptr [ %.5, %.loopexit ], [ %68, %65 ], [ %188, %185 ], [ %0, %.preheader ], [ %.4, %store_coded_char.exit ]
+  %.1164 = phi ptr [ %.1, %.loopexit ], [ %68, %65 ], [ %188, %185 ], [ %0, %.preheader ], [ %.2, %store_coded_char.exit ]
   store i8 0, ptr %.0117188, align 1
-  %194 = ptrtoint ptr %.5164 to i64
+  %194 = ptrtoint ptr %.1164 to i64
   %195 = ptrtoint ptr %0 to i64
   %196 = sub i64 %194, %195
   %197 = trunc i64 %196 to i32
@@ -1506,9 +1506,9 @@ store_coded_char.exit:                            ; preds = %147, %145, %121, %1
 
 .thread:                                          ; preds = %store_coded_char.exit, %.preheader, %150, %157
   %.076134 = phi ptr [ %.076136, %157 ], [ %.076136, %150 ], [ %2, %.preheader ], [ %.177, %store_coded_char.exit ]
-  %.3124 = phi ptr [ %.0138, %157 ], [ %153, %150 ], [ %0, %.preheader ], [ %.2, %store_coded_char.exit ]
+  %.1124 = phi ptr [ %.0138, %157 ], [ %153, %150 ], [ %0, %.preheader ], [ %.2, %store_coded_char.exit ]
   store i8 0, ptr %.076134, align 1
-  %159 = ptrtoint ptr %.3124 to i64
+  %159 = ptrtoint ptr %.1124 to i64
   %160 = ptrtoint ptr %0 to i64
   %161 = sub i64 %159, %160
   %162 = trunc i64 %161 to i32

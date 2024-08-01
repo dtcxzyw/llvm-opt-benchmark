@@ -291,25 +291,25 @@ idr_alloc_u32.exit:                               ; preds = %25
   br label %idr_alloc_u32.exit3
 
 idr_alloc_u32.exit3:                              ; preds = %58, %61
-  %.1 = phi i32 [ %2, %58 ], [ %64, %61 ]
+  %.2 = phi i32 [ %2, %58 ], [ %64, %61 ]
   %65 = phi i32 [ %60, %58 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
   br label %66
 
 66:                                               ; preds = %idr_alloc_u32.exit3, %idr_alloc_u32.exit
-  %.2 = phi i32 [ %.1, %idr_alloc_u32.exit3 ], [ %13, %idr_alloc_u32.exit ]
+  %.0 = phi i32 [ %.2, %idr_alloc_u32.exit3 ], [ %13, %idr_alloc_u32.exit ]
   %67 = phi i32 [ %65, %idr_alloc_u32.exit3 ], [ %37, %idr_alloc_u32.exit ]
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %.thread10
 
 69:                                               ; preds = %.thread, %66
-  %.29 = phi i32 [ %35, %.thread ], [ %.2, %66 ]
-  %70 = add i32 %.29, 1
+  %.09 = phi i32 [ %35, %.thread ], [ %.0, %66 ]
+  %70 = add i32 %.09, 1
   store i32 %70, ptr %8, align 4
   br label %.thread10
 
 .thread10:                                        ; preds = %39, %69, %66
-  %71 = phi i32 [ %.29, %69 ], [ %67, %66 ], [ -28, %39 ]
+  %71 = phi i32 [ %.09, %69 ], [ %67, %66 ], [ -28, %39 ]
   ret i32 %71
 }
 

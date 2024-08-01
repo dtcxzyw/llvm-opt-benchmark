@@ -1350,7 +1350,7 @@ define hidden void @_ZN8JVMCIEnv26describe_pending_exceptionEP12outputStream(ptr
 
 25:                                               ; preds = %.lr.ph, %53
   %.048 = phi ptr [ %20, %.lr.ph ], [ %.1, %53 ]
-  %.03547 = phi ptr [ null, %.lr.ph ], [ %.3, %53 ]
+  %.03547 = phi ptr [ null, %.lr.ph ], [ %.2, %53 ]
   %.03745 = phi i32 [ 0, %.lr.ph ], [ %54, %53 ]
   %26 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.048, i32 noundef 10) #16
   %27 = icmp eq ptr %26, null
@@ -1404,12 +1404,12 @@ define hidden void @_ZN8JVMCIEnv26describe_pending_exceptionEP12outputStream(ptr
   br label %51
 
 51:                                               ; preds = %41, %43, %45, %50
-  %.2 = phi ptr [ %.03547, %45 ], [ %.03547, %50 ], [ %.03547, %43 ], [ %.048, %41 ]
+  %.3 = phi ptr [ %.03547, %45 ], [ %.03547, %50 ], [ %.03547, %43 ], [ %.048, %41 ]
   %52 = getelementptr inbounds i8, ptr %26, i64 1
   br label %53
 
 53:                                               ; preds = %51, %38
-  %.3 = phi ptr [ %.136, %38 ], [ %.2, %51 ]
+  %.2 = phi ptr [ %.136, %38 ], [ %.3, %51 ]
   %.1 = phi ptr [ %40, %38 ], [ %52, %51 ]
   %54 = add nuw nsw i32 %.03745, 1
   %55 = load i8, ptr %.1, align 1
@@ -1417,7 +1417,7 @@ define hidden void @_ZN8JVMCIEnv26describe_pending_exceptionEP12outputStream(ptr
   br i1 %.not, label %._crit_edge, label %25, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %53
-  %.not40 = icmp eq ptr %.3, null
+  %.not40 = icmp eq ptr %.2, null
   br i1 %.not40, label %._crit_edge.thread, label %56
 
 56:                                               ; preds = %._crit_edge
@@ -1434,14 +1434,14 @@ define hidden void @_ZN8JVMCIEnv26describe_pending_exceptionEP12outputStream(ptr
 
 62:                                               ; preds = %61
   %63 = sub nsw i32 %54, %22
-  call void (ptr, ...) @_ZN5JVMCI6event1EPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull %.3, i32 noundef %63) #14
+  call void (ptr, ...) @_ZN5JVMCI6event1EPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull %.2, i32 noundef %63) #14
   br label %._crit_edge.thread
 
 64:                                               ; preds = %56
   br i1 %or.cond5, label %._crit_edge.thread, label %65
 
 65:                                               ; preds = %64
-  call void (ptr, ...) @_ZN5JVMCI6event1EPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull %.3) #14
+  call void (ptr, ...) @_ZN5JVMCI6event1EPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull %.2) #14
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %17, %._crit_edge, %65, %64, %62, %61, %2
@@ -2022,7 +2022,7 @@ define linkonce_odr hidden void @_ZN20ExceptionTranslation4doitEP10JavaThread(pt
   br label %5
 
 5:                                                ; preds = %_ZN12ResourceMarkD2Ev.exit, %2
-  %.0 = phi i32 [ 2048, %2 ], [ %.2, %_ZN12ResourceMarkD2Ev.exit ]
+  %.0 = phi i32 [ 2048, %2 ], [ %.1, %_ZN12ResourceMarkD2Ev.exit ]
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 800
   %8 = load ptr, ptr %7, align 8
@@ -2094,7 +2094,7 @@ define linkonce_odr hidden void @_ZN20ExceptionTranslation4doitEP10JavaThread(pt
 
 49:                                               ; preds = %41, %47, %31, %39, %27
   %switch = phi i1 [ false, %27 ], [ true, %39 ], [ false, %31 ], [ false, %47 ], [ false, %41 ]
-  %.2 = phi i32 [ %.0, %27 ], [ %spec.select, %39 ], [ %.0, %31 ], [ %.0, %47 ], [ %.0, %41 ]
+  %.1 = phi i32 [ %.0, %27 ], [ %spec.select, %39 ], [ %.0, %31 ], [ %.0, %47 ], [ %.0, %41 ]
   %50 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i, label %52, label %51
@@ -4592,7 +4592,7 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   br label %85
 
 85:                                               ; preds = %78, %71, %64, %57, %50, %43, %36, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  %.0 = phi i8 [ 4, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ 8, %36 ], [ 9, %43 ], [ 5, %50 ], [ 10, %57 ], [ 11, %64 ], [ 6, %71 ], [ %., %78 ]
+  %.1 = phi i8 [ 4, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ 8, %36 ], [ 9, %43 ], [ 5, %50 ], [ 10, %57 ], [ 11, %64 ], [ 6, %71 ], [ %., %78 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #14
   %86 = load ptr, ptr %14, align 8
   %87 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -4634,8 +4634,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %100
 
 100:                                              ; preds = %_ZN13JNIAccessMarkD2Ev.exit, %8
-  %.1 = phi i8 [ %10, %8 ], [ %.0, %_ZN13JNIAccessMarkD2Ev.exit ]
-  ret i8 %.1
+  %.0 = phi i8 [ %10, %8 ], [ %.1, %_ZN13JNIAccessMarkD2Ev.exit ]
+  ret i8 %.0
 }
 
 declare noundef zeroext i8 @_ZN23java_lang_boxing_object10basic_typeEP7oopDesc(ptr noundef) local_unnamed_addr #1
@@ -5767,8 +5767,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %100
 
 100:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZN13JNIAccessMarkD2Ev.exit, %61
-  %.1 = phi i8 [ %64, %61 ], [ %., %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
-  ret i8 %.1
+  %.0 = phi i8 [ %64, %61 ], [ %., %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  ret i8 %.0
 }
 
 declare void @_ZN9JavaCalls12call_specialEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -5964,8 +5964,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %100
 
 100:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZN13JNIAccessMarkD2Ev.exit, %61
-  %.1 = phi i8 [ %64, %61 ], [ %., %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
-  ret i8 %.1
+  %.0 = phi i8 [ %64, %61 ], [ %., %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6188,8 +6188,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %121
   %.not = icmp eq i8 %141, 0
   %142 = load i8, ptr %15, align 8
   %143 = and i8 %142, 1
-  %.sroa.025.0 = select i1 %.not, ptr %136, ptr null
-  %.sroa.5.0 = select i1 %.not, i8 %143, i8 0
+  %.sroa.025.1 = select i1 %.not, ptr %136, ptr null
+  %.sroa.5.1 = select i1 %.not, i8 %143, i8 0
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %125) #14
   %144 = load ptr, ptr %122, align 8
   %145 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -6231,10 +6231,10 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %158
 
 158:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit19, %_ZN13JNIAccessMarkD2Ev.exit, %115
-  %.sroa.025.1 = phi ptr [ %118, %115 ], [ %.sroa.025.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit19 ]
-  %.sroa.5.1 = phi i8 [ %120, %115 ], [ %.sroa.5.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit19 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.025.1, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.1, 1
+  %.sroa.025.0 = phi ptr [ %118, %115 ], [ %.sroa.025.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit19 ]
+  %.sroa.5.0 = phi i8 [ %120, %115 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit19 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.025.0, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 
@@ -6672,8 +6672,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %32
   %.not = icmp eq i8 %52, 0
   %53 = load i8, ptr %9, align 8
   %54 = and i8 %53, 1
-  %.sroa.5.0 = select i1 %.not, i8 %54, i8 0
-  %.sroa.0.0 = select i1 %.not, ptr %47, ptr null
+  %.sroa.5.1 = select i1 %.not, i8 %54, i8 0
+  %.sroa.0.1 = select i1 %.not, ptr %47, ptr null
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %36) #14
   %55 = load ptr, ptr %33, align 8
   %56 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -6715,10 +6715,10 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %69
 
 69:                                               ; preds = %12, %_ZN13JNIAccessMarkD2Ev.exit, %26
-  %.sroa.5.1 = phi i8 [ %31, %26 ], [ %.sroa.5.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %12 ]
-  %.sroa.0.1 = phi ptr [ %29, %26 ], [ %.sroa.0.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %12 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.1, 1
+  %.sroa.5.0 = phi i8 [ %31, %26 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %12 ]
+  %.sroa.0.0 = phi ptr [ %29, %26 ], [ %.sroa.0.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %12 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 
@@ -6805,8 +6805,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %32
   %.not = icmp eq i8 %52, 0
   %53 = load i8, ptr %9, align 8
   %54 = and i8 %53, 1
-  %.sroa.5.0 = select i1 %.not, i8 %54, i8 0
-  %.sroa.0.0 = select i1 %.not, ptr %47, ptr null
+  %.sroa.5.1 = select i1 %.not, i8 %54, i8 0
+  %.sroa.0.1 = select i1 %.not, ptr %47, ptr null
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %36) #14
   %55 = load ptr, ptr %33, align 8
   %56 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -6848,10 +6848,10 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %69
 
 69:                                               ; preds = %12, %_ZN13JNIAccessMarkD2Ev.exit, %26
-  %.sroa.5.1 = phi i8 [ %31, %26 ], [ %.sroa.5.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %12 ]
-  %.sroa.0.1 = phi ptr [ %29, %26 ], [ %.sroa.0.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %12 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.1, 1
+  %.sroa.5.0 = phi i8 [ %31, %26 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %12 ]
+  %.sroa.0.0 = phi ptr [ %29, %26 ], [ %.sroa.0.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %12 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 
@@ -6984,8 +6984,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %59
   %.not = icmp eq i8 %78, 0
   %79 = load i8, ptr %11, align 8
   %80 = and i8 %79, 1
-  %.sroa.08.0 = select i1 %.not, ptr %73, ptr null
-  %.sroa.5.0 = select i1 %.not, i8 %80, i8 0
+  %.sroa.08.1 = select i1 %.not, ptr %73, ptr null
+  %.sroa.5.1 = select i1 %.not, i8 %80, i8 0
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %63) #14
   %81 = load ptr, ptr %60, align 8
   %82 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -7027,10 +7027,10 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %95
 
 95:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZN13JNIAccessMarkD2Ev.exit, %53
-  %.sroa.08.1 = phi ptr [ %56, %53 ], [ %.sroa.08.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
-  %.sroa.5.1 = phi i8 [ %58, %53 ], [ %.sroa.5.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.08.1, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.1, 1
+  %.sroa.08.0 = phi ptr [ %56, %53 ], [ %.sroa.08.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %.sroa.5.0 = phi i8 [ %58, %53 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.08.0, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 
@@ -7308,8 +7308,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %38
   %.not = icmp eq i8 %59, 0
   %60 = load i8, ptr %11, align 8
   %61 = and i8 %60, 1
-  %.sroa.5.0 = select i1 %.not, i8 %61, i8 0
-  %.sroa.0.0 = select i1 %.not, ptr %54, ptr null
+  %.sroa.5.1 = select i1 %.not, i8 %61, i8 0
+  %.sroa.0.1 = select i1 %.not, ptr %54, ptr null
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %42) #14
   %62 = load ptr, ptr %39, align 8
   %63 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -7351,10 +7351,10 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %76
 
 76:                                               ; preds = %14, %_ZN13JNIAccessMarkD2Ev.exit, %32
-  %.sroa.5.1 = phi i8 [ %37, %32 ], [ %.sroa.5.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %14 ]
-  %.sroa.0.1 = phi ptr [ %35, %32 ], [ %.sroa.0.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %14 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.1, 1
+  %.sroa.5.0 = phi i8 [ %37, %32 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %14 ]
+  %.sroa.0.0 = phi ptr [ %35, %32 ], [ %.sroa.0.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %14 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 
@@ -7653,8 +7653,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %87
   br label %143
 
 143:                                              ; preds = %123, %109, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit, %135
-  %.sroa.045.0 = phi ptr [ %140, %135 ], [ null, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ null, %109 ], [ null, %123 ]
-  %.sroa.12.0 = phi i8 [ %142, %135 ], [ 0, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ 0, %109 ], [ 0, %123 ]
+  %.sroa.045.1 = phi ptr [ %140, %135 ], [ null, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ null, %109 ], [ null, %123 ]
+  %.sroa.12.1 = phi i8 [ %142, %135 ], [ 0, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ 0, %109 ], [ 0, %123 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %91) #14
   %144 = load ptr, ptr %88, align 8
   %145 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -7696,10 +7696,10 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %158
 
 158:                                              ; preds = %70, %_ZNK6HandleclEv.exit, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %36, %30, %4, %_ZN13JNIAccessMarkD2Ev.exit, %_ZNK6HandleclEv.exit39
-  %.sroa.045.1 = phi ptr [ %84, %_ZNK6HandleclEv.exit39 ], [ %.sroa.045.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %4 ], [ null, %30 ], [ null, %36 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZNK6HandleclEv.exit ], [ null, %70 ]
-  %.sroa.12.1 = phi i8 [ %86, %_ZNK6HandleclEv.exit39 ], [ %.sroa.12.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %4 ], [ 0, %30 ], [ 0, %36 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZNK6HandleclEv.exit ], [ 0, %70 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.045.1, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.12.1, 1
+  %.sroa.045.0 = phi ptr [ %84, %_ZNK6HandleclEv.exit39 ], [ %.sroa.045.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %4 ], [ null, %30 ], [ null, %36 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZNK6HandleclEv.exit ], [ null, %70 ]
+  %.sroa.12.0 = phi i8 [ %86, %_ZNK6HandleclEv.exit39 ], [ %.sroa.12.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %4 ], [ 0, %30 ], [ 0, %36 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZNK6HandleclEv.exit ], [ 0, %70 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.045.0, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.12.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 
@@ -8011,8 +8011,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %137
   br label %171
 
 171:                                              ; preds = %156, %163
-  %.sroa.039.0 = phi ptr [ %168, %163 ], [ null, %156 ]
-  %.sroa.9.0 = phi i8 [ %170, %163 ], [ 0, %156 ]
+  %.sroa.039.1 = phi ptr [ %168, %163 ], [ null, %156 ]
+  %.sroa.9.1 = phi i8 [ %170, %163 ], [ 0, %156 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %141) #14
   %172 = load ptr, ptr %138, align 8
   %173 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -8054,10 +8054,10 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %186
 
 186:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit35, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %33, %27, %6, %_ZN13JNIAccessMarkD2Ev.exit, %_ZNK6HandleclEv.exit
-  %.sroa.039.1 = phi ptr [ %134, %_ZNK6HandleclEv.exit ], [ %.sroa.039.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %6 ], [ null, %27 ], [ null, %33 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit35 ]
-  %.sroa.9.1 = phi i8 [ %136, %_ZNK6HandleclEv.exit ], [ %.sroa.9.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %33 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit35 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.039.1, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.9.1, 1
+  %.sroa.039.0 = phi ptr [ %134, %_ZNK6HandleclEv.exit ], [ %.sroa.039.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %6 ], [ null, %27 ], [ null, %33 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit35 ]
+  %.sroa.9.0 = phi i8 [ %136, %_ZNK6HandleclEv.exit ], [ %.sroa.9.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %33 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit35 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.039.0, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.9.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

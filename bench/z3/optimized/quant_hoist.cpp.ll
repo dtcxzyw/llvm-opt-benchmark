@@ -1305,7 +1305,7 @@ cleanup:                                          ; preds = %if.then.i.i.i243, %
   br i1 %cmp.i.i.i247, label %return, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i:          ; preds = %invoke.cont32, %cleanup
-  %retval.0.ph354 = phi i32 [ %index.1, %cleanup ], [ %index.0, %invoke.cont32 ]
+  %retval.1.ph354 = phi i32 [ %index.1, %cleanup ], [ %index.0, %invoke.cont32 ]
   %.pr353 = phi ptr [ %.pr.pre, %cleanup ], [ %45, %invoke.cont32 ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pr353, i64 -4
   %138 = load i32, ptr %arrayidx.i.i.i, align 4
@@ -1369,8 +1369,8 @@ ehcleanup96:                                      ; preds = %lpad.i72, %lpad42
   br label %common.resume
 
 return:                                           ; preds = %while.cond, %invoke.cont31, %if.then.i.i.i.i.i250, %invoke.cont.i.i, %cleanup, %_Z15has_quantifiersPK4expr.exit
-  %retval.1 = phi i32 [ %index.0, %_Z15has_quantifiersPK4expr.exit ], [ %index.1, %cleanup ], [ %retval.0.ph354, %invoke.cont.i.i ], [ %retval.0.ph354, %if.then.i.i.i.i.i250 ], [ %index.0, %invoke.cont31 ], [ %index.0, %while.cond ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %index.0, %_Z15has_quantifiersPK4expr.exit ], [ %index.1, %cleanup ], [ %retval.1.ph354, %invoke.cont.i.i ], [ %retval.1.ph354, %if.then.i.i.i.i.i250 ], [ %index.0, %invoke.cont31 ], [ %index.0, %while.cond ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind

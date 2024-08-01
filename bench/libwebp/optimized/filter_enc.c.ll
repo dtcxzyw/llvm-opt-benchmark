@@ -176,15 +176,15 @@ GetMBSSIM.exit:                                   ; preds = %47
 
 62:                                               ; preds = %56
   %63 = icmp ugt i32 %60, 4
-  %.0.v.i.i = select i1 %63, i32 2, i32 1
-  %.0.i.i = lshr i32 %55, %.0.v.i.i
+  %.1.v.i.i = select i1 %63, i32 2, i32 1
+  %.1.i.i = lshr i32 %55, %.1.v.i.i
   %64 = sub nsw i32 9, %60
-  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %.0.i.i, i32 %64)
+  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %.1.i.i, i32 %64)
   br label %GetILevel.exit.i
 
 GetILevel.exit.i:                                 ; preds = %62, %56
-  %.1.i.i = phi i32 [ %55, %56 ], [ %spec.select.i.i, %62 ]
-  %spec.store.select.i.i = tail call range(i32 -2147483638, 64) i32 @llvm.smax.i32(i32 %.1.i.i, i32 1)
+  %.0.i.i = phi i32 [ %55, %56 ], [ %spec.select.i.i, %62 ]
+  %spec.store.select.i.i = tail call range(i32 -2147483638, 64) i32 @llvm.smax.i32(i32 %.0.i.i, i32 1)
   %65 = shl nuw nsw i32 %55, 1
   %66 = add nuw nsw i32 %spec.store.select.i.i, %65
   %67 = load ptr, ptr %53, align 8

@@ -1731,8 +1731,8 @@ if.else27:                                        ; preds = %PyByteArray_GET_SIZ
   br label %exit
 
 if.end30:                                         ; preds = %if.then.i, %Py_SIZE.exit.i, %PyBytes_AS_STRING.exit
-  %a.0.in = phi ptr [ %ob_sval.i, %PyBytes_AS_STRING.exit ], [ %9, %if.then.i ], [ @_PyByteArray_empty_string, %Py_SIZE.exit.i ]
-  %a.0 = load i8, ptr %a.0.in, align 1
+  %a.1.in = phi ptr [ %ob_sval.i, %PyBytes_AS_STRING.exit ], [ %9, %if.then.i ], [ @_PyByteArray_empty_string, %Py_SIZE.exit.i ]
+  %a.1 = load i8, ptr %a.1.in, align 1
   %cmp31 = icmp eq i64 %nargs, 1
   br i1 %cmp31, label %skip_optional, label %if.end33
 
@@ -1877,8 +1877,8 @@ if.else58:                                        ; preds = %PyByteArray_GET_SIZ
   br label %exit
 
 if.end61:                                         ; preds = %if.then.i227, %Py_SIZE.exit.i224, %PyBytes_AS_STRING.exit191
-  %b.0.in = phi ptr [ %ob_sval.i189, %PyBytes_AS_STRING.exit191 ], [ %20, %if.then.i227 ], [ @_PyByteArray_empty_string, %Py_SIZE.exit.i224 ]
-  %b.0 = load i8, ptr %b.0.in, align 1
+  %b.1.in = phi ptr [ %ob_sval.i189, %PyBytes_AS_STRING.exit191 ], [ %20, %if.then.i227 ], [ @_PyByteArray_empty_string, %Py_SIZE.exit.i224 ]
+  %b.1 = load i8, ptr %b.1.in, align 1
   %cmp62 = icmp ult i64 %nargs, 3
   br i1 %cmp62, label %skip_optional, label %if.end64
 
@@ -1949,8 +1949,8 @@ if.else89:                                        ; preds = %land.lhs.true81, %P
   br label %exit
 
 if.end92:                                         ; preds = %if.then85, %PyBytes_AS_STRING.exit256
-  %c.0.in = phi ptr [ %ob_sval.i254, %PyBytes_AS_STRING.exit256 ], [ %call87, %if.then85 ]
-  %c.0 = load i8, ptr %c.0.in, align 1
+  %c.1.in = phi ptr [ %ob_sval.i254, %PyBytes_AS_STRING.exit256 ], [ %call87, %if.then85 ]
+  %c.1 = load i8, ptr %c.1.in, align 1
   %cmp93 = icmp eq i64 %nargs, 3
   br i1 %cmp93, label %skip_optional, label %if.end95
 
@@ -2020,8 +2020,8 @@ if.else120:                                       ; preds = %land.lhs.true112, %
   br label %exit
 
 if.end123:                                        ; preds = %if.then116, %PyBytes_AS_STRING.exit272
-  %d.0.in = phi ptr [ %ob_sval.i270, %PyBytes_AS_STRING.exit272 ], [ %call118, %if.then116 ]
-  %d.0 = load i8, ptr %d.0.in, align 1
+  %d.1.in = phi ptr [ %ob_sval.i270, %PyBytes_AS_STRING.exit272 ], [ %call118, %if.then116 ]
+  %d.1 = load i8, ptr %d.1.in, align 1
   %cmp124 = icmp ult i64 %nargs, 5
   br i1 %cmp124, label %skip_optional, label %if.end126
 
@@ -2091,8 +2091,8 @@ if.else151:                                       ; preds = %land.lhs.true143, %
   br label %exit
 
 if.end154:                                        ; preds = %if.then147, %PyBytes_AS_STRING.exit288
-  %e.0.in = phi ptr [ %ob_sval.i286, %PyBytes_AS_STRING.exit288 ], [ %call149, %if.then147 ]
-  %e.0 = load i8, ptr %e.0.in, align 1
+  %e.1.in = phi ptr [ %ob_sval.i286, %PyBytes_AS_STRING.exit288 ], [ %call149, %if.then147 ]
+  %e.1 = load i8, ptr %e.1.in, align 1
   %cmp155 = icmp eq i64 %nargs, 5
   br i1 %cmp155, label %skip_optional, label %if.end157
 
@@ -2162,8 +2162,8 @@ if.else182:                                       ; preds = %land.lhs.true174, %
   br label %exit
 
 if.end185:                                        ; preds = %if.then178, %PyBytes_AS_STRING.exit304
-  %f.0.in = phi ptr [ %ob_sval.i302, %PyBytes_AS_STRING.exit304 ], [ %call180, %if.then178 ]
-  %f.0 = load i8, ptr %f.0.in, align 1
+  %f.1.in = phi ptr [ %ob_sval.i302, %PyBytes_AS_STRING.exit304 ], [ %call180, %if.then178 ]
+  %f.1 = load i8, ptr %f.1.in, align 1
   %cmp186 = icmp ult i64 %nargs, 7
   br i1 %cmp186, label %skip_optional, label %if.end188
 
@@ -2233,8 +2233,8 @@ if.else213:                                       ; preds = %land.lhs.true205, %
   br label %exit
 
 if.end216:                                        ; preds = %if.then209, %PyBytes_AS_STRING.exit320
-  %g.0.in = phi ptr [ %ob_sval.i318, %PyBytes_AS_STRING.exit320 ], [ %call211, %if.then209 ]
-  %g.0 = load i8, ptr %g.0.in, align 1
+  %g.1.in = phi ptr [ %ob_sval.i318, %PyBytes_AS_STRING.exit320 ], [ %call211, %if.then209 ]
+  %g.1 = load i8, ptr %g.1.in, align 1
   %cmp217 = icmp eq i64 %nargs, 7
   br i1 %cmp217, label %skip_optional, label %if.end219
 
@@ -2304,8 +2304,8 @@ if.else244:                                       ; preds = %land.lhs.true236, %
   br label %exit
 
 if.end247:                                        ; preds = %if.then240, %PyBytes_AS_STRING.exit336
-  %h.0.in = phi ptr [ %ob_sval.i334, %PyBytes_AS_STRING.exit336 ], [ %call242, %if.then240 ]
-  %h.0 = load i8, ptr %h.0.in, align 1
+  %h.1.in = phi ptr [ %ob_sval.i334, %PyBytes_AS_STRING.exit336 ], [ %call242, %if.then240 ]
+  %h.1 = load i8, ptr %h.1.in, align 1
   %cmp248 = icmp ult i64 %nargs, 9
   br i1 %cmp248, label %skip_optional, label %if.end250
 
@@ -2375,8 +2375,8 @@ if.else275:                                       ; preds = %land.lhs.true267, %
   br label %exit
 
 if.end278:                                        ; preds = %if.then271, %PyBytes_AS_STRING.exit352
-  %i.0.in = phi ptr [ %ob_sval.i350, %PyBytes_AS_STRING.exit352 ], [ %call273, %if.then271 ]
-  %i.0 = load i8, ptr %i.0.in, align 1
+  %i.1.in = phi ptr [ %ob_sval.i350, %PyBytes_AS_STRING.exit352 ], [ %call273, %if.then271 ]
+  %i.1 = load i8, ptr %i.1.in, align 1
   %cmp279 = icmp eq i64 %nargs, 9
   br i1 %cmp279, label %skip_optional, label %if.end281
 
@@ -2446,8 +2446,8 @@ if.else306:                                       ; preds = %land.lhs.true298, %
   br label %exit
 
 if.end309:                                        ; preds = %if.then302, %PyBytes_AS_STRING.exit368
-  %j.0.in = phi ptr [ %ob_sval.i366, %PyBytes_AS_STRING.exit368 ], [ %call304, %if.then302 ]
-  %j.0 = load i8, ptr %j.0.in, align 1
+  %j.1.in = phi ptr [ %ob_sval.i366, %PyBytes_AS_STRING.exit368 ], [ %call304, %if.then302 ]
+  %j.1 = load i8, ptr %j.1.in, align 1
   %cmp310 = icmp ult i64 %nargs, 11
   br i1 %cmp310, label %skip_optional, label %if.end312
 
@@ -2517,8 +2517,8 @@ if.else337:                                       ; preds = %land.lhs.true329, %
   br label %exit
 
 if.end340:                                        ; preds = %if.then333, %PyBytes_AS_STRING.exit384
-  %k.0.in = phi ptr [ %ob_sval.i382, %PyBytes_AS_STRING.exit384 ], [ %call335, %if.then333 ]
-  %k.0 = load i8, ptr %k.0.in, align 1
+  %k.1.in = phi ptr [ %ob_sval.i382, %PyBytes_AS_STRING.exit384 ], [ %call335, %if.then333 ]
+  %k.1 = load i8, ptr %k.1.in, align 1
   %cmp341 = icmp eq i64 %nargs, 11
   br i1 %cmp341, label %skip_optional, label %if.end343
 
@@ -2588,8 +2588,8 @@ if.else368:                                       ; preds = %land.lhs.true360, %
   br label %exit
 
 if.end371:                                        ; preds = %if.then364, %PyBytes_AS_STRING.exit400
-  %l.0.in = phi ptr [ %ob_sval.i398, %PyBytes_AS_STRING.exit400 ], [ %call366, %if.then364 ]
-  %l.0 = load i8, ptr %l.0.in, align 1
+  %l.1.in = phi ptr [ %ob_sval.i398, %PyBytes_AS_STRING.exit400 ], [ %call366, %if.then364 ]
+  %l.1 = load i8, ptr %l.1.in, align 1
   %cmp372 = icmp ult i64 %nargs, 13
   br i1 %cmp372, label %skip_optional, label %if.end374
 
@@ -2659,8 +2659,8 @@ if.else399:                                       ; preds = %land.lhs.true391, %
   br label %exit
 
 if.end402:                                        ; preds = %if.then395, %PyBytes_AS_STRING.exit416
-  %m.0.in = phi ptr [ %ob_sval.i414, %PyBytes_AS_STRING.exit416 ], [ %call397, %if.then395 ]
-  %m.0 = load i8, ptr %m.0.in, align 1
+  %m.1.in = phi ptr [ %ob_sval.i414, %PyBytes_AS_STRING.exit416 ], [ %call397, %if.then395 ]
+  %m.1 = load i8, ptr %m.1.in, align 1
   %cmp403 = icmp eq i64 %nargs, 13
   br i1 %cmp403, label %skip_optional, label %if.end405
 
@@ -2735,19 +2735,19 @@ skip_optional.sink.split:                         ; preds = %if.then426, %PyByte
   br label %skip_optional
 
 skip_optional:                                    ; preds = %skip_optional.sink.split, %if.end402, %if.end371, %if.end340, %if.end309, %if.end278, %if.end247, %if.end216, %if.end185, %if.end154, %if.end123, %if.end92, %if.end61, %if.end30, %if.end
-  %a.1 = phi i8 [ 65, %if.end ], [ %a.0, %if.end30 ], [ %a.0, %if.end61 ], [ %a.0, %if.end92 ], [ %a.0, %if.end123 ], [ %a.0, %if.end154 ], [ %a.0, %if.end185 ], [ %a.0, %if.end216 ], [ %a.0, %if.end247 ], [ %a.0, %if.end278 ], [ %a.0, %if.end309 ], [ %a.0, %if.end340 ], [ %a.0, %if.end371 ], [ %a.0, %if.end402 ], [ %a.0, %skip_optional.sink.split ]
-  %b.1 = phi i8 [ 7, %if.end ], [ 7, %if.end30 ], [ %b.0, %if.end61 ], [ %b.0, %if.end92 ], [ %b.0, %if.end123 ], [ %b.0, %if.end154 ], [ %b.0, %if.end185 ], [ %b.0, %if.end216 ], [ %b.0, %if.end247 ], [ %b.0, %if.end278 ], [ %b.0, %if.end309 ], [ %b.0, %if.end340 ], [ %b.0, %if.end371 ], [ %b.0, %if.end402 ], [ %b.0, %skip_optional.sink.split ]
-  %c.1 = phi i8 [ 8, %if.end ], [ 8, %if.end30 ], [ 8, %if.end61 ], [ %c.0, %if.end92 ], [ %c.0, %if.end123 ], [ %c.0, %if.end154 ], [ %c.0, %if.end185 ], [ %c.0, %if.end216 ], [ %c.0, %if.end247 ], [ %c.0, %if.end278 ], [ %c.0, %if.end309 ], [ %c.0, %if.end340 ], [ %c.0, %if.end371 ], [ %c.0, %if.end402 ], [ %c.0, %skip_optional.sink.split ]
-  %d.1 = phi i8 [ 9, %if.end ], [ 9, %if.end30 ], [ 9, %if.end61 ], [ 9, %if.end92 ], [ %d.0, %if.end123 ], [ %d.0, %if.end154 ], [ %d.0, %if.end185 ], [ %d.0, %if.end216 ], [ %d.0, %if.end247 ], [ %d.0, %if.end278 ], [ %d.0, %if.end309 ], [ %d.0, %if.end340 ], [ %d.0, %if.end371 ], [ %d.0, %if.end402 ], [ %d.0, %skip_optional.sink.split ]
-  %e.1 = phi i8 [ 10, %if.end ], [ 10, %if.end30 ], [ 10, %if.end61 ], [ 10, %if.end92 ], [ 10, %if.end123 ], [ %e.0, %if.end154 ], [ %e.0, %if.end185 ], [ %e.0, %if.end216 ], [ %e.0, %if.end247 ], [ %e.0, %if.end278 ], [ %e.0, %if.end309 ], [ %e.0, %if.end340 ], [ %e.0, %if.end371 ], [ %e.0, %if.end402 ], [ %e.0, %skip_optional.sink.split ]
-  %f.1 = phi i8 [ 11, %if.end ], [ 11, %if.end30 ], [ 11, %if.end61 ], [ 11, %if.end92 ], [ 11, %if.end123 ], [ 11, %if.end154 ], [ %f.0, %if.end185 ], [ %f.0, %if.end216 ], [ %f.0, %if.end247 ], [ %f.0, %if.end278 ], [ %f.0, %if.end309 ], [ %f.0, %if.end340 ], [ %f.0, %if.end371 ], [ %f.0, %if.end402 ], [ %f.0, %skip_optional.sink.split ]
-  %g.1 = phi i8 [ 12, %if.end ], [ 12, %if.end30 ], [ 12, %if.end61 ], [ 12, %if.end92 ], [ 12, %if.end123 ], [ 12, %if.end154 ], [ 12, %if.end185 ], [ %g.0, %if.end216 ], [ %g.0, %if.end247 ], [ %g.0, %if.end278 ], [ %g.0, %if.end309 ], [ %g.0, %if.end340 ], [ %g.0, %if.end371 ], [ %g.0, %if.end402 ], [ %g.0, %skip_optional.sink.split ]
-  %h.1 = phi i8 [ 13, %if.end ], [ 13, %if.end30 ], [ 13, %if.end61 ], [ 13, %if.end92 ], [ 13, %if.end123 ], [ 13, %if.end154 ], [ 13, %if.end185 ], [ 13, %if.end216 ], [ %h.0, %if.end247 ], [ %h.0, %if.end278 ], [ %h.0, %if.end309 ], [ %h.0, %if.end340 ], [ %h.0, %if.end371 ], [ %h.0, %if.end402 ], [ %h.0, %skip_optional.sink.split ]
-  %i.1 = phi i8 [ 34, %if.end ], [ 34, %if.end30 ], [ 34, %if.end61 ], [ 34, %if.end92 ], [ 34, %if.end123 ], [ 34, %if.end154 ], [ 34, %if.end185 ], [ 34, %if.end216 ], [ 34, %if.end247 ], [ %i.0, %if.end278 ], [ %i.0, %if.end309 ], [ %i.0, %if.end340 ], [ %i.0, %if.end371 ], [ %i.0, %if.end402 ], [ %i.0, %skip_optional.sink.split ]
-  %j.1 = phi i8 [ 39, %if.end ], [ 39, %if.end30 ], [ 39, %if.end61 ], [ 39, %if.end92 ], [ 39, %if.end123 ], [ 39, %if.end154 ], [ 39, %if.end185 ], [ 39, %if.end216 ], [ 39, %if.end247 ], [ 39, %if.end278 ], [ %j.0, %if.end309 ], [ %j.0, %if.end340 ], [ %j.0, %if.end371 ], [ %j.0, %if.end402 ], [ %j.0, %skip_optional.sink.split ]
-  %k.1 = phi i8 [ 63, %if.end ], [ 63, %if.end30 ], [ 63, %if.end61 ], [ 63, %if.end92 ], [ 63, %if.end123 ], [ 63, %if.end154 ], [ 63, %if.end185 ], [ 63, %if.end216 ], [ 63, %if.end247 ], [ 63, %if.end278 ], [ 63, %if.end309 ], [ %k.0, %if.end340 ], [ %k.0, %if.end371 ], [ %k.0, %if.end402 ], [ %k.0, %skip_optional.sink.split ]
-  %l.1 = phi i8 [ 92, %if.end ], [ 92, %if.end30 ], [ 92, %if.end61 ], [ 92, %if.end92 ], [ 92, %if.end123 ], [ 92, %if.end154 ], [ 92, %if.end185 ], [ 92, %if.end216 ], [ 92, %if.end247 ], [ 92, %if.end278 ], [ 92, %if.end309 ], [ 92, %if.end340 ], [ %l.0, %if.end371 ], [ %l.0, %if.end402 ], [ %l.0, %skip_optional.sink.split ]
-  %m.1 = phi i8 [ 0, %if.end ], [ 0, %if.end30 ], [ 0, %if.end61 ], [ 0, %if.end92 ], [ 0, %if.end123 ], [ 0, %if.end154 ], [ 0, %if.end185 ], [ 0, %if.end216 ], [ 0, %if.end247 ], [ 0, %if.end278 ], [ 0, %if.end309 ], [ 0, %if.end340 ], [ 0, %if.end371 ], [ %m.0, %if.end402 ], [ %m.0, %skip_optional.sink.split ]
+  %a.0 = phi i8 [ 65, %if.end ], [ %a.1, %if.end30 ], [ %a.1, %if.end61 ], [ %a.1, %if.end92 ], [ %a.1, %if.end123 ], [ %a.1, %if.end154 ], [ %a.1, %if.end185 ], [ %a.1, %if.end216 ], [ %a.1, %if.end247 ], [ %a.1, %if.end278 ], [ %a.1, %if.end309 ], [ %a.1, %if.end340 ], [ %a.1, %if.end371 ], [ %a.1, %if.end402 ], [ %a.1, %skip_optional.sink.split ]
+  %b.0 = phi i8 [ 7, %if.end ], [ 7, %if.end30 ], [ %b.1, %if.end61 ], [ %b.1, %if.end92 ], [ %b.1, %if.end123 ], [ %b.1, %if.end154 ], [ %b.1, %if.end185 ], [ %b.1, %if.end216 ], [ %b.1, %if.end247 ], [ %b.1, %if.end278 ], [ %b.1, %if.end309 ], [ %b.1, %if.end340 ], [ %b.1, %if.end371 ], [ %b.1, %if.end402 ], [ %b.1, %skip_optional.sink.split ]
+  %c.0 = phi i8 [ 8, %if.end ], [ 8, %if.end30 ], [ 8, %if.end61 ], [ %c.1, %if.end92 ], [ %c.1, %if.end123 ], [ %c.1, %if.end154 ], [ %c.1, %if.end185 ], [ %c.1, %if.end216 ], [ %c.1, %if.end247 ], [ %c.1, %if.end278 ], [ %c.1, %if.end309 ], [ %c.1, %if.end340 ], [ %c.1, %if.end371 ], [ %c.1, %if.end402 ], [ %c.1, %skip_optional.sink.split ]
+  %d.0 = phi i8 [ 9, %if.end ], [ 9, %if.end30 ], [ 9, %if.end61 ], [ 9, %if.end92 ], [ %d.1, %if.end123 ], [ %d.1, %if.end154 ], [ %d.1, %if.end185 ], [ %d.1, %if.end216 ], [ %d.1, %if.end247 ], [ %d.1, %if.end278 ], [ %d.1, %if.end309 ], [ %d.1, %if.end340 ], [ %d.1, %if.end371 ], [ %d.1, %if.end402 ], [ %d.1, %skip_optional.sink.split ]
+  %e.0 = phi i8 [ 10, %if.end ], [ 10, %if.end30 ], [ 10, %if.end61 ], [ 10, %if.end92 ], [ 10, %if.end123 ], [ %e.1, %if.end154 ], [ %e.1, %if.end185 ], [ %e.1, %if.end216 ], [ %e.1, %if.end247 ], [ %e.1, %if.end278 ], [ %e.1, %if.end309 ], [ %e.1, %if.end340 ], [ %e.1, %if.end371 ], [ %e.1, %if.end402 ], [ %e.1, %skip_optional.sink.split ]
+  %f.0 = phi i8 [ 11, %if.end ], [ 11, %if.end30 ], [ 11, %if.end61 ], [ 11, %if.end92 ], [ 11, %if.end123 ], [ 11, %if.end154 ], [ %f.1, %if.end185 ], [ %f.1, %if.end216 ], [ %f.1, %if.end247 ], [ %f.1, %if.end278 ], [ %f.1, %if.end309 ], [ %f.1, %if.end340 ], [ %f.1, %if.end371 ], [ %f.1, %if.end402 ], [ %f.1, %skip_optional.sink.split ]
+  %g.0 = phi i8 [ 12, %if.end ], [ 12, %if.end30 ], [ 12, %if.end61 ], [ 12, %if.end92 ], [ 12, %if.end123 ], [ 12, %if.end154 ], [ 12, %if.end185 ], [ %g.1, %if.end216 ], [ %g.1, %if.end247 ], [ %g.1, %if.end278 ], [ %g.1, %if.end309 ], [ %g.1, %if.end340 ], [ %g.1, %if.end371 ], [ %g.1, %if.end402 ], [ %g.1, %skip_optional.sink.split ]
+  %h.0 = phi i8 [ 13, %if.end ], [ 13, %if.end30 ], [ 13, %if.end61 ], [ 13, %if.end92 ], [ 13, %if.end123 ], [ 13, %if.end154 ], [ 13, %if.end185 ], [ 13, %if.end216 ], [ %h.1, %if.end247 ], [ %h.1, %if.end278 ], [ %h.1, %if.end309 ], [ %h.1, %if.end340 ], [ %h.1, %if.end371 ], [ %h.1, %if.end402 ], [ %h.1, %skip_optional.sink.split ]
+  %i.0 = phi i8 [ 34, %if.end ], [ 34, %if.end30 ], [ 34, %if.end61 ], [ 34, %if.end92 ], [ 34, %if.end123 ], [ 34, %if.end154 ], [ 34, %if.end185 ], [ 34, %if.end216 ], [ 34, %if.end247 ], [ %i.1, %if.end278 ], [ %i.1, %if.end309 ], [ %i.1, %if.end340 ], [ %i.1, %if.end371 ], [ %i.1, %if.end402 ], [ %i.1, %skip_optional.sink.split ]
+  %j.0 = phi i8 [ 39, %if.end ], [ 39, %if.end30 ], [ 39, %if.end61 ], [ 39, %if.end92 ], [ 39, %if.end123 ], [ 39, %if.end154 ], [ 39, %if.end185 ], [ 39, %if.end216 ], [ 39, %if.end247 ], [ 39, %if.end278 ], [ %j.1, %if.end309 ], [ %j.1, %if.end340 ], [ %j.1, %if.end371 ], [ %j.1, %if.end402 ], [ %j.1, %skip_optional.sink.split ]
+  %k.0 = phi i8 [ 63, %if.end ], [ 63, %if.end30 ], [ 63, %if.end61 ], [ 63, %if.end92 ], [ 63, %if.end123 ], [ 63, %if.end154 ], [ 63, %if.end185 ], [ 63, %if.end216 ], [ 63, %if.end247 ], [ 63, %if.end278 ], [ 63, %if.end309 ], [ %k.1, %if.end340 ], [ %k.1, %if.end371 ], [ %k.1, %if.end402 ], [ %k.1, %skip_optional.sink.split ]
+  %l.0 = phi i8 [ 92, %if.end ], [ 92, %if.end30 ], [ 92, %if.end61 ], [ 92, %if.end92 ], [ 92, %if.end123 ], [ 92, %if.end154 ], [ 92, %if.end185 ], [ 92, %if.end216 ], [ 92, %if.end247 ], [ 92, %if.end278 ], [ 92, %if.end309 ], [ 92, %if.end340 ], [ %l.1, %if.end371 ], [ %l.1, %if.end402 ], [ %l.1, %skip_optional.sink.split ]
+  %m.0 = phi i8 [ 0, %if.end ], [ 0, %if.end30 ], [ 0, %if.end61 ], [ 0, %if.end92 ], [ 0, %if.end123 ], [ 0, %if.end154 ], [ 0, %if.end185 ], [ 0, %if.end216 ], [ 0, %if.end247 ], [ 0, %if.end278 ], [ 0, %if.end309 ], [ 0, %if.end340 ], [ 0, %if.end371 ], [ %m.1, %if.end402 ], [ %m.1, %skip_optional.sink.split ]
   %n.0 = phi i8 [ -1, %if.end ], [ -1, %if.end30 ], [ -1, %if.end61 ], [ -1, %if.end92 ], [ -1, %if.end123 ], [ -1, %if.end154 ], [ -1, %if.end185 ], [ -1, %if.end216 ], [ -1, %if.end247 ], [ -1, %if.end278 ], [ -1, %if.end309 ], [ -1, %if.end340 ], [ -1, %if.end371 ], [ -1, %if.end402 ], [ %150, %skip_optional.sink.split ]
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %in.i)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %out.i)
@@ -2760,31 +2760,31 @@ cond.false.i440:                                  ; preds = %skip_optional
   unreachable
 
 cond.end.i441:                                    ; preds = %skip_optional
-  store i8 %a.1, ptr %in.i, align 1
+  store i8 %a.0, ptr %in.i, align 1
   %arrayinit.element.i = getelementptr inbounds i8, ptr %in.i, i64 1
-  store i8 %b.1, ptr %arrayinit.element.i, align 1
+  store i8 %b.0, ptr %arrayinit.element.i, align 1
   %arrayinit.element1.i = getelementptr inbounds i8, ptr %in.i, i64 2
-  store i8 %c.1, ptr %arrayinit.element1.i, align 1
+  store i8 %c.0, ptr %arrayinit.element1.i, align 1
   %arrayinit.element2.i = getelementptr inbounds i8, ptr %in.i, i64 3
-  store i8 %d.1, ptr %arrayinit.element2.i, align 1
+  store i8 %d.0, ptr %arrayinit.element2.i, align 1
   %arrayinit.element3.i = getelementptr inbounds i8, ptr %in.i, i64 4
-  store i8 %e.1, ptr %arrayinit.element3.i, align 1
+  store i8 %e.0, ptr %arrayinit.element3.i, align 1
   %arrayinit.element4.i = getelementptr inbounds i8, ptr %in.i, i64 5
-  store i8 %f.1, ptr %arrayinit.element4.i, align 1
+  store i8 %f.0, ptr %arrayinit.element4.i, align 1
   %arrayinit.element5.i = getelementptr inbounds i8, ptr %in.i, i64 6
-  store i8 %g.1, ptr %arrayinit.element5.i, align 1
+  store i8 %g.0, ptr %arrayinit.element5.i, align 1
   %arrayinit.element6.i = getelementptr inbounds i8, ptr %in.i, i64 7
-  store i8 %h.1, ptr %arrayinit.element6.i, align 1
+  store i8 %h.0, ptr %arrayinit.element6.i, align 1
   %arrayinit.element7.i = getelementptr inbounds i8, ptr %in.i, i64 8
-  store i8 %i.1, ptr %arrayinit.element7.i, align 1
+  store i8 %i.0, ptr %arrayinit.element7.i, align 1
   %arrayinit.element8.i = getelementptr inbounds i8, ptr %in.i, i64 9
-  store i8 %j.1, ptr %arrayinit.element8.i, align 1
+  store i8 %j.0, ptr %arrayinit.element8.i, align 1
   %arrayinit.element9.i = getelementptr inbounds i8, ptr %in.i, i64 10
-  store i8 %k.1, ptr %arrayinit.element9.i, align 1
+  store i8 %k.0, ptr %arrayinit.element9.i, align 1
   %arrayinit.element10.i = getelementptr inbounds i8, ptr %in.i, i64 11
-  store i8 %l.1, ptr %arrayinit.element10.i, align 1
+  store i8 %l.0, ptr %arrayinit.element10.i, align 1
   %arrayinit.element11.i = getelementptr inbounds i8, ptr %in.i, i64 12
-  store i8 %m.1, ptr %arrayinit.element11.i, align 1
+  store i8 %m.0, ptr %arrayinit.element11.i, align 1
   %arrayinit.element12.i = getelementptr inbounds i8, ptr %in.i, i64 13
   store i8 %n.0, ptr %arrayinit.element12.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %out.i, i8 0, i64 112, i1 false)
@@ -6011,15 +6011,15 @@ if.then17:                                        ; preds = %if.end14
   br i1 %tobool19.not, label %skip_optional_pos, label %if.end22
 
 if.end22:                                         ; preds = %if.then17, %if.end14
-  %b.0 = phi ptr [ %8, %if.then17 ], [ @_Py_NoneStruct, %if.end14 ]
+  %b.1 = phi ptr [ %8, %if.then17 ], [ @_Py_NoneStruct, %if.end14 ]
   %arrayidx23 = getelementptr i8, ptr %cond1028, i64 16
   %9 = load ptr, ptr %arrayidx23, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.then17, %if.end, %if.end22
-  %b.1 = phi ptr [ %b.0, %if.end22 ], [ %8, %if.then17 ], [ @_Py_NoneStruct, %if.end ]
+  %b.0 = phi ptr [ %b.1, %if.end22 ], [ %8, %if.then17 ], [ @_Py_NoneStruct, %if.end ]
   %c.0 = phi ptr [ %9, %if.end22 ], [ @_Py_NoneStruct, %if.then17 ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 3, ptr noundef %7, ptr noundef %b.1, ptr noundef %c.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 3, ptr noundef %7, ptr noundef %b.0, ptr noundef %c.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end9, %skip_optional_pos
@@ -6114,16 +6114,16 @@ if.then28:                                        ; preds = %if.end25
   br i1 %tobool31.not, label %skip_optional_kwonly, label %if.end34
 
 if.end34:                                         ; preds = %if.then28, %if.end25
-  %c.0 = phi ptr [ %9, %if.then28 ], [ @_Py_NoneStruct, %if.end25 ]
+  %c.1 = phi ptr [ %9, %if.then28 ], [ @_Py_NoneStruct, %if.end25 ]
   %arrayidx35 = getelementptr i8, ptr %cond1025, i64 24
   %10 = load ptr, ptr %arrayidx35, align 8
   br label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.then28, %skip_optional_pos, %if.end34
   %b.029 = phi ptr [ %b.035, %if.end34 ], [ %b.035, %if.then28 ], [ %8, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
-  %c.1 = phi ptr [ %c.0, %if.end34 ], [ %9, %if.then28 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
+  %c.0 = phi ptr [ %c.1, %if.end34 ], [ %9, %if.then28 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
   %d.0 = phi ptr [ %10, %if.end34 ], [ @_Py_NoneStruct, %if.then28 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %7, ptr noundef %b.029, ptr noundef %c.1, ptr noundef %d.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %7, ptr noundef %b.029, ptr noundef %c.0, ptr noundef %d.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end9, %skip_optional_kwonly
@@ -6205,16 +6205,16 @@ if.then17:                                        ; preds = %if.end14
   br i1 %tobool19.not, label %skip_optional_kwonly, label %if.end22
 
 if.end22:                                         ; preds = %if.then17, %if.end14
-  %b.0 = phi ptr [ %8, %if.then17 ], [ @_Py_NoneStruct, %if.end14 ]
+  %b.1 = phi ptr [ %8, %if.then17 ], [ @_Py_NoneStruct, %if.end14 ]
   %arrayidx23 = getelementptr i8, ptr %call8, i64 16
   %9 = load ptr, ptr %arrayidx23, align 8
   br label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end.thread, %if.then17, %if.end, %if.end22
   %10 = phi ptr [ %7, %if.end22 ], [ %7, %if.then17 ], [ %7, %if.end ], [ %6, %if.end.thread ]
-  %b.1 = phi ptr [ %b.0, %if.end22 ], [ %8, %if.then17 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
+  %b.0 = phi ptr [ %b.1, %if.end22 ], [ %8, %if.then17 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
   %c.0 = phi ptr [ %9, %if.end22 ], [ @_Py_NoneStruct, %if.then17 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 3, ptr noundef %10, ptr noundef %b.1, ptr noundef %c.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 3, ptr noundef %10, ptr noundef %b.0, ptr noundef %c.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end9, %skip_optional_kwonly
@@ -6368,15 +6368,15 @@ if.then18:                                        ; preds = %if.end15
   br i1 %tobool20.not, label %skip_optional_pos, label %if.end23
 
 if.end23:                                         ; preds = %if.then18, %if.end15
-  %c.0 = phi ptr [ %9, %if.then18 ], [ @_Py_NoneStruct, %if.end15 ]
+  %c.1 = phi ptr [ %9, %if.then18 ], [ @_Py_NoneStruct, %if.end15 ]
   %arrayidx24 = getelementptr i8, ptr %cond1029, i64 24
   %10 = load ptr, ptr %arrayidx24, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.then18, %if.end, %if.end23
-  %c.1 = phi ptr [ %c.0, %if.end23 ], [ %9, %if.then18 ], [ @_Py_NoneStruct, %if.end ]
+  %c.0 = phi ptr [ %c.1, %if.end23 ], [ %9, %if.then18 ], [ @_Py_NoneStruct, %if.end ]
   %d.0 = phi ptr [ %10, %if.end23 ], [ @_Py_NoneStruct, %if.then18 ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %7, ptr noundef %8, ptr noundef %c.1, ptr noundef %d.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %7, ptr noundef %8, ptr noundef %c.0, ptr noundef %d.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end9, %skip_optional_pos
@@ -6470,15 +6470,15 @@ if.then21:                                        ; preds = %if.end18
   br i1 %tobool24.not, label %skip_optional_pos, label %if.end27
 
 if.end27:                                         ; preds = %if.then21, %if.end18
-  %c.0 = phi ptr [ %9, %if.then21 ], [ @_Py_NoneStruct, %if.end18 ]
+  %c.1 = phi ptr [ %9, %if.then21 ], [ @_Py_NoneStruct, %if.end18 ]
   %arrayidx28 = getelementptr i8, ptr %cond1022, i64 24
   %10 = load ptr, ptr %arrayidx28, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.then21, %skip_optional_posonly, %if.end27
-  %c.1 = phi ptr [ %c.0, %if.end27 ], [ %9, %if.then21 ], [ @_Py_NoneStruct, %skip_optional_posonly ]
+  %c.0 = phi ptr [ %c.1, %if.end27 ], [ %9, %if.then21 ], [ @_Py_NoneStruct, %skip_optional_posonly ]
   %d.0 = phi ptr [ %10, %if.end27 ], [ @_Py_NoneStruct, %if.then21 ], [ @_Py_NoneStruct, %skip_optional_posonly ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %7, ptr noundef %b.0, ptr noundef %c.1, ptr noundef %d.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %7, ptr noundef %b.0, ptr noundef %c.0, ptr noundef %d.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end9, %skip_optional_pos
@@ -6552,15 +6552,15 @@ if.then9:                                         ; preds = %if.end6
   br i1 %tobool11.not, label %skip_optional_kwonly, label %if.end14
 
 if.end14:                                         ; preds = %if.then9, %if.end6
-  %c.0 = phi ptr [ %6, %if.then9 ], [ @_Py_NoneStruct, %if.end6 ]
+  %c.1 = phi ptr [ %6, %if.then9 ], [ @_Py_NoneStruct, %if.end6 ]
   %arrayidx15 = getelementptr i8, ptr %call1, i64 24
   %7 = load ptr, ptr %arrayidx15, align 8
   br label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.then9, %if.end, %if.end14
-  %c.1 = phi ptr [ %c.0, %if.end14 ], [ %6, %if.then9 ], [ @_Py_NoneStruct, %if.end ]
+  %c.0 = phi ptr [ %c.1, %if.end14 ], [ %6, %if.then9 ], [ @_Py_NoneStruct, %if.end ]
   %d.0 = phi ptr [ %7, %if.end14 ], [ @_Py_NoneStruct, %if.then9 ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %4, ptr noundef %5, ptr noundef %c.1, ptr noundef %d.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %4, ptr noundef %5, ptr noundef %c.0, ptr noundef %d.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end, %skip_optional_kwonly
@@ -6654,15 +6654,15 @@ if.then21:                                        ; preds = %if.end18
   br i1 %tobool24.not, label %skip_optional_kwonly, label %if.end27
 
 if.end27:                                         ; preds = %if.then21, %if.end18
-  %c.0 = phi ptr [ %9, %if.then21 ], [ @_Py_NoneStruct, %if.end18 ]
+  %c.1 = phi ptr [ %9, %if.then21 ], [ @_Py_NoneStruct, %if.end18 ]
   %arrayidx28 = getelementptr i8, ptr %cond1022, i64 24
   %10 = load ptr, ptr %arrayidx28, align 8
   br label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.then21, %skip_optional_posonly, %if.end27
-  %c.1 = phi ptr [ %c.0, %if.end27 ], [ %9, %if.then21 ], [ @_Py_NoneStruct, %skip_optional_posonly ]
+  %c.0 = phi ptr [ %c.1, %if.end27 ], [ %9, %if.then21 ], [ @_Py_NoneStruct, %skip_optional_posonly ]
   %d.0 = phi ptr [ %10, %if.end27 ], [ @_Py_NoneStruct, %if.then21 ], [ @_Py_NoneStruct, %skip_optional_posonly ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %7, ptr noundef %b.0, ptr noundef %c.1, ptr noundef %d.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %7, ptr noundef %b.0, ptr noundef %c.0, ptr noundef %d.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end9, %skip_optional_kwonly
@@ -6738,15 +6738,15 @@ if.then10:                                        ; preds = %if.end7
   br i1 %tobool12.not, label %skip_optional_kwonly, label %if.end15
 
 if.end15:                                         ; preds = %if.then10, %if.end7
-  %d.0 = phi ptr [ %7, %if.then10 ], [ @_Py_NoneStruct, %if.end7 ]
+  %d.1 = phi ptr [ %7, %if.then10 ], [ @_Py_NoneStruct, %if.end7 ]
   %arrayidx16 = getelementptr i8, ptr %call1, i64 32
   %8 = load ptr, ptr %arrayidx16, align 8
   br label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.then10, %if.end, %if.end15
-  %d.1 = phi ptr [ %d.0, %if.end15 ], [ %7, %if.then10 ], [ @_Py_NoneStruct, %if.end ]
+  %d.0 = phi ptr [ %d.1, %if.end15 ], [ %7, %if.then10 ], [ @_Py_NoneStruct, %if.end ]
   %e.0 = phi ptr [ %8, %if.end15 ], [ @_Py_NoneStruct, %if.then10 ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 5, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %d.1, ptr noundef %e.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 5, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %d.0, ptr noundef %e.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end, %skip_optional_kwonly
@@ -6843,16 +6843,16 @@ if.then29:                                        ; preds = %if.end26
   br i1 %tobool32.not, label %skip_optional_kwonly, label %if.end35
 
 if.end35:                                         ; preds = %if.then29, %if.end26
-  %d.0 = phi ptr [ %10, %if.then29 ], [ @_Py_NoneStruct, %if.end26 ]
+  %d.1 = phi ptr [ %10, %if.then29 ], [ @_Py_NoneStruct, %if.end26 ]
   %arrayidx36 = getelementptr i8, ptr %cond1026, i64 32
   %11 = load ptr, ptr %arrayidx36, align 8
   br label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.then29, %skip_optional_pos, %if.end35
   %c.030 = phi ptr [ %c.036, %if.end35 ], [ %c.036, %if.then29 ], [ %9, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
-  %d.1 = phi ptr [ %d.0, %if.end35 ], [ %10, %if.then29 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
+  %d.0 = phi ptr [ %d.1, %if.end35 ], [ %10, %if.then29 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
   %e.0 = phi ptr [ %11, %if.end35 ], [ @_Py_NoneStruct, %if.then29 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 5, ptr noundef %7, ptr noundef %8, ptr noundef %c.030, ptr noundef %d.1, ptr noundef %e.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 5, ptr noundef %7, ptr noundef %8, ptr noundef %c.030, ptr noundef %d.0, ptr noundef %e.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end9, %skip_optional_kwonly

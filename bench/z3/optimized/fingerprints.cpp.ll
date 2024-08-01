@@ -1807,7 +1807,7 @@ sw.bb202:                                         ; preds = %while.end
 
 sw.bb205:                                         ; preds = %while.end.sw.bb205_crit_edge, %sw.bb202
   %84 = phi ptr [ %.pre, %while.end.sw.bb205_crit_edge ], [ %80, %sw.bb202 ]
-  %b.1 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
+  %b.2 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %85, align 8
   %m_hash.i.i.i402 = getelementptr inbounds i8, ptr %86, i64 12
@@ -1816,15 +1816,15 @@ sw.bb205:                                         ; preds = %while.end.sw.bb205_
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
+  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
   %.neg439 = add i32 %xor192, %0
-  %88 = add i32 %b.2, %c.1
+  %88 = add i32 %b.1, %c.1
   %sub209 = sub i32 %.neg439, %88
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %89 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.2, %89
+  %sub213 = sub i32 %b.1, %89
   %shl214 = shl i32 %xor211, 8
   %xor215 = xor i32 %sub213, %shl214
   %90 = add i32 %xor211, %xor215
@@ -2401,8 +2401,8 @@ for.inc:                                          ; preds = %for.body.i.i, %for.
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !20
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.inc34
-  %curr.173 = phi ptr [ %3, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
-  %m_ptr.i25 = getelementptr inbounds i8, ptr %curr.173, i64 8
+  %curr.273 = phi ptr [ %3, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
+  %m_ptr.i25 = getelementptr inbounds i8, ptr %curr.273, i64 8
   %16 = load ptr, ptr %m_ptr.i25, align 8
   %magicptr60 = ptrtoint ptr %16 to i64
   switch i64 %magicptr60, label %if.then21 [
@@ -2411,7 +2411,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %17 = load i32, ptr %curr.173, align 8
+  %17 = load i32, ptr %curr.273, align 8
   %cmp23 = icmp eq i32 %17, %call3.i.i
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
@@ -2454,19 +2454,19 @@ for.body.i.i42:                                   ; preds = %for.cond.i.i47, %fo
   br i1 %cmp12.not.i.i46, label %for.cond.i.i47, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body.i.i42, %for.body19, %if.end.i.i32, %land.lhs.true24, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.173, i64 16
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.273, i64 16
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !21
 
 end_remove:                                       ; preds = %for.cond.preheader.i.i, %for.cond.i.i, %for.cond.preheader.i.i36, %for.cond.i.i47
-  %curr.2 = phi ptr [ %curr.173, %for.cond.i.i47 ], [ %curr.173, %for.cond.preheader.i.i36 ], [ %curr.071, %for.cond.i.i ], [ %curr.071, %for.cond.preheader.i.i ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 16
+  %curr.1 = phi ptr [ %curr.273, %for.cond.i.i47 ], [ %curr.273, %for.cond.preheader.i.i36 ], [ %curr.071, %for.cond.i.i ], [ %curr.071, %for.cond.preheader.i.i ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 16
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %3, ptr %add.ptr37
   %m_ptr.i53 = getelementptr inbounds i8, ptr %spec.select, i64 8
   %26 = load ptr, ptr %m_ptr.i53, align 8
   %cmp.i54 = icmp eq ptr %26, null
-  %m_ptr.i55 = getelementptr inbounds i8, ptr %curr.2, i64 8
+  %m_ptr.i55 = getelementptr inbounds i8, ptr %curr.1, i64 8
   br i1 %cmp.i54, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove

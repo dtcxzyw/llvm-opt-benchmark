@@ -503,8 +503,8 @@ delete.notnull.i:                                 ; preds = %_ZN6icu_7512LocalPo
   br label %return
 
 return:                                           ; preds = %new.cont, %if.then.i, %delete.notnull.i, %cleanup.thread, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ true, %if.end ], [ true, %cleanup.thread ], [ false, %delete.notnull.i ], [ false, %if.then.i ], [ false, %new.cont ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ true, %cleanup.thread ], [ false, %delete.notnull.i ], [ false, %if.then.i ], [ false, %new.cont ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind
@@ -1517,7 +1517,7 @@ for.cond124:                                      ; preds = %if.end171
 
 for.body127:                                      ; preds = %for.body127.lr.ph, %for.cond124
   %indvars.iv186 = phi i64 [ 0, %for.body127.lr.ph ], [ %indvars.iv.next187, %for.cond124 ]
-  %def.1168 = phi ptr [ %def.0, %for.body127.lr.ph ], [ %def.2, %for.cond124 ]
+  %def.3168 = phi ptr [ %def.0, %for.body127.lr.ph ], [ %def.4, %for.cond124 ]
   %defLSR.1167 = phi ptr [ %defLSR.0, %for.body127.lr.ph ], [ %defLSR.2, %for.cond124 ]
   %numParadigms.0165 = phi i32 [ 0, %for.body127.lr.ph ], [ %numParadigms.1, %for.cond124 ]
   %suppLength.0164 = phi i32 [ 0, %for.body127.lr.ph ], [ %suppLength.1, %for.cond124 ]
@@ -1581,7 +1581,7 @@ if.end171:                                        ; preds = %if.then149, %if.the
   %suppLength.1 = phi i32 [ %suppLength.0164, %if.then160 ], [ %suppLength.0164, %if.else165 ], [ %call143, %if.then138 ], [ %call154, %if.then149 ]
   %numParadigms.1 = phi i32 [ %inc164, %if.then160 ], [ %numParadigms.0165, %if.else165 ], [ %numParadigms.0165, %if.then138 ], [ %numParadigms.0165, %if.then149 ]
   %defLSR.2 = phi ptr [ %defLSR.1167, %if.then160 ], [ %defLSR.1167, %if.else165 ], [ %arrayidx135, %if.then138 ], [ %defLSR.1167, %if.then149 ]
-  %def.2 = phi ptr [ %def.1168, %if.then160 ], [ %def.1168, %if.else165 ], [ %54, %if.then138 ], [ %def.1168, %if.then149 ]
+  %def.4 = phi ptr [ %def.3168, %if.then160 ], [ %def.3168, %if.else165 ], [ %54, %if.then138 ], [ %def.3168, %if.then149 ]
   %62 = load i32, ptr %errorCode, align 4
   %cmp.i124 = icmp slt i32 %62, 1
   br i1 %cmp.i124, label %for.cond124, label %cleanup.thread
@@ -1664,15 +1664,15 @@ cleanup.thread:                                   ; preds = %if.end171, %invoke.
   br label %cleanup270
 
 cleanup:                                          ; preds = %for.inc218, %for.cond124.preheader, %for.cond202.preheader
-  %def.1.lcssa202206 = phi ptr [ %def.2, %for.cond202.preheader ], [ %def.0, %for.cond124.preheader ], [ %def.2, %for.inc218 ]
+  %def.3.lcssa202206 = phi ptr [ %def.4, %for.cond202.preheader ], [ %def.0, %for.cond124.preheader ], [ %def.4, %for.inc218 ]
   %suppLength.4.lcssa = phi i32 [ %suppLength.2.lcssa, %for.cond202.preheader ], [ 0, %for.cond124.preheader ], [ %suppLength.5, %for.inc218 ]
   store i32 %suppLength.4.lcssa, ptr %supportedLSRsLength, align 8
   call void @_ZN6icu_7515MaybeStackArrayIaLi100EED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %order) #15
   br label %if.end222
 
 if.end222:                                        ; preds = %cleanup, %cond.end.thread, %cond.end
-  %def.4 = phi ptr [ %def.1.lcssa202206, %cleanup ], [ %def.0, %cond.end ], [ %def.0, %cond.end.thread ]
-  store ptr %def.4, ptr %defaultLocale, align 8
+  %def.1 = phi ptr [ %def.3.lcssa202206, %cleanup ], [ %def.0, %cond.end ], [ %def.0, %cond.end.thread ]
+  store ptr %def.1, ptr %defaultLocale, align 8
   %demotion_ = getelementptr inbounds i8, ptr %builder, i64 20
   %80 = load i32, ptr %demotion_, align 4
   %cmp224 = icmp eq i32 %80, 1
@@ -3736,7 +3736,7 @@ if.end42.invoke:                                  ; preds = %if.else, %if.then41
           to label %cleanup45 unwind label %lpad17
 
 cleanup45:                                        ; preds = %if.end42.invoke, %invoke.cont12
-  %retval.2 = phi i32 [ 0, %invoke.cont12 ], [ %14, %if.end42.invoke ]
+  %retval.4 = phi i32 [ 0, %invoke.cont12 ], [ %14, %if.end42.invoke ]
   call void @_ZN6icu_7513LocaleMatcher6ResultD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %result) #15
   call void @_ZN6icu_7513LocaleMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %matcher) #15
   br label %cleanup47
@@ -3747,7 +3747,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad11
   br label %ehcleanup48
 
 cleanup47:                                        ; preds = %cleanup.thread, %cleanup45
-  %retval.3 = phi i32 [ %retval.2, %cleanup45 ], [ 0, %cleanup.thread ]
+  %retval.3 = phi i32 [ %retval.4, %cleanup45 ], [ 0, %cleanup.thread ]
   call void @_ZN6icu_7513LocaleMatcher7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %builder) #15
   br label %return
 
@@ -3757,8 +3757,8 @@ ehcleanup48:                                      ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn20
 
 return:                                           ; preds = %entry, %cleanup47
-  %retval.4 = phi i32 [ %retval.3, %cleanup47 ], [ 0, %entry ]
-  ret i32 %retval.4
+  %retval.0 = phi i32 [ %retval.3, %cleanup47 ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

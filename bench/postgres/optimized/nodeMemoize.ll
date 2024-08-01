@@ -1986,12 +1986,12 @@ remove_cache_entry.exit:                          ; preds = %.lr.ph.i10.i, %191,
 
 204:                                              ; preds = %remove_cache_entry.exit, %16
   %.127 = phi i64 [ %201, %remove_cache_entry.exit ], [ %.026, %16 ]
-  %.2 = phi i1 [ %spec.select, %remove_cache_entry.exit ], [ %.0, %16 ]
+  %.1 = phi i1 [ %spec.select, %remove_cache_entry.exit ], [ %.0, %16 ]
   %205 = getelementptr inbounds i8, ptr %0, i64 376
   %206 = load i64, ptr %205, align 8
   %207 = add i64 %206, %.127
   store i64 %207, ptr %205, align 8
-  ret i1 %.2
+  ret i1 %.1
 }
 
 declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
@@ -2075,8 +2075,8 @@ define internal fastcc i32 @MemoizeHash_hash(ptr nocapture readonly %.40.val) un
 
 47:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %.23 = phi i32 [ 0, %.lr.ph ], [ %.3, %63 ]
-  %48 = tail call noundef i32 @llvm.fshl.i32(i32 %.23, i32 %.23, i32 1)
+  %.33 = phi i32 [ 0, %.lr.ph ], [ %.4, %63 ]
+  %48 = tail call noundef i32 @llvm.fshl.i32(i32 %.33, i32 %.33, i32 1)
   %49 = load ptr, ptr %45, align 8
   %50 = getelementptr i8, ptr %49, i64 %indvars.iv
   %51 = load i8, ptr %50, align 1
@@ -2096,18 +2096,18 @@ define internal fastcc i32 @MemoizeHash_hash(ptr nocapture readonly %.40.val) un
   br label %63
 
 63:                                               ; preds = %47, %53
-  %.3 = phi i32 [ %48, %47 ], [ %62, %53 ]
+  %.4 = phi i32 [ %48, %47 ], [ %62, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !15
 
 .loopexit:                                        ; preds = %63, %38, %39, %.preheader
-  %.4 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ %.1, %38 ], [ %.3, %63 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ %.1, %38 ], [ %.4, %63 ]
   %64 = load ptr, ptr %7, align 8
   tail call void @MemoryContextReset(ptr noundef %64) #10
   store ptr %9, ptr @CurrentMemoryContext, align 8
-  %65 = lshr i32 %.4, 16
-  %66 = xor i32 %65, %.4
+  %65 = lshr i32 %.2, 16
+  %66 = xor i32 %65, %.2
   %67 = mul i32 %66, -2048144789
   %68 = lshr i32 %67, 13
   %69 = xor i32 %68, %67

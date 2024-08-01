@@ -14395,27 +14395,27 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
 
 47:                                               ; preds = %.lr.ph348, %47
   %indvars.iv441 = phi i64 [ 0, %.lr.ph348 ], [ %indvars.iv.next442, %47 ]
-  %.0285346 = phi ptr [ %19, %.lr.ph348 ], [ %73, %47 ]
-  %48 = getelementptr inbounds i8, ptr %.0285346, i64 %40
+  %.1286346 = phi ptr [ %19, %.lr.ph348 ], [ %73, %47 ]
+  %48 = getelementptr inbounds i8, ptr %.1286346, i64 %40
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
-  %51 = load i8, ptr %.0285346, align 1
+  %51 = load i8, ptr %.1286346, align 1
   %52 = zext i8 %51 to i32
   %53 = shl nuw nsw i32 %52, 1
   %54 = add nuw nsw i32 %53, %50
-  %55 = getelementptr inbounds i8, ptr %.0285346, i64 %41
+  %55 = getelementptr inbounds i8, ptr %.1286346, i64 %41
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = add nuw nsw i32 %54, %57
-  %59 = getelementptr inbounds i8, ptr %.0285346, i64 %43
+  %59 = getelementptr inbounds i8, ptr %.1286346, i64 %43
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
-  %62 = getelementptr inbounds i8, ptr %.0285346, i64 1
+  %62 = getelementptr inbounds i8, ptr %.1286346, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = shl nuw nsw i32 %64, 1
   %66 = add nuw nsw i32 %65, %61
-  %67 = getelementptr inbounds i8, ptr %.0285346, i64 %45
+  %67 = getelementptr inbounds i8, ptr %.1286346, i64 %45
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = add nuw nsw i32 %66, %69
@@ -14424,7 +14424,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %72 = getelementptr i8, ptr %71, i64 4
   store i32 %70, ptr %72, align 4
   %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 2
-  %73 = getelementptr inbounds i8, ptr %.0285346, i64 2
+  %73 = getelementptr inbounds i8, ptr %.1286346, i64 2
   %.not308 = icmp ugt i64 %indvars.iv.next442, %46
   br i1 %.not308, label %.thread.loopexit412, label %47, !llvm.loop !264
 
@@ -14450,27 +14450,27 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
 
 85:                                               ; preds = %.lr.ph342, %85
   %indvars.iv438 = phi i64 [ 0, %.lr.ph342 ], [ %indvars.iv.next439, %85 ]
-  %.1286340 = phi ptr [ %19, %.lr.ph342 ], [ %111, %85 ]
-  %86 = getelementptr inbounds i8, ptr %.1286340, i64 %78
+  %.2287340 = phi ptr [ %19, %.lr.ph342 ], [ %111, %85 ]
+  %86 = getelementptr inbounds i8, ptr %.2287340, i64 %78
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
-  %89 = load i8, ptr %.1286340, align 1
+  %89 = load i8, ptr %.2287340, align 1
   %90 = zext i8 %89 to i32
   %91 = shl nuw nsw i32 %90, 1
   %92 = sub nsw i32 %88, %91
-  %93 = getelementptr inbounds i8, ptr %.1286340, i64 %79
+  %93 = getelementptr inbounds i8, ptr %.2287340, i64 %79
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = add nsw i32 %92, %95
-  %97 = getelementptr inbounds i8, ptr %.1286340, i64 %81
+  %97 = getelementptr inbounds i8, ptr %.2287340, i64 %81
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
-  %100 = getelementptr inbounds i8, ptr %.1286340, i64 1
+  %100 = getelementptr inbounds i8, ptr %.2287340, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i32
   %103 = shl nuw nsw i32 %102, 1
   %104 = sub nsw i32 %99, %103
-  %105 = getelementptr inbounds i8, ptr %.1286340, i64 %83
+  %105 = getelementptr inbounds i8, ptr %.2287340, i64 %83
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = add nsw i32 %104, %107
@@ -14479,7 +14479,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %110 = getelementptr i8, ptr %109, i64 4
   store i32 %108, ptr %110, align 4
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 2
-  %111 = getelementptr inbounds i8, ptr %.1286340, i64 2
+  %111 = getelementptr inbounds i8, ptr %.2287340, i64 2
   %.not307 = icmp ugt i64 %indvars.iv.next439, %84
   br i1 %.not307, label %.thread.loopexit413, label %85, !llvm.loop !265
 
@@ -14501,27 +14501,27 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
 
 121:                                              ; preds = %.lr.ph354, %121
   %indvars.iv444 = phi i64 [ 0, %.lr.ph354 ], [ %indvars.iv.next445, %121 ]
-  %.2287352 = phi ptr [ %19, %.lr.ph354 ], [ %149, %121 ]
-  %122 = load i8, ptr %.2287352, align 1
+  %.3288352 = phi ptr [ %19, %.lr.ph354 ], [ %149, %121 ]
+  %122 = load i8, ptr %.3288352, align 1
   %123 = zext i8 %122 to i32
   %124 = mul nsw i32 %35, %123
-  %125 = getelementptr inbounds i8, ptr %.2287352, i64 %114
+  %125 = getelementptr inbounds i8, ptr %.3288352, i64 %114
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %.2287352, i64 %115
+  %128 = getelementptr inbounds i8, ptr %.3288352, i64 %115
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = add nuw nsw i32 %130, %127
   %132 = mul nsw i32 %131, %.pre
   %133 = add nsw i32 %132, %124
-  %134 = getelementptr inbounds i8, ptr %.2287352, i64 1
+  %134 = getelementptr inbounds i8, ptr %.3288352, i64 1
   %135 = load i8, ptr %134, align 1
   %136 = zext i8 %135 to i32
   %137 = mul nsw i32 %35, %136
-  %138 = getelementptr inbounds i8, ptr %.2287352, i64 %117
+  %138 = getelementptr inbounds i8, ptr %.3288352, i64 %117
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i32
-  %141 = getelementptr inbounds i8, ptr %.2287352, i64 %119
+  %141 = getelementptr inbounds i8, ptr %.3288352, i64 %119
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   %144 = add nuw nsw i32 %143, %140
@@ -14532,7 +14532,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %148 = getelementptr i8, ptr %147, i64 4
   store i32 %146, ptr %148, align 4
   %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 2
-  %149 = getelementptr inbounds i8, ptr %.2287352, i64 2
+  %149 = getelementptr inbounds i8, ptr %.3288352, i64 2
   %.not306 = icmp ugt i64 %indvars.iv.next445, %120
   br i1 %.not306, label %.thread.loopexit, label %121, !llvm.loop !266
 
@@ -14591,27 +14591,27 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
 
 185:                                              ; preds = %.lr.ph336, %185
   %indvars.iv435 = phi i64 [ 0, %.lr.ph336 ], [ %indvars.iv.next436, %185 ]
-  %.3288334 = phi ptr [ %19, %.lr.ph336 ], [ %211, %185 ]
-  %186 = load i8, ptr %.3288334, align 1
+  %.4289334 = phi ptr [ %19, %.lr.ph336 ], [ %211, %185 ]
+  %186 = load i8, ptr %.4289334, align 1
   %187 = zext i8 %186 to i32
-  %188 = getelementptr inbounds i8, ptr %.3288334, i64 %177
+  %188 = getelementptr inbounds i8, ptr %.4289334, i64 %177
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i32
   %191 = shl nuw nsw i32 %187, 1
   %192 = sub nsw i32 %190, %191
-  %193 = getelementptr inbounds i8, ptr %.3288334, i64 %179
+  %193 = getelementptr inbounds i8, ptr %.4289334, i64 %179
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
   %196 = add nsw i32 %192, %195
-  %197 = getelementptr inbounds i8, ptr %.3288334, i64 1
+  %197 = getelementptr inbounds i8, ptr %.4289334, i64 1
   %198 = load i8, ptr %197, align 1
   %199 = zext i8 %198 to i32
-  %200 = getelementptr inbounds i8, ptr %.3288334, i64 %181
+  %200 = getelementptr inbounds i8, ptr %.4289334, i64 %181
   %201 = load i8, ptr %200, align 1
   %202 = zext i8 %201 to i32
   %203 = shl nuw nsw i32 %199, 1
   %204 = sub nsw i32 %202, %203
-  %205 = getelementptr inbounds i8, ptr %.3288334, i64 %183
+  %205 = getelementptr inbounds i8, ptr %.4289334, i64 %183
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i32
   %208 = add nsw i32 %204, %207
@@ -14620,51 +14620,51 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %210 = getelementptr i8, ptr %209, i64 4
   store i32 %208, ptr %210, align 4
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 2
-  %211 = getelementptr inbounds i8, ptr %.3288334, i64 2
+  %211 = getelementptr inbounds i8, ptr %.4289334, i64 2
   %.not305 = icmp ugt i64 %indvars.iv.next436, %184
   br i1 %.not305, label %.thread.loopexit414, label %185, !llvm.loop !267
 
 212:                                              ; preds = %.lr.ph, %212
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %212 ]
-  %.4289330 = phi ptr [ %19, %.lr.ph ], [ %258, %212 ]
-  %213 = load i8, ptr %.4289330, align 1
+  %.5290330 = phi ptr [ %19, %.lr.ph ], [ %258, %212 ]
+  %213 = load i8, ptr %.5290330, align 1
   %214 = zext i8 %213 to i32
   %215 = mul nsw i32 %151, %214
-  %216 = getelementptr inbounds i8, ptr %.4289330, i64 %161
+  %216 = getelementptr inbounds i8, ptr %.5290330, i64 %161
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i32
-  %219 = getelementptr inbounds i8, ptr %.4289330, i64 %162
+  %219 = getelementptr inbounds i8, ptr %.5290330, i64 %162
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
   %222 = add nuw nsw i32 %221, %218
   %223 = mul nsw i32 %222, %153
   %224 = add nsw i32 %223, %215
-  %225 = getelementptr inbounds i8, ptr %.4289330, i64 %164
+  %225 = getelementptr inbounds i8, ptr %.5290330, i64 %164
   %226 = load i8, ptr %225, align 1
   %227 = zext i8 %226 to i32
-  %228 = getelementptr inbounds i8, ptr %.4289330, i64 %166
+  %228 = getelementptr inbounds i8, ptr %.5290330, i64 %166
   %229 = load i8, ptr %228, align 1
   %230 = zext i8 %229 to i32
   %231 = add nuw nsw i32 %230, %227
   %232 = mul nsw i32 %231, %155
   %233 = add nsw i32 %224, %232
-  %234 = getelementptr inbounds i8, ptr %.4289330, i64 1
+  %234 = getelementptr inbounds i8, ptr %.5290330, i64 1
   %235 = load i8, ptr %234, align 1
   %236 = zext i8 %235 to i32
   %237 = mul nsw i32 %151, %236
-  %238 = getelementptr inbounds i8, ptr %.4289330, i64 %168
+  %238 = getelementptr inbounds i8, ptr %.5290330, i64 %168
   %239 = load i8, ptr %238, align 1
   %240 = zext i8 %239 to i32
-  %241 = getelementptr inbounds i8, ptr %.4289330, i64 %170
+  %241 = getelementptr inbounds i8, ptr %.5290330, i64 %170
   %242 = load i8, ptr %241, align 1
   %243 = zext i8 %242 to i32
   %244 = add nuw nsw i32 %243, %240
   %245 = mul nsw i32 %244, %153
   %246 = add nsw i32 %245, %237
-  %247 = getelementptr inbounds i8, ptr %.4289330, i64 %172
+  %247 = getelementptr inbounds i8, ptr %.5290330, i64 %172
   %248 = load i8, ptr %247, align 1
   %249 = zext i8 %248 to i32
-  %250 = getelementptr inbounds i8, ptr %.4289330, i64 %174
+  %250 = getelementptr inbounds i8, ptr %.5290330, i64 %174
   %251 = load i8, ptr %250, align 1
   %252 = zext i8 %251 to i32
   %253 = add nuw nsw i32 %252, %249
@@ -14675,7 +14675,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %257 = getelementptr i8, ptr %256, i64 4
   store i32 %255, ptr %257, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %258 = getelementptr inbounds i8, ptr %.4289330, i64 2
+  %258 = getelementptr inbounds i8, ptr %.5290330, i64 2
   %.not304 = icmp ugt i64 %indvars.iv.next, %175
   br i1 %.not304, label %.thread.loopexit415, label %212, !llvm.loop !268
 
@@ -14700,9 +14700,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit415, %.thread.loopexit414, %.thread.loopexit413, %.thread.loopexit412, %.thread.loopexit, %.preheader327, %.preheader325, %.preheader323, %.preheader321, %.thread311, %21, %._crit_edge
-  %.5290 = phi ptr [ %33, %._crit_edge ], [ %19, %21 ], [ %19, %.thread311 ], [ %19, %.preheader321 ], [ %19, %.preheader323 ], [ %19, %.preheader325 ], [ %19, %.preheader327 ], [ %149, %.thread.loopexit ], [ %73, %.thread.loopexit412 ], [ %111, %.thread.loopexit413 ], [ %211, %.thread.loopexit414 ], [ %258, %.thread.loopexit415 ]
-  %.6 = phi i32 [ %.0280.lcssa, %._crit_edge ], [ 0, %21 ], [ 0, %.thread311 ], [ 0, %.preheader321 ], [ 0, %.preheader323 ], [ 0, %.preheader325 ], [ 0, %.preheader327 ], [ %259, %.thread.loopexit ], [ %260, %.thread.loopexit412 ], [ %261, %.thread.loopexit413 ], [ %262, %.thread.loopexit414 ], [ %263, %.thread.loopexit415 ]
-  %264 = icmp slt i32 %.6, %20
+  %.0285 = phi ptr [ %33, %._crit_edge ], [ %19, %21 ], [ %19, %.thread311 ], [ %19, %.preheader321 ], [ %19, %.preheader323 ], [ %19, %.preheader325 ], [ %19, %.preheader327 ], [ %149, %.thread.loopexit ], [ %73, %.thread.loopexit412 ], [ %111, %.thread.loopexit413 ], [ %211, %.thread.loopexit414 ], [ %258, %.thread.loopexit415 ]
+  %.1 = phi i32 [ %.0280.lcssa, %._crit_edge ], [ 0, %21 ], [ 0, %.thread311 ], [ 0, %.preheader321 ], [ 0, %.preheader323 ], [ 0, %.preheader325 ], [ 0, %.preheader327 ], [ %259, %.thread.loopexit ], [ %260, %.thread.loopexit412 ], [ %261, %.thread.loopexit413 ], [ %262, %.thread.loopexit414 ], [ %263, %.thread.loopexit415 ]
+  %264 = icmp slt i32 %.1, %20
   br i1 %264, label %.lr.ph371, label %.loopexit
 
 .thread.thread:                                   ; preds = %22
@@ -14716,21 +14716,21 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
 .lr.ph366.preheader:                              ; preds = %.lr.ph371
   %266 = sext i32 %4 to i64
   %267 = add nuw nsw i32 %9, 1
-  %268 = zext nneg i32 %.6 to i64
+  %268 = zext nneg i32 %.1 to i64
   %wide.trip.count460 = zext i32 %20 to i64
   %wide.trip.count = zext nneg i32 %267 to i64
   br label %.lr.ph366
 
 .lr.ph371.split.us.preheader:                     ; preds = %.thread.thread, %.lr.ph371
-  %.5290495501 = phi ptr [ %.5290, %.lr.ph371 ], [ %19, %.thread.thread ]
-  %.6496500 = phi i32 [ %.6, %.lr.ph371 ], [ 0, %.thread.thread ]
-  %269 = zext nneg i32 %.6496500 to i64
+  %.0285495501 = phi ptr [ %.0285, %.lr.ph371 ], [ %19, %.thread.thread ]
+  %.1496500 = phi i32 [ %.1, %.lr.ph371 ], [ 0, %.thread.thread ]
+  %269 = zext nneg i32 %.1496500 to i64
   %wide.trip.count465 = zext i32 %20 to i64
   br label %.lr.ph371.split.us
 
 .lr.ph371.split.us:                               ; preds = %.lr.ph371.split.us.preheader, %.lr.ph371.split.us
   %indvars.iv462 = phi i64 [ %269, %.lr.ph371.split.us.preheader ], [ %indvars.iv.next463, %.lr.ph371.split.us ]
-  %.6291369.us = phi ptr [ %.5290495501, %.lr.ph371.split.us.preheader ], [ %275, %.lr.ph371.split.us ]
+  %.6291369.us = phi ptr [ %.0285495501, %.lr.ph371.split.us.preheader ], [ %275, %.lr.ph371.split.us ]
   %270 = load i32, ptr %14, align 4
   %271 = load i8, ptr %.6291369.us, align 1
   %272 = zext i8 %271 to i32
@@ -14744,7 +14744,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
 
 .lr.ph366:                                        ; preds = %.lr.ph366.preheader, %._crit_edge367
   %indvars.iv457 = phi i64 [ %268, %.lr.ph366.preheader ], [ %indvars.iv.next458, %._crit_edge367 ]
-  %.6291369 = phi ptr [ %.5290, %.lr.ph366.preheader ], [ %294, %._crit_edge367 ]
+  %.6291369 = phi ptr [ %.0285, %.lr.ph366.preheader ], [ %294, %._crit_edge367 ]
   %276 = load i32, ptr %14, align 4
   %277 = load i8, ptr %.6291369, align 1
   %278 = zext i8 %277 to i32
@@ -14910,36 +14910,36 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
 
 380:                                              ; preds = %.lr.ph376, %380
   %indvars.iv467 = phi i64 [ 0, %.lr.ph376 ], [ %indvars.iv.next468, %380 ]
-  %.9294373 = phi ptr [ %19, %.lr.ph376 ], [ %417, %380 ]
-  %381 = getelementptr inbounds i8, ptr %.9294373, i64 %364
+  %.10295373 = phi ptr [ %19, %.lr.ph376 ], [ %417, %380 ]
+  %381 = getelementptr inbounds i8, ptr %.10295373, i64 %364
   %382 = load i8, ptr %381, align 1
   %383 = zext i8 %382 to i32
-  %384 = getelementptr inbounds i8, ptr %.9294373, i64 %366
+  %384 = getelementptr inbounds i8, ptr %.10295373, i64 %366
   %385 = load i8, ptr %384, align 1
   %386 = zext i8 %385 to i32
   %387 = sub nsw i32 %383, %386
   %388 = mul nsw i32 %387, %360
-  %389 = getelementptr inbounds i8, ptr %.9294373, i64 %368
+  %389 = getelementptr inbounds i8, ptr %.10295373, i64 %368
   %390 = load i8, ptr %389, align 1
   %391 = zext i8 %390 to i32
-  %392 = getelementptr inbounds i8, ptr %.9294373, i64 %370
+  %392 = getelementptr inbounds i8, ptr %.10295373, i64 %370
   %393 = load i8, ptr %392, align 1
   %394 = zext i8 %393 to i32
   %395 = sub nsw i32 %391, %394
   %396 = mul nsw i32 %395, %362
   %397 = add nsw i32 %396, %388
-  %398 = getelementptr inbounds i8, ptr %.9294373, i64 %372
+  %398 = getelementptr inbounds i8, ptr %.10295373, i64 %372
   %399 = load i8, ptr %398, align 1
   %400 = zext i8 %399 to i32
-  %401 = getelementptr inbounds i8, ptr %.9294373, i64 %374
+  %401 = getelementptr inbounds i8, ptr %.10295373, i64 %374
   %402 = load i8, ptr %401, align 1
   %403 = zext i8 %402 to i32
   %404 = sub nsw i32 %400, %403
   %405 = mul nsw i32 %404, %360
-  %406 = getelementptr inbounds i8, ptr %.9294373, i64 %376
+  %406 = getelementptr inbounds i8, ptr %.10295373, i64 %376
   %407 = load i8, ptr %406, align 1
   %408 = zext i8 %407 to i32
-  %409 = getelementptr inbounds i8, ptr %.9294373, i64 %378
+  %409 = getelementptr inbounds i8, ptr %.10295373, i64 %378
   %410 = load i8, ptr %409, align 1
   %411 = zext i8 %410 to i32
   %412 = sub nsw i32 %408, %411
@@ -14950,7 +14950,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %416 = getelementptr i8, ptr %415, i64 4
   store i32 %414, ptr %416, align 4
   %indvars.iv.next468 = add nuw nsw i64 %indvars.iv467, 2
-  %417 = getelementptr inbounds i8, ptr %.9294373, i64 2
+  %417 = getelementptr inbounds i8, ptr %.10295373, i64 2
   %.not300 = icmp ugt i64 %indvars.iv.next468, %379
   br i1 %.not300, label %.loopexit316.loopexit409, label %380, !llvm.loop !273
 
@@ -14967,23 +14967,23 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   br label %.loopexit316
 
 .loopexit316:                                     ; preds = %.loopexit316.loopexit409, %.loopexit316.loopexit408, %.loopexit316.loopexit, %358, %._crit_edge490, %.preheader, %295
-  %.10295 = phi ptr [ %19, %295 ], [ %19, %.preheader ], [ %19, %._crit_edge490 ], [ %19, %358 ], [ %328, %.loopexit316.loopexit ], [ %357, %.loopexit316.loopexit408 ], [ %417, %.loopexit316.loopexit409 ]
-  %.11 = phi i32 [ 0, %295 ], [ 0, %.preheader ], [ 0, %._crit_edge490 ], [ 0, %358 ], [ %418, %.loopexit316.loopexit ], [ %419, %.loopexit316.loopexit408 ], [ %420, %.loopexit316.loopexit409 ]
-  %421 = icmp slt i32 %.11, %20
+  %.9294 = phi ptr [ %19, %295 ], [ %19, %.preheader ], [ %19, %._crit_edge490 ], [ %19, %358 ], [ %328, %.loopexit316.loopexit ], [ %357, %.loopexit316.loopexit408 ], [ %417, %.loopexit316.loopexit409 ]
+  %.10 = phi i32 [ 0, %295 ], [ 0, %.preheader ], [ 0, %._crit_edge490 ], [ 0, %358 ], [ %418, %.loopexit316.loopexit ], [ %419, %.loopexit316.loopexit408 ], [ %420, %.loopexit316.loopexit409 ]
+  %421 = icmp slt i32 %.10, %20
   br i1 %421, label %.lr.ph403, label %.loopexit
 
 .lr.ph403:                                        ; preds = %.loopexit316
   %.not303392 = icmp slt i32 %8, 2
   %422 = sext i32 %4 to i64
   %423 = add nsw i32 %9, 1
-  %424 = zext nneg i32 %.11 to i64
+  %424 = zext nneg i32 %.10 to i64
   %wide.trip.count488 = zext i32 %20 to i64
   %wide.trip.count483 = zext nneg i32 %423 to i64
   br label %425
 
 425:                                              ; preds = %.lr.ph403, %._crit_edge398
   %indvars.iv485 = phi i64 [ %424, %.lr.ph403 ], [ %indvars.iv.next486, %._crit_edge398 ]
-  %.11296400 = phi ptr [ %.10295, %.lr.ph403 ], [ %443, %._crit_edge398 ]
+  %.11296400 = phi ptr [ %.9294, %.lr.ph403 ], [ %443, %._crit_edge398 ]
   %426 = load i32, ptr %14, align 4
   %427 = load i8, ptr %.11296400, align 1
   %428 = zext i8 %427 to i32
@@ -15460,22 +15460,22 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 
 47:                                               ; preds = %.lr.ph349, %47
   %indvars.iv435 = phi i64 [ 0, %.lr.ph349 ], [ %indvars.iv.next436, %47 ]
-  %.0285347 = phi ptr [ %19, %.lr.ph349 ], [ %60, %47 ]
-  %48 = getelementptr inbounds float, ptr %.0285347, i64 %42
-  %49 = getelementptr inbounds float, ptr %.0285347, i64 %43
+  %.1286347 = phi ptr [ %19, %.lr.ph349 ], [ %60, %47 ]
+  %48 = getelementptr inbounds float, ptr %.1286347, i64 %42
+  %49 = getelementptr inbounds float, ptr %.1286347, i64 %43
   %50 = load float, ptr %49, align 4
-  %51 = getelementptr inbounds float, ptr %.0285347, i64 %45
+  %51 = getelementptr inbounds float, ptr %.1286347, i64 %45
   %52 = load float, ptr %51, align 4
   %53 = getelementptr inbounds float, ptr %2, i64 %indvars.iv435
   %54 = load <2 x float>, ptr %48, align 4
-  %55 = load <2 x float>, ptr %.0285347, align 4
+  %55 = load <2 x float>, ptr %.1286347, align 4
   %56 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %55, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> %54)
   %57 = insertelement <2 x float> poison, float %50, i64 0
   %58 = insertelement <2 x float> %57, float %52, i64 1
   %59 = fadd <2 x float> %56, %58
   store <2 x float> %59, ptr %53, align 4
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 2
-  %60 = getelementptr inbounds i8, ptr %.0285347, i64 8
+  %60 = getelementptr inbounds i8, ptr %.1286347, i64 8
   %.not308 = icmp ugt i64 %indvars.iv.next436, %46
   br i1 %.not308, label %.thread.loopexit, label %47, !llvm.loop !279
 
@@ -15503,15 +15503,15 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 
 73:                                               ; preds = %.lr.ph343, %73
   %indvars.iv432 = phi i64 [ 0, %.lr.ph343 ], [ %indvars.iv.next433, %73 ]
-  %.1286341 = phi ptr [ %19, %.lr.ph343 ], [ %87, %73 ]
-  %74 = getelementptr inbounds float, ptr %.1286341, i64 %68
-  %75 = getelementptr inbounds float, ptr %.1286341, i64 %69
+  %.2287341 = phi ptr [ %19, %.lr.ph343 ], [ %87, %73 ]
+  %74 = getelementptr inbounds float, ptr %.2287341, i64 %68
+  %75 = getelementptr inbounds float, ptr %.2287341, i64 %69
   %76 = load float, ptr %75, align 4
-  %77 = getelementptr inbounds float, ptr %.1286341, i64 %71
+  %77 = getelementptr inbounds float, ptr %.2287341, i64 %71
   %78 = load float, ptr %77, align 4
   %79 = getelementptr inbounds float, ptr %2, i64 %indvars.iv432
   %80 = load <2 x float>, ptr %74, align 4
-  %81 = load <2 x float>, ptr %.1286341, align 4
+  %81 = load <2 x float>, ptr %.2287341, align 4
   %82 = fneg <2 x float> %81
   %83 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %82, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> %80)
   %84 = insertelement <2 x float> poison, float %76, i64 0
@@ -15519,7 +15519,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %86 = fadd <2 x float> %83, %85
   store <2 x float> %86, ptr %79, align 4
   %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 2
-  %87 = getelementptr inbounds i8, ptr %.1286341, i64 8
+  %87 = getelementptr inbounds i8, ptr %.2287341, i64 8
   %.not307 = icmp ugt i64 %indvars.iv.next433, %72
   br i1 %.not307, label %.thread.loopexit403, label %73, !llvm.loop !280
 
@@ -15542,14 +15542,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 
 99:                                               ; preds = %.lr.ph337, %99
   %indvars.iv429 = phi i64 [ 0, %.lr.ph337 ], [ %indvars.iv.next430, %99 ]
-  %.2287335 = phi ptr [ %19, %.lr.ph337 ], [ %113, %99 ]
-  %100 = getelementptr inbounds float, ptr %.2287335, i64 %90
-  %101 = getelementptr inbounds float, ptr %.2287335, i64 %91
+  %.3288335 = phi ptr [ %19, %.lr.ph337 ], [ %113, %99 ]
+  %100 = getelementptr inbounds float, ptr %.3288335, i64 %90
+  %101 = getelementptr inbounds float, ptr %.3288335, i64 %91
   %102 = load float, ptr %101, align 4
-  %103 = getelementptr inbounds float, ptr %.2287335, i64 %93
+  %103 = getelementptr inbounds float, ptr %.3288335, i64 %93
   %104 = load float, ptr %103, align 4
   %105 = getelementptr inbounds float, ptr %2, i64 %indvars.iv429
-  %106 = load <2 x float>, ptr %.2287335, align 4
+  %106 = load <2 x float>, ptr %.3288335, align 4
   %107 = load <2 x float>, ptr %100, align 4
   %108 = insertelement <2 x float> poison, float %102, i64 0
   %109 = insertelement <2 x float> %108, float %104, i64 1
@@ -15558,7 +15558,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %112 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %106, <2 x float> %96, <2 x float> %111)
   store <2 x float> %112, ptr %105, align 4
   %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 2
-  %113 = getelementptr inbounds i8, ptr %.2287335, i64 8
+  %113 = getelementptr inbounds i8, ptr %.3288335, i64 8
   %.not306 = icmp ugt i64 %indvars.iv.next430, %94
   br i1 %.not306, label %.thread.loopexit404, label %99, !llvm.loop !281
 
@@ -15617,14 +15617,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 
 149:                                              ; preds = %.lr.ph331, %149
   %indvars.iv426 = phi i64 [ 0, %.lr.ph331 ], [ %indvars.iv.next427, %149 ]
-  %.3288329 = phi ptr [ %19, %.lr.ph331 ], [ %162, %149 ]
-  %150 = getelementptr inbounds float, ptr %.3288329, i64 %143
+  %.4289329 = phi ptr [ %19, %.lr.ph331 ], [ %162, %149 ]
+  %150 = getelementptr inbounds float, ptr %.4289329, i64 %143
   %151 = load float, ptr %150, align 4
-  %152 = getelementptr inbounds float, ptr %.3288329, i64 %145
-  %153 = getelementptr inbounds float, ptr %.3288329, i64 %147
+  %152 = getelementptr inbounds float, ptr %.4289329, i64 %145
+  %153 = getelementptr inbounds float, ptr %.4289329, i64 %147
   %154 = load float, ptr %153, align 4
   %155 = getelementptr inbounds float, ptr %2, i64 %indvars.iv426
-  %156 = load <2 x float>, ptr %.3288329, align 4
+  %156 = load <2 x float>, ptr %.4289329, align 4
   %157 = insertelement <2 x float> poison, float %151, i64 0
   %158 = insertelement <2 x float> %157, float %154, i64 1
   %159 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %156, <2 x float> <float -2.000000e+00, float -2.000000e+00>, <2 x float> %158)
@@ -15632,25 +15632,25 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %161 = fadd <2 x float> %159, %160
   store <2 x float> %161, ptr %155, align 4
   %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 2
-  %162 = getelementptr inbounds i8, ptr %.3288329, i64 8
+  %162 = getelementptr inbounds i8, ptr %.4289329, i64 8
   %.not305 = icmp ugt i64 %indvars.iv.next427, %148
   br i1 %.not305, label %.thread.loopexit405, label %149, !llvm.loop !282
 
 163:                                              ; preds = %.lr.ph, %163
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %163 ]
-  %.4289325 = phi ptr [ %19, %.lr.ph ], [ %187, %163 ]
-  %164 = getelementptr inbounds float, ptr %.4289325, i64 %125
-  %165 = getelementptr inbounds float, ptr %.4289325, i64 %126
+  %.5290325 = phi ptr [ %19, %.lr.ph ], [ %187, %163 ]
+  %164 = getelementptr inbounds float, ptr %.5290325, i64 %125
+  %165 = getelementptr inbounds float, ptr %.5290325, i64 %126
   %166 = load float, ptr %165, align 4
-  %167 = getelementptr inbounds float, ptr %.4289325, i64 %128
+  %167 = getelementptr inbounds float, ptr %.5290325, i64 %128
   %168 = load float, ptr %167, align 4
-  %169 = getelementptr inbounds float, ptr %.4289325, i64 %130
-  %170 = getelementptr inbounds float, ptr %.4289325, i64 %132
+  %169 = getelementptr inbounds float, ptr %.5290325, i64 %130
+  %170 = getelementptr inbounds float, ptr %.5290325, i64 %132
   %171 = load float, ptr %170, align 4
-  %172 = getelementptr inbounds float, ptr %.4289325, i64 %134
+  %172 = getelementptr inbounds float, ptr %.5290325, i64 %134
   %173 = load float, ptr %172, align 4
   %174 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
-  %175 = load <2 x float>, ptr %.4289325, align 4
+  %175 = load <2 x float>, ptr %.5290325, align 4
   %176 = load <2 x float>, ptr %164, align 4
   %177 = insertelement <2 x float> poison, float %166, i64 0
   %178 = insertelement <2 x float> %177, float %171, i64 1
@@ -15664,7 +15664,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %186 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %185, <2 x float> %137, <2 x float> %181)
   store <2 x float> %186, ptr %174, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %187 = getelementptr inbounds i8, ptr %.4289325, i64 8
+  %187 = getelementptr inbounds i8, ptr %.5290325, i64 8
   %.not304 = icmp ugt i64 %indvars.iv.next, %135
   br i1 %.not304, label %.thread.loopexit406, label %163, !llvm.loop !283
 
@@ -15689,9 +15689,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit406, %.thread.loopexit405, %.thread.loopexit404, %.thread.loopexit403, %.thread.loopexit, %.preheader322, %.preheader320, %._crit_edge481, %.preheader317, %.preheader316, %21, %._crit_edge
-  %.5290 = phi ptr [ %32, %._crit_edge ], [ %19, %21 ], [ %19, %.preheader316 ], [ %19, %.preheader317 ], [ %19, %._crit_edge481 ], [ %19, %.preheader320 ], [ %19, %.preheader322 ], [ %60, %.thread.loopexit ], [ %87, %.thread.loopexit403 ], [ %113, %.thread.loopexit404 ], [ %162, %.thread.loopexit405 ], [ %187, %.thread.loopexit406 ]
-  %.6 = phi i32 [ %.0280.lcssa, %._crit_edge ], [ 0, %21 ], [ 0, %.preheader316 ], [ 0, %.preheader317 ], [ 0, %._crit_edge481 ], [ 0, %.preheader320 ], [ 0, %.preheader322 ], [ %188, %.thread.loopexit ], [ %189, %.thread.loopexit403 ], [ %190, %.thread.loopexit404 ], [ %191, %.thread.loopexit405 ], [ %192, %.thread.loopexit406 ]
-  %193 = icmp slt i32 %.6, %20
+  %.0285 = phi ptr [ %32, %._crit_edge ], [ %19, %21 ], [ %19, %.preheader316 ], [ %19, %.preheader317 ], [ %19, %._crit_edge481 ], [ %19, %.preheader320 ], [ %19, %.preheader322 ], [ %60, %.thread.loopexit ], [ %87, %.thread.loopexit403 ], [ %113, %.thread.loopexit404 ], [ %162, %.thread.loopexit405 ], [ %187, %.thread.loopexit406 ]
+  %.1 = phi i32 [ %.0280.lcssa, %._crit_edge ], [ 0, %21 ], [ 0, %.preheader316 ], [ 0, %.preheader317 ], [ 0, %._crit_edge481 ], [ 0, %.preheader320 ], [ 0, %.preheader322 ], [ %188, %.thread.loopexit ], [ %189, %.thread.loopexit403 ], [ %190, %.thread.loopexit404 ], [ %191, %.thread.loopexit405 ], [ %192, %.thread.loopexit406 ]
+  %193 = icmp slt i32 %.1, %20
   br i1 %193, label %.lr.ph366, label %.loopexit
 
 .thread.thread:                                   ; preds = %22
@@ -15705,21 +15705,21 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 .lr.ph361.preheader:                              ; preds = %.lr.ph366
   %195 = sext i32 %4 to i64
   %196 = add nuw nsw i32 %9, 1
-  %197 = zext nneg i32 %.6 to i64
+  %197 = zext nneg i32 %.1 to i64
   %wide.trip.count451 = zext i32 %20 to i64
   %wide.trip.count = zext nneg i32 %196 to i64
   br label %.lr.ph361
 
 .lr.ph366.split.us.preheader:                     ; preds = %.thread.thread, %.lr.ph366
-  %.5290487493 = phi ptr [ %.5290, %.lr.ph366 ], [ %19, %.thread.thread ]
-  %.6488492 = phi i32 [ %.6, %.lr.ph366 ], [ 0, %.thread.thread ]
-  %198 = zext nneg i32 %.6488492 to i64
+  %.0285487493 = phi ptr [ %.0285, %.lr.ph366 ], [ %19, %.thread.thread ]
+  %.1488492 = phi i32 [ %.1, %.lr.ph366 ], [ 0, %.thread.thread ]
+  %198 = zext nneg i32 %.1488492 to i64
   %wide.trip.count456 = zext i32 %20 to i64
   br label %.lr.ph366.split.us
 
 .lr.ph366.split.us:                               ; preds = %.lr.ph366.split.us.preheader, %.lr.ph366.split.us
   %indvars.iv453 = phi i64 [ %198, %.lr.ph366.split.us.preheader ], [ %indvars.iv.next454, %.lr.ph366.split.us ]
-  %.6291364.us = phi ptr [ %.5290487493, %.lr.ph366.split.us.preheader ], [ %203, %.lr.ph366.split.us ]
+  %.6291364.us = phi ptr [ %.0285487493, %.lr.ph366.split.us.preheader ], [ %203, %.lr.ph366.split.us ]
   %199 = load float, ptr %14, align 4
   %200 = load float, ptr %.6291364.us, align 4
   %201 = fmul float %199, %200
@@ -15732,7 +15732,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 
 .lr.ph361:                                        ; preds = %.lr.ph361.preheader, %._crit_edge362
   %indvars.iv448 = phi i64 [ %197, %.lr.ph361.preheader ], [ %indvars.iv.next449, %._crit_edge362 ]
-  %.6291364 = phi ptr [ %.5290, %.lr.ph361.preheader ], [ %218, %._crit_edge362 ]
+  %.6291364 = phi ptr [ %.0285, %.lr.ph361.preheader ], [ %218, %._crit_edge362 ]
   %204 = load float, ptr %14, align 4
   %205 = load float, ptr %.6291364, align 4
   %206 = fmul float %204, %205
@@ -15877,16 +15877,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 
 289:                                              ; preds = %.lr.ph371, %289
   %indvars.iv458 = phi i64 [ 0, %.lr.ph371 ], [ %indvars.iv.next459, %289 ]
-  %.9294368 = phi ptr [ %19, %.lr.ph371 ], [ %311, %289 ]
-  %290 = getelementptr inbounds float, ptr %.9294368, i64 %273
+  %.10295368 = phi ptr [ %19, %.lr.ph371 ], [ %311, %289 ]
+  %290 = getelementptr inbounds float, ptr %.10295368, i64 %273
   %291 = load float, ptr %290, align 4
-  %292 = getelementptr inbounds float, ptr %.9294368, i64 %275
-  %293 = getelementptr inbounds float, ptr %.9294368, i64 %277
-  %294 = getelementptr inbounds float, ptr %.9294368, i64 %279
+  %292 = getelementptr inbounds float, ptr %.10295368, i64 %275
+  %293 = getelementptr inbounds float, ptr %.10295368, i64 %277
+  %294 = getelementptr inbounds float, ptr %.10295368, i64 %279
   %295 = load float, ptr %294, align 4
-  %296 = getelementptr inbounds float, ptr %.9294368, i64 %281
+  %296 = getelementptr inbounds float, ptr %.10295368, i64 %281
   %297 = load float, ptr %296, align 4
-  %298 = getelementptr inbounds float, ptr %.9294368, i64 %283
+  %298 = getelementptr inbounds float, ptr %.10295368, i64 %283
   %299 = load float, ptr %298, align 4
   %300 = getelementptr inbounds float, ptr %2, i64 %indvars.iv458
   %301 = load <2 x float>, ptr %292, align 4
@@ -15901,7 +15901,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %310 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %304, <2 x float> %286, <2 x float> %309)
   store <2 x float> %310, ptr %300, align 4
   %indvars.iv.next459 = add nuw nsw i64 %indvars.iv458, 2
-  %311 = getelementptr inbounds i8, ptr %.9294368, i64 8
+  %311 = getelementptr inbounds i8, ptr %.10295368, i64 8
   %.not300 = icmp ugt i64 %indvars.iv.next459, %284
   br i1 %.not300, label %.loopexit311.loopexit400, label %289, !llvm.loop !288
 
@@ -15918,23 +15918,23 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   br label %.loopexit311
 
 .loopexit311:                                     ; preds = %.loopexit311.loopexit400, %.loopexit311.loopexit399, %.loopexit311.loopexit, %267, %._crit_edge482, %.preheader, %219
-  %.10295 = phi ptr [ %19, %219 ], [ %19, %.preheader ], [ %19, %._crit_edge482 ], [ %19, %267 ], [ %244, %.loopexit311.loopexit ], [ %266, %.loopexit311.loopexit399 ], [ %311, %.loopexit311.loopexit400 ]
-  %.11 = phi i32 [ 0, %219 ], [ 0, %.preheader ], [ 0, %._crit_edge482 ], [ 0, %267 ], [ %312, %.loopexit311.loopexit ], [ %313, %.loopexit311.loopexit399 ], [ %314, %.loopexit311.loopexit400 ]
-  %315 = icmp slt i32 %.11, %20
+  %.9294 = phi ptr [ %19, %219 ], [ %19, %.preheader ], [ %19, %._crit_edge482 ], [ %19, %267 ], [ %244, %.loopexit311.loopexit ], [ %266, %.loopexit311.loopexit399 ], [ %311, %.loopexit311.loopexit400 ]
+  %.10 = phi i32 [ 0, %219 ], [ 0, %.preheader ], [ 0, %._crit_edge482 ], [ 0, %267 ], [ %312, %.loopexit311.loopexit ], [ %313, %.loopexit311.loopexit399 ], [ %314, %.loopexit311.loopexit400 ]
+  %315 = icmp slt i32 %.10, %20
   br i1 %315, label %.lr.ph398, label %.loopexit
 
 .lr.ph398:                                        ; preds = %.loopexit311
   %.not303387 = icmp slt i32 %8, 2
   %316 = sext i32 %4 to i64
   %317 = add nsw i32 %9, 1
-  %318 = zext nneg i32 %.11 to i64
+  %318 = zext nneg i32 %.10 to i64
   %wide.trip.count479 = zext i32 %20 to i64
   %wide.trip.count474 = zext nneg i32 %317 to i64
   br label %319
 
 319:                                              ; preds = %.lr.ph398, %._crit_edge393
   %indvars.iv476 = phi i64 [ %318, %.lr.ph398 ], [ %indvars.iv.next477, %._crit_edge393 ]
-  %.11296395 = phi ptr [ %.10295, %.lr.ph398 ], [ %333, %._crit_edge393 ]
+  %.11296395 = phi ptr [ %.9294, %.lr.ph398 ], [ %333, %._crit_edge393 ]
   %320 = load float, ptr %14, align 4
   %321 = load float, ptr %.11296395, align 4
   %322 = fmul float %320, %321

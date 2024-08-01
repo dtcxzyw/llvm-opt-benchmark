@@ -144,24 +144,24 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %if.end23.i.i
 
 if.end23.i.i:                                     ; preds = %if.then13.i.i, %if.else.i.i
-  %n.0.i.i = phi i32 [ 0, %if.else.i.i ], [ 1, %if.then13.i.i ]
+  %n.1.i.i = phi i32 [ 0, %if.else.i.i ], [ 1, %if.then13.i.i ]
   br i1 %cmp.i.i, label %if.then25.i.i, label %lor.lhs.false.i
 
 if.then25.i.i:                                    ; preds = %if.end23.i.i
-  %idxprom27.i.i = zext nneg i32 %n.0.i.i to i64
+  %idxprom27.i.i = zext nneg i32 %n.1.i.i to i64
   %arrayidx28.i.i = getelementptr [3 x [2 x i64]], ptr %ga.i, i64 0, i64 %idxprom27.i.i
   store i64 %guest_loaddr, ptr %arrayidx28.i.i, align 8
   %arrayidx33.i.i = getelementptr i8, ptr %arrayidx28.i.i, i64 8
   store i64 %guest_hiaddr, ptr %arrayidx33.i.i, align 8
-  %inc34.i.i = add nuw nsw i32 %n.0.i.i, 1
+  %inc34.i.i = add nuw nsw i32 %n.1.i.i, 1
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then25.i.i, %if.end23.i.i, %if.then5.i.i
-  %n.1.i.i = phi i32 [ 1, %if.then5.i.i ], [ %inc34.i.i, %if.then25.i.i ], [ %n.0.i.i, %if.end23.i.i ]
+  %n.0.i.i = phi i32 [ 1, %if.then5.i.i ], [ %inc34.i.i, %if.then25.i.i ], [ %n.1.i.i, %if.end23.i.i ]
   %nbounds.i.i = getelementptr inbounds i8, ptr %ga.i, i64 48
-  store i32 %n.1.i.i, ptr %nbounds.i.i, align 8
+  store i32 %n.0.i.i, ptr %nbounds.i.i, align 8
   %sub.i.i.i = add i64 %3, 16777215
-  %9 = zext nneg i32 %n.1.i.i to i64
+  %9 = zext nneg i32 %n.0.i.i to i64
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %pgb_try_mmap_skip_brk.exit.i.i, %lor.lhs.false.i
@@ -250,13 +250,13 @@ if.then1.sink.split.i:                            ; preds = %if.end3.i.i21
   br label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end3.i.i21, %if.then1.sink.split.i
-  %n.1.i.i25 = phi i32 [ 1, %if.then1.sink.split.i ], [ 0, %if.end3.i.i21 ]
+  %n.0.i.i25 = phi i32 [ 1, %if.then1.sink.split.i ], [ 0, %if.end3.i.i21 ]
   %nbounds.i.i26 = getelementptr inbounds i8, ptr %ga.i14, i64 48
-  store i32 %n.1.i.i25, ptr %nbounds.i.i26, align 8
+  store i32 %n.0.i.i25, ptr %nbounds.i.i26, align 8
   %call2.i = tail call ptr @sbrk(i64 noundef 0) #20
   %19 = ptrtoint ptr %call2.i to i64
   %sub.i.i.i27 = add i64 %19, 16777215
-  %20 = zext nneg i32 %n.1.i.i25 to i64
+  %20 = zext nneg i32 %n.0.i.i25 to i64
   br label %for.cond.i.i28
 
 for.cond.i.i28:                                   ; preds = %pgb_try_mmap_skip_brk.exit.i.i53, %if.then1.i
@@ -327,9 +327,9 @@ if.then25.i34.i:                                  ; preds = %if.else.i33.i
   br label %pgb_addr_set.exit36.i
 
 pgb_addr_set.exit36.i:                            ; preds = %if.then25.i34.i, %if.else.i33.i, %if.then5.i27.i
-  %n.1.i30.i = phi i32 [ 1, %if.then5.i27.i ], [ 2, %if.then25.i34.i ], [ 1, %if.else.i33.i ]
+  %n.0.i30.i = phi i32 [ 1, %if.then5.i27.i ], [ 2, %if.then25.i34.i ], [ 1, %if.else.i33.i ]
   %nbounds.i31.i = getelementptr inbounds i8, ptr %ga.i14, i64 48
-  store i32 %n.1.i30.i, ptr %nbounds.i31.i, align 8
+  store i32 %n.0.i30.i, ptr %nbounds.i31.i, align 8
   %call8.i = tail call ptr @read_self_maps() #20
   %call9.i = tail call ptr @sbrk(i64 noundef 0) #20
   %29 = ptrtoint ptr %call9.i to i64
@@ -340,7 +340,7 @@ if.then10.i:                                      ; preds = %pgb_addr_set.exit36
   %add.i.i41 = add i64 %conv., -1
   %sub1.i.i = sub i64 0, %conv.
   %sub.i.i.i37.i = add i64 %29, 16777215
-  %30 = zext nneg i32 %n.1.i30.i to i64
+  %30 = zext nneg i32 %n.0.i30.i to i64
   br label %for.cond.i38.i
 
 for.cond.i38.i:                                   ; preds = %for.inc.i.i, %if.then10.i
@@ -411,7 +411,7 @@ if.else12.i:                                      ; preds = %pgb_addr_set.exit36
   %38 = load i64, ptr @mmap_min_addr, align 8
   %add.i43.i = add i64 %conv., -1
   %sub1.i44.i = sub i64 0, %conv.
-  %39 = zext nneg i32 %n.1.i30.i to i64
+  %39 = zext nneg i32 %n.0.i30.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end4.i.i, %if.else12.i
@@ -523,7 +523,7 @@ if.end15.i:                                       ; preds = %for.cond.i.i.i, %pg
   br i1 %cmp16.i, label %if.end15.if.then17_crit_edge.i, label %pgb_dynamic.exit
 
 if.end15.if.then17_crit_edge.i:                   ; preds = %if.end15.i
-  %.pre102.i = zext nneg i32 %n.1.i30.i to i64
+  %.pre102.i = zext nneg i32 %n.0.i30.i to i64
   br label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end.i.i, %if.end15.if.then17_crit_edge.i

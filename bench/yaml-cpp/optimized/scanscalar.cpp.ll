@@ -273,7 +273,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %if.end
-  %lastEscapedChar.0.ph = phi i64 [ -1, %if.end ], [ %lastEscapedChar.2, %while.cond.outer.backedge ]
+  %lastEscapedChar.0.ph = phi i64 [ -1, %if.end ], [ %lastEscapedChar.3, %while.cond.outer.backedge ]
   %foldedNewlineStartedMoreIndented.0.ph = phi i1 [ false, %if.end ], [ %foldedNewlineStartedMoreIndented.1, %while.cond.outer.backedge ]
   %foldedNewlineCount.0.ph = phi i32 [ 0, %if.end ], [ %foldedNewlineCount.0.ph.be, %while.cond.outer.backedge ]
   %moreIndented.0.ph = phi i1 [ false, %if.end ], [ %cond.i.i.i467, %while.cond.outer.backedge ]
@@ -284,7 +284,7 @@ while.cond.outer:                                 ; preds = %while.cond.outer.ba
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %if.then304
-  %lastEscapedChar.0 = phi i64 [ %lastEscapedChar.2, %if.then304 ], [ %lastEscapedChar.0.ph, %while.cond.outer ]
+  %lastEscapedChar.0 = phi i64 [ %lastEscapedChar.3, %if.then304 ], [ %lastEscapedChar.0.ph, %while.cond.outer ]
   %foldedNewlineStartedMoreIndented.0 = phi i1 [ %foldedNewlineStartedMoreIndented.1, %if.then304 ], [ %foldedNewlineStartedMoreIndented.0.ph, %while.cond.outer ]
   %moreIndented.0 = phi i1 [ %cond.i.i.i467, %if.then304 ], [ %moreIndented.0.ph, %while.cond.outer ]
   %emptyLine.0 = phi i1 [ %cond.i.i.i435, %if.then304 ], [ %emptyLine.0.ph, %while.cond.outer ]
@@ -302,7 +302,7 @@ while.body:                                       ; preds = %invoke.cont2
 
 while.cond5.outer:                                ; preds = %invoke.cont66, %while.body
   %lastNonWhitespaceChar.0.ph = phi i64 [ %call69, %invoke.cont66 ], [ %call4, %while.body ]
-  %lastEscapedChar.1.ph = phi i64 [ %call70, %invoke.cont66 ], [ %lastEscapedChar.0, %while.body ]
+  %lastEscapedChar.2.ph = phi i64 [ %call70, %invoke.cont66 ], [ %lastEscapedChar.0, %while.body ]
   %pastOpeningBreak.1.ph = phi i1 [ true, %invoke.cont66 ], [ %pastOpeningBreak.0, %while.body ]
   %foundNonEmptyLine.1.ph = phi i8 [ 1, %invoke.cont66 ], [ %foundNonEmptyLine.0, %while.body ]
   br label %while.cond5.outer655
@@ -643,9 +643,9 @@ if.then81:                                        ; preds = %invoke.cont74
   br label %while.cond5.outer655, !llvm.loop !5
 
 while.end:                                        ; preds = %if.then25, %invoke.cont7, %invoke.cont14, %invoke.cont11, %invoke.cont51
-  %lastNonWhitespaceChar.2 = phi i64 [ %call53, %invoke.cont51 ], [ %lastNonWhitespaceChar.0.ph656, %invoke.cont11 ], [ %lastNonWhitespaceChar.0.ph656, %invoke.cont14 ], [ %lastNonWhitespaceChar.0.ph656, %invoke.cont7 ], [ %lastNonWhitespaceChar.0.ph656, %if.then25 ]
+  %lastNonWhitespaceChar.1 = phi i64 [ %call53, %invoke.cont51 ], [ %lastNonWhitespaceChar.0.ph656, %invoke.cont11 ], [ %lastNonWhitespaceChar.0.ph656, %invoke.cont14 ], [ %lastNonWhitespaceChar.0.ph656, %invoke.cont7 ], [ %lastNonWhitespaceChar.0.ph656, %if.then25 ]
   %escapedNewline.0 = phi i1 [ true, %invoke.cont51 ], [ false, %invoke.cont11 ], [ false, %invoke.cont14 ], [ false, %invoke.cont7 ], [ false, %if.then25 ]
-  %lastEscapedChar.2 = phi i64 [ %call54, %invoke.cont51 ], [ %lastEscapedChar.1.ph, %invoke.cont11 ], [ %lastEscapedChar.1.ph, %invoke.cont14 ], [ %lastEscapedChar.1.ph, %invoke.cont7 ], [ %lastEscapedChar.1.ph, %if.then25 ]
+  %lastEscapedChar.3 = phi i64 [ %call54, %invoke.cont51 ], [ %lastEscapedChar.2.ph, %invoke.cont11 ], [ %lastEscapedChar.2.ph, %invoke.cont14 ], [ %lastEscapedChar.2.ph, %invoke.cont7 ], [ %lastEscapedChar.2.ph, %if.then25 ]
   %pastOpeningBreak.2 = phi i1 [ true, %invoke.cont51 ], [ %pastOpeningBreak.1, %invoke.cont11 ], [ %pastOpeningBreak.1, %invoke.cont14 ], [ %pastOpeningBreak.1, %invoke.cont7 ], [ %pastOpeningBreak.1, %if.then25 ]
   %foundNonEmptyLine.2 = phi i8 [ 1, %invoke.cont51 ], [ %foundNonEmptyLine.1, %invoke.cont11 ], [ %foundNonEmptyLine.1, %invoke.cont14 ], [ %foundNonEmptyLine.1, %invoke.cont7 ], [ %foundNonEmptyLine.1, %if.then25 ]
   %call.i222 = invoke noundef zeroext i1 @_ZNK4YAML6StreamcvbEv(ptr noundef nonnull align 8 dereferenceable(128) %INPUT)
@@ -824,7 +824,7 @@ if.end133:                                        ; preds = %invoke.cont124.thre
   br i1 %cmp135, label %if.then136, label %if.end139
 
 if.then136:                                       ; preds = %if.end133
-  %call138 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %lastNonWhitespaceChar.2, i64 noundef -1)
+  %call138 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %lastNonWhitespaceChar.1, i64 noundef -1)
           to label %if.end139 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
 if.end139:                                        ; preds = %if.then136, %if.end133
@@ -1305,7 +1305,7 @@ if.end274.thread:                                 ; preds = %land.lhs.true260, %
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %if.end274.thread, %land.lhs.true322, %if.end316
-  %foldedNewlineCount.0.ph.be = phi i32 [ %foldedNewlineCount.2, %if.end316 ], [ %foldedNewlineCount.2504, %land.lhs.true322 ], [ %inc, %if.end274.thread ]
+  %foldedNewlineCount.0.ph.be = phi i32 [ %foldedNewlineCount.1, %if.end316 ], [ %foldedNewlineCount.1504, %land.lhs.true322 ], [ %inc, %if.end274.thread ]
   br label %while.cond.outer, !llvm.loop !9
 
 if.else270.invoke:                                ; preds = %land.lhs.true260, %if.else
@@ -1378,11 +1378,11 @@ if.then311:                                       ; preds = %if.else307
           to label %land.lhs.true322 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 if.end316:                                        ; preds = %if.then248, %invoke.cont234, %lor.lhs.false290, %if.then297, %sw.bb, %if.end274
-  %foldedNewlineCount.2 = phi i32 [ %foldedNewlineCount.0.ph, %if.end274 ], [ %foldedNewlineCount.0.ph, %sw.bb ], [ 0, %if.then297 ], [ 0, %lor.lhs.false290 ], [ %foldedNewlineCount.0.ph, %invoke.cont234 ], [ %foldedNewlineCount.0.ph, %if.then248 ]
+  %foldedNewlineCount.1 = phi i32 [ %foldedNewlineCount.0.ph, %if.end274 ], [ %foldedNewlineCount.0.ph, %sw.bb ], [ 0, %if.then297 ], [ 0, %lor.lhs.false290 ], [ %foldedNewlineCount.0.ph, %invoke.cont234 ], [ %foldedNewlineCount.0.ph, %if.then248 ]
   br i1 %cond.i.i.i435, label %while.cond.outer.backedge, label %land.lhs.true322
 
 land.lhs.true322:                                 ; preds = %if.then311, %if.else307, %if.end316
-  %foldedNewlineCount.2504 = phi i32 [ %foldedNewlineCount.2, %if.end316 ], [ %foldedNewlineCount.0.ph, %if.else307 ], [ %foldedNewlineCount.0.ph, %if.then311 ]
+  %foldedNewlineCount.1504 = phi i32 [ %foldedNewlineCount.1, %if.end316 ], [ %foldedNewlineCount.0.ph, %if.else307 ], [ %foldedNewlineCount.0.ph, %if.then311 ]
   %134 = load i32, ptr %column.i, align 8
   %135 = load i32, ptr %indent, align 4
   %cmp326 = icmp slt i32 %134, %135
@@ -1393,7 +1393,7 @@ if.then327:                                       ; preds = %land.lhs.true322
   br label %while.end330
 
 while.end330:                                     ; preds = %invoke.cont119, %invoke.cont2, %if.then127, %if.then130, %if.then86, %if.then327
-  %lastEscapedChar.3 = phi i64 [ %lastEscapedChar.2, %if.then86 ], [ %lastEscapedChar.2, %if.then130 ], [ %lastEscapedChar.2, %if.then127 ], [ %lastEscapedChar.2, %if.then327 ], [ %lastEscapedChar.0, %invoke.cont2 ], [ %lastEscapedChar.2, %invoke.cont119 ]
+  %lastEscapedChar.1 = phi i64 [ %lastEscapedChar.3, %if.then86 ], [ %lastEscapedChar.3, %if.then130 ], [ %lastEscapedChar.3, %if.then127 ], [ %lastEscapedChar.3, %if.then327 ], [ %lastEscapedChar.0, %invoke.cont2 ], [ %lastEscapedChar.3, %invoke.cont119 ]
   %trimTrailingSpaces = getelementptr inbounds i8, ptr %params, i64 24
   %136 = load i8, ptr %trimTrailingSpaces, align 8
   %tobool331 = trunc i8 %136 to i1
@@ -1401,10 +1401,10 @@ while.end330:                                     ; preds = %invoke.cont119, %in
 
 if.then332:                                       ; preds = %while.end330
   %call333 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16find_last_not_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.5, i64 noundef -1) #11
-  %cmp334.not = icmp eq i64 %lastEscapedChar.3, -1
+  %cmp334.not = icmp eq i64 %lastEscapedChar.1, -1
   %cmp338 = icmp eq i64 %call333, -1
-  %137 = call i64 @llvm.umax.i64(i64 %call333, i64 %lastEscapedChar.3)
-  %spec.select119 = select i1 %cmp338, i64 %lastEscapedChar.3, i64 %137
+  %137 = call i64 @llvm.umax.i64(i64 %call333, i64 %lastEscapedChar.1)
+  %spec.select119 = select i1 %cmp338, i64 %lastEscapedChar.1, i64 %137
   %pos.0 = select i1 %cmp334.not, i64 %call333, i64 %spec.select119
   %call342 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   %cmp343 = icmp ult i64 %pos.0, %call342
@@ -1425,10 +1425,10 @@ if.end348:                                        ; preds = %if.then332, %if.the
 
 sw.bb349:                                         ; preds = %if.end348
   %call351 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16find_last_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 10, i64 noundef -1) #11
-  %cmp352.not = icmp eq i64 %lastEscapedChar.3, -1
+  %cmp352.not = icmp eq i64 %lastEscapedChar.1, -1
   %cmp356 = icmp eq i64 %call351, -1
-  %139 = call i64 @llvm.umax.i64(i64 %call351, i64 %lastEscapedChar.3)
-  %spec.select120 = select i1 %cmp356, i64 %lastEscapedChar.3, i64 %139
+  %139 = call i64 @llvm.umax.i64(i64 %call351, i64 %lastEscapedChar.1)
+  %spec.select120 = select i1 %cmp356, i64 %lastEscapedChar.1, i64 %139
   %pos350.0 = select i1 %cmp352.not, i64 %call351, i64 %spec.select120
   %cmp360 = icmp eq i64 %pos350.0, -1
   br i1 %cmp360, label %if.then392.invoke, label %if.else364
@@ -1445,10 +1445,10 @@ if.then368:                                       ; preds = %if.else364
 
 sw.bb374:                                         ; preds = %if.end348
   %call376 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16find_last_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 10, i64 noundef -1) #11
-  %cmp377.not = icmp eq i64 %lastEscapedChar.3, -1
+  %cmp377.not = icmp eq i64 %lastEscapedChar.1, -1
   %cmp381 = icmp eq i64 %call376, -1
-  %140 = call i64 @llvm.umax.i64(i64 %call376, i64 %lastEscapedChar.3)
-  %spec.select121 = select i1 %cmp381, i64 %lastEscapedChar.3, i64 %140
+  %140 = call i64 @llvm.umax.i64(i64 %call376, i64 %lastEscapedChar.1)
+  %spec.select121 = select i1 %cmp381, i64 %lastEscapedChar.1, i64 %140
   %pos375.0 = select i1 %cmp377.not, i64 %call376, i64 %spec.select121
   %cmp385 = icmp eq i64 %pos375.0, -1
   br i1 %cmp385, label %if.then392.invoke, label %if.else389

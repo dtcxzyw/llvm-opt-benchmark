@@ -42610,7 +42610,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   br label %.body41
 
 .body41:                                          ; preds = %143, %126, %116, %120
-  %.020.lpad-body = phi i1 [ true, %120 ], [ true, %116 ], [ true, %126 ], [ false, %143 ]
+  %.121.lpad-body = phi i1 [ true, %120 ], [ true, %116 ], [ true, %126 ], [ false, %143 ]
   %eh.lpad-body42 = phi { ptr, i32 } [ %117, %120 ], [ %117, %116 ], [ %127, %126 ], [ %144, %143 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8105)
   call void @llvm.experimental.noalias.scope.decl(metadata !8108)
@@ -42700,7 +42700,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   br label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit36"
 
 .body39:                                          ; preds = %.body41, %131
-  br i1 %.020.lpad-body, label %.body39.thread, label %.body
+  br i1 %.121.lpad-body, label %.body39.thread, label %.body
 
 .body39.thread:                                   ; preds = %104, %81, %.body39
   %.pn54 = phi { ptr, i32 } [ %eh.lpad-body42, %.body39 ], [ %105, %104 ], [ %82, %81 ]
@@ -50742,9 +50742,9 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %20,
           to label %46 unwind label %38
 
 "_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit": ; preds = %.body, %43, %38
-  %.061 = phi i8 [ %.1, %38 ], [ %.2, %43 ], [ %.2, %.body ]
+  %.1 = phi i8 [ %.061, %38 ], [ %.3, %43 ], [ %.3, %.body ]
   %.pn66 = phi { ptr, i32 } [ %39, %38 ], [ %.pn, %43 ], [ %.pn, %.body ]
-  %34 = trunc nuw i8 %.061 to i1
+  %34 = trunc nuw i8 %.1 to i1
   %35 = getelementptr inbounds i8, ptr %8, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = icmp ne i64 %36, 0
@@ -50752,13 +50752,13 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %20,
   br i1 %or.cond143.not, label %218, label %"_ZN4core3ptr50drop_in_place$LT$hir_def..lang_item..LangItems$GT$17h6921e0775dbd88cdE.exit92"
 
 38:                                               ; preds = %72, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
-  %.1 = phi i8 [ 1, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit ], [ %.4, %72 ]
+  %.061 = phi i8 [ 1, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit ], [ %.4, %72 ]
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit"
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %195, %200, %169, %174, %64
-  %.2 = phi i8 [ 0, %64 ], [ 1, %174 ], [ 1, %169 ], [ 1, %200 ], [ 1, %195 ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ 1, %.loopexit ]
+  %.3 = phi i8 [ 0, %64 ], [ 1, %174 ], [ 1, %169 ], [ 1, %200 ], [ 1, %195 ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ 1, %.loopexit ]
   %.pn = phi { ptr, i32 } [ %65, %64 ], [ %170, %174 ], [ %170, %169 ], [ %196, %200 ], [ %196, %195 ], [ %lpad.loopexit145, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit150, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8838)
   call void @llvm.experimental.noalias.scope.decl(metadata !8841)
@@ -51948,19 +51948,19 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %37,
   unreachable
 
 "_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit": ; preds = %"_ZN4core3ptr41drop_in_place$LT$hir_def..attr..Attrs$GT$17hf9172d4fed4175a5E.exit", %59, %54
-  %.030 = phi i8 [ %.1, %54 ], [ %.2, %59 ], [ %.2, %"_ZN4core3ptr41drop_in_place$LT$hir_def..attr..Attrs$GT$17hf9172d4fed4175a5E.exit" ]
+  %.1 = phi i8 [ %.030, %54 ], [ %.3, %59 ], [ %.3, %"_ZN4core3ptr41drop_in_place$LT$hir_def..attr..Attrs$GT$17hf9172d4fed4175a5E.exit" ]
   %.pn33 = phi { ptr, i32 } [ %55, %54 ], [ %.pn, %59 ], [ %.pn, %"_ZN4core3ptr41drop_in_place$LT$hir_def..attr..Attrs$GT$17hf9172d4fed4175a5E.exit" ]
-  %53 = trunc nuw i8 %.030 to i1
+  %53 = trunc nuw i8 %.1 to i1
   br i1 %53, label %151, label %103
 
 54:                                               ; preds = %78, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
-  %.1 = phi i8 [ 1, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit ], [ %.4, %78 ]
+  %.030 = phi i8 [ 1, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit ], [ %.4, %78 ]
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit"
 
 "_ZN4core3ptr41drop_in_place$LT$hir_def..attr..Attrs$GT$17hf9172d4fed4175a5E.exit": ; preds = %.loopexit, %.loopexit.split-lp, %128, %132
-  %.2 = phi i8 [ 1, %132 ], [ 1, %128 ], [ 1, %.loopexit ], [ 0, %.loopexit.split-lp ]
+  %.3 = phi i8 [ 1, %132 ], [ 1, %128 ], [ 1, %.loopexit ], [ 0, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %129, %132 ], [ %129, %128 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !9062)
   call void @llvm.experimental.noalias.scope.decl(metadata !9065)

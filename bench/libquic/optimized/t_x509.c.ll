@@ -1056,13 +1056,13 @@ if.end132.loopexit.split.loop.exit:               ; preds = %land.lhs.true119
 if.end132:                                        ; preds = %while.body, %if.end132.loopexit.split.loop.exit, %while.cond.preheader, %if.then96, %land.lhs.true108, %land.lhs.true86, %land.lhs.true, %if.end49
   %s.0 = phi i32 [ %add104, %land.lhs.true108 ], [ %add104, %if.then96 ], [ 0, %land.lhs.true86 ], [ 0, %land.lhs.true ], [ 0, %if.end49 ], [ %add104, %while.cond.preheader ], [ %add104, %if.end132.loopexit.split.loop.exit ], [ %add104, %while.body ]
   %f.0 = phi ptr [ null, %land.lhs.true108 ], [ null, %if.then96 ], [ null, %land.lhs.true86 ], [ null, %land.lhs.true ], [ null, %if.end49 ], [ %arrayidx109, %while.cond.preheader ], [ %arrayidx109, %if.end132.loopexit.split.loop.exit ], [ %arrayidx109, %while.body ]
-  %f_len.1 = phi i32 [ 0, %land.lhs.true108 ], [ 0, %if.then96 ], [ 0, %land.lhs.true86 ], [ 0, %land.lhs.true ], [ 0, %if.end49 ], [ 1, %while.cond.preheader ], [ %36, %if.end132.loopexit.split.loop.exit ], [ %33, %while.body ]
+  %f_len.0 = phi i32 [ 0, %land.lhs.true108 ], [ 0, %if.then96 ], [ 0, %land.lhs.true86 ], [ 0, %land.lhs.true ], [ 0, %if.end49 ], [ 1, %while.cond.preheader ], [ %36, %if.end132.loopexit.split.loop.exit ], [ %33, %while.body ]
   %sub133 = add nsw i32 %sub41, -529
   %idxprom134 = zext nneg i32 %sub133 to i64
   %arrayidx135 = getelementptr inbounds [12 x ptr], ptr @mon, i64 0, i64 %idxprom134
   %37 = load ptr, ptr %arrayidx135, align 8
   %cond = select i1 %cmp1.not, ptr @.str.29, ptr @.str.4
-  %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.28, ptr noundef %37, i32 noundef %add57, i32 noundef %add65, i32 noundef %add73, i32 noundef %s.0, i32 noundef %f_len.1, ptr noundef %f.0, i32 noundef %add34, ptr noundef nonnull %cond) #4
+  %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.28, ptr noundef %37, i32 noundef %add57, i32 noundef %add65, i32 noundef %add73, i32 noundef %s.0, i32 noundef %f_len.0, ptr noundef %f.0, i32 noundef %add34, ptr noundef nonnull %cond) #4
   %cmp136 = icmp sgt i32 %call, 0
   %. = zext i1 %cmp136 to i32
   br label %return

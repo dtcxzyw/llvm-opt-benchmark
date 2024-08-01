@@ -1565,11 +1565,11 @@ _php_dns_free_res.exit392:                        ; preds = %214
 
 .lr.ph510:                                        ; preds = %.preheader499, %246
   %.in520 = phi i32 [ %238, %246 ], [ %197, %.preheader499 ]
-  %.2321509 = phi ptr [ %241, %246 ], [ %.1320.lcssa, %.preheader499 ]
+  %.3322509 = phi ptr [ %241, %246 ], [ %.1320.lcssa, %.preheader499 ]
   %238 = add nsw i32 %.in520, -1
   %239 = load i8, ptr %7, align 1
   %240 = trunc i8 %239 to i1
-  %241 = call fastcc ptr @php_parserr(ptr noundef nonnull %.2321509, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef 255, i32 noundef %115, i1 noundef zeroext %240, ptr noundef nonnull %9)
+  %241 = call fastcc ptr @php_parserr(ptr noundef nonnull %.3322509, ptr noundef nonnull %185, ptr noundef nonnull %6, i32 noundef 255, i32 noundef %115, i1 noundef zeroext %240, ptr noundef nonnull %9)
   %242 = load i8, ptr %116, align 8
   %.not377 = icmp eq i8 %242, 0
   br i1 %.not377, label %246, label %243
@@ -1588,20 +1588,20 @@ _php_dns_free_res.exit392:                        ; preds = %214
   br i1 %or.cond385, label %.lr.ph510, label %.critedge13
 
 .critedge13:                                      ; preds = %246, %.preheader499
-  %.2321.lcssa = phi ptr [ %.1320.lcssa, %.preheader499 ], [ %241, %246 ]
+  %.3322.lcssa = phi ptr [ %.1320.lcssa, %.preheader499 ], [ %241, %246 ]
   br i1 %110, label %.preheader, label %.critedge17
 
 .preheader:                                       ; preds = %.critedge13
   %250 = icmp ne i16 %200, 0
-  %251 = icmp ne ptr %.2321.lcssa, null
+  %251 = icmp ne ptr %.3322.lcssa, null
   %or.cond15512 = select i1 %250, i1 %251, i1 false
-  %252 = icmp ult ptr %.2321.lcssa, %185
+  %252 = icmp ult ptr %.3322.lcssa, %185
   %or.cond386513 = select i1 %or.cond15512, i1 %252, i1 false
   br i1 %or.cond386513, label %.lr.ph515, label %.critedge17
 
 .lr.ph515:                                        ; preds = %.preheader, %261
   %.in521 = phi i32 [ %253, %261 ], [ %201, %.preheader ]
-  %.4514 = phi ptr [ %256, %261 ], [ %.2321.lcssa, %.preheader ]
+  %.4514 = phi ptr [ %256, %261 ], [ %.3322.lcssa, %.preheader ]
   %253 = add nsw i32 %.in521, -1
   %254 = load i8, ptr %7, align 1
   %255 = trunc i8 %254 to i1
@@ -2078,19 +2078,19 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %274, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %272, %298
-  %.3786 = phi ptr [ %282, %298 ], [ %16, %272 ]
+  %.4786 = phi ptr [ %282, %298 ], [ %16, %272 ]
   %.0683785 = phi i64 [ %299, %298 ], [ 0, %272 ]
   %.0685784 = phi ptr [ %.2687, %298 ], [ %8, %272 ]
   %.0692783 = phi i32 [ %.1693, %298 ], [ 0, %272 ]
   %.0699782 = phi i32 [ %.2701, %298 ], [ 0, %272 ]
-  %275 = load i8, ptr %.3786, align 1
+  %275 = load i8, ptr %.4786, align 1
   %276 = zext i8 %275 to i32
   %277 = shl nuw nsw i32 %276, 8
-  %278 = getelementptr inbounds i8, ptr %.3786, i64 1
+  %278 = getelementptr inbounds i8, ptr %.4786, i64 1
   %279 = load i8, ptr %278, align 1
   %280 = zext i8 %279 to i32
   %281 = or disjoint i32 %277, %280
-  %282 = getelementptr inbounds i8, ptr %.3786, i64 2
+  %282 = getelementptr inbounds i8, ptr %.4786, i64 2
   %.not751 = icmp eq i32 %281, 0
   br i1 %.not751, label %291, label %283
 
@@ -2197,10 +2197,10 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   br label %324
 
 324:                                              ; preds = %322, %320
-  %.4703 = phi i32 [ 0, %322 ], [ %.2694, %320 ]
-  %.5690 = phi ptr [ %323, %322 ], [ %.4689, %320 ]
+  %.5704 = phi i32 [ 0, %322 ], [ %.2694, %320 ]
+  %.6691 = phi ptr [ %323, %322 ], [ %.4689, %320 ]
   %325 = zext i8 %319 to i32
-  %326 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.5690, ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %325) #12
+  %326 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.6691, ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %325) #12
   br label %330
 
 327:                                              ; preds = %318
@@ -2212,17 +2212,17 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   br label %330
 
 330:                                              ; preds = %327, %328, %324
-  %.5704 = phi i32 [ %.4703, %324 ], [ 1, %328 ], [ 1, %327 ]
-  %.3695 = phi i32 [ %.2694, %324 ], [ 1, %328 ], [ 1, %327 ]
-  %.6691 = phi ptr [ %.5690, %324 ], [ %329, %328 ], [ %.4689, %327 ]
+  %.6705 = phi i32 [ %.5704, %324 ], [ 1, %328 ], [ 1, %327 ]
+  %.4696 = phi i32 [ %.2694, %324 ], [ 1, %328 ], [ 1, %327 ]
+  %.7 = phi ptr [ %.6691, %324 ], [ %329, %328 ], [ %.4689, %327 ]
   %331 = getelementptr inbounds i8, ptr %15, i64 12
   br label %332
 
 332:                                              ; preds = %330, %315
-  %.6705 = phi i32 [ %.5704, %330 ], [ %.2694, %315 ]
-  %.4696 = phi i32 [ %.3695, %330 ], [ %.2694, %315 ]
-  %.7 = phi ptr [ %.6691, %330 ], [ %.4689, %315 ]
-  %.4 = phi ptr [ %331, %330 ], [ %307, %315 ]
+  %.4703 = phi i32 [ %.6705, %330 ], [ %.2694, %315 ]
+  %.3695 = phi i32 [ %.4696, %330 ], [ %.2694, %315 ]
+  %.5690 = phi ptr [ %.7, %330 ], [ %.4689, %315 ]
+  %.5 = phi ptr [ %331, %330 ], [ %307, %315 ]
   %333 = icmp ult i8 %310, 120
   br i1 %333, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2232,20 +2232,20 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %361
-  %.5778 = phi ptr [ %336, %361 ], [ %.4, %.lr.ph.preheader ]
+  %.6778 = phi ptr [ %336, %361 ], [ %.5, %.lr.ph.preheader ]
   %.1684777 = phi i64 [ %362, %361 ], [ %335, %.lr.ph.preheader ]
-  %.8776 = phi ptr [ %.10, %361 ], [ %.7, %.lr.ph.preheader ]
-  %.5697775 = phi i32 [ %.6698, %361 ], [ %.4696, %.lr.ph.preheader ]
-  %.7706774 = phi i32 [ %.9708, %361 ], [ %.6705, %.lr.ph.preheader ]
-  %336 = getelementptr inbounds i8, ptr %.5778, i64 2
+  %.8776 = phi ptr [ %.10, %361 ], [ %.5690, %.lr.ph.preheader ]
+  %.5697775 = phi i32 [ %.6698, %361 ], [ %.3695, %.lr.ph.preheader ]
+  %.7706774 = phi i32 [ %.9708, %361 ], [ %.4703, %.lr.ph.preheader ]
+  %336 = getelementptr inbounds i8, ptr %.6778, i64 2
   %337 = icmp ugt ptr %336, %1
   br i1 %337, label %.loopexit, label %338
 
 338:                                              ; preds = %.lr.ph
-  %339 = load i8, ptr %.5778, align 1
+  %339 = load i8, ptr %.6778, align 1
   %340 = zext i8 %339 to i32
   %341 = shl nuw nsw i32 %340, 8
-  %342 = getelementptr inbounds i8, ptr %.5778, i64 1
+  %342 = getelementptr inbounds i8, ptr %.6778, i64 1
   %343 = load i8, ptr %342, align 1
   %344 = zext i8 %343 to i32
   %345 = or disjoint i32 %341, %344
@@ -2298,10 +2298,10 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %361, %332
-  %.7706.lcssa = phi i32 [ %.6705, %332 ], [ %.9708, %361 ]
-  %.5697.lcssa = phi i32 [ %.4696, %332 ], [ %.6698, %361 ]
-  %.8.lcssa = phi ptr [ %.7, %332 ], [ %.10, %361 ]
-  %.5.lcssa = phi ptr [ %.4, %332 ], [ %336, %361 ]
+  %.7706.lcssa = phi i32 [ %.4703, %332 ], [ %.9708, %361 ]
+  %.5697.lcssa = phi i32 [ %.3695, %332 ], [ %.6698, %361 ]
+  %.8.lcssa = phi ptr [ %.5690, %332 ], [ %.10, %361 ]
+  %.6.lcssa = phi ptr [ %.5, %332 ], [ %336, %361 ]
   %363 = icmp ne i32 %.5697.lcssa, 0
   %364 = icmp ne i32 %.7706.lcssa, 0
   %or.cond3 = select i1 %363, i1 %364, i1 false
@@ -2316,17 +2316,17 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   %.11 = phi ptr [ %366, %365 ], [ %.8.lcssa, %._crit_edge ]
   store i8 0, ptr %.11, align 1
   call void @add_assoc_string_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.51, i64 noundef 4, ptr noundef nonnull %8) #12
-  %368 = icmp ult ptr %.5.lcssa, %54
+  %368 = icmp ult ptr %.6.lcssa, %54
   br i1 %368, label %369, label %.loopexit
 
 369:                                              ; preds = %367
-  %370 = call i32 @dn_expand(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %.5.lcssa, ptr noundef nonnull %8, i32 noundef 1022) #12
+  %370 = call i32 @dn_expand(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %.6.lcssa, ptr noundef nonnull %8, i32 noundef 1022) #12
   %371 = icmp slt i32 %370, 0
   br i1 %371, label %.loopexit, label %372
 
 372:                                              ; preds = %369
   %373 = zext nneg i32 %370 to i64
-  %374 = getelementptr inbounds i8, ptr %.5.lcssa, i64 %373
+  %374 = getelementptr inbounds i8, ptr %.6.lcssa, i64 %373
   call void @add_assoc_string_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.53, i64 noundef 5, ptr noundef nonnull %8) #12
   br label %.loopexit
 
@@ -2452,7 +2452,7 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %67, %96, %115, %137, %._crit_edge791, %182, %305, %404, %452, %455, %372, %367, %449, %444, %441, %436, %433, %428, %410, %407, %378, %375, %369, %306, %272, %177, %172, %169, %132, %129, %124, %119, %116, %110, %107, %102, %99, %93, %80, %64, %57, %18, %13, %7, %61
-  %.0 = phi ptr [ %54, %61 ], [ null, %7 ], [ null, %13 ], [ null, %18 ], [ %54, %57 ], [ null, %64 ], [ null, %80 ], [ null, %93 ], [ null, %99 ], [ null, %102 ], [ null, %107 ], [ null, %110 ], [ null, %116 ], [ null, %119 ], [ null, %124 ], [ null, %129 ], [ null, %132 ], [ null, %169 ], [ null, %172 ], [ null, %177 ], [ null, %272 ], [ null, %306 ], [ null, %369 ], [ null, %375 ], [ null, %378 ], [ null, %407 ], [ null, %410 ], [ null, %428 ], [ null, %433 ], [ null, %436 ], [ null, %441 ], [ null, %444 ], [ null, %449 ], [ %54, %455 ], [ %454, %452 ], [ %406, %404 ], [ %374, %372 ], [ %.5.lcssa, %367 ], [ %282, %305 ], [ %180, %182 ], [ %54, %._crit_edge791 ], [ %135, %137 ], [ %113, %115 ], [ %98, %96 ], [ %54, %67 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ %54, %61 ], [ null, %7 ], [ null, %13 ], [ null, %18 ], [ %54, %57 ], [ null, %64 ], [ null, %80 ], [ null, %93 ], [ null, %99 ], [ null, %102 ], [ null, %107 ], [ null, %110 ], [ null, %116 ], [ null, %119 ], [ null, %124 ], [ null, %129 ], [ null, %132 ], [ null, %169 ], [ null, %172 ], [ null, %177 ], [ null, %272 ], [ null, %306 ], [ null, %369 ], [ null, %375 ], [ null, %378 ], [ null, %407 ], [ null, %410 ], [ null, %428 ], [ null, %433 ], [ null, %436 ], [ null, %441 ], [ null, %444 ], [ null, %449 ], [ %54, %455 ], [ %454, %452 ], [ %406, %404 ], [ %374, %372 ], [ %.6.lcssa, %367 ], [ %282, %305 ], [ %180, %182 ], [ %54, %._crit_edge791 ], [ %135, %137 ], [ %113, %115 ], [ %98, %96 ], [ %54, %67 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 

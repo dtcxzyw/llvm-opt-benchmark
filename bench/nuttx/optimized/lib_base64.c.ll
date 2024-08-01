@@ -118,15 +118,15 @@ define i32 @b64_ntop(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noca
   %.sink = phi i8 [ 61, %58 ], [ %75, %62 ]
   %77 = getelementptr inbounds i8, ptr %.033.lcssa, i64 2
   store i8 %.sink, ptr %77, align 1
-  %.134 = getelementptr inbounds i8, ptr %.033.lcssa, i64 3
+  %.2 = getelementptr inbounds i8, ptr %.033.lcssa, i64 3
   %78 = getelementptr inbounds i8, ptr %.033.lcssa, i64 4
-  store i8 61, ptr %.134, align 1
+  store i8 61, ptr %.2, align 1
   br label %79
 
 79:                                               ; preds = %76, %._crit_edge
-  %.2 = phi ptr [ %78, %76 ], [ %.033.lcssa, %._crit_edge ]
+  %.134 = phi ptr [ %78, %76 ], [ %.033.lcssa, %._crit_edge ]
   %.1 = phi i64 [ %46, %76 ], [ %.0.lcssa, %._crit_edge ]
-  store i8 0, ptr %.2, align 1
+  store i8 0, ptr %.134, align 1
   %80 = trunc i64 %.1 to i32
   br label %.loopexit
 
@@ -246,7 +246,7 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   br label %.outer.outer.outer.backedge
 
 .outer.outer.outer.backedge:                      ; preds = %35, %23, %52
-  %.054.ph.ph.ph.be = phi ptr [ %.357, %52 ], [ %27, %23 ], [ %39, %35 ]
+  %.054.ph.ph.ph.be = phi ptr [ %.4, %52 ], [ %27, %23 ], [ %39, %35 ]
   %.046.ph.ph.ph.be = phi i64 [ %53, %52 ], [ %22, %23 ], [ %34, %35 ]
   %.not72.ph.ph.be = phi i1 [ true, %52 ], [ false, %23 ], [ false, %35 ]
   %.044.ph.ph.ph.be = phi i32 [ 0, %52 ], [ 2, %23 ], [ 3, %35 ]
@@ -275,7 +275,7 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   br label %52
 
 52:                                               ; preds = %45, %44
-  %.357 = phi ptr [ %47, %45 ], [ null, %44 ]
+  %.4 = phi ptr [ %47, %45 ], [ null, %44 ]
   %53 = add i64 %.046.ph.ph.ph, 1
   br label %.outer.outer.outer.backedge
 
@@ -295,38 +295,38 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   br i1 %cond81101, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %59
-  %.0103 = phi i32 [ %62, %59 ], [ %57, %.preheader ]
-  %.151102 = phi ptr [ %60, %59 ], [ %55, %.preheader ]
-  %58 = tail call i32 @isspace(i32 noundef %.0103) #4
+  %.1103 = phi i32 [ %62, %59 ], [ %57, %.preheader ]
+  %.252102 = phi ptr [ %60, %59 ], [ %55, %.preheader ]
+  %58 = tail call i32 @isspace(i32 noundef %.1103) #4
   %.not74 = icmp eq i32 %58, 0
   br i1 %.not74, label %63, label %59
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %.151102, i64 1
-  %61 = load i8, ptr %.151102, align 1
+  %60 = getelementptr inbounds i8, ptr %.252102, i64 1
+  %61 = load i8, ptr %.252102, align 1
   %62 = sext i8 %61 to i32
   %cond81 = icmp eq i8 %61, 0
   br i1 %cond81, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 63:                                               ; preds = %.lr.ph
-  %.not75 = icmp eq i32 %.0103, 61
+  %.not75 = icmp eq i32 %.1103, 61
   br i1 %.not75, label %64, label %.loopexit
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %.151102, i64 1
-  %66 = load i8, ptr %.151102, align 1
+  %65 = getelementptr inbounds i8, ptr %.252102, i64 1
+  %66 = load i8, ptr %.252102, align 1
   %67 = sext i8 %66 to i32
   br label %68
 
 68:                                               ; preds = %64, %54
-  %.252 = phi ptr [ %55, %54 ], [ %65, %64 ]
-  %.1 = phi i32 [ %57, %54 ], [ %67, %64 ]
-  %.not76104 = icmp eq i32 %.1, 0
+  %.151 = phi ptr [ %55, %54 ], [ %65, %64 ]
+  %.0 = phi i32 [ %57, %54 ], [ %67, %64 ]
+  %.not76104 = icmp eq i32 %.0, 0
   br i1 %.not76104, label %._crit_edge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %68, %70
-  %.2106 = phi i32 [ %73, %70 ], [ %.1, %68 ]
-  %.353105 = phi ptr [ %71, %70 ], [ %.252, %68 ]
+  %.2106 = phi i32 [ %73, %70 ], [ %.0, %68 ]
+  %.353105 = phi ptr [ %71, %70 ], [ %.151, %68 ]
   %69 = tail call i32 @isspace(i32 noundef %.2106) #4
   %.not79 = icmp eq i32 %69, 0
   br i1 %.not79, label %.loopexit, label %70

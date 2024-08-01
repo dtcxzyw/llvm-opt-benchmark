@@ -167,8 +167,8 @@ define internal i32 @dissect_gmrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not148191, label %.loopexit152, label %.lr.ph
 
 .lr.ph:                                           ; preds = %51, %98
-  %.1194 = phi i32 [ %.2, %98 ], [ %52, %51 ]
-  %.1138193 = phi i32 [ %.2139, %98 ], [ %40, %51 ]
+  %.1194 = phi i32 [ %.3, %98 ], [ %52, %51 ]
+  %.1138193 = phi i32 [ %.3140, %98 ], [ %40, %51 ]
   %.0141192 = phi i32 [ %64, %98 ], [ 0, %51 ]
   %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1138193) #2
   %54 = icmp eq i8 %53, 0
@@ -262,12 +262,12 @@ define internal i32 @dissect_gmrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %98
 
 98:                                               ; preds = %.sink.split, %73
-  %.2139 = phi i32 [ %72, %73 ], [ %96, %.sink.split ]
-  %.2 = phi i32 [ %74, %73 ], [ %97, %.sink.split ]
+  %.3140 = phi i32 [ %72, %73 ], [ %96, %.sink.split ]
+  %.3 = phi i32 [ %74, %73 ], [ %97, %.sink.split ]
   %99 = load ptr, ptr %6, align 8
-  %100 = sub i32 %.2139, %.1138193
+  %100 = sub i32 %.3140, %.1138193
   call void @proto_item_set_len(ptr noundef %99, i32 noundef %100) #2
-  %.not148 = icmp eq i32 %.2, 0
+  %.not148 = icmp eq i32 %.3, 0
   br i1 %.not148, label %.loopexit152, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %55

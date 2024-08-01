@@ -1227,8 +1227,8 @@ cond.true270:                                     ; preds = %do.cond262
   br label %return
 
 return:                                           ; preds = %if.end213, %if.then212, %cond.true270, %cond.end
-  %retval.sroa.0.5 = phi i64 [ %retval.sroa.0.0.copyload, %cond.end ], [ %retval.sroa.0.0.copyload8, %cond.true270 ], [ %retval.sroa.0.0.copyload6, %if.then212 ], [ %spec.select577, %if.end213 ]
-  ret i64 %retval.sroa.0.5
+  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %cond.end ], [ %retval.sroa.0.0.copyload8, %cond.true270 ], [ %retval.sroa.0.0.copyload6, %if.then212 ], [ %spec.select577, %if.end213 ]
+  ret i64 %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1839,13 +1839,13 @@ if.else231:                                       ; preds = %if.then191
 
 if.end251:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %for.cond, %lor.lhs.false98.cond.true106_crit_edge, %if.then153, %if.else146, %if.else184
   %desiredVal.0 = phi i32 [ 0, %if.else184 ], [ %cond175, %if.then153 ], [ 0, %if.else146 ], [ 0, %lor.lhs.false98.cond.true106_crit_edge ], [ %cond, %for.cond ], [ %cond, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  %i.1 = phi i64 [ %call10804, %if.else184 ], [ 0, %if.then153 ], [ %call10804, %if.else146 ], [ %call10804, %lor.lhs.false98.cond.true106_crit_edge ], [ 0, %for.cond ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  %value.4 = phi i32 [ %19, %if.else184 ], [ %call159, %if.then153 ], [ %14, %if.else146 ], [ %.pre, %lor.lhs.false98.cond.true106_crit_edge ], [ %cond, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 0, %for.cond ]
-  %cmp252.not = icmp eq i32 %value.4, 0
+  %i.0 = phi i64 [ %call10804, %if.else184 ], [ 0, %if.then153 ], [ %call10804, %if.else146 ], [ %call10804, %lor.lhs.false98.cond.true106_crit_edge ], [ 0, %for.cond ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %value.3 = phi i32 [ %19, %if.else184 ], [ %call159, %if.then153 ], [ %14, %if.else146 ], [ %.pre, %lor.lhs.false98.cond.true106_crit_edge ], [ %cond, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 0, %for.cond ]
+  %cmp252.not = icmp eq i32 %value.3, 0
   br i1 %cmp252.not, label %cond.true294, label %if.then253
 
 if.then253:                                       ; preds = %if.else, %if.then141, %if.then125, %if.else231, %if.end251
-  %value.4770 = phi i32 [ %value.4, %if.end251 ], [ 1, %if.then141 ], [ 1, %if.then125 ], [ %cond244, %if.else231 ], [ %11, %if.else ]
+  %value.3770 = phi i32 [ %value.3, %if.end251 ], [ 1, %if.then141 ], [ 1, %if.then125 ], [ %cond244, %if.else231 ], [ %11, %if.else ]
   store ptr %curr.sroa.0.0798, ptr %ref.tmp255, align 8
   %bf.load.i.i508 = load i64, ptr %curr.sroa.0.0798, align 8
   %bf.lshr.i.i509 = lshr i64 %bf.load.i.i508, 40
@@ -1874,7 +1874,7 @@ if.then13.i.i514:                                 ; preds = %if.else.i.i512
 
 invoke.cont256:                                   ; preds = %if.then13.i.i514, %if.else.i.i512, %if.then.i.i516
   %d_jcache254 = getelementptr inbounds i8, ptr %this, i64 576
-  invoke void @_ZN4cvc58internal8decision12JustifyCache8setValueERKNS0_12NodeTemplateILb1EEENS0_4prop8SatValueE(ptr noundef nonnull align 8 dereferenceable(72) %d_jcache254, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp255, i32 noundef %value.4770)
+  invoke void @_ZN4cvc58internal8decision12JustifyCache8setValueERKNS0_12NodeTemplateILb1EEENS0_4prop8SatValueE(ptr noundef nonnull align 8 dereferenceable(72) %d_jcache254, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp255, i32 noundef %value.3770)
           to label %invoke.cont258 unwind label %lpad257
 
 invoke.cont258:                                   ; preds = %invoke.cont256
@@ -1905,9 +1905,9 @@ terminate.lpad.i532:                              ; preds = %if.then13.i.i531
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit533: ; preds = %invoke.cont258, %if.then.i.i525, %if.then13.i.i531
-  %switch.selectcmp.i534 = icmp eq i32 %value.4770, 1
+  %switch.selectcmp.i534 = icmp eq i32 %value.3770, 1
   %switch.select.i535 = select i1 %switch.selectcmp.i534, i32 2, i32 1
-  %cond266 = select i1 %cmp.not, i32 %switch.select.i535, i32 %value.4770
+  %cond266 = select i1 %cmp.not, i32 %switch.select.i535, i32 %value.3770
   store i32 %cond266, ptr %lastChildVal, align 4
   br label %cleanup326
 
@@ -1918,7 +1918,7 @@ lpad257:                                          ; preds = %invoke.cont256
 
 cond.true294:                                     ; preds = %if.then219, %if.then52, %if.then47, %cond.false226, %if.then193, %if.then178, %if.then180, %if.then141, %lor.lhs.false98, %if.else187, %if.else204, %if.then153, %if.else135, %if.end251
   %desiredVal.1 = phi i32 [ 0, %if.else187 ], [ %cond215, %if.else204 ], [ %desiredVal.0, %if.end251 ], [ %cond175, %if.then153 ], [ %switch.select3.i439, %if.else135 ], [ %cond, %lor.lhs.false98 ], [ %cond, %if.then141 ], [ %cond, %if.then180 ], [ %cond, %if.then178 ], [ 1, %if.then193 ], [ %switch.select3.i493, %cond.false226 ], [ %cond, %if.then47 ], [ %cond, %if.then52 ], [ %23, %if.then219 ]
-  %i.1764 = phi i64 [ %call10804, %if.else187 ], [ 0, %if.else204 ], [ %i.1, %if.end251 ], [ 0, %if.then153 ], [ 0, %if.else135 ], [ %call10804, %lor.lhs.false98 ], [ 1, %if.then141 ], [ %call182, %if.then180 ], [ 1, %if.then178 ], [ 0, %if.then193 ], [ 1, %cond.false226 ], [ 0, %if.then47 ], [ 0, %if.then52 ], [ 1, %if.then219 ]
+  %i.0764 = phi i64 [ %call10804, %if.else187 ], [ 0, %if.else204 ], [ %i.0, %if.end251 ], [ 0, %if.then153 ], [ 0, %if.else135 ], [ %call10804, %lor.lhs.false98 ], [ 1, %if.then141 ], [ %call182, %if.then180 ], [ 1, %if.then178 ], [ 0, %if.then193 ], [ 1, %cond.false226 ], [ 0, %if.then47 ], [ 0, %if.then52 ], [ 1, %if.then219 ]
   %bf.load.i.i.i.i711 = load i16, ptr %d_kind.i56800, align 8, !noalias !44
   %bf.clear.i.i.i.i712 = and i16 %bf.load.i.i.i.i711, 1023
   %bf.cast.i.i.i.i713 = zext nneg i16 %bf.clear.i.i.i.i712 to i32
@@ -1927,7 +1927,7 @@ cond.true294:                                     ; preds = %if.then219, %if.the
   %call2.i.i.i722 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i715)
   %cmp.i.i716 = icmp eq i32 %call2.i.i.i722, 2
   %inc.i.i717 = zext i1 %cmp.i.i716 to i64
-  %spec.select.i.i718 = add i64 %i.1764, %inc.i.i717
+  %spec.select.i.i718 = add i64 %i.0764, %inc.i.i717
   %d_children.i.i719 = getelementptr inbounds i8, ptr %curr.sroa.0.0798, i64 16
   %sext = shl i64 %spec.select.i.i718, 32
   %idxprom.i.i720 = ashr exact i64 %sext, 32

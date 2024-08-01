@@ -169,15 +169,15 @@ define ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 90:                                               ; preds = %._crit_edge221, %.thread232
   %.0171.lcssa231237 = phi ptr [ %.1.lcssa, %._crit_edge221 ], [ %.0171.lcssa231236, %.thread232 ]
   %.pre-phi225 = phi i64 [ %.pre224, %._crit_edge221 ], [ %84, %.thread232 ]
-  %.2176 = phi i64 [ %.1175, %._crit_edge221 ], [ 0, %.thread232 ]
-  %.3 = phi ptr [ %.2, %._crit_edge221 ], [ %89, %.thread232 ]
+  %.3177 = phi i64 [ %.1175, %._crit_edge221 ], [ 0, %.thread232 ]
+  %.4 = phi ptr [ %.2, %._crit_edge221 ], [ %89, %.thread232 ]
   %91 = load i8, ptr %.0171.lcssa231237, align 1
   %.not191 = icmp ult i8 %91, 4
   %92 = lshr i8 %91, 2
   %narrow = add nuw nsw i8 %92, 32
   %93 = select i1 %.not191, i8 96, i8 %narrow
-  %94 = getelementptr inbounds i8, ptr %.3, i64 1
-  store i8 %93, ptr %.3, align 1
+  %94 = getelementptr inbounds i8, ptr %.4, i64 1
+  store i8 %93, ptr %.4, align 1
   %95 = load i8, ptr %.0171.lcssa231237, align 1
   %96 = zext i8 %95 to i32
   %97 = shl nuw nsw i32 %96, 4
@@ -191,7 +191,7 @@ define ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %104 = trunc nuw nsw i32 %103 to i8
   %105 = add nuw nsw i8 %104, 32
   %106 = select i1 %.not192, i8 96, i8 %105
-  %107 = getelementptr inbounds i8, ptr %.3, i64 2
+  %107 = getelementptr inbounds i8, ptr %.4, i64 2
   store i8 %106, ptr %94, align 1
   %108 = icmp sgt i64 %.pre-phi225, 1
   br i1 %108, label %109, label %.thread
@@ -228,24 +228,24 @@ define ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 125:                                              ; preds = %.thread, %122, %109
   %126 = phi i8 [ 96, %109 ], [ %spec.select206, %122 ], [ 96, %.thread ]
-  %127 = getelementptr inbounds i8, ptr %.3, i64 3
-  %128 = getelementptr inbounds i8, ptr %.3, i64 4
+  %127 = getelementptr inbounds i8, ptr %.4, i64 3
+  %128 = getelementptr inbounds i8, ptr %.4, i64 4
   store i8 %126, ptr %127, align 1
   br label %129
 
 129:                                              ; preds = %125, %._crit_edge216
-  %.3177 = phi i64 [ %.2176, %125 ], [ %.1175, %._crit_edge216 ]
-  %.4 = phi ptr [ %128, %125 ], [ %.2, %._crit_edge216 ]
-  %130 = icmp ult i64 %.3177, 45
+  %.2176 = phi i64 [ %.3177, %125 ], [ %.1175, %._crit_edge216 ]
+  %.3 = phi ptr [ %128, %125 ], [ %.2, %._crit_edge216 ]
+  %130 = icmp ult i64 %.2176, 45
   br i1 %130, label %131, label %.thread239
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %.4, i64 1
-  store i8 10, ptr %.4, align 1
+  %132 = getelementptr inbounds i8, ptr %.3, i64 1
+  store i8 10, ptr %.3, align 1
   br label %.thread239
 
 .thread239:                                       ; preds = %._crit_edge216.thread, %131, %129
-  %.5 = phi ptr [ %132, %131 ], [ %.4, %129 ], [ %10, %._crit_edge216.thread ]
+  %.5 = phi ptr [ %132, %131 ], [ %.3, %129 ], [ %10, %._crit_edge216.thread ]
   %133 = getelementptr inbounds i8, ptr %.5, i64 1
   store i8 96, ptr %.5, align 1
   %134 = getelementptr inbounds i8, ptr %.5, i64 2
@@ -344,7 +344,7 @@ define noundef ptr @php_uudecode(ptr noundef readonly %0, i64 noundef %1) local_
 .lr.ph122:                                        ; preds = %4, %68
   %.0101120 = phi i64 [ %26, %68 ], [ 0, %4 ]
   %.0102119 = phi ptr [ %69, %68 ], [ %0, %4 ]
-  %.0104118 = phi ptr [ %.1105.lcssa, %68 ], [ %15, %4 ]
+  %.0104118 = phi ptr [ %.2106.lcssa, %68 ], [ %15, %4 ]
   %.ptr = getelementptr inbounds i8, ptr %.0102119, i64 1
   %18 = load i8, ptr %.0102119, align 1
   %19 = and i8 %18, 63
@@ -387,84 +387,84 @@ define noundef ptr @php_uudecode(ptr noundef readonly %0, i64 noundef %1) local_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
-  %.1103116 = phi ptr [ %37, %39 ], [ %.ptr, %.lr.ph.preheader ]
-  %.1105115 = phi ptr [ %65, %39 ], [ %.0104118, %.lr.ph.preheader ]
-  %37 = getelementptr inbounds i8, ptr %.1103116, i64 4
+  %.2116 = phi ptr [ %37, %39 ], [ %.ptr, %.lr.ph.preheader ]
+  %.2106115 = phi ptr [ %65, %39 ], [ %.0104118, %.lr.ph.preheader ]
+  %37 = getelementptr inbounds i8, ptr %.2116, i64 4
   %38 = icmp ugt ptr %37, %16
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %.lr.ph
-  %40 = load i8, ptr %.1103116, align 1
+  %40 = load i8, ptr %.2116, align 1
   %41 = shl i8 %40, 2
-  %42 = getelementptr inbounds i8, ptr %.1103116, i64 1
+  %42 = getelementptr inbounds i8, ptr %.2116, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = lshr i8 %43, 4
   %45 = and i8 %44, 3
   %46 = or disjoint i8 %45, %41
   %47 = xor i8 %46, -126
-  %48 = getelementptr inbounds i8, ptr %.1105115, i64 1
-  store i8 %47, ptr %.1105115, align 1
+  %48 = getelementptr inbounds i8, ptr %.2106115, i64 1
+  store i8 %47, ptr %.2106115, align 1
   %49 = load i8, ptr %42, align 1
   %50 = shl i8 %49, 4
-  %51 = getelementptr inbounds i8, ptr %.1103116, i64 2
+  %51 = getelementptr inbounds i8, ptr %.2116, i64 2
   %52 = load i8, ptr %51, align 1
   %53 = lshr i8 %52, 2
   %54 = and i8 %53, 15
   %55 = or disjoint i8 %54, %50
   %56 = xor i8 %55, 8
-  %57 = getelementptr inbounds i8, ptr %.1105115, i64 2
+  %57 = getelementptr inbounds i8, ptr %.2106115, i64 2
   store i8 %56, ptr %48, align 1
   %58 = load i8, ptr %51, align 1
   %59 = shl i8 %58, 6
-  %60 = getelementptr inbounds i8, ptr %.1103116, i64 3
+  %60 = getelementptr inbounds i8, ptr %.2116, i64 3
   %61 = load i8, ptr %60, align 1
   %62 = and i8 %61, 63
   %63 = or disjoint i8 %62, %59
   %64 = xor i8 %63, 32
-  %65 = getelementptr inbounds i8, ptr %.1105115, i64 3
+  %65 = getelementptr inbounds i8, ptr %.2106115, i64 3
   store i8 %64, ptr %57, align 1
   %66 = icmp ult ptr %37, %.ptr135141143
   br i1 %66, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %39, %.preheader
-  %.1105.lcssa = phi ptr [ %.0104118, %.preheader ], [ %65, %39 ]
-  %.1103.lcssa = phi ptr [ %.ptr, %.preheader ], [ %37, %39 ]
+  %.2106.lcssa = phi ptr [ %.0104118, %.preheader ], [ %65, %39 ]
+  %.2.lcssa = phi ptr [ %.ptr, %.preheader ], [ %37, %39 ]
   %67 = icmp ult i8 %20, 45
   br i1 %67, label %._crit_edge123, label %68
 
 68:                                               ; preds = %._crit_edge
-  %69 = getelementptr inbounds i8, ptr %.1103.lcssa, i64 1
+  %69 = getelementptr inbounds i8, ptr %.2.lcssa, i64 1
   %70 = icmp ult ptr %69, %16
   br i1 %70, label %.lr.ph122, label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %68, %.lr.ph122, %._crit_edge
-  %.2106 = phi ptr [ %.1105.lcssa, %68 ], [ %.0104118, %.lr.ph122 ], [ %.1105.lcssa, %._crit_edge ]
-  %.2 = phi ptr [ %69, %68 ], [ %.ptr, %.lr.ph122 ], [ %.1103.lcssa, %._crit_edge ]
+  %.1105 = phi ptr [ %.2106.lcssa, %68 ], [ %.0104118, %.lr.ph122 ], [ %.2106.lcssa, %._crit_edge ]
+  %.1103 = phi ptr [ %69, %68 ], [ %.ptr, %.lr.ph122 ], [ %.2.lcssa, %._crit_edge ]
   %.1 = phi i64 [ %26, %68 ], [ %.0101120, %.lr.ph122 ], [ %26, %._crit_edge ]
-  %71 = ptrtoint ptr %.2106 to i64
+  %71 = ptrtoint ptr %.1105 to i64
   %72 = ptrtoint ptr %15 to i64
   %73 = sub i64 %71, %72
   %74 = icmp ugt i64 %.1, %73
   br i1 %74, label %75, label %._crit_edge123.thread
 
 75:                                               ; preds = %._crit_edge123
-  %76 = load i8, ptr %.2, align 1
+  %76 = load i8, ptr %.1103, align 1
   %77 = shl i8 %76, 2
-  %78 = getelementptr inbounds i8, ptr %.2, i64 1
+  %78 = getelementptr inbounds i8, ptr %.1103, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = lshr i8 %79, 4
   %81 = and i8 %80, 3
   %82 = or disjoint i8 %81, %77
   %83 = xor i8 %82, -126
-  store i8 %83, ptr %.2106, align 1
+  store i8 %83, ptr %.1105, align 1
   %84 = icmp ugt i64 %.1, 1
   br i1 %84, label %85, label %._crit_edge123.thread
 
 85:                                               ; preds = %75
-  %86 = getelementptr inbounds i8, ptr %.2106, i64 1
+  %86 = getelementptr inbounds i8, ptr %.1105, i64 1
   %87 = load i8, ptr %78, align 1
   %88 = shl i8 %87, 4
-  %89 = getelementptr inbounds i8, ptr %.2, i64 2
+  %89 = getelementptr inbounds i8, ptr %.1103, i64 2
   %90 = load i8, ptr %89, align 1
   %91 = lshr i8 %90, 2
   %92 = and i8 %91, 15
@@ -475,10 +475,10 @@ define noundef ptr @php_uudecode(ptr noundef readonly %0, i64 noundef %1) local_
   br i1 %.not, label %._crit_edge123.thread, label %95
 
 95:                                               ; preds = %85
-  %96 = getelementptr inbounds i8, ptr %.2106, i64 2
+  %96 = getelementptr inbounds i8, ptr %.1105, i64 2
   %97 = load i8, ptr %89, align 1
   %98 = shl i8 %97, 6
-  %99 = getelementptr inbounds i8, ptr %.2, i64 3
+  %99 = getelementptr inbounds i8, ptr %.1103, i64 3
   %100 = load i8, ptr %99, align 1
   %101 = and i8 %100, 63
   %102 = or disjoint i8 %101, %98

@@ -292,20 +292,20 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr nocapture noundef rea
   br i1 %.not450, label %.loopexit.loopexit, label %.lr.ph514, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.preheader451, %.lr.ph
-  %.1473 = phi double [ %322, %.lr.ph ], [ %127, %.preheader451 ]
-  %.1378472 = phi double [ %320, %.lr.ph ], [ %125, %.preheader451 ]
-  %.1381471 = phi double [ %318, %.lr.ph ], [ %123, %.preheader451 ]
-  %.1384470 = phi double [ %316, %.lr.ph ], [ %121, %.preheader451 ]
-  %.1387469 = phi double [ %314, %.lr.ph ], [ %119, %.preheader451 ]
-  %.1390468 = phi double [ %312, %.lr.ph ], [ %117, %.preheader451 ]
-  %.1393467 = phi double [ %310, %.lr.ph ], [ %115, %.preheader451 ]
-  %.1396466 = phi double [ %309, %.lr.ph ], [ %114, %.preheader451 ]
-  %.2404464 = phi double [ %298, %.lr.ph ], [ %.0402, %.preheader451 ]
-  %.2412462 = phi double [ %294, %.lr.ph ], [ %.0410, %.preheader451 ]
-  %.2420460 = phi double [ %280, %.lr.ph ], [ %.0418, %.preheader451 ]
-  %.2428458 = phi double [ %290, %.lr.ph ], [ %.0426, %.preheader451 ]
+  %.2473 = phi double [ %322, %.lr.ph ], [ %127, %.preheader451 ]
+  %.2379472 = phi double [ %320, %.lr.ph ], [ %125, %.preheader451 ]
+  %.2382471 = phi double [ %318, %.lr.ph ], [ %123, %.preheader451 ]
+  %.2385470 = phi double [ %316, %.lr.ph ], [ %121, %.preheader451 ]
+  %.2388469 = phi double [ %314, %.lr.ph ], [ %119, %.preheader451 ]
+  %.2391468 = phi double [ %312, %.lr.ph ], [ %117, %.preheader451 ]
+  %.2394467 = phi double [ %310, %.lr.ph ], [ %115, %.preheader451 ]
+  %.2397466 = phi double [ %309, %.lr.ph ], [ %114, %.preheader451 ]
+  %.3405464 = phi double [ %298, %.lr.ph ], [ %.0402, %.preheader451 ]
+  %.3413462 = phi double [ %294, %.lr.ph ], [ %.0410, %.preheader451 ]
+  %.3421460 = phi double [ %280, %.lr.ph ], [ %.0418, %.preheader451 ]
+  %.3429458 = phi double [ %290, %.lr.ph ], [ %.0426, %.preheader451 ]
   %232 = phi ptr [ %307, %.lr.ph ], [ %112, %.preheader451 ]
-  %.1440454 = phi ptr [ %323, %.lr.ph ], [ %52, %.preheader451 ]
+  %.2441454 = phi ptr [ %323, %.lr.ph ], [ %52, %.preheader451 ]
   %233 = phi <2 x i32> [ %238, %.lr.ph ], [ %56, %.preheader451 ]
   %234 = phi <2 x double> [ %295, %.lr.ph ], [ %106, %.preheader451 ]
   %235 = phi <2 x double> [ %299, %.lr.ph ], [ %104, %.preheader451 ]
@@ -313,24 +313,24 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr nocapture noundef rea
   %237 = getelementptr inbounds i8, ptr %236, i64 %30
   %238 = add nsw <2 x i32> %233, %48
   %239 = extractelement <2 x double> %234, i64 0
-  %240 = fmul double %239, %.1393467
-  %241 = tail call double @llvm.fmuladd.f64(double %.1396466, double %.2428458, double %240)
-  %242 = tail call double @llvm.fmuladd.f64(double %.1390468, double %.2420460, double %241)
+  %240 = fmul double %239, %.2394467
+  %241 = tail call double @llvm.fmuladd.f64(double %.2397466, double %.3429458, double %240)
+  %242 = tail call double @llvm.fmuladd.f64(double %.2391468, double %.3421460, double %241)
   %243 = extractelement <2 x double> %235, i64 0
-  %244 = tail call double @llvm.fmuladd.f64(double %.1387469, double %243, double %242)
-  %245 = fmul double %239, %.1381471
-  %246 = tail call double @llvm.fmuladd.f64(double %.1384470, double %.2428458, double %245)
-  %247 = tail call double @llvm.fmuladd.f64(double %.1378472, double %.2420460, double %246)
-  %248 = tail call double @llvm.fmuladd.f64(double %.1473, double %243, double %247)
+  %244 = tail call double @llvm.fmuladd.f64(double %.2388469, double %243, double %242)
+  %245 = fmul double %239, %.2382471
+  %246 = tail call double @llvm.fmuladd.f64(double %.2385470, double %.3429458, double %245)
+  %247 = tail call double @llvm.fmuladd.f64(double %.2379472, double %.3421460, double %246)
+  %248 = tail call double @llvm.fmuladd.f64(double %.2473, double %243, double %247)
   %249 = getelementptr inbounds i8, ptr %237, i64 %30
   %250 = load double, ptr %249, align 8
   %251 = getelementptr inbounds i8, ptr %249, i64 8
   %252 = load double, ptr %251, align 8
   %253 = fmul double %239, %252
-  %254 = tail call double @llvm.fmuladd.f64(double %250, double %.2428458, double %253)
+  %254 = tail call double @llvm.fmuladd.f64(double %250, double %.3429458, double %253)
   %255 = getelementptr inbounds i8, ptr %249, i64 16
   %256 = load double, ptr %255, align 8
-  %257 = tail call double @llvm.fmuladd.f64(double %256, double %.2420460, double %254)
+  %257 = tail call double @llvm.fmuladd.f64(double %256, double %.3421460, double %254)
   %258 = getelementptr inbounds i8, ptr %249, i64 24
   %259 = load double, ptr %258, align 8
   %260 = tail call double @llvm.fmuladd.f64(double %259, double %243, double %257)
@@ -339,10 +339,10 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr nocapture noundef rea
   %263 = getelementptr inbounds i8, ptr %261, i64 8
   %264 = load double, ptr %263, align 8
   %265 = fmul double %239, %264
-  %266 = tail call double @llvm.fmuladd.f64(double %262, double %.2428458, double %265)
+  %266 = tail call double @llvm.fmuladd.f64(double %262, double %.3429458, double %265)
   %267 = getelementptr inbounds i8, ptr %261, i64 16
   %268 = load double, ptr %267, align 8
-  %269 = tail call double @llvm.fmuladd.f64(double %268, double %.2420460, double %266)
+  %269 = tail call double @llvm.fmuladd.f64(double %268, double %.3421460, double %266)
   %270 = getelementptr inbounds i8, ptr %261, i64 24
   %271 = load double, ptr %270, align 8
   %272 = tail call double @llvm.fmuladd.f64(double %271, double %243, double %269)
@@ -356,8 +356,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr nocapture noundef rea
   %280 = extractelement <2 x double> %279, i64 0
   %281 = extractelement <2 x double> %234, i64 1
   %282 = fmul double %281, %248
-  %283 = tail call double @llvm.fmuladd.f64(double %244, double %.2412462, double %282)
-  %284 = tail call double @llvm.fmuladd.f64(double %260, double %.2404464, double %283)
+  %283 = tail call double @llvm.fmuladd.f64(double %244, double %.3413462, double %282)
+  %284 = tail call double @llvm.fmuladd.f64(double %260, double %.3405464, double %283)
   %285 = extractelement <2 x double> %235, i64 1
   %286 = tail call double @llvm.fmuladd.f64(double %272, double %285, double %284)
   %287 = fmul <2 x double> %276, <double 2.000000e+00, double 2.000000e+00>
@@ -373,7 +373,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr nocapture noundef rea
   %297 = fadd <2 x double> %275, %296
   %298 = extractelement <2 x double> %297, i64 1
   %299 = fsub <2 x double> %277, %276
-  store double %286, ptr %.1440454, align 8
+  store double %286, ptr %.2441454, align 8
   %300 = extractelement <2 x i32> %238, i64 0
   %301 = ashr i32 %300, 16
   %302 = extractelement <2 x i32> %238, i64 1
@@ -398,7 +398,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr nocapture noundef rea
   %320 = load double, ptr %319, align 8
   %321 = getelementptr inbounds i8, ptr %315, i64 24
   %322 = load double, ptr %321, align 8
-  %323 = getelementptr inbounds i8, ptr %.1440454, i64 8
+  %323 = getelementptr inbounds i8, ptr %.2441454, i64 8
   %.not449 = icmp ugt ptr %323, %128
   br i1 %.not449, label %.loopexit.loopexit650, label %.lr.ph, !llvm.loop !8
 
@@ -413,41 +413,41 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr nocapture noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit650, %.loopexit.loopexit, %.preheader451, %.preheader
-  %.2441 = phi ptr [ %52, %.preheader ], [ %52, %.preheader451 ], [ %231, %.loopexit.loopexit ], [ %323, %.loopexit.loopexit650 ]
-  %.2438 = phi ptr [ %120, %.preheader ], [ %120, %.preheader451 ], [ %223, %.loopexit.loopexit ], [ %315, %.loopexit.loopexit650 ]
-  %.3429 = phi double [ %.0426, %.preheader ], [ %.0426, %.preheader451 ], [ %184, %.loopexit.loopexit ], [ %290, %.loopexit.loopexit650 ]
-  %.3425 = phi double [ %131, %.preheader ], [ %129, %.preheader451 ], [ %325, %.loopexit.loopexit ], [ %327, %.loopexit.loopexit650 ]
-  %.3421 = phi double [ %.0418, %.preheader ], [ %.0418, %.preheader451 ], [ %201, %.loopexit.loopexit ], [ %280, %.loopexit.loopexit650 ]
-  %.3413 = phi double [ %.0410, %.preheader ], [ %.0410, %.preheader451 ], [ %195, %.loopexit.loopexit ], [ %294, %.loopexit.loopexit650 ]
-  %.3409 = phi double [ %132, %.preheader ], [ %130, %.preheader451 ], [ %324, %.loopexit.loopexit ], [ %326, %.loopexit.loopexit650 ]
-  %.3405 = phi double [ %.0402, %.preheader ], [ %.0402, %.preheader451 ], [ %206, %.loopexit.loopexit ], [ %298, %.loopexit.loopexit650 ]
-  %.2397 = phi double [ %114, %.preheader ], [ %114, %.preheader451 ], [ %217, %.loopexit.loopexit ], [ %309, %.loopexit.loopexit650 ]
-  %.2394 = phi double [ %115, %.preheader ], [ %115, %.preheader451 ], [ %218, %.loopexit.loopexit ], [ %310, %.loopexit.loopexit650 ]
-  %.2391 = phi double [ %117, %.preheader ], [ %117, %.preheader451 ], [ %220, %.loopexit.loopexit ], [ %312, %.loopexit.loopexit650 ]
-  %.2388 = phi double [ %119, %.preheader ], [ %119, %.preheader451 ], [ %222, %.loopexit.loopexit ], [ %314, %.loopexit.loopexit650 ]
-  %.2385 = phi double [ %121, %.preheader ], [ %121, %.preheader451 ], [ %224, %.loopexit.loopexit ], [ %316, %.loopexit.loopexit650 ]
-  %.2382 = phi double [ %123, %.preheader ], [ %123, %.preheader451 ], [ %226, %.loopexit.loopexit ], [ %318, %.loopexit.loopexit650 ]
-  %.2379 = phi double [ %125, %.preheader ], [ %125, %.preheader451 ], [ %228, %.loopexit.loopexit ], [ %320, %.loopexit.loopexit650 ]
-  %.2 = phi double [ %127, %.preheader ], [ %127, %.preheader451 ], [ %230, %.loopexit.loopexit ], [ %322, %.loopexit.loopexit650 ]
+  %.1440 = phi ptr [ %52, %.preheader ], [ %52, %.preheader451 ], [ %231, %.loopexit.loopexit ], [ %323, %.loopexit.loopexit650 ]
+  %.1437 = phi ptr [ %120, %.preheader ], [ %120, %.preheader451 ], [ %223, %.loopexit.loopexit ], [ %315, %.loopexit.loopexit650 ]
+  %.2428 = phi double [ %.0426, %.preheader ], [ %.0426, %.preheader451 ], [ %184, %.loopexit.loopexit ], [ %290, %.loopexit.loopexit650 ]
+  %.2424 = phi double [ %131, %.preheader ], [ %129, %.preheader451 ], [ %325, %.loopexit.loopexit ], [ %327, %.loopexit.loopexit650 ]
+  %.2420 = phi double [ %.0418, %.preheader ], [ %.0418, %.preheader451 ], [ %201, %.loopexit.loopexit ], [ %280, %.loopexit.loopexit650 ]
+  %.2412 = phi double [ %.0410, %.preheader ], [ %.0410, %.preheader451 ], [ %195, %.loopexit.loopexit ], [ %294, %.loopexit.loopexit650 ]
+  %.2408 = phi double [ %132, %.preheader ], [ %130, %.preheader451 ], [ %324, %.loopexit.loopexit ], [ %326, %.loopexit.loopexit650 ]
+  %.2404 = phi double [ %.0402, %.preheader ], [ %.0402, %.preheader451 ], [ %206, %.loopexit.loopexit ], [ %298, %.loopexit.loopexit650 ]
+  %.1396 = phi double [ %114, %.preheader ], [ %114, %.preheader451 ], [ %217, %.loopexit.loopexit ], [ %309, %.loopexit.loopexit650 ]
+  %.1393 = phi double [ %115, %.preheader ], [ %115, %.preheader451 ], [ %218, %.loopexit.loopexit ], [ %310, %.loopexit.loopexit650 ]
+  %.1390 = phi double [ %117, %.preheader ], [ %117, %.preheader451 ], [ %220, %.loopexit.loopexit ], [ %312, %.loopexit.loopexit650 ]
+  %.1387 = phi double [ %119, %.preheader ], [ %119, %.preheader451 ], [ %222, %.loopexit.loopexit ], [ %314, %.loopexit.loopexit650 ]
+  %.1384 = phi double [ %121, %.preheader ], [ %121, %.preheader451 ], [ %224, %.loopexit.loopexit ], [ %316, %.loopexit.loopexit650 ]
+  %.1381 = phi double [ %123, %.preheader ], [ %123, %.preheader451 ], [ %226, %.loopexit.loopexit ], [ %318, %.loopexit.loopexit650 ]
+  %.1378 = phi double [ %125, %.preheader ], [ %125, %.preheader451 ], [ %228, %.loopexit.loopexit ], [ %320, %.loopexit.loopexit650 ]
+  %.1 = phi double [ %127, %.preheader ], [ %127, %.preheader451 ], [ %230, %.loopexit.loopexit ], [ %322, %.loopexit.loopexit650 ]
   %328 = phi <2 x double> [ %104, %.preheader ], [ %104, %.preheader451 ], [ %207, %.loopexit.loopexit ], [ %299, %.loopexit.loopexit650 ]
-  %329 = fmul double %.3425, %.2394
-  %330 = tail call double @llvm.fmuladd.f64(double %.2397, double %.3429, double %329)
-  %331 = tail call double @llvm.fmuladd.f64(double %.2391, double %.3421, double %330)
+  %329 = fmul double %.2424, %.1393
+  %330 = tail call double @llvm.fmuladd.f64(double %.1396, double %.2428, double %329)
+  %331 = tail call double @llvm.fmuladd.f64(double %.1390, double %.2420, double %330)
   %332 = extractelement <2 x double> %328, i64 0
-  %333 = tail call double @llvm.fmuladd.f64(double %.2388, double %332, double %331)
-  %334 = fmul double %.3425, %.2382
-  %335 = tail call double @llvm.fmuladd.f64(double %.2385, double %.3429, double %334)
-  %336 = tail call double @llvm.fmuladd.f64(double %.2379, double %.3421, double %335)
-  %337 = tail call double @llvm.fmuladd.f64(double %.2, double %332, double %336)
-  %338 = getelementptr inbounds i8, ptr %.2438, i64 %30
+  %333 = tail call double @llvm.fmuladd.f64(double %.1387, double %332, double %331)
+  %334 = fmul double %.2424, %.1381
+  %335 = tail call double @llvm.fmuladd.f64(double %.1384, double %.2428, double %334)
+  %336 = tail call double @llvm.fmuladd.f64(double %.1378, double %.2420, double %335)
+  %337 = tail call double @llvm.fmuladd.f64(double %.1, double %332, double %336)
+  %338 = getelementptr inbounds i8, ptr %.1437, i64 %30
   %339 = load double, ptr %338, align 8
   %340 = getelementptr inbounds i8, ptr %338, i64 8
   %341 = load double, ptr %340, align 8
-  %342 = fmul double %.3425, %341
-  %343 = tail call double @llvm.fmuladd.f64(double %339, double %.3429, double %342)
+  %342 = fmul double %.2424, %341
+  %343 = tail call double @llvm.fmuladd.f64(double %339, double %.2428, double %342)
   %344 = getelementptr inbounds i8, ptr %338, i64 16
   %345 = load double, ptr %344, align 8
-  %346 = tail call double @llvm.fmuladd.f64(double %345, double %.3421, double %343)
+  %346 = tail call double @llvm.fmuladd.f64(double %345, double %.2420, double %343)
   %347 = getelementptr inbounds i8, ptr %338, i64 24
   %348 = load double, ptr %347, align 8
   %349 = tail call double @llvm.fmuladd.f64(double %348, double %332, double %346)
@@ -455,20 +455,20 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr nocapture noundef rea
   %351 = load double, ptr %350, align 8
   %352 = getelementptr inbounds i8, ptr %350, i64 8
   %353 = load double, ptr %352, align 8
-  %354 = fmul double %.3425, %353
-  %355 = tail call double @llvm.fmuladd.f64(double %351, double %.3429, double %354)
+  %354 = fmul double %.2424, %353
+  %355 = tail call double @llvm.fmuladd.f64(double %351, double %.2428, double %354)
   %356 = getelementptr inbounds i8, ptr %350, i64 16
   %357 = load double, ptr %356, align 8
-  %358 = tail call double @llvm.fmuladd.f64(double %357, double %.3421, double %355)
+  %358 = tail call double @llvm.fmuladd.f64(double %357, double %.2420, double %355)
   %359 = getelementptr inbounds i8, ptr %350, i64 24
   %360 = load double, ptr %359, align 8
   %361 = tail call double @llvm.fmuladd.f64(double %360, double %332, double %358)
-  %362 = fmul double %.3409, %337
-  %363 = tail call double @llvm.fmuladd.f64(double %333, double %.3413, double %362)
-  %364 = tail call double @llvm.fmuladd.f64(double %349, double %.3405, double %363)
+  %362 = fmul double %.2408, %337
+  %363 = tail call double @llvm.fmuladd.f64(double %333, double %.2412, double %362)
+  %364 = tail call double @llvm.fmuladd.f64(double %349, double %.2404, double %363)
   %365 = extractelement <2 x double> %328, i64 1
   %366 = tail call double @llvm.fmuladd.f64(double %361, double %365, double %364)
-  store double %366, ptr %.2441, align 8
+  store double %366, ptr %.1440, align 8
   br label %367
 
 367:                                              ; preds = %47, %.loopexit
@@ -758,15 +758,15 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bc(ptr nocapture noundef rea
   br i1 %.not460, label %.loopexit.loopexit, label %.lr.ph525, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.preheader461, %.lr.ph
-  %.1484 = phi ptr [ %319, %.lr.ph ], [ %108, %.preheader461 ]
-  %.1392481 = phi double [ %318, %.lr.ph ], [ %127, %.preheader461 ]
-  %.1395480 = phi double [ %316, %.lr.ph ], [ %125, %.preheader461 ]
-  %.1398479 = phi double [ %314, %.lr.ph ], [ %123, %.preheader461 ]
-  %.1401478 = phi double [ %312, %.lr.ph ], [ %121, %.preheader461 ]
-  %.1404477 = phi double [ %310, %.lr.ph ], [ %119, %.preheader461 ]
-  %.1407476 = phi double [ %308, %.lr.ph ], [ %117, %.preheader461 ]
-  %.1410475 = phi double [ %306, %.lr.ph ], [ %115, %.preheader461 ]
-  %.1413474 = phi double [ %304, %.lr.ph ], [ %113, %.preheader461 ]
+  %.2484 = phi ptr [ %319, %.lr.ph ], [ %108, %.preheader461 ]
+  %.2393481 = phi double [ %318, %.lr.ph ], [ %127, %.preheader461 ]
+  %.2396480 = phi double [ %316, %.lr.ph ], [ %125, %.preheader461 ]
+  %.2399479 = phi double [ %314, %.lr.ph ], [ %123, %.preheader461 ]
+  %.2402478 = phi double [ %312, %.lr.ph ], [ %121, %.preheader461 ]
+  %.2405477 = phi double [ %310, %.lr.ph ], [ %119, %.preheader461 ]
+  %.2408476 = phi double [ %308, %.lr.ph ], [ %117, %.preheader461 ]
+  %.2411475 = phi double [ %306, %.lr.ph ], [ %115, %.preheader461 ]
+  %.2414474 = phi double [ %304, %.lr.ph ], [ %113, %.preheader461 ]
   %226 = phi ptr [ %301, %.lr.ph ], [ %110, %.preheader461 ]
   %227 = phi <2 x i32> [ %235, %.lr.ph ], [ %65, %.preheader461 ]
   %228 = phi <2 x double> [ %291, %.lr.ph ], [ %75, %.preheader461 ]
@@ -778,17 +778,17 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bc(ptr nocapture noundef rea
   %234 = getelementptr inbounds i8, ptr %233, i64 %30
   %235 = add nsw <2 x i32> %227, %50
   %236 = extractelement <2 x double> %229, i64 0
-  %237 = fmul double %236, %.1410475
+  %237 = fmul double %236, %.2411475
   %238 = extractelement <2 x double> %230, i64 0
-  %239 = tail call double @llvm.fmuladd.f64(double %.1413474, double %238, double %237)
+  %239 = tail call double @llvm.fmuladd.f64(double %.2414474, double %238, double %237)
   %240 = extractelement <2 x double> %228, i64 0
-  %241 = tail call double @llvm.fmuladd.f64(double %.1407476, double %240, double %239)
+  %241 = tail call double @llvm.fmuladd.f64(double %.2408476, double %240, double %239)
   %242 = extractelement <2 x double> %231, i64 0
-  %243 = tail call double @llvm.fmuladd.f64(double %.1404477, double %242, double %241)
-  %244 = fmul double %236, %.1398479
-  %245 = tail call double @llvm.fmuladd.f64(double %.1401478, double %238, double %244)
-  %246 = tail call double @llvm.fmuladd.f64(double %.1395480, double %240, double %245)
-  %247 = tail call double @llvm.fmuladd.f64(double %.1392481, double %242, double %246)
+  %243 = tail call double @llvm.fmuladd.f64(double %.2405477, double %242, double %241)
+  %244 = fmul double %236, %.2399479
+  %245 = tail call double @llvm.fmuladd.f64(double %.2402478, double %238, double %244)
+  %246 = tail call double @llvm.fmuladd.f64(double %.2396480, double %240, double %245)
+  %247 = tail call double @llvm.fmuladd.f64(double %.2393481, double %242, double %246)
   %248 = getelementptr inbounds i8, ptr %234, i64 %30
   %249 = load double, ptr %248, align 8
   %250 = getelementptr inbounds i8, ptr %248, i64 16
@@ -834,7 +834,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bc(ptr nocapture noundef rea
   %290 = fsub <2 x double> %275, %276
   %291 = fadd <2 x double> %274, %290
   %292 = fsub <2 x double> %276, %275
-  store double %284, ptr %.1484, align 8
+  store double %284, ptr %.2484, align 8
   %293 = extractelement <2 x i32> %235, i64 1
   %294 = ashr i32 %293, 16
   %295 = sext i32 %294 to i64
@@ -862,7 +862,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bc(ptr nocapture noundef rea
   %316 = load double, ptr %315, align 8
   %317 = getelementptr inbounds i8, ptr %311, i64 48
   %318 = load double, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %.1484, i64 16
+  %319 = getelementptr inbounds i8, ptr %.2484, i64 16
   %.not459 = icmp ugt ptr %319, %89
   br i1 %.not459, label %.loopexit.loopexit672, label %.lr.ph, !llvm.loop !11
 
@@ -883,41 +883,41 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bc(ptr nocapture noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit672, %.loopexit.loopexit, %.preheader461, %.preheader
-  %.2454 = phi ptr [ %120, %.preheader ], [ %120, %.preheader461 ], [ %217, %.loopexit.loopexit ], [ %311, %.loopexit.loopexit672 ]
-  %.3446 = phi double [ %81, %.preheader ], [ %104, %.preheader461 ], [ %180, %.loopexit.loopexit ], [ %325, %.loopexit.loopexit672 ]
-  %.3442 = phi double [ %99, %.preheader ], [ %99, %.preheader461 ], [ %321, %.loopexit.loopexit ], [ %327, %.loopexit.loopexit672 ]
-  %.3438 = phi double [ %97, %.preheader ], [ %101, %.preheader461 ], [ %323, %.loopexit.loopexit ], [ %329, %.loopexit.loopexit672 ]
-  %.3430 = phi double [ %84, %.preheader ], [ %105, %.preheader461 ], [ %190, %.loopexit.loopexit ], [ %324, %.loopexit.loopexit672 ]
-  %.3426 = phi double [ %100, %.preheader ], [ %100, %.preheader461 ], [ %320, %.loopexit.loopexit ], [ %326, %.loopexit.loopexit672 ]
-  %.3422 = phi double [ %98, %.preheader ], [ %102, %.preheader461 ], [ %322, %.loopexit.loopexit ], [ %328, %.loopexit.loopexit672 ]
-  %.2414 = phi double [ %113, %.preheader ], [ %113, %.preheader461 ], [ %210, %.loopexit.loopexit ], [ %304, %.loopexit.loopexit672 ]
-  %.2411 = phi double [ %115, %.preheader ], [ %115, %.preheader461 ], [ %212, %.loopexit.loopexit ], [ %306, %.loopexit.loopexit672 ]
-  %.2408 = phi double [ %117, %.preheader ], [ %117, %.preheader461 ], [ %214, %.loopexit.loopexit ], [ %308, %.loopexit.loopexit672 ]
-  %.2405 = phi double [ %119, %.preheader ], [ %119, %.preheader461 ], [ %216, %.loopexit.loopexit ], [ %310, %.loopexit.loopexit672 ]
-  %.2402 = phi double [ %121, %.preheader ], [ %121, %.preheader461 ], [ %218, %.loopexit.loopexit ], [ %312, %.loopexit.loopexit672 ]
-  %.2399 = phi double [ %123, %.preheader ], [ %123, %.preheader461 ], [ %220, %.loopexit.loopexit ], [ %314, %.loopexit.loopexit672 ]
-  %.2396 = phi double [ %125, %.preheader ], [ %125, %.preheader461 ], [ %222, %.loopexit.loopexit ], [ %316, %.loopexit.loopexit672 ]
-  %.2393 = phi double [ %127, %.preheader ], [ %127, %.preheader461 ], [ %224, %.loopexit.loopexit ], [ %318, %.loopexit.loopexit672 ]
-  %.2 = phi ptr [ %108, %.preheader ], [ %108, %.preheader461 ], [ %225, %.loopexit.loopexit ], [ %319, %.loopexit.loopexit672 ]
+  %.1453 = phi ptr [ %120, %.preheader ], [ %120, %.preheader461 ], [ %217, %.loopexit.loopexit ], [ %311, %.loopexit.loopexit672 ]
+  %.2445 = phi double [ %81, %.preheader ], [ %104, %.preheader461 ], [ %180, %.loopexit.loopexit ], [ %325, %.loopexit.loopexit672 ]
+  %.2441 = phi double [ %99, %.preheader ], [ %99, %.preheader461 ], [ %321, %.loopexit.loopexit ], [ %327, %.loopexit.loopexit672 ]
+  %.2437 = phi double [ %97, %.preheader ], [ %101, %.preheader461 ], [ %323, %.loopexit.loopexit ], [ %329, %.loopexit.loopexit672 ]
+  %.2429 = phi double [ %84, %.preheader ], [ %105, %.preheader461 ], [ %190, %.loopexit.loopexit ], [ %324, %.loopexit.loopexit672 ]
+  %.2425 = phi double [ %100, %.preheader ], [ %100, %.preheader461 ], [ %320, %.loopexit.loopexit ], [ %326, %.loopexit.loopexit672 ]
+  %.2421 = phi double [ %98, %.preheader ], [ %102, %.preheader461 ], [ %322, %.loopexit.loopexit ], [ %328, %.loopexit.loopexit672 ]
+  %.1413 = phi double [ %113, %.preheader ], [ %113, %.preheader461 ], [ %210, %.loopexit.loopexit ], [ %304, %.loopexit.loopexit672 ]
+  %.1410 = phi double [ %115, %.preheader ], [ %115, %.preheader461 ], [ %212, %.loopexit.loopexit ], [ %306, %.loopexit.loopexit672 ]
+  %.1407 = phi double [ %117, %.preheader ], [ %117, %.preheader461 ], [ %214, %.loopexit.loopexit ], [ %308, %.loopexit.loopexit672 ]
+  %.1404 = phi double [ %119, %.preheader ], [ %119, %.preheader461 ], [ %216, %.loopexit.loopexit ], [ %310, %.loopexit.loopexit672 ]
+  %.1401 = phi double [ %121, %.preheader ], [ %121, %.preheader461 ], [ %218, %.loopexit.loopexit ], [ %312, %.loopexit.loopexit672 ]
+  %.1398 = phi double [ %123, %.preheader ], [ %123, %.preheader461 ], [ %220, %.loopexit.loopexit ], [ %314, %.loopexit.loopexit672 ]
+  %.1395 = phi double [ %125, %.preheader ], [ %125, %.preheader461 ], [ %222, %.loopexit.loopexit ], [ %316, %.loopexit.loopexit672 ]
+  %.1392 = phi double [ %127, %.preheader ], [ %127, %.preheader461 ], [ %224, %.loopexit.loopexit ], [ %318, %.loopexit.loopexit672 ]
+  %.1 = phi ptr [ %108, %.preheader ], [ %108, %.preheader461 ], [ %225, %.loopexit.loopexit ], [ %319, %.loopexit.loopexit672 ]
   %330 = phi <2 x double> [ %88, %.preheader ], [ %76, %.preheader461 ], [ %198, %.loopexit.loopexit ], [ %292, %.loopexit.loopexit672 ]
-  %331 = fmul double %.3442, %.2411
-  %332 = tail call double @llvm.fmuladd.f64(double %.2414, double %.3446, double %331)
-  %333 = tail call double @llvm.fmuladd.f64(double %.2408, double %.3438, double %332)
+  %331 = fmul double %.2441, %.1410
+  %332 = tail call double @llvm.fmuladd.f64(double %.1413, double %.2445, double %331)
+  %333 = tail call double @llvm.fmuladd.f64(double %.1407, double %.2437, double %332)
   %334 = extractelement <2 x double> %330, i64 0
-  %335 = tail call double @llvm.fmuladd.f64(double %.2405, double %334, double %333)
-  %336 = fmul double %.3442, %.2399
-  %337 = tail call double @llvm.fmuladd.f64(double %.2402, double %.3446, double %336)
-  %338 = tail call double @llvm.fmuladd.f64(double %.2396, double %.3438, double %337)
-  %339 = tail call double @llvm.fmuladd.f64(double %.2393, double %334, double %338)
-  %340 = getelementptr inbounds i8, ptr %.2454, i64 %30
+  %335 = tail call double @llvm.fmuladd.f64(double %.1404, double %334, double %333)
+  %336 = fmul double %.2441, %.1398
+  %337 = tail call double @llvm.fmuladd.f64(double %.1401, double %.2445, double %336)
+  %338 = tail call double @llvm.fmuladd.f64(double %.1395, double %.2437, double %337)
+  %339 = tail call double @llvm.fmuladd.f64(double %.1392, double %334, double %338)
+  %340 = getelementptr inbounds i8, ptr %.1453, i64 %30
   %341 = load double, ptr %340, align 8
   %342 = getelementptr inbounds i8, ptr %340, i64 16
   %343 = load double, ptr %342, align 8
-  %344 = fmul double %.3442, %343
-  %345 = tail call double @llvm.fmuladd.f64(double %341, double %.3446, double %344)
+  %344 = fmul double %.2441, %343
+  %345 = tail call double @llvm.fmuladd.f64(double %341, double %.2445, double %344)
   %346 = getelementptr inbounds i8, ptr %340, i64 32
   %347 = load double, ptr %346, align 8
-  %348 = tail call double @llvm.fmuladd.f64(double %347, double %.3438, double %345)
+  %348 = tail call double @llvm.fmuladd.f64(double %347, double %.2437, double %345)
   %349 = getelementptr inbounds i8, ptr %340, i64 48
   %350 = load double, ptr %349, align 8
   %351 = tail call double @llvm.fmuladd.f64(double %350, double %334, double %348)
@@ -925,20 +925,20 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bc(ptr nocapture noundef rea
   %353 = load double, ptr %352, align 8
   %354 = getelementptr inbounds i8, ptr %352, i64 16
   %355 = load double, ptr %354, align 8
-  %356 = fmul double %.3442, %355
-  %357 = tail call double @llvm.fmuladd.f64(double %353, double %.3446, double %356)
+  %356 = fmul double %.2441, %355
+  %357 = tail call double @llvm.fmuladd.f64(double %353, double %.2445, double %356)
   %358 = getelementptr inbounds i8, ptr %352, i64 32
   %359 = load double, ptr %358, align 8
-  %360 = tail call double @llvm.fmuladd.f64(double %359, double %.3438, double %357)
+  %360 = tail call double @llvm.fmuladd.f64(double %359, double %.2437, double %357)
   %361 = getelementptr inbounds i8, ptr %352, i64 48
   %362 = load double, ptr %361, align 8
   %363 = tail call double @llvm.fmuladd.f64(double %362, double %334, double %360)
-  %364 = fmul double %.3426, %339
-  %365 = tail call double @llvm.fmuladd.f64(double %335, double %.3430, double %364)
-  %366 = tail call double @llvm.fmuladd.f64(double %351, double %.3422, double %365)
+  %364 = fmul double %.2425, %339
+  %365 = tail call double @llvm.fmuladd.f64(double %335, double %.2429, double %364)
+  %366 = tail call double @llvm.fmuladd.f64(double %351, double %.2421, double %365)
   %367 = extractelement <2 x double> %330, i64 1
   %368 = tail call double @llvm.fmuladd.f64(double %363, double %367, double %366)
-  store double %368, ptr %.2, align 8
+  store double %368, ptr %.1, align 8
   br i1 %107, label %106, label %.loopexit463, !llvm.loop !12
 
 .loopexit463:                                     ; preds = %.loopexit, %49
@@ -1224,15 +1224,15 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bc(ptr nocapture noundef rea
   br i1 %.not460, label %.loopexit.loopexit, label %.lr.ph525, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader461, %.lr.ph
-  %.1484 = phi ptr [ %318, %.lr.ph ], [ %107, %.preheader461 ]
-  %.1392481 = phi double [ %317, %.lr.ph ], [ %126, %.preheader461 ]
-  %.1395480 = phi double [ %315, %.lr.ph ], [ %124, %.preheader461 ]
-  %.1398479 = phi double [ %313, %.lr.ph ], [ %122, %.preheader461 ]
-  %.1401478 = phi double [ %311, %.lr.ph ], [ %120, %.preheader461 ]
-  %.1404477 = phi double [ %309, %.lr.ph ], [ %118, %.preheader461 ]
-  %.1407476 = phi double [ %307, %.lr.ph ], [ %116, %.preheader461 ]
-  %.1410475 = phi double [ %305, %.lr.ph ], [ %114, %.preheader461 ]
-  %.1413474 = phi double [ %303, %.lr.ph ], [ %112, %.preheader461 ]
+  %.2484 = phi ptr [ %318, %.lr.ph ], [ %107, %.preheader461 ]
+  %.2393481 = phi double [ %317, %.lr.ph ], [ %126, %.preheader461 ]
+  %.2396480 = phi double [ %315, %.lr.ph ], [ %124, %.preheader461 ]
+  %.2399479 = phi double [ %313, %.lr.ph ], [ %122, %.preheader461 ]
+  %.2402478 = phi double [ %311, %.lr.ph ], [ %120, %.preheader461 ]
+  %.2405477 = phi double [ %309, %.lr.ph ], [ %118, %.preheader461 ]
+  %.2408476 = phi double [ %307, %.lr.ph ], [ %116, %.preheader461 ]
+  %.2411475 = phi double [ %305, %.lr.ph ], [ %114, %.preheader461 ]
+  %.2414474 = phi double [ %303, %.lr.ph ], [ %112, %.preheader461 ]
   %225 = phi ptr [ %300, %.lr.ph ], [ %109, %.preheader461 ]
   %226 = phi <2 x i32> [ %234, %.lr.ph ], [ %65, %.preheader461 ]
   %227 = phi <2 x double> [ %290, %.lr.ph ], [ %75, %.preheader461 ]
@@ -1244,17 +1244,17 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bc(ptr nocapture noundef rea
   %233 = getelementptr inbounds i8, ptr %232, i64 %30
   %234 = add nsw <2 x i32> %226, %50
   %235 = extractelement <2 x double> %228, i64 0
-  %236 = fmul double %235, %.1410475
+  %236 = fmul double %235, %.2411475
   %237 = extractelement <2 x double> %229, i64 0
-  %238 = tail call double @llvm.fmuladd.f64(double %.1413474, double %237, double %236)
+  %238 = tail call double @llvm.fmuladd.f64(double %.2414474, double %237, double %236)
   %239 = extractelement <2 x double> %227, i64 0
-  %240 = tail call double @llvm.fmuladd.f64(double %.1407476, double %239, double %238)
+  %240 = tail call double @llvm.fmuladd.f64(double %.2408476, double %239, double %238)
   %241 = extractelement <2 x double> %230, i64 0
-  %242 = tail call double @llvm.fmuladd.f64(double %.1404477, double %241, double %240)
-  %243 = fmul double %235, %.1398479
-  %244 = tail call double @llvm.fmuladd.f64(double %.1401478, double %237, double %243)
-  %245 = tail call double @llvm.fmuladd.f64(double %.1395480, double %239, double %244)
-  %246 = tail call double @llvm.fmuladd.f64(double %.1392481, double %241, double %245)
+  %242 = tail call double @llvm.fmuladd.f64(double %.2405477, double %241, double %240)
+  %243 = fmul double %235, %.2399479
+  %244 = tail call double @llvm.fmuladd.f64(double %.2402478, double %237, double %243)
+  %245 = tail call double @llvm.fmuladd.f64(double %.2396480, double %239, double %244)
+  %246 = tail call double @llvm.fmuladd.f64(double %.2393481, double %241, double %245)
   %247 = getelementptr inbounds i8, ptr %233, i64 %30
   %248 = load double, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %247, i64 24
@@ -1300,7 +1300,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bc(ptr nocapture noundef rea
   %289 = fsub <2 x double> %274, %275
   %290 = fadd <2 x double> %273, %289
   %291 = fsub <2 x double> %275, %274
-  store double %283, ptr %.1484, align 8
+  store double %283, ptr %.2484, align 8
   %292 = extractelement <2 x i32> %234, i64 0
   %293 = ashr i32 %292, 16
   %294 = extractelement <2 x i32> %234, i64 1
@@ -1328,7 +1328,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bc(ptr nocapture noundef rea
   %315 = load double, ptr %314, align 8
   %316 = getelementptr inbounds i8, ptr %310, i64 72
   %317 = load double, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %.1484, i64 24
+  %318 = getelementptr inbounds i8, ptr %.2484, i64 24
   %.not459 = icmp ugt ptr %318, %89
   br i1 %.not459, label %.loopexit.loopexit673, label %.lr.ph, !llvm.loop !15
 
@@ -1349,41 +1349,41 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bc(ptr nocapture noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit673, %.loopexit.loopexit, %.preheader461, %.preheader
-  %.2454 = phi ptr [ %119, %.preheader ], [ %119, %.preheader461 ], [ %216, %.loopexit.loopexit ], [ %310, %.loopexit.loopexit673 ]
-  %.3446 = phi double [ %81, %.preheader ], [ %104, %.preheader461 ], [ %179, %.loopexit.loopexit ], [ %324, %.loopexit.loopexit673 ]
-  %.3442 = phi double [ %99, %.preheader ], [ %99, %.preheader461 ], [ %320, %.loopexit.loopexit ], [ %326, %.loopexit.loopexit673 ]
-  %.3438 = phi double [ %97, %.preheader ], [ %101, %.preheader461 ], [ %322, %.loopexit.loopexit ], [ %328, %.loopexit.loopexit673 ]
-  %.3430 = phi double [ %84, %.preheader ], [ %105, %.preheader461 ], [ %189, %.loopexit.loopexit ], [ %323, %.loopexit.loopexit673 ]
-  %.3426 = phi double [ %100, %.preheader ], [ %100, %.preheader461 ], [ %319, %.loopexit.loopexit ], [ %325, %.loopexit.loopexit673 ]
-  %.3422 = phi double [ %98, %.preheader ], [ %102, %.preheader461 ], [ %321, %.loopexit.loopexit ], [ %327, %.loopexit.loopexit673 ]
-  %.2414 = phi double [ %112, %.preheader ], [ %112, %.preheader461 ], [ %209, %.loopexit.loopexit ], [ %303, %.loopexit.loopexit673 ]
-  %.2411 = phi double [ %114, %.preheader ], [ %114, %.preheader461 ], [ %211, %.loopexit.loopexit ], [ %305, %.loopexit.loopexit673 ]
-  %.2408 = phi double [ %116, %.preheader ], [ %116, %.preheader461 ], [ %213, %.loopexit.loopexit ], [ %307, %.loopexit.loopexit673 ]
-  %.2405 = phi double [ %118, %.preheader ], [ %118, %.preheader461 ], [ %215, %.loopexit.loopexit ], [ %309, %.loopexit.loopexit673 ]
-  %.2402 = phi double [ %120, %.preheader ], [ %120, %.preheader461 ], [ %217, %.loopexit.loopexit ], [ %311, %.loopexit.loopexit673 ]
-  %.2399 = phi double [ %122, %.preheader ], [ %122, %.preheader461 ], [ %219, %.loopexit.loopexit ], [ %313, %.loopexit.loopexit673 ]
-  %.2396 = phi double [ %124, %.preheader ], [ %124, %.preheader461 ], [ %221, %.loopexit.loopexit ], [ %315, %.loopexit.loopexit673 ]
-  %.2393 = phi double [ %126, %.preheader ], [ %126, %.preheader461 ], [ %223, %.loopexit.loopexit ], [ %317, %.loopexit.loopexit673 ]
-  %.2 = phi ptr [ %107, %.preheader ], [ %107, %.preheader461 ], [ %224, %.loopexit.loopexit ], [ %318, %.loopexit.loopexit673 ]
+  %.1453 = phi ptr [ %119, %.preheader ], [ %119, %.preheader461 ], [ %216, %.loopexit.loopexit ], [ %310, %.loopexit.loopexit673 ]
+  %.2445 = phi double [ %81, %.preheader ], [ %104, %.preheader461 ], [ %179, %.loopexit.loopexit ], [ %324, %.loopexit.loopexit673 ]
+  %.2441 = phi double [ %99, %.preheader ], [ %99, %.preheader461 ], [ %320, %.loopexit.loopexit ], [ %326, %.loopexit.loopexit673 ]
+  %.2437 = phi double [ %97, %.preheader ], [ %101, %.preheader461 ], [ %322, %.loopexit.loopexit ], [ %328, %.loopexit.loopexit673 ]
+  %.2429 = phi double [ %84, %.preheader ], [ %105, %.preheader461 ], [ %189, %.loopexit.loopexit ], [ %323, %.loopexit.loopexit673 ]
+  %.2425 = phi double [ %100, %.preheader ], [ %100, %.preheader461 ], [ %319, %.loopexit.loopexit ], [ %325, %.loopexit.loopexit673 ]
+  %.2421 = phi double [ %98, %.preheader ], [ %102, %.preheader461 ], [ %321, %.loopexit.loopexit ], [ %327, %.loopexit.loopexit673 ]
+  %.1413 = phi double [ %112, %.preheader ], [ %112, %.preheader461 ], [ %209, %.loopexit.loopexit ], [ %303, %.loopexit.loopexit673 ]
+  %.1410 = phi double [ %114, %.preheader ], [ %114, %.preheader461 ], [ %211, %.loopexit.loopexit ], [ %305, %.loopexit.loopexit673 ]
+  %.1407 = phi double [ %116, %.preheader ], [ %116, %.preheader461 ], [ %213, %.loopexit.loopexit ], [ %307, %.loopexit.loopexit673 ]
+  %.1404 = phi double [ %118, %.preheader ], [ %118, %.preheader461 ], [ %215, %.loopexit.loopexit ], [ %309, %.loopexit.loopexit673 ]
+  %.1401 = phi double [ %120, %.preheader ], [ %120, %.preheader461 ], [ %217, %.loopexit.loopexit ], [ %311, %.loopexit.loopexit673 ]
+  %.1398 = phi double [ %122, %.preheader ], [ %122, %.preheader461 ], [ %219, %.loopexit.loopexit ], [ %313, %.loopexit.loopexit673 ]
+  %.1395 = phi double [ %124, %.preheader ], [ %124, %.preheader461 ], [ %221, %.loopexit.loopexit ], [ %315, %.loopexit.loopexit673 ]
+  %.1392 = phi double [ %126, %.preheader ], [ %126, %.preheader461 ], [ %223, %.loopexit.loopexit ], [ %317, %.loopexit.loopexit673 ]
+  %.1 = phi ptr [ %107, %.preheader ], [ %107, %.preheader461 ], [ %224, %.loopexit.loopexit ], [ %318, %.loopexit.loopexit673 ]
   %329 = phi <2 x double> [ %88, %.preheader ], [ %76, %.preheader461 ], [ %197, %.loopexit.loopexit ], [ %291, %.loopexit.loopexit673 ]
-  %330 = fmul double %.3442, %.2411
-  %331 = tail call double @llvm.fmuladd.f64(double %.2414, double %.3446, double %330)
-  %332 = tail call double @llvm.fmuladd.f64(double %.2408, double %.3438, double %331)
+  %330 = fmul double %.2441, %.1410
+  %331 = tail call double @llvm.fmuladd.f64(double %.1413, double %.2445, double %330)
+  %332 = tail call double @llvm.fmuladd.f64(double %.1407, double %.2437, double %331)
   %333 = extractelement <2 x double> %329, i64 0
-  %334 = tail call double @llvm.fmuladd.f64(double %.2405, double %333, double %332)
-  %335 = fmul double %.3442, %.2399
-  %336 = tail call double @llvm.fmuladd.f64(double %.2402, double %.3446, double %335)
-  %337 = tail call double @llvm.fmuladd.f64(double %.2396, double %.3438, double %336)
-  %338 = tail call double @llvm.fmuladd.f64(double %.2393, double %333, double %337)
-  %339 = getelementptr inbounds i8, ptr %.2454, i64 %30
+  %334 = tail call double @llvm.fmuladd.f64(double %.1404, double %333, double %332)
+  %335 = fmul double %.2441, %.1398
+  %336 = tail call double @llvm.fmuladd.f64(double %.1401, double %.2445, double %335)
+  %337 = tail call double @llvm.fmuladd.f64(double %.1395, double %.2437, double %336)
+  %338 = tail call double @llvm.fmuladd.f64(double %.1392, double %333, double %337)
+  %339 = getelementptr inbounds i8, ptr %.1453, i64 %30
   %340 = load double, ptr %339, align 8
   %341 = getelementptr inbounds i8, ptr %339, i64 24
   %342 = load double, ptr %341, align 8
-  %343 = fmul double %.3442, %342
-  %344 = tail call double @llvm.fmuladd.f64(double %340, double %.3446, double %343)
+  %343 = fmul double %.2441, %342
+  %344 = tail call double @llvm.fmuladd.f64(double %340, double %.2445, double %343)
   %345 = getelementptr inbounds i8, ptr %339, i64 48
   %346 = load double, ptr %345, align 8
-  %347 = tail call double @llvm.fmuladd.f64(double %346, double %.3438, double %344)
+  %347 = tail call double @llvm.fmuladd.f64(double %346, double %.2437, double %344)
   %348 = getelementptr inbounds i8, ptr %339, i64 72
   %349 = load double, ptr %348, align 8
   %350 = tail call double @llvm.fmuladd.f64(double %349, double %333, double %347)
@@ -1391,20 +1391,20 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bc(ptr nocapture noundef rea
   %352 = load double, ptr %351, align 8
   %353 = getelementptr inbounds i8, ptr %351, i64 24
   %354 = load double, ptr %353, align 8
-  %355 = fmul double %.3442, %354
-  %356 = tail call double @llvm.fmuladd.f64(double %352, double %.3446, double %355)
+  %355 = fmul double %.2441, %354
+  %356 = tail call double @llvm.fmuladd.f64(double %352, double %.2445, double %355)
   %357 = getelementptr inbounds i8, ptr %351, i64 48
   %358 = load double, ptr %357, align 8
-  %359 = tail call double @llvm.fmuladd.f64(double %358, double %.3438, double %356)
+  %359 = tail call double @llvm.fmuladd.f64(double %358, double %.2437, double %356)
   %360 = getelementptr inbounds i8, ptr %351, i64 72
   %361 = load double, ptr %360, align 8
   %362 = tail call double @llvm.fmuladd.f64(double %361, double %333, double %359)
-  %363 = fmul double %.3426, %338
-  %364 = tail call double @llvm.fmuladd.f64(double %334, double %.3430, double %363)
-  %365 = tail call double @llvm.fmuladd.f64(double %350, double %.3422, double %364)
+  %363 = fmul double %.2425, %338
+  %364 = tail call double @llvm.fmuladd.f64(double %334, double %.2429, double %363)
+  %365 = tail call double @llvm.fmuladd.f64(double %350, double %.2421, double %364)
   %366 = extractelement <2 x double> %329, i64 1
   %367 = tail call double @llvm.fmuladd.f64(double %362, double %366, double %365)
-  store double %367, ptr %.2, align 8
+  store double %367, ptr %.1, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit463, label %106, !llvm.loop !16
@@ -1692,15 +1692,15 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bc(ptr nocapture noundef rea
   br i1 %.not460, label %.loopexit.loopexit, label %.lr.ph525, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.preheader461, %.lr.ph
-  %.1484 = phi ptr [ %318, %.lr.ph ], [ %107, %.preheader461 ]
-  %.1392481 = phi double [ %317, %.lr.ph ], [ %126, %.preheader461 ]
-  %.1395480 = phi double [ %315, %.lr.ph ], [ %124, %.preheader461 ]
-  %.1398479 = phi double [ %313, %.lr.ph ], [ %122, %.preheader461 ]
-  %.1401478 = phi double [ %311, %.lr.ph ], [ %120, %.preheader461 ]
-  %.1404477 = phi double [ %309, %.lr.ph ], [ %118, %.preheader461 ]
-  %.1407476 = phi double [ %307, %.lr.ph ], [ %116, %.preheader461 ]
-  %.1410475 = phi double [ %305, %.lr.ph ], [ %114, %.preheader461 ]
-  %.1413474 = phi double [ %303, %.lr.ph ], [ %112, %.preheader461 ]
+  %.2484 = phi ptr [ %318, %.lr.ph ], [ %107, %.preheader461 ]
+  %.2393481 = phi double [ %317, %.lr.ph ], [ %126, %.preheader461 ]
+  %.2396480 = phi double [ %315, %.lr.ph ], [ %124, %.preheader461 ]
+  %.2399479 = phi double [ %313, %.lr.ph ], [ %122, %.preheader461 ]
+  %.2402478 = phi double [ %311, %.lr.ph ], [ %120, %.preheader461 ]
+  %.2405477 = phi double [ %309, %.lr.ph ], [ %118, %.preheader461 ]
+  %.2408476 = phi double [ %307, %.lr.ph ], [ %116, %.preheader461 ]
+  %.2411475 = phi double [ %305, %.lr.ph ], [ %114, %.preheader461 ]
+  %.2414474 = phi double [ %303, %.lr.ph ], [ %112, %.preheader461 ]
   %225 = phi ptr [ %300, %.lr.ph ], [ %109, %.preheader461 ]
   %226 = phi <2 x i32> [ %234, %.lr.ph ], [ %65, %.preheader461 ]
   %227 = phi <2 x double> [ %290, %.lr.ph ], [ %75, %.preheader461 ]
@@ -1712,17 +1712,17 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bc(ptr nocapture noundef rea
   %233 = getelementptr inbounds i8, ptr %232, i64 %30
   %234 = add nsw <2 x i32> %226, %50
   %235 = extractelement <2 x double> %228, i64 0
-  %236 = fmul double %235, %.1410475
+  %236 = fmul double %235, %.2411475
   %237 = extractelement <2 x double> %229, i64 0
-  %238 = tail call double @llvm.fmuladd.f64(double %.1413474, double %237, double %236)
+  %238 = tail call double @llvm.fmuladd.f64(double %.2414474, double %237, double %236)
   %239 = extractelement <2 x double> %227, i64 0
-  %240 = tail call double @llvm.fmuladd.f64(double %.1407476, double %239, double %238)
+  %240 = tail call double @llvm.fmuladd.f64(double %.2408476, double %239, double %238)
   %241 = extractelement <2 x double> %230, i64 0
-  %242 = tail call double @llvm.fmuladd.f64(double %.1404477, double %241, double %240)
-  %243 = fmul double %235, %.1398479
-  %244 = tail call double @llvm.fmuladd.f64(double %.1401478, double %237, double %243)
-  %245 = tail call double @llvm.fmuladd.f64(double %.1395480, double %239, double %244)
-  %246 = tail call double @llvm.fmuladd.f64(double %.1392481, double %241, double %245)
+  %242 = tail call double @llvm.fmuladd.f64(double %.2405477, double %241, double %240)
+  %243 = fmul double %235, %.2399479
+  %244 = tail call double @llvm.fmuladd.f64(double %.2402478, double %237, double %243)
+  %245 = tail call double @llvm.fmuladd.f64(double %.2396480, double %239, double %244)
+  %246 = tail call double @llvm.fmuladd.f64(double %.2393481, double %241, double %245)
   %247 = getelementptr inbounds i8, ptr %233, i64 %30
   %248 = load double, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %247, i64 32
@@ -1768,7 +1768,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bc(ptr nocapture noundef rea
   %289 = fsub <2 x double> %274, %275
   %290 = fadd <2 x double> %273, %289
   %291 = fsub <2 x double> %275, %274
-  store double %283, ptr %.1484, align 8
+  store double %283, ptr %.2484, align 8
   %292 = extractelement <2 x i32> %234, i64 1
   %293 = ashr i32 %292, 16
   %294 = sext i32 %293 to i64
@@ -1796,7 +1796,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bc(ptr nocapture noundef rea
   %315 = load double, ptr %314, align 8
   %316 = getelementptr inbounds i8, ptr %310, i64 96
   %317 = load double, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %.1484, i64 32
+  %318 = getelementptr inbounds i8, ptr %.2484, i64 32
   %.not459 = icmp ugt ptr %318, %89
   br i1 %.not459, label %.loopexit.loopexit673, label %.lr.ph, !llvm.loop !19
 
@@ -1817,41 +1817,41 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bc(ptr nocapture noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit673, %.loopexit.loopexit, %.preheader461, %.preheader
-  %.2454 = phi ptr [ %119, %.preheader ], [ %119, %.preheader461 ], [ %216, %.loopexit.loopexit ], [ %310, %.loopexit.loopexit673 ]
-  %.3446 = phi double [ %81, %.preheader ], [ %104, %.preheader461 ], [ %179, %.loopexit.loopexit ], [ %324, %.loopexit.loopexit673 ]
-  %.3442 = phi double [ %99, %.preheader ], [ %99, %.preheader461 ], [ %320, %.loopexit.loopexit ], [ %326, %.loopexit.loopexit673 ]
-  %.3438 = phi double [ %97, %.preheader ], [ %101, %.preheader461 ], [ %322, %.loopexit.loopexit ], [ %328, %.loopexit.loopexit673 ]
-  %.3430 = phi double [ %84, %.preheader ], [ %105, %.preheader461 ], [ %189, %.loopexit.loopexit ], [ %323, %.loopexit.loopexit673 ]
-  %.3426 = phi double [ %100, %.preheader ], [ %100, %.preheader461 ], [ %319, %.loopexit.loopexit ], [ %325, %.loopexit.loopexit673 ]
-  %.3422 = phi double [ %98, %.preheader ], [ %102, %.preheader461 ], [ %321, %.loopexit.loopexit ], [ %327, %.loopexit.loopexit673 ]
-  %.2414 = phi double [ %112, %.preheader ], [ %112, %.preheader461 ], [ %209, %.loopexit.loopexit ], [ %303, %.loopexit.loopexit673 ]
-  %.2411 = phi double [ %114, %.preheader ], [ %114, %.preheader461 ], [ %211, %.loopexit.loopexit ], [ %305, %.loopexit.loopexit673 ]
-  %.2408 = phi double [ %116, %.preheader ], [ %116, %.preheader461 ], [ %213, %.loopexit.loopexit ], [ %307, %.loopexit.loopexit673 ]
-  %.2405 = phi double [ %118, %.preheader ], [ %118, %.preheader461 ], [ %215, %.loopexit.loopexit ], [ %309, %.loopexit.loopexit673 ]
-  %.2402 = phi double [ %120, %.preheader ], [ %120, %.preheader461 ], [ %217, %.loopexit.loopexit ], [ %311, %.loopexit.loopexit673 ]
-  %.2399 = phi double [ %122, %.preheader ], [ %122, %.preheader461 ], [ %219, %.loopexit.loopexit ], [ %313, %.loopexit.loopexit673 ]
-  %.2396 = phi double [ %124, %.preheader ], [ %124, %.preheader461 ], [ %221, %.loopexit.loopexit ], [ %315, %.loopexit.loopexit673 ]
-  %.2393 = phi double [ %126, %.preheader ], [ %126, %.preheader461 ], [ %223, %.loopexit.loopexit ], [ %317, %.loopexit.loopexit673 ]
-  %.2 = phi ptr [ %107, %.preheader ], [ %107, %.preheader461 ], [ %224, %.loopexit.loopexit ], [ %318, %.loopexit.loopexit673 ]
+  %.1453 = phi ptr [ %119, %.preheader ], [ %119, %.preheader461 ], [ %216, %.loopexit.loopexit ], [ %310, %.loopexit.loopexit673 ]
+  %.2445 = phi double [ %81, %.preheader ], [ %104, %.preheader461 ], [ %179, %.loopexit.loopexit ], [ %324, %.loopexit.loopexit673 ]
+  %.2441 = phi double [ %99, %.preheader ], [ %99, %.preheader461 ], [ %320, %.loopexit.loopexit ], [ %326, %.loopexit.loopexit673 ]
+  %.2437 = phi double [ %97, %.preheader ], [ %101, %.preheader461 ], [ %322, %.loopexit.loopexit ], [ %328, %.loopexit.loopexit673 ]
+  %.2429 = phi double [ %84, %.preheader ], [ %105, %.preheader461 ], [ %189, %.loopexit.loopexit ], [ %323, %.loopexit.loopexit673 ]
+  %.2425 = phi double [ %100, %.preheader ], [ %100, %.preheader461 ], [ %319, %.loopexit.loopexit ], [ %325, %.loopexit.loopexit673 ]
+  %.2421 = phi double [ %98, %.preheader ], [ %102, %.preheader461 ], [ %321, %.loopexit.loopexit ], [ %327, %.loopexit.loopexit673 ]
+  %.1413 = phi double [ %112, %.preheader ], [ %112, %.preheader461 ], [ %209, %.loopexit.loopexit ], [ %303, %.loopexit.loopexit673 ]
+  %.1410 = phi double [ %114, %.preheader ], [ %114, %.preheader461 ], [ %211, %.loopexit.loopexit ], [ %305, %.loopexit.loopexit673 ]
+  %.1407 = phi double [ %116, %.preheader ], [ %116, %.preheader461 ], [ %213, %.loopexit.loopexit ], [ %307, %.loopexit.loopexit673 ]
+  %.1404 = phi double [ %118, %.preheader ], [ %118, %.preheader461 ], [ %215, %.loopexit.loopexit ], [ %309, %.loopexit.loopexit673 ]
+  %.1401 = phi double [ %120, %.preheader ], [ %120, %.preheader461 ], [ %217, %.loopexit.loopexit ], [ %311, %.loopexit.loopexit673 ]
+  %.1398 = phi double [ %122, %.preheader ], [ %122, %.preheader461 ], [ %219, %.loopexit.loopexit ], [ %313, %.loopexit.loopexit673 ]
+  %.1395 = phi double [ %124, %.preheader ], [ %124, %.preheader461 ], [ %221, %.loopexit.loopexit ], [ %315, %.loopexit.loopexit673 ]
+  %.1392 = phi double [ %126, %.preheader ], [ %126, %.preheader461 ], [ %223, %.loopexit.loopexit ], [ %317, %.loopexit.loopexit673 ]
+  %.1 = phi ptr [ %107, %.preheader ], [ %107, %.preheader461 ], [ %224, %.loopexit.loopexit ], [ %318, %.loopexit.loopexit673 ]
   %329 = phi <2 x double> [ %88, %.preheader ], [ %76, %.preheader461 ], [ %197, %.loopexit.loopexit ], [ %291, %.loopexit.loopexit673 ]
-  %330 = fmul double %.3442, %.2411
-  %331 = tail call double @llvm.fmuladd.f64(double %.2414, double %.3446, double %330)
-  %332 = tail call double @llvm.fmuladd.f64(double %.2408, double %.3438, double %331)
+  %330 = fmul double %.2441, %.1410
+  %331 = tail call double @llvm.fmuladd.f64(double %.1413, double %.2445, double %330)
+  %332 = tail call double @llvm.fmuladd.f64(double %.1407, double %.2437, double %331)
   %333 = extractelement <2 x double> %329, i64 0
-  %334 = tail call double @llvm.fmuladd.f64(double %.2405, double %333, double %332)
-  %335 = fmul double %.3442, %.2399
-  %336 = tail call double @llvm.fmuladd.f64(double %.2402, double %.3446, double %335)
-  %337 = tail call double @llvm.fmuladd.f64(double %.2396, double %.3438, double %336)
-  %338 = tail call double @llvm.fmuladd.f64(double %.2393, double %333, double %337)
-  %339 = getelementptr inbounds i8, ptr %.2454, i64 %30
+  %334 = tail call double @llvm.fmuladd.f64(double %.1404, double %333, double %332)
+  %335 = fmul double %.2441, %.1398
+  %336 = tail call double @llvm.fmuladd.f64(double %.1401, double %.2445, double %335)
+  %337 = tail call double @llvm.fmuladd.f64(double %.1395, double %.2437, double %336)
+  %338 = tail call double @llvm.fmuladd.f64(double %.1392, double %333, double %337)
+  %339 = getelementptr inbounds i8, ptr %.1453, i64 %30
   %340 = load double, ptr %339, align 8
   %341 = getelementptr inbounds i8, ptr %339, i64 32
   %342 = load double, ptr %341, align 8
-  %343 = fmul double %.3442, %342
-  %344 = tail call double @llvm.fmuladd.f64(double %340, double %.3446, double %343)
+  %343 = fmul double %.2441, %342
+  %344 = tail call double @llvm.fmuladd.f64(double %340, double %.2445, double %343)
   %345 = getelementptr inbounds i8, ptr %339, i64 64
   %346 = load double, ptr %345, align 8
-  %347 = tail call double @llvm.fmuladd.f64(double %346, double %.3438, double %344)
+  %347 = tail call double @llvm.fmuladd.f64(double %346, double %.2437, double %344)
   %348 = getelementptr inbounds i8, ptr %339, i64 96
   %349 = load double, ptr %348, align 8
   %350 = tail call double @llvm.fmuladd.f64(double %349, double %333, double %347)
@@ -1859,20 +1859,20 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bc(ptr nocapture noundef rea
   %352 = load double, ptr %351, align 8
   %353 = getelementptr inbounds i8, ptr %351, i64 32
   %354 = load double, ptr %353, align 8
-  %355 = fmul double %.3442, %354
-  %356 = tail call double @llvm.fmuladd.f64(double %352, double %.3446, double %355)
+  %355 = fmul double %.2441, %354
+  %356 = tail call double @llvm.fmuladd.f64(double %352, double %.2445, double %355)
   %357 = getelementptr inbounds i8, ptr %351, i64 64
   %358 = load double, ptr %357, align 8
-  %359 = tail call double @llvm.fmuladd.f64(double %358, double %.3438, double %356)
+  %359 = tail call double @llvm.fmuladd.f64(double %358, double %.2437, double %356)
   %360 = getelementptr inbounds i8, ptr %351, i64 96
   %361 = load double, ptr %360, align 8
   %362 = tail call double @llvm.fmuladd.f64(double %361, double %333, double %359)
-  %363 = fmul double %.3426, %338
-  %364 = tail call double @llvm.fmuladd.f64(double %334, double %.3430, double %363)
-  %365 = tail call double @llvm.fmuladd.f64(double %350, double %.3422, double %364)
+  %363 = fmul double %.2425, %338
+  %364 = tail call double @llvm.fmuladd.f64(double %334, double %.2429, double %363)
+  %365 = tail call double @llvm.fmuladd.f64(double %350, double %.2421, double %364)
   %366 = extractelement <2 x double> %329, i64 1
   %367 = tail call double @llvm.fmuladd.f64(double %362, double %366, double %365)
-  store double %367, ptr %.2, align 8
+  store double %367, ptr %.1, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit463, label %106, !llvm.loop !20

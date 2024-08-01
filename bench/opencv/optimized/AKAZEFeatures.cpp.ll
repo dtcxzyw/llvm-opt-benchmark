@@ -2422,12 +2422,12 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %exitcond117.not.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, label %.lr.ph101.i.i, !llvm.loop !44
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %290, %284
-  %.041.i.i = phi float [ %289, %284 ], [ 0x3F9EB851E0000000, %290 ]
+  %.1.i.i = phi float [ %289, %284 ], [ 0x3F9EB851E0000000, %290 ]
   call void @_ZdlPv(ptr noundef nonnull %268) #22
   br label %._crit_edge94.thread.i.i
 
 ._crit_edge94.thread.i.i:                         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, %._crit_edge94.i.i, %.lr.ph93.i.i, %208
-  %.1.i.i = phi float [ %.041.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ 0x3F9EB851E0000000, %._crit_edge94.i.i ], [ 0x3F9EB851E0000000, %208 ], [ 0x3F9EB851E0000000, %.lr.ph93.i.i ]
+  %.041.i.i = phi float [ %.1.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ 0x3F9EB851E0000000, %._crit_edge94.i.i ], [ 0x3F9EB851E0000000, %208 ], [ 0x3F9EB851E0000000, %.lr.ph93.i.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #21
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #21
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #21
@@ -2545,7 +2545,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %290, %284
 
 367:                                              ; preds = %._crit_edge.i, %.lr.ph146.i
   %368 = phi ptr [ %306, %.lr.ph146.i ], [ %502, %._crit_edge.i ]
-  %.069144.i = phi float [ %.1.i.i, %.lr.ph146.i ], [ %.170.i, %._crit_edge.i ]
+  %.069144.i = phi float [ %.041.i.i, %.lr.ph146.i ], [ %.170.i, %._crit_edge.i ]
   %.071143.i = phi i64 [ 1, %.lr.ph146.i ], [ %500, %._crit_edge.i ]
   %369 = getelementptr inbounds %"struct.cv::Evolution", ptr %368, i64 %.071143.i
   %370 = getelementptr inbounds i8, ptr %369, i64 496
@@ -6169,7 +6169,7 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
 
 ._crit_edge179.us.us:                             ; preds = %._crit_edge.split.us.us.us.split.us.us, %._crit_edge.split.us.us.us.split.us.us.us.us, %._crit_edge179.us.us.loopexit296
   %.us-phi196.us.us = phi i32 [ %.2123.us190.us.us, %._crit_edge179.us.us.loopexit296 ], [ %.2123.us.us.us.us.us.us.us, %._crit_edge.split.us.us.us.split.us.us.us.us ], [ %.2123.us.us.us.us.us, %._crit_edge.split.us.us.us.split.us.us ]
-  %.us-phi197.us.us = phi float [ 0.000000e+00, %._crit_edge179.us.us.loopexit296 ], [ 0.000000e+00, %._crit_edge.split.us.us.us.split.us.us.us.us ], [ %.3119.us.us.us.us.us, %._crit_edge.split.us.us.us.split.us.us ]
+  %.us-phi197.us.us = phi float [ 0.000000e+00, %._crit_edge179.us.us.loopexit296 ], [ 0.000000e+00, %._crit_edge.split.us.us.us.split.us.us.us.us ], [ %.2118.us.us.us.us.us, %._crit_edge.split.us.us.us.split.us.us ]
   %121 = phi <2 x float> [ %120, %._crit_edge179.us.us.loopexit296 ], [ %271, %._crit_edge.split.us.us.us.split.us.us.us.us ], [ %216, %._crit_edge.split.us.us.us.split.us.us ]
   %122 = icmp sgt i32 %.us-phi196.us.us, 0
   br i1 %122, label %103, label %110
@@ -6247,7 +6247,7 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
   br i1 %94, label %.preheader.us.us.us.us.us, label %.preheader.us.us.us229.us
 
 .preheader.us.us.us229.us:                        ; preds = %.preheader.lr.ph.split.us.split.us.us.us, %._crit_edge.split.us.us.us.split.us.us
-  %.0116176.us.us.us.us = phi float [ %.3119.us.us.us.us.us, %._crit_edge.split.us.us.us.split.us.us ], [ 0.000000e+00, %.preheader.lr.ph.split.us.split.us.us.us ]
+  %.0116176.us.us.us.us = phi float [ %.2118.us.us.us.us.us, %._crit_edge.split.us.us.us.split.us.us ], [ 0.000000e+00, %.preheader.lr.ph.split.us.split.us.us.us ]
   %.0121175.us.us.us232.us = phi i32 [ %.2123.us.us.us.us.us, %._crit_edge.split.us.us.us.split.us.us ], [ 0, %.preheader.lr.ph.split.us.split.us.us.us ]
   %.0124174.us.us.us233.us = phi i32 [ %219, %._crit_edge.split.us.us.us.split.us.us ], [ %.0105246.us, %.preheader.lr.ph.split.us.split.us.us.us ]
   %162 = phi <2 x float> [ %216, %._crit_edge.split.us.us.us.split.us.us ], [ zeroinitializer, %.preheader.lr.ph.split.us.split.us.us.us ]
@@ -6259,7 +6259,7 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
   br label %168
 
 168:                                              ; preds = %215, %.preheader.us.us.us229.us
-  %.1117165.us.us.us.us.us = phi float [ %.0116176.us.us.us.us, %.preheader.us.us.us229.us ], [ %.3119.us.us.us.us.us, %215 ]
+  %.1117165.us.us.us.us.us = phi float [ %.0116176.us.us.us.us, %.preheader.us.us.us229.us ], [ %.2118.us.us.us.us.us, %215 ]
   %.1122164.us.us.us.us.us = phi i32 [ %.0121175.us.us.us232.us, %.preheader.us.us.us229.us ], [ %.2123.us.us.us.us.us, %215 ]
   %.0125163.us.us.us.us.us = phi i32 [ %.0106212.us.us, %.preheader.us.us.us229.us ], [ %217, %215 ]
   %169 = phi <2 x float> [ %162, %.preheader.us.us.us229.us ], [ %216, %215 ]
@@ -6319,7 +6319,7 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
 
 215:                                              ; preds = %187, %184, %168
   %.2123.us.us.us.us.us = phi i32 [ %.1122164.us.us.us.us.us, %168 ], [ %.1122164.us.us.us.us.us, %184 ], [ %214, %187 ]
-  %.3119.us.us.us.us.us = phi float [ %.1117165.us.us.us.us.us, %168 ], [ %.1117165.us.us.us.us.us, %184 ], [ %213, %187 ]
+  %.2118.us.us.us.us.us = phi float [ %.1117165.us.us.us.us.us, %168 ], [ %.1117165.us.us.us.us.us, %184 ], [ %213, %187 ]
   %216 = phi <2 x float> [ %169, %168 ], [ %169, %184 ], [ %212, %187 ]
   %217 = add nsw i32 %.0125163.us.us.us.us.us, 1
   %218 = icmp slt i32 %217, %123
@@ -6697,13 +6697,13 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker24Get_MLDB_Full_Descrip
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %.1 = phi i32 [ %.049, %.preheader.us.preheader.i ], [ %.4, %._crit_edge.us.i ]
+  %.1 = phi i32 [ %.049, %.preheader.us.preheader.i ], [ %.3, %._crit_edge.us.i ]
   %indvars.iv61.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next62.i, %._crit_edge.us.i ]
   %invariant.gep68.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv61.i
   br label %83
 
 83:                                               ; preds = %.loopexit.us.i, %.preheader.us.i
-  %.2 = phi i32 [ %.1, %.preheader.us.i ], [ %.4, %.loopexit.us.i ]
+  %.2 = phi i32 [ %.1, %.preheader.us.i ], [ %.3, %.loopexit.us.i ]
   %indvars.iv56.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next57.i, %.loopexit.us.i ]
   %indvars.iv49.i = phi i64 [ 1, %.preheader.us.i ], [ %indvars.iv.next50.i, %.loopexit.us.i ]
   %84 = mul nuw nsw i64 %indvars.iv56.i, %82
@@ -6714,7 +6714,7 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker24Get_MLDB_Full_Descrip
   br i1 %86, label %.lr.ph42.us.i, label %.loopexit.us.i
 
 .lr.ph42.us.i:                                    ; preds = %83, %99
-  %.3 = phi i32 [ %100, %99 ], [ %.2, %83 ]
+  %.4 = phi i32 [ %100, %99 ], [ %.2, %83 ]
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %99 ], [ %indvars.iv49.i, %83 ]
   %87 = mul nuw nsw i64 %indvars.iv51.i, %82
   %gep.i = getelementptr inbounds i32, ptr %invariant.gep68.i, i64 %87
@@ -6723,9 +6723,9 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker24Get_MLDB_Full_Descrip
   br i1 %89, label %90, label %99
 
 90:                                               ; preds = %.lr.ph42.us.i
-  %91 = and i32 %.3, 7
+  %91 = and i32 %.4, 7
   %92 = shl nuw nsw i32 1, %91
-  %93 = ashr i32 %.3, 3
+  %93 = ashr i32 %.4, 3
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %2, i64 %94
   %96 = load i8, ptr %95, align 1
@@ -6735,13 +6735,13 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker24Get_MLDB_Full_Descrip
   br label %99
 
 99:                                               ; preds = %90, %.lr.ph42.us.i
-  %100 = add nsw i32 %.3, 1
+  %100 = add nsw i32 %.4, 1
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %71
   br i1 %exitcond55.not.i, label %.loopexit.us.i, label %.lr.ph42.us.i, !llvm.loop !99
 
 .loopexit.us.i:                                   ; preds = %99, %83
-  %.4 = phi i32 [ %.2, %83 ], [ %100, %99 ]
+  %.3 = phi i32 [ %.2, %83 ], [ %100, %99 ]
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %71
   br i1 %exitcond60.not.i, label %._crit_edge.us.i, label %83, !llvm.loop !100
@@ -6764,7 +6764,7 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker24Get_MLDB_Full_Descrip
   br i1 %exitcond.not.i, label %.preheader39.i, label %.lr.ph.i, !llvm.loop !102
 
 _ZNK2cv28MLDB_Full_Descriptor_Invoker23MLDB_Binary_ComparisonsEPfPhiRi.exit: ; preds = %._crit_edge.us.i, %.preheader39.i
-  %.5 = phi i32 [ %.049, %.preheader39.i ], [ %.4, %._crit_edge.us.i ]
+  %.5 = phi i32 [ %.049, %.preheader39.i ], [ %.3, %._crit_edge.us.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %106, label %69, !llvm.loop !103

@@ -59,8 +59,8 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
   br label %23
 
 23:                                               ; preds = %g_string_append_c_inline.exit, %18
-  %.073 = phi i32 [ 0, %18 ], [ %.275, %g_string_append_c_inline.exit ]
-  %.072 = phi i32 [ 0, %18 ], [ %.1, %g_string_append_c_inline.exit ]
+  %.073 = phi i32 [ 0, %18 ], [ %.3, %g_string_append_c_inline.exit ]
+  %.072 = phi i32 [ 0, %18 ], [ %.2, %g_string_append_c_inline.exit ]
   %24 = load ptr, ptr %0, align 8
   %25 = call i32 @wtap_read_bytes(ptr noundef %24, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %1, ptr noundef %2) #7
   %.not78 = icmp eq i32 %25, 0
@@ -160,23 +160,23 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
   br label %150
 
 g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
-  %.275 = phi i32 [ %.174, %42 ], [ %.073, %64 ], [ %.073, %70 ]
-  %.1 = phi i32 [ 1, %42 ], [ %.072, %64 ], [ %.072, %70 ]
+  %.3 = phi i32 [ %.174, %42 ], [ %.073, %64 ], [ %.073, %70 ]
+  %.2 = phi i32 [ 1, %42 ], [ %.072, %64 ], [ %.072, %70 ]
   %74 = load i8, ptr %5, align 1
   %.not81 = icmp eq i8 %74, 10
   br i1 %.not81, label %.loopexit.loopexit, label %23, !llvm.loop !4
 
 .loopexit.loopexit:                               ; preds = %g_string_append_c_inline.exit
-  %75 = icmp eq i32 %.1, 0
+  %75 = icmp eq i32 %.2, 0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %48
-  %.3 = phi i32 [ %.073, %48 ], [ %.275, %.loopexit.loopexit ]
-  %.2 = phi i1 [ false, %48 ], [ %75, %.loopexit.loopexit ]
+  %.275 = phi i32 [ %.073, %48 ], [ %.3, %.loopexit.loopexit ]
+  %.1 = phi i1 [ false, %48 ], [ %75, %.loopexit.loopexit ]
   %76 = call ptr @g_string_free(ptr noundef nonnull %19, i32 noundef 1) #7
   %77 = load i16, ptr %8, align 2
   %78 = icmp eq i16 %77, 0
-  %or.cond = select i1 %.2, i1 true, i1 %78
+  %or.cond = select i1 %.1, i1 true, i1 %78
   br i1 %or.cond, label %79, label %81
 
 79:                                               ; preds = %.loopexit
@@ -264,7 +264,7 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   call void @ws_buffer_init(ptr noundef %125, i64 noundef 36) #7
   call void @wtap_buffer_append_epdu_uint(ptr noundef %125, i16 noundef zeroext 24, i32 noundef 3) #7
-  %.not88 = icmp eq i32 %.3, 0
+  %.not88 = icmp eq i32 %.275, 0
   br i1 %.not88, label %128, label %127
 
 127:                                              ; preds = %124

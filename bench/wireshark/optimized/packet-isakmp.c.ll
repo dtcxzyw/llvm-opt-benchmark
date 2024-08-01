@@ -7317,7 +7317,7 @@ define internal fastcc noundef ptr @dissect_enc(ptr noundef %0, i32 noundef %1, 
 
 182:                                              ; preds = %174, %166
   %183 = phi ptr [ %156, %166 ], [ %179, %174 ]
-  %.0309 = phi i32 [ %170, %166 ], [ %178, %174 ]
+  %.1310 = phi i32 [ %170, %166 ], [ %178, %174 ]
   %.0297 = phi i32 [ 0, %166 ], [ %spec.select, %174 ]
   %184 = icmp slt i32 %169, 0
   br i1 %184, label %191, label %185
@@ -7327,7 +7327,7 @@ define internal fastcc noundef ptr @dissect_enc(ptr noundef %0, i32 noundef %1, 
   %187 = load i32, ptr %186, align 4
   %188 = add i32 %.0297, %20
   %189 = add i32 %188, %187
-  %190 = icmp slt i32 %.0309, %189
+  %190 = icmp slt i32 %.1310, %189
   br i1 %190, label %191, label %198
 
 191:                                              ; preds = %185, %182
@@ -7338,12 +7338,12 @@ define internal fastcc noundef ptr @dissect_enc(ptr noundef %0, i32 noundef %1, 
   %195 = load i32, ptr %194, align 4
   %196 = getelementptr inbounds i8, ptr %193, i64 24
   %197 = load i32, ptr %196, align 4
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1041, i32 noundef %195, i32 noundef %169, i32 noundef %197, i32 noundef %20, i32 noundef %.0309) #21
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1041, i32 noundef %195, i32 noundef %169, i32 noundef %197, i32 noundef %20, i32 noundef %.1310) #21
   unreachable
 
 198:                                              ; preds = %185
   %199 = load ptr, ptr %54, align 8
-  %200 = sext i32 %.0309 to i64
+  %200 = sext i32 %.1310 to i64
   %201 = call noalias ptr @wmem_alloc0(ptr noundef %199, i64 noundef %200) #17
   %202 = zext nneg i32 %.0297 to i64
   %203 = getelementptr i8, ptr %201, i64 %202
@@ -7373,7 +7373,7 @@ define internal fastcc noundef ptr @dissect_enc(ptr noundef %0, i32 noundef %1, 
   br i1 %219, label %220, label %234
 
 220:                                              ; preds = %216
-  %221 = add i32 %.0309, -1
+  %221 = add i32 %.1310, -1
   %222 = sext i32 %221 to i64
   %223 = getelementptr i8, ptr %201, i64 %222
   store i8 1, ptr %223, align 1
@@ -7389,7 +7389,7 @@ define internal fastcc noundef ptr @dissect_enc(ptr noundef %0, i32 noundef %1, 
 
 228:                                              ; preds = %220
   %229 = load i32, ptr %208, align 4
-  %230 = add i32 %.0309, 254
+  %230 = add i32 %.1310, 254
   %231 = add i32 %20, %229
   %232 = sub i32 %230, %231
   %233 = trunc i32 %232 to i8
@@ -7399,7 +7399,7 @@ define internal fastcc noundef ptr @dissect_enc(ptr noundef %0, i32 noundef %1, 
 234:                                              ; preds = %._crit_edge, %216, %228, %220
   %235 = phi ptr [ %204, %228 ], [ %204, %220 ], [ %204, %216 ], [ %.pre, %._crit_edge ]
   %.0311 = phi i32 [ %169, %228 ], [ %169, %220 ], [ %169, %216 ], [ %31, %._crit_edge ]
-  %.1310 = phi i32 [ %.0309, %228 ], [ %.0309, %220 ], [ %.0309, %216 ], [ %20, %._crit_edge ]
+  %.0309 = phi i32 [ %.1310, %228 ], [ %.1310, %220 ], [ %.1310, %216 ], [ %20, %._crit_edge ]
   %.1 = phi ptr [ %201, %228 ], [ %201, %220 ], [ %201, %216 ], [ %.0307, %._crit_edge ]
   %236 = load ptr, ptr %10, align 8
   %237 = sext i32 %.0311 to i64
@@ -7420,7 +7420,7 @@ define internal fastcc noundef ptr @dissect_enc(ptr noundef %0, i32 noundef %1, 
   %246 = load i32, ptr %245, align 4
   %247 = icmp eq i32 %246, 6
   %248 = load ptr, ptr %10, align 8
-  %249 = sext i32 %.1310 to i64
+  %249 = sext i32 %.0309 to i64
   br i1 %247, label %250, label %252
 
 250:                                              ; preds = %244
@@ -7441,7 +7441,7 @@ define internal fastcc noundef ptr @dissect_enc(ptr noundef %0, i32 noundef %1, 
   %257 = getelementptr inbounds i8, ptr %255, i64 16
   %258 = load i32, ptr %257, align 4
   %259 = call ptr @gcry_strerror(i32 noundef %.0306) #17
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1043, i32 noundef %258, i32 noundef %.1310, ptr noundef %259) #21
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1043, i32 noundef %258, i32 noundef %.0309, ptr noundef %259) #21
   unreachable
 
 260:                                              ; preds = %254

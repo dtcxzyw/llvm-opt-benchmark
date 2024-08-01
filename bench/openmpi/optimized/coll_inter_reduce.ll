@@ -70,7 +70,7 @@ opal_datatype_span.exit:                          ; preds = %10, %16
   br i1 %.not41, label %48, label %53
 
 48:                                               ; preds = %32, %45
-  %.033 = phi i32 [ 0, %45 ], [ %43, %32 ]
+  %.1 = phi i32 [ 0, %45 ], [ %43, %32 ]
   tail call void @free(ptr noundef nonnull %30) #4
   br label %53
 
@@ -81,7 +81,7 @@ opal_datatype_span.exit:                          ; preds = %10, %16
   br label %53
 
 53:                                               ; preds = %49, %48, %8, %45, %opal_datatype_span.exit
-  %.0 = phi i32 [ -2, %opal_datatype_span.exit ], [ %47, %45 ], [ %.033, %48 ], [ 0, %8 ], [ %52, %49 ]
+  %.0 = phi i32 [ -2, %opal_datatype_span.exit ], [ %47, %45 ], [ %.1, %48 ], [ 0, %8 ], [ %52, %49 ]
   ret i32 %.0
 }
 

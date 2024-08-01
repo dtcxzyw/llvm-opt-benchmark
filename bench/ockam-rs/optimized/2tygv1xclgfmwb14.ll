@@ -383,7 +383,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
   br label %11
 
 11:                                               ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31 ]
   %.018 = phi i64 [ %6, %4 ], [ %.119, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31 ]
   %12 = load i64, ptr %7, align 8, !noundef !4
   %13 = add i64 %12, -1
@@ -466,7 +466,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31: ; preds = 
   %.pn.in = phi i1 [ %38, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ], [ %28, %.thread.i ], [ %56, %55 ]
   %.119 = phi i64 [ %39, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ], [ %29, %.thread.i ], [ %53, %55 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.0, %.pn
+  %.1 = add nuw nsw i32 %.0, %.pn
   br label %11
 
 44:                                               ; preds = %60, %43
@@ -534,7 +534,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3pop1
   br label %9
 
 9:                                                ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19, %2
-  %.025 = phi i32 [ 0, %2 ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19 ]
+  %.025 = phi i32 [ 0, %2 ], [ %.126, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19 ]
   %.0 = phi i64 [ %4, %2 ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19 ]
   %10 = load i64, ptr %5, align 8, !noundef !4
   %11 = add i64 %10, -1
@@ -610,7 +610,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19: ; preds = 
   %.pn.in = phi i1 [ %37, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ], [ %29, %.thread.i ], [ %53, %52 ]
   %.1 = phi i64 [ %38, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ], [ %30, %.thread.i ], [ %50, %52 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.025, %.pn
+  %.126 = add nuw nsw i32 %.025, %.pn
   br label %9
 
 43:                                               ; preds = %57, %42
@@ -12155,23 +12155,23 @@ common.ret:                                       ; preds = %151, %23
   br label %.body45
 
 "_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit31.i": ; preds = %.thread.i, %116, %148
-  %.sroa.8.i.sroa.0.1 = phi ptr [ %.sroa.3.i.sroa.0.0.copyload, %148 ], [ %.sroa.8.i.sroa.0.0.copyload, %.thread.i ], [ undef, %116 ]
+  %.sroa.8.i.sroa.0.0 = phi ptr [ %.sroa.3.i.sroa.0.0.copyload, %148 ], [ %.sroa.8.i.sroa.0.0.copyload, %.thread.i ], [ undef, %116 ]
   %.sroa.040.1.i = phi i64 [ 1, %148 ], [ %120, %.thread.i ], [ 0, %116 ]
-  %.sroa.441.2.i = phi i64 [ %103, %148 ], [ %.sroa.441.8.copyload42.i, %.thread.i ], [ 0, %116 ]
-  %.sroa.10.2.i = phi i64 [ %.sroa.5.0.copyload.i, %148 ], [ %.sroa.10.8.copyload45.i, %.thread.i ], [ undef, %116 ]
+  %.sroa.441.1.i = phi i64 [ %103, %148 ], [ %.sroa.441.8.copyload42.i, %.thread.i ], [ 0, %116 ]
+  %.sroa.10.1.i = phi i64 [ %.sroa.5.0.copyload.i, %148 ], [ %.sroa.10.8.copyload45.i, %.thread.i ], [ undef, %116 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.958.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i.sroa.5, i64 24, i1 false), !noalias !1952
   store i8 1, ptr %94, align 8, !noalias !1887
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.8.i.sroa.5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.3.i.sroa.6)
   store i64 %.sroa.040.1.i, ptr %15, align 8
   %.sroa.857.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %.sroa.441.2.i, ptr %.sroa.857.0..sroa_idx, align 8
+  store i64 %.sroa.441.1.i, ptr %.sroa.857.0..sroa_idx, align 8
   %.sroa.958.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr %.sroa.8.i.sroa.0.1, ptr %.sroa.958.0..sroa_idx, align 8
+  store ptr %.sroa.8.i.sroa.0.0, ptr %.sroa.958.0..sroa_idx, align 8
   %.sroa.958.sroa.6.0..sroa.958.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.958.sroa.6.0..sroa.958.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.958.sroa.6, i64 24, i1 false)
   %.sroa.1059.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 48
-  store i64 %.sroa.10.2.i, ptr %.sroa.1059.0..sroa_idx, align 8
+  store i64 %.sroa.10.1.i, ptr %.sroa.1059.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.958.sroa.6)
   invoke fastcc void @"_ZN4core3ptr311drop_in_place$LT$sqlx_core..query_as..QueryAs$LT$sqlx_sqlite..database..Sqlite$C$ockam_abac..policy..storage..resource_repository_sql..ResourceRow$C$sqlx_sqlite..arguments..SqliteArguments$GT$..fetch_optional$LT$$RF$sqlx_core..pool..Pool$LT$sqlx_sqlite..database..Sqlite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h942aa3ab5b33008bE"(ptr noundef nonnull align 8 %95)
           to label %155 unwind label %153

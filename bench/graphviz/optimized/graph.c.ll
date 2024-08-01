@@ -403,8 +403,8 @@ define i32 @agnedges(ptr noundef %0) local_unnamed_addr #0 {
   br label %agdegree.exit
 
 agdegree.exit:                                    ; preds = %4, %6
-  %.1.i = phi i32 [ %11, %6 ], [ 0, %4 ]
-  %13 = add nsw i32 %.1.i, %.010
+  %.0.i = phi i32 [ %11, %6 ], [ 0, %4 ]
+  %13 = add nsw i32 %.0.i, %.010
   %14 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.079) #12
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %4
@@ -436,7 +436,7 @@ define i32 @agdegree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef
   br label %15
 
 15:                                               ; preds = %7, %6
-  %.0 = phi i32 [ %13, %7 ], [ 0, %6 ]
+  %.1 = phi i32 [ %13, %7 ], [ 0, %6 ]
   %.not13 = icmp eq i32 %2, 0
   br i1 %.not13, label %25, label %16
 
@@ -449,12 +449,12 @@ define i32 @agdegree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef
   %22 = tail call i32 @dtsize(ptr noundef %18) #12
   %23 = tail call ptr @dtextract(ptr noundef %18) #12
   store ptr %23, ptr %19, align 8
-  %24 = add nsw i32 %22, %.0
+  %24 = add nsw i32 %22, %.1
   br label %25
 
 25:                                               ; preds = %15, %16, %4
-  %.1 = phi i32 [ %24, %16 ], [ %.0, %15 ], [ 0, %4 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %24, %16 ], [ %.1, %15 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -546,20 +546,20 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %.not2028, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
-  %.130 = phi i32 [ %spec.select, %.lr.ph ], [ %12, %22 ]
+  %.230 = phi i32 [ %spec.select, %.lr.ph ], [ %12, %22 ]
   %.01829 = phi ptr [ %27, %.lr.ph ], [ %23, %22 ]
   %24 = getelementptr inbounds i8, ptr %.01829, i64 56
   %25 = load ptr, ptr %24, align 8
   %.not21 = icmp ne ptr %25, %1
   %26 = zext i1 %.not21 to i32
-  %spec.select = add nsw i32 %.130, %26
+  %spec.select = add nsw i32 %.230, %26
   %27 = tail call ptr @agnxtin(ptr noundef %0, ptr noundef nonnull %.01829) #12
   %.not20 = icmp eq ptr %27, null
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %.thread, %14, %6
-  %.3 = phi i32 [ %20, %14 ], [ 0, %6 ], [ %12, %.thread ], [ %12, %22 ], [ %spec.select, %.lr.ph ]
-  ret i32 %.3
+  %.1 = phi i32 [ %20, %14 ], [ 0, %6 ], [ %12, %.thread ], [ %12, %22 ], [ %spec.select, %.lr.ph ]
+  ret i32 %.1
 }
 
 declare ptr @agsubrep(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -140,9 +140,9 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
 16:                                               ; preds = %50, %5
   %.087 = phi i64 [ 0, %5 ], [ %.188, %50 ]
   %.085 = phi ptr [ %11, %5 ], [ %.186, %50 ]
-  %.081 = phi i32 [ 0, %5 ], [ %.182, %50 ]
-  %.078 = phi i8 [ -1, %5 ], [ %.179, %50 ]
-  %.0 = phi i64 [ 0, %5 ], [ %.1, %50 ]
+  %.081 = phi i32 [ 0, %5 ], [ %.283, %50 ]
+  %.078 = phi i8 [ -1, %5 ], [ %.280, %50 ]
+  %.0 = phi i64 [ 0, %5 ], [ %.2, %50 ]
   %17 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 8, ptr noundef %3, ptr noundef %4) #3
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %23
@@ -177,9 +177,9 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
   %37 = and i8 %25, -4
   %switch = icmp eq i8 %37, 112
   %or.cond94 = and i1 %36, %switch
-  %.179 = select i1 %or.cond94, i8 %25, i8 %.078
-  %.1 = select i1 %or.cond94, i64 %35, i64 %.0
-  %38 = icmp eq i8 %25, %.179
+  %.280 = select i1 %or.cond94, i8 %25, i8 %.078
+  %.2 = select i1 %or.cond94, i64 %35, i64 %.0
+  %38 = icmp eq i8 %25, %.280
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %23
@@ -209,29 +209,29 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
 50:                                               ; preds = %47, %44
   %.188 = phi i64 [ %35, %44 ], [ %.087, %47 ]
   %.186 = phi ptr [ %45, %44 ], [ %.085, %47 ]
-  %.182 = phi i32 [ %46, %44 ], [ %.081, %47 ]
-  %51 = icmp slt i32 %.182, 4096
+  %.283 = phi i32 [ %46, %44 ], [ %.081, %47 ]
+  %51 = icmp slt i32 %.283, 4096
   br i1 %51, label %16, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %50, %18, %22, %19, %48, %42
-  %.283 = phi i32 [ %.081, %42 ], [ %.081, %48 ], [ %.081, %22 ], [ %.081, %19 ], [ 0, %18 ], [ %.182, %50 ]
-  %.280 = phi i8 [ %25, %42 ], [ %.179, %48 ], [ %.078, %22 ], [ %.078, %19 ], [ %.078, %18 ], [ %.179, %50 ]
-  %.2 = phi i64 [ %.1, %42 ], [ %.1, %48 ], [ %.0, %22 ], [ %.0, %19 ], [ %.0, %18 ], [ %.1, %50 ]
-  %52 = icmp eq i8 %.280, -1
+  %.182 = phi i32 [ %.081, %42 ], [ %.081, %48 ], [ %.081, %22 ], [ %.081, %19 ], [ 0, %18 ], [ %.283, %50 ]
+  %.179 = phi i8 [ %25, %42 ], [ %.280, %48 ], [ %.078, %22 ], [ %.078, %19 ], [ %.078, %18 ], [ %.280, %50 ]
+  %.1 = phi i64 [ %.2, %42 ], [ %.2, %48 ], [ %.0, %22 ], [ %.0, %19 ], [ %.0, %18 ], [ %.2, %50 ]
+  %52 = icmp eq i8 %.179, -1
   br i1 %52, label %74, label %53
 
 53:                                               ; preds = %.loopexit
   store i8 0, ptr %10, align 1
-  %54 = and i8 %.280, -3
+  %54 = and i8 %.179, -3
   %or.cond20 = icmp eq i8 %54, 112
   %spec.select = select i1 %or.cond20, i8 -2, i8 -1
   %55 = getelementptr i8, ptr %10, i64 1
   store i8 %spec.select, ptr %55, align 1
-  %56 = lshr i32 %.283, 8
+  %56 = lshr i32 %.182, 8
   %57 = trunc i32 %56 to i8
   %58 = getelementptr i8, ptr %10, i64 2
   store i8 %57, ptr %58, align 1
-  %59 = trunc i32 %.283 to i8
+  %59 = trunc i32 %.182 to i8
   %60 = getelementptr i8, ptr %10, i64 3
   store i8 %59, ptr %60, align 1
   store i32 0, ptr %1, align 8
@@ -243,15 +243,15 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
   store i32 177, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 3, ptr %65, align 4
-  %66 = mul nuw nsw i64 %.2, 10
-  %67 = udiv i64 %.2, 100000000
+  %66 = mul nuw nsw i64 %.1, 10
+  %67 = udiv i64 %.1, 100000000
   %68 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %67, ptr %68, align 8
   %69 = urem i64 %66, 1000000000
   %70 = trunc nuw nsw i64 %69 to i32
   %71 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %70, ptr %71, align 8
-  %72 = add i32 %.283, 4
+  %72 = add i32 %.182, 4
   store i32 %72, ptr %63, align 8
   %73 = getelementptr inbounds i8, ptr %1, i64 68
   store i32 %72, ptr %73, align 4

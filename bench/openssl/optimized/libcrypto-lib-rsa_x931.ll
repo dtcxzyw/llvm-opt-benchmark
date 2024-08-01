@@ -42,17 +42,17 @@ if.then6:                                         ; preds = %if.else
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %if.else
-  %p.0 = phi ptr [ %add.ptr, %if.then6 ], [ %incdec.ptr4, %if.else ]
-  store i8 -70, ptr %p.0, align 1
+  %p.1 = phi ptr [ %add.ptr, %if.then6 ], [ %incdec.ptr4, %if.else ]
+  store i8 -70, ptr %p.1, align 1
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end9, %if.then3
-  %to.pn = phi ptr [ %to, %if.then3 ], [ %p.0, %if.end9 ]
-  %p.1 = getelementptr inbounds i8, ptr %to.pn, i64 1
+  %to.pn = phi ptr [ %to, %if.then3 ], [ %p.1, %if.end9 ]
+  %p.0 = getelementptr inbounds i8, ptr %to.pn, i64 1
   %conv12 = zext i32 %flen to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %p.1, ptr align 1 %from, i64 %conv12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %p.0, ptr align 1 %from, i64 %conv12, i1 false)
   %idx.ext13 = sext i32 %flen to i64
-  %add.ptr14 = getelementptr inbounds i8, ptr %p.1, i64 %idx.ext13
+  %add.ptr14 = getelementptr inbounds i8, ptr %p.0, i64 %idx.ext13
   store i8 -52, ptr %add.ptr14, align 1
   br label %return
 

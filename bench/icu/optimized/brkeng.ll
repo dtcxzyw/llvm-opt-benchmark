@@ -471,9 +471,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -967,7 +967,7 @@ if.end21:                                         ; preds = %if.then.i, %if.else
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont7, %if.end21
-  %retval.0 = phi ptr [ %cond, %if.end21 ], [ %call5, %invoke.cont7 ]
+  %retval.1 = phi ptr [ %cond, %if.end21 ], [ %call5, %invoke.cont7 ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZZN6icu_7523ICULanguageBreakFactory12getEngineForEiPKcE17gBreakEngineMutex)
           to label %return unwind label %terminate.lpad.i12
 
@@ -979,8 +979,8 @@ terminate.lpad.i12:                               ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %cleanup, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %retval.0, %cleanup ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %cleanup ]
+  ret ptr %retval.0
 }
 
 declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #5
@@ -1383,7 +1383,7 @@ if.then75:                                        ; preds = %if.else73
   br label %cleanup
 
 cleanup:                                          ; preds = %new.notnull57, %new.notnull, %if.else73, %if.then70, %if.then75
-  %retval.0 = phi ptr [ null, %if.then75 ], [ null, %if.then70 ], [ null, %if.else73 ], [ %call46, %new.notnull ], [ %call55, %new.notnull57 ]
+  %retval.1 = phi ptr [ null, %if.then75 ], [ null, %if.then70 ], [ null, %if.else73 ], [ %call46, %new.notnull ], [ %call55, %new.notnull57 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ext) #13
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %dictnbuf) #13
   br label %return
@@ -1399,8 +1399,8 @@ ehcleanup80:                                      ; preds = %ehcleanup78, %lpad
   resume { ptr, i32 } %.pn24.pn
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.1 = phi ptr [ null, %if.then ], [ %retval.0, %cleanup ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then ], [ %retval.1, %cleanup ]
+  ret ptr %retval.0
 }
 
 declare ptr @ures_open_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5

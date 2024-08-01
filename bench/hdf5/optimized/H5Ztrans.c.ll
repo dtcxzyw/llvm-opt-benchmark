@@ -7036,7 +7036,7 @@ define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %.lr.ph, %55
   %24 = phi i64 [ 0, %.lr.ph ], [ %57, %55 ]
-  %.05590 = phi i32 [ 0, %.lr.ph ], [ %.1, %55 ]
+  %.190 = phi i32 [ 0, %.lr.ph ], [ %.2, %55 ]
   %.05688 = phi i32 [ 0, %.lr.ph ], [ %56, %55 ]
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
   %26 = load i8, ptr %25, align 1
@@ -7093,22 +7093,22 @@ switch.early.test:                                ; preds = %44
   ]
 
 53:                                               ; preds = %switch.early.test, %34, %33, %31
-  %54 = add i32 %.05590, 1
+  %54 = add i32 %.190, 1
   br label %55
 
 55:                                               ; preds = %switch.early.test, %switch.early.test, %44, %23, %53
-  %.1 = phi i32 [ %.05590, %switch.early.test ], [ %54, %53 ], [ %.05590, %23 ], [ %.05590, %44 ], [ %.05590, %switch.early.test ]
+  %.2 = phi i32 [ %.190, %switch.early.test ], [ %54, %53 ], [ %.190, %23 ], [ %.190, %44 ], [ %.190, %switch.early.test ]
   %56 = add i32 %.05688, 1
   %57 = zext i32 %56 to i64
   %58 = icmp ugt i64 %19, %57
   br i1 %58, label %23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55
-  %.not = icmp eq i32 %.1, 0
+  %.not = icmp eq i32 %.2, 0
   br i1 %.not, label %.thread98, label %59
 
 59:                                               ; preds = %._crit_edge
-  %60 = zext i32 %.1 to i64
+  %60 = zext i32 %.2 to i64
   %61 = shl nuw nsw i64 %60, 3
   %62 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %61) #14
   %63 = getelementptr inbounds i8, ptr %10, i64 8
@@ -7141,7 +7141,7 @@ H5Z__xform_parse.exit.thread:                     ; preds = %69
   br label %78
 
 H5Z__xform_parse.exit:                            ; preds = %.thread98, %69
-  %.055.lcssa97101 = phi i32 [ %.1, %.thread98 ], [ 0, %69 ]
+  %.1.lcssa97101 = phi i32 [ %.2, %.thread98 ], [ 0, %69 ]
   %73 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %0, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %2, i64 16
@@ -7156,7 +7156,7 @@ H5Z__xform_parse.exit:                            ; preds = %.thread98, %69
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %H5Z__xform_parse.exit.thread, %H5Z__xform_parse.exit
-  %.055.lcssa97102 = phi i32 [ 0, %H5Z__xform_parse.exit.thread ], [ %.055.lcssa97101, %H5Z__xform_parse.exit ]
+  %.1.lcssa97102 = phi i32 [ 0, %H5Z__xform_parse.exit.thread ], [ %.1.lcssa97101, %H5Z__xform_parse.exit ]
   %79 = load i64, ptr @H5E_RESOURCE_g, align 8
   %80 = load i64, ptr @H5E_NOSPACE_g, align 8
   %81 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1452, i64 noundef %79, i64 noundef %80, ptr noundef nonnull @.str.8) #12
@@ -7164,7 +7164,7 @@ H5Z__xform_parse.exit:                            ; preds = %.thread98, %69
 
 82:                                               ; preds = %H5Z__xform_parse.exit
   %83 = load i32, ptr %10, align 8
-  %.not67 = icmp eq i32 %.055.lcssa97101, %83
+  %.not67 = icmp eq i32 %.1.lcssa97101, %83
   br i1 %.not67, label %.thread, label %84
 
 84:                                               ; preds = %82
@@ -7175,9 +7175,9 @@ H5Z__xform_parse.exit:                            ; preds = %.thread98, %69
   br label %.thread104
 
 .thread104:                                       ; preds = %84, %65, %78
-  %.2109 = phi i32 [ %.055.lcssa97101, %84 ], [ %.055.lcssa97102, %78 ], [ 1, %65 ]
+  %.055109 = phi i32 [ %.1.lcssa97101, %84 ], [ %.1.lcssa97102, %78 ], [ 1, %65 ]
   %88 = call ptr @H5MM_xfree(ptr noundef nonnull %17) #12
-  %.not74 = icmp eq i32 %.2109, 0
+  %.not74 = icmp eq i32 %.055109, 0
   br i1 %.not74, label %.thread111, label %89
 
 89:                                               ; preds = %.thread104

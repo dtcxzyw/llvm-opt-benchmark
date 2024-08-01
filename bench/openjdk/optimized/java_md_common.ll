@@ -213,12 +213,12 @@ define hidden noundef ptr @FindExecName(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not40, label %24, label %38, !llvm.loop !9
 
 38:                                               ; preds = %36, %24
-  %.2 = phi ptr [ %37, %36 ], [ null, %24 ]
+  %.1 = phi ptr [ %37, %36 ], [ null, %24 ]
   call void @JLI_MemFree(ptr noundef %22) #14
   br label %39
 
 39:                                               ; preds = %38, %11, %6
-  %.0 = phi ptr [ %8, %6 ], [ %13, %11 ], [ %.2, %38 ]
+  %.0 = phi ptr [ %8, %6 ], [ %13, %11 ], [ %.1, %38 ]
   ret ptr %.0
 }
 

@@ -1502,8 +1502,8 @@ _ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_16HandleGetCommandERKSt6vectorINS
   br label %293
 
 292:                                              ; preds = %_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_16HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsED2Ev.exit, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.2 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71 ], [ %.1, %_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_16HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsED2Ev.exit ]
-  ret i1 %.2
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71 ], [ %.1, %_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_16HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsED2Ev.exit ]
+  ret i1 %.0
 
 293:                                              ; preds = %.body76, %142, %.body, %107
   %.pn60.pn = phi { ptr, i32 } [ %.pn60, %.body ], [ %143, %142 ], [ %.pn57.pn, %.body76 ], [ %93, %107 ]
@@ -2113,8 +2113,8 @@ _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_tr
   br label %98
 
 _ZN12_GLOBAL__N_114OutputVariableD2Ev.exit:       ; preds = %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = xor i1 %13, true
-  ret i1 %.1
+  %.0 = xor i1 %13, true
+  ret i1 %.0
 
 98:                                               ; preds = %97, %36, %.body
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %.body ], [ %.pn.pn, %97 ], [ %37, %36 ]
@@ -2289,7 +2289,7 @@ _ZN11cmCMakePathD2Ev.exit:                        ; preds = %60, %63
   br label %79
 
 68:                                               ; preds = %19, %66
-  %.1 = phi i1 [ %27, %66 ], [ true, %19 ]
+  %.0 = phi i1 [ %27, %66 ], [ true, %19 ]
   %69 = getelementptr inbounds i8, ptr %4, i64 80
   %70 = load i8, ptr %69, align 8
   %71 = trunc i8 %70 to i1
@@ -2315,7 +2315,7 @@ _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_tr
   unreachable
 
 _ZN12_GLOBAL__N_114OutputVariableD2Ev.exit:       ; preds = %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i
-  ret i1 %.1
+  ret i1 %.0
 
 79:                                               ; preds = %67, %22
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %67 ], [ %23, %22 ]
@@ -2533,7 +2533,7 @@ _ZN11cmCMakePathD2Ev.exit:                        ; preds = %67, %70
   br label %90
 
 79:                                               ; preds = %21, %77, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ %43, %77 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %21 ]
+  %.0 = phi i1 [ %43, %77 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %21 ]
   %80 = getelementptr inbounds i8, ptr %4, i64 80
   %81 = load i8, ptr %80, align 8
   %82 = trunc i8 %81 to i1
@@ -2559,7 +2559,7 @@ _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_tr
   unreachable
 
 _ZN12_GLOBAL__N_114OutputVariableD2Ev.exit:       ; preds = %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i
-  ret i1 %.1
+  ret i1 %.0
 
 90:                                               ; preds = %78, %.body, %24
   %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %78 ], [ %.pn, %.body ], [ %25, %24 ]
@@ -2870,7 +2870,7 @@ _ZN11cmCMakePathD2Ev.exit:                        ; preds = %91, %94
   br label %117
 
 106:                                              ; preds = %24, %104, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %49, %104 ], [ true, %24 ]
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %49, %104 ], [ true, %24 ]
   %107 = getelementptr inbounds i8, ptr %5, i64 80
   %108 = load i8, ptr %107, align 8
   %109 = trunc i8 %108 to i1
@@ -2896,7 +2896,7 @@ _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_tr
   unreachable
 
 _ZN12_GLOBAL__N_114OutputVariableD2Ev.exit:       ; preds = %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i
-  ret i1 %.1
+  ret i1 %.0
 
 117:                                              ; preds = %105, %.body, %27
   %.pn26.pn = phi { ptr, i32 } [ %.pn26, %.body ], [ %.pn23.pn, %105 ], [ %28, %27 ]
@@ -3278,7 +3278,7 @@ _ZN11cmCMakePathD2Ev.exit:                        ; preds = %131, %134
   br label %148
 
 139:                                              ; preds = %67, %137, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ %92, %137 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %67 ]
+  %.0 = phi i1 [ %92, %137 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %67 ]
   %140 = load i8, ptr %36, align 8
   %141 = trunc i8 %140 to i1
   br i1 %141, label %142, label %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i
@@ -3302,7 +3302,7 @@ _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_tr
   unreachable
 
 _ZZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusEN9ArgumentsD2Ev.exit: ; preds = %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i
-  ret i1 %.1
+  ret i1 %.0
 
 148:                                              ; preds = %138, %.body, %73
   %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22.pn, %138 ], [ %.pn20, %.body ], [ %74, %73 ]
@@ -3756,7 +3756,7 @@ _ZN11cmCMakePathD2Ev.exit60:                      ; preds = %_ZN11cmCMakePathD2E
   br label %166
 
 157:                                              ; preds = %70, %155, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %98, %155 ], [ true, %70 ]
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %98, %155 ], [ true, %70 ]
   %158 = load i8, ptr %39, align 8
   %159 = trunc i8 %158 to i1
   br i1 %159, label %160, label %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i
@@ -3780,7 +3780,7 @@ _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_tr
   unreachable
 
 _ZZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusEN9ArgumentsD2Ev.exit: ; preds = %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i
-  ret i1 %.1
+  ret i1 %.0
 
 166:                                              ; preds = %156, %.body, %76
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %.body ], [ %.pn38.pn.pn, %156 ], [ %77, %76 ]
@@ -4012,7 +4012,7 @@ _ZN11cmCMakePathD2Ev.exit30:                      ; preds = %71, %74
   br label %95
 
 84:                                               ; preds = %22, %82, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ %44, %82 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %22 ]
+  %.0 = phi i1 [ %44, %82 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %22 ]
   %85 = getelementptr inbounds i8, ptr %4, i64 80
   %86 = load i8, ptr %85, align 8
   %87 = trunc i8 %86 to i1
@@ -4038,7 +4038,7 @@ _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_tr
   unreachable
 
 _ZN12_GLOBAL__N_114OutputVariableD2Ev.exit:       ; preds = %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i
-  ret i1 %.1
+  ret i1 %.0
 
 95:                                               ; preds = %83, %.body, %25
   %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %83 ], [ %.pn, %.body ], [ %26, %25 ]
@@ -4477,8 +4477,8 @@ _ZN11cmCMakePathD2Ev.exit:                        ; preds = %103, %106
   br label %112
 
 111:                                              ; preds = %109, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit38, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit38 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45 ], [ %80, %109 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit38 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45 ], [ %80, %109 ]
+  ret i1 %.0
 
 112:                                              ; preds = %110, %.body41, %.body34, %59, %.body
   %.pn27.pn = phi { ptr, i32 } [ %.pn27, %.body ], [ %.pn25, %.body34 ], [ %.pn23, %.body41 ], [ %.pn.pn, %110 ], [ %60, %59 ]
@@ -6204,7 +6204,7 @@ _ZN11cmCMakePathD2Ev.exit:                        ; preds = %49, %53
   br label %60
 
 59:                                               ; preds = %_ZN11cmCMakePathD2Ev.exit, %30, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit30
-  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit30 ], [ false, %30 ], [ true, %_ZN11cmCMakePathD2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit30 ], [ false, %30 ], [ true, %_ZN11cmCMakePathD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   br label %61
 
@@ -6214,8 +6214,8 @@ _ZN11cmCMakePathD2Ev.exit:                        ; preds = %49, %53
   br label %62
 
 61:                                               ; preds = %59, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0, %59 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.1, %59 ]
+  ret i1 %.0
 
 62:                                               ; preds = %60, %.body
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %.body ], [ %.pn.pn, %60 ]
@@ -6388,7 +6388,7 @@ _ZN11cmCMakePathD2Ev.exit:                        ; preds = %49, %54
   br label %61
 
 60:                                               ; preds = %_ZN11cmCMakePathD2Ev.exit, %30, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit30
-  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit30 ], [ false, %30 ], [ true, %_ZN11cmCMakePathD2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit30 ], [ false, %30 ], [ true, %_ZN11cmCMakePathD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   br label %62
 
@@ -6398,8 +6398,8 @@ _ZN11cmCMakePathD2Ev.exit:                        ; preds = %49, %54
   br label %63
 
 62:                                               ; preds = %60, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0, %60 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.1, %60 ]
+  ret i1 %.0
 
 63:                                               ; preds = %61, %.body
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %.body ], [ %.pn.pn, %61 ]
@@ -6815,7 +6815,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
           to label %141 unwind label %76
 
 141:                                              ; preds = %139, %75, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65
-  %.016 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65 ], [ false, %75 ], [ true, %139 ]
+  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65 ], [ false, %75 ], [ true, %139 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   br label %143
 
@@ -6825,8 +6825,8 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %144
 
 143:                                              ; preds = %141, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit58, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit58 ], [ %.016, %141 ]
-  ret i1 %.1
+  %.016 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit58 ], [ %.1, %141 ]
+  ret i1 %.016
 
 144:                                              ; preds = %142, %.body54, %65, %.body
   %.pn47.pn = phi { ptr, i32 } [ %.pn47, %.body ], [ %.pn45, %.body54 ], [ %.pn42.pn, %142 ], [ %66, %65 ]
@@ -7065,7 +7065,7 @@ _ZN11cmCMakePathD2Ev.exit40:                      ; preds = %_ZN11cmCMakePathD2E
   br label %83
 
 82:                                               ; preds = %33, %71, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit38
-  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit38 ], [ true, %71 ], [ false, %33 ]
+  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit38 ], [ true, %71 ], [ false, %33 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   br label %84
 
@@ -7075,8 +7075,8 @@ _ZN11cmCMakePathD2Ev.exit40:                      ; preds = %_ZN11cmCMakePathD2E
   br label %85
 
 84:                                               ; preds = %82, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0, %82 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.1, %82 ]
+  ret i1 %.0
 
 85:                                               ; preds = %83, %.body
   %.pn27.pn = phi { ptr, i32 } [ %.pn27, %.body ], [ %.pn24.pn, %83 ]
@@ -12258,12 +12258,12 @@ _ZN11cmCMakePathD2Ev.exit57:                      ; preds = %227, %230
 
 .sink.split:                                      ; preds = %153, %233
   %.sink = phi ptr [ %15, %233 ], [ %14, %153 ]
-  %.1.ph = phi i1 [ %173, %233 ], [ false, %153 ]
+  %.0.ph = phi i1 [ %173, %233 ], [ false, %153 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #20
   br label %236
 
 236:                                              ; preds = %.sink.split, %138
-  %.1 = phi i1 [ true, %138 ], [ %.1.ph, %.sink.split ]
+  %.0 = phi i1 [ true, %138 ], [ %.0.ph, %.sink.split ]
   %237 = load i8, ptr %106, align 8
   %238 = trunc i8 %237 to i1
   br i1 %238, label %239, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
@@ -12325,7 +12325,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_26HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSF_RKS7_EEbE9ArgumentsED2Ev.exit66: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i64, %253
   call void @_ZN14ArgumentParser9ActionMapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %11) #20
-  ret i1 %.1
+  ret i1 %.0
 
 .body40.sink.split:                               ; preds = %139, %156, %235, %126, %129
   %.pn27.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %lpad.phi.i.i.i.i, %129 ], [ %lpad.phi.i.i.i.i, %126 ], [ %.pn27.pn.pn, %235 ], [ %157, %156 ], [ %140, %139 ]
@@ -13638,9 +13638,9 @@ _ZN11cmCMakePathD2Ev.exit:                        ; preds = %62, %65
 
 _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit24, %_ZN11cmCMakePathD2Ev.exit, %32, %17
   %.sink = phi ptr [ %5, %17 ], [ %6, %32 ], [ %6, %_ZN11cmCMakePathD2Ev.exit ], [ %6, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit24 ]
-  %.1 = phi i1 [ false, %17 ], [ false, %32 ], [ true, %_ZN11cmCMakePathD2Ev.exit ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit24 ]
+  %.0 = phi i1 [ false, %17 ], [ false, %32 ], [ true, %_ZN11cmCMakePathD2Ev.exit ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #20
-  ret i1 %.1
+  ret i1 %.0
 
 70:                                               ; preds = %33, %.body, %66, %68, %26
   %.sink27 = phi ptr [ %5, %26 ], [ %6, %68 ], [ %6, %66 ], [ %6, %.body ], [ %6, %33 ]

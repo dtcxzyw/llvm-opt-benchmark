@@ -75,17 +75,17 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %.outer
 
 .outer:                                           ; preds = %488, %6
-  %.0328.ph = phi i32 [ %.2330, %488 ], [ 0, %6 ]
-  %.0325.ph = phi i32 [ %.2327, %488 ], [ 0, %6 ]
-  %.0322.ph = phi ptr [ %.2324, %488 ], [ null, %6 ]
+  %.0328.ph = phi i32 [ %.1329, %488 ], [ 0, %6 ]
+  %.0325.ph = phi i32 [ %.1326, %488 ], [ 0, %6 ]
+  %.0322.ph = phi ptr [ %.1323, %488 ], [ null, %6 ]
   %.0320.ph = phi i32 [ %.1321, %488 ], [ 1, %6 ]
-  %.0318.ph = phi ptr [ %.7, %488 ], [ %8, %6 ]
+  %.0318.ph = phi ptr [ %.1319, %488 ], [ %8, %6 ]
   %.0317.ph = phi i32 [ %.1, %488 ], [ 0, %6 ]
   br label %13
 
 13:                                               ; preds = %.outer, %324
   %.0320 = phi i32 [ 5, %324 ], [ %.0320.ph, %.outer ]
-  %.0318 = phi ptr [ %.6, %324 ], [ %.0318.ph, %.outer ]
+  %.0318 = phi ptr [ %.7, %324 ], [ %.0318.ph, %.outer ]
   switch i32 %.0320, label %485 [
     i32 1, label %14
     i32 3, label %60
@@ -228,14 +228,14 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 88:                                               ; preds = %73, %82
   %89 = phi ptr [ %.pre561, %82 ], [ %61, %73 ]
-  %.1319 = phi ptr [ %87, %82 ], [ %.0318, %73 ]
+  %.2 = phi ptr [ %87, %82 ], [ %.0318, %73 ]
   %90 = tail call i32 @pg_mblen(ptr noundef %89) #8
   %91 = sext i32 %90 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1319, ptr align 1 %89, i64 %91, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2, ptr align 1 %89, i64 %91, i1 false)
   %92 = load ptr, ptr %0, align 8
   %93 = tail call i32 @pg_mblen(ptr noundef %92) #8
   %94 = sext i32 %93 to i64
-  %95 = getelementptr i8, ptr %.1319, i64 %94
+  %95 = getelementptr i8, ptr %.2, i64 %94
   br label %488
 
 96:                                               ; preds = %13
@@ -316,8 +316,8 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 134:                                              ; preds = %119, %128
   %135 = phi ptr [ %131, %128 ], [ %120, %119 ]
-  %.2 = phi ptr [ %133, %128 ], [ %.0318, %119 ]
-  %136 = icmp eq ptr %.2, %135
+  %.3 = phi ptr [ %133, %128 ], [ %.0318, %119 ]
+  %136 = icmp eq ptr %.3, %135
   br i1 %136, label %137, label %149
 
 137:                                              ; preds = %134
@@ -339,7 +339,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %prssyntaxerror.exit
 
 149:                                              ; preds = %134
-  store i8 0, ptr %.2, align 1
+  store i8 0, ptr %.3, align 1
   %.not399 = icmp eq ptr %3, null
   br i1 %.not399, label %151, label %150
 
@@ -371,7 +371,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 157:                                              ; preds = %156
   %158 = load ptr, ptr %7, align 8
-  %159 = ptrtoint ptr %.2 to i64
+  %159 = ptrtoint ptr %.3 to i64
   %160 = ptrtoint ptr %158 to i64
   %161 = sub i64 %159, %160
   %162 = trunc i64 %161 to i32
@@ -493,14 +493,14 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 217:                                              ; preds = %203, %211
   %218 = phi ptr [ %.pre560, %211 ], [ %.pre558, %203 ]
-  %.3 = phi ptr [ %216, %211 ], [ %.0318, %203 ]
+  %.4 = phi ptr [ %216, %211 ], [ %.0318, %203 ]
   %219 = tail call i32 @pg_mblen(ptr noundef %218) #8
   %220 = sext i32 %219 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3, ptr align 1 %218, i64 %220, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.4, ptr align 1 %218, i64 %220, i1 false)
   %221 = load ptr, ptr %0, align 8
   %222 = tail call i32 @pg_mblen(ptr noundef %221) #8
   %223 = sext i32 %222 to i64
-  %224 = getelementptr i8, ptr %.3, i64 %223
+  %224 = getelementptr i8, ptr %.4, i64 %223
   br label %488
 
 225:                                              ; preds = %13
@@ -565,14 +565,14 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 257:                                              ; preds = %242, %251
   %258 = phi ptr [ %.pre556, %251 ], [ %.pre554, %242 ]
-  %.4 = phi ptr [ %256, %251 ], [ %.0318, %242 ]
+  %.5 = phi ptr [ %256, %251 ], [ %.0318, %242 ]
   %259 = tail call i32 @pg_mblen(ptr noundef %258) #8
   %260 = sext i32 %259 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.4, ptr align 1 %258, i64 %260, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.5, ptr align 1 %258, i64 %260, i1 false)
   %261 = load ptr, ptr %0, align 8
   %262 = tail call i32 @pg_mblen(ptr noundef %261) #8
   %263 = sext i32 %262 to i64
-  %264 = getelementptr i8, ptr %.4, i64 %263
+  %264 = getelementptr i8, ptr %.5, i64 %263
   br label %488
 
 265:                                              ; preds = %13
@@ -616,14 +616,14 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 286:                                              ; preds = %272, %280
   %287 = phi ptr [ %.pre, %280 ], [ %269, %272 ]
-  %.5 = phi ptr [ %285, %280 ], [ %.0318, %272 ]
+  %.6 = phi ptr [ %285, %280 ], [ %.0318, %272 ]
   %288 = tail call i32 @pg_mblen(ptr noundef %287) #8
   %289 = sext i32 %288 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.5, ptr align 1 %287, i64 %289, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.6, ptr align 1 %287, i64 %289, i1 false)
   %290 = load ptr, ptr %0, align 8
   %291 = tail call i32 @pg_mblen(ptr noundef %290) #8
   %292 = sext i32 %291 to i64
-  %293 = getelementptr i8, ptr %.5, i64 %292
+  %293 = getelementptr i8, ptr %.6, i64 %292
   br label %488
 
 294:                                              ; preds = %._crit_edge, %268
@@ -650,10 +650,10 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %309
 
 309:                                              ; preds = %294, %303
-  %.6 = phi ptr [ %308, %303 ], [ %.0318, %294 ]
-  store i8 0, ptr %.6, align 1
+  %.7 = phi ptr [ %308, %303 ], [ %.0318, %294 ]
+  store i8 0, ptr %.7, align 1
   %310 = load ptr, ptr %7, align 8
-  %311 = icmp eq ptr %.6, %310
+  %311 = icmp eq ptr %.7, %310
   br i1 %311, label %312, label %324
 
 312:                                              ; preds = %309
@@ -711,7 +711,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 335:                                              ; preds = %334
   %336 = load ptr, ptr %7, align 8
-  %337 = ptrtoint ptr %.6 to i64
+  %337 = ptrtoint ptr %.7 to i64
   %338 = ptrtoint ptr %336 to i64
   %339 = sub i64 %337, %338
   %340 = trunc i64 %339 to i32
@@ -808,11 +808,11 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %379
 
 379:                                              ; preds = %372, %374, %370
-  %.1329 = phi i32 [ 4, %370 ], [ %375, %374 ], [ %.0328.ph, %372 ]
-  %.1326 = phi i32 [ 0, %370 ], [ %.0325.ph, %374 ], [ %.0325.ph, %372 ]
-  %.1323 = phi ptr [ %371, %370 ], [ %378, %374 ], [ %.0322.ph, %372 ]
-  %380 = sext i32 %.1326 to i64
-  %381 = getelementptr i16, ptr %.1323, i64 %380
+  %.2330 = phi i32 [ 4, %370 ], [ %375, %374 ], [ %.0328.ph, %372 ]
+  %.2327 = phi i32 [ 0, %370 ], [ %.0325.ph, %374 ], [ %.0325.ph, %372 ]
+  %.2324 = phi ptr [ %371, %370 ], [ %378, %374 ], [ %.0322.ph, %372 ]
+  %380 = sext i32 %.2327 to i64
+  %381 = getelementptr i16, ptr %.2324, i64 %380
   %382 = load i16, ptr %381, align 2
   %383 = and i16 %382, -16384
   %384 = load ptr, ptr %0, align 8
@@ -841,7 +841,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %prssyntaxerror.exit
 
 400:                                              ; preds = %379
-  %401 = add i32 %.1326, 1
+  %401 = add i32 %.2327, 1
   %402 = trunc nuw nsw i32 %389 to i16
   store i16 %402, ptr %381, align 2
   br label %488
@@ -1036,11 +1036,11 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %488
 
 488:                                              ; preds = %228, %.fold.split, %22, %453, %415, %344, %183, %99, %18, %88, %257, %435, %451, %482, %443, %400, %286, %217, %50, %52
-  %.2330 = phi i32 [ %.0328.ph, %50 ], [ %.0328.ph, %52 ], [ %.0328.ph, %88 ], [ %.0328.ph, %217 ], [ %.0328.ph, %257 ], [ %.0328.ph, %286 ], [ %.1329, %400 ], [ %.0328.ph, %435 ], [ %.0328.ph, %443 ], [ %.0328.ph, %451 ], [ %.0328.ph, %482 ], [ %.0328.ph, %18 ], [ %.0328.ph, %99 ], [ %.0328.ph, %183 ], [ %.0328.ph, %228 ], [ %.0328.ph, %344 ], [ %.0328.ph, %415 ], [ %.0328.ph, %453 ], [ %.0328.ph, %22 ], [ %.0328.ph, %.fold.split ]
-  %.2327 = phi i32 [ %.0325.ph, %50 ], [ %.0325.ph, %52 ], [ %.0325.ph, %88 ], [ %.0325.ph, %217 ], [ %.0325.ph, %257 ], [ %.0325.ph, %286 ], [ %401, %400 ], [ %.0325.ph, %435 ], [ %.0325.ph, %443 ], [ %.0325.ph, %451 ], [ %.0325.ph, %482 ], [ %.0325.ph, %18 ], [ %.0325.ph, %99 ], [ %.0325.ph, %183 ], [ %.0325.ph, %228 ], [ %.0325.ph, %344 ], [ %.0325.ph, %415 ], [ %.0325.ph, %453 ], [ %.0325.ph, %22 ], [ %.0325.ph, %.fold.split ]
-  %.2324 = phi ptr [ %.0322.ph, %50 ], [ %.0322.ph, %52 ], [ %.0322.ph, %88 ], [ %.0322.ph, %217 ], [ %.0322.ph, %257 ], [ %.0322.ph, %286 ], [ %.1323, %400 ], [ %.0322.ph, %435 ], [ %.0322.ph, %443 ], [ %.0322.ph, %451 ], [ %.0322.ph, %482 ], [ %.0322.ph, %18 ], [ %.0322.ph, %99 ], [ %.0322.ph, %183 ], [ %.0322.ph, %228 ], [ %.0322.ph, %344 ], [ %.0322.ph, %415 ], [ %.0322.ph, %453 ], [ %.0322.ph, %22 ], [ %.0322.ph, %.fold.split ]
+  %.1329 = phi i32 [ %.0328.ph, %50 ], [ %.0328.ph, %52 ], [ %.0328.ph, %88 ], [ %.0328.ph, %217 ], [ %.0328.ph, %257 ], [ %.0328.ph, %286 ], [ %.2330, %400 ], [ %.0328.ph, %435 ], [ %.0328.ph, %443 ], [ %.0328.ph, %451 ], [ %.0328.ph, %482 ], [ %.0328.ph, %18 ], [ %.0328.ph, %99 ], [ %.0328.ph, %183 ], [ %.0328.ph, %228 ], [ %.0328.ph, %344 ], [ %.0328.ph, %415 ], [ %.0328.ph, %453 ], [ %.0328.ph, %22 ], [ %.0328.ph, %.fold.split ]
+  %.1326 = phi i32 [ %.0325.ph, %50 ], [ %.0325.ph, %52 ], [ %.0325.ph, %88 ], [ %.0325.ph, %217 ], [ %.0325.ph, %257 ], [ %.0325.ph, %286 ], [ %401, %400 ], [ %.0325.ph, %435 ], [ %.0325.ph, %443 ], [ %.0325.ph, %451 ], [ %.0325.ph, %482 ], [ %.0325.ph, %18 ], [ %.0325.ph, %99 ], [ %.0325.ph, %183 ], [ %.0325.ph, %228 ], [ %.0325.ph, %344 ], [ %.0325.ph, %415 ], [ %.0325.ph, %453 ], [ %.0325.ph, %22 ], [ %.0325.ph, %.fold.split ]
+  %.1323 = phi ptr [ %.0322.ph, %50 ], [ %.0322.ph, %52 ], [ %.0322.ph, %88 ], [ %.0322.ph, %217 ], [ %.0322.ph, %257 ], [ %.0322.ph, %286 ], [ %.2324, %400 ], [ %.0322.ph, %435 ], [ %.0322.ph, %443 ], [ %.0322.ph, %451 ], [ %.0322.ph, %482 ], [ %.0322.ph, %18 ], [ %.0322.ph, %99 ], [ %.0322.ph, %183 ], [ %.0322.ph, %228 ], [ %.0322.ph, %344 ], [ %.0322.ph, %415 ], [ %.0322.ph, %453 ], [ %.0322.ph, %22 ], [ %.0322.ph, %.fold.split ]
   %.1321 = phi i32 [ 1, %50 ], [ 2, %52 ], [ %.0317.ph, %88 ], [ 2, %217 ], [ 4, %257 ], [ 4, %286 ], [ 7, %400 ], [ 7, %435 ], [ 7, %443 ], [ 7, %451 ], [ 7, %482 ], [ 4, %18 ], [ 3, %99 ], [ 6, %183 ], [ 8, %228 ], [ 6, %344 ], [ 6, %415 ], [ 7, %453 ], [ 3, %22 ], [ 3, %.fold.split ]
-  %.7 = phi ptr [ %.0318, %50 ], [ %59, %52 ], [ %95, %88 ], [ %224, %217 ], [ %264, %257 ], [ %293, %286 ], [ %.0318, %400 ], [ %.0318, %435 ], [ %.0318, %443 ], [ %.0318, %451 ], [ %.0318, %482 ], [ %.0318, %18 ], [ %.0318, %99 ], [ %.0318, %183 ], [ %.0318, %228 ], [ %.0318, %344 ], [ %.0318, %415 ], [ %.0318, %453 ], [ %.0318, %22 ], [ %.0318, %.fold.split ]
+  %.1319 = phi ptr [ %.0318, %50 ], [ %59, %52 ], [ %95, %88 ], [ %224, %217 ], [ %264, %257 ], [ %293, %286 ], [ %.0318, %400 ], [ %.0318, %435 ], [ %.0318, %443 ], [ %.0318, %451 ], [ %.0318, %482 ], [ %.0318, %18 ], [ %.0318, %99 ], [ %.0318, %183 ], [ %.0318, %228 ], [ %.0318, %344 ], [ %.0318, %415 ], [ %.0318, %453 ], [ %.0318, %22 ], [ %.0318, %.fold.split ]
   %.1 = phi i32 [ %.0317.ph, %50 ], [ %.0317.ph, %52 ], [ %.0317.ph, %88 ], [ %.0317.ph, %217 ], [ %.0317.ph, %257 ], [ %.0317.ph, %286 ], [ %.0317.ph, %400 ], [ %.0317.ph, %435 ], [ %.0317.ph, %443 ], [ %.0317.ph, %451 ], [ %.0317.ph, %482 ], [ %.0317.ph, %18 ], [ 2, %99 ], [ %.0317.ph, %183 ], [ %.0317.ph, %228 ], [ %.0317.ph, %344 ], [ %.0317.ph, %415 ], [ %.0317.ph, %453 ], [ 2, %22 ], [ 4, %.fold.split ]
   %489 = load ptr, ptr %0, align 8
   %490 = tail call i32 @pg_mblen(ptr noundef %489) #8

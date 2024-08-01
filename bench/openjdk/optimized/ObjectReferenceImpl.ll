@@ -471,8 +471,8 @@ readFieldValue.exit:                              ; preds = %53, %149, %.sink.sp
   br i1 %.not196.i, label %23, label %.critedge.thread47
 
 .critedge.thread47:                               ; preds = %readFieldValue.exit, %29
-  %.150 = phi i32 [ %30, %29 ], [ 184, %readFieldValue.exit ]
-  %159 = call zeroext i16 @map2jdwpError(i32 noundef %.150) #3
+  %.03250 = phi i32 [ %30, %29 ], [ 184, %readFieldValue.exit ]
+  %159 = call zeroext i16 @map2jdwpError(i32 noundef %.03250) #3
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %159) #3
   br label %.critedge.thread
 

@@ -53,13 +53,13 @@ define i32 @pthread_mutex_take(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %pthread_mutex_add.exit
 
 pthread_mutex_add.exit:                           ; preds = %22, %16, %13, %4, %9
-  %.0 = phi i32 [ %11, %9 ], [ 130, %4 ], [ 130, %13 ], [ 0, %16 ], [ 0, %22 ]
+  %.1 = phi i32 [ %11, %9 ], [ 130, %4 ], [ 130, %13 ], [ 0, %16 ], [ 0, %22 ]
   %23 = call i32 @sched_unlock() #3
   br label %24
 
 24:                                               ; preds = %pthread_mutex_add.exit, %2
-  %.1 = phi i32 [ %.0, %pthread_mutex_add.exit ], [ 22, %2 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %pthread_mutex_add.exit ], [ 22, %2 ]
+  ret i32 %.0
 }
 
 declare i32 @sched_lock() local_unnamed_addr #1
@@ -112,13 +112,13 @@ define range(i32 0, -2147483648) i32 @pthread_mutex_trytake(ptr noundef %0) loca
   br label %pthread_mutex_add.exit
 
 pthread_mutex_add.exit:                           ; preds = %20, %14, %3, %12
-  %.0 = phi i32 [ %13, %12 ], [ 130, %3 ], [ %10, %14 ], [ %10, %20 ]
+  %.1 = phi i32 [ %13, %12 ], [ 130, %3 ], [ %10, %14 ], [ %10, %20 ]
   %21 = call i32 @sched_unlock() #3
   br label %22
 
 22:                                               ; preds = %pthread_mutex_add.exit, %1
-  %.1 = phi i32 [ %.0, %pthread_mutex_add.exit ], [ 22, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %pthread_mutex_add.exit ], [ 22, %1 ]
+  ret i32 %.0
 }
 
 declare i32 @nxsem_trywait(ptr noundef) local_unnamed_addr #1

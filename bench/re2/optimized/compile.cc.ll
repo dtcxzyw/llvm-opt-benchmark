@@ -2944,7 +2944,7 @@ for.body89.preheader:                             ; preds = %if.else84
 
 for.body89:                                       ; preds = %for.body89.preheader, %for.inc115
   %indvars.iv = phi i64 [ %15, %for.body89.preheader ], [ %indvars.iv.next, %for.inc115 ]
-  %id.297 = phi i32 [ 0, %for.body89.preheader ], [ %id.3, %for.inc115 ]
+  %id.397 = phi i32 [ 0, %for.body89.preheader ], [ %id.4, %for.inc115 ]
   %cmp91 = icmp eq i64 %indvars.iv, %15
   br i1 %cmp91, label %for.body89.if.then102_crit_edge, label %lor.lhs.false92
 
@@ -2966,21 +2966,21 @@ lor.lhs.false92:                                  ; preds = %for.body89
 if.then102:                                       ; preds = %for.body89.if.then102_crit_edge, %lor.lhs.false92
   %18 = phi i8 [ %.pre121, %for.body89.if.then102_crit_edge ], [ %17, %lor.lhs.false92 ]
   %19 = phi i8 [ %.pre, %for.body89.if.then102_crit_edge ], [ %16, %lor.lhs.false92 ]
-  %call107 = call noundef i32 @_ZN3re28Compiler20CachedRuneByteSuffixEhhbi(ptr noundef nonnull align 8 dereferenceable(212) %this, i8 noundef zeroext %19, i8 noundef zeroext %18, i1 noundef zeroext false, i32 noundef %id.297)
+  %call107 = call noundef i32 @_ZN3re28Compiler20CachedRuneByteSuffixEhhbi(ptr noundef nonnull align 8 dereferenceable(212) %this, i8 noundef zeroext %19, i8 noundef zeroext %18, i1 noundef zeroext false, i32 noundef %id.397)
   br label %for.inc115
 
 if.else108:                                       ; preds = %lor.lhs.false92
-  %call113 = call noundef i32 @_ZN3re28Compiler22UncachedRuneByteSuffixEhhbi(ptr noundef nonnull align 8 dereferenceable(212) %this, i8 noundef zeroext %16, i8 noundef zeroext %17, i1 noundef zeroext false, i32 noundef %id.297)
+  %call113 = call noundef i32 @_ZN3re28Compiler22UncachedRuneByteSuffixEhhbi(ptr noundef nonnull align 8 dereferenceable(212) %this, i8 noundef zeroext %16, i8 noundef zeroext %17, i1 noundef zeroext false, i32 noundef %id.397)
   br label %for.inc115
 
 for.inc115:                                       ; preds = %if.then102, %if.else108
-  %id.3 = phi i32 [ %call107, %if.then102 ], [ %call113, %if.else108 ]
+  %id.4 = phi i32 [ %call107, %if.then102 ], [ %call113, %if.else108 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp88 = icmp sgt i64 %indvars.iv, 0
   br i1 %cmp88, label %for.body89, label %if.end117, !llvm.loop !19
 
 if.end117:                                        ; preds = %for.inc115, %for.inc81, %if.else84, %for.cond57.preheader
-  %id.4 = phi i32 [ 0, %for.cond57.preheader ], [ 0, %if.else84 ], [ %id.1, %for.inc81 ], [ %id.3, %for.inc115 ]
+  %id.2 = phi i32 [ 0, %for.cond57.preheader ], [ 0, %if.else84 ], [ %id.1, %for.inc81 ], [ %id.4, %for.inc115 ]
   %failed_.i53 = getelementptr inbounds i8, ptr %this, i64 104
   %20 = load i8, ptr %failed_.i53, align 8
   %tobool.i54 = trunc i8 %20 to i1
@@ -2999,7 +2999,7 @@ if.end5.i58:                                      ; preds = %if.end.i55
   br i1 %cmp6.i60, label %if.then7.i70, label %if.end12.i61
 
 if.then7.i70:                                     ; preds = %if.end5.i58
-  %call.i71 = call noundef i32 @_ZN3re28Compiler18AddSuffixRecursiveEii(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef %21, i32 noundef %id.4)
+  %call.i71 = call noundef i32 @_ZN3re28Compiler18AddSuffixRecursiveEii(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef %21, i32 noundef %id.2)
   br label %return.sink.split.i68
 
 if.end12.i61:                                     ; preds = %if.end5.i58
@@ -3013,11 +3013,11 @@ if.end18.i64:                                     ; preds = %if.end12.i61
   %23 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i66, align 8
   %arrayidx.i.i.i67 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %23, i64 %conv.i.i65
   %24 = load i32, ptr %rune_range_.i56, align 8
-  call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i67, i32 noundef %24, i32 noundef %id.4)
+  call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i67, i32 noundef %24, i32 noundef %id.2)
   br label %return.sink.split.i68
 
 return.sink.split.i68:                            ; preds = %if.end18.i64, %if.end12.i61, %if.then7.i70, %if.end.i55
-  %call13.sink.i69 = phi i32 [ %call13.i62, %if.end18.i64 ], [ %call.i71, %if.then7.i70 ], [ %id.4, %if.end.i55 ], [ 0, %if.end12.i61 ]
+  %call13.sink.i69 = phi i32 [ %call13.i62, %if.end18.i64 ], [ %call.i71, %if.then7.i70 ], [ %id.2, %if.end.i55 ], [ 0, %if.end12.i61 ]
   store i32 %call13.sink.i69, ptr %rune_range_.i56, align 8
   br label %return
 

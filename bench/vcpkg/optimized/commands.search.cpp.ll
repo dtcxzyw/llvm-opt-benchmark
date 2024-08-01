@@ -119,8 +119,8 @@ _ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit: ; preds = %14
   br label %21
 
 21:                                               ; preds = %_ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit, %14
-  %.sroa.030.1 = phi i8 [ 0, %14 ], [ 1, %_ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit ]
-  %.sroa.5.1 = phi i8 [ 0, %14 ], [ %.sroa.229.sroa.0.0.copyload, %_ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit ]
+  %.sroa.030.0 = phi i8 [ 0, %14 ], [ 1, %_ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit ]
+  %.sroa.5.0 = phi i8 [ 0, %14 ], [ %.sroa.229.sroa.0.0.copyload, %_ZN5vcpkg8OptionalINS_10StringViewEEaSEOS2_.exit ]
   %22 = load ptr, ptr %6, align 8
   %.not10.i.i.i.i9 = icmp eq ptr %22, null
   br i1 %.not10.i.i.i.i9, label %28, label %.lr.ph.i.i.i.i10
@@ -158,14 +158,14 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
 28:                                               ; preds = %26, %_ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i.i21, %21
   %.sroa.0.0.i.i.i26 = phi ptr [ %8, %_ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i.i21 ], [ %8, %21 ], [ %spec.select.i.i.i25, %26 ]
   %29 = icmp ne ptr %.sroa.0.0.i.i.i26, %8
-  store i8 %.sroa.030.1, ptr %5, align 8
+  store i8 %.sroa.030.0, ptr %5, align 8
   %30 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 0, ptr %30, align 8
-  %31 = trunc nuw i8 %.sroa.030.1 to i1
+  %31 = trunc nuw i8 %.sroa.030.0 to i1
   br i1 %31, label %32, label %_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit
 
 32:                                               ; preds = %28
-  store i8 %.sroa.5.1, ptr %30, align 8
+  store i8 %.sroa.5.0, ptr %30, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.10.8..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.10, i64 15, i1 false)
   br label %_ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit

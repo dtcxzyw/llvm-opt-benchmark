@@ -143,7 +143,7 @@ TreeInsertHelp.exit:                              ; preds = %._crit_edge.i.threa
   %33 = phi ptr [ %143, %140 ], [ %31, %TreeInsertHelp.exit ]
   %.pre72 = phi ptr [ %142, %140 ], [ %30, %TreeInsertHelp.exit ]
   %34 = phi ptr [ %141, %140 ], [ %27, %TreeInsertHelp.exit ]
-  %.04565 = phi ptr [ %.3, %140 ], [ %4, %TreeInsertHelp.exit ]
+  %.04565 = phi ptr [ %.2, %140 ], [ %4, %TreeInsertHelp.exit ]
   %35 = getelementptr inbounds i8, ptr %.pre72, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 24
@@ -304,8 +304,8 @@ RightRotate.exit60:                               ; preds = %106, %109
 
 ._crit_edge67:                                    ; preds = %102, %RightRotate.exit60
   %117 = phi ptr [ %104, %RightRotate.exit60 ], [ %.pre72, %102 ]
-  %.2 = phi ptr [ %.pre72, %RightRotate.exit60 ], [ %.04565, %102 ]
-  %118 = getelementptr inbounds i8, ptr %.2, i64 40
+  %.3 = phi ptr [ %.pre72, %RightRotate.exit60 ], [ %.04565, %102 ]
+  %118 = getelementptr inbounds i8, ptr %.3, i64 40
   %119 = getelementptr inbounds i8, ptr %117, i64 16
   store i32 0, ptr %119, align 8
   %120 = load ptr, ptr %118, align 8
@@ -346,8 +346,8 @@ LeftRotate.exit63:                                ; preds = %._crit_edge67, %131
   br label %140
 
 140:                                              ; preds = %94, %LeftRotate.exit63, %45, %RightRotate.exit
-  %.3 = phi ptr [ %52, %45 ], [ %.1, %RightRotate.exit ], [ %101, %94 ], [ %.2, %LeftRotate.exit63 ]
-  %141 = getelementptr inbounds i8, ptr %.3, i64 40
+  %.2 = phi ptr [ %52, %45 ], [ %.1, %RightRotate.exit ], [ %101, %94 ], [ %.3, %LeftRotate.exit63 ]
+  %141 = getelementptr inbounds i8, ptr %.2, i64 40
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 16
   %144 = load i32, ptr %143, align 8

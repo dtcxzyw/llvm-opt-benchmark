@@ -686,7 +686,7 @@ define void @pmix_ptl_base_connection_handler(i32 noundef %0, i16 noundef signex
 
 319:                                              ; preds = %304, %318, %277
   %.0497 = phi i64 [ 0, %277 ], [ %310, %318 ], [ 0, %304 ]
-  %.0490 = phi ptr [ null, %277 ], [ %314, %318 ], [ null, %304 ]
+  %.1491 = phi ptr [ null, %277 ], [ %314, %318 ], [ null, %304 ]
   %320 = load i8, ptr %80, align 1
   %.not577 = icmp eq i8 %320, 0
   br i1 %.not577, label %.preheader, label %322
@@ -701,7 +701,7 @@ define void @pmix_ptl_base_connection_handler(i32 noundef %0, i16 noundef signex
   br label %329
 
 322:                                              ; preds = %319
-  %323 = call fastcc i32 @process_tool_request(ptr noundef nonnull %2, ptr noundef %.0490, i64 noundef %.0497)
+  %323 = call fastcc i32 @process_tool_request(ptr noundef nonnull %2, ptr noundef %.1491, i64 noundef %.0497)
   switch i32 %323, label %324 [
     i32 0, label %326
     i32 -2, label %.thread663.thread
@@ -713,11 +713,11 @@ define void @pmix_ptl_base_connection_handler(i32 noundef %0, i16 noundef signex
   br label %.thread663.thread
 
 326:                                              ; preds = %322
-  %.not595 = icmp eq ptr %.0490, null
+  %.not595 = icmp eq ptr %.1491, null
   br i1 %.not595, label %328, label %327
 
 327:                                              ; preds = %326
-  call void @free(ptr noundef nonnull %.0490) #14
+  call void @free(ptr noundef nonnull %.1491) #14
   br label %328
 
 328:                                              ; preds = %327, %326
@@ -1260,11 +1260,11 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %613
 
 627:                                              ; preds = %624, %626, %607
   call fastcc void @_check_cached_events(ptr noundef nonnull %359)
-  %.not591 = icmp eq ptr %.0490, null
+  %.not591 = icmp eq ptr %.1491, null
   br i1 %.not591, label %719, label %628
 
 628:                                              ; preds = %627
-  call void @free(ptr noundef nonnull %.0490) #14
+  call void @free(ptr noundef nonnull %.1491) #14
   br label %719
 
 629:                                              ; preds = %358, %381, %405, %415, %440, %516, %511, %509, %529, %536, %574, %525, %531, %563
@@ -1333,20 +1333,20 @@ pmix_obj_run_destructors.exit618:                 ; preds = %.lr.ph.i615, %643
   br i1 %.not599, label %657, label %.thread663.thread
 
 .thread663.thread:                                ; preds = %.preheader, %44, %39, %37, %73, %245, %237, %324, %316, %311, %302, %292, %275, %235, %227, %218, %199, %197, %189, %180, %165, %157, %144, %137, %125, %118, %100, %98, %84, %67, %58, %322, %.thread663
-  %.1491669679 = phi ptr [ %.0490, %.thread663 ], [ null, %44 ], [ null, %39 ], [ null, %37 ], [ null, %73 ], [ null, %245 ], [ null, %237 ], [ %.0490, %324 ], [ null, %316 ], [ null, %311 ], [ null, %302 ], [ null, %292 ], [ null, %275 ], [ null, %235 ], [ null, %227 ], [ null, %218 ], [ null, %199 ], [ null, %197 ], [ null, %189 ], [ null, %180 ], [ null, %165 ], [ null, %157 ], [ null, %144 ], [ null, %137 ], [ null, %125 ], [ null, %118 ], [ null, %100 ], [ null, %98 ], [ null, %84 ], [ null, %67 ], [ null, %58 ], [ %.0490, %322 ], [ %.0490, %.preheader ]
+  %.0490669679 = phi ptr [ %.1491, %.thread663 ], [ null, %44 ], [ null, %39 ], [ null, %37 ], [ null, %73 ], [ null, %245 ], [ null, %237 ], [ %.1491, %324 ], [ null, %316 ], [ null, %311 ], [ null, %302 ], [ null, %292 ], [ null, %275 ], [ null, %235 ], [ null, %227 ], [ null, %218 ], [ null, %199 ], [ null, %197 ], [ null, %189 ], [ null, %180 ], [ null, %165 ], [ null, %157 ], [ null, %144 ], [ null, %137 ], [ null, %125 ], [ null, %118 ], [ null, %100 ], [ null, %98 ], [ null, %84 ], [ null, %67 ], [ null, %58 ], [ %.1491, %322 ], [ %.1491, %.preheader ]
   %.0485670678 = phi ptr [ %.0485670, %.thread663 ], [ %calloc, %44 ], [ %calloc, %39 ], [ %calloc, %37 ], [ %calloc, %73 ], [ %calloc, %245 ], [ %calloc, %237 ], [ %calloc, %324 ], [ %calloc, %316 ], [ %calloc, %311 ], [ %calloc, %302 ], [ %calloc, %292 ], [ %calloc, %275 ], [ %calloc, %235 ], [ %calloc, %227 ], [ %calloc, %218 ], [ %calloc, %199 ], [ %calloc, %197 ], [ %calloc, %189 ], [ %calloc, %180 ], [ %calloc, %165 ], [ %calloc, %157 ], [ %calloc, %144 ], [ %calloc, %137 ], [ %calloc, %125 ], [ %calloc, %118 ], [ %calloc, %100 ], [ %calloc, %98 ], [ %calloc, %84 ], [ %calloc, %67 ], [ %calloc, %58 ], [ %calloc, %322 ], [ %calloc, %.preheader ]
   %.0671676 = phi ptr [ %.0671, %.thread663 ], [ null, %44 ], [ null, %39 ], [ null, %37 ], [ null, %73 ], [ null, %245 ], [ null, %237 ], [ null, %324 ], [ null, %316 ], [ null, %311 ], [ null, %302 ], [ null, %292 ], [ null, %275 ], [ null, %235 ], [ null, %227 ], [ null, %218 ], [ null, %199 ], [ null, %197 ], [ null, %189 ], [ null, %180 ], [ null, %165 ], [ null, %157 ], [ null, %144 ], [ null, %137 ], [ null, %125 ], [ null, %118 ], [ null, %100 ], [ null, %98 ], [ null, %84 ], [ null, %67 ], [ null, %58 ], [ null, %322 ], [ null, %.preheader ]
   call void @free(ptr noundef nonnull %.0485670678) #14
   br label %657
 
 657:                                              ; preds = %.thread663.thread, %.thread663
-  %.1491669680 = phi ptr [ %.1491669679, %.thread663.thread ], [ %.0490, %.thread663 ]
+  %.0490669680 = phi ptr [ %.0490669679, %.thread663.thread ], [ %.1491, %.thread663 ]
   %.0671677 = phi ptr [ %.0671676, %.thread663.thread ], [ %.0671, %.thread663 ]
-  %.not600 = icmp eq ptr %.1491669680, null
+  %.not600 = icmp eq ptr %.0490669680, null
   br i1 %.not600, label %659, label %658
 
 658:                                              ; preds = %657
-  call void @free(ptr noundef nonnull %.1491669680) #14
+  call void @free(ptr noundef nonnull %.0490669680) #14
   br label %659
 
 659:                                              ; preds = %658, %657
@@ -2579,7 +2579,7 @@ pmix_hotel_knock.exit:                            ; preds = %24
   br label %pmix_hotel_checkout.exit.thread
 
 pmix_hotel_checkout.exit.thread:                  ; preds = %55, %60, %64, %74, %44
-  %.1 = phi i1 [ false, %44 ], [ true, %74 ], [ true, %64 ], [ true, %60 ], [ false, %55 ]
+  %.0206 = phi i1 [ false, %44 ], [ true, %74 ], [ true, %64 ], [ true, %60 ], [ false, %55 ]
   %80 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 56), align 8
   %81 = call noalias noundef ptr @malloc(i64 noundef %80) #17
   %82 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -3338,7 +3338,7 @@ pmix_obj_run_destructors.exit289:                 ; preds = %.lr.ph.i286, %432
   br label %443
 
 443:                                              ; preds = %421, %418, %415, %441, %442, %427
-  br i1 %.1, label %444, label %pmix_hotel_checkout.exit
+  br i1 %.0206, label %444, label %pmix_hotel_checkout.exit
 
 444:                                              ; preds = %443
   %445 = call i32 @pthread_mutex_lock(ptr noundef nonnull %29) #14

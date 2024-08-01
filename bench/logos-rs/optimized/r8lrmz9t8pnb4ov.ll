@@ -255,7 +255,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %68 unwind label %.body.thread40.loopexit.split-lp
 
 67:                                               ; preds = %271
-  br i1 %.sroa.06.2, label %.body.thread, label %.body.thread37
+  br i1 %.sroa.06.3, label %.body.thread, label %.body.thread37
 
 .body.thread40.loopexit:                          ; preds = %74, %82, %323, %327
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -487,7 +487,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
   br label %264
 
 132:                                              ; preds = %135
-  br i1 %.sroa.023.2.i, label %264, label %.body.thread37
+  br i1 %.sroa.023.3.i, label %264, label %.body.thread37
 
 133:                                              ; preds = %128
   %134 = getelementptr i8, ptr %1, i64 240
@@ -496,13 +496,13 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %138 unwind label %136, !noalias !6
 
 135:                                              ; preds = %254, %136
-  %.sroa.023.2.i = phi i1 [ %.sroa.023.3.i, %136 ], [ %.sroa.023.6.i, %254 ]
+  %.sroa.023.3.i = phi i1 [ %.sroa.023.2.i, %136 ], [ %.sroa.023.6.i, %254 ]
   %.pn42.i = phi { ptr, i32 } [ %137, %136 ], [ %.pn40.i, %254 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %37) #9
           to label %132 unwind label %258, !noalias !6
 
 136:                                              ; preds = %257, %138, %133
-  %.sroa.023.3.i = phi i1 [ false, %257 ], [ true, %138 ], [ true, %133 ]
+  %.sroa.023.2.i = phi i1 [ false, %257 ], [ true, %138 ], [ true, %133 ]
   %137 = landingpad { ptr, i32 }
           cleanup
   br label %135
@@ -520,13 +520,13 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %145 unwind label %143, !noalias !6
 
 142:                                              ; preds = %150, %146, %143
-  %.sroa.023.4.i = phi i1 [ %.sroa.023.5.i, %143 ], [ false, %150 ], [ true, %146 ]
+  %.sroa.023.5.i = phi i1 [ %.sroa.023.4.i, %143 ], [ false, %150 ], [ true, %146 ]
   %.pn38.i = phi { ptr, i32 } [ %144, %143 ], [ %.pn36.i, %150 ], [ %147, %146 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %33) #9
           to label %254 unwind label %258, !noalias !6
 
 143:                                              ; preds = %252, %148, %139
-  %.sroa.023.5.i = phi i1 [ false, %252 ], [ true, %148 ], [ true, %139 ]
+  %.sroa.023.4.i = phi i1 [ false, %252 ], [ true, %148 ], [ true, %139 ]
   %144 = landingpad { ptr, i32 }
           cleanup
   br label %142
@@ -918,7 +918,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %257 unwind label %255, !noalias !6
 
 254:                                              ; preds = %255, %142
-  %.sroa.023.6.i = phi i1 [ false, %255 ], [ %.sroa.023.4.i, %142 ]
+  %.sroa.023.6.i = phi i1 [ false, %255 ], [ %.sroa.023.5.i, %142 ]
   %.pn40.i = phi { ptr, i32 } [ %256, %255 ], [ %.pn38.i, %142 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %34) #9
           to label %135 unwind label %258, !noalias !6
@@ -1007,13 +1007,13 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %274 unwind label %272
 
 271:                                              ; preds = %312, %272
-  %.sroa.06.2 = phi i1 [ %.sroa.06.3, %272 ], [ false, %312 ]
+  %.sroa.06.3 = phi i1 [ %.sroa.06.2, %272 ], [ false, %312 ]
   %.pn22 = phi { ptr, i32 } [ %273, %272 ], [ %.pn20, %312 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %58) #9
           to label %67 unwind label %320
 
 272:                                              ; preds = %268, %315, %274
-  %.sroa.06.3 = phi i1 [ false, %315 ], [ true, %274 ], [ true, %268 ]
+  %.sroa.06.2 = phi i1 [ false, %315 ], [ true, %274 ], [ true, %268 ]
   %273 = landingpad { ptr, i32 }
           cleanup
   br label %271
@@ -1051,7 +1051,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %286 unwind label %.thread
 
 284:                                              ; preds = %287
-  br i1 %.sroa.08.1, label %322, label %278
+  br i1 %.sroa.08.2, label %322, label %278
 
 .thread:                                          ; preds = %281
   %285 = landingpad { ptr, i32 }
@@ -1063,13 +1063,13 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %290 unwind label %288
 
 287:                                              ; preds = %303, %288
-  %.sroa.08.1 = phi i1 [ %.sroa.08.2, %288 ], [ false, %303 ]
+  %.sroa.08.2 = phi i1 [ %.sroa.08.1, %288 ], [ false, %303 ]
   %.pn16 = phi { ptr, i32 } [ %289, %288 ], [ %.pn14, %303 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %51) #9
           to label %284 unwind label %320
 
 288:                                              ; preds = %310, %292, %291, %290, %286
-  %.sroa.08.2 = phi i1 [ false, %310 ], [ true, %292 ], [ true, %291 ], [ true, %290 ], [ true, %286 ]
+  %.sroa.08.1 = phi i1 [ false, %310 ], [ true, %292 ], [ true, %291 ], [ true, %290 ], [ true, %286 ]
   %289 = landingpad { ptr, i32 }
           cleanup
   br label %287
@@ -4725,7 +4725,7 @@ define hidden align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17h8d34e3b
 
 .thread62:                                        ; preds = %503, %298, %205, %.thread66, %.thread, %150, %136
   %.pn15.pn = phi { ptr, i32 } [ %.pn1552, %.thread ], [ %.pn, %150 ], [ %137, %136 ], [ %lpad.thr_comm, %.thread66 ], [ %.pn16.i, %205 ], [ %.pn15.i, %298 ], [ %.pn2.i, %503 ]
-  %.sroa.03.3 = phi i8 [ 0, %.thread ], [ 1, %150 ], [ 1, %136 ], [ %.sroa.03.6, %.thread66 ], [ %.sroa.03.6, %205 ], [ %.sroa.03.6, %298 ], [ %.sroa.03.6, %503 ]
+  %.sroa.03.4 = phi i8 [ 0, %.thread ], [ 1, %150 ], [ 1, %136 ], [ %.sroa.03.6, %.thread66 ], [ %.sroa.03.6, %205 ], [ %.sroa.03.6, %298 ], [ %.sroa.03.6, %503 ]
   %135 = load i64, ptr %96, align 8
   %.not18 = icmp eq i64 %135, -9223372036854775807
   br i1 %.not18, label %550, label %548
@@ -6315,7 +6315,7 @@ default.unreachable:                              ; preds = %.noexc23
           to label %.thread62 unwind label %179
 
 548:                                              ; preds = %.thread62
-  %549 = trunc nuw i8 %.sroa.03.3 to i1
+  %549 = trunc nuw i8 %.sroa.03.4 to i1
   br i1 %549, label %551, label %550
 
 550:                                              ; preds = %551, %548, %.thread62
@@ -6443,7 +6443,7 @@ define hidden align 8 ptr @_ZN13logos_codegen9generator9Generator13generate_test
           to label %76 unwind label %.thread142.loopexit.split-lp.loopexit.split-lp
 
 74:                                               ; preds = %258
-  br i1 %.sroa.043.2, label %.thread, label %53
+  br i1 %.sroa.043.3, label %.thread, label %53
 
 .thread142.loopexit:                              ; preds = %139
   %lpad.loopexit145 = landingpad { ptr, i32 }
@@ -7099,13 +7099,13 @@ define hidden align 8 ptr @_ZN13logos_codegen9generator9Generator13generate_test
   br label %129
 
 258:                                              ; preds = %262, %259
-  %.sroa.043.2 = phi i1 [ %.sroa.043.3, %259 ], [ true, %262 ]
+  %.sroa.043.3 = phi i1 [ %.sroa.043.2, %259 ], [ true, %262 ]
   %.pn132 = phi { ptr, i32 } [ %260, %259 ], [ %.pn130, %262 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %42) #9
           to label %74 unwind label %131
 
 259:                                              ; preds = %289, %288, %287, %286, %129
-  %.sroa.043.3 = phi i1 [ false, %289 ], [ false, %288 ], [ true, %287 ], [ true, %286 ], [ true, %129 ]
+  %.sroa.043.2 = phi i1 [ false, %289 ], [ false, %288 ], [ true, %287 ], [ true, %286 ], [ true, %129 ]
   %260 = landingpad { ptr, i32 }
           cleanup
   br label %258

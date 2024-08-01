@@ -1431,7 +1431,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   %5 = phi ptr [ %3, %while.cond.outer ], [ %50, %while.cond.backedge ]
   %steps.0 = phi i32 [ 0, %while.cond.outer ], [ %steps.1, %while.cond.backedge ]
   %step_incs.0 = phi i32 [ 0, %while.cond.outer ], [ %step_incs.1, %while.cond.backedge ]
-  %num_scopes.0 = phi i32 [ %num_scopes.0.ph, %while.cond.outer ], [ %num_scopes.1, %while.cond.backedge ]
+  %num_scopes.0 = phi i32 [ %num_scopes.0.ph, %while.cond.outer ], [ %num_scopes.2, %while.cond.backedge ]
   %6 = load ptr, ptr %this, align 8
   %call2.i30 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %invoke.cont9 unwind label %lpad8.loopexit.split-lp.loopexit.loopexit
@@ -1802,7 +1802,7 @@ ehcleanup53:                                      ; preds = %lpad.i, %ehcleanup
   br label %ehcleanup142
 
 invoke.cont55:                                    ; preds = %invoke.cont31, %if.then.i.i.i.i.i, %call4.i.i.i.i.i.noexc, %.noexc.i2.i
-  %num_scopes.1 = phi i32 [ %num_scopes.0, %invoke.cont31 ], [ %num_scopes.0, %if.then.i.i.i.i.i ], [ %num_scopes.0, %call4.i.i.i.i.i.noexc ], [ %inc36, %.noexc.i2.i ]
+  %num_scopes.2 = phi i32 [ %num_scopes.0, %invoke.cont31 ], [ %num_scopes.0, %if.then.i.i.i.i.i ], [ %num_scopes.0, %call4.i.i.i.i.i.noexc ], [ %inc36, %.noexc.i2.i ]
   %50 = load ptr, ptr %bound, align 8
   %51 = load ptr, ptr %last_bound, align 8
   %cmp.i = icmp eq ptr %50, %51
@@ -1848,7 +1848,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %_ZN7obj_refI4expr11
 land.lhs.true:                                    ; preds = %invoke.cont10, %invoke.cont55
   %56 = phi ptr [ %51, %invoke.cont55 ], [ %4, %invoke.cont10 ]
   %57 = phi ptr [ %50, %invoke.cont55 ], [ %5, %invoke.cont10 ]
-  %num_scopes.2229 = phi i32 [ %num_scopes.1, %invoke.cont55 ], [ %num_scopes.0, %invoke.cont10 ]
+  %num_scopes.1229 = phi i32 [ %num_scopes.2, %invoke.cont55 ], [ %num_scopes.0, %invoke.cont10 ]
   %58 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %bf.load.i.i.i.i.i.i.i88 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8rational5m_oneE, i64 20), align 4
   %bf.clear.i.i.i.i.i.i.i89 = and i8 %bf.load.i.i.i.i.i.i.i88, 1
@@ -1919,7 +1919,7 @@ invoke.cont73:                                    ; preds = %if.then72
           to label %invoke.cont78 unwind label %lpad8.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit
 
 invoke.cont78:                                    ; preds = %invoke.cont73
-  %dec = add i32 %num_scopes.2229, -1
+  %dec = add i32 %num_scopes.1229, -1
   %tobool.not.i3.i = icmp eq ptr %56, null
   br i1 %tobool.not.i3.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, label %if.then.i.i.i125
 
@@ -1994,7 +1994,7 @@ _ZN8rationalaSERKS_.exit.i:                       ; preds = %if.else.i.i7.i.i.i,
           to label %invoke.cont89 unwind label %lpad8.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont89:                                    ; preds = %_ZN8rationalaSERKS_.exit.i
-  %cmp91.not = icmp eq i32 %num_scopes.2229, 0
+  %cmp91.not = icmp eq i32 %num_scopes.1229, 0
   br i1 %cmp91.not, label %if.end97, label %if.then92
 
 if.then92:                                        ; preds = %invoke.cont89
@@ -2002,7 +2002,7 @@ if.then92:                                        ; preds = %invoke.cont89
   %vtable94 = load ptr, ptr %75, align 8
   %vfn95 = getelementptr inbounds i8, ptr %vtable94, i64 200
   %76 = load ptr, ptr %vfn95, align 8
-  invoke void %76(ptr noundef nonnull align 8 dereferenceable(120) %75, i32 noundef %num_scopes.2229)
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(120) %75, i32 noundef %num_scopes.1229)
           to label %if.end97 unwind label %lpad8.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit.split-lp
 
 if.end97:                                         ; preds = %if.then92, %invoke.cont89
@@ -2162,7 +2162,7 @@ if.then127:                                       ; preds = %if.else125
 
 while.end:                                        ; preds = %for.end, %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit191, %invoke.cont9, %if.else125, %if.then127
   %93 = phi ptr [ %4, %if.then127 ], [ %4, %if.else125 ], [ %4, %invoke.cont9 ], [ null, %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit191 ], [ null, %for.end ]
-  %is_sat.2 = phi i32 [ %call11, %if.then127 ], [ %call11, %if.else125 ], [ -1, %invoke.cont9 ], [ -1, %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit191 ], [ -1, %for.end ]
+  %is_sat.1 = phi i32 [ %call11, %if.then127 ], [ %call11, %if.else125 ], [ -1, %invoke.cont9 ], [ -1, %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit191 ], [ -1, %for.end ]
   %94 = load ptr, ptr %this, align 8
   %call2.i198 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %94)
           to label %invoke.cont136 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp
@@ -2275,7 +2275,7 @@ terminate.lpad.i222:                              ; preds = %if.then2.i.i.i221
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit223:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit214, %if.then.i.i.i216, %if.then2.i.i.i221
-  %cmp139 = icmp ne i32 %is_sat.2, 0
+  %cmp139 = icmp ne i32 %is_sat.1, 0
   %or.cond.not = and i1 %cmp139, %call2.i198
   %. = zext i1 %or.cond.not to i32
   ret i32 %.
@@ -2983,7 +2983,7 @@ while.cond.outer:                                 ; preds = %cleanup.thread, %wh
   %is_sat.0.ph = phi i32 [ %call21, %cleanup.thread ], [ 1, %while.cond.preheader ]
   %steps.0.ph = phi i32 [ %steps.1, %cleanup.thread ], [ 0, %while.cond.preheader ]
   %step_incs.0.ph = phi i32 [ %step_incs.1, %cleanup.thread ], [ 0, %while.cond.preheader ]
-  %num_scopes.0.ph = phi i32 [ %num_scopes.1, %cleanup.thread ], [ 0, %while.cond.preheader ]
+  %num_scopes.0.ph = phi i32 [ %num_scopes.2, %cleanup.thread ], [ 0, %while.cond.preheader ]
   br label %while.cond
 
 terminate.lpad.i:                                 ; preds = %.noexc.i, %_ZN12inf_rationalD2Ev.exit
@@ -3506,7 +3506,7 @@ ehcleanup82:                                      ; preds = %lpad.i, %ehcleanup8
   br label %ehcleanup96
 
 if.end83:                                         ; preds = %if.then.i.i.i.i.i107, %call4.i.i.i.i.i.noexc109, %if.then.i.i16.i.i.i, %call4.i.i8.i.i.i.noexc, %.noexc.i2.i132, %invoke.cont60
-  %num_scopes.1 = phi i32 [ %num_scopes.0, %invoke.cont60 ], [ %inc66, %.noexc.i2.i132 ], [ %num_scopes.0, %call4.i.i8.i.i.i.noexc ], [ %num_scopes.0, %if.then.i.i16.i.i.i ], [ %num_scopes.0, %call4.i.i.i.i.i.noexc109 ], [ %num_scopes.0, %if.then.i.i.i.i.i107 ]
+  %num_scopes.2 = phi i32 [ %num_scopes.0, %invoke.cont60 ], [ %inc66, %.noexc.i2.i132 ], [ %num_scopes.0, %call4.i.i8.i.i.i.noexc ], [ %num_scopes.0, %if.then.i.i16.i.i.i ], [ %num_scopes.0, %call4.i.i.i.i.i.noexc109 ], [ %num_scopes.0, %if.then.i.i.i.i.i107 ]
   %88 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %bf.load.i.i.i.i.i.i136 = load i8, ptr %m_kind.i.i.i.i.i.i96, align 4
   %bf.clear.i.i.i.i.i.i137 = and i8 %bf.load.i.i.i.i.i.i136, 1
@@ -3710,12 +3710,12 @@ invoke.cont107:                                   ; preds = %if.then.i.i8.i.i, %
 
 while.end:                                        ; preds = %call4.i.i.i.i.i.noexc186, %if.then.i.i.i.i.i184, %invoke.cont20, %invoke.cont102, %invoke.cont18, %cleanup
   %is_sat.1 = phi i32 [ 1, %cleanup ], [ -1, %call4.i.i.i.i.i.noexc186 ], [ -1, %if.then.i.i.i.i.i184 ], [ %call21, %invoke.cont20 ], [ %is_sat.0, %invoke.cont18 ], [ -1, %invoke.cont102 ]
-  %num_scopes.3 = phi i32 [ %num_scopes.1, %cleanup ], [ %num_scopes.0, %invoke.cont18 ], [ %num_scopes.0, %invoke.cont102 ], [ %num_scopes.0, %invoke.cont20 ], [ %num_scopes.0, %if.then.i.i.i.i.i184 ], [ %num_scopes.0, %call4.i.i.i.i.i.noexc186 ]
+  %num_scopes.1 = phi i32 [ %num_scopes.2, %cleanup ], [ %num_scopes.0, %invoke.cont18 ], [ %num_scopes.0, %invoke.cont102 ], [ %num_scopes.0, %invoke.cont20 ], [ %num_scopes.0, %if.then.i.i.i.i.i184 ], [ %num_scopes.0, %call4.i.i.i.i.i.noexc186 ]
   %111 = load ptr, ptr %m_s, align 8
   %vtable117 = load ptr, ptr %111, align 8
   %vfn118 = getelementptr inbounds i8, ptr %vtable117, i64 200
   %112 = load ptr, ptr %vfn118, align 8
-  invoke void %112(ptr noundef nonnull align 8 dereferenceable(120) %111, i32 noundef %num_scopes.3)
+  invoke void %112(ptr noundef nonnull align 8 dereferenceable(120) %111, i32 noundef %num_scopes.1)
           to label %invoke.cont119 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont119:                                   ; preds = %while.end
@@ -5697,7 +5697,7 @@ if.end162:                                        ; preds = %invoke.cont159
 
 cleanup165:                                       ; preds = %if.then.i224, %if.end162, %invoke.cont159
   %117 = phi ptr [ %call3.i220, %invoke.cont159 ], [ %call3.i220, %if.end162 ], [ %9, %if.then.i224 ]
-  %retval.1 = phi i32 [ 0, %invoke.cont159 ], [ %call164, %if.end162 ], [ 0, %if.then.i224 ]
+  %retval.2 = phi i32 [ 0, %invoke.cont159 ], [ %call164, %if.end162 ], [ 0, %if.then.i224 ]
   %tobool.not.i.i250 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i250, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit258, label %if.then.i.i.i251
 
@@ -5900,8 +5900,8 @@ ehcleanup:                                        ; preds = %lpad18.loopexit, %l
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i.i.i.i.i304, %invoke.cont6.i.i301, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %if.then
-  %retval.2 = phi i32 [ 0, %if.then ], [ %retval.1, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ %retval.1, %invoke.cont6.i.i301 ], [ %retval.1, %if.then.i.i.i.i.i304 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 0, %if.then ], [ %retval.2, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ %retval.2, %invoke.cont6.i.i301 ], [ %retval.2, %if.then.i.i.i.i.i304 ]
+  ret i32 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN3opt10opt_solver13get_optimizerEv(ptr noundef nonnull align 8 dereferenceable(1034)) local_unnamed_addr #0

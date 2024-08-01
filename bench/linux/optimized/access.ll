@@ -1570,9 +1570,9 @@ define dso_local i32 @pcie_capability_clear_and_set_word_unlocked(ptr nocapture 
   br label %48
 
 48:                                               ; preds = %38, %34, %24
-  %.2.ph = phi i16 [ 0, %34 ], [ %33, %24 ], [ %spec.select, %38 ]
+  %.0.ph = phi i16 [ 0, %34 ], [ %33, %24 ], [ %spec.select, %38 ]
   %49 = xor i16 %2, -1
-  %50 = and i16 %.2.ph, %49
+  %50 = and i16 %.0.ph, %49
   %51 = or i16 %50, %3
   %52 = tail call fastcc zeroext i1 @pcie_capability_reg_implemented(ptr noundef %0, i32 noundef %1)
   br i1 %52, label %53, label %pci_bus_write_config_word.exit
@@ -1686,9 +1686,9 @@ define dso_local i32 @pcie_capability_clear_and_set_dword(ptr nocapture noundef 
   br label %47
 
 47:                                               ; preds = %37, %33, %24
-  %.2.ph = phi i32 [ 0, %33 ], [ %32, %24 ], [ %spec.select, %37 ]
+  %.0.ph = phi i32 [ 0, %33 ], [ %32, %24 ], [ %spec.select, %37 ]
   %48 = xor i32 %2, -1
-  %49 = and i32 %.2.ph, %48
+  %49 = and i32 %.0.ph, %48
   %50 = or i32 %49, %3
   %51 = tail call fastcc zeroext i1 @pcie_capability_reg_implemented(ptr noundef %0, i32 noundef %1)
   br i1 %51, label %52, label %pci_bus_write_config_dword.exit

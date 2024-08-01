@@ -2094,20 +2094,20 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
 818:                                              ; preds = %879, %874, %866, %863, %856, %850, %848, %847, %821, %._crit_edge.i280
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i72.i = icmp eq ptr %.sroa.093.0129.i, null
+  %.not.i.i.i72.i = icmp eq ptr %.sroa.093.1129.i, null
   br i1 %.not.i.i.i72.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i, label %819
 
 819:                                              ; preds = %818
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.093.0129.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.093.1129.i) #21
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i
 
 ._crit_edge.i280:                                 ; preds = %.lr.ph.i276, %800
-  %.sroa.093.0129.i = phi ptr [ null, %800 ], [ %806, %.lr.ph.i276 ]
-  %820 = invoke noundef float @_Z7sub_xcmPA3_fiPKiPK6t_atomPfb(ptr noundef %.sroa.093.0129.i, i32 noundef %796, ptr noundef %.sroa.099.0.i, ptr noundef %.sroa.3313.0.copyload, ptr noundef nonnull %3, i1 noundef zeroext false)
+  %.sroa.093.1129.i = phi ptr [ null, %800 ], [ %806, %.lr.ph.i276 ]
+  %820 = invoke noundef float @_Z7sub_xcmPA3_fiPKiPK6t_atomPfb(ptr noundef %.sroa.093.1129.i, i32 noundef %796, ptr noundef %.sroa.099.0.i, ptr noundef %.sroa.3313.0.copyload, ptr noundef nonnull %3, i1 noundef zeroext false)
           to label %821 unwind label %818
 
 821:                                              ; preds = %._crit_edge.i280
-  invoke void @_Z14principal_compiPKiP6t_atomPA3_fS4_Pf(i32 noundef %796, ptr noundef %.sroa.099.0.i, ptr noundef %.sroa.3313.0.copyload, ptr noundef %.sroa.093.0129.i, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  invoke void @_Z14principal_compiPKiP6t_atomPA3_fS4_Pf(i32 noundef %796, ptr noundef %.sroa.099.0.i, ptr noundef %.sroa.3313.0.copyload, ptr noundef %.sroa.093.1129.i, ptr noundef nonnull %5, ptr noundef nonnull %4)
           to label %822 unwind label %818
 
 822:                                              ; preds = %821
@@ -2219,11 +2219,11 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
 
 887:                                              ; preds = %879
   %888 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %778, ptr noundef nonnull @.str.128, double noundef %886) #16
-  %.not.i.i.i73.i = icmp eq ptr %.sroa.093.0129.i, null
+  %.not.i.i.i73.i = icmp eq ptr %.sroa.093.1129.i, null
   br i1 %.not.i.i.i73.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit74.i, label %889
 
 889:                                              ; preds = %887
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.093.0129.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.093.1129.i) #21
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit74.i
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit74.i: ; preds = %889, %887

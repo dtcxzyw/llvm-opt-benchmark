@@ -7417,12 +7417,12 @@ if.then95:                                        ; preds = %if.end93
           to label %cleanup unwind label %lpad65.loopexit.split-lp
 
 cleanup:                                          ; preds = %if.end93, %if.then95, %if.then75
-  %cleanup.dest.slot.0 = phi i32 [ 2, %if.then75 ], [ 0, %if.then95 ], [ 0, %if.end93 ]
+  %cleanup.dest.slot.1 = phi i32 [ 2, %if.then75 ], [ 0, %if.then95 ], [ 0, %if.end93 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str) #28
   br label %cleanup100
 
 cleanup100:                                       ; preds = %invoke.cont50, %cleanup
-  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.0, %cleanup ], [ 1, %invoke.cont50 ]
+  %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.1, %cleanup ], [ 1, %invoke.cont50 ]
   %tobool.not.i.i.i = icmp eq ptr %unicodeStr.sroa.0.1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
 
@@ -7431,7 +7431,7 @@ if.then.i.i.i:                                    ; preds = %cleanup100
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %cleanup100, %if.then.i.i.i
-  switch i32 %cleanup.dest.slot.1, label %cleanup134 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup134 [
     i32 0, label %for.cond
     i32 2, label %for.end105
   ], !llvm.loop !46
@@ -7484,8 +7484,8 @@ ehcleanup135:                                     ; preds = %lpad.loopexit227, %
   resume { ptr, i32 } %.pn23
 
 return:                                           ; preds = %_ZN9SampleICC5Read8ERSiPvi.exit.i55, %_ZN9SampleICC5Read8ERSiPvi.exit.i31, %_ZN9SampleICC5Read8ERSiPvi.exit.i, %lor.lhs.false7, %lor.lhs.false, %if.end3, %_ZN9SampleICC6Read32ERSiPvi.exit72, %if.end, %entry, %cleanup134
-  %retval.3 = phi i1 [ %retval.2, %cleanup134 ], [ false, %entry ], [ false, %if.end ], [ false, %_ZN9SampleICC6Read32ERSiPvi.exit72 ], [ false, %if.end3 ], [ false, %lor.lhs.false ], [ false, %lor.lhs.false7 ], [ false, %_ZN9SampleICC5Read8ERSiPvi.exit.i ], [ false, %_ZN9SampleICC5Read8ERSiPvi.exit.i31 ], [ false, %_ZN9SampleICC5Read8ERSiPvi.exit.i55 ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ %retval.2, %cleanup134 ], [ false, %entry ], [ false, %if.end ], [ false, %_ZN9SampleICC6Read32ERSiPvi.exit72 ], [ false, %if.end3 ], [ false, %lor.lhs.false ], [ false, %lor.lhs.false7 ], [ false, %_ZN9SampleICC5Read8ERSiPvi.exit.i ], [ false, %_ZN9SampleICC5Read8ERSiPvi.exit.i31 ], [ false, %_ZN9SampleICC5Read8ERSiPvi.exit.i55 ]
+  ret i1 %retval.0
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0

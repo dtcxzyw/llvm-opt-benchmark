@@ -206,8 +206,8 @@ st_mult.exit.i.i:                                 ; preds = %if.then.i
 
 while.cond.i.i:                                   ; preds = %for.end.i.i, %st_mult.exit.i.i
   %indvars.iv234.i = phi i64 [ %indvars.iv.next235.i, %for.end.i.i ], [ %23, %st_mult.exit.i.i ]
-  %data.sroa.38.0.i = phi i32 [ %conv13.i.i, %for.end.i.i ], [ %spec.select.i.i, %st_mult.exit.i.i ]
-  %data.sroa.60.0.i = phi ptr [ %data.sroa.60.1.i, %for.end.i.i ], [ %call1.i18.i, %st_mult.exit.i.i ]
+  %data.sroa.38.1.i = phi i32 [ %conv13.i.i, %for.end.i.i ], [ %spec.select.i.i, %st_mult.exit.i.i ]
+  %data.sroa.60.1.i = phi ptr [ %data.sroa.60.3.i, %for.end.i.i ], [ %call1.i18.i, %st_mult.exit.i.i ]
   %cmp.i23.i = icmp sgt i64 %indvars.iv234.i, 1
   br i1 %cmp.i23.i, label %while.body.i.i, label %while.end.i.i
 
@@ -218,7 +218,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i26.i = add i64 %add.i25.i, %24
   %div.i27.i = udiv i64 %sub.i26.i, %indvars.iv.next235.i
   %conv13.i.i = trunc i64 %div.i27.i to i32
-  %cmp16.not.i.i = icmp eq i32 %data.sroa.38.0.i, %conv13.i.i
+  %cmp16.not.i.i = icmp eq i32 %data.sroa.38.1.i, %conv13.i.i
   br i1 %cmp16.not.i.i, label %if.end.i.i, label %if.then.i28.i
 
 if.then.i28.i:                                    ; preds = %while.body.i.i
@@ -233,12 +233,12 @@ if.then.i32.i.i:                                  ; preds = %if.then.i28.i
 
 st_mult.exit33.i.i:                               ; preds = %if.then.i28.i
   %mul.i31.i.i = ashr exact i64 %sext.i.i, 30
-  %call22.i.i = tail call ptr @xrealloc(ptr noundef %data.sroa.60.0.i, i64 noundef %mul.i31.i.i) #9
+  %call22.i.i = tail call ptr @xrealloc(ptr noundef %data.sroa.60.1.i, i64 noundef %mul.i31.i.i) #9
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %st_mult.exit33.i.i, %while.body.i.i
-  %data.sroa.60.1.i = phi ptr [ %data.sroa.60.0.i, %while.body.i.i ], [ %call22.i.i, %st_mult.exit33.i.i ]
-  %25 = phi i32 [ %data.sroa.38.0.i, %while.body.i.i ], [ %conv13.i.i, %st_mult.exit33.i.i ]
+  %data.sroa.60.3.i = phi ptr [ %data.sroa.60.1.i, %while.body.i.i ], [ %call22.i.i, %st_mult.exit33.i.i ]
+  %25 = phi i32 [ %data.sroa.38.1.i, %while.body.i.i ], [ %conv13.i.i, %st_mult.exit33.i.i ]
   %cmp29.i.i.i = icmp sgt i32 %25, 0
   br i1 %cmp29.i.i.i, label %for.body.i.i.preheader.i, label %compute_column_width.exit.thread.i.i
 
@@ -253,7 +253,7 @@ for.body.i.i.us.i:                                ; preds = %for.body.i.i.prehea
   %indvars.iv.i.i.us.i = phi i64 [ %indvars.iv.next.i.i.us.i, %for.inc37.i.i.split.us.us.i ], [ 0, %for.body.i.i.preheader.i ]
   %28 = trunc nuw nsw i64 %indvars.iv.i.i.us.i to i32
   %spec.select121.us.i = mul nsw i32 %mul.i36.i.i, %28
-  %arrayidx.i.i.us.i = getelementptr inbounds i32, ptr %data.sroa.60.1.i, i64 %indvars.iv.i.i.us.i
+  %arrayidx.i.i.us.i = getelementptr inbounds i32, ptr %data.sroa.60.3.i, i64 %indvars.iv.i.i.us.i
   store i32 %spec.select121.us.i, ptr %arrayidx.i.i.us.i, align 4
   %sext301.i = shl i64 %indvars.iv.i.i.us.i, 32
   %29 = ashr exact i64 %sext301.i, 32
@@ -302,7 +302,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.prehea
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.inc37.i.i.split.i ], [ 0, %for.body.i.i.preheader.i ]
   %38 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %spec.select121.i = mul nsw i32 %mul.i36.i.i, %38
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %data.sroa.60.1.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %data.sroa.60.3.i, i64 %indvars.iv.i.i.i
   store i32 %spec.select121.i, ptr %arrayidx.i.i.i, align 4
   %sext300.i = shl i64 %indvars.iv.i.i.i, 32
   %39 = ashr exact i64 %sext300.i, 32
@@ -355,7 +355,7 @@ for.body.lr.ph.i29.i:                             ; preds = %compute_column_widt
 for.body.i30.i:                                   ; preds = %for.body.i30.i, %for.body.lr.ph.i29.i
   %indvars.iv.i31.i = phi i64 [ 0, %for.body.lr.ph.i29.i ], [ %indvars.iv.next.i33.i, %for.body.i30.i ]
   %total_width.093.i.i = phi i32 [ %conv25.i.i, %for.body.lr.ph.i29.i ], [ %add34.i.i, %for.body.i30.i ]
-  %arrayidx.i32.i = getelementptr inbounds i32, ptr %data.sroa.60.1.i, i64 %indvars.iv.i31.i
+  %arrayidx.i32.i = getelementptr inbounds i32, ptr %data.sroa.60.3.i, i64 %indvars.iv.i31.i
   %48 = load i32, ptr %arrayidx.i32.i, align 4
   %idxprom30.i.i = sext i32 %48 to i64
   %arrayidx31.i.i = getelementptr inbounds i32, ptr %call4.i, i64 %idxprom30.i.i
@@ -372,15 +372,15 @@ for.end.i.i:                                      ; preds = %for.body.i30.i, %co
   br i1 %cmp37.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !12
 
 while.end.i.i:                                    ; preds = %for.end.i.i, %while.cond.i.i
-  %data.sroa.60.2.i = phi ptr [ %data.sroa.60.1.i, %for.end.i.i ], [ %data.sroa.60.0.i, %while.cond.i.i ]
+  %data.sroa.60.2.i = phi ptr [ %data.sroa.60.3.i, %for.end.i.i ], [ %data.sroa.60.1.i, %while.cond.i.i ]
   %50 = trunc nsw i64 %indvars.iv234.i to i32
-  %cmp29.i38.i.i = icmp sgt i32 %data.sroa.38.0.i, 0
+  %cmp29.i38.i.i = icmp sgt i32 %data.sroa.38.1.i, 0
   br i1 %cmp29.i38.i.i, label %for.body.i44.i.preheader.i, label %if.end.i
 
 for.body.i44.i.preheader.i:                       ; preds = %while.end.i.i
   %mul.i82.i.i = select i1 %cmp1.i.i.i, i32 %50, i32 1
   %cmp727.i51.i.i = icmp sgt i64 %indvars.iv234.i, 0
-  %51 = zext nneg i32 %data.sroa.38.0.i to i64
+  %51 = zext nneg i32 %data.sroa.38.1.i to i64
   br i1 %cmp727.i51.i.i, label %for.body.i44.i.preheader.split.us.i, label %for.body.i44.i.i
 
 for.body.i44.i.preheader.split.us.i:              ; preds = %for.body.i44.i.preheader.i
@@ -486,34 +486,34 @@ for.body.i44.i.i:                                 ; preds = %for.body.i44.i.preh
   br i1 %exitcond.not.i, label %if.end.i, label %for.body.i44.i.i, !llvm.loop !10
 
 if.end.i:                                         ; preds = %for.body.i44.i.i, %for.inc37.i52.i.loopexit.split.us142.i, %for.inc37.i52.i.loopexit.split.us.us.us.i, %while.end.i.i, %layout.exit.i
-  %data.sroa.26.2.i = phi i32 [ %conv28.i.i, %layout.exit.i ], [ %50, %while.end.i.i ], [ %50, %for.inc37.i52.i.loopexit.split.us.us.us.i ], [ %50, %for.inc37.i52.i.loopexit.split.us142.i ], [ %50, %for.body.i44.i.i ]
-  %data.sroa.38.2.i = phi i32 [ %spec.select.i.i, %layout.exit.i ], [ %data.sroa.38.0.i, %while.end.i.i ], [ %data.sroa.38.0.i, %for.inc37.i52.i.loopexit.split.us.us.us.i ], [ %data.sroa.38.0.i, %for.inc37.i52.i.loopexit.split.us142.i ], [ %data.sroa.38.0.i, %for.body.i44.i.i ]
-  %data.sroa.60.3.i = phi ptr [ null, %layout.exit.i ], [ %data.sroa.60.2.i, %while.end.i.i ], [ %data.sroa.60.2.i, %for.inc37.i52.i.loopexit.split.us.us.us.i ], [ %data.sroa.60.2.i, %for.inc37.i52.i.loopexit.split.us142.i ], [ %data.sroa.60.2.i, %for.body.i44.i.i ]
-  %data.sroa.60.3.fr.i = freeze ptr %data.sroa.60.3.i
+  %data.sroa.26.0.i = phi i32 [ %conv28.i.i, %layout.exit.i ], [ %50, %while.end.i.i ], [ %50, %for.inc37.i52.i.loopexit.split.us.us.us.i ], [ %50, %for.inc37.i52.i.loopexit.split.us142.i ], [ %50, %for.body.i44.i.i ]
+  %data.sroa.38.0.i = phi i32 [ %spec.select.i.i, %layout.exit.i ], [ %data.sroa.38.1.i, %while.end.i.i ], [ %data.sroa.38.1.i, %for.inc37.i52.i.loopexit.split.us.us.us.i ], [ %data.sroa.38.1.i, %for.inc37.i52.i.loopexit.split.us142.i ], [ %data.sroa.38.1.i, %for.body.i44.i.i ]
+  %data.sroa.60.0.i = phi ptr [ null, %layout.exit.i ], [ %data.sroa.60.2.i, %while.end.i.i ], [ %data.sroa.60.2.i, %for.inc37.i52.i.loopexit.split.us.us.us.i ], [ %data.sroa.60.2.i, %for.inc37.i52.i.loopexit.split.us142.i ], [ %data.sroa.60.2.i, %for.body.i44.i.i ]
+  %data.sroa.60.0.fr.i = freeze ptr %data.sroa.60.0.i
   %call12.i = tail call ptr @xmallocz(i64 noundef %conv11.i.i) #9
   tail call void @llvm.memset.p0.i64(ptr align 1 %call12.i, i8 32, i64 %conv11.i.i, i1 false)
-  %cmp15166.i = icmp sgt i32 %data.sroa.26.2.i, 0
+  %cmp15166.i = icmp sgt i32 %data.sroa.26.0.i, 0
   br i1 %cmp15166.i, label %for.cond18.preheader.lr.ph.i, label %display_table.exit
 
 for.cond18.preheader.lr.ph.i:                     ; preds = %if.end.i
-  %cmp19144.i = icmp sgt i32 %data.sroa.38.2.i, 0
-  %tobool.not.i.i = icmp eq ptr %data.sroa.60.3.fr.i, null
-  %sub37.i.i = add nsw i32 %data.sroa.38.2.i, -1
+  %cmp19144.i = icmp sgt i32 %data.sroa.38.0.i, 0
+  %tobool.not.i.i = icmp eq ptr %data.sroa.60.0.fr.i, null
+  %sub37.i.i = add nsw i32 %data.sroa.38.0.i, -1
   br i1 %cmp19144.i, label %for.cond18.preheader.lr.ph.split.us.i, label %display_table.exit
 
 for.cond18.preheader.lr.ph.split.us.i:            ; preds = %for.cond18.preheader.lr.ph.i
   %cmp.i34.i = icmp eq i32 %and, 0
-  %wide.trip.count290.i = zext nneg i32 %data.sroa.38.2.i to i64
+  %wide.trip.count290.i = zext nneg i32 %data.sroa.38.0.i to i64
   br i1 %cmp.i34.i, label %for.cond18.preheader.lr.ph.split.us.split.us.i, label %for.cond18.preheader.lr.ph.split.us.split.i
 
 for.cond18.preheader.lr.ph.split.us.split.us.i:   ; preds = %for.cond18.preheader.lr.ph.split.us.i
-  %73 = zext nneg i32 %data.sroa.26.2.i to i64
+  %73 = zext nneg i32 %data.sroa.26.0.i to i64
   br i1 %tobool.not.i.i, label %for.cond18.preheader.us.us.us.i, label %for.cond18.preheader.us.us.i
 
 for.cond18.preheader.us.us.us.i:                  ; preds = %for.cond18.preheader.lr.ph.split.us.split.us.i, %for.inc29.us.us.us.i
   %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %for.inc29.us.us.us.i ], [ 0, %for.cond18.preheader.lr.ph.split.us.split.us.i ]
   %74 = trunc i64 %indvars.iv292.i to i32
-  %75 = add i32 %data.sroa.26.2.i, %74
+  %75 = add i32 %data.sroa.26.0.i, %74
   br label %for.body21.us.us.us.us.us.i
 
 for.inc29.us.us.us.i:                             ; preds = %if.end.i38.us.us.us.us.us.i, %for.body21.us.us.us.us.us.i
@@ -552,7 +552,7 @@ if.end.i38.us.us.us.us.us.i:                      ; preds = %for.body21.us.us.us
 for.cond18.preheader.us.us.i:                     ; preds = %for.cond18.preheader.lr.ph.split.us.split.us.i, %for.inc29.us.us.i
   %indvars.iv279.i = phi i64 [ %indvars.iv.next280.i, %for.inc29.us.us.i ], [ 0, %for.cond18.preheader.lr.ph.split.us.split.us.i ]
   %83 = trunc i64 %indvars.iv279.i to i32
-  %84 = add i32 %data.sroa.26.2.i, %83
+  %84 = add i32 %data.sroa.26.0.i, %83
   br label %for.body21.us.us.us.i
 
 for.inc29.us.us.i:                                ; preds = %if.end.i38.us.us.us.i, %for.body21.us.us.us.i
@@ -571,7 +571,7 @@ for.body21.us.us.us.i:                            ; preds = %if.end.i38.us.us.us
 if.end.i38.us.us.us.i:                            ; preds = %for.body21.us.us.us.i
   %arrayidx.i39.us.us.us.i = getelementptr inbounds i32, ptr %call4.i, i64 %86
   %88 = load i32, ptr %arrayidx.i39.us.us.us.i, align 4
-  %arrayidx9.i.us.us.us.i = getelementptr inbounds i32, ptr %data.sroa.60.3.fr.i, i64 %indvars.iv272.i
+  %arrayidx9.i.us.us.us.i = getelementptr inbounds i32, ptr %data.sroa.60.0.fr.i, i64 %indvars.iv272.i
   %89 = load i32, ptr %arrayidx9.i.us.us.us.i, align 4
   %idxprom10.i.us.us.us.i = sext i32 %89 to i64
   %arrayidx11.i.us.us.us.i = getelementptr inbounds i32, ptr %call4.i, i64 %idxprom10.i.us.us.us.i
@@ -599,7 +599,7 @@ if.end.i38.us.us.us.i:                            ; preds = %for.body21.us.us.us
 
 for.cond18.preheader.lr.ph.split.us.split.i:      ; preds = %for.cond18.preheader.lr.ph.split.us.i
   %94 = zext nneg i32 %sub37.i.i to i64
-  %wide.trip.count270.i = zext nneg i32 %data.sroa.26.2.i to i64
+  %wide.trip.count270.i = zext nneg i32 %data.sroa.26.0.i to i64
   br i1 %tobool.not.i.i, label %for.cond18.preheader.us.us205.i, label %for.cond18.preheader.us.i
 
 for.cond18.preheader.us.us205.i:                  ; preds = %for.cond18.preheader.lr.ph.split.us.split.i, %for.inc29.us.us208.i
@@ -659,7 +659,7 @@ for.inc29.us.i:                                   ; preds = %if.end.i38.us173.i,
 if.end.i38.us173.i:                               ; preds = %for.body21.us169.i
   %arrayidx.i39.us174.i = getelementptr inbounds i32, ptr %call4.i, i64 %102
   %104 = load i32, ptr %arrayidx.i39.us174.i, align 4
-  %arrayidx9.i.us176.i = getelementptr inbounds i32, ptr %data.sroa.60.3.fr.i, i64 %indvars.iv249.i
+  %arrayidx9.i.us176.i = getelementptr inbounds i32, ptr %data.sroa.60.0.fr.i, i64 %indvars.iv249.i
   %105 = load i32, ptr %arrayidx9.i.us176.i, align 4
   %idxprom10.i.us177.i = sext i32 %105 to i64
   %arrayidx11.i.us178.i = getelementptr inbounds i32, ptr %call4.i, i64 %idxprom10.i.us177.i
@@ -687,7 +687,7 @@ if.end.i38.us173.i:                               ; preds = %for.body21.us169.i
 
 display_table.exit:                               ; preds = %for.inc29.us.i, %for.inc29.us.us208.i, %for.inc29.us.us.i, %for.inc29.us.us.us.i, %if.end.i, %for.cond18.preheader.lr.ph.i
   tail call void @free(ptr noundef %call4.i) #9
-  tail call void @free(ptr noundef %data.sroa.60.3.fr.i) #9
+  tail call void @free(ptr noundef %data.sroa.60.0.fr.i) #9
   tail call void @free(ptr noundef %call12.i) #9
   br label %sw.epilog
 
@@ -886,7 +886,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end5
   %1 = phi i8 [ %14, %if.end5 ], [ %0, %entry ]
   %value.addr.033 = phi ptr [ %add.ptr7, %if.end5 ], [ %value, %entry ]
-  %group_set.032 = phi i32 [ %group_set.3, %if.end5 ], [ 0, %entry ]
+  %group_set.032 = phi i32 [ %group_set.1, %if.end5 ], [ 0, %entry ]
   %call = tail call i64 @strcspn(ptr noundef nonnull %value.addr.033, ptr noundef nonnull @.str.14) #11
   %conv = trunc i64 %call to i32
   %tobool1.not = icmp eq i32 %conv, 0
@@ -1008,7 +1008,7 @@ if.then30.sink.split.i:                           ; preds = %sw.bb24.i, %if.end2
   br label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.then30.sink.split.i, %sw.epilog.i
-  %group_set.1 = phi i32 [ %group_set.032, %sw.epilog.i ], [ %or.i, %if.then30.sink.split.i ]
+  %group_set.2 = phi i32 [ %group_set.032, %sw.epilog.i ], [ %or.i, %if.then30.sink.split.i ]
   %9 = load i32, ptr %colopts, align 4
   %not.i = xor i32 %.us-phi23.i, -1
   %and.i = and i32 %9, %not.i
@@ -1044,7 +1044,7 @@ parse_option.exit:                                ; preds = %for.inc.us.i, %for.
 
 if.end:                                           ; preds = %if.then38.i, %if.else43.i, %if.then30.i
   %or42.i.sink = phi i32 [ %or42.i, %if.then38.i ], [ %and48.i, %if.else43.i ], [ %or36.i, %if.then30.i ]
-  %group_set.2.ph = phi i32 [ %group_set.032, %if.then38.i ], [ %group_set.032, %if.else43.i ], [ %group_set.1, %if.then30.i ]
+  %group_set.3.ph = phi i32 [ %group_set.032, %if.then38.i ], [ %group_set.032, %if.else43.i ], [ %group_set.2, %if.then30.i ]
   store i32 %or42.i.sink, ptr %colopts, align 4
   %sext = shl i64 %call, 32
   %idx.ext = ashr exact i64 %sext, 32
@@ -1052,7 +1052,7 @@ if.end:                                           ; preds = %if.then38.i, %if.el
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %while.body
-  %group_set.3 = phi i32 [ %group_set.032, %while.body ], [ %group_set.2.ph, %if.end ]
+  %group_set.1 = phi i32 [ %group_set.032, %while.body ], [ %group_set.3.ph, %if.end ]
   %value.addr.1 = phi ptr [ %value.addr.033, %while.body ], [ %add.ptr, %if.end ]
   %call6 = tail call i64 @strspn(ptr noundef %value.addr.1, ptr noundef nonnull @.str.14) #11
   %add.ptr7 = getelementptr inbounds i8, ptr %value.addr.1, i64 %call6
@@ -1061,7 +1061,7 @@ if.end5:                                          ; preds = %if.end, %while.body
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %if.end5
-  %15 = and i32 %group_set.3, 3
+  %15 = and i32 %group_set.1, 3
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %if.then11, label %return
 

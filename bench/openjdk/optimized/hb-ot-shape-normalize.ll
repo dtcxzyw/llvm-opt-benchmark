@@ -1911,7 +1911,7 @@ define internal fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_in
   br label %37
 
 37:                                               ; preds = %21, %25, %32, %34, %30, %23, %12
-  %.0 = phi i32 [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %31, %30 ], [ %36, %34 ], [ %20, %32 ], [ %10, %12 ]
+  %.1 = phi i32 [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %31, %30 ], [ %36, %34 ], [ %20, %32 ], [ %10, %12 ]
   %38 = icmp ugt i32 %10, 31
   %39 = shl nuw i32 1, %10
   %40 = and i32 %39, 7168
@@ -1944,13 +1944,13 @@ define internal fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_in
 
 _ZN18hb_unicode_funcs_t24modified_combining_classEj.exit: ; preds = %41, %41, %42, %43
   %.0.i = phi i32 [ 32512, %42 ], [ %53, %43 ], [ 65024, %41 ], [ 65024, %41 ]
-  %54 = or i32 %.0, %.0.i
+  %54 = or i32 %.1, %.0.i
   %55 = or i32 %54, 128
   br label %56
 
 56:                                               ; preds = %37, %_ZN18hb_unicode_funcs_t24modified_combining_classEj.exit, %2
-  %.1 = phi i32 [ %55, %_ZN18hb_unicode_funcs_t24modified_combining_classEj.exit ], [ %.0, %37 ], [ %10, %2 ]
-  %57 = trunc i32 %.1 to i16
+  %.0 = phi i32 [ %55, %_ZN18hb_unicode_funcs_t24modified_combining_classEj.exit ], [ %.1, %37 ], [ %10, %2 ]
+  %57 = trunc i32 %.0 to i16
   %58 = getelementptr inbounds i8, ptr %0, i64 16
   store i16 %57, ptr %58, align 4
   ret void

@@ -521,7 +521,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   br label %193
 
 189:                                              ; preds = %2521, %2525, %2664, %351
-  %.0 = phi i32 [ %.6, %2664 ], [ %.5, %2521 ], [ %.5, %2525 ], [ -2, %351 ]
+  %.1 = phi i32 [ %.8, %2664 ], [ %.7, %2521 ], [ %.7, %2525 ], [ -2, %351 ]
   %190 = getelementptr inbounds i8, ptr %0, i64 424
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 2
@@ -530,7 +530,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
 
 193:                                              ; preds = %189, %184
   %194 = phi ptr [ %.pre1479, %184 ], [ %192, %189 ]
-  %.1 = phi i32 [ -2, %184 ], [ %.0, %189 ]
+  %.0 = phi i32 [ -2, %184 ], [ %.1, %189 ]
   %195 = getelementptr inbounds i8, ptr %0, i64 4
   %196 = load i32, ptr %195, align 4
   %197 = trunc i32 %196 to i16
@@ -658,7 +658,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   br i1 %269, label %361, label %270
 
 270:                                              ; preds = %264
-  %271 = icmp eq i32 %.1, -2
+  %271 = icmp eq i32 %.0, -2
   br i1 %271, label %272, label %291
 
 272:                                              ; preds = %270
@@ -681,7 +681,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   br label %280
 
 280:                                              ; preds = %162, %279
-  %.0747 = phi i32 [ %268, %279 ], [ %168, %162 ]
+  %.1748 = phi i32 [ %268, %279 ], [ %168, %162 ]
   %281 = load i32, ptr @_gmx_sel_yydebug, align 4
   %.not1009 = icmp eq i32 %281, 0
   br i1 %.not1009, label %285, label %282
@@ -710,9 +710,9 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   br label %291
 
 291:                                              ; preds = %288, %289, %270
-  %.1748 = phi i32 [ %.0747, %289 ], [ %.0747, %288 ], [ %268, %270 ]
-  %.2 = phi i32 [ %1, %289 ], [ %1, %288 ], [ %.1, %270 ]
-  %292 = icmp slt i32 %.2, 1
+  %.0747 = phi i32 [ %.1748, %289 ], [ %.1748, %288 ], [ %268, %270 ]
+  %.5 = phi i32 [ %1, %289 ], [ %1, %288 ], [ %.0, %270 ]
+  %292 = icmp slt i32 %.5, 1
   br i1 %292, label %293, label %298
 
 293:                                              ; preds = %291
@@ -726,11 +726,11 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   br label %319
 
 298:                                              ; preds = %291
-  %299 = icmp ult i32 %.2, 289
+  %299 = icmp ult i32 %.5, 289
   br i1 %299, label %300, label %305
 
 300:                                              ; preds = %298
-  %301 = zext nneg i32 %.2 to i64
+  %301 = zext nneg i32 %.5 to i64
   %302 = getelementptr inbounds [289 x i8], ptr @_ZL11yytranslate, i64 0, i64 %301
   %303 = load i8, ptr %302, align 1
   %304 = zext i8 %303 to i32
@@ -760,8 +760,8 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
 
 319:                                              ; preds = %308, %305, %295, %293
   %.0752 = phi i32 [ 0, %295 ], [ 0, %293 ], [ %306, %308 ], [ %306, %305 ]
-  %.3 = phi i32 [ 0, %295 ], [ 0, %293 ], [ %.2, %308 ], [ %.2, %305 ]
-  %320 = add nsw i32 %.0752, %.1748
+  %.6 = phi i32 [ 0, %295 ], [ 0, %293 ], [ %.5, %308 ], [ %.5, %305 ]
+  %320 = add nsw i32 %.0752, %.0747
   %or.cond = icmp ugt i32 %320, 367
   br i1 %or.cond, label %361, label %321
 
@@ -834,7 +834,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   br label %189
 
 361:                                              ; preds = %319, %321, %264
-  %.4 = phi i32 [ %.1, %264 ], [ %.3, %319 ], [ %.3, %321 ]
+  %.4 = phi i32 [ %.0, %264 ], [ %.6, %319 ], [ %.6, %321 ]
   %362 = getelementptr inbounds i8, ptr %0, i64 4
   %363 = load i32, ptr %362, align 4
   %364 = sext i32 %363 to i64
@@ -846,7 +846,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
 
 369:                                              ; preds = %361, %331
   %.2749 = phi i32 [ %367, %361 ], [ %332, %331 ]
-  %.5 = phi i32 [ %.4, %361 ], [ %.3, %331 ]
+  %.7 = phi i32 [ %.4, %361 ], [ %.6, %331 ]
   %370 = zext nneg i32 %.2749 to i64
   %371 = getelementptr inbounds [91 x i8], ptr @_ZL4yyr2, i64 0, i64 %370
   %372 = load i8, ptr %371, align 1
@@ -1160,14 +1160,14 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296: ; preds = %436, %441
 
 471:                                              ; preds = %470, %461
   %.pn1194 = phi { ptr, i32 } [ %462, %461 ], [ %.pn1191.pn, %470 ]
-  %.2764 = extractvalue { ptr, i32 } %.pn1194, 0
-  %.2774 = extractvalue { ptr, i32 } %.pn1194, 1
+  %.1763 = extractvalue { ptr, i32 } %.pn1194, 0
+  %.1773 = extractvalue { ptr, i32 } %.pn1194, 1
   %472 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %473 = icmp eq i32 %.2774, %472
+  %473 = icmp eq i32 %.1773, %472
   br i1 %473, label %474, label %2719
 
 474:                                              ; preds = %471
-  %475 = call ptr @__cxa_begin_catch(ptr %.2764) #21
+  %475 = call ptr @__cxa_begin_catch(ptr %.1763) #21
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %14) #21
   invoke void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %476 unwind label %479
@@ -1386,14 +1386,14 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1306: ; pre
 
 552:                                              ; preds = %551, %536
   %.pn1186.pn.pn = phi { ptr, i32 } [ %.pn1186.pn, %551 ], [ %537, %536 ]
-  %.5767 = extractvalue { ptr, i32 } %.pn1186.pn.pn, 0
-  %.5777 = extractvalue { ptr, i32 } %.pn1186.pn.pn, 1
+  %.4766 = extractvalue { ptr, i32 } %.pn1186.pn.pn, 0
+  %.4776 = extractvalue { ptr, i32 } %.pn1186.pn.pn, 1
   %553 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %554 = icmp eq i32 %.5777, %553
+  %554 = icmp eq i32 %.4776, %553
   br i1 %554, label %555, label %2719
 
 555:                                              ; preds = %552
-  %556 = call ptr @__cxa_begin_catch(ptr %.5767) #21
+  %556 = call ptr @__cxa_begin_catch(ptr %.4766) #21
   %557 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %556)
           to label %558 unwind label %559
 
@@ -1483,15 +1483,15 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1306: ; pre
 
 585:                                              ; preds = %584, %569
   %.pn1182.pn.pn = phi { ptr, i32 } [ %.pn1182.pn, %584 ], [ %570, %569 ]
-  %.8770 = extractvalue { ptr, i32 } %.pn1182.pn.pn, 0
-  %.8780 = extractvalue { ptr, i32 } %.pn1182.pn.pn, 1
+  %.7769 = extractvalue { ptr, i32 } %.pn1182.pn.pn, 0
+  %.7779 = extractvalue { ptr, i32 } %.pn1182.pn.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #21
   %586 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %587 = icmp eq i32 %.8780, %586
+  %587 = icmp eq i32 %.7779, %586
   br i1 %587, label %588, label %2719
 
 588:                                              ; preds = %585
-  %589 = call ptr @__cxa_begin_catch(ptr %.8770) #21
+  %589 = call ptr @__cxa_begin_catch(ptr %.7769) #21
   %590 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %589)
           to label %591 unwind label %592
 
@@ -2069,14 +2069,14 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1306: ; pre
 
 804:                                              ; preds = %803, %794
   %.pn1160.pn.pn = phi { ptr, i32 } [ %.pn1160.pn, %803 ], [ %795, %794 ]
-  %.23 = extractvalue { ptr, i32 } %.pn1160.pn.pn, 0
-  %.23795 = extractvalue { ptr, i32 } %.pn1160.pn.pn, 1
+  %.22 = extractvalue { ptr, i32 } %.pn1160.pn.pn, 0
+  %.22794 = extractvalue { ptr, i32 } %.pn1160.pn.pn, 1
   %805 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %806 = icmp eq i32 %.23795, %805
+  %806 = icmp eq i32 %.22794, %805
   br i1 %806, label %807, label %2719
 
 807:                                              ; preds = %804
-  %808 = call ptr @__cxa_begin_catch(ptr %.23) #21
+  %808 = call ptr @__cxa_begin_catch(ptr %.22) #21
   %809 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %808)
           to label %810 unwind label %811
 
@@ -2384,14 +2384,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320: ; preds = %_ZN
 
 935:                                              ; preds = %934, %923
   %.pn1153.pn.pn = phi { ptr, i32 } [ %.pn1153.pn, %934 ], [ %924, %923 ]
-  %.28 = extractvalue { ptr, i32 } %.pn1153.pn.pn, 0
-  %.28800 = extractvalue { ptr, i32 } %.pn1153.pn.pn, 1
+  %.27 = extractvalue { ptr, i32 } %.pn1153.pn.pn, 0
+  %.27799 = extractvalue { ptr, i32 } %.pn1153.pn.pn, 1
   %936 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %937 = icmp eq i32 %.28800, %936
+  %937 = icmp eq i32 %.27799, %936
   br i1 %937, label %938, label %2719
 
 938:                                              ; preds = %935
-  %939 = call ptr @__cxa_begin_catch(ptr %.28) #21
+  %939 = call ptr @__cxa_begin_catch(ptr %.27) #21
   %940 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %939)
           to label %941 unwind label %942
 
@@ -2528,14 +2528,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325: ; preds = %_ZN
 
 993:                                              ; preds = %992, %981
   %.pn1149.pn.pn = phi { ptr, i32 } [ %.pn1149.pn, %992 ], [ %982, %981 ]
-  %.31 = extractvalue { ptr, i32 } %.pn1149.pn.pn, 0
-  %.31803 = extractvalue { ptr, i32 } %.pn1149.pn.pn, 1
+  %.30 = extractvalue { ptr, i32 } %.pn1149.pn.pn, 0
+  %.30802 = extractvalue { ptr, i32 } %.pn1149.pn.pn, 1
   %994 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %995 = icmp eq i32 %.31803, %994
+  %995 = icmp eq i32 %.30802, %994
   br i1 %995, label %996, label %2719
 
 996:                                              ; preds = %993
-  %997 = call ptr @__cxa_begin_catch(ptr %.31) #21
+  %997 = call ptr @__cxa_begin_catch(ptr %.30) #21
   %998 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %997)
           to label %999 unwind label %1000
 
@@ -2647,15 +2647,15 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325: ; preds = %_ZN
 
 1039:                                             ; preds = %1037, %1028
   %.pn1145.pn.pn = phi { ptr, i32 } [ %.pn1145.pn, %1037 ], [ %1029, %1028 ]
-  %.34 = extractvalue { ptr, i32 } %.pn1145.pn.pn, 0
-  %.34806 = extractvalue { ptr, i32 } %.pn1145.pn.pn, 1
+  %.33 = extractvalue { ptr, i32 } %.pn1145.pn.pn, 0
+  %.33805 = extractvalue { ptr, i32 } %.pn1145.pn.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #21
   %1040 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1041 = icmp eq i32 %.34806, %1040
+  %1041 = icmp eq i32 %.33805, %1040
   br i1 %1041, label %1042, label %2719
 
 1042:                                             ; preds = %1039
-  %1043 = call ptr @__cxa_begin_catch(ptr %.34) #21
+  %1043 = call ptr @__cxa_begin_catch(ptr %.33) #21
   %1044 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1043)
           to label %1045 unwind label %1046
 
@@ -2708,15 +2708,15 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325: ; preds = %_ZN
 
 1062:                                             ; preds = %1060, %1058
   %.pn1143 = phi { ptr, i32 } [ %1061, %1060 ], [ %1059, %1058 ]
-  %.35 = extractvalue { ptr, i32 } %.pn1143, 0
-  %.35807 = extractvalue { ptr, i32 } %.pn1143, 1
+  %.36 = extractvalue { ptr, i32 } %.pn1143, 0
+  %.36808 = extractvalue { ptr, i32 } %.pn1143, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #21
   %1063 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1064 = icmp eq i32 %.35807, %1063
+  %1064 = icmp eq i32 %.36808, %1063
   br i1 %1064, label %1065, label %2719
 
 1065:                                             ; preds = %1062
-  %1066 = call ptr @__cxa_begin_catch(ptr %.35) #21
+  %1066 = call ptr @__cxa_begin_catch(ptr %.36) #21
   %1067 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1066)
           to label %1068 unwind label %1069
 
@@ -2766,14 +2766,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325: ; preds = %_ZN
 
 1085:                                             ; preds = %1083, %1081
   %.pn1141 = phi { ptr, i32 } [ %1084, %1083 ], [ %1082, %1081 ]
-  %.36 = extractvalue { ptr, i32 } %.pn1141, 0
-  %.36808 = extractvalue { ptr, i32 } %.pn1141, 1
+  %.37 = extractvalue { ptr, i32 } %.pn1141, 0
+  %.37809 = extractvalue { ptr, i32 } %.pn1141, 1
   %1086 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1087 = icmp eq i32 %.36808, %1086
+  %1087 = icmp eq i32 %.37809, %1086
   br i1 %1087, label %1088, label %2719
 
 1088:                                             ; preds = %1085
-  %1089 = call ptr @__cxa_begin_catch(ptr %.36) #21
+  %1089 = call ptr @__cxa_begin_catch(ptr %.37) #21
   %1090 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1089)
           to label %1091 unwind label %1092
 
@@ -2859,16 +2859,16 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325: ; preds = %_ZN
 
 1120:                                             ; preds = %1118, %1116
   %.pn1139 = phi { ptr, i32 } [ %1119, %1118 ], [ %1117, %1116 ]
-  %.37 = extractvalue { ptr, i32 } %.pn1139, 0
-  %.37809 = extractvalue { ptr, i32 } %.pn1139, 1
+  %.38 = extractvalue { ptr, i32 } %.pn1139, 0
+  %.38810 = extractvalue { ptr, i32 } %.pn1139, 1
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #21
   %1121 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1122 = icmp eq i32 %.37809, %1121
+  %1122 = icmp eq i32 %.38810, %1121
   br i1 %1122, label %1123, label %2719
 
 1123:                                             ; preds = %1120
-  %1124 = call ptr @__cxa_begin_catch(ptr %.37) #21
+  %1124 = call ptr @__cxa_begin_catch(ptr %.38) #21
   %1125 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1124)
           to label %1126 unwind label %1128
 
@@ -3570,16 +3570,16 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343: ; preds = %133
 
 1395:                                             ; preds = %1393, %1391
   %.pn1119 = phi { ptr, i32 } [ %1394, %1393 ], [ %1392, %1391 ]
-  %.50 = extractvalue { ptr, i32 } %.pn1119, 0
-  %.50822 = extractvalue { ptr, i32 } %.pn1119, 1
+  %.51 = extractvalue { ptr, i32 } %.pn1119, 0
+  %.51823 = extractvalue { ptr, i32 } %.pn1119, 1
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #21
   %1396 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1397 = icmp eq i32 %.50822, %1396
+  %1397 = icmp eq i32 %.51823, %1396
   br i1 %1397, label %1398, label %2719
 
 1398:                                             ; preds = %1395
-  %1399 = call ptr @__cxa_begin_catch(ptr %.50) #21
+  %1399 = call ptr @__cxa_begin_catch(ptr %.51) #21
   %1400 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1399)
           to label %1401 unwind label %1403
 
@@ -3862,14 +3862,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343: ; preds = %133
 
 1504:                                             ; preds = %1503, %1494
   %.pn1109.pn.pn = phi { ptr, i32 } [ %.pn1109.pn, %1503 ], [ %1495, %1494 ]
-  %.57 = extractvalue { ptr, i32 } %.pn1109.pn.pn, 0
-  %.57829 = extractvalue { ptr, i32 } %.pn1109.pn.pn, 1
+  %.56 = extractvalue { ptr, i32 } %.pn1109.pn.pn, 0
+  %.56828 = extractvalue { ptr, i32 } %.pn1109.pn.pn, 1
   %1505 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1506 = icmp eq i32 %.57829, %1505
+  %1506 = icmp eq i32 %.56828, %1505
   br i1 %1506, label %1507, label %2719
 
 1507:                                             ; preds = %1504
-  %1508 = call ptr @__cxa_begin_catch(ptr %.57) #21
+  %1508 = call ptr @__cxa_begin_catch(ptr %.56) #21
   %1509 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1508)
           to label %1510 unwind label %1511
 
@@ -3954,14 +3954,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343: ; preds = %133
 
 1538:                                             ; preds = %1537, %1528
   %.pn1105.pn.pn = phi { ptr, i32 } [ %.pn1105.pn, %1537 ], [ %1529, %1528 ]
-  %.60 = extractvalue { ptr, i32 } %.pn1105.pn.pn, 0
-  %.60832 = extractvalue { ptr, i32 } %.pn1105.pn.pn, 1
+  %.59 = extractvalue { ptr, i32 } %.pn1105.pn.pn, 0
+  %.59831 = extractvalue { ptr, i32 } %.pn1105.pn.pn, 1
   %1539 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1540 = icmp eq i32 %.60832, %1539
+  %1540 = icmp eq i32 %.59831, %1539
   br i1 %1540, label %1541, label %2719
 
 1541:                                             ; preds = %1538
-  %1542 = call ptr @__cxa_begin_catch(ptr %.60) #21
+  %1542 = call ptr @__cxa_begin_catch(ptr %.59) #21
   %1543 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1542)
           to label %1544 unwind label %1545
 
@@ -4046,14 +4046,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343: ; preds = %133
 
 1572:                                             ; preds = %1571, %1562
   %.pn1101.pn.pn = phi { ptr, i32 } [ %.pn1101.pn, %1571 ], [ %1563, %1562 ]
-  %.63 = extractvalue { ptr, i32 } %.pn1101.pn.pn, 0
-  %.63835 = extractvalue { ptr, i32 } %.pn1101.pn.pn, 1
+  %.62 = extractvalue { ptr, i32 } %.pn1101.pn.pn, 0
+  %.62834 = extractvalue { ptr, i32 } %.pn1101.pn.pn, 1
   %1573 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1574 = icmp eq i32 %.63835, %1573
+  %1574 = icmp eq i32 %.62834, %1573
   br i1 %1574, label %1575, label %2719
 
 1575:                                             ; preds = %1572
-  %1576 = call ptr @__cxa_begin_catch(ptr %.63) #21
+  %1576 = call ptr @__cxa_begin_catch(ptr %.62) #21
   %1577 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1576)
           to label %1578 unwind label %1579
 
@@ -4138,14 +4138,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343: ; preds = %133
 
 1606:                                             ; preds = %1605, %1596
   %.pn1097.pn.pn = phi { ptr, i32 } [ %.pn1097.pn, %1605 ], [ %1597, %1596 ]
-  %.66 = extractvalue { ptr, i32 } %.pn1097.pn.pn, 0
-  %.66838 = extractvalue { ptr, i32 } %.pn1097.pn.pn, 1
+  %.65 = extractvalue { ptr, i32 } %.pn1097.pn.pn, 0
+  %.65837 = extractvalue { ptr, i32 } %.pn1097.pn.pn, 1
   %1607 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1608 = icmp eq i32 %.66838, %1607
+  %1608 = icmp eq i32 %.65837, %1607
   br i1 %1608, label %1609, label %2719
 
 1609:                                             ; preds = %1606
-  %1610 = call ptr @__cxa_begin_catch(ptr %.66) #21
+  %1610 = call ptr @__cxa_begin_catch(ptr %.65) #21
   %1611 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1610)
           to label %1612 unwind label %1613
 
@@ -4306,14 +4306,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343: ; preds = %133
 
 1667:                                             ; preds = %1666, %1657
   %.pn1090.pn.pn = phi { ptr, i32 } [ %.pn1090.pn, %1666 ], [ %1658, %1657 ]
-  %.71 = extractvalue { ptr, i32 } %.pn1090.pn.pn, 0
-  %.71843 = extractvalue { ptr, i32 } %.pn1090.pn.pn, 1
+  %.70 = extractvalue { ptr, i32 } %.pn1090.pn.pn, 0
+  %.70842 = extractvalue { ptr, i32 } %.pn1090.pn.pn, 1
   %1668 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1669 = icmp eq i32 %.71843, %1668
+  %1669 = icmp eq i32 %.70842, %1668
   br i1 %1669, label %1670, label %2719
 
 1670:                                             ; preds = %1667
-  %1671 = call ptr @__cxa_begin_catch(ptr %.71) #21
+  %1671 = call ptr @__cxa_begin_catch(ptr %.70) #21
   %1672 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1671)
           to label %1673 unwind label %1674
 
@@ -4507,16 +4507,16 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357: ; preds = %169
 
 1747:                                             ; preds = %1745, %1743
   %.pn1085 = phi { ptr, i32 } [ %1746, %1745 ], [ %1744, %1743 ]
-  %.74 = extractvalue { ptr, i32 } %.pn1085, 0
-  %.74846 = extractvalue { ptr, i32 } %.pn1085, 1
+  %.75 = extractvalue { ptr, i32 } %.pn1085, 0
+  %.75847 = extractvalue { ptr, i32 } %.pn1085, 1
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %110) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #21
   %1748 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1749 = icmp eq i32 %.74846, %1748
+  %1749 = icmp eq i32 %.75847, %1748
   br i1 %1749, label %1750, label %2719
 
 1750:                                             ; preds = %1747
-  %1751 = call ptr @__cxa_begin_catch(ptr %.74) #21
+  %1751 = call ptr @__cxa_begin_catch(ptr %.75) #21
   %1752 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1751)
           to label %1753 unwind label %1755
 
@@ -4577,14 +4577,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357: ; preds = %169
 
 1776:                                             ; preds = %1774, %1772
   %.pn1083 = phi { ptr, i32 } [ %1775, %1774 ], [ %1773, %1772 ]
-  %.75 = extractvalue { ptr, i32 } %.pn1083, 0
-  %.75847 = extractvalue { ptr, i32 } %.pn1083, 1
+  %.76 = extractvalue { ptr, i32 } %.pn1083, 0
+  %.76848 = extractvalue { ptr, i32 } %.pn1083, 1
   %1777 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1778 = icmp eq i32 %.75847, %1777
+  %1778 = icmp eq i32 %.76848, %1777
   br i1 %1778, label %1779, label %2719
 
 1779:                                             ; preds = %1776
-  %1780 = call ptr @__cxa_begin_catch(ptr %.75) #21
+  %1780 = call ptr @__cxa_begin_catch(ptr %.76) #21
   %1781 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1780)
           to label %1782 unwind label %1783
 
@@ -5054,14 +5054,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357: ; preds = %169
 
 1958:                                             ; preds = %1956, %1954
   %.pn1066 = phi { ptr, i32 } [ %1957, %1956 ], [ %1955, %1954 ]
-  %.86 = extractvalue { ptr, i32 } %.pn1066, 0
-  %.86858 = extractvalue { ptr, i32 } %.pn1066, 1
+  %.87 = extractvalue { ptr, i32 } %.pn1066, 0
+  %.87859 = extractvalue { ptr, i32 } %.pn1066, 1
   %1959 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1960 = icmp eq i32 %.86858, %1959
+  %1960 = icmp eq i32 %.87859, %1959
   br i1 %1960, label %1961, label %2719
 
 1961:                                             ; preds = %1958
-  %1962 = call ptr @__cxa_begin_catch(ptr %.86) #21
+  %1962 = call ptr @__cxa_begin_catch(ptr %.87) #21
   %1963 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1962)
           to label %1964 unwind label %1965
 
@@ -5290,14 +5290,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357: ; preds = %169
 
 2047:                                             ; preds = %2045, %2043
   %.pn1058 = phi { ptr, i32 } [ %2046, %2045 ], [ %2044, %2043 ]
-  %.91 = extractvalue { ptr, i32 } %.pn1058, 0
-  %.91863 = extractvalue { ptr, i32 } %.pn1058, 1
+  %.92 = extractvalue { ptr, i32 } %.pn1058, 0
+  %.92864 = extractvalue { ptr, i32 } %.pn1058, 1
   %2048 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2049 = icmp eq i32 %.91863, %2048
+  %2049 = icmp eq i32 %.92864, %2048
   br i1 %2049, label %2050, label %2719
 
 2050:                                             ; preds = %2047
-  %2051 = call ptr @__cxa_begin_catch(ptr %.91) #21
+  %2051 = call ptr @__cxa_begin_catch(ptr %.92) #21
   %2052 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2051)
           to label %2053 unwind label %2054
 
@@ -6059,14 +6059,14 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 
 2329:                                             ; preds = %2327, %2325
   %.pn1029 = phi { ptr, i32 } [ %2328, %2327 ], [ %2326, %2325 ]
-  %.110 = extractvalue { ptr, i32 } %.pn1029, 0
-  %.110882 = extractvalue { ptr, i32 } %.pn1029, 1
+  %.111 = extractvalue { ptr, i32 } %.pn1029, 0
+  %.111883 = extractvalue { ptr, i32 } %.pn1029, 1
   %2330 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2331 = icmp eq i32 %.110882, %2330
+  %2331 = icmp eq i32 %.111883, %2330
   br i1 %2331, label %2332, label %2719
 
 2332:                                             ; preds = %2329
-  %2333 = call ptr @__cxa_begin_catch(ptr %.110) #21
+  %2333 = call ptr @__cxa_begin_catch(ptr %.111) #21
   %2334 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2333)
           to label %2335 unwind label %2336
 
@@ -6114,14 +6114,14 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 
 2351:                                             ; preds = %2349, %2347
   %.pn1027 = phi { ptr, i32 } [ %2350, %2349 ], [ %2348, %2347 ]
-  %.111 = extractvalue { ptr, i32 } %.pn1027, 0
-  %.111883 = extractvalue { ptr, i32 } %.pn1027, 1
+  %.112 = extractvalue { ptr, i32 } %.pn1027, 0
+  %.112884 = extractvalue { ptr, i32 } %.pn1027, 1
   %2352 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2353 = icmp eq i32 %.111883, %2352
+  %2353 = icmp eq i32 %.112884, %2352
   br i1 %2353, label %2354, label %2719
 
 2354:                                             ; preds = %2351
-  %2355 = call ptr @__cxa_begin_catch(ptr %.111) #21
+  %2355 = call ptr @__cxa_begin_catch(ptr %.112) #21
   %2356 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2355)
           to label %2357 unwind label %2358
 
@@ -6168,15 +6168,15 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 
 2371:                                             ; preds = %2369, %2367
   %.pn1025 = phi { ptr, i32 } [ %2370, %2369 ], [ %2368, %2367 ]
-  %.112 = extractvalue { ptr, i32 } %.pn1025, 0
-  %.112884 = extractvalue { ptr, i32 } %.pn1025, 1
+  %.113 = extractvalue { ptr, i32 } %.pn1025, 0
+  %.113885 = extractvalue { ptr, i32 } %.pn1025, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %155) #21
   %2372 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2373 = icmp eq i32 %.112884, %2372
+  %2373 = icmp eq i32 %.113885, %2372
   br i1 %2373, label %2374, label %2719
 
 2374:                                             ; preds = %2371
-  %2375 = call ptr @__cxa_begin_catch(ptr %.112) #21
+  %2375 = call ptr @__cxa_begin_catch(ptr %.113) #21
   %2376 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2375)
           to label %2377 unwind label %2378
 
@@ -6232,14 +6232,14 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 
 2398:                                             ; preds = %2396, %2394
   %.pn1023 = phi { ptr, i32 } [ %2397, %2396 ], [ %2395, %2394 ]
-  %.113 = extractvalue { ptr, i32 } %.pn1023, 0
-  %.113885 = extractvalue { ptr, i32 } %.pn1023, 1
+  %.114 = extractvalue { ptr, i32 } %.pn1023, 0
+  %.114886 = extractvalue { ptr, i32 } %.pn1023, 1
   %2399 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2400 = icmp eq i32 %.113885, %2399
+  %2400 = icmp eq i32 %.114886, %2399
   br i1 %2400, label %2401, label %2719
 
 2401:                                             ; preds = %2398
-  %2402 = call ptr @__cxa_begin_catch(ptr %.113) #21
+  %2402 = call ptr @__cxa_begin_catch(ptr %.114) #21
   %2403 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2402)
           to label %2404 unwind label %2405
 
@@ -6290,14 +6290,14 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 
 2423:                                             ; preds = %2421, %2419
   %.pn1021 = phi { ptr, i32 } [ %2422, %2421 ], [ %2420, %2419 ]
-  %.114 = extractvalue { ptr, i32 } %.pn1021, 0
-  %.114886 = extractvalue { ptr, i32 } %.pn1021, 1
+  %.115 = extractvalue { ptr, i32 } %.pn1021, 0
+  %.115887 = extractvalue { ptr, i32 } %.pn1021, 1
   %2424 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2425 = icmp eq i32 %.114886, %2424
+  %2425 = icmp eq i32 %.115887, %2424
   br i1 %2425, label %2426, label %2719
 
 2426:                                             ; preds = %2423
-  %2427 = call ptr @__cxa_begin_catch(ptr %.114) #21
+  %2427 = call ptr @__cxa_begin_catch(ptr %.115) #21
   %2428 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2427)
           to label %2429 unwind label %2430
 
@@ -6347,14 +6347,14 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 
 2447:                                             ; preds = %2445, %2443
   %.pn = phi { ptr, i32 } [ %2446, %2445 ], [ %2444, %2443 ]
-  %.115 = extractvalue { ptr, i32 } %.pn, 0
-  %.115887 = extractvalue { ptr, i32 } %.pn, 1
+  %.116 = extractvalue { ptr, i32 } %.pn, 0
+  %.116888 = extractvalue { ptr, i32 } %.pn, 1
   %2448 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2449 = icmp eq i32 %.115887, %2448
+  %2449 = icmp eq i32 %.116888, %2448
   br i1 %2449, label %2450, label %2719
 
 2450:                                             ; preds = %2447
-  %2451 = call ptr @__cxa_begin_catch(ptr %.115) #21
+  %2451 = call ptr @__cxa_begin_catch(ptr %.116) #21
   %2452 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2451)
           to label %2453 unwind label %2454
 
@@ -6601,7 +6601,7 @@ _ZL14yy_stack_printPsS_.exit1386:                 ; preds = %.lr.ph.i1382, %2570
   br label %2586
 
 2586:                                             ; preds = %2545, %2552, %2554, %2581
-  %.6 = phi i32 [ %.4, %2552 ], [ -2, %2554 ], [ %.4, %2545 ], [ %.5, %2581 ]
+  %.8 = phi i32 [ %.4, %2552 ], [ -2, %2554 ], [ %.4, %2545 ], [ %.7, %2581 ]
   %2587 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 3, ptr %2587, align 8
   %2588 = getelementptr inbounds i8, ptr %0, i64 4
@@ -6739,8 +6739,8 @@ _ZL14yy_stack_printPsS_.exit1392:                 ; preds = %.lr.ph.i1388, %2630
 
 .loopexit:                                        ; preds = %2610, %2453, %2429, %2404, %2377, %2357, %2335, %2310, %2287, %2264, %2241, %2218, %2185, %2152, %2119, %2086, %2053, %2023, %1997, %1964, %1934, %1907, %1880, %1853, %1818, %1782, %1753, %1725, %1673, %1639, %1612, %1578, %1544, %1510, %1476, %1439, %1401, %1373, %1325, %1277, %1240, %1203, %1164, %1126, %1091, %1068, %1045, %999, %941, %883, %810, %767, %734, %705, %676, %647, %618, %591, %558, %525, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %249, %492, %261, %460, %457, %2665
   %.8761 = phi i32 [ 0, %2665 ], [ 0, %261 ], [ %373, %457 ], [ %373, %460 ], [ 0, %249 ], [ %373, %2453 ], [ %373, %2429 ], [ %373, %2404 ], [ %373, %2377 ], [ %373, %2357 ], [ %373, %2335 ], [ %373, %2310 ], [ %373, %2287 ], [ %373, %2264 ], [ %373, %2241 ], [ %373, %2218 ], [ %373, %2185 ], [ %373, %2152 ], [ %373, %2119 ], [ %373, %2086 ], [ %373, %2053 ], [ %373, %2023 ], [ %373, %1997 ], [ %373, %1964 ], [ %373, %1934 ], [ %373, %1907 ], [ %373, %1880 ], [ %373, %1853 ], [ %373, %1818 ], [ %373, %1782 ], [ %373, %1753 ], [ %373, %1725 ], [ %373, %1673 ], [ %373, %1639 ], [ %373, %1612 ], [ %373, %1578 ], [ %373, %1544 ], [ %373, %1510 ], [ %373, %1476 ], [ %373, %1439 ], [ %373, %1401 ], [ %373, %1373 ], [ %373, %1325 ], [ %373, %1277 ], [ %373, %1240 ], [ %373, %1203 ], [ %373, %1164 ], [ %373, %1126 ], [ %373, %1091 ], [ %373, %1068 ], [ %373, %1045 ], [ %373, %999 ], [ %373, %941 ], [ %373, %883 ], [ %373, %810 ], [ %373, %767 ], [ %373, %734 ], [ %373, %705 ], [ %373, %676 ], [ %373, %647 ], [ %373, %618 ], [ %373, %591 ], [ %373, %558 ], [ %373, %525 ], [ %373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ %373, %492 ], [ %373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ %373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ 0, %2610 ]
-  %.0750 = phi i32 [ 2, %2665 ], [ 0, %261 ], [ 0, %457 ], [ 0, %460 ], [ 1, %249 ], [ 1, %2453 ], [ 1, %2429 ], [ 1, %2404 ], [ 1, %2377 ], [ 1, %2357 ], [ 1, %2335 ], [ 1, %2310 ], [ 1, %2287 ], [ 1, %2264 ], [ 1, %2241 ], [ 1, %2218 ], [ 1, %2185 ], [ 1, %2152 ], [ 1, %2119 ], [ 1, %2086 ], [ 1, %2053 ], [ 1, %2023 ], [ 1, %1997 ], [ 1, %1964 ], [ 1, %1934 ], [ 1, %1907 ], [ 1, %1880 ], [ 1, %1853 ], [ 1, %1818 ], [ 1, %1782 ], [ 1, %1753 ], [ 1, %1725 ], [ 1, %1673 ], [ 1, %1639 ], [ 1, %1612 ], [ 1, %1578 ], [ 1, %1544 ], [ 1, %1510 ], [ 1, %1476 ], [ 1, %1439 ], [ 1, %1401 ], [ 1, %1373 ], [ 1, %1325 ], [ 1, %1277 ], [ 1, %1240 ], [ 1, %1203 ], [ 1, %1164 ], [ 1, %1126 ], [ 1, %1091 ], [ 1, %1068 ], [ 1, %1045 ], [ 1, %999 ], [ 1, %941 ], [ 1, %883 ], [ 1, %810 ], [ 1, %767 ], [ 1, %734 ], [ 1, %705 ], [ 1, %676 ], [ 1, %647 ], [ 1, %618 ], [ 1, %591 ], [ 1, %558 ], [ 1, %525 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ 1, %492 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ 1, %2610 ]
-  %.9 = phi i32 [ %.1, %2665 ], [ %.1, %261 ], [ %.5, %457 ], [ %.5, %460 ], [ %.1, %249 ], [ %.5, %2453 ], [ %.5, %2429 ], [ %.5, %2404 ], [ %.5, %2377 ], [ %.5, %2357 ], [ %.5, %2335 ], [ %.5, %2310 ], [ %.5, %2287 ], [ %.5, %2264 ], [ %.5, %2241 ], [ %.5, %2218 ], [ %.5, %2185 ], [ %.5, %2152 ], [ %.5, %2119 ], [ %.5, %2086 ], [ %.5, %2053 ], [ %.5, %2023 ], [ %.5, %1997 ], [ %.5, %1964 ], [ %.5, %1934 ], [ %.5, %1907 ], [ %.5, %1880 ], [ %.5, %1853 ], [ %.5, %1818 ], [ %.5, %1782 ], [ %.5, %1753 ], [ %.5, %1725 ], [ %.5, %1673 ], [ %.5, %1639 ], [ %.5, %1612 ], [ %.5, %1578 ], [ %.5, %1544 ], [ %.5, %1510 ], [ %.5, %1476 ], [ %.5, %1439 ], [ %.5, %1401 ], [ %.5, %1373 ], [ %.5, %1325 ], [ %.5, %1277 ], [ %.5, %1240 ], [ %.5, %1203 ], [ %.5, %1164 ], [ %.5, %1126 ], [ %.5, %1091 ], [ %.5, %1068 ], [ %.5, %1045 ], [ %.5, %999 ], [ %.5, %941 ], [ %.5, %883 ], [ %.5, %810 ], [ %.5, %767 ], [ %.5, %734 ], [ %.5, %705 ], [ %.5, %676 ], [ %.5, %647 ], [ %.5, %618 ], [ %.5, %591 ], [ %.5, %558 ], [ %.5, %525 ], [ %.5, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ %.5, %492 ], [ %.5, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ %.5, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %.6, %2610 ]
+  %.1751 = phi i32 [ 2, %2665 ], [ 0, %261 ], [ 0, %457 ], [ 0, %460 ], [ 1, %249 ], [ 1, %2453 ], [ 1, %2429 ], [ 1, %2404 ], [ 1, %2377 ], [ 1, %2357 ], [ 1, %2335 ], [ 1, %2310 ], [ 1, %2287 ], [ 1, %2264 ], [ 1, %2241 ], [ 1, %2218 ], [ 1, %2185 ], [ 1, %2152 ], [ 1, %2119 ], [ 1, %2086 ], [ 1, %2053 ], [ 1, %2023 ], [ 1, %1997 ], [ 1, %1964 ], [ 1, %1934 ], [ 1, %1907 ], [ 1, %1880 ], [ 1, %1853 ], [ 1, %1818 ], [ 1, %1782 ], [ 1, %1753 ], [ 1, %1725 ], [ 1, %1673 ], [ 1, %1639 ], [ 1, %1612 ], [ 1, %1578 ], [ 1, %1544 ], [ 1, %1510 ], [ 1, %1476 ], [ 1, %1439 ], [ 1, %1401 ], [ 1, %1373 ], [ 1, %1325 ], [ 1, %1277 ], [ 1, %1240 ], [ 1, %1203 ], [ 1, %1164 ], [ 1, %1126 ], [ 1, %1091 ], [ 1, %1068 ], [ 1, %1045 ], [ 1, %999 ], [ 1, %941 ], [ 1, %883 ], [ 1, %810 ], [ 1, %767 ], [ 1, %734 ], [ 1, %705 ], [ 1, %676 ], [ 1, %647 ], [ 1, %618 ], [ 1, %591 ], [ 1, %558 ], [ 1, %525 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ 1, %492 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ 1, %2610 ]
+  %.9 = phi i32 [ %.0, %2665 ], [ %.0, %261 ], [ %.7, %457 ], [ %.7, %460 ], [ %.0, %249 ], [ %.7, %2453 ], [ %.7, %2429 ], [ %.7, %2404 ], [ %.7, %2377 ], [ %.7, %2357 ], [ %.7, %2335 ], [ %.7, %2310 ], [ %.7, %2287 ], [ %.7, %2264 ], [ %.7, %2241 ], [ %.7, %2218 ], [ %.7, %2185 ], [ %.7, %2152 ], [ %.7, %2119 ], [ %.7, %2086 ], [ %.7, %2053 ], [ %.7, %2023 ], [ %.7, %1997 ], [ %.7, %1964 ], [ %.7, %1934 ], [ %.7, %1907 ], [ %.7, %1880 ], [ %.7, %1853 ], [ %.7, %1818 ], [ %.7, %1782 ], [ %.7, %1753 ], [ %.7, %1725 ], [ %.7, %1673 ], [ %.7, %1639 ], [ %.7, %1612 ], [ %.7, %1578 ], [ %.7, %1544 ], [ %.7, %1510 ], [ %.7, %1476 ], [ %.7, %1439 ], [ %.7, %1401 ], [ %.7, %1373 ], [ %.7, %1325 ], [ %.7, %1277 ], [ %.7, %1240 ], [ %.7, %1203 ], [ %.7, %1164 ], [ %.7, %1126 ], [ %.7, %1091 ], [ %.7, %1068 ], [ %.7, %1045 ], [ %.7, %999 ], [ %.7, %941 ], [ %.7, %883 ], [ %.7, %810 ], [ %.7, %767 ], [ %.7, %734 ], [ %.7, %705 ], [ %.7, %676 ], [ %.7, %647 ], [ %.7, %618 ], [ %.7, %591 ], [ %.7, %558 ], [ %.7, %525 ], [ %.7, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ %.7, %492 ], [ %.7, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ %.7, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %.8, %2610 ]
   %.not1203 = icmp eq i32 %.9, -2
   br i1 %.not1203, label %2674, label %2666
 
@@ -6750,7 +6750,7 @@ _ZL14yy_stack_printPsS_.exit1392:                 ; preds = %.lr.ph.i1388, %2630
 
 .thread1441:                                      ; preds = %2552, %2666
   %.876114361449 = phi i32 [ %.8761, %2666 ], [ 0, %2552 ]
-  %.075014381447 = phi i32 [ %.0750, %2666 ], [ 1, %2552 ]
+  %.175114381447 = phi i32 [ %.1751, %2666 ], [ 1, %2552 ]
   %.914401445 = phi i32 [ %.9, %2666 ], [ 0, %2552 ]
   %2668 = zext nneg i32 %.914401445 to i64
   %2669 = getelementptr inbounds [289 x i8], ptr @_ZL11yytranslate, i64 0, i64 %2668
@@ -6760,13 +6760,13 @@ _ZL14yy_stack_printPsS_.exit1392:                 ; preds = %.lr.ph.i1388, %2630
 
 2672:                                             ; preds = %2666, %.thread1441
   %.876114361448 = phi i32 [ %.876114361449, %.thread1441 ], [ %.8761, %2666 ]
-  %.075014381446 = phi i32 [ %.075014381447, %.thread1441 ], [ %.0750, %2666 ]
+  %.175114381446 = phi i32 [ %.175114381447, %.thread1441 ], [ %.1751, %2666 ]
   %2673 = phi i32 [ %2671, %.thread1441 ], [ 2, %2666 ]
   call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.15, i32 noundef %2673, ptr noundef nonnull %6)
   br label %2674
 
 2674:                                             ; preds = %2672, %.loopexit
-  %.07501439 = phi i32 [ %.075014381446, %2672 ], [ %.0750, %.loopexit ]
+  %.17511439 = phi i32 [ %.175114381446, %2672 ], [ %.1751, %.loopexit ]
   %.87611437 = phi i32 [ %.876114361448, %2672 ], [ %.8761, %.loopexit ]
   %2675 = getelementptr inbounds i8, ptr %0, i64 2040
   %2676 = load ptr, ptr %2675, align 8
@@ -6858,14 +6858,14 @@ _ZL14yy_stack_printPsS_.exit1398:                 ; preds = %.lr.ph.i1394, %2686
   br label %2718
 
 2718:                                             ; preds = %276, %274, %2717
-  %.1751 = phi i32 [ %.07501439, %2717 ], [ 4, %274 ], [ 4, %276 ]
-  ret i32 %.1751
+  %.0750 = phi i32 [ %.17511439, %2717 ], [ 4, %274 ], [ 4, %276 ]
+  ret i32 %.0750
 
 2719:                                             ; preds = %2454, %2430, %2405, %2378, %2358, %2336, %2311, %2288, %2265, %2242, %2219, %2186, %2153, %2120, %2087, %2054, %2024, %1998, %1965, %1935, %1908, %1881, %1854, %1819, %1783, %1755, %1726, %1674, %1640, %1613, %1579, %1545, %1511, %1477, %1440, %1403, %1374, %1326, %1278, %1241, %1204, %1165, %1128, %1092, %1069, %1046, %1000, %942, %884, %811, %768, %735, %706, %677, %648, %619, %592, %559, %526, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296, %2447, %2423, %2398, %2371, %2351, %2329, %2304, %2281, %2258, %2235, %2212, %2179, %2146, %2113, %2080, %2047, %2017, %1991, %1958, %1928, %1901, %1874, %1847, %1812, %1776, %1747, %1719, %1667, %1633, %1606, %1572, %1538, %1504, %1470, %1433, %1395, %1367, %1319, %1271, %1234, %1197, %1158, %1120, %1085, %1062, %1039, %993, %935, %877, %804, %761, %728, %699, %670, %641, %612, %585, %552, %516, %495, %471, %425
-  %.116888 = phi i32 [ %2457, %2454 ], [ %.115887, %2447 ], [ %2433, %2430 ], [ %.114886, %2423 ], [ %2408, %2405 ], [ %.113885, %2398 ], [ %2381, %2378 ], [ %.112884, %2371 ], [ %2361, %2358 ], [ %.111883, %2351 ], [ %2339, %2336 ], [ %.110882, %2329 ], [ %2314, %2311 ], [ %.109881, %2304 ], [ %2291, %2288 ], [ %.107879, %2281 ], [ %2268, %2265 ], [ %.105877, %2258 ], [ %2245, %2242 ], [ %.103875, %2235 ], [ %2222, %2219 ], [ %.101873, %2212 ], [ %2189, %2186 ], [ %.99871, %2179 ], [ %2156, %2153 ], [ %.97869, %2146 ], [ %2123, %2120 ], [ %.95867, %2113 ], [ %2090, %2087 ], [ %.93865, %2080 ], [ %2057, %2054 ], [ %.91863, %2047 ], [ %2027, %2024 ], [ %.90862, %2017 ], [ %2001, %1998 ], [ %.88860, %1991 ], [ %1968, %1965 ], [ %.86858, %1958 ], [ %1938, %1935 ], [ %.85857, %1928 ], [ %1911, %1908 ], [ %.83855, %1901 ], [ %1884, %1881 ], [ %.81853, %1874 ], [ %1857, %1854 ], [ %.79851, %1847 ], [ %1822, %1819 ], [ %.77849, %1812 ], [ %1786, %1783 ], [ %.75847, %1776 ], [ %1758, %1755 ], [ %.74846, %1747 ], [ %1729, %1726 ], [ %.73845, %1719 ], [ %1677, %1674 ], [ %.71843, %1667 ], [ %1643, %1640 ], [ %.68840, %1633 ], [ %1616, %1613 ], [ %.66838, %1606 ], [ %1582, %1579 ], [ %.63835, %1572 ], [ %1548, %1545 ], [ %.60832, %1538 ], [ %1514, %1511 ], [ %.57829, %1504 ], [ %1480, %1477 ], [ %.54826, %1470 ], [ %1443, %1440 ], [ %.52824, %1433 ], [ %1406, %1403 ], [ %.50822, %1395 ], [ %1377, %1374 ], [ %.49821, %1367 ], [ %1329, %1326 ], [ %.47819, %1319 ], [ %1281, %1278 ], [ %.45817, %1271 ], [ %1244, %1241 ], [ %.43815, %1234 ], [ %1207, %1204 ], [ %.41813, %1197 ], [ %1168, %1165 ], [ %.39811, %1158 ], [ %1131, %1128 ], [ %.37809, %1120 ], [ %1095, %1092 ], [ %.36808, %1085 ], [ %1072, %1069 ], [ %.35807, %1062 ], [ %1049, %1046 ], [ %.34806, %1039 ], [ %1003, %1000 ], [ %.31803, %993 ], [ %945, %942 ], [ %.28800, %935 ], [ %887, %884 ], [ %.25797, %877 ], [ %814, %811 ], [ %.23795, %804 ], [ %771, %768 ], [ %.20792, %761 ], [ %738, %735 ], [ %.18790, %728 ], [ %709, %706 ], [ %.16788, %699 ], [ %680, %677 ], [ %.14786, %670 ], [ %651, %648 ], [ %.12784, %641 ], [ %622, %619 ], [ %.10782, %612 ], [ %595, %592 ], [ %.8780, %585 ], [ %562, %559 ], [ %.5777, %552 ], [ %529, %526 ], [ %519, %516 ], [ %511, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305 ], [ %498, %495 ], [ %482, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300 ], [ %.2774, %471 ], [ %439, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296 ], [ %428, %425 ]
-  %.116 = phi ptr [ %2456, %2454 ], [ %.115, %2447 ], [ %2432, %2430 ], [ %.114, %2423 ], [ %2407, %2405 ], [ %.113, %2398 ], [ %2380, %2378 ], [ %.112, %2371 ], [ %2360, %2358 ], [ %.111, %2351 ], [ %2338, %2336 ], [ %.110, %2329 ], [ %2313, %2311 ], [ %.109, %2304 ], [ %2290, %2288 ], [ %.107, %2281 ], [ %2267, %2265 ], [ %.105, %2258 ], [ %2244, %2242 ], [ %.103, %2235 ], [ %2221, %2219 ], [ %.101, %2212 ], [ %2188, %2186 ], [ %.99, %2179 ], [ %2155, %2153 ], [ %.97, %2146 ], [ %2122, %2120 ], [ %.95, %2113 ], [ %2089, %2087 ], [ %.93, %2080 ], [ %2056, %2054 ], [ %.91, %2047 ], [ %2026, %2024 ], [ %.90, %2017 ], [ %2000, %1998 ], [ %.88, %1991 ], [ %1967, %1965 ], [ %.86, %1958 ], [ %1937, %1935 ], [ %.85, %1928 ], [ %1910, %1908 ], [ %.83, %1901 ], [ %1883, %1881 ], [ %.81, %1874 ], [ %1856, %1854 ], [ %.79, %1847 ], [ %1821, %1819 ], [ %.77, %1812 ], [ %1785, %1783 ], [ %.75, %1776 ], [ %1757, %1755 ], [ %.74, %1747 ], [ %1728, %1726 ], [ %.73, %1719 ], [ %1676, %1674 ], [ %.71, %1667 ], [ %1642, %1640 ], [ %.68, %1633 ], [ %1615, %1613 ], [ %.66, %1606 ], [ %1581, %1579 ], [ %.63, %1572 ], [ %1547, %1545 ], [ %.60, %1538 ], [ %1513, %1511 ], [ %.57, %1504 ], [ %1479, %1477 ], [ %.54, %1470 ], [ %1442, %1440 ], [ %.52, %1433 ], [ %1405, %1403 ], [ %.50, %1395 ], [ %1376, %1374 ], [ %.49, %1367 ], [ %1328, %1326 ], [ %.47, %1319 ], [ %1280, %1278 ], [ %.45, %1271 ], [ %1243, %1241 ], [ %.43, %1234 ], [ %1206, %1204 ], [ %.41, %1197 ], [ %1167, %1165 ], [ %.39, %1158 ], [ %1130, %1128 ], [ %.37, %1120 ], [ %1094, %1092 ], [ %.36, %1085 ], [ %1071, %1069 ], [ %.35, %1062 ], [ %1048, %1046 ], [ %.34, %1039 ], [ %1002, %1000 ], [ %.31, %993 ], [ %944, %942 ], [ %.28, %935 ], [ %886, %884 ], [ %.25, %877 ], [ %813, %811 ], [ %.23, %804 ], [ %770, %768 ], [ %.20, %761 ], [ %737, %735 ], [ %.18, %728 ], [ %708, %706 ], [ %.16, %699 ], [ %679, %677 ], [ %.14, %670 ], [ %650, %648 ], [ %.12, %641 ], [ %621, %619 ], [ %.10, %612 ], [ %594, %592 ], [ %.8770, %585 ], [ %561, %559 ], [ %.5767, %552 ], [ %528, %526 ], [ %518, %516 ], [ %510, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305 ], [ %497, %495 ], [ %481, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300 ], [ %.2764, %471 ], [ %438, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296 ], [ %427, %425 ]
-  %2720 = insertvalue { ptr, i32 } poison, ptr %.116, 0
-  %2721 = insertvalue { ptr, i32 } %2720, i32 %.116888, 1
+  %.0772 = phi i32 [ %2457, %2454 ], [ %.116888, %2447 ], [ %2433, %2430 ], [ %.115887, %2423 ], [ %2408, %2405 ], [ %.114886, %2398 ], [ %2381, %2378 ], [ %.113885, %2371 ], [ %2361, %2358 ], [ %.112884, %2351 ], [ %2339, %2336 ], [ %.111883, %2329 ], [ %2314, %2311 ], [ %.109881, %2304 ], [ %2291, %2288 ], [ %.107879, %2281 ], [ %2268, %2265 ], [ %.105877, %2258 ], [ %2245, %2242 ], [ %.103875, %2235 ], [ %2222, %2219 ], [ %.101873, %2212 ], [ %2189, %2186 ], [ %.99871, %2179 ], [ %2156, %2153 ], [ %.97869, %2146 ], [ %2123, %2120 ], [ %.95867, %2113 ], [ %2090, %2087 ], [ %.93865, %2080 ], [ %2057, %2054 ], [ %.92864, %2047 ], [ %2027, %2024 ], [ %.90862, %2017 ], [ %2001, %1998 ], [ %.88860, %1991 ], [ %1968, %1965 ], [ %.87859, %1958 ], [ %1938, %1935 ], [ %.85857, %1928 ], [ %1911, %1908 ], [ %.83855, %1901 ], [ %1884, %1881 ], [ %.81853, %1874 ], [ %1857, %1854 ], [ %.79851, %1847 ], [ %1822, %1819 ], [ %.77849, %1812 ], [ %1786, %1783 ], [ %.76848, %1776 ], [ %1758, %1755 ], [ %.75847, %1747 ], [ %1729, %1726 ], [ %.73845, %1719 ], [ %1677, %1674 ], [ %.70842, %1667 ], [ %1643, %1640 ], [ %.68840, %1633 ], [ %1616, %1613 ], [ %.65837, %1606 ], [ %1582, %1579 ], [ %.62834, %1572 ], [ %1548, %1545 ], [ %.59831, %1538 ], [ %1514, %1511 ], [ %.56828, %1504 ], [ %1480, %1477 ], [ %.54826, %1470 ], [ %1443, %1440 ], [ %.52824, %1433 ], [ %1406, %1403 ], [ %.51823, %1395 ], [ %1377, %1374 ], [ %.49821, %1367 ], [ %1329, %1326 ], [ %.47819, %1319 ], [ %1281, %1278 ], [ %.45817, %1271 ], [ %1244, %1241 ], [ %.43815, %1234 ], [ %1207, %1204 ], [ %.41813, %1197 ], [ %1168, %1165 ], [ %.39811, %1158 ], [ %1131, %1128 ], [ %.38810, %1120 ], [ %1095, %1092 ], [ %.37809, %1085 ], [ %1072, %1069 ], [ %.36808, %1062 ], [ %1049, %1046 ], [ %.33805, %1039 ], [ %1003, %1000 ], [ %.30802, %993 ], [ %945, %942 ], [ %.27799, %935 ], [ %887, %884 ], [ %.25797, %877 ], [ %814, %811 ], [ %.22794, %804 ], [ %771, %768 ], [ %.20792, %761 ], [ %738, %735 ], [ %.18790, %728 ], [ %709, %706 ], [ %.16788, %699 ], [ %680, %677 ], [ %.14786, %670 ], [ %651, %648 ], [ %.12784, %641 ], [ %622, %619 ], [ %.10782, %612 ], [ %595, %592 ], [ %.7779, %585 ], [ %562, %559 ], [ %.4776, %552 ], [ %529, %526 ], [ %519, %516 ], [ %511, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305 ], [ %498, %495 ], [ %482, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300 ], [ %.1773, %471 ], [ %439, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296 ], [ %428, %425 ]
+  %.0762 = phi ptr [ %2456, %2454 ], [ %.116, %2447 ], [ %2432, %2430 ], [ %.115, %2423 ], [ %2407, %2405 ], [ %.114, %2398 ], [ %2380, %2378 ], [ %.113, %2371 ], [ %2360, %2358 ], [ %.112, %2351 ], [ %2338, %2336 ], [ %.111, %2329 ], [ %2313, %2311 ], [ %.109, %2304 ], [ %2290, %2288 ], [ %.107, %2281 ], [ %2267, %2265 ], [ %.105, %2258 ], [ %2244, %2242 ], [ %.103, %2235 ], [ %2221, %2219 ], [ %.101, %2212 ], [ %2188, %2186 ], [ %.99, %2179 ], [ %2155, %2153 ], [ %.97, %2146 ], [ %2122, %2120 ], [ %.95, %2113 ], [ %2089, %2087 ], [ %.93, %2080 ], [ %2056, %2054 ], [ %.92, %2047 ], [ %2026, %2024 ], [ %.90, %2017 ], [ %2000, %1998 ], [ %.88, %1991 ], [ %1967, %1965 ], [ %.87, %1958 ], [ %1937, %1935 ], [ %.85, %1928 ], [ %1910, %1908 ], [ %.83, %1901 ], [ %1883, %1881 ], [ %.81, %1874 ], [ %1856, %1854 ], [ %.79, %1847 ], [ %1821, %1819 ], [ %.77, %1812 ], [ %1785, %1783 ], [ %.76, %1776 ], [ %1757, %1755 ], [ %.75, %1747 ], [ %1728, %1726 ], [ %.73, %1719 ], [ %1676, %1674 ], [ %.70, %1667 ], [ %1642, %1640 ], [ %.68, %1633 ], [ %1615, %1613 ], [ %.65, %1606 ], [ %1581, %1579 ], [ %.62, %1572 ], [ %1547, %1545 ], [ %.59, %1538 ], [ %1513, %1511 ], [ %.56, %1504 ], [ %1479, %1477 ], [ %.54, %1470 ], [ %1442, %1440 ], [ %.52, %1433 ], [ %1405, %1403 ], [ %.51, %1395 ], [ %1376, %1374 ], [ %.49, %1367 ], [ %1328, %1326 ], [ %.47, %1319 ], [ %1280, %1278 ], [ %.45, %1271 ], [ %1243, %1241 ], [ %.43, %1234 ], [ %1206, %1204 ], [ %.41, %1197 ], [ %1167, %1165 ], [ %.39, %1158 ], [ %1130, %1128 ], [ %.38, %1120 ], [ %1094, %1092 ], [ %.37, %1085 ], [ %1071, %1069 ], [ %.36, %1062 ], [ %1048, %1046 ], [ %.33, %1039 ], [ %1002, %1000 ], [ %.30, %993 ], [ %944, %942 ], [ %.27, %935 ], [ %886, %884 ], [ %.25, %877 ], [ %813, %811 ], [ %.22, %804 ], [ %770, %768 ], [ %.20, %761 ], [ %737, %735 ], [ %.18, %728 ], [ %708, %706 ], [ %.16, %699 ], [ %679, %677 ], [ %.14, %670 ], [ %650, %648 ], [ %.12, %641 ], [ %621, %619 ], [ %.10, %612 ], [ %594, %592 ], [ %.7769, %585 ], [ %561, %559 ], [ %.4766, %552 ], [ %528, %526 ], [ %518, %516 ], [ %510, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305 ], [ %497, %495 ], [ %481, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300 ], [ %.1763, %471 ], [ %438, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296 ], [ %427, %425 ]
+  %2720 = insertvalue { ptr, i32 } poison, ptr %.0762, 0
+  %2721 = insertvalue { ptr, i32 } %2720, i32 %.0772, 1
   resume { ptr, i32 } %2721
 
 2722:                                             ; preds = %2454, %2430, %2405, %2378, %2358, %2336, %2311, %2288, %2265, %2242, %2219, %2186, %2153, %2120, %2087, %2054, %2024, %1998, %1965, %1935, %1908, %1881, %1854, %1819, %1783, %1755, %1726, %1674, %1640, %1613, %1579, %1545, %1511, %1477, %1440, %1403, %1374, %1326, %1278, %1241, %1204, %1165, %1128, %1092, %1069, %1046, %1000, %942, %884, %811, %768, %735, %706, %677, %648, %619, %592, %559, %526, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296
@@ -8020,14 +8020,14 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit27: ; preds = %138, %141
 
 144:                                              ; preds = %143, %28
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %143 ], [ %29, %28 ]
-  %.210 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.08 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %145 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %146 = icmp eq i32 %.210, %145
+  %146 = icmp eq i32 %.08, %145
   br i1 %146, label %147, label %157
 
 147:                                              ; preds = %144
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %148 = call ptr @__cxa_begin_catch(ptr %.2) #21
+  %.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %148 = call ptr @__cxa_begin_catch(ptr %.0) #21
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %10) #21
   invoke void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %149 unwind label %153

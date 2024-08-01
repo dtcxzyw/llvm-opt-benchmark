@@ -825,8 +825,8 @@ Vec_BitStart.exit:                                ; preds = %5, %18
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge2
   %.val192 = phi i32 [ %.val, %.critedge2 ], [ %.val90140, %.critedge.preheader ]
   %.val100 = phi ptr [ %.val100190, %.critedge2 ], [ %22, %.critedge.preheader ]
-  %.077 = phi i32 [ %.481, %.critedge2 ], [ -1, %.critedge.preheader ]
-  %.074 = phi i32 [ %.4, %.critedge2 ], [ -1, %.critedge.preheader ]
+  %.077 = phi i32 [ %.279, %.critedge2 ], [ -1, %.critedge.preheader ]
+  %.074 = phi i32 [ %.276, %.critedge2 ], [ -1, %.critedge.preheader ]
   %44 = icmp sgt i32 %.val192, 0
   br i1 %44, label %.lr.ph161, label %.critedge2
 
@@ -838,8 +838,8 @@ Vec_BitStart.exit:                                ; preds = %5, %18
 
 45:                                               ; preds = %.lr.ph161, %196
   %indvars.iv186 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next187, %196 ]
-  %.175159 = phi i32 [ %.074, %.lr.ph161 ], [ %.3, %196 ]
-  %.178158 = phi i32 [ %.077, %.lr.ph161 ], [ %.380, %196 ]
+  %.175159 = phi i32 [ %.074, %.lr.ph161 ], [ %.4, %196 ]
+  %.178158 = phi i32 [ %.077, %.lr.ph161 ], [ %.481, %196 ]
   %46 = getelementptr inbounds i32, ptr %.val96, i64 %indvars.iv186
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
@@ -886,8 +886,8 @@ Vec_BitStart.exit:                                ; preds = %5, %18
 
 .critedge4:                                       ; preds = %.critedge4.sink.split, %45
   %.082.lcssa = phi i32 [ 0, %45 ], [ %68, %.critedge4.sink.split ]
-  %.380 = phi i32 [ %.178158, %45 ], [ %71, %.critedge4.sink.split ]
-  %.3 = phi i32 [ %.175159, %45 ], [ %56, %.critedge4.sink.split ]
+  %.481 = phi i32 [ %.178158, %45 ], [ %71, %.critedge4.sink.split ]
+  %.4 = phi i32 [ %.175159, %45 ], [ %56, %.critedge4.sink.split ]
   %72 = icmp eq i32 %.082.lcssa, %.val88
   br i1 %72, label %196, label %73
 
@@ -953,7 +953,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %99, ptr %7, align 4
   %100 = sext i32 %75 to i64
   %101 = getelementptr inbounds i32, ptr %98, i64 %100
-  store i32 %.380, ptr %101, align 4
+  store i32 %.481, ptr %101, align 4
   %102 = and i32 %47, 31
   %103 = shl nuw i32 1, %102
   %104 = xor i32 %103, -1
@@ -964,10 +964,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %109 = load i32, ptr %108, align 4
   %110 = and i32 %109, %104
   store i32 %110, ptr %108, align 4
-  %111 = and i32 %.3, 31
+  %111 = and i32 %.4, 31
   %112 = shl nuw i32 1, %111
   %113 = xor i32 %112, -1
-  %114 = ashr i32 %.3, 5
+  %114 = ashr i32 %.4, 5
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds i32, ptr %105, i64 %115
   %117 = load i32, ptr %116, align 4
@@ -1048,7 +1048,7 @@ Vec_IntRemove.exit:                               ; preds = %126, %._crit_edge.i
   %indvars.iv.i117 = phi i64 [ 0, %.lr.ph.i115 ], [ %indvars.iv.next.i118, %149 ]
   %146 = getelementptr inbounds i32, ptr %144, i64 %indvars.iv.i117
   %147 = load i32, ptr %146, align 4
-  %148 = icmp eq i32 %147, %.3
+  %148 = icmp eq i32 %147, %.4
   br i1 %148, label %._crit_edge.loopexit.i120, label %149
 
 149:                                              ; preds = %145
@@ -1097,7 +1097,7 @@ Vec_IntRemove.exit:                               ; preds = %126, %._crit_edge.i
   br label %Vec_IntRemove.exit121
 
 Vec_IntRemove.exit121:                            ; preds = %149, %._crit_edge.i104, %._crit_edge30.i108
-  %165 = mul nsw i32 %.380, 6
+  %165 = mul nsw i32 %.481, 6
   %.val93 = load ptr, ptr %31, align 8
   %166 = sext i32 %165 to i64
   %167 = getelementptr i32, ptr %.val93, i64 %166
@@ -1147,8 +1147,8 @@ Vec_IntRemove.exit121:                            ; preds = %149, %._crit_edge.i
   %.val = phi i32 [ %.val.pre, %Vec_IntRemove.exit121 ], [ %.val192, %.critedge ]
   %.val100190 = phi ptr [ %105, %Vec_IntRemove.exit121 ], [ %.val100, %.critedge ]
   %.1131 = phi i32 [ %74, %Vec_IntRemove.exit121 ], [ 0, %.critedge ]
-  %.481 = phi i32 [ %.380, %Vec_IntRemove.exit121 ], [ %.077, %.critedge ]
-  %.4 = phi i32 [ %172, %Vec_IntRemove.exit121 ], [ %.074, %.critedge ]
+  %.279 = phi i32 [ %.481, %Vec_IntRemove.exit121 ], [ %.077, %.critedge ]
+  %.276 = phi i32 [ %172, %Vec_IntRemove.exit121 ], [ %.074, %.critedge ]
   %197 = icmp eq i32 %.1131, %.val
   br i1 %197, label %.split.us, label %.critedge, !llvm.loop !13
 

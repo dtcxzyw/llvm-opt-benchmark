@@ -1073,7 +1073,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 
 .body62:                                          ; preds = %.body66, %53, %50, %81
   %.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %80, %.body66 ], [ %51, %53 ], [ %51, %50 ]
-  %.1 = phi i1 [ true, %81 ], [ false, %.body66 ], [ true, %53 ], [ true, %50 ]
+  %.4 = phi i1 [ true, %81 ], [ false, %.body66 ], [ true, %53 ], [ true, %50 ]
   br label %83
 
 83:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit70, %.body62
@@ -1098,7 +1098,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
   br i1 %93, label %94, label %83
 
 94:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit70
-  br i1 %.1, label %.thread, label %.critedge
+  br i1 %.4, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %94
   %95 = load ptr, ptr %25, align 8
@@ -1678,7 +1678,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 
 .body62:                                          ; preds = %.body66, %53, %50, %81
   %.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %80, %.body66 ], [ %51, %53 ], [ %51, %50 ]
-  %.1 = phi i1 [ true, %81 ], [ false, %.body66 ], [ true, %53 ], [ true, %50 ]
+  %.4 = phi i1 [ true, %81 ], [ false, %.body66 ], [ true, %53 ], [ true, %50 ]
   br label %83
 
 83:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit70, %.body62
@@ -1703,7 +1703,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
   br i1 %93, label %94, label %83
 
 94:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit70
-  br i1 %.1, label %.thread, label %.critedge
+  br i1 %.4, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %94
   %95 = load ptr, ptr %25, align 8

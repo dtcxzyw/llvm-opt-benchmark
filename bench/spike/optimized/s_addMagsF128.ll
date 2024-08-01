@@ -115,8 +115,8 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
 
 56:                                               ; preds = %54, %52
   %.197 = phi i64 [ %14, %52 ], [ %55, %54 ]
-  %.sroa.7.0 = phi i64 [ %53, %52 ], [ %13, %54 ]
-  call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %7, i64 noundef %.sroa.7.0, i64 noundef %3, i64 noundef 0, i64 noundef %.197) #3
+  %.sroa.7.1 = phi i64 [ %53, %52 ], [ %13, %54 ]
+  call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %7, i64 noundef %.sroa.7.1, i64 noundef %3, i64 noundef 0, i64 noundef %.197) #3
   %.sroa.06.0.copyload9 = load i64, ptr %7, align 8
   %.sroa.6.0..sroa_idx11 = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.6.sroa.0.0.copyload25 = load i64, ptr %.sroa.6.0..sroa_idx11, align 8
@@ -125,31 +125,31 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   br label %57
 
 57:                                               ; preds = %45, %56, %54, %43
-  %.093 = phi i64 [ %12, %45 ], [ %12, %43 ], [ %9, %56 ], [ %9, %54 ]
-  %.0 = phi i64 [ %.sroa.06.0.copyload, %45 ], [ 0, %43 ], [ %.sroa.06.0.copyload9, %56 ], [ 0, %54 ]
+  %.194 = phi i64 [ %12, %45 ], [ %12, %43 ], [ %9, %56 ], [ %9, %54 ]
+  %.1 = phi i64 [ %.sroa.06.0.copyload, %45 ], [ 0, %43 ], [ %.sroa.06.0.copyload9, %56 ], [ 0, %54 ]
   %.sroa.043.0 = phi i64 [ %3, %45 ], [ %3, %43 ], [ %.sroa.6.sroa.0.0.copyload25, %56 ], [ %3, %54 ]
-  %.sroa.7.1 = phi i64 [ %13, %45 ], [ %13, %43 ], [ %.sroa.6.sroa.6.0.copyload29, %56 ], [ %13, %54 ]
+  %.sroa.7.0 = phi i64 [ %13, %45 ], [ %13, %43 ], [ %.sroa.6.sroa.6.0.copyload29, %56 ], [ %13, %54 ]
   %.sroa.057.0 = phi i64 [ %.sroa.6.sroa.0.0.copyload, %45 ], [ %1, %43 ], [ %1, %56 ], [ %1, %54 ]
   %.sroa.762.1 = phi i64 [ %.sroa.6.sroa.6.0.copyload, %45 ], [ %10, %43 ], [ %10, %56 ], [ %10, %54 ]
   %58 = or i64 %.sroa.762.1, 281474976710656
   %59 = add i64 %.sroa.057.0, %.sroa.043.0
-  %60 = add i64 %58, %.sroa.7.1
+  %60 = add i64 %58, %.sroa.7.0
   %61 = icmp ult i64 %59, %.sroa.057.0
   %62 = zext i1 %61 to i64
   %63 = add i64 %60, %62
-  %64 = add nsw i64 %.093, -1
+  %64 = add nsw i64 %.194, -1
   %65 = icmp ult i64 %63, 562949953421312
   br i1 %65, label %73, label %66
 
 66:                                               ; preds = %57, %30
   %.sroa.620.0 = phi i64 [ %31, %30 ], [ %63, %57 ]
   %.sroa.017.0 = phi i64 [ %22, %30 ], [ %59, %57 ]
-  %.194 = phi i64 [ %9, %30 ], [ %.093, %57 ]
-  %.1 = phi i64 [ 0, %30 ], [ %.0, %57 ]
+  %.093 = phi i64 [ %9, %30 ], [ %.194, %57 ]
+  %.0 = phi i64 [ 0, %30 ], [ %.1, %57 ]
   %67 = lshr i64 %.sroa.620.0, 1
   %68 = call i64 @llvm.fshl.i64(i64 %.sroa.620.0, i64 %.sroa.017.0, i64 63)
   %69 = shl i64 %.sroa.017.0, 63
-  %70 = icmp ne i64 %.1, 0
+  %70 = icmp ne i64 %.0, 0
   %71 = zext i1 %70 to i64
   %72 = or disjoint i64 %69, %71
   br label %73
@@ -157,8 +157,8 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
 73:                                               ; preds = %57, %66
   %.sroa.620.1 = phi i64 [ %63, %57 ], [ %67, %66 ]
   %.sroa.017.1 = phi i64 [ %59, %57 ], [ %68, %66 ]
-  %.295 = phi i64 [ %64, %57 ], [ %.194, %66 ]
-  %.2 = phi i64 [ %.0, %57 ], [ %72, %66 ]
+  %.295 = phi i64 [ %64, %57 ], [ %.093, %66 ]
+  %.2 = phi i64 [ %.1, %57 ], [ %72, %66 ]
   %74 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %4, i64 noundef %.295, i64 noundef %.sroa.620.1, i64 noundef %.sroa.017.1, i64 noundef %.2) #3
   %75 = extractvalue { i64, i64 } %74, 0
   %76 = extractvalue { i64, i64 } %74, 1

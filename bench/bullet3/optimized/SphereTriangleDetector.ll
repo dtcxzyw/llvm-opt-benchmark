@@ -384,8 +384,8 @@ if.then21:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then21, %if.then
   %distanceFromPlane.0 = phi float [ %mul, %if.then21 ], [ %44, %if.then ]
-  %normal.sroa.0.0 = phi <2 x float> [ %45, %if.then21 ], [ %35, %if.then ]
-  %normal.sroa.17.0 = phi <2 x float> [ %normal.sroa.17.8.vec.insert143, %if.then21 ], [ %normal.sroa.17.8.vec.insert, %if.then ]
+  %normal.sroa.0.1 = phi <2 x float> [ %45, %if.then21 ], [ %35, %if.then ]
+  %normal.sroa.17.1 = phi <2 x float> [ %normal.sroa.17.8.vec.insert143, %if.then21 ], [ %normal.sroa.17.8.vec.insert, %if.then ]
   %cmp24 = fcmp olt float %distanceFromPlane.0, %add
   br i1 %cmp24, label %if.then25, label %return
 
@@ -393,20 +393,20 @@ if.then25:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lnormal.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %lp.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %sphereCenter, i64 16, i1 false)
-  store <2 x float> %normal.sroa.0.0, ptr %lnormal.i, align 8
+  store <2 x float> %normal.sroa.0.1, ptr %lnormal.i, align 8
   %normal.sroa.17.0.lnormal.i.sroa_idx = getelementptr inbounds i8, ptr %lnormal.i, i64 8
-  store <2 x float> %normal.sroa.17.0, ptr %normal.sroa.17.0.lnormal.i.sroa_idx, align 8
+  store <2 x float> %normal.sroa.17.1, ptr %normal.sroa.17.0.lnormal.i.sroa_idx, align 8
   %call.i61 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly %m_vertices1.i, ptr noundef nonnull align 4 dereferenceable(16) %lnormal.i, ptr noundef nonnull %lp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lnormal.i)
   br i1 %call.i61, label %if.end47.thread152, label %if.else
 
 if.end47.thread152:                               ; preds = %if.then25
-  %normal.sroa.17.8.vec.extract145 = extractelement <2 x float> %normal.sroa.17.0, i64 0
+  %normal.sroa.17.8.vec.extract145 = extractelement <2 x float> %normal.sroa.17.1, i64 0
   %mul8.i66 = fmul float %distanceFromPlane.0, %normal.sroa.17.8.vec.extract145
   %46 = insertelement <2 x float> poison, float %distanceFromPlane.0, i64 0
   %47 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> zeroinitializer
-  %48 = fmul <2 x float> %47, %normal.sroa.0.0
+  %48 = fmul <2 x float> %47, %normal.sroa.0.1
   %49 = fsub <2 x float> %36, %48
   %sub14.i78 = fsub float %39, %mul8.i66
   %retval.sroa.3.12.vec.insert.i81 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i78, i64 0
@@ -427,11 +427,11 @@ for.body.lr.ph:                                   ; preds = %if.else
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %hasContact.0172 = phi i1 [ false, %for.body.lr.ph ], [ %hasContact.1, %for.inc ]
+  %hasContact.1172 = phi i1 [ false, %for.body.lr.ph ], [ %hasContact.2, %for.inc ]
   %minDistSqr.0171 = phi float [ %mul34, %for.body.lr.ph ], [ %minDistSqr.1, %for.inc ]
   %i.0170 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %contactPoint.sroa.6.0169 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.6.1, %for.inc ]
-  %contactPoint.sroa.0.0168 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.0.1, %for.inc ]
+  %contactPoint.sroa.6.1169 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.6.2, %for.inc ]
+  %contactPoint.sroa.0.1168 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.0.2, %for.inc ]
   %51 = load ptr, ptr %m_triangle, align 8
   %vtable39 = load ptr, ptr %51, align 8
   %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 216
@@ -506,10 +506,10 @@ if.then43:                                        ; preds = %_Z18SegmentSqrDista
   br label %for.inc
 
 for.inc:                                          ; preds = %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit, %if.then43
-  %contactPoint.sroa.0.1 = phi <2 x float> [ %80, %if.then43 ], [ %contactPoint.sroa.0.0168, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
-  %contactPoint.sroa.6.1 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i52.i, %if.then43 ], [ %contactPoint.sroa.6.0169, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %contactPoint.sroa.0.2 = phi <2 x float> [ %80, %if.then43 ], [ %contactPoint.sroa.0.1168, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %contactPoint.sroa.6.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i52.i, %if.then43 ], [ %contactPoint.sroa.6.1169, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
   %minDistSqr.1 = phi float [ %76, %if.then43 ], [ %minDistSqr.0171, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
-  %hasContact.1 = phi i1 [ true, %if.then43 ], [ %hasContact.0172, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %hasContact.2 = phi i1 [ true, %if.then43 ], [ %hasContact.1172, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
   %inc = add nuw nsw i32 %i.0170, 1
   %81 = load ptr, ptr %m_triangle, align 8
   %vtable = load ptr, ptr %81, align 8
@@ -520,7 +520,7 @@ for.inc:                                          ; preds = %_Z18SegmentSqrDista
   br i1 %cmp37, label %for.body, label %if.end47, !llvm.loop !11
 
 if.end47:                                         ; preds = %for.inc
-  br i1 %hasContact.1, label %if.end47.if.then49_crit_edge, label %return
+  br i1 %hasContact.2, label %if.end47.if.then49_crit_edge, label %return
 
 if.end47.if.then49_crit_edge:                     ; preds = %if.end47
   %83 = load <2 x float>, ptr %sphereCenter, align 4
@@ -529,11 +529,11 @@ if.end47.if.then49_crit_edge:                     ; preds = %if.end47
 
 if.then49:                                        ; preds = %if.end47.if.then49_crit_edge, %if.end47.thread152
   %84 = phi float [ %39, %if.end47.thread152 ], [ %.pre176, %if.end47.if.then49_crit_edge ]
-  %contactPoint.sroa.6.2160 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i81, %if.end47.thread152 ], [ %contactPoint.sroa.6.1, %if.end47.if.then49_crit_edge ]
-  %contactPoint.sroa.0.2159 = phi <2 x float> [ %49, %if.end47.thread152 ], [ %contactPoint.sroa.0.1, %if.end47.if.then49_crit_edge ]
+  %contactPoint.sroa.6.0160 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i81, %if.end47.thread152 ], [ %contactPoint.sroa.6.2, %if.end47.if.then49_crit_edge ]
+  %contactPoint.sroa.0.0159 = phi <2 x float> [ %49, %if.end47.thread152 ], [ %contactPoint.sroa.0.2, %if.end47.if.then49_crit_edge ]
   %85 = phi <2 x float> [ %36, %if.end47.thread152 ], [ %83, %if.end47.if.then49_crit_edge ]
-  %86 = fsub <2 x float> %85, %contactPoint.sroa.0.2159
-  %contactPoint.sroa.6.8.vec.extract = extractelement <2 x float> %contactPoint.sroa.6.2160, i64 0
+  %86 = fsub <2 x float> %85, %contactPoint.sroa.0.0159
+  %contactPoint.sroa.6.8.vec.extract = extractelement <2 x float> %contactPoint.sroa.6.0160, i64 0
   %sub14.i93 = fsub float %84, %contactPoint.sroa.6.8.vec.extract
   %retval.sroa.3.12.vec.insert.i96 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i93, i64 0
   %87 = extractelement <2 x float> %86, i64 1
@@ -568,16 +568,16 @@ if.then58:                                        ; preds = %if.then56
   br label %if.end63
 
 if.else61:                                        ; preds = %if.then56
-  store <2 x float> %normal.sroa.0.0, ptr %resultNormal, align 4
-  store <2 x float> %normal.sroa.17.0, ptr %contactToCentre.sroa.4.0.resultNormal.sroa_idx, align 4
+  store <2 x float> %normal.sroa.0.1, ptr %resultNormal, align 4
+  store <2 x float> %normal.sroa.17.1, ptr %contactToCentre.sroa.4.0.resultNormal.sroa_idx, align 4
   br label %if.end63
 
 if.end63:                                         ; preds = %if.else61, %if.then58
   %mul.i.sink = phi float [ %mul.i, %if.else61 ], [ %sub, %if.then58 ]
   %fneg62 = fneg float %mul.i.sink
-  store <2 x float> %contactPoint.sroa.0.2159, ptr %point, align 4
+  store <2 x float> %contactPoint.sroa.0.0159, ptr %point, align 4
   %96 = getelementptr inbounds i8, ptr %point, i64 8
-  store <2 x float> %contactPoint.sroa.6.2160, ptr %96, align 4
+  store <2 x float> %contactPoint.sroa.6.0160, ptr %96, align 4
   store float %fneg62, ptr %depth, align 4
   br label %return
 

@@ -24206,10 +24206,10 @@ _ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_config
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i, %_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread
-  %vs.0 = phi ptr [ %35, %_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i ]
+  %vs.1 = phi ptr [ %35, %_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %31, i64 8
   %46 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %46, ptr %arrayidx28, align 8
   %inc29 = add i32 %33, 1
   store i32 %inc29, ptr %32, align 4
@@ -24235,7 +24235,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 _ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE7inc_refEPNS5_4cellE.exit: ; preds = %sw.bb30, %if.end25, %sw.bb
-  %vs.1 = phi ptr [ %35, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %35, %sw.bb ]
+  %vs.0 = phi ptr [ %35, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %35, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %33, %sw.bb ]
   %bf.load.i52 = load i32, ptr %31, align 8
   %inc.i53 = add i32 %bf.load.i52, 1
@@ -24250,7 +24250,7 @@ _ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_config
   %48 = getelementptr inbounds i8, ptr %31, i64 4
   store i32 %sz.0, ptr %48, align 4
   %49 = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr %vs.1, ptr %49, align 8
+  store ptr %vs.0, ptr %49, align 8
   call void @_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE7dec_refEPNS5_4cellE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %c.192)
   %cmp12.not.wide = icmp eq i64 %29, 0
   br i1 %cmp12.not.wide, label %for.end, label %for.body, !llvm.loop !94
@@ -25826,8 +25826,8 @@ if.end46:                                         ; preds = %if.else35
 for.body54:                                       ; preds = %if.end46, %for.body54
   %__i50.066 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
   %__q47.065 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
-  %__p.264 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.264, i64 -8
+  %__p.364 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.364, i64 -8
   %incdec.ptr56 = getelementptr inbounds i8, ptr %__q47.065, i64 -8
   %6 = load ptr, ptr %incdec.ptr55, align 8
   %7 = load ptr, ptr %incdec.ptr56, align 8
@@ -25838,7 +25838,7 @@ for.body54:                                       ; preds = %if.end46, %for.body
   br i1 %exitcond.not, label %for.end59, label %for.body54, !llvm.loop !114
 
 for.end59:                                        ; preds = %for.body54, %if.end46
-  %__p.2.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
+  %__p.3.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
   %rem60 = srem i64 %__n.0, %sub15
   %cmp61 = icmp eq i64 %rem60, 0
   br i1 %cmp61, label %return, label %for.cond.backedge
@@ -25846,7 +25846,7 @@ for.end59:                                        ; preds = %for.body54, %if.end
 for.cond.backedge:                                ; preds = %for.end59, %if.end33
   %__n.0.be = phi i64 [ %__k.0, %if.end33 ], [ %sub15, %for.end59 ]
   %__k.0.be = phi i64 [ %sub34, %if.end33 ], [ %rem60, %for.end59 ]
-  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.2.lcssa, %for.end59 ]
+  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.3.lcssa, %for.end59 ]
   br label %for.cond, !llvm.loop !115
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPPN9subpaving9context_tINS0_10config_mpfEE4ineqES6_ET0_T_S8_S7_.exit, %_ZSt4moveIPPN9subpaving9context_tINS0_10config_mpfEE4ineqES6_ET0_T_S8_S7_.exit
@@ -31059,7 +31059,7 @@ if.then.i:                                        ; preds = %_ZNK9subpaving9cont
 
 if.end9:                                          ; preds = %if.then.i, %_ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit.i, %_ZNK9subpaving9context_tINS_10config_mpfEE13splitting_varEPNS2_4nodeE.exit.thread
   %10 = phi ptr [ %0, %_ZNK9subpaving9context_tINS_10config_mpfEE13splitting_varEPNS2_4nodeE.exit.thread ], [ %7, %if.then.i ], [ %7, %_ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit.i ]
-  %x.1 = phi i32 [ 0, %_ZNK9subpaving9context_tINS_10config_mpfEE13splitting_varEPNS2_4nodeE.exit.thread ], [ 0, %if.then.i ], [ %inc.i, %_ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit.i ]
+  %x.0 = phi i32 [ 0, %_ZNK9subpaving9context_tINS_10config_mpfEE13splitting_varEPNS2_4nodeE.exit.thread ], [ 0, %if.then.i ], [ %inc.i, %_ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit.i ]
   %m_only_non_def = getelementptr inbounds i8, ptr %this, i64 16
   %m_lowers.i = getelementptr inbounds i8, ptr %n, i64 8
   %m_uppers.i = getelementptr inbounds i8, ptr %n, i64 24
@@ -31067,7 +31067,7 @@ if.end9:                                          ; preds = %if.then.i, %_ZNK9su
 
 do.body:                                          ; preds = %_ZNK9subpaving25round_robing_var_selectorINS_10config_mpfEE4nextERj.exit47, %if.end9
   %11 = phi ptr [ %10, %if.end9 ], [ %34, %_ZNK9subpaving25round_robing_var_selectorINS_10config_mpfEE4nextERj.exit47 ]
-  %x.2 = phi i32 [ %x.1, %if.end9 ], [ %x.3, %_ZNK9subpaving25round_robing_var_selectorINS_10config_mpfEE4nextERj.exit47 ]
+  %x.1 = phi i32 [ %x.0, %if.end9 ], [ %x.3, %_ZNK9subpaving25round_robing_var_selectorINS_10config_mpfEE4nextERj.exit47 ]
   %12 = load i8, ptr %m_only_non_def, align 8
   %tobool = trunc i8 %12 to i1
   br i1 %tobool, label %lor.lhs.false, label %if.then12
@@ -31075,7 +31075,7 @@ do.body:                                          ; preds = %_ZNK9subpaving25rou
 lor.lhs.false:                                    ; preds = %do.body
   %m_defs.i = getelementptr inbounds i8, ptr %11, i64 816
   %13 = load ptr, ptr %m_defs.i, align 8
-  %idxprom.i.i = zext i32 %x.2 to i64
+  %idxprom.i.i = zext i32 %x.1 to i64
   %arrayidx.i.i10 = getelementptr inbounds ptr, ptr %13, i64 %idxprom.i.i
   %14 = load ptr, ptr %arrayidx.i.i10, align 8
   %cmp.i11.not = icmp eq ptr %14, null
@@ -31090,7 +31090,7 @@ if.then.i.i:                                      ; preds = %sw.epilog.i.i
   %16 = load ptr, ptr %m_lowers.i, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  %idxprom.i.i14 = zext i32 %x.2 to i64
+  %idxprom.i.i14 = zext i32 %x.1 to i64
   %arrayidx.i.i15 = getelementptr inbounds ptr, ptr %18, i64 %idxprom.i.i14
   %.pre = load ptr, ptr %n, align 8
   br label %_ZNK9subpaving9context_tINS_10config_mpfEE4node5lowerEj.exit
@@ -31111,7 +31111,7 @@ if.end.i.i12:                                     ; preds = %sw.epilog.i.i, %if.
 sw.bb.i.i:                                        ; preds = %if.end.i.i12, %if.end.i.i12
   %19 = getelementptr inbounds i8, ptr %c.017.i.i, i64 4
   %20 = load i32, ptr %19, align 4
-  %cmp4.i.i = icmp eq i32 %20, %x.2
+  %cmp4.i.i = icmp eq i32 %20, %x.1
   br i1 %cmp4.i.i, label %if.then5.i.i, label %sw.epilog.i.i
 
 if.then5.i.i:                                     ; preds = %sw.bb.i.i
@@ -31121,7 +31121,7 @@ if.then5.i.i:                                     ; preds = %sw.bb.i.i
 sw.bb12.i.i:                                      ; preds = %if.end.i.i12
   %21 = getelementptr inbounds i8, ptr %c.017.i.i, i64 16
   %22 = load ptr, ptr %21, align 8
-  %idxprom13.i.i = zext i32 %x.2 to i64
+  %idxprom13.i.i = zext i32 %x.1 to i64
   %arrayidx14.i.i = getelementptr inbounds ptr, ptr %22, i64 %idxprom13.i.i
   br label %_ZNK9subpaving9context_tINS_10config_mpfEE4node5lowerEj.exit
 
@@ -31148,7 +31148,7 @@ if.then.i.i30:                                    ; preds = %sw.epilog.i.i26
   %25 = load ptr, ptr %m_uppers.i, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %idxprom.i.i31 = zext i32 %x.2 to i64
+  %idxprom.i.i31 = zext i32 %x.1 to i64
   %arrayidx.i.i32 = getelementptr inbounds ptr, ptr %27, i64 %idxprom.i.i31
   br label %_ZNK9subpaving9context_tINS_10config_mpfEE4node5upperEj.exit
 
@@ -31168,7 +31168,7 @@ if.end.i.i16:                                     ; preds = %sw.epilog.i.i26, %_
 sw.bb.i.i33:                                      ; preds = %if.end.i.i16, %if.end.i.i16
   %28 = getelementptr inbounds i8, ptr %c.017.i.i19, i64 4
   %29 = load i32, ptr %28, align 4
-  %cmp4.i.i34 = icmp eq i32 %29, %x.2
+  %cmp4.i.i34 = icmp eq i32 %29, %x.1
   br i1 %cmp4.i.i34, label %if.then5.i.i35, label %sw.epilog.i.i26
 
 if.then5.i.i35:                                   ; preds = %sw.bb.i.i33
@@ -31178,7 +31178,7 @@ if.then5.i.i35:                                   ; preds = %sw.bb.i.i33
 sw.bb12.i.i22:                                    ; preds = %if.end.i.i16
   %30 = getelementptr inbounds i8, ptr %c.017.i.i19, i64 16
   %31 = load ptr, ptr %30, align 8
-  %idxprom13.i.i23 = zext i32 %x.2 to i64
+  %idxprom13.i.i23 = zext i32 %x.1 to i64
   %arrayidx14.i.i24 = getelementptr inbounds ptr, ptr %31, i64 %idxprom13.i.i23
   br label %_ZNK9subpaving9context_tINS_10config_mpfEE4node5upperEj.exit
 
@@ -31213,7 +31213,7 @@ if.end24:                                         ; preds = %lor.lhs.false18.if.
   br i1 %cmp.i.i.i41, label %if.then.i45, label %_ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit.i42
 
 _ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit.i42: ; preds = %if.end24
-  %inc.i38 = add i32 %x.2, 1
+  %inc.i38 = add i32 %x.1, 1
   %arrayidx.i.i.i43 = getelementptr inbounds i8, ptr %35, i64 -4
   %36 = load i32, ptr %arrayidx.i.i.i43, align 4
   %cmp.not.i44 = icmp ult i32 %inc.i38, %36
@@ -31224,11 +31224,11 @@ if.then.i45:                                      ; preds = %_ZNK9subpaving9cont
 
 _ZNK9subpaving25round_robing_var_selectorINS_10config_mpfEE4nextERj.exit47: ; preds = %_ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit.i42, %if.then.i45
   %x.3 = phi i32 [ 0, %if.then.i45 ], [ %inc.i38, %_ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit.i42 ]
-  %cmp25.not = icmp eq i32 %x.3, %x.1
+  %cmp25.not = icmp eq i32 %x.3, %x.0
   br i1 %cmp25.not, label %return, label %do.body, !llvm.loop !124
 
 return:                                           ; preds = %_ZNK9subpaving9context_tINS_10config_mpfEE4node5upperEj.exit, %lor.lhs.false18, %_ZNK9subpaving25round_robing_var_selectorINS_10config_mpfEE4nextERj.exit47, %entry, %_ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit
-  %retval.0 = phi i32 [ -1, %_ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit ], [ -1, %entry ], [ %x.2, %_ZNK9subpaving9context_tINS_10config_mpfEE4node5upperEj.exit ], [ %x.2, %lor.lhs.false18 ], [ -1, %_ZNK9subpaving25round_robing_var_selectorINS_10config_mpfEE4nextERj.exit47 ]
+  %retval.0 = phi i32 [ -1, %_ZNK9subpaving9context_tINS_10config_mpfEE8num_varsEv.exit ], [ -1, %entry ], [ %x.1, %_ZNK9subpaving9context_tINS_10config_mpfEE4node5upperEj.exit ], [ %x.1, %lor.lhs.false18 ], [ -1, %_ZNK9subpaving25round_robing_var_selectorINS_10config_mpfEE4nextERj.exit47 ]
   ret i32 %retval.0
 }
 

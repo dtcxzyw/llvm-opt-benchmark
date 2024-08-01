@@ -125,8 +125,8 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not118, label %40, label %._crit_edge130
 
 ._crit_edge130:                                   ; preds = %40, %.lr.ph129, %._crit_edge.thread, %._crit_edge
-  %.0105 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 1, %.lr.ph129 ], [ 0, %40 ]
-  store i32 %.0105, ptr %5, align 4
+  %.1 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 1, %.lr.ph129 ], [ 0, %40 ]
+  store i32 %.1, ptr %5, align 4
   %43 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.0109.val.val, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %5, i64 8
@@ -163,10 +163,10 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
   %.0111 = phi ptr [ null, %._crit_edge130 ], [ %61, %60 ], [ null, %20 ]
   %.0110 = phi ptr [ %33, %._crit_edge130 ], [ %33, %60 ], [ null, %20 ]
   %.0106 = phi i32 [ %57, %._crit_edge130 ], [ 0, %60 ], [ 1, %20 ]
-  %.1 = phi i32 [ %58, %._crit_edge130 ], [ %58, %60 ], [ 0, %20 ]
+  %.0105 = phi i32 [ %58, %._crit_edge130 ], [ %58, %60 ], [ 0, %20 ]
   store i32 %.0106, ptr %6, align 4
   %69 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %.1, ptr %69, align 4
+  store i32 %.0105, ptr %69, align 4
   %70 = getelementptr inbounds i8, ptr %.0109, i64 328
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 112

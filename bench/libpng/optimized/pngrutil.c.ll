@@ -2059,7 +2059,7 @@ define internal fastcc void @png_inflate_read(ptr noalias noundef %0, ptr nounde
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.backedge, %12
-  %.043 = phi i32 [ 1024, %12 ], [ %.2, %.critedge2.backedge ]
+  %.043 = phi i32 [ 1024, %12 ], [ %.1, %.critedge2.backedge ]
   %19 = load i32, ptr %16, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %26
@@ -2085,7 +2085,7 @@ png_crc_read.exit:                                ; preds = %21
 
 26:                                               ; preds = %25, %.critedge2
   %27 = phi i32 [ %spec.select, %25 ], [ %19, %.critedge2 ]
-  %.2 = phi i32 [ %spec.select, %25 ], [ %.043, %.critedge2 ]
+  %.1 = phi i32 [ %spec.select, %25 ], [ %.043, %.critedge2 ]
   %28 = load i32, ptr %15, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %33
@@ -4849,8 +4849,8 @@ png_crc_read.exit:                                ; preds = %37, %30
   br i1 %.not102, label %107, label %.thread112
 
 .thread112:                                       ; preds = %.preheader, %79, %86, %.critedge, %48, %51, %56, %.thread
-  %.1.ph = phi ptr [ @.str.43, %.thread ], [ @.str.44, %56 ], [ @.str.44, %51 ], [ @.str.40, %48 ], [ @.str.19, %.critedge ], [ %88, %86 ], [ @.str.40, %79 ], [ @.str.19, %.preheader ]
-  call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull %.1.ph) #12
+  %.0.ph = phi ptr [ @.str.43, %.thread ], [ @.str.44, %56 ], [ @.str.44, %51 ], [ @.str.40, %48 ], [ @.str.19, %.critedge ], [ %88, %86 ], [ @.str.40, %79 ], [ @.str.19, %.preheader ]
+  call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull %.0.ph) #12
   br label %107
 
 107:                                              ; preds = %.thread, %png_crc_read.exit, %.thread112, %39, %13, %8
@@ -4909,8 +4909,8 @@ define void @png_handle_unknown(ptr noalias noundef %0, ptr noalias noundef %1, 
   br label %29
 
 29:                                               ; preds = %26, %24
-  %.0 = phi i32 [ %28, %26 ], [ %3, %24 ]
-  switch i32 %.0, label %37 [
+  %.1 = phi i32 [ %28, %26 ], [ %3, %24 ]
+  switch i32 %.1, label %37 [
     i32 3, label %34
     i32 2, label %30
   ]
@@ -4932,8 +4932,8 @@ define void @png_handle_unknown(ptr noalias noundef %0, ptr noalias noundef %1, 
   br label %39
 
 39:                                               ; preds = %34, %37, %17
-  %.1 = phi i32 [ %3, %17 ], [ %.0, %37 ], [ %.0, %34 ]
-  switch i32 %.1, label %.thread [
+  %.0 = phi i32 [ %3, %17 ], [ %.1, %37 ], [ %.1, %34 ]
+  switch i32 %.0, label %.thread [
     i32 3, label %43
     i32 2, label %.thread52
   ]

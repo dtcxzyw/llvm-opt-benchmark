@@ -670,37 +670,37 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit26: ; preds = %l
   br label %ehcleanup53
 
 ehcleanup53:                                      ; preds = %lpad17, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit21, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit26
-  %buckets.sroa.0.1 = phi ptr [ %buckets.sroa.0.0, %lpad17 ], [ null, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit26 ], [ %call, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit21 ]
-  %parameters.sroa.0.1 = phi ptr [ %parameters.sroa.0.0, %lpad17 ], [ null, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit26 ], [ null, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit21 ]
+  %buckets.sroa.0.4 = phi ptr [ %buckets.sroa.0.0, %lpad17 ], [ null, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit26 ], [ %call, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit21 ]
+  %parameters.sroa.0.3 = phi ptr [ %parameters.sroa.0.0, %lpad17 ], [ null, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit26 ], [ null, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit21 ]
   %.pn = phi { ptr, i32 } [ %38, %lpad17 ], [ %42, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit26 ], [ %39, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit21 ]
   call void @_ZN4base15DictionaryValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %root) #14
   call void @_ZN25JSONStringValueSerializerD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %serializer) #14
-  %cmp.not.i27 = icmp eq ptr %parameters.sroa.0.1, null
+  %cmp.not.i27 = icmp eq ptr %parameters.sroa.0.3, null
   br i1 %cmp.not.i27, label %ehcleanup54, label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i28
 
 _ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i28: ; preds = %ehcleanup53.thread52, %ehcleanup53.thread, %ehcleanup53
   %.pn.pn.pn50 = phi { ptr, i32 } [ %36, %ehcleanup53.thread ], [ %.pn, %ehcleanup53 ], [ %37, %ehcleanup53.thread52 ]
-  %parameters.sroa.0.349 = phi ptr [ %call6, %ehcleanup53.thread ], [ %parameters.sroa.0.1, %ehcleanup53 ], [ %call6, %ehcleanup53.thread52 ]
-  %buckets.sroa.0.347 = phi ptr [ %call, %ehcleanup53.thread ], [ %buckets.sroa.0.1, %ehcleanup53 ], [ %call, %ehcleanup53.thread52 ]
-  %vtable.i.i29 = load ptr, ptr %parameters.sroa.0.349, align 8
+  %parameters.sroa.0.149 = phi ptr [ %call6, %ehcleanup53.thread ], [ %parameters.sroa.0.3, %ehcleanup53 ], [ %call6, %ehcleanup53.thread52 ]
+  %buckets.sroa.0.247 = phi ptr [ %call, %ehcleanup53.thread ], [ %buckets.sroa.0.4, %ehcleanup53 ], [ %call, %ehcleanup53.thread52 ]
+  %vtable.i.i29 = load ptr, ptr %parameters.sroa.0.149, align 8
   %vfn.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i29, i64 8
   %45 = load ptr, ptr %vfn.i.i30, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(64) %parameters.sroa.0.349) #14
+  call void %45(ptr noundef nonnull align 8 dereferenceable(64) %parameters.sroa.0.149) #14
   br label %ehcleanup54
 
 ehcleanup54:                                      ; preds = %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i28, %ehcleanup53
-  %buckets.sroa.0.4 = phi ptr [ %buckets.sroa.0.1, %ehcleanup53 ], [ %buckets.sroa.0.347, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i28 ]
+  %buckets.sroa.0.1 = phi ptr [ %buckets.sroa.0.4, %ehcleanup53 ], [ %buckets.sroa.0.247, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i28 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup53 ], [ %.pn.pn.pn50, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i28 ]
-  %cmp.not.i32 = icmp eq ptr %buckets.sroa.0.4, null
+  %cmp.not.i32 = icmp eq ptr %buckets.sroa.0.1, null
   br i1 %cmp.not.i32, label %eh.resume, label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i33
 
 _ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i33: ; preds = %lpad3, %lpad7, %ehcleanup54
   %.pn.pn.pn.pn61 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup54 ], [ %34, %lpad3 ], [ %35, %lpad7 ]
-  %buckets.sroa.0.460 = phi ptr [ %buckets.sroa.0.4, %ehcleanup54 ], [ %call, %lpad3 ], [ %call, %lpad7 ]
-  %vtable.i.i34 = load ptr, ptr %buckets.sroa.0.460, align 8
+  %buckets.sroa.0.160 = phi ptr [ %buckets.sroa.0.1, %ehcleanup54 ], [ %call, %lpad3 ], [ %call, %lpad7 ]
+  %vtable.i.i34 = load ptr, ptr %buckets.sroa.0.160, align 8
   %vfn.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i34, i64 8
   %46 = load ptr, ptr %vfn.i.i35, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %buckets.sroa.0.460) #14
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %buckets.sroa.0.160) #14
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i33, %ehcleanup54, %lpad

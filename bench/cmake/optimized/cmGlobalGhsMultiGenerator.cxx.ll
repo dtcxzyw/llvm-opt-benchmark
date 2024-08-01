@@ -1042,7 +1042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51: ; 
   br label %108
 
 107:                                              ; preds = %96, %73
-  %.0 = phi i1 [ true, %96 ], [ false, %73 ]
+  %.2 = phi i1 [ true, %96 ], [ false, %73 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   br label %109
 
@@ -1052,7 +1052,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51: ; 
   br label %.body
 
 109:                                              ; preds = %21, %107
-  %.1 = phi i1 [ %.0, %107 ], [ false, %21 ]
+  %.1 = phi i1 [ %.2, %107 ], [ false, %21 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br label %110
 
@@ -1062,8 +1062,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51: ; 
   resume { ptr, i32 } %.pn25.pn.pn
 
 110:                                              ; preds = %4, %109
-  %.2 = phi i1 [ %.1, %109 ], [ true, %4 ]
-  ret i1 %.2
+  %.0 = phi i1 [ %.1, %109 ], [ true, %4 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4999,27 +4999,27 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 
 .lr.ph.i.i:                                       ; preds = %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i, %57
   %.sroa.07.029.i.i = phi ptr [ %.sroa.07.0.i.i, %57 ], [ %.sroa.07.026.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ]
-  %.sroa.013.028.i.i = phi ptr [ %.sroa.013.1.i.i, %57 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ]
+  %.sroa.013.128.i.i = phi ptr [ %.sroa.013.2.i.i, %57 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ]
   %52 = load i8, ptr %.sroa.07.029.i.i, align 1
   %53 = load i8, ptr %1, align 1
   %54 = icmp eq i8 %52, %53
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %.lr.ph.i.i
-  store i8 %52, ptr %.sroa.013.028.i.i, align 1
-  %56 = getelementptr inbounds i8, ptr %.sroa.013.028.i.i, i64 1
+  store i8 %52, ptr %.sroa.013.128.i.i, align 1
+  %56 = getelementptr inbounds i8, ptr %.sroa.013.128.i.i, i64 1
   br label %57
 
 57:                                               ; preds = %55, %.lr.ph.i.i
-  %.sroa.013.1.i.i = phi ptr [ %.sroa.013.028.i.i, %.lr.ph.i.i ], [ %56, %55 ]
+  %.sroa.013.2.i.i = phi ptr [ %.sroa.013.128.i.i, %.lr.ph.i.i ], [ %56, %55 ]
   %.sroa.07.0.i.i = getelementptr inbounds i8, ptr %.sroa.07.029.i.i, i64 1
   %.not.i.i = icmp eq ptr %.sroa.07.0.i.i, %4
   br i1 %.not.i.i, label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit, label %.lr.ph.i.i, !llvm.loop !130
 
 _ZSt6removeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit: ; preds = %57, %._crit_edge.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i
-  %.sroa.013.2.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ], [ %4, %._crit_edge.i.i.i.i ], [ %.sroa.013.1.i.i, %57 ]
+  %.sroa.013.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ], [ %4, %._crit_edge.i.i.i.i ], [ %.sroa.013.2.i.i, %57 ]
   %58 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
-  %59 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.sroa.013.2.i.i, ptr %58)
+  %59 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.sroa.013.0.i.i, ptr %58)
   ret void
 }
 
@@ -7557,14 +7557,14 @@ _ZN8cmTarget11SetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br i1 %.not68, label %_ZNSt10unique_ptrI15cmCustomCommandSt14default_deleteIS0_EED2Ev.exit43, label %.lr.ph99
 
 .body32:                                          ; preds = %.loopexit.split-lp, %.body
-  %.sroa.056.3 = phi ptr [ %.sroa.056.2, %.body ], [ %.sroa.056.0.ph, %.loopexit.split-lp ]
+  %.sroa.056.1 = phi ptr [ %.sroa.056.2, %.body ], [ %.sroa.056.0.ph, %.loopexit.split-lp ]
   %.pn28 = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i44 = icmp eq ptr %.sroa.056.3, null
+  %.not.i44 = icmp eq ptr %.sroa.056.1, null
   br i1 %.not.i44, label %common.resume, label %_ZNKSt14default_deleteI15cmCustomCommandEclEPS0_.exit.i45
 
 _ZNKSt14default_deleteI15cmCustomCommandEclEPS0_.exit.i45: ; preds = %.body32
-  call void @_ZN15cmCustomCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(316) %.sroa.056.3) #20
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.056.3) #21
+  call void @_ZN15cmCustomCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(316) %.sroa.056.1) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.056.1) #21
   br label %common.resume
 
 _ZNSt10unique_ptrI15cmCustomCommandSt14default_deleteIS0_EED2Ev.exit43: ; preds = %._crit_edge, %74, %.lr.ph103

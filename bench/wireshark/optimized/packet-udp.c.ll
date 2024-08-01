@@ -510,12 +510,12 @@ define void @decode_udp_ports(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 21:                                               ; preds = %19, %7
   %.0128 = phi i32 [ %17, %7 ], [ %spec.select160, %19 ]
-  %.1127 = phi i32 [ %18, %7 ], [ %spec.select, %19 ]
+  %.0126 = phi i32 [ %18, %7 ], [ %spec.select, %19 ]
   %22 = load i32, ptr @hf_udp_payload, align 4
   %23 = icmp eq i32 %.0128, 1
   %24 = select i1 %23, ptr @.str.1, ptr @.str.2
   %25 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %22, ptr noundef %0, i32 noundef %1, i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str, i32 noundef %.0128, ptr noundef nonnull %24) #13
-  %26 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 noundef %.0128, i32 noundef %.1127) #13
+  %26 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 noundef %.0128, i32 noundef %.0126) #13
   %27 = load i32, ptr @udp_follow_tap, align 4
   %28 = tail call i32 @have_tap_listener(i32 noundef %27) #13
   %.not141 = icmp eq i32 %28, 0

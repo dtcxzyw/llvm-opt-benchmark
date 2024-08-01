@@ -180,7 +180,7 @@ define hidden void @_ZN2cv12WorkerThread11thread_bodyEv(ptr noundef nonnull alig
   br label %14
 
 14:                                               ; preds = %.lr.ph66, %_ZN2cv3PtrINS_11ParallelJobEED2Ev.exit
-  %.04564 = phi i1 [ true, %.lr.ph66 ], [ %.4, %_ZN2cv3PtrINS_11ParallelJobEED2Ev.exit ]
+  %.04564 = phi i1 [ true, %.lr.ph66 ], [ %.3, %_ZN2cv3PtrINS_11ParallelJobEED2Ev.exit ]
   %15 = load i32, ptr @_ZN2cvL21CV_WORKER_ACTIVE_WAITE, align 4
   %16 = icmp sgt i32 %15, 0
   %or.cond = select i1 %.04564, i1 %16, i1 false
@@ -295,7 +295,7 @@ define hidden void @_ZN2cv12WorkerThread11thread_bodyEv(ptr noundef nonnull alig
   resume { ptr, i32 } %71
 
 72:                                               ; preds = %67, %66, %59
-  %.3 = phi i1 [ true, %66 ], [ %spec.select, %59 ], [ %69, %67 ]
+  %.4 = phi i1 [ true, %66 ], [ %spec.select, %59 ], [ %69, %67 ]
   %73 = icmp eq i32 %63, %62
   br i1 %73, label %74, label %123
 
@@ -394,7 +394,7 @@ _ZN2cv3PtrINS_11ParallelJobEE7releaseEv.exit:     ; preds = %74, %95, %108, %_ZN
   br label %123
 
 123:                                              ; preds = %44, %46, %72, %113, %_ZN2cv3PtrINS_11ParallelJobEE7releaseEv.exit, %40
-  %.4 = phi i1 [ %spec.select, %40 ], [ %.3, %113 ], [ %.3, %_ZN2cv3PtrINS_11ParallelJobEE7releaseEv.exit ], [ %.3, %72 ], [ %spec.select, %46 ], [ %spec.select, %44 ]
+  %.3 = phi i1 [ %spec.select, %40 ], [ %.4, %113 ], [ %.4, %_ZN2cv3PtrINS_11ParallelJobEE7releaseEv.exit ], [ %.4, %72 ], [ %spec.select, %46 ], [ %spec.select, %44 ]
   %124 = load ptr, ptr %13, align 8
   %.not.i.i.i.i54 = icmp eq ptr %124, null
   br i1 %.not.i.i.i.i54, label %_ZN2cv3PtrINS_11ParallelJobEED2Ev.exit, label %125

@@ -3563,10 +3563,10 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
 
 41:                                               ; preds = %.lr.ph, %647
   %42 = phi i64 [ %19, %.lr.ph ], [ %648, %647 ]
-  %.sroa.11327.02378 = phi i64 [ undef, %.lr.ph ], [ %.sroa.11327.4445.ph.ph6391044.ph.ph, %647 ]
-  %.sroa.11304.02375 = phi i64 [ undef, %.lr.ph ], [ %.sroa.11304.4439.ph.ph6511038.ph.ph, %647 ]
-  %.sroa.11290.02372 = phi i64 [ undef, %.lr.ph ], [ %.sroa.11290.5433.ph.ph6631032.ph.ph, %647 ]
-  %.sroa.11276.02370 = phi i64 [ undef, %.lr.ph ], [ %.sroa.11276.4429.ph.ph6711028.ph.ph, %647 ]
+  %.sroa.11327.02378 = phi i64 [ undef, %.lr.ph ], [ %.sroa.11327.3445.ph.ph6391044.ph.ph, %647 ]
+  %.sroa.11304.02375 = phi i64 [ undef, %.lr.ph ], [ %.sroa.11304.3439.ph.ph6511038.ph.ph, %647 ]
+  %.sroa.11290.02372 = phi i64 [ undef, %.lr.ph ], [ %.sroa.11290.4433.ph.ph6631032.ph.ph, %647 ]
+  %.sroa.11276.02370 = phi i64 [ undef, %.lr.ph ], [ %.sroa.11276.3429.ph.ph6711028.ph.ph, %647 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !965)
   %.sroa.01.0.copyload.i = load i32, ptr %21, align 8
   %43 = load i8, ptr %22, align 4, !range !967, !alias.scope !965, !noalias !963, !noundef !4
@@ -4940,7 +4940,7 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
 542:                                              ; preds = %262, %269
   %storemerge1204 = phi ptr [ %264, %262 ], [ %271, %269 ]
   %storemerge1203 = phi i64 [ %263, %262 ], [ %270, %269 ]
-  %.sroa.4279.1 = phi ptr [ %256, %262 ], [ %242, %269 ]
+  %.sroa.4279.4 = phi ptr [ %256, %262 ], [ %242, %269 ]
   %.sroa.14286.0 = phi i64 [ %.sroa.4115.i160.sroa.3.2.insert.insert, %262 ], [ %252, %269 ]
   store ptr %storemerge1204, ptr %17, align 8, !alias.scope !1235, !noalias !1634
   store i64 %storemerge1203, ptr %18, align 8, !alias.scope !1235, !noalias !1634
@@ -4990,8 +4990,8 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
   %storemerge1202 = phi ptr [ %333, %331 ], [ %340, %338 ]
   %storemerge1201 = phi i64 [ %332, %331 ], [ %339, %338 ]
   %.0604.i.i362 = phi i64 [ %.sroa.4784.i.i.sroa.3.4.insert.insert, %331 ], [ %294, %338 ]
-  %.sroa.11290.2358 = phi i64 [ %.sroa.11290.02372, %331 ], [ %294, %338 ]
-  %.sroa.4293.1 = phi ptr [ %325, %331 ], [ %310, %338 ]
+  %.sroa.11290.3358 = phi i64 [ %.sroa.11290.02372, %331 ], [ %294, %338 ]
+  %.sroa.4293.4 = phi ptr [ %325, %331 ], [ %310, %338 ]
   %.sroa.14300.0 = phi i64 [ %.sroa.4115.i114.sroa.3.2.insert.insert, %331 ], [ %320, %338 ]
   store ptr %storemerge1202, ptr %17, align 8, !alias.scope !1335, !noalias !1645
   store i64 %storemerge1201, ptr %18, align 8, !alias.scope !1335, !noalias !1645
@@ -5050,7 +5050,7 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
 585:                                              ; preds = %447, %454
   %storemerge1196 = phi ptr [ %449, %447 ], [ %456, %454 ]
   %storemerge1195 = phi i64 [ %448, %447 ], [ %455, %454 ]
-  %.sroa.4316.1 = phi ptr [ %441, %447 ], [ %426, %454 ]
+  %.sroa.4316.4 = phi ptr [ %441, %447 ], [ %426, %454 ]
   %.sroa.14323.0 = phi i64 [ %.sroa.4115.i39.sroa.3.2.insert.insert, %447 ], [ %436, %454 ]
   store ptr %storemerge1196, ptr %17, align 8, !alias.scope !1471, !noalias !1663
   store i64 %storemerge1195, ptr %18, align 8, !alias.scope !1471, !noalias !1663
@@ -5068,7 +5068,7 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
 593:                                              ; preds = %519, %512
   %storemerge1194 = phi ptr [ %514, %512 ], [ %521, %519 ]
   %storemerge = phi i64 [ %513, %512 ], [ %520, %519 ]
-  %.sroa.4330.1 = phi ptr [ %506, %512 ], [ %491, %519 ]
+  %.sroa.4330.4 = phi ptr [ %506, %512 ], [ %491, %519 ]
   %.sroa.14337.0 = phi i64 [ %.sroa.4115.i.sroa.3.2.insert.insert, %512 ], [ %501, %519 ]
   store ptr %storemerge1194, ptr %17, align 8, !alias.scope !1555, !noalias !1669
   store i64 %storemerge, ptr %18, align 8, !alias.scope !1555, !noalias !1669
@@ -5095,7 +5095,7 @@ _ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96: ; preds = %393, 
   %.sroa.10.1463.ph.ph.ph = phi i64 [ %57, %77 ], [ %359, %393 ], [ %359, %400 ]
   %.sroa.12.1461.ph.ph.ph = phi ptr [ %71, %77 ], [ %387, %393 ], [ %372, %400 ]
   %.sroa.14.1459.ph.ph.ph = phi i64 [ %.sroa.4.i.sroa.3.2.insert.insert.i, %77 ], [ %.sroa.4115.i68.sroa.3.2.insert.insert, %393 ], [ %382, %400 ]
-  %.sroa.11304.4439.ph.ph.ph = phi i64 [ %.sroa.11304.02375, %77 ], [ %359, %393 ], [ %359, %400 ]
+  %.sroa.11304.3439.ph.ph.ph = phi i64 [ %.sroa.11304.02375, %77 ], [ %359, %393 ], [ %359, %400 ]
   store ptr %storemerge1200, ptr %17, align 8, !noalias !963
   store i64 %storemerge1199, ptr %18, align 8, !noalias !963
   %.neg.i600 = mul i8 %604, 56
@@ -5192,12 +5192,12 @@ _ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96: ; preds = %393, 
 
 628:                                              ; preds = %635, %630, %625, %593, %585
   %.0.i681 = phi i64 [ %.0.i, %593 ], [ %.0.i977, %585 ], [ %.0.i601, %635 ], [ %.0.i884, %630 ], [ %.0.i837, %625 ]
-  %.sroa.9.sroa.0.1.ph.ph680 = phi ptr [ %.sroa.4330.1, %593 ], [ %.sroa.4316.1, %585 ], [ %.sroa.12.1461.ph.ph.ph, %635 ], [ %.sroa.4293.1, %630 ], [ %.sroa.4279.1, %625 ]
+  %.sroa.9.sroa.0.1.ph.ph680 = phi ptr [ %.sroa.4330.4, %593 ], [ %.sroa.4316.4, %585 ], [ %.sroa.12.1461.ph.ph.ph, %635 ], [ %.sroa.4293.4, %630 ], [ %.sroa.4279.4, %625 ]
   %.sroa.9.sroa.5.1.ph.ph678 = phi i64 [ %.sroa.14337.0, %593 ], [ %.sroa.14323.0, %585 ], [ %.sroa.14.1459.ph.ph.ph, %635 ], [ %.sroa.14300.0, %630 ], [ %.sroa.14286.0, %625 ]
-  %.sroa.11276.4429.ph.ph673 = phi i64 [ %.sroa.11276.02370, %593 ], [ %.sroa.11276.02370, %585 ], [ %.sroa.11276.02370, %635 ], [ %.sroa.11276.02370, %630 ], [ %230, %625 ]
-  %.sroa.11290.5433.ph.ph665 = phi i64 [ %.sroa.11290.02372, %593 ], [ %.sroa.11290.02372, %585 ], [ %.sroa.11290.02372, %635 ], [ %.sroa.11290.2358, %630 ], [ %.sroa.11290.02372, %625 ]
-  %.sroa.11304.4439.ph.ph653 = phi i64 [ %.sroa.11304.02375, %593 ], [ %.sroa.11304.02375, %585 ], [ %.sroa.11304.4439.ph.ph.ph, %635 ], [ %.sroa.11304.02375, %630 ], [ %.sroa.11304.02375, %625 ]
-  %.sroa.11327.4445.ph.ph641 = phi i64 [ %477, %593 ], [ %.sroa.11327.02378, %585 ], [ %.sroa.11327.02378, %635 ], [ %.sroa.11327.02378, %630 ], [ %.sroa.11327.02378, %625 ]
+  %.sroa.11276.3429.ph.ph673 = phi i64 [ %.sroa.11276.02370, %593 ], [ %.sroa.11276.02370, %585 ], [ %.sroa.11276.02370, %635 ], [ %.sroa.11276.02370, %630 ], [ %230, %625 ]
+  %.sroa.11290.4433.ph.ph665 = phi i64 [ %.sroa.11290.02372, %593 ], [ %.sroa.11290.02372, %585 ], [ %.sroa.11290.02372, %635 ], [ %.sroa.11290.3358, %630 ], [ %.sroa.11290.02372, %625 ]
+  %.sroa.11304.3439.ph.ph653 = phi i64 [ %.sroa.11304.02375, %593 ], [ %.sroa.11304.02375, %585 ], [ %.sroa.11304.3439.ph.ph.ph, %635 ], [ %.sroa.11304.02375, %630 ], [ %.sroa.11304.02375, %625 ]
+  %.sroa.11327.3445.ph.ph641 = phi i64 [ %477, %593 ], [ %.sroa.11327.02378, %585 ], [ %.sroa.11327.02378, %635 ], [ %.sroa.11327.02378, %630 ], [ %.sroa.11327.02378, %625 ]
   %.sroa.097.0.i = phi i64 [ %461, %593 ], [ %409, %585 ], [ %637, %635 ], [ %584, %630 ], [ %563, %625 ]
   %.sroa.8.0.i = phi i64 [ %602, %593 ], [ %414, %585 ], [ %639, %635 ], [ %632, %630 ], [ %622, %625 ]
   %629 = icmp eq i64 %.sroa.097.0.i, %.0.i681
@@ -5273,10 +5273,10 @@ _ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96: ; preds = %393, 
   br label %647
 
 647:                                              ; preds = %.sink.split, %_ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96, %628
-  %.sroa.11327.4445.ph.ph6391044.ph.ph = phi i64 [ %.sroa.11327.4445.ph.ph641, %628 ], [ %.sroa.11327.02378, %_ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96 ], [ %.sroa.11327.02378, %.sink.split ]
-  %.sroa.11304.4439.ph.ph6511038.ph.ph = phi i64 [ %.sroa.11304.4439.ph.ph653, %628 ], [ %.sroa.11304.4439.ph.ph.ph, %_ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96 ], [ %.sroa.11304.02375, %.sink.split ]
-  %.sroa.11290.5433.ph.ph6631032.ph.ph = phi i64 [ %.sroa.11290.5433.ph.ph665, %628 ], [ %.sroa.11290.02372, %_ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96 ], [ %.sroa.11290.02372, %.sink.split ]
-  %.sroa.11276.4429.ph.ph6711028.ph.ph = phi i64 [ %.sroa.11276.4429.ph.ph673, %628 ], [ %.sroa.11276.02370, %_ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96 ], [ %.sroa.11276.02370, %.sink.split ]
+  %.sroa.11327.3445.ph.ph6391044.ph.ph = phi i64 [ %.sroa.11327.3445.ph.ph641, %628 ], [ %.sroa.11327.02378, %_ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96 ], [ %.sroa.11327.02378, %.sink.split ]
+  %.sroa.11304.3439.ph.ph6511038.ph.ph = phi i64 [ %.sroa.11304.3439.ph.ph653, %628 ], [ %.sroa.11304.3439.ph.ph.ph, %_ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96 ], [ %.sroa.11304.02375, %.sink.split ]
+  %.sroa.11290.4433.ph.ph6631032.ph.ph = phi i64 [ %.sroa.11290.4433.ph.ph665, %628 ], [ %.sroa.11290.02372, %_ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96 ], [ %.sroa.11290.02372, %.sink.split ]
+  %.sroa.11276.3429.ph.ph6711028.ph.ph = phi i64 [ %.sroa.11276.3429.ph.ph673, %628 ], [ %.sroa.11276.02370, %_ZN5gimli4read8loclists10parse_data17h64c71f5ee854c6c3E.exit96 ], [ %.sroa.11276.02370, %.sink.split ]
   %648 = load i64, ptr %18, align 8, !alias.scope !1686, !noalias !963, !noundef !4
   %649 = icmp eq i64 %648, 0
   br i1 %649, label %.loopexit1206, label %41
@@ -8069,9 +8069,9 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
   unreachable
 
 .body167:                                         ; preds = %.thread, %79
-  %.0 = phi i1 [ %.2177, %.thread ], [ %.2, %79 ]
+  %.1 = phi i1 [ %.3177, %.thread ], [ %.3, %79 ]
   %.pn132 = phi { ptr, i32 } [ %.pn130178, %.thread ], [ %.pn130, %79 ]
-  br i1 %.0, label %335, label %.body167.thread
+  br i1 %.1, label %335, label %.body167.thread
 
 .thread215:                                       ; preds = %70, %64, %63
   %lpad.thr_comm213 = landingpad { ptr, i32 }
@@ -8104,15 +8104,15 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
           to label %83 unwind label %81
 
 79:                                               ; preds = %.body158, %81
-  %.0115 = phi i8 [ %.1116, %81 ], [ %.2117, %.body158 ]
-  %.2 = phi i1 [ %.3, %81 ], [ %.4, %.body158 ]
+  %.1116 = phi i8 [ %.0115, %81 ], [ %.3118, %.body158 ]
+  %.3 = phi i1 [ %.2, %81 ], [ %.5, %.body158 ]
   %.pn130 = phi { ptr, i32 } [ %82, %81 ], [ %.pn128, %.body158 ]
-  %80 = trunc nuw i8 %.0115 to i1
+  %80 = trunc nuw i8 %.1116 to i1
   br i1 %80, label %.thread, label %.body167
 
 81:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E.exit166", %"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E.exit", %104, %102, %98, %71
-  %.1116 = phi i8 [ %.6, %"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E.exit166" ], [ 0, %"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E.exit" ], [ 1, %98 ], [ 1, %104 ], [ 1, %102 ], [ 1, %71 ]
-  %.3 = phi i1 [ false, %"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E.exit166" ], [ false, %"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E.exit" ], [ true, %98 ], [ true, %104 ], [ true, %102 ], [ true, %71 ]
+  %.0115 = phi i8 [ %.6, %"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E.exit166" ], [ 0, %"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E.exit" ], [ 1, %98 ], [ 1, %104 ], [ 1, %102 ], [ 1, %71 ]
+  %.2 = phi i1 [ false, %"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E.exit166" ], [ false, %"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E.exit" ], [ true, %98 ], [ true, %104 ], [ true, %102 ], [ true, %71 ]
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %79
@@ -8180,15 +8180,15 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
           to label %109 unwind label %107
 
 .body158:                                         ; preds = %309, %292, %107, %.critedge
-  %.2117 = phi i8 [ %.4119, %.critedge ], [ %.3118, %107 ], [ 0, %292 ], [ %.6, %309 ]
-  %.4 = phi i1 [ false, %.critedge ], [ %.5, %107 ], [ false, %292 ], [ false, %309 ]
+  %.3118 = phi i8 [ %.5120, %.critedge ], [ %.2117, %107 ], [ 0, %292 ], [ %.6, %309 ]
+  %.5 = phi i1 [ false, %.critedge ], [ %.4, %107 ], [ false, %292 ], [ false, %309 ]
   %.pn128 = phi { ptr, i32 } [ %.pn125.pn, %.critedge ], [ %108, %107 ], [ %293, %292 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$wasmtime_cranelift..func_environ..FuncEnvironment$GT$17hb7e89a7f63c93bc2E"(ptr noalias noundef nonnull align 8 dereferenceable(520) %47) #38
           to label %79 unwind label %241
 
 107:                                              ; preds = %.noexc160, %317, %.noexc156, %300, %116, %147, %145, %139, %137, %135, %133, %131, %125, %123, %121, %119, %117, %111, %109, %105
-  %.3118 = phi i8 [ 1, %147 ], [ 1, %145 ], [ 1, %139 ], [ 1, %137 ], [ 1, %135 ], [ 1, %133 ], [ 1, %131 ], [ 1, %125 ], [ 1, %123 ], [ 1, %121 ], [ 1, %119 ], [ 1, %117 ], [ 1, %111 ], [ 1, %109 ], [ 1, %105 ], [ 1, %116 ], [ 0, %300 ], [ 0, %.noexc156 ], [ %.6, %317 ], [ %.6, %.noexc160 ]
-  %.5 = phi i1 [ false, %147 ], [ true, %145 ], [ true, %139 ], [ true, %137 ], [ true, %135 ], [ true, %133 ], [ true, %131 ], [ true, %125 ], [ true, %123 ], [ true, %121 ], [ true, %119 ], [ true, %117 ], [ true, %111 ], [ true, %109 ], [ true, %105 ], [ true, %116 ], [ false, %300 ], [ false, %.noexc156 ], [ false, %317 ], [ false, %.noexc160 ]
+  %.2117 = phi i8 [ 1, %147 ], [ 1, %145 ], [ 1, %139 ], [ 1, %137 ], [ 1, %135 ], [ 1, %133 ], [ 1, %131 ], [ 1, %125 ], [ 1, %123 ], [ 1, %121 ], [ 1, %119 ], [ 1, %117 ], [ 1, %111 ], [ 1, %109 ], [ 1, %105 ], [ 1, %116 ], [ 0, %300 ], [ 0, %.noexc156 ], [ %.6, %317 ], [ %.6, %.noexc160 ]
+  %.4 = phi i1 [ false, %147 ], [ true, %145 ], [ true, %139 ], [ true, %137 ], [ true, %135 ], [ true, %133 ], [ true, %131 ], [ true, %125 ], [ true, %123 ], [ true, %121 ], [ true, %119 ], [ true, %117 ], [ true, %111 ], [ true, %109 ], [ true, %105 ], [ true, %116 ], [ false, %300 ], [ false, %.noexc156 ], [ false, %317 ], [ false, %.noexc160 ]
   %108 = landingpad { ptr, i32 }
           cleanup
   br label %.body158
@@ -8353,13 +8353,13 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
           to label %163 unwind label %161
 
 .critedge:                                        ; preds = %.body137, %.body135, %201, %175, %307, %.thread191, %161
-  %.4119 = phi i8 [ 0, %307 ], [ %.5120, %161 ], [ 1, %.thread191 ], [ 1, %175 ], [ 1, %201 ], [ 1, %.body135 ], [ 0, %.body137 ]
+  %.5120 = phi i8 [ 0, %307 ], [ %.4119, %161 ], [ 1, %.thread191 ], [ 1, %175 ], [ 1, %201 ], [ 1, %.body135 ], [ 0, %.body137 ]
   %.pn125.pn = phi { ptr, i32 } [ %306, %307 ], [ %162, %161 ], [ %eh.lpad-body146194, %.thread191 ], [ %lpad.thr_comm.split-lp, %175 ], [ %202, %201 ], [ %eh.lpad-body136, %.body135 ], [ %275, %.body137 ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h205cd7c7ef842c75E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %41) #38
           to label %.body158 unwind label %241
 
 161:                                              ; preds = %174, %169, %168, %152
-  %.5120 = phi i8 [ 0, %174 ], [ 1, %169 ], [ 1, %168 ], [ 1, %152 ]
+  %.4119 = phi i8 [ 0, %174 ], [ 1, %169 ], [ 1, %168 ], [ 1, %152 ]
   %162 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge
@@ -8975,7 +8975,7 @@ select.unfold:                                    ; preds = %224
 
 .thread:                                          ; preds = %85, %333, %79
   %.pn130178 = phi { ptr, i32 } [ %.pn130, %79 ], [ %86, %85 ], [ %334, %333 ]
-  %.2177 = phi i1 [ %.2, %79 ], [ true, %85 ], [ true, %333 ]
+  %.3177 = phi i1 [ %.3, %79 ], [ true, %85 ], [ true, %333 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$wasmtime_cranelift..compiler..FunctionCompiler$GT$17h463e2a47f28226f8E"(ptr noalias noundef nonnull align 8 dereferenceable(5320) %49) #38
           to label %.body167 unwind label %241
 
@@ -9056,7 +9056,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
 
 .thread74:                                        ; preds = %60, %217, %57
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn60, %217 ], [ %.pn.pn67, %57 ], [ %.pn, %60 ]
-  %.024 = phi i1 [ %.12561, %217 ], [ %.22668, %57 ], [ %.3, %60 ]
+  %.024 = phi i1 [ %.12561, %217 ], [ %.22668, %57 ], [ %.4, %60 ]
   br i1 %.024, label %218, label %215
 
 .thread:                                          ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc07d9681a24e2964E.exit"
@@ -9070,7 +9070,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
           to label %59 unwind label %.thread56
 
 57:                                               ; preds = %216
-  br i1 %.12269, label %217, label %.thread74
+  br i1 %.22369, label %217, label %.thread74
 
 .thread56:                                        ; preds = %56
   %58 = landingpad { ptr, i32 }
@@ -9086,7 +9086,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
   br i1 %.1, label %216, label %.thread74
 
 .thread62:                                        ; preds = %.invoke, %59, %62, %63, %64, %69, %85
-  %.223 = phi i1 [ false, %85 ], [ false, %69 ], [ false, %64 ], [ false, %63 ], [ false, %62 ], [ true, %59 ], [ false, %.invoke ]
+  %.122 = phi i1 [ false, %85 ], [ false, %69 ], [ false, %64 ], [ false, %63 ], [ false, %62 ], [ true, %59 ], [ false, %.invoke ]
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %216
@@ -9183,13 +9183,13 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
 
 99:                                               ; preds = %140, %100
   %.pn = phi { ptr, i32 } [ %141, %140 ], [ %101, %100 ]
-  %.3 = phi i1 [ false, %140 ], [ %.4, %100 ]
+  %.4 = phi i1 [ false, %140 ], [ %.3, %100 ]
   %.1 = phi i1 [ %.2, %140 ], [ true, %100 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen..ir..entities..Value$GT$$GT$17hb7748da1a75c4a7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #38
           to label %60 unwind label %204
 
 100:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc42f8bea31f3d73eE.llvm.12599983639457799574.exit.i38", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc42f8bea31f3d73eE.llvm.12599983639457799574.exit.i", %127, %125, %122, %118, %114, %113, %110
-  %.4 = phi i1 [ false, %127 ], [ false, %125 ], [ false, %122 ], [ false, %118 ], [ true, %114 ], [ true, %113 ], [ true, %110 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc42f8bea31f3d73eE.llvm.12599983639457799574.exit.i" ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc42f8bea31f3d73eE.llvm.12599983639457799574.exit.i38" ]
+  %.3 = phi i1 [ false, %127 ], [ false, %125 ], [ false, %122 ], [ false, %118 ], [ true, %114 ], [ true, %113 ], [ true, %110 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc42f8bea31f3d73eE.llvm.12599983639457799574.exit.i" ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc42f8bea31f3d73eE.llvm.12599983639457799574.exit.i38" ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -9520,8 +9520,8 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
   resume { ptr, i32 } %.pn35.pn
 
 216:                                              ; preds = %.thread62, %60
-  %.12269 = phi i1 [ %.223, %.thread62 ], [ false, %60 ]
-  %.22668 = phi i1 [ true, %.thread62 ], [ %.3, %60 ]
+  %.22369 = phi i1 [ %.122, %.thread62 ], [ false, %60 ]
+  %.22668 = phi i1 [ true, %.thread62 ], [ %.4, %60 ]
   %.pn.pn67 = phi { ptr, i32 } [ %61, %.thread62 ], [ %.pn, %60 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$wasmtime_cranelift..compiler..FunctionCompiler$GT$17h463e2a47f28226f8E"(ptr noalias noundef nonnull align 8 dereferenceable(5320) %26) #38
           to label %57 unwind label %204
@@ -9622,7 +9622,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
           to label %62 unwind label %.thread64
 
 60:                                               ; preds = %211
-  br i1 %.12977, label %212, label %.thread80
+  br i1 %.23077, label %212, label %.thread80
 
 .thread64:                                        ; preds = %59
   %61 = landingpad { ptr, i32 }
@@ -9638,7 +9638,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
   br i1 %.1, label %211, label %.thread80
 
 .thread70:                                        ; preds = %62, %65, %66, %67, %72, %74
-  %.230 = phi i1 [ false, %74 ], [ false, %72 ], [ false, %67 ], [ false, %66 ], [ false, %65 ], [ true, %62 ]
+  %.129 = phi i1 [ false, %74 ], [ false, %72 ], [ false, %67 ], [ false, %66 ], [ false, %65 ], [ true, %62 ]
   %64 = landingpad { ptr, i32 }
           cleanup
   br label %211
@@ -9698,7 +9698,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
 
 84:                                               ; preds = %105, %85
   %.pn.pn = phi { ptr, i32 } [ %.pn, %105 ], [ %86, %85 ]
-  %.334 = phi i1 [ %.4, %105 ], [ true, %85 ]
+  %.334 = phi i1 [ %.5, %105 ], [ true, %85 ]
   %.1 = phi i1 [ %.2, %105 ], [ true, %85 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen..ir..entities..Value$GT$$GT$17hb7748da1a75c4a7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #38
           to label %63 unwind label %188
@@ -9754,13 +9754,13 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
 
 105:                                              ; preds = %124, %106
   %.pn = phi { ptr, i32 } [ %125, %124 ], [ %107, %106 ]
-  %.4 = phi i1 [ false, %124 ], [ %.5, %106 ]
+  %.5 = phi i1 [ false, %124 ], [ %.4, %106 ]
   %.2 = phi i1 [ %.3, %124 ], [ true, %106 ]
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18) #38
           to label %84 unwind label %188
 
 106:                                              ; preds = %104, %115, %113, %110, %108
-  %.5 = phi i1 [ false, %115 ], [ false, %113 ], [ false, %110 ], [ false, %108 ], [ true, %104 ]
+  %.4 = phi i1 [ false, %115 ], [ false, %113 ], [ false, %110 ], [ false, %108 ], [ true, %104 ]
   %107 = landingpad { ptr, i32 }
           cleanup
   br label %105
@@ -10083,7 +10083,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
   resume { ptr, i32 } %.pn44.pn
 
 211:                                              ; preds = %.thread70, %63
-  %.12977 = phi i1 [ %.230, %.thread70 ], [ false, %63 ]
+  %.23077 = phi i1 [ %.129, %.thread70 ], [ false, %63 ]
   %.23376 = phi i1 [ true, %.thread70 ], [ %.334, %63 ]
   %.pn.pn.pn75 = phi { ptr, i32 } [ %64, %.thread70 ], [ %.pn.pn, %63 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$wasmtime_cranelift..compiler..FunctionCompiler$GT$17h463e2a47f28226f8E"(ptr noalias noundef nonnull align 8 dereferenceable(5320) %26) #38
@@ -10179,7 +10179,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
 
 59:                                               ; preds = %404, %62
   %.pn73.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn73.pn.pn.pn.pn155, %404 ], [ %.pn73.pn.pn.pn, %62 ]
-  %.156 = phi i1 [ %.257156, %404 ], [ false, %62 ]
+  %.156 = phi i1 [ %.358156, %404 ], [ false, %62 ]
   %.050 = phi i1 [ %.151157, %404 ], [ %.252, %62 ]
   br i1 %.050, label %405, label %56
 
@@ -10197,7 +10197,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
   br i1 %.148, label %404, label %59
 
 .thread150:                                       ; preds = %61, %64, %65, %66, %71, %73
-  %.358 = phi i1 [ false, %73 ], [ false, %71 ], [ false, %66 ], [ false, %65 ], [ false, %64 ], [ true, %61 ]
+  %.257 = phi i1 [ false, %73 ], [ false, %71 ], [ false, %66 ], [ false, %65 ], [ false, %64 ], [ true, %61 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %404
@@ -10258,7 +10258,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
 
 84:                                               ; preds = %403, %401, %93, %85
   %.pn73.pn.pn.pn = phi { ptr, i32 } [ %.pn73.pn.pn, %403 ], [ %.pn73.pn.pn, %401 ], [ %.pn73.pn.pn, %93 ], [ %86, %85 ]
-  %.252 = phi i1 [ %.353, %403 ], [ %.353, %401 ], [ %.353, %93 ], [ true, %85 ]
+  %.252 = phi i1 [ %.454, %403 ], [ %.454, %401 ], [ %.454, %93 ], [ true, %85 ]
   %.148 = phi i1 [ %.249, %403 ], [ %.249, %401 ], [ %.249, %93 ], [ true, %85 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen..ir..entities..Value$GT$$GT$17hb7748da1a75c4a7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #38
           to label %62 unwind label %290
@@ -10289,15 +10289,15 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
 
 93:                                               ; preds = %.thread160, %95
   %.pn73.pn.pn = phi { ptr, i32 } [ %.pn73.pn, %.thread160 ], [ %96, %95 ]
-  %.353 = phi i1 [ false, %.thread160 ], [ %.454, %95 ]
-  %.249 = phi i1 [ %.3, %.thread160 ], [ true, %95 ]
+  %.454 = phi i1 [ false, %.thread160 ], [ %.353, %95 ]
+  %.249 = phi i1 [ %.4, %.thread160 ], [ true, %95 ]
   %.044 = phi i8 [ %.2, %.thread160 ], [ 1, %95 ]
   %94 = load i64, ptr %34, align 8, !range !194, !noundef !4
   %.not77 = icmp eq i64 %94, -9223372036854775808
   br i1 %.not77, label %84, label %401
 
 95:                                               ; preds = %.invoke179, %.invoke177, %.noexc103, %.noexc102, %.noexc101, %.noexc100, %.noexc99, %192, %.noexc97, %.noexc96, %175, %154, %.noexc88, %.noexc87, %140, %.noexc85, %.noexc84, %114, %217, %214, %211, %190, %188, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h7aece662bcf97013E.exit, %162, %160, %.thread158, %137, %133, %129, %126, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit, %101, %99, %97
-  %.454 = phi i1 [ false, %217 ], [ false, %214 ], [ false, %211 ], [ false, %190 ], [ false, %188 ], [ true, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h7aece662bcf97013E.exit ], [ true, %162 ], [ true, %160 ], [ true, %.thread158 ], [ true, %137 ], [ true, %133 ], [ true, %129 ], [ true, %126 ], [ true, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit ], [ true, %101 ], [ true, %99 ], [ true, %97 ], [ true, %114 ], [ true, %.noexc84 ], [ true, %.noexc85 ], [ true, %140 ], [ true, %.noexc87 ], [ true, %.noexc88 ], [ true, %154 ], [ true, %175 ], [ true, %.noexc96 ], [ true, %.noexc97 ], [ false, %192 ], [ false, %.noexc99 ], [ false, %.noexc100 ], [ false, %.noexc101 ], [ false, %.noexc102 ], [ false, %.noexc103 ], [ true, %.invoke177 ], [ true, %.invoke179 ]
+  %.353 = phi i1 [ false, %217 ], [ false, %214 ], [ false, %211 ], [ false, %190 ], [ false, %188 ], [ true, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h7aece662bcf97013E.exit ], [ true, %162 ], [ true, %160 ], [ true, %.thread158 ], [ true, %137 ], [ true, %133 ], [ true, %129 ], [ true, %126 ], [ true, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit ], [ true, %101 ], [ true, %99 ], [ true, %97 ], [ true, %114 ], [ true, %.noexc84 ], [ true, %.noexc85 ], [ true, %140 ], [ true, %.noexc87 ], [ true, %.noexc88 ], [ true, %154 ], [ true, %175 ], [ true, %.noexc96 ], [ true, %.noexc97 ], [ false, %192 ], [ false, %.noexc99 ], [ false, %.noexc100 ], [ false, %.noexc101 ], [ false, %.noexc102 ], [ false, %.noexc103 ], [ true, %.invoke177 ], [ true, %.invoke179 ]
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %93
@@ -10788,7 +10788,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit111:
 
 .thread160:                                       ; preds = %255, %252, %243, %293, %292
   %.pn73.pn = phi { ptr, i32 } [ %lpad.thr_comm, %292 ], [ %lpad.thr_comm.split-lp, %243 ], [ %294, %293 ], [ %253, %252 ], [ %256, %255 ]
-  %.3 = phi i1 [ true, %292 ], [ true, %243 ], [ %.4, %293 ], [ true, %252 ], [ true, %255 ]
+  %.4 = phi i1 [ true, %292 ], [ true, %243 ], [ %.3, %293 ], [ true, %252 ], [ true, %255 ]
   %.2 = phi i8 [ 0, %292 ], [ 0, %243 ], [ %.1, %293 ], [ 0, %252 ], [ 0, %255 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen..ir..entities..Value$GT$$GT$17hb7748da1a75c4a7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #38
           to label %93 unwind label %290
@@ -10800,7 +10800,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit111:
           to label %.thread160 unwind label %290
 
 293:                                              ; preds = %.noexc116, %.noexc115, %295, %311, %310, %229
-  %.4 = phi i1 [ false, %311 ], [ true, %310 ], [ true, %229 ], [ true, %295 ], [ true, %.noexc115 ], [ true, %.noexc116 ]
+  %.3 = phi i1 [ false, %311 ], [ true, %310 ], [ true, %229 ], [ true, %295 ], [ true, %.noexc115 ], [ true, %.noexc116 ]
   %294 = landingpad { ptr, i32 }
           cleanup
   br label %.thread160
@@ -11131,7 +11131,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit111:
 
 404:                                              ; preds = %.thread150, %62
   %.151157 = phi i1 [ true, %.thread150 ], [ %.252, %62 ]
-  %.257156 = phi i1 [ %.358, %.thread150 ], [ false, %62 ]
+  %.358156 = phi i1 [ %.257, %.thread150 ], [ false, %62 ]
   %.pn73.pn.pn.pn.pn155 = phi { ptr, i32 } [ %63, %.thread150 ], [ %.pn73.pn.pn.pn, %62 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$wasmtime_cranelift..compiler..FunctionCompiler$GT$17h463e2a47f28226f8E"(ptr noalias noundef nonnull align 8 dereferenceable(5320) %41) #38
           to label %59 unwind label %290
@@ -11235,7 +11235,7 @@ _ZN18wasmtime_cranelift3obj17ModuleTextBuilder13force_veneers17ha73ca25511f6822f
   br i1 %.280, label %159, label %158
 
 52:                                               ; preds = %70
-  br i1 %.141, label %156, label %154
+  br i1 %.242, label %156, label %154
 
 .thread:                                          ; preds = %_ZN18wasmtime_cranelift3obj17ModuleTextBuilder13force_veneers17ha73ca25511f6822fE.exit
   %53 = landingpad { ptr, i32 }
@@ -11267,9 +11267,9 @@ _ZN18wasmtime_cranelift3obj17ModuleTextBuilder13force_veneers17ha73ca25511f6822f
   br label %71
 
 70:                                               ; preds = %.loopexit, %.loopexit.split-lp, %121
-  %.144 = phi i8 [ 1, %121 ], [ 1, %.loopexit ], [ %.245.ph, %.loopexit.split-lp ]
-  %.141 = phi i1 [ true, %121 ], [ true, %.loopexit ], [ %.242.ph, %.loopexit.split-lp ]
-  %.3 = phi i1 [ true, %121 ], [ true, %.loopexit ], [ %.4.ph, %.loopexit.split-lp ]
+  %.245 = phi i8 [ 1, %121 ], [ 1, %.loopexit ], [ %.144.ph, %.loopexit.split-lp ]
+  %.242 = phi i1 [ true, %121 ], [ true, %.loopexit ], [ %.141.ph, %.loopexit.split-lp ]
+  %.4 = phi i1 [ true, %121 ], [ true, %.loopexit ], [ %.3.ph, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %122, %121 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr125drop_in_place$LT$alloc..vec..Vec$LT$$LP$object..write..SymbolId$C$wasmtime_environ..module_artifacts..FunctionLoc$RP$$GT$$GT$17h4b792b80794d9e81E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #38
           to label %52 unwind label %152
@@ -11280,9 +11280,9 @@ _ZN18wasmtime_cranelift3obj17ModuleTextBuilder13force_veneers17ha73ca25511f6822f
   br label %70
 
 .loopexit.split-lp:                               ; preds = %.invoke, %._crit_edge, %84, %85, %92
-  %.245.ph = phi i8 [ 1, %92 ], [ 1, %._crit_edge ], [ 0, %85 ], [ %.346, %84 ], [ 1, %.invoke ]
-  %.242.ph = phi i1 [ true, %92 ], [ true, %._crit_edge ], [ true, %85 ], [ false, %84 ], [ true, %.invoke ]
-  %.4.ph = phi i1 [ true, %92 ], [ false, %._crit_edge ], [ false, %85 ], [ false, %84 ], [ true, %.invoke ]
+  %.144.ph = phi i8 [ 1, %92 ], [ 1, %._crit_edge ], [ 0, %85 ], [ %.346, %84 ], [ 1, %.invoke ]
+  %.141.ph = phi i1 [ true, %92 ], [ true, %._crit_edge ], [ true, %85 ], [ false, %84 ], [ true, %.invoke ]
+  %.3.ph = phi i1 [ true, %92 ], [ false, %._crit_edge ], [ false, %85 ], [ false, %84 ], [ true, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %70
@@ -11507,15 +11507,15 @@ _ZN18wasmtime_cranelift3obj17ModuleTextBuilder13force_veneers17ha73ca25511f6822f
 
 154:                                              ; preds = %156, %52
   %.pn.pn82 = phi { ptr, i32 } [ %.pn.pn83, %156 ], [ %.pn, %52 ]
-  %.280 = phi i1 [ %.281, %156 ], [ %.3, %52 ]
-  %.04378 = phi i8 [ %.04379, %156 ], [ %.144, %52 ]
+  %.280 = phi i1 [ %.281, %156 ], [ %.4, %52 ]
+  %.04378 = phi i8 [ %.04379, %156 ], [ %.245, %52 ]
   %155 = trunc nuw i8 %.04378 to i1
   br i1 %155, label %157, label %51
 
 156:                                              ; preds = %.thread, %52
   %.pn.pn83 = phi { ptr, i32 } [ %53, %.thread ], [ %.pn, %52 ]
-  %.281 = phi i1 [ true, %.thread ], [ %.3, %52 ]
-  %.04379 = phi i8 [ 1, %.thread ], [ %.144, %52 ]
+  %.281 = phi i1 [ true, %.thread ], [ %.4, %52 ]
+  %.04379 = phi i8 [ 1, %.thread ], [ %.245, %52 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$wasmtime_environ..compile..trap_encoding..TrapEncodingBuilder$GT$17h8657a7efc724c514E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %18) #38
           to label %154 unwind label %152
 
@@ -11621,7 +11621,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
 
 78:                                               ; preds = %265, %81
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn79.i, %265 ], [ %.pn.pn.i, %81 ]
-  %.026.i = phi i1 [ %.12780.i, %265 ], [ %.228.i, %81 ]
+  %.026.i = phi i1 [ %.12780.i, %265 ], [ %.329.i, %81 ]
   br i1 %.026.i, label %266, label %common.resume
 
 .thread.i:                                        ; preds = %5
@@ -11635,7 +11635,7 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
           to label %84 unwind label %.thread75.i, !noalias !2618
 
 81:                                               ; preds = %264, %85
-  %82 = trunc nuw i8 %.122.i to i1
+  %82 = trunc nuw i8 %.223.i to i1
   br i1 %82, label %265, label %78
 
 .thread75.i:                                      ; preds = %80
@@ -11650,15 +11650,15 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
 
 85:                                               ; preds = %108, %87
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %108 ], [ %88, %87 ]
-  %.228.i = phi i1 [ false, %108 ], [ %.329.i, %87 ]
-  %.122.i = phi i8 [ %.324.i, %108 ], [ %.1.i, %87 ]
-  %.0.i = phi i8 [ %.2.i, %108 ], [ %.1.i, %87 ]
-  %86 = trunc nuw i8 %.0.i to i1
+  %.329.i = phi i1 [ false, %108 ], [ %.228.i, %87 ]
+  %.223.i = phi i8 [ %.425.i, %108 ], [ %.0.i, %87 ]
+  %.1.i = phi i8 [ %.3.i, %108 ], [ %.0.i, %87 ]
+  %86 = trunc nuw i8 %.1.i to i1
   br i1 %86, label %264, label %81
 
 87:                                               ; preds = %253, %98, %96, %91, %90, %89, %84
-  %.329.i = phi i1 [ false, %98 ], [ false, %96 ], [ false, %91 ], [ false, %90 ], [ false, %89 ], [ true, %84 ], [ false, %253 ]
-  %.1.i = phi i8 [ 1, %98 ], [ 1, %96 ], [ 1, %91 ], [ 1, %90 ], [ 1, %89 ], [ 1, %84 ], [ 0, %253 ]
+  %.228.i = phi i1 [ false, %98 ], [ false, %96 ], [ false, %91 ], [ false, %90 ], [ false, %89 ], [ true, %84 ], [ false, %253 ]
+  %.0.i = phi i8 [ 1, %98 ], [ 1, %96 ], [ 1, %91 ], [ 1, %90 ], [ 1, %89 ], [ 1, %84 ], [ 0, %253 ]
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %85
@@ -11714,14 +11714,14 @@ define void @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20$wasmti
 
 108:                                              ; preds = %223, %109
   %.pn.i = phi { ptr, i32 } [ %110, %109 ], [ %224, %223 ]
-  %.324.i = phi i8 [ %.425.i, %109 ], [ 0, %223 ]
-  %.2.i = phi i8 [ %.3.i, %109 ], [ %.4.i, %223 ]
+  %.425.i = phi i8 [ %.324.i, %109 ], [ 0, %223 ]
+  %.3.i = phi i8 [ %.2.i, %109 ], [ %.4.i, %223 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen..ir..entities..Value$GT$$GT$17hb7748da1a75c4a7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47) #38
           to label %85 unwind label %262, !noalias !2618
 
 109:                                              ; preds = %244, %216, %.noexc62.i, %.noexc61.i, %.noexc60.i, %.noexc59.i, %.noexc58.i, %199, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit57.i, %.noexc55.i, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i49.i, %192, %.noexc52.i, %187, %185, %.invoke.i, %175, %171, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit.i, %.noexc47.i, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i.i, %163, %.noexc44.i, %156, %153, %152, %147, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h7aece662bcf97013E.exit.i, %.noexc42.i, %.noexc41.i, %133, %132, %131, %118, %116, %112
-  %.425.i = phi i8 [ 1, %152 ], [ 0, %216 ], [ 0, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit57.i ], [ 0, %185 ], [ 0, %175 ], [ 1, %171 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit.i ], [ 1, %153 ], [ 1, %147 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h7aece662bcf97013E.exit.i ], [ 1, %118 ], [ 1, %116 ], [ 1, %112 ], [ 1, %131 ], [ 1, %132 ], [ 1, %133 ], [ 1, %.noexc41.i ], [ 1, %.noexc42.i ], [ 1, %156 ], [ 1, %.noexc44.i ], [ 1, %163 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i.i ], [ 1, %.noexc47.i ], [ 0, %187 ], [ 0, %.noexc52.i ], [ 0, %192 ], [ 0, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i49.i ], [ 0, %.noexc55.i ], [ 0, %199 ], [ 0, %.noexc58.i ], [ 0, %.noexc59.i ], [ 0, %.noexc60.i ], [ 0, %.noexc61.i ], [ 0, %.noexc62.i ], [ 0, %244 ], [ 1, %.invoke.i ]
-  %.3.i = phi i8 [ 1, %152 ], [ 1, %216 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit57.i ], [ 1, %185 ], [ 1, %175 ], [ 1, %171 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit.i ], [ 1, %153 ], [ 1, %147 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h7aece662bcf97013E.exit.i ], [ 1, %118 ], [ 1, %116 ], [ 1, %112 ], [ 1, %131 ], [ 1, %132 ], [ 1, %133 ], [ 1, %.noexc41.i ], [ 1, %.noexc42.i ], [ 1, %156 ], [ 1, %.noexc44.i ], [ 1, %163 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i.i ], [ 1, %.noexc47.i ], [ 1, %187 ], [ 1, %.noexc52.i ], [ 1, %192 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i49.i ], [ 1, %.noexc55.i ], [ 1, %199 ], [ 1, %.noexc58.i ], [ 1, %.noexc59.i ], [ 1, %.noexc60.i ], [ 1, %.noexc61.i ], [ 1, %.noexc62.i ], [ 0, %244 ], [ 1, %.invoke.i ]
+  %.324.i = phi i8 [ 1, %152 ], [ 0, %216 ], [ 0, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit57.i ], [ 0, %185 ], [ 0, %175 ], [ 1, %171 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit.i ], [ 1, %153 ], [ 1, %147 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h7aece662bcf97013E.exit.i ], [ 1, %118 ], [ 1, %116 ], [ 1, %112 ], [ 1, %131 ], [ 1, %132 ], [ 1, %133 ], [ 1, %.noexc41.i ], [ 1, %.noexc42.i ], [ 1, %156 ], [ 1, %.noexc44.i ], [ 1, %163 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i.i ], [ 1, %.noexc47.i ], [ 0, %187 ], [ 0, %.noexc52.i ], [ 0, %192 ], [ 0, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i49.i ], [ 0, %.noexc55.i ], [ 0, %199 ], [ 0, %.noexc58.i ], [ 0, %.noexc59.i ], [ 0, %.noexc60.i ], [ 0, %.noexc61.i ], [ 0, %.noexc62.i ], [ 0, %244 ], [ 1, %.invoke.i ]
+  %.2.i = phi i8 [ 1, %152 ], [ 1, %216 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit57.i ], [ 1, %185 ], [ 1, %175 ], [ 1, %171 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit.i ], [ 1, %153 ], [ 1, %147 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h7aece662bcf97013E.exit.i ], [ 1, %118 ], [ 1, %116 ], [ 1, %112 ], [ 1, %131 ], [ 1, %132 ], [ 1, %133 ], [ 1, %.noexc41.i ], [ 1, %.noexc42.i ], [ 1, %156 ], [ 1, %.noexc44.i ], [ 1, %163 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i.i ], [ 1, %.noexc47.i ], [ 1, %187 ], [ 1, %.noexc52.i ], [ 1, %192 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i49.i ], [ 1, %.noexc55.i ], [ 1, %199 ], [ 1, %.noexc58.i ], [ 1, %.noexc59.i ], [ 1, %.noexc60.i ], [ 1, %.noexc61.i ], [ 1, %.noexc62.i ], [ 0, %244 ], [ 1, %.invoke.i ]
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %108
@@ -12132,7 +12132,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit57
           to label %81 unwind label %262, !noalias !2618
 
 265:                                              ; preds = %.thread75.i, %81
-  %.12780.i = phi i1 [ true, %.thread75.i ], [ %.228.i, %81 ]
+  %.12780.i = phi i1 [ true, %.thread75.i ], [ %.329.i, %81 ]
   %.pn.pn.pn79.i = phi { ptr, i32 } [ %83, %.thread75.i ], [ %.pn.pn.i, %81 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..ir..extfunc..Signature$GT$17h54a7c92dcee39ab6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %54) #38
           to label %78 unwind label %262, !noalias !2618
@@ -12196,7 +12196,7 @@ _ZN18wasmtime_cranelift8compiler8Compiler24wasm_to_array_trampoline17hf3f3d33169
 
 280:                                              ; preds = %429, %283
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn79.i, %429 ], [ %.pn.pn.pn.i, %283 ]
-  %.032.i = phi i1 [ %.13380.i, %429 ], [ %.234.i, %283 ]
+  %.032.i = phi i1 [ %.13380.i, %429 ], [ %.335.i, %283 ]
   br i1 %.032.i, label %430, label %.body
 
 .thread.i57:                                      ; preds = %.noexc86
@@ -12210,7 +12210,7 @@ _ZN18wasmtime_cranelift8compiler8Compiler24wasm_to_array_trampoline17hf3f3d33169
           to label %286 unwind label %.thread75.i58, !noalias !2675
 
 283:                                              ; preds = %428, %287
-  %284 = trunc nuw i8 %.126.i to i1
+  %284 = trunc nuw i8 %.227.i to i1
   br i1 %284, label %429, label %280
 
 .thread75.i58:                                    ; preds = %282
@@ -12225,15 +12225,15 @@ _ZN18wasmtime_cranelift8compiler8Compiler24wasm_to_array_trampoline17hf3f3d33169
 
 287:                                              ; preds = %309, %289
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i64, %309 ], [ %290, %289 ]
-  %.234.i = phi i1 [ false, %309 ], [ %.335.i, %289 ]
-  %.126.i = phi i8 [ %.328.i, %309 ], [ %.1.i59, %289 ]
-  %.0.i60 = phi i8 [ %.2.i65, %309 ], [ %.1.i59, %289 ]
-  %288 = trunc nuw i8 %.0.i60 to i1
+  %.335.i = phi i1 [ false, %309 ], [ %.234.i, %289 ]
+  %.227.i = phi i8 [ %.429.i, %309 ], [ %.0.i59, %289 ]
+  %.1.i60 = phi i8 [ %.3.i65, %309 ], [ %.0.i59, %289 ]
+  %288 = trunc nuw i8 %.1.i60 to i1
   br i1 %288, label %428, label %283
 
 289:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E.exit.i", %300, %298, %293, %292, %291, %286
-  %.335.i = phi i1 [ false, %300 ], [ false, %298 ], [ false, %293 ], [ false, %292 ], [ false, %291 ], [ true, %286 ], [ false, %"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E.exit.i" ]
-  %.1.i59 = phi i8 [ 1, %300 ], [ 1, %298 ], [ 1, %293 ], [ 1, %292 ], [ 1, %291 ], [ 1, %286 ], [ 0, %"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E.exit.i" ]
+  %.234.i = phi i1 [ false, %300 ], [ false, %298 ], [ false, %293 ], [ false, %292 ], [ false, %291 ], [ true, %286 ], [ false, %"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E.exit.i" ]
+  %.0.i59 = phi i8 [ 1, %300 ], [ 1, %298 ], [ 1, %293 ], [ 1, %292 ], [ 1, %291 ], [ 1, %286 ], [ 0, %"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E.exit.i" ]
   %290 = landingpad { ptr, i32 }
           cleanup
   br label %287
@@ -12289,14 +12289,14 @@ _ZN18wasmtime_cranelift8compiler8Compiler24wasm_to_array_trampoline17hf3f3d33169
           to label %312 unwind label %310, !noalias !2675
 
 309:                                              ; preds = %320, %310
-  %.pn.pn.i64 = phi { ptr, i32 } [ %.pn.i66, %320 ], [ %311, %310 ]
-  %.328.i = phi i8 [ %.530.i, %320 ], [ %.3.i63, %310 ]
-  %.2.i65 = phi i8 [ %.4.i67, %320 ], [ %.3.i63, %310 ]
+  %.pn.pn.i64 = phi { ptr, i32 } [ %.pn.i67, %320 ], [ %311, %310 ]
+  %.429.i = phi i8 [ %.631.i, %320 ], [ %.2.i63, %310 ]
+  %.3.i65 = phi i8 [ %.5.i, %320 ], [ %.2.i63, %310 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen..ir..entities..Value$GT$$GT$17hb7748da1a75c4a7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #38
           to label %287 unwind label %426, !noalias !2675
 
 310:                                              ; preds = %409, %303
-  %.3.i63 = phi i8 [ 1, %303 ], [ 0, %409 ]
+  %.2.i63 = phi i8 [ 1, %303 ], [ 0, %409 ]
   %311 = landingpad { ptr, i32 }
           cleanup
   br label %309
@@ -12321,15 +12321,15 @@ _ZN18wasmtime_cranelift8compiler8Compiler24wasm_to_array_trampoline17hf3f3d33169
   unreachable
 
 320:                                              ; preds = %393, %321
-  %.pn.i66 = phi { ptr, i32 } [ %322, %321 ], [ %394, %393 ]
-  %.530.i = phi i8 [ %.631.i, %321 ], [ 0, %393 ]
-  %.4.i67 = phi i8 [ %.5.i, %321 ], [ %.6.i, %393 ]
+  %.pn.i67 = phi { ptr, i32 } [ %322, %321 ], [ %394, %393 ]
+  %.631.i = phi i8 [ %.530.i, %321 ], [ 0, %393 ]
+  %.5.i = phi i8 [ %.4.i66, %321 ], [ %.6.i, %393 ]
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$wasmtime_cranelift..compiler..NativeRet$GT$17h1379e7e16eb87193E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #38
           to label %309 unwind label %426, !noalias !2675
 
 321:                                              ; preds = %397, %387, %.noexc64.i79, %.noexc63.i, %.noexc62.i78, %.noexc61.i77, %.noexc60.i76, %370, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit59.i, %.noexc57.i, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i51.i, %363, %.noexc54.i, %358, %356, %.invoke.i73, %348, %.noexc49.i, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i.i69, %340, %.noexc46.i, %333, %330, %329, %325, %319
-  %.631.i = phi i8 [ 1, %329 ], [ 0, %387 ], [ 0, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit59.i ], [ 0, %356 ], [ 0, %348 ], [ 1, %330 ], [ 1, %325 ], [ 1, %319 ], [ 1, %333 ], [ 1, %.noexc46.i ], [ 1, %340 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i.i69 ], [ 1, %.noexc49.i ], [ 0, %358 ], [ 0, %.noexc54.i ], [ 0, %363 ], [ 0, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i51.i ], [ 0, %.noexc57.i ], [ 0, %370 ], [ 0, %.noexc60.i76 ], [ 0, %.noexc61.i77 ], [ 0, %.noexc62.i78 ], [ 0, %.noexc63.i ], [ 0, %.noexc64.i79 ], [ 0, %397 ], [ 1, %.invoke.i73 ]
-  %.5.i = phi i8 [ 1, %329 ], [ 1, %387 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit59.i ], [ 1, %356 ], [ 1, %348 ], [ 1, %330 ], [ 1, %325 ], [ 1, %319 ], [ 1, %333 ], [ 1, %.noexc46.i ], [ 1, %340 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i.i69 ], [ 1, %.noexc49.i ], [ 1, %358 ], [ 1, %.noexc54.i ], [ 1, %363 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i51.i ], [ 1, %.noexc57.i ], [ 1, %370 ], [ 1, %.noexc60.i76 ], [ 1, %.noexc61.i77 ], [ 1, %.noexc62.i78 ], [ 1, %.noexc63.i ], [ 1, %.noexc64.i79 ], [ 0, %397 ], [ 1, %.invoke.i73 ]
+  %.530.i = phi i8 [ 1, %329 ], [ 0, %387 ], [ 0, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit59.i ], [ 0, %356 ], [ 0, %348 ], [ 1, %330 ], [ 1, %325 ], [ 1, %319 ], [ 1, %333 ], [ 1, %.noexc46.i ], [ 1, %340 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i.i69 ], [ 1, %.noexc49.i ], [ 0, %358 ], [ 0, %.noexc54.i ], [ 0, %363 ], [ 0, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i51.i ], [ 0, %.noexc57.i ], [ 0, %370 ], [ 0, %.noexc60.i76 ], [ 0, %.noexc61.i77 ], [ 0, %.noexc62.i78 ], [ 0, %.noexc63.i ], [ 0, %.noexc64.i79 ], [ 0, %397 ], [ 1, %.invoke.i73 ]
+  %.4.i66 = phi i8 [ 1, %329 ], [ 1, %387 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit59.i ], [ 1, %356 ], [ 1, %348 ], [ 1, %330 ], [ 1, %325 ], [ 1, %319 ], [ 1, %333 ], [ 1, %.noexc46.i ], [ 1, %340 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i.i69 ], [ 1, %.noexc49.i ], [ 1, %358 ], [ 1, %.noexc54.i ], [ 1, %363 ], [ 1, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i51.i ], [ 1, %.noexc57.i ], [ 1, %370 ], [ 1, %.noexc60.i76 ], [ 1, %.noexc61.i77 ], [ 1, %.noexc62.i78 ], [ 1, %.noexc63.i ], [ 1, %.noexc64.i79 ], [ 0, %397 ], [ 1, %.invoke.i73 ]
   %322 = landingpad { ptr, i32 }
           cleanup
   br label %320
@@ -12641,7 +12641,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit59
           to label %283 unwind label %426, !noalias !2675
 
 429:                                              ; preds = %.thread75.i58, %283
-  %.13380.i = phi i1 [ true, %.thread75.i58 ], [ %.234.i, %283 ]
+  %.13380.i = phi i1 [ true, %.thread75.i58 ], [ %.335.i, %283 ]
   %.pn.pn.pn.pn79.i = phi { ptr, i32 } [ %285, %.thread75.i58 ], [ %.pn.pn.pn.i, %283 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..ir..extfunc..Signature$GT$17h54a7c92dcee39ab6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %28) #38
           to label %280 unwind label %426, !noalias !2675
@@ -13218,17 +13218,17 @@ default.unreachable:                              ; preds = %4
   br i1 %105, label %111, label %.noexc89.thread
 
 106:                                              ; preds = %.body, %108
-  %.071 = phi i8 [ %.170, %108 ], [ %.2, %.body ]
-  %.069 = phi i1 [ %110, %108 ], [ false, %.body ]
+  %.172 = phi i8 [ %.069, %108 ], [ %.3, %.body ]
+  %.170 = phi i1 [ %110, %108 ], [ false, %.body ]
   %.pn82 = phi { ptr, i32 } [ %109, %108 ], [ %.pn80, %.body ]
-  %107 = trunc nuw i8 %.071 to i1
+  %107 = trunc nuw i8 %.172 to i1
   br i1 %107, label %294, label %293
 
 108:                                              ; preds = %103, %.noexc116, %241, %.noexc102, %159, %111
-  %.170 = phi i8 [ 1, %111 ], [ 0, %159 ], [ 0, %.noexc102 ], [ 0, %241 ], [ 0, %.noexc116 ], [ 1, %103 ]
+  %.069 = phi i8 [ 1, %111 ], [ 0, %159 ], [ 0, %.noexc102 ], [ 0, %241 ], [ 0, %.noexc116 ], [ 1, %103 ]
   %109 = landingpad { ptr, i32 }
           cleanup
-  %110 = trunc nuw i8 %.170 to i1
+  %110 = trunc nuw i8 %.069 to i1
   br label %106
 
 111:                                              ; preds = %.noexc89
@@ -13240,13 +13240,13 @@ default.unreachable:                              ; preds = %4
   unreachable
 
 .body:                                            ; preds = %233, %148, %128, %112, %.loopexit.split-lp, %122
-  %.2 = phi i8 [ 0, %.loopexit.split-lp ], [ 1, %122 ], [ %.3, %112 ], [ 1, %128 ], [ 0, %148 ], [ 0, %233 ]
+  %.3 = phi i8 [ 0, %.loopexit.split-lp ], [ 1, %122 ], [ %.2, %112 ], [ 1, %128 ], [ 0, %148 ], [ 0, %233 ]
   %.pn80 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %.pn, %122 ], [ %113, %112 ], [ %129, %128 ], [ %149, %148 ], [ %234, %233 ]
   invoke void @"_ZN4core3ptr99drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$object..write..SectionId$GT$$GT$17hd1c72baa78f4872aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %23) #38
           to label %106 unwind label %265
 
 112:                                              ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0e4dea97b02964c7E.llvm.3191862155771161713.exit.i110", %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0e4dea97b02964c7E.llvm.3191862155771161713.exit.i", %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf4956e791700421E.llvm.3191862155771161713.exit.i"
-  %.3 = phi i8 [ 1, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf4956e791700421E.llvm.3191862155771161713.exit.i" ], [ 0, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0e4dea97b02964c7E.llvm.3191862155771161713.exit.i" ], [ 0, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0e4dea97b02964c7E.llvm.3191862155771161713.exit.i110" ]
+  %.2 = phi i8 [ 1, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf4956e791700421E.llvm.3191862155771161713.exit.i" ], [ 0, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0e4dea97b02964c7E.llvm.3191862155771161713.exit.i" ], [ 0, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0e4dea97b02964c7E.llvm.3191862155771161713.exit.i110" ]
   %113 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -13521,8 +13521,8 @@ default.unreachable:                              ; preds = %4
   br label %183
 
 183:                                              ; preds = %"_ZN4core3ptr168drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..DefinedFuncIndex$C$$RF$wasmtime_cranelift..compiled_function..CompiledFunctionMetadata$GT$$GT$17hd7809964355b6d8cE.exit126", %"_ZN4core3ptr168drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..DefinedFuncIndex$C$$RF$wasmtime_cranelift..compiled_function..CompiledFunctionMetadata$GT$$GT$17hd7809964355b6d8cE.exit"
-  %.0 = phi ptr [ %.1, %"_ZN4core3ptr168drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..DefinedFuncIndex$C$$RF$wasmtime_cranelift..compiled_function..CompiledFunctionMetadata$GT$$GT$17hd7809964355b6d8cE.exit126" ], [ null, %"_ZN4core3ptr168drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..DefinedFuncIndex$C$$RF$wasmtime_cranelift..compiled_function..CompiledFunctionMetadata$GT$$GT$17hd7809964355b6d8cE.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0, %"_ZN4core3ptr168drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..DefinedFuncIndex$C$$RF$wasmtime_cranelift..compiled_function..CompiledFunctionMetadata$GT$$GT$17hd7809964355b6d8cE.exit126" ], [ null, %"_ZN4core3ptr168drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..DefinedFuncIndex$C$$RF$wasmtime_cranelift..compiled_function..CompiledFunctionMetadata$GT$$GT$17hd7809964355b6d8cE.exit" ]
+  ret ptr %.1
 
 184:                                              ; preds = %152
   %185 = icmp eq ptr %154, null
@@ -13720,7 +13720,7 @@ default.unreachable:                              ; preds = %4
   br label %256
 
 256:                                              ; preds = %"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$12with_context17h2be70540c5121bacE.exit.thread", %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cranelift..debug..write_debuginfo..DwarfSection$GT$$GT$17haf00d46be7d41e8bE.exit124"
-  %.1 = phi ptr [ %230, %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cranelift..debug..write_debuginfo..DwarfSection$GT$$GT$17haf00d46be7d41e8bE.exit124" ], [ %94, %"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$12with_context17h2be70540c5121bacE.exit.thread" ]
+  %.0 = phi ptr [ %230, %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cranelift..debug..write_debuginfo..DwarfSection$GT$$GT$17haf00d46be7d41e8bE.exit124" ], [ %94, %"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$12with_context17h2be70540c5121bacE.exit.thread" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2847
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h06cfdf2aa65819bbE.llvm.3191862155771161713"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %30)
@@ -13811,7 +13811,7 @@ default.unreachable:                              ; preds = %4
           to label %122 unwind label %265
 
 293:                                              ; preds = %294, %106
-  br i1 %.069, label %295, label %97
+  br i1 %.170, label %295, label %97
 
 294:                                              ; preds = %106
   invoke void @"_ZN4core3ptr150drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$str$C$$RF$alloc..vec..Vec$LT$wasmtime_cranelift..debug..write_debuginfo..DwarfSectionReloc$GT$$RP$$GT$$GT$17h7e891258b6e1e308E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #38
@@ -13931,7 +13931,7 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3new17h00dde6d2f0fb7a62E.exit:
 
 56:                                               ; preds = %.thread81, %59
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn85, %.thread81 ], [ %.pn, %59 ]
-  %.027 = phi i1 [ %.12886, %.thread81 ], [ %.229, %59 ]
+  %.027 = phi i1 [ %.12886, %.thread81 ], [ %.3, %59 ]
   br i1 %.027, label %315, label %311
 
 .thread:                                          ; preds = %_ZN18wasmtime_cranelift25BuiltinFunctionSignatures3new17h00dde6d2f0fb7a62E.exit
@@ -14270,13 +14270,13 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit59: 
 
 193:                                              ; preds = %235, %194
   %.pn = phi { ptr, i32 } [ %236, %235 ], [ %195, %194 ]
-  %.229 = phi i1 [ false, %235 ], [ %.3, %194 ]
+  %.3 = phi i1 [ false, %235 ], [ %.229, %194 ]
   %.1 = phi i1 [ %.2, %235 ], [ true, %194 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen..ir..entities..Value$GT$$GT$17hb7748da1a75c4a7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #38
           to label %59 unwind label %300
 
 194:                                              ; preds = %.noexc64, %.noexc63, %.noexc62, %.noexc61, %.noexc60, %200, %225, %222, %219, %198, %196, %185
-  %.3 = phi i1 [ false, %225 ], [ false, %222 ], [ false, %219 ], [ false, %198 ], [ false, %196 ], [ true, %185 ], [ false, %200 ], [ false, %.noexc60 ], [ false, %.noexc61 ], [ false, %.noexc62 ], [ false, %.noexc63 ], [ false, %.noexc64 ]
+  %.229 = phi i1 [ false, %225 ], [ false, %222 ], [ false, %219 ], [ false, %198 ], [ false, %196 ], [ true, %185 ], [ false, %200 ], [ false, %.noexc60 ], [ false, %.noexc61 ], [ false, %.noexc62 ], [ false, %.noexc63 ], [ false, %.noexc64 ]
   %195 = landingpad { ptr, i32 }
           cleanup
   br label %193
@@ -14625,7 +14625,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit59: 
   br label %.thread81
 
 .thread81:                                        ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i.i.i", %.body40.thread, %.body40, %60, %59
-  %.12886 = phi i1 [ %.229, %59 ], [ true, %60 ], [ true, %.body40 ], [ true, %.body40.thread ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i.i.i" ]
+  %.12886 = phi i1 [ %.3, %59 ], [ true, %60 ], [ true, %.body40 ], [ true, %.body40.thread ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i.i.i" ]
   %.pn.pn85 = phi { ptr, i32 } [ %.pn, %59 ], [ %61, %60 ], [ %82, %.body40 ], [ %eh.lpad-body4189, %.body40.thread ], [ %eh.lpad-body4189, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i.i.i" ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$wasmtime_cranelift..compiler..FunctionCompiler$GT$17h463e2a47f28226f8E"(ptr noalias noundef nonnull align 8 dereferenceable(5320) %31) #38
           to label %56 unwind label %300
@@ -16035,7 +16035,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift8compiler16FunctionCompiler1
           to label %259 unwind label %257
 
 .body107:                                         ; preds = %394, %.body.i117, %297, %257, %308, %.body115, %274, %.thread239, %340
-  %.3 = phi i1 [ %.4237, %.thread239 ], [ false, %394 ], [ true, %340 ], [ true, %274 ], [ true, %.body115 ], [ true, %308 ], [ true, %257 ], [ true, %297 ], [ true, %.body.i117 ]
+  %.3 = phi i1 [ %.5237, %.thread239 ], [ false, %394 ], [ true, %340 ], [ true, %274 ], [ true, %.body115 ], [ true, %308 ], [ true, %257 ], [ true, %297 ], [ true, %.body.i117 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn238, %.thread239 ], [ %lpad.thr_comm.split-lp, %394 ], [ %338, %340 ], [ %275, %274 ], [ %338, %.body115 ], [ %309, %308 ], [ %258, %257 ], [ %298, %297 ], [ %eh.lpad-body.i, %.body.i117 ]
   invoke void @"_ZN4core3ptr76drop_in_place$LT$wasmtime_cranelift..compiled_function..CompiledFunction$GT$17h3ac77f4c8a551b05E"(ptr noalias noundef nonnull align 8 dereferenceable(3424) %49) #38
           to label %.body97 unwind label %276
@@ -16501,7 +16501,7 @@ _ZN18wasmtime_cranelift17compiled_function16CompiledFunction19set_cfa_unwind_inf
           to label %395 unwind label %.thread247
 
 .thread247:                                       ; preds = %392, %412, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit, %416, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.2069935152532789026.exit.i, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i, %457
-  %.5.ph = phi i1 [ false, %457 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i ], [ true, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.2069935152532789026.exit.i ], [ true, %416 ], [ true, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit ], [ true, %412 ], [ true, %392 ]
+  %.4.ph = phi i1 [ false, %457 ], [ false, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i ], [ true, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.2069935152532789026.exit.i ], [ true, %416 ], [ true, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit ], [ true, %412 ], [ true, %392 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread239
@@ -16736,7 +16736,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i: ; preds = %454, %.no
 
 .thread239:                                       ; preds = %.body132, %425, %.thread247, %.thread243
   %.pn238 = phi { ptr, i32 } [ %406, %.thread243 ], [ %lpad.thr_comm, %.thread247 ], [ %426, %425 ], [ %439, %.body132 ]
-  %.4237 = phi i1 [ true, %.thread243 ], [ %.5.ph, %.thread247 ], [ true, %425 ], [ false, %.body132 ]
+  %.5237 = phi i1 [ true, %.thread243 ], [ %.4.ph, %.thread247 ], [ true, %425 ], [ false, %.body132 ]
   invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_environ..module_artifacts..StackMapInformation$GT$$GT$17ha880f2e45b9fbfcfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #38
           to label %.body107 unwind label %276
 

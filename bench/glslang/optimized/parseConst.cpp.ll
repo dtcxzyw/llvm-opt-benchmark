@@ -724,8 +724,8 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate14parseConstTreeEP11TInterm
   br label %34
 
 34:                                               ; preds = %6, %9
-  %.1 = phi i1 [ %33, %9 ], [ false, %6 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %33, %9 ], [ false, %6 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

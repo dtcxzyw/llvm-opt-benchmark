@@ -2356,7 +2356,7 @@ _ZN6vectorIjLb0EjE4backEv.exit.i65:               ; preds = %for.body.i59
 
 for.body37:                                       ; preds = %for.body37.lr.ph.split, %for.inc52
   %indvars.iv = phi i64 [ 0, %for.body37.lr.ph.split ], [ %indvars.iv.next, %for.inc52 ]
-  %num_watch.0157 = phi i32 [ 0, %for.body37.lr.ph.split ], [ %num_watch.1, %for.inc52 ]
+  %num_watch.0157 = phi i32 [ 0, %for.body37.lr.ph.split ], [ %num_watch.2, %for.inc52 ]
   %l1.sroa.0.0155 = phi i32 [ -2, %for.body37.lr.ph.split ], [ %l1.sroa.0.1, %for.inc52 ]
   %arrayidx.i72 = getelementptr inbounds [0 x %"class.sat::literal"], ptr %m_lits.i.ptr, i64 0, i64 %indvars.iv
   %agg.tmp38.sroa.0.0.copyload = load i32, ptr %arrayidx.i72, align 4
@@ -2385,7 +2385,7 @@ if.then43:                                        ; preds = %for.body37, %_ZNK6v
 
 for.inc52:                                        ; preds = %if.then43, %_ZNK3sat4drat5valueENS_7literalE.exit
   %l1.sroa.0.1 = phi i32 [ %l1.sroa.0.0155, %_ZNK3sat4drat5valueENS_7literalE.exit ], [ %agg.tmp38.sroa.0.0.copyload, %if.then43 ]
-  %num_watch.1 = phi i32 [ %num_watch.0157, %_ZNK3sat4drat5valueENS_7literalE.exit ], [ 1, %if.then43 ]
+  %num_watch.2 = phi i32 [ %num_watch.0157, %_ZNK3sat4drat5valueENS_7literalE.exit ], [ 1, %if.then43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end54, label %for.body37, !llvm.loop !16
@@ -2393,14 +2393,14 @@ for.inc52:                                        ; preds = %if.then43, %_ZNK3sa
 for.end54:                                        ; preds = %for.inc52, %if.then43, %for.body37.lr.ph.split.us, %for.body37.us, %for.cond35.preheader
   %l1.sroa.0.0.lcssa = phi i32 [ -2, %for.cond35.preheader ], [ %agg.tmp38.sroa.0.0.copyload.us168, %for.body37.us ], [ %agg.tmp38.sroa.0.0.copyload.us168, %for.body37.lr.ph.split.us ], [ %l1.sroa.0.0155, %if.then43 ], [ %l1.sroa.0.1, %for.inc52 ]
   %l2.sroa.0.0 = phi i32 [ -2, %for.cond35.preheader ], [ %agg.tmp38.sroa.0.0.copyload.us, %for.body37.us ], [ -2, %for.body37.lr.ph.split.us ], [ %agg.tmp38.sroa.0.0.copyload, %if.then43 ], [ -2, %for.inc52 ]
-  %num_watch.2 = phi i32 [ 0, %for.cond35.preheader ], [ 2, %for.body37.us ], [ 1, %for.body37.lr.ph.split.us ], [ 2, %if.then43 ], [ %num_watch.1, %for.inc52 ]
+  %num_watch.1 = phi i32 [ 0, %for.cond35.preheader ], [ 2, %for.body37.us ], [ 1, %for.body37.lr.ph.split.us ], [ 2, %if.then43 ], [ %num_watch.2, %for.inc52 ]
   %m_check_unsat = getelementptr inbounds i8, ptr %this, i64 641
   %46 = load i8, ptr %m_check_unsat, align 1
   %tobool = trunc i8 %46 to i1
   br i1 %tobool, label %if.end56, label %sw.epilog
 
 if.end56:                                         ; preds = %for.end54
-  switch i32 %num_watch.2, label %sw.default [
+  switch i32 %num_watch.1, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %if.end.i
   ]

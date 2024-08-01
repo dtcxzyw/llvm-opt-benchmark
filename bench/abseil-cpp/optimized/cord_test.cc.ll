@@ -10783,7 +10783,7 @@ _ZN7testing7MessageD2Ev.exit653:                  ; preds = %ehcleanup471, %_ZNK
   br label %ehcleanup476
 
 cleanup473:                                       ; preds = %invoke.cont454, %_ZN7testing7MessageD2Ev.exit648
-  %cleanup.dest.slot.15 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit648 ], [ 0, %invoke.cont454 ]
+  %cleanup.dest.slot.16 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit648 ], [ 0, %invoke.cont454 ]
   %244 = load ptr, ptr %message_.i.i638, align 8
   %cmp.not.i.i655 = icmp eq ptr %244, null
   br i1 %cmp.not.i.i655, label %cleanup477, label %cleanup477.sink.split
@@ -10791,14 +10791,14 @@ cleanup473:                                       ; preds = %invoke.cont454, %_Z
 cleanup477.sink.split:                            ; preds = %cleanup473, %_ZN7testing7MessageD2Ev.exit606
   %.sink779 = phi ptr [ %222, %_ZN7testing7MessageD2Ev.exit606 ], [ %244, %cleanup473 ]
   %message_.i.i596.sink.ph = phi ptr [ %message_.i.i596, %_ZN7testing7MessageD2Ev.exit606 ], [ %message_.i.i638, %cleanup473 ]
-  %cleanup.dest.slot.16.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit606 ], [ %cleanup.dest.slot.15, %cleanup473 ]
+  %cleanup.dest.slot.15.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit606 ], [ %cleanup.dest.slot.16, %cleanup473 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink779) #32
   call void @_ZdlPv(ptr noundef nonnull %.sink779) #35
   br label %cleanup477
 
 cleanup477:                                       ; preds = %cleanup477.sink.split, %cleanup473, %_ZN7testing7MessageD2Ev.exit606
   %message_.i.i596.sink = phi ptr [ %message_.i.i596, %_ZN7testing7MessageD2Ev.exit606 ], [ %message_.i.i638, %cleanup473 ], [ %message_.i.i596.sink.ph, %cleanup477.sink.split ]
-  %cleanup.dest.slot.16 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit606 ], [ %cleanup.dest.slot.15, %cleanup473 ], [ %cleanup.dest.slot.16.ph, %cleanup477.sink.split ]
+  %cleanup.dest.slot.15 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit606 ], [ %cleanup.dest.slot.16, %cleanup473 ], [ %cleanup.dest.slot.15.ph, %cleanup477.sink.split ]
   store ptr null, ptr %message_.i.i596.sink, align 8
   %245 = load i8, ptr %z, align 8
   %246 = and i8 %245, 1
@@ -10834,7 +10834,7 @@ terminate.lpad.i662:                              ; preds = %if.then.i661
   unreachable
 
 _ZN4absl4CordD2Ev.exit664:                        ; preds = %_ZN4absl4CordD2Ev.exit, %if.then.i661
-  %cond16 = icmp eq i32 %cleanup.dest.slot.16, 0
+  %cond16 = icmp eq i32 %cleanup.dest.slot.15, 0
   br i1 %cond16, label %for.cond, label %cleanup497
 
 ehcleanup476:                                     ; preds = %_ZN7testing7MessageD2Ev.exit653, %lpad456
@@ -28690,15 +28690,15 @@ ehcleanup169:                                     ; preds = %_ZN7testing7Message
   br label %ehcleanup171
 
 ehcleanup171:                                     ; preds = %if.then.i151, %lpad91, %if.then.i45, %lpad33, %ehcleanup169, %ehcleanup141, %ehcleanup117, %ehcleanup83, %ehcleanup59, %ehcleanup28, %lpad2
-  %buffer.sroa.0.3 = phi ptr [ inttoptr (i64 114793308840961 to ptr), %ehcleanup169 ], [ %buffer.sroa.0.0, %lpad2 ], [ inttoptr (i64 114793308840961 to ptr), %ehcleanup141 ], [ inttoptr (i64 114793308840961 to ptr), %ehcleanup117 ], [ inttoptr (i64 114793308840961 to ptr), %if.then.i151 ], [ inttoptr (i64 114793308840961 to ptr), %lpad91 ], [ inttoptr (i64 1667383553 to ptr), %ehcleanup83 ], [ inttoptr (i64 1667383553 to ptr), %ehcleanup59 ], [ inttoptr (i64 1667383553 to ptr), %if.then.i45 ], [ inttoptr (i64 1667383553 to ptr), %lpad33 ], [ inttoptr (i64 1 to ptr), %ehcleanup28 ]
+  %buffer.sroa.0.1 = phi ptr [ inttoptr (i64 114793308840961 to ptr), %ehcleanup169 ], [ %buffer.sroa.0.0, %lpad2 ], [ inttoptr (i64 114793308840961 to ptr), %ehcleanup141 ], [ inttoptr (i64 114793308840961 to ptr), %ehcleanup117 ], [ inttoptr (i64 114793308840961 to ptr), %if.then.i151 ], [ inttoptr (i64 114793308840961 to ptr), %lpad91 ], [ inttoptr (i64 1667383553 to ptr), %ehcleanup83 ], [ inttoptr (i64 1667383553 to ptr), %ehcleanup59 ], [ inttoptr (i64 1667383553 to ptr), %if.then.i45 ], [ inttoptr (i64 1667383553 to ptr), %lpad33 ], [ inttoptr (i64 1 to ptr), %ehcleanup28 ]
   %.pn15.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %ehcleanup169 ], [ %1, %lpad2 ], [ %.pn12.pn, %ehcleanup141 ], [ %.pn9.pn, %ehcleanup117 ], [ %41, %if.then.i151 ], [ %41, %lpad91 ], [ %.pn6.pn, %ehcleanup83 ], [ %.pn3.pn, %ehcleanup59 ], [ %15, %if.then.i45 ], [ %15, %lpad33 ], [ %.pn.pn, %ehcleanup28 ]
-  %77 = ptrtoint ptr %buffer.sroa.0.3 to i64
+  %77 = ptrtoint ptr %buffer.sroa.0.1 to i64
   %78 = and i64 %77, 1
   %cmp.i.not.i241 = icmp eq i64 %78, 0
   br i1 %cmp.i.not.i241, label %if.then.i242, label %ehcleanup175
 
 if.then.i242:                                     ; preds = %ehcleanup171
-  call void @_ZdlPv(ptr noundef %buffer.sroa.0.3) #32
+  call void @_ZdlPv(ptr noundef %buffer.sroa.0.1) #32
   br label %ehcleanup175
 
 ehcleanup175:                                     ; preds = %if.then.i242, %ehcleanup171
@@ -31175,15 +31175,15 @@ ehcleanup169:                                     ; preds = %_ZN7testing7Message
   br label %ehcleanup171
 
 ehcleanup171:                                     ; preds = %if.then.i151, %lpad91, %if.then.i45, %lpad33, %ehcleanup169, %ehcleanup141, %ehcleanup117, %ehcleanup83, %ehcleanup59, %ehcleanup28, %lpad2
-  %buffer.sroa.0.3 = phi ptr [ inttoptr (i64 114793308840961 to ptr), %ehcleanup169 ], [ %buffer.sroa.0.0, %lpad2 ], [ inttoptr (i64 114793308840961 to ptr), %ehcleanup141 ], [ inttoptr (i64 114793308840961 to ptr), %ehcleanup117 ], [ inttoptr (i64 114793308840961 to ptr), %if.then.i151 ], [ inttoptr (i64 114793308840961 to ptr), %lpad91 ], [ inttoptr (i64 1667383553 to ptr), %ehcleanup83 ], [ inttoptr (i64 1667383553 to ptr), %ehcleanup59 ], [ inttoptr (i64 1667383553 to ptr), %if.then.i45 ], [ inttoptr (i64 1667383553 to ptr), %lpad33 ], [ inttoptr (i64 1 to ptr), %ehcleanup28 ]
+  %buffer.sroa.0.1 = phi ptr [ inttoptr (i64 114793308840961 to ptr), %ehcleanup169 ], [ %buffer.sroa.0.0, %lpad2 ], [ inttoptr (i64 114793308840961 to ptr), %ehcleanup141 ], [ inttoptr (i64 114793308840961 to ptr), %ehcleanup117 ], [ inttoptr (i64 114793308840961 to ptr), %if.then.i151 ], [ inttoptr (i64 114793308840961 to ptr), %lpad91 ], [ inttoptr (i64 1667383553 to ptr), %ehcleanup83 ], [ inttoptr (i64 1667383553 to ptr), %ehcleanup59 ], [ inttoptr (i64 1667383553 to ptr), %if.then.i45 ], [ inttoptr (i64 1667383553 to ptr), %lpad33 ], [ inttoptr (i64 1 to ptr), %ehcleanup28 ]
   %.pn15.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %ehcleanup169 ], [ %1, %lpad2 ], [ %.pn12.pn, %ehcleanup141 ], [ %.pn9.pn, %ehcleanup117 ], [ %41, %if.then.i151 ], [ %41, %lpad91 ], [ %.pn6.pn, %ehcleanup83 ], [ %.pn3.pn, %ehcleanup59 ], [ %15, %if.then.i45 ], [ %15, %lpad33 ], [ %.pn.pn, %ehcleanup28 ]
-  %77 = ptrtoint ptr %buffer.sroa.0.3 to i64
+  %77 = ptrtoint ptr %buffer.sroa.0.1 to i64
   %78 = and i64 %77, 1
   %cmp.i.not.i241 = icmp eq i64 %78, 0
   br i1 %cmp.i.not.i241, label %if.then.i242, label %ehcleanup175
 
 if.then.i242:                                     ; preds = %ehcleanup171
-  call void @_ZdlPv(ptr noundef %buffer.sroa.0.3) #32
+  call void @_ZdlPv(ptr noundef %buffer.sroa.0.1) #32
   br label %ehcleanup175
 
 ehcleanup175:                                     ; preds = %if.then.i242, %ehcleanup171
@@ -104295,7 +104295,7 @@ lpad19:                                           ; preds = %invoke.cont32, %inv
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad17, %lpad.i, %lpad19
-  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.1, %lpad19 ], [ %arrayinit.element9, %lpad.i ], [ %arrayinit.element9, %lpad17 ]
+  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.1, %lpad19 ], [ %arrayinit.element9, %lpad.i ], [ %arrayinit.element9, %lpad17 ]
   %.pn = phi { ptr, i32 } [ %66, %lpad19 ], [ %14, %lpad.i ], [ %65, %lpad17 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #32
   br label %arraydestroy.body.preheader
@@ -104308,11 +104308,11 @@ ehcleanup36.thread634:                            ; preds = %invoke.cont, %invok
 
 arraydestroy.body.preheader:                      ; preds = %lpad.loopexit.split-lp581.loopexit, %lpad.loopexit580, %ehcleanup, %ehcleanup36.thread634
   %.pn.pn632 = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup36.thread634 ], [ %lpad.loopexit585, %lpad.loopexit.split-lp581.loopexit ], [ %lpad.loopexit582, %lpad.loopexit580 ], [ %.pn, %ehcleanup ]
-  %arrayinit.endOfInit.3631 = phi ptr [ %arrayinit.endOfInit.0.ph.ph.ph, %ehcleanup36.thread634 ], [ %arrayinit.element9, %lpad.loopexit.split-lp581.loopexit ], [ %arrayinit.element9, %lpad.loopexit580 ], [ %arrayinit.endOfInit.2, %ehcleanup ]
+  %arrayinit.endOfInit.2631 = phi ptr [ %arrayinit.endOfInit.0.ph.ph.ph, %ehcleanup36.thread634 ], [ %arrayinit.element9, %lpad.loopexit.split-lp581.loopexit ], [ %arrayinit.element9, %lpad.loopexit580 ], [ %arrayinit.endOfInit.3, %ehcleanup ]
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.3631, %arraydestroy.body.preheader ]
+  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.2631, %arraydestroy.body.preheader ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -16
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element) #32
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %a

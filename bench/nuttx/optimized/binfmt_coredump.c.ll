@@ -13,7 +13,7 @@ define i32 @core_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
 
 .lr.ph:                                           ; preds = %3, %9
   %.0816 = phi ptr [ %.08, %9 ], [ %.0813, %3 ]
-  %.015 = phi i32 [ %.1, %9 ], [ -2, %3 ]
+  %.015 = phi i32 [ %.2, %9 ], [ -2, %3 ]
   %4 = getelementptr inbounds i8, ptr %.0816, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not12 = icmp eq ptr %5, null
@@ -25,14 +25,14 @@ define i32 @core_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph, %6
-  %.1 = phi i32 [ %7, %6 ], [ %.015, %.lr.ph ]
+  %.2 = phi i32 [ %7, %6 ], [ %.015, %.lr.ph ]
   %.08 = load ptr, ptr %.0816, align 8
   %.not = icmp eq ptr %.08, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %9, %6, %3
-  %.2 = phi i32 [ -2, %3 ], [ 0, %6 ], [ %.1, %9 ]
-  ret i32 %.2
+  %.1 = phi i32 [ -2, %3 ], [ 0, %6 ], [ %.2, %9 ]
+  ret i32 %.1
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

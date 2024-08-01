@@ -1536,7 +1536,7 @@ get_short_term_cxt.exit:                          ; preds = %134, %138
 
 143:                                              ; preds = %122, %126, %get_short_term_cxt.exit, %121
   %.055.shrunk = phi i1 [ true, %get_short_term_cxt.exit ], [ false, %121 ], [ false, %126 ], [ false, %122 ]
-  %.054 = phi i64 [ %142, %get_short_term_cxt.exit ], [ %2, %121 ], [ %2, %126 ], [ %2, %122 ]
+  %.1 = phi i64 [ %142, %get_short_term_cxt.exit ], [ %2, %121 ], [ %2, %126 ], [ %2, %122 ]
   %144 = getelementptr inbounds i8, ptr %0, i64 16
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1544,7 +1544,7 @@ get_short_term_cxt.exit:                          ; preds = %134, %138
   %147 = getelementptr inbounds i8, ptr %116, i64 72
   %148 = load i16, ptr %147, align 4
   %149 = sext i16 %148 to i32
-  %150 = tail call i64 @datumCopy(i64 noundef %.054, i1 noundef zeroext false, i32 noundef %149) #7
+  %150 = tail call i64 @datumCopy(i64 noundef %.1, i1 noundef zeroext false, i32 noundef %149) #7
   store ptr %146, ptr @CurrentMemoryContext, align 8
   br i1 %.055.shrunk, label %151, label %154
 
@@ -1574,7 +1574,7 @@ get_short_term_cxt.exit:                          ; preds = %134, %138
   br label %165
 
 165:                                              ; preds = %154, %159, %163, %117, %112
-  %.1 = phi i64 [ %2, %112 ], [ %2, %117 ], [ %150, %163 ], [ %150, %159 ], [ %150, %154 ]
+  %.054 = phi i64 [ %2, %112 ], [ %2, %117 ], [ %150, %163 ], [ %150, %159 ], [ %150, %154 ]
   %166 = getelementptr inbounds i8, ptr %0, i64 88
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1597,7 +1597,7 @@ get_short_term_cxt.exit:                          ; preds = %134, %138
 
 .thread:                                          ; preds = %176, %165
   %180 = getelementptr i64, ptr %167, i64 %115
-  store i64 %.1, ptr %180, align 8
+  store i64 %.054, ptr %180, align 8
   %181 = getelementptr i8, ptr %169, i64 %115
   store i8 %7, ptr %181, align 1
   br label %197
@@ -1606,7 +1606,7 @@ get_short_term_cxt.exit:                          ; preds = %134, %138
   %183 = getelementptr i64, ptr %167, i64 %115
   %184 = load i64, ptr %183, align 8
   %185 = inttoptr i64 %184 to ptr
-  store i64 %.1, ptr %183, align 8
+  store i64 %.054, ptr %183, align 8
   store i8 %7, ptr %177, align 1
   %.not58 = icmp eq i64 %184, 0
   br i1 %.not58, label %197, label %186
@@ -1730,14 +1730,14 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr nocapture 
   br label %58
 
 58:                                               ; preds = %55, %52
-  %.051.us = phi i64 [ %57, %55 ], [ %54, %52 ]
+  %.2.us = phi i64 [ %57, %55 ], [ %54, %52 ]
   %59 = load i32, ptr %5, align 4
   %60 = or i32 %59, 8
   store i32 %60, ptr %5, align 4
   br label %61
 
 61:                                               ; preds = %58, %42
-  %.1.us = phi i64 [ %35, %42 ], [ %.051.us, %58 ]
+  %.1.us = phi i64 [ %35, %42 ], [ %.2.us, %58 ]
   %62 = getelementptr i8, ptr %21, i64 %indvars.iv58
   %63 = load i8, ptr %62, align 1
   %64 = trunc i8 %63 to i1
@@ -1761,9 +1761,9 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr nocapture 
   br label %74
 
 74:                                               ; preds = %73, %71, %61, %33
-  %.2.us = phi i64 [ %35, %33 ], [ %.1.us, %73 ], [ %.1.us, %71 ], [ %.1.us, %61 ]
+  %.051.us = phi i64 [ %35, %33 ], [ %.1.us, %73 ], [ %.1.us, %71 ], [ %.1.us, %61 ]
   %75 = getelementptr i64, ptr %19, i64 %indvars.iv58
-  store i64 %.2.us, ptr %75, align 8
+  store i64 %.051.us, ptr %75, align 8
   %76 = getelementptr i8, ptr %21, i64 %indvars.iv58
   store i8 %38, ptr %76, align 1
   %.pre64 = load i32, ptr %22, align 8
@@ -1830,13 +1830,13 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr nocapture 
 
 114:                                              ; preds = %105, %111
   %115 = phi i32 [ %.pre61, %111 ], [ %spec.select, %105 ]
-  %.051 = phi i64 [ %113, %111 ], [ %106, %105 ]
+  %.2 = phi i64 [ %113, %111 ], [ %106, %105 ]
   %116 = or i32 %115, 8
   store i32 %116, ptr %5, align 4
   br label %117
 
 117:                                              ; preds = %114, %95
-  %.1 = phi i64 [ %88, %95 ], [ %.051, %114 ]
+  %.1 = phi i64 [ %88, %95 ], [ %.2, %114 ]
   %118 = getelementptr i8, ptr %21, i64 %indvars.iv
   %119 = load i8, ptr %118, align 1
   %120 = trunc i8 %119 to i1
@@ -1860,9 +1860,9 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr nocapture 
   br label %130
 
 130:                                              ; preds = %117, %129, %127, %86
-  %.2 = phi i64 [ %88, %86 ], [ %.1, %129 ], [ %.1, %127 ], [ %.1, %117 ]
+  %.051 = phi i64 [ %88, %86 ], [ %.1, %129 ], [ %.1, %127 ], [ %.1, %117 ]
   %131 = getelementptr i64, ptr %19, i64 %indvars.iv
-  store i64 %.2, ptr %131, align 8
+  store i64 %.051, ptr %131, align 8
   %132 = getelementptr i8, ptr %21, i64 %indvars.iv
   store i8 %91, ptr %132, align 1
   %.pre63 = load i32, ptr %22, align 8

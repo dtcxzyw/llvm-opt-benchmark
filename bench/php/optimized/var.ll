@@ -776,8 +776,8 @@ define hidden void @zif_var_dump(ptr noundef %0, ptr nocapture noundef readnone 
   br label %.lr.ph
 
 13:                                               ; preds = %6, %7
-  %.132.ph = phi i32 [ 11, %7 ], [ 1, %6 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.132.ph, i32 noundef %4, ptr noundef null, i32 noundef 0, ptr noundef null) #12
+  %.031.ph = phi i32 [ 11, %7 ], [ 1, %6 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.031.ph, i32 noundef %4, ptr noundef null, i32 noundef 0, ptr noundef null) #12
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1429,8 +1429,8 @@ define hidden void @zif_debug_zval_dump(ptr noundef %0, ptr nocapture noundef re
   br label %.lr.ph
 
 13:                                               ; preds = %6, %7
-  %.132.ph = phi i32 [ 11, %7 ], [ 1, %6 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.132.ph, i32 noundef %4, ptr noundef null, i32 noundef 0, ptr noundef null) #12
+  %.031.ph = phi i32 [ 11, %7 ], [ 1, %6 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.031.ph, i32 noundef %4, ptr noundef null, i32 noundef 0, ptr noundef null) #12
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -6445,8 +6445,8 @@ define void @php_unserialize_with_options(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not173, label %.critedge.thread, label %153
 
 .critedge.thread:                                 ; preds = %16, %29, %._crit_edge, %40, %.critedge
-  %.0151194 = phi ptr [ %32, %._crit_edge ], [ %32, %40 ], [ null, %.critedge ], [ null, %29 ], [ null, %16 ]
-  tail call void @php_var_unserialize_set_allowed_classes(ptr noundef %12, ptr noundef %.0151194) #12
+  %.2194 = phi ptr [ %32, %._crit_edge ], [ %32, %40 ], [ null, %.critedge ], [ null, %29 ], [ null, %16 ]
+  tail call void @php_var_unserialize_set_allowed_classes(ptr noundef %12, ptr noundef %.2194) #12
   %75 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %3, ptr noundef nonnull @.str.48, i64 noundef 9) #12
   %.not174 = icmp eq ptr %75, null
   br i1 %.not174, label %92, label %76
@@ -6490,7 +6490,7 @@ define void @php_unserialize_with_options(ptr noundef %0, ptr noundef %1, i64 no
   br label %92
 
 92:                                               ; preds = %.critedge.thread, %91, %11
-  %.1 = phi ptr [ %.0151194, %91 ], [ null, %11 ], [ %.0151194, %.critedge.thread ]
+  %.0151 = phi ptr [ %.2194, %91 ], [ null, %11 ], [ %.2194, %.critedge.thread ]
   %93 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
   %94 = icmp ugt i32 %93, 1
   br i1 %94, label %95, label %97
@@ -6609,13 +6609,13 @@ define void @php_unserialize_with_options(ptr noundef %0, ptr noundef %1, i64 no
   br label %153
 
 153:                                              ; preds = %111, %133, %141, %152, %148, %130, %124, %._crit_edge, %90, %85
-  %.2 = phi ptr [ %32, %._crit_edge ], [ %.0151194, %85 ], [ %.0151194, %90 ], [ %.1, %130 ], [ %.1, %124 ], [ %.1, %152 ], [ %.1, %148 ], [ %.1, %141 ], [ %.1, %133 ], [ %.1, %111 ]
-  %.not185 = icmp eq ptr %.2, null
+  %.1 = phi ptr [ %32, %._crit_edge ], [ %.2194, %85 ], [ %.2194, %90 ], [ %.0151, %130 ], [ %.0151, %124 ], [ %.0151, %152 ], [ %.0151, %148 ], [ %.0151, %141 ], [ %.0151, %133 ], [ %.0151, %111 ]
+  %.not185 = icmp eq ptr %.1, null
   br i1 %.not185, label %155, label %154
 
 154:                                              ; preds = %153
-  call void @zend_hash_destroy(ptr noundef nonnull %.2) #12
-  call void @_efree_56(ptr noundef nonnull %.2) #12
+  call void @zend_hash_destroy(ptr noundef nonnull %.1) #12
+  call void @_efree_56(ptr noundef nonnull %.1) #12
   br label %155
 
 155:                                              ; preds = %.thread200, %154, %153
@@ -6777,8 +6777,8 @@ define hidden void @zif_unserialize(ptr noundef %0, ptr noundef %1) local_unname
   br label %27
 
 .thread144:                                       ; preds = %16, %.thread156
-  %.2155 = phi ptr [ %26, %.thread156 ], [ null, %16 ]
-  call void @php_unserialize_with_options(ptr noundef %1, ptr noundef nonnull %20, i64 noundef %19, ptr noundef %.2155, ptr noundef nonnull @.str.53)
+  %.0107155 = phi ptr [ %26, %.thread156 ], [ null, %16 ]
+  call void @php_unserialize_with_options(ptr noundef %1, ptr noundef nonnull %20, i64 noundef %19, ptr noundef %.0107155, ptr noundef nonnull @.str.53)
   br label %27
 
 27:                                               ; preds = %.thread144, %.thread131

@@ -3758,7 +3758,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
 
 .lr.ph:                                           ; preds = %68, %112
   %74 = phi ptr [ %114, %112 ], [ %71, %68 ]
-  %.087117 = phi i32 [ %.2, %112 ], [ 0, %68 ]
+  %.1117 = phi i32 [ %.2, %112 ], [ 0, %68 ]
   %.088116 = phi i32 [ %113, %112 ], [ 0, %68 ]
   %75 = load ptr, ptr %74, align 8
   %76 = sext i32 %.088116 to i64
@@ -3813,8 +3813,8 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %105 = getelementptr inbounds i8, ptr %77, i64 68
   %106 = load i32, ptr %105, align 4
   %107 = load ptr, ptr @GetLockConflicts.vxids, align 8
-  %108 = add i32 %.087117, 1
-  %109 = sext i32 %.087117 to i64
+  %108 = add i32 %.1117, 1
+  %109 = sext i32 %.1117 to i64
   %110 = getelementptr %struct.VirtualTransactionId, ptr %107, i64 %109
   store i32 %106, ptr %110, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %110, i64 4
@@ -3827,12 +3827,12 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %exitcond.not, label %.sink.split137, label %88, !llvm.loop !35
 
 .sink.split137:                                   ; preds = %111, %97, %104, %101, %80
-  %.2.ph = phi i32 [ %.087117, %80 ], [ %.087117, %97 ], [ %108, %104 ], [ %.087117, %101 ], [ %.087117, %111 ]
+  %.2.ph = phi i32 [ %.1117, %80 ], [ %.1117, %97 ], [ %108, %104 ], [ %.1117, %101 ], [ %.1117, %111 ]
   tail call void @LWLockRelease(ptr noundef nonnull %81) #16
   br label %112
 
 112:                                              ; preds = %.sink.split137, %.lr.ph
-  %.2 = phi i32 [ %.087117, %.lr.ph ], [ %.2.ph, %.sink.split137 ]
+  %.2 = phi i32 [ %.1117, %.lr.ph ], [ %.2.ph, %.sink.split137 ]
   %113 = add nuw i32 %.088116, 1
   %114 = load ptr, ptr @ProcGlobal, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 32
@@ -3841,7 +3841,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %117, label %.lr.ph, label %.loopexit114, !llvm.loop !36
 
 .loopexit114:                                     ; preds = %112, %68, %64, %60, %45
-  %.3 = phi i32 [ 0, %64 ], [ 0, %60 ], [ 0, %45 ], [ 0, %68 ], [ %.2, %112 ]
+  %.087 = phi i32 [ 0, %64 ], [ 0, %60 ], [ 0, %45 ], [ 0, %68 ], [ %.2, %112 ]
   %118 = tail call zeroext i1 @LWLockAcquire(ptr noundef %52, i32 noundef 1) #16
   %119 = load ptr, ptr @LockMethodLockHash, align 8
   %120 = tail call ptr @hash_search_with_hash_value(ptr noundef %119, ptr noundef %0, i32 noundef %47, i32 noundef 0, ptr noundef null) #16
@@ -3851,7 +3851,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
 121:                                              ; preds = %.loopexit114
   tail call void @LWLockRelease(ptr noundef %52) #16
   %122 = load ptr, ptr @GetLockConflicts.vxids, align 8
-  %123 = sext i32 %.3 to i64
+  %123 = sext i32 %.087 to i64
   %124 = getelementptr %struct.VirtualTransactionId, ptr %122, i64 %123
   store i32 -1, ptr %124, align 4
   %125 = getelementptr %struct.VirtualTransactionId, ptr %122, i64 %123, i32 1
@@ -3869,17 +3869,17 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not103120, label %._crit_edge125, label %.lr.ph124
 
 .lr.ph124:                                        ; preds = %126
-  %130 = icmp sgt i32 %.3, 0
+  %130 = icmp sgt i32 %.087, 0
   %131 = load ptr, ptr @GetLockConflicts.vxids, align 8
   br i1 %130, label %.lr.ph124.split.us.preheader, label %.lr.ph124.split
 
 .lr.ph124.split.us.preheader:                     ; preds = %.lr.ph124
-  %wide.trip.count = zext nneg i32 %.3 to i64
+  %wide.trip.count = zext nneg i32 %.087 to i64
   br label %.lr.ph124.split.us
 
 .lr.ph124.split.us:                               ; preds = %.lr.ph124.split.us.preheader, %.thread.us
   %.sroa.052.0122.us = phi ptr [ %153, %.thread.us ], [ %129, %.lr.ph124.split.us.preheader ]
-  %.4121.us = phi i32 [ %.5.us, %.thread.us ], [ %.3, %.lr.ph124.split.us.preheader ]
+  %.4121.us = phi i32 [ %.5.us, %.thread.us ], [ %.087, %.lr.ph124.split.us.preheader ]
   %132 = getelementptr i8, ptr %.sroa.052.0122.us, i64 -8
   %133 = load i32, ptr %132, align 8
   %134 = and i32 %133, %57
@@ -3937,7 +3937,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
 
 .lr.ph124.split:                                  ; preds = %.lr.ph124, %.thread
   %.sroa.052.0122 = phi ptr [ %173, %.thread ], [ %129, %.lr.ph124 ]
-  %.4121 = phi i32 [ %.5, %.thread ], [ %.3, %.lr.ph124 ]
+  %.4121 = phi i32 [ %.5, %.thread ], [ %.087, %.lr.ph124 ]
   %157 = getelementptr i8, ptr %.sroa.052.0122, i64 -8
   %158 = load i32, ptr %157, align 8
   %159 = and i32 %158, %57
@@ -3976,7 +3976,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not103, label %._crit_edge125, label %.lr.ph124.split, !llvm.loop !38
 
 ._crit_edge125:                                   ; preds = %.thread, %.thread.us, %126
-  %.4.lcssa = phi i32 [ %.3, %126 ], [ %.5.us, %.thread.us ], [ %.5, %.thread ]
+  %.4.lcssa = phi i32 [ %.087, %126 ], [ %.5.us, %.thread.us ], [ %.5, %.thread ]
   tail call void @LWLockRelease(ptr noundef %52) #16
   %174 = load i32, ptr @MaxBackends, align 4
   %175 = load i32, ptr @max_prepared_xacts, align 4
@@ -4002,7 +4002,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not104, label %186, label %.sink.split138
 
 .sink.split138:                                   ; preds = %181, %121
-  %.4.lcssa.sink = phi i32 [ %.3, %121 ], [ %.4.lcssa, %181 ]
+  %.4.lcssa.sink = phi i32 [ %.087, %121 ], [ %.4.lcssa, %181 ]
   %.086.ph = phi ptr [ %122, %121 ], [ %182, %181 ]
   store i32 %.4.lcssa.sink, ptr %2, align 4
   br label %186
@@ -4666,12 +4666,12 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
 
 .preheader127:                                    ; preds = %97, %0
   %.0111.lcssa = phi i32 [ 0, %0 ], [ %.3114, %97 ]
-  %.0.lcssa = phi i32 [ %3, %0 ], [ %.5, %97 ]
+  %.0.lcssa = phi i32 [ %3, %0 ], [ %.4, %97 ]
   br label %103
 
 .lr.ph:                                           ; preds = %0, %97
   %11 = phi ptr [ %99, %97 ], [ %8, %0 ]
-  %.0133 = phi i32 [ %.5, %97 ], [ %3, %0 ]
+  %.0133 = phi i32 [ %.4, %97 ], [ %3, %0 ]
   %.0111132 = phi i32 [ %.3114, %97 ], [ 0, %0 ]
   %.0116131 = phi i32 [ %98, %97 ], [ 0, %0 ]
   %12 = load ptr, ptr %11, align 8
@@ -4689,7 +4689,7 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
 
 23:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %.1130 = phi i32 [ %.0133, %.lr.ph ], [ %.3, %61 ]
+  %.1130 = phi i32 [ %.0133, %.lr.ph ], [ %.2, %61 ]
   %.1112129 = phi i32 [ %.0111132, %.lr.ph ], [ %.2113, %61 ]
   %24 = load i64, ptr %17, align 8
   %25 = mul nuw nsw i64 %indvars.iv, 3
@@ -4715,7 +4715,7 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
 
 36:                                               ; preds = %30, %29
   %37 = phi ptr [ %35, %30 ], [ %.pre, %29 ]
-  %.2 = phi i32 [ %32, %30 ], [ %.1130, %29 ]
+  %.3 = phi i32 [ %32, %30 ], [ %.1130, %29 ]
   %38 = sext i32 %.1112129 to i64
   %39 = getelementptr %struct.LockInstanceData, ptr %37, i64 %38
   %40 = load i32, ptr %18, align 4
@@ -4757,7 +4757,7 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
 
 61:                                               ; preds = %23, %36
   %.2113 = phi i32 [ %60, %36 ], [ %.1112129, %23 ]
-  %.3 = phi i32 [ %.2, %36 ], [ %.1130, %23 ]
+  %.2 = phi i32 [ %.3, %36 ], [ %.1130, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %62, label %23, !llvm.loop !48
@@ -4769,13 +4769,13 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
   br i1 %65, label %66, label %97
 
 66:                                               ; preds = %62
-  %.not124 = icmp slt i32 %.2113, %.3
+  %.not124 = icmp slt i32 %.2113, %.2
   %.pre153 = load ptr, ptr %7, align 8
   br i1 %.not124, label %73, label %67
 
 67:                                               ; preds = %66
   %68 = load i32, ptr @MaxBackends, align 4
-  %69 = add i32 %68, %.3
+  %69 = add i32 %68, %.2
   %70 = sext i32 %69 to i64
   %71 = mul nsw i64 %70, 56
   %72 = tail call ptr @repalloc(ptr noundef %.pre153, i64 noundef %71) #16
@@ -4784,7 +4784,7 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
 
 73:                                               ; preds = %67, %66
   %74 = phi ptr [ %72, %67 ], [ %.pre153, %66 ]
-  %.4 = phi i32 [ %69, %67 ], [ %.3, %66 ]
+  %.5 = phi i32 [ %69, %67 ], [ %.2, %66 ]
   %75 = load i32, ptr %20, align 4
   %76 = getelementptr inbounds i8, ptr %14, i64 844
   %77 = load i32, ptr %76, align 4
@@ -4825,7 +4825,7 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
 
 97:                                               ; preds = %73, %62
   %.3114 = phi i32 [ %96, %73 ], [ %.2113, %62 ]
-  %.5 = phi i32 [ %.4, %73 ], [ %.3, %62 ]
+  %.4 = phi i32 [ %.5, %73 ], [ %.2, %62 ]
   tail call void @LWLockRelease(ptr noundef nonnull %15) #16
   %98 = add nuw i32 %.0116131, 1
   %99 = load ptr, ptr @ProcGlobal, align 8

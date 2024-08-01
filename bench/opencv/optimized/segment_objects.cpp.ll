@@ -985,7 +985,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %348
 
 _ZN2cv3PtrINS_24BackgroundSubtractorMOG2EED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %343, %330, %311, %106
-  %.0 = phi i32 [ -1, %106 ], [ 0, %311 ], [ 0, %330 ], [ 0, %343 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
+  %.2 = phi i32 [ -1, %106 ], [ 0, %311 ], [ 0, %330 ], [ 0, %343 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %43) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %42) #10
@@ -999,7 +999,7 @@ _ZN2cv3PtrINS_24BackgroundSubtractorMOG2EED2Ev.exit: ; preds = %_ZNSt16_Sp_count
   br label %.body56
 
 349:                                              ; preds = %_ZN2cv3PtrINS_24BackgroundSubtractorMOG2EED2Ev.exit, %100
-  %.1 = phi i32 [ %.0, %_ZN2cv3PtrINS_24BackgroundSubtractorMOG2EED2Ev.exit ], [ -1, %100 ]
+  %.1 = phi i32 [ %.2, %_ZN2cv3PtrINS_24BackgroundSubtractorMOG2EED2Ev.exit ], [ -1, %100 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #10
   br label %350
 
@@ -1009,10 +1009,10 @@ _ZN2cv3PtrINS_24BackgroundSubtractorMOG2EED2Ev.exit: ; preds = %_ZNSt16_Sp_count
   br label %351
 
 350:                                              ; preds = %63, %349
-  %.2 = phi i32 [ %.1, %349 ], [ 0, %63 ]
+  %.0 = phi i32 [ %.1, %349 ], [ 0, %63 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #10
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %32) #10
-  ret i32 %.2
+  ret i32 %.0
 
 351:                                              ; preds = %.body56, %83, %74
   %.pn53 = phi { ptr, i32 } [ %.pn48.pn.pn, %.body56 ], [ %.pn34, %83 ], [ %.pn32, %74 ]

@@ -294,8 +294,8 @@ default.unreachable149:                           ; preds = %if.end117, %if.end6
   unreachable
 
 sw.epilog73:                                      ; preds = %if.then70, %sw.bb65, %sw.bb63
-  %pkey.0 = phi ptr [ %call71, %if.then70 ], [ %call66, %sw.bb65 ], [ %call64, %sw.bb63 ]
-  %cmp74 = icmp eq ptr %pkey.0, null
+  %pkey.1 = phi ptr [ %call71, %if.then70 ], [ %call66, %sw.bb65 ], [ %call64, %sw.bb63 ]
+  %cmp74 = icmp eq ptr %pkey.1, null
   br i1 %cmp74, label %return, label %if.end77
 
 if.end77:                                         ; preds = %sw.epilog73
@@ -309,7 +309,7 @@ if.end82:                                         ; preds = %if.end77
   br i1 %cmp84, label %end, label %if.end87
 
 if.end87:                                         ; preds = %if.end82
-  %call88 = call i32 @EVP_PKEY_get_size(ptr noundef nonnull %pkey.0) #2
+  %call88 = call i32 @EVP_PKEY_get_size(ptr noundef nonnull %pkey.1) #2
   %mul = shl nsw i32 %call88, 1
   %conv89 = sext i32 %mul to i64
   %call90 = call ptr @app_malloc(i64 noundef %conv89, ptr noundef nonnull @.str.61) #2
@@ -350,7 +350,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond.not, label %if.end112, label %for.body, !llvm.loop !7
 
 if.end112:                                        ; preds = %for.body, %for.cond.preheader, %if.end100
-  %call113 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef null, ptr noundef nonnull %pkey.0, ptr noundef null) #2
+  %call113 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef null, ptr noundef nonnull %pkey.1, ptr noundef null) #2
   %cmp114 = icmp eq ptr %call113, null
   br i1 %cmp114, label %end, label %if.end117
 
@@ -465,14 +465,14 @@ if.else191:                                       ; preds = %if.else
 
 end:                                              ; preds = %sw.bb38, %sw.bb32, %if.then185, %if.then182, %if.else191, %if.then188, %if.end112, %if.end82, %if.end77, %if.end46, %if.then178, %if.then98, %if.then59, %if.then54, %sw.bb3, %opthelp
   %ctx.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then54 ], [ null, %if.end77 ], [ null, %if.end82 ], [ null, %if.then98 ], [ null, %if.end112 ], [ %call113, %if.then182 ], [ %call113, %if.then185 ], [ %call113, %if.then188 ], [ %call113, %if.else191 ], [ %call113, %if.then178 ], [ null, %if.then59 ], [ null, %if.end46 ], [ null, %sw.bb32 ], [ null, %sw.bb38 ]
-  %pkey.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then54 ], [ %pkey.0, %if.end77 ], [ %pkey.0, %if.end82 ], [ %pkey.0, %if.then98 ], [ %pkey.0, %if.end112 ], [ %pkey.0, %if.then182 ], [ %pkey.0, %if.then185 ], [ %pkey.0, %if.then188 ], [ %pkey.0, %if.else191 ], [ %pkey.0, %if.then178 ], [ null, %if.then59 ], [ null, %if.end46 ], [ null, %sw.bb32 ], [ null, %sw.bb38 ]
+  %pkey.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then54 ], [ %pkey.1, %if.end77 ], [ %pkey.1, %if.end82 ], [ %pkey.1, %if.then98 ], [ %pkey.1, %if.end112 ], [ %pkey.1, %if.then182 ], [ %pkey.1, %if.then185 ], [ %pkey.1, %if.then188 ], [ %pkey.1, %if.else191 ], [ %pkey.1, %if.then178 ], [ null, %if.then59 ], [ null, %if.end46 ], [ null, %sw.bb32 ], [ null, %sw.bb38 ]
   %rsa_in.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then54 ], [ null, %if.end77 ], [ null, %if.end82 ], [ %call90, %if.then98 ], [ %call90, %if.end112 ], [ %call90, %if.then182 ], [ %call90, %if.then185 ], [ %call90, %if.then188 ], [ %call90, %if.else191 ], [ %call90, %if.then178 ], [ null, %if.then59 ], [ null, %if.end46 ], [ null, %sw.bb32 ], [ null, %sw.bb38 ]
   %rsa_out.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then54 ], [ null, %if.end77 ], [ null, %if.end82 ], [ %call92, %if.then98 ], [ %call92, %if.end112 ], [ %call92, %if.then182 ], [ %call92, %if.then185 ], [ %call92, %if.then188 ], [ %call92, %if.else191 ], [ %call92, %if.then178 ], [ null, %if.then59 ], [ null, %if.end46 ], [ null, %sw.bb32 ], [ null, %sw.bb38 ]
   %out.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then54 ], [ null, %if.end77 ], [ null, %if.end82 ], [ %call83, %if.then98 ], [ %call83, %if.end112 ], [ %call83, %if.then182 ], [ %call83, %if.then185 ], [ %call83, %if.then188 ], [ %call83, %if.else191 ], [ %call83, %if.then178 ], [ null, %if.then59 ], [ null, %if.end46 ], [ null, %sw.bb32 ], [ null, %sw.bb38 ]
   %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb3 ], [ 1, %if.then54 ], [ 1, %if.end77 ], [ 1, %if.end82 ], [ 1, %if.then98 ], [ 1, %if.end112 ], [ 0, %if.then182 ], [ 0, %if.then185 ], [ 0, %if.then188 ], [ 0, %if.else191 ], [ 1, %if.then178 ], [ 1, %if.then59 ], [ 1, %if.end46 ], [ 1, %sw.bb32 ], [ 1, %sw.bb38 ]
   %in.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then54 ], [ null, %if.end77 ], [ %call78, %if.end82 ], [ %call78, %if.then98 ], [ %call78, %if.end112 ], [ %call78, %if.then182 ], [ %call78, %if.then185 ], [ %call78, %if.then188 ], [ %call78, %if.else191 ], [ %call78, %if.then178 ], [ null, %if.then59 ], [ null, %if.end46 ], [ null, %sw.bb32 ], [ null, %sw.bb38 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0) #2
-  call void @EVP_PKEY_free(ptr noundef %pkey.1) #2
+  call void @EVP_PKEY_free(ptr noundef %pkey.0) #2
   call void @release_engine(ptr noundef %e.0) #2
   %call196 = call i32 @BIO_free(ptr noundef %in.0) #2
   call void @BIO_free_all(ptr noundef %out.0) #2

@@ -451,7 +451,7 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
 
 .preheader385:                                    ; preds = %._crit_edge431, %.preheader385.lr.ph
   %.0321436 = phi double [ %75, %.preheader385.lr.ph ], [ %210, %._crit_edge431 ]
-  %.0323435 = phi double [ %75, %.preheader385.lr.ph ], [ %.2, %._crit_edge431 ]
+  %.0323435 = phi double [ %75, %.preheader385.lr.ph ], [ %.3, %._crit_edge431 ]
   %.0333434 = phi i32 [ 0, %.preheader385.lr.ph ], [ %213, %._crit_edge431 ]
   %.0334433 = phi i32 [ 0, %.preheader385.lr.ph ], [ %.2336, %._crit_edge431 ]
   br i1 %79, label %._crit_edge397.thread, label %.preheader.us
@@ -631,7 +631,7 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
 ._crit_edge:                                      ; preds = %150, %._crit_edge.loopexit.split.loop.exit, %._crit_edge397.thread, %._crit_edge397
   %.not373.lcssa = phi i1 [ false, %._crit_edge397 ], [ false, %._crit_edge397.thread ], [ %.not373401, %._crit_edge.loopexit.split.loop.exit ], [ %.not373, %150 ]
   %.2336 = phi i32 [ %.0334433, %._crit_edge397 ], [ %.0334433, %._crit_edge397.thread ], [ %157, %._crit_edge.loopexit.split.loop.exit ], [ %7, %150 ]
-  %.2 = phi double [ %.0323435, %._crit_edge397 ], [ %.0323435, %._crit_edge397.thread ], [ %148, %._crit_edge.loopexit.split.loop.exit ], [ %148, %150 ]
+  %.3 = phi double [ %.0323435, %._crit_edge397 ], [ %.0323435, %._crit_edge397.thread ], [ %148, %._crit_edge.loopexit.split.loop.exit ], [ %148, %150 ]
   store double %.0321436, ptr %21, align 8
   %.not370408 = icmp slt i32 %.2336, 1
   br i1 %.not370408, label %._crit_edge412, label %.lr.ph411.preheader
@@ -805,7 +805,7 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
   br label %.preheader385
 
 ._crit_edge437:                                   ; preds = %186
-  %214 = fcmp olt double %.2, %75
+  %214 = fcmp olt double %.3, %75
   br i1 %214, label %215, label %._crit_edge437.thread
 
 215:                                              ; preds = %._crit_edge437

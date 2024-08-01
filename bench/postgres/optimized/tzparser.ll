@@ -351,18 +351,18 @@ switch.early.test.i:                              ; preds = %108
   br label %129
 
 129:                                              ; preds = %124, %127
-  %.sroa.15.1 = phi i8 [ 0, %127 ], [ 1, %124 ]
-  %.sroa.9.1 = phi i32 [ 0, %127 ], [ %117, %124 ]
-  %.sroa.6.1 = phi ptr [ %128, %127 ], [ null, %124 ]
+  %.sroa.15.2 = phi i8 [ 0, %127 ], [ 1, %124 ]
+  %.sroa.9.2 = phi i32 [ 0, %127 ], [ %117, %124 ]
+  %.sroa.6.2 = phi ptr [ %128, %127 ], [ null, %124 ]
   %130 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.12) #9
   %.not45.i = icmp eq ptr %130, null
   br i1 %.not45.i, label %.thread, label %.thread96
 
 .thread96:                                        ; preds = %124, %129
   %.035.i105 = phi ptr [ %130, %129 ], [ %123, %124 ]
-  %.sroa.6.1104 = phi ptr [ %.sroa.6.1, %129 ], [ null, %124 ]
-  %.sroa.9.1103 = phi i32 [ %.sroa.9.1, %129 ], [ %117, %124 ]
-  %.sroa.15.1102 = phi i8 [ %.sroa.15.1, %129 ], [ 0, %124 ]
+  %.sroa.6.2104 = phi ptr [ %.sroa.6.2, %129 ], [ null, %124 ]
+  %.sroa.9.2103 = phi i32 [ %.sroa.9.2, %129 ], [ %117, %124 ]
+  %.sroa.15.2102 = phi i8 [ %.sroa.15.2, %129 ], [ 0, %124 ]
   %131 = load i8, ptr %.035.i105, align 1
   %.not46.i = icmp eq i8 %131, 35
   br i1 %.not46.i, label %.thread, label %splitTzLine.exit
@@ -378,9 +378,9 @@ splitTzLine.exit:                                 ; preds = %103, %105, %115, %1
   br label %.loopexit122
 
 .thread:                                          ; preds = %122, %129, %.thread96
-  %.sroa.15.3.ph = phi i8 [ %.sroa.15.1102, %.thread96 ], [ %.sroa.15.1, %129 ], [ 0, %122 ]
-  %.sroa.9.3.ph = phi i32 [ %.sroa.9.1103, %.thread96 ], [ %.sroa.9.1, %129 ], [ %117, %122 ]
-  %.sroa.6.3.ph = phi ptr [ %.sroa.6.1104, %.thread96 ], [ %.sroa.6.1, %129 ], [ null, %122 ]
+  %.sroa.15.3.ph = phi i8 [ %.sroa.15.2102, %.thread96 ], [ %.sroa.15.2, %129 ], [ 0, %122 ]
+  %.sroa.9.3.ph = phi i32 [ %.sroa.9.2103, %.thread96 ], [ %.sroa.9.2, %129 ], [ %117, %122 ]
+  %.sroa.6.3.ph = phi ptr [ %.sroa.6.2104, %.thread96 ], [ %.sroa.6.2, %129 ], [ null, %122 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %135 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #11
   %136 = icmp ugt i64 %135, 10

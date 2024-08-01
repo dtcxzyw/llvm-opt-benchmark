@@ -3379,16 +3379,16 @@ land.lhs.true:                                    ; preds = %if.end16
   br label %if.end28
 
 if.end28:                                         ; preds = %land.lhs.true, %if.end16
-  %features.addr.4 = phi i64 [ %call22, %if.end16 ], [ %spec.select68, %land.lhs.true ]
+  %features.addr.5 = phi i64 [ %call22, %if.end16 ], [ %spec.select68, %land.lhs.true ]
   %and.i39 = and i64 %call22, 131072
   %tobool.i.not = icmp eq i64 %and.i39, 0
-  %and.i40 = and i64 %features.addr.4, -2097153
-  %spec.select69 = select i1 %tobool.i.not, i64 %and.i40, i64 %features.addr.4
+  %and.i40 = and i64 %features.addr.5, -2097153
+  %spec.select69 = select i1 %tobool.i.not, i64 %and.i40, i64 %features.addr.5
   br label %return
 
 return:                                           ; preds = %if.end28, %if.end12
-  %features.addr.5 = phi i64 [ %features.addr.2, %if.end12 ], [ %spec.select69, %if.end28 ]
-  ret i64 %features.addr.5
+  %features.addr.3 = phi i64 [ %features.addr.2, %if.end12 ], [ %spec.select69, %if.end28 ]
+  ret i64 %features.addr.3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

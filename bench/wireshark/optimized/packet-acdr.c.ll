@@ -883,7 +883,7 @@ create_full_session_id_subtree.exit.i:            ; preds = %173, %170, %157, %1
 
 193:                                              ; preds = %188, %187, %185, %184
   %194 = phi i32 [ %183, %184 ], [ %.pre.i, %188 ], [ 4, %187 ], [ %183, %185 ]
-  %.0132.i = phi i16 [ 0, %184 ], [ %192, %188 ], [ 0, %187 ], [ 0, %185 ]
+  %.1.i = phi i16 [ 0, %184 ], [ %192, %188 ], [ 0, %187 ], [ 0, %185 ]
   %195 = trunc i32 %194 to i8
   %196 = load i32, ptr %6, align 4
   %197 = load i32, ptr %7, align 4
@@ -908,9 +908,9 @@ create_full_session_id_subtree.exit.i:            ; preds = %173, %170, %157, %1
   br label %213
 
 213:                                              ; preds = %207, %193
-  %.sroa.5.0.i = phi i8 [ %212, %207 ], [ 0, %193 ]
-  %.sroa.3.0.i = phi i16 [ %210, %207 ], [ -1, %193 ]
-  %.sroa.0.0.i = phi i16 [ %208, %207 ], [ -1, %193 ]
+  %.sroa.5.1.i = phi i8 [ %212, %207 ], [ 0, %193 ]
+  %.sroa.3.1.i = phi i16 [ %210, %207 ], [ -1, %193 ]
+  %.sroa.0.1.i = phi i16 [ %208, %207 ], [ -1, %193 ]
   %214 = icmp eq ptr %17, null
   br i1 %214, label %create_header_extension_subtree.exit.i, label %215
 
@@ -1131,10 +1131,10 @@ create_full_session_id_subtree.exit.i:            ; preds = %173, %170, %157, %1
   br label %create_header_extension_subtree.exit.i
 
 create_header_extension_subtree.exit.i:           ; preds = %324, %309, %306, %288, %283, %273, %265, %260, %250, %240, %233, %227, %224, %223, %216, %213, %182
-  %.sroa.5.1.i = phi i8 [ 0, %182 ], [ %.sroa.5.0.i, %213 ], [ %.sroa.5.0.i, %216 ], [ %.sroa.5.0.i, %223 ], [ %.sroa.5.0.i, %224 ], [ %.sroa.5.0.i, %227 ], [ %.sroa.5.0.i, %233 ], [ %.sroa.5.0.i, %240 ], [ %.sroa.5.0.i, %250 ], [ %.sroa.5.0.i, %260 ], [ %.sroa.5.0.i, %265 ], [ %.sroa.5.0.i, %273 ], [ %.sroa.5.0.i, %283 ], [ %.sroa.5.0.i, %288 ], [ %.sroa.5.0.i, %306 ], [ %.sroa.5.0.i, %309 ], [ %.sroa.5.0.i, %324 ]
-  %.sroa.3.1.i = phi i16 [ -1, %182 ], [ %.sroa.3.0.i, %213 ], [ %.sroa.3.0.i, %216 ], [ %.sroa.3.0.i, %223 ], [ %.sroa.3.0.i, %224 ], [ %.sroa.3.0.i, %227 ], [ %.sroa.3.0.i, %233 ], [ %.sroa.3.0.i, %240 ], [ %.sroa.3.0.i, %250 ], [ %.sroa.3.0.i, %260 ], [ %.sroa.3.0.i, %265 ], [ %.sroa.3.0.i, %273 ], [ %.sroa.3.0.i, %283 ], [ %.sroa.3.0.i, %288 ], [ %.sroa.3.0.i, %306 ], [ %.sroa.3.0.i, %309 ], [ %.sroa.3.0.i, %324 ]
-  %.sroa.0.1.i = phi i16 [ -1, %182 ], [ %.sroa.0.0.i, %213 ], [ %.sroa.0.0.i, %216 ], [ %.sroa.0.0.i, %223 ], [ %.sroa.0.0.i, %224 ], [ %.sroa.0.0.i, %227 ], [ %.sroa.0.0.i, %233 ], [ %.sroa.0.0.i, %240 ], [ %.sroa.0.0.i, %250 ], [ %.sroa.0.0.i, %260 ], [ %.sroa.0.0.i, %265 ], [ %.sroa.0.0.i, %273 ], [ %.sroa.0.0.i, %283 ], [ %.sroa.0.0.i, %288 ], [ %.sroa.0.0.i, %306 ], [ %.sroa.0.0.i, %309 ], [ %.sroa.0.0.i, %324 ]
-  %.1.i = phi i16 [ 0, %182 ], [ %.0132.i, %213 ], [ %.0132.i, %216 ], [ %.0132.i, %223 ], [ %.0132.i, %224 ], [ %.0132.i, %227 ], [ %.0132.i, %233 ], [ %.0132.i, %240 ], [ %.0132.i, %250 ], [ %.0132.i, %260 ], [ %.0132.i, %265 ], [ %.0132.i, %273 ], [ %.0132.i, %283 ], [ %.0132.i, %288 ], [ %.0132.i, %306 ], [ %.0132.i, %309 ], [ %.0132.i, %324 ]
+  %.sroa.5.0.i = phi i8 [ 0, %182 ], [ %.sroa.5.1.i, %213 ], [ %.sroa.5.1.i, %216 ], [ %.sroa.5.1.i, %223 ], [ %.sroa.5.1.i, %224 ], [ %.sroa.5.1.i, %227 ], [ %.sroa.5.1.i, %233 ], [ %.sroa.5.1.i, %240 ], [ %.sroa.5.1.i, %250 ], [ %.sroa.5.1.i, %260 ], [ %.sroa.5.1.i, %265 ], [ %.sroa.5.1.i, %273 ], [ %.sroa.5.1.i, %283 ], [ %.sroa.5.1.i, %288 ], [ %.sroa.5.1.i, %306 ], [ %.sroa.5.1.i, %309 ], [ %.sroa.5.1.i, %324 ]
+  %.sroa.3.0.i = phi i16 [ -1, %182 ], [ %.sroa.3.1.i, %213 ], [ %.sroa.3.1.i, %216 ], [ %.sroa.3.1.i, %223 ], [ %.sroa.3.1.i, %224 ], [ %.sroa.3.1.i, %227 ], [ %.sroa.3.1.i, %233 ], [ %.sroa.3.1.i, %240 ], [ %.sroa.3.1.i, %250 ], [ %.sroa.3.1.i, %260 ], [ %.sroa.3.1.i, %265 ], [ %.sroa.3.1.i, %273 ], [ %.sroa.3.1.i, %283 ], [ %.sroa.3.1.i, %288 ], [ %.sroa.3.1.i, %306 ], [ %.sroa.3.1.i, %309 ], [ %.sroa.3.1.i, %324 ]
+  %.sroa.0.0.i = phi i16 [ -1, %182 ], [ %.sroa.0.1.i, %213 ], [ %.sroa.0.1.i, %216 ], [ %.sroa.0.1.i, %223 ], [ %.sroa.0.1.i, %224 ], [ %.sroa.0.1.i, %227 ], [ %.sroa.0.1.i, %233 ], [ %.sroa.0.1.i, %240 ], [ %.sroa.0.1.i, %250 ], [ %.sroa.0.1.i, %260 ], [ %.sroa.0.1.i, %265 ], [ %.sroa.0.1.i, %273 ], [ %.sroa.0.1.i, %283 ], [ %.sroa.0.1.i, %288 ], [ %.sroa.0.1.i, %306 ], [ %.sroa.0.1.i, %309 ], [ %.sroa.0.1.i, %324 ]
+  %.0132.i = phi i16 [ 0, %182 ], [ %.1.i, %213 ], [ %.1.i, %216 ], [ %.1.i, %223 ], [ %.1.i, %224 ], [ %.1.i, %227 ], [ %.1.i, %233 ], [ %.1.i, %240 ], [ %.1.i, %250 ], [ %.1.i, %260 ], [ %.1.i, %265 ], [ %.1.i, %273 ], [ %.1.i, %283 ], [ %.1.i, %288 ], [ %.1.i, %306 ], [ %.1.i, %309 ], [ %.1.i, %324 ]
   br i1 %or.cond152.i, label %create_mii_header_subtree.exit.i, label %327
 
 327:                                              ; preds = %create_header_extension_subtree.exit.i
@@ -1249,15 +1249,15 @@ create_5x_hpi_packet_header_subtree.exit.i:       ; preds = %375, %create_5x_ana
   %394 = getelementptr inbounds i8, ptr %10, i64 4
   store i8 %393, ptr %394, align 4
   %395 = getelementptr inbounds i8, ptr %10, i64 6
-  store i16 %.sroa.0.1.i, ptr %395, align 2
+  store i16 %.sroa.0.0.i, ptr %395, align 2
   %396 = getelementptr inbounds i8, ptr %10, i64 8
-  store i16 %.sroa.3.1.i, ptr %396, align 4
+  store i16 %.sroa.3.0.i, ptr %396, align 4
   %397 = getelementptr inbounds i8, ptr %10, i64 10
-  store i8 %.sroa.5.1.i, ptr %397, align 2
+  store i8 %.sroa.5.0.i, ptr %397, align 2
   %398 = getelementptr inbounds i8, ptr %10, i64 11
   store i8 %107, ptr %398, align 1
   %399 = getelementptr inbounds i8, ptr %10, i64 12
-  store i16 %.1.i, ptr %399, align 4
+  store i16 %.0132.i, ptr %399, align 4
   %400 = trunc i32 %391 to i8
   %401 = getelementptr inbounds i8, ptr %10, i64 14
   store i8 %400, ptr %401, align 2

@@ -459,7 +459,7 @@ select.unfold:                                    ; preds = %127, %109
   br label %159
 
 158:                                              ; preds = %75, %154
-  %.0 = phi i32 [ 0, %154 ], [ -1, %75 ]
+  %.1 = phi i32 [ 0, %154 ], [ -1, %75 ]
   call void @_ZN2cv11VideoWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #6
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %11) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
@@ -499,8 +499,8 @@ select.unfold:                                    ; preds = %127, %109
   br label %166
 
 165:                                              ; preds = %158, %29
-  %.1 = phi i32 [ -1, %29 ], [ %.0, %158 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %29 ], [ %.1, %158 ]
+  ret i32 %.0
 
 166:                                              ; preds = %164, %77
   %.pn46.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn.pn.pn.pn.pn, %164 ], [ %78, %77 ]

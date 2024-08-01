@@ -320,9 +320,9 @@ needBlockCommandLoop.exit:                        ; preds = %dequeueCommand.exit
   ]
 
 76:                                               ; preds = %73, %73
-  %.128.in.i.i = getelementptr inbounds i8, ptr %74, i64 24
-  %.128.i.i = load ptr, ptr %.128.in.i.i, align 8
-  %.not29.i.i = icmp eq ptr %.128.i.i, null
+  %.2.in.i.i = getelementptr inbounds i8, ptr %74, i64 24
+  %.2.i.i = load ptr, ptr %.2.in.i.i, align 8
+  %.not29.i.i = icmp eq ptr %.2.i.i, null
   br i1 %.not29.i.i, label %.thread.i.i, label %78
 
 .thread.i.i:                                      ; preds = %76, %73
@@ -335,7 +335,7 @@ needBlockCommandLoop.exit:                        ; preds = %dequeueCommand.exit
   br label %suspendWithInvokeEnabled.exit.i.i
 
 78:                                               ; preds = %76
-  call void @invoker_enableInvokeRequests(ptr noundef nonnull %.128.i.i) #9
+  call void @invoker_enableInvokeRequests(ptr noundef nonnull %.2.i.i) #9
   %79 = icmp eq i8 %70, 2
   br i1 %79, label %80, label %82
 
@@ -344,7 +344,7 @@ needBlockCommandLoop.exit:                        ; preds = %dequeueCommand.exit
   br label %suspendWithInvokeEnabled.exit.i.i
 
 82:                                               ; preds = %78
-  %83 = call i32 @threadControl_suspendThread(ptr noundef nonnull %.128.i.i, i8 noundef zeroext 0) #9
+  %83 = call i32 @threadControl_suspendThread(ptr noundef nonnull %.2.i.i, i8 noundef zeroext 0) #9
   br label %suspendWithInvokeEnabled.exit.i.i
 
 suspendWithInvokeEnabled.exit.i.i:                ; preds = %82, %80, %._crit_edge.i.i, %66

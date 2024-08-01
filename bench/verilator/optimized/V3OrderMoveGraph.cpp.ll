@@ -3327,7 +3327,7 @@ define linkonce_odr dso_local noundef ptr @_ZN21OrderMoveGraphBuilder16iterateVa
 
 12:                                               ; preds = %.lr.ph, %_ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit
   %.sroa.0.042 = phi ptr [ %.sroa.0.039, %.lr.ph ], [ %.sroa.0.0, %_ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit ]
-  %.041 = phi ptr [ null, %.lr.ph ], [ %.2, %_ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit ]
+  %.041 = phi ptr [ null, %.lr.ph ], [ %.1, %_ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit ]
   %13 = getelementptr inbounds i8, ptr %.sroa.0.042, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not31 = icmp eq ptr %14, null
@@ -3475,7 +3475,7 @@ common.resume:                                    ; preds = %68, %62, %76
   resume { ptr, i32 } %common.resume.op
 
 70:                                               ; preds = %_ZN15OrderMoveVertexC2ER14OrderMoveGraphP16OrderLogicVertexPK10AstSenTree.exit, %56
-  %.1 = phi ptr [ %.041, %56 ], [ %58, %_ZN15OrderMoveVertexC2ER14OrderMoveGraphP16OrderLogicVertexPK10AstSenTree.exit ]
+  %.2 = phi ptr [ %.041, %56 ], [ %58, %_ZN15OrderMoveVertexC2ER14OrderMoveGraphP16OrderLogicVertexPK10AstSenTree.exit ]
   %71 = getelementptr inbounds i8, ptr %21, i64 72
   %72 = load ptr, ptr %71, align 8
   %73 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
@@ -3483,7 +3483,7 @@ common.resume:                                    ; preds = %68, %62, %76
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %73, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %73, ptr noundef %74, ptr noundef nonnull %.1, ptr noundef %72, i32 noundef 1, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %73, ptr noundef %74, ptr noundef nonnull %.2, ptr noundef %72, i32 noundef 1, i1 noundef zeroext false)
           to label %_ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit unwind label %76
 
 76:                                               ; preds = %70
@@ -3492,13 +3492,13 @@ common.resume:                                    ; preds = %68, %62, %76
   br label %common.resume
 
 _ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit: ; preds = %70, %54, %52, %12
-  %.2 = phi ptr [ %.041, %12 ], [ %.041, %52 ], [ %.041, %54 ], [ %.1, %70 ]
+  %.1 = phi ptr [ %.041, %12 ], [ %.041, %52 ], [ %.041, %54 ], [ %.2, %70 ]
   %.sroa.0.0 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.sroa.0.0, null
   br i1 %.not, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %_ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit, %3
-  %.0.lcssa = phi ptr [ null, %3 ], [ %.2, %_ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit ]
+  %.0.lcssa = phi ptr [ null, %3 ], [ %.1, %_ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit ]
   ret ptr %.0.lcssa
 }
 

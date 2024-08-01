@@ -102,9 +102,9 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.end36:                                         ; preds = %for.body, %for.cond, %if.else, %if.else20
   %5 = phi i1 [ true, %if.else20 ], [ %cmp11, %if.else ], [ %tobool29.not, %for.cond ], [ %tobool29.not, %for.body ]
-  %pad.0 = phi i32 [ 0, %if.else20 ], [ %.mux60, %if.else ], [ 1, %for.body ], [ 0, %for.cond ]
-  %pb.0 = phi i8 [ 0, %if.else20 ], [ 0, %if.else ], [ -1, %for.body ], [ 0, %for.cond ]
-  %add = add nsw i32 %pad.0, %0
+  %pad.1 = phi i32 [ 0, %if.else20 ], [ %.mux60, %if.else ], [ 1, %for.body ], [ 0, %for.cond ]
+  %pb.1 = phi i8 [ 0, %if.else20 ], [ 0, %if.else ], [ -1, %for.body ], [ 0, %for.cond ]
+  %add = add nsw i32 %pad.1, %0
   %cmp37 = icmp eq ptr %pp, null
   br i1 %cmp37, label %return, label %if.end40
 
@@ -131,10 +131,10 @@ if.end40:                                         ; preds = %if.end36
 
 if.then42:                                        ; preds = %if.end40.thread93, %if.end40
   %9 = phi ptr [ %6, %if.end40.thread93 ], [ %8, %if.end40 ]
-  %pb.09197 = phi i8 [ -1, %if.end40.thread93 ], [ %pb.0, %if.end40 ]
+  %pb.19197 = phi i8 [ -1, %if.end40.thread93 ], [ %pb.1, %if.end40 ]
   %add9296 = phi i32 [ %add89, %if.end40.thread93 ], [ %add, %if.end40 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %9, i64 1
-  store i8 %pb.09197, ptr %9, align 1
+  store i8 %pb.19197, ptr %9, align 1
   %.pre = load i32, ptr %a, align 8
   br label %if.end43
 
@@ -288,9 +288,9 @@ if.then16:                                        ; preds = %if.else13
   %p.0.idx = zext i1 %or.cond to i64
   %p.0 = getelementptr inbounds i8, ptr %1, i64 %p.0.idx
   %dec = sext i1 %or.cond to i64
-  %len.addr.0 = add nsw i64 %dec, %len
-  %conv25 = trunc i64 %len.addr.0 to i32
-  %sub = shl i64 %len.addr.0, 32
+  %len.addr.1 = add nsw i64 %dec, %len
+  %conv25 = trunc i64 %len.addr.1 to i32
+  %sub = shl i64 %len.addr.1, 32
   %sext61 = add i64 %sub, -4294967296
   %idx.ext = ashr exact i64 %sext61, 32
   %add.ptr26 = getelementptr inbounds i8, ptr %p.0, i64 %idx.ext
@@ -325,9 +325,9 @@ while.end:                                        ; preds = %while.body, %if.the
 
 if.then36:                                        ; preds = %while.end
   store i8 1, ptr %call6, align 1
-  %arrayidx = getelementptr inbounds i8, ptr %call6, i64 %len.addr.0
+  %arrayidx = getelementptr inbounds i8, ptr %call6, i64 %len.addr.1
   store i8 0, ptr %arrayidx, align 1
-  %inc = add nsw i64 %len.addr.0, 1
+  %inc = add nsw i64 %len.addr.1, 1
   br label %if.end68
 
 if.else37:                                        ; preds = %while.end
@@ -357,14 +357,14 @@ if.else53:                                        ; preds = %if.else13
   %p.3.idx = zext i1 %or.cond1 to i64
   %p.3 = getelementptr inbounds i8, ptr %1, i64 %p.3.idx
   %dec63 = sext i1 %or.cond1 to i64
-  %len.addr.1 = add nsw i64 %dec63, %len
-  %sext60 = shl i64 %len.addr.1, 32
+  %len.addr.2 = add nsw i64 %dec63, %len
+  %sext60 = shl i64 %len.addr.2, 32
   %conv66 = ashr exact i64 %sext60, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call6, ptr nonnull align 1 %p.3, i64 %conv66, i1 false)
   br label %if.end68
 
 if.end68:                                         ; preds = %for.body, %if.else37, %if.else53, %if.then36, %if.then11
-  %len.addr.2 = phi i64 [ %inc, %if.then36 ], [ %len.addr.1, %if.else53 ], [ 0, %if.then11 ], [ %len.addr.0, %if.else37 ], [ %len.addr.0, %for.body ]
+  %len.addr.0 = phi i64 [ %inc, %if.then36 ], [ %len.addr.2, %if.else53 ], [ 0, %if.then11 ], [ %len.addr.1, %if.else37 ], [ %len.addr.1, %for.body ]
   %data = getelementptr inbounds i8, ptr %ret.0, i64 8
   %11 = load ptr, ptr %data, align 8
   %cmp69.not = icmp eq ptr %11, null
@@ -376,7 +376,7 @@ if.then71:                                        ; preds = %if.end68
 
 if.end73:                                         ; preds = %if.then71, %if.end68
   store ptr %call6, ptr %data, align 8
-  %conv75 = trunc i64 %len.addr.2 to i32
+  %conv75 = trunc i64 %len.addr.0 to i32
   store i32 %conv75, ptr %ret.0, align 8
   br i1 %cmp, label %if.end79, label %if.then78
 

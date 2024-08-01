@@ -1655,8 +1655,8 @@ if.end24._ZN11ast_manager7inc_refEP3ast.exit.i.i35_crit_edge: ; preds = %if.end2
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i35:        ; preds = %if.end24._ZN11ast_manager7inc_refEP3ast.exit.i.i35_crit_edge, %if.end24.thread48
   %54 = phi i32 [ %inc.i.i31, %if.end24.thread48 ], [ %.pre, %if.end24._ZN11ast_manager7inc_refEP3ast.exit.i.i35_crit_edge ]
-  %bv_f.152 = phi ptr [ %call.i13, %if.end24.thread48 ], [ %52, %if.end24._ZN11ast_manager7inc_refEP3ast.exit.i.i35_crit_edge ]
-  %m_ref_count.i.i.i.i36 = getelementptr inbounds i8, ptr %bv_f.152, i64 8
+  %bv_f.052 = phi ptr [ %call.i13, %if.end24.thread48 ], [ %52, %if.end24._ZN11ast_manager7inc_refEP3ast.exit.i.i35_crit_edge ]
+  %m_ref_count.i.i.i.i36 = getelementptr inbounds i8, ptr %bv_f.052, i64 8
   %inc.i.i.i.i37 = add i32 %54, 1
   store i32 %inc.i.i.i.i37, ptr %m_ref_count.i.i.i.i36, align 4
   br label %return
@@ -3511,7 +3511,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i717:       ; preds = %if.then.i, %if.then
 
 if.then.i.i.i723:                                 ; preds = %if.then292, %if.else291, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit709, %_ZN11ast_manager7inc_refEP3ast.exit.i.i717
   %248 = phi ptr [ null, %if.then292 ], [ null, %_ZN11ast_manager7inc_refEP3ast.exit.i.i717 ], [ null, %if.else291 ], [ %236, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit709 ]
-  %res.0 = phi i32 [ 4, %if.then292 ], [ 4, %_ZN11ast_manager7inc_refEP3ast.exit.i.i717 ], [ 5, %if.else291 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit709 ]
+  %res.1 = phi i32 [ 4, %if.then292 ], [ 4, %_ZN11ast_manager7inc_refEP3ast.exit.i.i717 ], [ 5, %if.else291 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit709 ]
   %m_ref_count.i.i.i.i725 = getelementptr inbounds i8, ptr %call271, i64 8
   %249 = load i32, ptr %m_ref_count.i.i.i.i725, align 4
   %dec.i.i.i.i726 = add i32 %249, -1
@@ -5003,8 +5003,8 @@ cleanup.action764:                                ; preds = %if.else751
   br label %eh.resume
 
 if.end777:                                        ; preds = %if.then2.i.i.i1017, %if.then.i.i.i1012, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit1010, %if.then2.i.i.i827, %if.then.i.i.i822, %invoke.cont344, %if.else300, %if.then2.i.i.i737, %if.then.i.i.i732, %_ZN7obj_refI4expr11ast_managerED2Ev.exit730, %if.then2.i.i.i572, %if.then.i.i.i567, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit565, %if.then2.i.i.i210, %if.then.i.i.i205, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit203, %_ZNK17array_recognizers11is_as_arrayEP9func_decl.exit, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit268, %invoke.cont741, %invoke.cont591, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %res.1 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 0, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit268 ], [ 4, %invoke.cont591 ], [ 4, %invoke.cont741 ], [ 5, %_ZNK17array_recognizers11is_as_arrayEP9func_decl.exit ], [ 4, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit203 ], [ 4, %if.then.i.i.i205 ], [ 4, %if.then2.i.i.i210 ], [ 4, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit565 ], [ 4, %if.then.i.i.i567 ], [ 4, %if.then2.i.i.i572 ], [ %res.0, %_ZN7obj_refI4expr11ast_managerED2Ev.exit730 ], [ %res.0, %if.then.i.i.i732 ], [ %res.0, %if.then2.i.i.i737 ], [ 5, %if.else300 ], [ 4, %invoke.cont344 ], [ 4, %if.then.i.i.i822 ], [ 4, %if.then2.i.i.i827 ], [ 4, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit1010 ], [ 4, %if.then.i.i.i1012 ], [ 4, %if.then2.i.i.i1017 ]
-  ret i32 %res.1
+  %res.0 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 0, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit268 ], [ 4, %invoke.cont591 ], [ 4, %invoke.cont741 ], [ 5, %_ZNK17array_recognizers11is_as_arrayEP9func_decl.exit ], [ 4, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit203 ], [ 4, %if.then.i.i.i205 ], [ 4, %if.then2.i.i.i210 ], [ 4, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit565 ], [ 4, %if.then.i.i.i567 ], [ 4, %if.then2.i.i.i572 ], [ %res.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit730 ], [ %res.1, %if.then.i.i.i732 ], [ %res.1, %if.then2.i.i.i737 ], [ 5, %if.else300 ], [ 4, %invoke.cont344 ], [ 4, %if.then.i.i.i822 ], [ 4, %if.then2.i.i.i827 ], [ 4, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit1010 ], [ 4, %if.then.i.i.i1012 ], [ 4, %if.then2.i.i.i1017 ]
+  ret i32 %res.0
 
 eh.resume:                                        ; preds = %ehcleanup761, %ehcleanup621, %ehcleanup361, %ehcleanup324, %ehcleanup251, %cleanup.action764, %cleanup.action624, %cleanup.action364, %cleanup.action327, %cleanup.action, %ehcleanup749, %ehcleanup600, %ehcleanup447, %lpad339, %ehcleanup299, %ehcleanup235, %ehcleanup71
   %.pn112.pn.pn = phi { ptr, i32 } [ %.pn112.pn, %ehcleanup71 ], [ %.pn106.pn.pn.pn.pn, %ehcleanup235 ], [ %204, %cleanup.action ], [ %203, %ehcleanup251 ], [ %.pn102, %ehcleanup299 ], [ %288, %lpad339 ], [ %273, %cleanup.action327 ], [ %272, %ehcleanup324 ], [ %.pn96.pn.pn, %ehcleanup447 ], [ %.pn91.pn.pn.pn, %ehcleanup600 ], [ %.pn80.pn.pn.pn.pn, %ehcleanup749 ], [ %436, %cleanup.action624 ], [ %435, %ehcleanup621 ], [ %472, %cleanup.action764 ], [ %471, %ehcleanup761 ], [ %302, %cleanup.action364 ], [ %301, %ehcleanup361 ]

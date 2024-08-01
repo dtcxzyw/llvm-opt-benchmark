@@ -1113,7 +1113,7 @@ define internal range(i32 -46, 1) i32 @component_set_addr(ptr noundef %0, ptr no
 .lr.ph159:                                        ; preds = %2, %243
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %243 ], [ 0, %2 ]
   %4 = phi ptr [ %245, %243 ], [ %3, %2 ]
-  %.098157 = phi i1 [ %.3, %243 ], [ false, %2 ]
+  %.098157 = phi i1 [ %.1, %243 ], [ false, %2 ]
   %5 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv162
   %6 = tail call noalias ptr @strdup(ptr noundef nonnull %4) #18
   %7 = icmp eq ptr %6, null
@@ -1244,7 +1244,7 @@ define internal range(i32 -46, 1) i32 @component_set_addr(ptr noundef %0, ptr no
 .lr.ph:                                           ; preds = %68, %240
   %indvars.iv = phi i64 [ %indvars.iv.next, %240 ], [ 0, %68 ]
   %72 = phi ptr [ %242, %240 ], [ %71, %68 ]
-  %.1154 = phi i1 [ %.2, %240 ], [ %.098157, %68 ]
+  %.2154 = phi i1 [ %.3, %240 ], [ %.098157, %68 ]
   %73 = getelementptr inbounds ptr, ptr %63, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
@@ -1580,7 +1580,7 @@ pmix_obj_run_destructors.exit144:                 ; preds = %.lr.ph.i141, %199
   br label %240
 
 240:                                              ; preds = %88, %91, %230
-  %.2 = phi i1 [ %.1154, %88 ], [ %.1154, %91 ], [ true, %230 ]
+  %.3 = phi i1 [ %.2154, %88 ], [ %.2154, %91 ], [ true, %230 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %241 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv.next
   %242 = load ptr, ptr %241, align 8
@@ -1588,13 +1588,13 @@ pmix_obj_run_destructors.exit144:                 ; preds = %.lr.ph.i141, %199
   br i1 %.not121, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %240, %68
-  %.1.lcssa = phi i1 [ %.098157, %68 ], [ %.2, %240 ]
+  %.2.lcssa = phi i1 [ %.098157, %68 ], [ %.3, %240 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %70) #18
   tail call void @free(ptr noundef %6) #18
   br label %243
 
 243:                                              ; preds = %8, %10, %15, %._crit_edge, %66, %59, %46, %36
-  %.3 = phi i1 [ %.098157, %15 ], [ %.098157, %10 ], [ %.098157, %8 ], [ %.098157, %59 ], [ %.098157, %66 ], [ %.1.lcssa, %._crit_edge ], [ %.098157, %36 ], [ %.098157, %46 ]
+  %.1 = phi i1 [ %.098157, %15 ], [ %.098157, %10 ], [ %.098157, %8 ], [ %.098157, %59 ], [ %.098157, %66 ], [ %.2.lcssa, %._crit_edge ], [ %.098157, %36 ], [ %.098157, %46 ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %244 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next163
   %245 = load ptr, ptr %244, align 8
@@ -1602,7 +1602,7 @@ pmix_obj_run_destructors.exit144:                 ; preds = %.lr.ph.i141, %199
   br i1 %.not, label %._crit_edge160.loopexit, label %.lr.ph159, !llvm.loop !13
 
 ._crit_edge160.loopexit:                          ; preds = %243
-  %246 = select i1 %.3, i32 0, i32 -46
+  %246 = select i1 %.1, i32 0, i32 -46
   br label %._crit_edge160
 
 ._crit_edge160:                                   ; preds = %2, %._crit_edge160.loopexit, %193, %212, %210, %76, %78, %83

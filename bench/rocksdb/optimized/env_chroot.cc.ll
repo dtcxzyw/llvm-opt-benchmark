@@ -1790,7 +1790,7 @@ lpad7:                                            ; preds = %call.i.noexc, %invo
   br label %ehcleanup
 
 cleanup:                                          ; preds = %call.i.noexc, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ %call6, %call.i.noexc ]
+  %retval.1 = phi ptr [ null, %if.end ], [ %call6, %call.i.noexc ]
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %chroot_fs, i64 8
   %6 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
@@ -1870,8 +1870,8 @@ ehcleanup:                                        ; preds = %lpad7, %lpad4
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %cleanup, %_ZN7rocksdb6StatusD2Ev.exit
-  %retval.1 = phi ptr [ null, %_ZN7rocksdb6StatusD2Ev.exit ], [ %retval.0, %cleanup ], [ %retval.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %retval.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %retval.0, %if.end8.sink.split.i.i.i.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %_ZN7rocksdb6StatusD2Ev.exit ], [ %retval.1, %cleanup ], [ %retval.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %retval.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %retval.1, %if.end8.sink.split.i.i.i.i ]
+  ret ptr %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb3Env13GetFileSystemEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4

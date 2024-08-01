@@ -98,34 +98,34 @@ define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr nocapture nound
   br label %.preheader137
 
 .preheader137:                                    ; preds = %.preheader137.preheader, %23
-  %.090 = phi ptr [ %22, %23 ], [ %1, %.preheader137.preheader ]
-  %.0 = phi i32 [ %24, %23 ], [ %9, %.preheader137.preheader ]
-  %22 = getelementptr i8, ptr %.090, i64 1
-  %exitcond.not = icmp eq i32 %.0, %21
+  %.191 = phi ptr [ %22, %23 ], [ %1, %.preheader137.preheader ]
+  %.1 = phi i32 [ %24, %23 ], [ %9, %.preheader137.preheader ]
+  %22 = getelementptr i8, ptr %.191, i64 1
+  %exitcond.not = icmp eq i32 %.1, %21
   br i1 %exitcond.not, label %.critedge6, label %23
 
 23:                                               ; preds = %.preheader137
-  %24 = add nsw i32 %.0, 1
+  %24 = add nsw i32 %.1, 1
   %25 = load i8, ptr %22, align 1
   %26 = add i8 %25, -48
   %or.cond125 = icmp ult i8 %26, 10
   br i1 %or.cond125, label %.preheader137, label %.critedge, !llvm.loop !5
 
 .critedge:                                        ; preds = %23, %4, %19, %16
-  %.191 = phi ptr [ %17, %16 ], [ %1, %19 ], [ %1, %4 ], [ %22, %23 ]
+  %.090 = phi ptr [ %17, %16 ], [ %1, %19 ], [ %1, %4 ], [ %22, %23 ]
   %.085 = phi i1 [ false, %16 ], [ true, %19 ], [ true, %4 ], [ false, %23 ]
-  %.1 = phi i32 [ %18, %16 ], [ %9, %19 ], [ %9, %4 ], [ %24, %23 ]
-  %27 = icmp slt i32 %.1, %11
+  %.0 = phi i32 [ %18, %16 ], [ %9, %19 ], [ %9, %4 ], [ %24, %23 ]
+  %27 = icmp slt i32 %.0, %11
   br i1 %27, label %28, label %.critedge2
 
 28:                                               ; preds = %.critedge
-  %29 = load i8, ptr %.191, align 1
+  %29 = load i8, ptr %.090, align 1
   %30 = icmp eq i8 %29, 46
   br i1 %30, label %31, label %.critedge2
 
 31:                                               ; preds = %28
-  %32 = getelementptr i8, ptr %.191, i64 1
-  %33 = add nsw i32 %.1, 1
+  %32 = getelementptr i8, ptr %.090, i64 1
+  %33 = add nsw i32 %.0, 1
   %34 = icmp eq i32 %33, %11
   br i1 %34, label %.critedge6, label %35
 
@@ -136,15 +136,15 @@ define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr nocapture nound
   br i1 %or.cond126, label %.critedge2, label %.preheader136.preheader
 
 .preheader136.preheader:                          ; preds = %35
-  %38 = add i32 %.1, 2
+  %38 = add i32 %.0, 2
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 %38)
   br label %.preheader136
 
 .preheader136:                                    ; preds = %.preheader136.preheader, %42
-  %.292 = phi ptr [ %39, %42 ], [ %32, %.preheader136.preheader ]
-  %.2 = phi i32 [ %40, %42 ], [ %33, %.preheader136.preheader ]
-  %39 = getelementptr i8, ptr %.292, i64 1
-  %40 = add i32 %.2, 1
+  %.393 = phi ptr [ %39, %42 ], [ %32, %.preheader136.preheader ]
+  %.3 = phi i32 [ %40, %42 ], [ %33, %.preheader136.preheader ]
+  %39 = getelementptr i8, ptr %.393, i64 1
+  %40 = add i32 %.3, 1
   %41 = icmp slt i32 %40, %11
   br i1 %41, label %42, label %.critedge6
 
@@ -155,22 +155,22 @@ define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr nocapture nound
   br i1 %or.cond127, label %.preheader136, label %.critedge2, !llvm.loop !7
 
 .critedge2:                                       ; preds = %42, %35, %28, %.critedge
-  %.393 = phi ptr [ %.191, %28 ], [ %.191, %.critedge ], [ %32, %35 ], [ %39, %42 ]
+  %.292 = phi ptr [ %.090, %28 ], [ %.090, %.critedge ], [ %32, %35 ], [ %39, %42 ]
   %.186 = phi i1 [ %.085, %28 ], [ %.085, %.critedge ], [ true, %35 ], [ %.085, %42 ]
-  %.3 = phi i32 [ %.1, %28 ], [ %.1, %.critedge ], [ %33, %35 ], [ %40, %42 ]
-  %45 = icmp slt i32 %.3, %11
+  %.2 = phi i32 [ %.0, %28 ], [ %.0, %.critedge ], [ %33, %35 ], [ %40, %42 ]
+  %45 = icmp slt i32 %.2, %11
   br i1 %45, label %46, label %.critedge4
 
 46:                                               ; preds = %.critedge2
-  %47 = load i8, ptr %.393, align 1
+  %47 = load i8, ptr %.292, align 1
   switch i8 %47, label %.critedge4 [
     i8 101, label %48
     i8 69, label %48
   ]
 
 48:                                               ; preds = %46, %46
-  %49 = getelementptr i8, ptr %.393, i64 1
-  %50 = add nsw i32 %.3, 1
+  %49 = getelementptr i8, ptr %.292, i64 1
+  %50 = add nsw i32 %.2, 1
   %51 = icmp slt i32 %50, %11
   br i1 %51, label %52, label %57
 
@@ -182,32 +182,32 @@ define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr nocapture nound
   ]
 
 54:                                               ; preds = %52, %52
-  %55 = getelementptr i8, ptr %.393, i64 2
-  %56 = add nsw i32 %.3, 2
+  %55 = getelementptr i8, ptr %.292, i64 2
+  %56 = add nsw i32 %.2, 2
   br label %57
 
 57:                                               ; preds = %52, %54, %48
-  %.494 = phi ptr [ %55, %54 ], [ %49, %48 ], [ %49, %52 ]
-  %.4 = phi i32 [ %56, %54 ], [ %50, %48 ], [ %50, %52 ]
-  %58 = icmp eq i32 %.4, %11
+  %.595 = phi ptr [ %55, %54 ], [ %49, %48 ], [ %49, %52 ]
+  %.5 = phi i32 [ %56, %54 ], [ %50, %48 ], [ %50, %52 ]
+  %58 = icmp eq i32 %.5, %11
   br i1 %58, label %.critedge6, label %59
 
 59:                                               ; preds = %57
-  %60 = load i8, ptr %.494, align 1
+  %60 = load i8, ptr %.595, align 1
   %61 = add i8 %60, -58
   %or.cond128 = icmp ult i8 %61, -10
   br i1 %or.cond128, label %.critedge4, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %59
-  %62 = add i32 %.4, 1
+  %62 = add i32 %.5, 1
   %smax157 = tail call i32 @llvm.smax.i32(i32 %11, i32 %62)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %66
-  %.595 = phi ptr [ %63, %66 ], [ %.494, %.preheader.preheader ]
-  %.5 = phi i32 [ %64, %66 ], [ %.4, %.preheader.preheader ]
-  %63 = getelementptr i8, ptr %.595, i64 1
-  %64 = add i32 %.5, 1
+  %.696 = phi ptr [ %63, %66 ], [ %.595, %.preheader.preheader ]
+  %.6 = phi i32 [ %64, %66 ], [ %.5, %.preheader.preheader ]
+  %63 = getelementptr i8, ptr %.696, i64 1
+  %64 = add i32 %.6, 1
   %65 = icmp slt i32 %64, %11
   br i1 %65, label %66, label %.critedge6
 
@@ -218,16 +218,16 @@ define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr nocapture nound
   br i1 %or.cond129, label %.preheader, label %.critedge4, !llvm.loop !8
 
 .critedge4:                                       ; preds = %66, %59, %46, %.critedge2
-  %.696 = phi ptr [ %.393, %.critedge2 ], [ %.393, %46 ], [ %.494, %59 ], [ %63, %66 ]
+  %.494 = phi ptr [ %.292, %.critedge2 ], [ %.292, %46 ], [ %.595, %59 ], [ %63, %66 ]
   %.287 = phi i1 [ %.186, %.critedge2 ], [ %.186, %46 ], [ true, %59 ], [ %.186, %66 ]
-  %.6 = phi i32 [ %.3, %.critedge2 ], [ %.3, %46 ], [ %.4, %59 ], [ %64, %66 ]
-  %69 = icmp slt i32 %.6, %11
+  %.4 = phi i32 [ %.2, %.critedge2 ], [ %.2, %46 ], [ %.5, %59 ], [ %64, %66 ]
+  %69 = icmp slt i32 %.4, %11
   br i1 %69, label %.lr.ph, label %.critedge6
 
 .lr.ph:                                           ; preds = %.critedge4, %.critedge8
-  %.7145 = phi i32 [ %77, %.critedge8 ], [ %.6, %.critedge4 ]
+  %.7145 = phi i32 [ %77, %.critedge8 ], [ %.4, %.critedge4 ]
   %.388144 = phi i1 [ true, %.critedge8 ], [ %.287, %.critedge4 ]
-  %.797143 = phi ptr [ %76, %.critedge8 ], [ %.696, %.critedge4 ]
+  %.797143 = phi ptr [ %76, %.critedge8 ], [ %.494, %.critedge4 ]
   %70 = load i8, ptr %.797143, align 1
   %71 = and i8 %70, -33
   %72 = add i8 %71, -65
@@ -250,9 +250,9 @@ define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr nocapture nound
   br i1 %exitcond158.not, label %.critedge6, label %.lr.ph, !llvm.loop !9
 
 .critedge6:                                       ; preds = %.preheader137, %.preheader136, %.preheader, %.critedge8, %74, %31, %57, %.critedge4
-  %.797.lcssa = phi ptr [ %.696, %.critedge4 ], [ %.494, %57 ], [ %32, %31 ], [ %.797143, %74 ], [ %76, %.critedge8 ], [ %63, %.preheader ], [ %39, %.preheader136 ], [ %22, %.preheader137 ]
+  %.797.lcssa = phi ptr [ %.494, %.critedge4 ], [ %.595, %57 ], [ %32, %31 ], [ %.797143, %74 ], [ %76, %.critedge8 ], [ %63, %.preheader ], [ %39, %.preheader136 ], [ %22, %.preheader137 ]
   %.388.lcssa = phi i1 [ %.287, %.critedge4 ], [ true, %57 ], [ true, %31 ], [ %.388144, %74 ], [ true, %.critedge8 ], [ %.186, %.preheader ], [ %.085, %.preheader136 ], [ false, %.preheader137 ]
-  %.7.lcssa = phi i32 [ %.6, %.critedge4 ], [ %11, %57 ], [ %11, %31 ], [ %.7145, %74 ], [ %11, %.critedge8 ], [ %smax157, %.preheader ], [ %smax, %.preheader136 ], [ %11, %.preheader137 ]
+  %.7.lcssa = phi i32 [ %.4, %.critedge4 ], [ %11, %57 ], [ %11, %31 ], [ %.7145, %74 ], [ %11, %.critedge8 ], [ %smax157, %.preheader ], [ %smax, %.preheader136 ], [ %11, %.preheader137 ]
   %.not123 = icmp eq ptr %3, null
   br i1 %.not123, label %79, label %78
 
@@ -612,8 +612,8 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
 .preheader192.i:                                  ; preds = %98, %.preheader192.preheader.i
   %.0133263.i = phi i32 [ %.1134.i, %98 ], [ 0, %.preheader192.preheader.i ]
   %.0135262.i = phi i32 [ %99, %98 ], [ 1, %.preheader192.preheader.i ]
-  %.1141261.i = phi ptr [ %70, %98 ], [ %65, %.preheader192.preheader.i ]
-  %70 = getelementptr i8, ptr %.1141261.i, i64 1
+  %.2142261.i = phi ptr [ %70, %98 ], [ %65, %.preheader192.preheader.i ]
+  %70 = getelementptr i8, ptr %.2142261.i, i64 1
   %.not168.i = icmp ult ptr %70, %7
   br i1 %.not168.i, label %71, label %json_lex_string.exit.thread
 
@@ -1387,8 +1387,8 @@ thread-pre-split:                                 ; preds = %37
 
 .preheader:                                       ; preds = %16, %thread-pre-split
   %.val.i22 = phi i32 [ %.val.i22.pr, %thread-pre-split ], [ %.val, %16 ]
-  %.0 = phi i32 [ %17, %thread-pre-split ], [ 0, %16 ]
-  %17 = add i32 %.0, 1
+  %.1 = phi i32 [ %17, %thread-pre-split ], [ 0, %16 ]
+  %17 = add i32 %.1, 1
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @nullSemAction, i64 56), align 8
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @nullSemAction, i64 64), align 8
   %20 = icmp eq i32 %.val.i22, 11
@@ -1456,13 +1456,13 @@ parse_array_element.exit:                         ; preds = %33, %32
   br label %lex_expect.exit.thread
 
 lex_expect.exit27:                                ; preds = %parse_array_element.exit, %16
-  %.135 = phi i32 [ 0, %16 ], [ %17, %parse_array_element.exit ]
+  %.035 = phi i32 [ 0, %16 ], [ %17, %parse_array_element.exit ]
   %44 = call i32 @json_lex(ptr noundef nonnull %3)
   %.not21 = icmp eq i32 %44, 0
   br i1 %.not21, label %45, label %lex_expect.exit.thread
 
 45:                                               ; preds = %lex_expect.exit27
-  store i32 %.135, ptr %1, align 4
+  store i32 %.035, ptr %1, align 4
   br label %lex_expect.exit.thread
 
 lex_expect.exit.thread:                           ; preds = %33, %31, %21, %37, %39, %10, %lex_expect.exit27, %lex_expect.exit, %45

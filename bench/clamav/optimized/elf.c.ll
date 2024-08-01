@@ -1804,8 +1804,8 @@ define i32 @cli_elfheader(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   br label %25
 
 25:                                               ; preds = %.thread, %.thread19, %22, %17, %9
-  %.1 = phi i32 [ %12, %9 ], [ %18, %17 ], [ %21, %.thread19 ], [ %24, %22 ], [ %19, %.thread ]
-  ret i32 %.1
+  %.0 = phi i32 [ %12, %9 ], [ %18, %17 ], [ %21, %.thread19 ], [ %24, %22 ], [ %19, %.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

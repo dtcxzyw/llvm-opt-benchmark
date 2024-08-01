@@ -182,7 +182,7 @@ InitPassStats.exit.i:                             ; preds = %76, %73
 
 .lr.ph.i:                                         ; preds = %.outer.i, %.lr.ph.lr.ph.i
   %.in.i = phi i32 [ %45, %.lr.ph.lr.ph.i ], [ %117, %.outer.i ]
-  %.sroa.0.0.ph84.i = phi i32 [ 1, %.lr.ph.lr.ph.i ], [ %.sroa.0.2.i, %.outer.i ]
+  %.sroa.0.0.ph84.i = phi i32 [ 1, %.lr.ph.lr.ph.i ], [ %.sroa.0.1.i, %.outer.i ]
   %.sroa.3.0.ph83.i = phi float [ 1.000000e+01, %.lr.ph.lr.ph.i ], [ %.sroa.3.1.i, %.outer.i ]
   %.sroa.8.0.ph82.i = phi float [ %72, %.lr.ph.lr.ph.i ], [ %.sroa.8.1.i, %.outer.i ]
   %.sroa.13.0.ph81.i = phi float [ %72, %.lr.ph.lr.ph.i ], [ %.sroa.13.1.i, %.outer.i ]
@@ -506,7 +506,7 @@ ComputeNextQ.exit.i:                              ; preds = %250, %248, %244
   %.sroa.13.1.i = phi float [ %.sroa.8.0.ph82.i, %ComputeNextQ.exit.i ], [ %.sroa.13.0.ph81.i, %242 ]
   %.sroa.8.1.i = phi float [ %266, %ComputeNextQ.exit.i ], [ %.sroa.8.0.ph82.i, %242 ]
   %.sroa.3.1.i = phi float [ %261, %ComputeNextQ.exit.i ], [ %.sroa.3.0.ph83.i, %242 ]
-  %.sroa.0.2.i = phi i32 [ 0, %ComputeNextQ.exit.i ], [ %.sroa.0.0.ph84.i, %242 ]
+  %.sroa.0.1.i = phi i32 [ 0, %ComputeNextQ.exit.i ], [ %.sroa.0.0.ph84.i, %242 ]
   %272 = icmp sgt i32 %.in.i, 1
   br i1 %272, label %.lr.ph.i, label %.loopexit66.i, !llvm.loop !12
 
@@ -991,13 +991,13 @@ define internal fastcc i32 @PostLoopFinalize(ptr noundef %0, i32 noundef %1) unn
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.02939 = phi i32 [ %9, %.lr.ph ], [ %15, %10 ]
+  %.139 = phi i32 [ %9, %.lr.ph ], [ %15, %10 ]
   %11 = getelementptr inbounds %struct.VP8BitWriter, ptr %8, i64 %indvars.iv
   %12 = tail call ptr @VP8BitWriterFinish(ptr noundef nonnull %11) #7
   %13 = getelementptr inbounds [8 x %struct.VP8BitWriter], ptr %8, i64 0, i64 %indvars.iv, i32 7
   %14 = load i32, ptr %13, align 8
   %.not34 = icmp eq i32 %14, 0
-  %15 = select i1 %.not34, i32 %.02939, i32 0
+  %15 = select i1 %.not34, i32 %.139, i32 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %5, align 4
   %17 = sext i32 %16 to i64
@@ -1009,7 +1009,7 @@ define internal fastcc i32 @PostLoopFinalize(ptr noundef %0, i32 noundef %1) unn
   br i1 %.not32, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader38, %._crit_edge
-  %.029.lcssa53 = phi i32 [ %.02939, %._crit_edge ], [ %1, %.preheader38 ]
+  %.1.lcssa53 = phi i32 [ %.139, %._crit_edge ], [ %1, %.preheader38 ]
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 128
@@ -1056,7 +1056,7 @@ define internal fastcc i32 @PostLoopFinalize(ptr noundef %0, i32 noundef %1) unn
   br label %36
 
 36:                                               ; preds = %.loopexit, %.thread
-  %.028 = phi i32 [ %.029.lcssa53, %.loopexit ], [ %35, %.thread ]
+  %.028 = phi i32 [ %.1.lcssa53, %.loopexit ], [ %35, %.thread ]
   ret i32 %.028
 }
 
@@ -1183,7 +1183,7 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.080.ph150 = phi i32 [ %11, %.lr.ph.lr.ph ], [ %90, %.outer ]
   %.083.ph149 = phi i32 [ 40, %.lr.ph.lr.ph ], [ %103, %.outer ]
-  %.sroa.0.0.ph148 = phi i32 [ 1, %.lr.ph.lr.ph ], [ %.sroa.0.2, %.outer ]
+  %.sroa.0.0.ph148 = phi i32 [ 1, %.lr.ph.lr.ph ], [ %.sroa.0.1, %.outer ]
   %.sroa.3.0.ph147 = phi float [ 1.000000e+01, %.lr.ph.lr.ph ], [ %.sroa.3.1, %.outer ]
   %.sroa.7.0.ph146 = phi float [ %34, %.lr.ph.lr.ph ], [ %.sroa.7.1, %.outer ]
   %.sroa.12.0.ph145 = phi float [ %34, %.lr.ph.lr.ph ], [ %.sroa.12.1, %.outer ]
@@ -1493,7 +1493,7 @@ ComputeNextQ.exit:                                ; preds = %209, %213, %215
   %.sroa.12.1 = phi float [ %.sroa.12.0.ph145, %207 ], [ %.sroa.7.0.ph146, %ComputeNextQ.exit ]
   %.sroa.7.1 = phi float [ %.sroa.7.0.ph146, %207 ], [ %231, %ComputeNextQ.exit ]
   %.sroa.3.1 = phi float [ %.sroa.3.0.ph147, %207 ], [ %226, %ComputeNextQ.exit ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0.ph148, %207 ], [ 0, %ComputeNextQ.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph148, %207 ], [ 0, %ComputeNextQ.exit ]
   %232 = icmp sgt i32 %.080.ph150, 1
   br i1 %232, label %.lr.ph, label %.loopexit, !llvm.loop !28
 

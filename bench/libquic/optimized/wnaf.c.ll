@@ -191,16 +191,16 @@ if.then40.us.i:                                   ; preds = %if.then37.us.i
 
 if.end50.us.i:                                    ; preds = %if.then40.us.i, %if.then37.us.i
   %and58.us.pre-phi.i = phi i32 [ %.pre.i, %if.then40.us.i ], [ 1, %if.then37.us.i ]
-  %digit.0.us.i = phi i32 [ %spec.select.i, %if.then40.us.i ], [ %window_val.0.us.i, %if.then37.us.i ]
-  %cmp52.not.us.i = icmp sle i32 %digit.0.us.i, %sub51.i
-  %cmp55.not.us.i = icmp sge i32 %digit.0.us.i, %shl.i
+  %digit.1.us.i = phi i32 [ %spec.select.i, %if.then40.us.i ], [ %window_val.0.us.i, %if.then37.us.i ]
+  %cmp52.not.us.i = icmp sle i32 %digit.1.us.i, %sub51.i
+  %cmp55.not.us.i = icmp sge i32 %digit.1.us.i, %shl.i
   %or.cond55.not71.us.i = or i1 %cmp52.not.us.i, %cmp55.not.us.i
   %tobool59.not.us.i = icmp eq i32 %and58.us.pre-phi.i, 0
   %or.cond56.us.i = or i1 %tobool59.not.us.i, %or.cond55.not71.us.i
   br i1 %or.cond56.us.i, label %if.then60.i, label %if.end61.us.i
 
 if.end61.us.i:                                    ; preds = %if.end50.us.i
-  %sub62.us.i = sub nsw i32 %window_val.0.us.i, %digit.0.us.i
+  %sub62.us.i = sub nsw i32 %window_val.0.us.i, %digit.1.us.i
   %cmp63.not.us.i = icmp eq i32 %sub62.us.i, 0
   br i1 %cmp63.not.us.i, label %if.end72.us.i, label %land.lhs.true.us.i
 
@@ -217,8 +217,8 @@ lor.rhs.us.i:                                     ; preds = %while.cond.us.i
 
 if.end72.us.i:                                    ; preds = %lor.rhs.us.i, %land.lhs.true.us.i, %if.end61.us.i, %while.body.us.i
   %window_val.1.us.i = phi i32 [ %sub62.us.i, %land.lhs.true.us.i ], [ 0, %if.end61.us.i ], [ %window_val.0.us.i, %while.body.us.i ], [ 0, %lor.rhs.us.i ]
-  %digit.1.us.i = phi i32 [ %digit.0.us.i, %land.lhs.true.us.i ], [ %digit.0.us.i, %if.end61.us.i ], [ 0, %while.body.us.i ], [ 0, %lor.rhs.us.i ]
-  %conv73.us.i = trunc nsw i32 %digit.1.us.i to i8
+  %digit.0.us.i = phi i32 [ %digit.1.us.i, %land.lhs.true.us.i ], [ %digit.1.us.i, %if.end61.us.i ], [ 0, %while.body.us.i ], [ 0, %lor.rhs.us.i ]
+  %conv73.us.i = trunc nsw i32 %digit.0.us.i to i8
   %inc.us.i = add i64 %j.0.us.i, 1
   %arrayidx74.us.i = getelementptr inbounds i8, ptr %call19.i, i64 %j.0.us.i
   store i8 %conv73.us.i, ptr %arrayidx74.us.i, align 1
@@ -263,9 +263,9 @@ if.then40.i:                                      ; preds = %if.then37.i
 
 if.end50.i:                                       ; preds = %if.then40.i, %if.then37.i
   %and58.pre-phi.i = phi i32 [ %.pre87.i, %if.then40.i ], [ 1, %if.then37.i ]
-  %digit.0.i = phi i32 [ %spec.select75.i, %if.then40.i ], [ %window_val.0.i, %if.then37.i ]
-  %cmp52.not.i = icmp sle i32 %digit.0.i, %sub51.i
-  %cmp55.not.i = icmp sge i32 %digit.0.i, %shl.i
+  %digit.1.i = phi i32 [ %spec.select75.i, %if.then40.i ], [ %window_val.0.i, %if.then37.i ]
+  %cmp52.not.i = icmp sle i32 %digit.1.i, %sub51.i
+  %cmp55.not.i = icmp sge i32 %digit.1.i, %shl.i
   %or.cond55.not71.i = or i1 %cmp52.not.i, %cmp55.not.i
   %tobool59.not.i = icmp eq i32 %and58.pre-phi.i, 0
   %or.cond56.i = or i1 %tobool59.not.i, %or.cond55.not71.i
@@ -276,7 +276,7 @@ if.then60.i:                                      ; preds = %if.end50.i, %if.end
   br label %compute_wNAF.exit
 
 if.end61.i:                                       ; preds = %if.end50.i
-  %sub62.i = sub nsw i32 %window_val.0.i, %digit.0.i
+  %sub62.i = sub nsw i32 %window_val.0.i, %digit.1.i
   %cmp63.not.i = icmp eq i32 %sub62.i, 0
   br i1 %cmp63.not.i, label %if.end72.i, label %land.lhs.true.i
 
@@ -292,8 +292,8 @@ if.then70.i:                                      ; preds = %land.lhs.true.i, %l
 
 if.end72.i:                                       ; preds = %land.lhs.true.i, %if.end61.i, %while.body.i, %lor.rhs.i
   %window_val.1.i = phi i32 [ %sub62.i, %land.lhs.true.i ], [ 0, %if.end61.i ], [ %window_val.0.i, %while.body.i ], [ 0, %lor.rhs.i ]
-  %digit.1.i = phi i32 [ %digit.0.i, %land.lhs.true.i ], [ %digit.0.i, %if.end61.i ], [ 0, %while.body.i ], [ 0, %lor.rhs.i ]
-  %7 = trunc i32 %digit.1.i to i8
+  %digit.0.i = phi i32 [ %digit.1.i, %land.lhs.true.i ], [ %digit.1.i, %if.end61.i ], [ 0, %while.body.i ], [ 0, %lor.rhs.i ]
+  %7 = trunc i32 %digit.0.i to i8
   %conv73.i = sub i8 0, %7
   %inc.i = add i64 %j.0.i, 1
   %arrayidx74.i = getelementptr inbounds i8, ptr %call19.i, i64 %j.0.i

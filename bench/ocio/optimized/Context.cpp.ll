@@ -4085,10 +4085,10 @@ ehcleanup198:                                     ; preds = %lpad91.loopexit, %l
   br label %ehcleanup202
 
 cleanup201:                                       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %invoke.cont64, %if.end
-  %retval.2 = phi ptr [ %call39, %if.end ], [ %call67, %invoke.cont64 ], [ %call164, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %retval.0 = phi ptr [ %call39, %if.end ], [ %call67, %invoke.cont64 ], [ %call164, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %resolvedFilename) #19
   %call1.i.i.i129 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_resultsCacheMutex) #19
-  ret ptr %retval.2
+  ret ptr %retval.0
 
 ehcleanup202:                                     ; preds = %ehcleanup198, %ehcleanup88, %ehcleanup68, %lpad7
   %.pn27 = phi { ptr, i32 } [ %17, %lpad7 ], [ %.pn25, %ehcleanup68 ], [ %.pn20.pn, %ehcleanup88 ], [ %.pn16.pn.pn, %ehcleanup198 ]

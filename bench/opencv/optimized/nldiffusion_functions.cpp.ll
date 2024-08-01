@@ -1586,7 +1586,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %28, %31
 
 48:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit52, %87
   %49 = phi i1 [ true, %_ZNK2cv11_InputArray6getMatEi.exit52 ], [ false, %87 ]
-  %.sroa.0.080 = phi ptr [ null, %_ZNK2cv11_InputArray6getMatEi.exit52 ], [ %.sroa.0.1, %87 ]
+  %.sroa.0.080 = phi ptr [ null, %_ZNK2cv11_InputArray6getMatEi.exit52 ], [ %.sroa.0.3, %87 ]
   %.sroa.19.079 = phi ptr [ null, %_ZNK2cv11_InputArray6getMatEi.exit52 ], [ %.sroa.19.1, %87 ]
   %.sroa.13.078 = phi ptr [ null, %_ZNK2cv11_InputArray6getMatEi.exit52 ], [ %.sroa.13.1, %87 ]
   %. = select i1 %49, ptr %7, ptr %8
@@ -1662,7 +1662,7 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit82: ; preds = %61
 _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit82, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i, %.noexc57, %60
   %.sroa.13.1 = phi ptr [ %59, %.noexc57 ], [ %59, %60 ], [ %.sroa.13.078, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i ], [ %76, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit ], [ %77, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit82 ]
   %.sroa.19.1 = phi ptr [ %59, %.noexc57 ], [ %59, %60 ], [ %.sroa.19.079, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i ], [ %.sroa.19.079, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit ], [ %.sroa.19.079, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit82 ]
-  %.sroa.0.1 = phi ptr [ %58, %.noexc57 ], [ %58, %60 ], [ %.sroa.0.080, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i ], [ %.sroa.0.080, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit ], [ %.sroa.0.080, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit82 ]
+  %.sroa.0.3 = phi ptr [ %58, %.noexc57 ], [ %58, %60 ], [ %.sroa.0.080, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i ], [ %.sroa.0.080, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit ], [ %.sroa.0.080, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit82 ]
   switch i32 %50, label %83 [
     i32 0, label %.sink.split
     i32 1, label %80
@@ -1674,7 +1674,7 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   br label %101
 
 .loopexit:                                        ; preds = %83, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.0.2.ph = phi ptr [ %.sroa.0.080, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %.sroa.0.1, %83 ]
+  %.sroa.0.1.ph = phi ptr [ %.sroa.0.080, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %.sroa.0.3, %83 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -1691,10 +1691,10 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   %.sink97 = phi float [ -1.000000e+00, %80 ], [ %35, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit ]
   %.sink95 = phi float [ 0.000000e+00, %80 ], [ %42, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit ]
   %.sink = phi float [ 1.000000e+00, %80 ], [ %35, %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit ]
-  store float %.sink97, ptr %.sroa.0.1, align 4
-  %81 = getelementptr inbounds float, ptr %.sroa.0.1, i64 %40
+  store float %.sink97, ptr %.sroa.0.3, align 4
+  %81 = getelementptr inbounds float, ptr %.sroa.0.3, i64 %40
   store float %.sink95, ptr %81, align 4
-  %82 = getelementptr inbounds float, ptr %.sroa.0.1, i64 %41
+  %82 = getelementptr inbounds float, ptr %.sroa.0.3, i64 %41
   store float %.sink, ptr %82, align 4
   br label %83
 
@@ -1705,7 +1705,7 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   %..sroa.sel73.v.sroa.sel.v.sroa.sel.v = select i1 %49, ptr %7, ptr %8
   %..sroa.sel73.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel73.v.sroa.sel.v.sroa.sel.v, i64 12
   %85 = load i32, ptr %..sroa.sel73.v.sroa.sel.v.sroa.sel, align 4
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef %84, i32 noundef %85, i32 noundef 5, ptr noundef nonnull %.sroa.0.1, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef %84, i32 noundef %85, i32 noundef 5, ptr noundef nonnull %.sroa.0.3, i64 noundef 0)
           to label %86 unwind label %.loopexit
 
 86:                                               ; preds = %83
@@ -1726,11 +1726,11 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   br label %99
 
 90:                                               ; preds = %87
-  %.not.i.i.i = icmp eq ptr %.sroa.0.1, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %91
 
 91:                                               ; preds = %90
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3) #20
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %90, %91
@@ -1759,13 +1759,13 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %92, %95
   ret void
 
 99:                                               ; preds = %.loopexit, %.loopexit.split-lp, %88
-  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %88 ], [ %.sroa.0.2.ph, %.loopexit ], [ %.sroa.0.080, %.loopexit.split-lp ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %88 ], [ %.sroa.0.1.ph, %.loopexit ], [ %.sroa.0.080, %.loopexit.split-lp ]
   %.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i54 = icmp eq ptr %.sroa.0.3, null
+  %.not.i.i.i54 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i54, label %_ZNSt6vectorIfSaIfEED2Ev.exit55, label %100
 
 100:                                              ; preds = %99
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #20
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit55
 
 _ZNSt6vectorIfSaIfEED2Ev.exit55:                  ; preds = %99, %100

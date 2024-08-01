@@ -2022,7 +2022,7 @@ __key_link_begin.exit:                            ; preds = %24
   br i1 %42, label %__key_link_begin.exit.thread, label %__key_link_begin.exit.thread11
 
 __key_link_begin.exit.thread11:                   ; preds = %28, %32, %__key_link_begin.exit
-  %.013 = phi ptr [ null, %__key_link_begin.exit ], [ %26, %32 ], [ %26, %28 ]
+  %.113 = phi ptr [ null, %__key_link_begin.exit ], [ %26, %32 ], [ %26, %28 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 208
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
@@ -2100,12 +2100,12 @@ __key_link_begin.exit.thread11:                   ; preds = %28, %32, %__key_lin
   %85 = or i64 %84, 2
   %86 = inttoptr i64 %85 to ptr
   %87 = select i1 %83, ptr %86, ptr %1
-  call void @assoc_array_insert_set_object(ptr noundef %.013, ptr noundef %87) #20
-  call void @assoc_array_apply_edit(ptr noundef %.013) #20
+  call void @assoc_array_insert_set_object(ptr noundef %.113, ptr noundef %87) #20
+  call void @assoc_array_apply_edit(ptr noundef %.113) #20
   br label %__key_link_begin.exit.thread
 
 __key_link_begin.exit.thread:                     ; preds = %58, %49, %19, %39, %81, %__key_link_begin.exit
-  %.1 = phi ptr [ null, %__key_link_begin.exit ], [ null, %81 ], [ null, %39 ], [ null, %19 ], [ %.013, %49 ], [ %.013, %58 ]
+  %.0 = phi ptr [ null, %__key_link_begin.exit ], [ null, %81 ], [ null, %39 ], [ null, %19 ], [ %.113, %49 ], [ %.113, %58 ]
   %88 = phi i32 [ %41, %__key_link_begin.exit ], [ 0, %81 ], [ %37, %39 ], [ -128, %19 ], [ %54, %49 ], [ %71, %58 ]
   %89 = load ptr, ptr %10, align 8
   %90 = icmp eq ptr %89, null
@@ -2117,11 +2117,11 @@ __key_link_begin.exit.thread:                     ; preds = %58, %49, %19, %39, 
   unreachable
 
 92:                                               ; preds = %__key_link_begin.exit.thread
-  %93 = icmp eq ptr %.1, null
+  %93 = icmp eq ptr %.0, null
   br i1 %93, label %105, label %94
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %.1, i64 56
+  %95 = getelementptr inbounds i8, ptr %.0, i64 56
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %104
@@ -2135,7 +2135,7 @@ __key_link_begin.exit.thread:                     ; preds = %58, %49, %19, %39, 
   br label %104
 
 104:                                              ; preds = %98, %94
-  call void @assoc_array_cancel_edit(ptr noundef nonnull %.1) #20
+  call void @assoc_array_cancel_edit(ptr noundef nonnull %.0) #20
   br label %105
 
 105:                                              ; preds = %104, %92
@@ -2301,8 +2301,8 @@ __key_link_begin.exit:                            ; preds = %47
   br i1 %65, label %__key_link_begin.exit.thread, label %__key_link_begin.exit.thread16
 
 __key_link_begin.exit.thread16:                   ; preds = %51, %55, %__key_link_begin.exit
-  %.018 = phi ptr [ null, %__key_link_begin.exit ], [ %49, %55 ], [ %49, %51 ]
-  %66 = getelementptr inbounds i8, ptr %.018, i64 56
+  %.118 = phi ptr [ null, %__key_link_begin.exit ], [ %49, %55 ], [ %49, %51 ]
+  %66 = getelementptr inbounds i8, ptr %.118, i64 56
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   %69 = and i32 %3, 1
@@ -2397,12 +2397,12 @@ __key_link_begin.exit.thread16:                   ; preds = %51, %55, %__key_lin
   %122 = or i64 %121, 2
   %123 = inttoptr i64 %122 to ptr
   %124 = select i1 %120, ptr %123, ptr %0
-  call void @assoc_array_insert_set_object(ptr noundef %.018, ptr noundef %124) #20
-  call void @assoc_array_apply_edit(ptr noundef %.018) #20
+  call void @assoc_array_insert_set_object(ptr noundef %.118, ptr noundef %124) #20
+  call void @assoc_array_apply_edit(ptr noundef %.118) #20
   br label %__key_link_begin.exit.thread
 
 __key_link_begin.exit.thread:                     ; preds = %42, %62, %118, %100, %79, %__key_link_begin.exit.thread16, %__key_link_begin.exit, %26
-  %.1 = phi ptr [ null, %26 ], [ null, %__key_link_begin.exit ], [ %.018, %79 ], [ %.018, %100 ], [ null, %118 ], [ %.018, %__key_link_begin.exit.thread16 ], [ null, %62 ], [ null, %42 ]
+  %.0 = phi ptr [ null, %26 ], [ null, %__key_link_begin.exit ], [ %.118, %79 ], [ %.118, %100 ], [ null, %118 ], [ %.118, %__key_link_begin.exit.thread16 ], [ null, %62 ], [ null, %42 ]
   %125 = phi ptr [ %34, %26 ], [ %34, %__key_link_begin.exit ], [ %34, %79 ], [ %34, %100 ], [ null, %118 ], [ %34, %__key_link_begin.exit.thread16 ], [ %34, %62 ], [ %34, %42 ]
   %126 = phi i32 [ %35, %26 ], [ %64, %__key_link_begin.exit ], [ %84, %79 ], [ %102, %100 ], [ %104, %118 ], [ -17, %__key_link_begin.exit.thread16 ], [ %60, %62 ], [ -128, %42 ]
   %127 = load ptr, ptr %22, align 8
@@ -2415,11 +2415,11 @@ __key_link_begin.exit.thread:                     ; preds = %42, %62, %118, %100
   unreachable
 
 130:                                              ; preds = %__key_link_begin.exit.thread
-  %131 = icmp eq ptr %.1, null
+  %131 = icmp eq ptr %.0, null
   br i1 %131, label %143, label %132
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %.1, i64 56
+  %133 = getelementptr inbounds i8, ptr %.0, i64 56
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %136, label %142
@@ -2433,7 +2433,7 @@ __key_link_begin.exit.thread:                     ; preds = %42, %62, %118, %100
   br label %142
 
 142:                                              ; preds = %136, %132
-  call void @assoc_array_cancel_edit(ptr noundef nonnull %.1) #20
+  call void @assoc_array_cancel_edit(ptr noundef nonnull %.0) #20
   br label %143
 
 143:                                              ; preds = %142, %130

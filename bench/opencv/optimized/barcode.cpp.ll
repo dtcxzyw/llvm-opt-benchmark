@@ -258,8 +258,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 48:                                               ; preds = %46, %44
   %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
-  %.013 = extractvalue { ptr, i32 } %.pn, 1
-  %.016 = extractvalue { ptr, i32 } %.pn, 0
+  %.215 = extractvalue { ptr, i32 } %.pn, 1
+  %.218 = extractvalue { ptr, i32 } %.pn, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
   br label %226
 
@@ -276,8 +276,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 53:                                               ; preds = %51, %49
   %.pn35 = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
-  %.114 = extractvalue { ptr, i32 } %.pn35, 1
-  %.117 = extractvalue { ptr, i32 } %.pn35, 0
+  %.4 = extractvalue { ptr, i32 } %.pn35, 1
+  %.420 = extractvalue { ptr, i32 } %.pn35, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #17
   br label %226
 
@@ -382,8 +382,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 72:                                               ; preds = %.body, %70
   %.pn37 = phi { ptr, i32 } [ %60, %.body ], [ %71, %70 ]
-  %.215 = extractvalue { ptr, i32 } %.pn37, 1
-  %.218 = extractvalue { ptr, i32 } %.pn37, 0
+  %.5 = extractvalue { ptr, i32 } %.pn37, 1
+  %.521 = extractvalue { ptr, i32 } %.pn37, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #17
   br label %226
 
@@ -394,8 +394,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 75:                                               ; preds = %.body51, %73
   %.pn39 = phi { ptr, i32 } [ %62, %.body51 ], [ %74, %73 ]
-  %.3 = extractvalue { ptr, i32 } %.pn39, 1
-  %.319 = extractvalue { ptr, i32 } %.pn39, 0
+  %.6 = extractvalue { ptr, i32 } %.pn39, 1
+  %.622 = extractvalue { ptr, i32 } %.pn39, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #17
   br label %224
 
@@ -406,8 +406,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 78:                                               ; preds = %.body54, %76
   %.pn41 = phi { ptr, i32 } [ %64, %.body54 ], [ %77, %76 ]
-  %.4 = extractvalue { ptr, i32 } %.pn41, 1
-  %.420 = extractvalue { ptr, i32 } %.pn41, 0
+  %.8 = extractvalue { ptr, i32 } %.pn41, 1
+  %.824 = extractvalue { ptr, i32 } %.pn41, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #17
   br label %223
 
@@ -418,8 +418,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 81:                                               ; preds = %.body57, %79
   %.pn43 = phi { ptr, i32 } [ %66, %.body57 ], [ %80, %79 ]
-  %.5 = extractvalue { ptr, i32 } %.pn43, 1
-  %.521 = extractvalue { ptr, i32 } %.pn43, 0
+  %.10 = extractvalue { ptr, i32 } %.pn43, 1
+  %.1026 = extractvalue { ptr, i32 } %.pn43, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #17
   br label %222
 
@@ -694,8 +694,8 @@ _ZN2cv3PtrINS_7barcode15BarcodeDetectorEED2Ev.exit: ; preds = %159, %171, %_ZNSt
 
 187:                                              ; preds = %186, %177
   %.pn45.pn.pn = phi { ptr, i32 } [ %.pn45.pn, %186 ], [ %178, %177 ]
-  %.8 = extractvalue { ptr, i32 } %.pn45.pn.pn, 1
-  %.824 = extractvalue { ptr, i32 } %.pn45.pn.pn, 0
+  %.13 = extractvalue { ptr, i32 } %.pn45.pn.pn, 1
+  %.1329 = extractvalue { ptr, i32 } %.pn45.pn.pn, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #17
   br label %219
 
@@ -758,18 +758,18 @@ _ZN2cv3PtrINS_7barcode15BarcodeDetectorEED2Ev.exit: ; preds = %159, %171, %_ZNSt
           to label %218 unwind label %210
 
 218:                                              ; preds = %216, %214, %205
-  %.0 = phi i32 [ -1, %205 ], [ %215, %214 ], [ %217, %216 ]
+  %.2 = phi i32 [ -1, %205 ], [ %215, %214 ], [ %217, %216 ]
   call void @_ZN6TheAppD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %23) #17
   br label %220
 
 219:                                              ; preds = %206, %210, %.body60, %187
-  %.925 = phi ptr [ %212, %210 ], [ %208, %206 ], [ %190, %.body60 ], [ %.824, %187 ]
-  %.9 = phi i32 [ %213, %210 ], [ %209, %206 ], [ %191, %.body60 ], [ %.8, %187 ]
+  %.1632 = phi ptr [ %212, %210 ], [ %208, %206 ], [ %190, %.body60 ], [ %.1329, %187 ]
+  %.16 = phi i32 [ %213, %210 ], [ %209, %206 ], [ %191, %.body60 ], [ %.13, %187 ]
   call void @_ZN6TheAppD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %23) #17
   br label %221
 
 220:                                              ; preds = %69, %218
-  %.1 = phi i32 [ %.0, %218 ], [ -1, %69 ]
+  %.1 = phi i32 [ %.2, %218 ], [ -1, %69 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
@@ -777,52 +777,52 @@ _ZN2cv3PtrINS_7barcode15BarcodeDetectorEED2Ev.exit: ; preds = %159, %171, %_ZNSt
   br label %225
 
 221:                                              ; preds = %219, %82
-  %.1026 = phi ptr [ %.925, %219 ], [ %84, %82 ]
-  %.10 = phi i32 [ %.9, %219 ], [ %85, %82 ]
+  %.1228 = phi ptr [ %.1632, %219 ], [ %84, %82 ]
+  %.12 = phi i32 [ %.16, %219 ], [ %85, %82 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
   br label %222
 
 222:                                              ; preds = %221, %81
-  %.1127 = phi ptr [ %.1026, %221 ], [ %.521, %81 ]
-  %.11 = phi i32 [ %.10, %221 ], [ %.5, %81 ]
+  %.1127 = phi ptr [ %.1228, %221 ], [ %.1026, %81 ]
+  %.11 = phi i32 [ %.12, %221 ], [ %.10, %81 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
   br label %223
 
 223:                                              ; preds = %222, %78
-  %.1228 = phi ptr [ %.1127, %222 ], [ %.420, %78 ]
-  %.12 = phi i32 [ %.11, %222 ], [ %.4, %78 ]
+  %.925 = phi ptr [ %.1127, %222 ], [ %.824, %78 ]
+  %.9 = phi i32 [ %.11, %222 ], [ %.8, %78 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
   br label %224
 
 224:                                              ; preds = %223, %75
-  %.1329 = phi ptr [ %.1228, %223 ], [ %.319, %75 ]
-  %.13 = phi i32 [ %.12, %223 ], [ %.3, %75 ]
+  %.723 = phi ptr [ %.925, %223 ], [ %.622, %75 ]
+  %.7 = phi i32 [ %.9, %223 ], [ %.6, %75 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   br label %226
 
 225:                                              ; preds = %35, %220
-  %.2 = phi i32 [ %.1, %220 ], [ 0, %35 ]
+  %.0 = phi i32 [ %.1, %220 ], [ 0, %35 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  ret i32 %.2
+  ret i32 %.0
 
 226:                                              ; preds = %224, %72, %54, %53, %48
-  %.1430 = phi ptr [ %56, %54 ], [ %.1329, %224 ], [ %.218, %72 ], [ %.117, %53 ], [ %.016, %48 ]
-  %.14 = phi i32 [ %57, %54 ], [ %.13, %224 ], [ %.215, %72 ], [ %.114, %53 ], [ %.013, %48 ]
+  %.319 = phi ptr [ %56, %54 ], [ %.723, %224 ], [ %.521, %72 ], [ %.420, %53 ], [ %.218, %48 ]
+  %.3 = phi i32 [ %57, %54 ], [ %.7, %224 ], [ %.5, %72 ], [ %.4, %53 ], [ %.215, %48 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   br label %227
 
 227:                                              ; preds = %226, %40
-  %.1531 = phi ptr [ %.1430, %226 ], [ %42, %40 ]
-  %.15 = phi i32 [ %.14, %226 ], [ %43, %40 ]
+  %.117 = phi ptr [ %.319, %226 ], [ %42, %40 ]
+  %.114 = phi i32 [ %.3, %226 ], [ %43, %40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %228
 
 228:                                              ; preds = %227, %36
-  %.1632 = phi ptr [ %.1531, %227 ], [ %38, %36 ]
-  %.16 = phi i32 [ %.15, %227 ], [ %39, %36 ]
-  %229 = insertvalue { ptr, i32 } poison, ptr %.1632, 0
-  %230 = insertvalue { ptr, i32 } %229, i32 %.16, 1
+  %.016 = phi ptr [ %.117, %227 ], [ %38, %36 ]
+  %.013 = phi i32 [ %.114, %227 ], [ %39, %36 ]
+  %229 = insertvalue { ptr, i32 } poison, ptr %.016, 0
+  %230 = insertvalue { ptr, i32 } %229, i32 %.013, 1
   resume { ptr, i32 } %230
 
 231:                                              ; preds = %206

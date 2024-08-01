@@ -52,7 +52,7 @@ for.body.lr.ph:                                   ; preds = %if.end11
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc144.us
   %indvars.iv232 = phi i64 [ %indvars.iv.next233, %for.inc144.us ], [ 0, %for.body.lr.ph ]
   %j.3182.us = phi i32 [ %inc145.us, %for.inc144.us ], [ 0, %for.body.lr.ph ]
-  %destLength.2181.us = phi i32 [ %destLength.3.us, %for.inc144.us ], [ 0, %for.body.lr.ph ]
+  %destLength.3181.us = phi i32 [ %destLength.4.us, %for.inc144.us ], [ 0, %for.body.lr.ph ]
   %idxprom75.us = sext i32 %j.3182.us to i64
   %arrayidx76.us = getelementptr inbounds i16, ptr %src, i64 %idxprom75.us
   %1 = load i16, ptr %arrayidx76.us, align 2
@@ -100,21 +100,21 @@ if.end139.us:                                     ; preds = %if.then129.us, %lan
 if.then79.us:                                     ; preds = %for.body.us
   %arrayidx82.us = getelementptr inbounds [1000 x i32], ptr %cpBuffer, i64 0, i64 %indvars.iv232
   store i32 0, ptr %arrayidx82.us, align 4
-  %cmp83.us = icmp slt i32 %destLength.2181.us, %destCapacity
+  %cmp83.us = icmp slt i32 %destLength.3181.us, %destCapacity
   br i1 %cmp83.us, label %if.then84.us, label %if.end98.us
 
 if.then84.us:                                     ; preds = %if.then79.us
-  %idxprom96.us = sext i32 %destLength.2181.us to i64
+  %idxprom96.us = sext i32 %destLength.3181.us to i64
   %arrayidx97.us = getelementptr inbounds i16, ptr %dest, i64 %idxprom96.us
   store i16 %1, ptr %arrayidx97.us, align 2
   br label %if.end98.us
 
 if.end98.us:                                      ; preds = %if.then84.us, %if.then79.us
-  %inc99.us = add nsw i32 %destLength.2181.us, 1
+  %inc99.us = add nsw i32 %destLength.3181.us, 1
   br label %for.inc144.us
 
 for.inc144.us:                                    ; preds = %if.end98.us, %if.end139.us
-  %destLength.3.us = phi i32 [ %inc99.us, %if.end98.us ], [ %destLength.2181.us, %if.end139.us ]
+  %destLength.4.us = phi i32 [ %inc99.us, %if.end98.us ], [ %destLength.3181.us, %if.end139.us ]
   %j.5.us = phi i32 [ %j.3182.us, %if.end98.us ], [ %j.4.us, %if.end139.us ]
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %inc145.us = add nsw i32 %j.5.us, 1
@@ -253,7 +253,7 @@ for.inc:                                          ; preds = %if.end36, %if.end66
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc144
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc144 ], [ 0, %for.body.lr.ph ]
   %j.3182 = phi i32 [ %inc145, %for.inc144 ], [ 0, %for.body.lr.ph ]
-  %destLength.2181 = phi i32 [ %destLength.3, %for.inc144 ], [ 0, %for.body.lr.ph ]
+  %destLength.3181 = phi i32 [ %destLength.4, %for.inc144 ], [ 0, %for.body.lr.ph ]
   %idxprom75 = sext i32 %j.3182 to i64
   %arrayidx76 = getelementptr inbounds i16, ptr %src, i64 %idxprom75
   %13 = load i16, ptr %arrayidx76, align 2
@@ -264,7 +264,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then79:                                        ; preds = %for.body
   %arrayidx82 = getelementptr inbounds [1000 x i32], ptr %cpBuffer, i64 0, i64 %indvars.iv
   store i32 0, ptr %arrayidx82, align 4
-  %cmp83 = icmp slt i32 %destLength.2181, %destCapacity
+  %cmp83 = icmp slt i32 %destLength.3181, %destCapacity
   br i1 %cmp83, label %if.then84, label %if.end98
 
 if.then84:                                        ; preds = %if.then79
@@ -290,13 +290,13 @@ if.else.i145:                                     ; preds = %if.then84
 
 cond.end93:                                       ; preds = %if.else.i145, %if.then.i140
   %cond94 = phi i16 [ %spec.select.i143, %if.then.i140 ], [ %spec.select8.i147, %if.else.i145 ]
-  %idxprom96 = sext i32 %destLength.2181 to i64
+  %idxprom96 = sext i32 %destLength.3181 to i64
   %arrayidx97 = getelementptr inbounds i16, ptr %dest, i64 %idxprom96
   store i16 %cond94, ptr %arrayidx97, align 2
   br label %if.end98
 
 if.end98:                                         ; preds = %cond.end93, %if.then79
-  %inc99 = add nsw i32 %destLength.2181, 1
+  %inc99 = add nsw i32 %destLength.3181, 1
   br label %for.inc144
 
 land.end106.thread:                               ; preds = %for.body
@@ -347,7 +347,7 @@ if.end139:                                        ; preds = %land.end106.thread,
   br label %for.inc144
 
 for.inc144:                                       ; preds = %if.end98, %if.end139
-  %destLength.3 = phi i32 [ %inc99, %if.end98 ], [ %destLength.2181, %if.end139 ]
+  %destLength.4 = phi i32 [ %inc99, %if.end98 ], [ %destLength.3181, %if.end139 ]
   %j.5 = phi i32 [ %j.3182, %if.end98 ], [ %j.4, %if.end139 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc145 = add nsw i32 %j.5, 1
@@ -356,28 +356,28 @@ for.inc144:                                       ; preds = %if.end98, %if.end13
 
 if.end147:                                        ; preds = %for.inc, %for.inc144, %for.inc144.us
   %indvars.iv.next.lcssa.sink = phi i64 [ %indvars.iv.next233, %for.inc144.us ], [ %indvars.iv.next, %for.inc144 ], [ %indvars.iv.next236, %for.inc ]
-  %destLength.4 = phi i32 [ %destLength.3.us, %for.inc144.us ], [ %destLength.3, %for.inc144 ], [ %destLength.1, %for.inc ]
+  %destLength.2 = phi i32 [ %destLength.4.us, %for.inc144.us ], [ %destLength.4, %for.inc144 ], [ %destLength.1, %for.inc ]
   %20 = trunc nuw i64 %indvars.iv.next.lcssa.sink to i32
-  %cmp148 = icmp sgt i32 %destLength.4, 0
+  %cmp148 = icmp sgt i32 %destLength.2, 0
   br i1 %cmp148, label %if.then149, label %if.end156
 
 if.then149:                                       ; preds = %if.end147
-  %cmp150 = icmp slt i32 %destLength.4, %destCapacity
+  %cmp150 = icmp slt i32 %destLength.2, %destCapacity
   br i1 %cmp150, label %if.then151, label %if.end154
 
 if.then151:                                       ; preds = %if.then149
-  %idxprom152 = zext nneg i32 %destLength.4 to i64
+  %idxprom152 = zext nneg i32 %destLength.2 to i64
   %arrayidx153 = getelementptr inbounds i16, ptr %dest, i64 %idxprom152
   store i16 45, ptr %arrayidx153, align 2
   br label %if.end154
 
 if.end154:                                        ; preds = %if.then151, %if.then149
-  %inc155 = add nuw nsw i32 %destLength.4, 1
+  %inc155 = add nuw nsw i32 %destLength.2, 1
   br label %if.end156
 
 if.end156:                                        ; preds = %if.end154, %if.end147
-  %destLength.5 = phi i32 [ %inc155, %if.end154 ], [ %destLength.4, %if.end147 ]
-  %cmp158221 = icmp slt i32 %destLength.4, %20
+  %destLength.5 = phi i32 [ %inc155, %if.end154 ], [ %destLength.2, %if.end147 ]
+  %cmp158221 = icmp slt i32 %destLength.2, %20
   br i1 %cmp158221, label %for.cond160.preheader.lr.ph, label %for.end250
 
 for.cond160.preheader.lr.ph:                      ; preds = %if.end156
@@ -389,7 +389,7 @@ for.cond160.preheader.lr.ph:                      ; preds = %if.end156
 for.cond160.preheader:                            ; preds = %for.cond160.preheader.lr.ph, %for.end247
   %bias.0226 = phi i32 [ 72, %for.cond160.preheader.lr.ph ], [ %bias.2, %for.end247 ]
   %destLength.6225 = phi i32 [ %destLength.5, %for.cond160.preheader.lr.ph ], [ %destLength.9, %for.end247 ]
-  %handledCPCount.0224 = phi i32 [ %destLength.4, %for.cond160.preheader.lr.ph ], [ %handledCPCount.2, %for.end247 ]
+  %handledCPCount.0224 = phi i32 [ %destLength.2, %for.cond160.preheader.lr.ph ], [ %handledCPCount.2, %for.end247 ]
   %delta.0223 = phi i32 [ 0, %for.cond160.preheader.lr.ph ], [ %inc248, %for.end247 ]
   %n.2222 = phi i32 [ 128, %for.cond160.preheader.lr.ph ], [ %inc249, %for.end247 ]
   br label %for.body162
@@ -537,7 +537,7 @@ _ZL12digitToBasicia.exit161:                      ; preds = %if.then1.i, %if.els
 if.end236:                                        ; preds = %_ZL12digitToBasicia.exit161, %for.end225
   %inc237 = add nsw i32 %destLength.8.lcssa, 1
   %add238 = add nsw i32 %handledCPCount.1213, 1
-  %cmp239.not = icmp eq i32 %handledCPCount.1213, %destLength.4
+  %cmp239.not = icmp eq i32 %handledCPCount.1213, %destLength.2
   %..i = select i1 %cmp239.not, i32 700, i32 2
   %div1.i = sdiv i32 %delta.1212, %..i
   %div2.i = sdiv i32 %div1.i, %add238
@@ -730,7 +730,7 @@ for.cond47.preheader.lr.ph:                       ; preds = %while.end.thread
   br label %for.cond47.preheader
 
 for.cond47.preheader:                             ; preds = %for.cond47.preheader.lr.ph, %if.end215
-  %firstSupplementaryIndex.0180 = phi i32 [ 1000000000, %for.cond47.preheader.lr.ph ], [ %firstSupplementaryIndex.2, %if.end215 ]
+  %firstSupplementaryIndex.0180 = phi i32 [ 1000000000, %for.cond47.preheader.lr.ph ], [ %firstSupplementaryIndex.1, %if.end215 ]
   %destCPCount.0179 = phi i32 [ %j.1207212, %for.cond47.preheader.lr.ph ], [ %inc82, %if.end215 ]
   %n.0178 = phi i32 [ 128, %for.cond47.preheader.lr.ph ], [ %add93, %if.end215 ]
   %destLength.0176 = phi i32 [ %j.1207212, %for.cond47.preheader.lr.ph ], [ %add103, %if.end215 ]
@@ -900,12 +900,12 @@ land.rhs117.lr.ph:                                ; preds = %if.else113
 
 land.rhs117:                                      ; preds = %land.rhs117.lr.ph, %do.end
   %__N.0169 = phi i32 [ %sub114, %land.rhs117.lr.ph ], [ %dec146, %do.end ]
-  %codeUnitIndex.0168 = phi i32 [ %firstSupplementaryIndex.0180, %land.rhs117.lr.ph ], [ %codeUnitIndex.1, %do.end ]
-  %cmp118 = icmp slt i32 %codeUnitIndex.0168, %destLength.0176
+  %codeUnitIndex.1168 = phi i32 [ %firstSupplementaryIndex.0180, %land.rhs117.lr.ph ], [ %codeUnitIndex.2, %do.end ]
+  %cmp118 = icmp slt i32 %codeUnitIndex.1168, %destLength.0176
   br i1 %cmp118, label %land.rhs117.do.body128_crit_edge, label %lor.rhs
 
 land.rhs117.do.body128_crit_edge:                 ; preds = %land.rhs117
-  %idxprom130.phi.trans.insert = sext i32 %codeUnitIndex.0168 to i64
+  %idxprom130.phi.trans.insert = sext i32 %codeUnitIndex.1168 to i64
   %arrayidx131.phi.trans.insert = getelementptr inbounds i16, ptr %dest, i64 %idxprom130.phi.trans.insert
   %.pre = load i16, ptr %arrayidx131.phi.trans.insert, align 2
   br label %do.body128
@@ -914,7 +914,7 @@ lor.rhs:                                          ; preds = %land.rhs117
   br i1 %cmp119, label %land.rhs120, label %if.end149
 
 land.rhs120:                                      ; preds = %lor.rhs
-  %idxprom121 = sext i32 %codeUnitIndex.0168 to i64
+  %idxprom121 = sext i32 %codeUnitIndex.1168 to i64
   %arrayidx122 = getelementptr inbounds i16, ptr %dest, i64 %idxprom121
   %16 = load i16, ptr %arrayidx122, align 2
   %cmp124.not = icmp eq i16 %16, 0
@@ -922,7 +922,7 @@ land.rhs120:                                      ; preds = %lor.rhs
 
 do.body128:                                       ; preds = %land.rhs117.do.body128_crit_edge, %land.rhs120
   %17 = phi i16 [ %.pre, %land.rhs117.do.body128_crit_edge ], [ %16, %land.rhs120 ]
-  %inc129 = add nsw i32 %codeUnitIndex.0168, 1
+  %inc129 = add nsw i32 %codeUnitIndex.1168, 1
   %18 = and i16 %17, -1024
   %cmp134 = icmp ne i16 %18, -10240
   %cmp136.not = icmp eq i32 %inc129, %destLength.0176
@@ -935,28 +935,28 @@ land.lhs.true137:                                 ; preds = %do.body128
   %19 = load i16, ptr %arrayidx139, align 2
   %20 = and i16 %19, -1024
   %cmp142 = icmp eq i16 %20, -9216
-  %inc144 = add nsw i32 %codeUnitIndex.0168, 2
+  %inc144 = add nsw i32 %codeUnitIndex.1168, 2
   %spec.select135 = select i1 %cmp142, i32 %inc144, i32 %inc129
   br label %do.end
 
 do.end:                                           ; preds = %land.lhs.true137, %do.body128
-  %codeUnitIndex.1 = phi i32 [ %inc129, %do.body128 ], [ %spec.select135, %land.lhs.true137 ]
+  %codeUnitIndex.2 = phi i32 [ %inc129, %do.body128 ], [ %spec.select135, %land.lhs.true137 ]
   %dec146 = add nsw i32 %__N.0169, -1
   %cmp116 = icmp sgt i32 %__N.0169, 1
   br i1 %cmp116, label %land.rhs117, label %if.end149, !llvm.loop !15
 
 if.end149:                                        ; preds = %land.rhs120, %lor.rhs, %do.end, %if.else113, %if.then107
-  %firstSupplementaryIndex.1 = phi i32 [ %spec.select137, %if.then107 ], [ %firstSupplementaryIndex.0180, %if.else113 ], [ %firstSupplementaryIndex.0180, %do.end ], [ %firstSupplementaryIndex.0180, %lor.rhs ], [ %firstSupplementaryIndex.0180, %land.rhs120 ]
-  %codeUnitIndex.2 = phi i32 [ %rem, %if.then107 ], [ %firstSupplementaryIndex.0180, %if.else113 ], [ %codeUnitIndex.0168, %land.rhs120 ], [ %codeUnitIndex.0168, %lor.rhs ], [ %codeUnitIndex.1, %do.end ]
-  %cmp150 = icmp slt i32 %codeUnitIndex.2, %destLength.0176
+  %firstSupplementaryIndex.2 = phi i32 [ %spec.select137, %if.then107 ], [ %firstSupplementaryIndex.0180, %if.else113 ], [ %firstSupplementaryIndex.0180, %do.end ], [ %firstSupplementaryIndex.0180, %lor.rhs ], [ %firstSupplementaryIndex.0180, %land.rhs120 ]
+  %codeUnitIndex.0 = phi i32 [ %rem, %if.then107 ], [ %firstSupplementaryIndex.0180, %if.else113 ], [ %codeUnitIndex.1168, %land.rhs120 ], [ %codeUnitIndex.1168, %lor.rhs ], [ %codeUnitIndex.2, %do.end ]
+  %cmp150 = icmp slt i32 %codeUnitIndex.0, %destLength.0176
   br i1 %cmp150, label %do.body152, label %if.end174
 
 do.body152:                                       ; preds = %if.end149
-  %idx.ext = sext i32 %codeUnitIndex.2 to i64
+  %idx.ext = sext i32 %codeUnitIndex.0 to i64
   %add.ptr = getelementptr inbounds i16, ptr %dest, i64 %idx.ext
   %idx.ext153 = zext nneg i32 %cond100 to i64
   %add.ptr154 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext153
-  %sub157 = sub nsw i32 %destLength.0176, %codeUnitIndex.2
+  %sub157 = sub nsw i32 %destLength.0176, %codeUnitIndex.0
   %mul158 = shl nsw i32 %sub157, 1
   %conv159 = sext i32 %mul158 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %add.ptr154, ptr nonnull align 2 %add.ptr, i64 %conv159, i1 false)
@@ -970,7 +970,7 @@ if.end174.thread220:                              ; preds = %do.body152
 
 if.end190.thread.thread221:                       ; preds = %if.end174.thread220
   %conv177222 = trunc nuw i32 %add93 to i16
-  %idxprom178223 = sext i32 %codeUnitIndex.2 to i64
+  %idxprom178223 = sext i32 %codeUnitIndex.0 to i64
   %arrayidx179224 = getelementptr inbounds i16, ptr %dest, i64 %idxprom178223
   store i16 %conv177222, ptr %arrayidx179224, align 2
   br label %if.end215
@@ -984,7 +984,7 @@ if.end174.thread:                                 ; preds = %do.body152
 
 if.end190.thread.thread:                          ; preds = %if.end174.thread
   %conv177217 = trunc nuw i32 %add93 to i16
-  %idxprom178218 = sext i32 %codeUnitIndex.2 to i64
+  %idxprom178218 = sext i32 %codeUnitIndex.0 to i64
   %arrayidx179219 = getelementptr inbounds i16, ptr %dest, i64 %idxprom178218
   store i16 %conv177217, ptr %arrayidx179219, align 2
   br label %if.then192.thread
@@ -993,7 +993,7 @@ if.end190:                                        ; preds = %if.end174.thread220
   %shr = lshr i32 %add93, 10
   %21 = trunc i32 %shr to i16
   %conv182 = add i16 %21, -10304
-  %idxprom183 = sext i32 %codeUnitIndex.2 to i64
+  %idxprom183 = sext i32 %codeUnitIndex.0 to i64
   %arrayidx184 = getelementptr inbounds i16, ptr %dest, i64 %idxprom183
   store i16 %conv182, ptr %arrayidx184, align 2
   %22 = trunc i32 %add93 to i16
@@ -1005,7 +1005,7 @@ if.end190:                                        ; preds = %if.end174.thread220
 
 if.end190.thread:                                 ; preds = %if.end174
   %conv177 = trunc nuw i32 %add93 to i16
-  %idxprom178 = sext i32 %codeUnitIndex.2 to i64
+  %idxprom178 = sext i32 %codeUnitIndex.0 to i64
   %arrayidx179 = getelementptr inbounds i16, ptr %dest, i64 %idxprom178
   store i16 %conv177, ptr %arrayidx179, align 2
   br i1 %cmp161.not, label %if.end215, label %if.then192.thread
@@ -1015,7 +1015,7 @@ if.then192.thread:                                ; preds = %if.end190.thread.th
   %25 = add i16 %24, -65
   %spec.select136213 = icmp ult i16 %25, 26
   %conv205214 = zext i1 %spec.select136213 to i8
-  %idxprom206215 = sext i32 %codeUnitIndex.2 to i64
+  %idxprom206215 = sext i32 %codeUnitIndex.0 to i64
   %arrayidx207216 = getelementptr inbounds i8, ptr %caseFlags, i64 %idxprom206215
   store i8 %conv205214, ptr %arrayidx207216, align 1
   br label %if.end215
@@ -1025,7 +1025,7 @@ if.then192:                                       ; preds = %if.end190
   %27 = add i16 %26, -65
   %spec.select136 = icmp ult i16 %27, 26
   %conv205 = zext i1 %spec.select136 to i8
-  %idxprom206 = sext i32 %codeUnitIndex.2 to i64
+  %idxprom206 = sext i32 %codeUnitIndex.0 to i64
   %arrayidx207 = getelementptr inbounds i8, ptr %caseFlags, i64 %idxprom206
   store i8 %conv205, ptr %arrayidx207, align 1
   br i1 %cmp99, label %if.then209, label %if.end215
@@ -1036,7 +1036,7 @@ if.then209:                                       ; preds = %if.then192
   br label %if.end215
 
 if.end215:                                        ; preds = %if.end190.thread.thread221, %if.then192.thread, %if.end190.thread, %if.end190, %if.then209, %if.then192, %if.end98
-  %firstSupplementaryIndex.2 = phi i32 [ %firstSupplementaryIndex.1, %if.then209 ], [ %firstSupplementaryIndex.1, %if.then192 ], [ %firstSupplementaryIndex.1, %if.end190 ], [ %firstSupplementaryIndex.0180, %if.end98 ], [ %firstSupplementaryIndex.1, %if.end190.thread ], [ %firstSupplementaryIndex.1, %if.then192.thread ], [ %firstSupplementaryIndex.1, %if.end190.thread.thread221 ]
+  %firstSupplementaryIndex.1 = phi i32 [ %firstSupplementaryIndex.2, %if.then209 ], [ %firstSupplementaryIndex.2, %if.then192 ], [ %firstSupplementaryIndex.2, %if.end190 ], [ %firstSupplementaryIndex.0180, %if.end98 ], [ %firstSupplementaryIndex.2, %if.end190.thread ], [ %firstSupplementaryIndex.2, %if.then192.thread ], [ %firstSupplementaryIndex.2, %if.end190.thread.thread221 ]
   %inc217 = add nsw i32 %rem, 1
   %cmp45 = icmp sgt i32 %srcLength.addr.0, %15
   br i1 %cmp45, label %for.cond47.preheader, label %for.end218, !llvm.loop !16

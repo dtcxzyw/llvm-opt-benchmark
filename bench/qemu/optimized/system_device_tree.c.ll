@@ -356,7 +356,7 @@ entry:
   br i1 %cmp44, label %while.body, label %while.end19
 
 while.body:                                       ; preds = %entry, %if.end17
-  %path_len.049 = phi i32 [ %path_len.2, %if.end17 ], [ 16, %entry ]
+  %path_len.049 = phi i32 [ %path_len.1, %if.end17 ], [ 16, %entry ]
   %offset.047 = phi i32 [ %call18, %if.end17 ], [ %call1, %entry ]
   %n.046 = phi i32 [ %n.1, %if.end17 ], [ 0, %entry ]
   %path_list.045 = phi ptr [ %path_list.1, %if.end17 ], [ null, %entry ]
@@ -387,8 +387,8 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
 
 while.body13:                                     ; preds = %if.then7, %while.body13
   %path.042 = phi ptr [ %call15, %while.body13 ], [ %call8, %if.then7 ]
-  %path_len.141 = phi i32 [ %add, %while.body13 ], [ %path_len.049, %if.then7 ]
-  %add = add i32 %path_len.141, 16
+  %path_len.241 = phi i32 [ %add, %while.body13 ], [ %path_len.049, %if.then7 ]
+  %add = add i32 %path_len.241, 16
   %conv14 = zext i32 %add to i64
   %call15 = call ptr @g_realloc(ptr noundef %path.042, i64 noundef %conv14) #12
   %call10 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %offset.047, ptr noundef %call15, i32 noundef %add) #12
@@ -396,7 +396,7 @@ while.body13:                                     ; preds = %if.then7, %while.bo
   br i1 %cmp11, label %while.body13, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body13, %if.then7
-  %path_len.1.lcssa = phi i32 [ %path_len.049, %if.then7 ], [ %add, %while.body13 ]
+  %path_len.2.lcssa = phi i32 [ %path_len.049, %if.then7 ], [ %add, %while.body13 ]
   %path.0.lcssa = phi ptr [ %call8, %if.then7 ], [ %call15, %while.body13 ]
   %call16 = call ptr @g_slist_prepend(ptr noundef %path_list.045, ptr noundef %path.0.lcssa) #12
   %inc = add i32 %n.046, 1
@@ -405,7 +405,7 @@ while.end:                                        ; preds = %while.body13, %if.t
 if.end17:                                         ; preds = %while.end, %lor.lhs.false
   %path_list.1 = phi ptr [ %call16, %while.end ], [ %path_list.045, %lor.lhs.false ]
   %n.1 = phi i32 [ %inc, %while.end ], [ %n.046, %lor.lhs.false ]
-  %path_len.2 = phi i32 [ %path_len.1.lcssa, %while.end ], [ %path_len.049, %lor.lhs.false ]
+  %path_len.1 = phi i32 [ %path_len.2.lcssa, %while.end ], [ %path_len.049, %lor.lhs.false ]
   %call18 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset.047, ptr noundef null) #12
   %cmp = icmp sgt i32 %call18, -1
   br i1 %cmp, label %while.body, label %while.end19, !llvm.loop !8
@@ -504,7 +504,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.end.us
   %path_list.048.us = phi ptr [ %call14.us, %while.end.us ], [ null, %while.body.lr.ph ]
   %n.047.us = phi i32 [ %inc.us, %while.end.us ], [ 0, %while.body.lr.ph ]
-  %path_len.046.us = phi i32 [ %path_len.1.lcssa.us, %while.end.us ], [ 16, %while.body.lr.ph ]
+  %path_len.046.us = phi i32 [ %path_len.2.lcssa.us, %while.end.us ], [ 16, %while.body.lr.ph ]
   %offset.045.us = phi i32 [ %call16.us, %while.end.us ], [ %call, %while.body.lr.ph ]
   %call1.us = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %offset.045.us, ptr noundef nonnull %len) #12
   %tobool.not.us = icmp eq ptr %call1.us, null
@@ -518,7 +518,7 @@ if.end.us:                                        ; preds = %while.body.us
   br i1 %cmp940.us, label %while.body11.us, label %while.end.us
 
 while.end.us:                                     ; preds = %while.body11.us, %if.end.us
-  %path_len.1.lcssa.us = phi i32 [ %path_len.046.us, %if.end.us ], [ %add.us, %while.body11.us ]
+  %path_len.2.lcssa.us = phi i32 [ %path_len.046.us, %if.end.us ], [ %add.us, %while.body11.us ]
   %path.0.lcssa.us = phi ptr [ %call6.us, %if.end.us ], [ %call13.us, %while.body11.us ]
   %call14.us = call ptr @g_slist_prepend(ptr noundef %path_list.048.us, ptr noundef %path.0.lcssa.us) #12
   %inc.us = add i32 %n.047.us, 1
@@ -528,8 +528,8 @@ while.end.us:                                     ; preds = %while.body11.us, %i
 
 while.body11.us:                                  ; preds = %if.end.us, %while.body11.us
   %path.042.us = phi ptr [ %call13.us, %while.body11.us ], [ %call6.us, %if.end.us ]
-  %path_len.141.us = phi i32 [ %add.us, %while.body11.us ], [ %path_len.046.us, %if.end.us ]
-  %add.us = add i32 %path_len.141.us, 16
+  %path_len.241.us = phi i32 [ %add.us, %while.body11.us ], [ %path_len.046.us, %if.end.us ]
+  %add.us = add i32 %path_len.241.us, 16
   %conv12.us = zext i32 %add.us to i64
   %call13.us = call ptr @g_realloc(ptr noundef %path.042.us, i64 noundef %conv12.us) #12
   %call8.us = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %offset.045.us, ptr noundef %call13.us, i32 noundef %add.us) #12
@@ -539,7 +539,7 @@ while.body11.us:                                  ; preds = %if.end.us, %while.b
 while.body:                                       ; preds = %while.body.lr.ph, %if.end15
   %path_list.048 = phi ptr [ %path_list.1, %if.end15 ], [ null, %while.body.lr.ph ]
   %n.047 = phi i32 [ %n.1, %if.end15 ], [ 0, %while.body.lr.ph ]
-  %path_len.046 = phi i32 [ %path_len.2, %if.end15 ], [ 16, %while.body.lr.ph ]
+  %path_len.046 = phi i32 [ %path_len.1, %if.end15 ], [ 16, %while.body.lr.ph ]
   %offset.045 = phi i32 [ %call16, %if.end15 ], [ %call, %while.body.lr.ph ]
   %call1 = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %offset.045, ptr noundef nonnull %len) #12
   %tobool.not = icmp eq ptr %call1, null
@@ -565,8 +565,8 @@ if.then5:                                         ; preds = %if.end
 
 while.body11:                                     ; preds = %if.then5, %while.body11
   %path.042 = phi ptr [ %call13, %while.body11 ], [ %call6, %if.then5 ]
-  %path_len.141 = phi i32 [ %add, %while.body11 ], [ %path_len.046, %if.then5 ]
-  %add = add i32 %path_len.141, 16
+  %path_len.241 = phi i32 [ %add, %while.body11 ], [ %path_len.046, %if.then5 ]
+  %add = add i32 %path_len.241, 16
   %conv12 = zext i32 %add to i64
   %call13 = call ptr @g_realloc(ptr noundef %path.042, i64 noundef %conv12) #12
   %call8 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %offset.045, ptr noundef %call13, i32 noundef %add) #12
@@ -574,14 +574,14 @@ while.body11:                                     ; preds = %if.then5, %while.bo
   br i1 %cmp9, label %while.body11, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body11, %if.then5
-  %path_len.1.lcssa = phi i32 [ %path_len.046, %if.then5 ], [ %add, %while.body11 ]
+  %path_len.2.lcssa = phi i32 [ %path_len.046, %if.then5 ], [ %add, %while.body11 ]
   %path.0.lcssa = phi ptr [ %call6, %if.then5 ], [ %call13, %while.body11 ]
   %call14 = call ptr @g_slist_prepend(ptr noundef %path_list.048, ptr noundef %path.0.lcssa) #12
   %inc = add i32 %n.047, 1
   br label %if.end15
 
 if.end15:                                         ; preds = %while.end, %if.end
-  %path_len.2 = phi i32 [ %path_len.046, %if.end ], [ %path_len.1.lcssa, %while.end ]
+  %path_len.1 = phi i32 [ %path_len.046, %if.end ], [ %path_len.2.lcssa, %while.end ]
   %n.1 = phi i32 [ %n.047, %if.end ], [ %inc, %while.end ]
   %path_list.1 = phi ptr [ %path_list.048, %if.end ], [ %call14, %while.end ]
   %call16 = call i32 @fdt_node_offset_by_compatible(ptr noundef %fdt, i32 noundef %offset.045, ptr noundef %compat) #12

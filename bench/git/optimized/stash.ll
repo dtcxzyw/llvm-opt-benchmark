@@ -805,13 +805,13 @@ if.then19:                                        ; preds = %if.end16
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end6, %if.end16, %if.then19, %if.end
-  %ret.1 = phi i32 [ -1, %if.end ], [ %call20, %if.then19 ], [ %call15, %if.end16 ], [ %call12, %if.end6 ]
+  %ret.0 = phi i32 [ -1, %if.end ], [ %call20, %if.then19 ], [ %call15, %if.end16 ], [ %call12, %if.end6 ]
   %revision.i = getelementptr inbounds i8, ptr %info, i64 288
   call void @strbuf_release(ptr noundef nonnull %revision.i) #14
   br label %return
 
 return:                                           ; preds = %cleanup, %_.exit
-  %retval.0 = phi i32 [ %ret.1, %cleanup ], [ -1, %_.exit ]
+  %retval.0 = phi i32 [ %ret.0, %cleanup ], [ -1, %_.exit ]
   ret i32 %retval.0
 }
 
@@ -3152,12 +3152,12 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %if.end20, !llvm.loop !10
 
 if.end20:                                         ; preds = %do.cond.i, %do.body.i, %if.end15
-  %branch_name.1 = phi ptr [ @.str.96, %if.end15 ], [ %scevgep.i, %do.body.i ], [ @.str.96, %do.cond.i ]
+  %branch_name.0 = phi ptr [ @.str.96, %if.end15 ], [ %scevgep.i, %do.body.i ], [ @.str.96, %do.cond.i ]
   %9 = load ptr, ptr @the_repository, align 8
   %oid = getelementptr inbounds i8, ptr %call10, i64 4
   %10 = load i32, ptr @default_abbrev, align 4
   %call21 = call ptr @repo_find_unique_abbrev(ptr noundef %9, ptr noundef nonnull %oid, i32 noundef %10) #14
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg, ptr noundef nonnull @.str.101, ptr noundef %branch_name.1, ptr noundef %call21) #14
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg, ptr noundef nonnull @.str.101, ptr noundef %branch_name.0, ptr noundef %call21) #14
   call void @pp_commit_easy(i32 noundef 5, ptr noundef %call10, ptr noundef nonnull %msg) #14
   %buf = getelementptr inbounds i8, ptr %msg, i64 16
   %11 = load ptr, ptr %buf, align 8
@@ -3331,7 +3331,7 @@ if.then94:                                        ; preds = %if.end91
   br label %if.end97
 
 if.else96:                                        ; preds = %if.end91
-  call void (ptr, i64, ptr, ...) @strbuf_insertf(ptr noundef nonnull %stash_msg_buf, i64 noundef 0, ptr noundef nonnull @.str.108, ptr noundef %branch_name.1) #14
+  call void (ptr, i64, ptr, ...) @strbuf_insertf(ptr noundef nonnull %stash_msg_buf, i64 noundef 0, ptr noundef nonnull @.str.108, ptr noundef %branch_name.0) #14
   br label %if.end97
 
 if.end97:                                         ; preds = %if.else96, %if.then94
@@ -3379,11 +3379,11 @@ _.exit66:                                         ; preds = %if.then113, %if.end
   br label %done
 
 done:                                             ; preds = %if.then111, %_.exit66, %if.then83, %_.exit61, %if.then41, %_.exit46, %if.then30, %_.exit41, %if.else, %if.then3, %_.exit, %entry, %if.end102, %if.else75, %if.then69, %_.exit56, %if.else59, %if.then53, %_.exit51
-  %ret.1 = phi i32 [ -1, %if.then53 ], [ -1, %_.exit51 ], [ 1, %if.else59 ], [ 0, %if.end102 ], [ -1, %if.then69 ], [ -1, %_.exit56 ], [ 1, %if.else75 ], [ -1, %entry ], [ -1, %_.exit ], [ -1, %if.then3 ], [ 1, %if.else ], [ -1, %_.exit41 ], [ -1, %if.then30 ], [ -1, %_.exit46 ], [ -1, %if.then41 ], [ -1, %_.exit61 ], [ -1, %if.then83 ], [ -1, %_.exit66 ], [ -1, %if.then111 ]
+  %ret.0 = phi i32 [ -1, %if.then53 ], [ -1, %_.exit51 ], [ 1, %if.else59 ], [ 0, %if.end102 ], [ -1, %if.then69 ], [ -1, %_.exit56 ], [ 1, %if.else75 ], [ -1, %entry ], [ -1, %_.exit ], [ -1, %if.then3 ], [ 1, %if.else ], [ -1, %_.exit41 ], [ -1, %if.then30 ], [ -1, %_.exit46 ], [ -1, %if.then41 ], [ -1, %_.exit61 ], [ -1, %if.then83 ], [ -1, %_.exit66 ], [ -1, %if.then111 ]
   call void @strbuf_release(ptr noundef nonnull %commit_tree_label) #14
   call void @strbuf_release(ptr noundef nonnull %msg) #14
   call void @strbuf_release(ptr noundef nonnull %untracked_files) #14
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 declare void @copy_pathspec(ptr noundef, ptr noundef) local_unnamed_addr #4

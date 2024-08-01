@@ -256,9 +256,9 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end29
   %call589 = phi ptr [ %call584, %while.body.lr.ph ], [ %call5, %if.end29 ]
-  %alloc.088 = phi i32 [ 2, %while.body.lr.ph ], [ %alloc.3, %if.end29 ]
+  %alloc.088 = phi i32 [ 2, %while.body.lr.ph ], [ %alloc.1, %if.end29 ]
   %counter.087 = phi i32 [ 1, %while.body.lr.ph ], [ %counter.1, %if.end29 ]
-  %list.086 = phi ptr [ %call1, %while.body.lr.ph ], [ %list.2, %if.end29 ]
+  %list.086 = phi ptr [ %call1, %while.body.lr.ph ], [ %list.1, %if.end29 ]
   %d_name = getelementptr inbounds i8, ptr %call589, i64 19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %path.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %worktree_path.i27)
@@ -376,29 +376,29 @@ st_mult.exit:                                     ; preds = %if.then12
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %st_mult.exit
-  %list.1 = phi ptr [ %call24, %st_mult.exit ], [ %list.086, %do.body ]
-  %alloc.2 = phi i32 [ %div.add, %st_mult.exit ], [ %alloc.088, %do.body ]
+  %list.2 = phi ptr [ %call24, %st_mult.exit ], [ %list.086, %do.body ]
+  %alloc.3 = phi i32 [ %div.add, %st_mult.exit ], [ %alloc.088, %do.body ]
   %idxprom27 = sext i32 %counter.087 to i64
-  %arrayidx28 = getelementptr inbounds ptr, ptr %list.1, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds ptr, ptr %list.2, i64 %idxprom27
   store ptr %worktree.0.i, ptr %arrayidx28, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %do.end, %get_linked_worktree.exit
-  %list.2 = phi ptr [ %list.1, %do.end ], [ %list.086, %get_linked_worktree.exit ]
+  %list.1 = phi ptr [ %list.2, %do.end ], [ %list.086, %get_linked_worktree.exit ]
   %counter.1 = phi i32 [ %add, %do.end ], [ %counter.087, %get_linked_worktree.exit ]
-  %alloc.3 = phi i32 [ %alloc.2, %do.end ], [ %alloc.088, %get_linked_worktree.exit ]
+  %alloc.1 = phi i32 [ %alloc.3, %do.end ], [ %alloc.088, %get_linked_worktree.exit ]
   %call5 = call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %call4) #17
   %cmp.not = icmp eq ptr %call5, null
   br i1 %cmp.not, label %do.body32, label %while.body, !llvm.loop !7
 
 do.body32:                                        ; preds = %if.end29
   %call30 = call i32 @closedir(ptr noundef nonnull %call4)
-  %cmp34.not = icmp slt i32 %counter.1, %alloc.3
+  %cmp34.not = icmp slt i32 %counter.1, %alloc.1
   br i1 %cmp34.not, label %do.end54, label %if.then36
 
 if.then36:                                        ; preds = %do.body32
   %add33 = add nsw i32 %counter.1, 1
-  %14 = mul i32 %alloc.3, 3
+  %14 = mul i32 %alloc.1, 3
   %mul38 = add i32 %14, 48
   %div39 = sdiv i32 %mul38, 2
   %cmp41.not = icmp sgt i32 %div39, %counter.1
@@ -413,12 +413,12 @@ if.then.i65:                                      ; preds = %if.then36
 
 st_mult.exit66:                                   ; preds = %if.then36
   %mul.i64 = shl nuw nsw i64 %conv50, 3
-  %call52 = call ptr @xrealloc(ptr noundef %list.2, i64 noundef %mul.i64) #17
+  %call52 = call ptr @xrealloc(ptr noundef %list.1, i64 noundef %mul.i64) #17
   br label %do.end54
 
 do.end54:                                         ; preds = %do.body32.thread, %get_main_worktree.exit, %do.body32, %st_mult.exit66
   %counter.276 = phi i32 [ %counter.1, %st_mult.exit66 ], [ %counter.1, %do.body32 ], [ 1, %get_main_worktree.exit ], [ 1, %do.body32.thread ]
-  %list.4 = phi ptr [ %call52, %st_mult.exit66 ], [ %list.2, %do.body32 ], [ %call1, %get_main_worktree.exit ], [ %call1, %do.body32.thread ]
+  %list.4 = phi ptr [ %call52, %st_mult.exit66 ], [ %list.1, %do.body32 ], [ %call1, %get_main_worktree.exit ], [ %call1, %do.body32.thread ]
   %idxprom55 = sext i32 %counter.276 to i64
   %arrayidx56 = getelementptr inbounds ptr, ptr %list.4, i64 %idxprom55
   store ptr null, ptr %arrayidx56, align 8
@@ -1803,10 +1803,10 @@ for.inc:                                          ; preds = %strbuf_worktree_ref
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %if.end8, %entry
-  %ret.3 = phi i32 [ 0, %entry ], [ %call7, %if.end8 ], [ 0, %for.inc ]
+  %ret.1 = phi i32 [ 0, %entry ], [ %call7, %if.end8 ], [ 0, %for.inc ]
   call void @free_worktrees(ptr noundef nonnull %call.i)
   call void @strbuf_release(ptr noundef nonnull %refname) #17
-  ret i32 %ret.3
+  ret i32 %ret.1
 }
 
 declare ptr @get_main_ref_store(ptr noundef) local_unnamed_addr #2
@@ -2206,8 +2206,8 @@ _.exit37:                                         ; preds = %if.then26, %if.end3
   br label %done
 
 if.end31:                                         ; preds = %xstrdup_or_null.exit, %infer_backlink.exit
-  %backlink.0 = phi ptr [ %call17.i, %infer_backlink.exit ], [ %cond.i, %xstrdup_or_null.exit ]
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %gitdir, ptr noundef nonnull @.str.24, ptr noundef %backlink.0) #17
+  %backlink.1 = phi ptr [ %call17.i, %infer_backlink.exit ], [ %cond.i, %xstrdup_or_null.exit ]
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %gitdir, ptr noundef nonnull @.str.24, ptr noundef %backlink.1) #17
   %buf32 = getelementptr inbounds i8, ptr %gitdir, i64 16
   %24 = load ptr, ptr %buf32, align 8
   %call33 = call i64 @strbuf_read_file(ptr noundef nonnull %olddotgit, ptr noundef %24, i64 noundef 0) #17
@@ -2249,8 +2249,8 @@ if.then47:                                        ; preds = %if.then42, %if.then
   br label %done
 
 done:                                             ; preds = %if.else37, %if.end45, %if.then47, %is_main_worktree_path.exit, %_.exit37, %_.exit31, %_.exit20, %_.exit
-  %backlink.1 = phi ptr [ null, %is_main_worktree_path.exit ], [ %cond.i, %_.exit20 ], [ %backlink.0, %if.then47 ], [ %backlink.0, %if.end45 ], [ null, %_.exit31 ], [ %cond.i, %_.exit37 ], [ null, %_.exit ], [ %backlink.0, %if.else37 ]
-  call void @free(ptr noundef %backlink.1) #17
+  %backlink.0 = phi ptr [ null, %is_main_worktree_path.exit ], [ %cond.i, %_.exit20 ], [ %backlink.1, %if.then47 ], [ %backlink.1, %if.end45 ], [ null, %_.exit31 ], [ %cond.i, %_.exit37 ], [ null, %_.exit ], [ %backlink.1, %if.else37 ]
+  call void @free(ptr noundef %backlink.0) #17
   call void @strbuf_release(ptr noundef nonnull %olddotgit) #17
   call void @strbuf_release(ptr noundef nonnull %gitdir) #17
   call void @strbuf_release(ptr noundef nonnull %realdotgit) #17
@@ -2348,14 +2348,14 @@ if.end27:                                         ; preds = %if.then22, %if.end1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then22, %if.then14, %if.end27
-  %res.2 = phi i32 [ -1, %if.then14 ], [ 0, %if.end27 ], [ -1, %if.then22 ]
+  %res.1 = phi i32 [ -1, %if.then14 ], [ 0, %if.end27 ], [ -1, %if.then22 ]
   call void @git_configset_clear(ptr noundef nonnull %cs) #17
   call void @free(ptr noundef %call7) #17
   call void @free(ptr noundef %call9) #17
   br label %return
 
 return:                                           ; preds = %entry, %cleanup, %_.exit
-  %retval.0 = phi i32 [ -1, %_.exit ], [ %res.2, %cleanup ], [ 0, %entry ]
+  %retval.0 = phi i32 [ -1, %_.exit ], [ %res.1, %cleanup ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

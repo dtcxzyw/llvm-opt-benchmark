@@ -1197,8 +1197,8 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i:  ; preds = %42
   br label %94
 
 94:                                               ; preds = %79, %93, %71
-  %.sroa.8.1 = phi ptr [ %.sroa.247.i.sroa.0.0.copyload, %71 ], [ %.sroa.262.i.sroa.0.0.copyload, %93 ], [ %77, %79 ]
-  %.sroa.0.1 = phi i64 [ %67, %71 ], [ %81, %93 ], [ %74, %79 ]
+  %.sroa.8.0 = phi ptr [ %.sroa.247.i.sroa.0.0.copyload, %71 ], [ %.sroa.262.i.sroa.0.0.copyload, %93 ], [ %77, %79 ]
+  %.sroa.0.057 = phi i64 [ %67, %71 ], [ %81, %93 ], [ %74, %79 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !242)
   %95 = load i64, ptr %32, align 8, !range !28, !alias.scope !242, !noalias !210, !noundef !4
   %96 = icmp eq i64 %95, -9223372036854775808
@@ -1278,8 +1278,8 @@ common.resume:                                    ; preds = %239, %135, %.thread
   br i1 %115, label %117, label %228
 
 116:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit73.i", %45
-  %.sroa.8.2.ph = phi ptr [ %41, %45 ], [ %.sroa.8.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit73.i" ]
-  %.sroa.0.2.ph = phi i64 [ %38, %45 ], [ %.sroa.0.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit73.i" ]
+  %.sroa.8.2.ph = phi ptr [ %41, %45 ], [ %.sroa.8.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit73.i" ]
+  %.sroa.0.2.ph = phi i64 [ %38, %45 ], [ %.sroa.0.057, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit73.i" ]
   store i64 %.sroa.0.2.ph, ptr %0, align 8
   %.sroa.448.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.8.2.ph, ptr %.sroa.448.0..sroa_idx, align 8
@@ -1514,18 +1514,18 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
   br label %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit"
 
 182:                                              ; preds = %170, %166
-  %.sroa.17.1 = phi i64 [ %.sroa.17.0.copyload44, %170 ], [ %.sroa.344.i.sroa.4.0.copyload, %166 ]
-  %.sroa.14.1 = phi ptr [ %.sroa.14.0.copyload41, %170 ], [ %.sroa.344.i.sroa.0.0.copyload, %166 ]
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0.copyload39, %170 ], [ %164, %166 ]
-  %.sroa.036.1 = phi i64 [ %168, %170 ], [ %161, %166 ]
+  %.sroa.17.2 = phi i64 [ %.sroa.17.0.copyload44, %170 ], [ %.sroa.344.i.sroa.4.0.copyload, %166 ]
+  %.sroa.14.2 = phi ptr [ %.sroa.14.0.copyload41, %170 ], [ %.sroa.344.i.sroa.0.0.copyload, %166 ]
+  %.sroa.10.2 = phi ptr [ %.sroa.10.0.copyload39, %170 ], [ %164, %166 ]
+  %.sroa.036.2 = phi i64 [ %168, %170 ], [ %161, %166 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !265
   br label %183
 
 183:                                              ; preds = %222, %182
-  %.sroa.17.2 = phi i64 [ %.sroa.17.1, %182 ], [ undef, %222 ]
-  %.sroa.14.2 = phi ptr [ %.sroa.14.1, %182 ], [ %217, %222 ]
-  %.sroa.10.2 = phi ptr [ %.sroa.10.1, %182 ], [ %211, %222 ]
-  %.sroa.036.2 = phi i64 [ %.sroa.036.1, %182 ], [ -9223372036854775803, %222 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.2, %182 ], [ undef, %222 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.2, %182 ], [ %217, %222 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.2, %182 ], [ %211, %222 ]
+  %.sroa.036.1 = phi i64 [ %.sroa.036.2, %182 ], [ -9223372036854775803, %222 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %184 = load i64, ptr %19, align 8, !range !28, !alias.scope !299, !noalias !265, !noundef !4
   %185 = icmp eq i64 %184, -9223372036854775808
@@ -1685,10 +1685,10 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
   br label %231
 
 "_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i"
-  %.sroa.17.3 = phi i64 [ %.sroa.17.2, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.17.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
-  %.sroa.14.3 = phi ptr [ %.sroa.14.2, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.14.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
-  %.sroa.10.3 = phi ptr [ %.sroa.10.2, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.10.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
-  %.sroa.036.3 = phi i64 [ %.sroa.036.2, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.036.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
+  %.sroa.17.3 = phi i64 [ %.sroa.17.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.17.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
+  %.sroa.14.3 = phi ptr [ %.sroa.14.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.14.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
+  %.sroa.10.3 = phi ptr [ %.sroa.10.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.10.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
+  %.sroa.036.3 = phi i64 [ %.sroa.036.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.036.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   %227 = icmp eq i64 %.sroa.036.3, -9223372036854775798
   br i1 %227, label %229, label %231

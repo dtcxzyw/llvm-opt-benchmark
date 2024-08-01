@@ -7292,7 +7292,7 @@ define dso_local void @_ZN11V3ExecGraph9implementEP10AstNetlist(ptr nocapture no
   br i1 %11, label %13, label %9, !llvm.loop !49
 
 .loopexit.i.loopexit.i:                           ; preds = %80, %_ZNKSt6vectorIP7AstNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.0.1.ph.i = phi ptr [ %.sroa.0.4.i, %_ZNKSt6vectorIP7AstNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0.7.i, %80 ]
+  %.sroa.0.5.ph.i = phi ptr [ %.sroa.0.2.i, %_ZNKSt6vectorIP7AstNodeSaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0.4.i, %80 ]
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
@@ -7303,19 +7303,19 @@ define dso_local void @_ZN11V3ExecGraph9implementEP10AstNetlist(ptr nocapture no
   br label %.loopexit.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %13, %1
-  %.sroa.0.2.i = phi ptr [ %7, %13 ], [ null, %1 ]
+  %.sroa.0.0.i = phi ptr [ %7, %13 ], [ null, %1 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.loopexit.split-lp.i, %.loopexit.i.loopexit.i
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.2.i, %.loopexit.split-lp.i.i ], [ %.sroa.0.1.ph.i, %.loopexit.i.loopexit.i ], [ %.sroa.0.4.i, %.loopexit.i.loopexit.split-lp.i ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %.loopexit.split-lp.i.i ], [ %.sroa.0.5.ph.i, %.loopexit.i.loopexit.i ], [ %.sroa.0.2.i, %.loopexit.i.loopexit.split-lp.i ]
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit.i, %.loopexit.i.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.i.loopexit.split-lp.i ]
-  %.not.i.i.i16.i.i = icmp eq ptr %.sroa.0.3.i, null
+  %.not.i.i.i16.i.i = icmp eq ptr %.sroa.0.1.i, null
   br i1 %.not.i.i.i16.i.i, label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i, label %12
 
 12:                                               ; preds = %.loopexit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3.i) #24
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1.i) #24
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %12, %.loopexit.i.i
@@ -7334,9 +7334,9 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %12, %.loopexit.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %80, %.preheader.preheader.i.i
-  %.sroa.0.4.i = phi ptr [ %7, %.preheader.preheader.i.i ], [ %.sroa.0.7.i, %80 ]
-  %.sroa.12.1.i = phi ptr [ %15, %.preheader.preheader.i.i ], [ %.sroa.12.4.i, %80 ]
-  %.sroa.20.1.i = phi ptr [ %15, %.preheader.preheader.i.i ], [ %.sroa.20.4.i, %80 ]
+  %.sroa.0.2.i = phi ptr [ %7, %.preheader.preheader.i.i ], [ %.sroa.0.4.i, %80 ]
+  %.sroa.12.0.i = phi ptr [ %15, %.preheader.preheader.i.i ], [ %.sroa.12.2.i, %80 ]
+  %.sroa.20.0.i = phi ptr [ %15, %.preheader.preheader.i.i ], [ %.sroa.20.2.i, %80 ]
   %.045.i.i = phi ptr [ %8, %.preheader.preheader.i.i ], [ %.146.i.i, %80 ]
   %.044.i.i = phi ptr [ %16, %.preheader.preheader.i.i ], [ %.1.i.i, %80 ]
   %17 = load ptr, ptr %2, align 8
@@ -7357,8 +7357,8 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %12, %.loopexit.i.i
   br i1 %.not14.i.i, label %74, label %26
 
 26:                                               ; preds = %19
-  %27 = ptrtoint ptr %.sroa.12.1.i to i64
-  %28 = ptrtoint ptr %.sroa.0.4.i to i64
+  %27 = ptrtoint ptr %.sroa.12.0.i to i64
+  %28 = ptrtoint ptr %.sroa.0.2.i to i64
   %29 = sub i64 %27, %28
   %30 = ashr exact i64 %29, 3
   %31 = ashr exact i64 %29, 2
@@ -7367,7 +7367,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %12, %.loopexit.i.i
 
 33:                                               ; preds = %26
   %34 = sub nuw nsw i64 %31, %30
-  %35 = ptrtoint ptr %.sroa.20.1.i to i64
+  %35 = ptrtoint ptr %.sroa.20.0.i to i64
   %36 = sub i64 %35, %27
   %37 = ashr exact i64 %36, 3
   %38 = icmp ult i64 %30, 1152921504606846976
@@ -7379,8 +7379,8 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %12, %.loopexit.i.i
   br i1 %.not28.i.i, label %47, label %41
 
 41:                                               ; preds = %33
-  store ptr null, ptr %.sroa.12.1.i, align 8
-  %42 = getelementptr i8, ptr %.sroa.12.1.i, i64 8
+  store ptr null, ptr %.sroa.12.0.i, align 8
+  %42 = getelementptr i8, ptr %.sroa.12.0.i, i64 8
   %43 = icmp eq i64 %34, 1
   br i1 %43, label %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i", label %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
@@ -7388,7 +7388,7 @@ _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %41
   %44 = shl i64 %34, 3
   %45 = add i64 %44, -8
   call void @llvm.memset.p0.i64(ptr align 8 %42, i8 0, i64 %45, i1 false)
-  %46 = getelementptr ptr, ptr %.sroa.12.1.i, i64 %34
+  %46 = getelementptr ptr, ptr %.sroa.12.0.i, i64 %34
   br label %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
 
 47:                                               ; preds = %33
@@ -7428,15 +7428,15 @@ _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit32.i.i: ; 
   br i1 %59, label %60, label %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
 
 60:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit32.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %.sroa.0.4.i, i64 %29, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %.sroa.0.2.i, i64 %29, i1 false)
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
 
 _ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i: ; preds = %60, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit32.i.i
-  %.not.i34.i.i = icmp eq ptr %.sroa.0.4.i, null
+  %.not.i34.i.i = icmp eq ptr %.sroa.0.2.i, null
   br i1 %.not.i34.i.i, label %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i, label %61
 
 61:                                               ; preds = %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.4.i) #24
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.i) #24
   br label %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i
 
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds = %61, %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
@@ -7446,18 +7446,18 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
 
 64:                                               ; preds = %26
   %65 = icmp ugt i64 %30, %31
-  %66 = getelementptr inbounds ptr, ptr %.sroa.0.4.i, i64 %31
-  %spec.select.i = select i1 %65, ptr %66, ptr %.sroa.12.1.i
+  %66 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %31
+  %spec.select.i = select i1 %65, ptr %66, ptr %.sroa.12.0.i
   br label %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
 
 "_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i": ; preds = %64, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i, %41
-  %.sroa.0.6.i = phi ptr [ %53, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i ], [ %.sroa.0.4.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.0.4.i, %41 ], [ %.sroa.0.4.i, %64 ]
-  %.sroa.12.3.i = phi ptr [ %62, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i ], [ %46, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %42, %41 ], [ %spec.select.i, %64 ]
-  %.sroa.20.3.i = phi ptr [ %63, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i ], [ %.sroa.20.1.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.20.1.i, %41 ], [ %.sroa.20.1.i, %64 ]
+  %.sroa.0.3.i = phi ptr [ %53, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i ], [ %.sroa.0.2.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.0.2.i, %41 ], [ %.sroa.0.2.i, %64 ]
+  %.sroa.12.1.i = phi ptr [ %62, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i ], [ %46, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %42, %41 ], [ %spec.select.i, %64 ]
+  %.sroa.20.1.i = phi ptr [ %63, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i ], [ %.sroa.20.0.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.20.0.i, %41 ], [ %.sroa.20.0.i, %64 ]
   %67 = ptrtoint ptr %20 to i64
   %68 = ptrtoint ptr %.045.i.i to i64
   %69 = sub i64 %67, %68
-  %70 = getelementptr inbounds i8, ptr %.sroa.0.6.i, i64 16
+  %70 = getelementptr inbounds i8, ptr %.sroa.0.3.i, i64 16
   %71 = getelementptr inbounds i8, ptr %70, i64 %69
   store ptr %71, ptr %2, align 8
   %72 = getelementptr inbounds ptr, ptr %70, i64 %31
@@ -7465,9 +7465,9 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br label %74
 
 74:                                               ; preds = %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i", %19
-  %.sroa.0.7.i = phi ptr [ %.sroa.0.4.i, %19 ], [ %.sroa.0.6.i, %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i" ]
-  %.sroa.12.4.i = phi ptr [ %.sroa.12.1.i, %19 ], [ %.sroa.12.3.i, %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i" ]
-  %.sroa.20.4.i = phi ptr [ %.sroa.20.1.i, %19 ], [ %.sroa.20.3.i, %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i" ]
+  %.sroa.0.4.i = phi ptr [ %.sroa.0.2.i, %19 ], [ %.sroa.0.3.i, %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i" ]
+  %.sroa.12.2.i = phi ptr [ %.sroa.12.0.i, %19 ], [ %.sroa.12.1.i, %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i" ]
+  %.sroa.20.2.i = phi ptr [ %.sroa.20.0.i, %19 ], [ %.sroa.20.1.i, %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i" ]
   %75 = phi ptr [ %20, %19 ], [ %71, %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i" ]
   %.146.i.i = phi ptr [ %.045.i.i, %19 ], [ %70, %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i" ]
   %.1.i.i = phi ptr [ %.044.i.i, %19 ], [ %73, %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i" ]
@@ -7487,11 +7487,11 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
           to label %.preheader.i.i unwind label %.loopexit.i.loopexit.i, !llvm.loop !50
 
 81:                                               ; preds = %.preheader.i.i
-  %.not.i.i.i20.i.i = icmp eq ptr %.sroa.0.4.i, null
+  %.not.i.i.i20.i.i = icmp eq ptr %.sroa.0.2.i, null
   br i1 %.not.i.i.i20.i.i, label %"_ZN7AstNode7foreachIZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvOT_.exit", label %82
 
 82:                                               ; preds = %81
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.4.i) #24
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.i) #24
   br label %"_ZN7AstNode7foreachIZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvOT_.exit"
 
 "_ZN7AstNode7foreachIZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvOT_.exit": ; preds = %81, %82

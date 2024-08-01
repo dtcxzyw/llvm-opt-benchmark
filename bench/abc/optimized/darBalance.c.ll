@@ -67,7 +67,7 @@ Vec_PtrSort.exit:                                 ; preds = %3, %.sink.split.i
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %25
   %.val.us78 = phi i32 [ %.val.us, %25 ], [ %.val57, %.lr.ph ]
-  %.059.us = phi i32 [ %.1.us, %25 ], [ 0, %.lr.ph ]
+  %.059.us = phi i32 [ %.2.us, %25 ], [ 0, %.lr.ph ]
   %.03558.us = phi i32 [ %.pre-phi, %25 ], [ 0, %.lr.ph ]
   %.val44.us = load ptr, ptr %11, align 8
   %12 = sext i32 %.03558.us to i64
@@ -99,14 +99,14 @@ Vec_PtrSort.exit:                                 ; preds = %3, %.sink.split.i
 25:                                               ; preds = %._crit_edge, %21
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %15, %21 ]
   %.val.us = phi i32 [ %.val.us78, %._crit_edge ], [ %.val.us.pre, %21 ]
-  %.1.us = phi i32 [ %.059.us, %._crit_edge ], [ %22, %21 ]
+  %.2.us = phi i32 [ %.059.us, %._crit_edge ], [ %22, %21 ]
   %26 = icmp slt i32 %.pre-phi, %.val.us
   br i1 %26, label %.lr.ph.split.us, label %.critedge2, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
   %.val80 = phi i32 [ %.val, %46 ], [ %.val57, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph ]
-  %.059 = phi i32 [ %.1, %46 ], [ 0, %.lr.ph ]
+  %.059 = phi i32 [ %.2, %46 ], [ 0, %.lr.ph ]
   %.val44 = load ptr, ptr %11, align 8
   %27 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
@@ -148,14 +148,14 @@ Vec_PtrSort.exit:                                 ; preds = %3, %.sink.split.i
 
 46:                                               ; preds = %41, %42
   %.val = phi i32 [ %.val.pre, %42 ], [ %.val80, %41 ]
-  %.1 = phi i32 [ %43, %42 ], [ %.059, %41 ]
+  %.2 = phi i32 [ %43, %42 ], [ %.059, %41 ]
   %47 = sext i32 %.val to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
   br i1 %48, label %.lr.ph.split, label %.critedge2, !llvm.loop !4
 
 .critedge2:                                       ; preds = %25, %46, %34, %.split.us, %Vec_PtrSort.exit
-  %.2.sink = phi i32 [ 0, %Vec_PtrSort.exit ], [ %31, %.split.us ], [ 0, %34 ], [ %.1, %46 ], [ %.1.us, %25 ]
-  store i32 %.2.sink, ptr %4, align 4
+  %.1.sink = phi i32 [ 0, %Vec_PtrSort.exit ], [ %31, %.split.us ], [ 0, %34 ], [ %.2, %46 ], [ %.2.us, %25 ]
+  store i32 %.1.sink, ptr %4, align 4
   ret void
 }
 
@@ -448,7 +448,7 @@ Vec_PtrSort.exit.i:                               ; preds = %.sink.split.i.i, %6
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i15, %87
   %.val.us78.i = phi i32 [ %.val.us.i, %87 ], [ %.val57.i, %.lr.ph.i15 ]
-  %.059.us.i = phi i32 [ %.1.us.i, %87 ], [ 0, %.lr.ph.i15 ]
+  %.059.us.i = phi i32 [ %.2.us.i, %87 ], [ 0, %.lr.ph.i15 ]
   %.03558.us.i = phi i32 [ %.pre-phi.i, %87 ], [ 0, %.lr.ph.i15 ]
   %.val44.us.i = load ptr, ptr %73, align 8
   %74 = sext i32 %.03558.us.i to i64
@@ -480,14 +480,14 @@ Vec_PtrSort.exit.i:                               ; preds = %.sink.split.i.i, %6
 87:                                               ; preds = %83, %._crit_edge.i17
   %.pre-phi.i = phi i32 [ %.pre.i18, %._crit_edge.i17 ], [ %77, %83 ]
   %.val.us.i = phi i32 [ %.val.us78.i, %._crit_edge.i17 ], [ %.val.us.pre.i, %83 ]
-  %.1.us.i = phi i32 [ %.059.us.i, %._crit_edge.i17 ], [ %84, %83 ]
+  %.2.us.i = phi i32 [ %.059.us.i, %._crit_edge.i17 ], [ %84, %83 ]
   %88 = icmp slt i32 %.pre-phi.i, %.val.us.i
   br i1 %88, label %.lr.ph.split.us.i, label %Dar_BalanceUniqify.exit, !llvm.loop !4
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i15, %108
   %.val80.i = phi i32 [ %.val.i21, %108 ], [ %.val57.i, %.lr.ph.i15 ]
   %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i20, %108 ], [ 0, %.lr.ph.i15 ]
-  %.059.i = phi i32 [ %.1.i, %108 ], [ 0, %.lr.ph.i15 ]
+  %.059.i = phi i32 [ %.2.i, %108 ], [ 0, %.lr.ph.i15 ]
   %.val44.i = load ptr, ptr %73, align 8
   %89 = getelementptr inbounds ptr, ptr %.val44.i, i64 %indvars.iv.i19
   %90 = load ptr, ptr %89, align 8
@@ -529,14 +529,14 @@ Vec_PtrSort.exit.i:                               ; preds = %.sink.split.i.i, %6
 
 108:                                              ; preds = %104, %103
   %.val.i21 = phi i32 [ %.val.pre.i, %104 ], [ %.val80.i, %103 ]
-  %.1.i = phi i32 [ %105, %104 ], [ %.059.i, %103 ]
+  %.2.i = phi i32 [ %105, %104 ], [ %.059.i, %103 ]
   %109 = sext i32 %.val.i21 to i64
   %110 = icmp slt i64 %indvars.iv.next.i20, %109
   br i1 %110, label %.lr.ph.split.i, label %Dar_BalanceUniqify.exit, !llvm.loop !4
 
 Dar_BalanceUniqify.exit:                          ; preds = %96, %108, %87, %Vec_PtrSort.exit.i, %.split.us.i
-  %.2.sink.i = phi i32 [ 0, %Vec_PtrSort.exit.i ], [ %93, %.split.us.i ], [ %.1.us.i, %87 ], [ %.1.i, %108 ], [ 0, %96 ]
-  store i32 %.2.sink.i, ptr %64, align 4
+  %.1.sink.i = phi i32 [ 0, %Vec_PtrSort.exit.i ], [ %93, %.split.us.i ], [ %.2.us.i, %87 ], [ %.2.i, %108 ], [ 0, %96 ]
+  store i32 %.1.sink.i, ptr %64, align 4
   ret ptr %63
 }
 

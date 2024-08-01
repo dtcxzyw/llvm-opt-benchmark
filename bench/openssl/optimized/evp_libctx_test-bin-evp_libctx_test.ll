@@ -411,7 +411,7 @@ lor.lhs.false58:                                  ; preds = %if.then54
   br label %err
 
 err:                                              ; preds = %lor.lhs.false58, %if.end52, %if.then54, %if.end39, %lor.lhs.false43, %lor.lhs.false47, %if.end, %getname.exit32, %lor.lhs.false, %lor.lhs.false12, %lor.lhs.false16, %lor.lhs.false22, %lor.lhs.false28
-  %dup_pk.1 = phi ptr [ %call55, %if.then54 ], [ null, %lor.lhs.false47 ], [ null, %lor.lhs.false43 ], [ null, %if.end39 ], [ null, %if.end ], [ null, %lor.lhs.false28 ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false ], [ null, %getname.exit32 ], [ null, %if.end52 ], [ %call55, %lor.lhs.false58 ]
+  %dup_pk.0 = phi ptr [ %call55, %if.then54 ], [ null, %lor.lhs.false47 ], [ null, %lor.lhs.false43 ], [ null, %if.end39 ], [ null, %if.end ], [ null, %lor.lhs.false28 ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false ], [ null, %getname.exit32 ], [ null, %if.end52 ], [ %call55, %lor.lhs.false58 ]
   %dsa.0 = phi ptr [ null, %if.then54 ], [ null, %lor.lhs.false47 ], [ null, %lor.lhs.false43 ], [ null, %if.end39 ], [ %call9, %if.end ], [ %call9, %lor.lhs.false28 ], [ %call9, %lor.lhs.false22 ], [ %call9, %lor.lhs.false16 ], [ %call9, %lor.lhs.false12 ], [ %call9, %lor.lhs.false ], [ null, %getname.exit32 ], [ null, %if.end52 ], [ null, %lor.lhs.false58 ]
   %gen_ctx.0 = phi ptr [ %call40, %if.then54 ], [ %call40, %lor.lhs.false47 ], [ %call40, %lor.lhs.false43 ], [ %call40, %if.end39 ], [ null, %if.end ], [ null, %lor.lhs.false28 ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false ], [ null, %getname.exit32 ], [ %call40, %if.end52 ], [ %call40, %lor.lhs.false58 ]
   %ret.0 = phi i32 [ 0, %if.then54 ], [ 0, %lor.lhs.false47 ], [ 0, %lor.lhs.false43 ], [ 0, %if.end39 ], [ 0, %if.end ], [ 0, %lor.lhs.false28 ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false16 ], [ 0, %lor.lhs.false12 ], [ 0, %lor.lhs.false ], [ 0, %getname.exit32 ], [ 1, %if.end52 ], [ %spec.select20, %lor.lhs.false58 ]
@@ -420,7 +420,7 @@ err:                                              ; preds = %lor.lhs.false58, %i
   %g.0 = phi ptr [ null, %if.then54 ], [ null, %lor.lhs.false47 ], [ null, %lor.lhs.false43 ], [ null, %if.end39 ], [ null, %if.end ], [ %call25, %lor.lhs.false28 ], [ %call25, %lor.lhs.false22 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false ], [ null, %getname.exit32 ], [ null, %if.end52 ], [ null, %lor.lhs.false58 ]
   %9 = load ptr, ptr %pkey, align 8
   call void @EVP_PKEY_free(ptr noundef %9) #6
-  call void @EVP_PKEY_free(ptr noundef %dup_pk.1) #6
+  call void @EVP_PKEY_free(ptr noundef %dup_pk.0) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %gen_ctx.0) #6
   call void @EVP_PKEY_free(ptr noundef %call7) #6
   call void @DSA_free(ptr noundef %dsa.0) #6
@@ -573,7 +573,7 @@ lor.lhs.false58.i:                                ; preds = %if.then54.i
   br label %do_dh_param_keygen.exit
 
 do_dh_param_keygen.exit:                          ; preds = %getname.exit34.i, %lor.lhs.false.i, %lor.lhs.false12.i, %lor.lhs.false16.i, %lor.lhs.false22.i, %lor.lhs.false28.i, %if.end.i, %if.end39.i, %lor.lhs.false43.i, %lor.lhs.false47.i, %if.end52.i, %if.then54.i, %lor.lhs.false58.i
-  %dup_pk.1.i = phi ptr [ %call55.i, %if.then54.i ], [ null, %lor.lhs.false47.i ], [ null, %lor.lhs.false43.i ], [ null, %if.end39.i ], [ null, %if.end.i ], [ null, %lor.lhs.false28.i ], [ null, %lor.lhs.false22.i ], [ null, %lor.lhs.false16.i ], [ null, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %getname.exit34.i ], [ null, %if.end52.i ], [ %call55.i, %lor.lhs.false58.i ]
+  %dup_pk.0.i = phi ptr [ %call55.i, %if.then54.i ], [ null, %lor.lhs.false47.i ], [ null, %lor.lhs.false43.i ], [ null, %if.end39.i ], [ null, %if.end.i ], [ null, %lor.lhs.false28.i ], [ null, %lor.lhs.false22.i ], [ null, %lor.lhs.false16.i ], [ null, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %getname.exit34.i ], [ null, %if.end52.i ], [ %call55.i, %lor.lhs.false58.i ]
   %dh.0.i = phi ptr [ null, %if.then54.i ], [ null, %lor.lhs.false47.i ], [ null, %lor.lhs.false43.i ], [ null, %if.end39.i ], [ %call9.i, %if.end.i ], [ %call9.i, %lor.lhs.false28.i ], [ %call9.i, %lor.lhs.false22.i ], [ %call9.i, %lor.lhs.false16.i ], [ %call9.i, %lor.lhs.false12.i ], [ %call9.i, %lor.lhs.false.i ], [ null, %getname.exit34.i ], [ null, %if.end52.i ], [ null, %lor.lhs.false58.i ]
   %gen_ctx.0.i = phi ptr [ %call40.i, %if.then54.i ], [ %call40.i, %lor.lhs.false47.i ], [ %call40.i, %lor.lhs.false43.i ], [ %call40.i, %if.end39.i ], [ null, %if.end.i ], [ null, %lor.lhs.false28.i ], [ null, %lor.lhs.false22.i ], [ null, %lor.lhs.false16.i ], [ null, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %getname.exit34.i ], [ %call40.i, %if.end52.i ], [ %call40.i, %lor.lhs.false58.i ]
   %ret.0.i = phi i32 [ 0, %if.then54.i ], [ 0, %lor.lhs.false47.i ], [ 0, %lor.lhs.false43.i ], [ 0, %if.end39.i ], [ 0, %if.end.i ], [ 0, %lor.lhs.false28.i ], [ 0, %lor.lhs.false22.i ], [ 0, %lor.lhs.false16.i ], [ 0, %lor.lhs.false12.i ], [ 0, %lor.lhs.false.i ], [ 0, %getname.exit34.i ], [ 1, %if.end52.i ], [ %spec.select22.i, %lor.lhs.false58.i ]
@@ -582,7 +582,7 @@ do_dh_param_keygen.exit:                          ; preds = %getname.exit34.i, %
   %g.0.i = phi ptr [ null, %if.then54.i ], [ null, %lor.lhs.false47.i ], [ null, %lor.lhs.false43.i ], [ null, %if.end39.i ], [ null, %if.end.i ], [ %call25.i, %lor.lhs.false28.i ], [ %call25.i, %lor.lhs.false22.i ], [ null, %lor.lhs.false16.i ], [ null, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %getname.exit34.i ], [ null, %if.end52.i ], [ null, %lor.lhs.false58.i ]
   %9 = load ptr, ptr %pkey.i, align 8
   call void @EVP_PKEY_free(ptr noundef %9) #6
-  call void @EVP_PKEY_free(ptr noundef %dup_pk.1.i) #6
+  call void @EVP_PKEY_free(ptr noundef %dup_pk.0.i) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %gen_ctx.0.i) #6
   call void @EVP_PKEY_free(ptr noundef %call7.i) #6
   call void @DH_free(ptr noundef %dh.0.i) #6

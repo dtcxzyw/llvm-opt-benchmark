@@ -40,7 +40,7 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
 
 .lr.ph:                                           ; preds = %10, %37
   %27 = phi ptr [ %41, %37 ], [ %24, %10 ]
-  %.06374 = phi i32 [ %39, %37 ], [ %20, %10 ]
+  %.174 = phi i32 [ %39, %37 ], [ %20, %10 ]
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %7
@@ -56,7 +56,7 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
   br label %113
 
 37:                                               ; preds = %.lr.ph
-  %38 = add nsw i32 %.06374, 1
+  %38 = add nsw i32 %.174, 1
   %39 = srem i32 %38, %17
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds %struct._reo_hash, ptr %22, i64 %40
@@ -65,7 +65,7 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
   br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %37, %10, %2
-  %.1 = phi i32 [ -1, %2 ], [ %20, %10 ], [ %39, %37 ]
+  %.063 = phi i32 [ -1, %2 ], [ %20, %10 ], [ %39, %37 ]
   %44 = tail call ptr @reoUnitsGetNextUnit(ptr noundef nonnull %0) #2
   %45 = getelementptr inbounds i8, ptr %44, i64 6
   store i16 1, ptr %45, align 2
@@ -139,7 +139,7 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 212
   %91 = load i32, ptr %90, align 4
-  %92 = sext i32 %.1 to i64
+  %92 = sext i32 %.063 to i64
   %93 = getelementptr inbounds %struct._reo_hash, ptr %89, i64 %92
   %94 = load i32, ptr %93, align 8
   %95 = icmp eq i32 %94, %91
@@ -151,7 +151,7 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
   br label %98
 
 98:                                               ; preds = %.lr.ph76, %98
-  %.275 = phi i32 [ %.1, %.lr.ph76 ], [ %100, %98 ]
+  %.275 = phi i32 [ %.063, %.lr.ph76 ], [ %100, %98 ]
   %99 = add nsw i32 %.275, 1
   %100 = srem i32 %99, %97
   %101 = sext i32 %100 to i64
@@ -227,7 +227,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
 
 .lr.ph:                                           ; preds = %11, %38
   %28 = phi ptr [ %42, %38 ], [ %25, %11 ]
-  %.06982 = phi i32 [ %40, %38 ], [ %21, %11 ]
+  %.182 = phi i32 [ %40, %38 ], [ %21, %11 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %8
@@ -242,7 +242,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   br label %142
 
 38:                                               ; preds = %.lr.ph
-  %39 = add nsw i32 %.06982, 1
+  %39 = add nsw i32 %.182, 1
   %40 = srem i32 %39, %18
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds %struct._reo_hash, ptr %23, i64 %41
@@ -251,7 +251,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %38, %11, %2
-  %.1 = phi i32 [ -1, %2 ], [ %21, %11 ], [ %40, %38 ]
+  %.069 = phi i32 [ -1, %2 ], [ %21, %11 ], [ %40, %38 ]
   %45 = load i16, ptr %8, align 8
   %46 = icmp eq i16 %45, 30000
   %47 = getelementptr inbounds i8, ptr %8, i64 16
@@ -344,7 +344,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %0, i64 212
   %105 = load i32, ptr %104, align 4
-  %106 = sext i32 %.1 to i64
+  %106 = sext i32 %.069 to i64
   %107 = getelementptr inbounds %struct._reo_hash, ptr %103, i64 %106
   %108 = load i32, ptr %107, align 8
   %109 = icmp eq i32 %108, %105
@@ -356,7 +356,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   br label %112
 
 112:                                              ; preds = %.lr.ph84, %112
-  %.283 = phi i32 [ %.1, %.lr.ph84 ], [ %114, %112 ]
+  %.283 = phi i32 [ %.069, %.lr.ph84 ], [ %114, %112 ]
   %113 = add nsw i32 %.283, 1
   %114 = srem i32 %113, %111
   %115 = sext i32 %114 to i64

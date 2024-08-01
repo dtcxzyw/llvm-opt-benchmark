@@ -542,8 +542,8 @@ Abc_Clock.exit:                                   ; preds = %3, %10
 
 76:                                               ; preds = %.lr.ph193, %.critedge6
   %77 = phi ptr [ %64, %.lr.ph193 ], [ %303, %.critedge6 ]
-  %.0192 = phi i32 [ 0, %.lr.ph193 ], [ %.4, %.critedge6 ]
-  %.094191 = phi i32 [ %66, %.lr.ph193 ], [ %.195, %.critedge6 ]
+  %.0192 = phi i32 [ 0, %.lr.ph193 ], [ %.3, %.critedge6 ]
+  %.094191 = phi i32 [ %66, %.lr.ph193 ], [ %.296, %.critedge6 ]
   %.097190 = phi i32 [ 0, %.lr.ph193 ], [ %258, %.critedge6 ]
   %78 = getelementptr i8, ptr %77, i64 48
   %.val116 = load ptr, ptr %78, align 8
@@ -609,7 +609,7 @@ Abc_Clock.exit:                                   ; preds = %3, %10
 111:                                              ; preds = %.lr.ph183, %.critedge2
   %indvars.iv208 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next209, %.critedge2 ]
   %112 = phi ptr [ %91, %.lr.ph183 ], [ %222, %.critedge2 ]
-  %.1182 = phi i32 [ %.0192, %.lr.ph183 ], [ %.3, %.critedge2 ]
+  %.2182 = phi i32 [ %.0192, %.lr.ph183 ], [ %.5, %.critedge2 ]
   %113 = getelementptr i8, ptr %112, i64 8
   %.val = load ptr, ptr %113, align 8
   %114 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv208
@@ -769,7 +769,7 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   br label %Ssw_ManFilterBmcSavePattern.exit
 
 Ssw_ManFilterBmcSavePattern.exit:                 ; preds = %163, %.critedge.i
-  %207 = icmp eq i32 %.1182, 0
+  %207 = icmp eq i32 %.2182, 0
   br i1 %207, label %208, label %211
 
 208:                                              ; preds = %Ssw_ManFilterBmcSavePattern.exit
@@ -779,7 +779,7 @@ Ssw_ManFilterBmcSavePattern.exit:                 ; preds = %163, %.critedge.i
   br label %211
 
 211:                                              ; preds = %Ssw_ManFilterBmcSavePattern.exit, %208, %Ssw_ObjChild1Fra.exit
-  %.2 = phi i32 [ 1, %208 ], [ 1, %Ssw_ManFilterBmcSavePattern.exit ], [ %.1182, %Ssw_ObjChild1Fra.exit ]
+  %.4 = phi i32 [ 1, %208 ], [ 1, %Ssw_ManFilterBmcSavePattern.exit ], [ %.2182, %Ssw_ObjChild1Fra.exit ]
   br i1 %.not104, label %.critedge2, label %212
 
 212:                                              ; preds = %211
@@ -794,7 +794,7 @@ Ssw_ManFilterBmcSavePattern.exit:                 ; preds = %163, %.critedge.i
   br i1 %.not105, label %.critedge2, label %.critedge4
 
 .critedge2:                                       ; preds = %117, %111, %212, %211
-  %.3 = phi i32 [ %.1182, %111 ], [ %.2, %212 ], [ %.2, %211 ], [ %.1182, %117 ]
+  %.5 = phi i32 [ %.2182, %111 ], [ %.4, %212 ], [ %.4, %211 ], [ %.2182, %117 ]
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %220 = load ptr, ptr %14, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 32
@@ -806,8 +806,8 @@ Ssw_ManFilterBmcSavePattern.exit:                 ; preds = %163, %.critedge.i
   br i1 %225, label %111, label %.critedge4, !llvm.loop !12
 
 .critedge4:                                       ; preds = %.critedge2, %212, %.critedge2.preheader
-  %.195 = phi i32 [ %.094191, %.critedge2.preheader ], [ -1, %212 ], [ %.094191, %.critedge2 ]
-  %.4 = phi i32 [ %.0192, %.critedge2.preheader ], [ %.2, %212 ], [ %.3, %.critedge2 ]
+  %.296 = phi i32 [ %.094191, %.critedge2.preheader ], [ -1, %212 ], [ %.094191, %.critedge2 ]
+  %.3 = phi i32 [ %.0192, %.critedge2.preheader ], [ %.4, %212 ], [ %.5, %.critedge2 ]
   %226 = load ptr, ptr %70, align 8
   %227 = getelementptr inbounds i8, ptr %226, i64 16
   %228 = load ptr, ptr %227, align 8
@@ -820,7 +820,7 @@ Ssw_ManFilterBmcSavePattern.exit:                 ; preds = %163, %.critedge.i
 
 233:                                              ; preds = %.critedge4
   %234 = add nuw nsw i32 %.097190, 1
-  %235 = add nsw i32 %234, %.195
+  %235 = add nsw i32 %234, %.296
   br label %Ssw_SemCheckTargets.exit.thread165
 
 236:                                              ; preds = %.critedge4
@@ -954,8 +954,8 @@ Ssw_ObjChild0Fra.exit160:                         ; preds = %.lr.ph189, %277
   br i1 %305, label %76, label %Ssw_SemCheckTargets.exit.thread165, !llvm.loop !14
 
 Ssw_SemCheckTargets.exit.thread165:               ; preds = %.critedge6, %Ssw_SemCheckTargets.exit, %Ssw_ObjIsConst1Cand.exit.i, %233
-  %.296 = phi i32 [ %235, %233 ], [ %.195, %Ssw_ObjIsConst1Cand.exit.i ], [ %.195, %Ssw_SemCheckTargets.exit ], [ %.195, %.critedge6 ]
-  %.not109 = icmp eq i32 %.4, 0
+  %.195 = phi i32 [ %235, %233 ], [ %.296, %Ssw_ObjIsConst1Cand.exit.i ], [ %.296, %Ssw_SemCheckTargets.exit ], [ %.296, %.critedge6 ]
+  %.not109 = icmp eq i32 %.3, 0
   br i1 %.not109, label %Ssw_SemCheckTargets.exit.thread165.thread, label %306
 
 306:                                              ; preds = %Ssw_SemCheckTargets.exit.thread165
@@ -966,7 +966,7 @@ Ssw_SemCheckTargets.exit.thread165:               ; preds = %.critedge6, %Ssw_Se
   br label %Ssw_SemCheckTargets.exit.thread165.thread
 
 Ssw_SemCheckTargets.exit.thread165.thread:        ; preds = %.critedge, %306, %Ssw_SemCheckTargets.exit.thread165
-  %.296214 = phi i32 [ %.296, %306 ], [ %.296, %Ssw_SemCheckTargets.exit.thread165 ], [ %66, %.critedge ]
+  %.195214 = phi i32 [ %.195, %306 ], [ %.195, %Ssw_SemCheckTargets.exit.thread165 ], [ %66, %.critedge ]
   %310 = getelementptr inbounds i8, ptr %7, i64 40
   %311 = load ptr, ptr %310, align 8
   call void @Ssw_ClassesCheck(ptr noundef %311) #18
@@ -992,7 +992,7 @@ Abc_Clock.exit162:                                ; preds = %Ssw_SemCheckTargets
   %323 = load i64, ptr %322, align 8
   %324 = add nsw i64 %321, %323
   store i64 %324, ptr %322, align 8
-  ret i32 %.296214
+  ret i32 %.195214
 }
 
 declare ptr @Aig_ManStart(i32 noundef) local_unnamed_addr #7
@@ -1114,7 +1114,7 @@ Ssw_SemCheckTargets.exit.thread:                  ; preds = %21, %9, %Ssw_SemChe
 
 56:                                               ; preds = %Ssw_SemCheckTargets.exit78.thread, %.lr.ph
   %.092 = phi i32 [ 0, %.lr.ph ], [ %117, %Ssw_SemCheckTargets.exit78.thread ]
-  %.04891 = phi i32 [ 0, %.lr.ph ], [ %.1, %Ssw_SemCheckTargets.exit78.thread ]
+  %.04891 = phi i32 [ 0, %.lr.ph ], [ %.2, %Ssw_SemCheckTargets.exit78.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %57 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #18
   %58 = icmp slt i32 %57, 0
@@ -1239,7 +1239,7 @@ Ssw_SemCheckTargets.exit78.thread86:              ; preds = %Ssw_ObjIsConst1Cand
   br label %Ssw_SemCheckTargets.exit78.thread
 
 Ssw_SemCheckTargets.exit78.thread:                ; preds = %107, %98, %Ssw_SemCheckTargets.exit78.thread86, %Ssw_SemCheckTargets.exit78, %97
-  %.1 = phi i32 [ 1, %Ssw_SemCheckTargets.exit78.thread86 ], [ %.04891, %Ssw_SemCheckTargets.exit78 ], [ %.04891, %97 ], [ %.04891, %98 ], [ %.04891, %107 ]
+  %.2 = phi i32 [ 1, %Ssw_SemCheckTargets.exit78.thread86 ], [ %.04891, %Ssw_SemCheckTargets.exit78 ], [ %.04891, %97 ], [ %.04891, %98 ], [ %.04891, %107 ]
   %115 = load i32, ptr %47, align 4
   %116 = load i32, ptr %55, align 8
   %.not53 = icmp slt i32 %115, %116
@@ -1249,7 +1249,7 @@ Ssw_SemCheckTargets.exit78.thread:                ; preds = %107, %98, %Ssw_SemC
   br i1 %or.cond, label %56, label %Ssw_SemCheckTargets.exit78.thread._crit_edge, !llvm.loop !15
 
 Ssw_SemCheckTargets.exit78.thread._crit_edge:     ; preds = %Ssw_SemCheckTargets.exit78.thread, %46
-  %.2 = phi i32 [ 0, %46 ], [ %.1, %Ssw_SemCheckTargets.exit78.thread ]
+  %.1 = phi i32 [ 0, %46 ], [ %.2, %Ssw_SemCheckTargets.exit78.thread ]
   call void @Ssw_SemManStop(ptr noundef nonnull %8)
   %119 = getelementptr inbounds i8, ptr %0, i64 264
   %120 = getelementptr inbounds i8, ptr %0, i64 368
@@ -1258,7 +1258,7 @@ Ssw_SemCheckTargets.exit78.thread._crit_edge:     ; preds = %Ssw_SemCheckTargets
   br label %121
 
 121:                                              ; preds = %Ssw_SemCheckTargets.exit78.thread._crit_edge, %Ssw_SemCheckTargets.exit.thread81
-  %.047 = phi i32 [ 1, %Ssw_SemCheckTargets.exit.thread81 ], [ %.2, %Ssw_SemCheckTargets.exit78.thread._crit_edge ]
+  %.047 = phi i32 [ 1, %Ssw_SemCheckTargets.exit.thread81 ], [ %.1, %Ssw_SemCheckTargets.exit78.thread._crit_edge ]
   ret i32 %.047
 }
 

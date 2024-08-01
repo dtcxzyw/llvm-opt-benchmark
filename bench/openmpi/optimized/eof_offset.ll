@@ -93,10 +93,10 @@ define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonl
   %.not62.us = icmp slt i64 %.reass.us, %14
   %.neg.us = add i64 %47, %14
   %51 = sub i64 %.neg.us, %50
-  %.2.us = select i1 %.not62.us, i64 %51, i64 %.169.us
+  %.3.us = select i1 %.not62.us, i64 %51, i64 %.169.us
   %52 = load i64, ptr %3, align 8
   %53 = mul nsw i64 %52, %41
-  %54 = add nsw i64 %53, %.2.us
+  %54 = add nsw i64 %53, %.3.us
   br label %55
 
 55:                                               ; preds = %.split73.us, %20

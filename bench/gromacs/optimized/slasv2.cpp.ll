@@ -50,16 +50,16 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %storemerge, ptr %3, align 4
   %30 = fdiv float %.0151, %17
   %31 = fdiv float %.0153, %17
-  %.1146..1144182 = select i1 %14, float %31, float %30
-  %.1144..1146183 = select i1 %14, float %30, float %31
+  %.0145..0143182 = select i1 %14, float %31, float %30
+  %.0143..0145183 = select i1 %14, float %30, float %31
   store float 1.000000e+00, ptr %8, align 4
-  store float %.1146..1144182, ptr %7, align 4
-  store float %.1144..1146183, ptr %6, align 4
+  store float %.0145..0143182, ptr %7, align 4
+  store float %.0143..0145183, ptr %6, align 4
   store float 1.000000e+00, ptr %5, align 4
   br label %.thread172
 
 32:                                               ; preds = %23, %21
-  %.1139.ph = phi i32 [ %.0138, %21 ], [ 2, %23 ]
+  %.2140.ph = phi i32 [ %.0138, %21 ], [ 2, %23 ]
   %33 = fsub float %.0150, %.0152
   %34 = fsub float %.0150, %33
   %35 = tail call noundef float @llvm.fabs.f32(float %34)
@@ -158,20 +158,20 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %108
 
 108:                                              ; preds = %91, %20
-  %.1148 = phi float [ 1.000000e+00, %20 ], [ %104, %91 ]
-  %.1146 = phi float [ 1.000000e+00, %20 ], [ %96, %91 ]
-  %.1144 = phi float [ 0.000000e+00, %20 ], [ %107, %91 ]
-  %.1142 = phi float [ 0.000000e+00, %20 ], [ %102, %91 ]
-  %.2140 = phi i32 [ %.0138, %20 ], [ %.1139.ph, %91 ]
-  %.1142..1148 = select i1 %14, float %.1142, float %.1148
-  %.1146..1144 = select i1 %14, float %.1146, float %.1144
-  %.1144..1146 = select i1 %14, float %.1144, float %.1146
-  %.1148..1142 = select i1 %14, float %.1148, float %.1142
-  store float %.1142..1148, ptr %8, align 4
-  store float %.1146..1144, ptr %7, align 4
-  store float %.1144..1146, ptr %6, align 4
-  store float %.1148..1142, ptr %5, align 4
-  switch i32 %.2140, label %110 [
+  %.0147 = phi float [ 1.000000e+00, %20 ], [ %104, %91 ]
+  %.0145 = phi float [ 1.000000e+00, %20 ], [ %96, %91 ]
+  %.0143 = phi float [ 0.000000e+00, %20 ], [ %107, %91 ]
+  %.0141 = phi float [ 0.000000e+00, %20 ], [ %102, %91 ]
+  %.1139 = phi i32 [ %.0138, %20 ], [ %.2140.ph, %91 ]
+  %.0141..0147 = select i1 %14, float %.0141, float %.0147
+  %.0145..0143 = select i1 %14, float %.0145, float %.0143
+  %.0143..0145 = select i1 %14, float %.0143, float %.0145
+  %.0147..0141 = select i1 %14, float %.0147, float %.0141
+  store float %.0141..0147, ptr %8, align 4
+  store float %.0145..0143, ptr %7, align 4
+  store float %.0143..0145, ptr %6, align 4
+  store float %.0147..0141, ptr %5, align 4
+  switch i32 %.1139, label %110 [
     i32 1, label %.thread169
     i32 2, label %.thread172
   ]
@@ -184,10 +184,10 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.thread172
 
 .thread172:                                       ; preds = %108, %.thread, %.thread169, %110
-  %.1148..1142185.sink = phi float [ %109, %.thread169 ], [ %.1148..1142, %110 ], [ 1.000000e+00, %.thread ], [ %.1148..1142, %108 ]
+  %.0147..0141185.sink = phi float [ %109, %.thread169 ], [ %.0147..0141, %110 ], [ 1.000000e+00, %.thread ], [ %.0147..0141, %108 ]
   %.sink196 = phi ptr [ %8, %.thread169 ], [ %7, %110 ], [ %8, %.thread ], [ %8, %108 ]
   %.sink = phi ptr [ %0, %.thread169 ], [ %2, %110 ], [ %1, %.thread ], [ %1, %108 ]
-  %111 = fcmp ogt float %.1148..1142185.sink, 0.000000e+00
+  %111 = fcmp ogt float %.0147..0141185.sink, 0.000000e+00
   %112 = load float, ptr %.sink196, align 4
   %113 = fcmp ogt float %112, 0.000000e+00
   %114 = select i1 %113, double 1.000000e+00, double -1.000000e+00

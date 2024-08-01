@@ -12035,16 +12035,16 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h9a2a1433ea1120
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he3642ade62c03335E.llvm.836043833466553463.exit"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he3642ade62c03335E.llvm.836043833466553463.exit": ; preds = %.noexc, %.noexc3
-  %.sroa.4.1.i.i = phi i32 [ %34, %.noexc3 ], [ undef, %.noexc ]
-  %.sroa.0.1.i.i = phi i32 [ %33, %.noexc3 ], [ 3, %.noexc ]
+  %.sroa.4.0.i.i = phi i32 [ %34, %.noexc3 ], [ undef, %.noexc ]
+  %.sroa.0.0.i.i = phi i32 [ %33, %.noexc3 ], [ 3, %.noexc ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4743)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4746)
   %35 = load ptr, ptr %12, align 8, !alias.scope !4749, !noundef !4
   %36 = load i64, ptr %13, align 8, !alias.scope !4749, !noundef !4
   %37 = getelementptr inbounds { i32, [1 x i32] }, ptr %35, i64 %36
-  store i32 %.sroa.0.1.i.i, ptr %37, align 4, !noalias !4749
+  store i32 %.sroa.0.0.i.i, ptr %37, align 4, !noalias !4749
   %38 = getelementptr inbounds i8, ptr %37, i64 4
-  store i32 %.sroa.4.1.i.i, ptr %38, align 4, !noalias !4749
+  store i32 %.sroa.4.0.i.i, ptr %38, align 4, !noalias !4749
   %39 = add i64 %36, 1
   store i64 %39, ptr %13, align 8, !alias.scope !4749
   %40 = load ptr, ptr %4, align 8, !alias.scope !4750, !nonnull !4, !noundef !4
@@ -14930,7 +14930,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h24
   %.promoted.i.i.i.i.i77 = phi ptr [ %.promoted.i.i.i.i.i72, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i.preheader.lr.ph" ], [ %.promoted.i.i.i.i.i, %140 ]
   %21 = phi ptr [ %15, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i.preheader.lr.ph" ], [ %141, %140 ]
   %.sroa.7.074 = phi ptr [ %2, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i.preheader.lr.ph" ], [ %.pn13.i, %140 ]
-  %.sroa.630.073 = phi i64 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i.preheader.lr.ph" ], [ %.sroa.630.2, %140 ]
+  %.sroa.630.073 = phi i64 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i.preheader.lr.ph" ], [ %.sroa.630.4, %140 ]
   %.val.i.i.i75 = load ptr, ptr %11, align 8, !alias.scope !5842, !noalias !5846
   %.val1.i.i.i76 = load ptr, ptr %12, align 8, !alias.scope !5842, !noalias !5846
   call void @llvm.experimental.noalias.scope.decl(metadata !5847)
@@ -14942,7 +14942,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h24
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i.preheader", %74
-  %.sroa.630.1 = phi i64 [ %.sroa.630.2, %74 ], [ %.sroa.630.073, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i.preheader" ]
+  %.sroa.630.1 = phi i64 [ %.sroa.630.4, %74 ], [ %.sroa.630.073, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i.preheader" ]
   %23 = phi ptr [ %24, %74 ], [ %.promoted.i.i.i.i.i77, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2d163fc9ede5b70E.llvm.836043833466553463.exit.i.i.i.i.i.preheader" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5857)
   %24 = getelementptr inbounds i8, ptr %23, i64 12
@@ -15058,7 +15058,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h24
 
 56:                                               ; preds = %48, %55
   %.sroa.029.0 = phi i32 [ %.sroa.01.i.sroa.0.0.copyload, %55 ], [ 11, %48 ]
-  %.sroa.630.2 = phi i64 [ %.sroa.01.i.sroa.4.0.copyload, %55 ], [ %.sroa.630.1, %48 ]
+  %.sroa.630.4 = phi i64 [ %.sroa.01.i.sroa.4.0.copyload, %55 ], [ %.sroa.630.1, %48 ]
   %57 = phi ptr [ %.pre.i, %55 ], [ %27, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5903)
   call void @llvm.experimental.noalias.scope.decl(metadata !5904)
@@ -15138,7 +15138,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !5922
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !5922
   store i32 %.sroa.029.0, ptr %9, align 4
-  store i64 %.sroa.630.2, ptr %.sroa.6.16..sroa_idx, align 4
+  store i64 %.sroa.630.4, ptr %.sroa.6.16..sroa_idx, align 4
   %84 = invoke { ptr, ptr } @_ZN3hir9TypeParam7default17h1219c1d60ba6dc6eE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 1 %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val3.i)
           to label %.noexc.i unwind label %108, !noalias !5919
 
@@ -20975,8 +20975,8 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   br label %"_ZN3hir9semantics13SemanticsImpl20resolve_derive_macro28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he62b8fd0716f1359E.llvm.836043833466553463.exit"
 
 "_ZN3hir9semantics13SemanticsImpl20resolve_derive_macro28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he62b8fd0716f1359E.llvm.836043833466553463.exit": ; preds = %2, %13
-  %.sroa.4.1.i = phi i32 [ %18, %13 ], [ undef, %2 ]
-  %.sroa.0.1.i = phi i32 [ %17, %13 ], [ 3, %2 ]
+  %.sroa.4.0.i = phi i32 [ %18, %13 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i32 [ %17, %13 ], [ 3, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8039)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8042)
   %19 = getelementptr inbounds i8, ptr %0, i64 16
@@ -20984,9 +20984,9 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !8045, !noundef !4
   %23 = getelementptr inbounds { i32, [1 x i32] }, ptr %20, i64 %22
-  store i32 %.sroa.0.1.i, ptr %23, align 4, !noalias !8045
+  store i32 %.sroa.0.0.i, ptr %23, align 4, !noalias !8045
   %24 = getelementptr inbounds i8, ptr %23, i64 4
-  store i32 %.sroa.4.1.i, ptr %24, align 4, !noalias !8045
+  store i32 %.sroa.4.0.i, ptr %24, align 4, !noalias !8045
   %25 = add i64 %22, 1
   store i64 %25, ptr %21, align 8, !alias.scope !8045
   ret void
@@ -25980,10 +25980,10 @@ define hidden { i32, i32 } @"_ZN3hir9semantics13SemanticsImpl20resolve_derive_ma
   br label %18
 
 18:                                               ; preds = %2, %12
-  %.sroa.4.1 = phi i32 [ %17, %12 ], [ undef, %2 ]
-  %.sroa.0.1 = phi i32 [ %16, %12 ], [ 3, %2 ]
-  %19 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
-  %20 = insertvalue { i32, i32 } %19, i32 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i32 [ %17, %12 ], [ undef, %2 ]
+  %.sroa.0.0 = phi i32 [ %16, %12 ], [ 3, %2 ]
+  %19 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %20 = insertvalue { i32, i32 } %19, i32 %.sroa.4.0, 1
   ret { i32, i32 } %20
 }
 

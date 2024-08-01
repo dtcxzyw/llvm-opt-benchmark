@@ -1480,9 +1480,9 @@ if.end51:                                         ; preds = %if.then14, %if.then
   %chunk.sroa.24.0 = phi i32 [ %head.sroa.5.0.copyload, %if.then7 ], [ %chunk.sroa.24.22.insert.insert, %if.then14 ]
   %chunk.sroa.4.sroa.4.0.in = phi i32 [ %chunk.sroa.4.sroa.4.0.extract.shift, %if.then7 ], [ %chunk.sroa.4.sroa.6.0.extract.shift, %if.then14 ]
   %chunk.sroa.4.sroa.6.0 = phi i32 [ %chunk.sroa.4.sroa.6.0.extract.shift, %if.then7 ], [ %chunk.sroa.4.sroa.4.0.extract.shift, %if.then14 ]
-  %chunk.sroa.0.1 = phi i32 [ %c.sroa.0.0.copyload, %if.then7 ], [ %spec.select, %if.then14 ]
+  %chunk.sroa.0.0 = phi i32 [ %c.sroa.0.0.copyload, %if.then7 ], [ %spec.select, %if.then14 ]
   %chunk.sroa.4.sroa.8.0 = phi i32 [ %chunk.sroa.4.sroa.8.0.extract.shift, %if.then7 ], [ %0, %if.then14 ]
-  store i32 %chunk.sroa.0.1, ptr %dataChunk, align 8
+  store i32 %chunk.sroa.0.0, ptr %dataChunk, align 8
   %chunk.sroa.4.0.dataChunk.sroa_idx = getelementptr inbounds i8, ptr %dataChunk, i64 4
   %chunk.sroa.4.sroa.8.0.insert.shift = shl nuw i32 %chunk.sroa.4.sroa.8.0, 24
   %chunk.sroa.4.sroa.6.0.insert.ext = shl i32 %chunk.sroa.4.sroa.6.0, 16
@@ -1531,10 +1531,10 @@ if.then53:                                        ; preds = %if.else
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then53, %if.else
-  %c.sroa.0.1 = phi i32 [ %c.sroa.0.0.copyload, %if.else ], [ %spec.select77, %if.then53 ]
+  %c.sroa.0.0 = phi i32 [ %c.sroa.0.0.copyload, %if.else ], [ %spec.select77, %if.then53 ]
   %6 = phi <4 x i8> [ %2, %if.else ], [ %4, %if.then53 ]
   %7 = phi <8 x i8> [ %3, %if.else ], [ %5, %if.then53 ]
-  store i32 %c.sroa.0.1, ptr %dataChunk, align 8
+  store i32 %c.sroa.0.0, ptr %dataChunk, align 8
   %c.sroa.4.0.dataChunk.sroa_idx = getelementptr inbounds i8, ptr %dataChunk, i64 4
   store <4 x i8> %6, ptr %c.sroa.4.0.dataChunk.sroa_idx, align 4
   %c.sroa.12.0.dataChunk.sroa_idx = getelementptr inbounds i8, ptr %dataChunk, i64 8

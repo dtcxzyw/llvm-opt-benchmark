@@ -443,8 +443,8 @@ if.end22.loopexit:                                ; preds = %_ZN6icu_7512Pattern
 
 if.end22:                                         ; preds = %while.body, %if.end22.loopexit
   %start.058 = phi i32 [ %24, %if.end22.loopexit ], [ %0, %while.body ]
-  %limit.1 = phi i32 [ %33, %if.end22.loopexit ], [ %0, %while.body ]
-  %sub23 = sub nsw i32 %limit.1, %start.058
+  %limit.0 = phi i32 [ %33, %if.end22.loopexit ], [ %0, %while.body ]
+  %sub23 = sub nsw i32 %limit.0, %start.058
   store i32 %sub23, ptr %length, align 4
   %idx.ext = zext nneg i32 %start.058 to i64
   %add.ptr = getelementptr inbounds i16, ptr %s, i64 %idx.ext

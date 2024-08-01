@@ -606,7 +606,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
   %1 = phi i32 [ %7, %for.inc.us.i ], [ %0, %for.body.lr.ph.i ]
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
-  %funny.035.us.i = phi i32 [ %funny.1.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
+  %funny.035.us.i = phi i32 [ %funny.2.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
   %2 = load ptr, ptr %istate, align 8
   %arrayidx.us.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv44.i
   %3 = load ptr, ptr %arrayidx.us.i, align 8
@@ -632,7 +632,7 @@ if.end6.us.i:                                     ; preds = %if.then.us.i
 
 for.inc.us.i:                                     ; preds = %if.end6.us.i, %for.body.us.i
   %7 = phi i32 [ %.pre.i, %if.end6.us.i ], [ %1, %for.body.us.i ]
-  %funny.1.us.i = phi i32 [ %inc.us.i, %if.end6.us.i ], [ %funny.035.us.i, %for.body.us.i ]
+  %funny.2.us.i = phi i32 [ %inc.us.i, %if.end6.us.i ], [ %funny.035.us.i, %for.body.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %8 = zext i32 %7 to i64
   %cmp.us.i = icmp ult i64 %indvars.iv.next45.i, %8
@@ -663,7 +663,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not, label %for.cond14.preheader.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.inc.us.i
-  %15 = icmp eq i32 %funny.1.us.i, 0
+  %15 = icmp eq i32 %funny.2.us.i, 0
   br i1 %15, label %for.cond14.preheader.i, label %return
 
 for.cond14.preheader.i:                           ; preds = %for.inc.i, %for.end.i
@@ -675,7 +675,7 @@ for.body17.i:                                     ; preds = %for.cond14.preheade
   %17 = phi i32 [ %26, %for.inc49.i ], [ %16, %for.cond14.preheader.i ]
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %for.inc49.i ], [ 0, %for.cond14.preheader.i ]
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %for.inc49.i ], [ 1, %for.cond14.preheader.i ]
-  %funny.338.i = phi i32 [ %funny.4.i, %for.inc49.i ], [ 0, %for.cond14.preheader.i ]
+  %funny.338.i = phi i32 [ %funny.5.i, %for.inc49.i ], [ 0, %for.cond14.preheader.i ]
   %18 = load ptr, ptr %istate, align 8
   %arrayidx20.i = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv49.i
   %19 = load ptr, ptr %arrayidx20.i, align 8
@@ -719,7 +719,7 @@ if.end46.i:                                       ; preds = %if.then40.i
 
 for.inc49.i:                                      ; preds = %if.end46.i, %land.lhs.true35.i, %land.lhs.true.i, %for.body17.i
   %26 = phi i32 [ %.pre54.i, %if.end46.i ], [ %17, %land.lhs.true35.i ], [ %17, %land.lhs.true.i ], [ %17, %for.body17.i ]
-  %funny.4.i = phi i32 [ %inc41.i, %if.end46.i ], [ %funny.338.i, %land.lhs.true35.i ], [ %funny.338.i, %land.lhs.true.i ], [ %funny.338.i, %for.body17.i ]
+  %funny.5.i = phi i32 [ %inc41.i, %if.end46.i ], [ %funny.338.i, %land.lhs.true35.i ], [ %funny.338.i, %land.lhs.true.i ], [ %funny.338.i, %for.body17.i ]
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %27 = zext i32 %26 to i64
   %cmp16.i = icmp ult i64 %indvars.iv.next48.i, %27
@@ -727,7 +727,7 @@ for.inc49.i:                                      ; preds = %if.end46.i, %land.l
   br i1 %cmp16.i, label %for.body17.i, label %verify_cache.exit, !llvm.loop !10
 
 verify_cache.exit:                                ; preds = %for.inc49.i
-  %.not = icmp eq i32 %funny.4.i, 0
+  %.not = icmp eq i32 %funny.5.i, 0
   br i1 %.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %for.cond14.preheader.i, %verify_cache.exit

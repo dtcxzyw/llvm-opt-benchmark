@@ -2137,7 +2137,7 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   br i1 %103, label %.preheader, label %107
 
 .preheader:                                       ; preds = %77, %97, %102
-  %.066147 = phi i1 [ false, %102 ], [ false, %77 ], [ true, %97 ]
+  %.167147 = phi i1 [ false, %102 ], [ false, %77 ], [ true, %97 ]
   %.not136 = icmp eq i32 %1, 0
   br i1 %.not136, label %._crit_edge, label %.lr.ph134.preheader
 
@@ -2160,7 +2160,7 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   br i1 %106, label %123, label %107
 
 107:                                              ; preds = %._crit_edge, %102
-  %.066146 = phi i1 [ %.066147, %._crit_edge ], [ false, %102 ]
+  %.167146 = phi i1 [ %.167147, %._crit_edge ], [ false, %102 ]
   %108 = phi i1 [ true, %._crit_edge ], [ false, %102 ]
   %109 = phi ptr [ %105, %._crit_edge ], [ %.pr, %102 ]
   %110 = call i32 @H5S_select_hyperslab(ptr noundef nonnull %109, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6) #8
@@ -2171,7 +2171,7 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   %113 = load i64, ptr @H5E_PLIST_g, align 8
   %114 = load i64, ptr @H5E_CANTSELECT_g, align 8
   %115 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2323, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.50) #8
-  br i1 %.066146, label %127, label %134
+  br i1 %.167146, label %127, label %134
 
 116:                                              ; preds = %107
   %117 = call i32 @H5P_poke(ptr noundef nonnull %64, ptr noundef nonnull @.str.44, ptr noundef nonnull %8) #8
@@ -2182,16 +2182,16 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   %120 = load i64, ptr @H5E_PLIST_g, align 8
   %121 = load i64, ptr @H5E_CANTSET_g, align 8
   %122 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2327, i64 noundef %120, i64 noundef %121, ptr noundef nonnull @.str.51) #8
-  br i1 %.066146, label %127, label %134
+  br i1 %.167146, label %127, label %134
 
 123:                                              ; preds = %._crit_edge
   %124 = load i64, ptr @H5E_PLIST_g, align 8
   %125 = load i64, ptr @H5E_CANTCREATE_g, align 8
   %126 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2317, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.49) #8
-  br i1 %.066147, label %127, label %.thread127
+  br i1 %.167147, label %127, label %.thread127
 
 127:                                              ; preds = %112, %119, %123
-  %.169.ph149 = phi i1 [ %108, %119 ], [ false, %123 ], [ %108, %112 ]
+  %.068.ph149 = phi i1 [ %108, %119 ], [ false, %123 ], [ %108, %112 ]
   %128 = call i32 @H5P_poke(ptr noundef nonnull %64, ptr noundef nonnull @.str.44, ptr noundef nonnull %8) #8
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %130, label %134
@@ -2200,11 +2200,11 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   %131 = load i64, ptr @H5E_PLIST_g, align 8
   %132 = load i64, ptr @H5E_CANTSET_g, align 8
   %133 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2334, i64 noundef %131, i64 noundef %132, ptr noundef nonnull @.str.51) #8
-  br i1 %.169.ph149, label %135, label %.thread127
+  br i1 %.068.ph149, label %135, label %.thread127
 
 134:                                              ; preds = %112, %119, %127
-  %.169.ph148 = phi i1 [ %108, %119 ], [ %.169.ph149, %127 ], [ %108, %112 ]
-  br i1 %.169.ph148, label %135, label %.thread127
+  %.068.ph148 = phi i1 [ %108, %119 ], [ %.068.ph149, %127 ], [ %108, %112 ]
+  br i1 %.068.ph148, label %135, label %.thread127
 
 135:                                              ; preds = %130, %134
   %136 = load ptr, ptr %8, align 8
@@ -2235,8 +2235,8 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   br label %148
 
 148:                                              ; preds = %145, %.thread118
-  %.265110121 = phi i32 [ -1, %.thread118 ], [ 0, %145 ]
-  ret i32 %.265110121
+  %.164110121 = phi i32 [ -1, %.thread118 ], [ 0, %145 ]
+  ret i32 %.164110121
 }
 
 declare i32 @H5S_get_simple_extent_ndims(ptr noundef) local_unnamed_addr #1

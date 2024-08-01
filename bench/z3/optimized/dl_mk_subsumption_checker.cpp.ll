@@ -389,8 +389,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 return:                                           ; preds = %for.cond18.preheader.i.i, %for.body.i.i, %for.inc36.i.i, %for.body20.i.i, %for.end24, %if.then.i.i.i.i, %cleanup, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %if.end ], [ %cmp30.lcssa, %cleanup ], [ %cmp30.lcssa64, %if.then.i.i.i.i ], [ true, %for.end24 ], [ false, %for.body20.i.i ], [ false, %for.inc36.i.i ], [ false, %for.body.i.i ], [ false, %for.cond18.preheader.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %cmp30.lcssa, %cleanup ], [ %cmp30.lcssa64, %if.then.i.i.i.i ], [ true, %for.end24 ], [ false, %for.body20.i.i ], [ false, %for.inc36.i.i ], [ false, %for.body.i.i ], [ false, %for.cond18.preheader.i.i ]
+  ret i1 %retval.0
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1739,8 +1739,8 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   unreachable
 
 return:                                           ; preds = %if.then2.i.i.i, %if.then.i.i.i129, %_ZN10ref_vectorI3app11ast_managerED2Ev.exit, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSEPS1_.exit
-  %retval.1 = phi i1 [ true, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSEPS1_.exit ], [ %cmp8143, %_ZN10ref_vectorI3app11ast_managerED2Ev.exit ], [ %cmp8143, %if.then.i.i.i129 ], [ %cmp8143, %if.then2.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSEPS1_.exit ], [ %cmp8143, %_ZN10ref_vectorI3app11ast_managerED2Ev.exit ], [ %cmp8143, %if.then.i.i.i129 ], [ %cmp8143, %if.then2.i.i.i ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN7datalog22rule_subsumption_index11is_subsumedEP3app(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #0
@@ -2224,7 +2224,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK15ref_vector_co
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %modified.0241 = phi i1 [ false, %for.body.lr.ph ], [ %modified.5, %for.inc ]
+  %modified.0241 = phi i1 [ false, %for.body.lr.ph ], [ %modified.1, %for.inc ]
   %__begin1.0240 = phi ptr [ %.pr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %50 = load ptr, ptr %__begin1.0240, align 8
   %m_head.i.i = getelementptr inbounds i8, ptr %50, i64 40
@@ -2554,7 +2554,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i110
   unreachable
 
 if.end53:                                         ; preds = %if.then.i.i110, %invoke.cont52, %invoke.cont32
-  %modified.2 = phi i1 [ true, %invoke.cont32 ], [ %spec.select, %invoke.cont52 ], [ %spec.select, %if.then.i.i110 ]
+  %modified.3 = phi i1 [ true, %invoke.cont32 ], [ %spec.select, %invoke.cont52 ], [ %spec.select, %if.then.i.i110 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
   store ptr %52, ptr %tmp.i, align 8
   invoke void @_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %total_relations_with_included_rules, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i)
@@ -2695,13 +2695,13 @@ terminate.lpad.i138:                              ; preds = %if.then.i.i136
   unreachable
 
 for.inc:                                          ; preds = %for.body.i.i.i, %for.body20.i.i.i, %for.inc36.i.i.i, %if.then.i.i75, %if.then22.i.i70, %for.cond18.preheader.i.i.i, %if.then.i.i136, %cleanup, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit
-  %modified.5 = phi i1 [ %modified.2, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ], [ %modified.4, %cleanup ], [ %modified.4, %if.then.i.i136 ], [ true, %for.cond18.preheader.i.i.i ], [ true, %if.then22.i.i70 ], [ true, %if.then.i.i75 ], [ true, %for.inc36.i.i.i ], [ true, %for.body20.i.i.i ], [ true, %for.body.i.i.i ]
+  %modified.1 = phi i1 [ %modified.3, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit ], [ %modified.4, %cleanup ], [ %modified.4, %if.then.i.i136 ], [ true, %for.cond18.preheader.i.i.i ], [ true, %if.then22.i.i70 ], [ true, %if.then.i.i75 ], [ true, %for.inc36.i.i.i ], [ true, %for.body20.i.i.i ], [ true, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0240, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %invoke.cont11, %invoke.cont5, %invoke.cont19, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE3endEv.exit
-  %modified.0.lcssa = phi i1 [ false, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE3endEv.exit ], [ false, %invoke.cont19 ], [ false, %invoke.cont5 ], [ false, %invoke.cont11 ], [ %modified.5, %for.inc ]
+  %modified.0.lcssa = phi i1 [ false, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE3endEv.exit ], [ false, %invoke.cont19 ], [ false, %invoke.cont5 ], [ false, %invoke.cont11 ], [ %modified.1, %for.inc ]
   invoke void @_ZN7datalog8rule_set18inherit_predicatesERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %tgt, ptr noundef nonnull align 8 dereferenceable(248) %orig)
           to label %invoke.cont92 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -3798,8 +3798,8 @@ ehcleanup:                                        ; preds = %lpad19, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, %while.cond.preheader, %if.end.i.i8, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %if.end.i.i8 ], [ %call4, %while.cond.preheader ], [ %call21, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end.i.i8 ], [ %call4, %while.cond.preheader ], [ %call21, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit ]
+  ret ptr %retval.0
 }
 
 declare void @_ZN7datalog8rule_setC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(3556)) unnamed_addr #0

@@ -696,12 +696,12 @@ if.then53:                                        ; preds = %_ZN13b3OpenCLUtils1
   br label %for.end58
 
 for.end58:                                        ; preds = %for.cond44, %for.cond.preheader, %for.end, %_ZN13b3OpenCLUtils15getPlatformInfoEP15_cl_platform_idP20b3OpenCLPlatformInfo.exit, %if.then53
-  %retContext.1 = phi ptr [ %call49, %if.then53 ], [ %call49, %_ZN13b3OpenCLUtils15getPlatformInfoEP15_cl_platform_idP20b3OpenCLPlatformInfo.exit ], [ null, %for.end ], [ null, %for.cond.preheader ], [ null, %for.cond44 ]
+  %retContext.2 = phi ptr [ %call49, %if.then53 ], [ %call49, %_ZN13b3OpenCLUtils15getPlatformInfoEP15_cl_platform_idP20b3OpenCLPlatformInfo.exit ], [ null, %for.end ], [ null, %for.cond.preheader ], [ null, %for.cond44 ]
   call void @free(ptr noundef %call7) #12
   br label %return
 
 return:                                           ; preds = %if.end4, %for.end58, %if.then18, %if.then20, %if.then, %if.then3, %if.end13
-  %retval.0 = phi ptr [ null, %if.end13 ], [ null, %if.then3 ], [ null, %if.then ], [ null, %if.then20 ], [ null, %if.then18 ], [ %retContext.1, %for.end58 ], [ null, %if.end4 ]
+  %retval.0 = phi ptr [ null, %if.end13 ], [ null, %if.then3 ], [ null, %if.then ], [ null, %if.then20 ], [ null, %if.then18 ], [ %retContext.2, %for.end58 ], [ null, %if.end4 ]
   ret ptr %retval.0
 }
 
@@ -1212,19 +1212,19 @@ if.end73:                                         ; preds = %for.body
   br i1 %tobool66.not, label %if.end90, label %if.end90.thread82
 
 if.end90.thread82:                                ; preds = %if.end73, %if.then61
-  %file62.180 = phi ptr [ %call72, %if.end73 ], [ %call63, %if.then61 ]
-  %call76 = call i32 @fseek(ptr noundef nonnull %file62.180, i64 noundef 0, i32 noundef 2)
-  %call77 = call i64 @ftell(ptr noundef nonnull %file62.180)
-  call void @rewind(ptr noundef nonnull %file62.180)
+  %file62.080 = phi ptr [ %call72, %if.end73 ], [ %call63, %if.then61 ]
+  %call76 = call i32 @fseek(ptr noundef nonnull %file62.080, i64 noundef 0, i32 noundef 2)
+  %call77 = call i64 @ftell(ptr noundef nonnull %file62.080)
+  call void @rewind(ptr noundef nonnull %file62.080)
   %add79 = shl i64 %call77, 32
   %sext = add i64 %add79, 4294967296
   %conv80 = ashr exact i64 %sext, 32
   %call81 = call noalias ptr @malloc(i64 noundef %conv80) #11
   %conv82 = ashr exact i64 %add79, 32
-  %call83 = call i64 @fread(ptr noundef %call81, i64 noundef 1, i64 noundef %conv82, ptr noundef nonnull %file62.180)
+  %call83 = call i64 @fread(ptr noundef %call81, i64 noundef 1, i64 noundef %conv82, ptr noundef nonnull %file62.080)
   %arrayidx86 = getelementptr inbounds i8, ptr %call81, i64 %conv82
   store i8 0, ptr %arrayidx86, align 1
-  %call87 = call i32 @fclose(ptr noundef nonnull %file62.180)
+  %call87 = call i32 @fclose(ptr noundef nonnull %file62.080)
   store ptr %call81, ptr %kernelSource, align 8
   br label %cond.true92
 

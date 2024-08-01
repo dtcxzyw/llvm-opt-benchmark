@@ -713,7 +713,7 @@ define hidden noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsCo
   br i1 %or.cond.i, label %43, label %31
 
 43:                                               ; preds = %40, %36, %32, %27
-  %.0.i = phi i8 [ 10, %27 ], [ 11, %32 ], [ 15, %36 ], [ 18, %40 ]
+  %.2.i = phi i8 [ 10, %27 ], [ 11, %32 ], [ 15, %36 ], [ 18, %40 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %11), !noalias !127
   br label %_ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread
 
@@ -749,7 +749,7 @@ define hidden noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsCo
   br i1 %or.cond13.not.i, label %57, label %58
 
 57:                                               ; preds = %58, %53, %48
-  %.3.i = phi i8 [ 14, %48 ], [ 13, %53 ], [ 12, %58 ]
+  %.5.i = phi i8 [ 14, %48 ], [ 13, %53 ], [ 12, %58 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %10), !noalias !127
   br label %_ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread
 
@@ -980,15 +980,15 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %31, %2
   br label %_ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread
 
 142:                                              ; preds = %.lr.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit.backedge"
-  %.sroa.5.043 = phi ptr [ %133, %.lr.ph ], [ %143, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit.backedge" ]
-  %143 = getelementptr inbounds i8, ptr %.sroa.5.043, i64 -48
-  %144 = getelementptr inbounds i8, ptr %.sroa.5.043, i64 -32
+  %.sroa.5.042 = phi ptr [ %133, %.lr.ph ], [ %143, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit.backedge" ]
+  %143 = getelementptr inbounds i8, ptr %.sroa.5.042, i64 -48
+  %144 = getelementptr inbounds i8, ptr %.sroa.5.042, i64 -32
   %145 = load i64, ptr %144, align 8, !noundef !4
   %.not.i = icmp ult i64 %134, %145
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit.backedge", label %146
 
 146:                                              ; preds = %142
-  %147 = getelementptr inbounds i8, ptr %.sroa.5.043, i64 -40
+  %147 = getelementptr inbounds i8, ptr %.sroa.5.042, i64 -40
   %148 = load ptr, ptr %147, align 8, !nonnull !4, !noundef !4
   %149 = sub nuw i64 %134, %145
   %150 = getelementptr inbounds i8, ptr %135, i64 %149
@@ -1001,12 +1001,12 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %31, %2
   br i1 %152, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit._crit_edge", label %142
 
 _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread: ; preds = %86, %62, %80, %44, %52, %18, %85, %84, %83, %79, %57, %43, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit"
-  %.4.i39 = phi i8 [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit" ], [ 16, %86 ], [ 3, %62 ], [ 3, %80 ], [ 2, %44 ], [ 2, %52 ], [ 4, %18 ], [ 8, %85 ], [ 7, %84 ], [ 5, %83 ], [ 9, %79 ], [ %.3.i, %57 ], [ %.0.i, %43 ]
-  %153 = call noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsColors19style_for_indicator17h929ad8b7972e5e0dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, i8 noundef %.4.i39)
+  %.4.i38 = phi i8 [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit" ], [ 16, %86 ], [ 3, %62 ], [ 3, %80 ], [ 2, %44 ], [ 2, %52 ], [ 4, %18 ], [ 8, %85 ], [ 7, %84 ], [ 5, %83 ], [ 9, %79 ], [ %.5.i, %57 ], [ %.2.i, %43 ]
+  %153 = call noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsColors19style_for_indicator17h929ad8b7972e5e0dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, i8 noundef %.4.i38)
   br label %167
 
 154:                                              ; preds = %146
-  %155 = getelementptr inbounds i8, ptr %.sroa.5.043, i64 -24
+  %155 = getelementptr inbounds i8, ptr %.sroa.5.042, i64 -24
   %156 = load i8, ptr %155, align 8, !range !56, !noundef !4
   %157 = icmp eq i8 %156, 2
   %. = select i1 %157, ptr null, ptr %155
@@ -1014,22 +1014,22 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread: ; preds = 
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h49faf435f12094f1E.llvm.8271848126233039021"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
   %158 = getelementptr inbounds i8, ptr %3, i64 8
   %159 = load i64, ptr %158, align 8, !range !73, !noalias !198, !noundef !4
-  %.not.i.i.i.i36 = icmp eq i64 %159, 0
-  br i1 %.not.i.i.i.i36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit37", label %160
+  %.not.i.i.i.i35 = icmp eq i64 %159, 0
+  br i1 %.not.i.i.i.i35, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit36", label %160
 
 160:                                              ; preds = %154
   %161 = load ptr, ptr %3, align 8, !noalias !198, !nonnull !4, !noundef !4
   %162 = getelementptr inbounds i8, ptr %3, i64 16
   %163 = load i64, ptr %162, align 8, !noalias !198, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.8271848126233039021"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0..sroa_idx10.i, ptr noundef nonnull %161, i64 noundef %159, i64 noundef %163)
-  br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit37"
+  br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit36"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit37": ; preds = %154, %160
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit36": ; preds = %154, %160
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !198
   br label %164
 
-164:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit37", %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h54393b1cdf13988dE.exit"
-  %.1 = phi ptr [ null, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h54393b1cdf13988dE.exit" ], [ %., %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit37" ]
+164:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit36", %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h54393b1cdf13988dE.exit"
+  %.0 = phi ptr [ null, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h54393b1cdf13988dE.exit" ], [ %., %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit36" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %167
 
@@ -1040,8 +1040,8 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread: ; preds = 
   unreachable
 
 167:                                              ; preds = %164, %_ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread
-  %.2 = phi ptr [ %.1, %164 ], [ %153, %_ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread ]
-  ret ptr %.2
+  %.1 = phi ptr [ %.0, %164 ], [ %153, %_ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1127,7 +1127,7 @@ define hidden noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsCo
   br i1 %or.cond.i, label %43, label %31
 
 43:                                               ; preds = %40, %36, %32, %27
-  %.0.i = phi i8 [ 10, %27 ], [ 11, %32 ], [ 15, %36 ], [ 18, %40 ]
+  %.2.i = phi i8 [ 10, %27 ], [ 11, %32 ], [ 15, %36 ], [ 18, %40 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %11), !noalias !212
   br label %_ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread
 
@@ -1163,7 +1163,7 @@ define hidden noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsCo
   br i1 %or.cond13.not.i, label %57, label %58
 
 57:                                               ; preds = %58, %53, %48
-  %.3.i = phi i8 [ 14, %48 ], [ 13, %53 ], [ 12, %58 ]
+  %.5.i = phi i8 [ 14, %48 ], [ 13, %53 ], [ 12, %58 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %10), !noalias !212
   br label %_ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread
 
@@ -1394,15 +1394,15 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %31, %2
   br label %_ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread
 
 142:                                              ; preds = %.lr.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit.backedge"
-  %.sroa.5.043 = phi ptr [ %133, %.lr.ph ], [ %143, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit.backedge" ]
-  %143 = getelementptr inbounds i8, ptr %.sroa.5.043, i64 -48
-  %144 = getelementptr inbounds i8, ptr %.sroa.5.043, i64 -32
+  %.sroa.5.042 = phi ptr [ %133, %.lr.ph ], [ %143, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit.backedge" ]
+  %143 = getelementptr inbounds i8, ptr %.sroa.5.042, i64 -48
+  %144 = getelementptr inbounds i8, ptr %.sroa.5.042, i64 -32
   %145 = load i64, ptr %144, align 8, !noundef !4
   %.not.i = icmp ult i64 %134, %145
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit.backedge", label %146
 
 146:                                              ; preds = %142
-  %147 = getelementptr inbounds i8, ptr %.sroa.5.043, i64 -40
+  %147 = getelementptr inbounds i8, ptr %.sroa.5.042, i64 -40
   %148 = load ptr, ptr %147, align 8, !nonnull !4, !noundef !4
   %149 = sub nuw i64 %134, %145
   %150 = getelementptr inbounds i8, ptr %135, i64 %149
@@ -1415,12 +1415,12 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %31, %2
   br i1 %152, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit._crit_edge", label %142
 
 _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread: ; preds = %86, %62, %80, %44, %52, %17, %85, %84, %83, %79, %57, %43, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit"
-  %.4.i39 = phi i8 [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit" ], [ 16, %86 ], [ 3, %62 ], [ 3, %80 ], [ 2, %44 ], [ 2, %52 ], [ 4, %17 ], [ 8, %85 ], [ 7, %84 ], [ 5, %83 ], [ 9, %79 ], [ %.3.i, %57 ], [ %.0.i, %43 ]
-  %153 = call noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsColors19style_for_indicator17h929ad8b7972e5e0dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, i8 noundef %.4.i39)
+  %.4.i38 = phi i8 [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit" ], [ 16, %86 ], [ 3, %62 ], [ 3, %80 ], [ 2, %44 ], [ 2, %52 ], [ 4, %17 ], [ 8, %85 ], [ 7, %84 ], [ 5, %83 ], [ 9, %79 ], [ %.5.i, %57 ], [ %.2.i, %43 ]
+  %153 = call noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsColors19style_for_indicator17h929ad8b7972e5e0dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, i8 noundef %.4.i38)
   br label %167
 
 154:                                              ; preds = %146
-  %155 = getelementptr inbounds i8, ptr %.sroa.5.043, i64 -24
+  %155 = getelementptr inbounds i8, ptr %.sroa.5.042, i64 -24
   %156 = load i8, ptr %155, align 8, !range !56, !noundef !4
   %157 = icmp eq i8 %156, 2
   %. = select i1 %157, ptr null, ptr %155
@@ -1428,22 +1428,22 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread: ; preds = 
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h49faf435f12094f1E.llvm.8271848126233039021"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
   %158 = getelementptr inbounds i8, ptr %3, i64 8
   %159 = load i64, ptr %158, align 8, !range !73, !noalias !281, !noundef !4
-  %.not.i.i.i.i36 = icmp eq i64 %159, 0
-  br i1 %.not.i.i.i.i36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit37", label %160
+  %.not.i.i.i.i35 = icmp eq i64 %159, 0
+  br i1 %.not.i.i.i.i35, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit36", label %160
 
 160:                                              ; preds = %154
   %161 = load ptr, ptr %3, align 8, !noalias !281, !nonnull !4, !noundef !4
   %162 = getelementptr inbounds i8, ptr %3, i64 16
   %163 = load i64, ptr %162, align 8, !noalias !281, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.8271848126233039021"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0..sroa_idx10.i, ptr noundef nonnull %161, i64 noundef %159, i64 noundef %163)
-  br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit37"
+  br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit36"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit37": ; preds = %154, %160
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit36": ; preds = %154, %160
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !281
   br label %164
 
-164:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit37", %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h54393b1cdf13988dE.exit"
-  %.1 = phi ptr [ null, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h54393b1cdf13988dE.exit" ], [ %., %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit37" ]
+164:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit36", %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h54393b1cdf13988dE.exit"
+  %.0 = phi ptr [ null, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h54393b1cdf13988dE.exit" ], [ %., %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit36" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %167
 
@@ -1454,8 +1454,8 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread: ; preds = 
   unreachable
 
 167:                                              ; preds = %164, %_ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread
-  %.2 = phi ptr [ %.1, %164 ], [ %153, %_ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread ]
-  ret ptr %.2
+  %.1 = phi ptr [ %.0, %164 ], [ %153, %_ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -630,13 +630,13 @@ define internal i64 @php_userstreamop_read(ptr nocapture noundef %0, ptr nocaptu
 
 48:                                               ; preds = %40, %38
   %49 = phi ptr [ %.pre, %40 ], [ %35, %38 ]
-  %.0147 = phi i64 [ %2, %40 ], [ %37, %38 ]
+  %.1 = phi i64 [ %2, %40 ], [ %37, %38 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 8 %50, i64 %.0147, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 8 %50, i64 %.1, i1 false)
   br label %51
 
 51:                                               ; preds = %48, %.critedge
-  %.1 = phi i64 [ %.0147, %48 ], [ 0, %.critedge ]
+  %.0147 = phi i64 [ %.1, %48 ], [ 0, %.critedge ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #11
   store i32 0, ptr %30, align 8
   %52 = call noalias ptr @_emalloc_40() #11
@@ -705,7 +705,7 @@ define internal i64 @php_userstreamop_read(ptr nocapture noundef %0, ptr nocaptu
   br label %81
 
 81:                                               ; preds = %29, %3, %.thread, %60, %34, %22
-  %.0146 = phi i64 [ -1, %22 ], [ -1, %60 ], [ %.1, %.thread ], [ -1, %34 ], [ -1, %3 ], [ -1, %29 ]
+  %.0146 = phi i64 [ -1, %22 ], [ -1, %60 ], [ %.0147, %.thread ], [ -1, %34 ], [ -1, %3 ], [ -1, %29 ]
   ret i64 %.0146
 }
 
@@ -1123,7 +1123,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   br label %35
 
 35:                                               ; preds = %28, %25
-  %.0 = phi i32 [ %27, %25 ], [ -1, %28 ]
+  %.1 = phi i32 [ %27, %25 ], [ -1, %28 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   br label %.sink.split
 
@@ -1214,7 +1214,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   br label %75
 
 75:                                               ; preds = %59, %66, %49, %68, %63
-  %.1 = phi i32 [ %65, %63 ], [ -1, %68 ], [ -2, %49 ], [ 0, %66 ], [ -2, %59 ]
+  %.2 = phi i32 [ %65, %63 ], [ -1, %68 ], [ -2, %49 ], [ 0, %66 ], [ -2, %59 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #11
   br label %.sink.split
@@ -1298,7 +1298,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   br label %116
 
 116:                                              ; preds = %99, %102, %109
-  %.2 = phi i32 [ %101, %99 ], [ -2, %102 ], [ -2, %109 ]
+  %.4 = phi i32 [ %101, %99 ], [ -2, %102 ], [ -2, %109 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
   br label %.sink.split
@@ -1394,7 +1394,7 @@ default.unreachable:                              ; preds = %117
   br label %152
 
 152:                                              ; preds = %150, %143
-  %.4 = phi i32 [ -1, %143 ], [ %.297, %150 ]
+  %.5 = phi i32 [ -1, %143 ], [ %.297, %150 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %129) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %127) #11
@@ -1403,13 +1403,13 @@ default.unreachable:                              ; preds = %117
 
 .sink.split:                                      ; preds = %76, %116, %84, %88, %35, %75, %152
   %.sink307 = phi ptr [ %5, %152 ], [ %7, %75 ], [ %5, %35 ], [ %5, %88 ], [ %5, %84 ], [ %5, %116 ], [ %5, %76 ]
-  %.5.ph = phi i32 [ %.4, %152 ], [ %.1, %75 ], [ %.0, %35 ], [ -1, %88 ], [ %., %84 ], [ %.2, %116 ], [ -2, %76 ]
+  %.0.ph = phi i32 [ %.5, %152 ], [ %.2, %75 ], [ %.1, %35 ], [ -1, %88 ], [ %., %84 ], [ %.4, %116 ], [ -2, %76 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %.sink307) #11
   br label %153
 
 153:                                              ; preds = %.sink.split, %4
-  %.5 = phi i32 [ -2, %4 ], [ %.5.ph, %.sink.split ]
-  ret i32 %.5
+  %.0 = phi i32 [ -2, %4 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

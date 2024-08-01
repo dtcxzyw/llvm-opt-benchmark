@@ -669,13 +669,13 @@ proto_item_set_generated.exit262:                 ; preds = %159, %176, %179
   br i1 %.not263, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %205, %.lr.ph
-  %.0264 = phi i32 [ %218, %.lr.ph ], [ %211, %205 ]
-  %212 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0264) #4
+  %.1264 = phi i32 [ %218, %.lr.ph ], [ %211, %205 ]
+  %212 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1264) #4
   %213 = zext i16 %212 to i32
   %214 = load i32, ptr @ett_rtls_message, align 4
   %215 = call ptr @val_to_str(i32 noundef %213, ptr noundef nonnull @rtls_message_type_vals, ptr noundef nonnull @.str.171) #4
-  %216 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0264, i32 noundef -1, i32 noundef %214, ptr noundef null, ptr noundef nonnull @.str.172, ptr noundef %215) #4
-  %217 = call fastcc i32 @dissect_rtls_header(ptr noundef %0, ptr noundef %216, i32 noundef %.0264, ptr noundef nonnull %7)
+  %216 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.1264, i32 noundef -1, i32 noundef %214, ptr noundef null, ptr noundef nonnull @.str.172, ptr noundef %215) #4
+  %217 = call fastcc i32 @dissect_rtls_header(ptr noundef %0, ptr noundef %216, i32 noundef %.1264, ptr noundef nonnull %7)
   %218 = call fastcc i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, ptr noundef %216, i32 noundef %217, i32 noundef %213)
   %219 = load i32, ptr %7, align 4
   %220 = add i32 %219, 16
@@ -694,8 +694,8 @@ proto_item_set_generated.exit262:                 ; preds = %159, %176, %179
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %205, %5, %5, %223, %proto_item_set_generated.exit262, %proto_item_set_generated.exit259, %proto_item_set_generated.exit256, %proto_item_set_generated.exit, %22, %15, %8
-  %.1 = phi i32 [ %227, %223 ], [ %204, %proto_item_set_generated.exit262 ], [ %158, %proto_item_set_generated.exit259 ], [ %115, %proto_item_set_generated.exit256 ], [ %75, %proto_item_set_generated.exit ], [ %29, %22 ], [ %3, %5 ], [ %3, %5 ], [ %21, %15 ], [ %14, %8 ], [ %211, %205 ], [ %218, %.lr.ph ]
-  ret i32 %.1
+  %.0 = phi i32 [ %227, %223 ], [ %204, %proto_item_set_generated.exit262 ], [ %158, %proto_item_set_generated.exit259 ], [ %115, %proto_item_set_generated.exit256 ], [ %75, %proto_item_set_generated.exit ], [ %29, %22 ], [ %3, %5 ], [ %3, %5 ], [ %21, %15 ], [ %14, %8 ], [ %211, %205 ], [ %218, %.lr.ph ]
+  ret i32 %.0
 }
 
 declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

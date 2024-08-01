@@ -1206,7 +1206,7 @@ invoke.cont4:                                     ; preds = %entry
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont4, %invoke.cont9
-  %urbg.sroa.0.0310 = phi i64 [ 0, %invoke.cont4 ], [ %urbg.sroa.0.1, %invoke.cont9 ]
+  %urbg.sroa.0.0310 = phi i64 [ 0, %invoke.cont4 ], [ %urbg.sroa.0.3, %invoke.cont9 ]
   %__begin2.sroa.0.0.idx309 = phi i64 [ 0, %invoke.cont4 ], [ %__begin2.sroa.0.0.add, %invoke.cont9 ]
   %__begin2.sroa.0.0.ptr311 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i2426, i64 %__begin2.sroa.0.0.idx309
   %inc.i.i.i.i.i.i = add i64 %urbg.sroa.0.0310, 1
@@ -1232,9 +1232,9 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %invoke.cont9, !llvm.loop !7
 
 invoke.cont9:                                     ; preds = %while.body.i.i.i, %if.end.i.i.i
-  %urbg.sroa.0.1 = phi i64 [ %inc.i.i.i.i.i.i, %if.end.i.i.i ], [ %inc.i.i.i16.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i27.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %urbg.sroa.0.3 = phi i64 [ %inc.i.i.i.i.i.i, %if.end.i.i.i ], [ %inc.i.i.i16.i.i.i, %while.body.i.i.i ]
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i27.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   %retval.0.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   store i32 %retval.0.i.i.i, ptr %__begin2.sroa.0.0.ptr311, align 4
   %__begin2.sroa.0.0.add = add nuw nsw i64 %__begin2.sroa.0.0.idx309, 4
@@ -1253,8 +1253,8 @@ lpad3:                                            ; preds = %if.end.i.i215, %if.
 
 for.end:                                          ; preds = %invoke.cont9
   store i32 12, ptr %ref.tmp12, align 4
-  store i64 %urbg.sroa.0.1, ptr %ref.tmp13, align 8
-  %cmp.i.i = icmp eq i64 %urbg.sroa.0.1, 12
+  store i64 %urbg.sroa.0.3, ptr %ref.tmp13, align 8
+  %cmp.i.i = icmp eq i64 %urbg.sroa.0.3, 12
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %for.end
@@ -1471,10 +1471,10 @@ for.end85.thread:                                 ; preds = %invoke.cont68
   br label %if.end.i.i106
 
 if.end.i.i.i74:                                   ; preds = %invoke.cont68, %invoke.cont81
-  %urbg.sroa.0.3314 = phi i64 [ %urbg.sroa.0.4, %invoke.cont81 ], [ 0, %invoke.cont68 ]
+  %urbg.sroa.0.1314 = phi i64 [ %urbg.sroa.0.5, %invoke.cont81 ], [ 0, %invoke.cont68 ]
   %__begin270.sroa.0.0313 = phi ptr [ %incdec.ptr.i103, %invoke.cont81 ], [ %26, %invoke.cont68 ]
-  %inc.i.i.i.i.i.i63 = add i64 %urbg.sroa.0.3314, 1
-  %rem.i.i.i.i.i.i69 = urem i64 %urbg.sroa.0.3314, 12
+  %inc.i.i.i.i.i.i63 = add i64 %urbg.sroa.0.1314, 1
+  %rem.i.i.i.i.i.i69 = urem i64 %urbg.sroa.0.1314, 12
   %add.ptr.i.i.i.i.i.i.i70 = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 %rem.i.i.i.i.i.i69
   %28 = load i64, ptr %add.ptr.i.i.i.i.i.i.i70, align 8
   %conv.i.i.i.i75 = and i64 %28, 4294967295
@@ -1496,9 +1496,9 @@ while.body.i.i.i91:                               ; preds = %if.end.i.i.i74, %wh
   br i1 %cmp10.i.i.i99, label %while.body.i.i.i91, label %invoke.cont81, !llvm.loop !7
 
 invoke.cont81:                                    ; preds = %while.body.i.i.i91, %if.end.i.i.i74
-  %urbg.sroa.0.4 = phi i64 [ %inc.i.i.i.i.i.i63, %if.end.i.i.i74 ], [ %inc.i.i.i16.i.i.i93, %while.body.i.i.i91 ]
-  %product.1.i.i.i81 = phi i64 [ %mul.i.i.i.i77, %if.end.i.i.i74 ], [ %mul.i27.i.i.i97, %while.body.i.i.i91 ]
-  %shr.i.i.i.i82 = lshr i64 %product.1.i.i.i81, 32
+  %urbg.sroa.0.5 = phi i64 [ %inc.i.i.i.i.i.i63, %if.end.i.i.i74 ], [ %inc.i.i.i16.i.i.i93, %while.body.i.i.i91 ]
+  %product.0.i.i.i81 = phi i64 [ %mul.i.i.i.i77, %if.end.i.i.i74 ], [ %mul.i27.i.i.i97, %while.body.i.i.i91 ]
+  %shr.i.i.i.i82 = lshr i64 %product.0.i.i.i81, 32
   %retval.0.i.i.i84 = trunc nuw nsw i64 %shr.i.i.i.i82 to i32
   store i32 %retval.0.i.i.i84, ptr %__begin270.sroa.0.0313, align 4
   %incdec.ptr.i103 = getelementptr inbounds i8, ptr %__begin270.sroa.0.0313, i64 4
@@ -1512,8 +1512,8 @@ ehcleanup65:                                      ; preds = %_ZN7testing7Message
 
 for.end85:                                        ; preds = %invoke.cont81
   store i32 12, ptr %ref.tmp87, align 4
-  store i64 %urbg.sroa.0.4, ptr %ref.tmp88, align 8
-  %cmp.i.i105 = icmp eq i64 %urbg.sroa.0.4, 12
+  store i64 %urbg.sroa.0.5, ptr %ref.tmp88, align 8
+  %cmp.i.i105 = icmp eq i64 %urbg.sroa.0.5, 12
   br i1 %cmp.i.i105, label %if.then.i.i107, label %if.end.i.i106
 
 if.then.i.i107:                                   ; preds = %for.end85
@@ -1730,10 +1730,10 @@ for.end165.thread:                                ; preds = %invoke.cont148
   br label %if.end.i.i215
 
 if.end.i.i.i183:                                  ; preds = %invoke.cont148, %invoke.cont161
-  %urbg.sroa.0.6317 = phi i64 [ %urbg.sroa.0.7, %invoke.cont161 ], [ 0, %invoke.cont148 ]
+  %urbg.sroa.0.2317 = phi i64 [ %urbg.sroa.0.7, %invoke.cont161 ], [ 0, %invoke.cont148 ]
   %__begin2150.sroa.0.0316 = phi ptr [ %incdec.ptr.i212, %invoke.cont161 ], [ %50, %invoke.cont148 ]
-  %inc.i.i.i.i.i.i172 = add i64 %urbg.sroa.0.6317, 1
-  %rem.i.i.i.i.i.i178 = urem i64 %urbg.sroa.0.6317, 12
+  %inc.i.i.i.i.i.i172 = add i64 %urbg.sroa.0.2317, 1
+  %rem.i.i.i.i.i.i178 = urem i64 %urbg.sroa.0.2317, 12
   %add.ptr.i.i.i.i.i.i.i179 = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 %rem.i.i.i.i.i.i178
   %52 = load i64, ptr %add.ptr.i.i.i.i.i.i.i179, align 8
   %conv.i.i.i.i184 = and i64 %52, 4294967295
@@ -1756,8 +1756,8 @@ while.body.i.i.i200:                              ; preds = %if.end.i.i.i183, %w
 
 invoke.cont161:                                   ; preds = %while.body.i.i.i200, %if.end.i.i.i183
   %urbg.sroa.0.7 = phi i64 [ %inc.i.i.i.i.i.i172, %if.end.i.i.i183 ], [ %inc.i.i.i16.i.i.i202, %while.body.i.i.i200 ]
-  %product.1.i.i.i190 = phi i64 [ %mul.i.i.i.i186, %if.end.i.i.i183 ], [ %mul.i27.i.i.i206, %while.body.i.i.i200 ]
-  %shr.i.i.i.i191 = lshr i64 %product.1.i.i.i190, 32
+  %product.0.i.i.i190 = phi i64 [ %mul.i.i.i.i186, %if.end.i.i.i183 ], [ %mul.i27.i.i.i206, %while.body.i.i.i200 ]
+  %shr.i.i.i.i191 = lshr i64 %product.0.i.i.i190, 32
   %retval.0.i.i.i193 = trunc nuw nsw i64 %shr.i.i.i.i191 to i32
   store i32 %retval.0.i.i.i193, ptr %__begin2150.sroa.0.0316, align 4
   %incdec.ptr.i212 = getelementptr inbounds i8, ptr %__begin2150.sroa.0.0316, i64 4
@@ -7823,8 +7823,8 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
   %gen.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i25.i.i.i, %while.body.i.i.i ]
   %gen.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i.i27.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i16 [ %mul.i.i.i.i, %if.then15.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
-  %161 = lshr i16 %product.1.i.i.i, 8
+  %product.0.i.i.i = phi i16 [ %mul.i.i.i.i, %if.then15.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
+  %161 = lshr i16 %product.0.i.i.i, 8
   %conv1.i35.i.i.i = trunc nuw i16 %161 to i8
   br label %invoke.cont286
 
@@ -13702,8 +13702,8 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
   %gen.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i25.i.i.i, %while.body.i.i.i ]
   %gen.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i.i27.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i16 [ %mul.i.i.i.i, %if.then15.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
-  %161 = lshr i16 %product.1.i.i.i, 8
+  %product.0.i.i.i = phi i16 [ %mul.i.i.i.i, %if.then15.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
+  %161 = lshr i16 %product.0.i.i.i, 8
   %conv1.i35.i.i.i = trunc nuw i16 %161 to i8
   br label %invoke.cont286
 
@@ -17493,8 +17493,8 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
   %gen.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i26.i.i.i, %while.body.i.i.i ]
   %gen.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i.i28.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i32 [ %mul.i.i.i.i, %if.then15.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i32 %product.1.i.i.i, 16
+  %product.0.i.i.i = phi i32 [ %mul.i.i.i.i, %if.then15.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i32 %product.0.i.i.i, 16
   %conv.i36.i.i.i = trunc nuw i32 %shr.i.i.i.i to i16
   br label %invoke.cont286
 
@@ -21284,8 +21284,8 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
   %gen.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i26.i.i.i, %while.body.i.i.i ]
   %gen.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i.i28.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i32 [ %mul.i.i.i.i, %if.then15.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i32 %product.1.i.i.i, 16
+  %product.0.i.i.i = phi i32 [ %mul.i.i.i.i, %if.then15.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i32 %product.0.i.i.i, 16
   %conv.i36.i.i.i = trunc nuw i32 %shr.i.i.i.i to i16
   br label %invoke.cont286
 
@@ -25075,8 +25075,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
   %gen.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i, %while.body.i.i.i ]
   %gen.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i.i26.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %invoke.cont275
 
 invoke.cont275:                                   ; preds = %if.end13.i.i.i, %if.then.i.i.i
@@ -28862,8 +28862,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
   %gen.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i, %while.body.i.i.i ]
   %gen.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i.i26.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %invoke.cont279
 
 invoke.cont279:                                   ; preds = %if.end13.i.i.i, %if.then.i.i.i
@@ -39678,8 +39678,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_.exit, !llvm.loop !225
 
 _ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_.exit: ; preds = %while.body.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i16 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
-  %22 = lshr i16 %product.1.i.i.i, 8
+  %product.0.i.i.i = phi i16 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
+  %22 = lshr i16 %product.0.i.i.i, 8
   %conv1.i35.i.i.i = trunc nuw i16 %22 to i8
   %add.i.i = add i8 %conv1.i35.i.i.i, 10
   %conv = sext i8 %add.i.i to i32
@@ -43216,8 +43216,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %_ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_.exit, !llvm.loop !364
 
 _ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_.exit: ; preds = %while.body.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i16 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
-  %22 = lshr i16 %product.1.i.i.i, 8
+  %product.0.i.i.i = phi i16 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
+  %22 = lshr i16 %product.0.i.i.i, 8
   %conv1.i35.i.i.i = trunc nuw i16 %22 to i8
   %add.i.i = add i8 %conv1.i35.i.i.i, 10
   %conv = zext i8 %add.i.i to i32
@@ -43566,8 +43566,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %_ZN4absl24uniform_int_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_.exit, !llvm.loop !484
 
 _ZN4absl24uniform_int_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_.exit: ; preds = %while.body.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i32 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i32 %product.1.i.i.i, 16
+  %product.0.i.i.i = phi i32 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i32 %product.0.i.i.i, 16
   %conv.i36.i.i.i = trunc nuw i32 %shr.i.i.i.i to i16
   %add.i.i = add i16 %conv.i36.i.i.i, 10
   %conv = sext i16 %add.i.i to i32
@@ -43914,8 +43914,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %_ZN4absl24uniform_int_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_.exit, !llvm.loop !604
 
 _ZN4absl24uniform_int_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_.exit: ; preds = %while.body.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i32 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i32 %product.1.i.i.i, 16
+  %product.0.i.i.i = phi i32 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i32 %product.0.i.i.i, 16
   %conv.i36.i.i.i = trunc nuw i32 %shr.i.i.i.i to i16
   %add.i.i = add i16 %conv.i36.i.i.i, 10
   %conv = zext i16 %add.i.i to i32
@@ -44260,8 +44260,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, !llvm.loop !724
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %while.body.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   %retval.0.i.i.i = trunc nuw i64 %shr.i.i.i.i to i32
   %add.i.i = add i32 %retval.0.i.i.i, 10
   %digits_.i = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
@@ -44605,8 +44605,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %_ZN4absl24uniform_int_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_.exit, !llvm.loop !844
 
 _ZN4absl24uniform_int_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_.exit: ; preds = %while.body.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   %retval.0.i.i.i = trunc nuw i64 %shr.i.i.i.i to i32
   %add.i.i = add i32 %retval.0.i.i.i, 10
   %digits_.i = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
@@ -45618,8 +45618,8 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
   %rng.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i25.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i27.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i16 [ %mul.i.i.i.i41, %if.then15.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
-  %6 = lshr i16 %product.1.i.i.i, 8
+  %product.0.i.i.i = phi i16 [ %mul.i.i.i.i41, %if.then15.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
+  %6 = lshr i16 %product.0.i.i.i, 8
   %conv1.i35.i.i.i = trunc nuw i16 %6 to i8
   br label %invoke.cont14
 
@@ -48501,8 +48501,8 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
   %rng.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i25.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i27.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i16 [ %mul.i.i.i.i41, %if.then15.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
-  %6 = lshr i16 %product.1.i.i.i, 8
+  %product.0.i.i.i = phi i16 [ %mul.i.i.i.i41, %if.then15.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
+  %6 = lshr i16 %product.0.i.i.i, 8
   %conv1.i35.i.i.i = trunc nuw i16 %6 to i8
   br label %invoke.cont14
 
@@ -49354,8 +49354,8 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
   %rng.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i26.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i28.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i32 [ %mul.i.i.i.i41, %if.then15.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i32 %product.1.i.i.i, 16
+  %product.0.i.i.i = phi i32 [ %mul.i.i.i.i41, %if.then15.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i32 %product.0.i.i.i, 16
   %conv.i36.i.i.i = trunc nuw i32 %shr.i.i.i.i to i16
   br label %invoke.cont14
 
@@ -50207,8 +50207,8 @@ while.body.i.i.i:                                 ; preds = %if.then15.i.i.i, %w
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then15.i.i.i, %if.end.i.i.i
   %rng.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i26.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.then15.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i28.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i32 [ %mul.i.i.i.i41, %if.then15.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i32 %product.1.i.i.i, 16
+  %product.0.i.i.i = phi i32 [ %mul.i.i.i.i41, %if.then15.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i32 %product.0.i.i.i, 16
   %conv.i36.i.i.i = trunc nuw i32 %shr.i.i.i.i to i16
   br label %invoke.cont14
 
@@ -51056,8 +51056,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
   %rng.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i24.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i26.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i41, %if.then6.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i41, %if.then6.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %if.end13.i.i.i, %if.then.i.i.i
@@ -51905,8 +51905,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
   %rng.sroa.0.2 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i24.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.2 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i26.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i41, %if.then6.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i41, %if.then6.i.i.i ], [ %mul.i.i.i.i41, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %if.end13.i.i.i, %if.then.i.i.i
@@ -54417,8 +54417,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 invoke.cont5:                                     ; preds = %while.body.i.i.i, %if.end.i.i.i
   %rng.sroa.0.1 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i25.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.1 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i27.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i16 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
-  %5 = lshr i16 %product.1.i.i.i, 8
+  %product.0.i.i.i = phi i16 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
+  %5 = lshr i16 %product.0.i.i.i, 8
   %narrow = add nuw nsw i16 %5, 219
   %add.i.i = zext nneg i16 %narrow to i64
   %sext = shl i64 %add.i.i, 56
@@ -56823,8 +56823,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 invoke.cont5:                                     ; preds = %while.body.i.i.i, %if.end.i.i.i
   %rng.sroa.0.1 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i25.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.1 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i27.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i16 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
-  %5 = lshr i16 %product.1.i.i.i, 8
+  %product.0.i.i.i = phi i16 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i34.i.i.i, %while.body.i.i.i ]
+  %5 = lshr i16 %product.0.i.i.i, 8
   %6 = zext nneg i16 %5 to i64
   %gep54 = getelementptr i32, ptr %invariant.gep53, i64 %6
   %7 = load i32, ptr %gep54, align 4
@@ -57188,8 +57188,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 invoke.cont5:                                     ; preds = %while.body.i.i.i, %if.end.i.i.i
   %rng.sroa.0.1 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i26.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.1 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i28.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i32 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i32 %product.1.i.i.i, 16
+  %product.0.i.i.i = phi i32 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i32 %product.0.i.i.i, 16
   %narrow = add nuw nsw i32 %shr.i.i.i.i, 65499
   %add.i.i = zext nneg i32 %narrow to i64
   %sext = shl i64 %add.i.i, 48
@@ -57557,8 +57557,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 invoke.cont5:                                     ; preds = %while.body.i.i.i, %if.end.i.i.i
   %rng.sroa.0.1 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i26.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.1 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i28.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i32 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i32 %product.1.i.i.i, 16
+  %product.0.i.i.i = phi i32 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i35.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i32 %product.0.i.i.i, 16
   %3 = zext nneg i32 %shr.i.i.i.i to i64
   %gep54 = getelementptr i32, ptr %invariant.gep53, i64 %3
   %4 = load i32, ptr %gep54, align 4
@@ -57916,8 +57916,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 invoke.cont5:                                     ; preds = %while.body.i.i.i, %if.end.i.i.i
   %rng.sroa.0.1 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i24.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.1 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i26.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   %add.ptr.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i11, i64 %shr.i.i.i.i
   %4 = load i32, ptr %add.ptr.i, align 4
   %inc = add nsw i32 %4, 1
@@ -58274,8 +58274,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 invoke.cont5:                                     ; preds = %while.body.i.i.i, %if.end.i.i.i
   %rng.sroa.0.1 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i24.i.i.i, %while.body.i.i.i ]
   %rng.sroa.4.1 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ], [ %.narrow.i.i.i.i.i26.i.i.i, %while.body.i.i.i ]
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i12, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   %add.ptr.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i11, i64 %shr.i.i.i.i
   %4 = load i32, ptr %add.ptr.i, align 4
   %inc = add nsw i32 %4, 1

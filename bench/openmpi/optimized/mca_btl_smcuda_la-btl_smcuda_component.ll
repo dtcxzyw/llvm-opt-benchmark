@@ -2182,13 +2182,13 @@ get_mpool_res_size.exit:                          ; preds = %.lr.ph.i
   br label %get_mpool_res_size.exit.thread17
 
 get_mpool_res_size.exit.thread17:                 ; preds = %get_mpool_res_size.exit, %74, %opal_thread_add_fetch_32.exit, %77, %68, %get_mpool_res_size.exit.thread23
-  %.122 = phi i32 [ 0, %get_mpool_res_size.exit ], [ 0, %get_mpool_res_size.exit.thread23 ], [ 0, %74 ], [ 0, %opal_thread_add_fetch_32.exit ], [ -11, %77 ], [ -11, %68 ]
+  %.02722 = phi i32 [ 0, %get_mpool_res_size.exit ], [ 0, %get_mpool_res_size.exit.thread23 ], [ 0, %74 ], [ 0, %opal_thread_add_fetch_32.exit ], [ -11, %77 ], [ -11, %68 ]
   %103 = tail call i32 @close(i32 noundef %57) #14
   br label %get_mpool_res_size.exit.thread10
 
 get_mpool_res_size.exit.thread10:                 ; preds = %5, %create_and_attach.exit46, %59, %create_and_attach.exit, %get_mpool_res_size.exit.thread17
-  %.114 = phi i32 [ %.122, %get_mpool_res_size.exit.thread17 ], [ -18, %5 ], [ -1, %create_and_attach.exit46 ], [ -11, %59 ], [ -1, %create_and_attach.exit ]
-  ret i32 %.114
+  %.02714 = phi i32 [ %.02722, %get_mpool_res_size.exit.thread17 ], [ -18, %5 ], [ -1, %create_and_attach.exit46 ], [ -11, %59 ], [ -1, %create_and_attach.exit ]
+  ret i32 %.02714
 }
 
 declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2

@@ -41574,13 +41574,13 @@ define internal fastcc noundef ptr @_ZN7testing8internalL14ParseFlagValueEPKcS2_
   br label %32
 
 32:                                               ; preds = %27, %30, %15
-  %.0 = phi ptr [ null, %15 ], [ %spec.select, %30 ], [ %28, %27 ]
+  %.1 = phi ptr [ null, %15 ], [ %spec.select, %30 ], [ %28, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #48
   br label %33
 
 33:                                               ; preds = %3, %32
-  %.1 = phi ptr [ %.0, %32 ], [ null, %3 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %32 ], [ null, %3 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -49417,7 +49417,7 @@ define void @_ZN7testing8internal8FilePath9NormalizeEv(ptr noundef nonnull align
 .lr.ph:                                           ; preds = %6, %.loopexit
   %14 = phi i8 [ %21, %.loopexit ], [ %13, %6 ]
   %.018 = phi ptr [ %22, %.loopexit ], [ %10, %6 ]
-  %.01417 = phi ptr [ %.2, %.loopexit ], [ %7, %6 ]
+  %.01417 = phi ptr [ %.1, %.loopexit ], [ %7, %6 ]
   store i8 %14, ptr %.018, align 1
   %15 = load i8, ptr %.01417, align 1
   %16 = icmp eq i8 %15, 47
@@ -49429,15 +49429,15 @@ define void @_ZN7testing8internal8FilePath9NormalizeEv(ptr noundef nonnull align
   br label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader
-  %.115 = phi ptr [ %19, %.preheader ], [ %.01417, %.lr.ph ]
-  %19 = getelementptr inbounds i8, ptr %.115, i64 1
+  %.215 = phi ptr [ %19, %.preheader ], [ %.01417, %.lr.ph ]
+  %19 = getelementptr inbounds i8, ptr %.215, i64 1
   %.pr = load i8, ptr %19, align 1
   %20 = icmp eq i8 %.pr, 47
   br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !970
 
 .loopexit:                                        ; preds = %.preheader, %17
   %21 = phi i8 [ %.pre, %17 ], [ %.pr, %.preheader ]
-  %.2 = phi ptr [ %18, %17 ], [ %19, %.preheader ]
+  %.1 = phi ptr [ %18, %17 ], [ %19, %.preheader ]
   %22 = getelementptr inbounds i8, ptr %.018, i64 1
   %.not = icmp eq i8 %21, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !971

@@ -419,8 +419,8 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then.i.i.i, %invoke.cont.i, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %cmp.lcssa, %invoke.cont.i ], [ %cmp.lcssa, %if.then.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp.lcssa, %invoke.cont.i ], [ %cmp.lcssa, %if.then.i.i.i ]
+  ret i1 %retval.0
 }
 
 declare void @_ZNK4cvc58internal8TypeNode11getArgTypesEv(ptr sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

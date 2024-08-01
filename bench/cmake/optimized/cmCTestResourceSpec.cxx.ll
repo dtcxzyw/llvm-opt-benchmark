@@ -9683,7 +9683,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i, %._crit_edge.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE5clearEv.exit30.i.i.i
-  %.027.lcssa53.i.i.i = phi i1 [ %.2.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %.2.i.i.i, %._crit_edge.i.i.i ], [ true, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE5clearEv.exit30.i.i.i ]
+  %.027.lcssa53.i.i.i = phi i1 [ %.1.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %.1.i.i.i, %._crit_edge.i.i.i ], [ true, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE5clearEv.exit30.i.i.i ]
   %53 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %42, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE5clearEv.exit30.i.i.i ]
   %.not.i.i.i.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.exit", label %54
@@ -9693,7 +9693,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.exit"
 
 55:                                               ; preds = %_ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EED2Ev.exit.i.i.i, %.lr.ph.i.i.i
-  %.02749.i.i.i = phi i1 [ true, %.lr.ph.i.i.i ], [ %.2.i.i.i, %_ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EED2Ev.exit.i.i.i ]
+  %.02749.i.i.i = phi i1 [ true, %.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EED2Ev.exit.i.i.i ]
   %.sroa.039.048.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i ], [ %98, %_ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EED2Ev.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   %56 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.039.048.i.i.i) #23, !noalias !110
@@ -9852,7 +9852,7 @@ _ZSt8_DestroyIPN19cmCTestResourceSpec8ResourceES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: 
   br label %_ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EED2Ev.exit.i.i.i
 
 _ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EED2Ev.exit.i.i.i: ; preds = %97, %_ZSt8_DestroyIPN19cmCTestResourceSpec8ResourceES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, %66
-  %.2.i.i.i = phi i1 [ %.02749.i.i.i, %66 ], [ %spec.select.i.i.i, %_ZSt8_DestroyIPN19cmCTestResourceSpec8ResourceES1_EvT_S3_RSaIT0_E.exit.i.i.i.i ], [ %spec.select.i.i.i, %97 ]
+  %.1.i.i.i = phi i1 [ %.02749.i.i.i, %66 ], [ %spec.select.i.i.i, %_ZSt8_DestroyIPN19cmCTestResourceSpec8ResourceES1_EvT_S3_RSaIT0_E.exit.i.i.i.i ], [ %spec.select.i.i.i, %97 ]
   %98 = getelementptr inbounds i8, ptr %.sroa.039.048.i.i.i, i64 32
   %.not42.i.i.i = icmp eq ptr %98, %44
   br i1 %.not42.i.i.i, label %._crit_edge.i.i.i, label %55

@@ -531,7 +531,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
 
 163:                                              ; preds = %.preheader253, %172
   %indvars.iv328 = phi i64 [ 0, %.preheader253 ], [ %indvars.iv.next329, %172 ]
-  %.0268 = phi float [ 0.000000e+00, %.preheader253 ], [ %.1, %172 ]
+  %.1268 = phi float [ 0.000000e+00, %.preheader253 ], [ %.2, %172 ]
   %.0167266 = phi i32 [ 0, %.preheader253 ], [ %.1168, %172 ]
   %164 = getelementptr inbounds [3 x [3 x float]], ptr %158, i64 0, i64 %indvars.iv328, i64 %indvars.iv328
   %165 = load float, ptr %164, align 4
@@ -541,28 +541,28 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
 167:                                              ; preds = %163
   %168 = getelementptr inbounds [3 x [3 x float]], ptr %159, i64 0, i64 %indvars.iv328, i64 %indvars.iv328
   %169 = load float, ptr %168, align 4
-  %170 = fadd float %.0268, %169
+  %170 = fadd float %.1268, %169
   %171 = add nsw i32 %.0167266, 1
   br label %172
 
 172:                                              ; preds = %163, %167
   %.1168 = phi i32 [ %171, %167 ], [ %.0167266, %163 ]
-  %.1 = phi float [ %170, %167 ], [ %.0268, %163 ]
+  %.2 = phi float [ %170, %167 ], [ %.1268, %163 ]
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next329, 3
   br i1 %exitcond.not, label %173, label %163, !llvm.loop !7
 
 173:                                              ; preds = %172
   %174 = sitofp i32 %.1168 to float
-  %175 = fdiv float %.1, %174
+  %175 = fdiv float %.2, %174
   br label %176
 
 176:                                              ; preds = %173, %160
-  %.2 = phi float [ %162, %160 ], [ %175, %173 ]
+  %.0 = phi float [ %162, %160 ], [ %175, %173 ]
   %177 = load i32, ptr %48, align 8
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds float, ptr %154, i64 %178
-  store float %.2, ptr %179, align 4
+  store float %.0, ptr %179, align 4
   %180 = load i32, ptr %52, align 4
   %181 = load ptr, ptr %151, align 8
   tail call void @_Z12gmx_sumf_simiPfPK14gmx_multisim_t(i32 noundef %180, ptr noundef %181, ptr noundef nonnull %1)
@@ -3280,23 +3280,23 @@ _ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_
   br label %._crit_edge79.i.i
 
 ._crit_edge79.i.i:                                ; preds = %._crit_edge79.loopexit.i.i, %._crit_edge.thread.i.i58
-  %.074 = phi i32 [ %1075, %._crit_edge79.loopexit.i.i ], [ 0, %._crit_edge.thread.i.i58 ]
+  %.1 = phi i32 [ %1075, %._crit_edge79.loopexit.i.i ], [ 0, %._crit_edge.thread.i.i58 ]
   %1091 = phi ptr [ %.pre.i.i, %._crit_edge79.loopexit.i.i ], [ %1077, %._crit_edge.thread.i.i58 ]
   %1092 = call i32 @fflush(ptr noundef %1091)
   br label %_ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i
 
 _ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i:     ; preds = %._crit_edge79.i.i, %._crit_edge.i.i
-  %.1 = phi i32 [ %1075, %._crit_edge.i.i ], [ %.074, %._crit_edge79.i.i ]
+  %.2 = phi i32 [ %1075, %._crit_edge.i.i ], [ %.1, %._crit_edge79.i.i ]
   %1093 = load ptr, ptr %1029, align 8
   %1094 = load ptr, ptr %1030, align 8
   %1095 = load i32, ptr %151, align 4
-  %1096 = icmp sgt i32 %.1, 0
+  %1096 = icmp sgt i32 %.2, 0
   %1097 = icmp sgt i32 %1095, 0
   %or.cond.i.i = and i1 %1096, %1097
   br i1 %or.cond.i.i, label %.preheader54.us.us.preheader.i.i, label %._crit_edge59.i.i
 
 .preheader54.us.us.preheader.i.i:                 ; preds = %_ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i
-  %wide.trip.count82.i.i = zext nneg i32 %.1 to i64
+  %wide.trip.count82.i.i = zext nneg i32 %.2 to i64
   %wide.trip.count.i44.i = zext nneg i32 %1095 to i64
   br label %.preheader54.us.us.i.i
 
@@ -3385,7 +3385,7 @@ _ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i:     ; preds = %._crit_edge79.i.i, 
 
 .lr.ph69.i.i..lr.ph.us.preheader.i.i_crit_edge:   ; preds = %.lr.ph69.i.i
   %.pre130 = zext nneg i32 %1095 to i64
-  %.pre131 = zext nneg i32 %.1 to i64
+  %.pre131 = zext nneg i32 %.2 to i64
   br label %.lr.ph.us.preheader.i.i
 
 .lr.ph.us.preheader.i.i:                          ; preds = %.lr.ph69.i.i..lr.ph.us.preheader.i.i_crit_edge, %.lr.ph69.i.thread.i
@@ -3439,7 +3439,7 @@ _ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i:     ; preds = %._crit_edge79.i.i, 
   br label %_ZL22compute_exchange_orderPPiS0_ii.exit.i
 
 _ZL22compute_exchange_orderPPiS0_ii.exit.i:       ; preds = %._crit_edge70.i.i, %._crit_edge59.i.thread.i, %._crit_edge59.i.i
-  %1152 = icmp sgt i32 %.1, 0
+  %1152 = icmp sgt i32 %.2, 0
   br i1 %1152, label %.lr.ph64.i, label %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit
 
 .lr.ph64.i:                                       ; preds = %_ZL22compute_exchange_orderPPiS0_ii.exit.i
@@ -3447,7 +3447,7 @@ _ZL22compute_exchange_orderPPiS0_ii.exit.i:       ; preds = %._crit_edge70.i.i, 
   %1154 = sext i32 %29 to i64
   %1155 = getelementptr inbounds ptr, ptr %1153, i64 %1154
   %1156 = load ptr, ptr %1155, align 8
-  %wide.trip.count80.i = zext nneg i32 %.1 to i64
+  %wide.trip.count80.i = zext nneg i32 %.2 to i64
   br label %1158
 
 1157:                                             ; preds = %1158
@@ -3468,7 +3468,7 @@ _ZL22compute_exchange_orderPPiS0_ii.exit.i:       ; preds = %._crit_edge70.i.i, 
 
 _ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit: ; preds = %1023, %1157, %._crit_edge.thread.i.i58, %1161, %_ZL22compute_exchange_orderPPiS0_ii.exit.i, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit, %24
   %1162 = phi i8 [ 0, %24 ], [ 1, %1161 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i58 ], [ 0, %1157 ], [ 0, %1023 ]
-  %.7 = phi i32 [ 0, %24 ], [ %.1, %1161 ], [ %.1, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i58 ], [ %.1, %1157 ], [ 0, %1023 ]
+  %.074 = phi i32 [ 0, %24 ], [ %.2, %1161 ], [ %.2, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i58 ], [ %.2, %1157 ], [ 0, %1023 ]
   %.044 = phi i32 [ 0, %24 ], [ %29, %1161 ], [ %29, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ %29, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %29, %._crit_edge.thread.i.i58 ], [ %29, %1157 ], [ %29, %1023 ]
   %1163 = getelementptr i8, ptr %1, i64 96
   %.val = load ptr, ptr %1163, align 8
@@ -3517,7 +3517,7 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1174, %1173
   br i1 %1181, label %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit, label %1182
 
 1182:                                             ; preds = %1178, %_ZL17copy_state_serialPK7t_statePS_.exit
-  %1183 = icmp sgt i32 %.7, 0
+  %1183 = icmp sgt i32 %.074, 0
   br i1 %1183, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1182
@@ -3544,7 +3544,7 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1174, %1173
   %1204 = getelementptr inbounds i8, ptr %4, i64 392
   %1205 = getelementptr inbounds i8, ptr %4, i64 416
   %1206 = getelementptr inbounds i8, ptr %4, i64 456
-  %wide.trip.count = zext nneg i32 %.7 to i64
+  %wide.trip.count = zext nneg i32 %.074 to i64
   br label %1207
 
 1207:                                             ; preds = %.lr.ph, %1247

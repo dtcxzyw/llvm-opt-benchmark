@@ -615,7 +615,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
   br label %136
 
 136:                                              ; preds = %133, %126
-  %.165 = phi i32 [ -20, %133 ], [ %.064, %126 ]
+  %.2 = phi i32 [ -20, %133 ], [ %.064, %126 ]
   %137 = load i64, ptr %6, align 8
   %138 = icmp ne i64 %137, 0
   %139 = load ptr, ptr %3, align 8
@@ -732,9 +732,9 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
   br label %.critedge87
 
 .critedge87:                                      ; preds = %181, %.thread102, %189, %166, %173, %162, %.critedge, %179, %159, %155, %146, %132, %98, %92, %85, %synthesize_ino_value.exit.thread, %23
-  %.2 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %85 ], [ -30, %92 ], [ -30, %98 ], [ -30, %132 ], [ -30, %146 ], [ %.165, %179 ], [ %.165, %.critedge ], [ -25, %155 ], [ -25, %159 ], [ -30, %162 ], [ -30, %173 ], [ -30, %166 ], [ %.165, %.thread102 ], [ -30, %189 ], [ -30, %181 ]
+  %.165 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %85 ], [ -30, %92 ], [ -30, %98 ], [ -30, %132 ], [ -30, %146 ], [ %.2, %179 ], [ %.2, %.critedge ], [ -25, %155 ], [ -25, %159 ], [ -30, %162 ], [ -30, %173 ], [ -30, %166 ], [ %.2, %.thread102 ], [ -30, %189 ], [ -30, %181 ]
   call void @archive_entry_free(ptr noundef null) #9
-  ret i32 %.2
+  ret i32 %.165
 }
 
 declare ptr @archive_string_default_conversion_for_write(ptr noundef) local_unnamed_addr #1

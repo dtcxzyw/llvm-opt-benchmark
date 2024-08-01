@@ -497,9 +497,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1249,11 +1249,11 @@ while.cond.loopexit:                              ; preds = %cleanup72
   br label %while.cond, !llvm.loop !11
 
 while.cond:                                       ; preds = %while.cond.loopexit, %for.body
-  %countOfLongestMatch.1 = phi ptr [ %countOfLongestMatch.0171, %for.body ], [ %countOfLongestMatch.5, %while.cond.loopexit ]
-  %longestParseDistance.1 = phi i32 [ %longestParseDistance.0172, %for.body ], [ %longestParseDistance.5, %while.cond.loopexit ]
-  %newPos.1 = phi i32 [ %newPos.0173, %for.body ], [ %newPos.5, %while.cond.loopexit ]
-  %resultTimeUnit.1 = phi i32 [ %resultTimeUnit.0174, %for.body ], [ %resultTimeUnit.5, %while.cond.loopexit ]
-  %withNumberFormat.1 = phi i8 [ %withNumberFormat.0175, %for.body ], [ %withNumberFormat.6, %while.cond.loopexit ]
+  %countOfLongestMatch.1 = phi ptr [ %countOfLongestMatch.0171, %for.body ], [ %countOfLongestMatch.3, %while.cond.loopexit ]
+  %longestParseDistance.1 = phi i32 [ %longestParseDistance.0172, %for.body ], [ %longestParseDistance.3, %while.cond.loopexit ]
+  %newPos.1 = phi i32 [ %newPos.0173, %for.body ], [ %newPos.3, %while.cond.loopexit ]
+  %resultTimeUnit.1 = phi i32 [ %resultTimeUnit.0174, %for.body ], [ %resultTimeUnit.3, %while.cond.loopexit ]
+  %withNumberFormat.1 = phi i8 [ %withNumberFormat.0175, %for.body ], [ %withNumberFormat.3, %while.cond.loopexit ]
   %3 = load ptr, ptr %1, align 8
   %call.i37 = invoke noundef ptr @uhash_nextElement_75(ptr noundef %3, ptr noundef nonnull %elemPos)
           to label %invoke.cont2 unwind label %lpad.loopexit.split-lp.loopexit
@@ -1272,11 +1272,11 @@ while.body:                                       ; preds = %invoke.cont2
 for.body7:                                        ; preds = %while.body, %cleanup72
   %cmp6 = phi i1 [ true, %while.body ], [ false, %cleanup72 ]
   %indvars.iv = phi i64 [ 0, %while.body ], [ 1, %cleanup72 ]
-  %withNumberFormat.2169 = phi i8 [ %withNumberFormat.1, %while.body ], [ %withNumberFormat.6, %cleanup72 ]
-  %resultTimeUnit.2168 = phi i32 [ %resultTimeUnit.1, %while.body ], [ %resultTimeUnit.5, %cleanup72 ]
-  %newPos.2166 = phi i32 [ %newPos.1, %while.body ], [ %newPos.5, %cleanup72 ]
-  %longestParseDistance.2165 = phi i32 [ %longestParseDistance.1, %while.body ], [ %longestParseDistance.5, %cleanup72 ]
-  %countOfLongestMatch.2164 = phi ptr [ %countOfLongestMatch.1, %while.body ], [ %countOfLongestMatch.5, %cleanup72 ]
+  %withNumberFormat.2169 = phi i8 [ %withNumberFormat.1, %while.body ], [ %withNumberFormat.3, %cleanup72 ]
+  %resultTimeUnit.2168 = phi i32 [ %resultTimeUnit.1, %while.body ], [ %resultTimeUnit.3, %cleanup72 ]
+  %newPos.2166 = phi i32 [ %newPos.1, %while.body ], [ %newPos.3, %cleanup72 ]
+  %longestParseDistance.2165 = phi i32 [ %longestParseDistance.1, %while.body ], [ %longestParseDistance.3, %cleanup72 ]
+  %countOfLongestMatch.2164 = phi ptr [ %countOfLongestMatch.1, %while.body ], [ %countOfLongestMatch.3, %cleanup72 ]
   %arrayidx9 = getelementptr inbounds ptr, ptr %valueTok.sroa.0.0.copyload, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx9, align 8
   store i32 -1, ptr %errorIndex.i, align 4
@@ -1408,7 +1408,7 @@ if.then63:                                        ; preds = %invoke.cont60
           to label %if.end67 unwind label %lpad22
 
 if.end67:                                         ; preds = %invoke.cont60, %if.then63
-  %withNumberFormat.3 = phi i8 [ 1, %if.then63 ], [ 0, %invoke.cont60 ]
+  %withNumberFormat.6 = phi i8 [ 1, %if.then63 ], [ 0, %invoke.cont60 ]
   %16 = load i32, ptr %index.i, align 8
   br label %cleanup71
 
@@ -1417,16 +1417,16 @@ cleanup71:                                        ; preds = %if.end55, %if.end67
   %longestParseDistance.4 = phi i32 [ %longestParseDistance.2165, %invoke.cont41 ], [ %longestParseDistance.2165, %invoke.cont46 ], [ %sub, %if.end67 ], [ %longestParseDistance.2165, %if.end55 ]
   %newPos.4 = phi i32 [ %newPos.2166, %invoke.cont41 ], [ %newPos.2166, %invoke.cont46 ], [ %16, %if.end67 ], [ %newPos.2166, %if.end55 ]
   %resultTimeUnit.4 = phi i32 [ %resultTimeUnit.2168, %invoke.cont41 ], [ %resultTimeUnit.2168, %invoke.cont46 ], [ %2, %if.end67 ], [ %resultTimeUnit.2168, %if.end55 ]
-  %withNumberFormat.5 = phi i8 [ %withNumberFormat.2169, %invoke.cont41 ], [ %withNumberFormat.2169, %invoke.cont46 ], [ %withNumberFormat.3, %if.end67 ], [ %withNumberFormat.2169, %if.end55 ]
+  %withNumberFormat.4 = phi i8 [ %withNumberFormat.2169, %invoke.cont41 ], [ %withNumberFormat.2169, %invoke.cont46 ], [ %withNumberFormat.6, %if.end67 ], [ %withNumberFormat.2169, %if.end55 ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %tmpNumber) #13
   br label %cleanup72
 
 cleanup72:                                        ; preds = %invoke.cont14, %cleanup71
-  %countOfLongestMatch.5 = phi ptr [ %countOfLongestMatch.4, %cleanup71 ], [ %countOfLongestMatch.2164, %invoke.cont14 ]
-  %longestParseDistance.5 = phi i32 [ %longestParseDistance.4, %cleanup71 ], [ %longestParseDistance.2165, %invoke.cont14 ]
-  %newPos.5 = phi i32 [ %newPos.4, %cleanup71 ], [ %newPos.2166, %invoke.cont14 ]
-  %resultTimeUnit.5 = phi i32 [ %resultTimeUnit.4, %cleanup71 ], [ %resultTimeUnit.2168, %invoke.cont14 ]
-  %withNumberFormat.6 = phi i8 [ %withNumberFormat.5, %cleanup71 ], [ %withNumberFormat.2169, %invoke.cont14 ]
+  %countOfLongestMatch.3 = phi ptr [ %countOfLongestMatch.4, %cleanup71 ], [ %countOfLongestMatch.2164, %invoke.cont14 ]
+  %longestParseDistance.3 = phi i32 [ %longestParseDistance.4, %cleanup71 ], [ %longestParseDistance.2165, %invoke.cont14 ]
+  %newPos.3 = phi i32 [ %newPos.4, %cleanup71 ], [ %newPos.2166, %invoke.cont14 ]
+  %resultTimeUnit.3 = phi i32 [ %resultTimeUnit.4, %cleanup71 ], [ %resultTimeUnit.2168, %invoke.cont14 ]
+  %withNumberFormat.3 = phi i8 [ %withNumberFormat.4, %cleanup71 ], [ %withNumberFormat.2169, %invoke.cont14 ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %parsed) #13
   br i1 %cmp6, label %for.body7, label %while.cond.loopexit, !llvm.loop !12
 
@@ -2736,7 +2736,7 @@ _ZN6icu_7511LocalMemoryIPNS_13MessageFormatEED2Ev.exit142: ; preds = %cleanup265
   br i1 %cmp.i137.not, label %cleanup286.critedge, label %if.end269
 
 if.end269:                                        ; preds = %_ZN6icu_7511LocalMemoryIPNS_13MessageFormatEED2Ev.exit142, %invoke.cont243
-  %formatters242.1 = phi ptr [ %call249, %_ZN6icu_7511LocalMemoryIPNS_13MessageFormatEED2Ev.exit142 ], [ %call.i134135, %invoke.cont243 ]
+  %formatters242.0 = phi ptr [ %call249, %_ZN6icu_7511LocalMemoryIPNS_13MessageFormatEED2Ev.exit142 ], [ %call.i134135, %invoke.cont243 ]
   %67 = load i32, ptr %err, align 4
   %cmp.i143 = icmp sgt i32 %67, 0
   br i1 %cmp.i143, label %cleanup279, label %if.then273
@@ -2744,7 +2744,7 @@ if.end269:                                        ; preds = %_ZN6icu_7511LocalMe
 if.then273:                                       ; preds = %if.end269
   %68 = load ptr, ptr %messageFormat158, align 8
   store ptr null, ptr %messageFormat158, align 8
-  %arrayidx277 = getelementptr inbounds ptr, ptr %formatters242.1, i64 %idxprom
+  %arrayidx277 = getelementptr inbounds ptr, ptr %formatters242.0, i64 %idxprom
   store ptr %68, ptr %arrayidx277, align 8
   br label %cleanup279
 
@@ -3303,7 +3303,7 @@ if.end125:                                        ; preds = %invoke.cont120
 cleanup:                                          ; preds = %invoke.cont120, %if.end125, %if.then112
   %localFormatters.sroa.0.0 = phi ptr [ null, %if.end125 ], [ %call106, %invoke.cont120 ], [ null, %if.then112 ]
   %cond = phi i1 [ true, %if.end125 ], [ false, %invoke.cont120 ], [ false, %if.then112 ]
-  %formatters.0 = phi ptr [ %call106, %if.end125 ], [ null, %invoke.cont120 ], [ null, %if.then112 ]
+  %formatters.1 = phi ptr [ %call106, %if.end125 ], [ null, %invoke.cont120 ], [ null, %if.then112 ]
   invoke void @uprv_free_75(ptr noundef %localFormatters.sroa.0.0)
           to label %_ZN6icu_7511LocalMemoryIPNS_13MessageFormatEED2Ev.exit68 unwind label %terminate.lpad.i67
 
@@ -3318,10 +3318,10 @@ _ZN6icu_7511LocalMemoryIPNS_13MessageFormatEED2Ev.exit68: ; preds = %cleanup
   br i1 %cond, label %cleanup134.thread, label %delete.notnull.i
 
 cleanup134.thread:                                ; preds = %invoke.cont101, %_ZN6icu_7511LocalMemoryIPNS_13MessageFormatEED2Ev.exit68
-  %formatters.1 = phi ptr [ %formatters.0, %_ZN6icu_7511LocalMemoryIPNS_13MessageFormatEED2Ev.exit68 ], [ %call.i59, %invoke.cont101 ]
+  %formatters.0 = phi ptr [ %formatters.1, %_ZN6icu_7511LocalMemoryIPNS_13MessageFormatEED2Ev.exit68 ], [ %call.i59, %invoke.cont101 ]
   %35 = load i32, ptr %style, align 8
   %idxprom132 = zext i32 %35 to i64
-  %arrayidx133 = getelementptr inbounds ptr, ptr %formatters.1, i64 %idxprom132
+  %arrayidx133 = getelementptr inbounds ptr, ptr %formatters.0, i64 %idxprom132
   store ptr %call82, ptr %arrayidx133, align 8
   br label %cleanup138
 
@@ -3379,13 +3379,13 @@ if.then147:                                       ; preds = %for.end
   br label %cleanup155thread-pre-split
 
 cleanup155thread-pre-split:                       ; preds = %invoke.cont59, %if.then147, %for.end, %cleanup138.thread100
-  %cleanup.dest.slot.4.ph = phi i32 [ 1, %cleanup138.thread100 ], [ 0, %for.end ], [ 0, %if.then147 ], [ 4, %invoke.cont59 ]
+  %cleanup.dest.slot.0.ph = phi i32 [ 1, %cleanup138.thread100 ], [ 0, %for.end ], [ 0, %if.then147 ], [ 4, %invoke.cont59 ]
   %.pr = load ptr, ptr %localCountToPatterns, align 8
   br label %cleanup155
 
 cleanup155:                                       ; preds = %cleanup155thread-pre-split, %invoke.cont
   %41 = phi ptr [ %.pr, %cleanup155thread-pre-split ], [ %7, %invoke.cont ]
-  %cleanup.dest.slot.4 = phi i32 [ %cleanup.dest.slot.4.ph, %cleanup155thread-pre-split ], [ 1, %invoke.cont ]
+  %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.0.ph, %cleanup155thread-pre-split ], [ 1, %invoke.cont ]
   %isnull.i76 = icmp eq ptr %41, null
   br i1 %isnull.i76, label %_ZN6icu_7512LocalPointerINS_9HashtableEED2Ev.exit, label %delete.notnull.i77
 
@@ -3410,7 +3410,7 @@ _ZN6icu_759HashtableD2Ev.exit.i:                  ; preds = %if.then.i.i, %delet
   br label %_ZN6icu_7512LocalPointerINS_9HashtableEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_9HashtableEED2Ev.exit: ; preds = %cleanup155, %_ZN6icu_759HashtableD2Ev.exit.i
-  %switch = icmp eq i32 %cleanup.dest.slot.4, 1
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 1
   br i1 %switch, label %for.end161, label %for.inc159
 
 for.inc159:                                       ; preds = %_ZN6icu_7512LocalPointerINS_9HashtableEED2Ev.exit, %if.else33, %for.body

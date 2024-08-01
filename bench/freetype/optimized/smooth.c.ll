@@ -337,7 +337,7 @@ define internal i32 @ft_smooth_render(ptr nocapture noundef readonly %0, ptr nou
   %61 = sdiv i32 %60, 3
   %.pn.in = select i1 %58, i32 %61, i32 %60
   %.pn = sext i32 %.pn.in to i64
-  %.0 = add nsw i64 %.pn, %55
+  %.1 = add nsw i64 %.pn, %55
   %.not92 = icmp eq ptr %3, null
   br i1 %.not92, label %68, label %62
 
@@ -346,19 +346,19 @@ define internal i32 @ft_smooth_render(ptr nocapture noundef readonly %0, ptr nou
   %64 = add nsw i64 %63, %52
   %65 = getelementptr inbounds i8, ptr %3, i64 8
   %66 = load i64, ptr %65, align 8
-  %67 = add nsw i64 %66, %.0
+  %67 = add nsw i64 %66, %.1
   br label %68
 
 68:                                               ; preds = %62, %45
-  %.080 = phi i64 [ %64, %62 ], [ %52, %45 ]
-  %.1 = phi i64 [ %67, %62 ], [ %.0, %45 ]
-  %69 = icmp ne i64 %.080, 0
-  %70 = icmp ne i64 %.1, 0
+  %.181 = phi i64 [ %64, %62 ], [ %52, %45 ]
+  %.2 = phi i64 [ %67, %62 ], [ %.1, %45 ]
+  %69 = icmp ne i64 %.181, 0
+  %70 = icmp ne i64 %.2, 0
   %or.cond7 = select i1 %69, i1 true, i1 %70
   br i1 %or.cond7, label %71, label %72
 
 71:                                               ; preds = %68
-  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %.080, i64 noundef %.1) #11
+  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %.181, i64 noundef %.2) #11
   br label %72
 
 72:                                               ; preds = %68, %71
@@ -417,14 +417,14 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br i1 %.not94, label %thread-pre-split.thread, label %.thread
 
 thread-pre-split.thread:                          ; preds = %36, %34, %thread-pre-split
-  %.2108 = phi i64 [ %.1, %thread-pre-split ], [ 0, %34 ], [ 0, %36 ]
-  %.181107 = phi i64 [ %.080, %thread-pre-split ], [ 0, %34 ], [ 0, %36 ]
+  %.0108 = phi i64 [ %.2, %thread-pre-split ], [ 0, %34 ], [ 0, %36 ]
+  %.080107 = phi i64 [ %.181, %thread-pre-split ], [ 0, %34 ], [ 0, %36 ]
   store i32 1651078259, ptr %11, align 8
   br label %105
 
 .thread:                                          ; preds = %15, %17, %33, %39, %thread-pre-split
-  %.2102 = phi i64 [ %.1, %thread-pre-split ], [ 0, %39 ], [ 0, %33 ], [ 0, %17 ], [ 0, %15 ]
-  %.181100 = phi i64 [ %.080, %thread-pre-split ], [ 0, %39 ], [ 0, %33 ], [ 0, %17 ], [ 0, %15 ]
+  %.0102 = phi i64 [ %.2, %thread-pre-split ], [ 0, %39 ], [ 0, %33 ], [ 0, %17 ], [ 0, %15 ]
+  %.080100 = phi i64 [ %.181, %thread-pre-split ], [ 0, %39 ], [ 0, %33 ], [ 0, %17 ], [ 0, %15 ]
   %93 = getelementptr inbounds i8, ptr %1, i64 296
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 8
@@ -446,16 +446,16 @@ thread-pre-split.thread:                          ; preds = %36, %34, %thread-pr
   br label %105
 
 105:                                              ; preds = %.thread, %98, %thread-pre-split.thread
-  %.2101 = phi i64 [ %.2102, %.thread ], [ %.2102, %98 ], [ %.2108, %thread-pre-split.thread ]
-  %.18199 = phi i64 [ %.181100, %.thread ], [ %.181100, %98 ], [ %.181107, %thread-pre-split.thread ]
-  %106 = icmp ne i64 %.18199, 0
-  %107 = icmp ne i64 %.2101, 0
+  %.0101 = phi i64 [ %.0102, %.thread ], [ %.0102, %98 ], [ %.0108, %thread-pre-split.thread ]
+  %.08099 = phi i64 [ %.080100, %.thread ], [ %.080100, %98 ], [ %.080107, %thread-pre-split.thread ]
+  %106 = icmp ne i64 %.08099, 0
+  %107 = icmp ne i64 %.0101, 0
   %or.cond11 = select i1 %106, i1 true, i1 %107
   br i1 %or.cond11, label %108, label %111
 
 108:                                              ; preds = %105
-  %109 = sub nsw i64 0, %.18199
-  %110 = sub nsw i64 0, %.2101
+  %109 = sub nsw i64 0, %.08099
+  %110 = sub nsw i64 0, %.0101
   call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %109, i64 noundef %110) #11
   br label %111
 
@@ -1831,15 +1831,15 @@ gray_set_cell.exit:                               ; preds = %.lr.ph.i, %43, %74
 93:                                               ; preds = %.preheader, %gray_set_cell.exit205
   %94 = phi ptr [ %.0.sink.i197, %gray_set_cell.exit205 ], [ %.pre257, %.preheader ]
   %.0173 = phi i32 [ %103, %gray_set_cell.exit205 ], [ %7, %.preheader ]
-  %.0168 = phi i32 [ 256, %gray_set_cell.exit205 ], [ %92, %.preheader ]
+  %.1169 = phi i32 [ 256, %gray_set_cell.exit205 ], [ %92, %.preheader ]
   %95 = getelementptr inbounds i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4
-  %97 = add i32 %96, %.0168
+  %97 = add i32 %96, %.1169
   store i32 %97, ptr %95, align 4
   %98 = load ptr, ptr %84, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
-  %101 = mul nuw nsw i32 %91, %.0168
+  %101 = mul nuw nsw i32 %91, %.1169
   %102 = add i32 %100, %101
   store i32 %102, ptr %99, align 8
   %103 = add nsw i32 %.0173, 1
@@ -1927,15 +1927,15 @@ gray_set_cell.exit205:                            ; preds = %.lr.ph.i200, %111, 
 142:                                              ; preds = %.preheader226, %gray_set_cell.exit215
   %143 = phi ptr [ %.0.sink.i207, %gray_set_cell.exit215 ], [ %.pre, %.preheader226 ]
   %.1174 = phi i32 [ %151, %gray_set_cell.exit215 ], [ %7, %.preheader226 ]
-  %.1169 = phi i32 [ 256, %gray_set_cell.exit215 ], [ %27, %.preheader226 ]
+  %.2170 = phi i32 [ 256, %gray_set_cell.exit215 ], [ %27, %.preheader226 ]
   %144 = getelementptr inbounds i8, ptr %143, i64 4
   %145 = load i32, ptr %144, align 4
-  %146 = sub i32 %145, %.1169
+  %146 = sub i32 %145, %.2170
   store i32 %146, ptr %144, align 4
   %147 = load ptr, ptr %84, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 8
   %149 = load i32, ptr %148, align 8
-  %.neg188 = mul nsw i32 %.neg, %.1169
+  %.neg188 = mul nsw i32 %.neg, %.2170
   %150 = add i32 %149, %.neg188
   store i32 %150, ptr %148, align 8
   %151 = add nsw i32 %.1174, -1
@@ -2057,8 +2057,8 @@ gray_set_cell.exit215:                            ; preds = %.lr.ph.i210, %159, 
   %.0177 = phi i32 [ %21, %202 ], [ %.1178, %gray_set_cell.exit225 ]
   %.2175 = phi i32 [ %7, %202 ], [ %.3176, %gray_set_cell.exit225 ]
   %.0171 = phi i64 [ %195, %202 ], [ %.1172, %gray_set_cell.exit225 ]
-  %.2170 = phi i32 [ %27, %202 ], [ %.3, %gray_set_cell.exit225 ]
-  %.0 = phi i32 [ %25, %202 ], [ %.1, %gray_set_cell.exit225 ]
+  %.3 = phi i32 [ %27, %202 ], [ %.4, %gray_set_cell.exit225 ]
+  %.1 = phi i32 [ %25, %202 ], [ %.2, %gray_set_cell.exit225 ]
   %214 = sub nsw i64 %.0171, %204
   %215 = icmp sgt i64 %214, 0
   %216 = icmp slt i64 %.0171, 1
@@ -2073,13 +2073,13 @@ gray_set_cell.exit215:                            ; preds = %.lr.ph.i210, %159, 
   %222 = load ptr, ptr %206, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 4
   %224 = load i32, ptr %223, align 4
-  %225 = sub nsw i32 %220, %.2170
+  %225 = sub nsw i32 %220, %.3
   %226 = add i32 %224, %225
   store i32 %226, ptr %223, align 4
   %227 = load ptr, ptr %206, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 8
   %229 = load i32, ptr %228, align 8
-  %230 = mul nsw i32 %225, %.0
+  %230 = mul nsw i32 %225, %.1
   %231 = add i32 %229, %230
   store i32 %231, ptr %228, align 8
   %232 = add nsw i32 %.0177, -1
@@ -2100,13 +2100,13 @@ gray_set_cell.exit215:                            ; preds = %.lr.ph.i210, %159, 
   %242 = load ptr, ptr %206, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 4
   %244 = load i32, ptr %243, align 4
-  %245 = sub nsw i32 256, %.2170
+  %245 = sub nsw i32 256, %.3
   %246 = add i32 %244, %245
   store i32 %246, ptr %243, align 4
   %247 = load ptr, ptr %206, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 8
   %249 = load i32, ptr %248, align 8
-  %250 = add nsw i32 %.0, %241
+  %250 = add nsw i32 %.1, %241
   %251 = mul nsw i32 %250, %245
   %252 = add i32 %249, %251
   store i32 %252, ptr %248, align 8
@@ -2127,13 +2127,13 @@ gray_set_cell.exit215:                            ; preds = %.lr.ph.i210, %159, 
   %262 = load ptr, ptr %206, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 4
   %264 = load i32, ptr %263, align 4
-  %265 = sub nsw i32 %261, %.2170
+  %265 = sub nsw i32 %261, %.3
   %266 = add i32 %264, %265
   store i32 %266, ptr %263, align 4
   %267 = load ptr, ptr %206, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 8
   %269 = load i32, ptr %268, align 8
-  %270 = add nsw i32 %.0, 256
+  %270 = add nsw i32 %.1, 256
   %271 = mul nsw i32 %265, %270
   %272 = add i32 %269, %271
   store i32 %272, ptr %268, align 8
@@ -2149,13 +2149,13 @@ gray_set_cell.exit215:                            ; preds = %.lr.ph.i210, %159, 
   %280 = load ptr, ptr %206, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 4
   %282 = load i32, ptr %281, align 4
-  %283 = sub i32 %282, %.2170
+  %283 = sub i32 %282, %.3
   store i32 %283, ptr %281, align 4
   %284 = load ptr, ptr %206, align 8
   %285 = getelementptr inbounds i8, ptr %284, i64 8
   %286 = load i32, ptr %285, align 8
-  %287 = add nsw i32 %.0, %278
-  %288 = mul i32 %287, %.2170
+  %287 = add nsw i32 %.1, %278
+  %288 = mul i32 %287, %.3
   %289 = sub i32 %286, %288
   store i32 %289, ptr %285, align 8
   %290 = add nsw i32 %.2175, -1
@@ -2165,8 +2165,8 @@ gray_set_cell.exit215:                            ; preds = %.lr.ph.i210, %159, 
   %.1178 = phi i32 [ %232, %217 ], [ %.0177, %237 ], [ %273, %258 ], [ %.0177, %274 ]
   %.3176 = phi i32 [ %.2175, %217 ], [ %253, %237 ], [ %.2175, %258 ], [ %290, %274 ]
   %.1172 = phi i64 [ %221, %217 ], [ %214, %237 ], [ %255, %258 ], [ %279, %274 ]
-  %.3 = phi i32 [ %220, %217 ], [ 0, %237 ], [ %261, %258 ], [ 256, %274 ]
-  %.1 = phi i32 [ 256, %217 ], [ %241, %237 ], [ 0, %258 ], [ %278, %274 ]
+  %.4 = phi i32 [ %220, %217 ], [ 0, %237 ], [ %261, %258 ], [ 256, %274 ]
+  %.2 = phi i32 [ 256, %217 ], [ %241, %237 ], [ 0, %258 ], [ %278, %274 ]
   %292 = load i32, ptr %13, align 8
   %293 = sub nsw i32 %.3176, %292
   %294 = icmp slt i32 %293, 0
@@ -2252,8 +2252,8 @@ gray_set_cell.exit225:                            ; preds = %.lr.ph.i220, %299, 
 
 .loopexit:                                        ; preds = %gray_set_cell.exit225, %gray_set_cell.exit215, %gray_set_cell.exit205, %..loopexit_crit_edge
   %333 = phi ptr [ %.pre258, %..loopexit_crit_edge ], [ %.0.sink.i197, %gray_set_cell.exit205 ], [ %.0.sink.i207, %gray_set_cell.exit215 ], [ %.0.sink.i217, %gray_set_cell.exit225 ]
-  %.4 = phi i32 [ %27, %..loopexit_crit_edge ], [ 0, %gray_set_cell.exit205 ], [ 256, %gray_set_cell.exit215 ], [ %.3, %gray_set_cell.exit225 ]
-  %.2 = phi i32 [ %25, %..loopexit_crit_edge ], [ %25, %gray_set_cell.exit205 ], [ %25, %gray_set_cell.exit215 ], [ %.1, %gray_set_cell.exit225 ]
+  %.0168 = phi i32 [ %27, %..loopexit_crit_edge ], [ 0, %gray_set_cell.exit205 ], [ 256, %gray_set_cell.exit215 ], [ %.4, %gray_set_cell.exit225 ]
+  %.0 = phi i32 [ %25, %..loopexit_crit_edge ], [ %25, %gray_set_cell.exit205 ], [ %25, %gray_set_cell.exit215 ], [ %.2, %gray_set_cell.exit225 ]
   %334 = trunc i64 %1 to i32
   %335 = and i32 %334, 255
   %336 = trunc i64 %2 to i32
@@ -2261,13 +2261,13 @@ gray_set_cell.exit225:                            ; preds = %.lr.ph.i220, %299, 
   %338 = getelementptr inbounds i8, ptr %0, i64 56
   %339 = getelementptr inbounds i8, ptr %333, i64 4
   %340 = load i32, ptr %339, align 4
-  %341 = sub nsw i32 %337, %.4
+  %341 = sub nsw i32 %337, %.0168
   %342 = add i32 %340, %341
   store i32 %342, ptr %339, align 4
   %343 = load ptr, ptr %338, align 8
   %344 = getelementptr inbounds i8, ptr %343, i64 8
   %345 = load i32, ptr %344, align 8
-  %346 = add nsw i32 %.2, %335
+  %346 = add nsw i32 %.0, %335
   %347 = mul nsw i32 %346, %341
   %348 = add i32 %345, %347
   store i32 %348, ptr %344, align 8

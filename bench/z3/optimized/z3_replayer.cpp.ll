@@ -966,7 +966,7 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry
-  %tick.0 = phi i32 [ 0, %entry ], [ %tick.2, %while.body.backedge ]
+  %tick.0 = phi i32 [ 0, %entry ], [ %tick.1, %while.body.backedge ]
   %counter.0 = phi i64 [ 0, %entry ], [ %counter.1, %while.body.backedge ]
   %call = call noundef i32 @_Z19get_verbosity_levelv()
   %cmp.not = icmp eq i32 %call, 0
@@ -991,7 +991,7 @@ if.then6:                                         ; preds = %if.then3
   br label %if.end
 
 if.end:                                           ; preds = %if.then6, %if.then3
-  %tick.1 = phi i32 [ 0, %if.then6 ], [ %inc4, %if.then3 ]
+  %tick.2 = phi i32 [ 0, %if.then6 ], [ %inc4, %if.then3 ]
   call void @_Z14verbose_unlockv()
   br label %if.end21
 
@@ -1009,7 +1009,7 @@ if.then14:                                        ; preds = %if.else
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end, %if.then14, %if.else, %while.body
-  %tick.2 = phi i32 [ %tick.1, %if.end ], [ 0, %if.then14 ], [ %inc12, %if.else ], [ %tick.0, %while.body ]
+  %tick.1 = phi i32 [ %tick.2, %if.end ], [ 0, %if.then14 ], [ %inc12, %if.else ], [ %tick.0, %while.body ]
   %counter.1 = phi i64 [ %inc, %if.end ], [ %inc11, %if.then14 ], [ %inc11, %if.else ], [ %counter.0, %while.body ]
   %.pre.i = load i32, ptr %m_curr.i.i, align 8
   br label %while.body.i

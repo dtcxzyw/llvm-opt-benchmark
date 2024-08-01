@@ -599,7 +599,7 @@ define void @_ZN3nix17filterANSIEscapesB5cxx11ESt17basic_string_viewIcSt11char_t
 
 21:                                               ; preds = %.lr.ph241, %.loopexit215
   %.072240 = phi ptr [ %2, %.lr.ph241 ], [ %.4, %.loopexit215 ]
-  %.073239 = phi i64 [ 0, %.lr.ph241 ], [ %.275, %.loopexit215 ]
+  %.073239 = phi i64 [ 0, %.lr.ph241 ], [ %.174, %.loopexit215 ]
   %.not97 = icmp eq ptr %.072240, %18
   br i1 %.not97, label %.critedge, label %22
 
@@ -1030,15 +1030,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit140: ; preds = %_Z
   %177 = load ptr, ptr %0, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 %166
   store i8 0, ptr %178, align 1
-  %.174227 = add nuw nsw i64 %.073239, 1
-  %179 = icmp ult i64 %.174227, %17
-  %180 = and i64 %.174227, 7
+  %.275227 = add nuw nsw i64 %.073239, 1
+  %179 = icmp ult i64 %.275227, %17
+  %180 = and i64 %.275227, 7
   %181 = icmp ne i64 %180, 0
   %182 = and i1 %179, %181
   br i1 %182, label %.lr.ph, label %.loopexit215
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit144
-  %.174228 = phi i64 [ %.174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit144 ], [ %.174227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit140 ]
+  %.275228 = phi i64 [ %.275, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit144 ], [ %.275227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit140 ]
   %183 = load i64, ptr %12, align 8
   %184 = add i64 %183, 1
   %185 = load ptr, ptr %0, align 8
@@ -1072,9 +1072,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit144: ; preds = %_Z
   %195 = load ptr, ptr %0, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 %184
   store i8 0, ptr %196, align 1
-  %.174 = add nuw nsw i64 %.174228, 1
-  %197 = icmp ult i64 %.174, %17
-  %198 = and i64 %.174, 7
+  %.275 = add nuw nsw i64 %.275228, 1
+  %197 = icmp ult i64 %.275, %17
+  %198 = and i64 %.275, 7
   %199 = icmp ne i64 %198, 0
   %200 = and i1 %197, %199
   br i1 %200, label %.lr.ph, label %.loopexit215
@@ -1485,9 +1485,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit180: ; preds = %_Z
   br label %.loopexit215
 
 .loopexit215:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit180, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit152, %224, %219, %341, %346, %371, %367, %362, %325, %320, %259, %264, %285, %280, %201, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.275 = phi i64 [ %.073239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.073239, %201 ], [ %204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit152 ], [ %204, %224 ], [ %204, %219 ], [ %204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit164 ], [ %204, %285 ], [ %204, %280 ], [ %204, %264 ], [ %204, %259 ], [ %204, %371 ], [ %204, %367 ], [ %204, %362 ], [ %204, %346 ], [ %204, %341 ], [ %204, %325 ], [ %204, %320 ], [ %204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit180 ], [ %.174227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit140 ], [ %.174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit144 ]
+  %.174 = phi i64 [ %.073239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.073239, %201 ], [ %204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit152 ], [ %204, %224 ], [ %204, %219 ], [ %204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit164 ], [ %204, %285 ], [ %204, %280 ], [ %204, %264 ], [ %204, %259 ], [ %204, %371 ], [ %204, %367 ], [ %204, %362 ], [ %204, %346 ], [ %204, %341 ], [ %204, %325 ], [ %204, %320 ], [ %204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit180 ], [ %.275227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit140 ], [ %.275, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit144 ]
   %.4 = phi ptr [ %.3211, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %202, %201 ], [ %229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit152 ], [ %208, %224 ], [ %208, %219 ], [ %290, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit164 ], [ %269, %285 ], [ %269, %280 ], [ %248, %264 ], [ %248, %259 ], [ %372, %371 ], [ %351, %367 ], [ %351, %362 ], [ %330, %346 ], [ %330, %341 ], [ %308, %325 ], [ %308, %320 ], [ %308, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit180 ], [ %164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit140 ], [ %164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit144 ]
-  %385 = icmp ult i64 %.275, %17
+  %385 = icmp ult i64 %.174, %17
   br i1 %385, label %21, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %21, %.loopexit215, %5

@@ -718,8 +718,8 @@ for.body.lr.ph.i.i:                               ; preds = %if.then9.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %child.040.i.i = phi ptr [ %child.036.i.i, %for.body.lr.ph.i.i ], [ %child.0.i.i, %for.inc.i.i ]
-  %found.039.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %found.1.i.i, %for.inc.i.i ]
-  %next.038.i.i = phi ptr [ null, %for.body.lr.ph.i.i ], [ %next.1.i.i, %for.inc.i.i ]
+  %found.039.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %found.2.i.i, %for.inc.i.i ]
+  %next.038.i.i = phi ptr [ null, %for.body.lr.ph.i.i ], [ %next.2.i.i, %for.inc.i.i ]
   %enabled11.i.i = getelementptr inbounds i8, ptr %child.040.i.i, i64 154
   %19 = load i8, ptr %enabled11.i.i, align 2
   %tobool12.i.i = trunc i8 %19 to i1
@@ -744,23 +744,23 @@ land.lhs.true17.i.i:                              ; preds = %if.end15.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true17.i.i, %if.end15.i.i, %for.body.i.i
-  %next.1.i.i = phi ptr [ %next.038.i.i, %if.end15.i.i ], [ %next.038.i.i, %for.body.i.i ], [ %spec.select.i.i, %land.lhs.true17.i.i ]
-  %found.1.i.i = phi i32 [ 1, %if.end15.i.i ], [ %found.039.i.i, %for.body.i.i ], [ 1, %land.lhs.true17.i.i ]
+  %next.2.i.i = phi ptr [ %next.038.i.i, %if.end15.i.i ], [ %next.038.i.i, %for.body.i.i ], [ %spec.select.i.i, %land.lhs.true17.i.i ]
+  %found.2.i.i = phi i32 [ 1, %if.end15.i.i ], [ %found.039.i.i, %for.body.i.i ], [ 1, %land.lhs.true17.i.i ]
   %subregions_link.i.i = getelementptr inbounds i8, ptr %child.040.i.i, i64 200
   %child.0.i.i = load ptr, ptr %subregions_link.i.i, align 8
   %tobool10.not.i.i = icmp eq ptr %child.0.i.i, null
   br i1 %tobool10.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %cmp26.i.i = icmp eq i32 %found.1.i.i, 0
+  %cmp26.i.i = icmp eq i32 %found.2.i.i, 0
   br i1 %cmp26.i.i, label %memory_region_get_flatview_root.exit.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %for.end.i.i
-  %tobool29.not.i.i = icmp eq ptr %next.1.i.i, null
+  %tobool29.not.i.i = icmp eq ptr %next.2.i.i, null
   br i1 %tobool29.not.i.i, label %memory_region_get_flatview_root.exit.i, label %while.cond.backedge.i.i
 
 while.cond.backedge.i.i:                          ; preds = %if.end28.i.i, %land.lhs.true.i.i
-  %mr.addr.0.be.i.i = phi ptr [ %next.1.i.i, %if.end28.i.i ], [ %14, %land.lhs.true.i.i ]
+  %mr.addr.0.be.i.i = phi ptr [ %next.2.i.i, %if.end28.i.i ], [ %14, %land.lhs.true.i.i ]
   %enabled.i.i = getelementptr inbounds i8, ptr %mr.addr.0.be.i.i, i64 154
   %23 = load i8, ptr %enabled.i.i, align 2
   %tobool.i.i = trunc i8 %23 to i1
@@ -924,8 +924,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then9.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %child.040.i = phi ptr [ %child.036.i, %for.body.lr.ph.i ], [ %child.0.i, %for.inc.i ]
-  %found.039.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %found.1.i, %for.inc.i ]
-  %next.038.i = phi ptr [ null, %for.body.lr.ph.i ], [ %next.1.i, %for.inc.i ]
+  %found.039.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %found.2.i, %for.inc.i ]
+  %next.038.i = phi ptr [ null, %for.body.lr.ph.i ], [ %next.2.i, %for.inc.i ]
   %enabled11.i = getelementptr inbounds i8, ptr %child.040.i, i64 154
   %9 = load i8, ptr %enabled11.i, align 2
   %tobool12.i = trunc i8 %9 to i1
@@ -950,23 +950,23 @@ land.lhs.true17.i:                                ; preds = %if.end15.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true17.i, %if.end15.i, %for.body.i
-  %next.1.i = phi ptr [ %next.038.i, %if.end15.i ], [ %next.038.i, %for.body.i ], [ %spec.select.i, %land.lhs.true17.i ]
-  %found.1.i = phi i32 [ 1, %if.end15.i ], [ %found.039.i, %for.body.i ], [ 1, %land.lhs.true17.i ]
+  %next.2.i = phi ptr [ %next.038.i, %if.end15.i ], [ %next.038.i, %for.body.i ], [ %spec.select.i, %land.lhs.true17.i ]
+  %found.2.i = phi i32 [ 1, %if.end15.i ], [ %found.039.i, %for.body.i ], [ 1, %land.lhs.true17.i ]
   %subregions_link.i = getelementptr inbounds i8, ptr %child.040.i, i64 200
   %child.0.i = load ptr, ptr %subregions_link.i, align 8
   %tobool10.not.i = icmp eq ptr %child.0.i, null
   br i1 %tobool10.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %for.inc.i
-  %cmp26.i = icmp eq i32 %found.1.i, 0
+  %cmp26.i = icmp eq i32 %found.2.i, 0
   br i1 %cmp26.i, label %memory_region_get_flatview_root.exit, label %if.end28.i
 
 if.end28.i:                                       ; preds = %for.end.i
-  %tobool29.not.i = icmp eq ptr %next.1.i, null
+  %tobool29.not.i = icmp eq ptr %next.2.i, null
   br i1 %tobool29.not.i, label %memory_region_get_flatview_root.exit, label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end28.i, %land.lhs.true.i
-  %mr.addr.0.be.i = phi ptr [ %next.1.i, %if.end28.i ], [ %4, %land.lhs.true.i ]
+  %mr.addr.0.be.i = phi ptr [ %next.2.i, %if.end28.i ], [ %4, %land.lhs.true.i ]
   %enabled.i = getelementptr inbounds i8, ptr %mr.addr.0.be.i, i64 154
   %13 = load i8, ptr %enabled.i, align 2
   %tobool.i = trunc i8 %13 to i1
@@ -2170,18 +2170,18 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.body44:                                       ; preds = %for.cond41.preheader, %for.body44
   %i.148 = phi i32 [ %add52, %for.body44 ], [ 0, %for.cond41.preheader ]
-  %r.147 = phi i32 [ %or50, %for.body44 ], [ 0, %for.cond41.preheader ]
+  %r.247 = phi i32 [ %or50, %for.body44 ], [ 0, %for.cond41.preheader ]
   %conv45 = zext nneg i32 %i.148 to i64
   %add46 = add i64 %conv45, %addr
   %mul47 = shl nuw nsw i32 %i.148, 3
   %call49 = tail call i32 %access_fn(ptr noundef %mr, i64 noundef %add46, ptr noundef %value, i32 noundef %cond31, i32 noundef %mul47, i64 noundef %shr, i32 %attrs.coerce) #19, !callees !28
-  %or50 = or i32 %call49, %r.147
+  %or50 = or i32 %call49, %r.247
   %add52 = add i32 %i.148, %cond31
   %cmp42 = icmp ult i32 %add52, %size
   br i1 %cmp42, label %for.body44, label %if.end54, !llvm.loop !30
 
 if.end54:                                         ; preds = %for.body44, %for.body, %for.cond41.preheader, %for.cond.preheader
-  %r.2 = phi i32 [ 0, %for.cond.preheader ], [ 0, %for.cond41.preheader ], [ %or, %for.body ], [ %or50, %for.body44 ]
+  %r.1 = phi i32 [ 0, %for.cond.preheader ], [ 0, %for.cond41.preheader ], [ %or, %for.body ], [ %or50, %for.body44 ]
   %10 = load ptr, ptr %dev, align 8
   %tobool56.not = icmp eq ptr %10, null
   %brmerge = or i1 %reentrancy_guard_applied.0.not, %tobool56.not
@@ -2193,7 +2193,7 @@ if.then60:                                        ; preds = %if.end54
   br label %return
 
 return:                                           ; preds = %if.then60, %if.end54, %if.then17
-  %retval.0 = phi i32 [ 4, %if.then17 ], [ %r.2, %if.end54 ], [ %r.2, %if.then60 ]
+  %retval.0 = phi i32 [ 4, %if.then17 ], [ %r.1, %if.end54 ], [ %r.1, %if.then60 ]
   ret i32 %retval.0
 }
 
@@ -5692,7 +5692,7 @@ do.body.i:                                        ; preds = %if.then.i
   unreachable
 
 if.end:                                           ; preds = %if.then.i, %if.then, %sw.bb7.i, %sw.bb4.i, %sw.bb2.i, %entry
-  %mrfd.sroa.724.1 = phi i64 [ %data, %entry ], [ %data, %if.then ], [ %data, %if.then.i ], [ %conv3.i, %sw.bb2.i ], [ %conv6.i, %sw.bb4.i ], [ %5, %sw.bb7.i ]
+  %mrfd.sroa.724.0 = phi i64 [ %data, %entry ], [ %data, %if.then ], [ %data, %if.then.i ], [ %conv3.i, %sw.bb2.i ], [ %conv6.i, %sw.bb4.i ], [ %5, %sw.bb7.i ]
   tail call void @qemu_flush_coalesced_mmio_buffer() #19
   %6 = load i32, ptr @memory_region_transaction_depth, align 4
   %inc.i = add i32 %6, 1
@@ -5743,11 +5743,11 @@ if.else35.i.us:                                   ; preds = %if.else29.i.us
 if.else45.i.us:                                   ; preds = %if.else35.i.us
   %data49.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 40
   %12 = load i64, ptr %data49.i.us, align 8
-  %cmp50.i.us = icmp ult i64 %mrfd.sroa.724.1, %12
+  %cmp50.i.us = icmp ult i64 %mrfd.sroa.724.0, %12
   br i1 %cmp50.i.us, label %for.end.loopexit.split.loop.exit, label %if.else53.i.us
 
 if.else53.i.us:                                   ; preds = %if.else45.i.us
-  %cmp56.i.us = icmp ugt i64 %mrfd.sroa.724.1, %12
+  %cmp56.i.us = icmp ugt i64 %mrfd.sroa.724.0, %12
   br i1 %cmp56.i.us, label %for.inc.us, label %memory_region_ioeventfd_before.exit.us
 
 memory_region_ioeventfd_before.exit.us:           ; preds = %if.else53.i.us
@@ -5868,7 +5868,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   %mrfd.sroa.5.0.arrayidx35.sroa_idx = getelementptr inbounds i8, ptr %arrayidx35, i64 32
   store i8 %frombool, ptr %mrfd.sroa.5.0.arrayidx35.sroa_idx, align 16
   %mrfd.sroa.724.0.arrayidx35.sroa_idx = getelementptr inbounds i8, ptr %arrayidx35, i64 40
-  store i64 %mrfd.sroa.724.1, ptr %mrfd.sroa.724.0.arrayidx35.sroa_idx, align 8
+  store i64 %mrfd.sroa.724.0, ptr %mrfd.sroa.724.0.arrayidx35.sroa_idx, align 8
   %mrfd.sroa.13.0.arrayidx35.sroa_idx = getelementptr inbounds i8, ptr %arrayidx35, i64 48
   store ptr %e, ptr %mrfd.sroa.13.0.arrayidx35.sroa_idx, align 16
   %enabled = getelementptr inbounds i8, ptr %mr, i64 154
@@ -5936,7 +5936,7 @@ do.body.i:                                        ; preds = %if.then.i
   unreachable
 
 if.end:                                           ; preds = %if.then.i, %if.then, %sw.bb7.i, %sw.bb4.i, %sw.bb2.i, %entry
-  %mrfd.sroa.6.1 = phi i64 [ %data, %entry ], [ %data, %if.then ], [ %data, %if.then.i ], [ %conv3.i, %sw.bb2.i ], [ %conv6.i, %sw.bb4.i ], [ %5, %sw.bb7.i ]
+  %mrfd.sroa.6.0 = phi i64 [ %data, %entry ], [ %data, %if.then ], [ %data, %if.then.i ], [ %conv3.i, %sw.bb2.i ], [ %conv6.i, %sw.bb4.i ], [ %5, %sw.bb7.i ]
   tail call void @qemu_flush_coalesced_mmio_buffer() #19
   %6 = load i32, ptr @memory_region_transaction_depth, align 4
   %inc.i = add i32 %6, 1
@@ -5993,7 +5993,7 @@ land.lhs.true19.i.us:                             ; preds = %lor.lhs.false11.i.u
 land.lhs.true24.i.us:                             ; preds = %land.lhs.true19.i.us
   %data29.i.us = getelementptr inbounds i8, ptr %arrayidx.us44, i64 40
   %13 = load i64, ptr %data29.i.us, align 8
-  %cmp30.i.us = icmp eq i64 %mrfd.sroa.6.1, %13
+  %cmp30.i.us = icmp eq i64 %mrfd.sroa.6.0, %13
   br i1 %cmp30.i.us, label %land.lhs.true35.i.us, label %for.inc.us47
 
 land.lhs.true35.i.us:                             ; preds = %land.lhs.true24.i.us
@@ -7816,8 +7816,8 @@ for.body.lr.ph.i.i:                               ; preds = %if.then9.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %child.040.i.i = phi ptr [ %child.036.i.i, %for.body.lr.ph.i.i ], [ %child.0.i.i, %for.inc.i.i ]
-  %found.039.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %found.1.i.i, %for.inc.i.i ]
-  %next.038.i.i = phi ptr [ null, %for.body.lr.ph.i.i ], [ %next.1.i.i, %for.inc.i.i ]
+  %found.039.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %found.2.i.i, %for.inc.i.i ]
+  %next.038.i.i = phi ptr [ null, %for.body.lr.ph.i.i ], [ %next.2.i.i, %for.inc.i.i ]
   %enabled11.i.i = getelementptr inbounds i8, ptr %child.040.i.i, i64 154
   %9 = load i8, ptr %enabled11.i.i, align 2
   %tobool12.i.i = trunc i8 %9 to i1
@@ -7842,23 +7842,23 @@ land.lhs.true17.i.i:                              ; preds = %if.end15.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true17.i.i, %if.end15.i.i, %for.body.i.i
-  %next.1.i.i = phi ptr [ %next.038.i.i, %if.end15.i.i ], [ %next.038.i.i, %for.body.i.i ], [ %spec.select.i.i, %land.lhs.true17.i.i ]
-  %found.1.i.i = phi i32 [ 1, %if.end15.i.i ], [ %found.039.i.i, %for.body.i.i ], [ 1, %land.lhs.true17.i.i ]
+  %next.2.i.i = phi ptr [ %next.038.i.i, %if.end15.i.i ], [ %next.038.i.i, %for.body.i.i ], [ %spec.select.i.i, %land.lhs.true17.i.i ]
+  %found.2.i.i = phi i32 [ 1, %if.end15.i.i ], [ %found.039.i.i, %for.body.i.i ], [ 1, %land.lhs.true17.i.i ]
   %subregions_link.i.i = getelementptr inbounds i8, ptr %child.040.i.i, i64 200
   %child.0.i.i = load ptr, ptr %subregions_link.i.i, align 8
   %tobool10.not.i.i = icmp eq ptr %child.0.i.i, null
   br i1 %tobool10.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %cmp26.i.i = icmp eq i32 %found.1.i.i, 0
+  %cmp26.i.i = icmp eq i32 %found.2.i.i, 0
   br i1 %cmp26.i.i, label %memory_region_get_flatview_root.exit.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %for.end.i.i
-  %tobool29.not.i.i = icmp eq ptr %next.1.i.i, null
+  %tobool29.not.i.i = icmp eq ptr %next.2.i.i, null
   br i1 %tobool29.not.i.i, label %memory_region_get_flatview_root.exit.i, label %while.cond.backedge.i.i
 
 while.cond.backedge.i.i:                          ; preds = %if.end28.i.i, %land.lhs.true.i.i
-  %mr.addr.0.be.i.i = phi ptr [ %next.1.i.i, %if.end28.i.i ], [ %4, %land.lhs.true.i.i ]
+  %mr.addr.0.be.i.i = phi ptr [ %next.2.i.i, %if.end28.i.i ], [ %4, %land.lhs.true.i.i ]
   %enabled.i.i = getelementptr inbounds i8, ptr %mr.addr.0.be.i.i, i64 154
   %13 = load i8, ptr %enabled.i.i, align 2
   %tobool.i.i = trunc i8 %13 to i1
@@ -8939,9 +8939,9 @@ for.body85:                                       ; preds = %for.body85.lr.ph, %
   %39 = phi ptr [ %.pre, %for.body85.lr.ph ], [ %57, %for.inc149 ]
   %40 = phi ptr [ %.pre, %for.body85.lr.ph ], [ %58, %for.inc149 ]
   %i.0318 = phi i32 [ 0, %for.body85.lr.ph ], [ %inc150, %for.inc149 ]
-  %offset_in_region.0317 = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %for.body85.lr.ph ], [ %offset_in_region.2, %for.inc149 ]
-  %base.addr.0316 = phi i128 [ %25, %for.body85.lr.ph ], [ %base.addr.2, %for.inc149 ]
-  %remain.0315 = phi i128 [ %27, %for.body85.lr.ph ], [ %remain.2, %for.inc149 ]
+  %offset_in_region.0317 = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %for.body85.lr.ph ], [ %offset_in_region.1, %for.inc149 ]
+  %base.addr.0316 = phi i128 [ %25, %for.body85.lr.ph ], [ %base.addr.1, %for.inc149 ]
+  %remain.0315 = phi i128 [ %27, %for.body85.lr.ph ], [ %remain.1, %for.inc149 ]
   %idxprom = zext i32 %i.0318 to i64
   %addr86 = getelementptr %struct.FlatRange, ptr %40, i64 %idxprom, i32 2
   %addr86.val = load i128, ptr %addr86, align 16
@@ -9060,14 +9060,14 @@ if.end125:                                        ; preds = %int128_get64.exit13
   %50 = phi i32 [ %inc.i, %int128_get64.exit138 ], [ %38, %if.end93 ]
   %idxprom131.pre-phi = phi i64 [ %.pre337, %int128_get64.exit138 ], [ %idxprom, %if.end93 ]
   %51 = phi ptr [ %.pre336, %int128_get64.exit138 ], [ %39, %if.end93 ]
-  %remain.1 = phi i128 [ %sub.i141, %int128_get64.exit138 ], [ %remain.0315, %if.end93 ]
-  %base.addr.1 = phi i128 [ %add.i134, %int128_get64.exit138 ], [ %base.addr.0316, %if.end93 ]
-  %offset_in_region.1 = phi i64 [ %add, %int128_get64.exit138 ], [ %offset_in_region.0317, %if.end93 ]
-  %i.1 = phi i32 [ %inc, %int128_get64.exit138 ], [ %i.0318, %if.end93 ]
-  %coerce127.sroa.2.0.extract.shift = lshr i128 %remain.1, 64
+  %remain.2 = phi i128 [ %sub.i141, %int128_get64.exit138 ], [ %remain.0315, %if.end93 ]
+  %base.addr.2 = phi i128 [ %add.i134, %int128_get64.exit138 ], [ %base.addr.0316, %if.end93 ]
+  %offset_in_region.2 = phi i64 [ %add, %int128_get64.exit138 ], [ %offset_in_region.0317, %if.end93 ]
+  %i.2 = phi i32 [ %inc, %int128_get64.exit138 ], [ %i.0318, %if.end93 ]
+  %coerce127.sroa.2.0.extract.shift = lshr i128 %remain.2, 64
   %coerce127.sroa.2.0.extract.trunc = trunc nuw i128 %coerce127.sroa.2.0.extract.shift to i64
-  %b.sroa.0.0.insert.ext.i145 = and i128 %remain.1, 18446744073709551615
-  %a.sroa.0.0.insert.insert.i147 = add i128 %base.addr.1, %b.sroa.0.0.insert.ext.i145
+  %b.sroa.0.0.insert.ext.i145 = and i128 %remain.2, 18446744073709551615
+  %a.sroa.0.0.insert.insert.i147 = add i128 %base.addr.2, %b.sroa.0.0.insert.ext.i145
   %52 = lshr i128 %a.sroa.0.0.insert.insert.i147, 64
   %.tr.i149 = trunc nuw i128 %52 to i64
   %.narrow.i150 = add i64 %.tr.i149, %coerce127.sroa.2.0.extract.trunc
@@ -9103,30 +9103,30 @@ if.else.i193:                                     ; preds = %if.end125
 
 int128_get64.exit195:                             ; preds = %if.end125
   %b.sroa.0.0.insert.ext.i189 = and i128 %a.sroa.0.0.insert.insert.i181, 18446744073709551615
-  %add.i191 = add i128 %b.sroa.0.0.insert.ext.i189, %base.addr.1
+  %add.i191 = add i128 %b.sroa.0.0.insert.ext.i189, %base.addr.2
   %retval.sroa.0.0.extract.trunc.i182 = trunc i128 %a.sroa.0.0.insert.insert.i181 to i64
-  %add147 = add i64 %offset_in_region.1, %retval.sroa.0.0.extract.trunc.i182
-  %sub.i201 = sub i128 %remain.1, %b.sroa.0.0.insert.ext.i189
+  %add147 = add i64 %offset_in_region.2, %retval.sroa.0.0.extract.trunc.i182
+  %sub.i201 = sub i128 %remain.2, %b.sroa.0.0.insert.ext.i189
   br label %for.inc149
 
 for.inc149:                                       ; preds = %for.body85, %int128_get64.exit195
   %56 = phi i32 [ %38, %for.body85 ], [ %50, %int128_get64.exit195 ]
   %57 = phi ptr [ %39, %for.body85 ], [ %51, %int128_get64.exit195 ]
   %58 = phi ptr [ %40, %for.body85 ], [ %51, %int128_get64.exit195 ]
-  %remain.2 = phi i128 [ %remain.0315, %for.body85 ], [ %sub.i201, %int128_get64.exit195 ]
-  %base.addr.2 = phi i128 [ %base.addr.0316, %for.body85 ], [ %add.i191, %int128_get64.exit195 ]
-  %offset_in_region.2 = phi i64 [ %offset_in_region.0317, %for.body85 ], [ %add147, %int128_get64.exit195 ]
-  %i.2 = phi i32 [ %i.0318, %for.body85 ], [ %i.1, %int128_get64.exit195 ]
-  %inc150 = add i32 %i.2, 1
+  %remain.1 = phi i128 [ %remain.0315, %for.body85 ], [ %sub.i201, %int128_get64.exit195 ]
+  %base.addr.1 = phi i128 [ %base.addr.0316, %for.body85 ], [ %add.i191, %int128_get64.exit195 ]
+  %offset_in_region.1 = phi i64 [ %offset_in_region.0317, %for.body85 ], [ %add147, %int128_get64.exit195 ]
+  %i.1 = phi i32 [ %i.0318, %for.body85 ], [ %i.2, %int128_get64.exit195 ]
+  %inc150 = add i32 %i.1, 1
   %cmp = icmp uge i32 %inc150, %56
-  %cmp.i75.not = icmp eq i128 %remain.2, 0
+  %cmp.i75.not = icmp eq i128 %remain.1, 0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp.i75.not
   br i1 %or.cond, label %for.end151, label %for.body85, !llvm.loop !91
 
 for.end151:                                       ; preds = %for.inc149, %memory_region_get_dirty_log_mask.exit
-  %remain.0.lcssa = phi i128 [ %27, %memory_region_get_dirty_log_mask.exit ], [ %remain.2, %for.inc149 ]
-  %base.addr.0.lcssa = phi i128 [ %25, %memory_region_get_dirty_log_mask.exit ], [ %base.addr.2, %for.inc149 ]
-  %offset_in_region.0.lcssa = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %memory_region_get_dirty_log_mask.exit ], [ %offset_in_region.2, %for.inc149 ]
+  %remain.0.lcssa = phi i128 [ %27, %memory_region_get_dirty_log_mask.exit ], [ %remain.1, %for.inc149 ]
+  %base.addr.0.lcssa = phi i128 [ %25, %memory_region_get_dirty_log_mask.exit ], [ %base.addr.1, %for.inc149 ]
+  %offset_in_region.0.lcssa = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %memory_region_get_dirty_log_mask.exit ], [ %offset_in_region.1, %for.inc149 ]
   %i.0.lcssa = phi i32 [ 0, %memory_region_get_dirty_log_mask.exit ], [ %inc150, %for.inc149 ]
   %.lcssa = phi i32 [ %37, %memory_region_get_dirty_log_mask.exit ], [ %56, %for.inc149 ]
   %cmp.i206.not = icmp eq i128 %remain.0.lcssa, 0

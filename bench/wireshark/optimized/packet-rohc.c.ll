@@ -906,8 +906,8 @@ proto_item_set_generated.exit395:                 ; preds = %proto_item_set_gene
   br i1 %139, label %.preheader, label %146
 
 .preheader:                                       ; preds = %137, %.preheader
-  %.1312494 = phi i32 [ %140, %.preheader ], [ %.0311, %137 ]
-  %140 = add i32 %.1312494, 1
+  %.2494 = phi i32 [ %140, %.preheader ], [ %.0311, %137 ]
+  %140 = add i32 %.2494, 1
   %141 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %140) #7
   %142 = icmp eq i8 %141, -32
   br i1 %142, label %.preheader, label %143, !llvm.loop !4
@@ -918,21 +918,21 @@ proto_item_set_generated.exit395:                 ; preds = %proto_item_set_gene
   br label %146
 
 146:                                              ; preds = %143, %137
-  %.1314 = phi i8 [ %141, %143 ], [ %138, %137 ]
-  %.2 = phi i32 [ %140, %143 ], [ %.0311, %137 ]
-  %147 = and i8 %.1314, -16
+  %.0313 = phi i8 [ %141, %143 ], [ %138, %137 ]
+  %.1312 = phi i32 [ %140, %143 ], [ %.0311, %137 ]
+  %147 = and i8 %.0313, -16
   %148 = icmp eq i8 %147, -32
   br i1 %148, label %149, label %.thread
 
 149:                                              ; preds = %146
-  %150 = and i8 %.1314, 15
+  %150 = and i8 %.0313, 15
   %151 = zext nneg i8 %150 to i16
   %152 = load i32, ptr @hf_rohc_add_cid, align 4
-  %153 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %152, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #7
+  %153 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %152, ptr noundef %0, i32 noundef %.1312, i32 noundef 1, i32 noundef 0) #7
   %154 = load i32, ptr @hf_rohc_small_cid, align 4
   %155 = zext nneg i8 %150 to i32
-  %156 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %154, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %155) #7
-  %157 = add i32 %.2, 1
+  %156 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %154, ptr noundef %0, i32 noundef %.1312, i32 noundef 1, i32 noundef %155) #7
+  %157 = add i32 %.1312, 1
   %158 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %157) #7
   %159 = zext i8 %158 to i32
   %160 = and i32 %159, 248
@@ -940,7 +940,7 @@ proto_item_set_generated.exit395:                 ; preds = %proto_item_set_gene
   br i1 %161, label %165, label %.loopexit
 
 .thread:                                          ; preds = %146
-  %162 = zext i8 %.1314 to i32
+  %162 = zext i8 %.0313 to i32
   %163 = and i32 %162, 248
   %164 = icmp eq i32 %163, 240
   br i1 %164, label %.thread471, label %.loopexit
@@ -959,14 +959,14 @@ proto_item_set_generated.exit395:                 ; preds = %proto_item_set_gene
   %171 = load ptr, ptr %134, align 8
   call void @col_append_str(ptr noundef %171, i32 noundef 25, ptr noundef nonnull @.str.331) #7
   %172 = load i32, ptr @hf_rohc_feedback, align 4
-  %173 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %172, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #7
+  %173 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %172, ptr noundef %0, i32 noundef %.1312, i32 noundef 1, i32 noundef 0) #7
   store ptr %173, ptr %.0304.sroa.phi329, align 8
   %174 = load i32, ptr @ett_rohc_fb, align 4
   %175 = call ptr @proto_item_add_subtree(ptr noundef %173, i32 noundef %174) #7
   %176 = load i32, ptr @hf_rohc_code, align 4
-  %177 = call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %176, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #7
-  %178 = and i8 %.1314, 7
-  %179 = add i32 %.2, 1
+  %177 = call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %176, ptr noundef %0, i32 noundef %.1312, i32 noundef 1, i32 noundef 0) #7
+  %178 = and i8 %.0313, 7
+  %179 = add i32 %.1312, 1
   %180 = icmp eq i8 %178, 0
   br i1 %180, label %181, label %186
 
@@ -974,7 +974,7 @@ proto_item_set_generated.exit395:                 ; preds = %proto_item_set_gene
   %182 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %179) #7
   %183 = load i32, ptr @hf_rohc_size, align 4
   %184 = call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %183, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0) #7
-  %185 = add i32 %.2, 2
+  %185 = add i32 %.1312, 2
   br label %186
 
 186:                                              ; preds = %.thread471, %181
@@ -1335,7 +1335,7 @@ dissect_rohc_feedback_data.exit:                  ; preds = %251, %265, %268, %2
 
 388:                                              ; preds = %dissect_rohc_feedback_data.exit
   %389 = load ptr, ptr %.0304.sroa.phi329, align 8
-  %390 = sub i32 %386, %.2
+  %390 = sub i32 %386, %.1312
   call void @proto_item_set_len(ptr noundef %389, i32 noundef %390) #7
   br label %844
 
@@ -1343,8 +1343,8 @@ dissect_rohc_feedback_data.exit:                  ; preds = %251, %265, %268, %2
   %391 = phi i32 [ %159, %149 ], [ %162, %.thread ]
   %.1306470 = phi i32 [ 1, %149 ], [ 0, %.thread ]
   %.0307469 = phi i16 [ %151, %149 ], [ 0, %.thread ]
-  %.3467 = phi i32 [ %157, %149 ], [ %.2, %.thread ]
-  %.2315464 = phi i8 [ %158, %149 ], [ %.1314, %.thread ]
+  %.3467 = phi i32 [ %157, %149 ], [ %.1312, %.thread ]
+  %.2315464 = phi i8 [ %158, %149 ], [ %.0313, %.thread ]
   %392 = trunc nuw i32 %391 to i8
   %trunc = and i8 %392, -2
   switch i8 %trunc, label %632 [
@@ -2591,7 +2591,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr n
   br label %97
 
 97:                                               ; preds = %91, %94, %42, %50
-  %.192 = phi ptr [ %27, %50 ], [ %27, %42 ], [ %73, %94 ], [ %73, %91 ]
+  %.091 = phi ptr [ %27, %50 ], [ %27, %42 ], [ %73, %94 ], [ %73, %91 ]
   %.190 = phi i8 [ %55, %50 ], [ %44, %42 ], [ %85, %94 ], [ %85, %91 ]
   %.088 = phi i8 [ -1, %50 ], [ -1, %42 ], [ %68, %94 ], [ 0, %91 ]
   %.0.in = phi i32 [ %36, %50 ], [ %36, %42 ], [ %65, %94 ], [ %65, %91 ]
@@ -2600,7 +2600,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr n
   br i1 %.not94, label %100, label %98
 
 98:                                               ; preds = %97
-  %99 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.192, i32 noundef %.0, i8 noundef zeroext %.088, ptr noundef nonnull %4)
+  %99 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.091, i32 noundef %.0, i8 noundef zeroext %.088, ptr noundef nonnull %4)
   br label %100
 
 100:                                              ; preds = %98, %97
@@ -2695,7 +2695,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_u_o_mode(ptr noundef %0, ptr
   %59 = load i32, ptr @hf_rohc_crc, align 4
   %60 = or disjoint i32 %.pre-phi, 5
   %61 = call ptr @proto_tree_add_bits_item(ptr noundef %27, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef 3, i32 noundef 0) #7
-  %.2105 = add i32 %.0, 1
+  %.1105 = add i32 %.0, 1
   br label %112
 
 62:                                               ; preds = %19
@@ -2745,29 +2745,29 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_u_o_mode(ptr noundef %0, ptr
 
 99:                                               ; preds = %71, %86
   %.pre-phi106 = phi i32 [ %81, %71 ], [ %97, %86 ]
-  %.097 = phi ptr [ %73, %71 ], [ %88, %86 ]
-  %.095 = phi i1 [ %85, %71 ], [ true, %86 ]
-  %.1 = phi i32 [ %80, %71 ], [ %95, %86 ]
+  %.198 = phi ptr [ %73, %71 ], [ %88, %86 ]
+  %.196 = phi i1 [ %85, %71 ], [ true, %86 ]
+  %.2 = phi i32 [ %80, %71 ], [ %95, %86 ]
   %100 = or disjoint i32 %.pre-phi106, 1
   %101 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %100, i32 noundef 4) #7
   %102 = load i32, ptr @hf_rohc_comp_sn, align 4
-  %103 = call ptr @proto_tree_add_bits_item(ptr noundef %.097, i32 noundef %102, ptr noundef %0, i32 noundef %100, i32 noundef 4, i32 noundef 0) #7
+  %103 = call ptr @proto_tree_add_bits_item(ptr noundef %.198, i32 noundef %102, ptr noundef %0, i32 noundef %100, i32 noundef 4, i32 noundef 0) #7
   %104 = getelementptr inbounds i8, ptr %1, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = zext i8 %101 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %105, i32 noundef 25, ptr noundef nonnull @.str.344, i32 noundef %106) #7
   %107 = load i32, ptr @hf_rohc_crc, align 4
   %108 = or disjoint i32 %.pre-phi106, 5
-  %109 = call ptr @proto_tree_add_bits_item(ptr noundef %.097, i32 noundef %107, ptr noundef %0, i32 noundef %108, i32 noundef 3, i32 noundef 0) #7
-  %.2 = add i32 %.1, 1
-  br i1 %.095, label %112, label %110
+  %109 = call ptr @proto_tree_add_bits_item(ptr noundef %.198, i32 noundef %107, ptr noundef %0, i32 noundef %108, i32 noundef 3, i32 noundef 0) #7
+  %.1 = add i32 %.2, 1
+  br i1 %.196, label %112, label %110
 
 110:                                              ; preds = %99
-  %111 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.097, i32 noundef %.2, i8 noundef zeroext %65, ptr noundef nonnull %4)
+  %111 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.198, i32 noundef %.1, i8 noundef zeroext %65, ptr noundef nonnull %4)
   br label %112
 
 112:                                              ; preds = %.thread, %110, %99
-  %.3 = phi i32 [ %111, %110 ], [ %.2, %99 ], [ %.2105, %.thread ]
+  %.3 = phi i32 [ %111, %110 ], [ %.1, %99 ], [ %.1105, %.thread ]
   %113 = load ptr, ptr %6, align 8
   %114 = sub i32 %.3, %3
   call void @proto_item_set_len(ptr noundef %113, i32 noundef %114) #7
@@ -2916,7 +2916,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_2(ptr noundef %0, ptr noundef 
   br label %109
 
 109:                                              ; preds = %73, %62
-  %.198 = phi ptr [ %28, %62 ], [ %86, %73 ]
+  %.097 = phi ptr [ %28, %62 ], [ %86, %73 ]
   %.096 = phi i8 [ %66, %62 ], [ %102, %73 ]
   %.095 = phi i8 [ -1, %62 ], [ %79, %73 ]
   %.1 = phi i32 [ %72, %62 ], [ %108, %73 ]
@@ -2924,7 +2924,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_2(ptr noundef %0, ptr noundef 
   br i1 %.not100, label %112, label %110
 
 110:                                              ; preds = %109
-  %111 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.198, i32 noundef %.1, i8 noundef zeroext %.095, ptr noundef nonnull %4)
+  %111 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.097, i32 noundef %.1, i8 noundef zeroext %.095, ptr noundef nonnull %4)
   br label %112
 
 112:                                              ; preds = %110, %109
@@ -3161,32 +3161,32 @@ define internal fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr 
   br label %147
 
 147:                                              ; preds = %142, %124
-  %.3 = phi i32 [ %146, %142 ], [ %139, %124 ]
+  %.4 = phi i32 [ %146, %142 ], [ %139, %124 ]
   %148 = and i32 %140, 2
   %.not198 = icmp eq i32 %148, 0
   br i1 %.not198, label %154, label %149
 
 149:                                              ; preds = %147
   %150 = load i32, ptr @hf_rohc_rtp_time_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %96, i32 noundef %.3, i32 noundef %150, ptr noundef nonnull %8)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %96, i32 noundef %.4, i32 noundef %150, ptr noundef nonnull %8)
   %151 = load i8, ptr %8, align 1
   %152 = zext i8 %151 to i32
-  %153 = add i32 %.3, %152
+  %153 = add i32 %.4, %152
   br label %154
 
 154:                                              ; preds = %149, %147
-  %.4 = phi i32 [ %153, %149 ], [ %.3, %147 ]
-  %155 = sub i32 %.4, %83
+  %.5 = phi i32 [ %153, %149 ], [ %.4, %147 ]
+  %155 = sub i32 %.5, %83
   call void @proto_item_set_len(ptr noundef %94, i32 noundef %155) #7
   %156 = zext i16 %113 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %94, ptr noundef nonnull @.str.365, i32 noundef %156, i32 noundef %117) #7
   %157 = load ptr, ptr %7, align 8
-  %158 = sub i32 %.4, %3
+  %158 = sub i32 %.5, %3
   call void @proto_item_set_len(ptr noundef %157, i32 noundef %158) #7
   br label %159
 
 159:                                              ; preds = %70, %84, %.thread203, %154, %90, %62, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %62 ], [ %121, %90 ], [ %.4, %154 ], [ %87, %84 ], [ %3, %.thread203 ], [ %.0194, %70 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %62 ], [ %121, %90 ], [ %.5, %154 ], [ %87, %84 ], [ %3, %.thread203 ], [ %.0194, %70 ]
   ret i32 %.0
 }
 
@@ -3253,10 +3253,10 @@ define internal fastcc i32 @dissect_compressed_list(ptr noundef %0, ptr noundef 
   br label %42
 
 42:                                               ; preds = %38, %36
-  %.1 = phi i32 [ %41, %38 ], [ %37, %36 ]
+  %.2 = phi i32 [ %41, %38 ], [ %37, %36 ]
   %43 = load i32, ptr @hf_rohc_compressed_list_ref_id, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %43, ptr noundef %1, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #7
-  %45 = add i32 %.1, 1
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %43, ptr noundef %1, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #7
+  %45 = add i32 %.2, 1
   %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %45) #7
   %47 = load i32, ptr @hf_rohc_compressed_list_mask_size, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %47, ptr noundef %1, i32 noundef %45, i32 noundef 1, i32 noundef 0) #7
@@ -3268,12 +3268,12 @@ define internal fastcc i32 @dissect_compressed_list(ptr noundef %0, ptr noundef 
 
 52:                                               ; preds = %42
   %53 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %49, ptr noundef %1, i32 noundef %51, i32 noundef 15, i32 noundef 0) #7
-  %54 = add i32 %.1, 3
+  %54 = add i32 %.2, 3
   br label %119
 
 55:                                               ; preds = %42
   %56 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %49, ptr noundef %1, i32 noundef %51, i32 noundef 7, i32 noundef 0) #7
-  %57 = add i32 %.1, 2
+  %57 = add i32 %.2, 2
   br label %119
 
 58:                                               ; preds = %3
@@ -3292,10 +3292,10 @@ define internal fastcc i32 @dissect_compressed_list(ptr noundef %0, ptr noundef 
   br label %68
 
 68:                                               ; preds = %64, %58
-  %.2 = phi i32 [ %67, %64 ], [ %63, %58 ]
+  %.3 = phi i32 [ %67, %64 ], [ %63, %58 ]
   %69 = load i32, ptr @hf_rohc_compressed_list_ref_id, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %69, ptr noundef %1, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #7
-  %71 = add i32 %.2, 1
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %69, ptr noundef %1, i32 noundef %.3, i32 noundef 1, i32 noundef 0) #7
+  %71 = add i32 %.3, 1
   %72 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %71) #7
   %73 = load i32, ptr @hf_rohc_compressed_list_mask_size, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %73, ptr noundef %1, i32 noundef %71, i32 noundef 1, i32 noundef 0) #7
@@ -3307,12 +3307,12 @@ define internal fastcc i32 @dissect_compressed_list(ptr noundef %0, ptr noundef 
 
 78:                                               ; preds = %68
   %79 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %75, ptr noundef %1, i32 noundef %77, i32 noundef 15, i32 noundef 0) #7
-  %80 = add i32 %.2, 3
+  %80 = add i32 %.3, 3
   br label %119
 
 81:                                               ; preds = %68
   %82 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %75, ptr noundef %1, i32 noundef %77, i32 noundef 7, i32 noundef 0) #7
-  %83 = add i32 %.2, 2
+  %83 = add i32 %.3, 2
   br label %119
 
 84:                                               ; preds = %3
@@ -3339,10 +3339,10 @@ define internal fastcc i32 @dissect_compressed_list(ptr noundef %0, ptr noundef 
   br label %98
 
 98:                                               ; preds = %94, %92
-  %.3 = phi i32 [ %97, %94 ], [ %93, %92 ]
+  %.4 = phi i32 [ %97, %94 ], [ %93, %92 ]
   %99 = load i32, ptr @hf_rohc_compressed_list_ref_id, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %99, ptr noundef %1, i32 noundef %.3, i32 noundef 1, i32 noundef 0) #7
-  %101 = add i32 %.3, 1
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %99, ptr noundef %1, i32 noundef %.4, i32 noundef 1, i32 noundef 0) #7
+  %101 = add i32 %.4, 1
   %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %101) #7
   %103 = load i32, ptr @hf_rohc_compressed_list_mask_size, align 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %103, ptr noundef %1, i32 noundef %101, i32 noundef 1, i32 noundef 0) #7
@@ -3353,7 +3353,7 @@ define internal fastcc i32 @dissect_compressed_list(ptr noundef %0, ptr noundef 
   %. = select i1 %.not146, i32 7, i32 15
   %.8 = select i1 %.not146, i32 2, i32 3
   %108 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %105, ptr noundef %1, i32 noundef %107, i32 noundef %., i32 noundef 0) #7
-  %109 = add i32 %.3, %.8
+  %109 = add i32 %.4, %.8
   %110 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %109) #7
   %111 = load i32, ptr @hf_rohc_compressed_list_mask_size, align 4
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %111, ptr noundef %1, i32 noundef %109, i32 noundef 1, i32 noundef 0) #7
@@ -3372,10 +3372,10 @@ default.unreachable1:                             ; preds = %3
   unreachable
 
 119:                                              ; preds = %18, %24, %78, %81, %52, %55, %98
-  %.6 = phi i32 [ %118, %98 ], [ %80, %78 ], [ %83, %81 ], [ %54, %52 ], [ %57, %55 ], [ %27, %24 ], [ %23, %18 ]
-  %120 = sub i32 %.6, %2
+  %.0 = phi i32 [ %118, %98 ], [ %80, %78 ], [ %83, %81 ], [ %54, %52 ], [ %57, %55 ], [ %27, %24 ], [ %23, %18 ]
+  %120 = sub i32 %.0, %2
   tail call void @proto_item_set_len(ptr noundef %6, i32 noundef %120) #7
-  ret i32 %.6
+  ret i32 %.0
 }
 
 declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -3479,8 +3479,8 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
   br label %60
 
 60:                                               ; preds = %.sink.split, %50
-  %.0 = phi i32 [ %3, %50 ], [ %56, %.sink.split ]
-  %61 = add i32 %.0, 1
+  %.1 = phi i32 [ %3, %50 ], [ %56, %.sink.split ]
+  %61 = add i32 %.1, 1
   br label %263
 
 62:                                               ; preds = %39
@@ -3524,8 +3524,8 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
   br label %85
 
 85:                                               ; preds = %.sink.split222, %75
-  %.1 = phi i32 [ %3, %75 ], [ %81, %.sink.split222 ]
-  %86 = add i32 %.1, 1
+  %.2 = phi i32 [ %3, %75 ], [ %81, %.sink.split222 ]
+  %86 = add i32 %.2, 1
   br label %263
 
 87:                                               ; preds = %39
@@ -3571,7 +3571,7 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 
 110:                                              ; preds = %._crit_edge, %100
   %111 = phi i64 [ %104, %100 ], [ %.pre, %._crit_edge ]
-  %.2 = phi i32 [ %109, %100 ], [ %97, %._crit_edge ]
+  %.3 = phi i32 [ %109, %100 ], [ %97, %._crit_edge ]
   %112 = and i64 %111, 1
   %.not183 = icmp eq i64 %112, 0
   br i1 %.not183, label %123, label %113
@@ -3579,18 +3579,18 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 113:                                              ; preds = %110
   %114 = load i32, ptr @hf_rohc_ext3_outer_ip_flags, align 4
   %115 = load i32, ptr @ett_rohc_ext3_outer_ip_flags, align 4
-  %116 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %17, ptr noundef %0, i32 noundef %.2, i32 noundef %114, i32 noundef %115, ptr noundef nonnull @dissect_rohc_ext_format.outer_ip_flags, i32 noundef 0, ptr noundef nonnull %9) #7
+  %116 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %17, ptr noundef %0, i32 noundef %.3, i32 noundef %114, i32 noundef %115, ptr noundef nonnull @dissect_rohc_ext_format.outer_ip_flags, i32 noundef 0, ptr noundef nonnull %9) #7
   %117 = load i64, ptr %9, align 8
   %118 = trunc i64 %117 to i32
   %119 = lshr i32 %118, 1
   %120 = and i32 %119, 1
   %121 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %120, ptr %121, align 4
-  %122 = add i32 %.2, 1
+  %122 = add i32 %.3, 1
   br label %123
 
 123:                                              ; preds = %113, %110
-  %.3 = phi i32 [ %122, %113 ], [ %.2, %110 ]
+  %.4 = phi i32 [ %122, %113 ], [ %.3, %110 ]
   %124 = load i64, ptr %7, align 8
   %125 = and i64 %124, 32
   %.not184 = icmp eq i64 %125, 0
@@ -3598,15 +3598,15 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 
 126:                                              ; preds = %123
   %127 = load i32, ptr @hf_rohc_comp_sn, align 4
-  %128 = shl i32 %.3, 3
+  %128 = shl i32 %.4, 3
   %129 = call ptr @proto_tree_add_bits_item(ptr noundef %17, i32 noundef %127, ptr noundef %0, i32 noundef %128, i32 noundef 8, i32 noundef 0) #7
-  %130 = add i32 %.3, 1
+  %130 = add i32 %.4, 1
   %.pre203 = load i64, ptr %7, align 8
   br label %131
 
 131:                                              ; preds = %126, %123
   %132 = phi i64 [ %.pre203, %126 ], [ %124, %123 ]
-  %.4 = phi i32 [ %130, %126 ], [ %.3, %123 ]
+  %.5 = phi i32 [ %130, %126 ], [ %.4, %123 ]
   %133 = and i64 %132, 16
   %.not185 = icmp eq i64 %133, 0
   br i1 %.not185, label %139, label %134
@@ -3614,16 +3614,16 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 134:                                              ; preds = %131
   store i8 0, ptr %10, align 1
   %135 = load i32, ptr @hf_rohc_ts, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.4, i32 noundef %135, ptr noundef nonnull %10)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.5, i32 noundef %135, ptr noundef nonnull %10)
   %136 = load i8, ptr %10, align 1
   %137 = zext i8 %136 to i32
-  %138 = add i32 %.4, %137
+  %138 = add i32 %.5, %137
   %.pre204 = load i64, ptr %7, align 8
   br label %139
 
 139:                                              ; preds = %134, %131
   %140 = phi i64 [ %.pre204, %134 ], [ %132, %131 ]
-  %.5 = phi i32 [ %138, %134 ], [ %.4, %131 ]
+  %.6 = phi i32 [ %138, %134 ], [ %.5, %131 ]
   %141 = and i64 %140, 2
   %.not186 = icmp eq i64 %141, 0
   br i1 %.not186, label %168, label %142
@@ -3636,52 +3636,52 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 
 145:                                              ; preds = %142
   %146 = load i32, ptr @hf_rohc_rtp_tos, align 4
-  %147 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %146, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #7
-  %148 = add i32 %.5, 1
+  %147 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %146, ptr noundef %0, i32 noundef %.6, i32 noundef 1, i32 noundef 0) #7
+  %148 = add i32 %.6, 1
   %.pre205 = load i64, ptr %8, align 8
   br label %149
 
 149:                                              ; preds = %145, %142
   %150 = phi i64 [ %.pre205, %145 ], [ %143, %142 ]
-  %.6 = phi i32 [ %148, %145 ], [ %.5, %142 ]
+  %.8 = phi i32 [ %148, %145 ], [ %.6, %142 ]
   %151 = and i64 %150, 64
   %.not188 = icmp eq i64 %151, 0
   br i1 %.not188, label %156, label %152
 
 152:                                              ; preds = %149
   %153 = load i32, ptr @hf_rohc_rtp_ttl, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %153, ptr noundef %0, i32 noundef %.6, i32 noundef 1, i32 noundef 0) #7
-  %155 = add i32 %.6, 1
+  %154 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %153, ptr noundef %0, i32 noundef %.8, i32 noundef 1, i32 noundef 0) #7
+  %155 = add i32 %.8, 1
   %.pre206 = load i64, ptr %8, align 8
   br label %156
 
 156:                                              ; preds = %152, %149
   %157 = phi i64 [ %.pre206, %152 ], [ %150, %149 ]
-  %.7 = phi i32 [ %155, %152 ], [ %.6, %149 ]
+  %.9 = phi i32 [ %155, %152 ], [ %.8, %149 ]
   %158 = and i64 %157, 16
   %.not189 = icmp eq i64 %158, 0
   br i1 %.not189, label %163, label %159
 
 159:                                              ; preds = %156
   %160 = load i32, ptr @hf_rohc_ip_protocol, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %160, ptr noundef %0, i32 noundef %.7, i32 noundef 1, i32 noundef 0) #7
-  %162 = add i32 %.7, 1
+  %161 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %160, ptr noundef %0, i32 noundef %.9, i32 noundef 1, i32 noundef 0) #7
+  %162 = add i32 %.9, 1
   %.pre207 = load i64, ptr %8, align 8
   br label %163
 
 163:                                              ; preds = %159, %156
   %164 = phi i64 [ %.pre207, %159 ], [ %157, %156 ]
-  %.8 = phi i32 [ %162, %159 ], [ %.7, %156 ]
+  %.10 = phi i32 [ %162, %159 ], [ %.9, %156 ]
   %165 = and i64 %164, 8
   %.not190 = icmp eq i64 %165, 0
   br i1 %.not190, label %168, label %166
 
 166:                                              ; preds = %163
-  %167 = call fastcc i32 @dissect_compressed_list(ptr noundef %17, ptr noundef %0, i32 noundef %.8)
+  %167 = call fastcc i32 @dissect_compressed_list(ptr noundef %17, ptr noundef %0, i32 noundef %.10)
   br label %168
 
 168:                                              ; preds = %163, %166, %139
-  %.9 = phi i32 [ %167, %166 ], [ %.8, %163 ], [ %.5, %139 ]
+  %.7 = phi i32 [ %167, %166 ], [ %.10, %163 ], [ %.6, %139 ]
   %169 = load i64, ptr %7, align 8
   %170 = and i64 %169, 4
   %.not191 = icmp eq i64 %170, 0
@@ -3689,12 +3689,12 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 
 171:                                              ; preds = %168
   %172 = load i32, ptr @hf_rohc_comp_ip_id, align 4
-  %173 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %172, ptr noundef %0, i32 noundef %.9, i32 noundef 2, i32 noundef 0) #7
-  %174 = add i32 %.9, 2
+  %173 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %172, ptr noundef %0, i32 noundef %.7, i32 noundef 2, i32 noundef 0) #7
+  %174 = add i32 %.7, 2
   br label %175
 
 175:                                              ; preds = %171, %168
-  %.10 = phi i32 [ %174, %171 ], [ %.9, %168 ]
+  %.11 = phi i32 [ %174, %171 ], [ %.7, %168 ]
   %176 = load i64, ptr %8, align 8
   %177 = and i64 %176, 1
   %.not192 = icmp eq i64 %177, 0
@@ -3708,66 +3708,66 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 
 181:                                              ; preds = %178
   %182 = load i32, ptr @hf_rohc_rtp_tos, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %182, ptr noundef %0, i32 noundef %.10, i32 noundef 1, i32 noundef 0) #7
-  %184 = add i32 %.10, 1
+  %183 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %182, ptr noundef %0, i32 noundef %.11, i32 noundef 1, i32 noundef 0) #7
+  %184 = add i32 %.11, 1
   %.pre208 = load i64, ptr %9, align 8
   br label %185
 
 185:                                              ; preds = %181, %178
   %186 = phi i64 [ %.pre208, %181 ], [ %179, %178 ]
-  %.11 = phi i32 [ %184, %181 ], [ %.10, %178 ]
+  %.13 = phi i32 [ %184, %181 ], [ %.11, %178 ]
   %187 = and i64 %186, 64
   %.not194 = icmp eq i64 %187, 0
   br i1 %.not194, label %192, label %188
 
 188:                                              ; preds = %185
   %189 = load i32, ptr @hf_rohc_rtp_ttl, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %189, ptr noundef %0, i32 noundef %.11, i32 noundef 1, i32 noundef 0) #7
-  %191 = add i32 %.11, 1
+  %190 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %189, ptr noundef %0, i32 noundef %.13, i32 noundef 1, i32 noundef 0) #7
+  %191 = add i32 %.13, 1
   %.pre209 = load i64, ptr %9, align 8
   br label %192
 
 192:                                              ; preds = %188, %185
   %193 = phi i64 [ %.pre209, %188 ], [ %186, %185 ]
-  %.12 = phi i32 [ %191, %188 ], [ %.11, %185 ]
+  %.14 = phi i32 [ %191, %188 ], [ %.13, %185 ]
   %194 = and i64 %193, 16
   %.not195 = icmp eq i64 %194, 0
   br i1 %.not195, label %199, label %195
 
 195:                                              ; preds = %192
   %196 = load i32, ptr @hf_rohc_ip_protocol, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %196, ptr noundef %0, i32 noundef %.12, i32 noundef 1, i32 noundef 0) #7
-  %198 = add i32 %.12, 1
+  %197 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %196, ptr noundef %0, i32 noundef %.14, i32 noundef 1, i32 noundef 0) #7
+  %198 = add i32 %.14, 1
   %.pre210 = load i64, ptr %9, align 8
   br label %199
 
 199:                                              ; preds = %195, %192
   %200 = phi i64 [ %.pre210, %195 ], [ %193, %192 ]
-  %.13 = phi i32 [ %198, %195 ], [ %.12, %192 ]
+  %.15 = phi i32 [ %198, %195 ], [ %.14, %192 ]
   %201 = and i64 %200, 8
   %.not196 = icmp eq i64 %201, 0
   br i1 %.not196, label %204, label %202
 
 202:                                              ; preds = %199
-  %203 = call fastcc i32 @dissect_compressed_list(ptr noundef %17, ptr noundef %0, i32 noundef %.13)
+  %203 = call fastcc i32 @dissect_compressed_list(ptr noundef %17, ptr noundef %0, i32 noundef %.15)
   %.pre211 = load i64, ptr %9, align 8
   br label %204
 
 204:                                              ; preds = %202, %199
   %205 = phi i64 [ %.pre211, %202 ], [ %200, %199 ]
-  %.14 = phi i32 [ %203, %202 ], [ %.13, %199 ]
+  %.16 = phi i32 [ %203, %202 ], [ %.15, %199 ]
   %206 = and i64 %205, 1
   %.not197 = icmp eq i64 %206, 0
   br i1 %.not197, label %211, label %207
 
 207:                                              ; preds = %204
   %208 = load i32, ptr @hf_rohc_comp_ip_id, align 4
-  %209 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %208, ptr noundef %0, i32 noundef %.14, i32 noundef 2, i32 noundef 0) #7
-  %210 = add i32 %.14, 2
+  %209 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %208, ptr noundef %0, i32 noundef %.16, i32 noundef 2, i32 noundef 0) #7
+  %210 = add i32 %.16, 2
   br label %211
 
 211:                                              ; preds = %204, %207, %175
-  %.15 = phi i32 [ %210, %207 ], [ %.14, %204 ], [ %.10, %175 ]
+  %.12 = phi i32 [ %210, %207 ], [ %.16, %204 ], [ %.11, %175 ]
   %212 = load i16, ptr %88, align 4
   %213 = icmp eq i16 %212, 1
   br i1 %213, label %214, label %263
@@ -3782,14 +3782,14 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
   store i64 0, ptr %11, align 8
   %218 = load i32, ptr @hf_rohc_ext3_rtp_flags, align 4
   %219 = load i32, ptr @ett_rohc_ext3_rtp_flags, align 4
-  %220 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %17, ptr noundef %0, i32 noundef %.15, i32 noundef %218, i32 noundef %219, ptr noundef nonnull @dissect_rohc_ext_format.rtp_flags, i32 noundef 0, ptr noundef nonnull %11) #7
+  %220 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %17, ptr noundef %0, i32 noundef %.12, i32 noundef %218, i32 noundef %219, ptr noundef nonnull @dissect_rohc_ext_format.rtp_flags, i32 noundef 0, ptr noundef nonnull %11) #7
   %221 = load i64, ptr %11, align 8
   %222 = trunc i64 %221 to i32
   %223 = lshr i32 %222, 6
   %224 = and i32 %223, 3
   %225 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %224, ptr %225, align 4
-  %226 = add i32 %.15, 1
+  %226 = add i32 %.12, 1
   %227 = and i64 %221, 32
   %.not199 = icmp eq i64 %227, 0
   br i1 %.not199, label %234, label %228
@@ -3799,25 +3799,25 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
   %230 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %229, ptr noundef %0, i32 noundef %226, i32 noundef 1, i32 noundef 0) #7
   %231 = load i32, ptr @hf_rohc_rtp_pt, align 4
   %232 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %231, ptr noundef %0, i32 noundef %226, i32 noundef 1, i32 noundef 0) #7
-  %233 = add i32 %.15, 2
+  %233 = add i32 %.12, 2
   %.pre212 = load i64, ptr %11, align 8
   br label %234
 
 234:                                              ; preds = %228, %217
   %235 = phi i64 [ %.pre212, %228 ], [ %221, %217 ]
-  %.16 = phi i32 [ %233, %228 ], [ %226, %217 ]
+  %.17 = phi i32 [ %233, %228 ], [ %226, %217 ]
   %236 = and i64 %235, 4
   %.not200 = icmp eq i64 %236, 0
   br i1 %.not200, label %239, label %237
 
 237:                                              ; preds = %234
-  %238 = call fastcc i32 @dissect_compressed_list(ptr noundef %17, ptr noundef %0, i32 noundef %.16)
+  %238 = call fastcc i32 @dissect_compressed_list(ptr noundef %17, ptr noundef %0, i32 noundef %.17)
   %.pre213 = load i64, ptr %11, align 8
   br label %239
 
 239:                                              ; preds = %237, %234
   %240 = phi i64 [ %.pre213, %237 ], [ %235, %234 ]
-  %.17 = phi i32 [ %238, %237 ], [ %.16, %234 ]
+  %.18 = phi i32 [ %238, %237 ], [ %.17, %234 ]
   %241 = and i64 %240, 2
   %.not201 = icmp eq i64 %241, 0
   br i1 %.not201, label %247, label %242
@@ -3825,16 +3825,16 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 242:                                              ; preds = %239
   store i8 0, ptr %12, align 1
   %243 = load i32, ptr @hf_rohc_rtp_ts_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.17, i32 noundef %243, ptr noundef nonnull %12)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.18, i32 noundef %243, ptr noundef nonnull %12)
   %244 = load i8, ptr %12, align 1
   %245 = zext i8 %244 to i32
-  %246 = add i32 %.17, %245
+  %246 = add i32 %.18, %245
   %.pre214 = load i64, ptr %11, align 8
   br label %247
 
 247:                                              ; preds = %242, %239
   %248 = phi i64 [ %.pre214, %242 ], [ %240, %239 ]
-  %.18 = phi i32 [ %246, %242 ], [ %.17, %239 ]
+  %.19 = phi i32 [ %246, %242 ], [ %.18, %239 ]
   %249 = and i64 %248, 1
   %.not202 = icmp eq i64 %249, 0
   br i1 %.not202, label %263, label %250
@@ -3842,10 +3842,10 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 250:                                              ; preds = %247
   store i8 0, ptr %13, align 1
   %251 = load i32, ptr @hf_rohc_rtp_time_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.18, i32 noundef %251, ptr noundef nonnull %13)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.19, i32 noundef %251, ptr noundef nonnull %13)
   %252 = load i8, ptr %13, align 1
   %253 = zext i8 %252 to i32
-  %254 = add i32 %.18, %253
+  %254 = add i32 %.19, %253
   br label %263
 
 255:                                              ; preds = %87
@@ -3861,10 +3861,10 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
   br label %263
 
 263:                                              ; preds = %60, %44, %247, %250, %214, %211, %260, %255, %66, %85, %33
-  %.19 = phi i32 [ %38, %33 ], [ %49, %44 ], [ %61, %60 ], [ %74, %66 ], [ %86, %85 ], [ %254, %250 ], [ %.18, %247 ], [ %.15, %214 ], [ %.15, %211 ], [ %262, %260 ], [ %3, %255 ]
-  %264 = sub i32 %.19, %3
+  %.0 = phi i32 [ %38, %33 ], [ %49, %44 ], [ %61, %60 ], [ %74, %66 ], [ %86, %85 ], [ %254, %250 ], [ %.19, %247 ], [ %.12, %214 ], [ %.12, %211 ], [ %262, %260 ], [ %3, %255 ]
+  %264 = sub i32 %.0, %3
   call void @proto_item_set_len(ptr noundef %15, i32 noundef %264) #7
-  ret i32 %.19
+  ret i32 %.0
 }
 
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1

@@ -299,8 +299,8 @@ define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ8tunables1_88_$
   br label %103
 
 103:                                              ; preds = %100, %55, %64, %68, %72, %76, %80, %84, %88, %92, %96
-  %.0 = phi ptr [ %62, %55 ], [ %66, %64 ], [ %70, %68 ], [ %74, %72 ], [ %78, %76 ], [ %82, %80 ], [ %86, %84 ], [ %90, %88 ], [ %94, %92 ], [ %98, %96 ], [ %102, %100 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %62, %55 ], [ %66, %64 ], [ %70, %68 ], [ %74, %72 ], [ %78, %76 ], [ %82, %80 ], [ %86, %84 ], [ %90, %88 ], [ %94, %92 ], [ %98, %96 ], [ %102, %100 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -958,8 +958,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h2ad58be6240d5879E.exit: ;
   br label %56
 
 56:                                               ; preds = %57, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2ad58be6240d5879E.exit
-  %.0 = phi ptr [ %14, %57 ], [ null, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2ad58be6240d5879E.exit ]
-  ret ptr %.0
+  %.1 = phi ptr [ %14, %57 ], [ null, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2ad58be6240d5879E.exit ]
+  ret ptr %.1
 
 57:                                               ; preds = %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
@@ -1000,8 +1000,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h1459
   br i1 %23, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hdb55a44a7235cfaeE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hdb55a44a7235cfaeE.exit: ; preds = %14, %11
-  %.0 = phi ptr [ null, %11 ], [ %22, %14 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %11 ], [ %22, %14 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1120,8 +1120,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h35ac
   br i1 %23, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hcb4c80046ee0b893E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hcb4c80046ee0b893E.exit: ; preds = %14, %11
-  %.0 = phi ptr [ null, %11 ], [ %22, %14 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %11 ], [ %22, %14 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1265,8 +1265,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h4cb1
   br i1 %47, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17haa40b9901895740fE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17haa40b9901895740fE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fc9c4518adfa905E.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %46, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fc9c4518adfa905E.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %46, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fc9c4518adfa905E.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1347,8 +1347,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h52ae
   br i1 %48, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h960f8caf58aa81f0E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h960f8caf58aa81f0E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd339330ad3aff42aE.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd339330ad3aff42aE.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd339330ad3aff42aE.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1383,8 +1383,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h5c27
   br i1 %22, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h44eebc07e1508117E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h44eebc07e1508117E.exit: ; preds = %14, %11
-  %.0 = phi ptr [ null, %11 ], [ %21, %14 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %11 ], [ %21, %14 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1666,8 +1666,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h6c49
   br i1 %48, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h65d8543381bb5061E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h65d8543381bb5061E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hbfb3d933fd3c28d7E.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hbfb3d933fd3c28d7E.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hbfb3d933fd3c28d7E.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1796,8 +1796,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h7430
   br i1 %75, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h0d6993d017369b29E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h0d6993d017369b29E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7eb3c61f7fe9adefE.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %74, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7eb3c61f7fe9adefE.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %74, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7eb3c61f7fe9adefE.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1888,8 +1888,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h7a06
   br i1 %45, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h904cc5ba7f72f8deE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h904cc5ba7f72f8deE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i", %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i", %2
-  %.0 = phi ptr [ null, %2 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %2 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2063,8 +2063,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h82c5
   br i1 %34, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbfcbe3395c047595E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hbfcbe3395c047595E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i", %11
-  %.0 = phi ptr [ null, %11 ], [ %.0.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %11 ], [ %.0.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2145,8 +2145,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h856f
   br i1 %48, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hf81a67857d338579E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hf81a67857d338579E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h905cac065962c6b9E.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h905cac065962c6b9E.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h905cac065962c6b9E.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2298,8 +2298,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h9206
   br i1 %83, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h53eeccc693781f00E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h53eeccc693781f00E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7b0025db3d7a50aaE.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %.0.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7b0025db3d7a50aaE.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %.0.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7b0025db3d7a50aaE.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2415,8 +2415,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hc9d0
   br i1 %21, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h38eb7fbdfb92f67fE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h38eb7fbdfb92f67fE.exit: ; preds = %14, %11
-  %.0 = phi ptr [ null, %11 ], [ %20, %14 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %11 ], [ %20, %14 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2451,8 +2451,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hcb2d
   br i1 %22, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h4ad9ac0236726927E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h4ad9ac0236726927E.exit: ; preds = %14, %11
-  %.0 = phi ptr [ null, %11 ], [ %21, %14 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %11 ], [ %21, %14 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2543,8 +2543,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hcbf6
   br i1 %45, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hfebdd84cd261810eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hfebdd84cd261810eE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i", %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i", %2
-  %.0 = phi ptr [ null, %2 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %2 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2637,11 +2637,11 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hd091
   br label %39
 
 39:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hdd32526c6e738f4cE.exit, %38
-  %.0 = phi ptr [ %.1, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hdd32526c6e738f4cE.exit ], [ null, %38 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hdd32526c6e738f4cE.exit ], [ null, %38 ]
+  ret ptr %.1
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hdd32526c6e738f4cE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h49358aa07a9fb1d7E.exit.i.i", %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit"
-  %.1 = phi ptr [ %14, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit" ], [ %36, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h49358aa07a9fb1d7E.exit.i.i" ]
+  %.0 = phi ptr [ %14, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit" ], [ %36, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h49358aa07a9fb1d7E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   br label %39
 }
@@ -2788,8 +2788,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hd75c
   br i1 %48, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h74abde155f24c2b0E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h74abde155f24c2b0E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9acab1fcd5f783ffE.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9acab1fcd5f783ffE.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9acab1fcd5f783ffE.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2870,8 +2870,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hdafe
   br i1 %48, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hf10a541703c463fcE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hf10a541703c463fcE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2738d2c9d25764cE.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2738d2c9d25764cE.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2738d2c9d25764cE.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2974,8 +2974,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17he254
   br i1 %34, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb70883501a414394E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hb70883501a414394E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i", %11
-  %.0 = phi ptr [ null, %11 ], [ %.0.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %11 ], [ %.0.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3009,8 +3009,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17he417
   br i1 %21, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17ha7a8f7d2d3ae7ddeE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17ha7a8f7d2d3ae7ddeE.exit: ; preds = %14, %11
-  %.0 = phi ptr [ null, %11 ], [ %20, %14 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %11 ], [ %20, %14 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3182,8 +3182,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h04c8
   br i1 %14, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5dce2d01d2cc7a28E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h5dce2d01d2cc7a28E.exit: ; preds = %11, %.preheader, %3
-  %.0 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -3308,8 +3308,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h10d9
   br i1 %19, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd0b42f174e14d9d0E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hd0b42f174e14d9d0E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h459ad80dc7cb9711E.exit.i.i", %8
-  %.0 = phi ptr [ null, %8 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h459ad80dc7cb9711E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %8 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h459ad80dc7cb9711E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3335,8 +3335,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h12c8
   br i1 %14, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hf587387689799cceE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hf587387689799cceE.exit: ; preds = %11, %.preheader, %3
-  %.0 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3364,8 +3364,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h1648
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h652da4261a643082E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h652da4261a643082E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3393,8 +3393,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h165b
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h798330c5c62d6381E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h798330c5c62d6381E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -3434,8 +3434,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h1eea
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h496b310fb98e7f96E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h496b310fb98e7f96E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3463,8 +3463,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h203c
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h29bfec2a42ab2d57E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h29bfec2a42ab2d57E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3488,8 +3488,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h238d
   br i1 %14, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hf04f51e59737c209E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hf04f51e59737c209E.exit: ; preds = %11, %8
-  %.0 = phi ptr [ null, %8 ], [ %13, %11 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %8 ], [ %13, %11 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3517,8 +3517,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h23c5
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h4f96e12f7244a0f8E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h4f96e12f7244a0f8E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3548,8 +3548,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h250b
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h711fab7e0bd5e43eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h711fab7e0bd5e43eE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3577,8 +3577,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h2530
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17ha326dce7174742e5E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17ha326dce7174742e5E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3606,8 +3606,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h26fb
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h910ff835735cf4b9E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h910ff835735cf4b9E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3637,8 +3637,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h290d
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h608b048ab85650d7E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h608b048ab85650d7E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3666,8 +3666,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h2913
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h6f30b2fba5aece20E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h6f30b2fba5aece20E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3695,8 +3695,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h2d89
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17ha7ee87e8c46bfe17E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17ha7ee87e8c46bfe17E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3738,8 +3738,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h2d9c
   br i1 %19, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbb8d9919a8c3b073E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hbb8d9919a8c3b073E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h08bdc061cf1c126fE.exit.i.i", %8
-  %.0 = phi ptr [ null, %8 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h08bdc061cf1c126fE.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %8 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h08bdc061cf1c126fE.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3767,8 +3767,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h2dfb
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h37212dce77f3f2dfE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h37212dce77f3f2dfE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3796,8 +3796,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3317
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h653179f80f950f78E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h653179f80f950f78E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3827,8 +3827,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h34de
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h0ee3239fa922dcddE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h0ee3239fa922dcddE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3856,8 +3856,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3622
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h04fa076d779b62d1E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h04fa076d779b62d1E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3887,8 +3887,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h380b
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h02aa2e9ce18fa2dbE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h02aa2e9ce18fa2dbE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3916,8 +3916,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3967
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h79f6308bafdc5c25E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h79f6308bafdc5c25E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3947,8 +3947,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h39fe
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h23695132a4304c5cE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h23695132a4304c5cE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3978,8 +3978,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3ada
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc3a1b3cf706a954cE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hc3a1b3cf706a954cE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4007,8 +4007,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3c1d
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h8a7cf5c75740402fE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h8a7cf5c75740402fE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4038,8 +4038,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3c1f
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hca7828cb8f198637E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hca7828cb8f198637E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4069,8 +4069,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3f24
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h635079b25798abdbE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h635079b25798abdbE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4098,8 +4098,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h40a5
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he8970343bccdd6a0E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17he8970343bccdd6a0E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4127,8 +4127,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h4197
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hf0f609b96f8be665E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hf0f609b96f8be665E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4216,8 +4216,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h45a0
   br i1 %47, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hab557617109c3849E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hab557617109c3849E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2189d0342263d5a7E.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %46, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2189d0342263d5a7E.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %46, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2189d0342263d5a7E.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -4271,8 +4271,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h48d3
   br i1 %14, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h31d9faef82647c44E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h31d9faef82647c44E.exit: ; preds = %11, %.preheader, %3
-  %.0 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4300,8 +4300,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h4f85
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h90c86b015b485be5E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h90c86b015b485be5E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -4362,8 +4362,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h5125
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5e8bca307deaf28aE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h5e8bca307deaf28aE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4418,8 +4418,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h535d
   br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hdd9adabdd51043f9E.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hdd9adabdd51043f9E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h497ceac696a13594E.exit.i.i", %2, %10
-  %.0 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h497ceac696a13594E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h497ceac696a13594E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4521,8 +4521,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h567d
   br i1 %49, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h01dae6fa7aee2f4bE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h01dae6fa7aee2f4bE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hed6e18084503a5efE.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hed6e18084503a5efE.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hed6e18084503a5efE.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4573,8 +4573,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h57b4
   br i1 %28, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h3dd08013ce2aa9bcE.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3dd08013ce2aa9bcE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h48ceb8eaf07ead0dE.exit.i.i", %3, %9
-  %.0 = phi ptr [ null, %9 ], [ %7, %3 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h48ceb8eaf07ead0dE.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %7, %3 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h48ceb8eaf07ead0dE.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4600,8 +4600,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h5924
   br i1 %14, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h4863aed223baaac2E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h4863aed223baaac2E.exit: ; preds = %11, %.preheader, %3
-  %.0 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4629,8 +4629,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h5963
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h61fba8c4899afa25E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h61fba8c4899afa25E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -4674,8 +4674,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h5b42
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h51ed7a82a5cab666E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h51ed7a82a5cab666E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -4717,8 +4717,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h5f01
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hcc4cc433bbcb6239E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hcc4cc433bbcb6239E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
@@ -4777,8 +4777,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h6071
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb892cf0fd172d822E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hb892cf0fd172d822E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4806,8 +4806,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h61ab
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15fe4ac284f6e895E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h15fe4ac284f6e895E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4839,8 +4839,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h6266
   br i1 %18, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb76856f30dbc694fE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hb76856f30dbc694fE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %17, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %17, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4868,8 +4868,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h6355
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hee0482d6dcdcba84E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hee0482d6dcdcba84E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -4913,8 +4913,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h64dc
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h02b27e652baae6fcE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h02b27e652baae6fcE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4944,8 +4944,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h659c
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h6a3bc45efa1c9c28E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h6a3bc45efa1c9c28E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4975,8 +4975,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h68d9
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h0b0648d60d992da0E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h0b0648d60d992da0E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -5038,8 +5038,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h6eb6
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h84fc2c36ec06e057E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h84fc2c36ec06e057E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5067,8 +5067,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h6ef4
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5d9254c6fb1e34ddE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h5d9254c6fb1e34ddE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5098,8 +5098,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h7221
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5b7c3dca13952cccE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h5b7c3dca13952cccE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -5181,8 +5181,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h7999
   br i1 %32, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he274973575b96f3aE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17he274973575b96f3aE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2d66d68b49f9ae16E.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %31, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2d66d68b49f9ae16E.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %31, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2d66d68b49f9ae16E.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5212,8 +5212,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h7a6b
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h690f502fb26de92eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h690f502fb26de92eE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -5296,8 +5296,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h7efb
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h758377d917b1ee26E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h758377d917b1ee26E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5325,8 +5325,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8151
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2afe84e3736936baE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h2afe84e3736936baE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5354,8 +5354,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h825a
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h44bfa72b1fa198e6E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h44bfa72b1fa198e6E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5379,8 +5379,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h84eb
   br i1 %14, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5f4d3db328a78f41E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h5f4d3db328a78f41E.exit: ; preds = %11, %8
-  %.0 = phi ptr [ null, %8 ], [ %13, %11 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %8 ], [ %13, %11 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5410,8 +5410,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h859d
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hfdcafa1ed4c22856E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hfdcafa1ed4c22856E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5552,8 +5552,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h86e2
   br i1 %77, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbf6299bbe46c50dbE.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hbf6299bbe46c50dbE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h53e6eb6da320d7d2E.exit.i.i", %2, %10
-  %.0 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h53e6eb6da320d7d2E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h53e6eb6da320d7d2E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5581,8 +5581,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h87ba
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h8c0ad231b374dc08E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h8c0ad231b374dc08E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5610,8 +5610,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8a20
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17had3dd15c5cb8b31dE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17had3dd15c5cb8b31dE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5641,8 +5641,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8aa7
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hdf67ace1f7d7a230E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hdf67ace1f7d7a230E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5670,8 +5670,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8b34
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hea96541f3f5b60caE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hea96541f3f5b60caE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
@@ -5751,8 +5751,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8db6
   br i1 %28, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h7e76a2dcc1ec829aE.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h7e76a2dcc1ec829aE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1234231bae3b7e85E.exit.i.i", %3, %9
-  %.0 = phi ptr [ null, %9 ], [ %7, %3 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1234231bae3b7e85E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %7, %3 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1234231bae3b7e85E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -5816,8 +5816,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8e15
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h932469fdd3a70fe7E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h932469fdd3a70fe7E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5845,8 +5845,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8e52
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h800b6316e20a3f6bE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h800b6316e20a3f6bE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5874,8 +5874,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h904a
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hdf87b6dc98867372E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hdf87b6dc98867372E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5903,8 +5903,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h92c6
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb1f2a3266a172edcE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hb1f2a3266a172edcE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5932,8 +5932,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h9399
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h16e203552c60d1bfE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h16e203552c60d1bfE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5985,8 +5985,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h94af
   br i1 %23, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h8665abbeffde4456E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h8665abbeffde4456E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9e7c55edc1caf7ccE.exit.i.i", %9
-  %.0 = phi ptr [ null, %9 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9e7c55edc1caf7ccE.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9e7c55edc1caf7ccE.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6047,8 +6047,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h9506
   br i1 %27, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h457b9e420c515afbE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h457b9e420c515afbE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i", %8
-  %.0 = phi ptr [ null, %8 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %8 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6076,8 +6076,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h9755
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc612f6dba304f069E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hc612f6dba304f069E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -6117,8 +6117,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h9867
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hf33d50ecefa384a5E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hf33d50ecefa384a5E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -6184,8 +6184,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h9d23
   br i1 %23, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc8988edd7ed813b9E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hc8988edd7ed813b9E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he1851494d2bda985E.exit.i.i", %9
-  %.0 = phi ptr [ null, %9 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he1851494d2bda985E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he1851494d2bda985E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6213,8 +6213,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h9f18
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hcec5812f2e549bb5E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hcec5812f2e549bb5E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6242,8 +6242,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha0d0
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h3ef20e1ad34779a8E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3ef20e1ad34779a8E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6271,8 +6271,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha1e6
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20ddc9ce6c83b44cE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h20ddc9ce6c83b44cE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6350,8 +6350,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha43c
   br i1 %43, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf099969942fdd27E.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17haf099969942fdd27E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h3c7ff5b49d28be16E.exit.i.i", %2, %10
-  %.0 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h3c7ff5b49d28be16E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h3c7ff5b49d28be16E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6381,8 +6381,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha50d
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h0105e7ba75a9574fE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h0105e7ba75a9574fE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6412,8 +6412,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha57f
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf7b83f2bd60d733E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17haf7b83f2bd60d733E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6443,8 +6443,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha710
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2ea8d727d7bab162E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h2ea8d727d7bab162E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -6533,8 +6533,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha937
   br i1 %14, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd3a7b8c01cc37926E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hd3a7b8c01cc37926E.exit: ; preds = %11, %.preheader, %3
-  %.0 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6589,8 +6589,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha9c2
   br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hee2561ae7d3d50dbE.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hee2561ae7d3d50dbE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h28e088258ed0c19aE.exit.i.i", %2, %10
-  %.0 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h28e088258ed0c19aE.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h28e088258ed0c19aE.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6618,8 +6618,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17haa93
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17ha24bcb58db5e83dfE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17ha24bcb58db5e83dfE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6647,8 +6647,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17haad9
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hef03a97c5834c7fbE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hef03a97c5834c7fbE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -6709,8 +6709,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hab11
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2e75ba93c783a240E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h2e75ba93c783a240E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6754,8 +6754,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hadb9
   br i1 %20, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc5f3048cc1751025E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hc5f3048cc1751025E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h04f4338b7aaf0d9dE.exit.i.i", %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h04f4338b7aaf0d9dE.exit.i.i" ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h04f4338b7aaf0d9dE.exit.i.i" ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6783,8 +6783,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hafac
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd4679f1870034173E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hd4679f1870034173E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -6861,8 +6861,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hb98f
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h0cd3d0a77db22115E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h0cd3d0a77db22115E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6892,8 +6892,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hbf82
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hfd8c034d2fa73a6eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hfd8c034d2fa73a6eE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6923,8 +6923,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc278
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc9e4e662ae7f1396E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hc9e4e662ae7f1396E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6979,8 +6979,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc461
   br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h3c47b750136004f0E.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3c47b750136004f0E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd6ec96c5e794a9b8E.exit.i.i", %2, %10
-  %.0 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd6ec96c5e794a9b8E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd6ec96c5e794a9b8E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7010,8 +7010,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc698
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h308556b26c095483E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h308556b26c095483E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7041,8 +7041,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc97f
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h780200327c8ca8faE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h780200327c8ca8faE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -7149,8 +7149,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hcb57
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hf60ecd8950fa741fE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hf60ecd8950fa741fE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7211,8 +7211,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hcb5c
   br i1 %27, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbc82e2757205052eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hbc82e2757205052eE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i", %8
-  %.0 = phi ptr [ null, %8 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %8 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7240,8 +7240,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hcc8a
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he0994c33c3374903E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17he0994c33c3374903E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7265,8 +7265,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hcd2b
   br i1 %14, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h487f6d86dbf9ed2eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h487f6d86dbf9ed2eE.exit: ; preds = %11, %8
-  %.0 = phi ptr [ null, %8 ], [ %13, %11 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %8 ], [ %13, %11 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7290,8 +7290,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hcee8
   br i1 %14, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h99855938685fc3a9E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h99855938685fc3a9E.exit: ; preds = %11, %8
-  %.0 = phi ptr [ null, %8 ], [ %13, %11 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %8 ], [ %13, %11 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7319,8 +7319,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hcf87
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h9a719947aa53e111E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h9a719947aa53e111E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7348,8 +7348,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hd256
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hf73fda95f2a51c95E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hf73fda95f2a51c95E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
@@ -7407,8 +7407,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hd619
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h3cb0023a4069ff30E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3cb0023a4069ff30E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7436,8 +7436,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hda71
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h16d727dcbbbd004bE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h16d727dcbbbd004bE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7467,8 +7467,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdbd8
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h0c42d08a7c5a0d7eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h0c42d08a7c5a0d7eE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7547,8 +7547,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdd1f
   br i1 %46, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h672965effe5c39e7E.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h672965effe5c39e7E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c12b10356be3fa7E.exit.i.i", %2, %12
-  %.0 = phi ptr [ null, %12 ], [ %10, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c12b10356be3fa7E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %12 ], [ %10, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c12b10356be3fa7E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
@@ -7606,8 +7606,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hde5c
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb8f2b1446a9fd0abE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hb8f2b1446a9fd0abE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7635,8 +7635,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hde7d
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hf70a939542dadea1E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hf70a939542dadea1E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7691,8 +7691,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdee9
   br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h3f10e382421a5a23E.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3f10e382421a5a23E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h13a81b2d3b663588E.exit.i.i", %2, %10
-  %.0 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h13a81b2d3b663588E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h13a81b2d3b663588E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7803,8 +7803,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17he0cf
   br i1 %59, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h86c80cb266d4f46bE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h86c80cb266d4f46bE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h549ebe400ad31495E.exit.i.i", %22
-  %.0 = phi ptr [ null, %22 ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h549ebe400ad31495E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %22 ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h549ebe400ad31495E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7836,8 +7836,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17he425
   br i1 %18, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h588b121ff72b3eb1E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h588b121ff72b3eb1E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %17, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %17, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7863,8 +7863,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17he5f5
   br i1 %14, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h58a0876a8ef53d0eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h58a0876a8ef53d0eE.exit: ; preds = %11, %.preheader, %3
-  %.0 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %7, %3 ], [ %13, %11 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -7908,8 +7908,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17he880
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5dcaf20c52d5a8feE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h5dcaf20c52d5a8feE.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -7962,8 +7962,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17heb1f
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h3f90a5c76ae8d5dcE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3f90a5c76ae8d5dcE.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7993,8 +7993,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hec29
   br i1 %15, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc0a1c3ab04a83124E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hc0a1c3ab04a83124E.exit: ; preds = %12, %.preheader, %2
-  %.0 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %2 ], [ %14, %12 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -8176,8 +8176,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hfa79
   br i1 %56, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h956cd18162f9a656E.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h956cd18162f9a656E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5fcc338fbeb537d5E.exit.i.i", %2, %10
-  %.0 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5fcc338fbeb537d5E.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %10 ], [ %8, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5fcc338fbeb537d5E.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8205,8 +8205,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hfb45
   br i1 %15, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc677f85594c551f6E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hc677f85594c551f6E.exit: ; preds = %12, %9
-  %.0 = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -8892,8 +8892,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls63_$LT$impl$u20$serde..se
   br i1 %27, label %21, label %_ZN5serde3ser10Serializer11collect_seq17h48d3e5e62f5a6e28E.llvm.12642593798105491766.exit
 
 _ZN5serde3ser10Serializer11collect_seq17h48d3e5e62f5a6e28E.llvm.12642593798105491766.exit: ; preds = %21, %24
-  %.0.i = phi ptr [ %26, %24 ], [ null, %21 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %26, %24 ], [ null, %21 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -9144,8 +9144,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   br i1 %28, label %22, label %_ZN5serde3ser10Serializer11collect_seq17hec29ee47fa604654E.llvm.12642593798105491766.exit
 
 _ZN5serde3ser10Serializer11collect_seq17hec29ee47fa604654E.llvm.12642593798105491766.exit: ; preds = %22, %25
-  %.0.i = phi ptr [ %27, %25 ], [ null, %22 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %27, %25 ], [ null, %22 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -9175,8 +9175,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   br i1 %15, label %9, label %_ZN5serde3ser10Serializer11collect_seq17hda71fe13c711a8daE.llvm.12642593798105491766.exit
 
 _ZN5serde3ser10Serializer11collect_seq17hda71fe13c711a8daE.llvm.12642593798105491766.exit: ; preds = %9, %12
-  %.0.i = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -9206,8 +9206,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   br i1 %15, label %9, label %_ZN5serde3ser10Serializer11collect_seq17h203c9590287e7a3aE.llvm.12642593798105491766.exit
 
 _ZN5serde3ser10Serializer11collect_seq17h203c9590287e7a3aE.llvm.12642593798105491766.exit: ; preds = %9, %12
-  %.0.i = phi ptr [ null, %9 ], [ %14, %12 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ null, %9 ], [ %14, %12 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -9391,8 +9391,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls78_$LT$impl$u20$serde..se
   br i1 %29, label %23, label %"_ZN5serde3ser5impls63_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$u5b$T$u5d$$GT$9serialize17h2166fce8a237e2ccE.llvm.12642593798105491766.exit"
 
 "_ZN5serde3ser5impls63_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$u5b$T$u5d$$GT$9serialize17h2166fce8a237e2ccE.llvm.12642593798105491766.exit": ; preds = %23, %26
-  %.0.i.i = phi ptr [ %28, %26 ], [ null, %23 ]
-  ret ptr %.0.i.i
+  %.1.i.i = phi ptr [ %28, %26 ], [ null, %23 ]
+  ret ptr %.1.i.i
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -10094,9 +10094,9 @@ _ZN7bincode8internal15serialized_size17hbe20024df33e8ec7E.exit: ; preds = %2
   br label %41
 
 31:                                               ; preds = %.thread, %28
-  %.0.i.i1625 = phi ptr [ %20, %.thread ], [ %23, %28 ]
+  %.1.i.i1625 = phi ptr [ %20, %.thread ], [ %23, %28 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.0.i.i1625, ptr %32, align 8
+  store ptr %.1.i.i1625, ptr %32, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !6309
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
@@ -11420,8 +11420,8 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChec
   br i1 %20, label %14, label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17hd712d47492a56bcdE.llvm.12642593798105491766.exit"
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17hd712d47492a56bcdE.llvm.12642593798105491766.exit": ; preds = %14, %17
-  %.0.i.i = phi ptr [ null, %14 ], [ %19, %17 ]
-  ret ptr %.0.i.i
+  %.1.i.i = phi ptr [ null, %14 ], [ %19, %17 ]
+  ret ptr %.1.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -11656,8 +11656,8 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChec
   br i1 %20, label %14, label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h648bdbfa5d8d8e45E.llvm.12642593798105491766.exit"
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h648bdbfa5d8d8e45E.llvm.12642593798105491766.exit": ; preds = %14, %17
-  %.0.i.i = phi ptr [ null, %14 ], [ %19, %17 ]
-  ret ptr %.0.i.i
+  %.1.i.i = phi ptr [ null, %14 ], [ %19, %17 ]
+  ret ptr %.1.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -14124,8 +14124,8 @@ define hidden noundef align 8 ptr @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializ
   br i1 %46, label %40, label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h31cdcee90cc519ccE.llvm.12642593798105491766.exit"
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h31cdcee90cc519ccE.llvm.12642593798105491766.exit": ; preds = %43, %40
-  %.0.i.i = phi ptr [ %45, %43 ], [ null, %40 ]
-  ret ptr %.0.i.i
+  %.1.i.i = phi ptr [ %45, %43 ], [ null, %40 ]
+  ret ptr %.1.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14917,8 +14917,8 @@ define hidden noundef align 8 ptr @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializ
   br i1 %47, label %41, label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17hd783b220cd24300eE.llvm.12642593798105491766.exit"
 
 "_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17hd783b220cd24300eE.llvm.12642593798105491766.exit": ; preds = %44, %41
-  %.0.i.i.i = phi ptr [ %46, %44 ], [ null, %41 ]
-  ret ptr %.0.i.i.i
+  %.1.i.i.i = phi ptr [ %46, %44 ], [ null, %41 ]
+  ret ptr %.1.i.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -306,8 +306,8 @@ opal_tsd_tracked_key_get.exit.thread:             ; preds = %11, %opal_tsd_track
   br label %24
 
 24:                                               ; preds = %opal_tsd_tracked_key_get.exit, %21
-  %.1 = phi ptr [ %17, %21 ], [ %15, %opal_tsd_tracked_key_get.exit ]
-  ret ptr %.1
+  %.010 = phi ptr [ %17, %21 ], [ %15, %opal_tsd_tracked_key_get.exit ]
+  ret ptr %.010
 }
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -997,15 +997,15 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not237, label %171, label %.thread307
 
 .thread307:                                       ; preds = %166, %164, %168
-  %.0113310 = phi i32 [ %169, %168 ], [ -18, %164 ], [ %161, %166 ]
+  %.1310 = phi i32 [ %169, %168 ], [ -18, %164 ], [ %161, %166 ]
   %170 = phi ptr [ %.pr.pre, %168 ], [ %162, %164 ], [ %162, %166 ]
   call void @PMIx_Value_free(ptr noundef nonnull %170, i64 noundef 1) #19
   store ptr null, ptr %13, align 8
   br label %171
 
 171:                                              ; preds = %168, %.thread307
-  %.0113306 = phi i32 [ %169, %168 ], [ %.0113310, %.thread307 ]
-  %172 = icmp eq i32 %.0113306, 0
+  %.1306 = phi i32 [ %169, %168 ], [ %.1310, %.thread307 ]
+  %172 = icmp eq i32 %.1306, 0
   %173 = load ptr, ptr %9, align 8
   %174 = icmp ne ptr %173, null
   %or.cond = select i1 %172, i1 %174, i1 false
@@ -1028,7 +1028,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %.thread311
 
 .thread311:                                       ; preds = %158, %171, %178
-  %.0113306314 = phi i32 [ %.0113306, %171 ], [ 0, %178 ], [ -46, %158 ]
+  %.1306314 = phi i32 [ %.1306, %171 ], [ 0, %178 ], [ -46, %158 ]
   store ptr null, ptr %17, align 8
   %180 = load i32, ptr @opal_process_info, align 8
   %181 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %16, i32 noundef %180) #19
@@ -2272,25 +2272,25 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 680:                                              ; preds = %.thread495, %.thread482, %2, %666, %245, %199
   %.0118 = phi ptr [ @.str.51, %666 ], [ @.str.28, %245 ], [ @.str.25, %199 ], [ @.str.14, %2 ], [ @.str.42, %.thread482 ], [ @.str.44, %.thread495 ]
-  %.2 = phi i32 [ %667, %666 ], [ %246, %245 ], [ %200, %199 ], [ %95, %2 ], [ %.0113306314, %.thread482 ], [ %.0113306314, %.thread495 ]
-  %.not293 = icmp eq i32 %.2, -43
+  %.0113 = phi i32 [ %667, %666 ], [ %246, %245 ], [ %200, %199 ], [ %95, %2 ], [ %.1306314, %.thread482 ], [ %.1306314, %.thread495 ]
+  %.not293 = icmp eq i32 %.0113, -43
   br i1 %.not293, label %684, label %.thread571
 
 .thread571:                                       ; preds = %.thread550, %612, %680
-  %.2576 = phi i32 [ %.2, %680 ], [ -5, %612 ], [ -5, %.thread550 ]
+  %.0113576 = phi i32 [ %.0113, %680 ], [ -5, %612 ], [ -5, %.thread550 ]
   %.0118575 = phi ptr [ %.0118, %680 ], [ @.str.49, %612 ], [ @.str.49, %.thread550 ]
   %681 = load ptr, ptr @opal_show_help, align 8
-  %682 = call ptr @opal_strerror(i32 noundef %.2576) #19
-  %683 = call i32 (ptr, ptr, i32, ...) %681(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.53, i32 noundef 1, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull %.0118575, ptr noundef %682, i32 noundef %.2576) #19
+  %682 = call ptr @opal_strerror(i32 noundef %.0113576) #19
+  %683 = call i32 (ptr, ptr, i32, ...) %681(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.53, i32 noundef 1, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull %.0118575, ptr noundef %682, i32 noundef %.0113576) #19
   br label %684
 
 684:                                              ; preds = %.thread571, %680
-  %.2577 = phi i32 [ %.2576, %.thread571 ], [ -43, %680 ]
+  %.0113577 = phi i32 [ %.0113576, %.thread571 ], [ -43, %680 ]
   %685 = call i32 @opal_finalize() #19
   br label %.thread569
 
 .thread569:                                       ; preds = %.thread551, %.critedge, %676, %679, %684, %120
-  %.0 = phi i32 [ %.2577, %684 ], [ -43, %120 ], [ %124, %.critedge ], [ 0, %679 ], [ 0, %676 ], [ 0, %.thread551 ]
+  %.0 = phi i32 [ %.0113577, %684 ], [ -43, %120 ], [ %124, %.critedge ], [ 0, %679 ], [ 0, %676 ], [ 0, %.thread551 ]
   ret i32 %.0
 }
 

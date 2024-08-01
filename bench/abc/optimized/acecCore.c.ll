@@ -244,7 +244,7 @@ Vec_WrdGrow.exit.i:                               ; preds = %62, %60
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %108
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %108 ], [ 0, %.lr.ph.i ]
   %.035.us.i = phi i32 [ %.1.us.i, %108 ], [ 0, %.lr.ph.i ]
-  %.02431.us.i = phi i64 [ %.2.us.i, %108 ], [ %49, %.lr.ph.i ]
+  %.02431.us.i = phi i64 [ %.125.us.i, %108 ], [ %49, %.lr.ph.i ]
   %79 = trunc nuw nsw i64 %indvars.iv40.i to i32
   %80 = shl nuw i32 1, %79
   %81 = zext nneg i32 %80 to i64
@@ -281,12 +281,12 @@ Vec_WrdGrow.exit.i:                               ; preds = %62, %60
   br label %106
 
 106:                                              ; preds = %90, %87
-  %.125.us.i = phi i64 [ %105, %90 ], [ %.02431.us.i, %87 ]
+  %.2.us.i = phi i64 [ %105, %90 ], [ %.02431.us.i, %87 ]
   %107 = add nsw i32 %.035.us.i, 1
   br label %108
 
 108:                                              ; preds = %106, %.lr.ph.split.us.i
-  %.2.us.i = phi i64 [ %.125.us.i, %106 ], [ %.02431.us.i, %.lr.ph.split.us.i ]
+  %.125.us.i = phi i64 [ %.2.us.i, %106 ], [ %.02431.us.i, %.lr.ph.split.us.i ]
   %.1.us.i = phi i32 [ %107, %106 ], [ %.035.us.i, %.lr.ph.split.us.i ]
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
@@ -295,7 +295,7 @@ Vec_WrdGrow.exit.i:                               ; preds = %62, %60
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %141
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %141 ], [ 0, %.lr.ph.i ]
   %.035.i = phi i32 [ %.1.i, %141 ], [ 0, %.lr.ph.i ]
-  %.02431.i = phi i64 [ %.2.i, %141 ], [ %49, %.lr.ph.i ]
+  %.02431.i = phi i64 [ %.125.i, %141 ], [ %49, %.lr.ph.i ]
   %109 = trunc nuw nsw i64 %indvars.iv.i to i32
   %110 = shl nuw i32 1, %109
   %111 = zext nneg i32 %110 to i64
@@ -336,19 +336,19 @@ Vec_WrdGrow.exit.i:                               ; preds = %62, %60
   br label %139
 
 139:                                              ; preds = %120, %117
-  %.125.i = phi i64 [ %138, %120 ], [ %.02431.i, %117 ]
+  %.2.i = phi i64 [ %138, %120 ], [ %.02431.i, %117 ]
   %140 = add nsw i32 %.035.i, 1
   br label %141
 
 141:                                              ; preds = %139, %.lr.ph.split.i
-  %.2.i = phi i64 [ %.125.i, %139 ], [ %.02431.i, %.lr.ph.split.i ]
+  %.125.i = phi i64 [ %.2.i, %139 ], [ %.02431.i, %.lr.ph.split.i ]
   %.1.i = phi i32 [ %140, %139 ], [ %.035.i, %.lr.ph.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count43.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %141, %108
-  %.024.lcssa.i = phi i64 [ %.2.us.i, %108 ], [ %.2.i, %141 ]
+  %.024.lcssa.i = phi i64 [ %.125.us.i, %108 ], [ %.125.i, %141 ]
   %.0.lcssa.i = phi i32 [ %.1.us.i, %108 ], [ %.1.i, %141 ]
   %142 = icmp eq i32 %.0.lcssa.i, %.val108
   %spec.select = select i1 %142, i64 %49, i64 %.024.lcssa.i
@@ -1602,7 +1602,7 @@ Vec_WrdStart.exit:                                ; preds = %34, %42
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %103
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %103 ], [ 0, %.lr.ph.i ]
   %.035.us.i = phi i32 [ %.1.us.i, %103 ], [ 0, %.lr.ph.i ]
-  %.02431.us.i = phi i64 [ %.2.us.i, %103 ], [ %72, %.lr.ph.i ]
+  %.02431.us.i = phi i64 [ %.125.us.i, %103 ], [ %72, %.lr.ph.i ]
   %74 = trunc nuw nsw i64 %indvars.iv40.i to i32
   %75 = shl nuw i32 1, %74
   %76 = zext nneg i32 %75 to i64
@@ -1639,12 +1639,12 @@ Vec_WrdStart.exit:                                ; preds = %34, %42
   br label %101
 
 101:                                              ; preds = %85, %82
-  %.125.us.i = phi i64 [ %100, %85 ], [ %.02431.us.i, %82 ]
+  %.2.us.i = phi i64 [ %100, %85 ], [ %.02431.us.i, %82 ]
   %102 = add nsw i32 %.035.us.i, 1
   br label %103
 
 103:                                              ; preds = %101, %.lr.ph.split.us.i
-  %.2.us.i = phi i64 [ %.125.us.i, %101 ], [ %.02431.us.i, %.lr.ph.split.us.i ]
+  %.125.us.i = phi i64 [ %.2.us.i, %101 ], [ %.02431.us.i, %.lr.ph.split.us.i ]
   %.1.us.i = phi i32 [ %102, %101 ], [ %.035.us.i, %.lr.ph.split.us.i ]
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
@@ -1653,7 +1653,7 @@ Vec_WrdStart.exit:                                ; preds = %34, %42
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %136
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %136 ], [ 0, %.lr.ph.i ]
   %.035.i = phi i32 [ %.1.i, %136 ], [ 0, %.lr.ph.i ]
-  %.02431.i = phi i64 [ %.2.i, %136 ], [ %72, %.lr.ph.i ]
+  %.02431.i = phi i64 [ %.125.i, %136 ], [ %72, %.lr.ph.i ]
   %104 = trunc nuw nsw i64 %indvars.iv.i to i32
   %105 = shl nuw i32 1, %104
   %106 = zext nneg i32 %105 to i64
@@ -1694,19 +1694,19 @@ Vec_WrdStart.exit:                                ; preds = %34, %42
   br label %134
 
 134:                                              ; preds = %115, %112
-  %.125.i = phi i64 [ %133, %115 ], [ %.02431.i, %112 ]
+  %.2.i = phi i64 [ %133, %115 ], [ %.02431.i, %112 ]
   %135 = add nsw i32 %.035.i, 1
   br label %136
 
 136:                                              ; preds = %134, %.lr.ph.split.i
-  %.2.i = phi i64 [ %.125.i, %134 ], [ %.02431.i, %.lr.ph.split.i ]
+  %.125.i = phi i64 [ %.2.i, %134 ], [ %.02431.i, %.lr.ph.split.i ]
   %.1.i = phi i32 [ %135, %134 ], [ %.035.i, %.lr.ph.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count43.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %136, %103, %70
-  %.024.lcssa.i = phi i64 [ %72, %70 ], [ %.2.us.i, %103 ], [ %.2.i, %136 ]
+  %.024.lcssa.i = phi i64 [ %72, %70 ], [ %.125.us.i, %103 ], [ %.125.i, %136 ]
   %.0.lcssa.i = phi i32 [ 0, %70 ], [ %.1.us.i, %103 ], [ %.1.i, %136 ]
   %137 = icmp eq i32 %.0.lcssa.i, %.val70
   br i1 %137, label %Abc_Tt6MinBase.exit, label %138

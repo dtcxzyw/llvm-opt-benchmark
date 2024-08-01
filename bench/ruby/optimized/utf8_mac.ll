@@ -157,7 +157,7 @@ buf_push.exit:                                    ; preds = %52, %from_utf8_mac_
   %68 = srem i32 %67, 16
   %69 = icmp slt i32 %68, 3
   %.019.sroa.gep.i = getelementptr inbounds i8, ptr %6, i64 3
-  %.019.sroa.gep23.i = getelementptr inbounds i8, ptr %6, i64 2
+  %.019.sroa.gep24.i = getelementptr inbounds i8, ptr %6, i64 2
   br i1 %69, label %buf_apply.exit, label %70
 
 70:                                               ; preds = %buf_push.exit
@@ -224,8 +224,8 @@ buf_push.exit:                                    ; preds = %52, %from_utf8_mac_
   br i1 %114, label %78, label %get_info.exit.i, !llvm.loop !9
 
 get_info.exit.i:                                  ; preds = %99, %78
-  %.2.i.i = phi i64 [ %112, %99 ], [ %.0.i.i, %78 ]
-  %115 = and i64 %.2.i.i, 31
+  %.1.i.i = phi i64 [ %112, %99 ], [ %.0.i.i, %78 ]
+  %115 = and i64 %.1.i.i, 31
   switch i64 %115, label %get_info.exit.thread.i.preheader [
     i64 5, label %116
     i64 3, label %116
@@ -235,10 +235,10 @@ get_info.exit.thread.i.preheader:                 ; preds = %95, %79, %get_info.
   br label %get_info.exit.thread.i
 
 116:                                              ; preds = %get_info.exit.i, %get_info.exit.i
-  %117 = lshr i64 %.2.i.i, 8
+  %117 = lshr i64 %.1.i.i, 8
   %118 = trunc i64 %117 to i8
   store i8 %118, ptr %6, align 1
-  %119 = lshr i64 %.2.i.i, 16
+  %119 = lshr i64 %.1.i.i, 16
   %120 = trunc i64 %119 to i8
   %121 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %120, ptr %121, align 1
@@ -246,13 +246,13 @@ get_info.exit.thread.i.preheader:                 ; preds = %95, %79, %get_info.
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %116
-  %124 = lshr i64 %.2.i.i, 24
+  %124 = lshr i64 %.1.i.i, 24
   %125 = trunc nuw i64 %124 to i8
-  store i8 %125, ptr %.019.sroa.gep23.i, align 1
+  store i8 %125, ptr %.019.sroa.gep24.i, align 1
   br label %126
 
 126:                                              ; preds = %123, %116
-  %.019.sroa.phi.i = phi ptr [ %.019.sroa.gep.i, %123 ], [ %.019.sroa.gep23.i, %116 ]
+  %.019.sroa.phi.i = phi ptr [ %.019.sroa.gep.i, %123 ], [ %.019.sroa.gep24.i, %116 ]
   store i32 0, ptr %64, align 4
   br label %127
 

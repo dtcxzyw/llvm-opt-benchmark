@@ -545,13 +545,13 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr no
 
 62:                                               ; preds = %.lr.ph, %106
   %.0147 = phi i32 [ 0, %.lr.ph ], [ %.1, %106 ]
-  %.0117146 = phi i32 [ 0, %.lr.ph ], [ %.1118, %106 ]
-  %.0119145 = phi i32 [ 0, %.lr.ph ], [ %.1120, %106 ]
-  %.1124144 = phi i32 [ 0, %.lr.ph ], [ %.2125, %106 ]
-  %63 = sext i32 %.1124144 to i64
+  %.2146 = phi i32 [ 0, %.lr.ph ], [ %.3, %106 ]
+  %.1120145 = phi i32 [ 0, %.lr.ph ], [ %.2121, %106 ]
+  %.2125144 = phi i32 [ 0, %.lr.ph ], [ %.3126, %106 ]
+  %63 = sext i32 %.2125144 to i64
   %64 = getelementptr inbounds [0 x i32], ptr %56, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
-  %66 = sext i32 %.0119145 to i64
+  %66 = sext i32 %.1120145 to i64
   %67 = getelementptr inbounds [0 x i32], ptr %57, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp slt i32 %65, %68
@@ -559,11 +559,11 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr no
 
 70:                                               ; preds = %62
   %71 = getelementptr inbounds [32 x i32], ptr %58, i64 0, i64 %63
-  store i32 %.0117146, ptr %71, align 4
-  %72 = add nsw i32 %.1124144, 1
+  store i32 %.2146, ptr %71, align 4
+  %72 = add nsw i32 %.2125144, 1
   %73 = load i32, ptr %64, align 4
-  %74 = add nsw i32 %.0117146, 1
-  %75 = sext i32 %.0117146 to i64
+  %74 = add nsw i32 %.2146, 1
+  %75 = sext i32 %.2146 to i64
   %76 = getelementptr inbounds [0 x i32], ptr %61, i64 0, i64 %75
   store i32 %73, ptr %76, align 4
   %77 = icmp eq i32 %72, %8
@@ -575,35 +575,35 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr no
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds [32 x i32], ptr %60, i64 0, i64 %66
-  store i32 %.0117146, ptr %81, align 4
-  %82 = add nsw i32 %.0119145, 1
+  store i32 %.2146, ptr %81, align 4
+  %82 = add nsw i32 %.1120145, 1
   %83 = load i32, ptr %67, align 4
-  %84 = add nsw i32 %.0117146, 1
-  %85 = sext i32 %.0117146 to i64
+  %84 = add nsw i32 %.2146, 1
+  %85 = sext i32 %.2146 to i64
   %86 = getelementptr inbounds [0 x i32], ptr %61, i64 0, i64 %85
   store i32 %83, ptr %86, align 4
   %87 = icmp eq i32 %82, %12
   br i1 %87, label %.loopexit143, label %106
 
 88:                                               ; preds = %78
-  %89 = shl nuw i32 1, %.0117146
+  %89 = shl nuw i32 1, %.2146
   %90 = load i32, ptr %51, align 8
   %91 = or i32 %90, %89
   store i32 %91, ptr %51, align 8
   %92 = sext i32 %.0147 to i64
   %93 = getelementptr inbounds [32 x i32], ptr %59, i64 0, i64 %92
-  store i32 %.0117146, ptr %93, align 4
+  store i32 %.2146, ptr %93, align 4
   %94 = getelementptr inbounds [32 x i32], ptr %60, i64 0, i64 %66
-  store i32 %.0117146, ptr %94, align 4
+  store i32 %.2146, ptr %94, align 4
   %95 = getelementptr inbounds [32 x i32], ptr %58, i64 0, i64 %63
-  store i32 %.0117146, ptr %95, align 4
-  %96 = add nsw i32 %.1124144, 1
+  store i32 %.2146, ptr %95, align 4
+  %96 = add nsw i32 %.2125144, 1
   %97 = load i32, ptr %64, align 4
-  %98 = add nsw i32 %.0117146, 1
-  %99 = sext i32 %.0117146 to i64
+  %98 = add nsw i32 %.2146, 1
+  %99 = sext i32 %.2146 to i64
   %100 = getelementptr inbounds [0 x i32], ptr %61, i64 0, i64 %99
   store i32 %97, ptr %100, align 4
-  %101 = add nsw i32 %.0119145, 1
+  %101 = add nsw i32 %.1120145, 1
   %102 = icmp eq i32 %96, %8
   br i1 %102, label %.loopexit142, label %103
 
@@ -613,31 +613,31 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr no
   br i1 %105, label %.loopexit143, label %106
 
 106:                                              ; preds = %80, %103, %70
-  %.2125 = phi i32 [ %72, %70 ], [ %.1124144, %80 ], [ %96, %103 ]
-  %.1120 = phi i32 [ %.0119145, %70 ], [ %82, %80 ], [ %101, %103 ]
-  %.1118 = phi i32 [ %74, %70 ], [ %84, %80 ], [ %98, %103 ]
+  %.3126 = phi i32 [ %72, %70 ], [ %.2125144, %80 ], [ %96, %103 ]
+  %.2121 = phi i32 [ %.1120145, %70 ], [ %82, %80 ], [ %101, %103 ]
+  %.3 = phi i32 [ %74, %70 ], [ %84, %80 ], [ %98, %103 ]
   %.1 = phi i32 [ %.0147, %70 ], [ %.0147, %80 ], [ %104, %103 ]
-  %107 = icmp eq i32 %.1118, %14
+  %107 = icmp eq i32 %.3, %14
   br i1 %107, label %.loopexit, label %62
 
 .loopexit143:                                     ; preds = %103, %80, %53
-  %.3126 = phi i32 [ 0, %53 ], [ %96, %103 ], [ %.1124144, %80 ]
-  %.2 = phi i32 [ 0, %53 ], [ %98, %103 ], [ %84, %80 ]
-  %108 = add nsw i32 %.2, %8
-  %109 = add nsw i32 %.3126, %14
+  %.1124 = phi i32 [ 0, %53 ], [ %96, %103 ], [ %.2125144, %80 ]
+  %.1118 = phi i32 [ 0, %53 ], [ %98, %103 ], [ %84, %80 ]
+  %108 = add nsw i32 %.1118, %8
+  %109 = add nsw i32 %.1124, %14
   %110 = icmp sgt i32 %108, %109
   br i1 %110, label %.loopexit, label %.preheader139
 
 .preheader139:                                    ; preds = %.loopexit143
-  %111 = icmp slt i32 %.3126, %8
+  %111 = icmp slt i32 %.1124, %8
   br i1 %111, label %.lr.ph150, label %._crit_edge
 
 .lr.ph150:                                        ; preds = %.preheader139
   %112 = getelementptr inbounds i8, ptr %0, i64 184
   %113 = getelementptr inbounds i8, ptr %1, i64 36
   %114 = getelementptr inbounds i8, ptr %3, i64 36
-  %115 = sext i32 %.2 to i64
-  %116 = sext i32 %.3126 to i64
+  %115 = sext i32 %.1118 to i64
+  %116 = sext i32 %.1124 to i64
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %117
 
@@ -661,10 +661,10 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader139
-  %.3.lcssa = phi i32 [ %.2, %.preheader139 ], [ %123, %._crit_edge.loopexit ]
+  %.4.lcssa = phi i32 [ %.1118, %.preheader139 ], [ %123, %._crit_edge.loopexit ]
   %124 = getelementptr inbounds i8, ptr %3, i64 28
   %125 = load i64, ptr %124, align 4
-  %126 = shl i32 %.3.lcssa, 24
+  %126 = shl i32 %.4.lcssa, 24
   %127 = zext i32 %126 to i64
   %128 = and i64 %125, -4278190081
   %129 = or disjoint i64 %128, %127
@@ -679,23 +679,23 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr no
   br label %.loopexit
 
 .loopexit142:                                     ; preds = %88, %70, %50
-  %.2121 = phi i32 [ 0, %50 ], [ %101, %88 ], [ %.0119145, %70 ]
-  %.4 = phi i32 [ 0, %50 ], [ %98, %88 ], [ %74, %70 ]
-  %136 = add nsw i32 %.4, %12
-  %137 = add nsw i32 %.2121, %14
+  %.0119 = phi i32 [ 0, %50 ], [ %101, %88 ], [ %.1120145, %70 ]
+  %.0117 = phi i32 [ 0, %50 ], [ %98, %88 ], [ %74, %70 ]
+  %136 = add nsw i32 %.0117, %12
+  %137 = add nsw i32 %.0119, %14
   %138 = icmp sgt i32 %136, %137
   br i1 %138, label %.loopexit, label %.preheader138
 
 .preheader138:                                    ; preds = %.loopexit142
-  %139 = icmp slt i32 %.2121, %12
+  %139 = icmp slt i32 %.0119, %12
   br i1 %139, label %.lr.ph153, label %._crit_edge154
 
 .lr.ph153:                                        ; preds = %.preheader138
   %140 = getelementptr inbounds i8, ptr %0, i64 312
   %141 = getelementptr inbounds i8, ptr %2, i64 36
   %142 = getelementptr inbounds i8, ptr %3, i64 36
-  %143 = sext i32 %.4 to i64
-  %144 = sext i32 %.2121 to i64
+  %143 = sext i32 %.0117 to i64
+  %144 = sext i32 %.0119 to i64
   %wide.trip.count174 = zext nneg i32 %12 to i64
   br label %145
 
@@ -719,7 +719,7 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr no
   br label %._crit_edge154
 
 ._crit_edge154:                                   ; preds = %._crit_edge154.loopexit, %.preheader138
-  %.5.lcssa = phi i32 [ %.4, %.preheader138 ], [ %151, %._crit_edge154.loopexit ]
+  %.5.lcssa = phi i32 [ %.0117, %.preheader138 ], [ %151, %._crit_edge154.loopexit ]
   %152 = getelementptr inbounds i8, ptr %3, i64 28
   %153 = load i64, ptr %152, align 4
   %154 = shl i32 %.5.lcssa, 24
@@ -804,23 +804,23 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr nocapture noundef readnone %0
   br label %34
 
 34:                                               ; preds = %.lr.ph, %59
-  %.086115 = phi i32 [ 0, %.lr.ph ], [ %42, %59 ]
-  %.087114 = phi i32 [ 0, %.lr.ph ], [ %.188, %59 ]
-  %.192113 = phi i32 [ 0, %.lr.ph ], [ %.293, %59 ]
-  %35 = sext i32 %.192113 to i64
+  %.2115 = phi i32 [ 0, %.lr.ph ], [ %42, %59 ]
+  %.188114 = phi i32 [ 0, %.lr.ph ], [ %.289, %59 ]
+  %.293113 = phi i32 [ 0, %.lr.ph ], [ %.394, %59 ]
+  %35 = sext i32 %.293113 to i64
   %36 = getelementptr inbounds [0 x i32], ptr %31, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %.087114 to i64
+  %38 = sext i32 %.188114 to i64
   %39 = getelementptr inbounds [0 x i32], ptr %32, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = icmp slt i32 %37, %40
-  %42 = add nuw nsw i32 %.086115, 1
-  %43 = zext nneg i32 %.086115 to i64
+  %42 = add nuw nsw i32 %.2115, 1
+  %43 = zext nneg i32 %.2115 to i64
   %44 = getelementptr inbounds [0 x i32], ptr %33, i64 0, i64 %43
   br i1 %41, label %45, label %48
 
 45:                                               ; preds = %34
-  %46 = add nsw i32 %.192113, 1
+  %46 = add nsw i32 %.293113, 1
   store i32 %37, ptr %44, align 4
   %47 = icmp eq i32 %46, %8
   br i1 %47, label %.loopexit111, label %59
@@ -830,15 +830,15 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr nocapture noundef readnone %0
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
-  %51 = add nsw i32 %.087114, 1
+  %51 = add nsw i32 %.188114, 1
   store i32 %40, ptr %44, align 4
   %52 = icmp eq i32 %51, %12
   br i1 %52, label %.loopexit112, label %59
 
 53:                                               ; preds = %48
-  %54 = add nsw i32 %.192113, 1
+  %54 = add nsw i32 %.293113, 1
   store i32 %37, ptr %44, align 4
-  %55 = add nsw i32 %.087114, 1
+  %55 = add nsw i32 %.188114, 1
   %56 = icmp eq i32 %54, %8
   br i1 %56, label %.loopexit111, label %57
 
@@ -847,28 +847,28 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr nocapture noundef readnone %0
   br i1 %58, label %.loopexit112, label %59
 
 59:                                               ; preds = %50, %57, %45
-  %.293 = phi i32 [ %46, %45 ], [ %.192113, %50 ], [ %54, %57 ]
-  %.188 = phi i32 [ %.087114, %45 ], [ %51, %50 ], [ %55, %57 ]
+  %.394 = phi i32 [ %46, %45 ], [ %.293113, %50 ], [ %54, %57 ]
+  %.289 = phi i32 [ %.188114, %45 ], [ %51, %50 ], [ %55, %57 ]
   %60 = icmp eq i32 %42, %14
   br i1 %60, label %.loopexit, label %34
 
 .loopexit112:                                     ; preds = %57, %50, %28
-  %.394 = phi i32 [ 0, %28 ], [ %54, %57 ], [ %.192113, %50 ]
-  %.2 = phi i32 [ 0, %28 ], [ %42, %50 ], [ %42, %57 ]
-  %61 = add nsw i32 %.2, %8
-  %62 = add nsw i32 %.394, %14
+  %.192 = phi i32 [ 0, %28 ], [ %54, %57 ], [ %.293113, %50 ]
+  %.1 = phi i32 [ 0, %28 ], [ %42, %50 ], [ %42, %57 ]
+  %61 = add nsw i32 %.1, %8
+  %62 = add nsw i32 %.192, %14
   %63 = icmp sgt i32 %61, %62
   br i1 %63, label %.loopexit, label %.preheader108
 
 .preheader108:                                    ; preds = %.loopexit112
-  %64 = icmp slt i32 %.394, %8
+  %64 = icmp slt i32 %.192, %8
   br i1 %64, label %.lr.ph118, label %.loopexit.sink.split
 
 .lr.ph118:                                        ; preds = %.preheader108
   %65 = getelementptr inbounds i8, ptr %1, i64 36
   %66 = getelementptr inbounds i8, ptr %3, i64 36
-  %67 = sext i32 %.2 to i64
-  %68 = sext i32 %.394 to i64
+  %67 = sext i32 %.1 to i64
+  %68 = sext i32 %.192 to i64
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %69
 
@@ -889,22 +889,22 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr nocapture noundef readnone %0
   br label %.loopexit.sink.split
 
 .loopexit111:                                     ; preds = %53, %45, %27
-  %.289 = phi i32 [ 0, %27 ], [ %55, %53 ], [ %.087114, %45 ]
-  %.4 = phi i32 [ 0, %27 ], [ %42, %45 ], [ %42, %53 ]
-  %74 = add nsw i32 %.4, %12
-  %75 = add nsw i32 %.289, %14
+  %.087 = phi i32 [ 0, %27 ], [ %55, %53 ], [ %.188114, %45 ]
+  %.086 = phi i32 [ 0, %27 ], [ %42, %45 ], [ %42, %53 ]
+  %74 = add nsw i32 %.086, %12
+  %75 = add nsw i32 %.087, %14
   %76 = icmp sgt i32 %74, %75
   br i1 %76, label %.loopexit, label %.preheader107
 
 .preheader107:                                    ; preds = %.loopexit111
-  %77 = icmp slt i32 %.289, %12
+  %77 = icmp slt i32 %.087, %12
   br i1 %77, label %.lr.ph121, label %.loopexit.sink.split
 
 .lr.ph121:                                        ; preds = %.preheader107
   %78 = getelementptr inbounds i8, ptr %2, i64 36
   %79 = getelementptr inbounds i8, ptr %3, i64 36
-  %80 = sext i32 %.4 to i64
-  %81 = sext i32 %.289 to i64
+  %80 = sext i32 %.086 to i64
+  %81 = sext i32 %.087 to i64
   %wide.trip.count144 = zext nneg i32 %12 to i64
   br label %82
 
@@ -925,7 +925,7 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr nocapture noundef readnone %0
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %25, %.preheader107, %._crit_edge122.loopexit, %.preheader108, %._crit_edge.loopexit, %.preheader
-  %.5.lcssa.sink = phi i32 [ %13, %.preheader ], [ %.2, %.preheader108 ], [ %73, %._crit_edge.loopexit ], [ %.4, %.preheader107 ], [ %86, %._crit_edge122.loopexit ], [ %13, %25 ]
+  %.5.lcssa.sink = phi i32 [ %13, %.preheader ], [ %.1, %.preheader108 ], [ %73, %._crit_edge.loopexit ], [ %.086, %.preheader107 ], [ %86, %._crit_edge122.loopexit ], [ %13, %25 ]
   %87 = getelementptr inbounds i8, ptr %3, i64 28
   %88 = load i64, ptr %87, align 4
   %89 = shl i32 %.5.lcssa.sink, 24

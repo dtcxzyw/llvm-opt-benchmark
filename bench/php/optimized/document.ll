@@ -1989,7 +1989,7 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
 
 125:                                              ; preds = %118, %114, %105, %107
   %.071 = phi ptr [ %111, %107 ], [ %96, %105 ], [ %96, %114 ], [ %123, %118 ]
-  %.070 = phi i32 [ 0, %107 ], [ 0, %105 ], [ 0, %114 ], [ %spec.select109, %118 ]
+  %.1 = phi i32 [ 0, %107 ], [ 0, %105 ], [ 0, %114 ], [ %spec.select109, %118 ]
   call void @xmlSetNs(ptr noundef nonnull %87, ptr noundef %.071) #10
   br label %.critedge107
 
@@ -2000,7 +2000,7 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
   br label %141
 
 .critedge107:                                     ; preds = %67, %.critedge6, %72, %.critedge, %47, %125, %92, %39
-  %.1 = phi i32 [ %46, %39 ], [ %.070, %125 ], [ 0, %92 ], [ 5, %47 ], [ 14, %.critedge ], [ 14, %72 ], [ 14, %.critedge6 ], [ 14, %67 ]
+  %.070 = phi i32 [ %46, %39 ], [ %.1, %125 ], [ 0, %92 ], [ 5, %47 ], [ 14, %.critedge ], [ 14, %72 ], [ 14, %.critedge6 ], [ 14, %67 ]
   %.0 = phi ptr [ null, %39 ], [ %87, %125 ], [ %87, %92 ], [ null, %47 ], [ null, %.critedge ], [ null, %72 ], [ null, %.critedge6 ], [ null, %67 ]
   %128 = load ptr, ptr @xmlFree, align 8
   %129 = load ptr, ptr %5, align 8
@@ -2015,7 +2015,7 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
   br label %133
 
 133:                                              ; preds = %131, %.critedge107
-  %.not101 = icmp eq i32 %.1, 0
+  %.not101 = icmp eq i32 %.070, 0
   br i1 %.not101, label %139, label %134
 
 134:                                              ; preds = %133
@@ -2023,7 +2023,7 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
   %135 = getelementptr inbounds i8, ptr %16, i64 -16
   %136 = load ptr, ptr %135, align 8
   %137 = call i32 @dom_get_strict_error(ptr noundef %136) #10
-  call void @php_dom_throw_error(i32 noundef %.1, i32 noundef %137) #10
+  call void @php_dom_throw_error(i32 noundef %.070, i32 noundef %137) #10
   %138 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %138, align 8
   br label %141
@@ -4760,7 +4760,7 @@ define internal fastcc void @php_dom_finish_loading_document(ptr nocapture nound
 22:                                               ; preds = %8, %21, %4
   %.034 = phi ptr [ %19, %21 ], [ %19, %8 ], [ null, %4 ]
   %.033 = phi i8 [ %13, %21 ], [ %13, %8 ], [ 0, %4 ]
-  %.0 = phi i64 [ %15, %21 ], [ %15, %8 ], [ 0, %4 ]
+  %.1 = phi i64 [ %15, %21 ], [ %15, %8 ], [ 0, %4 ]
   %23 = getelementptr inbounds i8, ptr %5, i64 -16
   store ptr null, ptr %23, align 8
   %24 = tail call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %6, ptr noundef nonnull %2) #10
@@ -4775,13 +4775,13 @@ define internal fastcc void @php_dom_finish_loading_document(ptr nocapture nound
   %30 = getelementptr inbounds i8, ptr %29, i64 28
   store i8 %.033, ptr %30, align 4
   %31 = tail call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %6) #10
-  %.not42 = icmp eq i64 %.0, 0
+  %.not42 = icmp eq i64 %.1, 0
   br i1 %.not42, label %40, label %32
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %23, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
-  store i64 %.0, ptr %34, align 8
+  store i64 %.1, ptr %34, align 8
   %35 = load ptr, ptr %23, align 8
   %.not43 = icmp eq ptr %35, null
   br i1 %.not43, label %40, label %36

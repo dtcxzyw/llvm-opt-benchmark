@@ -461,14 +461,14 @@ frag_cnt_next.exit.i:                             ; preds = %168, %167, %166, %1
   br label %173
 
 173:                                              ; preds = %170, %frag_cnt_next.exit.i, %159, %157
-  %.0324.i = phi i32 [ %172, %170 ], [ 0, %frag_cnt_next.exit.i ], [ 0, %159 ], [ 0, %157 ]
+  %.1.i = phi i32 [ %172, %170 ], [ 0, %frag_cnt_next.exit.i ], [ 0, %159 ], [ 0, %157 ]
   %174 = tail call ptr @wmem_epan_scope() #3
   %175 = tail call noalias ptr @wmem_alloc(ptr noundef %174, i64 noundef 4) #3
   %176 = tail call ptr @wmem_epan_scope() #3
   %177 = tail call noalias ptr @wmem_alloc(ptr noundef %176, i64 noundef 4) #3
   %178 = load i32, ptr %131, align 4
   store i32 %178, ptr %175, align 4
-  store i32 %.0324.i, ptr %177, align 4
+  store i32 %.1.i, ptr %177, align 4
   %179 = getelementptr inbounds i8, ptr %150, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = tail call ptr @wmem_map_insert(ptr noundef %180, ptr noundef nonnull %175, ptr noundef nonnull %177) #3
@@ -482,9 +482,9 @@ frag_cnt_next.exit.i:                             ; preds = %168, %167, %166, %1
   br label %187
 
 187:                                              ; preds = %182, %173, %148, %146, %142, %136
-  %.1.i = phi i32 [ 0, %136 ], [ 0, %142 ], [ %186, %182 ], [ %.0324.i, %173 ], [ 0, %148 ], [ 0, %146 ]
+  %.0324.i = phi i32 [ 0, %136 ], [ 0, %142 ], [ %186, %182 ], [ %.1.i, %173 ], [ 0, %148 ], [ 0, %146 ]
   %.0322.i = phi ptr [ %134, %136 ], [ %144, %142 ], [ %134, %182 ], [ %134, %173 ], [ %134, %148 ], [ %134, %146 ]
-  %188 = xor i32 %.1.i, -1
+  %188 = xor i32 %.0324.i, -1
   %189 = tail call i32 @llvm.bswap.i32(i32 %188)
   %190 = tail call i32 @crc32_ccitt_tvb_offset_seed(ptr noundef %0, i32 noundef %72, i32 noundef %82, i32 noundef %189) #3
   %191 = shl i32 %190, 24

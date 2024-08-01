@@ -309,7 +309,7 @@ copy_address.exit.i60:                            ; preds = %98, %92
   br label %.thread78
 
 .thread78:                                        ; preds = %83, %.thread78.sink.split
-  %.181 = phi ptr [ %.sink, %.thread78.sink.split ], [ %.04296, %83 ]
+  %.04381 = phi ptr [ %.sink, %.thread78.sink.split ], [ %.04296, %83 ]
   %125 = getelementptr inbounds i8, ptr %3, i64 88
   %126 = load i32, ptr %125, align 8
   %.not55 = icmp eq i32 %126, 0
@@ -329,11 +329,11 @@ copy_address.exit.i60:                            ; preds = %98, %92
   br i1 %.not98, label %.thread82, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %133 = getelementptr inbounds i8, ptr %.181, i64 60
+  %133 = getelementptr inbounds i8, ptr %.04381, i64 60
   br label %140
 
 134:                                              ; preds = %127
-  %135 = getelementptr inbounds i8, ptr %.181, i64 60
+  %135 = getelementptr inbounds i8, ptr %.04381, i64 60
   %136 = zext nneg i8 %130 to i64
   %137 = getelementptr [256 x i32], ptr %135, i64 0, i64 %136
   %138 = load i32, ptr %137, align 4

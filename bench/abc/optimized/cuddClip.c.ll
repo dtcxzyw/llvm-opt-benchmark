@@ -608,7 +608,7 @@ tailrecurse:                                      ; preds = %58
   br label %.loopexit
 
 186:                                              ; preds = %182, %178
-  %.0188 = phi ptr [ %181, %178 ], [ %183, %182 ]
+  %.1 = phi ptr [ %181, %178 ], [ %183, %182 ]
   %187 = load i32, ptr %144, align 4
   %188 = add i32 %187, -1
   store i32 %188, ptr %144, align 4
@@ -616,7 +616,7 @@ tailrecurse:                                      ; preds = %58
 
 189:                                              ; preds = %167, %186, %156
   %.sink = phi ptr [ %144, %167 ], [ %134, %186 ], [ %162, %156 ]
-  %.1 = phi ptr [ %120, %167 ], [ %.0188, %186 ], [ %159, %156 ]
+  %.0188 = phi ptr [ %120, %167 ], [ %.1, %186 ], [ %159, %156 ]
   %190 = load i32, ptr %.sink, align 4
   %191 = add i32 %190, -1
   store i32 %191, ptr %.sink, align 4
@@ -631,11 +631,11 @@ tailrecurse:                                      ; preds = %58
   br i1 %.not212, label %.loopexit, label %196
 
 196:                                              ; preds = %193, %189
-  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %spec.select221, ptr noundef %spec.select, ptr noundef nonnull %.tr226277, ptr noundef %.1) #3
+  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef %18, ptr noundef %spec.select221, ptr noundef %spec.select, ptr noundef nonnull %.tr226277, ptr noundef %.0188) #3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %20, %56, %6, %193, %196, %126, %129, %119, %185, %177, %155, %139, %38, %34, %31, %27
-  %.0 = phi ptr [ %28, %27 ], [ %32, %31 ], [ %35, %34 ], [ %41, %38 ], [ null, %139 ], [ null, %155 ], [ null, %177 ], [ null, %185 ], [ null, %119 ], [ %22, %129 ], [ %22, %126 ], [ %.1, %196 ], [ %.1, %193 ], [ %11, %6 ], [ %79, %tailrecurse ], [ %22, %20 ], [ %57, %56 ]
+  %.0 = phi ptr [ %28, %27 ], [ %32, %31 ], [ %35, %34 ], [ %41, %38 ], [ null, %139 ], [ null, %155 ], [ null, %177 ], [ null, %185 ], [ null, %119 ], [ %22, %129 ], [ %22, %126 ], [ %.0188, %196 ], [ %.0188, %193 ], [ %11, %6 ], [ %79, %tailrecurse ], [ %22, %20 ], [ %57, %56 ]
   ret ptr %.0
 }
 

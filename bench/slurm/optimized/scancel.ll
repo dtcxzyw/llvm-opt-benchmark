@@ -2656,7 +2656,7 @@ define internal noalias noundef ptr @_cancel_step_id(ptr noundef %0) #3 {
   br label %59
 
 59:                                               ; preds = %48, %56, %54
-  %.1 = phi i32 [ %50, %48 ], [ %55, %54 ], [ %58, %56 ]
+  %.2 = phi i32 [ %50, %48 ], [ %55, %54 ], [ %58, %56 ]
   %60 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #13
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %6) #13
   %61 = call i32 @pthread_mutex_lock(ptr noundef nonnull @max_delay_lock) #13
@@ -2687,7 +2687,7 @@ define internal noalias noundef ptr @_cancel_step_id(ptr noundef %0) #3 {
   unreachable
 
 73:                                               ; preds = %64
-  %74 = icmp eq i32 %.1, 0
+  %74 = icmp eq i32 %.2, 0
   br i1 %74, label %.thread54, label %75
 
 75:                                               ; preds = %73

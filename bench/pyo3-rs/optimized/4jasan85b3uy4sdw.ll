@@ -2553,10 +2553,10 @@ define void @_ZN4core4iter8adapters11try_process17h0a6ea3f692985cffE(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -2631,11 +2631,11 @@ define void @_ZN4core4iter8adapters11try_process17h0d1311ca30692c43E(ptr sret([3
           to label %15 unwind label %12
 
 10:                                               ; preds = %.thread, %12
-  %.sroa.02.0 = phi i1 [ %13, %12 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %13, %12 ], [ false, %.thread ]
   %.pn = phi { ptr, i32 } [ %14, %12 ], [ %18, %.thread ]
   %11 = load i64, ptr %9, align 8
   %.not6 = icmp eq i64 %11, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not6
+  %brmerge = or i1 %.sroa.02.1, %.not6
   br i1 %brmerge, label %.thread8, label %26
 
 12:                                               ; preds = %21, %3
@@ -2709,10 +2709,10 @@ define void @_ZN4core4iter8adapters11try_process17h13eeb881396d1adeE(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -2786,10 +2786,10 @@ define void @_ZN4core4iter8adapters11try_process17h28e7544d9e5ccab2E(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -2864,11 +2864,11 @@ define void @_ZN4core4iter8adapters11try_process17h3eef833cecad58a5E(ptr sret([3
           to label %15 unwind label %12
 
 10:                                               ; preds = %.thread, %12
-  %.sroa.02.0 = phi i1 [ %13, %12 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %13, %12 ], [ false, %.thread ]
   %.pn = phi { ptr, i32 } [ %14, %12 ], [ %18, %.thread ]
   %11 = load i64, ptr %9, align 8
   %.not6 = icmp eq i64 %11, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not6
+  %brmerge = or i1 %.sroa.02.1, %.not6
   br i1 %brmerge, label %.thread8, label %26
 
 12:                                               ; preds = %21, %3
@@ -2942,10 +2942,10 @@ define void @_ZN4core4iter8adapters11try_process17h475a115eb7b0a9ebE(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -3019,10 +3019,10 @@ define void @_ZN4core4iter8adapters11try_process17h53ced5933ee4eebbE(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -3096,10 +3096,10 @@ define void @_ZN4core4iter8adapters11try_process17h5d730f274787bfe5E(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -3173,10 +3173,10 @@ define void @_ZN4core4iter8adapters11try_process17h8d3a988ff0a15146E(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -3250,10 +3250,10 @@ define void @_ZN4core4iter8adapters11try_process17h999305d7d3de512cE(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -3327,10 +3327,10 @@ define void @_ZN4core4iter8adapters11try_process17ha198ce640cb76ba2E(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -3404,10 +3404,10 @@ define void @_ZN4core4iter8adapters11try_process17ha1e2267218a1add4E(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -3481,10 +3481,10 @@ define void @_ZN4core4iter8adapters11try_process17ha25ea63ed0cf0165E(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -3558,10 +3558,10 @@ define void @_ZN4core4iter8adapters11try_process17hcac70a72ab500bdaE(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2
@@ -3636,11 +3636,11 @@ define void @_ZN4core4iter8adapters11try_process17hfd616f37eec652d4E(ptr sret([3
           to label %15 unwind label %12
 
 10:                                               ; preds = %.thread, %12
-  %.sroa.02.0 = phi i1 [ %13, %12 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %13, %12 ], [ false, %.thread ]
   %.pn = phi { ptr, i32 } [ %14, %12 ], [ %18, %.thread ]
   %11 = load i64, ptr %9, align 8
   %.not6 = icmp eq i64 %11, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not6
+  %brmerge = or i1 %.sroa.02.1, %.not6
   br i1 %brmerge, label %.thread8, label %26
 
 12:                                               ; preds = %21, %3
@@ -3715,11 +3715,11 @@ define void @_ZN4core4iter8adapters11try_process17hfe448e319533374bE(ptr sret([3
           to label %15 unwind label %12
 
 10:                                               ; preds = %.thread, %12
-  %.sroa.02.0 = phi i1 [ %13, %12 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %13, %12 ], [ false, %.thread ]
   %.pn = phi { ptr, i32 } [ %14, %12 ], [ %18, %.thread ]
   %11 = load i64, ptr %9, align 8
   %.not6 = icmp eq i64 %11, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not6
+  %brmerge = or i1 %.sroa.02.1, %.not6
   br i1 %brmerge, label %.thread8, label %26
 
 12:                                               ; preds = %21, %3
@@ -3793,10 +3793,10 @@ define void @_ZN4core4iter8adapters11try_process17hfff6298b6f153edaE(ptr sret([3
 
 9:                                                ; preds = %.thread, %11
   %.pn = phi { ptr, i32 } [ %13, %11 ], [ %17, %.thread ]
-  %.sroa.02.0 = phi i1 [ %12, %11 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %12, %11 ], [ false, %.thread ]
   %10 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %10, -9223372036854775808
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %25
 
 11:                                               ; preds = %20, %2

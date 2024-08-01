@@ -244,8 +244,8 @@ if.end19:                                         ; preds = %if.end15
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end9, %if.end19
-  %sx.0 = phi ptr [ %call.i, %if.end19 ], [ %0, %if.end9 ]
-  %ids.i = getelementptr inbounds i8, ptr %sx.0, i64 8
+  %sx.1 = phi ptr [ %call.i, %if.end19 ], [ %0, %if.end9 ]
+  %ids.i = getelementptr inbounds i8, ptr %sx.1, i64 8
   %2 = load ptr, ptr %ids.i, align 8
   %call5.i = tail call i64 @sk_num(ptr noundef %2) #4
   %cmp6.not.i = icmp eq i64 %call5.i, 0
@@ -310,11 +310,11 @@ if.end43:                                         ; preds = %if.end39
   br label %return
 
 err:                                              ; preds = %if.end39, %if.end34, %if.end24, %if.end15, %if.then11
-  %sx.1 = phi ptr [ %sx.0, %if.end39 ], [ %sx.0, %if.end34 ], [ %sx.0, %if.end24 ], [ %call.i, %if.end15 ], [ null, %if.then11 ]
+  %sx.0 = phi ptr [ %sx.1, %if.end39 ], [ %sx.1, %if.end34 ], [ %sx.1, %if.end24 ], [ %call.i, %if.end15 ], [ null, %if.then11 ]
   %id.0 = phi ptr [ %call.i22, %if.end39 ], [ %call.i22, %if.end34 ], [ null, %if.end24 ], [ null, %if.end15 ], [ null, %if.then11 ]
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.2, i32 noundef 228) #4
   tail call void @ASN1_item_free(ptr noundef %id.0, ptr noundef nonnull @SXNETID_it) #4
-  tail call void @ASN1_item_free(ptr noundef %sx.1, ptr noundef nonnull @SXNET_it) #4
+  tail call void @ASN1_item_free(ptr noundef %sx.0, ptr noundef nonnull @SXNET_it) #4
   store ptr null, ptr %psx, align 8
   br label %return
 

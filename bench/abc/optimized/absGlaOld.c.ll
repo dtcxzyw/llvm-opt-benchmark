@@ -8390,7 +8390,7 @@ Gla_ManObj.exit46.lr.ph:                          ; preds = %.preheader
 
 Gla_ManObj.exit44:                                ; preds = %Gla_ManObj.exit44.lr.ph, %Gla_ManObj.exit44
   %indvars.iv64 = phi i64 [ 0, %Gla_ManObj.exit44.lr.ph ], [ %indvars.iv.next65, %Gla_ManObj.exit44 ]
-  %.154 = phi i32 [ 0, %Gla_ManObj.exit44.lr.ph ], [ %39, %Gla_ManObj.exit44 ]
+  %.254 = phi i32 [ 0, %Gla_ManObj.exit44.lr.ph ], [ %39, %Gla_ManObj.exit44 ]
   %31 = getelementptr inbounds i32, ptr %.val41, i64 %indvars.iv64
   %32 = load i32, ptr %31, align 4
   %.not.i43 = icmp ne i32 %32, 0
@@ -8401,14 +8401,14 @@ Gla_ManObj.exit44:                                ; preds = %Gla_ManObj.exit44.l
   %36 = and i32 %35, 129
   %37 = icmp eq i32 %36, 129
   %38 = zext i1 %37 to i32
-  %39 = add nuw nsw i32 %.154, %38
+  %39 = add nuw nsw i32 %.254, %38
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
   br i1 %exitcond68.not, label %.critedge, label %Gla_ManObj.exit44, !llvm.loop !61
 
 Gla_ManObj.exit46:                                ; preds = %Gla_ManObj.exit46.lr.ph, %Gla_ManObj.exit46
   %indvars.iv69 = phi i64 [ 0, %Gla_ManObj.exit46.lr.ph ], [ %indvars.iv.next70, %Gla_ManObj.exit46 ]
-  %.257 = phi i32 [ 0, %Gla_ManObj.exit46.lr.ph ], [ %46, %Gla_ManObj.exit46 ]
+  %.357 = phi i32 [ 0, %Gla_ManObj.exit46.lr.ph ], [ %46, %Gla_ManObj.exit46 ]
   %40 = getelementptr inbounds i32, ptr %.val40, i64 %indvars.iv69
   %41 = load i32, ptr %40, align 4
   %.not.i45 = icmp ne i32 %41, 0
@@ -8417,14 +8417,14 @@ Gla_ManObj.exit46:                                ; preds = %Gla_ManObj.exit46.l
   %43 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %30, i64 %42, i32 1
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 1
-  %46 = add nuw nsw i32 %45, %.257
+  %46 = add nuw nsw i32 %45, %.357
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %.critedge, label %Gla_ManObj.exit46, !llvm.loop !62
 
 .critedge:                                        ; preds = %Gla_ManObj.exit, %Gla_ManObj.exit44, %Gla_ManObj.exit46, %.preheader49, %.preheader47, %.preheader
-  %.3 = phi i32 [ 0, %.preheader ], [ 0, %.preheader47 ], [ 0, %.preheader49 ], [ %46, %Gla_ManObj.exit46 ], [ %39, %Gla_ManObj.exit44 ], [ %19, %Gla_ManObj.exit ]
-  ret i32 %.3
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader47 ], [ 0, %.preheader49 ], [ %46, %Gla_ManObj.exit46 ], [ %39, %Gla_ManObj.exit44 ], [ %19, %Gla_ManObj.exit ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -10166,7 +10166,7 @@ Gla_ManObj.exit46.lr.ph.i:                        ; preds = %10
 
 Gla_ManObj.exit46.i:                              ; preds = %Gla_ManObj.exit46.i, %Gla_ManObj.exit46.lr.ph.i
   %indvars.iv69.i = phi i64 [ 0, %Gla_ManObj.exit46.lr.ph.i ], [ %indvars.iv.next70.i, %Gla_ManObj.exit46.i ]
-  %.257.i = phi i32 [ 0, %Gla_ManObj.exit46.lr.ph.i ], [ %25, %Gla_ManObj.exit46.i ]
+  %.357.i = phi i32 [ 0, %Gla_ManObj.exit46.lr.ph.i ], [ %25, %Gla_ManObj.exit46.i ]
   %19 = getelementptr inbounds i32, ptr %.val40.i, i64 %indvars.iv69.i
   %20 = load i32, ptr %19, align 4
   %.not.i45.i = icmp ne i32 %20, 0
@@ -10175,7 +10175,7 @@ Gla_ManObj.exit46.i:                              ; preds = %Gla_ManObj.exit46.i
   %22 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %18, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 1
-  %25 = add nuw nsw i32 %24, %.257.i
+  %25 = add nuw nsw i32 %24, %.357.i
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count72.i
   br i1 %exitcond73.not.i, label %Gia_GlaAbsCount.exit.loopexit, label %Gla_ManObj.exit46.i, !llvm.loop !62
@@ -10185,7 +10185,7 @@ Gia_GlaAbsCount.exit.loopexit:                    ; preds = %Gla_ManObj.exit46.i
   br label %Gia_GlaAbsCount.exit
 
 Gia_GlaAbsCount.exit:                             ; preds = %Gia_GlaAbsCount.exit.loopexit, %10
-  %.3.i = phi i32 [ 0, %10 ], [ %26, %Gia_GlaAbsCount.exit.loopexit ]
+  %.1.i = phi i32 [ 0, %10 ], [ %26, %Gia_GlaAbsCount.exit.loopexit ]
   %27 = getelementptr inbounds i8, ptr %0, i64 56
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10194,7 +10194,7 @@ Gia_GlaAbsCount.exit:                             ; preds = %Gia_GlaAbsCount.exi
   %.val21 = load i32, ptr %31, align 8
   %32 = add i32 %28, 1
   %33 = add i32 %32, %.val21
-  %34 = sdiv i32 %.3.i, %33
+  %34 = sdiv i32 %.1.i, %33
   %35 = tail call noundef i32 @llvm.smin.i32(i32 %34, i32 100)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, i32 noundef %35)
   %36 = load ptr, ptr %12, align 8
@@ -10213,7 +10213,7 @@ Gla_ManObj.exit46.lr.ph.i28:                      ; preds = %Gia_GlaAbsCount.exi
 
 Gla_ManObj.exit46.i31:                            ; preds = %Gla_ManObj.exit46.i31, %Gla_ManObj.exit46.lr.ph.i28
   %indvars.iv69.i32 = phi i64 [ 0, %Gla_ManObj.exit46.lr.ph.i28 ], [ %indvars.iv.next70.i35, %Gla_ManObj.exit46.i31 ]
-  %.257.i33 = phi i32 [ 0, %Gla_ManObj.exit46.lr.ph.i28 ], [ %48, %Gla_ManObj.exit46.i31 ]
+  %.357.i33 = phi i32 [ 0, %Gla_ManObj.exit46.lr.ph.i28 ], [ %48, %Gla_ManObj.exit46.i31 ]
   %42 = getelementptr inbounds i32, ptr %.val40.i29, i64 %indvars.iv69.i32
   %43 = load i32, ptr %42, align 4
   %.not.i45.i34 = icmp ne i32 %43, 0
@@ -10222,14 +10222,14 @@ Gla_ManObj.exit46.i31:                            ; preds = %Gla_ManObj.exit46.i
   %45 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %41, i64 %44, i32 1
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 1
-  %48 = add nuw nsw i32 %47, %.257.i33
+  %48 = add nuw nsw i32 %47, %.357.i33
   %indvars.iv.next70.i35 = add nuw nsw i64 %indvars.iv69.i32, 1
   %exitcond73.not.i36 = icmp eq i64 %indvars.iv.next70.i35, %wide.trip.count72.i30
   br i1 %exitcond73.not.i36, label %Gia_GlaAbsCount.exit37, label %Gla_ManObj.exit46.i31, !llvm.loop !62
 
 Gia_GlaAbsCount.exit37:                           ; preds = %Gla_ManObj.exit46.i31, %Gia_GlaAbsCount.exit
-  %.3.i27 = phi i32 [ 0, %Gia_GlaAbsCount.exit ], [ %48, %Gla_ManObj.exit46.i31 ]
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %.3.i27)
+  %.1.i27 = phi i32 [ 0, %Gia_GlaAbsCount.exit ], [ %48, %Gla_ManObj.exit46.i31 ]
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %.1.i27)
   %49 = tail call fastcc ptr @Gla_ManCollectPPis(ptr noundef readonly %0)
   %50 = getelementptr i8, ptr %49, i64 4
   %.val.i38 = load i32, ptr %50, align 4
@@ -10278,8 +10278,8 @@ Gla_ManObj.exit.i:                                ; preds = %Gla_ManObj.exit.i, 
   br i1 %exitcond.not.i, label %Gia_GlaAbsCount.exit41, label %Gla_ManObj.exit.i, !llvm.loop !60
 
 Gia_GlaAbsCount.exit41:                           ; preds = %Gla_ManObj.exit.i, %Gla_ManCountPPis.exit
-  %.3.i39 = phi i32 [ 0, %Gla_ManCountPPis.exit ], [ %68, %Gla_ManObj.exit.i ]
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, i32 noundef %.3.i39)
+  %.1.i39 = phi i32 [ 0, %Gla_ManCountPPis.exit ], [ %68, %Gla_ManObj.exit.i ]
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, i32 noundef %.1.i39)
   %69 = load ptr, ptr %12, align 8
   %70 = getelementptr i8, ptr %69, i64 4
   %.val.i42 = load i32, ptr %70, align 4
@@ -10296,7 +10296,7 @@ Gla_ManObj.exit44.lr.ph.i:                        ; preds = %Gia_GlaAbsCount.exi
 
 Gla_ManObj.exit44.i:                              ; preds = %Gla_ManObj.exit44.i, %Gla_ManObj.exit44.lr.ph.i
   %indvars.iv64.i = phi i64 [ 0, %Gla_ManObj.exit44.lr.ph.i ], [ %indvars.iv.next65.i, %Gla_ManObj.exit44.i ]
-  %.154.i = phi i32 [ 0, %Gla_ManObj.exit44.lr.ph.i ], [ %83, %Gla_ManObj.exit44.i ]
+  %.254.i = phi i32 [ 0, %Gla_ManObj.exit44.lr.ph.i ], [ %83, %Gla_ManObj.exit44.i ]
   %75 = getelementptr inbounds i32, ptr %.val41.i, i64 %indvars.iv64.i
   %76 = load i32, ptr %75, align 4
   %.not.i43.i = icmp ne i32 %76, 0
@@ -10307,14 +10307,14 @@ Gla_ManObj.exit44.i:                              ; preds = %Gla_ManObj.exit44.i
   %80 = and i32 %79, 129
   %81 = icmp eq i32 %80, 129
   %82 = zext i1 %81 to i32
-  %83 = add nuw nsw i32 %.154.i, %82
+  %83 = add nuw nsw i32 %.254.i, %82
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count67.i
   br i1 %exitcond68.not.i, label %Gia_GlaAbsCount.exit44, label %Gla_ManObj.exit44.i, !llvm.loop !61
 
 Gia_GlaAbsCount.exit44:                           ; preds = %Gla_ManObj.exit44.i, %Gia_GlaAbsCount.exit41
-  %.3.i43 = phi i32 [ 0, %Gia_GlaAbsCount.exit41 ], [ %83, %Gla_ManObj.exit44.i ]
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %.3.i43)
+  %.1.i43 = phi i32 [ 0, %Gia_GlaAbsCount.exit41 ], [ %83, %Gla_ManObj.exit44.i ]
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %.1.i43)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, i32 noundef %3)
   %84 = icmp eq i32 %4, 0
   br i1 %84, label %85, label %86
@@ -11020,7 +11020,7 @@ Abc_Clock.exit349:                                ; preds = %144, %151
   %208 = phi ptr [ %179, %.critedge.lr.ph ], [ %817, %816 ]
   %.0256575 = phi i32 [ 0, %.critedge.lr.ph ], [ %235, %816 ]
   %.0258574 = phi i32 [ 0, %.critedge.lr.ph ], [ %.0257585, %816 ]
-  %.0261573 = phi i32 [ 0, %.critedge.lr.ph ], [ %.5, %816 ]
+  %.0261573 = phi i32 [ 0, %.critedge.lr.ph ], [ %.4, %816 ]
   %.0265572 = phi i32 [ 0, %.critedge.lr.ph ], [ %.1266, %816 ]
   %209 = load ptr, ptr %181, align 8
   %210 = getelementptr i8, ptr %209, i64 560
@@ -11069,7 +11069,7 @@ Gia_GlaAddTimeFrame.exit:                         ; preds = %Gla_ManObj.exit.i, 
 
 236:                                              ; preds = %619, %Gia_GlaAddTimeFrame.exit
   %.1266 = phi i32 [ %.0265572, %Gia_GlaAddTimeFrame.exit ], [ %.2267, %619 ]
-  %.1262 = phi i32 [ %.0261573, %Gia_GlaAddTimeFrame.exit ], [ %.2263, %619 ]
+  %.1262 = phi i32 [ %.0261573, %Gia_GlaAddTimeFrame.exit ], [ %.3, %619 ]
   %.0257 = phi i32 [ 0, %Gia_GlaAddTimeFrame.exit ], [ %620, %619 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   %237 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %29) #26
@@ -11271,7 +11271,7 @@ Abc_Clock.exit363:                                ; preds = %309, %312
   br label %Abc_Clock.exit365
 
 Abc_Clock.exit365:                                ; preds = %326, %Abc_Clock.exit363
-  %.2263 = phi i32 [ 0, %326 ], [ %.1262, %Abc_Clock.exit363 ]
+  %.3 = phi i32 [ 0, %326 ], [ %.1262, %Abc_Clock.exit363 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
   %329 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %25) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
@@ -11877,7 +11877,7 @@ Abc_Clock.exit393:                                ; preds = %605, %612
   br i1 %.not289, label %625, label %908
 
 625:                                              ; preds = %.thread510, %621
-  %.3514 = phi i32 [ %.1262, %.thread510 ], [ %.2263, %621 ]
+  %.2263514 = phi i32 [ %.1262, %.thread510 ], [ %.3, %621 ]
   %.not290 = icmp eq ptr %244, null
   br i1 %.not290, label %Gia_GlaAddToCounters.exit.thread523, label %626
 
@@ -12198,7 +12198,7 @@ Abc_Clock.exit439:                                ; preds = %749, %756
   br i1 %.not292, label %783, label %768
 
 768:                                              ; preds = %766
-  %.not293 = icmp eq i32 %.3514, 0
+  %.not293 = icmp eq i32 %.2263514, 0
   br i1 %.not293, label %772, label %769
 
 769:                                              ; preds = %768
@@ -12234,7 +12234,7 @@ Gia_GlaSendAbsracted.exit:                        ; preds = %772, %.thread.i.i
   br label %783
 
 783:                                              ; preds = %Gia_GlaSendAbsracted.exit, %766
-  %.4 = phi i32 [ 1, %Gia_GlaSendAbsracted.exit ], [ %.3514, %766 ]
+  %.5 = phi i32 [ 1, %Gia_GlaSendAbsracted.exit ], [ %.2263514, %766 ]
   %784 = load ptr, ptr %140, align 8
   %785 = getelementptr inbounds i8, ptr %784, i64 84
   %786 = load i32, ptr %785, align 4
@@ -12259,7 +12259,7 @@ Gia_GlaSendAbsracted.exit:                        ; preds = %772, %.thread.i.i
   br label %796
 
 796:                                              ; preds = %783, %787, %763
-  %.5 = phi i32 [ %.4, %787 ], [ %.4, %783 ], [ %.3514, %763 ]
+  %.4 = phi i32 [ %.5, %787 ], [ %.5, %783 ], [ %.2263514, %763 ]
   %797 = load ptr, ptr %182, align 8
   %798 = getelementptr i8, ptr %797, i64 4
   %.val.i441 = load i32, ptr %798, align 4
@@ -12275,7 +12275,7 @@ Gla_ManObj.exit46.lr.ph.i:                        ; preds = %796
 
 Gla_ManObj.exit46.i:                              ; preds = %Gla_ManObj.exit46.i, %Gla_ManObj.exit46.lr.ph.i
   %indvars.iv69.i = phi i64 [ 0, %Gla_ManObj.exit46.lr.ph.i ], [ %indvars.iv.next70.i, %Gla_ManObj.exit46.i ]
-  %.257.i = phi i32 [ 0, %Gla_ManObj.exit46.lr.ph.i ], [ %808, %Gla_ManObj.exit46.i ]
+  %.357.i = phi i32 [ 0, %Gla_ManObj.exit46.lr.ph.i ], [ %808, %Gla_ManObj.exit46.i ]
   %802 = getelementptr inbounds i32, ptr %.val40.i, i64 %indvars.iv69.i
   %803 = load i32, ptr %802, align 4
   %.not.i45.i = icmp ne i32 %803, 0
@@ -12284,20 +12284,20 @@ Gla_ManObj.exit46.i:                              ; preds = %Gla_ManObj.exit46.i
   %805 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %801, i64 %804, i32 1
   %806 = load i32, ptr %805, align 4
   %807 = and i32 %806, 1
-  %808 = add nuw nsw i32 %807, %.257.i
+  %808 = add nuw nsw i32 %807, %.357.i
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count72.i
   br i1 %exitcond73.not.i, label %Gia_GlaAbsCount.exit, label %Gla_ManObj.exit46.i, !llvm.loop !62
 
 Gia_GlaAbsCount.exit:                             ; preds = %Gla_ManObj.exit46.i, %796
-  %.3.i = phi i32 [ 0, %796 ], [ %808, %Gla_ManObj.exit46.i ]
+  %.1.i = phi i32 [ 0, %796 ], [ %808, %Gla_ManObj.exit46.i ]
   %809 = load i32, ptr %206, align 8
   %810 = add nsw i32 %809, -1
   %811 = load i32, ptr %207, align 4
   %812 = sub nsw i32 100, %811
   %813 = mul nsw i32 %812, %810
   %814 = sdiv i32 %813, 100
-  %.not296 = icmp slt i32 %.3.i, %814
+  %.not296 = icmp slt i32 %.1.i, %814
   br i1 %.not296, label %816, label %815
 
 815:                                              ; preds = %Gia_GlaAbsCount.exit
@@ -12441,7 +12441,7 @@ Gla_ManObj.exit46.lr.ph.i455:                     ; preds = %876
 
 Gla_ManObj.exit46.i458:                           ; preds = %Gla_ManObj.exit46.i458, %Gla_ManObj.exit46.lr.ph.i455
   %indvars.iv69.i459 = phi i64 [ 0, %Gla_ManObj.exit46.lr.ph.i455 ], [ %indvars.iv.next70.i462, %Gla_ManObj.exit46.i458 ]
-  %.257.i460 = phi i32 [ 0, %Gla_ManObj.exit46.lr.ph.i455 ], [ %890, %Gla_ManObj.exit46.i458 ]
+  %.357.i460 = phi i32 [ 0, %Gla_ManObj.exit46.lr.ph.i455 ], [ %890, %Gla_ManObj.exit46.i458 ]
   %884 = getelementptr inbounds i32, ptr %.val40.i456, i64 %indvars.iv69.i459
   %885 = load i32, ptr %884, align 4
   %.not.i45.i461 = icmp ne i32 %885, 0
@@ -12450,13 +12450,13 @@ Gla_ManObj.exit46.i458:                           ; preds = %Gla_ManObj.exit46.i
   %887 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %883, i64 %886, i32 1
   %888 = load i32, ptr %887, align 4
   %889 = and i32 %888, 1
-  %890 = add nuw nsw i32 %889, %.257.i460
+  %890 = add nuw nsw i32 %889, %.357.i460
   %indvars.iv.next70.i462 = add nuw nsw i64 %indvars.iv69.i459, 1
   %exitcond73.not.i463 = icmp eq i64 %indvars.iv.next70.i462, %wide.trip.count72.i457
   br i1 %exitcond73.not.i463, label %Gia_GlaAbsCount.exit464, label %Gla_ManObj.exit46.i458, !llvm.loop !62
 
 Gia_GlaAbsCount.exit464:                          ; preds = %Gla_ManObj.exit46.i458, %876
-  %.3.i454 = phi i32 [ 0, %876 ], [ %890, %Gla_ManObj.exit46.i458 ]
+  %.1.i454 = phi i32 [ 0, %876 ], [ %890, %Gla_ManObj.exit46.i458 ]
   %891 = getelementptr inbounds i8, ptr %128, i64 56
   %892 = load i32, ptr %891, align 8
   %893 = add nsw i32 %892, -1
@@ -12465,7 +12465,7 @@ Gia_GlaAbsCount.exit464:                          ; preds = %Gla_ManObj.exit46.i
   %896 = sub nsw i32 100, %895
   %897 = mul nsw i32 %896, %893
   %898 = sdiv i32 %897, 100
-  %.not305 = icmp slt i32 %.3.i454, %898
+  %.not305 = icmp slt i32 %.1.i454, %898
   br i1 %.not305, label %900, label %899
 
 899:                                              ; preds = %Gia_GlaAbsCount.exit464

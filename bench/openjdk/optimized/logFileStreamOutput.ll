@@ -362,7 +362,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
 
 ._crit_edge:                                      ; preds = %151, %101
   %.033.lcssa = phi ptr [ %102, %101 ], [ %152, %151 ]
-  %.1.lcssa = phi i32 [ %.032, %101 ], [ %.2, %151 ]
+  %.2.lcssa = phi i32 [ %.032, %101 ], [ %.3, %151 ]
   %107 = getelementptr inbounds i8, ptr %0, i64 160
   %108 = load ptr, ptr %107, align 8
   %109 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %108, ptr noundef nonnull @.str.13, ptr noundef %.033.lcssa) #10
@@ -393,7 +393,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
 
 128:                                              ; preds = %.lr.ph, %151
   %129 = phi ptr [ %103, %.lr.ph ], [ %153, %151 ]
-  %.147 = phi i32 [ %.032, %.lr.ph ], [ %.2, %151 ]
+  %.247 = phi i32 [ %.032, %.lr.ph ], [ %.3, %151 ]
   %.03346 = phi ptr [ %102, %.lr.ph ], [ %152, %151 ]
   %130 = load i8, ptr %129, align 1
   %131 = icmp eq i8 %130, 10
@@ -427,18 +427,18 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
 
 151:                                              ; preds = %128, %135
   %152 = getelementptr inbounds i8, ptr %129, i64 1
-  %.2 = add nsw i32 %133, %.147
+  %.3 = add nsw i32 %133, %.247
   %153 = call noundef ptr @strpbrk(ptr noundef nonnull %152, ptr noundef nonnull @.str.14) #9
   %154 = icmp eq ptr %153, null
   br i1 %154, label %._crit_edge, label %128, !llvm.loop !8
 
 155:                                              ; preds = %._crit_edge, %111
-  %.241 = add nsw i32 %109, %.1.lcssa
+  %.341 = add nsw i32 %109, %.2.lcssa
   call void @_ZN2os4freeEPv(ptr noundef %102) #10
   br label %156
 
 156:                                              ; preds = %99, %155, %138, %115, %86, %58, %37
-  %.0 = phi i32 [ -1, %115 ], [ -1, %138 ], [ -1, %86 ], [ -1, %58 ], [ -1, %37 ], [ %.241, %155 ], [ %100, %99 ]
+  %.0 = phi i32 [ -1, %115 ], [ -1, %138 ], [ -1, %86 ], [ -1, %58 ], [ -1, %37 ], [ %.341, %155 ], [ %100, %99 ]
   ret i32 %.0
 }
 

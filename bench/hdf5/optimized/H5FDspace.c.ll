@@ -170,16 +170,16 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
 
 H5FD__extend.exit:                                ; preds = %.H5FD__extend.exit_crit_edge, %44
   %.pre-phi = phi i64 [ %.pre64, %.H5FD__extend.exit_crit_edge ], [ %46, %44 ]
-  %.044 = phi i64 [ %56, %.H5FD__extend.exit_crit_edge ], [ %48, %44 ]
-  %spec.select = add i64 %.044, %.pre-phi
+  %.1 = phi i64 [ %56, %.H5FD__extend.exit_crit_edge ], [ %48, %44 ]
+  %spec.select = add i64 %.1, %.pre-phi
   %80 = getelementptr inbounds i8, ptr %0, i64 48
   %81 = load i64, ptr %80, align 8
   %82 = sub i64 %spec.select, %81
   br label %83
 
 83:                                               ; preds = %H5FD__extend.exit, %73, %49
-  %.2 = phi i64 [ %82, %H5FD__extend.exit ], [ -1, %49 ], [ -1, %73 ]
-  ret i64 %.2
+  %.044 = phi i64 [ %82, %H5FD__extend.exit ], [ -1, %49 ], [ -1, %73 ]
+  ret i64 %.044
 }
 
 declare i64 @H5CX_get_dxpl() local_unnamed_addr #1

@@ -212,8 +212,8 @@ while.cond:                                       ; preds = %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %while.cond, %sw.bb81, %lor.lhs.false70, %lor.lhs.false, %sw.bb30, %sw.bb14, %sw.bb78, %sw.bb49, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb36, %sw.bb28, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb12, %sw.bb11
   %e.0.be = phi ptr [ %e.0, %sw.bb78 ], [ %e.0, %lor.lhs.false70 ], [ %e.0, %lor.lhs.false ], [ %e.0, %sw.bb49 ], [ %e.0, %sw.bb47 ], [ %e.0, %sw.bb46 ], [ %e.0, %sw.bb45 ], [ %e.0, %sw.bb42 ], [ %e.0, %sw.bb41 ], [ %e.0, %sw.bb40 ], [ %e.0, %sw.bb39 ], [ %call38, %sw.bb36 ], [ %e.0, %sw.bb30 ], [ %e.0, %sw.bb28 ], [ %e.0, %sw.bb26 ], [ %e.0, %sw.bb24 ], [ %e.0, %sw.bb22 ], [ %e.0, %sw.bb20 ], [ %e.0, %sw.bb18 ], [ %e.0, %sw.bb14 ], [ %e.0, %sw.bb81 ], [ %e.0, %sw.bb12 ], [ %e.0, %sw.bb11 ], [ %e.0, %while.cond ]
-  %sigopts.0.be = phi ptr [ %sigopts.0, %sw.bb78 ], [ %sigopts.0, %lor.lhs.false70 ], [ %sigopts.2125, %lor.lhs.false ], [ %sigopts.0, %sw.bb49 ], [ %sigopts.0, %sw.bb47 ], [ %sigopts.0, %sw.bb46 ], [ %sigopts.0, %sw.bb45 ], [ %sigopts.0, %sw.bb42 ], [ %sigopts.0, %sw.bb41 ], [ %sigopts.0, %sw.bb40 ], [ %sigopts.0, %sw.bb39 ], [ %sigopts.0, %sw.bb36 ], [ %sigopts.0, %sw.bb30 ], [ %sigopts.0, %sw.bb28 ], [ %sigopts.0, %sw.bb26 ], [ %sigopts.0, %sw.bb24 ], [ %sigopts.0, %sw.bb22 ], [ %sigopts.0, %sw.bb20 ], [ %sigopts.0, %sw.bb18 ], [ %sigopts.0, %sw.bb14 ], [ %sigopts.0, %sw.bb81 ], [ %sigopts.0, %sw.bb12 ], [ %sigopts.0, %sw.bb11 ], [ %sigopts.0, %while.cond ]
-  %macopts.0.be = phi ptr [ %macopts.0, %sw.bb78 ], [ %macopts.2128, %lor.lhs.false70 ], [ %macopts.0, %lor.lhs.false ], [ %macopts.0, %sw.bb49 ], [ %macopts.0, %sw.bb47 ], [ %macopts.0, %sw.bb46 ], [ %macopts.0, %sw.bb45 ], [ %macopts.0, %sw.bb42 ], [ %macopts.0, %sw.bb41 ], [ %macopts.0, %sw.bb40 ], [ %macopts.0, %sw.bb39 ], [ %macopts.0, %sw.bb36 ], [ %macopts.0, %sw.bb30 ], [ %macopts.0, %sw.bb28 ], [ %macopts.0, %sw.bb26 ], [ %macopts.0, %sw.bb24 ], [ %macopts.0, %sw.bb22 ], [ %macopts.0, %sw.bb20 ], [ %macopts.0, %sw.bb18 ], [ %macopts.0, %sw.bb14 ], [ %macopts.0, %sw.bb81 ], [ %macopts.0, %sw.bb12 ], [ %macopts.0, %sw.bb11 ], [ %macopts.0, %while.cond ]
+  %sigopts.0.be = phi ptr [ %sigopts.0, %sw.bb78 ], [ %sigopts.0, %lor.lhs.false70 ], [ %sigopts.4125, %lor.lhs.false ], [ %sigopts.0, %sw.bb49 ], [ %sigopts.0, %sw.bb47 ], [ %sigopts.0, %sw.bb46 ], [ %sigopts.0, %sw.bb45 ], [ %sigopts.0, %sw.bb42 ], [ %sigopts.0, %sw.bb41 ], [ %sigopts.0, %sw.bb40 ], [ %sigopts.0, %sw.bb39 ], [ %sigopts.0, %sw.bb36 ], [ %sigopts.0, %sw.bb30 ], [ %sigopts.0, %sw.bb28 ], [ %sigopts.0, %sw.bb26 ], [ %sigopts.0, %sw.bb24 ], [ %sigopts.0, %sw.bb22 ], [ %sigopts.0, %sw.bb20 ], [ %sigopts.0, %sw.bb18 ], [ %sigopts.0, %sw.bb14 ], [ %sigopts.0, %sw.bb81 ], [ %sigopts.0, %sw.bb12 ], [ %sigopts.0, %sw.bb11 ], [ %sigopts.0, %while.cond ]
+  %macopts.0.be = phi ptr [ %macopts.0, %sw.bb78 ], [ %macopts.4128, %lor.lhs.false70 ], [ %macopts.0, %lor.lhs.false ], [ %macopts.0, %sw.bb49 ], [ %macopts.0, %sw.bb47 ], [ %macopts.0, %sw.bb46 ], [ %macopts.0, %sw.bb45 ], [ %macopts.0, %sw.bb42 ], [ %macopts.0, %sw.bb41 ], [ %macopts.0, %sw.bb40 ], [ %macopts.0, %sw.bb39 ], [ %macopts.0, %sw.bb36 ], [ %macopts.0, %sw.bb30 ], [ %macopts.0, %sw.bb28 ], [ %macopts.0, %sw.bb26 ], [ %macopts.0, %sw.bb24 ], [ %macopts.0, %sw.bb22 ], [ %macopts.0, %sw.bb20 ], [ %macopts.0, %sw.bb18 ], [ %macopts.0, %sw.bb14 ], [ %macopts.0, %sw.bb81 ], [ %macopts.0, %sw.bb12 ], [ %macopts.0, %sw.bb11 ], [ %macopts.0, %while.cond ]
   %hmac_key.0.be = phi ptr [ %hmac_key.0, %sw.bb78 ], [ %hmac_key.0, %lor.lhs.false70 ], [ %hmac_key.0, %lor.lhs.false ], [ %hmac_key.0, %sw.bb49 ], [ %call48, %sw.bb47 ], [ @.str.71, %sw.bb46 ], [ %hmac_key.0, %sw.bb45 ], [ %hmac_key.0, %sw.bb42 ], [ %hmac_key.0, %sw.bb41 ], [ %hmac_key.0, %sw.bb40 ], [ %hmac_key.0, %sw.bb39 ], [ %hmac_key.0, %sw.bb36 ], [ %hmac_key.0, %sw.bb30 ], [ %hmac_key.0, %sw.bb28 ], [ %hmac_key.0, %sw.bb26 ], [ %hmac_key.0, %sw.bb24 ], [ %hmac_key.0, %sw.bb22 ], [ %hmac_key.0, %sw.bb20 ], [ %hmac_key.0, %sw.bb18 ], [ %hmac_key.0, %sw.bb14 ], [ %hmac_key.0, %sw.bb81 ], [ %hmac_key.0, %sw.bb12 ], [ %hmac_key.0, %sw.bb11 ], [ %hmac_key.0, %while.cond ]
   %mac_name.0.be = phi ptr [ %mac_name.0, %sw.bb78 ], [ %mac_name.0, %lor.lhs.false70 ], [ %mac_name.0, %lor.lhs.false ], [ %call50, %sw.bb49 ], [ %mac_name.0, %sw.bb47 ], [ %mac_name.0, %sw.bb46 ], [ %mac_name.0, %sw.bb45 ], [ %mac_name.0, %sw.bb42 ], [ %mac_name.0, %sw.bb41 ], [ %mac_name.0, %sw.bb40 ], [ %mac_name.0, %sw.bb39 ], [ %mac_name.0, %sw.bb36 ], [ %mac_name.0, %sw.bb30 ], [ %mac_name.0, %sw.bb28 ], [ %mac_name.0, %sw.bb26 ], [ %mac_name.0, %sw.bb24 ], [ %mac_name.0, %sw.bb22 ], [ %mac_name.0, %sw.bb20 ], [ %mac_name.0, %sw.bb18 ], [ %mac_name.0, %sw.bb14 ], [ %mac_name.0, %sw.bb81 ], [ %mac_name.0, %sw.bb12 ], [ %mac_name.0, %sw.bb11 ], [ %mac_name.0, %while.cond ]
   %digestname.1.be = phi ptr [ %call79, %sw.bb78 ], [ %digestname.1, %lor.lhs.false70 ], [ %digestname.1, %lor.lhs.false ], [ %digestname.1, %sw.bb49 ], [ %digestname.1, %sw.bb47 ], [ %digestname.1, %sw.bb46 ], [ %digestname.1, %sw.bb45 ], [ %digestname.1, %sw.bb42 ], [ %digestname.1, %sw.bb41 ], [ %digestname.1, %sw.bb40 ], [ %digestname.1, %sw.bb39 ], [ %digestname.1, %sw.bb36 ], [ %digestname.1, %sw.bb30 ], [ %digestname.1, %sw.bb28 ], [ %digestname.1, %sw.bb26 ], [ %digestname.1, %sw.bb24 ], [ %digestname.1, %sw.bb22 ], [ %digestname.1, %sw.bb20 ], [ %digestname.1, %sw.bb18 ], [ %digestname.1, %sw.bb14 ], [ %digestname.1, %sw.bb81 ], [ %digestname.1, %sw.bb12 ], [ %digestname.1, %sw.bb11 ], [ %digestname.1, %while.cond ]
@@ -231,8 +231,8 @@ while.cond.backedge:                              ; preds = %while.cond, %sw.bb8
   br label %while.cond, !llvm.loop !5
 
 opthelp:                                          ; preds = %while.cond, %if.end68, %lor.lhs.false70, %if.end55, %lor.lhs.false, %sw.bb30, %if.then98
-  %sigopts.1 = phi ptr [ %sigopts.0, %if.then98 ], [ %sigopts.0, %while.cond ], [ %sigopts.0, %sw.bb30 ], [ null, %if.end55 ], [ %sigopts.2125, %lor.lhs.false ], [ %sigopts.0, %if.end68 ], [ %sigopts.0, %lor.lhs.false70 ]
-  %macopts.1 = phi ptr [ %macopts.0, %if.then98 ], [ %macopts.0, %while.cond ], [ %macopts.0, %sw.bb30 ], [ %macopts.0, %if.end55 ], [ %macopts.0, %lor.lhs.false ], [ null, %if.end68 ], [ %macopts.2128, %lor.lhs.false70 ]
+  %sigopts.2 = phi ptr [ %sigopts.0, %if.then98 ], [ %sigopts.0, %while.cond ], [ %sigopts.0, %sw.bb30 ], [ null, %if.end55 ], [ %sigopts.4125, %lor.lhs.false ], [ %sigopts.0, %if.end68 ], [ %sigopts.0, %lor.lhs.false70 ]
+  %macopts.2 = phi ptr [ %macopts.0, %if.then98 ], [ %macopts.0, %while.cond ], [ %macopts.0, %sw.bb30 ], [ %macopts.0, %if.end55 ], [ %macopts.0, %lor.lhs.false ], [ null, %if.end68 ], [ %macopts.4128, %lor.lhs.false70 ]
   %2 = load ptr, ptr @bio_err, align 8
   %call6 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.68, ptr noundef %call3) #6
   br label %if.then362
@@ -337,9 +337,9 @@ if.end55:                                         ; preds = %sw.bb51
   br i1 %tobool56.not, label %opthelp, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb51, %if.end55
-  %sigopts.2125 = phi ptr [ %call54, %if.end55 ], [ %sigopts.0, %sw.bb51 ]
+  %sigopts.4125 = phi ptr [ %call54, %if.end55 ], [ %sigopts.0, %sw.bb51 ]
   %call58 = call ptr @opt_arg() #6
-  %call60 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %sigopts.2125, ptr noundef %call58) #6
+  %call60 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %sigopts.4125, ptr noundef %call58) #6
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %opthelp, label %while.cond.backedge
 
@@ -353,9 +353,9 @@ if.end68:                                         ; preds = %sw.bb64
   br i1 %tobool69.not, label %opthelp, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %sw.bb64, %if.end68
-  %macopts.2128 = phi ptr [ %call67, %if.end68 ], [ %macopts.0, %sw.bb64 ]
+  %macopts.4128 = phi ptr [ %call67, %if.end68 ], [ %macopts.0, %sw.bb64 ]
   %call72 = call ptr @opt_arg() #6
-  %call74 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %macopts.2128, ptr noundef %call72) #6
+  %call74 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %macopts.4128, ptr noundef %call72) #6
   %tobool75.not = icmp eq i32 %call74, 0
   br i1 %tobool75.not, label %opthelp, label %while.cond.backedge
 
@@ -481,12 +481,12 @@ if.else158:                                       ; preds = %if.then154
   br label %if.end160
 
 if.end160:                                        ; preds = %if.else158, %if.then156
-  %sigkey.0 = phi ptr [ %call157, %if.then156 ], [ %call159, %if.else158 ]
-  %cmp161 = icmp eq ptr %sigkey.0, null
+  %sigkey.2 = phi ptr [ %call157, %if.then156 ], [ %call159, %if.else158 ]
+  %cmp161 = icmp eq ptr %sigkey.2, null
   br i1 %cmp161, label %if.then362, label %if.end163
 
 if.end163:                                        ; preds = %if.end160
-  %call164 = call i32 @EVP_PKEY_get_id(ptr noundef nonnull %sigkey.0) #6
+  %call164 = call i32 @EVP_PKEY_get_id(ptr noundef nonnull %sigkey.2) #6
   %13 = add i32 %call164, -1087
   %or.cond3 = icmp ult i32 %13, 2
   br i1 %or.cond3, label %if.then168, label %if.end171
@@ -497,7 +497,7 @@ if.then168:                                       ; preds = %if.end163
   br label %if.then362
 
 if.end171:                                        ; preds = %if.end163, %if.end152
-  %sigkey.1 = phi ptr [ %sigkey.0, %if.end163 ], [ null, %if.end152 ]
+  %sigkey.1 = phi ptr [ %sigkey.2, %if.end163 ], [ null, %if.end152 ]
   %cmp172.not = icmp eq ptr %mac_name.0, null
   br i1 %cmp172.not, label %if.end195, label %if.then173
 
@@ -546,7 +546,7 @@ if.end190:                                        ; preds = %for.cond, %for.cond
   br i1 %cmp192, label %if.then362, label %if.end195
 
 if.end195:                                        ; preds = %if.end190, %if.end171
-  %sigkey.2 = phi ptr [ %call191, %if.end190 ], [ %sigkey.1, %if.end171 ]
+  %sigkey.3 = phi ptr [ %call191, %if.end190 ], [ %sigkey.1, %if.end171 ]
   %cmp196.not = icmp eq ptr %hmac_key.0, null
   br i1 %cmp196.not, label %if.end207, label %if.then197
 
@@ -561,19 +561,19 @@ if.then199:                                       ; preds = %if.then197
   br label %if.end201
 
 if.end201:                                        ; preds = %if.then199, %if.then197
-  %digestname.3 = phi ptr [ @.str.80, %if.then199 ], [ %digestname.1, %if.then197 ]
+  %digestname.4 = phi ptr [ @.str.80, %if.then199 ], [ %digestname.1, %if.then197 ]
   %call202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hmac_key.0) #7
   %call203 = call ptr @EVP_PKEY_new_raw_private_key(i32 noundef 855, ptr noundef %spec.select, ptr noundef nonnull %hmac_key.0, i64 noundef %call202) #6
   %cmp204 = icmp eq ptr %call203, null
   br i1 %cmp204, label %if.then362, label %if.then209
 
 if.end207:                                        ; preds = %if.end195
-  %cmp208.not = icmp eq ptr %sigkey.2, null
+  %cmp208.not = icmp eq ptr %sigkey.3, null
   br i1 %cmp208.not, label %if.else257, label %if.then209
 
 if.then209:                                       ; preds = %if.end201, %if.end207
-  %digestname.4134 = phi ptr [ %digestname.1, %if.end207 ], [ %digestname.3, %if.end201 ]
-  %sigkey.3133 = phi ptr [ %sigkey.2, %if.end207 ], [ %call203, %if.end201 ]
+  %digestname.3134 = phi ptr [ %digestname.1, %if.end207 ], [ %digestname.4, %if.end201 ]
+  %sigkey.4133 = phi ptr [ %sigkey.3, %if.end207 ], [ %call203, %if.end201 ]
   store ptr null, ptr %mctx, align 8
   store ptr null, ptr %pctx, align 8
   %call210 = call i64 @BIO_ctrl(ptr noundef %call116, i32 noundef 120, i64 noundef 0, ptr noundef nonnull %mctx) #6
@@ -596,12 +596,12 @@ if.then216:                                       ; preds = %if.end214
 if.then218:                                       ; preds = %if.then216
   %call219 = call ptr @app_get0_libctx() #6
   %call220 = call ptr @app_get0_propq() #6
-  %call221 = call i32 @EVP_DigestVerifyInit_ex(ptr noundef %22, ptr noundef nonnull %pctx, ptr noundef %digestname.4134, ptr noundef %call219, ptr noundef %call220, ptr noundef nonnull %sigkey.3133, ptr noundef null) #6
+  %call221 = call i32 @EVP_DigestVerifyInit_ex(ptr noundef %22, ptr noundef nonnull %pctx, ptr noundef %digestname.3134, ptr noundef %call219, ptr noundef %call220, ptr noundef nonnull %sigkey.4133, ptr noundef null) #6
   br label %if.end234
 
 if.else222:                                       ; preds = %if.then216
   %23 = load ptr, ptr %md, align 8
-  %call223 = call i32 @EVP_DigestVerifyInit(ptr noundef %22, ptr noundef nonnull %pctx, ptr noundef %23, ptr noundef nonnull %spec.select, ptr noundef nonnull %sigkey.3133) #6
+  %call223 = call i32 @EVP_DigestVerifyInit(ptr noundef %22, ptr noundef nonnull %pctx, ptr noundef %23, ptr noundef nonnull %spec.select, ptr noundef nonnull %sigkey.4133) #6
   br label %if.end234
 
 if.else225:                                       ; preds = %if.end214
@@ -610,12 +610,12 @@ if.else225:                                       ; preds = %if.end214
 if.then227:                                       ; preds = %if.else225
   %call228 = call ptr @app_get0_libctx() #6
   %call229 = call ptr @app_get0_propq() #6
-  %call230 = call i32 @EVP_DigestSignInit_ex(ptr noundef %22, ptr noundef nonnull %pctx, ptr noundef %digestname.4134, ptr noundef %call228, ptr noundef %call229, ptr noundef nonnull %sigkey.3133, ptr noundef null) #6
+  %call230 = call i32 @EVP_DigestSignInit_ex(ptr noundef %22, ptr noundef nonnull %pctx, ptr noundef %digestname.3134, ptr noundef %call228, ptr noundef %call229, ptr noundef nonnull %sigkey.4133, ptr noundef null) #6
   br label %if.end234
 
 if.else231:                                       ; preds = %if.else225
   %24 = load ptr, ptr %md, align 8
-  %call232 = call i32 @EVP_DigestSignInit(ptr noundef %22, ptr noundef nonnull %pctx, ptr noundef %24, ptr noundef nonnull %spec.select, ptr noundef nonnull %sigkey.3133) #6
+  %call232 = call i32 @EVP_DigestSignInit(ptr noundef %22, ptr noundef nonnull %pctx, ptr noundef %24, ptr noundef nonnull %spec.select, ptr noundef nonnull %sigkey.4133) #6
   br label %if.end234
 
 if.end234:                                        ; preds = %if.then227, %if.else231, %if.then218, %if.else222
@@ -703,7 +703,7 @@ if.then280:                                       ; preds = %if.then277
   br label %if.then362
 
 if.end282:                                        ; preds = %if.then277
-  %call283 = call i32 @EVP_PKEY_get_size(ptr noundef nonnull %sigkey.3133) #6
+  %call283 = call i32 @EVP_PKEY_get_size(ptr noundef nonnull %sigkey.4133) #6
   %conv = sext i32 %call283 to i64
   %call284 = call ptr @app_malloc(i64 noundef %conv, ptr noundef nonnull @.str.87) #6
   %call285 = call i32 @BIO_read(ptr noundef nonnull %call278, ptr noundef %call284, i32 noundef %call283) #6
@@ -717,10 +717,10 @@ if.then289:                                       ; preds = %if.end282
   br label %if.then362
 
 if.end292:                                        ; preds = %if.end267, %if.end282, %if.end273
-  %sigkey.3132142 = phi ptr [ %sigkey.3133, %if.end282 ], [ %sigkey.3133, %if.end273 ], [ null, %if.end267 ]
+  %sigkey.4132142 = phi ptr [ %sigkey.4133, %if.end282 ], [ %sigkey.4133, %if.end273 ], [ null, %if.end267 ]
   %cmp208135141 = phi i1 [ true, %if.end282 ], [ true, %if.end273 ], [ false, %if.end267 ]
   %siglen.0 = phi i32 [ %call285, %if.end282 ], [ 0, %if.end273 ], [ 0, %if.end267 ]
-  %sigbuf.0 = phi ptr [ %call284, %if.end282 ], [ null, %if.end273 ], [ null, %if.end267 ]
+  %sigbuf.1 = phi ptr [ %call284, %if.end282 ], [ null, %if.end273 ], [ null, %if.end267 ]
   %call293 = call ptr @BIO_push(ptr noundef %call116, ptr noundef %call114) #6
   %35 = load ptr, ptr %md, align 8
   %cmp294 = icmp eq ptr %35, null
@@ -771,7 +771,7 @@ if.end318:                                        ; preds = %if.end312, %if.end3
 if.then321:                                       ; preds = %if.end318
   %41 = load ptr, ptr @stdin, align 8
   %call322 = call i64 @BIO_ctrl(ptr noundef %call114, i32 noundef 106, i64 noundef 0, ptr noundef %41) #6
-  %call323 = call i32 @do_fp(ptr noundef %call137, ptr noundef %call, ptr noundef %call293, i32 noundef %separator.0, i32 noundef %out_bin.2, i32 noundef %xoflen.0, ptr noundef %sigkey.3132142, ptr noundef %sigbuf.0, i32 noundef %siglen.0, ptr noundef null, ptr noundef %md_name.0, ptr noundef nonnull @.str.91)
+  %call323 = call i32 @do_fp(ptr noundef %call137, ptr noundef %call, ptr noundef %call293, i32 noundef %separator.0, i32 noundef %out_bin.2, i32 noundef %xoflen.0, ptr noundef %sigkey.4132142, ptr noundef %sigbuf.1, i32 noundef %siglen.0, ptr noundef null, ptr noundef %md_name.0, ptr noundef nonnull @.str.91)
   br label %end
 
 if.else324:                                       ; preds = %if.end318
@@ -779,7 +779,7 @@ if.else324:                                       ; preds = %if.end318
   br i1 %or.cond5, label %if.then330, label %if.end333
 
 if.then330:                                       ; preds = %if.else324
-  %call331 = call ptr @EVP_PKEY_get0_type_name(ptr noundef nonnull %sigkey.3132142) #6
+  %call331 = call ptr @EVP_PKEY_get0_type_name(ptr noundef nonnull %sigkey.4132142) #6
   br label %if.end333
 
 if.end333:                                        ; preds = %if.then330, %if.else324
@@ -793,7 +793,7 @@ for.body337.preheader:                            ; preds = %if.end333
 
 for.body337:                                      ; preds = %for.body337.preheader, %for.inc356
   %indvars.iv = phi i64 [ 0, %for.body337.preheader ], [ %indvars.iv.next, %for.inc356 ]
-  %ret.0260 = phi i32 [ 0, %for.body337.preheader ], [ %ret.2, %for.inc356 ]
+  %ret.1260 = phi i32 [ 0, %for.body337.preheader ], [ %ret.2, %for.inc356 ]
   %arrayidx338 = getelementptr inbounds ptr, ptr %call87, i64 %indvars.iv
   %42 = load ptr, ptr %arrayidx338, align 8
   %call339 = call i64 @BIO_ctrl(ptr noundef %call114, i32 noundef 108, i64 noundef 3, ptr noundef %42) #6
@@ -807,9 +807,9 @@ if.then343:                                       ; preds = %for.body337
   br label %for.inc356
 
 if.else346:                                       ; preds = %for.body337
-  %call349 = call i32 @do_fp(ptr noundef %call137, ptr noundef %call, ptr noundef %call293, i32 noundef %separator.0, i32 noundef %out_bin.2, i32 noundef %xoflen.0, ptr noundef %sigkey.3132142, ptr noundef %sigbuf.0, i32 noundef %siglen.0, ptr noundef %sig_name.0, ptr noundef %md_name.0, ptr noundef %43)
+  %call349 = call i32 @do_fp(ptr noundef %call137, ptr noundef %call, ptr noundef %call293, i32 noundef %separator.0, i32 noundef %out_bin.2, i32 noundef %xoflen.0, ptr noundef %sigkey.4132142, ptr noundef %sigbuf.1, i32 noundef %siglen.0, ptr noundef %sig_name.0, ptr noundef %md_name.0, ptr noundef %43)
   %tobool350.not = icmp eq i32 %call349, 0
-  %spec.select122 = select i1 %tobool350.not, i32 %ret.0260, i32 1
+  %spec.select122 = select i1 %tobool350.not, i32 %ret.1260, i32 1
   %call354 = call i64 @BIO_ctrl(ptr noundef %call116, i32 noundef 1, i64 noundef 0, ptr noundef null) #6
   br label %for.inc356
 
@@ -820,19 +820,19 @@ for.inc356:                                       ; preds = %if.else346, %if.the
   br i1 %exitcond.not, label %end, label %for.body337, !llvm.loop !9
 
 end:                                              ; preds = %for.inc356, %if.then321
-  %ret.3 = phi i32 [ %call323, %if.then321 ], [ %ret.2, %for.inc356 ]
-  %cmp360.not = icmp eq i32 %ret.3, 0
+  %ret.0 = phi i32 [ %call323, %if.then321 ], [ %ret.2, %for.inc356 ]
+  %cmp360.not = icmp eq i32 %ret.0, 0
   br i1 %cmp360.not, label %if.end363, label %if.then362
 
 if.then362:                                       ; preds = %sw.bb81, %sw.bb14, %if.end92, %if.then127, %if.then173, %if.then270, %if.then261, %if.then310, %if.then315, %if.then289, %if.then280, %if.then250, %if.then236, %if.then212, %if.end201, %if.end190, %if.then187, %if.then168, %if.end160, %if.then150, %if.end129, %if.end109, %if.then107, %if.then90, %opthelp, %end
   %in.0167 = phi ptr [ %call114, %end ], [ null, %if.end92 ], [ %call114, %if.then127 ], [ %call114, %if.then173 ], [ %call114, %if.then270 ], [ %call114, %if.then261 ], [ %call114, %if.then310 ], [ %call114, %if.then315 ], [ %call114, %if.then289 ], [ %call114, %if.then280 ], [ %call114, %if.then250 ], [ %call114, %if.then236 ], [ %call114, %if.then212 ], [ %call114, %if.end201 ], [ %call114, %if.end190 ], [ %call114, %if.then187 ], [ %call114, %if.then168 ], [ %call114, %if.end160 ], [ %call114, %if.then150 ], [ %call114, %if.end129 ], [ %call114, %if.end109 ], [ null, %if.then107 ], [ null, %if.then90 ], [ null, %opthelp ], [ null, %sw.bb14 ], [ null, %sw.bb81 ]
   %bmd.0165 = phi ptr [ %call116, %end ], [ null, %if.end92 ], [ %call116, %if.then127 ], [ %call116, %if.then173 ], [ %call116, %if.then270 ], [ %call116, %if.then261 ], [ %call116, %if.then310 ], [ %call116, %if.then315 ], [ %call116, %if.then289 ], [ %call116, %if.then280 ], [ %call116, %if.then250 ], [ %call116, %if.then236 ], [ %call116, %if.then212 ], [ %call116, %if.end201 ], [ %call116, %if.end190 ], [ %call116, %if.then187 ], [ %call116, %if.then168 ], [ %call116, %if.end160 ], [ %call116, %if.then150 ], [ %call116, %if.end129 ], [ %call116, %if.end109 ], [ null, %if.then107 ], [ null, %if.then90 ], [ null, %opthelp ], [ null, %sw.bb14 ], [ null, %sw.bb81 ]
-  %sigbuf.1163 = phi ptr [ %sigbuf.0, %end ], [ null, %if.end92 ], [ null, %if.then127 ], [ null, %if.then173 ], [ null, %if.then270 ], [ null, %if.then261 ], [ %sigbuf.0, %if.then310 ], [ %sigbuf.0, %if.then315 ], [ %call284, %if.then289 ], [ null, %if.then280 ], [ null, %if.then250 ], [ null, %if.then236 ], [ null, %if.then212 ], [ null, %if.end201 ], [ null, %if.end190 ], [ null, %if.then187 ], [ null, %if.then168 ], [ null, %if.end160 ], [ null, %if.then150 ], [ null, %if.end129 ], [ null, %if.end109 ], [ null, %if.then107 ], [ null, %if.then90 ], [ null, %opthelp ], [ null, %sw.bb14 ], [ null, %sw.bb81 ]
-  %ret.3161 = phi i32 [ %ret.3, %end ], [ 1, %if.end92 ], [ 1, %if.then127 ], [ 1, %if.then173 ], [ 1, %if.then270 ], [ 1, %if.then261 ], [ 1, %if.then310 ], [ 1, %if.then315 ], [ 1, %if.then289 ], [ 1, %if.then280 ], [ 1, %if.then250 ], [ 1, %if.then236 ], [ 1, %if.then212 ], [ 1, %if.end201 ], [ 1, %if.end190 ], [ 1, %if.then187 ], [ 1, %if.then168 ], [ 1, %if.end160 ], [ 1, %if.then150 ], [ 1, %if.end129 ], [ 1, %if.end109 ], [ 1, %if.then107 ], [ 1, %if.then90 ], [ 1, %opthelp ], [ 1, %sw.bb14 ], [ 1, %sw.bb81 ]
+  %sigbuf.0163 = phi ptr [ %sigbuf.1, %end ], [ null, %if.end92 ], [ null, %if.then127 ], [ null, %if.then173 ], [ null, %if.then270 ], [ null, %if.then261 ], [ %sigbuf.1, %if.then310 ], [ %sigbuf.1, %if.then315 ], [ %call284, %if.then289 ], [ null, %if.then280 ], [ null, %if.then250 ], [ null, %if.then236 ], [ null, %if.then212 ], [ null, %if.end201 ], [ null, %if.end190 ], [ null, %if.then187 ], [ null, %if.then168 ], [ null, %if.end160 ], [ null, %if.then150 ], [ null, %if.end129 ], [ null, %if.end109 ], [ null, %if.then107 ], [ null, %if.then90 ], [ null, %opthelp ], [ null, %sw.bb14 ], [ null, %sw.bb81 ]
+  %ret.0161 = phi i32 [ %ret.0, %end ], [ 1, %if.end92 ], [ 1, %if.then127 ], [ 1, %if.then173 ], [ 1, %if.then270 ], [ 1, %if.then261 ], [ 1, %if.then310 ], [ 1, %if.then315 ], [ 1, %if.then289 ], [ 1, %if.then280 ], [ 1, %if.then250 ], [ 1, %if.then236 ], [ 1, %if.then212 ], [ 1, %if.end201 ], [ 1, %if.end190 ], [ 1, %if.then187 ], [ 1, %if.then168 ], [ 1, %if.end160 ], [ 1, %if.then150 ], [ 1, %if.end129 ], [ 1, %if.end109 ], [ 1, %if.then107 ], [ 1, %if.then90 ], [ 1, %opthelp ], [ 1, %sw.bb14 ], [ 1, %sw.bb81 ]
   %out.0159 = phi ptr [ %call137, %end ], [ null, %if.end92 ], [ null, %if.then127 ], [ %call137, %if.then173 ], [ %call137, %if.then270 ], [ %call137, %if.then261 ], [ %call137, %if.then310 ], [ %call137, %if.then315 ], [ %call137, %if.then289 ], [ %call137, %if.then280 ], [ %call137, %if.then250 ], [ %call137, %if.then236 ], [ %call137, %if.then212 ], [ %call137, %if.end201 ], [ %call137, %if.end190 ], [ %call137, %if.then187 ], [ %call137, %if.then168 ], [ %call137, %if.end160 ], [ %call137, %if.then150 ], [ null, %if.end129 ], [ null, %if.end109 ], [ null, %if.then107 ], [ null, %if.then90 ], [ null, %opthelp ], [ null, %sw.bb14 ], [ null, %sw.bb81 ]
-  %macopts.4157 = phi ptr [ %macopts.0, %end ], [ %macopts.0, %if.end92 ], [ %macopts.0, %if.then127 ], [ %macopts.0, %if.then173 ], [ %macopts.0, %if.then270 ], [ %macopts.0, %if.then261 ], [ %macopts.0, %if.then310 ], [ %macopts.0, %if.then315 ], [ %macopts.0, %if.then289 ], [ %macopts.0, %if.then280 ], [ %macopts.0, %if.then250 ], [ %macopts.0, %if.then236 ], [ %macopts.0, %if.then212 ], [ %macopts.0, %if.end201 ], [ %macopts.0, %if.end190 ], [ %macopts.0, %if.then187 ], [ %macopts.0, %if.then168 ], [ %macopts.0, %if.end160 ], [ %macopts.0, %if.then150 ], [ %macopts.0, %if.end129 ], [ %macopts.0, %if.end109 ], [ %macopts.0, %if.then107 ], [ %macopts.0, %if.then90 ], [ %macopts.1, %opthelp ], [ %macopts.0, %sw.bb14 ], [ %macopts.0, %sw.bb81 ]
-  %sigopts.4155 = phi ptr [ %sigopts.0, %end ], [ %sigopts.0, %if.end92 ], [ %sigopts.0, %if.then127 ], [ %sigopts.0, %if.then173 ], [ %sigopts.0, %if.then270 ], [ %sigopts.0, %if.then261 ], [ %sigopts.0, %if.then310 ], [ %sigopts.0, %if.then315 ], [ %sigopts.0, %if.then289 ], [ %sigopts.0, %if.then280 ], [ %sigopts.0, %if.then250 ], [ %sigopts.0, %if.then236 ], [ %sigopts.0, %if.then212 ], [ %sigopts.0, %if.end201 ], [ %sigopts.0, %if.end190 ], [ %sigopts.0, %if.then187 ], [ %sigopts.0, %if.then168 ], [ %sigopts.0, %if.end160 ], [ %sigopts.0, %if.then150 ], [ %sigopts.0, %if.end129 ], [ %sigopts.0, %if.end109 ], [ %sigopts.0, %if.then107 ], [ %sigopts.0, %if.then90 ], [ %sigopts.1, %opthelp ], [ %sigopts.0, %sw.bb14 ], [ %sigopts.0, %sw.bb81 ]
-  %sigkey.4153 = phi ptr [ %sigkey.3132142, %end ], [ null, %if.end92 ], [ null, %if.then127 ], [ %sigkey.1, %if.then173 ], [ null, %if.then270 ], [ null, %if.then261 ], [ %sigkey.3132142, %if.then310 ], [ %sigkey.3132142, %if.then315 ], [ %sigkey.3133, %if.then289 ], [ %sigkey.3133, %if.then280 ], [ %sigkey.3133, %if.then250 ], [ %sigkey.3133, %if.then236 ], [ %sigkey.3133, %if.then212 ], [ null, %if.end201 ], [ null, %if.end190 ], [ %sigkey.1, %if.then187 ], [ %sigkey.0, %if.then168 ], [ null, %if.end160 ], [ null, %if.then150 ], [ null, %if.end129 ], [ null, %if.end109 ], [ null, %if.then107 ], [ null, %if.then90 ], [ null, %opthelp ], [ null, %sw.bb14 ], [ null, %sw.bb81 ]
+  %macopts.3157 = phi ptr [ %macopts.0, %end ], [ %macopts.0, %if.end92 ], [ %macopts.0, %if.then127 ], [ %macopts.0, %if.then173 ], [ %macopts.0, %if.then270 ], [ %macopts.0, %if.then261 ], [ %macopts.0, %if.then310 ], [ %macopts.0, %if.then315 ], [ %macopts.0, %if.then289 ], [ %macopts.0, %if.then280 ], [ %macopts.0, %if.then250 ], [ %macopts.0, %if.then236 ], [ %macopts.0, %if.then212 ], [ %macopts.0, %if.end201 ], [ %macopts.0, %if.end190 ], [ %macopts.0, %if.then187 ], [ %macopts.0, %if.then168 ], [ %macopts.0, %if.end160 ], [ %macopts.0, %if.then150 ], [ %macopts.0, %if.end129 ], [ %macopts.0, %if.end109 ], [ %macopts.0, %if.then107 ], [ %macopts.0, %if.then90 ], [ %macopts.2, %opthelp ], [ %macopts.0, %sw.bb14 ], [ %macopts.0, %sw.bb81 ]
+  %sigopts.3155 = phi ptr [ %sigopts.0, %end ], [ %sigopts.0, %if.end92 ], [ %sigopts.0, %if.then127 ], [ %sigopts.0, %if.then173 ], [ %sigopts.0, %if.then270 ], [ %sigopts.0, %if.then261 ], [ %sigopts.0, %if.then310 ], [ %sigopts.0, %if.then315 ], [ %sigopts.0, %if.then289 ], [ %sigopts.0, %if.then280 ], [ %sigopts.0, %if.then250 ], [ %sigopts.0, %if.then236 ], [ %sigopts.0, %if.then212 ], [ %sigopts.0, %if.end201 ], [ %sigopts.0, %if.end190 ], [ %sigopts.0, %if.then187 ], [ %sigopts.0, %if.then168 ], [ %sigopts.0, %if.end160 ], [ %sigopts.0, %if.then150 ], [ %sigopts.0, %if.end129 ], [ %sigopts.0, %if.end109 ], [ %sigopts.0, %if.then107 ], [ %sigopts.0, %if.then90 ], [ %sigopts.2, %opthelp ], [ %sigopts.0, %sw.bb14 ], [ %sigopts.0, %sw.bb81 ]
+  %sigkey.0153 = phi ptr [ %sigkey.4132142, %end ], [ null, %if.end92 ], [ null, %if.then127 ], [ %sigkey.1, %if.then173 ], [ null, %if.then270 ], [ null, %if.then261 ], [ %sigkey.4132142, %if.then310 ], [ %sigkey.4132142, %if.then315 ], [ %sigkey.4133, %if.then289 ], [ %sigkey.4133, %if.then280 ], [ %sigkey.4133, %if.then250 ], [ %sigkey.4133, %if.then236 ], [ %sigkey.4133, %if.then212 ], [ null, %if.end201 ], [ null, %if.end190 ], [ %sigkey.1, %if.then187 ], [ %sigkey.2, %if.then168 ], [ null, %if.end160 ], [ null, %if.then150 ], [ null, %if.end129 ], [ null, %if.end109 ], [ null, %if.then107 ], [ null, %if.then90 ], [ null, %opthelp ], [ null, %sw.bb14 ], [ null, %sw.bb81 ]
   %44 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %44) #6
   br label %if.end363
@@ -840,12 +840,12 @@ if.then362:                                       ; preds = %sw.bb81, %sw.bb14, 
 if.end363:                                        ; preds = %if.end333, %sw.bb7, %sw.bb8, %if.then362, %end
   %in.0168 = phi ptr [ %in.0167, %if.then362 ], [ %call114, %end ], [ null, %sw.bb8 ], [ null, %sw.bb7 ], [ %call114, %if.end333 ]
   %bmd.0166 = phi ptr [ %bmd.0165, %if.then362 ], [ %call116, %end ], [ null, %sw.bb8 ], [ null, %sw.bb7 ], [ %call116, %if.end333 ]
-  %sigbuf.1164 = phi ptr [ %sigbuf.1163, %if.then362 ], [ %sigbuf.0, %end ], [ null, %sw.bb8 ], [ null, %sw.bb7 ], [ %sigbuf.0, %if.end333 ]
-  %ret.3162 = phi i32 [ %ret.3161, %if.then362 ], [ 0, %end ], [ 0, %sw.bb8 ], [ 0, %sw.bb7 ], [ 0, %if.end333 ]
+  %sigbuf.0164 = phi ptr [ %sigbuf.0163, %if.then362 ], [ %sigbuf.1, %end ], [ null, %sw.bb8 ], [ null, %sw.bb7 ], [ %sigbuf.1, %if.end333 ]
+  %ret.0162 = phi i32 [ %ret.0161, %if.then362 ], [ 0, %end ], [ 0, %sw.bb8 ], [ 0, %sw.bb7 ], [ 0, %if.end333 ]
   %out.0160 = phi ptr [ %out.0159, %if.then362 ], [ %call137, %end ], [ null, %sw.bb8 ], [ null, %sw.bb7 ], [ %call137, %if.end333 ]
-  %macopts.4158 = phi ptr [ %macopts.4157, %if.then362 ], [ %macopts.0, %end ], [ %macopts.0, %sw.bb8 ], [ %macopts.0, %sw.bb7 ], [ %macopts.0, %if.end333 ]
-  %sigopts.4156 = phi ptr [ %sigopts.4155, %if.then362 ], [ %sigopts.0, %end ], [ %sigopts.0, %sw.bb8 ], [ %sigopts.0, %sw.bb7 ], [ %sigopts.0, %if.end333 ]
-  %sigkey.4154 = phi ptr [ %sigkey.4153, %if.then362 ], [ %sigkey.3132142, %end ], [ null, %sw.bb8 ], [ null, %sw.bb7 ], [ %sigkey.3132142, %if.end333 ]
+  %macopts.3158 = phi ptr [ %macopts.3157, %if.then362 ], [ %macopts.0, %end ], [ %macopts.0, %sw.bb8 ], [ %macopts.0, %sw.bb7 ], [ %macopts.0, %if.end333 ]
+  %sigopts.3156 = phi ptr [ %sigopts.3155, %if.then362 ], [ %sigopts.0, %end ], [ %sigopts.0, %sw.bb8 ], [ %sigopts.0, %sw.bb7 ], [ %sigopts.0, %if.end333 ]
+  %sigkey.0154 = phi ptr [ %sigkey.0153, %if.then362 ], [ %sigkey.4132142, %end ], [ null, %sw.bb8 ], [ null, %sw.bb7 ], [ %sigkey.4132142, %if.end333 ]
   call void @CRYPTO_clear_free(ptr noundef %call, i64 noundef 8192, ptr noundef nonnull @.str.92, i32 noundef 465) #6
   %call364 = call i32 @BIO_free(ptr noundef %in.0168) #6
   %45 = load ptr, ptr %passin, align 8
@@ -853,13 +853,13 @@ if.end363:                                        ; preds = %if.end333, %sw.bb7,
   call void @BIO_free_all(ptr noundef %out.0160) #6
   %46 = load ptr, ptr %md, align 8
   call void @EVP_MD_free(ptr noundef %46) #6
-  call void @EVP_PKEY_free(ptr noundef %sigkey.4154) #6
-  call void @OPENSSL_sk_free(ptr noundef %sigopts.4156) #6
-  call void @OPENSSL_sk_free(ptr noundef %macopts.4158) #6
-  call void @CRYPTO_free(ptr noundef %sigbuf.1164, ptr noundef nonnull @.str.92, i32 noundef 473) #6
+  call void @EVP_PKEY_free(ptr noundef %sigkey.0154) #6
+  call void @OPENSSL_sk_free(ptr noundef %sigopts.3156) #6
+  call void @OPENSSL_sk_free(ptr noundef %macopts.3158) #6
+  call void @CRYPTO_free(ptr noundef %sigbuf.0164, ptr noundef nonnull @.str.92, i32 noundef 473) #6
   %call367 = call i32 @BIO_free(ptr noundef %bmd.0166) #6
   call void @release_engine(ptr noundef %e.0) #6
-  ret i32 %ret.3162
+  ret i32 %ret.0162
 }
 
 declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -1138,7 +1138,7 @@ if.then41:                                        ; preds = %if.end38
 
 if.end43:                                         ; preds = %if.then41, %if.end38
   %buf.addr.0 = phi ptr [ %call42, %if.then41 ], [ %buf, %if.end38 ]
-  %allocated_buf.0 = phi ptr [ %call42, %if.then41 ], [ null, %if.end38 ]
+  %allocated_buf.1 = phi ptr [ %call42, %if.then41 ], [ null, %if.end38 ]
   %8 = load ptr, ptr %ctx32, align 8
   %call44 = call i32 @EVP_DigestSignFinal(ptr noundef %8, ptr noundef %buf.addr.0, ptr noundef nonnull %len) #6
   %tobool45.not = icmp eq i32 %call44, 0
@@ -1164,12 +1164,12 @@ if.then57:                                        ; preds = %if.then52
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then57, %if.then52
-  %buf.addr.1 = phi ptr [ %call58, %if.then57 ], [ %buf, %if.then52 ]
-  %allocated_buf.1 = phi ptr [ %call58, %if.then57 ], [ null, %if.then52 ]
+  %buf.addr.2 = phi ptr [ %call58, %if.then57 ], [ %buf, %if.then52 ]
+  %allocated_buf.3 = phi ptr [ %call58, %if.then57 ], [ null, %if.then52 ]
   %call60 = call i64 @BIO_ctrl(ptr noundef %bp, i32 noundef 120, i64 noundef 0, ptr noundef nonnull %ctx53) #6
   %10 = load ptr, ptr %ctx53, align 8
   %11 = load i64, ptr %len, align 8
-  %call61 = call i32 @EVP_DigestFinalXOF(ptr noundef %10, ptr noundef %buf.addr.1, i64 noundef %11) #6
+  %call61 = call i32 @EVP_DigestFinalXOF(ptr noundef %10, ptr noundef %buf.addr.2, i64 noundef %11) #6
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %if.then63, label %if.end75
 
@@ -1186,15 +1186,15 @@ if.else66:                                        ; preds = %if.else49
   br i1 %cmp70, label %if.end140, label %if.end75
 
 if.end75:                                         ; preds = %if.end59, %if.else66, %if.end43
-  %buf.addr.2 = phi ptr [ %buf.addr.0, %if.end43 ], [ %buf.addr.1, %if.end59 ], [ %buf, %if.else66 ]
-  %allocated_buf.2 = phi ptr [ %allocated_buf.0, %if.end43 ], [ %allocated_buf.1, %if.end59 ], [ null, %if.else66 ]
+  %buf.addr.1 = phi ptr [ %buf.addr.0, %if.end43 ], [ %buf.addr.2, %if.end59 ], [ %buf, %if.else66 ]
+  %allocated_buf.2 = phi ptr [ %allocated_buf.1, %if.end43 ], [ %allocated_buf.3, %if.end59 ], [ null, %if.else66 ]
   %tobool76.not = icmp eq i32 %binout, 0
   br i1 %tobool76.not, label %if.else80, label %if.then77
 
 if.then77:                                        ; preds = %if.end75
   %13 = load i64, ptr %len, align 8
   %conv78 = trunc i64 %13 to i32
-  %call79 = call i32 @BIO_write(ptr noundef %out, ptr noundef %buf.addr.2, i32 noundef %conv78) #6
+  %call79 = call i32 @BIO_write(ptr noundef %out, ptr noundef %buf.addr.1, i32 noundef %conv78) #6
   br label %end
 
 if.else80:                                        ; preds = %if.end75
@@ -1219,7 +1219,7 @@ if.end89:                                         ; preds = %if.then87, %if.then
 
 for.body:                                         ; preds = %if.end89, %for.body
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %for.body ], [ 0, %if.end89 ]
-  %arrayidx = getelementptr inbounds i8, ptr %buf.addr.2, i64 %indvars.iv67
+  %arrayidx = getelementptr inbounds i8, ptr %buf.addr.1, i64 %indvars.iv67
   %16 = load i8, ptr %arrayidx, align 1
   %conv93 = zext i8 %16 to i32
   %call94 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.103, i32 noundef %conv93) #6
@@ -1276,7 +1276,7 @@ for.body120.lr.ph:                                ; preds = %if.end115
 
 for.body120.us:                                   ; preds = %for.body120.lr.ph, %for.body120.us
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %for.body120.us ], [ 0, %for.body120.lr.ph ]
-  %arrayidx128.us = getelementptr inbounds i8, ptr %buf.addr.2, i64 %indvars.iv64
+  %arrayidx128.us = getelementptr inbounds i8, ptr %buf.addr.1, i64 %indvars.iv64
   %20 = load i8, ptr %arrayidx128.us, align 1
   %conv129.us = zext i8 %20 to i32
   %call130.us = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.103, i32 noundef %conv129.us) #6
@@ -1297,7 +1297,7 @@ if.then124:                                       ; preds = %for.body120
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then124, %for.body120
-  %arrayidx128 = getelementptr inbounds i8, ptr %buf.addr.2, i64 %indvars.iv
+  %arrayidx128 = getelementptr inbounds i8, ptr %buf.addr.1, i64 %indvars.iv
   %23 = load i8, ptr %arrayidx128, align 1
   %conv129 = zext i8 %23 to i32
   %call130 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.103, i32 noundef %conv129) #6
@@ -1314,13 +1314,13 @@ for.end133:                                       ; preds = %if.end126, %for.bod
 
 end:                                              ; preds = %if.then77, %for.end133, %for.end, %if.then63, %if.then46
   %ret.0 = phi i32 [ 1, %if.then46 ], [ 1, %if.then63 ], [ 0, %for.end ], [ 0, %for.end133 ], [ 0, %if.then77 ]
-  %allocated_buf.3 = phi ptr [ %allocated_buf.0, %if.then46 ], [ %allocated_buf.1, %if.then63 ], [ %allocated_buf.2, %for.end ], [ %allocated_buf.2, %for.end133 ], [ %allocated_buf.2, %if.then77 ]
-  %cmp137.not = icmp eq ptr %allocated_buf.3, null
+  %allocated_buf.0 = phi ptr [ %allocated_buf.1, %if.then46 ], [ %allocated_buf.3, %if.then63 ], [ %allocated_buf.2, %for.end ], [ %allocated_buf.2, %for.end133 ], [ %allocated_buf.2, %if.then77 ]
+  %cmp137.not = icmp eq ptr %allocated_buf.0, null
   br i1 %cmp137.not, label %if.end140, label %if.then139
 
 if.then139:                                       ; preds = %end
   %26 = load i64, ptr %len, align 8
-  call void @CRYPTO_clear_free(ptr noundef nonnull %allocated_buf.3, i64 noundef %26, ptr noundef nonnull @.str.92, i32 noundef 655) #6
+  call void @CRYPTO_clear_free(ptr noundef nonnull %allocated_buf.0, i64 noundef %26, ptr noundef nonnull @.str.92, i32 noundef 655) #6
   br label %if.end140
 
 if.end140:                                        ; preds = %if.else66, %if.then36, %if.else25, %if.then23, %if.then19, %if.then, %if.then139, %end

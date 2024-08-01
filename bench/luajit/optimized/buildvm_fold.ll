@@ -732,13 +732,13 @@ land.lhs.true98:                                  ; preds = %land.lhs.true57
 
 for.body112:                                      ; preds = %land.lhs.true98, %for.body112
   %i.478 = phi i32 [ %add114, %for.body112 ], [ 0, %land.lhs.true98 ]
-  %p.077 = phi ptr [ %incdec.ptr116, %for.body112 ], [ %0, %land.lhs.true98 ]
+  %p.177 = phi ptr [ %incdec.ptr116, %for.body112 ], [ %0, %land.lhs.true98 ]
   %17 = phi i8 [ %.pr, %for.body112 ], [ %15, %land.lhs.true98 ]
   %mul = mul i32 %i.478, 10
   %narrow = add nsw i8 %17, -48
   %sub = zext nneg i8 %narrow to i32
   %add114 = add i32 %mul, %sub
-  %incdec.ptr116 = getelementptr inbounds i8, ptr %p.077, i64 1
+  %incdec.ptr116 = getelementptr inbounds i8, ptr %p.177, i64 1
   %.pr = load i8, ptr %incdec.ptr116, align 1
   %18 = add i8 %.pr, -48
   %or.cond62 = icmp ult i8 %18, 10
@@ -778,10 +778,10 @@ for.inc141:                                       ; preds = %for.body134
   br i1 %tobool133.not, label %if.end149, label %for.body134, !llvm.loop !4
 
 if.end149:                                        ; preds = %for.inc93, %for.inc52, %for.inc31, %for.inc, %for.inc141, %for.body65.lr.ph, %for.cond61.preheader, %for.cond40.preheader, %for.cond19.preheader, %for.cond.preheader, %if.else129, %for.end117
-  %p.1 = phi ptr [ %incdec.ptr116, %for.end117 ], [ %0, %if.else129 ], [ %0, %for.cond.preheader ], [ %0, %for.cond19.preheader ], [ %0, %for.cond40.preheader ], [ %0, %for.cond61.preheader ], [ %0, %for.body65.lr.ph ], [ %0, %for.inc141 ], [ %0, %for.inc ], [ %0, %for.inc31 ], [ %0, %for.inc52 ], [ %0, %for.inc93 ]
+  %p.0 = phi ptr [ %incdec.ptr116, %for.end117 ], [ %0, %if.else129 ], [ %0, %for.cond.preheader ], [ %0, %for.cond19.preheader ], [ %0, %for.cond40.preheader ], [ %0, %for.cond61.preheader ], [ %0, %for.body65.lr.ph ], [ %0, %for.inc141 ], [ %0, %for.inc ], [ %0, %for.inc31 ], [ %0, %for.inc52 ], [ %0, %for.inc93 ]
   %22 = load ptr, ptr @stderr, align 8
   %23 = load i32, ptr @lineno, align 4
-  %call150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.18, ptr noundef nonnull %p.1, i32 noundef %23) #12
+  %call150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.18, ptr noundef nonnull %p.0, i32 noundef %23) #12
   tail call void @exit(i32 noundef 1) #13
   unreachable
 

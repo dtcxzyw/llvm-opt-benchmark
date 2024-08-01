@@ -2243,7 +2243,7 @@ terminate.lpad.i.i95:                             ; preds = %ehcleanup120
   unreachable
 
 cleanup:                                          ; preds = %for.end118, %invoke.cont80
-  %retval.0 = phi i1 [ false, %invoke.cont80 ], [ %negate.0, %for.end118 ]
+  %retval.1 = phi i1 [ false, %invoke.cont80 ], [ %negate.0, %for.end118 ]
   invoke void @__gmpz_clear(ptr noundef nonnull %numGCD)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit99 unwind label %terminate.lpad.i.i98
 
@@ -2292,8 +2292,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit105:            ; preds = %ehcleanup123
   resume { ptr, i32 } %.pn15.pn.pn
 
 return:                                           ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit99, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0, %_ZN4cvc58internal7IntegerD2Ev.exit99 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %_ZN4cvc58internal7IntegerD2Ev.exit99 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

@@ -2742,10 +2742,10 @@ define internal noundef i64 @rb_fiber_initialize(i32 noundef %0, ptr noundef %1,
   br label %rb_fiber_initialize_kw.exit
 
 rb_fiber_initialize_kw.exit:                      ; preds = %3, %7
-  %.1.i = phi i32 [ %18, %7 ], [ 0, %3 ]
+  %.07.i = phi i32 [ %18, %7 ], [ 0, %3 ]
   %.0.i = phi i64 [ %15, %7 ], [ 36, %3 ]
   %19 = call i64 @rb_block_proc() #9
-  %20 = call fastcc i64 @fiber_initialize(i64 noundef %2, i64 noundef %19, i32 noundef %.1.i, i64 noundef %.0.i)
+  %20 = call fastcc i64 @fiber_initialize(i64 noundef %2, i64 noundef %19, i32 noundef %.07.i, i64 noundef %.0.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret i64 %2

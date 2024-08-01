@@ -4916,8 +4916,8 @@ alloc_address_wmem.exit339:                       ; preds = %alloc_address_wmem.
   br label %165
 
 165:                                              ; preds = %.critedge, %160
-  %.0289 = phi ptr [ %162, %160 ], [ %164, %.critedge ]
-  %166 = load ptr, ptr %.0289, align 8
+  %.1290 = phi ptr [ %162, %160 ], [ %164, %.critedge ]
+  %166 = load ptr, ptr %.1290, align 8
   %167 = getelementptr inbounds i8, ptr %1, i64 20
   %168 = load i32, ptr %167, align 4
   %169 = call ptr @wmem_list_head(ptr noundef %166) #8
@@ -4943,7 +4943,7 @@ alloc_address_wmem.exit339:                       ; preds = %alloc_address_wmem.
   br i1 %.not.i341, label %findIdentifierFor.exit, label %.lr.ph.i, !llvm.loop !4
 
 findIdentifierFor.exit:                           ; preds = %175, %173, %165, %alloc_address_wmem.exit339
-  %.1290 = phi ptr [ null, %alloc_address_wmem.exit339 ], [ %.0289, %165 ], [ %.0289, %173 ], [ %.0289, %175 ]
+  %.0289 = phi ptr [ null, %alloc_address_wmem.exit339 ], [ %.1290, %165 ], [ %.1290, %173 ], [ %.1290, %175 ]
   %.0288 = phi ptr [ null, %alloc_address_wmem.exit339 ], [ null, %165 ], [ null, %175 ], [ %170, %173 ]
   br i1 %155, label %177, label %259
 
@@ -4980,7 +4980,7 @@ findIdentifierFor.exit:                           ; preds = %175, %173, %165, %a
 193:                                              ; preds = %181
   %194 = call ptr @wmem_file_scope() #8
   %195 = call noalias ptr @wmem_alloc(ptr noundef %194, i64 noundef 12) #8
-  %196 = getelementptr inbounds i8, ptr %.1290, i64 8
+  %196 = getelementptr inbounds i8, ptr %.0289, i64 8
   %197 = load i32, ptr %196, align 8
   %198 = add i32 %197, 1
   store i32 %198, ptr %196, align 8
@@ -4992,7 +4992,7 @@ findIdentifierFor.exit:                           ; preds = %175, %173, %165, %a
   store i32 %201, ptr %195, align 4
   %202 = getelementptr inbounds i8, ptr %195, i64 4
   store i32 %201, ptr %202, align 4
-  %203 = load ptr, ptr %.1290, align 8
+  %203 = load ptr, ptr %.0289, align 8
   call void @wmem_list_append(ptr noundef %203, ptr noundef nonnull %195) #8
   %.pre = load i32, ptr @dissect_isobus.seqnr, align 4
   br label %204
@@ -5078,7 +5078,7 @@ findIdentifierFor.exit:                           ; preds = %175, %173, %165, %a
   ]
 
 260:                                              ; preds = %259
-  %261 = load ptr, ptr %.1290, align 8
+  %261 = load ptr, ptr %.0289, align 8
   %.not305 = icmp eq ptr %261, null
   br i1 %.not305, label %386, label %262
 
@@ -5088,7 +5088,7 @@ findIdentifierFor.exit:                           ; preds = %175, %173, %165, %a
   br i1 %264, label %265, label %273
 
 265:                                              ; preds = %262
-  %266 = load ptr, ptr %.1290, align 8
+  %266 = load ptr, ptr %.0289, align 8
   %267 = call ptr @wmem_list_tail(ptr noundef %266) #8
   %.not308 = icmp eq ptr %267, null
   br i1 %.not308, label %304, label %268

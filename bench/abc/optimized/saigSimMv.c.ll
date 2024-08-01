@@ -2760,8 +2760,8 @@ Vec_PtrFreeP.exit:                                ; preds = %129, %131
   br label %132
 
 132:                                              ; preds = %Vec_PtrFreeP.exit, %Vec_IntFree.exit87
-  %.196 = phi ptr [ null, %Vec_PtrFreeP.exit ], [ %6, %Vec_IntFree.exit87 ]
-  ret ptr %.196
+  %.095 = phi ptr [ null, %Vec_PtrFreeP.exit ], [ %6, %Vec_IntFree.exit87 ]
+  ret ptr %.095
 }
 
 ; Function Attrs: nounwind uwtable

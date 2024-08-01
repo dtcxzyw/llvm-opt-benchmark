@@ -440,13 +440,13 @@ define i32 @topology_g_topology_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %5, %3
-  %.0 = phi i32 [ %7, %5 ], [ 0, %3 ]
+  %.1 = phi i32 [ %7, %5 ], [ 0, %3 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   br label %9
 
 9:                                                ; preds = %8, %1
-  %.1 = phi i32 [ %.0, %8 ], [ 0, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %8 ], [ 0, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

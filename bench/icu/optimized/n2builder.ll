@@ -540,9 +540,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2672,7 +2672,7 @@ if.end149:                                        ; preds = %invoke.cont144, %fo
   %cmp151 = icmp eq i32 %and150, 0
   %63 = load i32, ptr %value, align 4
   %spec.select = call i32 @llvm.umax.i32(i32 %63, i32 %maxNorm16.0)
-  %maxNorm16.2 = select i1 %cmp151, i32 %63, i32 %spec.select
+  %maxNorm16.1 = select i1 %cmp151, i32 %63, i32 %spec.select
   %and156 = select i1 %cmp151, i32 -1, i32 %andedNorm16.0
   %andedNorm16.1 = and i32 %63, %and156
   %or = or i32 %start.0, 1023
@@ -2681,7 +2681,7 @@ if.end149:                                        ; preds = %invoke.cont144, %fo
 
 if.then159:                                       ; preds = %if.end149
   %64 = load i32, ptr %arrayidx79, align 4
-  %spec.select51 = call i32 @llvm.umin.i32(i32 %maxNorm16.2, i32 %64)
+  %spec.select51 = call i32 @llvm.umin.i32(i32 %maxNorm16.1, i32 %64)
   %and167 = and i32 %spec.select51, -2
   %and168 = and i32 %andedNorm16.1, 1
   %or169 = or disjoint i32 %and167, %and168
@@ -2710,7 +2710,7 @@ if.then179:                                       ; preds = %if.end177
   br label %for.cond141.backedge
 
 for.cond141.backedge:                             ; preds = %if.then179, %if.else182, %if.else185
-  %maxNorm16.0.be = phi i32 [ %or169, %if.then179 ], [ %or169, %if.else182 ], [ %maxNorm16.2, %if.else185 ]
+  %maxNorm16.0.be = phi i32 [ %or169, %if.then179 ], [ %or169, %if.else182 ], [ %maxNorm16.1, %if.else185 ]
   %start.0.be = phi i32 [ %and181, %if.then179 ], [ %add183, %if.else182 ], [ %add186, %if.else185 ]
   br label %for.cond141, !llvm.loop !16
 

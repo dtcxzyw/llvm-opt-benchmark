@@ -151,8 +151,8 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
   br label %41
 
 41:                                               ; preds = %27, %18
-  %.175 = phi i64 [ 0, %18 ], [ %spec.select, %27 ]
-  %42 = add nuw nsw i64 %.175, %3
+  %.074 = phi i64 [ 0, %18 ], [ %spec.select, %27 ]
+  %42 = add nuw nsw i64 %.074, %3
   %43 = lshr i64 %42, 3
   %44 = add nuw nsw i64 %43, 1
   %45 = mul nuw nsw i64 %43, 6
@@ -226,19 +226,19 @@ calc_a_xor_t.exit:                                ; preds = %63
   br label %77
 
 .loopexit100:                                     ; preds = %57, %48, %50
-  %.2.ph = phi i32 [ -24832, %50 ], [ %49, %48 ], [ %60, %57 ]
+  %.076.ph = phi i32 [ -24832, %50 ], [ %49, %48 ], [ %60, %57 ]
   %76 = shl i64 %44, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %4, i8 0, i64 %76, i1 false)
   br label %77
 
 77:                                               ; preds = %.loopexit, %.loopexit100
-  %.299 = phi i32 [ %.2.ph, %.loopexit100 ], [ 0, %.loopexit ]
+  %.07699 = phi i32 [ %.076.ph, %.loopexit100 ], [ 0, %.loopexit ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 16) #9
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #9
   br label %78
 
 78:                                               ; preds = %20, %15, %12, %77
-  %.0 = phi i32 [ %.299, %77 ], [ -24832, %12 ], [ -24832, %15 ], [ -24832, %20 ]
+  %.0 = phi i32 [ %.07699, %77 ], [ -24832, %12 ], [ -24832, %15 ], [ -24832, %20 ]
   ret i32 %.0
 }
 
@@ -372,11 +372,11 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
 75:                                               ; preds = %65
   %spec.select84 = select i1 %.not74, i32 0, i32 -25344
   %76 = icmp ugt i64 %61, 7
-  %.2 = select i1 %76, i32 -25344, i32 %spec.select84
+  %.3 = select i1 %76, i32 -25344, i32 %spec.select84
   store i8 %73, ptr %10, align 1
   store i8 %71, ptr %11, align 1
   %.not75 = icmp eq i8 %73, 0
-  %spec.select85 = select i1 %.not75, i32 %.2, i32 -25344
+  %spec.select85 = select i1 %.not75, i32 %.3, i32 -25344
   %.not76 = icmp eq i32 %spec.select85, 0
   br i1 %.not76, label %77, label %79
 
@@ -386,26 +386,26 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   br label %select.unfold.sink.split
 
 79:                                               ; preds = %19, %31, %75, %37, %22, %15
-  %.4.ph = phi i32 [ -24704, %15 ], [ -25344, %22 ], [ %39, %37 ], [ %spec.select85, %75 ], [ %32, %31 ], [ %21, %19 ]
+  %.059.ph = phi i32 [ -24704, %15 ], [ -25344, %22 ], [ %39, %37 ], [ %spec.select85, %75 ], [ %32, %31 ], [ %21, %19 ]
   %80 = load i64, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %80, i1 false)
   br label %select.unfold.sink.split
 
 select.unfold.sink.split:                         ; preds = %79, %77
   %.sink = phi i64 [ %60, %77 ], [ 0, %79 ]
-  %.489.ph = phi i32 [ 0, %77 ], [ %.4.ph, %79 ]
+  %.05989.ph = phi i32 [ 0, %77 ], [ %.059.ph, %79 ]
   store i64 %.sink, ptr %5, align 8
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.sink.split, %22
-  %.489 = phi i32 [ 0, %22 ], [ %.489.ph, %select.unfold.sink.split ]
+  %.05989 = phi i32 [ 0, %22 ], [ %.05989.ph, %select.unfold.sink.split ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %11, i64 noundef 1) #9
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 1) #9
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 8) #9
   br label %81
 
 81:                                               ; preds = %26, %16, %7, %select.unfold
-  %.0 = phi i32 [ %.489, %select.unfold ], [ -24832, %7 ], [ -24832, %16 ], [ -24832, %26 ]
+  %.0 = phi i32 [ %.05989, %select.unfold ], [ -24832, %7 ], [ -24832, %16 ], [ -24832, %26 ]
   ret i32 %.0
 }
 
@@ -768,7 +768,7 @@ mbedtls_nist_kw_setkey.exit96.thread:             ; preds = %86, %83, %80, %mbed
   br i1 %exitcond122.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %100, %95, %96, %77, %78, %48, %49, %30, %31, %mbedtls_nist_kw_setkey.exit96.thread, %89, %mbedtls_nist_kw_setkey.exit92.thread, %64, %mbedtls_nist_kw_setkey.exit88.thread, %42, %mbedtls_nist_kw_setkey.exit.thread, %17
-  %.2 = phi i32 [ %.0.i99, %17 ], [ %.0.i99, %mbedtls_nist_kw_setkey.exit.thread ], [ %.0.i86102, %42 ], [ %.0.i86102, %mbedtls_nist_kw_setkey.exit88.thread ], [ %.0.i90105, %64 ], [ %.0.i90105, %mbedtls_nist_kw_setkey.exit92.thread ], [ %.0.i94108, %89 ], [ %.0.i94108, %mbedtls_nist_kw_setkey.exit96.thread ], [ 1, %31 ], [ 1, %30 ], [ 1, %49 ], [ 1, %48 ], [ 1, %78 ], [ 1, %77 ], [ 1, %96 ], [ 1, %95 ], [ 0, %100 ]
+  %.1 = phi i32 [ %.0.i99, %17 ], [ %.0.i99, %mbedtls_nist_kw_setkey.exit.thread ], [ %.0.i86102, %42 ], [ %.0.i86102, %mbedtls_nist_kw_setkey.exit88.thread ], [ %.0.i90105, %64 ], [ %.0.i90105, %mbedtls_nist_kw_setkey.exit92.thread ], [ %.0.i94108, %89 ], [ %.0.i94108, %mbedtls_nist_kw_setkey.exit96.thread ], [ 1, %31 ], [ 1, %30 ], [ 1, %49 ], [ 1, %48 ], [ 1, %78 ], [ 1, %77 ], [ 1, %96 ], [ 1, %95 ], [ 0, %100 ]
   call void @mbedtls_cipher_free(ptr noundef nonnull %2) #9
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 96) #9
   br i1 %.not71, label %102, label %101
@@ -778,7 +778,7 @@ mbedtls_nist_kw_setkey.exit96.thread:             ; preds = %86, %83, %80, %mbed
   br label %102
 
 102:                                              ; preds = %101, %.loopexit
-  ret i32 %.2
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree nounwind

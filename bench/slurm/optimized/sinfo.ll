@@ -157,7 +157,7 @@ _multi_cluster.exit.thread:                       ; preds = %prepend_cluster_nam
 
 .lr.ph.i:                                         ; preds = %prepend_cluster_name.exit.i, %59
   %49 = phi ptr [ %64, %59 ], [ %48, %prepend_cluster_name.exit.i ]
-  %.013.i = phi i1 [ %.2.i, %59 ], [ true, %prepend_cluster_name.exit.i ]
+  %.013.i = phi i1 [ %.1.i, %59 ], [ true, %prepend_cluster_name.exit.i ]
   %.0812.i = phi i32 [ %spec.select.i, %59 ], [ 0, %prepend_cluster_name.exit.i ]
   %50 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 44), align 4
   %51 = trunc i8 %50 to i1
@@ -181,7 +181,7 @@ _multi_cluster.exit.thread:                       ; preds = %prepend_cluster_nam
 
 59:                                               ; preds = %54, %.lr.ph.i
   %60 = phi ptr [ %49, %.lr.ph.i ], [ %.pre14.i, %54 ]
-  %.2.i = phi i1 [ %.013.i, %.lr.ph.i ], [ false, %54 ]
+  %.1.i = phi i1 [ %.013.i, %.lr.ph.i ], [ false, %54 ]
   %61 = getelementptr inbounds i8, ptr %60, i64 272
   %62 = load ptr, ptr %61, align 8
   %63 = tail call fastcc i32 @_get_info(i1 noundef zeroext true, ptr noundef null, ptr noundef %62, i32 noundef %0, ptr noundef nonnull %1)
@@ -2200,20 +2200,20 @@ define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr nocapture nou
   br label %117
 
 117:                                              ; preds = %113, %109, %.critedge.thread.i, %102, %99, %96, %93, %85
-  %.1.i = phi i1 [ false, %93 ], [ false, %99 ], [ %88, %85 ], [ %.not56.i, %.critedge.thread.i ], [ %.not55.i, %109 ], [ %116, %113 ], [ %switch.selectcmp.i, %96 ], [ %switch.selectcmp63.i, %102 ]
+  %.2.i = phi i1 [ false, %93 ], [ false, %99 ], [ %88, %85 ], [ %.not56.i, %.critedge.thread.i ], [ %.not55.i, %109 ], [ %116, %113 ], [ %switch.selectcmp.i, %96 ], [ %switch.selectcmp63.i, %102 ]
   %118 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 160), align 8
   %119 = trunc i8 %118 to i1
   br i1 %119, label %121, label %120
 
 120:                                              ; preds = %117
-  br i1 %.1.i, label %._crit_edge.i.thread, label %122
+  br i1 %.2.i, label %._crit_edge.i.thread, label %122
 
 ._crit_edge.i.thread:                             ; preds = %120
   call void @list_iterator_destroy(ptr noundef %77) #13
   br label %_filter_out.exit
 
 121:                                              ; preds = %117
-  br i1 %.1.i, label %122, label %.sink.split
+  br i1 %.2.i, label %122, label %.sink.split
 
 122:                                              ; preds = %121, %120
   %123 = call ptr @list_next(ptr noundef %77) #13
@@ -2222,7 +2222,7 @@ define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr nocapture nou
 
 ._crit_edge.i:                                    ; preds = %122
   call void @list_iterator_destroy(ptr noundef %77) #13
-  br i1 %.1.i, label %_filter_out.exit, label %124
+  br i1 %.2.i, label %_filter_out.exit, label %124
 
 _filter_out.exit:                                 ; preds = %74, %._crit_edge.i, %._crit_edge.i.thread
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)

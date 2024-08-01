@@ -7973,20 +7973,20 @@ for.body.preheader:                               ; preds = %if.then25
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %__begin6.023 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr.i, %for.body.preheader ]
-  %children.022 = phi double [ %add, %for.body ], [ 0.000000e+00, %for.body.preheader ]
+  %children.122 = phi double [ %add, %for.body ], [ 0.000000e+00, %for.body.preheader ]
   %5 = load ptr, ptr %__begin6.023, align 8
   %call34 = tail call fastcc noundef double @_ZN4absl13cord_internal12_GLOBAL__N_113FairShareImplEPNS0_7CordRepEm(ptr noundef %5, i64 noundef %mul)
-  %add = fadd double %children.022, %call34
+  %add = fadd double %children.122, %call34
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin6.023, i64 8
   %cmp33.not = icmp eq ptr %incdec.ptr, %add.ptr.i19
   br i1 %cmp33.not, label %if.end38, label %for.body
 
 if.end38:                                         ; preds = %for.body, %if.then25, %if.else, %if.then7, %if.then15, %if.then
-  %children.1 = phi double [ 0.000000e+00, %if.then ], [ 0.000000e+00, %if.then7 ], [ %call20, %if.then15 ], [ 0.000000e+00, %if.else ], [ 0.000000e+00, %if.then25 ], [ %add, %for.body ]
+  %children.0 = phi double [ 0.000000e+00, %if.then ], [ 0.000000e+00, %if.then7 ], [ %call20, %if.then15 ], [ 0.000000e+00, %if.else ], [ 0.000000e+00, %if.then25 ], [ %add, %for.body ]
   %self.0 = phi double [ %conv3, %if.then ], [ %conv10, %if.then7 ], [ 3.200000e+01, %if.then15 ], [ 0.000000e+00, %if.else ], [ 6.400000e+01, %if.then25 ], [ 6.400000e+01, %for.body ]
   %conv39 = uitofp i64 %mul to double
   %div = fdiv double %self.0, %conv39
-  %add40 = fadd double %children.1, %div
+  %add40 = fadd double %children.0, %div
   ret double %add40
 }
 

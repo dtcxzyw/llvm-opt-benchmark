@@ -2122,7 +2122,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24:    ; preds = %86
   br label %111
 
 91:                                               ; preds = %127, %126, %125, %123, %120, %72, %60, %58, %42, %35, %34, %28, %26, %11
-  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %127 ], [ %.sroa.0.1, %126 ], [ %.sroa.0.1, %125 ], [ %47, %123 ], [ %47, %120 ], [ %47, %72 ], [ %47, %60 ], [ %47, %58 ], [ %17, %42 ], [ %17, %35 ], [ %17, %34 ], [ %17, %28 ], [ %17, %26 ], [ null, %11 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %127 ], [ %.sroa.0.2, %126 ], [ %.sroa.0.2, %125 ], [ %47, %123 ], [ %47, %120 ], [ %47, %72 ], [ %47, %60 ], [ %47, %58 ], [ %17, %42 ], [ %17, %35 ], [ %17, %34 ], [ %17, %28 ], [ %17, %26 ], [ null, %11 ]
   %92 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit30
@@ -2201,7 +2201,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %105
           to label %125 unwind label %91
 
 125:                                              ; preds = %111, %123, %40
-  %.sroa.0.1 = phi ptr [ %47, %123 ], [ %47, %111 ], [ %17, %40 ]
+  %.sroa.0.2 = phi ptr [ %47, %123 ], [ %47, %111 ], [ %17, %40 ]
   invoke void @prefs_main_write()
           to label %126 unwind label %91
 
@@ -2210,29 +2210,29 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %105
           to label %127 unwind label %91
 
 127:                                              ; preds = %126, %1
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %126 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %126 ], [ null, %1 ]
   store i32 -1, ptr %8, align 8
   invoke void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %_ZN17ColumnEditorFrame21on_buttonBox_rejectedEv.exit unwind label %91
 
 _ZN17ColumnEditorFrame21on_buttonBox_rejectedEv.exit: ; preds = %127
-  %.not.i.i.i40 = icmp eq ptr %.sroa.0.2, null
+  %.not.i.i.i40 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i.i40, label %_ZN10QByteArrayD2Ev.exit43, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i41
 
 _ZN17QArrayDataPointerIcE5derefEv.exit.i.i41:     ; preds = %_ZN17ColumnEditorFrame21on_buttonBox_rejectedEv.exit
-  %128 = atomicrmw sub ptr %.sroa.0.2, i32 1 seq_cst, align 4
+  %128 = atomicrmw sub ptr %.sroa.0.0, i32 1 seq_cst, align 4
   %.not.i.i42 = icmp eq i32 %128, 1
   br i1 %.not.i.i42, label %129, label %_ZN10QByteArrayD2Ev.exit43
 
 129:                                              ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i41
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sroa.0.2, i64 noundef 1, i64 noundef 8) #12
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sroa.0.0, i64 noundef 1, i64 noundef 8) #12
   br label %_ZN10QByteArrayD2Ev.exit43
 
 _ZN10QByteArrayD2Ev.exit43:                       ; preds = %_ZN17ColumnEditorFrame21on_buttonBox_rejectedEv.exit, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i41, %129
   ret void
 
 _ZN7QStringD2Ev.exit30:                           ; preds = %109, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36, %105, %103, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i32, %99, %91
-  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %91 ], [ %17, %99 ], [ %17, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i32 ], [ %17, %103 ], [ %47, %105 ], [ %47, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36 ], [ %47, %109 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %91 ], [ %17, %99 ], [ %17, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i32 ], [ %17, %103 ], [ %47, %105 ], [ %47, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36 ], [ %47, %109 ]
   %.pn = phi { ptr, i32 } [ %92, %91 ], [ %100, %99 ], [ %100, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i32 ], [ %100, %103 ], [ %106, %105 ], [ %106, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36 ], [ %106, %109 ]
   %.not.i.i.i44 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i44, label %_ZN10QByteArrayD2Ev.exit47, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i45

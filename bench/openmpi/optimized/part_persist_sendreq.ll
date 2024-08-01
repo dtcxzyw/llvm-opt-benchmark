@@ -82,11 +82,11 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
-  %.13536 = phi i64 [ 0, %.lr.ph ], [ %32, %29 ]
+  %.236 = phi i64 [ 0, %.lr.ph ], [ %32, %29 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %.13536
+  %31 = getelementptr inbounds i32, ptr %30, i64 %.236
   store i32 -1, ptr %31, align 4
-  %32 = add nuw i64 %.13536, 1
+  %32 = add nuw i64 %.236, 1
   %33 = load i64, ptr %26, align 8
   %34 = icmp ult i64 %32, %33
   br i1 %34, label %29, label %.loopexit, !llvm.loop !4
@@ -102,7 +102,7 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %.loopexit.sink.split, %24, %25
-  %.2 = phi i64 [ 0, %25 ], [ %.03437, %24 ], [ %.03437, %.loopexit.sink.split ], [ %32, %29 ]
+  %.135 = phi i64 [ 0, %25 ], [ %.03437, %24 ], [ %.03437, %.loopexit.sink.split ], [ %32, %29 ]
   %.1 = phi i32 [ 0, %25 ], [ 0, %24 ], [ %.1.ph, %.loopexit.sink.split ], [ 0, %29 ]
   %37 = getelementptr inbounds i8, ptr %4, i64 96
   store volatile i32 2, ptr %37, align 8
@@ -129,7 +129,7 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br label %opal_thread_swap_ptr.exit
 
 opal_thread_swap_ptr.exit:                        ; preds = %45, %47
-  %48 = add i64 %.2, 1
+  %48 = add i64 %.135, 1
   %49 = icmp ult i64 %48, %0
   %50 = icmp eq i32 %.1, 0
   %51 = select i1 %49, i1 %50, i1 false

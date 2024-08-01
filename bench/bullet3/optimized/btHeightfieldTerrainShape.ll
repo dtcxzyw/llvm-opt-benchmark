@@ -906,9 +906,9 @@ sw.bb59:                                          ; preds = %for.end
   %44 = load i32, ptr %quantizedAabbMin, align 8
   %spec.select74 = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
   %45 = load i32, ptr %quantizedAabbMax, align 8
-  %endX.1 = tail call i32 @llvm.smin.i32(i32 %45, i32 %sub)
+  %endX.2 = tail call i32 @llvm.smin.i32(i32 %45, i32 %sub)
   %46 = load i32, ptr %arrayidx8.i, align 8
-  %startJ.1 = tail call i32 @llvm.smax.i32(i32 %46, i32 0)
+  %startJ.2 = tail call i32 @llvm.smax.i32(i32 %46, i32 0)
   %47 = load i32, ptr %arrayidx8.i147, align 8
   %spec.select79 = tail call i32 @llvm.smin.i32(i32 %47, i32 %sub40)
   br label %sw.epilog
@@ -917,28 +917,28 @@ sw.bb80:                                          ; preds = %for.end
   %48 = load i32, ptr %quantizedAabbMin, align 8
   %spec.select75 = tail call i32 @llvm.smax.i32(i32 %48, i32 0)
   %49 = load i32, ptr %quantizedAabbMax, align 8
-  %endX.2 = tail call i32 @llvm.smin.i32(i32 %49, i32 %sub)
+  %endX.3 = tail call i32 @llvm.smin.i32(i32 %49, i32 %sub)
   %50 = load i32, ptr %arrayidx5.i107, align 4
-  %startJ.2 = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
+  %startJ.3 = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
   %51 = load i32, ptr %arrayidx5.i141, align 4
   %spec.select80 = tail call i32 @llvm.smin.i32(i32 %51, i32 %sub40)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb80, %sw.bb59, %sw.bb, %for.end
-  %startX.3 = phi i32 [ 0, %for.end ], [ %spec.select, %sw.bb ], [ %spec.select74, %sw.bb59 ], [ %spec.select75, %sw.bb80 ]
-  %endX.3 = phi i32 [ %sub, %for.end ], [ %endX.0, %sw.bb ], [ %endX.1, %sw.bb59 ], [ %endX.2, %sw.bb80 ]
-  %startJ.3 = phi i32 [ 0, %for.end ], [ %startJ.0, %sw.bb ], [ %startJ.1, %sw.bb59 ], [ %startJ.2, %sw.bb80 ]
+  %startX.1 = phi i32 [ 0, %for.end ], [ %spec.select, %sw.bb ], [ %spec.select74, %sw.bb59 ], [ %spec.select75, %sw.bb80 ]
+  %endX.1 = phi i32 [ %sub, %for.end ], [ %endX.0, %sw.bb ], [ %endX.2, %sw.bb59 ], [ %endX.3, %sw.bb80 ]
+  %startJ.1 = phi i32 [ 0, %for.end ], [ %startJ.0, %sw.bb ], [ %startJ.2, %sw.bb59 ], [ %startJ.3, %sw.bb80 ]
   %endJ.0 = phi i32 [ %sub40, %for.end ], [ %spec.select78, %sw.bb ], [ %spec.select79, %sw.bb59 ], [ %spec.select80, %sw.bb80 ]
   %idxprom103 = sext i32 %39 to i64
   %arrayidx104 = getelementptr inbounds float, ptr %aabbMin, i64 %idxprom103
   %52 = load float, ptr %arrayidx104, align 4
   %arrayidx108 = getelementptr inbounds float, ptr %aabbMax, i64 %idxprom103
   %53 = load float, ptr %arrayidx108, align 4
-  %cmp110866 = icmp slt i32 %startJ.3, %endJ.0
+  %cmp110866 = icmp slt i32 %startJ.1, %endJ.0
   br i1 %cmp110866, label %for.cond112.preheader.lr.ph, label %for.end276
 
 for.cond112.preheader.lr.ph:                      ; preds = %sw.epilog
-  %cmp113864 = icmp slt i32 %startX.3, %endX.3
+  %cmp113864 = icmp slt i32 %startX.1, %endX.1
   %m_flipTriangleWinding = getelementptr inbounds i8, ptr %this, i64 127
   %m_flipQuadEdges = getelementptr inbounds i8, ptr %this, i64 124
   %m_useDiamondSubdivision = getelementptr inbounds i8, ptr %this, i64 125
@@ -956,7 +956,7 @@ for.cond112.preheader.lr.ph:                      ; preds = %sw.epilog
   br i1 %cmp113864, label %for.cond112.preheader.us, label %for.end276
 
 for.cond112.preheader.us:                         ; preds = %for.cond112.preheader.lr.ph, %for.cond112.for.inc274_crit_edge.us
-  %j.0867.us = phi i32 [ %add199.us, %for.cond112.for.inc274_crit_edge.us ], [ %startJ.3, %for.cond112.preheader.lr.ph ]
+  %j.0867.us = phi i32 [ %add199.us, %for.cond112.for.inc274_crit_edge.us ], [ %startJ.1, %for.cond112.preheader.lr.ph ]
   %and125.us = and i32 %j.0867.us, 1
   %tobool126.not.us = icmp eq i32 %and125.us, 0
   %conv37.i335.us = uitofp nneg i32 %j.0867.us to float
@@ -1869,11 +1869,11 @@ for.inc271.us.sink.split:                         ; preds = %_ZNK25btHeightfield
 
 for.inc271.us:                                    ; preds = %for.inc271.us.sink.split, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit316.us, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit576.us
   %inc272.us.pre-phi = phi i32 [ %add135.us, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit316.us ], [ %add203.us, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit576.us ], [ %inc272.us.pre-phi.ph, %for.inc271.us.sink.split ]
-  %exitcond870.not = icmp eq i32 %inc272.us.pre-phi, %endX.3
+  %exitcond870.not = icmp eq i32 %inc272.us.pre-phi, %endX.1
   br i1 %exitcond870.not, label %for.cond112.for.inc274_crit_edge.us, label %arrayctor.loop.preheader.us, !llvm.loop !10
 
 arrayctor.loop.preheader.us:                      ; preds = %for.cond112.preheader.us, %for.inc271.us
-  %x.0865.us = phi i32 [ %startX.3, %for.cond112.preheader.us ], [ %inc272.us.pre-phi, %for.inc271.us ]
+  %x.0865.us = phi i32 [ %startX.1, %for.cond112.preheader.us ], [ %inc272.us.pre-phi, %for.inc271.us ]
   %333 = load i8, ptr %m_flipTriangleWinding, align 1
   %tobool.us = trunc i8 %333 to i1
   %334 = load i8, ptr %m_flipQuadEdges, align 4
@@ -3766,16 +3766,16 @@ for.body34.us82.preheader:                        ; preds = %for.cond31.for.end6
 
 for.body34.us82:                                  ; preds = %for.body34.us82.preheader, %for.inc62.us85
   %z.067.us83 = phi i32 [ %inc63.us86, %for.inc62.us85 ], [ %19, %for.body34.us82.preheader ]
-  %r.sroa.0.066.us = phi float [ %r.sroa.0.3.us, %for.inc62.us85 ], [ %call.us81, %for.body34.us82.preheader ]
-  %r.sroa.4.065.us = phi float [ %r.sroa.4.3.us, %for.inc62.us85 ], [ %call.us81, %for.body34.us82.preheader ]
+  %r.sroa.0.066.us = phi float [ %r.sroa.0.1.us, %for.inc62.us85 ], [ %call.us81, %for.body34.us82.preheader ]
+  %r.sroa.4.065.us = phi float [ %r.sroa.4.1.us, %for.inc62.us85 ], [ %call.us81, %for.body34.us82.preheader ]
   %27 = load i32, ptr %m_heightStickLength, align 8
   %cmp36.not.us84 = icmp slt i32 %z.067.us83, %27
   br i1 %cmp36.not.us84, label %for.body43.us, label %for.inc62.us85
 
 for.body43.us:                                    ; preds = %for.body34.us82, %for.inc.us
   %x.062.us = phi i32 [ %inc61.us, %for.inc.us ], [ %24, %for.body34.us82 ]
-  %r.sroa.0.161.us = phi float [ %r.sroa.0.2.us, %for.inc.us ], [ %r.sroa.0.066.us, %for.body34.us82 ]
-  %r.sroa.4.160.us = phi float [ %r.sroa.4.2.us, %for.inc.us ], [ %r.sroa.4.065.us, %for.body34.us82 ]
+  %r.sroa.0.261.us = phi float [ %r.sroa.0.3.us, %for.inc.us ], [ %r.sroa.0.066.us, %for.body34.us82 ]
+  %r.sroa.4.260.us = phi float [ %r.sroa.4.3.us, %for.inc.us ], [ %r.sroa.4.065.us, %for.body34.us82 ]
   %28 = load i32, ptr %m_heightStickWidth, align 4
   %cmp45.not.us = icmp slt i32 %x.062.us, %28
   br i1 %cmp45.not.us, label %if.end47.us, label %for.inc.us
@@ -3785,26 +3785,26 @@ if.end47.us:                                      ; preds = %for.body43.us
   %vfn49.us = getelementptr inbounds i8, ptr %vtable48.us, i64 136
   %29 = load ptr, ptr %vfn49.us, align 8
   %call50.us = tail call noundef float %29(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.062.us, i32 noundef %z.067.us83)
-  %cmp52.us = fcmp olt float %call50.us, %r.sroa.0.161.us
+  %cmp52.us = fcmp olt float %call50.us, %r.sroa.0.261.us
   br i1 %cmp52.us, label %for.inc.us, label %if.else.us
 
 if.else.us:                                       ; preds = %if.end47.us
-  %cmp56.us = fcmp ogt float %call50.us, %r.sroa.4.160.us
+  %cmp56.us = fcmp ogt float %call50.us, %r.sroa.4.260.us
   br i1 %cmp56.us, label %if.then57.us, label %for.inc.us
 
 if.then57.us:                                     ; preds = %if.else.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then57.us, %if.else.us, %if.end47.us, %for.body43.us
-  %r.sroa.4.2.us = phi float [ %call50.us, %if.then57.us ], [ %r.sroa.4.160.us, %if.else.us ], [ %r.sroa.4.160.us, %for.body43.us ], [ %r.sroa.4.160.us, %if.end47.us ]
-  %r.sroa.0.2.us = phi float [ %r.sroa.0.161.us, %if.then57.us ], [ %r.sroa.0.161.us, %if.else.us ], [ %r.sroa.0.161.us, %for.body43.us ], [ %call50.us, %if.end47.us ]
+  %r.sroa.4.3.us = phi float [ %call50.us, %if.then57.us ], [ %r.sroa.4.260.us, %if.else.us ], [ %r.sroa.4.260.us, %for.body43.us ], [ %r.sroa.4.260.us, %if.end47.us ]
+  %r.sroa.0.3.us = phi float [ %r.sroa.0.261.us, %if.then57.us ], [ %r.sroa.0.261.us, %if.else.us ], [ %r.sroa.0.261.us, %for.body43.us ], [ %call50.us, %if.end47.us ]
   %inc61.us = add nuw nsw i32 %x.062.us, 1
   %cmp42.not.us.not = icmp slt i32 %x.062.us, %26
   br i1 %cmp42.not.us.not, label %for.body43.us, label %for.inc62.us85, !llvm.loop !15
 
 for.inc62.us85:                                   ; preds = %for.inc.us, %for.body34.us82
-  %r.sroa.4.3.us = phi float [ %r.sroa.4.065.us, %for.body34.us82 ], [ %r.sroa.4.2.us, %for.inc.us ]
-  %r.sroa.0.3.us = phi float [ %r.sroa.0.066.us, %for.body34.us82 ], [ %r.sroa.0.2.us, %for.inc.us ]
+  %r.sroa.4.1.us = phi float [ %r.sroa.4.065.us, %for.body34.us82 ], [ %r.sroa.4.3.us, %for.inc.us ]
+  %r.sroa.0.1.us = phi float [ %r.sroa.0.066.us, %for.body34.us82 ], [ %r.sroa.0.3.us, %for.inc.us ]
   %inc63.us86 = add nuw nsw i32 %z.067.us83, 1
   %cmp33.not.us87.not = icmp slt i32 %z.067.us83, %21
   br i1 %cmp33.not.us87.not, label %for.body34.us82, label %for.cond31.for.end64_crit_edge.us, !llvm.loop !16
@@ -3813,9 +3813,9 @@ for.cond31.for.end64_crit_edge.us:                ; preds = %for.inc62.us85
   %30 = load ptr, ptr %m_data.i, align 8
   %31 = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %30, i64 %indvars.iv
   %arrayidx.i.us93 = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %31, i64 %18
-  store float %r.sroa.0.3.us, ptr %arrayidx.i.us93, align 4
+  store float %r.sroa.0.1.us, ptr %arrayidx.i.us93, align 4
   %arrayidx.i.sroa_idx.us94 = getelementptr inbounds i8, ptr %arrayidx.i.us93, i64 4
-  store float %r.sroa.4.3.us, ptr %arrayidx.i.sroa_idx.us94, align 4
+  store float %r.sroa.4.1.us, ptr %arrayidx.i.sroa_idx.us94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
   br i1 %exitcond.not, label %for.cond26.for.inc72_crit_edge.us, label %for.body34.us82.preheader, !llvm.loop !17

@@ -371,7 +371,7 @@ if.then.i:                                        ; preds = %if.then34
 
 if.end.i:                                         ; preds = %if.then.i, %if.then34
   %43 = phi float [ -1.000000e+00, %if.then.i ], [ 1.000000e+00, %if.then34 ]
-  %closestPoint.sroa.26.0 = phi float [ %13, %if.then.i ], [ %.sroa.speculated, %if.then34 ]
+  %closestPoint.sroa.26.1 = phi float [ %13, %if.then.i ], [ %.sroa.speculated, %if.then34 ]
   %minDist.0.i = phi float [ %add.i, %if.then.i ], [ %sub.i49, %if.then34 ]
   %44 = phi <2 x float> [ %42, %if.then.i ], [ %41, %if.then34 ]
   %45 = load float, ptr %arrayidx.i, align 4
@@ -388,7 +388,7 @@ if.then16.i:                                      ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then16.i, %if.end.i
-  %closestPoint.sroa.26.1 = phi float [ %13, %if.then16.i ], [ %closestPoint.sroa.26.0, %if.end.i ]
+  %closestPoint.sroa.26.2 = phi float [ %13, %if.then16.i ], [ %closestPoint.sroa.26.1, %if.end.i ]
   %49 = phi float [ %.pre.i, %if.then16.i ], [ %45, %if.end.i ]
   %minDist.1.i = phi float [ %sub14.i54, %if.then16.i ], [ %minDist.0.i, %if.end.i ]
   %50 = phi <2 x float> [ %48, %if.then16.i ], [ %44, %if.end.i ]
@@ -404,7 +404,7 @@ if.then26.i:                                      ; preds = %if.end21.i
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then26.i, %if.end21.i
-  %closestPoint.sroa.26.2 = phi float [ %13, %if.then26.i ], [ %closestPoint.sroa.26.1, %if.end21.i ]
+  %closestPoint.sroa.26.3 = phi float [ %13, %if.then26.i ], [ %closestPoint.sroa.26.2, %if.end21.i ]
   %minDist.2.i = phi float [ %add24.i, %if.then26.i ], [ %minDist.1.i, %if.end21.i ]
   %53 = phi <2 x float> [ %52, %if.then26.i ], [ %50, %if.end21.i ]
   %54 = phi <2 x float> [ <float 0.000000e+00, float -1.000000e+00>, %if.then26.i ], [ %51, %if.end21.i ]
@@ -420,7 +420,7 @@ if.then37.i:                                      ; preds = %if.end32.i
 
 if.end42.i:                                       ; preds = %if.then37.i, %if.end32.i
   %56 = phi float [ 1.000000e+00, %if.then37.i ], [ 0.000000e+00, %if.end32.i ]
-  %closestPoint.sroa.26.3 = phi float [ %55, %if.then37.i ], [ %closestPoint.sroa.26.2, %if.end32.i ]
+  %closestPoint.sroa.26.4 = phi float [ %55, %if.then37.i ], [ %closestPoint.sroa.26.3, %if.end32.i ]
   %57 = phi float [ %.pre83.i, %if.then37.i ], [ %55, %if.end32.i ]
   %minDist.3.i = phi float [ %sub35.i, %if.then37.i ], [ %minDist.2.i, %if.end32.i ]
   %58 = phi <2 x float> [ %26, %if.then37.i ], [ %53, %if.end32.i ]
@@ -436,7 +436,7 @@ if.then47.i:                                      ; preds = %if.end42.i
 
 _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit: ; preds = %if.end42.i, %if.then47.i
   %60 = phi float [ -1.000000e+00, %if.then47.i ], [ %56, %if.end42.i ]
-  %closestPoint.sroa.26.4 = phi float [ %fneg49.i, %if.then47.i ], [ %closestPoint.sroa.26.3, %if.end42.i ]
+  %closestPoint.sroa.26.5 = phi float [ %fneg49.i, %if.then47.i ], [ %closestPoint.sroa.26.4, %if.end42.i ]
   %minDist.4.i = phi float [ %add45.i, %if.then47.i ], [ %minDist.3.i, %if.end42.i ]
   %61 = phi <2 x float> [ %26, %if.then47.i ], [ %58, %if.end42.i ]
   %62 = phi <2 x float> [ zeroinitializer, %if.then47.i ], [ %59, %if.end42.i ]
@@ -456,7 +456,7 @@ if.else:                                          ; preds = %if.end
 
 if.end39:                                         ; preds = %if.else, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit
   %66 = phi float [ %mul7.i.i, %if.else ], [ %60, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
-  %closestPoint.sroa.26.5 = phi float [ %.sroa.speculated, %if.else ], [ %closestPoint.sroa.26.4, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
+  %closestPoint.sroa.26.0 = phi float [ %.sroa.speculated, %if.else ], [ %closestPoint.sroa.26.5, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
   %distance.0 = phi float [ %sqrt.i, %if.else ], [ %fneg36, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
   %67 = phi <2 x float> [ %32, %if.else ], [ %61, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
   %68 = phi <2 x float> [ %65, %if.else ], [ %62, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
@@ -465,7 +465,7 @@ if.end39:                                         ; preds = %if.else, %_ZN29btSp
   %71 = fmul <2 x float> %70, %68
   %mul8.i = fmul float %call3, %66
   %72 = fadd <2 x float> %67, %71
-  %add14.i = fadd float %closestPoint.sroa.26.5, %mul8.i
+  %add14.i = fadd float %closestPoint.sroa.26.0, %mul8.i
   %retval.sroa.3.12.vec.insert.i71 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   store <2 x float> %72, ptr %pointOnBox, align 4
   %ref.tmp40.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %pointOnBox, i64 8

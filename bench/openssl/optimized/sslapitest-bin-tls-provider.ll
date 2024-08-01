@@ -530,7 +530,7 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %if.then, %if.end17
   %indvars.iv = phi i64 [ 0, %if.then ], [ %indvars.iv.next, %if.end17 ]
-  %ret.028 = phi i32 [ %and, %if.then ], [ %and28, %if.end17 ]
+  %ret.128 = phi i32 [ %and, %if.then ], [ %and28, %if.end17 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(440) %dummygroup, ptr noundef nonnull align 16 dereferenceable(440) @xor_group_params, i64 440, i1 false)
   %arrayidx = getelementptr inbounds [50 x ptr], ptr @dummy_group_names, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
@@ -556,13 +556,13 @@ if.end17:                                         ; preds = %if.end, %for.body
   %add24 = add i64 %call23, 1
   store i64 %add24, ptr %data_size, align 8
   %call27 = call i32 %cb(ptr noundef nonnull %dummygroup, ptr noundef %arg) #14
-  %and28 = and i32 %call27, %ret.028
+  %and28 = and i32 %call27, %ret.128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 50
   br i1 %exitcond.not, label %if.end29, label %for.body, !llvm.loop !9
 
 if.end29:                                         ; preds = %if.end17, %entry
-  %ret.1 = phi i32 [ 0, %entry ], [ %and28, %if.end17 ]
+  %ret.0 = phi i32 [ 0, %entry ], [ %and28, %if.end17 ]
   %call30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %capability, ptr noundef nonnull dereferenceable(11) @.str.50) #15
   %cmp31 = icmp eq i32 %call30, 0
   br i1 %cmp31, label %if.then32, label %return
@@ -576,7 +576,7 @@ if.then32:                                        ; preds = %if.end29
   br label %return
 
 return:                                           ; preds = %if.then6, %if.end29, %if.then32
-  %retval.0 = phi i32 [ %and37, %if.then32 ], [ %ret.1, %if.end29 ], [ 0, %if.then6 ]
+  %retval.0 = phi i32 [ %and37, %if.then32 ], [ %ret.0, %if.end29 ], [ 0, %if.then6 ]
   ret i32 %retval.0
 }
 
@@ -893,9 +893,9 @@ land.rhs8:                                        ; preds = %if.end, %if.end.thr
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end, %if.end.thread, %land.rhs8, %entry
-  %ok.1.shrunk = phi i1 [ %tobool3.mux, %if.end ], [ false, %entry ], [ %tobool9, %land.rhs8 ], [ true, %if.end.thread ]
-  %ok.1 = zext i1 %ok.1.shrunk to i32
-  ret i32 %ok.1
+  %ok.0.shrunk = phi i1 [ %tobool3.mux, %if.end ], [ false, %entry ], [ %tobool9, %land.rhs8 ], [ true, %if.end.thread ]
+  %ok.0 = zext i1 %ok.0.shrunk to i32
+  ret i32 %ok.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2196,7 +2196,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6.i, %if.else.i
-  %ret.0.i = phi i32 [ %call9.i, %if.then6.i ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %call9.i, %if.then6.i ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -2207,7 +2207,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -2736,7 +2736,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6.i, %if.else.i
-  %ret.0.i = phi i32 [ %call9.i, %if.then6.i ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %call9.i, %if.then6.i ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -2747,7 +2747,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -3065,7 +3065,7 @@ key_to_epki_der_priv_bio.exit:                    ; preds = %if.then6.i, %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %key_to_epki_der_priv_bio.exit, %if.else.i
-  %ret.0.i = phi i32 [ %retval.0.i, %key_to_epki_der_priv_bio.exit ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %retval.0.i, %key_to_epki_der_priv_bio.exit ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -3076,7 +3076,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -3288,7 +3288,7 @@ key_to_epki_pem_priv_bio.exit:                    ; preds = %if.then6.i, %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %key_to_epki_pem_priv_bio.exit, %if.else.i
-  %ret.0.i = phi i32 [ %retval.0.i, %key_to_epki_pem_priv_bio.exit ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %retval.0.i, %key_to_epki_pem_priv_bio.exit ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -3299,7 +3299,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -3502,7 +3502,7 @@ key_to_spki_der_pub_bio.exit:                     ; preds = %if.then6.i, %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %key_to_spki_der_pub_bio.exit, %if.else.i
-  %ret.0.i = phi i32 [ %retval.0.i, %key_to_spki_der_pub_bio.exit ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %retval.0.i, %key_to_spki_der_pub_bio.exit ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -3513,7 +3513,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -3811,7 +3811,7 @@ key_to_spki_pem_pub_bio.exit:                     ; preds = %if.then6.i, %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %key_to_spki_pem_pub_bio.exit, %if.else.i
-  %ret.0.i = phi i32 [ %retval.0.i, %key_to_spki_pem_pub_bio.exit ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %retval.0.i, %key_to_spki_pem_pub_bio.exit ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -3822,7 +3822,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -4001,7 +4001,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6.i, %if.else.i
-  %ret.0.i = phi i32 [ %call9.i, %if.then6.i ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %call9.i, %if.then6.i ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -4012,7 +4012,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -4189,7 +4189,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6.i, %if.else.i
-  %ret.0.i = phi i32 [ %call9.i, %if.then6.i ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %call9.i, %if.then6.i ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -4200,7 +4200,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -4412,7 +4412,7 @@ key_to_epki_der_priv_bio.exit:                    ; preds = %if.then6.i, %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %key_to_epki_der_priv_bio.exit, %if.else.i
-  %ret.0.i = phi i32 [ %retval.0.i, %key_to_epki_der_priv_bio.exit ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %retval.0.i, %key_to_epki_der_priv_bio.exit ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -4423,7 +4423,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -4635,7 +4635,7 @@ key_to_epki_pem_priv_bio.exit:                    ; preds = %if.then6.i, %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %key_to_epki_pem_priv_bio.exit, %if.else.i
-  %ret.0.i = phi i32 [ %retval.0.i, %key_to_epki_pem_priv_bio.exit ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %retval.0.i, %key_to_epki_pem_priv_bio.exit ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -4646,7 +4646,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -4849,7 +4849,7 @@ key_to_spki_der_pub_bio.exit:                     ; preds = %if.then6.i, %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %key_to_spki_der_pub_bio.exit, %if.else.i
-  %ret.0.i = phi i32 [ %retval.0.i, %key_to_spki_der_pub_bio.exit ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %retval.0.i, %key_to_spki_der_pub_bio.exit ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -4860,7 +4860,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -5080,7 +5080,7 @@ key_to_spki_pem_pub_bio.exit:                     ; preds = %if.then6.i, %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %key_to_spki_pem_pub_bio.exit, %if.else.i
-  %ret.0.i = phi i32 [ %retval.0.i, %key_to_spki_pem_pub_bio.exit ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %retval.0.i, %key_to_spki_pem_pub_bio.exit ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -5091,7 +5091,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.1.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -5345,8 +5345,8 @@ next.thread87:                                    ; preds = %land.lhs.true89
   br label %if.then97
 
 next.thread:                                      ; preds = %if.end68, %if.then61, %xor_read_der.exit.thread, %if.end87, %land.lhs.true51, %land.lhs.true, %if.end87.thread, %if.end56
-  %der.054.ph = phi ptr [ %4, %if.end87.thread ], [ %4, %land.lhs.true ], [ %4, %land.lhs.true51 ], [ %4, %if.end87 ], [ null, %xor_read_der.exit.thread ], [ %4, %if.end56 ], [ %4, %if.then61 ], [ %4, %if.end68 ]
-  call void @CRYPTO_free(ptr noundef %der.054.ph, ptr noundef nonnull @.str.2, i32 noundef 2411) #14
+  %der.154.ph = phi ptr [ %4, %if.end87.thread ], [ %4, %land.lhs.true ], [ %4, %land.lhs.true51 ], [ %4, %if.end87 ], [ null, %xor_read_der.exit.thread ], [ %4, %if.end56 ], [ %4, %if.then61 ], [ %4, %if.end68 ]
+  call void @CRYPTO_free(ptr noundef %der.154.ph, ptr noundef nonnull @.str.2, i32 noundef 2411) #14
   br label %end
 
 next:                                             ; preds = %land.lhs.true89
@@ -5377,13 +5377,13 @@ if.then97:                                        ; preds = %next.thread87, %nex
 
 end:                                              ; preds = %next.thread, %next, %if.then97, %if.then14
   %27 = phi ptr [ null, %next ], [ %.pre62, %if.then97 ], [ %call17, %if.then14 ], [ null, %next.thread ]
-  %der.1 = phi ptr [ null, %next ], [ null, %if.then97 ], [ %4, %if.then14 ], [ null, %next.thread ]
+  %der.0 = phi ptr [ null, %next ], [ null, %if.then97 ], [ %4, %if.then14 ], [ null, %next.thread ]
   %ok.0 = phi i32 [ 1, %next ], [ %call105, %if.then97 ], [ 0, %if.then14 ], [ 1, %next.thread ]
   %28 = load ptr, ptr %desc2, align 8
   %free_key108 = getelementptr inbounds i8, ptr %28, i64 88
   %29 = load ptr, ptr %free_key108, align 8
   call void %29(ptr noundef %27) #14
-  call void @CRYPTO_free(ptr noundef %der.1, ptr noundef nonnull @.str.2, i32 noundef 2435) #14
+  call void @CRYPTO_free(ptr noundef %der.0, ptr noundef nonnull @.str.2, i32 noundef 2435) #14
   br label %return
 
 return:                                           ; preds = %end, %if.then5

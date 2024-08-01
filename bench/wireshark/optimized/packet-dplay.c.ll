@@ -1742,27 +1742,27 @@ spp_get_value.exit158:                            ; preds = %102, %105, %108
 
 .lr.ph:                                           ; preds = %spp_get_value.exit158, %.lr.ph
   %.0138170 = phi i32 [ %116, %.lr.ph ], [ 0, %spp_get_value.exit158 ]
-  %.4169 = phi i32 [ %115, %.lr.ph ], [ %112, %spp_get_value.exit158 ]
+  %.5169 = phi i32 [ %115, %.lr.ph ], [ %112, %spp_get_value.exit158 ]
   %113 = load i32, ptr @hf_dplay_spp_player_id, align 4
-  %114 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %113, ptr noundef %1, i32 noundef %.4169, i32 noundef 4, i32 noundef 0) #3
-  %115 = add i32 %.4169, 4
+  %114 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %113, ptr noundef %1, i32 noundef %.5169, i32 noundef 4, i32 noundef 0) #3
+  %115 = add i32 %.5169, 4
   %116 = add nuw i32 %.0138170, 1
   %exitcond.not = icmp eq i32 %116, %.sink.i155
   br i1 %exitcond.not, label %.loopexit168, label %.lr.ph, !llvm.loop !10
 
 .loopexit168:                                     ; preds = %.lr.ph, %spp_get_value.exit158, %101
-  %.5 = phi i32 [ %.3, %101 ], [ %112, %spp_get_value.exit158 ], [ %115, %.lr.ph ]
+  %.4 = phi i32 [ %.3, %101 ], [ %112, %spp_get_value.exit158 ], [ %115, %.lr.ph ]
   %.not149 = icmp eq i32 %29, 0
   br i1 %.not149, label %121, label %117
 
 117:                                              ; preds = %.loopexit168
   %118 = load i32, ptr @hf_dplay_spp_parent_id, align 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %118, ptr noundef %1, i32 noundef %.5, i32 noundef 4, i32 noundef 0) #3
-  %120 = add i32 %.5, 4
+  %119 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %118, ptr noundef %1, i32 noundef %.4, i32 noundef 4, i32 noundef 0) #3
+  %120 = add i32 %.4, 4
   br label %121
 
 121:                                              ; preds = %117, %.loopexit168
-  %.6 = phi i32 [ %120, %117 ], [ %.5, %.loopexit168 ]
+  %.6 = phi i32 [ %120, %117 ], [ %.4, %.loopexit168 ]
   switch i32 %31, label %default.unreachable [
     i32 0, label %.loopexit
     i32 1, label %122
@@ -1795,17 +1795,17 @@ spp_get_value.exit162:                            ; preds = %122, %125, %128
 
 .lr.ph173:                                        ; preds = %spp_get_value.exit162, %.lr.ph173
   %.0172 = phi i32 [ %136, %.lr.ph173 ], [ 0, %spp_get_value.exit162 ]
-  %.7171 = phi i32 [ %135, %.lr.ph173 ], [ %132, %spp_get_value.exit162 ]
+  %.8171 = phi i32 [ %135, %.lr.ph173 ], [ %132, %spp_get_value.exit162 ]
   %133 = load i32, ptr @hf_dplay_spp_shortcut_id, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %133, ptr noundef %1, i32 noundef %.7171, i32 noundef 4, i32 noundef 0) #3
-  %135 = add i32 %.7171, 4
+  %134 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %133, ptr noundef %1, i32 noundef %.8171, i32 noundef 4, i32 noundef 0) #3
+  %135 = add i32 %.8171, 4
   %136 = add nuw i32 %.0172, 1
   %exitcond178.not = icmp eq i32 %136, %.sink.i159
   br i1 %exitcond178.not, label %.loopexit, label %.lr.ph173, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph173, %spp_get_value.exit162, %121
-  %.8 = phi i32 [ %.6, %121 ], [ %132, %spp_get_value.exit162 ], [ %135, %.lr.ph173 ]
-  ret i32 %.8
+  %.7 = phi i32 [ %.6, %121 ], [ %132, %spp_get_value.exit162 ], [ %135, %.lr.ph173 ]
+  ret i32 %.7
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

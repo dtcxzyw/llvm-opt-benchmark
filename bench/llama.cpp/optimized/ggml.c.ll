@@ -1229,21 +1229,21 @@ if.else:                                          ; preds = %entry
 
 for.body17:                                       ; preds = %if.else, %for.body17
   %indvars.iv = phi i64 [ 1, %if.else ], [ %indvars.iv.next, %for.body17 ]
-  %nbytes.119 = phi i64 [ %div, %if.else ], [ %add26, %for.body17 ]
+  %nbytes.219 = phi i64 [ %div, %if.else ], [ %add26, %for.body17 ]
   %arrayidx20 = getelementptr inbounds [4 x i64], ptr %ne8, i64 0, i64 %indvars.iv
   %8 = load i64, ptr %arrayidx20, align 8
   %sub21 = add nsw i64 %8, -1
   %arrayidx24 = getelementptr inbounds [4 x i64], ptr %nb10, i64 0, i64 %indvars.iv
   %9 = load i64, ptr %arrayidx24, align 8
   %mul25 = mul i64 %sub21, %9
-  %add26 = add i64 %mul25, %nbytes.119
+  %add26 = add i64 %mul25, %nbytes.219
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %if.end, label %for.body17, !llvm.loop !16
 
 if.end:                                           ; preds = %for.body17, %for.body
-  %nbytes.2 = phi i64 [ %add, %for.body ], [ %add26, %for.body17 ]
-  ret i64 %nbytes.2
+  %nbytes.1 = phi i64 [ %add, %for.body ], [ %add26, %for.body17 ]
+  ret i64 %nbytes.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1308,21 +1308,21 @@ if.else.i:                                        ; preds = %entry
 
 for.body17.i:                                     ; preds = %for.body17.i, %if.else.i
   %indvars.iv.i = phi i64 [ 1, %if.else.i ], [ %indvars.iv.next.i, %for.body17.i ]
-  %nbytes.119.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
+  %nbytes.219.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
   %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %ne8.i, i64 0, i64 %indvars.iv.i
   %8 = load i64, ptr %arrayidx20.i, align 8
   %sub21.i = add nsw i64 %8, -1
   %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %nb10.i, i64 0, i64 %indvars.iv.i
   %9 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %sub21.i, %9
-  %add26.i = add i64 %mul25.i, %nbytes.119.i
+  %add26.i = add i64 %mul25.i, %nbytes.219.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %for.body17.i, !llvm.loop !16
 
 ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.body.i
-  %nbytes.2.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
-  %sub = add i64 %nbytes.2.i, 15
+  %nbytes.1.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
+  %sub = add i64 %nbytes.1.i, 15
   %and = and i64 %sub, -16
   ret i64 %and
 }
@@ -2168,21 +2168,21 @@ if.else.i:                                        ; preds = %if.then
 
 for.body17.i:                                     ; preds = %for.body17.i, %if.else.i
   %indvars.iv.i = phi i64 [ 1, %if.else.i ], [ %indvars.iv.next.i, %for.body17.i ]
-  %nbytes.119.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
+  %nbytes.219.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
   %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %ne8.i, i64 0, i64 %indvars.iv.i
   %11 = load i64, ptr %arrayidx20.i, align 8
   %sub21.i = add nsw i64 %11, -1
   %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %nb10.i, i64 0, i64 %indvars.iv.i
   %12 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %sub21.i, %12
-  %add26.i = add i64 %mul25.i, %nbytes.119.i
+  %add26.i = add i64 %mul25.i, %nbytes.219.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %for.body17.i, !llvm.loop !16
 
 ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.body.i
-  %nbytes.2.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %max_size.010, i64 %nbytes.2.i)
+  %nbytes.1.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %max_size.010, i64 %nbytes.1.i)
   br label %if.end4
 
 if.end4:                                          ; preds = %ggml_nbytes.exit, %while.body
@@ -2299,21 +2299,21 @@ if.else.i:                                        ; preds = %lor.lhs.false
 
 for.body17.i:                                     ; preds = %for.body17.i, %if.else.i
   %indvars.iv.i = phi i64 [ 1, %if.else.i ], [ %indvars.iv.next.i, %for.body17.i ]
-  %nbytes.119.i = phi i64 [ %div.i63, %if.else.i ], [ %add26.i, %for.body17.i ]
+  %nbytes.219.i = phi i64 [ %div.i63, %if.else.i ], [ %add26.i, %for.body17.i ]
   %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %ne8.i, i64 0, i64 %indvars.iv.i
   %14 = load i64, ptr %arrayidx20.i, align 8
   %sub21.i = add nsw i64 %14, -1
   %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %nb10.i, i64 0, i64 %indvars.iv.i
   %15 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %sub21.i, %15
-  %add26.i = add i64 %mul25.i, %nbytes.119.i
+  %add26.i = add i64 %mul25.i, %nbytes.219.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %for.body17.i, !llvm.loop !16
 
 ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.body.i
-  %nbytes.2.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
-  %cmp10.not = icmp ugt i64 %add8, %nbytes.2.i
+  %nbytes.1.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
+  %cmp10.not = icmp ugt i64 %add8, %nbytes.1.i
   br i1 %cmp10.not, label %if.then11, label %cond.end
 
 if.then11:                                        ; preds = %ggml_nbytes.exit
@@ -2998,21 +2998,21 @@ if.else.i:                                        ; preds = %entry
 
 for.body17.i:                                     ; preds = %for.body17.i, %if.else.i
   %indvars.iv.i = phi i64 [ 1, %if.else.i ], [ %indvars.iv.next.i, %for.body17.i ]
-  %nbytes.119.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
+  %nbytes.219.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
   %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %ne8.i, i64 0, i64 %indvars.iv.i
   %9 = load i64, ptr %arrayidx20.i, align 8
   %sub21.i = add nsw i64 %9, -1
   %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %nb10.i, i64 0, i64 %indvars.iv.i
   %10 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %sub21.i, %10
-  %add26.i = add i64 %mul25.i, %nbytes.119.i
+  %add26.i = add i64 %mul25.i, %nbytes.219.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %for.body17.i, !llvm.loop !16
 
 ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.body.i
-  %nbytes.2.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %nbytes.2.i, i1 false)
+  %nbytes.1.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %nbytes.1.i, i1 false)
   ret ptr %tensor
 }
 
@@ -16865,21 +16865,21 @@ if.else.i.i:                                      ; preds = %if.then4
 
 for.body17.i.i:                                   ; preds = %for.body17.i.i, %if.else.i.i
   %indvars.iv.i.i = phi i64 [ 1, %if.else.i.i ], [ %indvars.iv.next.i.i, %for.body17.i.i ]
-  %nbytes.119.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  %nbytes.219.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
   %arrayidx20.i.i = getelementptr inbounds [4 x i64], ptr %ne8.i.i, i64 0, i64 %indvars.iv.i.i
   %16 = load i64, ptr %arrayidx20.i.i, align 8
   %sub21.i.i = add nsw i64 %16, -1
   %arrayidx24.i.i = getelementptr inbounds [4 x i64], ptr %nb10.i.i, i64 0, i64 %indvars.iv.i.i
   %17 = load i64, ptr %arrayidx24.i.i, align 8
   %mul25.i.i = mul i64 %sub21.i.i, %17
-  %add26.i.i = add i64 %mul25.i.i, %nbytes.119.i.i
+  %add26.i.i = add i64 %mul25.i.i, %nbytes.219.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %ggml_set_zero.exit, label %for.body17.i.i, !llvm.loop !16
 
 ggml_set_zero.exit:                               ; preds = %for.body17.i.i, %for.body.i.i
-  %nbytes.2.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %nbytes.2.i.i, i1 false)
+  %nbytes.1.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %nbytes.1.i.i, i1 false)
   %.pre = load i32, ptr %n_nodes, align 4
   br label %for.inc
 
@@ -17085,10 +17085,10 @@ if.then68:                                        ; preds = %sw.bb55
 
 if.end71:                                         ; preds = %sw.bb55.if.end71_crit_edge, %if.then68
   %39 = phi i64 [ %34, %if.then68 ], [ %.pre, %sw.bb55.if.end71_crit_edge ]
-  %cur.0 = phi i64 [ %div.i137, %if.then68 ], [ 0, %sw.bb55.if.end71_crit_edge ]
+  %cur.1 = phi i64 [ %div.i137, %if.then68 ], [ 0, %sw.bb55.if.end71_crit_edge ]
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 88
   %40 = load i32, ptr %arrayidx.i, align 4
-  %sub = add i64 %cur.0, 7
+  %sub = add i64 %cur.1, 7
   %and = and i64 %sub, -8
   %conv73 = sext i32 %40 to i64
   %mul80160 = add i64 %39, 1
@@ -17361,9 +17361,9 @@ do.body388:                                       ; preds = %for.body
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb330, %sw.bb284, %sw.bb246, %for.body, %if.then351, %if.then365, %if.then290, %if.then312, %if.then260, %if.then274, %if.then169, %if.then188, %sw.bb82, %if.then87, %sw.bb37, %if.then49, %sw.bb22, %if.then27, %sw.bb8, %if.then12, %sw.bb, %if.then3, %sw.bb375, %sw.bb203, %sw.bb97, %if.end71
-  %cur.1 = phi i64 [ 0, %for.body ], [ %mul386, %sw.bb375 ], [ %add358, %if.then351 ], [ %add372, %if.then365 ], [ %add305, %if.then290 ], [ %add327, %if.then312 ], [ %add267, %if.then260 ], [ %add281, %if.then274 ], [ %reass.mul, %sw.bb203 ], [ %reass.mul149, %if.then169 ], [ %reass.mul147, %if.then188 ], [ %mul103, %sw.bb97 ], [ %mul95, %if.then87 ], [ 0, %sw.bb82 ], [ %add81, %if.end71 ], [ %div.i, %if.then49 ], [ 0, %sw.bb37 ], [ %mul35, %if.then27 ], [ 0, %sw.bb22 ], [ %mul20, %if.then12 ], [ 0, %sw.bb8 ], [ %mul6, %if.then3 ], [ 0, %sw.bb ], [ 0, %sw.bb246 ], [ 0, %sw.bb284 ], [ 0, %sw.bb330 ]
-  %cur.1.fr = freeze i64 %cur.1
-  %cond397 = tail call i64 @llvm.umax.i64(i64 %work_size.0159, i64 %cur.1.fr)
+  %cur.0 = phi i64 [ 0, %for.body ], [ %mul386, %sw.bb375 ], [ %add358, %if.then351 ], [ %add372, %if.then365 ], [ %add305, %if.then290 ], [ %add327, %if.then312 ], [ %add267, %if.then260 ], [ %add281, %if.then274 ], [ %reass.mul, %sw.bb203 ], [ %reass.mul149, %if.then169 ], [ %reass.mul147, %if.then188 ], [ %mul103, %sw.bb97 ], [ %mul95, %if.then87 ], [ 0, %sw.bb82 ], [ %add81, %if.end71 ], [ %div.i, %if.then49 ], [ 0, %sw.bb37 ], [ %mul35, %if.then27 ], [ 0, %sw.bb22 ], [ %mul20, %if.then12 ], [ 0, %sw.bb8 ], [ %mul6, %if.then3 ], [ 0, %sw.bb ], [ 0, %sw.bb246 ], [ 0, %sw.bb284 ], [ 0, %sw.bb330 ]
+  %cur.0.fr = freeze i64 %cur.0
+  %cond397 = tail call i64 @llvm.umax.i64(i64 %work_size.0159, i64 %cur.0.fr)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %n_nodes, align 4
   %95 = sext i32 %94 to i64
@@ -18281,21 +18281,21 @@ if.else.i.i:                                      ; preds = %for.body
 
 for.body17.i.i:                                   ; preds = %for.body17.i.i, %if.else.i.i
   %indvars.iv.i.i = phi i64 [ 1, %if.else.i.i ], [ %indvars.iv.next.i.i, %for.body17.i.i ]
-  %nbytes.119.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  %nbytes.219.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
   %arrayidx20.i.i = getelementptr inbounds [4 x i64], ptr %ne8.i.i, i64 0, i64 %indvars.iv.i.i
   %11 = load i64, ptr %arrayidx20.i.i, align 8
   %sub21.i.i = add nsw i64 %11, -1
   %arrayidx24.i.i = getelementptr inbounds [4 x i64], ptr %nb10.i.i, i64 0, i64 %indvars.iv.i.i
   %12 = load i64, ptr %arrayidx24.i.i, align 8
   %mul25.i.i = mul i64 %sub21.i.i, %12
-  %add26.i.i = add i64 %mul25.i.i, %nbytes.119.i.i
+  %add26.i.i = add i64 %mul25.i.i, %nbytes.219.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %ggml_nbytes_pad.exit, label %for.body17.i.i, !llvm.loop !16
 
 ggml_nbytes_pad.exit:                             ; preds = %for.body17.i.i, %for.body.i.i
-  %nbytes.2.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
-  %sub.i = add i64 %nbytes.2.i.i, 15
+  %nbytes.1.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  %sub.i = add i64 %nbytes.1.i.i, 15
   %and.i = and i64 %sub.i, -16
   %add = add i64 %and.i, %add193195
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -18693,23 +18693,23 @@ if.else.i:                                        ; preds = %for.end126
 
 for.body17.i:                                     ; preds = %for.body17.i, %if.else.i
   %indvars.iv.i = phi i64 [ 1, %if.else.i ], [ %indvars.iv.next.i, %for.body17.i ]
-  %nbytes.119.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
+  %nbytes.219.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
   %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %ne116, i64 0, i64 %indvars.iv.i
   %101 = load i64, ptr %arrayidx20.i, align 8
   %sub21.i = add nsw i64 %101, -1
   %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %nb119, i64 0, i64 %indvars.iv.i
   %102 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %sub21.i, %102
-  %add26.i = add i64 %mul25.i, %nbytes.119.i
+  %add26.i = add i64 %mul25.i, %nbytes.219.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %for.body17.i, !llvm.loop !16
 
 ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.body.i
-  %nbytes.2.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
+  %nbytes.1.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
   %data = getelementptr inbounds i8, ptr %88, i64 280
   %103 = load ptr, ptr %data, align 8
-  %call131 = tail call i64 @fwrite(ptr noundef %103, i64 noundef 1, i64 noundef %nbytes.2.i, ptr noundef %call85)
+  %call131 = tail call i64 @fwrite(ptr noundef %103, i64 noundef 1, i64 noundef %nbytes.1.i, ptr noundef %call85)
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %104 = load i32, ptr %n_leafs, align 8
   %105 = sext i32 %104 to i64
@@ -19185,21 +19185,21 @@ if.else.i:                                        ; preds = %for.end
 
 for.body17.i:                                     ; preds = %for.body17.i, %if.else.i
   %indvars.iv.i = phi i64 [ 1, %if.else.i ], [ %indvars.iv.next.i, %for.body17.i ]
-  %nbytes.119.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
+  %nbytes.219.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
   %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %ne8.i, i64 0, i64 %indvars.iv.i
   %35 = load i64, ptr %arrayidx20.i, align 8
   %sub21.i = add nsw i64 %35, -1
   %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %nb81, i64 0, i64 %indvars.iv.i
   %36 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %sub21.i, %36
-  %add26.i = add i64 %mul25.i, %nbytes.119.i
+  %add26.i = add i64 %mul25.i, %nbytes.219.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %for.body17.i, !llvm.loop !16
 
 ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.body.i
-  %nbytes.2.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
-  %add.ptr90 = getelementptr inbounds i8, ptr %add.ptr72, i64 %nbytes.2.i
+  %nbytes.1.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
+  %add.ptr90 = getelementptr inbounds i8, ptr %add.ptr72, i64 %nbytes.1.i
   %37 = load ptr, ptr @stderr, align 8
   br i1 %cmp.i, label %if.then.i179, label %if.else.i161
 
@@ -19236,22 +19236,22 @@ if.else.i161:                                     ; preds = %ggml_nbytes.exit
 
 for.body17.i168:                                  ; preds = %for.body17.i168, %if.else.i161
   %indvars.iv.i169 = phi i64 [ 1, %if.else.i161 ], [ %indvars.iv.next.i176, %for.body17.i168 ]
-  %nbytes.119.i170 = phi i64 [ %div.i167, %if.else.i161 ], [ %add26.i175, %for.body17.i168 ]
+  %nbytes.219.i170 = phi i64 [ %div.i167, %if.else.i161 ], [ %add26.i175, %for.body17.i168 ]
   %arrayidx20.i171 = getelementptr inbounds [4 x i64], ptr %ne8.i164, i64 0, i64 %indvars.iv.i169
   %44 = load i64, ptr %arrayidx20.i171, align 8
   %sub21.i172 = add nsw i64 %44, -1
   %arrayidx24.i173 = getelementptr inbounds [4 x i64], ptr %nb81, i64 0, i64 %indvars.iv.i169
   %45 = load i64, ptr %arrayidx24.i173, align 8
   %mul25.i174 = mul i64 %sub21.i172, %45
-  %add26.i175 = add i64 %mul25.i174, %nbytes.119.i170
+  %add26.i175 = add i64 %mul25.i174, %nbytes.219.i170
   %indvars.iv.next.i176 = add nuw nsw i64 %indvars.iv.i169, 1
   %exitcond.not.i177 = icmp eq i64 %indvars.iv.next.i176, 4
   br i1 %exitcond.not.i177, label %ggml_nbytes.exit193, label %for.body17.i168, !llvm.loop !16
 
 ggml_nbytes.exit193:                              ; preds = %for.body17.i168, %for.body.i183
-  %nbytes.2.i178 = phi i64 [ %add.i190, %for.body.i183 ], [ %add26.i175, %for.body17.i168 ]
+  %nbytes.1.i178 = phi i64 [ %add.i190, %for.body.i183 ], [ %add26.i175, %for.body17.i168 ]
   %46 = trunc nuw i64 %indvars.iv270 to i32
-  %call94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.166, ptr noundef nonnull @__func__.ggml_graph_import, i32 noundef %46, ptr noundef nonnull %name, i64 noundef %nbytes.2.i178) #46
+  %call94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.166, ptr noundef nonnull @__func__.ggml_graph_import, i32 noundef %46, ptr noundef nonnull %name, i64 noundef %nbytes.1.i178) #46
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count
   br i1 %exitcond273.not, label %for.end97, label %for.body, !llvm.loop !84
@@ -19438,22 +19438,22 @@ if.else.i209:                                     ; preds = %sw.epilog
 
 for.body17.i216:                                  ; preds = %for.body17.i216, %if.else.i209
   %indvars.iv.i217 = phi i64 [ 1, %if.else.i209 ], [ %indvars.iv.next.i224, %for.body17.i216 ]
-  %nbytes.119.i218 = phi i64 [ %div.i215, %if.else.i209 ], [ %add26.i223, %for.body17.i216 ]
+  %nbytes.219.i218 = phi i64 [ %div.i215, %if.else.i209 ], [ %add26.i223, %for.body17.i216 ]
   %arrayidx20.i219 = getelementptr inbounds [4 x i64], ptr %ne8.i212, i64 0, i64 %indvars.iv.i217
   %77 = load i64, ptr %arrayidx20.i219, align 8
   %sub21.i220 = add nsw i64 %77, -1
   %arrayidx24.i221 = getelementptr inbounds [4 x i64], ptr %nb198, i64 0, i64 %indvars.iv.i217
   %78 = load i64, ptr %arrayidx24.i221, align 8
   %mul25.i222 = mul i64 %sub21.i220, %78
-  %add26.i223 = add i64 %mul25.i222, %nbytes.119.i218
+  %add26.i223 = add i64 %mul25.i222, %nbytes.219.i218
   %indvars.iv.next.i224 = add nuw nsw i64 %indvars.iv.i217, 1
   %exitcond.not.i225 = icmp eq i64 %indvars.iv.next.i224, 4
   br i1 %exitcond.not.i225, label %ggml_nbytes.exit241, label %for.body17.i216, !llvm.loop !16
 
 ggml_nbytes.exit241:                              ; preds = %for.body17.i216, %for.body.i231
-  %nbytes.2.i226 = phi i64 [ %add.i238, %for.body.i231 ], [ %add26.i223, %for.body17.i216 ]
+  %nbytes.1.i226 = phi i64 [ %add.i238, %for.body.i231 ], [ %add26.i223, %for.body17.i216 ]
   %79 = trunc nuw i64 %indvars.iv288 to i32
-  %call222 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.167, ptr noundef nonnull @__func__.ggml_graph_import, i32 noundef %79, ptr noundef nonnull %name187, i64 noundef %nbytes.2.i226) #46
+  %call222 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.167, ptr noundef nonnull @__func__.ggml_graph_import, i32 noundef %79, ptr noundef nonnull %name187, i64 noundef %nbytes.1.i226) #46
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count291
   br i1 %exitcond292.not, label %return, label %for.body104, !llvm.loop !87
@@ -20359,21 +20359,21 @@ if.else.i.i:                                      ; preds = %cond.end
 
 for.body17.i.i:                                   ; preds = %for.body17.i.i, %if.else.i.i
   %indvars.iv.i.i = phi i64 [ 1, %if.else.i.i ], [ %indvars.iv.next.i.i, %for.body17.i.i ]
-  %nbytes.119.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  %nbytes.219.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
   %arrayidx20.i.i = getelementptr inbounds [4 x i64], ptr %ne8.i.i, i64 0, i64 %indvars.iv.i.i
   %22 = load i64, ptr %arrayidx20.i.i, align 8
   %sub21.i.i = add nsw i64 %22, -1
   %arrayidx24.i.i = getelementptr inbounds [4 x i64], ptr %nb10.i.i, i64 0, i64 %indvars.iv.i.i
   %23 = load i64, ptr %arrayidx24.i.i, align 8
   %mul25.i.i = mul i64 %sub21.i.i, %23
-  %add26.i.i = add i64 %mul25.i.i, %nbytes.119.i.i
+  %add26.i.i = add i64 %mul25.i.i, %nbytes.219.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %ggml_set_zero.exit, label %for.body17.i.i, !llvm.loop !16
 
 ggml_set_zero.exit:                               ; preds = %for.body17.i.i, %for.body.i.i
-  %nbytes.2.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %13, i8 0, i64 %nbytes.2.i.i, i1 false)
+  %nbytes.1.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %13, i8 0, i64 %nbytes.1.i.i, i1 false)
   %24 = load ptr, ptr %v, align 8
   %data.i82 = getelementptr inbounds i8, ptr %24, i64 280
   %25 = load ptr, ptr %data.i82, align 8
@@ -20418,21 +20418,21 @@ if.else.i.i85:                                    ; preds = %ggml_set_zero.exit
 
 for.body17.i.i92:                                 ; preds = %for.body17.i.i92, %if.else.i.i85
   %indvars.iv.i.i93 = phi i64 [ 1, %if.else.i.i85 ], [ %indvars.iv.next.i.i100, %for.body17.i.i92 ]
-  %nbytes.119.i.i94 = phi i64 [ %div.i.i91, %if.else.i.i85 ], [ %add26.i.i99, %for.body17.i.i92 ]
+  %nbytes.219.i.i94 = phi i64 [ %div.i.i91, %if.else.i.i85 ], [ %add26.i.i99, %for.body17.i.i92 ]
   %arrayidx20.i.i95 = getelementptr inbounds [4 x i64], ptr %ne8.i.i88, i64 0, i64 %indvars.iv.i.i93
   %34 = load i64, ptr %arrayidx20.i.i95, align 8
   %sub21.i.i96 = add nsw i64 %34, -1
   %arrayidx24.i.i97 = getelementptr inbounds [4 x i64], ptr %nb10.i.i89, i64 0, i64 %indvars.iv.i.i93
   %35 = load i64, ptr %arrayidx24.i.i97, align 8
   %mul25.i.i98 = mul i64 %sub21.i.i96, %35
-  %add26.i.i99 = add i64 %mul25.i.i98, %nbytes.119.i.i94
+  %add26.i.i99 = add i64 %mul25.i.i98, %nbytes.219.i.i94
   %indvars.iv.next.i.i100 = add nuw nsw i64 %indvars.iv.i.i93, 1
   %exitcond.not.i.i101 = icmp eq i64 %indvars.iv.next.i.i100, 4
   br i1 %exitcond.not.i.i101, label %ggml_set_zero.exit117, label %for.body17.i.i92, !llvm.loop !16
 
 ggml_set_zero.exit117:                            ; preds = %for.body17.i.i92, %for.body.i.i107
-  %nbytes.2.i.i102 = phi i64 [ %add.i.i114, %for.body.i.i107 ], [ %add26.i.i99, %for.body17.i.i92 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %nbytes.2.i.i102, i1 false)
+  %nbytes.1.i.i102 = phi i64 [ %add.i.i114, %for.body.i.i107 ], [ %add26.i.i99, %for.body17.i.i92 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %nbytes.1.i.i102, i1 false)
   %36 = load ptr, ptr %pf, align 8
   %tobool.not = icmp eq ptr %36, null
   br i1 %tobool.not, label %sw.epilog, label %if.then96
@@ -20481,21 +20481,21 @@ if.else.i.i121:                                   ; preds = %if.then96
 
 for.body17.i.i128:                                ; preds = %for.body17.i.i128, %if.else.i.i121
   %indvars.iv.i.i129 = phi i64 [ 1, %if.else.i.i121 ], [ %indvars.iv.next.i.i136, %for.body17.i.i128 ]
-  %nbytes.119.i.i130 = phi i64 [ %div.i.i127, %if.else.i.i121 ], [ %add26.i.i135, %for.body17.i.i128 ]
+  %nbytes.219.i.i130 = phi i64 [ %div.i.i127, %if.else.i.i121 ], [ %add26.i.i135, %for.body17.i.i128 ]
   %arrayidx20.i.i131 = getelementptr inbounds [4 x i64], ptr %ne8.i.i124, i64 0, i64 %indvars.iv.i.i129
   %46 = load i64, ptr %arrayidx20.i.i131, align 8
   %sub21.i.i132 = add nsw i64 %46, -1
   %arrayidx24.i.i133 = getelementptr inbounds [4 x i64], ptr %nb10.i.i125, i64 0, i64 %indvars.iv.i.i129
   %47 = load i64, ptr %arrayidx24.i.i133, align 8
   %mul25.i.i134 = mul i64 %sub21.i.i132, %47
-  %add26.i.i135 = add i64 %mul25.i.i134, %nbytes.119.i.i130
+  %add26.i.i135 = add i64 %mul25.i.i134, %nbytes.219.i.i130
   %indvars.iv.next.i.i136 = add nuw nsw i64 %indvars.iv.i.i129, 1
   %exitcond.not.i.i137 = icmp eq i64 %indvars.iv.next.i.i136, 4
   br i1 %exitcond.not.i.i137, label %ggml_set_zero.exit153, label %for.body17.i.i128, !llvm.loop !16
 
 ggml_set_zero.exit153:                            ; preds = %for.body17.i.i128, %for.body.i.i143
-  %nbytes.2.i.i138 = phi i64 [ %add.i.i150, %for.body.i.i143 ], [ %add26.i.i135, %for.body17.i.i128 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %37, i8 0, i64 %nbytes.2.i.i138, i1 false)
+  %nbytes.1.i.i138 = phi i64 [ %add.i.i150, %for.body.i.i143 ], [ %add26.i.i135, %for.body17.i.i128 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %37, i8 0, i64 %nbytes.1.i.i138, i1 false)
   br label %sw.epilog
 
 sw.bb101:                                         ; preds = %if.end68
@@ -20630,21 +20630,21 @@ if.else.i.i177:                                   ; preds = %cond.end127
 
 for.body17.i.i184:                                ; preds = %for.body17.i.i184, %if.else.i.i177
   %indvars.iv.i.i185 = phi i64 [ 1, %if.else.i.i177 ], [ %indvars.iv.next.i.i192, %for.body17.i.i184 ]
-  %nbytes.119.i.i186 = phi i64 [ %div.i.i183, %if.else.i.i177 ], [ %add26.i.i191, %for.body17.i.i184 ]
+  %nbytes.219.i.i186 = phi i64 [ %div.i.i183, %if.else.i.i177 ], [ %add26.i.i191, %for.body17.i.i184 ]
   %arrayidx20.i.i187 = getelementptr inbounds [4 x i64], ptr %ne8.i.i180, i64 0, i64 %indvars.iv.i.i185
   %69 = load i64, ptr %arrayidx20.i.i187, align 8
   %sub21.i.i188 = add nsw i64 %69, -1
   %arrayidx24.i.i189 = getelementptr inbounds [4 x i64], ptr %nb10.i.i181, i64 0, i64 %indvars.iv.i.i185
   %70 = load i64, ptr %arrayidx24.i.i189, align 8
   %mul25.i.i190 = mul i64 %sub21.i.i188, %70
-  %add26.i.i191 = add i64 %mul25.i.i190, %nbytes.119.i.i186
+  %add26.i.i191 = add i64 %mul25.i.i190, %nbytes.219.i.i186
   %indvars.iv.next.i.i192 = add nuw nsw i64 %indvars.iv.i.i185, 1
   %exitcond.not.i.i193 = icmp eq i64 %indvars.iv.next.i.i192, 4
   br i1 %exitcond.not.i.i193, label %ggml_set_zero.exit209, label %for.body17.i.i184, !llvm.loop !16
 
 ggml_set_zero.exit209:                            ; preds = %for.body17.i.i184, %for.body.i.i199
-  %nbytes.2.i.i194 = phi i64 [ %add.i.i206, %for.body.i.i199 ], [ %add26.i.i191, %for.body17.i.i184 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %60, i8 0, i64 %nbytes.2.i.i194, i1 false)
+  %nbytes.1.i.i194 = phi i64 [ %add.i.i206, %for.body.i.i199 ], [ %add26.i.i191, %for.body17.i.i184 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %60, i8 0, i64 %nbytes.1.i.i194, i1 false)
   %71 = load ptr, ptr %xp, align 8
   %data.i210 = getelementptr inbounds i8, ptr %71, i64 280
   %72 = load ptr, ptr %data.i210, align 8
@@ -20689,21 +20689,21 @@ if.else.i.i213:                                   ; preds = %ggml_set_zero.exit2
 
 for.body17.i.i220:                                ; preds = %for.body17.i.i220, %if.else.i.i213
   %indvars.iv.i.i221 = phi i64 [ 1, %if.else.i.i213 ], [ %indvars.iv.next.i.i228, %for.body17.i.i220 ]
-  %nbytes.119.i.i222 = phi i64 [ %div.i.i219, %if.else.i.i213 ], [ %add26.i.i227, %for.body17.i.i220 ]
+  %nbytes.219.i.i222 = phi i64 [ %div.i.i219, %if.else.i.i213 ], [ %add26.i.i227, %for.body17.i.i220 ]
   %arrayidx20.i.i223 = getelementptr inbounds [4 x i64], ptr %ne8.i.i216, i64 0, i64 %indvars.iv.i.i221
   %81 = load i64, ptr %arrayidx20.i.i223, align 8
   %sub21.i.i224 = add nsw i64 %81, -1
   %arrayidx24.i.i225 = getelementptr inbounds [4 x i64], ptr %nb10.i.i217, i64 0, i64 %indvars.iv.i.i221
   %82 = load i64, ptr %arrayidx24.i.i225, align 8
   %mul25.i.i226 = mul i64 %sub21.i.i224, %82
-  %add26.i.i227 = add i64 %mul25.i.i226, %nbytes.119.i.i222
+  %add26.i.i227 = add i64 %mul25.i.i226, %nbytes.219.i.i222
   %indvars.iv.next.i.i228 = add nuw nsw i64 %indvars.iv.i.i221, 1
   %exitcond.not.i.i229 = icmp eq i64 %indvars.iv.next.i.i228, 4
   br i1 %exitcond.not.i.i229, label %ggml_set_zero.exit245, label %for.body17.i.i220, !llvm.loop !16
 
 ggml_set_zero.exit245:                            ; preds = %for.body17.i.i220, %for.body.i.i235
-  %nbytes.2.i.i230 = phi i64 [ %add.i.i242, %for.body.i.i235 ], [ %add26.i.i227, %for.body17.i.i220 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %72, i8 0, i64 %nbytes.2.i.i230, i1 false)
+  %nbytes.1.i.i230 = phi i64 [ %add.i.i242, %for.body.i.i235 ], [ %add26.i.i227, %for.body17.i.i220 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %72, i8 0, i64 %nbytes.1.i.i230, i1 false)
   %83 = load ptr, ptr %g111, align 8
   %data.i246 = getelementptr inbounds i8, ptr %83, i64 280
   %84 = load ptr, ptr %data.i246, align 8
@@ -20748,21 +20748,21 @@ if.else.i.i249:                                   ; preds = %ggml_set_zero.exit2
 
 for.body17.i.i256:                                ; preds = %for.body17.i.i256, %if.else.i.i249
   %indvars.iv.i.i257 = phi i64 [ 1, %if.else.i.i249 ], [ %indvars.iv.next.i.i264, %for.body17.i.i256 ]
-  %nbytes.119.i.i258 = phi i64 [ %div.i.i255, %if.else.i.i249 ], [ %add26.i.i263, %for.body17.i.i256 ]
+  %nbytes.219.i.i258 = phi i64 [ %div.i.i255, %if.else.i.i249 ], [ %add26.i.i263, %for.body17.i.i256 ]
   %arrayidx20.i.i259 = getelementptr inbounds [4 x i64], ptr %ne8.i.i252, i64 0, i64 %indvars.iv.i.i257
   %93 = load i64, ptr %arrayidx20.i.i259, align 8
   %sub21.i.i260 = add nsw i64 %93, -1
   %arrayidx24.i.i261 = getelementptr inbounds [4 x i64], ptr %nb10.i.i253, i64 0, i64 %indvars.iv.i.i257
   %94 = load i64, ptr %arrayidx24.i.i261, align 8
   %mul25.i.i262 = mul i64 %sub21.i.i260, %94
-  %add26.i.i263 = add i64 %mul25.i.i262, %nbytes.119.i.i258
+  %add26.i.i263 = add i64 %mul25.i.i262, %nbytes.219.i.i258
   %indvars.iv.next.i.i264 = add nuw nsw i64 %indvars.iv.i.i257, 1
   %exitcond.not.i.i265 = icmp eq i64 %indvars.iv.next.i.i264, 4
   br i1 %exitcond.not.i.i265, label %ggml_set_zero.exit281, label %for.body17.i.i256, !llvm.loop !16
 
 ggml_set_zero.exit281:                            ; preds = %for.body17.i.i256, %for.body.i.i271
-  %nbytes.2.i.i266 = phi i64 [ %add.i.i278, %for.body.i.i271 ], [ %add26.i.i263, %for.body17.i.i256 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %84, i8 0, i64 %nbytes.2.i.i266, i1 false)
+  %nbytes.1.i.i266 = phi i64 [ %add.i.i278, %for.body.i.i271 ], [ %add26.i.i263, %for.body17.i.i256 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %84, i8 0, i64 %nbytes.1.i.i266, i1 false)
   %95 = load ptr, ptr %gp, align 8
   %data.i282 = getelementptr inbounds i8, ptr %95, i64 280
   %96 = load ptr, ptr %data.i282, align 8
@@ -20807,21 +20807,21 @@ if.else.i.i285:                                   ; preds = %ggml_set_zero.exit2
 
 for.body17.i.i292:                                ; preds = %for.body17.i.i292, %if.else.i.i285
   %indvars.iv.i.i293 = phi i64 [ 1, %if.else.i.i285 ], [ %indvars.iv.next.i.i300, %for.body17.i.i292 ]
-  %nbytes.119.i.i294 = phi i64 [ %div.i.i291, %if.else.i.i285 ], [ %add26.i.i299, %for.body17.i.i292 ]
+  %nbytes.219.i.i294 = phi i64 [ %div.i.i291, %if.else.i.i285 ], [ %add26.i.i299, %for.body17.i.i292 ]
   %arrayidx20.i.i295 = getelementptr inbounds [4 x i64], ptr %ne8.i.i288, i64 0, i64 %indvars.iv.i.i293
   %105 = load i64, ptr %arrayidx20.i.i295, align 8
   %sub21.i.i296 = add nsw i64 %105, -1
   %arrayidx24.i.i297 = getelementptr inbounds [4 x i64], ptr %nb10.i.i289, i64 0, i64 %indvars.iv.i.i293
   %106 = load i64, ptr %arrayidx24.i.i297, align 8
   %mul25.i.i298 = mul i64 %sub21.i.i296, %106
-  %add26.i.i299 = add i64 %mul25.i.i298, %nbytes.119.i.i294
+  %add26.i.i299 = add i64 %mul25.i.i298, %nbytes.219.i.i294
   %indvars.iv.next.i.i300 = add nuw nsw i64 %indvars.iv.i.i293, 1
   %exitcond.not.i.i301 = icmp eq i64 %indvars.iv.next.i.i300, 4
   br i1 %exitcond.not.i.i301, label %ggml_set_zero.exit317, label %for.body17.i.i292, !llvm.loop !16
 
 ggml_set_zero.exit317:                            ; preds = %for.body17.i.i292, %for.body.i.i307
-  %nbytes.2.i.i302 = phi i64 [ %add.i.i314, %for.body.i.i307 ], [ %add26.i.i299, %for.body17.i.i292 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %96, i8 0, i64 %nbytes.2.i.i302, i1 false)
+  %nbytes.1.i.i302 = phi i64 [ %add.i.i314, %for.body.i.i307 ], [ %add26.i.i299, %for.body17.i.i292 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %96, i8 0, i64 %nbytes.1.i.i302, i1 false)
   %107 = load ptr, ptr %d, align 8
   %data.i318 = getelementptr inbounds i8, ptr %107, i64 280
   %108 = load ptr, ptr %data.i318, align 8
@@ -20866,21 +20866,21 @@ if.else.i.i321:                                   ; preds = %ggml_set_zero.exit3
 
 for.body17.i.i328:                                ; preds = %for.body17.i.i328, %if.else.i.i321
   %indvars.iv.i.i329 = phi i64 [ 1, %if.else.i.i321 ], [ %indvars.iv.next.i.i336, %for.body17.i.i328 ]
-  %nbytes.119.i.i330 = phi i64 [ %div.i.i327, %if.else.i.i321 ], [ %add26.i.i335, %for.body17.i.i328 ]
+  %nbytes.219.i.i330 = phi i64 [ %div.i.i327, %if.else.i.i321 ], [ %add26.i.i335, %for.body17.i.i328 ]
   %arrayidx20.i.i331 = getelementptr inbounds [4 x i64], ptr %ne8.i.i324, i64 0, i64 %indvars.iv.i.i329
   %117 = load i64, ptr %arrayidx20.i.i331, align 8
   %sub21.i.i332 = add nsw i64 %117, -1
   %arrayidx24.i.i333 = getelementptr inbounds [4 x i64], ptr %nb10.i.i325, i64 0, i64 %indvars.iv.i.i329
   %118 = load i64, ptr %arrayidx24.i.i333, align 8
   %mul25.i.i334 = mul i64 %sub21.i.i332, %118
-  %add26.i.i335 = add i64 %mul25.i.i334, %nbytes.119.i.i330
+  %add26.i.i335 = add i64 %mul25.i.i334, %nbytes.219.i.i330
   %indvars.iv.next.i.i336 = add nuw nsw i64 %indvars.iv.i.i329, 1
   %exitcond.not.i.i337 = icmp eq i64 %indvars.iv.next.i.i336, 4
   br i1 %exitcond.not.i.i337, label %ggml_set_zero.exit353, label %for.body17.i.i328, !llvm.loop !16
 
 ggml_set_zero.exit353:                            ; preds = %for.body17.i.i328, %for.body.i.i343
-  %nbytes.2.i.i338 = phi i64 [ %add.i.i350, %for.body.i.i343 ], [ %add26.i.i335, %for.body17.i.i328 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %108, i8 0, i64 %nbytes.2.i.i338, i1 false)
+  %nbytes.1.i.i338 = phi i64 [ %add.i.i350, %for.body.i.i343 ], [ %add26.i.i335, %for.body17.i.i328 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %108, i8 0, i64 %nbytes.1.i.i338, i1 false)
   %119 = load ptr, ptr %pf130, align 8
   %tobool172.not = icmp eq ptr %119, null
   br i1 %tobool172.not, label %if.end177, label %if.then173
@@ -20929,21 +20929,21 @@ if.else.i.i357:                                   ; preds = %if.then173
 
 for.body17.i.i364:                                ; preds = %for.body17.i.i364, %if.else.i.i357
   %indvars.iv.i.i365 = phi i64 [ 1, %if.else.i.i357 ], [ %indvars.iv.next.i.i372, %for.body17.i.i364 ]
-  %nbytes.119.i.i366 = phi i64 [ %div.i.i363, %if.else.i.i357 ], [ %add26.i.i371, %for.body17.i.i364 ]
+  %nbytes.219.i.i366 = phi i64 [ %div.i.i363, %if.else.i.i357 ], [ %add26.i.i371, %for.body17.i.i364 ]
   %arrayidx20.i.i367 = getelementptr inbounds [4 x i64], ptr %ne8.i.i360, i64 0, i64 %indvars.iv.i.i365
   %129 = load i64, ptr %arrayidx20.i.i367, align 8
   %sub21.i.i368 = add nsw i64 %129, -1
   %arrayidx24.i.i369 = getelementptr inbounds [4 x i64], ptr %nb10.i.i361, i64 0, i64 %indvars.iv.i.i365
   %130 = load i64, ptr %arrayidx24.i.i369, align 8
   %mul25.i.i370 = mul i64 %sub21.i.i368, %130
-  %add26.i.i371 = add i64 %mul25.i.i370, %nbytes.119.i.i366
+  %add26.i.i371 = add i64 %mul25.i.i370, %nbytes.219.i.i366
   %indvars.iv.next.i.i372 = add nuw nsw i64 %indvars.iv.i.i365, 1
   %exitcond.not.i.i373 = icmp eq i64 %indvars.iv.next.i.i372, 4
   br i1 %exitcond.not.i.i373, label %ggml_set_zero.exit389, label %for.body17.i.i364, !llvm.loop !16
 
 ggml_set_zero.exit389:                            ; preds = %for.body17.i.i364, %for.body.i.i379
-  %nbytes.2.i.i374 = phi i64 [ %add.i.i386, %for.body.i.i379 ], [ %add26.i.i371, %for.body17.i.i364 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %120, i8 0, i64 %nbytes.2.i.i374, i1 false)
+  %nbytes.1.i.i374 = phi i64 [ %add.i.i386, %for.body.i.i379 ], [ %add26.i.i371, %for.body17.i.i364 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %120, i8 0, i64 %nbytes.1.i.i374, i1 false)
   br label %if.end177
 
 if.end177:                                        ; preds = %ggml_set_zero.exit389, %ggml_set_zero.exit353
@@ -20991,21 +20991,21 @@ if.else.i.i393:                                   ; preds = %if.end177
 
 for.body17.i.i400:                                ; preds = %for.body17.i.i400, %if.else.i.i393
   %indvars.iv.i.i401 = phi i64 [ 1, %if.else.i.i393 ], [ %indvars.iv.next.i.i408, %for.body17.i.i400 ]
-  %nbytes.119.i.i402 = phi i64 [ %div.i.i399, %if.else.i.i393 ], [ %add26.i.i407, %for.body17.i.i400 ]
+  %nbytes.219.i.i402 = phi i64 [ %div.i.i399, %if.else.i.i393 ], [ %add26.i.i407, %for.body17.i.i400 ]
   %arrayidx20.i.i403 = getelementptr inbounds [4 x i64], ptr %ne8.i.i396, i64 0, i64 %indvars.iv.i.i401
   %141 = load i64, ptr %arrayidx20.i.i403, align 8
   %sub21.i.i404 = add nsw i64 %141, -1
   %arrayidx24.i.i405 = getelementptr inbounds [4 x i64], ptr %nb10.i.i397, i64 0, i64 %indvars.iv.i.i401
   %142 = load i64, ptr %arrayidx24.i.i405, align 8
   %mul25.i.i406 = mul i64 %sub21.i.i404, %142
-  %add26.i.i407 = add i64 %mul25.i.i406, %nbytes.119.i.i402
+  %add26.i.i407 = add i64 %mul25.i.i406, %nbytes.219.i.i402
   %indvars.iv.next.i.i408 = add nuw nsw i64 %indvars.iv.i.i401, 1
   %exitcond.not.i.i409 = icmp eq i64 %indvars.iv.next.i.i408, 4
   br i1 %exitcond.not.i.i409, label %ggml_set_zero.exit425, label %for.body17.i.i400, !llvm.loop !16
 
 ggml_set_zero.exit425:                            ; preds = %for.body17.i.i400, %for.body.i.i415
-  %nbytes.2.i.i410 = phi i64 [ %add.i.i422, %for.body.i.i415 ], [ %add26.i.i407, %for.body17.i.i400 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %132, i8 0, i64 %nbytes.2.i.i410, i1 false)
+  %nbytes.1.i.i410 = phi i64 [ %add.i.i422, %for.body.i.i415 ], [ %add26.i.i407, %for.body17.i.i400 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %132, i8 0, i64 %nbytes.1.i.i410, i1 false)
   %143 = load ptr, ptr %lmys, align 8
   %data.i426 = getelementptr inbounds i8, ptr %143, i64 280
   %144 = load ptr, ptr %data.i426, align 8
@@ -21050,21 +21050,21 @@ if.else.i.i429:                                   ; preds = %ggml_set_zero.exit4
 
 for.body17.i.i436:                                ; preds = %for.body17.i.i436, %if.else.i.i429
   %indvars.iv.i.i437 = phi i64 [ 1, %if.else.i.i429 ], [ %indvars.iv.next.i.i444, %for.body17.i.i436 ]
-  %nbytes.119.i.i438 = phi i64 [ %div.i.i435, %if.else.i.i429 ], [ %add26.i.i443, %for.body17.i.i436 ]
+  %nbytes.219.i.i438 = phi i64 [ %div.i.i435, %if.else.i.i429 ], [ %add26.i.i443, %for.body17.i.i436 ]
   %arrayidx20.i.i439 = getelementptr inbounds [4 x i64], ptr %ne8.i.i432, i64 0, i64 %indvars.iv.i.i437
   %153 = load i64, ptr %arrayidx20.i.i439, align 8
   %sub21.i.i440 = add nsw i64 %153, -1
   %arrayidx24.i.i441 = getelementptr inbounds [4 x i64], ptr %nb10.i.i433, i64 0, i64 %indvars.iv.i.i437
   %154 = load i64, ptr %arrayidx24.i.i441, align 8
   %mul25.i.i442 = mul i64 %sub21.i.i440, %154
-  %add26.i.i443 = add i64 %mul25.i.i442, %nbytes.119.i.i438
+  %add26.i.i443 = add i64 %mul25.i.i442, %nbytes.219.i.i438
   %indvars.iv.next.i.i444 = add nuw nsw i64 %indvars.iv.i.i437, 1
   %exitcond.not.i.i445 = icmp eq i64 %indvars.iv.next.i.i444, 4
   br i1 %exitcond.not.i.i445, label %ggml_set_zero.exit461, label %for.body17.i.i436, !llvm.loop !16
 
 ggml_set_zero.exit461:                            ; preds = %for.body17.i.i436, %for.body.i.i451
-  %nbytes.2.i.i446 = phi i64 [ %add.i.i458, %for.body.i.i451 ], [ %add26.i.i443, %for.body17.i.i436 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %144, i8 0, i64 %nbytes.2.i.i446, i1 false)
+  %nbytes.1.i.i446 = phi i64 [ %add.i.i458, %for.body.i.i451 ], [ %add26.i.i443, %for.body17.i.i436 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %144, i8 0, i64 %nbytes.1.i.i446, i1 false)
   %155 = load ptr, ptr %lms, align 8
   %data.i462 = getelementptr inbounds i8, ptr %155, i64 280
   %156 = load ptr, ptr %data.i462, align 8
@@ -21109,21 +21109,21 @@ if.else.i.i465:                                   ; preds = %ggml_set_zero.exit4
 
 for.body17.i.i472:                                ; preds = %for.body17.i.i472, %if.else.i.i465
   %indvars.iv.i.i473 = phi i64 [ 1, %if.else.i.i465 ], [ %indvars.iv.next.i.i480, %for.body17.i.i472 ]
-  %nbytes.119.i.i474 = phi i64 [ %div.i.i471, %if.else.i.i465 ], [ %add26.i.i479, %for.body17.i.i472 ]
+  %nbytes.219.i.i474 = phi i64 [ %div.i.i471, %if.else.i.i465 ], [ %add26.i.i479, %for.body17.i.i472 ]
   %arrayidx20.i.i475 = getelementptr inbounds [4 x i64], ptr %ne8.i.i468, i64 0, i64 %indvars.iv.i.i473
   %165 = load i64, ptr %arrayidx20.i.i475, align 8
   %sub21.i.i476 = add nsw i64 %165, -1
   %arrayidx24.i.i477 = getelementptr inbounds [4 x i64], ptr %nb10.i.i469, i64 0, i64 %indvars.iv.i.i473
   %166 = load i64, ptr %arrayidx24.i.i477, align 8
   %mul25.i.i478 = mul i64 %sub21.i.i476, %166
-  %add26.i.i479 = add i64 %mul25.i.i478, %nbytes.119.i.i474
+  %add26.i.i479 = add i64 %mul25.i.i478, %nbytes.219.i.i474
   %indvars.iv.next.i.i480 = add nuw nsw i64 %indvars.iv.i.i473, 1
   %exitcond.not.i.i481 = icmp eq i64 %indvars.iv.next.i.i480, 4
   br i1 %exitcond.not.i.i481, label %ggml_set_zero.exit497, label %for.body17.i.i472, !llvm.loop !16
 
 ggml_set_zero.exit497:                            ; preds = %for.body17.i.i472, %for.body.i.i487
-  %nbytes.2.i.i482 = phi i64 [ %add.i.i494, %for.body.i.i487 ], [ %add26.i.i479, %for.body17.i.i472 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %156, i8 0, i64 %nbytes.2.i.i482, i1 false)
+  %nbytes.1.i.i482 = phi i64 [ %add.i.i494, %for.body.i.i487 ], [ %add26.i.i479, %for.body17.i.i472 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %156, i8 0, i64 %nbytes.1.i.i482, i1 false)
   %167 = load ptr, ptr %lmy, align 8
   %data.i498 = getelementptr inbounds i8, ptr %167, i64 280
   %168 = load ptr, ptr %data.i498, align 8
@@ -21168,21 +21168,21 @@ if.else.i.i501:                                   ; preds = %ggml_set_zero.exit4
 
 for.body17.i.i508:                                ; preds = %for.body17.i.i508, %if.else.i.i501
   %indvars.iv.i.i509 = phi i64 [ 1, %if.else.i.i501 ], [ %indvars.iv.next.i.i516, %for.body17.i.i508 ]
-  %nbytes.119.i.i510 = phi i64 [ %div.i.i507, %if.else.i.i501 ], [ %add26.i.i515, %for.body17.i.i508 ]
+  %nbytes.219.i.i510 = phi i64 [ %div.i.i507, %if.else.i.i501 ], [ %add26.i.i515, %for.body17.i.i508 ]
   %arrayidx20.i.i511 = getelementptr inbounds [4 x i64], ptr %ne8.i.i504, i64 0, i64 %indvars.iv.i.i509
   %177 = load i64, ptr %arrayidx20.i.i511, align 8
   %sub21.i.i512 = add nsw i64 %177, -1
   %arrayidx24.i.i513 = getelementptr inbounds [4 x i64], ptr %nb10.i.i505, i64 0, i64 %indvars.iv.i.i509
   %178 = load i64, ptr %arrayidx24.i.i513, align 8
   %mul25.i.i514 = mul i64 %sub21.i.i512, %178
-  %add26.i.i515 = add i64 %mul25.i.i514, %nbytes.119.i.i510
+  %add26.i.i515 = add i64 %mul25.i.i514, %nbytes.219.i.i510
   %indvars.iv.next.i.i516 = add nuw nsw i64 %indvars.iv.i.i509, 1
   %exitcond.not.i.i517 = icmp eq i64 %indvars.iv.next.i.i516, 4
   br i1 %exitcond.not.i.i517, label %ggml_set_zero.exit533, label %for.body17.i.i508, !llvm.loop !16
 
 ggml_set_zero.exit533:                            ; preds = %for.body17.i.i508, %for.body.i.i523
-  %nbytes.2.i.i518 = phi i64 [ %add.i.i530, %for.body.i.i523 ], [ %add26.i.i515, %for.body17.i.i508 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %168, i8 0, i64 %nbytes.2.i.i518, i1 false)
+  %nbytes.1.i.i518 = phi i64 [ %add.i.i530, %for.body.i.i523 ], [ %add26.i.i515, %for.body17.i.i508 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %168, i8 0, i64 %nbytes.1.i.i518, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %ggml_set_zero.exit117, %ggml_set_zero.exit153, %ggml_set_zero.exit533, %if.end68
@@ -21661,21 +21661,21 @@ if.else.i.i.i:                                    ; preds = %cond.end69.i
 
 for.body17.i.i.i:                                 ; preds = %for.body17.i.i.i, %if.else.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 1, %if.else.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body17.i.i.i ]
-  %nbytes.119.i.i.i = phi i64 [ %div.i.i.i, %if.else.i.i.i ], [ %add26.i.i.i, %for.body17.i.i.i ]
+  %nbytes.219.i.i.i = phi i64 [ %div.i.i.i, %if.else.i.i.i ], [ %add26.i.i.i, %for.body17.i.i.i ]
   %arrayidx20.i.i.i = getelementptr inbounds [4 x i64], ptr %ne8.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   %55 = load i64, ptr %arrayidx20.i.i.i, align 8
   %sub21.i.i.i = add nsw i64 %55, -1
   %arrayidx24.i.i.i = getelementptr inbounds [4 x i64], ptr %nb10.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   %56 = load i64, ptr %arrayidx24.i.i.i, align 8
   %mul25.i.i.i = mul i64 %sub21.i.i.i, %56
-  %add26.i.i.i = add i64 %mul25.i.i.i, %nbytes.119.i.i.i
+  %add26.i.i.i = add i64 %mul25.i.i.i, %nbytes.219.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
   br i1 %exitcond.not.i.i.i, label %ggml_set_zero.exit.i, label %for.body17.i.i.i, !llvm.loop !16
 
 ggml_set_zero.exit.i:                             ; preds = %for.body17.i.i.i, %for.body.i.i.i
-  %nbytes.2.i.i.i = phi i64 [ %add.i.i.i, %for.body.i.i.i ], [ %add26.i.i.i, %for.body17.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %46, i8 0, i64 %nbytes.2.i.i.i, i1 false)
+  %nbytes.1.i.i.i = phi i64 [ %add.i.i.i, %for.body.i.i.i ], [ %add26.i.i.i, %for.body17.i.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %46, i8 0, i64 %nbytes.1.i.i.i, i1 false)
   %tobool79.not.i = icmp eq ptr %callback, null
   %grad.i = getelementptr inbounds i8, ptr %f, i64 152
   %cmp10.i140.i = icmp sgt i32 %np.0.lcssa.fr.i, 0
@@ -22029,21 +22029,21 @@ if.else.i.i162.i:                                 ; preds = %for.end236.i
 
 for.body17.i.i169.i:                              ; preds = %for.body17.i.i169.i, %if.else.i.i162.i
   %indvars.iv.i.i170.i = phi i64 [ 1, %if.else.i.i162.i ], [ %indvars.iv.next.i.i177.i, %for.body17.i.i169.i ]
-  %nbytes.119.i.i171.i = phi i64 [ %div.i.i168.i, %if.else.i.i162.i ], [ %add26.i.i176.i, %for.body17.i.i169.i ]
+  %nbytes.219.i.i171.i = phi i64 [ %div.i.i168.i, %if.else.i.i162.i ], [ %add26.i.i176.i, %for.body17.i.i169.i ]
   %arrayidx20.i.i172.i = getelementptr inbounds [4 x i64], ptr %ne8.i.i165.i, i64 0, i64 %indvars.iv.i.i170.i
   %108 = load i64, ptr %arrayidx20.i.i172.i, align 8
   %sub21.i.i173.i = add nsw i64 %108, -1
   %arrayidx24.i.i174.i = getelementptr inbounds [4 x i64], ptr %nb10.i.i166.i, i64 0, i64 %indvars.iv.i.i170.i
   %109 = load i64, ptr %arrayidx24.i.i174.i, align 8
   %mul25.i.i175.i = mul i64 %sub21.i.i173.i, %109
-  %add26.i.i176.i = add i64 %mul25.i.i175.i, %nbytes.119.i.i171.i
+  %add26.i.i176.i = add i64 %mul25.i.i175.i, %nbytes.219.i.i171.i
   %indvars.iv.next.i.i177.i = add nuw nsw i64 %indvars.iv.i.i170.i, 1
   %exitcond.not.i.i178.i = icmp eq i64 %indvars.iv.next.i.i177.i, 4
   br i1 %exitcond.not.i.i178.i, label %ggml_set_zero.exit194.i, label %for.body17.i.i169.i, !llvm.loop !16
 
 ggml_set_zero.exit194.i:                          ; preds = %for.body17.i.i169.i, %for.body.i.i184.i
-  %nbytes.2.i.i179.i = phi i64 [ %add.i.i191.i, %for.body.i.i184.i ], [ %add26.i.i176.i, %for.body17.i.i169.i ]
-  call void @llvm.memset.p0.i64(ptr align 1 %99, i8 0, i64 %nbytes.2.i.i179.i, i1 false)
+  %nbytes.1.i.i179.i = phi i64 [ %add.i.i191.i, %for.body.i.i184.i ], [ %add26.i.i176.i, %for.body17.i.i169.i ]
+  call void @llvm.memset.p0.i64(ptr align 1 %99, i8 0, i64 %nbytes.1.i.i179.i, i1 false)
   br label %for.body244.i
 
 for.body244.i:                                    ; preds = %ggml_opt_acc_grad.exit224.i, %ggml_set_zero.exit194.i
@@ -25291,7 +25291,7 @@ if.end58:                                         ; preds = %if.end53
   br i1 %cmp67370.not, label %if.end286, label %for.body69
 
 for.cond64:                                       ; preds = %land.rhs227, %land.rhs6.i261, %land.rhs179, %land.rhs170, %land.rhs161, %land.rhs152, %land.rhs143, %land.rhs134, %land.rhs125, %land.rhs116, %land.rhs107, %land.rhs98, %land.rhs90, %sw.epilog275
-  %offset.22420 = phi i64 [ %add.i223, %land.rhs90 ], [ %offset.22, %sw.epilog275 ], [ %add.i226, %land.rhs98 ], [ %add.i229, %land.rhs107 ], [ %add.i232, %land.rhs116 ], [ %add.i235, %land.rhs125 ], [ %add.i238, %land.rhs134 ], [ %add.i241, %land.rhs143 ], [ %add.i244, %land.rhs152 ], [ %add.i247, %land.rhs161 ], [ %add.i250, %land.rhs170 ], [ %add.i253, %land.rhs179 ], [ %add.i12.i263, %land.rhs6.i261 ], [ %add.i273, %land.rhs227 ]
+  %offset.4420 = phi i64 [ %add.i223, %land.rhs90 ], [ %offset.4, %sw.epilog275 ], [ %add.i226, %land.rhs98 ], [ %add.i229, %land.rhs107 ], [ %add.i232, %land.rhs116 ], [ %add.i235, %land.rhs125 ], [ %add.i238, %land.rhs134 ], [ %add.i241, %land.rhs143 ], [ %add.i244, %land.rhs152 ], [ %add.i247, %land.rhs161 ], [ %add.i250, %land.rhs170 ], [ %add.i253, %land.rhs179 ], [ %add.i12.i263, %land.rhs6.i261 ], [ %add.i273, %land.rhs227 ]
   %inc280 = add nuw i64 %i63.0372, 1
   %13 = load i64, ptr %n_kv60, align 8
   %cmp67 = icmp ult i64 %inc280, %13
@@ -25299,7 +25299,7 @@ for.cond64:                                       ; preds = %land.rhs227, %land.
 
 for.body69:                                       ; preds = %if.end58, %for.cond64
   %i63.0372 = phi i64 [ %inc280, %for.cond64 ], [ 0, %if.end58 ]
-  %offset.1371 = phi i64 [ %offset.22420, %for.cond64 ], [ %offset.0, %if.end58 ]
+  %offset.1371 = phi i64 [ %offset.4420, %for.cond64 ], [ %offset.0, %if.end58 ]
   %14 = load ptr, ptr %kv, align 8
   %arrayidx72 = getelementptr inbounds %struct.gguf_kv, ptr %14, i64 %i63.0372
   %data.i = getelementptr inbounds i8, ptr %arrayidx72, i64 8
@@ -25548,10 +25548,10 @@ sw.bb241:                                         ; preds = %land.end210
   br i1 %cmp251365.not, label %sw.epilog275, label %for.body253
 
 for.body253:                                      ; preds = %sw.bb241, %land.end262
-  %ok.1368 = phi i1 [ %26, %land.end262 ], [ %19, %sw.bb241 ]
+  %ok.3368 = phi i1 [ %26, %land.end262 ], [ %19, %sw.bb241 ]
   %j.0367 = phi i64 [ %inc265, %land.end262 ], [ 0, %sw.bb241 ]
-  %offset.19366 = phi i64 [ %offset.21, %land.end262 ], [ %offset.17, %sw.bb241 ]
-  br i1 %ok.1368, label %land.rhs256, label %land.end262
+  %offset.19366 = phi i64 [ %offset.20, %land.end262 ], [ %offset.17, %sw.bb241 ]
+  br i1 %ok.3368, label %land.rhs256, label %land.end262
 
 land.rhs256:                                      ; preds = %for.body253
   %24 = load ptr, ptr %data247, align 8
@@ -25574,7 +25574,7 @@ land.rhs6.i281:                                   ; preds = %land.rhs256
   br label %land.end262
 
 land.end262:                                      ; preds = %land.rhs6.i281, %land.rhs256, %for.body253
-  %offset.21 = phi i64 [ %offset.19366, %for.body253 ], [ %add.i12.i283, %land.rhs6.i281 ], [ %add.i.i277, %land.rhs256 ]
+  %offset.20 = phi i64 [ %offset.19366, %for.body253 ], [ %add.i12.i283, %land.rhs6.i281 ], [ %add.i.i277, %land.rhs256 ]
   %26 = phi i1 [ false, %for.body253 ], [ %cmp.i13.i284, %land.rhs6.i281 ], [ false, %land.rhs256 ]
   %inc265 = add nuw i64 %j.0367, 1
   %27 = load i64, ptr %n243, align 8
@@ -25600,7 +25600,7 @@ do.body271:                                       ; preds = %land.end85
   unreachable
 
 sw.epilog275:                                     ; preds = %land.end262, %sw.bb241, %land.end210, %land.end85
-  %offset.22 = phi i64 [ %offset.3, %land.end85 ], [ %offset.17, %land.end210 ], [ %offset.17, %sw.bb241 ], [ %offset.21, %land.end262 ]
+  %offset.4 = phi i64 [ %offset.3, %land.end85 ], [ %offset.17, %land.end210 ], [ %offset.17, %sw.bb241 ], [ %offset.20, %land.end262 ]
   %ok.2.in = phi i1 [ %16, %land.end85 ], [ %19, %land.end210 ], [ %19, %sw.bb241 ], [ %26, %land.end262 ]
   br i1 %ok.2.in, label %for.cond64, label %if.then283
 
@@ -25612,7 +25612,7 @@ if.then283:                                       ; preds = %sw.bb214, %land.rhs
   br label %return
 
 if.end286:                                        ; preds = %for.cond64, %if.end58
-  %offset.23 = phi i64 [ %offset.0, %if.end58 ], [ %offset.22420, %for.cond64 ]
+  %offset.2 = phi i64 [ %offset.0, %if.end58 ], [ %offset.4420, %for.cond64 ]
   %n_tensors288 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %33 = load i64, ptr %n_tensors288, align 8
   %mul289 = mul i64 %33, 88
@@ -25623,7 +25623,7 @@ if.end286:                                        ; preds = %for.cond64, %if.end
 
 for.body298:                                      ; preds = %if.end286, %for.inc365
   %i292.0387 = phi i64 [ %inc366, %for.inc365 ], [ 0, %if.end286 ]
-  %offset.24386 = phi i64 [ %add.i307, %for.inc365 ], [ %offset.23, %if.end286 ]
+  %offset.21386 = phi i64 [ %add.i307, %for.inc365 ], [ %offset.2, %if.end286 ]
   %34 = load ptr, ptr %infos, align 8
   %arrayidx300 = getelementptr inbounds %struct.gguf_tensor_info, ptr %34, i64 %i292.0387
   %ne = getelementptr inbounds i8, ptr %arrayidx300, i64 24
@@ -25641,7 +25641,7 @@ land.rhs313:                                      ; preds = %for.body305
   %data.i286 = getelementptr inbounds i8, ptr %arrayidx300, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx300, i8 0, i64 16, i1 false)
   %call.i.i287 = call i64 @fread(ptr noundef nonnull %arrayidx300, i64 noundef 1, i64 noundef 8, ptr noundef %call)
-  %add.i.i288 = add i64 %call.i.i287, %offset.24386
+  %add.i.i288 = add i64 %call.i.i287, %offset.21386
   %cmp.i.i289 = icmp eq i64 %call.i.i287, 8
   %35 = load i64, ptr %arrayidx300, align 8
   %add.i290 = add i64 %35, 1
@@ -25663,7 +25663,7 @@ land.rhs320:                                      ; preds = %gguf_fread_str.exit
   br label %land.end323
 
 land.end323:                                      ; preds = %land.rhs313, %land.rhs320, %gguf_fread_str.exit296
-  %offset.26 = phi i64 [ %add.i298, %land.rhs320 ], [ %add.i12.i294, %gguf_fread_str.exit296 ], [ %add.i.i288, %land.rhs313 ]
+  %offset.22 = phi i64 [ %add.i298, %land.rhs320 ], [ %add.i12.i294, %gguf_fread_str.exit296 ], [ %add.i.i288, %land.rhs313 ]
   %36 = phi i1 [ %cmp.i299, %land.rhs320 ], [ false, %gguf_fread_str.exit296 ], [ false, %land.rhs313 ]
   %n_dims327 = getelementptr inbounds i8, ptr %arrayidx300, i64 16
   %37 = load i32, ptr %n_dims327, align 8
@@ -25674,20 +25674,20 @@ for.body330:                                      ; preds = %land.end323, %land.
   %38 = phi i32 [ %39, %land.end339 ], [ %37, %land.end323 ]
   %indvars.iv411 = phi i64 [ %indvars.iv.next412, %land.end339 ], [ 0, %land.end323 ]
   %ok.5.in382 = phi i1 [ %40, %land.end339 ], [ %36, %land.end323 ]
-  %offset.27380 = phi i64 [ %offset.28, %land.end339 ], [ %offset.26, %land.end323 ]
+  %offset.23380 = phi i64 [ %offset.24, %land.end339 ], [ %offset.22, %land.end323 ]
   br i1 %ok.5.in382, label %land.rhs333, label %land.end339
 
 land.rhs333:                                      ; preds = %for.body330
   %arrayidx336 = getelementptr inbounds [4 x i64], ptr %ne, i64 0, i64 %indvars.iv411
   %call.i300 = call i64 @fread(ptr noundef nonnull %arrayidx336, i64 noundef 1, i64 noundef 8, ptr noundef %call)
-  %add.i301 = add i64 %call.i300, %offset.27380
+  %add.i301 = add i64 %call.i300, %offset.23380
   %cmp.i302 = icmp eq i64 %call.i300, 8
   %.pre = load i32, ptr %n_dims327, align 8
   br label %land.end339
 
 land.end339:                                      ; preds = %land.rhs333, %for.body330
   %39 = phi i32 [ %.pre, %land.rhs333 ], [ %38, %for.body330 ]
-  %offset.28 = phi i64 [ %add.i301, %land.rhs333 ], [ %offset.27380, %for.body330 ]
+  %offset.24 = phi i64 [ %add.i301, %land.rhs333 ], [ %offset.23380, %for.body330 ]
   %40 = phi i1 [ %cmp.i302, %land.rhs333 ], [ false, %for.body330 ]
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
   %41 = zext i32 %39 to i64
@@ -25695,7 +25695,7 @@ land.end339:                                      ; preds = %land.rhs333, %for.b
   br i1 %cmp328, label %for.body330, label %for.end343, !llvm.loop !265
 
 for.end343:                                       ; preds = %land.end339, %land.end323
-  %offset.27.lcssa = phi i64 [ %offset.26, %land.end323 ], [ %offset.28, %land.end339 ]
+  %offset.23.lcssa = phi i64 [ %offset.22, %land.end323 ], [ %offset.24, %land.end339 ]
   %ok.5.in.lcssa = phi i1 [ %36, %land.end323 ], [ %40, %land.end339 ]
   br i1 %ok.5.in.lcssa, label %land.rhs346, label %if.then361
 
@@ -25719,14 +25719,14 @@ if.then361:                                       ; preds = %for.end343, %land.r
   br label %return
 
 for.inc365:                                       ; preds = %land.end358
-  %add.i307 = add i64 %offset.27.lcssa, 12
+  %add.i307 = add i64 %offset.23.lcssa, 12
   %inc366 = add nuw i64 %i292.0387, 1
   %43 = load i64, ptr %n_tensors288, align 8
   %cmp296 = icmp ult i64 %inc366, %43
   br i1 %cmp296, label %for.body298, label %for.end367, !llvm.loop !266
 
 for.end367:                                       ; preds = %for.inc365, %if.end286
-  %offset.24.lcssa = phi i64 [ %offset.23, %if.end286 ], [ %add.i307, %for.inc365 ]
+  %offset.21.lcssa = phi i64 [ %offset.2, %if.end286 ], [ %add.i307, %for.inc365 ]
   %alignment = getelementptr inbounds i8, ptr %retval.0.i, i64 40
   store i64 32, ptr %alignment, align 8
   %44 = load i64, ptr %n_kv60, align 8
@@ -25761,20 +25761,20 @@ if.then371:                                       ; preds = %gguf_get_key.exit.i
 
 if.end375:                                        ; preds = %for.inc.i, %for.end367, %if.then371
   %48 = phi i64 [ 32, %for.end367 ], [ %conv373, %if.then371 ], [ 32, %for.inc.i ]
-  %rem = urem i64 %offset.24.lcssa, %48
+  %rem = urem i64 %offset.21.lcssa, %48
   %cmp377.not = icmp eq i64 %rem, 0
   br i1 %cmp377.not, label %if.end382, label %if.then379
 
 if.then379:                                       ; preds = %if.end375
   %sub = sub nsw i64 %48, %rem
-  %add = add i64 %sub, %offset.24.lcssa
+  %add = add i64 %sub, %offset.21.lcssa
   %call381 = call i32 @fseek(ptr noundef %call, i64 noundef %add, i32 noundef 0)
   br label %if.end382
 
 if.end382:                                        ; preds = %if.then379, %if.end375
-  %offset.30 = phi i64 [ %offset.24.lcssa, %if.end375 ], [ %add, %if.then379 ]
+  %offset.26 = phi i64 [ %offset.21.lcssa, %if.end375 ], [ %add, %if.then379 ]
   %offset383 = getelementptr inbounds i8, ptr %retval.0.i, i64 48
-  store i64 %offset.30, ptr %offset383, align 8
+  store i64 %offset.26, ptr %offset383, align 8
   %size = getelementptr inbounds i8, ptr %retval.0.i, i64 56
   store i64 0, ptr %size, align 8
   %49 = load i64, ptr %n_tensors288, align 8
@@ -28455,23 +28455,23 @@ if.else.i:                                        ; preds = %for.end43
 
 for.body17.i:                                     ; preds = %for.body17.i, %if.else.i
   %indvars.iv.i = phi i64 [ 1, %if.else.i ], [ %indvars.iv.next.i, %for.body17.i ]
-  %nbytes.119.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
+  %nbytes.219.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
   %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %ne.i, i64 0, i64 %indvars.iv.i
   %25 = load i64, ptr %arrayidx20.i, align 8
   %sub21.i = add nsw i64 %25, -1
   %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %nb10.i, i64 0, i64 %indvars.iv.i
   %26 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %sub21.i, %26
-  %add26.i = add i64 %mul25.i, %nbytes.119.i
+  %add26.i = add i64 %mul25.i, %nbytes.219.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %for.body17.i, !llvm.loop !16
 
 ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.body.i49
-  %nbytes.2.i = phi i64 [ %add.i51, %for.body.i49 ], [ %add26.i, %for.body17.i ]
+  %nbytes.1.i = phi i64 [ %add.i51, %for.body.i49 ], [ %add26.i, %for.body17.i ]
   %27 = load ptr, ptr %infos, align 8
   %size = getelementptr inbounds %struct.gguf_tensor_info, ptr %27, i64 %idxprom, i32 6
-  store i64 %nbytes.2.i, ptr %size, align 8
+  store i64 %nbytes.1.i, ptr %size, align 8
   %28 = load i64, ptr %n_tensors, align 8
   %cmp62.not = icmp eq i64 %28, 0
   br i1 %cmp62.not, label %if.end, label %if.then
@@ -36311,21 +36311,21 @@ for.body.i.i:                                     ; preds = %if.then29.i, %for.b
 
 for.body17.i.i:                                   ; preds = %if.then29.i, %for.body17.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body17.i.i ], [ 1, %if.then29.i ]
-  %nbytes.119.i.i = phi i64 [ %add26.i.i, %for.body17.i.i ], [ %14, %if.then29.i ]
+  %nbytes.219.i.i = phi i64 [ %add26.i.i, %for.body17.i.i ], [ %14, %if.then29.i ]
   %arrayidx20.i.i = getelementptr inbounds [4 x i64], ptr %ne1.i.i, i64 0, i64 %indvars.iv.i.i
   %35 = load i64, ptr %arrayidx20.i.i, align 8
   %sub21.i.i = add nsw i64 %35, -1
   %arrayidx24.i.i = getelementptr inbounds [4 x i64], ptr %nb.i.i, i64 0, i64 %indvars.iv.i.i
   %36 = load i64, ptr %arrayidx24.i.i, align 8
   %mul25.i.i = mul i64 %sub21.i.i, %36
-  %add26.i.i = add i64 %mul25.i.i, %nbytes.119.i.i
+  %add26.i.i = add i64 %mul25.i.i, %nbytes.219.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %ggml_nbytes.exit.i, label %for.body17.i.i, !llvm.loop !16
 
 ggml_nbytes.exit.i:                               ; preds = %for.body17.i.i, %for.body.i.i
-  %nbytes.2.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 %nbytes.2.i.i, i1 false)
+  %nbytes.1.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 %nbytes.1.i.i, i1 false)
   br label %if.end32thread-pre-split.i
 
 if.end32thread-pre-split.i:                       ; preds = %ggml_nbytes.exit.i, %do.end10.i
@@ -36417,21 +36417,21 @@ if.else.i131.i:                                   ; preds = %if.end40.i
 
 for.body17.i138.i:                                ; preds = %for.body17.i138.i, %if.else.i131.i
   %indvars.iv.i139.i = phi i64 [ 1, %if.else.i131.i ], [ %indvars.iv.next.i146.i, %for.body17.i138.i ]
-  %nbytes.119.i140.i = phi i64 [ %div.i137.i, %if.else.i131.i ], [ %add26.i145.i, %for.body17.i138.i ]
+  %nbytes.219.i140.i = phi i64 [ %div.i137.i, %if.else.i131.i ], [ %add26.i145.i, %for.body17.i138.i ]
   %arrayidx20.i141.i = getelementptr inbounds [4 x i64], ptr %ne1.i.i, i64 0, i64 %indvars.iv.i139.i
   %58 = load i64, ptr %arrayidx20.i141.i, align 8
   %sub21.i142.i = add nsw i64 %58, -1
   %arrayidx24.i143.i = getelementptr inbounds [4 x i64], ptr %nb.i.i, i64 0, i64 %indvars.iv.i139.i
   %59 = load i64, ptr %arrayidx24.i143.i, align 8
   %mul25.i144.i = mul i64 %sub21.i142.i, %59
-  %add26.i145.i = add i64 %mul25.i144.i, %nbytes.119.i140.i
+  %add26.i145.i = add i64 %mul25.i144.i, %nbytes.219.i140.i
   %indvars.iv.next.i146.i = add nuw nsw i64 %indvars.iv.i139.i, 1
   %exitcond.not.i147.i = icmp eq i64 %indvars.iv.next.i146.i, 4
   br i1 %exitcond.not.i147.i, label %ggml_nbytes.exit163.i, label %for.body17.i138.i, !llvm.loop !16
 
 ggml_nbytes.exit163.i:                            ; preds = %for.body17.i138.i, %for.body.i153.i
-  %nbytes.2.i148.i = phi i64 [ %add.i160.i, %for.body.i153.i ], [ %add26.i145.i, %for.body17.i138.i ]
-  %cmp94.i = icmp ult i64 %add92.i, %nbytes.2.i148.i
+  %nbytes.1.i148.i = phi i64 [ %add.i160.i, %for.body.i153.i ], [ %add26.i145.i, %for.body17.i138.i ]
+  %cmp94.i = icmp ult i64 %add92.i, %nbytes.1.i148.i
   br i1 %cmp94.i, label %do.body101.i, label %if.then96.i
 
 if.then96.i:                                      ; preds = %ggml_nbytes.exit163.i
@@ -36474,21 +36474,21 @@ if.else.i166.i:                                   ; preds = %do.body101.i
 
 for.body17.i173.i:                                ; preds = %for.body17.i173.i, %if.else.i166.i
   %indvars.iv.i174.i = phi i64 [ 1, %if.else.i166.i ], [ %indvars.iv.next.i181.i, %for.body17.i173.i ]
-  %nbytes.119.i175.i = phi i64 [ %div.i172.i, %if.else.i166.i ], [ %add26.i180.i, %for.body17.i173.i ]
+  %nbytes.219.i175.i = phi i64 [ %div.i172.i, %if.else.i166.i ], [ %add26.i180.i, %for.body17.i173.i ]
   %arrayidx20.i176.i = getelementptr inbounds [4 x i64], ptr %ne.i.i, i64 0, i64 %indvars.iv.i174.i
   %68 = load i64, ptr %arrayidx20.i176.i, align 8
   %sub21.i177.i = add nsw i64 %68, -1
   %arrayidx24.i178.i = getelementptr inbounds [4 x i64], ptr %nb.i91.i, i64 0, i64 %indvars.iv.i174.i
   %69 = load i64, ptr %arrayidx24.i178.i, align 8
   %mul25.i179.i = mul i64 %sub21.i177.i, %69
-  %add26.i180.i = add i64 %mul25.i179.i, %nbytes.119.i175.i
+  %add26.i180.i = add i64 %mul25.i179.i, %nbytes.219.i175.i
   %indvars.iv.next.i181.i = add nuw nsw i64 %indvars.iv.i174.i, 1
   %exitcond.not.i182.i = icmp eq i64 %indvars.iv.next.i181.i, 4
   br i1 %exitcond.not.i182.i, label %ggml_nbytes.exit198.i, label %for.body17.i173.i, !llvm.loop !16
 
 ggml_nbytes.exit198.i:                            ; preds = %for.body17.i173.i, %for.body.i188.i
-  %nbytes.2.i183.i = phi i64 [ %add.i195.i, %for.body.i188.i ], [ %add26.i180.i, %for.body17.i173.i ]
-  %cmp139.i = icmp ult i64 %add92.i, %nbytes.2.i183.i
+  %nbytes.1.i183.i = phi i64 [ %add.i195.i, %for.body.i188.i ], [ %add26.i180.i, %for.body17.i173.i ]
+  %cmp139.i = icmp ult i64 %add92.i, %nbytes.1.i183.i
   br i1 %cmp139.i, label %do.body146.i, label %if.then141.i
 
 if.then141.i:                                     ; preds = %ggml_nbytes.exit198.i
@@ -44685,21 +44685,21 @@ for.body.i.i:                                     ; preds = %if.then29.i, %for.b
 
 for.body17.i.i:                                   ; preds = %if.then29.i, %for.body17.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body17.i.i ], [ 1, %if.then29.i ]
-  %nbytes.119.i.i = phi i64 [ %add26.i.i, %for.body17.i.i ], [ %14, %if.then29.i ]
+  %nbytes.219.i.i = phi i64 [ %add26.i.i, %for.body17.i.i ], [ %14, %if.then29.i ]
   %arrayidx20.i.i = getelementptr inbounds [4 x i64], ptr %ne1.i.i, i64 0, i64 %indvars.iv.i.i
   %35 = load i64, ptr %arrayidx20.i.i, align 8
   %sub21.i.i = add nsw i64 %35, -1
   %arrayidx24.i.i = getelementptr inbounds [4 x i64], ptr %nb.i.i, i64 0, i64 %indvars.iv.i.i
   %36 = load i64, ptr %arrayidx24.i.i, align 8
   %mul25.i.i = mul i64 %sub21.i.i, %36
-  %add26.i.i = add i64 %mul25.i.i, %nbytes.119.i.i
+  %add26.i.i = add i64 %mul25.i.i, %nbytes.219.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %ggml_nbytes.exit.i, label %for.body17.i.i, !llvm.loop !16
 
 ggml_nbytes.exit.i:                               ; preds = %for.body17.i.i, %for.body.i.i
-  %nbytes.2.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 %nbytes.2.i.i, i1 false)
+  %nbytes.1.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 %nbytes.1.i.i, i1 false)
   br label %if.end32thread-pre-split.i
 
 if.end32thread-pre-split.i:                       ; preds = %ggml_nbytes.exit.i, %do.end10.i
@@ -44799,21 +44799,21 @@ if.else.i113.i:                                   ; preds = %if.end40.i
 
 for.body17.i120.i:                                ; preds = %for.body17.i120.i, %if.else.i113.i
   %indvars.iv.i121.i = phi i64 [ 1, %if.else.i113.i ], [ %indvars.iv.next.i128.i, %for.body17.i120.i ]
-  %nbytes.119.i122.i = phi i64 [ %div.i119.i, %if.else.i113.i ], [ %add26.i127.i, %for.body17.i120.i ]
+  %nbytes.219.i122.i = phi i64 [ %div.i119.i, %if.else.i113.i ], [ %add26.i127.i, %for.body17.i120.i ]
   %arrayidx20.i123.i = getelementptr inbounds [4 x i64], ptr %ne1.i.i, i64 0, i64 %indvars.iv.i121.i
   %58 = load i64, ptr %arrayidx20.i123.i, align 8
   %sub21.i124.i = add nsw i64 %58, -1
   %arrayidx24.i125.i = getelementptr inbounds [4 x i64], ptr %nb.i.i, i64 0, i64 %indvars.iv.i121.i
   %59 = load i64, ptr %arrayidx24.i125.i, align 8
   %mul25.i126.i = mul i64 %sub21.i124.i, %59
-  %add26.i127.i = add i64 %mul25.i126.i, %nbytes.119.i122.i
+  %add26.i127.i = add i64 %mul25.i126.i, %nbytes.219.i122.i
   %indvars.iv.next.i128.i = add nuw nsw i64 %indvars.iv.i121.i, 1
   %exitcond.not.i129.i = icmp eq i64 %indvars.iv.next.i128.i, 4
   br i1 %exitcond.not.i129.i, label %ggml_nbytes.exit145.i, label %for.body17.i120.i, !llvm.loop !16
 
 ggml_nbytes.exit145.i:                            ; preds = %for.body17.i120.i, %for.body.i135.i
-  %nbytes.2.i130.i = phi i64 [ %add.i142.i, %for.body.i135.i ], [ %add26.i127.i, %for.body17.i120.i ]
-  %cmp102.not.i = icmp ugt i64 %add100.i, %nbytes.2.i130.i
+  %nbytes.1.i130.i = phi i64 [ %add.i142.i, %for.body.i135.i ], [ %add26.i127.i, %for.body17.i120.i ]
+  %cmp102.not.i = icmp ugt i64 %add100.i, %nbytes.1.i130.i
   br i1 %cmp102.not.i, label %if.then104.i, label %do.body109.i
 
 if.then104.i:                                     ; preds = %ggml_nbytes.exit145.i
@@ -45372,21 +45372,21 @@ for.body.i.i:                                     ; preds = %if.then10.i, %for.b
 
 for.body17.i.i:                                   ; preds = %if.then10.i, %for.body17.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body17.i.i ], [ 1, %if.then10.i ]
-  %nbytes.119.i.i = phi i64 [ %add26.i.i, %for.body17.i.i ], [ %7, %if.then10.i ]
+  %nbytes.219.i.i = phi i64 [ %add26.i.i, %for.body17.i.i ], [ %7, %if.then10.i ]
   %arrayidx20.i.i = getelementptr inbounds [4 x i64], ptr %ne.i.i, i64 0, i64 %indvars.iv.i.i
   %21 = load i64, ptr %arrayidx20.i.i, align 8
   %sub21.i.i = add nsw i64 %21, -1
   %arrayidx24.i.i = getelementptr inbounds [4 x i64], ptr %nb.i.i, i64 0, i64 %indvars.iv.i.i
   %22 = load i64, ptr %arrayidx24.i.i, align 8
   %mul25.i.i = mul i64 %sub21.i.i, %22
-  %add26.i.i = add i64 %mul25.i.i, %nbytes.119.i.i
+  %add26.i.i = add i64 %mul25.i.i, %nbytes.219.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %ggml_nbytes.exit.i, label %for.body17.i.i, !llvm.loop !16
 
 ggml_nbytes.exit.i:                               ; preds = %for.body17.i.i, %for.body.i.i
-  %nbytes.2.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %17, i8 0, i64 %nbytes.2.i.i, i1 false)
+  %nbytes.1.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %17, i8 0, i64 %nbytes.1.i.i, i1 false)
   %.pr.i = load i32, ptr %params, align 8
   br label %if.end12.i
 
@@ -45589,21 +45589,21 @@ for.body.i.i91:                                   ; preds = %if.then10.i75, %for
 
 for.body17.i.i78:                                 ; preds = %if.then10.i75, %for.body17.i.i78
   %indvars.iv.i.i79 = phi i64 [ %indvars.iv.next.i.i86, %for.body17.i.i78 ], [ 1, %if.then10.i75 ]
-  %nbytes.119.i.i80 = phi i64 [ %add26.i.i85, %for.body17.i.i78 ], [ %50, %if.then10.i75 ]
+  %nbytes.219.i.i80 = phi i64 [ %add26.i.i85, %for.body17.i.i78 ], [ %50, %if.then10.i75 ]
   %arrayidx20.i.i81 = getelementptr inbounds [4 x i64], ptr %ne.i.i21, i64 0, i64 %indvars.iv.i.i79
   %64 = load i64, ptr %arrayidx20.i.i81, align 8
   %sub21.i.i82 = add nsw i64 %64, -1
   %arrayidx24.i.i83 = getelementptr inbounds [4 x i64], ptr %nb.i.i12, i64 0, i64 %indvars.iv.i.i79
   %65 = load i64, ptr %arrayidx24.i.i83, align 8
   %mul25.i.i84 = mul i64 %sub21.i.i82, %65
-  %add26.i.i85 = add i64 %mul25.i.i84, %nbytes.119.i.i80
+  %add26.i.i85 = add i64 %mul25.i.i84, %nbytes.219.i.i80
   %indvars.iv.next.i.i86 = add nuw nsw i64 %indvars.iv.i.i79, 1
   %exitcond.not.i.i87 = icmp eq i64 %indvars.iv.next.i.i86, 4
   br i1 %exitcond.not.i.i87, label %ggml_nbytes.exit.i88, label %for.body17.i.i78, !llvm.loop !16
 
 ggml_nbytes.exit.i88:                             ; preds = %for.body17.i.i78, %for.body.i.i91
-  %nbytes.2.i.i89 = phi i64 [ %add.i.i98, %for.body.i.i91 ], [ %add26.i.i85, %for.body17.i.i78 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %60, i8 0, i64 %nbytes.2.i.i89, i1 false)
+  %nbytes.1.i.i89 = phi i64 [ %add.i.i98, %for.body.i.i91 ], [ %add26.i.i85, %for.body17.i.i78 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %60, i8 0, i64 %nbytes.1.i.i89, i1 false)
   %.pr.i90 = load i32, ptr %params, align 8
   br label %if.end12.i39
 
@@ -47447,21 +47447,21 @@ if.else.i.i:                                      ; preds = %for.end142.i
 
 for.body17.i.i:                                   ; preds = %for.body17.i.i, %if.else.i.i
   %indvars.iv.i.i = phi i64 [ 1, %if.else.i.i ], [ %indvars.iv.next.i.i, %for.body17.i.i ]
-  %nbytes.119.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  %nbytes.219.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
   %arrayidx20.i.i = getelementptr inbounds [4 x i64], ptr %ne8.i.i, i64 0, i64 %indvars.iv.i.i
   %45 = load i64, ptr %arrayidx20.i.i, align 8
   %sub21.i.i = add nsw i64 %45, -1
   %arrayidx24.i.i = getelementptr inbounds [4 x i64], ptr %nb10.i.i, i64 0, i64 %indvars.iv.i.i
   %46 = load i64, ptr %arrayidx24.i.i, align 8
   %mul25.i.i = mul i64 %sub21.i.i, %46
-  %add26.i.i = add i64 %mul25.i.i, %nbytes.119.i.i
+  %add26.i.i = add i64 %mul25.i.i, %nbytes.219.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %ggml_nbytes.exit.i, label %for.body17.i.i, !llvm.loop !16
 
 ggml_nbytes.exit.i:                               ; preds = %for.body17.i.i, %for.body.i.i
-  %nbytes.2.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %36, i8 0, i64 %nbytes.2.i.i, i1 false)
+  %nbytes.1.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %36, i8 0, i64 %nbytes.1.i.i, i1 false)
   br label %sw.epilog
 
 if.end150.i:                                      ; preds = %do.end81.i
@@ -48016,21 +48016,21 @@ if.else.i.i56:                                    ; preds = %for.end139.i
 
 for.body17.i.i63:                                 ; preds = %for.body17.i.i63, %if.else.i.i56
   %indvars.iv.i.i64 = phi i64 [ 1, %if.else.i.i56 ], [ %indvars.iv.next.i.i71, %for.body17.i.i63 ]
-  %nbytes.119.i.i65 = phi i64 [ %div.i.i62, %if.else.i.i56 ], [ %add26.i.i70, %for.body17.i.i63 ]
+  %nbytes.219.i.i65 = phi i64 [ %div.i.i62, %if.else.i.i56 ], [ %add26.i.i70, %for.body17.i.i63 ]
   %arrayidx20.i.i66 = getelementptr inbounds [4 x i64], ptr %ne8.i.i59, i64 0, i64 %indvars.iv.i.i64
   %144 = load i64, ptr %arrayidx20.i.i66, align 8
   %sub21.i.i67 = add nsw i64 %144, -1
   %arrayidx24.i.i68 = getelementptr inbounds [4 x i64], ptr %nb10.i.i60, i64 0, i64 %indvars.iv.i.i64
   %145 = load i64, ptr %arrayidx24.i.i68, align 8
   %mul25.i.i69 = mul i64 %sub21.i.i67, %145
-  %add26.i.i70 = add i64 %mul25.i.i69, %nbytes.119.i.i65
+  %add26.i.i70 = add i64 %mul25.i.i69, %nbytes.219.i.i65
   %indvars.iv.next.i.i71 = add nuw nsw i64 %indvars.iv.i.i64, 1
   %exitcond.not.i.i72 = icmp eq i64 %indvars.iv.next.i.i71, 4
   br i1 %exitcond.not.i.i72, label %ggml_nbytes.exit.i73, label %for.body17.i.i63, !llvm.loop !16
 
 ggml_nbytes.exit.i73:                             ; preds = %for.body17.i.i63, %for.body.i.i79
-  %nbytes.2.i.i74 = phi i64 [ %add.i.i86, %for.body.i.i79 ], [ %add26.i.i70, %for.body17.i.i63 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %135, i8 0, i64 %nbytes.2.i.i74, i1 false)
+  %nbytes.1.i.i74 = phi i64 [ %add.i.i86, %for.body.i.i79 ], [ %add26.i.i70, %for.body17.i.i63 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %135, i8 0, i64 %nbytes.1.i.i74, i1 false)
   br label %sw.epilog
 
 if.end147.i:                                      ; preds = %do.end81.i47
@@ -48960,21 +48960,21 @@ if.else.i:                                        ; preds = %for.end176
 
 for.body17.i:                                     ; preds = %for.body17.i, %if.else.i
   %indvars.iv.i = phi i64 [ 1, %if.else.i ], [ %indvars.iv.next.i, %for.body17.i ]
-  %nbytes.119.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
+  %nbytes.219.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
   %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %ne47, i64 0, i64 %indvars.iv.i
   %52 = load i64, ptr %arrayidx20.i, align 8
   %sub21.i = add nsw i64 %52, -1
   %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %nb10.i, i64 0, i64 %indvars.iv.i
   %53 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %sub21.i, %53
-  %add26.i = add i64 %mul25.i, %nbytes.119.i
+  %add26.i = add i64 %mul25.i, %nbytes.219.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %for.body17.i, !llvm.loop !16
 
 ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.body.i
-  %nbytes.2.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %43, i8 0, i64 %nbytes.2.i, i1 false)
+  %nbytes.1.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %43, i8 0, i64 %nbytes.1.i, i1 false)
   br label %for.end278
 
 if.end184:                                        ; preds = %do.end82
@@ -49495,26 +49495,26 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 for.body17.i.i:                                   ; preds = %for.body17.i.i, %if.else.i.i
   %indvars.iv.i.i = phi i64 [ 1, %if.else.i.i ], [ %indvars.iv.next.i.i, %for.body17.i.i ]
-  %nbytes.119.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  %nbytes.219.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
   %arrayidx20.i.i = getelementptr inbounds [4 x i64], ptr %ne8.i.i, i64 0, i64 %indvars.iv.i.i
   %17 = load i64, ptr %arrayidx20.i.i, align 8
   %sub21.i.i = add nsw i64 %17, -1
   %arrayidx24.i.i = getelementptr inbounds [4 x i64], ptr %nb10.i.i, i64 0, i64 %indvars.iv.i.i
   %18 = load i64, ptr %arrayidx24.i.i, align 8
   %mul25.i.i = mul i64 %sub21.i.i, %18
-  %add26.i.i = add i64 %mul25.i.i, %nbytes.119.i.i
+  %add26.i.i = add i64 %mul25.i.i, %nbytes.219.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %ggml_nbytes.exit.i, label %for.body17.i.i, !llvm.loop !16
 
 ggml_nbytes.exit.i:                               ; preds = %for.body17.i.i, %for.body.i.i
-  %nbytes.2.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %nbytes.2.i.i
+  %nbytes.1.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %nbytes.1.i.i
   %data3.i = getelementptr inbounds i8, ptr %dst, i64 280
   %19 = load ptr, ptr %data3.i, align 8
   %ne.i = getelementptr inbounds i8, ptr %dst, i64 16
   %20 = load i64, ptr %ne.i, align 8
-  %cmp457.i = icmp sgt i64 %nbytes.2.i.i, 0
+  %cmp457.i = icmp sgt i64 %nbytes.1.i.i, 0
   br i1 %cmp457.i, label %for.cond.preheader.lr.ph.i, label %ggml_compute_forward_pool_1d_sk_p0.exit
 
 for.cond.preheader.lr.ph.i:                       ; preds = %ggml_nbytes.exit.i
@@ -49752,21 +49752,21 @@ if.else.i:                                        ; preds = %if.end
 
 for.body17.i:                                     ; preds = %for.body17.i, %if.else.i
   %indvars.iv.i = phi i64 [ 1, %if.else.i ], [ %indvars.iv.next.i, %for.body17.i ]
-  %nbytes.119.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
+  %nbytes.219.i = phi i64 [ %div.i, %if.else.i ], [ %add26.i, %for.body17.i ]
   %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %ne8.i, i64 0, i64 %indvars.iv.i
   %16 = load i64, ptr %arrayidx20.i, align 8
   %sub21.i = add nsw i64 %16, -1
   %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %nb10.i, i64 0, i64 %indvars.iv.i
   %17 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %sub21.i, %17
-  %add26.i = add i64 %mul25.i, %nbytes.119.i
+  %add26.i = add i64 %mul25.i, %nbytes.219.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %for.body17.i, !llvm.loop !16
 
 ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.body.i
-  %nbytes.2.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
-  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %nbytes.2.i
+  %nbytes.1.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %nbytes.1.i
   %ne = getelementptr inbounds i8, ptr %dst, i64 16
   %18 = load i64, ptr %ne, align 8
   %arrayidx11 = getelementptr inbounds i8, ptr %dst, i64 24
@@ -49774,7 +49774,7 @@ ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.
   %mul = mul i64 %19, %18
   %data12 = getelementptr inbounds i8, ptr %dst, i64 280
   %20 = load ptr, ptr %data12, align 8
-  %cmp15207 = icmp sgt i64 %nbytes.2.i, 0
+  %cmp15207 = icmp sgt i64 %nbytes.1.i, 0
   br i1 %cmp15207, label %for.cond.preheader.lr.ph, label %while.end
 
 for.cond.preheader.lr.ph:                         ; preds = %ggml_nbytes.exit
@@ -56163,21 +56163,21 @@ if.else.i.i:                                      ; preds = %if.then.i
 
 for.body17.i.i:                                   ; preds = %for.body17.i.i, %if.else.i.i
   %indvars.iv.i.i = phi i64 [ 1, %if.else.i.i ], [ %indvars.iv.next.i.i, %for.body17.i.i ]
-  %nbytes.119.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  %nbytes.219.i.i = phi i64 [ %div.i.i, %if.else.i.i ], [ %add26.i.i, %for.body17.i.i ]
   %arrayidx20.i.i = getelementptr inbounds [4 x i64], ptr %ne8.i.i, i64 0, i64 %indvars.iv.i.i
   %13 = load i64, ptr %arrayidx20.i.i, align 8
   %sub21.i.i = add nsw i64 %13, -1
   %arrayidx24.i.i = getelementptr inbounds [4 x i64], ptr %nb10.i.i, i64 0, i64 %indvars.iv.i.i
   %14 = load i64, ptr %arrayidx24.i.i, align 8
   %mul25.i.i = mul i64 %sub21.i.i, %14
-  %add26.i.i = add i64 %mul25.i.i, %nbytes.119.i.i
+  %add26.i.i = add i64 %mul25.i.i, %nbytes.219.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %ggml_nbytes.exit.i, label %for.body17.i.i, !llvm.loop !16
 
 ggml_nbytes.exit.i:                               ; preds = %for.body17.i.i, %for.body.i.i
-  %nbytes.2.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %4, i64 %nbytes.2.i.i, i1 false)
+  %nbytes.1.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ %add26.i.i, %for.body17.i.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %4, i64 %nbytes.1.i.i, i1 false)
   br label %ggml_compute_forward_add_rel_pos_f32.exit
 
 if.end.i:                                         ; preds = %sw.bb
@@ -57717,21 +57717,21 @@ for.body.i:                                       ; preds = %do.end25, %for.body
 
 for.body17.i:                                     ; preds = %do.end25, %for.body17.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body17.i ], [ 1, %do.end25 ]
-  %nbytes.119.i = phi i64 [ %add26.i, %for.body17.i ], [ %21, %do.end25 ]
+  %nbytes.219.i = phi i64 [ %add26.i, %for.body17.i ], [ %21, %do.end25 ]
   %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %ne.i, i64 0, i64 %indvars.iv.i
   %37 = load i64, ptr %arrayidx20.i, align 8
   %sub21.i = add nsw i64 %37, -1
   %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %nb.i, i64 0, i64 %indvars.iv.i
   %38 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %sub21.i, %38
-  %add26.i = add i64 %mul25.i, %nbytes.119.i
+  %add26.i = add i64 %mul25.i, %nbytes.219.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_nbytes.exit, label %for.body17.i, !llvm.loop !16
 
 ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.body.i
-  %nbytes.2.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %5, i64 %nbytes.2.i, i1 false)
+  %nbytes.1.i = phi i64 [ %add.i, %for.body.i ], [ %add26.i, %for.body17.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %5, i64 %nbytes.1.i, i1 false)
   br label %if.end29thread-pre-split
 
 if.end29thread-pre-split:                         ; preds = %do.end, %ggml_nbytes.exit

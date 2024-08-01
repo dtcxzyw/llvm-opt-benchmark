@@ -4615,34 +4615,34 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   %133 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.061.lcssa) #14
   %134 = load i32, ptr @hf_dvbci_cc_req_dat_nbr, align 4
   %135 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %134, ptr noundef %1, i32 noundef %.061.lcssa, i32 noundef 1, i32 noundef 0) #14
-  %.16285 = add i32 %.061.lcssa, 1
+  %.285 = add i32 %.061.lcssa, 1
   %.not96 = icmp eq i8 %133, 0
   br i1 %.not96, label %.critedge3.thread, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %132, %138
-  %.16288 = phi i32 [ %.162, %138 ], [ %.16285, %132 ]
-  %.087 = phi i64 [ %142, %138 ], [ 0, %132 ]
+  %.288 = phi i32 [ %.2, %138 ], [ %.285, %132 ]
+  %.187 = phi i64 [ %142, %138 ], [ 0, %132 ]
   %.16486 = phi i8 [ %145, %138 ], [ 0, %132 ]
-  %136 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.16288) #14
+  %136 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.288) #14
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %138, label %.critedge3
 
 138:                                              ; preds = %.lr.ph89
-  %139 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.16288) #14
-  %140 = shl i64 %.087, 8
+  %139 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.288) #14
+  %140 = shl i64 %.187, 8
   %141 = zext i8 %139 to i64
   %142 = or disjoint i64 %140, %141
   %143 = load i32, ptr @hf_dvbci_cc_dat_id, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %143, ptr noundef %1, i32 noundef %.16288, i32 noundef 1, i32 noundef 0) #14
+  %144 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %143, ptr noundef %1, i32 noundef %.288, i32 noundef 1, i32 noundef 0) #14
   %145 = add nuw i8 %.16486, 1
-  %.162 = add i32 %.16288, 1
+  %.2 = add i32 %.288, 1
   %exitcond97.not = icmp eq i8 %145, %133
   br i1 %exitcond97.not, label %.critedge3, label %.lr.ph89, !llvm.loop !21
 
 .critedge3:                                       ; preds = %138, %.lr.ph89
-  %.0.lcssa = phi i64 [ %142, %138 ], [ %.087, %.lr.ph89 ]
-  %.162.lcssa = phi i32 [ %.162, %138 ], [ %.16288, %.lr.ph89 ]
-  switch i64 %.0.lcssa, label %.critedge3.thread [
+  %.1.lcssa = phi i64 [ %142, %138 ], [ %.187, %.lr.ph89 ]
+  %.2.lcssa = phi i32 [ %.2, %138 ], [ %.288, %.lr.ph89 ]
+  switch i64 %.1.lcssa, label %.critedge3.thread [
     i64 219221767, label %.critedge.sink.split.i
     i64 30, label %146
     i64 22, label %147
@@ -4699,7 +4699,7 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   br label %.critedge.sink.split.i
 
 .critedge3.thread:                                ; preds = %132, %.critedge, %.critedge3
-  %.273 = phi i32 [ %.162.lcssa, %.critedge3 ], [ %.061.lcssa, %.critedge ], [ %.16285, %132 ]
+  %.16273 = phi i32 [ %.2.lcssa, %.critedge3 ], [ %.061.lcssa, %.critedge ], [ %.285, %132 ]
   switch i64 %.059.lcssa, label %174 [
     i64 219221767, label %.critedge.sink.split.i
     i64 30, label %159
@@ -4757,7 +4757,7 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %.critedge3.thread, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %.critedge3
-  %.272 = phi i32 [ %.162.lcssa, %158 ], [ %.162.lcssa, %157 ], [ %.162.lcssa, %156 ], [ %.162.lcssa, %155 ], [ %.162.lcssa, %154 ], [ %.162.lcssa, %153 ], [ %.162.lcssa, %152 ], [ %.162.lcssa, %151 ], [ %.162.lcssa, %150 ], [ %.162.lcssa, %149 ], [ %.162.lcssa, %148 ], [ %.162.lcssa, %147 ], [ %.162.lcssa, %146 ], [ %.273, %171 ], [ %.273, %170 ], [ %.273, %169 ], [ %.273, %168 ], [ %.273, %167 ], [ %.273, %166 ], [ %.273, %165 ], [ %.273, %164 ], [ %.273, %163 ], [ %.273, %162 ], [ %.273, %161 ], [ %.273, %160 ], [ %.273, %159 ], [ %.162.lcssa, %.critedge3 ], [ %.273, %.critedge3.thread ]
+  %.16272 = phi i32 [ %.2.lcssa, %158 ], [ %.2.lcssa, %157 ], [ %.2.lcssa, %156 ], [ %.2.lcssa, %155 ], [ %.2.lcssa, %154 ], [ %.2.lcssa, %153 ], [ %.2.lcssa, %152 ], [ %.2.lcssa, %151 ], [ %.2.lcssa, %150 ], [ %.2.lcssa, %149 ], [ %.2.lcssa, %148 ], [ %.2.lcssa, %147 ], [ %.2.lcssa, %146 ], [ %.16273, %171 ], [ %.16273, %170 ], [ %.16273, %169 ], [ %.16273, %168 ], [ %.16273, %167 ], [ %.16273, %166 ], [ %.16273, %165 ], [ %.16273, %164 ], [ %.16273, %163 ], [ %.16273, %162 ], [ %.16273, %161 ], [ %.16273, %160 ], [ %.16273, %159 ], [ %.2.lcssa, %.critedge3 ], [ %.16273, %.critedge3.thread ]
   %.str.989.sink.i = phi ptr [ @.str.989, %158 ], [ @.str.988, %157 ], [ @.str.987, %156 ], [ @.str.986, %155 ], [ @.str.985, %154 ], [ @.str.984, %153 ], [ @.str.983, %152 ], [ @.str.982, %151 ], [ @.str.981, %150 ], [ @.str.980, %149 ], [ @.str.979, %148 ], [ @.str.978, %147 ], [ @.str.977, %146 ], [ @.str.1003, %171 ], [ @.str.1002, %170 ], [ @.str.1001, %169 ], [ @.str.1000, %168 ], [ @.str.999, %167 ], [ @.str.998, %166 ], [ @.str.997, %165 ], [ @.str.996, %164 ], [ @.str.995, %163 ], [ @.str.994, %162 ], [ @.str.993, %161 ], [ @.str.992, %160 ], [ @.str.991, %159 ], [ @.str.976, %.critedge3 ], [ @.str.990, %.critedge3.thread ]
   %172 = getelementptr inbounds i8, ptr %3, i64 8
   %173 = load ptr, ptr %172, align 8
@@ -4765,8 +4765,8 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   br label %174
 
 174:                                              ; preds = %.critedge.sink.split.i, %.critedge3.thread
-  %.271 = phi i32 [ %.273, %.critedge3.thread ], [ %.272, %.critedge.sink.split.i ]
-  %175 = sub i32 %.271, %2
+  %.16271 = phi i32 [ %.16273, %.critedge3.thread ], [ %.16272, %.critedge.sink.split.i ]
+  %175 = sub i32 %.16271, %2
   ret i32 %175
 }
 
@@ -5609,13 +5609,13 @@ dissect_dvbci_tpdu_hdr.exit.i:                    ; preds = %97, %95, %93
   br label %118
 
 118:                                              ; preds = %115, %108
-  %.0.i = phi ptr [ %.mux.i, %108 ], [ null, %115 ]
+  %.1.i = phi ptr [ %.mux.i, %108 ], [ null, %115 ]
   %119 = add i32 %.06674.i, %.0.i76.i
   br label %120
 
 120:                                              ; preds = %118, %104
   %.049.i = phi i32 [ %119, %118 ], [ %.0.i76.i, %104 ]
-  %.1.i = phi ptr [ %.0.i, %118 ], [ null, %104 ]
+  %.0.i = phi ptr [ %.1.i, %118 ], [ null, %104 ]
   %121 = icmp eq i8 %3, -1
   br i1 %121, label %122, label %163
 
@@ -5708,23 +5708,23 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
   br label %163
 
 163:                                              ; preds = %162, %120
-  %.not55.i = icmp eq ptr %.1.i, null
+  %.not55.i = icmp eq ptr %.0.i, null
   br i1 %.not55.i, label %dissect_dvbci_tpdu.exit, label %164
 
 164:                                              ; preds = %163
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %165 = call i32 @tvb_reported_length(ptr noundef nonnull %.1.i) #14
+  %165 = call i32 @tvb_reported_length(ptr noundef nonnull %.0.i) #14
   %166 = load i32, ptr @ett_dvbci_session, align 4
-  %167 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %.1.i, i32 noundef 0, i32 noundef -1, i32 noundef %166, ptr noundef nonnull %6, ptr noundef nonnull @.str.1061) #14
-  %168 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1.i, i32 noundef 0) #14
+  %167 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %.0.i, i32 noundef 0, i32 noundef -1, i32 noundef %166, ptr noundef nonnull %6, ptr noundef nonnull @.str.1061) #14
+  %168 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0.i, i32 noundef 0) #14
   %169 = zext i8 %168 to i32
   %170 = call ptr @try_val_to_str(i32 noundef %169, ptr noundef nonnull @dvbci_spdu_tag) #14
   %171 = load ptr, ptr %14, align 8
   %172 = call ptr @val_to_str_const(i32 noundef %169, ptr noundef nonnull @dvbci_spdu_tag, ptr noundef nonnull @.str.1062) #14
   call void @col_set_str(ptr noundef %171, i32 noundef 25, ptr noundef %172) #14
   %173 = load i32, ptr @hf_dvbci_spdu_tag, align 4
-  %174 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %173, ptr noundef nonnull %.1.i, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
+  %174 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %173, ptr noundef nonnull %.0.i, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
   %175 = icmp eq ptr %170, null
   br i1 %175, label %176, label %178
 
@@ -5733,7 +5733,7 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
   br label %dissect_dvbci_spdu.exit.i
 
 178:                                              ; preds = %164
-  %179 = call i32 @dissect_ber_length(ptr noundef nonnull %1, ptr noundef %167, ptr noundef nonnull %.1.i, i32 noundef 1, ptr noundef nonnull %7, ptr noundef null) #14
+  %179 = call i32 @dissect_ber_length(ptr noundef nonnull %1, ptr noundef %167, ptr noundef nonnull %.0.i, i32 noundef 1, ptr noundef nonnull %7, ptr noundef null) #14
   %180 = load ptr, ptr @spdu_table, align 8
   %181 = zext i8 %168 to i64
   %182 = inttoptr i64 %181 to ptr
@@ -5752,7 +5752,7 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
 .sink.split.i.i:                                  ; preds = %184
   %187 = icmp eq i8 %186, -2
   %ei_dvbci_spdu_host_to_cam.ei_dvbci_spdu_cam_to_host.i.i = select i1 %187, ptr @ei_dvbci_spdu_host_to_cam, ptr @ei_dvbci_spdu_cam_to_host
-  %188 = call ptr @proto_tree_add_expert(ptr noundef %167, ptr noundef nonnull %1, ptr noundef nonnull %ei_dvbci_spdu_host_to_cam.ei_dvbci_spdu_cam_to_host.i.i, ptr noundef nonnull %.1.i, i32 noundef 0, i32 noundef 1) #14
+  %188 = call ptr @proto_tree_add_expert(ptr noundef %167, ptr noundef nonnull %1, ptr noundef nonnull %ei_dvbci_spdu_host_to_cam.ei_dvbci_spdu_cam_to_host.i.i, ptr noundef nonnull %.0.i, i32 noundef 0, i32 noundef 1) #14
   br label %189
 
 189:                                              ; preds = %.sink.split.i.i, %184
@@ -5765,7 +5765,7 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
 
 194:                                              ; preds = %189
   %195 = add i32 %179, -1
-  %196 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %167, ptr noundef nonnull %1, ptr noundef nonnull @ei_dvbci_bad_length, ptr noundef nonnull %.1.i, i32 noundef 1, i32 noundef %195, ptr noundef nonnull @.str.1063, ptr noundef nonnull %170, i32 noundef %192) #14
+  %196 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %167, ptr noundef nonnull %1, ptr noundef nonnull @ei_dvbci_bad_length, ptr noundef nonnull %.0.i, i32 noundef 1, i32 noundef %195, ptr noundef nonnull @.str.1063, ptr noundef nonnull %170, i32 noundef %192) #14
   br label %dissect_dvbci_spdu.exit.i
 
 197:                                              ; preds = %189
@@ -5780,7 +5780,7 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
   ]
 
 198:                                              ; preds = %197
-  %199 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.1.i, i32 noundef %179) #14
+  %199 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.0.i, i32 noundef %179) #14
   %200 = load ptr, ptr %14, align 8
   %201 = lshr i32 %199, 16
   %202 = and i32 %201, 16383
@@ -5790,11 +5790,11 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
   %205 = load i32, ptr @hf_dvbci_res_id, align 4
   %206 = load i32, ptr @ett_dvbci_res, align 4
   %207 = zext i32 %199 to i64
-  %208 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %167, ptr noundef nonnull %.1.i, i32 noundef %179, i32 noundef %205, i32 noundef %206, ptr noundef nonnull @dvb_ci_res_id_fields, i64 noundef %207, i32 noundef 1) #14
+  %208 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %167, ptr noundef nonnull %.0.i, i32 noundef %179, i32 noundef %205, i32 noundef %206, ptr noundef nonnull @dvb_ci_res_id_fields, i64 noundef %207, i32 noundef 1) #14
   br label %proto_item_set_generated.exit.thread.i.i
 
 dissect_res_id.exit144.i.i:                       ; preds = %197
-  %209 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.1.i, i32 noundef %179) #14
+  %209 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.0.i, i32 noundef %179) #14
   %210 = load ptr, ptr %14, align 8
   %211 = lshr i32 %209, 16
   %212 = and i32 %211, 16383
@@ -5804,20 +5804,20 @@ dissect_res_id.exit144.i.i:                       ; preds = %197
   %215 = load i32, ptr @hf_dvbci_res_id, align 4
   %216 = load i32, ptr @ett_dvbci_res, align 4
   %217 = zext i32 %209 to i64
-  %218 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %167, ptr noundef nonnull %.1.i, i32 noundef %179, i32 noundef %215, i32 noundef %216, ptr noundef nonnull @dvb_ci_res_id_fields, i64 noundef %217, i32 noundef 1) #14
+  %218 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %167, ptr noundef nonnull %.0.i, i32 noundef %179, i32 noundef %215, i32 noundef %216, ptr noundef nonnull @dvb_ci_res_id_fields, i64 noundef %217, i32 noundef 1) #14
   %219 = add i32 %179, 4
-  %220 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.1.i, i32 noundef %219) #14
+  %220 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.0.i, i32 noundef %219) #14
   %221 = load i32, ptr @hf_dvbci_sess_nb, align 4
-  %222 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %221, ptr noundef nonnull %.1.i, i32 noundef %219, i32 noundef 2, i32 noundef 0) #14
+  %222 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %221, ptr noundef nonnull %.0.i, i32 noundef %219, i32 noundef 2, i32 noundef 0) #14
   br label %dissect_res_id.exit.i.i
 
 dissect_res_id.exit147.i.i:                       ; preds = %197, %197
-  %223 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1.i, i32 noundef %179) #14
+  %223 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0.i, i32 noundef %179) #14
   %224 = load i32, ptr @hf_dvbci_sess_status, align 4
-  %225 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %224, ptr noundef nonnull %.1.i, i32 noundef %179, i32 noundef 1, i32 noundef 0) #14
+  %225 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %224, ptr noundef nonnull %.0.i, i32 noundef %179, i32 noundef 1, i32 noundef 0) #14
   %226 = add i32 %179, 1
-  %227 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.1.i, i32 noundef %226) #14
-  %228 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.1.i, i32 noundef %226) #14
+  %227 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.0.i, i32 noundef %226) #14
+  %228 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.0.i, i32 noundef %226) #14
   %229 = load ptr, ptr %14, align 8
   %230 = lshr i32 %228, 16
   %231 = and i32 %230, 16383
@@ -5827,11 +5827,11 @@ dissect_res_id.exit147.i.i:                       ; preds = %197, %197
   %234 = load i32, ptr @hf_dvbci_res_id, align 4
   %235 = load i32, ptr @ett_dvbci_res, align 4
   %236 = zext i32 %228 to i64
-  %237 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %167, ptr noundef nonnull %.1.i, i32 noundef %226, i32 noundef %234, i32 noundef %235, ptr noundef nonnull @dvb_ci_res_id_fields, i64 noundef %236, i32 noundef 1) #14
+  %237 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %167, ptr noundef nonnull %.0.i, i32 noundef %226, i32 noundef %234, i32 noundef %235, ptr noundef nonnull @dvb_ci_res_id_fields, i64 noundef %236, i32 noundef 1) #14
   %238 = add i32 %179, 5
-  %239 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.1.i, i32 noundef %238) #14
+  %239 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.0.i, i32 noundef %238) #14
   %240 = load i32, ptr @hf_dvbci_sess_nb, align 4
-  %241 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %240, ptr noundef nonnull %.1.i, i32 noundef %238, i32 noundef 2, i32 noundef 0) #14
+  %241 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %240, ptr noundef nonnull %.0.i, i32 noundef %238, i32 noundef 2, i32 noundef 0) #14
   %.not139.i.i = icmp eq i8 %223, 0
   %242 = load ptr, ptr %14, align 8
   br i1 %.not139.i.i, label %244, label %243
@@ -5855,23 +5855,23 @@ dissect_res_id.exit147.i.i:                       ; preds = %197, %197
   br label %dissect_res_id.exit.thread.i.i
 
 254:                                              ; preds = %197
-  %255 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.1.i, i32 noundef %179) #14
+  %255 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.0.i, i32 noundef %179) #14
   %256 = load i32, ptr @hf_dvbci_sess_nb, align 4
-  %257 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %256, ptr noundef nonnull %.1.i, i32 noundef %179, i32 noundef 2, i32 noundef 0) #14
+  %257 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %256, ptr noundef nonnull %.0.i, i32 noundef %179, i32 noundef 2, i32 noundef 0) #14
   br label %dissect_res_id.exit.i.i
 
 258:                                              ; preds = %197
-  %259 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1.i, i32 noundef %179) #14
+  %259 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0.i, i32 noundef %179) #14
   %260 = load i32, ptr @hf_dvbci_close_sess_status, align 4
-  %261 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %260, ptr noundef nonnull %.1.i, i32 noundef %179, i32 noundef 1, i32 noundef 0) #14
+  %261 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %260, ptr noundef nonnull %.0.i, i32 noundef %179, i32 noundef 1, i32 noundef 0) #14
   %262 = load ptr, ptr %14, align 8
   %263 = icmp eq i8 %259, 0
   %264 = select i1 %263, ptr @.str.655, ptr @.str.1031
   call void @col_append_sep_str(ptr noundef %262, i32 noundef 25, ptr noundef null, ptr noundef nonnull %264) #14
   %265 = add i32 %179, 1
-  %266 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.1.i, i32 noundef %265) #14
+  %266 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.0.i, i32 noundef %265) #14
   %267 = load i32, ptr @hf_dvbci_sess_nb, align 4
-  %268 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %267, ptr noundef nonnull %.1.i, i32 noundef %265, i32 noundef 2, i32 noundef 0) #14
+  %268 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %267, ptr noundef nonnull %.0.i, i32 noundef %265, i32 noundef 2, i32 noundef 0) #14
   %269 = getelementptr inbounds i8, ptr %1, i64 20
   %270 = load i32, ptr %269, align 4
   %271 = zext i16 %266 to i32
@@ -5888,11 +5888,11 @@ dissect_res_id.exit147.i.i:                       ; preds = %197, %197
   br label %dissect_res_id.exit.thread.i.i
 
 278:                                              ; preds = %197
-  %279 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.1.i, i32 noundef %179) #14
+  %279 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.0.i, i32 noundef %179) #14
   %280 = load i32, ptr @hf_dvbci_sess_nb, align 4
-  %281 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %280, ptr noundef nonnull %.1.i, i32 noundef %179, i32 noundef 2, i32 noundef 0) #14
+  %281 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %280, ptr noundef nonnull %.0.i, i32 noundef %179, i32 noundef 2, i32 noundef 0) #14
   %282 = add i32 %179, 2
-  %283 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %.1.i, i32 noundef %282) #14
+  %283 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %.0.i, i32 noundef %282) #14
   br label %dissect_res_id.exit.i.i
 
 dissect_res_id.exit.i.i:                          ; preds = %278, %258, %254, %243, %dissect_res_id.exit144.i.i
@@ -6138,7 +6138,7 @@ define internal fastcc void @dissect_dvbci_cis(ptr noundef %0, ptr noundef %1) u
   br label %8
 
 8:                                                ; preds = %159, %2
-  %.0 = phi i32 [ 4, %2 ], [ %.1, %159 ]
+  %.0 = phi i32 [ 4, %2 ], [ %.2, %159 ]
   %9 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #14
   %10 = zext i8 %9 to i32
   %11 = call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @dvbci_cis_tpl_code, ptr noundef nonnull @.str.947) #14
@@ -6376,18 +6376,18 @@ dissect_dvbci_cis_payload_device.exit:            ; preds = %.lr.ph.i75, %135
   br label %159
 
 159:                                              ; preds = %157, %146, %dissect_dvbci_cis_payload_device.exit, %dissect_dvbci_cis_payload_cftable_entry.exit, %dissect_dvbci_cis_payload_config.exit, %dissect_dvbci_cis_payload_tpll_v1.exit
-  %.1 = phi i32 [ %158, %157 ], [ %152, %146 ], [ %145, %dissect_dvbci_cis_payload_device.exit ], [ %134, %dissect_dvbci_cis_payload_cftable_entry.exit ], [ %116, %dissect_dvbci_cis_payload_config.exit ], [ %57, %dissect_dvbci_cis_payload_tpll_v1.exit ]
+  %.2 = phi i32 [ %158, %157 ], [ %152, %146 ], [ %145, %dissect_dvbci_cis_payload_device.exit ], [ %134, %dissect_dvbci_cis_payload_cftable_entry.exit ], [ %116, %dissect_dvbci_cis_payload_config.exit ], [ %57, %dissect_dvbci_cis_payload_tpll_v1.exit ]
   %160 = load ptr, ptr %5, align 8
   %161 = add nuw nsw i32 %25, 2
   call void @proto_item_set_len(ptr noundef %160, i32 noundef %161) #14
-  %162 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #14
+  %162 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #14
   %163 = icmp sgt i32 %162, 0
   br i1 %163, label %8, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %159, %18
-  %.2 = phi i32 [ %16, %18 ], [ %.1, %159 ]
+  %.1 = phi i32 [ %16, %18 ], [ %.2, %159 ]
   %164 = load ptr, ptr %4, align 8
-  %165 = add i32 %.2, -4
+  %165 = add i32 %.1, -4
   call void @proto_item_set_len(ptr noundef %164, i32 noundef %165) #14
   ret void
 }

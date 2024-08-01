@@ -636,7 +636,7 @@ ehcleanup58:                                      ; preds = %lpad13.split, %lpad
   br label %ehcleanup72
 
 for.end:                                          ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %_ZN4cvc58internal8TypeNodeD2Ev.exit.us, %_ZN4cvc58internal8TypeNodeD2Ev.exit.us.us, %invoke.cont3
-  %isInteger.3 = phi i1 [ true, %invoke.cont3 ], [ %isInteger.0.mux.us.us, %_ZN4cvc58internal8TypeNodeD2Ev.exit.us.us ], [ %isInteger.0.mux.us, %_ZN4cvc58internal8TypeNodeD2Ev.exit.us ], [ %.mux, %_ZN4cvc58internal8TypeNodeD2Ev.exit ]
+  %isInteger.1 = phi i1 [ true, %invoke.cont3 ], [ %isInteger.0.mux.us.us, %_ZN4cvc58internal8TypeNodeD2Ev.exit.us.us ], [ %isInteger.0.mux.us, %_ZN4cvc58internal8TypeNodeD2Ev.exit.us ], [ %.mux, %_ZN4cvc58internal8TypeNodeD2Ev.exit ]
   switch i16 %bf.clear.i, label %sw.default [
     i16 78, label %sw.bb
     i16 77, label %sw.bb62
@@ -673,7 +673,7 @@ if.else.i.i32:                                    ; preds = %sw.bb62
 sw.default:                                       ; preds = %for.end
   %33 = add nsw i32 %bf.cast.i, -43
   %34 = icmp ult i32 %33, -2
-  %or.cond.not = and i1 %34, %isInteger.3
+  %or.cond.not = and i1 %34, %isInteger.1
   %integerType.val = load ptr, ptr %integerType, align 8
   %realType.val = load ptr, ptr %realType, align 8
   %35 = select i1 %or.cond.not, ptr %integerType.val, ptr %realType.val

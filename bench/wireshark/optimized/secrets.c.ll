@@ -948,9 +948,9 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   br label %pkcs11_load_keys_from_token.exit
 
 pkcs11_load_keys_from_token.exit:                 ; preds = %._crit_edge.thread.i, %30, %._crit_edge.i, %88
-  %.127.i = phi ptr [ %24, %30 ], [ null, %88 ], [ %24, %._crit_edge.i ], [ %24, %._crit_edge.thread.i ]
+  %.026.i = phi ptr [ %24, %30 ], [ null, %88 ], [ %24, %._crit_edge.i ], [ %24, %._crit_edge.thread.i ]
   call void @gnutls_pkcs11_set_pin_function(ptr noundef null, ptr noundef null) #14
-  call void @g_free(ptr noundef %.127.i) #14
+  call void @g_free(ptr noundef %.026.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)

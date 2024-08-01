@@ -2944,19 +2944,19 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %21
 
 21:                                               ; preds = %15, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %20, %15 ]
+  %.2.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %20, %15 ]
   %22 = getelementptr inbounds i8, ptr %.026.lcssa.i.i.i, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 8
-  %26 = xor i32 %25, %.1.i.i.i
+  %26 = xor i32 %25, %.2.i.i.i
   br label %27
 
 27:                                               ; preds = %21, %._crit_edge.i.i.i
-  %.2.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %26, %21 ]
+  %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %26, %21 ]
   %28 = load i8, ptr %.026.lcssa.i.i.i, align 1
   %29 = zext i8 %28 to i32
-  %30 = xor i32 %.2.i.i.i, %29
+  %30 = xor i32 %.3.i.i.i, %29
   %31 = mul i32 %30, 1540483477
   br label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
 
@@ -2964,9 +2964,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit: ; preds = %._crit_edge.i.i.i, %27
-  %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %31, %27 ]
-  %32 = lshr i32 %.3.i.i.i, 13
-  %33 = xor i32 %32, %.3.i.i.i
+  %.1.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %31, %27 ]
+  %32 = lshr i32 %.1.i.i.i, 13
+  %33 = xor i32 %32, %.1.i.i.i
   %34 = mul i32 %33, 1540483477
   %35 = lshr i32 %34, 15
   %36 = xor i32 %35, %34
@@ -3326,19 +3326,19 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1st
   br label %36
 
 36:                                               ; preds = %30, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %35, %30 ]
+  %.2.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %35, %30 ]
   %37 = getelementptr inbounds i8, ptr %.026.lcssa.i.i.i, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 8
-  %41 = xor i32 %40, %.1.i.i.i
+  %41 = xor i32 %40, %.2.i.i.i
   br label %42
 
 42:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.2.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %41, %36 ]
+  %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %41, %36 ]
   %43 = load i8, ptr %.026.lcssa.i.i.i, align 1
   %44 = zext i8 %43 to i32
-  %45 = xor i32 %.2.i.i.i, %44
+  %45 = xor i32 %.3.i.i.i, %44
   %46 = mul i32 %45, 1540483477
   br label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
 
@@ -3346,9 +3346,9 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1st
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit: ; preds = %._crit_edge.i.i.i, %42
-  %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %42 ]
-  %47 = lshr i32 %.3.i.i.i, 13
-  %48 = xor i32 %47, %.3.i.i.i
+  %.1.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %42 ]
+  %47 = lshr i32 %.1.i.i.i, 13
+  %48 = xor i32 %47, %.1.i.i.i
   %49 = mul i32 %48, 1540483477
   %50 = lshr i32 %49, 15
   %51 = xor i32 %50, %49

@@ -4214,14 +4214,14 @@ ehcleanup193:                                     ; preds = %lpad188, %lpad.i159
 
 catch.dispatch:                                   ; preds = %lpad64.loopexit, %lpad64.loopexit.split-lp.loopexit.split-lp, %lpad64.loopexit.split-lp.loopexit, %ehcleanup193, %ehcleanup181, %ehcleanup163, %ehcleanup116, %ehcleanup105, %ehcleanup80
   %.pn65.pn = phi { ptr, i32 } [ %.pn65, %ehcleanup181 ], [ %.pn63, %ehcleanup193 ], [ %.pn61, %ehcleanup80 ], [ %.pn59, %ehcleanup105 ], [ %.pn57, %ehcleanup116 ], [ %.pn55, %ehcleanup163 ], [ %lpad.loopexit, %lpad64.loopexit ], [ %lpad.loopexit178, %lpad64.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp179, %lpad64.loopexit.split-lp.loopexit.split-lp ]
-  %ehselector.slot.10 = extractvalue { ptr, i32 } %.pn65.pn, 1
+  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn65.pn, 1
   %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #17
-  %matches = icmp eq i32 %ehselector.slot.10, %57
+  %matches = icmp eq i32 %ehselector.slot.5, %57
   br i1 %matches, label %catch, label %ehcleanup229
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.10 = extractvalue { ptr, i32 } %.pn65.pn, 0
-  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.10) #17
+  %exn.slot.5 = extractvalue { ptr, i32 } %.pn65.pn, 0
+  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #17
   %call210 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %invoke.cont209 unwind label %lpad208
 

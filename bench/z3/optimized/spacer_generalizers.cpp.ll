@@ -665,9 +665,9 @@ invoke.cont31:                                    ; preds = %invoke.cont24, %_ZN
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %invoke.cont31
-  %dirty.0 = phi i1 [ false, %invoke.cont31 ], [ %dirty.5, %while.cond.backedge ]
-  %i.0 = phi i32 [ 0, %invoke.cont31 ], [ %i.7, %while.cond.backedge ]
-  %num_failures.0 = phi i32 [ 0, %invoke.cont31 ], [ %num_failures.5, %while.cond.backedge ]
+  %dirty.0 = phi i1 [ false, %invoke.cont31 ], [ %dirty.1, %while.cond.backedge ]
+  %i.0 = phi i32 [ 0, %invoke.cont31 ], [ %i.1, %while.cond.backedge ]
+  %num_failures.0 = phi i32 [ 0, %invoke.cont31 ], [ %num_failures.1, %while.cond.backedge ]
   %28 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i48 = icmp eq ptr %28, null
   br i1 %cmp.i.i48, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
@@ -1232,9 +1232,9 @@ cleanup.loopexit:                                 ; preds = %for.cond.i90
   br label %cleanup
 
 cleanup:                                          ; preds = %for.inc, %for.inc143, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165, %for.cond.preheader, %invoke.cont137.lr.ph, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split, %for.inc147.loopexit, %cleanup.loopexit, %for.cond.preheader.split.split, %invoke.cont82.lr.ph, %invoke.cont163, %invoke.cont55
-  %dirty.5 = phi i1 [ %dirty.0, %invoke.cont55 ], [ %dirty.0, %invoke.cont163 ], [ true, %invoke.cont82.lr.ph ], [ true, %for.cond.preheader.split.split ], [ true, %cleanup.loopexit ], [ true, %for.inc147.loopexit ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ true, %invoke.cont137.lr.ph ], [ true, %for.cond.preheader ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ true, %for.inc143 ], [ true, %for.inc ]
-  %i.7 = phi i32 [ %inc57, %invoke.cont55 ], [ %inc169, %invoke.cont163 ], [ 0, %invoke.cont82.lr.ph ], [ 0, %for.cond.preheader.split.split ], [ %118, %cleanup.loopexit ], [ %104, %for.inc147.loopexit ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ 0, %invoke.cont137.lr.ph ], [ 0, %for.cond.preheader ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ %99, %for.inc143 ], [ %55, %for.inc ]
-  %num_failures.5 = phi i32 [ %num_failures.0, %invoke.cont55 ], [ %inc165, %invoke.cont163 ], [ 0, %invoke.cont82.lr.ph ], [ 0, %for.cond.preheader.split.split ], [ 0, %cleanup.loopexit ], [ 0, %for.inc147.loopexit ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ 0, %invoke.cont137.lr.ph ], [ 0, %for.cond.preheader ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ 0, %for.inc143 ], [ 0, %for.inc ]
+  %dirty.1 = phi i1 [ %dirty.0, %invoke.cont55 ], [ %dirty.0, %invoke.cont163 ], [ true, %invoke.cont82.lr.ph ], [ true, %for.cond.preheader.split.split ], [ true, %cleanup.loopexit ], [ true, %for.inc147.loopexit ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ true, %invoke.cont137.lr.ph ], [ true, %for.cond.preheader ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ true, %for.inc143 ], [ true, %for.inc ]
+  %i.1 = phi i32 [ %inc57, %invoke.cont55 ], [ %inc169, %invoke.cont163 ], [ 0, %invoke.cont82.lr.ph ], [ 0, %for.cond.preheader.split.split ], [ %118, %cleanup.loopexit ], [ %104, %for.inc147.loopexit ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ 0, %invoke.cont137.lr.ph ], [ 0, %for.cond.preheader ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ %99, %for.inc143 ], [ %55, %for.inc ]
+  %num_failures.1 = phi i32 [ %num_failures.0, %invoke.cont55 ], [ %inc165, %invoke.cont163 ], [ 0, %invoke.cont82.lr.ph ], [ 0, %for.cond.preheader.split.split ], [ 0, %cleanup.loopexit ], [ 0, %for.inc147.loopexit ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ 0, %invoke.cont137.lr.ph ], [ 0, %for.cond.preheader ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ 0, %for.inc143 ], [ 0, %for.inc ]
   br i1 %tobool.not.i, label %while.cond.backedge, label %if.then.i.i.i226
 
 while.cond.backedge:                              ; preds = %cleanup, %if.then.i.i.i226, %if.then2.i.i.i231
@@ -3343,7 +3343,7 @@ invoke.cont79.preheader:                          ; preds = %_ZNK15ref_vector_co
 invoke.cont79:                                    ; preds = %invoke.cont79.preheader, %for.inc126
   %143 = phi ptr [ %call66, %invoke.cont79.preheader ], [ %177, %for.inc126 ]
   %indvars.iv431 = phi i64 [ 0, %invoke.cont79.preheader ], [ %indvars.iv.next432, %for.inc126 ]
-  %dirty.0382 = phi i1 [ false, %invoke.cont79.preheader ], [ %dirty.4, %for.inc126 ]
+  %dirty.0382 = phi i1 [ false, %invoke.cont79.preheader ], [ %dirty.1, %for.inc126 ]
   %144 = load ptr, ptr %m_nodes.i.i97, align 8
   %arrayidx.i.i136 = getelementptr inbounds ptr, ptr %144, i64 %indvars.iv431
   %145 = load ptr, ptr %arrayidx.i.i136, align 8
@@ -3430,7 +3430,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
 
 for.body102:                                      ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %_ZN6solver11scoped_pushD2Ev.exit186
   %__begin2.0377 = phi ptr [ %incdec.ptr, %_ZN6solver11scoped_pushD2Ev.exit186 ], [ %157, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
-  %dirty.1376 = phi i1 [ %dirty.2, %_ZN6solver11scoped_pushD2Ev.exit186 ], [ %dirty.0382, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
+  %dirty.2376 = phi i1 [ %dirty.4, %_ZN6solver11scoped_pushD2Ev.exit186 ], [ %dirty.0382, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
   %160 = load ptr, ptr %__begin2.0377, align 8
   %vtable.i157 = load ptr, ptr %154, align 8
   %vfn.i158 = getelementptr inbounds i8, ptr %vtable.i157, i64 192
@@ -3516,7 +3516,7 @@ terminate.lpad.i177:                              ; preds = %if.then.i174
   unreachable
 
 if.then.i181:                                     ; preds = %invoke.cont112, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit
-  %dirty.2 = phi i1 [ true, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit ], [ %dirty.1376, %invoke.cont112 ]
+  %dirty.4 = phi i1 [ true, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit ], [ %dirty.2376, %invoke.cont112 ]
   %vtable.i182 = load ptr, ptr %154, align 8
   %vfn.i183 = getelementptr inbounds i8, ptr %vtable.i182, i64 200
   %171 = load ptr, ptr %vfn.i183, align 8
@@ -3537,7 +3537,7 @@ _ZN6solver11scoped_pushD2Ev.exit186:              ; preds = %if.then.i181
   br i1 %or.cond384, label %if.then.i189, label %for.body102
 
 if.then.i189:                                     ; preds = %_ZN6solver11scoped_pushD2Ev.exit186, %invoke.cont96, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
-  %dirty.3 = phi i1 [ %dirty.0382, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %dirty.0382, %invoke.cont96 ], [ %dirty.2, %_ZN6solver11scoped_pushD2Ev.exit186 ]
+  %dirty.3 = phi i1 [ %dirty.0382, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %dirty.0382, %invoke.cont96 ], [ %dirty.4, %_ZN6solver11scoped_pushD2Ev.exit186 ]
   %vtable.i190 = load ptr, ptr %143, align 8
   %vfn.i191 = getelementptr inbounds i8, ptr %vtable.i190, i64 200
   %174 = load ptr, ptr %vfn.i191, align 8
@@ -3553,7 +3553,7 @@ terminate.lpad.i192:                              ; preds = %if.then.i189
 
 for.inc126:                                       ; preds = %if.then.i189, %invoke.cont83
   %177 = phi ptr [ %143, %invoke.cont83 ], [ %154, %if.then.i189 ]
-  %dirty.4 = phi i1 [ %dirty.0382, %invoke.cont83 ], [ %dirty.3, %if.then.i189 ]
+  %dirty.1 = phi i1 [ %dirty.0382, %invoke.cont83 ], [ %dirty.3, %if.then.i189 ]
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond434.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count433
   br i1 %exitcond434.not, label %for.end128, label %invoke.cont79, !llvm.loop !22
@@ -3574,7 +3574,7 @@ terminate.lpad.i200:                              ; preds = %if.then.i197
   unreachable
 
 for.end128:                                       ; preds = %for.inc126
-  br i1 %dirty.4, label %if.end130, label %cleanup161
+  br i1 %dirty.1, label %if.end130, label %cleanup161
 
 if.end130:                                        ; preds = %for.end128
   %181 = load ptr, ptr %lemma, align 8

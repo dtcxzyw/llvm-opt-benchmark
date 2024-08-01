@@ -1813,7 +1813,7 @@ rbimpl_intern_const.exit109:                      ; preds = %.lr.ph.i107, %32
   br i1 %.not77, label %43, label %.loopexit124
 
 43:                                               ; preds = %38, %39, %.critedge
-  %.066 = phi ptr [ null, %.critedge ], [ %41, %39 ], [ null, %38 ]
+  %.1 = phi ptr [ null, %.critedge ], [ %41, %39 ], [ null, %38 ]
   %44 = call ptr @TS_RESP_CTX_new() #7
   %.not78 = icmp eq ptr %44, null
   br i1 %.not78, label %.loopexit124, label %45
@@ -1864,7 +1864,7 @@ rbimpl_intern_const.exit115:                      ; preds = %.lr.ph.i113, %47
   br i1 %.not82, label %61, label %63
 
 61:                                               ; preds = %59
-  %62 = call i32 @TS_RESP_CTX_set_def_policy(ptr noundef nonnull %44, ptr noundef %.066) #7
+  %62 = call i32 @TS_RESP_CTX_set_def_policy(ptr noundef nonnull %44, ptr noundef %.1) #7
   br label %63
 
 63:                                               ; preds = %61, %59, %57
@@ -1967,12 +1967,12 @@ rb_array_len.exit:                                ; preds = %78, %81
 .loopexit124:                                     ; preds = %84, %97, %45, %43, %38, %rbimpl_intern_const.exit103, %rbimpl_intern_const.exit, %93, %.loopexit, %52, %39, %101
   %.not89 = phi i1 [ true, %52 ], [ true, %.loopexit ], [ true, %93 ], [ true, %101 ], [ true, %39 ], [ false, %rbimpl_intern_const.exit ], [ false, %rbimpl_intern_const.exit103 ], [ false, %38 ], [ false, %43 ], [ false, %45 ], [ false, %97 ], [ true, %84 ]
   %.067 = phi ptr [ null, %52 ], [ null, %.loopexit ], [ null, %93 ], [ null, %101 ], [ null, %39 ], [ @.str.76, %rbimpl_intern_const.exit ], [ @.str.81, %rbimpl_intern_const.exit103 ], [ @.str.84, %38 ], [ @.str.85, %43 ], [ @.str.86, %45 ], [ @.str.91, %97 ], [ null, %84 ]
-  %.1 = phi ptr [ %.066, %52 ], [ %.066, %.loopexit ], [ %.066, %93 ], [ %.066, %101 ], [ %41, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit103 ], [ null, %38 ], [ %.066, %43 ], [ %.066, %45 ], [ %.066, %97 ], [ %.066, %84 ]
+  %.066 = phi ptr [ %.1, %52 ], [ %.1, %.loopexit ], [ %.1, %93 ], [ %.1, %101 ], [ %41, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit103 ], [ null, %38 ], [ %.1, %43 ], [ %.1, %45 ], [ %.1, %97 ], [ %.1, %84 ]
   %.065 = phi ptr [ %44, %52 ], [ %44, %.loopexit ], [ %44, %93 ], [ %44, %101 ], [ null, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit103 ], [ null, %38 ], [ null, %43 ], [ %44, %45 ], [ %44, %97 ], [ %44, %84 ]
   %.0 = phi i64 [ 4, %52 ], [ 4, %.loopexit ], [ 4, %93 ], [ %10, %101 ], [ 4, %39 ], [ 4, %rbimpl_intern_const.exit ], [ 4, %rbimpl_intern_const.exit103 ], [ 4, %38 ], [ 4, %43 ], [ 4, %45 ], [ 4, %97 ], [ 4, %84 ]
   %104 = load ptr, ptr %6, align 8
   call void @ASN1_INTEGER_free(ptr noundef %104) #7
-  call void @ASN1_OBJECT_free(ptr noundef %.1) #7
+  call void @ASN1_OBJECT_free(ptr noundef %.066) #7
   call void @TS_RESP_CTX_free(ptr noundef %.065) #7
   br i1 %.not89, label %109, label %105
 

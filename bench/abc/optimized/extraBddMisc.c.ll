@@ -833,7 +833,7 @@ define range(i32 0, 2) i32 @Extra_bddSuppCheckContainment(ptr nocapture noundef 
   %.047 = phi ptr [ %.148, %35 ], [ %1, %.preheader ]
   %.045 = phi ptr [ %.146, %35 ], [ %2, %.preheader ]
   %.043 = phi i32 [ %.144, %35 ], [ 1, %.preheader ]
-  %.042 = phi i32 [ %.1, %35 ], [ 1, %.preheader ]
+  %.042 = phi i32 [ %.2, %35 ], [ 1, %.preheader ]
   %.not = icmp eq ptr %.047, %8
   %.not54 = icmp eq ptr %.045, %8
   %or.cond57 = select i1 %.not, i1 %.not54, i1 false
@@ -885,8 +885,8 @@ define range(i32 0, 2) i32 @Extra_bddSuppCheckContainment(ptr nocapture noundef 
   %.148 = phi ptr [ %32, %29 ], [ %.148.ph, %.sink.split ]
   %.146 = phi ptr [ %.045, %29 ], [ %34, %.sink.split ]
   %.144 = phi i32 [ %.043, %29 ], [ %.144.ph, %.sink.split ]
-  %.1 = phi i32 [ 0, %29 ], [ %.042, %.sink.split ]
-  %36 = icmp ne i32 %.1, 0
+  %.2 = phi i32 [ 0, %29 ], [ %.042, %.sink.split ]
+  %36 = icmp ne i32 %.2, 0
   %37 = icmp ne i32 %.144, 0
   %or.cond = select i1 %36, i1 true, i1 %37
   br i1 %or.cond, label %10, label %.loopexit60, !llvm.loop !17
@@ -2282,7 +2282,7 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %103
 
 ._crit_edge:                                      ; preds = %63, %83, %87
-  %.081 = phi ptr [ %86, %83 ], [ %88, %87 ], [ %spec.select94, %63 ]
+  %.1 = phi ptr [ %86, %83 ], [ %88, %87 ], [ %spec.select94, %63 ]
   %91 = ptrtoint ptr %spec.select to i64
   %92 = and i64 %91, -2
   %93 = inttoptr i64 %92 to ptr
@@ -2299,12 +2299,12 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %102
 
 102:                                              ; preds = %._crit_edge, %27
-  %.1 = phi ptr [ %30, %27 ], [ %.081, %._crit_edge ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddChangePolarity, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %.1) #18
+  %.081 = phi ptr [ %30, %27 ], [ %.1, %._crit_edge ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddChangePolarity, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %.081) #18
   br label %103
 
 103:                                              ; preds = %50, %13, %7, %3, %102, %90, %82, %62
-  %.0 = phi ptr [ %.1, %102 ], [ null, %62 ], [ null, %82 ], [ null, %90 ], [ %1, %3 ], [ %1, %7 ], [ %14, %13 ], [ null, %50 ]
+  %.0 = phi ptr [ %.081, %102 ], [ null, %62 ], [ null, %82 ], [ null, %90 ], [ %1, %3 ], [ %1, %7 ], [ %14, %13 ], [ null, %50 ]
   ret ptr %.0
 }
 

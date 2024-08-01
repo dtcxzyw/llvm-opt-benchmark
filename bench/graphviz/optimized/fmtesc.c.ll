@@ -53,7 +53,7 @@ define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %24, %20
-  %.074.ph = phi i32 [ %spec.select, %24 ], [ 0, %20 ]
+  %.175.ph = phi i32 [ %spec.select, %24 ], [ 0, %20 ]
   store i8 %18, ptr %16, align 1
   br label %.lr.ph.preheader
 
@@ -63,33 +63,33 @@ define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr nound
   br i1 %.not96108, label %.loopexit107, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %28
-  %.074133 = phi i32 [ %.074.ph, %.thread ], [ 0, %28 ]
+  %.175133 = phi i32 [ %.175.ph, %.thread ], [ 0, %28 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.072110 = phi ptr [ %29, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.080109 = phi ptr [ %30, %.lr.ph ], [ %16, %.lr.ph.preheader ]
-  %29 = getelementptr inbounds i8, ptr %.072110, i64 1
-  %30 = getelementptr inbounds i8, ptr %.080109, i64 1
+  %.173110 = phi ptr [ %29, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.181109 = phi ptr [ %30, %.lr.ph ], [ %16, %.lr.ph.preheader ]
+  %29 = getelementptr inbounds i8, ptr %.173110, i64 1
+  %30 = getelementptr inbounds i8, ptr %.181109, i64 1
   %31 = load i8, ptr %29, align 1
   store i8 %31, ptr %30, align 1
   %.not96 = icmp eq i8 %31, 0
   br i1 %.not96, label %.loopexit107, label %.lr.ph
 
 .loopexit107:                                     ; preds = %.lr.ph, %28, %15
-  %.181 = phi ptr [ %16, %15 ], [ %16, %28 ], [ %30, %.lr.ph ]
-  %.175 = phi i32 [ 0, %15 ], [ 0, %28 ], [ %.074133, %.lr.ph ]
+  %.080 = phi ptr [ %16, %15 ], [ %16, %28 ], [ %30, %.lr.ph ]
+  %.074 = phi i32 [ 0, %15 ], [ 0, %28 ], [ %.175133, %.lr.ph ]
   %32 = icmp sgt i64 %3, 0
   br i1 %32, label %.lr.ph115, label %._crit_edge
 
 .lr.ph115:                                        ; preds = %.loopexit107
-  %.not101 = icmp eq i32 %.175, 0
+  %.not101 = icmp eq i32 %.074, 0
   br i1 %.not101, label %.lr.ph115.split.us, label %.lr.ph115.split
 
 .lr.ph115.split.us:                               ; preds = %.lr.ph115, %gv_isspace.exit104.us
   %.076114.us = phi i32 [ %.177.us, %gv_isspace.exit104.us ], [ 0, %.lr.ph115 ]
   %.078113.us = phi i32 [ %.179.us, %gv_isspace.exit104.us ], [ 0, %.lr.ph115 ]
-  %.2112.us = phi ptr [ %71, %gv_isspace.exit104.us ], [ %.181, %.lr.ph115 ]
+  %.2112.us = phi ptr [ %71, %gv_isspace.exit104.us ], [ %.080, %.lr.ph115 ]
   %.083111.us = phi ptr [ %33, %gv_isspace.exit104.us ], [ %0, %.lr.ph115 ]
   %33 = getelementptr inbounds i8, ptr %.083111.us, i64 1
   %34 = load i8, ptr %.083111.us, align 1
@@ -196,7 +196,7 @@ gv_isspace.exit104.us:                            ; preds = %50, %61, %60, %59, 
 .lr.ph115.split:                                  ; preds = %.lr.ph115, %gv_isspace.exit104
   %.076114 = phi i32 [ %.177, %gv_isspace.exit104 ], [ 0, %.lr.ph115 ]
   %.078113 = phi i32 [ %.179, %gv_isspace.exit104 ], [ 0, %.lr.ph115 ]
-  %.2112 = phi ptr [ %118, %gv_isspace.exit104 ], [ %.181, %.lr.ph115 ]
+  %.2112 = phi ptr [ %118, %gv_isspace.exit104 ], [ %.080, %.lr.ph115 ]
   %.083111 = phi ptr [ %73, %gv_isspace.exit104 ], [ %0, %.lr.ph115 ]
   %73 = getelementptr inbounds i8, ptr %.083111, i64 1
   %74 = load i8, ptr %.083111, align 1
@@ -299,7 +299,7 @@ gv_isspace.exit:                                  ; preds = %110
   br i1 %112, label %113, label %gv_isspace.exit104
 
 113:                                              ; preds = %111
-  %114 = icmp eq ptr %.2112, %.181
+  %114 = icmp eq ptr %.2112, %.080
   br i1 %114, label %gv_isspace.exit104, label %115
 
 115:                                              ; preds = %113
@@ -318,7 +318,7 @@ gv_isspace.exit104.thread:                        ; preds = %115, %115, %115, %1
   br label %gv_isspace.exit104
 
 gv_isspace.exit104:                               ; preds = %110, %gv_isspace.exit, %113, %gv_isspace.exit104.thread, %115, %107, %111, %105, %84, %85, %86, %87, %88, %89, %90, %91, %92, %82
-  %.3 = phi ptr [ %99, %92 ], [ %83, %82 ], [ %83, %91 ], [ %83, %90 ], [ %83, %89 ], [ %83, %88 ], [ %83, %87 ], [ %83, %86 ], [ %83, %85 ], [ %83, %84 ], [ %106, %105 ], [ %.2112, %107 ], [ %.2112, %111 ], [ %.2112, %115 ], [ %.2112, %gv_isspace.exit104.thread ], [ %.181, %113 ], [ %.2112, %gv_isspace.exit ], [ %.2112, %110 ]
+  %.3 = phi ptr [ %99, %92 ], [ %83, %82 ], [ %83, %91 ], [ %83, %90 ], [ %83, %89 ], [ %83, %88 ], [ %83, %87 ], [ %83, %86 ], [ %83, %85 ], [ %83, %84 ], [ %106, %105 ], [ %.2112, %107 ], [ %.2112, %111 ], [ %.2112, %115 ], [ %.2112, %gv_isspace.exit104.thread ], [ %.080, %113 ], [ %.2112, %gv_isspace.exit ], [ %.2112, %110 ]
   %.179 = phi i32 [ 1, %92 ], [ 1, %82 ], [ 1, %91 ], [ 1, %90 ], [ 1, %89 ], [ 1, %88 ], [ 1, %87 ], [ 1, %86 ], [ 1, %85 ], [ 1, %84 ], [ 1, %105 ], [ %.078113, %107 ], [ 0, %111 ], [ 0, %115 ], [ 0, %gv_isspace.exit104.thread ], [ 0, %113 ], [ 0, %gv_isspace.exit ], [ 0, %110 ]
   %.177 = phi i32 [ %.076114, %92 ], [ %.076114, %82 ], [ %.076114, %91 ], [ %.076114, %90 ], [ %.076114, %89 ], [ %.076114, %88 ], [ %.076114, %87 ], [ %.076114, %86 ], [ %.076114, %85 ], [ %.076114, %84 ], [ %.076114, %105 ], [ %.076114, %107 ], [ 0, %111 ], [ 0, %115 ], [ 1, %gv_isspace.exit104.thread ], [ 1, %113 ], [ 1, %gv_isspace.exit ], [ 1, %110 ]
   %.0 = phi i8 [ %101, %92 ], [ %74, %82 ], [ 69, %91 ], [ 118, %90 ], [ 116, %89 ], [ 114, %88 ], [ 110, %87 ], [ 102, %86 ], [ 98, %85 ], [ 97, %84 ], [ %74, %105 ], [ %74, %107 ], [ %74, %111 ], [ 35, %115 ], [ 35, %gv_isspace.exit104.thread ], [ 35, %113 ], [ %74, %gv_isspace.exit ], [ 32, %110 ]
@@ -328,7 +328,7 @@ gv_isspace.exit104:                               ; preds = %110, %gv_isspace.ex
   br i1 %119, label %.lr.ph115.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %gv_isspace.exit104, %gv_isspace.exit104.us, %.loopexit107
-  %.2.lcssa = phi ptr [ %.181, %.loopexit107 ], [ %71, %gv_isspace.exit104.us ], [ %118, %gv_isspace.exit104 ]
+  %.2.lcssa = phi ptr [ %.080, %.loopexit107 ], [ %71, %gv_isspace.exit104.us ], [ %118, %gv_isspace.exit104 ]
   %.078.lcssa = phi i32 [ 0, %.loopexit107 ], [ %.179.us, %gv_isspace.exit104.us ], [ %.179, %gv_isspace.exit104 ]
   %.076.lcssa = phi i32 [ 0, %.loopexit107 ], [ %.177.us, %gv_isspace.exit104.us ], [ %.177, %gv_isspace.exit104 ]
   br i1 %.not94, label %.loopexit, label %120
@@ -337,10 +337,10 @@ gv_isspace.exit104:                               ; preds = %110, %gv_isspace.ex
   %121 = icmp ne i32 %.078.lcssa, 0
   %.not98 = icmp eq i32 %.076.lcssa, 0
   %122 = zext i1 %.not98 to i32
-  %123 = add nuw nsw i32 %.175, %122
+  %123 = add nuw nsw i32 %.074, %122
   %narrow = select i1 %121, i32 0, i32 %123
-  %.070.idx = zext i32 %narrow to i64
-  %.070 = getelementptr inbounds i8, ptr %16, i64 %.070.idx
+  %.171.idx = zext i32 %narrow to i64
+  %.171 = getelementptr inbounds i8, ptr %16, i64 %.171.idx
   %124 = icmp ne i32 %.076.lcssa, 0
   %or.cond5 = select i1 %121, i1 true, i1 %124
   %or.cond = select i1 %.not95, i1 %or.cond5, i1 false
@@ -353,20 +353,20 @@ gv_isspace.exit104:                               ; preds = %110, %gv_isspace.ex
   br i1 %.not99121, label %.loopexit, label %.lr.ph124
 
 .lr.ph124:                                        ; preds = %.preheader, %.lr.ph124
-  %.4123 = phi ptr [ %127, %.lr.ph124 ], [ %.2.lcssa, %.preheader ]
+  %.5123 = phi ptr [ %127, %.lr.ph124 ], [ %.2.lcssa, %.preheader ]
   %.082122 = phi ptr [ %126, %.lr.ph124 ], [ %2, %.preheader ]
   %126 = getelementptr inbounds i8, ptr %.082122, i64 1
-  %127 = getelementptr inbounds i8, ptr %.4123, i64 1
+  %127 = getelementptr inbounds i8, ptr %.5123, i64 1
   %128 = load i8, ptr %126, align 1
   store i8 %128, ptr %127, align 1
   %.not99 = icmp eq i8 %128, 0
   br i1 %.not99, label %.loopexit, label %.lr.ph124
 
 .loopexit:                                        ; preds = %.lr.ph124, %.preheader, %120, %._crit_edge
-  %.5 = phi ptr [ %.2.lcssa, %120 ], [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %.preheader ], [ %127, %.lr.ph124 ]
-  %.171 = phi ptr [ %.070, %120 ], [ %16, %._crit_edge ], [ %.070, %.preheader ], [ %.070, %.lr.ph124 ]
-  store i8 0, ptr %.5, align 1
-  ret ptr %.171
+  %.4 = phi ptr [ %.2.lcssa, %120 ], [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %.preheader ], [ %127, %.lr.ph124 ]
+  %.070 = phi ptr [ %.171, %120 ], [ %16, %._crit_edge ], [ %.171, %.preheader ], [ %.171, %.lr.ph124 ]
+  store i8 0, ptr %.4, align 1
+  ret ptr %.070
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

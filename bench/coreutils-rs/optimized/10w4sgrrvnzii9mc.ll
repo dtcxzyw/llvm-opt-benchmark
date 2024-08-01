@@ -1139,7 +1139,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   unreachable
 
 35:                                               ; preds = %.body86
-  br i1 %.1, label %.thread95, label %common.resume
+  br i1 %.2, label %.thread95, label %common.resume
 
 36:                                               ; preds = %56, %52, %43
   %37 = landingpad { ptr, i32 }
@@ -1252,7 +1252,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   br label %.loopexit
 
 .body86:                                          ; preds = %155, %.body.thread.i, %103, %123, %71
-  %.1 = phi i1 [ true, %71 ], [ true, %123 ], [ true, %103 ], [ false, %.body.thread.i ], [ false, %155 ]
+  %.2 = phi i1 [ true, %71 ], [ true, %123 ], [ true, %103 ], [ false, %.body.thread.i ], [ false, %155 ]
   %.pn28 = phi { ptr, i32 } [ %72, %71 ], [ %124, %123 ], [ %104, %103 ], [ %174, %.body.thread.i ], [ %156, %155 ]
   invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %18) #19
           to label %35 unwind label %125

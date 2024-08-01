@@ -4961,7 +4961,7 @@ define void @_ZN17DisplayFilterEdit10paintEventEP11QPaintEvent(ptr noundef nonnu
   br label %108
 
 108:                                              ; preds = %90, %102
-  %.0 = phi i32 [ %107, %102 ], [ %94, %90 ]
+  %.1 = phi i32 [ %107, %102 ], [ %94, %90 ]
   %109 = getelementptr inbounds i8, ptr %0, i64 256
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 32
@@ -4978,13 +4978,13 @@ define void @_ZN17DisplayFilterEdit10paintEventEP11QPaintEvent(ptr noundef nonnu
   %119 = load i32, ptr %118, align 4
   %120 = load i32, ptr %117, align 4
   %.neg23 = xor i32 %119, -1
-  %.neg22 = add i32 %.0, %.neg23
+  %.neg22 = add i32 %.1, %.neg23
   %121 = add i32 %.neg22, %120
   br label %122
 
 122:                                              ; preds = %108, %116, %88
   %.2 = phi i32 [ %.112, %88 ], [ %92, %116 ], [ %92, %108 ]
-  %.1 = phi i32 [ %89, %88 ], [ %121, %116 ], [ %.0, %108 ]
+  %.0 = phi i32 [ %89, %88 ], [ %121, %116 ], [ %.1, %108 ]
   %123 = add i32 %.sroa.8.8.extract.trunc, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 %.2, ptr %4, align 4
@@ -5025,11 +5025,11 @@ _ZN7QStringD2Ev.exit:                             ; preds = %128, %_ZN17QArrayDa
 
 136:                                              ; preds = %_ZN7QStringD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store i32 %.1, ptr %3, align 4
+  store i32 %.0, ptr %3, align 4
   %137 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.3.0.extract.trunc, ptr %137, align 4
   %138 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %.1, ptr %138, align 4
+  store i32 %.0, ptr %138, align 4
   %139 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %123, ptr %139, align 4
   invoke void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3, i32 noundef 1)
@@ -10239,15 +10239,15 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit.i.i14: ; preds = %56
 
 .sink.split:                                      ; preds = %70, %74, %78, %_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i.i.i
   %.sink = phi ptr [ %38, %_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i.i.i ], [ %72, %78 ], [ %72, %74 ], [ %72, %70 ]
-  %.2.ph = phi ptr [ %spec.select, %_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i.i.i ], [ %1, %78 ], [ %1, %74 ], [ %1, %70 ]
+  %.0.ph = phi ptr [ %spec.select, %_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i.i.i ], [ %1, %78 ], [ %1, %74 ], [ %1, %70 ]
   store ptr %.sink, ptr %11, align 8
   br label %80
 
 80:                                               ; preds = %.sink.split, %.critedge.i, %22, %.critedge.i16, %56
-  %.2 = phi ptr [ %1, %22 ], [ %1, %.critedge.i ], [ %1, %.critedge.i16 ], [ %1, %56 ], [ %.2.ph, %.sink.split ]
-  %81 = getelementptr i8, ptr %.2, i64 %9
+  %.0 = phi ptr [ %1, %22 ], [ %1, %.critedge.i ], [ %1, %.critedge.i16 ], [ %1, %56 ], [ %.0.ph, %.sink.split ]
+  %81 = getelementptr i8, ptr %.0, i64 %9
   %82 = load ptr, ptr %11, align 8
-  %83 = icmp ult ptr %.2, %81
+  %83 = icmp ult ptr %.0, %81
   br i1 %83, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
 
 .lr.ph.i:                                         ; preds = %80
@@ -10256,7 +10256,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit.i.i14: ; preds = %56
 
 84:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i, %.lr.ph.i
   %85 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %98, %_ZN7QStringC2ERKS_.exit.i ]
-  %.010.i = phi ptr [ %.2, %.lr.ph.i ], [ %96, %_ZN7QStringC2ERKS_.exit.i ]
+  %.010.i = phi ptr [ %.0, %.lr.ph.i ], [ %96, %_ZN7QStringC2ERKS_.exit.i ]
   %86 = getelementptr %class.QString, ptr %82, i64 %85
   %87 = load ptr, ptr %.010.i, align 8
   store ptr %87, ptr %86, align 8

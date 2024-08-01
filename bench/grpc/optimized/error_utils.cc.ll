@@ -1324,8 +1324,8 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %invoke.cont.i, %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %retval.1 = phi i1 [ true, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ %cmp.i.lcssa39, %invoke.cont.i ], [ %cmp.i.lcssa39, %if.then.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ %cmp.i.lcssa39, %invoke.cont.i ], [ %cmp.i.lcssa39, %if.then.i.i.i ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad12, %lpad2, %lpad
   %.pn.pn = phi { ptr, i32 } [ %21, %lpad12 ], [ %20, %lpad2 ], [ %6, %lpad ]

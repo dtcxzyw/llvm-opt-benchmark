@@ -614,7 +614,7 @@ for.body146.lr.ph:                                ; preds = %for.end
   br label %for.body146
 
 for.body146:                                      ; preds = %for.body146.lr.ph, %for.inc211
-  %file_num.2292 = phi i64 [ %file_num.0.lcssa, %for.body146.lr.ph ], [ %file_num.6, %for.inc211 ]
+  %file_num.2292 = phi i64 [ %file_num.0.lcssa, %for.body146.lr.ph ], [ %file_num.4, %for.inc211 ]
   %__begin1138.sroa.0.0291 = phi ptr [ %54, %for.body146.lr.ph ], [ %incdec.ptr.i179, %for.inc211 ]
   %call149 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef nonnull align 8 dereferenceable(32) %__begin1138.sroa.0.0291)
           to label %invoke.cont148 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -719,7 +719,7 @@ invoke.cont179:                                   ; preds = %.noexc173
   br i1 %cmp.i177.not286, label %if.end205, label %for.body186
 
 for.body186:                                      ; preds = %invoke.cont179, %for.inc202
-  %file_num.3288 = phi i64 [ %file_num.4, %for.inc202 ], [ %file_num.2292, %invoke.cont179 ]
+  %file_num.5288 = phi i64 [ %file_num.6, %for.inc202 ], [ %file_num.2292, %invoke.cont179 ]
   %__begin3.sroa.0.0287 = phi ptr [ %incdec.ptr.i178, %for.inc202 ], [ %.pre296, %invoke.cont179 ]
   %call190 = invoke noundef zeroext i1 @_ZN7rocksdb13ParseFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmPNS_8FileTypeEPNS_11WalFileTypeE(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0287, ptr noundef nonnull %number, ptr noundef nonnull %type, ptr noundef null)
           to label %invoke.cont189 unwind label %lpad20.loopexit.split-lp.loopexit
@@ -731,7 +731,7 @@ invoke.cont189:                                   ; preds = %for.body186
   br i1 %or.cond, label %land.lhs.true, label %for.inc202
 
 land.lhs.true:                                    ; preds = %invoke.cont189
-  %inc193 = add i64 %file_num.3288, 1
+  %inc193 = add i64 %file_num.5288, 1
   %cmp194 = icmp ult i64 %inc193, 10
   br i1 %cmp194, label %if.then195, label %for.inc202
 
@@ -744,16 +744,16 @@ invoke.cont196:                                   ; preds = %if.then195
           to label %for.inc202 unwind label %lpad20.loopexit.split-lp.loopexit
 
 for.inc202:                                       ; preds = %invoke.cont189, %invoke.cont196, %land.lhs.true
-  %file_num.4 = phi i64 [ %inc193, %invoke.cont196 ], [ %inc193, %land.lhs.true ], [ %file_num.3288, %invoke.cont189 ]
+  %file_num.6 = phi i64 [ %inc193, %invoke.cont196 ], [ %inc193, %land.lhs.true ], [ %file_num.5288, %invoke.cont189 ]
   %incdec.ptr.i178 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0287, i64 32
   %cmp.i177.not = icmp eq ptr %incdec.ptr.i178, %.pre297
   br i1 %cmp.i177.not, label %if.end205, label %for.body186
 
 if.end205:                                        ; preds = %for.inc202, %if.end170, %invoke.cont179, %invoke.cont148
-  %file_num.5 = phi i64 [ %file_num.2292, %invoke.cont148 ], [ %file_num.2292, %invoke.cont179 ], [ %file_num.2292, %if.end170 ], [ %file_num.4, %for.inc202 ]
+  %file_num.3 = phi i64 [ %file_num.2292, %invoke.cont148 ], [ %file_num.2292, %invoke.cont179 ], [ %file_num.2292, %if.end170 ], [ %file_num.6, %for.inc202 ]
   %call208 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1138.sroa.0.0291) #9
   %call209 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %file_info) #9
-  invoke void (ptr, ptr, ...) @_ZN7rocksdb6HeaderERKSt10shared_ptrINS_6LoggerEEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.13, ptr noundef %call208, i64 noundef %file_num.5, ptr noundef %call209)
+  invoke void (ptr, ptr, ...) @_ZN7rocksdb6HeaderERKSt10shared_ptrINS_6LoggerEEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.13, ptr noundef %call208, i64 noundef %file_num.3, ptr noundef %call209)
           to label %invoke.cont210 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont210:                                   ; preds = %if.end205
@@ -761,7 +761,7 @@ invoke.cont210:                                   ; preds = %if.end205
   br label %for.inc211
 
 for.inc211:                                       ; preds = %invoke.cont210, %invoke.cont168
-  %file_num.6 = phi i64 [ 0, %invoke.cont210 ], [ %file_num.2292, %invoke.cont168 ]
+  %file_num.4 = phi i64 [ 0, %invoke.cont210 ], [ %file_num.2292, %invoke.cont168 ]
   %incdec.ptr.i179 = getelementptr inbounds i8, ptr %__begin1138.sroa.0.0291, i64 40
   %cmp.i141.not = icmp eq ptr %incdec.ptr.i179, %55
   br i1 %cmp.i141.not, label %for.end213, label %for.body146

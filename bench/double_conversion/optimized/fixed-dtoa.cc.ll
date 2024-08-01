@@ -771,32 +771,32 @@ if.else:                                          ; preds = %entry
   %sh_prom29.i = zext nneg i32 %sub28.i to i64
   %shl30.i = shl i64 %fractionals, %sh_prom29.i
   %shr35.i = lshr i64 %fractionals, %sh_prom25.i
-  %fractionals128.sroa.0.0 = select i1 %cond, i64 0, i64 %shr35.i
+  %fractionals128.sroa.0.1 = select i1 %cond, i64 0, i64 %shr35.i
   %cmp2286 = icmp sgt i32 %fractional_count, 0
   br i1 %cmp2286, label %for.body23, label %for.end36
 
 for.body23:                                       ; preds = %if.else, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit
   %point19.090 = phi i32 [ %dec27, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ], [ 128, %if.else ]
   %i20.089 = phi i32 [ %inc35, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ], [ 0, %if.else ]
-  %fractionals128.sroa.0.188 = phi i64 [ %.sink.i, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ], [ %fractionals128.sroa.0.0, %if.else ]
-  %fractionals128.sroa.15.187 = phi i64 [ %fractionals128.sroa.15.2, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ], [ %shl30.i, %if.else ]
-  %cmp.i25 = icmp eq i64 %fractionals128.sroa.0.188, 0
-  %cmp2.i = icmp eq i64 %fractionals128.sroa.15.187, 0
+  %fractionals128.sroa.0.088 = phi i64 [ %.sink.i, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ], [ %fractionals128.sroa.0.1, %if.else ]
+  %fractionals128.sroa.15.087 = phi i64 [ %fractionals128.sroa.15.2, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ], [ %shl30.i, %if.else ]
+  %cmp.i25 = icmp eq i64 %fractionals128.sroa.0.088, 0
+  %cmp2.i = icmp eq i64 %fractionals128.sroa.15.087, 0
   %15 = select i1 %cmp.i25, i1 %cmp2.i, i1 false
   br i1 %15, label %for.end36, label %if.end26
 
 if.end26:                                         ; preds = %for.body23
-  %and.i = and i64 %fractionals128.sroa.15.187, 4294967295
+  %and.i = and i64 %fractionals128.sroa.15.087, 4294967295
   %mul.i = mul nuw nsw i64 %and.i, 5
   %shr.i28 = lshr i64 %mul.i, 32
-  %shr5.i = lshr i64 %fractionals128.sroa.15.187, 32
+  %shr5.i = lshr i64 %fractionals128.sroa.15.087, 32
   %mul7.i = mul nuw nsw i64 %shr5.i, 5
   %add.i29 = add nuw nsw i64 %shr.i28, %mul7.i
   %shl.i30 = shl i64 %add.i29, 32
   %conv8.i = and i64 %mul.i, 4294967295
   %add9.i = or disjoint i64 %shl.i30, %conv8.i
   %shr11.i = lshr i64 %add.i29, 32
-  %reass.mul.i = mul i64 %fractionals128.sroa.0.188, 5
+  %reass.mul.i = mul i64 %fractionals128.sroa.0.088, 5
   %shr1815.i = add i64 %shr11.i, %reass.mul.i
   %dec27 = add nsw i32 %point19.090, -1
   %cmp.i31 = icmp sgt i32 %point19.090, 64
@@ -841,13 +841,13 @@ _ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %if.then.i34, %
   br i1 %exitcond.not, label %for.end36, label %for.body23, !llvm.loop !13
 
 for.end36:                                        ; preds = %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit, %for.body23, %if.else
-  %fractionals128.sroa.15.1.lcssa = phi i64 [ %shl30.i, %if.else ], [ 0, %for.body23 ], [ %fractionals128.sroa.15.2, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %fractionals128.sroa.0.1.lcssa = phi i64 [ %fractionals128.sroa.0.0, %if.else ], [ 0, %for.body23 ], [ %.sink.i, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %fractionals128.sroa.15.0.lcssa = phi i64 [ %shl30.i, %if.else ], [ 0, %for.body23 ], [ %fractionals128.sroa.15.2, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %fractionals128.sroa.0.0.lcssa = phi i64 [ %fractionals128.sroa.0.1, %if.else ], [ 0, %for.body23 ], [ %.sink.i, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
   %point19.0.lcssa = phi i32 [ 128, %if.else ], [ %point19.090, %for.body23 ], [ %dec27, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
   %cmp.i41 = icmp sgt i32 %point19.0.lcssa, 64
   %position.sink.i.v = select i1 %cmp.i41, i32 -65, i32 -1
   %position.sink.i = add nsw i32 %position.sink.i.v, %point19.0.lcssa
-  %.sink.i44 = select i1 %cmp.i41, i64 %fractionals128.sroa.0.1.lcssa, i64 %fractionals128.sroa.15.1.lcssa
+  %.sink.i44 = select i1 %cmp.i41, i64 %fractionals128.sroa.0.0.lcssa, i64 %fractionals128.sroa.15.0.lcssa
   %sh_prom2.i = zext nneg i32 %position.sink.i to i64
   %19 = shl nuw i64 1, %sh_prom2.i
   %20 = and i64 %19, %.sink.i44

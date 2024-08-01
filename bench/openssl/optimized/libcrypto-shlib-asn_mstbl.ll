@@ -77,9 +77,9 @@ for.cond.preheader.i:                             ; preds = %if.end4.i
   br i1 %cmp1047.i, label %for.body.i, label %if.else72.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
-  %tbl_flags.051.i = phi i64 [ %tbl_flags.1.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
-  %tbl_max.050.i = phi i64 [ %tbl_max.1.i, %for.inc.i ], [ -1, %for.cond.preheader.i ]
-  %tbl_min.049.i = phi i64 [ %tbl_min.1.i, %for.inc.i ], [ -1, %for.cond.preheader.i ]
+  %tbl_flags.151.i = phi i64 [ %tbl_flags.2.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
+  %tbl_max.150.i = phi i64 [ %tbl_max.2.i, %for.inc.i ], [ -1, %for.cond.preheader.i ]
+  %tbl_min.149.i = phi i64 [ %tbl_min.2.i, %for.inc.i ], [ -1, %for.cond.preheader.i ]
   %i.048.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %call12.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call5.i, i32 noundef %i.048.i) #5
   %name13.i = getelementptr inbounds i8, ptr %call12.i, i64 8
@@ -144,9 +144,9 @@ if.else51.i:                                      ; preds = %if.then46.i
   br i1 %cmp54.i, label %for.inc.i, label %if.then67.i
 
 for.inc.i:                                        ; preds = %if.else51.i, %if.then46.i, %if.then35.i, %if.then25.i, %if.then16.i
-  %tbl_min.1.i = phi i64 [ %call18.i, %if.then16.i ], [ %tbl_min.049.i, %if.then25.i ], [ %tbl_min.049.i, %if.then35.i ], [ %tbl_min.049.i, %if.then46.i ], [ %tbl_min.049.i, %if.else51.i ]
-  %tbl_max.1.i = phi i64 [ %tbl_max.050.i, %if.then16.i ], [ %call27.i, %if.then25.i ], [ %tbl_max.050.i, %if.then35.i ], [ %tbl_max.050.i, %if.then46.i ], [ %tbl_max.050.i, %if.else51.i ]
-  %tbl_flags.1.i = phi i64 [ %tbl_flags.051.i, %if.then16.i ], [ %tbl_flags.051.i, %if.then25.i ], [ %tbl_flags.051.i, %if.then35.i ], [ 2, %if.then46.i ], [ 1, %if.else51.i ]
+  %tbl_min.2.i = phi i64 [ %call18.i, %if.then16.i ], [ %tbl_min.149.i, %if.then25.i ], [ %tbl_min.149.i, %if.then35.i ], [ %tbl_min.149.i, %if.then46.i ], [ %tbl_min.149.i, %if.else51.i ]
+  %tbl_max.2.i = phi i64 [ %tbl_max.150.i, %if.then16.i ], [ %call27.i, %if.then25.i ], [ %tbl_max.150.i, %if.then35.i ], [ %tbl_max.150.i, %if.then46.i ], [ %tbl_max.150.i, %if.else51.i ]
+  %tbl_flags.2.i = phi i64 [ %tbl_flags.151.i, %if.then16.i ], [ %tbl_flags.151.i, %if.then25.i ], [ %tbl_flags.151.i, %if.then35.i ], [ 2, %if.then46.i ], [ 1, %if.else51.i ]
   %inc.i = add nuw nsw i32 %i.048.i, 1
   %call9.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call5.i) #5
   %cmp10.i = icmp slt i32 %inc.i, %call9.i
@@ -174,10 +174,10 @@ if.else72.loopexit.i:                             ; preds = %for.inc.i
 
 if.else72.i:                                      ; preds = %if.else72.loopexit.i, %for.cond.preheader.i
   %14 = phi i64 [ 0, %for.cond.preheader.i ], [ %.pre.i, %if.else72.loopexit.i ]
-  %tbl_min.0.lcssa.i = phi i64 [ -1, %for.cond.preheader.i ], [ %tbl_min.1.i, %if.else72.loopexit.i ]
-  %tbl_max.0.lcssa.i = phi i64 [ -1, %for.cond.preheader.i ], [ %tbl_max.1.i, %if.else72.loopexit.i ]
-  %tbl_flags.0.lcssa.i = phi i64 [ 0, %for.cond.preheader.i ], [ %tbl_flags.1.i, %if.else72.loopexit.i ]
-  %call73.i = call i32 @ASN1_STRING_TABLE_add(i32 noundef %nid.026.i, i64 noundef %tbl_min.0.lcssa.i, i64 noundef %tbl_max.0.lcssa.i, i64 noundef %14, i64 noundef %tbl_flags.0.lcssa.i) #5
+  %tbl_min.1.lcssa.i = phi i64 [ -1, %for.cond.preheader.i ], [ %tbl_min.2.i, %if.else72.loopexit.i ]
+  %tbl_max.1.lcssa.i = phi i64 [ -1, %for.cond.preheader.i ], [ %tbl_max.2.i, %if.else72.loopexit.i ]
+  %tbl_flags.1.lcssa.i = phi i64 [ 0, %for.cond.preheader.i ], [ %tbl_flags.2.i, %if.else72.loopexit.i ]
+  %call73.i = call i32 @ASN1_STRING_TABLE_add(i32 noundef %nid.026.i, i64 noundef %tbl_min.1.lcssa.i, i64 noundef %tbl_max.1.lcssa.i, i64 noundef %14, i64 noundef %tbl_flags.1.lcssa.i) #5
   %tobool74.not.i = icmp eq i32 %call73.i, 0
   br i1 %tobool74.not.i, label %if.then75.i, label %for.inc
 

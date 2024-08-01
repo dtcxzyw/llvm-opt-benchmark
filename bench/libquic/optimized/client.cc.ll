@@ -2271,7 +2271,7 @@ cleanup521.critedge:                              ; preds = %if.then507
 
 cleanup521:                                       ; preds = %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.thread, %if.end516, %cleanup521.critedge, %invoke.cont464
   %168 = phi ptr [ %152, %invoke.cont464 ], [ %152, %cleanup521.critedge ], [ %152, %if.end516 ], [ %.pre622629, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.thread ], [ %.pre622, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit ]
-  %retval.8 = phi i1 [ false, %invoke.cont464 ], [ false, %cleanup521.critedge ], [ %call519, %if.end516 ], [ false, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.thread ], [ false, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit ]
+  %retval.10 = phi i1 [ false, %invoke.cont464 ], [ false, %cleanup521.critedge ], [ %call519, %if.end516 ], [ false, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.thread ], [ false, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit ]
   %cmp.not.i508 = icmp eq ptr %168, null
   br i1 %cmp.not.i508, label %_ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit, label %if.then.i509
 
@@ -2318,7 +2318,7 @@ ehcleanup524:                                     ; preds = %ehcleanup522, %lpad
   br label %ehcleanup526
 
 cleanup525:                                       ; preds = %if.then.i.i.i, %if.then195, %invoke.cont363, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit375, %_ZNSt6vectorIhSaIhEED2Ev.exit247, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit516, %if.then350, %if.then340, %if.then158, %invoke.cont125, %invoke.cont84, %if.then51, %if.then14
-  %retval.9 = phi i1 [ false, %if.then14 ], [ false, %if.then51 ], [ false, %invoke.cont84 ], [ false, %invoke.cont125 ], [ false, %if.then158 ], [ %retval.8, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit516 ], [ false, %if.then350 ], [ false, %if.then340 ], [ false, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit375 ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit247 ], [ false, %invoke.cont363 ], [ false, %if.then195 ], [ false, %if.then.i.i.i ]
+  %retval.2 = phi i1 [ false, %if.then14 ], [ false, %if.then51 ], [ false, %invoke.cont84 ], [ false, %invoke.cont125 ], [ false, %if.then158 ], [ %retval.10, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit516 ], [ false, %if.then350 ], [ false, %if.then340 ], [ false, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit375 ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit247 ], [ false, %invoke.cont363 ], [ false, %if.then195 ], [ false, %if.then.i.i.i ]
   %174 = load ptr, ptr %ctx, align 8
   %cmp.not.i517 = icmp eq ptr %174, null
   br i1 %cmp.not.i517, label %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit, label %if.then.i518
@@ -2344,7 +2344,7 @@ ehcleanup526:                                     ; preds = %if.then.i.i.i223, %
   br label %ehcleanup528
 
 cleanup527:                                       ; preds = %if.then2, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit
-  %retval.10 = phi i1 [ %retval.9, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit ], [ false, %if.then2 ]
+  %retval.1 = phi i1 [ %retval.2, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit ], [ false, %if.then2 ]
   %177 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %args_map, ptr noundef %177)
           to label %return unwind label %terminate.lpad.i.i521
@@ -2362,8 +2362,8 @@ ehcleanup528:                                     ; preds = %ehcleanup526, %lpad
   resume { ptr, i32 } %.pn83.pn.pn
 
 return:                                           ; preds = %cleanup527, %entry
-  %retval.11 = phi i1 [ false, %entry ], [ %retval.10, %cleanup527 ]
-  ret i1 %retval.11
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %cleanup527 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_Z17InitSocketLibraryv() local_unnamed_addr #1

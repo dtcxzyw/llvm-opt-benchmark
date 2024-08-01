@@ -24,9 +24,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %lastTag.0424 = phi i8 [ 48, %for.body.lr.ph ], [ %lastTag.1, %for.inc ]
   %seqLength.0423 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %i.0422 = phi i64 [ 0, %for.body.lr.ph ], [ %inc100, %for.inc ]
-  %tmpSeqBuffer.sroa.0.0421 = phi ptr [ null, %for.body.lr.ph ], [ %tmpSeqBuffer.sroa.0.6, %for.inc ]
-  %tmpSeqBuffer.sroa.25.0420 = phi ptr [ null, %for.body.lr.ph ], [ %tmpSeqBuffer.sroa.25.8, %for.inc ]
-  %tmpSeqBuffer.sroa.59.0419 = phi ptr [ null, %for.body.lr.ph ], [ %tmpSeqBuffer.sroa.59.6, %for.inc ]
+  %tmpSeqBuffer.sroa.0.0421 = phi ptr [ null, %for.body.lr.ph ], [ %tmpSeqBuffer.sroa.0.1, %for.inc ]
+  %tmpSeqBuffer.sroa.25.0420 = phi ptr [ null, %for.body.lr.ph ], [ %tmpSeqBuffer.sroa.25.2, %for.inc ]
+  %tmpSeqBuffer.sroa.59.0419 = phi ptr [ null, %for.body.lr.ph ], [ %tmpSeqBuffer.sroa.59.1, %for.inc ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %literals.coerce0, i64 %i.0422
   %0 = load ptr, ptr %arrayidx.i, align 8
   %1 = load i8, ptr %0, align 8
@@ -125,7 +125,7 @@ if.then36:                                        ; preds = %if.then34
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then36, %if.then34, %sw.epilog
-  %tmpSeqBuffer.sroa.25.2 = phi ptr [ %tmpSeqBuffer.sroa.25.0420, %if.then34 ], [ %tmpSeqBuffer.sroa.25.0420, %sw.epilog ], [ %tmpSeqBuffer.sroa.0.0421, %if.then36 ]
+  %tmpSeqBuffer.sroa.25.1 = phi ptr [ %tmpSeqBuffer.sroa.25.0420, %if.then34 ], [ %tmpSeqBuffer.sroa.25.0420, %sw.epilog ], [ %tmpSeqBuffer.sroa.0.0421, %if.then36 ]
   %seqLength.1 = phi i64 [ 0, %if.then34 ], [ %seqLength.0423, %sw.epilog ], [ 0, %if.then36 ]
   %lastTag.1 = phi i8 [ %newTag.0, %if.then34 ], [ %lastTag.0424, %sw.epilog ], [ %newTag.0, %if.then36 ]
   %inc = add i64 %seqLength.1, 1
@@ -162,7 +162,7 @@ land.lhs.true.i58:                                ; preds = %if.end9.i49
   br i1 %or.cond464, label %if.else65, label %if.then63
 
 if.then63:                                        ; preds = %land.lhs.true.i58
-  %sub.ptr.lhs.cast.i.i65 = ptrtoint ptr %tmpSeqBuffer.sroa.25.2 to i64
+  %sub.ptr.lhs.cast.i.i65 = ptrtoint ptr %tmpSeqBuffer.sroa.25.1 to i64
   %sub.ptr.rhs.cast.i.i66 = ptrtoint ptr %tmpSeqBuffer.sroa.0.0421 to i64
   %reass.sub431 = sub i64 %sub.ptr.lhs.cast.i.i65, %sub.ptr.rhs.cast.i.i66
   %add.i = add i64 %reass.sub431, 4
@@ -181,8 +181,8 @@ if.then.i:                                        ; preds = %if.then63
   br i1 %cmp8.not.i.i, label %if.else.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %tmpSeqBuffer.sroa.25.2, i64 4
-  store i32 0, ptr %tmpSeqBuffer.sroa.25.2, align 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %tmpSeqBuffer.sroa.25.1, i64 4
+  store i32 0, ptr %tmpSeqBuffer.sroa.25.1, align 1
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit132
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -199,7 +199,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i.i
   %16 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 9223372036854775807)
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #10
   %add.ptr.i.i129 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %reass.sub431
-  %cmp.i.i.i.not.i.i = icmp eq ptr %tmpSeqBuffer.sroa.25.2, %tmpSeqBuffer.sroa.0.0421
+  %cmp.i.i.i.not.i.i = icmp eq ptr %tmpSeqBuffer.sroa.25.1, %tmpSeqBuffer.sroa.0.0421
   store i32 0, ptr %add.ptr.i.i129, align 1
   br i1 %cmp.i.i.i.not.i.i, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i, label %if.then.i.i.i27.i.i
 
@@ -227,19 +227,19 @@ if.else.i:                                        ; preds = %if.then63
 
 _ZNSt6vectorIhSaIhEE6resizeEm.exit132:            ; preds = %if.else.i, %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i
   %sub.ptr.rhs.cast.i6.i.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i66, %if.else.i ], [ %sub.ptr.rhs.cast.i.i66, %if.then.i.i.i.i.i ], [ %.pre, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
-  %tmpSeqBuffer.sroa.59.1 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.else.i ], [ %tmpSeqBuffer.sroa.59.0419, %if.then.i.i.i.i.i ], [ %add.ptr36.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
-  %tmpSeqBuffer.sroa.25.3 = phi ptr [ %add.ptr.i126, %if.else.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr33.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
-  %tmpSeqBuffer.sroa.0.1 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.else.i ], [ %tmpSeqBuffer.sroa.0.0421, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
-  %sub.ptr.lhs.cast.i5.i = ptrtoint ptr %tmpSeqBuffer.sroa.25.3 to i64
+  %tmpSeqBuffer.sroa.59.2 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.else.i ], [ %tmpSeqBuffer.sroa.59.0419, %if.then.i.i.i.i.i ], [ %add.ptr36.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
+  %tmpSeqBuffer.sroa.25.4 = phi ptr [ %add.ptr.i126, %if.else.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr33.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
+  %tmpSeqBuffer.sroa.0.2 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.else.i ], [ %tmpSeqBuffer.sroa.0.0421, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ]
+  %sub.ptr.lhs.cast.i5.i = ptrtoint ptr %tmpSeqBuffer.sroa.25.4 to i64
   %sub.ptr.sub.i7.i = sub i64 %sub.ptr.lhs.cast.i5.i, %sub.ptr.rhs.cast.i6.i.pre-phi
-  %add.ptr.i = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.1, i64 %sub.ptr.sub.i7.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.2, i64 %sub.ptr.sub.i7.i
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i, i64 1) ]
   store i32 %conv11.i50, ptr %add.ptr3.i, align 1
   br label %for.inc
 
 if.else65:                                        ; preds = %land.lhs.true.i58, %if.end9.i49, %sw.bb57
-  %sub.ptr.lhs.cast.i.i70 = ptrtoint ptr %tmpSeqBuffer.sroa.25.2 to i64
+  %sub.ptr.lhs.cast.i.i70 = ptrtoint ptr %tmpSeqBuffer.sroa.25.1 to i64
   %sub.ptr.rhs.cast.i.i71 = ptrtoint ptr %tmpSeqBuffer.sroa.0.0421 to i64
   %reass.sub430 = sub i64 %sub.ptr.lhs.cast.i.i70, %sub.ptr.rhs.cast.i.i71
   %add.i73 = add i64 %reass.sub430, 8
@@ -258,8 +258,8 @@ if.then.i144:                                     ; preds = %if.else65
   br i1 %cmp8.not.i.i152, label %if.else.i.i161, label %if.then.i.i.i.i.i153
 
 if.then.i.i.i.i.i153:                             ; preds = %if.then.i144
-  %add.ptr.i.i.i.i.i.i.i158 = getelementptr i8, ptr %tmpSeqBuffer.sroa.25.2, i64 8
-  store i64 0, ptr %tmpSeqBuffer.sroa.25.2, align 1
+  %add.ptr.i.i.i.i.i.i.i158 = getelementptr i8, ptr %tmpSeqBuffer.sroa.25.1, i64 8
+  store i64 0, ptr %tmpSeqBuffer.sroa.25.1, align 1
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit182
 
 if.else.i.i161:                                   ; preds = %if.then.i144
@@ -276,7 +276,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i163: ; preds = %if.else.i.i161
   %17 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i165, i64 9223372036854775807)
   %call5.i.i.i.i.i166 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #10
   %add.ptr.i.i167 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i166, i64 %reass.sub430
-  %cmp.i.i.i.not.i.i173 = icmp eq ptr %tmpSeqBuffer.sroa.25.2, %tmpSeqBuffer.sroa.0.0421
+  %cmp.i.i.i.not.i.i173 = icmp eq ptr %tmpSeqBuffer.sroa.25.1, %tmpSeqBuffer.sroa.0.0421
   store i64 0, ptr %add.ptr.i.i167, align 1
   br i1 %cmp.i.i.i.not.i.i173, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i175, label %if.then.i.i.i27.i.i174
 
@@ -304,12 +304,12 @@ if.else.i138:                                     ; preds = %if.else65
 
 _ZNSt6vectorIhSaIhEE6resizeEm.exit182:            ; preds = %if.else.i138, %if.then.i.i.i.i.i153, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i178
   %sub.ptr.rhs.cast.i6.i75.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i71, %if.else.i138 ], [ %sub.ptr.rhs.cast.i.i71, %if.then.i.i.i.i.i153 ], [ %.pre444, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i178 ]
-  %tmpSeqBuffer.sroa.59.2 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.else.i138 ], [ %tmpSeqBuffer.sroa.59.0419, %if.then.i.i.i.i.i153 ], [ %add.ptr36.i.i180, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i178 ]
-  %tmpSeqBuffer.sroa.25.4 = phi ptr [ %add.ptr.i141, %if.else.i138 ], [ %add.ptr.i.i.i.i.i.i.i158, %if.then.i.i.i.i.i153 ], [ %add.ptr33.i.i179, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i178 ]
-  %tmpSeqBuffer.sroa.0.2 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.else.i138 ], [ %tmpSeqBuffer.sroa.0.0421, %if.then.i.i.i.i.i153 ], [ %call5.i.i.i.i.i166, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i178 ]
-  %sub.ptr.lhs.cast.i5.i74 = ptrtoint ptr %tmpSeqBuffer.sroa.25.4 to i64
+  %tmpSeqBuffer.sroa.59.3 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.else.i138 ], [ %tmpSeqBuffer.sroa.59.0419, %if.then.i.i.i.i.i153 ], [ %add.ptr36.i.i180, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i178 ]
+  %tmpSeqBuffer.sroa.25.5 = phi ptr [ %add.ptr.i141, %if.else.i138 ], [ %add.ptr.i.i.i.i.i.i.i158, %if.then.i.i.i.i.i153 ], [ %add.ptr33.i.i179, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i178 ]
+  %tmpSeqBuffer.sroa.0.3 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.else.i138 ], [ %tmpSeqBuffer.sroa.0.0421, %if.then.i.i.i.i.i153 ], [ %call5.i.i.i.i.i166, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i178 ]
+  %sub.ptr.lhs.cast.i5.i74 = ptrtoint ptr %tmpSeqBuffer.sroa.25.5 to i64
   %sub.ptr.sub.i7.i76 = sub i64 %sub.ptr.lhs.cast.i5.i74, %sub.ptr.rhs.cast.i6.i75.pre-phi
-  %add.ptr.i77 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.2, i64 %sub.ptr.sub.i7.i76
+  %add.ptr.i77 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.3, i64 %sub.ptr.sub.i7.i76
   %add.ptr3.i78 = getelementptr inbounds i8, ptr %add.ptr.i77, i64 -8
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i78, i64 1) ]
   store double %12, ptr %add.ptr3.i78, align 1
@@ -338,7 +338,7 @@ cond.end85:                                       ; preds = %cond.false81, %cond
   br i1 %cmp87, label %if.then88, label %if.else89
 
 if.then88:                                        ; preds = %cond.end85
-  %sub.ptr.lhs.cast.i.i83 = ptrtoint ptr %tmpSeqBuffer.sroa.25.2 to i64
+  %sub.ptr.lhs.cast.i.i83 = ptrtoint ptr %tmpSeqBuffer.sroa.25.1 to i64
   %sub.ptr.rhs.cast.i.i84 = ptrtoint ptr %tmpSeqBuffer.sroa.0.0421 to i64
   %reass.sub429 = sub i64 %sub.ptr.lhs.cast.i.i83, %sub.ptr.rhs.cast.i.i84
   %add.i86 = add i64 %reass.sub429, 4
@@ -357,8 +357,8 @@ if.then.i194:                                     ; preds = %if.then88
   br i1 %cmp8.not.i.i202, label %if.else.i.i211, label %if.then.i.i.i.i.i203
 
 if.then.i.i.i.i.i203:                             ; preds = %if.then.i194
-  %add.ptr.i.i.i.i.i.i.i208 = getelementptr i8, ptr %tmpSeqBuffer.sroa.25.2, i64 4
-  store i32 0, ptr %tmpSeqBuffer.sroa.25.2, align 1
+  %add.ptr.i.i.i.i.i.i.i208 = getelementptr i8, ptr %tmpSeqBuffer.sroa.25.1, i64 4
+  store i32 0, ptr %tmpSeqBuffer.sroa.25.1, align 1
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit232
 
 if.else.i.i211:                                   ; preds = %if.then.i194
@@ -375,7 +375,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i213: ; preds = %if.else.i.i211
   %19 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i215, i64 9223372036854775807)
   %call5.i.i.i.i.i216 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #10
   %add.ptr.i.i217 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i216, i64 %reass.sub429
-  %cmp.i.i.i.not.i.i223 = icmp eq ptr %tmpSeqBuffer.sroa.25.2, %tmpSeqBuffer.sroa.0.0421
+  %cmp.i.i.i.not.i.i223 = icmp eq ptr %tmpSeqBuffer.sroa.25.1, %tmpSeqBuffer.sroa.0.0421
   store i32 0, ptr %add.ptr.i.i217, align 1
   br i1 %cmp.i.i.i.not.i.i223, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i225, label %if.then.i.i.i27.i.i224
 
@@ -403,12 +403,12 @@ if.else.i188:                                     ; preds = %if.then88
 
 _ZNSt6vectorIhSaIhEE6resizeEm.exit232:            ; preds = %if.else.i188, %if.then.i.i.i.i.i203, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i228
   %sub.ptr.rhs.cast.i6.i88.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i84, %if.else.i188 ], [ %sub.ptr.rhs.cast.i.i84, %if.then.i.i.i.i.i203 ], [ %.pre445, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i228 ]
-  %tmpSeqBuffer.sroa.59.3 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.else.i188 ], [ %tmpSeqBuffer.sroa.59.0419, %if.then.i.i.i.i.i203 ], [ %add.ptr36.i.i230, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i228 ]
-  %tmpSeqBuffer.sroa.25.5 = phi ptr [ %add.ptr.i191, %if.else.i188 ], [ %add.ptr.i.i.i.i.i.i.i208, %if.then.i.i.i.i.i203 ], [ %add.ptr33.i.i229, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i228 ]
-  %tmpSeqBuffer.sroa.0.3 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.else.i188 ], [ %tmpSeqBuffer.sroa.0.0421, %if.then.i.i.i.i.i203 ], [ %call5.i.i.i.i.i216, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i228 ]
-  %sub.ptr.lhs.cast.i5.i87 = ptrtoint ptr %tmpSeqBuffer.sroa.25.5 to i64
+  %tmpSeqBuffer.sroa.59.4 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.else.i188 ], [ %tmpSeqBuffer.sroa.59.0419, %if.then.i.i.i.i.i203 ], [ %add.ptr36.i.i230, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i228 ]
+  %tmpSeqBuffer.sroa.25.6 = phi ptr [ %add.ptr.i191, %if.else.i188 ], [ %add.ptr.i.i.i.i.i.i.i208, %if.then.i.i.i.i.i203 ], [ %add.ptr33.i.i229, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i228 ]
+  %tmpSeqBuffer.sroa.0.4 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.else.i188 ], [ %tmpSeqBuffer.sroa.0.0421, %if.then.i.i.i.i.i203 ], [ %call5.i.i.i.i.i216, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i228 ]
+  %sub.ptr.lhs.cast.i5.i87 = ptrtoint ptr %tmpSeqBuffer.sroa.25.6 to i64
   %sub.ptr.sub.i7.i89 = sub i64 %sub.ptr.lhs.cast.i5.i87, %sub.ptr.rhs.cast.i6.i88.pre-phi
-  %add.ptr.i90 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.3, i64 %sub.ptr.sub.i7.i89
+  %add.ptr.i90 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.4, i64 %sub.ptr.sub.i7.i89
   %add.ptr3.i91 = getelementptr inbounds i8, ptr %add.ptr.i90, i64 -4
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i91, i64 1) ]
   store i32 %cond86, ptr %add.ptr3.i91, align 1
@@ -416,7 +416,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit232:            ; preds = %if.else.i188, %if.t
 
 if.else89:                                        ; preds = %cond.end85
   %cmp90 = icmp ugt i32 %cond86, 255
-  %sub.ptr.lhs.cast.i.i93 = ptrtoint ptr %tmpSeqBuffer.sroa.25.2 to i64
+  %sub.ptr.lhs.cast.i.i93 = ptrtoint ptr %tmpSeqBuffer.sroa.25.1 to i64
   %sub.ptr.rhs.cast.i.i94 = ptrtoint ptr %tmpSeqBuffer.sroa.0.0421 to i64
   %reass.sub428 = sub i64 %sub.ptr.lhs.cast.i.i93, %sub.ptr.rhs.cast.i.i94
   br i1 %cmp90, label %if.then91, label %if.else93
@@ -439,9 +439,9 @@ if.then.i244:                                     ; preds = %if.then91
   br i1 %cmp8.not.i.i252, label %if.else.i.i261, label %if.then.i.i.i.i.i253
 
 if.then.i.i.i.i.i253:                             ; preds = %if.then.i244
-  store i8 0, ptr %tmpSeqBuffer.sroa.25.2, align 1
-  %incdec.ptr.i.i.i.i.i254 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.25.2, i64 1
-  %add.ptr.i.i.i.i.i.i.i258 = getelementptr i8, ptr %tmpSeqBuffer.sroa.25.2, i64 2
+  store i8 0, ptr %tmpSeqBuffer.sroa.25.1, align 1
+  %incdec.ptr.i.i.i.i.i254 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.25.1, i64 1
+  %add.ptr.i.i.i.i.i.i.i258 = getelementptr i8, ptr %tmpSeqBuffer.sroa.25.1, i64 2
   store i8 0, ptr %incdec.ptr.i.i.i.i.i254, align 1
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit282
 
@@ -462,7 +462,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i263: ; preds = %if.else.i.i261
   store i8 0, ptr %add.ptr.i.i267, align 1
   %incdec.ptr.i.i.i20.i.i271 = getelementptr inbounds i8, ptr %add.ptr.i.i267, i64 1
   store i8 0, ptr %incdec.ptr.i.i.i20.i.i271, align 1
-  %cmp.i.i.i.not.i.i273 = icmp eq ptr %tmpSeqBuffer.sroa.25.2, %tmpSeqBuffer.sroa.0.0421
+  %cmp.i.i.i.not.i.i273 = icmp eq ptr %tmpSeqBuffer.sroa.25.1, %tmpSeqBuffer.sroa.0.0421
   br i1 %cmp.i.i.i.not.i.i273, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i275, label %if.then.i.i.i27.i.i274
 
 if.then.i.i.i27.i.i274:                           ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i263
@@ -489,12 +489,12 @@ if.else.i238:                                     ; preds = %if.then91
 
 _ZNSt6vectorIhSaIhEE6resizeEm.exit282:            ; preds = %if.else.i238, %if.then.i.i.i.i.i253, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i278
   %sub.ptr.rhs.cast.i6.i98.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i94, %if.else.i238 ], [ %sub.ptr.rhs.cast.i.i94, %if.then.i.i.i.i.i253 ], [ %.pre446, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i278 ]
-  %tmpSeqBuffer.sroa.59.4 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.else.i238 ], [ %tmpSeqBuffer.sroa.59.0419, %if.then.i.i.i.i.i253 ], [ %add.ptr36.i.i280, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i278 ]
-  %tmpSeqBuffer.sroa.25.6 = phi ptr [ %add.ptr.i241, %if.else.i238 ], [ %add.ptr.i.i.i.i.i.i.i258, %if.then.i.i.i.i.i253 ], [ %add.ptr33.i.i279, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i278 ]
-  %tmpSeqBuffer.sroa.0.4 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.else.i238 ], [ %tmpSeqBuffer.sroa.0.0421, %if.then.i.i.i.i.i253 ], [ %call5.i.i.i.i.i266, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i278 ]
-  %sub.ptr.lhs.cast.i5.i97 = ptrtoint ptr %tmpSeqBuffer.sroa.25.6 to i64
+  %tmpSeqBuffer.sroa.59.5 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.else.i238 ], [ %tmpSeqBuffer.sroa.59.0419, %if.then.i.i.i.i.i253 ], [ %add.ptr36.i.i280, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i278 ]
+  %tmpSeqBuffer.sroa.25.7 = phi ptr [ %add.ptr.i241, %if.else.i238 ], [ %add.ptr.i.i.i.i.i.i.i258, %if.then.i.i.i.i.i253 ], [ %add.ptr33.i.i279, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i278 ]
+  %tmpSeqBuffer.sroa.0.5 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.else.i238 ], [ %tmpSeqBuffer.sroa.0.0421, %if.then.i.i.i.i.i253 ], [ %call5.i.i.i.i.i266, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i278 ]
+  %sub.ptr.lhs.cast.i5.i97 = ptrtoint ptr %tmpSeqBuffer.sroa.25.7 to i64
   %sub.ptr.sub.i7.i99 = sub i64 %sub.ptr.lhs.cast.i5.i97, %sub.ptr.rhs.cast.i6.i98.pre-phi
-  %add.ptr.i100 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.4, i64 %sub.ptr.sub.i7.i99
+  %add.ptr.i100 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.5, i64 %sub.ptr.sub.i7.i99
   %add.ptr3.i101 = getelementptr inbounds i8, ptr %add.ptr.i100, i64 -2
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i101, i64 1) ]
   store i16 %conv92, ptr %add.ptr3.i101, align 1
@@ -514,12 +514,12 @@ if.then.i294:                                     ; preds = %if.else93
   %sub.i.i300 = xor i64 %reass.sub428, 9223372036854775807
   %cmp6.i.i301 = icmp ule i64 %sub.ptr.sub.i9.i298, %sub.i.i300
   tail call void @llvm.assume(i1 %cmp6.i.i301)
-  %cmp8.not.i.i302 = icmp eq ptr %tmpSeqBuffer.sroa.59.0419, %tmpSeqBuffer.sroa.25.2
+  %cmp8.not.i.i302 = icmp eq ptr %tmpSeqBuffer.sroa.59.0419, %tmpSeqBuffer.sroa.25.1
   br i1 %cmp8.not.i.i302, label %if.else.i.i311, label %if.then.i.i.i.i.i303
 
 if.then.i.i.i.i.i303:                             ; preds = %if.then.i294
-  store i8 0, ptr %tmpSeqBuffer.sroa.25.2, align 1
-  %incdec.ptr.i.i.i.i.i304 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.25.2, i64 1
+  store i8 0, ptr %tmpSeqBuffer.sroa.25.1, align 1
+  %incdec.ptr.i.i.i.i.i304 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.25.1, i64 1
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit332
 
 if.else.i.i311:                                   ; preds = %if.then.i294
@@ -564,12 +564,12 @@ if.else.i288:                                     ; preds = %if.else93
 
 _ZNSt6vectorIhSaIhEE6resizeEm.exit332:            ; preds = %if.then.i.i.i.i.i303, %if.else.i288, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i328
   %sub.ptr.rhs.cast.i6.i108.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i94, %if.then.i.i.i.i.i303 ], [ %sub.ptr.rhs.cast.i.i94, %if.else.i288 ], [ %.pre447, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i328 ]
-  %tmpSeqBuffer.sroa.59.5 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.then.i.i.i.i.i303 ], [ %tmpSeqBuffer.sroa.59.0419, %if.else.i288 ], [ %add.ptr36.i.i330, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i328 ]
-  %tmpSeqBuffer.sroa.25.7 = phi ptr [ %incdec.ptr.i.i.i.i.i304, %if.then.i.i.i.i.i303 ], [ %add.ptr.i291, %if.else.i288 ], [ %add.ptr33.i.i329, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i328 ]
-  %tmpSeqBuffer.sroa.0.5 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.then.i.i.i.i.i303 ], [ %tmpSeqBuffer.sroa.0.0421, %if.else.i288 ], [ %call5.i.i.i.i.i316, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i328 ]
-  %sub.ptr.lhs.cast.i5.i107 = ptrtoint ptr %tmpSeqBuffer.sroa.25.7 to i64
+  %tmpSeqBuffer.sroa.59.6 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.then.i.i.i.i.i303 ], [ %tmpSeqBuffer.sroa.59.0419, %if.else.i288 ], [ %add.ptr36.i.i330, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i328 ]
+  %tmpSeqBuffer.sroa.25.8 = phi ptr [ %incdec.ptr.i.i.i.i.i304, %if.then.i.i.i.i.i303 ], [ %add.ptr.i291, %if.else.i288 ], [ %add.ptr33.i.i329, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i328 ]
+  %tmpSeqBuffer.sroa.0.6 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.then.i.i.i.i.i303 ], [ %tmpSeqBuffer.sroa.0.0421, %if.else.i288 ], [ %call5.i.i.i.i.i316, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i328 ]
+  %sub.ptr.lhs.cast.i5.i107 = ptrtoint ptr %tmpSeqBuffer.sroa.25.8 to i64
   %sub.ptr.sub.i7.i109 = sub i64 %sub.ptr.lhs.cast.i5.i107, %sub.ptr.rhs.cast.i6.i108.pre-phi
-  %add.ptr.i110 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.5, i64 %sub.ptr.sub.i7.i109
+  %add.ptr.i110 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.6, i64 %sub.ptr.sub.i7.i109
   %add.ptr3.i111 = getelementptr inbounds i8, ptr %add.ptr.i110, i64 -1
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i111, i64 1) ]
   store i8 %conv94, ptr %add.ptr3.i111, align 1
@@ -580,9 +580,9 @@ sw.default98:                                     ; preds = %if.end54
   unreachable
 
 for.inc:                                          ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit182, %_ZNSt6vectorIhSaIhEE6resizeEm.exit132, %_ZNSt6vectorIhSaIhEE6resizeEm.exit282, %_ZNSt6vectorIhSaIhEE6resizeEm.exit332, %_ZNSt6vectorIhSaIhEE6resizeEm.exit232, %if.end54, %if.end54
-  %tmpSeqBuffer.sroa.59.6 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.end54 ], [ %tmpSeqBuffer.sroa.59.0419, %if.end54 ], [ %tmpSeqBuffer.sroa.59.3, %_ZNSt6vectorIhSaIhEE6resizeEm.exit232 ], [ %tmpSeqBuffer.sroa.59.4, %_ZNSt6vectorIhSaIhEE6resizeEm.exit282 ], [ %tmpSeqBuffer.sroa.59.5, %_ZNSt6vectorIhSaIhEE6resizeEm.exit332 ], [ %tmpSeqBuffer.sroa.59.1, %_ZNSt6vectorIhSaIhEE6resizeEm.exit132 ], [ %tmpSeqBuffer.sroa.59.2, %_ZNSt6vectorIhSaIhEE6resizeEm.exit182 ]
-  %tmpSeqBuffer.sroa.25.8 = phi ptr [ %tmpSeqBuffer.sroa.25.2, %if.end54 ], [ %tmpSeqBuffer.sroa.25.2, %if.end54 ], [ %tmpSeqBuffer.sroa.25.5, %_ZNSt6vectorIhSaIhEE6resizeEm.exit232 ], [ %tmpSeqBuffer.sroa.25.6, %_ZNSt6vectorIhSaIhEE6resizeEm.exit282 ], [ %tmpSeqBuffer.sroa.25.7, %_ZNSt6vectorIhSaIhEE6resizeEm.exit332 ], [ %tmpSeqBuffer.sroa.25.3, %_ZNSt6vectorIhSaIhEE6resizeEm.exit132 ], [ %tmpSeqBuffer.sroa.25.4, %_ZNSt6vectorIhSaIhEE6resizeEm.exit182 ]
-  %tmpSeqBuffer.sroa.0.6 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.end54 ], [ %tmpSeqBuffer.sroa.0.0421, %if.end54 ], [ %tmpSeqBuffer.sroa.0.3, %_ZNSt6vectorIhSaIhEE6resizeEm.exit232 ], [ %tmpSeqBuffer.sroa.0.4, %_ZNSt6vectorIhSaIhEE6resizeEm.exit282 ], [ %tmpSeqBuffer.sroa.0.5, %_ZNSt6vectorIhSaIhEE6resizeEm.exit332 ], [ %tmpSeqBuffer.sroa.0.1, %_ZNSt6vectorIhSaIhEE6resizeEm.exit132 ], [ %tmpSeqBuffer.sroa.0.2, %_ZNSt6vectorIhSaIhEE6resizeEm.exit182 ]
+  %tmpSeqBuffer.sroa.59.1 = phi ptr [ %tmpSeqBuffer.sroa.59.0419, %if.end54 ], [ %tmpSeqBuffer.sroa.59.0419, %if.end54 ], [ %tmpSeqBuffer.sroa.59.4, %_ZNSt6vectorIhSaIhEE6resizeEm.exit232 ], [ %tmpSeqBuffer.sroa.59.5, %_ZNSt6vectorIhSaIhEE6resizeEm.exit282 ], [ %tmpSeqBuffer.sroa.59.6, %_ZNSt6vectorIhSaIhEE6resizeEm.exit332 ], [ %tmpSeqBuffer.sroa.59.2, %_ZNSt6vectorIhSaIhEE6resizeEm.exit132 ], [ %tmpSeqBuffer.sroa.59.3, %_ZNSt6vectorIhSaIhEE6resizeEm.exit182 ]
+  %tmpSeqBuffer.sroa.25.2 = phi ptr [ %tmpSeqBuffer.sroa.25.1, %if.end54 ], [ %tmpSeqBuffer.sroa.25.1, %if.end54 ], [ %tmpSeqBuffer.sroa.25.6, %_ZNSt6vectorIhSaIhEE6resizeEm.exit232 ], [ %tmpSeqBuffer.sroa.25.7, %_ZNSt6vectorIhSaIhEE6resizeEm.exit282 ], [ %tmpSeqBuffer.sroa.25.8, %_ZNSt6vectorIhSaIhEE6resizeEm.exit332 ], [ %tmpSeqBuffer.sroa.25.4, %_ZNSt6vectorIhSaIhEE6resizeEm.exit132 ], [ %tmpSeqBuffer.sroa.25.5, %_ZNSt6vectorIhSaIhEE6resizeEm.exit182 ]
+  %tmpSeqBuffer.sroa.0.1 = phi ptr [ %tmpSeqBuffer.sroa.0.0421, %if.end54 ], [ %tmpSeqBuffer.sroa.0.0421, %if.end54 ], [ %tmpSeqBuffer.sroa.0.4, %_ZNSt6vectorIhSaIhEE6resizeEm.exit232 ], [ %tmpSeqBuffer.sroa.0.5, %_ZNSt6vectorIhSaIhEE6resizeEm.exit282 ], [ %tmpSeqBuffer.sroa.0.6, %_ZNSt6vectorIhSaIhEE6resizeEm.exit332 ], [ %tmpSeqBuffer.sroa.0.2, %_ZNSt6vectorIhSaIhEE6resizeEm.exit132 ], [ %tmpSeqBuffer.sroa.0.3, %_ZNSt6vectorIhSaIhEE6resizeEm.exit182 ]
   %inc100 = add nuw i64 %i.0422, 1
   %exitcond.not = icmp eq i64 %inc100, %literals.coerce1
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
@@ -592,8 +592,8 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %tmpSeqBuffer.sroa.25.0.lcssa = phi ptr [ null, %entry ], [ %tmpSeqBuffer.sroa.25.8, %for.end.loopexit ]
-  %tmpSeqBuffer.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %tmpSeqBuffer.sroa.0.6, %for.end.loopexit ]
+  %tmpSeqBuffer.sroa.25.0.lcssa = phi ptr [ null, %entry ], [ %tmpSeqBuffer.sroa.25.2, %for.end.loopexit ]
+  %tmpSeqBuffer.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %tmpSeqBuffer.sroa.0.1, %for.end.loopexit ]
   %seqLength.0.lcssa = phi i32 [ 0, %entry ], [ %22, %for.end.loopexit ]
   %lastTag.0.lcssa = phi i8 [ 48, %entry ], [ %lastTag.1, %for.end.loopexit ]
   tail call fastcc void @_ZN6hermes3hbc12_GLOBAL__N_117appendTagToBufferERSt6vectorIhSaIhEEhi(ptr noundef nonnull align 8 dereferenceable(24) %buff, i8 noundef zeroext %lastTag.0.lcssa, i32 noundef %seqLength.0.lcssa)

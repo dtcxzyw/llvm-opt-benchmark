@@ -1379,8 +1379,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN2cv9SparseMat4NodeESt6vectorIS6_SaI
   br i1 %exitcond162.not, label %.critedge, label %185, !llvm.loop !11
 
 196:                                              ; preds = %193, %190, %.lr.ph138.split.us
-  %.154.us = phi i32 [ %191, %193 ], [ %191, %190 ], [ 0, %.lr.ph138.split.us ]
-  %197 = icmp slt i32 %.154.us, %.fr155
+  %.053.us = phi i32 [ %191, %193 ], [ %191, %190 ], [ 0, %.lr.ph138.split.us ]
+  %197 = icmp slt i32 %.053.us, %.fr155
   br i1 %197, label %.lr.ph135.us, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %209, %196
@@ -1423,7 +1423,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN2cv9SparseMat4NodeESt6vectorIS6_SaI
 
 .lr.ph135.us:                                     ; preds = %196
   %212 = getelementptr inbounds i8, ptr %184, i64 16
-  %213 = zext nneg i32 %.154.us to i64
+  %213 = zext nneg i32 %.053.us to i64
   br label %206
 
 .loopexit.split-lp.loopexit.split.us:             ; preds = %193
@@ -2261,12 +2261,12 @@ define void @_ZN2cv4readERKNS_8FileNodeERNS_9SparseMatERKS3_(ptr noundef nonnull
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %142
   %indvars.iv = phi i64 [ %113, %.lr.ph.preheader ], [ %indvars.iv.next, %142 ]
-  %.14771 = phi i64 [ %.04673, %.lr.ph.preheader ], [ %116, %142 ]
+  %.24871 = phi i64 [ %.04673, %.lr.ph.preheader ], [ %116, %142 ]
   %114 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
           to label %115 unwind label %.loopexit64
 
 115:                                              ; preds = %.lr.ph
-  %116 = add i64 %.14771, 1
+  %116 = add i64 %.24871, 1
   invoke void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %21, ptr noundef nonnull align 8 dereferenceable(48) %19)
           to label %117 unwind label %.loopexit64
 
@@ -2354,7 +2354,7 @@ define void @_ZN2cv4readERKNS_8FileNodeERNS_9SparseMatERKS3_(ptr noundef nonnull
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %142, %111, %106
-  %.248 = phi i64 [ %.04673, %106 ], [ %.04673, %111 ], [ %116, %142 ]
+  %.147 = phi i64 [ %.04673, %106 ], [ %.04673, %111 ], [ %116, %142 ]
   %144 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
           to label %145 unwind label %.loopexit.split-lp.loopexit
 
@@ -2367,7 +2367,7 @@ define void @_ZN2cv4readERKNS_8FileNodeERNS_9SparseMatERKS3_(ptr noundef nonnull
           to label %149 unwind label %.loopexit.split-lp.loopexit
 
 149:                                              ; preds = %147
-  %150 = add i64 %.248, %99
+  %150 = add i64 %.147, %99
   %151 = icmp ult i64 %150, %84
   br i1 %151, label %100, label %._crit_edge, !llvm.loop !15
 

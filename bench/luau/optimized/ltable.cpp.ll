@@ -2179,7 +2179,7 @@ _ZL11numusearrayPK5TablePi.exit:                  ; preds = %10, %._crit_edge.i
 32:                                               ; preds = %59, %_ZL11numusearrayPK5TablePi.exit
   %indvars.iv.i26 = phi i64 [ %31, %_ZL11numusearrayPK5TablePi.exit ], [ %indvars.iv.next.i27, %59 ]
   %.016.i = phi i32 [ 0, %_ZL11numusearrayPK5TablePi.exit ], [ %.1.i, %59 ]
-  %.01315.i = phi i32 [ 0, %_ZL11numusearrayPK5TablePi.exit ], [ %.2.i, %59 ]
+  %.01315.i = phi i32 [ 0, %_ZL11numusearrayPK5TablePi.exit ], [ %.114.i, %59 ]
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr inbounds %struct.LuaNode, ptr %33, i64 %indvars.iv.i26
   %35 = getelementptr inbounds i8, ptr %34, i64 12
@@ -2220,19 +2220,19 @@ _ZL8countintdPi.exit.i:                           ; preds = %51, %43
   br label %57
 
 57:                                               ; preds = %_ZL8countintdPi.exit.i, %38
-  %.114.i = phi i32 [ %56, %_ZL8countintdPi.exit.i ], [ %.01315.i, %38 ]
+  %.2.i = phi i32 [ %56, %_ZL8countintdPi.exit.i ], [ %.01315.i, %38 ]
   %58 = add nsw i32 %.016.i, 1
   br label %59
 
 59:                                               ; preds = %57, %32
-  %.2.i = phi i32 [ %.01315.i, %32 ], [ %.114.i, %57 ]
+  %.114.i = phi i32 [ %.01315.i, %32 ], [ %.2.i, %57 ]
   %.1.i = phi i32 [ %.016.i, %32 ], [ %58, %57 ]
   %indvars.iv.next.i27 = add nsw i64 %indvars.iv.i26, -1
   %60 = icmp eq i64 %indvars.iv.i26, 0
   br i1 %60, label %_ZL10numusehashPK5TablePiS2_.exit, label %32, !llvm.loop !24
 
 _ZL10numusehashPK5TablePiS2_.exit:                ; preds = %59
-  %61 = add nsw i32 %.2.i, %.023.lcssa.i
+  %61 = add nsw i32 %.114.i, %.023.lcssa.i
   %62 = getelementptr inbounds i8, ptr %2, i64 12
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 3
@@ -2271,8 +2271,8 @@ _ZL8countintdPi.exit:                             ; preds = %65, %72
 .lr.ph.i32:                                       ; preds = %80, %90
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i35, %90 ], [ 0, %80 ]
   %82 = phi i32 [ %92, %90 ], [ 0, %80 ]
-  %.033.i = phi i32 [ %.1.i34, %90 ], [ 0, %80 ]
-  %.01732.i = phi i32 [ %.118.i, %90 ], [ 0, %80 ]
+  %.033.i = phi i32 [ %.2.i34, %90 ], [ 0, %80 ]
+  %.01732.i = phi i32 [ %.219.i, %90 ], [ 0, %80 ]
   %.02031.i = phi i32 [ %.121.i, %90 ], [ 0, %80 ]
   %.02230.i = phi i32 [ %91, %90 ], [ 1, %80 ]
   %83 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i33
@@ -2282,8 +2282,8 @@ _ZL8countintdPi.exit:                             ; preds = %65, %72
   %87 = icmp sgt i32 %86, %82
   %.121.i = select i1 %85, i32 %86, i32 %.02031.i
   %88 = select i1 %85, i1 %87, i1 false
-  %.118.i = select i1 %88, i32 %86, i32 %.01732.i
-  %.1.i34 = select i1 %88, i32 %.02230.i, i32 %.033.i
+  %.219.i = select i1 %88, i32 %86, i32 %.01732.i
+  %.2.i34 = select i1 %88, i32 %.02230.i, i32 %.033.i
   %89 = icmp eq i32 %.121.i, %.041
   br i1 %89, label %_ZL12computesizesPiS_.exit, label %90
 
@@ -2295,24 +2295,24 @@ _ZL8countintdPi.exit:                             ; preds = %65, %72
   br i1 %93, label %.lr.ph.i32, label %_ZL12computesizesPiS_.exit, !llvm.loop !25
 
 _ZL12computesizesPiS_.exit:                       ; preds = %.lr.ph.i32, %90, %80
-  %.219.i = phi i32 [ 0, %80 ], [ %.118.i, %90 ], [ %.118.i, %.lr.ph.i32 ]
-  %.2.i31 = phi i32 [ 0, %80 ], [ %.1.i34, %90 ], [ %.1.i34, %.lr.ph.i32 ]
+  %.118.i = phi i32 [ 0, %80 ], [ %.219.i, %90 ], [ %.219.i, %.lr.ph.i32 ]
+  %.1.i31 = phi i32 [ 0, %80 ], [ %.2.i34, %90 ], [ %.2.i34, %.lr.ph.i32 ]
   %94 = add i32 %.023.lcssa.i, 1
   %95 = add i32 %94, %.1.i
-  %96 = sub i32 %95, %.219.i
-  %97 = tail call fastcc noundef i32 @_ZL11adjustasizeP5TableiPK10lua_TValue(ptr noundef %1, i32 noundef %.2.i31, ptr noundef %2)
-  %.not = icmp eq i32 %97, %.2.i31
+  %96 = sub i32 %95, %.118.i
+  %97 = tail call fastcc noundef i32 @_ZL11adjustasizeP5TableiPK10lua_TValue(ptr noundef %1, i32 noundef %.1.i31, ptr noundef %2)
+  %.not = icmp eq i32 %97, %.1.i31
   br i1 %.not, label %103, label %98
 
 98:                                               ; preds = %_ZL12computesizesPiS_.exit
-  %99 = sub nsw i32 %97, %.2.i31
+  %99 = sub nsw i32 %97, %.1.i31
   %100 = sub nsw i32 %96, %99
   %101 = add nsw i32 %99, %97
   %102 = tail call fastcc noundef i32 @_ZL11adjustasizeP5TableiPK10lua_TValue(ptr noundef %1, i32 noundef %101, ptr noundef %2)
   br label %103
 
 103:                                              ; preds = %98, %_ZL12computesizesPiS_.exit
-  %.1 = phi i32 [ %.2.i31, %_ZL12computesizesPiS_.exit ], [ %102, %98 ]
+  %.1 = phi i32 [ %.1.i31, %_ZL12computesizesPiS_.exit ], [ %102, %98 ]
   %.023 = phi i32 [ %96, %_ZL12computesizesPiS_.exit ], [ %100, %98 ]
   tail call fastcc void @_ZL6resizeP9lua_StateP5Tableii(ptr noundef %0, ptr noundef %1, i32 noundef %.1, i32 noundef %.023)
   ret void

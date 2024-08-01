@@ -2947,7 +2947,7 @@ rb_shape_set_shape_id.exit24:                     ; preds = %50, %52
   br label %58
 
 58:                                               ; preds = %rb_shape_set_shape_id.exit24, %generic_ivtbl_no_ractor_check.exit
-  %.1 = phi ptr [ %57, %rb_shape_set_shape_id.exit24 ], [ null, %generic_ivtbl_no_ractor_check.exit ]
+  %.2 = phi ptr [ %57, %rb_shape_set_shape_id.exit24 ], [ null, %generic_ivtbl_no_ractor_check.exit ]
   %59 = call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #27
   store ptr %1, ptr %59, align 8
   %60 = ptrtoint ptr %59 to i64
@@ -2973,8 +2973,8 @@ rb_shape_set_shape_id.exit25:                     ; preds = %58, %63
   br label %rb_vm_lock_leave.exit
 
 rb_vm_lock_leave.exit:                            ; preds = %68, %rb_shape_set_shape_id.exit25, %rb_shape_set_shape_id.exit22, %rb_shape_set_shape_id.exit
-  %.2 = phi ptr [ %22, %rb_shape_set_shape_id.exit22 ], [ %.0, %rb_shape_set_shape_id.exit ], [ %.1, %rb_shape_set_shape_id.exit25 ], [ %.1, %68 ]
-  call void @ruby_xfree(ptr noundef %.2) #24
+  %.1 = phi ptr [ %22, %rb_shape_set_shape_id.exit22 ], [ %.0, %rb_shape_set_shape_id.exit ], [ %.2, %rb_shape_set_shape_id.exit25 ], [ %.2, %68 ]
+  call void @ruby_xfree(ptr noundef %.1) #24
   ret void
 }
 
@@ -3102,8 +3102,8 @@ RB_FL_TEST.exit:                                  ; preds = %8
   %47 = and i64 %10, 31
   %48 = icmp eq i64 %47, 27
   %49 = and i64 %10, 1024
-  %.not11 = icmp eq i64 %49, 0
-  %.not = or i1 %48, %.not11
+  %.not12 = icmp eq i64 %49, 0
+  %.not = or i1 %48, %.not12
   br i1 %.not, label %gen_ivtbl_count.exit, label %50
 
 50:                                               ; preds = %RB_FL_TEST.exit
@@ -3133,12 +3133,12 @@ RB_FL_TEST.exit:                                  ; preds = %8
 
 60:                                               ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %60 ]
-  %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i10, %60 ]
+  %.110.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i10, %60 ]
   %61 = getelementptr [1 x i64], ptr %56, i64 0, i64 %indvars.iv.i
   %62 = load i64, ptr %61, align 8
   %63 = icmp ne i64 %62, 36
   %64 = zext i1 %63 to i64
-  %spec.select.i10 = add i64 %.010.i, %64
+  %spec.select.i10 = add i64 %.110.i, %64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %gen_ivtbl_count.exit, label %60, !llvm.loop !33
@@ -4010,19 +4010,19 @@ rb_check_frozen_inline.exit:                      ; preds = %9
 
 36:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i29, %36 ]
+  %.110.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i29, %36 ]
   %37 = getelementptr [1 x i64], ptr %32, i64 0, i64 %indvars.iv.i
   %38 = load i64, ptr %37, align 8
   %39 = icmp ne i64 %38, 36
   %40 = zext i1 %39 to i64
-  %spec.select.i29 = add i64 %.010.i, %40
+  %spec.select.i29 = add i64 %.110.i, %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %gen_ivtbl_count.exit, label %36, !llvm.loop !33
 
 gen_ivtbl_count.exit:                             ; preds = %36, %33
-  %.2.i = phi i64 [ %35, %33 ], [ %spec.select.i29, %36 ]
-  %41 = icmp eq i64 %.2.i, 0
+  %.0.i = phi i64 [ %35, %33 ], [ %spec.select.i29, %36 ]
+  %41 = icmp eq i64 %.0.i, 0
   %.pre59 = load i64, ptr %10, align 8
   br i1 %41, label %RB_FL_TEST.exit48, label %42
 
@@ -7875,7 +7875,7 @@ cvar_lookup_at.exit.thread.thread.i:              ; preds = %cvar_lookup_at.exit
 
 cvar_lookup_at.exit.thread.thread.thread.i:       ; preds = %cvar_lookup_at.exit.thread.thread.i, %17
   %.1 = phi i64 [ %.0, %cvar_lookup_at.exit.thread.thread.i ], [ 0, %17 ]
-  %.028334255.i = phi i64 [ %22, %cvar_lookup_at.exit.thread.thread.i ], [ 36, %17 ]
+  %.1334255.i = phi i64 [ %22, %cvar_lookup_at.exit.thread.thread.i ], [ 36, %17 ]
   %.pre.i4354.i = phi ptr [ %.pre.i.i, %cvar_lookup_at.exit.thread.thread.i ], [ %13, %17 ]
   %29 = getelementptr inbounds i8, ptr %.pre.i4354.i, i64 128
   %30 = load i64, ptr %29, align 8
@@ -7895,7 +7895,7 @@ rb_namespace_p.exit.i.i:                          ; preds = %cvar_lookup_at.exit
 cvar_front_klass.exit.i:                          ; preds = %rb_namespace_p.exit.i.i, %cvar_lookup_at.exit.thread.thread.thread.i, %cvar_lookup_at.exit.thread.thread.i, %cvar_lookup_at.exit.thread.i
   %.2 = phi i64 [ %.0, %cvar_lookup_at.exit.thread.i ], [ %.0, %cvar_lookup_at.exit.thread.thread.i ], [ %.1, %cvar_lookup_at.exit.thread.thread.thread.i ], [ %.1, %rb_namespace_p.exit.i.i ]
   %.pre.i44.i = phi ptr [ %.pre.i.i, %cvar_lookup_at.exit.thread.i ], [ %.pre.i.i, %cvar_lookup_at.exit.thread.thread.i ], [ %.pre.i4354.i, %cvar_lookup_at.exit.thread.thread.thread.i ], [ %.pre.i4354.i, %rb_namespace_p.exit.i.i ]
-  %.0283341.i = phi i64 [ %22, %cvar_lookup_at.exit.thread.i ], [ %22, %cvar_lookup_at.exit.thread.thread.i ], [ %.028334255.i, %cvar_lookup_at.exit.thread.thread.thread.i ], [ %.028334255.i, %rb_namespace_p.exit.i.i ]
+  %.13341.i = phi i64 [ %22, %cvar_lookup_at.exit.thread.i ], [ %22, %cvar_lookup_at.exit.thread.thread.i ], [ %.1334255.i, %cvar_lookup_at.exit.thread.thread.thread.i ], [ %.1334255.i, %rb_namespace_p.exit.i.i ]
   %38 = getelementptr inbounds i8, ptr %.pre.i44.i, i64 16
   %39 = load i64, ptr %38, align 8
   %.not1745.i = icmp eq i64 %39, 0
@@ -7904,13 +7904,13 @@ cvar_front_klass.exit.i:                          ; preds = %rb_namespace_p.exit
 .lr.ph.i.preheader:                               ; preds = %cvar_front_klass.exit.i, %rb_namespace_p.exit.i.i
   %.4.ph = phi i64 [ %.1, %rb_namespace_p.exit.i.i ], [ %.2, %cvar_front_klass.exit.i ]
   %.047.i.ph = phi i64 [ %30, %rb_namespace_p.exit.i.i ], [ %39, %cvar_front_klass.exit.i ]
-  %.146.i.ph = phi i64 [ %.028334255.i, %rb_namespace_p.exit.i.i ], [ %.0283341.i, %cvar_front_klass.exit.i ]
+  %.02846.i.ph = phi i64 [ %.1334255.i, %rb_namespace_p.exit.i.i ], [ %.13341.i, %cvar_front_klass.exit.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %cvar_lookup_at.exit27.thread.i
   %.4 = phi i64 [ %.5, %cvar_lookup_at.exit27.thread.i ], [ %.4.ph, %.lr.ph.i.preheader ]
   %.047.i = phi i64 [ %57, %cvar_lookup_at.exit27.thread.i ], [ %.047.i.ph, %.lr.ph.i.preheader ]
-  %.146.i = phi i64 [ %.237.i, %cvar_lookup_at.exit27.thread.i ], [ %.146.i.ph, %.lr.ph.i.preheader ]
+  %.02846.i = phi i64 [ %.237.i, %cvar_lookup_at.exit27.thread.i ], [ %.02846.i.ph, %.lr.ph.i.preheader ]
   %40 = and i64 %.047.i, 7
   %.not.i = icmp eq i64 %40, 0
   br i1 %.not.i, label %41, label %.critedge.i23.i
@@ -7949,7 +7949,7 @@ cvar_lookup_at.exit27.i:                          ; preds = %.critedge.i23.i
 
 cvar_lookup_at.exit27.thread.i:                   ; preds = %cvar_lookup_at.exit27.i, %54, %.critedge.i23.i, %46
   %.5 = phi i64 [ %.4, %.critedge.i23.i ], [ %.4, %46 ], [ %.047.i, %54 ], [ %.047.i, %cvar_lookup_at.exit27.i ]
-  %.237.i = phi i64 [ %.146.i, %.critedge.i23.i ], [ %.146.i, %46 ], [ %51, %54 ], [ %51, %cvar_lookup_at.exit27.i ]
+  %.237.i = phi i64 [ %.02846.i, %.critedge.i23.i ], [ %.02846.i, %46 ], [ %51, %54 ], [ %51, %cvar_lookup_at.exit27.i ]
   %55 = inttoptr i64 %.047.i to ptr
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8
@@ -7958,7 +7958,7 @@ cvar_lookup_at.exit27.thread.i:                   ; preds = %cvar_lookup_at.exit
 
 find_cvar.exit:                                   ; preds = %cvar_lookup_at.exit27.thread.i, %cvar_front_klass.exit.i
   %.6 = phi i64 [ %.2, %cvar_front_klass.exit.i ], [ %.5, %cvar_lookup_at.exit27.thread.i ]
-  %.1.lcssa.i = phi i64 [ %.0283341.i, %cvar_front_klass.exit.i ], [ %.237.i, %cvar_lookup_at.exit27.thread.i ]
+  %.028.lcssa.i = phi i64 [ %.13341.i, %cvar_front_klass.exit.i ], [ %.237.i, %cvar_lookup_at.exit27.thread.i ]
   %.not = icmp eq i64 %.6, 0
   br i1 %.not, label %58, label %60
 
@@ -7970,7 +7970,7 @@ find_cvar.exit:                                   ; preds = %cvar_lookup_at.exit
 60:                                               ; preds = %find_cvar.exit
   %61 = load i64, ptr %2, align 8
   tail call fastcc void @cvar_overtaken(i64 noundef %61, i64 noundef %.6, i64 noundef %1)
-  ret i64 %.1.lcssa.i
+  ret i64 %.028.lcssa.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

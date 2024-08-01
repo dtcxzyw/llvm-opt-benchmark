@@ -437,8 +437,8 @@ _ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5
   br label %33
 
 33:                                               ; preds = %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE11upper_boundERKS5_.exit, %6, %32
-  %.1 = phi i1 [ true, %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE11upper_boundERKS5_.exit ], [ false, %32 ], [ true, %6 ]
-  ret i1 %.1
+  %.08 = phi i1 [ true, %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE11upper_boundERKS5_.exit ], [ false, %32 ], [ true, %6 ]
+  ret i1 %.08
 }
 
 ; Function Attrs: nounwind
@@ -636,14 +636,14 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br label %common.resume
 
 .sink.split:                                      ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread23, %82, %52
-  %.4.ph = phi i1 [ false, %52 ], [ true, %82 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread23 ]
+  %.011.ph = phi i1 [ false, %52 ], [ true, %82 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   br label %85
 
 85:                                               ; preds = %.sink.split, %11, %19, %2
-  %.4 = phi i1 [ true, %2 ], [ false, %19 ], [ false, %11 ], [ %.4.ph, %.sink.split ]
-  ret i1 %.4
+  %.011 = phi i1 [ true, %2 ], [ false, %19 ], [ false, %11 ], [ %.011.ph, %.sink.split ]
+  ret i1 %.011
 }
 
 ; Function Attrs: mustprogress uwtable

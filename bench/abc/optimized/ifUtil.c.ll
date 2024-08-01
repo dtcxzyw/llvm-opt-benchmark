@@ -196,8 +196,8 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
 .lr.ph:                                           ; preds = %1, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %1 ]
   %7 = phi ptr [ %47, %.loopexit ], [ %3, %1 ]
-  %.067 = phi i32 [ %.2, %.loopexit ], [ 0, %1 ]
-  %.03566 = phi i32 [ %.6, %.loopexit ], [ 0, %1 ]
+  %.067 = phi i32 [ %.1, %.loopexit ], [ 0, %1 ]
+  %.03566 = phi i32 [ %.136, %.loopexit ], [ 0, %1 ]
   %8 = getelementptr i8, ptr %7, i64 8
   %.val53 = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds ptr, ptr %.val53, i64 %indvars.iv
@@ -214,7 +214,7 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   %14 = getelementptr inbounds i8, ptr %10, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
-  %.136 = select i1 %16, i32 %.03566, i32 %13
+  %.237 = select i1 %16, i32 %.03566, i32 %13
   %17 = getelementptr i8, ptr %10, i64 24
   %.val55 = load ptr, ptr %17, align 8
   %.val56 = load i32, ptr %.val55, align 8
@@ -229,11 +229,11 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   store i32 %22, ptr %20, align 8
   %23 = icmp eq i32 %22, 0
   %24 = sext i1 %23 to i32
-  %spec.select48 = add nsw i32 %.136, %24
+  %spec.select48 = add nsw i32 %.237, %24
   br label %25
 
 25:                                               ; preds = %19, %12
-  %.237 = phi i32 [ %.136, %12 ], [ %spec.select48, %19 ]
+  %.3 = phi i32 [ %.237, %12 ], [ %spec.select48, %19 ]
   %26 = getelementptr i8, ptr %10, i64 32
   %.val58 = load ptr, ptr %26, align 8
   %.val57 = load i32, ptr %.val58, align 8
@@ -248,18 +248,18 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   store i32 %31, ptr %29, align 8
   %32 = icmp eq i32 %31, 0
   %33 = sext i1 %32 to i32
-  %spec.select49 = add nsw i32 %.237, %33
+  %spec.select49 = add nsw i32 %.3, %33
   br label %34
 
 34:                                               ; preds = %28, %25
-  %.3 = phi i32 [ %.237, %25 ], [ %spec.select49, %28 ]
+  %.4 = phi i32 [ %.3, %25 ], [ %spec.select49, %28 ]
   %35 = load i32, ptr %10, align 8
   %36 = and i32 %35, 128
   %.not45 = icmp eq i32 %36, 0
   br i1 %.not45, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %34, %44
-  %.463 = phi i32 [ %.5, %44 ], [ %.3, %34 ]
+  %.563 = phi i32 [ %.6, %44 ], [ %.4, %34 ]
   %.04062 = phi ptr [ %46, %44 ], [ %10, %34 ]
   %.040.val = load i32, ptr %.04062, align 8
   %37 = and i32 %.040.val, 15
@@ -273,19 +273,19 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   store i32 %41, ptr %39, align 8
   %42 = icmp eq i32 %41, 0
   %43 = sext i1 %42 to i32
-  %spec.select50 = add nsw i32 %.463, %43
+  %spec.select50 = add nsw i32 %.563, %43
   br label %44
 
 44:                                               ; preds = %38, %.preheader
-  %.5 = phi i32 [ %.463, %.preheader ], [ %spec.select50, %38 ]
+  %.6 = phi i32 [ %.563, %.preheader ], [ %spec.select50, %38 ]
   %45 = getelementptr inbounds i8, ptr %.04062, i64 40
   %46 = load ptr, ptr %45, align 8
   %.not46 = icmp eq ptr %46, null
   br i1 %.not46, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %44, %34, %.lr.ph
-  %.6 = phi i32 [ %.3, %34 ], [ %.03566, %.lr.ph ], [ %.5, %44 ]
-  %.2 = phi i32 [ %spec.select, %34 ], [ %.067, %.lr.ph ], [ %spec.select, %44 ]
+  %.136 = phi i32 [ %.4, %34 ], [ %.03566, %.lr.ph ], [ %.6, %44 ]
+  %.1 = phi i32 [ %spec.select, %34 ], [ %.067, %.lr.ph ], [ %spec.select, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load ptr, ptr %2, align 8
   %48 = getelementptr i8, ptr %47, i64 4
@@ -314,7 +314,7 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   br i1 %61, label %.critedge, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %.critedge, %1, %.critedge.preheader
-  %.0.lcssa79 = phi i32 [ %.2, %.critedge.preheader ], [ 0, %1 ], [ %.2, %.critedge ]
+  %.0.lcssa79 = phi i32 [ %.1, %.critedge.preheader ], [ 0, %1 ], [ %.1, %.critedge ]
   ret i32 %.0.lcssa79
 }
 

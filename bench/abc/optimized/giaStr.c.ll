@@ -2904,7 +2904,7 @@ define void @Str_ManCheckOverlap(ptr noundef %0, ptr nocapture noundef %1) local
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.critedge4.thread ], [ 0, %8 ]
   %.0.val4974 = phi i32 [ %.0.val49, %.critedge4.thread ], [ %.0.val4971, %8 ]
   %12 = phi ptr [ %110, %.critedge4.thread ], [ %10, %8 ]
-  %.073 = phi ptr [ %.2, %.critedge4.thread ], [ %9, %8 ]
+  %.073 = phi ptr [ %.1, %.critedge4.thread ], [ %9, %8 ]
   %13 = getelementptr i8, ptr %.073, i64 8
   %.0.val52 = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds i32, ptr %.0.val52, i64 %indvars.iv83
@@ -2956,16 +2956,16 @@ define void @Str_ManCheckOverlap(ptr noundef %0, ptr nocapture noundef %1) local
 
 .preheader:                                       ; preds = %.critedge4
   %29 = getelementptr i8, ptr %.073, i64 4
-  %.1.val65 = load i32, ptr %29, align 4
-  %30 = icmp sgt i32 %.1.val65, 1
+  %.2.val65 = load i32, ptr %29, align 4
+  %30 = icmp sgt i32 %.2.val65, 1
   br i1 %30, label %.lr.ph68, label %.critedge6
 
 .lr.ph68:                                         ; preds = %.preheader, %Vec_IntPush.exit
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %Vec_IntPush.exit ], [ 1, %.preheader ]
-  %.167 = phi ptr [ %74, %Vec_IntPush.exit ], [ %.073, %.preheader ]
-  %31 = getelementptr i8, ptr %.167, i64 8
-  %.1.val50 = load ptr, ptr %31, align 8
-  %32 = getelementptr inbounds i32, ptr %.1.val50, i64 %indvars.iv80
+  %.267 = phi ptr [ %74, %Vec_IntPush.exit ], [ %.073, %.preheader ]
+  %31 = getelementptr i8, ptr %.267, i64 8
+  %.2.val50 = load ptr, ptr %31, align 8
+  %32 = getelementptr inbounds i32, ptr %.2.val50, i64 %indvars.iv80
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %3, align 4
   %35 = load i32, ptr %1, align 8
@@ -3114,21 +3114,21 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %33, ptr %105, align 4
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %106 = getelementptr i8, ptr %74, i64 4
-  %.1.val = load i32, ptr %106, align 4
-  %107 = sext i32 %.1.val to i64
+  %.2.val = load i32, ptr %106, align 4
+  %107 = sext i32 %.2.val to i64
   %108 = icmp slt i64 %indvars.iv.next81, %107
   br i1 %108, label %.lr.ph68, label %.critedge6, !llvm.loop !21
 
 .critedge6:                                       ; preds = %Vec_IntPush.exit, %.preheader
-  %.1.lcssa64 = phi ptr [ %.073, %.preheader ], [ %74, %Vec_IntPush.exit ]
-  %109 = getelementptr i8, ptr %.1.lcssa64, i64 4
+  %.2.lcssa64 = phi ptr [ %.073, %.preheader ], [ %74, %Vec_IntPush.exit ]
+  %109 = getelementptr i8, ptr %.2.lcssa64, i64 4
   store i32 1, ptr %109, align 4
   br label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %26, %.critedge4, %.lr.ph75, %.critedge6
-  %.2 = phi ptr [ %.073, %.lr.ph75 ], [ %.073, %.critedge4 ], [ %.1.lcssa64, %.critedge6 ], [ %.073, %26 ]
+  %.1 = phi ptr [ %.073, %.lr.ph75 ], [ %.073, %.critedge4 ], [ %.2.lcssa64, %.critedge6 ], [ %.073, %26 ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %110 = getelementptr i8, ptr %.2, i64 4
+  %110 = getelementptr i8, ptr %.1, i64 4
   %.0.val49 = load i32, ptr %110, align 4
   %111 = sext i32 %.0.val49 to i64
   %112 = icmp slt i64 %indvars.iv.next84, %111
@@ -4406,7 +4406,7 @@ define i32 @Str_ManVectorAffinity(ptr noundef %0, ptr nocapture noundef %1, ptr 
 38:                                               ; preds = %.lr.ph238, %.thread
   %indvars.iv252 = phi i64 [ 0, %.lr.ph238 ], [ %indvars.iv.next253, %.thread ]
   %.0153237 = phi i32 [ %.val186, %.lr.ph238 ], [ %.1225, %.thread ]
-  %.0160235 = phi i32 [ 1, %.lr.ph238 ], [ %.1161224, %.thread ]
+  %.0160235 = phi i32 [ 1, %.lr.ph238 ], [ %.2162224, %.thread ]
   %.val188 = load ptr, ptr %19, align 8
   %39 = getelementptr inbounds i32, ptr %.val188, i64 %indvars.iv252
   %40 = load i32, ptr %39, align 4
@@ -4682,7 +4682,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.loopexit230, %152,
 
 .thread:                                          ; preds = %Gia_ObjIsMux.exit.thread, %163
   %.1225 = phi i32 [ %.val184.pre, %163 ], [ %.0153237, %Gia_ObjIsMux.exit.thread ]
-  %.1161224 = phi i32 [ %164, %163 ], [ %.0160235, %Gia_ObjIsMux.exit.thread ]
+  %.2162224 = phi i32 [ %164, %163 ], [ %.0160235, %Gia_ObjIsMux.exit.thread ]
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %166 = sext i32 %.val184.pre to i64
   %167 = icmp slt i64 %indvars.iv.next253, %166
@@ -4699,7 +4699,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.loopexit230, %152,
 .lr.ph243:                                        ; preds = %.critedge2, %185
   %.val269 = phi i32 [ %.val, %185 ], [ %.val240, %.critedge2 ]
   %indvars.iv255 = phi i64 [ %indvars.iv.next256, %185 ], [ 0, %.critedge2 ]
-  %.1155242 = phi i32 [ %.2, %185 ], [ 0, %.critedge2 ]
+  %.1155242 = phi i32 [ %.3, %185 ], [ 0, %.critedge2 ]
   %172 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv255
   %173 = load i64, ptr %172, align 8
   %174 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %173)
@@ -4726,31 +4726,31 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.loopexit230, %152,
 
 185:                                              ; preds = %._crit_edge268, %.lr.ph243
   %.val = phi i32 [ %.val269, %.lr.ph243 ], [ %.val.pre, %._crit_edge268 ]
-  %.2 = phi i32 [ %.1155242, %.lr.ph243 ], [ %183, %._crit_edge268 ]
+  %.3 = phi i32 [ %.1155242, %.lr.ph243 ], [ %183, %._crit_edge268 ]
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %186 = sext i32 %.val to i64
   %187 = icmp slt i64 %indvars.iv.next256, %186
   br i1 %187, label %.lr.ph243, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %185
-  %188 = icmp slt i32 %.2, 64
+  %188 = icmp slt i32 %.3, 64
   br i1 %188, label %._crit_edge249, label %.preheader.i.preheader
 
 ._crit_edge249:                                   ; preds = %8, %.critedge.preheader, %.critedge2, %._crit_edge
-  %.3277 = phi i32 [ %.2, %._crit_edge ], [ 0, %.critedge2 ], [ 0, %.critedge.preheader ], [ 0, %8 ]
-  %189 = sext i32 %.3277 to i64
+  %.2277 = phi i32 [ %.3, %._crit_edge ], [ 0, %.critedge2 ], [ 0, %.critedge.preheader ], [ 0, %8 ]
+  %189 = sext i32 %.2277 to i64
   %190 = shl nsw i64 %189, 3
   %scevgep = getelementptr i8, ptr %3, i64 %190
-  %191 = sub i32 63, %.3277
+  %191 = sub i32 63, %.2277
   %192 = zext i32 %191 to i64
   %193 = shl nuw nsw i64 %192, 3
   %194 = add nuw nsw i64 %193, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %194, i1 false)
-  %195 = icmp eq i32 %.3277, 0
+  %195 = icmp eq i32 %.2277, 0
   br i1 %195, label %196, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %177, %._crit_edge, %._crit_edge249
-  %.3276281 = phi i32 [ %.3277, %._crit_edge249 ], [ %.2, %._crit_edge ], [ 64, %177 ]
+  %.2276281 = phi i32 [ %.2277, %._crit_edge249 ], [ %.3, %._crit_edge ], [ 64, %177 ]
   br label %.preheader.i
 
 196:                                              ; preds = %._crit_edge249
@@ -4813,7 +4813,7 @@ transpose64.exit:                                 ; preds = %216
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %197, %196, %222
-  %.0 = phi i32 [ %.3276281, %222 ], [ 0, %196 ], [ 0, %197 ], [ 0, %.preheader.preheader ]
+  %.0 = phi i32 [ %.2276281, %222 ], [ 0, %196 ], [ 0, %197 ], [ 0, %.preheader.preheader ]
   ret i32 %.0
 }
 
@@ -4984,13 +4984,13 @@ Gia_ObjIsMuxId.exit.thread:                       ; preds = %8, %Gia_ObjIsMuxId.
   br label %77
 
 77:                                               ; preds = %Gia_ObjIsMuxId.exit.thread, %Gia_ObjFaninId2.exit
-  %.0 = phi i32 [ %49, %Gia_ObjFaninId2.exit ], [ %76, %Gia_ObjIsMuxId.exit.thread ]
-  store i32 %.0, ptr %5, align 4
+  %.1 = phi i32 [ %49, %Gia_ObjFaninId2.exit ], [ %76, %Gia_ObjIsMuxId.exit.thread ]
+  store i32 %.1, ptr %5, align 4
   br label %78
 
 78:                                               ; preds = %77, %3
-  %.1 = phi i32 [ %.0, %77 ], [ %6, %3 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %77 ], [ %6, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6301,8 +6301,8 @@ Gia_ObjIsMuxId.exit.thread.i:                     ; preds = %Gia_ObjIsMuxId.exit
   br label %137
 
 137:                                              ; preds = %Gia_ObjIsMuxId.exit.thread.i, %Gia_ObjFaninId2.exit.i
-  %.0.i65 = phi i32 [ %110, %Gia_ObjFaninId2.exit.i ], [ %136, %Gia_ObjIsMuxId.exit.thread.i ]
-  store i32 %.0.i65, ptr %68, align 4
+  %.1.i = phi i32 [ %110, %Gia_ObjFaninId2.exit.i ], [ %136, %Gia_ObjIsMuxId.exit.thread.i ]
+  store i32 %.1.i, ptr %68, align 4
   br label %Str_ObjDelay.exit
 
 Str_ObjDelay.exit:                                ; preds = %.lr.ph, %137

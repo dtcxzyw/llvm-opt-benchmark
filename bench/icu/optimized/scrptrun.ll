@@ -241,7 +241,7 @@ if.then72:                                        ; preds = %land.rhs
 
 if.end81:                                         ; preds = %while.end, %if.then40, %if.then72, %if.else, %_ZN6icu_759ScriptRun12getPairIndexEi.exit
   %21 = phi i32 [ %call, %if.then40 ], [ %20, %if.then72 ], [ %call, %while.end ], [ %call, %if.else ], [ %call, %_ZN6icu_759ScriptRun12getPairIndexEi.exit ]
-  %startSP.2 = phi i32 [ %startSP.035, %if.then40 ], [ %spec.select29, %if.then72 ], [ %spec.select, %while.end ], [ %startSP.035, %if.else ], [ %startSP.035, %_ZN6icu_759ScriptRun12getPairIndexEi.exit ]
+  %startSP.1 = phi i32 [ %startSP.035, %if.then40 ], [ %spec.select29, %if.then72 ], [ %spec.select, %while.end ], [ %startSP.035, %if.else ], [ %startSP.035, %_ZN6icu_759ScriptRun12getPairIndexEi.exit ]
   %22 = load i32, ptr %scriptCode, align 8
   %cmp.i = icmp slt i32 %22, 2
   %cmp1.i27 = icmp slt i32 %21, 2
@@ -258,11 +258,11 @@ if.then84:                                        ; preds = %if.end81
 if.then89:                                        ; preds = %if.then84
   store i32 %21, ptr %scriptCode, align 8
   %24 = load i32, ptr %parenSP, align 4
-  %cmp9332 = icmp slt i32 %startSP.2, %24
+  %cmp9332 = icmp slt i32 %startSP.1, %24
   br i1 %cmp9332, label %while.body94.preheader, label %if.end102
 
 while.body94.preheader:                           ; preds = %if.then89
-  %25 = sext i32 %startSP.2 to i64
+  %25 = sext i32 %startSP.1 to i64
   %wide.trip.count = sext i32 %24 to i64
   br label %while.body94
 
@@ -275,7 +275,7 @@ while.body94:                                     ; preds = %while.body94.prehea
   br i1 %exitcond.not, label %if.end102, label %while.body94, !llvm.loop !8
 
 if.end102:                                        ; preds = %while.body94, %if.then89, %if.then84
-  %startSP.4 = phi i32 [ %startSP.2, %if.then84 ], [ %startSP.2, %if.then89 ], [ %24, %while.body94 ]
+  %startSP.3 = phi i32 [ %startSP.1, %if.then84 ], [ %startSP.1, %if.then89 ], [ %24, %while.body94 ]
   %26 = and i32 %spec.store.select.i, -2147483647
   %or.cond26.not = icmp eq i32 %26, 1
   br i1 %or.cond26.not, label %land.lhs.true107, label %for.inc
@@ -288,7 +288,7 @@ land.lhs.true107:                                 ; preds = %if.end102
 if.then110:                                       ; preds = %land.lhs.true107
   %sub112 = add nsw i32 %27, -1
   store i32 %sub112, ptr %parenSP, align 4
-  %sub113 = add nsw i32 %startSP.4, -1
+  %sub113 = add nsw i32 %startSP.3, -1
   br label %for.inc
 
 if.else115:                                       ; preds = %if.end81
@@ -302,7 +302,7 @@ if.then117:                                       ; preds = %if.else115
   br label %return
 
 for.inc:                                          ; preds = %if.then110, %land.lhs.true107, %if.end102
-  %startSP.5 = phi i32 [ %sub113, %if.then110 ], [ %startSP.4, %land.lhs.true107 ], [ %startSP.4, %if.end102 ]
+  %startSP.5 = phi i32 [ %sub113, %if.then110 ], [ %startSP.3, %land.lhs.true107 ], [ %startSP.3, %if.end102 ]
   %29 = load i32, ptr %scriptEnd, align 4
   %add123 = add nsw i32 %29, 1
   store i32 %add123, ptr %scriptEnd, align 4

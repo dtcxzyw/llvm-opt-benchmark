@@ -22,10 +22,10 @@ define range(i32 0, 2) i32 @hcreate_r(i64 noundef %0, ptr nocapture noundef %1) 
 
 .preheader25:                                     ; preds = %4, %.preheader25
   %.027 = phi i32 [ %7, %.preheader25 ], [ 0, %4 ]
-  %.02226 = phi i64 [ %6, %.preheader25 ], [ %spec.store.select1, %4 ]
-  %6 = lshr i64 %.02226, 1
+  %.126 = phi i64 [ %6, %.preheader25 ], [ %spec.store.select1, %4 ]
+  %6 = lshr i64 %.126, 1
   %7 = add nuw nsw i32 %.027, 1
-  %.not24 = icmp ult i64 %.02226, 2
+  %.not24 = icmp ult i64 %.126, 2
   br i1 %.not24, label %8, label %.preheader25, !llvm.loop !6
 
 8:                                                ; preds = %.preheader25

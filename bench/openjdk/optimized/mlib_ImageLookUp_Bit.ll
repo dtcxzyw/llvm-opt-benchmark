@@ -115,13 +115,13 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv178 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next179, %.lr.ph ]
-  %.0102145 = phi i32 [ %7, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
-  %.0110144 = phi ptr [ %.0116160, %.lr.ph.preheader ], [ %.1111, %.lr.ph ]
-  %.0114143 = phi i32 [ %4, %.lr.ph.preheader ], [ %67, %.lr.ph ]
+  %.1145 = phi i32 [ %7, %.lr.ph.preheader ], [ %.2, %.lr.ph ]
+  %.1111144 = phi ptr [ %.0116160, %.lr.ph.preheader ], [ %.2112, %.lr.ph ]
+  %.1115143 = phi i32 [ %4, %.lr.ph.preheader ], [ %67, %.lr.ph ]
   %56 = load ptr, ptr %8, align 8
-  %57 = load i8, ptr %.0110144, align 1
+  %57 = load i8, ptr %.1111144, align 1
   %58 = zext i8 %57 to i32
-  %59 = sub nsw i32 7, %.0102145
+  %59 = sub nsw i32 7, %.1145
   %60 = lshr i32 %58, %59
   %61 = and i32 %60, 1
   %62 = zext nneg i32 %61 to i64
@@ -129,42 +129,42 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %64 = load i8, ptr %63, align 1
   %65 = getelementptr inbounds i8, ptr %.0117159, i64 %indvars.iv178
   store i8 %64, ptr %65, align 1
-  %66 = icmp sgt i32 %.0102145, 6
-  %.1111.idx = zext i1 %66 to i64
-  %.1111 = getelementptr inbounds i8, ptr %.0110144, i64 %.1111.idx
-  %.1.v = select i1 %66, i32 -7, i32 1
-  %.1 = add nsw i32 %.1.v, %.0102145
-  %67 = add nsw i32 %.0114143, -1
+  %66 = icmp sgt i32 %.1145, 6
+  %.2112.idx = zext i1 %66 to i64
+  %.2112 = getelementptr inbounds i8, ptr %.1111144, i64 %.2112.idx
+  %.2.v = select i1 %66, i32 -7, i32 1
+  %.2 = add nsw i32 %.2.v, %.1145
+  %67 = add nsw i32 %.1115143, -1
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %68 = icmp ult i64 %indvars.iv.next179, %55
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %55, %.lr.ph ]
-  %.0114.lcssa = phi i32 [ %4, %.._crit_edge_crit_edge ], [ %67, %.lr.ph ]
-  %.0110.lcssa = phi ptr [ %.0116160, %.._crit_edge_crit_edge ], [ %.1111, %.lr.ph ]
-  %.0102.lcssa = phi i32 [ %7, %.._crit_edge_crit_edge ], [ %.1, %.lr.ph ]
+  %.1115.lcssa = phi i32 [ %4, %.._crit_edge_crit_edge ], [ %67, %.lr.ph ]
+  %.1111.lcssa = phi ptr [ %.0116160, %.._crit_edge_crit_edge ], [ %.2112, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.._crit_edge_crit_edge ], [ %.2, %.lr.ph ]
   %69 = getelementptr inbounds i8, ptr %.0117159, i64 %.pre-phi
   br label %70
 
 70:                                               ; preds = %._crit_edge, %49
-  %.1115 = phi i32 [ %.0114.lcssa, %._crit_edge ], [ %4, %49 ]
+  %.0114 = phi i32 [ %.1115.lcssa, %._crit_edge ], [ %4, %49 ]
   %.0113 = phi ptr [ %69, %._crit_edge ], [ %.0117159, %49 ]
-  %.2112 = phi ptr [ %.0110.lcssa, %._crit_edge ], [ %.0116160, %49 ]
-  %.2 = phi i32 [ %.0102.lcssa, %._crit_edge ], [ %7, %49 ]
-  %.not135 = icmp eq i32 %.2, 0
+  %.0110 = phi ptr [ %.1111.lcssa, %._crit_edge ], [ %.0116160, %49 ]
+  %.0102 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %7, %49 ]
+  %.not135 = icmp eq i32 %.0102, 0
   br i1 %.not135, label %72, label %71
 
 71:                                               ; preds = %70
-  call void @mlib_ImageCopy_bit_na(ptr noundef %.2112, ptr noundef nonnull %.0125, i32 noundef %.1115, i32 noundef %.2, i32 noundef 0) #3
+  call void @mlib_ImageCopy_bit_na(ptr noundef %.0110, ptr noundef nonnull %.0125, i32 noundef %.0114, i32 noundef %.0102, i32 noundef 0) #3
   br label %72
 
 72:                                               ; preds = %71, %70
-  %.3 = phi ptr [ %.0125, %71 ], [ %.2112, %70 ]
+  %.3 = phi ptr [ %.0125, %71 ], [ %.0110, %70 ]
   %73 = ptrtoint ptr %.3 to i64
   %74 = and i64 %73, 1
   %75 = icmp ne i64 %74, 0
-  %76 = icmp sgt i32 %.1115, 7
+  %76 = icmp sgt i32 %.0114, 7
   %or.cond = select i1 %75, i1 %76, i1 false
   br i1 %or.cond, label %77, label %84
 
@@ -182,7 +182,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %.1119 = phi i32 [ 8, %77 ], [ 0, %72 ]
   %.0107 = phi ptr [ %78, %77 ], [ %.3, %72 ]
   %.0104 = phi ptr [ %83, %77 ], [ %.0113, %72 ]
-  %85 = add nsw i32 %.1115, -16
+  %85 = add nsw i32 %.0114, -16
   %.not136148 = icmp sgt i32 %.1119, %85
   br i1 %.not136148, label %._crit_edge154, label %.lr.ph153
 
@@ -213,7 +213,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %.2120.lcssa = phi i32 [ %.1119, %84 ], [ %99, %.lr.ph153 ]
   %.1108.lcssa = phi ptr [ %.0107, %84 ], [ %98, %.lr.ph153 ]
   %.1105.lcssa = phi ptr [ %.0104, %84 ], [ %97, %.lr.ph153 ]
-  %100 = add nsw i32 %.1115, -8
+  %100 = add nsw i32 %.0114, -8
   %.not137 = icmp sgt i32 %.2120.lcssa, %100
   br i1 %.not137, label %109, label %101
 
@@ -232,11 +232,11 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %.3121 = phi i32 [ %108, %101 ], [ %.2120.lcssa, %._crit_edge154 ]
   %.2109 = phi ptr [ %102, %101 ], [ %.1108.lcssa, %._crit_edge154 ]
   %.2106 = phi ptr [ %107, %101 ], [ %.1105.lcssa, %._crit_edge154 ]
-  %110 = icmp slt i32 %.3121, %.1115
+  %110 = icmp slt i32 %.3121, %.0114
   br i1 %110, label %111, label %125
 
 111:                                              ; preds = %109
-  %.neg = sub i32 %.3121, %.1115
+  %.neg = sub i32 %.3121, %.0114
   %112 = shl i32 %.neg, 3
   %113 = add i32 %112, 64
   %114 = zext nneg i32 %113 to i64

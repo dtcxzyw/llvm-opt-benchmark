@@ -2409,12 +2409,12 @@ define dso_local ptr @get_relids_in_jointree(ptr noundef readonly %0, i1 noundef
 
 .lr.ph52:                                         ; preds = %.lr.ph, %.lr.ph52
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph52 ], [ 0, %.lr.ph ]
-  %.0354650 = phi ptr [ %22, %.lr.ph52 ], [ null, %.lr.ph ]
+  %.14650 = phi ptr [ %22, %.lr.ph52 ], [ null, %.lr.ph ]
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @get_relids_in_jointree(ptr noundef %20, i1 noundef zeroext %1, i1 noundef zeroext %2)
-  %22 = tail call ptr @bms_join(ptr noundef %.0354650, ptr noundef %21) #7
+  %22 = tail call ptr @bms_join(ptr noundef %.14650, ptr noundef %21) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %14, align 4
   %24 = sext i32 %23 to i64
@@ -3389,7 +3389,7 @@ list_length.exit127:                              ; preds = %136, %143
 
 .lr.ph26.i:                                       ; preds = %.lr.ph.i129, %235
   %indvars.iv.i130 = phi i64 [ %indvars.iv.next.i131, %235 ], [ 0, %.lr.ph.i129 ]
-  %.0152224.i = phi i32 [ %.2.i, %235 ], [ -1, %.lr.ph.i129 ]
+  %.0152224.i = phi i32 [ %.1.i, %235 ], [ -1, %.lr.ph.i129 ]
   %216 = load ptr, ptr %211, align 8
   %217 = getelementptr %union.ListCell, ptr %216, i64 %indvars.iv.i130
   %218 = load ptr, ptr %217, align 8
@@ -3407,12 +3407,12 @@ list_length.exit127:                              ; preds = %136, %143
   br label %226
 
 226:                                              ; preds = %224, %222
-  %.1.i = phi i32 [ %225, %224 ], [ %.0152224.i, %222 ]
-  store i32 %.1.i, ptr %219, align 8
+  %.2.i = phi i32 [ %225, %224 ], [ %.0152224.i, %222 ]
+  store i32 %.2.i, ptr %219, align 8
   br label %227
 
 227:                                              ; preds = %226, %.lr.ph26.i
-  %.2.i = phi i32 [ %.1.i, %226 ], [ %.0152224.i, %.lr.ph26.i ]
+  %.1.i = phi i32 [ %.2.i, %226 ], [ %.0152224.i, %.lr.ph26.i ]
   %228 = load ptr, ptr %19, align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 104
   %230 = load i32, ptr %229, align 8
@@ -4515,7 +4515,7 @@ define internal fastcc void @remove_result_refs(ptr nocapture noundef readonly %
 
 .lr.ph26.i:                                       ; preds = %.lr.ph.i, %44
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %.lr.ph.i ]
-  %.0152224.i = phi i32 [ %.2.i, %44 ], [ -1, %.lr.ph.i ]
+  %.0152224.i = phi i32 [ %.1.i, %44 ], [ -1, %.lr.ph.i ]
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr %union.ListCell, ptr %25, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8
@@ -4533,12 +4533,12 @@ define internal fastcc void @remove_result_refs(ptr nocapture noundef readonly %
   br label %35
 
 35:                                               ; preds = %33, %31
-  %.1.i = phi i32 [ %34, %33 ], [ %.0152224.i, %31 ]
-  store i32 %.1.i, ptr %28, align 8
+  %.2.i = phi i32 [ %34, %33 ], [ %.0152224.i, %31 ]
+  store i32 %.2.i, ptr %28, align 8
   br label %36
 
 36:                                               ; preds = %35, %.lr.ph26.i
-  %.2.i = phi i32 [ %.1.i, %35 ], [ %.0152224.i, %.lr.ph26.i ]
+  %.1.i = phi i32 [ %.2.i, %35 ], [ %.0152224.i, %.lr.ph26.i ]
   %37 = load ptr, ptr %6, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 104
   %39 = load i32, ptr %38, align 8

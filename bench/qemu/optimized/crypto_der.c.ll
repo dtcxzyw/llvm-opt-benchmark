@@ -270,10 +270,10 @@ for.cond.preheader.i.i:                           ; preds = %entry
   br i1 %cmp115.i.i, label %for.body.i.i, label %qcrypto_der_encode_cons_end.exit
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
-  %length_bytes.017.i.i = phi i8 [ %inc.i.i, %for.body.i.i ], [ 1, %for.cond.preheader.i.i ]
+  %length_bytes.117.i.i = phi i8 [ %inc.i.i, %for.body.i.i ], [ 1, %for.cond.preheader.i.i ]
   %max_length.016.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ 255, %for.cond.preheader.i.i ]
   %add.i.i = mul i64 %max_length.016.i.i, 257
-  %inc.i.i = add i8 %length_bytes.017.i.i, 1
+  %inc.i.i = add i8 %length_bytes.117.i.i, 1
   %cmp1.i.i = icmp ult i64 %add.i.i, %1
   br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !7
 
@@ -317,10 +317,10 @@ for.cond.preheader.i.i:                           ; preds = %entry
   br i1 %cmp115.i.i, label %for.body.i.i, label %qcrypto_der_encode_prim.exit
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
-  %length_bytes.017.i.i = phi i8 [ %inc.i.i, %for.body.i.i ], [ 1, %for.cond.preheader.i.i ]
+  %length_bytes.117.i.i = phi i8 [ %inc.i.i, %for.body.i.i ], [ 1, %for.cond.preheader.i.i ]
   %max_length.016.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ 255, %for.cond.preheader.i.i ]
   %add.i.i = mul i64 %max_length.016.i.i, 257
-  %inc.i.i = add i8 %length_bytes.017.i.i, 1
+  %inc.i.i = add i8 %length_bytes.117.i.i, 1
   %cmp1.i.i = icmp ult i64 %add.i.i, %src_len
   br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !7
 
@@ -365,10 +365,10 @@ for.cond.preheader.i.i:                           ; preds = %entry
   br i1 %cmp115.i.i, label %for.body.i.i, label %qcrypto_der_encode_prim.exit
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
-  %length_bytes.017.i.i = phi i8 [ %inc.i.i, %for.body.i.i ], [ 1, %for.cond.preheader.i.i ]
+  %length_bytes.117.i.i = phi i8 [ %inc.i.i, %for.body.i.i ], [ 1, %for.cond.preheader.i.i ]
   %max_length.016.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ 255, %for.cond.preheader.i.i ]
   %add.i.i = mul i64 %max_length.016.i.i, 257
-  %inc.i.i = add i8 %length_bytes.017.i.i, 1
+  %inc.i.i = add i8 %length_bytes.117.i.i, 1
   %cmp1.i.i = icmp ult i64 %add.i.i, %src_len
   br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !7
 
@@ -436,10 +436,10 @@ for.cond.preheader.i.i:                           ; preds = %entry
   br i1 %cmp115.i.i, label %for.body.i.i, label %qcrypto_der_encode_prim.exit
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
-  %length_bytes.017.i.i = phi i8 [ %inc.i.i, %for.body.i.i ], [ 1, %for.cond.preheader.i.i ]
+  %length_bytes.117.i.i = phi i8 [ %inc.i.i, %for.body.i.i ], [ 1, %for.cond.preheader.i.i ]
   %max_length.016.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ 255, %for.cond.preheader.i.i ]
   %add.i.i = mul i64 %max_length.016.i.i, 257
-  %inc.i.i = add i8 %length_bytes.017.i.i, 1
+  %inc.i.i = add i8 %length_bytes.117.i.i, 1
   %cmp1.i.i = icmp ult i64 %add.i.i, %src_len
   br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !7
 
@@ -496,10 +496,10 @@ for.cond.preheader.i.i:                           ; preds = %entry
   br i1 %cmp115.i.i, label %for.body.i.i, label %qcrypto_der_encode_cons_end.exit
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
-  %length_bytes.017.i.i = phi i8 [ %inc.i.i, %for.body.i.i ], [ 1, %for.cond.preheader.i.i ]
+  %length_bytes.117.i.i = phi i8 [ %inc.i.i, %for.body.i.i ], [ 1, %for.cond.preheader.i.i ]
   %max_length.016.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ 255, %for.cond.preheader.i.i ]
   %add.i.i = mul i64 %max_length.016.i.i, 257
-  %inc.i.i = add i8 %length_bytes.017.i.i, 1
+  %inc.i.i = add i8 %length_bytes.117.i.i, 1
   %cmp1.i.i = icmp ult i64 %add.i.i, %1
   br i1 %cmp1.i.i, label %for.body.i.i, label %if.end.i.loopexit.i, !llvm.loop !7
 
@@ -557,10 +557,10 @@ for.cond.preheader.i:                             ; preds = %land.rhs
   br i1 %cmp115.i, label %for.body.i, label %if.end.i.thread
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
-  %length_bytes.017.i = phi i8 [ %inc.i, %for.body.i ], [ 1, %for.cond.preheader.i ]
+  %length_bytes.117.i = phi i8 [ %inc.i, %for.body.i ], [ 1, %for.cond.preheader.i ]
   %max_length.016.i = phi i64 [ %add.i, %for.body.i ], [ 255, %for.cond.preheader.i ]
   %add.i = mul i64 %max_length.016.i, 257
-  %inc.i = add i8 %length_bytes.017.i, 1
+  %inc.i = add i8 %length_bytes.117.i, 1
   %cmp1.i = icmp ult i64 %add.i, %4
   br i1 %cmp1.i, label %for.body.i, label %if.end.i, !llvm.loop !7
 

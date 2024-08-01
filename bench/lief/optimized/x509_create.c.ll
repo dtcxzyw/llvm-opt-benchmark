@@ -153,18 +153,18 @@ x509_attr_descr_from_name.exit:                   ; preds = %19
   br label %47
 
 47:                                               ; preds = %49, %43
-  %.156 = phi ptr [ %.055107, %43 ], [ %50, %49 ]
-  %48 = icmp ult ptr %.156, %5
+  %.257 = phi ptr [ %.055107, %43 ], [ %50, %49 ]
+  %48 = icmp ult ptr %.257, %5
   br i1 %48, label %49, label %.critedge
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.156, i64 1
+  %50 = getelementptr inbounds i8, ptr %.257, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 32
   br i1 %52, label %47, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %47, %49
-  %53 = getelementptr inbounds i8, ptr %.156, i64 1
+  %53 = getelementptr inbounds i8, ptr %.257, i64 1
   br label %.critedge72.thread
 
 .critedge72.thread:                               ; preds = %.critedge, %8
@@ -172,14 +172,14 @@ x509_attr_descr_from_name.exit:                   ; preds = %19
   %.15184.ph = phi ptr [ %.050109, %8 ], [ %.151.ph, %.critedge ]
   %.15382.ph = phi ptr [ %.052108, %8 ], [ %.153.ph, %.critedge ]
   %.260.ph = phi ptr [ %.058106, %8 ], [ %53, %.critedge ]
-  %.257.ph = phi ptr [ %.055107, %8 ], [ %.156, %.critedge ]
-  %54 = getelementptr inbounds i8, ptr %.257.ph, i64 1
+  %.156.ph = phi ptr [ %.055107, %8 ], [ %.257, %.critedge ]
+  %54 = getelementptr inbounds i8, ptr %.156.ph, i64 1
   br label %62
 
 .critedge72:                                      ; preds = %35, %33
   %55 = phi i8 [ 44, %33 ], [ %.pre122, %35 ]
-  %.257 = phi ptr [ %31, %33 ], [ %.055107, %35 ]
-  %56 = getelementptr inbounds i8, ptr %.257, i64 1
+  %.156 = phi ptr [ %31, %33 ], [ %.055107, %35 ]
+  %56 = getelementptr inbounds i8, ptr %.156, i64 1
   %.not70 = icmp eq ptr %.159.ph, %56
   br i1 %.not70, label %62, label %57
 

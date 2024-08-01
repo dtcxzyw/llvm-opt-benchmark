@@ -403,7 +403,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
 
 26:                                               ; preds = %32, %.thread
   %27 = phi i8 [ %24, %.thread ], [ %.pre, %32 ]
-  %.sroa.9.0 = phi i32 [ 1, %.thread ], [ %.sroa.9.1, %32 ]
+  %.sroa.9.1 = phi i32 [ 1, %.thread ], [ %.sroa.9.2, %32 ]
   %28 = phi i32 [ 1, %.thread ], [ %33, %32 ]
   %29 = phi i32 [ 0, %.thread ], [ %34, %32 ]
   switch i8 %27, label %32 [
@@ -416,7 +416,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   br label %32
 
 32:                                               ; preds = %30, %26
-  %.sroa.9.1 = phi i32 [ %.sroa.9.0, %26 ], [ %31, %30 ]
+  %.sroa.9.2 = phi i32 [ %.sroa.9.1, %26 ], [ %31, %30 ]
   %33 = phi i32 [ %28, %26 ], [ %31, %30 ]
   %34 = add i32 %29, 1
   %.phi.trans.insert = zext i32 %34 to i64
@@ -428,8 +428,8 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %35 = phi ptr [ %22, %.loopexit23 ], [ %25, %26 ]
   %.sroa.19.021 = phi i8 [ %.sroa.19.0, %.loopexit23 ], [ %.sroa.19.020, %26 ]
   %.sroa.14.019 = phi i32 [ %.sroa.14.0, %.loopexit23 ], [ %.sroa.14.018, %26 ]
-  %.sroa.9.2 = phi i32 [ 0, %.loopexit23 ], [ %.sroa.9.0, %26 ]
-  %36 = shl i32 %.sroa.9.2, 2
+  %.sroa.9.0 = phi i32 [ 0, %.loopexit23 ], [ %.sroa.9.1, %26 ]
+  %36 = shl i32 %.sroa.9.0, 2
   %37 = add i32 %.sroa.14.019, 4
   %38 = add i32 %37, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
@@ -451,11 +451,11 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
 
 48:                                               ; preds = %46
   store i8 92, ptr %44, align 8
-  %49 = icmp ult i32 %.sroa.9.2, 2
+  %49 = icmp ult i32 %.sroa.9.0, 2
   br i1 %49, label %73, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp eq i32 %.sroa.9.2, 2
+  %51 = icmp eq i32 %.sroa.9.0, 2
   %52 = getelementptr i8, ptr %44, i64 1
   br i1 %51, label %53, label %55
 
@@ -466,7 +466,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
 
 55:                                               ; preds = %50
   store i8 47, ptr %52, align 1
-  %56 = trunc i32 %.sroa.9.2 to i8
+  %56 = trunc i32 %.sroa.9.0 to i8
   %57 = getelementptr i8, ptr %44, i64 2
   store i8 %56, ptr %57, align 2
   %58 = getelementptr i8, ptr %44, i64 3
@@ -483,11 +483,11 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
 
 .loopexit6.i:                                     ; preds = %.preheader5.i.preheader, %59
   %62 = phi i64 [ 0, %59 ], [ %61, %.preheader5.i.preheader ]
-  %63 = icmp ult i32 %.sroa.9.2, 2
+  %63 = icmp ult i32 %.sroa.9.0, 2
   br i1 %63, label %73, label %64
 
 64:                                               ; preds = %.loopexit6.i
-  %65 = icmp eq i32 %.sroa.9.2, 2
+  %65 = icmp eq i32 %.sroa.9.0, 2
   %66 = getelementptr i8, ptr %44, i64 %62
   br i1 %65, label %67, label %69
 
@@ -498,7 +498,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
 
 69:                                               ; preds = %64
   store i8 47, ptr %66, align 1
-  %70 = trunc i32 %.sroa.9.2 to i8
+  %70 = trunc i32 %.sroa.9.0 to i8
   %71 = getelementptr i8, ptr %66, i64 1
   store i8 %70, ptr %71, align 1
   %72 = getelementptr i8, ptr %66, i64 2
@@ -507,7 +507,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
 73:                                               ; preds = %.loopexit6.i, %48
   %.sink.i = phi i64 [ 1, %48 ], [ %62, %.loopexit6.i ]
   %74 = getelementptr i8, ptr %44, i64 %.sink.i
-  %75 = icmp eq i32 %.sroa.9.2, 0
+  %75 = icmp eq i32 %.sroa.9.0, 0
   br i1 %75, label %.loopexit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %73, %69, %67, %55, %53
@@ -517,7 +517,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %101
   %76 = phi ptr [ %103, %101 ], [ %.ph, %.preheader.i.preheader ]
   %77 = phi ptr [ %102, %101 ], [ %35, %.preheader.i.preheader ]
-  %78 = phi i32 [ %104, %101 ], [ %.sroa.9.2, %.preheader.i.preheader ]
+  %78 = phi i32 [ %104, %101 ], [ %.sroa.9.0, %.preheader.i.preheader ]
   br label %79
 
 79:                                               ; preds = %95, %.preheader.i

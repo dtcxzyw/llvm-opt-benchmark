@@ -962,7 +962,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %84
 
 .thread.i:                                        ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a12dad2cd6878e9E.exit.i.i.i.i", %28, %23, %14, %13, %1
-  %.1.i = phi i1 [ false, %14 ], [ true, %13 ], [ true, %1 ], [ false, %23 ], [ false, %28 ], [ false, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a12dad2cd6878e9E.exit.i.i.i.i" ]
+  %.0.i = phi i1 [ false, %14 ], [ true, %13 ], [ true, %1 ], [ false, %23 ], [ false, %28 ], [ false, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a12dad2cd6878e9E.exit.i.i.i.i" ]
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -1156,11 +1156,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17h7e3202b86a96fbc6E.exit"
 
 83:                                               ; preds = %84
-  br i1 %.033.i, label %87, label %.thread62.i
+  br i1 %.133.i, label %87, label %.thread62.i
 
 84:                                               ; preds = %.thread.i, %10
   %.pn35.i = phi { ptr, i32 } [ %11, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %10 ]
-  %.033.i = phi i1 [ %.1.i, %.thread.i ], [ false, %10 ]
+  %.133.i = phi i1 [ %.0.i, %.thread.i ], [ false, %10 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h7a2a3e5addcf79fdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #17
           to label %83 unwind label %85
 

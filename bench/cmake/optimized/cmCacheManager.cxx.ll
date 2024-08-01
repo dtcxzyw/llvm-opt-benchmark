@@ -615,7 +615,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14cmCacheManager1
   br label %105
 
 105:                                              ; preds = %_ZN14cmCacheManager10CacheEntryD2Ev.exit, %83
-  %.046 = phi i32 [ 0, %83 ], [ %.4, %_ZN14cmCacheManager10CacheEntryD2Ev.exit ]
+  %.046 = phi i32 [ 0, %83 ], [ %.3, %_ZN14cmCacheManager10CacheEntryD2Ev.exit ]
   %106 = load ptr, ptr %9, align 8
   %107 = getelementptr i8, ptr %106, i64 -24
   %108 = load i64, ptr %107, align 8
@@ -685,13 +685,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14cmCacheManager1
   br label %284
 
 thread-pre-split:                                 ; preds = %143
-  %122 = add i32 %.3288, 1
+  %122 = add i32 %.4288, 1
   %.pr = load i8, ptr %144, align 1
   %123 = icmp eq i8 %.pr, 47
   br i1 %123, label %.lr.ph, label %.critedge4
 
 .lr.ph:                                           ; preds = %117, %thread-pre-split
-  %.3288 = phi i32 [ %122, %thread-pre-split ], [ %.147, %117 ]
+  %.4288 = phi i32 [ %122, %thread-pre-split ], [ %.147, %117 ]
   %.149287 = phi ptr [ %144, %thread-pre-split ], [ %.048, %117 ]
   %124 = getelementptr inbounds i8, ptr %.149287, i64 1
   %125 = load i8, ptr %124, align 1
@@ -738,7 +738,7 @@ thread-pre-split:                                 ; preds = %143
 
 .critedge4:                                       ; preds = %117, %.lr.ph, %thread-pre-split
   %.149.lcssa = phi ptr [ %144, %thread-pre-split ], [ %.149287, %.lr.ph ], [ %.048, %117 ]
-  %.3.lcssa = phi i32 [ %122, %thread-pre-split ], [ %.3288, %.lr.ph ], [ %.147, %117 ]
+  %.4.lcssa = phi i32 [ %122, %thread-pre-split ], [ %.4288, %.lr.ph ], [ %.147, %117 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #18
   %150 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %.noexc unwind label %226
@@ -1100,7 +1100,7 @@ _ZN14cmCacheManager10CacheEntryaSERKS0_.exit:     ; preds = %248, %.noexc150
           to label %260 unwind label %269
 
 260:                                              ; preds = %258
-  %261 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %259, i32 noundef %.3.lcssa)
+  %261 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %259, i32 noundef %.4.lcssa)
           to label %262 unwind label %269
 
 262:                                              ; preds = %260
@@ -1141,7 +1141,7 @@ _ZN14cmCacheManager10CacheEntryaSERKS0_.exit:     ; preds = %248, %.noexc150
   br label %284
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit138.thread: ; preds = %117, %117, %188, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i134, %_ZN14cmCacheManager10CacheEntryaSERKS0_.exit, %268, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit138, %240, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit
-  %.4 = phi i32 [ %.3.lcssa, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit ], [ %.3.lcssa, %240 ], [ %.3.lcssa, %_ZN14cmCacheManager10CacheEntryaSERKS0_.exit ], [ %.3.lcssa, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit138 ], [ %.3.lcssa, %268 ], [ %.3.lcssa, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i134 ], [ %.3.lcssa, %188 ], [ %.147, %117 ], [ %.147, %117 ]
+  %.3 = phi i32 [ %.4.lcssa, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit ], [ %.4.lcssa, %240 ], [ %.4.lcssa, %_ZN14cmCacheManager10CacheEntryaSERKS0_.exit ], [ %.4.lcssa, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit138 ], [ %.4.lcssa, %268 ], [ %.4.lcssa, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i134 ], [ %.4.lcssa, %188 ], [ %.147, %117 ], [ %.147, %117 ]
   %274 = load ptr, ptr %88, align 8
   %.not5.i.i.i.i.i.i = icmp eq ptr %274, null
   br i1 %.not5.i.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -1953,7 +1953,7 @@ _ZNK14cmCacheManager24GetInitializedCacheValueERKNSt7__cxx1112basic_stringIcSt11
   br label %485
 
 484:                                              ; preds = %80, %481
-  %.077 = xor i1 %79, true
+  %.178 = xor i1 %79, true
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %9) #18
   br label %486
 
@@ -1963,9 +1963,9 @@ _ZNK14cmCacheManager24GetInitializedCacheValueERKNSt7__cxx1112basic_stringIcSt11
   br label %487
 
 486:                                              ; preds = %69, %484
-  %.178 = phi i1 [ %.077, %484 ], [ false, %69 ]
+  %.077 = phi i1 [ %.178, %484 ], [ false, %69 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  ret i1 %.178
+  ret i1 %.077
 
 487:                                              ; preds = %485, %70
   %.pn110.pn.pn.pn = phi { ptr, i32 } [ %.pn110.pn.pn, %485 ], [ %71, %70 ]
@@ -4185,7 +4185,7 @@ _ZNK14cmCacheManager10CacheEntry11GetPropertyERKNSt7__cxx1112basic_stringIcSt11c
           to label %314 unwind label %308
 
 314:                                              ; preds = %312, %305
-  %.0 = xor i1 %301, true
+  %.1 = xor i1 %301, true
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %38) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #18
@@ -4207,10 +4207,10 @@ _ZNK14cmCacheManager10CacheEntry11GetPropertyERKNSt7__cxx1112basic_stringIcSt11c
   br label %318
 
 317:                                              ; preds = %56, %314
-  %.1 = phi i1 [ %.0, %314 ], [ false, %56 ]
+  %.0 = phi i1 [ %.1, %314 ], [ false, %56 ]
   call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %9) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  ret i1 %.1
+  ret i1 %.0
 
 318:                                              ; preds = %.body142, %.body107, %.body95, %.body, %61, %59
   %.pn83 = phi { ptr, i32 } [ %60, %59 ], [ %62, %61 ], [ %.pn81, %.body142 ], [ %.pn65.pn.pn, %.body107 ], [ %.pn61.pn.pn, %.body95 ], [ %.pn.pn.pn, %.body ]

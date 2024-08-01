@@ -1730,8 +1730,8 @@ portToCell.exit:                                  ; preds = %20, %24
   br i1 %.not15, label %11, label %portToCell.exit.thread
 
 portToCell.exit.thread:                           ; preds = %17, %11, %portToCell.exit, %5
-  %.1 = phi ptr [ %0, %5 ], [ %12, %17 ], [ null, %11 ], [ %.0.i, %portToCell.exit ]
-  ret ptr %.1
+  %.0 = phi ptr [ %0, %5 ], [ %12, %17 ], [ null, %11 ], [ %.0.i, %portToCell.exit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2182,56 +2182,56 @@ pushFontInfo.exit:                                ; preds = %35, %33, %25, %4
   %39 = tail call ptr @newPS() #22
   %40 = tail call ptr @openIntSet() #22
   %41 = tail call ptr @dtflatten(ptr noundef %38) #22
-  %.not.i6275 = icmp eq ptr %41, null
-  br i1 %.not.i6275, label %._crit_edge80, label %.lr.ph79
+  %.not.i6276 = icmp eq ptr %41, null
+  br i1 %.not.i6276, label %._crit_edge81, label %.lr.ph80
 
-.lr.ph79:                                         ; preds = %pushFontInfo.exit, %52
-  %.063.i78 = phi i16 [ %54, %52 ], [ 0, %pushFontInfo.exit ]
-  %.064.i77 = phi i64 [ %.165.i.lcssa, %52 ], [ 0, %pushFontInfo.exit ]
-  %.066.i76 = phi ptr [ %53, %52 ], [ %41, %pushFontInfo.exit ]
-  %42 = getelementptr inbounds i8, ptr %.066.i76, i64 16
+.lr.ph80:                                         ; preds = %pushFontInfo.exit, %52
+  %.063.i79 = phi i16 [ %54, %52 ], [ 0, %pushFontInfo.exit ]
+  %.064.i78 = phi i64 [ %.165.i.lcssa, %52 ], [ 0, %pushFontInfo.exit ]
+  %.066.i77 = phi ptr [ %53, %52 ], [ %41, %pushFontInfo.exit ]
+  %42 = getelementptr inbounds i8, ptr %.066.i77, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr @dtflatten(ptr noundef %43) #22
-  %.not82.i72 = icmp eq ptr %44, null
-  br i1 %.not82.i72, label %._crit_edge, label %.lr.ph
+  %.not82.i73 = icmp eq ptr %44, null
+  br i1 %.not82.i73, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph79, %.lr.ph
-  %.165.i74 = phi i64 [ %45, %.lr.ph ], [ %.064.i77, %.lr.ph79 ]
-  %.068.i73 = phi ptr [ %46, %.lr.ph ], [ %44, %.lr.ph79 ]
-  %45 = add i64 %.165.i74, 1
-  %46 = load ptr, ptr %.068.i73, align 8
+.lr.ph:                                           ; preds = %.lr.ph80, %.lr.ph
+  %.165.i75 = phi i64 [ %45, %.lr.ph ], [ %.064.i78, %.lr.ph80 ]
+  %.068.i74 = phi ptr [ %46, %.lr.ph ], [ %44, %.lr.ph80 ]
+  %45 = add i64 %.165.i75, 1
+  %46 = load ptr, ptr %.068.i74, align 8
   %.not82.i = icmp eq ptr %46, null
   br i1 %.not82.i, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph79
-  %.165.i.lcssa = phi i64 [ %.064.i77, %.lr.ph79 ], [ %45, %.lr.ph ]
-  %47 = getelementptr inbounds i8, ptr %.066.i76, i64 24
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph80
+  %.165.i.lcssa = phi i64 [ %.064.i78, %.lr.ph80 ], [ %45, %.lr.ph ]
+  %47 = getelementptr inbounds i8, ptr %.066.i77, i64 24
   %48 = load i8, ptr %47, align 8
   %.not83.i = icmp eq i8 %48, 0
   br i1 %.not83.i, label %52, label %49
 
 49:                                               ; preds = %._crit_edge
-  %50 = zext i16 %.063.i78 to i32
+  %50 = zext i16 %.063.i79 to i32
   %51 = add nuw nsw i32 %50, 1
   tail call void @addIntSet(ptr noundef %40, i32 noundef %51) #22
   br label %52
 
 52:                                               ; preds = %49, %._crit_edge
-  %53 = load ptr, ptr %.066.i76, align 8
-  %54 = add i16 %.063.i78, 1
+  %53 = load ptr, ptr %.066.i77, align 8
+  %54 = add i16 %.063.i79, 1
   %.not.i62 = icmp eq ptr %53, null
-  br i1 %.not.i62, label %._crit_edge80, label %.lr.ph79
+  br i1 %.not.i62, label %._crit_edge81, label %.lr.ph80
 
-._crit_edge80:                                    ; preds = %52, %pushFontInfo.exit
+._crit_edge81:                                    ; preds = %52, %pushFontInfo.exit
   %.064.i.lcssa = phi i64 [ 0, %pushFontInfo.exit ], [ %.165.i.lcssa, %52 ]
   %55 = add i64 %.064.i.lcssa, 1
   %56 = tail call fastcc ptr @gv_calloc(i64 noundef %55, i64 noundef 8)
   store ptr %56, ptr %37, align 8
   %57 = tail call ptr @dtflatten(ptr noundef %38) #22
-  %.not79.i99 = icmp eq ptr %57, null
-  br i1 %.not79.i99, label %processTbl.exit, label %.lr.ph107
+  %.not79.i100 = icmp eq ptr %57, null
+  br i1 %.not79.i100, label %processTbl.exit, label %.lr.ph108
 
-.lr.ph107:                                        ; preds = %._crit_edge80
+.lr.ph108:                                        ; preds = %._crit_edge81
   %58 = getelementptr inbounds i8, ptr %1, i64 64
   %59 = getelementptr inbounds i8, ptr %1, i64 62
   %60 = getelementptr inbounds i8, ptr %1, i64 120
@@ -2240,34 +2240,34 @@ pushFontInfo.exit:                                ; preds = %35, %33, %25, %4
   %63 = getelementptr inbounds i8, ptr %0, i64 16
   br label %64
 
-64:                                               ; preds = %.lr.ph107, %._crit_edge94
-  %.1.i105 = phi i16 [ 0, %.lr.ph107 ], [ %217, %._crit_edge94 ]
-  %.167.i104 = phi ptr [ %57, %.lr.ph107 ], [ %216, %._crit_edge94 ]
-  %.070.i103 = phi i64 [ 0, %.lr.ph107 ], [ %.171.i.lcssa, %._crit_edge94 ]
-  %.072.i102 = phi i64 [ 0, %.lr.ph107 ], [ %.173.i.lcssa, %._crit_edge94 ]
-  %.074.i101 = phi i32 [ 0, %.lr.ph107 ], [ %.175.i.lcssa, %._crit_edge94 ]
-  %.076.i100 = phi ptr [ %56, %.lr.ph107 ], [ %.177.i.lcssa, %._crit_edge94 ]
-  %65 = getelementptr inbounds i8, ptr %.167.i104, i64 16
+64:                                               ; preds = %.lr.ph108, %._crit_edge95
+  %.1.i106 = phi i16 [ 0, %.lr.ph108 ], [ %217, %._crit_edge95 ]
+  %.167.i105 = phi ptr [ %57, %.lr.ph108 ], [ %216, %._crit_edge95 ]
+  %.070.i104 = phi i64 [ 0, %.lr.ph108 ], [ %.171.i.lcssa, %._crit_edge95 ]
+  %.072.i103 = phi i64 [ 0, %.lr.ph108 ], [ %.173.i.lcssa, %._crit_edge95 ]
+  %.074.i102 = phi i32 [ 0, %.lr.ph108 ], [ %.175.i.lcssa, %._crit_edge95 ]
+  %.076.i101 = phi ptr [ %56, %.lr.ph108 ], [ %.177.i.lcssa, %._crit_edge95 ]
+  %65 = getelementptr inbounds i8, ptr %.167.i105, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = tail call ptr @dtflatten(ptr noundef %66) #22
-  %.not80.i85 = icmp eq ptr %67, null
-  br i1 %.not80.i85, label %._crit_edge94, label %.lr.ph93
+  %.not80.i86 = icmp eq ptr %67, null
+  br i1 %.not80.i86, label %._crit_edge95, label %.lr.ph94
 
-.lr.ph93:                                         ; preds = %64
-  %68 = zext i16 %.1.i105 to i32
+.lr.ph94:                                         ; preds = %64
+  %68 = zext i16 %.1.i106 to i32
   br label %69
 
-69:                                               ; preds = %.lr.ph93, %214
-  %.0.i91 = phi i32 [ 0, %.lr.ph93 ], [ %202, %214 ]
-  %.169.i90 = phi ptr [ %67, %.lr.ph93 ], [ %215, %214 ]
-  %.171.i89 = phi i64 [ %.070.i103, %.lr.ph93 ], [ %205, %214 ]
-  %.173.i88 = phi i64 [ %.072.i102, %.lr.ph93 ], [ %..173.i, %214 ]
-  %.175.i87 = phi i32 [ %.074.i101, %.lr.ph93 ], [ %169, %214 ]
-  %.177.i86 = phi ptr [ %.076.i100, %.lr.ph93 ], [ %72, %214 ]
-  %70 = getelementptr inbounds i8, ptr %.169.i90, i64 16
+69:                                               ; preds = %.lr.ph94, %214
+  %.0.i92 = phi i32 [ 0, %.lr.ph94 ], [ %202, %214 ]
+  %.169.i91 = phi ptr [ %67, %.lr.ph94 ], [ %215, %214 ]
+  %.171.i90 = phi i64 [ %.070.i104, %.lr.ph94 ], [ %205, %214 ]
+  %.173.i89 = phi i64 [ %.072.i103, %.lr.ph94 ], [ %..173.i, %214 ]
+  %.175.i88 = phi i32 [ %.074.i102, %.lr.ph94 ], [ %169, %214 ]
+  %.177.i87 = phi ptr [ %.076.i101, %.lr.ph94 ], [ %72, %214 ]
+  %70 = getelementptr inbounds i8, ptr %.169.i91, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.177.i86, i64 8
-  store ptr %71, ptr %.177.i86, align 8
+  %72 = getelementptr inbounds i8, ptr %.177.i87, i64 8
+  store ptr %71, ptr %.177.i87, align 8
   %73 = getelementptr inbounds i8, ptr %71, i64 128
   store ptr %1, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %71, i64 64
@@ -2300,25 +2300,25 @@ pushFontInfo.exit:                                ; preds = %35, %33, %25, %4
 85:                                               ; preds = %83
   %86 = load i8, ptr %60, align 8
   %87 = icmp sgt i8 %86, -1
-  br i1 %87, label %.sink.split145, label %88
+  br i1 %87, label %.sink.split146, label %88
 
 88:                                               ; preds = %85
   %89 = load i16, ptr %58, align 8
   %90 = and i16 %89, 32
   %.not63.i = icmp eq i16 %90, 0
-  br i1 %.not63.i, label %.sink.split145, label %91
+  br i1 %.not63.i, label %.sink.split146, label %91
 
 91:                                               ; preds = %88
   %92 = load i8, ptr %61, align 1
-  br label %.sink.split145
+  br label %.sink.split146
 
-.sink.split145:                                   ; preds = %88, %85, %91
-  %.sink146 = phi i8 [ %92, %91 ], [ %86, %85 ], [ 1, %88 ]
+.sink.split146:                                   ; preds = %88, %85, %91
+  %.sink147 = phi i8 [ %92, %91 ], [ %86, %85 ], [ 1, %88 ]
   %93 = getelementptr inbounds i8, ptr %71, i64 61
-  store i8 %.sink146, ptr %93, align 1
+  store i8 %.sink147, ptr %93, align 1
   br label %94
 
-94:                                               ; preds = %.sink.split145, %83
+94:                                               ; preds = %.sink.split146, %83
   %95 = getelementptr inbounds i8, ptr %71, i64 112
   %96 = getelementptr inbounds i8, ptr %71, i64 120
   %97 = load i8, ptr %96, align 8
@@ -2381,12 +2381,12 @@ size_html_img.exit.i:                             ; preds = %112, %109
   br label %126
 
 126:                                              ; preds = %121, %size_html_img.exit.i, %98
-  %.sink151 = phi i64 [ 40, %121 ], [ 16, %size_html_img.exit.i ], [ 88, %98 ]
-  %.sink149 = phi i64 [ 48, %121 ], [ 24, %size_html_img.exit.i ], [ 96, %98 ]
+  %.sink152 = phi i64 [ 40, %121 ], [ 16, %size_html_img.exit.i ], [ 88, %98 ]
+  %.sink150 = phi i64 [ 48, %121 ], [ 24, %size_html_img.exit.i ], [ 96, %98 ]
   %.0.i67 = phi i32 [ 0, %121 ], [ %.0.i.i66, %size_html_img.exit.i ], [ %100, %98 ]
   %127 = load ptr, ptr %95, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 %.sink151
-  %.sroa.4.0..sroa_idx6.i = getelementptr inbounds i8, ptr %127, i64 %.sink149
+  %128 = getelementptr inbounds i8, ptr %127, i64 %.sink152
+  %.sroa.4.0..sroa_idx6.i = getelementptr inbounds i8, ptr %127, i64 %.sink150
   %.sroa.0.0.i = load double, ptr %128, align 8
   %.sroa.4.0.i = load double, ptr %.sroa.4.0..sroa_idx6.i, align 8
   %129 = getelementptr inbounds i8, ptr %71, i64 62
@@ -2442,7 +2442,7 @@ size_html_cell.exit.sink.split:                   ; preds = %145, %148, %158
   br label %size_html_cell.exit
 
 size_html_cell.exit:                              ; preds = %size_html_cell.exit.sink.split, %126, %151, %158
-  %.2.i = phi i32 [ %.0.i67, %126 ], [ %.0.i67, %151 ], [ %.0.i67, %158 ], [ 1, %size_html_cell.exit.sink.split ]
+  %.1.i68 = phi i32 [ %.0.i67, %126 ], [ %.0.i67, %151 ], [ %.0.i67, %158 ], [ 1, %size_html_cell.exit.sink.split ]
   %162 = phi <2 x double> [ %142, %126 ], [ zeroinitializer, %151 ], [ zeroinitializer, %158 ], [ %160, %size_html_cell.exit.sink.split ]
   %163 = getelementptr inbounds i8, ptr %71, i64 66
   %164 = getelementptr inbounds i8, ptr %71, i64 88
@@ -2451,8 +2451,8 @@ size_html_cell.exit:                              ; preds = %size_html_cell.exit
   %167 = fcmp ogt <2 x double> %162, %166
   %168 = select <2 x i1> %167, <2 x double> %162, <2 x double> %166
   store <2 x double> %168, ptr %164, align 8
-  %169 = or i32 %.2.i, %.175.i87
-  %170 = and i32 %.0.i91, 65535
+  %169 = or i32 %.1.i68, %.175.i88
+  %170 = and i32 %.0.i92, 65535
   %171 = getelementptr inbounds i8, ptr %71, i64 104
   %172 = load i16, ptr %171, align 8
   %173 = zext i16 %172 to i32
@@ -2466,9 +2466,9 @@ size_html_cell.exit:                              ; preds = %size_html_cell.exit
   br i1 %.not44.i, label %.preheader35.i.findCol.exit_crit_edge, label %.preheader.lr.ph.i
 
 .preheader35.i.findCol.exit_crit_edge:            ; preds = %size_html_cell.exit, %.preheader35.i
-  %.039.i71134 = phi i32 [ %.039.i82, %.preheader35.i ], [ %170, %size_html_cell.exit ]
+  %.039.i72135 = phi i32 [ %.039.i83, %.preheader35.i ], [ %170, %size_html_cell.exit ]
   %.phi.trans.insert = getelementptr inbounds i8, ptr %71, i64 106
-  %.pre130 = load i16, ptr %.phi.trans.insert, align 2
+  %.pre131 = load i16, ptr %.phi.trans.insert, align 2
   br label %findCol.exit
 
 .preheader.lr.ph.i:                               ; preds = %.preheader35.i
@@ -2477,8 +2477,8 @@ size_html_cell.exit:                              ; preds = %size_html_cell.exit
   br label %.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %size_html_cell.exit, %.critedge.i
-  %.039.i82 = phi i32 [ %180, %.critedge.i ], [ %170, %size_html_cell.exit ]
-  %176 = add nsw i32 %174, %.039.i82
+  %.039.i83 = phi i32 [ %180, %.critedge.i ], [ %170, %size_html_cell.exit ]
+  %176 = add nsw i32 %174, %.039.i83
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %178, %.lr.ph.preheader.i
@@ -2489,7 +2489,7 @@ size_html_cell.exit:                              ; preds = %size_html_cell.exit
 
 178:                                              ; preds = %.lr.ph.i
   %179 = add nsw i32 %.02738.i, -1
-  %.not32.not.i = icmp sgt i32 %.02738.i, %.039.i82
+  %.not32.not.i = icmp sgt i32 %.02738.i, %.039.i83
   br i1 %.not32.not.i, label %.lr.ph.i, label %.preheader35.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i
@@ -2500,7 +2500,7 @@ size_html_cell.exit:                              ; preds = %size_html_cell.exit
   %181 = phi i16 [ %.pre.i64, %.preheader.lr.ph.i ], [ %189, %._crit_edge.i ]
   %182 = phi i16 [ %.pre, %.preheader.lr.ph.i ], [ %190, %._crit_edge.i ]
   %183 = phi i16 [ %.pre.i64, %.preheader.lr.ph.i ], [ %191, %._crit_edge.i ]
-  %.02842.i = phi i32 [ %.039.i82, %.preheader.lr.ph.i ], [ %192, %._crit_edge.i ]
+  %.02842.i = phi i32 [ %.039.i83, %.preheader.lr.ph.i ], [ %192, %._crit_edge.i ]
   %.not45.i = icmp eq i16 %183, 0
   br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph41.i
 
@@ -2524,28 +2524,28 @@ size_html_cell.exit:                              ; preds = %size_html_cell.exit
   %191 = phi i16 [ %185, %._crit_edge.loopexit.i ], [ 0, %.preheader.i ]
   %192 = add nsw i32 %.02842.i, 1
   %193 = zext i16 %190 to i32
-  %194 = add nsw i32 %.039.i82, %193
+  %194 = add nsw i32 %.039.i83, %193
   %195 = icmp slt i32 %192, %194
   br i1 %195, label %.preheader.i, label %findCol.exit
 
 findCol.exit:                                     ; preds = %._crit_edge.i, %.preheader35.i.findCol.exit_crit_edge
-  %.039.i71133 = phi i32 [ %.039.i71134, %.preheader35.i.findCol.exit_crit_edge ], [ %.039.i82, %._crit_edge.i ]
-  %196 = phi i16 [ %.pre130, %.preheader35.i.findCol.exit_crit_edge ], [ %189, %._crit_edge.i ]
+  %.039.i72134 = phi i32 [ %.039.i72135, %.preheader35.i.findCol.exit_crit_edge ], [ %.039.i83, %._crit_edge.i ]
+  %196 = phi i16 [ %.pre131, %.preheader35.i.findCol.exit_crit_edge ], [ %189, %._crit_edge.i ]
   %197 = phi i16 [ 0, %.preheader35.i.findCol.exit_crit_edge ], [ %190, %._crit_edge.i ]
-  %198 = trunc i32 %.039.i71133 to i16
+  %198 = trunc i32 %.039.i72134 to i16
   %199 = getelementptr inbounds i8, ptr %71, i64 110
-  store i16 %.1.i105, ptr %199, align 2
+  store i16 %.1.i106, ptr %199, align 2
   %200 = getelementptr inbounds i8, ptr %71, i64 108
   store i16 %198, ptr %200, align 4
   %201 = zext i16 %197 to i32
-  %202 = add i32 %.039.i71133, %201
+  %202 = add i32 %.039.i72134, %201
   %203 = and i32 %202, 65535
   %204 = zext nneg i32 %203 to i64
-  %205 = tail call i64 @llvm.umax.i64(i64 %.171.i89, i64 %204)
+  %205 = tail call i64 @llvm.umax.i64(i64 %.171.i90, i64 %204)
   %206 = zext i16 %196 to i32
   %207 = add nuw nsw i32 %206, %68
   %208 = zext nneg i32 %207 to i64
-  %..173.i = tail call i64 @llvm.umax.i64(i64 %.173.i88, i64 %208)
+  %..173.i = tail call i64 @llvm.umax.i64(i64 %.173.i89, i64 %208)
   %209 = tail call i32 @inIntSet(ptr noundef %40, i32 noundef %207) #22
   %.not81.i = icmp eq i32 %209, 0
   br i1 %.not81.i, label %214, label %210
@@ -2558,24 +2558,24 @@ findCol.exit:                                     ; preds = %._crit_edge.i, %.pr
   br label %214
 
 214:                                              ; preds = %210, %findCol.exit
-  %215 = load ptr, ptr %.169.i90, align 8
+  %215 = load ptr, ptr %.169.i91, align 8
   %.not80.i = icmp eq ptr %215, null
-  br i1 %.not80.i, label %._crit_edge94, label %69
+  br i1 %.not80.i, label %._crit_edge95, label %69
 
-._crit_edge94:                                    ; preds = %214, %64
-  %.177.i.lcssa = phi ptr [ %.076.i100, %64 ], [ %72, %214 ]
-  %.175.i.lcssa = phi i32 [ %.074.i101, %64 ], [ %169, %214 ]
-  %.173.i.lcssa = phi i64 [ %.072.i102, %64 ], [ %..173.i, %214 ]
-  %.171.i.lcssa = phi i64 [ %.070.i103, %64 ], [ %205, %214 ]
-  %216 = load ptr, ptr %.167.i104, align 8
-  %217 = add i16 %.1.i105, 1
+._crit_edge95:                                    ; preds = %214, %64
+  %.177.i.lcssa = phi ptr [ %.076.i101, %64 ], [ %72, %214 ]
+  %.175.i.lcssa = phi i32 [ %.074.i102, %64 ], [ %169, %214 ]
+  %.173.i.lcssa = phi i64 [ %.072.i103, %64 ], [ %..173.i, %214 ]
+  %.171.i.lcssa = phi i64 [ %.070.i104, %64 ], [ %205, %214 ]
+  %216 = load ptr, ptr %.167.i105, align 8
+  %217 = add i16 %.1.i106, 1
   %.not79.i = icmp eq ptr %216, null
   br i1 %.not79.i, label %processTbl.exit, label %64
 
-processTbl.exit:                                  ; preds = %._crit_edge94, %._crit_edge80
-  %.074.i.lcssa = phi i32 [ 0, %._crit_edge80 ], [ %.175.i.lcssa, %._crit_edge94 ]
-  %.072.i.lcssa = phi i64 [ 0, %._crit_edge80 ], [ %.173.i.lcssa, %._crit_edge94 ]
-  %.070.i.lcssa = phi i64 [ 0, %._crit_edge80 ], [ %.171.i.lcssa, %._crit_edge94 ]
+processTbl.exit:                                  ; preds = %._crit_edge95, %._crit_edge81
+  %.074.i.lcssa = phi i32 [ 0, %._crit_edge81 ], [ %.175.i.lcssa, %._crit_edge95 ]
+  %.072.i.lcssa = phi i64 [ 0, %._crit_edge81 ], [ %.173.i.lcssa, %._crit_edge95 ]
+  %.070.i.lcssa = phi i64 [ 0, %._crit_edge81 ], [ %.171.i.lcssa, %._crit_edge95 ]
   %218 = getelementptr inbounds i8, ptr %1, i64 144
   store i64 %.072.i.lcssa, ptr %218, align 8
   %219 = getelementptr inbounds i8, ptr %1, i64 152
@@ -3035,45 +3035,45 @@ sizeArray.exit:                                   ; preds = %._crit_edge51.i.i, 
   %476 = uitofp i64 %475 to double
   %477 = fadd double %476, 1.000000e+00
   %478 = call double @llvm.fmuladd.f64(double %477, double %468, double %473)
-  %.not120 = icmp eq i64 %463, 0
-  br i1 %.not120, label %.preheader, label %.lr.ph113
+  %.not121 = icmp eq i64 %463, 0
+  br i1 %.not121, label %.preheader, label %.lr.ph114
 
-.lr.ph113:                                        ; preds = %sizeArray.exit
+.lr.ph114:                                        ; preds = %sizeArray.exit
   %479 = getelementptr inbounds i8, ptr %1, i64 136
   %480 = load ptr, ptr %479, align 8
   br label %483
 
 .preheader:                                       ; preds = %483, %sizeArray.exit
   %.048.lcssa = phi double [ %474, %sizeArray.exit ], [ %486, %483 ]
-  %.not121 = icmp eq i64 %475, 0
-  br i1 %.not121, label %._crit_edge118, label %.lr.ph117
+  %.not122 = icmp eq i64 %475, 0
+  br i1 %.not122, label %._crit_edge119, label %.lr.ph118
 
-.lr.ph117:                                        ; preds = %.preheader
+.lr.ph118:                                        ; preds = %.preheader
   %481 = getelementptr inbounds i8, ptr %1, i64 128
   %482 = load ptr, ptr %481, align 8
   br label %488
 
-483:                                              ; preds = %.lr.ph113, %483
-  %.046112 = phi i64 [ 0, %.lr.ph113 ], [ %487, %483 ]
-  %.048111 = phi double [ %474, %.lr.ph113 ], [ %486, %483 ]
-  %484 = getelementptr inbounds double, ptr %480, i64 %.046112
+483:                                              ; preds = %.lr.ph114, %483
+  %.046113 = phi i64 [ 0, %.lr.ph114 ], [ %487, %483 ]
+  %.048112 = phi double [ %474, %.lr.ph114 ], [ %486, %483 ]
+  %484 = getelementptr inbounds double, ptr %480, i64 %.046113
   %485 = load double, ptr %484, align 8
-  %486 = fadd double %.048111, %485
-  %487 = add nuw i64 %.046112, 1
+  %486 = fadd double %.048112, %485
+  %487 = add nuw i64 %.046113, 1
   %exitcond.not = icmp eq i64 %487, %463
   br i1 %exitcond.not, label %.preheader, label %483
 
-488:                                              ; preds = %.lr.ph117, %488
-  %.0116 = phi i64 [ 0, %.lr.ph117 ], [ %492, %488 ]
-  %.047115 = phi double [ %478, %.lr.ph117 ], [ %491, %488 ]
-  %489 = getelementptr inbounds double, ptr %482, i64 %.0116
+488:                                              ; preds = %.lr.ph118, %488
+  %.0117 = phi i64 [ 0, %.lr.ph118 ], [ %492, %488 ]
+  %.047116 = phi double [ %478, %.lr.ph118 ], [ %491, %488 ]
+  %489 = getelementptr inbounds double, ptr %482, i64 %.0117
   %490 = load double, ptr %489, align 8
-  %491 = fadd double %.047115, %490
-  %492 = add nuw i64 %.0116, 1
-  %exitcond129.not = icmp eq i64 %492, %475
-  br i1 %exitcond129.not, label %._crit_edge118, label %488
+  %491 = fadd double %.047116, %490
+  %492 = add nuw i64 %.0117, 1
+  %exitcond130.not = icmp eq i64 %492, %475
+  br i1 %exitcond130.not, label %._crit_edge119, label %488
 
-._crit_edge118:                                   ; preds = %488, %.preheader
+._crit_edge119:                                   ; preds = %488, %.preheader
   %.047.lcssa = phi double [ %478, %.preheader ], [ %491, %488 ]
   %493 = load i16, ptr %222, align 8
   %494 = and i16 %493, 1
@@ -3082,17 +3082,17 @@ sizeArray.exit:                                   ; preds = %._crit_edge51.i.i, 
   %496 = insertelement <2 x double> %495, double %.047.lcssa, i64 1
   br i1 %.not57, label %510, label %497
 
-497:                                              ; preds = %._crit_edge118
+497:                                              ; preds = %._crit_edge119
   %498 = getelementptr inbounds i8, ptr %1, i64 66
   %499 = load i16, ptr %498, align 2
   %.not58 = icmp eq i16 %499, 0
-  br i1 %.not58, label %.sink.split152, label %500
+  br i1 %.not58, label %.sink.split153, label %500
 
 500:                                              ; preds = %497
   %501 = getelementptr inbounds i8, ptr %1, i64 68
   %502 = load i16, ptr %501, align 4
   %.not59 = icmp eq i16 %502, 0
-  br i1 %.not59, label %.sink.split152, label %503
+  br i1 %.not59, label %.sink.split153, label %503
 
 503:                                              ; preds = %500
   %504 = uitofp i16 %499 to double
@@ -3100,17 +3100,17 @@ sizeArray.exit:                                   ; preds = %._crit_edge51.i.i, 
   %506 = uitofp i16 %502 to double
   %507 = fcmp ogt double %.047.lcssa, %506
   %or.cond = select i1 %505, i1 true, i1 %507
-  br i1 %or.cond, label %.sink.split152, label %510
+  br i1 %or.cond, label %.sink.split153, label %510
 
-.sink.split152:                                   ; preds = %497, %500, %503
+.sink.split153:                                   ; preds = %497, %500, %503
   %.str.17.sink = phi ptr [ @.str.17, %503 ], [ @.str.18, %500 ], [ @.str.18, %497 ]
   %508 = phi <2 x double> [ zeroinitializer, %503 ], [ %496, %500 ], [ %496, %497 ]
   %509 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull %.str.17.sink) #22
   br label %510
 
-510:                                              ; preds = %.sink.split152, %503, %._crit_edge118
-  %.151 = phi i32 [ %.074.i.lcssa, %._crit_edge118 ], [ %.074.i.lcssa, %503 ], [ 1, %.sink.split152 ]
-  %511 = phi <2 x double> [ %496, %._crit_edge118 ], [ zeroinitializer, %503 ], [ %508, %.sink.split152 ]
+510:                                              ; preds = %.sink.split153, %503, %._crit_edge119
+  %.050 = phi i32 [ %.074.i.lcssa, %._crit_edge119 ], [ %.074.i.lcssa, %503 ], [ 1, %.sink.split153 ]
+  %511 = phi <2 x double> [ %496, %._crit_edge119 ], [ zeroinitializer, %503 ], [ %508, %.sink.split153 ]
   %512 = getelementptr inbounds i8, ptr %1, i64 66
   %513 = getelementptr inbounds i8, ptr %1, i64 88
   %514 = load <2 x i16>, ptr %512, align 2
@@ -3152,7 +3152,7 @@ sizeArray.exit:                                   ; preds = %._crit_edge51.i.i, 
   br label %popFontInfo.exit
 
 popFontInfo.exit:                                 ; preds = %529, %526, %510
-  ret i32 %.151
+  ret i32 %.050
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -3252,7 +3252,7 @@ gv_strdup.exit:                                   ; preds = %15
 
 58:                                               ; preds = %49, %51, %54, %45
   %59 = phi double [ %28, %45 ], [ %56, %54 ], [ %53, %51 ], [ %28, %49 ]
-  %.0117 = phi double [ %31, %45 ], [ 0.000000e+00, %54 ], [ 0.000000e+00, %51 ], [ 0.000000e+00, %49 ]
+  %.1118 = phi double [ %31, %45 ], [ 0.000000e+00, %54 ], [ 0.000000e+00, %51 ], [ 0.000000e+00, %49 ]
   %60 = fcmp ogt double %40, 0.000000e+00
   br i1 %60, label %61, label %72
 
@@ -3288,7 +3288,7 @@ gv_strdup.exit:                                   ; preds = %15
 72:                                               ; preds = %.sink.split, %58, %23
   %73 = phi double [ %35, %58 ], [ %35, %23 ], [ %.sink, %.sink.split ]
   %74 = phi double [ %59, %58 ], [ %28, %23 ], [ %59, %.sink.split ]
-  %.1118 = phi double [ %.0117, %58 ], [ %31, %23 ], [ %.0117, %.sink.split ]
+  %.0117 = phi double [ %.1118, %58 ], [ %31, %23 ], [ %.1118, %.sink.split ]
   %.0116 = phi double [ %40, %58 ], [ %40, %23 ], [ 0.000000e+00, %.sink.split ]
   %75 = getelementptr inbounds i8, ptr %0, i64 61
   %76 = load i8, ptr %75, align 1
@@ -3301,9 +3301,9 @@ gv_strdup.exit:                                   ; preds = %15
   %83 = getelementptr inbounds i8, ptr %0, i64 152
   %84 = load i64, ptr %83, align 8
   %85 = uitofp i64 %84 to double
-  %86 = fdiv double %.1118, %85
+  %86 = fdiv double %.0117, %85
   %87 = fneg double %86
-  %88 = tail call double @llvm.fmuladd.f64(double %87, double %85, double %.1118)
+  %88 = tail call double @llvm.fmuladd.f64(double %87, double %85, double %.0117)
   %89 = fcmp ult double %88, 0.000000e+00
   %.in.v = select i1 %89, double -5.000000e-01, double 5.000000e-01
   %.in = fadd double %88, %.in.v
@@ -3413,7 +3413,7 @@ gv_strdup.exit:                                   ; preds = %15
   %spec.select = select i1 %148, i32 8, i32 0
   %149 = icmp eq i16 %.pre160, 0
   %150 = or disjoint i32 %spec.select, 4
-  %.1 = select i1 %149, i32 %150, i32 %spec.select
+  %.2 = select i1 %149, i32 %150, i32 %spec.select
   %151 = zext i16 %.pre to i64
   %152 = getelementptr inbounds i8, ptr %145, i64 104
   %153 = load i16, ptr %152, align 8
@@ -3421,8 +3421,8 @@ gv_strdup.exit:                                   ; preds = %15
   %155 = add nuw nsw i64 %154, %151
   %156 = load i64, ptr %83, align 8
   %157 = icmp eq i64 %155, %156
-  %158 = or disjoint i32 %.1, 2
-  %.2 = select i1 %157, i32 %158, i32 %.1
+  %158 = or disjoint i32 %.2, 2
+  %.3 = select i1 %157, i32 %158, i32 %.2
   %159 = zext i16 %.pre160 to i64
   %160 = getelementptr inbounds i8, ptr %145, i64 106
   %161 = load i16, ptr %160, align 2
@@ -3431,7 +3431,7 @@ gv_strdup.exit:                                   ; preds = %15
   %164 = load i64, ptr %114, align 8
   %165 = icmp eq i64 %163, %164
   %166 = zext i1 %165 to i32
-  %spec.select139 = or disjoint i32 %.2, %166
+  %spec.select139 = or disjoint i32 %.3, %166
   br label %167
 
 167:                                              ; preds = %._crit_edge156, %147
@@ -3439,7 +3439,7 @@ gv_strdup.exit:                                   ; preds = %15
   %.pre-phi167 = phi i64 [ %.pre166, %._crit_edge156 ], [ %159, %147 ]
   %.pre-phi165 = phi i64 [ %.pre164, %._crit_edge156 ], [ %154, %147 ]
   %.pre-phi = phi i64 [ %.pre163, %._crit_edge156 ], [ %151, %147 ]
-  %.3 = phi i32 [ 0, %._crit_edge156 ], [ %spec.select139, %147 ]
+  %.0 = phi i32 [ 0, %._crit_edge156 ], [ %spec.select139, %147 ]
   %168 = load ptr, ptr %91, align 8
   %169 = getelementptr inbounds double, ptr %168, i64 %.pre-phi
   %170 = load double, ptr %169, align 8
@@ -3454,7 +3454,7 @@ gv_strdup.exit:                                   ; preds = %15
   %179 = getelementptr inbounds double, ptr %177, i64 %.pre-phi169
   %180 = load double, ptr %179, align 8
   %181 = fadd double %180, %174
-  %182 = and i32 %.3, %2
+  %182 = and i32 %.0, %2
   %183 = getelementptr inbounds i8, ptr %145, i64 48
   %184 = load ptr, ptr %183, align 8
   %.not.i = icmp eq ptr %184, null

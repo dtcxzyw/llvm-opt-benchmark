@@ -137,8 +137,8 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not68, label %.outer, label %.preheader
 
 .preheader:                                       ; preds = %51, %.preheader
-  %.3 = phi ptr [ %52, %.preheader ], [ %.1.ph.ph, %51 ]
-  %52 = getelementptr inbounds i8, ptr %.3, i64 -1
+  %.4 = phi ptr [ %52, %.preheader ], [ %.1.ph.ph, %51 ]
+  %52 = getelementptr inbounds i8, ptr %.4, i64 -1
   %53 = load i8, ptr %52, align 1
   %.not69 = icmp eq i8 %53, 47
   br i1 %.not69, label %.outer.outer.backedge, label %.preheader, !llvm.loop !8

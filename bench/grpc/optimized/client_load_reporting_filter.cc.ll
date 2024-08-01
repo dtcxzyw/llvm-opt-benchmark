@@ -723,28 +723,28 @@ terminate.lpad.i63:                               ; preds = %lpad24
   unreachable
 
 ehcleanup27:                                      ; preds = %lpad24, %lpad19
-  %client_stats.sroa.0.1 = phi ptr [ %4, %lpad19 ], [ null, %lpad24 ]
+  %client_stats.sroa.0.2 = phi ptr [ %4, %lpad19 ], [ null, %lpad24 ]
   %.pn.pn = phi { ptr, i32 } [ %42, %lpad19 ], [ %43, %lpad24 ]
   call void @_ZN9grpc_core8CallArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp18) #23
   br label %ehcleanup28
 
 ehcleanup28:                                      ; preds = %ehcleanup27, %lpad
-  %client_stats.sroa.0.2 = phi ptr [ %4, %lpad ], [ %client_stats.sroa.0.1, %ehcleanup27 ]
+  %client_stats.sroa.0.1 = phi ptr [ %4, %lpad ], [ %client_stats.sroa.0.2, %ehcleanup27 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.pn, %ehcleanup27 ]
-  %cmp.not.i65 = icmp eq ptr %client_stats.sroa.0.2, null
+  %cmp.not.i65 = icmp eq ptr %client_stats.sroa.0.1, null
   br i1 %cmp.not.i65, label %_ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit73, label %if.then.i66
 
 if.then.i66:                                      ; preds = %ehcleanup28
-  %refs_.i.i67 = getelementptr inbounds i8, ptr %client_stats.sroa.0.2, i64 8
+  %refs_.i.i67 = getelementptr inbounds i8, ptr %client_stats.sroa.0.1, i64 8
   %48 = atomicrmw sub ptr %refs_.i.i67, i64 1 acq_rel, align 8
   %cmp.i.i.i68 = icmp eq i64 %48, 1
   br i1 %cmp.i.i.i68, label %if.then.i.i70, label %_ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit73
 
 if.then.i.i70:                                    ; preds = %if.then.i66
-  %vtable.i.i.i71 = load ptr, ptr %client_stats.sroa.0.2, align 8
+  %vtable.i.i.i71 = load ptr, ptr %client_stats.sroa.0.1, align 8
   %vfn.i.i.i72 = getelementptr inbounds i8, ptr %vtable.i.i.i71, i64 8
   %49 = load ptr, ptr %vfn.i.i.i72, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(64) %client_stats.sroa.0.2) #23
+  call void %49(ptr noundef nonnull align 8 dereferenceable(64) %client_stats.sroa.0.1) #23
   br label %_ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit73
 
 _ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit73: ; preds = %ehcleanup28, %if.then.i66, %if.then.i.i70

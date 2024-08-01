@@ -38274,7 +38274,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %.body720
 
 190:                                              ; preds = %.lr.ph1877, %_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEED2Ev.exit717
-  %.sroa.3.01875 = phi i32 [ undef, %.lr.ph1877 ], [ %.sroa.3.4, %_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEED2Ev.exit717 ]
+  %.sroa.3.01875 = phi i32 [ undef, %.lr.ph1877 ], [ %.sroa.3.1, %_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEED2Ev.exit717 ]
   %.sroa.01483.01874 = phi ptr [ %87, %.lr.ph1877 ], [ %3391, %_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RTLIL5ConstENS0_8hash_opsIS7_EEED2Ev.exit717 ]
   %191 = getelementptr inbounds i8, ptr %.sroa.01483.01874, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)
@@ -43977,7 +43977,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %.noexc656, %.noexc6
   br i1 %.not15301866, label %._crit_edge1871, label %.lr.ph1870
 
 .lr.ph1870:                                       ; preds = %._crit_edge1865, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit
-  %.sroa.3.11868 = phi i32 [ %.sroa.3.3, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.3.01875, %._crit_edge1865 ]
+  %.sroa.3.21868 = phi i32 [ %.sroa.3.3, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.3.01875, %._crit_edge1865 ]
   %.sroa.01474.01867 = phi ptr [ %3374, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit ], [ %.val139, %._crit_edge1865 ]
   %2925 = getelementptr inbounds i8, ptr %.sroa.01474.01867, i64 72
   %2926 = getelementptr inbounds i8, ptr %.sroa.01474.01867, i64 80
@@ -44805,7 +44805,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
   br label %3344
 
 3344:                                             ; preds = %3342, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit694.thread
-  %.sroa.3.2 = phi i32 [ %3343, %3342 ], [ %.sroa.3.11868, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit694.thread ]
+  %.sroa.3.4 = phi i32 [ %3343, %3342 ], [ %.sroa.3.21868, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit694.thread ]
   %3345 = getelementptr inbounds i8, ptr %.sroa.01474.01867, i64 40
   %3346 = load i32, ptr %3345, align 8
   %3347 = load ptr, ptr %159, align 8
@@ -44816,7 +44816,7 @@ _ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_strin
 3349:                                             ; preds = %3344
   store i32 %3337, ptr %3347, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3347, i64 4
-  store i32 %.sroa.3.2, ptr %.sroa.3.0..sroa_idx, align 4
+  store i32 %.sroa.3.4, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3347, i64 8
   store i32 %3346, ptr %.sroa.4.0..sroa_idx, align 4
   %3350 = load ptr, ptr %159, align 8
@@ -44852,7 +44852,7 @@ _ZNSt12_Vector_baseIN5Yosys10MemLibrary10WrTransDefESaIS2_EE11_M_allocateEm.exit
   %3367 = getelementptr inbounds %"struct.Yosys::MemLibrary::WrTransDef", ptr %3366, i64 %3358
   store i32 %3337, ptr %3367, align 4
   %.sroa.3.0..sroa_idx1469 = getelementptr inbounds i8, ptr %3367, i64 4
-  store i32 %.sroa.3.2, ptr %.sroa.3.0..sroa_idx1469, align 4
+  store i32 %.sroa.3.4, ptr %.sroa.3.0..sroa_idx1469, align 4
   %.sroa.4.0..sroa_idx1471 = getelementptr inbounds i8, ptr %3367, i64 8
   store i32 %3346, ptr %.sroa.4.0..sroa_idx1471, align 4
   %3368 = icmp sgt i64 %3356, 0
@@ -44880,13 +44880,13 @@ _ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE17_M_realloc_insertIJRKS2_E
   br label %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit: ; preds = %.noexc687, %.noexc693, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %3349
-  %.sroa.3.3 = phi i32 [ %.sroa.3.2, %3349 ], [ %.sroa.3.2, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.3.11868, %.noexc693 ], [ %.sroa.3.11868, %.noexc687 ]
+  %.sroa.3.3 = phi i32 [ %.sroa.3.4, %3349 ], [ %.sroa.3.4, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.3.21868, %.noexc693 ], [ %.sroa.3.21868, %.noexc687 ]
   %3374 = getelementptr inbounds i8, ptr %.sroa.01474.01867, i64 160
   %.not1530 = icmp eq ptr %3374, %.val138
   br i1 %.not1530, label %._crit_edge1871, label %.lr.ph1870
 
 ._crit_edge1871:                                  ; preds = %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit, %._crit_edge1865
-  %.sroa.3.1.lcssa = phi i32 [ %.sroa.3.01875, %._crit_edge1865 ], [ %.sroa.3.3, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.3.2.lcssa = phi i32 [ %.sroa.3.01875, %._crit_edge1865 ], [ %.sroa.3.3, %_ZNSt6vectorIN5Yosys10MemLibrary10WrTransDefESaIS2_EE9push_backERKS2_.exit ]
   %3375 = load ptr, ptr %161, align 8
   %3376 = load ptr, ptr %162, align 8
   %.not.i701 = icmp eq ptr %3375, %3376
@@ -44911,7 +44911,7 @@ _ZNSt6vectorIN5Yosys10MemLibrary11PortVariantESaIS2_EE9push_backERKS2_.exit: ; p
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit192.thread, %._crit_edge, %_ZNSt6vectorIN5Yosys10MemLibrary11PortVariantESaIS2_EE9push_backERKS2_.exit
-  %.sroa.3.4 = phi i32 [ %.sroa.3.01875, %._crit_edge ], [ %.sroa.3.1.lcssa, %_ZNSt6vectorIN5Yosys10MemLibrary11PortVariantESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.3.01875, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit192.thread ]
+  %.sroa.3.1 = phi i32 [ %.sroa.3.01875, %._crit_edge ], [ %.sroa.3.2.lcssa, %_ZNSt6vectorIN5Yosys10MemLibrary11PortVariantESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.3.01875, %_ZN12_GLOBAL__N_16Parser7opts_okERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5RTLIL5ConstENS2_8hash_opsIS9_EEEESG_.exit192.thread ]
   %3381 = load ptr, ptr %90, align 8
   %3382 = load ptr, ptr %99, align 8
   %.not4.i.i.i.i.i704 = icmp eq ptr %3381, %3382

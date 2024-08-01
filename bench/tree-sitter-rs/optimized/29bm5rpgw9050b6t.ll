@@ -885,14 +885,14 @@ define void @_ZN18tree_sitter_config6Config4load17h169fc78c4177fae2E(ptr noalias
           to label %_ZN3std2fs14read_to_string17h9448c279a23251f3E.exit unwind label %.thread99
 
 27:                                               ; preds = %41, %111, %.thread96, %29
-  %.160 = phi i8 [ %.261, %29 ], [ %.059, %.thread96 ], [ %.059, %41 ], [ 1, %111 ]
+  %.261 = phi i8 [ %.160, %29 ], [ %.059, %.thread96 ], [ %.059, %41 ], [ 1, %111 ]
   %.pn67 = phi { ptr, i32 } [ %30, %29 ], [ %.pn95, %.thread96 ], [ %lpad.thr_comm.split-lp, %41 ], [ %112, %111 ]
   %28 = load i64, ptr %1, align 8, !range !4, !noundef !5
   %.not69 = icmp eq i64 %28, -9223372036854775808
   br i1 %.not69, label %123, label %121
 
 29:                                               ; preds = %101, %98, %21
-  %.261 = phi i8 [ 1, %21 ], [ %.059, %98 ], [ %.059, %101 ]
+  %.160 = phi i8 [ 1, %21 ], [ %.059, %98 ], [ %.059, %101 ]
   %30 = landingpad { ptr, i32 }
           cleanup
   br label %27
@@ -1212,7 +1212,7 @@ _ZN3std2fs14read_to_string17h9448c279a23251f3E.exit: ; preds = %22
   br label %89
 
 121:                                              ; preds = %27
-  %122 = trunc nuw i8 %.160 to i1
+  %122 = trunc nuw i8 %.261 to i1
   br i1 %122, label %124, label %123
 
 123:                                              ; preds = %124, %121, %27
@@ -2400,11 +2400,11 @@ _ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit: ; preds = %.thread.
   br label %.thread75
 
 363:                                              ; preds = %.thread75, %360
-  %.0 = phi ptr [ %.2, %.thread75 ], [ null, %360 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0, %.thread75 ], [ null, %360 ]
+  ret ptr %.1
 
 .thread75:                                        ; preds = %361, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit", %328
-  %.2 = phi ptr [ %330, %328 ], [ %357, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit" ], [ %362, %361 ]
+  %.0 = phi ptr [ %330, %328 ], [ %357, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit" ], [ %362, %361 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %363
 

@@ -1468,7 +1468,7 @@ if.end34.i:                                       ; preds = %if.else26.i, %if.th
 
 if.end11:                                         ; preds = %if.end34.i, %lor.lhs.false.i, %if.then8, %if.end5
   %r.0 = phi ptr [ null, %if.end5 ], [ %call.i16, %if.then8 ], [ %call.i16, %lor.lhs.false.i ], [ %call.i16, %if.end34.i ]
-  %ret.0 = phi i32 [ 0, %if.end5 ], [ 1, %if.then8 ], [ 1, %lor.lhs.false.i ], [ 1, %if.end34.i ]
+  %ret.1 = phi i32 [ 0, %if.end5 ], [ 1, %if.then8 ], [ 1, %lor.lhs.false.i ], [ 1, %if.end34.i ]
   %not_resumable = getelementptr inbounds i8, ptr %c, i64 688
   store i32 1, ptr %not_resumable, align 8
   br i1 %tobool.not, label %if.end16, label %if.then13
@@ -1497,7 +1497,7 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %if.then22, %if.end20, %if.then2
-  %retval.0 = phi i32 [ 0, %if.then2 ], [ %ret.0, %if.then22 ], [ 0, %if.end20 ], [ 0, %land.lhs.true ], [ 0, %entry ]
+  %retval.0 = phi i32 [ 0, %if.then2 ], [ %ret.1, %if.then22 ], [ 0, %if.end20 ], [ 0, %land.lhs.true ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

@@ -512,7 +512,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %25, %28, %21
-  %.082 = phi i32 [ 0, %21 ], [ %27, %28 ], [ 0, %25 ]
+  %.1 = phi i32 [ 0, %21 ], [ %27, %28 ], [ 0, %25 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %2, ptr noundef nonnull align 1 dereferenceable(5) @.str.10, i64 5, i1 false) #12
   %31 = getelementptr inbounds i8, ptr %0, i64 384
   %32 = load ptr, ptr %31, align 8
@@ -531,7 +531,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %39
 
 39:                                               ; preds = %30, %37, %34, %17
-  %.1 = phi i32 [ %.082, %30 ], [ %36, %37 ], [ 0, %34 ], [ 0, %17 ]
+  %.082 = phi i32 [ %.1, %30 ], [ %36, %37 ], [ 0, %34 ], [ 0, %17 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 16
@@ -548,7 +548,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %49
 
 49:                                               ; preds = %45, %39
-  %.2 = phi i32 [ %48, %45 ], [ %.1, %39 ]
+  %.2 = phi i32 [ %48, %45 ], [ %.082, %39 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 344
   %51 = load ptr, ptr %50, align 8
   %.not112 = icmp eq ptr %51, null

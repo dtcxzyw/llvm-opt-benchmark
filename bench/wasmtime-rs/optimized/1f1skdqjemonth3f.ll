@@ -2950,11 +2950,11 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br label %32
 
 32:                                               ; preds = %33, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h8eddb6e24b0ee199E.exit"
-  %.0 = phi ptr [ %.1, %33 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h8eddb6e24b0ee199E.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0, %33 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h8eddb6e24b0ee199E.exit" ]
+  ret ptr %.1
 
 33:                                               ; preds = %13, %2
-  %.1 = phi ptr [ %9, %2 ], [ %18, %13 ]
+  %.0 = phi ptr [ %9, %2 ], [ %18, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %32
 }
@@ -6537,8 +6537,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br label %29
 
 "_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2316679c3fde91e8E.exit.thread": ; preds = %31, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2316679c3fde91e8E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdad20741bfc99306E.exit"
-  %.024 = phi ptr [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdad20741bfc99306E.exit" ], [ null, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2316679c3fde91e8E.exit" ], [ null, %31 ]
-  ret ptr %.024
+  %.1 = phi ptr [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdad20741bfc99306E.exit" ], [ null, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2316679c3fde91e8E.exit" ], [ null, %31 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6724,8 +6724,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %18
 
 18:                                               ; preds = %8, %10, %1
-  %.0 = phi ptr [ %17, %10 ], [ %.sroa.01.0, %1 ], [ %9, %8 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %17, %10 ], [ %.sroa.01.0, %1 ], [ %9, %8 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8706,7 +8706,7 @@ default.unreachable439:                           ; preds = %105
   br i1 %trunc159, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit.thread", label %.split.split
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit.thread": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit201", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit201.us409", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit201.us", %76, %72, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread", %53, %45, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit204.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
-  %.0 = phi ptr [ %.pre434, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.3, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit204.thread" ], [ %58, %53 ], [ %46, %45 ], [ %181, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %79, %76 ], [ %75, %72 ], [ %146, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit201.us" ], [ %173, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit201.us409" ], [ %206, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit201" ]
+  %.0 = phi ptr [ %.pre434, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit204.thread" ], [ %58, %53 ], [ %46, %45 ], [ %181, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %79, %76 ], [ %75, %72 ], [ %146, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit201.us" ], [ %173, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit201.us409" ], [ %206, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit201" ]
   ret ptr %.0
 
 207:                                              ; preds = %105
@@ -9127,7 +9127,7 @@ default.unreachable439:                           ; preds = %105
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc617771f3716d934E.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit204.thread": ; preds = %237, %234, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit259", %217, %211, %281, %207
-  %.3 = phi ptr [ %.sroa.326.0.copyload, %207 ], [ %286, %281 ], [ %222, %217 ], [ %212, %211 ], [ %345, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit259" ], [ %236, %234 ], [ %239, %237 ]
+  %.2 = phi ptr [ %.sroa.326.0.copyload, %207 ], [ %286, %281 ], [ %222, %217 ], [ %212, %211 ], [ %345, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit259" ], [ %236, %234 ], [ %239, %237 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit.thread"
@@ -9278,11 +9278,11 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %62
 
 61:                                               ; preds = %62, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h03992fbe7bf081eaE.exit"
-  %.1 = phi ptr [ %.2, %62 ], [ %.0.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h03992fbe7bf081eaE.exit" ]
-  ret ptr %.1
+  %.2 = phi ptr [ %.0, %62 ], [ %.0.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h03992fbe7bf081eaE.exit" ]
+  ret ptr %.2
 
 62:                                               ; preds = %17, %55, %2
-  %.2 = phi ptr [ %15, %2 ], [ %60, %55 ], [ %20, %17 ]
+  %.0 = phi ptr [ %15, %2 ], [ %60, %55 ], [ %20, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %61
 }
@@ -13091,8 +13091,8 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.lr.ph", %.loopexit
   %123 = phi ptr [ %.sroa.4.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.lr.ph" ], [ %280, %.loopexit ]
-  %.sroa.9559.0916 = phi ptr [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.lr.ph" ], [ %.sroa.9559.3, %.loopexit ]
-  %.sroa.0553.0915 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.lr.ph" ], [ %.sroa.0553.3, %.loopexit ]
+  %.sroa.9559.0916 = phi ptr [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.lr.ph" ], [ %.sroa.9559.2, %.loopexit ]
+  %.sroa.0553.0915 = phi i32 [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.lr.ph" ], [ %.sroa.0553.2, %.loopexit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1498)
   %124 = getelementptr inbounds i8, ptr %123, i64 12
   store ptr %124, ptr %.sroa.5522.0..sroa_idx, align 8, !alias.scope !1498, !noalias !1501
@@ -13117,8 +13117,8 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %126
 
 126:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.thread", %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf900fd3603c20a0aE.llvm.5456684732158232753.exit.i", %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$wasmparser..readers..core..operators..Catch$GT$$GT$17he833013f8d15054bE.exit"
-  %.0 = phi ptr [ %.1.ph, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$wasmparser..readers..core..operators..Catch$GT$$GT$17he833013f8d15054bE.exit" ], [ %.4, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf900fd3603c20a0aE.llvm.5456684732158232753.exit.i" ], [ %125, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.thread" ]
-  ret ptr %.0
+  %.2 = phi ptr [ %.0.ph, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$wasmparser..readers..core..operators..Catch$GT$$GT$17he833013f8d15054bE.exit" ], [ %.3, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf900fd3603c20a0aE.llvm.5456684732158232753.exit.i" ], [ %125, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.thread" ]
+  ret ptr %.2
 
 127:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
@@ -13370,7 +13370,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
 
 "_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit": ; preds = %229, %225, %220, %216
   %.sroa.5538.0.ph696 = phi ptr [ null, %220 ], [ %210, %216 ], [ null, %229 ], [ %213, %225 ]
-  %.sroa.9.1.ph694 = phi i64 [ %.sroa.436.0.copyload.i, %220 ], [ %.sroa.436.0.copyload.i, %216 ], [ %.sroa.439.0.copyload.i, %229 ], [ %.sroa.439.0.copyload.i, %225 ]
+  %.sroa.9.2.ph694 = phi i64 [ %.sroa.436.0.copyload.i, %220 ], [ %.sroa.436.0.copyload.i, %216 ], [ %.sroa.439.0.copyload.i, %229 ], [ %.sroa.439.0.copyload.i, %225 ]
   %.0.i = phi i64 [ %spec.select.i.i.i.i, %220 ], [ %219, %216 ], [ %spec.select.i.i.i3.i, %229 ], [ %228, %225 ]
   %.not290 = icmp eq i64 %198, %.0.i
   br i1 %.not290, label %238, label %232
@@ -13394,10 +13394,10 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %240
 
 240:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401", %238
-  %.sroa.0553.1 = phi i32 [ %.sroa.0553.0915, %238 ], [ %.sroa.0553.2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401" ]
-  %.sroa.9559.1 = phi ptr [ %.sroa.9559.0916, %238 ], [ %.sroa.9559.2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401" ]
+  %.sroa.0553.1 = phi i32 [ %.sroa.0553.0915, %238 ], [ %.sroa.0553.3, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401" ]
+  %.sroa.9559.1 = phi ptr [ %.sroa.9559.0916, %238 ], [ %.sroa.9559.3, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401" ]
   %.sroa.17.0 = phi ptr [ %194, %238 ], [ %.sroa.17.1, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401" ]
-  %.sroa.10.0639 = phi i64 [ %.sroa.9.1.ph694, %238 ], [ %.sroa.10.3, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401" ]
+  %.sroa.10.0639 = phi i64 [ %.sroa.9.2.ph694, %238 ], [ %.sroa.10.3, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401" ]
   %.sroa.5545.0 = phi ptr [ %.sroa.5538.0.ph696, %238 ], [ %.sroa.5545.3, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401" ]
   %241 = icmp eq ptr %.sroa.5545.0, null
   br i1 %.not815, label %242, label %253
@@ -13478,19 +13478,19 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit": ; preds = %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread.i", %269
-  %.sroa.0553.2 = phi i32 [ %.sroa.0553.0.insert.insert557, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread.i" ], [ %.sroa.0.0.i.i, %269 ]
-  %.sroa.9559.2 = phi ptr [ %.sroa.9559.1, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread.i" ], [ %.sroa.17.0, %269 ]
+  %.sroa.0553.3 = phi i32 [ %.sroa.0553.0.insert.insert557, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread.i" ], [ %.sroa.0.0.i.i, %269 ]
+  %.sroa.9559.3 = phi ptr [ %.sroa.9559.1, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread.i" ], [ %.sroa.17.0, %269 ]
   %.sroa.17.1 = phi ptr [ %.sroa.17.0, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread.i" ], [ %270, %269 ]
   %.sroa.10.3 = phi i64 [ %.sroa.10.2, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread.i" ], [ %.sroa.10.1, %269 ]
   %.sroa.5545.3 = phi ptr [ %.sroa.5545.2, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread.i" ], [ %.sroa.5545.1, %269 ]
-  %271 = and i32 %.sroa.0553.2, 255
+  %271 = and i32 %.sroa.0553.3, 255
   %272 = icmp eq i32 %271, 6
   br i1 %272, label %.loopexit, label %273
 
 273:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit"
-  %274 = icmp ne ptr %.sroa.9559.2, null
+  %274 = icmp ne ptr %.sroa.9559.3, null
   call void @llvm.assume(i1 %274)
-  %.sroa.067.0.copyload = load i32, ptr %.sroa.9559.2, align 1
+  %.sroa.067.0.copyload = load i32, ptr %.sroa.9559.3, align 1
   %275 = load i64, ptr %46, align 8, !alias.scope !1542, !noalias !1545, !noundef !13
   %276 = load i64, ptr %47, align 8, !alias.scope !1542, !noalias !1545, !noundef !13
   %277 = icmp eq i64 %275, %276
@@ -13505,8 +13505,8 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %282
 
 .loopexit:                                        ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit", %578, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit491", %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit447"
-  %.sroa.0553.3 = phi i32 [ %.sroa.0553.0915, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit447" ], [ %.sroa.0553.0915, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit491" ], [ %.sroa.0553.0915, %578 ], [ %.sroa.0553.2, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit" ]
-  %.sroa.9559.3 = phi ptr [ %.sroa.9559.0916, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit447" ], [ %.sroa.9559.0916, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit491" ], [ %.sroa.9559.0916, %578 ], [ %.sroa.9559.2, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit" ]
+  %.sroa.0553.2 = phi i32 [ %.sroa.0553.0915, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit447" ], [ %.sroa.0553.0915, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit491" ], [ %.sroa.0553.0915, %578 ], [ %.sroa.0553.3, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit" ]
+  %.sroa.9559.2 = phi ptr [ %.sroa.9559.0916, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit447" ], [ %.sroa.9559.0916, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit491" ], [ %.sroa.9559.0916, %578 ], [ %.sroa.9559.3, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit" ]
   %279 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !1548, !noalias !1501, !nonnull !13, !noundef !13
   %280 = load ptr, ptr %.sroa.5522.0..sroa_idx, align 8, !alias.scope !1548, !noalias !1501, !nonnull !13, !noundef !13
   %281 = icmp eq ptr %280, %279
@@ -13521,7 +13521,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   %287 = add i64 %286, 1
   store i64 %287, ptr %46, align 8, !alias.scope !1542, !noalias !1545
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
-  %.sroa.4.0.extract.shift.i385 = lshr i32 %.sroa.0553.2, 8
+  %.sroa.4.0.extract.shift.i385 = lshr i32 %.sroa.0553.3, 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1550)
   %288 = icmp eq i64 %287, 0
   br i1 %288, label %.critedge45.i393, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i386"
@@ -13548,7 +13548,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
 
 .critedge45.i393:                                 ; preds = %303, %.critedge.i396, %299, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i386", %282
   %.sroa.0.0.insert.insert.i56.i394 = phi i32 [ %296, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i386" ], [ %296, %299 ], [ %296, %303 ], [ 8, %282 ], [ %296, %.critedge.i396 ]
-  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0553.2, i32 %.sroa.0.0.insert.insert.i56.i394)
+  invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0553.3, i32 %.sroa.0.0.insert.insert.i56.i394)
           to label %".critedge45.i393._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401_crit_edge" unwind label %.loopexit816
 
 ".critedge45.i393._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401_crit_edge": ; preds = %.critedge45.i393
@@ -13586,7 +13586,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit379.thread"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit379.thread": ; preds = %.noexc504, %.noexc505, %.noexc482, %.noexc483, %.noexc424, %.noexc423, %.noexc382, %.noexc381, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401", %.invoke1084, %.noexc371, %.noexc366, %.noexc406, %.noexc377, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit469", %490, %316, %310, %177, %531, %587
-  %.4 = phi ptr [ %586, %587 ], [ %530, %531 ], [ %136, %177 ], [ %146, %316 ], [ %237, %310 ], [ %384, %490 ], [ %482, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit469" ], [ %190, %.noexc377 ], [ %330, %.noexc406 ], [ %159, %.noexc366 ], [ %174, %.noexc371 ], [ %320, %.invoke1084 ], [ %309, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401" ], [ %543, %.noexc504 ], [ %546, %.noexc505 ], [ %502, %.noexc482 ], [ %505, %.noexc483 ], [ %356, %.noexc423 ], [ %359, %.noexc424 ], [ %210, %.noexc381 ], [ %213, %.noexc382 ]
+  %.3 = phi ptr [ %586, %587 ], [ %530, %531 ], [ %136, %177 ], [ %146, %316 ], [ %237, %310 ], [ %384, %490 ], [ %482, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit469" ], [ %190, %.noexc377 ], [ %330, %.noexc406 ], [ %159, %.noexc366 ], [ %174, %.noexc371 ], [ %320, %.invoke1084 ], [ %309, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit401" ], [ %543, %.noexc504 ], [ %546, %.noexc505 ], [ %502, %.noexc482 ], [ %505, %.noexc483 ], [ %356, %.noexc423 ], [ %359, %.noexc424 ], [ %210, %.noexc381 ], [ %213, %.noexc382 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !1558
   store ptr %30, ptr %11, align 8, !noalias !1558
   %311 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h241d20d4dae8dd50E.llvm.12393783928750787229(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %30)
@@ -14314,7 +14314,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
   br i1 %trunc277, label %.loopexit825, label %.preheader.split
 
 .loopexit825:                                     ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us", %35, %40
-  %.1.ph = phi ptr [ %43, %40 ], [ %34, %35 ], [ %78, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us" ], [ %589, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0.ph = phi ptr [ %43, %40 ], [ %34, %35 ], [ %78, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us" ], [ %589, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1693
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha348bd147ff50c29E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
   %590 = getelementptr inbounds i8, ptr %3, i64 8
@@ -15884,8 +15884,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %29
 
 29:                                               ; preds = %21, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %28, %21 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %28, %21 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -16014,8 +16014,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %60
 
 60:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %11, %19
-  %.0 = phi ptr [ %26, %19 ], [ %18, %11 ], [ %trunc, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ %26, %19 ], [ %18, %11 ], [ %trunc, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -16411,8 +16411,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %42
 
 42:                                               ; preds = %10, %17, %21, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %26, %21 ], [ %12, %10 ], [ %20, %17 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %26, %21 ], [ %12, %10 ], [ %20, %17 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18097,8 +18097,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %86
 
 86:                                               ; preds = %34, %70, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %38, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.1 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %.sroa.4.0.i.ph, %34 ], [ %43, %38 ], [ %.pre66, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %73, %70 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %.sroa.4.0.i.ph, %34 ], [ %43, %38 ], [ %.pre66, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %73, %70 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18295,8 +18295,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %86
 
 86:                                               ; preds = %34, %70, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %38, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.1 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %.sroa.4.0.i.ph, %34 ], [ %43, %38 ], [ %.pre66, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %73, %70 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %.sroa.4.0.i.ph, %34 ], [ %43, %38 ], [ %.pre66, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %73, %70 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -19909,8 +19909,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$18check_memory_index17h31035e46788bf5c7E.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit92", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit78", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %28, %38
-  %.1 = phi ptr [ %24, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$18check_memory_index17h31035e46788bf5c7E.exit" ], [ %44, %38 ], [ %33, %28 ], [ %.pre101, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre104, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit78" ], [ %trunc46, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit92" ]
-  ret ptr %.1
+  %.0 = phi ptr [ %24, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$18check_memory_index17h31035e46788bf5c7E.exit" ], [ %44, %38 ], [ %33, %28 ], [ %.pre101, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre104, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit78" ], [ %trunc46, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit92" ]
+  ret ptr %.0
 
 72:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -21704,8 +21704,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %122
 
 122:                                              ; preds = %39, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %47, %63, %53, %120
-  %.2 = phi ptr [ %121, %120 ], [ %.sroa.4.0.i.ph, %39 ], [ %52, %47 ], [ %69, %63 ], [ %58, %53 ], [ %.pre77, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre80, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65" ]
-  ret ptr %.2
+  %.0 = phi ptr [ %121, %120 ], [ %.sroa.4.0.i.ph, %39 ], [ %52, %47 ], [ %69, %63 ], [ %58, %53 ], [ %.pre77, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre80, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65" ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21829,7 +21829,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %trunc.i, label %56, label %58
 
 55:                                               ; preds = %102, %.thread103
-  %.0 = phi ptr [ %.1, %102 ], [ %52, %.thread103 ]
+  %.1 = phi ptr [ %.2, %102 ], [ %52, %.thread103 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %18)
   br label %129
 
@@ -21955,7 +21955,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit91", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %65, %58
-  %.1 = phi ptr [ %64, %58 ], [ %75, %65 ], [ %.pre122, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre125, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit91" ]
+  %.2 = phi ptr [ %64, %58 ], [ %75, %65 ], [ %.pre122, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre125, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit91" ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %16)
   br label %55
 
@@ -22022,8 +22022,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %129
 
 129:                                              ; preds = %43, %127, %55
-  %.2 = phi ptr [ %.0, %55 ], [ %128, %127 ], [ %.sroa.4.0.i.ph, %43 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %.1, %55 ], [ %128, %127 ], [ %.sroa.4.0.i.ph, %43 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22300,8 +22300,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit.thread"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit.thread": ; preds = %54, %50, %95, %29, %23, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread", %97, %105, %2
-  %.1 = phi ptr [ %16, %2 ], [ %90, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %121, %105 ], [ %102, %97 ], [ %34, %29 ], [ %24, %23 ], [ %96, %95 ], [ %57, %54 ], [ %53, %50 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %16, %2 ], [ %90, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %121, %105 ], [ %102, %97 ], [ %34, %29 ], [ %24, %23 ], [ %96, %95 ], [ %57, %54 ], [ %53, %50 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23737,7 +23737,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   unreachable
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit.thread": ; preds = %73, %69, %49, %43, %149, %25, %4, %148, %30
-  %.0109 = phi ptr [ null, %148 ], [ %38, %30 ], [ %23, %4 ], [ %26, %25 ], [ %.2, %149 ], [ %54, %49 ], [ %44, %43 ], [ %76, %73 ], [ %72, %69 ]
+  %.0109 = phi ptr [ null, %148 ], [ %38, %30 ], [ %23, %4 ], [ %26, %25 ], [ %.3, %149 ], [ %54, %49 ], [ %44, %43 ], [ %76, %73 ], [ %72, %69 ]
   ret ptr %.0109
 
 58:                                               ; preds = %55
@@ -23986,7 +23986,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit.thread"
 
 149:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %145, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread", %112
-  %.2 = phi ptr [ %109, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %120, %112 ], [ %.pre161, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %146, %145 ]
+  %.3 = phi ptr [ %109, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %120, %112 ], [ %.pre161, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %146, %145 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %14)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit.thread"
 }
@@ -25299,7 +25299,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %46
-  %.0 = phi ptr [ %52, %46 ], [ %.pre49, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.1 = phi ptr [ %52, %46 ], [ %.pre49, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %81
 
@@ -25309,8 +25309,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %81
 
 81:                                               ; preds = %35, %79, %78
-  %.1 = phi ptr [ %.0, %78 ], [ %80, %79 ], [ %.sroa.4.0.i.ph, %35 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %78 ], [ %80, %79 ], [ %.sroa.4.0.i.ph, %35 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -30083,8 +30083,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_else17heb5e112bf9e0c546E.llvm.8213084322371663677.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_else17heb5e112bf9e0c546E.llvm.8213084322371663677.exit": ; preds = %1, %8, %10
-  %.0.i = phi ptr [ %17, %10 ], [ %.sroa.01.0.i, %1 ], [ %9, %8 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %17, %10 ], [ %.sroa.01.0.i, %1 ], [ %9, %8 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -38933,8 +38933,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_global_get17hb97d088461d6ea9eE.llvm.8213084322371663677.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_global_get17hb97d088461d6ea9eE.llvm.8213084322371663677.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit.i", %21
-  %.0.i = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit.i" ], [ %28, %21 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit.i" ], [ %28, %21 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: nonlazybind uwtable

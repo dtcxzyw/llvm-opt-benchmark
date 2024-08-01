@@ -1000,7 +1000,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptDeclarationERP11TInte
   br label %134
 
 134:                                              ; preds = %.lr.ph, %.thread
-  %.056 = phi ptr [ null, %.lr.ph ], [ %.3, %.thread ]
+  %.056 = phi ptr [ null, %.lr.ph ], [ %.1, %.thread ]
   %.02855 = phi i8 [ 0, %.lr.ph ], [ %spec.select, %.thread ]
   %135 = load ptr, ptr %120, align 8
   store ptr %135, ptr %7, align 8
@@ -1354,25 +1354,25 @@ _ZNK7glslang5TType14containsOpaqueEv.exit.thread: ; preds = %315, %_ZNK7glslang5
   br label %.thread
 
 .thread:                                          ; preds = %283, %290, %306, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread37, %296, %220
-  %.3 = phi ptr [ %.056, %220 ], [ %.056, %283 ], [ %.056, %290 ], [ %.056, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread37 ], [ %341, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread ], [ %.056, %306 ], [ %.056, %296 ]
+  %.1 = phi ptr [ %.056, %220 ], [ %.056, %283 ], [ %.056, %290 ], [ %.056, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread37 ], [ %341, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread ], [ %.056, %306 ], [ %.056, %296 ]
   %342 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 362) #16
   %spec.select = select i1 %342, i8 1, i8 %.02855
   %343 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar16acceptIdentifierERNS_9HlslTokenE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(40) %6)
   br i1 %343, label %134, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.thread
-  %.not = icmp eq ptr %.3, null
+  %.not = icmp eq ptr %.1, null
   br i1 %.not, label %._crit_edge.thread, label %344
 
 344:                                              ; preds = %._crit_edge
-  %345 = load ptr, ptr %.3, align 8
+  %345 = load ptr, ptr %.1, align 8
   %346 = getelementptr inbounds i8, ptr %345, i64 392
   %347 = load ptr, ptr %346, align 8
-  call void %347(ptr noundef nonnull align 8 dereferenceable(364) %.3, i32 noundef 1) #16
+  call void %347(ptr noundef nonnull align 8 dereferenceable(364) %.1, i32 noundef 1) #16
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %119, %344, %._crit_edge
-  %.0.lcssa66 = phi ptr [ %.3, %344 ], [ null, %._crit_edge ], [ null, %119 ]
+  %.0.lcssa66 = phi ptr [ %.1, %344 ], [ null, %._crit_edge ], [ null, %119 ]
   %348 = load i64, ptr %76, align 8
   %349 = and i64 %348, 127
   %350 = icmp eq i64 %349, 1
@@ -1458,8 +1458,8 @@ _ZNK7glslang5TType14containsOpaqueEv.exit.thread: ; preds = %315, %_ZNK7glslang5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %261, %.thread61, %180, %210, %393, %392, %378, %101, %274, %56, %51, %38, %25, %17
-  %.4 = phi i1 [ true, %56 ], [ false, %51 ], [ false, %38 ], [ false, %25 ], [ false, %17 ], [ %213, %210 ], [ false, %180 ], [ %103, %101 ], [ false, %393 ], [ false, %392 ], [ true, %378 ], [ false, %274 ], [ %100, %.thread61 ], [ false, %261 ]
-  ret i1 %.4
+  %.024 = phi i1 [ true, %56 ], [ false, %51 ], [ false, %38 ], [ false, %25 ], [ false, %17 ], [ %213, %210 ], [ false, %180 ], [ %103, %101 ], [ false, %393 ], [ false, %392 ], [ true, %378 ], [ false, %274 ], [ %100, %.thread61 ], [ false, %261 ]
+  ret i1 %.024
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1689,8 +1689,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %84, %1
-  %.2 = phi i1 [ true, %1 ], [ %85, %84 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
-  ret i1 %.2
+  %.05 = phi i1 [ true, %1 ], [ %85, %84 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -6768,8 +6768,8 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptSubpassInputTypeERNS_
   br label %94
 
 94:                                               ; preds = %31, %40, %49, %76, %.thread, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %40 ], [ true, %76 ], [ false, %49 ], [ false, %31 ], [ false, %.thread ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %2 ], [ false, %40 ], [ true, %76 ], [ false, %49 ], [ false, %31 ], [ false, %.thread ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7428,8 +7428,8 @@ _ZNK7glslang5TType8isScalarEv.exit.thread:        ; preds = %81, %86, %91, %_ZNK
   br label %222
 
 222:                                              ; preds = %47, %56, %79, %80, %105, %117, %128, %136, %144, %199, %124, %191, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %56 ], [ false, %79 ], [ false, %80 ], [ true, %199 ], [ false, %128 ], [ false, %117 ], [ false, %105 ], [ false, %47 ], [ false, %136 ], [ false, %144 ], [ false, %124 ], [ false, %191 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %2 ], [ false, %56 ], [ false, %79 ], [ false, %80 ], [ true, %199 ], [ false, %128 ], [ false, %117 ], [ false, %105 ], [ false, %47 ], [ false, %136 ], [ false, %144 ], [ false, %124 ], [ false, %191 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8141,8 +8141,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br label %86
 
 86:                                               ; preds = %37, %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %2, %9
-  %.1 = phi i1 [ false, %9 ], [ false, %2 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ], [ false, %46 ], [ false, %37 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %9 ], [ false, %2 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ], [ false, %46 ], [ false, %37 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8340,8 +8340,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br label %97
 
 97:                                               ; preds = %37, %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %90, %2, %9
-  %.1 = phi i1 [ false, %9 ], [ false, %2 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ], [ false, %90 ], [ false, %46 ], [ false, %37 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %9 ], [ false, %2 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ], [ false, %90 ], [ false, %46 ], [ false, %37 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8827,8 +8827,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i, %268, %13
-  %.2 = phi i1 [ false, %13 ], [ %.131, %268 ], [ %.131, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i ]
-  ret i1 %.2
+  %.030 = phi i1 [ false, %13 ], [ %.131, %268 ], [ %.131, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i ]
+  ret i1 %.030
 }
 
 declare noundef ptr @_ZN7glslang16HlslParseContext14lookupUserTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1

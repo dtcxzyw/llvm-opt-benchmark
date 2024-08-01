@@ -7358,9 +7358,9 @@ _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE7re
   br i1 %104, label %.lr.ph18.split.i, label %.loopexit148
 
 .lr.ph18.split.i:                                 ; preds = %.lr.ph18.i, %._crit_edge.i
-  %.sroa.20.1 = phi ptr [ %.sroa.20.4, %._crit_edge.i ], [ %.sroa.20.0, %.lr.ph18.i ]
-  %.sroa.11130.2 = phi ptr [ %.sroa.11130.5, %._crit_edge.i ], [ %.sroa.11130.1, %.lr.ph18.i ]
-  %.sroa.0129.1 = phi ptr [ %.sroa.0129.4, %._crit_edge.i ], [ %.sroa.11130.1, %.lr.ph18.i ]
+  %.sroa.20.1 = phi ptr [ %.sroa.20.2, %._crit_edge.i ], [ %.sroa.20.0, %.lr.ph18.i ]
+  %.sroa.11130.2 = phi ptr [ %.sroa.11130.3, %._crit_edge.i ], [ %.sroa.11130.1, %.lr.ph18.i ]
+  %.sroa.0129.2 = phi ptr [ %.sroa.0129.3, %._crit_edge.i ], [ %.sroa.11130.1, %.lr.ph18.i ]
   %105 = phi i32 [ %164, %._crit_edge.i ], [ %94, %.lr.ph18.i ]
   %106 = phi i32 [ %165, %._crit_edge.i ], [ %103, %.lr.ph18.i ]
   %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %._crit_edge.i ], [ 0, %.lr.ph18.i ]
@@ -7388,9 +7388,9 @@ _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE7re
   br label %125
 
 125:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i, %.lr.ph.i
-  %.sroa.20.2 = phi ptr [ %.sroa.20.1, %.lr.ph.i ], [ %.sroa.20.3, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i ]
-  %.sroa.11130.3 = phi ptr [ %.sroa.11130.2, %.lr.ph.i ], [ %.sroa.11130.4, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i ]
-  %.sroa.0129.2 = phi ptr [ %.sroa.0129.1, %.lr.ph.i ], [ %.sroa.0129.3, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i ]
+  %.sroa.20.3 = phi ptr [ %.sroa.20.1, %.lr.ph.i ], [ %.sroa.20.4, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i ]
+  %.sroa.11130.4 = phi ptr [ %.sroa.11130.2, %.lr.ph.i ], [ %.sroa.11130.5, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i ]
+  %.sroa.0129.4 = phi ptr [ %.sroa.0129.2, %.lr.ph.i ], [ %.sroa.0129.5, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i ]
   %126 = getelementptr inbounds i8, ptr %111, i64 %indvars.iv.i
   %127 = load i8, ptr %126, align 1
@@ -7417,21 +7417,21 @@ _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE7re
 
 .noexc63:                                         ; preds = %._crit_edge26.i
   %138 = fpext float %137 to double
-  %.not.i.i = icmp eq ptr %.sroa.11130.3, %.sroa.20.2
+  %.not.i.i = icmp eq ptr %.sroa.11130.4, %.sroa.20.3
   br i1 %.not.i.i, label %141, label %139
 
 139:                                              ; preds = %.noexc63
-  store double %136, ptr %.sroa.11130.3, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.11130.3, i64 8
+  store double %136, ptr %.sroa.11130.4, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.11130.4, i64 8
   store double %124, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.11130.3, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.11130.4, i64 16
   store double %138, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %140 = getelementptr inbounds i8, ptr %.sroa.11130.3, i64 24
+  %140 = getelementptr inbounds i8, ptr %.sroa.11130.4, i64 24
   br label %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i
 
 141:                                              ; preds = %.noexc63
-  %142 = ptrtoint ptr %.sroa.20.2 to i64
-  %143 = ptrtoint ptr %.sroa.0129.2 to i64
+  %142 = ptrtoint ptr %.sroa.20.3 to i64
+  %143 = ptrtoint ptr %.sroa.0129.4 to i64
   %144 = sub i64 %142, %143
   %145 = icmp eq i64 %144, 9223372036854775800
   br i1 %145, label %146, label %_ZNKSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -7445,7 +7445,7 @@ _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE7re
 
 _ZNKSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %141
   %147 = sdiv exact i64 %144, 24
-  %148 = icmp eq ptr %.sroa.20.2, %.sroa.0129.2
+  %148 = icmp eq ptr %.sroa.20.3, %.sroa.0129.4
   %.sroa.speculated.i.i.i.i = select i1 %148, i64 1, i64 %147
   %149 = add nsw i64 %.sroa.speculated.i.i.i.i, %147
   %150 = icmp ult i64 %149, %147
@@ -7468,21 +7468,21 @@ _ZNKSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE12
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc65, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi ptr [ %157, %.lr.ph.i.i.i.i.i.i.i ], [ %154, %.noexc65 ]
-  %.092.i.i.i.i.i.i.i = phi ptr [ %156, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0129.2, %.noexc65 ]
+  %.092.i.i.i.i.i.i.i = phi ptr [ %156, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0129.4, %.noexc65 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.092.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !120
   %156 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 24
   %157 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %156, %.sroa.20.2
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %156, %.sroa.20.3
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !124
 
 _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc65
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %154, %.noexc65 ], [ %157, %.lr.ph.i.i.i.i.i.i.i ]
   %158 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
-  %.not.i27.i.i.i = icmp eq ptr %.sroa.0129.2, null
+  %.not.i27.i.i.i = icmp eq ptr %.sroa.0129.4, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %159
 
 159:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0129.2) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0129.4) #29
   br label %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %159, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i
@@ -7490,9 +7490,9 @@ _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_
   br label %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %139, %128, %125
-  %.sroa.20.3 = phi ptr [ %.sroa.20.2, %125 ], [ %160, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.20.2, %139 ], [ %.sroa.20.2, %128 ]
-  %.sroa.11130.4 = phi ptr [ %.sroa.11130.3, %125 ], [ %158, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %140, %139 ], [ %.sroa.11130.3, %128 ]
-  %.sroa.0129.3 = phi ptr [ %.sroa.0129.2, %125 ], [ %154, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.0129.2, %139 ], [ %.sroa.0129.2, %128 ]
+  %.sroa.20.4 = phi ptr [ %.sroa.20.3, %125 ], [ %160, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.20.3, %139 ], [ %.sroa.20.3, %128 ]
+  %.sroa.11130.5 = phi ptr [ %.sroa.11130.4, %125 ], [ %158, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %140, %139 ], [ %.sroa.11130.4, %128 ]
+  %.sroa.0129.5 = phi ptr [ %.sroa.0129.4, %125 ], [ %154, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.0129.4, %139 ], [ %.sroa.0129.4, %128 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %161 = load i32, ptr %102, align 4
   %162 = sext i32 %161 to i64
@@ -7504,9 +7504,9 @@ _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9pu
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph18.split.i
-  %.sroa.20.4 = phi ptr [ %.sroa.20.3, %._crit_edge.loopexit.i ], [ %.sroa.20.1, %.lr.ph18.split.i ]
-  %.sroa.11130.5 = phi ptr [ %.sroa.11130.4, %._crit_edge.loopexit.i ], [ %.sroa.11130.2, %.lr.ph18.split.i ]
-  %.sroa.0129.4 = phi ptr [ %.sroa.0129.3, %._crit_edge.loopexit.i ], [ %.sroa.0129.1, %.lr.ph18.split.i ]
+  %.sroa.20.2 = phi ptr [ %.sroa.20.4, %._crit_edge.loopexit.i ], [ %.sroa.20.1, %.lr.ph18.split.i ]
+  %.sroa.11130.3 = phi ptr [ %.sroa.11130.5, %._crit_edge.loopexit.i ], [ %.sroa.11130.2, %.lr.ph18.split.i ]
+  %.sroa.0129.3 = phi ptr [ %.sroa.0129.5, %._crit_edge.loopexit.i ], [ %.sroa.0129.2, %.lr.ph18.split.i ]
   %164 = phi i32 [ %.pre27.i, %._crit_edge.loopexit.i ], [ %105, %.lr.ph18.split.i ]
   %165 = phi i32 [ %161, %._crit_edge.loopexit.i ], [ %106, %.lr.ph18.split.i ]
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
@@ -7521,8 +7521,8 @@ _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9pu
   br label %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EED2Ev.exit
 
 .loopexit148:                                     ; preds = %._crit_edge.i, %.lr.ph18.i, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE7reserveEm.exit.i
-  %.sroa.11130.6 = phi ptr [ %.sroa.11130.1, %.lr.ph18.i ], [ %.sroa.11130.1, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE7reserveEm.exit.i ], [ %.sroa.11130.5, %._crit_edge.i ]
-  %.sroa.0129.5 = phi ptr [ %.sroa.11130.1, %.lr.ph18.i ], [ %.sroa.11130.1, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE7reserveEm.exit.i ], [ %.sroa.0129.4, %._crit_edge.i ]
+  %.sroa.11130.6 = phi ptr [ %.sroa.11130.1, %.lr.ph18.i ], [ %.sroa.11130.1, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE7reserveEm.exit.i ], [ %.sroa.11130.3, %._crit_edge.i ]
+  %.sroa.0129.7 = phi ptr [ %.sroa.11130.1, %.lr.ph18.i ], [ %.sroa.11130.1, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE7reserveEm.exit.i ], [ %.sroa.0129.3, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -7708,12 +7708,12 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EE13
   br i1 %.not.i70, label %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS5_EES2_IS7_SaIS7_EEEEZNS4_16buildFeatureListERKN2cv3MatESF_SF_RSA_NSC_6Point_IdEEE3$_0ET0_T_SL_SK_.exit", label %212, !llvm.loop !133
 
 "_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS5_EES2_IS7_SaIS7_EEEEZNS4_16buildFeatureListERKN2cv3MatESF_SF_RSA_NSC_6Point_IdEEE3$_0ET0_T_SL_SK_.exit": ; preds = %"_ZZN12_GLOBAL__N_124GeneralizedHoughGuilImpl16buildFeatureListERKN2cv3MatES4_S4_RSt6vectorIS5_INS0_7FeatureESaIS6_EESaIS8_EENS1_6Point_IdEEENK3$_0clERS8_.exit.i", %_ZNSt6vectorIS_IN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EESaIS4_EE6resizeEm.exit
-  %.not191 = icmp eq ptr %.sroa.11130.6, %.sroa.0129.5
+  %.not191 = icmp eq ptr %.sroa.11130.6, %.sroa.0129.7
   br i1 %.not191, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS5_EES2_IS7_SaIS7_EEEEZNS4_16buildFeatureListERKN2cv3MatESF_SF_RSA_NSC_6Point_IdEEE3$_0ET0_T_SL_SK_.exit"
   %232 = ptrtoint ptr %.sroa.11130.6 to i64
-  %233 = ptrtoint ptr %.sroa.0129.5 to i64
+  %233 = ptrtoint ptr %.sroa.0129.7 to i64
   %234 = sub i64 %232, %233
   %235 = sdiv exact i64 %234, 24
   %236 = getelementptr inbounds i8, ptr %0, i64 696
@@ -7726,7 +7726,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EE13
 
 241:                                              ; preds = %.lr.ph, %319
   %.028190 = phi i64 [ 0, %.lr.ph ], [ %320, %319 ]
-  %242 = getelementptr inbounds %"struct.(anonymous namespace)::GeneralizedHoughGuilImpl::ContourPoint", ptr %.sroa.0129.5, i64 %.028190
+  %242 = getelementptr inbounds %"struct.(anonymous namespace)::GeneralizedHoughGuilImpl::ContourPoint", ptr %.sroa.0129.7, i64 %.028190
   %243 = load <2 x double>, ptr %242, align 8
   %.sroa.6121.0..sroa_idx = getelementptr inbounds i8, ptr %242, i64 16
   %.sroa.6121.0.copyload = load double, ptr %.sroa.6121.0..sroa_idx, align 8
@@ -7735,7 +7735,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EE13
 
 245:                                              ; preds = %241, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EE9push_backERKS2_.exit
   %.029181 = phi i64 [ 0, %241 ], [ %318, %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EE9push_backERKS2_.exit ]
-  %246 = getelementptr inbounds %"struct.(anonymous namespace)::GeneralizedHoughGuilImpl::ContourPoint", ptr %.sroa.0129.5, i64 %.029181
+  %246 = getelementptr inbounds %"struct.(anonymous namespace)::GeneralizedHoughGuilImpl::ContourPoint", ptr %.sroa.0129.7, i64 %.029181
   %247 = load <2 x double>, ptr %246, align 8
   %.sroa.6110.0..sroa_idx = getelementptr inbounds i8, ptr %246, i64 16
   %.sroa.6110.0.copyload = load double, ptr %.sroa.6110.0..sroa_idx, align 8
@@ -7826,19 +7826,19 @@ _ZN12_GLOBAL__N_110clampAngleEd.exit:             ; preds = %.lr.ph8.i, %.prehea
   br label %.body
 
 .body.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %_ZNKSt6vectorIS_IN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i.i, %146
-  %.sroa.0129.6.ph.ph.ph.ph = phi ptr [ %.sroa.0129.5, %_ZNKSt6vectorIS_IN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0129.2, %146 ], [ %.sroa.0129.5, %.invoke ]
+  %.sroa.0129.0.ph.ph.ph.ph = phi ptr [ %.sroa.0129.7, %_ZNKSt6vectorIS_IN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0129.4, %146 ], [ %.sroa.0129.7, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.body.loopexit.split-lp.loopexit, %.body.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.body.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.loopexit
-  %.sroa.0129.6.ph = phi ptr [ %.sroa.0129.5, %.body.loopexit ], [ %.sroa.0129.5, %.body.loopexit.split-lp.loopexit ], [ %.sroa.0129.2, %.body.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0129.6.ph.ph.ph.ph, %.body.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0129.0.ph = phi ptr [ %.sroa.0129.7, %.body.loopexit ], [ %.sroa.0129.7, %.body.loopexit.split-lp.loopexit ], [ %.sroa.0129.4, %.body.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0129.0.ph.ph.ph.ph, %.body.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.body.loopexit ], [ %lpad.loopexit143, %.body.loopexit.split-lp.loopexit ], [ %lpad.loopexit146, %.body.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.body.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.not.i.i.i76 = icmp eq ptr %.sroa.0129.6.ph, null
+  %.not.i.i.i76 = icmp eq ptr %.sroa.0129.0.ph, null
   br i1 %.not.i.i.i76, label %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EED2Ev.exit, label %280
 
 280:                                              ; preds = %.body
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0129.6.ph) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0129.0.ph) #29
   br label %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EED2Ev.exit
 
 281:                                              ; preds = %_ZN12_GLOBAL__N_110clampAngleEd.exit
@@ -7969,11 +7969,11 @@ _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EE9push_bac
   br i1 %exitcond200.not, label %._crit_edge, label %241, !llvm.loop !140
 
 ._crit_edge:                                      ; preds = %319, %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS5_EES2_IS7_SaIS7_EEEEZNS4_16buildFeatureListERKN2cv3MatESF_SF_RSA_NSC_6Point_IdEEE3$_0ET0_T_SL_SK_.exit"
-  %.not.i.i.i90 = icmp eq ptr %.sroa.0129.5, null
+  %.not.i.i.i90 = icmp eq ptr %.sroa.0129.7, null
   br i1 %.not.i.i.i90, label %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EED2Ev.exit91, label %321
 
 321:                                              ; preds = %._crit_edge
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0129.5) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0129.7) #29
   br label %_ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EED2Ev.exit91
 
 _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EED2Ev.exit91: ; preds = %._crit_edge, %321

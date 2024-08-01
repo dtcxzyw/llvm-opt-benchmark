@@ -63,8 +63,8 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %.preheader.lr.ph.i.i, %._crit_edge.us.i.i
-  %.sroa.52.0 = phi i32 [ 255, %.preheader.lr.ph.i.i ], [ %.sroa.52.2, %._crit_edge.us.i.i ]
-  %.sroa.55.0 = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.sroa.55.2, %._crit_edge.us.i.i ]
+  %.sroa.52.1 = phi i32 [ 255, %.preheader.lr.ph.i.i ], [ %.sroa.52.3, %._crit_edge.us.i.i ]
+  %.sroa.55.1 = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.sroa.55.3, %._crit_edge.us.i.i ]
   %.promoted44.us54.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.promoted44.us52.i.i, %._crit_edge.us.i.i ]
   %.promoted.us50.i.i = phi i32 [ 255, %.preheader.lr.ph.i.i ], [ %.promoted.us48.i.i, %._crit_edge.us.i.i ]
   %.03646.us.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %55, %._crit_edge.us.i.i ]
@@ -72,8 +72,8 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   br label %42
 
 42:                                               ; preds = %42, %.preheader.us.i.i
-  %.sroa.52.1 = phi i32 [ %.sroa.52.0, %.preheader.us.i.i ], [ %.sroa.52.2, %42 ]
-  %.sroa.55.1 = phi i32 [ %.sroa.55.0, %.preheader.us.i.i ], [ %.sroa.55.2, %42 ]
+  %.sroa.52.2 = phi i32 [ %.sroa.52.1, %.preheader.us.i.i ], [ %.sroa.52.3, %42 ]
+  %.sroa.55.2 = phi i32 [ %.sroa.55.1, %.preheader.us.i.i ], [ %.sroa.55.3, %42 ]
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %42 ]
   %.promoted44.us53.i.i = phi i32 [ %.promoted44.us54.i.i, %.preheader.us.i.i ], [ %.promoted44.us52.i.i, %42 ]
   %.promoted.us49.i.i = phi i32 [ %.promoted.us50.i.i, %.preheader.us.i.i ], [ %.promoted.us48.i.i, %42 ]
@@ -83,11 +83,11 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = icmp sgt i32 %44, %47
-  %.sroa.52.2 = select i1 %48, i32 %47, i32 %.sroa.52.1
+  %.sroa.52.3 = select i1 %48, i32 %47, i32 %.sroa.52.2
   %.promoted.us48.i.i = select i1 %48, i32 %47, i32 %.promoted.us49.i.i
   %49 = tail call i32 @llvm.smin.i32(i32 %44, i32 %47)
   %50 = icmp slt i32 %43, %47
-  %.sroa.55.2 = select i1 %50, i32 %47, i32 %.sroa.55.1
+  %.sroa.55.3 = select i1 %50, i32 %47, i32 %.sroa.55.2
   %.promoted44.us52.i.i = select i1 %50, i32 %47, i32 %.promoted44.us53.i.i
   %51 = tail call i32 @llvm.smax.i32(i32 %43, i32 %47)
   %52 = zext i8 %46 to i64
@@ -203,24 +203,24 @@ CountLevels.exit.i:                               ; preds = %68
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.preheader.i.lr.ph, %187
-  %.sroa.43.198 = phi ptr [ %38, %.lr.ph.preheader.i.lr.ph ], [ %.sroa.34.197, %187 ]
-  %.sroa.34.197 = phi ptr [ %31, %.lr.ph.preheader.i.lr.ph ], [ %spec.select86, %187 ]
-  %.sroa.21.196 = phi ptr [ %0, %.lr.ph.preheader.i.lr.ph ], [ %.sroa.21.2, %187 ]
-  %.sroa.17.195 = phi ptr [ %0, %.lr.ph.preheader.i.lr.ph ], [ %.sroa.17.2, %187 ]
-  %.sroa.11.194 = phi i32 [ %19, %.lr.ph.preheader.i.lr.ph ], [ %188, %187 ]
+  %.sroa.43.098 = phi ptr [ %38, %.lr.ph.preheader.i.lr.ph ], [ %.sroa.34.097, %187 ]
+  %.sroa.34.097 = phi ptr [ %31, %.lr.ph.preheader.i.lr.ph ], [ %spec.select86, %187 ]
+  %.sroa.21.096 = phi ptr [ %0, %.lr.ph.preheader.i.lr.ph ], [ %.sroa.21.1, %187 ]
+  %.sroa.17.095 = phi ptr [ %0, %.lr.ph.preheader.i.lr.ph ], [ %.sroa.17.2, %187 ]
+  %.sroa.11.094 = phi i32 [ %19, %.lr.ph.preheader.i.lr.ph ], [ %188, %187 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.038.i = phi i16 [ 0, %.lr.ph.preheader.i ], [ %108, %.lr.ph.i ]
-  %105 = getelementptr inbounds i8, ptr %.sroa.17.195, i64 %indvars.iv.i
+  %105 = getelementptr inbounds i8, ptr %.sroa.17.095, i64 %indvars.iv.i
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i16
   %108 = add i16 %.038.i, %107
-  %109 = getelementptr inbounds i16, ptr %.sroa.43.198, i64 %indvars.iv.i
+  %109 = getelementptr inbounds i16, ptr %.sroa.43.098, i64 %indvars.iv.i
   %110 = load i16, ptr %109, align 2
   %111 = add i16 %108, %110
-  %112 = getelementptr inbounds i16, ptr %.sroa.34.197, i64 %indvars.iv.i
+  %112 = getelementptr inbounds i16, ptr %.sroa.34.097, i64 %indvars.iv.i
   %113 = load i16, ptr %112, align 2
   %114 = sub i16 %111, %113
   %115 = getelementptr inbounds i16, ptr %36, i64 %indvars.iv.i
@@ -231,15 +231,15 @@ CountLevels.exit.i:                               ; preds = %68
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %116 = getelementptr inbounds i16, ptr %.sroa.34.197, i64 %27
+  %116 = getelementptr inbounds i16, ptr %.sroa.34.097, i64 %27
   %117 = icmp eq ptr %116, %36
   %spec.select86 = select i1 %117, ptr %31, ptr %116
-  %118 = icmp sgt i32 %.sroa.11.194, -1
-  %119 = icmp slt i32 %.sroa.11.194, %17
+  %118 = icmp sgt i32 %.sroa.11.094, -1
+  %119 = icmp slt i32 %.sroa.11.094, %17
   %or.cond88 = select i1 %118, i1 %119, i1 false
   %.sroa.17.2.idx = select i1 %or.cond88, i64 %41, i64 0
-  %.sroa.17.2 = getelementptr inbounds i8, ptr %.sroa.17.195, i64 %.sroa.17.2.idx
-  %.not29 = icmp slt i32 %.sroa.11.194, %.1
+  %.sroa.17.2 = getelementptr inbounds i8, ptr %.sroa.17.095, i64 %.sroa.17.2.idx
+  %.not29 = icmp slt i32 %.sroa.11.094, %.1
   br i1 %.not29, label %187, label %.lr.ph.i32
 
 .preheader53.i:                                   ; preds = %.lr.ph.i32
@@ -327,11 +327,11 @@ HFilter.exit.preheader:                           ; preds = %146, %.preheader.i
 
 HFilter.exit:                                     ; preds = %HFilter.exit.preheader, %185
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %185 ], [ 0, %HFilter.exit.preheader ]
-  %166 = getelementptr inbounds i8, ptr %.sroa.21.196, i64 %indvars.iv.i40
+  %166 = getelementptr inbounds i8, ptr %.sroa.21.096, i64 %indvars.iv.i40
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i32
-  %169 = icmp sgt i32 %.sroa.55.2, %168
-  %170 = icmp slt i32 %.sroa.52.2, %168
+  %169 = icmp sgt i32 %.sroa.55.3, %168
+  %170 = icmp slt i32 %.sroa.52.3, %168
   %or.cond89 = select i1 %169, i1 %170, i1 false
   br i1 %or.cond89, label %171, label %185
 
@@ -358,12 +358,12 @@ HFilter.exit:                                     ; preds = %HFilter.exit.prehea
   br i1 %exitcond.not.i42, label %ApplyFilter.exit.loopexit, label %HFilter.exit, !llvm.loop !13
 
 ApplyFilter.exit.loopexit:                        ; preds = %185
-  %186 = getelementptr inbounds i8, ptr %.sroa.21.196, i64 %41
+  %186 = getelementptr inbounds i8, ptr %.sroa.21.096, i64 %41
   br label %187
 
 187:                                              ; preds = %._crit_edge.i.loopexit, %ApplyFilter.exit.loopexit
-  %.sroa.21.2 = phi ptr [ %.sroa.21.196, %._crit_edge.i.loopexit ], [ %186, %ApplyFilter.exit.loopexit ]
-  %188 = add nsw i32 %.sroa.11.194, 1
+  %.sroa.21.1 = phi ptr [ %.sroa.21.096, %._crit_edge.i.loopexit ], [ %186, %ApplyFilter.exit.loopexit ]
+  %188 = add nsw i32 %.sroa.11.094, 1
   %exitcond.not = icmp eq i32 %188, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.preheader.i, !llvm.loop !14
 

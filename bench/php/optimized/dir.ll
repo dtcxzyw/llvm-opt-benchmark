@@ -1614,7 +1614,7 @@ thread-pre-split:                                 ; preds = %16
   br label %._crit_edge.thread
 
 .thread200:                                       ; preds = %38, %42, %25, %37
-  %.2166 = phi ptr [ null, %25 ], [ null, %37 ], [ %39, %42 ], [ null, %38 ]
+  %.0164 = phi ptr [ null, %25 ], [ null, %37 ], [ %39, %42 ], [ null, %38 ]
   %44 = icmp eq i64 %26, 0
   br i1 %44, label %45, label %48
 
@@ -1626,12 +1626,12 @@ thread-pre-split:                                 ; preds = %16
   br label %._crit_edge.thread
 
 48:                                               ; preds = %.thread200
-  %.not177 = icmp eq ptr %.2166, null
+  %.not177 = icmp eq ptr %.0164, null
   br i1 %.not177, label %52, label %49
 
 49:                                               ; preds = %48
   %50 = call i32 @php_le_stream_context() #13
-  %51 = call ptr @zend_fetch_resource_ex(ptr noundef nonnull %.2166, ptr noundef nonnull @.str.11, i32 noundef %50) #13
+  %51 = call ptr @zend_fetch_resource_ex(ptr noundef nonnull %.0164, ptr noundef nonnull @.str.11, i32 noundef %50) #13
   br label %52
 
 52:                                               ; preds = %49, %48

@@ -158,8 +158,8 @@ define range(i32 -1, 2) i32 @H5PL_term_package() local_unnamed_addr #2 {
   br label %18
 
 18:                                               ; preds = %8, %14, %4
-  %.1 = phi i32 [ -1, %4 ], [ -1, %14 ], [ %spec.select, %8 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %4 ], [ -1, %14 ], [ %spec.select, %8 ]
+  ret i32 %.0
 }
 
 declare i32 @H5PL__close_plugin_cache(ptr noundef) local_unnamed_addr #4
@@ -390,8 +390,8 @@ define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noun
   br label %52
 
 52:                                               ; preds = %48, %47
-  %.1 = phi ptr [ %2, %47 ], [ %7, %48 ]
-  %53 = call i32 @H5VL_check_plugin_load(ptr noundef nonnull %41, ptr noundef nonnull %.1, ptr noundef nonnull %3) #6
+  %.2 = phi ptr [ %2, %47 ], [ %7, %48 ]
+  %53 = call i32 @H5VL_check_plugin_load(ptr noundef nonnull %41, ptr noundef nonnull %.2, ptr noundef nonnull %3) #6
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %59
 
@@ -441,8 +441,8 @@ define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noun
   br label %77
 
 77:                                               ; preds = %73, %72
-  %.2 = phi ptr [ %2, %72 ], [ %7, %73 ]
-  %78 = call i32 @H5FD_check_plugin_load(ptr noundef nonnull %66, ptr noundef nonnull %.2, ptr noundef nonnull %3) #6
+  %.3 = phi ptr [ %2, %72 ], [ %7, %73 ]
+  %78 = call i32 @H5FD_check_plugin_load(ptr noundef nonnull %66, ptr noundef nonnull %.3, ptr noundef nonnull %3) #6
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %84
 
@@ -475,13 +475,13 @@ define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noun
   br label %103
 
 94:                                               ; preds = %84, %89, %59, %64, %35, %39
-  %.3 = phi ptr [ %.2, %89 ], [ %.2, %84 ], [ %.1, %64 ], [ %.1, %59 ], [ %.092, %39 ], [ %2, %35 ]
+  %.1 = phi ptr [ %.3, %89 ], [ %.3, %84 ], [ %.2, %64 ], [ %.2, %59 ], [ %.092, %39 ], [ %2, %35 ]
   %95 = load i8, ptr %3, align 1
   %96 = trunc i8 %95 to i1
   br i1 %96, label %97, label %103
 
 97:                                               ; preds = %94
-  %98 = call i32 @H5PL__add_plugin(i32 noundef %23, ptr noundef nonnull %.3, ptr noundef nonnull %10) #6
+  %98 = call i32 @H5PL__add_plugin(i32 noundef %23, ptr noundef nonnull %.1, ptr noundef nonnull %10) #6
   %.not84 = icmp eq i32 %98, 0
   br i1 %.not84, label %103, label %99
 

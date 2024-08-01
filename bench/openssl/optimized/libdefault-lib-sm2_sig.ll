@@ -936,13 +936,13 @@ if.then10:                                        ; preds = %lor.lhs.false6, %lo
   br label %if.end
 
 if.end:                                           ; preds = %if.then10, %lor.lhs.false6
-  %ret.0 = phi i32 [ 0, %if.then10 ], [ 1, %lor.lhs.false6 ]
+  %ret.1 = phi i32 [ 0, %if.then10 ], [ 1, %lor.lhs.false6 ]
   tail call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str, i32 noundef 265) #7
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end, %entry
-  %ret.1 = phi i32 [ %ret.0, %if.end ], [ 1, %entry ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ %ret.1, %if.end ], [ 1, %entry ]
+  ret i32 %ret.0
 }
 
 declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2

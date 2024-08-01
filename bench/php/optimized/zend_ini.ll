@@ -284,14 +284,14 @@ define internal fastcc range(i32 -1, 1) i32 @zend_restore_ini_entry_cb(ptr nound
   br label %25
 
 25:                                               ; preds = %13, %9
-  %.032 = phi i1 [ %24, %13 ], [ true, %9 ]
+  %.1 = phi i1 [ %24, %13 ], [ true, %9 ]
   store ptr %10, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %26
 
 26:                                               ; preds = %25, %6
-  %.1 = phi i1 [ %.032, %25 ], [ true, %6 ]
+  %.032 = phi i1 [ %.1, %25 ], [ true, %6 ]
   %27 = icmp eq i32 %1, 16
-  %or.cond = select i1 %27, i1 %.1, i1 false
+  %or.cond = select i1 %27, i1 %.032, i1 false
   br i1 %or.cond, label %51, label %28
 
 28:                                               ; preds = %26
@@ -1626,7 +1626,7 @@ thread-pre-split:                                 ; preds = %24, %26
   br label %375
 
 72:                                               ; preds = %67, %67, %69, %68
-  %.0318 = phi i32 [ 2, %69 ], [ 8, %68 ], [ 16, %67 ], [ 16, %67 ]
+  %.1319 = phi i32 [ 2, %69 ], [ 8, %68 ], [ 16, %67 ], [ 16, %67 ]
   %73 = getelementptr inbounds i8, ptr %.1325, i64 2
   %74 = icmp eq ptr %73, %.0327.lcssa
   br i1 %74, label %75, label %94
@@ -1710,10 +1710,10 @@ thread-pre-split:                                 ; preds = %24, %26
 
 115:                                              ; preds = %54, %56, %94, %67, %67, %67, %67, %67, %67
   %.2326 = phi ptr [ %.1325, %56 ], [ %73, %94 ], [ %.1325, %67 ], [ %.1325, %67 ], [ %.1325, %67 ], [ %.1325, %67 ], [ %.1325, %67 ], [ %.1325, %67 ], [ %.1325, %54 ]
-  %.1319 = phi i32 [ 0, %56 ], [ %.0318, %94 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %54 ]
+  %.0318 = phi i32 [ 0, %56 ], [ %.1319, %94 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %54 ]
   %116 = tail call ptr @__errno_location() #23
   store i32 0, ptr %116, align 4
-  %117 = call i64 @strtoull(ptr noundef nonnull %.2326, ptr noundef nonnull %5, i32 noundef %.1319) #20
+  %117 = call i64 @strtoull(ptr noundef nonnull %.2326, ptr noundef nonnull %5, i32 noundef %.0318) #20
   %118 = load i32, ptr %116, align 4
   %119 = icmp eq i32 %118, 34
   br i1 %119, label %133, label %120
@@ -2010,7 +2010,7 @@ thread-pre-split:                                 ; preds = %24, %26
   br label %253
 
 253:                                              ; preds = %251, %247, %243, %237
-  %.1323 = phi i8 [ %.0322, %237 ], [ %246, %243 ], [ %250, %247 ], [ %252, %251 ]
+  %.2 = phi i8 [ %.0322, %237 ], [ %246, %243 ], [ %250, %247 ], [ %252, %251 ]
   %254 = mul i64 %.0321, %.0317
   %.not371 = icmp eq ptr %.lcssa416, %164
   br i1 %.not371, label %324, label %255
@@ -2150,9 +2150,9 @@ thread-pre-split:                                 ; preds = %24, %26
   br label %375
 
 324:                                              ; preds = %253, %.critedge5
-  %.2 = phi i8 [ %.0322, %.critedge5 ], [ %.1323, %253 ]
+  %.1323 = phi i8 [ %.0322, %.critedge5 ], [ %.2, %253 ]
   %.1 = phi i64 [ %.0317, %.critedge5 ], [ %254, %253 ]
-  %325 = trunc nuw i8 %.2 to i1
+  %325 = trunc nuw i8 %.1323 to i1
   br i1 %325, label %326, label %374
 
 326:                                              ; preds = %324

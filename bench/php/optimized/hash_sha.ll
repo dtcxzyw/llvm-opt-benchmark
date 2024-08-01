@@ -714,22 +714,22 @@ define void @PHP_SHA384Update(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
-  %.031 = phi i64 [ %27, %.lr.ph ], [ %19, %20 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 %.031
+  %.131 = phi i64 [ %27, %.lr.ph ], [ %19, %20 ]
+  %26 = getelementptr inbounds i8, ptr %1, i64 %.131
   tail call fastcc void @SHA512Transform(ptr noundef %0, ptr noundef %26)
-  %27 = add i64 %.031, 128
-  %.reass = add i64 %.031, 255
+  %27 = add i64 %.131, 128
+  %.reass = add i64 %.131, 255
   %28 = icmp ult i64 %.reass, %2
   br i1 %28, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %._crit_edge
   %.028 = phi i32 [ %7, %._crit_edge ], [ 0, %20 ], [ 0, %.lr.ph ]
-  %.1 = phi i64 [ 0, %._crit_edge ], [ %19, %20 ], [ %27, %.lr.ph ]
+  %.0 = phi i64 [ 0, %._crit_edge ], [ %19, %20 ], [ %27, %.lr.ph ]
   %29 = getelementptr inbounds i8, ptr %0, i64 80
   %30 = zext nneg i32 %.028 to i64
   %31 = getelementptr inbounds [128 x i8], ptr %29, i64 0, i64 %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %33 = sub i64 %2, %.1
+  %32 = getelementptr inbounds i8, ptr %1, i64 %.0
+  %33 = sub i64 %2, %.0
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %32, i64 %33, i1 false)
   ret void
 }
@@ -1008,22 +1008,22 @@ define void @PHP_SHA384Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   br i1 %71, label %.lr.ph.i, label %PHP_SHA384Update.exit
 
 .lr.ph.i:                                         ; preds = %65, %.lr.ph.i
-  %.031.i = phi i64 [ %73, %.lr.ph.i ], [ %66, %65 ]
-  %72 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
+  %.131.i = phi i64 [ %73, %.lr.ph.i ], [ %66, %65 ]
+  %72 = getelementptr inbounds i8, ptr @PADDING, i64 %.131.i
   tail call fastcc void @SHA512Transform(ptr noundef %1, ptr noundef nonnull readonly %72)
-  %73 = add nuw nsw i64 %.031.i, 128
-  %.reass.i = add nuw nsw i64 %.031.i, 255
+  %73 = add nuw nsw i64 %.131.i, 128
+  %.reass.i = add nuw nsw i64 %.131.i, 255
   %74 = icmp ult i64 %.reass.i, %58
   br i1 %74, label %.lr.ph.i, label %PHP_SHA384Update.exit
 
 PHP_SHA384Update.exit:                            ; preds = %.lr.ph.i, %2, %65
   %.028.i = phi i32 [ %55, %2 ], [ 0, %65 ], [ 0, %.lr.ph.i ]
-  %.1.i = phi i64 [ 0, %2 ], [ %66, %65 ], [ %73, %.lr.ph.i ]
+  %.0.i = phi i64 [ 0, %2 ], [ %66, %65 ], [ %73, %.lr.ph.i ]
   %75 = getelementptr inbounds i8, ptr %1, i64 80
   %76 = zext nneg i32 %.028.i to i64
   %77 = getelementptr inbounds [128 x i8], ptr %75, i64 0, i64 %76
-  %78 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
-  %79 = sub i64 %58, %.1.i
+  %78 = getelementptr inbounds i8, ptr @PADDING, i64 %.0.i
+  %79 = sub i64 %58, %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull readonly align 1 %78, i64 %79, i1 false)
   %80 = load i64, ptr %4, align 8
   %81 = trunc i64 %80 to i32
@@ -1050,11 +1050,11 @@ PHP_SHA384Update.exit:                            ; preds = %.lr.ph.i, %2, %65
 
 PHP_SHA384Update.exit31:                          ; preds = %PHP_SHA384Update.exit, %89
   %.028.i26 = phi i32 [ %83, %PHP_SHA384Update.exit ], [ 0, %89 ]
-  %.1.i27 = phi i64 [ 0, %PHP_SHA384Update.exit ], [ %91, %89 ]
+  %.0.i27 = phi i64 [ 0, %PHP_SHA384Update.exit ], [ %91, %89 ]
   %94 = zext nneg i32 %.028.i26 to i64
   %95 = getelementptr inbounds [128 x i8], ptr %75, i64 0, i64 %94
-  %96 = getelementptr inbounds i8, ptr %3, i64 %.1.i27
-  %97 = sub nuw nsw i64 16, %.1.i27
+  %96 = getelementptr inbounds i8, ptr %3, i64 %.0.i27
+  %97 = sub nuw nsw i64 16, %.0.i27
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr nonnull readonly align 1 %96, i64 %97, i1 false)
   br label %.lr.ph.i32
 

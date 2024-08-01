@@ -158,11 +158,11 @@ if.then4:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.then4
   %cmp7 = icmp eq i32 %preLength, 1
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %srcLength, i32 1)
-  %srcLength.addr.0 = select i1 %cmp7, i32 0, i32 %spec.store.select
+  %srcLength.addr.1 = select i1 %cmp7, i32 0, i32 %spec.store.select
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.end
-  %srcLength.addr.1 = phi i32 [ %srcLength.addr.0, %if.else ], [ %srcLength, %if.end ]
+  %srcLength.addr.0 = phi i32 [ %srcLength.addr.1, %if.else ], [ %srcLength, %if.end ]
   %flush.addr.0 = phi i8 [ 1, %if.else ], [ %flush, %if.end ]
   %cmp24 = icmp slt i8 %sisoState, 0
   br label %for.cond
@@ -204,7 +204,7 @@ if.then36:                                        ; preds = %if.end34
   br label %if.end51
 
 if.else38:                                        ; preds = %if.end34
-  %cmp39 = icmp slt i32 %j.0, %srcLength.addr.1
+  %cmp39 = icmp slt i32 %j.0, %srcLength.addr.0
   br i1 %cmp39, label %if.then40, label %if.else44
 
 if.then40:                                        ; preds = %if.else38
@@ -321,12 +321,12 @@ if.end41.i:                                       ; preds = %if.end18.i
 
 for.end.i:                                        ; preds = %if.end41.i, %if.end39.i, %land.lhs.true34.i, %land.lhs.true.i, %if.then20.i, %if.end12.i
   %limit.041.i = phi i32 [ %limit.045.i, %if.then20.i ], [ %limit.045.i, %land.lhs.true.i ], [ %limit.045.i, %land.lhs.true34.i ], [ %limit.045.i, %if.end39.i ], [ %shr, %if.end12.i ], [ %div.limit.0.i, %if.end41.i ]
-  %start.2.i = phi i32 [ %start.044.i, %if.then20.i ], [ %inc.i, %land.lhs.true.i ], [ %inc32.i, %land.lhs.true34.i ], [ %inc40.i, %if.end39.i ], [ 0, %if.end12.i ], [ %start.0.div.i, %if.end41.i ]
-  %cmp48.i = icmp slt i32 %start.2.i, %limit.041.i
+  %start.1.i = phi i32 [ %start.044.i, %if.then20.i ], [ %inc.i, %land.lhs.true.i ], [ %inc32.i, %land.lhs.true34.i ], [ %inc40.i, %if.end39.i ], [ 0, %if.end12.i ], [ %start.0.div.i, %if.end41.i ]
+  %cmp48.i = icmp slt i32 %start.1.i, %limit.041.i
   br i1 %cmp48.i, label %land.lhs.true49.i, label %for.end
 
 land.lhs.true49.i:                                ; preds = %for.end.i
-  %idxprom51.i = sext i32 %start.2.i to i64
+  %idxprom51.i = sext i32 %start.1.i to i64
   %arrayidx52.i = getelementptr inbounds i32, ptr %incdec.ptr, i64 %idxprom51.i
   %13 = load i32, ptr %arrayidx52.i, align 4
   %shr53.i = lshr i32 %13, 24
@@ -941,21 +941,21 @@ if.end26.i:                                       ; preds = %if.end.i
 
 for.end.i:                                        ; preds = %if.end26.i, %if.end24.i, %land.lhs.true17.i, %land.lhs.true.i, %if.then2.i, %if.end62
   %limit.028.i = phi i32 [ %limit.032.i, %if.then2.i ], [ %limit.032.i, %land.lhs.true.i ], [ %limit.032.i, %land.lhs.true17.i ], [ %limit.032.i, %if.end24.i ], [ %conv38, %if.end62 ], [ %div.limit.0.i, %if.end26.i ]
-  %start.2.i = phi i32 [ %start.031.i, %if.then2.i ], [ %inc.i, %land.lhs.true.i ], [ %inc15.i, %land.lhs.true17.i ], [ %inc25.i, %if.end24.i ], [ 0, %if.end62 ], [ %start.0.div.i, %if.end26.i ]
-  %cmp34.i = icmp slt i32 %start.2.i, %limit.028.i
+  %start.1.i = phi i32 [ %start.031.i, %if.then2.i ], [ %inc.i, %land.lhs.true.i ], [ %inc15.i, %land.lhs.true17.i ], [ %inc25.i, %if.end24.i ], [ 0, %if.end62 ], [ %start.0.div.i, %if.end26.i ]
+  %cmp34.i = icmp slt i32 %start.1.i, %limit.028.i
   br i1 %cmp34.i, label %land.lhs.true35.i, label %for.end
 
 land.lhs.true35.i:                                ; preds = %for.end.i
-  %idxprom37.i = sext i32 %start.2.i to i64
+  %idxprom37.i = sext i32 %start.1.i to i64
   %arrayidx38.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom37.i
   %18 = load i16, ptr %arrayidx38.i, align 2
   %cmp40.i = icmp ne i16 %18, %c.0
-  %cmp64 = icmp slt i32 %start.2.i, 0
+  %cmp64 = icmp slt i32 %start.1.i, 0
   %or.cond = or i1 %cmp64, %cmp40.i
   br i1 %or.cond, label %for.end, label %if.else66
 
 if.else66:                                        ; preds = %land.lhs.true35.i
-  %idxprom67 = zext nneg i32 %start.2.i to i64
+  %idxprom67 = zext nneg i32 %start.1.i to i64
   %arrayidx68 = getelementptr inbounds i32, ptr %incdec.ptr39, i64 %idxprom67
   %19 = load i32, ptr %arrayidx68, align 4
   %cmp70 = icmp ult i32 %19, 16777216

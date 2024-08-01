@@ -513,7 +513,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit.backedge: ; preds = %_ZNSt
           to label %.loopexit101 unwind label %.loopexit.split-lp
 
 .loopexit101:                                     ; preds = %36, %.thread
-  %.0 = phi ptr [ %125, %.thread ], [ null, %36 ]
+  %.1 = phi ptr [ %125, %.thread ], [ null, %36 ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %9) #14
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %8) #14
   %185 = load ptr, ptr %7, align 8
@@ -548,8 +548,8 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit82:      ; preds = %.body, %190
   resume { ptr, i32 } %.pn61.pn.pn
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %186, %.loopexit101, %5
-  %.1 = phi ptr [ null, %5 ], [ %.0, %.loopexit101 ], [ %.0, %186 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %5 ], [ %.1, %.loopexit101 ], [ %.1, %186 ]
+  ret ptr %.0
 }
 
 declare noundef i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef, i32 noundef) local_unnamed_addr #0

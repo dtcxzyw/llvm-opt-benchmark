@@ -819,7 +819,7 @@ define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noun
 
 .lr.ph:                                           ; preds = %83, %104
   %.0223277 = phi ptr [ %105, %104 ], [ %84, %83 ]
-  %.1229276 = phi i8 [ %.2, %104 ], [ %.0228, %83 ]
+  %.2276 = phi i8 [ %.3, %104 ], [ %.0228, %83 ]
   %90 = getelementptr inbounds i8, ptr %.0223277, i64 8
   %91 = load i8, ptr %90, align 8
   %92 = icmp eq i8 %91, 0
@@ -849,14 +849,14 @@ define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noun
   br label %112
 
 104:                                              ; preds = %93, %.lr.ph
-  %.2 = phi i8 [ %.1229276, %.lr.ph ], [ 1, %93 ]
+  %.3 = phi i8 [ %.2276, %.lr.ph ], [ 1, %93 ]
   %105 = getelementptr inbounds i8, ptr %.0223277, i64 32
   %.not260 = icmp eq ptr %105, %87
   br i1 %.not260, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %104, %83, %71
-  %.3 = phi i8 [ %.0228, %71 ], [ %.0228, %83 ], [ %.2, %104 ]
-  %106 = trunc nuw i8 %.3 to i1
+  %.1229 = phi i8 [ %.0228, %71 ], [ %.0228, %83 ], [ %.3, %104 ]
+  %106 = trunc nuw i8 %.1229 to i1
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %.loopexit

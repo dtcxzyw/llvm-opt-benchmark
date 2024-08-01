@@ -1069,15 +1069,15 @@ define internal void @msg_ms_key_req(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %28
 
 28:                                               ; preds = %24, %15
-  %.0 = phi i32 [ %27, %24 ], [ %23, %15 ]
-  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #3
+  %.1 = phi i32 [ %27, %24 ], [ %23, %15 ]
+  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #3
   %30 = zext i8 %29 to i32
   %31 = add nuw nsw i32 %30, 1
   %32 = load i32, ptr @ett_key_g, align 4
-  %33 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef %31, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.410) #3
+  %33 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.1, i32 noundef %31, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.410) #3
   %34 = load i32, ptr @hf_ansi_683_length, align 4
-  %35 = tail call ptr @proto_tree_add_uint(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef %30) #3
-  %36 = add i32 %.0, 1
+  %35 = tail call ptr @proto_tree_add_uint(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %30) #3
+  %36 = add i32 %.1, 1
   %.not64 = icmp eq i8 %29, 0
   br i1 %.not64, label %41, label %37
 
@@ -1088,14 +1088,14 @@ define internal void @msg_ms_key_req(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %41
 
 41:                                               ; preds = %28, %37, %9
-  %.1 = phi i32 [ %40, %37 ], [ %36, %28 ], [ %13, %9 ]
-  %42 = sub i32 %.1, %4
+  %.0 = phi i32 [ %40, %37 ], [ %36, %28 ], [ %13, %9 ]
+  %42 = sub i32 %.0, %4
   %43 = icmp ult i32 %42, %3
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %41
   %45 = sub nuw i32 %3, %42
-  %46 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %45) #3
+  %46 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %45) #3
   br label %47
 
 47:                                               ; preds = %44, %41, %7

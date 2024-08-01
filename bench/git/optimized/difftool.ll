@@ -1367,7 +1367,7 @@ for.body249.outer.i:                              ; preds = %for.inc319.thread.i
 
 for.body249.i:                                    ; preds = %for.inc319.i, %for.body249.outer.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc319.i ], [ %indvars.iv.ph.i, %for.body249.outer.i ]
-  %indices_loaded.0382.i = phi i32 [ %indices_loaded.2.i, %for.inc319.i ], [ %err.0383.ph.i, %for.body249.outer.i ]
+  %indices_loaded.0382.i = phi i32 [ %indices_loaded.1.i, %for.inc319.i ], [ %err.0383.ph.i, %for.body249.outer.i ]
   %102 = load ptr, ptr %wtindex.i, align 8
   %arrayidx250.i = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv.i
   %103 = load ptr, ptr %arrayidx250.i, align 8
@@ -1514,7 +1514,7 @@ _.exit186.i:                                      ; preds = %if.end3.i183.i, %if
   br label %for.inc319.i
 
 for.inc319.i:                                     ; preds = %_.exit186.i, %lor.lhs.false306.i, %if.end290.i, %if.end258.i, %for.body249.i
-  %indices_loaded.2.i = phi i32 [ %indices_loaded.0382.i, %for.body249.i ], [ 1, %_.exit186.i ], [ 1, %lor.lhs.false306.i ], [ 1, %if.end290.i ], [ %indices_loaded.0382.i, %if.end258.i ]
+  %indices_loaded.1.i = phi i32 [ %indices_loaded.0382.i, %for.body249.i ], [ 1, %_.exit186.i ], [ 1, %lor.lhs.false306.i ], [ 1, %if.end290.i ], [ %indices_loaded.0382.i, %if.end258.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %124 = load i32, ptr %cache_nr.i, align 4
   %125 = zext i32 %124 to i64

@@ -251,7 +251,7 @@ if.end.i:                                         ; preds = %entry
   br label %update_buflen.exit
 
 update_buflen.exit:                               ; preds = %if.end.i, %entry
-  %buf_len.0 = phi i64 [ 0, %entry ], [ %conv.i, %if.end.i ]
+  %buf_len.2 = phi i64 [ 0, %entry ], [ %conv.i, %if.end.i ]
   %e = getelementptr inbounds i8, ptr %rsa, i64 16
   %1 = load ptr, ptr %e, align 8
   %tobool.not.i77 = icmp eq ptr %1, null
@@ -260,11 +260,11 @@ update_buflen.exit:                               ; preds = %if.end.i, %entry
 if.end.i78:                                       ; preds = %update_buflen.exit
   %call.i79 = tail call i32 @BN_num_bytes(ptr noundef nonnull %1) #5
   %conv.i80 = zext i32 %call.i79 to i64
-  %spec.select158 = tail call i64 @llvm.umax.i64(i64 %buf_len.0, i64 %conv.i80)
+  %spec.select158 = tail call i64 @llvm.umax.i64(i64 %buf_len.2, i64 %conv.i80)
   br label %update_buflen.exit83
 
 update_buflen.exit83:                             ; preds = %if.end.i78, %update_buflen.exit
-  %buf_len.1 = phi i64 [ %buf_len.0, %update_buflen.exit ], [ %spec.select158, %if.end.i78 ]
+  %buf_len.3 = phi i64 [ %buf_len.2, %update_buflen.exit ], [ %spec.select158, %if.end.i78 ]
   %tobool.not = icmp eq i32 %include_private, 0
   br i1 %tobool.not, label %if.end6, label %if.then
 
@@ -277,11 +277,11 @@ if.then:                                          ; preds = %update_buflen.exit8
 if.end.i85:                                       ; preds = %if.then
   %call.i86 = tail call i32 @BN_num_bytes(ptr noundef nonnull %2) #5
   %conv.i87 = zext i32 %call.i86 to i64
-  %spec.select159 = tail call i64 @llvm.umax.i64(i64 %buf_len.1, i64 %conv.i87)
+  %spec.select159 = tail call i64 @llvm.umax.i64(i64 %buf_len.3, i64 %conv.i87)
   br label %update_buflen.exit90
 
 update_buflen.exit90:                             ; preds = %if.end.i85, %if.then
-  %buf_len.2 = phi i64 [ %buf_len.1, %if.then ], [ %spec.select159, %if.end.i85 ]
+  %buf_len.4 = phi i64 [ %buf_len.3, %if.then ], [ %spec.select159, %if.end.i85 ]
   %p = getelementptr inbounds i8, ptr %rsa, i64 32
   %3 = load ptr, ptr %p, align 8
   %tobool.not.i91 = icmp eq ptr %3, null
@@ -290,11 +290,11 @@ update_buflen.exit90:                             ; preds = %if.end.i85, %if.the
 if.end.i92:                                       ; preds = %update_buflen.exit90
   %call.i93 = tail call i32 @BN_num_bytes(ptr noundef nonnull %3) #5
   %conv.i94 = zext i32 %call.i93 to i64
-  %spec.select160 = tail call i64 @llvm.umax.i64(i64 %buf_len.2, i64 %conv.i94)
+  %spec.select160 = tail call i64 @llvm.umax.i64(i64 %buf_len.4, i64 %conv.i94)
   br label %update_buflen.exit97
 
 update_buflen.exit97:                             ; preds = %if.end.i92, %update_buflen.exit90
-  %buf_len.3 = phi i64 [ %buf_len.2, %update_buflen.exit90 ], [ %spec.select160, %if.end.i92 ]
+  %buf_len.5 = phi i64 [ %buf_len.4, %update_buflen.exit90 ], [ %spec.select160, %if.end.i92 ]
   %q = getelementptr inbounds i8, ptr %rsa, i64 40
   %4 = load ptr, ptr %q, align 8
   %tobool.not.i98 = icmp eq ptr %4, null
@@ -303,11 +303,11 @@ update_buflen.exit97:                             ; preds = %if.end.i92, %update
 if.end.i99:                                       ; preds = %update_buflen.exit97
   %call.i100 = tail call i32 @BN_num_bytes(ptr noundef nonnull %4) #5
   %conv.i101 = zext i32 %call.i100 to i64
-  %spec.select161 = tail call i64 @llvm.umax.i64(i64 %buf_len.3, i64 %conv.i101)
+  %spec.select161 = tail call i64 @llvm.umax.i64(i64 %buf_len.5, i64 %conv.i101)
   br label %update_buflen.exit104
 
 update_buflen.exit104:                            ; preds = %if.end.i99, %update_buflen.exit97
-  %buf_len.4 = phi i64 [ %buf_len.3, %update_buflen.exit97 ], [ %spec.select161, %if.end.i99 ]
+  %buf_len.6 = phi i64 [ %buf_len.5, %update_buflen.exit97 ], [ %spec.select161, %if.end.i99 ]
   %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 48
   %5 = load ptr, ptr %dmp1, align 8
   %tobool.not.i105 = icmp eq ptr %5, null
@@ -316,11 +316,11 @@ update_buflen.exit104:                            ; preds = %if.end.i99, %update
 if.end.i106:                                      ; preds = %update_buflen.exit104
   %call.i107 = tail call i32 @BN_num_bytes(ptr noundef nonnull %5) #5
   %conv.i108 = zext i32 %call.i107 to i64
-  %spec.select162 = tail call i64 @llvm.umax.i64(i64 %buf_len.4, i64 %conv.i108)
+  %spec.select162 = tail call i64 @llvm.umax.i64(i64 %buf_len.6, i64 %conv.i108)
   br label %update_buflen.exit111
 
 update_buflen.exit111:                            ; preds = %if.end.i106, %update_buflen.exit104
-  %buf_len.5 = phi i64 [ %buf_len.4, %update_buflen.exit104 ], [ %spec.select162, %if.end.i106 ]
+  %buf_len.7 = phi i64 [ %buf_len.6, %update_buflen.exit104 ], [ %spec.select162, %if.end.i106 ]
   %dmq1 = getelementptr inbounds i8, ptr %rsa, i64 56
   %6 = load ptr, ptr %dmq1, align 8
   %tobool.not.i112 = icmp eq ptr %6, null
@@ -329,11 +329,11 @@ update_buflen.exit111:                            ; preds = %if.end.i106, %updat
 if.end.i113:                                      ; preds = %update_buflen.exit111
   %call.i114 = tail call i32 @BN_num_bytes(ptr noundef nonnull %6) #5
   %conv.i115 = zext i32 %call.i114 to i64
-  %spec.select163 = tail call i64 @llvm.umax.i64(i64 %buf_len.5, i64 %conv.i115)
+  %spec.select163 = tail call i64 @llvm.umax.i64(i64 %buf_len.7, i64 %conv.i115)
   br label %update_buflen.exit118
 
 update_buflen.exit118:                            ; preds = %if.end.i113, %update_buflen.exit111
-  %buf_len.6 = phi i64 [ %buf_len.5, %update_buflen.exit111 ], [ %spec.select163, %if.end.i113 ]
+  %buf_len.8 = phi i64 [ %buf_len.7, %update_buflen.exit111 ], [ %spec.select163, %if.end.i113 ]
   %iqmp = getelementptr inbounds i8, ptr %rsa, i64 64
   %7 = load ptr, ptr %iqmp, align 8
   %tobool.not.i119 = icmp eq ptr %7, null
@@ -342,11 +342,11 @@ update_buflen.exit118:                            ; preds = %if.end.i113, %updat
 if.end.i120:                                      ; preds = %update_buflen.exit118
   %call.i121 = tail call i32 @BN_num_bytes(ptr noundef nonnull %7) #5
   %conv.i122 = zext i32 %call.i121 to i64
-  %spec.select164 = tail call i64 @llvm.umax.i64(i64 %buf_len.6, i64 %conv.i122)
+  %spec.select164 = tail call i64 @llvm.umax.i64(i64 %buf_len.8, i64 %conv.i122)
   br label %update_buflen.exit125
 
 update_buflen.exit125:                            ; preds = %if.end.i120, %update_buflen.exit118
-  %buf_len.7 = phi i64 [ %buf_len.6, %update_buflen.exit118 ], [ %spec.select164, %if.end.i120 ]
+  %buf_len.9 = phi i64 [ %buf_len.8, %update_buflen.exit118 ], [ %spec.select164, %if.end.i120 ]
   %additional_primes = getelementptr inbounds i8, ptr %rsa, i64 72
   %8 = load ptr, ptr %additional_primes, align 8
   %cmp.not = icmp eq ptr %8, null
@@ -359,7 +359,7 @@ for.cond.preheader:                               ; preds = %update_buflen.exit1
 
 for.body:                                         ; preds = %for.cond.preheader, %update_buflen.exit146
   %i.0171 = phi i64 [ %inc, %update_buflen.exit146 ], [ 0, %for.cond.preheader ]
-  %buf_len.8170 = phi i64 [ %buf_len.11, %update_buflen.exit146 ], [ %buf_len.7, %for.cond.preheader ]
+  %buf_len.1170 = phi i64 [ %buf_len.12, %update_buflen.exit146 ], [ %buf_len.9, %for.cond.preheader ]
   %9 = load ptr, ptr %additional_primes, align 8
   %call5 = tail call ptr @sk_value(ptr noundef %9, i64 noundef %i.0171) #5
   %10 = load ptr, ptr %call5, align 8
@@ -369,11 +369,11 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.end.i127:                                      ; preds = %for.body
   %call.i128 = tail call i32 @BN_num_bytes(ptr noundef nonnull %10) #5
   %conv.i129 = zext i32 %call.i128 to i64
-  %spec.select165 = tail call i64 @llvm.umax.i64(i64 %buf_len.8170, i64 %conv.i129)
+  %spec.select165 = tail call i64 @llvm.umax.i64(i64 %buf_len.1170, i64 %conv.i129)
   br label %update_buflen.exit132
 
 update_buflen.exit132:                            ; preds = %if.end.i127, %for.body
-  %buf_len.9 = phi i64 [ %buf_len.8170, %for.body ], [ %spec.select165, %if.end.i127 ]
+  %buf_len.10 = phi i64 [ %buf_len.1170, %for.body ], [ %spec.select165, %if.end.i127 ]
   %exp = getelementptr inbounds i8, ptr %call5, i64 8
   %11 = load ptr, ptr %exp, align 8
   %tobool.not.i133 = icmp eq ptr %11, null
@@ -382,11 +382,11 @@ update_buflen.exit132:                            ; preds = %if.end.i127, %for.b
 if.end.i134:                                      ; preds = %update_buflen.exit132
   %call.i135 = tail call i32 @BN_num_bytes(ptr noundef nonnull %11) #5
   %conv.i136 = zext i32 %call.i135 to i64
-  %spec.select166 = tail call i64 @llvm.umax.i64(i64 %buf_len.9, i64 %conv.i136)
+  %spec.select166 = tail call i64 @llvm.umax.i64(i64 %buf_len.10, i64 %conv.i136)
   br label %update_buflen.exit139
 
 update_buflen.exit139:                            ; preds = %if.end.i134, %update_buflen.exit132
-  %buf_len.10 = phi i64 [ %buf_len.9, %update_buflen.exit132 ], [ %spec.select166, %if.end.i134 ]
+  %buf_len.11 = phi i64 [ %buf_len.10, %update_buflen.exit132 ], [ %spec.select166, %if.end.i134 ]
   %coeff = getelementptr inbounds i8, ptr %call5, i64 16
   %12 = load ptr, ptr %coeff, align 8
   %tobool.not.i140 = icmp eq ptr %12, null
@@ -395,11 +395,11 @@ update_buflen.exit139:                            ; preds = %if.end.i134, %updat
 if.end.i141:                                      ; preds = %update_buflen.exit139
   %call.i142 = tail call i32 @BN_num_bytes(ptr noundef nonnull %12) #5
   %conv.i143 = zext i32 %call.i142 to i64
-  %spec.select167 = tail call i64 @llvm.umax.i64(i64 %buf_len.10, i64 %conv.i143)
+  %spec.select167 = tail call i64 @llvm.umax.i64(i64 %buf_len.11, i64 %conv.i143)
   br label %update_buflen.exit146
 
 update_buflen.exit146:                            ; preds = %if.end.i141, %update_buflen.exit139
-  %buf_len.11 = phi i64 [ %buf_len.10, %update_buflen.exit139 ], [ %spec.select167, %if.end.i141 ]
+  %buf_len.12 = phi i64 [ %buf_len.11, %update_buflen.exit139 ], [ %spec.select167, %if.end.i141 ]
   %inc = add nuw i64 %i.0171, 1
   %13 = load ptr, ptr %additional_primes, align 8
   %call = tail call i64 @sk_num(ptr noundef %13) #5
@@ -407,8 +407,8 @@ update_buflen.exit146:                            ; preds = %if.end.i141, %updat
   br i1 %cmp3, label %for.body, label %if.end6, !llvm.loop !9
 
 if.end6:                                          ; preds = %update_buflen.exit146, %for.cond.preheader, %update_buflen.exit125, %update_buflen.exit83
-  %buf_len.12 = phi i64 [ %buf_len.1, %update_buflen.exit83 ], [ %buf_len.7, %update_buflen.exit125 ], [ %buf_len.7, %for.cond.preheader ], [ %buf_len.11, %update_buflen.exit146 ]
-  %add = add nuw nsw i64 %buf_len.12, 10
+  %buf_len.0 = phi i64 [ %buf_len.3, %update_buflen.exit83 ], [ %buf_len.9, %update_buflen.exit125 ], [ %buf_len.9, %for.cond.preheader ], [ %buf_len.12, %update_buflen.exit146 ]
+  %add = add nuw nsw i64 %buf_len.0, 10
   %call7 = tail call noalias ptr @malloc(i64 noundef %add) #6
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then9, label %if.end10
@@ -899,7 +899,7 @@ if.end19:                                         ; preds = %if.end15
   br i1 %cmp22, label %if.then85, label %if.end26
 
 if.end26:                                         ; preds = %if.end19, %if.then7
-  %pub_key_bytes.0 = phi ptr [ null, %if.then7 ], [ %call16, %if.end19 ]
+  %pub_key_bytes.1 = phi ptr [ null, %if.then7 ], [ %call16, %if.end19 ]
   %pub_key_bytes_len.0 = phi i64 [ 0, %if.then7 ], [ %call21, %if.end19 ]
   %cmp27 = icmp eq i32 %ktype, 2
   br i1 %cmp27, label %if.then28, label %if.then38
@@ -930,9 +930,9 @@ if.end44:                                         ; preds = %if.then38
   br label %if.end44.thread
 
 if.end44.thread:                                  ; preds = %if.end44, %if.end5
-  %buffer.071 = phi ptr [ null, %if.end5 ], [ %call39, %if.end44 ]
+  %buffer.171 = phi ptr [ null, %if.end5 ], [ %call39, %if.end44 ]
   %pub_key_bytes_len.0455470 = phi i64 [ 0, %if.end5 ], [ %pub_key_bytes_len.0, %if.end44 ]
-  %pub_key_bytes.0445669 = phi ptr [ null, %if.end5 ], [ %pub_key_bytes.0, %if.end44 ]
+  %pub_key_bytes.1445669 = phi ptr [ null, %if.end5 ], [ %pub_key_bytes.1, %if.end44 ]
   %priv_key.05968 = phi ptr [ null, %if.end5 ], [ %priv_key.0.ph, %if.end44 ]
   %0 = phi ptr [ @.str.39, %if.end5 ], [ %spec.select90, %if.end44 ]
   %call55 = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %off, i32 noundef 128) #5
@@ -960,37 +960,37 @@ if.end71:                                         ; preds = %lor.lhs.false65
   br i1 %cmp72.not, label %if.end78, label %land.lhs.true74
 
 land.lhs.true74:                                  ; preds = %if.end71
-  %call75 = tail call fastcc i32 @bn_print(ptr noundef %bp, ptr noundef nonnull @.str.34, ptr noundef nonnull %priv_key.05968, ptr noundef %buffer.071, i32 noundef %off)
+  %call75 = tail call fastcc i32 @bn_print(ptr noundef %bp, ptr noundef nonnull @.str.34, ptr noundef nonnull %priv_key.05968, ptr noundef %buffer.171, i32 noundef %off)
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %if.then85, label %if.end78
 
 if.end78:                                         ; preds = %land.lhs.true74, %if.end71
-  %cmp79.not = icmp eq ptr %pub_key_bytes.0445669, null
+  %cmp79.not = icmp eq ptr %pub_key_bytes.1445669, null
   br i1 %cmp79.not, label %if.end86, label %if.then81
 
 if.then81:                                        ; preds = %if.end78
-  %call82 = tail call i32 @BIO_hexdump(ptr noundef %bp, ptr noundef nonnull %pub_key_bytes.0445669, i64 noundef %pub_key_bytes_len.0455470, i32 noundef %off) #5
+  %call82 = tail call i32 @BIO_hexdump(ptr noundef %bp, ptr noundef nonnull %pub_key_bytes.1445669, i64 noundef %pub_key_bytes_len.0455470, i32 noundef %off) #5
   br label %if.end86
 
 if.then85:                                        ; preds = %if.end58, %lor.lhs.false65, %land.lhs.true74, %lor.lhs.false62, %if.end44.thread, %lor.lhs.false, %entry, %if.end, %if.then10, %if.end15, %if.end19, %if.then38
   %reason.0.ph = phi i32 [ 65, %if.then38 ], [ 65, %if.end19 ], [ 65, %if.end15 ], [ 65, %if.then10 ], [ 65, %if.end ], [ 67, %entry ], [ 67, %lor.lhs.false ], [ 17, %if.end44.thread ], [ 17, %lor.lhs.false62 ], [ 17, %land.lhs.true74 ], [ 17, %lor.lhs.false65 ], [ 17, %if.end58 ]
   %order.0.ph = phi ptr [ null, %if.then38 ], [ null, %if.end19 ], [ null, %if.end15 ], [ null, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ null, %if.end44.thread ], [ %call59, %lor.lhs.false62 ], [ %call59, %land.lhs.true74 ], [ %call59, %lor.lhs.false65 ], [ null, %if.end58 ]
   %ctx.0.ph = phi ptr [ %call2, %if.then38 ], [ %call2, %if.end19 ], [ %call2, %if.end15 ], [ %call2, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ %call2, %if.end44.thread ], [ %call2, %lor.lhs.false62 ], [ %call2, %land.lhs.true74 ], [ %call2, %lor.lhs.false65 ], [ %call2, %if.end58 ]
-  %buffer.1.ph = phi ptr [ null, %if.then38 ], [ null, %if.end19 ], [ null, %if.end15 ], [ null, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ %buffer.071, %if.end44.thread ], [ %buffer.071, %lor.lhs.false62 ], [ %buffer.071, %land.lhs.true74 ], [ %buffer.071, %lor.lhs.false65 ], [ %buffer.071, %if.end58 ]
-  %pub_key_bytes.1.ph = phi ptr [ %pub_key_bytes.0, %if.then38 ], [ %call16, %if.end19 ], [ null, %if.end15 ], [ null, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ %pub_key_bytes.0445669, %if.end44.thread ], [ %pub_key_bytes.0445669, %lor.lhs.false62 ], [ %pub_key_bytes.0445669, %land.lhs.true74 ], [ %pub_key_bytes.0445669, %lor.lhs.false65 ], [ %pub_key_bytes.0445669, %if.end58 ]
+  %buffer.0.ph = phi ptr [ null, %if.then38 ], [ null, %if.end19 ], [ null, %if.end15 ], [ null, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ %buffer.171, %if.end44.thread ], [ %buffer.171, %lor.lhs.false62 ], [ %buffer.171, %land.lhs.true74 ], [ %buffer.171, %lor.lhs.false65 ], [ %buffer.171, %if.end58 ]
+  %pub_key_bytes.0.ph = phi ptr [ %pub_key_bytes.1, %if.then38 ], [ %call16, %if.end19 ], [ null, %if.end15 ], [ null, %if.then10 ], [ null, %if.end ], [ null, %entry ], [ null, %lor.lhs.false ], [ %pub_key_bytes.1445669, %if.end44.thread ], [ %pub_key_bytes.1445669, %lor.lhs.false62 ], [ %pub_key_bytes.1445669, %land.lhs.true74 ], [ %pub_key_bytes.1445669, %lor.lhs.false65 ], [ %pub_key_bytes.1445669, %if.end58 ]
   tail call void @ERR_put_error(i32 noundef 6, i32 noundef 0, i32 noundef %reason.0.ph, ptr noundef nonnull @.str.3, i32 noundef 426) #5
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then81, %if.end78, %if.then85
-  %pub_key_bytes.188 = phi ptr [ %pub_key_bytes.1.ph, %if.then85 ], [ %pub_key_bytes.0445669, %if.then81 ], [ null, %if.end78 ]
-  %buffer.186 = phi ptr [ %buffer.1.ph, %if.then85 ], [ %buffer.071, %if.then81 ], [ %buffer.071, %if.end78 ]
+  %pub_key_bytes.088 = phi ptr [ %pub_key_bytes.0.ph, %if.then85 ], [ %pub_key_bytes.1445669, %if.then81 ], [ null, %if.end78 ]
+  %buffer.086 = phi ptr [ %buffer.0.ph, %if.then85 ], [ %buffer.171, %if.then81 ], [ %buffer.171, %if.end78 ]
   %ctx.084 = phi ptr [ %ctx.0.ph, %if.then85 ], [ %call2, %if.then81 ], [ %call2, %if.end78 ]
   %order.082 = phi ptr [ %order.0.ph, %if.then85 ], [ %call59, %if.then81 ], [ %call59, %if.end78 ]
   %ret.079 = phi i32 [ 0, %if.then85 ], [ 1, %if.then81 ], [ 1, %if.end78 ]
-  tail call void @free(ptr noundef %pub_key_bytes.188) #5
+  tail call void @free(ptr noundef %pub_key_bytes.088) #5
   tail call void @BN_free(ptr noundef %order.082) #5
   tail call void @BN_CTX_free(ptr noundef %ctx.084) #5
-  tail call void @free(ptr noundef %buffer.186) #5
+  tail call void @free(ptr noundef %buffer.086) #5
   ret i32 %ret.079
 }
 

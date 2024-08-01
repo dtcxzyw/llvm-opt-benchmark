@@ -1275,12 +1275,12 @@ define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
-  %.172 = phi ptr [ %.056, %.lr.ph ], [ %35, %34 ]
-  %.15871 = phi i64 [ %.057, %.lr.ph ], [ %36, %34 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %33, ptr noundef nonnull align 1 dereferenceable(64) %.172, i64 64, i1 false)
+  %.272 = phi ptr [ %.056, %.lr.ph ], [ %35, %34 ]
+  %.25971 = phi i64 [ %.057, %.lr.ph ], [ %36, %34 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %33, ptr noundef nonnull align 1 dereferenceable(64) %.272, i64 64, i1 false)
   tail call fastcc void @sha256_process_block(ptr noundef nonnull %33, i64 noundef 64, ptr noundef nonnull %2)
-  %35 = getelementptr inbounds i8, ptr %.172, i64 64
-  %36 = add i64 %.15871, -64
+  %35 = getelementptr inbounds i8, ptr %.272, i64 64
+  %36 = add i64 %.25971, -64
   %37 = icmp ugt i64 %36, 64
   br i1 %37, label %34, label %.thread
 
@@ -1292,20 +1292,20 @@ define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1
   br label %42
 
 42:                                               ; preds = %38, %28
-  %.259 = phi i64 [ %41, %38 ], [ %.057, %28 ]
-  %.2 = phi ptr [ %40, %38 ], [ %.056, %28 ]
-  %.not65 = icmp eq i64 %.259, 0
+  %.158 = phi i64 [ %41, %38 ], [ %.057, %28 ]
+  %.1 = phi ptr [ %40, %38 ], [ %.056, %28 ]
+  %.not65 = icmp eq i64 %.158, 0
   br i1 %.not65, label %54, label %.thread
 
 .thread:                                          ; preds = %34, %.preheader, %42
-  %.270 = phi ptr [ %.2, %42 ], [ %.056, %.preheader ], [ %35, %34 ]
-  %.25969 = phi i64 [ %.259, %42 ], [ 64, %.preheader ], [ %36, %34 ]
+  %.170 = phi ptr [ %.1, %42 ], [ %.056, %.preheader ], [ %35, %34 ]
+  %.15869 = phi i64 [ %.158, %42 ], [ 64, %.preheader ], [ %36, %34 ]
   %43 = load i32, ptr %4, align 4
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %2, i64 44
   %46 = getelementptr inbounds [128 x i8], ptr %45, i64 0, i64 %44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %.270, i64 %.25969, i1 false)
-  %47 = add nuw nsw i64 %.25969, %44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %.170, i64 %.15869, i1 false)
+  %47 = add nuw nsw i64 %.15869, %44
   %48 = icmp ugt i64 %47, 63
   br i1 %48, label %49, label %52
 

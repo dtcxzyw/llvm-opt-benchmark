@@ -59,7 +59,7 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
   br i1 %exitcond42.not, label %.split38.us, label %.split.us, !llvm.loop !5
 
 .split:                                           ; preds = %4, %34
-  %.02436 = phi i32 [ %.2, %34 ], [ 0, %4 ]
+  %.02436 = phi i32 [ %.1, %34 ], [ 0, %4 ]
   %.02535 = phi i32 [ %.126, %34 ], [ -20, %4 ]
   %.02734 = phi i64 [ %35, %34 ], [ 0, %4 ]
   %20 = getelementptr inbounds [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.02734
@@ -94,13 +94,13 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
 
 34:                                               ; preds = %30, %33, %28, %.split, %24
   %.126 = phi i32 [ %.02535, %.split ], [ %.02535, %24 ], [ %.02535, %28 ], [ 0, %33 ], [ %.02535, %30 ]
-  %.2 = phi i32 [ %.02436, %.split ], [ %.02436, %24 ], [ %.02436, %28 ], [ %31, %33 ], [ %31, %30 ]
+  %.1 = phi i32 [ %.02436, %.split ], [ %.02436, %24 ], [ %.02436, %28 ], [ %31, %33 ], [ %31, %30 ]
   %35 = add nuw nsw i64 %.02734, 1
   %exitcond.not = icmp eq i64 %35, 16
   br i1 %exitcond.not, label %.split38.us.loopexit41, label %.split, !llvm.loop !5
 
 .split38.us.loopexit41:                           ; preds = %34
-  %36 = icmp eq i32 %.2, 0
+  %36 = icmp eq i32 %.1, 0
   br label %.split38.us
 
 .split38.us:                                      ; preds = %18, %.split38.us.loopexit41

@@ -471,12 +471,12 @@ if.else33:                                        ; preds = %if.else20
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then23, %if.then26, %if.else33
-  %set.addr.0 = phi i32 [ %add, %if.then26 ], [ %4, %if.else33 ], [ 0, %if.then23 ]
-  %cmp38 = icmp ne i32 %set.addr.0, 0
+  %set.addr.1 = phi i32 [ %add, %if.then26 ], [ %4, %if.else33 ], [ 0, %if.then23 ]
+  %cmp38 = icmp ne i32 %set.addr.1, 0
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then11, %if.else15, %if.end37
-  %set.addr.1 = phi i32 [ %2, %if.else15 ], [ %set.addr.0, %if.end37 ], [ 0, %if.then11 ]
+  %set.addr.0 = phi i32 [ %2, %if.else15 ], [ %set.addr.1, %if.end37 ], [ 0, %if.then11 ]
   %inc.0 = phi i1 [ true, %if.else15 ], [ %cmp38, %if.end37 ], [ false, %if.then11 ]
   %call41 = tail call ptr @X509_NAME_ENTRY_dup(ptr noundef %ne) #7
   %cond = icmp eq ptr %call41, null
@@ -484,7 +484,7 @@ if.end40:                                         ; preds = %if.then11, %if.else
 
 if.end45:                                         ; preds = %if.end40
   %set46 = getelementptr inbounds i8, ptr %call41, i64 16
-  store i32 %set.addr.1, ptr %set46, align 8
+  store i32 %set.addr.0, ptr %set46, align 8
   %conv47 = sext i32 %loc.addr.0 to i64
   %call48 = tail call i64 @sk_insert(ptr noundef %0, ptr noundef nonnull %call41, i64 noundef %conv47) #7
   %tobool.not = icmp eq i64 %call48, 0

@@ -1051,17 +1051,17 @@ _ZNSt6vectorI7t_dlistSaIS0_EE6resizeEm.exit:      ; preds = %_ZSt8_DestroyIP7t_d
 
 .lr.ph468:                                        ; preds = %.lr.ph468.preheader, %.lr.ph468
   %indvars.iv556 = phi i64 [ 0, %.lr.ph468.preheader ], [ %indvars.iv.next557, %.lr.ph468 ]
-  %.3221466 = phi i32 [ %.2220, %.lr.ph468.preheader ], [ %393, %.lr.ph468 ]
+  %.4222466 = phi i32 [ %.2220, %.lr.ph468.preheader ], [ %393, %.lr.ph468 ]
   %391 = getelementptr inbounds [9 x i32], ptr %11, i64 0, i64 %indvars.iv556
   %392 = load i32, ptr %391, align 4
-  %393 = add nsw i32 %392, %.3221466
+  %393 = add nsw i32 %392, %.4222466
   %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next557, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit346, label %.lr.ph468, !llvm.loop !10
 
 .loopexit346:                                     ; preds = %.lr.ph468, %_ZNSt6vectorI7t_dlistSaIS0_EE6resizeEm.exit
-  %.4222 = phi i32 [ %.2220, %_ZNSt6vectorI7t_dlistSaIS0_EE6resizeEm.exit ], [ %393, %.lr.ph468 ]
-  %394 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %.4222) #18
+  %.3221 = phi i32 [ %.2220, %_ZNSt6vectorI7t_dlistSaIS0_EE6resizeEm.exit ], [ %393, %.lr.ph468 ]
+  %394 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %.3221) #18
   %395 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 10, i64 1, ptr %1)
   br i1 %3, label %396, label %398
 

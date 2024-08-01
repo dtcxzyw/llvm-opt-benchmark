@@ -3233,9 +3233,9 @@ _Z14cpp_close_filePP7gmx_cpp.exit:                ; preds = %30, %32, %40
   br i1 %.not31.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !63
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.critedge.i
-  %.2.pn.i = phi ptr [ %.3.i, %.critedge.i ], [ %.242.i, %.lr.ph.i ]
-  %.3.i = getelementptr inbounds i8, ptr %.2.pn.i, i64 1
-  %69 = load i8, ptr %.3.i, align 1
+  %.2.pn.i = phi ptr [ %.4.i, %.critedge.i ], [ %.242.i, %.lr.ph.i ]
+  %.4.i = getelementptr inbounds i8, ptr %.2.pn.i, i64 1
+  %69 = load i8, ptr %.4.i, align 1
   %70 = sext i8 %69 to i32
   %71 = call i32 @isspace(i32 noundef %70) #22
   %.not34.i = icmp eq i32 %71, 0
@@ -3246,7 +3246,7 @@ _Z14cpp_close_filePP7gmx_cpp.exit:                ; preds = %30, %32, %40
   br i1 %.not35.i, label %.thread.i, label %73
 
 73:                                               ; preds = %72
-  %74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %.3.i)
+  %74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %.4.i)
           to label %.noexc84 unwind label %.loopexit.split-lp147.loopexit.split-lp.loopexit.split-lp
 
 .noexc84:                                         ; preds = %73
@@ -3894,7 +3894,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.invoke
 
 .thread125:                                       ; preds = %_ZL15is_ifdeffed_outN3gmx8ArrayRefIKiEE.exit.thread.i, %207, %224, %246, %251, %._crit_edge.i, %297, %326, %323, %254
-  %.1.i86.ph = phi i32 [ 3, %254 ], [ 3, %323 ], [ 3, %326 ], [ 3, %297 ], [ 3, %._crit_edge.i ], [ 6, %251 ], [ 3, %246 ], [ 3, %224 ], [ 3, %207 ], [ 3, %_ZL15is_ifdeffed_outN3gmx8ArrayRefIKiEE.exit.thread.i ]
+  %.0.i86.ph = phi i32 [ 3, %254 ], [ 3, %323 ], [ 3, %326 ], [ 3, %297 ], [ 3, %._crit_edge.i ], [ 6, %251 ], [ 3, %246 ], [ 3, %224 ], [ 3, %207 ], [ 3, %_ZL15is_ifdeffed_outN3gmx8ArrayRefIKiEE.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -4165,7 +4165,7 @@ _ZL7strstrwPKcS0_.exit113:                        ; preds = %428, %435
   br i1 %.not136, label %.loopexit145, label %374
 
 .loopexit145:                                     ; preds = %.loopexit140.thread, %.invoke, %_ZL15is_ifdeffed_outN3gmx8ArrayRefIKiEE.exit.thread, %356, %.thread125
-  %.0 = phi i32 [ %285, %356 ], [ %.1.i86.ph, %.thread125 ], [ 0, %_ZL15is_ifdeffed_outN3gmx8ArrayRefIKiEE.exit.thread ], [ %357, %.invoke ], [ 0, %.loopexit140.thread ]
+  %.1 = phi i32 [ %285, %356 ], [ %.0.i86.ph, %.thread125 ], [ 0, %_ZL15is_ifdeffed_outN3gmx8ArrayRefIKiEE.exit.thread ], [ %357, %.invoke ], [ 0, %.loopexit140.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br label %.loopexit159
@@ -4177,8 +4177,8 @@ _ZL7strstrwPKcS0_.exit113:                        ; preds = %428, %435
   resume { ptr, i32 } %.pn
 
 .loopexit159:                                     ; preds = %_Z14cpp_close_filePP7gmx_cpp.exit, %13, %23, %26, %3, %.loopexit145
-  %.1 = phi i32 [ %.0, %.loopexit145 ], [ 5, %3 ], [ 5, %_Z14cpp_close_filePP7gmx_cpp.exit ], [ 7, %13 ], [ 8, %23 ], [ 2, %26 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %.loopexit145 ], [ 5, %3 ], [ 5, %_Z14cpp_close_filePP7gmx_cpp.exit ], [ 7, %13 ], [ 8, %23 ], [ 2, %26 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

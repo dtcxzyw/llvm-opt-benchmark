@@ -213,8 +213,8 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit.i37:          ; preds = %_ZNK8LightGBM4Tree1
   br i1 %104, label %52, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit50, !llvm.loop !5
 
 .preheader11.i22:                                 ; preds = %38, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26
-  %.113.i23 = phi i32 [ %.0.i9.i29, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26 ], [ 0, %38 ]
-  %105 = zext nneg i32 %.113.i23 to i64
+  %.213.i23 = phi i32 [ %.0.i9.i29, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26 ], [ 0, %38 ]
+  %105 = zext nneg i32 %.213.i23 to i64
   %106 = getelementptr inbounds i32, ptr %43, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = sext i32 %107 to i64
@@ -265,8 +265,8 @@ _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26: ; preds = %125, %123
   br i1 %132, label %.preheader11.i22, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit50, !llvm.loop !7
 
 _ZNK8LightGBM4Tree7GetLeafEPKd.exit50:            ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i37
-  %.2.i30 = phi i32 [ %.0.i.i41, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i37 ], [ %.0.i9.i29, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26 ]
-  %133 = xor i32 %.2.i30, -1
+  %.1.i30 = phi i32 [ %.0.i.i41, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i37 ], [ %.0.i9.i29, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26 ]
+  %133 = xor i32 %.1.i30, -1
   %134 = zext nneg i32 %133 to i64
   br label %135
 
@@ -444,8 +444,8 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit.i:            ; preds = %_ZNK8LightGBM4Tree1
   br i1 %238, label %186, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, !llvm.loop !5
 
 .preheader11.i:                                   ; preds = %172, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
-  %.113.i = phi i32 [ %.0.i9.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ], [ 0, %172 ]
-  %239 = zext nneg i32 %.113.i to i64
+  %.213.i = phi i32 [ %.0.i9.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ], [ 0, %172 ]
+  %239 = zext nneg i32 %.213.i to i64
   %240 = getelementptr inbounds i32, ptr %177, i64 %239
   %241 = load i32, ptr %240, align 4
   %242 = sext i32 %241 to i64
@@ -496,8 +496,8 @@ _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i:  ; preds = %259, %257
   br i1 %266, label %.preheader11.i, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, !llvm.loop !7
 
 _ZNK8LightGBM4Tree7GetLeafEPKd.exit:              ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i
-  %.2.i = phi i32 [ %.0.i.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i ], [ %.0.i9.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ]
-  %267 = xor i32 %.2.i, -1
+  %.1.i = phi i32 [ %.0.i.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i ], [ %.0.i9.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ]
+  %267 = xor i32 %.1.i, -1
   %268 = getelementptr inbounds i8, ptr %30, i64 336
   %269 = zext nneg i32 %267 to i64
   %270 = load ptr, ptr %268, align 8
@@ -686,8 +686,8 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %26, %28, %_ZN8Light
   br i1 %68, label %16, label %.loopexit, !llvm.loop !5
 
 .preheader11:                                     ; preds = %2, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
-  %.113 = phi i32 [ %.0.i9, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ], [ 0, %2 ]
-  %69 = zext nneg i32 %.113 to i64
+  %.213 = phi i32 [ %.0.i9, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ], [ 0, %2 ]
+  %69 = zext nneg i32 %.213 to i64
   %70 = getelementptr inbounds i32, ptr %7, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
@@ -738,8 +738,8 @@ _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit:    ; preds = %87, %89
   br i1 %96, label %.preheader11, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit, %_ZNK8LightGBM4Tree8DecisionEdi.exit
-  %.2 = phi i32 [ %.0.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit ], [ %.0.i9, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ]
-  %97 = xor i32 %.2, -1
+  %.1 = phi i32 [ %.0.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit ], [ %.0.i9, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ]
+  %97 = xor i32 %.1, -1
   ret i32 %97
 }
 
@@ -1251,8 +1251,8 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread62, %_Z
   br i1 %119, label %22, label %.loopexit76, !llvm.loop !16
 
 .preheader83:                                     ; preds = %2, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
-  %.196 = phi i32 [ %.0.i51, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ], [ 0, %2 ]
-  %120 = zext nneg i32 %.196 to i64
+  %.296 = phi i32 [ %.0.i51, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ], [ 0, %2 ]
+  %120 = zext nneg i32 %.296 to i64
   %121 = getelementptr inbounds i32, ptr %7, i64 %120
   %122 = load i32, ptr %121, align 4
   br i1 %.not.not.i.i.i, label %.preheader146, label %127
@@ -1411,8 +1411,8 @@ _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit:    ; preds = %179, %181
   br i1 %188, label %.preheader83, label %.loopexit76, !llvm.loop !17
 
 .loopexit76:                                      ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit, %_ZNK8LightGBM4Tree8DecisionEdi.exit
-  %.2 = phi i32 [ %.0.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit ], [ %.0.i51, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ]
-  %189 = xor i32 %.2, -1
+  %.1 = phi i32 [ %.0.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit ], [ %.0.i51, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ]
+  %189 = xor i32 %.1, -1
   ret i32 %189
 }
 

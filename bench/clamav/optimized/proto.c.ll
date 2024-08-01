@@ -592,7 +592,7 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
   br label %11
 
 11:                                               ; preds = %52, %1
-  %.027 = phi ptr [ null, %1 ], [ %.248, %52 ]
+  %.027 = phi ptr [ null, %1 ], [ %.148, %52 ]
   %12 = call i32 @recvln(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %.loopexit, label %14
@@ -647,7 +647,7 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
 
 .thread45:                                        ; preds = %.thread45.loopexit, %.lr.ph.preheader, %..thread45_crit_edge
   %30 = phi ptr [ %.pre, %..thread45_crit_edge ], [ %19, %.lr.ph.preheader ], [ %24, %.thread45.loopexit ]
-  %.248 = phi ptr [ %.027, %..thread45_crit_edge ], [ %7, %.lr.ph.preheader ], [ %29, %.thread45.loopexit ]
+  %.148 = phi ptr [ %.027, %..thread45_crit_edge ], [ %7, %.lr.ph.preheader ], [ %29, %.thread45.loopexit ]
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp sgt i32 %12, 7
@@ -699,11 +699,11 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
 
 52:                                               ; preds = %47, %48, %41, %46, %.thread45
   call void @free(ptr noundef %32) #11
-  %53 = load ptr, ptr %.248, align 8
+  %53 = load ptr, ptr %.148, align 8
   store ptr %53, ptr %2, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %.248, align 8
+  store ptr %55, ptr %.148, align 8
   %56 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %56) #11
   %57 = load ptr, ptr %10, align 8

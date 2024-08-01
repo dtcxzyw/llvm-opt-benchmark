@@ -6019,18 +6019,18 @@ _ZN16VSelfPointerTextD2Ev.exit:                   ; preds = %286, %305, %318, %_
 
 .body125:                                         ; preds = %330, %334, %.thread183
   %.pn93.pn = phi { ptr, i32 } [ %.pn93181, %334 ], [ %331, %330 ], [ %lpad.thr_comm, %.thread183 ]
-  %.163 = phi i1 [ false, %334 ], [ %.062, %330 ], [ false, %.thread183 ]
-  %.2 = phi i1 [ true, %334 ], [ true, %330 ], [ %.0.ph, %.thread183 ]
+  %.264 = phi i1 [ false, %334 ], [ %.062, %330 ], [ false, %.thread183 ]
+  %.3 = phi i1 [ true, %334 ], [ true, %330 ], [ %.0.ph, %.thread183 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
-  br i1 %.163, label %335, label %336
+  br i1 %.264, label %335, label %336
 
 335:                                              ; preds = %.body125
   call void @_ZdlPv(ptr noundef nonnull %264) #22
-  br i1 %.2, label %337, label %338
+  br i1 %.3, label %337, label %338
 
 336:                                              ; preds = %.body125
-  br i1 %.2, label %337, label %338
+  br i1 %.3, label %337, label %338
 
 337:                                              ; preds = %.thread196, %335, %.thread192, %336
   %.pn93.pn.pn.pn195 = phi { ptr, i32 } [ %327, %.thread192 ], [ %.pn93.pn, %336 ], [ %.pn93.pn, %335 ], [ %.pn93.pn.pn.ph, %.thread196 ]

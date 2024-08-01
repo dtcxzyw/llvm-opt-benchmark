@@ -840,14 +840,14 @@ _ZN8nanobind6objectD2Ev.exit316:                  ; preds = %_ZL19_PyObject_Type
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit322:                  ; preds = %84, %81, %_ZN8nanobind6objectD2Ev.exit316, %_ZN8nanobind6objectD2Ev.exit
-  %.sroa.0379.0 = phi ptr [ %67, %_ZN8nanobind6objectD2Ev.exit ], [ %68, %_ZN8nanobind6objectD2Ev.exit316 ], [ %68, %81 ], [ %68, %84 ]
+  %.sroa.0379.1 = phi ptr [ %67, %_ZN8nanobind6objectD2Ev.exit ], [ %68, %_ZN8nanobind6objectD2Ev.exit316 ], [ %68, %81 ], [ %68, %84 ]
   %.sroa.0386.1 = phi ptr [ %36, %_ZN8nanobind6objectD2Ev.exit ], [ %36, %_ZN8nanobind6objectD2Ev.exit316 ], [ %72, %81 ], [ %72, %84 ]
   %.0249 = phi ptr [ %66, %_ZN8nanobind6objectD2Ev.exit ], [ null, %_ZN8nanobind6objectD2Ev.exit316 ], [ null, %81 ], [ null, %84 ]
-  %.not292 = icmp eq ptr %.sroa.0379.0, null
+  %.not292 = icmp eq ptr %.sroa.0379.1, null
   br i1 %.not292, label %_ZN8nanobind3strD2Ev.exit328, label %88
 
 88:                                               ; preds = %_ZN8nanobind6objectD2Ev.exit322
-  %89 = invoke ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.6, ptr noundef nonnull %.sroa.0379.0, ptr noundef %36)
+  %89 = invoke ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.6, ptr noundef nonnull %.sroa.0379.1, ptr noundef %36)
           to label %90 unwind label %428
 
 90:                                               ; preds = %88
@@ -875,8 +875,8 @@ _ZN8nanobind3strD2Ev.exit328:                     ; preds = %59, %90, %91, %94, 
   %.not292405 = phi i1 [ true, %_ZN8nanobind6objectD2Ev.exit322 ], [ false, %94 ], [ false, %91 ], [ false, %90 ], [ true, %59 ]
   %.0249404 = phi ptr [ %.0249, %_ZN8nanobind6objectD2Ev.exit322 ], [ %.0249, %94 ], [ %.0249, %91 ], [ %.0249, %90 ], [ null, %59 ]
   %.sroa.0386.1403 = phi ptr [ %.sroa.0386.1, %_ZN8nanobind6objectD2Ev.exit322 ], [ %.sroa.0386.1, %94 ], [ %.sroa.0386.1, %91 ], [ %.sroa.0386.1, %90 ], [ %36, %59 ]
-  %.sroa.0379.0402 = phi ptr [ null, %_ZN8nanobind6objectD2Ev.exit322 ], [ %.sroa.0379.0, %94 ], [ %.sroa.0379.0, %91 ], [ %.sroa.0379.0, %90 ], [ null, %59 ]
-  %.sroa.0389.0 = phi ptr [ %36, %_ZN8nanobind6objectD2Ev.exit322 ], [ %89, %94 ], [ %89, %91 ], [ %89, %90 ], [ %36, %59 ]
+  %.sroa.0379.1402 = phi ptr [ null, %_ZN8nanobind6objectD2Ev.exit322 ], [ %.sroa.0379.1, %94 ], [ %.sroa.0379.1, %91 ], [ %.sroa.0379.1, %90 ], [ null, %59 ]
+  %.sroa.0389.1 = phi ptr [ %36, %_ZN8nanobind6objectD2Ev.exit322 ], [ %89, %94 ], [ %89, %91 ], [ %89, %90 ], [ %36, %59 ]
   %98 = load i32, ptr %0, align 8
   %99 = zext i32 %98 to i64
   %100 = add nuw nsw i64 %99, 24
@@ -982,7 +982,7 @@ _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_
   %151 = or i32 %150, %20
   %152 = and i32 %150, 2097152
   %.not296 = icmp eq i32 %152, 0
-  %.0246 = select i1 %.not296, i8 %26, i8 1
+  %.1247 = select i1 %.not296, i8 %26, i8 1
   %153 = load i32, ptr %148, align 8
   %154 = zext i32 %153 to i64
   %155 = add nuw nsw i64 %154, 24
@@ -999,17 +999,17 @@ _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_
 
 .thread419:                                       ; preds = %130, %143, %.thread412
   %163 = phi i1 [ true, %.thread412 ], [ false, %143 ], [ false, %130 ]
-  %.1433.in.in = phi i32 [ %151, %.thread412 ], [ %20, %143 ], [ %20, %130 ]
-  %.1247432 = phi i8 [ %.0246, %.thread412 ], [ %26, %143 ], [ %26, %130 ]
+  %.0245433.in.in = phi i32 [ %151, %.thread412 ], [ %20, %143 ], [ %20, %130 ]
+  %.0246432 = phi i8 [ %.1247, %.thread412 ], [ %26, %143 ], [ %26, %130 ]
   %.1251431 = phi i64 [ %spec.select307, %.thread412 ], [ %.0250, %143 ], [ %.0250, %130 ]
   %.0256430 = phi ptr [ %148, %.thread412 ], [ null, %143 ], [ null, %130 ]
   %.1255409429 = phi i1 [ %.1255416, %.thread412 ], [ false, %143 ], [ false, %130 ]
   %.1253410428 = phi ptr [ %.1253417, %.thread412 ], [ null, %143 ], [ null, %130 ]
   %.not294411427 = phi i1 [ false, %.thread412 ], [ true, %143 ], [ true, %130 ]
   %164 = phi i1 [ %162, %.thread412 ], [ false, %143 ], [ false, %130 ]
-  %.1433.in = and i32 %.1433.in.in, 262144
-  %.1433.not = icmp ne i32 %.1433.in, 0
-  %165 = invoke noundef ptr @PyUnicode_AsUTF8AndSize(ptr noundef %.sroa.0389.0, ptr noundef null)
+  %.0245433.in = and i32 %.0245433.in.in, 262144
+  %.0245433.not = icmp ne i32 %.0245433.in, 0
+  %165 = invoke noundef ptr @PyUnicode_AsUTF8AndSize(ptr noundef %.sroa.0389.1, ptr noundef null)
           to label %_ZNK8nanobind3str5c_strEv.exit unwind label %428
 
 _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
@@ -1153,10 +1153,10 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
 ._crit_edge:                                      ; preds = %.lr.ph458, %.loopexit
   %.0264.lcssa = phi i1 [ false, %.loopexit ], [ %219, %.lr.ph458 ]
   %.0260.lcssa = phi i8 [ 0, %.loopexit ], [ %217, %.lr.ph458 ]
-  br i1 %.1433.not, label %226, label %221
+  br i1 %.0245433.not, label %226, label %221
 
 221:                                              ; preds = %._crit_edge
-  %222 = trunc i8 %.1247432 to i1
+  %222 = trunc i8 %.0246432 to i1
   br i1 %222, label %223, label %.thread434
 
 223:                                              ; preds = %221
@@ -1195,7 +1195,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
   br label %235
 
 235:                                              ; preds = %231, %226
-  %.1261 = phi i8 [ %.0260.lcssa, %226 ], [ 1, %231 ]
+  %.2262 = phi i8 [ %.0260.lcssa, %226 ], [ 1, %231 ]
   %236 = trunc i64 %229 to i32
   store i32 %236, ptr %168, align 8
   br i1 %.0264.lcssa, label %.thread434, label %237
@@ -1211,9 +1211,9 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
 
 .thread434:                                       ; preds = %221, %223, %235, %237
   %.0266.sroa.phi = phi ptr [ %.0266.sroa.gep, %235 ], [ %.0266.sroa.gep, %237 ], [ %13, %223 ], [ %13, %221 ]
-  %.2262 = phi i8 [ %.1261, %235 ], [ %.1261, %237 ], [ %.0260.lcssa, %223 ], [ %.0260.lcssa, %221 ]
+  %.1261 = phi i8 [ %.2262, %235 ], [ %.2262, %237 ], [ %.0260.lcssa, %223 ], [ %.0260.lcssa, %221 ]
   %.3 = phi i64 [ %229, %235 ], [ %229, %237 ], [ %225, %223 ], [ %.1251431, %221 ]
-  %240 = trunc i8 %.1247432 to i1
+  %240 = trunc i8 %.0246432 to i1
   br i1 %240, label %241, label %250
 
 241:                                              ; preds = %.thread434
@@ -1226,7 +1226,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.542.0..sroa_idx = getelementptr inbounds i8, ptr %.0266.sroa.phi, i64 32
   store ptr null, ptr %.sroa.542.0..sroa_idx, align 8
-  %242 = trunc nuw i8 %.2262 to i1
+  %242 = trunc nuw i8 %.1261 to i1
   br i1 %242, label %.thread437, label %243
 
 243:                                              ; preds = %241
@@ -1245,17 +1245,17 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
   br label %.thread437
 
 .thread437:                                       ; preds = %241, %243
-  %.3263 = phi i8 [ %.2262, %241 ], [ 1, %243 ]
+  %.4 = phi i8 [ %.1261, %241 ], [ 1, %243 ]
   %248 = trunc i64 %.3 to i32
   %249 = add i32 %248, 8
   store i32 %249, ptr %168, align 8
   br label %251
 
 250:                                              ; preds = %.thread434
-  br i1 %.1433.not, label %251, label %254
+  br i1 %.0245433.not, label %251, label %254
 
 251:                                              ; preds = %.thread437, %250
-  %.4441 = phi i8 [ %.3263, %.thread437 ], [ %.2262, %250 ]
+  %.3263441 = phi i8 [ %.4, %.thread437 ], [ %.1261, %250 ]
   %252 = load ptr, ptr %15, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 16
   store ptr %253, ptr %15, align 8
@@ -1265,7 +1265,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
   br label %254
 
 254:                                              ; preds = %251, %250
-  %.4440 = phi i8 [ %.4441, %251 ], [ %.2262, %250 ]
+  %.3263440 = phi i8 [ %.3263441, %251 ], [ %.1261, %250 ]
   br i1 %.not285, label %258, label %255
 
 255:                                              ; preds = %254
@@ -1278,7 +1278,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
   br label %258
 
 258:                                              ; preds = %255, %254
-  %259 = trunc nuw i8 %.4440 to i1
+  %259 = trunc nuw i8 %.3263440 to i1
   br i1 %259, label %260, label %261
 
 260:                                              ; preds = %258
@@ -1505,11 +1505,11 @@ _ZN8nanobind6detailL10nb_type_tpEm.exit:          ; preds = %_ZL10_Py_DECREFP7_o
   store ptr %326, ptr %355, align 8
   %356 = getelementptr inbounds i8, ptr %326, i64 912
   store ptr null, ptr %356, align 8
-  %357 = or i1 %.1433.not, %240
+  %357 = or i1 %.0245433.not, %240
   br i1 %357, label %358, label %361
 
 358:                                              ; preds = %352
-  %359 = or i32 %353, %.1433.in
+  %359 = or i32 %353, %.0245433.in
   %360 = or i32 %359, 2097152
   %simplifycfg.merge = select i1 %240, i32 %360, i32 %359
   store i32 %simplifycfg.merge, ptr %332, align 4
@@ -1532,7 +1532,7 @@ _ZN8nanobind6detailL10nb_type_tpEm.exit:          ; preds = %_ZL10_Py_DECREFP7_o
   br i1 %.not292405, label %367, label %366
 
 366:                                              ; preds = %365
-  invoke void @_ZN8nanobind6detail7setattrEP7_objectPKcS2_(ptr noundef nonnull %326, ptr noundef nonnull @.str.4, ptr noundef %.sroa.0379.0402)
+  invoke void @_ZN8nanobind6detail7setattrEP7_objectPKcS2_(ptr noundef nonnull %326, ptr noundef nonnull @.str.4, ptr noundef %.sroa.0379.1402)
           to label %367 unwind label %428
 
 367:                                              ; preds = %366, %365
@@ -1657,18 +1657,18 @@ _ZN8nanobind7setattrENS_6handleEPKcS0_.exit348:   ; preds = %_ZN8nanobind10make_
   unreachable
 
 _ZN8nanobind5tupleD2Ev.exit:                      ; preds = %403, %_ZN8nanobind7setattrENS_6handleEPKcS0_.exit348, %390
-  %.not.i.i.i351 = icmp eq ptr %.sroa.0379.0402, null
+  %.not.i.i.i351 = icmp eq ptr %.sroa.0379.1402, null
   br i1 %.not.i.i.i351, label %_ZN8nanobind6objectD2Ev.exit353, label %407
 
 407:                                              ; preds = %_ZN8nanobind5tupleD2Ev.exit
-  %408 = load i64, ptr %.sroa.0379.0402, align 8
+  %408 = load i64, ptr %.sroa.0379.1402, align 8
   %409 = add nsw i64 %408, -1
-  store i64 %409, ptr %.sroa.0379.0402, align 8
+  store i64 %409, ptr %.sroa.0379.1402, align 8
   %.not.i.i.i.i352 = icmp eq i64 %409, 0
   br i1 %.not.i.i.i.i352, label %410, label %_ZN8nanobind6objectD2Ev.exit353
 
 410:                                              ; preds = %407
-  invoke void @_Py_Dealloc(ptr noundef nonnull %.sroa.0379.0402)
+  invoke void @_Py_Dealloc(ptr noundef nonnull %.sroa.0379.1402)
           to label %_ZN8nanobind6objectD2Ev.exit353 unwind label %411
 
 411:                                              ; preds = %410
@@ -1680,20 +1680,20 @@ _ZN8nanobind5tupleD2Ev.exit:                      ; preds = %403, %_ZN8nanobind7
 
 _ZN8nanobind6objectD2Ev.exit353:                  ; preds = %58, %51, %_ZN8nanobind5tupleD2Ev.exit, %407, %410
   %.0449 = phi ptr [ %326, %_ZN8nanobind5tupleD2Ev.exit ], [ %326, %407 ], [ %326, %410 ], [ %55, %51 ], [ %55, %58 ]
-  %.sroa.0389.1448 = phi ptr [ %.sroa.0389.0, %_ZN8nanobind5tupleD2Ev.exit ], [ %.sroa.0389.0, %407 ], [ %.sroa.0389.0, %410 ], [ %36, %51 ], [ %36, %58 ]
-  %.sroa.0386.2447 = phi ptr [ %.sroa.0386.1403, %_ZN8nanobind5tupleD2Ev.exit ], [ %.sroa.0386.1403, %407 ], [ %.sroa.0386.1403, %410 ], [ %36, %51 ], [ %36, %58 ]
-  %.not.i.i.i.i354 = icmp eq ptr %.sroa.0386.2447, null
+  %.sroa.0389.0448 = phi ptr [ %.sroa.0389.1, %_ZN8nanobind5tupleD2Ev.exit ], [ %.sroa.0389.1, %407 ], [ %.sroa.0389.1, %410 ], [ %36, %51 ], [ %36, %58 ]
+  %.sroa.0386.0447 = phi ptr [ %.sroa.0386.1403, %_ZN8nanobind5tupleD2Ev.exit ], [ %.sroa.0386.1403, %407 ], [ %.sroa.0386.1403, %410 ], [ %36, %51 ], [ %36, %58 ]
+  %.not.i.i.i.i354 = icmp eq ptr %.sroa.0386.0447, null
   br i1 %.not.i.i.i.i354, label %_ZN8nanobind3strD2Ev.exit356, label %414
 
 414:                                              ; preds = %_ZN8nanobind6objectD2Ev.exit353
-  %415 = load i64, ptr %.sroa.0386.2447, align 8
+  %415 = load i64, ptr %.sroa.0386.0447, align 8
   %416 = add nsw i64 %415, -1
-  store i64 %416, ptr %.sroa.0386.2447, align 8
+  store i64 %416, ptr %.sroa.0386.0447, align 8
   %.not.i.i.i.i.i355 = icmp eq i64 %416, 0
   br i1 %.not.i.i.i.i.i355, label %417, label %_ZN8nanobind3strD2Ev.exit356
 
 417:                                              ; preds = %414
-  invoke void @_Py_Dealloc(ptr noundef nonnull %.sroa.0386.2447)
+  invoke void @_Py_Dealloc(ptr noundef nonnull %.sroa.0386.0447)
           to label %_ZN8nanobind3strD2Ev.exit356 unwind label %418
 
 418:                                              ; preds = %417
@@ -1704,18 +1704,18 @@ _ZN8nanobind6objectD2Ev.exit353:                  ; preds = %58, %51, %_ZN8nanob
   unreachable
 
 _ZN8nanobind3strD2Ev.exit356:                     ; preds = %_ZN8nanobind6objectD2Ev.exit353, %414, %417
-  %.not.i.i.i.i357 = icmp eq ptr %.sroa.0389.1448, null
+  %.not.i.i.i.i357 = icmp eq ptr %.sroa.0389.0448, null
   br i1 %.not.i.i.i.i357, label %_ZN8nanobind3strD2Ev.exit359, label %421
 
 421:                                              ; preds = %_ZN8nanobind3strD2Ev.exit356
-  %422 = load i64, ptr %.sroa.0389.1448, align 8
+  %422 = load i64, ptr %.sroa.0389.0448, align 8
   %423 = add nsw i64 %422, -1
-  store i64 %423, ptr %.sroa.0389.1448, align 8
+  store i64 %423, ptr %.sroa.0389.0448, align 8
   %.not.i.i.i.i.i358 = icmp eq i64 %423, 0
   br i1 %.not.i.i.i.i.i358, label %424, label %_ZN8nanobind3strD2Ev.exit359
 
 424:                                              ; preds = %421
-  invoke void @_Py_Dealloc(ptr noundef nonnull %.sroa.0389.1448)
+  invoke void @_Py_Dealloc(ptr noundef nonnull %.sroa.0389.0448)
           to label %_ZN8nanobind3strD2Ev.exit359 unwind label %425
 
 425:                                              ; preds = %424
@@ -3502,8 +3502,8 @@ define noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_poli
   %59 = phi ptr [ %74, %72 ], [ %53, %51 ]
   %.sroa.0.169 = phi ptr [ %.sroa.0.0.copyload6, %72 ], [ %.sroa.0.0, %51 ]
   %.sroa.8.168 = phi ptr [ %.sroa.8.0.copyload8, %72 ], [ %.sroa.8.0, %51 ]
-  %.04867 = phi ptr [ %.1.ph, %72 ], [ null, %51 ]
-  %.not.i = icmp eq ptr %.04867, null
+  %.167 = phi ptr [ %.2.ph, %72 ], [ null, %51 ]
+  %.not.i = icmp eq ptr %.167, null
   br i1 %.not.i, label %60, label %62
 
 60:                                               ; preds = %.lr.ph
@@ -3515,8 +3515,8 @@ define noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_poli
   br i1 %.not5.i, label %"_ZZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPbENK3$_0clEv.exit", label %62
 
 62:                                               ; preds = %.noexc, %.lr.ph
-  %.1.ph = phi ptr [ %.04867, %.lr.ph ], [ %61, %.noexc ]
-  %63 = getelementptr inbounds i8, ptr %.1.ph, i64 32
+  %.2.ph = phi ptr [ %.167, %.lr.ph ], [ %61, %.noexc ]
+  %63 = getelementptr inbounds i8, ptr %.2.ph, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = invoke i32 @PyType_IsSubtype(ptr noundef nonnull %59, ptr noundef %64)
           to label %66 unwind label %.loopexit
@@ -3559,7 +3559,7 @@ define noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_poli
   br i1 %.not5.i33, label %"_ZZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPbENK3$_0clEv.exit", label %.loopexit59
 
 .loopexit59:                                      ; preds = %70, %.noexc34
-  %.3.ph = phi ptr [ %81, %.noexc34 ], [ %.1.ph, %70 ]
+  %.3.ph = phi ptr [ %81, %.noexc34 ], [ %.2.ph, %70 ]
   %82 = tail call fastcc noundef ptr @_ZN8nanobind6detailL18nb_type_put_commonEPvPNS0_9type_dataENS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull %1, ptr noundef nonnull %.3.ph, i32 noundef %2, ptr noundef %3, ptr noundef %4) #26
   br label %"_ZZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPbENK3$_0clEv.exit"
 
@@ -3904,8 +3904,8 @@ define noundef ptr @_ZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv
   %59 = phi ptr [ %71, %69 ], [ %54, %.lr.ph ]
   %.sroa.8.1105.us = phi ptr [ %.sroa.8.0.copyload11.us, %69 ], [ %.sroa.8.0, %.lr.ph ]
   %.sroa.0.1104.us = phi ptr [ %.sroa.0.0.copyload9.us, %69 ], [ %.sroa.0.0, %.lr.ph ]
-  %.072102.us = phi ptr [ %.173.ph.us, %69 ], [ null, %.lr.ph ]
-  %.not.i.us = icmp eq ptr %.072102.us, null
+  %.173102.us = phi ptr [ %.274.ph.us, %69 ], [ null, %.lr.ph ]
+  %.not.i.us = icmp eq ptr %.173102.us, null
   br i1 %.not.i.us, label %60, label %62
 
 60:                                               ; preds = %.lr.ph.split.us
@@ -3917,8 +3917,8 @@ define noundef ptr @_ZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv
   br i1 %.not6.i.us, label %"_ZZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv_policyEPNS0_12cleanup_listEPbENK3$_0clEv.exit", label %62
 
 62:                                               ; preds = %.noexc.us, %.lr.ph.split.us
-  %.173.ph.us = phi ptr [ %.072102.us, %.lr.ph.split.us ], [ %61, %.noexc.us ]
-  %63 = getelementptr inbounds i8, ptr %.173.ph.us, i64 32
+  %.274.ph.us = phi ptr [ %.173102.us, %.lr.ph.split.us ], [ %61, %.noexc.us ]
+  %63 = getelementptr inbounds i8, ptr %.274.ph.us, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = invoke i32 @PyType_IsSubtype(ptr noundef nonnull %59, ptr noundef %64)
           to label %66 unwind label %.loopexit.split.us
@@ -3960,9 +3960,9 @@ define noundef ptr @_ZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv
   %78 = phi ptr [ %100, %98 ], [ %54, %.lr.ph ]
   %.sroa.8.1105 = phi ptr [ %.sroa.8.0.copyload11, %98 ], [ %.sroa.8.0, %.lr.ph ]
   %.sroa.0.1104 = phi ptr [ %.sroa.0.0.copyload9, %98 ], [ %.sroa.0.0, %.lr.ph ]
-  %.071103 = phi ptr [ %.1.ph, %98 ], [ null, %.lr.ph ]
-  %.072102 = phi ptr [ %.173.ph, %98 ], [ null, %.lr.ph ]
-  %.not.i = icmp eq ptr %.072102, null
+  %.1103 = phi ptr [ %.2.ph, %98 ], [ null, %.lr.ph ]
+  %.173102 = phi ptr [ %.274.ph, %98 ], [ null, %.lr.ph ]
+  %.not.i = icmp eq ptr %.173102, null
   br i1 %.not.i, label %79, label %83
 
 79:                                               ; preds = %.lr.ph.split
@@ -3978,9 +3978,9 @@ define noundef ptr @_ZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv
           to label %83 unwind label %.loopexit.split
 
 83:                                               ; preds = %.lr.ph.split, %81
-  %.173.ph = phi ptr [ %80, %81 ], [ %.072102, %.lr.ph.split ]
-  %.1.ph = phi ptr [ %82, %81 ], [ %.071103, %.lr.ph.split ]
-  %84 = getelementptr inbounds i8, ptr %.173.ph, i64 32
+  %.274.ph = phi ptr [ %80, %81 ], [ %.173102, %.lr.ph.split ]
+  %.2.ph = phi ptr [ %82, %81 ], [ %.1103, %.lr.ph.split ]
+  %84 = getelementptr inbounds i8, ptr %.274.ph, i64 32
   %85 = load ptr, ptr %84, align 8
   %86 = invoke i32 @PyType_IsSubtype(ptr noundef nonnull %78, ptr noundef %85)
           to label %87 unwind label %.loopexit.split
@@ -3990,11 +3990,11 @@ define noundef ptr @_ZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv
   br i1 %.not37, label %88, label %.split.us
 
 88:                                               ; preds = %87
-  %.not38 = icmp eq ptr %.1.ph, null
+  %.not38 = icmp eq ptr %.2.ph, null
   br i1 %.not38, label %96, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %.1.ph, i64 32
+  %90 = getelementptr inbounds i8, ptr %.2.ph, i64 32
   %91 = load ptr, ptr %90, align 8
   %92 = invoke i32 @PyType_IsSubtype(ptr noundef nonnull %78, ptr noundef %91)
           to label %93 unwind label %.loopexit.split
@@ -4050,8 +4050,8 @@ define noundef ptr @_ZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv
           to label %.loopexit92 unwind label %.loopexit.split-lp
 
 .loopexit92:                                      ; preds = %96, %67, %109, %110
-  %.375.ph = phi ptr [ %108, %110 ], [ %108, %109 ], [ %.173.ph.us, %67 ], [ %.173.ph, %96 ]
-  %.3.ph = phi ptr [ %111, %110 ], [ null, %109 ], [ null, %67 ], [ %.1.ph, %96 ]
+  %.375.ph = phi ptr [ %108, %110 ], [ %108, %109 ], [ %.274.ph.us, %67 ], [ %.274.ph, %96 ]
+  %.3.ph = phi ptr [ %111, %110 ], [ null, %109 ], [ null, %67 ], [ %.2.ph, %96 ]
   %.not40 = icmp eq ptr %.3.ph, null
   %112 = select i1 %.not40, ptr %.375.ph, ptr %.3.ph
   %113 = tail call fastcc noundef ptr @_ZN8nanobind6detailL18nb_type_put_commonEPvPNS0_9type_dataENS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull %2, ptr noundef %112, i32 noundef %3, ptr noundef %4, ptr noundef %5) #26

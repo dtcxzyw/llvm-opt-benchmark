@@ -491,11 +491,11 @@ med3.exit402.med3.exit402.thread_crit_edge:       ; preds = %med3.exit402
 
 med3.exit402.thread463:                           ; preds = %201, %203, %207, %209, %med3.exit402
   %.1349470 = phi ptr [ %.0543, %med3.exit402 ], [ %152, %209 ], [ %152, %207 ], [ %152, %203 ], [ %152, %201 ]
-  %.1352469 = phi ptr [ %97, %med3.exit402 ], [ %194, %209 ], [ %194, %207 ], [ %194, %203 ], [ %194, %201 ]
+  %.2353469 = phi ptr [ %97, %med3.exit402 ], [ %194, %209 ], [ %194, %207 ], [ %194, %203 ], [ %194, %201 ]
   %.0355468 = phi ptr [ %101, %med3.exit402 ], [ %212, %209 ], [ %197, %207 ], [ %206, %203 ], [ %197, %201 ]
-  %236 = tail call i32 %3(ptr noundef %.1349470, ptr noundef %.1352469) #2
+  %236 = tail call i32 %3(ptr noundef %.1349470, ptr noundef %.2353469) #2
   %237 = icmp slt i32 %236, 0
-  %238 = tail call i32 %3(ptr noundef %.1352469, ptr noundef %.0355468) #2
+  %238 = tail call i32 %3(ptr noundef %.2353469, ptr noundef %.0355468) #2
   br i1 %237, label %239, label %245
 
 239:                                              ; preds = %med3.exit402.thread463
@@ -522,7 +522,7 @@ med3.exit402.thread:                              ; preds = %med3.exit402.med3.e
   %251 = phi i32 [ %.pre669, %med3.exit402.med3.exit402.thread_crit_edge ], [ %214, %226 ], [ %214, %228 ], [ %214, %231 ], [ %214, %233 ]
   %252 = phi i32 [ %.pre, %med3.exit402.med3.exit402.thread_crit_edge ], [ %172, %226 ], [ %172, %228 ], [ %172, %231 ], [ %172, %233 ]
   %.1349460 = phi ptr [ %.0543, %med3.exit402.med3.exit402.thread_crit_edge ], [ %.ph, %226 ], [ %.ph, %228 ], [ %.ph, %231 ], [ %.ph, %233 ]
-  %.1352459 = phi ptr [ %97, %med3.exit402.med3.exit402.thread_crit_edge ], [ %.ph453, %226 ], [ %.ph453, %228 ], [ %.ph453, %231 ], [ %.ph453, %233 ]
+  %.2353459 = phi ptr [ %97, %med3.exit402.med3.exit402.thread_crit_edge ], [ %.ph453, %226 ], [ %.ph453, %228 ], [ %.ph453, %231 ], [ %.ph453, %233 ]
   %.0355458 = phi ptr [ %101, %med3.exit402.med3.exit402.thread_crit_edge ], [ %220, %226 ], [ %.397, %228 ], [ %220, %231 ], [ %.398, %233 ]
   %253 = sub i32 %252, %251
   %254 = icmp slt i32 %253, 0
@@ -551,22 +551,22 @@ med3.exit402.thread:                              ; preds = %med3.exit402.med3.e
   br label %med3.exit403
 
 med3.exit403:                                     ; preds = %247, %245, %241, %239, %265, %259, %257, %263, %92
-  %.2353 = phi ptr [ %97, %92 ], [ %262, %259 ], [ %268, %265 ], [ %.1352459, %257 ], [ %.1352459, %263 ], [ %244, %241 ], [ %250, %247 ], [ %.1352469, %239 ], [ %.1352469, %245 ]
+  %.1352 = phi ptr [ %97, %92 ], [ %262, %259 ], [ %268, %265 ], [ %.2353459, %257 ], [ %.2353459, %263 ], [ %244, %241 ], [ %250, %247 ], [ %.2353469, %239 ], [ %.2353469, %245 ]
   %269 = icmp eq i32 %93, 0
   br i1 %269, label %270, label %273
 
 270:                                              ; preds = %med3.exit403
   %271 = load i64, ptr %.0543, align 8
-  %272 = load i64, ptr %.2353, align 8
+  %272 = load i64, ptr %.1352, align 8
   store i64 %272, ptr %.0543, align 8
-  store i64 %271, ptr %.2353, align 8
+  store i64 %271, ptr %.1352, align 8
   br label %swapfunc.exit410
 
 273:                                              ; preds = %med3.exit403
   br i1 %or.cond544, label %.preheader624, label %.preheader496
 
 .preheader624:                                    ; preds = %273, %.preheader624
-  %.022.i407 = phi ptr [ %277, %.preheader624 ], [ %.2353, %273 ]
+  %.022.i407 = phi ptr [ %277, %.preheader624 ], [ %.1352, %273 ]
   %.021.i408 = phi ptr [ %276, %.preheader624 ], [ %.0543, %273 ]
   %.0.i409 = phi i64 [ %278, %.preheader624 ], [ %14, %273 ]
   %274 = load i64, ptr %.021.i408, align 8
@@ -582,7 +582,7 @@ med3.exit403:                                     ; preds = %247, %245, %241, %2
 .preheader496:                                    ; preds = %273, %.preheader496
   %.020.i404 = phi i64 [ %284, %.preheader496 ], [ %13, %273 ]
   %.019.i405 = phi ptr [ %282, %.preheader496 ], [ %.0543, %273 ]
-  %.018.i406 = phi ptr [ %283, %.preheader496 ], [ %.2353, %273 ]
+  %.018.i406 = phi ptr [ %283, %.preheader496 ], [ %.1352, %273 ]
   %280 = load i8, ptr %.019.i405, align 1
   %281 = load i8, ptr %.018.i406, align 1
   %282 = getelementptr inbounds i8, ptr %.019.i405, i64 1
@@ -1665,11 +1665,11 @@ med3_r.exit411.med3_r.exit411.thread_crit_edge:   ; preds = %med3_r.exit411
 
 med3_r.exit411.thread472:                         ; preds = %202, %204, %208, %210, %med3_r.exit411
   %.1358479 = phi ptr [ %.0552, %med3_r.exit411 ], [ %153, %210 ], [ %153, %208 ], [ %153, %204 ], [ %153, %202 ]
-  %.1361478 = phi ptr [ %98, %med3_r.exit411 ], [ %195, %210 ], [ %195, %208 ], [ %195, %204 ], [ %195, %202 ]
+  %.2362478 = phi ptr [ %98, %med3_r.exit411 ], [ %195, %210 ], [ %195, %208 ], [ %195, %204 ], [ %195, %202 ]
   %.0364477 = phi ptr [ %102, %med3_r.exit411 ], [ %213, %210 ], [ %198, %208 ], [ %207, %204 ], [ %198, %202 ]
-  %237 = tail call i32 %3(ptr noundef %4, ptr noundef %.1358479, ptr noundef %.1361478) #2
+  %237 = tail call i32 %3(ptr noundef %4, ptr noundef %.1358479, ptr noundef %.2362478) #2
   %238 = icmp slt i32 %237, 0
-  %239 = tail call i32 %3(ptr noundef %4, ptr noundef %.1361478, ptr noundef %.0364477) #2
+  %239 = tail call i32 %3(ptr noundef %4, ptr noundef %.2362478, ptr noundef %.0364477) #2
   br i1 %238, label %240, label %246
 
 240:                                              ; preds = %med3_r.exit411.thread472
@@ -1696,7 +1696,7 @@ med3_r.exit411.thread:                            ; preds = %med3_r.exit411.med3
   %252 = phi i32 [ %.pre678, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %215, %227 ], [ %215, %229 ], [ %215, %232 ], [ %215, %234 ]
   %253 = phi i32 [ %.pre, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %173, %227 ], [ %173, %229 ], [ %173, %232 ], [ %173, %234 ]
   %.1358469 = phi ptr [ %.0552, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %.ph, %227 ], [ %.ph, %229 ], [ %.ph, %232 ], [ %.ph, %234 ]
-  %.1361468 = phi ptr [ %98, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %.ph462, %227 ], [ %.ph462, %229 ], [ %.ph462, %232 ], [ %.ph462, %234 ]
+  %.2362468 = phi ptr [ %98, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %.ph462, %227 ], [ %.ph462, %229 ], [ %.ph462, %232 ], [ %.ph462, %234 ]
   %.0364467 = phi ptr [ %102, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %221, %227 ], [ %.406, %229 ], [ %221, %232 ], [ %.407, %234 ]
   %254 = sub i32 %253, %252
   %255 = icmp slt i32 %254, 0
@@ -1725,22 +1725,22 @@ med3_r.exit411.thread:                            ; preds = %med3_r.exit411.med3
   br label %med3_r.exit412
 
 med3_r.exit412:                                   ; preds = %248, %246, %242, %240, %266, %260, %258, %264, %93
-  %.2362 = phi ptr [ %98, %93 ], [ %263, %260 ], [ %269, %266 ], [ %.1361468, %258 ], [ %.1361468, %264 ], [ %245, %242 ], [ %251, %248 ], [ %.1361478, %240 ], [ %.1361478, %246 ]
+  %.1361 = phi ptr [ %98, %93 ], [ %263, %260 ], [ %269, %266 ], [ %.2362468, %258 ], [ %.2362468, %264 ], [ %245, %242 ], [ %251, %248 ], [ %.2362478, %240 ], [ %.2362478, %246 ]
   %270 = icmp eq i32 %94, 0
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %med3_r.exit412
   %272 = load i64, ptr %.0552, align 8
-  %273 = load i64, ptr %.2362, align 8
+  %273 = load i64, ptr %.1361, align 8
   store i64 %273, ptr %.0552, align 8
-  store i64 %272, ptr %.2362, align 8
+  store i64 %272, ptr %.1361, align 8
   br label %swapfunc.exit419
 
 274:                                              ; preds = %med3_r.exit412
   br i1 %or.cond553, label %.preheader633, label %.preheader505
 
 .preheader633:                                    ; preds = %274, %.preheader633
-  %.022.i416 = phi ptr [ %278, %.preheader633 ], [ %.2362, %274 ]
+  %.022.i416 = phi ptr [ %278, %.preheader633 ], [ %.1361, %274 ]
   %.021.i417 = phi ptr [ %277, %.preheader633 ], [ %.0552, %274 ]
   %.0.i418 = phi i64 [ %279, %.preheader633 ], [ %15, %274 ]
   %275 = load i64, ptr %.021.i417, align 8
@@ -1756,7 +1756,7 @@ med3_r.exit412:                                   ; preds = %248, %246, %242, %2
 .preheader505:                                    ; preds = %274, %.preheader505
   %.020.i413 = phi i64 [ %285, %.preheader505 ], [ %14, %274 ]
   %.019.i414 = phi ptr [ %283, %.preheader505 ], [ %.0552, %274 ]
-  %.018.i415 = phi ptr [ %284, %.preheader505 ], [ %.2362, %274 ]
+  %.018.i415 = phi ptr [ %284, %.preheader505 ], [ %.1361, %274 ]
   %281 = load i8, ptr %.019.i414, align 1
   %282 = load i8, ptr %.018.i415, align 1
   %283 = getelementptr inbounds i8, ptr %.019.i414, i64 1

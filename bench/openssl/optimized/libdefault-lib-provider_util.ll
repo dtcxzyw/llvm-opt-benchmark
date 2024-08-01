@@ -459,7 +459,7 @@ if.end:                                           ; preds = %if.then4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then2, %if.end, %if.then
-  %mdname.addr.0 = phi ptr [ %1, %if.end ], [ null, %if.then2 ], [ %mdname, %if.then ]
+  %mdname.addr.1 = phi ptr [ %1, %if.end ], [ null, %if.then2 ], [ %mdname, %if.then ]
   %cmp9 = icmp eq ptr %ciphername, null
   br i1 %cmp9, label %if.then10, label %if.end20
 
@@ -480,7 +480,7 @@ if.end17:                                         ; preds = %if.then13
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then10, %if.end17, %if.end8
-  %ciphername.addr.0 = phi ptr [ %3, %if.end17 ], [ null, %if.then10 ], [ %ciphername, %if.end8 ]
+  %ciphername.addr.1 = phi ptr [ %3, %if.end17 ], [ null, %if.then10 ], [ %ciphername, %if.end8 ]
   %cmp21 = icmp eq ptr %engine, null
   br i1 %cmp21, label %if.then22, label %if.end33
 
@@ -502,25 +502,25 @@ if.end29:                                         ; preds = %if.then25
 
 if.end33:                                         ; preds = %if.end20, %if.end29, %if.then22, %entry
   %engine.addr.0 = phi ptr [ %5, %if.end29 ], [ null, %if.then22 ], [ %engine, %if.end20 ], [ %engine, %entry ]
-  %mdname.addr.1 = phi ptr [ %mdname.addr.0, %if.end29 ], [ %mdname.addr.0, %if.then22 ], [ %mdname.addr.0, %if.end20 ], [ %mdname, %entry ]
-  %ciphername.addr.1 = phi ptr [ %ciphername.addr.0, %if.end29 ], [ %ciphername.addr.0, %if.then22 ], [ %ciphername.addr.0, %if.end20 ], [ %ciphername, %entry ]
-  %cmp34.not = icmp eq ptr %mdname.addr.1, null
+  %mdname.addr.0 = phi ptr [ %mdname.addr.1, %if.end29 ], [ %mdname.addr.1, %if.then22 ], [ %mdname.addr.1, %if.end20 ], [ %mdname, %entry ]
+  %ciphername.addr.0 = phi ptr [ %ciphername.addr.1, %if.end29 ], [ %ciphername.addr.1, %if.then22 ], [ %ciphername.addr.1, %if.end20 ], [ %ciphername, %entry ]
+  %cmp34.not = icmp eq ptr %mdname.addr.0, null
   br i1 %cmp34.not, label %if.end36, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
   %incdec.ptr = getelementptr inbounds i8, ptr %mac_params, i64 40
-  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %mdname.addr.1, i64 noundef 0) #5
+  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %mdname.addr.0, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %mac_params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then35, %if.end33
   %mp.0 = phi ptr [ %incdec.ptr, %if.then35 ], [ %mac_params, %if.end33 ]
-  %cmp37.not = icmp eq ptr %ciphername.addr.1, null
+  %cmp37.not = icmp eq ptr %ciphername.addr.0, null
   br i1 %cmp37.not, label %if.end41, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
   %incdec.ptr39 = getelementptr inbounds i8, ptr %mp.0, i64 40
-  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp40, ptr noundef nonnull @.str, ptr noundef nonnull %ciphername.addr.1, i64 noundef 0) #5
+  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp40, ptr noundef nonnull @.str, ptr noundef nonnull %ciphername.addr.0, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mp.0, ptr noundef nonnull align 8 dereferenceable(40) %tmp40, i64 40, i1 false)
   br label %if.end41
 

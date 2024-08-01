@@ -144,8 +144,8 @@ if.else:                                          ; preds = %entry
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %entry
-  %ret.1 = phi i32 [ 0, %entry ], [ %spec.select, %if.else ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ 0, %entry ], [ %spec.select, %if.else ]
+  ret i32 %ret.0
 }
 
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
@@ -187,8 +187,8 @@ if.then20:                                        ; preds = %cond.false
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else, %cond.false, %if.then20, %entry
-  %ret.1 = phi i32 [ -1, %if.then20 ], [ 0, %cond.false ], [ %conv7, %if.else ], [ 0, %entry ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ -1, %if.then20 ], [ 0, %cond.false ], [ %conv7, %if.else ], [ 0, %entry ]
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -215,8 +215,8 @@ if.else.i:                                        ; preds = %entry
   br label %file_write.exit
 
 file_write.exit:                                  ; preds = %entry, %if.else.i
-  %ret.1.i = phi i32 [ 0, %entry ], [ %spec.select.i, %if.else.i ]
-  ret i32 %ret.1.i
+  %ret.0.i = phi i32 [ 0, %entry ], [ %spec.select.i, %if.else.i ]
+  ret i32 %ret.0.i
 }
 
 ; Function Attrs: nofree nounwind uwtable

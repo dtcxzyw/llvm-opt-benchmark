@@ -1745,7 +1745,7 @@ rb_num2int_inline.exit:                           ; preds = %24, %26
   br label %29
 
 29:                                               ; preds = %14, %14, %rb_num2int_inline.exit
-  %.0 = phi ptr [ null, %14 ], [ %2, %rb_num2int_inline.exit ], [ null, %14 ]
+  %.1 = phi ptr [ null, %14 ], [ %2, %rb_num2int_inline.exit ], [ null, %14 ]
   switch i64 %17, label %30 [
     i64 36, label %38
     i64 4, label %38
@@ -1773,7 +1773,7 @@ rb_num2int_inline.exit34:                         ; preds = %33, %35
   br label %38
 
 38:                                               ; preds = %29, %29, %rb_num2int_inline.exit34
-  %.1 = phi ptr [ %.0, %29 ], [ %2, %rb_num2int_inline.exit34 ], [ %.0, %29 ]
+  %.2 = phi ptr [ %.1, %29 ], [ %2, %rb_num2int_inline.exit34 ], [ %.1, %29 ]
   %39 = call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 62)
   switch i64 %39, label %41 [
     i64 5, label %.sink.split
@@ -1796,8 +1796,8 @@ rb_num2int_inline.exit34:                         ; preds = %33, %35
   br label %43
 
 43:                                               ; preds = %.sink.split, %38, %38, %rb_check_arity.exit
-  %.2 = phi ptr [ %.1, %38 ], [ %.1, %38 ], [ null, %rb_check_arity.exit ], [ %2, %.sink.split ]
-  ret ptr %.2
+  %.0 = phi ptr [ %.2, %38 ], [ %.2, %38 ], [ null, %rb_check_arity.exit ], [ %2, %.sink.split ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

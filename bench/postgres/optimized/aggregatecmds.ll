@@ -102,8 +102,8 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   br label %34
 
 34:                                               ; preds = %26, %25
-  %.1240 = phi i32 [ 0, %25 ], [ %., %26 ]
-  %.1 = phi i8 [ 110, %25 ], [ %.290, %26 ]
+  %.0239 = phi i32 [ 0, %25 ], [ %., %26 ]
+  %.0222 = phi i8 [ 110, %25 ], [ %.290, %26 ]
   %.0 = phi ptr [ %2, %25 ], [ %33, %26 ]
   %.not279 = icmp eq ptr %4, null
   br i1 %.not279, label %._crit_edge.thread, label %.lr.ph
@@ -137,7 +137,7 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   %.0227346464 = phi ptr [ %.1228, %180 ], [ null, %.lr.ph ]
   %.0225347463 = phi ptr [ %.1226, %180 ], [ null, %.lr.ph ]
   %.0223348462 = phi ptr [ %.1224, %180 ], [ null, %.lr.ph ]
-  %.2349461 = phi i8 [ %.3, %180 ], [ %.1, %.lr.ph ]
+  %.2349461 = phi i8 [ %.3, %180 ], [ %.0222, %.lr.ph ]
   %indvars.iv460 = phi i64 [ %indvars.iv.next, %180 ], [ 0, %.lr.ph ]
   %39 = load ptr, ptr %36, align 8
   %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv460
@@ -421,7 +421,7 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   br i1 %183, label %.lr.ph483, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %180, %.lr.ph
-  %.2349.lcssa = phi i8 [ %.1, %.lr.ph ], [ %.3, %180 ]
+  %.2349.lcssa = phi i8 [ %.0222, %.lr.ph ], [ %.3, %180 ]
   %.0223348.lcssa = phi ptr [ null, %.lr.ph ], [ %.1224, %180 ]
   %.0225347.lcssa = phi ptr [ null, %.lr.ph ], [ %.1226, %180 ]
   %.0227346.lcssa = phi ptr [ null, %.lr.ph ], [ %.1228, %180 ]
@@ -802,7 +802,7 @@ switch.early.test291:                             ; preds = %285
   %333 = ptrtoint ptr %332 to i64
   %334 = load ptr, ptr %12, align 8
   %335 = load i32, ptr %13, align 4
-  %336 = call { i64, i32 } @AggregateCreate(ptr noundef %326, i32 noundef %20, i1 noundef zeroext %5, i8 noundef signext %.2349.lcssa, i32 noundef %.1242, i32 noundef %.1240, ptr noundef %327, i64 noundef %329, i64 noundef %331, i64 noundef %333, ptr noundef %334, i32 noundef %335, ptr noundef nonnull %.0223348.lcssa, ptr noundef %.0225347.lcssa, ptr noundef %.0227346.lcssa, ptr noundef %.0229345.lcssa, ptr noundef %.0234343.lcssa, ptr noundef %.0237342.lcssa, ptr noundef %.0273327.lcssa, ptr noundef %.0271328.lcssa, i1 noundef zeroext %.0269329.lcssa, i1 noundef zeroext %.0267330.lcssa, i8 noundef signext %.2266, i8 noundef signext %.2263, ptr noundef %.0259333.lcssa, i32 noundef %257, i32 noundef %.0251337.lcssa, i32 noundef %.0236, i32 noundef %.0249338.lcssa, ptr noundef %.0247339.lcssa, ptr noundef %.0245340.lcssa, i8 noundef signext %.0232) #5
+  %336 = call { i64, i32 } @AggregateCreate(ptr noundef %326, i32 noundef %20, i1 noundef zeroext %5, i8 noundef signext %.2349.lcssa, i32 noundef %.1242, i32 noundef %.0239, ptr noundef %327, i64 noundef %329, i64 noundef %331, i64 noundef %333, ptr noundef %334, i32 noundef %335, ptr noundef nonnull %.0223348.lcssa, ptr noundef %.0225347.lcssa, ptr noundef %.0227346.lcssa, ptr noundef %.0229345.lcssa, ptr noundef %.0234343.lcssa, ptr noundef %.0237342.lcssa, ptr noundef %.0273327.lcssa, ptr noundef %.0271328.lcssa, i1 noundef zeroext %.0269329.lcssa, i1 noundef zeroext %.0267330.lcssa, i8 noundef signext %.2266, i8 noundef signext %.2263, ptr noundef %.0259333.lcssa, i32 noundef %257, i32 noundef %.0251337.lcssa, i32 noundef %.0236, i32 noundef %.0249338.lcssa, ptr noundef %.0247339.lcssa, ptr noundef %.0245340.lcssa, i8 noundef signext %.0232) #5
   ret { i64, i32 } %336
 }
 

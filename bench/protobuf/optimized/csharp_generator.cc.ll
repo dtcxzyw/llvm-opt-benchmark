@@ -439,7 +439,7 @@ _ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.
   br label %ehcleanup69
 
 cleanup:                                          ; preds = %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i, %invoke.cont68, %if.then57
-  %retval.0 = xor i1 %call56, true
+  %retval.1 = xor i1 %call56, true
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #12
   br label %cleanup72
 
@@ -455,7 +455,7 @@ ehcleanup71:                                      ; preds = %ehcleanup69, %lpad5
 
 cleanup72:                                        ; preds = %cleanup, %invoke.cont39
   %filename_error.sink = phi ptr [ %filename_error, %cleanup ], [ %ref.tmp, %invoke.cont39 ]
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont39 ]
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %invoke.cont39 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_error.sink) #12
   %base_namespace.i = getelementptr inbounds i8, ptr %cli_options, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base_namespace.i) #12
@@ -488,7 +488,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev.exit
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup73:                                      ; preds = %lpad5.loopexit, %lpad5.loopexit.split-lp, %ehcleanup71, %lpad45.body
   %.pn15 = phi { ptr, i32 } [ %.pn12.pn, %ehcleanup71 ], [ %eh.lpad-body, %lpad45.body ], [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit.split-lp, %lpad5.loopexit.split-lp ]

@@ -515,11 +515,11 @@ add_sdnv64_to_tree.exit.i:                        ; preds = %90, %63
 
 98:                                               ; preds = %add_sdnv64_to_tree.exit.i
   %99 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %95, ptr noundef nonnull @ei_ltp_sdnv_length) #7
-  %.pre225.i = load i32, ptr %43, align 4
+  %.pre223.i = load i32, ptr %43, align 4
   br label %add_sdnv64_to_tree.exit177.i
 
 add_sdnv64_to_tree.exit177.i:                     ; preds = %98, %add_sdnv64_to_tree.exit.i
-  %100 = phi i32 [ %96, %add_sdnv64_to_tree.exit.i ], [ %.pre225.i, %98 ]
+  %100 = phi i32 [ %96, %add_sdnv64_to_tree.exit.i ], [ %.pre223.i, %98 ]
   %101 = add i32 %100, %93
   call void @proto_item_set_end(ptr noundef %85, ptr noundef %0, i32 noundef %101) #7
   %102 = getelementptr inbounds i8, ptr %69, i64 16
@@ -788,7 +788,7 @@ add_sdnv64_to_tree.exit245.thread.i.i:            ; preds = %add_sdnv64_to_tree.
   br i1 %.not230295.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i180.i
 
 .lr.ph.i180.i:                                    ; preds = %246, %proto_item_set_generated.exit.i.i
-  %.0210297.i.i = phi i32 [ %.1211.i.i, %proto_item_set_generated.exit.i.i ], [ 1, %246 ]
+  %.2297.i.i = phi i32 [ %.3.i.i, %proto_item_set_generated.exit.i.i ], [ 1, %246 ]
   %.0213296.i.i = phi ptr [ %265, %proto_item_set_generated.exit.i.i ], [ %250, %246 ]
   %251 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0213296.i.i) #7
   %252 = load i32, ptr %251, align 8
@@ -816,13 +816,13 @@ add_sdnv64_to_tree.exit245.thread.i.i:            ; preds = %add_sdnv64_to_tree.
   br label %proto_item_set_generated.exit.i.i
 
 proto_item_set_generated.exit.i.i:                ; preds = %261, %258, %255, %.lr.ph.i180.i
-  %.1211.i.i = phi i32 [ %.0210297.i.i, %.lr.ph.i180.i ], [ 0, %255 ], [ 0, %258 ], [ 0, %261 ]
+  %.3.i.i = phi i32 [ %.2297.i.i, %.lr.ph.i180.i ], [ 0, %255 ], [ 0, %258 ], [ 0, %261 ]
   %265 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0213296.i.i) #7
   %.not230.i.i = icmp eq ptr %265, null
   br i1 %.not230.i.i, label %._crit_edge.i.i, label %.lr.ph.i180.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %proto_item_set_generated.exit.i.i
-  %.not231.i.i = icmp eq i32 %.1211.i.i, 0
+  %.not231.i.i = icmp eq i32 %.3.i.i, 0
   br i1 %.not231.i.i, label %271, label %._crit_edge.thread.i.i
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %246
@@ -837,7 +837,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %261, %258, %255, %.
   br label %271
 
 271:                                              ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i, %245
-  %.2.i.i = phi i32 [ 1, %._crit_edge.thread.i.i ], [ 0, %._crit_edge.i.i ], [ 1, %245 ]
+  %.1211.i.i = phi i32 [ 1, %._crit_edge.thread.i.i ], [ 0, %._crit_edge.i.i ], [ 1, %245 ]
   store ptr %1, ptr %36, align 8
   store ptr %209, ptr %55, align 8
   store i64 %239, ptr %56, align 8
@@ -848,9 +848,9 @@ proto_item_set_generated.exit.i.i:                ; preds = %261, %258, %255, %.
   br label %274
 
 274:                                              ; preds = %271, %add_sdnv64_to_tree.exit245.thread.i.i
-  %.3.i.i = phi i32 [ %.2.i.i, %271 ], [ 1, %add_sdnv64_to_tree.exit245.thread.i.i ]
+  %.0210.i.i = phi i32 [ %.1211.i.i, %271 ], [ 1, %add_sdnv64_to_tree.exit245.thread.i.i ]
   %275 = getelementptr inbounds i8, ptr %69, i64 48
-  store i32 %.3.i.i, ptr %275, align 8
+  store i32 %.0210.i.i, ptr %275, align 8
   %276 = icmp ne i32 %79, 0
   %277 = icmp slt i32 %79, 4
   %or.cond3.i.i = and i1 %276, %277
@@ -1245,11 +1245,11 @@ add_sdnv64_to_tree.exit254.i.i:                   ; preds = %454, %448
 
 .thread282.thread.i.i:                            ; preds = %.thread282.i.i, %..thread282.thread_crit_edge.i.i, %383
   %.not241.i.i = phi i1 [ true, %.thread282.i.i ], [ %394, %..thread282.thread_crit_edge.i.i ], [ true, %383 ]
-  %.not240.i.i = icmp eq i32 %.3.i.i, 0
+  %.not240.i.i = icmp eq i32 %.0210.i.i, 0
   br i1 %.not240.i.i, label %487, label %489
 
 .thread282.thread.thread.i.i:                     ; preds = %481
-  %.not240310.i.i = icmp eq i32 %.3.i.i, 0
+  %.not240310.i.i = icmp eq i32 %.0210.i.i, 0
   br i1 %.not240310.i.i, label %487, label %.thread.i.i
 
 487:                                              ; preds = %.thread282.thread.thread.i.i, %.thread282.thread.i.i
@@ -1283,7 +1283,7 @@ dissect_data_segment.exit.thread.i:               ; preds = %add_sdnv64_to_tree.
   br label %dissect_ltp_segment.exit.thread.sink.split
 
 dissect_data_segment.exit.i:                      ; preds = %.thread.i.i, %489, %487, %484, %476, %473, %._crit_edge301.i.i, %378
-  %.0209.i = phi i32 [ %237, %487 ], [ %237, %489 ], [ %237, %.thread.i.i ], [ %237, %484 ], [ %237, %._crit_edge301.i.i ], [ %237, %473 ], [ %237, %476 ], [ %381, %378 ]
+  %.1.i = phi i32 [ %237, %487 ], [ %237, %489 ], [ %237, %.thread.i.i ], [ %237, %484 ], [ %237, %._crit_edge301.i.i ], [ %237, %473 ], [ %237, %476 ], [ %381, %378 ]
   %.0.i.i = phi i32 [ %.0206263.i.i, %487 ], [ %.0206263.i.i, %489 ], [ %.0206263.i.i, %.thread.i.i ], [ %.0206263.i.i, %484 ], [ %.0206263.i.i, %._crit_edge301.i.i ], [ %.0206263.i.i, %473 ], [ %.0206263.i.i, %476 ], [ %382, %378 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
@@ -1334,11 +1334,11 @@ dissect_data_segment.exit.i:                      ; preds = %.thread.i.i, %489, 
 
 502:                                              ; preds = %494
   %503 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %499, ptr noundef nonnull @ei_ltp_sdnv_length) #7
-  %.pre.i197.i = load i32, ptr %18, align 4
+  %.pre.i195.i = load i32, ptr %18, align 4
   br label %add_sdnv64_to_tree.exit.i182.i
 
 add_sdnv64_to_tree.exit.i182.i:                   ; preds = %502, %494
-  %504 = phi i32 [ %500, %494 ], [ %.pre.i197.i, %502 ]
+  %504 = phi i32 [ %500, %494 ], [ %.pre.i195.i, %502 ]
   %505 = load i32, ptr @ltp_analyze_sequence, align 4
   %506 = icmp ne i32 %505, 0
   %507 = icmp ne ptr %495, null
@@ -1476,8 +1476,8 @@ proto_item_set_generated.exit.i187.i:             ; preds = %576, %573, %add_sdn
   %590 = getelementptr inbounds i8, ptr %495, i64 8
   %591 = load ptr, ptr %590, align 8
   %592 = call ptr @wmem_map_lookup(ptr noundef %591, ptr noundef nonnull %11) #7
-  %.not.i192.i = icmp eq ptr %592, null
-  br i1 %.not.i192.i, label %593, label %601
+  %.not.i191.i = icmp eq ptr %592, null
+  br i1 %.not.i191.i, label %593, label %601
 
 593:                                              ; preds = %586
   %594 = call ptr @wmem_file_scope() #7
@@ -1500,10 +1500,10 @@ proto_item_set_generated.exit.i187.i:             ; preds = %576, %573, %add_sdn
   %604 = call ptr @wmem_itree_find_intervals(ptr noundef %.0167.i.i, ptr noundef %603, i64 noundef %587, i64 noundef %589) #7
   %605 = call ptr @wmem_list_head(ptr noundef %604) #7
   %.not179205.i.i = icmp eq ptr %605, null
-  br i1 %.not179205.i.i, label %._crit_edge.thread.i196.i, label %.lr.ph.i193.i
+  br i1 %.not179205.i.i, label %._crit_edge.thread.i194.i, label %.lr.ph.i192.i
 
-.lr.ph.i193.i:                                    ; preds = %602, %proto_item_set_generated.exit189.i.i
-  %.0165207.i.i = phi i32 [ %.1.i194.i, %proto_item_set_generated.exit189.i.i ], [ 1, %602 ]
+.lr.ph.i192.i:                                    ; preds = %602, %proto_item_set_generated.exit189.i.i
+  %.1207.i.i = phi i32 [ %.2.i.i, %proto_item_set_generated.exit189.i.i ], [ 1, %602 ]
   %.0166206.i.i = phi ptr [ %620, %proto_item_set_generated.exit189.i.i ], [ %605, %602 ]
   %606 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0166206.i.i) #7
   %607 = load i32, ptr %606, align 8
@@ -1511,7 +1511,7 @@ proto_item_set_generated.exit.i187.i:             ; preds = %576, %573, %add_sdn
   %609 = icmp eq i32 %607, %608
   br i1 %609, label %proto_item_set_generated.exit189.i.i, label %610
 
-610:                                              ; preds = %.lr.ph.i193.i
+610:                                              ; preds = %.lr.ph.i192.i
   %611 = load i32, ptr @hf_ltp_rpt_retrans, align 4
   %612 = call ptr @proto_tree_add_uint(ptr noundef %497, i32 noundef %611, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %607) #7
   %.not.i187.i.i = icmp eq ptr %612, null
@@ -1530,17 +1530,17 @@ proto_item_set_generated.exit.i187.i:             ; preds = %576, %573, %add_sdn
   store i32 %619, ptr %617, align 4
   br label %proto_item_set_generated.exit189.i.i
 
-proto_item_set_generated.exit189.i.i:             ; preds = %616, %613, %610, %.lr.ph.i193.i
-  %.1.i194.i = phi i32 [ %.0165207.i.i, %.lr.ph.i193.i ], [ 0, %610 ], [ 0, %613 ], [ 0, %616 ]
+proto_item_set_generated.exit189.i.i:             ; preds = %616, %613, %610, %.lr.ph.i192.i
+  %.2.i.i = phi i32 [ %.1207.i.i, %.lr.ph.i192.i ], [ 0, %610 ], [ 0, %613 ], [ 0, %616 ]
   %620 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0166206.i.i) #7
   %.not179.i.i = icmp eq ptr %620, null
-  br i1 %.not179.i.i, label %._crit_edge.i195.i, label %.lr.ph.i193.i, !llvm.loop !8
+  br i1 %.not179.i.i, label %._crit_edge.i193.i, label %.lr.ph.i192.i, !llvm.loop !8
 
-._crit_edge.i195.i:                               ; preds = %proto_item_set_generated.exit189.i.i
-  %621 = icmp eq i32 %.1.i194.i, 0
-  br i1 %621, label %626, label %._crit_edge.thread.i196.i
+._crit_edge.i193.i:                               ; preds = %proto_item_set_generated.exit189.i.i
+  %621 = icmp eq i32 %.2.i.i, 0
+  br i1 %621, label %626, label %._crit_edge.thread.i194.i
 
-._crit_edge.thread.i196.i:                        ; preds = %._crit_edge.i195.i, %602
+._crit_edge.thread.i194.i:                        ; preds = %._crit_edge.i193.i, %602
   %622 = call ptr @wmem_file_scope() #7
   %623 = call noalias ptr @wmem_alloc(ptr noundef %622, i64 noundef 24) #7
   %624 = load i32, ptr %53, align 4
@@ -1550,10 +1550,10 @@ proto_item_set_generated.exit189.i.i:             ; preds = %616, %613, %610, %.
   call void @wmem_itree_insert(ptr noundef %.0167.i.i, i64 noundef %587, i64 noundef %589, ptr noundef nonnull %623) #7
   br label %626
 
-626:                                              ; preds = %._crit_edge.thread.i196.i, %._crit_edge.i195.i, %601, %proto_item_set_generated.exit.i187.i
-  %.2.i189.i = phi i32 [ 1, %._crit_edge.thread.i196.i ], [ 0, %._crit_edge.i195.i ], [ 1, %601 ], [ 1, %proto_item_set_generated.exit.i187.i ]
+626:                                              ; preds = %._crit_edge.thread.i194.i, %._crit_edge.i193.i, %601, %proto_item_set_generated.exit.i187.i
+  %.0165.i.i = phi i32 [ 1, %._crit_edge.thread.i194.i ], [ 0, %._crit_edge.i193.i ], [ 1, %601 ], [ 1, %proto_item_set_generated.exit.i187.i ]
   %627 = getelementptr inbounds i8, ptr %69, i64 48
-  store i32 %.2.i189.i, ptr %627, align 8
+  store i32 %.0165.i.i, ptr %627, align 8
   %628 = add i32 %567, %.0165.i
   %629 = load i32, ptr @hf_ltp_rpt_clm_cnt, align 4
   %630 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %497, i32 noundef %629, ptr noundef %0, i32 noundef %628, i32 noundef -1, i32 noundef 16, ptr noundef nonnull %15, ptr noundef nonnull %22) #7
@@ -1699,9 +1699,9 @@ proto_item_set_generated.exit198.i.i:             ; preds = %692, %689, %proto_i
   call void @proto_item_set_end(ptr noundef %698, ptr noundef %0, i32 noundef %699) #7
   %700 = load i32, ptr @ltp_analyze_sequence, align 4
   %701 = icmp ne i32 %700, 0
-  %or.cond7.i190.i = select i1 %701, i1 %507, i1 false
+  %or.cond7.i189.i = select i1 %701, i1 %507, i1 false
   %.not181.i.i = icmp ule i64 %655, %686
-  %or.cond183.not.i.i = and i1 %.not181.i.i, %or.cond7.i190.i
+  %or.cond183.not.i.i = and i1 %.not181.i.i, %or.cond7.i189.i
   br i1 %or.cond183.not.i.i, label %702, label %.loopexit.i.i
 
 702:                                              ; preds = %proto_item_set_generated.exit198.i.i
@@ -1813,25 +1813,25 @@ dissect_report_segment.exit.i:                    ; preds = %733, %730, %._crit_
   %744 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %742, i32 noundef %743, ptr noundef %0, i32 noundef %.0165.i, i32 noundef -1, i32 noundef 16, ptr noundef nonnull %8, ptr noundef nonnull %9) #7
   %745 = load i32, ptr %9, align 4
   %746 = icmp slt i32 %745, 1
-  br i1 %746, label %747, label %add_sdnv64_to_tree.exit.i198.i
+  br i1 %746, label %747, label %add_sdnv64_to_tree.exit.i196.i
 
 747:                                              ; preds = %740
   %748 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %744, ptr noundef nonnull @ei_ltp_sdnv_length) #7
-  %.pre.i200.i = load i32, ptr %9, align 4
-  br label %add_sdnv64_to_tree.exit.i198.i
+  %.pre.i198.i = load i32, ptr %9, align 4
+  br label %add_sdnv64_to_tree.exit.i196.i
 
-add_sdnv64_to_tree.exit.i198.i:                   ; preds = %747, %740
-  %749 = phi i32 [ %745, %740 ], [ %.pre.i200.i, %747 ]
+add_sdnv64_to_tree.exit.i196.i:                   ; preds = %747, %740
+  %749 = phi i32 [ %745, %740 ], [ %.pre.i198.i, %747 ]
   %750 = load ptr, ptr %10, align 8
   %751 = add i32 %749, %.0165.i
   call void @proto_item_set_end(ptr noundef %750, ptr noundef %0, i32 noundef %751) #7
   %752 = load i32, ptr @ltp_analyze_sequence, align 4
   %753 = icmp ne i32 %752, 0
   %754 = icmp ne ptr %.val.i, null
-  %or.cond.i199.i = select i1 %753, i1 %754, i1 false
-  br i1 %or.cond.i199.i, label %755, label %dissect_report_ack_segment.exit.i
+  %or.cond.i197.i = select i1 %753, i1 %754, i1 false
+  br i1 %or.cond.i197.i, label %755, label %dissect_report_ack_segment.exit.i
 
-755:                                              ; preds = %add_sdnv64_to_tree.exit.i198.i
+755:                                              ; preds = %add_sdnv64_to_tree.exit.i196.i
   %756 = load i32, ptr @ett_frame_ref, align 4
   %757 = call ptr @proto_item_add_subtree(ptr noundef %744, i32 noundef %756) #7
   %758 = getelementptr inbounds i8, ptr %.val.i, i64 56
@@ -1850,7 +1850,7 @@ add_sdnv64_to_tree.exit.i198.i:                   ; preds = %747, %740
   call fastcc void @ltp_ref_use(ptr noundef %765, i64 noundef %766, ptr noundef %1, ptr noundef %757, i32 noundef %767, i32 noundef %768)
   br label %dissect_report_ack_segment.exit.i
 
-dissect_report_ack_segment.exit.i:                ; preds = %755, %add_sdnv64_to_tree.exit.i198.i
+dissect_report_ack_segment.exit.i:                ; preds = %755, %add_sdnv64_to_tree.exit.i196.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -1880,7 +1880,7 @@ dissect_report_ack_segment.exit.i:                ; preds = %755, %add_sdnv64_to
   br label %783
 
 783:                                              ; preds = %780, %772, %770, %dissect_report_ack_segment.exit.i, %dissect_report_segment.exit.i, %dissect_data_segment.exit.i
-  %.1.i = phi i32 [ %.0209.i, %dissect_data_segment.exit.i ], [ 0, %772 ], [ 0, %780 ], [ 0, %dissect_report_ack_segment.exit.i ], [ 0, %dissect_report_segment.exit.i ], [ 0, %770 ]
+  %.0207.i = phi i32 [ %.1.i, %dissect_data_segment.exit.i ], [ 0, %772 ], [ 0, %780 ], [ 0, %dissect_report_ack_segment.exit.i ], [ 0, %dissect_report_segment.exit.i ], [ 0, %770 ]
   %.0166.i = phi i32 [ %.0.i.i, %dissect_data_segment.exit.i ], [ 1, %772 ], [ 0, %780 ], [ %749, %dissect_report_ack_segment.exit.i ], [ %.0164.lcssa.i.i, %dissect_report_segment.exit.i ], [ 0, %770 ]
   %784 = add i32 %.0166.i, %.0165.i
   %785 = icmp sgt i32 %173, 0
@@ -1892,27 +1892,27 @@ dissect_report_ack_segment.exit.i:                ; preds = %755, %add_sdnv64_to
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %787 = load i32, ptr @ett_trl_extn, align 4
   %788 = call ptr @proto_tree_add_subtree(ptr noundef %67, ptr noundef %0, i32 noundef %784, i32 noundef -1, i32 noundef %787, ptr noundef nonnull %7, ptr noundef nonnull @.str.202) #7
-  br label %.lr.ph.i203.i
+  br label %.lr.ph.i201.i
 
-.lr.ph.i203.i:                                    ; preds = %add_sdnv64_to_tree.exit.i206.i, %786
-  %.027.i204.i = phi i32 [ %807, %add_sdnv64_to_tree.exit.i206.i ], [ 0, %786 ]
-  %.02526.i205.i = phi i32 [ %806, %add_sdnv64_to_tree.exit.i206.i ], [ %784, %786 ]
+.lr.ph.i201.i:                                    ; preds = %add_sdnv64_to_tree.exit.i204.i, %786
+  %.027.i202.i = phi i32 [ %807, %add_sdnv64_to_tree.exit.i204.i ], [ 0, %786 ]
+  %.02526.i203.i = phi i32 [ %806, %add_sdnv64_to_tree.exit.i204.i ], [ %784, %786 ]
   %789 = load i32, ptr @hf_ltp_trl_extn_tag, align 4
-  %790 = call ptr @proto_tree_add_item(ptr noundef %788, i32 noundef %789, ptr noundef %0, i32 noundef %.02526.i205.i, i32 noundef 1, i32 noundef 0) #7
-  %791 = add i32 %.02526.i205.i, 1
+  %790 = call ptr @proto_tree_add_item(ptr noundef %788, i32 noundef %789, ptr noundef %0, i32 noundef %.02526.i203.i, i32 noundef 1, i32 noundef 0) #7
+  %791 = add i32 %.02526.i203.i, 1
   %792 = load i32, ptr @hf_ltp_hdr_extn_len, align 4
   %793 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %788, i32 noundef %792, ptr noundef %0, i32 noundef %791, i32 noundef -1, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %794 = load i32, ptr %6, align 4
   %795 = icmp slt i32 %794, 1
-  br i1 %795, label %796, label %add_sdnv64_to_tree.exit.i206.i
+  br i1 %795, label %796, label %add_sdnv64_to_tree.exit.i204.i
 
-796:                                              ; preds = %.lr.ph.i203.i
+796:                                              ; preds = %.lr.ph.i201.i
   %797 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %793, ptr noundef nonnull @ei_ltp_sdnv_length) #7
-  %.pre.i208.i = load i32, ptr %6, align 4
-  br label %add_sdnv64_to_tree.exit.i206.i
+  %.pre.i206.i = load i32, ptr %6, align 4
+  br label %add_sdnv64_to_tree.exit.i204.i
 
-add_sdnv64_to_tree.exit.i206.i:                   ; preds = %796, %.lr.ph.i203.i
-  %798 = phi i32 [ %794, %.lr.ph.i203.i ], [ %.pre.i208.i, %796 ]
+add_sdnv64_to_tree.exit.i204.i:                   ; preds = %796, %.lr.ph.i201.i
+  %798 = phi i32 [ %794, %.lr.ph.i201.i ], [ %.pre.i206.i, %796 ]
   %799 = add i32 %798, %791
   %800 = load i32, ptr @hf_ltp_trl_extn_val, align 4
   %801 = load i64, ptr %5, align 8
@@ -1921,11 +1921,11 @@ add_sdnv64_to_tree.exit.i206.i:                   ; preds = %796, %.lr.ph.i203.i
   %804 = load i64, ptr %5, align 8
   %805 = trunc i64 %804 to i32
   %806 = add i32 %799, %805
-  %807 = add nuw nsw i32 %.027.i204.i, 1
-  %exitcond.not.i207.i = icmp eq i32 %807, %173
-  br i1 %exitcond.not.i207.i, label %dissect_trailer_extn.exit.i, label %.lr.ph.i203.i, !llvm.loop !11
+  %807 = add nuw nsw i32 %.027.i202.i, 1
+  %exitcond.not.i205.i = icmp eq i32 %807, %173
+  br i1 %exitcond.not.i205.i, label %dissect_trailer_extn.exit.i, label %.lr.ph.i201.i, !llvm.loop !11
 
-dissect_trailer_extn.exit.i:                      ; preds = %add_sdnv64_to_tree.exit.i206.i
+dissect_trailer_extn.exit.i:                      ; preds = %add_sdnv64_to_tree.exit.i204.i
   %808 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %808, ptr noundef %0, i32 noundef %806) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -1947,7 +1947,7 @@ dissect_ltp_segment.exit.thread:                  ; preds = %60, %dissect_ltp_se
 
 dissect_ltp_segment.exit:                         ; preds = %783, %dissect_trailer_extn.exit.i
   %810 = sub i32 %784, %.0
-  %811 = sub i32 %784, %.1.i
+  %811 = sub i32 %784, %.0207.i
   call void @proto_item_set_len(ptr noundef %65, i32 noundef %811) #7
   call void @proto_tree_set_appendix(ptr noundef %67, ptr noundef %0, i32 noundef %784, i32 noundef 0) #7
   %812 = getelementptr inbounds i8, ptr %69, i64 40

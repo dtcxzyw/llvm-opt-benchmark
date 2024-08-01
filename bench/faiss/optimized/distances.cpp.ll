@@ -2723,8 +2723,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_2
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit
   %.02838 = phi i64 [ %40, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ], [ 0, %.lr.ph.preheader ]
   %.02937 = phi ptr [ %42, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ], [ %28, %.lr.ph.preheader ]
-  %.sroa.1.036 = phi float [ %.sroa.1.2, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ], [ 0xC7EFFFFFE0000000, %.lr.ph.preheader ]
-  %.sroa.9.035 = phi i64 [ %.sroa.9.2, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ], [ -1, %.lr.ph.preheader ]
+  %.sroa.1.036 = phi float [ %.sroa.1.1, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ], [ 0xC7EFFFFFE0000000, %.lr.ph.preheader ]
+  %.sroa.9.035 = phi i64 [ %.sroa.9.1, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ], [ -1, %.lr.ph.preheader ]
   %29 = load ptr, ptr %8, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
@@ -2747,8 +2747,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_2
   br label %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit
 
 _ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit: ; preds = %39, %37, %33
-  %.sroa.9.2 = phi i64 [ %.sroa.9.035, %33 ], [ %.02838, %39 ], [ %.sroa.9.035, %37 ]
-  %.sroa.1.2 = phi float [ %.sroa.1.036, %33 ], [ %36, %39 ], [ %.sroa.1.036, %37 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.035, %33 ], [ %.02838, %39 ], [ %.sroa.9.035, %37 ]
+  %.sroa.1.1 = phi float [ %.sroa.1.036, %33 ], [ %36, %39 ], [ %.sroa.1.036, %37 ]
   %40 = add nuw i64 %.02838, 1
   %41 = load i64, ptr %5, align 8
   %42 = getelementptr inbounds float, ptr %.02937, i64 %41
@@ -2757,8 +2757,8 @@ _ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resul
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit, %22
-  %.sroa.9.0.lcssa = phi i64 [ -1, %22 ], [ %.sroa.9.2, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ]
-  %.sroa.1.0.lcssa = phi float [ 0xC7EFFFFFE0000000, %22 ], [ %.sroa.1.2, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ]
+  %.sroa.9.0.lcssa = phi i64 [ -1, %22 ], [ %.sroa.9.1, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ]
+  %.sroa.1.0.lcssa = phi float [ 0xC7EFFFFFE0000000, %22 ], [ %.sroa.1.1, %_ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ]
   %45 = load ptr, ptr %20, align 8
   %46 = getelementptr inbounds float, ptr %45, i64 %.040
   store float %.sroa.1.0.lcssa, ptr %46, align 4
@@ -3418,7 +3418,7 @@ _ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler5beginEm.ex
 43:                                               ; preds = %.lr.ph, %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit
   %.02837 = phi i64 [ 0, %.lr.ph ], [ %93, %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ]
   %.02936 = phi ptr [ %30, %.lr.ph ], [ %95, %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ]
-  %.sroa.1.035 = phi float [ %40, %.lr.ph ], [ %.sroa.1.2, %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ]
+  %.sroa.1.035 = phi float [ %40, %.lr.ph ], [ %.sroa.1.1, %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit ]
   %44 = load ptr, ptr %8, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
@@ -3516,7 +3516,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i: ; pr
   br label %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit
 
 _ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit: ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i, %52, %48
-  %.sroa.1.2 = phi float [ %.sroa.1.035, %48 ], [ %92, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i ], [ %.sroa.1.035, %52 ]
+  %.sroa.1.1 = phi float [ %.sroa.1.035, %48 ], [ %92, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i ], [ %.sroa.1.035, %52 ]
   %93 = add nuw i64 %.02837, 1
   %94 = load i64, ptr %5, align 8
   %95 = getelementptr inbounds float, ptr %.02936, i64 %94
@@ -4540,8 +4540,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5faiss13ReservoirTopNINS_4CMinIflEEE1
   br label %34
 
 34:                                               ; preds = %23, %3
-  %.1 = phi i1 [ %12, %23 ], [ false, %3 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %12, %23 ], [ false, %3 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6332,11 +6332,11 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit.i.i.i: ; preds
 
 .loopexit.split-lp.i.i.i:                         ; preds = %.loopexit.split.us.i.i.i, %.loopexit.split-lp.split.us.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.us.i.i.i, %.loopexit.split.us.i.i.i ], [ %lpad.loopexit.split-lp.us.i.i.i, %.loopexit.split-lp.split.us.i.i.i ]
-  %.not.i.i.i.i = icmp eq ptr %.sroa.0.1.i.i.i, null
+  %.not.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i: ; preds = %.loopexit.split-lp.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0.1.i.i.i) #24
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0.i.i.i) #24
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %.loopexit.split-lp.i.i.i, %.thread.i.i.i
@@ -6350,7 +6350,7 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %212
 
 .lr.ph68.split.us.preheader.i.i.i:                ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit.i.i.i, %140
-  %.sroa.0.1.i.i.i = phi ptr [ %145, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit.i.i.i ], [ null, %140 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %145, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit.i.i.i ], [ null, %140 ]
   store i64 0, ptr %65, align 8
   %150 = getelementptr inbounds i8, ptr %86, i64 24
   %151 = trunc i64 %2 to i32
@@ -6496,11 +6496,11 @@ _ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE11add_resultsEmmPKf.exit.us.i.i.
   br label %.loopexit.split-lp.i.i.i
 
 ._crit_edge69.i.i.i:                              ; preds = %158
-  %.not.i49.i.i.i = icmp eq ptr %.sroa.0.1.i.i.i, null
+  %.not.i49.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i, null
   br i1 %.not.i49.i.i.i, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51.i.i.i, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i50.i.i.i
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i50.i.i.i: ; preds = %._crit_edge69.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0.1.i.i.i) #24
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0.i.i.i) #24
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51.i.i.i
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51.i.i.i: ; preds = %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i50.i.i.i, %._crit_edge69.i.i.i
@@ -8300,8 +8300,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22Top1Blo
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit
   %.02838 = phi i64 [ %40, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ], [ 0, %.lr.ph.preheader ]
   %.02937 = phi ptr [ %42, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ], [ %28, %.lr.ph.preheader ]
-  %.sroa.1.036 = phi float [ %.sroa.1.2, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ], [ 0x47EFFFFFE0000000, %.lr.ph.preheader ]
-  %.sroa.9.035 = phi i64 [ %.sroa.9.2, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ], [ -1, %.lr.ph.preheader ]
+  %.sroa.1.036 = phi float [ %.sroa.1.1, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ], [ 0x47EFFFFFE0000000, %.lr.ph.preheader ]
+  %.sroa.9.035 = phi i64 [ %.sroa.9.1, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ], [ -1, %.lr.ph.preheader ]
   %29 = load ptr, ptr %8, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
@@ -8324,8 +8324,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22Top1Blo
   br label %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit
 
 _ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit: ; preds = %39, %37, %33
-  %.sroa.9.2 = phi i64 [ %.sroa.9.035, %33 ], [ %.02838, %39 ], [ %.sroa.9.035, %37 ]
-  %.sroa.1.2 = phi float [ %.sroa.1.036, %33 ], [ %36, %39 ], [ %.sroa.1.036, %37 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.035, %33 ], [ %.02838, %39 ], [ %.sroa.9.035, %37 ]
+  %.sroa.1.1 = phi float [ %.sroa.1.036, %33 ], [ %36, %39 ], [ %.sroa.1.036, %37 ]
   %40 = add nuw i64 %.02838, 1
   %41 = load i64, ptr %5, align 8
   %42 = getelementptr inbounds float, ptr %.02937, i64 %41
@@ -8334,8 +8334,8 @@ _ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resul
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit, %22
-  %.sroa.9.0.lcssa = phi i64 [ -1, %22 ], [ %.sroa.9.2, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ]
-  %.sroa.1.0.lcssa = phi float [ 0x47EFFFFFE0000000, %22 ], [ %.sroa.1.2, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ]
+  %.sroa.9.0.lcssa = phi i64 [ -1, %22 ], [ %.sroa.9.1, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ]
+  %.sroa.1.0.lcssa = phi float [ 0x47EFFFFFE0000000, %22 ], [ %.sroa.1.1, %_ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ]
   %45 = load ptr, ptr %20, align 8
   %46 = getelementptr inbounds float, ptr %45, i64 %.040
   store float %.sroa.1.0.lcssa, ptr %46, align 4
@@ -9075,7 +9075,7 @@ _ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler5beginEm.ex
 43:                                               ; preds = %.lr.ph, %_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit
   %.02837 = phi i64 [ 0, %.lr.ph ], [ %93, %_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ]
   %.02936 = phi ptr [ %30, %.lr.ph ], [ %95, %_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ]
-  %.sroa.1.035 = phi float [ %40, %.lr.ph ], [ %.sroa.1.2, %_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ]
+  %.sroa.1.035 = phi float [ %40, %.lr.ph ], [ %.sroa.1.1, %_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit ]
   %44 = load ptr, ptr %8, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
@@ -9173,7 +9173,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i: ; pr
   br label %_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit
 
 _ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resultEfl.exit: ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i, %52, %48
-  %.sroa.1.2 = phi float [ %.sroa.1.035, %48 ], [ %92, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i ], [ %.sroa.1.035, %52 ]
+  %.sroa.1.1 = phi float [ %.sroa.1.035, %48 ], [ %92, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i ], [ %.sroa.1.035, %52 ]
   %93 = add nuw i64 %.02837, 1
   %94 = load i64, ptr %5, align 8
   %95 = getelementptr inbounds float, ptr %.02936, i64 %94
@@ -10088,8 +10088,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5faiss13ReservoirTopNINS_4CMaxIflEEE1
   br label %34
 
 34:                                               ; preds = %23, %3
-  %.1 = phi i1 [ %12, %23 ], [ false, %3 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %12, %23 ], [ false, %3 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -2321,11 +2321,11 @@ cleanup105.sink.split:                            ; preds = %land.rhs, %do.end58
 
 cleanup105:                                       ; preds = %cleanup105.sink.split, %if.end92, %land.rhs
   %call37.sink = phi ptr [ %context.sroa.0.0, %land.rhs ], [ %context.sroa.0.0, %if.end92 ], [ %call37.sink.ph, %cleanup105.sink.split ]
-  %retval.2 = phi ptr [ %call14, %land.rhs ], [ %call14, %if.end92 ], [ null, %cleanup105.sink.split ]
+  %retval.1 = phi ptr [ %call14, %land.rhs ], [ %call14, %if.end92 ], [ null, %cleanup105.sink.split ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call37.sink) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
   call void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #12
-  ret ptr %retval.2
+  ret ptr %retval.1
 }
 
 declare void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #0
@@ -2443,9 +2443,9 @@ if.end177:                                        ; preds = %if.end142, %if.else
   br label %cleanup180
 
 cleanup180:                                       ; preds = %if.then123, %if.then100, %if.end58, %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %entry, %if.end142, %if.end177
-  %retval.sroa.0.1 = phi i16 [ 257, %if.end177 ], [ 0, %if.end142 ], [ 257, %entry ], [ 0, %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ 0, %if.end58 ], [ 0, %if.then100 ], [ 0, %if.then123 ]
+  %retval.sroa.0.0 = phi i16 [ 257, %if.end177 ], [ 0, %if.end142 ], [ 257, %entry ], [ 0, %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ 0, %if.end58 ], [ 0, %if.then100 ], [ 0, %if.then123 ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
-  ret i16 %retval.sroa.0.1
+  ret i16 %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

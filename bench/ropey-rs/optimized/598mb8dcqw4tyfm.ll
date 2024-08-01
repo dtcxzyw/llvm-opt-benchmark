@@ -2463,7 +2463,7 @@ _ZN5ropey4tree4node4Node5depth17h0728efde396fc26aE.exit129: ; preds = %366, %_ZN
           to label %"_ZN4core3ptr38drop_in_place$LT$ropey..rope..Rope$GT$17h6bfed8002f22cc36E.exit131" unwind label %473
 
 "_ZN4core3ptr61drop_in_place$LT$ropey..tree..node_children..NodeChildren$GT$17h2572abc4b1f19f7fE.exit": ; preds = %.thread269
-  br i1 %.sroa.017.2, label %476, label %"_ZN4core3ptr68drop_in_place$LT$alloc..sync..Arc$LT$ropey..tree..node..Node$GT$$GT$17h6e1db2bdc1e26a9dE.llvm.17510714948109998730.exit184.thread299"
+  br i1 %.sroa.017.1, label %476, label %"_ZN4core3ptr68drop_in_place$LT$alloc..sync..Arc$LT$ropey..tree..node..Node$GT$$GT$17h6e1db2bdc1e26a9dE.llvm.17510714948109998730.exit184.thread299"
 
 391:                                              ; preds = %383
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
@@ -2702,7 +2702,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit167: ; preds = %.noex
   br label %385
 
 .thread269:                                       ; preds = %394, %.noexc144, %404, %423, %.noexc164, %433
-  %.sroa.017.2 = phi i1 [ true, %394 ], [ true, %.noexc144 ], [ true, %404 ], [ false, %423 ], [ false, %.noexc164 ], [ false, %433 ]
+  %.sroa.017.1 = phi i1 [ true, %394 ], [ true, %.noexc144 ], [ true, %404 ], [ false, %423 ], [ false, %.noexc164 ], [ false, %433 ]
   %470 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN97_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0810109c904f8a5fE"(ptr noalias noundef nonnull align 8 dereferenceable(968) %30)

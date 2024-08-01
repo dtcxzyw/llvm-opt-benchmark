@@ -261,7 +261,7 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
 
 18:                                               ; preds = %26, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %26 ]
-  %.049.i = phi i64 [ %16, %.preheader.i ], [ %24, %26 ]
+  %.150.i = phi i64 [ %16, %.preheader.i ], [ %24, %26 ]
   %19 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %.not56.i = icmp eq ptr %20, null
@@ -269,7 +269,7 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
 
 21:                                               ; preds = %18
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #9
-  %23 = add i64 %.049.i, 1
+  %23 = add i64 %.150.i, 1
   %24 = add i64 %23, %22
   %25 = load i64, ptr %17, align 8
   %.not58.i = icmp ult i64 %24, %25
@@ -285,12 +285,12 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %nxtask_setup_name.exit
-  %.150.i = phi i64 [ %16, %nxtask_setup_name.exit ], [ %.049.i, %.loopexit.loopexit.i ]
-  %.1.i = phi i32 [ 0, %nxtask_setup_name.exit ], [ %27, %.loopexit.loopexit.i ]
-  %28 = add nuw nsw i32 %.1.i, 2
+  %.049.i = phi i64 [ %16, %nxtask_setup_name.exit ], [ %.150.i, %.loopexit.loopexit.i ]
+  %.047.i = phi i32 [ 0, %nxtask_setup_name.exit ], [ %27, %.loopexit.loopexit.i ]
+  %28 = add nuw nsw i32 %.047.i, 2
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 3
-  %31 = add i64 %30, %.150.i
+  %31 = add i64 %30, %.049.i
   %32 = tail call ptr @up_stack_frame(ptr noundef %0, i64 noundef %31) #9
   %33 = icmp eq ptr %32, null
   br i1 %33, label %nxtask_setup_stackargs.exit, label %34
@@ -299,17 +299,17 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
   %35 = getelementptr inbounds i8, ptr %32, i64 %30
   store ptr %35, ptr %32, align 8
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #9
-  %37 = tail call i64 @strlcpy(ptr noundef nonnull %35, ptr noundef nonnull dereferenceable(1) %spec.store.select, i64 noundef %.150.i) #9
-  %.not65.i = icmp eq i32 %.1.i, 0
+  %37 = tail call i64 @strlcpy(ptr noundef nonnull %35, ptr noundef nonnull dereferenceable(1) %spec.store.select, i64 noundef %.049.i) #9
+  %.not65.i = icmp eq i32 %.047.i, 0
   br i1 %.not65.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %34
   %38 = shl i64 %36, 32
   %sext.i = add i64 %38, 4294967296
   %39 = ashr exact i64 %sext.i, 32
-  %40 = sub i64 %.150.i, %39
+  %40 = sub i64 %.049.i, %39
   %41 = getelementptr inbounds i8, ptr %35, i64 %39
-  %wide.trip.count.i = zext i32 %.1.i to i64
+  %wide.trip.count.i = zext i32 %.047.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

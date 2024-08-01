@@ -657,7 +657,7 @@ define internal fastcc i32 @setImageHints(ptr nocapture noundef readonly %0, ptr
   br label %39
 
 39:                                               ; preds = %33, %37
-  %.0102 = phi i32 [ %38, %37 ], [ 1, %33 ]
+  %.1103 = phi i32 [ %38, %37 ], [ 1, %33 ]
   %40 = insertelement <4 x i32> poison, i32 %35, i64 0
   %41 = shufflevector <4 x i32> %40, <4 x i32> poison, <4 x i32> zeroinitializer
   %42 = and <4 x i32> %41, <i32 17, i32 18, i32 33, i32 34>
@@ -709,7 +709,7 @@ define internal fastcc i32 @setImageHints(ptr nocapture noundef readonly %0, ptr
   br label %128
 
 .thread4:                                         ; preds = %39, %29
-  %.11037 = phi i32 [ 1, %29 ], [ %.0102, %39 ]
+  %.01027 = phi i32 [ 1, %29 ], [ %.1103, %39 ]
   store i32 0, ptr %25, align 4
   %63 = getelementptr inbounds i8, ptr %0, i64 632
   %64 = load i32, ptr %63, align 8
@@ -851,14 +851,14 @@ define internal fastcc i32 @setImageHints(ptr nocapture noundef readonly %0, ptr
   %.sink12 = phi i32 [ 1, %122 ], [ 0, %.loopexit ], [ 0, %111 ], [ 0, %114 ], [ 1, %116 ]
   %124 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %.sink12, ptr %124, align 4
-  %125 = icmp sgt i32 %23, %.11037
+  %125 = icmp sgt i32 %23, %.01027
   %126 = zext i1 %125 to i32
   %127 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %126, ptr %127, align 4
   br label %128
 
 128:                                              ; preds = %123, %61, %62, %55, %12
-  %.0104 = phi i32 [ -1, %12 ], [ 4, %55 ], [ 4, %61 ], [ 4, %62 ], [ %.11037, %123 ]
+  %.0104 = phi i32 [ -1, %12 ], [ 4, %55 ], [ 4, %61 ], [ 4, %62 ], [ %.01027, %123 ]
   ret i32 %.0104
 }
 

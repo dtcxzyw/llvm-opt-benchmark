@@ -1157,16 +1157,16 @@ _ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit.i: ; preds = %12, %9
   br i1 %.not.i.i.i.i, label %21, label %_ZN5QHashIP7QObjectP12_funnel_bt_tE5beginEv.exit, !llvm.loop !12
 
 _ZN5QHashIP7QObjectP12_funnel_bt_tE5beginEv.exit: ; preds = %21, %25
-  %.sroa.0.1.i.i = phi ptr [ %14, %25 ], [ null, %21 ]
-  %.sroa.5.1.i.i = phi i64 [ %23, %25 ], [ 0, %21 ]
-  %31 = icmp ne ptr %.sroa.0.1.i.i, null
-  %32 = icmp ne i64 %.sroa.5.1.i.i, 0
+  %.sroa.0.0.i.i = phi ptr [ %14, %25 ], [ null, %21 ]
+  %.sroa.5.0.i.i = phi i64 [ %23, %25 ], [ 0, %21 ]
+  %31 = icmp ne ptr %.sroa.0.0.i.i, null
+  %32 = icmp ne i64 %.sroa.5.0.i.i, 0
   %.not4.i.i20 = or i1 %32, %31
   br i1 %.not4.i.i20, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit.i, %_ZN5QHashIP7QObjectP12_funnel_bt_tE5beginEv.exit
-  %.sroa.013.022.ph = phi ptr [ %14, %_ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit.i ], [ %.sroa.0.1.i.i, %_ZN5QHashIP7QObjectP12_funnel_bt_tE5beginEv.exit ]
-  %.sroa.6.021.ph = phi i64 [ 0, %_ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit.i ], [ %.sroa.5.1.i.i, %_ZN5QHashIP7QObjectP12_funnel_bt_tE5beginEv.exit ]
+  %.sroa.013.022.ph = phi ptr [ %14, %_ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit.i ], [ %.sroa.0.0.i.i, %_ZN5QHashIP7QObjectP12_funnel_bt_tE5beginEv.exit ]
+  %.sroa.6.021.ph = phi i64 [ 0, %_ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit.i ], [ %.sroa.5.0.i.i, %_ZN5QHashIP7QObjectP12_funnel_bt_tE5beginEv.exit ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5QHashIP7QObjectP12_funnel_bt_tE8iteratorppEv.exit

@@ -357,8 +357,8 @@ terminate.lpad.i.i:                               ; preds = %_ZNSt13unordered_se
   unreachable
 
 return:                                           ; preds = %_ZNSt13unordered_setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EED2Ev.exit, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %changed.2.lcssa, %_ZNSt13unordered_setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EED2Ev.exit ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %changed.2.lcssa, %_ZNSt13unordered_setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EED2Ev.exit ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -399,8 +399,8 @@ if.then7.i:                                       ; preds = %if.then2.i
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7.i, %land.lhs.true.i
-  %nocase.0.ph = phi i8 [ 1, %land.lhs.true.i ], [ 0, %if.then7.i ]
-  %casefixed.0.ph = phi i1 [ true, %land.lhs.true.i ], [ %call8.i, %if.then7.i ]
+  %nocase.1.ph = phi i8 [ 1, %land.lhs.true.i ], [ 0, %if.then7.i ]
+  %casefixed.1.ph = phi i1 [ true, %land.lhs.true.i ], [ %call8.i, %if.then7.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %literal) #16
   br label %for.body.i.i.i
 
@@ -434,8 +434,8 @@ invoke.cont:                                      ; preds = %_ZNK3ue29CharReach1
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.i61, %invoke.cont
-  %nocase.1 = phi i8 [ %nocase.0.ph, %invoke.cont ], [ %nocase.289, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
-  %casefixed.1 = phi i1 [ %casefixed.0.ph, %invoke.cont ], [ %casefixed.290, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
+  %nocase.0 = phi i8 [ %nocase.1.ph, %invoke.cont ], [ %nocase.289, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
+  %casefixed.0 = phi i1 [ %casefixed.1.ph, %invoke.cont ], [ %casefixed.290, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
   %agg.tmp83.sroa.0.0.copyload = phi ptr [ %v.coerce0, %invoke.cont ], [ %9, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
   %v.sroa.14.0 = phi i64 [ %v.coerce1, %invoke.cont ], [ %10, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
   %out_edge_list.i.i = getelementptr inbounds i8, ptr %agg.tmp83.sroa.0.0.copyload, i64 128
@@ -486,7 +486,7 @@ if.else41:                                        ; preds = %invoke.cont24
   br i1 %cmp.i26, label %cleanup, label %if.end.i27
 
 if.end.i27:                                       ; preds = %if.else41
-  br i1 %casefixed.1, label %if.else13.i38, label %if.then2.i29
+  br i1 %casefixed.0, label %if.else13.i38, label %if.then2.i29
 
 if.then2.i29:                                     ; preds = %if.end.i27
   switch i64 %14, label %cleanup [
@@ -506,11 +506,11 @@ if.then7.i30:                                     ; preds = %if.then2.i29
           to label %call8.i31.noexc unwind label %lpad.loopexit
 
 call8.i31.noexc:                                  ; preds = %if.then7.i30
-  %spec.select97 = select i1 %call8.i3148, i8 0, i8 %nocase.1
+  %spec.select97 = select i1 %call8.i3148, i8 0, i8 %nocase.0
   br label %invoke.cont51
 
 if.else13.i38:                                    ; preds = %if.end.i27
-  %tobool14.i39 = trunc nuw i8 %nocase.1 to i1
+  %tobool14.i39 = trunc nuw i8 %nocase.0 to i1
   br i1 %tobool14.i39, label %if.then15.i42, label %invoke.cont43
 
 if.then15.i42:                                    ; preds = %if.else13.i38
@@ -539,7 +539,7 @@ invoke.cont43:                                    ; preds = %if.else13.i38
 
 invoke.cont51:                                    ; preds = %call8.i31.noexc, %call4.i35.noexc, %call18.i46.noexc, %call21.i44.noexc, %invoke.cont43
   %casefixed.290 = phi i1 [ true, %invoke.cont43 ], [ true, %call4.i35.noexc ], [ true, %call18.i46.noexc ], [ true, %call21.i44.noexc ], [ %call8.i3148, %call8.i31.noexc ]
-  %nocase.289 = phi i8 [ %nocase.1, %invoke.cont43 ], [ 1, %call4.i35.noexc ], [ %nocase.1, %call18.i46.noexc ], [ %nocase.1, %call21.i44.noexc ], [ %spec.select97, %call8.i31.noexc ]
+  %nocase.289 = phi i8 [ %nocase.0, %invoke.cont43 ], [ 1, %call4.i35.noexc ], [ %nocase.0, %call18.i46.noexc ], [ %nocase.0, %call21.i44.noexc ], [ %spec.select97, %call8.i31.noexc ]
   %in_edge_list.i.i52 = getelementptr inbounds i8, ptr %9, i64 104
   %15 = load i64, ptr %in_edge_list.i.i52, align 8
   %cmp53.not = icmp eq i64 %15, 1
@@ -577,7 +577,7 @@ while.end:                                        ; preds = %if.then32
 if.end76:                                         ; preds = %while.end
   %rose = getelementptr inbounds i8, ptr %ng, i64 1096
   %19 = load ptr, ptr %rose, align 8
-  %tobool81 = trunc nuw i8 %nocase.1 to i1
+  %tobool81 = trunc nuw i8 %nocase.0 to i1
   invoke void @_ZN3ue211ue2_literalC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp80, ptr noundef nonnull align 8 dereferenceable(32) %literal, i1 noundef zeroext %tobool81)
           to label %invoke.cont82 unwind label %lpad.loopexit.split-lp
 
@@ -611,7 +611,7 @@ lpad84:                                           ; preds = %invoke.cont82
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.then2.i29, %call4.i35.noexc, %if.then15.i42, %call18.i46.noexc, %call21.i44.noexc, %if.else41, %invoke.cont51, %invoke.cont43, %invoke.cont14, %_ZN3ue211ue2_literalD2Ev.exit, %if.then32, %while.end
-  %retval.0 = phi i1 [ false, %while.end ], [ false, %if.then32 ], [ true, %_ZN3ue211ue2_literalD2Ev.exit ], [ false, %invoke.cont14 ], [ false, %invoke.cont43 ], [ false, %invoke.cont51 ], [ false, %if.else41 ], [ false, %call21.i44.noexc ], [ false, %call18.i46.noexc ], [ false, %if.then15.i42 ], [ false, %call4.i35.noexc ], [ false, %if.then2.i29 ]
+  %retval.1 = phi i1 [ false, %while.end ], [ false, %if.then32 ], [ true, %_ZN3ue211ue2_literalD2Ev.exit ], [ false, %invoke.cont14 ], [ false, %invoke.cont43 ], [ false, %invoke.cont51 ], [ false, %if.else41 ], [ false, %call21.i44.noexc ], [ false, %call18.i46.noexc ], [ false, %if.then15.i42 ], [ false, %call4.i35.noexc ], [ false, %if.then2.i29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %literal) #16
   br label %return
 
@@ -621,8 +621,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then2.i, %land.lhs.true.i, %if.end4, %entry, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %entry ], [ false, %if.end4 ], [ false, %land.lhs.true.i ], [ false, %if.then2.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %entry ], [ false, %if.end4 ], [ false, %land.lhs.true.i ], [ false, %if.then2.i ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN3ue212pruneUselessERNS_8NGHolderEb(ptr noundef nonnull align 8 dereferenceable(136), i1 noundef zeroext) local_unnamed_addr #4

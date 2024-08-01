@@ -4137,8 +4137,8 @@ lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %ehcleanup293.thread
 
 lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then22, %.noexc101, %invoke.cont36, %invoke.cont38, %if.else, %invoke.cont53, %if.end139, %invoke.cont140, %invoke.cont142, %invoke.cont144, %invoke.cont146, %for.end, %invoke.cont163, %invoke.cont181, %if.end242, %invoke.cont243, %invoke.cont245, %invoke.cont247, %invoke.cont249, %invoke.cont251, %invoke.cont253, %for.end289, %if.then.i.i513, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i496, %if.else.i540
-  %shaperInData.sroa.0.0.ph.ph.ph.ph.ph = phi ptr [ null, %if.then22 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i496 ], [ null, %if.then.i.i513 ], [ null, %if.else.i540 ], [ %call5.i.i.i.i562, %.noexc101 ], [ %call5.i.i.i.i562, %invoke.cont36 ], [ %call5.i.i.i.i562, %invoke.cont38 ], [ null, %if.else ], [ null, %invoke.cont53 ], [ %shaperInData.sroa.0.8, %if.end139 ], [ %shaperInData.sroa.0.8, %invoke.cont140 ], [ %shaperInData.sroa.0.8, %invoke.cont142 ], [ %shaperInData.sroa.0.8, %invoke.cont144 ], [ %shaperInData.sroa.0.8, %invoke.cont146 ], [ %shaperInData.sroa.0.8, %for.end ], [ %shaperInData.sroa.0.8, %invoke.cont163 ], [ %shaperInData.sroa.0.8, %invoke.cont181 ], [ %shaperInData.sroa.0.8, %if.end242 ], [ %shaperInData.sroa.0.8, %invoke.cont243 ], [ %shaperInData.sroa.0.8, %invoke.cont245 ], [ %shaperInData.sroa.0.8, %invoke.cont247 ], [ %shaperInData.sroa.0.8, %invoke.cont249 ], [ %shaperInData.sroa.0.8, %invoke.cont251 ], [ %shaperInData.sroa.0.8, %invoke.cont253 ], [ %shaperInData.sroa.0.8, %for.end289 ]
-  %shaperOutData.sroa.0.2.ph.ph.ph.ph.ph = phi ptr [ null, %if.then22 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i496 ], [ null, %if.then.i.i513 ], [ %call5.i.i.i.i516, %if.else.i540 ], [ %call5.i.i.i.i516, %.noexc101 ], [ %call5.i.i.i.i516, %invoke.cont36 ], [ %call5.i.i.i.i516, %invoke.cont38 ], [ null, %if.else ], [ null, %invoke.cont53 ], [ %shaperOutData.sroa.0.8, %if.end139 ], [ %shaperOutData.sroa.0.8, %invoke.cont140 ], [ %shaperOutData.sroa.0.8, %invoke.cont142 ], [ %shaperOutData.sroa.0.8, %invoke.cont144 ], [ %shaperOutData.sroa.0.8, %invoke.cont146 ], [ %shaperOutData.sroa.0.8, %for.end ], [ %shaperOutData.sroa.0.8, %invoke.cont163 ], [ %shaperOutData.sroa.0.8, %invoke.cont181 ], [ %shaperOutData.sroa.0.8, %if.end242 ], [ %shaperOutData.sroa.0.8, %invoke.cont243 ], [ %shaperOutData.sroa.0.8, %invoke.cont245 ], [ %shaperOutData.sroa.0.8, %invoke.cont247 ], [ %shaperOutData.sroa.0.8, %invoke.cont249 ], [ %shaperOutData.sroa.0.8, %invoke.cont251 ], [ %shaperOutData.sroa.0.8, %invoke.cont253 ], [ %shaperOutData.sroa.0.8, %for.end289 ]
+  %shaperInData.sroa.0.0.ph.ph.ph.ph.ph = phi ptr [ null, %if.then22 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i496 ], [ null, %if.then.i.i513 ], [ null, %if.else.i540 ], [ %call5.i.i.i.i562, %.noexc101 ], [ %call5.i.i.i.i562, %invoke.cont36 ], [ %call5.i.i.i.i562, %invoke.cont38 ], [ null, %if.else ], [ null, %invoke.cont53 ], [ %shaperInData.sroa.0.3, %if.end139 ], [ %shaperInData.sroa.0.3, %invoke.cont140 ], [ %shaperInData.sroa.0.3, %invoke.cont142 ], [ %shaperInData.sroa.0.3, %invoke.cont144 ], [ %shaperInData.sroa.0.3, %invoke.cont146 ], [ %shaperInData.sroa.0.3, %for.end ], [ %shaperInData.sroa.0.3, %invoke.cont163 ], [ %shaperInData.sroa.0.3, %invoke.cont181 ], [ %shaperInData.sroa.0.3, %if.end242 ], [ %shaperInData.sroa.0.3, %invoke.cont243 ], [ %shaperInData.sroa.0.3, %invoke.cont245 ], [ %shaperInData.sroa.0.3, %invoke.cont247 ], [ %shaperInData.sroa.0.3, %invoke.cont249 ], [ %shaperInData.sroa.0.3, %invoke.cont251 ], [ %shaperInData.sroa.0.3, %invoke.cont253 ], [ %shaperInData.sroa.0.3, %for.end289 ]
+  %shaperOutData.sroa.0.0.ph.ph.ph.ph.ph = phi ptr [ null, %if.then22 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i496 ], [ null, %if.then.i.i513 ], [ %call5.i.i.i.i516, %if.else.i540 ], [ %call5.i.i.i.i516, %.noexc101 ], [ %call5.i.i.i.i516, %invoke.cont36 ], [ %call5.i.i.i.i516, %invoke.cont38 ], [ null, %if.else ], [ null, %invoke.cont53 ], [ %shaperOutData.sroa.0.3, %if.end139 ], [ %shaperOutData.sroa.0.3, %invoke.cont140 ], [ %shaperOutData.sroa.0.3, %invoke.cont142 ], [ %shaperOutData.sroa.0.3, %invoke.cont144 ], [ %shaperOutData.sroa.0.3, %invoke.cont146 ], [ %shaperOutData.sroa.0.3, %for.end ], [ %shaperOutData.sroa.0.3, %invoke.cont163 ], [ %shaperOutData.sroa.0.3, %invoke.cont181 ], [ %shaperOutData.sroa.0.3, %if.end242 ], [ %shaperOutData.sroa.0.3, %invoke.cont243 ], [ %shaperOutData.sroa.0.3, %invoke.cont245 ], [ %shaperOutData.sroa.0.3, %invoke.cont247 ], [ %shaperOutData.sroa.0.3, %invoke.cont249 ], [ %shaperOutData.sroa.0.3, %invoke.cont251 ], [ %shaperOutData.sroa.0.3, %invoke.cont253 ], [ %shaperOutData.sroa.0.3, %for.end289 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup293
@@ -4411,8 +4411,8 @@ lpad56:                                           ; preds = %invoke.cont55
   br label %ehcleanup138
 
 lpad61:                                           ; preds = %if.else.i632, %invoke.cont86, %invoke.cont106, %invoke.cont104, %if.end84, %if.else81, %invoke.cont62, %invoke.cont57
-  %shaperInData.sroa.0.3 = phi ptr [ %call5.i.i.i.i654, %invoke.cont106 ], [ %call5.i.i.i.i654, %invoke.cont104 ], [ null, %if.else.i632 ], [ null, %invoke.cont86 ], [ null, %if.end84 ], [ null, %if.else81 ], [ null, %invoke.cont62 ], [ null, %invoke.cont57 ]
-  %shaperOutData.sroa.0.3 = phi ptr [ %call5.i.i.i.i608, %invoke.cont106 ], [ %call5.i.i.i.i608, %invoke.cont104 ], [ %call5.i.i.i.i608, %if.else.i632 ], [ null, %invoke.cont86 ], [ null, %if.end84 ], [ null, %if.else81 ], [ null, %invoke.cont62 ], [ null, %invoke.cont57 ]
+  %shaperInData.sroa.0.4 = phi ptr [ %call5.i.i.i.i654, %invoke.cont106 ], [ %call5.i.i.i.i654, %invoke.cont104 ], [ null, %if.else.i632 ], [ null, %invoke.cont86 ], [ null, %if.end84 ], [ null, %if.else81 ], [ null, %invoke.cont62 ], [ null, %invoke.cont57 ]
+  %shaperOutData.sroa.0.4 = phi ptr [ %call5.i.i.i.i608, %invoke.cont106 ], [ %call5.i.i.i.i608, %invoke.cont104 ], [ %call5.i.i.i.i608, %if.else.i632 ], [ null, %invoke.cont86 ], [ null, %if.end84 ], [ null, %if.else81 ], [ null, %invoke.cont62 ], [ null, %invoke.cont57 ]
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup137
@@ -5001,15 +5001,15 @@ ehcleanup136:                                     ; preds = %ehcleanup135, %lpad
   br label %ehcleanup137
 
 ehcleanup137:                                     ; preds = %ehcleanup136, %ehcleanup119, %_ZNSt6vectorIfSaIfEED2Ev.exit145, %lpad70, %lpad61
-  %shaperInData.sroa.0.6 = phi ptr [ %call5.i.i.i.i654, %ehcleanup136 ], [ %call5.i.i.i.i654, %ehcleanup119 ], [ %shaperInData.sroa.0.3, %lpad61 ], [ null, %_ZNSt6vectorIfSaIfEED2Ev.exit145 ], [ null, %lpad70 ]
-  %shaperOutData.sroa.0.6 = phi ptr [ %call5.i.i.i.i608, %ehcleanup136 ], [ %call5.i.i.i.i608, %ehcleanup119 ], [ %shaperOutData.sroa.0.3, %lpad61 ], [ null, %_ZNSt6vectorIfSaIfEED2Ev.exit145 ], [ null, %lpad70 ]
+  %shaperInData.sroa.0.6 = phi ptr [ %call5.i.i.i.i654, %ehcleanup136 ], [ %call5.i.i.i.i654, %ehcleanup119 ], [ %shaperInData.sroa.0.4, %lpad61 ], [ null, %_ZNSt6vectorIfSaIfEED2Ev.exit145 ], [ null, %lpad70 ]
+  %shaperOutData.sroa.0.6 = phi ptr [ %call5.i.i.i.i608, %ehcleanup136 ], [ %call5.i.i.i.i608, %ehcleanup119 ], [ %shaperOutData.sroa.0.4, %lpad61 ], [ null, %_ZNSt6vectorIfSaIfEED2Ev.exit145 ], [ null, %lpad70 ]
   %.pn58.pn.pn = phi { ptr, i32 } [ %.pn58.pn, %ehcleanup136 ], [ %.pn56, %ehcleanup119 ], [ %40, %lpad61 ], [ %42, %_ZNSt6vectorIfSaIfEED2Ev.exit145 ], [ %41, %lpad70 ]
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19AllocationTransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %allocationTransform) #26
   br label %ehcleanup138
 
 ehcleanup138:                                     ; preds = %ehcleanup137, %lpad56
-  %shaperInData.sroa.0.7 = phi ptr [ %shaperInData.sroa.0.6, %ehcleanup137 ], [ null, %lpad56 ]
-  %shaperOutData.sroa.0.7 = phi ptr [ %shaperOutData.sroa.0.6, %ehcleanup137 ], [ null, %lpad56 ]
+  %shaperInData.sroa.0.5 = phi ptr [ %shaperInData.sroa.0.6, %ehcleanup137 ], [ null, %lpad56 ]
+  %shaperOutData.sroa.0.5 = phi ptr [ %shaperOutData.sroa.0.6, %ehcleanup137 ], [ null, %lpad56 ]
   %.pn58.pn.pn.pn = phi { ptr, i32 } [ %.pn58.pn.pn, %ehcleanup137 ], [ %39, %lpad56 ]
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %inputColorSpace) #26
   br label %ehcleanup293
@@ -5017,10 +5017,10 @@ ehcleanup138:                                     ; preds = %ehcleanup137, %lpad
 if.end139.sink.split.sink.split:                  ; preds = %if.then.i.i.i349, %if.then.i.i.i108
   %_M_use_count.i.i.i.i350.sink = phi ptr [ %_M_use_count.i.i.i.i109, %if.then.i.i.i108 ], [ %_M_use_count.i.i.i.i350, %if.then.i.i.i349 ]
   %.sink832 = phi ptr [ %20, %if.then.i.i.i108 ], [ %112, %if.then.i.i.i349 ]
-  %shaperInData.sroa.0.8.ph.ph = phi ptr [ %call5.i.i.i.i562, %if.then.i.i.i108 ], [ %call5.i.i.i.i654, %if.then.i.i.i349 ]
-  %shaperInData.sroa.19.4.ph.ph = phi ptr [ %add.ptr37.i556, %if.then.i.i.i108 ], [ %add.ptr37.i648, %if.then.i.i.i349 ]
-  %shaperOutData.sroa.0.8.ph.ph = phi ptr [ %call5.i.i.i.i516, %if.then.i.i.i108 ], [ %call5.i.i.i.i608, %if.then.i.i.i349 ]
-  %shaperOutData.sroa.13.4.ph.ph = phi ptr [ %add.ptr37.i510, %if.then.i.i.i108 ], [ %add.ptr37.i602, %if.then.i.i.i349 ]
+  %shaperInData.sroa.0.3.ph.ph = phi ptr [ %call5.i.i.i.i562, %if.then.i.i.i108 ], [ %call5.i.i.i.i654, %if.then.i.i.i349 ]
+  %shaperInData.sroa.19.0.ph.ph = phi ptr [ %add.ptr37.i556, %if.then.i.i.i108 ], [ %add.ptr37.i648, %if.then.i.i.i349 ]
+  %shaperOutData.sroa.0.3.ph.ph = phi ptr [ %call5.i.i.i.i516, %if.then.i.i.i108 ], [ %call5.i.i.i.i608, %if.then.i.i.i349 ]
+  %shaperOutData.sroa.13.0.ph.ph = phi ptr [ %add.ptr37.i510, %if.then.i.i.i108 ], [ %add.ptr37.i602, %if.then.i.i.i349 ]
   store i32 0, ptr %_M_use_count.i.i.i.i350.sink, align 8
   %_M_weak_count.i.i.i.i375 = getelementptr inbounds i8, ptr %.sink832, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i375, align 4
@@ -5032,10 +5032,10 @@ if.end139.sink.split.sink.split:                  ; preds = %if.then.i.i.i349, %
 
 if.end139.sink.split:                             ; preds = %if.end139.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125
   %.sink829 = phi ptr [ %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %112, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %.sink832, %if.end139.sink.split.sink.split ]
-  %shaperInData.sroa.0.8.ph = phi ptr [ %call5.i.i.i.i562, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %call5.i.i.i.i654, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperInData.sroa.0.8.ph.ph, %if.end139.sink.split.sink.split ]
-  %shaperInData.sroa.19.4.ph = phi ptr [ %add.ptr37.i556, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %add.ptr37.i648, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperInData.sroa.19.4.ph.ph, %if.end139.sink.split.sink.split ]
-  %shaperOutData.sroa.0.8.ph = phi ptr [ %call5.i.i.i.i516, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %call5.i.i.i.i608, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperOutData.sroa.0.8.ph.ph, %if.end139.sink.split.sink.split ]
-  %shaperOutData.sroa.13.4.ph = phi ptr [ %add.ptr37.i510, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %add.ptr37.i602, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperOutData.sroa.13.4.ph.ph, %if.end139.sink.split.sink.split ]
+  %shaperInData.sroa.0.3.ph = phi ptr [ %call5.i.i.i.i562, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %call5.i.i.i.i654, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperInData.sroa.0.3.ph.ph, %if.end139.sink.split.sink.split ]
+  %shaperInData.sroa.19.0.ph = phi ptr [ %add.ptr37.i556, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %add.ptr37.i648, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperInData.sroa.19.0.ph.ph, %if.end139.sink.split.sink.split ]
+  %shaperOutData.sroa.0.3.ph = phi ptr [ %call5.i.i.i.i516, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %call5.i.i.i.i608, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperOutData.sroa.0.3.ph.ph, %if.end139.sink.split.sink.split ]
+  %shaperOutData.sroa.13.0.ph = phi ptr [ %add.ptr37.i510, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %add.ptr37.i602, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperOutData.sroa.13.0.ph.ph, %if.end139.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i370 = load ptr, ptr %.sink829, align 8
   %vfn3.i.i.i.i.i.i371 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i370, i64 24
   %127 = load ptr, ptr %vfn3.i.i.i.i.i.i371, align 8
@@ -5043,11 +5043,11 @@ if.end139.sink.split:                             ; preds = %if.end139.sink.spli
   br label %if.end139
 
 if.end139:                                        ; preds = %if.end139.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19AllocationTransformEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit
-  %shaperInData.sroa.0.8 = phi ptr [ %call5.i.i.i.i562, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit ], [ %call5.i.i.i.i562, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ %call5.i.i.i.i562, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %call5.i.i.i.i654, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19AllocationTransformEED2Ev.exit ], [ %call5.i.i.i.i654, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356 ], [ %call5.i.i.i.i654, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperInData.sroa.0.8.ph, %if.end139.sink.split ]
-  %shaperInData.sroa.19.4 = phi ptr [ %add.ptr37.i556, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit ], [ %add.ptr37.i556, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ %add.ptr37.i556, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %add.ptr37.i648, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19AllocationTransformEED2Ev.exit ], [ %add.ptr37.i648, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356 ], [ %add.ptr37.i648, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperInData.sroa.19.4.ph, %if.end139.sink.split ]
-  %shaperOutData.sroa.0.8 = phi ptr [ %call5.i.i.i.i516, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit ], [ %call5.i.i.i.i516, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ %call5.i.i.i.i516, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %call5.i.i.i.i608, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19AllocationTransformEED2Ev.exit ], [ %call5.i.i.i.i608, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356 ], [ %call5.i.i.i.i608, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperOutData.sroa.0.8.ph, %if.end139.sink.split ]
-  %shaperOutData.sroa.13.4 = phi ptr [ %add.ptr37.i510, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit ], [ %add.ptr37.i510, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ %add.ptr37.i510, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %add.ptr37.i602, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19AllocationTransformEED2Ev.exit ], [ %add.ptr37.i602, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356 ], [ %add.ptr37.i602, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperOutData.sroa.13.4.ph, %if.end139.sink.split ]
-  %shaperInData.sroa.19.4.fr = freeze ptr %shaperInData.sroa.19.4
+  %shaperInData.sroa.0.3 = phi ptr [ %call5.i.i.i.i562, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit ], [ %call5.i.i.i.i562, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ %call5.i.i.i.i562, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %call5.i.i.i.i654, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19AllocationTransformEED2Ev.exit ], [ %call5.i.i.i.i654, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356 ], [ %call5.i.i.i.i654, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperInData.sroa.0.3.ph, %if.end139.sink.split ]
+  %shaperInData.sroa.19.0 = phi ptr [ %add.ptr37.i556, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit ], [ %add.ptr37.i556, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ %add.ptr37.i556, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %add.ptr37.i648, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19AllocationTransformEED2Ev.exit ], [ %add.ptr37.i648, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356 ], [ %add.ptr37.i648, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperInData.sroa.19.0.ph, %if.end139.sink.split ]
+  %shaperOutData.sroa.0.3 = phi ptr [ %call5.i.i.i.i516, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit ], [ %call5.i.i.i.i516, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ %call5.i.i.i.i516, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %call5.i.i.i.i608, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19AllocationTransformEED2Ev.exit ], [ %call5.i.i.i.i608, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356 ], [ %call5.i.i.i.i608, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperOutData.sroa.0.3.ph, %if.end139.sink.split ]
+  %shaperOutData.sroa.13.0 = phi ptr [ %add.ptr37.i510, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit ], [ %add.ptr37.i510, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i115 ], [ %add.ptr37.i510, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i125 ], [ %add.ptr37.i602, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19AllocationTransformEED2Ev.exit ], [ %add.ptr37.i602, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356 ], [ %add.ptr37.i602, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366 ], [ %shaperOutData.sroa.13.0.ph, %if.end139.sink.split ]
+  %shaperInData.sroa.19.0.fr = freeze ptr %shaperInData.sroa.19.0
   %call141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ostream, ptr noundef nonnull @.str.41)
           to label %invoke.cont140 unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5124,11 +5124,11 @@ invoke.cont168:                                   ; preds = %invoke.cont163
   %add.ptr173 = getelementptr inbounds i8, ptr %ostream, i64 %vbase.offset172
   %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr173, i64 8
   store i64 6, ptr %_M_precision.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %shaperOutData.sroa.13.4 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %shaperOutData.sroa.0.8 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %shaperOutData.sroa.13.0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %shaperOutData.sroa.0.3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.lhs.cast.i379 = ptrtoint ptr %shaperInData.sroa.19.4.fr to i64
-  %sub.ptr.rhs.cast.i380 = ptrtoint ptr %shaperInData.sroa.0.8 to i64
+  %sub.ptr.lhs.cast.i379 = ptrtoint ptr %shaperInData.sroa.19.0.fr to i64
+  %sub.ptr.rhs.cast.i380 = ptrtoint ptr %shaperInData.sroa.0.3 to i64
   %sub.ptr.sub.i381 = sub i64 %sub.ptr.lhs.cast.i379, %sub.ptr.rhs.cast.i380
   %sub.ptr.div.i382 = ashr i64 %sub.ptr.sub.i381, 2
   %cmp178.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i381
@@ -5150,7 +5150,7 @@ lpad180:                                          ; preds = %if.then179
   br label %ehcleanup293.thread
 
 if.end183:                                        ; preds = %invoke.cont168
-  %cmp.i.i = icmp eq ptr %shaperInData.sroa.0.8, %shaperInData.sroa.19.4.fr
+  %cmp.i.i = icmp eq ptr %shaperInData.sroa.0.3, %shaperInData.sroa.19.0.fr
   br i1 %cmp.i.i, label %if.end242, label %for.cond186.preheader
 
 for.cond186.preheader:                            ; preds = %if.end183
@@ -5189,7 +5189,7 @@ if.end227.us:                                     ; preds = %if.then224.us, %for
   %mul228.us = mul i32 %i216.0769.us, 3
   %add229.us = add i32 %mul228.us, %c.0770.us
   %conv230.us = zext i32 %add229.us to i64
-  %add.ptr.i400.us = getelementptr inbounds float, ptr %shaperOutData.sroa.0.8, i64 %conv230.us
+  %add.ptr.i400.us = getelementptr inbounds float, ptr %shaperOutData.sroa.0.3, i64 %conv230.us
   %133 = load float, ptr %add.ptr.i400.us, align 4
   %call233.us = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %ostream, float noundef %133)
           to label %for.inc234.us unwind label %lpad23.loopexit.split-lp.loopexit.split.us
@@ -5213,7 +5213,7 @@ if.end205.us:                                     ; preds = %if.then202.us, %for
   %mul206.us = mul i32 %i194.0767.us, 3
   %add.us = add i32 %mul206.us, %c.0770.us
   %conv207.us = zext i32 %add.us to i64
-  %add.ptr.i394.us = getelementptr inbounds float, ptr %shaperInData.sroa.0.8, i64 %conv207.us
+  %add.ptr.i394.us = getelementptr inbounds float, ptr %shaperInData.sroa.0.3, i64 %conv207.us
   %134 = load float, ptr %add.ptr.i394.us, align 4
   %call210.us = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %ostream, float noundef %134)
           to label %for.inc211.us unwind label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
@@ -5342,8 +5342,8 @@ for.end289:                                       ; preds = %for.inc287
 
 invoke.cont290:                                   ; preds = %for.end289
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shaperSpace) #26
-  call void @_ZdlPv(ptr noundef nonnull %shaperOutData.sroa.0.8) #27
-  call void @_ZdlPv(ptr noundef nonnull %shaperInData.sroa.0.8) #27
+  call void @_ZdlPv(ptr noundef nonnull %shaperOutData.sroa.0.3) #27
+  call void @_ZdlPv(ptr noundef nonnull %shaperInData.sroa.0.3) #27
   call void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %cubeImg) #26
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i471) #27
   %_M_refcount.i.i413 = getelementptr inbounds i8, ptr %config, i64 8
@@ -5423,35 +5423,35 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit: ; preds = %invoke.c
   ret void
 
 ehcleanup293.thread:                              ; preds = %lpad180, %ehcleanup51, %lpad23.loopexit, %lpad23.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.split, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-  %shaperInData.sroa.0.9.ph = phi ptr [ %shaperInData.sroa.0.8, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %shaperInData.sroa.0.8, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %shaperInData.sroa.0.8, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.split ], [ %shaperInData.sroa.0.8, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %shaperInData.sroa.0.8, %lpad23.loopexit.split-lp.loopexit.split.us ], [ %shaperInData.sroa.0.8, %lpad23.loopexit ], [ %call5.i.i.i.i562, %ehcleanup51 ], [ %shaperInData.sroa.0.8, %lpad180 ]
-  %shaperOutData.sroa.0.9.ph = phi ptr [ %shaperOutData.sroa.0.8, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %shaperOutData.sroa.0.8, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %shaperOutData.sroa.0.8, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.split ], [ %shaperOutData.sroa.0.8, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %shaperOutData.sroa.0.8, %lpad23.loopexit.split-lp.loopexit.split.us ], [ %shaperOutData.sroa.0.8, %lpad23.loopexit ], [ %call5.i.i.i.i516, %ehcleanup51 ], [ %shaperOutData.sroa.0.8, %lpad180 ]
+  %shaperInData.sroa.0.2.ph = phi ptr [ %shaperInData.sroa.0.3, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %shaperInData.sroa.0.3, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %shaperInData.sroa.0.3, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.split ], [ %shaperInData.sroa.0.3, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %shaperInData.sroa.0.3, %lpad23.loopexit.split-lp.loopexit.split.us ], [ %shaperInData.sroa.0.3, %lpad23.loopexit ], [ %call5.i.i.i.i562, %ehcleanup51 ], [ %shaperInData.sroa.0.3, %lpad180 ]
+  %shaperOutData.sroa.0.2.ph = phi ptr [ %shaperOutData.sroa.0.3, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %shaperOutData.sroa.0.3, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %shaperOutData.sroa.0.3, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.split ], [ %shaperOutData.sroa.0.3, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %shaperOutData.sroa.0.3, %lpad23.loopexit.split-lp.loopexit.split.us ], [ %shaperOutData.sroa.0.3, %lpad23.loopexit ], [ %call5.i.i.i.i516, %ehcleanup51 ], [ %shaperOutData.sroa.0.3, %lpad180 ]
   %.pn63.ph = phi { ptr, i32 } [ %lpad.loopexit762, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit759.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit759, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.split ], [ %lpad.loopexit757.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit754.us, %lpad23.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit, %lpad23.loopexit ], [ %.pn.pn, %ehcleanup51 ], [ %132, %lpad180 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shaperSpace) #26
   br label %if.then.i.i.i445
 
 ehcleanup293:                                     ; preds = %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %ehcleanup138
-  %shaperInData.sroa.0.9 = phi ptr [ %shaperInData.sroa.0.7, %ehcleanup138 ], [ %shaperInData.sroa.0.0.ph.ph.ph.ph.ph, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %shaperOutData.sroa.0.9 = phi ptr [ %shaperOutData.sroa.0.7, %ehcleanup138 ], [ %shaperOutData.sroa.0.2.ph.ph.ph.ph.ph, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %shaperInData.sroa.0.2 = phi ptr [ %shaperInData.sroa.0.5, %ehcleanup138 ], [ %shaperInData.sroa.0.0.ph.ph.ph.ph.ph, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %shaperOutData.sroa.0.2 = phi ptr [ %shaperOutData.sroa.0.5, %ehcleanup138 ], [ %shaperOutData.sroa.0.0.ph.ph.ph.ph.ph, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn63 = phi { ptr, i32 } [ %.pn58.pn.pn.pn, %ehcleanup138 ], [ %lpad.loopexit.split-lp, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shaperSpace) #26
-  %tobool.not.i.i.i444 = icmp eq ptr %shaperOutData.sroa.0.9, null
+  %tobool.not.i.i.i444 = icmp eq ptr %shaperOutData.sroa.0.2, null
   br i1 %tobool.not.i.i.i444, label %_ZNSt6vectorIfSaIfEED2Ev.exit446, label %if.then.i.i.i445
 
 if.then.i.i.i445:                                 ; preds = %ehcleanup293.thread, %ehcleanup293
   %.pn63825 = phi { ptr, i32 } [ %.pn63.ph, %ehcleanup293.thread ], [ %.pn63, %ehcleanup293 ]
-  %shaperOutData.sroa.0.9824 = phi ptr [ %shaperOutData.sroa.0.9.ph, %ehcleanup293.thread ], [ %shaperOutData.sroa.0.9, %ehcleanup293 ]
-  %shaperInData.sroa.0.9822 = phi ptr [ %shaperInData.sroa.0.9.ph, %ehcleanup293.thread ], [ %shaperInData.sroa.0.9, %ehcleanup293 ]
-  call void @_ZdlPv(ptr noundef nonnull %shaperOutData.sroa.0.9824) #27
+  %shaperOutData.sroa.0.2824 = phi ptr [ %shaperOutData.sroa.0.2.ph, %ehcleanup293.thread ], [ %shaperOutData.sroa.0.2, %ehcleanup293 ]
+  %shaperInData.sroa.0.2822 = phi ptr [ %shaperInData.sroa.0.2.ph, %ehcleanup293.thread ], [ %shaperInData.sroa.0.2, %ehcleanup293 ]
+  call void @_ZdlPv(ptr noundef nonnull %shaperOutData.sroa.0.2824) #27
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit446
 
 _ZNSt6vectorIfSaIfEED2Ev.exit446:                 ; preds = %ehcleanup293, %if.then.i.i.i445
   %.pn63826 = phi { ptr, i32 } [ %.pn63, %ehcleanup293 ], [ %.pn63825, %if.then.i.i.i445 ]
-  %shaperInData.sroa.0.9823 = phi ptr [ %shaperInData.sroa.0.9, %ehcleanup293 ], [ %shaperInData.sroa.0.9822, %if.then.i.i.i445 ]
-  %tobool.not.i.i.i447 = icmp eq ptr %shaperInData.sroa.0.9823, null
+  %shaperInData.sroa.0.2823 = phi ptr [ %shaperInData.sroa.0.2, %ehcleanup293 ], [ %shaperInData.sroa.0.2822, %if.then.i.i.i445 ]
+  %tobool.not.i.i.i447 = icmp eq ptr %shaperInData.sroa.0.2823, null
   br i1 %tobool.not.i.i.i447, label %ehcleanup296.thread, label %if.then.i.i.i448
 
 if.then.i.i.i448:                                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit446
-  call void @_ZdlPv(ptr noundef nonnull %shaperInData.sroa.0.9823) #27
+  call void @_ZdlPv(ptr noundef nonnull %shaperInData.sroa.0.2823) #27
   br label %ehcleanup296.thread
 
 ehcleanup296.thread:                              ; preds = %if.then.i.i.i448, %_ZNSt6vectorIfSaIfEED2Ev.exit446, %lpad15, %lpad19

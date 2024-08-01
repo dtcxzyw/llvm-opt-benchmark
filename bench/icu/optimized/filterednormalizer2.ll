@@ -997,7 +997,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %if.end16
   %cond.i27 = phi i32 [ %cond.i22, %for.body.lr.ph ], [ %cond.i, %if.end16 ]
   %5 = phi i16 [ %2, %for.body.lr.ph ], [ %12, %if.end16 ]
-  %result.026 = phi i32 [ 1, %for.body.lr.ph ], [ %result.2, %if.end16 ]
+  %result.026 = phi i32 [ 1, %for.body.lr.ph ], [ %result.1, %if.end16 ]
   %spanCondition.025 = phi i32 [ 2, %for.body.lr.ph ], [ %spanCondition.1, %if.end16 ]
   %prevSpanLimit.024 = phi i32 [ 0, %for.body.lr.ph ], [ %add.i, %if.end16 ]
   %6 = load ptr, ptr %set, align 8
@@ -1049,7 +1049,7 @@ if.else11:                                        ; preds = %invoke.cont
 
 if.end16:                                         ; preds = %for.body, %if.else11
   %spanCondition.1 = phi i32 [ 0, %if.else11 ], [ 2, %for.body ]
-  %result.2 = phi i32 [ %spec.select, %if.else11 ], [ %result.026, %for.body ]
+  %result.1 = phi i32 [ %spec.select, %if.else11 ], [ %result.026, %for.body ]
   %12 = load i16, ptr %fUnion.i.i14, align 8
   %cmp.i.i15 = icmp slt i16 %12, 0
   %13 = ashr i16 %12, 5
@@ -1060,7 +1060,7 @@ if.end16:                                         ; preds = %for.body, %if.else1
   br i1 %cmp, label %for.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %invoke.cont, %if.end16, %if.then.i, %entry, %for.cond.preheader
-  %retval.0 = phi i32 [ 1, %for.cond.preheader ], [ 2, %entry ], [ 2, %if.then.i ], [ %call6, %invoke.cont ], [ %result.2, %if.end16 ]
+  %retval.0 = phi i32 [ 1, %for.cond.preheader ], [ 2, %entry ], [ 2, %if.then.i ], [ %call6, %invoke.cont ], [ %result.1, %if.end16 ]
   ret i32 %retval.0
 }
 

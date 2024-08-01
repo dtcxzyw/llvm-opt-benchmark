@@ -448,7 +448,7 @@ while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
   br i1 %tobool19.not, label %while.body.us.us, label %while.body.us
 
 while.body.us.us:                                 ; preds = %while.body.lr.ph.split.us, %if.end25.us.us
-  %found_credential.011.us.us = phi i32 [ %found_credential.1.us.us, %if.end25.us.us ], [ 0, %while.body.lr.ph.split.us ]
+  %found_credential.011.us.us = phi i32 [ %found_credential.2.us.us, %if.end25.us.us ], [ 0, %while.body.lr.ph.split.us ]
   %0 = load ptr, ptr %buf, align 8
   %call9.us.us = call i32 @credential_from_url_gently(ptr noundef nonnull %entry1, ptr noundef %0, i32 noundef 1) #12
   %tobool10.us.us = icmp eq i32 %call9.us.us, 0
@@ -469,7 +469,7 @@ if.else.us.us:                                    ; preds = %land.lhs.true15.us.
   br label %if.end25.us.us
 
 if.end25.us.us:                                   ; preds = %land.lhs.true15.us.us, %if.else.us.us
-  %found_credential.1.us.us = phi i32 [ %found_credential.011.us.us, %if.else.us.us ], [ 1, %land.lhs.true15.us.us ]
+  %found_credential.2.us.us = phi i32 [ %found_credential.011.us.us, %if.else.us.us ], [ 1, %land.lhs.true15.us.us ]
   %call7.us.us = call i32 @strbuf_getline_lf(ptr noundef nonnull %line, ptr noundef nonnull %call) #12
   %cmp8.not.us.us = icmp eq i32 %call7.us.us, -1
   br i1 %cmp8.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !5
@@ -500,7 +500,7 @@ while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   br i1 %tobool19.not, label %while.body.us12, label %while.body
 
 while.body.us12:                                  ; preds = %while.body.lr.ph.split, %if.end25.us25
-  %found_credential.011.us13 = phi i32 [ %found_credential.1.us26, %if.end25.us25 ], [ 0, %while.body.lr.ph.split ]
+  %found_credential.011.us13 = phi i32 [ %found_credential.2.us26, %if.end25.us25 ], [ 0, %while.body.lr.ph.split ]
   %6 = load ptr, ptr %buf, align 8
   %call9.us14 = call i32 @credential_from_url_gently(ptr noundef nonnull %entry1, ptr noundef %6, i32 noundef 1) #12
   %tobool10.us15 = icmp eq i32 %call9.us14, 0
@@ -522,7 +522,7 @@ if.else.us24:                                     ; preds = %land.lhs.true15.us2
   br label %if.end25.us25
 
 if.end25.us25:                                    ; preds = %land.lhs.true15.us20, %if.else.us24
-  %found_credential.1.us26 = phi i32 [ %found_credential.011.us13, %if.else.us24 ], [ 1, %land.lhs.true15.us20 ]
+  %found_credential.2.us26 = phi i32 [ %found_credential.011.us13, %if.else.us24 ], [ 1, %land.lhs.true15.us20 ]
   %call7.us27 = call i32 @strbuf_getline_lf(ptr noundef nonnull %line, ptr noundef nonnull %call) #12
   %cmp8.not.us28 = icmp eq i32 %call7.us27, -1
   br i1 %cmp8.not.us28, label %while.end, label %while.body.us12, !llvm.loop !5
@@ -567,14 +567,14 @@ if.else:                                          ; preds = %land.lhs.true15, %w
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %if.else, %if.end25.us25, %if.else.us, %if.end25.us.us, %while.cond.preheader, %if.then20
-  %found_credential.2 = phi i32 [ 1, %if.then20 ], [ 0, %while.cond.preheader ], [ %found_credential.1.us.us, %if.end25.us.us ], [ 0, %if.else.us ], [ %found_credential.1.us26, %if.end25.us25 ], [ 0, %if.else ]
+  %found_credential.1 = phi i32 [ 1, %if.then20 ], [ 0, %while.cond.preheader ], [ %found_credential.2.us.us, %if.end25.us.us ], [ 0, %if.else.us ], [ %found_credential.2.us26, %if.end25.us25 ], [ 0, %if.else ]
   call void @credential_clear(ptr noundef nonnull %entry1) #12
   call void @strbuf_release(ptr noundef nonnull %line) #12
   %call26 = call i32 @fclose(ptr noundef nonnull %call)
   br label %return
 
 return:                                           ; preds = %if.then, %if.then, %while.end
-  %retval.0 = phi i32 [ %found_credential.2, %while.end ], [ 0, %if.then ], [ 0, %if.then ]
+  %retval.0 = phi i32 [ %found_credential.1, %while.end ], [ 0, %if.then ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 

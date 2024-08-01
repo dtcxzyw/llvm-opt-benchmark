@@ -8369,7 +8369,7 @@ cond.true237:                                     ; preds = %if.end231, %init.ch
   br i1 %cmp.i919.not2073, label %for.end323, label %for.body262
 
 for.body262:                                      ; preds = %cond.true237, %for.inc321
-  %c.sroa.0.02075 = phi ptr [ %c.sroa.0.2, %for.inc321 ], [ %44, %cond.true237 ]
+  %c.sroa.0.02075 = phi ptr [ %c.sroa.0.1, %for.inc321 ], [ %44, %cond.true237 ]
   %i253.sroa.0.02074 = phi ptr [ %call.i1124, %for.inc321 ], [ %45, %cond.true237 ]
   %_M_storage.i.i920 = getelementptr inbounds i8, ptr %i253.sroa.0.02074, i64 32
   %46 = load ptr, ptr %_M_storage.i.i920, align 8
@@ -8521,13 +8521,13 @@ lpad234.loopexit.split-lp:                        ; preds = %cond.true395, %if.t
   br label %ehcleanup590
 
 for.inc321:                                       ; preds = %if.then279, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit950
-  %c.sroa.0.2 = phi ptr [ %58, %if.then279 ], [ %c.sroa.0.02075, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit950 ]
+  %c.sroa.0.1 = phi ptr [ %58, %if.then279 ], [ %c.sroa.0.02075, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit950 ]
   %call.i1124 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i253.sroa.0.02074) #25
   %cmp.i919.not = icmp eq ptr %call.i1124, %add.ptr.i.i918
   br i1 %cmp.i919.not, label %for.end323, label %for.body262, !llvm.loop !333
 
 for.end323:                                       ; preds = %for.inc321, %invoke.cont277, %cond.true237
-  %c.sroa.0.0.lcssa = phi ptr [ %44, %cond.true237 ], [ %c.sroa.0.02075, %invoke.cont277 ], [ %c.sroa.0.2, %for.inc321 ]
+  %c.sroa.0.0.lcssa = phi ptr [ %44, %cond.true237 ], [ %c.sroa.0.02075, %invoke.cont277 ], [ %c.sroa.0.1, %for.inc321 ]
   %cmp.i919.not.lcssa = phi i1 [ true, %cond.true237 ], [ false, %invoke.cont277 ], [ true, %for.inc321 ]
   %59 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i1125 = icmp eq i8 %59, 0
@@ -10477,11 +10477,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1738: ; preds = %_ZN4cvc58internal
   br i1 %or.cond, label %cleanup520.loopexit, label %for.body304
 
 cleanup520.loopexit:                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1738
-  %retval.4.ph = xor i1 %153, true
+  %retval.3.ph = xor i1 %153, true
   br label %cleanup520
 
 cleanup520:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit866, %cleanup520.loopexit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1090, %cond.true241
-  %retval.4 = phi i1 [ true, %cond.true241 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1090 ], [ %retval.4.ph, %cleanup520.loopexit ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit866 ]
+  %retval.3 = phi i1 [ true, %cond.true241 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1090 ], [ %retval.3.ph, %cleanup520.loopexit ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit866 ]
   %161 = load ptr, ptr %repls, align 8
   %162 = load ptr, ptr %_M_finish.i.i194, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %161, %162
@@ -10592,7 +10592,7 @@ ehcleanup521:                                     ; preds = %lpad268, %lpad270, 
   br label %ehcleanup529
 
 cleanup528:                                       ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %if.then.i.i.i1854, %invoke.cont.i1852
-  %retval.5 = phi i1 [ %retval.4, %invoke.cont.i1852 ], [ %retval.4, %if.then.i.i.i1854 ], [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit ]
+  %retval.0 = phi i1 [ %retval.3, %invoke.cont.i1852 ], [ %retval.3, %if.then.i.i.i1854 ], [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit ]
   %175 = load ptr, ptr %type, align 8
   %bf.load.i.i1858 = load i64, ptr %175, align 8
   %176 = and i64 %bf.load.i.i1858, 1152920405095219200
@@ -10621,7 +10621,7 @@ terminate.lpad.i1868:                             ; preds = %if.then13.i.i1867
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit1869:          ; preds = %cleanup528, %if.then.i.i1860, %if.then13.i.i1867
   call void @_ZN4cvc58internal9CodeTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %codeTimer) #22
-  ret i1 %retval.5
+  ret i1 %retval.0
 
 ehcleanup529:                                     ; preds = %ehcleanup521, %lpad22
   %.pn39 = phi { ptr, i32 } [ %7, %lpad22 ], [ %.pn35.pn.pn, %ehcleanup521 ]

@@ -13495,7 +13495,7 @@ default.unreachable508:                           ; preds = %1453, %1212, %1188,
   br label %307
 
 334:                                              ; preds = %232, %2083
-  %.2 = phi ptr [ %.fca.1.extract117, %2083 ], [ %235, %232 ]
+  %.4 = phi ptr [ %.fca.1.extract117, %2083 ], [ %235, %232 ]
   %335 = getelementptr inbounds i8, ptr %0, i64 546
   %336 = load i8, ptr %335, align 2, !range !89, !noundef !5
   %337 = trunc nuw i8 %336 to i1
@@ -16060,7 +16060,7 @@ common.ret:                                       ; preds = %2107, %2080, %1162,
   br i1 %1149, label %2091, label %2087
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h12153031e4fed4a4E.exit": ; preds = %1144, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit243.thread", %2109
-  %.3 = phi ptr [ %.2, %2109 ], [ %216, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit243.thread" ], [ %.fca.1.extract, %1144 ]
+  %.3 = phi ptr [ %.4, %2109 ], [ %216, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit243.thread" ], [ %.fca.1.extract, %1144 ]
   %1150 = getelementptr inbounds i8, ptr %0, i64 544
   %1151 = load i8, ptr %1150, align 8, !range !89, !noundef !5
   %1152 = trunc nuw i8 %1151 to i1
@@ -18823,9 +18823,9 @@ common.ret:                                       ; preds = %2107, %2080, %1162,
   br label %505
 
 2107:                                             ; preds = %2146, %2102, %2140
-  %.4 = phi ptr [ null, %2102 ], [ %.3, %2146 ], [ %.3, %2140 ]
+  %.1124 = phi ptr [ null, %2102 ], [ %.3, %2146 ], [ %.3, %2140 ]
   store i8 1, ptr %176, align 4
-  %2108 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.4, 1
+  %2108 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1124, 1
   br label %common.ret
 
 2109:                                             ; preds = %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h997e235a98caf75bE.exit", %334

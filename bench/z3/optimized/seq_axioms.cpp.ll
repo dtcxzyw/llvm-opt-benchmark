@@ -11168,11 +11168,11 @@ lpad:                                             ; preds = %if.end, %if.then
   br label %ehcleanup343
 
 if.end:                                           ; preds = %land.lhs.true.i, %invoke.cont4
-  %_offset.1 = phi ptr [ %11, %invoke.cont4 ], [ null, %land.lhs.true.i ]
-  %_s.2.in = getelementptr inbounds i8, ptr %i, i64 40
-  %_s.2 = load ptr, ptr %_s.2.in, align 8
-  %_t.2.in = getelementptr inbounds i8, ptr %i, i64 32
-  %_t.2 = load ptr, ptr %_t.2.in, align 8
+  %_offset.0 = phi ptr [ %11, %invoke.cont4 ], [ null, %land.lhs.true.i ]
+  %_s.0.in = getelementptr inbounds i8, ptr %i, i64 40
+  %_s.0 = load ptr, ptr %_s.0.in, align 8
+  %_t.0.in = getelementptr inbounds i8, ptr %i, i64 32
+  %_t.0 = load ptr, ptr %_t.0.in, align 8
   %a = getelementptr inbounds i8, ptr %this, i64 16
   %call8 = invoke noundef ptr @_ZN10arith_util6mk_intEi(ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef -1)
           to label %invoke.cont7 unwind label %lpad
@@ -11212,15 +11212,15 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i76:        ; preds = %invoke.cont12
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i76, %invoke.cont12
-  invoke void @_ZN3seq6axioms6purifyEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %offset, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %_offset.1)
+  invoke void @_ZN3seq6axioms6purifyEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %offset, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %_offset.0)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  invoke void @_ZN3seq6axioms6purifyEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %s, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %_s.2)
+  invoke void @_ZN3seq6axioms6purifyEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %s, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %_s.0)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
-  invoke void @_ZN3seq6axioms6purifyEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %t, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %_t.2)
+  invoke void @_ZN3seq6axioms6purifyEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %t, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %_t.0)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19

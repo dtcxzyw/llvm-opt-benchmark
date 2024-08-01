@@ -1483,17 +1483,17 @@ slot_getattr.exit145.i.i.i:                       ; preds = %slot_getsomeattrs.e
 
 .lr.ph191.i.i.i:                                  ; preds = %.lr.ph191.i.i.i, %.lr.ph191.preheader.i.i.i
   %indvars.iv210.i.i.i = phi i64 [ 0, %.lr.ph191.preheader.i.i.i ], [ %indvars.iv.next211.i.i.i, %.lr.ph191.i.i.i ]
-  %.0121188.i.i.i = phi ptr [ null, %.lr.ph191.preheader.i.i.i ], [ %351, %.lr.ph191.i.i.i ]
+  %.3188.i.i.i = phi ptr [ null, %.lr.ph191.preheader.i.i.i ], [ %351, %.lr.ph191.i.i.i ]
   %348 = getelementptr i16, ptr %346, i64 %indvars.iv210.i.i.i
   %349 = load i16, ptr %348, align 2
   %350 = sext i16 %349 to i32
-  %351 = call ptr @bms_add_member(ptr noundef %.0121188.i.i.i, i32 noundef %350) #12
+  %351 = call ptr @bms_add_member(ptr noundef %.3188.i.i.i, i32 noundef %350) #12
   %indvars.iv.next211.i.i.i = add nuw nsw i64 %indvars.iv210.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next211.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit177.i.i.i, label %.lr.ph191.i.i.i, !llvm.loop !11
 
 .loopexit177.i.i.i:                               ; preds = %.lr.ph191.i.i.i, %344, %slot_getattr.exit145.i.i.i
-  %.1122.i.i.i = phi ptr [ null, %slot_getattr.exit145.i.i.i ], [ null, %344 ], [ %351, %.lr.ph191.i.i.i ]
+  %.2.i.i.i = phi ptr [ null, %slot_getattr.exit145.i.i.i ], [ null, %344 ], [ %351, %.lr.ph191.i.i.i ]
   %352 = getelementptr inbounds i8, ptr %314, i64 8
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds i8, ptr %353, i64 24
@@ -1502,7 +1502,7 @@ slot_getattr.exit145.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br label %356
 
 356:                                              ; preds = %.loopexit177.i.i.i, %311
-  %.2.i.i.i = phi ptr [ %.1122.i.i.i, %.loopexit177.i.i.i ], [ null, %311 ]
+  %.1122.i.i.i = phi ptr [ %.2.i.i.i, %.loopexit177.i.i.i ], [ null, %311 ]
   call void @ExecDropSingleTupleTableSlot(ptr noundef %314) #12
   %357 = getelementptr inbounds i8, ptr %294, i64 8
   %358 = load ptr, ptr %357, align 8
@@ -1538,8 +1538,8 @@ walrcv_clear_result.exit150.i.i.i:                ; preds = %365, %363
   br label %367
 
 367:                                              ; preds = %walrcv_clear_result.exit150.i.i.i, %walrcv_clear_result.exit.i.i.i
-  %.3.i.i.i = phi ptr [ %.2.i.i.i, %walrcv_clear_result.exit150.i.i.i ], [ null, %walrcv_clear_result.exit.i.i.i ]
-  %.3.fr.i.i.i = freeze ptr %.3.i.i.i
+  %.0121.i.i.i = phi ptr [ %.1122.i.i.i, %walrcv_clear_result.exit150.i.i.i ], [ null, %walrcv_clear_result.exit.i.i.i ]
+  %.0121.fr.i.i.i = freeze ptr %.0121.i.i.i
   call void @resetStringInfo(ptr noundef nonnull %3) #12
   %368 = load i32, ptr %10, align 8
   %369 = load ptr, ptr @WalReceiverFunctions, align 8
@@ -1591,7 +1591,7 @@ walrcv_clear_result.exit150.i.i.i:                ; preds = %365, %363
 .lr.ph192.lr.ph.i.i.i:                            ; preds = %390
   %402 = getelementptr inbounds i8, ptr %398, i64 6
   %403 = getelementptr inbounds i8, ptr %398, i64 24
-  %.not137.i.i.i = icmp eq ptr %.3.fr.i.i.i, null
+  %.not137.i.i.i = icmp eq ptr %.0121.fr.i.i.i, null
   %404 = getelementptr inbounds i8, ptr %398, i64 8
   br label %.lr.ph192.i.i.i
 
@@ -1623,7 +1623,7 @@ slot_getattr.exit152.i.i.i:                       ; preds = %slot_getsomeattrs.e
   %411 = trunc i64 %410 to i32
   %sext.i.i.i = shl i32 %411, 16
   %412 = ashr exact i32 %sext.i.i.i, 16
-  %413 = call zeroext i1 @bms_is_member(i32 noundef %412, ptr noundef nonnull %.3.fr.i.i.i) #12
+  %413 = call zeroext i1 @bms_is_member(i32 noundef %412, ptr noundef nonnull %.0121.fr.i.i.i) #12
   br i1 %413, label %slot_getattr.exit152.usthread-pre-split.i.i.i, label %414
 
 414:                                              ; preds = %slot_getattr.exit152.i.i.i
@@ -1845,7 +1845,7 @@ walrcv_clear_result.exit163.i.i.i:                ; preds = %466, %464
   br label %516
 
 516:                                              ; preds = %522, %.lr.ph204.i.i.i
-  %.049.i.i = phi ptr [ null, %.lr.ph204.i.i.i ], [ %528, %522 ]
+  %.1.i.i = phi ptr [ null, %.lr.ph204.i.i.i ], [ %528, %522 ]
   %517 = load i16, ptr %512, align 2
   %518 = icmp slt i16 %517, 1
   br i1 %518, label %slot_getsomeattrs.exit.i164.i.i.i, label %slot_getattr.exit165.i.i.i
@@ -1866,7 +1866,7 @@ slot_getattr.exit165.i.i.i:                       ; preds = %slot_getsomeattrs.e
   %525 = inttoptr i64 %524 to ptr
   %526 = call ptr @text_to_cstring(ptr noundef %525) #12
   %527 = call ptr @makeString(ptr noundef %526) #12
-  %528 = call ptr @lappend(ptr noundef %.049.i.i, ptr noundef %527) #12
+  %528 = call ptr @lappend(ptr noundef %.1.i.i, ptr noundef %527) #12
   %529 = load ptr, ptr %515, align 8
   %530 = getelementptr inbounds i8, ptr %529, i64 24
   %531 = load ptr, ptr %530, align 8
@@ -1876,15 +1876,15 @@ slot_getattr.exit165.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br i1 %533, label %516, label %.loopexit.i.i.i, !llvm.loop !14
 
 534:                                              ; preds = %slot_getattr.exit165.i.i.i
-  %.not135.i.i.i = icmp eq ptr %.049.i.i, null
+  %.not135.i.i.i = icmp eq ptr %.1.i.i, null
   br i1 %.not135.i.i.i, label %.loopexit.i.i.i, label %535
 
 535:                                              ; preds = %534
-  call void @list_free_deep(ptr noundef nonnull %.049.i.i) #12
+  call void @list_free_deep(ptr noundef nonnull %.1.i.i) #12
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %522, %535, %534, %505
-  %.1.i.i = phi ptr [ null, %534 ], [ null, %535 ], [ null, %505 ], [ %528, %522 ]
+  %.049.i.i = phi ptr [ null, %534 ], [ null, %535 ], [ null, %505 ], [ %528, %522 ]
   call void @ExecDropSingleTupleTableSlot(ptr noundef %508) #12
   %536 = getelementptr inbounds i8, ptr %498, i64 8
   %537 = load ptr, ptr %536, align 8
@@ -1918,7 +1918,7 @@ walrcv_clear_result.exit170.i.i.i:                ; preds = %544, %542
   br label %fetch_remote_table_info.exit.i.i
 
 fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result.exit170.i.i.i, %walrcv_clear_result.exit163.i.i.i
-  %.2.i.i = phi ptr [ %.1.i.i, %walrcv_clear_result.exit170.i.i.i ], [ null, %walrcv_clear_result.exit163.i.i.i ]
+  %.2.i.i = phi ptr [ %.049.i.i, %walrcv_clear_result.exit170.i.i.i ], [ null, %walrcv_clear_result.exit163.i.i.i ]
   %545 = load ptr, ptr %3, align 8
   call void @pfree(ptr noundef %545) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)

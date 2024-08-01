@@ -161,8 +161,8 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %_ZNSt12_Vector
   br label %_ZNSt6vectorIhSaIhEE7reserveEm.exit
 
 _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i, %22
-  %.sroa.14.0 = phi ptr [ %24, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ null, %22 ]
-  %.sroa.7.0 = phi ptr [ %23, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ null, %22 ]
+  %.sroa.14.1 = phi ptr [ %24, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ null, %22 ]
+  %.sroa.7.1 = phi ptr [ %23, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ null, %22 ]
   %25 = icmp ne ptr %8, %5
   %26 = icmp ne i32 %7, 0
   %.not3.i118 = or i1 %25, %26
@@ -170,9 +170,9 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIhSaIhEE7reserveEm.exit, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit
   %.010124 = phi double [ %58, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ 5.000000e-01, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
-  %.sroa.051.1123 = phi ptr [ %.sroa.051.2, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %.sroa.7.0, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
-  %.sroa.7.1122 = phi ptr [ %.sroa.7.2, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %.sroa.7.0, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
-  %.sroa.14.1121 = phi ptr [ %.sroa.14.2, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %.sroa.14.0, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
+  %.sroa.051.1123 = phi ptr [ %.sroa.051.3, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %.sroa.7.1, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
+  %.sroa.7.0122 = phi ptr [ %.sroa.7.2, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %.sroa.7.1, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
+  %.sroa.14.0121 = phi ptr [ %.sroa.14.2, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %.sroa.14.1, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
   %.sroa.045.0120 = phi ptr [ %spec.select106, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %8, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
   %.sroa.548.0119 = phi i32 [ %spec.select, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ 0, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
   %27 = zext nneg i32 %.sroa.548.0119 to i64
@@ -186,15 +186,15 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %34 = tail call i32 @llvm.umax.i32(i32 %32, i32 1)
   %35 = trunc i32 %34 to i8
   %36 = select i1 %33, i8 -1, i8 %35
-  %.not.i.i = icmp eq ptr %.sroa.7.1122, %.sroa.14.1121
+  %.not.i.i = icmp eq ptr %.sroa.7.0122, %.sroa.14.0121
   br i1 %.not.i.i, label %38, label %37
 
 37:                                               ; preds = %.lr.ph
-  store i8 %36, ptr %.sroa.7.1122, align 1
+  store i8 %36, ptr %.sroa.7.0122, align 1
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit
 
 38:                                               ; preds = %.lr.ph
-  %39 = ptrtoint ptr %.sroa.7.1122 to i64
+  %39 = ptrtoint ptr %.sroa.7.0122 to i64
   %40 = ptrtoint ptr %.sroa.051.1123 to i64
   %41 = sub i64 %39, %40
   %42 = icmp eq i64 %41, 9223372036854775807
@@ -244,9 +244,9 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit
 
 _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i, %37
-  %.sroa.14.2 = phi ptr [ %55, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %.sroa.14.1121, %37 ]
-  %.pn111 = phi ptr [ %51, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %.sroa.7.1122, %37 ]
-  %.sroa.051.2 = phi ptr [ %50, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %.sroa.051.1123, %37 ]
+  %.sroa.14.2 = phi ptr [ %55, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %.sroa.14.0121, %37 ]
+  %.pn111 = phi ptr [ %51, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %.sroa.7.0122, %37 ]
+  %.sroa.051.3 = phi ptr [ %50, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %.sroa.051.1123, %37 ]
   %.sroa.7.2 = getelementptr inbounds i8, ptr %.pn111, i64 1
   %56 = uitofp i1 %.not110 to double
   %57 = fmul double %56, 7.812500e-03
@@ -304,15 +304,15 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.thread:             ; preds = %64, %63, %_ZNSt6vec
   %65 = phi ptr [ %5, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ %.pre, %._crit_edge.loopexit ]
   %.sroa.2.0.copyload.i.i = phi i32 [ 0, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ %.sroa.2.0.copyload.i.i.pre, %._crit_edge.loopexit ]
   %.sroa.0.0.copyload.i.i = phi ptr [ %5, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ %.sroa.0.0.copyload.i.i.pre, %._crit_edge.loopexit ]
-  %.sroa.7.1.lcssa = phi ptr [ %.sroa.7.0, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ %.sroa.7.2, %._crit_edge.loopexit ]
-  %.sroa.051.1.lcssa = phi ptr [ %.sroa.7.0, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ %.sroa.051.2, %._crit_edge.loopexit ]
+  %.sroa.7.0.lcssa = phi ptr [ %.sroa.7.1, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ %.sroa.7.2, %._crit_edge.loopexit ]
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.7.1, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ %.sroa.051.3, %._crit_edge.loopexit ]
   %66 = icmp ne ptr %.sroa.0.0.copyload.i.i, %65
   %67 = icmp ne i32 %.sroa.2.0.copyload.i.i, 0
   %.not3.i25126 = select i1 %66, i1 true, i1 %67
   br i1 %.not3.i25126, label %.lr.ph133, label %._crit_edge134.thread
 
 .lr.ph133:                                        ; preds = %._crit_edge, %_ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit
-  %.sroa.036.0131 = phi ptr [ %74, %_ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit ], [ %.sroa.7.1.lcssa, %._crit_edge ]
+  %.sroa.036.0131 = phi ptr [ %74, %_ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit ], [ %.sroa.7.0.lcssa, %._crit_edge ]
   %.sroa.037.0130 = phi ptr [ %spec.select3.i, %_ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit ], [ %.sroa.0.0.copyload.i.i, %._crit_edge ]
   %.sroa.5.0129 = phi i32 [ %spec.select.i, %_ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit ], [ %.sroa.2.0.copyload.i.i, %._crit_edge ]
   %.sroa.6.0128 = phi i32 [ %.sroa.6.1, %_ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit ], [ 0, %._crit_edge ]

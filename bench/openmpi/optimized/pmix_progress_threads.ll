@@ -620,12 +620,12 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   br label %59
 
 59:                                               ; preds = %._crit_edge, %52, %55
-  %.034 = phi i32 [ -47, %55 ], [ 0, %52 ], [ 0, %._crit_edge ]
+  %.1 = phi i32 [ -47, %55 ], [ 0, %52 ], [ 0, %._crit_edge ]
   call void @PMIx_Argv_free(ptr noundef nonnull %14) #13
   br label %60
 
 60:                                               ; preds = %11, %59, %9, %1
-  %.0 = phi i32 [ %8, %1 ], [ %8, %9 ], [ %.034, %59 ], [ 0, %11 ]
+  %.0 = phi i32 [ %8, %1 ], [ %8, %9 ], [ %.1, %59 ], [ 0, %11 ]
   ret i32 %.0
 }
 

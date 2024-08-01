@@ -384,27 +384,27 @@ if.then86:                                        ; preds = %if.then73
   %or.i86 = tail call i32 @llvm.fshl.i32(i32 %xor.i85, i32 %xor.i85, i32 4)
   %33 = tail call i32 @llvm.bswap.i32(i32 %or.i86)
   %cmp.i87 = icmp ugt i32 %32, 12
-  br i1 %cmp.i87, label %if.then.i88, label %hash_dense.exit
+  br i1 %cmp.i87, label %if.then.i89, label %hash_dense.exit
 
-if.then.i88:                                      ; preds = %if.then86
+if.then.i89:                                      ; preds = %if.then86
   %add.ptr90 = getelementptr inbounds i8, ptr %o54.0154, i64 24
   %conv6.i = trunc i64 %31 to i32
-  %idx.ext.i89 = zext i32 %32 to i64
-  %add.ptr.i90 = getelementptr inbounds i8, ptr %add.ptr90, i64 %idx.ext.i89
-  %add.ptr7.i91 = getelementptr inbounds i8, ptr %add.ptr.i90, i64 -12
+  %idx.ext.i90 = zext i32 %32 to i64
+  %add.ptr.i91 = getelementptr inbounds i8, ptr %add.ptr90, i64 %idx.ext.i90
+  %add.ptr7.i92 = getelementptr inbounds i8, ptr %add.ptr.i91, i64 -12
   br label %do.body.i
 
-do.body.i:                                        ; preds = %do.body.i, %if.then.i88
-  %b.0.i92 = phi i32 [ %33, %if.then.i88 ], [ %sub29.i, %do.body.i ]
-  %a.0.i93 = phi i32 [ %conv6.i, %if.then.i88 ], [ %sub24.i, %do.body.i ]
-  %h.addr.0.i = phi i32 [ %28, %if.then.i88 ], [ %sub.i95, %do.body.i ]
-  %p.0.i = phi ptr [ %add.ptr7.i91, %if.then.i88 ], [ %q.0.i, %do.body.i ]
-  %q.0.i = phi ptr [ %add.ptr90, %if.then.i88 ], [ %add.ptr15.i, %do.body.i ]
+do.body.i:                                        ; preds = %do.body.i, %if.then.i89
+  %b.1.i = phi i32 [ %33, %if.then.i89 ], [ %sub29.i, %do.body.i ]
+  %a.0.i93 = phi i32 [ %conv6.i, %if.then.i89 ], [ %sub24.i, %do.body.i ]
+  %h.addr.0.i = phi i32 [ %28, %if.then.i89 ], [ %sub.i95, %do.body.i ]
+  %p.0.i = phi ptr [ %add.ptr7.i92, %if.then.i89 ], [ %q.0.i, %do.body.i ]
+  %q.0.i = phi ptr [ %add.ptr90, %if.then.i89 ], [ %add.ptr15.i, %do.body.i ]
   %34 = load i32, ptr %p.0.i, align 1
   %add.i94 = add i32 %34, %a.0.i93
   %add.ptr9.i = getelementptr inbounds i8, ptr %p.0.i, i64 4
   %35 = load i32, ptr %add.ptr9.i, align 1
-  %add11.i = add i32 %35, %b.0.i92
+  %add11.i = add i32 %35, %b.1.i
   %add.ptr12.i = getelementptr inbounds i8, ptr %p.0.i, i64 8
   %36 = load i32, ptr %add.ptr12.i, align 1
   %add14.i = add i32 %36, %h.addr.0.i
@@ -418,7 +418,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %xor25.i = xor i32 %sub24.i, %add11.i
   %or28.i = tail call i32 @llvm.fshl.i32(i32 %sub24.i, i32 %sub24.i, i32 25)
   %sub29.i = sub i32 %xor25.i, %or28.i
-  %cmp30.i = icmp ult ptr %q.0.i, %add.ptr7.i91
+  %cmp30.i = icmp ult ptr %q.0.i, %add.ptr7.i92
   br i1 %cmp30.i, label %do.body.i, label %do.end.i, !llvm.loop !11
 
 do.end.i:                                         ; preds = %do.body.i
@@ -434,10 +434,10 @@ do.end.i:                                         ; preds = %do.body.i
   br label %hash_dense.exit
 
 hash_dense.exit:                                  ; preds = %if.then86, %do.end.i
-  %b.1.i = phi i32 [ %sub46.i, %do.end.i ], [ %33, %if.then86 ]
-  store i32 %b.1.i, ptr %hash66, align 8
+  %b.0.i88 = phi i32 [ %sub46.i, %do.end.i ], [ %33, %if.then86 ]
+  store i32 %b.0.i88, ptr %hash66, align 8
   store i8 1, ptr %hashalg67, align 1
-  %and95 = and i32 %b.1.i, %newmask
+  %and95 = and i32 %b.0.i88, %newmask
   %idxprom96 = zext nneg i32 %and95 to i64
   %arrayidx97 = getelementptr inbounds %struct.GCRef, ptr %call, i64 %idxprom96
   %37 = load i64, ptr %arrayidx97, align 8
@@ -599,7 +599,7 @@ if.then.lr.ph:                                    ; preds = %entry
   %shr11.i = lshr i64 %lenx, 2
   %gep146 = getelementptr i8, ptr %invariant.gep145, i64 %shr11.i
   %cmp.i43 = icmp ugt i64 %lenx, 12
-  %add.ptr7.i47 = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -12
+  %add.ptr7.i48 = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -12
   br label %if.then
 
 tailrecurse.loopexit:                             ; preds = %while.cond.i.backedge, %cond.end.i
@@ -674,16 +674,16 @@ if.then8:                                         ; preds = %hash_sparse.exit
   br i1 %cmp.i43, label %do.body.i, label %hash_dense.exit
 
 do.body.i:                                        ; preds = %if.then8, %do.body.i
-  %b.0.i48 = phi i32 [ %sub29.i, %do.body.i ], [ %16, %if.then8 ]
+  %b.1.i = phi i32 [ %sub29.i, %do.body.i ], [ %16, %if.then8 ]
   %a.0.i49 = phi i32 [ %sub24.i, %do.body.i ], [ %conv.i, %if.then8 ]
   %h.addr.0.i = phi i32 [ %sub.i51, %do.body.i ], [ %sub45.i, %if.then8 ]
-  %p.0.i = phi ptr [ %q.0.i, %do.body.i ], [ %add.ptr7.i47, %if.then8 ]
+  %p.0.i = phi ptr [ %q.0.i, %do.body.i ], [ %add.ptr7.i48, %if.then8 ]
   %q.0.i = phi ptr [ %add.ptr15.i, %do.body.i ], [ %str, %if.then8 ]
   %17 = load i32, ptr %p.0.i, align 1
   %add.i50 = add i32 %17, %a.0.i49
   %add.ptr9.i = getelementptr inbounds i8, ptr %p.0.i, i64 4
   %18 = load i32, ptr %add.ptr9.i, align 1
-  %add11.i = add i32 %18, %b.0.i48
+  %add11.i = add i32 %18, %b.1.i
   %add.ptr12.i = getelementptr inbounds i8, ptr %p.0.i, i64 8
   %19 = load i32, ptr %add.ptr12.i, align 1
   %add14.i = add i32 %19, %h.addr.0.i
@@ -697,7 +697,7 @@ do.body.i:                                        ; preds = %if.then8, %do.body.
   %xor25.i = xor i32 %sub24.i, %add11.i
   %or28.i = tail call i32 @llvm.fshl.i32(i32 %sub24.i, i32 %sub24.i, i32 25)
   %sub29.i = sub i32 %xor25.i, %or28.i
-  %cmp30.i = icmp ult ptr %q.0.i, %add.ptr7.i47
+  %cmp30.i = icmp ult ptr %q.0.i, %add.ptr7.i48
   br i1 %cmp30.i, label %do.body.i, label %do.end.i, !llvm.loop !11
 
 do.end.i:                                         ; preds = %do.body.i
@@ -713,8 +713,8 @@ do.end.i:                                         ; preds = %do.body.i
   br label %hash_dense.exit
 
 hash_dense.exit:                                  ; preds = %if.then8, %do.end.i
-  %b.1.i = phi i32 [ %sub46.i, %do.end.i ], [ %16, %if.then8 ]
-  %and16 = and i32 %b.1.i, %14
+  %b.0.i44 = phi i32 [ %sub46.i, %do.end.i ], [ %16, %if.then8 ]
+  %and16 = and i32 %b.0.i44, %14
   %idxprom17 = zext i32 %and16 to i64
   %arrayidx18 = getelementptr inbounds %struct.GCRef, ptr %13, i64 %idxprom17
   %20 = load i64, ptr %arrayidx18, align 8
@@ -722,7 +722,7 @@ hash_dense.exit:                                  ; preds = %if.then8, %do.end.i
   br label %if.end
 
 if.end:                                           ; preds = %hash_dense.exit, %hash_sparse.exit
-  %hash.0 = phi i32 [ %b.1.i, %hash_dense.exit ], [ %sub45.i, %hash_sparse.exit ]
+  %hash.0 = phi i32 [ %b.0.i44, %hash_dense.exit ], [ %sub45.i, %hash_sparse.exit ]
   %hashalg.0 = phi i8 [ 1, %hash_dense.exit ], [ 0, %hash_sparse.exit ]
   %o.0.in = phi i64 [ %and20, %hash_dense.exit ], [ %15, %hash_sparse.exit ]
   %cmp21.not137 = icmp eq i64 %o.0.in, 0
@@ -888,7 +888,7 @@ if.then.i84:                                      ; preds = %if.then30.i
   br label %do.body.i89
 
 do.body.i89:                                      ; preds = %do.body.i89, %if.then.i84
-  %b.0.i90 = phi i32 [ %48, %if.then.i84 ], [ %sub29.i109, %do.body.i89 ]
+  %b.1.i90 = phi i32 [ %48, %if.then.i84 ], [ %sub29.i109, %do.body.i89 ]
   %a.0.i91 = phi i32 [ %conv6.i85, %if.then.i84 ], [ %sub24.i106, %do.body.i89 ]
   %h.addr.0.i92 = phi i32 [ %44, %if.then.i84 ], [ %sub.i103, %do.body.i89 ]
   %p.0.i93 = phi ptr [ %add.ptr7.i88, %if.then.i84 ], [ %q.0.i94, %do.body.i89 ]
@@ -897,7 +897,7 @@ do.body.i89:                                      ; preds = %do.body.i89, %if.th
   %add.i95 = add i32 %49, %a.0.i91
   %add.ptr9.i96 = getelementptr inbounds i8, ptr %p.0.i93, i64 4
   %50 = load i32, ptr %add.ptr9.i96, align 1
-  %add11.i97 = add i32 %50, %b.0.i90
+  %add11.i97 = add i32 %50, %b.1.i90
   %add.ptr12.i98 = getelementptr inbounds i8, ptr %p.0.i93, i64 8
   %51 = load i32, ptr %add.ptr12.i98, align 1
   %add14.i99 = add i32 %51, %h.addr.0.i92
@@ -927,13 +927,13 @@ do.end.i111:                                      ; preds = %do.body.i89
   br label %hash_dense.exit121
 
 hash_dense.exit121:                               ; preds = %if.then30.i, %do.end.i111
-  %b.1.i83 = phi i32 [ %sub46.i120, %do.end.i111 ], [ %48, %if.then30.i ]
-  store i32 %b.1.i83, ptr %hash28.i, align 8
+  %b.0.i83 = phi i32 [ %sub46.i120, %do.end.i111 ], [ %48, %if.then30.i ]
+  store i32 %b.0.i83, ptr %hash28.i, align 8
   store i8 1, ptr %hashalg.i, align 1
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %hash_dense.exit121, %if.end27.i
-  %hash.0.i = phi i32 [ %44, %if.end27.i ], [ %b.1.i83, %hash_dense.exit121 ]
+  %hash.0.i = phi i32 [ %44, %if.end27.i ], [ %b.0.i83, %hash_dense.exit121 ]
   %and36.i = and i32 %hash.0.i, %14
   %idxprom37.i = zext i32 %and36.i to i64
   %arrayidx38.i = getelementptr inbounds %struct.GCRef, ptr %13, i64 %idxprom37.i

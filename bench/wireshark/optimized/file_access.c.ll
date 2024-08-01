@@ -2844,9 +2844,9 @@ add_extensions.exit:                              ; preds = %.lr.ph.i, %14, %9
 add_extensions.exit33.us:                         ; preds = %.lr.ph, %add_extensions.exit33.us
   %28 = phi ptr [ %32, %add_extensions.exit33.us ], [ %27, %.lr.ph ]
   %.01837.us = phi ptr [ %31, %add_extensions.exit33.us ], [ %26, %.lr.ph ]
-  %.136.us = phi ptr [ %30, %add_extensions.exit33.us ], [ %.019, %.lr.ph ]
+  %.236.us = phi ptr [ %30, %add_extensions.exit33.us ], [ %.019, %.lr.ph ]
   %29 = tail call noalias ptr @g_strdup(ptr noundef nonnull %28) #22
-  %30 = tail call ptr @g_slist_prepend(ptr noundef %.136.us, ptr noundef %29) #22
+  %30 = tail call ptr @g_slist_prepend(ptr noundef %.236.us, ptr noundef %29) #22
   %31 = getelementptr i8, ptr %.01837.us, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not26.us = icmp eq ptr %32, null
@@ -2855,9 +2855,9 @@ add_extensions.exit33.us:                         ; preds = %.lr.ph, %add_extens
 .lr.ph.i28.preheader:                             ; preds = %.lr.ph, %add_extensions.exit33.loopexit
   %33 = phi ptr [ %42, %add_extensions.exit33.loopexit ], [ %27, %.lr.ph ]
   %.01837 = phi ptr [ %41, %add_extensions.exit33.loopexit ], [ %26, %.lr.ph ]
-  %.136 = phi ptr [ %38, %add_extensions.exit33.loopexit ], [ %.019, %.lr.ph ]
+  %.236 = phi ptr [ %38, %add_extensions.exit33.loopexit ], [ %.019, %.lr.ph ]
   %34 = tail call noalias ptr @g_strdup(ptr noundef nonnull %33) #22
-  %35 = tail call ptr @g_slist_prepend(ptr noundef %.136, ptr noundef %34) #22
+  %35 = tail call ptr @g_slist_prepend(ptr noundef %.236, ptr noundef %34) #22
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28.preheader, %.lr.ph.i28
@@ -2878,12 +2878,12 @@ add_extensions.exit33.loopexit:                   ; preds = %.lr.ph.i28
   br i1 %.not26, label %._crit_edge, label %.lr.ph.i28.preheader, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %add_extensions.exit33.loopexit, %add_extensions.exit33.us, %25
-  %.1.lcssa = phi ptr [ %.019, %25 ], [ %30, %add_extensions.exit33.us ], [ %38, %add_extensions.exit33.loopexit ]
+  %.2.lcssa = phi ptr [ %.019, %25 ], [ %30, %add_extensions.exit33.us ], [ %38, %add_extensions.exit33.loopexit ]
   tail call void @g_strfreev(ptr noundef nonnull %26) #22
   br label %43
 
 43:                                               ; preds = %add_extensions.exit, %._crit_edge, %3, %5
-  %.0 = phi ptr [ %1, %5 ], [ %1, %3 ], [ %.1.lcssa, %._crit_edge ], [ %.019, %add_extensions.exit ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %3 ], [ %.2.lcssa, %._crit_edge ], [ %.019, %add_extensions.exit ]
   ret ptr %.0
 }
 

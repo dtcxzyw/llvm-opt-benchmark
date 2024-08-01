@@ -58,30 +58,30 @@ define dso_local range(i32 0, 2) i32 @boot_yyparse() local_unnamed_addr #0 {
   br label %7
 
 5:                                                ; preds = %538, %74
-  %.0303 = phi ptr [ %518, %538 ], [ %75, %74 ]
-  %.0297 = phi ptr [ %517, %538 ], [ %.2299, %74 ]
-  %.0289 = phi i32 [ %.1290, %538 ], [ %spec.select, %74 ]
-  %.0 = phi i32 [ %539, %538 ], [ %70, %74 ]
-  %6 = getelementptr i8, ptr %.0297, i64 1
+  %.1304 = phi ptr [ %518, %538 ], [ %75, %74 ]
+  %.1298 = phi ptr [ %517, %538 ], [ %.2299, %74 ]
+  %.1290 = phi i32 [ %.0289, %538 ], [ %spec.select, %74 ]
+  %.1 = phi i32 [ %539, %538 ], [ %70, %74 ]
+  %6 = getelementptr i8, ptr %.1298, i64 1
   br label %7
 
 7:                                                ; preds = %5, %0
-  %.1304 = phi ptr [ %2, %0 ], [ %.0303, %5 ]
+  %.0303 = phi ptr [ %2, %0 ], [ %.1304, %5 ]
   %.0301 = phi ptr [ %2, %0 ], [ %.1302, %5 ]
-  %.1298 = phi ptr [ %1, %0 ], [ %6, %5 ]
+  %.0297 = phi ptr [ %1, %0 ], [ %6, %5 ]
   %.0294 = phi ptr [ %1, %0 ], [ %.1295, %5 ]
   %.0292 = phi i64 [ 200, %0 ], [ %.1293, %5 ]
-  %.1290 = phi i32 [ 0, %0 ], [ %.0289, %5 ]
-  %.1 = phi i32 [ 0, %0 ], [ %.0, %5 ]
-  %8 = trunc nsw i32 %.1 to i8
-  store i8 %8, ptr %.1298, align 1
+  %.0289 = phi i32 [ 0, %0 ], [ %.1290, %5 ]
+  %.0 = phi i32 [ 0, %0 ], [ %.1, %5 ]
+  %8 = trunc nsw i32 %.0 to i8
+  store i8 %8, ptr %.0297, align 1
   %9 = getelementptr i8, ptr %.0294, i64 %.0292
   %10 = getelementptr i8, ptr %9, i64 -1
-  %.not = icmp ugt ptr %10, %.1298
+  %.not = icmp ugt ptr %10, %.0297
   br i1 %.not, label %34, label %11
 
 11:                                               ; preds = %7
-  %12 = ptrtoint ptr %.1298 to i64
+  %12 = ptrtoint ptr %.0297 to i64
   %13 = ptrtoint ptr %.0294 to i64
   %14 = sub i64 %12, %13
   %15 = add i64 %14, 1
@@ -121,16 +121,16 @@ define dso_local range(i32 0, 2) i32 @boot_yyparse() local_unnamed_addr #0 {
   br i1 %.not333, label %34, label %.loopexit
 
 34:                                               ; preds = %28, %7
-  %.2305 = phi ptr [ %32, %28 ], [ %.1304, %7 ]
+  %.2305 = phi ptr [ %32, %28 ], [ %.0303, %7 ]
   %.1302 = phi ptr [ %25, %28 ], [ %.0301, %7 ]
-  %.2299 = phi ptr [ %30, %28 ], [ %.1298, %7 ]
+  %.2299 = phi ptr [ %30, %28 ], [ %.0297, %7 ]
   %.1295 = phi ptr [ %21, %28 ], [ %.0294, %7 ]
   %.1293 = phi i64 [ %spec.store.select, %28 ], [ %.0292, %7 ]
-  %35 = icmp eq i32 %.1, 46
+  %35 = icmp eq i32 %.0, 46
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %34
-  %37 = sext i32 %.1 to i64
+  %37 = sext i32 %.0 to i64
   %38 = getelementptr [110 x i16], ptr @yypact, i64 0, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i32
@@ -197,7 +197,7 @@ define dso_local range(i32 0, 2) i32 @boot_yyparse() local_unnamed_addr #0 {
   br label %82
 
 74:                                               ; preds = %67
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.1290, i32 1)
+  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.0289, i32 1)
   %75 = getelementptr i8, ptr %.2305, i64 8
   %76 = load i64, ptr @boot_yylval, align 8
   store i64 %76, ptr %75, align 8
@@ -1126,7 +1126,7 @@ do_end.exit:                                      ; preds = %379, %377, %362, %3
 
 540:                                              ; preds = %77
   %541 = load i32, ptr @boot_yychar, align 4
-  switch i32 %.1290, label %.lr.ph.preheader [
+  switch i32 %.0289, label %.lr.ph.preheader [
     i32 0, label %542
     i32 3, label %545
   ]
@@ -1155,12 +1155,12 @@ do_end.exit:                                      ; preds = %379, %377, %362, %3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %550
-  %.3300412 = phi ptr [ %551, %550 ], [ %.2299, %.lr.ph.preheader ]
-  %549 = icmp eq ptr %.3300412, %.1295
+  %.4412 = phi ptr [ %551, %550 ], [ %.2299, %.lr.ph.preheader ]
+  %549 = icmp eq ptr %.4412, %.1295
   br i1 %549, label %.loopexit, label %550
 
 550:                                              ; preds = %.lr.ph
-  %551 = getelementptr i8, ptr %.3300412, i64 -1
+  %551 = getelementptr i8, ptr %.4412, i64 -1
   br label %.lr.ph
 
 552:                                              ; preds = %17, %11

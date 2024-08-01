@@ -1220,81 +1220,81 @@ lpad38.body.i:                                    ; preds = %lpad38.i, %lpad.i14
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad38.body.i, %lpad35.i, %lpad.i153
-  %arrayinit.endOfInit.0.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 416), %lpad38.body.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 384), %lpad.i153 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 384), %lpad35.i ]
+  %arrayinit.endOfInit.12.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 416), %lpad38.body.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 384), %lpad.i153 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 384), %lpad35.i ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body117.i, %lpad38.body.i ], [ %30, %lpad.i153 ], [ %46, %lpad35.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.i) #12
   br label %ehcleanup40.i
 
 ehcleanup40.i:                                    ; preds = %ehcleanup.i, %lpad32.i, %lpad.i163
-  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.0.i, %ehcleanup.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 352), %lpad.i163 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 352), %lpad32.i ]
+  %arrayinit.endOfInit.11.i = phi ptr [ %arrayinit.endOfInit.12.i, %ehcleanup.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 352), %lpad.i163 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 352), %lpad32.i ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %27, %lpad.i163 ], [ %45, %lpad32.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31.i) #12
   br label %ehcleanup41.i
 
 ehcleanup41.i:                                    ; preds = %ehcleanup40.i, %lpad29.i, %lpad.i173
-  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.1.i, %ehcleanup40.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 320), %lpad.i173 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 320), %lpad29.i ]
+  %arrayinit.endOfInit.10.i = phi ptr [ %arrayinit.endOfInit.11.i, %ehcleanup40.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 320), %lpad.i173 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 320), %lpad29.i ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup40.i ], [ %24, %lpad.i173 ], [ %44, %lpad29.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28.i) #12
   br label %ehcleanup42.i
 
 ehcleanup42.i:                                    ; preds = %ehcleanup41.i, %lpad26.i, %lpad.i81.i
-  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup41.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 288), %lpad.i81.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 288), %lpad26.i ]
+  %arrayinit.endOfInit.9.i = phi ptr [ %arrayinit.endOfInit.10.i, %ehcleanup41.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 288), %lpad.i81.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 288), %lpad26.i ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %ehcleanup41.i ], [ %21, %lpad.i81.i ], [ %43, %lpad26.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i) #12
   br label %ehcleanup43.i
 
 ehcleanup43.i:                                    ; preds = %ehcleanup42.i, %lpad23.i, %lpad.i73.i
-  %arrayinit.endOfInit.4.i = phi ptr [ %arrayinit.endOfInit.3.i, %ehcleanup42.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 256), %lpad.i73.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 256), %lpad23.i ]
+  %arrayinit.endOfInit.8.i = phi ptr [ %arrayinit.endOfInit.9.i, %ehcleanup42.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 256), %lpad.i73.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 256), %lpad23.i ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %ehcleanup42.i ], [ %20, %lpad.i73.i ], [ %42, %lpad23.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i) #12
   br label %ehcleanup44.i
 
 ehcleanup44.i:                                    ; preds = %ehcleanup43.i, %lpad20.i, %lpad.i65.i
-  %arrayinit.endOfInit.5.i = phi ptr [ %arrayinit.endOfInit.4.i, %ehcleanup43.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 224), %lpad.i65.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 224), %lpad20.i ]
+  %arrayinit.endOfInit.7.i = phi ptr [ %arrayinit.endOfInit.8.i, %ehcleanup43.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 224), %lpad.i65.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 224), %lpad20.i ]
   %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %ehcleanup43.i ], [ %19, %lpad.i65.i ], [ %41, %lpad20.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i) #12
   br label %ehcleanup45.i
 
 ehcleanup45.i:                                    ; preds = %ehcleanup44.i, %lpad17.i, %lpad.i183
-  %arrayinit.endOfInit.6.i = phi ptr [ %arrayinit.endOfInit.5.i, %ehcleanup44.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 192), %lpad.i183 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 192), %lpad17.i ]
+  %arrayinit.endOfInit.6.i = phi ptr [ %arrayinit.endOfInit.7.i, %ehcleanup44.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 192), %lpad.i183 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 192), %lpad17.i ]
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i, %ehcleanup44.i ], [ %18, %lpad.i183 ], [ %40, %lpad17.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i) #12
   br label %ehcleanup46.i
 
 ehcleanup46.i:                                    ; preds = %ehcleanup45.i, %lpad14.i, %lpad.i193
-  %arrayinit.endOfInit.7.i = phi ptr [ %arrayinit.endOfInit.6.i, %ehcleanup45.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 160), %lpad.i193 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 160), %lpad14.i ]
+  %arrayinit.endOfInit.5.i = phi ptr [ %arrayinit.endOfInit.6.i, %ehcleanup45.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 160), %lpad.i193 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 160), %lpad14.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup45.i ], [ %15, %lpad.i193 ], [ %39, %lpad14.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #12
   br label %ehcleanup47.i
 
 ehcleanup47.i:                                    ; preds = %ehcleanup46.i, %lpad11.i, %lpad.i203
-  %arrayinit.endOfInit.8.i = phi ptr [ %arrayinit.endOfInit.7.i, %ehcleanup46.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 128), %lpad.i203 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 128), %lpad11.i ]
+  %arrayinit.endOfInit.4.i = phi ptr [ %arrayinit.endOfInit.5.i, %ehcleanup46.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 128), %lpad.i203 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 128), %lpad11.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup46.i ], [ %12, %lpad.i203 ], [ %38, %lpad11.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i) #12
   br label %ehcleanup48.i
 
 ehcleanup48.i:                                    ; preds = %ehcleanup47.i, %lpad8.i, %lpad.i33.i
-  %arrayinit.endOfInit.9.i = phi ptr [ %arrayinit.endOfInit.8.i, %ehcleanup47.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 96), %lpad.i33.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 96), %lpad8.i ]
+  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.4.i, %ehcleanup47.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 96), %lpad.i33.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 96), %lpad8.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup47.i ], [ %9, %lpad.i33.i ], [ %37, %lpad8.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #12
   br label %ehcleanup49.i
 
 ehcleanup49.i:                                    ; preds = %ehcleanup48.i, %lpad5.i, %lpad.i213
-  %arrayinit.endOfInit.10.i = phi ptr [ %arrayinit.endOfInit.9.i, %ehcleanup48.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 64), %lpad.i213 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 64), %lpad5.i ]
+  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.3.i, %ehcleanup48.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 64), %lpad.i213 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 64), %lpad5.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup48.i ], [ %8, %lpad.i213 ], [ %36, %lpad5.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #12
   br label %ehcleanup51.i
 
 ehcleanup51.i:                                    ; preds = %ehcleanup49.i, %lpad2.i, %lpad.i223
-  %arrayinit.endOfInit.11.i = phi ptr [ %arrayinit.endOfInit.10.i, %ehcleanup49.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 32), %lpad.i223 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 32), %lpad2.i ]
+  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup49.i ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 32), %lpad.i223 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E, i64 32), %lpad2.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup49.i ], [ %5, %lpad.i223 ], [ %35, %lpad2.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
-  %arraydestroy.isempty.i = icmp eq ptr %arrayinit.endOfInit.11.i, @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E
+  %arraydestroy.isempty.i = icmp eq ptr %arrayinit.endOfInit.1.i, @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E
   br i1 %arraydestroy.isempty.i, label %common.resume, label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %ehcleanup51.i, %arraydestroy.body.i
-  %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %arrayinit.endOfInit.11.i, %ehcleanup51.i ]
+  %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %arrayinit.endOfInit.1.i, %ehcleanup51.i ]
   %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i) #12
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E
@@ -1884,81 +1884,81 @@ lpad38.body.i140:                                 ; preds = %lpad38.i139, %lpad.
   br label %ehcleanup.i131
 
 ehcleanup.i131:                                   ; preds = %lpad38.body.i140, %lpad35.i130, %lpad.i253
-  %arrayinit.endOfInit.0.i132 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 416), %lpad38.body.i140 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 384), %lpad.i253 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 384), %lpad35.i130 ]
+  %arrayinit.endOfInit.12.i132 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 416), %lpad38.body.i140 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 384), %lpad.i253 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 384), %lpad35.i130 ]
   %.pn.i133 = phi { ptr, i32 } [ %eh.lpad-body117.i141, %lpad38.body.i140 ], [ %77, %lpad.i253 ], [ %93, %lpad35.i130 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.i13) #12
   br label %ehcleanup40.i122
 
 ehcleanup40.i122:                                 ; preds = %ehcleanup.i131, %lpad32.i121, %lpad.i263
-  %arrayinit.endOfInit.1.i123 = phi ptr [ %arrayinit.endOfInit.0.i132, %ehcleanup.i131 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 352), %lpad.i263 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 352), %lpad32.i121 ]
+  %arrayinit.endOfInit.11.i123 = phi ptr [ %arrayinit.endOfInit.12.i132, %ehcleanup.i131 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 352), %lpad.i263 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 352), %lpad32.i121 ]
   %.pn.pn.i124 = phi { ptr, i32 } [ %.pn.i133, %ehcleanup.i131 ], [ %74, %lpad.i263 ], [ %92, %lpad32.i121 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31.i12) #12
   br label %ehcleanup41.i113
 
 ehcleanup41.i113:                                 ; preds = %ehcleanup40.i122, %lpad29.i112, %lpad.i273
-  %arrayinit.endOfInit.2.i114 = phi ptr [ %arrayinit.endOfInit.1.i123, %ehcleanup40.i122 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 320), %lpad.i273 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 320), %lpad29.i112 ]
+  %arrayinit.endOfInit.10.i114 = phi ptr [ %arrayinit.endOfInit.11.i123, %ehcleanup40.i122 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 320), %lpad.i273 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 320), %lpad29.i112 ]
   %.pn.pn.pn.i115 = phi { ptr, i32 } [ %.pn.pn.i124, %ehcleanup40.i122 ], [ %71, %lpad.i273 ], [ %91, %lpad29.i112 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28.i11) #12
   br label %ehcleanup42.i104
 
 ehcleanup42.i104:                                 ; preds = %ehcleanup41.i113, %lpad26.i103, %lpad.i81.i109
-  %arrayinit.endOfInit.3.i105 = phi ptr [ %arrayinit.endOfInit.2.i114, %ehcleanup41.i113 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 288), %lpad.i81.i109 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 288), %lpad26.i103 ]
+  %arrayinit.endOfInit.9.i105 = phi ptr [ %arrayinit.endOfInit.10.i114, %ehcleanup41.i113 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 288), %lpad.i81.i109 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 288), %lpad26.i103 ]
   %.pn.pn.pn.pn.i106 = phi { ptr, i32 } [ %.pn.pn.pn.i115, %ehcleanup41.i113 ], [ %68, %lpad.i81.i109 ], [ %90, %lpad26.i103 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i10) #12
   br label %ehcleanup43.i95
 
 ehcleanup43.i95:                                  ; preds = %ehcleanup42.i104, %lpad23.i94, %lpad.i73.i100
-  %arrayinit.endOfInit.4.i96 = phi ptr [ %arrayinit.endOfInit.3.i105, %ehcleanup42.i104 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 256), %lpad.i73.i100 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 256), %lpad23.i94 ]
+  %arrayinit.endOfInit.8.i96 = phi ptr [ %arrayinit.endOfInit.9.i105, %ehcleanup42.i104 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 256), %lpad.i73.i100 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 256), %lpad23.i94 ]
   %.pn.pn.pn.pn.pn.i97 = phi { ptr, i32 } [ %.pn.pn.pn.pn.i106, %ehcleanup42.i104 ], [ %67, %lpad.i73.i100 ], [ %89, %lpad23.i94 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i9) #12
   br label %ehcleanup44.i86
 
 ehcleanup44.i86:                                  ; preds = %ehcleanup43.i95, %lpad20.i85, %lpad.i65.i91
-  %arrayinit.endOfInit.5.i87 = phi ptr [ %arrayinit.endOfInit.4.i96, %ehcleanup43.i95 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 224), %lpad.i65.i91 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 224), %lpad20.i85 ]
+  %arrayinit.endOfInit.7.i87 = phi ptr [ %arrayinit.endOfInit.8.i96, %ehcleanup43.i95 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 224), %lpad.i65.i91 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 224), %lpad20.i85 ]
   %.pn.pn.pn.pn.pn.pn.i88 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i97, %ehcleanup43.i95 ], [ %66, %lpad.i65.i91 ], [ %88, %lpad20.i85 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i8) #12
   br label %ehcleanup45.i77
 
 ehcleanup45.i77:                                  ; preds = %ehcleanup44.i86, %lpad17.i76, %lpad.i283
-  %arrayinit.endOfInit.6.i78 = phi ptr [ %arrayinit.endOfInit.5.i87, %ehcleanup44.i86 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 192), %lpad.i283 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 192), %lpad17.i76 ]
+  %arrayinit.endOfInit.6.i78 = phi ptr [ %arrayinit.endOfInit.7.i87, %ehcleanup44.i86 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 192), %lpad.i283 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 192), %lpad17.i76 ]
   %.pn.pn.pn.pn.pn.pn.pn.i79 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i88, %ehcleanup44.i86 ], [ %65, %lpad.i283 ], [ %87, %lpad17.i76 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i7) #12
   br label %ehcleanup46.i68
 
 ehcleanup46.i68:                                  ; preds = %ehcleanup45.i77, %lpad14.i67, %lpad.i293
-  %arrayinit.endOfInit.7.i69 = phi ptr [ %arrayinit.endOfInit.6.i78, %ehcleanup45.i77 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 160), %lpad.i293 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 160), %lpad14.i67 ]
+  %arrayinit.endOfInit.5.i69 = phi ptr [ %arrayinit.endOfInit.6.i78, %ehcleanup45.i77 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 160), %lpad.i293 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 160), %lpad14.i67 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.i70 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i79, %ehcleanup45.i77 ], [ %62, %lpad.i293 ], [ %86, %lpad14.i67 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i6) #12
   br label %ehcleanup47.i59
 
 ehcleanup47.i59:                                  ; preds = %ehcleanup46.i68, %lpad11.i58, %lpad.i303
-  %arrayinit.endOfInit.8.i60 = phi ptr [ %arrayinit.endOfInit.7.i69, %ehcleanup46.i68 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 128), %lpad.i303 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 128), %lpad11.i58 ]
+  %arrayinit.endOfInit.4.i60 = phi ptr [ %arrayinit.endOfInit.5.i69, %ehcleanup46.i68 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 128), %lpad.i303 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 128), %lpad11.i58 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i61 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i70, %ehcleanup46.i68 ], [ %59, %lpad.i303 ], [ %85, %lpad11.i58 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i5) #12
   br label %ehcleanup48.i50
 
 ehcleanup48.i50:                                  ; preds = %ehcleanup47.i59, %lpad8.i49, %lpad.i33.i55
-  %arrayinit.endOfInit.9.i51 = phi ptr [ %arrayinit.endOfInit.8.i60, %ehcleanup47.i59 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 96), %lpad.i33.i55 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 96), %lpad8.i49 ]
+  %arrayinit.endOfInit.3.i51 = phi ptr [ %arrayinit.endOfInit.4.i60, %ehcleanup47.i59 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 96), %lpad.i33.i55 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 96), %lpad8.i49 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i52 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i61, %ehcleanup47.i59 ], [ %56, %lpad.i33.i55 ], [ %84, %lpad8.i49 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i4) #12
   br label %ehcleanup49.i41
 
 ehcleanup49.i41:                                  ; preds = %ehcleanup48.i50, %lpad5.i40, %lpad.i25.i46
-  %arrayinit.endOfInit.10.i42 = phi ptr [ %arrayinit.endOfInit.9.i51, %ehcleanup48.i50 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 64), %lpad.i25.i46 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 64), %lpad5.i40 ]
+  %arrayinit.endOfInit.2.i42 = phi ptr [ %arrayinit.endOfInit.3.i51, %ehcleanup48.i50 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 64), %lpad.i25.i46 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 64), %lpad5.i40 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i43 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i52, %ehcleanup48.i50 ], [ %55, %lpad.i25.i46 ], [ %83, %lpad5.i40 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i3) #12
   br label %ehcleanup51.i27
 
 ehcleanup51.i27:                                  ; preds = %ehcleanup49.i41, %lpad2.i26, %lpad.i313
-  %arrayinit.endOfInit.11.i28 = phi ptr [ %arrayinit.endOfInit.10.i42, %ehcleanup49.i41 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 32), %lpad.i313 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 32), %lpad2.i26 ]
+  %arrayinit.endOfInit.1.i28 = phi ptr [ %arrayinit.endOfInit.2.i42, %ehcleanup49.i41 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 32), %lpad.i313 ], [ getelementptr inbounds (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 32), %lpad2.i26 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i29 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i43, %ehcleanup49.i41 ], [ %54, %lpad.i313 ], [ %82, %lpad2.i26 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #12
-  %arraydestroy.isempty.i30 = icmp eq ptr %arrayinit.endOfInit.11.i28, @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E
+  %arraydestroy.isempty.i30 = icmp eq ptr %arrayinit.endOfInit.1.i28, @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E
   br i1 %arraydestroy.isempty.i30, label %common.resume, label %arraydestroy.body.i31
 
 arraydestroy.body.i31:                            ; preds = %ehcleanup51.i27, %arraydestroy.body.i31
-  %arraydestroy.elementPast.i32 = phi ptr [ %arraydestroy.element.i33, %arraydestroy.body.i31 ], [ %arrayinit.endOfInit.11.i28, %ehcleanup51.i27 ]
+  %arraydestroy.elementPast.i32 = phi ptr [ %arraydestroy.element.i33, %arraydestroy.body.i31 ], [ %arrayinit.endOfInit.1.i28, %ehcleanup51.i27 ]
   %arraydestroy.element.i33 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i32, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i33) #12
   %arraydestroy.done.i34 = icmp eq ptr %arraydestroy.element.i33, @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E

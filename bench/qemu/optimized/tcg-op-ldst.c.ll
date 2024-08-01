@@ -293,7 +293,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end10:                                         ; preds = %if.then, %land.lhs.true, %tcg_canonicalize_memop.exit
   %oi.0 = phi i32 [ %or.i19, %land.lhs.true ], [ %or.i21, %if.then ], [ %or.i19, %tcg_canonicalize_memop.exit ]
-  %memop.addr.1 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %spec.select, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
+  %memop.addr.0 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %spec.select, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
   %9 = load ptr, ptr %0, align 8
   %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
   %10 = load ptr, ptr %plugin_insn.i, align 8
@@ -338,7 +338,7 @@ plugin_maybe_preserve_addr.exit:                  ; preds = %if.end10.plugin_may
   %conv5.i = zext i32 %oi.0 to i64
   tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %.pre-phi, i64 noundef %conv5.i) #5
   tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %retval.0.i, ptr noundef %addr, i32 noundef %or.i19, i32 noundef 1)
-  %xor = xor i32 %memop.addr.1, %op.addr.3.i
+  %xor = xor i32 %memop.addr.0, %op.addr.3.i
   %and17 = and i32 %xor, 16
   %tobool18.not = icmp eq i32 %and17, 0
   br i1 %tobool18.not, label %if.end24, label %if.then19
@@ -663,15 +663,15 @@ if.then:                                          ; preds = %land.lhs.true
   %and7 = and i32 %op.addr.3.i, 7
   %cmp = icmp ult i32 %and7, 3
   %or.cond = and i1 %tobool5.not, %cmp
-  %memop.addr.0.v = select i1 %or.cond, i32 -25, i32 -17
-  %memop.addr.0 = and i32 %memop.addr.0.v, %op.addr.3.i
-  %shl.i24 = shl i32 %memop.addr.0, 4
+  %memop.addr.1.v = select i1 %or.cond, i32 -25, i32 -17
+  %memop.addr.1 = and i32 %memop.addr.1.v, %op.addr.3.i
+  %shl.i24 = shl i32 %memop.addr.1, 4
   %or.i25 = or i32 %shl.i24, %conv
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then, %land.lhs.true, %tcg_canonicalize_memop.exit
   %oi.0 = phi i32 [ %or.i23, %land.lhs.true ], [ %or.i25, %if.then ], [ %or.i23, %tcg_canonicalize_memop.exit ]
-  %memop.addr.1 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %memop.addr.0, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
+  %memop.addr.0 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %memop.addr.1, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
   %9 = load ptr, ptr %0, align 8
   %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
   %10 = load ptr, ptr %plugin_insn.i, align 8
@@ -712,7 +712,7 @@ plugin_maybe_preserve_addr.exit:                  ; preds = %if.end13, %if.then2
   %. = select i1 %cmp15, i32 137, i32 141
   tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %18, i64 noundef %conv5.i.i) #5
   tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %retval.0.i, ptr noundef %addr, i32 noundef %or.i23, i32 noundef 1)
-  %xor = xor i32 %memop.addr.1, %op.addr.3.i
+  %xor = xor i32 %memop.addr.0, %op.addr.3.i
   %and19 = and i32 %xor, 16
   %tobool20.not = icmp eq i32 %and19, 0
   br i1 %tobool20.not, label %if.end27, label %if.then21
@@ -1265,10 +1265,10 @@ if.then78:                                        ; preds = %if.else74
 
 if.end82:                                         ; preds = %if.then78, %if.else74
   %47 = phi ptr [ %45, %if.then78 ], [ %6, %if.else74 ]
-  %ext_addr.0 = phi ptr [ %call79, %if.then78 ], [ null, %if.else74 ]
-  %addr.addr.0 = phi ptr [ %add.ptr.i.i90, %if.then78 ], [ %addr, %if.else74 ]
+  %ext_addr.1 = phi ptr [ %call79, %if.then78 ], [ null, %if.else74 ]
+  %addr.addr.1 = phi ptr [ %add.ptr.i.i90, %if.then78 ], [ %addr, %if.else74 ]
   %48 = load ptr, ptr @tcg_env, align 8
-  %sub.ptr.lhs.cast.i.i.i91 = ptrtoint ptr %addr.addr.0 to i64
+  %sub.ptr.lhs.cast.i.i.i91 = ptrtoint ptr %addr.addr.1 to i64
   %sub.ptr.rhs.cast.i.i92 = ptrtoint ptr %47 to i64
   %sub.ptr.sub.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i.i91, %sub.ptr.rhs.cast.i.i92
   %call84 = tail call ptr @tcg_constant_i32(i32 noundef %or.i47) #5
@@ -1284,9 +1284,9 @@ if.end82:                                         ; preds = %if.then78, %if.else
   br label %if.end86
 
 if.end86:                                         ; preds = %if.end82, %if.then72, %if.end67, %gen_ldst.exit, %if.then25
-  %ext_addr.1 = phi ptr [ null, %if.then25 ], [ null, %gen_ldst.exit ], [ null, %if.then72 ], [ null, %if.end67 ], [ %ext_addr.0, %if.end82 ]
-  %addr.addr.1 = phi ptr [ %addr, %if.then25 ], [ %addr, %gen_ldst.exit ], [ %addr, %if.then72 ], [ %addr, %if.end67 ], [ %addr.addr.0, %if.end82 ]
-  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.1, ptr noundef %addr.addr.1, i32 noundef %or.i47, i32 noundef 1)
+  %ext_addr.0 = phi ptr [ null, %if.then25 ], [ null, %gen_ldst.exit ], [ null, %if.then72 ], [ null, %if.end67 ], [ %ext_addr.1, %if.end82 ]
+  %addr.addr.0 = phi ptr [ %addr, %if.then25 ], [ %addr, %gen_ldst.exit ], [ %addr, %if.then72 ], [ %addr, %if.end67 ], [ %addr.addr.1, %if.end82 ]
+  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.0, ptr noundef %addr.addr.0, i32 noundef %or.i47, i32 noundef 1)
   ret void
 }
 
@@ -1669,10 +1669,10 @@ if.then83:                                        ; preds = %if.else79
 
 if.end87:                                         ; preds = %if.then83, %if.else79
   %58 = phi ptr [ %56, %if.then83 ], [ %6, %if.else79 ]
-  %ext_addr.0 = phi ptr [ %call84, %if.then83 ], [ null, %if.else79 ]
-  %addr.addr.0 = phi ptr [ %add.ptr.i.i99, %if.then83 ], [ %addr, %if.else79 ]
+  %ext_addr.1 = phi ptr [ %call84, %if.then83 ], [ null, %if.else79 ]
+  %addr.addr.1 = phi ptr [ %add.ptr.i.i99, %if.then83 ], [ %addr, %if.else79 ]
   %59 = load ptr, ptr @tcg_env, align 8
-  %sub.ptr.lhs.cast.i.i.i100 = ptrtoint ptr %addr.addr.0 to i64
+  %sub.ptr.lhs.cast.i.i.i100 = ptrtoint ptr %addr.addr.1 to i64
   %sub.ptr.rhs.cast.i.i101 = ptrtoint ptr %58 to i64
   %sub.ptr.sub.i.i102 = sub i64 %sub.ptr.lhs.cast.i.i.i100, %sub.ptr.rhs.cast.i.i101
   %call89 = tail call ptr @tcg_constant_i32(i32 noundef %or.i52) #5
@@ -1688,9 +1688,9 @@ if.end87:                                         ; preds = %if.then83, %if.else
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end78, %if.end87, %gen_ldst.exit, %if.then27
-  %ext_addr.1 = phi ptr [ null, %if.then27 ], [ null, %gen_ldst.exit ], [ null, %if.end78 ], [ %ext_addr.0, %if.end87 ]
-  %addr.addr.1 = phi ptr [ %addr, %if.then27 ], [ %addr, %gen_ldst.exit ], [ %addr, %if.end78 ], [ %addr.addr.0, %if.end87 ]
-  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.1, ptr noundef %addr.addr.1, i32 noundef %or.i52, i32 noundef 2)
+  %ext_addr.0 = phi ptr [ null, %if.then27 ], [ null, %gen_ldst.exit ], [ null, %if.end78 ], [ %ext_addr.1, %if.end87 ]
+  %addr.addr.0 = phi ptr [ %addr, %if.then27 ], [ %addr, %gen_ldst.exit ], [ %addr, %if.end78 ], [ %addr.addr.1, %if.end87 ]
+  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.0, ptr noundef %addr.addr.0, i32 noundef %or.i52, i32 noundef 2)
   ret void
 }
 

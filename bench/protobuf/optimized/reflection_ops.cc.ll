@@ -1363,8 +1363,8 @@ if.end98:                                         ; preds = %if.end11, %if.then8
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.then70, %_ZN6google8protobuf11MapIteratorD2Ev.exit76, %for.body59, %if.then89, %if.end98
-  %retval.3 = phi i1 [ true, %if.end98 ], [ false, %if.then89 ], [ false, %for.body59 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit76 ], [ false, %if.then70 ], [ false, %land.lhs.true ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ true, %if.end98 ], [ false, %if.then89 ], [ false, %for.body59 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit76 ], [ false, %if.then70 ], [ false, %land.lhs.true ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_requiredEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
@@ -2160,8 +2160,8 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit116: ; preds 
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then, %if.then.i.i.i113, %cleanup106
-  %retval.4 = phi i1 [ %cmp.i.not142, %cleanup106 ], [ %cmp.i.not142, %if.then.i.i.i113 ], [ false, %if.then ]
-  ret i1 %retval.4
+  %retval.0 = phi i1 [ %cmp.i.not142, %cleanup106 ], [ %cmp.i.not142, %if.then.i.i.i113 ], [ false, %if.then ]
+  ret i1 %retval.0
 }
 
 declare noundef ptr @_ZNK6google8protobuf10Descriptor9map_valueEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #0

@@ -80,13 +80,13 @@ define range(i32 -1, 1) i32 @mew_lzma(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.split.us.us.us.outer
 
 34:                                               ; preds = %.split785.us.split.us.us.us, %737
-  %.0428.us.us = phi i32 [ 1, %.split785.us.split.us.us.us ], [ %.6434.us.us, %737 ]
-  %.0424.us.us = phi i8 [ 0, %.split785.us.split.us.us.us ], [ %.3427.us.us, %737 ]
-  %.0415.us.us = phi i32 [ 0, %.split785.us.split.us.us.us ], [ %.3418.us.us, %737 ]
-  %.0410.us.us = phi i32 [ 1, %.split785.us.split.us.us.us ], [ %.4414.us.us, %737 ]
-  %.0404.us.us = phi i32 [ 1, %.split785.us.split.us.us.us ], [ %.5409.us.us, %737 ]
-  %.0391.us.us = phi i32 [ 0, %.split785.us.split.us.us.us ], [ %.4395.us.us, %737 ]
-  %.0388.us.us = phi i32 [ 1, %.split785.us.split.us.us.us ], [ %.6.us.us, %737 ]
+  %.0428.us.us = phi i32 [ 1, %.split785.us.split.us.us.us ], [ %.5433.us.us, %737 ]
+  %.0424.us.us = phi i8 [ 0, %.split785.us.split.us.us.us ], [ %.1425.us.us, %737 ]
+  %.0415.us.us = phi i32 [ 0, %.split785.us.split.us.us.us ], [ %.1416.us.us, %737 ]
+  %.0410.us.us = phi i32 [ 1, %.split785.us.split.us.us.us ], [ %.3413.us.us, %737 ]
+  %.0404.us.us = phi i32 [ 1, %.split785.us.split.us.us.us ], [ %.4408.us.us, %737 ]
+  %.0391.us.us = phi i32 [ 0, %.split785.us.split.us.us.us ], [ %.2393.us.us, %737 ]
+  %.0388.us.us = phi i32 [ 1, %.split785.us.split.us.us.us ], [ %.5.us.us, %737 ]
   %.promoted1087.us.us = phi i32 [ 0, %.split785.us.split.us.us.us ], [ %storemerge.us.us, %737 ]
   %35 = and i32 %.promoted1087.us.us, 3
   %36 = shl i32 %.0391.us.us, 5
@@ -422,8 +422,8 @@ lzma_486248.exit599.us.us:                        ; preds = %205, %199
 
 216:                                              ; preds = %215, %212, %lzma_486248.exit599.us.us
   %storemerge511.us.us = phi i32 [ %.0404.us.us, %215 ], [ %.0428.us.us, %212 ], [ %.0410.us.us, %lzma_486248.exit599.us.us ]
-  %.2430.us.us = phi i32 [ %.0428.us.us, %215 ], [ %.0404.us.us, %212 ], [ %.0428.us.us, %lzma_486248.exit599.us.us ]
-  %.1405.us.us = phi i32 [ %.0410.us.us, %215 ], [ %.0410.us.us, %212 ], [ %.0404.us.us, %lzma_486248.exit599.us.us ]
+  %.3431.us.us = phi i32 [ %.0428.us.us, %215 ], [ %.0404.us.us, %212 ], [ %.0428.us.us, %lzma_486248.exit599.us.us ]
+  %.2406.us.us = phi i32 [ %.0410.us.us, %215 ], [ %.0410.us.us, %212 ], [ %.0404.us.us, %lzma_486248.exit599.us.us ]
   store i32 %storemerge511.us.us, ptr %7, align 4
   br label %262
 
@@ -515,10 +515,10 @@ lzma_486248.exit611.us.us:                        ; preds = %255, %249
   br i1 %239, label %269, label %262
 
 262:                                              ; preds = %lzma_486248.exit611.us.us, %216
-  %.3431.us.us = phi i32 [ %.2430.us.us, %216 ], [ %.0428.us.us, %lzma_486248.exit611.us.us ]
-  %.1411.us.us = phi i32 [ %.0388.us.us, %216 ], [ %.0410.us.us, %lzma_486248.exit611.us.us ]
-  %.2406.us.us = phi i32 [ %.1405.us.us, %216 ], [ %.0404.us.us, %lzma_486248.exit611.us.us ]
-  %.3.us.us = phi i32 [ %storemerge511.us.us, %216 ], [ %.0388.us.us, %lzma_486248.exit611.us.us ]
+  %.4432.us.us = phi i32 [ %.3431.us.us, %216 ], [ %.0428.us.us, %lzma_486248.exit611.us.us ]
+  %.2412.us.us = phi i32 [ %.0388.us.us, %216 ], [ %.0410.us.us, %lzma_486248.exit611.us.us ]
+  %.3407.us.us = phi i32 [ %.2406.us.us, %216 ], [ %.0404.us.us, %lzma_486248.exit611.us.us ]
+  %.4.us.us = phi i32 [ %storemerge511.us.us, %216 ], [ %.0388.us.us, %lzma_486248.exit611.us.us ]
   store ptr %27, ptr %9, align 8
   %263 = call fastcc i32 @lzma_4863da(i32 noundef %35, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef %2)
   %264 = icmp eq i32 %263, -1
@@ -601,8 +601,8 @@ lzma_486248.exit611.us.us:                        ; preds = %255, %249
   %301 = phi i32 [ %345, %lzma_486248.exit638.us.us ], [ %.promoted1060.us.us, %295 ]
   %302 = phi ptr [ %346, %lzma_486248.exit638.us.us ], [ %.promoted.us.us, %295 ]
   %.025.i.us.us = phi i32 [ %349, %lzma_486248.exit638.us.us ], [ 6, %295 ]
-  %.024.i.us.us = phi i32 [ %348, %lzma_486248.exit638.us.us ], [ 1, %295 ]
-  %303 = shl i32 %.024.i.us.us, 1
+  %.1.i.us.us = phi i32 [ %348, %lzma_486248.exit638.us.us ], [ 1, %295 ]
+  %303 = shl i32 %.1.i.us.us, 1
   %304 = zext i32 %303 to i64
   %305 = getelementptr inbounds i8, ptr %gep.us.us, i64 %304
   %.not.i628.us.us = icmp ult ptr %305, %0
@@ -825,32 +825,32 @@ lzma_486248.exit650.us.us:                        ; preds = %411, %405
   br i1 %exitcond.not.i.us.us, label %.loopexit717.us.us, label %372
 
 427:                                              ; preds = %.loopexit717.us.us, %367
-  %.1389.us.us1307 = phi i32 [ %358, %367 ], [ %.1389.us.us1306, %.loopexit717.us.us ]
+  %.2390.us.us1307 = phi i32 [ %358, %367 ], [ %.2390.us.us1306, %.loopexit717.us.us ]
   %.lcssa.sink.i.us.us = phi i32 [ 0, %367 ], [ %425, %.loopexit717.us.us ]
   store i32 %.lcssa.sink.i.us.us, ptr %7, align 4
-  %428 = add i32 %.lcssa.sink.i.us.us, %.1389.us.us1307
+  %428 = add i32 %.lcssa.sink.i.us.us, %.2390.us.us1307
   br label %429
 
 429:                                              ; preds = %427, %350
-  %.2390.us.us = phi i32 [ %428, %427 ], [ %351, %350 ]
-  %430 = add i32 %.2390.us.us, 1
+  %.1389.us.us = phi i32 [ %428, %427 ], [ %351, %350 ]
+  %430 = add i32 %.1389.us.us, 1
   br label %431
 
 431:                                              ; preds = %429, %265
-  %.4432.us.us = phi i32 [ %.0404.us.us, %429 ], [ %.3431.us.us, %265 ]
-  %.2412.us.us = phi i32 [ %.0388.us.us, %429 ], [ %.1411.us.us, %265 ]
-  %.3407.us.us = phi i32 [ %.0410.us.us, %429 ], [ %.2406.us.us, %265 ]
+  %.1429.us.us = phi i32 [ %.0404.us.us, %429 ], [ %.4432.us.us, %265 ]
+  %.1411.us.us = phi i32 [ %.0388.us.us, %429 ], [ %.2412.us.us, %265 ]
+  %.1405.us.us = phi i32 [ %.0410.us.us, %429 ], [ %.3407.us.us, %265 ]
   %.1392.us.us = phi i32 [ %292, %429 ], [ %268, %265 ]
-  %.4.us.us = phi i32 [ %430, %429 ], [ %.3.us.us, %265 ]
+  %.3.us.us = phi i32 [ %430, %429 ], [ %.4.us.us, %265 ]
   %.0386.us.us = phi i32 [ %296, %429 ], [ %266, %265 ]
-  %.not513.us.us = icmp eq i32 %.4.us.us, 0
+  %.not513.us.us = icmp eq i32 %.3.us.us, 0
   br i1 %.not513.us.us, label %739, label %432
 
 432:                                              ; preds = %431
   %433 = add i32 %.0386.us.us, 2
   store ptr %762, ptr %9, align 8
   store i32 %.promoted1087.us.us, ptr %7, align 4
-  %434 = sub i32 %.promoted1087.us.us, %.4.us.us
+  %434 = sub i32 %.promoted1087.us.us, %.3.us.us
   %435 = sub i32 %757, %.promoted1087.us.us
   %436 = icmp ult i32 %433, %435
   br i1 %436, label %437, label %456
@@ -972,7 +972,7 @@ lzma_486248.exit650.us.us:                        ; preds = %411, %405
   br label %497
 
 497:                                              ; preds = %495, %493, %486
-  %.2393.us.us = phi i32 [ %496, %495 ], [ %494, %493 ], [ 0, %486 ]
+  %.4395.us.us = phi i32 [ %496, %495 ], [ %494, %493 ], [ 0, %486 ]
   %498 = icmp eq i32 %.0415.us.us, 0
   br i1 %498, label %669, label %499
 
@@ -1399,8 +1399,8 @@ lzma_486248.exit662.us.us:                        ; preds = %654, %648
   br i1 %727, label %675, label %.thread.loopexit.us.us
 
 .thread.us.us:                                    ; preds = %.thread.loopexit.us.us, %667
-  %.1425.in.us.us = phi i32 [ %668, %667 ], [ %726, %.thread.loopexit.us.us ]
-  %.1425.us.us = trunc i32 %.1425.in.us.us to i8
+  %.3427.in.us.us = phi i32 [ %668, %667 ], [ %726, %.thread.loopexit.us.us ]
+  %.3427.us.us = trunc i32 %.3427.in.us.us to i8
   %728 = add i32 %.promoted1087.us.us, 1
   store i32 %.promoted1087.us.us, ptr %8, align 4
   %729 = zext i32 %.promoted1087.us.us to i64
@@ -1419,18 +1419,18 @@ lzma_486248.exit662.us.us:                        ; preds = %654, %648
   br i1 %or.cond556.us.us, label %736, label %lzma_4862e0.exit.thread
 
 736:                                              ; preds = %731
-  store i8 %.1425.us.us, ptr %730, align 1
+  store i8 %.3427.us.us, ptr %730, align 1
   br label %737
 
 737:                                              ; preds = %.loopexit714.us.us, %736, %290
   %storemerge.us.us = phi i32 [ %282, %290 ], [ %728, %736 ], [ %481, %.loopexit714.us.us ]
-  %.6434.us.us = phi i32 [ %.0428.us.us, %290 ], [ %.0428.us.us, %736 ], [ %.4432.us.us, %.loopexit714.us.us ]
-  %.3427.us.us = phi i8 [ %281, %290 ], [ %.1425.us.us, %736 ], [ %478, %.loopexit714.us.us ]
-  %.3418.us.us = phi i32 [ 1, %290 ], [ 0, %736 ], [ 1, %.loopexit714.us.us ]
-  %.4414.us.us = phi i32 [ %.0410.us.us, %290 ], [ %.0410.us.us, %736 ], [ %.2412.us.us, %.loopexit714.us.us ]
-  %.5409.us.us = phi i32 [ %.0404.us.us, %290 ], [ %.0404.us.us, %736 ], [ %.3407.us.us, %.loopexit714.us.us ]
-  %.4395.us.us = phi i32 [ %271, %290 ], [ %.2393.us.us, %736 ], [ %.1392.us.us, %.loopexit714.us.us ]
-  %.6.us.us = phi i32 [ %.0388.us.us, %290 ], [ %.0388.us.us, %736 ], [ %.4.us.us, %.loopexit714.us.us ]
+  %.5433.us.us = phi i32 [ %.0428.us.us, %290 ], [ %.0428.us.us, %736 ], [ %.1429.us.us, %.loopexit714.us.us ]
+  %.1425.us.us = phi i8 [ %281, %290 ], [ %.3427.us.us, %736 ], [ %478, %.loopexit714.us.us ]
+  %.1416.us.us = phi i32 [ 1, %290 ], [ 0, %736 ], [ 1, %.loopexit714.us.us ]
+  %.3413.us.us = phi i32 [ %.0410.us.us, %290 ], [ %.0410.us.us, %736 ], [ %.1411.us.us, %.loopexit714.us.us ]
+  %.4408.us.us = phi i32 [ %.0404.us.us, %290 ], [ %.0404.us.us, %736 ], [ %.1405.us.us, %.loopexit714.us.us ]
+  %.2393.us.us = phi i32 [ %271, %290 ], [ %.4395.us.us, %736 ], [ %.1392.us.us, %.loopexit714.us.us ]
+  %.5.us.us = phi i32 [ %.0388.us.us, %290 ], [ %.0388.us.us, %736 ], [ %.3.us.us, %.loopexit714.us.us ]
   store i32 %storemerge.us.us, ptr %7, align 4
   %738 = icmp ult i32 %storemerge.us.us, %757
   br i1 %738, label %34, label %739
@@ -1458,7 +1458,7 @@ lzma_486248.exit662.us.us:                        ; preds = %654, %648
   br label %737
 
 .preheader715.us.us:                              ; preds = %.thread, %367
-  %.1389.us.us1306 = phi i32 [ %366, %.thread ], [ %358, %367 ]
+  %.2390.us.us1306 = phi i32 [ %366, %.thread ], [ %358, %367 ]
   %storemerge512.us.us1305 = phi ptr [ %29, %.thread ], [ %gep1130.us.us, %367 ]
   %740 = phi i32 [ 4, %.thread ], [ %355, %367 ]
   %741 = getelementptr inbounds i8, ptr %storemerge512.us.us1305, i64 2
@@ -1855,8 +1855,8 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
 
 .preheader.i:                                     ; preds = %13, %21
   %.025.i = phi i32 [ %23, %21 ], [ %15, %13 ]
-  %.024.i = phi i32 [ %22, %21 ], [ 1, %13 ]
-  %16 = shl i32 %.024.i, 1
+  %.1.i = phi i32 [ %22, %21 ], [ 1, %13 ]
+  %16 = shl i32 %.1.i, 1
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %14, i64 %17
   store ptr %18, ptr %2, align 8
@@ -1871,11 +1871,11 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
   br i1 %.not30.i, label %.loopexit, label %.preheader.i
 
 .loopexit:                                        ; preds = %21, %13
-  %.1.i = phi i32 [ 1, %13 ], [ %22, %21 ]
+  %.024.i = phi i32 [ 1, %13 ], [ %22, %21 ]
   %24 = and i32 %15, 255
   %25 = shl nuw i32 1, %24
   store i32 %25, ptr %3, align 4
-  %reass.sub74 = sub i32 %.1.i, %25
+  %reass.sub74 = sub i32 %.024.i, %25
   %26 = add i32 %reass.sub74, 16
   br label %61
 
@@ -1892,8 +1892,8 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
 
 .preheader.i45:                                   ; preds = %27, %38
   %.025.i46 = phi i32 [ %40, %38 ], [ %32, %27 ]
-  %.024.i47 = phi i32 [ %39, %38 ], [ 1, %27 ]
-  %33 = shl i32 %.024.i47, 1
+  %.1.i47 = phi i32 [ %39, %38 ], [ 1, %27 ]
+  %33 = shl i32 %.1.i47, 1
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
   store ptr %35, ptr %2, align 8
@@ -1908,11 +1908,11 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
   br i1 %.not30.i48, label %.loopexit70, label %.preheader.i45
 
 .loopexit70:                                      ; preds = %38, %27
-  %.1.i43 = phi i32 [ 1, %27 ], [ %39, %38 ]
+  %.024.i43 = phi i32 [ 1, %27 ], [ %39, %38 ]
   %41 = and i32 %32, 255
   %42 = shl nuw i32 1, %41
   store i32 %42, ptr %3, align 4
-  %reass.sub = sub i32 %.1.i43, %42
+  %reass.sub = sub i32 %.024.i43, %42
   %43 = add i32 %reass.sub, 8
   br label %61
 
@@ -1929,8 +1929,8 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
 
 .preheader.i54:                                   ; preds = %44, %55
   %.025.i55 = phi i32 [ %57, %55 ], [ %49, %44 ]
-  %.024.i56 = phi i32 [ %56, %55 ], [ 1, %44 ]
-  %50 = shl i32 %.024.i56, 1
+  %.1.i56 = phi i32 [ %56, %55 ], [ 1, %44 ]
+  %50 = shl i32 %.1.i56, 1
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %48, i64 %51
   store ptr %52, ptr %2, align 8
@@ -1945,16 +1945,16 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
   br i1 %.not30.i57, label %lzma_4862e0.exit58, label %.preheader.i54
 
 lzma_4862e0.exit58:                               ; preds = %55, %44
-  %.1.i52 = phi i32 [ 1, %44 ], [ %56, %55 ]
+  %.024.i52 = phi i32 [ 1, %44 ], [ %56, %55 ]
   %58 = and i32 %49, 255
   %59 = shl nuw i32 1, %58
   store i32 %59, ptr %3, align 4
-  %60 = sub i32 %.1.i52, %59
+  %60 = sub i32 %.024.i52, %59
   br label %61
 
 61:                                               ; preds = %lzma_4862e0.exit58, %.loopexit, %.loopexit70
-  %.3 = phi i32 [ %26, %.loopexit ], [ %43, %.loopexit70 ], [ %60, %lzma_4862e0.exit58 ]
-  store i32 %.3, ptr %4, align 4
+  %.061 = phi i32 [ %26, %.loopexit ], [ %43, %.loopexit70 ], [ %60, %lzma_4862e0.exit58 ]
+  store i32 %.061, ptr %4, align 4
   br label %lzma_4862e0.exit.thread
 
 lzma_4862e0.exit.thread:                          ; preds = %.preheader.i54, %.preheader.i45, %.preheader.i, %10, %7, %61
@@ -1979,38 +1979,38 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef %
   br i1 %.not62, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %14
-  %.047.us = phi i32 [ %16, %14 ], [ %7, %.preheader ]
-  %.044.us = phi i32 [ %.145.us, %14 ], [ %9, %.preheader ]
+  %.148.us = phi i32 [ %16, %14 ], [ %7, %.preheader ]
+  %.145.us = phi i32 [ %.246.us, %14 ], [ %9, %.preheader ]
   %.043.us = phi i32 [ %19, %14 ], [ %1, %.preheader ]
-  %.042.us = phi i32 [ %.1.us, %14 ], [ 0, %.preheader ]
-  %13 = icmp ult i32 %.047.us, 33554432
+  %.1.us = phi i32 [ %.2.us, %14 ], [ 0, %.preheader ]
+  %13 = icmp ult i32 %.148.us, 33554432
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %.preheader.split.us
-  %15 = shl i32 %.042.us, 1
-  %16 = lshr i32 %.047.us, 1
-  %.not61.us = icmp uge i32 %.044.us, %16
+  %15 = shl i32 %.1.us, 1
+  %16 = lshr i32 %.148.us, 1
+  %.not61.us = icmp uge i32 %.145.us, %16
   %17 = zext i1 %.not61.us to i32
-  %.1.us = or disjoint i32 %15, %17
+  %.2.us = or disjoint i32 %15, %17
   %18 = select i1 %.not61.us, i32 %16, i32 0
-  %.145.us = sub nuw i32 %.044.us, %18
+  %.246.us = sub nuw i32 %.145.us, %18
   %19 = add i32 %.043.us, -1
   %.not65.us = icmp eq i32 %19, 0
   br i1 %.not65.us, label %.loopexit68, label %.preheader.split.us
 
 .preheader.split:                                 ; preds = %.preheader, %39
-  %.047 = phi i32 [ %.148, %39 ], [ %7, %.preheader ]
-  %.044 = phi i32 [ %.246, %39 ], [ %9, %.preheader ]
+  %.148 = phi i32 [ %.249, %39 ], [ %7, %.preheader ]
+  %.145 = phi i32 [ %.3, %39 ], [ %9, %.preheader ]
   %.043 = phi i32 [ %40, %39 ], [ %1, %.preheader ]
-  %.042 = phi i32 [ %.1, %39 ], [ 0, %.preheader ]
-  %20 = lshr i32 %.047, 1
-  %21 = shl i32 %.042, 1
-  %.not61 = icmp uge i32 %.044, %20
+  %.1 = phi i32 [ %.2, %39 ], [ 0, %.preheader ]
+  %20 = lshr i32 %.148, 1
+  %21 = shl i32 %.1, 1
+  %.not61 = icmp uge i32 %.145, %20
   %22 = select i1 %.not61, i32 %20, i32 0
-  %.145 = sub nuw i32 %.044, %22
+  %.246 = sub nuw i32 %.145, %22
   %23 = zext i1 %.not61 to i32
-  %.1 = or disjoint i32 %21, %23
-  %24 = icmp ult i32 %.047, 33554432
+  %.2 = or disjoint i32 %21, %23
+  %24 = icmp ult i32 %.148, 33554432
   br i1 %24, label %25, label %39
 
 25:                                               ; preds = %.preheader.split
@@ -2029,7 +2029,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef %
   br i1 %or.cond67, label %32, label %.loopexit
 
 32:                                               ; preds = %27
-  %33 = shl i32 %.145, 8
+  %33 = shl i32 %.246, 8
   %34 = shl nuw i32 %20, 8
   %35 = load i8, ptr %26, align 1
   %36 = zext i8 %35 to i32
@@ -2039,19 +2039,19 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef %
   br label %39
 
 39:                                               ; preds = %32, %.preheader.split
-  %.148 = phi i32 [ %34, %32 ], [ %20, %.preheader.split ]
-  %.246 = phi i32 [ %37, %32 ], [ %.145, %.preheader.split ]
+  %.249 = phi i32 [ %34, %32 ], [ %20, %.preheader.split ]
+  %.3 = phi i32 [ %37, %32 ], [ %.246, %.preheader.split ]
   %40 = add i32 %.043, -1
   %.not65 = icmp eq i32 %40, 0
   br i1 %.not65, label %.loopexit68, label %.preheader.split
 
 .loopexit68:                                      ; preds = %39, %14, %5
-  %.249 = phi i32 [ %7, %5 ], [ %16, %14 ], [ %.148, %39 ]
-  %.3 = phi i32 [ %9, %5 ], [ %.145.us, %14 ], [ %.246, %39 ]
-  %.2 = phi i32 [ 0, %5 ], [ %.1.us, %14 ], [ %.1, %39 ]
-  store i32 %.3, ptr %8, align 4
-  store i32 %.249, ptr %6, align 8
-  store i32 %.2, ptr %2, align 4
+  %.047 = phi i32 [ %7, %5 ], [ %16, %14 ], [ %.249, %39 ]
+  %.044 = phi i32 [ %9, %5 ], [ %.246.us, %14 ], [ %.3, %39 ]
+  %.042 = phi i32 [ 0, %5 ], [ %.2.us, %14 ], [ %.2, %39 ]
+  store i32 %.044, ptr %8, align 4
+  store i32 %.047, ptr %6, align 8
+  store i32 %.042, ptr %2, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %25, %.preheader.split.us, %.loopexit68

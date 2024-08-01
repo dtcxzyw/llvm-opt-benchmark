@@ -1651,8 +1651,8 @@ proto_item_set_generated.exit299.i.i:             ; preds = %425, %422, %proto_i
   br label %proto_item_set_generated.exit302.i.i
 
 proto_item_set_generated.exit302.i.i:             ; preds = %439, %435, %432, %proto_item_set_generated.exit299.i.i, %403, %399
-  %.0239.i.i = phi ptr [ %398, %403 ], [ %398, %399 ], [ %443, %439 ], [ %398, %proto_item_set_generated.exit299.i.i ], [ %398, %432 ], [ %398, %435 ]
-  %454 = getelementptr inbounds i8, ptr %.0239.i.i, i64 16
+  %.1240.i.i = phi ptr [ %398, %403 ], [ %398, %399 ], [ %443, %439 ], [ %398, %proto_item_set_generated.exit299.i.i ], [ %398, %432 ], [ %398, %435 ]
+  %454 = getelementptr inbounds i8, ptr %.1240.i.i, i64 16
   %455 = load i32, ptr %454, align 8
   %.not270.i.i = icmp eq i32 %455, 0
   br i1 %.not270.i.i, label %466, label %456
@@ -1683,13 +1683,13 @@ proto_item_set_generated.exit305.i.i:             ; preds = %279, %278, %.crited
 
 466:                                              ; preds = %462, %459, %456, %proto_item_set_generated.exit302.i.i, %proto_item_set_generated.exit290.i.i
   %.2246317.ph.i.i = phi i32 [ 0, %462 ], [ 0, %459 ], [ 0, %456 ], [ 1, %proto_item_set_generated.exit290.i.i ], [ 0, %proto_item_set_generated.exit302.i.i ]
-  %.1240.ph.i.i = phi ptr [ %.0239.i.i, %462 ], [ %.0239.i.i, %459 ], [ %.0239.i.i, %456 ], [ %282, %proto_item_set_generated.exit290.i.i ], [ %.0239.i.i, %proto_item_set_generated.exit302.i.i ]
+  %.0239.ph.i.i = phi ptr [ %.1240.i.i, %462 ], [ %.1240.i.i, %459 ], [ %.1240.i.i, %456 ], [ %282, %proto_item_set_generated.exit290.i.i ], [ %.1240.i.i, %proto_item_set_generated.exit302.i.i ]
   store i32 %.2246317.ph.i.i, ptr %111, align 8
-  %467 = getelementptr inbounds i8, ptr %.1240.ph.i.i, i64 24
+  %467 = getelementptr inbounds i8, ptr %.0239.ph.i.i, i64 24
   %468 = load i64, ptr %467, align 8
   %469 = getelementptr inbounds i8, ptr %111, i64 16
   store i64 %468, ptr %469, align 8
-  %470 = getelementptr inbounds i8, ptr %.1240.ph.i.i, i64 32
+  %470 = getelementptr inbounds i8, ptr %.0239.ph.i.i, i64 32
   %471 = load i32, ptr %470, align 8
   %472 = getelementptr inbounds i8, ptr %111, i64 24
   store i32 %471, ptr %472, align 8
@@ -2503,7 +2503,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   br label %83
 
 83:                                               ; preds = %79, %.sink.split.i, %78
-  %.0143 = phi ptr [ null, %78 ], [ %hf_mgcp_param_x_osmux.hf_mgcp_param_extension.i, %79 ], [ @hf_mgcp_param_extension_critical, %.sink.split.i ]
+  %.1 = phi ptr [ null, %78 ], [ %hf_mgcp_param_x_osmux.hf_mgcp_param_extension.i, %79 ], [ @hf_mgcp_param_extension_critical, %.sink.split.i ]
   %84 = add i32 %.0222.lcssa.i, %43
   br label %.critedge.i
 
@@ -2698,11 +2698,11 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %166, %163, %160, %157, %136, %101, %85, %39, %31, %28, %25, %153, %147, %141, %96, %90, %58, %36, %22, %131, %54, %44, %156, %150, %144, %135, %134, %100, %99, %93, %83, %38
-  %.1 = phi ptr [ @hf_mgcp_param_secondendpointid, %156 ], [ @hf_mgcp_param_eventstates, %150 ], [ @hf_mgcp_param_packagelist, %144 ], [ @hf_mgcp_param_digitmap, %135 ], [ @hf_mgcp_param_invalid, %134 ], [ @hf_mgcp_param_restartdelay, %100 ], [ @hf_mgcp_param_restartmethod, %99 ], [ @hf_mgcp_param_maxmgcpdatagram, %93 ], [ %.0143, %83 ], [ @hf_mgcp_param_secondconnectionid, %38 ], [ @hf_mgcp_param_requestid, %44 ], [ @hf_mgcp_param_remotevoicemetrics, %54 ], [ @hf_mgcp_param_resourceid, %131 ], [ @hf_mgcp_param_invalid, %22 ], [ @hf_mgcp_param_connectionid, %36 ], [ @hf_mgcp_param_localvoicemetrics, %58 ], [ @hf_mgcp_param_connectionmode, %90 ], [ @hf_mgcp_param_reqevents, %96 ], [ @hf_mgcp_param_connectionparam, %141 ], [ @hf_mgcp_param_reasoncode, %147 ], [ @hf_mgcp_param_specificendpoint, %153 ], [ %spec.select, %25 ], [ %spec.select149, %28 ], [ %spec.select150, %31 ], [ %spec.select151, %39 ], [ %spec.select152, %85 ], [ %spec.select153, %101 ], [ %spec.select155, %136 ], [ %spec.select157, %157 ], [ %spec.select158, %160 ], [ %spec.select159, %163 ], [ %spec.select160, %166 ]
+  %.0143 = phi ptr [ @hf_mgcp_param_secondendpointid, %156 ], [ @hf_mgcp_param_eventstates, %150 ], [ @hf_mgcp_param_packagelist, %144 ], [ @hf_mgcp_param_digitmap, %135 ], [ @hf_mgcp_param_invalid, %134 ], [ @hf_mgcp_param_restartdelay, %100 ], [ @hf_mgcp_param_restartmethod, %99 ], [ @hf_mgcp_param_maxmgcpdatagram, %93 ], [ %.1, %83 ], [ @hf_mgcp_param_secondconnectionid, %38 ], [ @hf_mgcp_param_requestid, %44 ], [ @hf_mgcp_param_remotevoicemetrics, %54 ], [ @hf_mgcp_param_resourceid, %131 ], [ @hf_mgcp_param_invalid, %22 ], [ @hf_mgcp_param_connectionid, %36 ], [ @hf_mgcp_param_localvoicemetrics, %58 ], [ @hf_mgcp_param_connectionmode, %90 ], [ @hf_mgcp_param_reqevents, %96 ], [ @hf_mgcp_param_connectionparam, %141 ], [ @hf_mgcp_param_reasoncode, %147 ], [ @hf_mgcp_param_specificendpoint, %153 ], [ %spec.select, %25 ], [ %spec.select149, %28 ], [ %spec.select150, %31 ], [ %spec.select151, %39 ], [ %spec.select152, %85 ], [ %spec.select153, %101 ], [ %spec.select155, %136 ], [ %spec.select157, %157 ], [ %spec.select158, %160 ], [ %spec.select159, %163 ], [ %spec.select160, %166 ]
   %.0223.i = phi i32 [ %152, %156 ], [ %146, %150 ], [ %140, %144 ], [ %16, %135 ], [ %16, %134 ], [ %95, %100 ], [ %95, %99 ], [ %89, %93 ], [ %84, %83 ], [ %35, %38 ], [ %16, %44 ], [ %16, %54 ], [ %126, %131 ], [ %16, %22 ], [ %16, %36 ], [ %16, %58 ], [ %16, %90 ], [ %16, %96 ], [ %16, %141 ], [ %16, %147 ], [ %16, %153 ], [ %16, %25 ], [ %16, %28 ], [ %16, %31 ], [ %16, %39 ], [ %16, %85 ], [ %16, %101 ], [ %16, %136 ], [ %16, %157 ], [ %16, %160 ], [ %16, %163 ], [ %16, %166 ]
   %.0.i = phi ptr [ null, %156 ], [ null, %150 ], [ null, %144 ], [ null, %135 ], [ null, %134 ], [ null, %100 ], [ null, %99 ], [ null, %93 ], [ null, %83 ], [ null, %38 ], [ null, %44 ], [ null, %54 ], [ null, %131 ], [ null, %22 ], [ null, %36 ], [ null, %58 ], [ null, %90 ], [ null, %96 ], [ null, %141 ], [ null, %147 ], [ null, %153 ], [ null, %25 ], [ null, %28 ], [ null, %31 ], [ null, %39 ], [ null, %85 ], [ %spec.select154, %101 ], [ %spec.select156, %136 ], [ null, %157 ], [ null, %160 ], [ null, %163 ], [ null, %166 ]
   %169 = add i32 %.0223.i, 1
-  %.not250.i = icmp ne ptr %.1, null
+  %.not250.i = icmp ne ptr %.0143, null
   %170 = sub i32 %169, %16
   %171 = icmp slt i32 %170, %20
   %or.cond254.i = and i1 %.not250.i, %171
@@ -2730,7 +2730,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   br label %tvb_parse_param.exit
 
 tvb_parse_param.exit:                             ; preds = %36, %34, %64, %._crit_edge.i, %62, %51, %58, %42, %90, %88, %96, %94, %141, %139, %147, %145, %153, %151, %18, %.critedge.i, %172, %175, %180
-  %.2 = phi ptr [ %.1, %175 ], [ %.1, %180 ], [ %.1, %172 ], [ %.1, %.critedge.i ], [ @hf_mgcp_param_invalid, %18 ], [ null, %151 ], [ null, %153 ], [ null, %145 ], [ null, %147 ], [ null, %139 ], [ null, %141 ], [ null, %94 ], [ null, %96 ], [ null, %88 ], [ null, %90 ], [ null, %42 ], [ null, %58 ], [ null, %51 ], [ null, %62 ], [ null, %._crit_edge.i ], [ null, %64 ], [ null, %34 ], [ null, %36 ]
+  %.2 = phi ptr [ %.0143, %175 ], [ %.0143, %180 ], [ %.0143, %172 ], [ %.0143, %.critedge.i ], [ @hf_mgcp_param_invalid, %18 ], [ null, %151 ], [ null, %153 ], [ null, %145 ], [ null, %147 ], [ null, %139 ], [ null, %141 ], [ null, %94 ], [ null, %96 ], [ null, %88 ], [ null, %90 ], [ null, %42 ], [ null, %58 ], [ null, %51 ], [ null, %62 ], [ null, %._crit_edge.i ], [ null, %64 ], [ null, %34 ], [ null, %36 ]
   %.0219.i = phi i32 [ %179, %175 ], [ %179, %180 ], [ -1, %172 ], [ -1, %.critedge.i ], [ -1, %18 ], [ -1, %151 ], [ -1, %153 ], [ -1, %145 ], [ -1, %147 ], [ -1, %139 ], [ -1, %141 ], [ -1, %94 ], [ -1, %96 ], [ -1, %88 ], [ -1, %90 ], [ -1, %42 ], [ -1, %58 ], [ -1, %51 ], [ -1, %62 ], [ -1, %._crit_edge.i ], [ -1, %64 ], [ -1, %34 ], [ -1, %36 ]
   %184 = icmp eq ptr %.2, @hf_mgcp_param_invalid
   %185 = icmp eq ptr %.2, @hf_mgcp_param_extension

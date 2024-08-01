@@ -845,7 +845,7 @@ define internal i64 @cf_h2_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not144, label %56, label %.thread207.thread
 
 56:                                               ; preds = %54, %50, %29
-  %.0 = phi i64 [ %25, %29 ], [ %52, %54 ], [ %52, %50 ]
+  %.1 = phi i64 [ %25, %29 ], [ %52, %54 ], [ %52, %50 ]
   %57 = getelementptr inbounds i8, ptr %19, i64 72
   %58 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %57) #11
   br i1 %58, label %.thread186, label %59
@@ -1196,7 +1196,7 @@ h2_submit.exit:                                   ; preds = %198, %.thread.i, %2
   br i1 %.not139, label %235, label %.thread195
 
 .thread195:                                       ; preds = %.thread186, %229
-  %.0163179193200 = phi ptr [ %217, %229 ], [ %19, %.thread186 ]
+  %.1164179193200 = phi ptr [ %217, %229 ], [ %19, %.thread186 ]
   %.sroa.0.0.copyload168177194198 = phi ptr [ %.sroa.0.0.copyload169, %229 ], [ %.sroa.0.0.copyload, %.thread186 ]
   %230 = getelementptr inbounds i8, ptr %1, i64 2642
   %231 = load i64, ptr %230, align 2
@@ -1205,12 +1205,12 @@ h2_submit.exit:                                   ; preds = %198, %.thread.i, %2
   br i1 %.not, label %235, label %233
 
 233:                                              ; preds = %.thread195
-  %234 = load i32, ptr %.0163179193200, align 8
+  %234 = load i32, ptr %.1164179193200, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, i32 noundef %234) #11
   br label %235
 
 235:                                              ; preds = %229, %.thread195, %233
-  %.0163179193201 = phi ptr [ %217, %229 ], [ %.0163179193200, %.thread195 ], [ %.0163179193200, %233 ]
+  %.1164179193201 = phi ptr [ %217, %229 ], [ %.1164179193200, %.thread195 ], [ %.1164179193200, %233 ]
   %.sroa.0.0.copyload168177194199 = phi ptr [ %.sroa.0.0.copyload169, %229 ], [ %.sroa.0.0.copyload168177194198, %.thread195 ], [ %.sroa.0.0.copyload168177194198, %233 ]
   store i32 55, ptr %4, align 4
   br label %.thread207
@@ -1218,8 +1218,8 @@ h2_submit.exit:                                   ; preds = %198, %.thread.i, %2
 236:                                              ; preds = %.thread186, %221, %219
   %.not147185 = phi i1 [ false, %221 ], [ true, %219 ], [ false, %.thread186 ]
   %237 = phi i32 [ %220, %221 ], [ %220, %219 ], [ %225, %.thread186 ]
-  %.1183 = phi i64 [ %.0114146.i, %221 ], [ %.0114146.i, %219 ], [ %.0, %.thread186 ]
-  %.0163180 = phi ptr [ %217, %221 ], [ null, %219 ], [ %19, %.thread186 ]
+  %.2183 = phi i64 [ %.0114146.i, %221 ], [ %.0114146.i, %219 ], [ %.1, %.thread186 ]
+  %.1164180 = phi ptr [ %217, %221 ], [ null, %219 ], [ %19, %.thread186 ]
   %.sroa.0.0.copyload168178 = phi ptr [ %.sroa.0.0.copyload169, %221 ], [ %.sroa.0.0.copyload169, %219 ], [ %.sroa.0.0.copyload, %.thread186 ]
   switch i32 %237, label %238 [
     i32 81, label %243
@@ -1234,26 +1234,26 @@ h2_submit.exit:                                   ; preds = %198, %.thread.i, %2
   br i1 %.not147185, label %.thread202, label %240
 
 240:                                              ; preds = %239
-  %241 = getelementptr inbounds i8, ptr %.0163180, i64 72
+  %241 = getelementptr inbounds i8, ptr %.1164180, i64 72
   %242 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %241) #11
   %not. = xor i1 %242, true
   br label %243
 
 243:                                              ; preds = %240, %236
   %244 = phi i1 [ true, %236 ], [ %not., %240 ]
-  %245 = icmp ne ptr %.0163180, null
+  %245 = icmp ne ptr %.1164180, null
   %or.cond5 = and i1 %245, %244
-  %246 = icmp sgt i64 %.1183, 0
+  %246 = icmp sgt i64 %.2183, 0
   %or.cond7 = and i1 %246, %or.cond5
   br i1 %or.cond7, label %247, label %.thread202
 
 247:                                              ; preds = %243
   %248 = load ptr, ptr %12, align 8
-  %249 = load i32, ptr %.0163180, align 8
+  %249 = load i32, ptr %.1164180, align 8
   %250 = call i32 @nghttp2_session_get_stream_remote_window_size(ptr noundef %248, i32 noundef %249) #11
   %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds i8, ptr %.0163180, i64 280
-  store i64 %.1183, ptr %252, align 8
+  %252 = getelementptr inbounds i8, ptr %.1164180, i64 280
+  store i64 %.2183, ptr %252, align 8
   br i1 %.not139, label %268, label %253
 
 253:                                              ; preds = %247
@@ -1273,10 +1273,10 @@ h2_submit.exit:                                   ; preds = %198, %.thread.i, %2
   br i1 %263, label %264, label %268
 
 264:                                              ; preds = %259
-  %265 = load i32, ptr %.0163180, align 8
+  %265 = load i32, ptr %.1164180, align 8
   %266 = load ptr, ptr %12, align 8
   %267 = call i32 @nghttp2_session_get_remote_window_size(ptr noundef %266) #11
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %265, i64 noundef %3, i32 noundef %267, i64 noundef %251, i64 noundef %.1183) #11
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %265, i64 noundef %3, i32 noundef %267, i64 noundef %251, i64 noundef %.2183) #11
   br label %268
 
 268:                                              ; preds = %247, %253, %259, %264
@@ -1302,13 +1302,13 @@ should_close_session.exit:                        ; preds = %272
   br i1 %.not3.i.not, label %277, label %should_close_session.exit.thread
 
 277:                                              ; preds = %should_close_session.exit
-  %278 = getelementptr inbounds i8, ptr %.0163180, i64 333
+  %278 = getelementptr inbounds i8, ptr %.1164180, i64 333
   %279 = load i8, ptr %278, align 1
   %280 = trunc i8 %279 to i1
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %277
-  %282 = call fastcc i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0163180, ptr noundef %4)
+  %282 = call fastcc i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.1164180, ptr noundef %4)
   br label %.thread207
 
 283:                                              ; preds = %277
@@ -1340,27 +1340,27 @@ should_close_session.exit:                        ; preds = %272
 
 should_close_session.exit.thread:                 ; preds = %.thread202, %272, %should_close_session.exit, %h2_submit.exit, %238
   %.sroa.0.0.copyload167 = phi ptr [ %.sroa.0.0.copyload169, %h2_submit.exit ], [ %.sroa.0.0.copyload168178, %238 ], [ %.sroa.0.0.copyload168178, %should_close_session.exit ], [ %.sroa.0.0.copyload168178, %272 ], [ %.sroa.0.0.copyload168178, %.thread202 ]
-  %.1164 = phi ptr [ %217, %h2_submit.exit ], [ %.0163180, %238 ], [ %.0163180, %should_close_session.exit ], [ %.0163180, %272 ], [ %.0163180, %.thread202 ]
-  %.2 = phi i64 [ %.0114146.i, %h2_submit.exit ], [ -1, %238 ], [ %.1183, %should_close_session.exit ], [ %.1183, %272 ], [ %.1183, %.thread202 ]
-  %.not152 = icmp eq ptr %.1164, null
+  %.0163 = phi ptr [ %217, %h2_submit.exit ], [ %.1164180, %238 ], [ %.1164180, %should_close_session.exit ], [ %.1164180, %272 ], [ %.1164180, %.thread202 ]
+  %.0 = phi i64 [ %.0114146.i, %h2_submit.exit ], [ -1, %238 ], [ %.2183, %should_close_session.exit ], [ %.2183, %272 ], [ %.2183, %.thread202 ]
+  %.not152 = icmp eq ptr %.0163, null
   br i1 %.not152, label %320, label %.thread207
 
 .thread207:                                       ; preds = %235, %296, %281, %268, %should_close_session.exit.thread
-  %.2215 = phi i64 [ %.2, %should_close_session.exit.thread ], [ -1, %235 ], [ -1, %296 ], [ %282, %281 ], [ -1, %268 ]
-  %.1164214 = phi ptr [ %.1164, %should_close_session.exit.thread ], [ %.0163179193201, %235 ], [ %.0163180, %296 ], [ %.0163180, %281 ], [ %.0163180, %268 ]
+  %.0215 = phi i64 [ %.0, %should_close_session.exit.thread ], [ -1, %235 ], [ -1, %296 ], [ %282, %281 ], [ -1, %268 ]
+  %.0163214 = phi ptr [ %.0163, %should_close_session.exit.thread ], [ %.1164179193201, %235 ], [ %.1164180, %296 ], [ %.1164180, %281 ], [ %.1164180, %268 ]
   %.sroa.0.0.copyload167213 = phi ptr [ %.sroa.0.0.copyload167, %should_close_session.exit.thread ], [ %.sroa.0.0.copyload168177194199, %235 ], [ %.sroa.0.0.copyload168178, %296 ], [ %.sroa.0.0.copyload168178, %281 ], [ %.sroa.0.0.copyload168178, %268 ]
   br i1 %.not139, label %338, label %.thread207.thread
 
 .thread207.thread.sink.split:                     ; preds = %59, %49, %48, %47, %42, %41, %28
   %.sink = phi i32 [ 16, %28 ], [ 0, %41 ], [ 0, %42 ], [ 0, %47 ], [ 55, %48 ], [ 55, %49 ], [ 55, %59 ]
-  %.2215220.ph = phi i64 [ -1, %28 ], [ %3, %41 ], [ %3, %42 ], [ %3, %47 ], [ -1, %48 ], [ -1, %49 ], [ -1, %59 ]
+  %.0215220.ph = phi i64 [ -1, %28 ], [ %3, %41 ], [ %3, %42 ], [ %3, %47 ], [ -1, %48 ], [ -1, %49 ], [ -1, %59 ]
   store i32 %.sink, ptr %4, align 4
   br label %.thread207.thread
 
 .thread207.thread:                                ; preds = %.thread207.thread.sink.split, %54, %.thread207
   %.sroa.0.0.copyload167213222 = phi ptr [ %.sroa.0.0.copyload167213, %.thread207 ], [ %.sroa.0.0.copyload, %54 ], [ %.sroa.0.0.copyload, %.thread207.thread.sink.split ]
-  %.1164214221 = phi ptr [ %.1164214, %.thread207 ], [ %19, %54 ], [ %19, %.thread207.thread.sink.split ]
-  %.2215220 = phi i64 [ %.2215, %.thread207 ], [ %52, %54 ], [ %.2215220.ph, %.thread207.thread.sink.split ]
+  %.0163214221 = phi ptr [ %.0163214, %.thread207 ], [ %19, %54 ], [ %19, %.thread207.thread.sink.split ]
+  %.0215220 = phi i64 [ %.0215, %.thread207 ], [ %52, %54 ], [ %.0215220.ph, %.thread207.thread.sink.split ]
   %297 = getelementptr inbounds i8, ptr %1, i64 2642
   %298 = load i64, ptr %297, align 2
   %299 = and i64 %298, 268435456
@@ -1377,19 +1377,19 @@ should_close_session.exit.thread:                 ; preds = %.thread202, %272, %
   br i1 %306, label %307, label %338
 
 307:                                              ; preds = %302
-  %308 = load i32, ptr %.1164214221, align 8
+  %308 = load i32, ptr %.0163214221, align 8
   %309 = load i32, ptr %4, align 4
-  %310 = getelementptr inbounds i8, ptr %.1164214221, i64 288
+  %310 = getelementptr inbounds i8, ptr %.0163214221, i64 288
   %311 = load i64, ptr %310, align 8
   %312 = load ptr, ptr %12, align 8
   %313 = call i32 @nghttp2_session_get_stream_remote_window_size(ptr noundef %312, i32 noundef %308) #11
   %314 = load ptr, ptr %12, align 8
   %315 = call i32 @nghttp2_session_get_remote_window_size(ptr noundef %314) #11
-  %316 = getelementptr inbounds i8, ptr %.1164214221, i64 72
+  %316 = getelementptr inbounds i8, ptr %.0163214221, i64 72
   %317 = call i64 @Curl_bufq_len(ptr noundef nonnull %316) #11
   %318 = getelementptr inbounds i8, ptr %12, i64 88
   %319 = call i64 @Curl_bufq_len(ptr noundef nonnull %318) #11
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.26, i32 noundef %308, i64 noundef %3, i64 noundef %.2215220, i32 noundef %309, i64 noundef %311, i32 noundef %313, i32 noundef %315, i64 noundef %317, i64 noundef %319) #11
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.26, i32 noundef %308, i64 noundef %3, i64 noundef %.0215220, i32 noundef %309, i64 noundef %311, i32 noundef %313, i32 noundef %315, i64 noundef %317, i64 noundef %319) #11
   br label %338
 
 320:                                              ; preds = %should_close_session.exit.thread
@@ -1417,16 +1417,16 @@ should_close_session.exit.thread:                 ; preds = %.thread202, %272, %
   %335 = call i32 @nghttp2_session_get_remote_window_size(ptr noundef %334) #11
   %336 = getelementptr inbounds i8, ptr %12, i64 88
   %337 = call i64 @Curl_bufq_len(ptr noundef nonnull %336) #11
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.27, i64 noundef %3, i64 noundef %.2, i32 noundef %333, i32 noundef %335, i64 noundef %337) #11
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.27, i64 noundef %3, i64 noundef %.0, i32 noundef %333, i32 noundef %335, i64 noundef %337) #11
   br label %338
 
 338:                                              ; preds = %.thread207, %.thread207.thread, %302, %307, %320, %321, %327, %332
-  %.2216 = phi i64 [ %.2215, %.thread207 ], [ %.2215220, %.thread207.thread ], [ %.2215220, %302 ], [ %.2215220, %307 ], [ %.2, %320 ], [ %.2, %321 ], [ %.2, %327 ], [ %.2, %332 ]
+  %.0216 = phi i64 [ %.0215, %.thread207 ], [ %.0215220, %.thread207.thread ], [ %.0215220, %302 ], [ %.0215220, %307 ], [ %.0, %320 ], [ %.0, %321 ], [ %.0, %327 ], [ %.0, %332 ]
   %.sroa.0.0.copyload167212 = phi ptr [ %.sroa.0.0.copyload167213, %.thread207 ], [ %.sroa.0.0.copyload167213222, %.thread207.thread ], [ %.sroa.0.0.copyload167213222, %302 ], [ %.sroa.0.0.copyload167213222, %307 ], [ %.sroa.0.0.copyload167, %320 ], [ %.sroa.0.0.copyload167, %321 ], [ %.sroa.0.0.copyload167, %327 ], [ %.sroa.0.0.copyload167, %332 ]
   %339 = load ptr, ptr %11, align 8
   %340 = getelementptr inbounds i8, ptr %339, i64 16
   store ptr %.sroa.0.0.copyload167212, ptr %340, align 8
-  ret i64 %.2216
+  ret i64 %.0216
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1483,18 +1483,18 @@ define internal i64 @cf_h2_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %28
-  %.088 = phi i64 [ %29, %28 ], [ %22, %20 ]
-  %30 = icmp sgt i64 %.088, 0
+  %.1 = phi i64 [ %29, %28 ], [ %22, %20 ]
+  %30 = icmp sgt i64 %.1, 0
   br i1 %30, label %31, label %drain_stream.exit
 
 31:                                               ; preds = %.critedge
   %32 = getelementptr inbounds i8, ptr %13, i64 272
   %33 = load i64, ptr %32, align 8
-  %.not106 = icmp ult i64 %33, %.088
+  %.not106 = icmp ult i64 %33, %.1
   br i1 %.not106, label %36, label %34
 
 34:                                               ; preds = %31
-  %35 = sub nuw i64 %33, %.088
+  %35 = sub nuw i64 %33, %.1
   store i64 %35, ptr %32, align 8
   br label %42
 
@@ -1503,13 +1503,13 @@ define internal i64 @cf_h2_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not107, label %.thread117, label %37
 
 37:                                               ; preds = %36
-  %38 = sub nsw i64 %.088, %33
+  %38 = sub nsw i64 %.1, %33
   store i64 0, ptr %32, align 8
   %.not108 = icmp eq i64 %38, 0
   br i1 %.not108, label %42, label %.thread117
 
 .thread117:                                       ; preds = %36, %37
-  %.0120 = phi i64 [ %38, %37 ], [ %.088, %36 ]
+  %.0120 = phi i64 [ %38, %37 ], [ %.1, %36 ]
   %39 = load ptr, ptr %7, align 8
   %40 = load i32, ptr %13, align 8
   %41 = tail call i32 @nghttp2_session_consume(ptr noundef %39, i32 noundef %40, i64 noundef %.0120) #11
@@ -1593,7 +1593,7 @@ define internal i64 @cf_h2_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %drain_stream.exit
 
 drain_stream.exit:                                ; preds = %82, %68, %.critedge, %42, %26, %24
-  %.1 = phi i64 [ %22, %24 ], [ %22, %26 ], [ %.088, %42 ], [ %.088, %.critedge ], [ %.088, %68 ], [ %.088, %82 ]
+  %.088 = phi i64 [ %22, %24 ], [ %22, %26 ], [ %.1, %42 ], [ %.1, %.critedge ], [ %.1, %68 ], [ %.1, %82 ]
   %83 = tail call fastcc i32 @h2_progress_egress(ptr noundef nonnull %0, ptr noundef nonnull %1)
   switch i32 %83, label %111 [
     i32 81, label %84
@@ -1658,7 +1658,7 @@ drain_stream.exit:                                ; preds = %82, %68, %.critedge
   br label %drain_stream.exit115
 
 drain_stream.exit115:                             ; preds = %111, %drain_stream.exit, %95, %110
-  %.2 = phi i64 [ -1, %111 ], [ %.1, %drain_stream.exit ], [ %.1, %95 ], [ %.1, %110 ]
+  %.2 = phi i64 [ -1, %111 ], [ %.088, %drain_stream.exit ], [ %.088, %95 ], [ %.088, %110 ]
   %112 = getelementptr inbounds i8, ptr %1, i64 2642
   %113 = load i64, ptr %112, align 2
   %114 = and i64 %113, 268435456
@@ -3240,8 +3240,8 @@ define internal fastcc i32 @h2_progress_egress(ptr noundef %0, ptr noundef %1) u
   br i1 %.not58, label %66, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %69, %72, %66
-  %.1.lcssa = phi i32 [ 0, %69 ], [ %74, %72 ], [ 0, %66 ]
-  %75 = call i32 @nghttp2_is_fatal(i32 noundef %.1.lcssa) #11
+  %.2.lcssa = phi i32 [ 0, %69 ], [ %74, %72 ], [ 0, %66 ]
+  %75 = call i32 @nghttp2_is_fatal(i32 noundef %.2.lcssa) #11
   %.not61 = icmp eq i32 %75, 0
   br i1 %.not61, label %90, label %77
 
@@ -3254,7 +3254,7 @@ define internal fastcc i32 @h2_progress_egress(ptr noundef %0, ptr noundef %1) u
   br i1 %.not, label %119, label %.thread71
 
 .thread71:                                        ; preds = %.critedge.thread, %77
-  %.27073 = phi i32 [ %.1.lcssa, %77 ], [ %62, %.critedge.thread ]
+  %.17073 = phi i32 [ %.2.lcssa, %77 ], [ %62, %.critedge.thread ]
   %78 = getelementptr inbounds i8, ptr %1, i64 2642
   %79 = load i64, ptr %78, align 2
   %80 = and i64 %79, 268435456
@@ -3271,8 +3271,8 @@ define internal fastcc i32 @h2_progress_egress(ptr noundef %0, ptr noundef %1) u
   br i1 %87, label %88, label %119
 
 88:                                               ; preds = %83
-  %89 = call ptr @nghttp2_strerror(i32 noundef %.27073) #11
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef %89, i32 noundef %.27073) #11
+  %89 = call ptr @nghttp2_strerror(i32 noundef %.17073) #11
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef %89, i32 noundef %.17073) #11
   br label %119
 
 90:                                               ; preds = %.critedge.thread, %.critedge

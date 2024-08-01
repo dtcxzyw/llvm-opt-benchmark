@@ -374,7 +374,7 @@ sw.bb202:                                         ; preds = %while.end
   br label %sw.bb205
 
 sw.bb205:                                         ; preds = %sw.bb202, %while.end
-  %b.1 = phi i32 [ %xor196, %while.end ], [ %add204, %sw.bb202 ]
+  %b.2 = phi i32 [ %xor196, %while.end ], [ %add204, %sw.bb202 ]
   %m_ps.i.i409 = getelementptr inbounds i8, ptr %app, i64 24
   %79 = load ptr, ptr %m_ps.i.i409, align 8
   %80 = ptrtoint ptr %79 to i64
@@ -385,15 +385,15 @@ sw.bb205:                                         ; preds = %sw.bb202, %while.en
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
+  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
   %.neg446 = add i32 %xor192, %0
-  %82 = add i32 %b.2, %c.1
+  %82 = add i32 %b.1, %c.1
   %sub209 = sub i32 %.neg446, %82
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %83 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.2, %83
+  %sub213 = sub i32 %b.1, %83
   %shl214 = shl i32 %xor211, 8
   %xor215 = xor i32 %sub213, %shl214
   %84 = add i32 %xor211, %xor215

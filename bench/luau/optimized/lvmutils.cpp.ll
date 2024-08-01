@@ -1201,7 +1201,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %90
 
 .critedge:                                        ; preds = %105, %81, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86.thread
   %.07398 = phi i64 [ %.073104, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86.thread ], [ %82, %81 ], [ %106, %105 ]
-  %.07195 = phi i32 [ %92, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86.thread ], [ 1, %81 ], [ %.0, %105 ]
+  %.195 = phi i32 [ %92, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86.thread ], [ 1, %81 ], [ %.0, %105 ]
   %107 = icmp ult i64 %.07398, 512
   br i1 %107, label %111, label %108
 
@@ -1213,7 +1213,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %90
 111:                                              ; preds = %.critedge, %108
   %.076 = phi ptr [ %110, %108 ], [ %7, %.critedge ]
   %.072 = phi ptr [ %109, %108 ], [ null, %.critedge ]
-  %112 = zext i32 %.07195 to i64
+  %112 = zext i32 %.195 to i64
   br label %113
 
 113:                                              ; preds = %111, %113
@@ -1254,8 +1254,8 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %90
   br label %134
 
 134:                                              ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84, %70, %132, %130
-  %.1 = phi i32 [ 2, %70 ], [ 2, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84 ], [ %.07195, %130 ], [ %.07195, %132 ], [ 2, %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit ]
-  %135 = add nsw i32 %.1, -1
+  %.071 = phi i32 [ 2, %70 ], [ 2, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84 ], [ %.195, %130 ], [ %.195, %132 ], [ 2, %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit ]
+  %135 = add nsw i32 %.071, -1
   %136 = sub nsw i32 %.0, %135
   %137 = sub nsw i32 %.070, %135
   %138 = icmp sgt i32 %136, 1

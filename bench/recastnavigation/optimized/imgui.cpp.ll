@@ -599,7 +599,7 @@ _Z6inRectiiiib.exit:                              ; preds = %19, %16, %13, %2
 41:                                               ; preds = %39, %36, %._crit_edge.i
   %42 = phi i32 [ 0, %39 ], [ %7, %36 ], [ %23, %._crit_edge.i ]
   %43 = phi i32 [ %.pre10.i, %39 ], [ %.pre10.i, %36 ], [ %.pre.i, %._crit_edge.i ]
-  %.1.i = phi i1 [ %40, %39 ], [ false, %36 ], [ false, %._crit_edge.i ]
+  %.0.i = phi i1 [ %40, %39 ], [ false, %36 ], [ false, %._crit_edge.i ]
   %44 = icmp eq i32 %43, %7
   br i1 %44, label %45, label %_ZL11buttonLogicjb.exit
 
@@ -730,7 +730,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTexti
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
 _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, %90, %70
-  ret i1 %.1.i
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -830,7 +830,7 @@ _Z6inRectiiiib.exit:                              ; preds = %19, %16, %13, %2
 41:                                               ; preds = %39, %36, %._crit_edge.i
   %42 = phi i32 [ 0, %39 ], [ %7, %36 ], [ %23, %._crit_edge.i ]
   %43 = phi i32 [ %.pre10.i, %39 ], [ %.pre10.i, %36 ], [ %.pre.i, %._crit_edge.i ]
-  %.1.i = phi i1 [ %40, %39 ], [ false, %36 ], [ false, %._crit_edge.i ]
+  %.0.i = phi i1 [ %40, %39 ], [ false, %36 ], [ false, %._crit_edge.i ]
   %44 = icmp eq i32 %43, %7
   br i1 %44, label %45, label %_ZL20addGfxCmdRoundedRectfffffj.exit
 
@@ -957,7 +957,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTexti
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
 _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, %90, %70
-  ret i1 %.1.i
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -1058,7 +1058,7 @@ _Z6inRectiiiib.exit:                              ; preds = %21, %17, %13, %3
 43:                                               ; preds = %41, %38, %._crit_edge.i
   %44 = phi i32 [ 0, %41 ], [ %8, %38 ], [ %25, %._crit_edge.i ]
   %45 = phi i32 [ %.pre10.i, %41 ], [ %.pre10.i, %38 ], [ %.pre.i, %._crit_edge.i ]
-  %.1.i = phi i1 [ %42, %41 ], [ false, %38 ], [ false, %._crit_edge.i ]
+  %.0.i = phi i1 [ %42, %41 ], [ false, %38 ], [ false, %._crit_edge.i ]
   %46 = icmp eq i32 %45, %8
   br i1 %46, label %47, label %_ZL11buttonLogicjb.exit
 
@@ -1249,7 +1249,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTexti
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
 _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, %70, %84, %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread34, %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread
-  ret i1 %.1.i
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -1350,7 +1350,7 @@ _Z6inRectiiiib.exit:                              ; preds = %22, %18, %15, %4
 44:                                               ; preds = %42, %39, %._crit_edge.i
   %45 = phi i32 [ 0, %42 ], [ %9, %39 ], [ %26, %._crit_edge.i ]
   %46 = phi i32 [ %.pre10.i, %42 ], [ %.pre10.i, %39 ], [ %.pre.i, %._crit_edge.i ]
-  %.1.i = phi i1 [ %43, %42 ], [ false, %39 ], [ false, %._crit_edge.i ]
+  %.0.i = phi i1 [ %43, %42 ], [ false, %39 ], [ false, %._crit_edge.i ]
   %47 = icmp eq i32 %46, %9
   br i1 %47, label %48, label %_ZL11buttonLogicjb.exit
 
@@ -1530,7 +1530,7 @@ _ZL9allocTextPKc.exit.i34:                        ; preds = %135, %114
   br label %_ZL13addGfxCmdTextiiiPKcj.exit36
 
 _ZL13addGfxCmdTextiiiPKcj.exit36:                 ; preds = %_ZL9allocTextPKc.exit.i34, %_ZL13addGfxCmdTextiiiPKcj.exit
-  ret i1 %.1.i
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -1793,7 +1793,7 @@ _Z6inRectiiiib.exit:                              ; preds = %58, %54, %51, %_ZL2
 80:                                               ; preds = %78, %75, %._crit_edge.i
   %81 = phi i32 [ 0, %78 ], [ %13, %75 ], [ %62, %._crit_edge.i ]
   %82 = phi i32 [ %.pre10.i, %78 ], [ %.pre10.i, %75 ], [ %.pre.i, %._crit_edge.i ]
-  %.1.i = phi i1 [ %79, %78 ], [ false, %75 ], [ false, %._crit_edge.i ]
+  %.0.i = phi i1 [ %79, %78 ], [ false, %75 ], [ false, %._crit_edge.i ]
   %83 = icmp eq i32 %82, %13
   br i1 %83, label %84, label %_ZL11buttonLogicjb.exit
 
@@ -2078,7 +2078,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit74.sink.split:      ; preds = %_ZL13addGfxCmdTexti
   br label %_ZL13addGfxCmdTextiiiPKcj.exit74
 
 _ZL13addGfxCmdTextiiiPKcj.exit74:                 ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit74.sink.split, %137, %186, %_ZL13addGfxCmdTextiiiPKcj.exit77, %_ZL13addGfxCmdTextiiiPKcj.exit
-  %236 = or i1 %.1.i, %.06384
+  %236 = or i1 %.0.i, %.06384
   ret i1 %236
 }
 

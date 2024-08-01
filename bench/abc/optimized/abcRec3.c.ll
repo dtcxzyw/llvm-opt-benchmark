@@ -3649,7 +3649,7 @@ Abc_Clock.exit:                                   ; preds = %1, %18
 60:                                               ; preds = %.lr.ph167, %280
   %indvars.iv173 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next174, %280 ]
   %61 = phi ptr [ %36, %.lr.ph167 ], [ %281, %280 ]
-  %.0166 = phi ptr [ null, %.lr.ph167 ], [ %.4, %280 ]
+  %.0166 = phi ptr [ null, %.lr.ph167 ], [ %.1, %280 ]
   %.val116 = load ptr, ptr %34, align 8
   %62 = getelementptr i8, ptr %61, i64 8
   %.val117.val = load ptr, ptr %62, align 8
@@ -3926,7 +3926,7 @@ Abc_Clock.exit135:                                ; preds = %144, %147
   br i1 %200, label %.lr.ph161, label %.critedge2, !llvm.loop !35
 
 .critedge2:                                       ; preds = %.lr.ph161, %171, %.preheader
-  %.2 = phi ptr [ %.0166, %.preheader ], [ %176, %171 ], [ null, %.lr.ph161 ]
+  %.3 = phi ptr [ %.0166, %.preheader ], [ %176, %171 ], [ null, %.lr.ph161 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %201 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #26
   %202 = icmp slt i32 %201, 0
@@ -3947,7 +3947,7 @@ Abc_Clock.exit137:                                ; preds = %.critedge2, %203
   %210 = load i64, ptr %51, align 8
   %211 = add nsw i64 %209, %210
   store i64 %211, ptr %51, align 8
-  %212 = getelementptr inbounds i8, ptr %.2, i64 8
+  %212 = getelementptr inbounds i8, ptr %.3, i64 8
   %213 = load i32, ptr %212, align 4
   %214 = ashr i32 %213, 1
   %.val = load ptr, ptr %52, align 8
@@ -4083,7 +4083,7 @@ Abc_Clock.exit141:                                ; preds = %Vec_IntPush.exit, %
   br label %280
 
 280:                                              ; preds = %Abc_TtSupportSize.exit, %Abc_Clock.exit141, %219
-  %.4 = phi ptr [ %.0166, %Abc_TtSupportSize.exit ], [ %.2, %219 ], [ %.2, %Abc_Clock.exit141 ]
+  %.1 = phi ptr [ %.0166, %Abc_TtSupportSize.exit ], [ %.3, %219 ], [ %.3, %Abc_Clock.exit141 ]
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %281 = load ptr, ptr %35, align 8
   %282 = getelementptr i8, ptr %281, i64 4

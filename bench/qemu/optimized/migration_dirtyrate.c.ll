@@ -570,7 +570,7 @@ while.end18.i.i.i:                                ; preds = %for.end.i.i.i
 
 for.body22.i.i.i:                                 ; preds = %while.end18.i.i.i, %while.end43.i.i.i
   %block.128.in.i.i.i = phi i64 [ %29, %while.end43.i.i.i ], [ %18, %while.end18.i.i.i ]
-  %index.027.i.i.i = phi i32 [ %index.1.i.i.i, %while.end43.i.i.i ], [ 0, %while.end18.i.i.i ]
+  %index.127.i.i.i = phi i32 [ %index.2.i.i.i, %while.end43.i.i.i ], [ 0, %while.end18.i.i.i ]
   %block.128.i.i.i = inttoptr i64 %block.128.in.i.i.i to ptr
   %call23.i.i.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.128.i.i.i) #12
   br i1 %call23.i.i.i, label %if.else25.i.i.i, label %while.end43.i.i.i
@@ -580,11 +580,11 @@ if.else25.i.i.i:                                  ; preds = %for.body22.i.i.i
   br i1 %call26.i.i.i, label %while.end43.i.i.i, label %if.end28.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %if.else25.i.i.i
-  %cmp29.not.i.i.i = icmp slt i32 %index.027.i.i.i, %total_count.0.lcssa.i.i.i
+  %cmp29.not.i.i.i = icmp slt i32 %index.127.i.i.i, %total_count.0.lcssa.i.i.i
   br i1 %cmp29.not.i.i.i, label %if.end32.i.i.i, label %if.end.i.i
 
 if.end32.i.i.i:                                   ; preds = %if.end28.i.i.i
-  %idxprom.i.i.i = sext i32 %index.027.i.i.i to i64
+  %idxprom.i.i.i = sext i32 %index.127.i.i.i to i64
   %arrayidx.i.i.i = getelementptr %struct.RamblockDirtyInfo, ptr %call10.i.i.i, i64 %idxprom.i.i.i
   %call.i.i.i20.i = tail call i64 @qemu_ram_get_used_length(ptr noundef nonnull %block.128.i.i.i) #12
   %mul.i.i.i.i = mul i64 %call.i.i.i20.i, %config.sroa.0.0.copyload
@@ -661,11 +661,11 @@ for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br label %if.end35.i.i.i
 
 if.end35.i.i.i:                                   ; preds = %for.end.i.i.i.i, %if.end32.i.i.i
-  %inc36.i.i.i = add i32 %index.027.i.i.i, 1
+  %inc36.i.i.i = add i32 %index.127.i.i.i, 1
   br label %while.end43.i.i.i
 
 while.end43.i.i.i:                                ; preds = %if.end35.i.i.i, %if.else25.i.i.i, %for.body22.i.i.i
-  %index.1.i.i.i = phi i32 [ %index.027.i.i.i, %if.else25.i.i.i ], [ %inc36.i.i.i, %if.end35.i.i.i ], [ %index.027.i.i.i, %for.body22.i.i.i ]
+  %index.2.i.i.i = phi i32 [ %index.127.i.i.i, %if.else25.i.i.i ], [ %inc36.i.i.i, %if.end35.i.i.i ], [ %index.127.i.i.i, %for.body22.i.i.i ]
   %next44.i.i.i = getelementptr inbounds i8, ptr %block.128.i.i.i, i64 336
   %29 = load atomic i64, ptr %next44.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !24
@@ -673,7 +673,7 @@ while.end43.i.i.i:                                ; preds = %if.end35.i.i.i, %if
   br i1 %tobool21.not.i.i.i, label %if.end.i.i, label %for.body22.i.i.i, !llvm.loop !25
 
 if.end.i.i:                                       ; preds = %while.end43.i.i.i, %if.end28.i.i.i, %while.end18.i.i.i
-  %index.2.i.ph.i.i = phi i32 [ 0, %while.end18.i.i.i ], [ %index.027.i.i.i, %if.end28.i.i.i ], [ %index.1.i.i.i, %while.end43.i.i.i ]
+  %index.0.i.ph.i.i = phi i32 [ 0, %while.end18.i.i.i ], [ %index.127.i.i.i, %if.end28.i.i.i ], [ %index.2.i.i.i, %while.end43.i.i.i ]
   %call.i7.i.i = tail call ptr @get_ptr_rcu_reader() #12
   %depth.i8.i.i = getelementptr inbounds i8, ptr %call.i7.i.i, i64 12
   %30 = load i32, ptr %depth.i8.i.i, align 4
@@ -747,8 +747,8 @@ rcu_read_lock.exit22.i.i:                         ; preds = %while.end.i20.i.i, 
   br i1 %tobool.not34.i.i.i, label %compare_page_hash_info.exit.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %rcu_read_lock.exit22.i.i
-  %cmp14.i.i.i.i = icmp sgt i32 %index.2.i.ph.i.i, 0
-  %wide.trip.count.i.i.i.i = zext nneg i32 %index.2.i.ph.i.i to i64
+  %cmp14.i.i.i.i = icmp sgt i32 %index.0.i.ph.i.i, 0
+  %wide.trip.count.i.i.i.i = zext nneg i32 %index.0.i.ph.i.i to i64
   %tv_usec.i.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i.i, i64 8
   %tv_usec.i.i.i8.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i7.i.i.i, i64 8
   br label %for.body.i23.i.i
@@ -785,7 +785,7 @@ for.end.loopexit.i.i.i.i:                         ; preds = %for.body.i.i44.i.i
 
 for.end.i.i31.i.i:                                ; preds = %for.end.loopexit.i.i.i.i, %if.end.i30.i.i
   %i.0.lcssa.i.i.i.i = phi i32 [ 0, %if.end.i30.i.i ], [ %35, %for.end.loopexit.i.i.i.i ]
-  %cmp2.i.i.i.i = icmp eq i32 %i.0.lcssa.i.i.i.i, %index.2.i.ph.i.i
+  %cmp2.i.i.i.i = icmp eq i32 %i.0.lcssa.i.i.i.i, %index.0.i.ph.i.i
   br i1 %cmp2.i.i.i.i, label %while.end11.i.i.i, label %if.end4.i.i.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %for.end.i.i31.i.i
@@ -960,7 +960,7 @@ if.end6.i.i:                                      ; preds = %compare_page_hash_i
   br label %out.i.i
 
 out.i.i:                                          ; preds = %if.end.i.i.i.i, %if.end6.i.i, %compare_page_hash_info.exit.i.i, %if.then16.i.i.i.i, %for.end.i.i.i
-  %index.2.i71.i.i = phi i32 [ %index.2.i.ph.i.i, %compare_page_hash_info.exit.i.i ], [ %index.2.i.ph.i.i, %if.end6.i.i ], [ 0, %for.end.i.i.i ], [ %index.027.i.i.i, %if.then16.i.i.i.i ], [ %index.027.i.i.i, %if.end.i.i.i.i ]
+  %index.0.i71.i.i = phi i32 [ %index.0.i.ph.i.i, %compare_page_hash_info.exit.i.i ], [ %index.0.i.ph.i.i, %if.end6.i.i ], [ 0, %for.end.i.i.i ], [ %index.127.i.i.i, %if.then16.i.i.i.i ], [ %index.127.i.i.i, %if.end.i.i.i.i ]
   %call.i50.i.i = tail call ptr @get_ptr_rcu_reader() #12
   %depth.i51.i.i = getelementptr inbounds i8, ptr %call.i50.i.i, i64 12
   %68 = load i32, ptr %depth.i51.i.i, align 4
@@ -995,11 +995,11 @@ rcu_read_unlock.exit61.i.i:                       ; preds = %while.end21.i59.i.i
   br i1 %cmp.i.i.i, label %if.end5.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %rcu_read_unlock.exit61.i.i
-  %cmp7.i.i.i = icmp sgt i32 %index.2.i71.i.i, 0
+  %cmp7.i.i.i = icmp sgt i32 %index.0.i71.i.i, 0
   br i1 %cmp7.i.i.i, label %for.body.preheader.i.i.i, label %for.end.i63.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %for.cond.preheader.i.i.i
-  %wide.trip.count.i.i.i = zext nneg i32 %index.2.i71.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %index.0.i71.i.i to i64
   br label %for.body.i64.i.i
 
 for.body.i64.i.i:                                 ; preds = %for.body.i64.i.i, %for.body.preheader.i.i.i

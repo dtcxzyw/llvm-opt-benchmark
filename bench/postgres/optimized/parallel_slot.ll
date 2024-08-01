@@ -171,7 +171,7 @@ find_any_idle_slot.exit.thread:                   ; preds = %56
 62:                                               ; preds = %80, %find_any_idle_slot.exit.thread
   %indvars.iv.i42 = phi i64 [ 0, %find_any_idle_slot.exit.thread ], [ %indvars.iv.next.i43, %80 ]
   %.04560.i = phi i32 [ 0, %find_any_idle_slot.exit.thread ], [ %.146.i, %80 ]
-  %.04759.i = phi ptr [ null, %find_any_idle_slot.exit.thread ], [ %.2.i, %80 ]
+  %.04759.i = phi ptr [ null, %find_any_idle_slot.exit.thread ], [ %.148.i, %80 ]
   %63 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv.i42
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 @PQsocket(ptr noundef %64) #9
@@ -187,7 +187,7 @@ find_any_idle_slot.exit.thread:                   ; preds = %56
   br label %71
 
 71:                                               ; preds = %69, %67
-  %.148.i = phi ptr [ %70, %69 ], [ %.04759.i, %67 ]
+  %.2.i = phi ptr [ %70, %69 ], [ %.04759.i, %67 ]
   %72 = and i32 %65, 63
   %73 = zext nneg i32 %72 to i64
   %74 = shl nuw i64 1, %73
@@ -201,7 +201,7 @@ find_any_idle_slot.exit.thread:                   ; preds = %56
   br label %80
 
 80:                                               ; preds = %71, %62
-  %.2.i = phi ptr [ %.04759.i, %62 ], [ %.148.i, %71 ]
+  %.148.i = phi ptr [ %.04759.i, %62 ], [ %.2.i, %71 ]
   %.146.i = phi i32 [ %.04560.i, %62 ], [ %spec.select.i, %71 ]
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %81 = load i32, ptr %0, align 8
@@ -211,11 +211,11 @@ find_any_idle_slot.exit.thread:                   ; preds = %56
 
 ._crit_edge.i:                                    ; preds = %80
   %84 = add nuw i32 %.146.i, 1
-  %85 = icmp eq ptr %.2.i, null
+  %85 = icmp eq ptr %.148.i, null
   br i1 %85, label %wait_on_slots.exit.thread, label %86
 
 86:                                               ; preds = %._crit_edge.i
-  call void @SetCancelConn(ptr noundef nonnull %.2.i) #9
+  call void @SetCancelConn(ptr noundef nonnull %.148.i) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
   %87 = load volatile i32, ptr @CancelRequested, align 4

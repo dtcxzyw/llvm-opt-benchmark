@@ -451,7 +451,7 @@ _ZN3ozz3log6LoggerlsIA24_cEERSoRKT_.exit:         ; preds = %53
   br label %73
 
 73:                                               ; preds = %72, %69, %15, %62, %32
-  %.010 = phi i32 [ 1, %62 ], [ 1, %32 ], [ 1, %15 ], [ 1, %69 ], [ %., %72 ]
+  %.1 = phi i32 [ 1, %62 ], [ 1, %32 ], [ 1, %15 ], [ 1, %69 ], [ %., %72 ]
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   br label %75
 
@@ -461,8 +461,8 @@ _ZN3ozz3log6LoggerlsIA24_cEERSoRKT_.exit:         ; preds = %53
   resume { ptr, i32 } %.pn
 
 75:                                               ; preds = %73, %9
-  %.1 = phi i32 [ %11, %9 ], [ %.010, %73 ]
-  ret i32 %.1
+  %.010 = phi i32 [ %11, %9 ], [ %.1, %73 ]
+  ret i32 %.010
 }
 
 declare noundef i32 @_ZN3ozz7options16ParseCommandLineEiPKPKcS2_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0

@@ -20075,7 +20075,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.then.i33:                                      ; preds = %if.else.i, %if.then7.i
   %add.i.i8.i.pn = phi i64 [ %add.i.i8.i, %if.else.i ], [ %add.i.i.i, %if.then7.i ]
   %and.i.sink.i = phi i64 [ %and.i16.i, %if.else.i ], [ %and.i.i, %if.then7.i ]
-  %left_reader.sroa.0.0 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %add.i.i8.i.pn
+  %left_reader.sroa.0.1 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %add.i.i8.i.pn
   %27 = getelementptr inbounds i8, ptr %this, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
@@ -20134,7 +20134,7 @@ if.else.i50:                                      ; preds = %if.then.i33
 _ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62: ; preds = %if.then7.i36, %if.else.i50
   %add.i.i8.i55.pn = phi i64 [ %add.i.i8.i55, %if.else.i50 ], [ %add.i.i.i41, %if.then7.i36 ]
   %and.i.sink.i49 = phi i64 [ %and.i16.i61, %if.else.i50 ], [ %and.i.i47, %if.then7.i36 ]
-  %right_reader.sroa.0.0 = getelementptr inbounds i8, ptr %add.ptr.i25, i64 %add.i.i8.i55.pn
+  %right_reader.sroa.0.1 = getelementptr inbounds i8, ptr %add.ptr.i25, i64 %add.i.i8.i55.pn
   %add.i = sub nsw i64 72, %rem.i
   %sub.i72 = add nsw i64 %rem.i, 56
   %add.i87 = sub nsw i64 72, %rem.i27
@@ -20142,12 +20142,12 @@ _ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62: ; preds = %if.then7.i36, 
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62
-  %left_reader.sroa.0.2 = phi ptr [ %left_reader.sroa.0.0, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62 ], [ %left_reader.sroa.0.3, %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121 ]
-  %right_reader.sroa.15.1 = phi i64 [ %and.i.sink.i49, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62 ], [ %right_reader.sroa.15.2, %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121 ]
+  %left_reader.sroa.0.0 = phi ptr [ %left_reader.sroa.0.1, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62 ], [ %left_reader.sroa.0.3, %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121 ]
+  %right_reader.sroa.15.0 = phi i64 [ %and.i.sink.i49, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62 ], [ %right_reader.sroa.15.2, %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121 ]
   %right_reader.sroa.10.0 = phi i64 [ %length, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62 ], [ %right_reader.sroa.10.1, %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121 ]
   %left_reader.sroa.11.0 = phi i64 [ %length, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62 ], [ %left_reader.sroa.11.1, %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121 ]
-  %left_reader.sroa.17.1 = phi i64 [ %and.i.sink.i, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62 ], [ %left_reader.sroa.17.2, %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121 ]
-  %right_reader.sroa.0.2 = phi ptr [ %right_reader.sroa.0.0, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62 ], [ %right_reader.sroa.0.3, %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121 ]
+  %left_reader.sroa.17.0 = phi i64 [ %and.i.sink.i, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62 ], [ %left_reader.sroa.17.2, %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121 ]
+  %right_reader.sroa.0.0 = phi ptr [ %right_reader.sroa.0.1, %_ZN5arrow8internal18BitmapUInt64ReaderC2EPKhll.exit62 ], [ %right_reader.sroa.0.3, %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121 ]
   %cmp25 = icmp slt i64 %left_reader.sroa.11.0, 1
   br i1 %cmp25, label %return, label %while.body
 
@@ -20156,10 +20156,10 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp.not.i, label %if.else.i74, label %if.then.i69
 
 if.then.i69:                                      ; preds = %while.body
-  %word.0.copyload.i.i = load i64, ptr %left_reader.sroa.0.2, align 1
-  %add.ptr.i.i70 = getelementptr inbounds i8, ptr %left_reader.sroa.0.2, i64 8
+  %word.0.copyload.i.i = load i64, ptr %left_reader.sroa.0.0, align 1
+  %add.ptr.i.i70 = getelementptr inbounds i8, ptr %left_reader.sroa.0.0, i64 8
   %shl.i = shl i64 %word.0.copyload.i.i, %sub.i
-  %or.i = or i64 %shl.i, %left_reader.sroa.17.1
+  %or.i = or i64 %shl.i, %left_reader.sroa.17.0
   %shr.i73 = lshr i64 %word.0.copyload.i.i, %sub.i72
   %sub7.i = add nsw i64 %left_reader.sroa.11.0, -64
   br label %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit
@@ -20177,33 +20177,33 @@ if.then11.i:                                      ; preds = %if.else.i74
   %cmp.i.i.i77 = icmp ne i64 %and.i.i.i76, 0
   %conv.i.i.i78 = zext i1 %cmp.i.i.i77 to i64
   %add.i.i.i79 = add nsw i64 %shr.i.i.i75, %conv.i.i.i78
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word.i.i66, ptr align 1 %left_reader.sroa.0.2, i64 %add.i.i.i79, i1 false)
-  %add.ptr.i4.i = getelementptr inbounds i8, ptr %left_reader.sroa.0.2, i64 %add.i.i.i79
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word.i.i66, ptr align 1 %left_reader.sroa.0.0, i64 %add.i.i.i79, i1 false)
+  %add.ptr.i4.i = getelementptr inbounds i8, ptr %left_reader.sroa.0.0, i64 %add.i.i.i79
   %word.i.i66.0.word.i.i66.0.word.i.i66.0.word.i.0.word.i.0.word.0.word.0.word.0..i.i80 = load i64, ptr %word.i.i66, align 8
   %notmask.i.i.i81 = shl nsw i64 -1, %sub15.i
   %sub.i.i.i82 = xor i64 %notmask.i.i.i81, -1
   %and.i.i83 = and i64 %word.i.i66.0.word.i.i66.0.word.i.i66.0.word.i.0.word.i.0.word.0.word.0.word.0..i.i80, %sub.i.i.i82
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %word.i.i66)
   %shl20.i = shl i64 %and.i.i83, %sub.i
-  %or21.i = or i64 %shl20.i, %left_reader.sroa.17.1
+  %or21.i = or i64 %shl20.i, %left_reader.sroa.17.0
   %shr24.i = lshr i64 %and.i.i83, %sub.i72
   %33 = tail call i64 @llvm.umax.i64(i64 %left_reader.sroa.11.0, i64 64)
   %.sroa.speculated.i = add nsw i64 %33, -64
   br label %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit
 
 _ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit: ; preds = %if.else.i74, %if.then.i69, %if.then11.i
-  %left_reader.sroa.0.3 = phi ptr [ %add.ptr.i4.i, %if.then11.i ], [ %add.ptr.i.i70, %if.then.i69 ], [ %left_reader.sroa.0.2, %if.else.i74 ]
+  %left_reader.sroa.0.3 = phi ptr [ %add.ptr.i4.i, %if.then11.i ], [ %add.ptr.i.i70, %if.then.i69 ], [ %left_reader.sroa.0.0, %if.else.i74 ]
   %left_reader.sroa.11.1 = phi i64 [ %.sroa.speculated.i, %if.then11.i ], [ %sub7.i, %if.then.i69 ], [ 0, %if.else.i74 ]
-  %left_reader.sroa.17.2 = phi i64 [ %shr24.i, %if.then11.i ], [ %shr.i73, %if.then.i69 ], [ %left_reader.sroa.17.1, %if.else.i74 ]
-  %retval.0.i = phi i64 [ %or21.i, %if.then11.i ], [ %or.i, %if.then.i69 ], [ %left_reader.sroa.17.1, %if.else.i74 ]
+  %left_reader.sroa.17.2 = phi i64 [ %shr24.i, %if.then11.i ], [ %shr.i73, %if.then.i69 ], [ %left_reader.sroa.17.0, %if.else.i74 ]
+  %retval.0.i = phi i64 [ %or21.i, %if.then11.i ], [ %or.i, %if.then.i69 ], [ %left_reader.sroa.17.0, %if.else.i74 ]
   %cmp.not.i88 = icmp slt i64 %right_reader.sroa.10.0, %add.i87
   br i1 %cmp.not.i88, label %if.else.i99, label %if.then.i89
 
 if.then.i89:                                      ; preds = %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit
-  %word.0.copyload.i.i90 = load i64, ptr %right_reader.sroa.0.2, align 1
-  %add.ptr.i.i91 = getelementptr inbounds i8, ptr %right_reader.sroa.0.2, i64 8
+  %word.0.copyload.i.i90 = load i64, ptr %right_reader.sroa.0.0, align 1
+  %add.ptr.i.i91 = getelementptr inbounds i8, ptr %right_reader.sroa.0.0, i64 8
   %shl.i93 = shl i64 %word.0.copyload.i.i90, %sub.i28
-  %or.i94 = or i64 %shl.i93, %right_reader.sroa.15.1
+  %or.i94 = or i64 %shl.i93, %right_reader.sroa.15.0
   %shr.i96 = lshr i64 %word.0.copyload.i.i90, %sub.i95
   %sub7.i97 = add nsw i64 %right_reader.sroa.10.0, -64
   br label %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121
@@ -20221,25 +20221,25 @@ if.then11.i103:                                   ; preds = %if.else.i99
   %cmp.i.i.i107 = icmp ne i64 %and.i.i.i106, 0
   %conv.i.i.i108 = zext i1 %cmp.i.i.i107 to i64
   %add.i.i.i109 = add nsw i64 %shr.i.i.i105, %conv.i.i.i108
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word.i.i84, ptr align 1 %right_reader.sroa.0.2, i64 %add.i.i.i109, i1 false)
-  %add.ptr.i4.i110 = getelementptr inbounds i8, ptr %right_reader.sroa.0.2, i64 %add.i.i.i109
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word.i.i84, ptr align 1 %right_reader.sroa.0.0, i64 %add.i.i.i109, i1 false)
+  %add.ptr.i4.i110 = getelementptr inbounds i8, ptr %right_reader.sroa.0.0, i64 %add.i.i.i109
   %word.i.i84.0.word.i.i84.0.word.i.i84.0.word.i.0.word.i.0.word.0.word.0.word.0..i.i111 = load i64, ptr %word.i.i84, align 8
   %notmask.i.i.i112 = shl nsw i64 -1, %sub15.i104
   %sub.i.i.i113 = xor i64 %notmask.i.i.i112, -1
   %and.i.i114 = and i64 %word.i.i84.0.word.i.i84.0.word.i.i84.0.word.i.0.word.i.0.word.0.word.0.word.0..i.i111, %sub.i.i.i113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %word.i.i84)
   %shl20.i116 = shl i64 %and.i.i114, %sub.i28
-  %or21.i117 = or i64 %shl20.i116, %right_reader.sroa.15.1
+  %or21.i117 = or i64 %shl20.i116, %right_reader.sroa.15.0
   %shr24.i119 = lshr i64 %and.i.i114, %sub.i95
   %34 = tail call i64 @llvm.smax.i64(i64 %right_reader.sroa.10.0, i64 64)
   %.sroa.speculated.i120 = add nsw i64 %34, -64
   br label %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121
 
 _ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121: ; preds = %if.else.i99, %if.then.i89, %if.then11.i103
-  %right_reader.sroa.15.2 = phi i64 [ %shr24.i119, %if.then11.i103 ], [ %shr.i96, %if.then.i89 ], [ %right_reader.sroa.15.1, %if.else.i99 ]
+  %right_reader.sroa.15.2 = phi i64 [ %shr24.i119, %if.then11.i103 ], [ %shr.i96, %if.then.i89 ], [ %right_reader.sroa.15.0, %if.else.i99 ]
   %right_reader.sroa.10.1 = phi i64 [ %.sroa.speculated.i120, %if.then11.i103 ], [ %sub7.i97, %if.then.i89 ], [ 0, %if.else.i99 ]
-  %right_reader.sroa.0.3 = phi ptr [ %add.ptr.i4.i110, %if.then11.i103 ], [ %add.ptr.i.i91, %if.then.i89 ], [ %right_reader.sroa.0.2, %if.else.i99 ]
-  %retval.0.i98 = phi i64 [ %or21.i117, %if.then11.i103 ], [ %or.i94, %if.then.i89 ], [ %right_reader.sroa.15.1, %if.else.i99 ]
+  %right_reader.sroa.0.3 = phi ptr [ %add.ptr.i4.i110, %if.then11.i103 ], [ %add.ptr.i.i91, %if.then.i89 ], [ %right_reader.sroa.0.0, %if.else.i99 ]
+  %retval.0.i98 = phi i64 [ %or21.i117, %if.then11.i103 ], [ %or.i94, %if.then.i89 ], [ %right_reader.sroa.15.0, %if.else.i99 ]
   %cmp28.not = icmp eq i64 %retval.0.i, %retval.0.i98
   br i1 %cmp28.not, label %while.cond, label %return, !llvm.loop !648
 

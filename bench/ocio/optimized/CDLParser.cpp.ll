@@ -7417,7 +7417,7 @@ ehcleanup132:                                     ; preds = %ehcleanup128, %ehcl
   br label %ehcleanup135
 
 cleanup134:                                       ; preds = %146, %cleanup.thread, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17XmlReaderDummyEltEED2Ev.exit
-  %retval.1 = phi i1 [ true, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17XmlReaderDummyEltEED2Ev.exit ], [ false, %146 ], [ true, %cleanup.thread ]
+  %retval.0 = phi i1 [ true, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17XmlReaderDummyEltEED2Ev.exit ], [ false, %146 ], [ true, %cleanup.thread ]
   %_M_refcount.i.i430 = getelementptr inbounds i8, ptr %pContainer, i64 8
   %147 = load ptr, ptr %_M_refcount.i.i430, align 8
   %cmp.not.i.i.i431 = icmp eq ptr %147, null
@@ -7492,7 +7492,7 @@ if.end8.sink.split.i.i.i.i452:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEED2Ev.exit: ; preds = %cleanup134, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i439, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i449, %if.end8.sink.split.i.i.i.i452
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup135:                                     ; preds = %ehcleanup132, %lpad16, %ehcleanup14
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %ehcleanup132 ], [ %71, %lpad16 ], [ %.pn.pn.pn, %ehcleanup14 ]

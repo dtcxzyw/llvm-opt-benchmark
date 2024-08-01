@@ -342,8 +342,8 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
   br label %61
 
 61:                                               ; preds = %.lr.ph, %118
-  %.167 = phi i32 [ %.0, %.lr.ph ], [ %.3, %118 ]
-  %.04166 = phi i1 [ true, %.lr.ph ], [ %.243, %118 ]
+  %.167 = phi i32 [ %.0, %.lr.ph ], [ %.2, %118 ]
+  %.04166 = phi i1 [ true, %.lr.ph ], [ %.142, %118 ]
   %.sroa.054.065 = phi ptr [ %46, %.lr.ph ], [ %119, %118 ]
   %62 = load ptr, ptr %.sroa.054.065, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 88
@@ -354,7 +354,7 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
 66:                                               ; preds = %61
   %67 = load i32, ptr %49, align 8
   %68 = select i1 %.04166, i32 0, i32 %67
-  %.2 = add nsw i32 %68, %.167
+  %.3 = add nsw i32 %68, %.167
   %69 = load ptr, ptr %62, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 96
   %71 = load ptr, ptr %70, align 8
@@ -374,7 +374,7 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
   store i32 %.in49.sroa.speculated, ptr %50, align 4
   store i32 0, ptr %7, align 8
   store i32 %.040, ptr %51, align 4
-  store i32 %.2, ptr %53, align 4
+  store i32 %.3, ptr %53, align 4
   %76 = load i8, ptr %54, align 8
   switch i8 %76, label %108 [
     i8 0, label %77
@@ -444,12 +444,12 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
   %115 = load ptr, ptr %114, align 8
   tail call void %115(ptr noundef nonnull align 8 dereferenceable(140) %62, ptr noundef %1)
   %116 = load i32, ptr %60, align 4
-  %117 = add nsw i32 %116, %.2
+  %117 = add nsw i32 %116, %.3
   br label %118
 
 118:                                              ; preds = %61, %108
-  %.243 = phi i1 [ false, %108 ], [ %.04166, %61 ]
-  %.3 = phi i32 [ %117, %108 ], [ %.167, %61 ]
+  %.142 = phi i1 [ false, %108 ], [ %.04166, %61 ]
+  %.2 = phi i32 [ %117, %108 ], [ %.167, %61 ]
   %119 = getelementptr inbounds i8, ptr %.sroa.054.065, i64 8
   %.not60 = icmp eq ptr %119, %48
   br i1 %.not60, label %._crit_edge, label %61
@@ -501,7 +501,7 @@ define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6
   br label %26
 
 26:                                               ; preds = %.lr.ph, %58
-  %.163 = phi i32 [ %.0, %.lr.ph ], [ %.3, %58 ]
+  %.163 = phi i32 [ %.0, %.lr.ph ], [ %.2, %58 ]
   %.02462 = phi i1 [ true, %.lr.ph ], [ %.125, %58 ]
   %.02661 = phi i1 [ false, %.lr.ph ], [ %.127, %58 ]
   %.05460 = phi i32 [ %6, %.lr.ph ], [ %.155, %58 ]
@@ -525,7 +525,7 @@ define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6
   br label %37
 
 37:                                               ; preds = %33, %31
-  %.2 = phi i32 [ %.163, %31 ], [ %36, %33 ]
+  %.3 = phi i32 [ %.163, %31 ], [ %36, %33 ]
   %38 = load ptr, ptr %27, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 8
@@ -543,7 +543,7 @@ define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6
   %.in34.sroa.speculated = select i1 %.not33, i32 %.sroa.244.0.extract.trunc, i32 %44
   %45 = icmp eq ptr %32, null
   %46 = and i1 %.02661, %45
-  %47 = add nsw i32 %.in34.sroa.speculated, %.2
+  %47 = add nsw i32 %.in34.sroa.speculated, %.3
   %48 = load i32, ptr %4, align 4
   %49 = shl nsw i32 %48, 1
   %50 = add nsw i32 %49, %spec.select
@@ -563,14 +563,14 @@ define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6
   %.155 = phi i32 [ %.sroa.speculated, %37 ], [ %.sroa.speculated, %54 ], [ %.05460, %26 ]
   %.127 = phi i1 [ %.02661, %37 ], [ %57, %54 ], [ %.02661, %26 ]
   %.125 = phi i1 [ false, %37 ], [ false, %54 ], [ %.02462, %26 ]
-  %.3 = phi i32 [ %47, %37 ], [ %47, %54 ], [ %.163, %26 ]
+  %.2 = phi i32 [ %47, %37 ], [ %47, %54 ], [ %.163, %26 ]
   %59 = getelementptr inbounds i8, ptr %.sroa.046.059, i64 8
   %.not57 = icmp eq ptr %59, %24
   br i1 %.not57, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %58, %.thread
   %.054.lcssa = phi i32 [ %6, %.thread ], [ %.155, %58 ]
-  %.1.lcssa = phi i32 [ %.0, %.thread ], [ %.3, %58 ]
+  %.1.lcssa = phi i32 [ %.0, %.thread ], [ %.2, %58 ]
   %60 = load i32, ptr %4, align 4
   %61 = add nsw i32 %60, %.1.lcssa
   %.sroa.253.0.insert.ext = zext i32 %61 to i64
@@ -631,7 +631,7 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
   br label %32
 
 32:                                               ; preds = %.lr.ph, %71
-  %.167 = phi i32 [ %.0, %.lr.ph ], [ %.3, %71 ]
+  %.167 = phi i32 [ %.0, %.lr.ph ], [ %.2, %71 ]
   %.03266 = phi i1 [ true, %.lr.ph ], [ %.133, %71 ]
   %.03465 = phi i1 [ false, %.lr.ph ], [ %.135, %71 ]
   %.sroa.056.064 = phi ptr [ %27, %.lr.ph ], [ %72, %71 ]
@@ -654,7 +654,7 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
   br label %43
 
 43:                                               ; preds = %39, %37
-  %.2 = phi i32 [ %.167, %37 ], [ %42, %39 ]
+  %.3 = phi i32 [ %.167, %37 ], [ %42, %39 ]
   %44 = icmp eq ptr %38, null
   %45 = select i1 %.03465, i1 %44, i1 false
   %46 = load i32, ptr %30, align 8
@@ -680,7 +680,7 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
   %59 = select i1 %45, i32 %58, i32 0
   %60 = add nsw i32 %59, %57
   %61 = getelementptr inbounds i8, ptr %33, i64 40
-  %.sroa.2.0.insert.ext = zext i32 %.2 to i64
+  %.sroa.2.0.insert.ext = zext i32 %.3 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %60 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
@@ -695,7 +695,7 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
   %64 = getelementptr inbounds i8, ptr %63, i64 104
   %65 = load ptr, ptr %64, align 8
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(140) %33, ptr noundef %1)
-  %66 = add nsw i32 %.in42.sroa.speculated, %.2
+  %66 = add nsw i32 %.in42.sroa.speculated, %.3
   br i1 %44, label %71, label %67
 
 67:                                               ; preds = %43
@@ -707,7 +707,7 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
 71:                                               ; preds = %43, %67, %32
   %.135 = phi i1 [ %70, %67 ], [ %.03465, %43 ], [ %.03465, %32 ]
   %.133 = phi i1 [ false, %67 ], [ false, %43 ], [ %.03266, %32 ]
-  %.3 = phi i32 [ %66, %67 ], [ %66, %43 ], [ %.167, %32 ]
+  %.2 = phi i32 [ %66, %67 ], [ %66, %43 ], [ %.167, %32 ]
   %72 = getelementptr inbounds i8, ptr %.sroa.056.064, i64 8
   %.not59 = icmp eq ptr %72, %29
   br i1 %.not59, label %._crit_edge, label %32

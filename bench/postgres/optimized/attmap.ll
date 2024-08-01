@@ -62,9 +62,9 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
 .preheader:                                       ; preds = %68, %3
   %13 = phi ptr [ %9, %3 ], [ %69, %68 ]
   %.062.lcssa = phi i32 [ 0, %3 ], [ %.163, %68 ]
-  %.056.lcssa = phi i32 [ 0, %3 ], [ %.359, %68 ]
+  %.056.lcssa = phi i32 [ 0, %3 ], [ %.157, %68 ]
   %.052.lcssa = phi i1 [ true, %3 ], [ %.153, %68 ]
-  %.051.lcssa = phi i32 [ 0, %3 ], [ %.2, %68 ]
+  %.051.lcssa = phi i32 [ 0, %3 ], [ %.1, %68 ]
   %14 = load i32, ptr %0, align 8
   %15 = icmp slt i32 %.056.lcssa, %14
   br i1 %15, label %.lr.ph92, label %._crit_edge
@@ -79,9 +79,9 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   %19 = phi ptr [ %9, %.lr.ph84 ], [ %69, %68 ]
   %20 = phi ptr [ %9, %.lr.ph84 ], [ %70, %68 ]
   %indvars.iv104 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next105, %68 ]
-  %.05183 = phi i32 [ 0, %.lr.ph84 ], [ %.2, %68 ]
+  %.05183 = phi i32 [ 0, %.lr.ph84 ], [ %.1, %68 ]
   %.05282 = phi i1 [ true, %.lr.ph84 ], [ %.153, %68 ]
-  %.05681 = phi i32 [ 0, %.lr.ph84 ], [ %.359, %68 ]
+  %.05681 = phi i32 [ 0, %.lr.ph84 ], [ %.157, %68 ]
   %.06279 = phi i32 [ 0, %.lr.ph84 ], [ %.163, %68 ]
   %21 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %indvars.iv104
   %22 = getelementptr inbounds i8, ptr %21, i64 95
@@ -158,8 +158,8 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
 
 .loopexit:                                        ; preds = %63, %25, %59
   %64 = phi ptr [ %.pre, %59 ], [ %19, %25 ], [ %19, %63 ]
-  %.258 = phi i32 [ %60, %59 ], [ %.05681, %25 ], [ %31, %63 ]
-  %.1 = phi i32 [ %40, %59 ], [ %.05183, %25 ], [ %.05183, %63 ]
+  %.359 = phi i32 [ %60, %59 ], [ %.05681, %25 ], [ %31, %63 ]
+  %.2 = phi i32 [ %40, %59 ], [ %.05183, %25 ], [ %.05183, %63 ]
   %65 = getelementptr i16, ptr %64, i64 %indvars.iv104
   %66 = load i16, ptr %65, align 2
   %67 = icmp ne i16 %66, 0
@@ -170,9 +170,9 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   %69 = phi ptr [ %19, %18 ], [ %64, %.loopexit ]
   %70 = phi ptr [ %20, %18 ], [ %64, %.loopexit ]
   %.163 = phi i32 [ %.06279, %18 ], [ %26, %.loopexit ]
-  %.359 = phi i32 [ %.05681, %18 ], [ %.258, %.loopexit ]
+  %.157 = phi i32 [ %.05681, %18 ], [ %.359, %.loopexit ]
   %.153 = phi i1 [ %.05282, %18 ], [ %spec.select, %.loopexit ]
-  %.2 = phi i32 [ %.05183, %18 ], [ %.1, %.loopexit ]
+  %.1 = phi i32 [ %.05183, %18 ], [ %.2, %.loopexit ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
   br i1 %exitcond106.not, label %.preheader, label %18, !llvm.loop !7
@@ -320,7 +320,7 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
 
 .lr.ph52.split.us.split.us:                       ; preds = %.lr.ph52.split.us, %..loopexit_crit_edge.us.us
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %..loopexit_crit_edge.us.us ], [ 0, %.lr.ph52.split.us ]
-  %.04050.us.us = phi i32 [ %.3.us.us, %..loopexit_crit_edge.us.us ], [ -1, %.lr.ph52.split.us ]
+  %.04050.us.us = phi i32 [ %.1.us.us, %..loopexit_crit_edge.us.us ], [ -1, %.lr.ph52.split.us ]
   %15 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %12, i64 0, i64 %indvars.iv84
   %16 = getelementptr inbounds i8, ptr %15, i64 95
   %17 = load i8, ptr %16, align 1
@@ -337,8 +337,8 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
 
 24:                                               ; preds = %46, %.lr.ph.us.us
   %.03949.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %47, %46 ]
-  %.148.us.us = phi i32 [ %.04050.us.us, %.lr.ph.us.us ], [ %spec.store.select.us.us, %46 ]
-  %25 = add i32 %.148.us.us, 1
+  %.248.us.us = phi i32 [ %.04050.us.us, %.lr.ph.us.us ], [ %spec.store.select.us.us, %46 ]
+  %25 = add i32 %.248.us.us, 1
   %.not.us.us = icmp slt i32 %25, %.fr59
   %spec.store.select.us.us = select i1 %.not.us.us, i32 %25, i32 0
   %26 = sext i32 %spec.store.select.us.us to i64
@@ -380,7 +380,7 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   br i1 %exitcond83.not, label %..loopexit_crit_edge.us.us, label %24, !llvm.loop !10
 
 ..loopexit_crit_edge.us.us:                       ; preds = %46, %41, %.lr.ph52.split.us.split.us
-  %.3.us.us = phi i32 [ %.04050.us.us, %.lr.ph52.split.us.split.us ], [ %spec.store.select.us.us, %41 ], [ %spec.store.select.us.us, %46 ]
+  %.1.us.us = phi i32 [ %.04050.us.us, %.lr.ph52.split.us.split.us ], [ %spec.store.select.us.us, %41 ], [ %spec.store.select.us.us, %46 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
   br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph52.split.us.split.us, !llvm.loop !11
@@ -389,7 +389,7 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   %48 = phi ptr [ %86, %85 ], [ %10, %.lr.ph52.split.us ]
   %49 = phi ptr [ %87, %85 ], [ %10, %.lr.ph52.split.us ]
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %85 ], [ 0, %.lr.ph52.split.us ]
-  %.04050.us = phi i32 [ %.3.us, %85 ], [ -1, %.lr.ph52.split.us ]
+  %.04050.us = phi i32 [ %.1.us, %85 ], [ -1, %.lr.ph52.split.us ]
   %50 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %12, i64 0, i64 %indvars.iv78
   %51 = getelementptr inbounds i8, ptr %50, i64 95
   %52 = load i8, ptr %51, align 1
@@ -406,8 +406,8 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
 
 59:                                               ; preds = %.lr.ph.us, %83
   %.03949.us = phi i32 [ 0, %.lr.ph.us ], [ %84, %83 ]
-  %.148.us = phi i32 [ %.04050.us, %.lr.ph.us ], [ %spec.store.select.us, %83 ]
-  %60 = add i32 %.148.us, 1
+  %.248.us = phi i32 [ %.04050.us, %.lr.ph.us ], [ %spec.store.select.us, %83 ]
+  %60 = add i32 %.248.us, 1
   %.not.us = icmp slt i32 %60, %.fr59
   %spec.store.select.us = select i1 %.not.us, i32 %60, i32 0
   %61 = sext i32 %spec.store.select.us to i64
@@ -458,7 +458,7 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
 85:                                               ; preds = %..loopexit_crit_edge.us, %.lr.ph52.split.us.split
   %86 = phi ptr [ %48, %.lr.ph52.split.us.split ], [ %80, %..loopexit_crit_edge.us ]
   %87 = phi ptr [ %49, %.lr.ph52.split.us.split ], [ %80, %..loopexit_crit_edge.us ]
-  %.3.us = phi i32 [ %.04050.us, %.lr.ph52.split.us.split ], [ %spec.store.select.us, %..loopexit_crit_edge.us ]
+  %.1.us = phi i32 [ %.04050.us, %.lr.ph52.split.us.split ], [ %spec.store.select.us, %..loopexit_crit_edge.us ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count87
   br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph52.split.us.split, !llvm.loop !11

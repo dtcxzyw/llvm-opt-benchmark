@@ -1361,7 +1361,7 @@ define noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(dou
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 common.ret35:                                     ; preds = %4, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %16, %1, %42, %._crit_edge, %32, %25
-  %common.ret35.op = phi double [ %31, %25 ], [ %36, %32 ], [ %58, %42 ], [ %.sroa.0.0.lcssa, %._crit_edge ], [ 0x7FF8000000000000, %1 ], [ 0xFFF0000000000000, %16 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0xFFF0000000000000, %4 ]
+  %common.ret35.op = phi double [ %31, %25 ], [ %36, %32 ], [ %58, %42 ], [ %.sroa.0.1.lcssa, %._crit_edge ], [ 0x7FF8000000000000, %1 ], [ 0xFFF0000000000000, %16 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0xFFF0000000000000, %4 ]
   ret double %common.ret35.op
 
 25:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
@@ -1382,15 +1382,15 @@ common.ret35:                                     ; preds = %4, %"_ZN47_$LT$f64$
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.sroa.05.0.lcssa = phi double [ %0, %.preheader ], [ %40, %.lr.ph ]
-  %.sroa.0.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %39, %.lr.ph ]
+  %.sroa.0.1.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %39, %.lr.ph ]
   %37 = fcmp ult double %.sroa.05.0.lcssa, 1.200000e+01
   br i1 %37, label %common.ret35, label %42
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.sroa.0.028 = phi double [ %39, %.lr.ph ], [ 0.000000e+00, %.preheader ]
+  %.sroa.0.128 = phi double [ %39, %.lr.ph ], [ 0.000000e+00, %.preheader ]
   %.sroa.05.027 = phi double [ %40, %.lr.ph ], [ %0, %.preheader ]
   %38 = fdiv double 1.000000e+00, %.sroa.05.027
-  %39 = fsub double %.sroa.0.028, %38
+  %39 = fsub double %.sroa.0.128, %38
   %40 = fadd double %.sroa.05.027, 1.000000e+00
   %41 = fcmp olt double %40, 1.200000e+01
   br i1 %41, label %.lr.ph, label %._crit_edge
@@ -1400,7 +1400,7 @@ common.ret35:                                     ; preds = %4, %"_ZN47_$LT$f64$
   %44 = tail call noundef double @llvm.log.f64(double %.sroa.05.0.lcssa)
   %45 = fmul double %43, 5.000000e-01
   %46 = fsub double %44, %45
-  %47 = fadd double %.sroa.0.0.lcssa, %46
+  %47 = fadd double %.sroa.0.1.lcssa, %46
   %48 = fmul double %43, %43
   %49 = fmul double %48, 0x3F7F07C1F07C1F08
   %50 = fsub double 0x3F71111111111111, %49
@@ -1433,9 +1433,9 @@ define noundef double @_ZN6statrs8function5gamma11inv_digamma17hd2a6888cff03db07
   br label %9
 
 9:                                                ; preds = %7, %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit
-  %.sroa.0.07 = phi double [ %8, %7 ], [ %18, %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit ]
+  %.sroa.0.17 = phi double [ %8, %7 ], [ %18, %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit ]
   %.sroa.03.06 = phi double [ 1.000000e+00, %7 ], [ %19, %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit ]
-  %10 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %.sroa.0.07)
+  %10 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %.sroa.0.17)
   %11 = fsub double %0, %10
   %12 = fcmp oeq double %11, 0.000000e+00
   br i1 %12, label %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit, label %13
@@ -1451,14 +1451,14 @@ define noundef double @_ZN6statrs8function5gamma11inv_digamma17hd2a6888cff03db07
 _ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit: ; preds = %9, %13, %15
   %.sroa.0.0.i = phi double [ %16, %15 ], [ 0.000000e+00, %9 ], [ 0x7FF8000000000000, %13 ]
   %17 = fmul double %.sroa.03.06, %.sroa.0.0.i
-  %18 = fadd double %.sroa.0.07, %17
+  %18 = fadd double %.sroa.0.17, %17
   %19 = fmul double %.sroa.03.06, 5.000000e-01
   %20 = fcmp ogt double %19, 1.000000e-15
   br i1 %20, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit, %5, %3, %1
-  %.sroa.0.1 = phi double [ 0x7FF8000000000000, %1 ], [ 0.000000e+00, %3 ], [ 0x7FF0000000000000, %5 ], [ %18, %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit ]
-  ret double %.sroa.0.1
+  %.sroa.0.0 = phi double [ 0x7FF8000000000000, %1 ], [ 0.000000e+00, %3 ], [ 0x7FF0000000000000, %5 ], [ %18, %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit ]
+  ret double %.sroa.0.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

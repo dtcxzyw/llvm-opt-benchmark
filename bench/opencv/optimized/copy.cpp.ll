@@ -3358,24 +3358,24 @@ define noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %0, i32 noundef %1
   br label %18
 
 18:                                               ; preds = %.preheader, %27
-  %.039 = phi i32 [ %.140, %27 ], [ %0, %.preheader ]
-  %19 = icmp slt i32 %.039, 0
+  %.140 = phi i32 [ %.241, %27 ], [ %0, %.preheader ]
+  %19 = icmp slt i32 %.140, 0
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = xor i32 %.039, -1
+  %21 = xor i32 %.140, -1
   %22 = add nuw nsw i32 %21, %16
   br label %27
 
 23:                                               ; preds = %18
-  %24 = add nuw i32 %.039, %16
+  %24 = add nuw i32 %.140, %16
   %25 = xor i32 %24, -1
   %26 = add i32 %reass.add, %25
   br label %27
 
 27:                                               ; preds = %20, %23
-  %.140 = phi i32 [ %22, %20 ], [ %26, %23 ]
-  %.not51 = icmp ult i32 %.140, %1
+  %.241 = phi i32 [ %22, %20 ], [ %26, %23 ]
+  %.not51 = icmp ult i32 %.241, %1
   br i1 %.not51, label %.loopexit, label %18, !llvm.loop !86
 
 28:                                               ; preds = %9
@@ -3418,12 +3418,12 @@ define noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %0, i32 noundef %1
   br label %44
 
 44:                                               ; preds = %39, %37
-  %.241 = phi i32 [ %43, %39 ], [ %0, %37 ]
-  %.not = icmp slt i32 %.241, %1
+  %.3 = phi i32 [ %43, %39 ], [ %0, %37 ]
+  %.not = icmp slt i32 %.3, %1
   br i1 %.not, label %.loopexit, label %45
 
 45:                                               ; preds = %44
-  %46 = urem i32 %.241, %1
+  %46 = urem i32 %.3, %1
   br label %.loopexit
 
 47:                                               ; preds = %9
@@ -3450,7 +3450,7 @@ define noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %0, i32 noundef %1
   br label %54
 
 .loopexit:                                        ; preds = %27, %9, %3, %44, %45, %10, %14
-  %.038 = phi i32 [ 0, %14 ], [ %0, %3 ], [ %13, %10 ], [ %46, %45 ], [ %.241, %44 ], [ -1, %9 ], [ %.140, %27 ]
+  %.038 = phi i32 [ 0, %14 ], [ %0, %3 ], [ %13, %10 ], [ %46, %45 ], [ %.3, %44 ], [ -1, %9 ], [ %.241, %27 ]
   ret i32 %.038
 
 54:                                               ; preds = %50, %52, %33, %35

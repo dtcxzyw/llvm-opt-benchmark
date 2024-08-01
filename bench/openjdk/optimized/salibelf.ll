@@ -212,7 +212,7 @@ read_program_header_table.exit.preheader:         ; preds = %13
 
 .lr.ph:                                           ; preds = %read_program_header_table.exit.preheader, %read_program_header_table.exit
   %.025 = phi ptr [ %26, %read_program_header_table.exit ], [ %10, %read_program_header_table.exit.preheader ]
-  %.01324 = phi i64 [ %.1, %read_program_header_table.exit ], [ -1, %read_program_header_table.exit.preheader ]
+  %.124 = phi i64 [ %.2, %read_program_header_table.exit ], [ -1, %read_program_header_table.exit.preheader ]
   %.01423 = phi i32 [ %25, %read_program_header_table.exit ], [ 0, %read_program_header_table.exit.preheader ]
   %20 = load i32, ptr %.025, align 8
   %21 = icmp eq i32 %20, 1
@@ -221,24 +221,24 @@ read_program_header_table.exit.preheader:         ; preds = %13
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds i8, ptr %.025, i64 16
   %24 = load i64, ptr %23, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %24, i64 %.01324)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %24, i64 %.124)
   br label %read_program_header_table.exit
 
 read_program_header_table.exit:                   ; preds = %22, %.lr.ph
-  %.1 = phi i64 [ %.01324, %.lr.ph ], [ %spec.select, %22 ]
+  %.2 = phi i64 [ %.124, %.lr.ph ], [ %spec.select, %22 ]
   %25 = add nuw nsw i32 %.01423, 1
   %26 = getelementptr inbounds i8, ptr %.025, i64 56
   %exitcond.not = icmp eq i32 %25, %18
   br i1 %exitcond.not, label %read_program_header_table.exit._crit_edge, label %.lr.ph, !llvm.loop !6
 
 read_program_header_table.exit._crit_edge:        ; preds = %read_program_header_table.exit, %read_program_header_table.exit.preheader
-  %.013.lcssa = phi i64 [ -1, %read_program_header_table.exit.preheader ], [ %.1, %read_program_header_table.exit ]
+  %.1.lcssa = phi i64 [ -1, %read_program_header_table.exit.preheader ], [ %.2, %read_program_header_table.exit ]
   tail call void @free(ptr noundef %10) #8
   br label %.thread
 
 .thread:                                          ; preds = %12, %19, %read_program_header_table.exit._crit_edge
-  %.222 = phi i64 [ %.013.lcssa, %read_program_header_table.exit._crit_edge ], [ -1, %19 ], [ -1, %12 ]
-  ret i64 %.222
+  %.01322 = phi i64 [ %.1.lcssa, %read_program_header_table.exit._crit_edge ], [ -1, %19 ], [ -1, %12 ]
+  ret i64 %.01322
 }
 
 ; Function Attrs: nounwind uwtable

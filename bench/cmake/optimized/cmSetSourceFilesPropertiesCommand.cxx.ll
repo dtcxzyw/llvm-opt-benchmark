@@ -885,8 +885,8 @@ _ZNSt6vectorIP10cmMakefileSaIS1_EED2Ev.exit92:    ; preds = %265, %267
   br label %268
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit90: ; preds = %264, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i88, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.2 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i88 ], [ %.1, %264 ]
-  ret i1 %.2
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i88 ], [ %.1, %264 ]
+  ret i1 %.0
 
 268:                                              ; preds = %_ZNSt6vectorIP10cmMakefileSaIS1_EED2Ev.exit92, %.body
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %.body ], [ %.pn.pn, %_ZNSt6vectorIP10cmMakefileSaIS1_EED2Ev.exit92 ]

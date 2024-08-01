@@ -6292,10 +6292,10 @@ decrypt_smb_payload.exit.i.thread:                ; preds = %.thread156.i.i, %46
   br label %dissect_smb2_transform_header.exit
 
 decrypt_smb_payload.exit.i:                       ; preds = %525, %.thread.i.i, %.thread.i.thread.i, %.thread.thread.i.i, %.thread145.i.i
-  %.5.ph.i.i = phi i16 [ 3, %.thread145.i.i ], [ 4, %.thread.thread.i.i ], [ 1, %.thread.i.i ], [ 2, %525 ], [ 1, %.thread.i.thread.i ]
+  %.197.ph.i.i = phi i16 [ 3, %.thread145.i.i ], [ 4, %.thread.thread.i.i ], [ 1, %.thread.i.i ], [ 2, %525 ], [ 1, %.thread.i.thread.i ]
   %554 = load ptr, ptr %63, align 8
   %555 = getelementptr inbounds i8, ptr %554, i64 20
-  store i16 %.5.ph.i.i, ptr %555, align 4
+  store i16 %.197.ph.i.i, ptr %555, align 4
   %556 = load ptr, ptr %493, align 8
   %557 = getelementptr inbounds i8, ptr %556, i64 90
   %558 = icmp eq ptr %indvars.iv.i.sroa.phi.sroa.speculated74.i, %557
@@ -6508,15 +6508,15 @@ dissect_smb2_compression_pattern_v1.exit.i.i:     ; preds = %.lr.ph.i.i.i, %654,
   br label %append_uncompress_data.exit.i.i
 
 append_uncompress_data.exit.i.i:                  ; preds = %660, %dissect_smb2_compression_pattern_v1.exit.i.i, %633, %631, %629, %627, %625
-  %.0.i.i = phi ptr [ null, %660 ], [ null, %dissect_smb2_compression_pattern_v1.exit.i.i ], [ %634, %633 ], [ %632, %631 ], [ %630, %629 ], [ null, %625 ], [ null, %627 ]
+  %.1.i.i = phi ptr [ null, %660 ], [ null, %dissect_smb2_compression_pattern_v1.exit.i.i ], [ %634, %633 ], [ %632, %631 ], [ %630, %629 ], [ null, %625 ], [ null, %627 ]
   br i1 %612, label %662, label %append_uncompress_data.exit57.i.i
 
 662:                                              ; preds = %append_uncompress_data.exit.i.i
-  %.not.i.i321 = icmp eq ptr %.0.i.i, null
+  %.not.i.i321 = icmp eq ptr %.1.i.i, null
   br i1 %.not.i.i321, label %666, label %663
 
 663:                                              ; preds = %662
-  %664 = call i32 @tvb_reported_length(ptr noundef nonnull %.0.i.i) #12
+  %664 = call i32 @tvb_reported_length(ptr noundef nonnull %.1.i.i) #12
   %665 = load i32, ptr %13, align 4
   %.not53.i.i = icmp eq i32 %664, %665
   br i1 %.not53.i.i, label %668, label %666
@@ -6527,24 +6527,24 @@ append_uncompress_data.exit.i.i:                  ; preds = %660, %dissect_smb2_
   br label %append_uncompress_data.exit57.i.i
 
 668:                                              ; preds = %663
-  %669 = call i32 @tvb_reported_length(ptr noundef nonnull %.0.i.i) #12
-  %670 = call ptr @tvb_get_ptr(ptr noundef nonnull %.0.i.i, i32 noundef 0, i32 noundef %669) #12
+  %669 = call i32 @tvb_reported_length(ptr noundef nonnull %.1.i.i) #12
+  %670 = call ptr @tvb_get_ptr(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef %669) #12
   %.not.i56.i.i = icmp eq ptr %670, null
   br i1 %.not.i56.i.i, label %append_uncompress_data.exit57.thread.i.i, label %671
 
 671:                                              ; preds = %668
-  %672 = call ptr @tvb_get_ptr(ptr noundef nonnull %.0.i.i, i32 noundef 0, i32 noundef %669) #12
+  %672 = call ptr @tvb_get_ptr(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef %669) #12
   call void @wmem_array_append(ptr noundef %588, ptr noundef %672, i32 noundef %669) #12
   br label %append_uncompress_data.exit57.thread.i.i
 
 append_uncompress_data.exit57.i.i:                ; preds = %666, %append_uncompress_data.exit.i.i
   %.0102.i = phi i32 [ 0, %666 ], [ 1, %append_uncompress_data.exit.i.i ]
-  %.not54.i.i = icmp eq ptr %.0.i.i, null
+  %.not54.i.i = icmp eq ptr %.1.i.i, null
   br i1 %.not54.i.i, label %dissect_smb2_chained_comp_payload.exit.i, label %append_uncompress_data.exit57.thread.i.i
 
 append_uncompress_data.exit57.thread.i.i:         ; preds = %append_uncompress_data.exit57.i.i, %671, %668
   %.1.i = phi i32 [ %.0102.i, %append_uncompress_data.exit57.i.i ], [ 1, %668 ], [ 1, %671 ]
-  call void @tvb_free(ptr noundef nonnull %.0.i.i) #12
+  call void @tvb_free(ptr noundef nonnull %.1.i.i) #12
   br label %dissect_smb2_chained_comp_payload.exit.i
 
 dissect_smb2_chained_comp_payload.exit.i:         ; preds = %append_uncompress_data.exit57.thread.i.i, %append_uncompress_data.exit57.i.i, %append_uncompress_data.exit57.thread61.i.i
@@ -6633,12 +6633,12 @@ append_uncompress_data.exit.i:                    ; preds = %700, %698
   br label %718
 
 718:                                              ; preds = %714, %710, %706
-  %.089.i = phi ptr [ %717, %714 ], [ %713, %710 ], [ %709, %706 ]
-  %.not94.i = icmp eq ptr %.089.i, null
+  %.291.i = phi ptr [ %717, %714 ], [ %713, %710 ], [ %709, %706 ]
+  %.not94.i = icmp eq ptr %.291.i, null
   br i1 %.not94.i, label %722, label %719
 
 719:                                              ; preds = %718
-  %720 = call i32 @tvb_reported_length(ptr noundef nonnull %.089.i) #12
+  %720 = call i32 @tvb_reported_length(ptr noundef nonnull %.291.i) #12
   %721 = load i32, ptr %33, align 8
   %.not95.i = icmp eq i32 %720, %721
   br i1 %.not95.i, label %724, label %722
@@ -6649,17 +6649,17 @@ append_uncompress_data.exit.i:                    ; preds = %700, %698
   br label %733
 
 724:                                              ; preds = %719
-  %725 = call ptr @tvb_get_ptr(ptr noundef nonnull %.089.i, i32 noundef 0, i32 noundef %720) #12
+  %725 = call ptr @tvb_get_ptr(ptr noundef nonnull %.291.i, i32 noundef 0, i32 noundef %720) #12
   %.not.i100.i = icmp eq ptr %725, null
   br i1 %.not.i100.i, label %append_uncompress_data.exit101.i, label %726
 
 726:                                              ; preds = %724
-  %727 = call ptr @tvb_get_ptr(ptr noundef nonnull %.089.i, i32 noundef 0, i32 noundef %720) #12
+  %727 = call ptr @tvb_get_ptr(ptr noundef nonnull %.291.i, i32 noundef 0, i32 noundef %720) #12
   call void @wmem_array_append(ptr noundef %588, ptr noundef %727, i32 noundef %720) #12
   br label %append_uncompress_data.exit101.i
 
 append_uncompress_data.exit101.i:                 ; preds = %726, %724, %681
-  %.190.i = phi ptr [ null, %681 ], [ %.089.i, %724 ], [ %.089.i, %726 ]
+  %.089.i = phi ptr [ null, %681 ], [ %.291.i, %724 ], [ %.291.i, %726 ]
   %.188.i = phi i32 [ %677, %681 ], [ 16, %724 ], [ 16, %726 ]
   %728 = load ptr, ptr %65, align 8
   call void @col_append_str(ptr noundef %728, i32 noundef 25, ptr noundef nonnull @.str.2180) #12
@@ -6672,13 +6672,13 @@ append_uncompress_data.exit101.i:                 ; preds = %726, %724, %681
 
 733:                                              ; preds = %append_uncompress_data.exit101.i, %722
   %.0 = phi ptr [ null, %722 ], [ %732, %append_uncompress_data.exit101.i ]
-  %.291.i = phi ptr [ %.089.i, %722 ], [ %.190.i, %append_uncompress_data.exit101.i ]
+  %.190.i = phi ptr [ %.291.i, %722 ], [ %.089.i, %append_uncompress_data.exit101.i ]
   %.2.i = phi i32 [ 16, %722 ], [ %.188.i, %append_uncompress_data.exit101.i ]
-  %.not98.i = icmp eq ptr %.291.i, null
+  %.not98.i = icmp eq ptr %.190.i, null
   br i1 %.not98.i, label %dissect_smb2_comp_transform_header.exit, label %734
 
 734:                                              ; preds = %733
-  call void @tvb_free(ptr noundef nonnull %.291.i) #12
+  call void @tvb_free(ptr noundef nonnull %.190.i) #12
   br label %dissect_smb2_comp_transform_header.exit
 
 dissect_smb2_comp_transform_header.exit.thread.sink.split: ; preds = %append_uncompress_data.exit.i, %682, %695
@@ -10850,18 +10850,18 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   br i1 %.not28, label %.lr.ph16.split.us, label %.lr.ph16.split
 
 .lr.ph16.split.us:                                ; preds = %.lr.ph16, %.lr.ph16.split.us
-  %.115.us = phi i32 [ %60, %.lr.ph16.split.us ], [ %54, %.lr.ph16 ]
+  %.215.us = phi i32 [ %60, %.lr.ph16.split.us ], [ %54, %.lr.ph16 ]
   %.112714.us = phi i32 [ %61, %.lr.ph16.split.us ], [ 0, %.lr.ph16 ]
   %58 = load i32, ptr @hf_smb2_cipher_id, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %58, ptr noundef %0, i32 noundef %.115.us, i32 noundef 2, i32 noundef -2147483648) #12
-  %60 = add i32 %.115.us, 2
+  %59 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %58, ptr noundef %0, i32 noundef %.215.us, i32 noundef 2, i32 noundef -2147483648) #12
+  %60 = add i32 %.215.us, 2
   %61 = add nuw i32 %.112714.us, 1
   %62 = load i32, ptr %8, align 4
   %63 = icmp ult i32 %61, %62
   br i1 %63, label %.lr.ph16.split.us, label %.loopexit, !llvm.loop !23
 
 .lr.ph16.split:                                   ; preds = %.lr.ph16, %74
-  %.115 = phi i32 [ %77, %74 ], [ %54, %.lr.ph16 ]
+  %.215 = phi i32 [ %77, %74 ], [ %54, %.lr.ph16 ]
   %.112714 = phi i32 [ %78, %74 ], [ 0, %.lr.ph16 ]
   %64 = icmp eq i32 %.112714, 0
   br i1 %64, label %65, label %74
@@ -10878,7 +10878,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   br i1 %.not136, label %74, label %70
 
 70:                                               ; preds = %67
-  %71 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.115) #12
+  %71 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.215) #12
   %72 = load ptr, ptr %56, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 20
   store i16 %71, ptr %73, align 4
@@ -10886,8 +10886,8 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
 
 74:                                               ; preds = %70, %67, %65, %.lr.ph16.split
   %75 = load i32, ptr @hf_smb2_cipher_id, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %75, ptr noundef %0, i32 noundef %.115, i32 noundef 2, i32 noundef -2147483648) #12
-  %77 = add i32 %.115, 2
+  %76 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %75, ptr noundef %0, i32 noundef %.215, i32 noundef 2, i32 noundef -2147483648) #12
+  %77 = add i32 %.215, 2
   %78 = add nuw i32 %.112714, 1
   %79 = load i32, ptr %8, align 4
   %80 = icmp ult i32 %78, %79
@@ -10906,11 +10906,11 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   br i1 %.not26, label %.loopexit, label %.lr.ph12
 
 .lr.ph12:                                         ; preds = %81, %.lr.ph12
-  %.211 = phi i32 [ %92, %.lr.ph12 ], [ %88, %81 ]
+  %.311 = phi i32 [ %92, %.lr.ph12 ], [ %88, %81 ]
   %.212810 = phi i32 [ %93, %.lr.ph12 ], [ 0, %81 ]
   %90 = load i32, ptr @hf_smb2_comp_alg_id, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %90, ptr noundef %0, i32 noundef %.211, i32 noundef 2, i32 noundef -2147483648) #12
-  %92 = add i32 %.211, 2
+  %91 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %90, ptr noundef %0, i32 noundef %.311, i32 noundef 2, i32 noundef -2147483648) #12
+  %92 = add i32 %.311, 2
   %93 = add nuw i32 %.212810, 1
   %94 = load i32, ptr %9, align 4
   %95 = icmp ult i32 %93, %94
@@ -10945,11 +10945,11 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   br i1 %.not25, label %.loopexit, label %.lr.ph8
 
 .lr.ph8:                                          ; preds = %106, %.lr.ph8
-  %.37 = phi i32 [ %119, %.lr.ph8 ], [ %115, %106 ]
+  %.47 = phi i32 [ %119, %.lr.ph8 ], [ %115, %106 ]
   %.31296 = phi i32 [ %120, %.lr.ph8 ], [ 0, %106 ]
   %117 = load i32, ptr @hf_smb2_rdma_transform_id, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %117, ptr noundef %0, i32 noundef %.37, i32 noundef 2, i32 noundef -2147483648) #12
-  %119 = add i32 %.37, 2
+  %118 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %117, ptr noundef %0, i32 noundef %.47, i32 noundef 2, i32 noundef -2147483648) #12
+  %119 = add i32 %.47, 2
   %120 = add nuw i32 %.31296, 1
   %121 = load i32, ptr %10, align 4
   %122 = icmp ult i32 %120, %121
@@ -10970,18 +10970,18 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   br i1 %.not24, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.45.us = phi i32 [ %132, %.lr.ph.split.us ], [ %126, %.lr.ph ]
+  %.55.us = phi i32 [ %132, %.lr.ph.split.us ], [ %126, %.lr.ph ]
   %.41304.us = phi i32 [ %133, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %130 = load i32, ptr @hf_smb2_signing_alg_id, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %130, ptr noundef %0, i32 noundef %.45.us, i32 noundef 2, i32 noundef -2147483648) #12
-  %132 = add i32 %.45.us, 2
+  %131 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %130, ptr noundef %0, i32 noundef %.55.us, i32 noundef 2, i32 noundef -2147483648) #12
+  %132 = add i32 %.55.us, 2
   %133 = add nuw i32 %.41304.us, 1
   %134 = load i32, ptr %11, align 4
   %135 = icmp ult i32 %133, %134
   br i1 %135, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %146
-  %.45 = phi i32 [ %149, %146 ], [ %126, %.lr.ph ]
+  %.55 = phi i32 [ %149, %146 ], [ %126, %.lr.ph ]
   %.41304 = phi i32 [ %150, %146 ], [ 0, %.lr.ph ]
   %136 = icmp eq i32 %.41304, 0
   br i1 %136, label %137, label %146
@@ -10998,7 +10998,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   br i1 %.not134, label %146, label %142
 
 142:                                              ; preds = %139
-  %143 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.45) #12
+  %143 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.55) #12
   %144 = load ptr, ptr %128, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 18
   store i16 %143, ptr %145, align 2
@@ -11006,8 +11006,8 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
 
 146:                                              ; preds = %142, %139, %137, %.lr.ph.split
   %147 = load i32, ptr @hf_smb2_signing_alg_id, align 4
-  %148 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %147, ptr noundef %0, i32 noundef %.45, i32 noundef 2, i32 noundef -2147483648) #12
-  %149 = add i32 %.45, 2
+  %148 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %147, ptr noundef %0, i32 noundef %.55, i32 noundef 2, i32 noundef -2147483648) #12
+  %149 = add i32 %.55, 2
   %150 = add nuw i32 %.41304, 1
   %151 = load i32, ptr %11, align 4
   %152 = icmp ult i32 %150, %151
@@ -11030,8 +11030,8 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %146, %.lr.ph.split.us, %.lr.ph8, %.lr.ph12, %74, %.lr.ph16.split.us, %123, %106, %81, %51, %._crit_edge, %46, %159, %153, %102, %96
-  %.5 = phi i32 [ %164, %159 ], [ %158, %153 ], [ %105, %102 ], [ %101, %96 ], [ %50, %46 ], [ %.0.lcssa, %._crit_edge ], [ %54, %51 ], [ %88, %81 ], [ %115, %106 ], [ %126, %123 ], [ %60, %.lr.ph16.split.us ], [ %77, %74 ], [ %92, %.lr.ph12 ], [ %119, %.lr.ph8 ], [ %132, %.lr.ph.split.us ], [ %149, %146 ]
-  ret i32 %.5
+  %.1 = phi i32 [ %164, %159 ], [ %158, %153 ], [ %105, %102 ], [ %101, %96 ], [ %50, %46 ], [ %.0.lcssa, %._crit_edge ], [ %54, %51 ], [ %88, %81 ], [ %115, %106 ], [ %126, %123 ], [ %60, %.lr.ph16.split.us ], [ %77, %74 ], [ %92, %.lr.ph12 ], [ %119, %.lr.ph8 ], [ %132, %.lr.ph.split.us ], [ %149, %146 ]
+  ret i32 %.1
 }
 
 declare i32 @gcry_md_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

@@ -2794,7 +2794,7 @@ _ZN7testing7MessageD2Ev.exit554:                  ; preds = %870, %_ZNKSt14defau
   br label %948
 
 875:                                              ; preds = %_ZN7testing8internal8EqHelper7CompareIbbTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit546, %_ZN7testing7MessageD2Ev.exit551
-  %.11 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit551 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIbbTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit546 ]
+  %.12 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit551 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIbbTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit546 ]
   %876 = getelementptr inbounds i8, ptr %79, i64 8
   %877 = load ptr, ptr %876, align 8
   %.not.i.i555 = icmp eq ptr %877, null
@@ -2827,7 +2827,7 @@ _ZN7testing15AssertionResultD2Ev.exit559:         ; preds = %875, %_ZNKSt14defau
   br label %885
 
 885:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit535, %_ZN7testing15AssertionResultD2Ev.exit514, %.thread807, %.thread803, %_ZN7testing15AssertionResultD2Ev.exit432, %_ZN7testing15AssertionResultD2Ev.exit411, %_ZN7testing15AssertionResultD2Ev.exit391, %_ZN7testing15AssertionResultD2Ev.exit371, %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit559
-  %.12 = phi i32 [ %.11, %_ZN7testing15AssertionResultD2Ev.exit559 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit535 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit514 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit432 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit411 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit391 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit371 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ], [ 1, %.thread803 ], [ 1, %.thread807 ]
+  %.1 = phi i32 [ %.12, %_ZN7testing15AssertionResultD2Ev.exit559 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit535 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit514 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit432 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit411 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit391 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit371 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ], [ 1, %.thread803 ], [ 1, %.thread807 ]
   %886 = getelementptr inbounds i8, ptr %16, i64 8
   %887 = load ptr, ptr %886, align 8
   %.not.i.i.i.i = icmp eq ptr %887, null
@@ -2902,7 +2902,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit
 
 _ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit:     ; preds = %885, %904, %917, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %cond1 = icmp eq i32 %.12, 0
+  %cond1 = icmp eq i32 %.1, 0
   br i1 %cond1, label %922, label %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit782
 
 922:                                              ; preds = %_ZN3nix3refINS_16NarInfoDiskCacheEED2Ev.exit

@@ -295,26 +295,26 @@ inBoxf.exit236.thread.i:                          ; preds = %123
   br label %180
 
 180:                                              ; preds = %177, %inBoxf.exit236.thread.i
-  %.0198.i = phi i64 [ %179, %177 ], [ 0, %inBoxf.exit236.thread.i ]
-  %181 = add i64 %.0198.i, 3
+  %.1199.i = phi i64 [ %179, %177 ], [ 0, %inBoxf.exit236.thread.i ]
+  %181 = add i64 %.1199.i, 3
   br label %.thread.i
 
 .lr.ph.i:                                         ; preds = %.preheader266.i, %185
-  %.1199268.i = phi i64 [ %186, %185 ], [ 0, %.preheader266.i ]
+  %.2200268.i = phi i64 [ %186, %185 ], [ 0, %.preheader266.i ]
   %182 = load ptr, ptr %60, align 8
-  %183 = getelementptr inbounds %struct.pointf_s, ptr %182, i64 %.1199268.i
+  %183 = getelementptr inbounds %struct.pointf_s, ptr %182, i64 %.2200268.i
   %184 = call fastcc i32 @splineIntersectf(ptr noundef %183, ptr noundef nonnull %82)
   %.not215.i = icmp eq i32 %184, 0
   br i1 %.not215.i, label %185, label %._crit_edge.i
 
 185:                                              ; preds = %.lr.ph.i
-  %186 = add i64 %.1199268.i, 3
+  %186 = add i64 %.2200268.i, 3
   %187 = icmp ult i64 %186, %122
   br i1 %187, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %185, %.lr.ph.i, %.preheader266.i
-  %.1199.lcssa.i = phi i64 [ 0, %.preheader266.i ], [ %186, %185 ], [ %.1199268.i, %.lr.ph.i ]
-  %188 = icmp eq i64 %.1199.lcssa.i, %122
+  %.2200.lcssa.i = phi i64 [ 0, %.preheader266.i ], [ %186, %185 ], [ %.2200268.i, %.lr.ph.i ]
+  %188 = icmp eq i64 %.2200.lcssa.i, %122
   br i1 %188, label %189, label %202
 
 189:                                              ; preds = %._crit_edge.i
@@ -341,12 +341,12 @@ inBoxf.exit236.thread.i:                          ; preds = %123
 
 204:                                              ; preds = %202
   %205 = load ptr, ptr %60, align 8
-  %206 = call i64 @arrowEndClip(ptr noundef nonnull %.018, ptr noundef %205, i64 noundef 0, i64 noundef %.1199.lcssa.i, ptr noundef nonnull %2, i32 noundef %203) #11
+  %206 = call i64 @arrowEndClip(ptr noundef nonnull %.018, ptr noundef %205, i64 noundef 0, i64 noundef %.2200.lcssa.i, ptr noundef nonnull %2, i32 noundef %203) #11
   br label %207
 
 207:                                              ; preds = %204, %202
-  %.2200.i = phi i64 [ %206, %204 ], [ %.1199.lcssa.i, %202 ]
-  %208 = add i64 %.2200.i, 3
+  %.4.i = phi i64 [ %206, %204 ], [ %.2200.lcssa.i, %202 ]
+  %208 = add i64 %.4.i, 3
   br label %.thread.i
 
 209:                                              ; preds = %137, %inBoxf.exit.thread.i, %59
@@ -479,14 +479,14 @@ inBoxf.exit243.thread.i:                          ; preds = %248
   br i1 %cond274.i, label %._crit_edge276.i, label %.preheader264.i
 
 .preheader264.i:                                  ; preds = %.preheader265.i, %308
-  %.1275.i = phi i64 [ %309, %308 ], [ %.5.i, %.preheader265.i ]
+  %.2275.i = phi i64 [ %309, %308 ], [ %.5.i, %.preheader265.i ]
   %.pre.i = load ptr, ptr %60, align 8
   br label %296
 
 296:                                              ; preds = %296, %.preheader264.i
   %.0203273.i = phi i64 [ 0, %.preheader264.i ], [ %300, %296 ]
   %297 = getelementptr inbounds [4 x %struct.pointf_s], ptr %3, i64 0, i64 %.0203273.i
-  %298 = sub i64 %.1275.i, %.0203273.i
+  %298 = sub i64 %.2275.i, %.0203273.i
   %299 = getelementptr inbounds %struct.pointf_s, ptr %.pre.i, i64 %298
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %297, ptr noundef nonnull align 8 dereferenceable(16) %299, i64 16, i1 false)
   %300 = add nuw nsw i64 %.0203273.i, 1
@@ -501,7 +501,7 @@ inBoxf.exit243.thread.i:                          ; preds = %248
 .preheader.i:                                     ; preds = %301, %.preheader.i
   %.0202277.i = phi i64 [ %307, %.preheader.i ], [ 0, %301 ]
   %303 = load ptr, ptr %60, align 8
-  %304 = sub i64 %.1275.i, %.0202277.i
+  %304 = sub i64 %.2275.i, %.0202277.i
   %305 = getelementptr inbounds %struct.pointf_s, ptr %303, i64 %304
   %306 = getelementptr inbounds [4 x %struct.pointf_s], ptr %3, i64 0, i64 %.0202277.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %305, ptr noundef nonnull align 16 dereferenceable(16) %306, i64 16, i1 false)
@@ -510,7 +510,7 @@ inBoxf.exit243.thread.i:                          ; preds = %248
   br i1 %exitcond285.not.i, label %323, label %.preheader.i
 
 308:                                              ; preds = %301
-  %309 = add i64 %.1275.i, -3
+  %309 = add i64 %.2275.i, -3
   %cond.i = icmp eq i64 %309, 0
   br i1 %cond.i, label %._crit_edge276.i, label %.preheader264.i
 
@@ -536,7 +536,7 @@ inBoxf.exit243.thread.i:                          ; preds = %248
   br label %.thread260.i
 
 323:                                              ; preds = %.preheader.i
-  %324 = add i64 %.1275.i, -3
+  %324 = add i64 %.2275.i, -3
   %325 = load i32, ptr %77, align 8
   %.not226.i = icmp eq i32 %325, 0
   br i1 %.not226.i, label %.thread260.i, label %326
@@ -578,8 +578,8 @@ inBoxf.exit243.thread.i:                          ; preds = %248
   br label %.thread260.i
 
 .thread260.i:                                     ; preds = %348, %346, %326, %323, %311, %._crit_edge276.i, %293, %inBoxf.exit243.thread.i
-  %.3263.i = phi i64 [ 0, %346 ], [ 0, %348 ], [ 0, %._crit_edge276.i ], [ %324, %323 ], [ %329, %326 ], [ 0, %311 ], [ %267, %inBoxf.exit243.thread.i ], [ %295, %293 ]
-  %350 = sub i64 %.5.i, %.3263.i
+  %.0197263.i = phi i64 [ 0, %346 ], [ 0, %348 ], [ 0, %._crit_edge276.i ], [ %324, %323 ], [ %329, %326 ], [ 0, %311 ], [ %267, %inBoxf.exit243.thread.i ], [ %295, %293 ]
+  %350 = sub i64 %.5.i, %.0197263.i
   %351 = add i64 %350, 1
   store i64 %351, ptr %10, align 8
   %mul.ov.i.i = icmp ugt i64 %351, 1152921504606846975
@@ -611,7 +611,7 @@ gv_calloc.exit.i:                                 ; preds = %355
   br i1 %.not283.i, label %._crit_edge281.i, label %.lr.ph280.i
 
 .lr.ph280.i:                                      ; preds = %gv_calloc.exit.i, %.lr.ph280.i
-  %.0279.i = phi i64 [ %368, %.lr.ph280.i ], [ %.3263.i, %gv_calloc.exit.i ]
+  %.0279.i = phi i64 [ %368, %.lr.ph280.i ], [ %.0197263.i, %gv_calloc.exit.i ]
   %.0196278.i = phi i64 [ %367, %.lr.ph280.i ], [ 0, %gv_calloc.exit.i ]
   %363 = load ptr, ptr %2, align 8
   %364 = getelementptr inbounds %struct.pointf_s, ptr %363, i64 %.0196278.i
@@ -718,8 +718,8 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   br i1 %or.cond76, label %32, label %60
 
 32:                                               ; preds = %21, %19
-  %.sroa.055.1 = phi double [ %.sroa.0.0.copyload, %21 ], [ %.sroa.09.0.copyload, %19 ]
-  %.sroa.11.1 = phi double [ %29, %21 ], [ %.sroa.11.0, %19 ]
+  %.sroa.055.2 = phi double [ %.sroa.0.0.copyload, %21 ], [ %.sroa.09.0.copyload, %19 ]
+  %.sroa.11.2 = phi double [ %29, %21 ], [ %.sroa.11.0, %19 ]
   %33 = fcmp ogt double %.sroa.614.0.copyload, %3
   br i1 %33, label %34, label %45
 
@@ -738,8 +738,8 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   br i1 %or.cond77, label %45, label %60
 
 45:                                               ; preds = %34, %32
-  %.sroa.055.2 = phi double [ %42, %34 ], [ %.sroa.055.1, %32 ]
-  %.sroa.11.2 = phi double [ %.sroa.614.0.copyload, %34 ], [ %.sroa.11.1, %32 ]
+  %.sroa.055.3 = phi double [ %42, %34 ], [ %.sroa.055.2, %32 ]
+  %.sroa.11.3 = phi double [ %.sroa.614.0.copyload, %34 ], [ %.sroa.11.2, %32 ]
   %46 = fcmp olt double %.sroa.6.0.copyload, %3
   br i1 %46, label %47, label %58
 
@@ -758,16 +758,16 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   br i1 %or.cond78, label %58, label %60
 
 58:                                               ; preds = %47, %45
-  %.sroa.055.3 = phi double [ %55, %47 ], [ %.sroa.055.2, %45 ]
-  %.sroa.11.3 = phi double [ %.sroa.6.0.copyload, %47 ], [ %.sroa.11.2, %45 ]
+  %.sroa.055.4 = phi double [ %55, %47 ], [ %.sroa.055.3, %45 ]
+  %.sroa.11.4 = phi double [ %.sroa.6.0.copyload, %47 ], [ %.sroa.11.3, %45 ]
   %59 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.8, double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %.sroa.09.0.copyload, double noundef %.sroa.614.0.copyload, double noundef %.sroa.0.0.copyload, double noundef %.sroa.6.0.copyload) #11
   br label %60
 
 60:                                               ; preds = %47, %34, %21, %8, %58
-  %.sroa.055.4 = phi double [ %.sroa.055.3, %58 ], [ %.sroa.09.0.copyload, %8 ], [ %.sroa.0.0.copyload, %21 ], [ %42, %34 ], [ %55, %47 ]
-  %.sroa.11.4 = phi double [ %.sroa.11.3, %58 ], [ %16, %8 ], [ %29, %21 ], [ %.sroa.614.0.copyload, %34 ], [ %.sroa.6.0.copyload, %47 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.055.4, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.11.4, 1
+  %.sroa.055.1 = phi double [ %.sroa.055.4, %58 ], [ %.sroa.09.0.copyload, %8 ], [ %.sroa.0.0.copyload, %21 ], [ %42, %34 ], [ %55, %47 ]
+  %.sroa.11.1 = phi double [ %.sroa.11.4, %58 ], [ %16, %8 ], [ %29, %21 ], [ %.sroa.614.0.copyload, %34 ], [ %.sroa.6.0.copyload, %47 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.055.1, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.11.1, 1
   ret { double, double } %.fca.1.insert
 }
 

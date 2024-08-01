@@ -1075,7 +1075,7 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
           to label %172 unwind label %.thread81
 
 157:                                              ; preds = %184
-  br i1 %.sroa.036.2, label %.thread, label %83
+  br i1 %.sroa.036.3, label %.thread, label %83
 
 .thread81:                                        ; preds = %155, %156
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -1174,13 +1174,13 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
           to label %198 unwind label %185
 
 184:                                              ; preds = %210, %200, %189, %185
-  %.sroa.036.2 = phi i1 [ %.sroa.036.3, %185 ], [ %.sroa.036.4, %210 ], [ true, %189 ], [ true, %200 ]
+  %.sroa.036.3 = phi i1 [ %.sroa.036.2, %185 ], [ %.sroa.036.5, %210 ], [ true, %189 ], [ true, %200 ]
   %.pn68 = phi { ptr, i32 } [ %186, %185 ], [ %.pn66, %210 ], [ %190, %189 ], [ %201, %200 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %41) #6
           to label %157 unwind label %147
 
 185:                                              ; preds = %433, %183, %182
-  %.sroa.036.3 = phi i1 [ false, %433 ], [ true, %182 ], [ true, %183 ]
+  %.sroa.036.2 = phi i1 [ false, %433 ], [ true, %182 ], [ true, %183 ]
   %186 = landingpad { ptr, i32 }
           cleanup
   br label %184
@@ -1270,13 +1270,13 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
           to label %242 unwind label %211
 
 210:                                              ; preds = %254, %243, %214, %211
-  %.sroa.036.4 = phi i1 [ %.sroa.036.5, %211 ], [ %.sroa.036.6, %254 ], [ true, %214 ], [ true, %243 ]
+  %.sroa.036.5 = phi i1 [ %.sroa.036.4, %211 ], [ %.sroa.036.7, %254 ], [ true, %214 ], [ true, %243 ]
   %.pn66 = phi { ptr, i32 } [ %212, %211 ], [ %.pn64, %254 ], [ %.pn49, %214 ], [ %244, %243 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %38) #6
           to label %184 unwind label %147
 
 211:                                              ; preds = %432, %209, %208
-  %.sroa.036.5 = phi i1 [ false, %432 ], [ true, %208 ], [ true, %209 ]
+  %.sroa.036.4 = phi i1 [ false, %432 ], [ true, %208 ], [ true, %209 ]
   %212 = landingpad { ptr, i32 }
           cleanup
   br label %210
@@ -1436,13 +1436,13 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
           to label %284 unwind label %255
 
 254:                                              ; preds = %312, %285, %258, %255
-  %.sroa.036.6 = phi i1 [ %.sroa.036.7, %255 ], [ true, %312 ], [ true, %285 ], [ true, %258 ]
+  %.sroa.036.7 = phi i1 [ %.sroa.036.6, %255 ], [ true, %312 ], [ true, %285 ], [ true, %258 ]
   %.pn64 = phi { ptr, i32 } [ %256, %255 ], [ %.pn61.pn, %312 ], [ %.pn53, %285 ], [ %.pn51, %258 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %35) #6
           to label %210 unwind label %147
 
 255:                                              ; preds = %430, %253, %252
-  %.sroa.036.7 = phi i1 [ false, %430 ], [ true, %253 ], [ true, %252 ]
+  %.sroa.036.6 = phi i1 [ false, %430 ], [ true, %253 ], [ true, %252 ]
   %256 = landingpad { ptr, i32 }
           cleanup
   br label %254
@@ -2899,13 +2899,13 @@ define hidden void @_ZN19pyo3_macros_backend6params22impl_regular_arg_param17hcb
           to label %.thread62 unwind label %95
 
 93:                                               ; preds = %337, %222, %171, %95
-  %.sroa.04.0 = phi i1 [ %96, %95 ], [ false, %171 ], [ false, %222 ], [ false, %337 ]
-  %.sroa.02.0 = phi i1 [ %97, %95 ], [ false, %171 ], [ false, %222 ], [ false, %337 ]
+  %.sroa.04.2 = phi i1 [ %96, %95 ], [ false, %171 ], [ false, %222 ], [ false, %337 ]
+  %.sroa.02.2 = phi i1 [ %97, %95 ], [ false, %171 ], [ false, %222 ], [ false, %337 ]
   %.pn41 = phi { ptr, i32 } [ %98, %95 ], [ %.pn32, %171 ], [ %.pn26.pn, %222 ], [ %.pn10.pn, %337 ]
   %94 = load i64, ptr %65, align 8
   %.not43 = icmp eq i64 %94, -9223372036854775807
-  %or.cond = select i1 %.sroa.04.0, i1 true, i1 %.not43
-  %brmerge53 = or i1 %.sroa.02.0, %or.cond
+  %or.cond = select i1 %.sroa.04.2, i1 true, i1 %.not43
+  %brmerge53 = or i1 %.sroa.02.2, %or.cond
   br i1 %brmerge53, label %.thread, label %385
 
 95:                                               ; preds = %.invoke72, %.invoke, %335, %333, %273, %220, %218, %216, %107, %92

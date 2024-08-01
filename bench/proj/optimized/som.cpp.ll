@@ -963,11 +963,11 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
   %31 = tail call double @llvm.fabs.f64(double %30)
   %32 = fcmp olt double %31, 0x3E7AD7F29ABCAF48
   %33 = fadd double %29, 0xBE7AD7F29ABCAF48
-  %.2 = select i1 %32, double %33, double %29
+  %.3 = select i1 %32, double %33, double %29
   %34 = load double, ptr %14, align 8
   %35 = fmul double %12, %34
   %36 = load double, ptr %15, align 8
-  %37 = tail call double @sin(double noundef %.2) #9
+  %37 = tail call double @sin(double noundef %.3) #9
   %38 = load double, ptr %16, align 8
   %39 = fmul double %37, %38
   %40 = tail call double @llvm.fmuladd.f64(double %35, double %36, double %39)
@@ -1026,7 +1026,7 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
   %69 = fmul double %67, %68
   %70 = load double, ptr %15, align 8
   %71 = tail call double @cos(double noundef %.sroa.3.0) #9
-  %72 = tail call double @sin(double noundef %.2) #9
+  %72 = tail call double @sin(double noundef %.3) #9
   %73 = fneg double %70
   %74 = fmul double %71, %73
   %75 = fmul double %74, %72

@@ -139,8 +139,8 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %44
 
 44:                                               ; preds = %43, %42
-  %.1132 = phi ptr [ %.0131, %42 ], [ %40, %43 ]
-  %45 = getelementptr i8, ptr %.1132, i64 1
+  %.2 = phi ptr [ %.0131, %42 ], [ %40, %43 ]
+  %45 = getelementptr i8, ptr %.2, i64 1
   %46 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 44) #8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %49
@@ -271,7 +271,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   %.0124204 = phi i8 [ %.0124, %.thread170 ], [ 0, %37 ]
   %.0133203 = phi i32 [ %.0133, %.thread170 ], [ 0, %37 ]
   %.0134202 = phi i32 [ %.0134, %.thread170 ], [ 0, %37 ]
-  %.2173201 = phi ptr [ %46, %.thread170 ], [ %.0131, %37 ]
+  %.1132173201 = phi ptr [ %46, %.thread170 ], [ %.0131, %37 ]
   %.0130174200 = phi ptr [ %45, %.thread170 ], [ null, %37 ]
   br label %.preheader181
 
@@ -284,15 +284,15 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %146
 
 .preheader181:                                    ; preds = %.preheader181.preheader, %.preheader181
-  %.2.pn = phi ptr [ %.0129, %.preheader181 ], [ %.2173201, %.preheader181.preheader ]
-  %.0129 = getelementptr i8, ptr %.2.pn, i64 1
+  %.1132.pn = phi ptr [ %.0129, %.preheader181 ], [ %.1132173201, %.preheader181.preheader ]
+  %.0129 = getelementptr i8, ptr %.1132.pn, i64 1
   %96 = load i8, ptr %.0129, align 1
   %97 = icmp eq i8 %96, 32
   br i1 %97, label %.preheader181, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %.preheader181
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0129) #8
-  %99 = getelementptr i8, ptr %.2.pn, i64 %98
+  %99 = getelementptr i8, ptr %.1132.pn, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 32
   br i1 %101, label %.lr.ph183, label %._crit_edge184
@@ -301,7 +301,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   %102 = phi ptr [ %104, %.lr.ph183 ], [ %99, %.preheader ]
   store i8 0, ptr %102, align 1
   %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0129) #8
-  %104 = getelementptr i8, ptr %.2.pn, i64 %103
+  %104 = getelementptr i8, ptr %.1132.pn, i64 %103
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 32
   br i1 %106, label %.lr.ph183, label %._crit_edge184.loopexit, !llvm.loop !9

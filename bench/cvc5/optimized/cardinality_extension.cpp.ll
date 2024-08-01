@@ -6898,8 +6898,8 @@ if.then:                                          ; preds = %entry
 
 invoke.cont8:                                     ; preds = %if.then, %for.inc
   %degrees.sroa.0.0234 = phi ptr [ %degrees.sroa.0.2, %for.inc ], [ null, %if.then ]
-  %degrees.sroa.11.0233 = phi ptr [ %degrees.sroa.11.2, %for.inc ], [ null, %if.then ]
-  %degrees.sroa.20.0232 = phi ptr [ %degrees.sroa.20.2, %for.inc ], [ null, %if.then ]
+  %degrees.sroa.11.0233 = phi ptr [ %degrees.sroa.11.1, %for.inc ], [ null, %if.then ]
+  %degrees.sroa.20.0232 = phi ptr [ %degrees.sroa.20.1, %for.inc ], [ null, %if.then ]
   %it.sroa.0.0231 = phi ptr [ %call.i, %for.inc ], [ %1, %if.then ]
   %second = getelementptr inbounds i8, ptr %it.sroa.0.0231, i64 40
   %2 = load ptr, ptr %second, align 8
@@ -7015,12 +7015,12 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %if.then.i
-  %degrees.sroa.20.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %degrees.sroa.20.0232, %if.then.i ]
+  %degrees.sroa.20.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %degrees.sroa.20.0232, %if.then.i ]
   %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %degrees.sroa.11.0233, %if.then.i ]
-  %degrees.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %degrees.sroa.0.0234, %if.then.i ]
-  %degrees.sroa.11.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 4
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %degrees.sroa.11.1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %degrees.sroa.0.1 to i64
+  %degrees.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %degrees.sroa.0.0234, %if.then.i ]
+  %degrees.sroa.11.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 4
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %degrees.sroa.11.2 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %degrees.sroa.0.3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
   %conv = trunc i64 %sub.ptr.div.i to i32
@@ -7028,15 +7028,15 @@ invoke.cont21:                                    ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %cmp23.not, label %for.inc, label %cleanup
 
 for.inc:                                          ; preds = %invoke.cont8, %invoke.cont21, %if.else, %invoke.cont11
-  %degrees.sroa.20.2 = phi ptr [ %degrees.sroa.20.0232, %invoke.cont11 ], [ %degrees.sroa.20.1, %invoke.cont21 ], [ %degrees.sroa.20.0232, %if.else ], [ %degrees.sroa.20.0232, %invoke.cont8 ]
-  %degrees.sroa.11.2 = phi ptr [ %degrees.sroa.11.0233, %invoke.cont11 ], [ %degrees.sroa.11.1, %invoke.cont21 ], [ %degrees.sroa.11.0233, %if.else ], [ %degrees.sroa.11.0233, %invoke.cont8 ]
-  %degrees.sroa.0.2 = phi ptr [ %degrees.sroa.0.0234, %invoke.cont11 ], [ %degrees.sroa.0.1, %invoke.cont21 ], [ %degrees.sroa.0.0234, %if.else ], [ %degrees.sroa.0.0234, %invoke.cont8 ]
+  %degrees.sroa.20.1 = phi ptr [ %degrees.sroa.20.0232, %invoke.cont11 ], [ %degrees.sroa.20.2, %invoke.cont21 ], [ %degrees.sroa.20.0232, %if.else ], [ %degrees.sroa.20.0232, %invoke.cont8 ]
+  %degrees.sroa.11.1 = phi ptr [ %degrees.sroa.11.0233, %invoke.cont11 ], [ %degrees.sroa.11.2, %invoke.cont21 ], [ %degrees.sroa.11.0233, %if.else ], [ %degrees.sroa.11.0233, %invoke.cont8 ]
+  %degrees.sroa.0.2 = phi ptr [ %degrees.sroa.0.0234, %invoke.cont11 ], [ %degrees.sroa.0.3, %invoke.cont21 ], [ %degrees.sroa.0.0234, %if.else ], [ %degrees.sroa.0.0234, %invoke.cont8 ]
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0231) #25
   %cmp.i.not.not = icmp eq ptr %call.i, %add.ptr.i.i.i
   br i1 %cmp.i.not.not, label %for.end, label %invoke.cont8, !llvm.loop !57
 
 for.end:                                          ; preds = %for.inc, %if.then
-  %degrees.sroa.11.0.lcssa = phi ptr [ null, %if.then ], [ %degrees.sroa.11.2, %for.inc ]
+  %degrees.sroa.11.0.lcssa = phi ptr [ null, %if.then ], [ %degrees.sroa.11.1, %for.inc ]
   %degrees.sroa.0.0.lcssa = phi ptr [ null, %if.then ], [ %degrees.sroa.0.2, %for.inc ]
   %9 = load i32, ptr @_ZN4cvc58internal6theory2uf8gmcCountE, align 4
   %inc = add nsw i32 %9, 1
@@ -7083,12 +7083,12 @@ if.then.i.i.i176.thread:                          ; preds = %for.body65
 
 cleanup:                                          ; preds = %invoke.cont21, %invoke.cont15, %for.cond61.preheader
   %cmp.i.not221 = phi i1 [ false, %for.cond61.preheader ], [ true, %invoke.cont15 ], [ true, %invoke.cont21 ]
-  %degrees.sroa.0.3 = phi ptr [ %degrees.sroa.0.0.lcssa, %for.cond61.preheader ], [ %degrees.sroa.0.1, %invoke.cont21 ], [ %degrees.sroa.0.0234, %invoke.cont15 ]
-  %tobool.not.i.i.i175 = icmp eq ptr %degrees.sroa.0.3, null
+  %degrees.sroa.0.1 = phi ptr [ %degrees.sroa.0.0.lcssa, %for.cond61.preheader ], [ %degrees.sroa.0.3, %invoke.cont21 ], [ %degrees.sroa.0.0234, %invoke.cont15 ]
+  %tobool.not.i.i.i175 = icmp eq ptr %degrees.sroa.0.1, null
   br i1 %tobool.not.i.i.i175, label %_ZNSt6vectorIiSaIiEED2Ev.exit177, label %if.then.i.i.i176
 
 if.then.i.i.i176:                                 ; preds = %cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %degrees.sroa.0.3) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %degrees.sroa.0.1) #24
   br i1 %cmp.i.not221, label %return, label %if.end77
 
 _ZNSt6vectorIiSaIiEED2Ev.exit177:                 ; preds = %cleanup
@@ -14037,7 +14037,7 @@ for.body136.lr.ph:                                ; preds = %for.cond132.prehead
 
 for.body136:                                      ; preds = %for.body136.lr.ph, %for.inc159
   %i131.01036 = phi i64 [ 0, %for.body136.lr.ph ], [ %inc160, %for.inc159 ]
-  %addedLemma.01035 = phi i1 [ false, %for.body136.lr.ph ], [ %addedLemma.1, %for.inc159 ]
+  %addedLemma.11035 = phi i1 [ false, %for.body136.lr.ph ], [ %addedLemma.2, %for.inc159 ]
   %24 = load ptr, ptr %d_regions137, align 8
   %add.ptr.i640 = getelementptr inbounds ptr, ptr %24, i64 %i131.01036
   %25 = load ptr, ptr %add.ptr.i640, align 8
@@ -14065,14 +14065,14 @@ for.inc159.fold.split:                            ; preds = %if.then147
   br label %for.inc159
 
 for.inc159:                                       ; preds = %if.then147, %for.inc159.fold.split, %for.body136, %land.lhs.true140
-  %addedLemma.1 = phi i1 [ %addedLemma.01035, %land.lhs.true140 ], [ %addedLemma.01035, %for.body136 ], [ true, %if.then147 ], [ %addedLemma.01035, %for.inc159.fold.split ]
+  %addedLemma.2 = phi i1 [ %addedLemma.11035, %land.lhs.true140 ], [ %addedLemma.11035, %for.body136 ], [ true, %if.then147 ], [ %addedLemma.11035, %for.inc159.fold.split ]
   %inc160 = add nuw i64 %i131.01036, 1
   %29 = load i64, ptr %d_data.i.i5121064, align 8
   %cmp135 = icmp ult i64 %inc160, %29
   br i1 %cmp135, label %for.body136, label %if.end162, !llvm.loop !117
 
 if.end162:                                        ; preds = %for.inc159
-  br i1 %addedLemma.1, label %if.end320, label %cond.end187
+  br i1 %addedLemma.2, label %if.end320, label %cond.end187
 
 cond.end187:                                      ; preds = %for.cond.preheader, %for.cond132.preheader, %if.end162
   %d_data.i.i5121065 = phi ptr [ %d_data.i.i5121064, %if.end162 ], [ %d_data.i.i5121064, %for.cond132.preheader ], [ %d_data.i.i512, %for.cond.preheader ]
@@ -14103,7 +14103,7 @@ invoke.cont202.lr.ph:                             ; preds = %if.then191
 
 invoke.cont202:                                   ; preds = %invoke.cont202.lr.ph, %for.inc258
   %33 = phi i64 [ %32, %invoke.cont202.lr.ph ], [ %55, %for.inc258 ]
-  %recheck.01040 = phi i8 [ 0, %invoke.cont202.lr.ph ], [ %recheck.2, %for.inc258 ]
+  %recheck.11040 = phi i8 [ 0, %invoke.cont202.lr.ph ], [ %recheck.4, %for.inc258 ]
   %storemerge91038 = phi i64 [ 0, %invoke.cont202.lr.ph ], [ %inc259, %for.inc258 ]
   %34 = load ptr, ptr %d_regions200, align 8
   %add.ptr.i764 = getelementptr inbounds ptr, ptr %34, i64 %storemerge91038
@@ -14270,7 +14270,7 @@ invoke.cont251:                                   ; preds = %if.else249
 
 cleanup254:                                       ; preds = %invoke.cont244, %invoke.cont251
   %switch15 = phi i1 [ true, %invoke.cont251 ], [ false, %invoke.cont244 ]
-  %recheck.1 = phi i8 [ %recheck.01040, %invoke.cont251 ], [ 1, %invoke.cont244 ]
+  %recheck.3 = phi i8 [ %recheck.11040, %invoke.cont251 ], [ 1, %invoke.cont244 ]
   %bf.load.i.i929 = load i64, ptr %38, align 8
   %52 = and i64 %bf.load.i.i929, 1152920405095219200
   %cmp.not.i.i930 = icmp eq i64 %52, 1152920405095219200
@@ -14310,20 +14310,20 @@ ehcleanup:                                        ; preds = %lpad210, %lpad208
 
 for.inc258:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge, %invoke.cont202
   %55 = phi i64 [ %.pre1046, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge ], [ %33, %invoke.cont202 ]
-  %recheck.2 = phi i8 [ %recheck.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge ], [ %recheck.01040, %invoke.cont202 ]
+  %recheck.4 = phi i8 [ %recheck.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge ], [ %recheck.11040, %invoke.cont202 ]
   %inc259 = add nuw i64 %storemerge91038, 1
   %cmp198 = icmp ult i64 %inc259, %55
   br i1 %cmp198, label %invoke.cont202, label %for.end260.loopexit, !llvm.loop !122
 
 for.end260.loopexit:                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940, %for.inc258
-  %recheck.3.ph = phi i8 [ %recheck.2, %for.inc258 ], [ %recheck.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940 ]
+  %recheck.2.ph = phi i8 [ %recheck.4, %for.inc258 ], [ %recheck.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940 ]
   %.pre1047 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %56 = trunc nuw i8 %recheck.3.ph to i1
+  %56 = trunc nuw i8 %recheck.2.ph to i1
   br label %for.end260
 
 for.end260:                                       ; preds = %for.end260.loopexit, %if.then191
   %57 = phi ptr [ null, %if.then191 ], [ %.pre1047, %for.end260.loopexit ]
-  %recheck.3 = phi i1 [ false, %if.then191 ], [ %56, %for.end260.loopexit ]
+  %recheck.2 = phi i1 [ false, %if.then191 ], [ %56, %for.end260.loopexit ]
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %sortsFound, ptr noundef %57)
           to label %if.end262 unwind label %terminate.lpad.i.i
 
@@ -14340,7 +14340,7 @@ ehcleanup261:                                     ; preds = %ehcleanup, %lpad195
   br label %eh.resume
 
 if.end262:                                        ; preds = %for.end260
-  br i1 %recheck.3, label %if.end320.sink.split, label %for.cond266.preheader
+  br i1 %recheck.2, label %if.end320.sink.split, label %for.cond266.preheader
 
 for.cond266.preheader:                            ; preds = %cond.end187, %if.end262
   %60 = load i64, ptr %d_data.i.i5121065, align 8
@@ -15993,7 +15993,7 @@ if.end156:                                        ; preds = %for.end99
           to label %cleanup unwind label %eh.resume
 
 cleanup:                                          ; preds = %invoke.cont40, %for.end99, %if.end156
-  %retval.0 = phi i32 [ %ri, %if.end156 ], [ -1, %for.end99 ], [ -1, %invoke.cont40 ]
+  %retval.1 = phi i32 [ %ri, %if.end156 ], [ -1, %for.end99 ], [ -1, %invoke.cont40 ]
   %13 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %regions_diseq, ptr noundef %13)
           to label %return unwind label %terminate.lpad.i.i
@@ -16006,8 +16006,8 @@ terminate.lpad.i.i:                               ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %cleanup, %if.then6
-  %retval.1 = phi i32 [ %ri, %if.then6 ], [ %retval.0, %cleanup ], [ -1, %for.cond.preheader ], [ -1, %for.inc ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %ri, %if.then6 ], [ %retval.1, %cleanup ], [ -1, %for.cond.preheader ], [ -1, %for.inc ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %if.end156, %if.end38
   %16 = landingpad { ptr, i32 }

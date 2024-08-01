@@ -625,7 +625,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %33, %_ZN9QtPrivate8
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_Z8qstrnlenPKcj.exit.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN10QByteArrayD2Ev.exit, %46
-  %.09.i.i = phi i32 [ %48, %46 ], [ 0, %_ZN10QByteArrayD2Ev.exit ]
+  %.19.i.i = phi i32 [ %48, %46 ], [ 0, %_ZN10QByteArrayD2Ev.exit ]
   %.058.i.i = phi ptr [ %47, %46 ], [ %41, %_ZN10QByteArrayD2Ev.exit ]
   %45 = load i8, ptr %.058.i.i, align 1
   %.not7.i.i = icmp eq i8 %45, 0
@@ -633,13 +633,13 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %33, %_ZN9QtPrivate8
 
 46:                                               ; preds = %.lr.ph.i.i
   %47 = getelementptr inbounds i8, ptr %.058.i.i, i64 1
-  %48 = add nuw i32 %.09.i.i, 1
+  %48 = add nuw i32 %.19.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %48, %43
   br i1 %exitcond.not.i.i, label %_Z8qstrnlenPKcj.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 _Z8qstrnlenPKcj.exit.i:                           ; preds = %46, %.lr.ph.i.i, %_ZN10QByteArrayD2Ev.exit
-  %.1.i.i = phi i32 [ 0, %_ZN10QByteArrayD2Ev.exit ], [ %43, %46 ], [ %.09.i.i, %.lr.ph.i.i ]
-  %49 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %41, i32 noundef %.1.i.i)
+  %.0.i.i = phi i32 [ 0, %_ZN10QByteArrayD2Ev.exit ], [ %43, %46 ], [ %.19.i.i, %.lr.ph.i.i ]
+  %49 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %41, i32 noundef %.0.i.i)
           to label %50 unwind label %70
 
 50:                                               ; preds = %_Z8qstrnlenPKcj.exit.i
@@ -3902,7 +3902,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %49, %_ZN9QtPrivate8
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_Z8qstrnlenPKcj.exit.i
 
 .lr.ph.i.i:                                       ; preds = %55, %64
-  %.09.i.i = phi i32 [ %66, %64 ], [ 0, %55 ]
+  %.19.i.i = phi i32 [ %66, %64 ], [ 0, %55 ]
   %.058.i.i = phi ptr [ %65, %64 ], [ %59, %55 ]
   %63 = load i8, ptr %.058.i.i, align 1
   %.not7.i.i = icmp eq i8 %63, 0
@@ -3910,13 +3910,13 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %49, %_ZN9QtPrivate8
 
 64:                                               ; preds = %.lr.ph.i.i
   %65 = getelementptr inbounds i8, ptr %.058.i.i, i64 1
-  %66 = add nuw i32 %.09.i.i, 1
+  %66 = add nuw i32 %.19.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %66, %61
   br i1 %exitcond.not.i.i, label %_Z8qstrnlenPKcj.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 _Z8qstrnlenPKcj.exit.i:                           ; preds = %64, %.lr.ph.i.i, %55
-  %.1.i.i = phi i32 [ 0, %55 ], [ %61, %64 ], [ %.09.i.i, %.lr.ph.i.i ]
-  %67 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %59, i32 noundef %.1.i.i)
+  %.0.i.i = phi i32 [ 0, %55 ], [ %61, %64 ], [ %.19.i.i, %.lr.ph.i.i ]
+  %67 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %59, i32 noundef %.0.i.i)
           to label %68 unwind label %319
 
 68:                                               ; preds = %_Z8qstrnlenPKcj.exit.i
@@ -4042,7 +4042,7 @@ _ZN10QByteArrayD2Ev.exit74:                       ; preds = %_ZN10QByteArrayD2Ev
   br i1 %or.cond.i.i77, label %.lr.ph.i.i80, label %_Z8qstrnlenPKcj.exit.i78
 
 .lr.ph.i.i80:                                     ; preds = %90, %99
-  %.09.i.i81 = phi i32 [ %101, %99 ], [ 0, %90 ]
+  %.19.i.i81 = phi i32 [ %101, %99 ], [ 0, %90 ]
   %.058.i.i82 = phi ptr [ %100, %99 ], [ %94, %90 ]
   %98 = load i8, ptr %.058.i.i82, align 1
   %.not7.i.i83 = icmp eq i8 %98, 0
@@ -4050,13 +4050,13 @@ _ZN10QByteArrayD2Ev.exit74:                       ; preds = %_ZN10QByteArrayD2Ev
 
 99:                                               ; preds = %.lr.ph.i.i80
   %100 = getelementptr inbounds i8, ptr %.058.i.i82, i64 1
-  %101 = add nuw i32 %.09.i.i81, 1
+  %101 = add nuw i32 %.19.i.i81, 1
   %exitcond.not.i.i84 = icmp eq i32 %101, %96
   br i1 %exitcond.not.i.i84, label %_Z8qstrnlenPKcj.exit.i78, label %.lr.ph.i.i80, !llvm.loop !10
 
 _Z8qstrnlenPKcj.exit.i78:                         ; preds = %99, %.lr.ph.i.i80, %90
-  %.1.i.i79 = phi i32 [ 0, %90 ], [ %96, %99 ], [ %.09.i.i81, %.lr.ph.i.i80 ]
-  %102 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %94, i32 noundef %.1.i.i79)
+  %.0.i.i79 = phi i32 [ 0, %90 ], [ %96, %99 ], [ %.19.i.i81, %.lr.ph.i.i80 ]
+  %102 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %94, i32 noundef %.0.i.i79)
           to label %103 unwind label %328
 
 103:                                              ; preds = %_Z8qstrnlenPKcj.exit.i78
@@ -4246,7 +4246,7 @@ _ZN10QByteArrayD2Ev.exit124:                      ; preds = %_ZN10QByteArrayD2Ev
   br i1 %or.cond.i.i127, label %.lr.ph.i.i130, label %_Z8qstrnlenPKcj.exit.i128
 
 .lr.ph.i.i130:                                    ; preds = %140, %149
-  %.09.i.i131 = phi i32 [ %151, %149 ], [ 0, %140 ]
+  %.19.i.i131 = phi i32 [ %151, %149 ], [ 0, %140 ]
   %.058.i.i132 = phi ptr [ %150, %149 ], [ %144, %140 ]
   %148 = load i8, ptr %.058.i.i132, align 1
   %.not7.i.i133 = icmp eq i8 %148, 0
@@ -4254,13 +4254,13 @@ _ZN10QByteArrayD2Ev.exit124:                      ; preds = %_ZN10QByteArrayD2Ev
 
 149:                                              ; preds = %.lr.ph.i.i130
   %150 = getelementptr inbounds i8, ptr %.058.i.i132, i64 1
-  %151 = add nuw i32 %.09.i.i131, 1
+  %151 = add nuw i32 %.19.i.i131, 1
   %exitcond.not.i.i134 = icmp eq i32 %151, %146
   br i1 %exitcond.not.i.i134, label %_Z8qstrnlenPKcj.exit.i128, label %.lr.ph.i.i130, !llvm.loop !10
 
 _Z8qstrnlenPKcj.exit.i128:                        ; preds = %149, %.lr.ph.i.i130, %140
-  %.1.i.i129 = phi i32 [ 0, %140 ], [ %146, %149 ], [ %.09.i.i131, %.lr.ph.i.i130 ]
-  %152 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %144, i32 noundef %.1.i.i129)
+  %.0.i.i129 = phi i32 [ 0, %140 ], [ %146, %149 ], [ %.19.i.i131, %.lr.ph.i.i130 ]
+  %152 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %144, i32 noundef %.0.i.i129)
           to label %153 unwind label %339
 
 153:                                              ; preds = %_Z8qstrnlenPKcj.exit.i128
@@ -4386,7 +4386,7 @@ _ZN10QByteArrayD2Ev.exit159:                      ; preds = %_ZN10QByteArrayD2Ev
   br i1 %or.cond.i.i162, label %.lr.ph.i.i165, label %_Z8qstrnlenPKcj.exit.i163
 
 .lr.ph.i.i165:                                    ; preds = %176, %185
-  %.09.i.i166 = phi i32 [ %187, %185 ], [ 0, %176 ]
+  %.19.i.i166 = phi i32 [ %187, %185 ], [ 0, %176 ]
   %.058.i.i167 = phi ptr [ %186, %185 ], [ %180, %176 ]
   %184 = load i8, ptr %.058.i.i167, align 1
   %.not7.i.i168 = icmp eq i8 %184, 0
@@ -4394,13 +4394,13 @@ _ZN10QByteArrayD2Ev.exit159:                      ; preds = %_ZN10QByteArrayD2Ev
 
 185:                                              ; preds = %.lr.ph.i.i165
   %186 = getelementptr inbounds i8, ptr %.058.i.i167, i64 1
-  %187 = add nuw i32 %.09.i.i166, 1
+  %187 = add nuw i32 %.19.i.i166, 1
   %exitcond.not.i.i169 = icmp eq i32 %187, %182
   br i1 %exitcond.not.i.i169, label %_Z8qstrnlenPKcj.exit.i163, label %.lr.ph.i.i165, !llvm.loop !10
 
 _Z8qstrnlenPKcj.exit.i163:                        ; preds = %185, %.lr.ph.i.i165, %176
-  %.1.i.i164 = phi i32 [ 0, %176 ], [ %182, %185 ], [ %.09.i.i166, %.lr.ph.i.i165 ]
-  %188 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %180, i32 noundef %.1.i.i164)
+  %.0.i.i164 = phi i32 [ 0, %176 ], [ %182, %185 ], [ %.19.i.i166, %.lr.ph.i.i165 ]
+  %188 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %180, i32 noundef %.0.i.i164)
           to label %189 unwind label %346
 
 189:                                              ; preds = %_Z8qstrnlenPKcj.exit.i163
@@ -4526,7 +4526,7 @@ _ZN10QByteArrayD2Ev.exit194:                      ; preds = %_ZN10QByteArrayD2Ev
   br i1 %or.cond.i.i197, label %.lr.ph.i.i200, label %_Z8qstrnlenPKcj.exit.i198
 
 .lr.ph.i.i200:                                    ; preds = %212, %221
-  %.09.i.i201 = phi i32 [ %223, %221 ], [ 0, %212 ]
+  %.19.i.i201 = phi i32 [ %223, %221 ], [ 0, %212 ]
   %.058.i.i202 = phi ptr [ %222, %221 ], [ %216, %212 ]
   %220 = load i8, ptr %.058.i.i202, align 1
   %.not7.i.i203 = icmp eq i8 %220, 0
@@ -4534,13 +4534,13 @@ _ZN10QByteArrayD2Ev.exit194:                      ; preds = %_ZN10QByteArrayD2Ev
 
 221:                                              ; preds = %.lr.ph.i.i200
   %222 = getelementptr inbounds i8, ptr %.058.i.i202, i64 1
-  %223 = add nuw i32 %.09.i.i201, 1
+  %223 = add nuw i32 %.19.i.i201, 1
   %exitcond.not.i.i204 = icmp eq i32 %223, %218
   br i1 %exitcond.not.i.i204, label %_Z8qstrnlenPKcj.exit.i198, label %.lr.ph.i.i200, !llvm.loop !10
 
 _Z8qstrnlenPKcj.exit.i198:                        ; preds = %221, %.lr.ph.i.i200, %212
-  %.1.i.i199 = phi i32 [ 0, %212 ], [ %218, %221 ], [ %.09.i.i201, %.lr.ph.i.i200 ]
-  %224 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %216, i32 noundef %.1.i.i199)
+  %.0.i.i199 = phi i32 [ 0, %212 ], [ %218, %221 ], [ %.19.i.i201, %.lr.ph.i.i200 ]
+  %224 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %216, i32 noundef %.0.i.i199)
           to label %225 unwind label %353
 
 225:                                              ; preds = %_Z8qstrnlenPKcj.exit.i198
@@ -4666,7 +4666,7 @@ _ZN10QByteArrayD2Ev.exit229:                      ; preds = %_ZN10QByteArrayD2Ev
   br i1 %or.cond.i.i232, label %.lr.ph.i.i235, label %_Z8qstrnlenPKcj.exit.i233
 
 .lr.ph.i.i235:                                    ; preds = %248, %257
-  %.09.i.i236 = phi i32 [ %259, %257 ], [ 0, %248 ]
+  %.19.i.i236 = phi i32 [ %259, %257 ], [ 0, %248 ]
   %.058.i.i237 = phi ptr [ %258, %257 ], [ %252, %248 ]
   %256 = load i8, ptr %.058.i.i237, align 1
   %.not7.i.i238 = icmp eq i8 %256, 0
@@ -4674,13 +4674,13 @@ _ZN10QByteArrayD2Ev.exit229:                      ; preds = %_ZN10QByteArrayD2Ev
 
 257:                                              ; preds = %.lr.ph.i.i235
   %258 = getelementptr inbounds i8, ptr %.058.i.i237, i64 1
-  %259 = add nuw i32 %.09.i.i236, 1
+  %259 = add nuw i32 %.19.i.i236, 1
   %exitcond.not.i.i239 = icmp eq i32 %259, %254
   br i1 %exitcond.not.i.i239, label %_Z8qstrnlenPKcj.exit.i233, label %.lr.ph.i.i235, !llvm.loop !10
 
 _Z8qstrnlenPKcj.exit.i233:                        ; preds = %257, %.lr.ph.i.i235, %248
-  %.1.i.i234 = phi i32 [ 0, %248 ], [ %254, %257 ], [ %.09.i.i236, %.lr.ph.i.i235 ]
-  %260 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %252, i32 noundef %.1.i.i234)
+  %.0.i.i234 = phi i32 [ 0, %248 ], [ %254, %257 ], [ %.19.i.i236, %.lr.ph.i.i235 ]
+  %260 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %252, i32 noundef %.0.i.i234)
           to label %261 unwind label %360
 
 261:                                              ; preds = %_Z8qstrnlenPKcj.exit.i233
@@ -4806,7 +4806,7 @@ _ZN10QByteArrayD2Ev.exit264:                      ; preds = %_ZN10QByteArrayD2Ev
   br i1 %or.cond.i.i267, label %.lr.ph.i.i270, label %_Z8qstrnlenPKcj.exit.i268
 
 .lr.ph.i.i270:                                    ; preds = %284, %293
-  %.09.i.i271 = phi i32 [ %295, %293 ], [ 0, %284 ]
+  %.19.i.i271 = phi i32 [ %295, %293 ], [ 0, %284 ]
   %.058.i.i272 = phi ptr [ %294, %293 ], [ %288, %284 ]
   %292 = load i8, ptr %.058.i.i272, align 1
   %.not7.i.i273 = icmp eq i8 %292, 0
@@ -4814,13 +4814,13 @@ _ZN10QByteArrayD2Ev.exit264:                      ; preds = %_ZN10QByteArrayD2Ev
 
 293:                                              ; preds = %.lr.ph.i.i270
   %294 = getelementptr inbounds i8, ptr %.058.i.i272, i64 1
-  %295 = add nuw i32 %.09.i.i271, 1
+  %295 = add nuw i32 %.19.i.i271, 1
   %exitcond.not.i.i274 = icmp eq i32 %295, %290
   br i1 %exitcond.not.i.i274, label %_Z8qstrnlenPKcj.exit.i268, label %.lr.ph.i.i270, !llvm.loop !10
 
 _Z8qstrnlenPKcj.exit.i268:                        ; preds = %293, %.lr.ph.i.i270, %284
-  %.1.i.i269 = phi i32 [ 0, %284 ], [ %290, %293 ], [ %.09.i.i271, %.lr.ph.i.i270 ]
-  %296 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %288, i32 noundef %.1.i.i269)
+  %.0.i.i269 = phi i32 [ 0, %284 ], [ %290, %293 ], [ %.19.i.i271, %.lr.ph.i.i270 ]
+  %296 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %288, i32 noundef %.0.i.i269)
           to label %297 unwind label %367
 
 297:                                              ; preds = %_Z8qstrnlenPKcj.exit.i268
@@ -8844,36 +8844,36 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vc
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, %60, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %40, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.418.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.2.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.12.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.8.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
   call void @_ZdlPv(ptr noundef nonnull %31) #20
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i, %58, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %32, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.620.i = phi ptr [ %22, %58 ], [ %.418.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.4.i = phi i1 [ false, %58 ], [ %.2.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.1024.i = phi ptr [ %22, %58 ], [ %.12.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.6.i = phi i1 [ false, %58 ], [ %.8.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
   call void @_ZdlPv(ptr noundef nonnull %23) #20
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i, %56, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %24, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.822.i = phi ptr [ %14, %56 ], [ %.620.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.6.i = phi i1 [ false, %56 ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.822.i = phi ptr [ %14, %56 ], [ %.1024.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.4.i = phi i1 [ false, %56 ], [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
   call void @_ZdlPv(ptr noundef nonnull %15) #20
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.1024.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.8.i = phi i1 [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #20
-  %75 = icmp eq ptr %1, %.1024.i
-  %or.cond.i = select i1 %.8.i, i1 true, i1 %75
+  %75 = icmp eq ptr %1, %.620.i
+  %or.cond.i = select i1 %.2.i, i1 true, i1 %75
   br i1 %or.cond.i, label %.body.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i
-  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.1024.i, %.body.i ]
+  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.620.i, %.body.i ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
   %78 = getelementptr inbounds i8, ptr %76, i64 -24
   %79 = load ptr, ptr %78, align 8

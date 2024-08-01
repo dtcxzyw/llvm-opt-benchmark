@@ -227,10 +227,10 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   br label %.thread88
 
 .thread88:                                        ; preds = %42, %63, %64
-  %.191 = phi ptr [ %37, %64 ], [ %50, %63 ], [ %.06899, %42 ]
+  %.06791 = phi ptr [ %37, %64 ], [ %50, %63 ], [ %.06899, %42 ]
   %74 = getelementptr inbounds i8, ptr %3, i64 4
   %75 = load i16, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %.191, i64 10
+  %76 = getelementptr inbounds i8, ptr %.06791, i64 10
   store i16 %75, ptr %76, align 2
   %77 = getelementptr inbounds i8, ptr %3, i64 2
   %78 = load i8, ptr %77, align 2
@@ -238,19 +238,19 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   br i1 %79, label %80, label %97
 
 80:                                               ; preds = %.thread88
-  %81 = getelementptr inbounds i8, ptr %.191, i64 16
+  %81 = getelementptr inbounds i8, ptr %.06791, i64 16
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %.191, i64 24
+  %85 = getelementptr inbounds i8, ptr %.06791, i64 24
   %86 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
   br label %87
 
 87:                                               ; preds = %84, %80
-  %88 = getelementptr inbounds i8, ptr %.191, i64 40
+  %88 = getelementptr inbounds i8, ptr %.06791, i64 40
   %89 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false)
   %90 = add i32 %82, 1
@@ -258,26 +258,26 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   %91 = getelementptr inbounds i8, ptr %3, i64 10
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
-  %94 = getelementptr inbounds i8, ptr %.191, i64 20
+  %94 = getelementptr inbounds i8, ptr %.06791, i64 20
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, %93
   store i32 %96, ptr %94, align 4
   br label %114
 
 97:                                               ; preds = %.thread88
-  %98 = getelementptr inbounds i8, ptr %.191, i64 68
+  %98 = getelementptr inbounds i8, ptr %.06791, i64 68
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %.191, i64 80
+  %102 = getelementptr inbounds i8, ptr %.06791, i64 80
   %103 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false)
   br label %104
 
 104:                                              ; preds = %101, %97
-  %105 = getelementptr inbounds i8, ptr %.191, i64 96
+  %105 = getelementptr inbounds i8, ptr %.06791, i64 96
   %106 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false)
   %107 = add i32 %99, 1
@@ -285,7 +285,7 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   %108 = getelementptr inbounds i8, ptr %3, i64 10
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i32
-  %111 = getelementptr inbounds i8, ptr %.191, i64 72
+  %111 = getelementptr inbounds i8, ptr %.06791, i64 72
   %112 = load i32, ptr %111, align 8
   %113 = add i32 %112, %110
   store i32 %113, ptr %111, align 8
@@ -303,7 +303,7 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   br i1 %.not80, label %124, label %120
 
 120:                                              ; preds = %119
-  %121 = getelementptr inbounds i8, ptr %.191, i64 56
+  %121 = getelementptr inbounds i8, ptr %.06791, i64 56
   %122 = load i32, ptr %121, align 8
   %123 = add i32 %122, 1
   store i32 %123, ptr %121, align 8
@@ -313,14 +313,14 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   %125 = getelementptr inbounds i8, ptr %3, i64 52
   %126 = load i16, ptr %125, align 4
   %127 = zext i16 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %.191, i64 60
+  %128 = getelementptr inbounds i8, ptr %.06791, i64 60
   %129 = load i32, ptr %128, align 4
   %130 = add i32 %129, %127
   store i32 %130, ptr %128, align 4
   %131 = getelementptr inbounds i8, ptr %3, i64 2104
   %132 = load i16, ptr %131, align 8
   %133 = zext i16 %132 to i32
-  %134 = getelementptr inbounds i8, ptr %.191, i64 64
+  %134 = getelementptr inbounds i8, ptr %.06791, i64 64
   %135 = load i32, ptr %134, align 8
   %136 = add i32 %135, %133
   store i32 %136, ptr %134, align 8
@@ -330,7 +330,7 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   br i1 %.not80, label %142, label %138
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %.191, i64 112
+  %139 = getelementptr inbounds i8, ptr %.06791, i64 112
   %140 = load i32, ptr %139, align 8
   %141 = add i32 %140, 1
   store i32 %141, ptr %139, align 8
@@ -340,14 +340,14 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   %143 = getelementptr inbounds i8, ptr %3, i64 52
   %144 = load i16, ptr %143, align 4
   %145 = zext i16 %144 to i32
-  %146 = getelementptr inbounds i8, ptr %.191, i64 116
+  %146 = getelementptr inbounds i8, ptr %.06791, i64 116
   %147 = load i32, ptr %146, align 4
   %148 = add i32 %147, %145
   store i32 %148, ptr %146, align 4
   %149 = getelementptr inbounds i8, ptr %3, i64 2104
   %150 = load i16, ptr %149, align 8
   %151 = zext i16 %150 to i32
-  %152 = getelementptr inbounds i8, ptr %.191, i64 120
+  %152 = getelementptr inbounds i8, ptr %.06791, i64 120
   %153 = load i32, ptr %152, align 8
   %154 = add i32 %153, %151
   store i32 %154, ptr %152, align 8

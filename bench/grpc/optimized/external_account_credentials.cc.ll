@@ -8810,7 +8810,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i5
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont24, %cleanup, %if.then.i.i5
-  %retval.023 = phi ptr [ null, %cleanup ], [ null, %if.then.i.i5 ], [ %7, %invoke.cont24 ]
+  %retval.123 = phi ptr [ null, %cleanup ], [ null, %if.then.i.i5 ], [ %7, %invoke.cont24 ]
   %17 = load ptr, ptr %scopes, align 16
   %18 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
   %cmp.not3.i.i.i.i8 = icmp eq ptr %17, %18
@@ -8843,7 +8843,7 @@ ehcleanup34:                                      ; preds = %lpad30, %lpad19, %l
   br label %ehcleanup38
 
 cleanup37:                                        ; preds = %if.then.i.i.i17, %invoke.cont.i15, %invoke.cont6
-  %retval.1 = phi ptr [ null, %invoke.cont6 ], [ %retval.023, %invoke.cont.i15 ], [ %retval.023, %if.then.i.i.i17 ]
+  %retval.0 = phi ptr [ null, %invoke.cont6 ], [ %retval.123, %invoke.cont.i15 ], [ %retval.123, %if.then.i.i.i17 ]
   %20 = load i64, ptr %json, align 8
   %cmp.i.i.i.i19 = icmp eq i64 %20, 0
   br i1 %cmp.i.i.i.i19, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -8888,7 +8888,7 @@ terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIN9grpc_core12experimental4JsonEED2Ev.exit: ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit.i.i, %if.else.i.i, %if.then.i.i3.i.i
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup38:                                      ; preds = %ehcleanup34, %lpad5, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup34 ], [ %1, %lpad ], [ %2, %lpad5 ]

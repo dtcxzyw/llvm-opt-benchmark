@@ -392,7 +392,7 @@ select.unfold:                                    ; preds = %47, %.lr.ph, %31
 
 .lr.ph103:                                        ; preds = %55, %102
   %.1102 = phi ptr [ %104, %102 ], [ %0, %55 ]
-  %.147101 = phi ptr [ %103, %102 ], [ %2, %55 ]
+  %.2101 = phi ptr [ %103, %102 ], [ %2, %55 ]
   %59 = load i8, ptr %.1102, align 1
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %60
@@ -426,17 +426,17 @@ select.unfold:                                    ; preds = %47, %.lr.ph, %31
   %84 = lshr i8 %67, 4
   %85 = and i8 %84, 3
   %86 = or disjoint i8 %85, %83
-  store i8 %86, ptr %.147101, align 1
+  store i8 %86, ptr %.2101, align 1
   %87 = shl i8 %67, 4
   %88 = lshr i8 %72, 2
   %89 = and i8 %88, 15
   %90 = or disjoint i8 %89, %87
-  %91 = getelementptr inbounds i8, ptr %.147101, i64 1
+  %91 = getelementptr inbounds i8, ptr %.2101, i64 1
   store i8 %90, ptr %91, align 1
   %92 = shl i8 %72, 6
   %93 = and i8 %77, 63
   %94 = or disjoint i8 %93, %92
-  %95 = getelementptr inbounds i8, ptr %.147101, i64 2
+  %95 = getelementptr inbounds i8, ptr %.2101, i64 2
   store i8 %94, ptr %95, align 1
   %96 = load i8, ptr %68, align 1
   %97 = icmp eq i8 %96, 61
@@ -449,11 +449,11 @@ select.unfold:                                    ; preds = %47, %.lr.ph, %31
 
 select.unfold77:                                  ; preds = %98, %.lr.ph103, %82
   %.0.i58.ph = phi i64 [ 1, %82 ], [ 0, %.lr.ph103 ], [ 2, %98 ]
-  %101 = getelementptr inbounds i8, ptr %.147101, i64 %.0.i58.ph
+  %101 = getelementptr inbounds i8, ptr %.2101, i64 %.0.i58.ph
   br label %cmsysBase64_Decode3.exit71
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %.147101, i64 3
+  %103 = getelementptr inbounds i8, ptr %.2101, i64 3
   %104 = getelementptr inbounds i8, ptr %.1102, i64 4
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %57, %105
@@ -461,7 +461,7 @@ select.unfold77:                                  ; preds = %98, %.lr.ph103, %82
   br i1 %107, label %.lr.ph103, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %102, %55
-  %.147.lcssa = phi ptr [ %2, %55 ], [ %103, %102 ]
+  %.2.lcssa = phi ptr [ %2, %55 ], [ %103, %102 ]
   %.1.lcssa = phi ptr [ %0, %55 ], [ %104, %102 ]
   %.lcssa = phi i64 [ %1, %55 ], [ %106, %102 ]
   switch i64 %.lcssa, label %cmsysBase64_Decode3.exit71 [
@@ -511,15 +511,15 @@ cmsysBase64_Decode3.exit65:                       ; preds = %132
   %139 = and i8 %138, 15
   %140 = shl i8 %117, 4
   %141 = or disjoint i8 %139, %140
-  store i8 %136, ptr %.147.lcssa, align 1
-  %142 = getelementptr inbounds i8, ptr %.147.lcssa, i64 1
+  store i8 %136, ptr %.2.lcssa, align 1
+  %142 = getelementptr inbounds i8, ptr %.2.lcssa, i64 1
   store i8 %141, ptr %142, align 1
-  %143 = getelementptr inbounds i8, ptr %.147.lcssa, i64 2
+  %143 = getelementptr inbounds i8, ptr %.2.lcssa, i64 2
   br label %cmsysBase64_Decode3.exit71
 
 144:                                              ; preds = %132
-  store i8 %136, ptr %.147.lcssa, align 1
-  %145 = getelementptr inbounds i8, ptr %.147.lcssa, i64 1
+  store i8 %136, ptr %.2.lcssa, align 1
+  %145 = getelementptr inbounds i8, ptr %.2.lcssa, i64 1
   br label %cmsysBase64_Decode3.exit71
 
 146:                                              ; preds = %._crit_edge
@@ -556,13 +556,13 @@ cmsysBase64_Decode3.exit65:                       ; preds = %132
   %172 = lshr i8 %155, 4
   %173 = and i8 %172, 3
   %174 = or disjoint i8 %173, %171
-  store i8 %174, ptr %.147.lcssa, align 1
-  %175 = getelementptr inbounds i8, ptr %.147.lcssa, i64 1
+  store i8 %174, ptr %.2.lcssa, align 1
+  %175 = getelementptr inbounds i8, ptr %.2.lcssa, i64 1
   br label %cmsysBase64_Decode3.exit71
 
 cmsysBase64_Decode3.exit71:                       ; preds = %51, %170, %cmsysBase64_Decode3.exit65, %144, %._crit_edge, %108, %146, %5, %select.unfold77, %select.unfold
-  %.2.sink = phi ptr [ %101, %select.unfold77 ], [ %50, %select.unfold ], [ %143, %cmsysBase64_Decode3.exit65 ], [ %145, %144 ], [ %175, %170 ], [ %.147.lcssa, %._crit_edge ], [ %.147.lcssa, %108 ], [ %.147.lcssa, %146 ], [ %2, %5 ], [ %52, %51 ]
-  %176 = ptrtoint ptr %.2.sink to i64
+  %.147.sink = phi ptr [ %101, %select.unfold77 ], [ %50, %select.unfold ], [ %143, %cmsysBase64_Decode3.exit65 ], [ %145, %144 ], [ %175, %170 ], [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %108 ], [ %.2.lcssa, %146 ], [ %2, %5 ], [ %52, %51 ]
+  %176 = ptrtoint ptr %.147.sink to i64
   %177 = ptrtoint ptr %2 to i64
   %178 = sub i64 %176, %177
   ret i64 %178

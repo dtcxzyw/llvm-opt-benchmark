@@ -195,8 +195,8 @@ After_Last_Non_Pad_Position.exit67:               ; preds = %82, %84
   br i1 %.not64.not, label %.loopexit, label %67, !llvm.loop !8
 
 .loopexit:                                        ; preds = %67, %After_Last_Non_Pad_Position.exit67, %52, %After_Last_Non_Pad_Position.exit, %58, %23
-  %.055 = phi i1 [ false, %23 ], [ false, %58 ], [ %.not85, %After_Last_Non_Pad_Position.exit ], [ %.not85, %52 ], [ %.not64.not, %After_Last_Non_Pad_Position.exit67 ], [ %.not64.not, %67 ]
-  %.2 = phi i1 [ false, %23 ], [ false, %58 ], [ true, %After_Last_Non_Pad_Position.exit ], [ true, %52 ], [ true, %After_Last_Non_Pad_Position.exit67 ], [ true, %67 ]
+  %.156 = phi i1 [ false, %23 ], [ false, %58 ], [ %.not85, %After_Last_Non_Pad_Position.exit ], [ %.not85, %52 ], [ %.not64.not, %After_Last_Non_Pad_Position.exit67 ], [ %.not64.not, %67 ]
+  %.154 = phi i1 [ false, %23 ], [ false, %58 ], [ true, %After_Last_Non_Pad_Position.exit ], [ true, %52 ], [ true, %After_Last_Non_Pad_Position.exit67 ], [ true, %67 ]
   br i1 %11, label %89, label %90
 
 89:                                               ; preds = %.loopexit
@@ -204,7 +204,7 @@ After_Last_Non_Pad_Position.exit67:               ; preds = %82, %84
   br label %90
 
 90:                                               ; preds = %89, %.loopexit
-  br i1 %.2, label %91, label %99
+  br i1 %.154, label %91, label %99
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds i8, ptr %0, i64 56
@@ -217,8 +217,8 @@ After_Last_Non_Pad_Position.exit67:               ; preds = %82, %84
   br label %99
 
 99:                                               ; preds = %90, %91, %5, %2, %1
-  %.156 = phi i1 [ %.055, %91 ], [ %.055, %90 ], [ false, %5 ], [ false, %2 ], [ false, %1 ]
-  ret i1 %.156
+  %.055 = phi i1 [ %.156, %91 ], [ %.156, %90 ], [ false, %5 ], [ false, %2 ], [ false, %1 ]
+  ret i1 %.055
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

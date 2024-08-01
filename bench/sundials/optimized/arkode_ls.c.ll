@@ -932,7 +932,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %14
   br label %arkLs_AccessLMem.exit.thread
 
 arkLs_AccessMassMem.exit.thread:                  ; preds = %14, %12, %arkLs_AccessLMem.exit
-  %.1 = phi ptr [ null, %arkLs_AccessLMem.exit ], [ null, %12 ], [ %16, %14 ]
+  %.0 = phi ptr [ null, %arkLs_AccessLMem.exit ], [ null, %12 ], [ %16, %14 ]
   %18 = getelementptr inbounds i8, ptr %7, i64 64
   %19 = load ptr, ptr %18, align 8
   %.not25 = icmp eq ptr %19, null
@@ -1016,13 +1016,13 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %14, %12, %arkLs_Acc
   br label %58
 
 58:                                               ; preds = %20, %47, %43, %53
-  %.not30 = icmp eq ptr %.1, null
+  %.not30 = icmp eq ptr %.0, null
   br i1 %.not30, label %105, label %59
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr %18, align 8
   %61 = icmp eq ptr %60, null
-  %62 = getelementptr inbounds i8, ptr %.1, i64 16
+  %62 = getelementptr inbounds i8, ptr %.0, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   %65 = xor i1 %61, %64
@@ -1074,7 +1074,7 @@ select.unfold:                                    ; preds = %69
   br i1 %88, label %89, label %95
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %.1, i64 144
+  %90 = getelementptr inbounds i8, ptr %.0, i64 144
   %91 = load ptr, ptr %90, align 8
   %92 = tail call i32 @SUNLinSolGetType(ptr noundef %91) #12
   %.not35 = icmp eq i32 %92, 3
@@ -1093,7 +1093,7 @@ select.unfold:                                    ; preds = %69
   br i1 %.not36, label %105, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %.1, i64 144
+  %99 = getelementptr inbounds i8, ptr %.0, i64 144
   %100 = load ptr, ptr %99, align 8
   %101 = tail call i32 @SUNLinSolGetType(ptr noundef %100) #12
   %102 = icmp eq i32 %101, 3

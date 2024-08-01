@@ -121,7 +121,7 @@ for.end:                                          ; preds = %for.body, %if.end
   br i1 %cmp792, label %while.cond9.preheader, label %while.end107
 
 while.cond9.preheader:                            ; preds = %for.end, %sw.epilog
-  %procs.093 = phi i32 [ %procs.4, %sw.epilog ], [ 0, %for.end ]
+  %procs.093 = phi i32 [ %procs.3, %sw.epilog ], [ 0, %for.end ]
   br label %while.cond9
 
 while.cond9:                                      ; preds = %while.cond9.preheader, %if.else63
@@ -166,7 +166,7 @@ for.inc31:                                        ; preds = %for.body22
 
 for.end33:                                        ; preds = %for.inc31, %for.cond19.preheader, %if.then27
   %i.182 = phi i32 [ %11, %if.then27 ], [ 0, %for.cond19.preheader ], [ %procs.093, %for.inc31 ]
-  %procs.1 = phi i32 [ %9, %if.then27 ], [ %procs.093, %for.cond19.preheader ], [ %procs.093, %for.inc31 ]
+  %procs.2 = phi i32 [ %9, %if.then27 ], [ %procs.093, %for.cond19.preheader ], [ %procs.093, %for.inc31 ]
   %12 = load i32, ptr @n_responders, align 4
   %cmp34.not = icmp slt i32 %i.182, %12
   br i1 %cmp34.not, label %if.end38, label %if.then36
@@ -284,7 +284,7 @@ while.endthread-pre-split:                        ; preds = %if.end61, %if.end38
 
 while.end:                                        ; preds = %while.cond9, %while.endthread-pre-split
   %25 = phi i32 [ %.pr, %while.endthread-pre-split ], [ %6, %while.cond9 ]
-  %procs.2 = phi i32 [ %procs.1, %while.endthread-pre-split ], [ %procs.093, %while.cond9 ]
+  %procs.1 = phi i32 [ %procs.2, %while.endthread-pre-split ], [ %procs.093, %while.cond9 ]
   %tobool72.not = icmp eq i32 %25, 0
   br i1 %tobool72.not, label %if.end74, label %while.end107
 
@@ -341,7 +341,7 @@ if.then95:                                        ; preds = %for.body90
   %arrayidx92.le = getelementptr inbounds i32, ptr %call3, i64 %indvars.iv106
   %29 = trunc nuw nsw i64 %indvars.iv106 to i32
   store i32 %call75, ptr %arrayidx92.le, align 4
-  %inc98 = add nsw i32 %procs.2, 1
+  %inc98 = add nsw i32 %procs.1, 1
   %.pre = load i32, ptr @n_responders, align 4
   br label %for.end102
 
@@ -353,7 +353,7 @@ for.inc100:                                       ; preds = %for.body90
 for.end102:                                       ; preds = %for.cond87.preheader, %if.then95
   %30 = phi i32 [ %.pre, %if.then95 ], [ %26, %for.cond87.preheader ]
   %i.284 = phi i32 [ %29, %if.then95 ], [ 0, %for.cond87.preheader ]
-  %procs.3 = phi i32 [ %inc98, %if.then95 ], [ %procs.2, %for.cond87.preheader ]
+  %procs.4 = phi i32 [ %inc98, %if.then95 ], [ %procs.1, %for.cond87.preheader ]
   %cmp103.not = icmp slt i32 %i.284, %30
   br i1 %cmp103.not, label %sw.epilog, label %if.then105
 
@@ -390,7 +390,7 @@ for.end.i52:                                      ; preds = %for.inc.i60, %if.th
   unreachable
 
 sw.epilog:                                        ; preds = %for.end102, %sw.bb
-  %procs.4 = phi i32 [ %procs.3, %for.end102 ], [ %procs.2, %sw.bb ]
+  %procs.3 = phi i32 [ %procs.4, %for.end102 ], [ %procs.1, %sw.bb ]
   %36 = load i32, ptr @termsig, align 4
   %cmp7 = icmp eq i32 %36, 0
   br i1 %cmp7, label %while.cond9.preheader, label %while.end107, !llvm.loop !10
@@ -629,17 +629,17 @@ if.end13:                                         ; preds = %if.end6
   br i1 %cmp14, label %out, label %if.end17
 
 if.end17:                                         ; preds = %if.end13.thread, %if.end13
-  %cbio.0181 = phi ptr [ %0, %if.end13.thread ], [ %call12, %if.end13 ]
+  %cbio.1181 = phi ptr [ %0, %if.end13.thread ], [ %call12, %if.end13 ]
   %cmp18 = icmp sgt i32 %timeout, 0
   br i1 %cmp18, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.end17
-  %call21 = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.0181, i32 noundef 105, i64 noundef 0, ptr noundef nonnull @acfd) #11
+  %call21 = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.1181, i32 noundef 105, i64 noundef 0, ptr noundef nonnull @acfd) #11
   %call22 = call i32 @alarm(i32 noundef %timeout) #11
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then20, %if.end17
-  %call24 = call i32 @BIO_gets(ptr noundef nonnull %cbio.0181, ptr noundef nonnull %reqbuf, i32 noundef 2048) #11
+  %call24 = call i32 @BIO_gets(ptr noundef nonnull %cbio.1181, ptr noundef nonnull %reqbuf, i32 noundef 2048) #11
   %cmp25 = icmp eq i32 %call24, 0
   br i1 %cmp25, label %return, label %if.end28
 
@@ -656,8 +656,8 @@ if.then31:                                        ; preds = %if.end28
 
 if.end.i:                                         ; preds = %if.then31
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %buf.i) #11
-  %call5.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %cbio.0181, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i) #11
-  %call8.i = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.0181, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+  %call5.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %cbio.1181, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i) #11
+  %call8.i = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.1181, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %http_server_send_status.exit
 
 http_server_send_status.exit:                     ; preds = %if.then31, %if.end.i
@@ -709,8 +709,8 @@ if.then56:                                        ; preds = %if.end52
 
 if.end.i132:                                      ; preds = %if.then56
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %buf.i129) #11
-  %call5.i133 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %cbio.0181, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i129) #11
-  %call8.i136 = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.0181, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+  %call5.i133 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %cbio.1181, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i129) #11
+  %call8.i136 = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.1181, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %http_server_send_status.exit138
 
 http_server_send_status.exit138:                  ; preds = %if.then56, %if.end.i132
@@ -756,8 +756,8 @@ if.then79:                                        ; preds = %while.cond
 
 if.end.i142:                                      ; preds = %if.then79
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %buf.i139) #11
-  %call5.i143 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %cbio.0181, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i139) #11
-  %call8.i146 = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.0181, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+  %call5.i143 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %cbio.1181, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i139) #11
+  %call8.i146 = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.1181, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %http_server_send_status.exit148
 
 http_server_send_status.exit148:                  ; preds = %if.then79, %if.end.i142
@@ -795,8 +795,8 @@ if.then95:                                        ; preds = %for.end
 
 if.end.i152:                                      ; preds = %if.then95
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %buf.i149) #11
-  %call5.i153 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %cbio.0181, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i149) #11
-  %call8.i156 = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.0181, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+  %call5.i153 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %cbio.1181, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i149) #11
+  %call8.i156 = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.1181, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %http_server_send_status.exit158
 
 http_server_send_status.exit158:                  ; preds = %if.then95, %if.end.i152
@@ -827,7 +827,7 @@ land.lhs.true110:                                 ; preds = %if.end106
   br i1 %cmp113, label %if.then115, label %if.end117
 
 if.then115:                                       ; preds = %land.lhs.true110
-  %call116 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 200, ptr noundef nonnull @.str.30)
+  %call116 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.1181, i32 noundef 200, ptr noundef nonnull @.str.30)
   br label %out
 
 if.end117:                                        ; preds = %land.lhs.true110, %if.end106
@@ -837,7 +837,7 @@ if.end117:                                        ; preds = %land.lhs.true110, %
 
 if.then121:                                       ; preds = %if.end117
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef nonnull %reqbuf, ptr noundef nonnull %incdec.ptr82) #11
-  %call122 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21)
+  %call122 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.1181, i32 noundef 400, ptr noundef nonnull @.str.21)
   br label %out
 
 if.end123:                                        ; preds = %if.end117
@@ -875,8 +875,8 @@ if.else140:                                       ; preds = %lor.lhs.false64
 
 if.end.i162:                                      ; preds = %if.else140
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %buf.i159) #11
-  %call5.i163 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %cbio.0181, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i159) #11
-  %call8.i166 = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.0181, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+  %call5.i163 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %cbio.1181, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i159) #11
+  %call8.i166 = call i64 @BIO_ctrl(ptr noundef nonnull %cbio.1181, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %http_server_send_status.exit168
 
 http_server_send_status.exit168:                  ; preds = %if.else140, %if.end.i162
@@ -884,7 +884,7 @@ http_server_send_status.exit168:                  ; preds = %if.else140, %if.end
   br label %out
 
 if.end144:                                        ; preds = %if.end123, %if.end137
-  %getbio.0 = phi ptr [ %call138, %if.end137 ], [ null, %if.end123 ]
+  %getbio.2 = phi ptr [ %call138, %if.end137 ], [ null, %if.end123 ]
   br label %while.cond145
 
 while.cond145:                                    ; preds = %while.cond145, %if.end144
@@ -917,13 +917,13 @@ land.rhs:                                         ; preds = %land.lhs.true156
 
 while.end167:                                     ; preds = %land.lhs.true156, %while.cond152, %land.rhs
   store i8 0, ptr %end.3, align 1
-  %call170188 = call i32 @BIO_gets(ptr noundef nonnull %cbio.0181, ptr noundef nonnull %inbuf, i32 noundef 2048) #11
+  %call170188 = call i32 @BIO_gets(ptr noundef nonnull %cbio.1181, ptr noundef nonnull %inbuf, i32 noundef 2048) #11
   %cmp171189 = icmp slt i32 %call170188, 1
   br i1 %cmp171189, label %if.then173, label %if.end175
 
 if.then173:                                       ; preds = %if.end244, %while.end167
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.35) #11
-  %call174 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21)
+  %call174 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.1181, i32 noundef 400, ptr noundef nonnull @.str.21)
   br label %out
 
 if.end175:                                        ; preds = %while.end167, %if.end244
@@ -959,7 +959,7 @@ if.end191:                                        ; preds = %lor.lhs.false185
   %cond199 = select i1 %cmp194, ptr @.str.36, ptr %inbuf
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull %cond199) #11
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.37) #11
-  %call203 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21)
+  %call203 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.1181, i32 noundef 400, ptr noundef nonnull @.str.21)
   br label %out
 
 if.end210:                                        ; preds = %if.then190
@@ -969,7 +969,7 @@ if.end210:                                        ; preds = %if.then190
 
 if.then215:                                       ; preds = %if.end210
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.38) #11
-  %call216 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21)
+  %call216 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.1181, i32 noundef 400, ptr noundef nonnull @.str.21)
   br label %out
 
 if.end217:                                        ; preds = %if.end210
@@ -1007,21 +1007,21 @@ if.end244.sink.split:                             ; preds = %if.else237, %if.the
   br label %if.end244
 
 if.end244:                                        ; preds = %if.end244.sink.split, %if.else237, %land.lhs.true228, %while.end225
-  %call170 = call i32 @BIO_gets(ptr noundef nonnull %cbio.0181, ptr noundef nonnull %inbuf, i32 noundef 2048) #11
+  %call170 = call i32 @BIO_gets(ptr noundef nonnull %cbio.1181, ptr noundef nonnull %inbuf, i32 noundef 2048) #11
   %cmp171 = icmp slt i32 %call170, 1
   br i1 %cmp171, label %if.then173, label %if.end175
 
 for.end245:                                       ; preds = %if.then190
   %call246 = call i32 @alarm(i32 noundef 0) #11
-  %cmp247.not = icmp eq ptr %getbio.0, null
-  %cond252 = select i1 %cmp247.not, ptr %cbio.0181, ptr %getbio.0
+  %cmp247.not = icmp eq ptr %getbio.2, null
+  %cond252 = select i1 %cmp247.not, ptr %cbio.1181, ptr %getbio.2
   %call253 = call ptr @ASN1_item_d2i_bio(ptr noundef %it, ptr noundef nonnull %cond252, ptr noundef null) #11
   %cmp254 = icmp eq ptr %call253, null
   br i1 %cmp254, label %if.then256, label %if.else258
 
 if.then256:                                       ; preds = %for.end245
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.42) #11
-  %call257 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.0181, i32 noundef 400, ptr noundef nonnull @.str.21)
+  %call257 = call i32 @http_server_send_status(ptr noundef %prog, ptr noundef nonnull %cbio.1181, i32 noundef 400, ptr noundef nonnull @.str.21)
   br label %out.thread
 
 if.else258:                                       ; preds = %for.end245
@@ -1042,15 +1042,15 @@ if.then265:                                       ; preds = %land.lhs.true261
 
 out.thread:                                       ; preds = %if.then256, %land.lhs.true261, %if.else258
   store ptr %call253, ptr %preq, align 8
-  call void @BIO_free_all(ptr noundef %getbio.0) #11
+  call void @BIO_free_all(ptr noundef %getbio.2) #11
   br label %if.end273
 
 out:                                              ; preds = %if.end13, %if.end278, %if.then215, %if.end191, %if.then173, %http_server_send_status.exit168, %if.then121, %if.then115, %http_server_send_status.exit158, %http_server_send_status.exit148, %http_server_send_status.exit138, %http_server_send_status.exit
-  %getbio.1 = phi ptr [ %getbio.2, %if.end278 ], [ null, %http_server_send_status.exit ], [ null, %http_server_send_status.exit138 ], [ null, %http_server_send_status.exit148 ], [ null, %if.then115 ], [ null, %if.then121 ], [ %getbio.0, %if.then173 ], [ %getbio.0, %if.end191 ], [ %getbio.0, %if.then215 ], [ null, %http_server_send_status.exit158 ], [ null, %http_server_send_status.exit168 ], [ null, %if.end13 ]
-  %timeout.addr.0 = phi i32 [ %timeout.addr.1, %if.end278 ], [ %timeout, %http_server_send_status.exit ], [ %timeout, %http_server_send_status.exit138 ], [ %timeout, %http_server_send_status.exit148 ], [ %timeout, %if.then115 ], [ %timeout, %if.then121 ], [ %timeout, %if.then173 ], [ %timeout, %if.end191 ], [ %timeout, %if.then215 ], [ %timeout, %http_server_send_status.exit158 ], [ %timeout, %http_server_send_status.exit168 ], [ %timeout, %if.end13 ]
+  %getbio.1 = phi ptr [ %getbio.0, %if.end278 ], [ null, %http_server_send_status.exit ], [ null, %http_server_send_status.exit138 ], [ null, %http_server_send_status.exit148 ], [ null, %if.then115 ], [ null, %if.then121 ], [ %getbio.2, %if.then173 ], [ %getbio.2, %if.end191 ], [ %getbio.2, %if.then215 ], [ null, %http_server_send_status.exit158 ], [ null, %http_server_send_status.exit168 ], [ null, %if.end13 ]
+  %timeout.addr.1 = phi i32 [ %timeout.addr.0, %if.end278 ], [ %timeout, %http_server_send_status.exit ], [ %timeout, %http_server_send_status.exit138 ], [ %timeout, %http_server_send_status.exit148 ], [ %timeout, %if.then115 ], [ %timeout, %if.then121 ], [ %timeout, %if.then173 ], [ %timeout, %if.end191 ], [ %timeout, %if.then215 ], [ %timeout, %http_server_send_status.exit158 ], [ %timeout, %http_server_send_status.exit168 ], [ %timeout, %if.end13 ]
   %ret.0 = phi i32 [ -1, %if.end278 ], [ 1, %http_server_send_status.exit ], [ 1, %http_server_send_status.exit138 ], [ 1, %http_server_send_status.exit148 ], [ 1, %if.then115 ], [ 1, %if.then121 ], [ 1, %if.then173 ], [ 1, %if.end191 ], [ 1, %if.then215 ], [ 1, %http_server_send_status.exit158 ], [ 1, %http_server_send_status.exit168 ], [ -1, %if.end13 ]
   call void @BIO_free_all(ptr noundef %getbio.1) #11
-  %cmp269 = icmp sgt i32 %timeout.addr.0, 0
+  %cmp269 = icmp sgt i32 %timeout.addr.1, 0
   br i1 %cmp269, label %if.then271, label %if.end273
 
 if.then271:                                       ; preds = %out
@@ -1063,9 +1063,9 @@ if.end273:                                        ; preds = %out.thread, %if.the
   br label %return
 
 fatal:                                            ; preds = %if.then265, %if.then136, %if.then5
-  %getbio.2 = phi ptr [ null, %if.then5 ], [ %call128, %if.then136 ], [ %getbio.0, %if.then265 ]
-  %cbio.1 = phi ptr [ null, %if.then5 ], [ %cbio.0181, %if.then136 ], [ %cbio.0181, %if.then265 ]
-  %timeout.addr.1 = phi i32 [ %timeout, %if.then5 ], [ %timeout, %if.then136 ], [ 0, %if.then265 ]
+  %getbio.0 = phi ptr [ null, %if.then5 ], [ %call128, %if.then136 ], [ %getbio.2, %if.then265 ]
+  %cbio.0 = phi ptr [ null, %if.then5 ], [ %cbio.1181, %if.then136 ], [ %cbio.1181, %if.then265 ]
+  %timeout.addr.0 = phi i32 [ %timeout, %if.then5 ], [ %timeout, %if.then136 ], [ 0, %if.then265 ]
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %buf.i169)
   %call.i170 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf.i169, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 500, ptr noundef nonnull @.str.44) #11
   %cmp1.i171 = icmp ugt i32 %call.i170, 199
@@ -1073,8 +1073,8 @@ fatal:                                            ; preds = %if.then265, %if.the
 
 if.end.i172:                                      ; preds = %fatal
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %buf.i169) #11
-  %call5.i173 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %cbio.1, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i169) #11
-  %call8.i176 = call i64 @BIO_ctrl(ptr noundef %cbio.1, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+  %call5.i173 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %cbio.0, ptr noundef nonnull @.str.49, ptr noundef nonnull %buf.i169) #11
+  %call8.i176 = call i64 @BIO_ctrl(ptr noundef %cbio.0, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %http_server_send_status.exit178
 
 http_server_send_status.exit178:                  ; preds = %fatal, %if.end.i172
@@ -1088,7 +1088,7 @@ if.then277:                                       ; preds = %http_server_send_st
   br label %if.end278
 
 if.end278:                                        ; preds = %if.then277, %http_server_send_status.exit178
-  call void @BIO_free_all(ptr noundef %cbio.1) #11
+  call void @BIO_free_all(ptr noundef %cbio.0) #11
   store ptr null, ptr %pcbio, align 8
   br label %out
 

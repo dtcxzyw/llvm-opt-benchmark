@@ -627,8 +627,8 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEED2Ev.exit: ; preds = %217, %219
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEED2Ev.exit28
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEED2Ev.exit28: ; preds = %259, %257, %4
-  %.1 = phi i1 [ false, %4 ], [ %.03.i39, %257 ], [ %.03.i39, %259 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %4 ], [ %.03.i39, %257 ], [ %.03.i39, %259 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1489,8 +1489,8 @@ _ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_cs_ops
   br label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEED2Ev.exit18
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEED2Ev.exit18: ; preds = %221, %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_cs_opset_path_t17cff2_path_param_tE9interpretERS5_.exit, %4
-  %.1 = phi i1 [ false, %4 ], [ %.03.i, %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_cs_opset_path_t17cff2_path_param_tE9interpretERS5_.exit ], [ %.03.i, %221 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %4 ], [ %.03.i, %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_cs_opset_path_t17cff2_path_param_tE9interpretERS5_.exit ], [ %.03.i, %221 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2373,20 +2373,20 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit: ; preds = %41, %42
 
 53:                                               ; preds = %53, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %53 ]
-  %.079.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %59, %53 ]
+  %.19.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %59, %53 ]
   %54 = getelementptr inbounds float, ptr %52, i64 %indvars.iv.i.i
   %55 = load float, ptr %54, align 4
   %56 = fpext float %55 to double
   %57 = getelementptr inbounds %"struct.CFF::number_t", ptr %39, i64 %indvars.iv.i.i
   %58 = load double, ptr %57, align 8
-  %59 = tail call double @llvm.fmuladd.f64(double %56, double %58, double %.079.i.i)
+  %59 = tail call double @llvm.fmuladd.f64(double %56, double %58, double %.19.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %.sroa.3.8.insert.ext.i.i.i
   br i1 %exitcond.not.i.i, label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, label %53, !llvm.loop !13
 
 _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit: ; preds = %53, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, %48
-  %.1.i.i = phi double [ 0.000000e+00, %48 ], [ 0.000000e+00, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ], [ %59, %53 ]
-  %60 = fadd double %45, %.1.i.i
+  %.07.i.i = phi double [ 0.000000e+00, %48 ], [ 0.000000e+00, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ], [ %59, %53 ]
+  %60 = fadd double %45, %.07.i.i
   store double %60, ptr %.0.i31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6304,9 +6304,9 @@ _ZN11hb_vector_tIfLb0EE14realloc_vectorIfTnPN12hb_enable_ifIXsr3std28is_triviall
   br i1 %.not21.i.i.i, label %_ZN11hb_vector_tIfLb0EE5allocEjb.exit.thread21.i.i, label %_ZN11hb_vector_tIfLb0EE5allocEjb.exit.thread.i.i
 
 _ZN11hb_vector_tIfLb0EE5allocEjb.exit.thread21.i.i: ; preds = %70, %.thread.i.i.i
-  %.138.sink.i.ph.in.i.i = phi i32 [ %57, %.thread.i.i.i ], [ %71, %70 ]
-  %.138.sink.i.ph.i.i = xor i32 %.138.sink.i.ph.in.i.i, -1
-  store i32 %.138.sink.i.ph.i.i, ptr %56, align 8
+  %.01538.sink.i.ph.in.i.i = phi i32 [ %57, %.thread.i.i.i ], [ %71, %70 ]
+  %.01538.sink.i.ph.i.i = xor i32 %.01538.sink.i.ph.in.i.i, -1
+  store i32 %.01538.sink.i.ph.i.i, ptr %56, align 8
   br label %88
 
 _ZN11hb_vector_tIfLb0EE5allocEjb.exit.i.i:        ; preds = %_ZN11hb_vector_tIfLb0EE14realloc_vectorIfTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPfj11hb_priorityILj0EE.exit.i.i.i, %_ZN11hb_vector_tIfLb0EE14realloc_vectorIfTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPfj11hb_priorityILj0EE.exit.thread.i.i.i
@@ -7476,20 +7476,20 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit: ; preds = %41, %42
 
 53:                                               ; preds = %53, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %53 ]
-  %.079.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %59, %53 ]
+  %.19.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %59, %53 ]
   %54 = getelementptr inbounds float, ptr %52, i64 %indvars.iv.i.i
   %55 = load float, ptr %54, align 4
   %56 = fpext float %55 to double
   %57 = getelementptr inbounds %"struct.CFF::number_t", ptr %39, i64 %indvars.iv.i.i
   %58 = load double, ptr %57, align 8
-  %59 = tail call double @llvm.fmuladd.f64(double %56, double %58, double %.079.i.i)
+  %59 = tail call double @llvm.fmuladd.f64(double %56, double %58, double %.19.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %.sroa.3.8.insert.ext.i.i.i
   br i1 %exitcond.not.i.i, label %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, label %53, !llvm.loop !13
 
 _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit: ; preds = %53, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, %48
-  %.1.i.i = phi double [ 0.000000e+00, %48 ], [ 0.000000e+00, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ], [ %59, %53 ]
-  %60 = fadd double %45, %.1.i.i
+  %.07.i.i = phi double [ 0.000000e+00, %48 ], [ 0.000000e+00, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ], [ %59, %53 ]
+  %60 = fadd double %45, %.07.i.i
   store double %60, ptr %.0.i31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

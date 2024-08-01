@@ -1252,8 +1252,8 @@ while.cond.preheader:                             ; preds = %while.cond.preheade
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.preheader, %if.end36
-  %pbp.sroa.0.1.ph = phi i64 [ 0, %while.cond.preheader ], [ %pbp.sroa.0.4, %if.end36 ]
-  %pbp.sroa.3.1.ph = phi ptr [ null, %while.cond.preheader ], [ %pbp.sroa.3.4, %if.end36 ]
+  %pbp.sroa.0.1.ph = phi i64 [ 0, %while.cond.preheader ], [ %pbp.sroa.0.2, %if.end36 ]
+  %pbp.sroa.3.1.ph = phi ptr [ null, %while.cond.preheader ], [ %pbp.sroa.3.2, %if.end36 ]
   %offset.0.ph = phi i64 [ 0, %while.cond.preheader ], [ %add, %if.end36 ]
   br label %while.cond
 
@@ -1513,8 +1513,8 @@ virtio_balloon_pbp_alloc.exit.i:                  ; preds = %if.then14.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %virtio_balloon_pbp_alloc.exit.i, %land.lhs.true.if.end16_crit_edge.i
-  %pbp.sroa.0.2 = phi i64 [ %sub7.i, %virtio_balloon_pbp_alloc.exit.i ], [ %pbp.sroa.0.1.ph, %land.lhs.true.if.end16_crit_edge.i ]
-  %pbp.sroa.3.2 = phi ptr [ %call.i.i.i.i, %virtio_balloon_pbp_alloc.exit.i ], [ %pbp.sroa.3.1.ph, %land.lhs.true.if.end16_crit_edge.i ]
+  %pbp.sroa.0.3 = phi i64 [ %sub7.i, %virtio_balloon_pbp_alloc.exit.i ], [ %pbp.sroa.0.1.ph, %land.lhs.true.if.end16_crit_edge.i ]
+  %pbp.sroa.3.3 = phi ptr [ %call.i.i.i.i, %virtio_balloon_pbp_alloc.exit.i ], [ %pbp.sroa.3.1.ph, %land.lhs.true.if.end16_crit_edge.i ]
   %conv21.pre-phi.i = phi i64 [ %conv15.i, %virtio_balloon_pbp_alloc.exit.i ], [ %.pre3.i, %land.lhs.true.if.end16_crit_edge.i ]
   %33 = phi i64 [ %.pre.i, %virtio_balloon_pbp_alloc.exit.i ], [ %31, %land.lhs.true.if.end16_crit_edge.i ]
   %sub17.i = sub i64 %33, %mul.i
@@ -1522,7 +1522,7 @@ if.end16.i:                                       ; preds = %virtio_balloon_pbp_
   %rem.i.i = and i64 %div1822.i, 63
   %shl.i.i = shl nuw i64 1, %rem.i.i
   %div2.i.i = lshr i64 %sub17.i, 18
-  %add.ptr.i.i = getelementptr i64, ptr %pbp.sroa.3.2, i64 %div2.i.i
+  %add.ptr.i.i = getelementptr i64, ptr %pbp.sroa.3.3, i64 %div2.i.i
   %34 = load i64, ptr %add.ptr.i.i, align 8
   %or.i.i = or i64 %shl.i.i, %34
   store i64 %or.i.i, ptr %add.ptr.i.i, align 8
@@ -1530,7 +1530,7 @@ if.end16.i:                                       ; preds = %virtio_balloon_pbp_
   br i1 %cmp.i25.i, label %if.then.i.i69, label %if.else.i.i68
 
 if.then.i.i69:                                    ; preds = %if.end16.i
-  %35 = load i64, ptr %pbp.sroa.3.2, align 8
+  %35 = load i64, ptr %pbp.sroa.3.3, align 8
   %not.i.i = xor i64 %35, -1
   %sub.i.i = sub nsw i64 0, %div521.i
   %and.i.i = and i64 %sub.i.i, 63
@@ -1541,7 +1541,7 @@ if.then.i.i69:                                    ; preds = %if.end16.i
   br label %bitmap_full.exit.i
 
 if.else.i.i68:                                    ; preds = %if.end16.i
-  %call.i.i = call i32 @slow_bitmap_full(ptr noundef nonnull %pbp.sroa.3.2, i64 noundef %conv21.pre-phi.i) #13
+  %call.i.i = call i32 @slow_bitmap_full(ptr noundef nonnull %pbp.sroa.3.3, i64 noundef %conv21.pre-phi.i) #13
   br label %bitmap_full.exit.i
 
 bitmap_full.exit.i:                               ; preds = %if.else.i.i68, %if.then.i.i69
@@ -1551,12 +1551,12 @@ bitmap_full.exit.i:                               ; preds = %if.else.i.i68, %if.
 
 if.end.i29.i:                                     ; preds = %bitmap_full.exit.i
   %call25.i = call i32 @ram_block_discard_range(ptr noundef %call1.i66, i64 noundef %mul.i, i64 noundef %call2.i67) #13
-  call void @g_free(ptr noundef nonnull %pbp.sroa.3.2) #13
+  call void @g_free(ptr noundef nonnull %pbp.sroa.3.3) #13
   br label %balloon_inflate_page.exit
 
 balloon_inflate_page.exit:                        ; preds = %if.then.i70, %bitmap_full.exit.i, %if.end.i29.i
-  %pbp.sroa.0.3 = phi i64 [ %pbp.sroa.0.1.ph, %if.then.i70 ], [ %pbp.sroa.0.2, %bitmap_full.exit.i ], [ %pbp.sroa.0.2, %if.end.i29.i ]
-  %pbp.sroa.3.3 = phi ptr [ %pbp.sroa.3.1.ph, %if.then.i70 ], [ %pbp.sroa.3.2, %bitmap_full.exit.i ], [ null, %if.end.i29.i ]
+  %pbp.sroa.0.4 = phi i64 [ %pbp.sroa.0.1.ph, %if.then.i70 ], [ %pbp.sroa.0.3, %bitmap_full.exit.i ], [ %pbp.sroa.0.3, %if.end.i29.i ]
+  %pbp.sroa.3.4 = phi ptr [ %pbp.sroa.3.1.ph, %if.then.i70 ], [ %pbp.sroa.3.3, %bitmap_full.exit.i ], [ null, %if.end.i29.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb_offset.i)
   br label %if.end36
 
@@ -1595,8 +1595,8 @@ do.body:                                          ; preds = %if.else
   unreachable
 
 if.end36:                                         ; preds = %trace_virtio_balloon_handle_output.exit, %lor.lhs.false.i, %balloon_inflate_page.exit, %balloon_deflate_page.exit, %virtio_balloon_inhibited.exit
-  %pbp.sroa.0.4 = phi i64 [ %pbp.sroa.0.1.ph, %virtio_balloon_inhibited.exit ], [ %pbp.sroa.0.3, %balloon_inflate_page.exit ], [ %pbp.sroa.0.1.ph, %balloon_deflate_page.exit ], [ %pbp.sroa.0.1.ph, %lor.lhs.false.i ], [ %pbp.sroa.0.1.ph, %trace_virtio_balloon_handle_output.exit ]
-  %pbp.sroa.3.4 = phi ptr [ %pbp.sroa.3.1.ph, %virtio_balloon_inhibited.exit ], [ %pbp.sroa.3.3, %balloon_inflate_page.exit ], [ %pbp.sroa.3.1.ph, %balloon_deflate_page.exit ], [ %pbp.sroa.3.1.ph, %lor.lhs.false.i ], [ %pbp.sroa.3.1.ph, %trace_virtio_balloon_handle_output.exit ]
+  %pbp.sroa.0.2 = phi i64 [ %pbp.sroa.0.1.ph, %virtio_balloon_inhibited.exit ], [ %pbp.sroa.0.4, %balloon_inflate_page.exit ], [ %pbp.sroa.0.1.ph, %balloon_deflate_page.exit ], [ %pbp.sroa.0.1.ph, %lor.lhs.false.i ], [ %pbp.sroa.0.1.ph, %trace_virtio_balloon_handle_output.exit ]
+  %pbp.sroa.3.2 = phi ptr [ %pbp.sroa.3.1.ph, %virtio_balloon_inhibited.exit ], [ %pbp.sroa.3.4, %balloon_inflate_page.exit ], [ %pbp.sroa.3.1.ph, %balloon_deflate_page.exit ], [ %pbp.sroa.3.1.ph, %lor.lhs.false.i ], [ %pbp.sroa.3.1.ph, %trace_virtio_balloon_handle_output.exit ]
   call void @memory_region_unref(ptr noundef nonnull %section.sroa.1.0.copyload) #13
   br label %while.cond.outer, !llvm.loop !7
 

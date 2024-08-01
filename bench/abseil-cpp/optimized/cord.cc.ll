@@ -12948,9 +12948,9 @@ if.end4.i18:                                      ; preds = %if.end.i14
   br label %while.body
 
 while.body:                                       ; preds = %if.end4.i18, %land.rhs
-  %rhs_chunk.sroa.0.2.ph = phi i64 [ %rhs_chunk.sroa.0.1, %land.rhs ], [ %retval.sroa.0.0.copyload.i.i19, %if.end4.i18 ]
+  %rhs_chunk.sroa.0.3.ph = phi i64 [ %rhs_chunk.sroa.0.1, %land.rhs ], [ %retval.sroa.0.0.copyload.i.i19, %if.end4.i18 ]
   %rhs_chunk.sroa.10.2.ph = phi ptr [ %rhs_chunk.sroa.10.1, %land.rhs ], [ %retval.sroa.2.0.copyload.i.i21, %if.end4.i18 ]
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %rhs_chunk.sroa.0.2.ph, i64 %lhs_chunk.sroa.0.2.ph)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %rhs_chunk.sroa.0.3.ph, i64 %lhs_chunk.sroa.0.2.ph)
   %call6.i = call i32 @memcmp(ptr noundef %lhs_chunk.sroa.10.2.ph, ptr noundef %rhs_chunk.sroa.10.2.ph, i64 noundef %.sroa.speculated.i) #28
   %cmp.not.i = icmp eq i32 %call6.i, 0
   br i1 %cmp.not.i, label %if.end, label %return
@@ -12960,14 +12960,14 @@ if.end:                                           ; preds = %while.body
   %add.ptr.i.i = getelementptr inbounds i8, ptr %lhs_chunk.sroa.10.2.ph, i64 %.sroa.speculated.i
   %sub.i.i = sub i64 %lhs_chunk.sroa.0.2.ph, %.sroa.speculated.i
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %rhs_chunk.sroa.10.2.ph, i64 %.sroa.speculated.i
-  %sub.i13.i = sub i64 %rhs_chunk.sroa.0.2.ph, %.sroa.speculated.i
+  %sub.i13.i = sub i64 %rhs_chunk.sroa.0.3.ph, %.sroa.speculated.i
   %cmp12 = icmp eq i64 %sub.i24, 0
   br i1 %cmp12, label %return, label %while.cond, !llvm.loop !322
 
 while.end:                                        ; preds = %if.end.i14, %if.end.i
   %lhs_chunk.sroa.0.253 = phi i64 [ 0, %if.end.i ], [ %lhs_chunk.sroa.0.2.ph, %if.end.i14 ]
-  %rhs_chunk.sroa.0.4 = phi i64 [ %rhs_chunk.sroa.0.1, %if.end.i ], [ 0, %if.end.i14 ]
-  %cmp.i26 = icmp eq i64 %rhs_chunk.sroa.0.4, 0
+  %rhs_chunk.sroa.0.2 = phi i64 [ %rhs_chunk.sroa.0.1, %if.end.i ], [ 0, %if.end.i14 ]
+  %cmp.i26 = icmp eq i64 %rhs_chunk.sroa.0.2, 0
   %conv = zext i1 %cmp.i26 to i32
   %cmp.i27 = icmp eq i64 %lhs_chunk.sroa.0.253, 0
   %conv17.neg = sext i1 %cmp.i27 to i32

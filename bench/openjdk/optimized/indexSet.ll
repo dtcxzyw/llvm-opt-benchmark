@@ -332,20 +332,20 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit:          ; preds = %_ZN8IndexSet5clearE
   br label %_ZNK7RegMask7overlapERKS_.exit.thread.outer
 
 _ZNK7RegMask7overlapERKS_.exit.thread.outer:      ; preds = %145, %_ZN16IndexSetIteratorC2EP8IndexSet.exit
-  %.sroa.11106.0.ph = phi i32 [ %.sroa.11106.2, %145 ], [ 4, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
-  %.sroa.0104.0.ph = phi i64 [ %.sroa.0104.2, %145 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
-  %.sroa.15108.0.ph = phi i32 [ %.sroa.15108.3, %145 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
-  %.sroa.24114.0.ph = phi ptr [ %.sroa.24114.5, %145 ], [ null, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
-  %.sroa.4105.0.ph = phi i32 [ %.sroa.4105.2, %145 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
-  %.044.ph = phi i32 [ %147, %145 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
+  %.sroa.11106.0.ph = phi i32 [ %.sroa.11106.1, %145 ], [ 4, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
+  %.sroa.0104.0.ph = phi i64 [ %.sroa.0104.1, %145 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
+  %.sroa.15108.0.ph = phi i32 [ %.sroa.15108.1, %145 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
+  %.sroa.24114.0.ph = phi ptr [ %.sroa.24114.1, %145 ], [ null, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
+  %.sroa.4105.0.ph = phi i32 [ %.sroa.4105.1, %145 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
+  %.1.ph = phi i32 [ %147, %145 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
   br label %_ZNK7RegMask7overlapERKS_.exit.thread
 
 _ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %_ZNK7RegMask7overlapERKS_.exit.thread.backedge, %_ZNK7RegMask7overlapERKS_.exit.thread.outer
-  %.sroa.11106.0 = phi i32 [ %.sroa.11106.0.ph, %_ZNK7RegMask7overlapERKS_.exit.thread.outer ], [ %.sroa.11106.2, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
-  %.sroa.0104.0 = phi i64 [ %.sroa.0104.0.ph, %_ZNK7RegMask7overlapERKS_.exit.thread.outer ], [ %.sroa.0104.2, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
-  %.sroa.15108.0 = phi i32 [ %.sroa.15108.0.ph, %_ZNK7RegMask7overlapERKS_.exit.thread.outer ], [ %.sroa.15108.3, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
-  %.sroa.24114.0 = phi ptr [ %.sroa.24114.0.ph, %_ZNK7RegMask7overlapERKS_.exit.thread.outer ], [ %.sroa.24114.5, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
-  %.sroa.4105.0 = phi i32 [ %.sroa.4105.0.ph, %_ZNK7RegMask7overlapERKS_.exit.thread.outer ], [ %.sroa.4105.2, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
+  %.sroa.11106.0 = phi i32 [ %.sroa.11106.0.ph, %_ZNK7RegMask7overlapERKS_.exit.thread.outer ], [ %.sroa.11106.1, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
+  %.sroa.0104.0 = phi i64 [ %.sroa.0104.0.ph, %_ZNK7RegMask7overlapERKS_.exit.thread.outer ], [ %.sroa.0104.1, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
+  %.sroa.15108.0 = phi i32 [ %.sroa.15108.0.ph, %_ZNK7RegMask7overlapERKS_.exit.thread.outer ], [ %.sroa.15108.1, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
+  %.sroa.24114.0 = phi ptr [ %.sroa.24114.0.ph, %_ZNK7RegMask7overlapERKS_.exit.thread.outer ], [ %.sroa.24114.1, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
+  %.sroa.4105.0 = phi i32 [ %.sroa.4105.0.ph, %_ZNK7RegMask7overlapERKS_.exit.thread.outer ], [ %.sroa.4105.1, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
   %.not.i56 = icmp eq i64 %.sroa.0104.0, 0
   br i1 %.not.i56, label %64, label %59
 
@@ -454,7 +454,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %_ZNK7RegMask7overla
   br i1 %113, label %80, label %_ZN16IndexSetIterator4nextEv.exit.thread, !llvm.loop !11
 
 .loopexit.sink.split.i:                           ; preds = %85, %72
-  %.sroa.15108.1 = phi i32 [ %91, %85 ], [ %.sroa.15108.0, %72 ]
+  %.sroa.15108.2 = phi i32 [ %91, %85 ], [ %.sroa.15108.0, %72 ]
   %.sroa.24114.3 = phi ptr [ %82, %85 ], [ %.sroa.24114.0, %72 ]
   %.sink74.i = phi i32 [ %87, %85 ], [ %73, %72 ]
   %.sink72.i = phi i64 [ %84, %85 ], [ %71, %72 ]
@@ -467,18 +467,18 @@ _ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %_ZNK7RegMask7overla
   br label %_ZN16IndexSetIterator4nextEv.exit
 
 _ZN16IndexSetIterator4nextEv.exit:                ; preds = %.loopexit.sink.split.i, %59
-  %.sroa.11106.2 = phi i32 [ %.sroa.11106.0, %59 ], [ %114, %.loopexit.sink.split.i ]
-  %.sroa.0104.2.in = phi i64 [ %62, %59 ], [ %117, %.loopexit.sink.split.i ]
-  %.sroa.15108.3 = phi i32 [ %.sroa.15108.0, %59 ], [ %.sroa.15108.1, %.loopexit.sink.split.i ]
-  %.sroa.24114.5 = phi ptr [ %.sroa.24114.0, %59 ], [ %.sroa.24114.3, %.loopexit.sink.split.i ]
-  %.sroa.4105.2 = phi i32 [ %63, %59 ], [ %118, %.loopexit.sink.split.i ]
-  %.sroa.0104.2 = add i64 %.sroa.0104.2.in, -1
-  %.not = icmp eq i32 %.sroa.4105.2, 0
+  %.sroa.11106.1 = phi i32 [ %.sroa.11106.0, %59 ], [ %114, %.loopexit.sink.split.i ]
+  %.sroa.0104.1.in = phi i64 [ %62, %59 ], [ %117, %.loopexit.sink.split.i ]
+  %.sroa.15108.1 = phi i32 [ %.sroa.15108.0, %59 ], [ %.sroa.15108.2, %.loopexit.sink.split.i ]
+  %.sroa.24114.1 = phi ptr [ %.sroa.24114.0, %59 ], [ %.sroa.24114.3, %.loopexit.sink.split.i ]
+  %.sroa.4105.1 = phi i32 [ %63, %59 ], [ %118, %.loopexit.sink.split.i ]
+  %.sroa.0104.1 = add i64 %.sroa.0104.1.in, -1
+  %.not = icmp eq i32 %.sroa.4105.1, 0
   br i1 %.not, label %_ZN16IndexSetIterator4nextEv.exit.thread, label %119
 
 119:                                              ; preds = %_ZN16IndexSetIterator4nextEv.exit
   %120 = load ptr, ptr %13, align 8
-  %121 = zext i32 %.sroa.4105.2 to i64
+  %121 = zext i32 %.sroa.4105.1 to i64
   %122 = getelementptr inbounds %class.LRG, ptr %120, i64 %121
   %123 = getelementptr inbounds i8, ptr %122, i64 56
   %124 = load i32, ptr %57, align 4
@@ -514,7 +514,7 @@ _ZNK7RegMask7overlapERKS_.exit:                   ; preds = %.lr.ph.i57
   br i1 %.not136, label %_ZNK7RegMask7overlapERKS_.exit.thread.backedge, label %140
 
 140:                                              ; preds = %_ZNK7RegMask7overlapERKS_.exit
-  %141 = tail call noundef zeroext i1 @_ZN8IndexSet6insertEj(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %.sroa.4105.2)
+  %141 = tail call noundef zeroext i1 @_ZN8IndexSet6insertEj(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %.sroa.4105.1)
   %142 = getelementptr inbounds i8, ptr %122, i64 136
   %143 = load i64, ptr %142, align 8
   %144 = icmp slt i64 %143, 0
@@ -522,12 +522,12 @@ _ZNK7RegMask7overlapERKS_.exit:                   ; preds = %.lr.ph.i57
 
 145:                                              ; preds = %140
   %146 = tail call noundef i32 @_ZNK3LRG14compute_degreeERS_(ptr noundef nonnull align 8 dereferenceable(168) %15, ptr noundef nonnull align 8 dereferenceable(168) %122) #8
-  %147 = add i32 %146, %.044.ph
+  %147 = add i32 %146, %.1.ph
   %.not52 = icmp ult i32 %147, %3
   br i1 %.not52, label %_ZNK7RegMask7overlapERKS_.exit.thread.outer, label %_ZN16IndexSetIterator4nextEv.exit62.thread, !llvm.loop !12
 
 _ZN16IndexSetIterator4nextEv.exit.thread:         ; preds = %._crit_edge.i, %66, %_ZN16IndexSetIterator4nextEv.exit, %112, %_ZN8IndexSet5clearEv.exit
-  %.2 = phi i32 [ 0, %_ZN8IndexSet5clearEv.exit ], [ %.044.ph, %112 ], [ %.044.ph, %_ZN16IndexSetIterator4nextEv.exit ], [ %.044.ph, %66 ], [ %.044.ph, %._crit_edge.i ]
+  %.044 = phi i32 [ 0, %_ZN8IndexSet5clearEv.exit ], [ %.1.ph, %112 ], [ %.1.ph, %_ZN16IndexSetIterator4nextEv.exit ], [ %.1.ph, %66 ], [ %.1.ph, %._crit_edge.i ]
   %148 = load i32, ptr %spec.select, align 8
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %_ZN16IndexSetIterator4nextEv.exit62.thread, label %_ZN16IndexSetIteratorC2EP8IndexSet.exit59
@@ -544,20 +544,20 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit59:        ; preds = %_ZN16IndexSetIterat
   br label %_ZNK7RegMask7overlapERKS_.exit70.thread.outer
 
 _ZNK7RegMask7overlapERKS_.exit70.thread.outer:    ; preds = %245, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59
-  %.sroa.4.0.ph = phi i32 [ %.sroa.4.2, %245 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
-  %.sroa.24.0.ph = phi ptr [ %.sroa.24.5, %245 ], [ null, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
-  %.sroa.15.0.ph = phi i32 [ %.sroa.15.3, %245 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
-  %.sroa.11.0.ph = phi i32 [ %.sroa.11.2, %245 ], [ 4, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
-  %.sroa.0.0.ph = phi i64 [ %.sroa.0.2, %245 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
-  %.3.ph = phi i32 [ %247, %245 ], [ %.2, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
+  %.sroa.4.0.ph = phi i32 [ %.sroa.4.1, %245 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
+  %.sroa.24.0.ph = phi ptr [ %.sroa.24.1, %245 ], [ null, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
+  %.sroa.15.0.ph = phi i32 [ %.sroa.15.1, %245 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
+  %.sroa.11.0.ph = phi i32 [ %.sroa.11.1, %245 ], [ 4, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
+  %.sroa.0.0.ph = phi i64 [ %.sroa.0.1, %245 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
+  %.4.ph = phi i32 [ %247, %245 ], [ %.044, %_ZN16IndexSetIteratorC2EP8IndexSet.exit59 ]
   br label %_ZNK7RegMask7overlapERKS_.exit70.thread
 
 _ZNK7RegMask7overlapERKS_.exit70.thread:          ; preds = %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer
-  %.sroa.4.0 = phi i32 [ %.sroa.4.0.ph, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer ], [ %.sroa.4.2, %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge ]
-  %.sroa.24.0 = phi ptr [ %.sroa.24.0.ph, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer ], [ %.sroa.24.5, %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge ]
-  %.sroa.15.0 = phi i32 [ %.sroa.15.0.ph, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer ], [ %.sroa.15.3, %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge ]
-  %.sroa.11.0 = phi i32 [ %.sroa.11.0.ph, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer ], [ %.sroa.11.2, %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.ph, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer ], [ %.sroa.0.2, %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge ]
+  %.sroa.4.0 = phi i32 [ %.sroa.4.0.ph, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer ], [ %.sroa.4.1, %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge ]
+  %.sroa.24.0 = phi ptr [ %.sroa.24.0.ph, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer ], [ %.sroa.24.1, %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge ]
+  %.sroa.15.0 = phi i32 [ %.sroa.15.0.ph, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer ], [ %.sroa.15.1, %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge ]
+  %.sroa.11.0 = phi i32 [ %.sroa.11.0.ph, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer ], [ %.sroa.11.1, %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.ph, %_ZNK7RegMask7overlapERKS_.exit70.thread.outer ], [ %.sroa.0.1, %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge ]
   %.not.i60 = icmp eq i64 %.sroa.0.0, 0
   br i1 %.not.i60, label %163, label %158
 
@@ -667,7 +667,7 @@ _ZNK7RegMask7overlapERKS_.exit70.thread:          ; preds = %_ZNK7RegMask7overla
 
 .loopexit.sink.split.i83:                         ; preds = %184, %171
   %.sroa.24.3 = phi ptr [ %181, %184 ], [ %.sroa.24.0, %171 ]
-  %.sroa.15.1 = phi i32 [ %190, %184 ], [ %.sroa.15.0, %171 ]
+  %.sroa.15.2 = phi i32 [ %190, %184 ], [ %.sroa.15.0, %171 ]
   %.sink74.i84 = phi i32 [ %186, %184 ], [ %172, %171 ]
   %.sink72.i85 = phi i64 [ %183, %184 ], [ %170, %171 ]
   %.sink67.i86 = phi i32 [ %189, %184 ], [ %176, %171 ]
@@ -679,18 +679,18 @@ _ZNK7RegMask7overlapERKS_.exit70.thread:          ; preds = %_ZNK7RegMask7overla
   br label %_ZN16IndexSetIterator4nextEv.exit62
 
 _ZN16IndexSetIterator4nextEv.exit62:              ; preds = %.loopexit.sink.split.i83, %158
-  %.sroa.4.2 = phi i32 [ %162, %158 ], [ %217, %.loopexit.sink.split.i83 ]
-  %.sroa.24.5 = phi ptr [ %.sroa.24.0, %158 ], [ %.sroa.24.3, %.loopexit.sink.split.i83 ]
-  %.sroa.15.3 = phi i32 [ %.sroa.15.0, %158 ], [ %.sroa.15.1, %.loopexit.sink.split.i83 ]
-  %.sroa.11.2 = phi i32 [ %.sroa.11.0, %158 ], [ %213, %.loopexit.sink.split.i83 ]
-  %.sroa.0.2.in = phi i64 [ %161, %158 ], [ %216, %.loopexit.sink.split.i83 ]
-  %.sroa.0.2 = add i64 %.sroa.0.2.in, -1
-  %.not53 = icmp eq i32 %.sroa.4.2, 0
+  %.sroa.4.1 = phi i32 [ %162, %158 ], [ %217, %.loopexit.sink.split.i83 ]
+  %.sroa.24.1 = phi ptr [ %.sroa.24.0, %158 ], [ %.sroa.24.3, %.loopexit.sink.split.i83 ]
+  %.sroa.15.1 = phi i32 [ %.sroa.15.0, %158 ], [ %.sroa.15.2, %.loopexit.sink.split.i83 ]
+  %.sroa.11.1 = phi i32 [ %.sroa.11.0, %158 ], [ %213, %.loopexit.sink.split.i83 ]
+  %.sroa.0.1.in = phi i64 [ %161, %158 ], [ %216, %.loopexit.sink.split.i83 ]
+  %.sroa.0.1 = add i64 %.sroa.0.1.in, -1
+  %.not53 = icmp eq i32 %.sroa.4.1, 0
   br i1 %.not53, label %_ZN16IndexSetIterator4nextEv.exit62.thread, label %218
 
 218:                                              ; preds = %_ZN16IndexSetIterator4nextEv.exit62
   %219 = load ptr, ptr %13, align 8
-  %220 = zext i32 %.sroa.4.2 to i64
+  %220 = zext i32 %.sroa.4.1 to i64
   %221 = getelementptr inbounds %class.LRG, ptr %219, i64 %220
   %222 = getelementptr inbounds i8, ptr %221, i64 56
   %223 = load i32, ptr %156, align 4
@@ -726,7 +726,7 @@ _ZNK7RegMask7overlapERKS_.exit70:                 ; preds = %.lr.ph.i64
   br i1 %.not137, label %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge, label %239
 
 239:                                              ; preds = %_ZNK7RegMask7overlapERKS_.exit70
-  %240 = tail call noundef zeroext i1 @_ZN8IndexSet6insertEj(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %.sroa.4.2)
+  %240 = tail call noundef zeroext i1 @_ZN8IndexSet6insertEj(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %.sroa.4.1)
   br i1 %240, label %241, label %_ZNK7RegMask7overlapERKS_.exit70.thread.backedge
 
 241:                                              ; preds = %239
@@ -737,12 +737,12 @@ _ZNK7RegMask7overlapERKS_.exit70:                 ; preds = %.lr.ph.i64
 
 245:                                              ; preds = %241
   %246 = tail call noundef i32 @_ZNK3LRG14compute_degreeERS_(ptr noundef nonnull align 8 dereferenceable(168) %16, ptr noundef nonnull align 8 dereferenceable(168) %221) #8
-  %247 = add i32 %246, %.3.ph
+  %247 = add i32 %246, %.4.ph
   %.not54 = icmp ult i32 %247, %3
   br i1 %.not54, label %_ZNK7RegMask7overlapERKS_.exit70.thread.outer, label %_ZN16IndexSetIterator4nextEv.exit62.thread, !llvm.loop !14
 
 _ZN16IndexSetIterator4nextEv.exit62.thread:       ; preds = %145, %._crit_edge.i76, %165, %_ZN16IndexSetIterator4nextEv.exit62, %245, %211, %_ZN16IndexSetIterator4nextEv.exit.thread
-  %.0 = phi i32 [ %.2, %_ZN16IndexSetIterator4nextEv.exit.thread ], [ %.3.ph, %211 ], [ %.3.ph, %._crit_edge.i76 ], [ %.3.ph, %165 ], [ %.3.ph, %_ZN16IndexSetIterator4nextEv.exit62 ], [ %247, %245 ], [ %147, %145 ]
+  %.0 = phi i32 [ %.044, %_ZN16IndexSetIterator4nextEv.exit.thread ], [ %.4.ph, %211 ], [ %.4.ph, %._crit_edge.i76 ], [ %.4.ph, %165 ], [ %.4.ph, %_ZN16IndexSetIterator4nextEv.exit62 ], [ %247, %245 ], [ %147, %145 ]
   ret i32 %.0
 }
 

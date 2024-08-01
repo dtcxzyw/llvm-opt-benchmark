@@ -558,8 +558,8 @@ cuddP.exit.thread:                                ; preds = %43, %cuddP.exit
   br label %49
 
 49:                                               ; preds = %cuddP.exit.thread, %cuddP.exit, %28
-  %.3.shrunk = phi i1 [ %narrow51, %28 ], [ false, %cuddP.exit.thread ], [ %narrow51, %cuddP.exit ]
-  %.3 = zext i1 %.3.shrunk to i32
+  %.4.shrunk = phi i1 [ %narrow51, %28 ], [ false, %cuddP.exit.thread ], [ %narrow51, %cuddP.exit ]
+  %.4 = zext i1 %.4.shrunk to i32
   %50 = icmp eq i32 %3, 2
   %51 = icmp ugt i32 %3, 3
   %or.cond4 = or i1 %50, %51
@@ -609,14 +609,14 @@ Cudd_PrintMinterm.exit:                           ; preds = %.lr.ph.i, %.prehead
   br label %69
 
 69:                                               ; preds = %Cudd_PrintMinterm.exit, %67
-  %70 = phi i32 [ 0, %67 ], [ %.3, %Cudd_PrintMinterm.exit ]
+  %70 = phi i32 [ 0, %67 ], [ %.4, %Cudd_PrintMinterm.exit ]
   %71 = load ptr, ptr %39, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %71)
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %69, %49, %6, %23
   %.sink52 = phi ptr [ %24, %23 ], [ %7, %6 ], [ %39, %49 ], [ %39, %69 ]
-  %.040.ph = phi i32 [ 1, %23 ], [ 0, %6 ], [ %.3, %49 ], [ %70, %69 ]
+  %.040.ph = phi i32 [ 1, %23 ], [ 0, %6 ], [ %.4, %49 ], [ %70, %69 ]
   %72 = load ptr, ptr %.sink52, align 8
   %73 = tail call i32 @fflush(ptr noundef %72)
   br label %.thread
@@ -1070,7 +1070,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
   %.not90 = icmp eq i64 %178, 0
   %179 = add nsw i32 %82, 1
   %180 = add nsw i32 %179, %88
-  %.1 = select i1 %.not90, i32 %180, i32 0
+  %.2 = select i1 %.not90, i32 %180, i32 0
   %181 = getelementptr inbounds i8, ptr %2, i64 4
   %182 = load i32, ptr %181, align 4
   %183 = icmp ugt i32 %182, 1
@@ -1088,11 +1088,11 @@ cuddUniqueLookup.exit.thread:                     ; preds = %163, %.preheader.i,
   br label %189
 
 189:                                              ; preds = %cuddUniqueLookup.exit.thread, %184, %174, %98, %102
-  %.2 = phi i32 [ %82, %102 ], [ %82, %98 ], [ %.1, %184 ], [ %.1, %174 ], [ %188, %cuddUniqueLookup.exit.thread ]
+  %.1 = phi i32 [ %82, %102 ], [ %82, %98 ], [ %.2, %184 ], [ %.2, %174 ], [ %188, %cuddUniqueLookup.exit.thread ]
   br label %190
 
 190:                                              ; preds = %184, %102, %73, %45, %24, %13, %18, %15, %189, %76, %49
-  %.080 = phi i32 [ %41, %49 ], [ %78, %76 ], [ %.2, %189 ], [ -1, %15 ], [ 0, %18 ], [ 0, %13 ], [ %., %24 ], [ -1, %45 ], [ -1, %73 ], [ -1, %102 ], [ -1, %184 ]
+  %.080 = phi i32 [ %41, %49 ], [ %78, %76 ], [ %.1, %189 ], [ -1, %15 ], [ 0, %18 ], [ 0, %13 ], [ %., %24 ], [ -1, %45 ], [ -1, %73 ], [ -1, %102 ], [ -1, %184 ]
   ret i32 %.080
 }
 

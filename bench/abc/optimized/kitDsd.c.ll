@@ -9054,7 +9054,7 @@ define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 nou
 .lr.ph53:                                         ; preds = %.preheader43, %.critedge2
   %9 = phi ptr [ %41, %.critedge2 ], [ %6, %.preheader43 ]
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.critedge2 ], [ 0, %.preheader43 ]
-  %.152 = phi i32 [ %.4, %.critedge2 ], [ %.03458, %.preheader43 ]
+  %.152 = phi i32 [ %.2, %.critedge2 ], [ %.03458, %.preheader43 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv67
@@ -9080,7 +9080,7 @@ define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 nou
 19:                                               ; preds = %.lr.ph49, %36
   %20 = phi i32 [ %15, %.lr.ph49 ], [ %37, %36 ]
   %indvars.iv64 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next65, %36 ]
-  %.247 = phi i32 [ %.152, %.lr.ph49 ], [ %.3, %36 ]
+  %.347 = phi i32 [ %.152, %.lr.ph49 ], [ %.4, %36 ]
   %21 = getelementptr inbounds [0 x i16], ptr %18, i64 0, i64 %indvars.iv64
   %22 = load i16, ptr %21, align 2
   %23 = load ptr, ptr %5, align 8
@@ -9091,11 +9091,11 @@ define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 nou
   br i1 %.not41, label %.preheader, label %36
 
 .preheader:                                       ; preds = %19
-  %26 = icmp sgt i32 %.247, 0
+  %26 = icmp sgt i32 %.347, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %.247 to i64
+  %wide.trip.count = zext nneg i32 %.347 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
@@ -9116,12 +9116,12 @@ define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 nou
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.036.lcssa = phi i32 [ 0, %.preheader ], [ %31, %._crit_edge.loopexit ]
-  %32 = icmp eq i32 %.036.lcssa, %.247
+  %32 = icmp eq i32 %.036.lcssa, %.347
   br i1 %32, label %._crit_edge.thread, label %36
 
 ._crit_edge.thread:                               ; preds = %30, %._crit_edge
-  %33 = add nsw i32 %.247, 1
-  %34 = sext i32 %.247 to i64
+  %33 = add nsw i32 %.347, 1
+  %34 = sext i32 %.347 to i64
   %35 = getelementptr inbounds i32, ptr %2, i64 %34
   store i32 %25, ptr %35, align 4
   %.pre = load i32, ptr %13, align 4
@@ -9129,7 +9129,7 @@ define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 nou
 
 36:                                               ; preds = %._crit_edge, %._crit_edge.thread, %19
   %37 = phi i32 [ %.pre, %._crit_edge.thread ], [ %20, %._crit_edge ], [ %20, %19 ]
-  %.3 = phi i32 [ %33, %._crit_edge.thread ], [ %.247, %._crit_edge ], [ %.247, %19 ]
+  %.4 = phi i32 [ %33, %._crit_edge.thread ], [ %.347, %._crit_edge ], [ %.347, %19 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %38 = lshr i32 %37, 26
   %39 = zext nneg i32 %38 to i64
@@ -9142,7 +9142,7 @@ define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 nou
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %14
   %41 = phi ptr [ %9, %14 ], [ %.pre75, %.critedge2.loopexit ]
-  %.4 = phi i32 [ %.152, %14 ], [ %.3, %.critedge2.loopexit ]
+  %.2 = phi i32 [ %.152, %14 ], [ %.4, %.critedge2.loopexit ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %42 = getelementptr inbounds i8, ptr %41, i64 4
   %43 = load i16, ptr %42, align 4
@@ -9151,7 +9151,7 @@ define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 nou
   br i1 %45, label %.lr.ph53, label %.critedge, !llvm.loop !90
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph53, %.preheader43
-  %.1.lcssa = phi i32 [ %.03458, %.preheader43 ], [ %.152, %.lr.ph53 ], [ %.4, %.critedge2 ]
+  %.1.lcssa = phi i32 [ %.03458, %.preheader43 ], [ %.152, %.lr.ph53 ], [ %.2, %.critedge2 ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %._crit_edge59, label %.preheader43, !llvm.loop !91
@@ -9272,7 +9272,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %2
 
 .lr.ph53.i:                                       ; preds = %.lr.ph53.i.preheader, %.critedge2.i
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.critedge2.i ], [ 0, %.lr.ph53.i.preheader ]
-  %.152.i = phi i32 [ %.4.i, %.critedge2.i ], [ %.03458.i, %.lr.ph53.i.preheader ]
+  %.152.i = phi i32 [ %.2.i, %.critedge2.i ], [ %.03458.i, %.lr.ph53.i.preheader ]
   %51 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv67.i
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
@@ -9298,7 +9298,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %2
 
 60:                                               ; preds = %75, %.lr.ph49.i
   %indvars.iv64.i = phi i64 [ 0, %.lr.ph49.i ], [ %indvars.iv.next65.i, %75 ]
-  %.247.i = phi i32 [ %.152.i, %.lr.ph49.i ], [ %.3.i, %75 ]
+  %.347.i = phi i32 [ %.152.i, %.lr.ph49.i ], [ %.4.i, %75 ]
   %61 = getelementptr inbounds [0 x i16], ptr %57, i64 0, i64 %indvars.iv64.i
   %62 = load i16, ptr %61, align 2
   %63 = lshr i16 %62, 1
@@ -9307,11 +9307,11 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %2
   br i1 %.not41.i, label %.preheader.i, label %75
 
 .preheader.i:                                     ; preds = %60
-  %65 = icmp sgt i32 %.247.i, 0
+  %65 = icmp sgt i32 %.347.i, 0
   br i1 %65, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %.247.i to i64
+  %wide.trip.count.i = zext nneg i32 %.347.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %69, %.lr.ph.preheader.i
@@ -9332,30 +9332,30 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %2
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %.036.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %70, %._crit_edge.loopexit.i ]
-  %71 = icmp eq i32 %.036.lcssa.i, %.247.i
+  %71 = icmp eq i32 %.036.lcssa.i, %.347.i
   br i1 %71, label %._crit_edge.thread.i, label %75
 
 ._crit_edge.thread.i:                             ; preds = %69, %._crit_edge.i
-  %72 = add nsw i32 %.247.i, 1
-  %73 = sext i32 %.247.i to i64
+  %72 = add nsw i32 %.347.i, 1
+  %73 = sext i32 %.347.i to i64
   %74 = getelementptr inbounds i32, ptr %8, i64 %73
   store i32 %64, ptr %74, align 4
   br label %75
 
 75:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i, %60
-  %.3.i = phi i32 [ %72, %._crit_edge.thread.i ], [ %.247.i, %._crit_edge.i ], [ %.247.i, %60 ]
+  %.4.i = phi i32 [ %72, %._crit_edge.thread.i ], [ %.347.i, %._crit_edge.i ], [ %.347.i, %60 ]
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next65.i, %59
   br i1 %exitcond276.not, label %.critedge2.i, label %60, !llvm.loop !89
 
 .critedge2.i:                                     ; preds = %75, %53
-  %.4.i = phi i32 [ %.152.i, %53 ], [ %.3.i, %75 ]
+  %.2.i = phi i32 [ %.152.i, %53 ], [ %.4.i, %75 ]
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %76 = icmp ult i64 %indvars.iv.next68.i, %50
   br i1 %76, label %.lr.ph53.i, label %.critedge.i, !llvm.loop !90
 
 .critedge.i:                                      ; preds = %.critedge2.i, %.lr.ph53.i, %.preheader43.i
-  %.1.lcssa.i = phi i32 [ %.03458.i, %.preheader43.i ], [ %.4.i, %.critedge2.i ], [ %.152.i, %.lr.ph53.i ]
+  %.1.lcssa.i = phi i32 [ %.03458.i, %.preheader43.i ], [ %.2.i, %.critedge2.i ], [ %.152.i, %.lr.ph53.i ]
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count73.i
   br i1 %exitcond74.not.i, label %Kit_DsdCofactoringGetVars.exit, label %.preheader43.i, !llvm.loop !91

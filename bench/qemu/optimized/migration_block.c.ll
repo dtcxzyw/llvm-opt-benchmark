@@ -882,9 +882,9 @@ if.then.i.i17:                                    ; preds = %if.then.i
   br i1 %cmp2.i.i, label %land.rhs.i.i, label %while.end.i.i
 
 land.rhs.i.i:                                     ; preds = %if.then.i.i17, %if.end.i.i
-  %cur_sector.03.i.i = phi i64 [ %add.i.i, %if.end.i.i ], [ %16, %if.then.i.i17 ]
+  %cur_sector.13.i.i = phi i64 [ %add.i.i, %if.end.i.i ], [ %16, %if.then.i.i17 ]
   %call4.i.i = call ptr @blk_bs(ptr noundef %17) #13
-  %mul.i.i = shl i64 %cur_sector.03.i.i, 9
+  %mul.i.i = shl i64 %cur_sector.13.i.i, 9
   %call5.i.i = call i32 @bdrv_is_allocated(ptr noundef %call4.i.i, i64 noundef %mul.i.i, i64 noundef 33554432, ptr noundef nonnull %count.i.i) #13
   %tobool6.i.i = icmp ne i32 %call5.i.i, 0
   %19 = load i64, ptr %count.i.i, align 8
@@ -894,20 +894,20 @@ land.rhs.i.i:                                     ; preds = %if.then.i.i17, %if.
 
 if.end.i.i:                                       ; preds = %land.rhs.i.i
   %shr.i.i = ashr i64 %19, 9
-  %add.i.i = add i64 %shr.i.i, %cur_sector.03.i.i
+  %add.i.i = add i64 %shr.i.i, %cur_sector.13.i.i
   %cmp.i.i = icmp slt i64 %add.i.i, %15
   br i1 %cmp.i.i, label %land.rhs.i.i, label %while.end.i.i, !llvm.loop !16
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %land.rhs.i.i, %if.then.i.i17
-  %cur_sector.0.lcssa.i.i = phi i64 [ %16, %if.then.i.i17 ], [ %add.i.i, %if.end.i.i ], [ %cur_sector.03.i.i, %land.rhs.i.i ]
+  %cur_sector.1.lcssa.i.i = phi i64 [ %16, %if.then.i.i17 ], [ %add.i.i, %if.end.i.i ], [ %cur_sector.13.i.i, %land.rhs.i.i ]
   %call9.i.i18 = call ptr @blk_get_aio_context(ptr noundef %17) #13
   call void @aio_context_release(ptr noundef %call9.i.i18) #13
   call void @qemu_mutex_unlock_iothread() #13
   br label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %while.end.i.i, %if.then.i
-  %cur_sector.1.i.i = phi i64 [ %cur_sector.0.lcssa.i.i, %while.end.i.i ], [ %16, %if.then.i ]
-  %cmp11.not.i.i = icmp slt i64 %cur_sector.1.i.i, %15
+  %cur_sector.0.i.i = phi i64 [ %cur_sector.1.lcssa.i.i, %while.end.i.i ], [ %16, %if.then.i ]
+  %cmp11.not.i.i = icmp slt i64 %cur_sector.0.i.i, %15
   %completed_sectors15.i.i = getelementptr inbounds i8, ptr %bmds.021.i, i64 80
   br i1 %cmp11.not.i.i, label %mig_save_device_bulk.exit.i, label %mig_save_device_bulk.exit.thread.i
 
@@ -918,8 +918,8 @@ mig_save_device_bulk.exit.thread.i:               ; preds = %if.end10.i.i
   br label %if.then2.i
 
 mig_save_device_bulk.exit.i:                      ; preds = %if.end10.i.i
-  store i64 %cur_sector.1.i.i, ptr %completed_sectors15.i.i, align 8
-  %and.i.i = and i64 %cur_sector.1.i.i, -2048
+  store i64 %cur_sector.0.i.i, ptr %completed_sectors15.i.i, align 8
+  %and.i.i = and i64 %cur_sector.0.i.i, -2048
   %sub.i.i = sub i64 %15, %and.i.i
   %spec.select1.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 2048)
   %spec.select.i.i = trunc nuw nsw i64 %spec.select1.i.i to i32
@@ -1302,8 +1302,8 @@ if.else78.us:                                     ; preds = %for.body.us
   br label %if.end81.us
 
 if.end81.us:                                      ; preds = %if.else78.us, %if.then75.us
-  %ret.3.us = phi i32 [ %call77.us, %if.then75.us ], [ %call80.us, %if.else78.us ]
-  %cmp82.us = icmp sgt i32 %ret.3.us, -1
+  %ret.5.us = phi i32 [ %call77.us, %if.then75.us ], [ %call80.us, %if.else78.us ]
+  %cmp82.us = icmp sgt i32 %ret.5.us, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp61.us = icmp ult i64 %indvars.iv.next, %6
   %or.cond = and i1 %cmp82.us, %cmp61.us
@@ -1333,21 +1333,21 @@ if.else78:                                        ; preds = %for.body, %land.lhs
   br label %if.end81
 
 if.end81:                                         ; preds = %if.else78, %if.then75
-  %ret.3 = phi i32 [ %call77, %if.then75 ], [ %call80, %if.else78 ]
-  %cmp82 = icmp sgt i32 %ret.3, -1
+  %ret.5 = phi i32 [ %call77, %if.then75 ], [ %call80, %if.else78 ]
+  %cmp82 = icmp sgt i32 %ret.5, -1
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %cmp61 = icmp ult i64 %indvars.iv.next69, %6
   %or.cond60 = select i1 %cmp82, i1 %cmp61, i1 false
   br i1 %or.cond60, label %for.body, label %for.end, !llvm.loop !20
 
 for.end:                                          ; preds = %if.end81.us, %if.end81, %if.else56
-  %ret.4 = phi i32 [ %ret.1, %if.else56 ], [ %ret.3, %if.end81 ], [ %ret.3.us, %if.end81.us ]
+  %ret.4 = phi i32 [ %ret.1, %if.else56 ], [ %ret.5, %if.end81 ], [ %ret.5.us, %if.end81.us ]
   call void @g_free(ptr noundef %call57) #13
   br label %if.end86
 
 if.end86:                                         ; preds = %for.end, %if.then52
-  %ret.5 = phi i32 [ %call55, %if.then52 ], [ %ret.4, %for.end ]
-  %cmp87 = icmp slt i32 %ret.5, 0
+  %ret.2 = phi i32 [ %call55, %if.then52 ], [ %ret.4, %for.end ]
+  %cmp87 = icmp slt i32 %ret.2, 0
   br i1 %cmp87, label %return, label %if.end111
 
 if.else91:                                        ; preds = %do.body
@@ -1398,7 +1398,7 @@ do.cond:                                          ; preds = %if.end111
   br i1 %tobool118.not, label %do.body, label %return, !llvm.loop !21
 
 return:                                           ; preds = %do.cond, %if.end111, %if.end86, %if.then107, %if.then20, %if.then16, %if.then8
-  %retval.0 = phi i32 [ -22, %if.then16 ], [ -22, %if.then20 ], [ -22, %if.then8 ], [ -22, %if.then107 ], [ 0, %do.cond ], [ %call112, %if.end111 ], [ %ret.5, %if.end86 ]
+  %retval.0 = phi i32 [ -22, %if.then16 ], [ -22, %if.then20 ], [ -22, %if.then8 ], [ -22, %if.then107 ], [ 0, %do.cond ], [ %call112, %if.end111 ], [ %ret.2, %if.end86 ]
   ret i32 %retval.0
 }
 

@@ -247,12 +247,12 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i7: ; preds = %_ZNKSt6vector
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %8 = phi i32 [ %11, %.lr.ph.i.i ], [ %7, %.lr.ph.preheader.i.i ]
   %.idx = phi i64 [ %.add, %.lr.ph.i.i ], [ 4, %.lr.ph.preheader.i.i ]
-  %.sroa.02.010.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %4, %.lr.ph.preheader.i.i ]
+  %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %4, %.lr.ph.preheader.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %4, i64 %.idx
   %9 = load i32, ptr %.ptr, align 4
   %10 = icmp slt i32 %9, %8
   %11 = tail call i32 @llvm.smin.i32(i32 %9, i32 %8)
-  %spec.select.i.i = select i1 %10, ptr %.ptr, ptr %.sroa.02.010.i.i
+  %spec.select.i.i = select i1 %10, ptr %.ptr, ptr %.sroa.02.110.i.i
   %.add = add nuw nsw i64 %.idx, 4
   %.not.i.i25 = icmp eq i64 %.add, 12
   br i1 %.not.i.i25, label %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.thread, label %.lr.ph.i.i, !llvm.loop !5
@@ -263,10 +263,10 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.
   ret i32 %12
 
 _ZNSt6vectorIiSaIiEED2Ev.exit27:                  ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i7, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4
-  %.sroa.033.3.ph = phi ptr [ %1, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4 ], [ %2, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i7 ]
+  %.sroa.033.0.ph = phi ptr [ %1, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4 ], [ %2, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i7 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.033.3.ph) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.033.0.ph) #12
   resume { ptr, i32 } %lpad.thr_comm
 }
 

@@ -1191,8 +1191,8 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %34, %30, %7, %4
   br label %36
 
 36:                                               ; preds = %1, %_ZN7ZLockerI14ZConditionLockED2Ev.exit
-  %.2 = phi ptr [ %.1, %_ZN7ZLockerI14ZConditionLockED2Ev.exit ], [ null, %1 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %.1, %_ZN7ZLockerI14ZConditionLockED2Ev.exit ], [ null, %1 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1625,16 +1625,16 @@ _ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i: ; preds = %155, %153, %12
   br i1 %.not20.i.i.i.i, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i, label %.lr.ph21.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %181, %.lr.ph21.i.i.i.i
-  %.2 = phi i64 [ %.3, %.lr.ph21.i.i.i.i ], [ %185, %181 ]
-  %170 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %.2
+  %.4 = phi i64 [ %.2, %.lr.ph21.i.i.i.i ], [ %185, %181 ]
+  %170 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %.4
   %171 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %166, i64 0, ptr %170) #14, !srcloc !15
   %172 = and i64 %171, 1
   %.not.i.i.i19.i = icmp eq i64 %172, 0
   br i1 %.not.i.i.i19.i, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i, label %.lr.ph21.i.i.i.i, !llvm.loop !19
 
 .lr.ph21.i.i.i.i:                                 ; preds = %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i, %.loopexit.i.i.i.i
-  %.3 = phi i64 [ %.2, %.loopexit.i.i.i.i ], [ %.1, %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i ]
-  %173 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %.3
+  %.2 = phi i64 [ %.4, %.loopexit.i.i.i.i ], [ %.1, %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i ]
+  %173 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %.2
   %174 = load volatile i64, ptr %173, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
   %175 = and i64 %174, 1
@@ -1642,7 +1642,7 @@ _ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i: ; preds = %155, %153, %12
   br i1 %.not1518.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph21.i.i.i.i, %181
-  %.4 = phi i64 [ %185, %181 ], [ %.3, %.lr.ph21.i.i.i.i ]
+  %.3 = phi i64 [ %185, %181 ], [ %.2, %.lr.ph21.i.i.i.i ]
   %storemerge19.i.i.i.i = phi i64 [ %187, %181 ], [ %174, %.lr.ph21.i.i.i.i ]
   %176 = lshr i64 %storemerge19.i.i.i.i, 46
   %177 = icmp eq i64 %176, %161
@@ -1656,7 +1656,7 @@ _ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i: ; preds = %155, %153, %12
 181:                                              ; preds = %.lr.ph.i.i.i.i
   %182 = load i64, ptr %11, align 8
   %183 = add i64 %182, -1
-  %184 = add i64 %.4, 1
+  %184 = add i64 %.3, 1
   %185 = and i64 %183, %184
   %186 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %185
   %187 = load volatile i64, ptr %186, align 8
@@ -2368,8 +2368,8 @@ define linkonce_odr hidden void @_ZN13ZRelocateTask4workEv(ptr noundef nonnull a
   %19 = load ptr, ptr %14, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 116
   %21 = load volatile i32, ptr %20, align 4
-  %.not11.i49 = icmp eq i32 %21, 0
-  br i1 %.not11.i49, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread, label %.lr.ph
+  %.not11.i50 = icmp eq i32 %21, 0
+  br i1 %.not11.i50, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %_ZZN13ZRelocateTask4workEvENKUlP11ZForwardingE_clES1_.exit
   %22 = phi ptr [ %134, %_ZZN13ZRelocateTask4workEvENKUlP11ZForwardingE_clES1_.exit ], [ %20, %18 ]
@@ -2378,17 +2378,17 @@ define linkonce_odr hidden void @_ZN13ZRelocateTask4workEv(ptr noundef nonnull a
   %25 = getelementptr inbounds i8, ptr %23, i64 88
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph.i.i3, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit21.thread
+  br i1 %27, label %.lr.ph.i.i4, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread
 
-.lr.ph.i.i3:                                      ; preds = %.lr.ph
+.lr.ph.i.i4:                                      ; preds = %.lr.ph
   %28 = getelementptr inbounds i8, ptr %23, i64 96
   br label %29
 
-29:                                               ; preds = %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i10, %.lr.ph.i.i3
-  %.0711.i.i4 = phi i32 [ 0, %.lr.ph.i.i3 ], [ %.1.i.i13, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i10 ]
-  %.0810.i.i5 = phi i1 [ false, %.lr.ph.i.i3 ], [ %.19.i.i12, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i10 ]
+29:                                               ; preds = %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i11, %.lr.ph.i.i4
+  %.0711.i.i5 = phi i32 [ 0, %.lr.ph.i.i4 ], [ %.1.i.i14, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i11 ]
+  %.0810.i.i6 = phi i1 [ false, %.lr.ph.i.i4 ], [ %.19.i.i13, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i11 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = sext i32 %.0711.i.i4 to i64
+  %31 = sext i32 %.0711.i.i5 to i64
   %32 = getelementptr inbounds ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef zeroext i1 @_ZNK11ZForwarding7is_doneEv(ptr noundef nonnull align 8 dereferenceable(184) %33) #14
@@ -2398,8 +2398,8 @@ define linkonce_odr hidden void @_ZN13ZRelocateTask4workEv(ptr noundef nonnull a
   %36 = load i32, ptr %25, align 8
   %37 = add nsw i32 %36, -1
   store i32 %37, ptr %25, align 8
-  %38 = icmp sgt i32 %37, %.0711.i.i4
-  br i1 %38, label %39, label %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i10
+  %38 = icmp sgt i32 %37, %.0711.i.i5
+  br i1 %38, label %39, label %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i11
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %28, align 8
@@ -2408,76 +2408,76 @@ define linkonce_odr hidden void @_ZN13ZRelocateTask4workEv(ptr noundef nonnull a
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds ptr, ptr %40, i64 %31
   store ptr %43, ptr %44, align 8
-  br label %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i6
+  br label %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i7
 
 45:                                               ; preds = %29
-  %46 = add nsw i32 %.0711.i.i4, 1
-  br label %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i6
+  %46 = add nsw i32 %.0711.i.i5, 1
+  br label %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i7
 
-_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i6: ; preds = %45, %39
-  %.19.ph.i.i7 = phi i1 [ true, %39 ], [ %.0810.i.i5, %45 ]
-  %.1.ph.i.i8 = phi i32 [ %.0711.i.i4, %39 ], [ %46, %45 ]
-  %.pr.pr.i.i9 = load i32, ptr %25, align 4
-  br label %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i10
+_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i7: ; preds = %45, %39
+  %.19.ph.i.i8 = phi i1 [ true, %39 ], [ %.0810.i.i6, %45 ]
+  %.1.ph.i.i9 = phi i32 [ %.0711.i.i5, %39 ], [ %46, %45 ]
+  %.pr.pr.i.i10 = load i32, ptr %25, align 4
+  br label %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i11
 
-_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i10: ; preds = %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i6, %35
-  %.pr.i.i11 = phi i32 [ %.pr.pr.i.i9, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i6 ], [ %37, %35 ]
-  %.19.i.i12 = phi i1 [ %.19.ph.i.i7, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i6 ], [ true, %35 ]
-  %.1.i.i13 = phi i32 [ %.1.ph.i.i8, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i6 ], [ %.0711.i.i4, %35 ]
-  %47 = icmp slt i32 %.1.i.i13, %.pr.i.i11
-  br i1 %47, label %29, label %._crit_edge.i.i14, !llvm.loop !7
+_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i11: ; preds = %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i7, %35
+  %.pr.i.i12 = phi i32 [ %.pr.pr.i.i10, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i7 ], [ %37, %35 ]
+  %.19.i.i13 = phi i1 [ %.19.ph.i.i8, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i7 ], [ true, %35 ]
+  %.1.i.i14 = phi i32 [ %.1.ph.i.i9, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exitthread-pre-split.i.i7 ], [ %.0711.i.i5, %35 ]
+  %47 = icmp slt i32 %.1.i.i14, %.pr.i.i12
+  br i1 %47, label %29, label %._crit_edge.i.i15, !llvm.loop !7
 
-._crit_edge.i.i14:                                ; preds = %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i10
-  %48 = icmp eq i32 %.pr.i.i11, 0
-  br i1 %48, label %49, label %_ZN14ZRelocateQueue5pruneEv.exit.i15
+._crit_edge.i.i15:                                ; preds = %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i11
+  %48 = icmp eq i32 %.pr.i.i12, 0
+  br i1 %48, label %49, label %_ZN14ZRelocateQueue5pruneEv.exit.i16
 
-49:                                               ; preds = %._crit_edge.i.i14
+49:                                               ; preds = %._crit_edge.i.i15
   %50 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %22) #14, !srcloc !6
-  br i1 %.19.i.i12, label %51, label %_ZN14ZRelocateQueue5pruneEv.exit.thread.i16
+  br i1 %.19.i.i13, label %51, label %_ZN14ZRelocateQueue5pruneEv.exit.thread.i17
 
-_ZN14ZRelocateQueue5pruneEv.exit.i15:             ; preds = %._crit_edge.i.i14
-  br i1 %.19.i.i12, label %51, label %_ZN14ZRelocateQueue5pruneEv.exit.thread.i16
+_ZN14ZRelocateQueue5pruneEv.exit.i16:             ; preds = %._crit_edge.i.i15
+  br i1 %.19.i.i13, label %51, label %_ZN14ZRelocateQueue5pruneEv.exit.thread.i17
 
-51:                                               ; preds = %_ZN14ZRelocateQueue5pruneEv.exit.i15, %49
+51:                                               ; preds = %_ZN14ZRelocateQueue5pruneEv.exit.i16, %49
   %52 = getelementptr inbounds i8, ptr %23, i64 40
   %53 = call i32 @pthread_cond_broadcast(ptr noundef nonnull %52) #14
-  br label %_ZN14ZRelocateQueue5pruneEv.exit.thread.i16
+  br label %_ZN14ZRelocateQueue5pruneEv.exit.thread.i17
 
-_ZN14ZRelocateQueue5pruneEv.exit.thread.i16:      ; preds = %51, %_ZN14ZRelocateQueue5pruneEv.exit.i15, %49
-  %.pr.i17 = load i32, ptr %25, align 4
-  %54 = icmp sgt i32 %.pr.i17, 0
-  br i1 %54, label %.lr.ph.i18, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit21.thread
+_ZN14ZRelocateQueue5pruneEv.exit.thread.i17:      ; preds = %51, %_ZN14ZRelocateQueue5pruneEv.exit.i16, %49
+  %.pr.i18 = load i32, ptr %25, align 4
+  %54 = icmp sgt i32 %.pr.i18, 0
+  br i1 %54, label %.lr.ph.i19, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread
 
-55:                                               ; preds = %.lr.ph.i18
-  %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
+55:                                               ; preds = %.lr.ph.i19
+  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %56 = load i32, ptr %25, align 4
   %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next.i20, %57
-  br i1 %58, label %.lr.ph.i18, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit21.thread, !llvm.loop !12
+  %58 = icmp slt i64 %indvars.iv.next.i21, %57
+  br i1 %58, label %.lr.ph.i19, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread, !llvm.loop !12
 
-.lr.ph.i18:                                       ; preds = %_ZN14ZRelocateQueue5pruneEv.exit.thread.i16, %55
-  %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i20, %55 ], [ 0, %_ZN14ZRelocateQueue5pruneEv.exit.thread.i16 ]
+.lr.ph.i19:                                       ; preds = %_ZN14ZRelocateQueue5pruneEv.exit.thread.i17, %55
+  %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i21, %55 ], [ 0, %_ZN14ZRelocateQueue5pruneEv.exit.thread.i17 ]
   %59 = load ptr, ptr %28, align 8
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv.i19
+  %60 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv.i20
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef zeroext i1 @_ZN11ZForwarding5claimEv(ptr noundef nonnull align 8 dereferenceable(184) %61) #14
-  br i1 %62, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread35, label %55
+  br i1 %62, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread36, label %55
 
-_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread35: ; preds = %.lr.ph.i18
+_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread36: ; preds = %.lr.ph.i19
   %63 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #14
   br label %127
 
-_ZN14ZRelocateQueue15prune_and_claimEv.exit21.thread: ; preds = %55, %.lr.ph, %_ZN14ZRelocateQueue5pruneEv.exit.thread.i16
+_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread: ; preds = %55, %.lr.ph, %_ZN14ZRelocateQueue5pruneEv.exit.thread.i17
   %64 = getelementptr inbounds i8, ptr %23, i64 112
   %65 = load i8, ptr %64, align 8
   %66 = trunc i8 %65 to i1
-  br i1 %66, label %68, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread32
+  br i1 %66, label %68, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread33
 
-_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread32: ; preds = %_ZN14ZRelocateQueue15prune_and_claimEv.exit21.thread
+_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread33: ; preds = %_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread
   %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #14
   br label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread
 
-68:                                               ; preds = %_ZN14ZRelocateQueue15prune_and_claimEv.exit21.thread
+68:                                               ; preds = %_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread
   %69 = getelementptr inbounds i8, ptr %23, i64 108
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, 1
@@ -2598,7 +2598,7 @@ _ZN14ZRelocateQueue15prune_and_claimEv.exit.thread: ; preds = %112, %84, %_ZN14Z
   br i1 %121, label %84, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit, !llvm.loop !13
 
 _ZN14ZRelocateQueue15prune_and_claimEv.exit:      ; preds = %_ZN14ZRelocateQueue15prune_and_claimEv.exit.thread, %.lr.ph.i
-  %.0.i28 = phi ptr [ %118, %.lr.ph.i ], [ null, %_ZN14ZRelocateQueue15prune_and_claimEv.exit.thread ]
+  %.0.i229 = phi ptr [ %118, %.lr.ph.i ], [ null, %_ZN14ZRelocateQueue15prune_and_claimEv.exit.thread ]
   %122 = load i32, ptr %69, align 4
   %123 = add i32 %122, -1
   store i32 %123, ptr %69, align 4
@@ -2612,33 +2612,33 @@ _ZN14ZRelocateQueue15prune_and_claimEv.exit:      ; preds = %_ZN14ZRelocateQueue
 
 _ZN14ZRelocateQueue16synchronize_pollEv.exit:     ; preds = %_ZN14ZRelocateQueue15prune_and_claimEv.exit, %125
   %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #14
-  %.not = icmp eq ptr %.0.i28, null
+  %.not = icmp eq ptr %.0.i229, null
   br i1 %.not, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread, label %127
 
-127:                                              ; preds = %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread35, %_ZN14ZRelocateQueue16synchronize_pollEv.exit
-  %.1.i38 = phi ptr [ %61, %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread35 ], [ %.0.i28, %_ZN14ZRelocateQueue16synchronize_pollEv.exit ]
-  %128 = call noundef ptr @_ZN11ZForwarding4pageEv(ptr noundef nonnull align 8 dereferenceable(184) %.1.i38) #14
+127:                                              ; preds = %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread36, %_ZN14ZRelocateQueue16synchronize_pollEv.exit
+  %.1.i39 = phi ptr [ %61, %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread36 ], [ %.0.i229, %_ZN14ZRelocateQueue16synchronize_pollEv.exit ]
+  %128 = call noundef ptr @_ZN11ZForwarding4pageEv(ptr noundef nonnull align 8 dereferenceable(184) %.1.i39) #14
   %129 = load i8, ptr %128, align 8
   %130 = icmp eq i8 %129, 0
   br i1 %130, label %131, label %132
 
 131:                                              ; preds = %127
-  call void @_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE13do_forwardingEP11ZForwarding(ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull %.1.i38)
+  call void @_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE13do_forwardingEP11ZForwarding(ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull %.1.i39)
   br label %_ZZN13ZRelocateTask4workEvENKUlP11ZForwardingE_clES1_.exit
 
 132:                                              ; preds = %127
-  call void @_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE13do_forwardingEP11ZForwarding(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull %.1.i38)
+  call void @_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE13do_forwardingEP11ZForwarding(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull %.1.i39)
   br label %_ZZN13ZRelocateTask4workEvENKUlP11ZForwardingE_clES1_.exit
 
 _ZZN13ZRelocateTask4workEvENKUlP11ZForwardingE_clES1_.exit: ; preds = %131, %132
-  call void @_ZN11ZForwarding9mark_doneEv(ptr noundef nonnull align 8 dereferenceable(184) %.1.i38) #14
+  call void @_ZN11ZForwarding9mark_doneEv(ptr noundef nonnull align 8 dereferenceable(184) %.1.i39) #14
   %133 = load ptr, ptr %14, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 116
   %135 = load volatile i32, ptr %134, align 4
   %.not11.i = icmp eq i32 %135, 0
   br i1 %.not11.i, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread, label %.lr.ph, !llvm.loop !22
 
-_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread: ; preds = %_ZN14ZRelocateQueue16synchronize_pollEv.exit, %_ZZN13ZRelocateTask4workEvENKUlP11ZForwardingE_clES1_.exit, %18, %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread32
+_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread: ; preds = %_ZN14ZRelocateQueue16synchronize_pollEv.exit, %_ZZN13ZRelocateTask4workEvENKUlP11ZForwardingE_clES1_.exit, %18, %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread33
   %136 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %15) #14, !srcloc !23
   %137 = load i64, ptr %16, align 8
   %138 = icmp ult i64 %136, %137
@@ -2673,8 +2673,8 @@ _ZZN13ZRelocateTask4workEvENKUlP11ZForwardingE_clES1_.exit.i.i: ; preds = %149, 
   %151 = load ptr, ptr %5, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 216
   %153 = load volatile i32, ptr %152, align 4
-  %.not39 = icmp eq i32 %153, 0
-  br i1 %.not39, label %18, label %_ZZN13ZRelocateTask4workEvENKUlvE_clEv.exit, !llvm.loop !24
+  %.not40 = icmp eq i32 %153, 0
+  br i1 %.not40, label %18, label %_ZZN13ZRelocateTask4workEvENKUlvE_clEv.exit, !llvm.loop !24
 
 _ZZN13ZRelocateTask4workEvENKUlvE_clEv.exit:      ; preds = %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread, %150
   %154 = load ptr, ptr %14, align 8
@@ -3847,16 +3847,16 @@ _ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %190, %188, %158,
   br label %214
 
 .loopexit.i.i.i:                                  ; preds = %223, %214
-  %.2 = phi i64 [ %.3, %214 ], [ %227, %223 ]
-  %211 = getelementptr inbounds %class.ZForwardingEntry, ptr %206, i64 %.2
+  %.4 = phi i64 [ %.2, %214 ], [ %227, %223 ]
+  %211 = getelementptr inbounds %class.ZForwardingEntry, ptr %206, i64 %.4
   %212 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %203, i64 0, ptr %211) #14, !srcloc !15
   %213 = and i64 %212, 1
   %.not.i.i.i34 = icmp eq i64 %213, 0
   br i1 %.not.i.i.i34, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, label %214, !llvm.loop !19
 
 214:                                              ; preds = %.loopexit.i.i.i, %.lr.ph21.i.i.i
-  %.3 = phi i64 [ %.1, %.lr.ph21.i.i.i ], [ %.2, %.loopexit.i.i.i ]
-  %215 = getelementptr inbounds %class.ZForwardingEntry, ptr %206, i64 %.3
+  %.2 = phi i64 [ %.1, %.lr.ph21.i.i.i ], [ %.4, %.loopexit.i.i.i ]
+  %215 = getelementptr inbounds %class.ZForwardingEntry, ptr %206, i64 %.2
   %216 = load volatile i64, ptr %215, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
   %217 = and i64 %216, 1
@@ -3864,7 +3864,7 @@ _ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %190, %188, %158,
   br i1 %.not1518.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i33
 
 .lr.ph.i.i.i33:                                   ; preds = %214, %223
-  %.4 = phi i64 [ %227, %223 ], [ %.3, %214 ]
+  %.3 = phi i64 [ %227, %223 ], [ %.2, %214 ]
   %storemerge19.i.i.i = phi i64 [ %229, %223 ], [ %216, %214 ]
   %218 = lshr i64 %storemerge19.i.i.i, 46
   %219 = icmp eq i64 %218, %198
@@ -3878,7 +3878,7 @@ _ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %190, %188, %158,
 223:                                              ; preds = %.lr.ph.i.i.i33
   %224 = load i64, ptr %210, align 8
   %225 = add i64 %224, -1
-  %226 = add i64 %.4, 1
+  %226 = add i64 %.3, 1
   %227 = and i64 %225, %226
   %228 = getelementptr inbounds %class.ZForwardingEntry, ptr %206, i64 %227
   %229 = load volatile i64, ptr %228, align 8
@@ -4228,9 +4228,9 @@ _ZN5ZPage8rememberEPV8zpointer.exit:              ; preds = %150, %148, %_ZN11ZF
   br label %172
 
 172:                                              ; preds = %170, %163
-  %.1.ph.i.i.i.i = phi i64 [ %161, %163 ], [ %169, %170 ]
+  %.027.ph.i.i.i.i = phi i64 [ %161, %163 ], [ %169, %170 ]
   %.026.ph.i.i.i.i = phi i64 [ %153, %163 ], [ %171, %170 ]
-  %173 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %173 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %174 = add i64 %.026.ph.i.i.i.i, %173
   %175 = icmp ult i64 %174, %98
   br i1 %175, label %_ZN6BitMap11RBFIteratorppEv.exit, label %._crit_edge
@@ -4920,9 +4920,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZN8ZLiveMap7i
   br label %27
 
 27:                                               ; preds = %25, %18
-  %.1.ph.i.i = phi i64 [ %16, %18 ], [ %24, %25 ]
+  %.027.ph.i.i = phi i64 [ %16, %18 ], [ %24, %25 ]
   %.026.ph.i.i = phi i64 [ %.0917, %18 ], [ %26, %25 ]
-  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %29 = add i64 %.026.ph.i.i, %28
   %30 = icmp ult i64 %29, %3
   br i1 %30, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
@@ -5699,16 +5699,16 @@ _ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %195, %193, %163,
   br label %219
 
 .loopexit.i.i.i:                                  ; preds = %228, %219
-  %.2 = phi i64 [ %.3, %219 ], [ %232, %228 ]
-  %216 = getelementptr inbounds %class.ZForwardingEntry, ptr %211, i64 %.2
+  %.4 = phi i64 [ %.2, %219 ], [ %232, %228 ]
+  %216 = getelementptr inbounds %class.ZForwardingEntry, ptr %211, i64 %.4
   %217 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %208, i64 0, ptr %216) #14, !srcloc !15
   %218 = and i64 %217, 1
   %.not.i.i.i34 = icmp eq i64 %218, 0
   br i1 %.not.i.i.i34, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, label %219, !llvm.loop !19
 
 219:                                              ; preds = %.loopexit.i.i.i, %.lr.ph21.i.i.i
-  %.3 = phi i64 [ %.1, %.lr.ph21.i.i.i ], [ %.2, %.loopexit.i.i.i ]
-  %220 = getelementptr inbounds %class.ZForwardingEntry, ptr %211, i64 %.3
+  %.2 = phi i64 [ %.1, %.lr.ph21.i.i.i ], [ %.4, %.loopexit.i.i.i ]
+  %220 = getelementptr inbounds %class.ZForwardingEntry, ptr %211, i64 %.2
   %221 = load volatile i64, ptr %220, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
   %222 = and i64 %221, 1
@@ -5716,7 +5716,7 @@ _ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %195, %193, %163,
   br i1 %.not1518.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i33
 
 .lr.ph.i.i.i33:                                   ; preds = %219, %228
-  %.4 = phi i64 [ %232, %228 ], [ %.3, %219 ]
+  %.3 = phi i64 [ %232, %228 ], [ %.2, %219 ]
   %storemerge19.i.i.i = phi i64 [ %234, %228 ], [ %221, %219 ]
   %223 = lshr i64 %storemerge19.i.i.i, 46
   %224 = icmp eq i64 %223, %203
@@ -5730,7 +5730,7 @@ _ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %195, %193, %163,
 228:                                              ; preds = %.lr.ph.i.i.i33
   %229 = load i64, ptr %215, align 8
   %230 = add i64 %229, -1
-  %231 = add i64 %.4, 1
+  %231 = add i64 %.3, 1
   %232 = and i64 %230, %231
   %233 = getelementptr inbounds %class.ZForwardingEntry, ptr %211, i64 %232
   %234 = load volatile i64, ptr %233, align 8
@@ -6082,9 +6082,9 @@ _ZN5ZPage8rememberEPV8zpointer.exit:              ; preds = %150, %148, %_ZN11ZF
   br label %172
 
 172:                                              ; preds = %170, %163
-  %.1.ph.i.i.i.i = phi i64 [ %161, %163 ], [ %169, %170 ]
+  %.027.ph.i.i.i.i = phi i64 [ %161, %163 ], [ %169, %170 ]
   %.026.ph.i.i.i.i = phi i64 [ %153, %163 ], [ %171, %170 ]
-  %173 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %173 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %174 = add i64 %.026.ph.i.i.i.i, %173
   %175 = icmp ult i64 %174, %98
   br i1 %175, label %_ZN6BitMap11RBFIteratorppEv.exit, label %._crit_edge
@@ -6455,9 +6455,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZN8ZLiveMap7i
   br label %27
 
 27:                                               ; preds = %25, %18
-  %.1.ph.i.i = phi i64 [ %16, %18 ], [ %24, %25 ]
+  %.027.ph.i.i = phi i64 [ %16, %18 ], [ %24, %25 ]
   %.026.ph.i.i = phi i64 [ %.0917, %18 ], [ %26, %25 ]
-  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %29 = add i64 %.026.ph.i.i, %28
   %30 = icmp ult i64 %29, %3
   br i1 %30, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
@@ -6656,9 +6656,9 @@ define linkonce_odr hidden void @_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZ
   br label %45
 
 45:                                               ; preds = %43, %36
-  %.1.ph.i.i.i.i = phi i64 [ %34, %36 ], [ %42, %43 ]
+  %.027.ph.i.i.i.i = phi i64 [ %34, %36 ], [ %42, %43 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0919.i.i, %36 ], [ %44, %43 ]
-  %46 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %46 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %47 = add i64 %.026.ph.i.i.i.i, %46
   %48 = icmp ult i64 %47, %25
   br i1 %48, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN33ZRelocateAddRemsetForFlipPromoted4workEvEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdS8_EUlmE_EEvmS8_.exit
@@ -7315,9 +7315,9 @@ define linkonce_odr hidden void @_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZ
   br label %45
 
 45:                                               ; preds = %43, %36
-  %.1.ph.i.i.i.i = phi i64 [ %34, %36 ], [ %42, %43 ]
+  %.027.ph.i.i.i.i = phi i64 [ %34, %36 ], [ %42, %43 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0919.i.i, %36 ], [ %44, %43 ]
-  %46 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %46 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %47 = add i64 %.026.ph.i.i.i.i, %46
   %48 = icmp ult i64 %47, %25
   br i1 %48, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN17ZFlipAgePagesTask4workEvEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdS8_EUlmE_EEvmS8_.exit
@@ -9706,9 +9706,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %60
 
 60:                                               ; preds = %58, %47
-  %.1.ph.i.i.i.i.i = phi i64 [ %45, %47 ], [ %57, %58 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %45, %47 ], [ %57, %58 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %35, %47 ], [ %59, %58 ]
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %62 = add i64 %.026.ph.i.i.i.i.i, %61
   %63 = icmp ult i64 %62, %38
   br i1 %63, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvP17stackChunkOopDescPT0_PlSD_.exit
@@ -9897,9 +9897,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %59
 
 59:                                               ; preds = %57, %50
-  %.1.ph.i.i.i.i.i = phi i64 [ %48, %50 ], [ %56, %57 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %48, %50 ], [ %56, %57 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %50 ], [ %58, %57 ]
-  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %61 = add i64 %.026.ph.i.i.i.i.i, %60
   %62 = icmp ult i64 %61, %38
   br i1 %62, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvP17stackChunkOopDescPT0_PlSE_.exit

@@ -142,14 +142,14 @@ if.else26:                                        ; preds = %entry
   br i1 %tobool30.not, label %err, label %if.end33
 
 if.end33:                                         ; preds = %if.else26, %if.then14, %if.else
-  %out.0 = phi ptr [ %call6, %if.then14 ], [ %call6, %if.else ], [ null, %if.else26 ]
+  %out.1 = phi ptr [ %call6, %if.then14 ], [ %call6, %if.else ], [ null, %if.else26 ]
   br label %err
 
 err:                                              ; preds = %if.else26, %if.else, %if.then14, %if.then, %lor.lhs.false, %lor.lhs.false5, %if.end33
-  %out.1 = phi ptr [ %out.0, %if.end33 ], [ %call6, %if.then14 ], [ %call6, %if.else ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %if.then ], [ null, %if.else26 ]
+  %out.0 = phi ptr [ %out.1, %if.end33 ], [ %call6, %if.then14 ], [ %call6, %if.else ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %if.then ], [ null, %if.else26 ]
   %ret.0 = phi i32 [ 1, %if.end33 ], [ 0, %if.then14 ], [ 0, %if.else ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %if.then ], [ 0, %if.else26 ]
   call void @CRYPTO_free(ptr noundef %call28, ptr noundef nonnull @.str.3, i32 noundef 109) #2
-  call void @CRYPTO_free(ptr noundef %out.1, ptr noundef nonnull @.str.3, i32 noundef 110) #2
+  call void @CRYPTO_free(ptr noundef %out.0, ptr noundef nonnull @.str.3, i32 noundef 110) #2
   ret i32 %ret.0
 }
 

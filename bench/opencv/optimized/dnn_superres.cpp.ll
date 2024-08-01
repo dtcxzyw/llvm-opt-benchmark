@@ -633,7 +633,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %249
 
 247:                                              ; preds = %235, %224
-  %.0 = phi i32 [ -3, %224 ], [ 0, %235 ]
+  %.2 = phi i32 [ -3, %224 ], [ 0, %235 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #8
   %248 = getelementptr inbounds i8, ptr %15, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %248) #8
@@ -649,7 +649,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body
 
 251:                                              ; preds = %162, %247
-  %.1 = phi i32 [ %.0, %247 ], [ -2, %162 ]
+  %.1 = phi i32 [ %.2, %247 ], [ -2, %162 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #8
@@ -683,8 +683,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %257
 
 256:                                              ; preds = %251, %29
-  %.2 = phi i32 [ -1, %29 ], [ %.1, %251 ]
-  ret i32 %.2
+  %.0 = phi i32 [ -1, %29 ], [ %.1, %251 ]
+  ret i32 %.0
 
 257:                                              ; preds = %255, %52
   %.pn42.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.pn.pn, %255 ], [ %53, %52 ]

@@ -101,11 +101,11 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %20
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
   %indvars.iv101 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next102, %.lr.ph99 ]
-  %.07597 = phi i64 [ 0, %.lr.ph99.preheader ], [ %55, %.lr.ph99 ]
+  %.17697 = phi i64 [ 0, %.lr.ph99.preheader ], [ %55, %.lr.ph99 ]
   %52 = getelementptr inbounds i32, ptr %.073, i64 %indvars.iv101
   %53 = load i32, ptr %52, align 4
   %54 = sext i32 %53 to i64
-  %55 = add i64 %.07597, %54
+  %55 = add i64 %.17697, %54
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
   br i1 %exitcond105.not, label %._crit_edge, label %.lr.ph99, !llvm.loop !6
@@ -149,8 +149,8 @@ opal_datatype_span.exit:                          ; preds = %56, %60
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %76, %42
-  %.176 = phi i64 [ %55, %76 ], [ 0, %._crit_edge ], [ 0, %42 ], [ 0, %.preheader ]
-  %.069 = phi ptr [ %74, %76 ], [ null, %._crit_edge ], [ null, %42 ], [ null, %.preheader ]
+  %.075 = phi i64 [ %55, %76 ], [ 0, %._crit_edge ], [ 0, %42 ], [ 0, %.preheader ]
+  %.170 = phi ptr [ %74, %76 ], [ null, %._crit_edge ], [ null, %42 ], [ null, %.preheader ]
   %.068 = phi ptr [ %78, %76 ], [ null, %._crit_edge ], [ null, %42 ], [ null, %.preheader ]
   %79 = load ptr, ptr %13, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 328
@@ -172,7 +172,7 @@ opal_datatype_span.exit:                          ; preds = %56, %60
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %11, align 8
-  %93 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %.068, i64 noundef %.176, ptr noundef %2, i32 noundef 0, i32 noundef -11, ptr noundef %3, i64 noundef 1, ptr noundef %92, i32 noundef 0, i32 noundef -11, ptr noundef nonnull %7, ptr noundef null) #5
+  %93 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %.068, i64 noundef %.075, ptr noundef %2, i32 noundef 0, i32 noundef -11, ptr noundef %3, i64 noundef 1, ptr noundef %92, i32 noundef 0, i32 noundef -11, ptr noundef nonnull %7, ptr noundef null) #5
   %.not88 = icmp eq i32 %93, 0
   br i1 %.not88, label %94, label %104
 
@@ -192,7 +192,7 @@ opal_datatype_span.exit:                          ; preds = %56, %60
   %.077 = phi i32 [ %41, %34 ], [ %87, %._crit_edge.thread ], [ %93, %91 ], [ %103, %94 ], [ -2, %27 ], [ -2, %opal_datatype_span.exit ]
   %.174 = phi ptr [ %.073, %34 ], [ %.073, %._crit_edge.thread ], [ %.073, %91 ], [ %.073, %94 ], [ %30, %27 ], [ %.073, %opal_datatype_span.exit ]
   %.172 = phi ptr [ %.071, %34 ], [ %.071, %._crit_edge.thread ], [ %.071, %91 ], [ %.071, %94 ], [ %31, %27 ], [ %.071, %opal_datatype_span.exit ]
-  %.170 = phi ptr [ null, %34 ], [ %.069, %._crit_edge.thread ], [ %.069, %91 ], [ %.069, %94 ], [ null, %27 ], [ null, %opal_datatype_span.exit ]
+  %.069 = phi ptr [ null, %34 ], [ %.170, %._crit_edge.thread ], [ %.170, %91 ], [ %.170, %94 ], [ null, %27 ], [ null, %opal_datatype_span.exit ]
   %105 = load ptr, ptr %11, align 8
   %.not89 = icmp eq ptr %105, null
   br i1 %.not89, label %108, label %106
@@ -202,11 +202,11 @@ opal_datatype_span.exit:                          ; preds = %56, %60
   br label %108
 
 108:                                              ; preds = %106, %104
-  %.not90 = icmp eq ptr %.170, null
+  %.not90 = icmp eq ptr %.069, null
   br i1 %.not90, label %110, label %109
 
 109:                                              ; preds = %108
-  call void @free(ptr noundef nonnull %.170) #5
+  call void @free(ptr noundef nonnull %.069) #5
   br label %110
 
 110:                                              ; preds = %109, %108

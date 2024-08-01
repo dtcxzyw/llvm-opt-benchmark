@@ -8779,13 +8779,13 @@ define linkonce_odr hidden void @_ZNK7testing8internal11ValueArray3INSt7__cxx111
   br label %27
 
 27:                                               ; preds = %23, %25
-  %.08 = phi ptr [ %10, %25 ], [ %6, %23 ]
+  %.19 = phi ptr [ %10, %25 ], [ %6, %23 ]
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
   br label %28
 
 28:                                               ; preds = %27, %28
-  %29 = phi ptr [ %30, %28 ], [ %.08, %27 ]
+  %29 = phi ptr [ %30, %28 ], [ %.19, %27 ]
   %30 = getelementptr inbounds i8, ptr %29, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #24
   %31 = icmp eq ptr %30, %3

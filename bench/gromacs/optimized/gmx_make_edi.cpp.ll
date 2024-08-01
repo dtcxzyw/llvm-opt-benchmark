@@ -472,13 +472,13 @@ define noundef i32 @_Z12gmx_make_ediiPPc(i32 noundef %0, ptr noundef %1) local_u
 
 .lr.ph135.i:                                      ; preds = %.noexc, %.loopexit.i
   %100 = phi i8 [ %168, %.loopexit.i ], [ %99, %.noexc ]
-  %.059134.i = phi i32 [ %.2.i, %.loopexit.i ], [ 0, %.noexc ]
+  %.059134.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %.noexc ]
   %.060133.i = phi ptr [ %.161.i, %.loopexit.i ], [ null, %.noexc ]
   %.062132.i = phi ptr [ %.163.i, %.loopexit.i ], [ null, %.noexc ]
   %.064131.i = phi i32 [ %.165.i, %.loopexit.i ], [ 0, %.noexc ]
   %.066130.i = phi i32 [ %.167.i, %.loopexit.i ], [ 0, %.noexc ]
   %.068129.i = phi i32 [ %.169.i, %.loopexit.i ], [ 0, %.noexc ]
-  %.071128.i = phi ptr [ %.273.i, %.loopexit.i ], [ null, %.noexc ]
+  %.071128.i = phi ptr [ %.172.i, %.loopexit.i ], [ null, %.noexc ]
   %.0127.i = phi ptr [ %167, %.loopexit.i ], [ %91, %.noexc ]
   %101 = sext i8 %100 to i32
   switch i32 %.068129.i, label %default.unreachable [
@@ -675,13 +675,13 @@ default.unreachable:                              ; preds = %.lr.ph135.i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %141, %126, %120, %119, %118, %117, %116, %115, %.noexc64, %103, %102
-  %.273.i = phi ptr [ %.071128.i, %.noexc64 ], [ %.071128.i, %102 ], [ %.071128.i, %103 ], [ %.071128.i, %115 ], [ %.071128.i, %116 ], [ %..071.i, %118 ], [ %.071128.i, %117 ], [ %.071128.i, %120 ], [ %.071128.i, %126 ], [ %.071128.i, %119 ], [ %.071128.i, %141 ], [ null, %.loopexit.loopexit.i ]
+  %.172.i = phi ptr [ %.071128.i, %.noexc64 ], [ %.071128.i, %102 ], [ %.071128.i, %103 ], [ %.071128.i, %115 ], [ %.071128.i, %116 ], [ %..071.i, %118 ], [ %.071128.i, %117 ], [ %.071128.i, %120 ], [ %.071128.i, %126 ], [ %.071128.i, %119 ], [ %.071128.i, %141 ], [ null, %.loopexit.loopexit.i ]
   %.169.i = phi i32 [ %spec.store.select.i, %.noexc64 ], [ %..i, %102 ], [ 2, %103 ], [ %spec.select.i, %115 ], [ %.96.i, %116 ], [ %.97.i, %118 ], [ 6, %117 ], [ 4, %120 ], [ 5, %126 ], [ 7, %119 ], [ %spec.select98.i, %141 ], [ 0, %.loopexit.loopexit.i ]
   %.167.i = phi i32 [ %110, %.noexc64 ], [ %.066130.i, %102 ], [ %.066130.i, %103 ], [ %.066130.i, %115 ], [ %.066130.i, %116 ], [ %.066130.i, %118 ], [ %.066130.i, %117 ], [ 0, %120 ], [ %124, %126 ], [ %.066130.i, %119 ], [ %.066130.i, %141 ], [ %124, %.loopexit.loopexit.i ]
   %.165.i = phi i32 [ %.064131.i, %.noexc64 ], [ %.064131.i, %102 ], [ %.064131.i, %103 ], [ %.064131.i, %115 ], [ %.064131.i, %116 ], [ %.064131.i, %118 ], [ %.064131.i, %117 ], [ %122, %120 ], [ %122, %126 ], [ %.064131.i, %119 ], [ %.064131.i, %141 ], [ %122, %.loopexit.loopexit.i ]
   %.163.i = phi ptr [ %.062132.i, %.noexc64 ], [ %..062.i, %102 ], [ %.062132.i, %103 ], [ %.062132.i, %115 ], [ %.062132.i, %116 ], [ %.062132.i, %118 ], [ %.062132.i, %117 ], [ %.062132.i, %120 ], [ %.062132.i, %126 ], [ %.062132.i, %119 ], [ %.062132.i, %141 ], [ %.062132.i, %.loopexit.loopexit.i ]
   %.161.i = phi ptr [ %.060133.i, %.noexc64 ], [ %.060133.i, %102 ], [ %.060133.i, %103 ], [ %.060133.i, %115 ], [ %..060.i, %116 ], [ %.060133.i, %118 ], [ %.060133.i, %117 ], [ %.060133.i, %120 ], [ %.060133.i, %126 ], [ %.060133.i, %119 ], [ %.060133.i, %141 ], [ %.060133.i, %.loopexit.loopexit.i ]
-  %.2.i = phi i32 [ %105, %.noexc64 ], [ %.059134.i, %102 ], [ %.059134.i, %103 ], [ %.059134.i, %115 ], [ %.059134.i, %116 ], [ %.059134.i, %118 ], [ %.059134.i, %117 ], [ %.059134.i, %120 ], [ %.059134.i, %126 ], [ %.059134.i, %119 ], [ %.059134.i, %141 ], [ %166, %.loopexit.loopexit.i ]
+  %.1.i = phi i32 [ %105, %.noexc64 ], [ %.059134.i, %102 ], [ %.059134.i, %103 ], [ %.059134.i, %115 ], [ %.059134.i, %116 ], [ %.059134.i, %118 ], [ %.059134.i, %117 ], [ %.059134.i, %120 ], [ %.059134.i, %126 ], [ %.059134.i, %119 ], [ %.059134.i, %141 ], [ %166, %.loopexit.loopexit.i ]
   %167 = getelementptr inbounds i8, ptr %.0127.i, i64 1
   %168 = load i8, ptr %167, align 1
   %.not.i = icmp eq i8 %168, 0
@@ -693,7 +693,7 @@ default.unreachable:                              ; preds = %.lr.ph135.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.noexc
   %169 = phi ptr [ null, %.noexc ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.059.lcssa.i = phi i32 [ 0, %.noexc ], [ %.2.i, %._crit_edge.loopexit.i ]
+  %.059.lcssa.i = phi i32 [ 0, %.noexc ], [ %.1.i, %._crit_edge.loopexit.i ]
   %170 = add nsw i32 %.059.lcssa.i, 1
   %171 = sext i32 %170 to i64
   %172 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.156, i32 noundef 328, ptr noundef %169, i64 noundef %171, i64 noundef 4)

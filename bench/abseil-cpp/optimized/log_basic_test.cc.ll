@@ -9097,11 +9097,11 @@ ehcleanup365:                                     ; preds = %lpad35, %lpad.i, %e
 
 catch.dispatch:                                   ; preds = %ehcleanup365, %lpad29
   %.pn55.pn.pn = phi { ptr, i32 } [ %.pn55.pn, %ehcleanup365 ], [ %72, %lpad29 ]
-  %exn.slot.52 = extractvalue { ptr, i32 } %.pn55.pn.pn, 0
-  %ehselector.slot.52 = extractvalue { ptr, i32 } %.pn55.pn.pn, 1
+  %exn.slot.3 = extractvalue { ptr, i32 } %.pn55.pn.pn, 0
+  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn55.pn.pn, 1
   %127 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #29
-  %matches = icmp eq i32 %ehselector.slot.52, %127
-  %128 = call ptr @__cxa_begin_catch(ptr %exn.slot.52) #29
+  %matches = icmp eq i32 %ehselector.slot.3, %127
+  %128 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #29
   br i1 %matches, label %catch375, label %catch
 
 catch375:                                         ; preds = %catch.dispatch
@@ -11201,11 +11201,11 @@ ehcleanup211:                                     ; preds = %lpad35, %lpad.i, %e
 
 catch.dispatch:                                   ; preds = %ehcleanup211, %lpad29
   %.pn31.pn = phi { ptr, i32 } [ %.pn31, %ehcleanup211 ], [ %69, %lpad29 ]
-  %exn.slot.28 = extractvalue { ptr, i32 } %.pn31.pn, 0
-  %ehselector.slot.28 = extractvalue { ptr, i32 } %.pn31.pn, 1
+  %exn.slot.3 = extractvalue { ptr, i32 } %.pn31.pn, 0
+  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn31.pn, 1
   %101 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #29
-  %matches = icmp eq i32 %ehselector.slot.28, %101
-  %102 = call ptr @__cxa_begin_catch(ptr %exn.slot.28) #29
+  %matches = icmp eq i32 %ehselector.slot.3, %101
+  %102 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #29
   br i1 %matches, label %catch221, label %catch
 
 catch221:                                         ; preds = %catch.dispatch
@@ -14512,11 +14512,11 @@ ehcleanup361:                                     ; preds = %lpad31, %lpad.i, %e
 
 catch.dispatch:                                   ; preds = %ehcleanup361, %lpad25
   %.pn55.pn.pn = phi { ptr, i32 } [ %.pn55.pn, %ehcleanup361 ], [ %70, %lpad25 ]
-  %exn.slot.52 = extractvalue { ptr, i32 } %.pn55.pn.pn, 0
-  %ehselector.slot.52 = extractvalue { ptr, i32 } %.pn55.pn.pn, 1
+  %exn.slot.3 = extractvalue { ptr, i32 } %.pn55.pn.pn, 0
+  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn55.pn.pn, 1
   %125 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #29
-  %matches = icmp eq i32 %ehselector.slot.52, %125
-  %126 = call ptr @__cxa_begin_catch(ptr %exn.slot.52) #29
+  %matches = icmp eq i32 %ehselector.slot.3, %125
+  %126 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #29
   br i1 %matches, label %catch371, label %catch
 
 catch371:                                         ; preds = %catch.dispatch

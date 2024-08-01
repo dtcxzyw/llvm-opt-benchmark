@@ -194,25 +194,25 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
   br label %37
 
 37:                                               ; preds = %31, %30
-  %.1 = phi i64 [ 0, %31 ], [ %.069, %30 ]
-  %38 = getelementptr inbounds i8, ptr %8, i64 %.1
-  %39 = sub i64 512, %.1
+  %.2 = phi i64 [ 0, %31 ], [ %.069, %30 ]
+  %38 = getelementptr inbounds i8, ptr %8, i64 %.2
+  %39 = sub i64 512, %.2
   %40 = trunc nuw nsw i64 %.05268 to i32
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %39, ptr noundef nonnull @.str.3, i32 noundef %40) #9
   %42 = sext i32 %41 to i64
-  %43 = add i64 %.1, %42
+  %43 = add i64 %.2, %42
   br label %44
 
 44:                                               ; preds = %37, %.lr.ph
-  %.2 = phi i64 [ %43, %37 ], [ %.069, %.lr.ph ]
-  %45 = getelementptr inbounds i8, ptr %8, i64 %.2
-  %46 = sub i64 512, %.2
+  %.1 = phi i64 [ %43, %37 ], [ %.069, %.lr.ph ]
+  %45 = getelementptr inbounds i8, ptr %8, i64 %.1
+  %46 = sub i64 512, %.1
   %47 = getelementptr inbounds i8, ptr %5, i64 %.05268
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %45, i64 noundef %46, ptr noundef nonnull @.str.4, i32 noundef %49) #9
   %51 = sext i32 %50 to i64
-  %52 = add i64 %.2, %51
+  %52 = add i64 %.1, %51
   %53 = load i8, ptr %47, align 1
   %54 = add i8 %53, -32
   %or.cond62 = icmp ult i8 %54, 95
@@ -353,7 +353,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
 
 35:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %.058 = phi i64 [ 0, %.lr.ph ], [ %.1, %56 ]
+  %.158 = phi i64 [ 0, %.lr.ph ], [ %.2, %56 ]
   %36 = lshr i64 %indvars.iv, 3
   %37 = load ptr, ptr %33, align 8
   %38 = getelementptr inbounds i64, ptr %37, i64 %36
@@ -362,17 +362,17 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
   %41 = and i64 %40, 56
   %42 = lshr i64 %39, %41
   %43 = trunc i64 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %7, i64 %.058
-  %45 = sub i64 512, %.058
+  %44 = getelementptr inbounds i8, ptr %7, i64 %.158
+  %45 = sub i64 512, %.158
   %46 = and i32 %43, 255
   %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %44, i64 noundef %45, ptr noundef nonnull @.str.4, i32 noundef %46) #9
-  %48 = add nsw i64 %.058, 3
+  %48 = add nsw i64 %.158, 3
   %49 = icmp ugt i64 %48, 47
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %35
   %51 = getelementptr inbounds i8, ptr %7, i64 %48
-  %52 = sub i64 509, %.058
+  %52 = sub i64 509, %.158
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %51, i64 noundef %52, ptr noundef nonnull @.str.9) #9
   %.val49 = load ptr, ptr %0, align 8
   %54 = getelementptr i8, ptr %.val49, i64 32
@@ -383,19 +383,19 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
   br label %56
 
 56:                                               ; preds = %35, %50
-  %.1 = phi i64 [ 0, %50 ], [ %48, %35 ]
+  %.2 = phi i64 [ 0, %50 ], [ %48, %35 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %57 = icmp sgt i64 %indvars.iv, 0
   br i1 %57, label %35, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %56
-  %.not = icmp eq i64 %.1, 0
+  %.not = icmp eq i64 %.2, 0
   br i1 %.not, label %._crit_edge.thread, label %58
 
 58:                                               ; preds = %.thread, %._crit_edge
-  %.256 = phi i64 [ 3, %.thread ], [ %.1, %._crit_edge ]
-  %59 = getelementptr inbounds i8, ptr %7, i64 %.256
-  %60 = sub nuw nsw i64 512, %.256
+  %.056 = phi i64 [ 3, %.thread ], [ %.2, %._crit_edge ]
+  %59 = getelementptr inbounds i8, ptr %7, i64 %.056
+  %60 = sub nuw nsw i64 512, %.056
   %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %59, i64 noundef %60, ptr noundef nonnull @.str.9) #9
   %.val = load ptr, ptr %0, align 8
   %62 = getelementptr i8, ptr %.val, i64 32

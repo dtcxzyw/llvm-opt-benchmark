@@ -491,7 +491,7 @@ define void @_ZN3gmx27AndersenTemperatureCoupling5applyEl(ptr nocapture noundef 
 99:                                               ; preds = %.lr.ph, %.loopexit
   %100 = phi ptr [ %91, %.lr.ph ], [ %339, %.loopexit ]
   %indvars.iv46 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next47, %.loopexit ]
-  %.sroa.4.043 = phi i64 [ 0, %.lr.ph ], [ %.sroa.4.2, %.loopexit ]
+  %.sroa.4.043 = phi i64 [ 0, %.lr.ph ], [ %.sroa.4.1, %.loopexit ]
   %101 = getelementptr inbounds i8, ptr %100, i64 448
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %100, i64 456
@@ -658,7 +658,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; pre
 239:                                              ; preds = %226, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
   %indvars.iv = phi i64 [ 0, %226 ], [ %indvars.iv.next, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
   %.sroa.8.041 = phi i32 [ 0, %226 ], [ %330, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %.sroa.4.140 = phi i64 [ %.sroa.4.043, %226 ], [ %335, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %.sroa.4.240 = phi i64 [ %.sroa.4.043, %226 ], [ %335, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
   %240 = icmp ult i32 %.sroa.8.041, 14
   br i1 %240, label %242, label %._crit_edge.i.i
 
@@ -775,7 +775,7 @@ _ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i: ; preds = %246, %._crit_ed
 
 _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; preds = %._crit_edge.i.i, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i
   %330 = phi i32 [ %241, %._crit_edge.i.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
-  %331 = phi i64 [ %.sroa.4.140, %._crit_edge.i.i ], [ %328, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
+  %331 = phi i64 [ %.sroa.4.240, %._crit_edge.i.i ], [ %328, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
   %332 = and i64 %331, 16383
   %333 = getelementptr inbounds [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %332
   %334 = load float, ptr %333, align 4
@@ -794,7 +794,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.ex
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit, %110, %117
   %339 = phi ptr [ %100, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %100, %117 ], [ %100, %110 ], [ %.pre, %.loopexit.loopexit ]
-  %.sroa.4.2 = phi i64 [ %.sroa.4.043, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %.sroa.4.043, %117 ], [ %.sroa.4.043, %110 ], [ %335, %.loopexit.loopexit ]
+  %.sroa.4.1 = phi i64 [ %.sroa.4.043, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %.sroa.4.043, %117 ], [ %.sroa.4.043, %110 ], [ %335, %.loopexit.loopexit ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %340 = getelementptr inbounds i8, ptr %339, i64 640
   %341 = load i32, ptr %340, align 8
@@ -1239,7 +1239,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
 
 34:                                               ; preds = %.body, %30
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %31, %30 ]
-  %.1 = phi i1 [ %.0.lpad-body, %.body ], [ true, %30 ]
+  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %30 ]
   %35 = getelementptr inbounds i8, ptr %5, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 40
@@ -1277,7 +1277,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: 
 
 44:                                               ; preds = %43, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  br i1 %.1, label %45, label %46
+  br i1 %.2, label %45, label %46
 
 45:                                               ; preds = %.thread, %44
   %.pn.pn11 = phi { ptr, i32 } [ %29, %.thread ], [ %.pn, %44 ]
@@ -1647,7 +1647,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
   unreachable
 
 156:                                              ; preds = %61, %86, %76, %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit
-  %.sroa.0100.1 = phi ptr [ null, %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit ], [ null, %86 ], [ null, %76 ], [ %36, %61 ]
+  %.sroa.0100.0 = phi ptr [ null, %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit ], [ null, %86 ], [ null, %76 ], [ %36, %61 ]
   %157 = landingpad { ptr, i32 }
           cleanup
   br label %.body35
@@ -1783,7 +1783,7 @@ _ZNSt10unique_ptrIN3gmx27AndersenTemperatureCouplingESt14default_deleteIS1_EED2E
   br label %.body35
 
 .body35:                                          ; preds = %156, %92, %189, %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit48
-  %.sroa.0100.3 = phi ptr [ null, %189 ], [ null, %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit48 ], [ %.sroa.0100.1, %156 ], [ null, %92 ]
+  %.sroa.0100.2 = phi ptr [ null, %189 ], [ null, %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit48 ], [ %.sroa.0100.0, %156 ], [ null, %92 ]
   %.pn = phi { ptr, i32 } [ %190, %189 ], [ %158, %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit48 ], [ %157, %156 ], [ %93, %92 ]
   call void @_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #23
   %191 = load ptr, ptr %11, align 8
@@ -1795,13 +1795,13 @@ _ZNSt10unique_ptrIN3gmx27AndersenTemperatureCouplingESt14default_deleteIS1_EED2E
   br label %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit45
 
 _ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit45: ; preds = %192, %.body35
-  %.not.i58 = icmp eq ptr %.sroa.0100.3, null
+  %.not.i58 = icmp eq ptr %.sroa.0100.2, null
   br i1 %.not.i58, label %common.resume, label %_ZNKSt14default_deleteIN3gmx27AndersenTemperatureCouplingEEclEPS1_.exit.i59
 
 _ZNKSt14default_deleteIN3gmx27AndersenTemperatureCouplingEEclEPS1_.exit.i59: ; preds = %59, %151, %148, %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit45
   %.pn.pn115 = phi { ptr, i32 } [ %.pn, %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit45 ], [ %60, %59 ], [ %149, %151 ], [ %149, %148 ]
-  %.sroa.0100.4114 = phi ptr [ %.sroa.0100.3, %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit45 ], [ %36, %59 ], [ %36, %151 ], [ %36, %148 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0100.4114) #22
+  %.sroa.0100.1114 = phi ptr [ %.sroa.0100.2, %_ZNSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEED2Ev.exit45 ], [ %36, %59 ], [ %36, %151 ], [ %36, %148 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0100.1114) #22
   br label %common.resume
 }
 

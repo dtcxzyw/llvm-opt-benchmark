@@ -297,7 +297,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 58:                                               ; preds = %.preheader121, %179
   %.091128 = phi ptr [ %40, %.preheader121 ], [ %180, %179 ]
   %.092127 = phi ptr [ null, %.preheader121 ], [ %.091128, %179 ]
-  %.093126 = phi ptr [ %40, %.preheader121 ], [ %.2, %179 ]
+  %.093126 = phi ptr [ %40, %.preheader121 ], [ %.1, %179 ]
   %59 = load i64, ptr %.091128, align 8
   %60 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %59, ptr noundef nonnull %5, i32 noundef 128) #5
   %61 = icmp eq ptr %60, null
@@ -415,7 +415,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 125:                                              ; preds = %.preheader119, %149
   %indvars.iv = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next, %149 ]
-  %.1 = phi ptr [ %.093126, %.preheader119 ], [ %143, %149 ]
+  %.2 = phi ptr [ %.093126, %.preheader119 ], [ %143, %149 ]
   %126 = load i32, ptr %122, align 4
   %127 = zext i32 %126 to i64
   %128 = icmp ult i64 %indvars.iv, %127
@@ -466,7 +466,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   %154 = add i32 %153, -1
   %155 = getelementptr inbounds i8, ptr %143, i64 8
   store i32 %154, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %.1, i64 16
+  %156 = getelementptr inbounds i8, ptr %.2, i64 16
   store ptr %143, ptr %156, align 8
   %157 = load ptr, ptr %52, align 8
   %158 = load ptr, ptr %124, align 8
@@ -489,7 +489,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 .loopexit120:                                     ; preds = %125, %121
-  %.2 = phi ptr [ %.093126, %121 ], [ %.1, %125 ]
+  %.1 = phi ptr [ %.093126, %121 ], [ %.2, %125 ]
   %172 = load i64, ptr %.091128, align 8
   %173 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %172, ptr noundef nonnull %60, i32 noundef 0) #5
   %174 = icmp slt i32 %173, 0

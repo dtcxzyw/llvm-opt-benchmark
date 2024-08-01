@@ -4157,10 +4157,10 @@ lpad26:                                           ; preds = %invoke.cont27, %inv
 
 ehcleanup28:                                      ; preds = %lpad24, %lpad26
   %.pn = phi { ptr, i32 } [ %11, %lpad26 ], [ %10, %lpad24 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad26 ], [ true, %lpad24 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.0, %lpad26 ], [ true, %lpad24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #24
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.2, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup28.thread, %ehcleanup28
   %.pn.pn12 = phi { ptr, i32 } [ %9, %ehcleanup28.thread ], [ %.pn, %ehcleanup28 ]
@@ -4715,7 +4715,7 @@ lpad125:                                          ; preds = %lpad125.loopexit.sp
   br label %eh.resume
 
 cleanup144:                                       ; preds = %invoke.cont126, %invoke.cont137
-  %retval.6 = phi ptr [ %call142, %invoke.cont137 ], [ undef, %invoke.cont126 ]
+  %retval.7 = phi ptr [ %call142, %invoke.cont137 ], [ undef, %invoke.cont126 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result124) #24
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %timezone_file123) #24
   br i1 %call127, label %return, label %cleanup.cont148
@@ -4736,8 +4736,8 @@ lpad151:                                          ; preds = %cleanup.cont148
   br label %eh.resume
 
 return:                                           ; preds = %cleanup119, %cleanup94, %cleanup144, %invoke.cont74, %if.end25
-  %retval.7 = phi ptr [ %call28, %if.end25 ], [ %call75, %invoke.cont74 ], [ %call90, %cleanup94 ], [ %call112, %cleanup119 ], [ %retval.6, %cleanup144 ]
-  ret ptr %retval.7
+  %retval.0 = phi ptr [ %call28, %if.end25 ], [ %call75, %invoke.cont74 ], [ %call90, %cleanup94 ], [ %call112, %cleanup119 ], [ %retval.7, %cleanup144 ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad151, %lpad125, %ehcleanup122, %ehcleanup97, %ehcleanup, %lpad22, %lpad13, %lpad
   %.pn15 = phi { ptr, i32 } [ %7, %lpad13 ], [ %9, %lpad22 ], [ %6, %lpad ], [ %.pn13, %ehcleanup ], [ %39, %lpad151 ], [ %lpad.phi, %lpad125 ], [ %.pn11, %ehcleanup122 ], [ %.pn, %ehcleanup97 ]
@@ -4885,10 +4885,10 @@ lpad5:                                            ; preds = %invoke.cont6, %invo
 
 ehcleanup7:                                       ; preds = %lpad3, %lpad5
   %.pn = phi { ptr, i32 } [ %2, %lpad5 ], [ %1, %lpad3 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad5 ], [ true, %lpad3 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.0, %lpad5 ], [ true, %lpad3 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #24
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.2, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup7.thread, %ehcleanup7
   %.pn.pn16 = phi { ptr, i32 } [ %0, %ehcleanup7.thread ], [ %.pn, %ehcleanup7 ]

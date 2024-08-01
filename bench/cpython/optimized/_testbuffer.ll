@@ -2200,12 +2200,12 @@ if.then1.i71:                                     ; preds = %if.end.i68
   br label %return
 
 if.end36:                                         ; preds = %for.body.i, %for.body.us.i, %if.end18.thread.i, %if.end18.i
-  %suboffsets.039.i = phi ptr [ null, %if.end18.thread.i ], [ %call13.i, %if.end18.i ], [ null, %for.body.us.i ], [ %call13.i, %for.body.i ]
+  %suboffsets.139.i = phi ptr [ null, %if.end18.thread.i ], [ %call13.i, %if.end18.i ], [ null, %for.body.us.i ], [ %call13.i, %for.body.i ]
   %shape34.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr %call.i55, ptr %shape34.i, align 8
   %strides35.i = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr %call4.i, ptr %strides35.i, align 8
-  store ptr %suboffsets.039.i, ptr %suboffsets8.i, align 8
+  store ptr %suboffsets.139.i, ptr %suboffsets8.i, align 8
   %flags = getelementptr inbounds i8, ptr %call.i, i64 64
   %33 = load i32, ptr %flags, align 8
   %or = or i32 %33, 512
@@ -2809,7 +2809,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %args_out
 
 args_out:                                         ; preds = %if.end.i, %if.then1.i, %if.then58, %if.end55, %if.else53
-  %ret.0 = phi i32 [ -1, %if.end55 ], [ -1, %if.else53 ], [ 0, %if.then58 ], [ 0, %if.then1.i ], [ 0, %if.end.i ]
+  %ret.1 = phi i32 [ -1, %if.end55 ], [ -1, %if.else53 ], [ 0, %if.then58 ], [ 0, %if.then1.i ], [ 0, %if.end.i ]
   %cmp62192 = icmp sgt i64 %add, 0
   br i1 %cmp62192, label %for.body63, label %if.then.i70
 
@@ -2852,7 +2852,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i72
   br label %if.then.i75
 
 if.then.i75:                                      ; preds = %if.then.i70, %if.end.i.i72, %if.then1.i.i, %if.end20
-  %ret.1140 = phi i32 [ -1, %if.end20 ], [ %ret.0, %if.then1.i.i ], [ %ret.0, %if.end.i.i72 ], [ %ret.0, %if.then.i70 ]
+  %ret.0140 = phi i32 [ -1, %if.end20 ], [ %ret.1, %if.then1.i.i ], [ %ret.1, %if.end.i.i72 ], [ %ret.1, %if.then.i70 ]
   %16 = load i64, ptr %call17, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i2.not.i76 = icmp eq i64 %17, 0
@@ -2869,7 +2869,7 @@ if.then1.i.i81:                                   ; preds = %if.end.i.i78
   br label %if.then.i84
 
 if.then.i84:                                      ; preds = %if.then1.i.i81, %if.end.i.i78, %if.then.i75, %if.end16
-  %ret.1128155 = phi i32 [ -1, %if.end16 ], [ %ret.1140, %if.then.i75 ], [ %ret.1140, %if.end.i.i78 ], [ %ret.1140, %if.then1.i.i81 ]
+  %ret.0128155 = phi i32 [ -1, %if.end16 ], [ %ret.0140, %if.then.i75 ], [ %ret.0140, %if.end.i.i78 ], [ %ret.0140, %if.then1.i.i81 ]
   %18 = load i64, ptr %call13, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i2.not.i85 = icmp eq i64 %19, 0
@@ -2886,7 +2886,7 @@ if.then1.i.i90:                                   ; preds = %if.end.i.i87
   br label %if.then.i93
 
 if.then.i93:                                      ; preds = %if.then1.i.i90, %if.end.i.i87, %if.then.i84, %if.end12
-  %ret.1128146172 = phi i32 [ -1, %if.end12 ], [ %ret.1128155, %if.then.i84 ], [ %ret.1128155, %if.end.i.i87 ], [ %ret.1128155, %if.then1.i.i90 ]
+  %ret.0128146172 = phi i32 [ -1, %if.end12 ], [ %ret.0128155, %if.then.i84 ], [ %ret.0128155, %if.end.i.i87 ], [ %ret.0128155, %if.then1.i.i90 ]
   %20 = load i64, ptr %call9, align 8
   %21 = and i64 %20, 2147483648
   %cmp.i2.not.i94 = icmp eq i64 %21, 0
@@ -2903,7 +2903,7 @@ if.then1.i.i99:                                   ; preds = %if.end.i.i96
   br label %if.then.i102
 
 if.then.i102:                                     ; preds = %if.then1.i.i99, %if.end.i.i96, %if.then.i93, %if.end7
-  %ret.1128146164181 = phi i32 [ -1, %if.end7 ], [ %ret.1128146172, %if.then.i93 ], [ %ret.1128146172, %if.end.i.i96 ], [ %ret.1128146172, %if.then1.i.i99 ]
+  %ret.0128146164181 = phi i32 [ -1, %if.end7 ], [ %ret.0128146172, %if.then.i93 ], [ %ret.0128146172, %if.end.i.i96 ], [ %ret.0128146172, %if.then1.i.i99 ]
   %22 = load i64, ptr %call4, align 8
   %23 = and i64 %22, 2147483648
   %cmp.i2.not.i103 = icmp eq i64 %23, 0
@@ -2920,7 +2920,7 @@ if.then1.i.i108:                                  ; preds = %if.end.i.i105
   br label %if.then.i111
 
 if.then.i111:                                     ; preds = %if.then1.i.i108, %if.end.i.i105, %if.then.i102, %if.end3
-  %ret.1128146164176187 = phi i32 [ -1, %if.end3 ], [ %ret.1128146164181, %if.then.i102 ], [ %ret.1128146164181, %if.end.i.i105 ], [ %ret.1128146164181, %if.then1.i.i108 ]
+  %ret.0128146164176187 = phi i32 [ -1, %if.end3 ], [ %ret.0128146164181, %if.then.i102 ], [ %ret.0128146164181, %if.end.i.i105 ], [ %ret.0128146164181, %if.then1.i.i108 ]
   %24 = load i64, ptr %call, align 8
   %25 = and i64 %24, 2147483648
   %cmp.i2.not.i112 = icmp eq i64 %25, 0
@@ -2937,8 +2937,8 @@ if.then1.i.i117:                                  ; preds = %if.end.i.i114
   br label %Py_XDECREF.exit118
 
 Py_XDECREF.exit118:                               ; preds = %entry, %if.then.i111, %if.end.i.i114, %if.then1.i.i117
-  %ret.1128146164176184 = phi i32 [ %ret.1128146164176187, %if.then.i111 ], [ %ret.1128146164176187, %if.end.i.i114 ], [ %ret.1128146164176187, %if.then1.i.i117 ], [ -1, %entry ]
-  ret i32 %ret.1128146164176184
+  %ret.0128146164176184 = phi i32 [ %ret.0128146164176187, %if.then.i111 ], [ %ret.0128146164176187, %if.end.i.i114 ], [ %ret.0128146164176187, %if.then1.i.i117 ], [ -1, %entry ]
+  ret i32 %ret.0128146164176184
 }
 
 ; Function Attrs: nounwind uwtable

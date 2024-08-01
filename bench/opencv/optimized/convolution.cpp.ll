@@ -719,8 +719,8 @@ _ZN2cvL7makePtrINS_3dnn8FastConvEJEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %14
   br label %279
 
 279:                                              ; preds = %276, %261, %265
-  %.0148.shrunk = phi i1 [ true, %265 ], [ %spec.select308, %261 ], [ %spec.select310, %276 ]
-  %or.cond25.not = and i1 %74, %.0148.shrunk
+  %.1149.shrunk = phi i1 [ true, %265 ], [ %spec.select308, %261 ], [ %spec.select310, %276 ]
+  %or.cond25.not = and i1 %74, %.1149.shrunk
   br i1 %or.cond25.not, label %.thread307, label %.thread300
 
 .thread300:                                       ; preds = %267, %272, %275, %253, %258, %236, %279

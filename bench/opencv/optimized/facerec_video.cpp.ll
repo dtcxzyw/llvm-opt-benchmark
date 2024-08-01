@@ -1009,14 +1009,14 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 359:                                              ; preds = %218, %358, %216
   %.pn53.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn.pn.pn.pn, %358 ], [ %217, %216 ], [ %219, %218 ]
-  %.12 = extractvalue { ptr, i32 } %.pn53.pn.pn.pn.pn.pn.pn.pn, 0
-  %.1238 = extractvalue { ptr, i32 } %.pn53.pn.pn.pn.pn.pn.pn.pn, 1
+  %.3 = extractvalue { ptr, i32 } %.pn53.pn.pn.pn.pn.pn.pn.pn, 0
+  %.329 = extractvalue { ptr, i32 } %.pn53.pn.pn.pn.pn.pn.pn.pn, 1
   call void @_ZN2cv3PtrINS_4face20FisherFaceRecognizerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #19
   br label %360
 
 360:                                              ; preds = %176, %359, %212, %.body
-  %.1339 = phi i32 [ %.1238, %359 ], [ %215, %212 ], [ %179, %176 ], [ %160, %.body ]
-  %.13 = phi ptr [ %.12, %359 ], [ %214, %212 ], [ %178, %176 ], [ %159, %.body ]
+  %.228 = phi i32 [ %.329, %359 ], [ %215, %212 ], [ %179, %176 ], [ %160, %.body ]
+  %.2 = phi ptr [ %.3, %359 ], [ %214, %212 ], [ %178, %176 ], [ %159, %.body ]
   %361 = load ptr, ptr %16, align 8
   %.not.i.i.i71 = icmp eq ptr %361, null
   br i1 %.not.i.i.i71, label %_ZNSt6vectorIiSaIiEED2Ev.exit72, label %362
@@ -1031,16 +1031,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit72:                  ; preds = %360, %362
   br label %363
 
 363:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit72, %153
-  %.1440 = phi i32 [ %.1339, %_ZNSt6vectorIiSaIiEED2Ev.exit72 ], [ %156, %153 ]
-  %.14 = phi ptr [ %.13, %_ZNSt6vectorIiSaIiEED2Ev.exit72 ], [ %155, %153 ]
+  %.127 = phi i32 [ %.228, %_ZNSt6vectorIiSaIiEED2Ev.exit72 ], [ %156, %153 ]
+  %.1 = phi ptr [ %.2, %_ZNSt6vectorIiSaIiEED2Ev.exit72 ], [ %155, %153 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   br label %364
 
 364:                                              ; preds = %363, %149
-  %.1541 = phi i32 [ %.1440, %363 ], [ %152, %149 ]
-  %.15 = phi ptr [ %.14, %363 ], [ %151, %149 ]
-  %365 = insertvalue { ptr, i32 } poison, ptr %.15, 0
-  %366 = insertvalue { ptr, i32 } %365, i32 %.1541, 1
+  %.026 = phi i32 [ %.127, %363 ], [ %152, %149 ]
+  %.025 = phi ptr [ %.1, %363 ], [ %151, %149 ]
+  %365 = insertvalue { ptr, i32 } poison, ptr %.025, 0
+  %366 = insertvalue { ptr, i32 } %365, i32 %.026, 1
   resume { ptr, i32 } %366
 
 367:                                              ; preds = %176

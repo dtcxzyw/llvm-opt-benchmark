@@ -508,16 +508,16 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp4.not, label %if.else.i, label %for.cond
 
 for.cond:                                         ; preds = %if.end3, %for.inc
-  %json.0 = phi i1 [ %json.1, %for.inc ], [ false, %if.end3 ]
-  %general.0 = phi i1 [ %general.1, %for.inc ], [ true, %if.end3 ]
-  %merged.0 = phi i1 [ %merged.1, %for.inc ], [ true, %if.end3 ]
-  %destroyed.0 = phi i1 [ %destroyed.1, %for.inc ], [ true, %if.end3 ]
-  %unmerged.0 = phi i1 [ %unmerged.1, %for.inc ], [ true, %if.end3 ]
-  %bins.0 = phi i1 [ %bins.1, %for.inc ], [ true, %if.end3 ]
-  %large.0 = phi i1 [ %large.1, %for.inc ], [ true, %if.end3 ]
-  %mutex.0 = phi i1 [ %mutex.1, %for.inc ], [ true, %if.end3 ]
-  %extents.0 = phi i1 [ %extents.1, %for.inc ], [ true, %if.end3 ]
-  %hpa.0 = phi i1 [ %hpa.1, %for.inc ], [ true, %if.end3 ]
+  %json.1 = phi i1 [ %json.2, %for.inc ], [ false, %if.end3 ]
+  %general.1 = phi i1 [ %general.2, %for.inc ], [ true, %if.end3 ]
+  %merged.1 = phi i1 [ %merged.2, %for.inc ], [ true, %if.end3 ]
+  %destroyed.1 = phi i1 [ %destroyed.2, %for.inc ], [ true, %if.end3 ]
+  %unmerged.1 = phi i1 [ %unmerged.2, %for.inc ], [ true, %if.end3 ]
+  %bins.1 = phi i1 [ %bins.2, %for.inc ], [ true, %if.end3 ]
+  %large.1 = phi i1 [ %large.2, %for.inc ], [ true, %if.end3 ]
+  %mutex.1 = phi i1 [ %mutex.2, %for.inc ], [ true, %if.end3 ]
+  %extents.1 = phi i1 [ %extents.2, %for.inc ], [ true, %if.end3 ]
+  %hpa.1 = phi i1 [ %hpa.2, %for.inc ], [ true, %if.end3 ]
   %i.0 = phi i32 [ %inc, %for.inc ], [ 0, %if.end3 ]
   %idxprom = zext i32 %i.0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %opts, i64 %idxprom
@@ -567,21 +567,21 @@ sw.bb19:                                          ; preds = %for.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %for.cond, %sw.bb, %sw.bb11, %sw.bb12, %sw.bb13, %sw.bb14, %sw.bb15, %sw.bb16, %sw.bb17, %sw.bb18, %sw.bb19
-  %json.1 = phi i1 [ %json.0, %sw.bb19 ], [ %json.0, %sw.bb18 ], [ %json.0, %sw.bb17 ], [ %json.0, %sw.bb16 ], [ %json.0, %sw.bb15 ], [ %json.0, %sw.bb14 ], [ %json.0, %sw.bb13 ], [ %json.0, %sw.bb12 ], [ %json.0, %sw.bb11 ], [ true, %sw.bb ], [ %json.0, %for.cond ]
-  %general.1 = phi i1 [ %general.0, %sw.bb19 ], [ %general.0, %sw.bb18 ], [ %general.0, %sw.bb17 ], [ %general.0, %sw.bb16 ], [ %general.0, %sw.bb15 ], [ %general.0, %sw.bb14 ], [ %general.0, %sw.bb13 ], [ %general.0, %sw.bb12 ], [ false, %sw.bb11 ], [ %general.0, %sw.bb ], [ %general.0, %for.cond ]
-  %merged.1 = phi i1 [ %merged.0, %sw.bb19 ], [ %merged.0, %sw.bb18 ], [ %merged.0, %sw.bb17 ], [ %merged.0, %sw.bb16 ], [ %merged.0, %sw.bb15 ], [ %merged.0, %sw.bb14 ], [ %merged.0, %sw.bb13 ], [ false, %sw.bb12 ], [ %merged.0, %sw.bb11 ], [ %merged.0, %sw.bb ], [ %merged.0, %for.cond ]
-  %destroyed.1 = phi i1 [ %destroyed.0, %sw.bb19 ], [ %destroyed.0, %sw.bb18 ], [ %destroyed.0, %sw.bb17 ], [ %destroyed.0, %sw.bb16 ], [ %destroyed.0, %sw.bb15 ], [ %destroyed.0, %sw.bb14 ], [ false, %sw.bb13 ], [ %destroyed.0, %sw.bb12 ], [ %destroyed.0, %sw.bb11 ], [ %destroyed.0, %sw.bb ], [ %destroyed.0, %for.cond ]
-  %unmerged.1 = phi i1 [ %unmerged.0, %sw.bb19 ], [ %unmerged.0, %sw.bb18 ], [ %unmerged.0, %sw.bb17 ], [ %unmerged.0, %sw.bb16 ], [ %unmerged.0, %sw.bb15 ], [ false, %sw.bb14 ], [ %unmerged.0, %sw.bb13 ], [ %unmerged.0, %sw.bb12 ], [ %unmerged.0, %sw.bb11 ], [ %unmerged.0, %sw.bb ], [ %unmerged.0, %for.cond ]
-  %bins.1 = phi i1 [ %bins.0, %sw.bb19 ], [ %bins.0, %sw.bb18 ], [ %bins.0, %sw.bb17 ], [ %bins.0, %sw.bb16 ], [ false, %sw.bb15 ], [ %bins.0, %sw.bb14 ], [ %bins.0, %sw.bb13 ], [ %bins.0, %sw.bb12 ], [ %bins.0, %sw.bb11 ], [ %bins.0, %sw.bb ], [ %bins.0, %for.cond ]
-  %large.1 = phi i1 [ %large.0, %sw.bb19 ], [ %large.0, %sw.bb18 ], [ %large.0, %sw.bb17 ], [ false, %sw.bb16 ], [ %large.0, %sw.bb15 ], [ %large.0, %sw.bb14 ], [ %large.0, %sw.bb13 ], [ %large.0, %sw.bb12 ], [ %large.0, %sw.bb11 ], [ %large.0, %sw.bb ], [ %large.0, %for.cond ]
-  %mutex.1 = phi i1 [ %mutex.0, %sw.bb19 ], [ %mutex.0, %sw.bb18 ], [ false, %sw.bb17 ], [ %mutex.0, %sw.bb16 ], [ %mutex.0, %sw.bb15 ], [ %mutex.0, %sw.bb14 ], [ %mutex.0, %sw.bb13 ], [ %mutex.0, %sw.bb12 ], [ %mutex.0, %sw.bb11 ], [ %mutex.0, %sw.bb ], [ %mutex.0, %for.cond ]
-  %extents.1 = phi i1 [ %extents.0, %sw.bb19 ], [ false, %sw.bb18 ], [ %extents.0, %sw.bb17 ], [ %extents.0, %sw.bb16 ], [ %extents.0, %sw.bb15 ], [ %extents.0, %sw.bb14 ], [ %extents.0, %sw.bb13 ], [ %extents.0, %sw.bb12 ], [ %extents.0, %sw.bb11 ], [ %extents.0, %sw.bb ], [ %extents.0, %for.cond ]
-  %hpa.1 = phi i1 [ false, %sw.bb19 ], [ %hpa.0, %sw.bb18 ], [ %hpa.0, %sw.bb17 ], [ %hpa.0, %sw.bb16 ], [ %hpa.0, %sw.bb15 ], [ %hpa.0, %sw.bb14 ], [ %hpa.0, %sw.bb13 ], [ %hpa.0, %sw.bb12 ], [ %hpa.0, %sw.bb11 ], [ %hpa.0, %sw.bb ], [ %hpa.0, %for.cond ]
+  %json.2 = phi i1 [ %json.1, %sw.bb19 ], [ %json.1, %sw.bb18 ], [ %json.1, %sw.bb17 ], [ %json.1, %sw.bb16 ], [ %json.1, %sw.bb15 ], [ %json.1, %sw.bb14 ], [ %json.1, %sw.bb13 ], [ %json.1, %sw.bb12 ], [ %json.1, %sw.bb11 ], [ true, %sw.bb ], [ %json.1, %for.cond ]
+  %general.2 = phi i1 [ %general.1, %sw.bb19 ], [ %general.1, %sw.bb18 ], [ %general.1, %sw.bb17 ], [ %general.1, %sw.bb16 ], [ %general.1, %sw.bb15 ], [ %general.1, %sw.bb14 ], [ %general.1, %sw.bb13 ], [ %general.1, %sw.bb12 ], [ false, %sw.bb11 ], [ %general.1, %sw.bb ], [ %general.1, %for.cond ]
+  %merged.2 = phi i1 [ %merged.1, %sw.bb19 ], [ %merged.1, %sw.bb18 ], [ %merged.1, %sw.bb17 ], [ %merged.1, %sw.bb16 ], [ %merged.1, %sw.bb15 ], [ %merged.1, %sw.bb14 ], [ %merged.1, %sw.bb13 ], [ false, %sw.bb12 ], [ %merged.1, %sw.bb11 ], [ %merged.1, %sw.bb ], [ %merged.1, %for.cond ]
+  %destroyed.2 = phi i1 [ %destroyed.1, %sw.bb19 ], [ %destroyed.1, %sw.bb18 ], [ %destroyed.1, %sw.bb17 ], [ %destroyed.1, %sw.bb16 ], [ %destroyed.1, %sw.bb15 ], [ %destroyed.1, %sw.bb14 ], [ false, %sw.bb13 ], [ %destroyed.1, %sw.bb12 ], [ %destroyed.1, %sw.bb11 ], [ %destroyed.1, %sw.bb ], [ %destroyed.1, %for.cond ]
+  %unmerged.2 = phi i1 [ %unmerged.1, %sw.bb19 ], [ %unmerged.1, %sw.bb18 ], [ %unmerged.1, %sw.bb17 ], [ %unmerged.1, %sw.bb16 ], [ %unmerged.1, %sw.bb15 ], [ false, %sw.bb14 ], [ %unmerged.1, %sw.bb13 ], [ %unmerged.1, %sw.bb12 ], [ %unmerged.1, %sw.bb11 ], [ %unmerged.1, %sw.bb ], [ %unmerged.1, %for.cond ]
+  %bins.2 = phi i1 [ %bins.1, %sw.bb19 ], [ %bins.1, %sw.bb18 ], [ %bins.1, %sw.bb17 ], [ %bins.1, %sw.bb16 ], [ false, %sw.bb15 ], [ %bins.1, %sw.bb14 ], [ %bins.1, %sw.bb13 ], [ %bins.1, %sw.bb12 ], [ %bins.1, %sw.bb11 ], [ %bins.1, %sw.bb ], [ %bins.1, %for.cond ]
+  %large.2 = phi i1 [ %large.1, %sw.bb19 ], [ %large.1, %sw.bb18 ], [ %large.1, %sw.bb17 ], [ false, %sw.bb16 ], [ %large.1, %sw.bb15 ], [ %large.1, %sw.bb14 ], [ %large.1, %sw.bb13 ], [ %large.1, %sw.bb12 ], [ %large.1, %sw.bb11 ], [ %large.1, %sw.bb ], [ %large.1, %for.cond ]
+  %mutex.2 = phi i1 [ %mutex.1, %sw.bb19 ], [ %mutex.1, %sw.bb18 ], [ false, %sw.bb17 ], [ %mutex.1, %sw.bb16 ], [ %mutex.1, %sw.bb15 ], [ %mutex.1, %sw.bb14 ], [ %mutex.1, %sw.bb13 ], [ %mutex.1, %sw.bb12 ], [ %mutex.1, %sw.bb11 ], [ %mutex.1, %sw.bb ], [ %mutex.1, %for.cond ]
+  %extents.2 = phi i1 [ %extents.1, %sw.bb19 ], [ false, %sw.bb18 ], [ %extents.1, %sw.bb17 ], [ %extents.1, %sw.bb16 ], [ %extents.1, %sw.bb15 ], [ %extents.1, %sw.bb14 ], [ %extents.1, %sw.bb13 ], [ %extents.1, %sw.bb12 ], [ %extents.1, %sw.bb11 ], [ %extents.1, %sw.bb ], [ %extents.1, %for.cond ]
+  %hpa.2 = phi i1 [ false, %sw.bb19 ], [ %hpa.1, %sw.bb18 ], [ %hpa.1, %sw.bb17 ], [ %hpa.1, %sw.bb16 ], [ %hpa.1, %sw.bb15 ], [ %hpa.1, %sw.bb14 ], [ %hpa.1, %sw.bb13 ], [ %hpa.1, %sw.bb12 ], [ %hpa.1, %sw.bb11 ], [ %hpa.1, %sw.bb ], [ %hpa.1, %for.cond ]
   %inc = add i32 %i.0, 1
   br label %for.cond, !llvm.loop !5
 
 if.end20:                                         ; preds = %for.cond
-  br i1 %json.0, label %do.end.i, label %if.else.i
+  br i1 %json.1, label %do.end.i, label %if.else.i
 
 do.end.i:                                         ; preds = %if.end20
   store i32 1, ptr %emitter, align 8
@@ -601,15 +601,15 @@ do.end.i:                                         ; preds = %if.end20
   br label %emitter_begin.exit
 
 if.else.i:                                        ; preds = %if.end3, %if.end20
-  %hpa.238.ph = phi i1 [ %hpa.0, %if.end20 ], [ true, %if.end3 ]
-  %extents.237.ph = phi i1 [ %extents.0, %if.end20 ], [ true, %if.end3 ]
-  %mutex.236.ph = phi i1 [ %mutex.0, %if.end20 ], [ true, %if.end3 ]
-  %large.235.ph = phi i1 [ %large.0, %if.end20 ], [ true, %if.end3 ]
-  %bins.234.ph = phi i1 [ %bins.0, %if.end20 ], [ true, %if.end3 ]
-  %unmerged.233.ph = phi i1 [ %unmerged.0, %if.end20 ], [ true, %if.end3 ]
-  %destroyed.232.ph = phi i1 [ %destroyed.0, %if.end20 ], [ true, %if.end3 ]
-  %merged.231.ph = phi i1 [ %merged.0, %if.end20 ], [ true, %if.end3 ]
-  %general.230.ph = phi i1 [ %general.0, %if.end20 ], [ true, %if.end3 ]
+  %hpa.038.ph = phi i1 [ %hpa.1, %if.end20 ], [ true, %if.end3 ]
+  %extents.037.ph = phi i1 [ %extents.1, %if.end20 ], [ true, %if.end3 ]
+  %mutex.036.ph = phi i1 [ %mutex.1, %if.end20 ], [ true, %if.end3 ]
+  %large.035.ph = phi i1 [ %large.1, %if.end20 ], [ true, %if.end3 ]
+  %bins.034.ph = phi i1 [ %bins.1, %if.end20 ], [ true, %if.end3 ]
+  %unmerged.033.ph = phi i1 [ %unmerged.1, %if.end20 ], [ true, %if.end3 ]
+  %destroyed.032.ph = phi i1 [ %destroyed.1, %if.end20 ], [ true, %if.end3 ]
+  %merged.031.ph = phi i1 [ %merged.1, %if.end20 ], [ true, %if.end3 ]
+  %general.030.ph = phi i1 [ %general.1, %if.end20 ], [ true, %if.end3 ]
   store i32 2, ptr %emitter, align 8
   %write_cb1.i49 = getelementptr inbounds i8, ptr %emitter, i64 8
   store ptr %write_cb, ptr %write_cb1.i49, align 8
@@ -627,26 +627,26 @@ if.else.i:                                        ; preds = %if.end3, %if.end20
 emitter_begin.exit:                               ; preds = %do.end.i, %if.else.i
   %nesting_depth.i74 = phi ptr [ %nesting_depth.i, %do.end.i ], [ %nesting_depth.i53, %if.else.i ]
   %item_at_depth.i72 = phi ptr [ %item_at_depth.i, %do.end.i ], [ %item_at_depth.i51, %if.else.i ]
-  %general.23070 = phi i1 [ %general.0, %do.end.i ], [ %general.230.ph, %if.else.i ]
-  %merged.23168 = phi i1 [ %merged.0, %do.end.i ], [ %merged.231.ph, %if.else.i ]
-  %destroyed.23266 = phi i1 [ %destroyed.0, %do.end.i ], [ %destroyed.232.ph, %if.else.i ]
-  %unmerged.23364 = phi i1 [ %unmerged.0, %do.end.i ], [ %unmerged.233.ph, %if.else.i ]
-  %bins.23462 = phi i1 [ %bins.0, %do.end.i ], [ %bins.234.ph, %if.else.i ]
-  %large.23560 = phi i1 [ %large.0, %do.end.i ], [ %large.235.ph, %if.else.i ]
-  %mutex.23658 = phi i1 [ %mutex.0, %do.end.i ], [ %mutex.236.ph, %if.else.i ]
-  %extents.23756 = phi i1 [ %extents.0, %do.end.i ], [ %extents.237.ph, %if.else.i ]
-  %hpa.23854 = phi i1 [ %hpa.0, %do.end.i ], [ %hpa.238.ph, %if.else.i ]
+  %general.03070 = phi i1 [ %general.1, %do.end.i ], [ %general.030.ph, %if.else.i ]
+  %merged.03168 = phi i1 [ %merged.1, %do.end.i ], [ %merged.031.ph, %if.else.i ]
+  %destroyed.03266 = phi i1 [ %destroyed.1, %do.end.i ], [ %destroyed.032.ph, %if.else.i ]
+  %unmerged.03364 = phi i1 [ %unmerged.1, %do.end.i ], [ %unmerged.033.ph, %if.else.i ]
+  %bins.03462 = phi i1 [ %bins.1, %do.end.i ], [ %bins.034.ph, %if.else.i ]
+  %large.03560 = phi i1 [ %large.1, %do.end.i ], [ %large.035.ph, %if.else.i ]
+  %mutex.03658 = phi i1 [ %mutex.1, %do.end.i ], [ %mutex.036.ph, %if.else.i ]
+  %extents.03756 = phi i1 [ %extents.1, %do.end.i ], [ %extents.037.ph, %if.else.i ]
+  %hpa.03854 = phi i1 [ %hpa.1, %do.end.i ], [ %hpa.038.ph, %if.else.i ]
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.24)
   call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.25)
   call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
-  br i1 %general.23070, label %if.then23, label %if.end24
+  br i1 %general.03070, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %emitter_begin.exit
   call fastcc void @stats_general_print(ptr noundef nonnull %emitter) #15
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %emitter_begin.exit
-  call fastcc void @stats_print_helper(ptr noundef nonnull %emitter, i1 noundef zeroext %merged.23168, i1 noundef zeroext %destroyed.23266, i1 noundef zeroext %unmerged.23364, i1 noundef zeroext %bins.23462, i1 noundef zeroext %large.23560, i1 noundef zeroext %mutex.23658, i1 noundef zeroext %extents.23756, i1 noundef zeroext %hpa.23854) #15
+  call fastcc void @stats_print_helper(ptr noundef nonnull %emitter, i1 noundef zeroext %merged.03168, i1 noundef zeroext %destroyed.03266, i1 noundef zeroext %unmerged.03364, i1 noundef zeroext %bins.03462, i1 noundef zeroext %large.03560, i1 noundef zeroext %mutex.03658, i1 noundef zeroext %extents.03756, i1 noundef zeroext %hpa.03854) #15
   %emitter.val.i6 = load i32, ptr %emitter, align 8
   %spec.select.i.i7 = icmp ult i32 %emitter.val.i6, 2
   br i1 %spec.select.i.i7, label %do.end.i8, label %emitter_json_object_end.exit

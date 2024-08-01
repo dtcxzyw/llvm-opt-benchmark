@@ -17593,7 +17593,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %for.body.lr.ph
-  %result.044 = phi i1 [ false, %for.body.lr.ph ], [ %result.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %result.044 = phi i1 [ false, %for.body.lr.ph ], [ %result.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   %__begin2.sroa.0.043 = phi ptr [ %spec.select.i.i, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %2 = load ptr, ptr %__begin2.sroa.0.043, align 8, !noalias !193
@@ -17780,7 +17780,7 @@ lpad13:                                           ; preds = %invoke.cont14, %inv
   br label %ehcleanup28
 
 cleanup25:                                        ; preds = %if.end3.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %for.cond.i.i.i, %if.then13.i.i21, %if.then.i.i15, %_ZN4cvc58internal8TypeNodeD2Ev.exit, %call2.i.i.i.i.noexc, %invoke.cont8
-  %result.3 = phi i1 [ %result.044, %invoke.cont8 ], [ %result.044, %call2.i.i.i.i.noexc ], [ %.result.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %.result.0, %if.then.i.i15 ], [ %.result.0, %if.then13.i.i21 ], [ %result.044, %for.cond.i.i.i ], [ %result.044, %lor.lhs.false.i.i.i.i.i ], [ %result.044, %if.end3.i.i.i.i.i ]
+  %result.4 = phi i1 [ %result.044, %invoke.cont8 ], [ %result.044, %call2.i.i.i.i.noexc ], [ %.result.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %.result.0, %if.then.i.i15 ], [ %.result.0, %if.then13.i.i21 ], [ %result.044, %for.cond.i.i.i ], [ %result.044, %lor.lhs.false.i.i.i.i.i ], [ %result.044, %if.end3.i.i.i.i.i ]
   %cleanup.dest.slot.1 = phi i1 [ true, %invoke.cont8 ], [ true, %call2.i.i.i.i.noexc ], [ %cmp.i.i11.not, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %cmp.i.i11.not, %if.then.i.i15 ], [ %cmp.i.i11.not, %if.then13.i.i21 ], [ true, %for.cond.i.i.i ], [ true, %lor.lhs.false.i.i.i.i.i ], [ true, %if.end3.i.i.i.i.i ]
   %31 = load ptr, ptr %ref.tmp, align 8
   %bf.load.i.i24 = load i64, ptr %31, align 8
@@ -17820,8 +17820,8 @@ ehcleanup28:                                      ; preds = %lpad13, %lpad
   resume { ptr, i32 } %.pn.pn
 
 for.end:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %entry
-  %result.4 = phi i1 [ false, %entry ], [ %result.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  ret i1 %result.4
+  %result.1 = phi i1 [ false, %entry ], [ %result.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  ret i1 %result.1
 }
 
 declare noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4cvc58internal6EnvObj9logicInfoEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

@@ -669,7 +669,7 @@ define range(i32 -1, 1) i32 @H5F_unmount(ptr noundef %0, ptr noundef %1) local_u
 .loopexit:                                        ; preds = %44, %.loopexit.loopexit.split.loop.exit, %.preheader, %74
   %91 = phi ptr [ %.pre, %74 ], [ %32, %.preheader ], [ %32, %.loopexit.loopexit.split.loop.exit ], [ %32, %44 ]
   %.074 = phi ptr [ %89, %74 ], [ %22, %.preheader ], [ %22, %.loopexit.loopexit.split.loop.exit ], [ %22, %44 ]
-  %.071 = phi i1 [ false, %74 ], [ true, %.preheader ], [ true, %.loopexit.loopexit.split.loop.exit ], [ true, %44 ]
+  %.172 = phi i1 [ false, %74 ], [ true, %.preheader ], [ true, %.loopexit.loopexit.split.loop.exit ], [ true, %44 ]
   %.070 = phi ptr [ %87, %74 ], [ %15, %.preheader ], [ %15, %.loopexit.loopexit.split.loop.exit ], [ %15, %44 ]
   %.069 = phi i32 [ %50, %74 ], [ -1, %.preheader ], [ %90, %.loopexit.loopexit.split.loop.exit ], [ -1, %44 ]
   %92 = getelementptr inbounds i8, ptr %.074, i64 16
@@ -782,7 +782,7 @@ define range(i32 -1, 1) i32 @H5F_unmount(ptr noundef %0, ptr noundef %1) local_u
 
 172:                                              ; preds = %164, %168, %160, %153, %127, %114, %104
   %.068 = phi i32 [ -1, %104 ], [ -1, %114 ], [ -1, %127 ], [ -1, %153 ], [ -1, %160 ], [ -1, %168 ], [ 0, %164 ]
-  br i1 %.071, label %173, label %175
+  br i1 %.172, label %173, label %175
 
 173:                                              ; preds = %.thread86, %172
   %.06890 = phi i32 [ -1, %.thread86 ], [ %.068, %172 ]

@@ -1031,13 +1031,13 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN104_$LT$tracing_subscriber..regis
   br label %18
 
 18:                                               ; preds = %11, %16
-  %.1 = phi i64 [ %17, %16 ], [ 0, %11 ]
+  %.2 = phi i64 [ %17, %16 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %14, %8, %2, %18
-  %.2 = phi i64 [ %.1, %18 ], [ 0, %2 ], [ %15, %14 ], [ 0, %8 ]
-  %20 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17hd16678f0d661bd96E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.2)
+  %.0 = phi i64 [ %.2, %18 ], [ 0, %2 ], [ %15, %14 ], [ 0, %8 ]
+  %20 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17hd16678f0d661bd96E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.0)
   %.fca.0.extract = extractvalue { i64, i64 } %20, 0
   %switch = icmp eq i64 %.fca.0.extract, 0
   br i1 %switch, label %21, label %22
@@ -1161,9 +1161,9 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %..i11.i.i = zext i1 %17 to i64
   %18 = insertvalue { i64, ptr } poison, i64 %..i11.i.i, 0
   %19 = insertvalue { i64, ptr } %18, ptr %16, 1
-  %.sroa.0.0.i.i = select i1 %13, i64 1, i64 %..i11.i.i
+  %.sroa.0.1.i.i = select i1 %13, i64 1, i64 %..i11.i.i
   %.pn.i.i = select i1 %13, { i64, ptr } %15, { i64, ptr } %19
-  %.sroa.4.0.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
+  %.sroa.4.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
   br label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h7a364b1ce678ab81E.exit.thread"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit.i": ; preds = %10
@@ -1173,10 +1173,10 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   br label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h7a364b1ce678ab81E.exit.thread"
 
 "_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h7a364b1ce678ab81E.exit.thread": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hf06af331f1ef58baE.exit", %6, %8, %4, %4, %10, %10, %12, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit.i", %2
-  %.sroa.0.1 = phi i64 [ 1, %2 ], [ 1, %6 ], [ 1, %8 ], [ 1, %4 ], [ 1, %4 ], [ 1, %10 ], [ 1, %10 ], [ %.sroa.0.0.i.i, %12 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit.i" ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hf06af331f1ef58baE.exit" ]
-  %.sroa.4.1 = phi ptr [ %0, %2 ], [ %7, %6 ], [ %9, %8 ], [ %5, %4 ], [ %5, %4 ], [ %11, %10 ], [ %11, %10 ], [ %.sroa.4.0.i.i, %12 ], [ %0, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit.i" ], [ %0, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hf06af331f1ef58baE.exit" ]
-  %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %21 = insertvalue { i64, ptr } %20, ptr %.sroa.4.1, 1
+  %.sroa.0.0 = phi i64 [ 1, %2 ], [ 1, %6 ], [ 1, %8 ], [ 1, %4 ], [ 1, %4 ], [ 1, %10 ], [ 1, %10 ], [ %.sroa.0.1.i.i, %12 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit.i" ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hf06af331f1ef58baE.exit" ]
+  %.sroa.4.0 = phi ptr [ %0, %2 ], [ %7, %6 ], [ %9, %8 ], [ %5, %4 ], [ %5, %4 ], [ %11, %10 ], [ %11, %10 ], [ %.sroa.4.1.i.i, %12 ], [ %0, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit.i" ], [ %0, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hf06af331f1ef58baE.exit" ]
+  %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %21 = insertvalue { i64, ptr } %20, ptr %.sroa.4.0, 1
   ret { i64, ptr } %21
 }
 
@@ -1195,16 +1195,16 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %..i11 = zext i1 %9 to i64
   %10 = insertvalue { i64, ptr } poison, i64 %..i11, 0
   %11 = insertvalue { i64, ptr } %10, ptr %8, 1
-  %.sroa.0.0 = select i1 %5, i64 1, i64 %..i11
+  %.sroa.0.1 = select i1 %5, i64 1, i64 %..i11
   %.pn = select i1 %5, { i64, ptr } %7, { i64, ptr } %11
-  %.sroa.4.0 = extractvalue { i64, ptr } %.pn, 1
+  %.sroa.4.1 = extractvalue { i64, ptr } %.pn, 1
   br label %12
 
 12:                                               ; preds = %2, %4
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %4 ], [ 1, %2 ]
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %4 ], [ %0, %2 ]
-  %13 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %14 = insertvalue { i64, ptr } %13, ptr %.sroa.4.1, 1
+  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %4 ], [ 1, %2 ]
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %4 ], [ %0, %2 ]
+  %13 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %14 = insertvalue { i64, ptr } %13, ptr %.sroa.4.0, 1
   ret { i64, ptr } %14
 }
 
@@ -1231,19 +1231,19 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %..i11.i = zext i1 %11 to i64
   %12 = insertvalue { i64, ptr } poison, i64 %..i11.i, 0
   %13 = insertvalue { i64, ptr } %12, ptr %10, 1
-  %.sroa.0.0.i = select i1 %7, i64 1, i64 %..i11.i
+  %.sroa.0.1.i = select i1 %7, i64 1, i64 %..i11.i
   %.pn.i = select i1 %7, { i64, ptr } %9, { i64, ptr } %13
-  %.sroa.4.0.i = extractvalue { i64, ptr } %.pn.i, 1
+  %.sroa.4.1.i = extractvalue { i64, ptr } %.pn.i, 1
   br label %14
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit": ; preds = %4
   br label %14
 
 14:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit", %4, %4, %6, %2
-  %.sroa.0.1 = phi i64 [ 1, %2 ], [ 1, %4 ], [ 1, %4 ], [ %.sroa.0.0.i, %6 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit" ]
-  %.sroa.4.1 = phi ptr [ %0, %2 ], [ %5, %4 ], [ %5, %4 ], [ %.sroa.4.0.i, %6 ], [ %0, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit" ]
-  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.4.1, 1
+  %.sroa.0.0 = phi i64 [ 1, %2 ], [ 1, %4 ], [ 1, %4 ], [ %.sroa.0.1.i, %6 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit" ]
+  %.sroa.4.0 = phi ptr [ %0, %2 ], [ %5, %4 ], [ %5, %4 ], [ %.sroa.4.1.i, %6 ], [ %0, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hd845db09e2ee000fE.exit" ]
+  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.4.0, 1
   ret { i64, ptr } %16
 }
 
@@ -1290,8 +1290,8 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h0270c532812ab792E.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h0270c532812ab792E.exit": ; preds = %6, %1
-  %.1.i = phi i64 [ %2, %1 ], [ %spec.select, %6 ]
-  ret i64 %.1.i
+  %.028.i = phi i64 [ %2, %1 ], [ %spec.select, %6 ]
+  ret i64 %.028.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1310,7 +1310,7 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i": ; preds = %6, %1
-  %.1.i.i.i = phi i64 [ %2, %1 ], [ %spec.select.i.i, %6 ]
+  %.028.i.i.i = phi i64 [ %2, %1 ], [ %spec.select.i.i, %6 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 2344
   %11 = load i8, ptr %10, align 8, !range !290, !noundef !13
   %12 = trunc nuw i8 %11 to i1
@@ -1326,7 +1326,7 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br i1 %16, label %20, label %21
 
 20:                                               ; preds = %13
-  %.not.i.i = icmp eq i64 %.1.i.i.i, 6
+  %.not.i.i = icmp eq i64 %.028.i.i.i, 6
   %or.cond.i = select i1 %19, i1 true, i1 %.not.i.i
   br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit", label %.thread49.i.i
 
@@ -1337,7 +1337,7 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i", %20, %21, %.thread49.i.i
-  %.1.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i" ], [ 6, %21 ], [ 6, %20 ], [ %.1.i.i.i, %.thread49.i.i ]
+  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i, %.thread49.i.i ]
   %22 = getelementptr inbounds i8, ptr %0, i64 2376
   %23 = load i8, ptr %22, align 8, !range !290, !noundef !13
   %24 = trunc nuw i8 %23 to i1
@@ -1353,7 +1353,7 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br i1 %28, label %32, label %33
 
 32:                                               ; preds = %25
-  %.not.i = icmp eq i64 %.1.i.i, 6
+  %.not.i = icmp eq i64 %.028.i.i, 6
   %or.cond = select i1 %31, i1 true, i1 %.not.i
   br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit", label %.thread49.i
 
@@ -1364,8 +1364,8 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit": ; preds = %.thread49.i, %32, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit", %33
-  %.1.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit" ], [ 6, %33 ], [ 6, %32 ], [ %.1.i.i, %.thread49.i ]
-  ret i64 %.1.i
+  %.028.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i, %.thread49.i ]
+  ret i64 %.028.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1384,7 +1384,7 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit": ; preds = %1, %6
-  %.1.i.i = phi i64 [ %2, %1 ], [ %spec.select.i, %6 ]
+  %.028.i.i = phi i64 [ %2, %1 ], [ %spec.select.i, %6 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 2344
   %11 = load i8, ptr %10, align 8, !range !290, !noundef !13
   %12 = trunc nuw i8 %11 to i1
@@ -1400,7 +1400,7 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br i1 %16, label %20, label %21
 
 20:                                               ; preds = %13
-  %.not.i = icmp eq i64 %.1.i.i, 6
+  %.not.i = icmp eq i64 %.028.i.i, 6
   %or.cond = select i1 %19, i1 true, i1 %.not.i
   br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit", label %.thread49.i
 
@@ -1411,8 +1411,8 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit": ; preds = %.thread49.i, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit", %21
-  %.1.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit" ], [ 6, %21 ], [ 6, %20 ], [ %.1.i.i, %.thread49.i ]
-  ret i64 %.1.i
+  %.028.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i, %.thread49.i ]
+  ret i64 %.028.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2798,13 +2798,13 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
           to label %120 unwind label %118, !noalias !488
 
 116:                                              ; preds = %267, %266, %264, %118
-  %.04.i.i = phi i8 [ %.15.i.i, %118 ], [ %.0.i.i, %267 ], [ %.0.i.i, %264 ], [ %.0.i.i, %266 ]
+  %.15.i.i = phi i8 [ %.04.i.i, %118 ], [ %.1.i.i, %267 ], [ %.1.i.i, %264 ], [ %.1.i.i, %266 ]
   %.pn7.i.i = phi { ptr, i32 } [ %119, %118 ], [ %.pn.i.i, %267 ], [ %.pn.i.i, %264 ], [ %.pn.i.i, %266 ]
-  %117 = trunc nuw i8 %.04.i.i to i1
+  %117 = trunc nuw i8 %.15.i.i to i1
   br i1 %117, label %268, label %38
 
 118:                                              ; preds = %256, %253, %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h5c21308e4c1ec771E.exit.i.i.i", %109, %.noexc23.i.i, %105
-  %.15.i.i = phi i8 [ 0, %253 ], [ 1, %256 ], [ 1, %105 ], [ 1, %.noexc23.i.i ], [ 1, %109 ], [ 1, %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h5c21308e4c1ec771E.exit.i.i.i" ]
+  %.04.i.i = phi i8 [ 0, %253 ], [ 1, %256 ], [ 1, %105 ], [ 1, %.noexc23.i.i ], [ 1, %109 ], [ 1, %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h5c21308e4c1ec771E.exit.i.i.i" ]
   %119 = landingpad { ptr, i32 }
           cleanup
   br label %116
@@ -3111,13 +3111,13 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.th
 
 245:                                              ; preds = %248, %.body.i.i
   %246 = phi i64 [ %.pre.i.i, %248 ], [ %spec.select.i.i.i.i.i, %.body.i.i ]
-  %.0.i.i = phi i8 [ %.1.i.i, %248 ], [ 0, %.body.i.i ]
+  %.1.i.i = phi i8 [ %.0.i.i, %248 ], [ 0, %.body.i.i ]
   %.pn.i.i = phi { ptr, i32 } [ %249, %248 ], [ %eh.lpad-body.i.i, %.body.i.i ]
   %247 = icmp eq i64 %246, 0
   br i1 %247, label %264, label %266
 
 248:                                              ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.exit40.thread.i.i, %244, %243, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i.i, %236, %228
-  %.1.i.i = phi i8 [ 1, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.exit40.thread.i.i ], [ 1, %228 ], [ 0, %236 ], [ 0, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i.i ], [ 0, %243 ], [ 0, %244 ]
+  %.0.i.i = phi i8 [ 1, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.exit40.thread.i.i ], [ 1, %228 ], [ 0, %236 ], [ 0, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i.i ], [ 0, %243 ], [ 0, %244 ]
   %249 = landingpad { ptr, i32 }
           cleanup
   %.pre.i.i = load i64, ptr %12, align 8, !range !350, !noalias !481
@@ -3188,7 +3188,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.exit40.thread.i.i: ; preds = %_Z
   br label %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$11on_new_span17hcaec224d1ac4e6f6E.exit"
 
 264:                                              ; preds = %245
-  %265 = trunc nuw i8 %.0.i.i to i1
+  %265 = trunc nuw i8 %.1.i.i to i1
   br i1 %265, label %267, label %116
 
 266:                                              ; preds = %245
@@ -5593,8 +5593,8 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17he081
 12:                                               ; preds = %5, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit"
   %.sroa.14.015 = phi i64 [ %3, %5 ], [ %23, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit" ]
   %.sroa.10.014 = phi i16 [ %10, %5 ], [ %22, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit" ]
-  %.sroa.6.013 = phi ptr [ %11, %5 ], [ %.sroa.6.1, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit" ]
-  %.sroa.03.012 = phi ptr [ %6, %5 ], [ %.sroa.03.1, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit" ]
+  %.sroa.6.013 = phi ptr [ %11, %5 ], [ %.sroa.6.2, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit" ]
+  %.sroa.03.012 = phi ptr [ %6, %5 ], [ %.sroa.03.2, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit" ]
   %.not.not.i9.i = icmp eq i16 %.sroa.10.014, 0
   br i1 %.not.not.i9.i, label %.lr.ph.i, label %20
 
@@ -5614,8 +5614,8 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17he081
   br i1 %.not.not.i.i, label %.lr.ph.i, label %._crit_edge.i
 
 20:                                               ; preds = %._crit_edge.i, %12
-  %.sroa.03.1 = phi ptr [ %18, %._crit_edge.i ], [ %.sroa.03.012, %12 ]
-  %.sroa.6.1 = phi ptr [ %19, %._crit_edge.i ], [ %.sroa.6.013, %12 ]
+  %.sroa.03.2 = phi ptr [ %18, %._crit_edge.i ], [ %.sroa.03.012, %12 ]
+  %.sroa.6.2 = phi ptr [ %19, %._crit_edge.i ], [ %.sroa.6.013, %12 ]
   %.lcssa.i = phi i16 [ %13, %._crit_edge.i ], [ %.sroa.10.014, %12 ]
   %21 = add i16 %.lcssa.i, -1
   %22 = and i16 %21, %.lcssa.i
@@ -5623,7 +5623,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17he081
   %24 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %25 = zext nneg i16 %24 to i64
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { i8, [7 x i8], { ptr, ptr } }, ptr %.sroa.03.1, i64 %26
+  %27 = getelementptr inbounds { i8, [7 x i8], { ptr, ptr } }, ptr %.sroa.03.2, i64 %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1098)
   %28 = getelementptr inbounds i8, ptr %27, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1101)
@@ -6027,8 +6027,8 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17he
 19:                                               ; preds = %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit.i", %12
   %.sroa.14.015.i = phi i64 [ %10, %12 ], [ %30, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit.i" ]
   %.sroa.10.014.i = phi i16 [ %17, %12 ], [ %29, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit.i" ]
-  %.sroa.6.013.i = phi ptr [ %18, %12 ], [ %.sroa.6.1.i, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit.i" ]
-  %.sroa.03.012.i = phi ptr [ %13, %12 ], [ %.sroa.03.1.i, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit.i" ]
+  %.sroa.6.013.i = phi ptr [ %18, %12 ], [ %.sroa.6.2.i, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit.i" ]
+  %.sroa.03.012.i = phi ptr [ %13, %12 ], [ %.sroa.03.2.i, %"_ZN9hashbrown3raw5inner15Bucket$LT$T$GT$4drop17hc9b7e64972d03799E.llvm.4868402970090888313.exit.i" ]
   %.not.not.i9.i.i = icmp eq i16 %.sroa.10.014.i, 0
   br i1 %.not.not.i9.i.i, label %.lr.ph.i.i, label %27
 
@@ -6048,8 +6048,8 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17he
   br i1 %.not.not.i.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 27:                                               ; preds = %._crit_edge.i.i, %19
-  %.sroa.03.1.i = phi ptr [ %25, %._crit_edge.i.i ], [ %.sroa.03.012.i, %19 ]
-  %.sroa.6.1.i = phi ptr [ %26, %._crit_edge.i.i ], [ %.sroa.6.013.i, %19 ]
+  %.sroa.03.2.i = phi ptr [ %25, %._crit_edge.i.i ], [ %.sroa.03.012.i, %19 ]
+  %.sroa.6.2.i = phi ptr [ %26, %._crit_edge.i.i ], [ %.sroa.6.013.i, %19 ]
   %.lcssa.i.i = phi i16 [ %20, %._crit_edge.i.i ], [ %.sroa.10.014.i, %19 ]
   %28 = add i16 %.lcssa.i.i, -1
   %29 = and i16 %28, %.lcssa.i.i
@@ -6057,7 +6057,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17he
   %31 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %32 = zext nneg i16 %31 to i64
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds { i8, [7 x i8], { ptr, ptr } }, ptr %.sroa.03.1.i, i64 %33
+  %34 = getelementptr inbounds { i8, [7 x i8], { ptr, ptr } }, ptr %.sroa.03.2.i, i64 %33
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1150)
   %35 = getelementptr inbounds i8, ptr %34, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1153)
@@ -6532,21 +6532,21 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h474e49965fe2003fE
 .preheader:                                       ; preds = %.preheader.lr.ph, %140
   %.sroa.13.065 = phi i16 [ %43, %.preheader.lr.ph ], [ %56, %140 ]
   %.sroa.9.064 = phi i64 [ %38, %.preheader.lr.ph ], [ %60, %140 ]
-  %.sroa.521.063 = phi i64 [ 0, %.preheader.lr.ph ], [ %.sroa.521.1.lcssa, %140 ]
-  %.sroa.020.062 = phi ptr [ %39, %.preheader.lr.ph ], [ %.sroa.020.1.lcssa, %140 ]
+  %.sroa.521.063 = phi i64 [ 0, %.preheader.lr.ph ], [ %.sroa.521.2.lcssa, %140 ]
+  %.sroa.020.062 = phi ptr [ %39, %.preheader.lr.ph ], [ %.sroa.020.2.lcssa, %140 ]
   %.not.not.i56 = icmp eq i16 %.sroa.13.065, 0
   br i1 %.not.not.i56, label %.noexc2, label %._crit_edge
 
 .noexc2:                                          ; preds = %.preheader, %.noexc2
-  %.sroa.521.158 = phi i64 [ %53, %.noexc2 ], [ %.sroa.521.063, %.preheader ]
-  %.sroa.020.157 = phi ptr [ %49, %.noexc2 ], [ %.sroa.020.062, %.preheader ]
-  %48 = icmp ne ptr %.sroa.020.157, null
+  %.sroa.521.258 = phi i64 [ %53, %.noexc2 ], [ %.sroa.521.063, %.preheader ]
+  %.sroa.020.257 = phi ptr [ %49, %.noexc2 ], [ %.sroa.020.062, %.preheader ]
+  %48 = icmp ne ptr %.sroa.020.257, null
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds i8, ptr %.sroa.020.157, i64 16
+  %49 = getelementptr inbounds i8, ptr %.sroa.020.257, i64 16
   %50 = load <16 x i8>, ptr %49, align 16, !noalias !1238
   %51 = icmp slt <16 x i8> %50, zeroinitializer
   %52 = bitcast <16 x i1> %51 to i16
-  %53 = add i64 %.sroa.521.158, 16
+  %53 = add i64 %.sroa.521.258, 16
   %.not.not.i = icmp eq i16 %52, -1
   br i1 %.not.not.i, label %.noexc2, label %._crit_edge.loopexit
 
@@ -6555,14 +6555,14 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h474e49965fe2003fE
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.sroa.020.1.lcssa = phi ptr [ %.sroa.020.062, %.preheader ], [ %49, %._crit_edge.loopexit ]
-  %.sroa.521.1.lcssa = phi i64 [ %.sroa.521.063, %.preheader ], [ %53, %._crit_edge.loopexit ]
-  %.sroa.13.1.lcssa = phi i16 [ %.sroa.13.065, %.preheader ], [ %54, %._crit_edge.loopexit ]
-  %55 = add i16 %.sroa.13.1.lcssa, -1
-  %56 = and i16 %55, %.sroa.13.1.lcssa
-  %57 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.13.1.lcssa, i1 true)
+  %.sroa.020.2.lcssa = phi ptr [ %.sroa.020.062, %.preheader ], [ %49, %._crit_edge.loopexit ]
+  %.sroa.521.2.lcssa = phi i64 [ %.sroa.521.063, %.preheader ], [ %53, %._crit_edge.loopexit ]
+  %.sroa.13.2.lcssa = phi i16 [ %.sroa.13.065, %.preheader ], [ %54, %._crit_edge.loopexit ]
+  %55 = add i16 %.sroa.13.2.lcssa, -1
+  %56 = and i16 %55, %.sroa.13.2.lcssa
+  %57 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.13.2.lcssa, i1 true)
   %58 = zext nneg i16 %57 to i64
-  %59 = add i64 %.sroa.521.1.lcssa, %58
+  %59 = add i64 %.sroa.521.2.lcssa, %58
   %60 = add i64 %.sroa.9.064, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1241)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1241, !noalias !1237, !nonnull !13, !noundef !13
@@ -7088,21 +7088,21 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h474e49965fe2003fE
 .preheader:                                       ; preds = %.preheader.lr.ph, %139
   %.sroa.13.065 = phi i16 [ %43, %.preheader.lr.ph ], [ %56, %139 ]
   %.sroa.9.064 = phi i64 [ %38, %.preheader.lr.ph ], [ %60, %139 ]
-  %.sroa.521.063 = phi i64 [ 0, %.preheader.lr.ph ], [ %.sroa.521.1.lcssa, %139 ]
-  %.sroa.020.062 = phi ptr [ %39, %.preheader.lr.ph ], [ %.sroa.020.1.lcssa, %139 ]
+  %.sroa.521.063 = phi i64 [ 0, %.preheader.lr.ph ], [ %.sroa.521.2.lcssa, %139 ]
+  %.sroa.020.062 = phi ptr [ %39, %.preheader.lr.ph ], [ %.sroa.020.2.lcssa, %139 ]
   %.not.not.i56 = icmp eq i16 %.sroa.13.065, 0
   br i1 %.not.not.i56, label %.noexc2, label %._crit_edge
 
 .noexc2:                                          ; preds = %.preheader, %.noexc2
-  %.sroa.521.158 = phi i64 [ %53, %.noexc2 ], [ %.sroa.521.063, %.preheader ]
-  %.sroa.020.157 = phi ptr [ %49, %.noexc2 ], [ %.sroa.020.062, %.preheader ]
-  %48 = icmp ne ptr %.sroa.020.157, null
+  %.sroa.521.258 = phi i64 [ %53, %.noexc2 ], [ %.sroa.521.063, %.preheader ]
+  %.sroa.020.257 = phi ptr [ %49, %.noexc2 ], [ %.sroa.020.062, %.preheader ]
+  %48 = icmp ne ptr %.sroa.020.257, null
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds i8, ptr %.sroa.020.157, i64 16
+  %49 = getelementptr inbounds i8, ptr %.sroa.020.257, i64 16
   %50 = load <16 x i8>, ptr %49, align 16, !noalias !1325
   %51 = icmp slt <16 x i8> %50, zeroinitializer
   %52 = bitcast <16 x i1> %51 to i16
-  %53 = add i64 %.sroa.521.158, 16
+  %53 = add i64 %.sroa.521.258, 16
   %.not.not.i = icmp eq i16 %52, -1
   br i1 %.not.not.i, label %.noexc2, label %._crit_edge.loopexit
 
@@ -7111,14 +7111,14 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h474e49965fe2003fE
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.sroa.020.1.lcssa = phi ptr [ %.sroa.020.062, %.preheader ], [ %49, %._crit_edge.loopexit ]
-  %.sroa.521.1.lcssa = phi i64 [ %.sroa.521.063, %.preheader ], [ %53, %._crit_edge.loopexit ]
-  %.sroa.13.1.lcssa = phi i16 [ %.sroa.13.065, %.preheader ], [ %54, %._crit_edge.loopexit ]
-  %55 = add i16 %.sroa.13.1.lcssa, -1
-  %56 = and i16 %55, %.sroa.13.1.lcssa
-  %57 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.13.1.lcssa, i1 true)
+  %.sroa.020.2.lcssa = phi ptr [ %.sroa.020.062, %.preheader ], [ %49, %._crit_edge.loopexit ]
+  %.sroa.521.2.lcssa = phi i64 [ %.sroa.521.063, %.preheader ], [ %53, %._crit_edge.loopexit ]
+  %.sroa.13.2.lcssa = phi i16 [ %.sroa.13.065, %.preheader ], [ %54, %._crit_edge.loopexit ]
+  %55 = add i16 %.sroa.13.2.lcssa, -1
+  %56 = and i16 %55, %.sroa.13.2.lcssa
+  %57 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.13.2.lcssa, i1 true)
   %58 = zext nneg i16 %57 to i64
-  %59 = add i64 %.sroa.521.1.lcssa, %58
+  %59 = add i64 %.sroa.521.2.lcssa, %58
   %60 = add i64 %.sroa.9.064, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1328)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1328, !noalias !1324, !nonnull !13, !noundef !13

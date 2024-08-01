@@ -2063,7 +2063,7 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellESt4pairIiNSt7__cxx1112basic_stringIcSt11
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellESt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread622.i: ; preds = %704, %871, %._crit_edge.i.i109.i, %533
   %875 = icmp slt i32 %.2601220.i, 0
   %876 = call i32 @llvm.smin.i32(i32 %538, i32 %.2601220.i)
-  %.361.i = select i1 %875, i32 %538, i32 %876
+  %.462.i = select i1 %875, i32 %538, i32 %876
   store i32 %538, ptr %16, align 8, !alias.scope !15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZSt9make_pairIRiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_.exit.i unwind label %.loopexit647.i
@@ -2087,7 +2087,7 @@ _ZSt9make_pairIRiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIN
   br label %.body106.i
 
 884:                                              ; preds = %878, %871
-  %.462.i = phi i32 [ %.361.i, %878 ], [ %.2601220.i, %871 ]
+  %.361.i = phi i32 [ %.462.i, %878 ], [ %.2601220.i, %871 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
   br label %885
 
@@ -2097,7 +2097,7 @@ _ZSt9make_pairIRiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIN
   br label %.body.i
 
 885:                                              ; preds = %884, %338, %326
-  %.563.i = phi i32 [ %.462.i, %884 ], [ %.2601220.i, %338 ], [ %.2601220.i, %326 ]
+  %.563.i = phi i32 [ %.361.i, %884 ], [ %.2601220.i, %338 ], [ %.2601220.i, %326 ]
   %indvars.iv.next1656.i = add nuw nsw i64 %indvars.iv1655.i, 1
   %.not637.i = icmp eq i64 %indvars.iv.next1656.i, %312
   br i1 %.not637.i, label %._crit_edge1223.i, label %313
@@ -3300,7 +3300,7 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireESt4pairIiNSt7__cxx1112basic_stringIcSt11
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireESt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread627.i: ; preds = %1313, %1479, %._crit_edge.i.i162.i, %1142
   %1483 = icmp slt i32 %.7651210.i, 0
   %1484 = call i32 @llvm.smin.i32(i32 %1147, i32 %.7651210.i)
-  %.8.i = select i1 %1483, i32 %1147, i32 %1484
+  %.9.i = select i1 %1483, i32 %1147, i32 %1484
   store i32 %1147, ptr %22, align 8, !alias.scope !23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %_ZSt9make_pairIRiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_.exit181.i unwind label %.loopexit662.i
@@ -3324,7 +3324,7 @@ _ZSt9make_pairIRiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIN
   br label %.body158.i
 
 1492:                                             ; preds = %1486, %1479
-  %.9.i = phi i32 [ %.8.i, %1486 ], [ %.7651210.i, %1479 ]
+  %.8.i = phi i32 [ %.9.i, %1486 ], [ %.7651210.i, %1479 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
   br label %1493
 
@@ -3334,7 +3334,7 @@ _ZSt9make_pairIRiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIN
   br label %.body144.i
 
 1493:                                             ; preds = %1492, %939, %934, %921
-  %.10.i = phi i32 [ %.7651210.i, %939 ], [ %.9.i, %1492 ], [ %.7651210.i, %934 ], [ %.7651210.i, %921 ]
+  %.10.i = phi i32 [ %.7651210.i, %939 ], [ %.8.i, %1492 ], [ %.7651210.i, %934 ], [ %.7651210.i, %921 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not635.i = icmp eq i64 %indvars.iv.next.i, %907
   br i1 %.not635.i, label %._crit_edge.i, label %908

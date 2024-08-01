@@ -3533,7 +3533,7 @@ if.then91:                                        ; preds = %if.else77, %if.end8
 
 if.end92:                                         ; preds = %if.then81, %if.end88
   %field_bits.084 = phi i32 [ %call71, %if.end88 ], [ %call82, %if.then81 ]
-  %group.083 = phi ptr [ %call76, %if.end88 ], [ %call78, %if.then81 ]
+  %group.183 = phi ptr [ %call76, %if.end88 ], [ %call78, %if.then81 ]
   %call93 = call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.3) #9
   %cmp94.not = icmp eq ptr %call93, null
   br i1 %cmp94.not, label %if.end107, label %if.then96
@@ -3555,7 +3555,7 @@ if.end101:                                        ; preds = %if.then96
   %17 = load ptr, ptr %data102, align 8
   %data_size = getelementptr inbounds i8, ptr %call93, i64 24
   %18 = load i64, ptr %data_size, align 8
-  %call103 = call i64 @EC_GROUP_set_seed(ptr noundef nonnull %group.083, ptr noundef %17, i64 noundef %18)
+  %call103 = call i64 @EC_GROUP_set_seed(ptr noundef nonnull %group.183, ptr noundef %17, i64 noundef %18)
   %tobool104.not = icmp eq i64 %call103, 0
   br i1 %tobool104.not, label %if.end186.thread97, label %if.end107
 
@@ -3579,7 +3579,7 @@ if.then115:                                       ; preds = %lor.lhs.false111, %
 if.end116:                                        ; preds = %lor.lhs.false111
   %data117 = getelementptr inbounds i8, ptr %call108, i64 16
   %20 = load ptr, ptr %data117, align 8
-  %call118 = call ptr @EC_POINT_new(ptr noundef nonnull %group.083)
+  %call118 = call ptr @EC_POINT_new(ptr noundef nonnull %group.183)
   %cmp119 = icmp eq ptr %call118, null
   br i1 %cmp119, label %if.end186.thread97, label %if.end122
 
@@ -3587,11 +3587,11 @@ if.end122:                                        ; preds = %if.end116
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, -2
   %and = zext i8 %22 to i32
-  %asn1_form.i = getelementptr inbounds i8, ptr %group.083, i64 44
+  %asn1_form.i = getelementptr inbounds i8, ptr %group.183, i64 44
   store i32 %and, ptr %asn1_form.i, align 4
   %data_size124 = getelementptr inbounds i8, ptr %call108, i64 24
   %23 = load i64, ptr %data_size124, align 8
-  %call125 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %group.083, ptr noundef nonnull %call118, ptr noundef nonnull %20, i64 noundef %23, ptr noundef nonnull %call15) #9
+  %call125 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %group.183, ptr noundef nonnull %call118, ptr noundef nonnull %20, i64 noundef %23, ptr noundef nonnull %call15) #9
   %tobool126.not = icmp eq i32 %call125, 0
   br i1 %tobool126.not, label %if.end186, label %if.end128
 
@@ -3643,17 +3643,17 @@ lor.lhs.false151.if.end156_crit_edge:             ; preds = %lor.lhs.false151
 if.end156:                                        ; preds = %lor.lhs.false151.if.end156_crit_edge, %if.end143
   %27 = phi ptr [ %.pre101, %lor.lhs.false151.if.end156_crit_edge ], [ null, %if.end143 ]
   %28 = load ptr, ptr %order, align 8
-  %call157 = call i32 @EC_GROUP_set_generator(ptr noundef nonnull %group.083, ptr noundef nonnull %call118, ptr noundef %28, ptr noundef %27)
+  %call157 = call i32 @EC_GROUP_set_generator(ptr noundef nonnull %group.183, ptr noundef nonnull %call118, ptr noundef %28, ptr noundef %27)
   %tobool158.not = icmp eq i32 %call157, 0
   br i1 %tobool158.not, label %if.end186, label %if.end160
 
 if.end160:                                        ; preds = %if.end156
-  %call161 = call fastcc ptr @ec_group_explicit_to_named(ptr noundef nonnull %group.083, ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %call15)
+  %call161 = call fastcc ptr @ec_group_explicit_to_named(ptr noundef nonnull %group.183, ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %call15)
   %cmp162 = icmp eq ptr %call161, null
   br i1 %cmp162, label %if.end186, label %if.end165
 
 if.end165:                                        ; preds = %if.end160
-  %cmp166 = icmp eq ptr %call161, %group.083
+  %cmp166 = icmp eq ptr %call161, %group.183
   br i1 %cmp166, label %if.then168, label %if.else181
 
 if.then168:                                       ; preds = %if.end165
@@ -3672,23 +3672,23 @@ if.end176:                                        ; preds = %land.lhs.true172
   br i1 %29, label %if.end186, label %if.end180
 
 if.end180:                                        ; preds = %if.then168, %if.end176
-  %asn1_flag.i = getelementptr inbounds i8, ptr %group.083, i64 36
+  %asn1_flag.i = getelementptr inbounds i8, ptr %group.183, i64 36
   store i32 0, ptr %asn1_flag.i, align 4
   br label %if.end186.thread
 
 if.else181:                                       ; preds = %if.end165
-  call void @EC_GROUP_free(ptr noundef nonnull %group.083)
+  call void @EC_GROUP_free(ptr noundef nonnull %group.183)
   br label %if.end186.thread
 
 if.end186.thread:                                 ; preds = %if.else181, %if.end180
-  %group.1 = phi ptr [ %group.083, %if.end180 ], [ %call161, %if.else181 ]
-  %decoded_from_explicit_params183 = getelementptr inbounds i8, ptr %group.1, i64 40
+  %group.2 = phi ptr [ %group.183, %if.end180 ], [ %call161, %if.else181 ]
+  %decoded_from_explicit_params183 = getelementptr inbounds i8, ptr %group.2, i64 40
   store i32 1, ptr %decoded_from_explicit_params183, align 8
   br label %if.end.i
 
 if.end186.thread97:                               ; preds = %if.else44, %if.then50, %if.then55, %if.then60, %if.then85, %if.end101, %if.end116, %if.then115, %if.then100, %if.then91, %if.then74, %if.then69, %if.then33, %if.then26
-  %group.2.ph.ph = phi ptr [ null, %if.then26 ], [ null, %if.then33 ], [ null, %if.then69 ], [ null, %if.then74 ], [ null, %if.then91 ], [ %group.083, %if.then100 ], [ %group.083, %if.then115 ], [ %group.083, %if.end116 ], [ %group.083, %if.end101 ], [ %call78, %if.then85 ], [ null, %if.then60 ], [ null, %if.then55 ], [ null, %if.then50 ], [ null, %if.else44 ]
-  call void @EC_GROUP_free(ptr noundef %group.2.ph.ph)
+  %group.0.ph.ph = phi ptr [ null, %if.then26 ], [ null, %if.then33 ], [ null, %if.then69 ], [ null, %if.then74 ], [ null, %if.then91 ], [ %group.183, %if.then100 ], [ %group.183, %if.then115 ], [ %group.183, %if.end116 ], [ %group.183, %if.end101 ], [ %call78, %if.then85 ], [ null, %if.then60 ], [ null, %if.then55 ], [ null, %if.then50 ], [ null, %if.else44 ]
+  call void @EC_GROUP_free(ptr noundef %group.0.ph.ph)
   br label %EC_POINT_free.exit
 
 if.end186:                                        ; preds = %if.end176, %land.lhs.true172, %if.end160, %if.end156, %if.then147, %lor.lhs.false151, %if.end128, %lor.lhs.false132, %lor.lhs.false135, %lor.lhs.false138, %if.end122
@@ -3697,11 +3697,11 @@ if.end186:                                        ; preds = %if.end176, %land.lh
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink104, ptr noundef nonnull @__func__.EC_GROUP_new_from_params) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #9
-  call void @EC_GROUP_free(ptr noundef nonnull %group.083)
+  call void @EC_GROUP_free(ptr noundef nonnull %group.183)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end186, %if.end186.thread
-  %group.395 = phi ptr [ %group.1, %if.end186.thread ], [ null, %if.end186 ]
+  %group.395 = phi ptr [ %group.2, %if.end186.thread ], [ null, %if.end186 ]
   %30 = load ptr, ptr %call118, align 8
   %point_finish.i = getelementptr inbounds i8, ptr %30, i64 88
   %31 = load ptr, ptr %point_finish.i, align 8
@@ -3801,7 +3801,7 @@ if.then21:                                        ; preds = %if.end19
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then21, %if.end, %if.end19
-  %ret_group.0 = phi ptr [ %call15, %if.then21 ], [ %call15, %if.end19 ], [ %group, %if.end ]
+  %ret_group.1 = phi ptr [ %call15, %if.then21 ], [ %call15, %if.end19 ], [ %group, %if.end ]
   tail call void @EC_GROUP_free(ptr noundef nonnull %call.i)
   br label %return
 
@@ -3812,7 +3812,7 @@ err:                                              ; preds = %if.end.i, %if.then8
   br label %return
 
 return:                                           ; preds = %err, %if.end28
-  %retval.0 = phi ptr [ null, %err ], [ %ret_group.0, %if.end28 ]
+  %retval.0 = phi ptr [ null, %err ], [ %ret_group.1, %if.end28 ]
   ret ptr %retval.0
 }
 
@@ -3839,10 +3839,10 @@ if.end7:                                          ; preds = %if.end3
   br i1 %cmp8, label %err, label %if.end10
 
 if.end10:                                         ; preds = %if.end3, %if.end7
-  %new_bnctx.014 = phi ptr [ %call6, %if.end7 ], [ null, %if.end3 ]
-  %bnctx.addr.013 = phi ptr [ %call6, %if.end7 ], [ %bnctx, %if.end3 ]
-  tail call void @BN_CTX_start(ptr noundef nonnull %bnctx.addr.013) #9
-  %call11 = call i32 @ossl_ec_group_todata(ptr noundef nonnull %group, ptr noundef nonnull %call, ptr noundef null, ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %bnctx.addr.013, ptr noundef nonnull %gen_buf) #9
+  %new_bnctx.114 = phi ptr [ %call6, %if.end7 ], [ null, %if.end3 ]
+  %bnctx.addr.113 = phi ptr [ %call6, %if.end7 ], [ %bnctx, %if.end3 ]
+  tail call void @BN_CTX_start(ptr noundef nonnull %bnctx.addr.113) #9
+  %call11 = call i32 @ossl_ec_group_todata(ptr noundef nonnull %group, ptr noundef nonnull %call, ptr noundef null, ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %bnctx.addr.113, ptr noundef nonnull %gen_buf) #9
   %tobool.not = icmp eq i32 %call11, 0
   br i1 %tobool.not, label %err, label %if.end13
 
@@ -3851,15 +3851,15 @@ if.end13:                                         ; preds = %if.end10
   br label %err
 
 err:                                              ; preds = %if.end10, %if.end7, %if.end, %entry, %if.end13
-  %bnctx.addr.1 = phi ptr [ %bnctx, %entry ], [ %bnctx, %if.end ], [ null, %if.end7 ], [ %bnctx.addr.013, %if.end13 ], [ %bnctx.addr.013, %if.end10 ]
+  %bnctx.addr.0 = phi ptr [ %bnctx, %entry ], [ %bnctx, %if.end ], [ null, %if.end7 ], [ %bnctx.addr.113, %if.end13 ], [ %bnctx.addr.113, %if.end10 ]
   %tmpl.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %call, %if.end7 ], [ %call, %if.end13 ], [ %call, %if.end10 ]
-  %new_bnctx.1 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end7 ], [ %new_bnctx.014, %if.end13 ], [ %new_bnctx.014, %if.end10 ]
+  %new_bnctx.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end7 ], [ %new_bnctx.114, %if.end13 ], [ %new_bnctx.114, %if.end10 ]
   %params.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end7 ], [ %call14, %if.end13 ], [ null, %if.end10 ]
   call void @OSSL_PARAM_BLD_free(ptr noundef %tmpl.0) #9
   %0 = load ptr, ptr %gen_buf, align 8
   call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 1790) #9
-  call void @BN_CTX_end(ptr noundef %bnctx.addr.1) #9
-  call void @BN_CTX_free(ptr noundef %new_bnctx.1) #9
+  call void @BN_CTX_end(ptr noundef %bnctx.addr.0) #9
+  call void @BN_CTX_free(ptr noundef %new_bnctx.0) #9
   ret ptr %params.0
 }
 

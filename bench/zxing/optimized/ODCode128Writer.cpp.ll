@@ -129,11 +129,11 @@ define void @_ZNK5ZXing4OneD13Code128Writer6encodeERKNSt7__cxx1112basic_stringIw
   br label %40
 
 40:                                               ; preds = %36, %38
-  %.175 = phi i1 [ %.074, %38 ], [ true, %36 ]
+  %.377 = phi i1 [ %.074, %38 ], [ true, %36 ]
   %.pn97 = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
-  br i1 %.175, label %41, label %_ZNSt7__cxx114listISt5arrayIiLm6EESaIS2_EED2Ev.exit129
+  br i1 %.377, label %41, label %_ZNSt7__cxx114listISt5arrayIiLm6EESaIS2_EED2Ev.exit129
 
 41:                                               ; preds = %.thread143, %.thread, %40
   %.pn97.pn.pn142 = phi { ptr, i32 } [ %34, %.thread ], [ %.pn97, %40 ], [ %35, %.thread143 ]
@@ -461,12 +461,12 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
 180:                                              ; preds = %178, %179, %177, %175, %173
   %.289 = phi i32 [ %174, %173 ], [ %.087164, %175 ], [ %.087164, %177 ], [ %.087164, %179 ], [ %.087164, %178 ]
   %.186 = phi i32 [ %.085166, %173 ], [ %.041.i, %175 ], [ %.041.i, %177 ], [ 99, %179 ], [ %.041.i, %178 ]
-  %.284 = phi i32 [ %.082, %173 ], [ %.041.i, %175 ], [ 103, %177 ], [ 105, %179 ], [ 104, %178 ]
+  %.183 = phi i32 [ %.082, %173 ], [ %.041.i, %175 ], [ 103, %177 ], [ 105, %179 ], [ 104, %178 ]
   %181 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #9
           to label %182 unwind label %.loopexit155
 
 182:                                              ; preds = %180
-  %183 = sext i32 %.284 to i64
+  %183 = sext i32 %.183 to i64
   %184 = getelementptr inbounds [107 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 0, i64 %183
   %185 = getelementptr inbounds i8, ptr %181, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %185, ptr noundef nonnull align 4 dereferenceable(24) %184, i64 24, i1 false)
@@ -474,7 +474,7 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
   %186 = load i64, ptr %43, align 8
   %187 = add i64 %186, 1
   store i64 %187, ptr %43, align 8
-  %188 = mul nsw i32 %.284, %.079168
+  %188 = mul nsw i32 %.183, %.079168
   %189 = add nsw i32 %188, %.078169
   %.not = icmp ne i32 %.289, 0
   %190 = zext i1 %.not to i32

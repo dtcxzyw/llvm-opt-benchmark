@@ -285,8 +285,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ._crit_edge260:                                   ; preds = %._crit_edge260.loopexit, %28
   %31 = phi ptr [ %29, %28 ], [ %.pre303, %._crit_edge260.loopexit ]
-  %.149.lcssa = phi i32 [ %.048263, %28 ], [ %.452, %._crit_edge260.loopexit ]
-  %.144.lcssa = phi i1 [ false, %28 ], [ %.447, %._crit_edge260.loopexit ]
+  %.149.lcssa = phi i32 [ %.048263, %28 ], [ %.250, %._crit_edge260.loopexit ]
+  %.144.lcssa = phi i1 [ false, %28 ], [ %.245, %._crit_edge260.loopexit ]
   %.not.i.i.i64 = icmp eq ptr %31, null
   br i1 %.not.i.i.i64, label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit, label %32
 
@@ -304,8 +304,8 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge260,
   br label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit93
 
 .lr.ph259:                                        ; preds = %28, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit
-  %.144257 = phi i1 [ %.447, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit ], [ false, %28 ]
-  %.149256 = phi i32 [ %.452, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit ], [ %.048263, %28 ]
+  %.144257 = phi i1 [ %.245, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit ], [ false, %28 ]
+  %.149256 = phi i32 [ %.250, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit ], [ %.048263, %28 ]
   %.sroa.0116.0255 = phi ptr [ %405, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit ], [ %29, %28 ]
   %35 = load ptr, ptr %.sroa.0116.0255, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
@@ -347,8 +347,8 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge260,
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %45
   %49 = phi ptr [ %46, %45 ], [ %.pre302, %._crit_edge.loopexit ]
-  %.250.lcssa = phi i32 [ %.149256, %45 ], [ %.351, %._crit_edge.loopexit ]
-  %.245.lcssa = phi i1 [ %.144257, %45 ], [ %.346, %._crit_edge.loopexit ]
+  %.351.lcssa = phi i32 [ %.149256, %45 ], [ %.452, %._crit_edge.loopexit ]
+  %.346.lcssa = phi i1 [ %.144257, %45 ], [ %.447, %._crit_edge.loopexit ]
   %.not.i.i.i65 = icmp eq ptr %49, null
   br i1 %.not.i.i.i65, label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit, label %50
 
@@ -357,8 +357,8 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge260,
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit
 
 51:                                               ; preds = %.lr.ph, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
-  %.245252 = phi i1 [ %.144257, %.lr.ph ], [ %.346, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
-  %.250251 = phi i32 [ %.149256, %.lr.ph ], [ %.351, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
+  %.346252 = phi i1 [ %.144257, %.lr.ph ], [ %.447, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
+  %.351251 = phi i32 [ %.149256, %.lr.ph ], [ %.452, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
   %.sroa.0112.0250 = phi ptr [ %46, %.lr.ph ], [ %387, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
   %52 = load ptr, ptr %.sroa.0112.0250, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 76
@@ -1096,12 +1096,12 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5count
           to label %370 unwind label %.loopexit124
 
 370:                                              ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5countERKS3_.exit
-  %371 = add nsw i32 %.250251, 1
+  %371 = add nsw i32 %.351251, 1
   br label %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit.thread
 
 _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit.thread: ; preds = %.noexc71, %97, %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit, %79, %370
-  %.351 = phi i32 [ %371, %370 ], [ %.250251, %79 ], [ %.250251, %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit ], [ %.250251, %97 ], [ %.250251, %.noexc71 ]
-  %.346 = phi i1 [ true, %370 ], [ %.245252, %79 ], [ %.245252, %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit ], [ %.245252, %97 ], [ %.245252, %.noexc71 ]
+  %.452 = phi i32 [ %371, %370 ], [ %.351251, %79 ], [ %.351251, %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit ], [ %.351251, %97 ], [ %.351251, %.noexc71 ]
+  %.447 = phi i1 [ true, %370 ], [ %.346252, %79 ], [ %.346252, %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit ], [ %.346252, %97 ], [ %.346252, %.noexc71 ]
   %372 = load i32, ptr %10, align 4
   %373 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %374 = trunc i8 %373 to i1
@@ -1176,8 +1176,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZNK5Yosys5RTLIL10A
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit91
 
 _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit: ; preds = %50, %._crit_edge, %41
-  %.452 = phi i32 [ %.149256, %41 ], [ %.250.lcssa, %._crit_edge ], [ %.250.lcssa, %50 ]
-  %.447 = phi i1 [ %.144257, %41 ], [ %.245.lcssa, %._crit_edge ], [ %.245.lcssa, %50 ]
+  %.250 = phi i32 [ %.149256, %41 ], [ %.351.lcssa, %._crit_edge ], [ %.351.lcssa, %50 ]
+  %.245 = phi i1 [ %.144257, %41 ], [ %.346.lcssa, %._crit_edge ], [ %.346.lcssa, %50 ]
   %405 = getelementptr inbounds i8, ptr %.sroa.0116.0255, i64 8
   %.not = icmp eq ptr %405, %30
   br i1 %.not, label %._crit_edge260.loopexit, label %.lr.ph259

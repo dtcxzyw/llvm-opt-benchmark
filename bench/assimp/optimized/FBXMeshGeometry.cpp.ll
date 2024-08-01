@@ -2658,10 +2658,10 @@ if.end.i:                                         ; preds = %_ZNSt6vectorIjSaIjE
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
   %incdec.ptr.i19.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %incdec.ptr.i15.i, %if.end.i ]
   %__value.018.i = phi i32 [ %add.i, %while.body.i ], [ %7, %if.end.i ]
-  %__result.sroa.0.017.i = phi ptr [ %incdec.ptr.i5.i, %while.body.i ], [ %add.ptr.i3, %if.end.i ]
+  %__result.sroa.0.117.i = phi ptr [ %incdec.ptr.i5.i, %while.body.i ], [ %add.ptr.i3, %if.end.i ]
   %8 = load i32, ptr %incdec.ptr.i19.i, align 4
   %add.i = add i32 %8, %__value.018.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %__result.sroa.0.017.i, i64 4
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %__result.sroa.0.117.i, i64 4
   store i32 %add.i, ptr %incdec.ptr.i5.i, align 4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i19.i, i64 4
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i.i, %4

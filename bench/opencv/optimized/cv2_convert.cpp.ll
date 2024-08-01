@@ -800,7 +800,7 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
 
 .thread292:                                       ; preds = %282, %297, %293
   %303 = phi i32 [ %296, %293 ], [ %296, %297 ], [ %.0211, %282 ]
-  %.3 = phi i8 [ %.1206.lcssa, %293 ], [ %spec.select, %297 ], [ %.1206.lcssa, %282 ]
+  %.4 = phi i8 [ %.1206.lcssa, %293 ], [ %spec.select, %297 ], [ %.1206.lcssa, %282 ]
   %304 = lshr i32 %303, 3
   %305 = and i32 %304, 511
   %306 = add nuw nsw i32 %305, 1
@@ -812,8 +812,8 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
   %.1212 = phi i32 [ %303, %.thread292 ], [ %.0211, %._crit_edge ]
   %.0209 = phi i32 [ %253, %.thread292 ], [ %.val262, %._crit_edge ]
   %.0208 = phi i64 [ %308, %.thread292 ], [ %220, %._crit_edge ]
-  %.4 = phi i8 [ %.3, %.thread292 ], [ %.1206.lcssa, %._crit_edge ]
-  %310 = trunc nuw i8 %.4 to i1
+  %.3 = phi i8 [ %.4, %.thread292 ], [ %.1206.lcssa, %._crit_edge ]
+  %310 = trunc nuw i8 %.3 to i1
   br i1 %310, label %311, label %339
 
 311:                                              ; preds = %309
@@ -860,14 +860,14 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
   br label %337
 
 337:                                              ; preds = %329, %332, %318
-  %.0190 = phi ptr [ %325, %318 ], [ %0, %329 ], [ %336, %332 ]
-  %338 = getelementptr i8, ptr %.0190, i64 40
-  %.0190.val = load ptr, ptr %338, align 8
+  %.1 = phi ptr [ %325, %318 ], [ %0, %329 ], [ %336, %332 ]
+  %338 = getelementptr i8, ptr %.1, i64 40
+  %.1.val = load ptr, ptr %338, align 8
   br label %339
 
 339:                                              ; preds = %337, %309
-  %.0204 = phi ptr [ %.0190.val, %337 ], [ %.val264, %309 ]
-  %.1 = phi ptr [ %.0190, %337 ], [ %0, %309 ]
+  %.0204 = phi ptr [ %.1.val, %337 ], [ %.val264, %309 ]
+  %.0190 = phi ptr [ %.1, %337 ], [ %0, %309 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %14, i8 0, i64 132, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %15, i8 0, i64 264, i1 false)
   %340 = icmp sgt i32 %.0209, 0
@@ -932,13 +932,13 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
 
 _ZN2cv3MataSERKNS_7MatExprE.exit280:              ; preds = %363
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %16) #12
-  %368 = getelementptr i8, ptr %.1, i64 16
-  %.1.val = load ptr, ptr %368, align 8
+  %368 = getelementptr i8, ptr %.0190, i64 16
+  %.0190.val = load ptr, ptr %368, align 8
   %369 = icmp sgt i32 %.pre, 0
   br i1 %369, label %.lr.ph316, label %_ZL10_Py_DECREFP7_object.exit
 
 .lr.ph316:                                        ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit280
-  %370 = getelementptr inbounds i8, ptr %.1, i64 56
+  %370 = getelementptr inbounds i8, ptr %.0190, i64 56
   %wide.trip.count327 = zext nneg i32 %.pre to i64
   br label %371
 
@@ -946,13 +946,13 @@ _ZN2cv3MataSERKNS_7MatExprE.exit280:              ; preds = %363
   %indvars.iv324 = phi i64 [ 0, %.lr.ph316 ], [ %indvars.iv.next325, %396 ]
   %372 = load i64, ptr %15, align 16
   %373 = mul i64 %372, %indvars.iv324
-  %374 = getelementptr inbounds i8, ptr %.1.val, i64 %373
+  %374 = getelementptr inbounds i8, ptr %.0190.val, i64 %373
   %375 = load ptr, ptr %370, align 8
   %376 = getelementptr inbounds i8, ptr %375, i64 64
   %377 = load ptr, ptr %376, align 8
   %378 = getelementptr inbounds i8, ptr %377, i64 168
   %379 = load ptr, ptr %378, align 8
-  %380 = call noundef ptr %379(ptr noundef %374, ptr noundef nonnull %.1)
+  %380 = call noundef ptr %379(ptr noundef %374, ptr noundef nonnull %.0190)
   %381 = getelementptr inbounds i8, ptr %380, i64 8
   %382 = load ptr, ptr %381, align 8
   %383 = getelementptr i8, ptr %382, i64 168
@@ -1011,25 +1011,25 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282.thread: ; preds = %390, 
 
 401:                                              ; preds = %400, %._crit_edge314.thread
   %.1210 = phi i32 [ 1, %400 ], [ %.0209, %._crit_edge314.thread ]
-  %402 = getelementptr i8, ptr %.1, i64 16
-  %.1.val265 = load ptr, ptr %402, align 8
-  call void @_ZN2cv3MatC1EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.1210, ptr noundef nonnull %14, i32 noundef %.1212, ptr noundef %.1.val265, ptr noundef nonnull %15)
+  %402 = getelementptr i8, ptr %.0190, i64 16
+  %.0190.val265 = load ptr, ptr %402, align 8
+  call void @_ZN2cv3MatC1EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.1210, ptr noundef nonnull %14, i32 noundef %.1212, ptr noundef %.0190.val265, ptr noundef nonnull %15)
   %403 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %17)
           to label %404 unwind label %411
 
 404:                                              ; preds = %401
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #12
   %405 = call noundef nonnull align 8 dereferenceable(16) ptr @_Z17GetNumpyAllocatorv()
-  %406 = call noundef ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiPm(ptr noundef nonnull align 8 dereferenceable(16) %405, ptr noundef nonnull %.1, i32 noundef %.1210, ptr noundef nonnull %14, i32 noundef %.1212, ptr noundef nonnull %15)
+  %406 = call noundef ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiPm(ptr noundef nonnull align 8 dereferenceable(16) %405, ptr noundef nonnull %.0190, i32 noundef %.1210, ptr noundef nonnull %14, i32 noundef %.1212, ptr noundef nonnull %15)
   %407 = getelementptr inbounds i8, ptr %1, i64 56
   store ptr %406, ptr %407, align 8
   call void @_ZN2cv3Mat6addrefEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
   br i1 %310, label %413, label %408
 
 408:                                              ; preds = %404
-  %409 = load i64, ptr %.1, align 8
+  %409 = load i64, ptr %.0190, align 8
   %410 = add nsw i64 %409, 1
-  store i64 %410, ptr %.1, align 8
+  store i64 %410, ptr %.0190, align 8
   br label %413
 
 411:                                              ; preds = %401
@@ -1570,7 +1570,7 @@ _ZN14PyAllowThreadsD2Ev.exit:                     ; preds = %38, %_Z17GetNumpyAl
   br label %77
 
 77:                                               ; preds = %.invoke, %_ZN14PyAllowThreadsD2Ev.exit
-  %.0 = phi ptr [ %74, %_ZN14PyAllowThreadsD2Ev.exit ], [ null, %.invoke ]
+  %.1 = phi ptr [ %74, %_ZN14PyAllowThreadsD2Ev.exit ], [ null, %.invoke ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #12
   br label %78
 
@@ -1580,8 +1580,8 @@ _ZN14PyAllowThreadsD2Ev.exit:                     ; preds = %38, %_Z17GetNumpyAl
   resume { ptr, i32 } %.pn27
 
 78:                                               ; preds = %77, %6
-  %.1 = phi ptr [ %.0, %77 ], [ @_Py_NoneStruct, %6 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %77 ], [ @_Py_NoneStruct, %6 ]
+  ret ptr %.0
 
 79:                                               ; preds = %70, %68, %66
   %80 = landingpad { ptr, i32 }
@@ -1887,8 +1887,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread: ; preds = %44, %4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %16, %.preheader, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread, %3, %53, %13
-  %.2 = phi i1 [ false, %13 ], [ false, %53 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread ], [ true, %.preheader ], [ %switch, %16 ], [ %switch, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
-  ret i1 %.2
+  %.025 = phi i1 [ false, %13 ], [ false, %53 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread ], [ true, %.preheader ], [ %switch, %16 ], [ %switch, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  ret i1 %.025
 }
 
 declare i32 @PySequence_Check(ptr noundef) local_unnamed_addr #0
@@ -2974,13 +2974,13 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toINSt7__cxx1112basic_stringIcSt1
           to label %36 unwind label %19
 
 36:                                               ; preds = %29, %28, %24, %16
-  %.0 = phi i1 [ false, %16 ], [ true, %24 ], [ false, %28 ], [ false, %29 ]
+  %.1 = phi i1 [ false, %16 ], [ true, %24 ], [ false, %28 ], [ false, %29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   br label %37
 
 37:                                               ; preds = %3, %36
-  %.1 = phi i1 [ %.0, %36 ], [ true, %3 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %36 ], [ true, %3 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind
@@ -3033,7 +3033,7 @@ define internal fastcc noundef zeroext i1 @_ZL16getUnicodeStringP7_objectRNSt7__
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %9, %18, %15
-  %.0 = phi i1 [ true, %18 ], [ false, %15 ], [ false, %9 ]
+  %.1 = phi i1 [ true, %18 ], [ false, %15 ], [ false, %9 ]
   %23 = load i64, ptr %10, align 8
   %24 = add nsw i64 %23, -1
   store i64 %24, ptr %10, align 8
@@ -3045,8 +3045,8 @@ define internal fastcc noundef zeroext i1 @_ZL16getUnicodeStringP7_objectRNSt7__
   br label %_ZL11_Py_XDECREFP7_object.exit
 
 _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %25, %22, %2
-  %.1 = phi i1 [ false, %2 ], [ %.0, %22 ], [ %.0, %25 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %2 ], [ %.1, %22 ], [ %.1, %25 ]
+  ret i1 %.0
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -3159,8 +3159,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
   br i1 %brmerge.not, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.2 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
-  ret i1 %.2
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3260,8 +3260,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
   br i1 %brmerge.not, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.2 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
-  ret i1 %.2
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3370,8 +3370,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.2 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
-  ret i1 %.2
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3482,8 +3482,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.2 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
-  ret i1 %.2
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3598,8 +3598,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.2 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
-  ret i1 %.2
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3871,8 +3871,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59: ; preds = %83
   br label %95
 
 95:                                               ; preds = %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread, %94, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %41, %35
-  %.335 = phi i1 [ false, %41 ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58 ], [ false, %35 ], [ true, %3 ], [ %89, %94 ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63 ]
-  ret i1 %.335
+  %.032 = phi i1 [ false, %41 ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58 ], [ false, %35 ], [ true, %3 ], [ %89, %94 ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63 ]
+  ret i1 %.032
 }
 
 declare void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #0
@@ -4071,8 +4071,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
   br i1 %brmerge.not, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.2 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
-  ret i1 %.2
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4176,8 +4176,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.2 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
-  ret i1 %.2
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4283,8 +4283,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.2 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
-  ret i1 %.2
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4393,8 +4393,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
   br i1 %or.cond37.not, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %13, %8
-  %.2 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
-  ret i1 %.2
+  %.021 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %3 ], [ %18, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4830,8 +4830,8 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59:        ; preds = %69, %70, %73
   br label %77
 
 77:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %20, %14
-  %.333 = phi i1 [ false, %20 ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55 ], [ false, %14 ], [ true, %3 ], [ %64, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59 ]
-  ret i1 %.333
+  %.030 = phi i1 [ false, %20 ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55 ], [ false, %14 ], [ true, %3 ], [ %64, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59 ]
+  ret i1 %.030
 
 78:                                               ; preds = %65, %67, %46, %48, %27, %29
   %.sink = phi ptr [ %4, %29 ], [ %4, %27 ], [ %6, %48 ], [ %6, %46 ], [ %8, %67 ], [ %8, %65 ]

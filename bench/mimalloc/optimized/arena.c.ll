@@ -761,7 +761,7 @@ while.cond.preheader.i:                           ; preds = %for.body.i
 
 while.cond17.preheader.i:                         ; preds = %if.end42.i, %while.cond.preheader.i
   %any_purged.154.i = phi i1 [ %any_purged.058.i, %while.cond.preheader.i ], [ %any_purged.2.i, %if.end42.i ]
-  %full_purge.153.i = phi i1 [ %full_purge.057.i, %while.cond.preheader.i ], [ %full_purge.3.i, %if.end42.i ]
+  %full_purge.153.i = phi i1 [ %full_purge.057.i, %while.cond.preheader.i ], [ %full_purge.2.i, %if.end42.i ]
   %bitidx.051.i = phi i64 [ 0, %while.cond.preheader.i ], [ %add44.i, %if.end42.i ]
   %purge.050.i = phi i64 [ %12, %while.cond.preheader.i ], [ %purge.1.i, %if.end42.i ]
   %invariant.op.i = add nuw nsw i64 %bitidx.051.i, 1
@@ -893,7 +893,7 @@ mi_arena_purge_range.exit.thread.i:               ; preds = %mi_arena_purge_rang
 if.end42.i:                                       ; preds = %if.end28.i, %mi_arena_purge_range.exit.thread.i, %while.end.i
   %bitlen.145.i = phi i64 [ %bitlen.149.i, %mi_arena_purge_range.exit.thread.i ], [ 0, %while.end.i ], [ 0, %if.end28.i ]
   %purge.1.i = phi i64 [ %16, %mi_arena_purge_range.exit.thread.i ], [ %purge.050.i, %while.end.i ], [ %purge.050.i, %if.end28.i ]
-  %full_purge.3.i = phi i1 [ %26, %mi_arena_purge_range.exit.thread.i ], [ %full_purge.153.i, %while.end.i ], [ %full_purge.153.i, %if.end28.i ]
+  %full_purge.2.i = phi i1 [ %26, %mi_arena_purge_range.exit.thread.i ], [ %full_purge.153.i, %while.end.i ], [ %full_purge.153.i, %if.end28.i ]
   %any_purged.2.i = phi i1 [ true, %mi_arena_purge_range.exit.thread.i ], [ %any_purged.154.i, %while.end.i ], [ %any_purged.154.i, %if.end28.i ]
   %add44.i = add i64 %bitlen.145.i, %invariant.op.i
   %cmp16.i = icmp ult i64 %add44.i, 64
@@ -905,7 +905,7 @@ for.inc.loopexit.i:                               ; preds = %if.end42.i
 
 for.inc.i:                                        ; preds = %for.inc.loopexit.i, %for.body.i
   %28 = phi i64 [ %10, %for.body.i ], [ %.pre.i, %for.inc.loopexit.i ]
-  %full_purge.4.i = phi i1 [ %full_purge.057.i, %for.body.i ], [ %full_purge.3.i, %for.inc.loopexit.i ]
+  %full_purge.4.i = phi i1 [ %full_purge.057.i, %for.body.i ], [ %full_purge.2.i, %for.inc.loopexit.i ]
   %any_purged.3.i = phi i1 [ %any_purged.058.i, %for.body.i ], [ %any_purged.2.i, %for.inc.loopexit.i ]
   %inc47.i = add nuw i64 %i.056.i, 1
   %cmp11.i = icmp ult i64 %inc47.i, %28

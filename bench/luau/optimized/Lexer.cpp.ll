@@ -6143,7 +6143,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph, %25, %58, %152, %28, %_ZN4LuauL8unescapeEc.exit, %._crit_edge.thread, %32, %.preheader122, %10
-  %.0105.be = phi i64 [ %15, %10 ], [ %.3.lcssa165, %._crit_edge.thread ], [ %23, %_ZN4LuauL8unescapeEc.exit ], [ %153, %152 ], [ %38, %58 ], [ %23, %28 ], [ %23, %25 ], [ %spec.select, %32 ], [ %23, %.preheader122 ], [ %.1106135, %.lr.ph ]
+  %.0105.be = phi i64 [ %15, %10 ], [ %.4.lcssa165, %._crit_edge.thread ], [ %23, %_ZN4LuauL8unescapeEc.exit ], [ %153, %152 ], [ %38, %58 ], [ %23, %28 ], [ %23, %25 ], [ %spec.select, %32 ], [ %23, %.preheader122 ], [ %.2135, %.lr.ph ]
   %.0102.be = phi i64 [ %13, %10 ], [ %177, %._crit_edge.thread ], [ %187, %_ZN4LuauL8unescapeEc.exit ], [ %154, %152 ], [ %60, %58 ], [ %29, %28 ], [ %26, %25 ], [ %29, %32 ], [ %.0102150, %.preheader122 ], [ %.0102150, %.lr.ph ]
   %16 = icmp ult i64 %.0105.be, %7
   br i1 %16, label %.lr.ph152, label %._crit_edge153, !llvm.loop !32
@@ -6229,8 +6229,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br label %.backedge
 
 .lr.ph:                                           ; preds = %.preheader122, %64
-  %.1106135 = phi i64 [ %65, %64 ], [ %23, %.preheader122 ]
-  %62 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1106135)
+  %.2135 = phi i64 [ %65, %64 ], [ %23, %.preheader122 ]
+  %62 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.2135)
   %63 = load i8, ptr %62, align 1
   switch i8 %63, label %.backedge [
     i8 32, label %64
@@ -6242,7 +6242,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   ]
 
 64:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %65 = add i64 %.1106135, 1
+  %65 = add i64 %.2135, 1
   %exitcond158.not = icmp eq i64 %65, %7
   br i1 %exitcond158.not, label %._crit_edge153, label %.lr.ph, !llvm.loop !34
 
@@ -6267,12 +6267,12 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
 .preheader123:                                    ; preds = %72, %90
   %.0103134 = phi i32 [ %96, %90 ], [ 0, %72 ]
   %.0104133 = phi i32 [ %94, %90 ], [ 0, %72 ]
-  %.2132 = phi i64 [ %95, %90 ], [ %73, %72 ]
-  %77 = icmp eq i64 %.2132, %7
+  %.3132 = phi i64 [ %95, %90 ], [ %73, %72 ]
+  %77 = icmp eq i64 %.3132, %7
   br i1 %77, label %_ZN4LuauL6toUtf8EPcj.exit, label %78
 
 78:                                               ; preds = %.preheader123
-  %79 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.2132)
+  %79 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.3132)
   %80 = load i8, ptr %79, align 1
   %81 = icmp eq i8 %80, 125
   br i1 %81, label %97, label %82
@@ -6292,19 +6292,19 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   %92 = add nsw i32 %86, -87
   %93 = select i1 %85, i32 %84, i32 %92
   %94 = add i32 %93, %91
-  %95 = add i64 %.2132, 1
+  %95 = add i64 %.3132, 1
   %96 = add nuw nsw i32 %.0103134, 1
   %exitcond.not = icmp eq i32 %96, 16
   br i1 %exitcond.not, label %97, label %.preheader123, !llvm.loop !35
 
 97:                                               ; preds = %78, %90
-  %.2.lcssa = phi i64 [ %.2132, %78 ], [ %95, %90 ]
+  %.3.lcssa = phi i64 [ %.3132, %78 ], [ %95, %90 ]
   %.0104.lcssa = phi i32 [ %.0104133, %78 ], [ %94, %90 ]
-  %98 = icmp eq i64 %.2.lcssa, %7
+  %98 = icmp eq i64 %.3.lcssa, %7
   br i1 %98, label %_ZN4LuauL6toUtf8EPcj.exit, label %99
 
 99:                                               ; preds = %97
-  %100 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.2.lcssa)
+  %100 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.3.lcssa)
   %101 = load i8, ptr %100, align 1
   %.not117 = icmp eq i8 %101, 125
   br i1 %.not117, label %102, label %_ZN4LuauL6toUtf8EPcj.exit
@@ -6387,7 +6387,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
 
 152:                                              ; preds = %105, %109, %119, %134
   %.0.i.ph = phi i64 [ 4, %134 ], [ 3, %119 ], [ 2, %109 ], [ 1, %105 ]
-  %153 = add i64 %.2.lcssa, 1
+  %153 = add i64 %.3.lcssa, 1
   %154 = add i64 %.0.i.ph, %.0102150
   br label %.backedge
 
@@ -6404,8 +6404,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
 .lr.ph143:                                        ; preds = %.preheader, %166
   %160 = phi i1 [ true, %166 ], [ false, %.preheader ]
   %.0100141 = phi i32 [ %172, %166 ], [ %157, %.preheader ]
-  %.3140 = phi i64 [ %173, %166 ], [ %23, %.preheader ]
-  %161 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.3140)
+  %.4140 = phi i64 [ %173, %166 ], [ %23, %.preheader ]
+  %161 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.4140)
   %162 = load i8, ptr %161, align 1
   %163 = sext i8 %162 to i32
   %164 = add nsw i32 %163, -48
@@ -6414,25 +6414,25 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
 
 166:                                              ; preds = %.lr.ph143
   %167 = mul i32 %.0100141, 10
-  %168 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.3140)
+  %168 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.4140)
   %169 = load i8, ptr %168, align 1
   %170 = sext i8 %169 to i32
   %171 = add i32 %167, -48
   %172 = add i32 %171, %170
-  %173 = add i64 %.3140, 1
+  %173 = add i64 %.4140, 1
   %174 = icmp eq i64 %173, %7
   %or.cond = or i1 %160, %174
   br i1 %or.cond, label %._crit_edge, label %.lr.ph143, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %166, %.lr.ph143
-  %.3.lcssa = phi i64 [ %173, %166 ], [ %.3140, %.lr.ph143 ]
+  %.4.lcssa = phi i64 [ %173, %166 ], [ %.4140, %.lr.ph143 ]
   %.0100.lcssa = phi i32 [ %172, %166 ], [ %.0100141, %.lr.ph143 ]
   %175 = icmp ugt i32 %.0100.lcssa, 255
   br i1 %175, label %_ZN4LuauL6toUtf8EPcj.exit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %.0100.lcssa166 = phi i32 [ %.0100.lcssa, %._crit_edge ], [ %157, %.preheader ]
-  %.3.lcssa165 = phi i64 [ %.3.lcssa, %._crit_edge ], [ %7, %.preheader ]
+  %.4.lcssa165 = phi i64 [ %.4.lcssa, %._crit_edge ], [ %7, %.preheader ]
   %176 = trunc nuw i32 %.0100.lcssa166 to i8
   %177 = add i64 %.0102150, 1
   %178 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0102150)

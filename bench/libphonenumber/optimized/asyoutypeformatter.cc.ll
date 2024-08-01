@@ -2432,8 +2432,8 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   resume { ptr, i32 } %.pn.pn
 
 60:                                               ; preds = %1, %58
-  %.110 = phi i1 [ %14, %58 ], [ false, %1 ]
-  ret i1 %.110
+  %.09 = phi i1 [ %14, %58 ], [ false, %1 ]
+  ret i1 %.09
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2640,12 +2640,12 @@ _ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit: ; preds = %40
   br i1 %64, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %61, %50, %63
-  %.0918 = phi i64 [ 0, %63 ], [ %52, %50 ], [ %52, %61 ]
+  %.118 = phi i64 [ 0, %63 ], [ %52, %50 ], [ %52, %61 ]
   %65 = load ptr, ptr %34, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(8) %34) #15
-  %68 = shl i64 %.0918, 32
+  %68 = shl i64 %.118, 32
   %69 = ashr exact i64 %68, 32
   br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit
 
@@ -2673,10 +2673,10 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit13: ; preds = 
   resume { ptr, i32 } %.pn23
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %.thread, %63, %_ZNK4i18n12phonenumbers18AsYouTypeFormatter31IsNanpaNumberWithNationalPrefixEv.exit.thread, %20
-  %.1 = phi i64 [ 1, %20 ], [ 0, %_ZNK4i18n12phonenumbers18AsYouTypeFormatter31IsNanpaNumberWithNationalPrefixEv.exit.thread ], [ 0, %63 ], [ %69, %.thread ]
+  %.09 = phi i64 [ 1, %20 ], [ 0, %_ZNK4i18n12phonenumbers18AsYouTypeFormatter31IsNanpaNumberWithNationalPrefixEv.exit.thread ], [ 0, %63 ], [ %69, %.thread ]
   %76 = getelementptr inbounds i8, ptr %0, i64 680
-  %77 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 noundef 0, i64 noundef %.1)
-  %78 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %76, i64 noundef 0, i64 noundef %.1)
+  %77 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 noundef 0, i64 noundef %.09)
+  %78 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %76, i64 noundef 0, i64 noundef %.09)
   ret void
 }
 

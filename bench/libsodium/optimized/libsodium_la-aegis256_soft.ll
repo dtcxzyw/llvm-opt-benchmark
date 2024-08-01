@@ -699,9 +699,9 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   %104 = phi i64 [ %.promoted223, %for.body24.lr.ph ], [ %108, %for.body24 ]
   %105 = phi i64 [ %arrayidx.i40.promoted, %for.body24.lr.ph ], [ %107, %for.body24 ]
   %add22220 = phi i64 [ 16, %for.body24.lr.ph ], [ %add22, %for.body24 ]
-  %i.2219 = phi i64 [ 0, %for.body24.lr.ph ], [ %add22220, %for.body24 ]
+  %i.3219 = phi i64 [ 0, %for.body24.lr.ph ], [ %add22220, %for.body24 ]
   %xor1.i.i158216218 = phi i64 [ %state.promoted215, %for.body24.lr.ph ], [ %xor1.i.i158, %for.body24 ]
-  %add.ptr26 = getelementptr i8, ptr %c, i64 %i.2219
+  %add.ptr26 = getelementptr i8, ptr %c, i64 %i.3219
   %add.ptr26.val = load i64, ptr %add.ptr26, align 1
   %106 = getelementptr i8, ptr %add.ptr26, i64 8
   %add.ptr26.val39 = load i64, ptr %106, align 1
@@ -769,7 +769,7 @@ for.cond21.if.end31.loopexit192_crit_edge:        ; preds = %for.body24
 
 if.end31:                                         ; preds = %for.cond21.if.end31.loopexit192_crit_edge, %for.cond11.if.end31.loopexit_crit_edge
   %storemerge = phi i64 [ %xor1.i.i158, %for.cond21.if.end31.loopexit192_crit_edge ], [ %xor1.i.i142, %for.cond11.if.end31.loopexit_crit_edge ]
-  %i.3 = phi i64 [ %add22220, %for.cond21.if.end31.loopexit192_crit_edge ], [ %add12245, %for.cond11.if.end31.loopexit_crit_edge ]
+  %i.2 = phi i64 [ %add22220, %for.cond21.if.end31.loopexit192_crit_edge ], [ %add12245, %for.cond11.if.end31.loopexit_crit_edge ]
   store i64 %storemerge, ptr %state, align 16
   %rem32 = and i64 %clen, 15
   %tobool33.not = icmp eq i64 %rem32, 0
@@ -787,10 +787,10 @@ if.then34:                                        ; preds = %if.end31
   br i1 %cmp9, label %if.then36, label %if.else41
 
 if.then36:                                        ; preds = %if.end31.thread303, %if.then34
-  %i.3297311 = phi i64 [ %i.3, %if.then34 ], [ 0, %if.end31.thread303 ]
+  %i.2297311 = phi i64 [ %i.2, %if.then34 ], [ 0, %if.end31.thread303 ]
   %rem32298310 = phi i64 [ %rem32, %if.then34 ], [ %clen, %if.end31.thread303 ]
-  %add.ptr37 = getelementptr i8, ptr %m, i64 %i.3297311
-  %add.ptr38 = getelementptr i8, ptr %c, i64 %i.3297311
+  %add.ptr37 = getelementptr i8, ptr %m, i64 %i.2297311
+  %add.ptr38 = getelementptr i8, ptr %c, i64 %i.2297311
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pad.i)
   %127 = sub nuw nsw i64 16, %rem32298310
   %128 = getelementptr i8, ptr %pad.i, i64 %rem32298310
@@ -886,9 +886,9 @@ if.then36:                                        ; preds = %if.end31.thread303,
   br label %if.end47
 
 if.else41:                                        ; preds = %if.end31.thread, %if.then34
-  %i.3297302 = phi i64 [ %i.3, %if.then34 ], [ 0, %if.end31.thread ]
+  %i.2297302 = phi i64 [ %i.2, %if.then34 ], [ 0, %if.end31.thread ]
   %rem32298301 = phi i64 [ %rem32, %if.then34 ], [ %clen, %if.end31.thread ]
-  %add.ptr43 = getelementptr i8, ptr %c, i64 %i.3297302
+  %add.ptr43 = getelementptr i8, ptr %c, i64 %i.2297302
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pad.i76)
   %165 = sub nuw nsw i64 16, %rem32298301
   %166 = getelementptr i8, ptr %pad.i76, i64 %rem32298301

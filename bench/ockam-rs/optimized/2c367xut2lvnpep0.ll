@@ -3466,8 +3466,8 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$aes_gcm..AesGcm$LT$Aes$C$NonceSize$
   br label %32
 
 32:                                               ; preds = %7, %31
-  %.1 = phi i1 [ %25, %31 ], [ true, %7 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %25, %31 ], [ true, %7 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

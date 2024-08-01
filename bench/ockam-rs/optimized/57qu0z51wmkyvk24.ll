@@ -87,7 +87,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   br i1 %23, label %.preheader.i, label %.thread.i
 
 24:                                               ; preds = %._crit_edge, %36
-  %.165 = phi ptr [ %33, %36 ], [ %.064.ph, %._crit_edge ]
+  %.266 = phi ptr [ %33, %36 ], [ %.064.ph, %._crit_edge ]
   %25 = icmp eq i64 %.036.in.lcssa93, 0
   br i1 %25, label %37, label %58
 
@@ -125,15 +125,15 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   br label %.thread72
 
 .thread72.loopexit.split-lp:                      ; preds = %46, %35
-  %.266.ph.ph = phi ptr [ null, %35 ], [ %.165, %46 ]
+  %.165.ph.ph = phi ptr [ null, %35 ], [ %.266, %46 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread72
 
 .thread72:                                        ; preds = %.thread72.loopexit.split-lp, %.thread72.loopexit
-  %.266.ph = phi ptr [ %.064.ph, %.thread72.loopexit ], [ %.266.ph.ph, %.thread72.loopexit.split-lp ]
+  %.165.ph = phi ptr [ %.064.ph, %.thread72.loopexit ], [ %.165.ph.ph, %.thread72.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.thread72.loopexit ], [ %lpad.loopexit.split-lp, %.thread72.loopexit.split-lp ]
-  tail call fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_queue..seg_queue..Block$LT$ockam_executor..executor..TaskId$GT$$GT$$GT$$GT$17hedda837f600a6b19E"(ptr %.266.ph) #14
+  tail call fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_queue..seg_queue..Block$LT$ockam_executor..executor..TaskId$GT$$GT$$GT$$GT$17hedda837f600a6b19E"(ptr %.165.ph) #14
   resume { ptr, i32 } %lpad.phi
 
 36:                                               ; preds = %31
@@ -186,11 +186,11 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   br label %58
 
 52:                                               ; preds = %47
-  %53 = icmp eq ptr %.165, null
+  %53 = icmp eq ptr %.266, null
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %52
-  tail call void @__rust_dealloc(ptr noundef nonnull %.165, i64 noundef 504, i64 noundef 8) #7
+  tail call void @__rust_dealloc(ptr noundef nonnull %.266, i64 noundef 504, i64 noundef 8) #7
   br label %55
 
 55:                                               ; preds = %52, %54
@@ -210,11 +210,11 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   br i1 %.not42, label %64, label %74
 
 64:                                               ; preds = %63
-  %65 = icmp eq ptr %.165, null
+  %65 = icmp eq ptr %.266, null
   br i1 %65, label %73, label %66
 
 66:                                               ; preds = %64
-  %67 = ptrtoint ptr %.165 to i64
+  %67 = ptrtoint ptr %.266 to i64
   store atomic i64 %67, ptr %7 release, align 8
   %68 = add i64 %.038.lcssa, 4
   store atomic i64 %68, ptr %5 release, align 128
@@ -238,11 +238,11 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   store i64 %1, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   %77 = atomicrmw or ptr %76, i64 1 release, align 8
-  %78 = icmp eq ptr %.165, null
+  %78 = icmp eq ptr %.266, null
   br i1 %78, label %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_queue..seg_queue..Block$LT$ockam_executor..executor..TaskId$GT$$GT$$GT$$GT$17hedda837f600a6b19E.exit55", label %79
 
 79:                                               ; preds = %74
-  tail call void @__rust_dealloc(ptr noundef nonnull %.165, i64 noundef 504, i64 noundef 8) #7
+  tail call void @__rust_dealloc(ptr noundef nonnull %.266, i64 noundef 504, i64 noundef 8) #7
   br label %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_queue..seg_queue..Block$LT$ockam_executor..executor..TaskId$GT$$GT$$GT$$GT$17hedda837f600a6b19E.exit55"
 
 80:                                               ; preds = %58
@@ -257,7 +257,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit: ; preds = %8
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit, %55
-  %.064.ph.be = phi ptr [ %44, %55 ], [ %.165, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ]
+  %.064.ph.be = phi ptr [ %44, %55 ], [ %.266, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ]
   %.0.ph.be = phi i32 [ %.0.lcssa, %55 ], [ %spec.select77, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ]
   %.038.ph.be = phi i64 [ %56, %55 ], [ %62, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ]
   %.036.in.ph.be = phi i64 [ %57, %55 ], [ %81, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ]

@@ -5206,11 +5206,11 @@ lpad28:                                           ; preds = %for.body, %if.then3
   %34 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %exn.slot.2 = extractvalue { ptr, i32 } %34, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %34, 1
+  %exn.slot.4 = extractvalue { ptr, i32 } %34, 0
+  %ehselector.slot.4 = extractvalue { ptr, i32 } %34, 1
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
-  %matches = icmp eq i32 %ehselector.slot.2, %35
-  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #22
+  %matches = icmp eq i32 %ehselector.slot.4, %35
+  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #22
   br i1 %matches, label %catch70, label %catch
 
 catch70:                                          ; preds = %lpad28

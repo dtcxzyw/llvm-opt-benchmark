@@ -522,41 +522,41 @@ while.end.i:                                      ; preds = %_ZN8facebook5velox4
   br i1 %cmp1187.i, label %if.then.i12.i, label %while.end16.i
 
 if.then.i12.i:                                    ; preds = %while.end.i, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i
-  %bytes.addr.289.i = phi i32 [ %sub.i13.i, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i ], [ %bytes.addr.0.lcssa.i, %while.end.i ]
-  %to.addr.288.i = phi ptr [ %9, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i ], [ %to.addr.0.lcssa.i, %while.end.i ]
-  store i64 -1, ptr %to.addr.288.i, align 8
-  %sub.i13.i = add i32 %bytes.addr.289.i, -8
+  %bytes.addr.189.i = phi i32 [ %sub.i13.i, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i ], [ %bytes.addr.0.lcssa.i, %while.end.i ]
+  %to.addr.188.i = phi ptr [ %9, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i ], [ %to.addr.0.lcssa.i, %while.end.i ]
+  store i64 -1, ptr %to.addr.188.i, align 8
+  %sub.i13.i = add i32 %bytes.addr.189.i, -8
   %tobool.not.i14.i = icmp eq i32 %sub.i13.i, 0
   br i1 %tobool.not.i14.i, label %if.end, label %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i
 
 _ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i: ; preds = %if.then.i12.i
-  %8 = ptrtoint ptr %to.addr.288.i to i64
+  %8 = ptrtoint ptr %to.addr.188.i to i64
   %add.i.i16.i = add i64 %8, 8
   %9 = inttoptr i64 %add.i.i16.i to ptr
   %cmp11.i = icmp ugt i32 %sub.i13.i, 7
   br i1 %cmp11.i, label %if.then.i12.i, label %while.end16.i, !llvm.loop !7
 
 while.end16.i:                                    ; preds = %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i, %while.end.i
-  %to.addr.2.lcssa.i = phi ptr [ %to.addr.0.lcssa.i, %while.end.i ], [ %9, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i ]
-  %bytes.addr.2.lcssa.i = phi i32 [ %bytes.addr.0.lcssa.i, %while.end.i ], [ %sub.i13.i, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i ]
-  %cmp.i17.i = icmp ugt i32 %bytes.addr.2.lcssa.i, 3
+  %to.addr.1.lcssa.i = phi ptr [ %to.addr.0.lcssa.i, %while.end.i ], [ %9, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i ]
+  %bytes.addr.1.lcssa.i = phi i32 [ %bytes.addr.0.lcssa.i, %while.end.i ], [ %sub.i13.i, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i ]
+  %cmp.i17.i = icmp ugt i32 %bytes.addr.1.lcssa.i, 3
   br i1 %cmp.i17.i, label %if.then.i19.i, label %if.end20.i
 
 if.then.i19.i:                                    ; preds = %while.end16.i
-  store i32 -1, ptr %to.addr.2.lcssa.i, align 4
-  %sub.i20.i = add nsw i32 %bytes.addr.2.lcssa.i, -4
+  store i32 -1, ptr %to.addr.1.lcssa.i, align 4
+  %sub.i20.i = add nsw i32 %bytes.addr.1.lcssa.i, -4
   %tobool.not.i21.i = icmp eq i32 %sub.i20.i, 0
   br i1 %tobool.not.i21.i, label %if.end, label %if.end.i22.i
 
 if.end.i22.i:                                     ; preds = %if.then.i19.i
-  %10 = ptrtoint ptr %to.addr.2.lcssa.i to i64
+  %10 = ptrtoint ptr %to.addr.1.lcssa.i to i64
   %add.i.i23.i = add i64 %10, 4
   %11 = inttoptr i64 %add.i.i23.i to ptr
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end.i22.i, %while.end16.i
-  %to.addr.4.ph.i = phi ptr [ %to.addr.2.lcssa.i, %while.end16.i ], [ %11, %if.end.i22.i ]
-  %bytes.addr.4.ph.i = phi i32 [ %bytes.addr.2.lcssa.i, %while.end16.i ], [ %sub.i20.i, %if.end.i22.i ]
+  %to.addr.4.ph.i = phi ptr [ %to.addr.1.lcssa.i, %while.end16.i ], [ %11, %if.end.i22.i ]
+  %bytes.addr.4.ph.i = phi i32 [ %bytes.addr.1.lcssa.i, %while.end16.i ], [ %sub.i20.i, %if.end.i22.i ]
   %cmp.i24.i = icmp ugt i32 %bytes.addr.4.ph.i, 1
   br i1 %cmp.i24.i, label %if.then.i26.i, label %if.end24.i
 
@@ -632,41 +632,41 @@ while.end.i15:                                    ; preds = %_ZN8facebook5velox4
   br i1 %cmp1187.i18, label %if.then.i12.i40, label %while.end16.i19
 
 if.then.i12.i40:                                  ; preds = %while.end.i15, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45
-  %bytes.addr.289.i41 = phi i32 [ %sub.i13.i43, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45 ], [ %bytes.addr.0.lcssa.i17, %while.end.i15 ]
-  %to.addr.288.i42 = phi ptr [ %23, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45 ], [ %to.addr.0.lcssa.i16, %while.end.i15 ]
-  store i64 0, ptr %to.addr.288.i42, align 8
-  %sub.i13.i43 = add i32 %bytes.addr.289.i41, -8
+  %bytes.addr.189.i41 = phi i32 [ %sub.i13.i43, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45 ], [ %bytes.addr.0.lcssa.i17, %while.end.i15 ]
+  %to.addr.188.i42 = phi ptr [ %23, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45 ], [ %to.addr.0.lcssa.i16, %while.end.i15 ]
+  store i64 0, ptr %to.addr.188.i42, align 8
+  %sub.i13.i43 = add i32 %bytes.addr.189.i41, -8
   %tobool.not.i14.i44 = icmp eq i32 %sub.i13.i43, 0
   br i1 %tobool.not.i14.i44, label %if.end42, label %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45
 
 _ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45: ; preds = %if.then.i12.i40
-  %22 = ptrtoint ptr %to.addr.288.i42 to i64
+  %22 = ptrtoint ptr %to.addr.188.i42 to i64
   %add.i.i16.i46 = add i64 %22, 8
   %23 = inttoptr i64 %add.i.i16.i46 to ptr
   %cmp11.i47 = icmp ugt i32 %sub.i13.i43, 7
   br i1 %cmp11.i47, label %if.then.i12.i40, label %while.end16.i19, !llvm.loop !7
 
 while.end16.i19:                                  ; preds = %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45, %while.end.i15
-  %to.addr.2.lcssa.i20 = phi ptr [ %to.addr.0.lcssa.i16, %while.end.i15 ], [ %23, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45 ]
-  %bytes.addr.2.lcssa.i21 = phi i32 [ %bytes.addr.0.lcssa.i17, %while.end.i15 ], [ %sub.i13.i43, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45 ]
-  %cmp.i17.i22 = icmp ugt i32 %bytes.addr.2.lcssa.i21, 3
+  %to.addr.1.lcssa.i20 = phi ptr [ %to.addr.0.lcssa.i16, %while.end.i15 ], [ %23, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45 ]
+  %bytes.addr.1.lcssa.i21 = phi i32 [ %bytes.addr.0.lcssa.i17, %while.end.i15 ], [ %sub.i13.i43, %_ZN8facebook5velox4simd6detail11setNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvT_RiRKT0_.exit.i45 ]
+  %cmp.i17.i22 = icmp ugt i32 %bytes.addr.1.lcssa.i21, 3
   br i1 %cmp.i17.i22, label %if.then.i19.i35, label %if.end20.i23
 
 if.then.i19.i35:                                  ; preds = %while.end16.i19
-  store i32 0, ptr %to.addr.2.lcssa.i20, align 4
-  %sub.i20.i36 = add nsw i32 %bytes.addr.2.lcssa.i21, -4
+  store i32 0, ptr %to.addr.1.lcssa.i20, align 4
+  %sub.i20.i36 = add nsw i32 %bytes.addr.1.lcssa.i21, -4
   %tobool.not.i21.i37 = icmp eq i32 %sub.i20.i36, 0
   br i1 %tobool.not.i21.i37, label %if.end42, label %if.end.i22.i38
 
 if.end.i22.i38:                                   ; preds = %if.then.i19.i35
-  %24 = ptrtoint ptr %to.addr.2.lcssa.i20 to i64
+  %24 = ptrtoint ptr %to.addr.1.lcssa.i20 to i64
   %add.i.i23.i39 = add i64 %24, 4
   %25 = inttoptr i64 %add.i.i23.i39 to ptr
   br label %if.end20.i23
 
 if.end20.i23:                                     ; preds = %if.end.i22.i38, %while.end16.i19
-  %to.addr.4.ph.i24 = phi ptr [ %to.addr.2.lcssa.i20, %while.end16.i19 ], [ %25, %if.end.i22.i38 ]
-  %bytes.addr.4.ph.i25 = phi i32 [ %bytes.addr.2.lcssa.i21, %while.end16.i19 ], [ %sub.i20.i36, %if.end.i22.i38 ]
+  %to.addr.4.ph.i24 = phi ptr [ %to.addr.1.lcssa.i20, %while.end16.i19 ], [ %25, %if.end.i22.i38 ]
+  %bytes.addr.4.ph.i25 = phi i32 [ %bytes.addr.1.lcssa.i21, %while.end16.i19 ], [ %sub.i20.i36, %if.end.i22.i38 ]
   %cmp.i24.i26 = icmp ugt i32 %bytes.addr.4.ph.i25, 1
   br i1 %cmp.i24.i26, label %if.then.i26.i31, label %if.end24.i27
 

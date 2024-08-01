@@ -3312,7 +3312,7 @@ if.end15:                                         ; preds = %invoke.cont7
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end15, %if.then12, %if.else
-  %retval.0 = phi i1 [ true, %if.else ], [ true, %if.then12 ], [ false, %if.end15 ]
+  %retval.1 = phi i1 [ true, %if.else ], [ true, %if.then12 ], [ false, %if.end15 ]
   %18 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %k)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -3343,8 +3343,8 @@ if.end20:                                         ; preds = %if.then19, %sw.defa
   br label %return
 
 return:                                           ; preds = %.noexc.i, %if.end20, %_ZN15expr2polynomial3imp10push_frameEP3app.exit, %sw.bb
-  %retval.1 = phi i1 [ true, %if.end20 ], [ false, %_ZN15expr2polynomial3imp10push_frameEP3app.exit ], [ true, %sw.bb ], [ %retval.0, %.noexc.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %if.end20 ], [ false, %_ZN15expr2polynomial3imp10push_frameEP3app.exit ], [ true, %sw.bb ], [ %retval.1, %.noexc.i ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0

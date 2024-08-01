@@ -1577,12 +1577,12 @@ do.end:                                           ; preds = %do.body, %if.then15
   br label %end
 
 end:                                              ; preds = %while.cond, %write_state_machine.exit.thread151, %write_state_machine.exit.thread, %read_state_machine.exit.thread, %if.then97, %do.end, %if.then91, %if.then84, %if.then80, %if.then74, %if.then68, %if.then64
-  %buf.2 = phi ptr [ null, %if.then64 ], [ null, %if.then80 ], [ null, %do.end ], [ null, %if.then97 ], [ null, %if.then91 ], [ %call78, %if.then84 ], [ null, %if.then74 ], [ null, %if.then68 ], [ null, %read_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread151 ], [ null, %while.cond ]
+  %buf.1 = phi ptr [ null, %if.then64 ], [ null, %if.then80 ], [ null, %do.end ], [ null, %if.then97 ], [ null, %if.then91 ], [ %call78, %if.then84 ], [ null, %if.then74 ], [ null, %if.then68 ], [ null, %read_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread151 ], [ null, %while.cond ]
   %ret.0 = phi i32 [ -1, %if.then64 ], [ -1, %if.then80 ], [ -1, %do.end ], [ -1, %if.then97 ], [ -1, %if.then91 ], [ -1, %if.then84 ], [ -1, %if.then74 ], [ -1, %if.then68 ], [ -1, %read_state_machine.exit.thread ], [ -1, %write_state_machine.exit.thread ], [ -1, %write_state_machine.exit.thread151 ], [ 1, %while.cond ]
   %109 = load i32, ptr %in_handshake, align 4
   %dec = add nsw i32 %109, -1
   store i32 %dec, ptr %in_handshake, align 4
-  call void @BUF_MEM_free(ptr noundef %buf.2) #8
+  call void @BUF_MEM_free(ptr noundef %buf.1) #8
   %cmp156.not = icmp eq ptr %retval.0.i, null
   br i1 %cmp156.not, label %return, label %if.then158
 

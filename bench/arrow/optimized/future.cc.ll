@@ -791,7 +791,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZN5arrow10FutureIm
   ret void
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
-  %lock.sroa.4.3 = phi i1 [ %cmp.i.not, %lpad ], [ false, %lpad5 ]
+  %lock.sroa.4.2 = phi i1 [ %cmp.i.not, %lpad ], [ false, %lpad5 ]
   %.pn = phi { ptr, i32 } [ %19, %lpad ], [ %20, %lpad5 ]
   %27 = load ptr, ptr %callback_record, align 8
   %cmp.not.i.i.i16 = icmp eq ptr %27, null
@@ -806,7 +806,7 @@ _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclE
 
 _ZN5arrow10FutureImpl14CallbackRecordD2Ev.exit20: ; preds = %ehcleanup, %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i17
   store ptr null, ptr %callback_record, align 8
-  br i1 %lock.sroa.4.3, label %if.then3.i.i25, label %_ZNSt11unique_lockISt5mutexED2Ev.exit27
+  br i1 %lock.sroa.4.2, label %if.then3.i.i25, label %_ZNSt11unique_lockISt5mutexED2Ev.exit27
 
 if.then3.i.i25:                                   ; preds = %_ZN5arrow10FutureImpl14CallbackRecordD2Ev.exit20
   %call1.i.i.i.i26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #18

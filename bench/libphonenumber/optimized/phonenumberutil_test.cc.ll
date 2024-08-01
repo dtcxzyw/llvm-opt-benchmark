@@ -6224,14 +6224,14 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
 
 .body122:                                         ; preds = %.body132, %181, %227
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %.body132 ], [ %228, %227 ], [ %182, %181 ]
-  %.019 = phi ptr [ %183, %.body132 ], [ %179, %227 ], [ %179, %181 ]
+  %.120 = phi ptr [ %183, %.body132 ], [ %179, %227 ], [ %179, %181 ]
   %.117 = phi i1 [ %235, %.body132 ], [ false, %227 ], [ false, %181 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #17
   br i1 %.117, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.body122, %.preheader
-  %236 = phi ptr [ %237, %.preheader ], [ %.019, %.body122 ]
+  %236 = phi ptr [ %237, %.preheader ], [ %.120, %.body122 ]
   %237 = getelementptr inbounds i8, ptr %236, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %237) #17
   %238 = icmp eq ptr %237, %23

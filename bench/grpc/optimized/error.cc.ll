@@ -681,7 +681,7 @@ sw.bb18.invoke:                                   ; preds = %invoke.cont14, %sw.
           to label %cleanup unwind label %lpad13
 
 cleanup:                                          ; preds = %sw.bb18.invoke, %if.else10, %invoke.cont14, %if.then7
-  %retval.0 = phi i1 [ true, %if.then7 ], [ false, %invoke.cont14 ], [ false, %if.else10 ], [ true, %sw.bb18.invoke ]
+  %retval.1 = phi i1 [ true, %if.then7 ], [ false, %invoke.cont14 ], [ false, %if.else10 ], [ true, %sw.bb18.invoke ]
   %16 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i.i.i8 = trunc i8 %16 to i1
   br i1 %tobool.i.i.i.i8, label %if.then.i.i.i.i9, label %return
@@ -692,8 +692,8 @@ if.then.i.i.i.i9:                                 ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %cond.false.i, %if.then.i.i.i.i9, %cleanup, %_ZNK4absl12lts_202308026Status7messageEv.exit, %invoke.cont
-  %retval.1 = phi i1 [ true, %invoke.cont ], [ false, %_ZNK4absl12lts_202308026Status7messageEv.exit ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i.i9 ], [ false, %cond.false.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %invoke.cont ], [ false, %_ZNK4absl12lts_202308026Status7messageEv.exit ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i.i9 ], [ false, %cond.false.i ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i, %lpad13, %lpad
   %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %12, %lpad13 ], [ %12, %if.then.i.i.i.i ]

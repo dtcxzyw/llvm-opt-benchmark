@@ -460,7 +460,7 @@ if.end:                                           ; preds = %_.exit, %transport_
 
 for.body:                                         ; preds = %if.end, %for.inc
   %ref.077 = phi ptr [ %12, %for.inc ], [ %refs, %if.end ]
-  %n.076 = phi i32 [ %n.1, %for.inc ], [ 0, %if.end ]
+  %n.176 = phi i32 [ %n.2, %for.inc ], [ 0, %if.end ]
   %status = getelementptr inbounds i8, ptr %ref.077, i64 148
   %9 = load i32, ptr %status, align 4
   %cmp6 = icmp eq i32 %9, 10
@@ -473,14 +473,14 @@ if.then7:                                         ; preds = %for.body
   br i1 %tobool.not.i43, label %if.then.i, label %for.body.i44
 
 if.then.i:                                        ; preds = %if.then7
-  call fastcc void @print_one_push_report(ptr noundef nonnull %ref.077, ptr noundef %dest, i32 noundef %n.076, ptr noundef null, i32 noundef %porcelain, i32 noundef %7)
+  call fastcc void @print_one_push_report(ptr noundef nonnull %ref.077, ptr noundef %dest, i32 noundef %n.176, ptr noundef null, i32 noundef %porcelain, i32 noundef %7)
   br label %print_one_push_status.exit
 
 for.body.i44:                                     ; preds = %if.then7, %for.body.i44
   %n.012.i = phi i32 [ %inc.i, %for.body.i44 ], [ 0, %if.then7 ]
   %report.011.i = phi ptr [ %11, %for.body.i44 ], [ %10, %if.then7 ]
   %inc.i = add nuw nsw i32 %n.012.i, 1
-  %add.i = add nsw i32 %n.012.i, %n.076
+  %add.i = add nsw i32 %n.012.i, %n.176
   call fastcc void @print_one_push_report(ptr noundef nonnull %ref.077, ptr noundef %dest, i32 noundef %add.i, ptr noundef nonnull %report.011.i, i32 noundef %porcelain, i32 noundef %7)
   %next.i = getelementptr inbounds i8, ptr %report.011.i, i64 32
   %11 = load ptr, ptr %next.i, align 8
@@ -489,17 +489,17 @@ for.body.i44:                                     ; preds = %if.then7, %for.body
 
 print_one_push_status.exit:                       ; preds = %for.body.i44, %if.then.i
   %retval.0.i45 = phi i32 [ 1, %if.then.i ], [ %inc.i, %for.body.i44 ]
-  %add = add nsw i32 %retval.0.i45, %n.076
+  %add = add nsw i32 %retval.0.i45, %n.176
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %print_one_push_status.exit
-  %n.1 = phi i32 [ %add, %print_one_push_status.exit ], [ %n.076, %for.body ]
+  %n.2 = phi i32 [ %add, %print_one_push_status.exit ], [ %n.176, %for.body ]
   %12 = load ptr, ptr %ref.077, align 8
   %tobool5.not = icmp eq ptr %12, null
   br i1 %tobool5.not, label %if.end10, label %for.body, !llvm.loop !10
 
 if.end10:                                         ; preds = %for.inc, %if.end
-  %n.2 = phi i32 [ 0, %if.end ], [ %n.1, %for.inc ]
+  %n.0 = phi i32 [ 0, %if.end ], [ %n.2, %for.inc ]
   br i1 %tobool.not10.i, label %for.end22.thread, label %for.body13
 
 for.end22.thread:                                 ; preds = %if.end10
@@ -508,7 +508,7 @@ for.end22.thread:                                 ; preds = %if.end10
 
 for.body13:                                       ; preds = %if.end10, %for.inc20
   %ref.181 = phi ptr [ %16, %for.inc20 ], [ %refs, %if.end10 ]
-  %n.380 = phi i32 [ %n.4, %for.inc20 ], [ %n.2, %if.end10 ]
+  %n.380 = phi i32 [ %n.4, %for.inc20 ], [ %n.0, %if.end10 ]
   %status14 = getelementptr inbounds i8, ptr %ref.181, i64 148
   %13 = load i32, ptr %status14, align 4
   %cmp15 = icmp eq i32 %13, 1
@@ -2395,9 +2395,9 @@ if.then24.thread:                                 ; preds = %entry
 
 for.body:                                         ; preds = %entry, %for.inc
   %rm.042 = phi ptr [ %11, %for.inc ], [ %refs, %entry ]
-  %heads.041 = phi ptr [ %heads.2, %for.inc ], [ null, %entry ]
+  %heads.041 = phi ptr [ %heads.1, %for.inc ], [ null, %entry ]
   %nr_refs.040 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
-  %nr_alloc.039 = phi i32 [ %nr_alloc.3, %for.inc ], [ 0, %entry ]
+  %nr_alloc.039 = phi i32 [ %nr_alloc.1, %for.inc ], [ 0, %entry ]
   %nr_heads.038 = phi i32 [ %nr_heads.1, %for.inc ], [ 0, %entry ]
   %inc = add nuw nsw i32 %nr_refs.040, 1
   %peer_ref = getelementptr inbounds i8, ptr %rm.042, i64 168
@@ -2508,17 +2508,17 @@ st_mult.exit:                                     ; preds = %if.then9
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %st_mult.exit
-  %nr_alloc.2 = phi i32 [ %div.add, %st_mult.exit ], [ %nr_alloc.039, %do.body ]
-  %heads.1 = phi ptr [ %call20, %st_mult.exit ], [ %heads.041, %do.body ]
+  %nr_alloc.3 = phi i32 [ %div.add, %st_mult.exit ], [ %nr_alloc.039, %do.body ]
+  %heads.2 = phi ptr [ %call20, %st_mult.exit ], [ %heads.041, %do.body ]
   %idxprom = sext i32 %nr_heads.038 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %heads.1, i64 %idxprom
+  %arrayidx = getelementptr inbounds ptr, ptr %heads.2, i64 %idxprom
   store ptr %rm.042, ptr %arrayidx, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %oideq.exit, %do.end
   %nr_heads.1 = phi i32 [ %add, %do.end ], [ %nr_heads.038, %oideq.exit ]
-  %nr_alloc.3 = phi i32 [ %nr_alloc.2, %do.end ], [ %nr_alloc.039, %oideq.exit ]
-  %heads.2 = phi ptr [ %heads.1, %do.end ], [ %heads.041, %oideq.exit ]
+  %nr_alloc.1 = phi i32 [ %nr_alloc.3, %do.end ], [ %nr_alloc.039, %oideq.exit ]
+  %heads.1 = phi ptr [ %heads.2, %do.end ], [ %heads.041, %oideq.exit ]
   %11 = load ptr, ptr %rm.042, align 8
   %tobool.not = icmp eq ptr %11, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !22
@@ -2548,12 +2548,12 @@ if.end37.loopexit:                                ; preds = %for.body30
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then24.thread, %if.end37.loopexit, %if.then24, %for.end
-  %nr_heads.3 = phi i32 [ %nr_heads.1, %for.end ], [ 0, %if.then24 ], [ %15, %if.end37.loopexit ], [ 0, %if.then24.thread ]
-  %heads.3 = phi ptr [ %heads.2, %for.end ], [ %call27, %if.then24 ], [ %call27, %if.end37.loopexit ], [ %call2757, %if.then24.thread ]
+  %nr_heads.2 = phi i32 [ %nr_heads.1, %for.end ], [ 0, %if.then24 ], [ %15, %if.end37.loopexit ], [ 0, %if.then24.thread ]
+  %heads.3 = phi ptr [ %heads.1, %for.end ], [ %call27, %if.then24 ], [ %call27, %if.end37.loopexit ], [ %call2757, %if.then24.thread ]
   %16 = load ptr, ptr %transport, align 8
   %fetch_refs = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %fetch_refs, align 8
-  %call38 = tail call i32 %17(ptr noundef nonnull %transport, i32 noundef %nr_heads.3, ptr noundef %heads.3) #20
+  %call38 = tail call i32 %17(ptr noundef nonnull %transport, i32 noundef %nr_heads.2, ptr noundef %heads.3) #20
   tail call void @free(ptr noundef %heads.3) #20
   ret i32 %call38
 }
@@ -3633,7 +3633,7 @@ cond.end:                                         ; preds = %if.end195, %cond.fa
   br label %cleanup
 
 cleanup:                                          ; preds = %cond.end, %_.exit, %if.else182, %_.exit67
-  %ret.1 = phi i32 [ -1, %_.exit ], [ 0, %if.else182 ], [ -1, %_.exit67 ], [ %spec.select59, %cond.end ]
+  %ret.0 = phi i32 [ -1, %_.exit ], [ 0, %if.else182 ], [ -1, %_.exit67 ], [ %spec.select59, %cond.end ]
   %refs.0 = phi ptr [ null, %_.exit ], [ null, %if.else182 ], [ null, %_.exit67 ], [ %call200, %cond.end ]
   %fd231 = getelementptr inbounds i8, ptr %0, i64 160
   %52 = load i32, ptr %fd231, align 8
@@ -3652,7 +3652,7 @@ if.end242:                                        ; preds = %if.then238, %cleanu
   %54 = load ptr, ptr %conn, align 8
   %call243 = call i32 @finish_connect(ptr noundef %54) #20
   %tobool244.not = icmp eq i32 %call243, 0
-  %spec.select58 = select i1 %tobool244.not, i32 %ret.1, i32 -1
+  %spec.select58 = select i1 %tobool244.not, i32 %ret.0, i32 -1
   store ptr null, ptr %conn, align 8
   call void @free_refs(ptr noundef %refs_tmp.0) #20
   call void @free_refs(ptr noundef %refs.0) #20

@@ -2837,7 +2837,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_PtrAlloc.exit, 
   %.val177308 = phi i32 [ %.val179, %.lr.ph ], [ %.val177, %523 ]
   %.0307 = phi i32 [ 0, %.lr.ph ], [ %.1, %523 ]
   %.0140304 = phi i32 [ 0, %.lr.ph ], [ %524, %523 ]
-  %.0143303 = phi ptr [ null, %.lr.ph ], [ %.2145, %523 ]
+  %.0143303 = phi ptr [ null, %.lr.ph ], [ %.1144, %523 ]
   %.val183 = load ptr, ptr %23, align 8
   %28 = getelementptr i8, ptr %.val183, i64 4
   %.val183.val = load i32, ptr %28, align 4
@@ -3576,7 +3576,7 @@ Vec_IntPush.exit252:                              ; preds = %.Vec_IntGrow.exit10
   br label %422
 
 422:                                              ; preds = %416, %407, %384, %374, %413, %350, %360
-  %.1144 = phi ptr [ %344, %350 ], [ %344, %360 ], [ %368, %374 ], [ %368, %384 ], [ %.0143303, %413 ], [ %409, %407 ], [ %418, %416 ]
+  %.2145 = phi ptr [ %344, %350 ], [ %344, %360 ], [ %368, %374 ], [ %368, %384 ], [ %.0143303, %413 ], [ %409, %407 ], [ %418, %416 ]
   %.0142 = phi ptr [ %359, %350 ], [ %365, %360 ], [ %383, %374 ], [ %389, %384 ], [ null, %413 ], [ %spec.select, %407 ], [ %spec.select296, %416 ]
   %423 = load i32, ptr %2, align 4
   %424 = icmp sgt i32 %423, 0
@@ -3591,7 +3591,7 @@ Vec_IntPush.exit252:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %430 ]
   %427 = getelementptr inbounds ptr, ptr %425, i64 %indvars.iv.i
   %428 = load ptr, ptr %427, align 8
-  %429 = icmp eq ptr %428, %.1144
+  %429 = icmp eq ptr %428, %.2145
   br i1 %429, label %Vec_PtrFind.exit, label %430
 
 430:                                              ; preds = %426
@@ -3659,7 +3659,7 @@ Vec_PtrPush.exit259:                              ; preds = %.Vec_PtrGrow.exit11
   store i32 %454, ptr %2, align 4
   %455 = sext i32 %423 to i64
   %456 = getelementptr inbounds ptr, ptr %453, i64 %455
-  store ptr %.1144, ptr %456, align 8
+  store ptr %.2145, ptr %456, align 8
   %.pre = load i32, ptr %2, align 4
   br label %Vec_PtrFind.exit
 
@@ -3677,7 +3677,7 @@ Vec_PtrFind.exit:                                 ; preds = %426, %Vec_PtrPush.e
   %indvars.iv.i263 = phi i64 [ 0, %.lr.ph.i261 ], [ %indvars.iv.next.i264, %464 ]
   %461 = getelementptr inbounds ptr, ptr %459, i64 %indvars.iv.i263
   %462 = load ptr, ptr %461, align 8
-  %463 = icmp eq ptr %462, %.1144
+  %463 = icmp eq ptr %462, %.2145
   br i1 %463, label %._crit_edge.loopexit.split.loop.exit12.i266, label %464
 
 464:                                              ; preds = %460
@@ -3819,7 +3819,7 @@ Vec_IntPush.exit281:                              ; preds = %.Vec_IntGrow.exit10
   br label %523
 
 523:                                              ; preds = %Vec_IntPush.exit281, %Vec_IntPush.exit252, %Vec_IntPush.exit238, %Vec_IntPush.exit220, %Vec_IntPush.exit
-  %.2145 = phi ptr [ %.0143303, %Vec_IntPush.exit252 ], [ %.1144, %Vec_IntPush.exit281 ], [ %.0143303, %Vec_IntPush.exit238 ], [ %.0143303, %Vec_IntPush.exit220 ], [ %.0143303, %Vec_IntPush.exit ]
+  %.1144 = phi ptr [ %.0143303, %Vec_IntPush.exit252 ], [ %.2145, %Vec_IntPush.exit281 ], [ %.0143303, %Vec_IntPush.exit238 ], [ %.0143303, %Vec_IntPush.exit220 ], [ %.0143303, %Vec_IntPush.exit ]
   %.1 = phi i32 [ %341, %Vec_IntPush.exit252 ], [ %.0307, %Vec_IntPush.exit281 ], [ %232, %Vec_IntPush.exit238 ], [ %161, %Vec_IntPush.exit220 ], [ %102, %Vec_IntPush.exit ]
   %524 = add nuw nsw i32 %.0140304, 1
   %.val177 = load i32, ptr %5, align 8

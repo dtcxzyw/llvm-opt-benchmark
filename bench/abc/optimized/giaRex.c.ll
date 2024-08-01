@@ -2431,10 +2431,10 @@ Vec_WrdFind.exit.thread:                          ; preds = %30, %22, %Vec_WrdFi
   br label %50
 
 50:                                               ; preds = %48, %40, %37
-  %.151 = phi i32 [ %49, %48 ], [ %.05094, %40 ], [ %.05094, %37 ]
-  %.146 = phi i32 [ %.07.i75, %48 ], [ %.04595, %40 ], [ %.04595, %37 ]
-  %.1 = phi i32 [ %35, %48 ], [ %.096, %40 ], [ %.096, %37 ]
-  %51 = icmp eq i32 %.1, 0
+  %.353 = phi i32 [ %49, %48 ], [ %.05094, %40 ], [ %.05094, %37 ]
+  %.348 = phi i32 [ %.07.i75, %48 ], [ %.04595, %40 ], [ %.04595, %37 ]
+  %.3 = phi i32 [ %35, %48 ], [ %.096, %40 ], [ %.096, %37 ]
+  %51 = icmp eq i32 %.3, 0
   br i1 %51, label %.thread, label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %50
@@ -2445,9 +2445,9 @@ Vec_WrdFind.exit.thread:                          ; preds = %30, %22, %Vec_WrdFi
 52:                                               ; preds = %._crit_edge115, %.lr.ph
   %.val67 = phi ptr [ %.val67118, %.lr.ph ], [ %.val67.pre, %._crit_edge115 ]
   %.val66 = phi i32 [ %.val66116, %.lr.ph ], [ %.val66.pre, %._crit_edge115 ]
-  %.252 = phi i32 [ %.05094, %.lr.ph ], [ %.151, %._crit_edge115 ]
-  %.247 = phi i32 [ %.04595, %.lr.ph ], [ %.146, %._crit_edge115 ]
-  %.2 = phi i32 [ %.096, %.lr.ph ], [ %.1, %._crit_edge115 ]
+  %.252 = phi i32 [ %.05094, %.lr.ph ], [ %.353, %._crit_edge115 ]
+  %.247 = phi i32 [ %.04595, %.lr.ph ], [ %.348, %._crit_edge115 ]
+  %.2 = phi i32 [ %.096, %.lr.ph ], [ %.3, %._crit_edge115 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = getelementptr i8, ptr %.val67, i64 4
   %.val67.val = load i32, ptr %53, align 4
@@ -2497,13 +2497,13 @@ Vec_WrdFind.exit.thread:                          ; preds = %30, %22, %Vec_WrdFi
   br i1 %68, label %.lr.ph107, label %.loopexit, !llvm.loop !33
 
 .thread:                                          ; preds = %50, %._crit_edge
-  %.34880 = phi i32 [ %.247, %._crit_edge ], [ %.146, %50 ]
-  %.35379 = phi i32 [ %.252, %._crit_edge ], [ %.151, %50 ]
-  %69 = icmp eq i32 %.34880, -1
+  %.14680 = phi i32 [ %.247, %._crit_edge ], [ %.348, %50 ]
+  %.15179 = phi i32 [ %.252, %._crit_edge ], [ %.353, %50 ]
+  %69 = icmp eq i32 %.14680, -1
   br i1 %69, label %70, label %.thread._crit_edge
 
 .thread._crit_edge:                               ; preds = %.thread
-  %.pre = sext i32 %.35379 to i64
+  %.pre = sext i32 %.15179 to i64
   br label %129
 
 70:                                               ; preds = %.thread
@@ -2569,7 +2569,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %96 = sext i32 %94 to i64
   %97 = getelementptr inbounds i32, ptr %93, i64 %96
   store i32 0, ptr %97, align 4
-  %98 = sext i32 %.35379 to i64
+  %98 = sext i32 %.15179 to i64
   %99 = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %98
   %100 = load i64, ptr %99, align 8
   %101 = load i32, ptr %11, align 4
@@ -2638,7 +2638,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
 
 129:                                              ; preds = %.thread._crit_edge, %Vec_WrdPush.exit
   %.pre-phi = phi i64 [ %.pre, %.thread._crit_edge ], [ %98, %Vec_WrdPush.exit ]
-  %.4 = phi i32 [ %.34880, %.thread._crit_edge ], [ %.val, %Vec_WrdPush.exit ]
+  %.4 = phi i32 [ %.14680, %.thread._crit_edge ], [ %.val, %Vec_WrdPush.exit ]
   %.val69 = load ptr, ptr %13, align 8
   %130 = sext i32 %.4 to i64
   %131 = getelementptr inbounds i32, ptr %.val69, i64 %130
@@ -2647,9 +2647,9 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   store i32 %133, ptr %131, align 4
   %134 = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %.pre-phi
   %135 = load i64, ptr %134, align 8
-  %136 = add nsw i32 %.35379, 97
+  %136 = add nsw i32 %.15179, 97
   %putchar = tail call i32 @putchar(i32 %136)
-  %137 = sub nsw i32 63, %.35379
+  %137 = sub nsw i32 63, %.15179
   %138 = zext nneg i32 %137 to i64
   %139 = shl nuw i64 1, %138
   %140 = and i64 %139, %16

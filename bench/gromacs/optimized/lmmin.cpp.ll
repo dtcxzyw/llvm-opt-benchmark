@@ -353,8 +353,8 @@ _ZL13lm_print_parsiPKdP8_IO_FILE.exit:            ; preds = %.lr.ph.i, %106
   br label %.lr.ph859.preheader
 
 .lr.ph859.preheader:                              ; preds = %1110, %.preheader803
-  %.0766 = phi double [ %.5771, %1110 ], [ 0.000000e+00, %.preheader803 ]
-  %.0621 = phi double [ %.4625, %1110 ], [ 0.000000e+00, %.preheader803 ]
+  %.0766 = phi double [ %.2768, %1110 ], [ 0.000000e+00, %.preheader803 ]
+  %.1622 = phi double [ %.5626, %1110 ], [ 0.000000e+00, %.preheader803 ]
   %.0615 = phi double [ %.5620, %1110 ], [ 0.000000e+00, %.preheader803 ]
   %.0606 = phi double [ %.2608, %1110 ], [ %132, %.preheader803 ]
   %.0591 = phi i32 [ %1111, %1110 ], [ 0, %.preheader803 ]
@@ -680,14 +680,14 @@ _ZL13lm_print_parsiPKdP8_IO_FILE.exit:            ; preds = %.lr.ph.i, %106
   br i1 %exitcond1072.not, label %.loopexit795, label %.lr.ph891, !llvm.loop !23
 
 .loopexit795:                                     ; preds = %.lr.ph891, %257, %247, %._crit_edge900
-  %.2623 = phi double [ %.0621, %257 ], [ %242, %._crit_edge900 ], [ %242, %247 ], [ %.0621, %.lr.ph891 ]
+  %.3624 = phi double [ %.1622, %257 ], [ %242, %._crit_edge900 ], [ %242, %247 ], [ %.1622, %.lr.ph891 ]
   %.2617 = phi double [ %.0615, %257 ], [ %.1616, %._crit_edge900 ], [ %.1616, %247 ], [ %.0615, %.lr.ph891 ]
   %262 = fcmp ole double %.1610, 0x3CB0000000000000
   br label %.lr.ph.i696
 
 .lr.ph.i696:                                      ; preds = %1108, %.loopexit795
-  %.1767 = phi double [ %.0766, %.loopexit795 ], [ %.5771, %1108 ]
-  %.3624 = phi double [ %.2623, %.loopexit795 ], [ %.4625, %1108 ]
+  %.1767 = phi double [ %.0766, %.loopexit795 ], [ %.2768, %1108 ]
+  %.4625 = phi double [ %.3624, %.loopexit795 ], [ %.5626, %1108 ]
   %.3618 = phi double [ %.2617, %.loopexit795 ], [ %.5620, %1108 ]
   %.1607 = phi double [ %.0606, %.loopexit795 ], [ %.2608, %1108 ]
   %.0 = phi i32 [ 0, %.loopexit795 ], [ %1109, %1108 ]
@@ -1258,12 +1258,12 @@ _Z8lm_enormiPKd.exit323.i:                        ; preds = %.thread.i302.i, %51
   br label %530
 
 530:                                              ; preds = %811, %526
-  %.2768 = phi double [ %storemerge.i, %526 ], [ %..2255.i, %811 ]
+  %.3769 = phi double [ %storemerge.i, %526 ], [ %..2255.i, %811 ]
   %.0264.i = phi double [ %368, %526 ], [ %716, %811 ]
   %.0259.i = phi i32 [ 0, %526 ], [ %813, %811 ]
   %.1254.i = phi double [ %.0253.i, %526 ], [ %.2255.i, %811 ]
   %.1252.i = phi double [ %.0251.i, %526 ], [ %.2.i, %811 ]
-  %531 = fcmp oeq double %.2768, 0.000000e+00
+  %531 = fcmp oeq double %.3769, 0.000000e+00
   br i1 %531, label %532, label %536
 
 532:                                              ; preds = %530
@@ -1273,7 +1273,7 @@ _Z8lm_enormiPKd.exit323.i:                        ; preds = %.thread.i302.i, %51
   br label %536
 
 536:                                              ; preds = %532, %530
-  %537 = phi double [ %535, %532 ], [ %.2768, %530 ]
+  %537 = phi double [ %535, %532 ], [ %.3769, %530 ]
   %538 = tail call double @sqrt(double noundef %537) #13
   br label %.lr.ph410.i
 
@@ -1874,7 +1874,7 @@ _Z8lm_enormiPKd.exit370.i:                        ; preds = %.thread.i349.i, %79
   br label %530, !llvm.loop !49
 
 _ZL8lm_lmpariPdiPiS_S_dS_S_S_S_S_.exit:           ; preds = %_Z8lm_enormiPKd.exit348.i, %721, %725, %_Z8lm_enormiPKd.exit.i
-  %.4770 = phi double [ 0.000000e+00, %_Z8lm_enormiPKd.exit.i ], [ %537, %725 ], [ %537, %721 ], [ %537, %_Z8lm_enormiPKd.exit348.i ]
+  %.5771 = phi double [ 0.000000e+00, %_Z8lm_enormiPKd.exit.i ], [ %537, %725 ], [ %537, %721 ], [ %537, %_Z8lm_enormiPKd.exit348.i ]
   br label %.lr.ph.i703
 
 .lr.ph.i703:                                      ; preds = %_ZL8lm_lmpariPdiPiS_S_dS_S_S_S_S_.exit, %842
@@ -1995,7 +1995,7 @@ _Z8lm_enormiPKd.exit:                             ; preds = %844, %854, %860, %.
 
 .lr.ph908.preheader:                              ; preds = %_Z8lm_enormiPKd.exit
   %871 = fdiv double %.062.i, %.1607
-  %872 = fmul double %.4770, %871
+  %872 = fmul double %.5771, %871
   %873 = fmul double %871, %872
   br label %.lr.ph908
 
@@ -2348,7 +2348,7 @@ _Z8lm_enormiPKd.exit751:                          ; preds = %972, %982, %988, %.
   br i1 %.not676, label %1046, label %1041
 
 1041:                                             ; preds = %.loopexit784
-  %1042 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.48, i32 noundef %.0591, i32 noundef %.0, double noundef %.4770, double noundef %1001, double noundef %.0605, double noundef %1024, double noundef %1003, double noundef %.4619, double noundef %.062.i, double noundef %1016) #13
+  %1042 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.48, i32 noundef %.0591, i32 noundef %.0, double noundef %.5771, double noundef %1001, double noundef %.0605, double noundef %1024, double noundef %1003, double noundef %.4619, double noundef %.062.i, double noundef %1016) #13
   br i1 %146, label %.lr.ph919, label %._crit_edge920
 
 .lr.ph919:                                        ; preds = %1041, %.lr.ph919
@@ -2382,22 +2382,22 @@ _Z8lm_enormiPKd.exit751:                          ; preds = %972, %982, %988, %.
   %1056 = fcmp ole double %.4619, %1055
   %1057 = select i1 %1056, double %.4619, double %1055
   %1058 = fmul double %1057, %.1614
-  %1059 = fdiv double %.4770, %.1614
+  %1059 = fdiv double %.5771, %.1614
   br label %1066
 
 1060:                                             ; preds = %1046
-  %1061 = fcmp oeq double %.4770, 0.000000e+00
+  %1061 = fcmp oeq double %.5771, 0.000000e+00
   %1062 = fcmp oge double %1024, 7.500000e-01
   %or.cond3 = select i1 %1061, i1 true, i1 %1062
   br i1 %or.cond3, label %1063, label %1066
 
 1063:                                             ; preds = %1060
   %1064 = fmul double %.062.i, 2.000000e+00
-  %1065 = fmul double %.4770, 5.000000e-01
+  %1065 = fmul double %.5771, 5.000000e-01
   br label %1066
 
 1066:                                             ; preds = %1063, %1060, %1048
-  %.5771 = phi double [ %1065, %1063 ], [ %.4770, %1060 ], [ %1059, %1048 ]
+  %.2768 = phi double [ %1065, %1063 ], [ %.5771, %1060 ], [ %1059, %1048 ]
   %.5620 = phi double [ %1064, %1063 ], [ %.4619, %1060 ], [ %1058, %1048 ]
   %1067 = fcmp ult double %1024, 1.000000e-04
   br i1 %1067, label %1084, label %1068
@@ -2450,7 +2450,7 @@ _Z8lm_enormiPKd.exit751:                          ; preds = %972, %982, %988, %.
   br i1 %.not679, label %.loopexit791.sink.split, label %.loopexit791.sink.split.sink.split
 
 1084:                                             ; preds = %._crit_edge928, %1066
-  %.4625 = phi double [ %.3624, %1066 ], [ %1079, %._crit_edge928 ]
+  %.5626 = phi double [ %.4625, %1066 ], [ %1079, %._crit_edge928 ]
   %.2608 = phi double [ %.1607, %1066 ], [ %1016, %._crit_edge928 ]
   store i32 0, ptr %26, align 4
   %1085 = fcmp ugt double %.2608, 0x10000000000000
@@ -2477,7 +2477,7 @@ _Z8lm_enormiPKd.exit751:                          ; preds = %972, %982, %988, %.
   %.not680 = phi i1 [ false, %1094 ], [ true, %1091 ], [ true, %1086 ]
   %.pr = phi i32 [ 3, %1094 ], [ 2, %1091 ], [ 2, %1086 ]
   %1096 = load double, ptr %.phi.trans.insert, align 8
-  %1097 = fmul double %.4625, %1096
+  %1097 = fmul double %.5626, %1096
   %1098 = fcmp ugt double %.5620, %1097
   br i1 %1098, label %thread-pre-split, label %.loopexit791.sink.split
 
@@ -2498,7 +2498,7 @@ thread-pre-split:                                 ; preds = %1095
   br i1 %or.cond9, label %.loopexit791.sink.split, label %1105
 
 1105:                                             ; preds = %1101
-  %1106 = fmul double %.4625, 0x3CB0000000000000
+  %1106 = fmul double %.5626, 0x3CB0000000000000
   %1107 = fcmp ole double %.5620, %1106
   %brmerge = or i1 %1107, %262
   br i1 %brmerge, label %.loopexit791.sink.split.loopexit.split.loop.exit1334, label %1108
@@ -2513,7 +2513,7 @@ thread-pre-split:                                 ; preds = %1095
 
 .loopexit791.sink.split.sink.split:               ; preds = %1082, %999, %869, %245, %140
   %.str.50.sink = phi ptr [ @.str.38, %140 ], [ @.str.43, %245 ], [ @.str.46, %869 ], [ @.str.47, %999 ], [ @.str.50, %1082 ]
-  %.5626.ph.ph = phi double [ 0.000000e+00, %140 ], [ %242, %245 ], [ %.3624, %869 ], [ %.3624, %999 ], [ %1079, %1082 ]
+  %.0621.ph.ph = phi double [ 0.000000e+00, %140 ], [ %242, %245 ], [ %.4625, %869 ], [ %.4625, %999 ], [ %1079, %1082 ]
   %1112 = tail call i64 @fwrite(ptr nonnull %.str.50.sink, i64 11, i64 1, ptr %25)
   br label %.loopexit791.sink.split
 
@@ -2523,12 +2523,12 @@ thread-pre-split:                                 ; preds = %1095
 
 .loopexit791.sink.split:                          ; preds = %._crit_edge888, %.loopexit791.sink.split.loopexit.split.loop.exit1334, %1095, %1099, %1101, %.loopexit791.sink.split.sink.split, %1082, %999, %869, %245, %142, %140, %129
   %.sink1225 = phi i32 [ 13, %129 ], [ 12, %140 ], [ 0, %142 ], [ 12, %245 ], [ 12, %869 ], [ 12, %999 ], [ 12, %1082 ], [ 12, %.loopexit791.sink.split.sink.split ], [ %.mux.le, %.loopexit791.sink.split.loopexit.split.loop.exit1334 ], [ %.pr, %1095 ], [ 5, %1099 ], [ 6, %1101 ], [ 4, %._crit_edge888 ]
-  %.5626.ph = phi double [ 0.000000e+00, %129 ], [ 0.000000e+00, %140 ], [ 0.000000e+00, %142 ], [ %242, %245 ], [ %.3624, %869 ], [ %.3624, %999 ], [ %1079, %1082 ], [ %.5626.ph.ph, %.loopexit791.sink.split.sink.split ], [ %.4625, %1101 ], [ %.4625, %1099 ], [ %.4625, %1095 ], [ %.4625, %.loopexit791.sink.split.loopexit.split.loop.exit1334 ], [ %.0621, %._crit_edge888 ]
+  %.0621.ph = phi double [ 0.000000e+00, %129 ], [ 0.000000e+00, %140 ], [ 0.000000e+00, %142 ], [ %242, %245 ], [ %.4625, %869 ], [ %.4625, %999 ], [ %1079, %1082 ], [ %.0621.ph.ph, %.loopexit791.sink.split.sink.split ], [ %.5626, %1101 ], [ %.5626, %1099 ], [ %.5626, %1095 ], [ %.5626, %.loopexit791.sink.split.loopexit.split.loop.exit1334 ], [ %.1622, %._crit_edge888 ]
   store i32 %.sink1225, ptr %26, align 4
   br label %.loopexit791
 
 .loopexit791:                                     ; preds = %.lr.ph859, %thread-pre-split, %1084, %._crit_edge912, %.loopexit791.sink.split, %.loopexit805
-  %.5626 = phi double [ 0.000000e+00, %.loopexit805 ], [ %.5626.ph, %.loopexit791.sink.split ], [ %.4625, %thread-pre-split ], [ %.4625, %1084 ], [ %.3624, %._crit_edge912 ], [ %.0621, %.lr.ph859 ]
+  %.0621 = phi double [ 0.000000e+00, %.loopexit805 ], [ %.0621.ph, %.loopexit791.sink.split ], [ %.5626, %thread-pre-split ], [ %.5626, %1084 ], [ %.4625, %._crit_edge912 ], [ %.1622, %.lr.ph859 ]
   %1113 = tail call noundef double @_Z8lm_fnormiPKdS0_(i32 noundef %4, ptr noundef nonnull %79, ptr noundef %5)
   store double %1113, ptr %9, align 8
   %1114 = load i32, ptr %27, align 8
@@ -2628,7 +2628,7 @@ _ZL13lm_print_parsiPKdP8_IO_FILE.exit760:         ; preds = %.lr.ph.i756, %1125
 
 1149:                                             ; preds = %.loopexit
   %1150 = load double, ptr %9, align 8
-  %1151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.52, double noundef %1150, double noundef %.5626) #13
+  %1151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.52, double noundef %1150, double noundef %.0621) #13
   br label %1152
 
 1152:                                             ; preds = %1149, %.loopexit

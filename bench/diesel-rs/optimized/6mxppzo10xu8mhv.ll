@@ -148,13 +148,13 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   br label %41
 
 51:                                               ; preds = %56, %53
-  %.0109 = phi i8 [ %.1110, %53 ], [ %.2111, %56 ]
+  %.1110 = phi i8 [ %.0109, %53 ], [ %.2111, %56 ]
   %.pn142 = phi { ptr, i32 } [ %54, %53 ], [ %.pn138.pn.pn, %56 ]
-  %52 = trunc nuw i8 %.0109 to i1
+  %52 = trunc nuw i8 %.1110 to i1
   br i1 %52, label %136, label %137
 
 53:                                               ; preds = %122, %70, %48
-  %.1110 = phi i8 [ 0, %122 ], [ 1, %70 ], [ 1, %48 ]
+  %.0109 = phi i8 [ 0, %122 ], [ 1, %70 ], [ 1, %48 ]
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %51
@@ -164,7 +164,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           to label %59 unwind label %57
 
 56:                                               ; preds = %76, %.thread200, %57
-  %.2111 = phi i8 [ %.5192, %.thread200 ], [ 1, %57 ], [ %.0101, %76 ]
+  %.2111 = phi i8 [ %.2106192, %.thread200 ], [ 1, %57 ], [ %.1102, %76 ]
   %.pn138.pn.pn = phi { ptr, i32 } [ %.pn138.pn193, %.thread200 ], [ %58, %57 ], [ %.pn138, %76 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr nonnull align 8 %17) #4
           to label %51 unwind label %126
@@ -247,13 +247,13 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   br label %68
 
 76:                                               ; preds = %81, %78
-  %.0101 = phi i8 [ %.1102, %78 ], [ %.2103, %81 ]
+  %.1102 = phi i8 [ %.0101, %78 ], [ %.2103, %81 ]
   %.pn138 = phi { ptr, i32 } [ %79, %78 ], [ %.pn135.pn, %81 ]
-  %77 = trunc nuw i8 %.0101 to i1
+  %77 = trunc nuw i8 %.1102 to i1
   br i1 %77, label %134, label %56
 
 78:                                               ; preds = %121, %96, %68
-  %.1102 = phi i8 [ 0, %121 ], [ 1, %96 ], [ 1, %68 ]
+  %.0101 = phi i8 [ 0, %121 ], [ 1, %96 ], [ 1, %68 ]
   %79 = landingpad { ptr, i32 }
           cleanup
   br label %76
@@ -475,7 +475,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 
 .thread200:                                       ; preds = %134, %.thread189
   %.pn138.pn193 = phi { ptr, i32 } [ %132, %.thread189 ], [ %.pn138, %134 ]
-  %.5192 = phi i8 [ 1, %.thread189 ], [ %.0101, %134 ]
+  %.2106192 = phi i8 [ 1, %.thread189 ], [ %.1102, %134 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17he1765364b70bc707E"(ptr nonnull align 8 %16) #4
           to label %56 unwind label %126
 

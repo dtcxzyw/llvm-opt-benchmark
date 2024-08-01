@@ -448,9 +448,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -988,7 +988,7 @@ cleanup:                                          ; preds = %lor.end49, %land.lh
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
-  %maybeMore.0.in73 = phi i1 [ %5, %for.cond.preheader ], [ %20, %for.body ]
+  %maybeMore.1.in73 = phi i1 [ %5, %for.cond.preheader ], [ %20, %for.body ]
   %longestFullMatch.071 = phi i32 [ 0, %for.cond.preheader ], [ %longestFullMatch.1, %for.body ]
   %arrayidx = getelementptr inbounds [8 x %"class.icu_75::UnicodeString"], ptr %fLocalLongNames, i64 0, i64 %indvars.iv
   %call67 = tail call noundef i32 @_ZN6icu_7513StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx)
@@ -1004,7 +1004,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %19 = tail call i32 @llvm.smax.i32(i32 %cond.i59, i32 %longestFullMatch.071)
   %longestFullMatch.1 = select i1 %cmp69, i32 %19, i32 %longestFullMatch.071
   %cmp78 = icmp sgt i32 %call67, 0
-  %20 = or i1 %maybeMore.0.in73, %cmp78
+  %20 = or i1 %maybeMore.1.in73, %cmp78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -1024,8 +1024,8 @@ if.then82:                                        ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %cleanup, %for.end, %if.then82, %if.then29, %if.then9
-  %retval.1 = phi i1 [ %cmp, %if.then9 ], [ %5, %if.then29 ], [ %20, %if.then82 ], [ %12, %cleanup ], [ %20, %for.end ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp, %if.then9 ], [ %5, %if.then29 ], [ %20, %if.then82 ], [ %12, %cleanup ], [ %20, %for.end ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN6icu_7513StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17), i32 noundef) local_unnamed_addr #5

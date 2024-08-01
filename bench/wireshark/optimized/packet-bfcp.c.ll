@@ -591,7 +591,7 @@ define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr 
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5, %.outer
-  %.0233.ph280 = phi i32 [ %.3236, %.outer ], [ %3, %5 ]
+  %.0233.ph280 = phi i32 [ %.2235, %.outer ], [ %3, %5 ]
   %.0238.ph279 = phi i32 [ %198, %.outer ], [ 0, %5 ]
   br label %10
 
@@ -795,15 +795,15 @@ define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr 
   br label %.outer
 
 .lr.ph276:                                        ; preds = %.preheader, %.lr.ph276
-  %.1234275 = phi i32 [ %121, %.lr.ph276 ], [ %37, %.preheader ]
+  %.3236275 = phi i32 [ %121, %.lr.ph276 ], [ %37, %.preheader ]
   %119 = load i32, ptr @hf_bfcp_supp_attr, align 4
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %119, ptr noundef %0, i32 noundef %.1234275, i32 noundef 1, i32 noundef 0) #4
-  %121 = add i32 %.1234275, 1
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %119, ptr noundef %0, i32 noundef %.3236275, i32 noundef 1, i32 noundef 0) #4
+  %121 = add i32 %.3236275, 1
   %exitcond295.not = icmp eq i32 %121, %40
   br i1 %exitcond295.not, label %._crit_edge277, label %.lr.ph276, !llvm.loop !6
 
 ._crit_edge277:                                   ; preds = %.lr.ph276, %.preheader
-  %.1234.lcssa = phi i32 [ %37, %.preheader ], [ %40, %.lr.ph276 ]
+  %.3236.lcssa = phi i32 [ %37, %.preheader ], [ %40, %.lr.ph276 ]
   %122 = and i8 %30, 3
   %.not254 = icmp eq i8 %122, 0
   br i1 %.not254, label %._crit_edge277._crit_edge, label %123
@@ -812,25 +812,25 @@ define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr 
   %narrow255 = sub nuw nsw i8 4, %122
   %124 = load i32, ptr @hf_bfcp_padding, align 4
   %125 = zext nneg i8 %narrow255 to i32
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %124, ptr noundef %0, i32 noundef %.1234.lcssa, i32 noundef %125, i32 noundef 0) #4
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %124, ptr noundef %0, i32 noundef %.3236.lcssa, i32 noundef %125, i32 noundef 0) #4
   br label %._crit_edge277._crit_edge
 
 ._crit_edge277._crit_edge:                        ; preds = %._crit_edge277, %123
   %.4 = phi i8 [ %narrow255, %123 ], [ 0, %._crit_edge277 ]
   %127 = zext nneg i8 %.4 to i32
-  %128 = add i32 %.1234.lcssa, %127
+  %128 = add i32 %.3236.lcssa, %127
   br label %.outer
 
 .lr.ph273:                                        ; preds = %.preheader264, %.lr.ph273
-  %.2235272 = phi i32 [ %131, %.lr.ph273 ], [ %37, %.preheader264 ]
+  %.4237272 = phi i32 [ %131, %.lr.ph273 ], [ %37, %.preheader264 ]
   %129 = load i32, ptr @hf_bfcp_supp_prim, align 4
-  %130 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %129, ptr noundef %0, i32 noundef %.2235272, i32 noundef 1, i32 noundef 0) #4
-  %131 = add i32 %.2235272, 1
+  %130 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %129, ptr noundef %0, i32 noundef %.4237272, i32 noundef 1, i32 noundef 0) #4
+  %131 = add i32 %.4237272, 1
   %exitcond.not = icmp eq i32 %131, %38
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph273, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph273, %.preheader264
-  %.2235.lcssa = phi i32 [ %37, %.preheader264 ], [ %38, %.lr.ph273 ]
+  %.4237.lcssa = phi i32 [ %37, %.preheader264 ], [ %38, %.lr.ph273 ]
   %132 = and i8 %30, 3
   %.not252 = icmp eq i8 %132, 0
   br i1 %.not252, label %._crit_edge._crit_edge, label %133
@@ -839,13 +839,13 @@ define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr 
   %narrow253 = sub nuw nsw i8 4, %132
   %134 = load i32, ptr @hf_bfcp_padding, align 4
   %135 = zext nneg i8 %narrow253 to i32
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %134, ptr noundef %0, i32 noundef %.2235.lcssa, i32 noundef %135, i32 noundef 0) #4
+  %136 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %134, ptr noundef %0, i32 noundef %.4237.lcssa, i32 noundef %135, i32 noundef 0) #4
   br label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %133
   %.5 = phi i8 [ %narrow253, %133 ], [ 0, %._crit_edge ]
   %137 = zext nneg i8 %.5 to i32
-  %138 = add i32 %.2235.lcssa, %137
+  %138 = add i32 %.4237.lcssa, %137
   br label %.outer
 
 139:                                              ; preds = %35
@@ -940,9 +940,9 @@ define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr 
   br label %.outer
 
 .outer:                                           ; preds = %193, %187, %181, %175, %169, %163, %._crit_edge296, %._crit_edge297, %._crit_edge._crit_edge, %._crit_edge277._crit_edge, %._crit_edge298, %._crit_edge299, %._crit_edge300, %._crit_edge301, %58, %54, %50, %46, %42
-  %.3236 = phi i32 [ %197, %193 ], [ %192, %187 ], [ %186, %181 ], [ %180, %175 ], [ %174, %169 ], [ %168, %163 ], [ %162, %._crit_edge296 ], [ %150, %._crit_edge297 ], [ %138, %._crit_edge._crit_edge ], [ %128, %._crit_edge277._crit_edge ], [ %118, %._crit_edge298 ], [ %106, %._crit_edge299 ], [ %94, %._crit_edge300 ], [ %82, %._crit_edge301 ], [ %64, %58 ], [ %57, %54 ], [ %53, %50 ], [ %49, %46 ], [ %45, %42 ]
+  %.2235 = phi i32 [ %197, %193 ], [ %192, %187 ], [ %186, %181 ], [ %180, %175 ], [ %174, %169 ], [ %168, %163 ], [ %162, %._crit_edge296 ], [ %150, %._crit_edge297 ], [ %138, %._crit_edge._crit_edge ], [ %128, %._crit_edge277._crit_edge ], [ %118, %._crit_edge298 ], [ %106, %._crit_edge299 ], [ %94, %._crit_edge300 ], [ %82, %._crit_edge301 ], [ %64, %58 ], [ %57, %54 ], [ %53, %50 ], [ %49, %46 ], [ %45, %42 ]
   %198 = add i32 %.0238270, %31
-  %199 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3236) #4
+  %199 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2235) #4
   %200 = icmp sgt i32 %199, 1
   %201 = sub i32 %4, %198
   %202 = icmp sgt i32 %201, 1
@@ -950,8 +950,8 @@ define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr 
   br i1 %203, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.outer, %13, %5, %33
-  %.4237 = phi i32 [ %27, %33 ], [ %3, %5 ], [ %.0233.ph280, %13 ], [ %.3236, %.outer ]
-  ret i32 %.4237
+  %.1234 = phi i32 [ %27, %33 ], [ %3, %5 ], [ %.0233.ph280, %13 ], [ %.2235, %.outer ]
+  ret i32 %.1234
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

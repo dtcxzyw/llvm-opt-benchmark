@@ -1491,13 +1491,13 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not292, label %61, label %.thread252
 
 .thread252:                                       ; preds = %.thread, %55, %59
-  %.1223255 = phi ptr [ %33, %59 ], [ %44, %.thread ], [ %33, %55 ]
-  %60 = load i32, ptr %.1223255, align 8
+  %.0222255 = phi ptr [ %33, %59 ], [ %44, %.thread ], [ %33, %55 ]
+  %60 = load i32, ptr %.0222255, align 8
   br label %61
 
 61:                                               ; preds = %.thread252, %59
   %62 = phi i1 [ true, %.thread252 ], [ false, %59 ]
-  %.1223254 = phi ptr [ %.1223255, %.thread252 ], [ null, %59 ]
+  %.0222254 = phi ptr [ %.0222255, %.thread252 ], [ null, %59 ]
   %.0227 = phi i32 [ %60, %.thread252 ], [ 0, %59 ]
   switch i32 %18, label %104 [
     i32 7000, label %63
@@ -1718,12 +1718,12 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %178 = call ptr @val_to_str_ext(i32 noundef %18, ptr noundef nonnull @port_types_ext, ptr noundef nonnull @.str.897) #7
   %179 = select i1 %16, ptr @.str.898, ptr @.str.899
   %180 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %141, i32 noundef %172, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %.0227, ptr noundef nonnull @.str.905, ptr noundef nonnull %174, ptr noundef nonnull %177, ptr noundef %178, ptr noundef nonnull %179) #7
-  %181 = icmp eq ptr %.1223254, null
+  %181 = icmp eq ptr %.0222254, null
   %or.cond19 = or i1 %16, %181
   br i1 %or.cond19, label %188, label %182
 
 182:                                              ; preds = %171
-  %183 = getelementptr inbounds i8, ptr %.1223254, i64 8
+  %183 = getelementptr inbounds i8, ptr %.0222254, i64 8
   %184 = load i32, ptr %183, align 8
   %.not241 = icmp eq i32 %184, 0
   br i1 %.not241, label %.thread290, label %185
@@ -1738,18 +1738,18 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond21, label %189, label %.thread290
 
 189:                                              ; preds = %188
-  %190 = getelementptr inbounds i8, ptr %.1223254, i64 8
+  %190 = getelementptr inbounds i8, ptr %.0222254, i64 8
   %191 = load i32, ptr %190, align 8
   %.not242 = icmp eq i32 %191, 0
   br i1 %.not242, label %.thread290, label %192
 
 192:                                              ; preds = %189
   %193 = load i32, ptr @hf_afs_reqframe, align 4
-  %194 = getelementptr inbounds i8, ptr %.1223254, i64 4
+  %194 = getelementptr inbounds i8, ptr %.0222254, i64 4
   %195 = load i32, ptr %194, align 4
   %196 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %141, i32 noundef %193, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %195, ptr noundef nonnull @.str.909, i32 noundef %195) #7
   %197 = getelementptr inbounds i8, ptr %1, i64 24
-  %198 = getelementptr inbounds i8, ptr %.1223254, i64 16
+  %198 = getelementptr inbounds i8, ptr %.0222254, i64 16
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %197, ptr noundef nonnull %198) #7
   %199 = load i32, ptr @hf_afs_time, align 4
   %200 = call ptr @proto_tree_add_time(ptr noundef %141, i32 noundef %199, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #7

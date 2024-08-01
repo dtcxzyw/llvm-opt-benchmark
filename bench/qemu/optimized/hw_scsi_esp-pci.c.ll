@@ -408,7 +408,7 @@ if.then5.i:                                       ; preds = %if.then.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then5.i, %if.then.i, %if.then4
-  %val.1.i = phi i32 [ %spec.select.i, %if.then.i ], [ %spec.select.i, %if.then5.i ], [ %0, %if.then4 ]
+  %val.0.i = phi i32 [ %spec.select.i, %if.then.i ], [ %spec.select.i, %if.then5.i ], [ %0, %if.then4 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i = icmp ne i32 %4, 0
@@ -434,11 +434,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %8 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv6, i32 noundef %val.1.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv6, i32 noundef %val.0.i) #5
   br label %esp_pci_dma_read.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv6, i32 noundef %val.1.i) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv6, i32 noundef %val.0.i) #5
   br label %esp_pci_dma_read.exit
 
 esp_pci_dma_read.exit:                            ; preds = %if.end10.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -528,7 +528,7 @@ trace_esp_pci_error_invalid_read.exit:            ; preds = %if.else13, %land.lh
   br label %if.end16
 
 if.end16:                                         ; preds = %esp_pci_dma_read.exit, %trace_esp_pci_error_invalid_read.exit, %trace_esp_pci_sbac_read.exit, %if.then
-  %ret.0 = phi i32 [ %conv1, %if.then ], [ %val.1.i, %esp_pci_dma_read.exit ], [ %17, %trace_esp_pci_sbac_read.exit ], [ 0, %trace_esp_pci_error_invalid_read.exit ]
+  %ret.0 = phi i32 [ %conv1, %if.then ], [ %val.0.i, %esp_pci_dma_read.exit ], [ %17, %trace_esp_pci_sbac_read.exit ], [ 0, %trace_esp_pci_error_invalid_read.exit ]
   %addr.tr = trunc i64 %addr to i32
   %24 = shl i32 %addr.tr, 3
   %sh_prom = and i32 %24, 24

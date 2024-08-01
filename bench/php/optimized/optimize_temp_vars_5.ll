@@ -175,7 +175,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br label %98
 
 98:                                               ; preds = %.lr.ph467, %.thread
-  %.0367465 = phi i32 [ -1, %.lr.ph467 ], [ %.9, %.thread ]
+  %.0367465 = phi i32 [ -1, %.lr.ph467 ], [ %.7, %.thread ]
   %.1373460 = phi ptr [ %96, %.lr.ph467 ], [ %312, %.thread ]
   %99 = getelementptr inbounds i8, ptr %.1373460, i64 29
   %100 = load i8, ptr %99, align 1
@@ -352,28 +352,28 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br label %._crit_edge433
 
 ._crit_edge433:                                   ; preds = %189, %._crit_edge433.loopexit.split.loop.exit, %.critedge416
-  %.0368.lcssa = phi i32 [ 0, %.critedge416 ], [ %190, %._crit_edge433.loopexit.split.loop.exit ], [ %4, %189 ]
-  %191 = and i32 %.0368.lcssa, 63
+  %.1369.lcssa = phi i32 [ 0, %.critedge416 ], [ %190, %._crit_edge433.loopexit.split.loop.exit ], [ %4, %189 ]
+  %191 = and i32 %.1369.lcssa, 63
   %192 = zext nneg i32 %191 to i64
   %193 = shl nuw i64 1, %192
-  %194 = lshr i32 %.0368.lcssa, 6
+  %194 = lshr i32 %.1369.lcssa, 6
   %195 = zext nneg i32 %194 to i64
   %196 = getelementptr inbounds i64, ptr %.0374, i64 %195
   %197 = load i64, ptr %196, align 8
   %198 = or i64 %197, %193
   store i64 %198, ptr %196, align 8
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0368.lcssa, i32 %.0367465)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.1369.lcssa, i32 %.0367465)
   br label %199
 
 199:                                              ; preds = %._crit_edge433, %173
-  %.1369 = phi i32 [ %174, %173 ], [ %.0368.lcssa, %._crit_edge433 ]
-  %.1 = phi i32 [ %174, %173 ], [ %spec.select, %._crit_edge433 ]
-  store i32 %.1369, ptr %159, align 4
+  %.0368 = phi i32 [ %174, %173 ], [ %.1369.lcssa, %._crit_edge433 ]
+  %.3 = phi i32 [ %174, %173 ], [ %spec.select, %._crit_edge433 ]
+  store i32 %.0368, ptr %159, align 4
   br label %200
 
 200:                                              ; preds = %199, %157
-  %201 = phi i32 [ %.1369, %199 ], [ %160, %157 ]
-  %.2 = phi i32 [ %.1, %199 ], [ %.0367465, %157 ]
+  %201 = phi i32 [ %.0368, %199 ], [ %160, %157 ]
+  %.2 = phi i32 [ %.3, %199 ], [ %.0367465, %157 ]
   %202 = add nsw i32 %201, %6
   %203 = shl i32 %202, 4
   %204 = add i32 %203, 80
@@ -381,7 +381,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph443, %.critedge, %200, %98
-  %.3 = phi i32 [ %.2, %200 ], [ %.0367465, %98 ], [ %131, %.critedge ], [ %131, %.lr.ph443 ]
+  %.1 = phi i32 [ %.2, %200 ], [ %.0367465, %98 ], [ %131, %.critedge ], [ %131, %.lr.ph443 ]
   %205 = getelementptr inbounds i8, ptr %.1373460, i64 30
   %206 = load i8, ptr %205, align 2
   %207 = and i8 %206, 6
@@ -434,13 +434,13 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %231 = load i64, ptr %230, align 8
   %232 = or i64 %231, %227
   store i64 %232, ptr %230, align 8
-  %spec.select417 = tail call i32 @llvm.smax.i32(i32 %.2370.lcssa, i32 %.3)
+  %spec.select417 = tail call i32 @llvm.smax.i32(i32 %.2370.lcssa, i32 %.1)
   store i32 %.2370.lcssa, ptr %214, align 4
   br label %233
 
 233:                                              ; preds = %._crit_edge446, %208
   %234 = phi i32 [ %.2370.lcssa, %._crit_edge446 ], [ %215, %208 ]
-  %.5 = phi i32 [ %spec.select417, %._crit_edge446 ], [ %.3, %208 ]
+  %.5 = phi i32 [ %spec.select417, %._crit_edge446 ], [ %.1, %208 ]
   %235 = add nsw i32 %234, %6
   %236 = shl i32 %235, 4
   %237 = add i32 %236, 80
@@ -448,7 +448,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br label %238
 
 238:                                              ; preds = %233, %.loopexit
-  %.6 = phi i32 [ %.5, %233 ], [ %.3, %.loopexit ]
+  %.4 = phi i32 [ %.5, %233 ], [ %.1, %.loopexit ]
   %239 = getelementptr inbounds i8, ptr %.1373460, i64 31
   %240 = load i8, ptr %239, align 1
   %241 = and i8 %240, 6
@@ -501,13 +501,13 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %265 = load i64, ptr %264, align 8
   %266 = or i64 %265, %261
   store i64 %266, ptr %264, align 8
-  %spec.select418 = tail call i32 @llvm.smax.i32(i32 %.3371.lcssa, i32 %.6)
+  %spec.select418 = tail call i32 @llvm.smax.i32(i32 %.3371.lcssa, i32 %.4)
   store i32 %.3371.lcssa, ptr %248, align 4
   br label %267
 
 267:                                              ; preds = %._crit_edge452, %242
   %268 = phi i32 [ %.3371.lcssa, %._crit_edge452 ], [ %249, %242 ]
-  %.8 = phi i32 [ %spec.select418, %._crit_edge452 ], [ %.6, %242 ]
+  %.8 = phi i32 [ %spec.select418, %._crit_edge452 ], [ %.4, %242 ]
   %269 = add nsw i32 %268, %6
   %270 = shl i32 %269, 4
   %271 = add i32 %270, 80
@@ -572,7 +572,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br i1 %311, label %.lr.ph458, label %.thread
 
 .thread:                                          ; preds = %.lr.ph458, %290, %275, %267, %278, %238
-  %.9 = phi i32 [ %.8, %278 ], [ %.8, %267 ], [ %.6, %238 ], [ %.8, %275 ], [ %.8, %290 ], [ %.8, %.lr.ph458 ]
+  %.7 = phi i32 [ %.8, %278 ], [ %.8, %267 ], [ %.4, %238 ], [ %.8, %275 ], [ %.8, %290 ], [ %.8, %.lr.ph458 ]
   %312 = getelementptr inbounds i8, ptr %.1373460, i64 -32
   %.not400 = icmp ult ptr %312, %92
   br i1 %.not400, label %._crit_edge468, label %98
@@ -602,7 +602,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 ._crit_edge473:                                   ; preds = %.lr.ph472, %._crit_edge468
   %.0366.lcssa = phi ptr [ %313, %._crit_edge468 ], [ %320, %.lr.ph472 ]
   store ptr %8, ptr %.0366.lcssa, align 8
-  %326 = add nsw i32 %.9, 1
+  %326 = add nsw i32 %.7, 1
   store i32 %326, ptr %3, align 8
   ret void
 }

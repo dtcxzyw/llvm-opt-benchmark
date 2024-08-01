@@ -438,9 +438,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -830,13 +830,13 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end58
-  %newStart.0137 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %if.end58 ]
+  %newStart.1137 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %if.end58 ]
   %oOutput.0136 = phi i32 [ 0, %for.body.lr.ph ], [ %add61, %if.end58 ]
-  %destLimit.0135 = phi i32 [ %destStart.0, %for.body.lr.ph ], [ %destLimit.2, %if.end58 ]
+  %destLimit.0135 = phi i32 [ %destStart.0, %for.body.lr.ph ], [ %destLimit.1, %if.end58 ]
   %14 = load i32, ptr %cursorPos23, align 8
   %cmp24 = icmp eq i32 %oOutput.0136, %14
   %sub26 = sub nsw i32 %destLimit.0135, %destStart.0
-  %spec.select = select i1 %cmp24, i32 %sub26, i32 %newStart.0137
+  %spec.select = select i1 %cmp24, i32 %sub26, i32 %newStart.1137
   %call30 = invoke noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %output19, i32 noundef %oOutput.0136)
           to label %invoke.cont29 unwind label %lpad.loopexit
 
@@ -897,19 +897,19 @@ if.then4.i:                                       ; preds = %if.else.i
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then4.i, %if.else.i, %if.then.i, %invoke.cont39
-  %destLimit.1 = phi i32 [ %destLimit.0135, %invoke.cont39 ], [ %add48, %if.then.i ], [ %add48, %if.else.i ], [ %add48, %if.then4.i ]
+  %destLimit.2 = phi i32 [ %destLimit.0135, %invoke.cont39 ], [ %add48, %if.then.i ], [ %add48, %if.else.i ], [ %add48, %if.then4.i ]
   %vtable53 = load ptr, ptr %call32, align 8
   %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 16
   %24 = load ptr, ptr %vfn54, align 8
-  %call56 = invoke noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(8) %call32, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %destLimit.1, i32 noundef %destLimit.1, ptr noundef nonnull align 4 dereferenceable(4) %cursor)
+  %call56 = invoke noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(8) %call32, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %destLimit.2, i32 noundef %destLimit.2, ptr noundef nonnull align 4 dereferenceable(4) %cursor)
           to label %invoke.cont55 unwind label %lpad.loopexit
 
 invoke.cont55:                                    ; preds = %if.end51
-  %add57 = add nsw i32 %call56, %destLimit.1
+  %add57 = add nsw i32 %call56, %destLimit.2
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then34, %invoke.cont55
-  %destLimit.2 = phi i32 [ %destLimit.0135, %if.then34 ], [ %add57, %invoke.cont55 ]
+  %destLimit.1 = phi i32 [ %destLimit.0135, %if.then34 ], [ %add57, %invoke.cont55 ]
   %cmp59 = icmp ult i32 %call30, 65536
   %cond60 = select i1 %cmp59, i32 1, i32 2
   %add61 = add nuw nsw i32 %cond60, %oOutput.0136
@@ -923,9 +923,9 @@ if.end58:                                         ; preds = %if.then34, %invoke.
   br i1 %cmp22, label %for.body, label %invoke.cont62, !llvm.loop !4
 
 invoke.cont62:                                    ; preds = %if.end58, %if.end
-  %destLimit.0.lcssa = phi i32 [ %destStart.0, %if.end ], [ %destLimit.2, %if.end58 ]
+  %destLimit.0.lcssa = phi i32 [ %destStart.0, %if.end ], [ %destLimit.1, %if.end58 ]
   %oOutput.0.lcssa = phi i32 [ 0, %if.end ], [ %add61, %if.end58 ]
-  %newStart.0.lcssa = phi i32 [ 0, %if.end ], [ %spec.select, %if.end58 ]
+  %newStart.1.lcssa = phi i32 [ 0, %if.end ], [ %spec.select, %if.end58 ]
   %28 = load i16, ptr %fUnion2.i, align 8
   %cmp.i.i97 = icmp slt i16 %28, 0
   %29 = ashr i16 %28, 5
@@ -959,7 +959,7 @@ if.end72:                                         ; preds = %invoke.cont69, %inv
   %35 = load i32, ptr %cursorPos73, align 8
   %cmp74 = icmp eq i32 %oOutput.0.lcssa, %35
   %sub76 = sub nsw i32 %destLimit.3, %destStart.0
-  %spec.select75 = select i1 %cmp74, i32 %sub76, i32 %newStart.0.lcssa
+  %spec.select75 = select i1 %cmp74, i32 %sub76, i32 %newStart.1.lcssa
   %vtable79 = load ptr, ptr %text, align 8
   %vfn80 = getelementptr inbounds i8, ptr %vtable79, i64 40
   %36 = load ptr, ptr %vfn80, align 8
@@ -1014,7 +1014,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn
 
 if.end97:                                         ; preds = %invoke.cont96, %if.then
-  %newStart.3 = phi i32 [ %spec.select75, %invoke.cont96 ], [ %5, %if.then ]
+  %newStart.0 = phi i32 [ %spec.select75, %invoke.cont96 ], [ %5, %if.then ]
   %outLen.0 = phi i32 [ %sub76, %invoke.cont96 ], [ %cond.i, %if.then ]
   %hasCursor = getelementptr inbounds i8, ptr %this, i64 84
   %41 = load i8, ptr %hasCursor, align 4
@@ -1074,39 +1074,39 @@ if.then118:                                       ; preds = %if.else113
 
 land.rhs127:                                      ; preds = %if.then118, %while.body131
   %n120.0142 = phi i32 [ %dec, %while.body131 ], [ %sub124, %if.then118 ]
-  %newStart.5141 = phi i32 [ %add135, %while.body131 ], [ %add119, %if.then118 ]
+  %newStart.6141 = phi i32 [ %add135, %while.body131 ], [ %add119, %if.then118 ]
   %vtable.i120 = load ptr, ptr %text, align 8
   %vfn.i121 = getelementptr inbounds i8, ptr %vtable.i120, i64 64
   %48 = load ptr, ptr %vfn.i121, align 8
   %call.i122 = call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %text)
-  %cmp129 = icmp slt i32 %newStart.5141, %call.i122
+  %cmp129 = icmp slt i32 %newStart.6141, %call.i122
   br i1 %cmp129, label %while.body131, label %while.end136
 
 while.body131:                                    ; preds = %land.rhs127
   %vtable.i123 = load ptr, ptr %text, align 8
   %vfn.i124 = getelementptr inbounds i8, ptr %vtable.i123, i64 80
   %49 = load ptr, ptr %vfn.i124, align 8
-  %call.i125 = call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %newStart.5141)
+  %call.i125 = call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %newStart.6141)
   %cmp133 = icmp ult i32 %call.i125, 65536
   %cond134 = select i1 %cmp133, i32 1, i32 2
-  %add135 = add nsw i32 %cond134, %newStart.5141
+  %add135 = add nsw i32 %cond134, %newStart.6141
   %dec = add nsw i32 %n120.0142, -1
   %cmp126 = icmp sgt i32 %n120.0142, 1
   br i1 %cmp126, label %land.rhs127, label %while.end136, !llvm.loop !7
 
 while.end136:                                     ; preds = %land.rhs127, %while.body131, %if.then118
-  %newStart.5.lcssa = phi i32 [ %add119, %if.then118 ], [ %add135, %while.body131 ], [ %newStart.5141, %land.rhs127 ]
+  %newStart.6.lcssa = phi i32 [ %add119, %if.then118 ], [ %add135, %while.body131 ], [ %newStart.6141, %land.rhs127 ]
   %n120.0.lcssa = phi i32 [ %sub124, %if.then118 ], [ 0, %while.body131 ], [ %n120.0142, %land.rhs127 ]
-  %add137 = add nsw i32 %n120.0.lcssa, %newStart.5.lcssa
+  %add137 = add nsw i32 %n120.0.lcssa, %newStart.6.lcssa
   br label %if.end141
 
 if.else138:                                       ; preds = %if.else113
-  %add139 = add nsw i32 %newStart.3, %start
+  %add139 = add nsw i32 %newStart.0, %start
   br label %if.end141
 
 if.end141:                                        ; preds = %while.end136, %if.else138, %while.end
-  %newStart.6 = phi i32 [ %add112, %while.end ], [ %add137, %while.end136 ], [ %add139, %if.else138 ]
-  store i32 %newStart.6, ptr %cursor, align 4
+  %newStart.5 = phi i32 [ %add112, %while.end ], [ %add137, %while.end136 ], [ %add139, %if.else138 ]
+  store i32 %newStart.5, ptr %cursor, align 4
   br label %if.end142
 
 if.end142:                                        ; preds = %if.end141, %if.end97
@@ -1175,12 +1175,12 @@ _ZN6icu_7513UnicodeString8truncateEi.exit:        ; preds = %if.then.i, %if.else
   br i1 %or.cond, label %while.cond, label %if.end
 
 while.cond:                                       ; preds = %_ZN6icu_7513UnicodeString8truncateEi.exit, %while.body
-  %cursor.0 = phi i32 [ %inc, %while.body ], [ %4, %_ZN6icu_7513UnicodeString8truncateEi.exit ]
-  %exitcond.not = icmp eq i32 %cursor.0, 0
+  %cursor.1 = phi i32 [ %inc, %while.body ], [ %4, %_ZN6icu_7513UnicodeString8truncateEi.exit ]
+  %exitcond.not = icmp eq i32 %cursor.1, 0
   br i1 %exitcond.not, label %if.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %inc = add i32 %cursor.0, 1
+  %inc = add i32 %cursor.1, 1
   invoke void @_ZN6icu_7511ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef 64, i8 noundef signext 1, i8 noundef signext %escapeUnprintable, ptr noundef nonnull align 8 dereferenceable(64) %quoteBuf)
           to label %while.cond unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !8
 
@@ -1205,7 +1205,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %while.end
   br label %ehcleanup
 
 if.end:                                           ; preds = %while.cond, %_ZN6icu_7513UnicodeString8truncateEi.exit
-  %cursor.1 = phi i32 [ %4, %_ZN6icu_7513UnicodeString8truncateEi.exit ], [ 1, %while.cond ]
+  %cursor.0 = phi i32 [ %4, %_ZN6icu_7513UnicodeString8truncateEi.exit ], [ 1, %while.cond ]
   %fUnion.i.i28 = getelementptr inbounds i8, ptr %this, i64 24
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 28
   %6 = load i16, ptr %fUnion.i.i28, align 8
@@ -1222,7 +1222,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %fArray.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %data = getelementptr inbounds i8, ptr %this, i64 88
   %fUnion2.i30 = getelementptr inbounds i8, ptr %buf, i64 8
-  %9 = zext i32 %cursor.1 to i64
+  %9 = zext i32 %cursor.0 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1332,12 +1332,12 @@ for.end:                                          ; preds = %for.inc, %if.end
   %cond.i.lcssa = phi i32 [ %cond.i58, %if.end ], [ %cond.i, %for.inc ]
   %27 = load i8, ptr %hasCursor, align 4
   %tobool34.not = icmp ne i8 %27, 0
-  %cmp39 = icmp sgt i32 %cursor.1, %cond.i.lcssa
+  %cmp39 = icmp sgt i32 %cursor.0, %cond.i.lcssa
   %or.cond44 = select i1 %tobool34.not, i1 %cmp39, i1 false
   br i1 %or.cond44, label %invoke.cont42, label %if.end50
 
 invoke.cont42:                                    ; preds = %for.end
-  %sub = sub nsw i32 %cursor.1, %cond.i.lcssa
+  %sub = sub nsw i32 %cursor.0, %cond.i.lcssa
   br label %while.cond44
 
 while.cond44:                                     ; preds = %while.body46, %invoke.cont42

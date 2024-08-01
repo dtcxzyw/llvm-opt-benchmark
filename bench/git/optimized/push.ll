@@ -1194,15 +1194,15 @@ land.lhs.true.i.i:                                ; preds = %sw.epilog30.i.i
   br label %if.end33.i.i
 
 if.end33.i.i:                                     ; preds = %land.lhs.true.i.i, %sw.epilog30.i.i
-  %flags.addr.1.i = phi i32 [ %spec.select26.i, %sw.epilog30.i.i ], [ %spec.select27.i, %land.lhs.true.i.i ]
+  %flags.addr.2.i = phi i32 [ %spec.select26.i, %sw.epilog30.i.i ], [ %spec.select27.i, %land.lhs.true.i.i ]
   %53 = load ptr, ptr %refname.i.i, align 8
   call void (ptr, ptr, ...) @refspec_appendf(ptr noundef nonnull @rs, ptr noundef nonnull @.str.96, ptr noundef %53, ptr noundef %dst.0.i.i) #13
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end33.i.i, %sw.bb.i.i, %if.else.i28, %if.then7.i27, %for.end
-  %flags.addr.3.i = phi i32 [ %spec.select26.i, %if.else.i28 ], [ %spec.select26.i, %if.then7.i27 ], [ %spec.select26.i, %for.end ], [ %flags.addr.1.i, %if.end33.i.i ], [ %spec.select26.i, %sw.bb.i.i ]
+  %flags.addr.1.i = phi i32 [ %spec.select26.i, %if.else.i28 ], [ %spec.select26.i, %if.then7.i27 ], [ %spec.select26.i, %for.end ], [ %flags.addr.2.i, %if.end33.i.i ], [ %spec.select26.i, %sw.bb.i.i ]
   %push_refspec.0.i = phi ptr [ @rs, %if.else.i28 ], [ %push.i, %if.then7.i27 ], [ @rs, %for.end ], [ @rs, %if.end33.i.i ], [ @rs, %sw.bb.i.i ]
-  %flags.addr.3.fr.i = freeze i32 %flags.addr.3.i
+  %flags.addr.1.fr.i = freeze i32 %flags.addr.1.i
   %pushurl_nr.i.i = getelementptr inbounds i8, ptr %call373, i64 64
   %54 = load i32, ptr %pushurl_nr.i.i, align 8
   %tobool.not.i18.i = icmp eq i32 %54, 0
@@ -1220,7 +1220,7 @@ for.cond.preheader.i:                             ; preds = %if.end14.i
   br i1 %cmp28.i22, label %for.body.lr.ph.i23, label %do_push.exit
 
 for.body.lr.ph.i23:                               ; preds = %for.cond.preheader.i
-  %and18.i = and i32 %flags.addr.3.fr.i, 16384
+  %and18.i = and i32 %flags.addr.1.fr.i, 16384
   %tobool19.not.i = icmp eq i32 %and18.i, 0
   %wide.trip.count36.i = zext nneg i32 %retval.0.i.i to i64
   br i1 %tobool19.not.i, label %for.body.us.i, label %for.body.i24
@@ -1231,7 +1231,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i23,
   %arrayidx.us.i = getelementptr inbounds ptr, ptr %.sink.i.i, i64 %indvars.iv33.i
   %55 = load ptr, ptr %arrayidx.us.i, align 8
   %call17.us.i = call ptr @transport_get(ptr noundef nonnull %call373, ptr noundef %55) #13
-  %call23.us.i = call fastcc i32 @push_with_options(ptr noundef %call17.us.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i)
+  %call23.us.i = call fastcc i32 @push_with_options(ptr noundef %call17.us.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.1.fr.i)
   %spec.select.us.i = add nuw nsw i32 %call23.us.i, %errs.029.us.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count36.i
@@ -1245,7 +1245,7 @@ for.body.i24:                                     ; preds = %for.body.lr.ph.i23,
   %call17.i = call ptr @transport_get(ptr noundef nonnull %call373, ptr noundef %56) #13
   %push_options21.i = getelementptr inbounds i8, ptr %call17.i, i64 64
   store ptr %push_options_cmdline.push_options_config, ptr %push_options21.i, align 8
-  %call23.i = call fastcc i32 @push_with_options(ptr noundef %call17.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i)
+  %call23.i = call fastcc i32 @push_with_options(ptr noundef %call17.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.1.fr.i)
   %spec.select.i = add nuw nsw i32 %call23.i, %errs.029.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count36.i
@@ -1253,7 +1253,7 @@ for.body.i24:                                     ; preds = %for.body.lr.ph.i23,
 
 if.else28.i:                                      ; preds = %if.end14.i
   %call30.i = call ptr @transport_get(ptr noundef nonnull %call373, ptr noundef null) #13
-  %and31.i = and i32 %flags.addr.3.fr.i, 16384
+  %and31.i = and i32 %flags.addr.1.fr.i, 16384
   %tobool32.not.i = icmp eq i32 %and31.i, 0
   br i1 %tobool32.not.i, label %if.end35.i, label %if.then33.i
 
@@ -1263,7 +1263,7 @@ if.then33.i:                                      ; preds = %if.else28.i
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.then33.i, %if.else28.i
-  %call36.i = call fastcc i32 @push_with_options(ptr noundef %call30.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i)
+  %call36.i = call fastcc i32 @push_with_options(ptr noundef %call30.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.1.fr.i)
   br label %do_push.exit
 
 do_push.exit:                                     ; preds = %for.body.i24, %for.body.us.i, %for.cond.preheader.i, %if.end35.i

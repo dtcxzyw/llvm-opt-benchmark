@@ -706,7 +706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit15.i: 
           to label %202 unwind label %178
 
 202:                                              ; preds = %200, %193, %191, %174
-  %.0.i14 = phi i32 [ 2, %174 ], [ 3, %191 ], [ 4, %200 ], [ 0, %193 ]
+  %.1.i = phi i32 [ 2, %174 ], [ 3, %191 ], [ 4, %200 ], [ 0, %193 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
   br label %_ZL17copyDirectoryTestv.exit
 
@@ -716,7 +716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit15.i: 
   br label %common.resume
 
 _ZL17copyDirectoryTestv.exit:                     ; preds = %158, %202
-  %.1.i = phi i32 [ %.0.i14, %202 ], [ 1, %158 ]
+  %.0.i14 = phi i32 [ %.1.i, %202 ], [ 1, %158 ]
   %204 = icmp eq i32 %137, 0
   %205 = zext i1 %204 to i32
   %206 = and i64 %135, 4294967295
@@ -735,7 +735,7 @@ _ZL17copyDirectoryTestv.exit:                     ; preds = %158, %202
   %214 = add nuw nsw i32 %213, %205
   %215 = add nuw nsw i32 %214, %210
   %216 = add nuw nsw i32 %215, %212
-  %217 = add nuw nsw i32 %216, %.1.i
+  %217 = add nuw nsw i32 %216, %.0.i14
   ret i32 %217
 }
 

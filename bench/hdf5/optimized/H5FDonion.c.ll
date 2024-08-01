@@ -824,10 +824,10 @@ define internal ptr @H5FD__onion_open(ptr noundef %0, i32 noundef %1, i64 nounde
   br label %431
 
 51:                                               ; preds = %44, %27
-  %.0256 = phi ptr [ %28, %27 ], [ %38, %44 ]
-  %.0254 = phi ptr [ null, %27 ], [ %38, %44 ]
-  %.0252 = phi ptr [ null, %27 ], [ %31, %44 ]
-  %52 = getelementptr inbounds i8, ptr %.0256, i64 20
+  %.1257 = phi ptr [ %28, %27 ], [ %38, %44 ]
+  %.1255 = phi ptr [ null, %27 ], [ %38, %44 ]
+  %.1253 = phi ptr [ null, %27 ], [ %31, %44 ]
+  %52 = getelementptr inbounds i8, ptr %.1257, i64 20
   %53 = load i32, ptr %52, align 4
   %.not297 = icmp eq i32 %53, 0
   br i1 %.not297, label %58, label %54
@@ -922,7 +922,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
 
 110:                                              ; preds = %H5FD__onion_get_legit_fapl_id.exit
   %111 = getelementptr inbounds i8, ptr %59, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %111, ptr noundef nonnull align 8 dereferenceable(296) %.0256, i64 296, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %111, ptr noundef nonnull align 8 dereferenceable(296) %.1257, i64 296, i1 false)
   %112 = getelementptr inbounds i8, ptr %59, i64 416
   store i8 1, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %59, i64 96
@@ -935,7 +935,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
   store i8 1, ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %59, i64 544
   store i8 1, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %.0256, i64 16
+  %119 = getelementptr inbounds i8, ptr %.1257, i64 16
   %120 = load i32, ptr %119, align 8
   %121 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %120)
   %or.cond317 = icmp eq i32 %121, 1
@@ -958,7 +958,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
   br i1 %.not299, label %151, label %132
 
 132:                                              ; preds = %126
-  %133 = getelementptr inbounds i8, ptr %.0256, i64 33
+  %133 = getelementptr inbounds i8, ptr %.1257, i64 33
   %134 = load i8, ptr %133, align 1
   %135 = and i8 %134, 1
   %.not310 = icmp eq i8 %135, 0
@@ -1324,7 +1324,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %431
 
 355:                                              ; preds = %343
-  %356 = getelementptr inbounds i8, ptr %.0256, i64 24
+  %356 = getelementptr inbounds i8, ptr %.1257, i64 24
   %357 = load i64, ptr %356, align 8
   %358 = getelementptr inbounds i8, ptr %59, i64 472
   %359 = load i64, ptr %358, align 8
@@ -1393,7 +1393,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   %393 = load ptr, ptr %392, align 8
   %394 = call ptr @H5MM_xfree(ptr noundef %393) #18
   store ptr %394, ptr %392, align 8
-  %395 = getelementptr inbounds i8, ptr %.0256, i64 34
+  %395 = getelementptr inbounds i8, ptr %.1257, i64 34
   %396 = call noalias ptr @H5MM_strndup(ptr noundef nonnull %395, i64 noundef 255) #18
   store ptr %396, ptr %392, align 8
   %397 = icmp eq ptr %396, null
@@ -1449,23 +1449,23 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
 
 431:                                              ; preds = %407, %423, %398, %385, %376, %361, %351, %339, %327, %319, %311, %303, %296, %273, %265, %257, %249, %242, %235, %226, %H5FD__onion_get_legit_fapl_id.exit322.thread, %204, %196, %155, %145, %122, %H5FD__onion_get_legit_fapl_id.exit.thread, %91, %80, %70, %61, %54, %47, %40, %33, %23, %16, %10
   %.0258 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %33 ], [ null, %40 ], [ null, %47 ], [ null, %54 ], [ null, %61 ], [ %59, %70 ], [ %59, %80 ], [ %59, %91 ], [ %59, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %59, %122 ], [ %59, %145 ], [ %59, %398 ], [ %59, %155 ], [ %59, %196 ], [ %59, %204 ], [ %59, %H5FD__onion_get_legit_fapl_id.exit322.thread ], [ %59, %226 ], [ %59, %235 ], [ %59, %242 ], [ %59, %249 ], [ %59, %257 ], [ %59, %265 ], [ %59, %273 ], [ %59, %296 ], [ %59, %311 ], [ %59, %319 ], [ %59, %327 ], [ %59, %339 ], [ %59, %351 ], [ %59, %361 ], [ %59, %385 ], [ %59, %376 ], [ %59, %303 ], [ null, %10 ], [ %59, %423 ], [ %59, %407 ]
-  %.1257 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %33 ], [ null, %40 ], [ null, %47 ], [ %.0256, %54 ], [ %.0256, %61 ], [ %.0256, %70 ], [ %.0256, %80 ], [ %.0256, %91 ], [ %.0256, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.0256, %122 ], [ %.0256, %145 ], [ %.0256, %398 ], [ %.0256, %155 ], [ %.0256, %196 ], [ %.0256, %204 ], [ %.0256, %H5FD__onion_get_legit_fapl_id.exit322.thread ], [ %.0256, %226 ], [ %.0256, %235 ], [ %.0256, %242 ], [ %.0256, %249 ], [ %.0256, %257 ], [ %.0256, %265 ], [ %.0256, %273 ], [ %.0256, %296 ], [ %.0256, %311 ], [ %.0256, %319 ], [ %.0256, %327 ], [ %.0256, %339 ], [ %.0256, %351 ], [ %.0256, %361 ], [ %.0256, %385 ], [ %.0256, %376 ], [ %.0256, %303 ], [ null, %10 ], [ %.0256, %423 ], [ %.0256, %407 ]
-  %.1255 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %33 ], [ null, %40 ], [ %38, %47 ], [ %.0254, %54 ], [ %.0254, %61 ], [ %.0254, %70 ], [ %.0254, %80 ], [ %.0254, %91 ], [ %.0254, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.0254, %122 ], [ %.0254, %145 ], [ %.0254, %398 ], [ %.0254, %155 ], [ %.0254, %196 ], [ %.0254, %204 ], [ %.0254, %H5FD__onion_get_legit_fapl_id.exit322.thread ], [ %.0254, %226 ], [ %.0254, %235 ], [ %.0254, %242 ], [ %.0254, %249 ], [ %.0254, %257 ], [ %.0254, %265 ], [ %.0254, %273 ], [ %.0254, %296 ], [ %.0254, %311 ], [ %.0254, %319 ], [ %.0254, %327 ], [ %.0254, %339 ], [ %.0254, %351 ], [ %.0254, %361 ], [ %.0254, %385 ], [ %.0254, %376 ], [ %.0254, %303 ], [ null, %10 ], [ %.0254, %423 ], [ %.0254, %407 ]
-  %.1253 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %33 ], [ %31, %40 ], [ %31, %47 ], [ %.0252, %54 ], [ %.0252, %61 ], [ %.0252, %70 ], [ %.0252, %80 ], [ %.0252, %91 ], [ %.0252, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.0252, %122 ], [ %.0252, %145 ], [ %.0252, %398 ], [ %.0252, %155 ], [ %.0252, %196 ], [ %.0252, %204 ], [ %.0252, %H5FD__onion_get_legit_fapl_id.exit322.thread ], [ %.0252, %226 ], [ %.0252, %235 ], [ %.0252, %242 ], [ %.0252, %249 ], [ %.0252, %257 ], [ %.0252, %265 ], [ %.0252, %273 ], [ %.0252, %296 ], [ %.0252, %311 ], [ %.0252, %319 ], [ %.0252, %327 ], [ %.0252, %339 ], [ %.0252, %351 ], [ %.0252, %361 ], [ %.0252, %385 ], [ %.0252, %376 ], [ %.0252, %303 ], [ null, %10 ], [ %.0252, %423 ], [ %.0252, %407 ]
+  %.0256 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %33 ], [ null, %40 ], [ null, %47 ], [ %.1257, %54 ], [ %.1257, %61 ], [ %.1257, %70 ], [ %.1257, %80 ], [ %.1257, %91 ], [ %.1257, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.1257, %122 ], [ %.1257, %145 ], [ %.1257, %398 ], [ %.1257, %155 ], [ %.1257, %196 ], [ %.1257, %204 ], [ %.1257, %H5FD__onion_get_legit_fapl_id.exit322.thread ], [ %.1257, %226 ], [ %.1257, %235 ], [ %.1257, %242 ], [ %.1257, %249 ], [ %.1257, %257 ], [ %.1257, %265 ], [ %.1257, %273 ], [ %.1257, %296 ], [ %.1257, %311 ], [ %.1257, %319 ], [ %.1257, %327 ], [ %.1257, %339 ], [ %.1257, %351 ], [ %.1257, %361 ], [ %.1257, %385 ], [ %.1257, %376 ], [ %.1257, %303 ], [ null, %10 ], [ %.1257, %423 ], [ %.1257, %407 ]
+  %.0254 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %33 ], [ null, %40 ], [ %38, %47 ], [ %.1255, %54 ], [ %.1255, %61 ], [ %.1255, %70 ], [ %.1255, %80 ], [ %.1255, %91 ], [ %.1255, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.1255, %122 ], [ %.1255, %145 ], [ %.1255, %398 ], [ %.1255, %155 ], [ %.1255, %196 ], [ %.1255, %204 ], [ %.1255, %H5FD__onion_get_legit_fapl_id.exit322.thread ], [ %.1255, %226 ], [ %.1255, %235 ], [ %.1255, %242 ], [ %.1255, %249 ], [ %.1255, %257 ], [ %.1255, %265 ], [ %.1255, %273 ], [ %.1255, %296 ], [ %.1255, %311 ], [ %.1255, %319 ], [ %.1255, %327 ], [ %.1255, %339 ], [ %.1255, %351 ], [ %.1255, %361 ], [ %.1255, %385 ], [ %.1255, %376 ], [ %.1255, %303 ], [ null, %10 ], [ %.1255, %423 ], [ %.1255, %407 ]
+  %.0252 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %33 ], [ %31, %40 ], [ %31, %47 ], [ %.1253, %54 ], [ %.1253, %61 ], [ %.1253, %70 ], [ %.1253, %80 ], [ %.1253, %91 ], [ %.1253, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.1253, %122 ], [ %.1253, %145 ], [ %.1253, %398 ], [ %.1253, %155 ], [ %.1253, %196 ], [ %.1253, %204 ], [ %.1253, %H5FD__onion_get_legit_fapl_id.exit322.thread ], [ %.1253, %226 ], [ %.1253, %235 ], [ %.1253, %242 ], [ %.1253, %249 ], [ %.1253, %257 ], [ %.1253, %265 ], [ %.1253, %273 ], [ %.1253, %296 ], [ %.1253, %311 ], [ %.1253, %319 ], [ %.1253, %327 ], [ %.1253, %339 ], [ %.1253, %351 ], [ %.1253, %361 ], [ %.1253, %385 ], [ %.1253, %376 ], [ %.1253, %303 ], [ null, %10 ], [ %.1253, %423 ], [ %.1253, %407 ]
   %.0251 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %33 ], [ null, %40 ], [ null, %47 ], [ null, %54 ], [ null, %61 ], [ null, %70 ], [ %68, %80 ], [ %68, %91 ], [ %68, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %68, %122 ], [ %68, %145 ], [ %68, %398 ], [ %68, %155 ], [ %68, %196 ], [ %68, %204 ], [ %68, %H5FD__onion_get_legit_fapl_id.exit322.thread ], [ %68, %226 ], [ %68, %235 ], [ %68, %242 ], [ %68, %249 ], [ %68, %257 ], [ %68, %265 ], [ %68, %273 ], [ %68, %296 ], [ %68, %311 ], [ %68, %319 ], [ %68, %327 ], [ %68, %339 ], [ %68, %351 ], [ %68, %361 ], [ %68, %385 ], [ %68, %376 ], [ %68, %303 ], [ null, %10 ], [ %68, %423 ], [ %68, %407 ]
   %.0250 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %33 ], [ null, %40 ], [ null, %47 ], [ null, %54 ], [ null, %61 ], [ null, %70 ], [ null, %80 ], [ %78, %91 ], [ %78, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %78, %122 ], [ %78, %145 ], [ %78, %398 ], [ %78, %155 ], [ %78, %196 ], [ %78, %204 ], [ %78, %H5FD__onion_get_legit_fapl_id.exit322.thread ], [ %78, %226 ], [ %78, %235 ], [ %78, %242 ], [ %78, %249 ], [ %78, %257 ], [ %78, %265 ], [ %78, %273 ], [ %78, %296 ], [ %78, %311 ], [ %78, %319 ], [ %78, %327 ], [ %78, %339 ], [ %78, %351 ], [ %78, %361 ], [ %78, %385 ], [ %78, %376 ], [ %78, %303 ], [ null, %10 ], [ %78, %423 ], [ %78, %407 ]
   %.0 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %33 ], [ null, %40 ], [ null, %47 ], [ null, %54 ], [ null, %61 ], [ null, %70 ], [ null, %80 ], [ null, %91 ], [ null, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ null, %122 ], [ null, %145 ], [ null, %398 ], [ null, %155 ], [ null, %196 ], [ null, %204 ], [ null, %H5FD__onion_get_legit_fapl_id.exit322.thread ], [ null, %226 ], [ null, %235 ], [ null, %242 ], [ null, %249 ], [ null, %257 ], [ null, %265 ], [ null, %273 ], [ null, %296 ], [ null, %311 ], [ null, %319 ], [ null, %327 ], [ null, %339 ], [ null, %351 ], [ null, %361 ], [ null, %385 ], [ null, %376 ], [ null, %303 ], [ null, %10 ], [ %59, %423 ], [ %59, %407 ]
   %432 = call ptr @H5MM_xfree(ptr noundef %.0251) #18
   %433 = call ptr @H5MM_xfree(ptr noundef %.0250) #18
-  %434 = icmp ne ptr %.1253, null
-  %435 = icmp ne ptr %.1255, null
+  %434 = icmp ne ptr %.0252, null
+  %435 = icmp ne ptr %.0254, null
   %or.cond3 = and i1 %435, %434
-  %436 = icmp ne ptr %.1257, null
+  %436 = icmp ne ptr %.0256, null
   %or.cond7 = and i1 %436, %or.cond3
   br i1 %or.cond7, label %437, label %446
 
 437:                                              ; preds = %431
-  %438 = getelementptr inbounds i8, ptr %.1257, i64 8
+  %438 = getelementptr inbounds i8, ptr %.0256, i64 8
   %439 = load i64, ptr %438, align 8
   %.not312 = icmp eq i64 %439, 0
   br i1 %.not312, label %446, label %440
@@ -1568,7 +1568,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %500
 
 500:                                              ; preds = %489, %446
-  %501 = call ptr @H5MM_xfree(ptr noundef %.1255) #18
+  %501 = call ptr @H5MM_xfree(ptr noundef %.0254) #18
   ret ptr %.0
 }
 
@@ -1967,14 +1967,14 @@ H5FD__onion_commit_new_revision_record.exit:      ; preds = %146, %113
   br label %237
 
 237:                                              ; preds = %233, %230
-  %.3 = phi i32 [ -1, %233 ], [ %.2, %230 ]
+  %.4 = phi i32 [ -1, %233 ], [ %.2, %230 ]
   %238 = getelementptr inbounds i8, ptr %0, i64 408
   %239 = load ptr, ptr %238, align 8
   %240 = call i32 @remove(ptr noundef %239) #18
   br label %241
 
 241:                                              ; preds = %237, %227
-  %.4 = phi i32 [ %.3, %237 ], [ %.2, %227 ]
+  %.3 = phi i32 [ %.4, %237 ], [ %.2, %227 ]
   %242 = getelementptr inbounds i8, ptr %0, i64 592
   %243 = load ptr, ptr %242, align 8
   %.not37 = icmp eq ptr %243, null
@@ -1992,7 +1992,7 @@ H5FD__onion_commit_new_revision_record.exit:      ; preds = %146, %113
   br label %251
 
 251:                                              ; preds = %244, %247, %241
-  %.5 = phi i32 [ -1, %247 ], [ %.4, %244 ], [ %.4, %241 ]
+  %.5 = phi i32 [ -1, %247 ], [ %.3, %244 ], [ %.3, %241 ]
   %252 = getelementptr inbounds i8, ptr %0, i64 408
   %253 = load ptr, ptr %252, align 8
   %254 = call ptr @H5MM_xfree(ptr noundef %253) #18
@@ -2758,7 +2758,7 @@ H5FD__onion_remove_unused_symbols.exit:           ; preds = %28
   br i1 %.not81, label %.loopexit, label %38
 
 .loopexit:                                        ; preds = %86, %16
-  %.0 = phi ptr [ null, %16 ], [ %19, %86 ]
+  %.1 = phi ptr [ null, %16 ], [ %19, %86 ]
   %89 = load i64, ptr %8, align 8
   switch i64 %89, label %105 [
     i64 0, label %90
@@ -2791,8 +2791,8 @@ H5FD__onion_remove_unused_symbols.exit:           ; preds = %28
 
 105:                                              ; preds = %.loopexit, %98, %101, %94, %82, %31, %21, %3
   %.061 = phi i32 [ -1, %94 ], [ -1, %101 ], [ 0, %98 ], [ -1, %21 ], [ -1, %82 ], [ -1, %31 ], [ -1, %3 ], [ 0, %.loopexit ]
-  %.1 = phi ptr [ %.0, %94 ], [ %.0, %101 ], [ %.0, %98 ], [ null, %21 ], [ %19, %82 ], [ %19, %31 ], [ null, %3 ], [ %.0, %.loopexit ]
-  tail call void @free(ptr noundef %.1) #18
+  %.0 = phi ptr [ %.1, %94 ], [ %.1, %101 ], [ %.1, %98 ], [ null, %21 ], [ %19, %82 ], [ %19, %31 ], [ null, %3 ], [ %.1, %.loopexit ]
+  tail call void @free(ptr noundef %.0) #18
   ret i32 %.061
 }
 
@@ -3263,9 +3263,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef %0,
 
 107:                                              ; preds = %83, %96, %106
   %.04153 = phi ptr [ %.041.ph, %106 ], [ %.041.ph, %96 ], [ %43, %83 ]
-  %.4 = phi i32 [ -1, %106 ], [ -1, %96 ], [ 0, %83 ]
+  %.1 = phi i32 [ -1, %106 ], [ -1, %96 ], [ 0, %83 ]
   %108 = call ptr @H5MM_xfree(ptr noundef %.04153) #18
-  ret i32 %.4
+  ret i32 %.1
 }
 
 declare noalias ptr @H5MM_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1

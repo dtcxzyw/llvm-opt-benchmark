@@ -387,7 +387,7 @@ BufferGetPage.exit.i:                             ; preds = %106, %102
 .lr.ph.i:                                         ; preds = %146, %.outer.i
   %.0100.ph196.i = phi i32 [ %196, %.outer.i ], [ 0, %146 ]
   %.0101.ph195.i = phi i16 [ %.val138.i, %.outer.i ], [ %.1146, %146 ]
-  %.0104.ph194.i = phi i16 [ %.1105.i, %.outer.i ], [ 0, %146 ]
+  %.0104.ph194.i = phi i16 [ %.2106.i, %.outer.i ], [ 0, %146 ]
   %.0107.ph193.i = phi i32 [ %254, %.outer.i ], [ 0, %146 ]
   %149 = sext i32 %.0100.ph196.i to i64
   %smax.i = call i32 @llvm.smax.i32(i32 %.0100.ph196.i, i32 1)
@@ -566,7 +566,7 @@ heap_prune_record_prunable.exit.i:                ; preds = %195
   br label %234
 
 234:                                              ; preds = %heap_prune_record_prunable.exit.i, %215, %213
-  %.1105.i = phi i16 [ %.0101178.i, %heap_prune_record_prunable.exit.i ], [ %.0104.ph194.i, %213 ], [ %.0104.ph194.i, %215 ]
+  %.2106.i = phi i16 [ %.0101178.i, %heap_prune_record_prunable.exit.i ], [ %.0104.ph194.i, %213 ], [ %.0104.ph194.i, %215 ]
   %235 = getelementptr inbounds i8, ptr %184, i64 18
   %236 = load i16, ptr %235, align 2
   %237 = and i16 %236, 16384
@@ -615,9 +615,9 @@ heap_prune_record_prunable.exit.i:                ; preds = %195
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.outer.i, %238, %234, %195, %195, %192, %162, %161, %.thread.loopexit.split.loop.exit275.i, %.thread.loopexit.split.loop.exit.i, %230, %228, %173, %169
-  %.2106.i = phi i16 [ %.0104.ph194.i, %173 ], [ %.0104.ph194.i, %169 ], [ %.0104.ph194.i, %230 ], [ %.0104.ph194.i, %228 ], [ %.0104.ph194.i, %.thread.loopexit.split.loop.exit.i ], [ %.0104.ph194.i, %.thread.loopexit.split.loop.exit275.i ], [ %.0104.ph194.i, %161 ], [ %.0104.ph194.i, %162 ], [ %.0104.ph194.i, %195 ], [ %.0104.ph194.i, %195 ], [ %.0104.ph194.i, %192 ], [ %.1105.i, %234 ], [ %.1105.i, %238 ], [ %.1105.i, %.outer.i ]
+  %.1105.i = phi i16 [ %.0104.ph194.i, %173 ], [ %.0104.ph194.i, %169 ], [ %.0104.ph194.i, %230 ], [ %.0104.ph194.i, %228 ], [ %.0104.ph194.i, %.thread.loopexit.split.loop.exit.i ], [ %.0104.ph194.i, %.thread.loopexit.split.loop.exit275.i ], [ %.0104.ph194.i, %161 ], [ %.0104.ph194.i, %162 ], [ %.0104.ph194.i, %195 ], [ %.0104.ph194.i, %195 ], [ %.0104.ph194.i, %192 ], [ %.2106.i, %234 ], [ %.2106.i, %238 ], [ %.2106.i, %.outer.i ]
   %.1.i = phi i32 [ %170, %173 ], [ %170, %169 ], [ %196, %230 ], [ %196, %228 ], [ %256, %.thread.loopexit.split.loop.exit.i ], [ %257, %.thread.loopexit.split.loop.exit275.i ], [ %163, %162 ], [ %smax.i, %161 ], [ %196, %195 ], [ %196, %195 ], [ %181, %192 ], [ %196, %234 ], [ %196, %238 ], [ %196, %.outer.i ]
-  %258 = add i16 %.2106.i, -1
+  %258 = add i16 %.1105.i, -1
   %259 = icmp ult i16 %258, 2048
   br i1 %259, label %.preheader.i, label %314
 
@@ -634,7 +634,7 @@ heap_prune_record_prunable.exit.i:                ; preds = %195
   %263 = phi i16 [ %.pre.i, %.lr.ph201.i ], [ %266, %264 ]
   %indvars.iv230.i = phi i64 [ 1, %.lr.ph201.i ], [ %indvars.iv.next231.i, %264 ]
   %.1103199.i = phi i32 [ 0, %.lr.ph201.i ], [ %274, %264 ]
-  %.not123.i = icmp eq i16 %263, %.2106.i
+  %.not123.i = icmp eq i16 %263, %.1105.i
   br i1 %.not123.i, label %293, label %264
 
 264:                                              ; preds = %262

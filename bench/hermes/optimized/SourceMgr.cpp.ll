@@ -2663,7 +2663,7 @@ for.body156.lr.ph:                                ; preds = %if.end150
 
 for.body156:                                      ; preds = %for.body156.lr.ph, %for.inc179
   %indvars.iv312 = phi i64 [ 0, %for.body156.lr.ph ], [ %indvars.iv.next313, %for.inc179 ]
-  %OutCol.0303 = phi i32 [ 0, %for.body156.lr.ph ], [ %OutCol.2, %for.inc179 ]
+  %OutCol.0303 = phi i32 [ 0, %for.body156.lr.ph ], [ %OutCol.1, %for.inc179 ]
   %call159 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %LineContents) #18
   %cmp160.not = icmp ugt i64 %call159, %indvars.iv312
   br i1 %cmp160.not, label %lor.lhs.false161, label %if.then167
@@ -2697,7 +2697,7 @@ _ZN4llvh11raw_ostreamlsEc.exit237:                ; preds = %if.then.i232, %if.e
   br label %for.inc179
 
 do.body:                                          ; preds = %lor.lhs.false161, %_ZN4llvh11raw_ostreamlsEc.exit246
-  %OutCol.1 = phi i32 [ %inc176, %_ZN4llvh11raw_ostreamlsEc.exit246 ], [ %OutCol.0303, %lor.lhs.false161 ]
+  %OutCol.2 = phi i32 [ %inc176, %_ZN4llvh11raw_ostreamlsEc.exit246 ], [ %OutCol.0303, %lor.lhs.false161 ]
   %call174 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %CaretLine, i64 noundef %indvars.iv312) #18
   %77 = load i8, ptr %call174, align 1
   %78 = load ptr, ptr %OutBufCur.i229, align 8
@@ -2716,13 +2716,13 @@ if.end.i244:                                      ; preds = %do.body
   br label %_ZN4llvh11raw_ostreamlsEc.exit246
 
 _ZN4llvh11raw_ostreamlsEc.exit246:                ; preds = %if.then.i241, %if.end.i244
-  %inc176 = add i32 %OutCol.1, 1
+  %inc176 = add i32 %OutCol.2, 1
   %80 = and i32 %inc176, 7
   %exitcond = icmp eq i32 %80, 0
   br i1 %exitcond, label %for.inc179, label %do.body, !llvm.loop !32
 
 for.inc179:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit246, %_ZN4llvh11raw_ostreamlsEc.exit237
-  %OutCol.2 = phi i32 [ %inc171, %_ZN4llvh11raw_ostreamlsEc.exit237 ], [ %inc176, %_ZN4llvh11raw_ostreamlsEc.exit246 ]
+  %OutCol.1 = phi i32 [ %inc171, %_ZN4llvh11raw_ostreamlsEc.exit237 ], [ %inc176, %_ZN4llvh11raw_ostreamlsEc.exit246 ]
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %cmp155.not = icmp eq i64 %indvars.iv.next313, %72
   br i1 %cmp155.not, label %for.end181, label %for.body156, !llvm.loop !33
@@ -2765,7 +2765,7 @@ if.end191:                                        ; preds = %if.end188
   br i1 %cmp197304.not, label %for.end229, label %for.body198
 
 for.body198:                                      ; preds = %if.end191, %for.inc227
-  %OutCol195.0306 = phi i64 [ %OutCol195.2, %for.inc227 ], [ 0, %if.end191 ]
+  %OutCol195.0306 = phi i64 [ %OutCol195.1, %for.inc227 ], [ 0, %if.end191 ]
   %i192.0305 = phi i64 [ %inc228, %for.inc227 ], [ 0, %if.end191 ]
   %call200 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %LineContents) #18
   %cmp201.not = icmp ult i64 %i192.0305, %call200
@@ -2800,9 +2800,9 @@ _ZN4llvh11raw_ostreamlsEc.exit264:                ; preds = %if.then.i259, %if.e
   br label %for.inc227
 
 do.body212:                                       ; preds = %lor.lhs.false202, %_ZN4llvh11raw_ostreamlsEc.exit273
-  %i192.1 = phi i64 [ %spec.select, %_ZN4llvh11raw_ostreamlsEc.exit273 ], [ %i192.0305, %lor.lhs.false202 ]
-  %OutCol195.1 = phi i64 [ %inc221, %_ZN4llvh11raw_ostreamlsEc.exit273 ], [ %OutCol195.0306, %lor.lhs.false202 ]
-  %call213 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %FixItInsertionLine, i64 noundef %i192.1) #18
+  %i192.2 = phi i64 [ %spec.select, %_ZN4llvh11raw_ostreamlsEc.exit273 ], [ %i192.0305, %lor.lhs.false202 ]
+  %OutCol195.2 = phi i64 [ %inc221, %_ZN4llvh11raw_ostreamlsEc.exit273 ], [ %OutCol195.0306, %lor.lhs.false202 ]
+  %call213 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %FixItInsertionLine, i64 noundef %i192.2) #18
   %88 = load i8, ptr %call213, align 1
   %89 = load ptr, ptr %OutBufCur.i247, align 8
   %90 = load ptr, ptr %OutBufEnd.i248, align 8
@@ -2820,12 +2820,12 @@ if.end.i271:                                      ; preds = %do.body212
   br label %_ZN4llvh11raw_ostreamlsEc.exit273
 
 _ZN4llvh11raw_ostreamlsEc.exit273:                ; preds = %if.then.i268, %if.end.i271
-  %call215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %FixItInsertionLine, i64 noundef %i192.1) #18
+  %call215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %FixItInsertionLine, i64 noundef %i192.2) #18
   %91 = load i8, ptr %call215, align 1
   %cmp217.not = icmp ne i8 %91, 32
   %inc219 = zext i1 %cmp217.not to i64
-  %spec.select = add i64 %i192.1, %inc219
-  %inc221 = add i64 %OutCol195.1, 1
+  %spec.select = add i64 %i192.2, %inc219
+  %inc221 = add i64 %OutCol195.2, 1
   %rem223 = and i64 %inc221, 7
   %cmp224 = icmp ne i64 %rem223, 0
   %cmp225 = icmp ne i64 %spec.select, %call194
@@ -2833,9 +2833,9 @@ _ZN4llvh11raw_ostreamlsEc.exit273:                ; preds = %if.then.i268, %if.e
   br i1 %92, label %do.body212, label %for.inc227, !llvm.loop !34
 
 for.inc227:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit273, %_ZN4llvh11raw_ostreamlsEc.exit264
-  %i192.3 = phi i64 [ %i192.0305, %_ZN4llvh11raw_ostreamlsEc.exit264 ], [ %spec.select, %_ZN4llvh11raw_ostreamlsEc.exit273 ]
-  %OutCol195.2 = phi i64 [ %inc210, %_ZN4llvh11raw_ostreamlsEc.exit264 ], [ %inc221, %_ZN4llvh11raw_ostreamlsEc.exit273 ]
-  %inc228 = add i64 %i192.3, 1
+  %i192.1 = phi i64 [ %i192.0305, %_ZN4llvh11raw_ostreamlsEc.exit264 ], [ %spec.select, %_ZN4llvh11raw_ostreamlsEc.exit273 ]
+  %OutCol195.1 = phi i64 [ %inc210, %_ZN4llvh11raw_ostreamlsEc.exit264 ], [ %inc221, %_ZN4llvh11raw_ostreamlsEc.exit273 ]
+  %inc228 = add i64 %i192.1, 1
   %cmp197 = icmp ult i64 %inc228, %call194
   br i1 %cmp197, label %for.body198, label %for.end229, !llvm.loop !35
 

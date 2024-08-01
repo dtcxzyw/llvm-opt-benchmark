@@ -6274,19 +6274,19 @@ invoke.cont42:                                    ; preds = %_ZNK11ast_manager6i
   br i1 %cmp.i105, label %if.then48.critedge, label %_ZNK11ast_manager6is_iteEPK4expr.exit.i
 
 if.then48.critedge:                               ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i98, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i, %land.lhs.true37, %invoke.cont42, %land.lhs.true19, %invoke.cont23
-  %a.4 = phi ptr [ %25, %land.lhs.true19 ], [ %25, %invoke.cont23 ], [ %53, %land.lhs.true37 ], [ %53, %invoke.cont42 ], [ %25, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i ], [ %53, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i98 ]
-  %b.7 = phi ptr [ %33, %land.lhs.true19 ], [ %33, %invoke.cont23 ], [ %60, %land.lhs.true37 ], [ %60, %invoke.cont42 ], [ %33, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i ], [ %60, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i98 ]
-  %m_num_args.i = getelementptr inbounds i8, ptr %b.7, i64 24
+  %a.3 = phi ptr [ %25, %land.lhs.true19 ], [ %25, %invoke.cont23 ], [ %53, %land.lhs.true37 ], [ %53, %invoke.cont42 ], [ %25, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i ], [ %53, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i98 ]
+  %b.5 = phi ptr [ %33, %land.lhs.true19 ], [ %33, %invoke.cont23 ], [ %60, %land.lhs.true37 ], [ %60, %invoke.cont42 ], [ %33, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i ], [ %60, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i98 ]
+  %m_num_args.i = getelementptr inbounds i8, ptr %b.5, i64 24
   %75 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %75 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
   %m_args.i.add = add nuw nsw i64 %add.ptr.i.idx, 32
-  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %b.7, i64 %m_args.i.add
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %b.5, i64 %m_args.i.add
   %cmp56.not396 = icmp eq i32 %75, 0
   br i1 %cmp56.not396, label %for.inc95, label %for.body57.preheader
 
 for.body57.preheader:                             ; preds = %if.then48.critedge
-  %m_args.i.ptr = getelementptr inbounds i8, ptr %b.7, i64 32
+  %m_args.i.ptr = getelementptr inbounds i8, ptr %b.5, i64 32
   br label %for.body57
 
 for.body57:                                       ; preds = %for.body57.preheader, %_ZN14justified_exprD2Ev.exit
@@ -6333,7 +6333,7 @@ cond.false.i:                                     ; preds = %land.lhs.true.i.i13
 
 invoke.cont60:                                    ; preds = %cond.true.i, %cond.false.i
   %cond.i = phi ptr [ %84, %cond.true.i ], [ %call.i.i139, %cond.false.i ]
-  %call.i140 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %77, i32 noundef 0, i32 noundef 6, ptr noundef %a.4, ptr noundef %cond.i)
+  %call.i140 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %77, i32 noundef 0, i32 noundef 6, ptr noundef %a.3, ptr noundef %cond.i)
           to label %invoke.cont62 unwind label %lpad.loopexit
 
 invoke.cont62:                                    ; preds = %invoke.cont60
@@ -9662,7 +9662,7 @@ for.body.preheader:                               ; preds = %if.then11
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %visited.0106 = phi i1 [ %visited.1, %for.inc ], [ true, %for.body.preheader ]
   %__begin3.0105 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_args.i.ptr, %for.body.preheader ]
-  %d.0103 = phi i32 [ %d.1, %for.inc ], [ 0, %for.body.preheader ]
+  %d.1103 = phi i32 [ %d.2, %for.inc ], [ 0, %for.body.preheader ]
   %18 = load ptr, ptr %__begin3.0105, align 8
   %m_hash.i.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %18, i64 12
   %19 = load i32, ptr %m_hash.i.i.i.i.i.i.i11, align 4
@@ -9729,7 +9729,7 @@ if.then21:                                        ; preds = %if.then.i.i.i41, %i
   %retval.0.i.i.i40 = phi ptr [ %curr.133.i.i.i29, %if.then22.i.i.i34 ], [ %curr.031.i.i.i21, %if.then.i.i.i41 ]
   %m_value.i = getelementptr inbounds i8, ptr %retval.0.i.i.i40, i64 8
   %26 = load i32, ptr %m_value.i, align 8
-  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %d.0103, i32 %26)
+  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %d.1103, i32 %26)
   br label %for.inc
 
 if.else:                                          ; preds = %for.body.i.i.i20, %for.body20.i.i.i28, %for.inc36.i.i.i31, %for.cond18.preheader.i.i.i26
@@ -9839,7 +9839,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit61:   ; preds = %lor.lhs.false.i48, 
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit61, %if.then21
-  %d.1 = phi i32 [ %.sroa.speculated, %if.then21 ], [ %d.0103, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit61 ]
+  %d.2 = phi i32 [ %.sroa.speculated, %if.then21 ], [ %d.1103, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit61 ]
   %visited.1 = phi i1 [ %visited.0106, %if.then21 ], [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit61 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0105, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i10.ptr
@@ -9849,7 +9849,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %visited.1, label %for.end.if.end29_crit_edge, label %while.cond.backedge
 
 for.end.if.end29_crit_edge:                       ; preds = %if.then11, %for.end
-  %d.0.lcssa125 = phi i32 [ %d.1, %for.end ], [ 0, %if.then11 ]
+  %d.1.lcssa125 = phi i32 [ %d.2, %for.end ], [ 0, %if.then11 ]
   %.pre = load ptr, ptr %todo, align 8
   %arrayidx.i62.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 -4
   %.pre121 = load i32, ptr %arrayidx.i62.phi.trans.insert, align 4
@@ -9859,10 +9859,10 @@ for.end.if.end29_crit_edge:                       ; preds = %if.then11, %for.end
 if.end29:                                         ; preds = %for.end.if.end29_crit_edge, %if.end
   %dec.i63.pre-phi = phi i32 [ %.pre122, %for.end.if.end29_crit_edge ], [ %5, %if.end ]
   %36 = phi ptr [ %.pre, %for.end.if.end29_crit_edge ], [ %3, %if.end ]
-  %d.2 = phi i32 [ %d.0.lcssa125, %for.end.if.end29_crit_edge ], [ 0, %if.end ]
+  %d.0 = phi i32 [ %d.1.lcssa125, %for.end.if.end29_crit_edge ], [ 0, %if.end ]
   %arrayidx.i62 = getelementptr inbounds i8, ptr %36, i64 -4
   store i32 %dec.i63.pre-phi, ptr %arrayidx.i62, align 4
-  %add = add i32 %d.2, 1
+  %add = add i32 %d.0, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %7, ptr %ref.tmp.i, align 8
   store i32 %add, ptr %m_value.i.i, align 8

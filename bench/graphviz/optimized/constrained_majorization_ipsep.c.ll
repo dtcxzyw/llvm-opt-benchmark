@@ -694,7 +694,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %252
 
 252:                                              ; preds = %.lr.ph647, %372
-  %.0410645 = phi i32 [ 0, %.lr.ph647 ], [ %373, %372 ]
+  %.1411645 = phi i32 [ 0, %.lr.ph647 ], [ %373, %372 ]
   %.0420644 = phi double [ 0.000000e+00, %.lr.ph647 ], [ %.1421, %372 ]
   %.0430643 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph647 ], [ %.2429.lcssa, %372 ]
   tail call void @set_vector_val(i32 noundef %.0409, double noundef 0.000000e+00, ptr noundef %180) #12
@@ -883,7 +883,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 309:                                              ; preds = %._crit_edge641
   %310 = load ptr, ptr @stderr, align 8
   %311 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.8, double noundef %.2429.lcssa) #14
-  %312 = srem i32 %.0410645, 10
+  %312 = srem i32 %.1411645, 10
   %313 = icmp eq i32 %312, 0
   br i1 %313, label %314, label %316
 
@@ -907,7 +907,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 325:                                              ; preds = %318, %316
   %326 = phi i1 [ false, %316 ], [ %324, %318 ]
-  %.not484 = icmp sge i32 %.0410645, %246
+  %.not484 = icmp sge i32 %.1411645, %246
   %brmerge = select i1 %.not484, i1 true, i1 %326
   %.pre837 = load i32, ptr %247, align 8
   br i1 %brmerge, label %327, label %336
@@ -926,7 +926,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 333:                                              ; preds = %330
   %334 = load ptr, ptr @stderr, align 8
-  %335 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.10, double noundef %331, i32 noundef %.0410645) #14
+  %335 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.10, double noundef %331, i32 noundef %.1411645) #14
   %.pre = load i32, ptr %247, align 8
   br label %336
 
@@ -934,7 +934,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %337 = phi i32 [ %.pre837, %327 ], [ %.pre837, %325 ], [ %.pre, %333 ], [ 1, %330 ]
   %.1426 = phi i1 [ %326, %327 ], [ false, %325 ], [ false, %333 ], [ false, %330 ]
   %.1421 = phi double [ %.0420644, %327 ], [ %.0420644, %325 ], [ %331, %333 ], [ %331, %330 ]
-  %.1411 = phi i32 [ %.0410645, %327 ], [ %.0410645, %325 ], [ 0, %333 ], [ 0, %330 ]
+  %.2412 = phi i32 [ %.1411645, %327 ], [ %.1411645, %325 ], [ 0, %333 ], [ 0, %330 ]
   %338 = icmp eq i32 %337, 1
   %339 = fcmp ogt double %.1421, 1.000000e-03
   %or.cond3 = select i1 %338, i1 %339, i1 false
@@ -994,14 +994,14 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %372
 
 372:                                              ; preds = %368, %363
-  %373 = add nsw i32 %.1411, 1
+  %373 = add nsw i32 %.2412, 1
   %374 = icmp sge i32 %373, %6
   %.not481 = select i1 %374, i1 true, i1 %.1426
   br i1 %.not481, label %._crit_edge648, label %252
 
 ._crit_edge648:                                   ; preds = %372, %241
   %.0427.lcssa = phi double [ 0.000000e+00, %241 ], [ %.2429.lcssa, %372 ]
-  %.0410.lcssa = phi i32 [ 0, %241 ], [ %373, %372 ]
+  %.1411.lcssa = phi i32 [ 0, %241 ], [ %373, %372 ]
   %375 = load i8, ptr @Verbose, align 1
   %.not482 = icmp eq i8 %375, 0
   br i1 %.not482, label %380, label %376
@@ -1009,7 +1009,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 376:                                              ; preds = %._crit_edge648
   %377 = load ptr, ptr @stderr, align 8
   %378 = tail call double @elapsed_sec() #12
-  %379 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %377, ptr noundef nonnull @.str.11, double noundef %.0427.lcssa, i32 noundef %.0410.lcssa, double noundef %378) #14
+  %379 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %377, ptr noundef nonnull @.str.11, double noundef %.0427.lcssa, i32 noundef %.1411.lcssa, double noundef %378) #14
   br label %380
 
 380:                                              ; preds = %376, %._crit_edge648
@@ -1026,12 +1026,12 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .loopexit:                                        ; preds = %237, %._crit_edge606, %380, %384
   %.0450 = phi ptr [ %243, %384 ], [ %243, %380 ], [ null, %._crit_edge606 ], [ null, %237 ]
-  %.2412 = phi i32 [ %.0410.lcssa, %384 ], [ %.0410.lcssa, %380 ], [ -1, %._crit_edge606 ], [ -1, %237 ]
+  %.0410 = phi i32 [ %.1411.lcssa, %384 ], [ %.1411.lcssa, %380 ], [ -1, %._crit_edge606 ], [ -1, %237 ]
   %.not486 = icmp eq ptr %203, null
   br i1 %.not486, label %395, label %.preheader497
 
 .preheader497:                                    ; preds = %350, %363, %.loopexit
-  %.2412852 = phi i32 [ %.2412, %.loopexit ], [ -1, %363 ], [ -1, %350 ]
+  %.0410852 = phi i32 [ %.0410, %.loopexit ], [ -1, %363 ], [ -1, %350 ]
   %.0450850 = phi ptr [ %.0450, %.loopexit ], [ %243, %363 ], [ %243, %350 ]
   %brmerge866 = or i1 %64, %11
   br i1 %brmerge866, label %._crit_edge655, label %.preheader.us.preheader
@@ -1072,7 +1072,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %395
 
 395:                                              ; preds = %.loopexit, %._crit_edge655
-  %.2412853 = phi i32 [ %.2412, %.loopexit ], [ %.2412852, %._crit_edge655 ]
+  %.0410853 = phi i32 [ %.0410, %.loopexit ], [ %.0410852, %._crit_edge655 ]
   %.0450851 = phi ptr [ %.0450, %.loopexit ], [ %.0450850, %._crit_edge655 ]
   %396 = load ptr, ptr %227, align 8
   tail call void @free(ptr noundef %396) #12
@@ -1085,7 +1085,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %397
 
 397:                                              ; preds = %._crit_edge518, %8, %395
-  %.0408 = phi i32 [ %.2412853, %395 ], [ 0, %8 ], [ 0, %._crit_edge518 ]
+  %.0408 = phi i32 [ %.0410853, %395 ], [ 0, %8 ], [ 0, %._crit_edge518 ]
   ret i32 %.0408
 }
 

@@ -636,7 +636,7 @@ switch.early.test:                                ; preds = %12
 33:                                               ; preds = %29, %._crit_edge
   %34 = phi i8 [ %.pre130, %29 ], [ %27, %._crit_edge ]
   %35 = phi ptr [ %.pre, %29 ], [ %26, %._crit_edge ]
-  %.056 = phi i32 [ %32, %29 ], [ -2, %._crit_edge ]
+  %.1 = phi i32 [ %32, %29 ], [ -2, %._crit_edge ]
   %36 = icmp eq i8 %34, 43
   br i1 %36, label %37, label %41
 
@@ -648,9 +648,9 @@ switch.early.test:                                ; preds = %12
 
 41:                                               ; preds = %33, %37, %3
   %.057 = phi i32 [ %25, %37 ], [ %25, %33 ], [ 0, %3 ]
-  %.1 = phi i32 [ %.056, %37 ], [ %.056, %33 ], [ -2, %3 ]
+  %.056 = phi i32 [ %.1, %37 ], [ %.1, %33 ], [ -2, %3 ]
   %.055 = phi i32 [ %40, %37 ], [ -2, %33 ], [ -2, %3 ]
-  %.1.fr = freeze i32 %.1
+  %.056.fr = freeze i32 %.056
   %42 = call i32 @scontrol_load_job(ptr noundef nonnull %4, i32 noundef %.057)
   %43 = load ptr, ptr @mime_type, align 8
   %.not71 = icmp eq ptr %43, null
@@ -764,8 +764,8 @@ switch.early.test:                                ; preds = %12
 
 .lr.ph110:                                        ; preds = %88
   %93 = icmp eq i32 %.055, -2
-  %94 = icmp eq i32 %.1.fr, -2
-  %95 = zext i32 %.1.fr to i64
+  %94 = icmp eq i32 %.056.fr, -2
+  %95 = zext i32 %.056.fr to i64
   br i1 %94, label %.lr.ph110.split.us, label %.lr.ph110.split
 
 .lr.ph110.split.us:                               ; preds = %.lr.ph110
@@ -818,7 +818,7 @@ _het_job_offset_match.exit.thread.us115:          ; preds = %.lr.ph110.split, %_
   %.060103.us114 = phi i32 [ %133, %_task_id_in_job.exit.thread97.us120 ], [ 0, %.lr.ph110.split ]
   %113 = getelementptr inbounds i8, ptr %.054106.us112, i64 52
   %114 = load i32, ptr %113, align 4
-  %115 = icmp eq i32 %114, %.1.fr
+  %115 = icmp eq i32 %114, %.056.fr
   br i1 %115, label %.thread.us, label %116
 
 116:                                              ; preds = %_het_job_offset_match.exit.thread.us115
@@ -830,7 +830,7 @@ _het_job_offset_match.exit.thread.us115:          ; preds = %.lr.ph110.split, %_
 119:                                              ; preds = %116
   %120 = call i64 @bit_size(ptr noundef nonnull %118) #13
   %121 = trunc i64 %120 to i32
-  %.not11.i.us = icmp ult i32 %.1.fr, %121
+  %.not11.i.us = icmp ult i32 %.056.fr, %121
   br i1 %.not11.i.us, label %_task_id_in_job.exit.us, label %_task_id_in_job.exit.thread97.us120
 
 _task_id_in_job.exit.us:                          ; preds = %119
@@ -848,7 +848,7 @@ _task_id_in_job.exit.us:                          ; preds = %119
 126:                                              ; preds = %.thread.us
   store ptr null, ptr %124, align 8
   %127 = load i32, ptr %113, align 4
-  store i32 %.1.fr, ptr %113, align 4
+  store i32 %.056.fr, ptr %113, align 4
   br label %.thread99.us116
 
 .thread99.us116:                                  ; preds = %126, %.thread.us
@@ -888,7 +888,7 @@ _het_job_offset_match.exit:                       ; preds = %.lr.ph110.split, %_
 _het_job_offset_match.exit.thread:                ; preds = %_het_job_offset_match.exit
   %140 = getelementptr inbounds i8, ptr %.054106, i64 52
   %141 = load i32, ptr %140, align 4
-  %142 = icmp eq i32 %141, %.1.fr
+  %142 = icmp eq i32 %141, %.056.fr
   br i1 %142, label %.thread, label %143
 
 143:                                              ; preds = %_het_job_offset_match.exit.thread
@@ -900,7 +900,7 @@ _het_job_offset_match.exit.thread:                ; preds = %_het_job_offset_mat
 146:                                              ; preds = %143
   %147 = call i64 @bit_size(ptr noundef nonnull %145) #13
   %148 = trunc i64 %147 to i32
-  %.not11.i = icmp ult i32 %.1.fr, %148
+  %.not11.i = icmp ult i32 %.056.fr, %148
   br i1 %.not11.i, label %_task_id_in_job.exit, label %_task_id_in_job.exit.thread97
 
 _task_id_in_job.exit:                             ; preds = %146
@@ -918,7 +918,7 @@ _task_id_in_job.exit:                             ; preds = %146
 153:                                              ; preds = %.thread
   store ptr null, ptr %151, align 8
   %154 = load i32, ptr %140, align 4
-  store i32 %.1.fr, ptr %140, align 4
+  store i32 %.056.fr, ptr %140, align 4
   br label %.thread99
 
 .thread99:                                        ; preds = %153, %.thread
@@ -961,11 +961,11 @@ _task_id_in_job.exit.thread97:                    ; preds = %146, %143, %_task_i
   br i1 %.not74, label %._crit_edge111.thread135, label %167
 
 167:                                              ; preds = %165
-  %.not75 = icmp eq i32 %.1.fr, -2
+  %.not75 = icmp eq i32 %.056.fr, -2
   br i1 %.not75, label %170, label %168
 
 168:                                              ; preds = %167
-  %169 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.057, i32 noundef %.1.fr)
+  %169 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.057, i32 noundef %.056.fr)
   br label %._crit_edge111.thread135
 
 170:                                              ; preds = %167
@@ -1065,7 +1065,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   br label %25
 
 25:                                               ; preds = %22, %23
-  %.073 = phi ptr [ %0, %22 ], [ null, %23 ]
+  %.1 = phi ptr [ %0, %22 ], [ null, %23 ]
   %.not113 = icmp eq ptr %17, null
   br i1 %.not113, label %32, label %26
 
@@ -1086,9 +1086,9 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   br label %32
 
 32:                                               ; preds = %25, %26, %29, %27, %3
-  %.181 = phi i32 [ -2, %27 ], [ %30, %29 ], [ -2, %3 ], [ -2, %26 ], [ -2, %25 ]
+  %.080 = phi i32 [ -2, %27 ], [ %30, %29 ], [ -2, %3 ], [ -2, %26 ], [ -2, %25 ]
   %.074 = phi i32 [ %28, %27 ], [ 0, %29 ], [ 0, %3 ], [ %19, %26 ], [ %19, %25 ]
-  %.1 = phi ptr [ %0, %27 ], [ %0, %29 ], [ null, %3 ], [ %.073, %26 ], [ %.073, %25 ]
+  %.073 = phi ptr [ %0, %27 ], [ %0, %29 ], [ null, %3 ], [ %.1, %26 ], [ %.1, %25 ]
   %33 = load i32, ptr @all_flag, align 4
   %.not116 = icmp ne i32 %33, 0
   %spec.select149 = zext i1 %.not116 to i16
@@ -1108,7 +1108,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   %41 = load i32, ptr @scontrol_print_step.last_job_id, align 4
   %42 = icmp eq i32 %41, %36
   %or.cond151 = select i1 %.not118, i1 %42, i1 false
-  %43 = icmp eq i32 %.181, 0
+  %43 = icmp eq i32 %.080, 0
   %or.cond152 = select i1 %or.cond151, i1 %43, i1 false
   br i1 %or.cond152, label %44, label %69
 
@@ -1283,7 +1283,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
 
 117:                                              ; preds = %115
   %118 = call ptr @slurm_strerror(i32 noundef %.175158) #13
-  %119 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.scontrol_print_step, ptr noundef %.1, ptr noundef %118) #13
+  %119 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.scontrol_print_step, ptr noundef %.073, ptr noundef %118) #13
   br label %222
 
 120:                                              ; preds = %78
@@ -1328,7 +1328,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not164, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %136
-  %.not147 = icmp eq i32 %.181, -2
+  %.not147 = icmp eq i32 %.080, -2
   br i1 %.not147, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -1356,7 +1356,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   %156 = getelementptr inbounds %struct.job_step_info_t, ptr %155, i64 %indvars.iv
   %157 = getelementptr inbounds i8, ptr %156, i64 4
   %158 = load i32, ptr %157, align 4
-  %.not148 = icmp eq i32 %.181, %158
+  %.not148 = icmp eq i32 %.080, %158
   br i1 %.not148, label %159, label %163
 
 159:                                              ; preds = %.lr.ph.split
@@ -1472,7 +1472,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %or.cond7, label %221, label %207
 
 207:                                              ; preds = %._crit_edge
-  %.not143 = icmp eq ptr %.1, null
+  %.not143 = icmp eq ptr %.073, null
   br i1 %.not143, label %218, label %208
 
 208:                                              ; preds = %207
@@ -1483,7 +1483,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
 
 210:                                              ; preds = %208
   %211 = call ptr @log_build_step_id_str(ptr noundef nonnull %4, ptr noundef nonnull %13, i32 noundef 45, i16 noundef zeroext 6) #13
-  %212 = icmp eq i32 %.181, -2
+  %212 = icmp eq i32 %.080, -2
   %213 = load i32, ptr %4, align 4
   br i1 %212, label %214, label %216
 
@@ -1492,7 +1492,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   br label %221
 
 216:                                              ; preds = %210
-  %217 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %213, i32 noundef %.181, ptr noundef nonnull %13)
+  %217 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %213, i32 noundef %.080, ptr noundef nonnull %13)
   br label %221
 
 218:                                              ; preds = %207

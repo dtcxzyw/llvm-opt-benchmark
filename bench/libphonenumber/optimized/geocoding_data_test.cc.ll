@@ -7236,8 +7236,8 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   br i1 %.not57.i, label %.lr.ph67.i, label %37
 
 .lr.ph67.i:                                       ; preds = %22, %.lr.ph67.i
-  %.15066.i = phi ptr [ %30, %.lr.ph67.i ], [ %26, %22 ]
-  %29 = getelementptr inbounds i8, ptr %.15066.i, i64 256
+  %.25166.i = phi ptr [ %30, %.lr.ph67.i ], [ %26, %22 ]
+  %29 = getelementptr inbounds i8, ptr %.25166.i, i64 256
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 11
   %32 = load i8, ptr %31, align 1
@@ -7252,10 +7252,10 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   br label %37
 
 37:                                               ; preds = %._crit_edge68.i, %22
-  %.251.i = phi ptr [ %26, %22 ], [ %30, %._crit_edge68.i ]
+  %.150.i = phi ptr [ %26, %22 ], [ %30, %._crit_edge68.i ]
   %.248.i = phi i32 [ %.147.i, %22 ], [ %35, %._crit_edge68.i ]
   %.2.i = phi ptr [ %.1.i, %22 ], [ %36, %._crit_edge68.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.251.i) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %.150.i) #16
   %38 = getelementptr inbounds i8, ptr %.2.i, i64 10
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32

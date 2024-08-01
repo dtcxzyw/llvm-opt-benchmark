@@ -1824,9 +1824,9 @@ find_trailer_block_start.exit:                    ; preds = %last_line.exit91.i,
 for.body:                                         ; preds = %find_trailer_block_start.exit, %for.inc
   %38 = phi ptr [ %53, %for.inc ], [ %37, %find_trailer_block_start.exit ]
   %last.0117 = phi ptr [ %last.1, %for.inc ], [ null, %find_trailer_block_start.exit ]
-  %alloc.0116 = phi i64 [ %alloc.3, %for.inc ], [ 0, %find_trailer_block_start.exit ]
+  %alloc.0116 = phi i64 [ %alloc.1, %for.inc ], [ 0, %find_trailer_block_start.exit ]
   %nr.0115 = phi i64 [ %nr.1, %for.inc ], [ 0, %find_trailer_block_start.exit ]
-  %trailer_strings.0114 = phi ptr [ %trailer_strings.2, %for.inc ], [ null, %find_trailer_block_start.exit ]
+  %trailer_strings.0114 = phi ptr [ %trailer_strings.1, %for.inc ], [ null, %find_trailer_block_start.exit ]
   %ptr.0113 = phi ptr [ %incdec.ptr, %for.inc ], [ %call2, %find_trailer_block_start.exit ]
   %tobool3.not = icmp eq ptr %last.0117, null
   br i1 %tobool3.not, label %do.body, label %land.lhs.true
@@ -1878,10 +1878,10 @@ st_mult.exit:                                     ; preds = %if.then11
 
 do.end:                                           ; preds = %do.body, %st_mult.exit
   %46 = phi ptr [ %.pre, %st_mult.exit ], [ %38, %do.body ]
-  %trailer_strings.1 = phi ptr [ %call23, %st_mult.exit ], [ %trailer_strings.0114, %do.body ]
-  %alloc.2 = phi i64 [ %add.div36, %st_mult.exit ], [ %alloc.0116, %do.body ]
+  %trailer_strings.2 = phi ptr [ %call23, %st_mult.exit ], [ %trailer_strings.0114, %do.body ]
+  %alloc.3 = phi i64 [ %add.div36, %st_mult.exit ], [ %alloc.0116, %do.body ]
   %call25 = call ptr @strbuf_detach(ptr noundef %46, ptr noundef null) #16
-  %arrayidx26 = getelementptr inbounds ptr, ptr %trailer_strings.1, i64 %nr.0115
+  %arrayidx26 = getelementptr inbounds ptr, ptr %trailer_strings.2, i64 %nr.0115
   store ptr %call25, ptr %arrayidx26, align 8
   %47 = load ptr, ptr @separators, align 8
   %48 = load i8, ptr %call25, align 1
@@ -1937,9 +1937,9 @@ find_separator.exit:                              ; preds = %for.body.i52
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true12.i, %if.end9.i, %for.inc.i61, %find_separator.exit, %do.end, %if.then
-  %trailer_strings.2 = phi ptr [ %trailer_strings.0114, %if.then ], [ %trailer_strings.1, %do.end ], [ %trailer_strings.1, %find_separator.exit ], [ %trailer_strings.1, %for.inc.i61 ], [ %trailer_strings.1, %if.end9.i ], [ %trailer_strings.1, %land.lhs.true12.i ]
+  %trailer_strings.1 = phi ptr [ %trailer_strings.0114, %if.then ], [ %trailer_strings.2, %do.end ], [ %trailer_strings.2, %find_separator.exit ], [ %trailer_strings.2, %for.inc.i61 ], [ %trailer_strings.2, %if.end9.i ], [ %trailer_strings.2, %land.lhs.true12.i ]
   %nr.1 = phi i64 [ %nr.0115, %if.then ], [ %add, %do.end ], [ %add, %find_separator.exit ], [ %add, %for.inc.i61 ], [ %add, %if.end9.i ], [ %add, %land.lhs.true12.i ]
-  %alloc.3 = phi i64 [ %alloc.0116, %if.then ], [ %alloc.2, %do.end ], [ %alloc.2, %find_separator.exit ], [ %alloc.2, %for.inc.i61 ], [ %alloc.2, %if.end9.i ], [ %alloc.2, %land.lhs.true12.i ]
+  %alloc.1 = phi i64 [ %alloc.0116, %if.then ], [ %alloc.3, %do.end ], [ %alloc.3, %find_separator.exit ], [ %alloc.3, %for.inc.i61 ], [ %alloc.3, %if.end9.i ], [ %alloc.3, %land.lhs.true12.i ]
   %last.1 = phi ptr [ %last.0117, %if.then ], [ null, %do.end ], [ %spec.select, %find_separator.exit ], [ null, %for.inc.i61 ], [ null, %if.end9.i ], [ null, %land.lhs.true12.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %ptr.0113, i64 8
   %53 = load ptr, ptr %incdec.ptr, align 8
@@ -1947,7 +1947,7 @@ for.inc:                                          ; preds = %land.lhs.true12.i, 
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %find_trailer_block_start.exit
-  %trailer_strings.0.lcssa = phi ptr [ null, %find_trailer_block_start.exit ], [ %trailer_strings.2, %for.inc ]
+  %trailer_strings.0.lcssa = phi ptr [ null, %find_trailer_block_start.exit ], [ %trailer_strings.1, %for.inc ]
   %nr.0.lcssa = phi i64 [ 0, %find_trailer_block_start.exit ], [ %nr.1, %for.inc ]
   call void @strbuf_list_free(ptr noundef nonnull %call2) #16
   switch i64 %retval.0.i41, label %if.end3.i.i79 [

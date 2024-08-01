@@ -303,7 +303,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %123
 
 123:                                              ; preds = %115, %121, %109
-  %.1211 = phi ptr [ %114, %109 ], [ %120, %115 ], [ @.str.60, %121 ]
+  %.2212 = phi ptr [ %114, %109 ], [ %120, %115 ], [ @.str.60, %121 ]
   %124 = add nuw nsw i32 %108, 35
   %125 = load i32, ptr @hf_ath_clen, align 4
   %126 = call ptr @proto_tree_add_item_ret_int(ptr noundef %16, i32 noundef %125, ptr noundef %0, i32 noundef %124, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #3
@@ -324,7 +324,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 136:                                              ; preds = %132, %123
   %137 = phi i32 [ %.pre, %132 ], [ -1, %123 ]
-  %.1 = phi ptr [ %135, %132 ], [ @.str.60, %123 ]
+  %.2 = phi ptr [ %135, %132 ], [ @.str.60, %123 ]
   %138 = add i32 %137, %127
   %139 = load i32, ptr @hf_ath_dlen, align 4
   %140 = call ptr @proto_tree_add_item_ret_int(ptr noundef %16, i32 noundef %139, ptr noundef %0, i32 noundef %138, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6) #3
@@ -345,7 +345,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 150:                                              ; preds = %146, %136
   %151 = phi i32 [ %.pre231, %146 ], [ 0, %136 ]
-  %.1208 = phi ptr [ %149, %146 ], [ @.str.60, %136 ]
+  %.2209 = phi ptr [ %149, %146 ], [ @.str.60, %136 ]
   %152 = add i32 %151, %141
   %153 = load i32, ptr @hf_ath_unique, align 4
   %154 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %153, ptr noundef %0, i32 noundef %152, i32 noundef 16, i32 noundef 0) #3
@@ -367,19 +367,19 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 167:                                              ; preds = %150, %76
   %.sink234 = phi i32 [ %163, %150 ], [ %89, %76 ]
-  %.2212 = phi ptr [ %.1211, %150 ], [ %.0210, %76 ]
-  %.2209 = phi ptr [ %.1208, %150 ], [ %.0207, %76 ]
-  %.2 = phi ptr [ %.1, %150 ], [ %.0206, %76 ]
+  %.1211 = phi ptr [ %.2212, %150 ], [ %.0210, %76 ]
+  %.1208 = phi ptr [ %.2209, %150 ], [ %.0207, %76 ]
+  %.1 = phi ptr [ %.2, %150 ], [ %.0206, %76 ]
   %168 = load i32, ptr @hf_ath_end, align 4
   %169 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %168, ptr noundef %0, i32 noundef %.sink234, i32 noundef 8, i32 noundef 0) #3
-  %strcmpload = load i8, ptr %.2, align 1
+  %strcmpload = load i8, ptr %.1, align 1
   %.not224 = icmp eq i8 %strcmpload, 0
   br i1 %.not224, label %180, label %170
 
 170:                                              ; preds = %167
-  %171 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(10) @.str.61) #4
+  %171 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(10) @.str.61) #4
   %172 = icmp eq i32 %171, 0
-  %strcmpload229 = load i8, ptr %.2209, align 1
+  %strcmpload229 = load i8, ptr %.1208, align 1
   %.not230 = icmp eq i8 %strcmpload229, 0
   %173 = load ptr, ptr %10, align 8
   br i1 %172, label %174, label %177
@@ -388,36 +388,36 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not230, label %176, label %175
 
 175:                                              ; preds = %174
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.62, ptr noundef %.2212, ptr noundef nonnull %.2209) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.62, ptr noundef %.1211, ptr noundef nonnull %.1208) #3
   br label %184
 
 176:                                              ; preds = %174
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %.2212) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %.1211) #3
   br label %184
 
 177:                                              ; preds = %170
   br i1 %.not230, label %179, label %178
 
 178:                                              ; preds = %177
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.64, ptr noundef %.2212, ptr noundef nonnull %.2209) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.64, ptr noundef %.1211, ptr noundef nonnull %.1208) #3
   br label %184
 
 179:                                              ; preds = %177
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %.2212) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %.1211) #3
   br label %184
 
 180:                                              ; preds = %167
-  %strcmpload225 = load i8, ptr %.2209, align 1
+  %strcmpload225 = load i8, ptr %.1208, align 1
   %.not226 = icmp eq i8 %strcmpload225, 0
   %181 = load ptr, ptr %10, align 8
   br i1 %.not226, label %183, label %182
 
 182:                                              ; preds = %180
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %181, i32 noundef 25, ptr noundef nonnull @.str.64, ptr noundef %.2212, ptr noundef nonnull %.2209) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %181, i32 noundef 25, ptr noundef nonnull @.str.64, ptr noundef %.1211, ptr noundef nonnull %.1208) #3
   br label %184
 
 183:                                              ; preds = %180
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %181, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %.2212) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %181, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %.1211) #3
   br label %184
 
 184:                                              ; preds = %182, %183, %176, %175, %179, %178

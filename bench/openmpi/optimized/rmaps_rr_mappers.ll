@@ -152,8 +152,8 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.1262 = phi i32 [ %.2, %226 ], [ %.0154, %63 ]
   %.1156261 = phi i32 [ %.2157, %226 ], [ %.0155, %63 ]
   %.0160260 = phi ptr [ %.0159263, %226 ], [ %64, %63 ]
-  %.1163259 = phi i32 [ %.4, %226 ], [ %.0162, %63 ]
-  %.1167258 = phi i32 [ %.6, %226 ], [ %.0166, %63 ]
+  %.1163259 = phi i32 [ %.2164, %226 ], [ %.0162, %63 ]
+  %.1167258 = phi i32 [ %.4170, %226 ], [ %.0166, %63 ]
   %.0159263.in = getelementptr inbounds i8, ptr %.0160260, i64 120
   %.0159263 = load ptr, ptr %.0159263.in, align 8
   %65 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
@@ -200,7 +200,7 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not192, label %86, label %.loopexit
 
 86:                                               ; preds = %84, %81
-  %.2168 = phi i32 [ %.1167258, %81 ], [ 0, %84 ]
+  %.3169 = phi i32 [ %.1167258, %81 ], [ 0, %84 ]
   %87 = load i8, ptr %55, align 8
   %88 = and i8 %87, 2
   %.not193 = icmp eq i8 %88, 0
@@ -220,7 +220,7 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 95:                                               ; preds = %77, %89, %92, %75
   %96 = phi i32 [ %.1156261, %75 ], [ %94, %92 ], [ %91, %89 ], [ %.1156261, %77 ]
-  %.3169 = phi i32 [ %.1167258, %75 ], [ %.2168, %92 ], [ %.2168, %89 ], [ %.1167258, %77 ]
+  %.2168 = phi i32 [ %.1167258, %75 ], [ %.3169, %92 ], [ %.3169, %89 ], [ %.1167258, %77 ]
   %.2157 = phi i32 [ %.1156261, %75 ], [ %.1156261, %92 ], [ %.1156261, %89 ], [ %spec.select, %77 ]
   %.2 = phi i32 [ %.1262, %75 ], [ %.1262, %92 ], [ %.1262, %89 ], [ %78, %77 ]
   %97 = load i8, ptr %57, align 1
@@ -307,7 +307,7 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %139, label %.lr.ph303, label %.critedge, !llvm.loop !4
 
 .lr.ph303:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.2164246302 = phi i32 [ %144, %.lr.ph ], [ %.1163259, %.lr.ph.preheader ]
+  %.3165246302 = phi i32 [ %144, %.lr.ph ], [ %.1163259, %.lr.ph.preheader ]
   %.0161247301 = phi i32 [ %218, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %140 = load i32, ptr %59, align 8
   %141 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %140, ptr noundef %.0160260, ptr noundef null, ptr noundef nonnull %5) #9
@@ -315,7 +315,7 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %142, label %.critedge, label %143
 
 143:                                              ; preds = %.lr.ph303
-  %144 = add nsw i32 %.2164246302, 1
+  %144 = add nsw i32 %.3165246302, 1
   %145 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0160260, ptr noundef nonnull %5) #9
   %146 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %141) #9
   %147 = icmp eq i32 %146, 35
@@ -487,10 +487,10 @@ pmix_obj_run_destructors.exit218:                 ; preds = %.lr.ph.i215, %203
   br i1 %220, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph303, %217, %.lr.ph, %.lr.ph.preheader, %133, %168, %170, %151
-  %.5 = phi i32 [ -46, %151 ], [ -46, %170 ], [ -46, %168 ], [ %.3169, %133 ], [ %.3169, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ 0, %217 ], [ -43, %.lr.ph303 ]
-  %.3165 = phi i32 [ %144, %151 ], [ %144, %170 ], [ %144, %168 ], [ %.1163259, %133 ], [ %.1163259, %.lr.ph.preheader ], [ %144, %.lr.ph ], [ %144, %217 ], [ %.2164246302, %.lr.ph303 ]
+  %.6 = phi i32 [ -46, %151 ], [ -46, %170 ], [ -46, %168 ], [ %.2168, %133 ], [ %.2168, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ 0, %217 ], [ -43, %.lr.ph303 ]
+  %.4 = phi i32 [ %144, %151 ], [ %144, %170 ], [ %144, %168 ], [ %.1163259, %133 ], [ %.1163259, %.lr.ph.preheader ], [ %144, %.lr.ph ], [ %144, %217 ], [ %.3165246302, %.lr.ph303 ]
   %221 = load i32, ptr %20, align 8
-  %222 = icmp eq i32 %.3165, %221
+  %222 = icmp eq i32 %.4, %221
   br i1 %222, label %.loopexit, label %223
 
 223:                                              ; preds = %.critedge
@@ -505,14 +505,14 @@ pmix_obj_run_destructors.exit218:                 ; preds = %.lr.ph.i215, %203
   br label %226
 
 226:                                              ; preds = %223, %225, %121
-  %.6 = phi i32 [ %.5, %225 ], [ %.5, %223 ], [ -2, %121 ]
-  %.4 = phi i32 [ %.3165, %225 ], [ %.3165, %223 ], [ %.1163259, %121 ]
+  %.4170 = phi i32 [ %.6, %225 ], [ %.6, %223 ], [ -2, %121 ]
+  %.2164 = phi i32 [ %.4, %225 ], [ %.4, %223 ], [ %.1163259, %121 ]
   %.not191 = icmp eq ptr %.0159263, %52
   br i1 %.not191, label %._crit_edge, label %.lr.ph264, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %226, %63
-  %.1167.lcssa = phi i32 [ %.0166, %63 ], [ %.6, %226 ]
-  %.1163.lcssa = phi i32 [ %.0162, %63 ], [ %.4, %226 ]
+  %.1167.lcssa = phi i32 [ %.0166, %63 ], [ %.4170, %226 ]
+  %.1163.lcssa = phi i32 [ %.0162, %63 ], [ %.2164, %226 ]
   %.1.lcssa = phi i32 [ %.0154, %63 ], [ %.2, %226 ]
   br i1 %.0152, label %.loopexit221, label %242
 
@@ -733,8 +733,8 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bynode(ptr noundef %0, ptr noundef %
 
 .lr.ph216:                                        ; preds = %63, %202
   %.0130214 = phi ptr [ %.0129215, %202 ], [ %70, %63 ]
-  %.1213 = phi i32 [ %.4, %202 ], [ %.0132, %63 ]
-  %.1135212 = phi i32 [ %.4138, %202 ], [ %.0134, %63 ]
+  %.1213 = phi i32 [ %.2, %202 ], [ %.0132, %63 ]
+  %.1135212 = phi i32 [ %.2136, %202 ], [ %.0134, %63 ]
   %.0129215.in = getelementptr inbounds i8, ptr %.0130214, i64 120
   %.0129215 = load ptr, ptr %.0129215.in, align 8
   tail call void @prte_rmaps_base_get_cpuset(ptr noundef %0, ptr noundef nonnull %.0130214, ptr noundef nonnull %5) #9
@@ -825,14 +825,14 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bynode(ptr noundef %0, ptr noundef %
 
 .lr.ph245:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.0133200244 = phi i32 [ %194, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.2201243 = phi i32 [ %120, %.lr.ph ], [ %.1213, %.lr.ph.preheader ]
+  %.3201243 = phi i32 [ %120, %.lr.ph ], [ %.1213, %.lr.ph.preheader ]
   %116 = load i32, ptr %60, align 8
   %117 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %116, ptr noundef %.0130214, ptr noundef null, ptr noundef nonnull %5) #9
   %118 = icmp eq ptr %117, null
   br i1 %118, label %.critedge, label %119
 
 119:                                              ; preds = %.lr.ph245
-  %120 = add nsw i32 %.2201243, 1
+  %120 = add nsw i32 %.3201243, 1
   %121 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0130214, ptr noundef nonnull %5) #9
   %122 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %117) #9
   %123 = icmp eq i32 %122, 35
@@ -1004,10 +1004,10 @@ pmix_obj_run_destructors.exit177:                 ; preds = %.lr.ph.i174, %179
   br i1 %196, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph245, %193, %.lr.ph, %.lr.ph.preheader, %109, %144, %146, %127
-  %.3137 = phi i32 [ -46, %127 ], [ -46, %146 ], [ -46, %144 ], [ %.1135212, %109 ], [ %.1135212, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ 0, %193 ], [ -43, %.lr.ph245 ]
-  %.3 = phi i32 [ %120, %127 ], [ %120, %146 ], [ %120, %144 ], [ %.1213, %109 ], [ %.1213, %.lr.ph.preheader ], [ %120, %.lr.ph ], [ %120, %193 ], [ %.2201243, %.lr.ph245 ]
+  %.4138 = phi i32 [ -46, %127 ], [ -46, %146 ], [ -46, %144 ], [ %.1135212, %109 ], [ %.1135212, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ 0, %193 ], [ -43, %.lr.ph245 ]
+  %.4 = phi i32 [ %120, %127 ], [ %120, %146 ], [ %120, %144 ], [ %.1213, %109 ], [ %.1213, %.lr.ph.preheader ], [ %120, %.lr.ph ], [ %120, %193 ], [ %.3201243, %.lr.ph245 ]
   %197 = load i32, ptr %22, align 8
-  %198 = icmp eq i32 %.3, %197
+  %198 = icmp eq i32 %.4, %197
   br i1 %198, label %.loopexit, label %199
 
 199:                                              ; preds = %.critedge
@@ -1022,14 +1022,14 @@ pmix_obj_run_destructors.exit177:                 ; preds = %.lr.ph.i174, %179
   br label %202
 
 202:                                              ; preds = %199, %201, %96
-  %.4138 = phi i32 [ %.3137, %201 ], [ %.3137, %199 ], [ -2, %96 ]
-  %.4 = phi i32 [ %.3, %201 ], [ %.3, %199 ], [ %.1213, %96 ]
+  %.2136 = phi i32 [ %.4138, %201 ], [ %.4138, %199 ], [ -2, %96 ]
+  %.2 = phi i32 [ %.4, %201 ], [ %.4, %199 ], [ %.1213, %96 ]
   %.not154 = icmp eq ptr %.0129215, %56
   br i1 %.not154, label %._crit_edge, label %.lr.ph216, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %202, %63
-  %.1135.lcssa = phi i32 [ %.0134, %63 ], [ %.4138, %202 ]
-  %.1.lcssa = phi i32 [ %.0132, %63 ], [ %.4, %202 ]
+  %.1135.lcssa = phi i32 [ %.0134, %63 ], [ %.2136, %202 ]
+  %.1.lcssa = phi i32 [ %.0132, %63 ], [ %.2, %202 ]
   br i1 %.0128, label %.loopexit179, label %218
 
 .loopexit179:                                     ; preds = %._crit_edge, %167, %169, %150
@@ -1200,9 +1200,9 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
 .lr.ph300:                                        ; preds = %72, %252
   %.1298 = phi i32 [ %.2, %252 ], [ %.0171, %72 ]
   %.1173297 = phi i32 [ %.2174, %252 ], [ %.0172, %72 ]
-  %.1179296 = phi i32 [ %.4, %252 ], [ %.0178, %72 ]
+  %.1179296 = phi i32 [ %.2180, %252 ], [ %.0178, %72 ]
   %.0183295 = phi ptr [ %.0182299, %252 ], [ %73, %72 ]
-  %.1185294 = phi i32 [ %.4188, %252 ], [ %.0184, %72 ]
+  %.1185294 = phi i32 [ %.2186, %252 ], [ %.0184, %72 ]
   %.0182299.in = getelementptr inbounds i8, ptr %.0183295, i64 120
   %.0182299 = load ptr, ptr %.0182299.in, align 8
   %74 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
@@ -1358,7 +1358,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
   br i1 %150, label %.lr.ph348, label %.critedge, !llvm.loop !10
 
 .lr.ph348:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.2186284347 = phi i32 [ %155, %.lr.ph ], [ %.1185294, %.lr.ph.preheader ]
+  %.3187284347 = phi i32 [ %155, %.lr.ph ], [ %.1185294, %.lr.ph.preheader ]
   %.0177286346 = phi i32 [ %229, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %151 = load i32, ptr %68, align 8
   %152 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %151, ptr noundef %.0183295, ptr noundef null, ptr noundef nonnull %5) #9
@@ -1366,7 +1366,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
   br i1 %153, label %.thread, label %154
 
 154:                                              ; preds = %.lr.ph348
-  %155 = add nsw i32 %.2186284347, 1
+  %155 = add nsw i32 %.3187284347, 1
   %156 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0183295, ptr noundef nonnull %5) #9
   %157 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %152) #9
   %158 = icmp eq i32 %157, 35
@@ -1538,10 +1538,10 @@ pmix_obj_run_destructors.exit246:                 ; preds = %.lr.ph.i243, %214
   br i1 %231, label %.lr.ph, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %228, %.lr.ph, %.lr.ph.preheader, %144, %179, %181, %162
-  %.3187 = phi i32 [ %155, %162 ], [ %155, %181 ], [ %155, %179 ], [ %.1185294, %144 ], [ %.1185294, %.lr.ph.preheader ], [ %155, %.lr.ph ], [ %155, %228 ]
-  %.3181 = phi i32 [ -46, %162 ], [ -46, %181 ], [ -46, %179 ], [ %.1179296, %144 ], [ %.1179296, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ 0, %228 ]
+  %.4188 = phi i32 [ %155, %162 ], [ %155, %181 ], [ %155, %179 ], [ %.1185294, %144 ], [ %.1185294, %.lr.ph.preheader ], [ %155, %.lr.ph ], [ %155, %228 ]
+  %.4 = phi i32 [ -46, %162 ], [ -46, %181 ], [ -46, %179 ], [ %.1179296, %144 ], [ %.1179296, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ 0, %228 ]
   %232 = load i32, ptr %22, align 8
-  %233 = icmp eq i32 %.3187, %232
+  %233 = icmp eq i32 %.4188, %232
   %234 = load ptr, ptr %69, align 8
   %.not225 = icmp eq ptr %234, null
   br i1 %233, label %235, label %242
@@ -1605,14 +1605,14 @@ pmix_obj_run_destructors.exit246:                 ; preds = %.lr.ph.i243, %214
   br label %252
 
 252:                                              ; preds = %250, %132
-  %.4188 = phi i32 [ %.3187, %250 ], [ %.1185294, %132 ]
-  %.4 = phi i32 [ %.3181, %250 ], [ -2, %132 ]
+  %.2186 = phi i32 [ %.4188, %250 ], [ %.1185294, %132 ]
+  %.2180 = phi i32 [ %.4, %250 ], [ -2, %132 ]
   %.not213 = icmp eq ptr %.0182299, %60
   br i1 %.not213, label %._crit_edge, label %.lr.ph300, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %252, %72
-  %.1185.lcssa = phi i32 [ %.0184, %72 ], [ %.4188, %252 ]
-  %.1179.lcssa = phi i32 [ %.0178, %72 ], [ %.4, %252 ]
+  %.1185.lcssa = phi i32 [ %.0184, %72 ], [ %.2186, %252 ]
+  %.1179.lcssa = phi i32 [ %.0178, %72 ], [ %.2180, %252 ]
   %.1.lcssa = phi i32 [ %.0171, %72 ], [ %.2, %252 ]
   %253 = load i8, ptr %66, align 1
   %254 = trunc i8 %253 to i1
@@ -1808,8 +1808,8 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_byobj(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %.split357.preheader, %.lr.ph.backedge
   %.0184351 = phi i8 [ %.0184351.be, %.lr.ph.backedge ], [ 1, %.split357.preheader ]
-  %.1192350 = phi i32 [ %.7, %.lr.ph.backedge ], [ undef, %.split357.preheader ]
-  %.1199349 = phi i32 [ %.6204, %.lr.ph.backedge ], [ 0, %.split357.preheader ]
+  %.1192350 = phi i32 [ %.4195, %.lr.ph.backedge ], [ undef, %.split357.preheader ]
+  %.1199349 = phi i32 [ %.2200, %.lr.ph.backedge ], [ 0, %.split357.preheader ]
   %.0206348 = phi ptr [ %.0206348.be, %.lr.ph.backedge ], [ %68, %.split357.preheader ]
   %.0205.in352 = getelementptr inbounds i8, ptr %.0206348, i64 120
   %.0205353 = load ptr, ptr %.0205.in352, align 8
@@ -1932,24 +1932,24 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %104
   br label %130
 
 130:                                              ; preds = %.preheader, %288
-  %.1207 = phi ptr [ %.3209, %288 ], [ %.0206348, %.preheader ]
-  %.2200 = phi i32 [ %.5203, %288 ], [ %.1199349, %.preheader ]
-  %.3194 = phi i32 [ %.6197, %288 ], [ %.2193, %.preheader ]
+  %.1207 = phi ptr [ %.2208, %288 ], [ %.0206348, %.preheader ]
+  %.3201 = phi i32 [ %.5203, %288 ], [ %.1199349, %.preheader ]
+  %.5196 = phi i32 [ %.7, %288 ], [ %.2193, %.preheader ]
   %.0189 = phi i8 [ %.1190, %288 ], [ 0, %.preheader ]
-  %.1185 = phi i8 [ %.2186285, %288 ], [ %.0184351, %.preheader ]
-  %.2 = phi i8 [ %.3280, %288 ], [ 0, %.preheader ]
+  %.2186 = phi i8 [ %.3187285, %288 ], [ %.0184351, %.preheader ]
+  %.4 = phi i8 [ %.5280, %288 ], [ 0, %.preheader ]
   %131 = trunc nuw i8 %.0189 to i1
   %132 = getelementptr inbounds i8, ptr %.1207, i64 240
   br i1 %131, label %.critedge, label %.split
 
 .split:                                           ; preds = %130, %278
   %.0182341 = phi i32 [ %279, %278 ], [ 0, %130 ]
-  %.3340 = phi i8 [ %.4, %278 ], [ %.2, %130 ]
-  %.2186339 = phi i8 [ %.3187, %278 ], [ %.1185, %130 ]
-  %.4195338 = phi i32 [ %.5196, %278 ], [ %.3194, %130 ]
-  %.3201337 = phi i32 [ %.4202, %278 ], [ %.2200, %130 ]
+  %.5340 = phi i8 [ %.6, %278 ], [ %.4, %130 ]
+  %.3187339 = phi i8 [ %.4188, %278 ], [ %.2186, %130 ]
+  %.6197338 = phi i32 [ %.8, %278 ], [ %.5196, %130 ]
+  %.4202337 = phi i32 [ %.6204, %278 ], [ %.3201, %130 ]
   %133 = load i32, ptr %22, align 8
-  %.not364 = icmp slt i32 %.3201337, %133
+  %.not364 = icmp slt i32 %.4202337, %133
   br i1 %.not364, label %134, label %.critedge
 
 134:                                              ; preds = %.split
@@ -2007,7 +2007,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %104
   br i1 %165, label %.loopexit, label %166
 
 166:                                              ; preds = %162
-  %167 = add nsw i32 %.3201337, 1
+  %167 = add nsw i32 %.4202337, 1
   %168 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.1207, ptr noundef nonnull %5) #9
   switch i32 %168, label %228 [
     i32 -46, label %169
@@ -2081,7 +2081,7 @@ pmix_obj_run_destructors.exit251:                 ; preds = %.lr.ph.i248, %189
   br label %203
 
 203:                                              ; preds = %200, %202, %183
-  %.2208 = phi ptr [ %.1207, %183 ], [ null, %202 ], [ null, %200 ]
+  %.3209 = phi ptr [ %.1207, %183 ], [ null, %202 ], [ null, %200 ]
   %204 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %164) #9
   %205 = icmp eq i32 %204, 35
   br i1 %205, label %206, label %208
@@ -2244,27 +2244,27 @@ pmix_obj_run_destructors.exit269:                 ; preds = %.lr.ph.i266, %264
   br label %278
 
 278:                                              ; preds = %258, %277, %275, %155, %160
-  %.4202 = phi i32 [ %.3201337, %160 ], [ %.3201337, %155 ], [ %167, %275 ], [ %167, %277 ], [ %167, %258 ]
-  %.5196 = phi i32 [ -2, %160 ], [ %.4195338, %155 ], [ 0, %275 ], [ 0, %277 ], [ 0, %258 ]
-  %.3187 = phi i8 [ %.2186339, %160 ], [ %.2186339, %155 ], [ 0, %275 ], [ 0, %277 ], [ 0, %258 ]
-  %.4 = phi i8 [ %.3340, %160 ], [ 1, %155 ], [ %.3340, %275 ], [ %.3340, %277 ], [ %.3340, %258 ]
+  %.6204 = phi i32 [ %.4202337, %160 ], [ %.4202337, %155 ], [ %167, %275 ], [ %167, %277 ], [ %167, %258 ]
+  %.8 = phi i32 [ -2, %160 ], [ %.6197338, %155 ], [ 0, %275 ], [ 0, %277 ], [ 0, %258 ]
+  %.4188 = phi i8 [ %.3187339, %160 ], [ %.3187339, %155 ], [ 0, %275 ], [ 0, %277 ], [ 0, %258 ]
+  %.6 = phi i8 [ %.5340, %160 ], [ 1, %155 ], [ %.5340, %275 ], [ %.5340, %277 ], [ %.5340, %258 ]
   %279 = add nuw i32 %.0182341, 1
   %exitcond.not = icmp eq i32 %279, %83
   br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !12
 
 .critedge:                                        ; preds = %142, %278, %.split, %130, %225, %227, %208
-  %.2186285 = phi i8 [ %.2186339, %208 ], [ %.2186339, %227 ], [ %.2186339, %225 ], [ %.1185, %130 ], [ %.2186339, %142 ], [ %.3187, %278 ], [ %.2186339, %.split ]
-  %.3280 = phi i8 [ %.3340, %208 ], [ %.3340, %227 ], [ %.3340, %225 ], [ %.2, %130 ], [ %.3340, %142 ], [ %.4, %278 ], [ %.3340, %.split ]
-  %.3209 = phi ptr [ %.2208, %208 ], [ %.2208, %227 ], [ %.2208, %225 ], [ %.1207, %130 ], [ %.1207, %.split ], [ %.1207, %278 ], [ %.1207, %142 ]
-  %.5203 = phi i32 [ %167, %208 ], [ %167, %227 ], [ %167, %225 ], [ %.2200, %130 ], [ %.3201337, %142 ], [ %.4202, %278 ], [ %.3201337, %.split ]
-  %.6197 = phi i32 [ -46, %208 ], [ -46, %227 ], [ -46, %225 ], [ %.3194, %130 ], [ %.4195338, %142 ], [ %.5196, %278 ], [ %.4195338, %.split ]
+  %.3187285 = phi i8 [ %.3187339, %208 ], [ %.3187339, %227 ], [ %.3187339, %225 ], [ %.2186, %130 ], [ %.3187339, %142 ], [ %.4188, %278 ], [ %.3187339, %.split ]
+  %.5280 = phi i8 [ %.5340, %208 ], [ %.5340, %227 ], [ %.5340, %225 ], [ %.4, %130 ], [ %.5340, %142 ], [ %.6, %278 ], [ %.5340, %.split ]
+  %.2208 = phi ptr [ %.3209, %208 ], [ %.3209, %227 ], [ %.3209, %225 ], [ %.1207, %130 ], [ %.1207, %.split ], [ %.1207, %278 ], [ %.1207, %142 ]
+  %.5203 = phi i32 [ %167, %208 ], [ %167, %227 ], [ %167, %225 ], [ %.3201, %130 ], [ %.4202337, %142 ], [ %.6204, %278 ], [ %.4202337, %.split ]
+  %.7 = phi i32 [ -46, %208 ], [ -46, %227 ], [ -46, %225 ], [ %.5196, %130 ], [ %.6197338, %142 ], [ %.8, %278 ], [ %.6197338, %.split ]
   %.1190 = phi i8 [ 1, %208 ], [ 1, %227 ], [ 1, %225 ], [ %.0189, %130 ], [ %.0189, %.split ], [ %.0189, %278 ], [ %.0189, %142 ]
   %280 = load i32, ptr %22, align 8
   %281 = icmp slt i32 %.5203, %280
   br i1 %281, label %282, label %291
 
 282:                                              ; preds = %.critedge
-  %283 = trunc nuw i8 %.2186285 to i1
+  %283 = trunc nuw i8 %.3187285 to i1
   br i1 %283, label %291, label %284
 
 284:                                              ; preds = %282
@@ -2272,7 +2272,7 @@ pmix_obj_run_destructors.exit269:                 ; preds = %.lr.ph.i266, %264
   br i1 %285, label %291, label %286
 
 286:                                              ; preds = %284
-  %287 = trunc nuw i8 %.3280 to i1
+  %287 = trunc nuw i8 %.5280 to i1
   br i1 %287, label %291, label %288
 
 288:                                              ; preds = %286
@@ -2291,44 +2291,44 @@ pmix_obj_run_destructors.exit269:                 ; preds = %.lr.ph.i266, %264
   br label %294
 
 294:                                              ; preds = %115, %117, %291, %293, %98
-  %.6204 = phi i32 [ %.1199349, %98 ], [ %.5203, %293 ], [ %.5203, %291 ], [ %.1199349, %117 ], [ %.1199349, %115 ]
-  %.7 = phi i32 [ %.2193, %98 ], [ %.6197, %293 ], [ %.6197, %291 ], [ %.2193, %117 ], [ %.2193, %115 ]
-  %.4188 = phi i8 [ %.0184351, %98 ], [ %.2186285, %293 ], [ %.2186285, %291 ], [ %.0184351, %117 ], [ %.0184351, %115 ]
-  %.5 = phi i8 [ 0, %98 ], [ %.3280, %293 ], [ %.3280, %291 ], [ 0, %117 ], [ 0, %115 ]
+  %.2200 = phi i32 [ %.1199349, %98 ], [ %.5203, %293 ], [ %.5203, %291 ], [ %.1199349, %117 ], [ %.1199349, %115 ]
+  %.4195 = phi i32 [ %.2193, %98 ], [ %.7, %293 ], [ %.7, %291 ], [ %.2193, %117 ], [ %.2193, %115 ]
+  %.1185 = phi i8 [ %.0184351, %98 ], [ %.3187285, %293 ], [ %.3187285, %291 ], [ %.0184351, %117 ], [ %.0184351, %115 ]
+  %.3 = phi i8 [ 0, %98 ], [ %.5280, %293 ], [ %.5280, %291 ], [ 0, %117 ], [ 0, %115 ]
   %.not230 = icmp eq ptr %.0205353, %54
   br i1 %.not230, label %._crit_edge, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %294, %.split357
-  %.0184351.be = phi i8 [ %.4188, %294 ], [ 1, %.split357 ]
+  %.0184351.be = phi i8 [ %.1185, %294 ], [ 1, %.split357 ]
   %.0206348.be = phi ptr [ %.0205353, %294 ], [ %69, %.split357 ]
   br label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %294
   %295 = load i32, ptr %22, align 8
-  %296 = icmp sge i32 %.6204, %295
-  %297 = trunc nuw i8 %.4188 to i1
+  %296 = icmp sge i32 %.2200, %295
+  %297 = trunc nuw i8 %.1185 to i1
   %.not232 = select i1 %296, i1 true, i1 %297
   br i1 %.not232, label %.split359, label %.split357, !llvm.loop !13
 
 .split359.sink.split:                             ; preds = %.split357, %.split357.preheader, %53
-  %.us-phi361.ph = phi i32 [ 0, %53 ], [ 0, %.split357.preheader ], [ %.6204, %.split357 ]
-  %.us-phi362.ph = phi i32 [ undef, %53 ], [ undef, %.split357.preheader ], [ %.7, %.split357 ]
-  %.us-phi363.ph = phi i8 [ undef, %53 ], [ undef, %.split357.preheader ], [ %.5, %.split357 ]
+  %.us-phi361.ph = phi i32 [ 0, %53 ], [ 0, %.split357.preheader ], [ %.2200, %.split357 ]
+  %.us-phi362.ph = phi i32 [ undef, %53 ], [ undef, %.split357.preheader ], [ %.4195, %.split357 ]
+  %.us-phi363.ph = phi i8 [ undef, %53 ], [ undef, %.split357.preheader ], [ %.3, %.split357 ]
   %298 = load i32, ptr %22, align 8
   br label %.split359
 
 .split359:                                        ; preds = %._crit_edge, %.split359.sink.split
   %.us-phi360 = phi i32 [ %298, %.split359.sink.split ], [ %295, %._crit_edge ]
-  %.us-phi361 = phi i32 [ %.us-phi361.ph, %.split359.sink.split ], [ %.6204, %._crit_edge ]
-  %.us-phi362 = phi i32 [ %.us-phi362.ph, %.split359.sink.split ], [ %.7, %._crit_edge ]
-  %.us-phi363 = phi i8 [ %.us-phi363.ph, %.split359.sink.split ], [ %.5, %._crit_edge ]
+  %.us-phi361 = phi i32 [ %.us-phi361.ph, %.split359.sink.split ], [ %.2200, %._crit_edge ]
+  %.us-phi362 = phi i32 [ %.us-phi362.ph, %.split359.sink.split ], [ %.4195, %._crit_edge ]
+  %.us-phi363 = phi i8 [ %.us-phi363.ph, %.split359.sink.split ], [ %.3, %._crit_edge ]
   %299 = icmp eq i32 %.us-phi361, %.us-phi360
   br i1 %299, label %326, label %.loopexit
 
 .loopexit:                                        ; preds = %162, %250, %252, %.split359, %233
-  %.8 = phi i32 [ %168, %233 ], [ %.us-phi362, %.split359 ], [ %168, %252 ], [ %168, %250 ], [ -2, %162 ]
-  %.6 = phi i8 [ %.3340, %233 ], [ %.us-phi363, %.split359 ], [ %.3340, %252 ], [ %.3340, %250 ], [ %.3340, %162 ]
-  %300 = trunc i8 %.6 to i1
+  %.3194 = phi i32 [ %168, %233 ], [ %.us-phi362, %.split359 ], [ %168, %252 ], [ %168, %250 ], [ -2, %162 ]
+  %.2 = phi i8 [ %.5340, %233 ], [ %.us-phi363, %.split359 ], [ %.5340, %252 ], [ %.5340, %250 ], [ %.5340, %162 ]
+  %300 = trunc i8 %.2 to i1
   br i1 %300, label %301, label %.thread
 
 301:                                              ; preds = %.loopexit
@@ -2350,8 +2350,8 @@ pmix_obj_run_destructors.exit269:                 ; preds = %.lr.ph.i266, %264
   br label %326
 
 .thread:                                          ; preds = %72, %74, %.loopexit
-  %.8273 = phi i32 [ %.8, %.loopexit ], [ %73, %74 ], [ %73, %72 ]
-  %312 = tail call ptr @prte_strerror(i32 noundef %.8273) #9
+  %.3194273 = phi i32 [ %.3194, %.loopexit ], [ %73, %74 ], [ %73, %72 ]
+  %312 = tail call ptr @prte_strerror(i32 noundef %.3194273) #9
   %313 = icmp eq ptr %1, null
   br i1 %313, label %.thread275, label %314
 

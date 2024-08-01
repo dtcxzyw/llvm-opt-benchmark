@@ -1020,7 +1020,7 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
   br label %31
 
 31:                                               ; preds = %.lr.ph194, %228
-  %.0169193 = phi i32 [ %8, %.lr.ph194 ], [ %.7, %228 ]
+  %.0169193 = phi i32 [ %8, %.lr.ph194 ], [ %.6, %228 ]
   %.0170192 = phi i32 [ 0, %.lr.ph194 ], [ %229, %228 ]
   %32 = add nuw nsw i32 %.0169193, 1
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0169193) #6
@@ -1358,16 +1358,16 @@ dissect_pbb_tlvvalue.exit:                        ; preds = %126, %127, %131, %1
 
 220:                                              ; preds = %.lr.ph, %220
   %.0163191 = phi i32 [ %213, %.lr.ph ], [ %224, %220 ]
-  %.6190 = phi i32 [ %.5, %.lr.ph ], [ %223, %220 ]
+  %.7190 = phi i32 [ %.5, %.lr.ph ], [ %223, %220 ]
   %221 = load i32, ptr @hf_packetbb_tlv_multivalue, align 4
-  %222 = tail call ptr @proto_tree_add_item(ptr noundef %218, i32 noundef %221, ptr noundef %0, i32 noundef %.6190, i32 noundef %219, i32 noundef 0) #6
-  %223 = add i32 %219, %.6190
+  %222 = tail call ptr @proto_tree_add_item(ptr noundef %218, i32 noundef %221, ptr noundef %0, i32 noundef %.7190, i32 noundef %219, i32 noundef 0) #6
+  %223 = add i32 %219, %.7190
   %224 = add nuw nsw i32 %.0163191, 1
   %exitcond.not = icmp eq i32 %.0163191, %212
   br i1 %exitcond.not, label %.loopexit, label %220, !llvm.loop !9
 
 .loopexit:                                        ; preds = %220, %216, %dissect_pbb_tlvvalue.exit, %211, %119
-  %.7 = phi i32 [ %210, %dissect_pbb_tlvvalue.exit ], [ %.5, %211 ], [ %.5, %119 ], [ %.5, %216 ], [ %223, %220 ]
+  %.6 = phi i32 [ %210, %dissect_pbb_tlvvalue.exit ], [ %.5, %211 ], [ %.5, %119 ], [ %.5, %216 ], [ %223, %220 ]
   %.not188 = icmp eq ptr %63, null
   br i1 %.not188, label %228, label %225
 
@@ -1379,12 +1379,12 @@ dissect_pbb_tlvvalue.exit:                        ; preds = %126, %127, %131, %1
 
 228:                                              ; preds = %225, %.loopexit
   %229 = add i32 %.0170192, 1
-  %230 = icmp ult i32 %.7, %16
+  %230 = icmp ult i32 %.6, %16
   br i1 %230, label %31, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %228, %21
   %.0170.lcssa = phi i32 [ 0, %21 ], [ %229, %228 ]
-  %.0169.lcssa = phi i32 [ %8, %21 ], [ %.7, %228 ]
+  %.0169.lcssa = phi i32 [ %8, %21 ], [ %.6, %228 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.164, i32 noundef %.0170.lcssa) #6
   br label %231
 

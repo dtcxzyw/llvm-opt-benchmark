@@ -986,7 +986,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge, %64
 
 76:                                               ; preds = %.lr.ph89, %108
   %.val6888 = phi i32 [ %.val6884, %.lr.ph89 ], [ %.val68, %108 ]
-  %.04586 = phi i32 [ 1, %.lr.ph89 ], [ %.2, %108 ]
+  %.04586 = phi i32 [ 1, %.lr.ph89 ], [ %.146, %108 ]
   %.14885 = phi i32 [ 0, %.lr.ph89 ], [ %109, %108 ]
   %.val74 = load ptr, ptr %23, align 8
   %.not51 = icmp eq ptr %.val74, null
@@ -1038,14 +1038,14 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge, %64
   br label %108
 
 108:                                              ; preds = %.sink.split, %77
-  %.2 = phi i32 [ %.04586, %77 ], [ %107, %.sink.split ]
+  %.146 = phi i32 [ %.04586, %77 ], [ %107, %.sink.split ]
   %109 = add nuw nsw i32 %.14885, 1
   %.val68 = load i32, ptr %8, align 8
   %110 = icmp slt i32 %109, %.val68
   br i1 %110, label %76, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %76, %108, %Abc_UtilStrsav.exit
-  %.045.lcssa = phi i32 [ 1, %Abc_UtilStrsav.exit ], [ %.2, %108 ], [ %.04586, %76 ]
+  %.045.lcssa = phi i32 [ 1, %Abc_UtilStrsav.exit ], [ %.146, %108 ], [ %.04586, %76 ]
   tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %62, i32 noundef %.045.lcssa)
   %111 = getelementptr inbounds i8, ptr %.pre, i64 8
   %112 = load ptr, ptr %111, align 8

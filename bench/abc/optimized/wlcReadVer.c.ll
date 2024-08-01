@@ -979,7 +979,7 @@ Wlc_PrsFindSymbolTwo.exit.preheader169:           ; preds = %Wlc_PrsFindSymbolTw
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph154.preheader, %.preheader142
-  %.4.lcssa = phi ptr [ %.087165, %.preheader142 ], [ %indvars.iv, %.lr.ph154.preheader ]
+  %.5.lcssa = phi ptr [ %.087165, %.preheader142 ], [ %indvars.iv, %.lr.ph154.preheader ]
   %182 = icmp eq i32 %.089164, 0
   br i1 %182, label %183, label %.thread134thread-pre-split
 
@@ -1018,14 +1018,14 @@ Wlc_PrsFindSymbolTwo.exit.preheader169:           ; preds = %Wlc_PrsFindSymbolTw
 
 .thread134thread-pre-split:                       ; preds = %184, %12, %Vec_StrPush.exit116, %108, %191, %195, %197, %183, %._crit_edge, %164, %160, %Wlc_PrsFindSymbol.exit.preheader, %Wlc_PrsFindSymbolTwo.exit.preheader, %Wlc_PrsFindSymbol.exit127.preheader, %Wlc_PrsFindSymbol.exit.preheader168, %Wlc_PrsFindSymbolTwo.exit.preheader169, %Wlc_PrsFindSymbol.exit127.preheader171
   %.190.ph.ph = phi i32 [ %.089164, %Wlc_PrsFindSymbol.exit127.preheader171 ], [ %.089164, %Wlc_PrsFindSymbolTwo.exit.preheader169 ], [ %.089164, %Wlc_PrsFindSymbol.exit.preheader168 ], [ %.089164, %Wlc_PrsFindSymbol.exit127.preheader ], [ %.089164, %Wlc_PrsFindSymbolTwo.exit.preheader ], [ %.089164, %Wlc_PrsFindSymbol.exit.preheader ], [ %.089164, %160 ], [ %.089164, %164 ], [ %.089164, %Vec_StrPush.exit116 ], [ %.089164, %108 ], [ %.089164, %195 ], [ %.089164, %197 ], [ %.089164, %191 ], [ 1, %183 ], [ 1, %._crit_edge ], [ %.089164, %12 ], [ %.089164, %184 ]
-  %.5.ph.ph = phi ptr [ %.01016.i120, %Wlc_PrsFindSymbol.exit127.preheader171 ], [ %indvars.iv196, %Wlc_PrsFindSymbolTwo.exit.preheader169 ], [ %.01016.i, %Wlc_PrsFindSymbol.exit.preheader168 ], [ %.087165, %Wlc_PrsFindSymbol.exit127.preheader ], [ %.087165, %Wlc_PrsFindSymbolTwo.exit.preheader ], [ %.087165, %Wlc_PrsFindSymbol.exit.preheader ], [ %.087165, %160 ], [ %.087165, %164 ], [ %.087165, %Vec_StrPush.exit116 ], [ %.087165, %108 ], [ %.087165, %195 ], [ %.087165, %197 ], [ %.087165, %191 ], [ %.4.lcssa, %183 ], [ %.4.lcssa, %._crit_edge ], [ %.087165, %12 ], [ %.087165, %184 ]
-  %.pr.pr = load i8, ptr %.5.ph.ph, align 1
+  %.2.ph.ph = phi ptr [ %.01016.i120, %Wlc_PrsFindSymbol.exit127.preheader171 ], [ %indvars.iv196, %Wlc_PrsFindSymbolTwo.exit.preheader169 ], [ %.01016.i, %Wlc_PrsFindSymbol.exit.preheader168 ], [ %.087165, %Wlc_PrsFindSymbol.exit127.preheader ], [ %.087165, %Wlc_PrsFindSymbolTwo.exit.preheader ], [ %.087165, %Wlc_PrsFindSymbol.exit.preheader ], [ %.087165, %160 ], [ %.087165, %164 ], [ %.087165, %Vec_StrPush.exit116 ], [ %.087165, %108 ], [ %.087165, %195 ], [ %.087165, %197 ], [ %.087165, %191 ], [ %.5.lcssa, %183 ], [ %.5.lcssa, %._crit_edge ], [ %.087165, %12 ], [ %.087165, %184 ]
+  %.pr.pr = load i8, ptr %.2.ph.ph, align 1
   br label %.thread134
 
 .thread134:                                       ; preds = %.thread134thread-pre-split, %10
   %.pr = phi i8 [ %.pr.pr, %.thread134thread-pre-split ], [ %11, %10 ]
   %.190.ph = phi i32 [ %.190.ph.ph, %.thread134thread-pre-split ], [ %.089164, %10 ]
-  %.5.ph = phi ptr [ %.5.ph.ph, %.thread134thread-pre-split ], [ %.087165, %10 ]
+  %.2.ph = phi ptr [ %.2.ph.ph, %.thread134thread-pre-split ], [ %.087165, %10 ]
   switch i8 %.pr, label %.thread134.thread [
     i8 10, label %199
     i8 13, label %199
@@ -1033,13 +1033,13 @@ Wlc_PrsFindSymbolTwo.exit.preheader169:           ; preds = %Wlc_PrsFindSymbolTw
   ]
 
 199:                                              ; preds = %.thread134, %.thread134, %.thread134
-  store i8 32, ptr %.5.ph, align 1
+  store i8 32, ptr %.2.ph, align 1
   br label %.thread134.thread
 
 .thread134.thread:                                ; preds = %187, %156, %.thread135, %.thread134, %199
-  %.5139 = phi ptr [ %.087165, %.thread135 ], [ %.5.ph, %.thread134 ], [ %.5.ph, %199 ], [ %.087165, %156 ], [ %.087165, %187 ]
+  %.2139 = phi ptr [ %.087165, %.thread135 ], [ %.2.ph, %.thread134 ], [ %.2.ph, %199 ], [ %.087165, %156 ], [ %.087165, %187 ]
   %.190138 = phi i32 [ %.089164, %.thread135 ], [ %.190.ph, %.thread134 ], [ %.190.ph, %199 ], [ %.089164, %156 ], [ %.089164, %187 ]
-  %200 = getelementptr inbounds i8, ptr %.5139, i64 1
+  %200 = getelementptr inbounds i8, ptr %.2139, i64 1
   %201 = icmp ult ptr %200, %6
   br i1 %201, label %10, label %.loopexit, !llvm.loop !10
 
@@ -1450,45 +1450,45 @@ define noundef ptr @Wlc_PrsStrtok(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %cond, label %.sink.split, label %.preheader40
 
 .loopexit:                                        ; preds = %32
-  %.pre = load i8, ptr %.4, align 1
+  %.pre = load i8, ptr %.3, align 1
   br label %.preheader40, !llvm.loop !15
 
 .preheader40:                                     ; preds = %15, %.loopexit
   %16 = phi i8 [ %.pre, %.loopexit ], [ %9, %15 ]
-  %.2 = phi ptr [ %.4, %.loopexit ], [ %.129, %15 ]
+  %.2 = phi ptr [ %.3, %.loopexit ], [ %.129, %15 ]
   %17 = getelementptr inbounds i8, ptr %.2, i64 1
   %18 = icmp eq i8 %16, 92
   br i1 %18, label %.preheader, label %24
 
 .preheader:                                       ; preds = %.preheader40, %.preheader
-  %.342 = phi ptr [ %19, %.preheader ], [ %17, %.preheader40 ]
-  %19 = getelementptr inbounds i8, ptr %.342, i64 1
-  %20 = load i8, ptr %.342, align 1
+  %.442 = phi ptr [ %19, %.preheader ], [ %17, %.preheader40 ]
+  %19 = getelementptr inbounds i8, ptr %.442, i64 1
+  %20 = load i8, ptr %.442, align 1
   %.not38 = icmp eq i8 %20, 32
   br i1 %.not38, label %21, label %.preheader, !llvm.loop !16
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds i8, ptr %.342, i64 2
+  %22 = getelementptr inbounds i8, ptr %.442, i64 2
   %23 = load i8, ptr %19, align 1
   br label %24
 
 24:                                               ; preds = %21, %.preheader40
-  %.4 = phi ptr [ %22, %21 ], [ %17, %.preheader40 ]
-  %.1.in = phi i8 [ %23, %21 ], [ %16, %.preheader40 ]
+  %.3 = phi ptr [ %22, %21 ], [ %17, %.preheader40 ]
+  %.024.in = phi i8 [ %23, %21 ], [ %16, %.preheader40 ]
   br label %25
 
 25:                                               ; preds = %32, %24
   %.126 = phi ptr [ %1, %24 ], [ %33, %32 ]
   %26 = load i8, ptr %.126, align 1
-  %27 = icmp eq i8 %26, %.1.in
+  %27 = icmp eq i8 %26, %.024.in
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %25
-  %29 = icmp eq i8 %.1.in, 0
+  %29 = icmp eq i8 %.024.in, 0
   br i1 %29, label %.sink.split, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %.4, i64 -1
+  %31 = getelementptr inbounds i8, ptr %.3, i64 -1
   store i8 0, ptr %31, align 1
   br label %.sink.split
 
@@ -1498,7 +1498,7 @@ define noundef ptr @Wlc_PrsStrtok(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not39, label %.loopexit, label %25, !llvm.loop !15
 
 .sink.split:                                      ; preds = %30, %28, %15
-  %.5.sink = phi ptr [ null, %15 ], [ %.4, %30 ], [ null, %28 ]
+  %.5.sink = phi ptr [ null, %15 ], [ %.3, %30 ], [ null, %28 ]
   %.027.ph = phi ptr [ null, %15 ], [ %.129, %30 ], [ %.129, %28 ]
   store ptr %.5.sink, ptr @Wlc_PrsStrtok.last, align 8
   br label %34
@@ -2744,7 +2744,7 @@ Wlc_PrsFindSymbolTwo.exit:                        ; preds = %17, %23
 .lr.ph.i:                                         ; preds = %23, %34
   %27 = phi i8 [ %38, %34 ], [ 40, %23 ]
   %.025.i = phi i1 [ %.1.v.i, %34 ], [ true, %23 ]
-  %.01424.i = phi i32 [ %.3.i, %34 ], [ 0, %23 ]
+  %.01424.i = phi i32 [ %.115.i, %34 ], [ 0, %23 ]
   %.01723.i = phi ptr [ %37, %34 ], [ %.0.i314, %23 ]
   br i1 %.025.i, label %28, label %34
 
@@ -2754,12 +2754,12 @@ Wlc_PrsFindSymbolTwo.exit:                        ; preds = %17, %23
   %spec.select.i = add nsw i32 %.01424.i, %30
   %31 = icmp eq i8 %27, 41
   %32 = sext i1 %31 to i32
-  %.2.i = add nsw i32 %spec.select.i, %32
-  %33 = icmp eq i32 %.2.i, 0
+  %.3.i = add nsw i32 %spec.select.i, %32
+  %33 = icmp eq i32 %.3.i, 0
   br i1 %33, label %Wlc_PrsFindClosingParenthesis.exit, label %34
 
 34:                                               ; preds = %28, %.lr.ph.i
-  %.3.i = phi i32 [ %.2.i, %28 ], [ %.01424.i, %.lr.ph.i ]
+  %.115.i = phi i32 [ %.3.i, %28 ], [ %.01424.i, %.lr.ph.i ]
   %35 = icmp eq i8 %27, 92
   %brmerge.i = or i1 %.025.i, %35
   %not..i = xor i1 %35, true
@@ -2789,7 +2789,7 @@ Wlc_PrsFindClosingParenthesis.exit:               ; preds = %28
 .lr.ph.i328:                                      ; preds = %.lr.ph.i328.preheader, %51
   %44 = phi i8 [ %55, %51 ], [ 40, %.lr.ph.i328.preheader ]
   %.025.i329 = phi i1 [ %.1.v.i335, %51 ], [ true, %.lr.ph.i328.preheader ]
-  %.01424.i330 = phi i32 [ %.3.i332, %51 ], [ 0, %.lr.ph.i328.preheader ]
+  %.01424.i330 = phi i32 [ %.115.i332, %51 ], [ 0, %.lr.ph.i328.preheader ]
   %.01723.i331 = phi ptr [ %54, %51 ], [ %.0.i314, %.lr.ph.i328.preheader ]
   br i1 %.025.i329, label %45, label %51
 
@@ -2799,12 +2799,12 @@ Wlc_PrsFindClosingParenthesis.exit:               ; preds = %28
   %spec.select.i338 = add nsw i32 %.01424.i330, %47
   %48 = icmp eq i8 %44, 41
   %49 = sext i1 %48 to i32
-  %.2.i339 = add nsw i32 %spec.select.i338, %49
-  %50 = icmp eq i32 %.2.i339, 0
+  %.3.i339 = add nsw i32 %spec.select.i338, %49
+  %50 = icmp eq i32 %.3.i339, 0
   br i1 %50, label %Wlc_PrsFindClosingParenthesis.exit340, label %51
 
 51:                                               ; preds = %45, %.lr.ph.i328
-  %.3.i332 = phi i32 [ %.2.i339, %45 ], [ %.01424.i330, %.lr.ph.i328 ]
+  %.115.i332 = phi i32 [ %.3.i339, %45 ], [ %.01424.i330, %.lr.ph.i328 ]
   %52 = icmp eq i8 %44, 92
   %brmerge.i333 = or i1 %.025.i329, %52
   %not..i334 = xor i1 %52, true
@@ -2874,7 +2874,7 @@ Wlc_PrsSkipSpaces.exit326:                        ; preds = %.preheader505, %41,
   br label %.thread411
 
 .thread411:                                       ; preds = %64, %63, %68, %67
-  %.0239 = phi i32 [ 51, %67 ], [ 52, %68 ], [ 26, %63 ], [ 15, %64 ]
+  %.1240 = phi i32 [ 51, %67 ], [ 52, %68 ], [ 26, %63 ], [ 15, %64 ]
   br label %69
 
 69:                                               ; preds = %69, %.thread411
@@ -2889,7 +2889,7 @@ Wlc_PrsSkipSpaces.exit326:                        ; preds = %.preheader505, %41,
 .lr.ph.i348:                                      ; preds = %69, %78
   %71 = phi i8 [ %82, %78 ], [ %70, %69 ]
   %.025.i349 = phi i1 [ %.1.v.i355, %78 ], [ true, %69 ]
-  %.01424.i350 = phi i32 [ %.3.i352, %78 ], [ 0, %69 ]
+  %.01424.i350 = phi i32 [ %.115.i352, %78 ], [ 0, %69 ]
   %.01723.i351 = phi ptr [ %81, %78 ], [ %.0.i344, %69 ]
   br i1 %.025.i349, label %72, label %78
 
@@ -2899,12 +2899,12 @@ Wlc_PrsSkipSpaces.exit326:                        ; preds = %.preheader505, %41,
   %spec.select.i358 = add nsw i32 %.01424.i350, %74
   %75 = icmp eq i8 %71, 41
   %76 = sext i1 %75 to i32
-  %.2.i359 = add nsw i32 %spec.select.i358, %76
-  %77 = icmp eq i32 %.2.i359, 0
+  %.3.i359 = add nsw i32 %spec.select.i358, %76
+  %77 = icmp eq i32 %.3.i359, 0
   br i1 %77, label %Wlc_PrsFindClosingParenthesis.exit360, label %78
 
 78:                                               ; preds = %72, %.lr.ph.i348
-  %.3.i352 = phi i32 [ %.2.i359, %72 ], [ %.01424.i350, %.lr.ph.i348 ]
+  %.115.i352 = phi i32 [ %.3.i359, %72 ], [ %.01424.i350, %.lr.ph.i348 ]
   %79 = icmp eq i8 %71, 92
   %brmerge.i353 = or i1 %.025.i349, %79
   %not..i354 = xor i1 %79, true
@@ -2949,7 +2949,7 @@ Wlc_PrsFindClosingParenthesis.exit360:            ; preds = %72
   br label %.thread417
 
 .thread417:                                       ; preds = %64, %.thread417.fold.split, %63, %91, %88, %90, %89
-  %.1240 = phi i32 [ 37, %88 ], [ 38, %89 ], [ 39, %90 ], [ 42, %91 ], [ 50, %63 ], [ 40, %64 ], [ 41, %.thread417.fold.split ]
+  %.2241 = phi i32 [ 37, %88 ], [ 38, %89 ], [ 39, %90 ], [ 42, %91 ], [ 50, %63 ], [ 40, %64 ], [ 41, %.thread417.fold.split ]
   %.0238 = phi i64 [ 1, %88 ], [ 1, %89 ], [ 1, %90 ], [ 2, %91 ], [ 1, %63 ], [ 2, %64 ], [ 2, %.thread417.fold.split ]
   %92 = getelementptr inbounds i8, ptr %.0237, i64 %.0238
   %93 = tail call fastcc ptr @Wlc_PrsReadName(ptr noundef %0, ptr noundef nonnull %92, ptr noundef %2)
@@ -3058,14 +3058,14 @@ Wlc_PrsFindSymbol.exit388:                        ; preds = %.lr.ph.i379
   br label %Wlc_PrsFindName.exit.thread
 
 Wlc_PrsFindSymbol.exit:                           ; preds = %Wlc_PrsFindSymbol.exit.backedge, %Wlc_PrsFindSymbol.exit.preheader
-  %.1.pn = phi ptr [ %.0237, %Wlc_PrsFindSymbol.exit.preheader ], [ %.1.pn.be, %Wlc_PrsFindSymbol.exit.backedge ]
-  %.0.i392 = getelementptr inbounds i8, ptr %.1.pn, i64 1
+  %.3.pn = phi ptr [ %.0237, %Wlc_PrsFindSymbol.exit.preheader ], [ %.3.pn.be, %Wlc_PrsFindSymbol.exit.backedge ]
+  %.0.i392 = getelementptr inbounds i8, ptr %.3.pn, i64 1
   %129 = load i8, ptr %.0.i392, align 1
   %cond.i393 = icmp eq i8 %129, 32
   br i1 %cond.i393, label %Wlc_PrsFindSymbol.exit.backedge, label %Wlc_PrsSkipSpaces.exit394
 
 Wlc_PrsFindSymbol.exit.backedge:                  ; preds = %Wlc_PrsFindSymbol.exit, %133
-  %.1.pn.be = phi ptr [ %.0.i392, %Wlc_PrsFindSymbol.exit ], [ %130, %133 ]
+  %.3.pn.be = phi ptr [ %.0.i392, %Wlc_PrsFindSymbol.exit ], [ %130, %133 ]
   br label %Wlc_PrsFindSymbol.exit, !llvm.loop !12
 
 Wlc_PrsSkipSpaces.exit394:                        ; preds = %Wlc_PrsFindSymbol.exit
@@ -3089,7 +3089,7 @@ Wlc_PrsSkipSpaces.exit394:                        ; preds = %Wlc_PrsFindSymbol.e
   br label %Wlc_PrsFindName.exit.thread
 
 .loopexit500:                                     ; preds = %.preheader501, %133
-  %.3242 = phi i32 [ 23, %133 ], [ %., %.preheader501 ]
+  %.4243 = phi i32 [ 23, %133 ], [ %., %.preheader501 ]
   %.2 = phi ptr [ %130, %133 ], [ %.0.i389, %.preheader501 ]
   %137 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %309
@@ -3392,9 +3392,9 @@ Wlc_PrsSkipSpaces.exit394:                        ; preds = %Wlc_PrsFindSymbol.e
   br label %Wlc_PrsFindName.exit.thread
 
 .thread483.thread:                                ; preds = %267, %202, %.thread594.thread.thread, %.thread594, %199, %196, %187, %174, %181, %194, %209, %213, %225, %243, %261, %265, %271, %273, %263, %254, %236, %231, %219, %211
-  %.4243 = phi i32 [ 10, %181 ], [ 12, %194 ], [ 19, %209 ], [ 20, %211 ], [ 21, %213 ], [ 27, %219 ], [ 28, %225 ], [ 29, %231 ], [ 31, %236 ], [ 32, %243 ], [ 35, %254 ], [ 36, %261 ], [ 43, %263 ], [ 44, %265 ], [ 46, %271 ], [ 47, %273 ], [ %.not294, %174 ], [ %.not293, %187 ], [ 16, %196 ], [ 17, %199 ], [ 33, %.thread594 ], [ 34, %.thread594.thread.thread ], [ %spec.select649, %202 ], [ %spec.select651, %267 ]
-  %.3 = phi ptr [ %182, %181 ], [ %195, %194 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %220, %219 ], [ %226, %225 ], [ %232, %231 ], [ %237, %236 ], [ %244, %243 ], [ %255, %254 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %272, %271 ], [ %274, %273 ], [ %175, %174 ], [ %188, %187 ], [ %197, %196 ], [ %200, %199 ], [ %245, %.thread594 ], [ %247, %.thread594.thread.thread ], [ %spec.select650, %202 ], [ %spec.select652, %267 ]
-  %277 = getelementptr inbounds i8, ptr %.3, i64 1
+  %.5244 = phi i32 [ 10, %181 ], [ 12, %194 ], [ 19, %209 ], [ 20, %211 ], [ 21, %213 ], [ 27, %219 ], [ 28, %225 ], [ 29, %231 ], [ 31, %236 ], [ 32, %243 ], [ 35, %254 ], [ 36, %261 ], [ 43, %263 ], [ 44, %265 ], [ 46, %271 ], [ 47, %273 ], [ %.not294, %174 ], [ %.not293, %187 ], [ 16, %196 ], [ 17, %199 ], [ 33, %.thread594 ], [ 34, %.thread594.thread.thread ], [ %spec.select649, %202 ], [ %spec.select651, %267 ]
+  %.4 = phi ptr [ %182, %181 ], [ %195, %194 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %220, %219 ], [ %226, %225 ], [ %232, %231 ], [ %237, %236 ], [ %244, %243 ], [ %255, %254 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %272, %271 ], [ %274, %273 ], [ %175, %174 ], [ %188, %187 ], [ %197, %196 ], [ %200, %199 ], [ %245, %.thread594 ], [ %247, %.thread594.thread.thread ], [ %spec.select650, %202 ], [ %spec.select652, %267 ]
+  %277 = getelementptr inbounds i8, ptr %.4, i64 1
   %278 = tail call fastcc ptr @Wlc_PrsReadName(ptr noundef %0, ptr noundef nonnull %277, ptr noundef %2)
   %.not295 = icmp eq ptr %278, null
   br i1 %.not295, label %Wlc_PrsFindName.exit.thread, label %.preheader498
@@ -3407,7 +3407,7 @@ Wlc_PrsSkipSpaces.exit394:                        ; preds = %Wlc_PrsFindSymbol.e
   br i1 %cond.i396, label %.preheader498, label %Wlc_PrsSkipSpaces.exit397, !llvm.loop !12
 
 Wlc_PrsSkipSpaces.exit397:                        ; preds = %.preheader498
-  %281 = icmp eq i32 %.4243, 43
+  %281 = icmp eq i32 %.5244, 43
   %282 = icmp eq i8 %279, 43
   %or.cond = and i1 %281, %282
   br i1 %or.cond, label %283, label %Wlc_PrsSkipSpaces.exit400
@@ -3426,7 +3426,7 @@ Wlc_PrsSkipSpaces.exit397:                        ; preds = %.preheader498
 
 Wlc_PrsSkipSpaces.exit400:                        ; preds = %.preheader, %Wlc_PrsSkipSpaces.exit397
   %287 = phi i8 [ %279, %Wlc_PrsSkipSpaces.exit397 ], [ %285, %.preheader ]
-  %.4 = phi ptr [ %.0.i395, %Wlc_PrsSkipSpaces.exit397 ], [ %.0.i398, %.preheader ]
+  %.5 = phi ptr [ %.0.i395, %Wlc_PrsSkipSpaces.exit397 ], [ %.0.i398, %.preheader ]
   %.not297 = icmp eq i8 %287, 0
   br i1 %.not297, label %309, label %288
 
@@ -3443,7 +3443,7 @@ Wlc_PrsSkipSpaces.exit400:                        ; preds = %.preheader, %Wlc_Pr
   %.val10.i = load ptr, ptr %293, align 8
   %294 = getelementptr inbounds i8, ptr %0, i64 16
   %295 = load ptr, ptr %294, align 8
-  %296 = ptrtoint ptr %.4 to i64
+  %296 = ptrtoint ptr %.5 to i64
   %297 = ptrtoint ptr %295 to i64
   %298 = sub i64 %296, %297
   %wide.trip.count.i = zext nneg i32 %.val.i to i64
@@ -3469,16 +3469,16 @@ Wlc_PrsSkipSpaces.exit400:                        ; preds = %.preheader, %Wlc_Pr
 
 Wlc_PrsFindLine.exit:                             ; preds = %307, %288, %304
   %.09.i401 = phi i32 [ %306, %304 ], [ -1, %288 ], [ -1, %307 ]
-  %308 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.105, ptr noundef nonnull %.4, i32 noundef %.09.i401)
+  %308 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.105, ptr noundef nonnull %.5, i32 noundef %.09.i401)
   br label %309
 
 309:                                              ; preds = %139, %.thread417, %167, %Wlc_PrsFindLine.exit, %Wlc_PrsSkipSpaces.exit400, %155, %.loopexit500, %.loopexit499, %60
-  %.5244 = phi i32 [ %.0239, %.loopexit499 ], [ %.1240, %.thread417 ], [ %.3242, %.loopexit500 ], [ 8, %155 ], [ 22, %167 ], [ %.4243, %Wlc_PrsFindLine.exit ], [ %.4243, %Wlc_PrsSkipSpaces.exit400 ], [ 6, %60 ], [ 7, %139 ]
-  %.5 = phi ptr [ %85, %.loopexit499 ], [ %93, %.thread417 ], [ %137, %.loopexit500 ], [ %152, %155 ], [ %163, %167 ], [ %.4, %Wlc_PrsFindLine.exit ], [ %.4, %Wlc_PrsSkipSpaces.exit400 ], [ %61, %60 ], [ %138, %139 ]
+  %.0239 = phi i32 [ %.1240, %.loopexit499 ], [ %.2241, %.thread417 ], [ %.4243, %.loopexit500 ], [ 8, %155 ], [ 22, %167 ], [ %.5244, %Wlc_PrsFindLine.exit ], [ %.5244, %Wlc_PrsSkipSpaces.exit400 ], [ 6, %60 ], [ 7, %139 ]
+  %.1 = phi ptr [ %85, %.loopexit499 ], [ %93, %.thread417 ], [ %137, %.loopexit500 ], [ %152, %155 ], [ %163, %167 ], [ %.5, %Wlc_PrsFindLine.exit ], [ %.5, %Wlc_PrsSkipSpaces.exit400 ], [ %61, %60 ], [ %138, %139 ]
   br label %310
 
 310:                                              ; preds = %310, %309
-  %.0.i.i = phi ptr [ %.5, %309 ], [ %312, %310 ]
+  %.0.i.i = phi ptr [ %.1, %309 ], [ %312, %310 ]
   %311 = load i8, ptr %.0.i.i, align 1
   %cond.i.i = icmp eq i8 %311, 32
   %312 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
@@ -3570,7 +3570,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %318
   br label %Wlc_PrsFindName.exit.thread
 
 Wlc_PrsFindName.exit.thread:                      ; preds = %10, %316, %283, %.thread483.thread, %.thread421, %60, %.loopexit, %.thread497, %165, %153, %148, %144, %135, %131, %127, %123, %Wlc_PrsFindSymbol.exit377.thread, %94, %86, %83, %56, %39
-  %.0 = phi i32 [ 0, %39 ], [ 0, %.loopexit ], [ 0, %83 ], [ 0, %86 ], [ 0, %94 ], [ 0, %Wlc_PrsFindSymbol.exit377.thread ], [ 0, %127 ], [ 0, %123 ], [ 0, %135 ], [ 0, %131 ], [ 0, %148 ], [ 0, %153 ], [ 0, %144 ], [ 0, %165 ], [ 0, %.thread497 ], [ 0, %56 ], [ 0, %60 ], [ 0, %.thread421 ], [ 0, %.thread483.thread ], [ 0, %283 ], [ %.5244, %316 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %39 ], [ 0, %.loopexit ], [ 0, %83 ], [ 0, %86 ], [ 0, %94 ], [ 0, %Wlc_PrsFindSymbol.exit377.thread ], [ 0, %127 ], [ 0, %123 ], [ 0, %135 ], [ 0, %131 ], [ 0, %148 ], [ 0, %153 ], [ 0, %144 ], [ 0, %165 ], [ 0, %.thread497 ], [ 0, %56 ], [ 0, %60 ], [ 0, %.thread421 ], [ 0, %.thread483.thread ], [ 0, %283 ], [ %.0239, %316 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -3648,7 +3648,7 @@ Wlc_PrsSkipSpaces.exit1847.loopexit:              ; preds = %.preheader1961
   br i1 %.not.i.not, label %Wlc_PrsSkipSpaces.exit1847.outer._crit_edge, label %280
 
 Wlc_PrsSkipSpaces.exit1847.outer._crit_edge:      ; preds = %Wlc_PrsSkipSpaces.exit1847.outer, %Wlc_PrsSkipSpaces.exit1847.loopexit, %Wlc_PrsSkipSpaces.exit1847.preheader
-  %.1731.ph.lcssa2097 = phi i32 [ %.07302456, %Wlc_PrsSkipSpaces.exit1847.preheader ], [ %.1731.ph2391, %Wlc_PrsSkipSpaces.exit1847.loopexit ], [ %.7737, %Wlc_PrsSkipSpaces.exit1847.outer ]
+  %.1731.ph.lcssa2097 = phi i32 [ %.07302456, %Wlc_PrsSkipSpaces.exit1847.preheader ], [ %.1731.ph2391, %Wlc_PrsSkipSpaces.exit1847.loopexit ], [ %.8738, %Wlc_PrsSkipSpaces.exit1847.outer ]
   %.0729.lcssa = phi ptr [ %46, %Wlc_PrsSkipSpaces.exit1847.preheader ], [ %.0.i1844, %Wlc_PrsSkipSpaces.exit1847.loopexit ], [ %.0.i1408, %Wlc_PrsSkipSpaces.exit1847.outer ]
   %49 = getelementptr inbounds i8, ptr %.0729.lcssa, i64 6
   br label %50
@@ -3679,46 +3679,46 @@ Wlc_PrsSkipSpaces.exit1847.outer._crit_edge:      ; preds = %Wlc_PrsSkipSpaces.e
   br i1 %cond.i, label %75, label %.preheader40.i
 
 .loopexit.i:                                      ; preds = %74
-  %.pre.i = load i8, ptr %.4.i, align 1
+  %.pre.i = load i8, ptr %.3.i, align 1
   br label %.preheader40.i, !llvm.loop !15
 
 .preheader40.i:                                   ; preds = %57, %.loopexit.i
   %58 = phi i8 [ %.pre.i, %.loopexit.i ], [ %52, %57 ]
-  %.2.i = phi ptr [ %.4.i, %.loopexit.i ], [ %.129.i, %57 ]
+  %.2.i = phi ptr [ %.3.i, %.loopexit.i ], [ %.129.i, %57 ]
   %59 = getelementptr inbounds i8, ptr %.2.i, i64 1
   %60 = icmp eq i8 %58, 92
   br i1 %60, label %.preheader.i, label %66
 
 .preheader.i:                                     ; preds = %.preheader40.i, %.preheader.i
-  %.342.i = phi ptr [ %61, %.preheader.i ], [ %59, %.preheader40.i ]
-  %61 = getelementptr inbounds i8, ptr %.342.i, i64 1
-  %62 = load i8, ptr %.342.i, align 1
+  %.442.i = phi ptr [ %61, %.preheader.i ], [ %59, %.preheader40.i ]
+  %61 = getelementptr inbounds i8, ptr %.442.i, i64 1
+  %62 = load i8, ptr %.442.i, align 1
   %.not38.i = icmp eq i8 %62, 32
   br i1 %.not38.i, label %63, label %.preheader.i, !llvm.loop !16
 
 63:                                               ; preds = %.preheader.i
-  %64 = getelementptr inbounds i8, ptr %.342.i, i64 2
+  %64 = getelementptr inbounds i8, ptr %.442.i, i64 2
   %65 = load i8, ptr %61, align 1
   br label %66
 
 66:                                               ; preds = %63, %.preheader40.i
-  %.4.i = phi ptr [ %64, %63 ], [ %59, %.preheader40.i ]
-  %.1.in.i = phi i8 [ %65, %63 ], [ %58, %.preheader40.i ]
+  %.3.i = phi ptr [ %64, %63 ], [ %59, %.preheader40.i ]
+  %.024.in.i = phi i8 [ %65, %63 ], [ %58, %.preheader40.i ]
   br label %67
 
 67:                                               ; preds = %74, %66
   %.126.i.idx = phi i64 [ 0, %66 ], [ %.126.i.add, %74 ]
   %.126.i.ptr = getelementptr inbounds i8, ptr @.str.24, i64 %.126.i.idx
   %68 = load i8, ptr %.126.i.ptr, align 1
-  %69 = icmp eq i8 %68, %.1.in.i
+  %69 = icmp eq i8 %68, %.024.in.i
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %67
-  %71 = icmp eq i8 %.1.in.i, 0
+  %71 = icmp eq i8 %.024.in.i, 0
   br i1 %71, label %77, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %.4.i, i64 -1
+  %73 = getelementptr inbounds i8, ptr %.3.i, i64 -1
   store i8 0, ptr %73, align 1
   br label %77
 
@@ -3734,7 +3734,7 @@ Wlc_PrsSkipSpaces.exit1847.outer._crit_edge:      ; preds = %Wlc_PrsSkipSpaces.e
   br label %.loopexit1965
 
 77:                                               ; preds = %72, %70
-  %.5.sink.i.ph = phi ptr [ null, %70 ], [ %.4.i, %72 ]
+  %.5.sink.i.ph = phi ptr [ null, %70 ], [ %.3.i, %72 ]
   store ptr %.5.sink.i.ph, ptr @Wlc_PrsStrtok.last, align 8
   store ptr %.129.i, ptr %3, align 8
   %78 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %.129.i, ptr noundef nonnull readonly dereferenceable(5) @.str.26, i64 noundef 4) #26
@@ -3776,17 +3776,17 @@ Wlc_PrsSkipSpaces.exit1847.outer._crit_edge:      ; preds = %Wlc_PrsSkipSpaces.e
 
 95:                                               ; preds = %93
   %96 = call fastcc ptr @Vec_IntAlloc(i32 noundef 256)
-  %.37332413 = add nsw i32 %.1731.ph.lcssa2097, 1
+  %.47342413 = add nsw i32 %.1731.ph.lcssa2097, 1
   %97 = load ptr, ptr %30, align 8
   %98 = getelementptr i8, ptr %97, i64 4
   %.val10052414 = load i32, ptr %98, align 4
-  %99 = icmp slt i32 %.37332413, %.val10052414
+  %99 = icmp slt i32 %.47342413, %.val10052414
   br i1 %99, label %.lr.ph2417, label %.critedge2
 
 .lr.ph2417:                                       ; preds = %95
   %100 = getelementptr inbounds i8, ptr %96, i64 4
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %96, i64 8
-  %101 = sext i32 %.37332413 to i64
+  %101 = sext i32 %.47342413 to i64
   br label %102
 
 102:                                              ; preds = %.lr.ph2417, %Wlc_PrsFindSymbol.exit.thread
@@ -3951,7 +3951,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 Wlc_PrsFindSymbol.exit.thread:                    ; preds = %115, %124, %Wlc_PrsFindSymbol.exit, %111, %Vec_IntPush.exit
   %170 = phi ptr [ %103, %111 ], [ %103, %Wlc_PrsFindSymbol.exit ], [ %.pre2903, %Vec_IntPush.exit ], [ %103, %124 ], [ %103, %115 ]
   %.1749 = phi i32 [ %.07482415, %111 ], [ %.07482415, %Wlc_PrsFindSymbol.exit ], [ %130, %Vec_IntPush.exit ], [ %.07482415, %124 ], [ %.07482415, %115 ]
-  %.2 = phi ptr [ null, %111 ], [ null, %Wlc_PrsFindSymbol.exit ], [ %.01016.i1081, %Vec_IntPush.exit ], [ null, %124 ], [ null, %115 ]
+  %.3 = phi ptr [ null, %111 ], [ null, %Wlc_PrsFindSymbol.exit ], [ %.01016.i1081, %Vec_IntPush.exit ], [ null, %124 ], [ null, %115 ]
   %indvars.iv.next2853 = add nsw i64 %indvars.iv2852, 1
   %171 = getelementptr i8, ptr %170, i64 4
   %.val1005 = load i32, ptr %171, align 4
@@ -3961,15 +3961,15 @@ Wlc_PrsFindSymbol.exit.thread:                    ; preds = %115, %124, %Wlc_Prs
 
 .critedge2.loopexit:                              ; preds = %Wlc_PrsFindSymbol.exit.thread, %109, %102
   %.0748.lcssa.ph = phi i32 [ %.07482415, %102 ], [ %.07482415, %109 ], [ %.1749, %Wlc_PrsFindSymbol.exit.thread ]
-  %.3733.lcssa.ph.in = phi i64 [ %indvars.iv2852, %102 ], [ %indvars.iv2852, %109 ], [ %indvars.iv.next2853, %Wlc_PrsFindSymbol.exit.thread ]
-  %.3.ph = phi ptr [ null, %102 ], [ %108, %109 ], [ %.2, %Wlc_PrsFindSymbol.exit.thread ]
-  %.3733.lcssa.ph = trunc i64 %.3733.lcssa.ph.in to i32
+  %.4734.lcssa.ph.in = phi i64 [ %indvars.iv2852, %102 ], [ %indvars.iv2852, %109 ], [ %indvars.iv.next2853, %Wlc_PrsFindSymbol.exit.thread ]
+  %.2.ph = phi ptr [ null, %102 ], [ %108, %109 ], [ %.3, %Wlc_PrsFindSymbol.exit.thread ]
+  %.4734.lcssa.ph = trunc i64 %.4734.lcssa.ph.in to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %95
   %.0748.lcssa = phi i32 [ -1, %95 ], [ %.0748.lcssa.ph, %.critedge2.loopexit ]
-  %.3733.lcssa = phi i32 [ %.37332413, %95 ], [ %.3733.lcssa.ph, %.critedge2.loopexit ]
-  %.3 = phi ptr [ %.0729.lcssa, %95 ], [ %.3.ph, %.critedge2.loopexit ]
+  %.4734.lcssa = phi i32 [ %.47342413, %95 ], [ %.4734.lcssa.ph, %.critedge2.loopexit ]
+  %.2 = phi ptr [ %.0729.lcssa, %95 ], [ %.2.ph, %.critedge2.loopexit ]
   %174 = getelementptr i8, ptr %96, i64 4
   %.val1004 = load i32, ptr %174, align 4
   %175 = icmp ult i32 %.val1004, 2
@@ -3984,7 +3984,7 @@ Wlc_PrsFindSymbol.exit.thread:                    ; preds = %115, %124, %Wlc_Prs
 180:                                              ; preds = %.critedge2
   call fastcc void @Vec_IntFree(ptr noundef nonnull %96)
   %181 = load ptr, ptr %3, align 8
-  %182 = call i32 (ptr, ptr, ptr, ...) @Wlc_PrsWriteErrorMessage(ptr noundef nonnull %0, ptr noundef %.3, ptr noundef nonnull @.str.29, ptr noundef %181)
+  %182 = call i32 (ptr, ptr, ptr, ...) @Wlc_PrsWriteErrorMessage(ptr noundef nonnull %0, ptr noundef %.2, ptr noundef nonnull @.str.29, ptr noundef %181)
   br label %.loopexit1965
 
 183:                                              ; preds = %.critedge2
@@ -4123,46 +4123,46 @@ Wlc_PrsStrtok.exit1113.thread:                    ; preds = %277, %222
   br i1 %cond.i1099, label %Wlc_PrsStrtok.exit1113, label %.preheader40.i1100
 
 .loopexit.i1106:                                  ; preds = %262
-  %.pre.i1107 = load i8, ptr %.4.i1102, align 1
+  %.pre.i1107 = load i8, ptr %.3.i1102, align 1
   br label %.preheader40.i1100, !llvm.loop !15
 
 .preheader40.i1100:                               ; preds = %245, %.loopexit.i1106
   %246 = phi i8 [ %.pre.i1107, %.loopexit.i1106 ], [ %240, %245 ]
-  %.2.i1101 = phi ptr [ %.4.i1102, %.loopexit.i1106 ], [ %.129.i1095, %245 ]
+  %.2.i1101 = phi ptr [ %.3.i1102, %.loopexit.i1106 ], [ %.129.i1095, %245 ]
   %247 = getelementptr inbounds i8, ptr %.2.i1101, i64 1
   %248 = icmp eq i8 %246, 92
   br i1 %248, label %.preheader.i1110, label %254
 
 .preheader.i1110:                                 ; preds = %.preheader40.i1100, %.preheader.i1110
-  %.342.i1111 = phi ptr [ %249, %.preheader.i1110 ], [ %247, %.preheader40.i1100 ]
-  %249 = getelementptr inbounds i8, ptr %.342.i1111, i64 1
-  %250 = load i8, ptr %.342.i1111, align 1
+  %.442.i1111 = phi ptr [ %249, %.preheader.i1110 ], [ %247, %.preheader40.i1100 ]
+  %249 = getelementptr inbounds i8, ptr %.442.i1111, i64 1
+  %250 = load i8, ptr %.442.i1111, align 1
   %.not38.i1112 = icmp eq i8 %250, 32
   br i1 %.not38.i1112, label %251, label %.preheader.i1110, !llvm.loop !16
 
 251:                                              ; preds = %.preheader.i1110
-  %252 = getelementptr inbounds i8, ptr %.342.i1111, i64 2
+  %252 = getelementptr inbounds i8, ptr %.442.i1111, i64 2
   %253 = load i8, ptr %249, align 1
   br label %254
 
 254:                                              ; preds = %251, %.preheader40.i1100
-  %.4.i1102 = phi ptr [ %252, %251 ], [ %247, %.preheader40.i1100 ]
-  %.1.in.i1103 = phi i8 [ %253, %251 ], [ %246, %.preheader40.i1100 ]
+  %.3.i1102 = phi ptr [ %252, %251 ], [ %247, %.preheader40.i1100 ]
+  %.024.in.i1103 = phi i8 [ %253, %251 ], [ %246, %.preheader40.i1100 ]
   br label %255
 
 255:                                              ; preds = %262, %254
   %.126.i1104.idx = phi i64 [ 0, %254 ], [ %.126.i1104.add, %262 ]
   %.126.i1104.ptr = getelementptr inbounds i8, ptr @.str.31, i64 %.126.i1104.idx
   %256 = load i8, ptr %.126.i1104.ptr, align 1
-  %257 = icmp eq i8 %256, %.1.in.i1103
+  %257 = icmp eq i8 %256, %.024.in.i1103
   br i1 %257, label %258, label %262
 
 258:                                              ; preds = %255
-  %259 = icmp eq i8 %.1.in.i1103, 0
+  %259 = icmp eq i8 %.024.in.i1103, 0
   br i1 %259, label %263, label %260
 
 260:                                              ; preds = %258
-  %261 = getelementptr inbounds i8, ptr %.4.i1102, i64 -1
+  %261 = getelementptr inbounds i8, ptr %.3.i1102, i64 -1
   store i8 0, ptr %261, align 1
   br label %263
 
@@ -4177,7 +4177,7 @@ Wlc_PrsStrtok.exit1113:                           ; preds = %245
   br label %.loopexit1964
 
 263:                                              ; preds = %260, %258
-  %.5.sink.i1108.ph = phi ptr [ null, %258 ], [ %.4.i1102, %260 ]
+  %.5.sink.i1108.ph = phi ptr [ null, %258 ], [ %.3.i1102, %260 ]
   store ptr %.5.sink.i1108.ph, ptr @Wlc_PrsStrtok.last, align 8
   store ptr %.129.i1095, ptr %3, align 8
   br label %264
@@ -5989,7 +5989,7 @@ Wlc_PrsSkipSpaces.exit1390.loopexit2488:          ; preds = %957
   br label %Wlc_PrsSkipSpaces.exit1390
 
 Wlc_PrsSkipSpaces.exit1390:                       ; preds = %943, %Wlc_PrsSkipSpaces.exit1390.loopexit2488
-  %.7737 = phi i32 [ %959, %Wlc_PrsSkipSpaces.exit1390.loopexit2488 ], [ %936, %943 ]
+  %.8738 = phi i32 [ %959, %Wlc_PrsSkipSpaces.exit1390.loopexit2488 ], [ %936, %943 ]
   %.5 = phi ptr [ %.0.i1391, %Wlc_PrsSkipSpaces.exit1390.loopexit2488 ], [ %.0.i1387, %943 ]
   store i32 0, ptr %7, align 4
   br label %960
@@ -6108,7 +6108,7 @@ Wlc_PrsSkipSpaces.exit1847.outer:                 ; preds = %995, %993
 
 .lr.ph:                                           ; preds = %Wlc_PrsSkipSpaces.exit1847.preheader, %Wlc_PrsSkipSpaces.exit1847.outer
   %.0729.ph2392 = phi ptr [ %.0.i1408, %Wlc_PrsSkipSpaces.exit1847.outer ], [ %46, %Wlc_PrsSkipSpaces.exit1847.preheader ]
-  %.1731.ph2391 = phi i32 [ %.7737, %Wlc_PrsSkipSpaces.exit1847.outer ], [ %.07302456, %Wlc_PrsSkipSpaces.exit1847.preheader ]
+  %.1731.ph2391 = phi i32 [ %.8738, %Wlc_PrsSkipSpaces.exit1847.outer ], [ %.07302456, %Wlc_PrsSkipSpaces.exit1847.preheader ]
   br label %280
 
 1003:                                             ; preds = %743
@@ -6573,15 +6573,15 @@ Wlc_PrsIsChar.exit32.thread.i1481:                ; preds = %1102
   br label %1184
 
 1184:                                             ; preds = %1291, %1182
-  %.sroa.6.1 = phi i32 [ 0, %1182 ], [ %.sroa.6.2, %1291 ]
-  %.sroa.8.1 = phi i32 [ 0, %1182 ], [ %.sroa.8.2, %1291 ]
-  %.sroa.10.1 = phi i32 [ 0, %1182 ], [ %.sroa.10.2, %1291 ]
-  %.sroa.12.1 = phi i32 [ 0, %1182 ], [ %.sroa.12.2, %1291 ]
-  %.sroa.14.1 = phi i32 [ 0, %1182 ], [ %.sroa.14.2, %1291 ]
-  %.sroa.16.1 = phi i32 [ 0, %1182 ], [ %.sroa.16.2, %1291 ]
-  %.sroa.19.1 = phi i32 [ 0, %1182 ], [ %.sroa.19.2, %1291 ]
-  %.sroa.4.1 = phi i32 [ 0, %1182 ], [ %.sroa.4.2, %1291 ]
-  %.sroa.0.1 = phi i32 [ 0, %1182 ], [ %.sroa.0.2, %1291 ]
+  %.sroa.6.2 = phi i32 [ 0, %1182 ], [ %.sroa.6.3, %1291 ]
+  %.sroa.8.2 = phi i32 [ 0, %1182 ], [ %.sroa.8.3, %1291 ]
+  %.sroa.10.2 = phi i32 [ 0, %1182 ], [ %.sroa.10.3, %1291 ]
+  %.sroa.12.2 = phi i32 [ 0, %1182 ], [ %.sroa.12.3, %1291 ]
+  %.sroa.14.2 = phi i32 [ 0, %1182 ], [ %.sroa.14.3, %1291 ]
+  %.sroa.16.2 = phi i32 [ 0, %1182 ], [ %.sroa.16.3, %1291 ]
+  %.sroa.19.2 = phi i32 [ 0, %1182 ], [ %.sroa.19.3, %1291 ]
+  %.sroa.4.2 = phi i32 [ 0, %1182 ], [ %.sroa.4.3, %1291 ]
+  %.sroa.0.2 = phi i32 [ 0, %1182 ], [ %.sroa.0.3, %1291 ]
   %.7 = phi ptr [ %1183, %1182 ], [ %.020.lcssa.i1537, %1291 ]
   %1185 = load i8, ptr %.7, align 1
   %.not15.i1489 = icmp eq i8 %1185, 0
@@ -6848,15 +6848,15 @@ Wlc_PrsIsChar.exit32.thread.i1540:                ; preds = %1217
   br label %1291
 
 1291:                                             ; preds = %1278, %1239, %1252, %1265, %1279, %1285, %1272, %1259, %1245, %1233
-  %.sroa.6.2 = phi i32 [ %.sroa.6.1, %1233 ], [ %.sroa.6.1, %1239 ], [ %1250, %1245 ], [ %.sroa.6.1, %1252 ], [ %.sroa.6.1, %1259 ], [ %.sroa.6.1, %1265 ], [ %.sroa.6.1, %1272 ], [ %.sroa.6.1, %1279 ], [ %.sroa.6.1, %1285 ], [ %.sroa.6.1, %1278 ]
-  %.sroa.8.2 = phi i32 [ %.sroa.8.1, %1233 ], [ %.sroa.8.1, %1239 ], [ %.sroa.8.1, %1245 ], [ %1257, %1252 ], [ %.sroa.8.1, %1259 ], [ %.sroa.8.1, %1265 ], [ %.sroa.8.1, %1272 ], [ %.sroa.8.1, %1279 ], [ %.sroa.8.1, %1285 ], [ %.sroa.8.1, %1278 ]
-  %.sroa.10.2 = phi i32 [ %.sroa.10.1, %1233 ], [ %.sroa.10.1, %1239 ], [ %.sroa.10.1, %1245 ], [ %.sroa.10.1, %1252 ], [ %1264, %1259 ], [ %.sroa.10.1, %1265 ], [ %.sroa.10.1, %1272 ], [ %.sroa.10.1, %1279 ], [ %.sroa.10.1, %1285 ], [ %.sroa.10.1, %1278 ]
-  %.sroa.12.2 = phi i32 [ %.sroa.12.1, %1233 ], [ %.sroa.12.1, %1239 ], [ %.sroa.12.1, %1245 ], [ %.sroa.12.1, %1252 ], [ %.sroa.12.1, %1259 ], [ %1270, %1265 ], [ %.sroa.12.1, %1272 ], [ %.sroa.12.1, %1279 ], [ %.sroa.12.1, %1285 ], [ %.sroa.12.1, %1278 ]
-  %.sroa.14.2 = phi i32 [ %.sroa.14.1, %1233 ], [ %.sroa.14.1, %1239 ], [ %.sroa.14.1, %1245 ], [ %.sroa.14.1, %1252 ], [ %.sroa.14.1, %1259 ], [ %.sroa.14.1, %1265 ], [ %1277, %1272 ], [ %.sroa.14.1, %1279 ], [ %.sroa.14.1, %1285 ], [ %.sroa.14.1, %1278 ]
-  %.sroa.16.2 = phi i32 [ %.sroa.16.1, %1233 ], [ %.sroa.16.1, %1239 ], [ %.sroa.16.1, %1245 ], [ %.sroa.16.1, %1252 ], [ %.sroa.16.1, %1259 ], [ %.sroa.16.1, %1265 ], [ %.sroa.16.1, %1272 ], [ %1284, %1279 ], [ %.sroa.16.1, %1285 ], [ %.sroa.16.1, %1278 ]
-  %.sroa.19.2 = phi i32 [ %.sroa.19.1, %1233 ], [ %.sroa.19.1, %1239 ], [ %.sroa.19.1, %1245 ], [ %.sroa.19.1, %1252 ], [ %.sroa.19.1, %1259 ], [ %.sroa.19.1, %1265 ], [ %.sroa.19.1, %1272 ], [ %.sroa.19.1, %1279 ], [ %1290, %1285 ], [ %.sroa.19.1, %1278 ]
-  %.sroa.4.2 = phi i32 [ %.sroa.4.1, %1233 ], [ %1244, %1239 ], [ %.sroa.4.1, %1245 ], [ %.sroa.4.1, %1252 ], [ %.sroa.4.1, %1259 ], [ %.sroa.4.1, %1265 ], [ %.sroa.4.1, %1272 ], [ %.sroa.4.1, %1279 ], [ %.sroa.4.1, %1285 ], [ %.sroa.4.1, %1278 ]
-  %.sroa.0.2 = phi i32 [ %1238, %1233 ], [ %.sroa.0.1, %1239 ], [ %.sroa.0.1, %1245 ], [ %.sroa.0.1, %1252 ], [ %.sroa.0.1, %1259 ], [ %.sroa.0.1, %1265 ], [ %.sroa.0.1, %1272 ], [ %.sroa.0.1, %1279 ], [ %.sroa.0.1, %1285 ], [ %.sroa.0.1, %1278 ]
+  %.sroa.6.3 = phi i32 [ %.sroa.6.2, %1233 ], [ %.sroa.6.2, %1239 ], [ %1250, %1245 ], [ %.sroa.6.2, %1252 ], [ %.sroa.6.2, %1259 ], [ %.sroa.6.2, %1265 ], [ %.sroa.6.2, %1272 ], [ %.sroa.6.2, %1279 ], [ %.sroa.6.2, %1285 ], [ %.sroa.6.2, %1278 ]
+  %.sroa.8.3 = phi i32 [ %.sroa.8.2, %1233 ], [ %.sroa.8.2, %1239 ], [ %.sroa.8.2, %1245 ], [ %1257, %1252 ], [ %.sroa.8.2, %1259 ], [ %.sroa.8.2, %1265 ], [ %.sroa.8.2, %1272 ], [ %.sroa.8.2, %1279 ], [ %.sroa.8.2, %1285 ], [ %.sroa.8.2, %1278 ]
+  %.sroa.10.3 = phi i32 [ %.sroa.10.2, %1233 ], [ %.sroa.10.2, %1239 ], [ %.sroa.10.2, %1245 ], [ %.sroa.10.2, %1252 ], [ %1264, %1259 ], [ %.sroa.10.2, %1265 ], [ %.sroa.10.2, %1272 ], [ %.sroa.10.2, %1279 ], [ %.sroa.10.2, %1285 ], [ %.sroa.10.2, %1278 ]
+  %.sroa.12.3 = phi i32 [ %.sroa.12.2, %1233 ], [ %.sroa.12.2, %1239 ], [ %.sroa.12.2, %1245 ], [ %.sroa.12.2, %1252 ], [ %.sroa.12.2, %1259 ], [ %1270, %1265 ], [ %.sroa.12.2, %1272 ], [ %.sroa.12.2, %1279 ], [ %.sroa.12.2, %1285 ], [ %.sroa.12.2, %1278 ]
+  %.sroa.14.3 = phi i32 [ %.sroa.14.2, %1233 ], [ %.sroa.14.2, %1239 ], [ %.sroa.14.2, %1245 ], [ %.sroa.14.2, %1252 ], [ %.sroa.14.2, %1259 ], [ %.sroa.14.2, %1265 ], [ %1277, %1272 ], [ %.sroa.14.2, %1279 ], [ %.sroa.14.2, %1285 ], [ %.sroa.14.2, %1278 ]
+  %.sroa.16.3 = phi i32 [ %.sroa.16.2, %1233 ], [ %.sroa.16.2, %1239 ], [ %.sroa.16.2, %1245 ], [ %.sroa.16.2, %1252 ], [ %.sroa.16.2, %1259 ], [ %.sroa.16.2, %1265 ], [ %.sroa.16.2, %1272 ], [ %1284, %1279 ], [ %.sroa.16.2, %1285 ], [ %.sroa.16.2, %1278 ]
+  %.sroa.19.3 = phi i32 [ %.sroa.19.2, %1233 ], [ %.sroa.19.2, %1239 ], [ %.sroa.19.2, %1245 ], [ %.sroa.19.2, %1252 ], [ %.sroa.19.2, %1259 ], [ %.sroa.19.2, %1265 ], [ %.sroa.19.2, %1272 ], [ %.sroa.19.2, %1279 ], [ %1290, %1285 ], [ %.sroa.19.2, %1278 ]
+  %.sroa.4.3 = phi i32 [ %.sroa.4.2, %1233 ], [ %1244, %1239 ], [ %.sroa.4.2, %1245 ], [ %.sroa.4.2, %1252 ], [ %.sroa.4.2, %1259 ], [ %.sroa.4.2, %1265 ], [ %.sroa.4.2, %1272 ], [ %.sroa.4.2, %1279 ], [ %.sroa.4.2, %1285 ], [ %.sroa.4.2, %1278 ]
+  %.sroa.0.3 = phi i32 [ %1238, %1233 ], [ %.sroa.0.2, %1239 ], [ %.sroa.0.2, %1245 ], [ %.sroa.0.2, %1252 ], [ %.sroa.0.2, %1259 ], [ %.sroa.0.2, %1265 ], [ %.sroa.0.2, %1272 ], [ %.sroa.0.2, %1279 ], [ %.sroa.0.2, %1285 ], [ %.sroa.0.2, %1278 ]
   %1292 = load i32, ptr %12, align 4
   %.not935 = icmp eq i32 %1292, 0
   br i1 %.not935, label %1293, label %1184
@@ -6867,8 +6867,8 @@ Wlc_PrsIsChar.exit32.thread.i1540:                ; preds = %1217
   br label %.loopexit1965
 
 .loopexit1939:                                    ; preds = %1184, %1188
-  %1296 = icmp eq i32 %.sroa.0.1, -1
-  %1297 = icmp eq i32 %.sroa.16.1, -1
+  %1296 = icmp eq i32 %.sroa.0.2, -1
+  %1297 = icmp eq i32 %.sroa.16.2, -1
   %or.cond14 = select i1 %1296, i1 true, i1 %1297
   br i1 %or.cond14, label %1298, label %1300
 
@@ -6880,28 +6880,28 @@ Wlc_PrsIsChar.exit32.thread.i1540:                ; preds = %1217
   %1301 = load ptr, ptr %35, align 8
   %1302 = getelementptr i8, ptr %1301, i64 640
   %.val1028 = load ptr, ptr %1302, align 8
-  %1303 = sext i32 %.sroa.19.1 to i64
+  %1303 = sext i32 %.sroa.19.2 to i64
   %1304 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1028, i64 %1303
   call void @Wlc_ObjUpdateType(ptr noundef %1301, ptr noundef %1304, i32 noundef 5) #24
   %1305 = load ptr, ptr %36, align 8
   %1306 = getelementptr inbounds i8, ptr %1305, i64 4
   store i32 0, ptr %1306, align 4
   %1307 = load ptr, ptr %36, align 8
-  call fastcc void @Vec_IntPush(ptr noundef %1307, i32 noundef %.sroa.0.1)
+  call fastcc void @Vec_IntPush(ptr noundef %1307, i32 noundef %.sroa.0.2)
   %1308 = load ptr, ptr %36, align 8
-  call fastcc void @Vec_IntPush(ptr noundef %1308, i32 noundef %.sroa.4.1)
+  call fastcc void @Vec_IntPush(ptr noundef %1308, i32 noundef %.sroa.4.2)
   %1309 = load ptr, ptr %36, align 8
-  call fastcc void @Vec_IntPush(ptr noundef %1309, i32 noundef %.sroa.6.1)
+  call fastcc void @Vec_IntPush(ptr noundef %1309, i32 noundef %.sroa.6.2)
   %1310 = load ptr, ptr %36, align 8
-  call fastcc void @Vec_IntPush(ptr noundef %1310, i32 noundef %.sroa.8.1)
+  call fastcc void @Vec_IntPush(ptr noundef %1310, i32 noundef %.sroa.8.2)
   %1311 = load ptr, ptr %36, align 8
-  call fastcc void @Vec_IntPush(ptr noundef %1311, i32 noundef %.sroa.10.1)
+  call fastcc void @Vec_IntPush(ptr noundef %1311, i32 noundef %.sroa.10.2)
   %1312 = load ptr, ptr %36, align 8
-  call fastcc void @Vec_IntPush(ptr noundef %1312, i32 noundef %.sroa.12.1)
+  call fastcc void @Vec_IntPush(ptr noundef %1312, i32 noundef %.sroa.12.2)
   %1313 = load ptr, ptr %36, align 8
-  call fastcc void @Vec_IntPush(ptr noundef %1313, i32 noundef %.sroa.14.1)
+  call fastcc void @Vec_IntPush(ptr noundef %1313, i32 noundef %.sroa.14.2)
   %1314 = load ptr, ptr %36, align 8
-  call fastcc void @Vec_IntPush(ptr noundef %1314, i32 noundef %.sroa.16.1)
+  call fastcc void @Vec_IntPush(ptr noundef %1314, i32 noundef %.sroa.16.2)
   %1315 = load ptr, ptr %35, align 8
   %1316 = load ptr, ptr %36, align 8
   call void @Wlc_ObjAddFanins(ptr noundef %1315, ptr noundef %1304, ptr noundef %1316) #24
@@ -8364,8 +8364,8 @@ Wlc_PrsFindLine.exit:                             ; preds = %1820, %.thread1909,
   br label %.loopexit1964
 
 .loopexit1964:                                    ; preds = %85, %1794, %.loopexit1964.loopexit2915.split.loop.exit, %Wlc_PrsStrtok.exit1113, %Wlc_PrsStrtok.exit1113.thread, %529, %736, %1175, %1464, %1623, %1782, %1705, %1554, %1300, %571, %.critedge4
-  %.8738 = phi i32 [ %.3733.lcssa, %.critedge4 ], [ %.1731.ph.lcssa2097, %Wlc_PrsStrtok.exit1113 ], [ %.1731.ph2391, %529 ], [ %.1731.ph2391, %571 ], [ %.1731.ph2391, %736 ], [ %.1731.ph2391, %1175 ], [ %.1731.ph2391, %1300 ], [ %.1731.ph2391, %1464 ], [ %.1731.ph2391, %1554 ], [ %.1731.ph2391, %1623 ], [ %.1731.ph2391, %1705 ], [ %.1731.ph2391, %1782 ], [ %.1731.ph.lcssa2097, %Wlc_PrsStrtok.exit1113.thread ], [ %1828, %.loopexit1964.loopexit2915.split.loop.exit ], [ %.1731.ph2391, %1794 ], [ %smax, %85 ]
-  %1829 = add nsw i32 %.8738, 1
+  %.3733 = phi i32 [ %.4734.lcssa, %.critedge4 ], [ %.1731.ph.lcssa2097, %Wlc_PrsStrtok.exit1113 ], [ %.1731.ph2391, %529 ], [ %.1731.ph2391, %571 ], [ %.1731.ph2391, %736 ], [ %.1731.ph2391, %1175 ], [ %.1731.ph2391, %1300 ], [ %.1731.ph2391, %1464 ], [ %.1731.ph2391, %1554 ], [ %.1731.ph2391, %1623 ], [ %.1731.ph2391, %1705 ], [ %.1731.ph2391, %1782 ], [ %.1731.ph.lcssa2097, %Wlc_PrsStrtok.exit1113.thread ], [ %1828, %.loopexit1964.loopexit2915.split.loop.exit ], [ %.1731.ph2391, %1794 ], [ %smax, %85 ]
+  %1829 = add nsw i32 %.3733, 1
   %1830 = load ptr, ptr %30, align 8
   %1831 = getelementptr i8, ptr %1830, i64 4
   %.val1007 = load i32, ptr %1831, align 4

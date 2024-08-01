@@ -3999,7 +3999,7 @@ do.bodythread-pre-split.i:                        ; preds = %land.rhs.i
 
 do.body.i:                                        ; preds = %do.bodythread-pre-split.i, %do.body.preheader.i
   %47 = phi i32 [ %.pr.i, %do.bodythread-pre-split.i ], [ %46, %do.body.preheader.i ]
-  %nparams.0.i = phi i32 [ %inc.i31, %do.bodythread-pre-split.i ], [ 0, %do.body.preheader.i ]
+  %nparams.1.i = phi i32 [ %inc.i31, %do.bodythread-pre-split.i ], [ 0, %do.body.preheader.i ]
   switch i32 %47, label %sw.default.i [
     i32 291, label %str_checkname.exit.i
     i32 280, label %if.then10.i
@@ -4042,14 +4042,14 @@ land.rhs.i:                                       ; preds = %str_checkname.exit.
   store i8 0, ptr %kind.i.i, align 1
   %name15.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   store ptr %48, ptr %name15.i.i, align 8
-  %inc.i31 = add nuw nsw i32 %nparams.0.i, 1
+  %inc.i31 = add nuw nsw i32 %nparams.1.i, 1
   %56 = load i32, ptr %t.i.i, align 8
   %cmp.i.i32 = icmp eq i32 %56, 44
   br i1 %cmp.i.i32, label %do.bodythread-pre-split.i, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %land.rhs.i, %if.end
-  %nparams.2.ph.i = phi i32 [ 0, %if.end ], [ %inc.i31, %land.rhs.i ]
-  call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef %nparams.2.ph.i)
+  %nparams.0.ph.i = phi i32 [ 0, %if.end ], [ %inc.i31, %land.rhs.i ]
+  call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef %nparams.0.ph.i)
   %nactvar25.i = getelementptr inbounds i8, ptr %44, i64 66
   %57 = load i8, ptr %nactvar25.i, align 2
   %numparams26.i = getelementptr inbounds i8, ptr %45, i64 10
@@ -4058,7 +4058,7 @@ if.end.thread.i:                                  ; preds = %land.rhs.i, %if.end
 
 if.then10.i:                                      ; preds = %do.body.i
   call void @luaX_next(ptr noundef nonnull %ls) #11
-  call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef %nparams.0.i)
+  call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef %nparams.1.i)
   %nactvar.i29 = getelementptr inbounds i8, ptr %44, i64 66
   %58 = load i8, ptr %nactvar.i29, align 2
   %numparams.i = getelementptr inbounds i8, ptr %45, i64 10

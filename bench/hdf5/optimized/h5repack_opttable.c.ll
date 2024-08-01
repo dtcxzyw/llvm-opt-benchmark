@@ -522,9 +522,9 @@ aux_tblinsert_layout.exit89:                      ; preds = %.lr.ph.i86, %142, %
   br i1 %exitcond138.not, label %.loopexit, label %142
 
 .loopexit:                                        ; preds = %aux_tblinsert_layout.exit81, %aux_tblinsert_layout.exit89, %.preheader95, %.preheader
-  %.3 = phi i32 [ 0, %.preheader ], [ 0, %.preheader95 ], [ %1, %aux_tblinsert_layout.exit89 ], [ %.170, %aux_tblinsert_layout.exit81 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader95 ], [ %1, %aux_tblinsert_layout.exit89 ], [ %.170, %aux_tblinsert_layout.exit81 ]
   %174 = load i32, ptr %5, align 4
-  %175 = add i32 %174, %.3
+  %175 = add i32 %174, %.2
   store i32 %175, ptr %5, align 4
   br label %176
 
@@ -920,9 +920,9 @@ aux_tblinsert_filter.exit75:                      ; preds = %131, %136, %144, %1
   br i1 %exitcond114.not, label %.loopexit, label %119
 
 .loopexit:                                        ; preds = %aux_tblinsert_filter.exit69, %aux_tblinsert_filter.exit75, %.preheader80, %.preheader
-  %.3 = phi i32 [ 0, %.preheader ], [ 0, %.preheader80 ], [ %1, %aux_tblinsert_filter.exit75 ], [ %.157, %aux_tblinsert_filter.exit69 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader80 ], [ %1, %aux_tblinsert_filter.exit75 ], [ %.157, %aux_tblinsert_filter.exit69 ]
   %152 = load i32, ptr %5, align 4
-  %153 = add i32 %152, %.3
+  %153 = add i32 %152, %.2
   store i32 %153, ptr %5, align 4
   br label %154
 

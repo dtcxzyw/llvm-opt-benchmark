@@ -44,7 +44,7 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
 
 .lr.ph.i.backedge:                                ; preds = %18, %63
   %.be = phi i8 [ %20, %18 ], [ %64, %63 ]
-  %.080110.i.be = phi ptr [ %19, %18 ], [ %.1117, %63 ]
+  %.080110.i.be = phi ptr [ %19, %18 ], [ %.4, %63 ]
   br label %.lr.ph.i, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %22
@@ -114,8 +114,8 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
   br i1 %46, label %.loopexit100.i.preheader, label %47
 
 47:                                               ; preds = %43, %35
-  %.3.i = phi ptr [ %44, %43 ], [ %.2.i, %35 ]
-  %48 = getelementptr i8, ptr %.3.i, i64 1
+  %.4.i = phi ptr [ %44, %43 ], [ %.2.i, %35 ]
+  %48 = getelementptr i8, ptr %.4.i, i64 1
   br label %35
 
 .loopexit100.i:                                   ; preds = %.loopexit100.i.preheader, %50
@@ -132,30 +132,30 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
 
 .preheader.i:                                     ; preds = %29, %53
   %52 = phi i8 [ %.pr.i, %53 ], [ %31, %29 ]
-  %.6.i = phi ptr [ %54, %53 ], [ %30, %29 ]
+  %.7.i = phi ptr [ %54, %53 ], [ %30, %29 ]
   switch i8 %52, label %53 [
     i8 59, label %.loopexit.i
     i8 0, label %.loopexit.i
   ]
 
 53:                                               ; preds = %.preheader.i
-  %54 = getelementptr i8, ptr %.6.i, i64 1
+  %54 = getelementptr i8, ptr %.7.i, i64 1
   %.pr.i = load i8, ptr %54, align 1
   br label %.preheader.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.preheader.i, %.loopexit100.i, %.loopexit100.i
-  %.7.i = phi ptr [ %.5.i, %.loopexit100.i ], [ %.5.i, %.loopexit100.i ], [ %.6.i, %.preheader.i ], [ %.6.i, %.preheader.i ]
+  %.6.i = phi ptr [ %.5.i, %.loopexit100.i ], [ %.5.i, %.loopexit100.i ], [ %.7.i, %.preheader.i ], [ %.7.i, %.preheader.i ]
   %.0.i = phi i8 [ %49, %.loopexit100.i ], [ %49, %.loopexit100.i ], [ %52, %.preheader.i ], [ %52, %.preheader.i ]
   %55 = icmp ne i8 %.0.i, 0
-  %56 = ptrtoint ptr %.7.i to i64
+  %56 = ptrtoint ptr %.6.i to i64
   %57 = ptrtoint ptr %30 to i64
   %58 = sub i64 %56, %57
   %spec.select.idx = zext i1 %55 to i64
-  %spec.select = getelementptr i8, ptr %.7.i, i64 %spec.select.idx
+  %spec.select = getelementptr i8, ptr %.6.i, i64 %spec.select.idx
   br label %ws_get_next_media_type_parameter.exit
 
 ws_get_next_media_type_parameter.exit:            ; preds = %.loopexit.i, %.critedge4.i, %37, %27
-  %.1117 = phi ptr [ %28, %27 ], [ %.2.i, %37 ], [ %.1.i, %.critedge4.i ], [ %spec.select, %.loopexit.i ]
+  %.4 = phi ptr [ %28, %27 ], [ %.2.i, %37 ], [ %.1.i, %.critedge4.i ], [ %spec.select, %.loopexit.i ]
   %.2115 = phi ptr [ null, %27 ], [ %30, %37 ], [ null, %.critedge4.i ], [ %30, %.loopexit.i ]
   %.2110 = phi i64 [ 0, %27 ], [ %40, %37 ], [ 0, %.critedge4.i ], [ %58, %.loopexit.i ]
   %59 = icmp eq i64 %26, %7
@@ -167,7 +167,7 @@ ws_get_next_media_type_parameter.exit:            ; preds = %.loopexit.i, %.crit
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %ws_get_next_media_type_parameter.exit, %60
-  %64 = load i8, ptr %.1117, align 1
+  %64 = load i8, ptr %.4, align 1
   %.not = icmp eq i8 %64, 0
   br i1 %.not, label %65, label %.lr.ph.i.backedge
 
@@ -185,10 +185,10 @@ ws_get_next_media_type_parameter.exit:            ; preds = %.loopexit.i, %.crit
   ]
 
 .preheader:                                       ; preds = %67, %76
-  %.2115.pn = phi ptr [ %.3, %76 ], [ %.2115, %67 ]
+  %.2115.pn = phi ptr [ %.2118, %76 ], [ %.2115, %67 ]
   %.0 = phi ptr [ %78, %76 ], [ %69, %67 ]
-  %.2118 = getelementptr i8, ptr %.2115.pn, i64 1
-  %71 = load i8, ptr %.2118, align 1
+  %.1117 = getelementptr i8, ptr %.2115.pn, i64 1
+  %71 = load i8, ptr %.1117, align 1
   switch i8 %71, label %76 [
     i8 0, label %ws_get_next_media_type_parameter.exit.thread.sink.split
     i8 34, label %ws_get_next_media_type_parameter.exit.thread.sink.split
@@ -203,14 +203,14 @@ ws_get_next_media_type_parameter.exit:            ; preds = %.loopexit.i, %.crit
 
 76:                                               ; preds = %.preheader, %72
   %77 = phi i8 [ %71, %.preheader ], [ %74, %72 ]
-  %.3 = phi ptr [ %.2118, %.preheader ], [ %73, %72 ]
+  %.2118 = phi ptr [ %.1117, %.preheader ], [ %73, %72 ]
   %78 = getelementptr i8, ptr %.0, i64 1
   store i8 %77, ptr %.0, align 1
   br label %.preheader
 
 .lr.ph:                                           ; preds = %67, %84
-  %.1138 = phi ptr [ %85, %84 ], [ %69, %67 ]
-  %.4137 = phi ptr [ %86, %84 ], [ %.2115, %67 ]
+  %.2138 = phi ptr [ %85, %84 ], [ %69, %67 ]
+  %.3137 = phi ptr [ %86, %84 ], [ %.2115, %67 ]
   %79 = phi i8 [ %.pr, %84 ], [ %70, %67 ]
   %80 = zext i8 %79 to i64
   %81 = getelementptr i16, ptr %12, i64 %80
@@ -242,16 +242,16 @@ switch.early.test:                                ; preds = %.lr.ph
   ]
 
 84:                                               ; preds = %switch.early.test
-  %85 = getelementptr i8, ptr %.1138, i64 1
-  store i8 %79, ptr %.1138, align 1
-  %86 = getelementptr i8, ptr %.4137, i64 1
+  %85 = getelementptr i8, ptr %.2138, i64 1
+  store i8 %79, ptr %.2138, align 1
+  %86 = getelementptr i8, ptr %.3137, i64 1
   %.pr = load i8, ptr %86, align 1
   %.not99 = icmp eq i8 %.pr, 0
   br i1 %.not99, label %ws_get_next_media_type_parameter.exit.thread.sink.split, label %.lr.ph, !llvm.loop !9
 
 ws_get_next_media_type_parameter.exit.thread.sink.split: ; preds = %72, %.preheader, %.preheader, %84, %.lr.ph, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %67
-  %.2.sink = phi ptr [ %69, %67 ], [ %.1138, %switch.early.test ], [ %.1138, %.lr.ph ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %.1138, %switch.early.test ], [ %85, %84 ], [ %.0, %.preheader ], [ %.0, %.preheader ], [ %.0, %72 ]
-  store i8 0, ptr %.2.sink, align 1
+  %.1.sink = phi ptr [ %69, %67 ], [ %.2138, %switch.early.test ], [ %.2138, %.lr.ph ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %.2138, %switch.early.test ], [ %85, %84 ], [ %.0, %.preheader ], [ %.0, %.preheader ], [ %.0, %72 ]
+  store i8 0, ptr %.1.sink, align 1
   br label %ws_get_next_media_type_parameter.exit.thread
 
 ws_get_next_media_type_parameter.exit.thread:     ; preds = %18, %ws_get_next_media_type_parameter.exit.thread.sink.split, %65, %9, %6, %3

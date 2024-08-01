@@ -998,11 +998,11 @@ megaco_tree_add_string.exit1056:                  ; preds = %megaco_tvb_skip_wsp
   br label %177
 
 177:                                              ; preds = %877, %megaco_tree_add_string.exit1056
-  %.0872 = phi i32 [ 0, %megaco_tree_add_string.exit1056 ], [ %.5877, %877 ]
-  %.0865 = phi i32 [ 0, %megaco_tree_add_string.exit1056 ], [ %.6871, %877 ]
+  %.0872 = phi i32 [ 0, %megaco_tree_add_string.exit1056 ], [ %.4876, %877 ]
+  %.0865 = phi i32 [ 0, %megaco_tree_add_string.exit1056 ], [ %.4869, %877 ]
   %.0864 = phi i32 [ %.0.lcssa.i1046, %megaco_tree_add_string.exit1056 ], [ %.013.i, %877 ]
-  %.0857 = phi ptr [ null, %megaco_tree_add_string.exit1056 ], [ %.6863, %877 ]
-  %.0850 = phi i32 [ 0, %megaco_tree_add_string.exit1056 ], [ %.15, %877 ]
+  %.0857 = phi ptr [ null, %megaco_tree_add_string.exit1056 ], [ %.3860, %877 ]
+  %.0850 = phi i32 [ 0, %megaco_tree_add_string.exit1056 ], [ %.3853, %877 ]
   %178 = icmp slt i32 %.0864, %174
   br i1 %178, label %.lr.ph1322, label %._crit_edge
 
@@ -1615,13 +1615,13 @@ megaco_tvb_skip_wsp.exit1128.preheader:           ; preds = %.lr.ph.i1124, %470,
 
 megaco_tvb_skip_wsp.exit1128:                     ; preds = %megaco_tvb_skip_wsp.exit1128.preheader, %megaco_tvb_skip_wsp.exit1150
   %.0900 = phi i32 [ %.1901, %megaco_tvb_skip_wsp.exit1150 ], [ %.0878.ph, %megaco_tvb_skip_wsp.exit1128.preheader ]
-  %.0896 = phi i32 [ %.3899, %megaco_tvb_skip_wsp.exit1150 ], [ %.0878.ph, %megaco_tvb_skip_wsp.exit1128.preheader ]
+  %.0896 = phi i32 [ %.1897, %megaco_tvb_skip_wsp.exit1150 ], [ %.0878.ph, %megaco_tvb_skip_wsp.exit1128.preheader ]
   %.0881 = phi i32 [ %.2883, %megaco_tvb_skip_wsp.exit1150 ], [ %.0878.ph, %megaco_tvb_skip_wsp.exit1128.preheader ]
   %.0878 = phi i32 [ %.2880, %megaco_tvb_skip_wsp.exit1150 ], [ %.0878.ph, %megaco_tvb_skip_wsp.exit1128.preheader ]
-  %.2874 = phi i32 [ %.4876, %megaco_tvb_skip_wsp.exit1150 ], [ %.1873, %megaco_tvb_skip_wsp.exit1128.preheader ]
+  %.2874 = phi i32 [ %.5877, %megaco_tvb_skip_wsp.exit1150 ], [ %.1873, %megaco_tvb_skip_wsp.exit1128.preheader ]
   %.2867 = phi i32 [ %.5870, %megaco_tvb_skip_wsp.exit1150 ], [ %.1866, %megaco_tvb_skip_wsp.exit1128.preheader ]
-  %.2859 = phi ptr [ %.5862, %megaco_tvb_skip_wsp.exit1150 ], [ %.1858, %megaco_tvb_skip_wsp.exit1128.preheader ]
-  %.2852 = phi i32 [ %.14, %megaco_tvb_skip_wsp.exit1150 ], [ %.1851, %megaco_tvb_skip_wsp.exit1128.preheader ]
+  %.2859 = phi ptr [ %.4861, %megaco_tvb_skip_wsp.exit1150 ], [ %.1858, %megaco_tvb_skip_wsp.exit1128.preheader ]
+  %.2852 = phi i32 [ %.4, %megaco_tvb_skip_wsp.exit1150 ], [ %.1851, %megaco_tvb_skip_wsp.exit1128.preheader ]
   %472 = add i32 %.0900, 1
   %473 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %472, i32 noundef %.013.i, i8 noundef zeroext 44) #9
   %474 = icmp eq i32 %473, -1
@@ -1913,25 +1913,25 @@ proto_item_set_hidden.exit:                       ; preds = %557, %554, %552, %5
   br label %611
 
 611:                                              ; preds = %607, %604
-  %.1897 = phi i32 [ %610, %607 ], [ %.0896, %604 ]
-  %612 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1897) #9
+  %.2898 = phi i32 [ %610, %607 ], [ %.0896, %604 ]
+  %612 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2898) #9
   %613 = icmp eq i8 %612, 87
   br i1 %613, label %614, label %618
 
 614:                                              ; preds = %611
   %615 = load i32, ptr @hf_megaco_wildcard_response, align 4
-  %616 = call ptr @proto_tree_add_item(ptr noundef %550, i32 noundef %615, ptr noundef %0, i32 noundef %.1897, i32 noundef 2, i32 noundef 0) #9
-  %617 = add i32 %.1897, 2
+  %616 = call ptr @proto_tree_add_item(ptr noundef %550, i32 noundef %615, ptr noundef %0, i32 noundef %.2898, i32 noundef 2, i32 noundef 0) #9
+  %617 = add i32 %.2898, 2
   br label %618
 
 618:                                              ; preds = %614, %611
-  %.2898 = phi i32 [ %617, %614 ], [ %.1897, %611 ]
-  %619 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.2898, i32 noundef %.013.i, i8 noundef zeroext 61) #9
+  %.3899 = phi i32 [ %617, %614 ], [ %.2898, %611 ]
+  %619 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.3899, i32 noundef %.013.i, i8 noundef zeroext 61) #9
   %620 = icmp eq i32 %619, -1
   br i1 %620, label %621, label %624
 
 621:                                              ; preds = %618
-  %622 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %92, ptr noundef %1, ptr noundef nonnull @ei_megaco_parse_error, ptr noundef %0, i32 noundef %.2898, i32 noundef %548, ptr noundef nonnull @.str.306) #9
+  %622 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %92, ptr noundef %1, ptr noundef nonnull @ei_megaco_parse_error, ptr noundef %0, i32 noundef %.3899, i32 noundef %548, ptr noundef nonnull @.str.306) #9
   %623 = call i32 @tvb_captured_length(ptr noundef %0) #9
   br label %886
 
@@ -1957,9 +1957,9 @@ proto_item_set_hidden.exit:                       ; preds = %557, %554, %552, %5
 
 megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632, %624
   %.0.lcssa.i1151 = phi i32 [ %625, %624 ], [ %.08.i1153, %.lr.ph.i1152 ], [ 0, %632 ]
-  %reass.sub = sub i32 %.0.lcssa.i1151, %.2898
+  %reass.sub = sub i32 %.0.lcssa.i1151, %.3899
   %635 = add i32 %reass.sub, 1
-  %636 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2898) #9
+  %636 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3899) #9
   %637 = add i8 %636, -97
   %or.cond35 = icmp ult i8 %637, 26
   %638 = add nsw i8 %636, -32
@@ -1981,7 +1981,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   ]
 
 641:                                              ; preds = %640
-  %642 = add i32 %.2898, 1
+  %642 = add i32 %.3899, 1
   %643 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %642) #9
   %644 = add i8 %643, -97
   %or.cond38 = icmp ult i8 %644, 26
@@ -1994,7 +1994,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   ]
 
 647:                                              ; preds = %641
-  %648 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %646, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.307) #9
+  %648 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %646, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.307) #9
   %649 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %649, i32 noundef 25, ptr noundef nonnull @.str.308) #9
   %650 = load ptr, ptr %6, align 8
@@ -2002,7 +2002,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   br label %756
 
 651:                                              ; preds = %641
-  %652 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %646, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.309) #9
+  %652 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %646, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.309) #9
   %653 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %653, i32 noundef 25, ptr noundef nonnull @.str.310) #9
   %654 = load ptr, ptr %6, align 8
@@ -2010,7 +2010,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   br label %756
 
 655:                                              ; preds = %641
-  %656 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %646, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.311) #9
+  %656 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %646, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.311) #9
   %657 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %657, i32 noundef 25, ptr noundef nonnull @.str.312) #9
   %658 = load ptr, ptr %6, align 8
@@ -2018,14 +2018,14 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   br label %756
 
 659:                                              ; preds = %640
-  %660 = add i32 %.2898, 1
+  %660 = add i32 %.3899, 1
   %661 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %660) #9
   %662 = icmp eq i8 %661, 69
   br i1 %662, label %663, label %756
 
 663:                                              ; preds = %659
   %664 = load i32, ptr @hf_megaco_command, align 4
-  %665 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %664, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.313) #9
+  %665 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %664, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.313) #9
   %666 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %666, i32 noundef 25, ptr noundef nonnull @.str.314) #9
   %667 = load ptr, ptr %6, align 8
@@ -2034,7 +2034,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
 
 668:                                              ; preds = %640
   %669 = load i32, ptr @hf_megaco_command, align 4
-  %670 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %669, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.315) #9
+  %670 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %669, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.315) #9
   %671 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %671, i32 noundef 25, ptr noundef nonnull @.str.316) #9
   %672 = load ptr, ptr %6, align 8
@@ -2042,7 +2042,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   br label %756
 
 673:                                              ; preds = %640
-  %674 = add i32 %.2898, 1
+  %674 = add i32 %.3899, 1
   %675 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %674) #9
   %676 = add i8 %675, -97
   %or.cond41 = icmp ult i8 %676, 26
@@ -2055,7 +2055,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
 
 678:                                              ; preds = %673
   %679 = load i32, ptr @hf_megaco_command, align 4
-  %680 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %679, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.317) #9
+  %680 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %679, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.317) #9
   %681 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %681, i32 noundef 25, ptr noundef nonnull @.str.318) #9
   %682 = load ptr, ptr %6, align 8
@@ -2064,7 +2064,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
 
 683:                                              ; preds = %673
   %684 = load i32, ptr @hf_megaco_command, align 4
-  %685 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %684, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.319) #9
+  %685 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %684, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.319) #9
   %686 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %686, i32 noundef 25, ptr noundef nonnull @.str.320) #9
   %687 = load ptr, ptr %6, align 8
@@ -2072,7 +2072,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   br label %756
 
 688:                                              ; preds = %640
-  %689 = add i32 %.2898, 1
+  %689 = add i32 %.3899, 1
   %690 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %689) #9
   %691 = add i8 %690, -97
   %or.cond44 = icmp ult i8 %691, 26
@@ -2087,7 +2087,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
 
 693:                                              ; preds = %688
   %694 = load i32, ptr @hf_megaco_command, align 4
-  %695 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %694, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.321) #9
+  %695 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %694, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.321) #9
   %696 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %696, i32 noundef 25, ptr noundef nonnull @.str.322) #9
   %697 = load ptr, ptr %6, align 8
@@ -2096,7 +2096,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
 
 698:                                              ; preds = %688
   %699 = load i32, ptr @hf_megaco_command, align 4
-  %700 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %699, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.323) #9
+  %700 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %699, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.323) #9
   %701 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %701, i32 noundef 25, ptr noundef nonnull @.str.324) #9
   %702 = load ptr, ptr %6, align 8
@@ -2105,7 +2105,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
 
 703:                                              ; preds = %688
   %704 = load i32, ptr @hf_megaco_command, align 4
-  %705 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %704, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.143) #9
+  %705 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %704, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.143) #9
   %706 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %706, i32 noundef 25, ptr noundef nonnull @.str.325) #9
   %707 = load ptr, ptr %6, align 8
@@ -2114,7 +2114,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
 
 708:                                              ; preds = %688
   %709 = load i32, ptr @hf_megaco_command, align 4
-  %710 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %709, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.326) #9
+  %710 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %709, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.326) #9
   %711 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %711, i32 noundef 25, ptr noundef nonnull @.str.327) #9
   %712 = load ptr, ptr %6, align 8
@@ -2122,7 +2122,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   br label %756
 
 713:                                              ; preds = %640
-  %714 = add i32 %.2898, 1
+  %714 = add i32 %.3899, 1
   %715 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %714) #9
   %716 = add i8 %715, -97
   %or.cond47 = icmp ult i8 %716, 26
@@ -2133,7 +2133,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   br i1 %cond1, label %719, label %723
 
 719:                                              ; preds = %713
-  %720 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %718, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.328) #9
+  %720 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %718, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.328) #9
   %721 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %721, i32 noundef 25, ptr noundef nonnull @.str.329) #9
   %722 = load ptr, ptr %6, align 8
@@ -2141,7 +2141,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   br label %756
 
 723:                                              ; preds = %713
-  %724 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %718, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef nonnull @.str.330) #9
+  %724 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %718, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef nonnull @.str.330) #9
   %725 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %725, i32 noundef 25, ptr noundef nonnull @.str.331) #9
   %726 = load ptr, ptr %6, align 8
@@ -2159,7 +2159,7 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
 
 733:                                              ; preds = %639
   %734 = load ptr, ptr %175, align 8
-  %735 = call ptr @tvb_format_text(ptr noundef %734, ptr noundef %0, i32 noundef %.2898, i32 noundef %635) #9
+  %735 = call ptr @tvb_format_text(ptr noundef %734, ptr noundef %0, i32 noundef %.3899, i32 noundef %635) #9
   %736 = call i32 @g_str_equal(ptr noundef %735, ptr noundef nonnull @.str.330) #9
   %.not941 = icmp eq i32 %736, 0
   br i1 %.not941, label %737, label %751
@@ -2201,9 +2201,9 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   br label %751
 
 751:                                              ; preds = %749, %747, %745, %743, %741, %739, %737, %733
-  %.11 = phi i32 [ %switch996, %733 ], [ %switch1000, %737 ], [ %switch1004, %739 ], [ %switch1008, %741 ], [ %switch1012, %743 ], [ %switch1016, %745 ], [ %switch1020, %747 ], [ %switch1028.switch1024, %749 ]
+  %.15 = phi i32 [ %switch996, %733 ], [ %switch1000, %737 ], [ %switch1004, %739 ], [ %switch1008, %741 ], [ %switch1012, %743 ], [ %switch1016, %745 ], [ %switch1020, %747 ], [ %switch1028.switch1024, %749 ]
   %752 = load i32, ptr @hf_megaco_command, align 4
-  %753 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %752, ptr noundef %0, i32 noundef %.2898, i32 noundef %635, ptr noundef %735) #9
+  %753 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %752, ptr noundef %0, i32 noundef %.3899, i32 noundef %635, ptr noundef %735) #9
   %754 = load ptr, ptr %72, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %754, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %735) #9
   %755 = load ptr, ptr %6, align 8
@@ -2211,24 +2211,24 @@ megaco_tvb_skip_wsp_return.exit1155:              ; preds = %.lr.ph.i1152, %632,
   br label %756
 
 756:                                              ; preds = %659, %663, %668, %655, %651, %647, %683, %678, %673, %708, %703, %698, %693, %688, %723, %719, %751
-  %.12 = phi i32 [ %switch1024, %719 ], [ %switch996, %723 ], [ 0, %688 ], [ 0, %708 ], [ 0, %703 ], [ 0, %698 ], [ 0, %693 ], [ %.2852, %673 ], [ %switch1020, %683 ], [ %switch1016, %678 ], [ %switch1012, %668 ], [ %switch1008, %655 ], [ %switch1004, %651 ], [ %switch1000, %647 ], [ %.11, %751 ], [ 0, %663 ], [ 0, %659 ]
+  %.14 = phi i32 [ %switch1024, %719 ], [ %switch996, %723 ], [ 0, %688 ], [ 0, %708 ], [ 0, %703 ], [ 0, %698 ], [ 0, %693 ], [ %.2852, %673 ], [ %switch1020, %683 ], [ %switch1016, %678 ], [ %switch1012, %668 ], [ %switch1008, %655 ], [ %switch1004, %651 ], [ %switch1000, %647 ], [ %.15, %751 ], [ 0, %663 ], [ 0, %659 ]
   %cond = phi i1 [ false, %719 ], [ false, %723 ], [ false, %688 ], [ false, %708 ], [ true, %703 ], [ false, %698 ], [ false, %693 ], [ false, %673 ], [ false, %683 ], [ false, %678 ], [ false, %668 ], [ false, %655 ], [ false, %651 ], [ false, %647 ], [ false, %751 ], [ false, %663 ], [ false, %659 ]
-  %757 = icmp eq i32 %.12, 0
+  %757 = icmp eq i32 %.14, 0
   %or.cond49 = and i1 %413, %757
-  %spec.store.select = select i1 %or.cond49, i32 21, i32 %.12
+  %spec.store.select = select i1 %or.cond49, i32 21, i32 %.14
   %.not949 = icmp eq i32 %spec.store.select, 0
   br i1 %.not949, label %762, label %758
 
 758:                                              ; preds = %756
   %759 = load i32, ptr @keep_persistent_data, align 4
-  %760 = call ptr @gcp_cmd(ptr noundef %24, ptr noundef %415, ptr noundef %461, i32 noundef %spec.store.select, i32 noundef %.2898, ptr noundef %1, i32 noundef %759) #9
+  %760 = call ptr @gcp_cmd(ptr noundef %24, ptr noundef %415, ptr noundef %461, i32 noundef %spec.store.select, i32 noundef %.3899, ptr noundef %1, i32 noundef %759) #9
   %761 = load i32, ptr @megaco_tap, align 4
   call void @tap_queue_packet(i32 noundef %761, ptr noundef %1, ptr noundef %760) #9
   br label %762
 
 762:                                              ; preds = %758, %756
-  %.3860 = phi ptr [ %760, %758 ], [ %.2859, %756 ]
-  %763 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.2898, i32 noundef %.013.i, i8 noundef zeroext 61) #9
+  %.6863 = phi ptr [ %760, %758 ], [ %.2859, %756 ]
+  %763 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.3899, i32 noundef %.013.i, i8 noundef zeroext 61) #9
   %764 = icmp eq i32 %763, -1
   br i1 %764, label %765, label %769
 
@@ -2312,7 +2312,7 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   store i32 %806, ptr %807, align 8
   store ptr %803, ptr %792, align 8
   %808 = load i32, ptr @keep_persistent_data, align 4
-  %809 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.3860, ptr noundef nonnull %792, i32 noundef 0, ptr noundef %1, i32 noundef %808) #9
+  %809 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.6863, ptr noundef nonnull %792, i32 noundef 0, ptr noundef %1, i32 noundef %808) #9
   %810 = load i32, ptr @hf_megaco_termid, align 4
   %811 = load ptr, ptr %792, align 8
   %812 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %810, ptr noundef %0, i32 noundef %.0.lcssa.i1156, i32 noundef %780, ptr noundef %811) #9
@@ -2325,7 +2325,7 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   %815 = getelementptr inbounds i8, ptr %792, i64 8
   store ptr @.str.336, ptr %815, align 8
   %816 = load i32, ptr @keep_persistent_data, align 4
-  %817 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.3860, ptr noundef nonnull %792, i32 noundef 2, ptr noundef %1, i32 noundef %816) #9
+  %817 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.6863, ptr noundef nonnull %792, i32 noundef 2, ptr noundef %1, i32 noundef %816) #9
   %818 = load i32, ptr @hf_megaco_termid, align 4
   %819 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %818, ptr noundef %0, i32 noundef %.0.lcssa.i1156, i32 noundef %780, ptr noundef nonnull @.str.337) #9
   %820 = load ptr, ptr %72, align 8
@@ -2339,7 +2339,7 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   %823 = getelementptr inbounds i8, ptr %792, i64 8
   store ptr @.str.339, ptr %823, align 8
   %824 = load i32, ptr @keep_persistent_data, align 4
-  %825 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.3860, ptr noundef nonnull %792, i32 noundef 1, ptr noundef %1, i32 noundef %824) #9
+  %825 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.6863, ptr noundef nonnull %792, i32 noundef 1, ptr noundef %1, i32 noundef %824) #9
   %826 = load i32, ptr @hf_megaco_termid, align 4
   %827 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %826, ptr noundef %0, i32 noundef %.0.lcssa.i1156, i32 noundef %780, ptr noundef nonnull @.str.340) #9
   %828 = load ptr, ptr %72, align 8
@@ -2368,7 +2368,7 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   %842 = getelementptr inbounds i8, ptr %792, i64 8
   store ptr %841, ptr %842, align 8
   %843 = load i32, ptr @keep_persistent_data, align 4
-  %844 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.3860, ptr noundef nonnull %792, i32 noundef 0, ptr noundef %1, i32 noundef %843) #9
+  %844 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.6863, ptr noundef nonnull %792, i32 noundef 0, ptr noundef %1, i32 noundef %843) #9
   br label %845
 
 845:                                              ; preds = %835, %831
@@ -2379,33 +2379,33 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   br label %849
 
 849:                                              ; preds = %800, %813, %821, %845, %787, %megaco_tvb_skip_wsp_return.exit1155
-  %.4861 = phi ptr [ %.3860, %845 ], [ %.3860, %787 ], [ %.3860, %821 ], [ %.3860, %813 ], [ %.3860, %800 ], [ %.2859, %megaco_tvb_skip_wsp_return.exit1155 ]
-  %.13 = phi i32 [ %spec.store.select, %845 ], [ %spec.store.select, %787 ], [ %spec.store.select, %821 ], [ %spec.store.select, %813 ], [ %spec.store.select, %800 ], [ %.2852, %megaco_tvb_skip_wsp_return.exit1155 ]
+  %.5862 = phi ptr [ %.6863, %845 ], [ %.6863, %787 ], [ %.6863, %821 ], [ %.6863, %813 ], [ %.6863, %800 ], [ %.2859, %megaco_tvb_skip_wsp_return.exit1155 ]
+  %.5 = phi i32 [ %spec.store.select, %845 ], [ %spec.store.select, %787 ], [ %spec.store.select, %821 ], [ %spec.store.select, %813 ], [ %spec.store.select, %800 ], [ %.2852, %megaco_tvb_skip_wsp_return.exit1155 ]
   %.not951 = icmp eq i32 %.3, %.1901
   %or.cond1032 = select i1 %544, i1 true, i1 %.not951
   br i1 %or.cond1032, label %860, label %850
 
 850:                                              ; preds = %849
-  %851 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.2898, i32 noundef %.013.i, i8 noundef zeroext 123) #9
+  %851 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.3899, i32 noundef %.013.i, i8 noundef zeroext 123) #9
   %spec.select1033 = call i32 @llvm.smin.i32(i32 %851, i32 %.013.i)
   %852 = icmp sgt i32 %.3868.lcssa.fr, 0
   br i1 %852, label %.lr.ph1355, label %._crit_edge1356
 
 .lr.ph1355:                                       ; preds = %850, %.lr.ph1355
-  %.48691353 = phi i32 [ %855, %.lr.ph1355 ], [ %.3868.lcssa.fr, %850 ]
+  %.68711353 = phi i32 [ %855, %.lr.ph1355 ], [ %.3868.lcssa.fr, %850 ]
   %.18951352 = phi i32 [ %854, %.lr.ph1355 ], [ %spec.select1033, %850 ]
   %853 = add i32 %.18951352, 1
   %854 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %853, i32 noundef %.013.i, i8 noundef zeroext 125) #9
-  %855 = add nsw i32 %.48691353, -1
-  %856 = icmp ugt i32 %.48691353, 1
+  %855 = add nsw i32 %.68711353, -1
+  %856 = icmp ugt i32 %.68711353, 1
   br i1 %856, label %.lr.ph1355, label %._crit_edge1356, !llvm.loop !13
 
 ._crit_edge1356:                                  ; preds = %.lr.ph1355, %850
   %.1895.lcssa = phi i32 [ %spec.select1033, %850 ], [ %854, %.lr.ph1355 ]
-  %857 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2898) #9
+  %857 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3899) #9
   %858 = and i8 %857, -33
   %or.cond55 = icmp eq i8 %858, 69
-  %859 = add i32 %.2898, -1
+  %859 = add i32 %.3899, -1
   %.sink = select i1 %or.cond55, i32 %859, i32 %851
   call fastcc void @dissect_megaco_descriptors(ptr noundef %0, ptr noundef %550, ptr noundef %1, i32 noundef %.sink, i32 noundef %.1895.lcssa, ptr noundef %2, i32 noundef %.0854)
   br label %860
@@ -2432,21 +2432,21 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   br i1 %exitcond.not.i1166, label %megaco_tvb_skip_wsp.exit1150, label %.lr.ph.i1163, !llvm.loop !4
 
 megaco_tvb_skip_wsp.exit1150:                     ; preds = %869, %.lr.ph.i1163, %602, %.lr.ph.i1146, %.critedge23.thread, %860, %593, %.critedge23
-  %.3899 = phi i32 [ %.0896, %.critedge23 ], [ %594, %593 ], [ %861, %860 ], [ %.0896, %.critedge23.thread ], [ %.08.i1147, %.lr.ph.i1146 ], [ %595, %602 ], [ %.08.i1164, %.lr.ph.i1163 ], [ %862, %869 ]
+  %.1897 = phi i32 [ %.0896, %.critedge23 ], [ %594, %593 ], [ %861, %860 ], [ %.0896, %.critedge23.thread ], [ %.08.i1147, %.lr.ph.i1146 ], [ %595, %602 ], [ %.08.i1164, %.lr.ph.i1163 ], [ %862, %869 ]
   %.2883 = phi i32 [ %.1882.lcssa, %.critedge23 ], [ %594, %593 ], [ %861, %860 ], [ %.0881, %.critedge23.thread ], [ %.08.i1147, %.lr.ph.i1146 ], [ %595, %602 ], [ %.08.i1164, %.lr.ph.i1163 ], [ %862, %869 ]
   %.2880 = phi i32 [ %.1879.lcssa, %.critedge23 ], [ %594, %593 ], [ %861, %860 ], [ %.1879.lcssa, %.critedge23.thread ], [ %.08.i1147, %.lr.ph.i1146 ], [ %595, %602 ], [ %.08.i1164, %.lr.ph.i1163 ], [ %862, %869 ]
-  %.4876 = phi i32 [ %.3875.lcssa, %.critedge23 ], [ 0, %593 ], [ 0, %860 ], [ %.2874, %.critedge23.thread ], [ 0, %.lr.ph.i1146 ], [ 0, %602 ], [ 0, %.lr.ph.i1163 ], [ 0, %869 ]
+  %.5877 = phi i32 [ %.3875.lcssa, %.critedge23 ], [ 0, %593 ], [ 0, %860 ], [ %.2874, %.critedge23.thread ], [ 0, %.lr.ph.i1146 ], [ 0, %602 ], [ 0, %.lr.ph.i1163 ], [ 0, %869 ]
   %.5870 = phi i32 [ %.3868.lcssa.fr, %.critedge23 ], [ 0, %593 ], [ 0, %860 ], [ 0, %.critedge23.thread ], [ 0, %.lr.ph.i1146 ], [ 0, %602 ], [ 0, %.lr.ph.i1163 ], [ 0, %869 ]
-  %.5862 = phi ptr [ %.2859, %.critedge23 ], [ %.2859, %593 ], [ %.4861, %860 ], [ %.2859, %.critedge23.thread ], [ %.2859, %.lr.ph.i1146 ], [ %.2859, %602 ], [ %.4861, %.lr.ph.i1163 ], [ %.4861, %869 ]
-  %.14 = phi i32 [ %.2852, %.critedge23 ], [ %.2852, %593 ], [ %.13, %860 ], [ %.2852, %.critedge23.thread ], [ %.2852, %.lr.ph.i1146 ], [ %.2852, %602 ], [ %.13, %.lr.ph.i1163 ], [ %.13, %869 ]
+  %.4861 = phi ptr [ %.2859, %.critedge23 ], [ %.2859, %593 ], [ %.5862, %860 ], [ %.2859, %.critedge23.thread ], [ %.2859, %.lr.ph.i1146 ], [ %.2859, %602 ], [ %.5862, %.lr.ph.i1163 ], [ %.5862, %869 ]
+  %.4 = phi i32 [ %.2852, %.critedge23 ], [ %.2852, %593 ], [ %.5, %860 ], [ %.2852, %.critedge23.thread ], [ %.2852, %.lr.ph.i1146 ], [ %.2852, %602 ], [ %.5, %.lr.ph.i1163 ], [ %.5, %869 ]
   %871 = icmp slt i32 %.1901, %.013.i
   br i1 %871, label %megaco_tvb_skip_wsp.exit1128, label %872, !llvm.loop !14
 
 872:                                              ; preds = %585, %megaco_tvb_skip_wsp.exit1150
-  %.5877 = phi i32 [ %.3875.lcssa14991501, %585 ], [ %.4876, %megaco_tvb_skip_wsp.exit1150 ]
-  %.6871 = phi i32 [ %.3868.lcssa.fr, %585 ], [ %.5870, %megaco_tvb_skip_wsp.exit1150 ]
-  %.6863 = phi ptr [ %.2859, %585 ], [ %.5862, %megaco_tvb_skip_wsp.exit1150 ]
-  %.15 = phi i32 [ %.2852, %585 ], [ %.14, %megaco_tvb_skip_wsp.exit1150 ]
+  %.4876 = phi i32 [ %.3875.lcssa14991501, %585 ], [ %.5877, %megaco_tvb_skip_wsp.exit1150 ]
+  %.4869 = phi i32 [ %.3868.lcssa.fr, %585 ], [ %.5870, %megaco_tvb_skip_wsp.exit1150 ]
+  %.3860 = phi ptr [ %.2859, %585 ], [ %.4861, %megaco_tvb_skip_wsp.exit1150 ]
+  %.3853 = phi i32 [ %.2852, %585 ], [ %.4, %megaco_tvb_skip_wsp.exit1150 ]
   %873 = load i32, ptr @keep_persistent_data, align 4
   %.not952 = icmp eq i32 %873, 0
   br i1 %.not952, label %877, label %874
@@ -3259,9 +3259,9 @@ megaco_tvb_skip_wsp.exit:                         ; preds = %.lr.ph.i, %23, %7
   br i1 %50, label %.lr.ph.i179, label %megaco_tvb_skip_wsp_return.exit, !llvm.loop !10
 
 megaco_tvb_skip_wsp_return.exit:                  ; preds = %48, %.lr.ph.i179, %40, %37
-  %.2166 = phi i32 [ %.0164, %37 ], [ %spec.select, %40 ], [ %spec.select, %.lr.ph.i179 ], [ %spec.select, %48 ]
+  %.1165 = phi i32 [ %.0164, %37 ], [ %spec.select, %40 ], [ %spec.select, %.lr.ph.i179 ], [ %spec.select, %48 ]
   %.1163 = phi i32 [ %29, %37 ], [ %41, %40 ], [ 0, %48 ], [ %.08.i180, %.lr.ph.i179 ]
-  %51 = icmp sgt i32 %.2166, %30
+  %51 = icmp sgt i32 %.1165, %30
   %52 = icmp ne i32 %30, -1
   %or.cond3 = and i1 %52, %51
   %53 = icmp sgt i32 %.1163, %30
@@ -3270,27 +3270,27 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %48, %.lr.ph.i179, %
 
 .lr.ph:                                           ; preds = %megaco_tvb_skip_wsp_return.exit, %61
   %.1237 = phi i32 [ %55, %61 ], [ %30, %megaco_tvb_skip_wsp_return.exit ]
-  %.2236 = phi i32 [ %.3, %61 ], [ %.1163, %megaco_tvb_skip_wsp_return.exit ]
+  %.3236 = phi i32 [ %.4, %61 ], [ %.1163, %megaco_tvb_skip_wsp_return.exit ]
   %54 = add nuw i32 %.1237, 1
   %55 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %54, i32 noundef %11, i8 noundef zeroext 123) #9
-  %56 = icmp slt i32 %55, %.2236
+  %56 = icmp slt i32 %55, %.3236
   %57 = icmp ne i32 %55, -1
   %or.cond5 = and i1 %56, %57
   br i1 %or.cond5, label %58, label %61
 
 58:                                               ; preds = %.lr.ph
-  %59 = add i32 %.2236, 1
+  %59 = add i32 %.3236, 1
   %60 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %59, i32 noundef %11, i8 noundef zeroext 125) #9
   br label %61
 
 61:                                               ; preds = %58, %.lr.ph
-  %.3 = phi i32 [ %60, %58 ], [ %.2236, %.lr.ph ]
-  %62 = icmp sgt i32 %.3, %55
+  %.4 = phi i32 [ %60, %58 ], [ %.3236, %.lr.ph ]
+  %62 = icmp sgt i32 %.4, %55
   %63 = select i1 %57, i1 %62, i1 false
   br i1 %63, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %61, %megaco_tvb_skip_wsp_return.exit
-  %.4 = phi i32 [ %.1163, %megaco_tvb_skip_wsp_return.exit ], [ %.3, %61 ]
+  %.2 = phi i32 [ %.1163, %megaco_tvb_skip_wsp_return.exit ], [ %.4, %61 ]
   %64 = icmp slt i32 %.0161, %25
   br i1 %64, label %.lr.ph239, label %._crit_edge
 
@@ -3350,12 +3350,12 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %48, %.lr.ph.i179, %
   br i1 %exitcond.not.i183, label %find_megaco_descriptors_names.exit.thread, label %74, !llvm.loop !20
 
 find_megaco_descriptors_names.exit.thread:        ; preds = %91
-  %spec.select176226 = call i32 @llvm.smin.i32(i32 %.4, i32 %4)
+  %spec.select176226 = call i32 @llvm.smin.i32(i32 %.2, i32 %4)
   br label %498
 
 find_megaco_descriptors_names.exit:               ; preds = %79, %88
   %.017.i = trunc i64 %indvars.iv.i to i32
-  %spec.select176 = call i32 @llvm.smin.i32(i32 %.4, i32 %4)
+  %spec.select176 = call i32 @llvm.smin.i32(i32 %.2, i32 %4)
   switch i32 %.017.i, label %498 [
     i32 1, label %92
     i32 2, label %98
@@ -3688,8 +3688,8 @@ megaco_tvb_skip_wsp_return.exit.i:                ; preds = %232, %.lr.ph.i110.i
   br i1 %238, label %.lr.ph.i200, label %.loopexit.i196
 
 .lr.ph.i200:                                      ; preds = %.preheader.i, %244
-  %.0101128.i = phi i32 [ %245, %244 ], [ %.0.lcssa.i.i193, %.preheader.i ]
-  %239 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0101128.i) #9
+  %.1102128.i = phi i32 [ %245, %244 ], [ %.0.lcssa.i.i193, %.preheader.i ]
+  %239 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1102128.i) #9
   %240 = zext i8 %239 to i64
   %241 = getelementptr i16, ptr %.pre, i64 %240
   %242 = load i16, ptr %241, align 2
@@ -3698,13 +3698,13 @@ megaco_tvb_skip_wsp_return.exit.i:                ; preds = %232, %.lr.ph.i110.i
   br i1 %.not106.i, label %.loopexit.i196, label %244
 
 244:                                              ; preds = %.lr.ph.i200
-  %245 = add i32 %.0101128.i, 1
-  %exitcond.not.i201 = icmp eq i32 %.0101128.i, %.0.lcssa.i109.i
+  %245 = add i32 %.1102128.i, 1
+  %exitcond.not.i201 = icmp eq i32 %.1102128.i, %.0.lcssa.i109.i
   br i1 %exitcond.not.i201, label %.loopexit.i196, label %.lr.ph.i200, !llvm.loop !24
 
 .loopexit.i196:                                   ; preds = %244, %.lr.ph.i200, %.preheader.i, %megaco_tvb_skip_wsp_return.exit.i
-  %.1102.i = phi i32 [ %235, %megaco_tvb_skip_wsp_return.exit.i ], [ %.0.lcssa.i.i193, %.preheader.i ], [ %235, %244 ], [ %.0101128.i, %.lr.ph.i200 ]
-  %246 = sub i32 %.1102.i, %.0.lcssa.i.i193
+  %.0101.i = phi i32 [ %235, %megaco_tvb_skip_wsp_return.exit.i ], [ %.0.lcssa.i.i193, %.preheader.i ], [ %235, %244 ], [ %.1102128.i, %.lr.ph.i200 ]
+  %246 = sub i32 %.0101.i, %.0.lcssa.i.i193
   %247 = zext i32 %246 to i64
   br label %248
 
@@ -3983,30 +3983,30 @@ megaco_tvb_skip_wsp_return.exit203.i:             ; preds = %377, %.lr.ph.i200.i
   br i1 %or.cond243.i, label %.lr.ph.i214, label %.loopexit238.i
 
 .lr.ph.i214:                                      ; preds = %megaco_tvb_skip_wsp_return.exit203.i, %390
-  %.2242.i = phi i32 [ %.3.i, %390 ], [ %.1.i210, %megaco_tvb_skip_wsp_return.exit203.i ]
+  %.3242.i = phi i32 [ %.4.i, %390 ], [ %.1.i210, %megaco_tvb_skip_wsp_return.exit203.i ]
   %.1178241.i = phi i32 [ %384, %390 ], [ %363, %megaco_tvb_skip_wsp_return.exit203.i ]
   %383 = add nuw i32 %.1178241.i, 1
   %384 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %383, i32 noundef %spec.select176, i8 noundef zeroext 123) #9
-  %385 = icmp slt i32 %384, %.2242.i
+  %385 = icmp slt i32 %384, %.3242.i
   %386 = icmp ne i32 %384, -1
   %or.cond7.i = and i1 %385, %386
   br i1 %or.cond7.i, label %387, label %390
 
 387:                                              ; preds = %.lr.ph.i214
-  %388 = add i32 %.2242.i, 1
+  %388 = add i32 %.3242.i, 1
   %389 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %388, i32 noundef %spec.select176, i8 noundef zeroext 125) #9
   br label %390
 
 390:                                              ; preds = %387, %.lr.ph.i214
-  %.3.i = phi i32 [ %389, %387 ], [ %.2242.i, %.lr.ph.i214 ]
-  %391 = icmp sgt i32 %.3.i, %384
+  %.4.i = phi i32 [ %389, %387 ], [ %.3242.i, %.lr.ph.i214 ]
+  %391 = icmp sgt i32 %.4.i, %384
   %392 = select i1 %386, i1 %391, i1 false
   br i1 %392, label %.lr.ph.i214, label %.loopexit238.i, !llvm.loop !26
 
 .loopexit238.i:                                   ; preds = %390, %megaco_tvb_skip_wsp_return.exit203.i
-  %.4.i = phi i32 [ %.1.i210, %megaco_tvb_skip_wsp_return.exit203.i ], [ %.3.i, %390 ]
+  %.2.i = phi i32 [ %.1.i210, %megaco_tvb_skip_wsp_return.exit203.i ], [ %.4.i, %390 ]
   %393 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0163.i, i32 noundef %spec.select176, i8 noundef zeroext 123) #9
-  %394 = icmp slt i32 %393, %.4.i
+  %394 = icmp slt i32 %393, %.2.i
   %395 = icmp ne i32 %393, -1
   %or.cond9.i = and i1 %394, %395
   br i1 %or.cond9.i, label %396, label %410
@@ -4040,7 +4040,7 @@ megaco_tvb_skip_wsp_return.exit208.i:             ; preds = %404, %.lr.ph.i205.i
   br label %412
 
 410:                                              ; preds = %.loopexit238.i
-  %reass.sub245.i = sub i32 %.4.i, %.0163.i
+  %reass.sub245.i = sub i32 %.2.i, %.0163.i
   %411 = add i32 %reass.sub245.i, 1
   br label %412
 
@@ -4049,13 +4049,13 @@ megaco_tvb_skip_wsp_return.exit208.i:             ; preds = %404, %.lr.ph.i205.i
   %.0171.i = phi i32 [ %408, %megaco_tvb_skip_wsp_return.exit208.i ], [ %411, %410 ]
   %.0170.i = phi i32 [ %409, %megaco_tvb_skip_wsp_return.exit208.i ], [ %411, %410 ]
   %.1168.i = phi i32 [ %393, %megaco_tvb_skip_wsp_return.exit208.i ], [ %.0167.i, %410 ]
-  %.1165.i = phi i32 [ %.4.i, %megaco_tvb_skip_wsp_return.exit208.i ], [ %.0164.i, %410 ]
+  %.1165.i = phi i32 [ %.2.i, %megaco_tvb_skip_wsp_return.exit208.i ], [ %.0164.i, %410 ]
   %413 = call ptr @proto_tree_add_format_text(ptr noundef %14, ptr noundef %0, i32 noundef %.0163.i, i32 noundef %.0170.i) #9
   %414 = load i32, ptr @ett_megaco_observedevent, align 4
   %415 = call ptr @proto_item_add_subtree(ptr noundef %413, i32 noundef %414) #9
   %416 = load i32, ptr @hf_megaco_pkgdname, align 4
   %417 = call ptr @proto_tree_add_item(ptr noundef %415, i32 noundef %416, ptr noundef %0, i32 noundef %.0163.i, i32 noundef %.0171.i, i32 noundef 2) #9
-  %418 = icmp slt i32 %.0174.i, %.4.i
+  %418 = icmp slt i32 %.0174.i, %.2.i
   %419 = icmp ne i32 %.0174.i, -1
   %or.cond11.i = and i1 %418, %419
   br i1 %or.cond11.i, label %420, label %.loopexit.i211
@@ -4179,7 +4179,7 @@ megaco_tvb_skip_wsp.exit231.i:                    ; preds = %465, %.lr.ph.i227.i
 .loopexit.i211:                                   ; preds = %473, %412
   %.2169.i = phi i32 [ %.1168.i, %412 ], [ %431, %473 ]
   %.2166.i = phi i32 [ %.1165.i, %412 ], [ %442, %473 ]
-  %475 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.4.i, i32 noundef %spec.select176, i8 noundef zeroext 44) #9
+  %475 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.2.i, i32 noundef %spec.select176, i8 noundef zeroext 44) #9
   %476 = icmp eq i32 %475, -1
   %477 = call i32 @llvm.smin.i32(i32 %475, i32 %spec.select176)
   %.1173.i = select i1 %476, i32 %spec.select176, i32 %477
@@ -5473,8 +5473,8 @@ megaco_tvb_skip_wsp.exit.i146:                    ; preds = %597, %.lr.ph.i.i148
   %601 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0.lcssa.i.i147, i32 noundef %.089106.i, i8 noundef zeroext 44) #9
   %602 = icmp eq i32 %601, -1
   %603 = call i32 @llvm.smin.i32(i32 %601, i32 %63)
-  %.4.i = select i1 %602, i32 %63, i32 %603
-  %604 = sub i32 %.4.i, %.0.lcssa.i.i147
+  %.5.i = select i1 %602, i32 %63, i32 %603
+  %604 = sub i32 %.5.i, %.0.lcssa.i.i147
   switch i8 %spec.select.i, label %620 [
     i8 83, label %605
     i8 66, label %610
@@ -5507,7 +5507,7 @@ megaco_tvb_skip_wsp.exit.i146:                    ; preds = %597, %.lr.ph.i.i148
   br label %622
 
 622:                                              ; preds = %620, %615, %610, %605
-  %623 = add i32 %.4.i, 1
+  %623 = add i32 %.5.i, 1
   %624 = call i32 @tvb_reported_length(ptr noundef %0) #9
   %625 = icmp sgt i32 %624, %623
   br i1 %625, label %.lr.ph.i101.i, label %megaco_tvb_skip_wsp.exit105.i
@@ -5701,30 +5701,30 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %78, %.lr.ph.i175, %
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %megaco_tvb_skip_wsp_return.exit, %91
-  %.2147205 = phi i32 [ %.3, %91 ], [ %.1146, %megaco_tvb_skip_wsp_return.exit ]
+  %.3205 = phi i32 [ %.4, %91 ], [ %.1146, %megaco_tvb_skip_wsp_return.exit ]
   %.1151204 = phi i32 [ %85, %91 ], [ %64, %megaco_tvb_skip_wsp_return.exit ]
   %84 = add nuw i32 %.1151204, 1
   %85 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %84, i32 noundef %3, i8 noundef zeroext 123) #9
-  %86 = icmp slt i32 %85, %.2147205
+  %86 = icmp slt i32 %85, %.3205
   %87 = icmp ne i32 %85, -1
   %or.cond7 = and i1 %86, %87
   br i1 %or.cond7, label %88, label %91
 
 88:                                               ; preds = %.lr.ph
-  %89 = add i32 %.2147205, 1
+  %89 = add i32 %.3205, 1
   %90 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %89, i32 noundef %3, i8 noundef zeroext 125) #9
   br label %91
 
 91:                                               ; preds = %88, %.lr.ph
-  %.3 = phi i32 [ %90, %88 ], [ %.2147205, %.lr.ph ]
-  %92 = icmp sgt i32 %.3, %85
+  %.4 = phi i32 [ %90, %88 ], [ %.3205, %.lr.ph ]
+  %92 = icmp sgt i32 %.4, %85
   %93 = select i1 %87, i1 %92, i1 false
   br i1 %93, label %.lr.ph, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %91, %megaco_tvb_skip_wsp_return.exit
-  %.4 = phi i32 [ %.1146, %megaco_tvb_skip_wsp_return.exit ], [ %.3, %91 ]
+  %.2147 = phi i32 [ %.1146, %megaco_tvb_skip_wsp_return.exit ], [ %.4, %91 ]
   %94 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0148, i32 noundef %3, i8 noundef zeroext 123) #9
-  %95 = icmp slt i32 %94, %.4
+  %95 = icmp slt i32 %94, %.2147
   %96 = icmp ne i32 %94, -1
   %or.cond9 = and i1 %95, %96
   br i1 %or.cond9, label %97, label %109
@@ -5755,20 +5755,20 @@ megaco_tvb_skip_wsp_return.exit182:               ; preds = %.lr.ph.i179, %105, 
   br label %111
 
 109:                                              ; preds = %.loopexit
-  %110 = add i32 %.4, 1
+  %110 = add i32 %.2147, 1
   br label %111
 
 111:                                              ; preds = %109, %megaco_tvb_skip_wsp_return.exit182
   %.0155 = phi i32 [ %108, %megaco_tvb_skip_wsp_return.exit182 ], [ %94, %109 ]
   %.pn = phi i32 [ %108, %megaco_tvb_skip_wsp_return.exit182 ], [ %110, %109 ]
   %.1143 = phi i32 [ %94, %megaco_tvb_skip_wsp_return.exit182 ], [ %.0142, %109 ]
-  %.1 = phi i32 [ %.4, %megaco_tvb_skip_wsp_return.exit182 ], [ %.0, %109 ]
+  %.1 = phi i32 [ %.2147, %megaco_tvb_skip_wsp_return.exit182 ], [ %.0, %109 ]
   %.0152 = sub i32 %.pn, %.0148
   %112 = load i32, ptr @hf_megaco_pkgdname, align 4
   %113 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %112, ptr noundef %0, i32 noundef %.0148, i32 noundef %.0152, i32 noundef 2) #9
   %114 = load i32, ptr @ett_megaco_requestedsignal, align 4
   %115 = tail call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #9
-  %116 = icmp slt i32 %.0155, %.4
+  %116 = icmp slt i32 %.0155, %.2147
   %117 = icmp ne i32 %.0155, -1
   %or.cond11 = and i1 %116, %117
   br i1 %or.cond11, label %118, label %145
@@ -5834,7 +5834,7 @@ megaco_tvb_skip_wsp_return.exit193:               ; preds = %.lr.ph.i190, %136, 
 145:                                              ; preds = %142, %143, %111
   %.2144 = phi i32 [ %.0.lcssa.i183, %143 ], [ %.0.lcssa.i183, %142 ], [ %.1143, %111 ]
   %.2 = phi i32 [ %139, %143 ], [ %139, %142 ], [ %.1, %111 ]
-  %146 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.4, i32 noundef %3, i8 noundef zeroext 44) #9
+  %146 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.2147, i32 noundef %3, i8 noundef zeroext 44) #9
   %147 = icmp eq i32 %146, -1
   %148 = icmp sgt i32 %146, %3
   %or.cond166 = or i1 %147, %148
@@ -6114,30 +6114,30 @@ megaco_tvb_skip_wsp_return.exit178:               ; preds = %72, %.lr.ph.i175, %
   br i1 %or.cond204, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %megaco_tvb_skip_wsp_return.exit178, %85
-  %.2146203 = phi i32 [ %.3, %85 ], [ %.1145, %megaco_tvb_skip_wsp_return.exit178 ]
+  %.3203 = phi i32 [ %.4, %85 ], [ %.1145, %megaco_tvb_skip_wsp_return.exit178 ]
   %.1153202 = phi i32 [ %79, %85 ], [ %58, %megaco_tvb_skip_wsp_return.exit178 ]
   %78 = add nuw i32 %.1153202, 1
   %79 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %78, i32 noundef %3, i8 noundef zeroext 123) #9
-  %80 = icmp slt i32 %79, %.2146203
+  %80 = icmp slt i32 %79, %.3203
   %81 = icmp ne i32 %79, -1
   %or.cond7 = and i1 %80, %81
   br i1 %or.cond7, label %82, label %85
 
 82:                                               ; preds = %.lr.ph
-  %83 = add i32 %.2146203, 1
+  %83 = add i32 %.3203, 1
   %84 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %83, i32 noundef %3, i8 noundef zeroext 125) #9
   br label %85
 
 85:                                               ; preds = %82, %.lr.ph
-  %.3 = phi i32 [ %84, %82 ], [ %.2146203, %.lr.ph ]
-  %86 = icmp sgt i32 %.3, %79
+  %.4 = phi i32 [ %84, %82 ], [ %.3203, %.lr.ph ]
+  %86 = icmp sgt i32 %.4, %79
   %87 = select i1 %81, i1 %86, i1 false
   br i1 %87, label %.lr.ph, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %85, %megaco_tvb_skip_wsp_return.exit178
-  %.4 = phi i32 [ %.1145, %megaco_tvb_skip_wsp_return.exit178 ], [ %.3, %85 ]
+  %.2146 = phi i32 [ %.1145, %megaco_tvb_skip_wsp_return.exit178 ], [ %.4, %85 ]
   %88 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0147, i32 noundef %3, i8 noundef zeroext 123) #9
-  %89 = icmp slt i32 %88, %.4
+  %89 = icmp slt i32 %88, %.2146
   %90 = icmp ne i32 %88, -1
   %or.cond9 = and i1 %89, %90
   br i1 %or.cond9, label %91, label %103
@@ -6168,20 +6168,20 @@ megaco_tvb_skip_wsp_return.exit183:               ; preds = %.lr.ph.i180, %99, %
   br label %105
 
 103:                                              ; preds = %.loopexit
-  %104 = add i32 %.4, 1
+  %104 = add i32 %.2146, 1
   br label %105
 
 105:                                              ; preds = %103, %megaco_tvb_skip_wsp_return.exit183
   %.0151 = phi i32 [ %102, %megaco_tvb_skip_wsp_return.exit183 ], [ %88, %103 ]
   %.pn = phi i32 [ %102, %megaco_tvb_skip_wsp_return.exit183 ], [ %104, %103 ]
   %.1142 = phi i32 [ %88, %megaco_tvb_skip_wsp_return.exit183 ], [ %.0141, %103 ]
-  %.1 = phi i32 [ %.4, %megaco_tvb_skip_wsp_return.exit183 ], [ %.0, %103 ]
+  %.1 = phi i32 [ %.2146, %megaco_tvb_skip_wsp_return.exit183 ], [ %.0, %103 ]
   %.0148 = sub i32 %.pn, %.0147
   %106 = load i32, ptr @hf_megaco_pkgdname, align 4
   %107 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %106, ptr noundef %0, i32 noundef %.0147, i32 noundef %.0148, i32 noundef 2) #9
   %108 = load i32, ptr @ett_megaco_requestedevent, align 4
   %109 = tail call ptr @proto_item_add_subtree(ptr noundef %107, i32 noundef %108) #9
-  %110 = icmp slt i32 %.0151, %.4
+  %110 = icmp slt i32 %.0151, %.2146
   %111 = icmp ne i32 %.0151, -1
   %or.cond11 = and i1 %110, %111
   br i1 %or.cond11, label %112, label %146
@@ -6259,7 +6259,7 @@ megaco_tvb_skip_wsp_return.exit194:               ; preds = %.lr.ph.i191, %130, 
 146:                                              ; preds = %136, %144, %143, %105
   %.2143 = phi i32 [ %.0.lcssa.i184, %144 ], [ %.0.lcssa.i184, %143 ], [ %.0.lcssa.i184, %136 ], [ %.1142, %105 ]
   %.2 = phi i32 [ %133, %144 ], [ %133, %143 ], [ %133, %136 ], [ %.1, %105 ]
-  %147 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.4, i32 noundef %3, i8 noundef zeroext 44) #9
+  %147 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.2146, i32 noundef %3, i8 noundef zeroext 44) #9
   %148 = icmp eq i32 %147, -1
   %149 = icmp sgt i32 %147, %3
   %or.cond162 = or i1 %148, %149
@@ -6433,32 +6433,32 @@ megaco_tvb_skip_wsp_return.exit119:               ; preds = %69, %.lr.ph.i116, %
   br i1 %or.cond129, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %megaco_tvb_skip_wsp_return.exit119, %82
-  %.2128 = phi i32 [ %.3, %82 ], [ %.1, %megaco_tvb_skip_wsp_return.exit119 ]
+  %.3128 = phi i32 [ %.4, %82 ], [ %.1, %megaco_tvb_skip_wsp_return.exit119 ]
   %.195127 = phi i32 [ %76, %82 ], [ %55, %megaco_tvb_skip_wsp_return.exit119 ]
   %75 = add nuw i32 %.195127, 1
   %76 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %75, i32 noundef %2, i8 noundef zeroext 123) #9
-  %77 = icmp slt i32 %76, %.2128
+  %77 = icmp slt i32 %76, %.3128
   %78 = icmp ne i32 %76, -1
   %or.cond7 = and i1 %77, %78
   br i1 %or.cond7, label %79, label %82
 
 79:                                               ; preds = %.lr.ph
-  %80 = add i32 %.2128, 1
+  %80 = add i32 %.3128, 1
   %81 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %80, i32 noundef %2, i8 noundef zeroext 125) #9
   br label %82
 
 82:                                               ; preds = %79, %.lr.ph
-  %.3 = phi i32 [ %81, %79 ], [ %.2128, %.lr.ph ]
-  %83 = icmp sgt i32 %.3, %76
+  %.4 = phi i32 [ %81, %79 ], [ %.3128, %.lr.ph ]
+  %83 = icmp sgt i32 %.4, %76
   %84 = select i1 %78, i1 %83, i1 false
   br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %82, %megaco_tvb_skip_wsp_return.exit119
-  %.4 = phi i32 [ %.1, %megaco_tvb_skip_wsp_return.exit119 ], [ %.3, %82 ]
-  %reass.sub130 = sub i32 %.4, %.093
+  %.2 = phi i32 [ %.1, %megaco_tvb_skip_wsp_return.exit119 ], [ %.4, %82 ]
+  %reass.sub130 = sub i32 %.2, %.093
   %85 = add i32 %reass.sub130, 1
   %86 = tail call ptr @proto_tree_add_format_text(ptr noundef %10, ptr noundef %0, i32 noundef %.093, i32 noundef %85) #9
-  %87 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.4, i32 noundef %2, i8 noundef zeroext 44) #9
+  %87 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.2, i32 noundef %2, i8 noundef zeroext 44) #9
   %88 = icmp eq i32 %87, -1
   %89 = tail call i32 @llvm.smin.i32(i32 %87, i32 %2)
   %.197 = select i1 %88, i32 %2, i32 %89

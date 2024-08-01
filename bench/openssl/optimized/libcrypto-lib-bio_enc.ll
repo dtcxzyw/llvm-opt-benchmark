@@ -367,9 +367,9 @@ if.then95:                                        ; preds = %if.end87
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then95, %if.end137, %if.end116
-  %ret.1.be = phi i32 [ %add141, %if.end137 ], [ %add88, %if.then95 ], [ %ret.2, %if.end116 ]
-  %outl.addr.1.be = phi i32 [ %sub143, %if.end137 ], [ %sub91, %if.then95 ], [ %outl.addr.2, %if.end116 ]
-  %out.addr.1.be = phi ptr [ %add.ptr145, %if.end137 ], [ %add.ptr90, %if.then95 ], [ %out.addr.2, %if.end116 ]
+  %ret.1.be = phi i32 [ %add141, %if.end137 ], [ %add88, %if.then95 ], [ %ret.4, %if.end116 ]
+  %outl.addr.1.be = phi i32 [ %sub143, %if.end137 ], [ %sub91, %if.then95 ], [ %outl.addr.3, %if.end116 ]
+  %out.addr.1.be = phi ptr [ %add.ptr145, %if.end137 ], [ %add.ptr90, %if.then95 ], [ %out.addr.3, %if.end116 ]
   %cmp29 = icmp sgt i32 %outl.addr.1.be, 0
   br i1 %cmp29, label %while.body, label %while.end, !llvm.loop !8
 
@@ -382,10 +382,10 @@ if.end98:                                         ; preds = %if.end87
 
 if.end102:                                        ; preds = %if.end98, %if.else70
   %14 = phi ptr [ %add.ptr101, %if.end98 ], [ %.pre, %if.else70 ]
-  %ret.2 = phi i32 [ %add88, %if.end98 ], [ %ret.1115, %if.else70 ]
+  %ret.4 = phi i32 [ %add88, %if.end98 ], [ %ret.1115, %if.else70 ]
   %i.2 = phi i32 [ %sub92, %if.end98 ], [ %i.1110, %if.else70 ]
-  %outl.addr.2 = phi i32 [ %sub91, %if.end98 ], [ %outl.addr.1116, %if.else70 ]
-  %out.addr.2 = phi ptr [ %add.ptr90, %if.end98 ], [ %out.addr.1117, %if.else70 ]
+  %outl.addr.3 = phi i32 [ %sub91, %if.end98 ], [ %outl.addr.1116, %if.else70 ]
+  %out.addr.3 = phi ptr [ %add.ptr90, %if.end98 ], [ %out.addr.1117, %if.else70 ]
   %15 = call i32 @llvm.umin.i32(i32 %i.2, i32 256)
   %16 = load ptr, ptr %cipher, align 8
   %call112 = call i32 @EVP_CipherUpdate(ptr noundef %16, ptr noundef nonnull %buf62, ptr noundef nonnull %call, ptr noundef %14, i32 noundef %15) #5
@@ -409,27 +409,27 @@ if.end116:                                        ; preds = %if.end102
 
 if.end126:                                        ; preds = %if.end116, %if.then59
   %19 = phi i32 [ %.pre123, %if.then59 ], [ %18, %if.end116 ]
-  %ret.3 = phi i32 [ %ret.1115, %if.then59 ], [ %ret.2, %if.end116 ]
-  %outl.addr.3 = phi i32 [ %outl.addr.1116, %if.then59 ], [ %outl.addr.2, %if.end116 ]
-  %out.addr.3 = phi ptr [ %out.addr.1117, %if.then59 ], [ %out.addr.2, %if.end116 ]
-  %outl.addr.3. = call i32 @llvm.smin.i32(i32 %19, i32 %outl.addr.3)
-  %cmp134 = icmp slt i32 %outl.addr.3., 1
+  %ret.3 = phi i32 [ %ret.1115, %if.then59 ], [ %ret.4, %if.end116 ]
+  %outl.addr.2 = phi i32 [ %outl.addr.1116, %if.then59 ], [ %outl.addr.3, %if.end116 ]
+  %out.addr.2 = phi ptr [ %out.addr.1117, %if.then59 ], [ %out.addr.3, %if.end116 ]
+  %outl.addr.2. = call i32 @llvm.smin.i32(i32 %19, i32 %outl.addr.2)
+  %cmp134 = icmp slt i32 %outl.addr.2., 1
   br i1 %cmp134, label %while.end, label %if.end137
 
 if.end137:                                        ; preds = %if.end126
-  %conv140 = zext nneg i32 %outl.addr.3. to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.3, ptr nonnull align 8 %buf62, i64 %conv140, i1 false)
-  %add141 = add nsw i32 %outl.addr.3., %ret.3
-  store i32 %outl.addr.3., ptr %buf_off65, align 4
-  %sub143 = sub nsw i32 %outl.addr.3, %outl.addr.3.
-  %add.ptr145 = getelementptr inbounds i8, ptr %out.addr.3, i64 %conv140
+  %conv140 = zext nneg i32 %outl.addr.2. to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.2, ptr nonnull align 8 %buf62, i64 %conv140, i1 false)
+  %add141 = add nsw i32 %outl.addr.2., %ret.3
+  store i32 %outl.addr.2., ptr %buf_off65, align 4
+  %sub143 = sub nsw i32 %outl.addr.2, %outl.addr.2.
+  %add.ptr145 = getelementptr inbounds i8, ptr %out.addr.2, i64 %conv140
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %while.body, %if.end126, %if.end23, %if.else66
-  %ret.4 = phi i32 [ %cond, %if.else66 ], [ %ret.0, %if.end23 ], [ %ret.1.be, %while.cond.backedge ], [ %ret.1115, %while.body ], [ %ret.3, %if.end126 ]
+  %ret.2 = phi i32 [ %cond, %if.else66 ], [ %ret.0, %if.end23 ], [ %ret.1.be, %while.cond.backedge ], [ %ret.1115, %while.body ], [ %ret.3, %if.end126 ]
   call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #5
   call void @BIO_copy_next_retry(ptr noundef %b) #5
-  %cmp146 = icmp eq i32 %ret.4, 0
+  %cmp146 = icmp eq i32 %ret.2, 0
   br i1 %cmp146, label %cond.true148, label %return
 
 cond.true148:                                     ; preds = %while.end
@@ -438,7 +438,7 @@ cond.true148:                                     ; preds = %while.end
   br label %return
 
 return:                                           ; preds = %cond.true148, %while.end, %if.end, %entry, %if.then114, %if.then86
-  %retval.0 = phi i32 [ 0, %if.then114 ], [ 0, %if.then86 ], [ 0, %entry ], [ 0, %if.end ], [ %20, %cond.true148 ], [ %ret.4, %while.end ]
+  %retval.0 = phi i32 [ 0, %if.then114 ], [ 0, %if.then86 ], [ 0, %entry ], [ 0, %if.end ], [ %20, %cond.true148 ], [ %ret.2, %while.end ]
   ret i32 %retval.0
 }
 

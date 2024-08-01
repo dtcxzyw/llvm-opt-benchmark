@@ -1133,9 +1133,9 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   br label %19
 
 19:                                               ; preds = %15, %41
-  %.05463 = phi i32 [ 2, %15 ], [ %37, %41 ]
+  %.163 = phi i32 [ 2, %15 ], [ %37, %41 ]
   %.05562 = phi i16 [ 0, %15 ], [ %45, %41 ]
-  %20 = add i32 %.05463, 11
+  %20 = add i32 %.163, 11
   %21 = icmp sgt i32 %20, %5
   br i1 %21, label %22, label %24
 
@@ -1144,7 +1144,7 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   br label %.loopexit
 
 24:                                               ; preds = %19
-  %25 = add i32 %.05463, %4
+  %25 = add i32 %.163, %4
   %26 = load i32, ptr @hf_cip_ssupervisor_output_cp_owners_ocpunid_snn_timestamp, align 4
   %27 = load i32, ptr @hf_cip_ssupervisor_output_cp_owners_ocpunid_snn_date, align 4
   %28 = load i32, ptr @hf_cip_ssupervisor_output_cp_owners_ocpunid_snn_time, align 4
@@ -1153,7 +1153,7 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   %31 = load i32, ptr @ett_ssupervisor_output_cp_owners_ocpunid_snn, align 4
   call void @dissect_unid(ptr noundef %3, ptr poison, i32 noundef %25, ptr noundef %13, ptr noundef nonnull @.str.440, i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31)
   %32 = load i32, ptr @hf_cip_ssupervisor_cp_owners_app_path_size, align 4
-  %33 = add i32 %18, %.05463
+  %33 = add i32 %18, %.163
   %34 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %32, ptr noundef %3, i32 noundef %33, i32 noundef 1, i32 noundef -2147483648) #6
   %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %33) #6
   %36 = zext i8 %35 to i32
@@ -1166,7 +1166,7 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   br label %.loopexit
 
 41:                                               ; preds = %24
-  %.reass = add i32 %.05463, %invariant.op
+  %.reass = add i32 %.163, %invariant.op
   %42 = load i32, ptr @ett_path, align 4
   %43 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %3, i32 noundef %.reass, i32 noundef %36, i32 noundef %42, ptr noundef nonnull %7, ptr noundef nonnull @.str.441) #6
   %44 = load ptr, ptr %7, align 8

@@ -713,9 +713,9 @@ if.end50:                                         ; preds = %if.end45, %if.end28
 
 if.end54:                                         ; preds = %if.end5, %if.then37, %if.then19, %if.end50
   %keydata2.069 = phi ptr [ %keydata2.0, %if.end50 ], [ %3, %if.then19 ], [ null, %if.then37 ], [ %3, %if.end5 ]
-  %keydata1.168 = phi ptr [ %1, %if.end50 ], [ null, %if.then19 ], [ %1, %if.then37 ], [ %1, %if.end5 ]
-  %keymgmt1.167 = phi ptr [ %0, %if.end50 ], [ %2, %if.then19 ], [ %0, %if.then37 ], [ %0, %if.end5 ]
-  %cmp55 = icmp eq ptr %keydata1.168, null
+  %keydata1.068 = phi ptr [ %1, %if.end50 ], [ null, %if.then19 ], [ %1, %if.then37 ], [ %1, %if.end5 ]
+  %keymgmt1.067 = phi ptr [ %0, %if.end50 ], [ %2, %if.then19 ], [ %0, %if.then37 ], [ %0, %if.end5 ]
+  %cmp55 = icmp eq ptr %keydata1.068, null
   %cmp58 = icmp eq ptr %keydata2.069, null
   %or.cond4 = select i1 %cmp55, i1 %cmp58, i1 false
   br i1 %or.cond4, label %return, label %if.end61
@@ -723,14 +723,14 @@ if.end54:                                         ; preds = %if.end5, %if.then37
 if.end61:                                         ; preds = %if.end54.thread, %if.end54
   %cmp5880 = phi i1 [ %cmp5874, %if.end54.thread ], [ %cmp58, %if.end54 ]
   %cmp5579 = phi i1 [ false, %if.end54.thread ], [ %cmp55, %if.end54 ]
-  %keymgmt1.16778 = phi ptr [ %2, %if.end54.thread ], [ %keymgmt1.167, %if.end54 ]
-  %keydata1.16877 = phi ptr [ %call22, %if.end54.thread ], [ %keydata1.168, %if.end54 ]
+  %keymgmt1.06778 = phi ptr [ %2, %if.end54.thread ], [ %keymgmt1.067, %if.end54 ]
+  %keydata1.06877 = phi ptr [ %call22, %if.end54.thread ], [ %keydata1.068, %if.end54 ]
   %keydata2.06976 = phi ptr [ %3, %if.end54.thread ], [ %keydata2.069, %if.end54 ]
   %or.cond5 = select i1 %cmp5579, i1 true, i1 %cmp5880
   br i1 %or.cond5, label %return, label %if.end68
 
 if.end68:                                         ; preds = %if.end61
-  %call69 = tail call i32 @evp_keymgmt_match(ptr noundef %keymgmt1.16778, ptr noundef %keydata1.16877, ptr noundef %keydata2.06976, i32 noundef %selection) #4
+  %call69 = tail call i32 @evp_keymgmt_match(ptr noundef %keymgmt1.06778, ptr noundef %keydata1.06877, ptr noundef %keydata2.06976, i32 noundef %selection) #4
   br label %return
 
 return:                                           ; preds = %if.end61, %if.end54, %if.end50, %if.then, %if.end68, %if.then14
@@ -972,8 +972,8 @@ if.then5:                                         ; preds = %if.then, %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end, %if.then5, %entry
-  %name.1 = phi ptr [ %call6, %if.then5 ], [ %call, %if.end ], [ null, %entry ]
-  ret ptr %name.1
+  %name.0 = phi ptr [ %call6, %if.then5 ], [ %call, %if.end ], [ null, %entry ]
+  ret ptr %name.0
 }
 
 declare ptr @EVP_KEYMGMT_get0_name(ptr noundef) local_unnamed_addr #1

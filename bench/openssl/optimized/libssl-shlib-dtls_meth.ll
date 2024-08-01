@@ -1072,7 +1072,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %call826 = phi ptr [ %call823, %while.body.lr.ph ], [ %call8, %while.body ]
-  %ret.125 = phi i32 [ %ret.0, %while.body.lr.ph ], [ %and, %while.body ]
+  %ret.225 = phi i32 [ %ret.0, %while.body.lr.ph ], [ %and, %while.body ]
   %data = getelementptr inbounds i8, ptr %call826, i64 8
   %5 = load ptr, ptr %data, align 8
   %6 = load ptr, ptr %next10, align 8
@@ -1080,7 +1080,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %packet_length = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i64, ptr %packet_length, align 8
   %call11 = call i32 @BIO_write_ex(ptr noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %written) #7
-  %and = and i32 %call11, %ret.125
+  %and = and i32 %call11, %ret.225
   %rbuf12 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %rbuf12, align 8
   call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 606) #7
@@ -1093,13 +1093,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
-  %ret.1.lcssa = phi i32 [ %ret.0, %while.cond.preheader ], [ %and, %while.body ]
+  %ret.2.lcssa = phi i32 [ %ret.0, %while.cond.preheader ], [ %and, %while.body ]
   %12 = load ptr, ptr %q, align 8
   call void @pqueue_free(ptr noundef %12) #7
   br label %if.end17
 
 if.end17:                                         ; preds = %while.end, %if.end
-  %ret.2 = phi i32 [ %ret.1.lcssa, %while.end ], [ %ret.0, %if.end ]
+  %ret.1 = phi i32 [ %ret.2.lcssa, %while.end ], [ %ret.0, %if.end ]
   %q18 = getelementptr inbounds i8, ptr %rl, i64 4328
   %13 = load ptr, ptr %q18, align 8
   %cmp19.not = icmp eq ptr %13, null
@@ -1133,7 +1133,7 @@ while.end31:                                      ; preds = %while.body26, %whil
 if.end34:                                         ; preds = %while.end31, %if.end17
   %call35 = call i32 @tls_free(ptr noundef nonnull %rl) #7
   %tobool = icmp ne i32 %call35, 0
-  %tobool36 = icmp ne i32 %ret.2, 0
+  %tobool36 = icmp ne i32 %ret.1, 0
   %19 = select i1 %tobool, i1 %tobool36, i1 false
   %land.ext = zext i1 %19 to i32
   ret i32 %land.ext

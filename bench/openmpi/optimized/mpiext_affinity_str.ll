@@ -1231,7 +1231,7 @@ build_map.exit:                                   ; preds = %39, %.critedge61.i,
 
 .outer.i.us:                                      ; preds = %.thread.i.us, %96
   %.034.ph.i.us = phi i64 [ %143, %.thread.i.us ], [ 0, %96 ]
-  %.02832.ph.i.us = phi i8 [ %.129.i.us, %.thread.i.us ], [ 1, %96 ]
+  %.02832.ph.i.us = phi i8 [ %.2.i.us, %.thread.i.us ], [ 1, %96 ]
   br label %98
 
 98:                                               ; preds = %105, %.outer.i.us
@@ -1301,7 +1301,7 @@ build_map.exit:                                   ; preds = %39, %.critedge61.i,
   br label %132
 
 132:                                              ; preds = %128, %126
-  %.129.i.us = phi i8 [ %.02832.ph.i.us, %128 ], [ 0, %126 ]
+  %.2.i.us = phi i8 [ %.02832.ph.i.us, %128 ], [ 0, %126 ]
   %133 = add nsw i32 %99, -1
   %134 = icmp eq i32 %.02733.i.us, %133
   br i1 %134, label %137, label %135

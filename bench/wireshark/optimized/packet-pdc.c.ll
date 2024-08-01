@@ -281,13 +281,13 @@ define internal i32 @dissect_pdc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 34:                                               ; preds = %66, %28
   %35 = phi i32 [ 8, %28 ], [ %67, %66 ]
-  %.067.i.i = phi i32 [ 6, %28 ], [ %.1.i.i, %66 ]
+  %.167.i.i = phi i32 [ 6, %28 ], [ %.2.i.i, %66 ]
   %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %35) #2
   %37 = load i32, ptr @hf_pdc_simpdu_param, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %37, ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef 0) #2
   %39 = load i32, ptr @ett_pdc_simpdu_var, align 4
   %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #2
-  %41 = add i32 %.067.i.i, 1
+  %41 = add i32 %.167.i.i, 1
   switch i8 %36, label %66 [
     i8 2, label %42
     i8 3, label %49
@@ -296,37 +296,37 @@ define internal i32 @dissect_pdc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 42:                                               ; preds = %34
   %43 = load i32, ptr @hf_pdc_simpdu_var_len, align 4
-  %44 = add i32 %.067.i.i, 3
+  %44 = add i32 %.167.i.i, 3
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef 1, i32 noundef 0) #2
   %46 = load i32, ptr @hf_pdc_simpdu_var_version, align 4
-  %47 = add i32 %.067.i.i, 4
+  %47 = add i32 %.167.i.i, 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0) #2
   br label %66
 
 49:                                               ; preds = %34
   %50 = load i32, ptr @hf_pdc_simpdu_var_len, align 4
-  %51 = add i32 %.067.i.i, 3
+  %51 = add i32 %.167.i.i, 3
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef 0) #2
   %53 = load i32, ptr @hf_pdc_simpdu_var_REFSRC, align 4
-  %54 = add i32 %.067.i.i, 4
+  %54 = add i32 %.167.i.i, 4
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %53, ptr noundef %0, i32 noundef %54, i32 noundef 2, i32 noundef 0) #2
   %56 = load i32, ptr @hf_pdc_simpdu_var_REFDEST, align 4
-  %57 = add i32 %.067.i.i, 6
+  %57 = add i32 %.167.i.i, 6
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %56, ptr noundef %0, i32 noundef %57, i32 noundef 2, i32 noundef 0) #2
   br label %66
 
 59:                                               ; preds = %34
   %60 = load i32, ptr @hf_pdc_simpdu_var_len, align 4
-  %61 = add i32 %.067.i.i, 3
+  %61 = add i32 %.167.i.i, 3
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %60, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef 0) #2
   %63 = load i32, ptr @hf_pdc_simpdu_var_TSEL, align 4
-  %64 = add i32 %.067.i.i, 4
+  %64 = add i32 %.167.i.i, 4
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef 0) #2
   br label %66
 
 66:                                               ; preds = %59, %49, %42, %34
-  %.1.i.i = phi i32 [ %41, %34 ], [ %64, %59 ], [ %57, %49 ], [ %44, %42 ]
-  %67 = add i32 %.1.i.i, 2
+  %.2.i.i = phi i32 [ %41, %34 ], [ %64, %59 ], [ %57, %49 ], [ %44, %42 ]
+  %67 = add i32 %.2.i.i, 2
   %.not.i.i = icmp sgt i32 %67, %11
   br i1 %.not.i.i, label %.sink.split.i, label %34, !llvm.loop !4
 

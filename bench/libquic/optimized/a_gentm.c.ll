@@ -247,8 +247,8 @@ while.end:                                        ; preds = %while.cond
   br i1 %cmp118, label %return, label %if.end122
 
 if.end122:                                        ; preds = %while.end, %for.end
-  %o.2 = phi i32 [ %26, %while.end ], [ %o.0121, %for.end ]
-  %idxprom123 = sext i32 %o.2 to i64
+  %o.1 = phi i32 [ %26, %while.end ], [ %o.0121, %for.end ]
+  %idxprom123 = sext i32 %o.1 to i64
   %arrayidx124 = getelementptr inbounds i8, ptr %2, i64 %idxprom123
   %27 = load i8, ptr %arrayidx124, align 1
   switch i8 %27, label %return [
@@ -259,27 +259,27 @@ if.end122:                                        ; preds = %while.end, %for.end
   ]
 
 if.then128:                                       ; preds = %if.end122
-  %inc129 = add nsw i32 %o.2, 1
+  %inc129 = add nsw i32 %o.1, 1
   br label %if.end238
 
 if.then141:                                       ; preds = %if.end122, %if.end122
   %cmp145 = icmp eq i8 %27, 45
-  %add148 = add nsw i32 %o.2, 5
+  %add148 = add nsw i32 %o.1, 5
   %cmp149 = icmp sgt i32 %add148, %1
   br i1 %cmp149, label %return, label %for.cond153.preheader
 
 for.cond153.preheader:                            ; preds = %if.then141
-  %o.3125 = add nsw i32 %o.2, 1
-  %28 = zext nneg i32 %o.2 to i64
-  %29 = add i32 %o.2, 5
+  %o.4125 = add nsw i32 %o.1, 1
+  %28 = zext nneg i32 %o.1 to i64
+  %29 = add i32 %o.1, 5
   br label %for.body156
 
 for.body156:                                      ; preds = %for.cond153.preheader, %if.end219
   %indvars.iv161 = phi i64 [ 7, %for.cond153.preheader ], [ %indvars.iv.next162, %if.end219 ]
   %indvars.iv158 = phi i64 [ %28, %for.cond153.preheader ], [ %indvars.iv.next159, %if.end219 ]
-  %o.3129 = phi i32 [ %o.3125, %for.cond153.preheader ], [ %39, %if.end219 ]
+  %o.4129 = phi i32 [ %o.4125, %for.cond153.preheader ], [ %39, %if.end219 ]
   %offset.0128 = phi i32 [ 0, %for.cond153.preheader ], [ %offset.1, %if.end219 ]
-  %idxprom157 = sext i32 %o.3129 to i64
+  %idxprom157 = sext i32 %o.4129 to i64
   %arrayidx158 = getelementptr inbounds i8, ptr %2, i64 %idxprom157
   %30 = load i8, ptr %arrayidx158, align 1
   %31 = add i8 %30, -58
@@ -348,8 +348,8 @@ land.lhs.true225:                                 ; preds = %for.end223
   br i1 %tobool228.not, label %return, label %if.end238
 
 if.end238:                                        ; preds = %if.end122, %land.lhs.true225, %for.end223, %if.then128
-  %o.4 = phi i32 [ %inc129, %if.then128 ], [ %29, %land.lhs.true225 ], [ %29, %for.end223 ], [ %o.2, %if.end122 ]
-  %cmp239 = icmp eq i32 %o.4, %1
+  %o.3 = phi i32 [ %inc129, %if.then128 ], [ %29, %land.lhs.true225 ], [ %29, %for.end223 ], [ %o.1, %if.end122 ]
+  %cmp239 = icmp eq i32 %o.3, %1
   %conv240 = zext i1 %cmp239 to i32
   br label %return
 

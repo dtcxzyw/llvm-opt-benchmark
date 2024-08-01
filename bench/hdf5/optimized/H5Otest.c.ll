@@ -623,13 +623,13 @@ define range(i32 -1, 1) i32 @H5O__attr_dense_info_test(i64 noundef %0, ptr nound
   br label %88
 
 88:                                               ; preds = %79, %87
-  %.035 = phi ptr [ %72, %79 ], [ null, %87 ]
+  %.136 = phi ptr [ %72, %79 ], [ null, %87 ]
   %89 = load i64, ptr %5, align 8
   call void @H5AC_tag(i64 noundef %89, ptr noundef null) #2
   br label %90
 
 90:                                               ; preds = %62, %74, %82, %88
-  %.136 = phi ptr [ null, %62 ], [ null, %74 ], [ %72, %82 ], [ %.035, %88 ]
+  %.035 = phi ptr [ null, %62 ], [ null, %74 ], [ %72, %82 ], [ %.136, %88 ]
   %.0 = phi i32 [ -1, %62 ], [ -1, %74 ], [ -1, %82 ], [ 0, %88 ]
   %91 = call i32 @H5B2_close(ptr noundef nonnull %52) #2
   %92 = icmp slt i32 %91, 0
@@ -643,11 +643,11 @@ define range(i32 -1, 1) i32 @H5O__attr_dense_info_test(i64 noundef %0, ptr nound
 
 97:                                               ; preds = %93, %90
   %.1 = phi i32 [ -1, %93 ], [ %.0, %90 ]
-  %.not50 = icmp eq ptr %.136, null
+  %.not50 = icmp eq ptr %.035, null
   br i1 %.not50, label %.thread72, label %98
 
 98:                                               ; preds = %97
-  %99 = call i32 @H5B2_close(ptr noundef nonnull %.136) #2
+  %99 = call i32 @H5B2_close(ptr noundef nonnull %.035) #2
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %101, label %.thread72
 

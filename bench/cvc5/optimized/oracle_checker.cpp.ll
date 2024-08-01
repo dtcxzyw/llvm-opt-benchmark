@@ -1870,7 +1870,7 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61, %for.body.lr.ph
-  %allConst.089 = phi i1 [ true, %for.body.lr.ph ], [ %allConst.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61 ]
+  %allConst.089 = phi i1 [ true, %for.body.lr.ph ], [ %allConst.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61 ]
   %__begin4.sroa.0.088 = phi ptr [ %spec.select.i.i, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %6 = load ptr, ptr %__begin4.sroa.0.088, align 8, !noalias !11
@@ -2018,7 +2018,7 @@ if.end39:                                         ; preds = %invoke.cont27, %_ZN
   br label %cleanup40
 
 cleanup40:                                        ; preds = %invoke.cont17, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, %if.end39
-  %allConst.1 = phi i1 [ false, %if.end39 ], [ %allConst.089, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit ], [ %allConst.089, %invoke.cont17 ]
+  %allConst.2 = phi i1 [ false, %if.end39 ], [ %allConst.089, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit ], [ %allConst.089, %invoke.cont17 ]
   %switch.not = phi i1 [ true, %if.end39 ], [ false, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit ], [ false, %invoke.cont17 ]
   %24 = load ptr, ptr %ref.tmp15, align 8
   %bf.load.i.i51 = load i64, ptr %24, align 8
@@ -2054,7 +2054,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61: ; preds = %cleanup40, %if.then
 
 for.end:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit61
   %.pre93 = load ptr, ptr %n, align 8
-  br i1 %allConst.1, label %if.then44, label %if.end50
+  br i1 %allConst.2, label %if.then44, label %if.end50
 
 if.then44:                                        ; preds = %if.then, %for.end
   %28 = phi ptr [ %5, %if.then ], [ %.pre93, %for.end ]

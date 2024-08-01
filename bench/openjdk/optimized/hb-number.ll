@@ -166,15 +166,15 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   br label %.preheader134.i
 
 .preheader134.i:                                  ; preds = %69, %.preheader134.preheader.i
-  %.078.i = phi i8 [ %.179.i, %69 ], [ 0, %.preheader134.preheader.i ]
-  %.075.i = phi i1 [ %.176.i, %69 ], [ false, %.preheader134.preheader.i ]
-  %.072.i = phi i1 [ %.173.i, %69 ], [ false, %.preheader134.preheader.i ]
-  %.069.i = phi i32 [ %.170.i, %69 ], [ 0, %.preheader134.preheader.i ]
-  %.066.i = phi double [ %.167.i, %69 ], [ 0.000000e+00, %.preheader134.preheader.i ]
+  %.179.i = phi i8 [ %.280.i, %69 ], [ 0, %.preheader134.preheader.i ]
+  %.176.i = phi i1 [ %.277.i, %69 ], [ false, %.preheader134.preheader.i ]
+  %.173.i = phi i1 [ %.274.i, %69 ], [ false, %.preheader134.preheader.i ]
+  %.170.i = phi i32 [ %.271.i, %69 ], [ 0, %.preheader134.preheader.i ]
+  %.167.i = phi double [ %.268.i, %69 ], [ 0.000000e+00, %.preheader134.preheader.i ]
   %.065.i = phi i32 [ %43, %69 ], [ 1, %.preheader134.preheader.i ]
-  %.062.i = phi double [ %.163.i, %69 ], [ 0.000000e+00, %.preheader134.preheader.i ]
-  %.059.i = phi double [ %.160.i, %69 ], [ 0.000000e+00, %.preheader134.preheader.i ]
-  %.1.i = phi ptr [ %70, %69 ], [ %.058.lcssa.i, %.preheader134.preheader.i ]
+  %.163.i = phi double [ %.264.i, %69 ], [ 0.000000e+00, %.preheader134.preheader.i ]
+  %.160.i = phi double [ %.261.i, %69 ], [ 0.000000e+00, %.preheader134.preheader.i ]
+  %.2.i = phi ptr [ %70, %69 ], [ %.058.lcssa.i, %.preheader134.preheader.i ]
   %15 = shl nsw i32 %.065.i, 1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr @_ZL25_double_parser_trans_keys, i64 %16
@@ -188,7 +188,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   %25 = sext i8 %24 to i32
   %26 = load i8, ptr %17, align 2
   %27 = zext i8 %26 to i32
-  %28 = load i8, ptr %.1.i, align 1
+  %28 = load i8, ptr %.2.i, align 1
   %29 = sext i8 %28 to i32
   %.not.i = icmp sgt i32 %27, %29
   br i1 %.not.i, label %35, label %30
@@ -236,52 +236,52 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
 51:                                               ; preds = %46
   %52 = add nsw i32 %29, -48
   %53 = sitofp i32 %52 to double
-  %54 = tail call double @llvm.fmuladd.f64(double %.059.i, double 1.000000e+01, double %53)
+  %54 = tail call double @llvm.fmuladd.f64(double %.160.i, double 1.000000e+01, double %53)
   br label %67
 
 55:                                               ; preds = %46
-  %56 = fcmp ugt double %.062.i, 0x42F9999999999990
+  %56 = fcmp ugt double %.163.i, 0x42F9999999999990
   br i1 %56, label %67, label %57
 
 57:                                               ; preds = %55
   %58 = add nsw i32 %29, -48
   %59 = sitofp i32 %58 to double
-  %60 = tail call double @llvm.fmuladd.f64(double %.062.i, double 1.000000e+01, double %59)
-  %61 = fadd double %.066.i, 1.000000e+00
+  %60 = tail call double @llvm.fmuladd.f64(double %.163.i, double 1.000000e+01, double %59)
+  %61 = fadd double %.167.i, 1.000000e+00
   br label %67
 
 62:                                               ; preds = %46
-  %63 = mul i32 %.069.i, 10
+  %63 = mul i32 %.170.i, 10
   %64 = add i32 %63, -48
   %65 = add i32 %64, %29
   %66 = icmp ugt i32 %65, 2047
-  %.075..i = select i1 %66, i1 true, i1 %.075.i
-  %..069.i = select i1 %66, i32 %.069.i, i32 %65
+  %.176..i = select i1 %66, i1 true, i1 %.176.i
+  %..170.i = select i1 %66, i32 %.170.i, i32 %65
   br label %67
 
 67:                                               ; preds = %62, %57, %55, %51, %50, %49, %46, %35
-  %.179.i = phi i8 [ %.078.i, %35 ], [ %.078.i, %46 ], [ %.078.i, %57 ], [ %.078.i, %55 ], [ %.078.i, %51 ], [ 1, %50 ], [ %.078.i, %49 ], [ %.078.i, %62 ]
-  %.176.i = phi i1 [ %.075.i, %35 ], [ %.075.i, %46 ], [ %.075.i, %57 ], [ %.075.i, %55 ], [ %.075.i, %51 ], [ %.075.i, %50 ], [ %.075.i, %49 ], [ %.075..i, %62 ]
-  %.173.i = phi i1 [ %.072.i, %35 ], [ %.072.i, %46 ], [ %.072.i, %57 ], [ %.072.i, %55 ], [ %.072.i, %51 ], [ %.072.i, %50 ], [ true, %49 ], [ %.072.i, %62 ]
-  %.170.i = phi i32 [ %.069.i, %35 ], [ %.069.i, %46 ], [ %.069.i, %57 ], [ %.069.i, %55 ], [ %.069.i, %51 ], [ %.069.i, %50 ], [ %.069.i, %49 ], [ %..069.i, %62 ]
-  %.167.i = phi double [ %.066.i, %35 ], [ %.066.i, %46 ], [ %61, %57 ], [ %.066.i, %55 ], [ %.066.i, %51 ], [ %.066.i, %50 ], [ %.066.i, %49 ], [ %.066.i, %62 ]
-  %.163.i = phi double [ %.062.i, %35 ], [ %.062.i, %46 ], [ %60, %57 ], [ %.062.i, %55 ], [ %.062.i, %51 ], [ %.062.i, %50 ], [ %.062.i, %49 ], [ %.062.i, %62 ]
-  %.160.i = phi double [ %.059.i, %35 ], [ %.059.i, %46 ], [ %.059.i, %57 ], [ %.059.i, %55 ], [ %54, %51 ], [ %.059.i, %50 ], [ %.059.i, %49 ], [ %.059.i, %62 ]
+  %.280.i = phi i8 [ %.179.i, %35 ], [ %.179.i, %46 ], [ %.179.i, %57 ], [ %.179.i, %55 ], [ %.179.i, %51 ], [ 1, %50 ], [ %.179.i, %49 ], [ %.179.i, %62 ]
+  %.277.i = phi i1 [ %.176.i, %35 ], [ %.176.i, %46 ], [ %.176.i, %57 ], [ %.176.i, %55 ], [ %.176.i, %51 ], [ %.176.i, %50 ], [ %.176.i, %49 ], [ %.176..i, %62 ]
+  %.274.i = phi i1 [ %.173.i, %35 ], [ %.173.i, %46 ], [ %.173.i, %57 ], [ %.173.i, %55 ], [ %.173.i, %51 ], [ %.173.i, %50 ], [ true, %49 ], [ %.173.i, %62 ]
+  %.271.i = phi i32 [ %.170.i, %35 ], [ %.170.i, %46 ], [ %.170.i, %57 ], [ %.170.i, %55 ], [ %.170.i, %51 ], [ %.170.i, %50 ], [ %.170.i, %49 ], [ %..170.i, %62 ]
+  %.268.i = phi double [ %.167.i, %35 ], [ %.167.i, %46 ], [ %61, %57 ], [ %.167.i, %55 ], [ %.167.i, %51 ], [ %.167.i, %50 ], [ %.167.i, %49 ], [ %.167.i, %62 ]
+  %.264.i = phi double [ %.163.i, %35 ], [ %.163.i, %46 ], [ %60, %57 ], [ %.163.i, %55 ], [ %.163.i, %51 ], [ %.163.i, %50 ], [ %.163.i, %49 ], [ %.163.i, %62 ]
+  %.261.i = phi double [ %.160.i, %35 ], [ %.160.i, %46 ], [ %.160.i, %57 ], [ %.160.i, %55 ], [ %54, %51 ], [ %.160.i, %50 ], [ %.160.i, %49 ], [ %.160.i, %62 ]
   %68 = icmp eq i8 %39, 1
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %70 = getelementptr inbounds i8, ptr %.2.i, i64 1
   %.not90.i = icmp eq ptr %70, %1
   br i1 %.not90.i, label %71, label %.preheader134.i
 
 71:                                               ; preds = %69, %67
-  %.2.i = phi ptr [ %.1.i, %67 ], [ %scevgep139.i, %69 ]
-  %72 = fcmp une double %.167.i, 0.000000e+00
+  %.1.i = phi ptr [ %.2.i, %67 ], [ %scevgep139.i, %69 ]
+  %72 = fcmp une double %.268.i, 0.000000e+00
   br i1 %72, label %73, label %85
 
 73:                                               ; preds = %71
-  %74 = fptoui double %.167.i to i32
+  %74 = fptoui double %.268.i to i32
   br label %75
 
 75:                                               ; preds = %80, %73
@@ -305,45 +305,45 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   br i1 %.not.i.i, label %_ZL6_pow10j.exit.i, label %75, !llvm.loop !8
 
 _ZL6_pow10j.exit.i:                               ; preds = %80
-  %83 = fdiv double %.163.i, %.1.i.i
-  %84 = fadd double %.160.i, %83
+  %83 = fdiv double %.264.i, %.1.i.i
+  %84 = fadd double %.261.i, %83
   br label %85
 
 85:                                               ; preds = %_ZL6_pow10j.exit.i, %71
-  %.3.i = phi double [ %84, %_ZL6_pow10j.exit.i ], [ %.160.i, %71 ]
+  %.3.i = phi double [ %84, %_ZL6_pow10j.exit.i ], [ %.261.i, %71 ]
   %86 = fneg double %.3.i
-  %.4.i = select i1 %.173.i, double %86, double %.3.i
-  br i1 %.176.i, label %87, label %95
+  %.4.i = select i1 %.274.i, double %86, double %.3.i
+  br i1 %.277.i, label %87, label %95
 
 87:                                               ; preds = %85
   %88 = fcmp oeq double %.3.i, 0.000000e+00
   br i1 %88, label %_ZL9strtod_rlPKcPS0_.exit, label %89
 
 89:                                               ; preds = %87
-  %90 = trunc nuw i8 %.179.i to i1
+  %90 = trunc nuw i8 %.280.i to i1
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %89
-  %92 = select i1 %.173.i, double 0x8010000000000000, double 0x10000000000000
+  %92 = select i1 %.274.i, double 0x8010000000000000, double 0x10000000000000
   br label %_ZL9strtod_rlPKcPS0_.exit
 
 93:                                               ; preds = %89
-  %94 = select i1 %.173.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
+  %94 = select i1 %.274.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
   br label %_ZL9strtod_rlPKcPS0_.exit
 
 95:                                               ; preds = %85
-  %.not91.i = icmp eq i32 %.170.i, 0
+  %.not91.i = icmp eq i32 %.271.i, 0
   br i1 %.not91.i, label %_ZL9strtod_rlPKcPS0_.exit, label %96
 
 96:                                               ; preds = %95
-  %97 = trunc nuw i8 %.179.i to i1
+  %97 = trunc nuw i8 %.280.i to i1
   br i1 %97, label %.preheader.i, label %.preheader133.i
 
 .preheader.i:                                     ; preds = %96, %102
   %.012.i92.i = phi ptr [ %103, %102 ], [ @_ZZL6_pow10jE13_powers_of_10, %96 ]
   %.0711.i93.i = phi double [ %.1.i96.i, %102 ], [ 1.000000e+00, %96 ]
   %.0810.i94.i = phi i32 [ %104, %102 ], [ 256, %96 ]
-  %98 = and i32 %.0810.i94.i, %.170.i
+  %98 = and i32 %.0810.i94.i, %.271.i
   %.not9.i95.i = icmp eq i32 %98, 0
   br i1 %.not9.i95.i, label %102, label %99
 
@@ -367,7 +367,7 @@ _ZL6_pow10j.exit98.i:                             ; preds = %102
   %.012.i99.i = phi ptr [ %111, %110 ], [ @_ZZL6_pow10jE13_powers_of_10, %96 ]
   %.0711.i100.i = phi double [ %.1.i103.i, %110 ], [ 1.000000e+00, %96 ]
   %.0810.i101.i = phi i32 [ %112, %110 ], [ 256, %96 ]
-  %106 = and i32 %.0810.i101.i, %.170.i
+  %106 = and i32 %.0810.i101.i, %.271.i
   %.not9.i102.i = icmp eq i32 %106, 0
   br i1 %.not9.i102.i, label %110, label %107
 
@@ -388,7 +388,7 @@ _ZL6_pow10j.exit105.i:                            ; preds = %110
   br label %_ZL9strtod_rlPKcPS0_.exit
 
 _ZL9strtod_rlPKcPS0_.exit:                        ; preds = %.critedge.i, %87, %91, %93, %95, %_ZL6_pow10j.exit98.i, %_ZL6_pow10j.exit105.i
-  %.010 = phi ptr [ %1, %.critedge.i ], [ %.2.i, %87 ], [ %.2.i, %91 ], [ %.2.i, %93 ], [ %.2.i, %95 ], [ %.2.i, %_ZL6_pow10j.exit98.i ], [ %.2.i, %_ZL6_pow10j.exit105.i ]
+  %.010 = phi ptr [ %1, %.critedge.i ], [ %.1.i, %87 ], [ %.1.i, %91 ], [ %.1.i, %93 ], [ %.1.i, %95 ], [ %.1.i, %_ZL6_pow10j.exit98.i ], [ %.1.i, %_ZL6_pow10j.exit105.i ]
   %.0.i = phi double [ 0.000000e+00, %.critedge.i ], [ %.4.i, %87 ], [ %92, %91 ], [ %94, %93 ], [ %.4.i, %95 ], [ %105, %_ZL6_pow10j.exit98.i ], [ %113, %_ZL6_pow10j.exit105.i ]
   store double %.0.i, ptr %2, align 8
   %114 = load ptr, ptr %0, align 8

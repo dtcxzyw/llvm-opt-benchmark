@@ -170,8 +170,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %if.end13
   %0 = phi i32 [ %.pre54, %for.body.lr.ph ], [ %5, %if.end13 ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end13 ]
-  %badTags.035 = phi i32 [ 0, %for.body.lr.ph ], [ %badTags.2, %if.end13 ]
-  %openTags.034 = phi i32 [ 0, %for.body.lr.ph ], [ %openTags.1, %if.end13 ]
+  %badTags.135 = phi i32 [ 0, %for.body.lr.ph ], [ %badTags.2, %if.end13 ]
+  %openTags.134 = phi i32 [ 0, %for.body.lr.ph ], [ %openTags.2, %if.end13 ]
   %inMarkup.033 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select22, %if.end13 ]
   %dsti.031 = phi i32 [ 0, %for.body.lr.ph ], [ %dsti.1, %if.end13 ]
   %1 = load ptr, ptr %fRawInput, align 8
@@ -181,10 +181,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %3 = and i8 %inMarkup.033, 1
   %inMarkup.1 = select i1 %cmp3, i8 1, i8 %inMarkup.033
   %add7 = zext i1 %cmp3 to i32
-  %openTags.1 = add nuw nsw i32 %openTags.034, %add7
+  %openTags.2 = add nuw nsw i32 %openTags.134, %add7
   %narrow = select i1 %cmp3, i8 %3, i8 0
   %spec.select = zext nneg i8 %narrow to i32
-  %badTags.2 = add nuw nsw i32 %badTags.035, %spec.select
+  %badTags.2 = add nuw nsw i32 %badTags.135, %spec.select
   %tobool9 = trunc nuw i8 %inMarkup.1 to i1
   br i1 %tobool9, label %if.end13, label %if.then10
 
@@ -212,8 +212,8 @@ if.end13:                                         ; preds = %if.then10, %for.bod
 if.end19:                                         ; preds = %if.end13
   %fInputLen = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %dsti.1, ptr %fInputLen, align 8
-  %cmp20 = icmp ult i32 %openTags.1, 5
-  %div = udiv i32 %openTags.1, 5
+  %cmp20 = icmp ult i32 %openTags.2, 5
+  %div = udiv i32 %openTags.2, 5
   %cmp21 = icmp ult i32 %div, %badTags.2
   %or.cond = select i1 %cmp20, i1 true, i1 %cmp21
   br i1 %or.cond, label %if.then27, label %lor.lhs.false22

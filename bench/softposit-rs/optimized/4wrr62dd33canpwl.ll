@@ -66,7 +66,7 @@ define noundef i16 @"_ZN9softposit7quire167convert43_$LT$impl$u20$softposit..qui
   br i1 %18, label %.lr.ph72, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph72, %.preheader, %._crit_edge
-  %.159 = phi i64 [ %42, %._crit_edge ], [ %.sroa.10.0, %.preheader ], [ %17, %.lr.ph72 ]
+  %.2 = phi i64 [ %42, %._crit_edge ], [ %.sroa.10.0, %.preheader ], [ %17, %.lr.ph72 ]
   %.054 = phi i8 [ %spec.select, %._crit_edge ], [ 0, %.preheader ], [ 0, %.lr.ph72 ]
   %.1 = phi i8 [ %.050.lcssa, %._crit_edge ], [ 64, %.preheader ], [ %16, %.lr.ph72 ]
   %19 = sub i8 71, %.1
@@ -99,20 +99,20 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
 
 .lr.ph:                                           ; preds = %.preheader66, %.lr.ph
   %.05068 = phi i8 [ %35, %.lr.ph ], [ 0, %.preheader66 ]
-  %.267 = phi i64 [ %36, %.lr.ph ], [ %.sroa.01.082, %.preheader66 ]
+  %.15967 = phi i64 [ %36, %.lr.ph ], [ %.sroa.01.082, %.preheader66 ]
   %35 = add i8 %.05068, 1
-  %36 = shl nuw i64 %.267, 1
+  %36 = shl nuw i64 %.15967, 1
   %37 = icmp sgt i64 %36, -1
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader66
-  %.2.lcssa = phi i64 [ %.sroa.01.082, %.preheader66 ], [ %36, %.lr.ph ]
+  %.159.lcssa = phi i64 [ %.sroa.01.082, %.preheader66 ], [ %36, %.lr.ph ]
   %.050.lcssa = phi i8 [ 0, %.preheader66 ], [ %35, %.lr.ph ]
   %38 = sub i8 0, %.050.lcssa
   %39 = and i8 %38, 63
   %40 = zext nneg i8 %39 to i64
   %41 = lshr i64 %.sroa.10.080, %40
-  %42 = add i64 %41, %.2.lcssa
+  %42 = add i64 %41, %.159.lcssa
   %43 = and i8 %.050.lcssa, 63
   %44 = zext nneg i8 %43 to i64
   %45 = shl i64 %.sroa.10.080, %44
@@ -121,7 +121,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   br label %.loopexit
 
 47:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
-  %48 = and i64 %.159, 9223372036854775807
+  %48 = and i64 %.2, 9223372036854775807
   %49 = icmp eq i8 %.sroa.51.0.in.i, 14
   br i1 %49, label %62, label %.thread85
 
@@ -302,21 +302,21 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire16..Q16E1$u20$as$u20$core.
   br label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader12.i.i, %.lr.ph.i.i
-  %.214.i.i = phi i16 [ %21, %.lr.ph.i.i ], [ %12, %.preheader12.i.i ]
-  %.21113.i.i = phi i8 [ %20, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
-  %20 = add nuw nsw i8 %.21113.i.i, 1
-  %21 = shl i16 %.214.i.i, 1
+  %.114.i.i = phi i16 [ %21, %.lr.ph.i.i ], [ %12, %.preheader12.i.i ]
+  %.11013.i.i = phi i8 [ %20, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
+  %20 = add nuw nsw i8 %.11013.i.i, 1
+  %21 = shl i16 %.114.i.i, 1
   %22 = icmp sgt i16 %21, -1
   br i1 %22, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i, label %.lr.ph.i.i
 
 _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %.preheader12.i.i
-  %.110.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %20, %.lr.ph.i.i ]
-  %.1.i.i = phi i16 [ %19, %._crit_edge.i.i ], [ %12, %.preheader12.i.i ], [ %21, %.lr.ph.i.i ]
-  %23 = shl i16 %.1.i.i, 2
+  %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %20, %.lr.ph.i.i ]
+  %.2.i.i = phi i16 [ %19, %._crit_edge.i.i ], [ %12, %.preheader12.i.i ], [ %21, %.lr.ph.i.i ]
+  %23 = shl i16 %.2.i.i, 2
   %24 = zext i16 %23 to i64
   %25 = shl nuw nsw i64 %24, 36
-  %26 = sext i8 %.110.i.i to i64
-  %27 = lshr i16 %.1.i.i, 14
+  %26 = sext i8 %.211.i.i to i64
+  %27 = lshr i16 %.2.i.i, 14
   %28 = zext nneg i16 %27 to i64
   %29 = shl nsw i64 %26, 53
   %30 = shl nuw nsw i64 %28, 52

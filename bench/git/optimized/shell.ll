@@ -426,16 +426,16 @@ if.else83:                                        ; preds = %if.else62
   br label %if.end87
 
 if.end87:                                         ; preds = %if.else, %lor.lhs.false, %lor.lhs.false55, %lor.lhs.false58, %if.else83, %if.end82, %if.end46
-  %done.1 = phi i32 [ 0, %if.end82 ], [ 0, %if.else83 ], [ 0, %if.end46 ], [ 1, %lor.lhs.false58 ], [ 1, %lor.lhs.false55 ], [ 1, %lor.lhs.false ], [ 1, %if.else ]
+  %done.2 = phi i32 [ 0, %if.end82 ], [ 0, %if.else83 ], [ 0, %if.end46 ], [ 1, %lor.lhs.false58 ], [ 1, %lor.lhs.false55 ], [ 1, %lor.lhs.false ], [ 1, %if.else ]
   %17 = load ptr, ptr %argv, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end87, %if.then43
   %.sink = phi ptr [ %17, %if.end87 ], [ %call39, %if.then43 ]
-  %done.2 = phi i32 [ %done.1, %if.end87 ], [ 0, %if.then43 ]
+  %done.1 = phi i32 [ %done.2, %if.end87 ], [ 0, %if.then43 ]
   call void @free(ptr noundef %.sink) #13
   call void @free(ptr noundef %call12) #13
-  %tobool88.not = icmp eq i32 %done.2, 0
+  %tobool88.not = icmp eq i32 %done.1, 0
   br i1 %tobool88.not, label %do.body, label %do.end, !llvm.loop !7
 
 do.end:                                           ; preds = %do.cond, %if.then15

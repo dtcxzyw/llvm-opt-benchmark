@@ -1065,8 +1065,8 @@ define dso_local ptr @convert_file_to_line_array(ptr noundef %0, ptr nocapture n
   br label %6, !llvm.loop !15
 
 .loopexit:                                        ; preds = %8, %6
-  %.2 = phi i32 [ %.013.ph, %6 ], [ %10, %8 ]
-  store i32 %.2, ptr %1, align 4
+  %.114 = phi i32 [ %.013.ph, %6 ], [ %10, %8 ]
+  store i32 %.114, ptr %1, align 4
   %22 = load ptr, ptr %3, align 8
   ret ptr %22
 }

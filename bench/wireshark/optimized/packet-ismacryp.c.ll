@@ -512,7 +512,7 @@ thread-pre-split:                                 ; preds = %26, %13
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %dissect_auheader.exit
   %58 = phi i32 [ %345, %dissect_auheader.exit ], [ 16, %.lr.ph.split.preheader ]
-  %.sroa.0.0142 = phi i32 [ %.sroa.0.10, %dissect_auheader.exit ], [ 2, %.lr.ph.split.preheader ]
+  %.sroa.0.0142 = phi i32 [ %.sroa.0.11, %dissect_auheader.exit ], [ 2, %.lr.ph.split.preheader ]
   %.sroa.58.0141 = phi i8 [ %.sroa.58.8, %dissect_auheader.exit ], [ 0, %.lr.ph.split.preheader ]
   %59 = load i32, ptr @selective_encryption, align 4
   br i1 %55, label %60, label %61
@@ -560,25 +560,25 @@ thread-pre-split:                                 ; preds = %26, %13
   %81 = load i32, ptr @key_indicator_length, align 4
   %82 = shl i32 %81, 3
   %83 = select i1 %80, i32 %82, i32 0
-  %.1.i = add i32 %83, %70
+  %.2.i = add i32 %83, %70
   %84 = load i32, ptr @delta_iv_length, align 4
   %85 = shl i32 %84, 3
-  %86 = add i32 %.1.i, %85
+  %86 = add i32 %.2.i, %85
   %87 = load i32, ptr @au_index_delta_length, align 4
   %88 = add i32 %86, %87
   br label %89
 
 89:                                               ; preds = %78, %72
-  %.2.i = phi i32 [ %77, %72 ], [ %88, %78 ]
+  %.1.i = phi i32 [ %77, %72 ], [ %88, %78 ]
   %90 = load i32, ptr @cts_delta_length, align 4
   %.not221.i = icmp eq i32 %90, 0
   br i1 %.not221.i, label %100, label %91
 
 91:                                               ; preds = %89
-  %92 = add i32 %.2.i, 16
+  %92 = add i32 %.1.i, 16
   %93 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %92, i32 noundef 1) #3
   %94 = zext i8 %93 to i32
-  %95 = add i32 %.2.i, 1
+  %95 = add i32 %.1.i, 1
   %96 = icmp eq i8 %93, 1
   br i1 %96, label %97, label %100
 
@@ -588,7 +588,7 @@ thread-pre-split:                                 ; preds = %26, %13
   br label %100
 
 100:                                              ; preds = %97, %91, %89
-  %.3.i = phi i32 [ %99, %97 ], [ %95, %91 ], [ %.2.i, %89 ]
+  %.3.i = phi i32 [ %99, %97 ], [ %95, %91 ], [ %.1.i, %89 ]
   %.0206.i = phi i32 [ 1, %97 ], [ %94, %91 ], [ 0, %89 ]
   %101 = load i32, ptr @dts_delta_length, align 4
   %.not222.i = icmp eq i32 %101, 0
@@ -756,7 +756,7 @@ thread-pre-split:                                 ; preds = %26, %13
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %138, %133
-  %.sroa.58.2 = phi i8 [ %201, %.thread.sink.split.i ], [ %.sroa.58.0141, %133 ], [ %.sroa.58.0141, %138 ]
+  %.sroa.58.1 = phi i8 [ %201, %.thread.sink.split.i ], [ %.sroa.58.0141, %133 ], [ %.sroa.58.0141, %138 ]
   %.sroa.0.2 = phi i32 [ %199, %.thread.sink.split.i ], [ %.sroa.0.0142, %133 ], [ %.sroa.0.0142, %138 ]
   %202 = load i32, ptr @iv_length, align 4
   %203 = icmp ne i32 %202, 0
@@ -821,7 +821,7 @@ thread-pre-split:                                 ; preds = %26, %13
 
 233:                                              ; preds = %231
   %234 = shl i32 %.sroa.0.4, 3
-  %235 = zext i8 %.sroa.58.2 to i32
+  %235 = zext i8 %.sroa.58.1 to i32
   %236 = add i32 %234, %235
   %237 = load i32, ptr @hf_ismacryp_au_size, align 4
   %238 = tail call ptr @proto_tree_add_bits_item(ptr noundef %130, i32 noundef %237, ptr noundef %0, i32 noundef %236, i32 noundef %232, i32 noundef 0) #3
@@ -835,7 +835,7 @@ thread-pre-split:                                 ; preds = %26, %13
   br label %245
 
 245:                                              ; preds = %233, %231
-  %.sroa.58.3 = phi i8 [ %.sroa.58.2, %231 ], [ %244, %233 ]
+  %.sroa.58.2 = phi i8 [ %.sroa.58.1, %231 ], [ %244, %233 ]
   %.sroa.0.5 = phi i32 [ %.sroa.0.4, %231 ], [ %242, %233 ]
   %246 = load i32, ptr @au_index_length, align 4
   %247 = icmp ne i32 %246, 0
@@ -854,7 +854,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %au_index_length.sink294.i = phi ptr [ @au_index_length, %245 ], [ @au_index_delta_length, %248 ]
   %.str.153.sink.i = phi ptr [ @.str.153, %245 ], [ @.str.143, %248 ]
   %251 = shl i32 %.sroa.0.5, 3
-  %252 = zext i8 %.sroa.58.3 to i32
+  %252 = zext i8 %.sroa.58.2 to i32
   %253 = add i32 %251, %252
   %254 = load i32, ptr %hf_ismacryp_au_index.sink.i, align 4
   %255 = tail call ptr @proto_tree_add_bits_item(ptr noundef %130, i32 noundef %254, ptr noundef %0, i32 noundef %253, i32 noundef %.sink297.i, i32 noundef 0) #3
@@ -868,7 +868,7 @@ thread-pre-split:                                 ; preds = %26, %13
   br label %262
 
 262:                                              ; preds = %.sink.split282.i, %248
-  %.sroa.58.4 = phi i8 [ %261, %.sink.split282.i ], [ %.sroa.58.3, %248 ]
+  %.sroa.58.3 = phi i8 [ %261, %.sink.split282.i ], [ %.sroa.58.2, %248 ]
   %.sroa.0.6 = phi i32 [ %259, %.sink.split282.i ], [ %.sroa.0.5, %248 ]
   %263 = load i32, ptr @cts_delta_length, align 4
   %.not234.i = icmp eq i32 %263, 0
@@ -876,7 +876,7 @@ thread-pre-split:                                 ; preds = %26, %13
 
 264:                                              ; preds = %262
   %265 = shl i32 %.sroa.0.6, 3
-  %266 = zext i8 %.sroa.58.4 to i32
+  %266 = zext i8 %.sroa.58.3 to i32
   %267 = add i32 %265, %266
   %268 = load i32, ptr @hf_ismacryp_cts_flag, align 4
   %269 = tail call ptr @proto_tree_add_bits_item(ptr noundef %130, i32 noundef %268, ptr noundef %0, i32 noundef %267, i32 noundef 1, i32 noundef 0) #3
@@ -905,7 +905,7 @@ thread-pre-split:                                 ; preds = %26, %13
   br label %289
 
 289:                                              ; preds = %276, %264, %262
-  %.sroa.58.5 = phi i8 [ %.sroa.58.4, %262 ], [ %288, %276 ], [ %274, %264 ]
+  %.sroa.58.4 = phi i8 [ %.sroa.58.3, %262 ], [ %288, %276 ], [ %274, %264 ]
   %.sroa.0.7 = phi i32 [ %.sroa.0.6, %262 ], [ %286, %276 ], [ %272, %264 ]
   %290 = load i32, ptr @dts_delta_length, align 4
   %.not235.i = icmp eq i32 %290, 0
@@ -913,7 +913,7 @@ thread-pre-split:                                 ; preds = %26, %13
 
 291:                                              ; preds = %289
   %292 = shl i32 %.sroa.0.7, 3
-  %293 = zext i8 %.sroa.58.5 to i32
+  %293 = zext i8 %.sroa.58.4 to i32
   %294 = add i32 %292, %293
   %295 = load i32, ptr @hf_ismacryp_dts_flag, align 4
   %296 = tail call ptr @proto_tree_add_bits_item(ptr noundef %130, i32 noundef %295, ptr noundef %0, i32 noundef %294, i32 noundef 1, i32 noundef 0) #3
@@ -942,7 +942,7 @@ thread-pre-split:                                 ; preds = %26, %13
   br label %316
 
 316:                                              ; preds = %303, %291, %289
-  %.sroa.58.6 = phi i8 [ %.sroa.58.5, %289 ], [ %315, %303 ], [ %301, %291 ]
+  %.sroa.58.5 = phi i8 [ %.sroa.58.4, %289 ], [ %315, %303 ], [ %301, %291 ]
   %.sroa.0.8 = phi i32 [ %.sroa.0.7, %289 ], [ %313, %303 ], [ %299, %291 ]
   %317 = load i32, ptr @random_access_indication, align 4
   %.not236.i = icmp eq i32 %317, 0
@@ -950,7 +950,7 @@ thread-pre-split:                                 ; preds = %26, %13
 
 318:                                              ; preds = %316
   %319 = shl i32 %.sroa.0.8, 3
-  %320 = zext i8 %.sroa.58.6 to i32
+  %320 = zext i8 %.sroa.58.5 to i32
   %321 = add i32 %319, %320
   %322 = load i32, ptr @hf_ismacryp_rap_flag, align 4
   %323 = tail call ptr @proto_tree_add_bits_item(ptr noundef %130, i32 noundef %322, ptr noundef %0, i32 noundef %321, i32 noundef 1, i32 noundef 0) #3
@@ -962,7 +962,7 @@ thread-pre-split:                                 ; preds = %26, %13
   br label %329
 
 329:                                              ; preds = %318, %316
-  %.sroa.58.7 = phi i8 [ %.sroa.58.6, %316 ], [ %328, %318 ]
+  %.sroa.58.6 = phi i8 [ %.sroa.58.5, %316 ], [ %328, %318 ]
   %.sroa.0.9 = phi i32 [ %.sroa.0.8, %316 ], [ %326, %318 ]
   %330 = load i32, ptr @stream_state_indication, align 4
   %.not237.i = icmp eq i32 %330, 0
@@ -970,7 +970,7 @@ thread-pre-split:                                 ; preds = %26, %13
 
 331:                                              ; preds = %329
   %332 = shl i32 %.sroa.0.9, 3
-  %333 = zext i8 %.sroa.58.7 to i32
+  %333 = zext i8 %.sroa.58.6 to i32
   %334 = add i32 %332, %333
   %335 = load i32, ptr @hf_ismacryp_stream_state, align 4
   %336 = tail call ptr @proto_tree_add_bits_item(ptr noundef %130, i32 noundef %335, ptr noundef %0, i32 noundef %334, i32 noundef %330, i32 noundef 0) #3
@@ -982,9 +982,9 @@ thread-pre-split:                                 ; preds = %26, %13
   br label %dissect_auheader.exit
 
 dissect_auheader.exit:                            ; preds = %329, %331
-  %.sroa.58.8 = phi i8 [ %.sroa.58.7, %329 ], [ %341, %331 ]
-  %.sroa.0.10 = phi i32 [ %.sroa.0.9, %329 ], [ %339, %331 ]
-  %342 = shl i32 %.sroa.0.10, 3
+  %.sroa.58.8 = phi i8 [ %.sroa.58.6, %329 ], [ %341, %331 ]
+  %.sroa.0.11 = phi i32 [ %.sroa.0.9, %329 ], [ %339, %331 ]
+  %342 = shl i32 %.sroa.0.11, 3
   %343 = zext i8 %.sroa.58.8 to i32
   %344 = add i32 %342, %343
   %345 = and i32 %344, 65535
@@ -996,7 +996,7 @@ dissect_auheader.exit:                            ; preds = %329, %331
 
 ._crit_edge:                                      ; preds = %dissect_auheader.exit, %45
   %.sroa.58.0.lcssa = phi i8 [ 0, %45 ], [ %.sroa.58.8, %dissect_auheader.exit ]
-  %.sroa.0.0.lcssa = phi i32 [ 2, %45 ], [ %.sroa.0.10, %dissect_auheader.exit ]
+  %.sroa.0.0.lcssa = phi i32 [ 2, %45 ], [ %.sroa.0.11, %dissect_auheader.exit ]
   %.lcssa134 = phi i32 [ 0, %45 ], [ %346, %dissect_auheader.exit ]
   %.not = icmp eq i32 %.lcssa134, %53
   br i1 %.not, label %351, label %350
@@ -1023,13 +1023,13 @@ dissect_auheader.exit:                            ; preds = %329, %331
   br label %362
 
 362:                                              ; preds = %352, %351
-  %.sroa.0.11 = phi i32 [ %.sroa.0.0.lcssa, %351 ], [ %361, %352 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.lcssa, %351 ], [ %361, %352 ]
   %363 = load i32, ptr @hf_ismacryp_message, align 4
-  %364 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %363, ptr noundef %0, i32 noundef %.sroa.0.11, i32 noundef -1, i32 noundef 0) #3
+  %364 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %363, ptr noundef %0, i32 noundef %.sroa.0.1, i32 noundef -1, i32 noundef 0) #3
   %365 = load i32, ptr @ett_ismacryp_message, align 4
   %366 = tail call ptr @proto_item_add_subtree(ptr noundef %364, i32 noundef %365) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %364, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.144) #3
-  %367 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.sroa.0.11) #3
+  %367 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.sroa.0.1) #3
   %368 = and i32 %367, 65535
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %364, ptr noundef nonnull @.str.145, i32 noundef %368) #3
   ret void

@@ -267,7 +267,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
 
 23:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.0104141 = phi i32 [ 6, %.lr.ph ], [ %.1129, %.thread ]
+  %.0104141 = phi i32 [ 6, %.lr.ph ], [ %.2129, %.thread ]
   %24 = getelementptr %struct.ScanKeyData, ptr %17, i64 %indvars.iv, i32 6
   %25 = load i64, ptr %24, align 8
   %26 = inttoptr i64 %25 to ptr
@@ -426,8 +426,8 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
   unreachable
 
 select.unfold:                                    ; preds = %106, %94, %80, %70, %63, %53, %40, %32, %92, %104, %51, %61
-  %.1 = phi i32 [ %93, %92 ], [ %105, %104 ], [ %52, %51 ], [ %62, %61 ], [ %36, %32 ], [ %43, %40 ], [ %55, %53 ], [ %65, %63 ], [ %75, %70 ], [ %84, %80 ], [ %98, %94 ], [ %110, %106 ]
-  %118 = icmp eq i32 %.1, 0
+  %.2 = phi i32 [ %93, %92 ], [ %105, %104 ], [ %52, %51 ], [ %62, %61 ], [ %36, %32 ], [ %43, %40 ], [ %55, %53 ], [ %65, %63 ], [ %75, %70 ], [ %84, %80 ], [ %98, %94 ], [ %110, %106 ]
+  %118 = icmp eq i32 %.2, 0
   br i1 %118, label %.thread130, label %.thread
 
 .thread130:                                       ; preds = %select.unfold
@@ -435,13 +435,13 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   br label %206
 
 .thread:                                          ; preds = %106, %94, %80, %70, %63, %53, %40, %32, %29, %37, %66, %76, %select.unfold
-  %.1129 = phi i32 [ %.1, %select.unfold ], [ %.0104141, %76 ], [ %.0104141, %66 ], [ %.0104141, %37 ], [ %.0104141, %29 ], [ %.0104141, %32 ], [ %.0104141, %40 ], [ %.0104141, %53 ], [ %.0104141, %63 ], [ %.0104141, %70 ], [ %.0104141, %80 ], [ %.0104141, %94 ], [ %.0104141, %106 ]
+  %.2129 = phi i32 [ %.2, %select.unfold ], [ %.0104141, %76 ], [ %.0104141, %66 ], [ %.0104141, %37 ], [ %.0104141, %29 ], [ %.0104141, %32 ], [ %.0104141, %40 ], [ %.0104141, %53 ], [ %.0104141, %63 ], [ %.0104141, %70 ], [ %.0104141, %80 ], [ %.0104141, %94 ], [ %.0104141, %106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.thread, %.preheader
-  %.0104.lcssa = phi i32 [ 6, %.preheader ], [ %.1129, %.thread ]
+  %.0104.lcssa = phi i32 [ 6, %.preheader ], [ %.2129, %.thread ]
   store i32 0, ptr %8, align 8
   %119 = tail call ptr @palloc(i64 noundef 8) #8
   %120 = getelementptr inbounds i8, ptr %8, i64 8

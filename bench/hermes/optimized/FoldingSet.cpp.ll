@@ -485,28 +485,28 @@ _ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit: ; preds = %if.end.i, %if.
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32
   %10 = phi i32 [ %add.i, %for.body.lr.ph ], [ %add.i31, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32 ]
-  %Pos.063 = phi i32 [ 4, %for.body.lr.ph ], [ %add27, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32 ]
-  %sub = add i32 %Pos.063, -1
+  %Pos.163 = phi i32 [ 4, %for.body.lr.ph ], [ %add27, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32 ]
+  %sub = add i32 %Pos.163, -1
   %conv7 = zext i32 %sub to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv7
   %11 = load i8, ptr %arrayidx.i, align 1
   %conv9 = zext i8 %11 to i32
   %shl = shl nuw i32 %conv9, 24
-  %sub10 = add i32 %Pos.063, -2
+  %sub10 = add i32 %Pos.163, -2
   %conv11 = zext i32 %sub10 to i64
   %arrayidx.i19 = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv11
   %12 = load i8, ptr %arrayidx.i19, align 1
   %conv13 = zext i8 %12 to i32
   %shl14 = shl nuw nsw i32 %conv13, 16
   %or = or disjoint i32 %shl14, %shl
-  %sub15 = add i32 %Pos.063, -3
+  %sub15 = add i32 %Pos.163, -3
   %conv16 = zext i32 %sub15 to i64
   %arrayidx.i20 = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv16
   %13 = load i8, ptr %arrayidx.i20, align 1
   %conv18 = zext i8 %13 to i32
   %shl19 = shl nuw nsw i32 %conv18, 8
   %or20 = or disjoint i32 %or, %shl19
-  %sub21 = add i32 %Pos.063, -4
+  %sub21 = add i32 %Pos.163, -4
   %conv22 = zext i32 %sub21 to i64
   %arrayidx.i21 = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv22
   %14 = load i8, ptr %arrayidx.i21, align 1
@@ -530,14 +530,14 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32: ; preds = %for.bo
   %18 = load i32, ptr %Size.i.i, align 8
   %add.i31 = add i32 %18, 1
   store i32 %add.i31, ptr %Size.i.i, align 8
-  %add27 = add i32 %Pos.063, 4
+  %add27 = add i32 %Pos.163, 4
   %cmp.not = icmp ugt i32 %add27, %conv
   br i1 %cmp.not, label %if.end28, label %for.body, !llvm.loop !4
 
 if.end28:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32, %for.cond.preheader, %_ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit
   %19 = phi i32 [ %conv.i12.i, %_ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit ], [ %add.i, %for.cond.preheader ], [ %add.i31, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32 ]
-  %Pos.1 = phi i32 [ %mul, %_ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit ], [ 4, %for.cond.preheader ], [ %add27, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32 ]
-  %sub30 = sub i32 %Pos.1, %conv
+  %Pos.0 = phi i32 [ %mul, %_ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit ], [ 4, %for.cond.preheader ], [ %add27, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32 ]
+  %sub30 = sub i32 %Pos.0, %conv
   switch i32 %sub30, label %return [
     i32 1, label %sw.bb
     i32 2, label %sw.bb37

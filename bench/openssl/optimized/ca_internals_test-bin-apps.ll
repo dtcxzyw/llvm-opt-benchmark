@@ -282,7 +282,7 @@ land.rhs.lr.ph.lr.ph:                             ; preds = %if.end
 
 land.rhs.lr.ph:                                   ; preds = %land.rhs.lr.ph.lr.ph, %if.end78
   %2 = phi i8 [ %1, %land.rhs.lr.ph.lr.ph ], [ %.pr, %if.end78 ]
-  %p.041 = phi ptr [ %buf, %land.rhs.lr.ph.lr.ph ], [ %p.5.ph, %if.end78 ]
+  %p.041 = phi ptr [ %buf, %land.rhs.lr.ph.lr.ph ], [ %p.4.ph, %if.end78 ]
   %c.040 = phi i8 [ 0, %land.rhs.lr.ph.lr.ph ], [ %c.1, %if.end78 ]
   %3 = load ptr, ptr %call4, align 8
   br label %land.rhs
@@ -373,13 +373,13 @@ while.cond46:                                     ; preds = %while.cond46.prehea
 
 land.rhs62:                                       ; preds = %land.rhs62.lr.ph, %while.body71
   %17 = phi i8 [ %14, %land.rhs62.lr.ph ], [ %20, %while.body71 ]
-  %p.438 = phi ptr [ %p.2, %land.rhs62.lr.ph ], [ %incdec.ptr72, %while.body71 ]
+  %p.538 = phi ptr [ %p.2, %land.rhs62.lr.ph ], [ %incdec.ptr72, %while.body71 ]
   %idxprom65 = zext i8 %17 to i64
   %arrayidx66 = getelementptr inbounds i16, ptr %15, i64 %idxprom65
   %18 = load i16, ptr %arrayidx66, align 2
   %19 = and i16 %18, 8192
   %tobool69.not = icmp eq i16 %19, 0
-  %incdec.ptr72 = getelementptr inbounds i8, ptr %p.438, i64 1
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %p.538, i64 1
   br i1 %tobool69.not, label %while.body71, label %if.end78
 
 while.body71:                                     ; preds = %land.rhs62
@@ -388,10 +388,10 @@ while.body71:                                     ; preds = %land.rhs62
   br i1 %tobool61.not, label %for.end, label %land.rhs62, !llvm.loop !8
 
 if.end78:                                         ; preds = %while.cond46, %land.rhs62
-  %p.438.lcssa.sink = phi ptr [ %p.438, %land.rhs62 ], [ %p.3, %while.cond46 ]
-  %p.5.ph = phi ptr [ %incdec.ptr72, %land.rhs62 ], [ %incdec.ptr56, %while.cond46 ]
-  store i8 0, ptr %p.438.lcssa.sink, align 1
-  %.pr = load i8, ptr %p.5.ph, align 1
+  %p.538.lcssa.sink = phi ptr [ %p.538, %land.rhs62 ], [ %p.3, %while.cond46 ]
+  %p.4.ph = phi ptr [ %incdec.ptr72, %land.rhs62 ], [ %incdec.ptr56, %while.cond46 ]
+  store i8 0, ptr %p.538.lcssa.sink, align 1
+  %.pr = load i8, ptr %p.4.ph, align 1
   %tobool.not35 = icmp eq i8 %.pr, 0
   br i1 %tobool.not35, label %for.end, label %land.rhs.lr.ph
 
@@ -704,8 +704,8 @@ if.then10:                                        ; preds = %if.end3
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then.i, %entry, %if.end3, %if.then10
-  %result.2 = phi ptr [ null, %if.then10 ], [ %call8, %if.end3 ], [ %call4.i, %if.then.i ], [ null, %entry ]
-  ret ptr %result.2
+  %result.0 = phi ptr [ null, %if.then10 ], [ %call8, %if.end3 ], [ %call4.i, %if.then.i ], [ null, %entry ]
+  ret ptr %result.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1812,13 +1812,13 @@ if.else:                                          ; preds = %if.end133
   br label %if.end152
 
 if.end152:                                        ; preds = %if.then145, %if.else
-  %ctx.0 = phi ptr [ %call147, %if.then145 ], [ %call151, %if.else ]
-  %uri.addr.0 = phi ptr [ @.str.38, %if.then145 ], [ %uri, %if.else ]
-  %cmp153 = icmp eq ptr %ctx.0, null
+  %ctx.1 = phi ptr [ %call147, %if.then145 ], [ %call151, %if.else ]
+  %uri.addr.1 = phi ptr [ @.str.38, %if.then145 ], [ %uri, %if.else ]
+  %cmp153 = icmp eq ptr %ctx.1, null
   br i1 %cmp153, label %if.then154, label %if.end159
 
 if.then154:                                       ; preds = %if.end142, %if.end152
-  %uri.addr.0163 = phi ptr [ %uri.addr.0, %if.end152 ], [ @.str.38, %if.end142 ]
+  %uri.addr.1163 = phi ptr [ %uri.addr.1, %if.end152 ], [ @.str.38, %if.end142 ]
   %tobool155.not = icmp eq i32 %quiet, 0
   br i1 %tobool155.not, label %if.then156, label %.thread
 
@@ -1835,7 +1835,7 @@ while.cond.outer.preheader:                       ; preds = %land.lhs.true161, %
   br label %while.cond.outer
 
 land.lhs.true161:                                 ; preds = %if.end159
-  %call162 = call i32 @OSSL_STORE_expect(ptr noundef nonnull %ctx.0, i32 noundef %expect.6) #28
+  %call162 = call i32 @OSSL_STORE_expect(ptr noundef nonnull %ctx.1, i32 noundef %expect.6) #28
   %tobool163.not = icmp eq i32 %call162, 0
   br i1 %tobool163.not, label %if.then164, label %while.cond.outer.preheader
 
@@ -1849,33 +1849,33 @@ if.then166:                                       ; preds = %if.then164
   br label %.thread
 
 while.cond.outer:                                 ; preds = %while.cond.outer.preheader, %sw.epilog
-  %pcrl.addr.0.ph = phi ptr [ %pcrl.addr.2, %sw.epilog ], [ %pcrl, %while.cond.outer.preheader ]
-  %pcert.addr.0.ph = phi ptr [ %pcert.addr.2, %sw.epilog ], [ %pcert, %while.cond.outer.preheader ]
-  %ncerts.0.ph = phi i32 [ %ncerts.1, %sw.epilog ], [ 0, %while.cond.outer.preheader ]
-  %ncrls.0.ph = phi i32 [ %ncrls.1, %sw.epilog ], [ 0, %while.cond.outer.preheader ]
-  %pparams.addr.0.ph = phi ptr [ %pparams.addr.1, %sw.epilog ], [ %pparams, %while.cond.outer.preheader ]
-  %ppubkey.addr.0.ph = phi ptr [ %ppubkey.addr.1, %sw.epilog ], [ %ppubkey, %while.cond.outer.preheader ]
-  %ppkey.addr.0.ph = phi ptr [ %ppkey.addr.1, %sw.epilog ], [ %ppkey, %while.cond.outer.preheader ]
-  %cmp170 = icmp ne ptr %ppkey.addr.0.ph, null
-  %cmp171 = icmp ne ptr %ppubkey.addr.0.ph, null
+  %pcrl.addr.1.ph = phi ptr [ %pcrl.addr.2, %sw.epilog ], [ %pcrl, %while.cond.outer.preheader ]
+  %pcert.addr.1.ph = phi ptr [ %pcert.addr.2, %sw.epilog ], [ %pcert, %while.cond.outer.preheader ]
+  %ncerts.1.ph = phi i32 [ %ncerts.2, %sw.epilog ], [ 0, %while.cond.outer.preheader ]
+  %ncrls.1.ph = phi i32 [ %ncrls.2, %sw.epilog ], [ 0, %while.cond.outer.preheader ]
+  %pparams.addr.1.ph = phi ptr [ %pparams.addr.2, %sw.epilog ], [ %pparams, %while.cond.outer.preheader ]
+  %ppubkey.addr.1.ph = phi ptr [ %ppubkey.addr.2, %sw.epilog ], [ %ppubkey, %while.cond.outer.preheader ]
+  %ppkey.addr.1.ph = phi ptr [ %ppkey.addr.2, %sw.epilog ], [ %ppkey, %while.cond.outer.preheader ]
+  %cmp170 = icmp ne ptr %ppkey.addr.1.ph, null
+  %cmp171 = icmp ne ptr %ppubkey.addr.1.ph, null
   %or.cond = select i1 %cmp170, i1 true, i1 %cmp171
-  %cmp173 = icmp ne ptr %pparams.addr.0.ph, null
+  %cmp173 = icmp ne ptr %pparams.addr.1.ph, null
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp173
-  %cmp175 = icmp ne ptr %pcert.addr.0.ph, null
+  %cmp175 = icmp ne ptr %pcert.addr.1.ph, null
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp175
   %or.cond3 = or i1 %cmp79153158233, %or.cond2
-  %cmp179 = icmp ne ptr %pcrl.addr.0.ph, null
+  %cmp179 = icmp ne ptr %pcrl.addr.1.ph, null
   %or.cond4 = select i1 %or.cond3, i1 true, i1 %cmp179
   %or.cond5 = or i1 %cmp108236, %or.cond4
   br i1 %or.cond5, label %while.cond, label %end
 
 while.cond:                                       ; preds = %while.cond.outer, %while.body
-  %call182 = call i32 @OSSL_STORE_eof(ptr noundef nonnull %ctx.0) #28
+  %call182 = call i32 @OSSL_STORE_eof(ptr noundef nonnull %ctx.1) #28
   %tobool183.not = icmp eq i32 %call182, 0
   br i1 %tobool183.not, label %while.body, label %end
 
 while.body:                                       ; preds = %while.cond
-  %call184 = call ptr @OSSL_STORE_load(ptr noundef nonnull %ctx.0) #28
+  %call184 = call ptr @OSSL_STORE_load(ptr noundef nonnull %ctx.1) #28
   %cmp185 = icmp eq ptr %call184, null
   br i1 %cmp185, label %while.cond, label %if.end187, !llvm.loop !10
 
@@ -1894,10 +1894,10 @@ sw.bb:                                            ; preds = %if.end187
 
 if.then190:                                       ; preds = %sw.bb
   %call191 = call ptr @OSSL_STORE_INFO_get1_PKEY(ptr noundef nonnull %call184) #28
-  store ptr %call191, ptr %ppkey.addr.0.ph, align 8
+  store ptr %call191, ptr %ppkey.addr.1.ph, align 8
   %cmp192 = icmp ne ptr %call191, null
   %conv = zext i1 %cmp192 to i32
-  %spec.select = select i1 %cmp192, ptr null, ptr %ppkey.addr.0.ph
+  %spec.select = select i1 %cmp192, ptr null, ptr %ppkey.addr.1.ph
   br label %sw.epilog
 
 sw.bb197:                                         ; preds = %sw.bb, %if.end187
@@ -1905,10 +1905,10 @@ sw.bb197:                                         ; preds = %sw.bb, %if.end187
 
 if.then200:                                       ; preds = %sw.bb197
   %call201 = call ptr @OSSL_STORE_INFO_get1_PUBKEY(ptr noundef nonnull %call184) #28
-  store ptr %call201, ptr %ppubkey.addr.0.ph, align 8
+  store ptr %call201, ptr %ppubkey.addr.1.ph, align 8
   %cmp202 = icmp ne ptr %call201, null
   %conv203 = zext i1 %cmp202 to i32
-  %spec.select123 = select i1 %cmp202, ptr null, ptr %ppubkey.addr.0.ph
+  %spec.select123 = select i1 %cmp202, ptr null, ptr %ppubkey.addr.1.ph
   br label %sw.epilog
 
 sw.bb208:                                         ; preds = %if.end187
@@ -1916,10 +1916,10 @@ sw.bb208:                                         ; preds = %if.end187
 
 if.then211:                                       ; preds = %sw.bb208
   %call212 = call ptr @OSSL_STORE_INFO_get1_PARAMS(ptr noundef nonnull %call184) #28
-  store ptr %call212, ptr %pparams.addr.0.ph, align 8
+  store ptr %call212, ptr %pparams.addr.1.ph, align 8
   %cmp213 = icmp ne ptr %call212, null
   %conv214 = zext i1 %cmp213 to i32
-  %spec.select124 = select i1 %cmp213, ptr null, ptr %pparams.addr.0.ph
+  %spec.select124 = select i1 %cmp213, ptr null, ptr %pparams.addr.1.ph
   br label %sw.epilog
 
 sw.bb219:                                         ; preds = %if.end187
@@ -1927,10 +1927,10 @@ sw.bb219:                                         ; preds = %if.end187
 
 if.then222:                                       ; preds = %sw.bb219
   %call223 = call ptr @OSSL_STORE_INFO_get1_CERT(ptr noundef nonnull %call184) #28
-  store ptr %call223, ptr %pcert.addr.0.ph, align 8
+  store ptr %call223, ptr %pcert.addr.1.ph, align 8
   %cmp224 = icmp ne ptr %call223, null
   %conv225 = zext i1 %cmp224 to i32
-  %spec.select125 = select i1 %cmp224, ptr null, ptr %pcert.addr.0.ph
+  %spec.select125 = select i1 %cmp224, ptr null, ptr %pcert.addr.1.ph
   br label %if.end236
 
 if.else229:                                       ; preds = %sw.bb219
@@ -1943,9 +1943,9 @@ if.then232:                                       ; preds = %if.else229
   br label %if.end236
 
 if.end236:                                        ; preds = %if.then222, %if.else229, %if.then232
-  %pcert.addr.1 = phi ptr [ null, %if.then232 ], [ null, %if.else229 ], [ %spec.select125, %if.then222 ]
-  %ok.0 = phi i32 [ %call234, %if.then232 ], [ 1, %if.else229 ], [ %conv225, %if.then222 ]
-  %add = add nsw i32 %ok.0, %ncerts.0.ph
+  %pcert.addr.3 = phi ptr [ null, %if.then232 ], [ null, %if.else229 ], [ %spec.select125, %if.then222 ]
+  %ok.1 = phi i32 [ %call234, %if.then232 ], [ 1, %if.else229 ], [ %conv225, %if.then222 ]
+  %add = add nsw i32 %ok.1, %ncerts.1.ph
   br label %sw.epilog
 
 sw.bb237:                                         ; preds = %if.end187
@@ -1953,10 +1953,10 @@ sw.bb237:                                         ; preds = %if.end187
 
 if.then240:                                       ; preds = %sw.bb237
   %call241 = call ptr @OSSL_STORE_INFO_get1_CRL(ptr noundef nonnull %call184) #28
-  store ptr %call241, ptr %pcrl.addr.0.ph, align 8
+  store ptr %call241, ptr %pcrl.addr.1.ph, align 8
   %cmp242 = icmp ne ptr %call241, null
   %conv243 = zext i1 %cmp242 to i32
-  %spec.select126 = select i1 %cmp242, ptr null, ptr %pcrl.addr.0.ph
+  %spec.select126 = select i1 %cmp242, ptr null, ptr %pcrl.addr.1.ph
   br label %if.end256
 
 if.else247:                                       ; preds = %sw.bb237
@@ -1969,22 +1969,22 @@ if.then250:                                       ; preds = %if.else247
   br label %if.end256
 
 if.end256:                                        ; preds = %if.then240, %if.else247, %if.then250
-  %pcrl.addr.1 = phi ptr [ null, %if.then250 ], [ null, %if.else247 ], [ %spec.select126, %if.then240 ]
-  %ok.1 = phi i32 [ %call254, %if.then250 ], [ 1, %if.else247 ], [ %conv243, %if.then240 ]
-  %add257 = add nsw i32 %ok.1, %ncrls.0.ph
+  %pcrl.addr.3 = phi ptr [ null, %if.then250 ], [ null, %if.else247 ], [ %spec.select126, %if.then240 ]
+  %ok.2 = phi i32 [ %call254, %if.then250 ], [ 1, %if.else247 ], [ %conv243, %if.then240 ]
+  %add257 = add nsw i32 %ok.2, %ncrls.1.ph
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then211, %if.then200, %if.then190, %if.end187, %sw.bb208, %sw.bb197, %if.end256, %if.end236
-  %pcrl.addr.2 = phi ptr [ %pcrl.addr.0.ph, %if.end187 ], [ %pcrl.addr.1, %if.end256 ], [ %pcrl.addr.0.ph, %if.end236 ], [ %pcrl.addr.0.ph, %sw.bb208 ], [ %pcrl.addr.0.ph, %sw.bb197 ], [ %pcrl.addr.0.ph, %if.then190 ], [ %pcrl.addr.0.ph, %if.then200 ], [ %pcrl.addr.0.ph, %if.then211 ]
-  %pcert.addr.2 = phi ptr [ %pcert.addr.0.ph, %if.end187 ], [ %pcert.addr.0.ph, %if.end256 ], [ %pcert.addr.1, %if.end236 ], [ %pcert.addr.0.ph, %sw.bb208 ], [ %pcert.addr.0.ph, %sw.bb197 ], [ %pcert.addr.0.ph, %if.then190 ], [ %pcert.addr.0.ph, %if.then200 ], [ %pcert.addr.0.ph, %if.then211 ]
-  %ncerts.1 = phi i32 [ %ncerts.0.ph, %if.end187 ], [ %ncerts.0.ph, %if.end256 ], [ %add, %if.end236 ], [ %ncerts.0.ph, %sw.bb208 ], [ %ncerts.0.ph, %sw.bb197 ], [ %ncerts.0.ph, %if.then190 ], [ %ncerts.0.ph, %if.then200 ], [ %ncerts.0.ph, %if.then211 ]
-  %ncrls.1 = phi i32 [ %ncrls.0.ph, %if.end187 ], [ %add257, %if.end256 ], [ %ncrls.0.ph, %if.end236 ], [ %ncrls.0.ph, %sw.bb208 ], [ %ncrls.0.ph, %sw.bb197 ], [ %ncrls.0.ph, %if.then190 ], [ %ncrls.0.ph, %if.then200 ], [ %ncrls.0.ph, %if.then211 ]
-  %pparams.addr.1 = phi ptr [ %pparams.addr.0.ph, %if.end187 ], [ %pparams.addr.0.ph, %if.end256 ], [ %pparams.addr.0.ph, %if.end236 ], [ null, %sw.bb208 ], [ %pparams.addr.0.ph, %sw.bb197 ], [ %pparams.addr.0.ph, %if.then190 ], [ %pparams.addr.0.ph, %if.then200 ], [ %spec.select124, %if.then211 ]
-  %ppubkey.addr.1 = phi ptr [ %ppubkey.addr.0.ph, %if.end187 ], [ %ppubkey.addr.0.ph, %if.end256 ], [ %ppubkey.addr.0.ph, %if.end236 ], [ %ppubkey.addr.0.ph, %sw.bb208 ], [ null, %sw.bb197 ], [ %ppubkey.addr.0.ph, %if.then190 ], [ %spec.select123, %if.then200 ], [ %ppubkey.addr.0.ph, %if.then211 ]
-  %ppkey.addr.1 = phi ptr [ %ppkey.addr.0.ph, %if.end187 ], [ %ppkey.addr.0.ph, %if.end256 ], [ %ppkey.addr.0.ph, %if.end236 ], [ %ppkey.addr.0.ph, %sw.bb208 ], [ %ppkey.addr.0.ph, %sw.bb197 ], [ %spec.select, %if.then190 ], [ %ppkey.addr.0.ph, %if.then200 ], [ %ppkey.addr.0.ph, %if.then211 ]
-  %ok.2 = phi i32 [ 1, %if.end187 ], [ %ok.1, %if.end256 ], [ %ok.0, %if.end236 ], [ 1, %sw.bb208 ], [ 1, %sw.bb197 ], [ %conv, %if.then190 ], [ %conv203, %if.then200 ], [ %conv214, %if.then211 ]
+  %pcrl.addr.2 = phi ptr [ %pcrl.addr.1.ph, %if.end187 ], [ %pcrl.addr.3, %if.end256 ], [ %pcrl.addr.1.ph, %if.end236 ], [ %pcrl.addr.1.ph, %sw.bb208 ], [ %pcrl.addr.1.ph, %sw.bb197 ], [ %pcrl.addr.1.ph, %if.then190 ], [ %pcrl.addr.1.ph, %if.then200 ], [ %pcrl.addr.1.ph, %if.then211 ]
+  %pcert.addr.2 = phi ptr [ %pcert.addr.1.ph, %if.end187 ], [ %pcert.addr.1.ph, %if.end256 ], [ %pcert.addr.3, %if.end236 ], [ %pcert.addr.1.ph, %sw.bb208 ], [ %pcert.addr.1.ph, %sw.bb197 ], [ %pcert.addr.1.ph, %if.then190 ], [ %pcert.addr.1.ph, %if.then200 ], [ %pcert.addr.1.ph, %if.then211 ]
+  %ncerts.2 = phi i32 [ %ncerts.1.ph, %if.end187 ], [ %ncerts.1.ph, %if.end256 ], [ %add, %if.end236 ], [ %ncerts.1.ph, %sw.bb208 ], [ %ncerts.1.ph, %sw.bb197 ], [ %ncerts.1.ph, %if.then190 ], [ %ncerts.1.ph, %if.then200 ], [ %ncerts.1.ph, %if.then211 ]
+  %ncrls.2 = phi i32 [ %ncrls.1.ph, %if.end187 ], [ %add257, %if.end256 ], [ %ncrls.1.ph, %if.end236 ], [ %ncrls.1.ph, %sw.bb208 ], [ %ncrls.1.ph, %sw.bb197 ], [ %ncrls.1.ph, %if.then190 ], [ %ncrls.1.ph, %if.then200 ], [ %ncrls.1.ph, %if.then211 ]
+  %pparams.addr.2 = phi ptr [ %pparams.addr.1.ph, %if.end187 ], [ %pparams.addr.1.ph, %if.end256 ], [ %pparams.addr.1.ph, %if.end236 ], [ null, %sw.bb208 ], [ %pparams.addr.1.ph, %sw.bb197 ], [ %pparams.addr.1.ph, %if.then190 ], [ %pparams.addr.1.ph, %if.then200 ], [ %spec.select124, %if.then211 ]
+  %ppubkey.addr.2 = phi ptr [ %ppubkey.addr.1.ph, %if.end187 ], [ %ppubkey.addr.1.ph, %if.end256 ], [ %ppubkey.addr.1.ph, %if.end236 ], [ %ppubkey.addr.1.ph, %sw.bb208 ], [ null, %sw.bb197 ], [ %ppubkey.addr.1.ph, %if.then190 ], [ %spec.select123, %if.then200 ], [ %ppubkey.addr.1.ph, %if.then211 ]
+  %ppkey.addr.2 = phi ptr [ %ppkey.addr.1.ph, %if.end187 ], [ %ppkey.addr.1.ph, %if.end256 ], [ %ppkey.addr.1.ph, %if.end236 ], [ %ppkey.addr.1.ph, %sw.bb208 ], [ %ppkey.addr.1.ph, %sw.bb197 ], [ %spec.select, %if.then190 ], [ %ppkey.addr.1.ph, %if.then200 ], [ %ppkey.addr.1.ph, %if.then211 ]
+  %ok.0 = phi i32 [ 1, %if.end187 ], [ %ok.2, %if.end256 ], [ %ok.1, %if.end236 ], [ 1, %sw.bb208 ], [ 1, %sw.bb197 ], [ %conv, %if.then190 ], [ %conv203, %if.then200 ], [ %conv214, %if.then211 ]
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %call184) #28
-  %tobool258.not = icmp eq i32 %ok.2, 0
+  %tobool258.not = icmp eq i32 %ok.0, 0
   br i1 %tobool258.not, label %if.then259, label %while.cond.outer, !llvm.loop !10
 
 if.then259:                                       ; preds = %sw.epilog
@@ -1998,57 +1998,57 @@ if.then262:                                       ; preds = %if.then259
   br label %end
 
 .thread:                                          ; preds = %if.then139, %if.then137, %if.then166, %if.then164, %if.then156, %if.then154, %if.then116, %if.then114, %if.then86, %if.then84
-  %ctx.1.ph = phi ptr [ null, %if.then139 ], [ null, %if.then137 ], [ %ctx.0, %if.then166 ], [ %ctx.0, %if.then164 ], [ null, %if.then156 ], [ null, %if.then154 ], [ null, %if.then116 ], [ null, %if.then114 ], [ null, %if.then86 ], [ null, %if.then84 ]
+  %ctx.0.ph = phi ptr [ null, %if.then139 ], [ null, %if.then137 ], [ %ctx.1, %if.then166 ], [ %ctx.1, %if.then164 ], [ null, %if.then156 ], [ null, %if.then154 ], [ null, %if.then116 ], [ null, %if.then114 ], [ null, %if.then86 ], [ null, %if.then84 ]
   %failed.0.ph = phi ptr [ %cond28130133140144148152159231, %if.then139 ], [ %cond28130133140144148152159231, %if.then137 ], [ %cond28130133140144148152159231, %if.then166 ], [ %cond28130133140144148152159231, %if.then164 ], [ %cond28130133140144148152159231, %if.then156 ], [ %cond28130133140144148152159231, %if.then154 ], [ %cond28130133140144148152159232, %if.then116 ], [ %cond28130133140144148152159232, %if.then114 ], [ %cond28130133, %if.then86 ], [ %cond28130133, %if.then84 ]
-  %uri.addr.1.ph = phi ptr [ null, %if.then139 ], [ null, %if.then137 ], [ %uri.addr.0, %if.then166 ], [ %uri.addr.0, %if.then164 ], [ %uri.addr.0163, %if.then156 ], [ %uri.addr.0163, %if.then154 ], [ %uri, %if.then116 ], [ %uri, %if.then114 ], [ %uri, %if.then86 ], [ %uri, %if.then84 ]
-  %call266174 = call i32 @OSSL_STORE_close(ptr noundef %ctx.1.ph) #28
+  %uri.addr.0.ph = phi ptr [ null, %if.then139 ], [ null, %if.then137 ], [ %uri.addr.1, %if.then166 ], [ %uri.addr.1, %if.then164 ], [ %uri.addr.1163, %if.then156 ], [ %uri.addr.1163, %if.then154 ], [ %uri, %if.then116 ], [ %uri, %if.then114 ], [ %uri, %if.then86 ], [ %uri, %if.then84 ]
+  %call266174 = call i32 @OSSL_STORE_close(ptr noundef %ctx.0.ph) #28
   br label %16
 
 end:                                              ; preds = %while.cond.outer, %while.cond, %if.then262, %if.then259
-  %pcrl.addr.3 = phi ptr [ %pcrl.addr.2, %if.then259 ], [ %pcrl.addr.2, %if.then262 ], [ %pcrl.addr.0.ph, %while.cond ], [ null, %while.cond.outer ]
-  %pcert.addr.3 = phi ptr [ %pcert.addr.2, %if.then259 ], [ %pcert.addr.2, %if.then262 ], [ %pcert.addr.0.ph, %while.cond ], [ null, %while.cond.outer ]
-  %ncerts.2 = phi i32 [ %ncerts.1, %if.then259 ], [ %ncerts.1, %if.then262 ], [ %ncerts.0.ph, %while.cond ], [ %ncerts.0.ph, %while.cond.outer ]
-  %ncrls.2 = phi i32 [ %ncrls.1, %if.then259 ], [ %ncrls.1, %if.then262 ], [ %ncrls.0.ph, %while.cond ], [ %ncrls.0.ph, %while.cond.outer ]
+  %pcrl.addr.0 = phi ptr [ %pcrl.addr.2, %if.then259 ], [ %pcrl.addr.2, %if.then262 ], [ %pcrl.addr.1.ph, %while.cond ], [ null, %while.cond.outer ]
+  %pcert.addr.0 = phi ptr [ %pcert.addr.2, %if.then259 ], [ %pcert.addr.2, %if.then262 ], [ %pcert.addr.1.ph, %while.cond ], [ null, %while.cond.outer ]
+  %ncerts.0 = phi i32 [ %ncerts.2, %if.then259 ], [ %ncerts.2, %if.then262 ], [ %ncerts.1.ph, %while.cond ], [ %ncerts.1.ph, %while.cond.outer ]
+  %ncrls.0 = phi i32 [ %ncrls.2, %if.then259 ], [ %ncrls.2, %if.then262 ], [ %ncrls.1.ph, %while.cond ], [ %ncrls.1.ph, %while.cond.outer ]
   %failed.0 = phi ptr [ %call260, %if.then259 ], [ %call260, %if.then262 ], [ null, %while.cond ], [ null, %while.cond.outer ]
-  %pparams.addr.2 = phi ptr [ %pparams.addr.1, %if.then259 ], [ %pparams.addr.1, %if.then262 ], [ %pparams.addr.0.ph, %while.cond ], [ null, %while.cond.outer ]
-  %ppubkey.addr.2 = phi ptr [ %ppubkey.addr.1, %if.then259 ], [ %ppubkey.addr.1, %if.then262 ], [ %ppubkey.addr.0.ph, %while.cond ], [ null, %while.cond.outer ]
-  %ppkey.addr.2 = phi ptr [ %ppkey.addr.1, %if.then259 ], [ %ppkey.addr.1, %if.then262 ], [ %ppkey.addr.0.ph, %while.cond ], [ null, %while.cond.outer ]
-  %call266 = call i32 @OSSL_STORE_close(ptr noundef nonnull %ctx.0) #28
-  %ncerts.2.fr = freeze i32 %ncerts.2
-  %cmp267 = icmp sgt i32 %ncerts.2.fr, 0
+  %pparams.addr.0 = phi ptr [ %pparams.addr.2, %if.then259 ], [ %pparams.addr.2, %if.then262 ], [ %pparams.addr.1.ph, %while.cond ], [ null, %while.cond.outer ]
+  %ppubkey.addr.0 = phi ptr [ %ppubkey.addr.2, %if.then259 ], [ %ppubkey.addr.2, %if.then262 ], [ %ppubkey.addr.1.ph, %while.cond ], [ null, %while.cond.outer ]
+  %ppkey.addr.0 = phi ptr [ %ppkey.addr.2, %if.then259 ], [ %ppkey.addr.2, %if.then262 ], [ %ppkey.addr.1.ph, %while.cond ], [ null, %while.cond.outer ]
+  %call266 = call i32 @OSSL_STORE_close(ptr noundef nonnull %ctx.1) #28
+  %ncerts.0.fr = freeze i32 %ncerts.0
+  %cmp267 = icmp sgt i32 %ncerts.0.fr, 0
   %spec.select203 = select i1 %cmp267, ptr null, ptr %pcerts
-  %ncrls.2.fr = freeze i32 %ncrls.2
-  %cmp271 = icmp sgt i32 %ncrls.2.fr, 0
+  %ncrls.0.fr = freeze i32 %ncrls.0
+  %cmp271 = icmp sgt i32 %ncrls.0.fr, 0
   %spec.select204 = select i1 %cmp271, ptr null, ptr %pcrls
   br label %16
 
 16:                                               ; preds = %end, %.thread
   %17 = phi ptr [ %pcerts, %.thread ], [ %spec.select203, %end ]
-  %pcrl.addr.3177202 = phi ptr [ %pcrl, %.thread ], [ %pcrl.addr.3, %end ]
-  %pcert.addr.3178201 = phi ptr [ %pcert, %.thread ], [ %pcert.addr.3, %end ]
+  %pcrl.addr.0177202 = phi ptr [ %pcrl, %.thread ], [ %pcrl.addr.0, %end ]
+  %pcert.addr.0178201 = phi ptr [ %pcert, %.thread ], [ %pcert.addr.0, %end ]
   %failed.0180200 = phi ptr [ %failed.0.ph, %.thread ], [ %failed.0, %end ]
-  %pparams.addr.2181199 = phi ptr [ %pparams, %.thread ], [ %pparams.addr.2, %end ]
-  %ppubkey.addr.2182198 = phi ptr [ %ppubkey, %.thread ], [ %ppubkey.addr.2, %end ]
-  %ppkey.addr.2183197 = phi ptr [ %ppkey, %.thread ], [ %ppkey.addr.2, %end ]
-  %uri.addr.1184196 = phi ptr [ %uri.addr.1.ph, %.thread ], [ %uri.addr.0, %end ]
+  %pparams.addr.0181199 = phi ptr [ %pparams, %.thread ], [ %pparams.addr.0, %end ]
+  %ppubkey.addr.0182198 = phi ptr [ %ppubkey, %.thread ], [ %ppubkey.addr.0, %end ]
+  %ppkey.addr.0183197 = phi ptr [ %ppkey, %.thread ], [ %ppkey.addr.0, %end ]
+  %uri.addr.0184196 = phi ptr [ %uri.addr.0.ph, %.thread ], [ %uri.addr.1, %end ]
   %18 = phi ptr [ %pcrls, %.thread ], [ %spec.select204, %end ]
   %cmp275 = icmp eq ptr %failed.0180200, null
   br i1 %cmp275, label %if.then277, label %if.end324
 
 if.then277:                                       ; preds = %16
-  %cmp278.not = icmp eq ptr %ppkey.addr.2183197, null
+  %cmp278.not = icmp eq ptr %ppkey.addr.0183197, null
   br i1 %cmp278.not, label %cond.false281, label %cond.end315
 
 cond.false281:                                    ; preds = %if.then277
-  %cmp282.not = icmp eq ptr %ppubkey.addr.2182198, null
+  %cmp282.not = icmp eq ptr %ppubkey.addr.0182198, null
   br i1 %cmp282.not, label %cond.false285, label %cond.end315
 
 cond.false285:                                    ; preds = %cond.false281
-  %cmp286.not = icmp eq ptr %pparams.addr.2181199, null
+  %cmp286.not = icmp eq ptr %pparams.addr.0181199, null
   br i1 %cmp286.not, label %cond.false289, label %cond.end315
 
 cond.false289:                                    ; preds = %cond.false285
-  %cmp290.not = icmp eq ptr %pcert.addr.3178201, null
+  %cmp290.not = icmp eq ptr %pcert.addr.0178201, null
   br i1 %cmp290.not, label %cond.false293, label %cond.end315
 
 cond.false293:                                    ; preds = %cond.false289
@@ -2056,7 +2056,7 @@ cond.false293:                                    ; preds = %cond.false289
   br i1 %cmp294.not, label %cond.false297, label %cond.end315
 
 cond.false297:                                    ; preds = %cond.false293
-  %cmp298.not = icmp eq ptr %pcrl.addr.3177202, null
+  %cmp298.not = icmp eq ptr %pcrl.addr.0177202, null
   %cmp302.not = icmp eq ptr %18, null
   %cond304 = select i1 %cmp302.not, ptr null, ptr @.str.36
   %cond306 = select i1 %cmp298.not, ptr %cond304, ptr @.str.23
@@ -2108,12 +2108,12 @@ if.end346.critedge:                               ; preds = %if.then329
   br label %if.end346
 
 if.end346:                                        ; preds = %if.end346.critedge, %if.then343, %if.then337
-  %cmp347.not = icmp eq ptr %uri.addr.1184196, null
+  %cmp347.not = icmp eq ptr %uri.addr.0184196, null
   br i1 %cmp347.not, label %if.end351, label %if.then349
 
 if.then349:                                       ; preds = %if.end346
   %23 = load ptr, ptr @bio_err, align 8
-  %call350 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef nonnull @.str.49, ptr noundef nonnull %uri.addr.1184196) #28
+  %call350 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef nonnull @.str.49, ptr noundef nonnull %uri.addr.0184196) #28
   br label %if.end351
 
 if.end351:                                        ; preds = %if.then349, %if.end346
@@ -2298,9 +2298,9 @@ if.end9:                                          ; preds = %entry
   br i1 %cmp10.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %if.else, %if.end, %if.end9
-  %csr.118 = phi ptr [ %call, %if.end9 ], [ %call4, %if.end ], [ %call1, %if.else ]
-  %call12 = tail call ptr @X509_REQ_get0_pubkey(ptr noundef nonnull %csr.118) #28
-  %call13 = tail call i32 @do_X509_REQ_verify(ptr noundef nonnull %csr.118, ptr noundef %call12, ptr noundef %vfyopts)
+  %csr.018 = phi ptr [ %call, %if.end9 ], [ %call4, %if.end ], [ %call1, %if.else ]
+  %call12 = tail call ptr @X509_REQ_get0_pubkey(ptr noundef nonnull %csr.018) #28
+  %call13 = tail call i32 @do_X509_REQ_verify(ptr noundef nonnull %csr.018, ptr noundef %call12, ptr noundef %vfyopts)
   %cmp14 = icmp eq ptr %call12, null
   %cmp15 = icmp slt i32 %call13, 0
   %or.cond = select i1 %cmp14, i1 true, i1 %cmp15
@@ -2321,8 +2321,8 @@ if.then20:                                        ; preds = %if.else18
   br label %return
 
 return:                                           ; preds = %if.end9.thread20, %if.end9, %if.then16, %if.then20, %if.else18
-  %csr.119 = phi ptr [ null, %if.end9 ], [ %csr.118, %if.then16 ], [ %csr.118, %if.then20 ], [ %csr.118, %if.else18 ], [ null, %if.end9.thread20 ]
-  ret ptr %csr.119
+  %csr.019 = phi ptr [ null, %if.end9 ], [ %csr.018, %if.then16 ], [ %csr.018, %if.then20 ], [ %csr.018, %if.else18 ], [ null, %if.end9.thread20 ]
+  ret ptr %csr.019
 }
 
 declare void @ERR_clear_error() local_unnamed_addr #2
@@ -2585,9 +2585,9 @@ if.then:                                          ; preds = %while.body, %entry,
   br label %while.cond11
 
 while.cond11:                                     ; preds = %while.cond11, %if.then
-  %opt.addr.0.pn = phi ptr [ %opt.addr.013, %if.then ], [ %opt.addr.1, %while.cond11 ]
-  %opt.addr.1 = getelementptr inbounds i8, ptr %opt.addr.0.pn, i64 1
-  %7 = load i8, ptr %opt.addr.1, align 1
+  %opt.addr.0.pn = phi ptr [ %opt.addr.013, %if.then ], [ %opt.addr.2, %while.cond11 ]
+  %opt.addr.2 = getelementptr inbounds i8, ptr %opt.addr.0.pn, i64 1
+  %7 = load i8, ptr %opt.addr.2, align 1
   %idxprom14 = zext i8 %7 to i64
   %arrayidx15 = getelementptr inbounds i16, ptr %6, i64 %idxprom14
   %8 = load i16, ptr %arrayidx15, align 2
@@ -2597,7 +2597,7 @@ while.cond11:                                     ; preds = %while.cond11, %if.t
 
 if.end.loopexit:                                  ; preds = %while.cond11
   %10 = icmp eq i8 %7, 0
-  %11 = select i1 %10, ptr null, ptr %opt.addr.1
+  %11 = select i1 %10, ptr null, ptr %opt.addr.2
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %while.end
@@ -2658,10 +2658,10 @@ get_passwd.exit.thread:                           ; preds = %if.then10.i, %if.en
   br label %clear_free.exit
 
 if.then.i:                                        ; preds = %if.end3.i, %if.then.i.i
-  %result.2.i = phi ptr [ %call8.i, %if.end3.i ], [ %call4.i.i, %if.then.i.i ]
-  %call9 = tail call i32 @load_key_certs_crls(ptr noundef %uri, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %result.2.i, ptr noundef nonnull %desc.addr.0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %pcert, ptr noundef %pcerts, ptr noundef null, ptr noundef null)
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %result.2.i) #30
-  tail call void @CRYPTO_clear_free(ptr noundef nonnull %result.2.i, i64 noundef %call.i, ptr noundef nonnull @.str.1, i32 noundef 599) #28
+  %result.0.i = phi ptr [ %call8.i, %if.end3.i ], [ %call4.i.i, %if.then.i.i ]
+  %call9 = tail call i32 @load_key_certs_crls(ptr noundef %uri, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %result.0.i, ptr noundef nonnull %desc.addr.0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %pcert, ptr noundef %pcerts, ptr noundef null, ptr noundef null)
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %result.0.i) #30
+  tail call void @CRYPTO_clear_free(ptr noundef nonnull %result.0.i, i64 noundef %call.i, ptr noundef nonnull @.str.1, i32 noundef 599) #28
   br label %clear_free.exit
 
 clear_free.exit:                                  ; preds = %get_passwd.exit.thread, %if.then.i
@@ -2808,9 +2808,9 @@ if.then.i:                                        ; preds = %while.body.i, %whil
   br label %while.cond11.i
 
 while.cond11.i:                                   ; preds = %while.cond11.i, %if.then.i
-  %opt.addr.0.pn.i = phi ptr [ %opt.addr.013.i, %if.then.i ], [ %opt.addr.1.i, %while.cond11.i ]
-  %opt.addr.1.i = getelementptr inbounds i8, ptr %opt.addr.0.pn.i, i64 1
-  %7 = load i8, ptr %opt.addr.1.i, align 1
+  %opt.addr.0.pn.i = phi ptr [ %opt.addr.013.i, %if.then.i ], [ %opt.addr.2.i, %while.cond11.i ]
+  %opt.addr.2.i = getelementptr inbounds i8, ptr %opt.addr.0.pn.i, i64 1
+  %7 = load i8, ptr %opt.addr.2.i, align 1
   %idxprom14.i = zext i8 %7 to i64
   %arrayidx15.i = getelementptr inbounds i16, ptr %6, i64 %idxprom14.i
   %8 = load i16, ptr %arrayidx15.i, align 2
@@ -2820,7 +2820,7 @@ while.cond11.i:                                   ; preds = %while.cond11.i, %if
 
 if.end.loopexit.i:                                ; preds = %while.cond11.i
   %10 = icmp eq i8 %7, 0
-  %11 = select i1 %10, ptr null, ptr %opt.addr.1.i
+  %11 = select i1 %10, ptr null, ptr %opt.addr.2.i
   br label %next_item.exit
 
 next_item.exit:                                   ; preds = %while.end.i, %if.end.loopexit.i
@@ -2913,9 +2913,9 @@ if.then.i:                                        ; preds = %while.body.i, %whil
   br label %while.cond11.i
 
 while.cond11.i:                                   ; preds = %while.cond11.i, %if.then.i
-  %opt.addr.0.pn.i = phi ptr [ %opt.addr.013.i, %if.then.i ], [ %opt.addr.1.i, %while.cond11.i ]
-  %opt.addr.1.i = getelementptr inbounds i8, ptr %opt.addr.0.pn.i, i64 1
-  %7 = load i8, ptr %opt.addr.1.i, align 1
+  %opt.addr.0.pn.i = phi ptr [ %opt.addr.013.i, %if.then.i ], [ %opt.addr.2.i, %while.cond11.i ]
+  %opt.addr.2.i = getelementptr inbounds i8, ptr %opt.addr.0.pn.i, i64 1
+  %7 = load i8, ptr %opt.addr.2.i, align 1
   %idxprom14.i = zext i8 %7 to i64
   %arrayidx15.i = getelementptr inbounds i16, ptr %6, i64 %idxprom14.i
   %8 = load i16, ptr %arrayidx15.i, align 2
@@ -2925,7 +2925,7 @@ while.cond11.i:                                   ; preds = %while.cond11.i, %if
 
 if.end.loopexit.i:                                ; preds = %while.cond11.i
   %10 = icmp eq i8 %7, 0
-  %11 = select i1 %10, ptr null, ptr %opt.addr.1.i
+  %11 = select i1 %10, ptr null, ptr %opt.addr.2.i
   br label %next_item.exit
 
 next_item.exit:                                   ; preds = %while.end.i, %if.end.loopexit.i
@@ -3626,7 +3626,7 @@ if.then31:                                        ; preds = %if.end27
   br label %if.then43
 
 if.end34:                                         ; preds = %if.end27, %land.lhs.true.i
-  %ret.0 = phi ptr [ %call11, %land.lhs.true.i ], [ %call28, %if.end27 ]
+  %ret.1 = phi ptr [ %call11, %land.lhs.true.i ], [ %call28, %if.end27 ]
   %cmp37.not = icmp eq ptr %retai, null
   br i1 %cmp37.not, label %if.end44, label %if.then39
 
@@ -3642,11 +3642,11 @@ if.then43:                                        ; preds = %if.then18, %if.then
 
 if.end44:                                         ; preds = %if.then39, %if.end34, %if.then43
   %ai.032 = phi ptr [ %call, %if.then43 ], [ null, %if.then39 ], [ %call, %if.end34 ]
-  %ret.130 = phi ptr [ null, %if.then43 ], [ %ret.0, %if.then39 ], [ %ret.0, %if.end34 ]
+  %ret.030 = phi ptr [ null, %if.then43 ], [ %ret.1, %if.then39 ], [ %ret.1, %if.end34 ]
   %in.028 = phi ptr [ %in.0.ph, %if.then43 ], [ %call1, %if.then39 ], [ %call1, %if.end34 ]
   %call45 = call i32 @BIO_free(ptr noundef %in.028) #28
   call void @ASN1_INTEGER_free(ptr noundef %ai.032) #28
-  ret ptr %ret.130
+  ret ptr %ret.030
 }
 
 declare ptr @ASN1_INTEGER_new() local_unnamed_addr #2

@@ -1578,7 +1578,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %171, %pmix_pointer_
 pmix_pointer_array_get_item.exit197:              ; preds = %188, %203
   %194 = phi ptr [ %204, %203 ], [ %190, %188 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %203 ], [ 0, %188 ]
-  %.0139222 = phi ptr [ %.1, %203 ], [ null, %188 ]
+  %.0139222 = phi ptr [ %.2, %203 ], [ null, %188 ]
   %195 = getelementptr inbounds i8, ptr %194, i64 152
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds ptr, ptr %196, i64 %indvars.iv
@@ -1598,7 +1598,7 @@ pmix_pointer_array_get_item.exit197:              ; preds = %188, %203
 
 203:                                              ; preds = %._crit_edge234, %pmix_pointer_array_get_item.exit197
   %204 = phi ptr [ %.pre235, %._crit_edge234 ], [ %194, %pmix_pointer_array_get_item.exit197 ]
-  %.1 = phi ptr [ %198, %._crit_edge234 ], [ %.0139222, %pmix_pointer_array_get_item.exit197 ]
+  %.2 = phi ptr [ %198, %._crit_edge234 ], [ %.0139222, %pmix_pointer_array_get_item.exit197 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %205 = getelementptr inbounds i8, ptr %204, i64 128
   %206 = load i32, ptr %205, align 8
@@ -1607,7 +1607,7 @@ pmix_pointer_array_get_item.exit197:              ; preds = %188, %203
   br i1 %208, label %pmix_pointer_array_get_item.exit197, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %203
-  %209 = icmp eq ptr %.1, null
+  %209 = icmp eq ptr %.2, null
   br i1 %209, label %._crit_edge.thread, label %.thread
 
 ._crit_edge.thread:                               ; preds = %188, %._crit_edge
@@ -1616,8 +1616,8 @@ pmix_pointer_array_get_item.exit197:              ; preds = %188, %203
   br label %422
 
 .thread:                                          ; preds = %199, %._crit_edge
-  %.2216 = phi ptr [ %.1, %._crit_edge ], [ %198, %199 ]
-  %211 = getelementptr inbounds i8, ptr %.2216, i64 152
+  %.1216 = phi ptr [ %.2, %._crit_edge ], [ %198, %199 ]
+  %211 = getelementptr inbounds i8, ptr %.1216, i64 152
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %7, align 8
   %214 = call fastcc i32 @setup_launch(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %212, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %213)
@@ -2701,7 +2701,7 @@ find_shell.exit55.thread72.i:                     ; preds = %find_shell.exit55.t
   br i1 %exitcond.not.i59.i, label %.loopexit.i.i, label %206, !llvm.loop !18
 
 .loopexit.i.i:                                    ; preds = %212, %210, %202, %.loopexit53.i.i
-  %.064.i = phi i32 [ 6, %.loopexit53.i.i ], [ 6, %202 ], [ %211, %210 ], [ 6, %212 ]
+  %.165.i = phi i32 [ 6, %.loopexit53.i.i ], [ 6, %202 ], [ %211, %210 ], [ 6, %212 ]
   %213 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond52.i.i = icmp ult i32 %213, 64
   br i1 %or.cond52.i.i, label %214, label %ssh_probe.exit.i
@@ -2715,11 +2715,11 @@ find_shell.exit55.thread72.i:                     ; preds = %find_shell.exit55.t
 
 219:                                              ; preds = %214
   %220 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #18
-  %221 = icmp eq i32 %.064.i, 6
+  %221 = icmp eq i32 %.165.i, 6
   br i1 %221, label %226, label %222
 
 222:                                              ; preds = %219
-  %223 = zext i32 %.064.i to i64
+  %223 = zext i32 %.165.i to i64
   %224 = getelementptr inbounds [7 x ptr], ptr @prte_plm_ssh_shell_name, i64 0, i64 %223
   %225 = load ptr, ptr %224, align 8
   br label %226
@@ -2744,7 +2744,7 @@ ssh_probe.exit.i:                                 ; preds = %226, %214, %.loopex
   br i1 %.not44.i, label %228, label %setup_shell.exit.thread114.sink.split
 
 228:                                              ; preds = %ssh_probe.exit.i
-  %229 = icmp eq i32 %.064.i, 6
+  %229 = icmp eq i32 %.165.i, 6
   br i1 %229, label %230, label %231
 
 230:                                              ; preds = %228
@@ -2752,7 +2752,7 @@ ssh_probe.exit.i:                                 ; preds = %226, %214, %.loopex
   br label %231
 
 231:                                              ; preds = %230, %228, %92, %87
-  %.266.ph.i = phi i32 [ %.064.i, %228 ], [ 0, %230 ], [ %.2.i, %87 ], [ %.2.i, %92 ]
+  %.064.ph.i = phi i32 [ %.165.i, %228 ], [ 0, %230 ], [ %.2.i, %87 ], [ %.2.i, %92 ]
   %.pr.i = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond48.i = icmp ult i32 %.pr.i, 64
   br i1 %or.cond48.i, label %232, label %.thread.i
@@ -2766,15 +2766,15 @@ ssh_probe.exit.i:                                 ; preds = %226, %214, %.loopex
 
 237:                                              ; preds = %232
   %238 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #18
-  %239 = zext i32 %.266.ph.i to i64
+  %239 = zext i32 %.064.ph.i to i64
   %240 = getelementptr inbounds [7 x ptr], ptr @prte_plm_ssh_shell_name, i64 0, i64 %239
   %241 = load ptr, ptr %240, align 8
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %.pr.i, ptr noundef nonnull @.str.75, ptr noundef %238, i32 noundef %.266.ph.i, ptr noundef %241) #18
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %.pr.i, ptr noundef nonnull @.str.75, ptr noundef %238, i32 noundef %.064.ph.i, ptr noundef %241) #18
   br label %.thread.i
 
 .thread.i:                                        ; preds = %237, %232, %231, %85
-  %.26692.i = phi i32 [ %.266.ph.i, %237 ], [ %.266.ph.i, %232 ], [ %.266.ph.i, %231 ], [ %.2.i, %85 ]
-  %242 = and i32 %.26692.i, -2
+  %.06492.i = phi i32 [ %.064.ph.i, %237 ], [ %.064.ph.i, %232 ], [ %.064.ph.i, %231 ], [ %.2.i, %85 ]
+  %242 = and i32 %.06492.i, -2
   %or.cond.i = icmp eq i32 %242, 4
   br i1 %or.cond.i, label %243, label %setup_shell.exit.thread
 
@@ -2861,7 +2861,7 @@ setup_shell.exit.thread:                          ; preds = %.thread.i, %._crit_
   %276 = call noalias ptr @pmix_basename(ptr noundef %275) #18
   %277 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 80), align 8
   %278 = call noalias ptr @pmix_basename(ptr noundef %277) #18
-  switch i32 %.26692.i, label %310 [
+  switch i32 %.06492.i, label %310 [
     i32 5, label %279
     i32 4, label %279
     i32 1, label %279
@@ -2979,7 +2979,7 @@ setup_shell.exit.thread:                          ; preds = %.thread.i, %._crit_
   br i1 %.not103, label %365, label %342
 
 342:                                              ; preds = %340
-  switch i32 %.26692.i, label %354 [
+  switch i32 %.06492.i, label %354 [
     i32 5, label %343
     i32 4, label %343
     i32 1, label %343

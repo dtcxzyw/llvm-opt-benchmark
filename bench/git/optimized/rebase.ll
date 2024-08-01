@@ -1914,13 +1914,13 @@ do.body.i117.preheader:                           ; preds = %do.cond.i
   br label %do.body.i117
 
 while.cond:                                       ; preds = %do.body.i, %while.body
-  %p.2 = phi ptr [ %incdec.ptr, %while.body ], [ %scevgep, %do.body.i ]
-  %95 = load i8, ptr %p.2, align 1
+  %p.1 = phi ptr [ %incdec.ptr, %while.body ], [ %scevgep, %do.body.i ]
+  %95 = load i8, ptr %p.1, align 1
   %tobool823.not = icmp eq i8 %95, 0
   br i1 %tobool823.not, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.2, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.1, i64 1
   %idxprom824 = zext i8 %95 to i64
   %arrayidx825 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom824
   %96 = load i8, ptr %arrayidx825, align 1
@@ -2661,7 +2661,7 @@ if.else1225:                                      ; preds = %if.else1211
   br label %if.end1226
 
 if.end1226:                                       ; preds = %if.else1225, %if.end1220
-  %squash_onto_name.0 = phi ptr [ null, %if.else1225 ], [ %call1223, %if.end1220 ]
+  %squash_onto_name.3 = phi ptr [ null, %if.else1225 ], [ %call1223, %if.end1220 ]
   %upstream1228 = getelementptr inbounds i8, ptr %options, i64 24
   %cmp1229 = icmp eq i32 %call594, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %upstream1228, i8 0, i64 16, i1 false)
@@ -2673,7 +2673,7 @@ if.then1231:                                      ; preds = %if.end1226
 
 if.end1235:                                       ; preds = %if.end1226, %if.end1209
   %.str.96.sink = phi ptr [ %180, %if.end1209 ], [ @.str.96, %if.end1226 ]
-  %squash_onto_name.1 = phi ptr [ null, %if.end1209 ], [ %squash_onto_name.0, %if.end1226 ]
+  %squash_onto_name.2 = phi ptr [ null, %if.end1209 ], [ %squash_onto_name.3, %if.end1226 ]
   %argv.addr.1 = phi ptr [ %argv.addr.0, %if.end1209 ], [ %argv, %if.end1226 ]
   %argc.addr.1 = phi i32 [ %argc.addr.0, %if.end1209 ], [ %call594, %if.end1226 ]
   %upstream_arg1234 = getelementptr inbounds i8, ptr %options, i64 40
@@ -2802,7 +2802,7 @@ if.else1294:                                      ; preds = %if.end1235
   unreachable
 
 if.end1296:                                       ; preds = %if.end1286, %if.end1255
-  %branch_name.2 = phi ptr [ %branch_name.1, %if.end1286 ], [ %185, %if.end1255 ]
+  %branch_name.0 = phi ptr [ %branch_name.1, %if.end1286 ], [ %185, %if.end1255 ]
   %195 = load i32, ptr %keep_base, align 4
   %tobool1297.not = icmp eq i32 %195, 0
   br i1 %tobool1297.not, label %if.else1303, label %if.then1298
@@ -2823,8 +2823,8 @@ strbuf_setlen.exit207:                            ; preds = %if.then1298, %if.th
   %call.i208 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %197) #20
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %197, i64 noundef %call.i208) #19
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.161, i64 noundef 3) #19
-  %call.i210 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %branch_name.2) #20
-  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %branch_name.2, i64 noundef %call.i210) #19
+  %call.i210 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %branch_name.0) #20
+  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %branch_name.0, i64 noundef %call.i210) #19
   %198 = load ptr, ptr %buf.i, align 8
   %call1301 = call ptr @xstrdup(ptr noundef %198) #19
   br label %if.end1310.sink.split
@@ -2841,13 +2841,13 @@ if.then1306:                                      ; preds = %if.else1303
 
 if.end1310.sink.split:                            ; preds = %strbuf_setlen.exit207, %if.then1306
   %.sink435 = phi ptr [ %200, %if.then1306 ], [ %call1301, %strbuf_setlen.exit207 ]
-  %keep_base_onto_name.0.ph = phi ptr [ null, %if.then1306 ], [ %call1301, %strbuf_setlen.exit207 ]
+  %keep_base_onto_name.2.ph = phi ptr [ null, %if.then1306 ], [ %call1301, %strbuf_setlen.exit207 ]
   store ptr %.sink435, ptr %onto_name, align 8
   br label %if.end1310
 
 if.end1310:                                       ; preds = %if.end1310.sink.split, %if.else1303
   %201 = phi ptr [ %199, %if.else1303 ], [ %.sink435, %if.end1310.sink.split ]
-  %keep_base_onto_name.0 = phi ptr [ null, %if.else1303 ], [ %keep_base_onto_name.0.ph, %if.end1310.sink.split ]
+  %keep_base_onto_name.2 = phi ptr [ null, %if.else1303 ], [ %keep_base_onto_name.2.ph, %if.end1310.sink.split ]
   %call1312 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(1) @.str.161) #20
   %tobool1313.not = icmp eq ptr %call1312, null
   br i1 %tobool1313.not, label %if.else1330, label %if.then1314
@@ -3258,7 +3258,7 @@ if.end1393:                                       ; preds = %if.then1388.if.end1
   br i1 %tobool1396.not, label %if.end1411, label %if.else1398
 
 if.else1398:                                      ; preds = %if.end1393
-  %call1399 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %branch_name.2, ptr noundef nonnull dereferenceable(5) @.str.104) #20
+  %call1399 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %branch_name.0, ptr noundef nonnull dereferenceable(5) @.str.104) #20
   %tobool1400.not = icmp eq i32 %call1399, 0
   br i1 %tobool1400.not, label %land.lhs.true1401, label %if.else1407
 
@@ -3292,7 +3292,7 @@ if.end3.i252:                                     ; preds = %if.else1407
 
 _.exit255:                                        ; preds = %if.else1407, %if.end3.i252
   %retval.0.i254 = phi ptr [ %call.i253, %if.end3.i252 ], [ @.str.167, %if.else1407 ]
-  %call1409 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i254, ptr noundef %branch_name.2)
+  %call1409 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i254, ptr noundef %branch_name.0)
   br label %if.end1411
 
 if.end1411:                                       ; preds = %_.exit249, %_.exit255, %if.end1393
@@ -3305,7 +3305,7 @@ if.else1413:                                      ; preds = %if.then1381
   br i1 %tobool1416.not, label %if.end1433, label %if.else1418
 
 if.else1418:                                      ; preds = %if.else1413
-  %call1419 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %branch_name.2, ptr noundef nonnull dereferenceable(5) @.str.104) #20
+  %call1419 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %branch_name.0, ptr noundef nonnull dereferenceable(5) @.str.104) #20
   %tobool1420.not = icmp eq i32 %call1419, 0
   br i1 %tobool1420.not, label %land.lhs.true1421, label %if.else1427
 
@@ -3339,7 +3339,7 @@ if.end3.i264:                                     ; preds = %if.else1427
 
 _.exit267:                                        ; preds = %if.else1427, %if.end3.i264
   %retval.0.i266 = phi ptr [ %call.i265, %if.end3.i264 ], [ @.str.169, %if.else1427 ]
-  %call1429 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i266, ptr noundef %branch_name.2)
+  %call1429 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i266, ptr noundef %branch_name.0)
   br label %if.end1433
 
 if.end1433:                                       ; preds = %land.end.critedge.i, %oideq.exit50.i, %_.exit261, %_.exit267, %if.else1413, %can_fast_forward.exit, %if.end1372
@@ -3563,7 +3563,7 @@ if.end3.i307:                                     ; preds = %if.then1523
 _.exit310:                                        ; preds = %if.then1523, %if.end3.i307
   %retval.0.i309 = phi ptr [ %call.i308, %if.end3.i307 ], [ @.str.177, %if.then1523 ]
   %289 = load ptr, ptr %onto_name, align 8
-  %call1526 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i309, ptr noundef %branch_name.2, ptr noundef %289)
+  %call1526 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i309, ptr noundef %branch_name.0, ptr noundef %289)
   %call1527 = call fastcc i32 @move_to_original_branch(ptr noundef nonnull %options)
   %call1528 = call fastcc i32 @finish_rebase(ptr noundef nonnull %options)
   br label %cleanup
@@ -3603,8 +3603,8 @@ cond.end1552:                                     ; preds = %cond.false1537, %co
   br label %run_rebase
 
 run_rebase:                                       ; preds = %if.end708, %if.end696, %cond.end1552, %sw.bb767, %sw.bb766
-  %keep_base_onto_name.1.ph = phi ptr [ null, %if.end696 ], [ null, %if.end708 ], [ null, %sw.bb766 ], [ null, %sw.bb767 ], [ %keep_base_onto_name.0, %cond.end1552 ]
-  %squash_onto_name.2.ph = phi ptr [ null, %if.end696 ], [ null, %if.end708 ], [ null, %sw.bb766 ], [ null, %sw.bb767 ], [ %squash_onto_name.1, %cond.end1552 ]
+  %keep_base_onto_name.0.ph = phi ptr [ null, %if.end696 ], [ null, %if.end708 ], [ null, %sw.bb766 ], [ null, %sw.bb767 ], [ %keep_base_onto_name.2, %cond.end1552 ]
+  %squash_onto_name.0.ph = phi ptr [ null, %if.end696 ], [ null, %if.end708 ], [ null, %sw.bb766 ], [ null, %sw.bb767 ], [ %squash_onto_name.2, %cond.end1552 ]
   %.pr363 = load i32, ptr %options, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i)
   switch i32 %.pr363, label %if.else15.i [
@@ -3613,8 +3613,8 @@ run_rebase:                                       ; preds = %if.end708, %if.end6
   ]
 
 if.then.i315:                                     ; preds = %run_rebase.thread, %run_rebase
-  %squash_onto_name.2431 = phi ptr [ %squash_onto_name.1, %run_rebase.thread ], [ %squash_onto_name.2.ph, %run_rebase ]
-  %keep_base_onto_name.1429 = phi ptr [ %keep_base_onto_name.0, %run_rebase.thread ], [ %keep_base_onto_name.1.ph, %run_rebase ]
+  %squash_onto_name.0431 = phi ptr [ %squash_onto_name.2, %run_rebase.thread ], [ %squash_onto_name.0.ph, %run_rebase ]
+  %keep_base_onto_name.0429 = phi ptr [ %keep_base_onto_name.2, %run_rebase.thread ], [ %keep_base_onto_name.0.ph, %run_rebase ]
   %call.i316 = call i32 @setenv(ptr noundef nonnull @.str.238, ptr noundef nonnull @.str.244, i32 noundef 1) #19
   %296 = load i32, ptr %flags32, align 4
   %and.i = and i32 %296, 16
@@ -4281,8 +4281,8 @@ if.else15.i:                                      ; preds = %run_rebase
   unreachable
 
 if.end18.i:                                       ; preds = %run_am.exit.i, %run_sequencer_rebase.exit.i
-  %squash_onto_name.2430 = phi ptr [ %squash_onto_name.2431, %run_sequencer_rebase.exit.i ], [ %squash_onto_name.2.ph, %run_am.exit.i ]
-  %keep_base_onto_name.1428 = phi ptr [ %keep_base_onto_name.1429, %run_sequencer_rebase.exit.i ], [ %keep_base_onto_name.1.ph, %run_am.exit.i ]
+  %squash_onto_name.0430 = phi ptr [ %squash_onto_name.0431, %run_sequencer_rebase.exit.i ], [ %squash_onto_name.0.ph, %run_am.exit.i ]
+  %keep_base_onto_name.0428 = phi ptr [ %keep_base_onto_name.0429, %run_sequencer_rebase.exit.i ], [ %keep_base_onto_name.0.ph, %run_am.exit.i ]
   %status.0.i = phi i32 [ %ret.0.i.i, %run_sequencer_rebase.exit.i ], [ %retval.0.i.i, %run_am.exit.i ]
   %dont_finish_rebase.i = getelementptr inbounds i8, ptr %options, i64 120
   %376 = load i32, ptr %dont_finish_rebase.i, align 8
@@ -4363,8 +4363,8 @@ run_specific_rebase.exit:                         ; preds = %if.end18.i, %if.els
   br label %cleanup
 
 cleanup:                                          ; preds = %_.exit234, %if.then1388, %if.then752, %_.exit, %strbuf_setlen.exit110, %run_specific_rebase.exit, %_.exit310, %if.end1411, %if.end745
-  %keep_base_onto_name.2 = phi ptr [ %keep_base_onto_name.1428, %run_specific_rebase.exit ], [ %keep_base_onto_name.0, %_.exit310 ], [ %keep_base_onto_name.0, %if.then1388 ], [ %keep_base_onto_name.0, %if.end1411 ], [ null, %if.then752 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit110 ], [ null, %if.end745 ], [ %keep_base_onto_name.0, %_.exit234 ]
-  %squash_onto_name.3 = phi ptr [ %squash_onto_name.2430, %run_specific_rebase.exit ], [ %squash_onto_name.1, %_.exit310 ], [ %squash_onto_name.1, %if.then1388 ], [ %squash_onto_name.1, %if.end1411 ], [ null, %if.then752 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit110 ], [ null, %if.end745 ], [ %squash_onto_name.1, %_.exit234 ]
+  %keep_base_onto_name.1 = phi ptr [ %keep_base_onto_name.0428, %run_specific_rebase.exit ], [ %keep_base_onto_name.2, %_.exit310 ], [ %keep_base_onto_name.2, %if.then1388 ], [ %keep_base_onto_name.2, %if.end1411 ], [ null, %if.then752 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit110 ], [ null, %if.end745 ], [ %keep_base_onto_name.2, %_.exit234 ]
+  %squash_onto_name.1 = phi ptr [ %squash_onto_name.0430, %run_specific_rebase.exit ], [ %squash_onto_name.2, %_.exit310 ], [ %squash_onto_name.2, %if.then1388 ], [ %squash_onto_name.2, %if.end1411 ], [ null, %if.then752 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit110 ], [ null, %if.end745 ], [ %squash_onto_name.2, %_.exit234 ]
   %ret.0 = phi i32 [ %cond.i311, %run_specific_rebase.exit ], [ %call1528, %_.exit310 ], [ -1, %if.then1388 ], [ %call1412, %if.end1411 ], [ %call754, %if.then752 ], [ -1, %_.exit ], [ 0, %strbuf_setlen.exit110 ], [ %call746, %if.end745 ], [ -1, %_.exit234 ]
   call void @strbuf_release(ptr noundef nonnull %buf) #19
   call void @strbuf_release(ptr noundef nonnull %revisions) #19
@@ -4382,8 +4382,8 @@ cleanup:                                          ; preds = %_.exit234, %if.then
   call void @string_list_clear(ptr noundef nonnull %strategy_opts, i32 noundef 0) #19
   %git_format_patch_opt1568 = getelementptr inbounds i8, ptr %options, i64 312
   call void @strbuf_release(ptr noundef nonnull %git_format_patch_opt1568) #19
-  call void @free(ptr noundef %squash_onto_name.3) #19
-  call void @free(ptr noundef %keep_base_onto_name.2) #19
+  call void @free(ptr noundef %squash_onto_name.1) #19
+  call void @free(ptr noundef %keep_base_onto_name.1) #19
   %tobool1569 = icmp ne i32 %ret.0, 0
   %lnot.ext = zext i1 %tobool1569 to i32
   ret i32 %lnot.ext
@@ -5452,13 +5452,13 @@ _.exit:                                           ; preds = %if.then9, %if.end3.
   br label %if.end
 
 if.end:                                           ; preds = %_.exit, %if.else
-  %ret.0 = phi i32 [ -1, %_.exit ], [ 0, %if.else ]
+  %ret.1 = phi i32 [ -1, %_.exit ], [ 0, %if.else ]
   call void @strbuf_release(ptr noundef nonnull %dir) #19
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end, %if.then
-  %ret.1 = phi i32 [ %call6, %if.then ], [ %ret.0, %if.end ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ %call6, %if.then ], [ %ret.1, %if.end ]
+  ret i32 %ret.0
 }
 
 declare i32 @save_autostash(ptr noundef) local_unnamed_addr #3

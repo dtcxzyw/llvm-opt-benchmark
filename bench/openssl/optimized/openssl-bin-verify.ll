@@ -159,7 +159,7 @@ if.end:                                           ; preds = %entry
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.end
-  %vfyopts.0 = phi ptr [ null, %if.end ], [ %vfyopts.0.be, %while.cond.backedge ]
+  %vfyopts.1 = phi ptr [ null, %if.end ], [ %vfyopts.1.be, %while.cond.backedge ]
   %CApath.0 = phi ptr [ null, %if.end ], [ %CApath.0.be, %while.cond.backedge ]
   %CAfile.0 = phi ptr [ null, %if.end ], [ %CAfile.0.be, %while.cond.backedge ]
   %CAstore.0 = phi ptr [ null, %if.end ], [ %CAstore.0.be, %while.cond.backedge ]
@@ -169,7 +169,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   %vpmtouched.0 = phi i32 [ 0, %if.end ], [ %vpmtouched.0.be, %while.cond.backedge ]
   %crl_download.0 = phi i32 [ 0, %if.end ], [ %crl_download.0.be, %while.cond.backedge ]
   %show_chain.0 = phi i32 [ 0, %if.end ], [ %show_chain.0.be, %while.cond.backedge ]
-  %e.0 = phi ptr [ null, %if.end ], [ %e.0.be, %while.cond.backedge ]
+  %e.1 = phi ptr [ null, %if.end ], [ %e.1.be, %while.cond.backedge ]
   %call2 = call i32 @opt_next() #2
   switch i32 %call2, label %while.cond.backedge [
     i32 0, label %while.end
@@ -226,7 +226,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   ]
 
 while.cond.backedge:                              ; preds = %while.cond, %sw.bb86, %lor.lhs.false, %sw.bb65, %sw.bb58, %sw.bb51, %sw.bb45, %sw.bb39, %sw.bb84, %sw.bb64, %sw.bb57, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb34, %sw.bb32, %sw.bb30, %if.end28
-  %vfyopts.0.be = phi ptr [ %vfyopts.0, %sw.bb84 ], [ %vfyopts.238, %lor.lhs.false ], [ %vfyopts.0, %sw.bb65 ], [ %vfyopts.0, %sw.bb64 ], [ %vfyopts.0, %sw.bb58 ], [ %vfyopts.0, %sw.bb57 ], [ %vfyopts.0, %sw.bb51 ], [ %vfyopts.0, %sw.bb45 ], [ %vfyopts.0, %sw.bb39 ], [ %vfyopts.0, %sw.bb38 ], [ %vfyopts.0, %sw.bb37 ], [ %vfyopts.0, %sw.bb36 ], [ %vfyopts.0, %sw.bb34 ], [ %vfyopts.0, %sw.bb32 ], [ %vfyopts.0, %sw.bb30 ], [ %vfyopts.0, %if.end28 ], [ %vfyopts.0, %sw.bb86 ], [ %vfyopts.0, %while.cond ]
+  %vfyopts.1.be = phi ptr [ %vfyopts.1, %sw.bb84 ], [ %vfyopts.438, %lor.lhs.false ], [ %vfyopts.1, %sw.bb65 ], [ %vfyopts.1, %sw.bb64 ], [ %vfyopts.1, %sw.bb58 ], [ %vfyopts.1, %sw.bb57 ], [ %vfyopts.1, %sw.bb51 ], [ %vfyopts.1, %sw.bb45 ], [ %vfyopts.1, %sw.bb39 ], [ %vfyopts.1, %sw.bb38 ], [ %vfyopts.1, %sw.bb37 ], [ %vfyopts.1, %sw.bb36 ], [ %vfyopts.1, %sw.bb34 ], [ %vfyopts.1, %sw.bb32 ], [ %vfyopts.1, %sw.bb30 ], [ %vfyopts.1, %if.end28 ], [ %vfyopts.1, %sw.bb86 ], [ %vfyopts.1, %while.cond ]
   %CApath.0.be = phi ptr [ %CApath.0, %sw.bb84 ], [ %CApath.0, %lor.lhs.false ], [ %CApath.0, %sw.bb65 ], [ %CApath.0, %sw.bb64 ], [ %CApath.0, %sw.bb58 ], [ %CApath.0, %sw.bb57 ], [ %CApath.0, %sw.bb51 ], [ %CApath.0, %sw.bb45 ], [ %CApath.0, %sw.bb39 ], [ %CApath.0, %sw.bb38 ], [ %CApath.0, %sw.bb37 ], [ %CApath.0, %sw.bb36 ], [ %CApath.0, %sw.bb34 ], [ %CApath.0, %sw.bb32 ], [ %call31, %sw.bb30 ], [ %CApath.0, %if.end28 ], [ %CApath.0, %sw.bb86 ], [ %CApath.0, %while.cond ]
   %CAfile.0.be = phi ptr [ %CAfile.0, %sw.bb84 ], [ %CAfile.0, %lor.lhs.false ], [ %CAfile.0, %sw.bb65 ], [ %CAfile.0, %sw.bb64 ], [ %CAfile.0, %sw.bb58 ], [ %CAfile.0, %sw.bb57 ], [ %CAfile.0, %sw.bb51 ], [ %CAfile.0, %sw.bb45 ], [ %CAfile.0, %sw.bb39 ], [ %CAfile.0, %sw.bb38 ], [ %CAfile.0, %sw.bb37 ], [ %CAfile.0, %sw.bb36 ], [ %CAfile.0, %sw.bb34 ], [ %call33, %sw.bb32 ], [ %CAfile.0, %sw.bb30 ], [ %CAfile.0, %if.end28 ], [ %CAfile.0, %sw.bb86 ], [ %CAfile.0, %while.cond ]
   %CAstore.0.be = phi ptr [ %CAstore.0, %sw.bb84 ], [ %CAstore.0, %lor.lhs.false ], [ %CAstore.0, %sw.bb65 ], [ %CAstore.0, %sw.bb64 ], [ %CAstore.0, %sw.bb58 ], [ %CAstore.0, %sw.bb57 ], [ %CAstore.0, %sw.bb51 ], [ %CAstore.0, %sw.bb45 ], [ %CAstore.0, %sw.bb39 ], [ %CAstore.0, %sw.bb38 ], [ %CAstore.0, %sw.bb37 ], [ %CAstore.0, %sw.bb36 ], [ %call35, %sw.bb34 ], [ %CAstore.0, %sw.bb32 ], [ %CAstore.0, %sw.bb30 ], [ %CAstore.0, %if.end28 ], [ %CAstore.0, %sw.bb86 ], [ %CAstore.0, %while.cond ]
@@ -236,11 +236,11 @@ while.cond.backedge:                              ; preds = %while.cond, %sw.bb8
   %vpmtouched.0.be = phi i32 [ %vpmtouched.0, %sw.bb84 ], [ %vpmtouched.0, %lor.lhs.false ], [ %vpmtouched.0, %sw.bb65 ], [ %vpmtouched.0, %sw.bb64 ], [ %vpmtouched.0, %sw.bb58 ], [ %vpmtouched.0, %sw.bb57 ], [ %vpmtouched.0, %sw.bb51 ], [ %vpmtouched.0, %sw.bb45 ], [ %vpmtouched.0, %sw.bb39 ], [ %vpmtouched.0, %sw.bb38 ], [ %vpmtouched.0, %sw.bb37 ], [ %vpmtouched.0, %sw.bb36 ], [ %vpmtouched.0, %sw.bb34 ], [ %vpmtouched.0, %sw.bb32 ], [ %vpmtouched.0, %sw.bb30 ], [ %inc29, %if.end28 ], [ %vpmtouched.0, %sw.bb86 ], [ %vpmtouched.0, %while.cond ]
   %crl_download.0.be = phi i32 [ %crl_download.0, %sw.bb84 ], [ %crl_download.0, %lor.lhs.false ], [ %crl_download.0, %sw.bb65 ], [ %crl_download.0, %sw.bb64 ], [ %crl_download.0, %sw.bb58 ], [ 1, %sw.bb57 ], [ %crl_download.0, %sw.bb51 ], [ %crl_download.0, %sw.bb45 ], [ %crl_download.0, %sw.bb39 ], [ %crl_download.0, %sw.bb38 ], [ %crl_download.0, %sw.bb37 ], [ %crl_download.0, %sw.bb36 ], [ %crl_download.0, %sw.bb34 ], [ %crl_download.0, %sw.bb32 ], [ %crl_download.0, %sw.bb30 ], [ %crl_download.0, %if.end28 ], [ %crl_download.0, %sw.bb86 ], [ %crl_download.0, %while.cond ]
   %show_chain.0.be = phi i32 [ %show_chain.0, %sw.bb84 ], [ %show_chain.0, %lor.lhs.false ], [ %show_chain.0, %sw.bb65 ], [ 1, %sw.bb64 ], [ %show_chain.0, %sw.bb58 ], [ %show_chain.0, %sw.bb57 ], [ %show_chain.0, %sw.bb51 ], [ %show_chain.0, %sw.bb45 ], [ %show_chain.0, %sw.bb39 ], [ %show_chain.0, %sw.bb38 ], [ %show_chain.0, %sw.bb37 ], [ %show_chain.0, %sw.bb36 ], [ %show_chain.0, %sw.bb34 ], [ %show_chain.0, %sw.bb32 ], [ %show_chain.0, %sw.bb30 ], [ %show_chain.0, %if.end28 ], [ %show_chain.0, %sw.bb86 ], [ %show_chain.0, %while.cond ]
-  %e.0.be = phi ptr [ %e.0, %sw.bb84 ], [ %e.0, %lor.lhs.false ], [ %e.0, %sw.bb65 ], [ %e.0, %sw.bb64 ], [ %call60, %sw.bb58 ], [ %e.0, %sw.bb57 ], [ %e.0, %sw.bb51 ], [ %e.0, %sw.bb45 ], [ %e.0, %sw.bb39 ], [ %e.0, %sw.bb38 ], [ %e.0, %sw.bb37 ], [ %e.0, %sw.bb36 ], [ %e.0, %sw.bb34 ], [ %e.0, %sw.bb32 ], [ %e.0, %sw.bb30 ], [ %e.0, %if.end28 ], [ %e.0, %sw.bb86 ], [ %e.0, %while.cond ]
+  %e.1.be = phi ptr [ %e.1, %sw.bb84 ], [ %e.1, %lor.lhs.false ], [ %e.1, %sw.bb65 ], [ %e.1, %sw.bb64 ], [ %call60, %sw.bb58 ], [ %e.1, %sw.bb57 ], [ %e.1, %sw.bb51 ], [ %e.1, %sw.bb45 ], [ %e.1, %sw.bb39 ], [ %e.1, %sw.bb38 ], [ %e.1, %sw.bb37 ], [ %e.1, %sw.bb36 ], [ %e.1, %sw.bb34 ], [ %e.1, %sw.bb32 ], [ %e.1, %sw.bb30 ], [ %e.1, %if.end28 ], [ %e.1, %sw.bb86 ], [ %e.1, %while.cond ]
   br label %while.cond, !llvm.loop !5
 
 opthelp:                                          ; preds = %while.cond, %if.end75, %lor.lhs.false
-  %vfyopts.1 = phi ptr [ %vfyopts.238, %lor.lhs.false ], [ null, %if.end75 ], [ %vfyopts.0, %while.cond ]
+  %vfyopts.3 = phi ptr [ %vfyopts.438, %lor.lhs.false ], [ null, %if.end75 ], [ %vfyopts.1, %while.cond ]
   %0 = load ptr, ptr @bio_err, align 8
   %call4 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef %call1) #2
   br label %end
@@ -350,7 +350,7 @@ sw.bb65:                                          ; preds = %while.cond
   br i1 %tobool68.not, label %end, label %while.cond.backedge
 
 sw.bb71:                                          ; preds = %while.cond
-  %tobool72.not = icmp eq ptr %vfyopts.0, null
+  %tobool72.not = icmp eq ptr %vfyopts.1, null
   br i1 %tobool72.not, label %if.end75, label %lor.lhs.false
 
 if.end75:                                         ; preds = %sw.bb71
@@ -359,9 +359,9 @@ if.end75:                                         ; preds = %sw.bb71
   br i1 %tobool76.not, label %opthelp, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb71, %if.end75
-  %vfyopts.238 = phi ptr [ %call74, %if.end75 ], [ %vfyopts.0, %sw.bb71 ]
+  %vfyopts.438 = phi ptr [ %call74, %if.end75 ], [ %vfyopts.1, %sw.bb71 ]
   %call78 = call ptr @opt_arg() #2
-  %call80 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %vfyopts.238, ptr noundef %call78) #2
+  %call80 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %vfyopts.438, ptr noundef %call78) #2
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %opthelp, label %while.cond.backedge
 
@@ -429,31 +429,31 @@ if.then114:                                       ; preds = %if.end112
   %7 = load ptr, ptr %untrusted, align 8
   %8 = load ptr, ptr %trusted, align 8
   %9 = load ptr, ptr %crls, align 8
-  %call115 = call fastcc i32 @check(ptr noundef nonnull %call102, ptr noundef null, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %show_chain.0, ptr noundef %vfyopts.0)
+  %call115 = call fastcc i32 @check(ptr noundef nonnull %call102, ptr noundef null, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %show_chain.0, ptr noundef %vfyopts.1)
   %sext = add nsw i32 %call115, -1
   br label %end
 
 for.body121:                                      ; preds = %for.body121.preheader, %for.body121
   %indvars.iv = phi i64 [ 0, %for.body121.preheader ], [ %indvars.iv.next, %for.body121 ]
-  %ret.082 = phi i32 [ 0, %for.body121.preheader ], [ %spec.select35, %for.body121 ]
+  %ret.182 = phi i32 [ 0, %for.body121.preheader ], [ %spec.select35, %for.body121 ]
   %arrayidx = getelementptr inbounds ptr, ptr %call92, i64 %indvars.iv
   %10 = load ptr, ptr %arrayidx, align 8
   %11 = load ptr, ptr %untrusted, align 8
   %12 = load ptr, ptr %trusted, align 8
   %13 = load ptr, ptr %crls, align 8
-  %call122 = call fastcc i32 @check(ptr noundef nonnull %call102, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %show_chain.0, ptr noundef %vfyopts.0)
+  %call122 = call fastcc i32 @check(ptr noundef nonnull %call102, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %show_chain.0, ptr noundef %vfyopts.1)
   %cmp123.not.not = icmp eq i32 %call122, 0
-  %spec.select35 = select i1 %cmp123.not.not, i32 -1, i32 %ret.082
+  %spec.select35 = select i1 %cmp123.not.not, i32 -1, i32 %ret.182
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %end, label %for.body121, !llvm.loop !9
 
 end:                                              ; preds = %sw.bb86, %sw.bb65, %sw.bb58, %sw.bb51, %sw.bb45, %sw.bb39, %sw.bb25, %for.body17, %for.body121, %for.end, %if.then114, %if.end101, %entry, %if.then99, %opthelp
   %store.0 = phi ptr [ null, %entry ], [ null, %opthelp ], [ null, %if.then99 ], [ null, %if.end101 ], [ %call102, %if.then114 ], [ null, %for.end ], [ %call102, %for.body121 ], [ null, %for.body17 ], [ null, %sw.bb25 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ], [ null, %sw.bb51 ], [ null, %sw.bb58 ], [ null, %sw.bb65 ], [ null, %sw.bb86 ]
-  %vfyopts.4 = phi ptr [ null, %entry ], [ %vfyopts.1, %opthelp ], [ %vfyopts.0, %if.then99 ], [ %vfyopts.0, %if.end101 ], [ %vfyopts.0, %if.then114 ], [ %vfyopts.0, %for.end ], [ %vfyopts.0, %for.body121 ], [ %vfyopts.0, %for.body17 ], [ %vfyopts.0, %sw.bb25 ], [ %vfyopts.0, %sw.bb39 ], [ %vfyopts.0, %sw.bb45 ], [ %vfyopts.0, %sw.bb51 ], [ %vfyopts.0, %sw.bb58 ], [ %vfyopts.0, %sw.bb65 ], [ %vfyopts.0, %sw.bb86 ]
-  %ret.2 = phi i32 [ 1, %entry ], [ 1, %opthelp ], [ 1, %if.then99 ], [ 1, %if.end101 ], [ %sext, %if.then114 ], [ 0, %for.end ], [ %spec.select35, %for.body121 ], [ 0, %for.body17 ], [ 1, %sw.bb25 ], [ 1, %sw.bb39 ], [ 1, %sw.bb45 ], [ 1, %sw.bb51 ], [ 1, %sw.bb58 ], [ 1, %sw.bb65 ], [ 1, %sw.bb86 ]
-  %e.2 = phi ptr [ null, %entry ], [ %e.0, %opthelp ], [ %e.0, %if.then99 ], [ %e.0, %if.end101 ], [ %e.0, %if.then114 ], [ %e.0, %for.end ], [ %e.0, %for.body121 ], [ %e.0, %for.body17 ], [ %e.0, %sw.bb86 ], [ %e.0, %sw.bb65 ], [ null, %sw.bb58 ], [ %e.0, %sw.bb51 ], [ %e.0, %sw.bb45 ], [ %e.0, %sw.bb39 ], [ %e.0, %sw.bb25 ]
-  %ret.2.fr = freeze i32 %ret.2
+  %vfyopts.0 = phi ptr [ null, %entry ], [ %vfyopts.3, %opthelp ], [ %vfyopts.1, %if.then99 ], [ %vfyopts.1, %if.end101 ], [ %vfyopts.1, %if.then114 ], [ %vfyopts.1, %for.end ], [ %vfyopts.1, %for.body121 ], [ %vfyopts.1, %for.body17 ], [ %vfyopts.1, %sw.bb25 ], [ %vfyopts.1, %sw.bb39 ], [ %vfyopts.1, %sw.bb45 ], [ %vfyopts.1, %sw.bb51 ], [ %vfyopts.1, %sw.bb58 ], [ %vfyopts.1, %sw.bb65 ], [ %vfyopts.1, %sw.bb86 ]
+  %ret.0 = phi i32 [ 1, %entry ], [ 1, %opthelp ], [ 1, %if.then99 ], [ 1, %if.end101 ], [ %sext, %if.then114 ], [ 0, %for.end ], [ %spec.select35, %for.body121 ], [ 0, %for.body17 ], [ 1, %sw.bb25 ], [ 1, %sw.bb39 ], [ 1, %sw.bb45 ], [ 1, %sw.bb51 ], [ 1, %sw.bb58 ], [ 1, %sw.bb65 ], [ 1, %sw.bb86 ]
+  %e.0 = phi ptr [ null, %entry ], [ %e.1, %opthelp ], [ %e.1, %if.then99 ], [ %e.1, %if.end101 ], [ %e.1, %if.then114 ], [ %e.1, %for.end ], [ %e.1, %for.body121 ], [ %e.1, %for.body17 ], [ %e.1, %sw.bb86 ], [ %e.1, %sw.bb65 ], [ null, %sw.bb58 ], [ %e.1, %sw.bb51 ], [ %e.1, %sw.bb45 ], [ %e.1, %sw.bb39 ], [ %e.1, %sw.bb25 ]
+  %ret.0.fr = freeze i32 %ret.0
   call void @X509_VERIFY_PARAM_free(ptr noundef %call) #2
   call void @X509_STORE_free(ptr noundef %store.0) #2
   %14 = load ptr, ptr %untrusted, align 8
@@ -462,10 +462,10 @@ end:                                              ; preds = %sw.bb86, %sw.bb65, 
   call void @OSSL_STACK_OF_X509_free(ptr noundef %15) #2
   %16 = load ptr, ptr %crls, align 8
   call void @OPENSSL_sk_pop_free(ptr noundef %16, ptr noundef nonnull @X509_CRL_free) #2
-  call void @OPENSSL_sk_free(ptr noundef %vfyopts.4) #2
-  call void @release_engine(ptr noundef %e.2) #2
-  %cmp133 = icmp slt i32 %ret.2.fr, 0
-  %spec.select39 = select i1 %cmp133, i32 2, i32 %ret.2.fr
+  call void @OPENSSL_sk_free(ptr noundef %vfyopts.0) #2
+  call void @release_engine(ptr noundef %e.0) #2
+  %cmp133 = icmp slt i32 %ret.0.fr, 0
+  %spec.select39 = select i1 %cmp133, i32 2, i32 %ret.0.fr
   ret i32 %spec.select39
 }
 
@@ -630,8 +630,8 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp545, label %for.body, label %if.end13
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.046 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %opts, i32 noundef %i.046) #2
+  %i.246 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %opts, i32 noundef %i.246) #2
   %call8 = tail call i32 @x509_ctrl_string(ptr noundef nonnull %call, ptr noundef %call7) #2
   %cmp9 = icmp slt i32 %call8, 1
   br i1 %cmp9, label %if.then10, label %for.inc
@@ -645,7 +645,7 @@ if.then10:                                        ; preds = %for.body
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i32 %i.046, 1
+  %inc = add nuw nsw i32 %i.246, 1
   %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %opts) #2
   %cmp5 = icmp slt i32 %inc, %call4
   br i1 %cmp5, label %for.body, label %if.end13, !llvm.loop !10
@@ -757,29 +757,29 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then45, %for.end78, %if.else
-  %ret.0 = phi i32 [ 1, %for.end78 ], [ 1, %if.then45 ], [ 0, %if.else ]
+  %ret.1 = phi i32 [ 1, %for.end78 ], [ 1, %if.then45 ], [ 0, %if.else ]
   tail call void @X509_STORE_CTX_free(ptr noundef nonnull %call14) #2
   br label %end
 
 end:                                              ; preds = %if.end87, %if.then22, %if.then16
-  %ret.1 = phi i32 [ 0, %if.then16 ], [ %ret.0, %if.end87 ], [ 0, %if.then22 ]
-  %i.2 = phi i32 [ %i.1, %if.then16 ], [ %call39, %if.end87 ], [ %i.1, %if.then22 ]
-  %cmp88 = icmp slt i32 %i.2, 1
+  %ret.0 = phi i32 [ 0, %if.then16 ], [ %ret.1, %if.end87 ], [ 0, %if.then22 ]
+  %i.0 = phi i32 [ %i.1, %if.then16 ], [ %call39, %if.end87 ], [ %i.1, %if.then22 ]
+  %cmp88 = icmp slt i32 %i.0, 1
   br i1 %cmp88, label %if.then90, label %if.end91
 
 if.then90:                                        ; preds = %entry, %end
-  %ret.142 = phi i32 [ %ret.1, %end ], [ 0, %entry ]
+  %ret.042 = phi i32 [ %ret.0, %end ], [ 0, %entry ]
   %11 = load ptr, ptr @bio_err, align 8
   tail call void @ERR_print_errors(ptr noundef %11) #2
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then90, %end
-  %ret.141 = phi i32 [ %ret.142, %if.then90 ], [ %ret.1, %end ]
+  %ret.041 = phi i32 [ %ret.042, %if.then90 ], [ %ret.0, %end ]
   tail call void @X509_free(ptr noundef %call) #2
   br label %return
 
 return:                                           ; preds = %if.end91, %if.then10
-  %retval.0 = phi i32 [ %ret.141, %if.end91 ], [ 0, %if.then10 ]
+  %retval.0 = phi i32 [ %ret.041, %if.end91 ], [ 0, %if.then10 ]
   ret i32 %retval.0
 }
 

@@ -416,9 +416,9 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not149158, label %.loopexit157, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65, %76
-  %.0160 = phi i32 [ %71, %76 ], [ %66, %65 ]
+  %.1160 = phi i32 [ %71, %76 ], [ %66, %65 ]
   %.0141159 = phi i32 [ %.1142, %76 ], [ %69, %65 ]
-  %71 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.0160, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %13) #3
+  %71 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.1160, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %13) #3
   %72 = load i32, ptr %13, align 4
   %.not155 = icmp eq i32 %72, 0
   br i1 %.not155, label %76, label %73
@@ -437,13 +437,13 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not149, label %.loopexit157, label %.lr.ph, !llvm.loop !7
 
 .loopexit157:                                     ; preds = %76, %65, %53
-  %.1 = phi i32 [ %63, %53 ], [ %69, %65 ], [ %.1142, %76 ]
+  %.0 = phi i32 [ %63, %53 ], [ %69, %65 ], [ %.1142, %76 ]
   %78 = load i32, ptr %14, align 4
   %.not150 = icmp eq i32 %78, 0
   br i1 %.not150, label %.loopexit, label %79
 
 79:                                               ; preds = %.loopexit157
-  %80 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %15) #3
+  %80 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %15) #3
   %81 = load i32, ptr %15, align 4
   %82 = add i32 %81, -1
   store i32 %82, ptr %15, align 4
@@ -451,9 +451,9 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not151161, label %.loopexit, label %.lr.ph163
 
 .lr.ph163:                                        ; preds = %79, %.lr.ph163
-  %.2162 = phi i32 [ %84, %.lr.ph163 ], [ %80, %79 ]
+  %.3162 = phi i32 [ %84, %.lr.ph163 ], [ %80, %79 ]
   %83 = load i32, ptr @hf_dispatch_id, align 4
-  %84 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.2162, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, i32 noundef %83, ptr noundef nonnull %7) #3
+  %84 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.3162, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, i32 noundef %83, ptr noundef nonnull %7) #3
   %85 = load i32, ptr %15, align 4
   %86 = add i32 %85, -1
   store i32 %86, ptr %15, align 4
@@ -461,14 +461,14 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not151, label %.loopexit, label %.lr.ph163, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph163, %79, %.loopexit157
-  %.3 = phi i32 [ %.1, %.loopexit157 ], [ %80, %79 ], [ %84, %.lr.ph163 ]
+  %.2 = phi i32 [ %.0, %.loopexit157 ], [ %80, %79 ], [ %84, %.lr.ph163 ]
   %87 = load i32, ptr %11, align 4
   %88 = load i32, ptr %12, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %55, ptr noundef nonnull @.str.8, i32 noundef %87, i32 noundef %88) #3
-  %89 = sub i32 %.3, %28
+  %89 = sub i32 %.2, %28
   call void @proto_item_set_len(ptr noundef %55, i32 noundef %89) #3
   %90 = load i32, ptr @hf_dispatch_varref, align 4
-  %91 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.3, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %90, ptr noundef nonnull %16) #3
+  %91 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.2, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %90, ptr noundef nonnull %16) #3
   %92 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %15) #3
   %93 = load i32, ptr %15, align 4
   %94 = add i32 %93, -1

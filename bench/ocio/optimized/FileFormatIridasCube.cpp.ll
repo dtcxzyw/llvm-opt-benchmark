@@ -483,8 +483,8 @@ land.rhs.lr.ph.outer1841:                         ; preds = %land.rhs.lr.ph.oute
 land.rhs.lr.ph.outer1850:                         ; preds = %land.rhs.lr.ph.outer1841, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit727
   %lineNumber.0.ph883.ph1851 = phi i32 [ %lineNumber.0.ph883.ph1842, %land.rhs.lr.ph.outer1841 ], [ %inc, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit727 ]
   %domain_min.sroa.5.0.ph880.ph1852 = phi float [ %domain_min.sroa.5.0.ph880.ph1844, %land.rhs.lr.ph.outer1841 ], [ %domain_min.sroa.5.0.call3.i704, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit727 ]
-  %domain_min.sroa.4.0.ph879.ph1853 = phi float [ %domain_min.sroa.4.0.ph879.ph1845, %land.rhs.lr.ph.outer1841 ], [ %domain_min.sroa.4.1, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit727 ]
-  %domain_min.sroa.0.0.ph878.ph1854 = phi float [ %domain_min.sroa.0.0.ph878.ph1846, %land.rhs.lr.ph.outer1841 ], [ %domain_min.sroa.0.1, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit727 ]
+  %domain_min.sroa.4.0.ph879.ph1853 = phi float [ %domain_min.sroa.4.0.ph879.ph1845, %land.rhs.lr.ph.outer1841 ], [ %domain_min.sroa.4.2, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit727 ]
+  %domain_min.sroa.0.0.ph878.ph1854 = phi float [ %domain_min.sroa.0.0.ph878.ph1846, %land.rhs.lr.ph.outer1841 ], [ %domain_min.sroa.0.2, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit727 ]
   %domain_max.sroa.0.0.ph877.ph1855 = phi float [ %domain_max.sroa.0.0.ph877.ph1847, %land.rhs.lr.ph.outer1841 ], [ %domain_max.sroa.0.0.ph877.ph1860, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit727 ]
   %domain_max.sroa.4.0.ph876.ph1856 = phi float [ %domain_max.sroa.4.0.ph876.ph1848, %land.rhs.lr.ph.outer1841 ], [ %domain_max.sroa.4.0.ph876.ph1861, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit727 ]
   %domain_max.sroa.5.0.ph875.ph1857 = phi float [ %domain_max.sroa.5.0.ph875.ph1849, %land.rhs.lr.ph.outer1841 ], [ %domain_max.sroa.5.0.ph875.ph1862, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit727 ]
@@ -492,8 +492,8 @@ land.rhs.lr.ph.outer1850:                         ; preds = %land.rhs.lr.ph.oute
 
 land.rhs.lr.ph.outer1858:                         ; preds = %land.rhs.lr.ph.outer1850, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit610
   %lineNumber.0.ph883.ph1859 = phi i32 [ %lineNumber.0.ph883.ph1851, %land.rhs.lr.ph.outer1850 ], [ %inc, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit610 ]
-  %domain_max.sroa.0.0.ph877.ph1860 = phi float [ %domain_max.sroa.0.0.ph877.ph1855, %land.rhs.lr.ph.outer1850 ], [ %domain_max.sroa.0.1, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit610 ]
-  %domain_max.sroa.4.0.ph876.ph1861 = phi float [ %domain_max.sroa.4.0.ph876.ph1856, %land.rhs.lr.ph.outer1850 ], [ %domain_max.sroa.4.1, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit610 ]
+  %domain_max.sroa.0.0.ph877.ph1860 = phi float [ %domain_max.sroa.0.0.ph877.ph1855, %land.rhs.lr.ph.outer1850 ], [ %domain_max.sroa.0.2, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit610 ]
+  %domain_max.sroa.4.0.ph876.ph1861 = phi float [ %domain_max.sroa.4.0.ph876.ph1856, %land.rhs.lr.ph.outer1850 ], [ %domain_max.sroa.4.2, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit610 ]
   %domain_max.sroa.5.0.ph875.ph1862 = phi float [ %domain_max.sroa.5.0.ph875.ph1857, %land.rhs.lr.ph.outer1850 ], [ %domain_max.sroa.5.0.call3.i587, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit610 ]
   br label %land.rhs.lr.ph
 
@@ -1068,7 +1068,7 @@ if.else13.i787:                                   ; preds = %if.else.i785
   br label %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit805
 
 _ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit805: ; preds = %if.else13.i787, %if.else.i785, %if.else132
-  %domain_min.sroa.0.1 = phi float [ %domain_min.sroa.0.0.ph878.ph1854, %if.else132 ], [ %domain_min.sroa.0.0.ph878.ph1854, %if.else.i785 ], [ %domain_min.sroa.0.0.call3.i782, %if.else13.i787 ]
+  %domain_min.sroa.0.2 = phi float [ %domain_min.sroa.0.0.ph878.ph1854, %if.else132 ], [ %domain_min.sroa.0.0.ph878.ph1854, %if.else.i785 ], [ %domain_min.sroa.0.0.call3.i782, %if.else13.i787 ]
   %cmp147 = phi i1 [ true, %if.else132 ], [ true, %if.else.i785 ], [ %cmp14.i788.not, %if.else13.i787 ]
   store i32 0, ptr %call.i773, align 4
   store ptr null, ptr %endptr.i732, align 8
@@ -1089,7 +1089,7 @@ if.else13.i748:                                   ; preds = %if.else.i746
   br label %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit766
 
 _ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit766: ; preds = %if.else13.i748, %if.else.i746, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit805
-  %domain_min.sroa.4.1 = phi float [ %domain_min.sroa.4.0.ph879.ph1853, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit805 ], [ %domain_min.sroa.4.0.ph879.ph1853, %if.else.i746 ], [ %domain_min.sroa.4.0.call3.i743, %if.else13.i748 ]
+  %domain_min.sroa.4.2 = phi float [ %domain_min.sroa.4.0.ph879.ph1853, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit805 ], [ %domain_min.sroa.4.0.ph879.ph1853, %if.else.i746 ], [ %domain_min.sroa.4.0.call3.i743, %if.else13.i748 ]
   %cmp149 = phi i1 [ true, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit805 ], [ true, %if.else.i746 ], [ %cmp14.i749.not, %if.else13.i748 ]
   store i32 0, ptr %call.i773, align 4
   store ptr null, ptr %endptr.i693, align 8
@@ -1240,7 +1240,7 @@ if.else13.i670:                                   ; preds = %if.else.i668
   br label %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit688
 
 _ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit688: ; preds = %if.else13.i670, %if.else.i668, %if.else190
-  %domain_max.sroa.0.1 = phi float [ %domain_max.sroa.0.0.ph877.ph1860, %if.else190 ], [ %domain_max.sroa.0.0.ph877.ph1860, %if.else.i668 ], [ %domain_max.sroa.0.0.call3.i665, %if.else13.i670 ]
+  %domain_max.sroa.0.2 = phi float [ %domain_max.sroa.0.0.ph877.ph1860, %if.else190 ], [ %domain_max.sroa.0.0.ph877.ph1860, %if.else.i668 ], [ %domain_max.sroa.0.0.call3.i665, %if.else13.i670 ]
   %cmp207 = phi i1 [ true, %if.else190 ], [ true, %if.else.i668 ], [ %cmp14.i671.not, %if.else13.i670 ]
   store i32 0, ptr %call.i656, align 4
   store ptr null, ptr %endptr.i615, align 8
@@ -1261,7 +1261,7 @@ if.else13.i631:                                   ; preds = %if.else.i629
   br label %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit649
 
 _ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit649: ; preds = %if.else13.i631, %if.else.i629, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit688
-  %domain_max.sroa.4.1 = phi float [ %domain_max.sroa.4.0.ph876.ph1861, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit688 ], [ %domain_max.sroa.4.0.ph876.ph1861, %if.else.i629 ], [ %domain_max.sroa.4.0.call3.i626, %if.else13.i631 ]
+  %domain_max.sroa.4.2 = phi float [ %domain_max.sroa.4.0.ph876.ph1861, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit688 ], [ %domain_max.sroa.4.0.ph876.ph1861, %if.else.i629 ], [ %domain_max.sroa.4.0.call3.i626, %if.else13.i631 ]
   %cmp210 = phi i1 [ true, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit688 ], [ true, %if.else.i629 ], [ %cmp14.i632.not, %if.else13.i631 ]
   store i32 0, ptr %call.i656, align 4
   store ptr null, ptr %endptr.i576, align 8

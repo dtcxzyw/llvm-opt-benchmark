@@ -424,14 +424,14 @@ define internal range(i32 0, 2) i32 @dissect_dcc(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader250, %.lr.ph
-  %.2252 = phi i32 [ %131, %.lr.ph ], [ 24, %.preheader250 ]
-  %124 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2252) #2
+  %.3252 = phi i32 [ %131, %.lr.ph ], [ 24, %.preheader250 ]
+  %124 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3252) #2
   %125 = add i32 %124, -16
-  %126 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.2252, i32 noundef %125, ptr noundef nonnull %5, i32 noundef 0) #2
+  %126 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.3252, i32 noundef %125, ptr noundef nonnull %5, i32 noundef 0) #2
   %127 = load i32, ptr @hf_dcc_response_text, align 4
   %128 = load i32, ptr %5, align 4
-  %129 = sub i32 %128, %.2252
-  %130 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %127, ptr noundef %0, i32 noundef %.2252, i32 noundef %129, i32 noundef 0) #2
+  %129 = sub i32 %128, %.3252
+  %130 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %127, ptr noundef %0, i32 noundef %.3252, i32 noundef %129, i32 noundef 0) #2
   %131 = load i32, ptr %5, align 4
   %132 = add i32 %131, 16
   %133 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %132) #2
@@ -439,9 +439,9 @@ define internal range(i32 0, 2) i32 @dissect_dcc(ptr noundef %0, ptr noundef %1,
   br i1 %.not247, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader250, %115
-  %.3 = phi i32 [ 52, %115 ], [ 24, %.preheader250 ], [ %131, %.lr.ph ]
+  %.2 = phi i32 [ 52, %115 ], [ 24, %.preheader250 ], [ %131, %.lr.ph ]
   %134 = load i32, ptr @hf_dcc_signature, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %134, ptr noundef %0, i32 noundef %.3, i32 noundef 16, i32 noundef 0) #2
+  %135 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %134, ptr noundef %0, i32 noundef %.2, i32 noundef 16, i32 noundef 0) #2
   br label %193
 
 136:                                              ; preds = %110

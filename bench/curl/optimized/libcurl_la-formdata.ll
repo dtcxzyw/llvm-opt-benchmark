@@ -1163,7 +1163,7 @@ if.end629.i:                                      ; preds = %if.else21.i.i, %if.
   br i1 %cmp465.not.i, label %if.end684.i, label %for.body466.i, !llvm.loop !8
 
 for.end637.i:                                     ; preds = %if.end4.i247.i, %if.end.i246.i, %if.end605.i, %if.end586.i, %if.end564.thread255.i, %if.then519.i, %lor.lhs.false488.i, %lor.lhs.false473.i, %land.lhs.true471.i, %lor.lhs.false.i, %for.body554.i
-  %return_value.5.i = phi i32 [ 3, %for.body554.i ], [ 5, %lor.lhs.false473.i ], [ 5, %lor.lhs.false.i ], [ 5, %land.lhs.true471.i ], [ 1, %if.then519.i ], [ 1, %if.end586.i ], [ 1, %if.end605.i ], [ 1, %if.end.i246.i ], [ 1, %if.end4.i247.i ], [ 5, %lor.lhs.false488.i ], [ 1, %if.end564.thread255.i ]
+  %return_value.4.i = phi i32 [ 3, %for.body554.i ], [ 5, %lor.lhs.false473.i ], [ 5, %lor.lhs.false.i ], [ 5, %land.lhs.true471.i ], [ 1, %if.then519.i ], [ 1, %if.end586.i ], [ 1, %if.end605.i ], [ 1, %if.end.i246.i ], [ 1, %if.end4.i247.i ], [ 5, %lor.lhs.false488.i ], [ 1, %if.end564.thread255.i ]
   br label %for.body643.i
 
 for.body643.i:                                    ; preds = %for.inc680.i, %for.end637.i
@@ -1233,7 +1233,7 @@ for.inc680.i:                                     ; preds = %do.body674.i, %if.e
   br i1 %cmp642.not.i, label %if.end684.i, label %for.body643.i, !llvm.loop !9
 
 if.end684.i:                                      ; preds = %for.inc.i, %if.end629.i, %for.inc680.i
-  %return_value.6.i = phi i32 [ %return_value.5.i, %for.inc680.i ], [ 0, %if.end629.i ], [ %return_value.0.i, %for.inc.i ]
+  %return_value.2.i = phi i32 [ %return_value.4.i, %for.inc680.i ], [ 0, %if.end629.i ], [ %return_value.0.i, %for.inc.i ]
   br label %while.body687.i
 
 while.body687.i:                                  ; preds = %while.body687.i, %if.end684.i
@@ -1246,7 +1246,7 @@ while.body687.i:                                  ; preds = %while.body687.i, %i
   br i1 %tobool686.not.i, label %FormAdd.exit, label %while.body687.i, !llvm.loop !10
 
 FormAdd.exit:                                     ; preds = %while.body687.i, %entry
-  %retval.0.i = phi i32 [ 1, %entry ], [ %return_value.6.i, %while.body687.i ]
+  %retval.0.i = phi i32 [ 1, %entry ], [ %return_value.2.i, %while.body687.i ]
   call void @llvm.va_end.p0(ptr nonnull %arg)
   ret i32 %retval.0.i
 }
@@ -1348,8 +1348,8 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end5.i, %if.then.i
-  %result.4 = phi i32 [ %call6.i, %if.end5.i ], [ %call.i, %if.then.i ]
-  %tobool20.not = icmp eq i32 %result.4, 0
+  %result.5 = phi i32 [ %call6.i, %if.end5.i ], [ %call.i, %if.then.i ]
+  %tobool20.not = icmp eq i32 %result.5, 0
   br i1 %tobool20.not, label %if.then21, label %if.then131
 
 if.then21:                                        ; preds = %if.end19
@@ -1362,13 +1362,13 @@ if.then28:                                        ; preds = %if.then21
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then11, %if.then28
-  %result.6 = phi i32 [ %call29, %if.then28 ], [ 27, %if.then11 ]
-  %multipart.1 = phi ptr [ %call22, %if.then28 ], [ %call, %if.then11 ]
-  %tobool33.not111 = icmp eq i32 %result.6, 0
+  %result.3 = phi i32 [ %call29, %if.then28 ], [ 27, %if.then11 ]
+  %multipart.0 = phi ptr [ %call22, %if.then28 ], [ %call, %if.then11 ]
+  %tobool33.not111 = icmp eq i32 %result.3, 0
   br i1 %tobool33.not111, label %for.body37.lr.ph, label %if.then131
 
 for.body37.lr.ph:                                 ; preds = %for.body, %if.end31
-  %multipart.1129 = phi ptr [ %multipart.1, %if.end31 ], [ %call, %for.body ]
+  %multipart.0129 = phi ptr [ %multipart.0, %if.end31 ], [ %call, %for.body ]
   %name57 = getelementptr inbounds i8, ptr %post.addr.0115, i64 8
   %namelength58 = getelementptr inbounds i8, ptr %post.addr.0115, i64 16
   %flags = getelementptr inbounds i8, ptr %post.addr.0115, i64 80
@@ -1381,7 +1381,7 @@ for.body37.lr.ph:                                 ; preds = %for.body, %if.end31
 
 for.body37:                                       ; preds = %for.body37.lr.ph, %for.inc
   %file.0113 = phi ptr [ %post.addr.0115, %for.body37.lr.ph ], [ %28, %for.inc ]
-  %call38 = tail call ptr @curl_mime_addpart(ptr noundef %multipart.1129) #6
+  %call38 = tail call ptr @curl_mime_addpart(ptr noundef %multipart.0129) #6
   %tobool39.not.not = icmp eq ptr %call38, null
   br i1 %tobool39.not.not, label %for.inc, label %if.end45
 
@@ -1477,8 +1477,8 @@ if.else:                                          ; preds = %if.then69.tail
   br label %if.end76
 
 if.end76:                                         ; preds = %if.else, %if.then72
-  %result.12 = phi i32 [ %call75, %if.else ], [ %call73, %if.then72 ]
-  %tobool77.not = icmp eq i32 %result.12, 0
+  %result.13 = phi i32 [ %call75, %if.else ], [ %call73, %if.then72 ]
+  %tobool77.not = icmp eq i32 %result.13, 0
   br i1 %tobool77.not, label %land.lhs.true78, label %if.then131
 
 land.lhs.true78:                                  ; preds = %if.end76
@@ -1522,8 +1522,8 @@ if.else102:                                       ; preds = %if.else93
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then82, %if.then97, %if.else102, %if.then89
-  %result.13 = phi i32 [ %call83, %if.then82 ], [ %call92, %if.then89 ], [ %call101, %if.then97 ], [ %call108, %if.else102 ]
-  %tobool113.not = icmp eq i32 %result.13, 0
+  %result.12 = phi i32 [ %call83, %if.then82 ], [ %call92, %if.then89 ], [ %call101, %if.then97 ], [ %call108, %if.else102 ]
+  %tobool113.not = icmp eq i32 %result.12, 0
   br i1 %tobool113.not, label %land.lhs.true114, label %if.then131
 
 land.lhs.true114:                                 ; preds = %land.lhs.true78, %if.end112
@@ -1566,7 +1566,7 @@ for.end129:                                       ; preds = %for.inc128
   br i1 %tobool8.not, label %return, label %if.then131
 
 if.then131:                                       ; preds = %if.then21, %if.end.i, %if.end19, %if.end31, %if.end45, %if.end51, %if.end.i83, %if.end60, %if.end76, %if.end112, %if.end, %if.end7, %for.end129
-  %result.2.lcssa142 = phi i32 [ %result.14, %for.end129 ], [ %call6, %if.end7 ], [ 27, %if.end ], [ %result.13, %if.end112 ], [ %result.12, %if.end76 ], [ %result.11, %if.end60 ], [ 27, %if.end.i83 ], [ %call50, %if.end51 ], [ %call44, %if.end45 ], [ %result.4, %if.end19 ], [ 27, %if.end.i ], [ 27, %if.then21 ], [ %result.6, %if.end31 ]
+  %result.2.lcssa142 = phi i32 [ %result.14, %for.end129 ], [ %call6, %if.end7 ], [ 27, %if.end ], [ %result.12, %if.end112 ], [ %result.13, %if.end76 ], [ %result.11, %if.end60 ], [ 27, %if.end.i83 ], [ %call50, %if.end51 ], [ %call44, %if.end45 ], [ %result.5, %if.end19 ], [ 27, %if.end.i ], [ 27, %if.then21 ], [ %result.3, %if.end31 ]
   tail call void @Curl_mime_cleanpart(ptr noundef %finalform) #6
   br label %return
 

@@ -1111,7 +1111,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   br label %115
 
 115:                                              ; preds = %66, %54, %59, %114
-  %.0 = phi i1 [ false, %114 ], [ true, %59 ], [ true, %54 ], [ true, %66 ]
+  %.1 = phi i1 [ false, %114 ], [ true, %59 ], [ true, %54 ], [ true, %66 ]
   %116 = load ptr, ptr %9, align 8
   %117 = getelementptr inbounds i8, ptr %9, i64 8
   %118 = load ptr, ptr %117, align 8
@@ -1153,8 +1153,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   resume { ptr, i32 } %.pn.pn
 
 124:                                              ; preds = %_ZNK12cmSourceFile14GetIsGeneratedENS_10CheckScopeE.exit.thread43, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %_ZNK12cmSourceFile14GetIsGeneratedENS_10CheckScopeE.exit.thread
-  %.1 = phi i1 [ true, %_ZNK12cmSourceFile14GetIsGeneratedENS_10CheckScopeE.exit.thread ], [ %.0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ false, %_ZNK12cmSourceFile14GetIsGeneratedENS_10CheckScopeE.exit.thread43 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %_ZNK12cmSourceFile14GetIsGeneratedENS_10CheckScopeE.exit.thread ], [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ false, %_ZNK12cmSourceFile14GetIsGeneratedENS_10CheckScopeE.exit.thread43 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1658,9 +1658,9 @@ _ZN19cmListFileBacktraceC2Ev.exit:                ; preds = %108
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %39, %36, %.critedge, %33
-  %.3 = phi i1 [ true, %33 ], [ true, %.critedge ], [ false, %36 ], [ false, %39 ], [ false, %118 ]
+  %.0 = phi i1 [ true, %33 ], [ true, %.critedge ], [ false, %36 ], [ false, %39 ], [ false, %118 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  ret i1 %.3
+  ret i1 %.0
 
 120:                                              ; preds = %.loopexit29, %.loopexit.split-lp, %117
   %.pn20 = phi { ptr, i32 } [ %.pn.pn, %117 ], [ %lpad.loopexit, %.loopexit29 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]

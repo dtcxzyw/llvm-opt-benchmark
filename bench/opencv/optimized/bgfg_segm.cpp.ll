@@ -1283,7 +1283,7 @@ _ZN2cv3PtrINS_23BackgroundSubtractorKNNEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_23B
   br label %511
 
 474:                                              ; preds = %319, %473
-  %.0 = phi i32 [ 0, %473 ], [ 3, %319 ]
+  %.3 = phi i32 [ 0, %473 ], [ 3, %319 ]
   %475 = getelementptr inbounds i8, ptr %26, i64 8
   %476 = load ptr, ptr %475, align 8
   %.not.i.i.i.i135 = icmp eq ptr %476, null
@@ -1363,7 +1363,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body108
 
 _ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit:  ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i140, %506, %493, %474, %145, %146
-  %.1 = phi i32 [ 2, %146 ], [ 2, %145 ], [ %.0, %474 ], [ %.0, %493 ], [ %.0, %506 ], [ %.0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i140 ]
+  %.2 = phi i32 [ 2, %146 ], [ 2, %145 ], [ %.3, %474 ], [ %.3, %493 ], [ %.3, %506 ], [ %.3, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i140 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %20) #8
   br label %512
 
@@ -1373,7 +1373,7 @@ _ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit:  ; preds = %_ZNSt16_Sp_counted_
   br label %513
 
 512:                                              ; preds = %92, %_ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit
-  %.2 = phi i32 [ %.1, %_ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit ], [ 1, %92 ]
+  %.1 = phi i32 [ %.2, %_ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit ], [ 1, %92 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
   br label %515
@@ -1389,10 +1389,10 @@ _ZN2cv3PtrINS_20BackgroundSubtractorEED2Ev.exit:  ; preds = %_ZNSt16_Sp_counted_
   br label %516
 
 515:                                              ; preds = %65, %512
-  %.3 = phi i32 [ %.2, %512 ], [ 0, %65 ]
+  %.0 = phi i32 [ %.1, %512 ], [ 0, %65 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  ret i32 %.3
+  ret i32 %.0
 
 516:                                              ; preds = %514, %100, %97, %80, %79, %74
   %.pn101 = phi { ptr, i32 } [ %81, %80 ], [ %.pn95.pn.pn.pn.pn, %514 ], [ %.pn65, %100 ], [ %.pn63, %97 ], [ %.pn61, %79 ], [ %.pn, %74 ]

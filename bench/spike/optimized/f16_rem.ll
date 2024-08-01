@@ -126,7 +126,7 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.095.lcssa = phi i8 [ %54, %49 ], [ %64, %.lr.ph ]
-  %.091.lcssa = phi i16 [ %53, %49 ], [ %63, %.lr.ph ]
+  %.192.lcssa = phi i16 [ %53, %49 ], [ %63, %.lr.ph ]
   %.lcssa120 = phi i64 [ %58, %49 ], [ %67, %.lr.ph ]
   %69 = sext i8 %.095.lcssa to i32
   %70 = trunc nuw i64 %.lcssa120 to i32
@@ -134,7 +134,7 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
   %72 = xor i32 %71, 31
   %73 = lshr i32 %70, %72
   %74 = zext i32 %73 to i64
-  %75 = zext i16 %.091.lcssa to i32
+  %75 = zext i16 %.192.lcssa to i32
   %76 = add nsw i32 %69, 30
   %77 = shl i32 %75, %76
   %78 = zext i32 %77 to i64
@@ -145,14 +145,14 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
 
 82:                                               ; preds = %41, %46, %43, %._crit_edge
   %.093 = phi i64 [ 0, %41 ], [ 1, %46 ], [ 0, %43 ], [ %74, %._crit_edge ]
-  %.192 = phi i16 [ %42, %41 ], [ %48, %46 ], [ %44, %43 ], [ %81, %._crit_edge ]
+  %.091 = phi i16 [ %42, %41 ], [ %48, %46 ], [ %44, %43 ], [ %81, %._crit_edge ]
   %.1 = phi i64 [ %40, %41 ], [ %40, %46 ], [ %40, %43 ], [ %55, %._crit_edge ]
   %83 = trunc i64 %.1 to i16
   br label %84
 
 84:                                               ; preds = %84, %82
   %.194 = phi i64 [ %.093, %82 ], [ %85, %84 ]
-  %.2 = phi i16 [ %.192, %82 ], [ %86, %84 ]
+  %.2 = phi i16 [ %.091, %82 ], [ %86, %84 ]
   %85 = add i64 %.194, 1
   %86 = sub i16 %.2, %83
   %.not112 = icmp sgt i16 %86, -1

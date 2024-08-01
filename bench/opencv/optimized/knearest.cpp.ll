@@ -1976,7 +1976,7 @@ _ZSt4sortIPfEvT_S1_.exit:                         ; preds = %192
   %indvars.iv354 = phi i64 [ %indvars.iv.next355, %210 ], [ 1, %_ZSt4sortIPfEvT_S1_.exit ]
   %.0193289 = phi i32 [ %.2195, %210 ], [ 0, %_ZSt4sortIPfEvT_S1_.exit ]
   %.0196288 = phi i32 [ %.1197, %210 ], [ 0, %_ZSt4sortIPfEvT_S1_.exit ]
-  %.0209286 = phi float [ %.2211, %210 ], [ %196, %_ZSt4sortIPfEvT_S1_.exit ]
+  %.1210286 = phi float [ %.3212, %210 ], [ %196, %_ZSt4sortIPfEvT_S1_.exit ]
   %197 = icmp eq i64 %indvars.iv354, %140
   br i1 %197, label %204, label %198
 
@@ -2000,7 +2000,7 @@ _ZSt4sortIPfEvT_S1_.exit:                         ; preds = %192
   br label %210
 
 210:                                              ; preds = %204, %208, %198
-  %.2211 = phi float [ %.0209286, %198 ], [ %209, %208 ], [ %.0209286, %204 ]
+  %.3212 = phi float [ %.1210286, %198 ], [ %209, %208 ], [ %.1210286, %204 ]
   %.1197 = phi i32 [ %.0196288, %198 ], [ %205, %208 ], [ %205, %204 ]
   %.2195 = phi i32 [ %.0193289, %198 ], [ %206, %208 ], [ %.0193289, %204 ]
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
@@ -2008,7 +2008,7 @@ _ZSt4sortIPfEvT_S1_.exit:                         ; preds = %192
   br i1 %exitcond358.not, label %.loopexit, label %.lr.ph290, !llvm.loop !50
 
 .loopexit:                                        ; preds = %210, %_ZSt4sortIPfEvT_S1_.exit, %._crit_edge
-  %.3212 = phi float [ %191, %._crit_edge ], [ %196, %_ZSt4sortIPfEvT_S1_.exit ], [ %.2211, %210 ]
+  %.0209 = phi float [ %191, %._crit_edge ], [ %196, %_ZSt4sortIPfEvT_S1_.exit ], [ %.3212, %210 ]
   br i1 %.not227, label %248, label %211
 
 211:                                              ; preds = %.loopexit
@@ -2064,7 +2064,7 @@ _ZSt4sortIPfEvT_S1_.exit:                         ; preds = %192
 
 _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %236, %229, %221
   %.0.i = phi ptr [ %224, %221 ], [ %235, %229 ], [ %247, %236 ]
-  store float %.3212, ptr %.0.i, align 4
+  store float %.0209, ptr %.0.i, align 4
   br label %248
 
 248:                                              ; preds = %_ZN2cv3Mat2atIfEERT_i.exit, %.loopexit
@@ -2078,7 +2078,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %236, %229, %221
   br i1 %253, label %254, label %255
 
 254:                                              ; preds = %249
-  store float %.3212, ptr %7, align 4
+  store float %.0209, ptr %7, align 4
   br label %255
 
 255:                                              ; preds = %177, %254, %249, %248

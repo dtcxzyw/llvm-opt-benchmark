@@ -736,7 +736,7 @@ txp_determine_archetype.exit:                     ; preds = %for.body.i, %for.en
 
 for.body6:                                        ; preds = %txp_determine_archetype.exit, %for.inc44
   %indvars.iv677 = phi i64 [ 0, %txp_determine_archetype.exit ], [ %indvars.iv.next678, %for.inc44 ]
-  %need_padding.0551 = phi i32 [ 0, %txp_determine_archetype.exit ], [ %need_padding.2, %for.inc44 ]
+  %need_padding.0551 = phi i32 [ 0, %txp_determine_archetype.exit ], [ %need_padding.1, %for.inc44 ]
   %conn_close_enc_level.0550 = phi i32 [ 4, %txp_determine_archetype.exit ], [ %conn_close_enc_level.2360, %for.inc44 ]
   %cmp7.not = icmp eq i64 %indvars.iv677, 0
   br i1 %cmp7.not, label %cond.end.thread, label %cond.end
@@ -1714,7 +1714,7 @@ sw.default.i:                                     ; preds = %for.body.i107
   br i1 %97, label %for.inc.i, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %if.end207.i, %if.then195.i, %if.end193.i, %sw.bb180.i, %sw.bb.i
-  %done_pre_token.1.i = phi i32 [ %done_pre_token.0257.i, %sw.default.i ], [ %done_pre_token.0257.i, %if.end207.i ], [ 1, %if.end193.i ], [ %done_pre_token.0257.i, %sw.bb180.i ], [ %done_pre_token.0257.i, %sw.bb.i ], [ %call196.i, %if.then195.i ]
+  %done_pre_token.3.i = phi i32 [ %done_pre_token.0257.i, %sw.default.i ], [ %done_pre_token.0257.i, %if.end207.i ], [ 1, %if.end193.i ], [ %done_pre_token.0257.i, %sw.bb180.i ], [ %done_pre_token.0257.i, %sw.bb.i ], [ %call196.i, %if.then195.i ]
   %102 = load i64, ptr %max_ppl3.i.i, align 8
   %bf.load.i185.i = load i8, ptr %reserve_allowed.i.i, align 4
   %bf.clear.i186.i = and i8 %bf.load.i185.i, 1
@@ -1813,24 +1813,24 @@ if.then225.i:                                     ; preds = %if.end222.i
 
 for.inc.i:                                        ; preds = %if.then225.i, %if.end222.i, %if.end222.i, %if.end222.i, %if.end222.i, %if.end222.i, %sw.default.i, %sw.bb201.i, %sw.bb187.i, %sw.bb180.i, %sw.bb.i
   %118 = phi i32 [ 1, %if.then225.i ], [ %101, %sw.default.i ], [ %101, %sw.bb201.i ], [ %101, %sw.bb187.i ], [ %101, %sw.bb180.i ], [ %101, %sw.bb.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ]
-  %done_pre_token.2.i = phi i32 [ %done_pre_token.1.i, %if.then225.i ], [ %done_pre_token.0257.i, %sw.default.i ], [ %done_pre_token.0257.i, %sw.bb201.i ], [ %done_pre_token.0257.i, %sw.bb187.i ], [ %done_pre_token.0257.i, %sw.bb180.i ], [ %done_pre_token.0257.i, %sw.bb.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ]
+  %done_pre_token.2.i = phi i32 [ %done_pre_token.3.i, %if.then225.i ], [ %done_pre_token.0257.i, %sw.default.i ], [ %done_pre_token.0257.i, %sw.bb201.i ], [ %done_pre_token.0257.i, %sw.bb187.i ], [ %done_pre_token.0257.i, %sw.bb180.i ], [ %done_pre_token.0257.i, %sw.bb.i ], [ %done_pre_token.3.i, %if.end222.i ], [ %done_pre_token.3.i, %if.end222.i ], [ %done_pre_token.3.i, %if.end222.i ], [ %done_pre_token.3.i, %if.end222.i ], [ %done_pre_token.3.i, %if.end222.i ]
   %call227.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.0256.i, i32 noundef %retval.0.i.i86) #10
   %cmp169.not.i = icmp eq ptr %call227.i, null
   br i1 %cmp169.not.i, label %for.end.i110, label %for.body.i107, !llvm.loop !9
 
 for.end.i110:                                     ; preds = %for.inc.i, %tx_helper_get_space_left.exit193.i
   %have_ack_eliciting.promoted261.i = phi i32 [ %118, %for.inc.i ], [ %101, %tx_helper_get_space_left.exit193.i ]
-  %done_pre_token.3.i = phi i32 [ %done_pre_token.2.i, %for.inc.i ], [ %done_pre_token.1.i, %tx_helper_get_space_left.exit193.i ]
-  %tobool228.not.i = icmp eq i32 %done_pre_token.3.i, 0
+  %done_pre_token.1.i = phi i32 [ %done_pre_token.2.i, %for.inc.i ], [ %done_pre_token.3.i, %tx_helper_get_space_left.exit193.i ]
+  %tobool228.not.i = icmp eq i32 %done_pre_token.1.i, 0
   br i1 %tobool228.not.i, label %if.then229.i, label %if.end234.i
 
 if.then229.i:                                     ; preds = %if.end166.i, %for.end.i110
-  %have_ack_eliciting.i.0 = phi i32 [ %have_ack_eliciting.promoted261.i, %for.end.i110 ], [ %have_ack_eliciting.promoted.i, %if.end166.i ]
+  %have_ack_eliciting.i.4 = phi i32 [ %have_ack_eliciting.promoted261.i, %for.end.i110 ], [ %have_ack_eliciting.promoted.i, %if.end166.i ]
   %call230.i = call fastcc i32 @txp_generate_pre_token(ptr noundef %txp, ptr noundef %arrayidx11354, i32 noundef %conv, ptr noundef nonnull %can_be_non_inflight.i)
   br label %if.end234.i
 
 if.end234.i:                                      ; preds = %if.then229.i, %for.end.i110
-  %have_ack_eliciting.i.1 = phi i32 [ %have_ack_eliciting.i.0, %if.then229.i ], [ %have_ack_eliciting.promoted261.i, %for.end.i110 ]
+  %have_ack_eliciting.i.0 = phi i32 [ %have_ack_eliciting.i.4, %if.then229.i ], [ %have_ack_eliciting.promoted261.i, %for.end.i110 ]
   %119 = and i32 %a.sroa.0.0.copyload.i, 4
   %tobool238.not.i = icmp eq i32 %119, 0
   br i1 %tobool238.not.i, label %if.end244.i, label %if.then239.i
@@ -1866,7 +1866,7 @@ ossl_quic_enc_level_to_pn_space.exit.i.i:         ; preds = %if.then239.i, %swit
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.end.i.i, %ossl_quic_enc_level_to_pn_space.exit.i.i
-  %124 = phi i32 [ %have_ack_eliciting.i.1, %ossl_quic_enc_level_to_pn_space.exit.i.i ], [ 1, %for.end.i.i ]
+  %124 = phi i32 [ %have_ack_eliciting.i.0, %ossl_quic_enc_level_to_pn_space.exit.i.i ], [ 1, %for.end.i.i ]
   %i.0.i.i = phi i64 [ 0, %ossl_quic_enc_level_to_pn_space.exit.i.i ], [ %inc54.i.i, %for.end.i.i ]
   %125 = load i64, ptr %max_ppl3.i.i, align 8
   %bf.load.i.i209.i = load i8, ptr %reserve_allowed.i.i, align 4
@@ -2086,7 +2086,7 @@ txp_generate_crypto_frames.exit.i:                ; preds = %for.end.i.i, %if.en
   br label %if.then337.i
 
 if.end244.i:                                      ; preds = %txp_generate_crypto_frames.exit.thread.i, %if.end234.i
-  %have_ack_eliciting.i.3 = phi i32 [ %have_ack_eliciting.i.1, %if.end234.i ], [ %124, %txp_generate_crypto_frames.exit.thread.i ]
+  %have_ack_eliciting.i.2 = phi i32 [ %have_ack_eliciting.i.0, %if.end234.i ], [ %124, %txp_generate_crypto_frames.exit.thread.i ]
   %155 = and i32 %a.sroa.0.0.copyload.i, 256
   %tobool248.not.i = icmp eq i32 %155, 0
   br i1 %tobool248.not.i, label %if.end260.i, label %land.lhs.true249.i
@@ -2109,7 +2109,7 @@ if.then255.i:                                     ; preds = %land.lhs.true249.i
   br i1 %cmp.not161.i, label %txp_generate_stream_related.exit.thread371, label %for.body.i234
 
 for.body.i234:                                    ; preds = %if.then255.i, %if.end163.i255
-  %have_ack_eliciting.i.4 = phi i32 [ %have_ack_eliciting.i.11, %if.end163.i255 ], [ %have_ack_eliciting.i.3, %if.then255.i ]
+  %have_ack_eliciting.i.5 = phi i32 [ %have_ack_eliciting.i.9, %if.end163.i255 ], [ %have_ack_eliciting.i.2, %if.then255.i ]
   %159 = phi ptr [ %240, %if.end163.i255 ], [ %158, %if.then255.i ]
   %conn_consumed.0162.i = phi i64 [ %conn_consumed.1.i, %if.end163.i255 ], [ 0, %if.then255.i ]
   call void @ossl_quic_stream_iter_next(ptr noundef nonnull %it.i222) #10
@@ -2167,7 +2167,7 @@ if.end25.i243:                                    ; preds = %if.end21.i
   br label %if.end30.i245
 
 if.end30.i245:                                    ; preds = %if.end25.i243, %for.body.i234
-  %have_ack_eliciting.i.5 = phi i32 [ %have_ack_eliciting.i.4, %for.body.i234 ], [ 1, %if.end25.i243 ]
+  %have_ack_eliciting.i.6 = phi i32 [ %have_ack_eliciting.i.5, %for.body.i234 ], [ 1, %if.end25.i243 ]
   %bf.load31.i = phi i64 [ %bf.clear12.i, %for.body.i234 ], [ %bf.set29.i, %if.end25.i243 ]
   %163 = and i64 %bf.load31.i, 34359738368
   %tobool35.not.i246 = icmp eq i64 %163, 0
@@ -2261,7 +2261,7 @@ if.end87.i:                                       ; preds = %if.end69.i
   br label %if.end92.i
 
 if.end92.i:                                       ; preds = %if.end87.i, %if.end30.i245
-  %have_ack_eliciting.i.6 = phi i32 [ %have_ack_eliciting.i.5, %if.end30.i245 ], [ 1, %if.end87.i ]
+  %have_ack_eliciting.i.7 = phi i32 [ %have_ack_eliciting.i.6, %if.end30.i245 ], [ 1, %if.end87.i ]
   %bf.load93.i = phi i64 [ %bf.load31.i, %if.end30.i245 ], [ %bf.load93.pre.i, %if.end87.i ]
   %172 = and i64 %bf.load93.i, 16711680
   %cmp97.i = icmp eq i64 %172, 65536
@@ -2326,7 +2326,7 @@ if.end122.i:                                      ; preds = %if.end118.i330
   br label %if.end127.i
 
 if.end127.i:                                      ; preds = %if.end122.i, %lor.lhs.false.if.end127_crit_edge.i, %if.end92.i
-  %have_ack_eliciting.i.7 = phi i32 [ %have_ack_eliciting.i.6, %lor.lhs.false.if.end127_crit_edge.i ], [ 1, %if.end122.i ], [ %have_ack_eliciting.i.6, %if.end92.i ]
+  %have_ack_eliciting.i.8 = phi i32 [ %have_ack_eliciting.i.7, %lor.lhs.false.if.end127_crit_edge.i ], [ 1, %if.end122.i ], [ %have_ack_eliciting.i.7, %if.end92.i ]
   %.val.i = phi i64 [ %.val.pre.i, %lor.lhs.false.if.end127_crit_edge.i ], [ %bf.set126.i, %if.end122.i ], [ %bf.load93.i, %if.end92.i ]
   %175 = lshr i64 %.val.i, 8
   %trunc.i100.i = trunc i64 %175 to i8
@@ -2462,10 +2462,10 @@ if.end158.thread125.i:                            ; preds = %land.lhs.true.i.i
   br label %if.end163.i255
 
 for.cond11.i.i:                                   ; preds = %if.end203.i.i, %for.cond11.preheader.i.i
-  %have_ack_eliciting.i.8 = phi i32 [ %have_ack_eliciting.i.7, %for.cond11.preheader.i.i ], [ 1, %if.end203.i.i ]
+  %have_ack_eliciting.i.10 = phi i32 [ %have_ack_eliciting.i.8, %for.cond11.preheader.i.i ], [ 1, %if.end203.i.i ]
   %packet_full.0.i = phi i32 [ 0, %for.cond11.preheader.i.i ], [ %packet_full.1.i, %if.end203.i.i ]
   %i.1.i.i = phi i64 [ 0, %for.cond11.preheader.i.i ], [ %inc210.i.i, %if.end203.i.i ]
-  %fc_new_hwm.0.i.i = phi i64 [ %call.i101.i, %for.cond11.preheader.i.i ], [ %fc_new_hwm.1.i.i, %if.end203.i.i ]
+  %fc_new_hwm.1.i.i = phi i64 [ %call.i101.i, %for.cond11.preheader.i.i ], [ %fc_new_hwm.2.i.i, %if.end203.i.i ]
   %192 = load i64, ptr %max_ppl3.i.i, align 8
   %bf.load.i79.i.i = load i8, ptr %reserve_allowed.i.i, align 4
   %bf.clear.i.i103.i = and i8 %bf.load.i79.i.i, 1
@@ -2827,8 +2827,8 @@ if.end166.i.i:                                    ; preds = %if.then161.i.i, %fo
   %offset182.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 8
   %.pre.i.i285 = load i64, ptr %offset182.phi.trans.insert.i.i, align 8
   %add172.i.i = add i64 %.pre.i.i285, %235
-  %spec.select.i.i = call i64 @llvm.umax.i64(i64 %add172.i.i, i64 %fc_new_hwm.0.i.i)
-  %fc_new_hwm.1.i.i = select i1 %cmp168.not.i.i, i64 %fc_new_hwm.0.i.i, i64 %spec.select.i.i
+  %spec.select.i.i = call i64 @llvm.umax.i64(i64 %add172.i.i, i64 %fc_new_hwm.1.i.i)
+  %fc_new_hwm.2.i.i = select i1 %cmp168.not.i.i, i64 %fc_new_hwm.1.i.i, i64 %spec.select.i.i
   %236 = load i64, ptr %arrayidx13.i.i, align 16
   store i64 %236, ptr %chunk.i.i221, align 8
   store i64 %.pre.i.i285, ptr %start.i.i231, align 8
@@ -2851,7 +2851,7 @@ if.end203.i.i:                                    ; preds = %if.end166.i.i
   br i1 %cmp205.i.i, label %if.end158.i, label %for.cond11.i.i
 
 if.end158.thread.i:                               ; preds = %determine_stream_len.exit131.i.i, %if.then71.i.i, %determine_stream_len.exit.i.i, %if.end46.i.i, %if.end17.i.i, %if.end.i140.i.i, %if.then131.i.i
-  %sub211.i117122.i = sub i64 %fc_new_hwm.0.i.i, %call.i101.i
+  %sub211.i117122.i = sub i64 %fc_new_hwm.1.i.i, %call.i101.i
   store i64 %sub211.i117122.i, ptr %txp_txfc_new_credit_consumed.i237, align 8
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %chunks.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %chunk.i.i221)
@@ -2862,10 +2862,10 @@ if.end158.thread.i:                               ; preds = %determine_stream_le
   br label %txp_generate_stream_related.exit.thread376
 
 if.end158.i:                                      ; preds = %if.end203.i.i, %tx_helper_get_space_left.exit.i.i269
-  %have_ack_eliciting.i.10 = phi i32 [ %have_ack_eliciting.i.8, %tx_helper_get_space_left.exit.i.i269 ], [ 1, %if.end203.i.i ]
+  %have_ack_eliciting.i.13 = phi i32 [ %have_ack_eliciting.i.10, %tx_helper_get_space_left.exit.i.i269 ], [ 1, %if.end203.i.i ]
   %packet_full.2.ph.i = phi i32 [ %packet_full.0.i, %tx_helper_get_space_left.exit.i.i269 ], [ %packet_full.1.i, %if.end203.i.i ]
-  %fc_new_hwm.2.i.ph.i = phi i64 [ %fc_new_hwm.0.i.i, %tx_helper_get_space_left.exit.i.i269 ], [ %fc_new_hwm.1.i.i, %if.end203.i.i ]
-  %sub211.i117.i = sub i64 %fc_new_hwm.2.i.ph.i, %call.i101.i
+  %fc_new_hwm.0.i.ph.i = phi i64 [ %fc_new_hwm.1.i.i, %tx_helper_get_space_left.exit.i.i269 ], [ %fc_new_hwm.2.i.i, %if.end203.i.i ]
+  %sub211.i117.i = sub i64 %fc_new_hwm.0.i.ph.i, %call.i101.i
   store i64 %sub211.i117.i, ptr %txp_txfc_new_credit_consumed.i237, align 8
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %chunks.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %chunk.i.i221)
@@ -2879,7 +2879,7 @@ if.end158.i:                                      ; preds = %if.end203.i.i, %tx_
   br i1 %tobool160.not.i288, label %if.end163.i255, label %txp_generate_stream_related.exit.thread376
 
 if.end163.i255:                                   ; preds = %if.end158.i, %if.end158.thread125.i, %land.lhs.true130.i, %if.end127.i
-  %have_ack_eliciting.i.11 = phi i32 [ %have_ack_eliciting.i.7, %if.end127.i ], [ %have_ack_eliciting.i.7, %if.end158.thread125.i ], [ %have_ack_eliciting.i.10, %if.end158.i ], [ %have_ack_eliciting.i.7, %land.lhs.true130.i ]
+  %have_ack_eliciting.i.9 = phi i32 [ %have_ack_eliciting.i.8, %if.end127.i ], [ %have_ack_eliciting.i.8, %if.end158.thread125.i ], [ %have_ack_eliciting.i.13, %if.end158.i ], [ %have_ack_eliciting.i.8, %land.lhs.true130.i ]
   %conn_consumed.1.i = phi i64 [ %conn_consumed.0162.i, %if.end127.i ], [ %add129.i, %if.end158.thread125.i ], [ %add.i287, %if.end158.i ], [ %conn_consumed.0162.i, %land.lhs.true130.i ]
   %239 = load ptr, ptr %stream_head.i, align 8
   %txp_next.i107.i = getelementptr inbounds i8, ptr %159, i64 48
@@ -2896,14 +2896,14 @@ txp_generate_stream_related.exit.thread:          ; preds = %if.then.i, %if.end2
   br label %if.then337.i
 
 txp_generate_stream_related.exit.thread371:       ; preds = %if.end163.i255, %if.then255.i
-  %have_ack_eliciting.i.13.ph = phi i32 [ %have_ack_eliciting.i.3, %if.then255.i ], [ %have_ack_eliciting.i.11, %if.end163.i255 ]
+  %have_ack_eliciting.i.14.ph = phi i32 [ %have_ack_eliciting.i.2, %if.then255.i ], [ %have_ack_eliciting.i.9, %if.end163.i255 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i222)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %f.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %f37.i)
   br label %if.end260.i
 
 txp_generate_stream_related.exit.thread376:       ; preds = %if.end158.i, %if.then20.i, %if.end.i.i340, %if.then64.i, %if.end.i76.i, %if.then117.i, %if.end.i90.i, %if.end158.thread.i
-  %have_ack_eliciting.i.12.ph = phi i32 [ %have_ack_eliciting.i.4, %if.end.i.i340 ], [ %have_ack_eliciting.i.4, %if.then20.i ], [ %have_ack_eliciting.i.5, %if.end.i76.i ], [ %have_ack_eliciting.i.5, %if.then64.i ], [ %have_ack_eliciting.i.6, %if.end.i90.i ], [ %have_ack_eliciting.i.6, %if.then117.i ], [ %have_ack_eliciting.i.8, %if.end158.thread.i ], [ %have_ack_eliciting.i.10, %if.end158.i ]
+  %have_ack_eliciting.i.12.ph = phi i32 [ %have_ack_eliciting.i.5, %if.end.i.i340 ], [ %have_ack_eliciting.i.5, %if.then20.i ], [ %have_ack_eliciting.i.6, %if.end.i76.i ], [ %have_ack_eliciting.i.6, %if.then64.i ], [ %have_ack_eliciting.i.7, %if.end.i90.i ], [ %have_ack_eliciting.i.7, %if.then117.i ], [ %have_ack_eliciting.i.10, %if.end158.thread.i ], [ %have_ack_eliciting.i.13, %if.end158.i ]
   %241 = load ptr, ptr %stream_head.i, align 8
   %txp_next.i.i379 = getelementptr inbounds i8, ptr %159, i64 48
   store ptr %241, ptr %txp_next.i.i379, align 8
@@ -2914,8 +2914,8 @@ txp_generate_stream_related.exit.thread376:       ; preds = %if.end158.i, %if.th
   br label %if.end260.i
 
 txp_generate_stream_related.exit:                 ; preds = %lor.rhs.i.i.i, %if.end20.i.i, %lor.rhs.i111.i.i, %if.end.i134.i.i, %if.end116.i.i, %if.end132.i.i, %if.end166.i.i
-  %fc_new_hwm.2.i.i = phi i64 [ %fc_new_hwm.0.i.i, %if.end116.i.i ], [ %fc_new_hwm.1.i.i, %if.end166.i.i ], [ %fc_new_hwm.0.i.i, %if.end132.i.i ], [ %fc_new_hwm.0.i.i, %if.end20.i.i ], [ %fc_new_hwm.0.i.i, %lor.rhs.i111.i.i ], [ %fc_new_hwm.0.i.i, %if.end.i134.i.i ], [ %call.i101.i, %lor.rhs.i.i.i ]
-  %sub211.i.i = sub i64 %fc_new_hwm.2.i.i, %call.i101.i
+  %fc_new_hwm.0.i.i = phi i64 [ %fc_new_hwm.1.i.i, %if.end116.i.i ], [ %fc_new_hwm.2.i.i, %if.end166.i.i ], [ %fc_new_hwm.1.i.i, %if.end132.i.i ], [ %fc_new_hwm.1.i.i, %if.end20.i.i ], [ %fc_new_hwm.1.i.i, %lor.rhs.i111.i.i ], [ %fc_new_hwm.1.i.i, %if.end.i134.i.i ], [ %call.i101.i, %lor.rhs.i.i.i ]
+  %sub211.i.i = sub i64 %fc_new_hwm.0.i.i, %call.i101.i
   store i64 %sub211.i.i, ptr %txp_txfc_new_credit_consumed.i237, align 8
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %chunks.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %chunk.i.i221)
@@ -2933,7 +2933,7 @@ txp_generate_stream_related.exit:                 ; preds = %lor.rhs.i.i.i, %if.
   br label %if.then337.i
 
 if.end260.i:                                      ; preds = %txp_generate_stream_related.exit.thread376, %txp_generate_stream_related.exit.thread371, %land.lhs.true249.i, %if.end244.i
-  %have_ack_eliciting.i.14 = phi i32 [ %have_ack_eliciting.i.3, %if.end244.i ], [ %have_ack_eliciting.i.3, %land.lhs.true249.i ], [ %have_ack_eliciting.i.13.ph, %txp_generate_stream_related.exit.thread371 ], [ %have_ack_eliciting.i.12.ph, %txp_generate_stream_related.exit.thread376 ]
+  %have_ack_eliciting.i.3 = phi i32 [ %have_ack_eliciting.i.2, %if.end244.i ], [ %have_ack_eliciting.i.2, %land.lhs.true249.i ], [ %have_ack_eliciting.i.14.ph, %txp_generate_stream_related.exit.thread371 ], [ %have_ack_eliciting.i.12.ph, %txp_generate_stream_related.exit.thread376 ]
   %bf.load.i229.i = load i8, ptr %reserve_allowed.i.i, align 4
   %bf.set.i230.i = or i8 %bf.load.i229.i, 1
   store i8 %bf.set.i230.i, ptr %reserve_allowed.i.i, align 4
@@ -2949,12 +2949,12 @@ lor.lhs.false265.i:                               ; preds = %if.end260.i
   %shl.i121 = shl nuw nsw i64 1, %idxprom.i87
   %and.i122 = and i64 %shl.i121, %conv270.i
   %cmp271.i = icmp eq i64 %and.i122, 0
-  %tobool274.i = icmp ne i32 %have_ack_eliciting.i.14, 0
+  %tobool274.i = icmp ne i32 %have_ack_eliciting.i.3, 0
   %or.cond.i123 = select i1 %cmp271.i, i1 true, i1 %tobool274.i
   br i1 %or.cond.i123, label %if.end294.i, label %land.lhs.true275.i
 
 land.lhs.true273.i:                               ; preds = %if.end260.i
-  %tobool274.old.not.i = icmp eq i32 %have_ack_eliciting.i.14, 0
+  %tobool274.old.not.i = icmp eq i32 %have_ack_eliciting.i.3, 0
   br i1 %tobool274.old.not.i, label %land.lhs.true275.i, label %if.then296.i
 
 land.lhs.true275.i:                               ; preds = %land.lhs.true273.i, %lor.lhs.false265.i
@@ -2978,7 +2978,7 @@ lor.lhs.false289.i:                               ; preds = %if.end286.i
   br i1 %tobool291.not.i, label %if.then337.i, label %if.then296.i
 
 if.end294.i:                                      ; preds = %lor.lhs.false265.i
-  %tobool295.not.i = icmp eq i32 %have_ack_eliciting.i.14, 0
+  %tobool295.not.i = icmp eq i32 %have_ack_eliciting.i.3, 0
   br i1 %tobool295.not.i, label %if.end294.if.end297_crit_edge.i, label %if.then296.i
 
 if.end294.if.end297_crit_edge.i:                  ; preds = %if.end294.i, %land.lhs.true275.i
@@ -2988,7 +2988,7 @@ if.end294.if.end297_crit_edge.i:                  ; preds = %if.end294.i, %land.
   br label %if.end28
 
 if.then296.i:                                     ; preds = %if.end294.i, %lor.lhs.false289.i, %land.lhs.true273.i
-  %247 = phi i32 [ %have_ack_eliciting.i.14, %if.end294.i ], [ %have_ack_eliciting.i.14, %land.lhs.true273.i ], [ 1, %lor.lhs.false289.i ]
+  %247 = phi i32 [ %have_ack_eliciting.i.3, %if.end294.i ], [ %have_ack_eliciting.i.3, %land.lhs.true273.i ], [ 1, %lor.lhs.false289.i ]
   %248 = trunc nuw nsw i32 %247 to i8
   %249 = shl nuw nsw i8 %248, 3
   %250 = and i8 %249, 8
@@ -3040,13 +3040,13 @@ if.end28:                                         ; preds = %if.then296.i, %if.e
 
 for.inc44:                                        ; preds = %txp_should_try_staging.exit, %if.end28
   %conn_close_enc_level.2360 = phi i32 [ %spec.select407, %if.end28 ], [ %conn_close_enc_level.2, %txp_should_try_staging.exit ]
-  %need_padding.2 = phi i32 [ %spec.select, %if.end28 ], [ %need_padding.0551, %txp_should_try_staging.exit ]
+  %need_padding.1 = phi i32 [ %spec.select, %if.end28 ], [ %need_padding.0551, %txp_should_try_staging.exit ]
   %indvars.iv.next678 = add nuw nsw i64 %indvars.iv677, 1
   %exitcond681.not = icmp eq i64 %indvars.iv.next678, 4
   br i1 %exitcond681.not, label %for.end46, label %for.body6, !llvm.loop !14
 
 for.end46:                                        ; preds = %if.then14.i.i, %if.end.i, %if.end27.i.i, %for.inc44, %txp_determine_ppl_from_pl.exit.thread.i.i
-  %need_padding.0522 = phi i32 [ %need_padding.0551, %txp_determine_ppl_from_pl.exit.thread.i.i ], [ %need_padding.2, %for.inc44 ], [ %need_padding.0551, %if.end27.i.i ], [ %need_padding.0551, %if.end.i ], [ %need_padding.0551, %if.then14.i.i ]
+  %need_padding.0522 = phi i32 [ %need_padding.0551, %txp_determine_ppl_from_pl.exit.thread.i.i ], [ %need_padding.1, %for.inc44 ], [ %need_padding.0551, %if.end27.i.i ], [ %need_padding.0551, %if.end.i ], [ %need_padding.0551, %if.then14.i.i ]
   %h_valid48 = getelementptr inbounds i8, ptr %pkt, i64 128
   %261 = load i32, ptr %h_valid48, align 16
   %tobool49 = icmp eq i32 %261, 0
@@ -3237,7 +3237,7 @@ if.end132:                                        ; preds = %if.end127.thread, %
 
 for.body136:                                      ; preds = %if.end132, %for.inc192
   %indvars.iv686 = phi i64 [ 0, %if.end132 ], [ %indvars.iv.next687, %for.inc192 ]
-  %pkts_done.0559 = phi i64 [ 0, %if.end132 ], [ %pkts_done.1, %for.inc192 ]
+  %pkts_done.1559 = phi i64 [ 0, %if.end132 ], [ %pkts_done.2, %for.inc192 ]
   %arrayidx138 = getelementptr inbounds [4 x %struct.txp_pkt], ptr %pkt, i64 0, i64 %indvars.iv686
   %h_valid139 = getelementptr inbounds i8, ptr %arrayidx138, i64 128
   %282 = load i32, ptr %h_valid139, align 16
@@ -3343,7 +3343,7 @@ for.cond64.preheader.i:                           ; preds = %if.end54.i
 
 for.body66.i:                                     ; preds = %for.cond64.preheader.i, %for.inc125.i
   %stream.190.i = phi ptr [ %stream.1.i, %for.inc125.i ], [ %stream.187.i, %for.cond64.preheader.i ]
-  %rc.089.i = phi i32 [ %rc.2.i, %for.inc125.i ], [ 1, %for.cond64.preheader.i ]
+  %rc.089.i = phi i32 [ %rc.1.i, %for.inc125.i ], [ 1, %for.cond64.preheader.i ]
   %txp_sent_fc.i = getelementptr inbounds i8, ptr %stream.190.i, i64 256
   %bf.load67.i = load i64, ptr %txp_sent_fc.i, align 8
   %298 = and i64 %bf.load67.i, 268435456
@@ -3391,7 +3391,7 @@ if.then101.i:                                     ; preds = %303
   br label %if.end110.i
 
 if.end110.i:                                      ; preds = %if.then101.i, %303
-  %rc.2.i = phi i32 [ %spec.select.i, %if.then101.i ], [ %rc.089.i, %303 ]
+  %rc.1.i = phi i32 [ %spec.select.i, %if.then101.i ], [ %rc.089.i, %303 ]
   %305 = load ptr, ptr %qsm.i, align 8
   call void @ossl_quic_stream_map_update_state(ptr noundef %305, ptr noundef nonnull %stream.190.i) #10
   %stream.1.val.i = load i64, ptr %txp_sent_fc.i, align 8
@@ -3426,7 +3426,7 @@ for.inc125.i:                                     ; preds = %if.then120.i, %land
   br i1 %cmp65.not.i, label %for.end127.i, label %for.body66.i, !llvm.loop !17
 
 for.end127.i:                                     ; preds = %for.inc125.i, %for.cond64.preheader.i
-  %rc.0.lcssa.i = phi i32 [ 1, %for.cond64.preheader.i ], [ %rc.2.i, %for.inc125.i ]
+  %rc.0.lcssa.i = phi i32 [ 1, %for.cond64.preheader.i ], [ %rc.1.i, %for.inc125.i ]
   %is_ack_eliciting.i = getelementptr inbounds i8, ptr %287, i64 32
   %bf.load128.i = load i8, ptr %is_ack_eliciting.i, align 8
   %311 = and i8 %bf.load128.i, 8
@@ -3641,17 +3641,17 @@ if.end187:                                        ; preds = %txp_pkt_commit.exit
 
 if.end190:                                        ; preds = %lor.end, %land.end
   store ptr null, ptr %tpkt2.i, align 8
-  %inc191 = add i64 %pkts_done.0559, 1
+  %inc191 = add i64 %pkts_done.1559, 1
   br label %for.inc192
 
 for.inc192:                                       ; preds = %if.end142, %for.body136, %if.end190
-  %pkts_done.1 = phi i64 [ %pkts_done.0559, %if.end142 ], [ %inc191, %if.end190 ], [ %pkts_done.0559, %for.body136 ]
+  %pkts_done.2 = phi i64 [ %pkts_done.1559, %if.end142 ], [ %inc191, %if.end190 ], [ %pkts_done.1559, %for.body136 ]
   %indvars.iv.next687 = add nuw nsw i64 %indvars.iv686, 1
   %exitcond689.not = icmp eq i64 %indvars.iv.next687, 4
   br i1 %exitcond689.not, label %out, label %for.body136, !llvm.loop !18
 
 out:                                              ; preds = %for.inc192, %if.end.i.i160, %if.then23.i, %if.end25.i, %if.end16.i, %if.end4.i, %if.then114, %if.end187, %if.end187.thread402, %if.end187.thread, %txp_generate_for_el.exit.thread, %if.end127
-  %pkts_done.2 = phi i64 [ %pkts_done.0559, %if.end187 ], [ 0, %if.end127 ], [ 0, %txp_generate_for_el.exit.thread ], [ %pkts_done.0559, %if.end187.thread ], [ %pkts_done.0559, %if.end187.thread402 ], [ 0, %if.then114 ], [ 0, %if.end4.i ], [ 0, %if.end16.i ], [ 0, %if.end25.i ], [ 0, %if.then23.i ], [ 0, %if.end.i.i160 ], [ %pkts_done.1, %for.inc192 ]
+  %pkts_done.0 = phi i64 [ %pkts_done.1559, %if.end187 ], [ 0, %if.end127 ], [ 0, %txp_generate_for_el.exit.thread ], [ %pkts_done.1559, %if.end187.thread ], [ %pkts_done.1559, %if.end187.thread402 ], [ 0, %if.then114 ], [ 0, %if.end4.i ], [ 0, %if.end16.i ], [ 0, %if.end25.i ], [ 0, %if.then23.i ], [ 0, %if.end.i.i160 ], [ %pkts_done.2, %for.inc192 ]
   %res.0 = phi i32 [ 0, %if.end187 ], [ 1, %if.end127 ], [ 0, %txp_generate_for_el.exit.thread ], [ 0, %if.end187.thread ], [ 0, %if.end187.thread402 ], [ 0, %if.then114 ], [ 0, %if.end4.i ], [ 0, %if.end16.i ], [ 0, %if.end25.i ], [ 0, %if.then23.i ], [ 0, %if.end.i.i160 ], [ 1, %for.inc192 ]
   %339 = load ptr, ptr %qtx, align 8
   call void @ossl_qtx_finish_dgram(ptr noundef %339) #10
@@ -3703,7 +3703,7 @@ txp_pkt_cleanup.exit:                             ; preds = %for.body200, %tx_he
 
 for.end205:                                       ; preds = %txp_pkt_cleanup.exit
   %sent_pkt = getelementptr inbounds i8, ptr %status, i64 8
-  store i64 %pkts_done.2, ptr %sent_pkt, align 8
+  store i64 %pkts_done.0, ptr %sent_pkt, align 8
   ret i32 %res.0
 }
 

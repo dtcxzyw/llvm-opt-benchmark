@@ -470,13 +470,13 @@ H5VL__is_connector_registered_by_name.exit:       ; preds = %41
   br label %153
 
 88:                                               ; preds = %53, %72, %80, %62
-  %.039 = phi i64 [ %54, %53 ], [ %82, %80 ], [ %73, %72 ], [ %63, %62 ]
+  %.140 = phi i64 [ %54, %53 ], [ %82, %80 ], [ %73, %72 ], [ %63, %62 ]
   %89 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef nonnull %3) #10
   %.not59 = icmp eq ptr %89, null
   br i1 %.not59, label %H5VL__connector_str_to_info.exit, label %90
 
 90:                                               ; preds = %88
-  %91 = call ptr @H5I_object_verify(i64 noundef %.039, i32 noundef 9) #10
+  %91 = call ptr @H5I_object_verify(i64 noundef %.140, i32 noundef 9) #10
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %97
 
@@ -519,7 +519,7 @@ H5VL__is_connector_registered_by_name.exit:       ; preds = %41
 
 H5VL__connector_str_to_info.exit:                 ; preds = %.H5VL__connector_str_to_info.exit_crit_edge, %107, %88
   %112 = phi ptr [ %.pre, %.H5VL__connector_str_to_info.exit_crit_edge ], [ null, %107 ], [ null, %88 ]
-  store i64 %.039, ptr @H5VL_def_conn_s, align 8
+  store i64 %.140, ptr @H5VL_def_conn_s, align 8
   store ptr %112, ptr getelementptr inbounds (i8, ptr @H5VL_def_conn_s, i64 8), align 8
   br label %121
 
@@ -538,8 +538,8 @@ H5VL__connector_str_to_info.exit:                 ; preds = %.H5VL__connector_st
   br label %153
 
 121:                                              ; preds = %113, %H5VL__connector_str_to_info.exit
-  %.140 = phi i64 [ %.039, %H5VL__connector_str_to_info.exit ], [ -1, %113 ]
-  %.0 = phi ptr [ %28, %H5VL__connector_str_to_info.exit ], [ null, %113 ]
+  %.241 = phi i64 [ %.140, %H5VL__connector_str_to_info.exit ], [ -1, %113 ]
+  %.1 = phi ptr [ %28, %H5VL__connector_str_to_info.exit ], [ null, %113 ]
   %122 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8
   %123 = call ptr @H5I_object(i64 noundef %122) #10
   %124 = icmp eq ptr %123, null
@@ -588,14 +588,14 @@ H5VL__connector_str_to_info.exit:                 ; preds = %.H5VL__connector_st
   br label %153
 
 153:                                              ; preds = %30, %37, %H5VL__is_connector_registered_by_name.exit.thread, %56, %108, %125, %132, %140, %149, %84, %76, %66, %117
-  %.241.ph = phi i64 [ -1, %117 ], [ %63, %66 ], [ %73, %76 ], [ %82, %84 ], [ %.140, %149 ], [ %.140, %140 ], [ %.140, %132 ], [ %.140, %125 ], [ %.039, %108 ], [ -1, %56 ], [ -1, %H5VL__is_connector_registered_by_name.exit.thread ], [ -1, %37 ], [ -1, %30 ]
-  %.1.ph = phi ptr [ null, %117 ], [ %28, %66 ], [ %28, %76 ], [ %28, %84 ], [ %.0, %149 ], [ %.0, %140 ], [ %.0, %132 ], [ %.0, %125 ], [ %28, %108 ], [ %28, %56 ], [ %28, %H5VL__is_connector_registered_by_name.exit.thread ], [ %28, %37 ], [ null, %30 ]
+  %.039.ph = phi i64 [ -1, %117 ], [ %63, %66 ], [ %73, %76 ], [ %82, %84 ], [ %.241, %149 ], [ %.241, %140 ], [ %.241, %132 ], [ %.241, %125 ], [ %.140, %108 ], [ -1, %56 ], [ -1, %H5VL__is_connector_registered_by_name.exit.thread ], [ -1, %37 ], [ -1, %30 ]
+  %.0.ph = phi ptr [ null, %117 ], [ %28, %66 ], [ %28, %76 ], [ %28, %84 ], [ %.1, %149 ], [ %.1, %140 ], [ %.1, %132 ], [ %.1, %125 ], [ %28, %108 ], [ %28, %56 ], [ %28, %H5VL__is_connector_registered_by_name.exit.thread ], [ %28, %37 ], [ null, %30 ]
   %154 = load ptr, ptr %2, align 8
   %.not60 = icmp eq ptr %154, null
   br i1 %.not60, label %162, label %155
 
 155:                                              ; preds = %153
-  %156 = call i32 @H5VL_free_connector_info(i64 noundef %.241.ph, ptr noundef nonnull %154) #10
+  %156 = call i32 @H5VL_free_connector_info(i64 noundef %.039.ph, ptr noundef nonnull %154) #10
   %157 = icmp slt i32 %156, 0
   br i1 %157, label %158, label %162
 
@@ -606,11 +606,11 @@ H5VL__connector_str_to_info.exit:                 ; preds = %.H5VL__connector_st
   br label %162
 
 162:                                              ; preds = %155, %158, %153
-  %163 = icmp sgt i64 %.241.ph, -1
+  %163 = icmp sgt i64 %.039.ph, -1
   br i1 %163, label %164, label %171
 
 164:                                              ; preds = %162
-  %165 = call i32 @H5I_dec_ref(i64 noundef %.241.ph) #10
+  %165 = call i32 @H5I_dec_ref(i64 noundef %.039.ph) #10
   %166 = icmp slt i32 %165, 0
   br i1 %166, label %167, label %171
 
@@ -621,10 +621,10 @@ H5VL__connector_str_to_info.exit:                 ; preds = %.H5VL__connector_st
   br label %171
 
 171:                                              ; preds = %144, %162, %167, %164
-  %.169 = phi ptr [ %.1.ph, %167 ], [ %.1.ph, %164 ], [ %.1.ph, %162 ], [ %.0, %144 ]
-  %.2 = phi i32 [ -1, %167 ], [ -1, %164 ], [ -1, %162 ], [ 0, %144 ]
-  %172 = call ptr @H5MM_xfree(ptr noundef %.169) #10
-  ret i32 %.2
+  %.069 = phi ptr [ %.0.ph, %167 ], [ %.0.ph, %164 ], [ %.0.ph, %162 ], [ %.1, %144 ]
+  %.138 = phi i32 [ -1, %167 ], [ -1, %164 ], [ -1, %162 ], [ 0, %144 ]
+  %172 = call ptr @H5MM_xfree(ptr noundef %.069) #10
+  ret i32 %.138
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1293,8 +1293,8 @@ define ptr @H5VL_new_connector(i64 noundef %0) local_unnamed_addr #0 {
   br label %.thread27
 
 .thread27:                                        ; preds = %4, %11, %15, %19
-  %.2 = phi ptr [ null, %19 ], [ %9, %15 ], [ null, %11 ], [ null, %4 ]
-  ret ptr %.2
+  %.1 = phi ptr [ null, %19 ], [ %9, %15 ], [ null, %11 ], [ null, %4 ]
+  ret ptr %.1
 }
 
 declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
@@ -1509,8 +1509,8 @@ define ptr @H5VL_create_object_using_vol_id(i32 noundef %0, ptr noundef %1, i64 
   br label %.thread43
 
 .thread43:                                        ; preds = %13, %6, %21, %.thread38
-  %.2 = phi ptr [ null, %.thread38 ], [ %22, %21 ], [ null, %6 ], [ null, %13 ]
-  ret ptr %.2
+  %.1 = phi ptr [ null, %.thread38 ], [ %22, %21 ], [ null, %6 ], [ null, %13 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

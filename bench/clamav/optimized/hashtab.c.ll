@@ -1645,7 +1645,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
   %.sroa.21.0.in.in.i = phi i64 [ %35, %33 ], [ %52, %50 ]
   %.sroa.12.0.in.i = phi i64 [ %.07.i.i.i, %33 ], [ %.07.i.i32.i, %50 ]
   %.sroa.10.0.i = phi ptr [ %13, %33 ], [ null, %50 ]
-  %.sroa.7.4.i = phi ptr [ %37, %33 ], [ %54, %50 ]
+  %.sroa.7.0.i = phi ptr [ %37, %33 ], [ %54, %50 ]
   %.sroa.0.0.i = phi ptr [ %32, %33 ], [ %49, %50 ]
   %.sroa.12.0.i = trunc i64 %.sroa.12.0.in.i to i32
   %.sroa.14.0.i = add i32 %.sroa.12.0.i, -1
@@ -1663,7 +1663,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
 59:                                               ; preds = %cli_hashset_addkey_internal.exit.i, %.lr.ph.i
   %60 = phi i32 [ %56, %.lr.ph.i ], [ %114, %cli_hashset_addkey_internal.exit.i ]
   %.02453.i = phi i64 [ 0, %.lr.ph.i ], [ %115, %cli_hashset_addkey_internal.exit.i ]
-  %.sroa.17.152.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.17.3.i, %cli_hashset_addkey_internal.exit.i ]
+  %.sroa.17.152.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.17.2.i, %cli_hashset_addkey_internal.exit.i ]
   %61 = load ptr, ptr %57, align 8
   %62 = lshr i64 %.02453.i, 5
   %63 = getelementptr inbounds i32, ptr %61, i64 %62
@@ -1693,7 +1693,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
   %84 = and i32 %83, %.sroa.14.0.i
   %85 = zext i32 %84 to i64
   %86 = lshr i64 %85, 5
-  %87 = getelementptr inbounds i32, ptr %.sroa.7.4.i, i64 %86
+  %87 = getelementptr inbounds i32, ptr %.sroa.7.0.i, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = zext i32 %88 to i64
   %90 = and i64 %85, 31
@@ -1714,7 +1714,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
   %.pre18.i.i = lshr i64 %.01114.i.i.i, 5
   %.pre.i.i = and i64 %.01114.i.i.i, 31
   %.pre19.i.i = shl nuw nsw i64 1, %.pre.i.i
-  %.phi.trans.insert.i.phi.trans.insert.i = getelementptr inbounds i32, ptr %.sroa.7.4.i, i64 %.pre18.i.i
+  %.phi.trans.insert.i.phi.trans.insert.i = getelementptr inbounds i32, ptr %.sroa.7.0.i, i64 %.pre18.i.i
   %.pre11.i.pre.i = load i32, ptr %.phi.trans.insert.i.phi.trans.insert.i, align 4
   %.pre61.i = zext i32 %.pre11.i.pre.i to i64
   br label %cli_hashset_search.exit.i.i
@@ -1724,7 +1724,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
   %97 = add i64 %.01114.i.i.i, %.015.i.i.i
   %98 = and i64 %97, %58
   %99 = lshr i64 %98, 5
-  %100 = getelementptr inbounds i32, ptr %.sroa.7.4.i, i64 %99
+  %100 = getelementptr inbounds i32, ptr %.sroa.7.0.i, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = zext i32 %101 to i64
   %103 = and i64 %98, 31
@@ -1744,7 +1744,7 @@ cli_hashset_search.exit.i.i:                      ; preds = %95, %.cli_hashset_s
   br i1 %.not.i35.i, label %108, label %cli_hashset_addkey_internal.exit.i
 
 108:                                              ; preds = %cli_hashset_search.exit.i.i
-  %109 = getelementptr inbounds i32, ptr %.sroa.7.4.i, i64 %.pre-phi.i.i
+  %109 = getelementptr inbounds i32, ptr %.sroa.7.0.i, i64 %.pre-phi.i.i
   %110 = trunc nuw i64 %.pre-phi17.i.i to i32
   %111 = or i32 %106, %110
   store i32 %111, ptr %109, align 4
@@ -1756,14 +1756,14 @@ cli_hashset_search.exit.i.i:                      ; preds = %95, %.cli_hashset_s
 
 cli_hashset_addkey_internal.exit.i:               ; preds = %108, %cli_hashset_search.exit.i.i, %59
   %114 = phi i32 [ %60, %59 ], [ %.pre.i, %108 ], [ %60, %cli_hashset_search.exit.i.i ]
-  %.sroa.17.3.i = phi i32 [ %.sroa.17.152.i, %59 ], [ %113, %108 ], [ %.sroa.17.152.i, %cli_hashset_search.exit.i.i ]
+  %.sroa.17.2.i = phi i32 [ %.sroa.17.152.i, %59 ], [ %113, %108 ], [ %.sroa.17.152.i, %cli_hashset_search.exit.i.i ]
   %115 = add nuw nsw i64 %.02453.i, 1
   %116 = zext i32 %114 to i64
   %117 = icmp ult i64 %115, %116
   br i1 %117, label %59, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %cli_hashset_addkey_internal.exit.i, %cli_hashset_init_pool.exit.i
-  %.sroa.17.1.lcssa.i = phi i32 [ 0, %cli_hashset_init_pool.exit.i ], [ %.sroa.17.3.i, %cli_hashset_addkey_internal.exit.i ]
+  %.sroa.17.1.lcssa.i = phi i32 [ 0, %cli_hashset_init_pool.exit.i ], [ %.sroa.17.2.i, %cli_hashset_addkey_internal.exit.i ]
   %.lcssa51.i = phi i32 [ 0, %cli_hashset_init_pool.exit.i ], [ %114, %cli_hashset_addkey_internal.exit.i ]
   %118 = load i32, ptr %3, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21, i32 noundef %118, i32 noundef %.lcssa51.i) #18
@@ -1790,7 +1790,7 @@ cli_hashset_addkey_internal.exit.i:               ; preds = %108, %cli_hashset_s
 cli_hashset_grow.exit:                            ; preds = %121, %125
   store ptr %.sroa.0.0.i, ptr %0, align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.7.4.i, ptr %.sroa.7.0..sroa_idx.i, align 8
+  store ptr %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8
   store ptr %.sroa.10.0.i, ptr %12, align 8
   store i32 %.sroa.12.0.i, ptr %10, align 8
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 28
@@ -1800,7 +1800,7 @@ cli_hashset_grow.exit:                            ; preds = %121, %125
   br label %128
 
 128:                                              ; preds = %._crit_edge, %cli_hashset_grow.exit
-  %129 = phi ptr [ %.pre34, %._crit_edge ], [ %.sroa.7.4.i, %cli_hashset_grow.exit ]
+  %129 = phi ptr [ %.pre34, %._crit_edge ], [ %.sroa.7.0.i, %cli_hashset_grow.exit ]
   %130 = phi i32 [ %.pre, %._crit_edge ], [ %.sroa.14.0.i, %cli_hashset_grow.exit ]
   %131 = xor i32 %1, -1
   %132 = shl i32 %1, 15

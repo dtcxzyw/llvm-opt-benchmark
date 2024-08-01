@@ -1089,9 +1089,9 @@ define internal fastcc void @reportDependentObjects(ptr nocapture noundef readon
 
 .lr.ph113.split.us:                               ; preds = %.lr.ph113, %75
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %75 ], [ %39, %.lr.ph113 ]
-  %.0110.us = phi i1 [ %.2.us, %75 ], [ true, %.lr.ph113 ]
-  %.077109.us = phi i32 [ %.5.us, %75 ], [ 0, %.lr.ph113 ]
-  %.080108.us = phi i32 [ %.585.us, %75 ], [ 0, %.lr.ph113 ]
+  %.0110.us = phi i1 [ %.1.us, %75 ], [ true, %.lr.ph113 ]
+  %.077109.us = phi i32 [ %.178.us, %75 ], [ 0, %.lr.ph113 ]
+  %.080108.us = phi i32 [ %.181.us, %75 ], [ 0, %.lr.ph113 ]
   %40 = load ptr, ptr %35, align 8
   %41 = getelementptr %struct.ObjectAddressExtra, ptr %40, i64 %indvars.iv127
   %42 = load i32, ptr %41, align 4
@@ -1150,8 +1150,8 @@ define internal fastcc void @reportDependentObjects(ptr nocapture noundef readon
   br label %68
 
 68:                                               ; preds = %66, %61
-  %.181.us = phi i32 [ %.080108.us, %66 ], [ %62, %61 ]
-  %.178.us = phi i32 [ %67, %66 ], [ %.077109.us, %61 ]
+  %.383.us = phi i32 [ %.080108.us, %66 ], [ %62, %61 ]
+  %.3.us = phi i32 [ %67, %66 ], [ %.077109.us, %61 ]
   %69 = load i32, ptr %38, align 8
   %.not99.us = icmp eq i32 %69, 0
   br i1 %.not99.us, label %71, label %70
@@ -1170,24 +1170,24 @@ define internal fastcc void @reportDependentObjects(ptr nocapture noundef readon
   br label %74
 
 74:                                               ; preds = %72, %71, %54, %52
-  %.484.us = phi i32 [ %.080108.us, %54 ], [ %.080108.us, %52 ], [ %.181.us, %71 ], [ %73, %72 ]
-  %.4.us = phi i32 [ %.077109.us, %54 ], [ %.077109.us, %52 ], [ %.178.us, %71 ], [ %.077109.us, %72 ]
-  %.1.us = phi i1 [ %.0110.us, %54 ], [ %.0110.us, %52 ], [ false, %71 ], [ false, %72 ]
+  %.282.us = phi i32 [ %.080108.us, %54 ], [ %.080108.us, %52 ], [ %.383.us, %71 ], [ %73, %72 ]
+  %.279.us = phi i32 [ %.077109.us, %54 ], [ %.077109.us, %52 ], [ %.3.us, %71 ], [ %.077109.us, %72 ]
+  %.2.us = phi i1 [ %.0110.us, %54 ], [ %.0110.us, %52 ], [ false, %71 ], [ false, %72 ]
   call void @pfree(ptr noundef nonnull %47) #10
   br label %75
 
 75:                                               ; preds = %74, %44, %.lr.ph113.split.us
-  %.585.us = phi i32 [ %.080108.us, %.lr.ph113.split.us ], [ %.080108.us, %44 ], [ %.484.us, %74 ]
-  %.5.us = phi i32 [ %.077109.us, %.lr.ph113.split.us ], [ %.077109.us, %44 ], [ %.4.us, %74 ]
-  %.2.us = phi i1 [ %.0110.us, %.lr.ph113.split.us ], [ %.0110.us, %44 ], [ %.1.us, %74 ]
+  %.181.us = phi i32 [ %.080108.us, %.lr.ph113.split.us ], [ %.080108.us, %44 ], [ %.282.us, %74 ]
+  %.178.us = phi i32 [ %.077109.us, %.lr.ph113.split.us ], [ %.077109.us, %44 ], [ %.279.us, %74 ]
+  %.1.us = phi i1 [ %.0110.us, %.lr.ph113.split.us ], [ %.0110.us, %44 ], [ %.2.us, %74 ]
   %indvars.iv.next128 = add nsw i64 %indvars.iv127, -1
   %76 = icmp sgt i64 %indvars.iv127, 0
   br i1 %76, label %.lr.ph113.split.us, label %._crit_edge114, !llvm.loop !13
 
 .lr.ph113.split:                                  ; preds = %.lr.ph113, %107
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %107 ], [ %39, %.lr.ph113 ]
-  %.077109 = phi i32 [ %.5, %107 ], [ 0, %.lr.ph113 ]
-  %.080108 = phi i32 [ %.585, %107 ], [ 0, %.lr.ph113 ]
+  %.077109 = phi i32 [ %.178, %107 ], [ 0, %.lr.ph113 ]
+  %.080108 = phi i32 [ %.181, %107 ], [ 0, %.lr.ph113 ]
   %77 = load ptr, ptr %35, align 8
   %78 = getelementptr %struct.ObjectAddressExtra, ptr %77, i64 %indvars.iv124
   %79 = load i32, ptr %78, align 4
@@ -1240,8 +1240,8 @@ define internal fastcc void @reportDependentObjects(ptr nocapture noundef readon
   br label %102
 
 102:                                              ; preds = %100, %98
-  %.383 = phi i32 [ %.080108, %98 ], [ %101, %100 ]
-  %.3 = phi i32 [ %99, %98 ], [ %.077109, %100 ]
+  %.585 = phi i32 [ %.080108, %98 ], [ %101, %100 ]
+  %.5 = phi i32 [ %99, %98 ], [ %.077109, %100 ]
   %103 = load i32, ptr %38, align 8
   %.not96 = icmp eq i32 %103, 0
   br i1 %.not96, label %105, label %104
@@ -1255,22 +1255,22 @@ define internal fastcc void @reportDependentObjects(ptr nocapture noundef readon
   br label %106
 
 106:                                              ; preds = %105, %91, %89
-  %.484 = phi i32 [ %.080108, %91 ], [ %.080108, %89 ], [ %.383, %105 ]
-  %.4 = phi i32 [ %.077109, %91 ], [ %.077109, %89 ], [ %.3, %105 ]
+  %.282 = phi i32 [ %.080108, %91 ], [ %.080108, %89 ], [ %.585, %105 ]
+  %.279 = phi i32 [ %.077109, %91 ], [ %.077109, %89 ], [ %.5, %105 ]
   call void @pfree(ptr noundef nonnull %84) #10
   br label %107
 
 107:                                              ; preds = %81, %.lr.ph113.split, %106
-  %.585 = phi i32 [ %.080108, %.lr.ph113.split ], [ %.080108, %81 ], [ %.484, %106 ]
-  %.5 = phi i32 [ %.077109, %.lr.ph113.split ], [ %.077109, %81 ], [ %.4, %106 ]
+  %.181 = phi i32 [ %.080108, %.lr.ph113.split ], [ %.080108, %81 ], [ %.282, %106 ]
+  %.178 = phi i32 [ %.077109, %.lr.ph113.split ], [ %.077109, %81 ], [ %.279, %106 ]
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, -1
   %108 = icmp sgt i64 %indvars.iv124, 0
   br i1 %108, label %.lr.ph113.split, label %._crit_edge114, !llvm.loop !13
 
 ._crit_edge114:                                   ; preds = %107, %75
-  %.080.lcssa = phi i32 [ %.585.us, %75 ], [ %.585, %107 ]
-  %.077.lcssa = phi i32 [ %.5.us, %75 ], [ %.5, %107 ]
-  %.0.lcssa = phi i1 [ %.2.us, %75 ], [ true, %107 ]
+  %.080.lcssa = phi i32 [ %.181.us, %75 ], [ %.181, %107 ]
+  %.077.lcssa = phi i32 [ %.178.us, %75 ], [ %.178, %107 ]
+  %.0.lcssa = phi i1 [ %.1.us, %75 ], [ true, %107 ]
   %109 = icmp sgt i32 %.080.lcssa, 0
   br i1 %109, label %110, label %113
 

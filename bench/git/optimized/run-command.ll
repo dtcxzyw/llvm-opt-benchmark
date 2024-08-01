@@ -1559,7 +1559,7 @@ child_err_spew.exit:                              ; preds = %if.then294, %sw.bb.
   br label %if.end302
 
 if.end302:                                        ; preds = %child_err_spew.exit, %if.end288
-  %failed_errno.1 = phi i32 [ %158, %child_err_spew.exit ], [ %98, %if.end288 ]
+  %failed_errno.2 = phi i32 [ %158, %child_err_spew.exit ], [ %98, %if.end288 ]
   %159 = load i32, ptr %notify_pipe, align 4
   %call304 = call i32 @close(i32 noundef %159) #21
   %cmp305 = icmp sgt i32 %null_fd.0, -1
@@ -1575,7 +1575,7 @@ if.end308:                                        ; preds = %if.then306, %if.end
   br label %end_of_spawn
 
 end_of_spawn:                                     ; preds = %if.then104, %if.then111, %if.end308
-  %failed_errno.2 = phi i32 [ 2, %if.then104 ], [ 2, %if.then111 ], [ %failed_errno.1, %if.end308 ]
+  %failed_errno.1 = phi i32 [ 2, %if.then104 ], [ 2, %if.then111 ], [ %failed_errno.2, %if.end308 ]
   %pid309 = getelementptr inbounds i8, ptr %cmd, i64 48
   %160 = load i32, ptr %pid309, align 8
   %cmp310 = icmp slt i32 %160, 0
@@ -1650,7 +1650,7 @@ if.end344:                                        ; preds = %if.end344.sink.spli
   %env.i258 = getelementptr inbounds i8, ptr %cmd, i64 24
   call void @strvec_clear(ptr noundef nonnull %env.i258) #21
   %call345 = tail call ptr @__errno_location() #23
-  store i32 %failed_errno.2, ptr %call345, align 4
+  store i32 %failed_errno.1, ptr %call345, align 4
   br label %return
 
 if.end346:                                        ; preds = %end_of_spawn
@@ -3539,19 +3539,19 @@ if.end82.i:                                       ; preds = %for.end76.i, %if.th
   br i1 %cmp.not.i, label %pp_collect_finished.exit, label %for.cond.preheader.i85, !llvm.loop !27
 
 pp_collect_finished.exit:                         ; preds = %for.end.i93, %if.then9.i99, %if.end82.i, %for.inc.i90
-  %result.2.i = phi i32 [ %result.081.i, %for.inc.i90 ], [ %78, %if.end82.i ], [ %result.081.i, %for.end.i93 ], [ %spec.select.i104, %if.then9.i99 ]
-  %tobool39.not = icmp eq i32 %result.2.i, 0
+  %result.1.i = phi i32 [ %result.081.i, %for.inc.i90 ], [ %78, %if.end82.i ], [ %result.081.i, %for.end.i93 ], [ %spec.select.i104, %if.then9.i99 ]
+  %tobool39.not = icmp eq i32 %result.1.i, 0
   br i1 %tobool39.not, label %land.lhs.true.backedge, label %if.then40
 
 if.then40:                                        ; preds = %pp_collect_finished.exit
   %bf.load42 = load i8, ptr %shutdown, align 8
   %bf.set44 = or i8 %bf.load42, 1
   store i8 %bf.set44, ptr %shutdown, align 8
-  %cmp45 = icmp slt i32 %result.2.i, 0
+  %cmp45 = icmp slt i32 %result.1.i, 0
   br i1 %cmp45, label %if.then46, label %land.lhs.true.backedge
 
 if.then46:                                        ; preds = %if.then40
-  %sub47 = sub nsw i32 0, %result.2.i
+  %sub47 = sub nsw i32 0, %result.1.i
   %95 = load i64, ptr %processes.i, align 8
   %cmp5.not.i111 = icmp eq i64 %95, 0
   br i1 %cmp5.not.i111, label %land.lhs.true.backedge, label %for.body.i114

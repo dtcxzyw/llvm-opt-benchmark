@@ -473,7 +473,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
 
 240:                                              ; preds = %.lr.ph376, %.loopexit341
   %.0267374 = phi i32 [ %.2264, %.lr.ph376 ], [ %269, %.loopexit341 ]
-  %.0273373 = phi i32 [ 0, %.lr.ph376 ], [ %.2275, %.loopexit341 ]
+  %.0273373 = phi i32 [ 0, %.lr.ph376 ], [ %.1274, %.loopexit341 ]
   %241 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %242 = sub nsw i32 %.2264, %.0267374
   %243 = sext i32 %242 to i64
@@ -524,7 +524,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   br label %.loopexit341
 
 .loopexit341:                                     ; preds = %240, %.loopexit341.loopexit, %.preheader340
-  %.2275 = phi i32 [ %268, %.loopexit341.loopexit ], [ %.0273373, %.preheader340 ], [ %.0273373, %240 ]
+  %.1274 = phi i32 [ %268, %.loopexit341.loopexit ], [ %.0273373, %.preheader340 ], [ %.0273373, %240 ]
   %269 = sub i32 %.0267374, %249
   %270 = icmp sgt i32 %269, 0
   br i1 %270, label %240, label %._crit_edge377, !llvm.loop !13
@@ -568,7 +568,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
 
 291:                                              ; preds = %.lr.ph385, %.loopexit
   %.1268383 = phi i32 [ %.3265, %.lr.ph385 ], [ %320, %.loopexit ]
-  %.3276382 = phi i32 [ 0, %.lr.ph385 ], [ %.5278, %.loopexit ]
+  %.3276382 = phi i32 [ 0, %.lr.ph385 ], [ %.4277, %.loopexit ]
   %292 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %293 = sub nsw i32 %.3265, %.1268383
   %294 = sext i32 %293 to i64
@@ -619,7 +619,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   br label %.loopexit
 
 .loopexit:                                        ; preds = %291, %.loopexit.loopexit, %.preheader
-  %.5278 = phi i32 [ %319, %.loopexit.loopexit ], [ %.3276382, %.preheader ], [ %.3276382, %291 ]
+  %.4277 = phi i32 [ %319, %.loopexit.loopexit ], [ %.3276382, %.preheader ], [ %.3276382, %291 ]
   %320 = sub i32 %.1268383, %300
   %321 = icmp sgt i32 %320, 0
   br i1 %321, label %291, label %._crit_edge386, !llvm.loop !15

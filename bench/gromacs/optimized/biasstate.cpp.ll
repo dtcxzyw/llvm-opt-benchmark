@@ -557,7 +557,7 @@ define internal fastcc noundef double @_ZN3gmx12_GLOBAL__N_124biasedLogWeightFro
   br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %49
-  %.072.us = phi double [ %.1.us, %49 ], [ %5, %.lr.ph ]
+  %.172.us = phi double [ %.2.us, %49 ], [ %5, %.lr.ph ]
   %.04071.us = phi i64 [ %50, %49 ], [ 0, %.lr.ph ]
   %25 = getelementptr inbounds %"struct.gmx::DimParams", ptr %0, i64 %.04071.us
   %26 = getelementptr inbounds i8, ptr %25, i64 24
@@ -601,17 +601,17 @@ _ZNK3gmx9DimParams13pullDimParamsEv.exit.us:      ; preds = %38
   %45 = load double, ptr %44, align 8
   %46 = fmul double %45, -5.000000e-01
   %47 = fmul double %42, %46
-  %48 = tail call double @llvm.fmuladd.f64(double %47, double %42, double %.072.us)
+  %48 = tail call double @llvm.fmuladd.f64(double %47, double %42, double %.172.us)
   br label %49
 
 49:                                               ; preds = %_ZNK3gmx9DimParams20isFepLambdaDimensionEv.exit.us, %_ZNK3gmx9DimParams13pullDimParamsEv.exit.us
-  %.1.us = phi double [ %48, %_ZNK3gmx9DimParams13pullDimParamsEv.exit.us ], [ %.072.us, %_ZNK3gmx9DimParams20isFepLambdaDimensionEv.exit.us ]
+  %.2.us = phi double [ %48, %_ZNK3gmx9DimParams13pullDimParamsEv.exit.us ], [ %.172.us, %_ZNK3gmx9DimParams20isFepLambdaDimensionEv.exit.us ]
   %50 = add nuw i64 %.04071.us, 1
   %exitcond84.not = icmp eq i64 %50, %umax83
   br i1 %exitcond84.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %122
-  %.072 = phi double [ %.1, %122 ], [ %5, %.lr.ph ]
+  %.172 = phi double [ %.2, %122 ], [ %5, %.lr.ph ]
   %.04071 = phi i64 [ %123, %122 ], [ 0, %.lr.ph ]
   %51 = getelementptr inbounds %"struct.gmx::DimParams", ptr %0, i64 %.04071
   %52 = getelementptr inbounds i8, ptr %51, i64 24
@@ -741,10 +741,10 @@ _ZNK3gmx9DimParams12fepDimParamsEv.exit:          ; preds = %64
 
 103:                                              ; preds = %99, %101
   %.pn = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ]
-  %.132 = phi i1 [ %.031, %101 ], [ true, %99 ]
+  %.3 = phi i1 [ %.031, %101 ], [ true, %99 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
-  br i1 %.132, label %104, label %124
+  br i1 %.3, label %104, label %124
 
 104:                                              ; preds = %.thread60, %.thread, %103
   %.pn.pn.pn59 = phi { ptr, i32 } [ %97, %.thread ], [ %.pn, %103 ], [ %98, %.thread60 ]
@@ -753,7 +753,7 @@ _ZNK3gmx9DimParams12fepDimParamsEv.exit:          ; preds = %64
 
 _ZNK3gmx9DimParams12fepDimParamsEv.exit47:        ; preds = %_ZNK3gmx9DimParams12fepDimParamsEv.exit
   %105 = fneg double %86
-  %106 = tail call double @llvm.fmuladd.f64(double %105, double %80, double %.072)
+  %106 = tail call double @llvm.fmuladd.f64(double %105, double %80, double %.172)
   br label %122
 
 107:                                              ; preds = %_ZNK3gmx9DimParams20isFepLambdaDimensionEv.exit
@@ -788,18 +788,18 @@ _ZNK3gmx9DimParams13pullDimParamsEv.exit:         ; preds = %107
   %118 = load double, ptr %117, align 8
   %119 = fmul double %118, -5.000000e-01
   %120 = fmul double %111, %119
-  %121 = tail call double @llvm.fmuladd.f64(double %120, double %111, double %.072)
+  %121 = tail call double @llvm.fmuladd.f64(double %120, double %111, double %.172)
   br label %122
 
 122:                                              ; preds = %_ZNK3gmx9DimParams13pullDimParamsEv.exit, %_ZNK3gmx9DimParams12fepDimParamsEv.exit47
-  %.1 = phi double [ %106, %_ZNK3gmx9DimParams12fepDimParamsEv.exit47 ], [ %121, %_ZNK3gmx9DimParams13pullDimParamsEv.exit ]
+  %.2 = phi double [ %106, %_ZNK3gmx9DimParams12fepDimParamsEv.exit47 ], [ %121, %_ZNK3gmx9DimParams13pullDimParamsEv.exit ]
   %123 = add nuw i64 %.04071, 1
   %exitcond.not = icmp eq i64 %123, %umax83
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %122, %49, %.preheader, %9
-  %.2 = phi double [ -1.000000e+04, %9 ], [ %5, %.preheader ], [ %.1.us, %49 ], [ %.1, %122 ]
-  ret double %.2
+  %.0 = phi double [ -1.000000e+04, %9 ], [ %5, %.preheader ], [ %.2.us, %49 ], [ %.2, %122 ]
+  ret double %.0
 
 124:                                              ; preds = %103, %104
   %.pn.pn.pn58 = phi { ptr, i32 } [ %.pn, %103 ], [ %.pn.pn.pn59, %104 ]
@@ -2117,7 +2117,7 @@ define noundef i32 @_ZNK3gmx9BiasState25warnForHistogramAnomaliesERKNS_8BiasGrid
   br label %49
 
 49:                                               ; preds = %._crit_edge88.thread, %.lr.ph94
-  %.05892 = phi i32 [ 0, %.lr.ph94 ], [ %.159, %._crit_edge88.thread ]
+  %.05892 = phi i32 [ 0, %.lr.ph94 ], [ %.2, %._crit_edge88.thread ]
   %.06190 = phi i64 [ 0, %.lr.ph94 ], [ %154, %._crit_edge88.thread ]
   %50 = load ptr, ptr %1, align 8
   %51 = getelementptr inbounds %"struct.gmx::GridPoint", ptr %50, i64 %.06190, i32 2
@@ -2334,16 +2334,16 @@ _ZN3gmx15TextLineWrapperC2Ev.exit:                ; preds = %146
   br label %common.resume
 
 ._crit_edge88.thread:                             ; preds = %.lr.ph87.split, %.lr.ph82, %147, %.critedge, %._crit_edge88
-  %.159 = phi i32 [ %.05892, %._crit_edge88 ], [ %149, %147 ], [ %.05892, %.critedge ], [ %.05892, %.lr.ph82 ], [ %.05892, %.lr.ph87.split ]
-  %.not = icmp sge i32 %.159, %5
+  %.2 = phi i32 [ %.05892, %._crit_edge88 ], [ %149, %147 ], [ %.05892, %.critedge ], [ %.05892, %.lr.ph82 ], [ %.05892, %.lr.ph87.split ]
+  %.not = icmp sge i32 %.2, %5
   %154 = add nuw i64 %.06190, 1
   %exitcond.not = icmp eq i64 %154, %umax
   %or.cond = select i1 %.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge95, label %49, !llvm.loop !26
 
 ._crit_edge95:                                    ; preds = %._crit_edge88.thread, %37
-  %.2 = phi i32 [ 0, %37 ], [ %.159, %._crit_edge88.thread ]
-  ret i32 %.2
+  %.159 = phi i32 [ 0, %37 ], [ %.2, %._crit_edge88.thread ]
+  ret i32 %.159
 }
 
 ; Function Attrs: nounwind
@@ -5636,7 +5636,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i57.i: ; preds = %.noexc63.
   br i1 %252, label %.lr.ph117.i, label %._crit_edge118.i.loopexit, !llvm.loop !53
 
 .thread.i88:                                      ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i55.i, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i, %219
-  %.sroa.080.2.ph.i = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ], [ null, %219 ], [ %221, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i55.i ]
+  %.sroa.080.0.ph.i = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ], [ null, %219 ], [ %221, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i55.i ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
@@ -5653,12 +5653,12 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i57.i: ; preds = %.noexc63.
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %254, %253, %.thread.i88
   %lpad.phi106.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread.i88 ], [ %lpad.thr_comm.split-lp.i, %253 ], [ %lpad.thr_comm.split-lp.i, %254 ]
-  %.sroa.080.2105.i = phi ptr [ %.sroa.080.2.ph.i, %.thread.i88 ], [ %.sroa.080.1127132.i, %253 ], [ %.sroa.080.1127132.i, %254 ]
-  %.not.i.i.i42.i = icmp eq ptr %.sroa.080.2105.i, null
+  %.sroa.080.0105.i = phi ptr [ %.sroa.080.0.ph.i, %.thread.i88 ], [ %.sroa.080.1127132.i, %253 ], [ %.sroa.080.1127132.i, %254 ]
+  %.not.i.i.i42.i = icmp eq ptr %.sroa.080.0105.i, null
   br i1 %.not.i.i.i42.i, label %common.resume, label %255
 
 255:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.080.2105.i) #28
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.080.0105.i) #28
   br label %common.resume
 
 ._crit_edge118.i.loopexit:                        ; preds = %.lr.ph117.i
@@ -5667,18 +5667,18 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %254, %253, %.thread
 
 ._crit_edge118.i:                                 ; preds = %._crit_edge118.i.loopexit, %210
   %.sroa.071.1135.i = phi ptr [ null, %210 ], [ %227, %._crit_edge118.i.loopexit ]
-  %.sroa.9.1134.i = phi i64 [ 0, %210 ], [ %256, %._crit_edge118.i.loopexit ]
-  %.sroa.987.1126133.i = phi i64 [ 0, %210 ], [ %226, %._crit_edge118.i.loopexit ]
+  %.sroa.9.0134.i = phi i64 [ 0, %210 ], [ %256, %._crit_edge118.i.loopexit ]
+  %.sroa.987.0126133.i = phi i64 [ 0, %210 ], [ %226, %._crit_edge118.i.loopexit ]
   %.sroa.080.1127132.i = phi ptr [ null, %210 ], [ %221, %._crit_edge118.i.loopexit ]
   %257 = ptrtoint ptr %.sroa.080.1127132.i to i64
-  %258 = sub i64 %.sroa.987.1126133.i, %257
+  %258 = sub i64 %.sroa.987.0126133.i, %257
   %259 = getelementptr inbounds i8, ptr %.sroa.080.1127132.i, i64 %258
   invoke void @_ZNK3gmx11BiasSharing25sumOverSharingSimulationsENS_8ArrayRefIdEEi(ptr noundef nonnull align 8 dereferenceable(104) %196, ptr %.sroa.080.1127132.i, ptr %259, i32 noundef %198)
           to label %260 unwind label %253
 
 260:                                              ; preds = %._crit_edge118.i
   %261 = ptrtoint ptr %.sroa.071.1135.i to i64
-  %262 = sub i64 %.sroa.9.1134.i, %261
+  %262 = sub i64 %.sroa.9.0134.i, %261
   %263 = getelementptr inbounds i8, ptr %.sroa.071.1135.i, i64 %262
   invoke void @_ZNK3gmx11BiasSharing25sumOverSharingSimulationsENS_8ArrayRefIdEEi(ptr noundef nonnull align 8 dereferenceable(104) %196, ptr %.sroa.071.1135.i, ptr %263, i32 noundef %198)
           to label %.preheader.i unwind label %253
@@ -6126,7 +6126,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 _ZNK3gmx9BiasState37getSkippedUpdateHistogramScaleFactorsERKNS_10BiasParamsEPdS4_.exit: ; preds = %481, %478, %.loopexit
   %491 = phi double [ %476, %.loopexit ], [ %.pre, %481 ], [ 1.000000e+00, %478 ]
   %.0146 = phi double [ 0.000000e+00, %.loopexit ], [ %490, %481 ], [ 0.000000e+00, %478 ]
-  %.1 = phi double [ 0.000000e+00, %.loopexit ], [ %487, %481 ], [ 1.000000e+00, %478 ]
+  %.0 = phi double [ 0.000000e+00, %.loopexit ], [ %487, %481 ], [ 1.000000e+00, %478 ]
   %492 = getelementptr inbounds i8, ptr %0, i64 96
   %493 = load double, ptr %492, align 8
   %494 = getelementptr inbounds i8, ptr %4, i64 80
@@ -6270,7 +6270,7 @@ _ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit: ; preds = %527
   %556 = load double, ptr %475, align 8
   %557 = load double, ptr %524, align 8
   %558 = call double @llvm.fmuladd.f64(double %.sink.i.i.i, double %556, double %557)
-  %559 = fmul double %.1, %558
+  %559 = fmul double %.0, %558
   store double %559, ptr %524, align 8
   %560 = load double, ptr %525, align 8
   %561 = fadd double %.0146, %560
@@ -6733,7 +6733,7 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
 .lr.ph86:                                         ; preds = %.preheader, %195
   %186 = phi ptr [ %198, %195 ], [ %116, %.preheader ]
   %.05385 = phi i64 [ %196, %195 ], [ 0, %.preheader ]
-  %.07284 = phi double [ %.1, %195 ], [ %121, %.preheader ]
+  %.184 = phi double [ %.2, %195 ], [ %121, %.preheader ]
   %187 = getelementptr inbounds i32, ptr %186, i64 %.05385
   %188 = load i32, ptr %187, align 4
   %189 = load i32, ptr %9, align 8
@@ -6743,11 +6743,11 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
 191:                                              ; preds = %.lr.ph86
   %192 = getelementptr inbounds double, ptr %38, i64 %.05385
   %193 = load double, ptr %192, align 8
-  %194 = fsub double %.07284, %193
+  %194 = fsub double %.184, %193
   br label %195
 
 195:                                              ; preds = %.lr.ph86, %191
-  %.1 = phi double [ %194, %191 ], [ %.07284, %.lr.ph86 ]
+  %.2 = phi double [ %194, %191 ], [ %.184, %.lr.ph86 ]
   %196 = add nuw i64 %.05385, 1
   %197 = load ptr, ptr %14, align 8
   %198 = load ptr, ptr %13, align 8
@@ -6759,13 +6759,13 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
   br i1 %203, label %.lr.ph86, label %._crit_edge87, !llvm.loop !61
 
 ._crit_edge87:                                    ; preds = %195, %.preheader
-  %.072.lcssa = phi double [ %121, %.preheader ], [ %.1, %195 ]
-  %204 = fcmp olt double %.072.lcssa, 0x10000000000000
-  %.sroa.speculated = select i1 %204, double 0x10000000000000, double %.072.lcssa
+  %.1.lcssa = phi double [ %121, %.preheader ], [ %.2, %195 ]
+  %204 = fcmp olt double %.1.lcssa, 0x10000000000000
+  %.sroa.speculated = select i1 %204, double 0x10000000000000, double %.1.lcssa
   br label %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit.thread
 
 _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit.thread:   ; preds = %._crit_edge.i.i.i.i.i.i, %178, %._crit_edge87, %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit
-  %.2 = phi double [ %185, %178 ], [ %.sroa.speculated, %._crit_edge87 ], [ %121, %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit ], [ %121, %._crit_edge.i.i.i.i.i.i ]
+  %.072 = phi double [ %185, %178 ], [ %.sroa.speculated, %._crit_edge87 ], [ %121, %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit ], [ %121, %._crit_edge.i.i.i.i.i.i ]
   %205 = load ptr, ptr %6, align 8
   %206 = load ptr, ptr %23, align 8
   %.not7489 = icmp eq ptr %205, %206
@@ -6781,7 +6781,7 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit.thread:   ; preds = %._crit_edge.i.i.i.i
   br i1 %.not74, label %._crit_edge92, label %.lr.ph91
 
 ._crit_edge92:                                    ; preds = %.lr.ph91, %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit.thread
-  %210 = tail call double @log(double noundef %.2) #27
+  %210 = tail call double @log(double noundef %.072) #27
   ret double %210
 }
 

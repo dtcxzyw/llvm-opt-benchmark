@@ -7456,8 +7456,8 @@ _ZN10V3ParseImp10tokenPeekpEm.exit108:            ; preds = %226, %220
   br label %_ZN10V3ParseImp15isStrengthTokenEi.exit
 
 _ZN10V3ParseImp15isStrengthTokenEi.exit:          ; preds = %96, %_ZN10V3ParseImp15isStrengthTokenEi.exit.thread, %171, %.fold.split90, %97, %178, %.fold.split87, %_ZN10V3ParseImp10tokenPeekpEm.exit, %174, %112, %110, %108, %102, %100, %98, %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE9pop_frontEv.exit, %172, %173, %_ZN10V3ParseImp10tokenPeekpEm.exit108, %176, %177, %175, %_ZN10V3ParseImp10tokenPeekpEm.exit99, %105
-  %.2 = phi i32 [ 261, %105 ], [ %.86, %_ZN10V3ParseImp10tokenPeekpEm.exit99 ], [ 551, %172 ], [ 550, %173 ], [ 565, %175 ], [ 566, %176 ], [ 567, %177 ], [ %spec.select, %_ZN10V3ParseImp10tokenPeekpEm.exit108 ], [ %32, %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE9pop_frontEv.exit ], [ %., %98 ], [ 408, %100 ], [ 409, %102 ], [ %.83, %108 ], [ %.84, %110 ], [ %.85, %112 ], [ 549, %171 ], [ 569, %174 ], [ %32, %_ZN10V3ParseImp10tokenPeekpEm.exit ], [ 260, %178 ], [ 261, %.fold.split87 ], [ %switch.select89, %97 ], [ 553, %.fold.split90 ], [ 783, %_ZN10V3ParseImp15isStrengthTokenEi.exit.thread ], [ 40, %96 ]
-  store i32 %.2, ptr getelementptr inbounds (i8, ptr @yylval, i64 16), align 8
+  %.0 = phi i32 [ 261, %105 ], [ %.86, %_ZN10V3ParseImp10tokenPeekpEm.exit99 ], [ 551, %172 ], [ 550, %173 ], [ 565, %175 ], [ 566, %176 ], [ 567, %177 ], [ %spec.select, %_ZN10V3ParseImp10tokenPeekpEm.exit108 ], [ %32, %_ZNSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE9pop_frontEv.exit ], [ %., %98 ], [ 408, %100 ], [ 409, %102 ], [ %.83, %108 ], [ %.84, %110 ], [ %.85, %112 ], [ 549, %171 ], [ 569, %174 ], [ %32, %_ZN10V3ParseImp10tokenPeekpEm.exit ], [ 260, %178 ], [ 261, %.fold.split87 ], [ %switch.select89, %97 ], [ 553, %.fold.split90 ], [ 783, %_ZN10V3ParseImp15isStrengthTokenEi.exit.thread ], [ 40, %96 ]
+  store i32 %.0, ptr getelementptr inbounds (i8, ptr @yylval, i64 16), align 8
   ret void
 
 236:                                              ; preds = %.loopexit114, %.loopexit.split-lp115, %.loopexit, %.loopexit.split-lp
@@ -8100,8 +8100,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %235
 
 _ZNK7VSymEnt14findIdFallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread96: ; preds = %_ZNK7VSymEnt10findIdFlatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %_ZNK7VSymEnt14findIdFallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNK7VSymEnt14findIdFallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit78, %161
-  %.2.ph = phi ptr [ %148, %161 ], [ %148, %_ZNK7VSymEnt14findIdFallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit78 ], [ %.0.i, %_ZNK7VSymEnt14findIdFallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %108, %_ZNK7VSymEnt10findIdFlatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
-  %169 = getelementptr inbounds i8, ptr %.2.ph, i64 48
+  %.1.ph = phi ptr [ %148, %161 ], [ %148, %_ZNK7VSymEnt14findIdFallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit78 ], [ %.0.i, %_ZNK7VSymEnt14findIdFallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %108, %_ZNK7VSymEnt10findIdFlatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
+  %169 = getelementptr inbounds i8, ptr %.1.ph, i64 48
   %170 = load ptr, ptr %169, align 8
   store ptr %170, ptr getelementptr inbounds (i8, ptr @yylval, i64 8), align 8
   %171 = call noundef i32 @_ZN10V3ParseImp5debugEv()

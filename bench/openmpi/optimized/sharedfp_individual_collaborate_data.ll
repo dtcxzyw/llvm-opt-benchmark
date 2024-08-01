@@ -358,7 +358,7 @@ mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
 162:                                              ; preds = %.lr.ph193, %158
   %indvars.iv227 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next228, %158 ]
   %.0192 = phi i32 [ %151, %.lr.ph193 ], [ %.1, %158 ]
-  %.0108190 = phi ptr [ %153, %.lr.ph193 ], [ %.1109, %158 ]
+  %.1109190 = phi ptr [ %153, %.lr.ph193 ], [ %.2110, %158 ]
   %163 = load ptr, ptr %8, align 8
   %164 = getelementptr inbounds i64, ptr %163, i64 %indvars.iv227
   %165 = load i64, ptr %164, align 8
@@ -371,7 +371,7 @@ mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
   %170 = fmul double %169, 1.200000e+00
   %171 = fptosi double %170 to i32
   %172 = sext i32 %171 to i64
-  %173 = call ptr @realloc(ptr noundef %.0108190, i64 noundef %172) #10
+  %173 = call ptr @realloc(ptr noundef %.1109190, i64 noundef %172) #10
   %174 = icmp eq ptr %173, null
   br i1 %174, label %.loopexit.loopexit, label %._crit_edge232
 
@@ -383,14 +383,14 @@ mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
 
 175:                                              ; preds = %._crit_edge232, %162
   %176 = phi i64 [ %.pre234, %._crit_edge232 ], [ %165, %162 ]
-  %.1109 = phi ptr [ %173, %._crit_edge232 ], [ %.0108190, %162 ]
+  %.2110 = phi ptr [ %173, %._crit_edge232 ], [ %.1109190, %162 ]
   %.1 = phi i32 [ %171, %._crit_edge232 ], [ %.0192, %162 ]
   %177 = load ptr, ptr %157, align 8
   %178 = load ptr, ptr %9, align 8
   %179 = getelementptr inbounds i64, ptr %178, i64 %indvars.iv227
   %180 = load i64, ptr %179, align 8
   %181 = trunc i64 %176 to i32
-  %182 = call i32 @mca_common_ompio_file_read_at(ptr noundef %177, i64 noundef %180, ptr noundef %.1109, i32 noundef %181, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %10) #8
+  %182 = call i32 @mca_common_ompio_file_read_at(ptr noundef %177, i64 noundef %180, ptr noundef %.2110, i32 noundef %181, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %10) #8
   %.not147 = icmp eq i32 %182, 0
   br i1 %.not147, label %183, label %.loopexit.loopexit
 
@@ -454,26 +454,26 @@ mca_sharedfp_individual_getoffset.exit._crit_edge: ; preds = %mca_sharedfp_indiv
   %211 = getelementptr inbounds i64, ptr %.pre236, i64 %indvars.iv227
   %212 = load i64, ptr %211, align 8
   %213 = trunc i64 %212 to i32
-  %214 = call i32 @mca_common_ompio_file_write_at(ptr noundef %1, i64 noundef %210, ptr noundef %.1109, i32 noundef %213, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %10) #8
+  %214 = call i32 @mca_common_ompio_file_write_at(ptr noundef %1, i64 noundef %210, ptr noundef %.2110, i32 noundef %213, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %10) #8
   %.not149 = icmp eq i32 %214, 0
   br i1 %.not149, label %158, label %.loopexit.loopexit
 
 .thread249:                                       ; preds = %35, %33
-  %.1112.ph = phi i32 [ %43, %35 ], [ %34, %33 ]
+  %.0111.ph = phi i32 [ %43, %35 ], [ %34, %33 ]
   call void @free(ptr noundef nonnull %28) #8
   call void @free(ptr noundef nonnull %31) #8
   br label %216
 
 .loopexit.loopexit:                               ; preds = %175, %208, %158, %168
-  %.1112.ph205 = phi i32 [ %182, %175 ], [ %214, %208 ], [ 0, %158 ], [ -2, %168 ]
-  %.2110.ph = phi ptr [ %.1109, %175 ], [ %.1109, %208 ], [ %.1109, %158 ], [ null, %168 ]
+  %.0111.ph205 = phi i32 [ %182, %175 ], [ %214, %208 ], [ 0, %158 ], [ -2, %168 ]
+  %.0108.ph = phi ptr [ %.2110, %175 ], [ %.2110, %208 ], [ %.2110, %158 ], [ null, %168 ]
   %.pre237.pre.pre = load ptr, ptr %5, align 8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %61, %mca_sharedfp_individual_assign_globaloffset.exit, %87, %117, %102, %._crit_edge188, %._crit_edge, %.preheader, %.loopexit.loopexit
   %.pre237.pre = phi ptr [ null, %._crit_edge ], [ %.pre237.pre.pre239, %._crit_edge188 ], [ %.pre237.pre.pre239, %102 ], [ %.pre237.pre.pre239, %117 ], [ null, %87 ], [ %.pre237.pre.pre239, %mca_sharedfp_individual_assign_globaloffset.exit ], [ %.pre237.pre.pre239, %.preheader ], [ %.pre237.pre.pre, %.loopexit.loopexit ], [ null, %61 ]
-  %.1112 = phi i32 [ 0, %._crit_edge ], [ %101, %._crit_edge188 ], [ %116, %102 ], [ %131, %117 ], [ -2, %87 ], [ -2, %mca_sharedfp_individual_assign_globaloffset.exit ], [ 0, %.preheader ], [ %.1112.ph205, %.loopexit.loopexit ], [ 0, %61 ]
-  %.2110 = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge188 ], [ null, %102 ], [ null, %117 ], [ null, %87 ], [ null, %mca_sharedfp_individual_assign_globaloffset.exit ], [ %153, %.preheader ], [ %.2110.ph, %.loopexit.loopexit ], [ null, %61 ]
+  %.0111 = phi i32 [ 0, %._crit_edge ], [ %101, %._crit_edge188 ], [ %116, %102 ], [ %131, %117 ], [ -2, %87 ], [ -2, %mca_sharedfp_individual_assign_globaloffset.exit ], [ 0, %.preheader ], [ %.0111.ph205, %.loopexit.loopexit ], [ 0, %61 ]
+  %.0108 = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge188 ], [ null, %102 ], [ null, %117 ], [ null, %87 ], [ null, %mca_sharedfp_individual_assign_globaloffset.exit ], [ %153, %.preheader ], [ %.0108.ph, %.loopexit.loopexit ], [ null, %61 ]
   call void @free(ptr noundef %28) #8
   call void @free(ptr noundef nonnull %31) #8
   %.not152 = icmp eq ptr %.pre237.pre, null
@@ -484,8 +484,8 @@ mca_sharedfp_individual_getoffset.exit._crit_edge: ; preds = %mca_sharedfp_indiv
   br label %216
 
 216:                                              ; preds = %.thread249, %.thread243, %215, %._crit_edge.thread
-  %.1112164248 = phi i32 [ -2, %.thread243 ], [ %.1112, %215 ], [ %.1112, %._crit_edge.thread ], [ %.1112.ph, %.thread249 ]
-  %.2110166247 = phi ptr [ null, %.thread243 ], [ %.2110, %215 ], [ %.2110, %._crit_edge.thread ], [ null, %.thread249 ]
+  %.0111164248 = phi i32 [ -2, %.thread243 ], [ %.0111, %215 ], [ %.0111, %._crit_edge.thread ], [ %.0111.ph, %.thread249 ]
+  %.0108166247 = phi ptr [ null, %.thread243 ], [ %.0108, %215 ], [ %.0108, %._crit_edge.thread ], [ null, %.thread249 ]
   %217 = load ptr, ptr %6, align 8
   %.not153 = icmp eq ptr %217, null
   br i1 %.not153, label %219, label %218
@@ -522,11 +522,11 @@ mca_sharedfp_individual_getoffset.exit._crit_edge: ; preds = %mca_sharedfp_indiv
   br label %228
 
 228:                                              ; preds = %227, %225
-  %.not157 = icmp eq ptr %.2110166247, null
+  %.not157 = icmp eq ptr %.0108166247, null
   br i1 %.not157, label %230, label %229
 
 229:                                              ; preds = %228
-  call void @free(ptr noundef nonnull %.2110166247) #8
+  call void @free(ptr noundef nonnull %.0108166247) #8
   br label %230
 
 230:                                              ; preds = %229, %228
@@ -539,7 +539,7 @@ mca_sharedfp_individual_getoffset.exit._crit_edge: ; preds = %mca_sharedfp_indiv
   br label %233
 
 233:                                              ; preds = %230, %232, %23, %14
-  %.0113 = phi i32 [ -1, %14 ], [ -2, %23 ], [ %.1112164248, %232 ], [ %.1112164248, %230 ]
+  %.0113 = phi i32 [ -1, %14 ], [ -2, %23 ], [ %.0111164248, %232 ], [ %.0111164248, %230 ]
   ret i32 %.0113
 }
 
@@ -681,13 +681,13 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   br label %77
 
 77:                                               ; preds = %._crit_edge, %46
-  %.163 = phi i64 [ %76, %._crit_edge ], [ 0, %46 ]
+  %.062 = phi i64 [ %76, %._crit_edge ], [ 0, %46 ]
   %.06082 = load ptr, ptr %13, align 8
   %.not7083 = icmp eq ptr %.06082, null
   br i1 %.not7083, label %._crit_edge88, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %77, %100
-  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %100 ], [ %.163, %77 ]
+  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %100 ], [ %.062, %77 ]
   %.06085 = phi ptr [ %.060, %100 ], [ %.06082, %77 ]
   %78 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
   %.not71 = icmp eq i32 %78, 0
@@ -739,8 +739,8 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %29, %37, %19, %25, %._crit_edge88
-  %.2 = phi i32 [ 0, %._crit_edge88 ], [ -2, %25 ], [ -2, %19 ], [ -2, %37 ], [ -2, %29 ], [ %57, %55 ]
-  ret i32 %.2
+  %.061 = phi i32 [ 0, %._crit_edge88 ], [ -2, %25 ], [ -2, %19 ], [ -2, %37 ], [ -2, %29 ], [ %57, %55 ]
+  ret i32 %.061
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable

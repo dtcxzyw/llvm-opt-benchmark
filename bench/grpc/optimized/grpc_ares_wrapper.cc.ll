@@ -544,7 +544,7 @@ if.then:                                          ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.inc
-  %new_list.088 = phi ptr [ null, %if.then ], [ %new_list.1, %for.inc ]
+  %new_list.188 = phi ptr [ null, %if.then ], [ %new_list.2, %for.inc ]
   %i.087 = phi i64 [ 0, %if.then ], [ %inc, %for.inc ]
   %sh_prom = trunc nuw nsw i64 %i.087 to i32
   %shl = shl nuw nsw i32 1, %sh_prom
@@ -631,7 +631,7 @@ do.end:                                           ; preds = %if.then9, %if.then1
 if.end20:                                         ; preds = %_ZL18pop_fd_node_lockedPP7fd_nodei.exit, %do.end
   %fdn.0 = phi ptr [ %call10, %do.end ], [ %7, %_ZL18pop_fd_node_lockedPP7fd_nodei.exit ]
   %next = getelementptr inbounds i8, ptr %fdn.0, i64 72
-  store ptr %new_list.088, ptr %next, align 8
+  store ptr %new_list.188, ptr %next, align 8
   br i1 %tobool1.not, label %if.end64, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end20
@@ -792,13 +792,13 @@ _ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit66: ; preds = %do.end83, 
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false, %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit66, %land.lhs.true70, %if.end64
-  %new_list.1 = phi ptr [ %fdn.0, %land.lhs.true70 ], [ %fdn.0, %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit66 ], [ %fdn.0, %if.end64 ], [ %new_list.088, %lor.lhs.false ]
+  %new_list.2 = phi ptr [ %fdn.0, %land.lhs.true70 ], [ %fdn.0, %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit66 ], [ %fdn.0, %if.end64 ], [ %new_list.188, %lor.lhs.false ]
   %inc = add nuw nsw i64 %i.087, 1
   %exitcond.not = icmp eq i64 %inc, 16
   br i1 %exitcond.not, label %if.end93, label %for.body, !llvm.loop !11
 
 if.end93:                                         ; preds = %for.inc, %entry
-  %new_list.2 = phi ptr [ null, %entry ], [ %new_list.1, %for.inc ]
+  %new_list.0 = phi ptr [ null, %entry ], [ %new_list.2, %for.inc ]
   %fds94 = getelementptr inbounds i8, ptr %ev_driver, i64 24
   %43 = load ptr, ptr %fds94, align 8
   %cmp95.not89 = icmp eq ptr %43, null
@@ -806,7 +806,7 @@ if.end93:                                         ; preds = %for.inc, %entry
 
 while.body:                                       ; preds = %if.end93, %if.end108
   %44 = phi ptr [ %58, %if.end108 ], [ %43, %if.end93 ]
-  %new_list.390 = phi ptr [ %new_list.4, %if.end108 ], [ %new_list.2, %if.end93 ]
+  %new_list.390 = phi ptr [ %new_list.4, %if.end108 ], [ %new_list.0, %if.end93 ]
   %next98 = getelementptr inbounds i8, ptr %44, i64 72
   %45 = load ptr, ptr %next98, align 8
   store ptr %45, ptr %fds94, align 8
@@ -897,7 +897,7 @@ if.end108:                                        ; preds = %if.else106, %_ZL22f
   br i1 %cmp95.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end108, %if.end93
-  %new_list.3.lcssa = phi ptr [ %new_list.2, %if.end93 ], [ %new_list.4, %if.end108 ]
+  %new_list.3.lcssa = phi ptr [ %new_list.0, %if.end93 ], [ %new_list.4, %if.end108 ]
   store ptr %new_list.3.lcssa, ptr %fds94, align 8
   ret void
 }

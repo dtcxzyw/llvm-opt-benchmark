@@ -875,7 +875,7 @@ checkControlFile.exit:                            ; preds = %129
 
 sub_0:                                            ; preds = %.lr.ph137, %268
   %.079133208 = phi i32 [ %.180, %268 ], [ 0, %.lr.ph137 ]
-  %.070135207 = phi i8 [ %.171, %268 ], [ 0, %.lr.ph137 ]
+  %.171135207 = phi i8 [ %.2, %268 ], [ 0, %.lr.ph137 ]
   %indvars.iv206 = phi i64 [ %indvars.iv.next, %268 ], [ 0, %.lr.ph137 ]
   %240 = load ptr, ptr %237, align 8
   %241 = getelementptr %union.ListCell, ptr %240, i64 %indvars.iv206
@@ -915,7 +915,7 @@ sub_1:                                            ; preds = %sub_0
 
 260:                                              ; preds = %258
   %261 = add i32 %.079133208, 1
-  %262 = trunc nuw i8 %.070135207 to i1
+  %262 = trunc nuw i8 %.171135207 to i1
   br i1 %262, label %268, label %263
 
 263:                                              ; preds = %260
@@ -933,7 +933,7 @@ sub_1:                                            ; preds = %sub_0
 
 268:                                              ; preds = %263, %260, %264, %266
   %.180 = phi i32 [ %261, %260 ], [ %261, %263 ], [ %.079133208, %266 ], [ %.079133208, %264 ]
-  %.171 = phi i8 [ %.070135207, %260 ], [ 1, %263 ], [ %.070135207, %266 ], [ %.070135207, %264 ]
+  %.2 = phi i8 [ %.171135207, %260 ], [ 1, %263 ], [ %.171135207, %266 ], [ %.171135207, %264 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv206, 1
   %269 = load i32, ptr %236, align 4
   %270 = sext i32 %269 to i64
@@ -941,7 +941,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %271, label %sub_0, label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %268, %.lr.ph137
-  %.070135.lcssa = phi i8 [ 0, %.lr.ph137 ], [ %.171, %268 ]
+  %.171135.lcssa = phi i8 [ 0, %.lr.ph137 ], [ %.2, %268 ]
   %.079133.lcssa = phi i32 [ 0, %.lr.ph137 ], [ %.180, %268 ]
   %.pre = load ptr, ptr %6, align 8
   %272 = icmp eq i32 %.079133.lcssa, 0
@@ -957,15 +957,15 @@ sub_1:                                            ; preds = %sub_0
   unreachable
 
 ._crit_edge138.thread:                            ; preds = %234, %._crit_edge138
-  %.070.lcssa175 = phi i8 [ %.070135.lcssa, %._crit_edge138 ], [ 0, %234 ]
+  %.171.lcssa175 = phi i8 [ %.171135.lcssa, %._crit_edge138 ], [ 0, %234 ]
   %277 = phi ptr [ %.pre, %._crit_edge138 ], [ null, %234 ]
   call void @list_free(ptr noundef %277) #25
   call void @pfree(ptr noundef %228) #25
-  %278 = trunc nuw i8 %.070.lcssa175 to i1
+  %278 = trunc nuw i8 %.171.lcssa175 to i1
   br label %279
 
 279:                                              ; preds = %._crit_edge138.thread, %224
-  %.2 = phi i1 [ %278, %._crit_edge138.thread ], [ false, %224 ]
+  %.070 = phi i1 [ %278, %._crit_edge138.thread ], [ false, %224 ]
   %280 = load ptr, ptr @Unix_socket_directories, align 8
   %.not103 = icmp eq ptr %280, null
   br i1 %.not103, label %321, label %281
@@ -1072,7 +1072,7 @@ sub_1:                                            ; preds = %sub_0
   unreachable
 
 327:                                              ; preds = %321
-  br i1 %.2, label %329, label %328
+  br i1 %.070, label %329, label %328
 
 328:                                              ; preds = %327
   call void @AddToDataDirLockFile(i32 noundef 6, ptr noundef nonnull @.str.29) #25
@@ -1635,7 +1635,7 @@ define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
 .lr.ph:                                           ; preds = %bgworker_should_start_now.exit, %.lr.ph.preheader
   %6 = phi ptr [ %121, %bgworker_should_start_now.exit ], [ %4, %.lr.ph.preheader ]
   %.050 = phi i32 [ %.1, %bgworker_should_start_now.exit ], [ 0, %.lr.ph.preheader ]
-  %.01449 = phi i64 [ %.3, %bgworker_should_start_now.exit ], [ 0, %.lr.ph.preheader ]
+  %.01449 = phi i64 [ %.115, %bgworker_should_start_now.exit ], [ 0, %.lr.ph.preheader ]
   %.sink = load ptr, ptr %6, align 8
   store ptr %.sink, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -1504
@@ -1690,9 +1690,9 @@ define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
 31:                                               ; preds = %29, %27
   %32 = phi i32 [ %.pre67, %29 ], [ %20, %27 ]
   %33 = phi i64 [ %.pre, %29 ], [ %17, %27 ]
-  %.115 = phi i64 [ %30, %29 ], [ %.01449, %27 ]
+  %.3 = phi i64 [ %30, %29 ], [ %.01449, %27 ]
   %34 = mul i32 %32, 1000
-  %35 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %33, i64 noundef %.115, i32 noundef %34) #25
+  %35 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %33, i64 noundef %.3, i32 noundef %34) #25
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %31
@@ -1700,7 +1700,7 @@ define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
   br label %bgworker_should_start_now.exit
 
 37:                                               ; preds = %31, %15
-  %.2 = phi i64 [ %.115, %31 ], [ %.01449, %15 ]
+  %.2 = phi i64 [ %.3, %31 ], [ %.01449, %15 ]
   %38 = getelementptr i8, ptr %6, i64 -1308
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr @pmState, align 4
@@ -1890,7 +1890,7 @@ canAcceptConnections.exit.i.i:                    ; preds = %.lr.ph.split.us.i.i
   br i1 %119, label %.loopexit.sink.split, label %bgworker_should_start_now.exit
 
 bgworker_should_start_now.exit:                   ; preds = %43, %42, %41, %37, %115, %22, %25, %.lr.ph, %36, %14
-  %.3 = phi i64 [ %.01449, %.lr.ph ], [ %.01449, %14 ], [ %.01449, %25 ], [ %.01449, %22 ], [ %.2, %115 ], [ %.115, %36 ], [ %.2, %37 ], [ %.2, %41 ], [ %.2, %42 ], [ %.2, %43 ]
+  %.115 = phi i64 [ %.01449, %.lr.ph ], [ %.01449, %14 ], [ %.01449, %25 ], [ %.01449, %22 ], [ %.2, %115 ], [ %.3, %36 ], [ %.2, %37 ], [ %.2, %41 ], [ %.2, %42 ], [ %.2, %43 ]
   %.1 = phi i32 [ %.050, %.lr.ph ], [ %.050, %14 ], [ %.050, %25 ], [ %.050, %22 ], [ %118, %115 ], [ %.050, %36 ], [ %.050, %37 ], [ %.050, %41 ], [ %.050, %42 ], [ %.050, %43 ]
   %120 = load ptr, ptr %1, align 8
   store ptr %120, ptr %3, align 8
@@ -2004,7 +2004,7 @@ ConfigurePostmasterWaitSet.exit:                  ; preds = %.lr.ph.i, %12
 
 .lr.ph.i62:                                       ; preds = %48, %69
   %50 = phi ptr [ %70, %69 ], [ %49, %48 ]
-  %.01534.i = phi i64 [ %.1.i, %69 ], [ 0, %48 ]
+  %.134.i = phi i64 [ %.2.i, %69 ], [ 0, %48 ]
   %.sink.i = load ptr, ptr %50, align 8
   store ptr %.sink.i, ptr %30, align 8
   %51 = getelementptr i8, ptr %50, i64 -16
@@ -2034,15 +2034,15 @@ ConfigurePostmasterWaitSet.exit:                  ; preds = %.lr.ph.i, %12
   %64 = sext i32 %56 to i64
   %65 = mul nsw i64 %64, 1000000
   %66 = add i64 %65, %52
-  %67 = icmp eq i64 %.01534.i, 0
-  %68 = call i64 @llvm.smin.i64(i64 %66, i64 %.01534.i)
+  %67 = icmp eq i64 %.134.i, 0
+  %68 = call i64 @llvm.smin.i64(i64 %66, i64 %.134.i)
   %spec.select.i = select i1 %67, i64 %66, i64 %68
   br label %69
 
 69:                                               ; preds = %63, %62, %.lr.ph.i62
   %70 = phi ptr [ %.sink.i, %.lr.ph.i62 ], [ %.pre35.i, %62 ], [ %.sink.i, %63 ]
   %71 = phi ptr [ %50, %.lr.ph.i62 ], [ %.pre.i, %62 ], [ %50, %63 ]
-  %.1.i = phi i64 [ %.01534.i, %.lr.ph.i62 ], [ %.01534.i, %62 ], [ %spec.select.i, %63 ]
+  %.2.i = phi i64 [ %.134.i, %.lr.ph.i62 ], [ %.134.i, %62 ], [ %spec.select.i, %63 ]
   store ptr %71, ptr %29, align 8
   store ptr %70, ptr %8, align 8
   %.not28.i = icmp eq ptr %70, null
@@ -2050,12 +2050,12 @@ ConfigurePostmasterWaitSet.exit:                  ; preds = %.lr.ph.i, %12
 
 ._crit_edge.i:                                    ; preds = %69
   store ptr null, ptr %30, align 8
-  %.not27.i = icmp eq i64 %.1.i, 0
+  %.not27.i = icmp eq i64 %.2.i, 0
   br i1 %.not27.i, label %DetermineSleepTime.exit, label %72
 
 72:                                               ; preds = %._crit_edge.i
   %73 = call i64 @GetCurrentTimestamp() #25
-  %74 = call i64 @TimestampDifferenceMilliseconds(i64 noundef %73, i64 noundef %.1.i) #25
+  %74 = call i64 @TimestampDifferenceMilliseconds(i64 noundef %73, i64 noundef %.2.i) #25
   %75 = trunc i64 %74 to i32
   %76 = call i32 @llvm.smin.i32(i32 %75, i32 60000)
   br label %DetermineSleepTime.exit

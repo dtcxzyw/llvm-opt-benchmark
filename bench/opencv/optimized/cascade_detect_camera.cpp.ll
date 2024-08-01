@@ -587,7 +587,7 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit66: ; preds
   br label %208
 
 171:                                              ; preds = %67, %170
-  %.023 = phi i32 [ 0, %170 ], [ -1, %67 ]
+  %.124 = phi i32 [ 0, %170 ], [ -1, %67 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %14) #14
   %172 = getelementptr inbounds i8, ptr %10, i64 8
   %173 = load ptr, ptr %172, align 8
@@ -673,10 +673,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body
 
 _ZL4helpv.exit:                                   ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %203, %190, %171, %.noexc
-  %.124 = phi i32 [ -1, %.noexc ], [ %.023, %171 ], [ %.023, %190 ], [ %.023, %203 ], [ %.023, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
+  %.023 = phi i32 [ -1, %.noexc ], [ %.124, %171 ], [ %.124, %190 ], [ %.124, %203 ], [ %.124, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
-  ret i32 %.124
+  ret i32 %.023
 
 .body:                                            ; preds = %41, %209, %71, %69, %30
   %.pn41.pn = phi { ptr, i32 } [ %31, %30 ], [ %42, %41 ], [ %.pn35.pn.pn.pn.pn, %209 ], [ %72, %71 ], [ %70, %69 ]

@@ -335,16 +335,16 @@ define hidden range(i32 0, 2) i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %
   br label %35
 
 .loopexit:                                        ; preds = %.lr.ph, %4
-  %.2.ph = phi ptr [ %5, %4 ], [ %11, %.lr.ph ]
+  %.1.ph = phi ptr [ %5, %4 ], [ %11, %.lr.ph ]
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr @g_hash_table_lookup(ptr noundef %22, ptr noundef nonnull %.2.ph) #14
+  %23 = tail call ptr @g_hash_table_lookup(ptr noundef %22, ptr noundef nonnull %.1.ph) #14
   %.not39 = icmp eq ptr %23, null
   br i1 %.not39, label %24, label %34
 
 24:                                               ; preds = %.loopexit
   %25 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  store ptr %.2.ph, ptr %25, align 8
+  store ptr %.1.ph, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   store i32 2, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %25, i64 16
@@ -354,14 +354,14 @@ define hidden range(i32 0, 2) i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %
   %29 = getelementptr inbounds i8, ptr %25, i64 32
   store ptr %0, ptr %29, align 8
   %30 = load ptr, ptr %21, align 8
-  %31 = tail call i32 @g_hash_table_insert(ptr noundef %30, ptr noundef nonnull %.2.ph, ptr noundef nonnull %25) #14
+  %31 = tail call i32 @g_hash_table_insert(ptr noundef %30, ptr noundef nonnull %.1.ph, ptr noundef nonnull %25) #14
   %32 = getelementptr inbounds i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
-  tail call void @g_queue_push_tail(ptr noundef %33, ptr noundef nonnull %.2.ph) #14
+  tail call void @g_queue_push_tail(ptr noundef %33, ptr noundef nonnull %.1.ph) #14
   br label %35
 
 34:                                               ; preds = %.loopexit
-  tail call void @g_free(ptr noundef nonnull %.2.ph) #14
+  tail call void @g_free(ptr noundef nonnull %.1.ph) #14
   br label %35
 
 35:                                               ; preds = %24, %34, %17, %18
@@ -563,7 +563,7 @@ define internal fastcc ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr n
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.critedge.thread
   %indvars.iv = phi i64 [ %17, %.lr.ph73.preheader ], [ %indvars.iv.next, %.critedge.thread ]
-  %.04871 = phi ptr [ null, %.lr.ph73.preheader ], [ %.2, %.critedge.thread ]
+  %.04871 = phi ptr [ null, %.lr.ph73.preheader ], [ %.3, %.critedge.thread ]
   %18 = getelementptr i8, ptr %13, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 46
@@ -586,20 +586,20 @@ define internal fastcc ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr n
 
 28:                                               ; preds = %25, %23
   %.sink91 = phi ptr [ %13, %25 ], [ @.str.2, %23 ]
-  %.1 = phi ptr [ %27, %25 ], [ %24, %23 ]
+  %.2 = phi ptr [ %27, %25 ], [ %24, %23 ]
   %29 = load ptr, ptr %7, align 8
   %30 = tail call ptr @g_hash_table_lookup(ptr noundef %29, ptr noundef nonnull %.sink91) #14
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %.critedge.thread, label %.preheader
 
 .preheader:                                       ; preds = %28
-  %.not79 = icmp eq ptr %.1, null
+  %.not79 = icmp eq ptr %.2, null
   br i1 %.not79, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %33
-  %.067 = phi ptr [ %37, %33 ], [ %.1, %.preheader ]
-  %.15066 = phi ptr [ %35, %33 ], [ %30, %.preheader ]
-  %31 = getelementptr inbounds i8, ptr %.15066, i64 40
+  %.067 = phi ptr [ %37, %33 ], [ %.2, %.preheader ]
+  %.25166 = phi ptr [ %35, %33 ], [ %30, %.preheader ]
+  %31 = getelementptr inbounds i8, ptr %.25166, i64 40
   %32 = load ptr, ptr %31, align 8
   %.not60 = icmp eq ptr %32, null
   br i1 %.not60, label %.critedge.thread, label %33
@@ -615,7 +615,7 @@ define internal fastcc ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr n
   br i1 %or.cond5, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %33, %.preheader
-  %.150.lcssa = phi ptr [ %30, %.preheader ], [ %35, %33 ]
+  %.251.lcssa = phi ptr [ %30, %.preheader ], [ %35, %33 ]
   %.0.lcssa = phi ptr [ null, %.preheader ], [ %37, %33 ]
   %.lcssa = phi i1 [ true, %.preheader ], [ %39, %33 ]
   %40 = icmp eq ptr %.0.lcssa, null
@@ -623,33 +623,33 @@ define internal fastcc ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr n
   br i1 %or.cond7, label %41, label %.critedge.thread
 
 41:                                               ; preds = %.critedge
-  %42 = load i32, ptr %.150.lcssa, align 8
+  %42 = load i32, ptr %.251.lcssa, align 8
   %43 = icmp eq i32 %42, %2
   br i1 %43, label %._crit_edge, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph, %.critedge, %41, %.lr.ph73, %28
-  %.2 = phi ptr [ %.1, %28 ], [ %.04871, %.lr.ph73 ], [ %.1, %41 ], [ %.1, %.critedge ], [ %.1, %.lr.ph ]
+  %.3 = phi ptr [ %.2, %28 ], [ %.04871, %.lr.ph73 ], [ %.2, %41 ], [ %.2, %.critedge ], [ %.2, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %44 = icmp sgt i64 %indvars.iv, 0
   br i1 %44, label %.lr.ph73, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.critedge.thread, %41
-  %.352 = phi ptr [ null, %.critedge.thread ], [ %.150.lcssa, %41 ]
-  %.3 = phi ptr [ %.2, %.critedge.thread ], [ %.1, %41 ]
-  %.not61 = icmp eq ptr %.3, null
+  %.150 = phi ptr [ null, %.critedge.thread ], [ %.251.lcssa, %41 ]
+  %.1 = phi ptr [ %.3, %.critedge.thread ], [ %.2, %41 ]
+  %.not61 = icmp eq ptr %.1, null
   br i1 %.not61, label %._crit_edge.thread, label %45
 
 45:                                               ; preds = %._crit_edge
-  tail call void @g_slist_free(ptr noundef nonnull %.3) #14
+  tail call void @g_slist_free(ptr noundef nonnull %.1) #14
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %45, %._crit_edge
-  %.35287 = phi ptr [ %.352, %45 ], [ %.352, %._crit_edge ], [ null, %10 ]
+  %.15087 = phi ptr [ %.150, %45 ], [ %.150, %._crit_edge ], [ null, %10 ]
   tail call void @g_free(ptr noundef %13) #14
   br label %46
 
 46:                                               ; preds = %3, %6, %._crit_edge.thread
-  %.055 = phi ptr [ %.35287, %._crit_edge.thread ], [ null, %6 ], [ null, %3 ]
+  %.055 = phi ptr [ %.15087, %._crit_edge.thread ], [ null, %6 ], [ null, %3 ]
   ret ptr %.055
 }
 

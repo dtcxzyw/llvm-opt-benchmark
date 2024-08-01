@@ -3959,7 +3959,7 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr n
 
 23:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %.0122 = phi i32 [ 0, %.lr.ph ], [ %.1, %70 ]
+  %.1122 = phi i32 [ 0, %.lr.ph ], [ %.2, %70 ]
   %.val = load ptr, ptr %15, align 8
   %24 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
@@ -4035,7 +4035,7 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr n
   br label %70
 
 70:                                               ; preds = %52, %66
-  %.1 = phi i32 [ %.0122, %52 ], [ 1, %66 ]
+  %.2 = phi i32 [ %.1122, %52 ], [ 1, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val80 = load i32, ptr %13, align 4
   %71 = sext i32 %.val80 to i64
@@ -4043,7 +4043,7 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr n
   br i1 %72, label %23, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %70, %8
-  %.0.lcssa = phi i32 [ 0, %8 ], [ %.1, %70 ]
+  %.1.lcssa = phi i32 [ 0, %8 ], [ %.2, %70 ]
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %74, label %.thread109
 
@@ -4079,7 +4079,7 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr n
 81:                                               ; preds = %.thread109, %78
   %.07092116 = phi ptr [ %12, %.thread109 ], [ null, %78 ]
   %.06994115 = phi ptr [ %11, %.thread109 ], [ null, %78 ]
-  %.297114 = phi i32 [ %.0.lcssa, %.thread109 ], [ 0, %78 ]
+  %.097114 = phi i32 [ %.1.lcssa, %.thread109 ], [ 0, %78 ]
   %82 = add nsw i32 %2, -1
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %82)
   %83 = getelementptr inbounds i8, ptr %0, i64 104
@@ -4185,8 +4185,8 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr n
   br label %.thread105
 
 .thread105:                                       ; preds = %.critedge.thread, %121, %132, %144, %78, %77, %76
-  %.296 = phi i32 [ %.297114, %121 ], [ %.297114, %132 ], [ %.297114, %144 ], [ 0, %78 ], [ %.0.lcssa, %77 ], [ %.0.lcssa, %76 ], [ 0, %.critedge.thread ]
-  ret i32 %.296
+  %.096 = phi i32 [ %.097114, %121 ], [ %.097114, %132 ], [ %.097114, %144 ], [ 0, %78 ], [ %.1.lcssa, %77 ], [ %.1.lcssa, %76 ], [ 0, %.critedge.thread ]
+  ret i32 %.096
 }
 
 declare i32 @Abc_FrameIsBatchMode(...) local_unnamed_addr #3

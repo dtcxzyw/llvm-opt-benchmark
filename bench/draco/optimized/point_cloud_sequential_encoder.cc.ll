@@ -268,7 +268,7 @@ _ZNSt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS1_EED2Ev.exit17
 
 61:                                               ; preds = %_ZNSt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS1_EED2Ev.exit17, %55
   %.pn = phi { ptr, i32 } [ %57, %_ZNSt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS1_EED2Ev.exit17 ], [ %56, %55 ]
-  %.0 = phi i1 [ false, %_ZNSt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS1_EED2Ev.exit17 ], [ true, %55 ]
+  %.1 = phi i1 [ false, %_ZNSt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS1_EED2Ev.exit17 ], [ true, %55 ]
   %62 = load ptr, ptr %3, align 8
   %.not.i18 = icmp eq ptr %62, null
   br i1 %.not.i18, label %66, label %_ZNKSt14default_deleteIN5draco15PointsSequencerEEclEPS1_.exit.i19
@@ -282,7 +282,7 @@ _ZNKSt14default_deleteIN5draco15PointsSequencerEEclEPS1_.exit.i19: ; preds = %61
 
 66:                                               ; preds = %_ZNKSt14default_deleteIN5draco15PointsSequencerEEclEPS1_.exit.i19, %61
   store ptr null, ptr %3, align 8
-  br i1 %.0, label %.thread, label %71
+  br i1 %.1, label %.thread, label %71
 
 .thread:                                          ; preds = %53, %66
   %.pn.pn28 = phi { ptr, i32 } [ %.pn, %66 ], [ %54, %53 ]

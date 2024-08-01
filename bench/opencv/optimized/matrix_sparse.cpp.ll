@@ -4574,7 +4574,7 @@ _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %_ZNK2cv9SparseMat5b
   br i1 %28, label %.preheader101, label %113
 
 .preheader101:                                    ; preds = %95, %107
-  %.3 = phi double [ %.sroa.speculated, %107 ], [ 0.000000e+00, %95 ]
+  %.4 = phi double [ %.sroa.speculated, %107 ], [ 0.000000e+00, %95 ]
   %.352 = phi i64 [ %111, %107 ], [ 0, %95 ]
   %exitcond145.not = icmp eq i64 %.352, %26
   br i1 %exitcond145.not, label %.loopexit, label %97
@@ -4615,8 +4615,8 @@ _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %_ZNK2cv9SparseMat5b
 107:                                              ; preds = %97
   %108 = load double, ptr %98, align 8
   %109 = call noundef double @llvm.fabs.f64(double %108)
-  %110 = fcmp olt double %.3, %109
-  %.sroa.speculated = select i1 %110, double %109, double %.3
+  %110 = fcmp olt double %.4, %109
+  %.sroa.speculated = select i1 %110, double %109, double %.4
   %111 = add i64 %.352, 1
   %112 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv22SparseMatConstIteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %.preheader101 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !40
@@ -4625,7 +4625,7 @@ _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %_ZNK2cv9SparseMat5b
   br i1 %29, label %.preheader106, label %.preheader110
 
 .preheader106:                                    ; preds = %113, %124
-  %.4 = phi double [ %127, %124 ], [ 0.000000e+00, %113 ]
+  %.5 = phi double [ %127, %124 ], [ 0.000000e+00, %113 ]
   %.453 = phi i64 [ %128, %124 ], [ 0, %113 ]
   %exitcond144.not = icmp eq i64 %.453, %26
   br i1 %exitcond144.not, label %.loopexit, label %114
@@ -4666,13 +4666,13 @@ _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %_ZNK2cv9SparseMat5b
 124:                                              ; preds = %114
   %125 = load double, ptr %115, align 8
   %126 = call noundef double @llvm.fabs.f64(double %125)
-  %127 = fadd double %.4, %126
+  %127 = fadd double %.5, %126
   %128 = add i64 %.453, 1
   %129 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv22SparseMatConstIteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %.preheader106 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !41
 
 .preheader110:                                    ; preds = %113, %140
-  %.5 = phi double [ %142, %140 ], [ 0.000000e+00, %113 ]
+  %.6 = phi double [ %142, %140 ], [ 0.000000e+00, %113 ]
   %.554 = phi i64 [ %143, %140 ], [ 0, %113 ]
   %exitcond.not = icmp eq i64 %.554, %26
   br i1 %exitcond.not, label %.loopexit, label %130
@@ -4712,7 +4712,7 @@ _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %_ZNK2cv9SparseMat5b
 
 140:                                              ; preds = %130
   %141 = load double, ptr %131, align 8
-  %142 = call double @llvm.fmuladd.f64(double %141, double %141, double %.5)
+  %142 = call double @llvm.fmuladd.f64(double %141, double %141, double %.6)
   %143 = add i64 %.554, 1
   %144 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv22SparseMatConstIteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %.preheader110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !42
@@ -4746,15 +4746,15 @@ _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %_ZNK2cv9SparseMat5b
   br label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %.preheader110, %.preheader106, %.preheader101, %.preheader97, %.preheader92, %.preheader
-  %.6 = phi double [ %.0, %.preheader ], [ %.1, %.preheader92 ], [ %.2, %.preheader97 ], [ %.3, %.preheader101 ], [ %.4, %.preheader106 ], [ %.5, %.preheader110 ]
+  %.3 = phi double [ %.0, %.preheader ], [ %.1, %.preheader92 ], [ %.2, %.preheader97 ], [ %.4, %.preheader101 ], [ %.5, %.preheader106 ], [ %.6, %.preheader110 ]
   br i1 %30, label %153, label %155
 
 153:                                              ; preds = %.loopexit
-  %154 = call double @sqrt(double noundef %.6) #26
+  %154 = call double @sqrt(double noundef %.3) #26
   br label %155
 
 155:                                              ; preds = %153, %.loopexit
-  %.7 = phi double [ %154, %153 ], [ %.6, %.loopexit ]
+  %.7 = phi double [ %154, %153 ], [ %.3, %.loopexit ]
   %156 = getelementptr inbounds i8, ptr %3, i64 8
   %157 = load i32, ptr %156, align 8
   %.not.i79 = icmp eq i32 %157, 0
@@ -4998,8 +4998,8 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit113:   ; preds = %57, %59, %62
 
 79:                                               ; preds = %.preheader127, %121
   %.181 = phi i64 [ %122, %121 ], [ 0, %.preheader127 ]
-  %.277 = phi ptr [ %.378, %121 ], [ null, %.preheader127 ]
-  %.273 = phi ptr [ %.374, %121 ], [ null, %.preheader127 ]
+  %.378 = phi ptr [ %.479, %121 ], [ null, %.preheader127 ]
+  %.374 = phi ptr [ %.4, %121 ], [ null, %.preheader127 ]
   %.061 = phi double [ %.162, %121 ], [ 0x7FEFFFFFFFFFFFFF, %.preheader127 ]
   %.059 = phi double [ %.160, %121 ], [ 0xFFEFFFFFFFFFFFFF, %.preheader127 ]
   %exitcond.not = icmp eq i64 %.181, %21
@@ -5068,7 +5068,7 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit117:   ; preds = %93, %95, %98
   br label %106
 
 106:                                              ; preds = %_ZNK2cv22SparseMatConstIterator4nodeEv.exit117, %90
-  %.378 = phi ptr [ %105, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit117 ], [ %.277, %90 ]
+  %.479 = phi ptr [ %105, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit117 ], [ %.378, %90 ]
   %.162 = phi double [ %91, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit117 ], [ %.061, %90 ]
   %107 = fcmp ogt double %91, %.059
   br i1 %107, label %108, label %121
@@ -5098,7 +5098,7 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit121:   ; preds = %108, %110, %113
   br label %121
 
 121:                                              ; preds = %106, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit121
-  %.374 = phi ptr [ %120, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit121 ], [ %.273, %106 ]
+  %.4 = phi ptr [ %120, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit121 ], [ %.374, %106 ]
   %.160 = phi double [ %91, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit121 ], [ %.059, %106 ]
   %122 = add i64 %.181, 1
   %123 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv22SparseMatConstIteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -5146,16 +5146,16 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit121:   ; preds = %108, %110, %113
 
 .sink.split:                                      ; preds = %126, %77
   %.059.lcssa.sink = phi double [ %78, %77 ], [ %.059, %126 ]
-  %.479.ph = phi ptr [ %.075, %77 ], [ %.277, %126 ]
-  %.4.ph = phi ptr [ %.071, %77 ], [ %.273, %126 ]
+  %.277.ph = phi ptr [ %.075, %77 ], [ %.378, %126 ]
+  %.273.ph = phi ptr [ %.071, %77 ], [ %.374, %126 ]
   store double %.059.lcssa.sink, ptr %2, align 8
   br label %135
 
 135:                                              ; preds = %.sink.split, %126, %76
-  %.479 = phi ptr [ %.075, %76 ], [ %.277, %126 ], [ %.479.ph, %.sink.split ]
-  %.4 = phi ptr [ %.071, %76 ], [ %.273, %126 ], [ %.4.ph, %.sink.split ]
+  %.277 = phi ptr [ %.075, %76 ], [ %.378, %126 ], [ %.277.ph, %.sink.split ]
+  %.273 = phi ptr [ %.071, %76 ], [ %.374, %126 ], [ %.273.ph, %.sink.split ]
   %136 = icmp ne ptr %3, null
-  %137 = icmp ne ptr %.479, null
+  %137 = icmp ne ptr %.277, null
   %or.cond = select i1 %136, i1 %137, i1 false
   %138 = icmp ne i32 %22, 0
   %or.cond150 = select i1 %or.cond, i1 %138, i1 false
@@ -5163,7 +5163,7 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit121:   ; preds = %108, %110, %113
 
 .lr.ph:                                           ; preds = %135, %.lr.ph
   %.282147 = phi i64 [ %142, %.lr.ph ], [ 0, %135 ]
-  %139 = getelementptr inbounds i32, ptr %.479, i64 %.282147
+  %139 = getelementptr inbounds i32, ptr %.277, i64 %.282147
   %140 = load i32, ptr %139, align 4
   %141 = getelementptr inbounds i32, ptr %3, i64 %.282147
   store i32 %140, ptr %141, align 4
@@ -5173,14 +5173,14 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit121:   ; preds = %108, %110, %113
 
 .loopexit124:                                     ; preds = %.lr.ph, %135
   %143 = icmp ne ptr %4, null
-  %144 = icmp ne ptr %.4, null
+  %144 = icmp ne ptr %.273, null
   %or.cond3 = select i1 %143, i1 %144, i1 false
   %or.cond151 = select i1 %or.cond3, i1 %138, i1 false
   br i1 %or.cond151, label %.lr.ph149, label %.loopexit
 
 .lr.ph149:                                        ; preds = %.loopexit124, %.lr.ph149
   %.383148 = phi i64 [ %148, %.lr.ph149 ], [ 0, %.loopexit124 ]
-  %145 = getelementptr inbounds i32, ptr %.4, i64 %.383148
+  %145 = getelementptr inbounds i32, ptr %.273, i64 %.383148
   %146 = load i32, ptr %145, align 4
   %147 = getelementptr inbounds i32, ptr %4, i64 %.383148
   store i32 %146, ptr %147, align 4

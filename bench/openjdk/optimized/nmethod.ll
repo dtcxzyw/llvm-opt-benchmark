@@ -4535,9 +4535,9 @@ define hidden void @_ZN7nmethod20finalize_relocationsEv(ptr noundef nonnull alig
   br label %18
 
 18:                                               ; preds = %.lr.ph, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit
-  %.sroa.16.0 = phi ptr [ %3, %.lr.ph ], [ %.sroa.16.2, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
-  %.sroa.9.0 = phi i32 [ 2, %.lr.ph ], [ %.sroa.9.2, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
-  %.sroa.0.0 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
+  %.sroa.16.2 = phi ptr [ %3, %.lr.ph ], [ %.sroa.16.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
+  %.sroa.9.2 = phi i32 [ 2, %.lr.ph ], [ %.sroa.9.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
+  %.sroa.0.2 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
   %19 = phi ptr [ %11, %.lr.ph ], [ %106, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
   store i16 0, ptr %9, align 8
   %20 = load i16, ptr %19, align 2
@@ -4598,17 +4598,17 @@ _ZN13RelocIterator18virtual_call_relocEv.exit:    ; preds = %34, %37, %39
   store ptr %2, ptr %5, align 8
   call void @_ZN23virtual_call_Relocation11unpack_dataEv(ptr noundef nonnull align 8 dereferenceable(36) %4) #23
   %43 = call noundef ptr @_ZN23virtual_call_Relocation12cached_valueEv(ptr noundef nonnull align 8 dereferenceable(36) %4) #23
-  %44 = icmp eq i32 %.sroa.0.0, %.sroa.9.0
+  %44 = icmp eq i32 %.sroa.0.2, %.sroa.9.2
   br i1 %44, label %_ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i, label %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge
 
 _ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge: ; preds = %_ZN13RelocIterator18virtual_call_relocEv.exit
-  %.pre = add nsw i32 %.sroa.0.0, 1
+  %.pre = add nsw i32 %.sroa.0.2, 1
   br label %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i: ; preds = %_ZN13RelocIterator18virtual_call_relocEv.exit
-  %45 = add nsw i32 %.sroa.9.0, 1
-  %46 = icmp sgt i32 %.sroa.9.0, -1
-  %47 = xor i32 %.sroa.9.0, -2147483648
+  %45 = add nsw i32 %.sroa.9.2, 1
+  %46 = icmp sgt i32 %.sroa.9.2, -1
+  %47 = xor i32 %.sroa.9.2, -2147483648
   %48 = and i32 %47, %45
   %49 = icmp eq i32 %48, 0
   %50 = and i1 %46, %49
@@ -4617,15 +4617,15 @@ _ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i: ; preds = %_ZN13Relo
   %53 = shl nuw i32 1, %52
   %.0.i.i.i.i = select i1 %50, i32 %45, i32 %53
   %54 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i, i32 noundef 8) #23
-  %55 = icmp sgt i32 %.sroa.9.0, 0
+  %55 = icmp sgt i32 %.sroa.9.2, 0
   br i1 %55, label %.lr.ph.i.preheader, label %.preheader16.i
 
 .lr.ph.i.preheader:                               ; preds = %_ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i
-  %56 = zext nneg i32 %.sroa.9.0 to i64
+  %56 = zext nneg i32 %.sroa.9.2 to i64
   br label %.lr.ph.i
 
 .preheader16.i:                                   ; preds = %.lr.ph.i, %_ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i
-  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i ], [ %.sroa.9.0, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i ], [ %.sroa.9.2, %.lr.ph.i ]
   %57 = icmp slt i32 %.0.lcssa.i, %.0.i.i.i.i
   br i1 %57, label %.lr.ph19.preheader.i, label %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit
 
@@ -4646,7 +4646,7 @@ _ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i: ; preds = %_ZN13Relo
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %66 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv.i
-  %67 = getelementptr inbounds ptr, ptr %.sroa.16.0, i64 %indvars.iv.i
+  %67 = getelementptr inbounds ptr, ptr %.sroa.16.2, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %66, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4655,11 +4655,11 @@ _ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i: ; preds = %_ZN13Relo
 
 _ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %.preheader16.i, %.lr.ph19.preheader.i, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge
   %.pre-phi = phi i32 [ %.pre, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %45, %.lr.ph19.preheader.i ], [ %45, %.preheader16.i ]
-  %.sroa.16.1 = phi ptr [ %.sroa.16.0, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %54, %.lr.ph19.preheader.i ], [ %54, %.preheader16.i ]
-  %.sroa.9.1 = phi i32 [ %.sroa.9.0, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %.0.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i, %.preheader16.i ]
-  %69 = phi i32 [ %.sroa.0.0, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %.sroa.9.0, %.lr.ph19.preheader.i ], [ %.sroa.9.0, %.preheader16.i ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.2, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %54, %.lr.ph19.preheader.i ], [ %54, %.preheader16.i ]
+  %.sroa.9.3 = phi i32 [ %.sroa.9.2, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %.0.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i, %.preheader16.i ]
+  %69 = phi i32 [ %.sroa.0.2, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %.sroa.9.2, %.lr.ph19.preheader.i ], [ %.sroa.9.2, %.preheader16.i ]
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %.sroa.16.1, i64 %70
+  %71 = getelementptr inbounds ptr, ptr %.sroa.16.3, i64 %70
   store ptr %43, ptr %71, align 8
   br label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit
 
@@ -4728,9 +4728,9 @@ _ZN13RelocIterator19post_call_nop_relocEv.exit:   ; preds = %72, %75, %77
   br label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit
 
 _ZL34install_post_call_nop_displacementP7nmethodPh.exit: ; preds = %31, %104, %102, %98, %96, %94, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit
-  %.sroa.16.2 = phi ptr [ %.sroa.16.0, %31 ], [ %.sroa.16.0, %94 ], [ %.sroa.16.0, %96 ], [ %.sroa.16.0, %98 ], [ %.sroa.16.0, %102 ], [ %.sroa.16.0, %104 ], [ %.sroa.16.1, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
-  %.sroa.9.2 = phi i32 [ %.sroa.9.0, %31 ], [ %.sroa.9.0, %94 ], [ %.sroa.9.0, %96 ], [ %.sroa.9.0, %98 ], [ %.sroa.9.0, %102 ], [ %.sroa.9.0, %104 ], [ %.sroa.9.1, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %31 ], [ %.sroa.0.0, %94 ], [ %.sroa.0.0, %96 ], [ %.sroa.0.0, %98 ], [ %.sroa.0.0, %102 ], [ %.sroa.0.0, %104 ], [ %.pre-phi, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.2, %31 ], [ %.sroa.16.2, %94 ], [ %.sroa.16.2, %96 ], [ %.sroa.16.2, %98 ], [ %.sroa.16.2, %102 ], [ %.sroa.16.2, %104 ], [ %.sroa.16.3, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.2, %31 ], [ %.sroa.9.2, %94 ], [ %.sroa.9.2, %96 ], [ %.sroa.9.2, %98 ], [ %.sroa.9.2, %102 ], [ %.sroa.9.2, %104 ], [ %.sroa.9.3, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %31 ], [ %.sroa.0.2, %94 ], [ %.sroa.0.2, %96 ], [ %.sroa.0.2, %98 ], [ %.sroa.0.2, %102 ], [ %.sroa.0.2, %104 ], [ %.pre-phi, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
   %105 = load ptr, ptr %7, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 2
   store ptr %106, ptr %7, align 8
@@ -4739,14 +4739,14 @@ _ZL34install_post_call_nop_displacementP7nmethodPh.exit: ; preds = %31, %104, %1
   br i1 %108, label %._crit_edge, label %18, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %_ZL34install_post_call_nop_displacementP7nmethodPh.exit, %23
-  %.sroa.16.4 = phi ptr [ %.sroa.16.2, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ], [ %.sroa.16.0, %23 ]
-  %.sroa.0.3 = phi i32 [ %.sroa.0.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ], [ %.sroa.0.0, %23 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ], [ %.sroa.16.2, %23 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ], [ %.sroa.0.2, %23 ]
   store i16 -1, ptr %9, align 8
-  %109 = icmp sgt i32 %.sroa.0.3, 0
+  %109 = icmp sgt i32 %.sroa.0.0, 0
   br i1 %109, label %110, label %_ZN13GrowableArrayIP17NativeMovConstRegED2Ev.exit
 
 110:                                              ; preds = %._crit_edge
-  %111 = zext nneg i32 %.sroa.0.3 to i64
+  %111 = zext nneg i32 %.sroa.0.0 to i64
   %112 = mul nuw nsw i64 %111, 40
   %113 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %112, i8 noundef zeroext 4, i32 noundef 0) #23
   %114 = getelementptr inbounds %class.CompiledICData, ptr %113, i64 %111
@@ -4767,7 +4767,7 @@ _ZL34install_post_call_nop_displacementP7nmethodPh.exit: ; preds = %31, %104, %1
 120:                                              ; preds = %.lr.ph36, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next, %120 ]
   %.034 = phi ptr [ %113, %.lr.ph36 ], [ %129, %120 ]
-  %121 = getelementptr inbounds ptr, ptr %.sroa.16.4, i64 %indvars.iv
+  %121 = getelementptr inbounds ptr, ptr %.sroa.16.0, i64 %indvars.iv
   %122 = load ptr, ptr %121, align 8
   %123 = ptrtoint ptr %.034 to i64
   %124 = load i8, ptr %122, align 1
@@ -6044,8 +6044,8 @@ _ZN12outputStream3bolEv.exit115:                  ; preds = %119, %122
   br label %152
 
 152:                                              ; preds = %150, %148
-  %.298 = phi i32 [ %151, %150 ], [ %.197, %148 ]
-  tail call void @_ZN7nmethod21print_code_comment_onEP12outputStreamiPhS2_(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr noundef nonnull %16, i32 noundef %.298, ptr noundef nonnull %.3110156, ptr noundef nonnull %143)
+  %.399 = phi i32 [ %151, %150 ], [ %.197, %148 ]
+  tail call void @_ZN7nmethod21print_code_comment_onEP12outputStreamiPhS2_(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr noundef nonnull %16, i32 noundef %.399, ptr noundef nonnull %.3110156, ptr noundef nonnull %143)
   %153 = load i32, ptr %129, align 8
   %154 = icmp sgt i32 %153, 0
   br i1 %154, label %155, label %_ZN12outputStream3bolEv.exit117.thread125
@@ -7084,14 +7084,14 @@ define hidden noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef no
   %3 = load volatile i8, ptr %2, align 2
   %4 = and i8 %3, 1
   %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %5, label %_ZN22ConditionalMutexLockerD2Ev.exit14
+  br i1 %.not.i, label %5, label %_ZN22ConditionalMutexLockerD2Ev.exit15
 
 5:                                                ; preds = %1
   %6 = lshr exact i8 %3, 1
   %7 = and i8 %6, 3
   %8 = load i8, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
   %9 = icmp eq i8 %7, %8
-  br i1 %9, label %_ZN7nmethod12is_unloadingEv.exit.thread17, label %10
+  br i1 %9, label %_ZN7nmethod12is_unloadingEv.exit.thread18, label %10
 
 10:                                               ; preds = %5
   %11 = tail call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull %0) #23
@@ -7104,19 +7104,19 @@ define hidden noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef no
 
 16:                                               ; preds = %10
   %17 = and i8 %14, 1
-  %.not20 = icmp eq i8 %17, 0
-  br i1 %.not20, label %_ZN7nmethod12is_unloadingEv.exit.thread17, label %_ZN22ConditionalMutexLockerD2Ev.exit14
+  %.not21 = icmp eq i8 %17, 0
+  br i1 %.not21, label %_ZN7nmethod12is_unloadingEv.exit.thread18, label %_ZN22ConditionalMutexLockerD2Ev.exit15
 
 _ZN7nmethod12is_unloadingEv.exit:                 ; preds = %10
-  br i1 %11, label %_ZN22ConditionalMutexLockerD2Ev.exit14, label %_ZN7nmethod12is_unloadingEv.exit.thread17
+  br i1 %11, label %_ZN22ConditionalMutexLockerD2Ev.exit15, label %_ZN7nmethod12is_unloadingEv.exit.thread18
 
-_ZN7nmethod12is_unloadingEv.exit.thread17:        ; preds = %5, %16, %_ZN7nmethod12is_unloadingEv.exit
+_ZN7nmethod12is_unloadingEv.exit.thread18:        ; preds = %5, %16, %_ZN7nmethod12is_unloadingEv.exit
   %18 = getelementptr inbounds i8, ptr %0, i64 211
   %19 = load volatile i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 1
-  br i1 %20, label %_ZN22ConditionalMutexLockerD2Ev.exit14, label %21
+  br i1 %20, label %_ZN22ConditionalMutexLockerD2Ev.exit15, label %21
 
-21:                                               ; preds = %_ZN7nmethod12is_unloadingEv.exit.thread17
+21:                                               ; preds = %_ZN7nmethod12is_unloadingEv.exit.thread18
   %22 = load ptr, ptr @NMethodState_lock, align 8
   %23 = tail call noundef zeroext i1 @_ZNK5Mutex13owned_by_selfEv(ptr noundef nonnull align 8 dereferenceable(104) %22) #23
   br i1 %23, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.thread
@@ -7124,25 +7124,25 @@ _ZN7nmethod12is_unloadingEv.exit.thread17:        ; preds = %5, %16, %_ZN7nmetho
 _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = %21
   %24 = load volatile i8, ptr %18, align 1
   %.not = icmp eq i8 %24, 1
-  br i1 %.not, label %_ZN22ConditionalMutexLockerD2Ev.exit14, label %26
+  br i1 %.not, label %_ZN22ConditionalMutexLockerD2Ev.exit15, label %26
 
 _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.thread: ; preds = %21
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %22) #23
   %25 = load volatile i8, ptr %18, align 1
-  %.not19 = icmp eq i8 %25, 1
-  br i1 %.not19, label %118, label %26
+  %.not20 = icmp eq i8 %25, 1
+  br i1 %.not20, label %118, label %26
 
 26:                                               ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.thread, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
   %27 = getelementptr inbounds i8, ptr %0, i64 148
   %28 = load i32, ptr %27, align 4
-  %.not21 = icmp eq i32 %28, -1
-  br i1 %.not21, label %40, label %29
+  %.not22 = icmp eq i32 %28, -1
+  br i1 %.not22, label %40, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8
-  %.not.i9 = icmp eq ptr %31, null
-  br i1 %.not.i9, label %_ZN7nmethod21invalidate_osr_methodEv.exit, label %32
+  %.not.i10 = icmp eq ptr %31, null
+  br i1 %.not.i10, label %_ZN7nmethod21invalidate_osr_methodEv.exit, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %31, i64 8
@@ -7236,8 +7236,8 @@ _ZN7nmethod19inc_decompile_countEv.exit:          ; preds = %81, %74, %70, %66, 
 
 93:                                               ; preds = %90, %88
   %94 = load volatile i8, ptr %18, align 1
-  %.not.i10 = icmp slt i8 %94, 1
-  br i1 %.not.i10, label %95, label %_ZN7nmethod14try_transitionEa.exit
+  %.not.i11 = icmp slt i8 %94, 1
+  br i1 %.not.i11, label %95, label %_ZN7nmethod14try_transitionEa.exit
 
 95:                                               ; preds = %93
   store volatile i8 1, ptr %18, align 1
@@ -7247,8 +7247,8 @@ _ZN7nmethod14try_transitionEa.exit:               ; preds = %93, %95
   tail call void @_ZNK7nmethod16log_state_changeEv(ptr noundef nonnull align 8 dereferenceable(214) %0)
   %96 = getelementptr inbounds i8, ptr %0, i64 72
   %97 = load ptr, ptr %96, align 8
-  %.not.i11 = icmp eq ptr %97, null
-  br i1 %.not.i11, label %_ZN7nmethod18unlink_from_methodEv.exit, label %98
+  %.not.i12 = icmp eq ptr %97, null
+  br i1 %.not.i12, label %_ZN7nmethod18unlink_from_methodEv.exit, label %98
 
 98:                                               ; preds = %_ZN7nmethod14try_transitionEa.exit
   tail call void @_ZN6Method11unlink_codeEP7nmethod(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef nonnull %0) #23
@@ -7279,19 +7279,19 @@ _ZN22ConditionalMutexLockerD2Ev.exit:             ; preds = %99, %_ZN7nmethod18u
   %114 = sub i64 %112, %113
   %115 = and i64 %114, 4294967295
   %116 = icmp eq i64 %115, 0
-  br i1 %116, label %_ZN22ConditionalMutexLockerD2Ev.exit14, label %117
+  br i1 %116, label %_ZN22ConditionalMutexLockerD2Ev.exit15, label %117
 
 117:                                              ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit
   tail call void @_ZN16JVMCINMethodData25invalidate_nmethod_mirrorEP7nmethod(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull %0) #23
-  br label %_ZN22ConditionalMutexLockerD2Ev.exit14
+  br label %_ZN22ConditionalMutexLockerD2Ev.exit15
 
 118:                                              ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %22) #23
-  br label %_ZN22ConditionalMutexLockerD2Ev.exit14
+  br label %_ZN22ConditionalMutexLockerD2Ev.exit15
 
-_ZN22ConditionalMutexLockerD2Ev.exit14:           ; preds = %1, %118, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, %16, %_ZN22ConditionalMutexLockerD2Ev.exit, %117, %_ZN7nmethod12is_unloadingEv.exit.thread17, %_ZN7nmethod12is_unloadingEv.exit
-  %.1 = phi i1 [ false, %_ZN7nmethod12is_unloadingEv.exit ], [ false, %_ZN7nmethod12is_unloadingEv.exit.thread17 ], [ true, %117 ], [ true, %_ZN22ConditionalMutexLockerD2Ev.exit ], [ false, %16 ], [ false, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit ], [ false, %118 ], [ false, %1 ]
-  ret i1 %.1
+_ZN22ConditionalMutexLockerD2Ev.exit15:           ; preds = %1, %118, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, %16, %_ZN22ConditionalMutexLockerD2Ev.exit, %117, %_ZN7nmethod12is_unloadingEv.exit.thread18, %_ZN7nmethod12is_unloadingEv.exit
+  %.0 = phi i1 [ false, %_ZN7nmethod12is_unloadingEv.exit ], [ false, %_ZN7nmethod12is_unloadingEv.exit.thread18 ], [ true, %117 ], [ true, %_ZN22ConditionalMutexLockerD2Ev.exit ], [ false, %16 ], [ false, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit ], [ false, %118 ], [ false, %1 ]
+  ret i1 %.0
 }
 
 declare void @_ZN10NativeJump20patch_verified_entryEPhS0_S0_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -10436,10 +10436,10 @@ _ZN7nmethod13scope_desc_inEPhS0_.exit:            ; preds = %_ZN7nmethod12pc_des
   br label %142
 
 142:                                              ; preds = %.preheader, %160
-  %.0110136 = phi ptr [ %161, %160 ], [ %93, %.preheader ]
+  %.1136 = phi ptr [ %161, %160 ], [ %93, %.preheader ]
   call void @_ZN12outputStream7move_toEiii(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %2, i32 noundef 6, i32 noundef 0) #23
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.148) #23
-  %143 = getelementptr inbounds i8, ptr %.0110136, i64 12
+  %143 = getelementptr inbounds i8, ptr %.1136, i64 12
   %144 = load i8, ptr %143, align 4
   %145 = trunc i8 %144 to i1
   br i1 %145, label %146, label %147
@@ -10449,7 +10449,7 @@ _ZN7nmethod13scope_desc_inEPhS0_.exit:            ; preds = %_ZN7nmethod12pc_des
   br label %147
 
 147:                                              ; preds = %146, %142
-  %148 = load ptr, ptr %.0110136, align 8
+  %148 = load ptr, ptr %.1136, align 8
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %151
 
@@ -10462,8 +10462,8 @@ _ZN7nmethod13scope_desc_inEPhS0_.exit:            ; preds = %_ZN7nmethod12pc_des
   br label %152
 
 152:                                              ; preds = %151, %150
-  %153 = load ptr, ptr %.0110136, align 8
-  %154 = getelementptr inbounds i8, ptr %.0110136, i64 8
+  %153 = load ptr, ptr %.1136, align 8
+  %154 = getelementptr inbounds i8, ptr %.1136, i64 8
   %155 = load i32, ptr %154, align 8
   %156 = call noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr noundef nonnull align 8 dereferenceable(88) %153, i32 noundef %155) #23
   %.not127 = icmp eq i32 %156, -1
@@ -10480,7 +10480,7 @@ _ZN7nmethod13scope_desc_inEPhS0_.exit:            ; preds = %_ZN7nmethod12pc_des
 
 160:                                              ; preds = %159, %158
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #23
-  %161 = call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.0110136) #23
+  %161 = call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.1136) #23
   %.not125 = icmp eq ptr %161, null
   br i1 %.not125, label %_ZN7nmethod13scope_desc_inEPhS0_.exit.thread, label %142, !llvm.loop !101
 
@@ -11338,7 +11338,7 @@ _ZN9VMRegImpl4nameEv.exit110:                     ; preds = %174, %175
   br label %188
 
 188:                                              ; preds = %180, %185, %_ZN9VMRegImpl4nameEv.exit, %_ZN9VMRegImpl4nameEv.exit110
-  %.197 = phi i1 [ false, %_ZN9VMRegImpl4nameEv.exit110 ], [ false, %_ZN9VMRegImpl4nameEv.exit ], [ %184, %180 ], [ false, %185 ]
+  %.096 = phi i1 [ false, %_ZN9VMRegImpl4nameEv.exit110 ], [ false, %_ZN9VMRegImpl4nameEv.exit ], [ %184, %180 ], [ false, %185 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.131) #23
   call void @_ZN12outputStream7move_toEiii(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 24, i32 noundef 6, i32 noundef 2) #23
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.132) #23
@@ -11373,7 +11373,7 @@ _ZN9VMRegImpl4nameEv.exit110:                     ; preds = %174, %175
   br label %204
 
 204:                                              ; preds = %201, %.critedge104, %189
-  br i1 %.197, label %205, label %206
+  br i1 %.096, label %205, label %206
 
 205:                                              ; preds = %204
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.125) #23

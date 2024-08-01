@@ -9160,9 +9160,9 @@ terminate.lpad.i.i53:                             ; preds = %lpad34
   unreachable
 
 cleanup:                                          ; preds = %if.then.i, %_ZN4cvc58internal7IntegerD2Ev.exit45, %invoke.cont22
-  %iter.sroa.26.2 = phi ptr [ %iter.sroa.26.0, %invoke.cont22 ], [ %add.ptr.i, %if.then.i ], [ %iter.sroa.26.0, %_ZN4cvc58internal7IntegerD2Ev.exit45 ]
-  %iter.sroa.19.2 = phi ptr [ %iter.sroa.19.0, %invoke.cont22 ], [ %add.ptr.i.i50, %if.then.i ], [ %iter.sroa.19.0, %_ZN4cvc58internal7IntegerD2Ev.exit45 ]
-  %iter.sroa.0.2 = phi ptr [ %iter.sroa.0.0, %invoke.cont22 ], [ %29, %if.then.i ], [ %incdec.ptr.i, %_ZN4cvc58internal7IntegerD2Ev.exit45 ]
+  %iter.sroa.26.1 = phi ptr [ %iter.sroa.26.0, %invoke.cont22 ], [ %add.ptr.i, %if.then.i ], [ %iter.sroa.26.0, %_ZN4cvc58internal7IntegerD2Ev.exit45 ]
+  %iter.sroa.19.1 = phi ptr [ %iter.sroa.19.0, %invoke.cont22 ], [ %add.ptr.i.i50, %if.then.i ], [ %iter.sroa.19.0, %_ZN4cvc58internal7IntegerD2Ev.exit45 ]
+  %iter.sroa.0.1 = phi ptr [ %iter.sroa.0.0, %invoke.cont22 ], [ %29, %if.then.i ], [ %incdec.ptr.i, %_ZN4cvc58internal7IntegerD2Ev.exit45 ]
   %39 = load ptr, ptr %coeff, align 8
   %bf.load.i.i.i.i55 = load i64, ptr %39, align 8
   %40 = and i64 %bf.load.i.i.i.i55, 1152920405095219200
@@ -9193,22 +9193,22 @@ _ZN4cvc58internal6theory5arith6linear8ConstantD2Ev.exit: ; preds = %cleanup, %if
   br i1 %cmp6.i.i.not.i, label %for.inc, label %for.cond39.preheader
 
 for.cond39.preheader:                             ; preds = %_ZN4cvc58internal6theory5arith6linear8ConstantD2Ev.exit
-  %cmp.i.i74.not542 = icmp eq ptr %iter.sroa.0.2, %15
+  %cmp.i.i74.not542 = icmp eq ptr %iter.sroa.0.1, %15
   br i1 %cmp.i.i74.not542, label %for.end208, label %cond.true
 
 for.inc:                                          ; preds = %_ZN4cvc58internal6theory5arith6linear8ConstantD2Ev.exit
-  %incdec.ptr.i65 = getelementptr inbounds i8, ptr %iter.sroa.0.2, i64 8
-  %cmp.i67 = icmp eq ptr %incdec.ptr.i65, %iter.sroa.19.2
+  %incdec.ptr.i65 = getelementptr inbounds i8, ptr %iter.sroa.0.1, i64 8
+  %cmp.i67 = icmp eq ptr %incdec.ptr.i65, %iter.sroa.19.1
   br i1 %cmp.i67, label %if.then.i68, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %for.inc, %if.then.i68
-  %iter.sroa.26.0.be = phi ptr [ %add.ptr.i70, %if.then.i68 ], [ %iter.sroa.26.2, %for.inc ]
-  %iter.sroa.19.0.be = phi ptr [ %add.ptr.i.i72, %if.then.i68 ], [ %iter.sroa.19.2, %for.inc ]
+  %iter.sroa.26.0.be = phi ptr [ %add.ptr.i70, %if.then.i68 ], [ %iter.sroa.26.1, %for.inc ]
+  %iter.sroa.19.0.be = phi ptr [ %add.ptr.i.i72, %if.then.i68 ], [ %iter.sroa.19.1, %for.inc ]
   %iter.sroa.0.0.be = phi ptr [ %43, %if.then.i68 ], [ %incdec.ptr.i65, %for.inc ]
   br label %for.cond, !llvm.loop !97
 
 if.then.i68:                                      ; preds = %for.inc
-  %add.ptr.i70 = getelementptr inbounds i8, ptr %iter.sroa.26.2, i64 8
+  %add.ptr.i70 = getelementptr inbounds i8, ptr %iter.sroa.26.1, i64 8
   %43 = load ptr, ptr %add.ptr.i70, align 8
   %add.ptr.i.i72 = getelementptr inbounds i8, ptr %43, i64 512
   br label %for.cond.backedge
@@ -9219,12 +9219,12 @@ ehcleanup:                                        ; preds = %lpad34, %lpad29, %l
   br label %ehcleanup218
 
 cond.true:                                        ; preds = %for.cond39.preheader, %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474
-  %retval.0548 = phi i64 [ %retval.3, %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474 ], [ undef, %for.cond39.preheader ]
+  %retval.1548 = phi i64 [ %retval.4, %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474 ], [ undef, %for.cond39.preheader ]
   %current.0547 = phi i64 [ %current.4, %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474 ], [ %16, %for.cond39.preheader ]
-  %iter.sroa.0.4545 = phi ptr [ %iter.sroa.0.5, %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474 ], [ %iter.sroa.0.2, %for.cond39.preheader ]
-  %iter.sroa.19.4544 = phi ptr [ %iter.sroa.19.5, %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474 ], [ %iter.sroa.19.2, %for.cond39.preheader ]
-  %iter.sroa.26.4543 = phi ptr [ %iter.sroa.26.5, %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474 ], [ %iter.sroa.26.2, %for.cond39.preheader ]
-  %44 = load i64, ptr %iter.sroa.0.4545, align 8
+  %iter.sroa.0.2545 = phi ptr [ %iter.sroa.0.5, %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474 ], [ %iter.sroa.0.1, %for.cond39.preheader ]
+  %iter.sroa.19.2544 = phi ptr [ %iter.sroa.19.5, %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474 ], [ %iter.sroa.19.1, %for.cond39.preheader ]
+  %iter.sroa.26.2543 = phi ptr [ %iter.sroa.26.5, %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474 ], [ %iter.sroa.26.1, %for.cond39.preheader ]
+  %44 = load i64, ptr %iter.sroa.0.2545, align 8
   %45 = load ptr, ptr %d_list.i, align 8
   %add.ptr.i.i122 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::DioSolver::Constraint", ptr %45, i64 %44
   invoke void @_ZNK4cvc58internal6theory5arith6linear7SumPair13getPolynomialEv(ptr nonnull sret(%"class.cvc5::internal::theory::arith::linear::Polynomial") align 8 %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i122)
@@ -9304,7 +9304,7 @@ invoke.cont132:                                   ; preds = %if.then131
   br i1 %cmp, label %cond.true138, label %cond.true163
 
 cond.true138:                                     ; preds = %invoke.cont132
-  %53 = load i64, ptr %iter.sroa.0.4545, align 8
+  %53 = load i64, ptr %iter.sroa.0.2545, align 8
   %call152 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %currentCoeff, ptr noundef nonnull align 8 dereferenceable(16) %inQueueCoeff)
           to label %invoke.cont151 unwind label %lpad81
 
@@ -9389,7 +9389,7 @@ terminate.lpad.i.i434:                            ; preds = %invoke.cont184
 
 _ZN4cvc58internal7IntegerD2Ev.exit435:            ; preds = %invoke.cont184
   %not.call185 = xor i1 %call185, true
-  %spec.select18 = select i1 %call185, i64 %call176, i64 %retval.0548
+  %spec.select18 = select i1 %call185, i64 %call176, i64 %retval.1548
   br label %cleanup191
 
 lpad183:                                          ; preds = %invoke.cont182
@@ -9407,8 +9407,8 @@ terminate.lpad.i.i436:                            ; preds = %lpad183
 
 cleanup191:                                       ; preds = %invoke.cont156, %_ZN4cvc58internal7IntegerD2Ev.exit435, %invoke.cont129
   %cond = phi i1 [ true, %invoke.cont129 ], [ %not.call185, %_ZN4cvc58internal7IntegerD2Ev.exit435 ], [ true, %invoke.cont156 ]
-  %current.2 = phi i64 [ %current.0547, %invoke.cont129 ], [ %call176, %_ZN4cvc58internal7IntegerD2Ev.exit435 ], [ %53, %invoke.cont156 ]
-  %retval.1 = phi i64 [ %retval.0548, %invoke.cont129 ], [ %spec.select18, %_ZN4cvc58internal7IntegerD2Ev.exit435 ], [ %retval.0548, %invoke.cont156 ]
+  %current.3 = phi i64 [ %current.0547, %invoke.cont129 ], [ %call176, %_ZN4cvc58internal7IntegerD2Ev.exit435 ], [ %53, %invoke.cont156 ]
+  %retval.3 = phi i64 [ %retval.1548, %invoke.cont129 ], [ %spec.select18, %_ZN4cvc58internal7IntegerD2Ev.exit435 ], [ %retval.1548, %invoke.cont156 ]
   invoke void @__gmpz_clear(ptr noundef nonnull %t)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit439 unwind label %terminate.lpad.i.i438
 
@@ -9499,8 +9499,8 @@ terminate.lpad.i.i452:                            ; preds = %ehcleanup200
 
 cleanup202:                                       ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit443, %invoke.cont69
   %cond1 = phi i1 [ true, %invoke.cont69 ], [ %cond, %_ZN4cvc58internal7IntegerD2Ev.exit443 ]
-  %current.4 = phi i64 [ %current.0547, %invoke.cont69 ], [ %current.2, %_ZN4cvc58internal7IntegerD2Ev.exit443 ]
-  %retval.3 = phi i64 [ %retval.0548, %invoke.cont69 ], [ %retval.1, %_ZN4cvc58internal7IntegerD2Ev.exit443 ]
+  %current.4 = phi i64 [ %current.0547, %invoke.cont69 ], [ %current.3, %_ZN4cvc58internal7IntegerD2Ev.exit443 ]
+  %retval.4 = phi i64 [ %retval.1548, %invoke.cont69 ], [ %retval.3, %_ZN4cvc58internal7IntegerD2Ev.exit443 ]
   %83 = load ptr, ptr %iqc, align 8
   %bf.load.i.i.i.i454 = load i64, ptr %83, align 8
   %84 = and i64 %bf.load.i.i.i.i454, 1152920405095219200
@@ -9531,19 +9531,19 @@ _ZN4cvc58internal6theory5arith6linear8ConstantD2Ev.exit464: ; preds = %cleanup20
   br i1 %cond1, label %for.inc206, label %cleanup217
 
 for.inc206:                                       ; preds = %_ZN4cvc58internal6theory5arith6linear8ConstantD2Ev.exit464
-  %incdec.ptr.i465 = getelementptr inbounds i8, ptr %iter.sroa.0.4545, i64 8
-  %cmp.i467 = icmp eq ptr %incdec.ptr.i465, %iter.sroa.19.4544
+  %incdec.ptr.i465 = getelementptr inbounds i8, ptr %iter.sroa.0.2545, i64 8
+  %cmp.i467 = icmp eq ptr %incdec.ptr.i465, %iter.sroa.19.2544
   br i1 %cmp.i467, label %if.then.i469, label %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474
 
 if.then.i469:                                     ; preds = %for.inc206
-  %add.ptr.i471 = getelementptr inbounds i8, ptr %iter.sroa.26.4543, i64 8
+  %add.ptr.i471 = getelementptr inbounds i8, ptr %iter.sroa.26.2543, i64 8
   %87 = load ptr, ptr %add.ptr.i471, align 8
   %add.ptr.i.i473 = getelementptr inbounds i8, ptr %87, i64 512
   br label %_ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474
 
 _ZNSt15_Deque_iteratorImRKmPS0_EppEv.exit474:     ; preds = %for.inc206, %if.then.i469
-  %iter.sroa.26.5 = phi ptr [ %add.ptr.i471, %if.then.i469 ], [ %iter.sroa.26.4543, %for.inc206 ]
-  %iter.sroa.19.5 = phi ptr [ %add.ptr.i.i473, %if.then.i469 ], [ %iter.sroa.19.4544, %for.inc206 ]
+  %iter.sroa.26.5 = phi ptr [ %add.ptr.i471, %if.then.i469 ], [ %iter.sroa.26.2543, %for.inc206 ]
+  %iter.sroa.19.5 = phi ptr [ %add.ptr.i.i473, %if.then.i469 ], [ %iter.sroa.19.2544, %for.inc206 ]
   %iter.sroa.0.5 = phi ptr [ %87, %if.then.i469 ], [ %incdec.ptr.i465, %for.inc206 ]
   %cmp.i.i74.not = icmp eq ptr %iter.sroa.0.5, %15
   br i1 %cmp.i.i74.not, label %for.end208, label %cond.true, !llvm.loop !98
@@ -9652,7 +9652,7 @@ ehcleanup222:                                     ; preds = %ehcleanup220
   br label %ehcleanup224
 
 cleanup223:                                       ; preds = %if.then13.i.i.i.i487, %if.then.i.i.i.i481, %_ZN4cvc58internal7IntegerD2Ev.exit478, %invoke.cont
-  %retval.4 = phi i64 [ 0, %invoke.cont ], [ %retval.3, %_ZN4cvc58internal7IntegerD2Ev.exit478 ], [ %retval.3, %if.then.i.i.i.i481 ], [ %retval.3, %if.then13.i.i.i.i487 ]
+  %retval.0 = phi i64 [ 0, %invoke.cont ], [ %retval.4, %_ZN4cvc58internal7IntegerD2Ev.exit478 ], [ %retval.4, %if.then.i.i.i.i481 ], [ %retval.4, %if.then13.i.i.i.i487 ]
   %101 = load ptr, ptr %canReduce, align 8
   %bf.load.i.i493 = load i64, ptr %101, align 8
   %102 = and i64 %bf.load.i.i493, 1152920405095219200
@@ -9680,7 +9680,7 @@ terminate.lpad.i502:                              ; preds = %if.then13.i.i501
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit503: ; preds = %cleanup223, %if.then.i.i495, %if.then13.i.i501
-  ret i64 %retval.4
+  ret i64 %retval.0
 
 ehcleanup224:                                     ; preds = %lpad, %lpad.i.i, %ehcleanup222, %lpad3
   %.pn8.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn.pn.pn.pn, %ehcleanup222 ], [ %30, %lpad3 ], [ %5, %lpad ], [ %3, %lpad.i.i ]

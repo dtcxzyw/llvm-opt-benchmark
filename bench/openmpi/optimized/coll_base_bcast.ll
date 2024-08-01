@@ -398,7 +398,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %164
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph281, !llvm.loop !13
 
 .loopexit:                                        ; preds = %174, %171, %165
-  %.2153 = phi i32 [ %.1152, %165 ], [ 18, %174 ], [ %173, %171 ]
+  %.3 = phi i32 [ %.1152, %165 ], [ 18, %174 ], [ %173, %171 ]
   %175 = icmp sgt i32 %.pr.pre, 0
   br i1 %175, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit217
 
@@ -447,7 +447,7 @@ ompi_request_cancel.exit.i216:                    ; preds = %184, %181
   br i1 %exitcond.not.i214, label %ompi_coll_base_free_reqs.exit217, label %.lr.ph.i208, !llvm.loop !12
 
 ompi_coll_base_free_reqs.exit217:                 ; preds = %52, %192, %.preheader, %.preheader223, %.loopexit, %ompi_coll_base_free_reqs.exit, %._crit_edge, %._crit_edge268
-  %.0148 = phi i32 [ 0, %._crit_edge268 ], [ 0, %._crit_edge ], [ %.1152, %ompi_coll_base_free_reqs.exit ], [ %.2153, %.loopexit ], [ 0, %.preheader223 ], [ 18, %.preheader ], [ %.2153, %192 ], [ 0, %52 ]
+  %.0148 = phi i32 [ 0, %._crit_edge268 ], [ 0, %._crit_edge ], [ %.1152, %ompi_coll_base_free_reqs.exit ], [ %.3, %.loopexit ], [ 0, %.preheader223 ], [ 18, %.preheader ], [ %.3, %192 ], [ 0, %52 ]
   ret i32 %.0148
 }
 
@@ -1386,7 +1386,7 @@ define i32 @ompi_coll_base_bcast_intra_basic_linear(ptr noundef %0, i32 noundef 
   br i1 %45, label %.lr.ph63, label %._crit_edge64, !llvm.loop !22
 
 ._crit_edge64:                                    ; preds = %43, %40
-  %.143 = phi i32 [ %.04273, %43 ], [ %42, %40 ]
+  %.244 = phi i32 [ %.04273, %43 ], [ %42, %40 ]
   br i1 %37, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge64
@@ -1434,7 +1434,7 @@ ompi_request_cancel.exit.i:                       ; preds = %54, %51
   br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !12
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %62, %.preheader, %._crit_edge64, %.loopexit, %16, %6, %12
-  %.0 = phi i32 [ %15, %12 ], [ 0, %6 ], [ -2, %16 ], [ 0, %.loopexit ], [ %.143, %._crit_edge64 ], [ %.04273, %.preheader ], [ %.143, %62 ]
+  %.0 = phi i32 [ %15, %12 ], [ 0, %6 ], [ -2, %16 ], [ 0, %.loopexit ], [ %.244, %._crit_edge64 ], [ %.04273, %.preheader ], [ %.244, %62 ]
   ret i32 %.0
 }
 
@@ -1699,8 +1699,8 @@ define i32 @ompi_coll_base_bcast_intra_scatter_allgather(ptr noundef %0, i32 nou
   br label %84
 
 84:                                               ; preds = %.lr.ph252, %.loopexit
-  %.1170250 = phi i32 [ %.0169, %.lr.ph252 ], [ %.5174, %.loopexit ]
-  %.3178249 = phi i32 [ %spec.store.select2, %.lr.ph252 ], [ %.7182, %.loopexit ]
+  %.1170250 = phi i32 [ %.0169, %.lr.ph252 ], [ %.3172, %.loopexit ]
+  %.3178249 = phi i32 [ %spec.store.select2, %.lr.ph252 ], [ %.5180, %.loopexit ]
   %.2185248 = phi i32 [ 1, %.lr.ph252 ], [ %154, %.loopexit ]
   %85 = xor i32 %.2185248, %26
   %86 = call i32 @ompi_rounddown(i32 noundef %26, i32 noundef %.2185248) #4
@@ -1769,8 +1769,8 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %102, %104
 
 125:                                              ; preds = %.lr.ph245, %152
   %.0167243 = phi i32 [ %119, %.lr.ph245 ], [ %153, %152 ]
-  %.3172242 = phi i32 [ %.2171, %.lr.ph245 ], [ %.4173, %152 ]
-  %.5180241 = phi i32 [ %.4179, %.lr.ph245 ], [ %.6181, %152 ]
+  %.4173242 = phi i32 [ %.2171, %.lr.ph245 ], [ %.5174, %152 ]
+  %.6181241 = phi i32 [ %.4179, %.lr.ph245 ], [ %.7182, %152 ]
   %126 = xor i32 %.0167243, %26
   %127 = add nsw i32 %126, %3
   %128 = srem i32 %127, %.val219.val
@@ -1788,7 +1788,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %102, %104
 
 135:                                              ; preds = %132
   %136 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %137 = sext i32 %.3172242 to i64
+  %137 = sext i32 %.4173242 to i64
   %138 = call i32 %136(ptr noundef %124, i64 noundef %137, ptr noundef %2, i32 noundef %128, i32 noundef -17, i32 noundef 4, ptr noundef %4) #4
   %.not214 = icmp eq i32 %138, 0
   br i1 %.not214, label %152, label %.loopexit228
@@ -1814,19 +1814,19 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %102, %104
   %148 = load i64, ptr %82, align 8
   %149 = udiv i64 %148, %.val218
   %150 = trunc i64 %149 to i32
-  %151 = add nsw i32 %.5180241, %150
+  %151 = add nsw i32 %.6181241, %150
   br label %152
 
 152:                                              ; preds = %135, %147, %141, %139
-  %.6181 = phi i32 [ %.5180241, %135 ], [ %151, %147 ], [ %.5180241, %141 ], [ %.5180241, %139 ]
-  %.4173 = phi i32 [ %.3172242, %135 ], [ %150, %147 ], [ %.3172242, %141 ], [ %.3172242, %139 ]
+  %.7182 = phi i32 [ %.6181241, %135 ], [ %151, %147 ], [ %.6181241, %141 ], [ %.6181241, %139 ]
+  %.5174 = phi i32 [ %.4173242, %135 ], [ %150, %147 ], [ %.4173242, %141 ], [ %.4173242, %139 ]
   %153 = lshr i32 %.0167243, 1
   %.not256 = icmp ult i32 %.0167243, 2
   br i1 %.not256, label %.loopexit, label %125, !llvm.loop !25
 
 .loopexit:                                        ; preds = %152, %116, %113
-  %.7182 = phi i32 [ %.4179, %113 ], [ %.4179, %116 ], [ %.6181, %152 ]
-  %.5174 = phi i32 [ %.2171, %113 ], [ %.2171, %116 ], [ %.4173, %152 ]
+  %.5180 = phi i32 [ %.4179, %113 ], [ %.4179, %116 ], [ %.7182, %152 ]
+  %.3172 = phi i32 [ %.2171, %113 ], [ %.2171, %116 ], [ %.5174, %152 ]
   %154 = shl i32 %.2185248, 1
   %155 = icmp slt i32 %154, %.val219.val
   br i1 %155, label %84, label %.loopexit228, !llvm.loop !26

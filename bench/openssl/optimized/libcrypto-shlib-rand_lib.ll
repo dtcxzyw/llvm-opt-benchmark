@@ -1068,9 +1068,9 @@ if.end38:                                         ; preds = %if.end33
 
 if.end41:                                         ; preds = %if.end38, %lor.lhs.false, %if.else, %if.end
   %name.0 = phi ptr [ %1, %if.end ], [ @.str.3, %if.else ], [ @.str.3, %lor.lhs.false ], [ @.str.3, %if.end38 ]
-  %props.1 = phi ptr [ null, %if.end ], [ null, %if.else ], [ null, %lor.lhs.false ], [ %call29, %if.end38 ]
-  %propq.1 = phi ptr [ %0, %if.end ], [ @.str.2, %if.else ], [ @.str.2, %lor.lhs.false ], [ %call29, %if.end38 ]
-  %call42 = tail call ptr @EVP_RAND_fetch(ptr noundef %libctx, ptr noundef nonnull %name.0, ptr noundef %propq.1) #4
+  %props.0 = phi ptr [ null, %if.end ], [ null, %if.else ], [ null, %lor.lhs.false ], [ %call29, %if.end38 ]
+  %propq.0 = phi ptr [ %0, %if.end ], [ @.str.2, %if.else ], [ @.str.2, %lor.lhs.false ], [ %call29, %if.end38 ]
+  %call42 = tail call ptr @EVP_RAND_fetch(ptr noundef %libctx, ptr noundef nonnull %name.0, ptr noundef %propq.0) #4
   %cmp43 = icmp eq ptr %call42, null
   br i1 %cmp43, label %err, label %if.end46
 
@@ -1086,13 +1086,13 @@ if.end51:                                         ; preds = %if.end46
   br i1 %tobool.not, label %err, label %if.end54
 
 if.end54:                                         ; preds = %if.end51
-  tail call void @CRYPTO_free(ptr noundef %props.1, ptr noundef nonnull @.str, i32 noundef 614) #4
+  tail call void @CRYPTO_free(ptr noundef %props.0, ptr noundef nonnull @.str, i32 noundef 614) #4
   br label %return
 
 err:                                              ; preds = %if.end51, %if.end46, %if.end41, %if.end33, %if.else28, %if.end23
   %.sink33 = phi i32 [ 578, %if.end23 ], [ 583, %if.else28 ], [ 588, %if.end33 ], [ 601, %if.end41 ], [ 607, %if.end46 ], [ 611, %if.end51 ]
   %.sink = phi i32 [ 786691, %if.end23 ], [ 786688, %if.else28 ], [ 786691, %if.end33 ], [ 144, %if.end41 ], [ 143, %if.end46 ], [ 108, %if.end51 ]
-  %props.2 = phi ptr [ null, %if.end23 ], [ null, %if.else28 ], [ %call29, %if.end33 ], [ %props.1, %if.end41 ], [ %props.1, %if.end46 ], [ %props.1, %if.end51 ]
+  %props.2 = phi ptr [ null, %if.end23 ], [ null, %if.else28 ], [ %call29, %if.end33 ], [ %props.0, %if.end41 ], [ %props.0, %if.end46 ], [ %props.0, %if.end51 ]
   %ctx.0 = phi ptr [ null, %if.end23 ], [ null, %if.else28 ], [ null, %if.end33 ], [ null, %if.end41 ], [ null, %if.end46 ], [ %call47, %if.end51 ]
   %pl3.2 = phi ptr [ %call19, %if.end23 ], [ %call19, %if.else28 ], [ %call19, %if.end33 ], [ null, %if.end41 ], [ null, %if.end46 ], [ null, %if.end51 ]
   tail call void @ERR_new() #4

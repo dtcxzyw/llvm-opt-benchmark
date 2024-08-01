@@ -153,31 +153,31 @@ define internal i64 @fun_so_iso2022jp_kddi_encoder(ptr nocapture noundef %0, ptr
   %.sink = phi i8 [ 66, %17 ], [ 64, %16 ], [ 66, %13 ]
   store i8 %.sink25, ptr %14, align 1
   store i8 %.sink, ptr %15, align 1
-  %.024 = getelementptr inbounds i8, ptr %3, i64 3
+  %.1 = getelementptr inbounds i8, ptr %3, i64 3
   %19 = trunc nuw nsw i32 %.0 to i8
   store i8 %19, ptr %0, align 1
   br label %20
 
 20:                                               ; preds = %18, %10
-  %.1 = phi ptr [ %.024, %18 ], [ %3, %10 ]
+  %.024 = phi ptr [ %.1, %18 ], [ %3, %10 ]
   br i1 %6, label %27, label %21
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %1, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 127
-  %25 = getelementptr inbounds i8, ptr %.1, i64 1
-  store i8 %24, ptr %.1, align 1
+  %25 = getelementptr inbounds i8, ptr %.024, i64 1
+  store i8 %24, ptr %.024, align 1
   %26 = getelementptr inbounds i8, ptr %1, i64 2
   br label %27
 
 27:                                               ; preds = %20, %21
   %.sink30 = phi ptr [ %26, %21 ], [ %1, %20 ]
   %.sink28 = phi i64 [ 2, %21 ], [ 1, %20 ]
-  %.sink27 = phi ptr [ %25, %21 ], [ %.1, %20 ]
+  %.sink27 = phi ptr [ %25, %21 ], [ %.024, %20 ]
   %28 = load i8, ptr %.sink30, align 1
   %29 = and i8 %28, 127
-  %30 = getelementptr inbounds i8, ptr %.1, i64 %.sink28
+  %30 = getelementptr inbounds i8, ptr %.024, i64 %.sink28
   store i8 %29, ptr %.sink27, align 1
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %3 to i64

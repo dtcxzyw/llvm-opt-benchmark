@@ -297,8 +297,8 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit34:      ; preds = %102, %115
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %77, %75, %30, %2, %138
-  %.1 = phi i1 [ %133, %138 ], [ false, %2 ], [ false, %30 ], [ false, %75 ], [ false, %77 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %133, %138 ], [ false, %2 ], [ false, %30 ], [ false, %75 ], [ false, %77 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

@@ -2296,9 +2296,9 @@ invoke.cont5.lr.ph:                               ; preds = %invoke.cont
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont5.lr.ph, %for.inc188
-  %offsets.sroa.0.0913 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.0.2, %for.inc188 ]
-  %offsets.sroa.6.0905 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.6.2, %for.inc188 ]
-  %offsets.sroa.10.0897 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.10.2, %for.inc188 ]
+  %offsets.sroa.0.0913 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.0.1, %for.inc188 ]
+  %offsets.sroa.6.0905 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.6.1, %for.inc188 ]
+  %offsets.sroa.10.0897 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.10.1, %for.inc188 ]
   %it.sroa.0.0896 = phi ptr [ %add.ptr.i.i.ptr.ptr, %invoke.cont5.lr.ph ], [ %add.ptr.i510, %for.inc188 ]
   %5 = load i32, ptr %it.sroa.0.0896, align 4
   %idx.ext1.i.i = zext i32 %5 to i64
@@ -2898,33 +2898,33 @@ lpad88.loopexit.split:                            ; preds = %for.body92
 lpad88:                                           ; preds = %for.end
   %lpad.loopexit.split-lp850 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i409 = icmp eq ptr %elements.sroa.0.1973, null
+  %tobool.not.i.i.i409 = icmp eq ptr %elements.sroa.0.3973, null
   br i1 %tobool.not.i.i.i409, label %ehcleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad88.loopexit.split.us, %lpad88.loopexit.split, %lpad88
   %lpad.phi851980 = phi { ptr, i32 } [ %lpad.loopexit.split-lp850, %lpad88 ], [ %lpad.loopexit849.us, %lpad88.loopexit.split.us ], [ %lpad.loopexit849, %lpad88.loopexit.split ]
-  %elements.sroa.0.1974979 = phi ptr [ %elements.sroa.0.1973, %lpad88 ], [ %call5.i.i.i.i2.i.i380, %lpad88.loopexit.split.us ], [ %call5.i.i.i.i2.i.i380, %lpad88.loopexit.split ]
-  tail call void @_ZdlPv(ptr noundef nonnull %elements.sroa.0.1974979) #22
+  %elements.sroa.0.3974979 = phi ptr [ %elements.sroa.0.3973, %lpad88 ], [ %call5.i.i.i.i2.i.i380, %lpad88.loopexit.split.us ], [ %call5.i.i.i.i2.i.i380, %lpad88.loopexit.split ]
+  tail call void @_ZdlPv(ptr noundef nonnull %elements.sroa.0.3974979) #22
   br label %ehcleanup
 
 for.end:                                          ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit408, %cond.end111.us, %sw.bb81, %invoke.cont86
   %__cur.0.lcssa.i.i.i.i.i975 = phi ptr [ %scevgep.i.i.i.i.i, %invoke.cont86 ], [ null, %sw.bb81 ], [ %scevgep.i.i.i.i.i, %cond.end111.us ], [ %scevgep.i.i.i.i.i, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit408 ]
-  %elements.sroa.0.1973 = phi ptr [ %call5.i.i.i.i2.i.i380, %invoke.cont86 ], [ null, %sw.bb81 ], [ %call5.i.i.i.i2.i.i380, %cond.end111.us ], [ %call5.i.i.i.i2.i.i380, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit408 ]
-  %cmp.i.i.i.i410 = icmp eq ptr %elements.sroa.0.1973, %__cur.0.lcssa.i.i.i.i.i975
-  %spec.select.i.i = select i1 %cmp.i.i.i.i410, ptr @_ZZN11flatbuffers4dataINS_6OffsetIPKNS_6StringEEESaIS5_EEEPKT_RKSt6vectorIS7_T0_EE1t, ptr %elements.sroa.0.1973
+  %elements.sroa.0.3973 = phi ptr [ %call5.i.i.i.i2.i.i380, %invoke.cont86 ], [ null, %sw.bb81 ], [ %call5.i.i.i.i2.i.i380, %cond.end111.us ], [ %call5.i.i.i.i2.i.i380, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit408 ]
+  %cmp.i.i.i.i410 = icmp eq ptr %elements.sroa.0.3973, %__cur.0.lcssa.i.i.i.i.i975
+  %spec.select.i.i = select i1 %cmp.i.i.i.i410, ptr @_ZZN11flatbuffers4dataINS_6OffsetIPKNS_6StringEEESaIS5_EEEPKT_RKSt6vectorIS7_T0_EE1t, ptr %elements.sroa.0.3973
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__cur.0.lcssa.i.i.i.i.i975 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %elements.sroa.0.1973 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %elements.sroa.0.3973 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %call3.i412 = invoke i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorIPKNS_6StringEEENS_6OffsetINS_6VectorINS6_IT_EEjEEEEPKS9_m(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef %spec.select.i.i, i64 noundef %sub.ptr.div.i.i)
           to label %invoke.cont117 unwind label %lpad88
 
 invoke.cont117:                                   ; preds = %for.end
-  %tobool.not.i.i.i413 = icmp eq ptr %elements.sroa.0.1973, null
+  %tobool.not.i.i.i413 = icmp eq ptr %elements.sroa.0.3973, null
   br i1 %tobool.not.i.i.i413, label %sw.epilog183, label %if.then.i.i.i414
 
 if.then.i.i.i414:                                 ; preds = %invoke.cont117
-  tail call void @_ZdlPv(ptr noundef nonnull %elements.sroa.0.1973) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %elements.sroa.0.3973) #22
   br label %sw.epilog183
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i421: ; preds = %cond.end79.thread808
@@ -2995,33 +2995,33 @@ lpad134.thread:                                   ; preds = %invoke.cont140
 lpad134:                                          ; preds = %for.end150
   %lpad.loopexit.split-lp847 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i446 = icmp eq ptr %elements125.sroa.0.1984, null
+  %tobool.not.i.i.i446 = icmp eq ptr %elements125.sroa.0.3984, null
   br i1 %tobool.not.i.i.i446, label %ehcleanup, label %if.then.i.i.i447
 
 if.then.i.i.i447:                                 ; preds = %lpad134.thread, %lpad134
   %lpad.phi848991 = phi { ptr, i32 } [ %lpad.loopexit846, %lpad134.thread ], [ %lpad.loopexit.split-lp847, %lpad134 ]
-  %elements125.sroa.0.1985990 = phi ptr [ %call5.i.i.i.i2.i.i438, %lpad134.thread ], [ %elements125.sroa.0.1984, %lpad134 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %elements125.sroa.0.1985990) #22
+  %elements125.sroa.0.3985990 = phi ptr [ %call5.i.i.i.i2.i.i438, %lpad134.thread ], [ %elements125.sroa.0.3984, %lpad134 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %elements125.sroa.0.3985990) #22
   br label %ehcleanup
 
 for.end150:                                       ; preds = %invoke.cont143, %if.then124, %invoke.cont131
   %__cur.0.lcssa.i.i.i.i.i435986 = phi ptr [ %scevgep.i.i.i.i.i433, %invoke.cont131 ], [ null, %if.then124 ], [ %scevgep.i.i.i.i.i433, %invoke.cont143 ]
-  %elements125.sroa.0.1984 = phi ptr [ %call5.i.i.i.i2.i.i438, %invoke.cont131 ], [ null, %if.then124 ], [ %call5.i.i.i.i2.i.i438, %invoke.cont143 ]
-  %cmp.i.i.i.i449 = icmp eq ptr %elements125.sroa.0.1984, %__cur.0.lcssa.i.i.i.i.i435986
-  %spec.select.i.i450 = select i1 %cmp.i.i.i.i449, ptr @_ZZN11flatbuffers4dataINS_6OffsetIPKNS_5TableEEESaIS5_EEEPKT_RKSt6vectorIS7_T0_EE1t, ptr %elements125.sroa.0.1984
+  %elements125.sroa.0.3984 = phi ptr [ %call5.i.i.i.i2.i.i438, %invoke.cont131 ], [ null, %if.then124 ], [ %call5.i.i.i.i2.i.i438, %invoke.cont143 ]
+  %cmp.i.i.i.i449 = icmp eq ptr %elements125.sroa.0.3984, %__cur.0.lcssa.i.i.i.i.i435986
+  %spec.select.i.i450 = select i1 %cmp.i.i.i.i449, ptr @_ZZN11flatbuffers4dataINS_6OffsetIPKNS_5TableEEESaIS5_EEEPKT_RKSt6vectorIS7_T0_EE1t, ptr %elements125.sroa.0.3984
   %sub.ptr.lhs.cast.i.i451 = ptrtoint ptr %__cur.0.lcssa.i.i.i.i.i435986 to i64
-  %sub.ptr.rhs.cast.i.i452 = ptrtoint ptr %elements125.sroa.0.1984 to i64
+  %sub.ptr.rhs.cast.i.i452 = ptrtoint ptr %elements125.sroa.0.3984 to i64
   %sub.ptr.sub.i.i453 = sub i64 %sub.ptr.lhs.cast.i.i451, %sub.ptr.rhs.cast.i.i452
   %sub.ptr.div.i.i454 = ashr exact i64 %sub.ptr.sub.i.i453, 2
   %call3.i456 = invoke i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorIPKNS_5TableEEENS_6OffsetINS_6VectorINS6_IT_EEjEEEEPKS9_m(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef %spec.select.i.i450, i64 noundef %sub.ptr.div.i.i454)
           to label %invoke.cont152 unwind label %lpad134
 
 invoke.cont152:                                   ; preds = %for.end150
-  %tobool.not.i.i.i457 = icmp eq ptr %elements125.sroa.0.1984, null
+  %tobool.not.i.i.i457 = icmp eq ptr %elements125.sroa.0.3984, null
   br i1 %tobool.not.i.i.i457, label %sw.epilog183, label %if.then.i.i.i458
 
 if.then.i.i.i458:                                 ; preds = %invoke.cont152
-  tail call void @_ZdlPv(ptr noundef nonnull %elements125.sroa.0.1984) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %elements125.sroa.0.3984) #22
   br label %sw.epilog183
 
 sw.default.thread:                                ; preds = %invoke.cont67, %invoke.cont65, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i326
@@ -3255,9 +3255,9 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %for.inc188
 
 for.inc188:                                       ; preds = %_ZNK10reflection5Field6offsetEv.exit.i147, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154, %_ZNK10reflection5Field6offsetEv.exit.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i, %invoke.cont11, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121, %invoke.cont36, %invoke.cont13, %invoke.cont7, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %if.then.i, %sw.epilog183, %invoke.cont9
-  %offsets.sroa.10.2 = phi ptr [ %offsets.sroa.10.0897, %sw.epilog183 ], [ %offsets.sroa.10.0897, %invoke.cont9 ], [ %add.ptr19.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %offsets.sroa.10.0897, %if.then.i ], [ %offsets.sroa.10.0897, %invoke.cont7 ], [ %offsets.sroa.10.0897, %invoke.cont13 ], [ %offsets.sroa.10.0897, %invoke.cont36 ], [ %offsets.sroa.10.0897, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.10.0897, %invoke.cont11 ], [ %offsets.sroa.10.0897, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.10.0897, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.10.0897, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.10.0897, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
-  %offsets.sroa.6.2 = phi ptr [ %offsets.sroa.6.0905, %sw.epilog183 ], [ %offsets.sroa.6.0905, %invoke.cont9 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ], [ %offsets.sroa.6.0905, %invoke.cont7 ], [ %offsets.sroa.6.0905, %invoke.cont13 ], [ %offsets.sroa.6.0905, %invoke.cont36 ], [ %offsets.sroa.6.0905, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.6.0905, %invoke.cont11 ], [ %offsets.sroa.6.0905, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.6.0905, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.6.0905, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.6.0905, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
-  %offsets.sroa.0.2 = phi ptr [ %offsets.sroa.0.0913, %sw.epilog183 ], [ %offsets.sroa.0.0913, %invoke.cont9 ], [ %cond.i10.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %offsets.sroa.0.0913, %if.then.i ], [ %offsets.sroa.0.0913, %invoke.cont7 ], [ %offsets.sroa.0.0913, %invoke.cont13 ], [ %offsets.sroa.0.0913, %invoke.cont36 ], [ %offsets.sroa.0.0913, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.0.0913, %invoke.cont11 ], [ %offsets.sroa.0.0913, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.0.0913, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.0.0913, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.0.0913, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
+  %offsets.sroa.10.1 = phi ptr [ %offsets.sroa.10.0897, %sw.epilog183 ], [ %offsets.sroa.10.0897, %invoke.cont9 ], [ %add.ptr19.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %offsets.sroa.10.0897, %if.then.i ], [ %offsets.sroa.10.0897, %invoke.cont7 ], [ %offsets.sroa.10.0897, %invoke.cont13 ], [ %offsets.sroa.10.0897, %invoke.cont36 ], [ %offsets.sroa.10.0897, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.10.0897, %invoke.cont11 ], [ %offsets.sroa.10.0897, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.10.0897, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.10.0897, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.10.0897, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
+  %offsets.sroa.6.1 = phi ptr [ %offsets.sroa.6.0905, %sw.epilog183 ], [ %offsets.sroa.6.0905, %invoke.cont9 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ], [ %offsets.sroa.6.0905, %invoke.cont7 ], [ %offsets.sroa.6.0905, %invoke.cont13 ], [ %offsets.sroa.6.0905, %invoke.cont36 ], [ %offsets.sroa.6.0905, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.6.0905, %invoke.cont11 ], [ %offsets.sroa.6.0905, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.6.0905, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.6.0905, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.6.0905, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
+  %offsets.sroa.0.1 = phi ptr [ %offsets.sroa.0.0913, %sw.epilog183 ], [ %offsets.sroa.0.0913, %invoke.cont9 ], [ %cond.i10.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %offsets.sroa.0.0913, %if.then.i ], [ %offsets.sroa.0.0913, %invoke.cont7 ], [ %offsets.sroa.0.0913, %invoke.cont13 ], [ %offsets.sroa.0.0913, %invoke.cont36 ], [ %offsets.sroa.0.0913, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.0.0913, %invoke.cont11 ], [ %offsets.sroa.0.0913, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.0.0913, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.0.0913, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.0.0913, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
   %add.ptr.i510 = getelementptr inbounds i8, ptr %it.sroa.0.0896, i64 4
   %124 = load i32, ptr %cond.i.i.i, align 4, !noalias !25
   %mul.i.i = shl i32 %124, 2
@@ -3274,7 +3274,7 @@ for.end191.loopexit:                              ; preds = %for.inc188
 
 for.end191:                                       ; preds = %for.end191.loopexit, %invoke.cont
   %idx.neg.i.i.i.i512.pre-phi = phi i64 [ %.pre955, %for.end191.loopexit ], [ %idx.neg.i.i.i.i.i, %invoke.cont ]
-  %offsets.sroa.0.0.lcssa = phi ptr [ %offsets.sroa.0.2, %for.end191.loopexit ], [ null, %invoke.cont ]
+  %offsets.sroa.0.0.lcssa = phi ptr [ %offsets.sroa.0.1, %for.end191.loopexit ], [ null, %invoke.cont ]
   %add.ptr.i.i.i.i513 = getelementptr inbounds i8, ptr %objectdef, i64 %idx.neg.i.i.i.i512.pre-phi
   %125 = load i16, ptr %add.ptr.i.i.i.i513, align 2
   %cmp.i.i.i514 = icmp ugt i16 %125, 8

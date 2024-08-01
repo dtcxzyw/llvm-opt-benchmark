@@ -742,10 +742,10 @@ for.end:                                          ; preds = %for.inc, %if.then
   br i1 %cmp, label %return, label %if.end22
 
 if.end22:                                         ; preds = %for.end.thread, %for.end, %X509_OBJECT_retrieve_by_subject.exit
-  %tmp.1 = phi ptr [ %retval.0.i, %for.end ], [ %retval.0.i, %X509_OBJECT_retrieve_by_subject.exit ], [ %stmp, %for.end.thread ]
-  %13 = load i32, ptr %tmp.1, align 8
+  %tmp.0 = phi ptr [ %retval.0.i, %for.end ], [ %retval.0.i, %X509_OBJECT_retrieve_by_subject.exit ], [ %stmp, %for.end.thread ]
+  %13 = load i32, ptr %tmp.0, align 8
   store i32 %13, ptr %ret, align 8
-  %data = getelementptr inbounds i8, ptr %tmp.1, i64 8
+  %data = getelementptr inbounds i8, ptr %tmp.0, i64 8
   %14 = load ptr, ptr %data, align 8
   %data25 = getelementptr inbounds i8, ptr %ret, i64 8
   store ptr %14, ptr %data25, align 8

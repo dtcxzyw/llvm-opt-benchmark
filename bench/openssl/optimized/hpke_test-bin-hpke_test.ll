@@ -833,18 +833,18 @@ if.then168:                                       ; preds = %if.then163
   br label %if.end177
 
 if.end177:                                        ; preds = %if.then168, %if.then163
-  %overallresult.15 = phi i32 [ %overallresult.14, %if.then163 ], [ %spec.select109, %if.then168 ]
+  %overallresult.16 = phi i32 [ %overallresult.14, %if.then163 ], [ %spec.select109, %if.then168 ]
   %16 = load i64, ptr %authpublen, align 8
   %call178 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %call139, ptr noundef %authpubp.0128, i64 noundef %16) #6
   %cmp179 = icmp ne i32 %call178, 0
   %conv180 = zext i1 %cmp179 to i32
   %call181 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1069, ptr noundef nonnull @.str.94, i32 noundef %conv180) #6
   %tobool182.not = icmp eq i32 %call181, 0
-  %spec.select110 = select i1 %tobool182.not, i32 0, i32 %overallresult.15
+  %spec.select110 = select i1 %tobool182.not, i32 0, i32 %overallresult.16
   br label %if.end185
 
 if.end185:                                        ; preds = %if.end177, %if.end157
-  %overallresult.16 = phi i32 [ %overallresult.14, %if.end157 ], [ %spec.select110, %if.end177 ]
+  %overallresult.15 = phi i32 [ %overallresult.14, %if.end157 ], [ %spec.select110, %if.end177 ]
   %17 = load i64, ptr %senderpublen, align 8
   %18 = load ptr, ptr %privp, align 8
   %call187 = call i32 @OSSL_HPKE_decap(ptr noundef %call139, ptr noundef nonnull %senderpub, i64 noundef %17, ptr noundef %18, ptr noundef %infop.0, i64 noundef %infolen.0) #6
@@ -876,7 +876,7 @@ if.end185:                                        ; preds = %if.end177, %if.end1
   %23 = select i1 %tobool215.not, i1 true, i1 %tobool209.not
   %24 = select i1 %23, i1 true, i1 %tobool200.not
   %25 = select i1 %24, i1 true, i1 %tobool191.not
-  %overallresult.20 = select i1 %25, i32 0, i32 %overallresult.16
+  %overallresult.20 = select i1 %25, i32 0, i32 %overallresult.15
   %.b = load i1, ptr @verbose, align 4
   %cmp220 = icmp ne i32 %overallresult.20, 1
   %or.cond6 = select i1 %.b, i1 true, i1 %cmp220

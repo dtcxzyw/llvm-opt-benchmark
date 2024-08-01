@@ -1143,7 +1143,7 @@ freeTreeList.exit80:                              ; preds = %.lr.ph.i75, %529
 
 549:                                              ; preds = %567, %.lr.ph.i85
   %.01536.i = phi i32 [ 0, %.lr.ph.i85 ], [ %.1.i86, %567 ]
-  %.01635.i = phi ptr [ null, %.lr.ph.i85 ], [ %.218.i, %567 ]
+  %.01635.i = phi ptr [ null, %.lr.ph.i85 ], [ %.117.i, %567 ]
   %550 = phi i64 [ %544, %.lr.ph.i85 ], [ %568, %567 ]
   %551 = getelementptr inbounds ptr, ptr %547, i64 %550
   %552 = load ptr, ptr %551, align 8
@@ -1168,13 +1168,13 @@ freeTreeList.exit80:                              ; preds = %.lr.ph.i75, %529
   br label %565
 
 565:                                              ; preds = %559, %558
-  %.117.i = phi ptr [ %spec.select.i88, %559 ], [ %552, %558 ]
+  %.218.i = phi ptr [ %spec.select.i88, %559 ], [ %552, %558 ]
   %566 = add nsw i32 %.01536.i, 1
   %.not30.i = icmp slt i32 %566, %548
   br i1 %.not30.i, label %567, label %leave_edge.exit.thread
 
 567:                                              ; preds = %565, %549
-  %.218.i = phi ptr [ %.117.i, %565 ], [ %.01635.i, %549 ]
+  %.117.i = phi ptr [ %.218.i, %565 ], [ %.01635.i, %549 ]
   %.1.i86 = phi i32 [ %566, %565 ], [ %.01536.i, %549 ]
   %568 = add i64 %550, 1
   store i64 %568, ptr @S_i, align 8
@@ -1182,7 +1182,7 @@ freeTreeList.exit80:                              ; preds = %.lr.ph.i75, %529
   br i1 %exitcond.not.i87, label %._crit_edge.i81, label %549
 
 ._crit_edge.i81:                                  ; preds = %567, %.preheader
-  %.016.lcssa.i = phi ptr [ null, %.preheader ], [ %.218.i, %567 ]
+  %.016.lcssa.i = phi ptr [ null, %.preheader ], [ %.117.i, %567 ]
   %.015.lcssa.i = phi i32 [ 0, %.preheader ], [ %.1.i86, %567 ]
   %.not.i82 = icmp eq i64 %544, 0
   br i1 %.not.i82, label %leave_edge.exit, label %.preheader.i83
@@ -1194,7 +1194,7 @@ freeTreeList.exit80:                              ; preds = %.lr.ph.i75, %529
 
 571:                                              ; preds = %588, %.preheader.i83
   %.240.i = phi i32 [ %.015.lcssa.i, %.preheader.i83 ], [ %.3.i, %588 ]
-  %.31939.i = phi ptr [ %.016.lcssa.i, %.preheader.i83 ], [ %.5.i, %588 ]
+  %.439.i = phi ptr [ %.016.lcssa.i, %.preheader.i83 ], [ %.5.i, %588 ]
   %storemerge38.i = phi i64 [ 0, %.preheader.i83 ], [ %589, %588 ]
   %572 = getelementptr inbounds ptr, ptr %569, i64 %storemerge38.i
   %573 = load ptr, ptr %572, align 8
@@ -1206,26 +1206,26 @@ freeTreeList.exit80:                              ; preds = %.lr.ph.i75, %529
   br i1 %578, label %579, label %588
 
 579:                                              ; preds = %571
-  %.not27.i = icmp eq ptr %.31939.i, null
+  %.not27.i = icmp eq ptr %.439.i, null
   br i1 %.not27.i, label %586, label %580
 
 580:                                              ; preds = %579
-  %581 = getelementptr inbounds i8, ptr %.31939.i, i64 16
+  %581 = getelementptr inbounds i8, ptr %.439.i, i64 16
   %582 = load ptr, ptr %581, align 8
   %583 = getelementptr inbounds i8, ptr %582, i64 216
   %584 = load i32, ptr %583, align 8
   %585 = icmp sgt i32 %584, %577
-  %spec.select31.i = select i1 %585, ptr %573, ptr %.31939.i
+  %spec.select31.i = select i1 %585, ptr %573, ptr %.439.i
   br label %586
 
 586:                                              ; preds = %580, %579
-  %.4.i = phi ptr [ %spec.select31.i, %580 ], [ %573, %579 ]
+  %.6.i = phi ptr [ %spec.select31.i, %580 ], [ %573, %579 ]
   %587 = add nsw i32 %.240.i, 1
   %.not28.i = icmp slt i32 %587, %570
   br i1 %.not28.i, label %588, label %.loopexit.i
 
 588:                                              ; preds = %586, %571
-  %.5.i = phi ptr [ %.4.i, %586 ], [ %.31939.i, %571 ]
+  %.5.i = phi ptr [ %.6.i, %586 ], [ %.439.i, %571 ]
   %.3.i = phi i32 [ %587, %586 ], [ %.240.i, %571 ]
   %589 = add nuw i64 %storemerge38.i, 1
   %exitcond41.not.i = icmp eq i64 %589, %544
@@ -1233,7 +1233,7 @@ freeTreeList.exit80:                              ; preds = %.lr.ph.i75, %529
 
 .loopexit.i:                                      ; preds = %588, %586
   %storemerge.lcssa.i = phi i64 [ %storemerge38.i, %586 ], [ %544, %588 ]
-  %.0.ph.i = phi ptr [ %.4.i, %586 ], [ %.5.i, %588 ]
+  %.0.ph.i = phi ptr [ %.6.i, %586 ], [ %.5.i, %588 ]
   store i64 %storemerge.lcssa.i, ptr @S_i, align 8
   br label %leave_edge.exit
 
@@ -1243,7 +1243,7 @@ leave_edge.exit:                                  ; preds = %._crit_edge.i81, %.
   br i1 %.not39, label %1057, label %leave_edge.exit.thread
 
 leave_edge.exit.thread:                           ; preds = %565, %leave_edge.exit
-  %.0.i84146 = phi ptr [ %.0.i84, %leave_edge.exit ], [ %.117.i, %565 ]
+  %.0.i84146 = phi ptr [ %.0.i84, %leave_edge.exit ], [ %.218.i, %565 ]
   %590 = load i32, ptr %.0.i84146, align 8
   %591 = and i32 %590, 3
   %592 = icmp eq i32 %591, 3
@@ -1991,7 +1991,7 @@ scan_and_normalize.exit.i:                        ; preds = %scan_and_normalize.
   br i1 %1093, label %1094, label %.loopexit.i108
 
 1094:                                             ; preds = %1091, %1088
-  %.0101.ph.i = phi i32 [ 1, %1088 ], [ 2, %1091 ]
+  %.1102.ph.i = phi i32 [ 1, %1088 ], [ 2, %1091 ]
   %1095 = load ptr, ptr @G, align 8
   %1096 = getelementptr inbounds i8, ptr %1095, i64 16
   %1097 = load ptr, ptr %1096, align 8
@@ -2038,7 +2038,7 @@ scan_and_normalize.exit.i:                        ; preds = %scan_and_normalize.
   br i1 %.not114.i, label %.loopexit.i108, label %.lr.ph.i116
 
 .loopexit.i108:                                   ; preds = %1113, %1094, %1091, %scan_and_normalize.exit.i
-  %.1102.i = phi i32 [ 0, %scan_and_normalize.exit.i ], [ 0, %1091 ], [ %.0101.ph.i, %1094 ], [ %.0101.ph.i, %1113 ]
+  %.0101.i = phi i32 [ 0, %scan_and_normalize.exit.i ], [ 0, %1091 ], [ %.1102.ph.i, %1094 ], [ %.1102.ph.i, %1113 ]
   %1116 = load ptr, ptr @G, align 8
   %1117 = getelementptr inbounds i8, ptr %1116, i64 16
   %1118 = load ptr, ptr %1117, align 8
@@ -2064,7 +2064,7 @@ scan_and_normalize.exit.i:                        ; preds = %scan_and_normalize.
 ._crit_edge.i109:                                 ; preds = %.lr.ph136.i, %.loopexit.i108
   %.097.lcssa.i = phi i64 [ 0, %.loopexit.i108 ], [ %1121, %.lr.ph136.i ]
   store i64 %.097.lcssa.i, ptr @Tree_node.1, align 8
-  %1125 = icmp sgt i32 %.1102.i, 1
+  %1125 = icmp sgt i32 %.0101.i, 1
   %1126 = select i1 %1125, ptr @decreasingrankcmpf, ptr @increasingrankcmpf
   tail call void @qsort(ptr noundef %.pre172.i, i64 noundef %.097.lcssa.i, i64 noundef 8, ptr noundef nonnull %1126) #18
   %1127 = load i64, ptr @Tree_node.1, align 8
@@ -2073,8 +2073,8 @@ scan_and_normalize.exit.i:                        ; preds = %scan_and_normalize.
   br i1 %.not165.i, label %TB_balance.exit, label %.lr.ph139.i
 
 .lr.ph163.i:                                      ; preds = %1143
-  %.not119.i = icmp eq i32 %.1102.i, 0
-  %1128 = icmp eq i32 %.1102.i, 1
+  %.not119.i = icmp eq i32 %.0101.i, 0
+  %1128 = icmp eq i32 %.0101.i, 1
   br label %1145
 
 .lr.ph139.i:                                      ; preds = %._crit_edge.i109, %1143
@@ -3705,10 +3705,10 @@ x_val.exit.us.i:                                  ; preds = %89, %84
   br label %118
 
 109:                                              ; preds = %97, %91
-  %.032.i.us.i = phi i32 [ %99, %97 ], [ 0, %91 ]
+  %.1.i.us.i = phi i32 [ %99, %97 ], [ 0, %91 ]
   %110 = getelementptr inbounds i8, ptr %93, i64 212
   %111 = load i32, ptr %110, align 4
-  %112 = sub nsw i32 %.032.i.us.i, %111
+  %112 = sub nsw i32 %.1.i.us.i, %111
   %113 = icmp eq i32 %73, 2
   %.idx39.i.us88.i = select i1 %113, i64 0, i64 -64
   %114 = getelementptr inbounds i8, ptr %71, i64 %.idx39.i.us88.i
@@ -3719,11 +3719,11 @@ x_val.exit.us.i:                                  ; preds = %89, %84
   br label %118
 
 118:                                              ; preds = %109, %x_val.exit.us.i
-  %.1.i.us90.i = phi i32 [ %112, %109 ], [ %103, %x_val.exit.us.i ]
+  %.032.i.us90.i = phi i32 [ %112, %109 ], [ %103, %x_val.exit.us.i ]
   %119 = phi i32 [ %.41.i.us89.i, %109 ], [ %.41.i.us.neg.i, %x_val.exit.us.i ]
   %120 = icmp slt i32 %119, 0
-  %121 = sub nsw i32 0, %.1.i.us90.i
-  %.2.i.us.i = select i1 %120, i32 %121, i32 %.1.i.us90.i
+  %121 = sub nsw i32 0, %.032.i.us90.i
+  %.2.i.us.i = select i1 %120, i32 %121, i32 %.032.i.us90.i
   %122 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %.04551.us.i, i32 %.2.i.us.i)
   %123 = extractvalue { i32, i1 } %122, 1
   br i1 %123, label %.split.us.i, label %124
@@ -3860,10 +3860,10 @@ x_val.exit42.us.i:                                ; preds = %173, %168
   br label %202
 
 193:                                              ; preds = %181, %175
-  %.032.i33.us.i = phi i32 [ %183, %181 ], [ 0, %175 ]
+  %.1.i33.us.i = phi i32 [ %183, %181 ], [ 0, %175 ]
   %194 = getelementptr inbounds i8, ptr %177, i64 212
   %195 = load i32, ptr %194, align 4
-  %196 = sub nsw i32 %.032.i33.us.i, %195
+  %196 = sub nsw i32 %.1.i33.us.i, %195
   %197 = icmp eq i32 %157, 2
   %.idx39.i40.us104.i = select i1 %197, i64 0, i64 -64
   %198 = getelementptr inbounds i8, ptr %155, i64 %.idx39.i40.us104.i
@@ -3874,11 +3874,11 @@ x_val.exit42.us.i:                                ; preds = %173, %168
   br label %202
 
 202:                                              ; preds = %193, %x_val.exit42.us.i
-  %.1.i34.us106.i = phi i32 [ %196, %193 ], [ %187, %x_val.exit42.us.i ]
+  %.032.i34.us106.i = phi i32 [ %196, %193 ], [ %187, %x_val.exit42.us.i ]
   %203 = phi i32 [ %.41.i37.us105.i, %193 ], [ %.41.i37.us.neg.i, %x_val.exit42.us.i ]
   %204 = icmp slt i32 %203, 0
-  %205 = sub nsw i32 0, %.1.i34.us106.i
-  %.2.i39.us.i = select i1 %204, i32 %205, i32 %.1.i34.us106.i
+  %205 = sub nsw i32 0, %.032.i34.us106.i
+  %.2.i39.us.i = select i1 %204, i32 %205, i32 %.032.i34.us106.i
   %206 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %.14656.us.i, i32 %.2.i39.us.i)
   %207 = extractvalue { i32, i1 } %206, 1
   br i1 %207, label %.split61.us.i, label %208
@@ -3949,19 +3949,19 @@ x_val.exit.i:                                     ; preds = %230, %225
   br label %249
 
 245:                                              ; preds = %238, %232
-  %.032.i.i = phi i32 [ %240, %238 ], [ 0, %232 ]
+  %.1.i.i = phi i32 [ %240, %238 ], [ 0, %232 ]
   %246 = getelementptr inbounds i8, ptr %234, i64 212
   %247 = load i32, ptr %246, align 4
-  %248 = sub nsw i32 %.032.i.i, %247
+  %248 = sub nsw i32 %.1.i.i, %247
   %.41.i111.i = select i1 %219, i32 1, i32 -1
   br label %249
 
 249:                                              ; preds = %245, %x_val.exit.i
-  %.1.i112.i = phi i32 [ %248, %245 ], [ %244, %x_val.exit.i ]
+  %.032.i112.i = phi i32 [ %248, %245 ], [ %244, %x_val.exit.i ]
   %250 = phi i32 [ %.41.i111.i, %245 ], [ %.41.i.neg.i, %x_val.exit.i ]
   %251 = icmp slt i32 %250, 0
-  %252 = sub nsw i32 0, %.1.i112.i
-  %.2.i.i = select i1 %251, i32 %252, i32 %.1.i112.i
+  %252 = sub nsw i32 0, %.032.i112.i
+  %.2.i.i = select i1 %251, i32 %252, i32 %.032.i112.i
   %253 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %.04551.i, i32 %.2.i.i)
   %254 = extractvalue { i32, i1 } %253, 1
   br i1 %254, label %.split.us.i, label %256
@@ -4037,19 +4037,19 @@ x_val.exit42.i:                                   ; preds = %278, %273
   br label %297
 
 293:                                              ; preds = %286, %280
-  %.032.i33.i = phi i32 [ %288, %286 ], [ 0, %280 ]
+  %.1.i33.i = phi i32 [ %288, %286 ], [ 0, %280 ]
   %294 = getelementptr inbounds i8, ptr %282, i64 212
   %295 = load i32, ptr %294, align 4
-  %296 = sub nsw i32 %.032.i33.i, %295
+  %296 = sub nsw i32 %.1.i33.i, %295
   %.41.i37117.i = select i1 %267, i32 1, i32 -1
   br label %297
 
 297:                                              ; preds = %293, %x_val.exit42.i
-  %.1.i34118.i = phi i32 [ %296, %293 ], [ %292, %x_val.exit42.i ]
+  %.032.i34118.i = phi i32 [ %296, %293 ], [ %292, %x_val.exit42.i ]
   %298 = phi i32 [ %.41.i37117.i, %293 ], [ %.41.i37.neg.i, %x_val.exit42.i ]
   %299 = icmp slt i32 %298, 0
-  %300 = sub nsw i32 0, %.1.i34118.i
-  %.2.i39.i = select i1 %299, i32 %300, i32 %.1.i34118.i
+  %300 = sub nsw i32 0, %.032.i34118.i
+  %.2.i39.i = select i1 %299, i32 %300, i32 %.032.i34118.i
   %301 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %.14656.i, i32 %.2.i39.i)
   %302 = extractvalue { i32, i1 } %301, 1
   br i1 %302, label %.split61.us.i, label %304

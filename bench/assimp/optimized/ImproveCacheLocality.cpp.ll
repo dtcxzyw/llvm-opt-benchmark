@@ -515,13 +515,13 @@ invoke.cont52:                                    ; preds = %invoke.cont31, %if.
 
 while.body:                                       ; preds = %invoke.cont52, %if.end173
   %iCacheMisses.0478 = phi i32 [ 0, %invoke.cont52 ], [ %iCacheMisses.1.lcssa, %if.end173 ]
-  %ivdx.0477 = phi i32 [ 0, %invoke.cont52 ], [ %ivdx.4, %if.end173 ]
-  %ics.0476 = phi i32 [ 1, %invoke.cont52 ], [ %ics.2, %if.end173 ]
+  %ivdx.0477 = phi i32 [ 0, %invoke.cont52 ], [ %ivdx.3, %if.end173 ]
+  %ics.0476 = phi i32 [ 1, %invoke.cont52 ], [ %ics.1, %if.end173 ]
   %iStampCnt.0475 = phi i32 [ %add, %invoke.cont52 ], [ %iStampCnt.1.lcssa, %if.end173 ]
   %piCSIter.sroa.0.0474 = phi ptr [ %piIBOutput.sroa.0.1496, %invoke.cont52 ], [ %piCSIter.sroa.0.1.lcssa, %if.end173 ]
   %sDeadEndVStack.sroa.14.0473 = phi ptr [ null, %invoke.cont52 ], [ %sDeadEndVStack.sroa.14.1.lcssa, %if.end173 ]
-  %sDeadEndVStack.sroa.6.0472 = phi ptr [ null, %invoke.cont52 ], [ %sDeadEndVStack.sroa.6.8, %if.end173 ]
-  %sDeadEndVStack.sroa.0.0471 = phi ptr [ null, %invoke.cont52 ], [ %sDeadEndVStack.sroa.0.1.lcssa, %if.end173 ]
+  %sDeadEndVStack.sroa.6.0472 = phi ptr [ null, %invoke.cont52 ], [ %sDeadEndVStack.sroa.6.5, %if.end173 ]
+  %sDeadEndVStack.sroa.0.2471 = phi ptr [ null, %invoke.cont52 ], [ %sDeadEndVStack.sroa.0.3.lcssa, %if.end173 ]
   %conv55 = zext nneg i32 %ivdx.0477 to i64
   %add.ptr.i112 = getelementptr inbounds i32, ptr %piNumTriPtrNoModify.sroa.0.0502510, i64 %conv55
   %35 = load i32, ptr %add.ptr.i112, align 4
@@ -544,9 +544,9 @@ invoke.cont67:                                    ; preds = %invoke.cont67.prehe
   %tri.0455 = phi i32 [ %inc110, %for.inc109 ], [ 0, %invoke.cont67.preheader ]
   %piCSIter.sroa.0.1454 = phi ptr [ %piCSIter.sroa.0.3, %for.inc109 ], [ %piCSIter.sroa.0.0474, %invoke.cont67.preheader ]
   %piCurCandidate.sroa.0.0453 = phi ptr [ %piCurCandidate.sroa.0.3, %for.inc109 ], [ %piCandidates.sroa.0.1, %invoke.cont67.preheader ]
-  %sDeadEndVStack.sroa.14.1452 = phi ptr [ %sDeadEndVStack.sroa.14.5, %for.inc109 ], [ %sDeadEndVStack.sroa.14.0473, %invoke.cont67.preheader ]
-  %sDeadEndVStack.sroa.6.1451 = phi ptr [ %sDeadEndVStack.sroa.6.5, %for.inc109 ], [ %sDeadEndVStack.sroa.6.0472, %invoke.cont67.preheader ]
-  %sDeadEndVStack.sroa.0.1450 = phi ptr [ %sDeadEndVStack.sroa.0.6, %for.inc109 ], [ %sDeadEndVStack.sroa.0.0471, %invoke.cont67.preheader ]
+  %sDeadEndVStack.sroa.14.1452 = phi ptr [ %sDeadEndVStack.sroa.14.4, %for.inc109 ], [ %sDeadEndVStack.sroa.14.0473, %invoke.cont67.preheader ]
+  %sDeadEndVStack.sroa.6.1451 = phi ptr [ %sDeadEndVStack.sroa.6.4, %for.inc109 ], [ %sDeadEndVStack.sroa.6.0472, %invoke.cont67.preheader ]
+  %sDeadEndVStack.sroa.0.3450 = phi ptr [ %sDeadEndVStack.sroa.0.6, %for.inc109 ], [ %sDeadEndVStack.sroa.0.2471, %invoke.cont67.preheader ]
   %incdec.ptr64 = getelementptr inbounds i8, ptr %piList.0456, i64 4
   %39 = load i32, ptr %piList.0456, align 4
   %conv66 = zext i32 %39 to i64
@@ -578,9 +578,9 @@ for.body74:                                       ; preds = %for.body74.lr.ph, %
   %iStampCnt.2439 = phi i32 [ %iStampCnt.1457, %for.body74.lr.ph ], [ %iStampCnt.3, %for.inc100 ]
   %piCSIter.sroa.0.2438 = phi ptr [ %piCSIter.sroa.0.1454, %for.body74.lr.ph ], [ %incdec.ptr.i131, %for.inc100 ]
   %piCurCandidate.sroa.0.1437 = phi ptr [ %piCurCandidate.sroa.0.0453, %for.body74.lr.ph ], [ %piCurCandidate.sroa.0.2, %for.inc100 ]
-  %sDeadEndVStack.sroa.14.2436 = phi ptr [ %sDeadEndVStack.sroa.14.1452, %for.body74.lr.ph ], [ %sDeadEndVStack.sroa.14.4, %for.inc100 ]
-  %sDeadEndVStack.sroa.6.2435 = phi ptr [ %sDeadEndVStack.sroa.6.1451, %for.body74.lr.ph ], [ %sDeadEndVStack.sroa.6.4, %for.inc100 ]
-  %sDeadEndVStack.sroa.0.2434 = phi ptr [ %sDeadEndVStack.sroa.0.1450, %for.body74.lr.ph ], [ %sDeadEndVStack.sroa.0.5, %for.inc100 ]
+  %sDeadEndVStack.sroa.14.2436 = phi ptr [ %sDeadEndVStack.sroa.14.1452, %for.body74.lr.ph ], [ %sDeadEndVStack.sroa.14.3, %for.inc100 ]
+  %sDeadEndVStack.sroa.6.2435 = phi ptr [ %sDeadEndVStack.sroa.6.1451, %for.body74.lr.ph ], [ %sDeadEndVStack.sroa.6.3, %for.inc100 ]
+  %sDeadEndVStack.sroa.0.4434 = phi ptr [ %sDeadEndVStack.sroa.0.3450, %for.body74.lr.ph ], [ %sDeadEndVStack.sroa.0.5, %for.inc100 ]
   %43 = load ptr, ptr %mIndices, align 8
   %arrayidx76 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv
   %44 = load i32, ptr %arrayidx76, align 4
@@ -601,7 +601,7 @@ if.then.i.i121:                                   ; preds = %if.then78
 
 if.else.i.i:                                      ; preds = %if.then78
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %sDeadEndVStack.sroa.14.2436 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %sDeadEndVStack.sroa.0.2434 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %sDeadEndVStack.sroa.0.4434 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775804
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
@@ -636,16 +636,16 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i, ptr align 4 %sDeadEndVStack.sroa.0.2434, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i, ptr align 4 %sDeadEndVStack.sroa.0.4434, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %tobool.not.i.i.i.i = icmp eq ptr %sDeadEndVStack.sroa.0.2434, null
+  %tobool.not.i.i.i.i = icmp eq ptr %sDeadEndVStack.sroa.0.4434, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %sDeadEndVStack.sroa.0.2434) #15
+  call void @_ZdlPv(ptr noundef nonnull %sDeadEndVStack.sroa.0.4434) #15
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
@@ -653,10 +653,10 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %invoke.cont79
 
 invoke.cont79:                                    ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %if.then.i.i121
-  %sDeadEndVStack.sroa.0.3 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %sDeadEndVStack.sroa.0.2434, %if.then.i.i121 ]
+  %sDeadEndVStack.sroa.0.7 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %sDeadEndVStack.sroa.0.4434, %if.then.i.i121 ]
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %sDeadEndVStack.sroa.6.2435, %if.then.i.i121 ]
-  %sDeadEndVStack.sroa.14.3 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %sDeadEndVStack.sroa.14.2436, %if.then.i.i121 ]
-  %sDeadEndVStack.sroa.6.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 4
+  %sDeadEndVStack.sroa.14.5 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %sDeadEndVStack.sroa.14.2436, %if.then.i.i121 ]
+  %sDeadEndVStack.sroa.6.8 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %piCurCandidate.sroa.0.1437, i64 4
   store i32 %44, ptr %piCurCandidate.sroa.0.1437, align 4
   %idxprom84 = zext i32 %44 to i64
@@ -672,13 +672,13 @@ lpad51.loopexit:                                  ; preds = %cond.true.i.i.i.i
   br label %lpad51
 
 lpad51.loopexit.split-lp:                         ; preds = %while.end174, %if.then177, %if.then188, %invoke.cont189, %if.then.i.i.i.i
-  %sDeadEndVStack.sroa.0.4.ph = phi ptr [ %sDeadEndVStack.sroa.0.1.lcssa, %while.end174 ], [ %sDeadEndVStack.sroa.0.1.lcssa, %if.then177 ], [ %sDeadEndVStack.sroa.0.1.lcssa, %if.then188 ], [ %sDeadEndVStack.sroa.0.1.lcssa, %invoke.cont189 ], [ %sDeadEndVStack.sroa.0.2434, %if.then.i.i.i.i ]
+  %sDeadEndVStack.sroa.0.1.ph = phi ptr [ %sDeadEndVStack.sroa.0.3.lcssa, %while.end174 ], [ %sDeadEndVStack.sroa.0.3.lcssa, %if.then177 ], [ %sDeadEndVStack.sroa.0.3.lcssa, %if.then188 ], [ %sDeadEndVStack.sroa.0.3.lcssa, %invoke.cont189 ], [ %sDeadEndVStack.sroa.0.4434, %if.then.i.i.i.i ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad51
 
 lpad51:                                           ; preds = %lpad51.loopexit.split-lp, %lpad51.loopexit
-  %sDeadEndVStack.sroa.0.4 = phi ptr [ %sDeadEndVStack.sroa.0.2434, %lpad51.loopexit ], [ %sDeadEndVStack.sroa.0.4.ph, %lpad51.loopexit.split-lp ]
+  %sDeadEndVStack.sroa.0.1 = phi ptr [ %sDeadEndVStack.sroa.0.4434, %lpad51.loopexit ], [ %sDeadEndVStack.sroa.0.1.ph, %lpad51.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad51.loopexit ], [ %lpad.loopexit.split-lp, %lpad51.loopexit.split-lp ]
   %tobool.not.i.i.i124 = icmp eq ptr %piCandidates.sroa.0.1, null
   br i1 %tobool.not.i.i.i124, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i125
@@ -692,7 +692,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %lpad51, %if.then.i.
   br i1 %tobool.not.i.i.i127, label %ehcleanup236, label %if.then.i.i.i128
 
 if.then.i.i.i128:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.thread, %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %sDeadEndVStack.sroa.0.4373518 = phi ptr [ null, %_ZNSt6vectorIjSaIjEED2Ev.exit.thread ], [ %sDeadEndVStack.sroa.0.4, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
+  %sDeadEndVStack.sroa.0.1373518 = phi ptr [ null, %_ZNSt6vectorIjSaIjEED2Ev.exit.thread ], [ %sDeadEndVStack.sroa.0.1, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
   %47 = phi { ptr, i32 } [ %32, %_ZNSt6vectorIjSaIjEED2Ev.exit.thread ], [ %lpad.phi, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
   %piNumTriPtrNoModify.sroa.0.0503515 = phi ptr [ %call5.i.i.i.i1.i90, %_ZNSt6vectorIjSaIjEED2Ev.exit.thread ], [ %piNumTriPtrNoModify.sroa.0.0502510, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %piNumTriPtrNoModify.sroa.0.0503515) #15
@@ -700,9 +700,9 @@ if.then.i.i.i128:                                 ; preds = %_ZNSt6vectorIjSaIjE
 
 if.end86:                                         ; preds = %for.body74.if.end86_crit_edge, %invoke.cont79
   %conv91.pre-phi = phi i64 [ %.pre493, %for.body74.if.end86_crit_edge ], [ %idxprom84, %invoke.cont79 ]
-  %sDeadEndVStack.sroa.0.5 = phi ptr [ %sDeadEndVStack.sroa.0.2434, %for.body74.if.end86_crit_edge ], [ %sDeadEndVStack.sroa.0.3, %invoke.cont79 ]
-  %sDeadEndVStack.sroa.6.4 = phi ptr [ %sDeadEndVStack.sroa.6.2435, %for.body74.if.end86_crit_edge ], [ %sDeadEndVStack.sroa.6.3, %invoke.cont79 ]
-  %sDeadEndVStack.sroa.14.4 = phi ptr [ %sDeadEndVStack.sroa.14.2436, %for.body74.if.end86_crit_edge ], [ %sDeadEndVStack.sroa.14.3, %invoke.cont79 ]
+  %sDeadEndVStack.sroa.0.5 = phi ptr [ %sDeadEndVStack.sroa.0.4434, %for.body74.if.end86_crit_edge ], [ %sDeadEndVStack.sroa.0.7, %invoke.cont79 ]
+  %sDeadEndVStack.sroa.6.3 = phi ptr [ %sDeadEndVStack.sroa.6.2435, %for.body74.if.end86_crit_edge ], [ %sDeadEndVStack.sroa.6.8, %invoke.cont79 ]
+  %sDeadEndVStack.sroa.14.3 = phi ptr [ %sDeadEndVStack.sroa.14.2436, %for.body74.if.end86_crit_edge ], [ %sDeadEndVStack.sroa.14.5, %invoke.cont79 ]
   %piCurCandidate.sroa.0.2 = phi ptr [ %piCurCandidate.sroa.0.1437, %for.body74.if.end86_crit_edge ], [ %incdec.ptr.i, %invoke.cont79 ]
   %incdec.ptr.i131 = getelementptr inbounds i8, ptr %piCSIter.sroa.0.2438, i64 4
   store i32 %44, ptr %piCSIter.sroa.0.2438, align 4
@@ -732,9 +732,9 @@ invoke.cont105.loopexit:                          ; preds = %for.inc100
 
 invoke.cont105:                                   ; preds = %invoke.cont105.loopexit, %if.then70
   %50 = phi i64 [ %40, %if.then70 ], [ %.pre, %invoke.cont105.loopexit ]
-  %sDeadEndVStack.sroa.0.2.lcssa = phi ptr [ %sDeadEndVStack.sroa.0.1450, %if.then70 ], [ %sDeadEndVStack.sroa.0.5, %invoke.cont105.loopexit ]
-  %sDeadEndVStack.sroa.6.2.lcssa = phi ptr [ %sDeadEndVStack.sroa.6.1451, %if.then70 ], [ %sDeadEndVStack.sroa.6.4, %invoke.cont105.loopexit ]
-  %sDeadEndVStack.sroa.14.2.lcssa = phi ptr [ %sDeadEndVStack.sroa.14.1452, %if.then70 ], [ %sDeadEndVStack.sroa.14.4, %invoke.cont105.loopexit ]
+  %sDeadEndVStack.sroa.0.4.lcssa = phi ptr [ %sDeadEndVStack.sroa.0.3450, %if.then70 ], [ %sDeadEndVStack.sroa.0.5, %invoke.cont105.loopexit ]
+  %sDeadEndVStack.sroa.6.2.lcssa = phi ptr [ %sDeadEndVStack.sroa.6.1451, %if.then70 ], [ %sDeadEndVStack.sroa.6.3, %invoke.cont105.loopexit ]
+  %sDeadEndVStack.sroa.14.2.lcssa = phi ptr [ %sDeadEndVStack.sroa.14.1452, %if.then70 ], [ %sDeadEndVStack.sroa.14.3, %invoke.cont105.loopexit ]
   %piCurCandidate.sroa.0.1.lcssa = phi ptr [ %piCurCandidate.sroa.0.0453, %if.then70 ], [ %piCurCandidate.sroa.0.2, %invoke.cont105.loopexit ]
   %piCSIter.sroa.0.2.lcssa = phi ptr [ %piCSIter.sroa.0.1454, %if.then70 ], [ %incdec.ptr.i131, %invoke.cont105.loopexit ]
   %iStampCnt.2.lcssa = phi i32 [ %iStampCnt.1457, %if.then70 ], [ %iStampCnt.3, %invoke.cont105.loopexit ]
@@ -744,9 +744,9 @@ invoke.cont105:                                   ; preds = %invoke.cont105.loop
   br label %for.inc109
 
 for.inc109:                                       ; preds = %invoke.cont67, %invoke.cont105
-  %sDeadEndVStack.sroa.0.6 = phi ptr [ %sDeadEndVStack.sroa.0.1450, %invoke.cont67 ], [ %sDeadEndVStack.sroa.0.2.lcssa, %invoke.cont105 ]
-  %sDeadEndVStack.sroa.6.5 = phi ptr [ %sDeadEndVStack.sroa.6.1451, %invoke.cont67 ], [ %sDeadEndVStack.sroa.6.2.lcssa, %invoke.cont105 ]
-  %sDeadEndVStack.sroa.14.5 = phi ptr [ %sDeadEndVStack.sroa.14.1452, %invoke.cont67 ], [ %sDeadEndVStack.sroa.14.2.lcssa, %invoke.cont105 ]
+  %sDeadEndVStack.sroa.0.6 = phi ptr [ %sDeadEndVStack.sroa.0.3450, %invoke.cont67 ], [ %sDeadEndVStack.sroa.0.4.lcssa, %invoke.cont105 ]
+  %sDeadEndVStack.sroa.6.4 = phi ptr [ %sDeadEndVStack.sroa.6.1451, %invoke.cont67 ], [ %sDeadEndVStack.sroa.6.2.lcssa, %invoke.cont105 ]
+  %sDeadEndVStack.sroa.14.4 = phi ptr [ %sDeadEndVStack.sroa.14.1452, %invoke.cont67 ], [ %sDeadEndVStack.sroa.14.2.lcssa, %invoke.cont105 ]
   %piCurCandidate.sroa.0.3 = phi ptr [ %piCurCandidate.sroa.0.0453, %invoke.cont67 ], [ %piCurCandidate.sroa.0.1.lcssa, %invoke.cont105 ]
   %piCSIter.sroa.0.3 = phi ptr [ %piCSIter.sroa.0.1454, %invoke.cont67 ], [ %piCSIter.sroa.0.2.lcssa, %invoke.cont105 ]
   %iStampCnt.4 = phi i32 [ %iStampCnt.1457, %invoke.cont67 ], [ %iStampCnt.2.lcssa, %invoke.cont105 ]
@@ -756,9 +756,9 @@ for.inc109:                                       ; preds = %invoke.cont67, %inv
   br i1 %exitcond487.not, label %for.end111, label %invoke.cont67, !llvm.loop !11
 
 for.end111:                                       ; preds = %for.inc109, %while.body
-  %sDeadEndVStack.sroa.0.1.lcssa = phi ptr [ %sDeadEndVStack.sroa.0.0471, %while.body ], [ %sDeadEndVStack.sroa.0.6, %for.inc109 ]
-  %sDeadEndVStack.sroa.6.1.lcssa = phi ptr [ %sDeadEndVStack.sroa.6.0472, %while.body ], [ %sDeadEndVStack.sroa.6.5, %for.inc109 ]
-  %sDeadEndVStack.sroa.14.1.lcssa = phi ptr [ %sDeadEndVStack.sroa.14.0473, %while.body ], [ %sDeadEndVStack.sroa.14.5, %for.inc109 ]
+  %sDeadEndVStack.sroa.0.3.lcssa = phi ptr [ %sDeadEndVStack.sroa.0.2471, %while.body ], [ %sDeadEndVStack.sroa.0.6, %for.inc109 ]
+  %sDeadEndVStack.sroa.6.1.lcssa = phi ptr [ %sDeadEndVStack.sroa.6.0472, %while.body ], [ %sDeadEndVStack.sroa.6.4, %for.inc109 ]
+  %sDeadEndVStack.sroa.14.1.lcssa = phi ptr [ %sDeadEndVStack.sroa.14.0473, %while.body ], [ %sDeadEndVStack.sroa.14.4, %for.inc109 ]
   %piCurCandidate.sroa.0.0.lcssa = phi ptr [ %piCandidates.sroa.0.1, %while.body ], [ %piCurCandidate.sroa.0.3, %for.inc109 ]
   %piCSIter.sroa.0.1.lcssa = phi ptr [ %piCSIter.sroa.0.0474, %while.body ], [ %piCSIter.sroa.0.3, %for.inc109 ]
   %iStampCnt.1.lcssa = phi i32 [ %iStampCnt.0475, %while.body ], [ %iStampCnt.4, %for.inc109 ]
@@ -812,7 +812,7 @@ while.cond146.preheader:                          ; preds = %for.end111, %for.en
 
 while.cond146:                                    ; preds = %while.cond146.preheader, %while.body150
   %sDeadEndVStack.sroa.6.6 = phi ptr [ %add.ptr.i.i.i150, %while.body150 ], [ %sDeadEndVStack.sroa.6.1.lcssa, %while.cond146.preheader ]
-  %cmp.i.i.i148 = icmp eq ptr %sDeadEndVStack.sroa.0.1.lcssa, %sDeadEndVStack.sroa.6.6
+  %cmp.i.i.i148 = icmp eq ptr %sDeadEndVStack.sroa.0.3.lcssa, %sDeadEndVStack.sroa.6.6
   br i1 %cmp.i.i.i148, label %while.cond161.preheader, label %while.body150
 
 while.body150:                                    ; preds = %while.cond146
@@ -852,10 +852,10 @@ if.end173.loopexit:                               ; preds = %while.body164
   br label %if.end173
 
 if.end173:                                        ; preds = %if.end173.loopexit, %while.end, %for.end143
-  %sDeadEndVStack.sroa.6.8 = phi ptr [ %add.ptr.i.i.i150, %while.end ], [ %sDeadEndVStack.sroa.6.1.lcssa, %for.end143 ], [ %sDeadEndVStack.sroa.6.7525, %if.end173.loopexit ]
-  %ics.2 = phi i32 [ %ics.0476, %while.end ], [ %ics.0476, %for.end143 ], [ %indvars.le, %if.end173.loopexit ]
-  %ivdx.4 = phi i32 [ %55, %while.end ], [ %ivdx.2, %for.end143 ], [ %indvars.le, %if.end173.loopexit ]
-  %cmp54 = icmp sgt i32 %ivdx.4, -1
+  %sDeadEndVStack.sroa.6.5 = phi ptr [ %add.ptr.i.i.i150, %while.end ], [ %sDeadEndVStack.sroa.6.1.lcssa, %for.end143 ], [ %sDeadEndVStack.sroa.6.7525, %if.end173.loopexit ]
+  %ics.1 = phi i32 [ %ics.0476, %while.end ], [ %ics.0476, %for.end143 ], [ %indvars.le, %if.end173.loopexit ]
+  %ivdx.3 = phi i32 [ %55, %while.end ], [ %ivdx.2, %for.end143 ], [ %indvars.le, %if.end173.loopexit ]
+  %cmp54 = icmp sgt i32 %ivdx.3, -1
   br i1 %cmp54, label %while.body, label %while.end174, !llvm.loop !15
 
 while.end174:                                     ; preds = %if.end173, %while.cond161
@@ -961,11 +961,11 @@ if.then.i.i.i161:                                 ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit163
 
 _ZNSt6vectorIjSaIjEED2Ev.exit163:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit159, %if.then.i.i.i161
-  %tobool.not.i.i.i.i164 = icmp eq ptr %sDeadEndVStack.sroa.0.1.lcssa, null
+  %tobool.not.i.i.i.i164 = icmp eq ptr %sDeadEndVStack.sroa.0.3.lcssa, null
   br i1 %tobool.not.i.i.i.i164, label %_ZNSt5stackIjSt6vectorIjSaIjEEED2Ev.exit, label %if.then.i.i.i.i165
 
 if.then.i.i.i.i165:                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit163
-  call void @_ZdlPv(ptr noundef nonnull %sDeadEndVStack.sroa.0.1.lcssa) #15
+  call void @_ZdlPv(ptr noundef nonnull %sDeadEndVStack.sroa.0.3.lcssa) #15
   br label %_ZNSt5stackIjSt6vectorIjSaIjEEED2Ev.exit
 
 _ZNSt5stackIjSt6vectorIjSaIjEEED2Ev.exit:         ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit163, %if.then.i.i.i.i165
@@ -1003,13 +1003,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit177:                 ; preds = %_ZNSt6vectorIjSaIjE
   br label %return
 
 ehcleanup236:                                     ; preds = %if.then.i.i.i128, %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %sDeadEndVStack.sroa.0.4373519 = phi ptr [ %sDeadEndVStack.sroa.0.4373518, %if.then.i.i.i128 ], [ %sDeadEndVStack.sroa.0.4, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
+  %sDeadEndVStack.sroa.0.1373519 = phi ptr [ %sDeadEndVStack.sroa.0.1373518, %if.then.i.i.i128 ], [ %sDeadEndVStack.sroa.0.1, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
   %73 = phi { ptr, i32 } [ %47, %if.then.i.i.i128 ], [ %lpad.phi, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
-  %tobool.not.i.i.i.i178 = icmp eq ptr %sDeadEndVStack.sroa.0.4373519, null
+  %tobool.not.i.i.i.i178 = icmp eq ptr %sDeadEndVStack.sroa.0.1373519, null
   br i1 %tobool.not.i.i.i.i178, label %_ZNSt5stackIjSt6vectorIjSaIjEEED2Ev.exit180, label %if.then.i.i.i.i179
 
 if.then.i.i.i.i179:                               ; preds = %ehcleanup236
-  call void @_ZdlPv(ptr noundef nonnull %sDeadEndVStack.sroa.0.4373519) #15
+  call void @_ZdlPv(ptr noundef nonnull %sDeadEndVStack.sroa.0.1373519) #15
   br label %_ZNSt5stackIjSt6vectorIjSaIjEEED2Ev.exit180
 
 _ZNSt5stackIjSt6vectorIjSaIjEEED2Ev.exit180:      ; preds = %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i, %ehcleanup236, %if.then.i.i.i.i179

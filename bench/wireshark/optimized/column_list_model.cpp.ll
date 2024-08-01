@@ -8204,20 +8204,20 @@ _ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT
 .lr.ph:                                           ; preds = %66, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53
   %.073 = phi i64 [ %104, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53 ], [ 0, %66 ]
   %.03572 = phi ptr [ %72, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53 ], [ %67, %66 ]
-  %.271 = phi ptr [ %71, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53 ], [ %69, %66 ]
-  %71 = getelementptr i8, ptr %.271, i64 -72
+  %.371 = phi ptr [ %71, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53 ], [ %69, %66 ]
+  %71 = getelementptr i8, ptr %.371, i64 -72
   %72 = getelementptr i8, ptr %.03572, i64 -72
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.28.i45)
-  %73 = getelementptr i8, ptr %.271, i64 -64
-  %74 = getelementptr i8, ptr %.271, i64 -56
+  %73 = getelementptr i8, ptr %.371, i64 -64
+  %74 = getelementptr i8, ptr %.371, i64 -56
   %75 = load i64, ptr %74, align 8
   store i64 0, ptr %74, align 8
-  %76 = getelementptr i8, ptr %.271, i64 -48
-  %77 = getelementptr i8, ptr %.271, i64 -40
-  %78 = getelementptr i8, ptr %.271, i64 -32
+  %76 = getelementptr i8, ptr %.371, i64 -48
+  %77 = getelementptr i8, ptr %.371, i64 -40
+  %78 = getelementptr i8, ptr %.371, i64 -32
   %79 = load i64, ptr %78, align 8
   store i64 0, ptr %78, align 8
-  %80 = getelementptr i8, ptr %.271, i64 -24
+  %80 = getelementptr i8, ptr %.371, i64 -24
   %81 = getelementptr i8, ptr %.03572, i64 -64
   %82 = getelementptr i8, ptr %.03572, i64 -56
   %83 = getelementptr i8, ptr %.03572, i64 -48
@@ -8290,7 +8290,7 @@ _ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53, %66
-  %.2.lcssa = phi ptr [ %69, %66 ], [ %.039, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53 ]
+  %.3.lcssa = phi ptr [ %69, %66 ], [ %.039, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53 ]
   %105 = srem i64 %.068, %23
   %106 = icmp eq i64 %105, 0
   br i1 %106, label %_ZSt11swap_rangesIP11ListElementS1_ET0_T_S3_S2_.exit, label %.backedge
@@ -8298,7 +8298,7 @@ _ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT
 .backedge:                                        ; preds = %._crit_edge, %64
   %.068.be = phi i64 [ %.066, %64 ], [ %23, %._crit_edge ]
   %.066.be = phi i64 [ %65, %64 ], [ %105, %._crit_edge ]
-  %.039.be = phi ptr [ %.1.lcssa, %64 ], [ %.2.lcssa, %._crit_edge ]
+  %.039.be = phi ptr [ %.1.lcssa, %64 ], [ %.3.lcssa, %._crit_edge ]
   br label %22, !llvm.loop !89
 
 _ZSt11swap_rangesIP11ListElementS1_ET0_T_S3_S2_.exit: ; preds = %._crit_edge, %._crit_edge79, %.lr.ph.i, %5, %3
@@ -8414,47 +8414,47 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI11ListElementE5eraseEP
   br i1 %.not1819, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
-  %.021 = phi ptr [ %38, %.lr.ph ], [ %1, %._crit_edge ]
-  %.01420 = phi ptr [ %39, %.lr.ph ], [ %4, %._crit_edge ]
-  %14 = load ptr, ptr %.021, align 8
-  %15 = load ptr, ptr %.01420, align 8
-  store ptr %15, ptr %.021, align 8
-  store ptr %14, ptr %.01420, align 8
-  %16 = getelementptr inbounds i8, ptr %.021, i64 8
-  %17 = getelementptr inbounds i8, ptr %.01420, i64 8
+  %.121 = phi ptr [ %38, %.lr.ph ], [ %1, %._crit_edge ]
+  %.11520 = phi ptr [ %39, %.lr.ph ], [ %4, %._crit_edge ]
+  %14 = load ptr, ptr %.121, align 8
+  %15 = load ptr, ptr %.11520, align 8
+  store ptr %15, ptr %.121, align 8
+  store ptr %14, ptr %.11520, align 8
+  %16 = getelementptr inbounds i8, ptr %.121, i64 8
+  %17 = getelementptr inbounds i8, ptr %.11520, i64 8
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %16, align 8
   store ptr %18, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %.021, i64 16
-  %21 = getelementptr inbounds i8, ptr %.01420, i64 16
+  %20 = getelementptr inbounds i8, ptr %.121, i64 16
+  %21 = getelementptr inbounds i8, ptr %.11520, i64 16
   %22 = load i64, ptr %20, align 8
   %23 = load i64, ptr %21, align 8
   store i64 %23, ptr %20, align 8
   store i64 %22, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %.021, i64 24
-  %25 = getelementptr inbounds i8, ptr %.01420, i64 24
+  %24 = getelementptr inbounds i8, ptr %.121, i64 24
+  %25 = getelementptr inbounds i8, ptr %.11520, i64 24
   %26 = load ptr, ptr %24, align 8
   %27 = load ptr, ptr %25, align 8
   store ptr %27, ptr %24, align 8
   store ptr %26, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %.021, i64 32
-  %29 = getelementptr inbounds i8, ptr %.01420, i64 32
+  %28 = getelementptr inbounds i8, ptr %.121, i64 32
+  %29 = getelementptr inbounds i8, ptr %.11520, i64 32
   %30 = load ptr, ptr %28, align 8
   %31 = load ptr, ptr %29, align 8
   store ptr %31, ptr %28, align 8
   store ptr %30, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %.021, i64 40
-  %33 = getelementptr inbounds i8, ptr %.01420, i64 40
+  %32 = getelementptr inbounds i8, ptr %.121, i64 40
+  %33 = getelementptr inbounds i8, ptr %.11520, i64 40
   %34 = load i64, ptr %32, align 8
   %35 = load i64, ptr %33, align 8
   store i64 %35, ptr %32, align 8
   store i64 %34, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %.021, i64 48
-  %37 = getelementptr inbounds i8, ptr %.01420, i64 48
+  %36 = getelementptr inbounds i8, ptr %.121, i64 48
+  %37 = getelementptr inbounds i8, ptr %.11520, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %36, ptr noundef nonnull align 8 dereferenceable(23) %37, i64 23, i1 false)
-  %38 = getelementptr i8, ptr %.021, i64 72
-  %39 = getelementptr i8, ptr %.01420, i64 72
+  %38 = getelementptr i8, ptr %.121, i64 72
+  %39 = getelementptr i8, ptr %.11520, i64 72
   %.not18 = icmp eq ptr %39, %13
   br i1 %.not18, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !90
 
@@ -8464,16 +8464,16 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI11ListElementE5eraseEP
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge, %11
   %40 = phi i64 [ %9, %11 ], [ %9, %._crit_edge ], [ %.pre25, %.loopexit.loopexit ]
-  %.115 = phi ptr [ %4, %11 ], [ %4, %._crit_edge ], [ %13, %.loopexit.loopexit ]
-  %.1 = phi ptr [ %1, %11 ], [ %1, %._crit_edge ], [ %38, %.loopexit.loopexit ]
+  %.014 = phi ptr [ %4, %11 ], [ %4, %._crit_edge ], [ %13, %.loopexit.loopexit ]
+  %.0 = phi ptr [ %1, %11 ], [ %1, %._crit_edge ], [ %38, %.loopexit.loopexit ]
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = sub i64 %40, %2
   store i64 %42, ptr %41, align 8
-  %.not4.i.i.i = icmp eq ptr %.1, %.115
+  %.not4.i.i.i = icmp eq ptr %.0, %.014
   br i1 %.not4.i.i.i, label %_ZSt7destroyIP11ListElementEvT_S2_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.loopexit, %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %52, %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i ], [ %.1, %.loopexit ]
+  %.05.i.i.i = phi ptr [ %52, %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i ], [ %.0, %.loopexit ]
   %43 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 24
   %44 = load ptr, ptr %43, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %44, null
@@ -8506,7 +8506,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i: ; preds = %_ZN7QStringD2
 
 _ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i:      ; preds = %50, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i, %_ZN7QStringD2Ev.exit.i.i.i.i.i
   %52 = getelementptr i8, ptr %.05.i.i.i, i64 72
-  %.not.i.i.i = icmp eq ptr %52, %.115
+  %.not.i.i.i = icmp eq ptr %52, %.014
   br i1 %.not.i.i.i, label %_ZSt7destroyIP11ListElementEvT_S2_.exit, label %.lr.ph.i.i.i, !llvm.loop !4
 
 _ZSt7destroyIP11ListElementEvT_S2_.exit:          ; preds = %_ZSt8_DestroyI11ListElementEvPT_.exit.i.i.i, %.loopexit

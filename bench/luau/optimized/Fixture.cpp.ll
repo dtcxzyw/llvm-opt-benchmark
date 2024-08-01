@@ -6679,8 +6679,8 @@ _ZNSt10unique_ptrIN4Luau12SourceModuleESt14default_deleteIS1_EE5resetEPS1_.exit:
 
 56:                                               ; preds = %53, %51
   %.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
-  %.0 = extractvalue { ptr, i32 } %.pn, 0
-  %57 = call ptr @__cxa_begin_catch(ptr %.0) #25
+  %.3 = extractvalue { ptr, i32 } %.pn, 0
+  %57 = call ptr @__cxa_begin_catch(ptr %.3) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %8)
           to label %58 unwind label %63
 
@@ -7273,8 +7273,8 @@ _ZNSt10unique_ptrIN4Luau12SourceModuleESt14default_deleteIS1_EE5resetEPS1_.exit:
 
 58:                                               ; preds = %55, %53
   %.pn = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
-  %.0 = extractvalue { ptr, i32 } %.pn, 0
-  %59 = call ptr @__cxa_begin_catch(ptr %.0) #25
+  %.3 = extractvalue { ptr, i32 } %.pn, 0
+  %59 = call ptr @__cxa_begin_catch(ptr %.3) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %60 unwind label %65
 
@@ -7497,8 +7497,8 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi4EmmEEbRKT0_RKT1_.exit: ; pre
 
 139:                                              ; preds = %137, %135
   %.pn25 = phi { ptr, i32 } [ %138, %137 ], [ %136, %135 ]
-  %.4 = extractvalue { ptr, i32 } %.pn25, 0
-  %140 = call ptr @__cxa_begin_catch(ptr %.4) #25
+  %.6 = extractvalue { ptr, i32 } %.pn25, 0
+  %140 = call ptr @__cxa_begin_catch(ptr %.6) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %16)
           to label %141 unwind label %146
 
@@ -7754,8 +7754,8 @@ define dso_local i64 @_ZN4Luau7Fixture16getPrimitiveTypeEPKNS_4TypeE(ptr nocaptu
 
 31:                                               ; preds = %28, %26
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
-  %.0 = extractvalue { ptr, i32 } %.pn, 0
-  %32 = call ptr @__cxa_begin_catch(ptr %.0) #25
+  %.1 = extractvalue { ptr, i32 } %.pn, 0
+  %32 = call ptr @__cxa_begin_catch(ptr %.1) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %4)
           to label %33 unwind label %38
 
@@ -7851,8 +7851,8 @@ define dso_local i64 @_ZN4Luau7Fixture16getPrimitiveTypeEPKNS_4TypeE(ptr nocaptu
 
 64:                                               ; preds = %61, %59
   %.pn11 = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
-  %.2 = extractvalue { ptr, i32 } %.pn11, 0
-  %65 = call ptr @__cxa_begin_catch(ptr %.2) #25
+  %.3 = extractvalue { ptr, i32 } %.pn11, 0
+  %65 = call ptr @__cxa_begin_catch(ptr %.3) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %11)
           to label %66 unwind label %71
 
@@ -8057,8 +8057,8 @@ define dso_local { ptr, i8 } @_ZN4Luau7Fixture7getTypeERKNSt7__cxx1112basic_stri
 
 29:                                               ; preds = %26, %24
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  %.06 = extractvalue { ptr, i32 } %.pn, 0
-  %30 = call ptr @__cxa_begin_catch(ptr %.06) #25
+  %.17 = extractvalue { ptr, i32 } %.pn, 0
+  %30 = call ptr @__cxa_begin_catch(ptr %.17) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
           to label %31 unwind label %36
 
@@ -8762,8 +8762,8 @@ define dso_local noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic
 
 30:                                               ; preds = %27, %25
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  %.05 = extractvalue { ptr, i32 } %.pn, 0
-  %31 = call ptr @__cxa_begin_catch(ptr %.05) #25
+  %.16 = extractvalue { ptr, i32 } %.pn, 0
+  %31 = call ptr @__cxa_begin_catch(ptr %.16) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %4)
           to label %32 unwind label %37
 
@@ -8933,8 +8933,8 @@ define dso_local noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic
 
 28:                                               ; preds = %25, %23
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
-  %.05 = extractvalue { ptr, i32 } %.pn, 0
-  %29 = call ptr @__cxa_begin_catch(ptr %.05) #25
+  %.16 = extractvalue { ptr, i32 } %.pn, 0
+  %29 = call ptr @__cxa_begin_catch(ptr %.16) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
           to label %30 unwind label %35
 
@@ -9427,8 +9427,8 @@ _ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %37, %56, %69, %_ZNS
 
 95:                                               ; preds = %92, %90
   %.pn = phi { ptr, i32 } [ %93, %92 ], [ %91, %90 ]
-  %.05 = extractvalue { ptr, i32 } %.pn, 0
-  %96 = call ptr @__cxa_begin_catch(ptr %.05) #25
+  %.27 = extractvalue { ptr, i32 } %.pn, 0
+  %96 = call ptr @__cxa_begin_catch(ptr %.27) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %8)
           to label %97 unwind label %102
 
@@ -9899,8 +9899,8 @@ define dso_local noundef ptr @_ZN4Luau7Fixture21requireTypeAtPositionENS_8Positi
 
 34:                                               ; preds = %31, %29
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
-  %.03 = extractvalue { ptr, i32 } %.pn, 0
-  %35 = call ptr @__cxa_begin_catch(ptr %.03) #25
+  %.14 = extractvalue { ptr, i32 } %.pn, 0
+  %35 = call ptr @__cxa_begin_catch(ptr %.14) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %6)
           to label %36 unwind label %41
 
@@ -10569,8 +10569,8 @@ define dso_local noundef ptr @_ZN4Luau7Fixture16requireTypeAliasERKNSt7__cxx1112
 
 27:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  %.04 = extractvalue { ptr, i32 } %.pn, 0
-  %28 = call ptr @__cxa_begin_catch(ptr %.04) #25
+  %.15 = extractvalue { ptr, i32 } %.pn, 0
+  %28 = call ptr @__cxa_begin_catch(ptr %.15) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %4)
           to label %29 unwind label %34
 
@@ -10703,8 +10703,8 @@ define dso_local noundef ptr @_ZN4Luau7Fixture19requireExportedTypeERKNSt7__cxx1
 
 35:                                               ; preds = %32, %30
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
-  %.06 = extractvalue { ptr, i32 } %.pn, 0
-  %36 = call ptr @__cxa_begin_catch(ptr %.06) #25
+  %.17 = extractvalue { ptr, i32 } %.pn, 0
+  %36 = call ptr @__cxa_begin_catch(ptr %.17) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
           to label %37 unwind label %42
 
@@ -10807,8 +10807,8 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau7
 
 70:                                               ; preds = %67, %65
   %.pn11 = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ]
-  %.28 = extractvalue { ptr, i32 } %.pn11, 0
-  %71 = call ptr @__cxa_begin_catch(ptr %.28) #25
+  %.3 = extractvalue { ptr, i32 } %.pn11, 0
+  %71 = call ptr @__cxa_begin_catch(ptr %.3) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %11)
           to label %72 unwind label %77
 
@@ -12446,8 +12446,8 @@ _ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %35, %53, %66, %_ZNS
 
 100:                                              ; preds = %97, %95
   %.pn11 = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ]
-  %.16 = extractvalue { ptr, i32 } %.pn11, 0
-  %101 = call ptr @__cxa_begin_catch(ptr %.16) #25
+  %.49 = extractvalue { ptr, i32 } %.pn11, 0
+  %101 = call ptr @__cxa_begin_catch(ptr %.49) #25
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %8)
           to label %102 unwind label %107
 

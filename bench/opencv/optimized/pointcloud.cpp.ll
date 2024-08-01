@@ -2097,7 +2097,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %851
 
 850:                                              ; preds = %555, %847
-  %.0 = phi i32 [ 0, %847 ], [ -1, %555 ]
+  %.4 = phi i32 [ 0, %847 ], [ -1, %555 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %68) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %67) #15
@@ -2139,7 +2139,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %.body258
 
 855:                                              ; preds = %408, %850
-  %.1 = phi i32 [ %.0, %850 ], [ -1, %408 ]
+  %.3 = phi i32 [ %.4, %850 ], [ -1, %408 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #15
@@ -2159,7 +2159,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %856
 
 _ZL4helpv.exit257:                                ; preds = %.noexc255, %855
-  %.2 = phi i32 [ %.1, %855 ], [ -1, %.noexc255 ]
+  %.2 = phi i32 [ %.3, %855 ], [ -1, %.noexc255 ]
   call void @_ZN2cv11FileStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %33) #15
   br label %_ZL4helpv.exit254
 
@@ -2169,7 +2169,7 @@ _ZL4helpv.exit257:                                ; preds = %.noexc255, %855
   br label %.body250
 
 _ZL4helpv.exit254:                                ; preds = %.noexc252, %_ZL4helpv.exit257
-  %.3 = phi i32 [ %.2, %_ZL4helpv.exit257 ], [ -1, %.noexc252 ]
+  %.1 = phi i32 [ %.2, %_ZL4helpv.exit257 ], [ -1, %.noexc252 ]
   %857 = load ptr, ptr %32, align 8
   %858 = load ptr, ptr %209, align 8
   %.not4.i.i.i.i = icmp eq ptr %857, %858
@@ -2280,11 +2280,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body242
 
 _ZL4helpv.exit:                                   ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %893, %880, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %.noexc
-  %.4 = phi i32 [ -1, %.noexc ], [ %.3, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.3, %880 ], [ %.3, %893 ], [ %.3, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
+  %.0 = phi i32 [ -1, %.noexc ], [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.1, %880 ], [ %.1, %893 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #15
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #15
-  ret i32 %.4
+  ret i32 %.0
 
 .body242:                                         ; preds = %186, %898, %162
   %.pn237.pn = phi { ptr, i32 } [ %163, %162 ], [ %187, %186 ], [ %.pn234.pn, %898 ]

@@ -1257,7 +1257,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
 
 _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_Z8LUPSolvePPdPiS_iS_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0, %._crit_edge49.i ]
-  %.152 = phi double [ %167, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0.000000e+00, %._crit_edge49.i ]
+  %.252 = phi double [ %167, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0.000000e+00, %._crit_edge49.i ]
   %159 = getelementptr inbounds [3 x double], ptr %11, i64 0, i64 %indvars.iv
   %160 = load double, ptr %159, align 8
   %161 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
@@ -1267,7 +1267,7 @@ _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_
   %164 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %indvars.iv
   %165 = load double, ptr %164, align 8
   %166 = fmul contract double %165, %165
-  %167 = fadd contract double %.152, %166
+  %167 = fadd contract double %.252, %166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond60.not, label %168, label %_Z8LUPSolvePPdPiS_iS_.exit, !llvm.loop !27
@@ -1305,8 +1305,8 @@ _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_
   br i1 %or.cond, label %._crit_edge, label %18, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
-  %.2 = phi double [ 0.000000e+00, %3 ], [ %167, %.loopexit ]
-  %184 = call contract double @llvm.sqrt.f64(double %.2)
+  %.1 = phi double [ 0.000000e+00, %3 ], [ %167, %.loopexit ]
+  %184 = call contract double @llvm.sqrt.f64(double %.1)
   ret double %184
 }
 
@@ -1557,8 +1557,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.1 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
-  ret ptr %.sroa.034.1
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  ret ptr %.sroa.034.0
 }
 
 ; Function Attrs: nounwind

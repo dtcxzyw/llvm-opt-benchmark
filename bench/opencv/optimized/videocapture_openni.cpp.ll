@@ -1020,7 +1020,7 @@ switch.lookup:                                    ; preds = %205
   br label %431
 
 431:                                              ; preds = %select.unfold, %371
-  %.023 = phi i32 [ 0, %371 ], [ %.1, %select.unfold ]
+  %.1 = phi i32 [ 0, %371 ], [ %.2, %select.unfold ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %42) #10
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %43) #10
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #10
@@ -1710,7 +1710,7 @@ _ZL15getMaxDisparityRN2cv12VideoCaptureE.exit:    ; preds = %.noexc
 
 select.unfold:                                    ; preds = %615, %436
   %.026 = phi i32 [ 1, %436 ], [ %spec.select, %615 ]
-  %.1 = phi i32 [ -1, %436 ], [ %.023, %615 ]
+  %.2 = phi i32 [ -1, %436 ], [ %.1, %615 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %47) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %46) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %45) #10
@@ -1736,10 +1736,10 @@ select.unfold:                                    ; preds = %615, %436
   br label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold, %.loopexit.loopexit, %201
-  %.2 = phi i32 [ -1, %201 ], [ %.1, %.loopexit.loopexit ], [ 0, %select.unfold ]
+  %.023 = phi i32 [ -1, %201 ], [ %.2, %.loopexit.loopexit ], [ 0, %select.unfold ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %39) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #10
-  ret i32 %.2
+  ret i32 %.023
 
 617:                                              ; preds = %616, %216, %183
   %.pn85.pn = phi { ptr, i32 } [ %.pn85, %216 ], [ %.pn83, %616 ], [ %184, %183 ]

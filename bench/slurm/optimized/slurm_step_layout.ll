@@ -1111,7 +1111,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
 
 238:                                              ; preds = %290, %.preheader.i94
   %.074.i = phi i32 [ %.175.i, %290 ], [ 0, %.preheader.i94 ]
-  %.068.i = phi i32 [ %.3.i, %290 ], [ 0, %.preheader.i94 ]
+  %.068.i = phi i32 [ %.4.i, %290 ], [ 0, %.preheader.i94 ]
   %239 = call ptr @hostlist_next(ptr noundef %224) #7
   %.not84.i96 = icmp eq ptr %239, null
   br i1 %.not84.i96, label %293, label %240
@@ -1126,7 +1126,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
 
 .lr.ph92.i:                                       ; preds = %240, %254
   %indvars.iv103.i = phi i64 [ %indvars.iv.next104.i, %254 ], [ 0, %240 ]
-  %.16990.i = phi i32 [ %.270.i, %254 ], [ %.068.i, %240 ]
+  %.27090.i = phi i32 [ %.3.i, %254 ], [ %.068.i, %240 ]
   %245 = getelementptr inbounds ptr, ptr %228, i64 %indvars.iv103.i
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %241, %246
@@ -1138,20 +1138,20 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %251 = load i16, ptr %250, align 2
   %252 = add i16 %251, 1
   store i16 %252, ptr %250, align 2
-  %253 = add nsw i32 %.16990.i, 1
+  %253 = add nsw i32 %.27090.i, 1
   br label %254
 
 254:                                              ; preds = %248, %.lr.ph92.i
-  %.270.i = phi i32 [ %253, %248 ], [ %.16990.i, %.lr.ph92.i ]
+  %.3.i = phi i32 [ %253, %248 ], [ %.27090.i, %.lr.ph92.i ]
   %255 = load i32, ptr %215, align 8
-  %.not85.i = icmp ult i32 %.270.i, %255
+  %.not85.i = icmp ult i32 %.3.i, %255
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
   %256 = icmp slt i64 %indvars.iv.next104.i, %227
   %or.cond.i99 = select i1 %.not85.i, i1 %256, i1 false
   br i1 %or.cond.i99, label %.lr.ph92.i, label %._crit_edge.i97, !llvm.loop !17
 
 ._crit_edge.i97:                                  ; preds = %254, %240
-  %.3.i = phi i32 [ %.068.i, %240 ], [ %.270.i, %254 ]
+  %.4.i = phi i32 [ %.068.i, %240 ], [ %.3.i, %254 ]
   %257 = call i32 @get_log_level() #7
   %258 = icmp sgt i32 %257, 6
   br i1 %258, label %259, label %264
@@ -1222,18 +1222,18 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   br i1 %292, label %293, label %238, !llvm.loop !19
 
 293:                                              ; preds = %290, %238
-  %.4.i = phi i32 [ %.3.i, %290 ], [ %.068.i, %238 ]
+  %.169.i = phi i32 [ %.4.i, %290 ], [ %.068.i, %238 ]
   call void @hostlist_iterator_destroy(ptr noundef %224) #7
   call void @hostlist_iterator_destroy(ptr noundef %225) #7
   call void @hostlist_destroy(ptr noundef %223) #7
   call void @hostlist_destroy(ptr noundef %213) #7
   call void @slurm_xfree(ptr noundef nonnull %4) #7
   %294 = load i32, ptr %215, align 8
-  %.not87.i = icmp eq i32 %.4.i, %294
+  %.not87.i = icmp eq i32 %.169.i, %294
   br i1 %.not87.i, label %_task_layout_hostfile.exit, label %295
 
 295:                                              ; preds = %293
-  %296 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, i32 noundef %294, i32 noundef %.4.i) #7
+  %296 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, i32 noundef %294, i32 noundef %.169.i) #7
   br label %_task_layout_hostfile.exit
 
 _task_layout_hostfile.exit:                       ; preds = %206, %217, %293, %295
@@ -2062,9 +2062,9 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   br i1 %31, label %.lr.ph253, label %.critedge, !llvm.loop !30
 
 .lr.ph253:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.194111252 = phi i32 [ %32, %.lr.ph ], [ %.093141, %.lr.ph.preheader ]
+  %.295111252 = phi i32 [ %32, %.lr.ph ], [ %.093141, %.lr.ph.preheader ]
   %indvars.iv251 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %32 = add nuw nsw i32 %.194111252, 1
+  %32 = add nuw nsw i32 %.295111252, 1
   %33 = load ptr, ptr %21, align 8
   %34 = getelementptr inbounds i16, ptr %33, i64 %indvars.iv251
   %35 = load i16, ptr %34, align 2
@@ -2078,7 +2078,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph253, %.lr.ph.preheader, %.lr.ph143
   %.pre204 = phi i32 [ %.pre, %.lr.ph143 ], [ %.pre, %.lr.ph.preheader ], [ %37, %.lr.ph253 ], [ %37, %.lr.ph ]
-  %.295 = phi i32 [ %.093141, %.lr.ph143 ], [ %.093141, %.lr.ph.preheader ], [ %32, %.lr.ph253 ], [ %32, %.lr.ph ]
+  %.194 = phi i32 [ %.093141, %.lr.ph143 ], [ %.093141, %.lr.ph.preheader ], [ %32, %.lr.ph253 ], [ %32, %.lr.ph ]
   %.not167 = icmp eq i32 %.pre204, 0
   br i1 %.not167, label %.critedge2, label %.lr.ph130
 
@@ -2092,7 +2092,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %41 = phi i32 [ %47, %.critedge4.us ], [ %.pre204, %.lr.ph130 ]
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.critedge4.us ], [ 0, %.lr.ph130 ]
   %.0129.us = phi i1 [ %.1.lcssa.us, %.critedge4.us ], [ false, %.lr.ph130 ]
-  %.396127.us = phi i32 [ %.4.lcssa.us, %.critedge4.us ], [ %.295, %.lr.ph130 ]
+  %.396127.us = phi i32 [ %.4.lcssa.us, %.critedge4.us ], [ %.194, %.lr.ph130 ]
   %42 = load i32, ptr %24, align 8
   %43 = icmp ult i32 %.396127.us, %42
   br i1 %43, label %44, label %.critedge2
@@ -2154,7 +2154,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %69 = phi i32 [ %98, %.critedge4 ], [ %.pre204, %.lr.ph130 ]
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %.critedge4 ], [ 0, %.lr.ph130 ]
   %.0129 = phi i1 [ %.1.lcssa, %.critedge4 ], [ false, %.lr.ph130 ]
-  %.396127 = phi i32 [ %.4.lcssa, %.critedge4 ], [ %.295, %.lr.ph130 ]
+  %.396127 = phi i32 [ %.4.lcssa, %.critedge4 ], [ %.194, %.lr.ph130 ]
   %70 = load i32, ptr %24, align 8
   %71 = icmp ult i32 %.396127, %70
   br i1 %71, label %72, label %.critedge2
@@ -2226,7 +2226,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
 .critedge2:                                       ; preds = %.lr.ph130.split, %.critedge4, %.lr.ph130.split.us, %.critedge4.us, %.preheader108, %.critedge
   %.pre203 = phi i32 [ 0, %.critedge ], [ 0, %.preheader108 ], [ %.pre201, %.critedge4.us ], [ %.pre202, %.lr.ph130.split.us ], [ %.pre198, %.critedge4 ], [ %.pre199, %.lr.ph130.split ]
   %101 = phi i32 [ 0, %.critedge ], [ 0, %.preheader108 ], [ %47, %.critedge4.us ], [ %41, %.lr.ph130.split.us ], [ %98, %.critedge4 ], [ %69, %.lr.ph130.split ]
-  %.396.lcssa = phi i32 [ %.295, %.critedge ], [ %.093141, %.preheader108 ], [ %.4.lcssa.us, %.critedge4.us ], [ %.396127.us, %.lr.ph130.split.us ], [ %.4.lcssa, %.critedge4 ], [ %.396127, %.lr.ph130.split ]
+  %.396.lcssa = phi i32 [ %.194, %.critedge ], [ %.093141, %.preheader108 ], [ %.4.lcssa.us, %.critedge4.us ], [ %.396127.us, %.lr.ph130.split.us ], [ %.4.lcssa, %.critedge4 ], [ %.396127, %.lr.ph130.split ]
   %.0.lcssa = phi i1 [ false, %.critedge ], [ false, %.preheader108 ], [ %.1.lcssa.us, %.critedge4.us ], [ %.0129.us, %.lr.ph130.split.us ], [ %.1.lcssa, %.critedge4 ], [ %.0129, %.lr.ph130.split ]
   %not..0.lcssa = xor i1 %.0.lcssa, true
   %spec.select104 = or i1 %.091.fr, %not..0.lcssa

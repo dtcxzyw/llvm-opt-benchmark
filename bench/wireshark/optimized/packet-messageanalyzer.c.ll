@@ -1195,12 +1195,12 @@ etw_ndis_packet_metadata.exit:                    ; preds = %119, %137
 
 .lr.ph447:                                        ; preds = %151, %.lr.ph447
   %.0446 = phi i32 [ %196, %.lr.ph447 ], [ 1, %151 ]
-  %.0423445 = phi i32 [ %193, %.lr.ph447 ], [ %172, %151 ]
+  %.1424445 = phi i32 [ %193, %.lr.ph447 ], [ %172, %151 ]
   %174 = load i32, ptr @ett_etw_ndis_dest, align 4
-  %175 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %0, i32 noundef %.0423445, i32 noundef 4, i32 noundef %174, ptr noundef nonnull %10, ptr noundef nonnull @.str.381, i32 noundef %.0446) #4
+  %175 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %0, i32 noundef %.1424445, i32 noundef 4, i32 noundef %174, ptr noundef nonnull %10, ptr noundef nonnull @.str.381, i32 noundef %.0446) #4
   %176 = load i32, ptr @hf_etw_ndis_destination_port_id, align 4
-  %177 = call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %176, ptr noundef %0, i32 noundef %.0423445, i32 noundef 4, i32 noundef -2147483648) #4
-  %178 = add i32 %.0423445, 4
+  %177 = call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %176, ptr noundef %0, i32 noundef %.1424445, i32 noundef 4, i32 noundef -2147483648) #4
+  %178 = add i32 %.1424445, 4
   %179 = call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %178) #4
   store i32 %179, ptr %12, align 4
   %180 = load i32, ptr @hf_etw_ndis_destination_port_name, align 4
@@ -1220,7 +1220,7 @@ etw_ndis_packet_metadata.exit:                    ; preds = %119, %137
   %192 = load i32, ptr %12, align 4
   %193 = add i32 %192, %188
   %194 = load ptr, ptr %10, align 8
-  %195 = sub i32 %193, %.0423445
+  %195 = sub i32 %193, %.1424445
   call void @proto_item_set_len(ptr noundef %194, i32 noundef %195) #4
   %196 = add i32 %.0446, 1
   %197 = load i32, ptr %12, align 4
@@ -1228,10 +1228,10 @@ etw_ndis_packet_metadata.exit:                    ; preds = %119, %137
   br i1 %.not427, label %._crit_edge, label %.lr.ph447, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph447, %151
-  %.0423.lcssa = phi i32 [ %172, %151 ], [ %193, %.lr.ph447 ]
+  %.1424.lcssa = phi i32 [ %172, %151 ], [ %193, %.lr.ph447 ]
   %198 = load i32, ptr @hf_etw_ndis_fragment_size, align 4
-  %199 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %21, i32 noundef %198, ptr noundef %0, i32 noundef %.0423.lcssa, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #4
-  %200 = add i32 %.0423.lcssa, 4
+  %199 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %21, i32 noundef %198, ptr noundef %0, i32 noundef %.1424.lcssa, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #4
+  %200 = add i32 %.1424.lcssa, 4
   %201 = load i64, ptr %37, align 8
   %202 = and i64 %201, 1073741824
   %.not428 = icmp eq i64 %202, 0
@@ -1279,10 +1279,10 @@ etw_ndis_packet_metadata.exit:                    ; preds = %119, %137
   br label %227
 
 227:                                              ; preds = %208, %216, %218, %213, %221
-  %.1424 = phi i32 [ %200, %208 ], [ %200, %213 ], [ %200, %218 ], [ %200, %216 ], [ %226, %221 ]
+  %.2 = phi i32 [ %200, %208 ], [ %200, %213 ], [ %200, %218 ], [ %200, %216 ], [ %226, %221 ]
   %228 = load i32, ptr @hf_etw_ndis_oob_data_size, align 4
-  %229 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %21, i32 noundef %228, ptr noundef %0, i32 noundef %.1424, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #4
-  %230 = add i32 %.1424, 4
+  %229 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %21, i32 noundef %228, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #4
+  %230 = add i32 %.2, 4
   %231 = load i32, ptr %12, align 4
   %232 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %230) #4
   %233 = icmp eq i32 %231, %232
@@ -1301,78 +1301,78 @@ etw_ndis_packet_metadata.exit:                    ; preds = %119, %137
 
 242:                                              ; preds = %234
   %243 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %241, ptr noundef %0, i32 noundef %230, i32 noundef 8, i32 noundef -2147483648) #4
-  %244 = add i32 %.1424, 12
+  %244 = add i32 %.2, 12
   %245 = load i32, ptr @hf_etw_ndis_ipsec_offload_v1_net_buffer_list_info, align 4
   %246 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %245, ptr noundef %0, i32 noundef %244, i32 noundef 8, i32 noundef -2147483648) #4
-  %247 = add i32 %.1424, 20
+  %247 = add i32 %.2, 20
   %248 = load i32, ptr @hf_etw_ndis_tcp_large_send_net_buffer_list_info, align 4
   %249 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %248, ptr noundef %0, i32 noundef %247, i32 noundef 8, i32 noundef -2147483648) #4
-  %250 = add i32 %.1424, 28
+  %250 = add i32 %.2, 28
   %251 = load i32, ptr @hf_etw_ndis_classification_handle_net_buffer_list_info, align 4
   %252 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %251, ptr noundef %0, i32 noundef %250, i32 noundef 8, i32 noundef -2147483648) #4
-  %253 = add i32 %.1424, 36
+  %253 = add i32 %.2, 36
   %254 = load i32, ptr @hf_etw_ndis_ieee8021q_net_buffer_list_info, align 4
   %255 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %254, ptr noundef %0, i32 noundef %253, i32 noundef 8, i32 noundef -2147483648) #4
-  %256 = add i32 %.1424, 44
+  %256 = add i32 %.2, 44
   %257 = load i32, ptr @hf_etw_ndis_net_buffer_cancel_id, align 4
   %258 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %257, ptr noundef %0, i32 noundef %256, i32 noundef 8, i32 noundef -2147483648) #4
-  %259 = add i32 %.1424, 52
+  %259 = add i32 %.2, 52
   %260 = load i32, ptr @hf_etw_ndis_media_specific_information, align 4
   %261 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %260, ptr noundef %0, i32 noundef %259, i32 noundef 8, i32 noundef -2147483648) #4
-  %262 = add i32 %.1424, 60
+  %262 = add i32 %.2, 60
   %263 = load i32, ptr @hf_etw_ndis_net_buffer_list_frame_type, align 4
   %264 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %263, ptr noundef %0, i32 noundef %262, i32 noundef 8, i32 noundef -2147483648) #4
-  %265 = add i32 %.1424, 68
+  %265 = add i32 %.2, 68
   %266 = load i32, ptr @hf_etw_ndis_net_buffer_list_hash_value, align 4
   %267 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %266, ptr noundef %0, i32 noundef %265, i32 noundef 8, i32 noundef -2147483648) #4
-  %268 = add i32 %.1424, 76
+  %268 = add i32 %.2, 76
   %269 = load i32, ptr @hf_etw_ndis_net_buffer_list_hash_info, align 4
   %270 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %269, ptr noundef %0, i32 noundef %268, i32 noundef 8, i32 noundef -2147483648) #4
-  %271 = add i32 %.1424, 84
+  %271 = add i32 %.2, 84
   %272 = load i32, ptr @hf_etw_ndis_wpf_net_buffer_list_info, align 4
   %273 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %272, ptr noundef %0, i32 noundef %271, i32 noundef 8, i32 noundef -2147483648) #4
-  %274 = add i32 %.1424, 92
+  %274 = add i32 %.2, 92
   %275 = load i32, ptr @hf_etw_ndis_max_net_buffer_list_info, align 4
   %276 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %275, ptr noundef %0, i32 noundef %274, i32 noundef 8, i32 noundef -2147483648) #4
-  %277 = add i32 %.1424, 100
+  %277 = add i32 %.2, 100
   br label %.loopexit
 
 278:                                              ; preds = %234
   %279 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %241, ptr noundef %0, i32 noundef %230, i32 noundef 4, i32 noundef -2147483648) #4
-  %280 = add i32 %.1424, 8
+  %280 = add i32 %.2, 8
   %281 = load i32, ptr @hf_etw_ndis_ipsec_offload_v1_net_buffer_list_info, align 4
   %282 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %281, ptr noundef %0, i32 noundef %280, i32 noundef 4, i32 noundef -2147483648) #4
-  %283 = add i32 %.1424, 12
+  %283 = add i32 %.2, 12
   %284 = load i32, ptr @hf_etw_ndis_tcp_large_send_net_buffer_list_info, align 4
   %285 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %284, ptr noundef %0, i32 noundef %283, i32 noundef 4, i32 noundef -2147483648) #4
-  %286 = add i32 %.1424, 16
+  %286 = add i32 %.2, 16
   %287 = load i32, ptr @hf_etw_ndis_classification_handle_net_buffer_list_info, align 4
   %288 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %287, ptr noundef %0, i32 noundef %286, i32 noundef 4, i32 noundef -2147483648) #4
-  %289 = add i32 %.1424, 20
+  %289 = add i32 %.2, 20
   %290 = load i32, ptr @hf_etw_ndis_ieee8021q_net_buffer_list_info, align 4
   %291 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %290, ptr noundef %0, i32 noundef %289, i32 noundef 4, i32 noundef -2147483648) #4
-  %292 = add i32 %.1424, 24
+  %292 = add i32 %.2, 24
   %293 = load i32, ptr @hf_etw_ndis_net_buffer_cancel_id, align 4
   %294 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %293, ptr noundef %0, i32 noundef %292, i32 noundef 4, i32 noundef -2147483648) #4
-  %295 = add i32 %.1424, 28
+  %295 = add i32 %.2, 28
   %296 = load i32, ptr @hf_etw_ndis_media_specific_information, align 4
   %297 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %296, ptr noundef %0, i32 noundef %295, i32 noundef 4, i32 noundef -2147483648) #4
-  %298 = add i32 %.1424, 32
+  %298 = add i32 %.2, 32
   %299 = load i32, ptr @hf_etw_ndis_net_buffer_list_frame_type, align 4
   %300 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %299, ptr noundef %0, i32 noundef %298, i32 noundef 4, i32 noundef -2147483648) #4
-  %301 = add i32 %.1424, 36
+  %301 = add i32 %.2, 36
   %302 = load i32, ptr @hf_etw_ndis_net_buffer_list_hash_value, align 4
   %303 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %302, ptr noundef %0, i32 noundef %301, i32 noundef 4, i32 noundef -2147483648) #4
-  %304 = add i32 %.1424, 40
+  %304 = add i32 %.2, 40
   %305 = load i32, ptr @hf_etw_ndis_net_buffer_list_hash_info, align 4
   %306 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %305, ptr noundef %0, i32 noundef %304, i32 noundef 4, i32 noundef -2147483648) #4
-  %307 = add i32 %.1424, 44
+  %307 = add i32 %.2, 44
   %308 = load i32, ptr @hf_etw_ndis_wpf_net_buffer_list_info, align 4
   %309 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %308, ptr noundef %0, i32 noundef %307, i32 noundef 4, i32 noundef -2147483648) #4
-  %310 = add i32 %.1424, 48
+  %310 = add i32 %.2, 48
   %311 = load i32, ptr @hf_etw_ndis_max_net_buffer_list_info, align 4
   %312 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %311, ptr noundef %0, i32 noundef %310, i32 noundef 4, i32 noundef -2147483648) #4
-  %313 = add i32 %.1424, 52
+  %313 = add i32 %.2, 52
   br label %.loopexit
 
 314:                                              ; preds = %227
@@ -1492,12 +1492,12 @@ etw_ndis_packet_metadata.exit:                    ; preds = %119, %137
 
 .lr.ph:                                           ; preds = %393, %.lr.ph
   %.1443 = phi i32 [ %419, %.lr.ph ], [ 1, %393 ]
-  %.2442 = phi i32 [ %416, %.lr.ph ], [ %405, %393 ]
+  %.3442 = phi i32 [ %416, %.lr.ph ], [ %405, %393 ]
   %407 = load i32, ptr @ett_etw_ndis_layer, align 4
-  %408 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %0, i32 noundef %.2442, i32 noundef 4, i32 noundef %407, ptr noundef nonnull %11, ptr noundef nonnull @.str.383, i32 noundef %.1443) #4
+  %408 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %0, i32 noundef %.3442, i32 noundef 4, i32 noundef %407, ptr noundef nonnull %11, ptr noundef nonnull @.str.383, i32 noundef %.1443) #4
   %409 = load i32, ptr @hf_etw_ndis_layer_id, align 4
-  %410 = call ptr @proto_tree_add_item(ptr noundef %408, i32 noundef %409, ptr noundef %0, i32 noundef %.2442, i32 noundef 4, i32 noundef -2147483648) #4
-  %411 = add i32 %.2442, 4
+  %410 = call ptr @proto_tree_add_item(ptr noundef %408, i32 noundef %409, ptr noundef %0, i32 noundef %.3442, i32 noundef 4, i32 noundef -2147483648) #4
+  %411 = add i32 %.3442, 4
   %412 = call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %411) #4
   store i32 %412, ptr %12, align 4
   %413 = load i32, ptr @hf_etw_ndis_layer_name, align 4
@@ -1505,7 +1505,7 @@ etw_ndis_packet_metadata.exit:                    ; preds = %119, %137
   %415 = load i32, ptr %12, align 4
   %416 = add i32 %415, %411
   %417 = load ptr, ptr %11, align 8
-  %418 = sub i32 %416, %.2442
+  %418 = sub i32 %416, %.3442
   call void @proto_item_set_len(ptr noundef %417, i32 noundef %418) #4
   %419 = add i32 %.1443, 1
   %420 = load i32, ptr %12, align 4
@@ -1513,9 +1513,9 @@ etw_ndis_packet_metadata.exit:                    ; preds = %119, %137
   br i1 %.not426, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %393, %314, %278, %242, %76, %68, %73, %71, %63, %376, %367, %360, %348, %339, %323, %320, %148, %proto_item_set_generated.exit439
-  %.3 = phi i32 [ 0, %proto_item_set_generated.exit439 ], [ %392, %376 ], [ 10, %367 ], [ 12, %360 ], [ %359, %348 ], [ 16, %339 ], [ %338, %323 ], [ 4, %320 ], [ %277, %242 ], [ %313, %278 ], [ %319, %314 ], [ %150, %148 ], [ 12, %63 ], [ 12, %68 ], [ 12, %73 ], [ 12, %71 ], [ %81, %76 ], [ %405, %393 ], [ %416, %.lr.ph ]
-  call void @proto_item_set_len(ptr noundef %19, i32 noundef %.3) #4
-  ret i32 %.3
+  %.0423 = phi i32 [ 0, %proto_item_set_generated.exit439 ], [ %392, %376 ], [ 10, %367 ], [ 12, %360 ], [ %359, %348 ], [ 16, %339 ], [ %338, %323 ], [ 4, %320 ], [ %277, %242 ], [ %313, %278 ], [ %319, %314 ], [ %150, %148 ], [ 12, %63 ], [ 12, %68 ], [ 12, %73 ], [ 12, %71 ], [ %81, %76 ], [ %405, %393 ], [ %416, %.lr.ph ]
+  call void @proto_item_set_len(ptr noundef %19, i32 noundef %.0423) #4
+  ret i32 %.0423
 }
 
 declare ptr @find_dissector_table(ptr noundef) local_unnamed_addr #1

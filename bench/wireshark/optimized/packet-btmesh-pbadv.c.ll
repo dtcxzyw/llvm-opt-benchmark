@@ -334,20 +334,20 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   br label %110
 
 110:                                              ; preds = %93, %104, %101, %98
-  %.0144 = phi i32 [ %108, %104 ], [ 7, %101 ], [ 6, %93 ], [ 22, %98 ]
-  %111 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0144) #4
+  %.1 = phi i32 [ %108, %104 ], [ 7, %101 ], [ 6, %93 ], [ 22, %98 ]
+  %111 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #4
   %.not = icmp eq i32 %111, 0
   br i1 %.not, label %.thread, label %112
 
 112:                                              ; preds = %110
-  %113 = call ptr @proto_tree_add_expert(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_gpcf_unknown_payload, ptr noundef %0, i32 noundef %.0144, i32 noundef -1) #4
+  %113 = call ptr @proto_tree_add_expert(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_gpcf_unknown_payload, ptr noundef %0, i32 noundef %.1, i32 noundef -1) #4
   br label %.thread
 
 default.unreachable160:                           ; preds = %4
   unreachable
 
 114:                                              ; preds = %85, %90, %52, %43, %64, %67, %68
-  %.1 = phi i32 [ 6, %90 ], [ 6, %85 ], [ 9, %43 ], [ 9, %52 ], [ 9, %68 ], [ 9, %64 ], [ 9, %67 ]
+  %.0144 = phi i32 [ 6, %90 ], [ 6, %85 ], [ 9, %43 ], [ 9, %52 ], [ 9, %68 ], [ 9, %64 ], [ 9, %67 ]
   %.0143 = phi i32 [ %79, %90 ], [ %79, %85 ], [ 0, %43 ], [ 0, %52 ], [ 0, %68 ], [ 0, %64 ], [ 0, %67 ]
   %115 = getelementptr inbounds i8, ptr %1, i64 80
   %116 = load ptr, ptr %115, align 8
@@ -370,7 +370,7 @@ default.unreachable160:                           ; preds = %4
   br i1 %.not153, label %.thread, label %126
 
 126:                                              ; preds = %122
-  %127 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %1, ptr noundef nonnull @.str.74, ptr noundef nonnull %121, ptr noundef nonnull @btmesh_gpp_frag_items, ptr noundef null, ptr noundef %22) #4
+  %127 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.0144, ptr noundef nonnull %1, ptr noundef nonnull @.str.74, ptr noundef nonnull %121, ptr noundef nonnull @btmesh_gpp_frag_items, ptr noundef null, ptr noundef %22) #4
   %.not154 = icmp eq ptr %127, null
   %128 = load ptr, ptr %8, align 8
   br i1 %.not154, label %139, label %129

@@ -434,9 +434,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -758,7 +758,7 @@ delete.notnull.i:                                 ; preds = %cleanup
   br label %_ZN6icu_7512LocalPointerINS_18DateIntervalFormatEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_18DateIntervalFormatEED2Ev.exit: ; preds = %if.end22, %if.end37, %cleanup, %delete.notnull.i
-  %retval.033 = phi ptr [ null, %cleanup ], [ null, %delete.notnull.i ], [ %call15, %if.end37 ], [ %call15, %if.end22 ]
+  %retval.133 = phi ptr [ null, %cleanup ], [ null, %delete.notnull.i ], [ %call15, %if.end37 ], [ %call15, %if.end22 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skel) #10
   br label %return
 
@@ -783,8 +783,8 @@ ehcleanup46:                                      ; preds = %delete.notnull.i23,
   br label %eh.resume
 
 return:                                           ; preds = %entry, %_ZN6icu_7512LocalPointerINS_18DateIntervalFormatEED2Ev.exit, %if.then8
-  %retval.1 = phi ptr [ null, %if.then8 ], [ %retval.033, %_ZN6icu_7512LocalPointerINS_18DateIntervalFormatEED2Ev.exit ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then8 ], [ %retval.133, %_ZN6icu_7512LocalPointerINS_18DateIntervalFormatEED2Ev.exit ], [ null, %entry ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup46, %lpad
   %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %ehcleanup46 ], [ %3, %lpad ]
@@ -933,7 +933,7 @@ lpad32:                                           ; preds = %if.end30
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont17, %invoke.cont33
-  %retval.0 = phi i32 [ %call34, %invoke.cont33 ], [ -1, %invoke.cont17 ]
+  %retval.1 = phi i32 [ %call34, %invoke.cont33 ], [ -1, %invoke.cont17 ]
   call void @_ZN6icu_7512DateIntervalD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %interval) #10
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #10
@@ -955,8 +955,8 @@ ehcleanup38:                                      ; preds = %ehcleanup36, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then3
-  %retval.1 = phi i32 [ 0, %if.then3 ], [ %retval.0, %cleanup ], [ -1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ %retval.1, %cleanup ], [ -1, %entry ]
+  ret i32 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5

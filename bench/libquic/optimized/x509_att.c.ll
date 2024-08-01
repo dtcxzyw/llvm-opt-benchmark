@@ -172,13 +172,13 @@ if.end19.thread:                                  ; preds = %if.then2
   br label %return
 
 if.end6:                                          ; preds = %if.end, %if.then2
-  %sk.0 = phi ptr [ %call, %if.then2 ], [ %0, %if.end ]
+  %sk.2 = phi ptr [ %call, %if.then2 ], [ %0, %if.end ]
   %call7 = tail call ptr @X509_ATTRIBUTE_dup(ptr noundef %attr) #4
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then21, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
-  %call11 = tail call i64 @sk_push(ptr noundef nonnull %sk.0, ptr noundef nonnull %call7) #4
+  %call11 = tail call i64 @sk_push(ptr noundef nonnull %sk.2, ptr noundef nonnull %call7) #4
   %tobool.not = icmp eq i64 %call11, 0
   br i1 %tobool.not, label %if.end19.thread21, label %if.end13
 
@@ -188,7 +188,7 @@ if.end13:                                         ; preds = %if.end10
   br i1 %cmp14, label %if.then15, label %return
 
 if.then15:                                        ; preds = %if.end13
-  store ptr %sk.0, ptr %x, align 8
+  store ptr %sk.2, ptr %x, align 8
   br label %return
 
 if.end19.thread21:                                ; preds = %if.end10
@@ -197,11 +197,11 @@ if.end19.thread21:                                ; preds = %if.end10
   br label %if.then21
 
 if.then21:                                        ; preds = %if.end6, %if.end19.thread21
-  tail call void @sk_free(ptr noundef nonnull %sk.0) #4
+  tail call void @sk_free(ptr noundef nonnull %sk.2) #4
   br label %return
 
 return:                                           ; preds = %if.end19.thread25, %if.end19.thread, %if.then21, %if.end13, %if.then15
-  %retval.0 = phi ptr [ %sk.0, %if.then15 ], [ %sk.0, %if.end13 ], [ null, %if.then21 ], [ null, %if.end19.thread ], [ null, %if.end19.thread25 ]
+  %retval.0 = phi ptr [ %sk.2, %if.then15 ], [ %sk.2, %if.end13 ], [ null, %if.then21 ], [ null, %if.end19.thread ], [ null, %if.end19.thread25 ]
   ret ptr %retval.0
 }
 

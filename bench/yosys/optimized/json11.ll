@@ -5868,7 +5868,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser4failIPKcEET_ONSt7__cxx1112basic_stringIcSt1
   br label %194
 
 164:                                              ; preds = %159, %163
-  %.1 = phi i64 [ -1, %159 ], [ %154, %163 ]
+  %.2 = phi i64 [ -1, %159 ], [ %154, %163 ]
   %165 = load i64, ptr %22, align 8
   %166 = add i64 %165, 4
   store i64 %166, ptr %22, align 8
@@ -5948,7 +5948,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser4failIPKcEET_ONSt7__cxx1112basic_stringIcSt1
   br label %195
 
 .backedge:                                        ; preds = %.invoke, %164
-  %.0.be = phi i64 [ %.1, %164 ], [ -1, %.invoke ]
+  %.0.be = phi i64 [ %.2, %164 ], [ -1, %.invoke ]
   %190 = load i64, ptr %22, align 8
   %191 = load ptr, ptr %1, align 8
   %192 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %191) #20

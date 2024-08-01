@@ -241,8 +241,8 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr nocapture noundef rea
 13:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %14 = phi ptr [ %9, %.lr.ph ], [ %68, %67 ]
-  %.045 = phi i32 [ 0, %.lr.ph ], [ %.2, %67 ]
-  %.02844 = phi i32 [ 0, %.lr.ph ], [ %.230, %67 ]
+  %.045 = phi i32 [ 0, %.lr.ph ], [ %.1, %67 ]
+  %.02844 = phi i32 [ 0, %.lr.ph ], [ %.129, %67 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val37.val = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds ptr, ptr %.val37.val, i64 %indvars.iv
@@ -321,14 +321,14 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr nocapture noundef rea
   br label %65
 
 65:                                               ; preds = %62, %59
-  %.129 = phi i32 [ %.02844, %59 ], [ %64, %62 ]
-  %.1 = phi i32 [ %61, %59 ], [ %.045, %62 ]
+  %.230 = phi i32 [ %.02844, %59 ], [ %64, %62 ]
+  %.2 = phi i32 [ %61, %59 ], [ %.045, %62 ]
   %66 = call i32 @stmm_delete(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %4) #4
   br label %67
 
 67:                                               ; preds = %65, %19, %13, %27, %22
-  %.230 = phi i32 [ %.02844, %13 ], [ %.02844, %22 ], [ %.129, %65 ], [ %.02844, %27 ], [ %.02844, %19 ]
-  %.2 = phi i32 [ %.045, %13 ], [ %.045, %22 ], [ %.1, %65 ], [ %.045, %27 ], [ %.045, %19 ]
+  %.129 = phi i32 [ %.02844, %13 ], [ %.02844, %22 ], [ %.230, %65 ], [ %.02844, %27 ], [ %.02844, %19 ]
+  %.1 = phi i32 [ %.045, %13 ], [ %.045, %22 ], [ %.2, %65 ], [ %.045, %27 ], [ %.045, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = load ptr, ptr %8, align 8
   %69 = getelementptr i8, ptr %68, i64 4
@@ -338,8 +338,8 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr nocapture noundef rea
   br i1 %71, label %13, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %67, %3
-  %.028.lcssa = phi i32 [ 0, %3 ], [ %.230, %67 ]
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %.2, %67 ]
+  %.028.lcssa = phi i32 [ 0, %3 ], [ %.129, %67 ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %67 ]
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %76, label %72
 

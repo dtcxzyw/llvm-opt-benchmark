@@ -880,14 +880,14 @@ rcu_read_auto_lock.exit.i.i:                      ; preds = %while.end.i.i.i.i, 
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %rcu_read_auto_lock.exit.i.i
-  %timeout.0 = phi i64 [ %cond11, %rcu_read_auto_lock.exit.i.i ], [ %timeout.3, %land.rhs.i.i ]
+  %timeout.2 = phi i64 [ %cond11, %rcu_read_auto_lock.exit.i.i ], [ %timeout.5, %land.rhs.i.i ]
   %max_ns.addr.0.i.i = phi i64 [ %cond.i.i, %rcu_read_auto_lock.exit.i.i ], [ %cond.i.i.i, %land.rhs.i.i ]
   %17 = load ptr, ptr %poll_aio_handlers.i, align 8
   %tobool.not8.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not8.i.i.i, label %run_poll_handlers_once.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %do.body.i.i, %for.inc.i.i.i
-  %timeout.1 = phi i64 [ %timeout.2, %for.inc.i.i.i ], [ %timeout.0, %do.body.i.i ]
+  %timeout.3 = phi i64 [ %timeout.4, %for.inc.i.i.i ], [ %timeout.2, %do.body.i.i ]
   %progress.010.i.i.i = phi i1 [ %progress.1.i.i.i, %for.inc.i.i.i ], [ false, %do.body.i.i ]
   %node.09.i.i.i = phi ptr [ %18, %for.inc.i.i.i ], [ %17, %do.body.i.i ]
   %node_poll.i.i.i = getelementptr inbounds i8, ptr %node.09.i.i.i, i64 112
@@ -948,17 +948,17 @@ aio_add_poll_ready_handler.exit.i.i.i:            ; preds = %if.then23.i.i.i.i, 
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %aio_add_poll_ready_handler.exit.i.i.i, %land.rhs.i.i.i
-  %timeout.2 = phi i64 [ 0, %aio_add_poll_ready_handler.exit.i.i.i ], [ %timeout.1, %land.rhs.i.i.i ]
+  %timeout.4 = phi i64 [ 0, %aio_add_poll_ready_handler.exit.i.i.i ], [ %timeout.3, %land.rhs.i.i.i ]
   %progress.1.i.i.i = phi i1 [ %spec.select.i.i.i, %aio_add_poll_ready_handler.exit.i.i.i ], [ %progress.010.i.i.i, %land.rhs.i.i.i ]
   %tobool.not.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i, label %run_poll_handlers_once.exit.i.i, label %land.rhs.i.i.i, !llvm.loop !17
 
 run_poll_handlers_once.exit.i.i:                  ; preds = %for.inc.i.i.i, %do.body.i.i
-  %timeout.3 = phi i64 [ %timeout.0, %do.body.i.i ], [ %timeout.2, %for.inc.i.i.i ]
+  %timeout.5 = phi i64 [ %timeout.2, %do.body.i.i ], [ %timeout.4, %for.inc.i.i.i ]
   %progress.0.lcssa.i.i.i = phi i1 [ false, %do.body.i.i ], [ %progress.1.i.i.i, %for.inc.i.i.i ]
   %call4.i.i = call i64 @qemu_clock_get_ns(i32 noundef 0) #10
   %sub.i.i = sub i64 %call4.i.i, %call2.i.i
-  %cond.i.i.i = call noundef i64 @llvm.umin.i64(i64 %timeout.3, i64 %max_ns.addr.0.i.i)
+  %cond.i.i.i = call noundef i64 @llvm.umin.i64(i64 %timeout.5, i64 %max_ns.addr.0.i.i)
   %tobool.not.i.i = icmp ne i64 %cond.i.i.i, 0
   %brmerge.not.i.i = select i1 %tobool.not.i.i, i1 %progress.0.lcssa.i.i.i, i1 false
   br i1 %brmerge.not.i.i, label %if.else8.i.i, label %do.cond.i.i
@@ -1150,18 +1150,18 @@ remove_idle_poll_handlers.exit.i.i:               ; preds = %for.inc.i34.i.i
   br i1 %progress.031.i.ph.i.i, label %if.then16.i.i, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %remove_idle_poll_handlers.exit.i.i, %if.end.i.i.i, %do.end.i.i
-  %cmp15.not.i.i = icmp eq i64 %timeout.3, -1
+  %cmp15.not.i.i = icmp eq i64 %timeout.5, -1
   br i1 %cmp15.not.i.i, label %if.end19.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %for.inc.i34.thread.i.i, %if.end14.i.i, %remove_idle_poll_handlers.exit.i.i
   %progress.073.i.i = phi i1 [ %progress.0.lcssa.i.i.i, %if.end14.i.i ], [ true, %remove_idle_poll_handlers.exit.i.i ], [ true, %for.inc.i34.thread.i.i ]
-  %54 = phi i64 [ %timeout.3, %if.end14.i.i ], [ 0, %remove_idle_poll_handlers.exit.i.i ], [ 0, %for.inc.i34.thread.i.i ]
+  %54 = phi i64 [ %timeout.5, %if.end14.i.i ], [ 0, %remove_idle_poll_handlers.exit.i.i ], [ 0, %for.inc.i34.thread.i.i ]
   %cond.i11.i = call i64 @llvm.smin.i64(i64 %54, i64 %sub.i.i)
   %sub18.i.i = sub i64 %54, %cond.i11.i
   br label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %if.then16.i.i, %if.end14.i.i
-  %timeout.4 = phi i64 [ -1, %if.end14.i.i ], [ %sub18.i.i, %if.then16.i.i ]
+  %timeout.6 = phi i64 [ -1, %if.end14.i.i ], [ %sub18.i.i, %if.then16.i.i ]
   %progress.074.i.i = phi i1 [ %progress.0.lcssa.i.i.i, %if.end14.i.i ], [ %progress.073.i.i, %if.then16.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i55.i.i)
   %55 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1189,12 +1189,12 @@ if.then8.i.i65.i.i:                               ; preds = %if.then.i.i62.i.i
   %tv_usec.i.i68.i.i = getelementptr inbounds i8, ptr %_now.i.i55.i.i, i64 8
   %60 = load i64, ptr %tv_usec.i.i68.i.i, align 8
   %conv12.i.i.i.i = zext i1 %progress.074.i.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i67.i.i, i64 noundef %59, i64 noundef %60, ptr noundef %ctx, i32 noundef %conv12.i.i.i.i, i64 noundef %timeout.4) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i67.i.i, i64 noundef %59, i64 noundef %60, ptr noundef %ctx, i32 noundef %conv12.i.i.i.i, i64 noundef %timeout.6) #10
   br label %if.then.i.i69.i.i
 
 if.else.i.i64.i.i:                                ; preds = %if.then.i.i62.i.i
   %conv14.i.i.i.i = zext i1 %progress.074.i.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef %ctx, i32 noundef %conv14.i.i.i.i, i64 noundef %timeout.4) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef %ctx, i32 noundef %conv14.i.i.i.i, i64 noundef %timeout.6) #10
   br label %if.then.i.i69.i.i
 
 if.then.i.i69.i.i:                                ; preds = %if.else.i.i64.i.i, %if.then8.i.i65.i.i, %land.lhs.true5.i.i59.i.i, %if.end19.i.i
@@ -1233,12 +1233,12 @@ run_poll_handlers.exit.i:                         ; preds = %while.end21.i.i.i.i
   br i1 %progress.074.i.i, label %try_poll_mode.exit, label %try_poll_mode.exit.thread
 
 try_poll_mode.exit.thread:                        ; preds = %cond.end10, %land.lhs.true.i, %if.end.i62, %run_poll_handlers.exit.i
-  %timeout.6.ph = phi i64 [ %cond11, %land.lhs.true.i ], [ %cond11, %if.end.i62 ], [ %cond11, %cond.end10 ], [ %timeout.4, %run_poll_handlers.exit.i ]
-  %tobool14.not104 = icmp eq i64 %timeout.6.ph, 0
+  %timeout.8.ph = phi i64 [ %cond11, %land.lhs.true.i ], [ %cond11, %if.end.i62 ], [ %cond11, %cond.end10 ], [ %timeout.6, %run_poll_handlers.exit.i ]
+  %tobool14.not104 = icmp eq i64 %timeout.8.ph, 0
   br i1 %tobool14.not104, label %lor.lhs.false, label %while.end
 
 try_poll_mode.exit:                               ; preds = %run_poll_handlers.exit.i
-  %tobool14.not = icmp eq i64 %timeout.4, 0
+  %tobool14.not = icmp eq i64 %timeout.6, 0
   br i1 %tobool14.not, label %lor.lhs.false, label %if.else17
 
 if.else17:                                        ; preds = %try_poll_mode.exit
@@ -1275,7 +1275,7 @@ lor.lhs.false.thread:                             ; preds = %while.end
   br i1 %call45155, label %if.then46, label %while.end60
 
 if.then46:                                        ; preds = %lor.lhs.false.thread, %while.end, %lor.lhs.false
-  %timeout.7124 = phi i64 [ 0, %lor.lhs.false ], [ %timeout.6.ph, %while.end ], [ 0, %lor.lhs.false.thread ]
+  %timeout.0124 = phi i64 [ 0, %lor.lhs.false ], [ %timeout.8.ph, %while.end ], [ 0, %lor.lhs.false.thread ]
   %tobool14.not109111122 = phi i1 [ true, %lor.lhs.false ], [ false, %while.end ], [ false, %lor.lhs.false.thread ]
   %retval.0.i64108113119 = phi i1 [ %retval.0.i64108113120, %lor.lhs.false ], [ false, %while.end ], [ false, %lor.lhs.false.thread ]
   %poll_started.i = getelementptr inbounds i8, ptr %ctx, i64 568
@@ -1374,22 +1374,22 @@ for.inc.i:                                        ; preds = %aio_add_poll_ready_
 
 poll_set_started.exit:                            ; preds = %for.inc.i
   call void @qemu_lockcnt_dec(ptr noundef nonnull %list_lock) #10
-  %spec.select = select i1 %progress.1.i, i64 0, i64 %timeout.7124
+  %spec.select = select i1 %progress.1.i, i64 0, i64 %timeout.0124
   %spec.select131 = or i1 %retval.0.i64108113119, %progress.1.i
   br label %if.end49
 
 if.end49:                                         ; preds = %poll_set_started.exit, %if.then46, %poll_set_started.exit.thread127
-  %timeout.8 = phi i64 [ %timeout.7124, %poll_set_started.exit.thread127 ], [ %timeout.7124, %if.then46 ], [ %spec.select, %poll_set_started.exit ]
-  %progress.0 = phi i1 [ %retval.0.i64108113119, %poll_set_started.exit.thread127 ], [ %retval.0.i64108113119, %if.then46 ], [ %spec.select131, %poll_set_started.exit ]
+  %timeout.1 = phi i64 [ %timeout.0124, %poll_set_started.exit.thread127 ], [ %timeout.0124, %if.then46 ], [ %spec.select, %poll_set_started.exit ]
+  %progress.1 = phi i1 [ %retval.0.i64108113119, %poll_set_started.exit.thread127 ], [ %retval.0.i64108113119, %if.then46 ], [ %spec.select131, %poll_set_started.exit ]
   %fdmon_ops50 = getelementptr inbounds i8, ptr %ctx, i64 576
   %80 = load ptr, ptr %fdmon_ops50, align 8
   %wait = getelementptr inbounds i8, ptr %80, i64 8
   %81 = load ptr, ptr %wait, align 8
-  %call51 = call i32 %81(ptr noundef %ctx, ptr noundef nonnull %ready_list, i64 noundef %timeout.8) #10
+  %call51 = call i32 %81(ptr noundef %ctx, ptr noundef nonnull %ready_list, i64 noundef %timeout.1) #10
   br i1 %tobool14.not109111122, label %if.end72, label %while.end60
 
 while.end60:                                      ; preds = %lor.lhs.false.thread, %if.end49
-  %progress.1129 = phi i1 [ %progress.0, %if.end49 ], [ false, %lor.lhs.false.thread ]
+  %progress.0129 = phi i1 [ %progress.1, %if.end49 ], [ false, %lor.lhs.false.thread ]
   %notify_me61 = getelementptr inbounds i8, ptr %ctx, i64 168
   %82 = load atomic i32, ptr %notify_me61 monotonic, align 8
   %sub = add i32 %82, -2
@@ -1397,7 +1397,7 @@ while.end60:                                      ; preds = %lor.lhs.false.threa
   br label %if.end72
 
 if.end72:                                         ; preds = %lor.lhs.false, %if.end49, %while.end60
-  %progress.1130 = phi i1 [ %progress.0, %if.end49 ], [ %progress.1129, %while.end60 ], [ %retval.0.i64108113120, %lor.lhs.false ]
+  %progress.0130 = phi i1 [ %progress.1, %if.end49 ], [ %progress.0129, %while.end60 ], [ %retval.0.i64108113120, %lor.lhs.false ]
   call void @aio_notify_accept(ptr noundef nonnull %ctx) #10
   %83 = load i64, ptr %poll_max_ns, align 8
   %tobool74.not = icmp eq i64 %83, 0
@@ -1555,7 +1555,7 @@ if.end.i88:                                       ; preds = %if.then.i, %do.body
 
 aio_dispatch_ready_handlers.exit:                 ; preds = %if.end.i88, %if.end124
   %progress.0.lcssa.i91 = phi i1 [ false, %if.end124 ], [ %104, %if.end.i88 ]
-  %conv = zext i1 %progress.1130 to i32
+  %conv = zext i1 %progress.0130 to i32
   %or = or i32 %call125, %conv
   %tobool127 = icmp ne i32 %or, 0
   %or13358 = or i1 %tobool127, %progress.0.lcssa.i91

@@ -479,8 +479,8 @@ terminate.lpad.i.i17:                             ; preds = %if.then.i.i16
   unreachable
 
 return:                                           ; preds = %if.then.i.i16, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ %cmp1424, %if.then.i.i16 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ %cmp1424, %if.then.i.i16 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

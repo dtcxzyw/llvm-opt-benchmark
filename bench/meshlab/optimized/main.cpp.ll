@@ -743,8 +743,8 @@ _ZN7QStringD2Ev.exit92:                           ; preds = %_ZN7QStringD2Ev.exi
 
 118:                                              ; preds = %117, %61
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %117 ], [ %62, %61 ]
-  %.3 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
-  %.340 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
+  %.034 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
+  %.037 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   br label %374
 
@@ -922,14 +922,14 @@ _ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit: ; preds = %141
 
 176:                                              ; preds = %174, %172
   %.pn60 = phi { ptr, i32 } [ %175, %174 ], [ %173, %172 ]
-  %.4 = extractvalue { ptr, i32 } %.pn60, 0
-  %.441 = extractvalue { ptr, i32 } %.pn60, 1
+  %.8 = extractvalue { ptr, i32 } %.pn60, 0
+  %.845 = extractvalue { ptr, i32 } %.pn60, 1
   %177 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #20
-  %178 = icmp eq i32 %.441, %177
+  %178 = icmp eq i32 %.845, %177
   br i1 %178, label %179, label %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181
 
 179:                                              ; preds = %176
-  %180 = call ptr @__cxa_begin_catch(ptr %.4) #20
+  %180 = call ptr @__cxa_begin_catch(ptr %.8) #20
   invoke void @_Z19handleCriticalErrorRK11MLException(ptr noundef nonnull align 8 dereferenceable(24) %180)
           to label %181 unwind label %182
 
@@ -1534,7 +1534,7 @@ _ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i171: ; preds = %_ZNSt6vectorI7
   br label %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit172
 
 _ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit172: ; preds = %181, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i171
-  %.1218 = phi i32 [ %357, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i171 ], [ -1, %181 ]
+  %.2218 = phi i32 [ %357, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i171 ], [ -1, %181 ]
   call void @_ZN9QGLFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #20
   %361 = load ptr, ptr %13, align 8
   %362 = load atomic i32, ptr %361 monotonic, align 4
@@ -1575,8 +1575,8 @@ _ZN7QStringD2Ev.exit178:                          ; preds = %_ZNSt10unique_ptrI1
 
 _ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180: ; preds = %270, %356, %.thread239
   %lpad.thr_comm.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread239 ], [ %271, %270 ], [ %.pn67.pn, %356 ]
-  %.1148236 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 1
-  %.11237 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 0
+  %.946236 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 1
+  %.9237 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 0
   %368 = load ptr, ptr %140, align 8
   %369 = getelementptr inbounds i8, ptr %368, i64 32
   %370 = load ptr, ptr %369, align 8
@@ -1584,32 +1584,32 @@ _ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180: ; preds = %270, %356, %.t
   br label %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181
 
 _ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181: ; preds = %176, %182, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180, %365, %168
-  %.1249 = phi i32 [ %171, %168 ], [ %367, %365 ], [ %.1148236, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180 ], [ %.441, %176 ], [ %185, %182 ]
-  %.12 = phi ptr [ %170, %168 ], [ %366, %365 ], [ %.11237, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180 ], [ %.4, %176 ], [ %184, %182 ]
+  %.744 = phi i32 [ %171, %168 ], [ %367, %365 ], [ %.946236, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180 ], [ %.845, %176 ], [ %185, %182 ]
+  %.7 = phi ptr [ %170, %168 ], [ %366, %365 ], [ %.9237, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180 ], [ %.8, %176 ], [ %184, %182 ]
   call void @_ZN9QGLFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #20
   br label %371
 
 371:                                              ; preds = %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181, %164, %160
-  %.1350 = phi i32 [ %.1249, %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181 ], [ %163, %160 ], [ %167, %164 ]
-  %.13 = phi ptr [ %.12, %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181 ], [ %162, %160 ], [ %166, %164 ]
+  %.643 = phi i32 [ %.744, %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181 ], [ %163, %160 ], [ %167, %164 ]
+  %.6 = phi ptr [ %.7, %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181 ], [ %162, %160 ], [ %166, %164 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #20
   br label %372
 
 372:                                              ; preds = %371, %156, %152, %148
-  %.1451 = phi i32 [ %.1350, %371 ], [ %151, %148 ], [ %159, %156 ], [ %155, %152 ]
-  %.14 = phi ptr [ %.13, %371 ], [ %150, %148 ], [ %158, %156 ], [ %154, %152 ]
+  %.542 = phi i32 [ %.643, %371 ], [ %151, %148 ], [ %159, %156 ], [ %155, %152 ]
+  %.5 = phi ptr [ %.6, %371 ], [ %150, %148 ], [ %158, %156 ], [ %154, %152 ]
   call void @_ZN12QApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
   br label %374
 
 373:                                              ; preds = %_ZN7QStringD2Ev.exit92, %_ZN7QStringD2Ev.exit178
-  %.2 = phi i32 [ 0, %_ZN7QStringD2Ev.exit92 ], [ %.1218, %_ZN7QStringD2Ev.exit178 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %_ZN7QStringD2Ev.exit92 ], [ %.2218, %_ZN7QStringD2Ev.exit178 ]
+  ret i32 %.1
 
 374:                                              ; preds = %372, %118
-  %.1552 = phi i32 [ %.1451, %372 ], [ %.340, %118 ]
-  %.15 = phi ptr [ %.14, %372 ], [ %.3, %118 ]
-  %375 = insertvalue { ptr, i32 } poison, ptr %.15, 0
-  %376 = insertvalue { ptr, i32 } %375, i32 %.1552, 1
+  %.441 = phi i32 [ %.542, %372 ], [ %.037, %118 ]
+  %.4 = phi ptr [ %.5, %372 ], [ %.034, %118 ]
+  %375 = insertvalue { ptr, i32 } poison, ptr %.4, 0
+  %376 = insertvalue { ptr, i32 } %375, i32 %.441, 1
   resume { ptr, i32 } %376
 
 377:                                              ; preds = %182
@@ -2952,36 +2952,36 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vc
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, %60, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %40, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.418.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.2.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.12.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.8.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
   call void @_ZdlPv(ptr noundef nonnull %31) #19
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i, %58, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %32, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.620.i = phi ptr [ %22, %58 ], [ %.418.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.4.i = phi i1 [ false, %58 ], [ %.2.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.1024.i = phi ptr [ %22, %58 ], [ %.12.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.6.i = phi i1 [ false, %58 ], [ %.8.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
   call void @_ZdlPv(ptr noundef nonnull %23) #19
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i, %56, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %24, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.822.i = phi ptr [ %14, %56 ], [ %.620.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.6.i = phi i1 [ false, %56 ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.822.i = phi ptr [ %14, %56 ], [ %.1024.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.4.i = phi i1 [ false, %56 ], [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
   call void @_ZdlPv(ptr noundef nonnull %15) #19
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.1024.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.8.i = phi i1 [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #19
-  %75 = icmp eq ptr %1, %.1024.i
-  %or.cond.i = select i1 %.8.i, i1 true, i1 %75
+  %75 = icmp eq ptr %1, %.620.i
+  %or.cond.i = select i1 %.2.i, i1 true, i1 %75
   br i1 %or.cond.i, label %.body.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i
-  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.1024.i, %.body.i ]
+  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.620.i, %.body.i ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
   %78 = getelementptr inbounds i8, ptr %76, i64 -24
   %79 = load ptr, ptr %78, align 8

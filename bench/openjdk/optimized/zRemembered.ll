@@ -250,7 +250,7 @@ define hidden noundef zeroext i1 @_ZNK11ZRemembered9scan_pageEP5ZPage(ptr nocapt
   br label %25
 
 25:                                               ; preds = %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %.117 = phi i1 [ false, %.lr.ph.i.i.i.i.i ], [ %93, %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i" ]
+  %.2 = phi i1 [ false, %.lr.ph.i.i.i.i.i ], [ %93, %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i" ]
   %.0 = phi i32 [ 0, %.lr.ph.i.i.i.i.i ], [ %94, %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i" ]
   %.0916.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %95, %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i" ]
   %26 = lshr i64 %.0916.i.i.i.i.i, 6
@@ -284,9 +284,9 @@ define hidden noundef zeroext i1 @_ZNK11ZRemembered9scan_pageEP5ZPage(ptr nocapt
   br label %42
 
 42:                                               ; preds = %40, %33
-  %.1.ph.i.i.i.i.i.i.i = phi i64 [ %31, %33 ], [ %39, %40 ]
+  %.027.ph.i.i.i.i.i.i.i = phi i64 [ %31, %33 ], [ %39, %40 ]
   %.026.ph.i.i.i.i.i.i.i = phi i64 [ %.0916.i.i.i.i.i, %33 ], [ %41, %40 ]
-  %43 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i.i.i, i1 true)
+  %43 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i.i.i, i1 true)
   %44 = add i64 %.026.ph.i.i.i.i.i.i.i, %43
   %45 = icmp ult i64 %44, %21
   br i1 %45, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i, label %"_ZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS_E3$_0EEvT_.exit"
@@ -358,14 +358,14 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
 
 "_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i": ; preds = %90, %88, %54, %46
   %.0.i.i.i.i.i.i.i.i.i.i = phi i1 [ false, %54 ], [ false, %46 ], [ true, %88 ], [ true, %90 ]
-  %93 = or i1 %.117, %.0.i.i.i.i.i.i.i.i.i.i
+  %93 = or i1 %.2, %.0.i.i.i.i.i.i.i.i.i.i
   %94 = add nuw nsw i32 %.0, 1
   %95 = add i64 %.0.i.i.i.i.i.i.i, 1
   %96 = icmp ult i64 %95, %21
   br i1 %96, label %25, label %"_ZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS_E3$_0EEvT_.exit", !llvm.loop !10
 
 "_ZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS_E3$_0EEvT_.exit": ; preds = %42, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i, %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i", %.preheader.i.i.i.i.i, %.critedge
-  %.2 = phi i1 [ false, %.critedge ], [ %.117, %.preheader.i.i.i.i.i ], [ %.117, %42 ], [ %.117, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i ], [ %93, %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i" ]
+  %.3 = phi i1 [ false, %.critedge ], [ %.2, %.preheader.i.i.i.i.i ], [ %.2, %42 ], [ %.2, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i ], [ %93, %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i" ]
   %.1 = phi i32 [ 0, %.critedge ], [ %.0, %.preheader.i.i.i.i.i ], [ %.0, %42 ], [ %.0, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i ], [ %94, %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i" ]
   %97 = tail call noundef ptr @_ZN5ZPage14remset_currentEv(ptr noundef nonnull align 8 dereferenceable(192) %1) #13
   %98 = ptrtoint ptr %97 to i64
@@ -396,7 +396,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
   br i1 %109, label %.lr.ph.i, label %"_ZN5ZPage26oops_do_remembered_in_liveIZNK11ZRemembered9scan_pageEPS_E3$_1EEvT_.exit"
 
 .lr.ph.i:                                         ; preds = %108, %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i"
-  %.3 = phi i1 [ %153, %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i" ], [ false, %108 ]
+  %.4 = phi i1 [ %153, %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i" ], [ false, %108 ]
   %110 = load i64, ptr %4, align 8
   %111 = inttoptr i64 %110 to ptr
   %112 = call noundef i64 @_ZN8ZBarrier27remset_barrier_on_oop_fieldEPV8zpointer(ptr noundef %111)
@@ -454,12 +454,12 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
 
 "_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i": ; preds = %150, %148, %114, %.lr.ph.i
   %.0.i.i.i10 = phi i1 [ false, %114 ], [ false, %.lr.ph.i ], [ true, %148 ], [ true, %150 ]
-  %153 = or i1 %.3, %.0.i.i.i10
+  %153 = or i1 %.4, %.0.i.i.i10
   %154 = call noundef zeroext i1 @_ZN38ZRememberedSetContainingInLiveIterator4nextEP24ZRememberedSetContaining(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull %4) #13
   br i1 %154, label %.lr.ph.i, label %"_ZN5ZPage26oops_do_remembered_in_liveIZNK11ZRemembered9scan_pageEPS_E3$_1EEvT_.exit", !llvm.loop !12
 
 "_ZN5ZPage26oops_do_remembered_in_liveIZNK11ZRemembered9scan_pageEPS_E3$_1EEvT_.exit": ; preds = %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i", %108
-  %.4 = phi i1 [ false, %108 ], [ %153, %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i" ]
+  %.5 = phi i1 [ false, %108 ], [ %153, %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i" ]
   call void @_ZNK38ZRememberedSetContainingInLiveIterator16print_statisticsEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #13
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -470,8 +470,8 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
   br label %156
 
 156:                                              ; preds = %"_ZN5ZPage26oops_do_remembered_in_liveIZNK11ZRemembered9scan_pageEPS_E3$_1EEvT_.exit", %155, %"_ZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS_E3$_0EEvT_.exit"
-  %.5 = phi i1 [ %.4, %"_ZN5ZPage26oops_do_remembered_in_liveIZNK11ZRemembered9scan_pageEPS_E3$_1EEvT_.exit" ], [ false, %155 ], [ %.2, %"_ZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS_E3$_0EEvT_.exit" ]
-  ret i1 %.5
+  %.117 = phi i1 [ %.5, %"_ZN5ZPage26oops_do_remembered_in_liveIZNK11ZRemembered9scan_pageEPS_E3$_1EEvT_.exit" ], [ false, %155 ], [ %.3, %"_ZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS_E3$_0EEvT_.exit" ]
+  ret i1 %.117
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -554,7 +554,7 @@ _ZL15fill_containingP18GrowableArrayCHeapI24ZRememberedSetContainingL8MEMFLAGS5E
   br label %22
 
 22:                                               ; preds = %143, %.lr.ph.i16
-  %.0 = phi i1 [ false, %.lr.ph.i16 ], [ %.1, %143 ]
+  %.1 = phi i1 [ false, %.lr.ph.i16 ], [ %.2, %143 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i16 ], [ %indvars.iv.next.i, %143 ]
   %.011.i = phi i64 [ 0, %.lr.ph.i16 ], [ %.1.i, %143 ]
   %.01210.i = phi i64 [ 0, %.lr.ph.i16 ], [ %.113.i, %143 ]
@@ -736,17 +736,17 @@ _ZN6ZUtils11object_sizeE8zaddress.exit.i:         ; preds = %89, %69, %62, %59
 
 "_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_0clEPV8zpointer.exit.i": ; preds = %139, %137, %103, %98
   %.0.i.i.i = phi i1 [ false, %103 ], [ false, %98 ], [ true, %137 ], [ true, %139 ]
-  %142 = or i1 %.0, %.0.i.i.i
+  %142 = or i1 %.1, %.0.i.i.i
   br label %143
 
 143:                                              ; preds = %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_0clEPV8zpointer.exit.i", %95
-  %.1 = phi i1 [ %142, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_0clEPV8zpointer.exit.i" ], [ %.0, %95 ]
+  %.2 = phi i1 [ %142, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_0clEPV8zpointer.exit.i" ], [ %.1, %95 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not6.i = icmp eq i64 %indvars.iv.next.i, %21
   br i1 %.not6.i, label %"_ZNK11ZRemembered32oops_do_forwarded_via_containingIZNKS_15scan_forwardingEP11ZForwardingPvE3$_0EEvP17GrowableArrayViewI24ZRememberedSetContainingET_.exit", label %22
 
 "_ZNK11ZRemembered32oops_do_forwarded_via_containingIZNKS_15scan_forwardingEP11ZForwardingPvE3$_0EEvP17GrowableArrayViewI24ZRememberedSetContainingET_.exit": ; preds = %143, %_ZL15fill_containingP18GrowableArrayCHeapI24ZRememberedSetContainingL8MEMFLAGS5EEP5ZPage.exit
-  %.2 = phi i1 [ false, %_ZL15fill_containingP18GrowableArrayCHeapI24ZRememberedSetContainingL8MEMFLAGS5EEP5ZPage.exit ], [ %.1, %143 ]
+  %.3 = phi i1 [ false, %_ZL15fill_containingP18GrowableArrayCHeapI24ZRememberedSetContainingL8MEMFLAGS5EEP5ZPage.exit ], [ %.2, %143 ]
   %144 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #13
   %145 = extractvalue { i64, i64 } %144, 0
   %146 = extractvalue { i64, i64 } %144, 1
@@ -851,7 +851,7 @@ _ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5
   br i1 %197, label %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i, label %.lr.ph.i18
 
 .lr.ph.i18:                                       ; preds = %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i"
-  %.3 = phi i1 [ %247, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ], [ false, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ]
+  %.5 = phi i1 [ %247, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ], [ false, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ]
   %.sroa.0.010.i = phi i64 [ %202, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ], [ 0, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ]
   %202 = add i64 %.sroa.0.010.i, 1
   %203 = getelementptr inbounds ptr, ptr %200, i64 %.sroa.0.010.i
@@ -912,12 +912,12 @@ _ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5
 
 "_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i": ; preds = %244, %242, %207, %.lr.ph.i18
   %.0.i.i.i19 = phi i1 [ false, %207 ], [ false, %.lr.ph.i18 ], [ true, %242 ], [ true, %244 ]
-  %247 = or i1 %.3, %.0.i.i.i19
+  %247 = or i1 %.5, %.0.i.i.i19
   %.not6.i20 = icmp eq i64 %202, %201
   br i1 %.not6.i20, label %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i, label %.lr.ph.i18, !llvm.loop !16
 
 _ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i: ; preds = %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i
-  %.4 = phi i1 [ false, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ], [ %247, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ]
+  %.6 = phi i1 [ false, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ], [ %247, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ]
   store i32 0, ptr %195, align 4
   %248 = getelementptr inbounds i8, ptr %1, i64 148
   %249 = load i32, ptr %248, align 4
@@ -939,7 +939,7 @@ _ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i: ; preds = %"_ZZNK11ZR
   br label %_ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE20clear_and_deallocateEv.exit.i
 
 _ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE20clear_and_deallocateEv.exit.i: ; preds = %252, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i, %178
-  %.5 = phi i1 [ %.4, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i ], [ %.4, %252 ], [ false, %178 ]
+  %.4 = phi i1 [ %.6, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i ], [ %.6, %252 ], [ false, %178 ]
   %253 = getelementptr inbounds i8, ptr %1, i64 160
   %254 = load i32, ptr %253, align 8
   %255 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
@@ -1029,14 +1029,14 @@ _ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EE
 _ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit.sink.split: ; preds = %._crit_edge.i.i.i27, %._crit_edge.i.i.i
   %.sink69 = phi i32 [ %175, %._crit_edge.i.i.i ], [ %292, %._crit_edge.i.i.i27 ]
   %.sink68 = phi ptr [ %165, %._crit_edge.i.i.i ], [ %282, %._crit_edge.i.i.i27 ]
-  %.6.ph = phi i1 [ %.2, %._crit_edge.i.i.i ], [ %.5, %._crit_edge.i.i.i27 ]
+  %.0.ph = phi i1 [ %.3, %._crit_edge.i.i.i ], [ %.4, %._crit_edge.i.i.i27 ]
   %295 = add nsw i32 %.sink69, 1
   store i32 %295, ptr %.sink68, align 8
   br label %_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit
 
 _ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit: ; preds = %294, %177, %_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit.sink.split, %._crit_edge.i.i.i27, %._crit_edge.i.i.i
-  %.6 = phi i1 [ %.2, %._crit_edge.i.i.i ], [ %.5, %._crit_edge.i.i.i27 ], [ %.6.ph, %_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit.sink.split ], [ %.2, %177 ], [ %.5, %294 ]
-  ret i1 %.6
+  %.0 = phi i1 [ %.3, %._crit_edge.i.i.i ], [ %.4, %._crit_edge.i.i.i27 ], [ %.0.ph, %_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit.sink.split ], [ %.3, %177 ], [ %.4, %294 ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZN11ZForwarding11retain_pageEP14ZRelocateQueue(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef) local_unnamed_addr #2
@@ -2002,7 +2002,7 @@ _ZNK11ZRemembered16should_scan_pageEP5ZPage.exit.thread: ; preds = %31, %26, %_Z
   br label %59
 
 59:                                               ; preds = %51, %52, %54, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit
-  %.1 = phi i8 [ %.0, %52 ], [ %58, %54 ], [ %.0, %51 ], [ %.0, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit ]
+  %.2 = phi i8 [ %.0, %52 ], [ %58, %54 ], [ %.0, %51 ], [ %.0, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit ]
   %60 = load ptr, ptr %11, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 72
   %62 = getelementptr inbounds i8, ptr %60, i64 88
@@ -2033,7 +2033,7 @@ _ZNK11ZRemembered16should_scan_pageEP5ZPage.exit.thread: ; preds = %31, %26, %_Z
   br i1 %80, label %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, label %76, !llvm.loop !9
 
 _ZN11ZRemembered18register_found_oldEP5ZPage.exit: ; preds = %78, %76, %25
-  %.2 = phi i8 [ %.0, %25 ], [ %.1, %76 ], [ %.1, %78 ]
+  %.1 = phi i8 [ %.0, %25 ], [ %.2, %76 ], [ %.2, %78 ]
   %81 = load volatile i8, ptr @_ZN20SuspendibleThreadSet12_suspend_allE, align 1
   %82 = trunc i8 %81 to i1
   br i1 %82, label %83, label %_ZN20SuspendibleThreadSet5yieldEv.exit
@@ -2043,7 +2043,7 @@ _ZN11ZRemembered18register_found_oldEP5ZPage.exit: ; preds = %78, %76, %25
   br label %_ZN20SuspendibleThreadSet5yieldEv.exit
 
 _ZN20SuspendibleThreadSet5yieldEv.exit:           ; preds = %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, %83
-  %84 = trunc nuw i8 %.2 to i1
+  %84 = trunc nuw i8 %.1 to i1
   br i1 %84, label %.loopexit, label %12, !llvm.loop !20
 
 85:                                               ; preds = %12
@@ -2155,9 +2155,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20ZRemsetTableIterator4nextEP1
   br label %43
 
 43:                                               ; preds = %41, %30
-  %.1.ph.i.i.i = phi i64 [ %28, %30 ], [ %40, %41 ]
+  %.027.ph.i.i.i = phi i64 [ %28, %30 ], [ %40, %41 ]
   %.026.ph.i.i.i = phi i64 [ %20, %30 ], [ %42, %41 ]
-  %44 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %44 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %45 = add i64 %.026.ph.i.i.i, %44
   %46 = icmp ult i64 %45, %17
   br i1 %46, label %_ZNK6BitMap18find_first_set_bitEm.exit, label %_ZNK6BitMap18find_first_set_bitEm.exit.thread

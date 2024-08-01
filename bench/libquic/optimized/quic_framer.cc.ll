@@ -2871,15 +2871,15 @@ for.cond.preheader:                               ; preds = %if.end62
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.0173 = phi i64 [ %inc, %for.body ], [ 1, %for.cond.preheader ]
-  %ack_iter.sroa.0.0172 = phi ptr [ %call.i.i, %for.body ], [ %add.ptr.i.i.i, %for.cond.preheader ]
-  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %ack_iter.sroa.0.0172) #23
+  %ack_iter.sroa.0.1172 = phi ptr [ %call.i.i, %for.body ], [ %add.ptr.i.i.i, %for.cond.preheader ]
+  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %ack_iter.sroa.0.1172) #23
   %inc = add nuw i64 %i.0173, 1
   %exitcond.not = icmp eq i64 %inc, %sub68
   br i1 %exitcond.not, label %invoke.cont72, label %for.body, !llvm.loop !13
 
 invoke.cont72:                                    ; preds = %for.body, %for.cond.preheader
-  %ack_iter.sroa.0.0.lcssa = phi ptr [ %add.ptr.i.i.i, %for.cond.preheader ], [ %call.i.i, %for.body ]
-  %call.i.i71 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %ack_iter.sroa.0.0.lcssa) #23
+  %ack_iter.sroa.0.1.lcssa = phi ptr [ %add.ptr.i.i.i, %for.cond.preheader ], [ %call.i.i, %for.body ]
+  %call.i.i71 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %ack_iter.sroa.0.1.lcssa) #23
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i71, i64 32
   %15 = load i64, ptr %_M_storage.i.i.i.i, align 8
   %sub74 = add i64 %15, -1
@@ -2892,11 +2892,11 @@ invoke.cont72:                                    ; preds = %for.body, %for.cond
           to label %invoke.cont75 unwind label %lpad.loopexit.split-lp
 
 invoke.cont75:                                    ; preds = %invoke.cont72
-  %call.i.i72 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %ack_iter.sroa.0.0.lcssa) #23
+  %call.i.i72 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %ack_iter.sroa.0.1.lcssa) #23
   br label %if.end79
 
 if.end79:                                         ; preds = %invoke.cont75, %if.end62
-  %ack_iter.sroa.0.1 = phi ptr [ %call.i.i72, %invoke.cont75 ], [ %add.ptr.i.i.i, %if.end62 ]
+  %ack_iter.sroa.0.0 = phi ptr [ %call.i.i72, %invoke.cont75 ], [ %add.ptr.i.i.i, %if.end62 ]
   %ack_largest_observed.0 = phi i64 [ %sub74, %invoke.cont75 ], [ %0, %if.end62 ]
   %ack_entropy_hash.0 = phi i8 [ %call76, %invoke.cont75 ], [ %13, %if.end62 ]
   %call81 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %writer, i8 noundef zeroext %ack_entropy_hash.0)
@@ -3087,7 +3087,7 @@ invoke.cont224:                                   ; preds = %if.end217
 invoke.cont256.preheader:                         ; preds = %invoke.cont224
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %ack_info, i64 32
   %26 = load ptr, ptr %_M_left.i.i.i, align 8, !noalias !14
-  %cmp.i.i.i.not174 = icmp eq ptr %ack_iter.sroa.0.1, %26
+  %cmp.i.i.i.not174 = icmp eq ptr %ack_iter.sroa.0.0, %26
   br i1 %cmp.i.i.i.not174, label %if.end353, label %invoke.cont262.lr.ph
 
 invoke.cont262.lr.ph:                             ; preds = %invoke.cont256.preheader
@@ -3124,7 +3124,7 @@ lpad236:                                          ; preds = %invoke.cont239, %in
 
 invoke.cont262:                                   ; preds = %invoke.cont262.lr.ph, %invoke.cont331
   %last_sequence_written.0176 = phi i64 [ %ack_largest_observed.0, %invoke.cont262.lr.ph ], [ %sub334, %invoke.cont331 ]
-  %ack_iter.sroa.0.2175 = phi ptr [ %ack_iter.sroa.0.1, %invoke.cont262.lr.ph ], [ %call.i.i136, %invoke.cont331 ]
+  %ack_iter.sroa.0.2175 = phi ptr [ %ack_iter.sroa.0.0, %invoke.cont262.lr.ph ], [ %call.i.i136, %invoke.cont331 ]
   %call.i.i93 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %ack_iter.sroa.0.2175) #23
   %_M_storage.i.i.i.i94 = getelementptr inbounds i8, ptr %call.i.i93, i64 32
   %29 = load i64, ptr %_M_storage.i.i.i.i94, align 8
@@ -4201,9 +4201,9 @@ cleanup56.critedge:                               ; preds = %invoke.cont9
   br label %cleanup56
 
 cleanup56:                                        ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %cleanup52, %cleanup56.critedge
-  %retval.2 = phi ptr [ null, %cleanup56.critedge ], [ %call47, %cleanup52 ], [ null, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
+  %retval.1 = phi ptr [ null, %cleanup56.critedge ], [ %call47, %cleanup52 ], [ null, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
   call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %reset) #18
-  ret ptr %retval.2
+  ret ptr %retval.1
 
 ehcleanup57:                                      ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17, %ehcleanup55.thread34, %ehcleanup, %lpad
   %.pn11.pn.pn = phi { ptr, i32 } [ %2, %lpad ], [ %.pn, %ehcleanup ], [ %.pn11.pn32, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17 ], [ %14, %ehcleanup55.thread34 ]
@@ -5411,9 +5411,9 @@ if.end62:                                         ; preds = %invoke.cont47
           to label %cleanup67 unwind label %lpad11
 
 cleanup67:                                        ; preds = %invoke.cont12, %invoke.cont18, %if.end62, %cleanup.done, %invoke.cont47, %invoke.cont5, %invoke.cont
-  %retval.1 = phi i1 [ false, %invoke.cont ], [ false, %invoke.cont5 ], [ false, %invoke.cont12 ], [ true, %invoke.cont18 ], [ true, %if.end62 ], [ false, %cleanup.done ], [ false, %invoke.cont47 ]
+  %retval.0 = phi i1 [ false, %invoke.cont ], [ false, %invoke.cont5 ], [ false, %invoke.cont12 ], [ true, %invoke.cont18 ], [ true, %if.end62 ], [ false, %cleanup.done ], [ false, %invoke.cont47 ]
   call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %header) #18
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup68:                                      ; preds = %lpad11, %lpad31, %lpad
   %.pn.pn = phi { ptr, i32 } [ %0, %lpad ], [ %5, %lpad11 ], [ %12, %lpad31 ]
@@ -5728,8 +5728,8 @@ if.else75:                                        ; preds = %if.then62
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end33, %if.else, %_ZNSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE5resetEPS1_.exit, %if.else75, %if.end60, %if.then
-  %success.1.shrunk = phi i1 [ true, %if.then ], [ true, %_ZNSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE5resetEPS1_.exit ], [ true, %if.else75 ], [ false, %if.end60 ], [ false, %if.else ], [ false, %if.end33 ]
-  ret i1 %success.1.shrunk
+  %success.0.shrunk = phi i1 [ true, %if.then ], [ true, %_ZNSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE5resetEPS1_.exit ], [ true, %if.else75 ], [ false, %if.end60 ], [ false, %if.else ], [ false, %if.end33 ]
+  ret i1 %success.0.shrunk
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6587,8 +6587,8 @@ sw.default:                                       ; preds = %if.end54
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup50, %if.end70, %cleanup93, %cleanup110, %if.end116, %if.end127, %cleanup149, %sw.bb151, %if.end162, %while.cond.backedge, %while.cond.preheader, %cleanup149.thread, %cleanup110.thread, %cleanup93.thread, %cleanup50.thread, %cleanup.thread, %sw.default, %if.then160, %if.then125, %if.then114, %if.then68, %sw.bb, %if.end52, %if.then5, %if.then
-  %retval.6 = phi i1 [ false, %if.then ], [ false, %if.end52 ], [ false, %sw.default ], [ false, %if.then160 ], [ false, %if.then125 ], [ false, %if.then114 ], [ false, %if.then68 ], [ true, %sw.bb ], [ false, %if.then5 ], [ false, %cleanup.thread ], [ false, %cleanup50.thread ], [ false, %cleanup93.thread ], [ false, %cleanup110.thread ], [ false, %cleanup149.thread ], [ true, %while.cond.preheader ], [ true, %while.cond.backedge ], [ true, %if.end162 ], [ true, %sw.bb151 ], [ true, %cleanup149 ], [ true, %if.end127 ], [ true, %if.end116 ], [ true, %cleanup110 ], [ true, %cleanup93 ], [ true, %if.end70 ], [ true, %cleanup50 ], [ true, %cleanup ]
-  ret i1 %retval.6
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.end52 ], [ false, %sw.default ], [ false, %if.then160 ], [ false, %if.then125 ], [ false, %if.then114 ], [ false, %if.then68 ], [ true, %sw.bb ], [ false, %if.then5 ], [ false, %cleanup.thread ], [ false, %cleanup50.thread ], [ false, %cleanup93.thread ], [ false, %cleanup110.thread ], [ false, %cleanup149.thread ], [ true, %while.cond.preheader ], [ true, %while.cond.backedge ], [ true, %if.end162 ], [ true, %sw.bb151 ], [ true, %cleanup149 ], [ true, %if.end127 ], [ true, %if.end116 ], [ true, %cleanup110 ], [ true, %cleanup93 ], [ true, %if.end70 ], [ true, %cleanup50 ], [ true, %cleanup ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad135, %lpad96, %lpad79, %lpad29, %lpad
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad ], [ %lpad.phi148, %lpad29 ], [ %lpad.phi151, %lpad135 ], [ %lpad.phi154, %lpad96 ], [ %lpad.phi157, %lpad79 ]
@@ -8819,8 +8819,8 @@ if.end17:                                         ; preds = %_ZN3net10QuicFramer
   br i1 %cmp20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit25, %if.end17
-  %ack_size.165 = phi i64 [ %add16, %if.end17 ], [ %retval.0.i, %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit25 ]
-  %add22 = add nuw nsw i64 %ack_size.165, 1
+  %ack_size.065 = phi i64 [ %add16, %if.end17 ], [ %retval.0.i, %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit25 ]
+  %add22 = add nuw nsw i64 %ack_size.065, 1
   %received_packet_times.i = getelementptr inbounds i8, ptr %ack, i64 24
   %7 = load ptr, ptr %received_packet_times.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ack, i64 32

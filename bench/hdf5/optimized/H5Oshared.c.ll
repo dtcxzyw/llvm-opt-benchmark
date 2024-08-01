@@ -419,11 +419,11 @@ define noundef ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr nound
   br label %H5O__shared_read.exit.thread
 
 222:                                              ; preds = %215, %208, %188
-  %.044.i = phi ptr [ %167, %188 ], [ null, %208 ], [ null, %215 ]
-  %.042.i = phi ptr [ %192, %188 ], [ %209, %208 ], [ %216, %215 ]
-  %.0.i = phi ptr [ %152, %188 ], [ null, %208 ], [ null, %215 ]
+  %.145.i = phi ptr [ %167, %188 ], [ null, %208 ], [ null, %215 ]
+  %.143.i = phi ptr [ %192, %188 ], [ %209, %208 ], [ %216, %215 ]
+  %.1.i = phi ptr [ %152, %188 ], [ null, %208 ], [ null, %215 ]
   %223 = load i32, ptr %5, align 8
-  %224 = call i32 @H5O_msg_set_share(i32 noundef %223, ptr noundef nonnull %12, ptr noundef nonnull %.042.i) #7
+  %224 = call i32 @H5O_msg_set_share(i32 noundef %223, ptr noundef nonnull %12, ptr noundef nonnull %.143.i) #7
   %225 = icmp slt i32 %224, 0
   br i1 %225, label %226, label %230
 
@@ -434,15 +434,15 @@ define noundef ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr nound
   br label %230
 
 230:                                              ; preds = %226, %222
-  %.143.i = phi ptr [ null, %226 ], [ %.042.i, %222 ]
-  %.not55.i = icmp eq ptr %.0.i, null
+  %.042.i = phi ptr [ null, %226 ], [ %.143.i, %222 ]
+  %.not55.i = icmp eq ptr %.1.i, null
   br i1 %.not55.i, label %237, label %.thread.i
 
 .thread.i:                                        ; preds = %230, %194, %184, %177, %169, %162
-  %.164.i = phi ptr [ %.0.i, %230 ], [ %152, %162 ], [ %152, %169 ], [ %152, %177 ], [ %152, %184 ], [ %152, %194 ]
-  %.14363.i = phi ptr [ %.143.i, %230 ], [ null, %162 ], [ null, %169 ], [ null, %177 ], [ null, %184 ], [ null, %194 ]
-  %.14561.i = phi ptr [ %.044.i, %230 ], [ null, %162 ], [ null, %169 ], [ %167, %177 ], [ %167, %184 ], [ %167, %194 ]
-  %231 = call i32 @H5HF_close(ptr noundef nonnull %.164.i) #7
+  %.064.i = phi ptr [ %.1.i, %230 ], [ %152, %162 ], [ %152, %169 ], [ %152, %177 ], [ %152, %184 ], [ %152, %194 ]
+  %.04263.i = phi ptr [ %.042.i, %230 ], [ null, %162 ], [ null, %169 ], [ null, %177 ], [ null, %184 ], [ null, %194 ]
+  %.04461.i = phi ptr [ %.145.i, %230 ], [ null, %162 ], [ null, %169 ], [ %167, %177 ], [ %167, %184 ], [ %167, %194 ]
+  %231 = call i32 @H5HF_close(ptr noundef nonnull %.064.i) #7
   %232 = icmp slt i32 %231, 0
   br i1 %232, label %233, label %237
 
@@ -453,13 +453,13 @@ define noundef ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr nound
   br label %237
 
 237:                                              ; preds = %233, %.thread.i, %230
-  %.14562.i = phi ptr [ %.14561.i, %233 ], [ %.14561.i, %.thread.i ], [ %.044.i, %230 ]
-  %.2.i = phi ptr [ null, %233 ], [ %.14363.i, %.thread.i ], [ %.143.i, %230 ]
-  %.not56.i = icmp eq ptr %.14562.i, null
+  %.04462.i = phi ptr [ %.04461.i, %233 ], [ %.04461.i, %.thread.i ], [ %.145.i, %230 ]
+  %.2.i = phi ptr [ null, %233 ], [ %.04263.i, %.thread.i ], [ %.042.i, %230 ]
+  %.not56.i = icmp eq ptr %.04462.i, null
   br i1 %.not56.i, label %H5O__shared_read.exit, label %238
 
 238:                                              ; preds = %237
-  %239 = call i32 @H5WB_unwrap(ptr noundef nonnull %.14562.i) #7
+  %239 = call i32 @H5WB_unwrap(ptr noundef nonnull %.04462.i) #7
   %240 = icmp slt i32 %239, 0
   br i1 %240, label %241, label %H5O__shared_read.exit
 

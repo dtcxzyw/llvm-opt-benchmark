@@ -3734,8 +3734,8 @@ define { ptr, i64 } @"_ZN73_$LT$base_db..FileTextQuery$u20$as$u20$salsa..plumbin
 
 63:                                               ; preds = %60, %49
   %.0147.i.i.i.i = phi i64 [ %62, %60 ], [ %51, %49 ]
-  %.4.i.i.i.i = phi ptr [ %56, %60 ], [ %41, %49 ]
-  %64 = ptrtoint ptr %.4.i.i.i.i to i64
+  %.3.i.i.i.i = phi ptr [ %56, %60 ], [ %41, %49 ]
+  %64 = ptrtoint ptr %.3.i.i.i.i to i64
   %65 = sub i64 %37, %64
   %66 = icmp ugt i64 %.0147.i.i.i.i, %65
   br i1 %66, label %.loopexit.i.i.i, label %67
@@ -3755,7 +3755,7 @@ define { ptr, i64 } @"_ZN73_$LT$base_db..FileTextQuery$u20$as$u20$salsa..plumbin
   br i1 %74, label %80, label %78
 
 75:                                               ; preds = %71
-  %76 = load i8, ptr %.4.i.i.i.i, align 1, !alias.scope !690, !noalias !693, !noundef !4
+  %76 = load i8, ptr %.3.i.i.i.i, align 1, !alias.scope !690, !noalias !693, !noundef !4
   store i8 %76, ptr %.017.i.i.i.i, align 1, !noalias !696
   %77 = icmp ugt i64 %.0147.i.i.i.i, 1
   br i1 %77, label %101, label %_ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i
@@ -3766,9 +3766,9 @@ define { ptr, i64 } @"_ZN73_$LT$base_db..FileTextQuery$u20$as$u20$salsa..plumbin
 
 80:                                               ; preds = %73
   %81 = add nsw i64 %.0147.i.i.i.i, -4
-  %82 = getelementptr inbounds i8, ptr %.4.i.i.i.i, i64 %81
+  %82 = getelementptr inbounds i8, ptr %.3.i.i.i.i, i64 %81
   %83 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 %81
-  %84 = load i32, ptr %.4.i.i.i.i, align 1, !alias.scope !690, !noalias !693
+  %84 = load i32, ptr %.3.i.i.i.i, align 1, !alias.scope !690, !noalias !693
   store i32 %84, ptr %.017.i.i.i.i, align 1, !noalias !696
   %85 = load i32, ptr %82, align 1, !alias.scope !690, !noalias !693
   store i32 %85, ptr %83, align 1, !noalias !696
@@ -3781,7 +3781,7 @@ define { ptr, i64 } @"_ZN73_$LT$base_db..FileTextQuery$u20$as$u20$salsa..plumbin
 
 89:                                               ; preds = %89, %86
   %.08.i.i.i.i.i.i = phi ptr [ %.017.i.i.i.i, %86 ], [ %91, %89 ]
-  %.0.i.i.i.i.i.i = phi ptr [ %.4.i.i.i.i, %86 ], [ %90, %89 ]
+  %.0.i.i.i.i.i.i = phi ptr [ %.3.i.i.i.i, %86 ], [ %90, %89 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.08.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(16) %.0.i.i.i.i.i.i, i64 16, i1 false), !noalias !696
   %90 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   %91 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i, i64 16
@@ -3791,15 +3791,15 @@ define { ptr, i64 } @"_ZN73_$LT$base_db..FileTextQuery$u20$as$u20$salsa..plumbin
 _ZN8lz4_flex14fastcpy_unsafe18wild_copy_from_src17h60cff6b3c5aa76d4E.exit.i.i.i.i.i: ; preds = %89
   %92 = add nsw i64 %.0147.i.i.i.i, -16
   %93 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 %92
-  %94 = getelementptr inbounds i8, ptr %.4.i.i.i.i, i64 %92
+  %94 = getelementptr inbounds i8, ptr %.3.i.i.i.i, i64 %92
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %93, ptr noundef nonnull readonly align 1 dereferenceable(16) %94, i64 16, i1 false), !noalias !696
   br label %_ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i
 
 95:                                               ; preds = %78
   %96 = add nsw i64 %.0147.i.i.i.i, -8
-  %97 = getelementptr inbounds i8, ptr %.4.i.i.i.i, i64 %96
+  %97 = getelementptr inbounds i8, ptr %.3.i.i.i.i, i64 %96
   %98 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 %96
-  %99 = load i64, ptr %.4.i.i.i.i, align 1, !alias.scope !690, !noalias !693
+  %99 = load i64, ptr %.3.i.i.i.i, align 1, !alias.scope !690, !noalias !693
   store i64 %99, ptr %.017.i.i.i.i, align 1, !noalias !696
   %100 = load i64, ptr %97, align 1, !alias.scope !690, !noalias !693
   store i64 %100, ptr %98, align 1, !noalias !696
@@ -3807,9 +3807,9 @@ _ZN8lz4_flex14fastcpy_unsafe18wild_copy_from_src17h60cff6b3c5aa76d4E.exit.i.i.i.
 
 101:                                              ; preds = %75
   %102 = add nsw i64 %.0147.i.i.i.i, -2
-  %103 = getelementptr inbounds i8, ptr %.4.i.i.i.i, i64 %102
+  %103 = getelementptr inbounds i8, ptr %.3.i.i.i.i, i64 %102
   %104 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 %102
-  %105 = load i16, ptr %.4.i.i.i.i, align 1, !alias.scope !690, !noalias !693
+  %105 = load i16, ptr %.3.i.i.i.i, align 1, !alias.scope !690, !noalias !693
   store i16 %105, ptr %.017.i.i.i.i, align 1, !noalias !696
   %106 = load i16, ptr %103, align 1, !alias.scope !690, !noalias !693
   store i16 %106, ptr %104, align 1, !noalias !696
@@ -3817,7 +3817,7 @@ _ZN8lz4_flex14fastcpy_unsafe18wild_copy_from_src17h60cff6b3c5aa76d4E.exit.i.i.i.
 
 _ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i: ; preds = %101, %95, %_ZN8lz4_flex14fastcpy_unsafe18wild_copy_from_src17h60cff6b3c5aa76d4E.exit.i.i.i.i.i, %80, %75
   %107 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 %.0147.i.i.i.i
-  %108 = getelementptr inbounds i8, ptr %.4.i.i.i.i, i64 %.0147.i.i.i.i
+  %108 = getelementptr inbounds i8, ptr %.3.i.i.i.i, i64 %.0147.i.i.i.i
   br label %53
 
 109:                                              ; preds = %67
@@ -3861,7 +3861,7 @@ _ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i: ; pre
 
 130:                                              ; preds = %127, %116
   %.0144.i.i.i.i = phi i64 [ %129, %127 ], [ %119, %116 ]
-  %.7.i.i.i.i = phi ptr [ %123, %127 ], [ %117, %116 ]
+  %.6.i.i.i.i = phi ptr [ %123, %127 ], [ %117, %116 ]
   %131 = ptrtoint ptr %.118.i.i.i.i to i64
   %132 = sub i64 %131, %39
   %133 = icmp ult i64 %132, %118
@@ -3930,7 +3930,7 @@ _ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i: ; pre
 
 _ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i: ; preds = %162, %160, %._crit_edge.i.i.i.i.i.i
   %.421.i.i.i.i = phi ptr [ %157, %._crit_edge.i.i.i.i.i.i ], [ %158, %160 ], [ %146, %162 ]
-  %.not162.i.i.i.i = icmp ult ptr %.7.i.i.i.i, %32
+  %.not162.i.i.i.i = icmp ult ptr %.6.i.i.i.i, %32
   br i1 %.not162.i.i.i.i, label %.backedge.i.i.i.i.backedge, label %.loopexit.i.i.i
 
 165:                                              ; preds = %.backedge.i.i.i.i
@@ -3988,7 +3988,7 @@ _ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i: ; pre
 
 .backedge.i.i.i.i.backedge:                       ; preds = %192, %190, %._crit_edge.i.i.i.i.i, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i
   %.017.i.i.i.i.be = phi ptr [ %.421.i.i.i.i, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ], [ %177, %192 ], [ %188, %190 ], [ %187, %._crit_edge.i.i.i.i.i ]
-  %.0143.i.i.i.i.be = phi ptr [ %.7.i.i.i.i, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ], [ %171, %192 ], [ %171, %190 ], [ %171, %._crit_edge.i.i.i.i.i ]
+  %.0143.i.i.i.i.be = phi ptr [ %.6.i.i.i.i, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ], [ %171, %192 ], [ %171, %190 ], [ %171, %._crit_edge.i.i.i.i.i ]
   br label %.backedge.i.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i, %130, %112, %63, %.preheader28.i.i.i, %.preheader.i.i.i, %137, %109, %.noexc.i

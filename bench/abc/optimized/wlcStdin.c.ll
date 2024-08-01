@@ -744,8 +744,8 @@ Vec_StrPush.exit19:                               ; preds = %.Vec_StrGrow.exit10
   br label %73
 
 73:                                               ; preds = %Vec_StrPush.exit19, %Vec_StrFreeP.exit
-  %.125 = phi ptr [ null, %Vec_StrFreeP.exit ], [ %1, %Vec_StrPush.exit19 ]
-  ret ptr %.125
+  %.024 = phi ptr [ null, %Vec_StrFreeP.exit ], [ %1, %Vec_StrPush.exit19 ]
+  ret ptr %.024
 }
 
 ; Function Attrs: nounwind uwtable

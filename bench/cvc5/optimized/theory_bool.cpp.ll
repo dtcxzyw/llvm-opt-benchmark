@@ -1134,8 +1134,8 @@ lpad220:                                          ; preds = %invoke.cont219
   br label %ehcleanup225
 
 cleanup224:                                       ; preds = %_ZN4cvc58internal9TrustNodeD2Ev.exit247, %if.then.i.i250, %if.then13.i.i256, %_ZN4cvc58internal9TrustNodeD2Ev.exit379, %if.then.i.i382, %if.then13.i.i388, %if.then13.i.i.i468, %if.then.i.i.i462, %invoke.cont221, %if.then13.i.i437, %if.then.i.i431, %_ZN4cvc58internal9TrustNodeD2Ev.exit428, %if.then13.i.i69, %if.then.i.i63, %_ZN4cvc58internal9TrustNodeD2Ev.exit, %land.lhs.true
-  %retval.1 = phi i32 [ 2, %land.lhs.true ], [ 0, %_ZN4cvc58internal9TrustNodeD2Ev.exit ], [ 0, %if.then.i.i63 ], [ 0, %if.then13.i.i69 ], [ 0, %_ZN4cvc58internal9TrustNodeD2Ev.exit428 ], [ 0, %if.then.i.i431 ], [ 0, %if.then13.i.i437 ], [ %call222, %invoke.cont221 ], [ %call222, %if.then.i.i.i462 ], [ %call222, %if.then13.i.i.i468 ], [ 0, %if.then13.i.i388 ], [ 0, %if.then.i.i382 ], [ 0, %_ZN4cvc58internal9TrustNodeD2Ev.exit379 ], [ 0, %if.then13.i.i256 ], [ 0, %if.then.i.i250 ], [ 0, %_ZN4cvc58internal9TrustNodeD2Ev.exit247 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 2, %land.lhs.true ], [ 0, %_ZN4cvc58internal9TrustNodeD2Ev.exit ], [ 0, %if.then.i.i63 ], [ 0, %if.then13.i.i69 ], [ 0, %_ZN4cvc58internal9TrustNodeD2Ev.exit428 ], [ 0, %if.then.i.i431 ], [ 0, %if.then13.i.i437 ], [ %call222, %invoke.cont221 ], [ %call222, %if.then.i.i.i462 ], [ %call222, %if.then13.i.i.i468 ], [ 0, %if.then13.i.i388 ], [ 0, %if.then.i.i382 ], [ 0, %_ZN4cvc58internal9TrustNodeD2Ev.exit379 ], [ 0, %if.then13.i.i256 ], [ 0, %if.then.i.i250 ], [ 0, %_ZN4cvc58internal9TrustNodeD2Ev.exit247 ]
+  ret i32 %retval.0
 
 ehcleanup225:                                     ; preds = %ehcleanup213, %ehcleanup126, %ehcleanup.i.i, %ehcleanup182, %ehcleanup.i.i340, %lpad50, %ehcleanup, %lpad220
   %.pn26.pn.pn = phi { ptr, i32 } [ %100, %lpad220 ], [ %.pn26, %ehcleanup ], [ %52, %lpad50 ], [ %.pn21, %ehcleanup126 ], [ %.pn.i.i, %ehcleanup.i.i ], [ %.pn17, %ehcleanup182 ], [ %.pn.i.i341, %ehcleanup.i.i340 ], [ %.pn, %ehcleanup213 ]

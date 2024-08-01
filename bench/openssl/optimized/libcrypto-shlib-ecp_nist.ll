@@ -173,7 +173,7 @@ if.then7:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.then7, %if.end
   %ctx.addr.0 = phi ptr [ %ctx, %if.end ], [ %call, %if.then7 ]
-  %ctx_new.0 = phi ptr [ null, %if.end ], [ %call, %if.then7 ]
+  %ctx_new.1 = phi ptr [ null, %if.end ], [ %call, %if.then7 ]
   %call11 = tail call i32 @BN_mul(ptr noundef nonnull %r, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %ctx.addr.0) #3
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %err, label %if.end14
@@ -190,8 +190,8 @@ if.end14:                                         ; preds = %if.end10
 
 err:                                              ; preds = %if.end14, %if.end10, %if.then7, %if.then
   %ret.0 = phi i32 [ 0, %if.end10 ], [ 0, %if.then7 ], [ 0, %if.then ], [ %spec.select, %if.end14 ]
-  %ctx_new.1 = phi ptr [ %ctx_new.0, %if.end10 ], [ null, %if.then7 ], [ null, %if.then ], [ %ctx_new.0, %if.end14 ]
-  tail call void @BN_CTX_free(ptr noundef %ctx_new.1) #3
+  %ctx_new.0 = phi ptr [ %ctx_new.1, %if.end10 ], [ null, %if.then7 ], [ null, %if.then ], [ %ctx_new.1, %if.end14 ]
+  tail call void @BN_CTX_free(ptr noundef %ctx_new.0) #3
   ret i32 %ret.0
 }
 
@@ -224,7 +224,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then5, %if.end
   %ctx.addr.0 = phi ptr [ %ctx, %if.end ], [ %call, %if.then5 ]
-  %ctx_new.0 = phi ptr [ null, %if.end ], [ %call, %if.then5 ]
+  %ctx_new.1 = phi ptr [ null, %if.end ], [ %call, %if.then5 ]
   %call9 = tail call i32 @BN_sqr(ptr noundef nonnull %r, ptr noundef nonnull %a, ptr noundef nonnull %ctx.addr.0) #3
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %err, label %if.end12
@@ -241,8 +241,8 @@ if.end12:                                         ; preds = %if.end8
 
 err:                                              ; preds = %if.end12, %if.end8, %if.then5, %if.then
   %ret.0 = phi i32 [ 0, %if.end8 ], [ 0, %if.then5 ], [ 0, %if.then ], [ %spec.select, %if.end12 ]
-  %ctx_new.1 = phi ptr [ %ctx_new.0, %if.end8 ], [ null, %if.then5 ], [ null, %if.then ], [ %ctx_new.0, %if.end12 ]
-  tail call void @BN_CTX_free(ptr noundef %ctx_new.1) #3
+  %ctx_new.0 = phi ptr [ %ctx_new.1, %if.end8 ], [ null, %if.then5 ], [ null, %if.then ], [ %ctx_new.1, %if.end12 ]
+  tail call void @BN_CTX_free(ptr noundef %ctx_new.0) #3
   ret i32 %ret.0
 }
 

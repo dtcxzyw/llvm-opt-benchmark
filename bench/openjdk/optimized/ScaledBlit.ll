@@ -56,23 +56,23 @@ define void @Java_sun_java2d_loops_ScaledBlit_Scale(ptr noundef %0, ptr noundef 
   br i1 %40, label %.preheader303, label %.loopexit304
 
 .preheader303:                                    ; preds = %36, %.preheader303
-  %.0244 = phi i32 [ %43, %.preheader303 ], [ 0, %36 ]
+  %.1 = phi i32 [ %43, %.preheader303 ], [ 0, %36 ]
   %.0 = phi i32 [ %41, %.preheader303 ], [ %39, %36 ]
   %41 = shl nuw i32 %.0, 1
   %42 = icmp sgt i32 %41, 0
-  %43 = add nuw nsw i32 %.0244, 1
+  %43 = add nuw nsw i32 %.1, 1
   br i1 %42, label %.preheader303, label %.loopexit304, !llvm.loop !6
 
 .loopexit304:                                     ; preds = %.preheader303, %36
-  %.1 = phi i32 [ 0, %36 ], [ %.0244, %.preheader303 ]
+  %.0244 = phi i32 [ 0, %36 ], [ %.1, %.preheader303 ]
   %44 = fsub double %13, %11
   %45 = fcmp olt double %44, 1.000000e+00
   %46 = sitofp i32 %38 to double
   %47 = fdiv double %46, %44
-  %48 = shl nuw i32 1, %.1
+  %48 = shl nuw i32 1, %.0244
   %49 = sitofp i32 %48 to double
   %50 = fmul double %47, %49
-  %51 = shl i32 %38, %.1
+  %51 = shl i32 %38, %.0244
   %52 = fptosi double %50 to i32
   %53 = select i1 %45, i32 %51, i32 %52
   %54 = fsub double %12, %10
@@ -80,7 +80,7 @@ define void @Java_sun_java2d_loops_ScaledBlit_Scale(ptr noundef %0, ptr noundef 
   %56 = sitofp i32 %37 to double
   %57 = fdiv double %56, %54
   %58 = fmul double %57, %49
-  %59 = shl i32 %37, %.1
+  %59 = shl i32 %37, %.0244
   %60 = fptosi double %58 to i32
   %61 = select i1 %55, i32 %59, i32 %60
   %spec.select.i = call i32 @llvm.smin.i32(i32 %61, i32 %53)
@@ -88,7 +88,7 @@ define void @Java_sun_java2d_loops_ScaledBlit_Scale(ptr noundef %0, ptr noundef 
   br i1 %62, label %findpow2tilesize.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.loopexit304, %.preheader.i
-  %.013.i = phi i32 [ %65, %.preheader.i ], [ %.1, %.loopexit304 ]
+  %.013.i = phi i32 [ %65, %.preheader.i ], [ %.0244, %.loopexit304 ]
   %63 = shl nuw i32 1, %.013.i
   %64 = icmp sgt i32 %63, %spec.select.i
   %65 = add nsw i32 %.013.i, -1
@@ -184,7 +184,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
 
 114:                                              ; preds = %113
   %115 = sub nsw i32 %83, %6
-  %116 = shl i32 %115, %.1
+  %116 = shl i32 %115, %.0244
   %117 = call fastcc i32 @refine(i32 noundef %93, double noundef %10, i32 noundef %.0.i, double noundef %58, i32 noundef %116, i32 noundef %60)
   br label %118
 
@@ -192,7 +192,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   %119 = phi i32 [ %117, %114 ], [ %93, %113 ]
   store i32 %119, ptr %16, align 8
   %120 = sub nsw i32 %82, %6
-  %121 = shl i32 %120, %.1
+  %121 = shl i32 %120, %.0244
   %122 = call fastcc i32 @refine(i32 noundef %93, double noundef %10, i32 noundef %.0.i, double noundef %58, i32 noundef %121, i32 noundef %60)
   %123 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 %122, ptr %123, align 8
@@ -232,7 +232,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
 
 143:                                              ; preds = %142
   %144 = sub nsw i32 %86, %7
-  %145 = shl i32 %144, %.1
+  %145 = shl i32 %144, %.0244
   %146 = call fastcc i32 @refine(i32 noundef %96, double noundef %11, i32 noundef %.0.i, double noundef %50, i32 noundef %145, i32 noundef %52)
   br label %147
 
@@ -241,7 +241,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   %149 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %148, ptr %149, align 4
   %150 = sub nsw i32 %85, %7
-  %151 = shl i32 %150, %.1
+  %151 = shl i32 %150, %.0244
   %152 = call fastcc i32 @refine(i32 noundef %96, double noundef %11, i32 noundef %.0.i, double noundef %50, i32 noundef %151, i32 noundef %52)
   %153 = getelementptr inbounds i8, ptr %16, i64 12
   store i32 %152, ptr %153, align 4
@@ -393,7 +393,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   %260 = sub nsw i32 %259, %240
   %261 = load i32, ptr %233, align 4
   %262 = sub nsw i32 %261, %235
-  call void %258(ptr noundef %202, ptr noundef %257, i32 noundef %260, i32 noundef %262, i32 noundef %.0246, i32 noundef %.0245, i32 noundef %61, i32 noundef %53, i32 noundef %.1, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %20, ptr noundef nonnull %17) #5
+  call void %258(ptr noundef %202, ptr noundef %257, i32 noundef %260, i32 noundef %262, i32 noundef %.0246, i32 noundef %.0245, i32 noundef %61, i32 noundef %53, i32 noundef %.0244, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %20, ptr noundef nonnull %17) #5
   %263 = call i32 @Region_NextIteration(ptr noundef nonnull %18, ptr noundef nonnull %19) #5
   %.not286 = icmp eq i32 %263, 0
   br i1 %.not286, label %.loopexit301, label %234, !llvm.loop !9
@@ -489,7 +489,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   %321 = inttoptr i64 %320 to ptr
   %322 = load ptr, ptr %213, align 8
   %323 = sub nsw i32 %.0237, %spec.select295
-  call void %322(ptr noundef %202, ptr noundef %321, i32 noundef %323, i32 noundef %295, i32 noundef %.0241, i32 noundef %.0240, i32 noundef %61, i32 noundef %53, i32 noundef %.1, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %20, ptr noundef nonnull %17) #5
+  call void %322(ptr noundef %202, ptr noundef %321, i32 noundef %323, i32 noundef %295, i32 noundef %.0241, i32 noundef %.0240, i32 noundef %61, i32 noundef %53, i32 noundef %.0244, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %20, ptr noundef nonnull %17) #5
   %324 = load i32, ptr %210, align 4
   %325 = icmp slt i32 %298, %324
   br i1 %325, label %296, label %.loopexit.loopexit, !llvm.loop !12
@@ -614,8 +614,8 @@ define internal fastcc i32 @refine(i32 noundef %0, double noundef %1, i32 nounde
   br label %16
 
 39:                                               ; preds = %37, %34
-  %.2 = phi i32 [ %.024, %34 ], [ %38, %37 ]
-  ret i32 %.2
+  %.1 = phi i32 [ %.024, %34 ], [ %38, %37 ]
+  ret i32 %.1
 }
 
 declare void @SurfaceData_IntersectBounds(ptr noundef, ptr noundef) local_unnamed_addr #1

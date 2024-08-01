@@ -174,7 +174,7 @@ define range(i32 -1, 1) i32 @job_submit_g_init(i1 noundef zeroext %0) local_unna
   br label %job_submit_g_fini.exit
 
 job_submit_g_fini.exit:                           ; preds = %12, %14, %9, %._crit_edge.i, %52, %.thread22
-  %.121 = phi i32 [ 0, %.thread22 ], [ -1, %52 ], [ -1, %._crit_edge.i ], [ 0, %9 ], [ 0, %14 ], [ 0, %12 ]
+  %.021 = phi i32 [ 0, %.thread22 ], [ -1, %52 ], [ -1, %._crit_edge.i ], [ 0, %9 ], [ 0, %14 ], [ 0, %12 ]
   br i1 %0, label %72, label %68
 
 68:                                               ; preds = %job_submit_g_fini.exit
@@ -189,7 +189,7 @@ job_submit_g_fini.exit:                           ; preds = %12, %14, %9, %._cri
   unreachable
 
 72:                                               ; preds = %68, %job_submit_g_fini.exit
-  ret i32 %.121
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind
@@ -250,7 +250,7 @@ define i32 @job_submit_g_fini(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %9 = phi i32 [ %7, %.lr.ph.preheader ], [ %16, %15 ]
   %10 = phi ptr [ %.pre24, %.lr.ph.preheader ], [ %17, %15 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %.01321 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %15 ]
+  %.121 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %15 ]
   %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not18 = icmp eq ptr %12, null
@@ -259,7 +259,7 @@ define i32 @job_submit_g_fini(i1 noundef zeroext %0) local_unnamed_addr #0 {
 13:                                               ; preds = %.lr.ph
   %14 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %12) #8
   %.not19 = icmp eq i32 %14, 0
-  %spec.select = select i1 %.not19, i32 %.01321, i32 %14
+  %spec.select = select i1 %.not19, i32 %.121, i32 %14
   %.pre = load ptr, ptr @g_context, align 8
   %.pre25 = load i32, ptr @g_context_cnt, align 4
   br label %15
@@ -267,21 +267,21 @@ define i32 @job_submit_g_fini(i1 noundef zeroext %0) local_unnamed_addr #0 {
 15:                                               ; preds = %13, %.lr.ph
   %16 = phi i32 [ %9, %.lr.ph ], [ %.pre25, %13 ]
   %17 = phi ptr [ %10, %.lr.ph ], [ %.pre, %13 ]
-  %.1 = phi i32 [ %.01321, %.lr.ph ], [ %spec.select, %13 ]
+  %.2 = phi i32 [ %.121, %.lr.ph ], [ %spec.select, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %16 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %15, %.preheader
-  %.013.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %15 ]
+  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %15 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #8
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #8
   store i32 -1, ptr @g_context_cnt, align 4
   br label %20
 
 20:                                               ; preds = %6, %._crit_edge
-  %.2 = phi i32 [ 0, %6 ], [ %.013.lcssa, %._crit_edge ]
+  %.013 = phi i32 [ 0, %6 ], [ %.1.lcssa, %._crit_edge ]
   br i1 %0, label %25, label %21
 
 21:                                               ; preds = %20
@@ -296,7 +296,7 @@ define i32 @job_submit_g_fini(i1 noundef zeroext %0) local_unnamed_addr #0 {
   unreachable
 
 25:                                               ; preds = %21, %20
-  ret i32 %.2
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind

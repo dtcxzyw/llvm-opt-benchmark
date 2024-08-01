@@ -5928,7 +5928,7 @@ for.body:                                         ; preds = %if.end11, %for.inc
   %15 = phi ptr [ %22, %for.inc ], [ %14, %if.end11 ]
   %v2.093 = phi i32 [ %v2.0, %for.inc ], [ %v2.089, %if.end11 ]
   %num_bits.092 = phi i32 [ %inc, %for.inc ], [ 0, %if.end11 ]
-  %num_assigned.091 = phi i32 [ %num_assigned.1, %for.inc ], [ 0, %if.end11 ]
+  %num_assigned.091 = phi i32 [ %num_assigned.2, %for.inc ], [ 0, %if.end11 ]
   %16 = load ptr, ptr %m_bits, align 8
   %idxprom.i28 = zext i32 %v2.093 to i64
   %arrayidx.i29 = getelementptr inbounds %class.svector.3, ptr %16, i64 %idxprom.i28
@@ -5963,27 +5963,27 @@ if.end33.for.inc_crit_edge:                       ; preds = %if.end33
 
 for.inc:                                          ; preds = %if.end33.for.inc_crit_edge, %if.end26
   %22 = phi ptr [ %15, %if.end26 ], [ %.pre, %if.end33.for.inc_crit_edge ]
-  %num_assigned.1 = phi i32 [ %num_assigned.091, %if.end26 ], [ %inc34, %if.end33.for.inc_crit_edge ]
+  %num_assigned.2 = phi i32 [ %num_assigned.091, %if.end26 ], [ %inc34, %if.end33.for.inc_crit_edge ]
   %arrayidx.i.i39 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i28
   %v2.0 = load i32, ptr %arrayidx.i.i39, align 4
   %cmp16.not = icmp eq i32 %v2.0, %entry2.sroa.0.0.extract.trunc
   br i1 %cmp16.not, label %for.end.loopexit, label %for.body, !llvm.loop !32
 
 for.end.loopexit:                                 ; preds = %if.end33, %for.body, %for.inc
-  %num_assigned.2.ph = phi i32 [ %num_assigned.1, %for.inc ], [ 0, %for.body ], [ %inc34, %if.end33 ]
+  %num_assigned.1.ph = phi i32 [ %num_assigned.2, %for.inc ], [ 0, %for.body ], [ %inc34, %if.end33 ]
   %.pre98 = load ptr, ptr %m_solver.i, align 8
   %.pre99 = load ptr, ptr %m_bits, align 8
   %arrayidx.i42.phi.trans.insert = getelementptr inbounds %class.svector.3, ptr %.pre99, i64 %idxprom.i
   %.pre100 = load ptr, ptr %arrayidx.i42.phi.trans.insert, align 8
   %m_assignment.i47.phi.trans.insert = getelementptr inbounds i8, ptr %.pre98, i64 3440
   %.pre101 = load ptr, ptr %m_assignment.i47.phi.trans.insert, align 8
-  %23 = icmp ne i32 %num_assigned.2.ph, 0
+  %23 = icmp ne i32 %num_assigned.1.ph, 0
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end11
   %24 = phi ptr [ %12, %if.end11 ], [ %.pre101, %for.end.loopexit ]
   %25 = phi ptr [ %9, %if.end11 ], [ %.pre100, %for.end.loopexit ]
-  %num_assigned.2 = phi i1 [ false, %if.end11 ], [ %23, %for.end.loopexit ]
+  %num_assigned.1 = phi i1 [ false, %if.end11 ], [ %23, %for.end.loopexit ]
   %26 = load ptr, ptr %m_wpos, align 8
   %arrayidx.i44 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i
   %27 = load i32, ptr %arrayidx.i44, align 4
@@ -6029,7 +6029,7 @@ for.end.i77:                                      ; preds = %for.cond.i73, %_ZNK
   br label %return
 
 return:                                           ; preds = %for.end, %if.then.i80, %for.end.i77, %if.end
-  %retval.0 = phi i1 [ false, %if.end ], [ %num_assigned.2, %for.end.i77 ], [ %num_assigned.2, %if.then.i80 ], [ %num_assigned.2, %for.end ]
+  %retval.0 = phi i1 [ false, %if.end ], [ %num_assigned.1, %for.end.i77 ], [ %num_assigned.1, %if.then.i80 ], [ %num_assigned.1, %for.end ]
   ret i1 %retval.0
 }
 
@@ -7012,7 +7012,7 @@ cleanup59:                                        ; preds = %for.end30, %for.end
   %frombool.i647081 = phi i8 [ %frombool.i64708296, %for.end55 ], [ %frombool.i, %for.end30 ]
   %m_cheap_axioms637280 = phi ptr [ %m_cheap_axioms63727998, %for.end55 ], [ %m_cheap_axioms, %for.end30 ]
   %28 = phi ptr [ %.pre54, %for.end55 ], [ %.pre55.pre, %for.end30 ]
-  %retval.1 = phi i32 [ %., %for.end55 ], [ 1, %for.end30 ]
+  %retval.0 = phi i32 [ %., %for.end55 ], [ 1, %for.end30 ]
   store i8 %frombool.i647081, ptr %m_cheap_axioms637280, align 1
   %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorISt4pairIP4exprN2bv6solver16internalize_modeEEjED2Ev.exit, label %if.then.i.i.i
@@ -7030,7 +7030,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7svectorISt4pairIP4exprN2bv6solver16internalize_modeEEjED2Ev.exit: ; preds = %cleanup59, %if.then.i.i.i
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup:                                        ; preds = %lpad38, %lpad18
   %.pn = phi { ptr, i32 } [ %20, %lpad18 ], [ %25, %lpad38 ]
@@ -10258,8 +10258,8 @@ for.body.i86:                                     ; preds = %_ZN6vectorIN2bv6sol
   br i1 %cmp.not.i98, label %return, label %for.body.i86
 
 return:                                           ; preds = %for.body.i86, %entry, %_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE3endEv.exit.i82, %cleanup, %_ZNK6vectorIN2bv6solver12zero_one_bitELb0EjE5emptyEv.exit
-  %retval.1 = phi i1 [ true, %_ZNK6vectorIN2bv6solver12zero_one_bitELb0EjE5emptyEv.exit ], [ %cmp25.not114, %cleanup ], [ %cmp25.not114, %_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE3endEv.exit.i82 ], [ true, %entry ], [ %cmp25.not114, %for.body.i86 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZNK6vectorIN2bv6solver12zero_one_bitELb0EjE5emptyEv.exit ], [ %cmp25.not114, %cleanup ], [ %cmp25.not114, %_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE3endEv.exit.i82 ], [ true, %entry ], [ %cmp25.not114, %for.body.i86 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

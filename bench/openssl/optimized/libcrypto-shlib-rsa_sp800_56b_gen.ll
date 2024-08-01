@@ -432,13 +432,13 @@ lor.lhs.false:                                    ; preds = %if.then11
   br i1 %tobool15.not, label %if.then41, label %if.end18
 
 if.end18:                                         ; preds = %if.end9, %lor.lhs.false
-  %e.0 = phi ptr [ %call12, %lor.lhs.false ], [ %efixed, %if.end9 ]
+  %e.1 = phi ptr [ %call12, %lor.lhs.false ], [ %efixed, %if.end9 ]
   %p = getelementptr inbounds i8, ptr %rsa, i64 64
   %q = getelementptr inbounds i8, ptr %rsa, i64 72
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end35, %if.end18
-  %call19 = tail call i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef nonnull %rsa, ptr poison, i32 noundef %nbits, ptr noundef nonnull %e.0, ptr noundef nonnull %call7, ptr noundef %cb)
+  %call19 = tail call i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef nonnull %rsa, ptr poison, i32 noundef %nbits, ptr noundef nonnull %e.1, ptr noundef nonnull %call7, ptr noundef %cb)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %err, label %land.lhs.true
 
@@ -456,7 +456,7 @@ if.then26:                                        ; preds = %land.lhs.true
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then26, %land.lhs.true
-  %call32 = tail call i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr noundef nonnull %rsa, i32 noundef %nbits, ptr noundef nonnull %e.0, ptr noundef nonnull %call7)
+  %call32 = tail call i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr noundef nonnull %rsa, i32 noundef %nbits, ptr noundef nonnull %e.1, ptr noundef nonnull %call7)
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %err, label %if.end35
 
@@ -474,8 +474,8 @@ err:                                              ; preds = %if.end31, %for.cond
 
 if.then41:                                        ; preds = %lor.lhs.false, %if.then11, %err
   %ret.030 = phi i32 [ %ret.0, %err ], [ 0, %if.then11 ], [ 0, %lor.lhs.false ]
-  %e.128 = phi ptr [ %e.0, %err ], [ null, %if.then11 ], [ %call12, %lor.lhs.false ]
-  tail call void @BN_free(ptr noundef %e.128) #2
+  %e.028 = phi ptr [ %e.1, %err ], [ null, %if.then11 ], [ %call12, %lor.lhs.false ]
+  tail call void @BN_free(ptr noundef %e.028) #2
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %err

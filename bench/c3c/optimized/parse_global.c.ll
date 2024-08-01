@@ -3338,7 +3338,7 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   br i1 %49, label %.preheader, label %.loopexit135
 
 .preheader:                                       ; preds = %48, %.critedge123
-  %.0104 = phi ptr [ %142, %.critedge123 ], [ null, %48 ]
+  %.1 = phi ptr [ %142, %.critedge123 ], [ null, %48 ]
   %50 = load i32, ptr %8, align 8
   switch i32 %50, label %108 [
     i32 1, label %51
@@ -3475,7 +3475,7 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
 
 .critedge:                                        ; preds = %.critedge.sink.split, %108, %111
   %.0103 = phi ptr [ null, %108 ], [ %109, %111 ], [ %.0103.ph, %.critedge.sink.split ]
-  %.not.i133 = icmp eq ptr %.0104, null
+  %.not.i133 = icmp eq ptr %.1, null
   br i1 %.not.i133, label %116, label %119
 
 116:                                              ; preds = %.critedge
@@ -3485,8 +3485,8 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   br label %121
 
 119:                                              ; preds = %.critedge
-  %120 = getelementptr inbounds i8, ptr %.0104, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0104, i64 -4
+  %120 = getelementptr inbounds i8, ptr %.1, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.1, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %121
 
@@ -3545,9 +3545,9 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   br label %.preheader
 
 .loopexit135:                                     ; preds = %139, %48
-  %.1 = phi ptr [ null, %48 ], [ %142, %139 ]
+  %.0104 = phi ptr [ null, %48 ], [ %142, %139 ]
   %152 = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr %.1, ptr %152, align 8
+  store ptr %.0104, ptr %152, align 8
   store ptr %19, ptr %1, align 8
   br label %.loopexit
 
@@ -5499,7 +5499,7 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
   br label %parse_contract_param.exit.thread
 
 47:                                               ; preds = %42, %39, %.thread.i
-  %.064.i = phi i8 [ 1, %.thread.i ], [ 3, %39 ], [ 2, %42 ]
+  %.1.i = phi i8 [ 1, %.thread.i ], [ 3, %39 ], [ 2, %42 ]
   %48 = load i32, ptr %9, align 8
   %49 = icmp eq i32 %48, 25
   br i1 %49, label %.critedge.i, label %50
@@ -5517,7 +5517,7 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
 
 54:                                               ; preds = %.critedge.i, %19
   %.065.i = phi i8 [ %53, %.critedge.i ], [ 0, %19 ]
-  %.1.i = phi i8 [ %.064.i, %.critedge.i ], [ 0, %19 ]
+  %.064.i = phi i8 [ %.1.i, %.critedge.i ], [ 0, %19 ]
   %55 = load i32, ptr %9, align 8
   %.off.i = add i32 %55, -64
   %switch.i = icmp ult i32 %.off.i, 9
@@ -5538,7 +5538,7 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
   %63 = getelementptr inbounds i8, ptr %22, i64 40
   %64 = load i8, ptr %63, align 8
   %65 = and i8 %64, -32
-  %66 = or i8 %.1.i, %.065.i
+  %66 = or i8 %.064.i, %.065.i
   %67 = or i8 %66, %65
   store i8 %67, ptr %63, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -7715,7 +7715,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br i1 %19, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %18, %56
-  %.059 = phi ptr [ %59, %56 ], [ null, %18 ]
+  %.1 = phi ptr [ %59, %56 ], [ null, %18 ]
   %20 = tail call fastcc ptr @parse_base_type(ptr noundef %0)
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %.split8.i, label %22
@@ -7754,7 +7754,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %112
 
 .critedge:                                        ; preds = %parse_type.exit, %28
-  %.not.i79 = icmp eq ptr %.059, null
+  %.not.i79 = icmp eq ptr %.1, null
   br i1 %.not.i79, label %33, label %36
 
 33:                                               ; preds = %.critedge
@@ -7764,8 +7764,8 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %38
 
 36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds i8, ptr %.059, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.059, i64 -4
+  %37 = getelementptr inbounds i8, ptr %.1, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.1, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %38
 
@@ -7809,9 +7809,9 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %62, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %56, %18
-  %.1 = phi ptr [ null, %18 ], [ %59, %56 ]
+  %.059 = phi ptr [ null, %18 ], [ %59, %56 ]
   %63 = getelementptr inbounds i8, ptr %7, i64 80
-  store ptr %.1, ptr %63, align 8
+  store ptr %.059, ptr %63, align 8
   %64 = load i32, ptr %8, align 8
   %65 = icmp eq i32 %64, 17
   br i1 %65, label %.critedge73, label %66
@@ -9473,9 +9473,9 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %.not57, label %96, label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge, %.critedge, %19, %30, %parse_type.exit
-  %.051 = phi ptr [ null, %.critedge ], [ null, %parse_type.exit ], [ %.0.i, %30 ], [ null, %19 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ null, %parse_type.exit ], [ %.0.i, %30 ], [ null, %19 ], [ null, %.critedge ]
   %33 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 14) #8
-  %.not59 = icmp eq ptr %.051, null
+  %.not59 = icmp eq ptr %.1, null
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %.critedge2
@@ -9500,13 +9500,13 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %.not59, label %51, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %.051, i64 16
+  %44 = getelementptr inbounds i8, ptr %.1, i64 16
   %45 = load i64, ptr %44, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %45, ptr noundef nonnull @.str.112) #8
   br label %96
 
 .thread:                                          ; preds = %7, %36, %10
-  %.1.ph = phi ptr [ %13, %36 ], [ null, %10 ], [ null, %7 ]
+  %.051.ph = phi ptr [ %13, %36 ], [ null, %10 ], [ null, %7 ]
   %46 = getelementptr inbounds i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %1, align 8
@@ -9529,7 +9529,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 57:                                               ; preds = %.thread, %51
   %58 = phi i64 [ %50, %.thread ], [ %56, %51 ]
   %.05080 = phi ptr [ null, %.thread ], [ %13, %51 ]
-  %.177 = phi ptr [ %.1.ph, %.thread ], [ %.051, %51 ]
+  %.05177 = phi ptr [ %.051.ph, %.thread ], [ %.1, %51 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 40
   %60 = load i32, ptr %59, align 8
   switch i32 %60, label %61 [
@@ -9552,7 +9552,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 
 64:                                               ; preds = %57, %57, %.critedge67
   %.05078 = phi ptr [ %13, %.critedge67 ], [ %.05080, %57 ], [ %.05080, %57 ]
-  %.175 = phi ptr [ %.051, %.critedge67 ], [ %.177, %57 ], [ %.177, %57 ]
+  %.05175 = phi ptr [ %.1, %.critedge67 ], [ %.05177, %57 ], [ %.05177, %57 ]
   tail call void @advance(ptr noundef nonnull %0) #8
   %.not64 = icmp eq ptr %.05078, null
   br i1 %.not64, label %72, label %65
@@ -9584,12 +9584,12 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %85 = and i16 %80, -3
   %86 = or disjoint i16 %84, %85
   store i16 %86, ptr %76, align 1
-  %.not65 = icmp eq ptr %.175, null
+  %.not65 = icmp eq ptr %.05175, null
   br i1 %.not65, label %94, label %87
 
 87:                                               ; preds = %72
   %88 = load ptr, ptr @type_info_arena, align 8
-  %89 = ptrtoint ptr %.175 to i64
+  %89 = ptrtoint ptr %.05175 to i64
   %90 = ptrtoint ptr %88 to i64
   %91 = sub i64 %89, %90
   %92 = sdiv exact i64 %91, 40

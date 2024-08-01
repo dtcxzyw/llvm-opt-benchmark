@@ -9315,13 +9315,13 @@ _ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.exit.i: ; preds = %35
   br i1 %89, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %88, %91
-  %.sroa.11.1.ph.ph = phi ptr [ %.sroa.01.0.copyload.i, %91 ], [ %.sroa.026.0.copyload.i, %88 ]
+  %.sroa.11.0.ph.ph = phi ptr [ %.sroa.01.0.copyload.i, %91 ], [ %.sroa.026.0.copyload.i, %88 ]
   %.sroa.528.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.528.0..sroa_idx.i, i64 24, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %88, %59, %91
-  %.sroa.11.1.ph = phi ptr [ null, %91 ], [ null, %59 ], [ null, %88 ], [ %.sroa.11.1.ph.ph, %.thread.sink.split ]
+  %.sroa.11.0.ph = phi ptr [ null, %91 ], [ null, %59 ], [ null, %88 ], [ %.sroa.11.0.ph.ph, %.thread.sink.split ]
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %7), !noalias !1427
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7), !noalias !1425
   br label %100
@@ -9363,7 +9363,7 @@ _ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.exit.i: ; preds = %35
   unreachable
 
 100:                                              ; preds = %.thread, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hd0213af9cd07f2e4E.exit"
-  %.sroa.11.223 = phi ptr [ %.sroa.011.0.copyload.i, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hd0213af9cd07f2e4E.exit" ], [ %.sroa.11.1.ph, %.thread ]
+  %.sroa.11.223 = phi ptr [ %.sroa.011.0.copyload.i, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hd0213af9cd07f2e4E.exit" ], [ %.sroa.11.0.ph, %.thread ]
   %101 = icmp eq ptr %.sroa.11.223, null
   br i1 %101, label %107, label %103
 
@@ -9540,10 +9540,10 @@ define hidden noundef align 8 dereferenceable(64) ptr @"_ZN9once_cell4race8once_
   br label %22
 
 22:                                               ; preds = %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h7d1f3487dc293ba4E.exit", %19, %1
-  %.1 = phi ptr [ %6, %1 ], [ %21, %19 ], [ %13, %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h7d1f3487dc293ba4E.exit" ]
-  %23 = icmp ne ptr %.1, null
+  %.0 = phi ptr [ %6, %1 ], [ %21, %19 ], [ %13, %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h7d1f3487dc293ba4E.exit" ]
+  %23 = icmp ne ptr %.0, null
   call void @llvm.assume(i1 %23)
-  ret ptr %.1
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10530,7 +10530,7 @@ define void @_ZN10ockam_node6router6Router4init17h18c2c9f8a27b64efE(ptr noalias 
           to label %23 unwind label %22
 
 21:                                               ; preds = %.critedge20.thread
-  br i1 %.238, label %77, label %78
+  br i1 %.338, label %77, label %78
 
 .thread47:                                        ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$ockam_node..router..record..AddressRecord$GT$$GT$17h006faa110c20dddaE.exit", %62
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -10719,7 +10719,7 @@ _ZN10ockam_node6router6record11InternalMap21insert_address_record17h25cf3343461a
 
 .critedge20.thread:                               ; preds = %38, %.critedge, %.critedge20.thread40
   %.pn39 = phi { ptr, i32 } [ %32, %.critedge20.thread40 ], [ %39, %38 ], [ %73, %.critedge ]
-  %.238 = phi i1 [ true, %.critedge20.thread40 ], [ true, %38 ], [ false, %.critedge ]
+  %.338 = phi i1 [ true, %.critedge20.thread40 ], [ true, %38 ], [ false, %.critedge ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h8cb0e462a4fbe043E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #35
           to label %21 unwind label %74
 

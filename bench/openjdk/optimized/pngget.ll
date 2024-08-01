@@ -775,7 +775,7 @@ define hidden range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readno
   br label %16
 
 16:                                               ; preds = %13, %12
-  %.0 = phi i32 [ 128, %13 ], [ 0, %12 ]
+  %.1 = phi i32 [ 128, %13 ], [ 0, %12 ]
   %.not30 = icmp eq ptr %3, null
   br i1 %.not30, label %20, label %17
 
@@ -786,7 +786,7 @@ define hidden range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readno
   br label %20
 
 20:                                               ; preds = %17, %16
-  %.1 = phi i32 [ 128, %17 ], [ %.0, %16 ]
+  %.2 = phi i32 [ 128, %17 ], [ %.1, %16 ]
   %.not31 = icmp eq ptr %4, null
   br i1 %.not31, label %38, label %21
 
@@ -821,8 +821,8 @@ define hidden range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readno
   br label %38
 
 38:                                               ; preds = %20, %32, %33, %21, %8, %5
-  %.2 = phi i32 [ 128, %33 ], [ 128, %32 ], [ 128, %21 ], [ %.1, %20 ], [ 0, %8 ], [ 0, %5 ]
-  ret i32 %.2
+  %.0 = phi i32 [ 128, %33 ], [ 128, %32 ], [ 128, %21 ], [ %.2, %20 ], [ 0, %8 ], [ 0, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1857,7 +1857,7 @@ define hidden range(i32 0, 129) i32 @png_get_pHYs(ptr noalias noundef readnone %
   br label %16
 
 16:                                               ; preds = %13, %12
-  %.0 = phi i32 [ 128, %13 ], [ 0, %12 ]
+  %.1 = phi i32 [ 128, %13 ], [ 0, %12 ]
   %.not21 = icmp eq ptr %3, null
   br i1 %.not21, label %20, label %17
 
@@ -1868,7 +1868,7 @@ define hidden range(i32 0, 129) i32 @png_get_pHYs(ptr noalias noundef readnone %
   br label %20
 
 20:                                               ; preds = %17, %16
-  %.1 = phi i32 [ 128, %17 ], [ %.0, %16 ]
+  %.2 = phi i32 [ 128, %17 ], [ %.1, %16 ]
   %.not22 = icmp eq ptr %4, null
   br i1 %.not22, label %25, label %21
 
@@ -1880,8 +1880,8 @@ define hidden range(i32 0, 129) i32 @png_get_pHYs(ptr noalias noundef readnone %
   br label %25
 
 25:                                               ; preds = %20, %21, %8, %5
-  %.2 = phi i32 [ 128, %21 ], [ %.1, %20 ], [ 0, %8 ], [ 0, %5 ]
-  ret i32 %.2
+  %.0 = phi i32 [ 128, %21 ], [ %.2, %20 ], [ 0, %8 ], [ 0, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -2039,7 +2039,7 @@ define hidden range(i32 0, 32) i32 @png_get_tRNS(ptr noalias noundef readnone %0
   br label %20
 
 20:                                               ; preds = %17, %16
-  %.0 = phi i32 [ 16, %17 ], [ 0, %16 ]
+  %.1 = phi i32 [ 16, %17 ], [ 0, %16 ]
   %.not31 = icmp eq ptr %4, null
   br i1 %.not31, label %28, label %21
 
@@ -2058,7 +2058,7 @@ define hidden range(i32 0, 32) i32 @png_get_tRNS(ptr noalias noundef readnone %0
   br label %26
 
 26:                                               ; preds = %24, %23
-  %.1 = phi i32 [ 16, %24 ], [ 0, %23 ]
+  %.3 = phi i32 [ 16, %24 ], [ 0, %23 ]
   %.not29 = icmp eq ptr %2, null
   br i1 %.not29, label %28, label %27
 
@@ -2067,7 +2067,7 @@ define hidden range(i32 0, 32) i32 @png_get_tRNS(ptr noalias noundef readnone %0
   br label %28
 
 28:                                               ; preds = %26, %27, %20, %21
-  %.2 = phi i32 [ %.0, %21 ], [ %.0, %20 ], [ %.1, %27 ], [ %.1, %26 ]
+  %.2 = phi i32 [ %.1, %21 ], [ %.1, %20 ], [ %.3, %27 ], [ %.3, %26 ]
   %.not32 = icmp eq ptr %3, null
   br i1 %.not32, label %33, label %29
 
@@ -2079,8 +2079,8 @@ define hidden range(i32 0, 32) i32 @png_get_tRNS(ptr noalias noundef readnone %0
   br label %33
 
 33:                                               ; preds = %28, %29, %8, %5
-  %.3 = phi i32 [ 16, %29 ], [ %.2, %28 ], [ 0, %8 ], [ 0, %5 ]
-  ret i32 %.3
+  %.0 = phi i32 [ 16, %29 ], [ %.2, %28 ], [ 0, %8 ], [ 0, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

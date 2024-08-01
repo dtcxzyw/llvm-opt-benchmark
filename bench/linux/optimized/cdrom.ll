@@ -926,7 +926,7 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
   br label %95
 
 95:                                               ; preds = %111, %92
-  %.sroa.0.0 = phi i32 [ 0, %92 ], [ %.sroa.0.1, %111 ]
+  %.sroa.0.1 = phi i32 [ 0, %92 ], [ %.sroa.0.2, %111 ]
   %96 = phi i32 [ %93, %92 ], [ %112, %111 ]
   %97 = trunc i32 %96 to i8
   store i8 %97, ptr %4, align 4
@@ -951,11 +951,11 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
   ]
 
 109:                                              ; preds = %107
-  %110 = add i32 %.sroa.0.0, 1
+  %110 = add i32 %.sroa.0.1, 1
   br label %111
 
 111:                                              ; preds = %103, %107, %107, %109
-  %.sroa.0.1 = phi i32 [ %110, %109 ], [ %.sroa.0.0, %107 ], [ %.sroa.0.0, %107 ], [ %.sroa.0.0, %103 ]
+  %.sroa.0.2 = phi i32 [ %110, %109 ], [ %.sroa.0.1, %107 ], [ %.sroa.0.1, %107 ], [ %.sroa.0.1, %103 ]
   %112 = add nuw nsw i32 %96, 1
   %113 = load i8, ptr %89, align 1
   %114 = zext i8 %113 to i32
@@ -973,7 +973,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   br label %118
 
 116:                                              ; preds = %111, %95
-  %.sroa.0.3.ph = phi i32 [ %.sroa.0.0, %95 ], [ %.sroa.0.1, %111 ]
+  %.sroa.0.3.ph = phi i32 [ %.sroa.0.1, %95 ], [ %.sroa.0.2, %111 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #16
   %117 = icmp eq i32 %.sroa.0.3.ph, 0
@@ -3481,10 +3481,10 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %652
 
 652:                                              ; preds = %674, %649
-  %.sroa.0.0 = phi i32 [ 0, %649 ], [ %.sroa.0.1, %674 ]
-  %.sroa.8.0 = phi i32 [ 0, %649 ], [ %.sroa.8.1, %674 ]
-  %.sroa.11.0 = phi i32 [ 0, %649 ], [ %.sroa.11.1, %674 ]
-  %.sroa.15.0 = phi i32 [ 0, %649 ], [ %.sroa.15.1, %674 ]
+  %.sroa.0.1 = phi i32 [ 0, %649 ], [ %.sroa.0.2, %674 ]
+  %.sroa.8.1 = phi i32 [ 0, %649 ], [ %.sroa.8.2, %674 ]
+  %.sroa.11.1 = phi i32 [ 0, %649 ], [ %.sroa.11.2, %674 ]
+  %.sroa.15.1 = phi i32 [ 0, %649 ], [ %.sroa.15.2, %674 ]
   %653 = phi i32 [ %650, %649 ], [ %675, %674 ]
   %654 = trunc i32 %653 to i8
   store i8 %654, ptr %6, align 4
@@ -3509,26 +3509,26 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   ]
 
 666:                                              ; preds = %664
-  %667 = add i32 %.sroa.11.0, 1
+  %667 = add i32 %.sroa.11.1, 1
   br label %674
 
 668:                                              ; preds = %664
-  %669 = add i32 %.sroa.15.0, 1
+  %669 = add i32 %.sroa.15.1, 1
   br label %674
 
 670:                                              ; preds = %664
-  %671 = add i32 %.sroa.0.0, 1
+  %671 = add i32 %.sroa.0.1, 1
   br label %674
 
 672:                                              ; preds = %660
-  %673 = add i32 %.sroa.8.0, 1
+  %673 = add i32 %.sroa.8.1, 1
   br label %674
 
 674:                                              ; preds = %672, %670, %668, %666
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %672 ], [ %671, %670 ], [ %.sroa.0.0, %668 ], [ %.sroa.0.0, %666 ]
-  %.sroa.8.1 = phi i32 [ %673, %672 ], [ %.sroa.8.0, %670 ], [ %.sroa.8.0, %668 ], [ %.sroa.8.0, %666 ]
-  %.sroa.11.1 = phi i32 [ %.sroa.11.0, %672 ], [ %.sroa.11.0, %670 ], [ %.sroa.11.0, %668 ], [ %667, %666 ]
-  %.sroa.15.1 = phi i32 [ %.sroa.15.0, %672 ], [ %.sroa.15.0, %670 ], [ %669, %668 ], [ %.sroa.15.0, %666 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.1, %672 ], [ %671, %670 ], [ %.sroa.0.1, %668 ], [ %.sroa.0.1, %666 ]
+  %.sroa.8.2 = phi i32 [ %673, %672 ], [ %.sroa.8.1, %670 ], [ %.sroa.8.1, %668 ], [ %.sroa.8.1, %666 ]
+  %.sroa.11.2 = phi i32 [ %.sroa.11.1, %672 ], [ %.sroa.11.1, %670 ], [ %.sroa.11.1, %668 ], [ %667, %666 ]
+  %.sroa.15.2 = phi i32 [ %.sroa.15.1, %672 ], [ %.sroa.15.1, %670 ], [ %669, %668 ], [ %.sroa.15.1, %666 ]
   %675 = add nuw nsw i32 %653, 1
   %676 = load i8, ptr %646, align 1
   %677 = zext i8 %676 to i32
@@ -3546,10 +3546,10 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %766
 
 680:                                              ; preds = %674, %652
-  %.sroa.0.3.ph = phi i32 [ %.sroa.0.0, %652 ], [ %.sroa.0.1, %674 ]
-  %.sroa.8.3.ph = phi i32 [ %.sroa.8.0, %652 ], [ %.sroa.8.1, %674 ]
-  %.sroa.11.3.ph = phi i32 [ %.sroa.11.0, %652 ], [ %.sroa.11.1, %674 ]
-  %.sroa.15.3.ph = phi i32 [ %.sroa.15.0, %652 ], [ %.sroa.15.1, %674 ]
+  %.sroa.0.3.ph = phi i32 [ %.sroa.0.1, %652 ], [ %.sroa.0.2, %674 ]
+  %.sroa.8.3.ph = phi i32 [ %.sroa.8.1, %652 ], [ %.sroa.8.2, %674 ]
+  %.sroa.11.3.ph = phi i32 [ %.sroa.11.1, %652 ], [ %.sroa.11.2, %674 ]
+  %.sroa.15.3.ph = phi i32 [ %.sroa.15.1, %652 ], [ %.sroa.15.2, %674 ]
   %.sroa.0.3.ph.fr = freeze i32 %.sroa.0.3.ph
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #16
@@ -6549,7 +6549,7 @@ define internal fastcc noundef i32 @check_for_audio_disc(ptr noundef %0, ptr noc
   br label %65
 
 65:                                               ; preds = %73, %62
-  %.sroa.6.0 = phi i32 [ 0, %62 ], [ %.sroa.6.1, %73 ]
+  %.sroa.6.1 = phi i32 [ 0, %62 ], [ %.sroa.6.2, %73 ]
   %66 = phi i32 [ %63, %62 ], [ %78, %73 ]
   %67 = trunc i32 %66 to i8
   store i8 %67, ptr %4, align 4
@@ -6565,7 +6565,7 @@ define internal fastcc noundef i32 @check_for_audio_disc(ptr noundef %0, ptr noc
   %75 = and i8 %74, 64
   %76 = icmp eq i8 %75, 0
   %77 = zext i1 %76 to i32
-  %.sroa.6.1 = add i32 %.sroa.6.0, %77
+  %.sroa.6.2 = add i32 %.sroa.6.1, %77
   %78 = add nuw nsw i32 %66, 1
   %79 = load i8, ptr %59, align 1
   %80 = zext i8 %79 to i32
@@ -6583,7 +6583,7 @@ define internal fastcc noundef i32 @check_for_audio_disc(ptr noundef %0, ptr noc
   br label %85
 
 83:                                               ; preds = %73, %65
-  %.sroa.6.3.ph = phi i32 [ %.sroa.6.0, %65 ], [ %.sroa.6.1, %73 ]
+  %.sroa.6.3.ph = phi i32 [ %.sroa.6.1, %65 ], [ %.sroa.6.2, %73 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #16
   %.sroa.6.3.ph.fr = freeze i32 %.sroa.6.3.ph

@@ -10085,37 +10085,37 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101: ; preds = %_ZN7xgboost10J
   br i1 %74, label %.preheader133, label %.critedge2
 
 .preheader133:                                    ; preds = %.critedge
-  %.3141 = getelementptr inbounds i8, ptr %.2.lcssa, i64 1
-  %75 = load i8, ptr %.3141, align 1
+  %.4141 = getelementptr inbounds i8, ptr %.2.lcssa, i64 1
+  %75 = load i8, ptr %.4141, align 1
   %76 = add i8 %75, -48
   %or.cond87142 = icmp ult i8 %76, 10
   br i1 %or.cond87142, label %.lr.ph145, label %.critedge2
 
 .lr.ph145:                                        ; preds = %.preheader133, %.lr.ph145
   %77 = phi i8 [ %81, %.lr.ph145 ], [ %75, %.preheader133 ]
-  %.3144 = phi ptr [ %.3, %.lr.ph145 ], [ %.3141, %.preheader133 ]
-  %.267143 = phi i64 [ %80, %.lr.ph145 ], [ %.166.lcssa, %.preheader133 ]
-  %78 = mul nsw i64 %.267143, 10
+  %.4144 = phi ptr [ %.4, %.lr.ph145 ], [ %.4141, %.preheader133 ]
+  %.368143 = phi i64 [ %80, %.lr.ph145 ], [ %.166.lcssa, %.preheader133 ]
+  %78 = mul nsw i64 %.368143, 10
   %narrow = add nsw i8 %77, -48
   %79 = zext nneg i8 %narrow to i64
   %80 = add nsw i64 %78, %79
-  %.3 = getelementptr inbounds i8, ptr %.3144, i64 1
-  %81 = load i8, ptr %.3, align 1
+  %.4 = getelementptr inbounds i8, ptr %.4144, i64 1
+  %81 = load i8, ptr %.4, align 1
   %82 = add i8 %81, -48
   %or.cond87 = icmp ult i8 %82, 10
   br i1 %or.cond87, label %.lr.ph145, label %.critedge2, !llvm.loop !75
 
 .critedge2:                                       ; preds = %.lr.ph145, %.critedge, %.preheader133
   %83 = phi i8 [ %75, %.preheader133 ], [ %.pr130, %.critedge ], [ %81, %.lr.ph145 ]
-  %.368 = phi i64 [ %.166.lcssa, %.preheader133 ], [ %.166.lcssa, %.critedge ], [ %80, %.lr.ph145 ]
-  %.4 = phi ptr [ %.3141, %.preheader133 ], [ %.2.lcssa, %.critedge ], [ %.3, %.lr.ph145 ]
+  %.267 = phi i64 [ %.166.lcssa, %.preheader133 ], [ %.166.lcssa, %.critedge ], [ %80, %.lr.ph145 ]
+  %.3 = phi ptr [ %.4141, %.preheader133 ], [ %.2.lcssa, %.critedge ], [ %.4, %.lr.ph145 ]
   switch i8 %83, label %.critedge6 [
     i8 69, label %84
     i8 101, label %84
   ]
 
 84:                                               ; preds = %.critedge2, %.critedge2
-  %85 = getelementptr inbounds i8, ptr %.4, i64 1
+  %85 = getelementptr inbounds i8, ptr %.3, i64 1
   %86 = load i8, ptr %85, align 1
   switch i8 %86, label %89 [
     i8 45, label %87
@@ -10123,21 +10123,21 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101: ; preds = %_ZN7xgboost10J
   ]
 
 87:                                               ; preds = %84, %84
-  %88 = getelementptr inbounds i8, ptr %.4, i64 2
+  %88 = getelementptr inbounds i8, ptr %.3, i64 2
   %.pre157 = load i8, ptr %88, align 1
   br label %89
 
 89:                                               ; preds = %84, %87
   %90 = phi i8 [ %86, %84 ], [ %.pre157, %87 ]
-  %.5 = phi ptr [ %85, %84 ], [ %88, %87 ]
+  %.6 = phi ptr [ %85, %84 ], [ %88, %87 ]
   %91 = add i8 %90, -48
   %or.cond88 = icmp ult i8 %91, 10
   br i1 %or.cond88, label %.preheader, label %.critedge4
 
 .preheader:                                       ; preds = %89, %.preheader
-  %.5.pn = phi ptr [ %.6, %.preheader ], [ %.5, %89 ]
-  %.6 = getelementptr inbounds i8, ptr %.5.pn, i64 1
-  %92 = load i8, ptr %.6, align 1
+  %.6.pn = phi ptr [ %.7, %.preheader ], [ %.6, %89 ]
+  %.7 = getelementptr inbounds i8, ptr %.6.pn, i64 1
+  %92 = load i8, ptr %.7, align 1
   %93 = add i8 %92, -48
   %or.cond89 = icmp ult i8 %93, 10
   br i1 %or.cond89, label %.preheader, label %.critedge6.thread, !llvm.loop !76
@@ -10189,8 +10189,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .critedge6.thread:                                ; preds = %.preheader, %97
   %102 = phi i64 [ %.pre158, %97 ], [ %10, %.preheader ]
-  %.7.ph = phi ptr [ %.5, %97 ], [ %.6, %.preheader ]
-  %103 = ptrtoint ptr %.7.ph to i64
+  %.5.ph = phi ptr [ %.6, %97 ], [ %.7, %.preheader ]
+  %103 = ptrtoint ptr %.5.ph to i64
   %104 = ptrtoint ptr %11 to i64
   %105 = sub i64 %103, %104
   %106 = and i64 %105, 4294967295
@@ -10199,7 +10199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %113
 
 .critedge6:                                       ; preds = %.critedge2
-  %108 = ptrtoint ptr %.4 to i64
+  %108 = ptrtoint ptr %.3 to i64
   %109 = ptrtoint ptr %11 to i64
   %110 = sub i64 %108, %109
   %111 = and i64 %110, 4294967295
@@ -10236,8 +10236,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %131
 
 125:                                              ; preds = %.critedge6
-  %126 = sub nsw i64 0, %.368
-  %spec.select = select i1 %.073, i64 %126, i64 %.368
+  %126 = sub nsw i64 0, %.267
+  %spec.select = select i1 %.073, i64 %126, i64 %.267
   %127 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   store i32 0, ptr %128, align 4

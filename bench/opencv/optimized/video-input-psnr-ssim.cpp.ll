@@ -687,7 +687,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %275
 
 274:                                              ; preds = %.invoke, %.loopexit75
-  %.0 = phi i32 [ 0, %.loopexit75 ], [ -1, %.invoke ]
+  %.1 = phi i32 [ 0, %.loopexit75 ], [ -1, %.invoke ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %11) #10
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %10) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
@@ -721,8 +721,8 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   resume { ptr, i32 } %.pn61.pn.pn.pn.pn
 
 280:                                              ; preds = %274, %42
-  %.1 = phi i32 [ -1, %42 ], [ %.0, %274 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %42 ], [ %.1, %274 ]
+  ret i32 %.0
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0

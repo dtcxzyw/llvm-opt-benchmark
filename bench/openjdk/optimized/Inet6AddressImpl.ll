@@ -103,12 +103,12 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
 
 .preheader:                                       ; preds = %.preheader183, %.critedge
   %.0127205 = phi ptr [ %.0127, %.critedge ], [ %.0127191, %.preheader183 ]
-  %.0124201 = phi ptr [ %.2, %.critedge ], [ null, %.preheader183 ]
+  %.1201 = phi ptr [ %.2, %.critedge ], [ null, %.preheader183 ]
   %.0125199 = phi ptr [ %.1126, %.critedge ], [ null, %.preheader183 ]
   %.0130197 = phi i32 [ %.1131, %.critedge ], [ 0, %.preheader183 ]
   %.0132195 = phi i32 [ %.1133, %.critedge ], [ 0, %.preheader183 ]
   %.0147193 = phi i32 [ %.1148, %.critedge ], [ 0, %.preheader183 ]
-  %.not173189 = icmp eq ptr %.0124201, null
+  %.not173189 = icmp eq ptr %.1201, null
   br i1 %.not173189, label %.critedge181, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -127,7 +127,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br label %28
 
 28:                                               ; preds = %.backedge.us, %.lr.ph.split.us
-  %.0134190.us = phi ptr [ %.0124201, %.lr.ph.split.us ], [ %.0134.be.us, %.backedge.us ]
+  %.0134190.us = phi ptr [ %.1201, %.lr.ph.split.us ], [ %.0134.be.us, %.backedge.us ]
   %29 = getelementptr inbounds i8, ptr %.0134190.us, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %.fr, %30
@@ -180,7 +180,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %.not173.us, label %.critedge181, label %28, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
-  %.0134190 = phi ptr [ %.0134.be, %.backedge ], [ %.0124201, %.lr.ph ]
+  %.0134190 = phi ptr [ %.0134.be, %.backedge ], [ %.1201, %.lr.ph ]
   %56 = getelementptr inbounds i8, ptr %.0134190, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %.fr, %57
@@ -242,7 +242,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br label %82
 
 82:                                               ; preds = %78, %80
-  %.1 = phi ptr [ %.0124201, %80 ], [ %76, %78 ]
+  %.3 = phi ptr [ %.1201, %80 ], [ %76, %78 ]
   %83 = add nsw i32 %.0130197, 1
   %84 = getelementptr inbounds i8, ptr %.0127205, i64 4
   %85 = load i32, ptr %84, align 4
@@ -264,7 +264,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %.1133 = phi i32 [ %87, %86 ], [ %.0132195, %88 ], [ %.0132195, %82 ], [ %.0132195, %70 ], [ %.0132195, %44 ], [ %.0132195, %59 ], [ %.0132195, %.lr.ph.split ], [ %.0132195, %50 ]
   %.1131 = phi i32 [ %83, %86 ], [ %83, %88 ], [ %83, %82 ], [ %.0130197, %70 ], [ %.0130197, %44 ], [ %.0130197, %59 ], [ %.0130197, %.lr.ph.split ], [ %.0130197, %50 ]
   %.1126 = phi ptr [ %76, %86 ], [ %76, %88 ], [ %76, %82 ], [ %.0125199, %70 ], [ %.0125199, %44 ], [ %.0125199, %59 ], [ %.0125199, %.lr.ph.split ], [ %.0125199, %50 ]
-  %.2 = phi ptr [ %.1, %86 ], [ %.1, %88 ], [ %.1, %82 ], [ %.0124201, %70 ], [ %.0124201, %44 ], [ %.0124201, %59 ], [ %.0124201, %.lr.ph.split ], [ %.0124201, %50 ]
+  %.2 = phi ptr [ %.3, %86 ], [ %.3, %88 ], [ %.3, %82 ], [ %.1201, %70 ], [ %.1201, %44 ], [ %.1201, %59 ], [ %.1201, %.lr.ph.split ], [ %.1201, %50 ]
   %90 = getelementptr inbounds i8, ptr %.0127205, i64 40
   %.0127 = load ptr, ptr %90, align 8
   %.not164 = icmp eq ptr %.0127, null
@@ -274,7 +274,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %.0147.lcssa = phi i32 [ 0, %.preheader183 ], [ %.1148, %.critedge ]
   %.0132.lcssa = phi i32 [ 0, %.preheader183 ], [ %.1133, %.critedge ]
   %.0130.lcssa = phi i32 [ 0, %.preheader183 ], [ %.1131, %.critedge ]
-  %.0124.lcssa = phi ptr [ null, %.preheader183 ], [ %.2, %.critedge ]
+  %.1.lcssa = phi ptr [ null, %.preheader183 ], [ %.2, %.critedge ]
   %91 = load ptr, ptr %0, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 1376
   %93 = load ptr, ptr %92, align 8
@@ -284,7 +284,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %96, label %.loopexit, label %97
 
 97:                                               ; preds = %._crit_edge
-  %.not167209 = icmp eq ptr %.0124.lcssa, null
+  %.not167209 = icmp eq ptr %.1.lcssa, null
   br i1 %.not167209, label %.loopexit.thread, label %.lr.ph215.preheader
 
 .lr.ph215.preheader:                              ; preds = %97
@@ -299,7 +299,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br label %.lr.ph215
 
 .lr.ph215:                                        ; preds = %.lr.ph215.preheader, %163
-  %.1128213 = phi ptr [ %167, %163 ], [ %.0124.lcssa, %.lr.ph215.preheader ]
+  %.1128213 = phi ptr [ %167, %163 ], [ %.1.lcssa, %.lr.ph215.preheader ]
   %.1137212 = phi i32 [ %.2138, %163 ], [ 0, %.lr.ph215.preheader ]
   %.1140211 = phi i32 [ %.3142, %163 ], [ %.0139, %.lr.ph215.preheader ]
   %.1144210 = phi i32 [ %.3146, %163 ], [ %.0143, %.lr.ph215.preheader ]
@@ -419,14 +419,14 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br label %._crit_edge233
 
 .loopexit:                                        ; preds = %111, %121, %152, %163, %103, %132, %140, %._crit_edge, %77
-  %.3 = phi ptr [ %.0124201, %77 ], [ %.0124.lcssa, %._crit_edge ], [ %.0124.lcssa, %140 ], [ %.0124.lcssa, %132 ], [ %.0124.lcssa, %103 ], [ %.0124.lcssa, %163 ], [ %.0124.lcssa, %152 ], [ %.0124.lcssa, %121 ], [ %.0124.lcssa, %111 ]
+  %.0124 = phi ptr [ %.1201, %77 ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %140 ], [ %.1.lcssa, %132 ], [ %.1.lcssa, %103 ], [ %.1.lcssa, %163 ], [ %.1.lcssa, %152 ], [ %.1.lcssa, %121 ], [ %.1.lcssa, %111 ]
   %.0123 = phi ptr [ null, %77 ], [ null, %._crit_edge ], [ %95, %111 ], [ %95, %121 ], [ %95, %152 ], [ %95, %163 ], [ null, %103 ], [ null, %132 ], [ null, %140 ]
   call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %15) #11
-  %.not179229 = icmp eq ptr %.3, null
+  %.not179229 = icmp eq ptr %.0124, null
   br i1 %.not179229, label %._crit_edge233, label %.lr.ph232
 
 .lr.ph232:                                        ; preds = %.loopexit, %.lr.ph232
-  %.4230 = phi ptr [ %169, %.lr.ph232 ], [ %.3, %.loopexit ]
+  %.4230 = phi ptr [ %169, %.lr.ph232 ], [ %.0124, %.loopexit ]
   %168 = getelementptr inbounds i8, ptr %.4230, i64 40
   %169 = load ptr, ptr %168, align 8
   call void @free(ptr noundef nonnull %.4230) #11

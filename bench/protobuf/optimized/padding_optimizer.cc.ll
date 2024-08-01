@@ -2503,13 +2503,13 @@ if.else38.i:                                      ; preds = %for.cond.i
 for.body49.i:                                     ; preds = %if.else38.i, %for.body49.i
   %__i45.053.i = phi i64 [ %inc57.i, %for.body49.i ], [ 0, %if.else38.i ]
   %__q40.sroa.0.052.i = phi ptr [ %incdec.ptr.i28.i, %for.body49.i ], [ %add.ptr.i25.i, %if.else38.i ]
-  %__p.sroa.0.251.i = phi ptr [ %incdec.ptr.i27.i, %for.body49.i ], [ %add.ptr.i26.i, %if.else38.i ]
-  %incdec.ptr.i27.i = getelementptr inbounds i8, ptr %__p.sroa.0.251.i, i64 -32
+  %__p.sroa.0.351.i = phi ptr [ %incdec.ptr.i27.i, %for.body49.i ], [ %add.ptr.i26.i, %if.else38.i ]
+  %incdec.ptr.i27.i = getelementptr inbounds i8, ptr %__p.sroa.0.351.i, i64 -32
   %incdec.ptr.i28.i = getelementptr inbounds i8, ptr %__q40.sroa.0.052.i, i64 -32
   %14 = load double, ptr %incdec.ptr.i27.i, align 8
-  %fields_3.i.i.i29.i = getelementptr inbounds i8, ptr %__p.sroa.0.251.i, i64 -24
-  %_M_finish3.i.i.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %__p.sroa.0.251.i, i64 -16
-  %_M_end_of_storage4.i.i.i.i.i.i.i31.i = getelementptr inbounds i8, ptr %__p.sroa.0.251.i, i64 -8
+  %fields_3.i.i.i29.i = getelementptr inbounds i8, ptr %__p.sroa.0.351.i, i64 -24
+  %_M_finish3.i.i.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %__p.sroa.0.351.i, i64 -16
+  %_M_end_of_storage4.i.i.i.i.i.i.i31.i = getelementptr inbounds i8, ptr %__p.sroa.0.351.i, i64 -8
   %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i31.i, align 8
   %fields_3.i4.i.i32.i = getelementptr inbounds i8, ptr %__q40.sroa.0.052.i, i64 -24
   %_M_finish.i2.i.i.i.i.i.i33.i = getelementptr inbounds i8, ptr %__q40.sroa.0.052.i, i64 -16
@@ -2532,7 +2532,7 @@ for.body49.i:                                     ; preds = %if.else38.i, %for.b
   br i1 %exitcond.not.i, label %for.end58.i, label %for.body49.i, !llvm.loop !34
 
 for.end58.i:                                      ; preds = %for.body49.i, %if.else38.i
-  %__p.sroa.0.2.lcssa.i = phi ptr [ %add.ptr.i26.i, %if.else38.i ], [ %__p.sroa.0.0.i, %for.body49.i ]
+  %__p.sroa.0.3.lcssa.i = phi ptr [ %add.ptr.i26.i, %if.else38.i ], [ %__p.sroa.0.0.i, %for.body49.i ]
   %rem59.i = srem i64 %__n.0.i, %sub20.i
   %cmp60.i = icmp eq i64 %rem59.i, 0
   br i1 %cmp60.i, label %_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS8_SaIS8_EEEEEET_SE_SE_SE_St26random_access_iterator_tag.exit, label %for.cond.i.backedge
@@ -2540,7 +2540,7 @@ for.end58.i:                                      ; preds = %for.body49.i, %if.e
 for.cond.i.backedge:                              ; preds = %for.end58.i, %if.end36.i
   %__n.0.i.be = phi i64 [ %__k.0.i, %if.end36.i ], [ %sub20.i, %for.end58.i ]
   %__k.0.i.be = phi i64 [ %sub37.i, %if.end36.i ], [ %rem59.i, %for.end58.i ]
-  %__p.sroa.0.0.i.be = phi ptr [ %__p.sroa.0.1.lcssa.i, %if.end36.i ], [ %__p.sroa.0.2.lcssa.i, %for.end58.i ]
+  %__p.sroa.0.0.i.be = phi ptr [ %__p.sroa.0.1.lcssa.i, %if.end36.i ], [ %__p.sroa.0.3.lcssa.i, %for.end58.i ]
   br label %for.cond.i, !llvm.loop !35
 
 _ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS8_SaIS8_EEEEEET_SE_SE_SE_St26random_access_iterator_tag.exit: ; preds = %for.end.i, %for.end58.i, %for.body.i.i, %entry, %if.else.i

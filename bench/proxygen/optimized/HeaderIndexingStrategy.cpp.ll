@@ -133,7 +133,7 @@ if.end3.i.i:                                      ; preds = %if.end
 
 while.cond8.preheader.i.i:                        ; preds = %if.end3.i.i, %if.end28.i.i
   %i.043.i.i = phi ptr [ %add.ptr29.i.i, %if.end28.i.i ], [ %value.coerce0, %if.end3.i.i ]
-  %skip.042.i.i = phi i64 [ %skip.2.i.i, %if.end28.i.i ], [ 0, %if.end3.i.i ]
+  %skip.042.i.i = phi i64 [ %skip.1.i.i, %if.end28.i.i ], [ 0, %if.end3.i.i ]
   br label %while.cond8.i.i
 
 while.cond8.i.i:                                  ; preds = %while.body10.i.i, %while.cond8.preheader.i.i
@@ -162,21 +162,21 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp18.i.i, label %land.rhs.i.i, label %if.end28.i.i
 
 land.rhs.i.i:                                     ; preds = %if.then17.i.i, %while.body26.i.i
-  %skip.139.i.i = phi i64 [ %inc.i.i, %while.body26.i.i ], [ 1, %if.then17.i.i ]
-  %sub22.i.i = sub nuw nsw i64 2, %skip.139.i.i
+  %skip.239.i.i = phi i64 [ %inc.i.i, %while.body26.i.i ], [ 1, %if.then17.i.i ]
+  %sub22.i.i = sub nuw nsw i64 2, %skip.239.i.i
   %arrayidx.i33.i.i = getelementptr inbounds i8, ptr @.str, i64 %sub22.i.i
   %6 = load i8, ptr %arrayidx.i33.i.i, align 1
   %cmp.i34.i.i = icmp eq i8 %6, 103
   br i1 %cmp.i34.i.i, label %if.end28.i.i, label %while.body26.i.i
 
 while.body26.i.i:                                 ; preds = %land.rhs.i.i
-  %inc.i.i = add nuw nsw i64 %skip.139.i.i, 1
+  %inc.i.i = add nuw nsw i64 %skip.239.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
   br i1 %exitcond.not.i.i, label %if.end28.i.i, label %land.rhs.i.i, !llvm.loop !7
 
 if.end28.i.i:                                     ; preds = %while.body26.i.i, %land.rhs.i.i, %if.then17.i.i
-  %skip.2.i.i = phi i64 [ %skip.042.i.i, %if.then17.i.i ], [ 3, %while.body26.i.i ], [ %skip.139.i.i, %land.rhs.i.i ]
-  %add.ptr29.i.i = getelementptr inbounds i8, ptr %i.1.i.i, i64 %skip.2.i.i
+  %skip.1.i.i = phi i64 [ %skip.042.i.i, %if.then17.i.i ], [ 3, %while.body26.i.i ], [ %skip.239.i.i, %land.rhs.i.i ]
+  %add.ptr29.i.i = getelementptr inbounds i8, ptr %i.1.i.i, i64 %skip.1.i.i
   %cmp7.i.i = icmp ult ptr %add.ptr29.i.i, %add.ptr.i1.i
   br i1 %cmp7.i.i, label %while.cond8.preheader.i.i, label %sw.epilog, !llvm.loop !8
 

@@ -1043,7 +1043,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit119:  ; preds = %_ZNSt6vectorIN2cv8K
   br label %389
 
 _ZN2cv3PtrINS_11xfeatures2d4SURFEED2Ev.exit:      ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i109, %360, %347, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit103, %65
-  %.038 = phi i32 [ -1, %65 ], [ 0, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit103 ], [ 0, %347 ], [ 0, %360 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i109 ]
+  %.139 = phi i32 [ -1, %65 ], [ 0, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit103 ], [ 0, %347 ], [ 0, %360 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i109 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #12
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
   br label %391
@@ -1059,8 +1059,8 @@ _ZN2cv3PtrINS_11xfeatures2d4SURFEED2Ev.exit:      ; preds = %_ZNSt16_Sp_counted_
   br label %392
 
 391:                                              ; preds = %_ZN2cv3PtrINS_11xfeatures2d4SURFEED2Ev.exit, %50
-  %.139 = phi i32 [ -1, %50 ], [ %.038, %_ZN2cv3PtrINS_11xfeatures2d4SURFEED2Ev.exit ]
-  ret i32 %.139
+  %.038 = phi i32 [ -1, %50 ], [ %.139, %_ZN2cv3PtrINS_11xfeatures2d4SURFEED2Ev.exit ]
+  ret i32 %.038
 
 392:                                              ; preds = %390, %70
   %.pn69.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn69.pn.pn.pn.pn.pn, %390 ], [ %.pn, %70 ]

@@ -204,7 +204,7 @@ define internal i32 @dissect_nns(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %89
 
 89:                                               ; preds = %86, %54
-  %.075 = phi i32 [ %88, %86 ], [ 5, %54 ]
+  %.1 = phi i32 [ %88, %86 ], [ 5, %54 ]
   %90 = load i32, ptr %5, align 4
   %91 = icmp eq i32 %90, 20
   br i1 %91, label %92, label %98
@@ -221,7 +221,7 @@ define internal i32 @dissect_nns(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %98
 
 98:                                               ; preds = %49, %36, %92, %89, %4, %71, %45
-  %.074 = phi i32 [ 0, %71 ], [ 0, %45 ], [ 0, %4 ], [ %.075, %92 ], [ %.075, %89 ], [ %53, %49 ], [ 4, %36 ]
+  %.074 = phi i32 [ 0, %71 ], [ 0, %45 ], [ 0, %4 ], [ %.1, %92 ], [ %.1, %89 ], [ %53, %49 ], [ 4, %36 ]
   ret i32 %.074
 }
 

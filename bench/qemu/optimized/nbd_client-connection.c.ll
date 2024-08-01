@@ -403,9 +403,9 @@ if.end99:                                         ; preds = %if.then84, %if.end9
   br label %return
 
 return:                                           ; preds = %if.then78, %if.then88, %if.end99, %if.else64, %if.then61, %if.then38, %if.else41, %if.end28, %if.then17
-  %retval.2 = phi ptr [ null, %if.then38 ], [ null, %if.else41 ], [ %call.i, %if.end28 ], [ %15, %if.then17 ], [ null, %if.then78 ], [ %23, %if.then88 ], [ %call.i48, %if.end99 ], [ null, %if.else64 ], [ null, %if.then61 ]
+  %retval.1 = phi ptr [ null, %if.then38 ], [ null, %if.else41 ], [ %call.i, %if.end28 ], [ %15, %if.then17 ], [ null, %if.then78 ], [ %23, %if.then88 ], [ %call.i48, %if.end99 ], [ null, %if.else64 ], [ null, %if.then61 ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 132) #10
-  ret ptr %retval.2
+  ret ptr %retval.1
 }
 
 declare void @object_unref(ptr noundef) local_unnamed_addr #3

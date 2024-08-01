@@ -3810,7 +3810,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %boundaries_uncompressed.sroa.0.0420 = phi ptr [ %boundaries_uncompressed.sroa.0.1, %for.inc ], [ null, %for.cond.preheader ]
   %boundaries_compressed.sroa.12.0419 = phi ptr [ %boundaries_compressed.sroa.12.1, %for.inc ], [ null, %for.cond.preheader ]
   %boundaries_compressed.sroa.7.0418 = phi ptr [ %boundaries_compressed.sroa.7.1, %for.inc ], [ null, %for.cond.preheader ]
-  %boundaries_compressed.sroa.0.0417 = phi ptr [ %boundaries_compressed.sroa.0.1, %for.inc ], [ null, %for.cond.preheader ]
+  %boundaries_compressed.sroa.0.0417 = phi ptr [ %boundaries_compressed.sroa.0.2, %for.inc ], [ null, %for.cond.preheader ]
   %add.ptr.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %8, i64 %i.0425
   %compressedbits = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %9 = load i64, ptr %compressedbits, align 8
@@ -3880,7 +3880,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %if.then.i113
-  %boundaries_compressed.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %boundaries_compressed.sroa.0.0417, %if.then.i113 ]
+  %boundaries_compressed.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %boundaries_compressed.sroa.0.0417, %if.then.i113 ]
   %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %boundaries_compressed.sroa.7.0418, %if.then.i113 ]
   %boundaries_compressed.sroa.12.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %boundaries_compressed.sroa.12.0419, %if.then.i113 ]
   %boundaries_compressed.sroa.7.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
@@ -4025,21 +4025,21 @@ lpad9.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body46, %invo
   br label %lpad9
 
 lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %cond.true.i.i.i133, %cond.true.i.i.i
-  %boundaries_compressed.sroa.0.2.ph.ph.ph.ph.ph = phi ptr [ %boundaries_compressed.sroa.0.0417, %cond.true.i.i.i ], [ %boundaries_compressed.sroa.0.1, %cond.true.i.i.i133 ]
+  %boundaries_compressed.sroa.0.1.ph.ph.ph.ph.ph = phi ptr [ %boundaries_compressed.sroa.0.0417, %cond.true.i.i.i ], [ %boundaries_compressed.sroa.0.2, %cond.true.i.i.i133 ]
   %lpad.loopexit356 = landingpad { ptr, i32 }
           cleanup
   br label %lpad9
 
 lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i147, %if.then.i.i.i, %for.end110, %invoke.cont93, %for.end92, %invoke.cont75, %for.end74, %invoke.cont56, %for.end55, %if.then39, %invoke.cont33, %invoke.cont30, %invoke.cont28, %invoke.cont26, %invoke.cont24, %invoke.cont22, %invoke.cont20, %invoke.cont18, %invoke.cont16, %invoke.cont14, %invoke.cont12, %for.end
   %boundaries_uncompressed.sroa.0.0404 = phi ptr [ %boundaries_uncompressed.sroa.0.0.lcssa, %for.end ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont12 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont14 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont16 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont18 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont20 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont22 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont24 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont26 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont28 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont30 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont33 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %if.then39 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %for.end55 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont56 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %for.end74 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont75 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %for.end92 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %invoke.cont93 ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %for.end110 ], [ %boundaries_uncompressed.sroa.0.0420, %if.then.i.i.i147 ], [ %boundaries_uncompressed.sroa.0.0420, %if.then.i.i.i ]
-  %boundaries_compressed.sroa.0.2.ph.ph.ph.ph.ph355 = phi ptr [ %boundaries_compressed.sroa.0.0.lcssa, %for.end ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont12 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont14 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont16 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont18 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont20 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont22 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont24 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont26 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont28 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont30 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont33 ], [ %boundaries_compressed.sroa.0.0.lcssa, %if.then39 ], [ %boundaries_compressed.sroa.0.0.lcssa, %for.end55 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont56 ], [ %boundaries_compressed.sroa.0.0.lcssa, %for.end74 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont75 ], [ %boundaries_compressed.sroa.0.0.lcssa, %for.end92 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont93 ], [ %boundaries_compressed.sroa.0.0.lcssa, %for.end110 ], [ %boundaries_compressed.sroa.0.1, %if.then.i.i.i147 ], [ %boundaries_compressed.sroa.0.0417, %if.then.i.i.i ]
+  %boundaries_compressed.sroa.0.1.ph.ph.ph.ph.ph355 = phi ptr [ %boundaries_compressed.sroa.0.0.lcssa, %for.end ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont12 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont14 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont16 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont18 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont20 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont22 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont24 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont26 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont28 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont30 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont33 ], [ %boundaries_compressed.sroa.0.0.lcssa, %if.then39 ], [ %boundaries_compressed.sroa.0.0.lcssa, %for.end55 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont56 ], [ %boundaries_compressed.sroa.0.0.lcssa, %for.end74 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont75 ], [ %boundaries_compressed.sroa.0.0.lcssa, %for.end92 ], [ %boundaries_compressed.sroa.0.0.lcssa, %invoke.cont93 ], [ %boundaries_compressed.sroa.0.0.lcssa, %for.end110 ], [ %boundaries_compressed.sroa.0.2, %if.then.i.i.i147 ], [ %boundaries_compressed.sroa.0.0417, %if.then.i.i.i ]
   %lpad.loopexit.split-lp357 = landingpad { ptr, i32 }
           cleanup
   br label %lpad9
 
 lpad9:                                            ; preds = %lpad9.loopexit.split-lp.loopexit, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad9.loopexit
   %boundaries_uncompressed.sroa.0.0400 = phi ptr [ %boundaries_uncompressed.sroa.0.0.lcssa, %lpad9.loopexit ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %lpad9.loopexit.split-lp.loopexit ], [ %boundaries_uncompressed.sroa.0.0.lcssa, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %boundaries_uncompressed.sroa.0.0420, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %boundaries_uncompressed.sroa.0.0404, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %boundaries_compressed.sroa.0.2.ph = phi ptr [ %boundaries_compressed.sroa.0.0.lcssa, %lpad9.loopexit ], [ %boundaries_compressed.sroa.0.0.lcssa, %lpad9.loopexit.split-lp.loopexit ], [ %boundaries_compressed.sroa.0.0.lcssa, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %boundaries_compressed.sroa.0.2.ph.ph.ph.ph.ph, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %boundaries_compressed.sroa.0.2.ph.ph.ph.ph.ph355, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %boundaries_compressed.sroa.0.1.ph = phi ptr [ %boundaries_compressed.sroa.0.0.lcssa, %lpad9.loopexit ], [ %boundaries_compressed.sroa.0.0.lcssa, %lpad9.loopexit.split-lp.loopexit ], [ %boundaries_compressed.sroa.0.0.lcssa, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %boundaries_compressed.sroa.0.1.ph.ph.ph.ph.ph, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %boundaries_compressed.sroa.0.1.ph.ph.ph.ph.ph355, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi348 = phi { ptr, i32 } [ %lpad.loopexit346, %lpad9.loopexit ], [ %lpad.loopexit349, %lpad9.loopexit.split-lp.loopexit ], [ %lpad.loopexit352, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit356, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp357, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i152 = icmp eq ptr %boundaries_uncompressed.sroa.0.0400, null
   br i1 %tobool.not.i.i.i152, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i153
@@ -4047,22 +4047,22 @@ lpad9:                                            ; preds = %lpad9.loopexit.spli
 if.then.i.i.i153:                                 ; preds = %lpad9.thread, %lpad9
   %boundaries_uncompressed.sroa.0.0405 = phi ptr [ %boundaries_uncompressed.sroa.0.0.lcssa, %lpad9.thread ], [ %boundaries_uncompressed.sroa.0.0400, %lpad9 ]
   %lpad.phi306 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad9.thread ], [ %lpad.phi348, %lpad9 ]
-  %boundaries_compressed.sroa.0.2304 = phi ptr [ %boundaries_compressed.sroa.0.0.lcssa, %lpad9.thread ], [ %boundaries_compressed.sroa.0.2.ph, %lpad9 ]
+  %boundaries_compressed.sroa.0.1304 = phi ptr [ %boundaries_compressed.sroa.0.0.lcssa, %lpad9.thread ], [ %boundaries_compressed.sroa.0.1.ph, %lpad9 ]
   call void @_ZdlPv(ptr noundef nonnull %boundaries_uncompressed.sroa.0.0405) #24
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %lpad9, %if.then.i.i.i153
   %lpad.phi307 = phi { ptr, i32 } [ %lpad.phi348, %lpad9 ], [ %lpad.phi306, %if.then.i.i.i153 ]
-  %boundaries_compressed.sroa.0.2305 = phi ptr [ %boundaries_compressed.sroa.0.2.ph, %lpad9 ], [ %boundaries_compressed.sroa.0.2304, %if.then.i.i.i153 ]
-  %tobool.not.i.i.i154 = icmp eq ptr %boundaries_compressed.sroa.0.2305, null
+  %boundaries_compressed.sroa.0.1305 = phi ptr [ %boundaries_compressed.sroa.0.1.ph, %lpad9 ], [ %boundaries_compressed.sroa.0.1304, %if.then.i.i.i153 ]
+  %tobool.not.i.i.i154 = icmp eq ptr %boundaries_compressed.sroa.0.1305, null
   br i1 %tobool.not.i.i.i154, label %ehcleanup564, label %if.then.i.i.i155
 
 if.then.i.i.i155:                                 ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %boundaries_compressed.sroa.0.2305) #24
+  call void @_ZdlPv(ptr noundef nonnull %boundaries_compressed.sroa.0.1305) #24
   br label %ehcleanup564
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %boundaries_compressed.sroa.0.0.lcssa = phi ptr [ null, %for.cond.preheader ], [ %boundaries_compressed.sroa.0.1, %for.inc ]
+  %boundaries_compressed.sroa.0.0.lcssa = phi ptr [ null, %for.cond.preheader ], [ %boundaries_compressed.sroa.0.2, %for.inc ]
   %boundaries_compressed.sroa.7.0.lcssa = phi ptr [ null, %for.cond.preheader ], [ %boundaries_compressed.sroa.7.1, %for.inc ]
   %boundaries_uncompressed.sroa.0.0.lcssa = phi ptr [ null, %for.cond.preheader ], [ %boundaries_uncompressed.sroa.0.1, %for.inc ]
   %boundaries_uncompressed.sroa.7.0.lcssa = phi ptr [ null, %for.cond.preheader ], [ %boundaries_uncompressed.sroa.7.1, %for.inc ]
@@ -8161,7 +8161,7 @@ for.end.loopexit:                                 ; preds = %for.body, %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %maxlen.0 = phi i64 [ 512, %if.end ], [ %maxlen.0.ph, %for.end.loopexit ]
-  %numnl.2 = phi ptr [ @.str.85, %if.end ], [ %4, %for.end.loopexit ]
+  %numnl.1 = phi ptr [ @.str.85, %if.end ], [ %4, %for.end.loopexit ]
   %call11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #22
   %cmp12 = icmp ult i64 %call11, %maxlen.0
   br i1 %cmp12, label %if.then13, label %if.end14
@@ -8172,7 +8172,7 @@ if.then13:                                        ; preds = %for.end
 
 if.end14:                                         ; preds = %for.end
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %text, i64 noundef 0, i64 noundef %maxlen.0)
-  %call.i14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull %numnl.2)
+  %call.i14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull %numnl.1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end14
@@ -9351,7 +9351,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc256
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc256 ]
-  %options_chosen.0246 = phi i1 [ false, %for.body.lr.ph ], [ %options_chosen.3154, %for.inc256 ]
+  %options_chosen.0246 = phi i1 [ false, %for.body.lr.ph ], [ %options_chosen.2154, %for.inc256 ]
   %.lcssa186219244 = phi i8 [ 0, %for.body.lr.ph ], [ %.lcssa186217, %for.inc256 ]
   %.lcssa189236243 = phi i8 [ 0, %for.body.lr.ph ], [ %.lcssa189234, %for.inc256 ]
   %.lcssa192240242 = phi i8 [ 0, %for.body.lr.ph ], [ %.lcssa192238, %for.inc256 ]
@@ -9990,7 +9990,7 @@ cleanup252.thread:                                ; preds = %cleanup252.thread.l
   %.lcssa192239 = phi i8 [ %.lcssa192240242, %.noexc112 ], [ %.lcssa192240242, %if.else.i ], [ %.lcssa192, %cleanup252.thread.loopexit ]
   %.lcssa189235 = phi i8 [ %.lcssa189236243, %.noexc112 ], [ %.lcssa189236243, %if.else.i ], [ %.lcssa189, %cleanup252.thread.loopexit ]
   %.lcssa186218 = phi i8 [ %.lcssa186219244, %.noexc112 ], [ %.lcssa186219244, %if.else.i ], [ %.lcssa186, %cleanup252.thread.loopexit ]
-  %options_chosen.3.ph = phi i1 [ %options_chosen.0246, %.noexc112 ], [ %options_chosen.0246, %if.else.i ], [ %options_chosen.1, %cleanup252.thread.loopexit ]
+  %options_chosen.2.ph = phi i1 [ %options_chosen.0246, %.noexc112 ], [ %options_chosen.0246, %if.else.i ], [ %options_chosen.1, %cleanup252.thread.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br label %for.inc256
 
@@ -10011,7 +10011,7 @@ for.inc256:                                       ; preds = %cleanup252.thread, 
   %.lcssa192238 = phi i8 [ %.lcssa192239, %cleanup252.thread ], [ %.lcssa192240242, %cleanup252 ]
   %.lcssa189234 = phi i8 [ %.lcssa189235, %cleanup252.thread ], [ %.lcssa189236243, %cleanup252 ]
   %.lcssa186217 = phi i8 [ %.lcssa186218, %cleanup252.thread ], [ %.lcssa186219244, %cleanup252 ]
-  %options_chosen.3154 = phi i1 [ %options_chosen.3.ph, %cleanup252.thread ], [ %options_chosen.0246, %cleanup252 ]
+  %options_chosen.2154 = phi i1 [ %options_chosen.2.ph, %cleanup252.thread ], [ %options_chosen.0246, %cleanup252 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end258, label %for.body, !llvm.loop !80
@@ -10077,7 +10077,7 @@ lpad261.loopexit.split-lp:                        ; preds = %if.then260, %invoke
   br label %ehcleanup321
 
 if.end267:                                        ; preds = %for.end258
-  br i1 %options_chosen.3154, label %if.end278, label %if.then268
+  br i1 %options_chosen.2154, label %if.end278, label %if.then268
 
 if.then268:                                       ; preds = %if.end267
   %show_header269 = getelementptr inbounds i8, ptr %options, i64 3

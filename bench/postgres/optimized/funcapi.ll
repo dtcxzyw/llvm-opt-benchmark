@@ -708,7 +708,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   br label %.lr.ph215.i
 
 .lr.ph215.i:                                      ; preds = %152, %155, %157
-  %.2127.i = phi i32 [ %.0125.i, %155 ], [ 0, %152 ], [ %spec.select.i, %157 ]
+  %.1126.i = phi i32 [ %.0125.i, %155 ], [ 0, %152 ], [ %spec.select.i, %157 ]
   %.1124.i = phi i32 [ %.0123.i, %155 ], [ 0, %152 ], [ %spec.select173.i, %157 ]
   %158 = load i32, ptr %138, align 4
   %159 = load i32, ptr %133, align 4
@@ -742,7 +742,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   %170 = add i16 %169, 1
   %171 = getelementptr inbounds i8, ptr %165, i64 4
   tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %170, ptr noundef nonnull %171, i32 noundef %143, i32 noundef -1, i32 noundef 0) #9
-  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %170, i32 noundef %.2127.i) #9
+  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %170, i32 noundef %.1126.i) #9
   br label %200
 
 172:                                              ; preds = %164
@@ -750,7 +750,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   %174 = add i16 %173, 1
   %175 = getelementptr inbounds i8, ptr %165, i64 4
   tail call void @TupleDescInitEntry(ptr noundef nonnull %22, i16 noundef signext %174, ptr noundef nonnull %175, i32 noundef %163, i32 noundef -1, i32 noundef 0) #9
-  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %174, i32 noundef %.2127.i) #9
+  tail call void @TupleDescInitEntryCollation(ptr noundef nonnull %22, i16 noundef signext %174, i32 noundef %.1126.i) #9
   br label %200
 
 176:                                              ; preds = %164
@@ -2423,7 +2423,7 @@ define dso_local ptr @get_func_result_name(i32 noundef %0) local_unnamed_addr #0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %66 ]
   %.03855 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %66 ]
-  %.03954 = phi ptr [ null, %.lr.ph.preheader ], [ %.140, %66 ]
+  %.14054 = phi ptr [ null, %.lr.ph.preheader ], [ %.2, %66 ]
   %52 = getelementptr i8, ptr %34, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1
   switch i8 %53, label %54 [
@@ -2450,16 +2450,16 @@ define dso_local ptr @get_func_result_name(i32 noundef %0) local_unnamed_addr #0
   br i1 %65, label %.loopexit, label %66
 
 66:                                               ; preds = %.lr.ph, %.lr.ph, %63
-  %.140 = phi ptr [ %.03954, %.lr.ph ], [ %61, %63 ], [ %.03954, %.lr.ph ]
+  %.2 = phi ptr [ %.14054, %.lr.ph ], [ %61, %63 ], [ %.14054, %.lr.ph ]
   %.1 = phi i32 [ %.03855, %.lr.ph ], [ 1, %63 ], [ %.03855, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %66, %54, %63, %56, %51, %9, %11
-  %.2 = phi ptr [ null, %11 ], [ null, %9 ], [ null, %51 ], [ %.140, %66 ], [ null, %54 ], [ null, %63 ], [ null, %56 ]
+  %.039 = phi ptr [ null, %11 ], [ null, %9 ], [ null, %51 ], [ %.2, %66 ], [ null, %54 ], [ null, %63 ], [ null, %56 ]
   call void @ReleaseSysCache(ptr noundef nonnull %5) #9
-  ret ptr %.2
+  ret ptr %.039
 }
 
 declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2

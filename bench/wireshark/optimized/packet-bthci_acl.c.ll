@@ -396,15 +396,15 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread507
 
 .thread507:                                       ; preds = %134, %.thread507.fold.split531, %132, %.thread507.fold.split, %130, %136
-  %.0374 = phi i32 [ 1, %136 ], [ %135, %134 ], [ 2, %132 ], [ 0, %130 ], [ 0, %.thread507.fold.split ], [ 0, %.thread507.fold.split531 ]
-  %.0372 = phi i32 [ 2, %136 ], [ 1, %134 ], [ %133, %132 ], [ 0, %130 ], [ 0, %.thread507.fold.split ], [ 0, %.thread507.fold.split531 ]
+  %.1375 = phi i32 [ 1, %136 ], [ %135, %134 ], [ 2, %132 ], [ 0, %130 ], [ 0, %.thread507.fold.split ], [ 0, %.thread507.fold.split531 ]
+  %.1373 = phi i32 [ 2, %136 ], [ 1, %134 ], [ %133, %132 ], [ 0, %130 ], [ 0, %.thread507.fold.split ], [ 0, %.thread507.fold.split531 ]
   %137 = getelementptr inbounds i8, ptr %129, i64 4
   %138 = load i32, ptr %137, align 4
   br label %.thread504
 
 .thread504:                                       ; preds = %95, %.thread507, %127
-  %.1375 = phi i32 [ %.0374, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
-  %.1373 = phi i32 [ %.0372, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
+  %.0374 = phi i32 [ %.1375, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
+  %.0372 = phi i32 [ %.1373, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
   %.0371 = phi i32 [ %138, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
   %139 = getelementptr inbounds i8, ptr %3, i64 48
   %140 = load ptr, ptr %139, align 8
@@ -468,8 +468,8 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   %.0382 = phi ptr [ %96, %159 ], [ %14, %161 ], [ %14, %.thread508 ], [ %14, %.fold.split ], [ %14, %.thread502 ], [ %14, %.fold.split454 ]
   %.0380 = phi ptr [ %.0365, %159 ], [ @.str.67, %161 ], [ @.str.67, %.thread508 ], [ @.str.67, %.fold.split ], [ @.str.67, %.thread502 ], [ @.str.67, %.fold.split454 ]
   %.0378 = phi ptr [ %156, %159 ], [ @.str.72, %161 ], [ @.str.67, %.thread508 ], [ @.str.67, %.fold.split ], [ @.str.67, %.thread502 ], [ @.str.67, %.fold.split454 ]
-  %.2376 = phi i32 [ %.1375, %159 ], [ 0, %161 ], [ %.1375, %.thread508 ], [ %.1375, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
-  %.2 = phi i32 [ %.1373, %159 ], [ 0, %161 ], [ %.1373, %.thread508 ], [ %.1373, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
+  %.2376 = phi i32 [ %.0374, %159 ], [ 0, %161 ], [ %.0374, %.thread508 ], [ %.0374, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
+  %.2 = phi i32 [ %.0372, %159 ], [ 0, %161 ], [ %.0372, %.thread508 ], [ %.0372, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
   %.1 = phi i32 [ %.0371, %159 ], [ 0, %161 ], [ %.0371, %.thread508 ], [ %.0371, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
   store i32 1, ptr %5, align 16
   store ptr %6, ptr %54, align 8

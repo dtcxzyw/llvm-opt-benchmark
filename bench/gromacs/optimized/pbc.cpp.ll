@@ -5794,13 +5794,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31.i: 
   br label %.body29.i
 
 .body29.i:                                        ; preds = %.body34.i, %62, %.body1
-  %.08.i = phi ptr [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 128), %.body34.i ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96), %.body1 ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96), %62 ]
+  %.311.i = phi ptr [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 128), %.body34.i ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96), %.body1 ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 96), %62 ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body35.i, %.body34.i ], [ %46, %.body1 ], [ %63, %62 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
   br label %.body24.i
 
 .body24.i:                                        ; preds = %.body29.i, %60, %.body4
-  %.19.i = phi ptr [ %.08.i, %.body29.i ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64), %.body4 ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64), %60 ]
+  %.210.i = phi ptr [ %.311.i, %.body29.i ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64), %.body4 ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 64), %60 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body29.i ], [ %37, %.body4 ], [ %61, %60 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
   br label %.body.i
@@ -5811,14 +5811,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31.i: 
   br label %.loopexit.i
 
 .body.i:                                          ; preds = %.body24.i, %58, %.body7
-  %.210.i = phi ptr [ %.19.i, %.body24.i ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32), %.body7 ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32), %58 ]
+  %.19.i = phi ptr [ %.210.i, %.body24.i ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32), %.body7 ], [ getelementptr inbounds (i8, ptr @_Z14c_pbcTypeNamesB5cxx11, i64 32), %58 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %.body24.i ], [ %28, %.body7 ], [ %59, %58 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
   br label %66
 
 66:                                               ; preds = %66, %.body.i
-  %67 = phi ptr [ %68, %66 ], [ %.210.i, %.body.i ]
+  %67 = phi ptr [ %68, %66 ], [ %.19.i, %.body.i ]
   %68 = getelementptr inbounds i8, ptr %67, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #16
   %69 = icmp eq ptr %68, @_Z14c_pbcTypeNamesB5cxx11

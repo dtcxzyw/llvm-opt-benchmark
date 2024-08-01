@@ -6370,7 +6370,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 
 69:                                               ; preds = %24, %248
   %indvars.iv135 = phi i64 [ 0, %24 ], [ %indvars.iv.next136, %248 ]
-  %.091122 = phi float [ 0.000000e+00, %24 ], [ %249, %248 ]
+  %.192122 = phi float [ 0.000000e+00, %24 ], [ %249, %248 ]
   %70 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv135
   %71 = load i32, ptr %70, align 4
   %.not = icmp eq i32 %71, %25
@@ -6621,7 +6621,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %106
   br i1 %exitcond134.not, label %248, label %229, !llvm.loop !59
 
 248:                                              ; preds = %229
-  %249 = fadd float %.091122, %228
+  %249 = fadd float %.192122, %228
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 6
   %250 = trunc nuw i64 %indvars.iv.next136 to i32
   %251 = icmp slt i32 %250, %0
@@ -6632,8 +6632,8 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %106
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14
-  %.192 = phi float [ 0.000000e+00, %14 ], [ %252, %.loopexit.loopexit ]
-  ret float %.192
+  %.091 = phi float [ 0.000000e+00, %14 ], [ %252, %.loopexit.loopexit ]
+  ret float %.091
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10677,7 +10677,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 
 69:                                               ; preds = %24, %248
   %indvars.iv135 = phi i64 [ 0, %24 ], [ %indvars.iv.next136, %248 ]
-  %.091122 = phi float [ 0.000000e+00, %24 ], [ %249, %248 ]
+  %.192122 = phi float [ 0.000000e+00, %24 ], [ %249, %248 ]
   %70 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv135
   %71 = load i32, ptr %70, align 4
   %.not = icmp eq i32 %71, %25
@@ -10928,7 +10928,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %106
   br i1 %exitcond134.not, label %248, label %229, !llvm.loop !107
 
 248:                                              ; preds = %229
-  %249 = fadd float %.091122, %228
+  %249 = fadd float %.192122, %228
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 6
   %250 = trunc nuw i64 %indvars.iv.next136 to i32
   %251 = icmp slt i32 %250, %0
@@ -10939,8 +10939,8 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %106
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14
-  %.192 = phi float [ 0.000000e+00, %14 ], [ %252, %.loopexit.loopexit ]
-  ret float %.192
+  %.091 = phi float [ 0.000000e+00, %14 ], [ %252, %.loopexit.loopexit ]
+  ret float %.091
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15605,7 +15605,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 
 70:                                               ; preds = %24, %256
   %indvars.iv142 = phi i64 [ 0, %24 ], [ %indvars.iv.next143, %256 ]
-  %.098129 = phi float [ 0.000000e+00, %24 ], [ %257, %256 ]
+  %.199129 = phi float [ 0.000000e+00, %24 ], [ %257, %256 ]
   %71 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv142
   %72 = load i32, ptr %71, align 4
   %.not = icmp eq i32 %72, %25
@@ -15866,7 +15866,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit114: ; preds = %93, %107
   br i1 %exitcond141.not, label %256, label %231, !llvm.loop !155
 
 256:                                              ; preds = %231
-  %257 = fadd float %.098129, %229
+  %257 = fadd float %.199129, %229
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 6
   %258 = trunc nuw i64 %indvars.iv.next143 to i32
   %259 = icmp slt i32 %258, %0
@@ -15877,8 +15877,8 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit114: ; preds = %93, %107
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14
-  %.199 = phi float [ 0.000000e+00, %14 ], [ %260, %.loopexit.loopexit ]
-  ret float %.199
+  %.098 = phi float [ 0.000000e+00, %14 ], [ %260, %.loopexit.loopexit ]
+  ret float %.098
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -19946,7 +19946,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 
 69:                                               ; preds = %24, %248
   %indvars.iv135 = phi i64 [ 0, %24 ], [ %indvars.iv.next136, %248 ]
-  %.091122 = phi float [ 0.000000e+00, %24 ], [ %249, %248 ]
+  %.192122 = phi float [ 0.000000e+00, %24 ], [ %249, %248 ]
   %70 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv135
   %71 = load i32, ptr %70, align 4
   %.not = icmp eq i32 %71, %25
@@ -20197,7 +20197,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %106
   br i1 %exitcond134.not, label %248, label %229, !llvm.loop !203
 
 248:                                              ; preds = %229
-  %249 = fadd float %.091122, %228
+  %249 = fadd float %.192122, %228
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 6
   %250 = trunc nuw i64 %indvars.iv.next136 to i32
   %251 = icmp slt i32 %250, %0
@@ -20208,8 +20208,8 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %106
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14
-  %.192 = phi float [ 0.000000e+00, %14 ], [ %252, %.loopexit.loopexit ]
-  ret float %.192
+  %.091 = phi float [ 0.000000e+00, %14 ], [ %252, %.loopexit.loopexit ]
+  ret float %.091
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23885,7 +23885,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i: 
   br label %.body21.i
 
 .body21.i:                                        ; preds = %.body26.i, %21, %12
-  %.07.i = phi ptr [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), %.body26.i ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), %12 ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), %21 ]
+  %.29.i = phi ptr [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), %.body26.i ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), %12 ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), %21 ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body27.i, %.body26.i ], [ %13, %12 ], [ %22, %21 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   br label %.body.i
@@ -23896,7 +23896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i: 
   br label %.loopexit.i
 
 .body.i:                                          ; preds = %.body21.i, %19, %9
-  %.18.i = phi ptr [ %.07.i, %.body21.i ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), %9 ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), %19 ]
+  %.18.i = phi ptr [ %.29.i, %.body21.i ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), %9 ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), %19 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body21.i ], [ %10, %9 ], [ %20, %19 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #22

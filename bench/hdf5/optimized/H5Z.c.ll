@@ -2454,8 +2454,8 @@ H5Z__find_idx.exit.thread..thread.loopexit189_crit_edge: ; preds = %H5Z__find_id
 93:                                               ; preds = %82, %H5Z__find_idx.exit
   %94 = phi ptr [ %74, %82 ], [ %27, %H5Z__find_idx.exit ]
   %95 = phi ptr [ %72, %82 ], [ %31, %H5Z__find_idx.exit ]
-  %.1112 = phi i64 [ %.068.i141, %82 ], [ %.068.i, %H5Z__find_idx.exit ]
-  %96 = and i64 %.1112, 4294967295
+  %.0111 = phi i64 [ %.068.i141, %82 ], [ %.068.i, %H5Z__find_idx.exit ]
+  %96 = and i64 %.0111, 4294967295
   %97 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %94, i64 %19
   %98 = getelementptr inbounds i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
@@ -2523,7 +2523,7 @@ H5Z__find_idx.exit.thread..thread.loopexit189_crit_edge: ; preds = %H5Z__find_id
 
 133:                                              ; preds = %.lr.ph186, %201
   %.0107185 = phi i64 [ 0, %.lr.ph186 ], [ %202, %201 ]
-  %.2184 = phi i32 [ 0, %.lr.ph186 ], [ %.3, %201 ]
+  %.3184 = phi i32 [ 0, %.lr.ph186 ], [ %.4, %201 ]
   %134 = load i32, ptr %2, align 4
   %135 = trunc i64 %.0107185 to i32
   %136 = shl nuw i32 1, %135
@@ -2532,7 +2532,7 @@ H5Z__find_idx.exit.thread..thread.loopexit189_crit_edge: ; preds = %H5Z__find_id
   br i1 %.not127, label %140, label %138
 
 138:                                              ; preds = %133
-  %139 = or i32 %136, %.2184
+  %139 = or i32 %136, %.3184
   br label %201
 
 140:                                              ; preds = %133
@@ -2578,7 +2578,7 @@ H5Z__find_idx.exit150.thread:                     ; preds = %150, %140, %H5Z__fi
   br label %205
 
 161:                                              ; preds = %H5Z__find_idx.exit150.thread
-  %162 = or i32 %136, %.2184
+  %162 = or i32 %136, %.3184
   %163 = tail call i32 @H5E_clear_stack() #9
   br label %201
 
@@ -2630,7 +2630,7 @@ H5Z__find_idx.exit150.thread:                     ; preds = %150, %140, %H5Z__fi
   br label %197
 
 197:                                              ; preds = %195, %178
-  %198 = or i32 %136, %.2184
+  %198 = or i32 %136, %.3184
   %199 = tail call i32 @H5E_clear_stack() #9
   br label %201
 
@@ -2639,15 +2639,15 @@ H5Z__find_idx.exit150.thread:                     ; preds = %150, %140, %H5Z__fi
   br label %201
 
 201:                                              ; preds = %197, %200, %161, %138
-  %.3 = phi i32 [ %139, %138 ], [ %162, %161 ], [ %198, %197 ], [ %.2184, %200 ]
+  %.4 = phi i32 [ %139, %138 ], [ %162, %161 ], [ %198, %197 ], [ %.3184, %200 ]
   %202 = add nuw i64 %.0107185, 1
   %203 = load i64, ptr %130, align 8
   %204 = icmp ult i64 %202, %203
   br i1 %204, label %133, label %.loopexit
 
 .loopexit:                                        ; preds = %128, %201, %12, %.preheader, %129
-  %.4 = phi i32 [ 0, %129 ], [ 0, %.preheader ], [ 0, %12 ], [ %.3, %201 ], [ %.1, %128 ]
-  store i32 %.4, ptr %2, align 4
+  %.2 = phi i32 [ 0, %129 ], [ 0, %.preheader ], [ 0, %12 ], [ %.4, %201 ], [ %.1, %128 ]
+  store i32 %.2, ptr %2, align 4
   br label %205
 
 205:                                              ; preds = %.loopexit, %191, %157, %119, %91, %89, %64

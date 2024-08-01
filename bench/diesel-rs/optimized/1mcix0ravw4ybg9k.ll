@@ -5101,13 +5101,13 @@ define hidden noundef i16 @"_ZN110_$LT$diesel..pg..types..numeric..bigdecimal..T
           to label %38 unwind label %36
 
 35:                                               ; preds = %60, %36
-  %.0 = phi i8 [ %.1, %36 ], [ 0, %60 ]
+  %.1 = phi i8 [ %.0, %36 ], [ 0, %60 ]
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %61, %60 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$num_bigint..biguint..BigUint$GT$17h79f9b3c161c87bffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #26
           to label %69 unwind label %90
 
 36:                                               ; preds = %30, %26, %.thread
-  %.1 = phi i8 [ %.2, %.thread ], [ 1, %26 ], [ 1, %30 ]
+  %.0 = phi i8 [ %.3, %.thread ], [ 1, %26 ], [ 1, %30 ]
   %37 = landingpad { ptr, i32 }
           cleanup
   br label %35
@@ -5153,7 +5153,7 @@ define hidden noundef i16 @"_ZN110_$LT$diesel..pg..types..numeric..bigdecimal..T
   br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$num_bigint..biguint..BigUint$GT$$GT$17h3cb0afec5e427e29E.exit"
 
 53:                                               ; preds = %38, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$num_bigint..biguint..BigUint$GT$$GT$17h3cb0afec5e427e29E.exit"
-  %.2 = phi i8 [ 1, %38 ], [ 0, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$num_bigint..biguint..BigUint$GT$$GT$17h3cb0afec5e427e29E.exit" ]
+  %.3 = phi i8 [ 1, %38 ], [ 0, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$num_bigint..biguint..BigUint$GT$$GT$17h3cb0afec5e427e29E.exit" ]
   %54 = getelementptr inbounds i8, ptr %12, i64 16
   %.val11 = load i64, ptr %54, align 8, !noundef !11
   %55 = icmp eq i64 %.val11, 0
@@ -5207,9 +5207,9 @@ define hidden noundef i16 @"_ZN110_$LT$diesel..pg..types..numeric..bigdecimal..T
   unreachable
 
 69:                                               ; preds = %71, %35
-  %.3 = phi i8 [ %.2, %71 ], [ %.0, %35 ]
+  %.2 = phi i8 [ %.3, %71 ], [ %.1, %35 ]
   %.pn7 = phi { ptr, i32 } [ %72, %71 ], [ %.pn, %35 ]
-  %70 = trunc nuw i8 %.3 to i1
+  %70 = trunc nuw i8 %.2 to i1
   br i1 %70, label %92, label %.body
 
 71:                                               ; preds = %64, %.thread28
@@ -5220,7 +5220,7 @@ define hidden noundef i16 @"_ZN110_$LT$diesel..pg..types..numeric..bigdecimal..T
 73:                                               ; preds = %.noexc16, %64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1041
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  %74 = trunc nuw i8 %.2 to i1
+  %74 = trunc nuw i8 %.3 to i1
   br i1 %74, label %83, label %75
 
 75:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$num_bigint..biguint..BigUint$GT$17h79f9b3c161c87bffE.exit24", %73

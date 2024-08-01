@@ -143,7 +143,7 @@ _ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit:      ; preds = %28, %32, %37
 
 .lr.ph71.split.us:                                ; preds = %.lr.ph71.split.us.preheader, %..loopexit_crit_edge.us
   %indvars.iv74 = phi i64 [ 0, %.lr.ph71.split.us.preheader ], [ %indvars.iv.next75, %..loopexit_crit_edge.us ]
-  %.04468.us = phi i32 [ 0, %.lr.ph71.split.us.preheader ], [ %.3.us, %..loopexit_crit_edge.us ]
+  %.04468.us = phi i32 [ 0, %.lr.ph71.split.us.preheader ], [ %.1.us, %..loopexit_crit_edge.us ]
   %50 = icmp ult i64 %indvars.iv74, %47
   %51 = icmp sgt i64 %indvars.iv74, %48
   %or.cond56.us = or i1 %50, %51
@@ -151,7 +151,7 @@ _ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit:      ; preds = %28, %32, %37
 
 52:                                               ; preds = %.preheader.us, %63
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %63 ]
-  %.166.us = phi i32 [ %.04468.us, %.preheader.us ], [ %.2.us, %63 ]
+  %.266.us = phi i32 [ %.04468.us, %.preheader.us ], [ %.3.us, %63 ]
   %53 = icmp ult i64 %indvars.iv, %45
   %54 = icmp sgt i64 %indvars.iv, %46
   %or.cond57.us = or i1 %53, %54
@@ -160,23 +160,23 @@ _ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit:      ; preds = %28, %32, %37
 55:                                               ; preds = %52
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   %56 = load i8, ptr %gep, align 1
-  %57 = add nsw i32 %.166.us, 1
+  %57 = add nsw i32 %.266.us, 1
   %58 = load ptr, ptr %30, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16
-  %60 = sext i32 %.166.us to i64
+  %60 = sext i32 %.266.us to i64
   %61 = load ptr, ptr %59, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 %60
   store i8 %56, ptr %62, align 1
   br label %63
 
 63:                                               ; preds = %55, %52
-  %.2.us = phi i32 [ %.166.us, %52 ], [ %57, %55 ]
+  %.3.us = phi i32 [ %.266.us, %52 ], [ %57, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %49
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %52, !llvm.loop !4
 
 ..loopexit_crit_edge.us:                          ; preds = %63, %.lr.ph71.split.us
-  %.3.us = phi i32 [ %.04468.us, %.lr.ph71.split.us ], [ %.2.us, %63 ]
+  %.1.us = phi i32 [ %.04468.us, %.lr.ph71.split.us ], [ %.3.us, %63 ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %.loopexit65, label %.lr.ph71.split.us, !llvm.loop !6

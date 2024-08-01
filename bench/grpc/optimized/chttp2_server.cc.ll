@@ -2845,7 +2845,7 @@ ehcleanup85:                                      ; preds = %lpad.i.i99, %lpad81
 
 if.end87:                                         ; preds = %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit124, %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit
   %ref.tmp73.sink = phi ptr [ %ref.tmp73, %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit124 ], [ %ref.tmp26, %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit ]
-  %sc.sroa.0.1 = phi ptr [ %46, %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit124 ], [ null, %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit ]
+  %sc.sroa.0.4 = phi ptr [ %46, %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit124 ], [ null, %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit ]
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp73.sink) #25
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp89, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp89, i64 24
@@ -2912,20 +2912,20 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i155
   unreachable
 
 done:                                             ; preds = %if.then.i.i155, %_ZN4absl12lts_202308026StatusD2Ev.exit153
-  %cmp.not.i157 = icmp eq ptr %sc.sroa.0.1, null
+  %cmp.not.i157 = icmp eq ptr %sc.sroa.0.4, null
   br i1 %cmp.not.i157, label %_ZN9grpc_core13RefCountedPtrI30grpc_server_security_connectorE5resetERKNS_13DebugLocationEPKcPS1_.exit, label %if.then.i158
 
 if.then.i158:                                     ; preds = %done
-  %refs_.i.i159 = getelementptr inbounds i8, ptr %sc.sroa.0.1, i64 8
+  %refs_.i.i159 = getelementptr inbounds i8, ptr %sc.sroa.0.4, i64 8
   %100 = atomicrmw sub ptr %refs_.i.i159, i64 1 acq_rel, align 8
   %cmp.i.i.i160 = icmp eq i64 %100, 1
   br i1 %cmp.i.i.i160, label %if.then.i.i161, label %_ZN9grpc_core13RefCountedPtrI30grpc_server_security_connectorE5resetERKNS_13DebugLocationEPKcPS1_.exit
 
 if.then.i.i161:                                   ; preds = %if.then.i158
-  %vtable.i.i.i162 = load ptr, ptr %sc.sroa.0.1, align 8
+  %vtable.i.i.i162 = load ptr, ptr %sc.sroa.0.4, align 8
   %vfn.i.i.i163 = getelementptr inbounds i8, ptr %vtable.i.i.i162, i64 8
   %101 = load ptr, ptr %vfn.i.i.i163, align 8
-  call void %101(ptr noundef nonnull align 8 dereferenceable(32) %sc.sroa.0.1) #25
+  call void %101(ptr noundef nonnull align 8 dereferenceable(32) %sc.sroa.0.4) #25
   br label %_ZN9grpc_core13RefCountedPtrI30grpc_server_security_connectorE5resetERKNS_13DebugLocationEPKcPS1_.exit
 
 _ZN9grpc_core13RefCountedPtrI30grpc_server_security_connectorE5resetERKNS_13DebugLocationEPKcPS1_.exit: ; preds = %done.thread, %if.then.i.i.i, %invoke.cont.i26, %done, %if.then.i158, %if.then.i.i161
@@ -3064,22 +3064,22 @@ ehcleanup111.thread230:                           ; preds = %ehcleanup85, %lpad.
 
 ehcleanup111:                                     ; preds = %ehcleanup96, %if.then.i.i167
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args) #25
-  %cmp.not.i198 = icmp eq ptr %sc.sroa.0.1, null
+  %cmp.not.i198 = icmp eq ptr %sc.sroa.0.4, null
   br i1 %cmp.not.i198, label %_ZN9grpc_core13RefCountedPtrI30grpc_server_security_connectorED2Ev.exit206, label %if.then.i199
 
 if.then.i199:                                     ; preds = %ehcleanup111.thread230, %ehcleanup111
   %.pn18235 = phi { ptr, i32 } [ %.pn18.ph229, %ehcleanup111.thread230 ], [ %.pn14, %ehcleanup111 ]
-  %sc.sroa.0.3234 = phi ptr [ %46, %ehcleanup111.thread230 ], [ %sc.sroa.0.1, %ehcleanup111 ]
-  %refs_.i.i200 = getelementptr inbounds i8, ptr %sc.sroa.0.3234, i64 8
+  %sc.sroa.0.2234 = phi ptr [ %46, %ehcleanup111.thread230 ], [ %sc.sroa.0.4, %ehcleanup111 ]
+  %refs_.i.i200 = getelementptr inbounds i8, ptr %sc.sroa.0.2234, i64 8
   %123 = atomicrmw sub ptr %refs_.i.i200, i64 1 acq_rel, align 8
   %cmp.i.i.i201 = icmp eq i64 %123, 1
   br i1 %cmp.i.i.i201, label %if.then.i.i203, label %_ZN9grpc_core13RefCountedPtrI30grpc_server_security_connectorED2Ev.exit206
 
 if.then.i.i203:                                   ; preds = %if.then.i199
-  %vtable.i.i.i204 = load ptr, ptr %sc.sroa.0.3234, align 8
+  %vtable.i.i.i204 = load ptr, ptr %sc.sroa.0.2234, align 8
   %vfn.i.i.i205 = getelementptr inbounds i8, ptr %vtable.i.i.i204, i64 8
   %124 = load ptr, ptr %vfn.i.i.i205, align 8
-  call void %124(ptr noundef nonnull align 8 dereferenceable(32) %sc.sroa.0.3234) #25
+  call void %124(ptr noundef nonnull align 8 dereferenceable(32) %sc.sroa.0.2234) #25
   br label %_ZN9grpc_core13RefCountedPtrI30grpc_server_security_connectorED2Ev.exit206
 
 _ZN9grpc_core13RefCountedPtrI30grpc_server_security_connectorED2Ev.exit206: ; preds = %ehcleanup111.thread224, %ehcleanup111.thread, %ehcleanup111, %if.then.i199, %if.then.i.i203
@@ -5544,7 +5544,7 @@ lpad80:                                           ; preds = %invoke.cont75
   br label %if.then.i219
 
 lpad85:                                           ; preds = %if.then.i141, %if.then88
-  %listener_ref.sroa.0.0 = phi ptr [ %arg, %if.then.i141 ], [ null, %if.then88 ]
+  %listener_ref.sroa.0.1 = phi ptr [ %arg, %if.then.i141 ], [ null, %if.then88 ]
   %155 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
@@ -5558,8 +5558,8 @@ terminate.lpad.i150:                              ; preds = %lpad85
   unreachable
 
 if.end96:                                         ; preds = %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i.i.i.i, %cleanup.i.i.i, %lor.rhs.i, %land.lhs.true83, %land.lhs.true, %invoke.cont81
-  %listener_ref.sroa.0.1 = phi ptr [ null, %invoke.cont81 ], [ null, %land.lhs.true83 ], [ null, %land.lhs.true ], [ %arg, %lor.rhs.i ], [ %arg, %cleanup.i.i.i ], [ %arg, %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i.i.i.i ]
-  %connection.sroa.0.1 = phi ptr [ %call10.i.i124, %invoke.cont81 ], [ %call10.i.i124, %land.lhs.true83 ], [ %call10.i.i124, %land.lhs.true ], [ %call10.i.i124, %lor.rhs.i ], [ null, %cleanup.i.i.i ], [ null, %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i.i.i.i ]
+  %listener_ref.sroa.0.0 = phi ptr [ null, %invoke.cont81 ], [ null, %land.lhs.true83 ], [ null, %land.lhs.true ], [ %arg, %lor.rhs.i ], [ %arg, %cleanup.i.i.i ], [ %arg, %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i.i.i.i ]
+  %connection.sroa.0.0 = phi ptr [ %call10.i.i124, %invoke.cont81 ], [ %call10.i.i124, %land.lhs.true83 ], [ %call10.i.i124, %land.lhs.true ], [ %call10.i.i124, %lor.rhs.i ], [ null, %cleanup.i.i.i ], [ null, %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i.i.i.i ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit155 unwind label %terminate.lpad.i153
 
@@ -5571,7 +5571,7 @@ terminate.lpad.i153:                              ; preds = %if.end96
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit155:     ; preds = %if.end96
-  %cmp.i.i156.not = icmp eq ptr %connection.sroa.0.1, null
+  %cmp.i.i156.not = icmp eq ptr %connection.sroa.0.0, null
   br i1 %cmp.i.i156.not, label %if.else, label %invoke.cont101
 
 invoke.cont101:                                   ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit155
@@ -5588,7 +5588,7 @@ lpad102:                                          ; preds = %invoke.cont101
 if.else:                                          ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit155
   %161 = load ptr, ptr %tcp.addr, align 8
   %162 = load ptr, ptr %listener_.i.i.i.i, align 8
-  store ptr %listener_ref.sroa.0.1, ptr %listener_.i.i.i.i, align 8
+  store ptr %listener_ref.sroa.0.0, ptr %listener_.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %162, null
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120Chttp2ServerListenerEEaSEOS3_.exit.i, label %if.then.i.i.i163
 
@@ -5760,11 +5760,11 @@ lpad107.body:                                     ; preds = %if.then.i23.i, %if.
   br label %if.then.i219
 
 if.end110:                                        ; preds = %invoke.cont101
-  %cmp.not.i174 = icmp eq ptr %listener_ref.sroa.0.1, null
+  %cmp.not.i174 = icmp eq ptr %listener_ref.sroa.0.0, null
   br i1 %cmp.not.i174, label %if.then.i181, label %if.then.i175
 
 if.then.i175:                                     ; preds = %if.end110
-  %191 = getelementptr i8, ptr %listener_ref.sroa.0.1, i64 16
+  %191 = getelementptr i8, ptr %listener_ref.sroa.0.0, i64 16
   %.val.i176 = load ptr, ptr %191, align 8
   invoke void @_Z21grpc_tcp_server_unrefP15grpc_tcp_server(ptr noundef %.val.i176)
           to label %if.then.i181 unwind label %terminate.lpad.i177
@@ -5792,9 +5792,9 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120Chttp2ServerListener16ActiveConn
   br i1 %cmp.i.i156.not, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS0_16OrphanableDeleteEED2Ev.exit, label %if.then.i189
 
 if.then.i189:                                     ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionEED2Ev.exit
-  %vtable.i.i = load ptr, ptr %connection.sroa.0.1, align 8
+  %vtable.i.i = load ptr, ptr %connection.sroa.0.0, align 8
   %196 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %196(ptr noundef nonnull align 8 dereferenceable(113) %connection.sroa.0.1)
+  invoke void %196(ptr noundef nonnull align 8 dereferenceable(113) %connection.sroa.0.0)
           to label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS0_16OrphanableDeleteEED2Ev.exit unwind label %terminate.lpad.i190
 
 terminate.lpad.i190:                              ; preds = %if.then.i189
@@ -5938,10 +5938,10 @@ _ZN9grpc_core13RefCountedPtrIN26grpc_server_config_fetcher17ConnectionManagerEED
   ret void
 
 if.then.i219:                                     ; preds = %lpad80, %lpad102, %lpad107.body, %lpad85
-  %listener_ref.sroa.0.3 = phi ptr [ %listener_ref.sroa.0.1, %lpad102 ], [ null, %lpad107.body ], [ null, %lpad80 ], [ %listener_ref.sroa.0.0, %lpad85 ]
-  %connection.sroa.0.2 = phi ptr [ %connection.sroa.0.1, %lpad102 ], [ null, %lpad107.body ], [ %call10.i.i124, %lpad80 ], [ %call10.i.i124, %lpad85 ]
+  %listener_ref.sroa.0.2 = phi ptr [ %listener_ref.sroa.0.0, %lpad102 ], [ null, %lpad107.body ], [ null, %lpad80 ], [ %listener_ref.sroa.0.1, %lpad85 ]
+  %connection.sroa.0.1 = phi ptr [ %connection.sroa.0.0, %lpad102 ], [ null, %lpad107.body ], [ %call10.i.i124, %lpad80 ], [ %call10.i.i124, %lpad85 ]
   %.pn17 = phi { ptr, i32 } [ %160, %lpad102 ], [ %eh.lpad-body167, %lpad107.body ], [ %154, %lpad80 ], [ %155, %lpad85 ]
-  call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120Chttp2ServerListenerEED2Ev(ptr %listener_ref.sroa.0.3) #25
+  call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120Chttp2ServerListenerEED2Ev(ptr %listener_ref.sroa.0.2) #25
   %221 = atomicrmw sub ptr %refs_.i.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i221 = icmp eq i64 %221, 1
   br i1 %cmp.i.i.i221, label %if.then.i.i223, label %ehcleanup113
@@ -5954,13 +5954,13 @@ if.then.i.i223:                                   ; preds = %if.then.i219
   br label %ehcleanup113
 
 ehcleanup113:                                     ; preds = %if.then.i.i223, %if.then.i219
-  %cmp.not.i227 = icmp eq ptr %connection.sroa.0.2, null
+  %cmp.not.i227 = icmp eq ptr %connection.sroa.0.1, null
   br i1 %cmp.not.i227, label %ehcleanup114, label %if.then.i228
 
 if.then.i228:                                     ; preds = %ehcleanup113
-  %vtable.i.i229 = load ptr, ptr %connection.sroa.0.2, align 8
+  %vtable.i.i229 = load ptr, ptr %connection.sroa.0.1, align 8
   %223 = load ptr, ptr %vtable.i.i229, align 8
-  invoke void %223(ptr noundef nonnull align 8 dereferenceable(113) %connection.sroa.0.2)
+  invoke void %223(ptr noundef nonnull align 8 dereferenceable(113) %connection.sroa.0.1)
           to label %ehcleanup114 unwind label %terminate.lpad.i230
 
 terminate.lpad.i230:                              ; preds = %if.then.i228
@@ -9024,12 +9024,12 @@ terminate.lpad.i:                                 ; preds = %lpad6
   unreachable
 
 if.end:                                           ; preds = %if.then, %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS6_.exit.i.i, %_ZNSt3mapIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS3_NS0_16OrphanableDeleteEESt4lessIS4_ESaISt4pairIKS4_S7_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISC_E.exit, %invoke.cont7
-  %connection.sroa.0.0 = phi ptr [ %5, %_ZNSt3mapIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS3_NS0_16OrphanableDeleteEESt4lessIS4_ESaISt4pairIKS4_S7_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISC_E.exit ], [ null, %invoke.cont7 ], [ null, %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS6_.exit.i.i ], [ null, %if.then ]
+  %connection.sroa.0.1 = phi ptr [ %5, %_ZNSt3mapIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS3_NS0_16OrphanableDeleteEESt4lessIS4_ESaISt4pairIKS4_S7_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISC_E.exit ], [ null, %invoke.cont7 ], [ null, %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS6_.exit.i.i ], [ null, %if.then ]
   store i8 1, ptr %shutdown_, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end, %invoke.cont3
-  %connection.sroa.0.1 = phi ptr [ null, %invoke.cont3 ], [ %connection.sroa.0.0, %if.end ]
+  %connection.sroa.0.0 = phi ptr [ null, %invoke.cont3 ], [ %connection.sroa.0.1, %if.end ]
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %arg, i64 96
   %15 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i = trunc i8 %15 to i1
@@ -9093,13 +9093,13 @@ if.then.i:                                        ; preds = %_ZN4absl12lts_20230
   br label %_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS_11UnrefDeleteEE5UnrefEv.exit
 
 _ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS_11UnrefDeleteEE5UnrefEv.exit: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit9, %if.then.i
-  %cmp.not.i = icmp eq ptr %connection.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %connection.sroa.0.0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS0_16OrphanableDeleteEED2Ev.exit, label %if.then.i10
 
 if.then.i10:                                      ; preds = %_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS_11UnrefDeleteEE5UnrefEv.exit
-  %vtable.i.i11 = load ptr, ptr %connection.sroa.0.1, align 8
+  %vtable.i.i11 = load ptr, ptr %connection.sroa.0.0, align 8
   %25 = load ptr, ptr %vtable.i.i11, align 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(113) %connection.sroa.0.1)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(113) %connection.sroa.0.0)
           to label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS0_16OrphanableDeleteEED2Ev.exit unwind label %terminate.lpad.i12
 
 terminate.lpad.i12:                               ; preds = %if.then.i10
@@ -9113,7 +9113,7 @@ _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnect
   ret void
 
 ehcleanup:                                        ; preds = %lpad6, %lpad2
-  %connection.sroa.0.2 = phi ptr [ null, %lpad2 ], [ %connection.sroa.0.1, %lpad6 ]
+  %connection.sroa.0.3 = phi ptr [ null, %lpad2 ], [ %connection.sroa.0.0, %lpad6 ]
   %.pn = phi { ptr, i32 } [ %11, %lpad2 ], [ %12, %lpad6 ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %ehcleanup36 unwind label %terminate.lpad.i13
@@ -9126,13 +9126,13 @@ terminate.lpad.i13:                               ; preds = %ehcleanup
   unreachable
 
 ehcleanup36:                                      ; preds = %ehcleanup
-  %cmp.not.i15 = icmp eq ptr %connection.sroa.0.2, null
+  %cmp.not.i15 = icmp eq ptr %connection.sroa.0.3, null
   br i1 %cmp.not.i15, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS0_16OrphanableDeleteEED2Ev.exit19, label %if.then.i16
 
 if.then.i16:                                      ; preds = %ehcleanup36
-  %vtable.i.i17 = load ptr, ptr %connection.sroa.0.2, align 8
+  %vtable.i.i17 = load ptr, ptr %connection.sroa.0.3, align 8
   %30 = load ptr, ptr %vtable.i.i17, align 8
-  invoke void %30(ptr noundef nonnull align 8 dereferenceable(113) %connection.sroa.0.2)
+  invoke void %30(ptr noundef nonnull align 8 dereferenceable(113) %connection.sroa.0.3)
           to label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS0_16OrphanableDeleteEED2Ev.exit19 unwind label %terminate.lpad.i18
 
 terminate.lpad.i18:                               ; preds = %if.then.i16
@@ -10073,7 +10073,7 @@ lpad105:                                          ; preds = %invoke.cont103
   br label %ehcleanup116
 
 if.end115:                                        ; preds = %invoke.cont112, %"_ZZN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnection16HandshakingState15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit"
-  %cleanup_connection.1 = phi i1 [ %cmp54.not, %"_ZZN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnection16HandshakingState15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit" ], [ true, %invoke.cont112 ]
+  %cleanup_connection.2 = phi i1 [ %cmp54.not, %"_ZZN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnection16HandshakingState15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit" ], [ true, %invoke.cont112 ]
   %51 = load i64, ptr %channel_init_err, align 8
   %and.i.i.i116 = and i64 %51, 1
   %cmp.i.i.i117 = icmp eq i64 %and.i.i.i116, 0
@@ -10096,7 +10096,7 @@ ehcleanup116:                                     ; preds = %lpad94, %lpad105, %
   br label %ehcleanup124
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnection16HandshakingStateENS0_16OrphanableDeleteEEaSEOS6_.exit: ; preds = %if.then.i.i118, %if.end115, %if.else, %if.end
-  %cleanup_connection.2 = phi i1 [ true, %if.end ], [ true, %if.else ], [ %cleanup_connection.1, %if.end115 ], [ %cleanup_connection.1, %if.then.i.i118 ]
+  %cleanup_connection.0 = phi i1 [ true, %if.end ], [ true, %if.else ], [ %cleanup_connection.2, %if.end115 ], [ %cleanup_connection.2, %if.then.i.i118 ]
   %handshake_mgr_ = getelementptr inbounds i8, ptr %0, i64 40
   %54 = load ptr, ptr %handshake_mgr_, align 8
   store ptr null, ptr %handshake_mgr_, align 8
@@ -10122,7 +10122,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %_ZNSt10unique_ptrIN
 
 invoke.cont125:                                   ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
   store ptr null, ptr %acceptor_, align 8
-  br i1 %cleanup_connection.2, label %if.then128, label %if.end172
+  br i1 %cleanup_connection.0, label %if.then128, label %if.end172
 
 if.then128:                                       ; preds = %invoke.cont125
   %connection_.val53 = load ptr, ptr %connection_, align 8
@@ -10218,7 +10218,7 @@ lpad134:                                          ; preds = %if.then128
   br label %ehcleanup175
 
 if.end170:                                        ; preds = %invoke.cont135, %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS6_.exit.i.i, %_ZNSt3mapIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS3_NS0_16OrphanableDeleteEESt4lessIS4_ESaISt4pairIKS4_S7_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISC_E.exit, %invoke.cont145
-  %connection.sroa.0.0 = phi ptr [ %62, %_ZNSt3mapIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS3_NS0_16OrphanableDeleteEESt4lessIS4_ESaISt4pairIKS4_S7_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISC_E.exit ], [ null, %invoke.cont145 ], [ null, %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS6_.exit.i.i ], [ null, %invoke.cont135 ]
+  %connection.sroa.0.1 = phi ptr [ %62, %_ZNSt3mapIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS3_NS0_16OrphanableDeleteEESt4lessIS4_ESaISt4pairIKS4_S7_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISC_E.exit ], [ null, %invoke.cont145 ], [ null, %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionESt4pairIKS4_St10unique_ptrIS3_NS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS6_.exit.i.i ], [ null, %invoke.cont135 ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_133)
           to label %if.end172 unwind label %terminate.lpad.i144
 
@@ -10230,7 +10230,7 @@ terminate.lpad.i144:                              ; preds = %if.end170
   unreachable
 
 if.end172:                                        ; preds = %if.end170, %invoke.cont125
-  %connection.sroa.0.1 = phi ptr [ null, %invoke.cont125 ], [ %connection.sroa.0.0, %if.end170 ]
+  %connection.sroa.0.0 = phi ptr [ null, %invoke.cont125 ], [ %connection.sroa.0.1, %if.end170 ]
   %refs_.i = getelementptr inbounds i8, ptr %0, i64 8
   %73 = atomicrmw sub ptr %refs_.i, i64 1 acq_rel, align 8
   %cmp.i.i146 = icmp eq i64 %73, 1
@@ -10244,13 +10244,13 @@ if.then.i147:                                     ; preds = %if.end172
   br label %invoke.cont173
 
 invoke.cont173:                                   ; preds = %if.then.i147, %if.end172
-  %cmp.not.i148 = icmp eq ptr %connection.sroa.0.1, null
+  %cmp.not.i148 = icmp eq ptr %connection.sroa.0.0, null
   br i1 %cmp.not.i148, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS0_16OrphanableDeleteEED2Ev.exit, label %if.then.i149
 
 if.then.i149:                                     ; preds = %invoke.cont173
-  %vtable.i.i150 = load ptr, ptr %connection.sroa.0.1, align 8
+  %vtable.i.i150 = load ptr, ptr %connection.sroa.0.0, align 8
   %75 = load ptr, ptr %vtable.i.i150, align 8
-  invoke void %75(ptr noundef nonnull align 8 dereferenceable(113) %connection.sroa.0.1)
+  invoke void %75(ptr noundef nonnull align 8 dereferenceable(113) %connection.sroa.0.0)
           to label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnectionENS0_16OrphanableDeleteEED2Ev.exit unwind label %terminate.lpad.i151
 
 terminate.lpad.i151:                              ; preds = %if.then.i149

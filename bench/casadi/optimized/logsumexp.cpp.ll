@@ -1328,42 +1328,42 @@ define linkonce_odr hidden void @_ZN6casadi13GenericMatrixINS_2MXEE9logsumexpERK
 
 52:                                               ; preds = %50, %48
   %.pn = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
-  %.17 = phi i1 [ %.06, %50 ], [ true, %48 ]
+  %.713 = phi i1 [ %.06, %50 ], [ true, %48 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   br label %53
 
 53:                                               ; preds = %52, %46
   %.pn.pn = phi { ptr, i32 } [ %.pn, %52 ], [ %47, %46 ]
-  %.28 = phi i1 [ %.17, %52 ], [ true, %46 ]
+  %.612 = phi i1 [ %.713, %52 ], [ true, %46 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
   br label %54
 
 54:                                               ; preds = %53, %44
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %53 ], [ %45, %44 ]
-  %.39 = phi i1 [ %.28, %53 ], [ true, %44 ]
+  %.511 = phi i1 [ %.612, %53 ], [ true, %44 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   br label %55
 
 55:                                               ; preds = %54, %42
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %54 ], [ %43, %42 ]
-  %.410 = phi i1 [ %.39, %54 ], [ true, %42 ]
+  %.410 = phi i1 [ %.511, %54 ], [ true, %42 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   br label %56
 
 56:                                               ; preds = %55, %40
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %55 ], [ %41, %40 ]
-  %.511 = phi i1 [ %.410, %55 ], [ true, %40 ]
+  %.39 = phi i1 [ %.410, %55 ], [ true, %40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   br label %57
 
 57:                                               ; preds = %38, %56
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %56 ], [ %39, %38 ]
-  %.612 = phi i1 [ %.511, %56 ], [ true, %38 ]
+  %.28 = phi i1 [ %.39, %56 ], [ true, %38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
-  br i1 %.612, label %.sink.split, label %95
+  br i1 %.28, label %.sink.split, label %95
 
 58:                                               ; preds = %2
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1456,42 +1456,42 @@ define linkonce_odr hidden void @_ZN6casadi13GenericMatrixINS_2MXEE9logsumexpERK
 
 88:                                               ; preds = %86, %84
   %.pn44 = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ]
-  %.1 = phi i1 [ %.0, %86 ], [ true, %84 ]
+  %.7 = phi i1 [ %.0, %86 ], [ true, %84 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #13
   br label %89
 
 89:                                               ; preds = %88, %82
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %88 ], [ %83, %82 ]
-  %.2 = phi i1 [ %.1, %88 ], [ true, %82 ]
+  %.6 = phi i1 [ %.7, %88 ], [ true, %82 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
   br label %90
 
 90:                                               ; preds = %89, %80
   %.pn44.pn.pn = phi { ptr, i32 } [ %.pn44.pn, %89 ], [ %81, %80 ]
-  %.3 = phi i1 [ %.2, %89 ], [ true, %80 ]
+  %.5 = phi i1 [ %.6, %89 ], [ true, %80 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #13
   br label %91
 
 91:                                               ; preds = %90, %78
   %.pn44.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn, %90 ], [ %79, %78 ]
-  %.4 = phi i1 [ %.3, %90 ], [ true, %78 ]
+  %.4 = phi i1 [ %.5, %90 ], [ true, %78 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
   br label %92
 
 92:                                               ; preds = %91, %76
   %.pn44.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn.pn, %91 ], [ %77, %76 ]
-  %.5 = phi i1 [ %.4, %91 ], [ true, %76 ]
+  %.3 = phi i1 [ %.4, %91 ], [ true, %76 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   br label %93
 
 93:                                               ; preds = %74, %92
   %.pn44.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn.pn.pn, %92 ], [ %75, %74 ]
-  %.6 = phi i1 [ %.5, %92 ], [ true, %74 ]
+  %.2 = phi i1 [ %.3, %92 ], [ true, %74 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #13
-  br i1 %.6, label %.sink.split, label %95
+  br i1 %.2, label %.sink.split, label %95
 
 94:                                               ; preds = %58
   tail call void @_ZN6casadi2MX10_logsumexpERKS0_(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1)

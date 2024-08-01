@@ -4160,24 +4160,24 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   %62 = ptrtoint ptr %.sink41 to i64
   %63 = ptrtoint ptr %61 to i64
   %64 = sub i64 %62, %63
-  %.1 = add nsw i64 %64, %1
+  %.2 = add nsw i64 %64, %1
   %65 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5pbaseEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %66 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %67 = getelementptr inbounds i8, ptr %66, i64 %.1
+  %67 = getelementptr inbounds i8, ptr %66, i64 %.2
   %.not27 = icmp ugt ptr %65, %67
   br i1 %.not27, label %74, label %68
 
 68:                                               ; preds = %60
   %69 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %70 = getelementptr inbounds i8, ptr %69, i64 %.1
+  %70 = getelementptr inbounds i8, ptr %69, i64 %.2
   %71 = getelementptr inbounds i8, ptr %0, i64 64
   %72 = load ptr, ptr %71, align 8
   %.not28 = icmp ugt ptr %70, %72
   br i1 %.not28, label %74, label %.sink.split42
 
 .sink.split42:                                    ; preds = %68, %44
-  %.sink43 = phi i64 [ %49, %44 ], [ %.1, %68 ]
-  %.sroa.0.0.ph = phi i64 [ %.0, %44 ], [ %.1, %68 ]
+  %.sink43 = phi i64 [ %49, %44 ], [ %.2, %68 ]
+  %.sroa.0.0.ph = phi i64 [ %.0, %44 ], [ %.2, %68 ]
   %73 = trunc i64 %.sink43 to i32
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE5pbumpEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %73)
   br label %74
@@ -8036,7 +8036,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.e
   unreachable
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit: ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i, %19, %.noexc.i, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit, %2
-  %.sroa.0.2 = phi ptr [ null, %2 ], [ %9, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit ], [ %9, %.noexc.i ], [ %9, %19 ], [ null, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ null, %2 ], [ %9, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit ], [ %9, %.noexc.i ], [ %9, %19 ], [ null, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i ]
   %35 = getelementptr inbounds i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8062,15 +8062,15 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit:
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i19 unwind label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i19: ; preds = %46, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit
-  store ptr %.sroa.0.2, ptr %44, align 8
-  %.not.i2.i.i20 = icmp eq ptr %.sroa.0.2, null
+  store ptr %.sroa.0.1, ptr %44, align 8
+  %.not.i2.i.i20 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i2.i.i20, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit26, label %51
 
 51:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i19
-  %52 = load ptr, ptr %.sroa.0.2, align 8
+  %52 = load ptr, ptr %.sroa.0.1, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
-  invoke void %54(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.2)
+  invoke void %54(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.1)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit23 unwind label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43: ; preds = %51
@@ -8079,10 +8079,10 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit1
   br label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit23: ; preds = %51
-  %56 = load ptr, ptr %.sroa.0.2, align 8
+  %56 = load ptr, ptr %.sroa.0.1, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
-  %59 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.2)
+  %59 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.1)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit26 unwind label %60
 
 60:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit23
@@ -8098,12 +8098,12 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit2
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17: ; preds = %46
   %63 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i27 = icmp eq ptr %.sroa.0.2, null
+  %.not.i.i27 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i27, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit29, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread: ; preds = %31, %.noexc.i16, %23, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17
   %.pn38 = phi { ptr, i32 } [ %63, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17 ], [ %55, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43 ], [ %24, %23 ], [ %24, %.noexc.i16 ], [ %24, %31 ]
-  %.sroa.0.337 = phi ptr [ %.sroa.0.2, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17 ], [ %.sroa.0.2, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43 ], [ %9, %23 ], [ %9, %.noexc.i16 ], [ %9, %31 ]
+  %.sroa.0.337 = phi ptr [ %.sroa.0.1, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17 ], [ %.sroa.0.1, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43 ], [ %9, %23 ], [ %9, %.noexc.i16 ], [ %9, %31 ]
   %64 = load ptr, ptr %.sroa.0.337, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
@@ -20379,10 +20379,10 @@ _ZNSt6vectorIN3nix9StorePathESaIS1_EED2Ev.exit509: ; preds = %_ZSt8_DestroyIPN3n
 
 966:                                              ; preds = %964, %962
   %.pn.i = phi { ptr, i32 } [ %965, %964 ], [ %963, %962 ]
-  %.1.i = phi i1 [ %.0.i, %964 ], [ true, %962 ]
+  %.2.i = phi i1 [ %.0.i, %964 ], [ true, %962 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #26, !noalias !90
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #26, !noalias !90
-  br i1 %.1.i, label %967, label %1007
+  br i1 %.2.i, label %967, label %1007
 
 967:                                              ; preds = %966, %.thread.i
   %.pn.pn18.i = phi { ptr, i32 } [ %961, %.thread.i ], [ %.pn.i, %966 ]
@@ -20637,11 +20637,11 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br label %1054
 
 1054:                                             ; preds = %1050, %1052
-  %.1219 = phi i1 [ %.0218, %1052 ], [ true, %1050 ]
+  %.2220 = phi i1 [ %.0218, %1052 ], [ true, %1050 ]
   %.pn253 = phi { ptr, i32 } [ %1053, %1052 ], [ %1051, %1050 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #26
-  br i1 %.1219, label %1055, label %1090
+  br i1 %.2220, label %1055, label %1090
 
 1055:                                             ; preds = %.thread1389, %1054
   %.pn253.pn1392 = phi { ptr, i32 } [ %1049, %.thread1389 ], [ %.pn253, %1054 ]
@@ -23540,10 +23540,10 @@ define internal void @_ZN9nix_storeL9opReadLogENSt7__cxx114listINS0_12basic_stri
 
 61:                                               ; preds = %57, %59
   %.pn22 = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
-  %.1 = phi i1 [ %.0, %59 ], [ true, %57 ]
+  %.2 = phi i1 [ %.0, %59 ], [ true, %57 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  br i1 %.1, label %62, label %80
+  br i1 %.2, label %62, label %80
 
 62:                                               ; preds = %.thread36, %61
   %.pn22.pn39 = phi { ptr, i32 } [ %56, %.thread36 ], [ %.pn22, %61 ]
@@ -24509,10 +24509,10 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 
 118:                                              ; preds = %114, %116
   %.pn = phi { ptr, i32 } [ %117, %116 ], [ %115, %114 ]
-  %.1 = phi i1 [ %.0, %116 ], [ true, %114 ]
+  %.2 = phi i1 [ %.0, %116 ], [ true, %114 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #26
-  br i1 %.1, label %119, label %126
+  br i1 %.2, label %119, label %126
 
 119:                                              ; preds = %.thread53, %118
   %.pn.pn56 = phi { ptr, i32 } [ %113, %.thread53 ], [ %.pn, %118 ]
@@ -28244,8 +28244,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 .thread939:                                       ; preds = %143
   %147 = landingpad { ptr, i32 }
           cleanup
-  %.194942 = extractvalue { ptr, i32 } %147, 0
-  %.196943 = extractvalue { ptr, i32 } %147, 1
+  %.2942 = extractvalue { ptr, i32 } %147, 0
+  %.297943 = extractvalue { ptr, i32 } %147, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #26
   br label %150
 
@@ -28254,14 +28254,14 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %149 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
-  %.194 = extractvalue { ptr, i32 } %149, 0
-  %.196 = extractvalue { ptr, i32 } %149, 1
+  %.2 = extractvalue { ptr, i32 } %149, 0
+  %.297 = extractvalue { ptr, i32 } %149, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #26
   br i1 %.0126, label %150, label %_ZN3nix8FdSourceD2Ev.exit409
 
 150:                                              ; preds = %.thread939, %148
-  %.196945 = phi i32 [ %.196943, %.thread939 ], [ %.196, %148 ]
-  %.194944 = phi ptr [ %.194942, %.thread939 ], [ %.194, %148 ]
+  %.297945 = phi i32 [ %.297943, %.thread939 ], [ %.297, %148 ]
+  %.2944 = phi ptr [ %.2942, %.thread939 ], [ %.2, %148 ]
   call void @__cxa_free_exception(ptr %144) #26
   br label %_ZN3nix8FdSourceD2Ev.exit409
 
@@ -29250,8 +29250,8 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %_ZN3nix10Ser
 
 599:                                              ; preds = %.loopexit1030, %.loopexit.split-lp1031, %598
   %.pn173 = phi { ptr, i32 } [ %lpad.phi, %598 ], [ %lpad.loopexit1032, %.loopexit1030 ], [ %lpad.loopexit.split-lp1033, %.loopexit.split-lp1031 ]
-  %.2 = extractvalue { ptr, i32 } %.pn173, 0
-  %.297 = extractvalue { ptr, i32 } %.pn173, 1
+  %.5 = extractvalue { ptr, i32 } %.pn173, 0
+  %.5100 = extractvalue { ptr, i32 } %.pn173, 1
   %600 = load ptr, ptr %347, align 8
   invoke void @_ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef %600)
           to label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185 unwind label %601
@@ -29775,14 +29775,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit198:    ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i197, %793, %780, %762, %752
   %.pn169.pn = phi { ptr, i32 } [ %753, %752 ], [ %.pn169, %762 ], [ %.pn169, %780 ], [ %.pn169, %793 ], [ %.pn169, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i197 ]
-  %.4 = extractvalue { ptr, i32 } %.pn169.pn, 0
-  %.499 = extractvalue { ptr, i32 } %.pn169.pn, 1
+  %.6 = extractvalue { ptr, i32 } %.pn169.pn, 0
+  %.6101 = extractvalue { ptr, i32 } %.pn169.pn, 1
   %798 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix11InvalidPathE) #26
-  %799 = icmp eq i32 %.499, %798
+  %799 = icmp eq i32 %.6101, %798
   br i1 %799, label %800, label %.loopexit1036
 
 800:                                              ; preds = %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit198
-  %801 = call ptr @__cxa_begin_catch(ptr %.4) #26
+  %801 = call ptr @__cxa_begin_catch(ptr %.6) #26
   invoke void @__cxa_end_catch()
           to label %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit unwind label %.loopexit1037
 
@@ -29828,8 +29828,8 @@ _ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit:       ; preds = %_ZNSt16_Sp_counted_
   unreachable
 
 .loopexit1036:                                    ; preds = %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit198, %804
-  %.5100 = phi i32 [ %806, %804 ], [ %.499, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit198 ]
-  %.5 = phi ptr [ %805, %804 ], [ %.4, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit198 ]
+  %.8103 = phi i32 [ %806, %804 ], [ %.6101, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit198 ]
+  %.8 = phi ptr [ %805, %804 ], [ %.6, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit198 ]
   %817 = load ptr, ptr %337, align 8
   invoke void @_ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef %817)
           to label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185 unwind label %818
@@ -29915,8 +29915,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %_Z
 
 851:                                              ; preds = %849, %847
   %.pn167 = phi { ptr, i32 } [ %850, %849 ], [ %848, %847 ]
-  %.6 = extractvalue { ptr, i32 } %.pn167, 0
-  %.6101 = extractvalue { ptr, i32 } %.pn167, 1
+  %.9 = extractvalue { ptr, i32 } %.pn167, 0
+  %.9104 = extractvalue { ptr, i32 } %.pn167, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #26
   br label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
@@ -29940,8 +29940,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %_Z
 .thread961:                                       ; preds = %853
   %857 = landingpad { ptr, i32 }
           cleanup
-  %.7964 = extractvalue { ptr, i32 } %857, 0
-  %.7102965 = extractvalue { ptr, i32 } %857, 1
+  %.10964 = extractvalue { ptr, i32 } %857, 0
+  %.10105965 = extractvalue { ptr, i32 } %857, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #26
   br label %860
 
@@ -29950,14 +29950,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %_Z
   %859 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #26
-  %.7 = extractvalue { ptr, i32 } %859, 0
-  %.7102 = extractvalue { ptr, i32 } %859, 1
+  %.10 = extractvalue { ptr, i32 } %859, 0
+  %.10105 = extractvalue { ptr, i32 } %859, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #26
   br i1 %.0128, label %860, label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
 860:                                              ; preds = %.thread961, %858
-  %.7102967 = phi i32 [ %.7102965, %.thread961 ], [ %.7102, %858 ]
-  %.7966 = phi ptr [ %.7964, %.thread961 ], [ %.7, %858 ]
+  %.10105967 = phi i32 [ %.10105965, %.thread961 ], [ %.10105, %858 ]
+  %.10966 = phi ptr [ %.10964, %.thread961 ], [ %.10, %858 ]
   call void @__cxa_free_exception(ptr %854) #26
   br label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
@@ -30420,8 +30420,8 @@ _ZN3nix9StorePathD2Ev.exit721:                    ; preds = %_ZNKSt7__cxx1112bas
 .thread976:                                       ; preds = %1000
   %1004 = landingpad { ptr, i32 }
           cleanup
-  %.8979 = extractvalue { ptr, i32 } %1004, 0
-  %.8103980 = extractvalue { ptr, i32 } %1004, 1
+  %.11979 = extractvalue { ptr, i32 } %1004, 0
+  %.11106980 = extractvalue { ptr, i32 } %1004, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #26
   br label %1007
 
@@ -30430,14 +30430,14 @@ _ZN3nix9StorePathD2Ev.exit721:                    ; preds = %_ZNKSt7__cxx1112bas
   %1006 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #26
-  %.8 = extractvalue { ptr, i32 } %1006, 0
-  %.8103 = extractvalue { ptr, i32 } %1006, 1
+  %.11 = extractvalue { ptr, i32 } %1006, 0
+  %.11106 = extractvalue { ptr, i32 } %1006, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #26
   br i1 %.0130, label %1007, label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
 1007:                                             ; preds = %.thread976, %1005
-  %.8103982 = phi i32 [ %.8103980, %.thread976 ], [ %.8103, %1005 ]
-  %.8981 = phi ptr [ %.8979, %.thread976 ], [ %.8, %1005 ]
+  %.11106982 = phi i32 [ %.11106980, %.thread976 ], [ %.11106, %1005 ]
+  %.11981 = phi ptr [ %.11979, %.thread976 ], [ %.11, %1005 ]
   call void @__cxa_free_exception(ptr %1001) #26
   br label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
@@ -30670,8 +30670,8 @@ _ZN3nix20StorePathWithOutputsD2Ev.exit221:        ; preds = %_ZNKSt7__cxx1112bas
 
 1088:                                             ; preds = %_ZN3nix20StorePathWithOutputsD2Ev.exit221, %1076
   %.pn163 = phi { ptr, i32 } [ %1079, %_ZN3nix20StorePathWithOutputsD2Ev.exit221 ], [ %1077, %1076 ]
-  %.9 = extractvalue { ptr, i32 } %.pn163, 0
-  %.9104 = extractvalue { ptr, i32 } %.pn163, 1
+  %.13 = extractvalue { ptr, i32 } %.pn163, 0
+  %.13108 = extractvalue { ptr, i32 } %.pn163, 1
   %1089 = load ptr, ptr %91, align 8
   %.not8.i.i.i222 = icmp eq ptr %1089, %91
   br i1 %.not8.i.i.i222, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit229, label %.lr.ph.i.i.i223
@@ -31441,14 +31441,14 @@ _ZNSt6vectorIN3nix20StorePathWithOutputsESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Des
 
 .body:                                            ; preds = %1347, %1335, %.body.i
   %.pn160.pn = phi { ptr, i32 } [ %1336, %1335 ], [ %1108, %.body.i ], [ %.pn160, %1347 ]
-  %.12 = extractvalue { ptr, i32 } %.pn160.pn, 0
-  %.12107 = extractvalue { ptr, i32 } %.pn160.pn, 1
+  %.14 = extractvalue { ptr, i32 } %.pn160.pn, 0
+  %.14109 = extractvalue { ptr, i32 } %.pn160.pn, 1
   %1352 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #26
-  %1353 = icmp eq i32 %.12107, %1352
+  %1353 = icmp eq i32 %.14109, %1352
   br i1 %1353, label %1354, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit229
 
 1354:                                             ; preds = %.body
-  %1355 = call ptr @__cxa_begin_catch(ptr %.12) #26
+  %1355 = call ptr @__cxa_begin_catch(ptr %.14) #26
   %1356 = load ptr, ptr %72, align 8
   %1357 = getelementptr i8, ptr %1356, i64 -48
   %1358 = load i64, ptr %1357, align 8
@@ -31556,8 +31556,8 @@ _ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i275: ; preds
           to label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit229 unwind label %2067
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit229: ; preds = %.body, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i226, %1088, %1396, %1019
-  %.13108 = phi i32 [ %1022, %1019 ], [ %1399, %1396 ], [ %.9104, %1088 ], [ %.9104, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i226 ], [ %.12107, %.body ]
-  %.13 = phi ptr [ %1021, %1019 ], [ %1398, %1396 ], [ %.9, %1088 ], [ %.9, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i226 ], [ %.12, %.body ]
+  %.12107 = phi i32 [ %1022, %1019 ], [ %1399, %1396 ], [ %.13108, %1088 ], [ %.13108, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i226 ], [ %.14109, %.body ]
+  %.12 = phi ptr [ %1021, %1019 ], [ %1398, %1396 ], [ %.13, %1088 ], [ %.13, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i226 ], [ %.14, %.body ]
   %1400 = load ptr, ptr %90, align 8
   %1401 = load ptr, ptr %305, align 8
   %.not4.i.i.i.i280 = icmp eq ptr %1400, %1401
@@ -31634,8 +31634,8 @@ _ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i289: ; preds
 .thread985:                                       ; preds = %1418
   %1422 = landingpad { ptr, i32 }
           cleanup
-  %.14988 = extractvalue { ptr, i32 } %1422, 0
-  %.14109989 = extractvalue { ptr, i32 } %1422, 1
+  %.17988 = extractvalue { ptr, i32 } %1422, 0
+  %.17112989 = extractvalue { ptr, i32 } %1422, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %98) #26
   br label %1425
 
@@ -31644,14 +31644,14 @@ _ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i289: ; preds
   %1424 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %97) #26
-  %.14 = extractvalue { ptr, i32 } %1424, 0
-  %.14109 = extractvalue { ptr, i32 } %1424, 1
+  %.17 = extractvalue { ptr, i32 } %1424, 0
+  %.17112 = extractvalue { ptr, i32 } %1424, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %98) #26
   br i1 %.0132, label %1425, label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
 1425:                                             ; preds = %.thread985, %1423
-  %.14109991 = phi i32 [ %.14109989, %.thread985 ], [ %.14109, %1423 ]
-  %.14990 = phi ptr [ %.14988, %.thread985 ], [ %.14, %1423 ]
+  %.17112991 = phi i32 [ %.17112989, %.thread985 ], [ %.17112, %1423 ]
+  %.17990 = phi ptr [ %.17988, %.thread985 ], [ %.17, %1423 ]
   call void @__cxa_free_exception(ptr %1419) #26
   br label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
@@ -31937,8 +31937,8 @@ _ZN3nix9StorePathD2Ev.exit321:                    ; preds = %_ZNKSt7__cxx1112bas
 
 .body310:                                         ; preds = %1508, %.body.i301, %1514
   %.pn153.pn = phi { ptr, i32 } [ %.pn153, %1514 ], [ %1509, %1508 ], [ %1464, %.body.i301 ]
-  %.16 = extractvalue { ptr, i32 } %.pn153.pn, 0
-  %.16111 = extractvalue { ptr, i32 } %.pn153.pn, 1
+  %.18 = extractvalue { ptr, i32 } %.pn153.pn, 0
+  %.18113 = extractvalue { ptr, i32 } %.pn153.pn, 1
   call void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %101) #26
   %1515 = load ptr, ptr %99, align 8
   %1516 = icmp eq ptr %1515, %303
@@ -32412,8 +32412,8 @@ _ZN3nix10ServeProto5writeISt3setINS_9StorePathESt4lessIS3_ESaIS3_EEEEvRKNS_14Sto
 
 .body569:                                         ; preds = %.loopexit1050, %.loopexit.split-lp1051, %1618, %1665
   %.pn149 = phi { ptr, i32 } [ %1666, %1665 ], [ %.pn.i549, %1618 ], [ %lpad.loopexit1052, %.loopexit1050 ], [ %lpad.loopexit.split-lp1053, %.loopexit.split-lp1051 ]
-  %.17 = extractvalue { ptr, i32 } %.pn149, 0
-  %.17112 = extractvalue { ptr, i32 } %.pn149, 1
+  %.20 = extractvalue { ptr, i32 } %.pn149, 0
+  %.20115 = extractvalue { ptr, i32 } %.pn149, 1
   call void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %104) #26
   br label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
@@ -32437,8 +32437,8 @@ _ZN3nix10ServeProto5writeISt3setINS_9StorePathESt4lessIS3_ESaIS3_EEEEvRKNS_14Sto
 .thread1000:                                      ; preds = %1668
   %1672 = landingpad { ptr, i32 }
           cleanup
-  %.181003 = extractvalue { ptr, i32 } %1672, 0
-  %.181131004 = extractvalue { ptr, i32 } %1672, 1
+  %.211003 = extractvalue { ptr, i32 } %1672, 0
+  %.211161004 = extractvalue { ptr, i32 } %1672, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #26
   br label %1675
 
@@ -32447,14 +32447,14 @@ _ZN3nix10ServeProto5writeISt3setINS_9StorePathESt4lessIS3_ESaIS3_EEEEvRKNS_14Sto
   %1674 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #26
-  %.18 = extractvalue { ptr, i32 } %1674, 0
-  %.18113 = extractvalue { ptr, i32 } %1674, 1
+  %.21 = extractvalue { ptr, i32 } %1674, 0
+  %.21116 = extractvalue { ptr, i32 } %1674, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #26
   br i1 %.0134, label %1675, label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
 1675:                                             ; preds = %.thread1000, %1673
-  %.181131006 = phi i32 [ %.181131004, %.thread1000 ], [ %.18113, %1673 ]
-  %.181005 = phi ptr [ %.181003, %.thread1000 ], [ %.18, %1673 ]
+  %.211161006 = phi i32 [ %.211161004, %.thread1000 ], [ %.21116, %1673 ]
+  %.211005 = phi ptr [ %.211003, %.thread1000 ], [ %.21, %1673 ]
   call void @__cxa_free_exception(ptr %1669) #26
   br label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
@@ -33648,8 +33648,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396: ; preds = %_Z
 
 2033:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396, %1769
   %.pn144.pn.pn.pn = phi { ptr, i32 } [ %.pn144.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396 ], [ %1770, %1769 ]
-  %.24 = extractvalue { ptr, i32 } %.pn144.pn.pn.pn, 0
-  %.24119 = extractvalue { ptr, i32 } %.pn144.pn.pn.pn, 1
+  %.22 = extractvalue { ptr, i32 } %.pn144.pn.pn.pn, 0
+  %.22117 = extractvalue { ptr, i32 } %.pn144.pn.pn.pn, 1
   %2034 = load ptr, ptr %108, align 8
   %2035 = icmp eq ptr %2034, %249
   br i1 %2035, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i398, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i397
@@ -33686,8 +33686,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399: ; preds = %_Z
 .thread1020:                                      ; preds = %2038
   %2042 = landingpad { ptr, i32 }
           cleanup
-  %.251023 = extractvalue { ptr, i32 } %2042, 0
-  %.251201024 = extractvalue { ptr, i32 } %2042, 1
+  %.281023 = extractvalue { ptr, i32 } %2042, 0
+  %.281231024 = extractvalue { ptr, i32 } %2042, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %124) #26
   br label %2045
 
@@ -33696,14 +33696,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399: ; preds = %_Z
   %2044 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #26
-  %.25 = extractvalue { ptr, i32 } %2044, 0
-  %.25120 = extractvalue { ptr, i32 } %2044, 1
+  %.28 = extractvalue { ptr, i32 } %2044, 0
+  %.28123 = extractvalue { ptr, i32 } %2044, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %124) #26
   br i1 %.0, label %2045, label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
 2045:                                             ; preds = %.thread1020, %2043
-  %.251201026 = phi i32 [ %.251201024, %.thread1020 ], [ %.25120, %2043 ]
-  %.251025 = phi ptr [ %.251023, %.thread1020 ], [ %.25, %2043 ]
+  %.281231026 = phi i32 [ %.281231024, %.thread1020 ], [ %.28123, %2043 ]
+  %.281025 = phi ptr [ %.281023, %.thread1020 ], [ %.28, %2043 ]
   call void @__cxa_free_exception(ptr %2039) #26
   br label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
@@ -33754,8 +33754,8 @@ _ZN3nix8FdSourceD2Ev.exit:                        ; preds = %_ZN3nix16BackedStri
   ret void
 
 _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185: ; preds = %1416, %_ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i289, %.loopexit1036, %599, %2043, %2045, %1673, %1675, %1423, %1425, %1005, %1007, %858, %860, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399, %.body569, %_ZN3nix9StorePathD2Ev.exit324, %1504, %995, %851, %.body411, %.body424
-  %.26121 = phi i32 [ %.251201026, %2045 ], [ %.25120, %2043 ], [ %.24119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399 ], [ %410, %.body424 ], [ %.181131006, %1675 ], [ %.18113, %1673 ], [ %.17112, %.body569 ], [ %.16111, %_ZN3nix9StorePathD2Ev.exit324 ], [ %1507, %1504 ], [ %.14109991, %1425 ], [ %.14109, %1423 ], [ %.8103982, %1007 ], [ %.8103, %1005 ], [ %998, %995 ], [ %.7102967, %860 ], [ %.7102, %858 ], [ %.6101, %851 ], [ %414, %.body411 ], [ %.297, %599 ], [ %.5100, %.loopexit1036 ], [ %.13108, %_ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i289 ], [ %.13108, %1416 ]
-  %.26 = phi ptr [ %.251025, %2045 ], [ %.25, %2043 ], [ %.24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399 ], [ %409, %.body424 ], [ %.181005, %1675 ], [ %.18, %1673 ], [ %.17, %.body569 ], [ %.16, %_ZN3nix9StorePathD2Ev.exit324 ], [ %1506, %1504 ], [ %.14990, %1425 ], [ %.14, %1423 ], [ %.8981, %1007 ], [ %.8, %1005 ], [ %997, %995 ], [ %.7966, %860 ], [ %.7, %858 ], [ %.6, %851 ], [ %413, %.body411 ], [ %.2, %599 ], [ %.5, %.loopexit1036 ], [ %.13, %_ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i289 ], [ %.13, %1416 ]
+  %.499 = phi i32 [ %.281231026, %2045 ], [ %.28123, %2043 ], [ %.22117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399 ], [ %410, %.body424 ], [ %.211161006, %1675 ], [ %.21116, %1673 ], [ %.20115, %.body569 ], [ %.18113, %_ZN3nix9StorePathD2Ev.exit324 ], [ %1507, %1504 ], [ %.17112991, %1425 ], [ %.17112, %1423 ], [ %.11106982, %1007 ], [ %.11106, %1005 ], [ %998, %995 ], [ %.10105967, %860 ], [ %.10105, %858 ], [ %.9104, %851 ], [ %414, %.body411 ], [ %.5100, %599 ], [ %.8103, %.loopexit1036 ], [ %.12107, %_ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i289 ], [ %.12107, %1416 ]
+  %.4 = phi ptr [ %.281025, %2045 ], [ %.28, %2043 ], [ %.22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399 ], [ %409, %.body424 ], [ %.211005, %1675 ], [ %.21, %1673 ], [ %.20, %.body569 ], [ %.18, %_ZN3nix9StorePathD2Ev.exit324 ], [ %1506, %1504 ], [ %.17990, %1425 ], [ %.17, %1423 ], [ %.11981, %1007 ], [ %.11, %1005 ], [ %997, %995 ], [ %.10966, %860 ], [ %.10, %858 ], [ %.9, %851 ], [ %413, %.body411 ], [ %.5, %599 ], [ %.8, %.loopexit1036 ], [ %.12, %_ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i289 ], [ %.12, %1416 ]
   call void @_ZN3nix6FdSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %72) #26
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix8FdSourceE, i64 16), ptr %71, align 8
   %2056 = load i8, ptr %157, align 8
@@ -33795,10 +33795,10 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN3nix8FdSourceD2Ev.exit409
 
 _ZN3nix8FdSourceD2Ev.exit409:                     ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i405, %_ZN3nix16BackedStringViewD2Ev.exit.i403, %148, %150, %138, %140
-  %.28123 = phi i32 [ %.095938, %140 ], [ %.095, %138 ], [ %.196945, %150 ], [ %.196, %148 ], [ %.26121, %_ZN3nix16BackedStringViewD2Ev.exit.i403 ], [ %.26121, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i405 ]
-  %.28 = phi ptr [ %.093937, %140 ], [ %.093, %138 ], [ %.194944, %150 ], [ %.194, %148 ], [ %.26, %_ZN3nix16BackedStringViewD2Ev.exit.i403 ], [ %.26, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i405 ]
-  %2065 = insertvalue { ptr, i32 } poison, ptr %.28, 0
-  %2066 = insertvalue { ptr, i32 } %2065, i32 %.28123, 1
+  %.196 = phi i32 [ %.095938, %140 ], [ %.095, %138 ], [ %.297945, %150 ], [ %.297, %148 ], [ %.499, %_ZN3nix16BackedStringViewD2Ev.exit.i403 ], [ %.499, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i405 ]
+  %.194 = phi ptr [ %.093937, %140 ], [ %.093, %138 ], [ %.2944, %150 ], [ %.2, %148 ], [ %.4, %_ZN3nix16BackedStringViewD2Ev.exit.i403 ], [ %.4, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i405 ]
+  %2065 = insertvalue { ptr, i32 } poison, ptr %.194, 0
+  %2066 = insertvalue { ptr, i32 } %2065, i32 %.196, 1
   resume { ptr, i32 } %2066
 
 2067:                                             ; preds = %1396
@@ -35079,11 +35079,11 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix16DerivationO
   br label %229
 
 229:                                              ; preds = %225, %227
-  %.139 = phi i1 [ %.038, %227 ], [ true, %225 ]
+  %.240 = phi i1 [ %.038, %227 ], [ true, %225 ]
   %.pn61 = phi { ptr, i32 } [ %228, %227 ], [ %226, %225 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #26
-  br i1 %.139, label %230, label %406
+  br i1 %.240, label %230, label %406
 
 230:                                              ; preds = %.thread, %229
   %.pn61.pn186 = phi { ptr, i32 } [ %224, %.thread ], [ %.pn61, %229 ]
@@ -35701,11 +35701,11 @@ _ZN3nix10DerivationD2Ev.exit:                     ; preds = %._crit_edge
   br label %433
 
 433:                                              ; preds = %429, %431
-  %.142 = phi i1 [ %.041, %431 ], [ true, %429 ]
+  %.243 = phi i1 [ %.041, %431 ], [ true, %429 ]
   %.pn = phi { ptr, i32 } [ %432, %431 ], [ %430, %429 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #26
-  br i1 %.142, label %434, label %.loopexit206
+  br i1 %.243, label %434, label %.loopexit206
 
 434:                                              ; preds = %.thread189, %433
   %.pn.pn192 = phi { ptr, i32 } [ %428, %.thread189 ], [ %.pn, %433 ]
@@ -40514,10 +40514,10 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix7requ
 
 19:                                               ; preds = %15, %17
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  %.1 = phi i1 [ %.0, %17 ], [ true, %15 ]
+  %.2 = phi i1 [ %.0, %17 ], [ true, %15 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  br i1 %.1, label %20, label %22
+  br i1 %.2, label %20, label %22
 
 20:                                               ; preds = %.thread, %19
   %.pn.pn16 = phi { ptr, i32 } [ %14, %.thread ], [ %.pn, %19 ]
@@ -42749,10 +42749,10 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix7requ
 
 19:                                               ; preds = %15, %17
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  %.1 = phi i1 [ %.0, %17 ], [ true, %15 ]
+  %.2 = phi i1 [ %.0, %17 ], [ true, %15 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  br i1 %.1, label %20, label %22
+  br i1 %.2, label %20, label %22
 
 20:                                               ; preds = %.thread, %19
   %.pn.pn16 = phi { ptr, i32 } [ %14, %.thread ], [ %.pn, %19 ]
@@ -45331,14 +45331,14 @@ define linkonce_odr noundef i64 @_ZN3nix24string2IntWithUnitPrefixIlEET_St17basi
   br i1 %.08, label %.sink.split, label %47
 
 31:                                               ; preds = %20, %21, %23, %22
-  %.04 = phi i64 [ 1048576, %21 ], [ 1073741824, %22 ], [ 1099511627776, %23 ], [ 1024, %20 ]
+  %.15 = phi i64 [ 1048576, %21 ], [ 1073741824, %22 ], [ 1099511627776, %23 ], [ 1024, %20 ]
   %32 = add i64 %0, -1
   store i64 %32, ptr %3, align 8
   br label %33
 
 33:                                               ; preds = %11, %31, %2
   %.sroa.0.0.copyload = phi i64 [ 0, %2 ], [ %32, %31 ], [ %0, %11 ]
-  %.15 = phi i64 [ 1, %2 ], [ %.04, %31 ], [ 1, %11 ]
+  %.04 = phi i64 [ 1, %2 ], [ %.15, %31 ], [ 1, %11 ]
   %34 = tail call { i64, i8 } @_ZN3nix10string2IntIlEESt8optionalIT_ESt17basic_string_viewIcSt11char_traitsIcEE(i64 %.sroa.0.0.copyload, ptr %1)
   %35 = extractvalue { i64, i8 } %34, 1
   %36 = trunc i8 %35 to i1
@@ -45346,7 +45346,7 @@ define linkonce_odr noundef i64 @_ZN3nix24string2IntWithUnitPrefixIlEET_St17basi
 
 37:                                               ; preds = %33
   %38 = extractvalue { i64, i8 } %34, 0
-  %39 = mul nsw i64 %38, %.15
+  %39 = mul nsw i64 %38, %.04
   ret i64 %39
 
 40:                                               ; preds = %33
@@ -45933,7 +45933,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost6detail18lcast_ret_unsignedISt1
   br i1 %.not29, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEmcE17main_convert_loopEv.exit43, label %112, !llvm.loop !198
 
 _ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEmcE17main_convert_loopEv.exit43: ; preds = %148, %158, %131, %130, %129, %115, %95, %90, %89, %88, %73, %104, %69, %146
-  %.019 = phi i1 [ %147, %146 ], [ true, %69 ], [ true, %104 ], [ true, %95 ], [ false, %90 ], [ false, %89 ], [ false, %88 ], [ false, %73 ], [ false, %148 ], [ true, %158 ], [ false, %131 ], [ false, %130 ], [ false, %129 ], [ false, %115 ]
+  %.221 = phi i1 [ %147, %146 ], [ true, %69 ], [ true, %104 ], [ true, %95 ], [ false, %90 ], [ false, %89 ], [ false, %88 ], [ false, %73 ], [ false, %148 ], [ true, %158 ], [ false, %131 ], [ false, %130 ], [ false, %129 ], [ false, %115 ]
   %162 = load ptr, ptr %3, align 8
   %163 = getelementptr inbounds i8, ptr %3, i64 16
   %164 = icmp eq ptr %162, %163
@@ -45954,7 +45954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEmcE17main_convert_loopEv.exit
 
 _ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEmcE17main_convert_loopEv.exit: ; preds = %50, %45, %44, %43, %28, %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.120 = phi i1 [ %.019, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %24 ], [ true, %50 ], [ false, %45 ], [ false, %44 ], [ false, %43 ], [ false, %28 ]
+  %.120 = phi i1 [ %.221, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %24 ], [ true, %50 ], [ false, %45 ], [ false, %44 ], [ false, %43 ], [ false, %28 ]
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #26
   br label %168
 
@@ -45964,8 +45964,8 @@ _ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEmcE17main_convert_loopEv.
   resume { ptr, i32 } %.pn
 
 168:                                              ; preds = %1, %13, %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEmcE17main_convert_loopEv.exit
-  %.221 = phi i1 [ %.120, %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEmcE17main_convert_loopEv.exit ], [ false, %13 ], [ false, %1 ]
-  ret i1 %.221
+  %.019 = phi i1 [ %.120, %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEmcE17main_convert_loopEv.exit ], [ false, %13 ], [ false, %1 ]
+  ret i1 %.019
 }
 
 ; Function Attrs: nounwind

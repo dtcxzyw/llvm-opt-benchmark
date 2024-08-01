@@ -2549,7 +2549,7 @@ define dso_local void @_ZN21cmGeneratorExpression10PreprocessERKNSt7__cxx1112bas
   br label %37
 
 37:                                               ; preds = %.thread.i, %33
-  %.138.i = phi i32 [ 1, %33 ], [ %.2.i, %.thread.i ]
+  %.138.i = phi i32 [ 1, %33 ], [ %.3.i, %.thread.i ]
   %.032.i = phi ptr [ %36, %33 ], [ %48, %.thread.i ]
   %38 = load i8, ptr %.032.i, align 1, !noalias !37
   switch i8 %38, label %.thread.i [
@@ -2589,7 +2589,7 @@ _ZN21cmGeneratorExpression29StartsWithGeneratorExpressionEPKc.exit.i: ; preds = 
   br i1 %47, label %49, label %.thread.i
 
 .thread.i:                                        ; preds = %45, %_ZN21cmGeneratorExpression29StartsWithGeneratorExpressionEPKc.exit.i, %37
-  %.2.i = phi i32 [ %46, %45 ], [ %.138.i, %37 ], [ %spec.select.i, %_ZN21cmGeneratorExpression29StartsWithGeneratorExpressionEPKc.exit.i ]
+  %.3.i = phi i32 [ %46, %45 ], [ %.138.i, %37 ], [ %spec.select.i, %_ZN21cmGeneratorExpression29StartsWithGeneratorExpressionEPKc.exit.i ]
   %.1.i = phi ptr [ %.032.i, %45 ], [ %.032.i, %37 ], [ %spec.select70.i, %_ZN21cmGeneratorExpression29StartsWithGeneratorExpressionEPKc.exit.i ]
   %48 = getelementptr inbounds i8, ptr %.1.i, i64 1
   br label %37, !llvm.loop !40
@@ -2641,14 +2641,14 @@ _ZN21cmGeneratorExpression29StartsWithGeneratorExpressionEPKc.exit.i: ; preds = 
 
 68:                                               ; preds = %62, %49
   %69 = phi i64 [ %57, %62 ], [ %52, %49 ]
-  %.348.i = phi i32 [ %.138.i, %62 ], [ 0, %49 ]
+  %.248.i = phi i32 [ %.138.i, %62 ], [ 0, %49 ]
   %70 = add i64 %69, %34
   %71 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.3, i64 noundef %70) #18, !noalias !37
   %.not.i = icmp eq i64 %71, -1
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
 
 ._crit_edge.i:                                    ; preds = %68
-  %72 = icmp eq i32 %.348.i, 0
+  %72 = icmp eq i32 %.248.i, 0
   br i1 %72, label %._crit_edge.thread.i, label %78
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %27
@@ -2740,7 +2740,7 @@ _ZL28stripAllGeneratorExpressionsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 100:                                              ; preds = %225, %80
   %.075.i = phi i64 [ 0, %80 ], [ %227, %225 ]
-  %.0.i = phi i32 [ 0, %80 ], [ %.3102.i, %225 ]
+  %.0.i = phi i32 [ 0, %80 ], [ %.2102.i, %225 ]
   %101 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.8, i64 noundef %.075.i) #18, !noalias !42
   %102 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.9, i64 noundef %.075.i) #18, !noalias !42
   %103 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.10, i64 noundef %.075.i) #18, !noalias !42
@@ -2828,7 +2828,7 @@ _ZL28stripAllGeneratorExpressionsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 134:                                              ; preds = %.thread.i10, %129
   %.066.i = phi ptr [ %133, %129 ], [ %192, %.thread.i10 ]
-  %.1.i9 = phi i32 [ 1, %129 ], [ %.2.i11, %.thread.i10 ]
+  %.1.i9 = phi i32 [ 1, %129 ], [ %.3.i11, %.thread.i10 ]
   %135 = load i8, ptr %.066.i, align 1, !noalias !42
   switch i8 %135, label %.thread.i10 [
     i8 0, label %.thread99.i
@@ -3039,7 +3039,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 .thread.i10:                                      ; preds = %143, %_ZN21cmGeneratorExpression29StartsWithGeneratorExpressionEPKc.exit.i15, %134
   %.167.i = phi ptr [ %.066.i, %143 ], [ %.066.i, %134 ], [ %spec.select.i16, %_ZN21cmGeneratorExpression29StartsWithGeneratorExpressionEPKc.exit.i15 ]
-  %.2.i11 = phi i32 [ %144, %143 ], [ %.1.i9, %134 ], [ %spec.select177.i, %_ZN21cmGeneratorExpression29StartsWithGeneratorExpressionEPKc.exit.i15 ]
+  %.3.i11 = phi i32 [ %144, %143 ], [ %.1.i9, %134 ], [ %spec.select177.i, %_ZN21cmGeneratorExpression29StartsWithGeneratorExpressionEPKc.exit.i15 ]
   %192 = getelementptr inbounds i8, ptr %.167.i, i64 1
   br label %134, !llvm.loop !47
 
@@ -3054,7 +3054,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 194:                                              ; preds = %._crit_edge.i12, %.thread99.i
   %195 = phi i64 [ %138, %.thread99.i ], [ %193, %._crit_edge.i12 ]
-  %.3103.i = phi i32 [ %.1.i9, %.thread99.i ], [ 0, %._crit_edge.i12 ]
+  %.2103.i = phi i32 [ %.1.i9, %.thread99.i ], [ 0, %._crit_edge.i12 ]
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.065.i, i64 noundef %195)
           to label %196 unwind label %.loopexit.i7, !noalias !42
 
@@ -3155,7 +3155,7 @@ default.unreachable:                              ; preds = %196
 
 225:                                              ; preds = %._crit_edge.i12.thread, %223, %._crit_edge.i12
   %226 = phi i64 [ %195, %223 ], [ %193, %._crit_edge.i12 ], [ %158, %._crit_edge.i12.thread ]
-  %.3102.i = phi i32 [ %.3103.i, %223 ], [ 0, %._crit_edge.i12 ], [ 0, %._crit_edge.i12.thread ]
+  %.2102.i = phi i32 [ %.2103.i, %223 ], [ 0, %._crit_edge.i12 ], [ 0, %._crit_edge.i12.thread ]
   %227 = add i64 %226, %.065.i
   br label %100, !llvm.loop !84
 

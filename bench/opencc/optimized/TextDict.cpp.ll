@@ -879,10 +879,10 @@ _ZN6opencc8UTF8Util25NextCharLengthNoExceptionEPKc.exit.i: ; preds = %40
 
 63:                                               ; preds = %61, %59
   %.pn40.i = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
-  %.126.i = phi i1 [ %.025.i, %61 ], [ true, %59 ]
+  %.2.i = phi i1 [ %.025.i, %61 ], [ true, %59 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #20
-  br i1 %.126.i, label %64, label %.body
+  br i1 %.2.i, label %64, label %.body
 
 64:                                               ; preds = %63, %.thread.i
   %.pn40.pn63.i = phi { ptr, i32 } [ %58, %.thread.i ], [ %.pn40.i, %63 ]
@@ -1147,7 +1147,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.e
           to label %_ZN6opencc16DictEntryFactory3NewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.i unwind label %.loopexit.split-lp.i
 
 _ZN6opencc16DictEntryFactory3NewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.i: ; preds = %143, %.noexc.i.i
-  %.023.i = phi ptr [ %144, %143 ], [ %136, %.noexc.i.i ]
+  %.124.i = phi ptr [ %144, %143 ], [ %136, %.noexc.i.i ]
   %145 = load ptr, ptr %11, align 8
   %146 = load ptr, ptr %20, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %145, %146
@@ -1203,7 +1203,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
-  %.not9 = icmp eq ptr %.023.i, null
+  %.not9 = icmp eq ptr %.124.i, null
   br i1 %.not9, label %_ZN6opencc7Lexicon3AddEPNS_9DictEntryE.exit, label %152
 
 152:                                              ; preds = %151
@@ -1216,7 +1216,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i, label %161, label %158
 
 158:                                              ; preds = %152
-  store ptr %.023.i, ptr %155, align 8
+  store ptr %.124.i, ptr %155, align 8
   %159 = load ptr, ptr %154, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 8
   store ptr %160, ptr %154, align 8
@@ -1255,7 +1255,7 @@ _ZNKSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE
 _ZNSt12_Vector_baseISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i.i: ; preds = %173, %_ZNKSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
   %176 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %175, %173 ]
   %177 = getelementptr inbounds %"class.std::unique_ptr", ptr %176, i64 %168
-  store ptr %.023.i, ptr %177, align 8
+  store ptr %.124.i, ptr %177, align 8
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %162, %155
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 

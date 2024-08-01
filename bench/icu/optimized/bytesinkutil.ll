@@ -423,9 +423,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -598,7 +598,7 @@ if.else46:                                        ; preds = %if.else37
 if.end60:                                         ; preds = %if.else46, %if.then39
   %c.0505463 = phi i32 [ %c.0505464, %if.then39 ], [ %sub21, %if.else46 ]
   %i.2495761 = phi i32 [ %i.2495762, %if.then39 ], [ %inc17, %if.else46 ]
-  %j.1 = phi i32 [ %inc43, %if.then39 ], [ %inc57, %if.else46 ]
+  %j.2 = phi i32 [ %inc43, %if.then39 ], [ %inc57, %if.else46 ]
   %shr61 = lshr i32 %c.0505463, 6
   %10 = trunc i32 %shr61 to i8
   %11 = and i8 %10, 63
@@ -606,17 +606,17 @@ if.end60:                                         ; preds = %if.else46, %if.then
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end60, %if.then32
-  %j.1.sink = phi i32 [ %j.1, %if.end60 ], [ %j.068, %if.then32 ]
+  %j.2.sink = phi i32 [ %j.2, %if.end60 ], [ %j.068, %if.then32 ]
   %conv64.sink = phi i8 [ %conv64, %if.end60 ], [ %conv33, %if.then32 ]
   %i.24956 = phi i32 [ %i.2495761, %if.end60 ], [ %inc, %if.then32 ]
   %c.05055 = phi i32 [ %c.0505463, %if.end60 ], [ %conv, %if.then32 ]
-  %idxprom66 = sext i32 %j.1.sink to i64
+  %idxprom66 = sext i32 %j.2.sink to i64
   %arrayidx67 = getelementptr inbounds i8, ptr %call9, i64 %idxprom66
   store i8 %conv64.sink, ptr %arrayidx67, align 1
   %12 = trunc i32 %c.05055 to i8
   %13 = and i8 %12, 63
   %conv71 = or disjoint i8 %13, -128
-  %inc72 = add nsw i32 %j.1.sink, 2
+  %inc72 = add nsw i32 %j.2.sink, 2
   %gep = getelementptr i8, ptr %invariant.gep, i64 %idxprom66
   store i8 %conv71, ptr %gep, align 1
   br label %do.end76
@@ -741,25 +741,25 @@ if.else16:                                        ; preds = %if.else7
 
 if.end:                                           ; preds = %if.else16, %if.then9
   %conv19.sink = phi i8 [ %conv12, %if.then9 ], [ %conv19, %if.else16 ]
-  %s8Length.0 = phi i32 [ 1, %if.then9 ], [ 2, %if.else16 ]
+  %s8Length.1 = phi i32 [ 1, %if.then9 ], [ 2, %if.else16 ]
   store i8 %conv19.sink, ptr %s8, align 1
   %shr29 = lshr i32 %c, 6
   %5 = trunc i32 %shr29 to i8
   %6 = and i8 %5, 63
   %conv32 = or disjoint i8 %6, -128
-  %inc33 = add nuw nsw i32 %s8Length.0, 1
-  %idxprom34 = zext nneg i32 %s8Length.0 to i64
+  %inc33 = add nuw nsw i32 %s8Length.1, 1
+  %idxprom34 = zext nneg i32 %s8Length.1 to i64
   %arrayidx35 = getelementptr inbounds [4 x i8], ptr %s8, i64 0, i64 %idxprom34
   store i8 %conv32, ptr %arrayidx35, align 1
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end, %if.then2
-  %s8Length.1 = phi i32 [ 1, %if.then2 ], [ %inc33, %if.end ]
+  %s8Length.0 = phi i32 [ 1, %if.then2 ], [ %inc33, %if.end ]
   %7 = trunc i32 %c to i8
   %8 = and i8 %7, 63
   %conv39 = or disjoint i8 %8, -128
-  %inc40 = add nuw nsw i32 %s8Length.1, 1
-  %idxprom41 = zext nneg i32 %s8Length.1 to i64
+  %inc40 = add nuw nsw i32 %s8Length.0, 1
+  %idxprom41 = zext nneg i32 %s8Length.0 to i64
   %arrayidx42 = getelementptr inbounds [4 x i8], ptr %s8, i64 0, i64 %idxprom41
   store i8 %conv39, ptr %arrayidx42, align 1
   br label %do.end

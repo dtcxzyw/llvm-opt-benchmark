@@ -238,18 +238,18 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false22
   br i1 %tobool27.not, label %if.then28, label %err
 
 if.then28:                                        ; preds = %lor.lhs.false25, %lor.lhs.false22, %lor.lhs.false19, %if.end17
-  %k.0 = phi ptr [ null, %lor.lhs.false19 ], [ %call.i, %lor.lhs.false25 ], [ %call.i, %lor.lhs.false22 ], [ null, %if.end17 ]
+  %k.1 = phi ptr [ null, %lor.lhs.false19 ], [ %call.i, %lor.lhs.false25 ], [ %call.i, %lor.lhs.false22 ], [ null, %if.end17 ]
   tail call void @BN_free(ptr noundef nonnull %call14) #4
   br label %err
 
 err:                                              ; preds = %lor.lhs.false25, %if.then28, %if.end, %lor.lhs.false10, %lor.lhs.false13
   %gb.0 = phi ptr [ null, %if.end ], [ null, %lor.lhs.false10 ], [ %call11, %lor.lhs.false13 ], [ %call11, %if.then28 ], [ %call11, %lor.lhs.false25 ]
   %B.0 = phi ptr [ null, %if.end ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false13 ], [ null, %if.then28 ], [ %call14, %lor.lhs.false25 ]
-  %k.1 = phi ptr [ null, %if.end ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false13 ], [ %k.0, %if.then28 ], [ %call.i, %lor.lhs.false25 ]
+  %k.0 = phi ptr [ null, %if.end ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false13 ], [ %k.1, %if.then28 ], [ %call.i, %lor.lhs.false25 ]
   tail call void @BN_CTX_free(ptr noundef nonnull %call) #4
   tail call void @BN_clear_free(ptr noundef %call8) #4
   tail call void @BN_clear_free(ptr noundef %gb.0) #4
-  tail call void @BN_free(ptr noundef %k.1) #4
+  tail call void @BN_free(ptr noundef %k.0) #4
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false6, %err

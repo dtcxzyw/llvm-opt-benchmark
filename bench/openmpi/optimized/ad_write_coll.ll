@@ -108,7 +108,7 @@ define void @ADIOI_GEN_WriteStridedColl(ptr noundef %0, ptr noundef %1, i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %80
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %80 ]
-  %.0107130 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %80 ]
+  %.1130 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %80 ]
   %71 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8
   %73 = getelementptr i64, ptr %64, i64 %indvars.iv
@@ -121,11 +121,11 @@ define void @ADIOI_GEN_WriteStridedColl(ptr noundef %0, ptr noundef %1, i32 noun
   %78 = load i64, ptr %73, align 8
   %.not118 = icmp sle i64 %72, %78
   %79 = zext i1 %.not118 to i32
-  %spec.select = add nsw i32 %.0107130, %79
+  %spec.select = add nsw i32 %.1130, %79
   br label %80
 
 80:                                               ; preds = %77, %.lr.ph
-  %.1 = phi i32 [ %.0107130, %.lr.ph ], [ %spec.select, %77 ]
+  %.2 = phi i32 [ %.1130, %.lr.ph ], [ %spec.select, %77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -133,7 +133,7 @@ define void @ADIOI_GEN_WriteStridedColl(ptr noundef %0, ptr noundef %1, i32 noun
 .loopexit:                                        ; preds = %80, %56, %43
   %.0109 = phi ptr [ null, %43 ], [ %61, %56 ], [ %61, %80 ]
   %.0108 = phi ptr [ null, %43 ], [ %64, %56 ], [ %64, %80 ]
-  %.2 = phi i32 [ 0, %43 ], [ 0, %56 ], [ %.1, %80 ]
+  %.0107 = phi i32 [ 0, %43 ], [ 0, %56 ], [ %.2, %80 ]
   call void @ADIOI_Datatype_iscontig(ptr noundef %3, ptr noundef nonnull %23) #6
   %81 = load ptr, ptr %38, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 16
@@ -142,7 +142,7 @@ define void @ADIOI_GEN_WriteStridedColl(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %84, label %.thread, label %85
 
 85:                                               ; preds = %.loopexit
-  %86 = or i32 %83, %.2
+  %86 = or i32 %83, %.0107
   %or.cond119 = icmp eq i32 %86, 0
   br i1 %or.cond119, label %87, label %118
 
@@ -821,13 +821,13 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br label %.lr.ph499
 
 .lr.ph499:                                        ; preds = %.lr.ph499.preheader, %.loopexit401
-  %.1497 = phi i64 [ %.17, %.loopexit401 ], [ %.0511, %.lr.ph499.preheader ]
+  %.1497 = phi i64 [ %.15, %.loopexit401 ], [ %.0511, %.lr.ph499.preheader ]
   %.0286496 = phi i64 [ %270, %.loopexit401 ], [ %42, %.lr.ph499.preheader ]
   %.0287495 = phi i64 [ %269, %.loopexit401 ], [ %44, %.lr.ph499.preheader ]
-  %.1289494 = phi i32 [ %.24, %.loopexit401 ], [ %.0288510, %.lr.ph499.preheader ]
+  %.1289494 = phi i32 [ %.21, %.loopexit401 ], [ %.0288510, %.lr.ph499.preheader ]
   %.1307493 = phi i32 [ %.2308, %.loopexit401 ], [ %.0306509, %.lr.ph499.preheader ]
-  %.1319492 = phi i64 [ %.17335, %.loopexit401 ], [ %.0318508, %.lr.ph499.preheader ]
-  %.1337491 = phi i32 [ %.24360, %.loopexit401 ], [ %.0336507, %.lr.ph499.preheader ]
+  %.1319492 = phi i64 [ %.15333, %.loopexit401 ], [ %.0318508, %.lr.ph499.preheader ]
+  %.1337491 = phi i32 [ %.21357, %.loopexit401 ], [ %.0336507, %.lr.ph499.preheader ]
   store i64 %.0286496, ptr %22, align 8
   %45 = call i32 @ADIOI_Calc_aggregator(ptr noundef %0, i64 noundef %.0287495, i64 noundef %12, ptr noundef nonnull %22, i64 noundef %13, ptr noundef %14, ptr noundef %15) #6
   %46 = sext i32 %45 to i64
@@ -865,10 +865,10 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
 
 .lr.ph459:                                        ; preds = %.lr.ph459.preheader, %89
   %.2457 = phi i64 [ %.3, %89 ], [ %.1497, %.lr.ph459.preheader ]
-  %.2290456 = phi i32 [ %.4292, %89 ], [ %.1289494, %.lr.ph459.preheader ]
+  %.2290456 = phi i32 [ %.3291, %89 ], [ %.1289494, %.lr.ph459.preheader ]
   %.0311455 = phi i64 [ %90, %89 ], [ %68, %.lr.ph459.preheader ]
   %.2320454 = phi i64 [ %.3321, %89 ], [ %.1319492, %.lr.ph459.preheader ]
-  %.2338453 = phi i32 [ %.4340, %89 ], [ %.1337491, %.lr.ph459.preheader ]
+  %.2338453 = phi i32 [ %.3339, %89 ], [ %.1337491, %.lr.ph459.preheader ]
   %69 = call i64 @llvm.smin.i64(i64 %.0311455, i64 %.2320454)
   %70 = add nsw i64 %.2457, %69
   %71 = sub nsw i64 %.2320454, %69
@@ -881,14 +881,14 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %75 = add nsw i64 %74, -1
   %76 = icmp sle i64 %75, %73
   %77 = add nsw i32 %.2338453, 1
-  %.3339 = select i1 %76, i32 0, i32 %77
+  %.4340 = select i1 %76, i32 0, i32 %77
   %78 = zext i1 %76 to i32
-  %.3291 = add nsw i32 %.2290456, %78
+  %.4292 = add nsw i32 %.2290456, %78
   %79 = load ptr, ptr %29, align 8
-  %80 = sext i32 %.3339 to i64
+  %80 = sext i32 %.4340 to i64
   %81 = getelementptr inbounds i64, ptr %79, i64 %80
   %82 = load i64, ptr %81, align 8
-  %83 = sext i32 %.3291 to i64
+  %83 = sext i32 %.4292 to i64
   %84 = mul nsw i64 %83, %20
   %85 = add nsw i64 %84, %82
   %86 = load ptr, ptr %30, align 8
@@ -897,9 +897,9 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br label %89
 
 89:                                               ; preds = %72, %.lr.ph459
-  %.4340 = phi i32 [ %.2338453, %.lr.ph459 ], [ %.3339, %72 ]
+  %.3339 = phi i32 [ %.2338453, %.lr.ph459 ], [ %.4340, %72 ]
   %.3321 = phi i64 [ %71, %.lr.ph459 ], [ %88, %72 ]
-  %.4292 = phi i32 [ %.2290456, %.lr.ph459 ], [ %.3291, %72 ]
+  %.3291 = phi i32 [ %.2290456, %.lr.ph459 ], [ %.4292, %72 ]
   %.3 = phi i64 [ %70, %.lr.ph459 ], [ %85, %72 ]
   %90 = sub nsw i64 %.0311455, %69
   %.not391 = icmp eq i64 %90, 0
@@ -918,10 +918,10 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br label %94
 
 .preheader398:                                    ; preds = %123, %._crit_edge460
-  %.5341.lcssa = phi i32 [ %.4340, %._crit_edge460 ], [ %.7343, %123 ]
+  %.5341.lcssa = phi i32 [ %.3339, %._crit_edge460 ], [ %.6342, %123 ]
   %.4322.lcssa = phi i64 [ %.3321, %._crit_edge460 ], [ %.5323, %123 ]
   %.1312.lcssa = phi i64 [ %64, %._crit_edge460 ], [ %125, %123 ]
-  %.5293.lcssa = phi i32 [ %.4292, %._crit_edge460 ], [ %.7295, %123 ]
+  %.5293.lcssa = phi i32 [ %.3291, %._crit_edge460 ], [ %.6294, %123 ]
   %.4.lcssa = phi i64 [ %.3, %._crit_edge460 ], [ %.5, %123 ]
   %.not393479 = icmp eq i64 %.1312.lcssa, 0
   br i1 %.not393479, label %.loopexit, label %.lr.ph485
@@ -929,11 +929,11 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
 94:                                               ; preds = %.lr.ph473, %123
   %95 = phi i32 [ %.pre531, %.lr.ph473 ], [ %103, %123 ]
   %.4471 = phi i64 [ %.3, %.lr.ph473 ], [ %.5, %123 ]
-  %.5293470 = phi i32 [ %.4292, %.lr.ph473 ], [ %.7295, %123 ]
+  %.5293470 = phi i32 [ %.3291, %.lr.ph473 ], [ %.6294, %123 ]
   %.0309469 = phi i64 [ %., %.lr.ph473 ], [ %124, %123 ]
   %.1312468 = phi i64 [ %64, %.lr.ph473 ], [ %125, %123 ]
   %.4322467 = phi i64 [ %.3321, %.lr.ph473 ], [ %.5323, %123 ]
-  %.5341466 = phi i32 [ %.4340, %.lr.ph473 ], [ %.7343, %123 ]
+  %.5341466 = phi i32 [ %.3339, %.lr.ph473 ], [ %.6342, %123 ]
   %96 = call i64 @llvm.smin.i64(i64 %.0309469, i64 %.4322467)
   %97 = load ptr, ptr %93, align 8
   %98 = sext i32 %95 to i64
@@ -955,14 +955,14 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %109 = add nsw i64 %108, -1
   %110 = icmp sle i64 %109, %107
   %111 = add nsw i32 %.5341466, 1
-  %.6342 = select i1 %110, i32 0, i32 %111
+  %.7343 = select i1 %110, i32 0, i32 %111
   %112 = zext i1 %110 to i32
-  %.6294 = add nsw i32 %.5293470, %112
+  %.7295 = add nsw i32 %.5293470, %112
   %113 = load ptr, ptr %29, align 8
-  %114 = sext i32 %.6342 to i64
+  %114 = sext i32 %.7343 to i64
   %115 = getelementptr inbounds i64, ptr %113, i64 %114
   %116 = load i64, ptr %115, align 8
-  %117 = sext i32 %.6294 to i64
+  %117 = sext i32 %.7295 to i64
   %118 = mul nsw i64 %117, %20
   %119 = add nsw i64 %118, %116
   %120 = load ptr, ptr %30, align 8
@@ -971,9 +971,9 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br label %123
 
 123:                                              ; preds = %106, %94
-  %.7343 = phi i32 [ %.5341466, %94 ], [ %.6342, %106 ]
+  %.6342 = phi i32 [ %.5341466, %94 ], [ %.7343, %106 ]
   %.5323 = phi i64 [ %105, %94 ], [ %122, %106 ]
-  %.7295 = phi i32 [ %.5293470, %94 ], [ %.6294, %106 ]
+  %.6294 = phi i32 [ %.5293470, %94 ], [ %.7295, %106 ]
   %.5 = phi i64 [ %104, %94 ], [ %119, %106 ]
   %124 = sub nsw i64 %.0309469, %96
   %125 = sub nsw i64 %.1312468, %96
@@ -982,10 +982,10 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
 
 .lr.ph485:                                        ; preds = %.preheader398, %146
   %.6484 = phi i64 [ %.7, %146 ], [ %.4.lcssa, %.preheader398 ]
-  %.8296483 = phi i32 [ %.10298, %146 ], [ %.5293.lcssa, %.preheader398 ]
+  %.8296483 = phi i32 [ %.9297, %146 ], [ %.5293.lcssa, %.preheader398 ]
   %.2313482 = phi i64 [ %147, %146 ], [ %.1312.lcssa, %.preheader398 ]
   %.6324481 = phi i64 [ %.7325, %146 ], [ %.4322.lcssa, %.preheader398 ]
-  %.8344480 = phi i32 [ %.10346, %146 ], [ %.5341.lcssa, %.preheader398 ]
+  %.8344480 = phi i32 [ %.9345, %146 ], [ %.5341.lcssa, %.preheader398 ]
   %126 = call i64 @llvm.smin.i64(i64 %.2313482, i64 %.6324481)
   %127 = add nsw i64 %.6484, %126
   %128 = sub nsw i64 %.6324481, %126
@@ -998,14 +998,14 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %132 = add nsw i64 %131, -1
   %133 = icmp sle i64 %132, %130
   %134 = add nsw i32 %.8344480, 1
-  %.9345 = select i1 %133, i32 0, i32 %134
+  %.10346 = select i1 %133, i32 0, i32 %134
   %135 = zext i1 %133 to i32
-  %.9297 = add nsw i32 %.8296483, %135
+  %.10298 = add nsw i32 %.8296483, %135
   %136 = load ptr, ptr %29, align 8
-  %137 = sext i32 %.9345 to i64
+  %137 = sext i32 %.10346 to i64
   %138 = getelementptr inbounds i64, ptr %136, i64 %137
   %139 = load i64, ptr %138, align 8
-  %140 = sext i32 %.9297 to i64
+  %140 = sext i32 %.10298 to i64
   %141 = mul nsw i64 %140, %20
   %142 = add nsw i64 %141, %139
   %143 = load ptr, ptr %30, align 8
@@ -1014,9 +1014,9 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br label %146
 
 146:                                              ; preds = %129, %.lr.ph485
-  %.10346 = phi i32 [ %.8344480, %.lr.ph485 ], [ %.9345, %129 ]
+  %.9345 = phi i32 [ %.8344480, %.lr.ph485 ], [ %.10346, %129 ]
   %.7325 = phi i64 [ %128, %.lr.ph485 ], [ %145, %129 ]
-  %.10298 = phi i32 [ %.8296483, %.lr.ph485 ], [ %.9297, %129 ]
+  %.9297 = phi i32 [ %.8296483, %.lr.ph485 ], [ %.10298, %129 ]
   %.7 = phi i64 [ %127, %.lr.ph485 ], [ %142, %129 ]
   %147 = sub nsw i64 %.2313482, %126
   %.not393 = icmp eq i64 %147, 0
@@ -1038,51 +1038,51 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br label %154
 
 .preheader399:                                    ; preds = %183, %148
-  %.11347.lcssa = phi i32 [ %.1337491, %148 ], [ %.13349, %183 ]
-  %.8326.lcssa = phi i64 [ %.1319492, %148 ], [ %.9327, %183 ]
+  %.12348.lcssa = phi i32 [ %.1337491, %148 ], [ %.13349, %183 ]
+  %.9327.lcssa = phi i64 [ %.1319492, %148 ], [ %.10328, %183 ]
   %.3314.lcssa = phi i64 [ %56, %148 ], [ %185, %183 ]
-  %.11299.lcssa = phi i32 [ %.1289494, %148 ], [ %.13301, %183 ]
-  %.8.lcssa = phi i64 [ %.1497, %148 ], [ %.9, %183 ]
+  %.12300.lcssa = phi i32 [ %.1289494, %148 ], [ %.13301, %183 ]
+  %.9.lcssa = phi i64 [ %.1497, %148 ], [ %.10, %183 ]
   %.not388441 = icmp eq i64 %.3314.lcssa, 0
   br i1 %.not388441, label %.loopexit, label %.lr.ph447
 
 154:                                              ; preds = %.lr.ph435, %183
   %155 = phi i32 [ %.pre, %.lr.ph435 ], [ %163, %183 ]
-  %.8433 = phi i64 [ %.1497, %.lr.ph435 ], [ %.9, %183 ]
-  %.11299432 = phi i32 [ %.1289494, %.lr.ph435 ], [ %.13301, %183 ]
+  %.9433 = phi i64 [ %.1497, %.lr.ph435 ], [ %.10, %183 ]
+  %.12300432 = phi i32 [ %.1289494, %.lr.ph435 ], [ %.13301, %183 ]
   %.1310431 = phi i64 [ %.397, %.lr.ph435 ], [ %184, %183 ]
   %.3314430 = phi i64 [ %56, %.lr.ph435 ], [ %185, %183 ]
-  %.8326429 = phi i64 [ %.1319492, %.lr.ph435 ], [ %.9327, %183 ]
-  %.11347428 = phi i32 [ %.1337491, %.lr.ph435 ], [ %.13349, %183 ]
-  %156 = call i64 @llvm.smin.i64(i64 %.1310431, i64 %.8326429)
+  %.9327429 = phi i64 [ %.1319492, %.lr.ph435 ], [ %.10328, %183 ]
+  %.12348428 = phi i32 [ %.1337491, %.lr.ph435 ], [ %.13349, %183 ]
+  %156 = call i64 @llvm.smin.i64(i64 %.1310431, i64 %.9327429)
   %157 = load ptr, ptr %153, align 8
   %158 = sext i32 %155 to i64
   %159 = getelementptr inbounds i8, ptr %157, i64 %158
-  %160 = getelementptr inbounds i8, ptr %1, i64 %.8433
+  %160 = getelementptr inbounds i8, ptr %1, i64 %.9433
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %159, ptr align 1 %160, i64 %156, i1 false)
   %161 = load i32, ptr %47, align 4
   %162 = trunc i64 %156 to i32
   %163 = add i32 %161, %162
   store i32 %163, ptr %47, align 4
-  %164 = add nsw i64 %.8433, %156
-  %165 = sub nsw i64 %.8326429, %156
+  %164 = add nsw i64 %.9433, %156
+  %165 = sub nsw i64 %.9327429, %156
   %.not390 = icmp eq i64 %165, 0
   br i1 %.not390, label %166, label %183
 
 166:                                              ; preds = %154
-  %167 = sext i32 %.11347428 to i64
+  %167 = sext i32 %.12348428 to i64
   %168 = load i64, ptr %36, align 8
   %169 = add nsw i64 %168, -1
   %170 = icmp sle i64 %169, %167
-  %171 = add nsw i32 %.11347428, 1
-  %.12348 = select i1 %170, i32 0, i32 %171
+  %171 = add nsw i32 %.12348428, 1
+  %.14350 = select i1 %170, i32 0, i32 %171
   %172 = zext i1 %170 to i32
-  %.12300 = add nsw i32 %.11299432, %172
+  %.14302 = add nsw i32 %.12300432, %172
   %173 = load ptr, ptr %29, align 8
-  %174 = sext i32 %.12348 to i64
+  %174 = sext i32 %.14350 to i64
   %175 = getelementptr inbounds i64, ptr %173, i64 %174
   %176 = load i64, ptr %175, align 8
-  %177 = sext i32 %.12300 to i64
+  %177 = sext i32 %.14302 to i64
   %178 = mul nsw i64 %177, %20
   %179 = add nsw i64 %178, %176
   %180 = load ptr, ptr %30, align 8
@@ -1091,41 +1091,41 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br label %183
 
 183:                                              ; preds = %166, %154
-  %.13349 = phi i32 [ %.11347428, %154 ], [ %.12348, %166 ]
-  %.9327 = phi i64 [ %165, %154 ], [ %182, %166 ]
-  %.13301 = phi i32 [ %.11299432, %154 ], [ %.12300, %166 ]
-  %.9 = phi i64 [ %164, %154 ], [ %179, %166 ]
+  %.13349 = phi i32 [ %.12348428, %154 ], [ %.14350, %166 ]
+  %.10328 = phi i64 [ %165, %154 ], [ %182, %166 ]
+  %.13301 = phi i32 [ %.12300432, %154 ], [ %.14302, %166 ]
+  %.10 = phi i64 [ %164, %154 ], [ %179, %166 ]
   %184 = sub nsw i64 %.1310431, %156
   %185 = sub nsw i64 %.3314430, %156
   %.not387 = icmp eq i64 %184, 0
   br i1 %.not387, label %.preheader399, label %154, !llvm.loop !20
 
 .lr.ph447:                                        ; preds = %.preheader399, %206
-  %.10446 = phi i64 [ %.11, %206 ], [ %.8.lcssa, %.preheader399 ]
-  %.14302445 = phi i32 [ %.16304, %206 ], [ %.11299.lcssa, %.preheader399 ]
+  %.11446 = phi i64 [ %.12, %206 ], [ %.9.lcssa, %.preheader399 ]
+  %.15303445 = phi i32 [ %.16304, %206 ], [ %.12300.lcssa, %.preheader399 ]
   %.4315444 = phi i64 [ %207, %206 ], [ %.3314.lcssa, %.preheader399 ]
-  %.10328443 = phi i64 [ %.11329, %206 ], [ %.8326.lcssa, %.preheader399 ]
-  %.14350442 = phi i32 [ %.16352, %206 ], [ %.11347.lcssa, %.preheader399 ]
-  %186 = call i64 @llvm.smin.i64(i64 %.4315444, i64 %.10328443)
-  %187 = add nsw i64 %.10446, %186
-  %188 = sub nsw i64 %.10328443, %186
+  %.11329443 = phi i64 [ %.12330, %206 ], [ %.9327.lcssa, %.preheader399 ]
+  %.15351442 = phi i32 [ %.16352, %206 ], [ %.12348.lcssa, %.preheader399 ]
+  %186 = call i64 @llvm.smin.i64(i64 %.4315444, i64 %.11329443)
+  %187 = add nsw i64 %.11446, %186
+  %188 = sub nsw i64 %.11329443, %186
   %.not389 = icmp eq i64 %188, 0
   br i1 %.not389, label %189, label %206
 
 189:                                              ; preds = %.lr.ph447
-  %190 = sext i32 %.14350442 to i64
+  %190 = sext i32 %.15351442 to i64
   %191 = load i64, ptr %36, align 8
   %192 = add nsw i64 %191, -1
   %193 = icmp sle i64 %192, %190
-  %194 = add nsw i32 %.14350442, 1
-  %.15351 = select i1 %193, i32 0, i32 %194
+  %194 = add nsw i32 %.15351442, 1
+  %.17353 = select i1 %193, i32 0, i32 %194
   %195 = zext i1 %193 to i32
-  %.15303 = add nsw i32 %.14302445, %195
+  %.17305 = add nsw i32 %.15303445, %195
   %196 = load ptr, ptr %29, align 8
-  %197 = sext i32 %.15351 to i64
+  %197 = sext i32 %.17353 to i64
   %198 = getelementptr inbounds i64, ptr %196, i64 %197
   %199 = load i64, ptr %198, align 8
-  %200 = sext i32 %.15303 to i64
+  %200 = sext i32 %.17305 to i64
   %201 = mul nsw i64 %200, %20
   %202 = add nsw i64 %201, %199
   %203 = load ptr, ptr %30, align 8
@@ -1134,19 +1134,19 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br label %206
 
 206:                                              ; preds = %189, %.lr.ph447
-  %.16352 = phi i32 [ %.14350442, %.lr.ph447 ], [ %.15351, %189 ]
-  %.11329 = phi i64 [ %188, %.lr.ph447 ], [ %205, %189 ]
-  %.16304 = phi i32 [ %.14302445, %.lr.ph447 ], [ %.15303, %189 ]
-  %.11 = phi i64 [ %187, %.lr.ph447 ], [ %202, %189 ]
+  %.16352 = phi i32 [ %.15351442, %.lr.ph447 ], [ %.17353, %189 ]
+  %.12330 = phi i64 [ %188, %.lr.ph447 ], [ %205, %189 ]
+  %.16304 = phi i32 [ %.15303445, %.lr.ph447 ], [ %.17305, %189 ]
+  %.12 = phi i64 [ %187, %.lr.ph447 ], [ %202, %189 ]
   %207 = sub nsw i64 %.4315444, %186
   %.not388 = icmp eq i64 %207, 0
   br i1 %.not388, label %.loopexit, label %.lr.ph447, !llvm.loop !21
 
 .loopexit:                                        ; preds = %206, %146, %.preheader399, %.preheader398
-  %.17353 = phi i32 [ %.5341.lcssa, %.preheader398 ], [ %.11347.lcssa, %.preheader399 ], [ %.10346, %146 ], [ %.16352, %206 ]
-  %.12330 = phi i64 [ %.4322.lcssa, %.preheader398 ], [ %.8326.lcssa, %.preheader399 ], [ %.7325, %146 ], [ %.11329, %206 ]
-  %.17305 = phi i32 [ %.5293.lcssa, %.preheader398 ], [ %.11299.lcssa, %.preheader399 ], [ %.10298, %146 ], [ %.16304, %206 ]
-  %.12 = phi i64 [ %.4.lcssa, %.preheader398 ], [ %.8.lcssa, %.preheader399 ], [ %.7, %146 ], [ %.11, %206 ]
+  %.11347 = phi i32 [ %.5341.lcssa, %.preheader398 ], [ %.12348.lcssa, %.preheader399 ], [ %.9345, %146 ], [ %.16352, %206 ]
+  %.8326 = phi i64 [ %.4322.lcssa, %.preheader398 ], [ %.9327.lcssa, %.preheader399 ], [ %.7325, %146 ], [ %.12330, %206 ]
+  %.11299 = phi i32 [ %.5293.lcssa, %.preheader398 ], [ %.12300.lcssa, %.preheader399 ], [ %.9297, %146 ], [ %.16304, %206 ]
+  %.8 = phi i64 [ %.4.lcssa, %.preheader398 ], [ %.9.lcssa, %.preheader399 ], [ %.7, %146 ], [ %.12, %206 ]
   %208 = load i32, ptr %47, align 4
   %209 = load i32, ptr %49, align 4
   %210 = icmp eq i32 %208, %209
@@ -1171,10 +1171,10 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
 
 .lr.ph422:                                        ; preds = %220, %242
   %.13420 = phi i64 [ %.14, %242 ], [ %.1497, %220 ]
-  %.18419 = phi i32 [ %.20, %242 ], [ %.1289494, %220 ]
+  %.18419 = phi i32 [ %.19, %242 ], [ %.1289494, %220 ]
   %.5316418 = phi i64 [ %243, %242 ], [ %56, %220 ]
   %.13331417 = phi i64 [ %.14332, %242 ], [ %.1319492, %220 ]
-  %.18354416 = phi i32 [ %.20356, %242 ], [ %.1337491, %220 ]
+  %.18354416 = phi i32 [ %.19355, %242 ], [ %.1337491, %220 ]
   %222 = call i64 @llvm.smin.i64(i64 %.5316418, i64 %.13331417)
   %223 = add nsw i64 %.13420, %222
   %224 = sub nsw i64 %.13331417, %222
@@ -1187,14 +1187,14 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %228 = add nsw i64 %227, -1
   %229 = icmp sle i64 %228, %226
   %230 = add nsw i32 %.18354416, 1
-  %.19355 = select i1 %229, i32 0, i32 %230
+  %.20356 = select i1 %229, i32 0, i32 %230
   %231 = zext i1 %229 to i32
-  %.19 = add nsw i32 %.18419, %231
+  %.20 = add nsw i32 %.18419, %231
   %232 = load ptr, ptr %29, align 8
-  %233 = sext i32 %.19355 to i64
+  %233 = sext i32 %.20356 to i64
   %234 = getelementptr inbounds i64, ptr %232, i64 %233
   %235 = load i64, ptr %234, align 8
-  %236 = sext i32 %.19 to i64
+  %236 = sext i32 %.20 to i64
   %237 = mul nsw i64 %236, %20
   %238 = add nsw i64 %237, %235
   %239 = load ptr, ptr %30, align 8
@@ -1203,9 +1203,9 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br label %242
 
 242:                                              ; preds = %225, %.lr.ph422
-  %.20356 = phi i32 [ %.18354416, %.lr.ph422 ], [ %.19355, %225 ]
+  %.19355 = phi i32 [ %.18354416, %.lr.ph422 ], [ %.20356, %225 ]
   %.14332 = phi i64 [ %224, %.lr.ph422 ], [ %241, %225 ]
-  %.20 = phi i32 [ %.18419, %.lr.ph422 ], [ %.19, %225 ]
+  %.19 = phi i32 [ %.18419, %.lr.ph422 ], [ %.20, %225 ]
   %.14 = phi i64 [ %223, %.lr.ph422 ], [ %238, %225 ]
   %243 = sub nsw i64 %.5316418, %222
   %.not385 = icmp eq i64 %243, 0
@@ -1217,31 +1217,31 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not383404, label %.loopexit401, label %.lr.ph411
 
 .lr.ph411:                                        ; preds = %244, %266
-  %.15409 = phi i64 [ %.16, %266 ], [ %.1497, %244 ]
-  %.21408 = phi i32 [ %.23, %266 ], [ %.1289494, %244 ]
+  %.16409 = phi i64 [ %.17, %266 ], [ %.1497, %244 ]
+  %.22408 = phi i32 [ %.23, %266 ], [ %.1289494, %244 ]
   %.6317407 = phi i64 [ %267, %266 ], [ %245, %244 ]
-  %.15333406 = phi i64 [ %.16334, %266 ], [ %.1319492, %244 ]
-  %.21357405 = phi i32 [ %.23359, %266 ], [ %.1337491, %244 ]
-  %246 = call i64 @llvm.smin.i64(i64 %.6317407, i64 %.15333406)
-  %247 = add nsw i64 %.15409, %246
-  %248 = sub nsw i64 %.15333406, %246
+  %.16334406 = phi i64 [ %.17335, %266 ], [ %.1319492, %244 ]
+  %.22358405 = phi i32 [ %.23359, %266 ], [ %.1337491, %244 ]
+  %246 = call i64 @llvm.smin.i64(i64 %.6317407, i64 %.16334406)
+  %247 = add nsw i64 %.16409, %246
+  %248 = sub nsw i64 %.16334406, %246
   %.not384 = icmp eq i64 %248, 0
   br i1 %.not384, label %249, label %266
 
 249:                                              ; preds = %.lr.ph411
-  %250 = sext i32 %.21357405 to i64
+  %250 = sext i32 %.22358405 to i64
   %251 = load i64, ptr %36, align 8
   %252 = add nsw i64 %251, -1
   %253 = icmp sle i64 %252, %250
-  %254 = add nsw i32 %.21357405, 1
-  %.22358 = select i1 %253, i32 0, i32 %254
+  %254 = add nsw i32 %.22358405, 1
+  %.24360 = select i1 %253, i32 0, i32 %254
   %255 = zext i1 %253 to i32
-  %.22 = add nsw i32 %.21408, %255
+  %.24 = add nsw i32 %.22408, %255
   %256 = load ptr, ptr %29, align 8
-  %257 = sext i32 %.22358 to i64
+  %257 = sext i32 %.24360 to i64
   %258 = getelementptr inbounds i64, ptr %256, i64 %257
   %259 = load i64, ptr %258, align 8
-  %260 = sext i32 %.22 to i64
+  %260 = sext i32 %.24 to i64
   %261 = mul nsw i64 %260, %20
   %262 = add nsw i64 %261, %259
   %263 = load ptr, ptr %30, align 8
@@ -1250,20 +1250,20 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br label %266
 
 266:                                              ; preds = %249, %.lr.ph411
-  %.23359 = phi i32 [ %.21357405, %.lr.ph411 ], [ %.22358, %249 ]
-  %.16334 = phi i64 [ %248, %.lr.ph411 ], [ %265, %249 ]
-  %.23 = phi i32 [ %.21408, %.lr.ph411 ], [ %.22, %249 ]
-  %.16 = phi i64 [ %247, %.lr.ph411 ], [ %262, %249 ]
+  %.23359 = phi i32 [ %.22358405, %.lr.ph411 ], [ %.24360, %249 ]
+  %.17335 = phi i64 [ %248, %.lr.ph411 ], [ %265, %249 ]
+  %.23 = phi i32 [ %.22408, %.lr.ph411 ], [ %.24, %249 ]
+  %.17 = phi i64 [ %247, %.lr.ph411 ], [ %262, %249 ]
   %267 = sub nsw i64 %.6317407, %246
   %.not383 = icmp eq i64 %267, 0
   br i1 %.not383, label %.loopexit401, label %.lr.ph411, !llvm.loop !23
 
 .loopexit401:                                     ; preds = %266, %242, %244, %220, %211, %.loopexit
-  %.24360 = phi i32 [ %.17353, %211 ], [ %.17353, %.loopexit ], [ %.1337491, %220 ], [ %.1337491, %244 ], [ %.20356, %242 ], [ %.23359, %266 ]
-  %.17335 = phi i64 [ %.12330, %211 ], [ %.12330, %.loopexit ], [ %.1319492, %220 ], [ %.1319492, %244 ], [ %.14332, %242 ], [ %.16334, %266 ]
+  %.21357 = phi i32 [ %.11347, %211 ], [ %.11347, %.loopexit ], [ %.1337491, %220 ], [ %.1337491, %244 ], [ %.19355, %242 ], [ %.23359, %266 ]
+  %.15333 = phi i64 [ %.8326, %211 ], [ %.8326, %.loopexit ], [ %.1319492, %220 ], [ %.1319492, %244 ], [ %.14332, %242 ], [ %.17335, %266 ]
   %.2308 = phi i32 [ %219, %211 ], [ %.1307493, %.loopexit ], [ %.1307493, %220 ], [ %.1307493, %244 ], [ %.1307493, %242 ], [ %.1307493, %266 ]
-  %.24 = phi i32 [ %.17305, %211 ], [ %.17305, %.loopexit ], [ %.1289494, %220 ], [ %.1289494, %244 ], [ %.20, %242 ], [ %.23, %266 ]
-  %.17 = phi i64 [ %.12, %211 ], [ %.12, %.loopexit ], [ %.1497, %220 ], [ %.1497, %244 ], [ %.14, %242 ], [ %.16, %266 ]
+  %.21 = phi i32 [ %.11299, %211 ], [ %.11299, %.loopexit ], [ %.1289494, %220 ], [ %.1289494, %244 ], [ %.19, %242 ], [ %.23, %266 ]
+  %.15 = phi i64 [ %.8, %211 ], [ %.8, %.loopexit ], [ %.1497, %220 ], [ %.1497, %244 ], [ %.14, %242 ], [ %.17, %266 ]
   %268 = load i64, ptr %22, align 8
   %269 = add nsw i64 %268, %.0287495
   %270 = sub nsw i64 %.0286496, %268
@@ -1271,11 +1271,11 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not382, label %._crit_edge500, label %.lr.ph499, !llvm.loop !24
 
 ._crit_edge500:                                   ; preds = %.loopexit401, %40
-  %.1337.lcssa = phi i32 [ %.0336507, %40 ], [ %.24360, %.loopexit401 ]
-  %.1319.lcssa = phi i64 [ %.0318508, %40 ], [ %.17335, %.loopexit401 ]
+  %.1337.lcssa = phi i32 [ %.0336507, %40 ], [ %.21357, %.loopexit401 ]
+  %.1319.lcssa = phi i64 [ %.0318508, %40 ], [ %.15333, %.loopexit401 ]
   %.1307.lcssa = phi i32 [ %.0306509, %40 ], [ %.2308, %.loopexit401 ]
-  %.1289.lcssa = phi i32 [ %.0288510, %40 ], [ %.24, %.loopexit401 ]
-  %.1.lcssa = phi i64 [ %.0511, %40 ], [ %.17, %.loopexit401 ]
+  %.1289.lcssa = phi i32 [ %.0288510, %40 ], [ %.21, %.loopexit401 ]
+  %.1.lcssa = phi i64 [ %.0511, %40 ], [ %.15, %.loopexit401 ]
   %indvars.iv.next522 = add nuw nsw i64 %indvars.iv521, 1
   %exitcond525.not = icmp eq i64 %indvars.iv.next522, %wide.trip.count524
   br i1 %exitcond525.not, label %.preheader, label %40, !llvm.loop !25

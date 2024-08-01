@@ -1727,7 +1727,7 @@ for.body17.lr.ph:                                 ; preds = %_ZN6icu_7517util64_
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.inc29
   %indvars.iv96 = phi i64 [ 0, %for.body17.lr.ph ], [ %indvars.iv.next97, %for.inc29 ]
-  %winner.089 = phi i32 [ 0, %for.body17.lr.ph ], [ %winner.1, %for.inc29 ]
+  %winner.089 = phi i32 [ 0, %for.body17.lr.ph ], [ %winner.2, %for.inc29 ]
   %difference.088 = phi i64 [ %result.0.i31, %for.body17.lr.ph ], [ %difference.1, %for.inc29 ]
   %arrayidx.i53 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %indvars.iv96
   %15 = load ptr, ptr %arrayidx.i53, align 8
@@ -1746,14 +1746,14 @@ if.then24:                                        ; preds = %for.body17
 
 for.inc29:                                        ; preds = %for.body17, %if.then24
   %difference.1 = phi i64 [ %spec.select, %if.then24 ], [ %difference.088, %for.body17 ]
-  %winner.1 = phi i32 [ %17, %if.then24 ], [ %winner.089, %for.body17 ]
+  %winner.2 = phi i32 [ %17, %if.then24 ], [ %winner.089, %for.body17 ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %for.end31, label %for.body17, !llvm.loop !24
 
 for.end31:                                        ; preds = %for.inc29, %if.then24, %_ZN6icu_7517util64_fromDoubleEd.exit48
-  %winner.2 = phi i32 [ 0, %_ZN6icu_7517util64_fromDoubleEd.exit48 ], [ %17, %if.then24 ], [ %winner.1, %for.inc29 ]
-  %add = add nsw i32 %winner.2, 1
+  %winner.1 = phi i32 [ 0, %_ZN6icu_7517util64_fromDoubleEd.exit48 ], [ %17, %if.then24 ], [ %winner.2, %for.inc29 ]
+  %add = add nsw i32 %winner.1, 1
   %cmp34 = icmp ult i32 %add, %14
   br i1 %cmp34, label %land.lhs.true, label %if.end54
 
@@ -1762,7 +1762,7 @@ land.lhs.true:                                    ; preds = %for.end31
   %arrayidx.i60 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %idxprom.i59
   %18 = load ptr, ptr %arrayidx.i60, align 8
   %19 = load i64, ptr %18, align 8
-  %idxprom.i65 = zext i32 %winner.2 to i64
+  %idxprom.i65 = zext i32 %winner.1 to i64
   %arrayidx.i66 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %idxprom.i65
   %20 = load ptr, ptr %arrayidx.i66, align 8
   %21 = load i64, ptr %20, align 8
@@ -1775,7 +1775,7 @@ cond.true.i70:                                    ; preds = %land.lhs.true
   %cmp49 = fcmp olt double %mul48, 5.000000e-01
   %cmp50 = fcmp oge double %mul48, 2.000000e+00
   %or.cond = or i1 %cmp49, %cmp50
-  %spec.select22 = select i1 %or.cond, i32 %add, i32 %winner.2
+  %spec.select22 = select i1 %or.cond, i32 %add, i32 %winner.1
   br label %cond.true.i76
 
 if.end54:                                         ; preds = %for.end31
@@ -1783,7 +1783,7 @@ if.end54:                                         ; preds = %for.end31
   br i1 %cmp.not.i75, label %_ZNK6icu_7510NFRuleListixEj.exit80, label %cond.true.i76
 
 cond.true.i76:                                    ; preds = %cond.true.i70, %land.lhs.true, %if.end54
-  %winner.3103 = phi i32 [ %winner.2, %if.end54 ], [ %winner.2, %land.lhs.true ], [ %spec.select22, %cond.true.i70 ]
+  %winner.3103 = phi i32 [ %winner.1, %if.end54 ], [ %winner.1, %land.lhs.true ], [ %spec.select22, %cond.true.i70 ]
   %idxprom.i77 = zext i32 %winner.3103 to i64
   %arrayidx.i78 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %idxprom.i77
   %22 = load ptr, ptr %arrayidx.i78, align 8

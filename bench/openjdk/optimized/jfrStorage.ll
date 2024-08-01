@@ -2440,7 +2440,7 @@ define hidden noundef i64 @_ZN10JfrStorage10clear_fullEv(ptr nocapture noundef n
   br label %14
 
 14:                                               ; preds = %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit, %10
-  %.sroa.3.0 = phi i64 [ 0, %10 ], [ %.sroa.3.1, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ]
+  %.sroa.3.0 = phi i64 [ 0, %10 ], [ %.sroa.3.2, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ]
   %.0.i = phi i64 [ 0, %10 ], [ %42, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ]
   %15 = load ptr, ptr %12, align 8
   %16 = load ptr, ptr %15, align 8
@@ -2483,7 +2483,7 @@ _ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i: ; p
   br label %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
 
 _ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit: ; preds = %31, %36
-  %.sroa.3.1 = phi i64 [ %40, %36 ], [ %.sroa.3.0, %31 ]
+  %.sroa.3.2 = phi i64 [ %40, %36 ], [ %.sroa.3.0, %31 ]
   %42 = add i64 %.0.i, 1
   %43 = load ptr, ptr %12, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
@@ -2494,7 +2494,7 @@ _ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit: ; preds = %31, 
   br i1 %.not.i, label %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.exit, label %14, !llvm.loop !34
 
 _ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.exit: ; preds = %14, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
-  %.sroa.3.2 = phi i64 [ %.sroa.3.0, %14 ], [ %.sroa.3.0, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i ], [ %.sroa.3.1, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ]
+  %.sroa.3.1 = phi i64 [ %.sroa.3.0, %14 ], [ %.sroa.3.0, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i ], [ %.sroa.3.2, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ]
   %.1.i = phi i64 [ %.0.i, %14 ], [ %.0.i, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i ], [ %42, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ]
   %.not = icmp eq i64 %.1.i, 0
   br i1 %.not, label %_ZL3logmmb.exit, label %47
@@ -2510,7 +2510,7 @@ _ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStora
   br i1 %.not6.i, label %_ZL3logmmb.exit, label %51
 
 51:                                               ; preds = %49
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.16, i64 noundef %.1.i, i64 noundef %.sroa.3.2, ptr noundef nonnull @.str.18)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.16, i64 noundef %.1.i, i64 noundef %.sroa.3.1, ptr noundef nonnull @.str.18)
   br label %_ZL3logmmb.exit
 
 _ZL3logmmb.exit:                                  ; preds = %51, %49, %47, %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.exit, %1
@@ -3489,8 +3489,8 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
 
@@ -3582,7 +3582,7 @@ _ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit: ; p
   br label %31
 
 31:                                               ; preds = %.backedge, %_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit
-  %.1 = phi ptr [ undef, %_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit ], [ %spec.select, %.backedge ]
+  %.2 = phi ptr [ undef, %_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit ], [ %spec.select, %.backedge ]
   %.025.i = phi ptr [ null, %_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit ], [ %.025.i.be, %.backedge ]
   %32 = load ptr, ptr %.0.i.i.i, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 128
@@ -3593,7 +3593,7 @@ _ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit: ; p
   br label %37
 
 37:                                               ; preds = %43, %31
-  %.2 = phi ptr [ %.1, %31 ], [ %spec.select, %43 ]
+  %.3 = phi ptr [ %.2, %31 ], [ %spec.select, %43 ]
   %.1.i = phi ptr [ %.025.i, %31 ], [ %spec.select52, %43 ]
   %.024.i = phi ptr [ %1, %31 ], [ %40, %43 ]
   %.023.i = phi ptr [ %36, %31 ], [ %44, %43 ]
@@ -3602,7 +3602,7 @@ _ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit: ; p
   %40 = inttoptr i64 %39 to ptr
   %41 = and i64 %38, 1
   %.not.i = icmp eq i64 %41, 0
-  %spec.select = select i1 %.not.i, ptr %.024.i, ptr %.2
+  %spec.select = select i1 %.not.i, ptr %.024.i, ptr %.3
   %spec.select52 = select i1 %.not.i, ptr %40, ptr %.1.i
   %42 = icmp eq ptr %40, %2
   br i1 %42, label %47, label %43
@@ -3659,7 +3659,7 @@ _Z16mark_for_removalI9JfrBufferEPT_S2_.exit:      ; preds = %58, %52
 
 .preheader61:                                     ; preds = %64, %88
   %.sroa.2.0 = phi i8 [ %.sroa.2.3, %88 ], [ 0, %64 ]
-  %.4 = phi ptr [ %spec.select54, %88 ], [ %spec.select, %64 ]
+  %.5 = phi ptr [ %spec.select54, %88 ], [ %spec.select, %64 ]
   %.025.i28 = phi ptr [ %spec.select55, %88 ], [ null, %64 ]
   %67 = load ptr, ptr %.0.i.i.i, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 128
@@ -3671,7 +3671,7 @@ _Z16mark_for_removalI9JfrBufferEPT_S2_.exit:      ; preds = %58, %52
 
 72:                                               ; preds = %_ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i, %.preheader61
   %.sroa.2.1 = phi i8 [ %.sroa.2.0, %.preheader61 ], [ %spec.select56, %_ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i ]
-  %.5 = phi ptr [ %.4, %.preheader61 ], [ %spec.select54, %_ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i ]
+  %.6 = phi ptr [ %.5, %.preheader61 ], [ %spec.select54, %_ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i ]
   %.1.i29 = phi ptr [ %.025.i28, %.preheader61 ], [ %spec.select55, %_ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i ]
   %.024.i30 = phi ptr [ %1, %.preheader61 ], [ %75, %_ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i ]
   %.023.i31 = phi ptr [ %71, %.preheader61 ], [ %78, %_ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i ]
@@ -3680,7 +3680,7 @@ _Z16mark_for_removalI9JfrBufferEPT_S2_.exit:      ; preds = %58, %52
   %75 = inttoptr i64 %74 to ptr
   %76 = and i64 %73, 1
   %.not.i32 = icmp eq i64 %76, 0
-  %spec.select54 = select i1 %.not.i32, ptr %.024.i30, ptr %.5
+  %spec.select54 = select i1 %.not.i32, ptr %.024.i30, ptr %.6
   %spec.select55 = select i1 %.not.i32, ptr %75, ptr %.1.i29
   %77 = icmp eq ptr %75, %2
   br i1 %77, label %86, label %_ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i
@@ -3710,7 +3710,7 @@ _ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i:       ; preds = %72
   br i1 %90, label %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8IdentityEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit, label %.preheader61, !llvm.loop !50
 
 _Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8IdentityEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit: ; preds = %88, %86, %64
-  %.7 = phi ptr [ %spec.select, %64 ], [ %spec.select54, %86 ], [ %spec.select54, %88 ]
+  %.1 = phi ptr [ %spec.select, %64 ], [ %spec.select54, %86 ], [ %spec.select54, %88 ]
   %.not26 = icmp eq ptr %3, null
   br i1 %.not26, label %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8LastNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit, label %91
 
@@ -3740,7 +3740,7 @@ _Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8Identity
   unreachable
 
 .preheader:                                       ; preds = %97, %119
-  %.8 = phi ptr [ %spec.select58.lcssa, %119 ], [ %.7, %97 ]
+  %.8 = phi ptr [ %spec.select58.lcssa, %119 ], [ %.1, %97 ]
   %.025.i34 = phi ptr [ %spec.select59.lcssa, %119 ], [ null, %97 ]
   %101 = load ptr, ptr %.0.i.i.i, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 128
@@ -3916,7 +3916,7 @@ _ZN18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE18get_version_h
   br label %31
 
 31:                                               ; preds = %.backedge, %_ZN18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE18get_version_handleEv.exit
-  %.1 = phi ptr [ undef, %_ZN18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE18get_version_handleEv.exit ], [ %spec.select, %.backedge ]
+  %.2 = phi ptr [ undef, %_ZN18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE18get_version_handleEv.exit ], [ %spec.select, %.backedge ]
   %.025.i = phi ptr [ null, %_ZN18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE18get_version_handleEv.exit ], [ %.025.i.be, %.backedge ]
   %32 = load ptr, ptr %.0.i.i.i, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 128
@@ -3927,7 +3927,7 @@ _ZN18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE18get_version_h
   br label %37
 
 37:                                               ; preds = %43, %31
-  %.2 = phi ptr [ %.1, %31 ], [ %spec.select, %43 ]
+  %.3 = phi ptr [ %.2, %31 ], [ %spec.select, %43 ]
   %.1.i = phi ptr [ %.025.i, %31 ], [ %spec.select52, %43 ]
   %.024.i = phi ptr [ %1, %31 ], [ %40, %43 ]
   %.023.i = phi ptr [ %36, %31 ], [ %44, %43 ]
@@ -3936,7 +3936,7 @@ _ZN18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE18get_version_h
   %40 = inttoptr i64 %39 to ptr
   %41 = and i64 %38, 1
   %.not.i = icmp eq i64 %41, 0
-  %spec.select = select i1 %.not.i, ptr %.024.i, ptr %.2
+  %spec.select = select i1 %.not.i, ptr %.024.i, ptr %.3
   %spec.select52 = select i1 %.not.i, ptr %40, ptr %.1.i
   %42 = icmp eq ptr %40, %2
   br i1 %42, label %47, label %43
@@ -3993,7 +3993,7 @@ _Z16mark_for_removalI12JfrValueNodeIP9JfrBufferEEPT_S5_.exit: ; preds = %58, %52
 
 .preheader61:                                     ; preds = %64, %88
   %.sroa.2.0 = phi i8 [ %.sroa.2.3, %88 ], [ 0, %64 ]
-  %.4 = phi ptr [ %spec.select54, %88 ], [ %spec.select, %64 ]
+  %.5 = phi ptr [ %spec.select54, %88 ], [ %spec.select, %64 ]
   %.025.i28 = phi ptr [ %spec.select55, %88 ], [ null, %64 ]
   %67 = load ptr, ptr %.0.i.i.i, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 128
@@ -4005,7 +4005,7 @@ _Z16mark_for_removalI12JfrValueNodeIP9JfrBufferEEPT_S5_.exit: ; preds = %58, %52
 
 72:                                               ; preds = %_ZN8IdentityI12JfrValueNodeIP9JfrBufferEEclEPKS3_S6_.exit.i, %.preheader61
   %.sroa.2.1 = phi i8 [ %.sroa.2.0, %.preheader61 ], [ %spec.select56, %_ZN8IdentityI12JfrValueNodeIP9JfrBufferEEclEPKS3_S6_.exit.i ]
-  %.5 = phi ptr [ %.4, %.preheader61 ], [ %spec.select54, %_ZN8IdentityI12JfrValueNodeIP9JfrBufferEEclEPKS3_S6_.exit.i ]
+  %.6 = phi ptr [ %.5, %.preheader61 ], [ %spec.select54, %_ZN8IdentityI12JfrValueNodeIP9JfrBufferEEclEPKS3_S6_.exit.i ]
   %.1.i29 = phi ptr [ %.025.i28, %.preheader61 ], [ %spec.select55, %_ZN8IdentityI12JfrValueNodeIP9JfrBufferEEclEPKS3_S6_.exit.i ]
   %.024.i30 = phi ptr [ %1, %.preheader61 ], [ %75, %_ZN8IdentityI12JfrValueNodeIP9JfrBufferEEclEPKS3_S6_.exit.i ]
   %.023.i31 = phi ptr [ %71, %.preheader61 ], [ %78, %_ZN8IdentityI12JfrValueNodeIP9JfrBufferEEclEPKS3_S6_.exit.i ]
@@ -4014,7 +4014,7 @@ _Z16mark_for_removalI12JfrValueNodeIP9JfrBufferEEPT_S5_.exit: ; preds = %58, %52
   %75 = inttoptr i64 %74 to ptr
   %76 = and i64 %73, 1
   %.not.i32 = icmp eq i64 %76, 0
-  %spec.select54 = select i1 %.not.i32, ptr %.024.i30, ptr %.5
+  %spec.select54 = select i1 %.not.i32, ptr %.024.i30, ptr %.6
   %spec.select55 = select i1 %.not.i32, ptr %75, ptr %.1.i29
   %77 = icmp eq ptr %75, %2
   br i1 %77, label %86, label %_ZN8IdentityI12JfrValueNodeIP9JfrBufferEEclEPKS3_S6_.exit.i
@@ -4044,7 +4044,7 @@ _ZN8IdentityI12JfrValueNodeIP9JfrBufferEEclEPKS3_S6_.exit.i: ; preds = %72
   br i1 %90, label %_Z13find_adjacentI12JfrValueNodeIP9JfrBufferE14RefCountHandleIN16JfrVersionSystem4NodeEE8IdentityEPT_SA_PKS9_PSA_RT0_RT1_IS9_E.exit, label %.preheader61, !llvm.loop !66
 
 _Z13find_adjacentI12JfrValueNodeIP9JfrBufferE14RefCountHandleIN16JfrVersionSystem4NodeEE8IdentityEPT_SA_PKS9_PSA_RT0_RT1_IS9_E.exit: ; preds = %88, %86, %64
-  %.7 = phi ptr [ %spec.select, %64 ], [ %spec.select54, %86 ], [ %spec.select54, %88 ]
+  %.1 = phi ptr [ %spec.select, %64 ], [ %spec.select54, %86 ], [ %spec.select54, %88 ]
   %.not26 = icmp eq ptr %3, null
   br i1 %.not26, label %_Z13find_adjacentI12JfrValueNodeIP9JfrBufferE14RefCountHandleIN16JfrVersionSystem4NodeEE8LastNodeEPT_SA_PKS9_PSA_RT0_RT1_IS9_E.exit, label %91
 
@@ -4074,7 +4074,7 @@ _Z13find_adjacentI12JfrValueNodeIP9JfrBufferE14RefCountHandleIN16JfrVersionSyste
   unreachable
 
 .preheader:                                       ; preds = %97, %119
-  %.8 = phi ptr [ %spec.select58.lcssa, %119 ], [ %.7, %97 ]
+  %.8 = phi ptr [ %spec.select58.lcssa, %119 ], [ %.1, %97 ]
   %.025.i34 = phi ptr [ %spec.select59.lcssa, %119 ], [ null, %97 ]
   %101 = load ptr, ptr %.0.i.i.i, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 128

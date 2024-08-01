@@ -1354,13 +1354,13 @@ invoke.cont31:                                    ; preds = %land.lhs.true, %lan
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %invoke.cont31, %if.then27, %if.then19
-  %retval.0 = phi ptr [ %16, %if.then19 ], [ %call29, %if.then27 ], [ %call34, %invoke.cont31 ]
+  %retval.1 = phi ptr [ %16, %if.then19 ], [ %call29, %if.then27 ], [ %call34, %invoke.cont31 ]
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %param) #20
   br label %return
 
 return:                                           ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i, %if.end6, %lor.lhs.false, %_Z10is_sort_ofPK4sortii.exit28, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ %s, %_Z10is_sort_ofPK4sortii.exit28 ], [ %4, %lor.lhs.false ], [ %s, %if.end6 ], [ %s, %_ZNK4decl13get_family_idEv.exit.thread.i.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ %s, %_Z10is_sort_ofPK4sortii.exit28 ], [ %4, %lor.lhs.false ], [ %s, %if.end6 ], [ %s, %_ZNK4decl13get_family_idEv.exit.thread.i.i ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11473,7 +11473,7 @@ entry:
   br i1 %cmp.i.i181, label %land.rhs.i.i, label %lor.lhs.false25.loopexit
 
 land.rhs.i.i:                                     ; preds = %entry, %if.then10
-  %r.tr183 = phi ptr [ %r2.3, %if.then10 ], [ %r, %entry ]
+  %r.tr183 = phi ptr [ %r2.0, %if.then10 ], [ %r, %entry ]
   %accumulator.tr182 = phi i32 [ %.sroa.speculated130, %if.then10 ], [ 0, %entry ]
   %0 = load i32, ptr %m_fid.i, align 8
   %m_decl.i.i.i = getelementptr inbounds i8, ptr %r.tr183, i64 16
@@ -11552,12 +11552,12 @@ if.then10:                                        ; preds = %_ZNK11ast_manager6i
   %arrayidx.i.i46 = getelementptr inbounds i8, ptr %r.tr183, i64 %.sink216
   %19 = load ptr, ptr %arrayidx.i.i46, align 8
   %arrayidx.i6.i = getelementptr inbounds i8, ptr %r.tr183, i64 %.sink
-  %r2.3 = load ptr, ptr %arrayidx.i6.i, align 8
+  %r2.0 = load ptr, ptr %arrayidx.i6.i, align 8
   %call11 = tail call noundef i32 @_ZNK8seq_util3rex10max_lengthEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %19)
   %.sroa.speculated130 = tail call i32 @llvm.umax.i32(i32 %call11, i32 %accumulator.tr182)
   store ptr null, ptr %r1, align 8
   store ptr null, ptr %s, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %r2.3, i64 4
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %r2.0, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %cmp.i.i = icmp eq i32 %bf.clear.i.i.i, 0
@@ -11620,7 +11620,7 @@ _ZNK8seq_util3rex7is_diffEPK4exprRPS1_S5_.exit:   ; preds = %land.lhs.true.i82
   br label %if.then29
 
 lor.lhs.false25.loopexit:                         ; preds = %if.then10, %entry
-  %r.tr.lcssa176 = phi ptr [ %r, %entry ], [ %r2.3, %if.then10 ]
+  %r.tr.lcssa176 = phi ptr [ %r, %entry ], [ %r2.0, %if.then10 ]
   %accumulator.tr.lcssa = phi i32 [ 0, %entry ], [ %.sroa.speculated130, %if.then10 ]
   store i32 0, ptr %lo, align 4
   store i32 0, ptr %hi, align 4
@@ -15002,11 +15002,11 @@ if.then.i.i.i.i.i65:                              ; preds = %land.rhs.i.i61
   unreachable
 
 if.then:                                          ; preds = %land.rhs.i.i61, %land.rhs.i.i
-  %n.3.in = phi ptr [ %17, %land.rhs.i.i ], [ %23, %land.rhs.i.i61 ]
-  %n.3 = load i32, ptr %n.3.in, align 4
-  %n.3.fr = freeze i32 %n.3
-  %conv = trunc i32 %n.3.fr to i8
-  %sext = shl i32 %n.3.fr, 24
+  %n.1.in = phi ptr [ %17, %land.rhs.i.i ], [ %23, %land.rhs.i.i61 ]
+  %n.1 = load i32, ptr %n.1.in, align 4
+  %n.1.fr = freeze i32 %n.1
+  %conv = trunc i32 %n.1.fr to i8
+  %sext = shl i32 %n.1.fr, 24
   switch i32 %sext, label %if.else20 [
     i32 167772160, label %if.then9
     i32 218103808, label %if.then13
@@ -15026,12 +15026,12 @@ if.then18:                                        ; preds = %if.then
   br label %return
 
 if.else20:                                        ; preds = %if.then
-  %25 = add i32 %n.3.fr, -33
+  %25 = add i32 %n.1.fr, -33
   %26 = icmp ult i32 %25, 94
   br i1 %26, label %switch.early.test, label %if.else67
 
 switch.early.test:                                ; preds = %if.else20
-  switch i32 %n.3.fr, label %if.then50 [
+  switch i32 %n.1.fr, label %if.then50 [
     i32 125, label %if.then75
     i32 123, label %if.then75
     i32 93, label %if.then75
@@ -15075,39 +15075,39 @@ if.else64:                                        ; preds = %if.then50
   br label %return
 
 if.else67:                                        ; preds = %if.else20
-  %cmp68 = icmp ult i32 %n.3.fr, 16
+  %cmp68 = icmp ult i32 %n.1.fr, 16
   br i1 %cmp68, label %if.then69, label %if.else73
 
 if.then69:                                        ; preds = %if.else67
   %call70 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.129)
   %call71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %call70, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
-  %call72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call71, i32 noundef %n.3.fr)
+  %call72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call71, i32 noundef %n.1.fr)
   br label %return
 
 if.else73:                                        ; preds = %if.else67
-  %cmp74 = icmp ult i32 %n.3.fr, 256
+  %cmp74 = icmp ult i32 %n.1.fr, 256
   br i1 %cmp74, label %if.then75, label %if.else79
 
 if.then75:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %if.else73
   %call76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.130)
   %call77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %call76, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
-  %call78 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call77, i32 noundef %n.3.fr)
+  %call78 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call77, i32 noundef %n.1.fr)
   br label %return
 
 if.else79:                                        ; preds = %if.else73
-  %cmp80 = icmp ult i32 %n.3.fr, 4096
+  %cmp80 = icmp ult i32 %n.1.fr, 4096
   br i1 %cmp80, label %if.then81, label %if.else85
 
 if.then81:                                        ; preds = %if.else79
   %call82 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.131)
   %call83 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %call82, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
-  %call84 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call83, i32 noundef %n.3.fr)
+  %call84 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call83, i32 noundef %n.1.fr)
   br label %return
 
 if.else85:                                        ; preds = %if.else79
   %call86 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.132)
   %call87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %call86, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
-  %call88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call87, i32 noundef %n.3.fr)
+  %call88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call87, i32 noundef %n.1.fr)
   br label %return
 
 _ZNK8seq_util3str8is_nth_iEPK4expr.exit.i:        ; preds = %_Z9is_app_ofPK4exprii.exit.i.i57
@@ -15831,11 +15831,11 @@ if.else:                                          ; preds = %if.end
 if.end9:                                          ; preds = %if.end.i, %if.else
   %10 = phi ptr [ %.pre21, %if.else ], [ %1, %if.end.i ]
   %11 = phi i32 [ %.pre, %if.else ], [ %0, %if.end.i ]
-  %retval.sroa.14.0 = phi i32 [ %ref.tmp.sroa.5.8.extract.trunc, %if.else ], [ %7, %if.end.i ]
-  %retval.sroa.920.0 = phi i32 [ %ref.tmp.sroa.318.8.extract.trunc, %if.else ], [ %6, %if.end.i ]
-  %retval.sroa.6.0.in = phi i8 [ %ref.tmp.sroa.2.0.extract.trunc, %if.else ], [ %5, %if.end.i ]
-  %retval.sroa.0.0 = phi i32 [ %ref.tmp.sroa.0.0.extract.trunc, %if.else ], [ %4, %if.end.i ]
-  %retval.sroa.6.0 = and i8 %retval.sroa.6.0.in, 1
+  %retval.sroa.14.1 = phi i32 [ %ref.tmp.sroa.5.8.extract.trunc, %if.else ], [ %7, %if.end.i ]
+  %retval.sroa.920.1 = phi i32 [ %ref.tmp.sroa.318.8.extract.trunc, %if.else ], [ %6, %if.end.i ]
+  %retval.sroa.6.1.in = phi i8 [ %ref.tmp.sroa.2.0.extract.trunc, %if.else ], [ %5, %if.end.i ]
+  %retval.sroa.0.1 = phi i32 [ %ref.tmp.sroa.0.0.extract.trunc, %if.else ], [ %4, %if.end.i ]
+  %retval.sroa.6.1 = and i8 %retval.sroa.6.1.in, 1
   %invalid_info = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i15 = icmp eq ptr %10, null
   br i1 %cmp.i.i15, label %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.i.i17, label %_ZNK6vectorIN8seq_util3rex4infoELb1EjE4sizeEv.exit.i
@@ -15912,30 +15912,30 @@ if.end.i5.i:                                      ; preds = %for.body.i.i, %_ZNK
   %16 = load ptr, ptr %m_infos.i.i, align 8
   %idxprom.i = zext i32 %11 to i64
   %arrayidx.i = getelementptr inbounds %"struct.seq_util::rex::info", ptr %16, i64 %idxprom.i
-  store i32 %retval.sroa.0.0, ptr %arrayidx.i, align 4
+  store i32 %retval.sroa.0.1, ptr %arrayidx.i, align 4
   %interpreted3.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  store i8 %retval.sroa.6.0, ptr %interpreted3.i.i, align 4
+  store i8 %retval.sroa.6.1, ptr %interpreted3.i.i, align 4
   %nullable4.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  store i32 %retval.sroa.920.0, ptr %nullable4.i.i, align 4
+  store i32 %retval.sroa.920.1, ptr %nullable4.i.i, align 4
   %min_length5.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
-  store i32 %retval.sroa.14.0, ptr %min_length5.i.i, align 4
+  store i32 %retval.sroa.14.1, ptr %min_length5.i.i, align 4
   br label %return
 
 return:                                           ; preds = %if.end.i5.i, %_ZNK8seq_util3rex15get_cached_infoEP4expr.exit
-  %retval.sroa.14.1 = phi i32 [ %retval.sroa.14.0, %if.end.i5.i ], [ %retval.sroa.14.8.extract.trunc, %_ZNK8seq_util3rex15get_cached_infoEP4expr.exit ]
-  %retval.sroa.920.1 = phi i32 [ %retval.sroa.920.0, %if.end.i5.i ], [ %retval.sroa.920.8.extract.trunc, %_ZNK8seq_util3rex15get_cached_infoEP4expr.exit ]
-  %retval.sroa.6.1 = phi i8 [ %retval.sroa.6.0, %if.end.i5.i ], [ %retval.sroa.6.0.extract.trunc, %_ZNK8seq_util3rex15get_cached_infoEP4expr.exit ]
-  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0, %if.end.i5.i ], [ %retval.sroa.0.0.extract.trunc, %_ZNK8seq_util3rex15get_cached_infoEP4expr.exit ]
+  %retval.sroa.14.0 = phi i32 [ %retval.sroa.14.1, %if.end.i5.i ], [ %retval.sroa.14.8.extract.trunc, %_ZNK8seq_util3rex15get_cached_infoEP4expr.exit ]
+  %retval.sroa.920.0 = phi i32 [ %retval.sroa.920.1, %if.end.i5.i ], [ %retval.sroa.920.8.extract.trunc, %_ZNK8seq_util3rex15get_cached_infoEP4expr.exit ]
+  %retval.sroa.6.0 = phi i8 [ %retval.sroa.6.1, %if.end.i5.i ], [ %retval.sroa.6.0.extract.trunc, %_ZNK8seq_util3rex15get_cached_infoEP4expr.exit ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %if.end.i5.i ], [ %retval.sroa.0.0.extract.trunc, %_ZNK8seq_util3rex15get_cached_infoEP4expr.exit ]
   %retval.sroa.9.0.extract.shift = and i64 %retval.sroa.0.0.i, -1099511627776
-  %retval.sroa.6.0.insert.ext = zext i8 %retval.sroa.6.1 to i64
+  %retval.sroa.6.0.insert.ext = zext i8 %retval.sroa.6.0 to i64
   %retval.sroa.6.0.insert.shift = shl nuw nsw i64 %retval.sroa.6.0.insert.ext, 32
   %retval.sroa.6.0.insert.insert = or disjoint i64 %retval.sroa.9.0.extract.shift, %retval.sroa.6.0.insert.shift
-  %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.1 to i64
+  %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.6.0.insert.insert, %retval.sroa.0.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.insert.insert, 0
-  %retval.sroa.14.8.insert.ext = zext i32 %retval.sroa.14.1 to i64
+  %retval.sroa.14.8.insert.ext = zext i32 %retval.sroa.14.0 to i64
   %retval.sroa.14.8.insert.shift = shl nuw i64 %retval.sroa.14.8.insert.ext, 32
-  %retval.sroa.920.8.insert.ext = zext i32 %retval.sroa.920.1 to i64
+  %retval.sroa.920.8.insert.ext = zext i32 %retval.sroa.920.0 to i64
   %retval.sroa.920.8.insert.insert = or disjoint i64 %retval.sroa.14.8.insert.shift, %retval.sroa.920.8.insert.ext
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.920.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert

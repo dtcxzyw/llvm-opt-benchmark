@@ -1735,8 +1735,8 @@ _sprint_range.exit580:                            ; preds = %309, %311
   %indvars.iv658 = phi i64 [ 0, %.lr.ph626 ], [ %indvars.iv.next659, %560 ]
   %.0403624 = phi i32 [ 0, %.lr.ph626 ], [ %.1, %560 ]
   %.0406623 = phi ptr [ %416, %.lr.ph626 ], [ %.2, %560 ]
-  %.0409622 = phi i64 [ -2, %.lr.ph626 ], [ %.1410, %560 ]
-  %.0412621 = phi ptr [ null, %.lr.ph626 ], [ %.1413, %560 ]
+  %.0409622 = phi i64 [ -2, %.lr.ph626 ], [ %.2411, %560 ]
+  %.0412621 = phi ptr [ null, %.lr.ph626 ], [ %.2414, %560 ]
   %.0415620 = phi ptr [ @.str.2, %.lr.ph626 ], [ %.2417, %560 ]
   %.0419619 = phi i32 [ 0, %.lr.ph626 ], [ %.1420.lcssa, %560 ]
   %.0423617 = phi i32 [ %422, %.lr.ph626 ], [ %.1424, %560 ]
@@ -1969,7 +1969,7 @@ _threads_per_core.exit:                           ; preds = %431, %.loopexit.i
   br label %529
 
 529:                                              ; preds = %525, %523
-  %.1407 = phi ptr [ %528, %525 ], [ %.0406623, %523 ]
+  %.3 = phi ptr [ %528, %525 ], [ %.0406623, %523 ]
   %530 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6) #19
   %531 = load i32, ptr %428, align 8
   %532 = zext i32 %531 to i64
@@ -1983,7 +1983,7 @@ _threads_per_core.exit:                           ; preds = %431, %.loopexit.i
   br label %538
 
 538:                                              ; preds = %529, %534
-  %.1416 = phi ptr [ %537, %534 ], [ @.str.2, %529 ]
+  %.3418 = phi ptr [ %537, %534 ], [ @.str.2, %529 ]
   %539 = load ptr, ptr %430, align 8
   %.not529 = icmp eq ptr %539, null
   br i1 %.not529, label %543, label %540
@@ -1994,10 +1994,10 @@ _threads_per_core.exit:                           ; preds = %431, %.loopexit.i
   br label %543
 
 543:                                              ; preds = %538, %540, %520, %519
-  %.2417 = phi ptr [ %.1416, %540 ], [ %.0415620, %520 ], [ %.0415620, %519 ], [ %.1416, %538 ]
-  %.1413 = phi ptr [ %539, %540 ], [ %.0412621, %520 ], [ null, %519 ], [ null, %538 ]
-  %.1410 = phi i64 [ %542, %540 ], [ %.0409622, %520 ], [ %.0409622, %519 ], [ -2, %538 ]
-  %.2 = phi ptr [ %.1407, %540 ], [ %.0406623, %520 ], [ %.0406623, %519 ], [ %.1407, %538 ]
+  %.2417 = phi ptr [ %.3418, %540 ], [ %.0415620, %520 ], [ %.0415620, %519 ], [ %.3418, %538 ]
+  %.2414 = phi ptr [ %539, %540 ], [ %.0412621, %520 ], [ null, %519 ], [ null, %538 ]
+  %.2411 = phi i64 [ %542, %540 ], [ %.0409622, %520 ], [ %.0409622, %519 ], [ -2, %538 ]
+  %.2 = phi ptr [ %.3, %540 ], [ %.0406623, %520 ], [ %.0406623, %519 ], [ %.3, %538 ]
   %544 = call i32 @hostlist_push_host(ptr noundef %.2, ptr noundef %449) #19
   call void @free(ptr noundef %449) #19
   %545 = icmp sgt i32 %.1420.lcssa, %405
@@ -2033,27 +2033,27 @@ _threads_per_core.exit:                           ; preds = %431, %.loopexit.i
   br i1 %563, label %431, label %._crit_edge627, !llvm.loop !14
 
 ._crit_edge627:                                   ; preds = %560, %543, %419
-  %.3418 = phi ptr [ @.str.2, %419 ], [ %.2417, %543 ], [ %.2417, %560 ]
-  %.2414 = phi ptr [ null, %419 ], [ %.1413, %543 ], [ %.1413, %560 ]
-  %.2411 = phi i64 [ -2, %419 ], [ %.1410, %543 ], [ %.1410, %560 ]
-  %.3 = phi ptr [ %416, %419 ], [ %.2, %543 ], [ %.2, %560 ]
-  %564 = call i32 @hostlist_count(ptr noundef %.3) #19
+  %.1416 = phi ptr [ @.str.2, %419 ], [ %.2417, %543 ], [ %.2417, %560 ]
+  %.1413 = phi ptr [ null, %419 ], [ %.2414, %543 ], [ %.2414, %560 ]
+  %.1410 = phi i64 [ -2, %419 ], [ %.2411, %543 ], [ %.2411, %560 ]
+  %.1407 = phi ptr [ %416, %419 ], [ %.2, %543 ], [ %.2, %560 ]
+  %564 = call i32 @hostlist_count(ptr noundef %.1407) #19
   %.not530 = icmp eq i32 %564, 0
   br i1 %.not530, label %568, label %565
 
 565:                                              ; preds = %._crit_edge627
-  %566 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %.3) #19
+  %566 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %.1407) #19
   store ptr %566, ptr %13, align 8
-  %.not531 = icmp eq ptr %.2414, null
-  %567 = select i1 %.not531, i64 0, i64 %.2411
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.87, ptr noundef %566, ptr noundef nonnull %7, i64 noundef %567, ptr noundef %.3418) #19
+  %.not531 = icmp eq ptr %.1413, null
+  %567 = select i1 %.not531, i64 0, i64 %.1410
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.87, ptr noundef %566, ptr noundef nonnull %7, i64 noundef %567, ptr noundef %.1416) #19
   call void @slurm_xfree(ptr noundef nonnull %13) #19
   call void @_xstrcat(ptr noundef nonnull %10, ptr noundef nonnull %17) #19
   br label %568
 
 568:                                              ; preds = %565, %._crit_edge627
   call void @hostlist_destroy(ptr noundef nonnull %411) #19
-  call void @hostlist_destroy(ptr noundef %.3) #19
+  call void @hostlist_destroy(ptr noundef %.1407) #19
   br label %569
 
 569:                                              ; preds = %568, %403, %401, %400
@@ -3680,9 +3680,9 @@ define range(i32 -1, 1) i32 @slurm_get_end_time(i32 noundef %0, ptr noundef writ
   br label %54
 
 .thread33:                                        ; preds = %10, %14, %8
-  %.1 = phi i32 [ %16, %14 ], [ %0, %8 ], [ %11, %10 ]
+  %.018 = phi i32 [ %16, %14 ], [ %0, %8 ], [ %11, %10 ]
   %18 = load i32, ptr @slurm_get_end_time.jobid_cache, align 4
-  %19 = icmp eq i32 %.1, %18
+  %19 = icmp eq i32 %.018, %18
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %.thread33
@@ -3698,7 +3698,7 @@ define range(i32 -1, 1) i32 @slurm_get_end_time(i32 noundef %0, ptr noundef writ
 
 26:                                               ; preds = %20, %.thread33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store i32 %.1, ptr %5, align 8
+  store i32 %.018, ptr %5, align 8
   %27 = getelementptr inbounds i8, ptr %4, i64 204
   store i16 4021, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %4, i64 192
@@ -3721,7 +3721,7 @@ define range(i32 -1, 1) i32 @slurm_get_end_time(i32 noundef %0, ptr noundef writ
   %37 = load ptr, ptr %36, align 8
   %38 = call i64 @time(ptr noundef null) #19
   store i64 %38, ptr @slurm_get_end_time.last_test_time, align 8
-  store i32 %.1, ptr @slurm_get_end_time.jobid_cache, align 4
+  store i32 %.018, ptr @slurm_get_end_time.jobid_cache, align 4
   %39 = getelementptr inbounds i8, ptr %37, i64 16
   %40 = load i64, ptr %39, align 8
   store i64 %40, ptr @slurm_get_end_time.endtime_cache, align 8
@@ -4565,7 +4565,7 @@ define noundef i32 @slurm_load_job_prio(ptr nocapture noundef %0, i16 noundef ze
 
 .lr.ph406.i:                                      ; preds = %._crit_edge401.i, %128
   %109 = phi ptr [ %129, %128 ], [ %108, %._crit_edge401.i ]
-  %.0272404.i = phi i32 [ %.2274.i, %128 ], [ 0, %._crit_edge401.i ]
+  %.0272404.i = phi i32 [ %.1273.i, %128 ], [ 0, %._crit_edge401.i ]
   %.0284403.i = phi ptr [ %.1285.i, %128 ], [ null, %._crit_edge401.i ]
   %110 = getelementptr inbounds i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
@@ -4588,7 +4588,7 @@ define noundef i32 @slurm_load_job_prio(ptr nocapture noundef %0, i16 noundef ze
   br label %119
 
 119:                                              ; preds = %117, %114
-  %.1273.i = phi i32 [ %118, %117 ], [ %.0272404.i, %114 ]
+  %.2274.i = phi i32 [ %118, %117 ], [ %.0272404.i, %114 ]
   store ptr %111, ptr %0, align 8
   br label %128
 
@@ -4613,7 +4613,7 @@ define noundef i32 @slurm_load_job_prio(ptr nocapture noundef %0, i16 noundef ze
 
 128:                                              ; preds = %126, %119, %.lr.ph406.i
   %.1285.i = phi ptr [ %.0284403.i, %126 ], [ %111, %119 ], [ %.0284403.i, %.lr.ph406.i ]
-  %.2274.i = phi i32 [ %.0272404.i, %126 ], [ %.1273.i, %119 ], [ %.0272404.i, %.lr.ph406.i ]
+  %.1273.i = phi i32 [ %.0272404.i, %126 ], [ %.2274.i, %119 ], [ %.0272404.i, %.lr.ph406.i ]
   call void @slurm_xfree(ptr noundef nonnull %4) #19
   %129 = call ptr @list_next(ptr noundef %107) #19
   store ptr %129, ptr %4, align 8
@@ -4622,7 +4622,7 @@ define noundef i32 @slurm_load_job_prio(ptr nocapture noundef %0, i16 noundef ze
 
 ._crit_edge407.i:                                 ; preds = %128, %._crit_edge401.i
   %.0284.lcssa.i = phi ptr [ null, %._crit_edge401.i ], [ %.1285.i, %128 ]
-  %.0272.lcssa.i = phi i32 [ 0, %._crit_edge401.i ], [ %.2274.i, %128 ]
+  %.0272.lcssa.i = phi i32 [ 0, %._crit_edge401.i ], [ %.1273.i, %128 ]
   call void @list_iterator_destroy(ptr noundef %107) #19
   %.not303.i = icmp eq ptr %30, null
   br i1 %.not303.i, label %131, label %130

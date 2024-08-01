@@ -217,8 +217,8 @@ if.end33.thread:                                  ; preds = %if.then2
   br label %return
 
 if.end6:                                          ; preds = %if.end, %if.then2
-  %sk.0 = phi ptr [ %call, %if.then2 ], [ %0, %if.end ]
-  %call7 = tail call i64 @sk_num(ptr noundef nonnull %sk.0) #5
+  %sk.2 = phi ptr [ %call, %if.then2 ], [ %0, %if.end ]
+  %call7 = tail call i64 @sk_num(ptr noundef nonnull %sk.2) #5
   %call17 = tail call ptr @X509_EXTENSION_dup(ptr noundef %ex) #5
   %cmp18 = icmp eq ptr %call17, null
   br i1 %cmp18, label %if.then36, label %if.end21
@@ -229,7 +229,7 @@ if.end21:                                         ; preds = %if.end6
   %1 = tail call i32 @llvm.smin.i32(i32 %conv, i32 %loc)
   %loc.addr.0 = select i1 %cmp12, i32 %conv, i32 %1
   %conv22 = sext i32 %loc.addr.0 to i64
-  %call23 = tail call i64 @sk_insert(ptr noundef nonnull %sk.0, ptr noundef nonnull %call17, i64 noundef %conv22) #5
+  %call23 = tail call i64 @sk_insert(ptr noundef nonnull %sk.2, ptr noundef nonnull %call17, i64 noundef %conv22) #5
   %tobool.not = icmp eq i64 %call23, 0
   br i1 %tobool.not, label %if.end33.thread26, label %if.end25
 
@@ -239,7 +239,7 @@ if.end25:                                         ; preds = %if.end21
   br i1 %cmp26, label %if.then28, label %return
 
 if.then28:                                        ; preds = %if.end25
-  store ptr %sk.0, ptr %x, align 8
+  store ptr %sk.2, ptr %x, align 8
   br label %return
 
 if.end33.thread26:                                ; preds = %if.end21
@@ -248,11 +248,11 @@ if.end33.thread26:                                ; preds = %if.end21
   br label %if.then36
 
 if.then36:                                        ; preds = %if.end6, %if.end33.thread26
-  tail call void @sk_free(ptr noundef nonnull %sk.0) #5
+  tail call void @sk_free(ptr noundef nonnull %sk.2) #5
   br label %return
 
 return:                                           ; preds = %if.end33.thread30, %if.end33.thread, %if.then36, %if.end25, %if.then28
-  %retval.0 = phi ptr [ %sk.0, %if.then28 ], [ %sk.0, %if.end25 ], [ null, %if.then36 ], [ null, %if.end33.thread ], [ null, %if.end33.thread30 ]
+  %retval.0 = phi ptr [ %sk.2, %if.then28 ], [ %sk.2, %if.end25 ], [ null, %if.then36 ], [ null, %if.end33.thread ], [ null, %if.end33.thread30 ]
   ret ptr %retval.0
 }
 

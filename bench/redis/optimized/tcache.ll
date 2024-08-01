@@ -3513,13 +3513,13 @@ percpu_arena_update.exit:                         ; preds = %if.then61, %arena_g
   br label %if.end63
 
 if.end63:                                         ; preds = %percpu_arena_update.exit, %percpu_arena_choose.exit
-  %ret.1 = phi ptr [ %16, %percpu_arena_update.exit ], [ %ret.0, %percpu_arena_choose.exit ]
-  %last_thd65 = getelementptr inbounds i8, ptr %ret.1, i64 16
+  %ret.2 = phi ptr [ %16, %percpu_arena_update.exit ], [ %ret.0, %percpu_arena_choose.exit ]
+  %last_thd65 = getelementptr inbounds i8, ptr %ret.2, i64 16
   store ptr %tsd, ptr %last_thd65, align 8
   br label %return
 
 return:                                           ; preds = %if.then3.i, %if.then5, %land.lhs.true47, %land.lhs.true52, %if.end63, %if.end43
-  %retval.0 = phi ptr [ %ret.1, %if.end63 ], [ %ret.0, %land.lhs.true52 ], [ %ret.0, %land.lhs.true47 ], [ %ret.0, %if.end43 ], [ %call4.i, %if.then3.i ], [ %2, %if.then5 ]
+  %retval.0 = phi ptr [ %ret.2, %if.end63 ], [ %ret.0, %land.lhs.true52 ], [ %ret.0, %land.lhs.true47 ], [ %ret.0, %if.end43 ], [ %call4.i, %if.then3.i ], [ %2, %if.then5 ]
   ret ptr %retval.0
 }
 

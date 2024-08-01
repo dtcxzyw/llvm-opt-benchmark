@@ -483,7 +483,7 @@ is_http_header.exit266:                           ; preds = %100, %98, %93, %87
   br label %203
 
 203:                                              ; preds = %189, %198, %191, %is_http_header.exit266
-  %.0226 = phi i32 [ %200, %198 ], [ 0, %191 ], [ 0, %189 ], [ 0, %is_http_header.exit266 ]
+  %.1 = phi i32 [ %200, %198 ], [ 0, %191 ], [ 0, %189 ], [ 0, %is_http_header.exit266 ]
   store i32 %86, ptr %85, align 8
   br label %294
 
@@ -634,19 +634,19 @@ is_http_header.exit266:                           ; preds = %100, %98, %93, %87
 
 .critedge.thread.sink.split:                      ; preds = %284, %272
   %.sink277 = phi ptr [ %273, %272 ], [ %288, %284 ]
-  %.1.ph = phi i32 [ %268, %272 ], [ %287, %284 ]
+  %.2.ph = phi i32 [ %268, %272 ], [ %287, %284 ]
   %293 = load ptr, ptr %.sink277, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %293, i32 noundef 25, ptr noundef nonnull @.str.43) #5
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %204, %.critedge, %274, %284, %277, %263, %265
-  %.1 = phi i32 [ %287, %284 ], [ 0, %277 ], [ 0, %274 ], [ 0, %.critedge ], [ %268, %265 ], [ 0, %263 ], [ 0, %204 ], [ %.1.ph, %.critedge.thread.sink.split ]
+  %.2 = phi i32 [ %287, %284 ], [ 0, %277 ], [ 0, %274 ], [ 0, %.critedge ], [ %268, %265 ], [ 0, %263 ], [ 0, %204 ], [ %.2.ph, %.critedge.thread.sink.split ]
   store i32 %86, ptr %85, align 8
   br label %294
 
 294:                                              ; preds = %203, %.critedge.thread, %73
-  %.2 = phi i32 [ %75, %73 ], [ %.1, %.critedge.thread ], [ %.0226, %203 ]
-  %.not262 = icmp eq i32 %.2, 0
+  %.0226 = phi i32 [ %75, %73 ], [ %.2, %.critedge.thread ], [ %.1, %203 ]
+  %.not262 = icmp eq i32 %.0226, 0
   br i1 %.not262, label %.thread, label %295
 
 295:                                              ; preds = %294

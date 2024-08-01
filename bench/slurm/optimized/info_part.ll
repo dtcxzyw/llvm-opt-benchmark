@@ -183,7 +183,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 
 .loopexit65:                                      ; preds = %35, %.loopexit65.loopexit, %18, %33, %14
   %40 = phi ptr [ %23, %33 ], [ null, %14 ], [ %23, %18 ], [ %23, %.loopexit65.loopexit ], [ %23, %35 ]
-  %.2 = phi i32 [ 1, %33 ], [ 0, %14 ], [ 0, %18 ], [ %39, %.loopexit65.loopexit ], [ 0, %35 ]
+  %.041 = phi i32 [ 1, %33 ], [ 0, %14 ], [ 0, %18 ], [ %39, %.loopexit65.loopexit ], [ 0, %35 ]
   %41 = load ptr, ptr @mime_type, align 8
   %42 = icmp eq ptr %41, null
   %43 = load i32, ptr @quiet_flag, align 4
@@ -204,18 +204,18 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not54, label %.preheader, label %51
 
 .preheader:                                       ; preds = %48
-  %50 = icmp sgt i32 %.2, 0
+  %50 = icmp sgt i32 %.041, 0
   br i1 %50, label %.lr.ph73.preheader, label %.loopexit
 
 .lr.ph73.preheader:                               ; preds = %.preheader
-  %wide.trip.count89 = zext nneg i32 %.2 to i64
+  %wide.trip.count89 = zext nneg i32 %.041 to i64
   br label %.lr.ph73
 
 51:                                               ; preds = %48
   %52 = load i64, ptr %15, align 8
   store i64 %52, ptr %7, align 8
   %53 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %.2, ptr %53, align 8
+  store i32 %.041, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %8, i64 8
@@ -224,14 +224,14 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   store ptr %7, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %8, i64 32
   store i64 %52, ptr %58, align 8
-  %59 = sext i32 %.2 to i64
+  %59 = sext i32 %.041 to i64
   %60 = call ptr @slurm_xcalloc(i64 noundef %59, i64 noundef 232, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @__func__.scontrol_print_part) #5
   store ptr %60, ptr %54, align 8
-  %61 = icmp sgt i32 %.2, 0
+  %61 = icmp sgt i32 %.041, 0
   br i1 %61, label %.lr.ph71, label %.loopexit92
 
 .lr.ph71:                                         ; preds = %51
-  %wide.trip.count = zext nneg i32 %.2 to i64
+  %wide.trip.count = zext nneg i32 %.041 to i64
   br label %62
 
 62:                                               ; preds = %.lr.ph71, %62
@@ -313,7 +313,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 .loopexit:                                        ; preds = %.lr.ph73, %.preheader, %86
   %91 = load ptr, ptr @mime_type, align 8
   %92 = icmp ne ptr %91, null
-  %93 = icmp ne i32 %.2, 0
+  %93 = icmp ne i32 %.041, 0
   %or.cond3 = select i1 %92, i1 true, i1 %93
   br i1 %or.cond3, label %102, label %94
 

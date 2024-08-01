@@ -1104,8 +1104,8 @@ invoke.cont11:                                    ; preds = %invoke.cont11.lr.ph
   %3 = phi i32 [ 0, %invoke.cont11.lr.ph ], [ %74, %_ZN2dd3pddD2Ev.exit281 ]
   %4 = phi i32 [ 0, %invoke.cont11.lr.ph ], [ %inc, %_ZN2dd3pddD2Ev.exit281 ]
   %reduced.0445 = phi i1 [ false, %invoke.cont11.lr.ph ], [ %reduced.2, %_ZN2dd3pddD2Ev.exit281 ]
-  %ref.tmp34.sroa.0.0442 = phi i32 [ undef, %invoke.cont11.lr.ph ], [ %ref.tmp34.sroa.0.2355364384395, %_ZN2dd3pddD2Ev.exit281 ]
-  %ref.tmp34.sroa.4.0441 = phi ptr [ undef, %invoke.cont11.lr.ph ], [ %ref.tmp34.sroa.4.2354366382398, %_ZN2dd3pddD2Ev.exit281 ]
+  %ref.tmp34.sroa.0.0442 = phi i32 [ undef, %invoke.cont11.lr.ph ], [ %ref.tmp34.sroa.0.1355364384395, %_ZN2dd3pddD2Ev.exit281 ]
+  %ref.tmp34.sroa.4.0441 = phi ptr [ undef, %invoke.cont11.lr.ph ], [ %ref.tmp34.sroa.4.1354366382398, %_ZN2dd3pddD2Ev.exit281 ]
   %5 = load ptr, ptr %m_to_simplify, align 8
   %idxprom.i.i = zext i32 %4 to i64
   %arrayidx.i.i12 = getelementptr inbounds ptr, ptr %5, i64 %idxprom.i.i
@@ -1324,9 +1324,9 @@ invoke.cont38:                                    ; preds = %land.rhs.i.i.i98
   br i1 %cmp3.i.i.i103, label %land.rhs, label %cleanup.action50
 
 land.rhs:                                         ; preds = %land.rhs.i.i.i98, %land.rhs.i.i.i, %invoke.cont38, %invoke.cont32
-  %cleanup.cond36.0 = phi i1 [ false, %invoke.cont32 ], [ true, %invoke.cont38 ], [ false, %land.rhs.i.i.i ], [ true, %land.rhs.i.i.i98 ]
-  %ref.tmp34.sroa.4.1 = phi ptr [ %ref.tmp34.sroa.4.0441, %invoke.cont32 ], [ %18, %invoke.cont38 ], [ %ref.tmp34.sroa.4.0441, %land.rhs.i.i.i ], [ %18, %land.rhs.i.i.i98 ]
-  %ref.tmp34.sroa.0.1 = phi i32 [ %ref.tmp34.sroa.0.0442, %invoke.cont32 ], [ %30, %invoke.cont38 ], [ %ref.tmp34.sroa.0.0442, %land.rhs.i.i.i ], [ %30, %land.rhs.i.i.i98 ]
+  %cleanup.cond36.1 = phi i1 [ false, %invoke.cont32 ], [ true, %invoke.cont38 ], [ false, %land.rhs.i.i.i ], [ true, %land.rhs.i.i.i98 ]
+  %ref.tmp34.sroa.4.2 = phi ptr [ %ref.tmp34.sroa.4.0441, %invoke.cont32 ], [ %18, %invoke.cont38 ], [ %ref.tmp34.sroa.4.0441, %land.rhs.i.i.i ], [ %18, %land.rhs.i.i.i98 ]
+  %ref.tmp34.sroa.0.2 = phi i32 [ %ref.tmp34.sroa.0.0442, %invoke.cont32 ], [ %30, %invoke.cont38 ], [ %ref.tmp34.sroa.0.0442, %land.rhs.i.i.i ], [ %30, %land.rhs.i.i.i98 ]
   %35 = load ptr, ptr %m.i.i, align 8, !noalias !23
   %36 = load i32, ptr %p, align 8, !noalias !23
   %37 = load ptr, ptr %35, align 8
@@ -1383,17 +1383,17 @@ if.then.i.i139:                                   ; preds = %cleanup.action
   %bf.clear7.i.i142 = and i32 %bf.load.i.i136, -1024
   %bf.set.i.i143 = or disjoint i32 %bf.value.i.i141, %bf.clear7.i.i142
   store i32 %bf.set.i.i143, ptr %arrayidx.i.i.i123, align 4
-  br i1 %cleanup.cond36.0, label %cleanup.action50, label %cleanup.action56
+  br i1 %cleanup.cond36.1, label %cleanup.action50, label %cleanup.action56
 
 cleanup.done:                                     ; preds = %cleanup.action
-  br i1 %cleanup.cond36.0, label %cleanup.action50, label %cleanup.action56
+  br i1 %cleanup.cond36.1, label %cleanup.action50, label %cleanup.action56
 
 cleanup.action50:                                 ; preds = %invoke.cont35, %invoke.cont38, %if.then.i.i139, %cleanup.done
-  %ref.tmp34.sroa.4.2354365 = phi ptr [ %ref.tmp34.sroa.4.1, %cleanup.done ], [ %ref.tmp34.sroa.4.1, %if.then.i.i139 ], [ %18, %invoke.cont38 ], [ %18, %invoke.cont35 ]
-  %ref.tmp34.sroa.0.2355363 = phi i32 [ %ref.tmp34.sroa.0.1, %cleanup.done ], [ %ref.tmp34.sroa.0.1, %if.then.i.i139 ], [ %30, %invoke.cont38 ], [ %30, %invoke.cont35 ]
+  %ref.tmp34.sroa.4.1354365 = phi ptr [ %ref.tmp34.sroa.4.2, %cleanup.done ], [ %ref.tmp34.sroa.4.2, %if.then.i.i139 ], [ %18, %invoke.cont38 ], [ %18, %invoke.cont35 ]
+  %ref.tmp34.sroa.0.1355363 = phi i32 [ %ref.tmp34.sroa.0.2, %cleanup.done ], [ %ref.tmp34.sroa.0.2, %if.then.i.i139 ], [ %30, %invoke.cont38 ], [ %30, %invoke.cont35 ]
   %44 = phi i1 [ %lnot, %cleanup.done ], [ %lnot, %if.then.i.i139 ], [ false, %invoke.cont38 ], [ false, %invoke.cont35 ]
-  %45 = load ptr, ptr %ref.tmp34.sroa.4.2354365, align 8
-  %idxprom.i.i.i146 = zext i32 %ref.tmp34.sroa.0.2355363 to i64
+  %45 = load ptr, ptr %ref.tmp34.sroa.4.1354365, align 8
+  %idxprom.i.i.i146 = zext i32 %ref.tmp34.sroa.0.1355363 to i64
   %arrayidx.i.i.i147 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %45, i64 %idxprom.i.i.i146
   %bf.load.i.i148 = load i32, ptr %arrayidx.i.i.i147, align 4
   %bf.clear.i.i149 = and i32 %bf.load.i.i148, 1023
@@ -1410,8 +1410,8 @@ if.then.i.i151:                                   ; preds = %cleanup.action50
 
 cleanup.action56:                                 ; preds = %cleanup.action50, %if.then.i.i151, %cleanup.done, %if.then.i.i139
   %46 = phi i1 [ %lnot, %if.then.i.i139 ], [ %lnot, %cleanup.done ], [ %44, %if.then.i.i151 ], [ %44, %cleanup.action50 ]
-  %ref.tmp34.sroa.0.2355364383 = phi i32 [ %ref.tmp34.sroa.0.1, %if.then.i.i139 ], [ %ref.tmp34.sroa.0.1, %cleanup.done ], [ %ref.tmp34.sroa.0.2355363, %if.then.i.i151 ], [ %ref.tmp34.sroa.0.2355363, %cleanup.action50 ]
-  %ref.tmp34.sroa.4.2354366381 = phi ptr [ %ref.tmp34.sroa.4.1, %if.then.i.i139 ], [ %ref.tmp34.sroa.4.1, %cleanup.done ], [ %ref.tmp34.sroa.4.2354365, %if.then.i.i151 ], [ %ref.tmp34.sroa.4.2354365, %cleanup.action50 ]
+  %ref.tmp34.sroa.0.1355364383 = phi i32 [ %ref.tmp34.sroa.0.2, %if.then.i.i139 ], [ %ref.tmp34.sroa.0.2, %cleanup.done ], [ %ref.tmp34.sroa.0.1355363, %if.then.i.i151 ], [ %ref.tmp34.sroa.0.1355363, %cleanup.action50 ]
+  %ref.tmp34.sroa.4.1354366381 = phi ptr [ %ref.tmp34.sroa.4.2, %if.then.i.i139 ], [ %ref.tmp34.sroa.4.2, %cleanup.done ], [ %ref.tmp34.sroa.4.1354365, %if.then.i.i151 ], [ %ref.tmp34.sroa.4.1354365, %cleanup.action50 ]
   %47 = load ptr, ptr %21, align 8
   %arrayidx.i.i.i159 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %47, i64 %idxprom.i.i.i.i63
   %bf.load.i.i160 = load i32, ptr %arrayidx.i.i.i159, align 4
@@ -1577,8 +1577,8 @@ land.rhs.i:                                       ; preds = %land.rhs.i.i.i.i.i,
           to label %cleanup unwind label %lpad29
 
 if.end91:                                         ; preds = %invoke.cont26, %if.else84, %_ZNK2dd3pdd6is_valEv.exit.i.i, %if.then.i.i163, %cleanup.done57
-  %ref.tmp34.sroa.4.2354366382399 = phi ptr [ %ref.tmp34.sroa.4.2354366381, %cleanup.done57 ], [ %ref.tmp34.sroa.4.2354366381, %if.then.i.i163 ], [ %ref.tmp34.sroa.4.2354366381, %_ZNK2dd3pdd6is_valEv.exit.i.i ], [ %ref.tmp34.sroa.4.2354366381, %if.else84 ], [ %ref.tmp34.sroa.4.0441, %invoke.cont26 ]
-  %ref.tmp34.sroa.0.2355364384396 = phi i32 [ %ref.tmp34.sroa.0.2355364383, %cleanup.done57 ], [ %ref.tmp34.sroa.0.2355364383, %if.then.i.i163 ], [ %ref.tmp34.sroa.0.2355364383, %_ZNK2dd3pdd6is_valEv.exit.i.i ], [ %ref.tmp34.sroa.0.2355364383, %if.else84 ], [ %ref.tmp34.sroa.0.0442, %invoke.cont26 ]
+  %ref.tmp34.sroa.4.1354366382399 = phi ptr [ %ref.tmp34.sroa.4.1354366381, %cleanup.done57 ], [ %ref.tmp34.sroa.4.1354366381, %if.then.i.i163 ], [ %ref.tmp34.sroa.4.1354366381, %_ZNK2dd3pdd6is_valEv.exit.i.i ], [ %ref.tmp34.sroa.4.1354366381, %if.else84 ], [ %ref.tmp34.sroa.4.0441, %invoke.cont26 ]
+  %ref.tmp34.sroa.0.1355364384396 = phi i32 [ %ref.tmp34.sroa.0.1355364383, %cleanup.done57 ], [ %ref.tmp34.sroa.0.1355364383, %if.then.i.i163 ], [ %ref.tmp34.sroa.0.1355364383, %_ZNK2dd3pdd6is_valEv.exit.i.i ], [ %ref.tmp34.sroa.0.1355364383, %if.else84 ], [ %ref.tmp34.sroa.0.0442, %invoke.cont26 ]
   %reduced.1 = phi i1 [ %reduced.0445, %cleanup.done57 ], [ %reduced.0445, %if.then.i.i163 ], [ true, %_ZNK2dd3pdd6is_valEv.exit.i.i ], [ true, %if.else84 ], [ %reduced.0445, %invoke.cont26 ]
   %70 = load ptr, ptr %m_to_simplify, align 8
   %arrayidx.i.i256 = getelementptr inbounds ptr, ptr %70, i64 %idxprom.i.i
@@ -1597,8 +1597,8 @@ if.end91:                                         ; preds = %invoke.cont26, %if.
 
 cleanup:                                          ; preds = %land.rhs.i, %if.end91, %if.then81
   %74 = phi i32 [ %3, %if.then81 ], [ %inc.i, %if.end91 ], [ %3, %land.rhs.i ]
-  %ref.tmp34.sroa.4.2354366382398 = phi ptr [ %ref.tmp34.sroa.4.2354366381, %if.then81 ], [ %ref.tmp34.sroa.4.2354366382399, %if.end91 ], [ %ref.tmp34.sroa.4.2354366381, %land.rhs.i ]
-  %ref.tmp34.sroa.0.2355364384395 = phi i32 [ %ref.tmp34.sroa.0.2355364383, %if.then81 ], [ %ref.tmp34.sroa.0.2355364384396, %if.end91 ], [ %ref.tmp34.sroa.0.2355364383, %land.rhs.i ]
+  %ref.tmp34.sroa.4.1354366382398 = phi ptr [ %ref.tmp34.sroa.4.1354366381, %if.then81 ], [ %ref.tmp34.sroa.4.1354366382399, %if.end91 ], [ %ref.tmp34.sroa.4.1354366381, %land.rhs.i ]
+  %ref.tmp34.sroa.0.1355364384395 = phi i32 [ %ref.tmp34.sroa.0.1355364383, %if.then81 ], [ %ref.tmp34.sroa.0.1355364384396, %if.end91 ], [ %ref.tmp34.sroa.0.1355364383, %land.rhs.i ]
   %reduced.2 = phi i1 [ true, %if.then81 ], [ %reduced.1, %if.end91 ], [ true, %land.rhs.i ]
   %75 = load ptr, ptr %18, align 8
   %arrayidx.i.i.i260 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %75, i64 %idxprom.i.i.i.i36
@@ -3514,7 +3514,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit37: ; preds = %invoke.cont6, %
 
 for.body:                                         ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit37, %for.inc83
   %j.0199 = phi i32 [ %j.1, %for.inc83 ], [ 0, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit37 ]
-  %has_conflict.0198 = phi i8 [ %has_conflict.5, %for.inc83 ], [ 0, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit37 ]
+  %has_conflict.0198 = phi i8 [ %has_conflict.1, %for.inc83 ], [ 0, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit37 ]
   %__begin1.0197 = phi ptr [ %incdec.ptr84, %for.inc83 ], [ %19, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit37 ]
   %22 = load ptr, ptr %__begin1.0197, align 8
   %tobool = trunc nuw i8 %has_conflict.0198 to i1
@@ -3561,8 +3561,8 @@ _ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit: ; preds = %invoke.cont21
 
 for.body31:                                       ; preds = %_ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit, %for.inc
   %__begin2.0194 = phi ptr [ %incdec.ptr, %for.inc ], [ %30, %_ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
-  %has_conflict.1193 = phi i8 [ %has_conflict.4, %for.inc ], [ %has_conflict.0198, %_ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
-  %all_reduced.0192 = phi i1 [ %all_reduced.2, %for.inc ], [ true, %_ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
+  %has_conflict.2193 = phi i8 [ %has_conflict.3, %for.inc ], [ %has_conflict.0198, %_ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
+  %all_reduced.0192 = phi i1 [ %all_reduced.1, %for.inc ], [ true, %_ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
   %33 = load ptr, ptr %__begin2.0194, align 8
   %cmp32 = icmp eq ptr %22, %33
   br i1 %cmp32, label %for.inc, label %invoke.cont34
@@ -3978,13 +3978,13 @@ invoke.cont71:                                    ; preds = %if.then69
           to label %if.end76 unwind label %lpad41.loopexit.split-lp
 
 if.end76:                                         ; preds = %invoke.cont71, %invoke.cont64, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit, %if.else67
-  %has_conflict.2 = phi i8 [ %has_conflict.1193, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit ], [ %has_conflict.1193, %if.else67 ], [ 1, %invoke.cont64 ], [ %has_conflict.1193, %invoke.cont71 ]
+  %has_conflict.5 = phi i8 [ %has_conflict.2193, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit ], [ %has_conflict.2193, %if.else67 ], [ 1, %invoke.cont64 ], [ %has_conflict.2193, %invoke.cont71 ]
   invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull align 8 poison, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
           to label %cleanup unwind label %lpad41.loopexit.split-lp
 
 cleanup:                                          ; preds = %if.end76, %invoke.cont46
-  %all_reduced.1 = phi i1 [ false, %invoke.cont46 ], [ %all_reduced.0192, %if.end76 ]
-  %has_conflict.3 = phi i8 [ %has_conflict.1193, %invoke.cont46 ], [ %has_conflict.2, %if.end76 ]
+  %all_reduced.2 = phi i1 [ false, %invoke.cont46 ], [ %all_reduced.0192, %if.end76 ]
+  %has_conflict.4 = phi i8 [ %has_conflict.2193, %invoke.cont46 ], [ %has_conflict.5, %if.end76 ]
   %91 = load ptr, ptr %35, align 8
   %arrayidx.i.i.i99 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %91, i64 %idxprom.i.i.i.i50
   %bf.load.i.i100 = load i32, ptr %arrayidx.i.i.i99, align 4
@@ -4001,17 +4001,17 @@ if.then.i.i103:                                   ; preds = %cleanup
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i.i103, %cleanup, %for.body31, %invoke.cont34
-  %all_reduced.2 = phi i1 [ %all_reduced.0192, %for.body31 ], [ %all_reduced.0192, %invoke.cont34 ], [ %all_reduced.1, %cleanup ], [ %all_reduced.1, %if.then.i.i103 ]
-  %has_conflict.4 = phi i8 [ %has_conflict.1193, %for.body31 ], [ %has_conflict.1193, %invoke.cont34 ], [ %has_conflict.3, %cleanup ], [ %has_conflict.3, %if.then.i.i103 ]
+  %all_reduced.1 = phi i1 [ %all_reduced.0192, %for.body31 ], [ %all_reduced.0192, %invoke.cont34 ], [ %all_reduced.2, %cleanup ], [ %all_reduced.2, %if.then.i.i103 ]
+  %has_conflict.3 = phi i8 [ %has_conflict.2193, %for.body31 ], [ %has_conflict.2193, %invoke.cont34 ], [ %has_conflict.4, %cleanup ], [ %has_conflict.4, %if.then.i.i103 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0194, i64 8
   %cmp30.not = icmp eq ptr %incdec.ptr, %add.ptr.i45
   br i1 %cmp30.not, label %for.end, label %for.body31
 
 for.end:                                          ; preds = %for.inc
-  br i1 %all_reduced.2, label %if.then79, label %for.inc83
+  br i1 %all_reduced.1, label %if.then79, label %for.inc83
 
 if.then79:                                        ; preds = %invoke.cont21, %_ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit, %for.end
-  %has_conflict.1.lcssa238 = phi i8 [ %has_conflict.4, %for.end ], [ %has_conflict.0198, %_ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ], [ %has_conflict.0198, %invoke.cont21 ]
+  %has_conflict.2.lcssa238 = phi i8 [ %has_conflict.3, %for.end ], [ %has_conflict.0198, %_ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ], [ %has_conflict.0198, %invoke.cont21 ]
   %inc = add i32 %j.0199, 1
   %92 = load ptr, ptr %linear, align 8
   %idxprom.i109 = zext i32 %j.0199 to i64
@@ -4020,14 +4020,14 @@ if.then79:                                        ; preds = %invoke.cont21, %_ZN
   br label %for.inc83
 
 for.inc83:                                        ; preds = %for.end, %if.then79, %invoke.cont15
-  %has_conflict.5 = phi i8 [ %has_conflict.0198, %invoke.cont15 ], [ %has_conflict.1.lcssa238, %if.then79 ], [ %has_conflict.4, %for.end ]
+  %has_conflict.1 = phi i8 [ %has_conflict.0198, %invoke.cont15 ], [ %has_conflict.2.lcssa238, %if.then79 ], [ %has_conflict.3, %for.end ]
   %j.1 = phi i32 [ %j.0199, %invoke.cont15 ], [ %inc, %if.then79 ], [ %j.0199, %for.end ]
   %incdec.ptr84 = getelementptr inbounds i8, ptr %__begin1.0197, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr84, %add.ptr.i36
   br i1 %cmp.not, label %for.end85, label %for.body
 
 for.end85:                                        ; preds = %for.inc83, %for.body
-  %has_conflict.0.lcssa.ph = phi i8 [ %has_conflict.5, %for.inc83 ], [ %has_conflict.0198, %for.body ]
+  %has_conflict.0.lcssa.ph = phi i8 [ %has_conflict.1, %for.inc83 ], [ %has_conflict.0198, %for.body ]
   %j.0.lcssa.ph = phi i32 [ %j.1, %for.inc83 ], [ %j.0199, %for.body ]
   %93 = trunc nuw i8 %has_conflict.0.lcssa.ph to i1
   br i1 %93, label %if.end107, label %if.then87
@@ -11364,8 +11364,8 @@ if.end46:                                         ; preds = %if.else35
 for.body54:                                       ; preds = %if.end46, %for.body54
   %__i50.066 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
   %__q47.065 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
-  %__p.264 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.264, i64 -8
+  %__p.364 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.364, i64 -8
   %incdec.ptr56 = getelementptr inbounds i8, ptr %__q47.065, i64 -8
   %6 = load ptr, ptr %incdec.ptr55, align 8
   %7 = load ptr, ptr %incdec.ptr56, align 8
@@ -11376,7 +11376,7 @@ for.body54:                                       ; preds = %if.end46, %for.body
   br i1 %exitcond.not, label %for.end59, label %for.body54, !llvm.loop !95
 
 for.end59:                                        ; preds = %for.body54, %if.end46
-  %__p.2.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
+  %__p.3.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
   %rem60 = srem i64 %__n.0, %sub15
   %cmp61 = icmp eq i64 %rem60, 0
   br i1 %cmp61, label %return, label %for.cond.backedge
@@ -11384,7 +11384,7 @@ for.end59:                                        ; preds = %for.body54, %if.end
 for.cond.backedge:                                ; preds = %for.end59, %if.end33
   %__n.0.be = phi i64 [ %__k.0, %if.end33 ], [ %sub15, %for.end59 ]
   %__k.0.be = phi i64 [ %sub34, %if.end33 ], [ %rem60, %for.end59 ]
-  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.2.lcssa, %for.end59 ]
+  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.3.lcssa, %for.end59 ]
   br label %for.cond, !llvm.loop !96
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit

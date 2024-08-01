@@ -595,7 +595,7 @@ switch.early.test:                                ; preds = %77
   br label %307
 
 307:                                              ; preds = %295, %300, %306
-  %.0297 = phi i32 [ %299, %300 ], [ %299, %295 ], [ 0, %306 ]
+  %.1298 = phi i32 [ %299, %300 ], [ %299, %295 ], [ 0, %306 ]
   %308 = load i32, ptr %37, align 4
   %309 = load i32, ptr %38, align 4
   %.not360 = icmp eq i32 %308, %309
@@ -614,7 +614,7 @@ switch.early.test:                                ; preds = %77
   unreachable
 
 318:                                              ; preds = %307, %293
-  %.1298 = phi i32 [ %.0297, %307 ], [ 0, %293 ]
+  %.0297 = phi i32 [ %.1298, %307 ], [ 0, %293 ]
   %.not361 = icmp eq ptr %24, null
   br i1 %.not361, label %326, label %319
 
@@ -745,7 +745,7 @@ switch.early.test:                                ; preds = %77
   %374 = zext i32 %.0295 to i64
   %375 = getelementptr inbounds i8, ptr %35, i64 72
   store i64 %374, ptr %375, align 8
-  %376 = zext i32 %.1298 to i64
+  %376 = zext i32 %.0297 to i64
   %377 = getelementptr inbounds i8, ptr %35, i64 80
   store i64 %376, ptr %377, align 16
   %378 = zext i1 %20 to i64
@@ -959,12 +959,12 @@ switch.early.test:                                ; preds = %77
   br label %459
 
 459:                                              ; preds = %458, %457
-  %.not377 = icmp eq i32 %.1298, 0
+  %.not377 = icmp eq i32 %.0297, 0
   br i1 %.not377, label %461, label %460
 
 460:                                              ; preds = %459
   store i32 1255, ptr %40, align 4
-  store i32 %.1298, ptr %446, align 4
+  store i32 %.0297, ptr %446, align 4
   store i32 0, ptr %447, align 4
   call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %445) #8
   br label %461

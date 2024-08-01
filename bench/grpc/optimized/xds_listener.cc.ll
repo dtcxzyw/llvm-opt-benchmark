@@ -2568,8 +2568,8 @@ for.body23.lr.ph:                                 ; preds = %for.body15
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit
-  %contents.sroa.0.3277 = phi ptr [ %contents.sroa.0.2284, %for.body23.lr.ph ], [ %contents.sroa.0.4, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
-  %contents.sroa.8.3276 = phi ptr [ %contents.sroa.8.2283, %for.body23.lr.ph ], [ %contents.sroa.8.4, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
+  %contents.sroa.0.3277 = phi ptr [ %contents.sroa.0.2284, %for.body23.lr.ph ], [ %contents.sroa.0.5, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
+  %contents.sroa.8.3276 = phi ptr [ %contents.sroa.8.2283, %for.body23.lr.ph ], [ %contents.sroa.8.5, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
   %contents.sroa.16.3275 = phi ptr [ %contents.sroa.16.2282, %for.body23.lr.ph ], [ %contents.sroa.16.4, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
   %__begin4.sroa.0.0274 = phi ptr [ %15, %for.body23.lr.ph ], [ %call.i84, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0274, i64 32
@@ -2977,8 +2977,8 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorINSt7__
 invoke.cont63:                                    ; preds = %.noexc76, %if.then.i.i73
   %contents.sroa.16.4 = phi ptr [ %add.ptr19.i, %.noexc76 ], [ %contents.sroa.16.3275, %if.then.i.i73 ]
   %__cur.0.lcssa.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i, %.noexc76 ], [ %contents.sroa.8.3276, %if.then.i.i73 ]
-  %contents.sroa.0.4 = phi ptr [ %cond.i10.i, %.noexc76 ], [ %contents.sroa.0.3277, %if.then.i.i73 ]
-  %contents.sroa.8.4 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.pn, i64 32
+  %contents.sroa.0.5 = phi ptr [ %cond.i10.i, %.noexc76 ], [ %contents.sroa.0.3277, %if.then.i.i73 ]
+  %contents.sroa.8.5 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.pn, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #19
@@ -3108,8 +3108,8 @@ ehcleanup65:                                      ; preds = %lpad.loopexit, %lpa
 
 for.inc67:                                        ; preds = %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit, %for.body15
   %contents.sroa.16.3.lcssa = phi ptr [ %contents.sroa.16.2282, %for.body15 ], [ %contents.sroa.16.4, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
-  %contents.sroa.8.3.lcssa = phi ptr [ %contents.sroa.8.2283, %for.body15 ], [ %contents.sroa.8.4, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
-  %contents.sroa.0.3.lcssa = phi ptr [ %contents.sroa.0.2284, %for.body15 ], [ %contents.sroa.0.4, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
+  %contents.sroa.8.3.lcssa = phi ptr [ %contents.sroa.8.2283, %for.body15 ], [ %contents.sroa.8.5, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
+  %contents.sroa.0.3.lcssa = phi ptr [ %contents.sroa.0.2284, %for.body15 ], [ %contents.sroa.0.5, %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit ]
   %incdec.ptr.i85 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0281, i64 192
   %cmp.i18.not = icmp eq ptr %incdec.ptr.i85, %13
   br i1 %cmp.i18.not, label %for.inc70, label %for.body15
@@ -3184,25 +3184,25 @@ lpad81:                                           ; preds = %invoke.cont84
   br label %ehcleanup87
 
 ehcleanup87:                                      ; preds = %lpad81, %lpad76, %ehcleanup65
-  %contents.sroa.8.5 = phi ptr [ %contents.sroa.8.3276, %ehcleanup65 ], [ %contents.sroa.8.0.lcssa, %lpad81 ], [ %contents.sroa.8.0.lcssa, %lpad76 ]
-  %contents.sroa.0.5 = phi ptr [ %contents.sroa.0.3277, %ehcleanup65 ], [ %contents.sroa.0.0.lcssa, %lpad81 ], [ %contents.sroa.0.0.lcssa, %lpad76 ]
+  %contents.sroa.8.4 = phi ptr [ %contents.sroa.8.3276, %ehcleanup65 ], [ %contents.sroa.8.0.lcssa, %lpad81 ], [ %contents.sroa.8.0.lcssa, %lpad76 ]
+  %contents.sroa.0.4 = phi ptr [ %contents.sroa.0.3277, %ehcleanup65 ], [ %contents.sroa.0.0.lcssa, %lpad81 ], [ %contents.sroa.0.0.lcssa, %lpad76 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup65 ], [ %65, %lpad81 ], [ %64, %lpad76 ]
-  %cmp.not3.i.i.i.i97 = icmp eq ptr %contents.sroa.0.5, %contents.sroa.8.5
+  %cmp.not3.i.i.i.i97 = icmp eq ptr %contents.sroa.0.4, %contents.sroa.8.4
   br i1 %cmp.not3.i.i.i.i97, label %invoke.cont.i104, label %for.body.i.i.i.i98
 
 for.body.i.i.i.i98:                               ; preds = %ehcleanup87, %for.body.i.i.i.i98
-  %__first.addr.04.i.i.i.i99 = phi ptr [ %incdec.ptr.i.i.i.i100, %for.body.i.i.i.i98 ], [ %contents.sroa.0.5, %ehcleanup87 ]
+  %__first.addr.04.i.i.i.i99 = phi ptr [ %incdec.ptr.i.i.i.i100, %for.body.i.i.i.i98 ], [ %contents.sroa.0.4, %ehcleanup87 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i99) #19
   %incdec.ptr.i.i.i.i100 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i99, i64 32
-  %cmp.not.i.i.i.i101 = icmp eq ptr %incdec.ptr.i.i.i.i100, %contents.sroa.8.5
+  %cmp.not.i.i.i.i101 = icmp eq ptr %incdec.ptr.i.i.i.i100, %contents.sroa.8.4
   br i1 %cmp.not.i.i.i.i101, label %invoke.cont.i104, label %for.body.i.i.i.i98, !llvm.loop !36
 
 invoke.cont.i104:                                 ; preds = %for.body.i.i.i.i98, %ehcleanup87
-  %tobool.not.i.i.i105 = icmp eq ptr %contents.sroa.0.5, null
+  %tobool.not.i.i.i105 = icmp eq ptr %contents.sroa.0.4, null
   br i1 %tobool.not.i.i.i105, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit107, label %if.then.i.i.i106
 
 if.then.i.i.i106:                                 ; preds = %invoke.cont.i104
-  call void @_ZdlPv(ptr noundef nonnull %contents.sroa.0.5) #22
+  call void @_ZdlPv(ptr noundef nonnull %contents.sroa.0.4) #22
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit107
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit107: ; preds = %invoke.cont.i104, %if.then.i.i.i106
@@ -7983,8 +7983,8 @@ _upb_MiniTable_CopyFieldData.exit24.i:            ; preds = %invoke.cont128
   br label %invoke.cont130
 
 invoke.cont130:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i, %invoke.cont128
-  %ret.2.in.i = phi ptr [ %61, %_upb_MiniTable_CopyFieldData.exit24.i ], [ null, %invoke.cont128 ]
-  invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.159") align 8 %extension132, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.2.in.i, ptr noundef nonnull %errors)
+  %ret.0.in.i = phi ptr [ %61, %_upb_MiniTable_CopyFieldData.exit24.i ], [ null, %invoke.cont128 ]
+  invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.159") align 8 %extension132, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.0.in.i, ptr noundef nonnull %errors)
           to label %invoke.cont133 unwind label %lpad129
 
 invoke.cont133:                                   ; preds = %invoke.cont130
@@ -12425,8 +12425,8 @@ _upb_MiniTable_CopyFieldData.exit24.i:            ; preds = %invoke.cont37
   br label %invoke.cont39
 
 invoke.cont39:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit24.i, %invoke.cont37
-  %ret.2.in.i = phi ptr [ %139, %_upb_MiniTable_CopyFieldData.exit24.i ], [ null, %invoke.cont37 ]
-  invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.159") align 8 %extension, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.2.in.i, ptr noundef nonnull %errors)
+  %ret.0.in.i = phi ptr [ %139, %_upb_MiniTable_CopyFieldData.exit24.i ], [ null, %invoke.cont37 ]
+  invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.159") align 8 %extension, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.0.in.i, ptr noundef nonnull %errors)
           to label %invoke.cont41 unwind label %lpad38
 
 invoke.cont41:                                    ; preds = %invoke.cont39
@@ -12627,8 +12627,8 @@ _upb_MiniTable_CopyFieldData.exit24.i.i:          ; preds = %.noexc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit24.i.i, %.noexc
-  %ret.2.in.i.i = phi ptr [ %166, %_upb_MiniTable_CopyFieldData.exit24.i.i ], [ null, %.noexc ]
-  invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.159") align 8 %extension.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.2.in.i.i, ptr noundef nonnull %errors)
+  %ret.0.in.i.i = phi ptr [ %166, %_upb_MiniTable_CopyFieldData.exit24.i.i ], [ null, %.noexc ]
+  invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.159") align 8 %extension.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.0.in.i.i, ptr noundef nonnull %errors)
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i

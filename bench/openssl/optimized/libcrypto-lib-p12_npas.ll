@@ -107,18 +107,18 @@ if.then15.i:                                      ; preds = %if.else.i
   br i1 %or.cond.i, label %if.then8.critedge, label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then15.i, %if.then12.i
-  %bags.1.i = phi ptr [ %call13.i, %if.then12.i ], [ %call16.i, %if.then15.i ]
+  %bags.3.i = phi ptr [ %call13.i, %if.then12.i ], [ %call16.i, %if.then15.i ]
   %ctx.i = getelementptr inbounds i8, ptr %call9.i, i64 40
   %5 = load ptr, ptr %ctx.i, align 8
   %propq.i = getelementptr inbounds i8, ptr %call9.i, i64 48
   %6 = load ptr, ptr %propq.i, align 8
-  %call18.i.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %bags.1.i) #3
+  %call18.i.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %bags.3.i) #3
   %cmp9.i.i = icmp sgt i32 %call18.i.i, 0
   br i1 %cmp9.i.i, label %for.body.i.i, label %if.end30.i
 
 for.body.i.i:                                     ; preds = %if.end25.i, %for.inc.i.i
   %i.010.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %if.end25.i ]
-  %call3.i.i = call ptr @OPENSSL_sk_value(ptr noundef %bags.1.i, i32 noundef %i.010.i.i) #3
+  %call3.i.i = call ptr @OPENSSL_sk_value(ptr noundef %bags.3.i, i32 noundef %i.010.i.i) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %p8_nid.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %p8_saltlen.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %p8_iter.i.i.i)
@@ -183,7 +183,7 @@ for.inc.i.i:                                      ; preds = %if.end20.i.i.i, %fo
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cipherid.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %shalg.i.i.i)
   %inc.i.i = add nuw nsw i32 %i.010.i.i, 1
-  %call1.i.i = call i32 @OPENSSL_sk_num(ptr noundef %bags.1.i) #3
+  %call1.i.i = call i32 @OPENSSL_sk_num(ptr noundef %bags.3.i) #3
   %cmp.i.i = icmp slt i32 %inc.i.i, %call1.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %if.end30.i, !llvm.loop !4
 
@@ -199,7 +199,7 @@ if.end30.i:                                       ; preds = %for.inc.i.i, %if.en
   br i1 %cmp11.i, label %if.then32.i, label %if.else34.i
 
 if.then32.i:                                      ; preds = %if.end30.i
-  %call33.i = call ptr @PKCS12_pack_p7data(ptr noundef %bags.1.i) #3
+  %call33.i = call ptr @PKCS12_pack_p7data(ptr noundef %bags.3.i) #3
   br label %if.end40.i
 
 if.else34.i:                                      ; preds = %if.end30.i
@@ -208,7 +208,7 @@ if.else34.i:                                      ; preds = %if.end30.i
   %17 = load i32, ptr %pbe_iter.i, align 4
   %18 = load ptr, ptr %ctx.i, align 8
   %19 = load ptr, ptr %propq.i, align 8
-  %call39.i = call ptr @PKCS12_pack_p7encdata_ex(i32 noundef %15, ptr noundef %newpass, i32 noundef -1, ptr noundef null, i32 noundef %16, i32 noundef %17, ptr noundef %bags.1.i, ptr noundef %18, ptr noundef %19) #3
+  %call39.i = call ptr @PKCS12_pack_p7encdata_ex(i32 noundef %15, ptr noundef %newpass, i32 noundef -1, ptr noundef null, i32 noundef %16, i32 noundef %17, ptr noundef %bags.3.i, ptr noundef %18, ptr noundef %19) #3
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.else34.i, %if.then32.i
@@ -222,7 +222,7 @@ lor.lhs.false.i:                                  ; preds = %if.end40.i
   br i1 %tobool45.not.i, label %if.then8.critedge, label %if.end47.i
 
 if.end47.i:                                       ; preds = %lor.lhs.false.i
-  call void @OPENSSL_sk_pop_free(ptr noundef %bags.1.i, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
+  call void @OPENSSL_sk_pop_free(ptr noundef %bags.3.i, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end47.i, %if.else.i
@@ -298,8 +298,8 @@ if.then79.i:                                      ; preds = %if.else77.i
 
 if.then8.critedge:                                ; preds = %if.then12.i, %if.end40.i, %lor.lhs.false.i, %if.then15.i, %if.end5, %if.end.i, %newpass_bags.exit.i, %if.then79.i, %if.else77.i
   %newsafes.045.i.ph = phi ptr [ null, %if.end5 ], [ null, %if.end.i ], [ %call1.i, %newpass_bags.exit.i ], [ %call1.i, %if.then79.i ], [ %call1.i, %if.else77.i ], [ %call1.i, %if.then15.i ], [ %call1.i, %lor.lhs.false.i ], [ %call1.i, %if.end40.i ], [ %call1.i, %if.then12.i ]
-  %bags.343.i.ph = phi ptr [ null, %if.end5 ], [ null, %if.end.i ], [ %bags.1.i, %newpass_bags.exit.i ], [ null, %if.then79.i ], [ null, %if.else77.i ], [ null, %if.then12.i ], [ %bags.1.i, %if.end40.i ], [ %bags.1.i, %lor.lhs.false.i ], [ %call16.i, %if.then15.i ]
-  call void @OPENSSL_sk_pop_free(ptr noundef %bags.343.i.ph, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
+  %bags.043.i.ph = phi ptr [ null, %if.end5 ], [ null, %if.end.i ], [ %bags.3.i, %newpass_bags.exit.i ], [ null, %if.then79.i ], [ null, %if.else77.i ], [ null, %if.then12.i ], [ %bags.3.i, %if.end40.i ], [ %bags.3.i, %lor.lhs.false.i ], [ %call16.i, %if.then15.i ]
+  call void @OPENSSL_sk_pop_free(ptr noundef %bags.043.i.ph, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   call void @OPENSSL_sk_pop_free(ptr noundef %call.i, ptr noundef nonnull @PKCS7_free) #3
   call void @OPENSSL_sk_pop_free(ptr noundef %newsafes.045.i.ph, ptr noundef nonnull @PKCS7_free) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pbe_nid.i)

@@ -2412,17 +2412,17 @@ if.then26:                                        ; preds = %if.end24
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then26, %if.end24
-  %ret.0 = phi i32 [ %call28, %if.then26 ], [ -1, %if.end24 ]
+  %ret.1 = phi i32 [ %call28, %if.then26 ], [ -1, %if.end24 ]
   %4 = load ptr, ptr %object, align 8
   call void @qapi_free_Netdev(ptr noundef %4) #27
   br label %out
 
 out:                                              ; preds = %if.end29, %if.then12, %if.then5
-  %ret.1 = phi i32 [ -1, %if.then12 ], [ %ret.0, %if.end29 ], [ -1, %if.then5 ]
+  %ret.0 = phi i32 [ -1, %if.then12 ], [ %ret.1, %if.end29 ], [ -1, %if.then5 ]
   %substrings.1 = phi ptr [ %call2, %if.then12 ], [ %substrings.0, %if.end29 ], [ %call2, %if.then5 ]
   call void @g_strfreev(ptr noundef %substrings.1) #27
   call void @visit_free(ptr noundef %call) #27
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2767,7 +2767,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %nc.028.us = phi ptr [ %nc.0.us, %for.inc.us ], [ %nc.025, %for.body.lr.ph ]
-  %tail.027.us = phi ptr [ %tail.2.us, %for.inc.us ], [ %filter_list, %for.body.lr.ph ]
+  %tail.027.us = phi ptr [ %tail.1.us, %for.inc.us ], [ %filter_list, %for.body.lr.ph ]
   %0 = load ptr, ptr %nc.028.us, align 8
   %1 = load i32, ptr %0, align 8
   %cmp4.not.us = icmp eq i32 %1, 1
@@ -2795,7 +2795,7 @@ if.end31.us:                                      ; preds = %if.end15.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end15.us, %if.end31.us, %if.end12.us, %for.body.us
-  %tail.2.us = phi ptr [ %tail.027.us, %if.end12.us ], [ %4, %if.end31.us ], [ %tail.027.us, %for.body.us ], [ %tail.027.us, %if.end15.us ]
+  %tail.1.us = phi ptr [ %tail.027.us, %if.end12.us ], [ %4, %if.end31.us ], [ %tail.027.us, %for.body.us ], [ %tail.027.us, %if.end15.us ]
   %next35.us = getelementptr inbounds i8, ptr %nc.028.us, i64 16
   %nc.0.us = load ptr, ptr %next35.us, align 8
   %tobool.not.us = icmp eq ptr %nc.0.us, null

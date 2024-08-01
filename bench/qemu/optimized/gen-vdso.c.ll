@@ -401,7 +401,7 @@ for.inc29.i:                                      ; preds = %sw.bb28.i, %sw.bb.i
 
 for.body36.i:                                     ; preds = %for.inc84.i, %for.body36.lr.ph.i
   %indvars.iv168.i = phi i64 [ 0, %for.body36.lr.ph.i ], [ %indvars.iv.next169.i, %for.inc84.i ]
-  %errors.0141.i = phi i32 [ 0, %for.body36.lr.ph.i ], [ %errors.5.i, %for.inc84.i ]
+  %errors.0141.i = phi i32 [ 0, %for.body36.lr.ph.i ], [ %errors.1.i, %for.inc84.i ]
   %first_segsz.0140.i = phi i32 [ 0, %for.body36.lr.ph.i ], [ %first_segsz.1.i, %for.inc84.i ]
   %arrayidx38.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv168.i
   %63 = load i32, ptr %arrayidx38.i, align 4
@@ -419,7 +419,7 @@ if.then45.i:                                      ; preds = %if.end42.i
   br label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.then45.i, %if.end42.i
-  %errors.1.i = phi i32 [ %inc46.i, %if.then45.i ], [ %errors.0141.i, %if.end42.i ]
+  %errors.2.i = phi i32 [ %inc46.i, %if.then45.i ], [ %errors.0141.i, %if.end42.i ]
   %p_offset.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 4
   %66 = load i32, ptr %p_offset.i, align 4
   %cmp50.not.i = icmp eq i32 %66, 0
@@ -428,11 +428,11 @@ if.end47.i:                                       ; preds = %if.then45.i, %if.en
 if.then52.i:                                      ; preds = %if.end47.i
   %67 = load ptr, ptr @stderr, align 8
   %68 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 33, i64 1, ptr %67) #12
-  %inc54.i = add nsw i32 %errors.1.i, 1
+  %inc54.i = add nsw i32 %errors.2.i, 1
   br label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.then52.i, %if.end47.i
-  %errors.2.i = phi i32 [ %inc54.i, %if.then52.i ], [ %errors.1.i, %if.end47.i ]
+  %errors.3.i = phi i32 [ %inc54.i, %if.then52.i ], [ %errors.2.i, %if.end47.i ]
   %p_vaddr.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 8
   %69 = load i32, ptr %p_vaddr.i, align 4
   %cmp58.not.i = icmp eq i32 %69, 0
@@ -441,11 +441,11 @@ if.end55.i:                                       ; preds = %if.then52.i, %if.en
 if.then60.i:                                      ; preds = %if.end55.i
   %70 = load ptr, ptr @stderr, align 8
   %71 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 37, i64 1, ptr %70) #12
-  %inc62.i = add nsw i32 %errors.2.i, 1
+  %inc62.i = add nsw i32 %errors.3.i, 1
   br label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.then60.i, %if.end55.i
-  %errors.3.i = phi i32 [ %inc62.i, %if.then60.i ], [ %errors.2.i, %if.end55.i ]
+  %errors.4.i = phi i32 [ %inc62.i, %if.then60.i ], [ %errors.3.i, %if.end55.i ]
   %p_filesz.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 16
   %72 = load i32, ptr %p_filesz.i, align 4
   %conv66.i = zext i32 %72 to i64
@@ -458,11 +458,11 @@ if.end63.i:                                       ; preds = %if.then60.i, %if.en
 if.then72.i:                                      ; preds = %if.end63.i
   %74 = load ptr, ptr @stderr, align 8
   %75 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 34, i64 1, ptr %74) #12
-  %inc74.i = add nsw i32 %errors.3.i, 1
+  %inc74.i = add nsw i32 %errors.4.i, 1
   br label %if.end75.i
 
 if.end75.i:                                       ; preds = %if.then72.i, %if.end63.i
-  %errors.4.i = phi i32 [ %inc74.i, %if.then72.i ], [ %errors.3.i, %if.end63.i ]
+  %errors.5.i = phi i32 [ %inc74.i, %if.then72.i ], [ %errors.4.i, %if.end63.i ]
   %p_flags.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 24
   %76 = load i32, ptr %p_flags.i, align 4
   %and.i = and i32 %76, 6
@@ -472,12 +472,12 @@ if.end75.i:                                       ; preds = %if.then72.i, %if.en
 if.then80.i:                                      ; preds = %if.end75.i
   %77 = load ptr, ptr @stderr, align 8
   %78 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 31, i64 1, ptr %77) #12
-  %inc82.i = add nsw i32 %errors.4.i, 1
+  %inc82.i = add nsw i32 %errors.5.i, 1
   br label %for.inc84.i
 
 for.inc84.i:                                      ; preds = %if.then80.i, %if.end75.i, %for.body36.i
   %first_segsz.1.i = phi i32 [ %first_segsz.0140.i, %for.body36.i ], [ %72, %if.then80.i ], [ %72, %if.end75.i ]
-  %errors.5.i = phi i32 [ %errors.0141.i, %for.body36.i ], [ %inc82.i, %if.then80.i ], [ %errors.4.i, %if.end75.i ]
+  %errors.1.i = phi i32 [ %errors.0141.i, %for.body36.i ], [ %inc82.i, %if.then80.i ], [ %errors.5.i, %if.end75.i ]
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
   %exitcond172.not.i = icmp eq i64 %indvars.iv.next169.i, %conv69.i
   br i1 %exitcond172.not.i, label %for.body91.i, label %for.body36.i, !llvm.loop !10
@@ -486,7 +486,7 @@ for.body91.i:                                     ; preds = %for.inc84.i, %for.i
   %indvars.iv173.i = phi i64 [ %indvars.iv.next174.i, %for.inc118.i ], [ 0, %for.inc84.i ]
   %dynamic_ofs.0149.i = phi i32 [ %dynamic_ofs.2.i, %for.inc118.i ], [ 0, %for.inc84.i ]
   %dynamic_addr.0148.i = phi i32 [ %dynamic_addr.2.i, %for.inc118.i ], [ 0, %for.inc84.i ]
-  %errors.6146.i = phi i32 [ %errors.7.i, %for.inc118.i ], [ %errors.5.i, %for.inc84.i ]
+  %errors.6146.i = phi i32 [ %errors.7.i, %for.inc118.i ], [ %errors.1.i, %for.inc84.i ]
   %arrayidx93.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv173.i
   %79 = load i32, ptr %arrayidx93.i, align 4
   switch i32 %79, label %for.inc118.i [
@@ -960,7 +960,7 @@ for.body89.lr.ph.i:                               ; preds = %for.inc82.i
 
 for.body34.i:                                     ; preds = %for.inc82.i, %for.body34.lr.ph.i
   %indvars.iv166.i = phi i64 [ 0, %for.body34.lr.ph.i ], [ %indvars.iv.next167.i, %for.inc82.i ]
-  %errors.0139.i = phi i32 [ 0, %for.body34.lr.ph.i ], [ %errors.5.i67, %for.inc82.i ]
+  %errors.0139.i = phi i32 [ 0, %for.body34.lr.ph.i ], [ %errors.1.i67, %for.inc82.i ]
   %first_segsz.0138.i = phi i32 [ 0, %for.body34.lr.ph.i ], [ %first_segsz.1.i66, %for.inc82.i ]
   %arrayidx36.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv166.i
   %174 = load i32, ptr %arrayidx36.i, align 8
@@ -978,7 +978,7 @@ if.then43.i:                                      ; preds = %if.end40.i
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then43.i, %if.end40.i
-  %errors.1.i116 = phi i32 [ %inc44.i, %if.then43.i ], [ %errors.0139.i, %if.end40.i ]
+  %errors.2.i116 = phi i32 [ %inc44.i, %if.then43.i ], [ %errors.0139.i, %if.end40.i ]
   %p_offset.i117 = getelementptr inbounds i8, ptr %arrayidx36.i, i64 8
   %177 = load i64, ptr %p_offset.i117, align 8
   %cmp48.not.i = icmp eq i64 %177, 0
@@ -987,11 +987,11 @@ if.end45.i:                                       ; preds = %if.then43.i, %if.en
 if.then50.i:                                      ; preds = %if.end45.i
   %178 = load ptr, ptr @stderr, align 8
   %179 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 33, i64 1, ptr %178) #12
-  %inc52.i = add nsw i32 %errors.1.i116, 1
+  %inc52.i = add nsw i32 %errors.2.i116, 1
   br label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.then50.i, %if.end45.i
-  %errors.2.i118 = phi i32 [ %inc52.i, %if.then50.i ], [ %errors.1.i116, %if.end45.i ]
+  %errors.3.i118 = phi i32 [ %inc52.i, %if.then50.i ], [ %errors.2.i116, %if.end45.i ]
   %p_vaddr.i119 = getelementptr inbounds i8, ptr %arrayidx36.i, i64 16
   %180 = load i64, ptr %p_vaddr.i119, align 8
   %cmp56.not.i = icmp eq i64 %180, 0
@@ -1000,11 +1000,11 @@ if.end53.i:                                       ; preds = %if.then50.i, %if.en
 if.then58.i:                                      ; preds = %if.end53.i
   %181 = load ptr, ptr @stderr, align 8
   %182 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 37, i64 1, ptr %181) #12
-  %inc60.i = add nsw i32 %errors.2.i118, 1
+  %inc60.i = add nsw i32 %errors.3.i118, 1
   br label %if.end61.i
 
 if.end61.i:                                       ; preds = %if.then58.i, %if.end53.i
-  %errors.3.i120 = phi i32 [ %inc60.i, %if.then58.i ], [ %errors.2.i118, %if.end53.i ]
+  %errors.4.i120 = phi i32 [ %inc60.i, %if.then58.i ], [ %errors.3.i118, %if.end53.i ]
   %p_filesz.i121 = getelementptr inbounds i8, ptr %arrayidx36.i, i64 32
   %183 = load i64, ptr %p_filesz.i121, align 8
   %conv64.i = trunc i64 %183 to i32
@@ -1017,11 +1017,11 @@ if.end61.i:                                       ; preds = %if.then58.i, %if.en
 if.then70.i:                                      ; preds = %if.end61.i
   %185 = load ptr, ptr @stderr, align 8
   %186 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 34, i64 1, ptr %185) #12
-  %inc72.i = add nsw i32 %errors.3.i120, 1
+  %inc72.i = add nsw i32 %errors.4.i120, 1
   br label %if.end73.i
 
 if.end73.i:                                       ; preds = %if.then70.i, %if.end61.i
-  %errors.4.i123 = phi i32 [ %inc72.i, %if.then70.i ], [ %errors.3.i120, %if.end61.i ]
+  %errors.5.i123 = phi i32 [ %inc72.i, %if.then70.i ], [ %errors.4.i120, %if.end61.i ]
   %p_flags.i124 = getelementptr inbounds i8, ptr %arrayidx36.i, i64 4
   %187 = load i32, ptr %p_flags.i124, align 4
   %and.i125 = and i32 %187, 6
@@ -1031,12 +1031,12 @@ if.end73.i:                                       ; preds = %if.then70.i, %if.en
 if.then78.i:                                      ; preds = %if.end73.i
   %188 = load ptr, ptr @stderr, align 8
   %189 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 31, i64 1, ptr %188) #12
-  %inc80.i = add nsw i32 %errors.4.i123, 1
+  %inc80.i = add nsw i32 %errors.5.i123, 1
   br label %for.inc82.i
 
 for.inc82.i:                                      ; preds = %if.then78.i, %if.end73.i, %for.body34.i
   %first_segsz.1.i66 = phi i32 [ %first_segsz.0138.i, %for.body34.i ], [ %conv64.i, %if.then78.i ], [ %conv64.i, %if.end73.i ]
-  %errors.5.i67 = phi i32 [ %errors.0139.i, %for.body34.i ], [ %inc80.i, %if.then78.i ], [ %errors.4.i123, %if.end73.i ]
+  %errors.1.i67 = phi i32 [ %errors.0139.i, %for.body34.i ], [ %inc80.i, %if.then78.i ], [ %errors.5.i123, %if.end73.i ]
   %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv166.i, 1
   %exitcond170.not.i = icmp eq i64 %indvars.iv.next167.i, %conv67.i
   br i1 %exitcond170.not.i, label %for.body89.lr.ph.i, label %for.body34.i, !llvm.loop !18
@@ -1045,7 +1045,7 @@ for.body89.i:                                     ; preds = %for.inc119.i, %for.
   %indvars.iv171.i = phi i64 [ 0, %for.body89.lr.ph.i ], [ %indvars.iv.next172.i, %for.inc119.i ]
   %dynamic_ofs.0147.i = phi i32 [ 0, %for.body89.lr.ph.i ], [ %dynamic_ofs.2.i74, %for.inc119.i ]
   %dynamic_addr.0146.i = phi i32 [ 0, %for.body89.lr.ph.i ], [ %dynamic_addr.2.i73, %for.inc119.i ]
-  %errors.6144.i = phi i32 [ %errors.5.i67, %for.body89.lr.ph.i ], [ %errors.7.i72, %for.inc119.i ]
+  %errors.6144.i = phi i32 [ %errors.1.i67, %for.body89.lr.ph.i ], [ %errors.7.i72, %for.inc119.i ]
   %arrayidx91.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv171.i
   %190 = load i32, ptr %arrayidx91.i, align 8
   switch i32 %190, label %for.inc119.i [

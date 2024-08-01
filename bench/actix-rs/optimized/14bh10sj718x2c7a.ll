@@ -179,23 +179,23 @@ define hidden void @"_ZN109_$LT$actix_http..header..shared..quality_item..Qualit
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
-  %.01423.i = phi ptr [ %24, %22 ], [ %18, %.lr.ph.preheader.i ]
-  %.01522.i = phi i64 [ %23, %22 ], [ %..i, %.lr.ph.preheader.i ]
-  %19 = load i64, ptr %.01423.i, align 8, !alias.scope !4, !noundef !7
+  %.01422.i = phi ptr [ %24, %22 ], [ %18, %.lr.ph.preheader.i ]
+  %.01521.i = phi i64 [ %23, %22 ], [ %..i, %.lr.ph.preheader.i ]
+  %19 = load i64, ptr %.01422.i, align 8, !alias.scope !4, !noundef !7
   %20 = and i64 %19, -9187201950435737472
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = add nuw i64 %.01522.i, 8
-  %24 = getelementptr inbounds i8, ptr %.01423.i, i64 8
+  %23 = add nuw i64 %.01521.i, 8
+  %24 = getelementptr inbounds i8, ptr %.01422.i, i64 8
   %25 = icmp ult i64 %23, %16
   br i1 %25, label %.lr.ph.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit
 
 .preheader.i:                                     ; preds = %3, %26
   %.sroa.6.0.i = phi i64 [ %27, %26 ], [ %2, %3 ]
-  %.not19.i = icmp eq i64 %.sroa.6.0.i, 0
-  br i1 %.not19.i, label %.lr.ph.split.i.i.preheader, label %26
+  %.not18.i = icmp eq i64 %.sroa.6.0.i, 0
+  br i1 %.not18.i, label %.lr.ph.split.i.i.preheader, label %26
 
 26:                                               ; preds = %.preheader.i
   %27 = add i64 %.sroa.6.0.i, -1
@@ -3085,8 +3085,8 @@ define hidden noundef ptr @"_ZN5alloc2rc17Weak$LT$T$C$A$GT$7upgrade17h3c62f00efb
   unreachable
 
 _ZN5alloc2rc10RcInnerPtr10inc_strong17hac3fcb61ddafeb22E.llvm.13174028157338022411.exit: ; preds = %4, %7, %1
-  %.1 = phi ptr [ null, %1 ], [ null, %4 ], [ %2, %7 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ %2, %7 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5541,8 +5541,8 @@ define noundef zeroext i1 @"_ZN95_$LT$actix_web..http..header..content_range..Co
   br label %48
 
 48:                                               ; preds = %27, %49, %36, %25, %18, %11, %39, %46, %51
-  %.2.shrunk = phi i1 [ %56, %51 ], [ true, %25 ], [ true, %11 ], [ true, %36 ], [ %45, %39 ], [ %47, %46 ], [ true, %18 ], [ true, %49 ], [ true, %27 ]
-  ret i1 %.2.shrunk
+  %.1.shrunk = phi i1 [ %56, %51 ], [ true, %25 ], [ true, %11 ], [ true, %36 ], [ %45, %39 ], [ %47, %46 ], [ true, %18 ], [ true, %49 ], [ true, %27 ]
+  ret i1 %.1.shrunk
 
 49:                                               ; preds = %18
   %50 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.5ecb3d2e9f1ae0be30078354766074af.136, i64 noundef 1)
@@ -6757,8 +6757,8 @@ define hidden void @"_ZN9actix_web4info14ConnectionInfo3new28_$u7b$$u7b$closure$
 
 28:                                               ; preds = %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit.thread50", %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit"
   %.pre.i.i26 = phi i64 [ %.pre.i.i.i, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit.thread50" ], [ %23, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit" ]
-  %.sroa.0.0.i.i54 = phi ptr [ %18, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit.thread50" ], [ %25, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit" ]
-  %.sroa.4.0.i.i53 = phi i64 [ %19, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit.thread50" ], [ %26, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit" ]
+  %.sroa.0.1.i.i54 = phi ptr [ %18, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit.thread50" ], [ %25, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit" ]
+  %.sroa.4.1.i.i53 = phi i64 [ %19, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit.thread50" ], [ %26, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1096)
   %29 = load i64, ptr %7, align 8, !alias.scope !1096, !noundef !7
   switch i64 %29, label %30 [
@@ -6834,8 +6834,8 @@ define hidden void @"_ZN9actix_web4info14ConnectionInfo3new28_$u7b$$u7b$closure$
   br label %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47.thread"
 
 "_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47": ; preds = %._crit_edge.i.i.i45, %44
-  %.sroa.4.0.i.i43 = phi i64 [ %49, %44 ], [ %43, %._crit_edge.i.i.i45 ]
-  %.sroa.0.0.i.i44 = phi ptr [ %48, %44 ], [ %42, %._crit_edge.i.i.i45 ]
+  %.sroa.4.1.i.i43 = phi i64 [ %49, %44 ], [ %43, %._crit_edge.i.i.i45 ]
+  %.sroa.0.1.i.i44 = phi ptr [ %48, %44 ], [ %42, %._crit_edge.i.i.i45 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1102
   br label %59
 
@@ -6845,11 +6845,11 @@ define hidden void @"_ZN9actix_web4info14ConnectionInfo3new28_$u7b$$u7b$closure$
   br label %60
 
 59:                                               ; preds = %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47", %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47.thread57"
-  %.sroa.0.0.i3261 = phi ptr [ %56, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47.thread57" ], [ %.sroa.0.0.i.i44, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47" ]
-  %.sroa.4.0.i3160 = phi i64 [ %57, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47.thread57" ], [ %.sroa.4.0.i.i43, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47" ]
-  store ptr %.sroa.0.0.i.i54, ptr %0, align 8
+  %.sroa.0.0.i3261 = phi ptr [ %56, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47.thread57" ], [ %.sroa.0.1.i.i44, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47" ]
+  %.sroa.4.0.i3160 = phi i64 [ %57, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47.thread57" ], [ %.sroa.4.1.i.i43, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47" ]
+  store ptr %.sroa.0.1.i.i54, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.4.0.i.i53, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.4.1.i.i53, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.0.0.i3261, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -8443,8 +8443,8 @@ _ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit._c
   br label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit"
 
 "_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit", %65, %82, %66
-  %.sroa.0.040 = phi ptr [ %74, %82 ], [ %74, %66 ], [ %28, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit" ], [ %35, %65 ]
-  %.sroa.5.039 = phi ptr [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %82 ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %66 ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.163, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit" ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %65 ]
+  %.sroa.0.140 = phi ptr [ %74, %82 ], [ %74, %66 ], [ %28, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit" ], [ %35, %65 ]
+  %.sroa.5.139 = phi ptr [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %82 ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %66 ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.163, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit" ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %65 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7)
   br label %83
 
@@ -8453,10 +8453,10 @@ _ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit._c
   br label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27"
 
 83:                                               ; preds = %2, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit", %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27"
-  %.sroa.5.1 = phi ptr [ %.sroa.5.039, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27" ], [ undef, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit" ], [ undef, %2 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.040, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27" ], [ null, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit" ], [ null, %2 ]
-  %84 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %85 = insertvalue { ptr, ptr } %84, ptr %.sroa.5.1, 1
+  %.sroa.5.0 = phi ptr [ %.sroa.5.139, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27" ], [ undef, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit" ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.140, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27" ], [ null, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit" ], [ null, %2 ]
+  %84 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %85 = insertvalue { ptr, ptr } %84, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %85
 
 "_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit30": ; preds = %86, %.body

@@ -282,7 +282,7 @@ if.then27:                                        ; preds = %for.end
   br i1 %cmp.i108.not1212, label %if.end44, label %for.body34
 
 for.body34:                                       ; preds = %if.then27, %invoke.cont37.thread
-  %num_non_cold_subtables.01214 = phi i64 [ %43, %invoke.cont37.thread ], [ 0, %if.then27 ]
+  %num_non_cold_subtables.11214 = phi i64 [ %43, %invoke.cont37.thread ], [ 0, %if.then27 ]
   %__begin3.sroa.0.01213 = phi ptr [ %incdec.ptr.i127, %invoke.cont37.thread ], [ %12, %if.then27 ]
   %14 = load ptr, ptr %__begin3.sroa.0.01213, align 8
   %vtable.i = load ptr, ptr %option_provider, align 8
@@ -513,17 +513,17 @@ invoke.cont37:                                    ; preds = %land.lhs.true9.i
   %conv.i52.i = fpext float %42 to double
   %cmp.i53.i = fcmp oge double %conv.i52.i, 5.000000e-03
   %inc = zext i1 %cmp.i53.i to i64
-  %spec.select = add i64 %num_non_cold_subtables.01214, %inc
+  %spec.select = add i64 %num_non_cold_subtables.11214, %inc
   br label %invoke.cont37.thread
 
 invoke.cont37.thread:                             ; preds = %invoke.cont37, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit34.i, %call2.i.i.noexc, %_ZN6google8protobuf8internal12_GLOBAL__N_110HasLazyRepEPKNS0_15FieldDescriptorENS1_17TailCallTableInfo15PerFieldOptionsE.exit.i, %land.lhs.true9.i
-  %43 = phi i64 [ %num_non_cold_subtables.01214, %land.lhs.true9.i ], [ %num_non_cold_subtables.01214, %_ZN6google8protobuf8internal12_GLOBAL__N_110HasLazyRepEPKNS0_15FieldDescriptorENS1_17TailCallTableInfo15PerFieldOptionsE.exit.i ], [ %num_non_cold_subtables.01214, %call2.i.i.noexc ], [ %num_non_cold_subtables.01214, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit34.i ], [ %spec.select, %invoke.cont37 ]
+  %43 = phi i64 [ %num_non_cold_subtables.11214, %land.lhs.true9.i ], [ %num_non_cold_subtables.11214, %_ZN6google8protobuf8internal12_GLOBAL__N_110HasLazyRepEPKNS0_15FieldDescriptorENS1_17TailCallTableInfo15PerFieldOptionsE.exit.i ], [ %num_non_cold_subtables.11214, %call2.i.i.noexc ], [ %num_non_cold_subtables.11214, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit34.i ], [ %spec.select, %invoke.cont37 ]
   %incdec.ptr.i127 = getelementptr inbounds i8, ptr %__begin3.sroa.0.01213, i64 8
   %cmp.i108.not = icmp eq ptr %incdec.ptr.i127, %13
   br i1 %cmp.i108.not, label %if.end44, label %for.body34
 
 if.end44:                                         ; preds = %invoke.cont37.thread, %if.then27, %for.end
-  %num_non_cold_subtables.2 = phi i64 [ 0, %for.end ], [ 0, %if.then27 ], [ %43, %invoke.cont37.thread ]
+  %num_non_cold_subtables.0 = phi i64 [ 0, %for.end ], [ 0, %if.then27 ], [ %43, %invoke.cont37.thread ]
   %_M_finish.i128 = getelementptr inbounds i8, ptr %this, i64 56
   %44 = load ptr, ptr %_M_finish.i128, align 8
   %45 = load ptr, ptr %aux_entries, align 8
@@ -531,12 +531,12 @@ if.end44:                                         ; preds = %invoke.cont37.threa
   %sub.ptr.rhs.cast.i = ptrtoint ptr %45 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %add = add i64 %sub.ptr.div.i, %num_non_cold_subtables.2
+  %add = add i64 %sub.ptr.div.i, %num_non_cold_subtables.0
   %cmp.i144 = icmp ult i64 %sub.ptr.div.i, %add
   br i1 %cmp.i144, label %if.then.i151, label %if.else.i145
 
 if.then.i151:                                     ; preds = %if.end44
-  invoke void @_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %aux_entries, i64 noundef %num_non_cold_subtables.2)
+  invoke void @_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %aux_entries, i64 noundef %num_non_cold_subtables.0)
           to label %invoke.cont52 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.else.i145:                                     ; preds = %if.end44
@@ -2735,11 +2735,11 @@ for.inc283:                                       ; preds = %_ZNSt6vectorIN6goog
 while.cond:                                       ; preds = %for.inc283, %invoke.cont52
   %subtable_aux_idx.0.lcssa = phi i64 [ %sub.ptr.div.i, %invoke.cont52 ], [ %subtable_aux_idx.1, %for.inc283 ]
   %sub287 = sub i64 %subtable_aux_idx.0.lcssa, %sub.ptr.div.i
-  %cmp.i770 = icmp eq i64 %sub287, %num_non_cold_subtables.2
+  %cmp.i770 = icmp eq i64 %sub287, %num_non_cold_subtables.0
   br i1 %cmp.i770, label %while.end, label %cond.false.i771
 
 cond.false.i771:                                  ; preds = %while.cond
-  %call.i774 = invoke noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %sub287, i64 noundef %num_non_cold_subtables.2, ptr noundef nonnull @.str.2)
+  %call.i774 = invoke noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %sub287, i64 noundef %num_non_cold_subtables.0, ptr noundef nonnull @.str.2)
           to label %while.body unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 while.body:                                       ; preds = %cond.false.i771
@@ -3559,7 +3559,7 @@ cleanup.done.i112.i:                              ; preds = %if.then6.i.i
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %cleanup.done.i112.i, %if.then.i.i822, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit128.i.i
-  %ref.tmp65.sroa.3161.1.i = phi i8 [ %conv15.i.i, %cleanup.done.i112.i ], [ %conv.i.i, %if.then.i.i822 ], [ %conv.i.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit128.i.i ]
+  %ref.tmp65.sroa.3161.2.i = phi i8 [ %conv15.i.i, %cleanup.done.i112.i ], [ %conv.i.i, %if.then.i.i822 ], [ %conv.i.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit128.i.i ]
   %395 = load ptr, ptr %type_once_.i.i.i, align 8, !noalias !12
   %tobool.not.i130.i.i = icmp eq ptr %395, null
   br i1 %tobool.not.i130.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit142.i.i, label %if.then.i131.i.i
@@ -4367,7 +4367,7 @@ cond.false461.i.i:                                ; preds = %call295.i.noexc.i, 
   unreachable
 
 invoke.cont67.i:                                  ; preds = %cond.false448.i.i, %cond.true444.i.i, %cond.false436.i.i, %cond.true432.i.i, %cond.false417.i.i, %cond.true413.i.i, %cond.false405.i.i, %cond.true401.i.i, %cond.true393.i.i, %cond.false379.i.i, %cond.true375.i.i, %cond.true369.i.i, %cond.true362.i.i, %cond.false348.i.i, %cond.true344.i.i, %cond.true338.i.i, %cond.true331.i.i, %cond.false317.i.i, %cond.true313.i.i, %cond.true307.i.i, %cond.true300.i.i, %cond.false283.i.i, %cond.true279.i.i, %cond.true273.i.i, %cond.true266.i.i, %cond.false253.i.i, %cond.true249.i.i, %cond.true243.i.i, %cond.false233.i.i, %cond.true229.i.i, %cond.true223.i.i, %cond.false213.i.i, %cond.true209.i.i, %cond.true203.i.i, %cond.false193.i.i, %cond.true189.i.i, %cond.true183.i.i, %cond.false171.i.i, %cond.true167.i.i, %cond.true161.i.i, %cond.false149.i.i, %cond.true145.i.i, %cond.true139.i.i, %cond.false129.i.i, %cond.true125.i.i, %cond.true119.i.i, %cond.false109.i.i, %cond.true105.i.i, %cond.true99.i.i, %cond.false89.i.i, %cond.true85.i.i, %cond.true79.i.i, %cond.false69.i.i, %cond.true65.i.i, %cond.true59.i.i, %cond.false49.i.i, %cond.true45.i.i, %cond.true39.i.i, %cond.false29.i.i, %cond.true25.i.i, %cond.true20.i.i
-  %ref.tmp65.sroa.3161.2.i = phi i8 [ %ref.tmp65.sroa.3161.1.i, %cond.true432.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false436.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true444.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false448.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true393.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true401.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false405.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true413.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false417.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true362.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true369.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true375.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false379.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true331.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true338.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true344.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false348.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true300.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true307.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true313.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false317.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true266.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true273.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true279.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false283.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true161.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true167.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false171.i.i ], [ %conv8.i.i.i, %cond.true223.i.i ], [ %conv8.i.i.i, %cond.true229.i.i ], [ %conv8.i.i.i, %cond.false233.i.i ], [ %conv8.i.i.i, %cond.true243.i.i ], [ %conv8.i.i.i, %cond.true249.i.i ], [ %conv8.i.i.i, %cond.false253.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true203.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true209.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false213.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true183.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true189.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false193.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true139.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true145.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false149.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true119.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true125.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false129.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true99.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true105.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false109.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true79.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true85.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false89.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true59.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true65.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false69.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true39.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true45.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false49.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true20.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.true25.i.i ], [ %ref.tmp65.sroa.3161.1.i, %cond.false29.i.i ]
+  %ref.tmp65.sroa.3161.3.i = phi i8 [ %ref.tmp65.sroa.3161.2.i, %cond.true432.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false436.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true444.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false448.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true393.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true401.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false405.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true413.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false417.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true362.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true369.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true375.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false379.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true331.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true338.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true344.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false348.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true300.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true307.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true313.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false317.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true266.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true273.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true279.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false283.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true161.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true167.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false171.i.i ], [ %conv8.i.i.i, %cond.true223.i.i ], [ %conv8.i.i.i, %cond.true229.i.i ], [ %conv8.i.i.i, %cond.false233.i.i ], [ %conv8.i.i.i, %cond.true243.i.i ], [ %conv8.i.i.i, %cond.true249.i.i ], [ %conv8.i.i.i, %cond.false253.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true203.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true209.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false213.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true183.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true189.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false193.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true139.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true145.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false149.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true119.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true125.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false129.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true99.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true105.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false109.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true79.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true85.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false89.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true59.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true65.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false69.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true39.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true45.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false49.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true20.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.true25.i.i ], [ %ref.tmp65.sroa.3161.2.i, %cond.false29.i.i ]
   %picked.0.ph.i.i = phi i8 [ %cond435.i.i, %cond.true432.i.i ], [ %cond439.i.i, %cond.false436.i.i ], [ %cond447.i.i, %cond.true444.i.i ], [ %cond451.i.i, %cond.false448.i.i ], [ %cond396.i.i, %cond.true393.i.i ], [ %cond404.i.i, %cond.true401.i.i ], [ %cond408.i.i, %cond.false405.i.i ], [ %cond416.i.i, %cond.true413.i.i ], [ %cond420.i.i, %cond.false417.i.i ], [ %cond365.i.i, %cond.true362.i.i ], [ %cond372.i.i, %cond.true369.i.i ], [ %cond378.i.i, %cond.true375.i.i ], [ %cond382.i.i, %cond.false379.i.i ], [ %cond334.i.i, %cond.true331.i.i ], [ %cond341.i.i, %cond.true338.i.i ], [ %cond347.i.i, %cond.true344.i.i ], [ %cond351.i.i, %cond.false348.i.i ], [ %cond303.i.i, %cond.true300.i.i ], [ %cond310.i.i, %cond.true307.i.i ], [ %cond316.i.i, %cond.true313.i.i ], [ %cond320.i.i, %cond.false317.i.i ], [ %cond269.i.i, %cond.true266.i.i ], [ %cond276.i.i, %cond.true273.i.i ], [ %cond282.i.i, %cond.true279.i.i ], [ %cond286.i.i, %cond.false283.i.i ], [ %cond164.i.i, %cond.true161.i.i ], [ %cond170.i.i, %cond.true167.i.i ], [ %cond174.i.i, %cond.false171.i.i ], [ %cond226.i.i, %cond.true223.i.i ], [ %cond232.i.i, %cond.true229.i.i ], [ %cond236.i.i, %cond.false233.i.i ], [ %cond246.i.i, %cond.true243.i.i ], [ %cond252.i.i, %cond.true249.i.i ], [ %cond256.i.i, %cond.false253.i.i ], [ %cond206.i.i, %cond.true203.i.i ], [ %cond212.i.i, %cond.true209.i.i ], [ %cond216.i.i, %cond.false213.i.i ], [ %cond186.i.i, %cond.true183.i.i ], [ %cond192.i.i, %cond.true189.i.i ], [ %cond196.i.i, %cond.false193.i.i ], [ %cond142.i.i, %cond.true139.i.i ], [ %cond148.i.i, %cond.true145.i.i ], [ %cond152.i.i, %cond.false149.i.i ], [ %cond122.i.i, %cond.true119.i.i ], [ %cond128.i.i, %cond.true125.i.i ], [ %cond132.i.i, %cond.false129.i.i ], [ %cond102.i.i, %cond.true99.i.i ], [ %cond108.i.i, %cond.true105.i.i ], [ %cond112.i.i, %cond.false109.i.i ], [ %cond82.i.i, %cond.true79.i.i ], [ %cond88.i.i, %cond.true85.i.i ], [ %cond92.i.i, %cond.false89.i.i ], [ %cond62.i.i, %cond.true59.i.i ], [ %cond68.i.i, %cond.true65.i.i ], [ %cond72.i.i, %cond.false69.i.i ], [ %cond42.i.i, %cond.true39.i.i ], [ %cond48.i.i, %cond.true45.i.i ], [ %cond52.i.i, %cond.false49.i.i ], [ %cond.i.i821, %cond.true20.i.i ], [ %cond28.i.i, %cond.true25.i.i ], [ %cond32.i.i, %cond.false29.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp10.i.i), !noalias !6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp463.i.i), !noalias !6
@@ -4375,7 +4375,7 @@ invoke.cont67.i:                                  ; preds = %cond.false448.i.i, 
   %ref.tmp65.sroa.3.0.add.ptr.i78.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i78.i, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp65.sroa.3.0.add.ptr.i78.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp65.sroa.3.i, i64 16, i1 false), !noalias !6
   %ref.tmp65.sroa.3161.0.add.ptr.i78.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i78.i, i64 17
-  store i8 %ref.tmp65.sroa.3161.2.i, ptr %ref.tmp65.sroa.3161.0.add.ptr.i78.sroa_idx.i, align 1, !noalias !6
+  store i8 %ref.tmp65.sroa.3161.3.i, ptr %ref.tmp65.sroa.3161.0.add.ptr.i78.sroa_idx.i, align 1, !noalias !6
   %ref.tmp65.sroa.6.0.add.ptr.i78.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i78.i, i64 18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp65.sroa.6.0.add.ptr.i78.sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp65.sroa.6.i, i64 6, i1 false), !noalias !6
   store i8 1, ptr %_M_index.i.i.i.i.i, align 8, !noalias !6

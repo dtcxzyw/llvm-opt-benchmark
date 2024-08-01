@@ -584,8 +584,8 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
 .lr.ph736:                                        ; preds = %.lr.ph736.preheader, %258
   %indvars.iv780 = phi i64 [ 0, %.lr.ph736.preheader ], [ %indvars.iv.next781, %258 ]
   %.0522735 = phi i64 [ 0, %.lr.ph736.preheader ], [ %.1, %258 ]
-  %.2536734 = phi i32 [ %242, %.lr.ph736.preheader ], [ %259, %258 ]
-  %247 = and i32 %.2536734, 1
+  %.3537734 = phi i32 [ %242, %.lr.ph736.preheader ], [ %259, %258 ]
+  %247 = and i32 %.3537734, 1
   %.not651 = icmp eq i32 %247, 0
   br i1 %.not651, label %258, label %248
 
@@ -607,7 +607,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
 
 258:                                              ; preds = %256, %.lr.ph736
   %.1 = phi i64 [ %257, %256 ], [ %.0522735, %.lr.ph736 ]
-  %259 = lshr i32 %.2536734, 1
+  %259 = lshr i32 %.3537734, 1
   %indvars.iv.next781 = add nuw nsw i64 %indvars.iv780, 1
   %exitcond784.not = icmp eq i64 %indvars.iv.next781, %wide.trip.count783
   br i1 %exitcond784.not, label %.loopexit692, label %.lr.ph736
@@ -632,7 +632,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
 
 .lr.ph741:                                        ; preds = %.lr.ph741.preheader, %302
   %indvars.iv785 = phi i64 [ 0, %.lr.ph741.preheader ], [ %indvars.iv.next786, %302 ]
-  %.4740 = phi i32 [ 0, %.lr.ph741.preheader ], [ %.5, %302 ]
+  %.4740 = phi i32 [ 0, %.lr.ph741.preheader ], [ %.6, %302 ]
   %.4538739 = phi i32 [ %242, %.lr.ph741.preheader ], [ %303, %302 ]
   %.0551737 = phi i32 [ 0, %.lr.ph741.preheader ], [ %.1552, %302 ]
   %264 = and i32 %.4538739, 1
@@ -697,7 +697,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
 
 302:                                              ; preds = %275, %291, %293
   %.pn = phi i32 [ %276, %291 ], [ %276, %275 ], [ %295, %293 ]
-  %.5 = phi i32 [ %292, %291 ], [ %.4740, %275 ], [ %.4740, %293 ]
+  %.6 = phi i32 [ %292, %291 ], [ %.4740, %275 ], [ %.4740, %293 ]
   %.1552 = add i32 %.pn, %.0551737
   %303 = lshr i32 %.4538739, 1
   %indvars.iv.next786 = add nuw nsw i64 %indvars.iv785, 1
@@ -706,7 +706,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
 
 .loopexit:                                        ; preds = %302
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26) #7
-  %.not634 = icmp eq i32 %.5, 0
+  %.not634 = icmp eq i32 %.6, 0
   br i1 %.not634, label %310, label %.preheader689
 
 .preheader689:                                    ; preds = %.loopexit.thread815, %.loopexit
@@ -1094,7 +1094,7 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   br label %5
 
 5:                                                ; preds = %4, %62
-  %.05968 = phi i8 [ %0, %4 ], [ %.3, %62 ]
+  %.05968 = phi i8 [ %0, %4 ], [ %.1, %62 ]
   %.06067 = phi i32 [ 0, %4 ], [ %.262, %62 ]
   %6 = sext i32 %.06067 to i64
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
@@ -1169,8 +1169,8 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   %43 = getelementptr inbounds i8, ptr %2, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, -64
-  %.1.v = select i1 %45, i8 1, i8 -1
-  %.1 = add i8 %.1.v, %.05968
+  %.2.v = select i1 %45, i8 1, i8 -1
+  %.2 = add i8 %.2.v, %.05968
   %46 = add nsw i32 %.06067, 2
   br label %62
 
@@ -1193,7 +1193,7 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   br label %58
 
 58:                                               ; preds = %56, %54
-  %.2 = phi i8 [ %55, %54 ], [ %57, %56 ]
+  %.3 = phi i8 [ %55, %54 ], [ %57, %56 ]
   %59 = add nsw i32 %.06067, 3
   br label %62
 
@@ -1204,7 +1204,7 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
 
 62:                                               ; preds = %5, %5, %5, %12, %58, %41, %35, %32, %26, %20, %17, %14
   %.262 = phi i32 [ %59, %58 ], [ %46, %41 ], [ %40, %35 ], [ %34, %32 ], [ %31, %26 ], [ %25, %20 ], [ %19, %17 ], [ %16, %14 ], [ %9, %5 ], [ %9, %5 ], [ %9, %5 ], [ %13, %12 ]
-  %.3 = phi i8 [ %.2, %58 ], [ %.1, %41 ], [ %39, %35 ], [ %33, %32 ], [ %30, %26 ], [ %24, %20 ], [ %18, %17 ], [ %15, %14 ], [ %.05968, %5 ], [ %.05968, %5 ], [ %.05968, %5 ], [ %.05968, %12 ]
+  %.1 = phi i8 [ %.3, %58 ], [ %.2, %41 ], [ %39, %35 ], [ %33, %32 ], [ %30, %26 ], [ %24, %20 ], [ %18, %17 ], [ %15, %14 ], [ %.05968, %5 ], [ %.05968, %5 ], [ %.05968, %5 ], [ %.05968, %12 ]
   %63 = icmp slt i32 %.262, 36
   br i1 %63, label %5, label %64
 
@@ -1223,12 +1223,12 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %68
-  %.05965.ph = phi i8 [ %.05968, %60 ], [ %.3, %68 ]
+  %.05965.ph = phi i8 [ %.05968, %60 ], [ %.1, %68 ]
   store i32 1, ptr %3, align 4
   br label %69
 
 69:                                               ; preds = %.sink.split, %65
-  %.05965 = phi i8 [ %.3, %65 ], [ %.05965.ph, %.sink.split ]
+  %.05965 = phi i8 [ %.1, %65 ], [ %.05965.ph, %.sink.split ]
   ret i8 %.05965
 }
 

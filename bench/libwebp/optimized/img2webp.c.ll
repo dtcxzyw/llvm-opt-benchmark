@@ -121,12 +121,12 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br label %.loopexit
 
 36:                                               ; preds = %.lr.ph, %156
-  %.0164393 = phi i32 [ %16, %.lr.ph ], [ %.1, %156 ]
+  %.1393 = phi i32 [ %16, %.lr.ph ], [ %.2, %156 ]
   %.0165392 = phi i32 [ 0, %.lr.ph ], [ %.1166, %156 ]
   %.0167391 = phi i32 [ 0, %.lr.ph ], [ %157, %156 ]
-  %.0179390 = phi i32 [ 0, %.lr.ph ], [ %.2181, %156 ]
+  %.1180390 = phi i32 [ 0, %.lr.ph ], [ %.3182, %156 ]
   %.0191389 = phi i32 [ 0, %.lr.ph ], [ %.2193, %156 ]
-  %.0198388 = phi ptr [ null, %.lr.ph ], [ %.2200, %156 ]
+  %.1199388 = phi ptr [ null, %.lr.ph ], [ %.3201, %156 ]
   %37 = sext i32 %.0167391 to i64
   %38 = getelementptr inbounds ptr, ptr %20, i64 %37
   %39 = load ptr, ptr %38, align 8
@@ -363,9 +363,9 @@ sub_2312:                                         ; preds = %sub_1311
   br label %.loopexit
 
 152:                                              ; preds = %.tail304, %65, %85, %98, %111, %104, %95, %75, %56
-  %.1199.ph = phi ptr [ %.0198388, %.tail304 ], [ %59, %56 ], [ %.0198388, %65 ], [ %.0198388, %75 ], [ %.0198388, %85 ], [ %.0198388, %95 ], [ %.0198388, %98 ], [ %.0198388, %104 ], [ %.0198388, %111 ]
+  %.2200.ph = phi ptr [ %.1199388, %.tail304 ], [ %59, %56 ], [ %.1199388, %65 ], [ %.1199388, %75 ], [ %.1199388, %85 ], [ %.1199388, %95 ], [ %.1199388, %98 ], [ %.1199388, %104 ], [ %.1199388, %111 ]
   %.1192.ph = phi i32 [ 1, %.tail304 ], [ %.0191389, %56 ], [ %.0191389, %65 ], [ %.0191389, %75 ], [ %.0191389, %85 ], [ %.0191389, %95 ], [ %.0191389, %98 ], [ %.0191389, %104 ], [ %.0191389, %111 ]
-  %.1180.ph = phi i32 [ %.0179390, %.tail304 ], [ %.0179390, %56 ], [ %.0179390, %65 ], [ %.0179390, %75 ], [ %89, %85 ], [ %.0179390, %95 ], [ %.0179390, %98 ], [ %.0179390, %104 ], [ %.0179390, %111 ]
+  %.2181.ph = phi i32 [ %.1180390, %.tail304 ], [ %.1180390, %56 ], [ %.1180390, %65 ], [ %.1180390, %75 ], [ %89, %85 ], [ %.1180390, %95 ], [ %.1180390, %98 ], [ %.1180390, %104 ], [ %.1180390, %111 ]
   %.1168.ph = phi i32 [ %.0167391, %.tail304 ], [ %54, %56 ], [ %63, %65 ], [ %73, %75 ], [ %83, %85 ], [ %.0167391, %95 ], [ %.0167391, %98 ], [ %102, %104 ], [ %.0167391, %111 ]
   %.pr = load i32, ptr %12, align 4
   %.not253 = icmp eq i32 %.pr, 0
@@ -378,12 +378,12 @@ sub_2312:                                         ; preds = %sub_1311
   br label %156
 
 156:                                              ; preds = %36, %153, %131
-  %.2200 = phi ptr [ %.0198388, %131 ], [ %.1199.ph, %153 ], [ %.0198388, %36 ]
+  %.3201 = phi ptr [ %.1199388, %131 ], [ %.2200.ph, %153 ], [ %.1199388, %36 ]
   %.2193 = phi i32 [ %.0191389, %131 ], [ %.1192.ph, %153 ], [ %.0191389, %36 ]
-  %.2181 = phi i32 [ %.0179390, %131 ], [ %.1180.ph, %153 ], [ %.0179390, %36 ]
+  %.3182 = phi i32 [ %.1180390, %131 ], [ %.2181.ph, %153 ], [ %.1180390, %36 ]
   %.2169 = phi i32 [ %.0167391, %131 ], [ %.1168.ph, %153 ], [ %.0167391, %36 ]
   %.1166 = phi i32 [ %.0165392, %131 ], [ %.0165392, %153 ], [ 1, %36 ]
-  %.1 = phi i32 [ %.0164393, %131 ], [ 1, %153 ], [ %.0164393, %36 ]
+  %.2 = phi i32 [ %.1393, %131 ], [ 1, %153 ], [ %.1393, %36 ]
   %157 = add nsw i32 %.2169, 1
   %158 = icmp slt i32 %157, %18
   br i1 %158, label %36, label %._crit_edge, !llvm.loop !5
@@ -393,16 +393,16 @@ sub_2312:                                         ; preds = %sub_1311
   br i1 %.not230, label %._crit_edge.thread, label %161
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.0164.lcssa473 = phi i32 [ %.1, %._crit_edge ], [ %16, %.preheader ]
-  %.0179.lcssa472 = phi i32 [ %.2181, %._crit_edge ], [ 0, %.preheader ]
-  %.0198.lcssa471 = phi ptr [ %.2200, %._crit_edge ], [ null, %.preheader ]
+  %.1.lcssa473 = phi i32 [ %.2, %._crit_edge ], [ %16, %.preheader ]
+  %.1180.lcssa472 = phi i32 [ %.3182, %._crit_edge ], [ 0, %.preheader ]
+  %.1199.lcssa471 = phi ptr [ %.3201, %._crit_edge ], [ null, %.preheader ]
   %159 = load ptr, ptr @stderr, align 8
   %160 = call i64 @fwrite(ptr nonnull @.str.16, i64 43, i64 1, ptr %159) #8
   br label %.loopexit
 
 161:                                              ; preds = %._crit_edge
   store i32 1, ptr %8, align 4
-  %162 = icmp ne i32 %.1, 0
+  %162 = icmp ne i32 %.2, 0
   %163 = and i1 %162, %26
   br i1 %163, label %.lr.ph409, label %._crit_edge410
 
@@ -417,12 +417,12 @@ sub_2312:                                         ; preds = %sub_1311
 
 169:                                              ; preds = %.lr.ph409, %290
   %.3170406 = phi i32 [ 0, %.lr.ph409 ], [ %291, %290 ]
-  %.0173405 = phi i32 [ 0, %.lr.ph409 ], [ %.2175, %290 ]
-  %.0176404 = phi i32 [ 0, %.lr.ph409 ], [ %.2178, %290 ]
+  %.0173405 = phi i32 [ 0, %.lr.ph409 ], [ %.1174, %290 ]
+  %.0176404 = phi i32 [ 0, %.lr.ph409 ], [ %.1177, %290 ]
   %.0183403 = phi i32 [ 0, %.lr.ph409 ], [ %.1184, %290 ]
-  %.0185402 = phi i32 [ 100, %.lr.ph409 ], [ %.2187, %290 ]
-  %.0188400 = phi i32 [ 0, %.lr.ph409 ], [ %.1189, %290 ]
-  %.0194398 = phi ptr [ null, %.lr.ph409 ], [ %.2196, %290 ]
+  %.0185402 = phi i32 [ 100, %.lr.ph409 ], [ %.1186, %290 ]
+  %.1189400 = phi i32 [ 0, %.lr.ph409 ], [ %.2190, %290 ]
+  %.1195398 = phi ptr [ null, %.lr.ph409 ], [ %.2196, %290 ]
   %170 = sext i32 %.3170406 to i64
   %171 = getelementptr inbounds ptr, ptr %20, i64 %170
   %172 = load ptr, ptr %171, align 8
@@ -585,8 +585,8 @@ sub_2327:                                         ; preds = %sub_1326
   br label %244
 
 244:                                              ; preds = %186, %184, %217, %233, %241, %201, %179, %181
-  %.1186.ph = phi i32 [ %.0185402, %181 ], [ %.0185402, %179 ], [ %.0185402, %186 ], [ %.0185402, %184 ], [ %.0185402, %201 ], [ %.0185402, %217 ], [ %237, %233 ], [ %.0185402, %241 ]
-  %.4171.ph = phi i32 [ %.3170406, %181 ], [ %.3170406, %179 ], [ %.3170406, %186 ], [ %.3170406, %184 ], [ %199, %201 ], [ %215, %217 ], [ %231, %233 ], [ %.3170406, %241 ]
+  %.2187.ph = phi i32 [ %.0185402, %181 ], [ %.0185402, %179 ], [ %.0185402, %186 ], [ %.0185402, %184 ], [ %.0185402, %201 ], [ %.0185402, %217 ], [ %237, %233 ], [ %.0185402, %241 ]
+  %.5172.ph = phi i32 [ %.3170406, %181 ], [ %.3170406, %179 ], [ %.3170406, %186 ], [ %.3170406, %184 ], [ %199, %201 ], [ %215, %217 ], [ %231, %233 ], [ %.3170406, %241 ]
   %.pr274 = load i32, ptr %13, align 4
   %.not243 = icmp eq i32 %.pr274, 0
   br i1 %.not243, label %290, label %.loopexit
@@ -632,7 +632,7 @@ ReadImage.exit:                                   ; preds = %250
   br i1 %.not232, label %.loopexit, label %260
 
 260:                                              ; preds = %ReadImage.exit
-  %261 = icmp eq ptr %.0194398, null
+  %261 = icmp eq ptr %.1195398, null
   br i1 %261, label %262, label %269
 
 262:                                              ; preds = %260
@@ -648,33 +648,33 @@ ReadImage.exit:                                   ; preds = %250
   br label %.critedge.thread
 
 269:                                              ; preds = %262, %260
-  %.1195.ph = phi ptr [ %.0194398, %260 ], [ %265, %262 ]
-  %.1177.ph = phi i32 [ %.0176404, %260 ], [ %263, %262 ]
-  %.1174.ph = phi i32 [ %.0173405, %260 ], [ %264, %262 ]
+  %.3197.ph = phi ptr [ %.1195398, %260 ], [ %265, %262 ]
+  %.2178.ph = phi i32 [ %.0176404, %260 ], [ %263, %262 ]
+  %.2175.ph = phi i32 [ %.0173405, %260 ], [ %264, %262 ]
   %270 = load i32, ptr %164, align 8
-  %271 = icmp eq i32 %.1177.ph, %270
+  %271 = icmp eq i32 %.2178.ph, %270
   %272 = load i32, ptr %165, align 4
-  %273 = icmp eq i32 %.1174.ph, %272
+  %273 = icmp eq i32 %.2175.ph, %272
   %274 = select i1 %271, i1 %273, i1 false
   br i1 %274, label %.critedge262, label %275
 
 275:                                              ; preds = %269
   %276 = load ptr, ptr @stderr, align 8
-  %277 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.26, i32 noundef %.0188400, i32 noundef %270, i32 noundef %272, i32 noundef %.1177.ph, i32 noundef %.1174.ph) #10
+  %277 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.26, i32 noundef %.1189400, i32 noundef %270, i32 noundef %272, i32 noundef %.2178.ph, i32 noundef %.2175.ph) #10
   br label %.critedge.thread
 
 .critedge262:                                     ; preds = %269
-  %278 = call i32 @WebPAnimEncoderAdd(ptr noundef nonnull %.1195.ph, ptr noundef nonnull %9, i32 noundef %.0183403, ptr noundef nonnull %8) #7
+  %278 = call i32 @WebPAnimEncoderAdd(ptr noundef nonnull %.3197.ph, ptr noundef nonnull %9, i32 noundef %.0183403, ptr noundef nonnull %8) #7
   %.not233 = icmp eq i32 %278, 0
   br i1 %.not233, label %279, label %282
 
 279:                                              ; preds = %.critedge262
   %280 = load ptr, ptr @stderr, align 8
-  %281 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %280, ptr noundef nonnull @.str.27, i32 noundef %.0188400) #10
+  %281 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %280, ptr noundef nonnull @.str.27, i32 noundef %.1189400) #10
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %279, %275, %266
-  %.1195287.ph = phi ptr [ null, %266 ], [ %.1195.ph, %275 ], [ %.1195.ph, %279 ]
+  %.3197287.ph = phi ptr [ null, %266 ], [ %.3197.ph, %275 ], [ %.3197.ph, %279 ]
   call void @WebPPictureFree(ptr noundef nonnull %9) #7
   br label %.loopexit
 
@@ -685,40 +685,40 @@ ReadImage.exit:                                   ; preds = %250
 283:                                              ; preds = %282
   %284 = load ptr, ptr @stderr, align 8
   %285 = load ptr, ptr %171, align 8
-  %286 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %284, ptr noundef nonnull @.str.28, i32 noundef %.0188400, i32 noundef %.0183403, ptr noundef %285) #10
+  %286 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %284, ptr noundef nonnull @.str.28, i32 noundef %.1189400, i32 noundef %.0183403, ptr noundef %285) #10
   br label %287
 
 287:                                              ; preds = %283, %282
   %288 = add nsw i32 %.0183403, %.0185402
-  %289 = add nsw i32 %.0188400, 1
+  %289 = add nsw i32 %.1189400, 1
   br label %290
 
 290:                                              ; preds = %244, %169, %287
-  %.2196 = phi ptr [ %.0194398, %169 ], [ %.0194398, %244 ], [ %.1195.ph, %287 ]
-  %.1189 = phi i32 [ %.0188400, %169 ], [ %.0188400, %244 ], [ %289, %287 ]
-  %.2187 = phi i32 [ %.0185402, %169 ], [ %.1186.ph, %244 ], [ %.0185402, %287 ]
+  %.2196 = phi ptr [ %.1195398, %169 ], [ %.1195398, %244 ], [ %.3197.ph, %287 ]
+  %.2190 = phi i32 [ %.1189400, %169 ], [ %.1189400, %244 ], [ %289, %287 ]
+  %.1186 = phi i32 [ %.0185402, %169 ], [ %.2187.ph, %244 ], [ %.0185402, %287 ]
   %.1184 = phi i32 [ %.0183403, %169 ], [ %.0183403, %244 ], [ %288, %287 ]
-  %.2178 = phi i32 [ %.0176404, %169 ], [ %.0176404, %244 ], [ %.1177.ph, %287 ]
-  %.2175 = phi i32 [ %.0173405, %169 ], [ %.0173405, %244 ], [ %.1174.ph, %287 ]
-  %.5172 = phi i32 [ %.3170406, %169 ], [ %.4171.ph, %244 ], [ %.3170406, %287 ]
-  %291 = add nsw i32 %.5172, 1
+  %.1177 = phi i32 [ %.0176404, %169 ], [ %.0176404, %244 ], [ %.2178.ph, %287 ]
+  %.1174 = phi i32 [ %.0173405, %169 ], [ %.0173405, %244 ], [ %.2175.ph, %287 ]
+  %.4171 = phi i32 [ %.3170406, %169 ], [ %.5172.ph, %244 ], [ %.3170406, %287 ]
+  %291 = add nsw i32 %.4171, 1
   %292 = icmp slt i32 %291, %18
   br i1 %292, label %169, label %._crit_edge410, !llvm.loop !7
 
 ._crit_edge410:                                   ; preds = %290, %161
-  %.0194.lcssa = phi ptr [ null, %161 ], [ %.2196, %290 ]
-  %.0188.lcssa = phi i32 [ 0, %161 ], [ %.1189, %290 ]
+  %.1195.lcssa = phi ptr [ null, %161 ], [ %.2196, %290 ]
+  %.1189.lcssa = phi i32 [ 0, %161 ], [ %.2190, %290 ]
   %.0183.lcssa = phi i32 [ 0, %161 ], [ %.1184, %290 ]
   %.lcssa337 = phi i1 [ %162, %161 ], [ true, %290 ]
   br i1 %.lcssa337, label %293, label %.critedge264.thread
 
 293:                                              ; preds = %._crit_edge410
-  %294 = call i32 @WebPAnimEncoderAdd(ptr noundef %.0194.lcssa, ptr noundef null, i32 noundef %.0183.lcssa, ptr noundef null) #7
+  %294 = call i32 @WebPAnimEncoderAdd(ptr noundef %.1195.lcssa, ptr noundef null, i32 noundef %.0183.lcssa, ptr noundef null) #7
   %.not301 = icmp eq i32 %294, 0
   br i1 %.not301, label %.critedge264.thread, label %.critedge264
 
 .critedge264:                                     ; preds = %293
-  %295 = call i32 @WebPAnimEncoderAssemble(ptr noundef %.0194.lcssa, ptr noundef nonnull %10) #7
+  %295 = call i32 @WebPAnimEncoderAssemble(ptr noundef %.1195.lcssa, ptr noundef nonnull %10) #7
   %.not302 = icmp eq i32 %295, 0
   br i1 %.not302, label %.critedge264.thread, label %.loopexit
 
@@ -728,14 +728,14 @@ ReadImage.exit:                                   ; preds = %250
   br label %.loopexit
 
 .loopexit:                                        ; preds = %152, %ReadImage.exit, %244, %.critedge.thread, %ReadImage.exit.thread, %.thread275, %.thread, %.critedge264, %.critedge264.thread, %247, %._crit_edge.thread, %133, %33
-  %.3201 = phi ptr [ %.0198388, %133 ], [ %.2200, %247 ], [ %.2200, %.critedge264 ], [ %.2200, %.critedge264.thread ], [ %.0198.lcssa471, %._crit_edge.thread ], [ null, %33 ], [ %.0198388, %.thread ], [ %.2200, %.thread275 ], [ %.2200, %ReadImage.exit.thread ], [ %.2200, %.critedge.thread ], [ %.2200, %244 ], [ %.2200, %ReadImage.exit ], [ %.1199.ph, %152 ]
-  %.3197 = phi ptr [ null, %133 ], [ %.0194398, %247 ], [ %.0194.lcssa, %.critedge264 ], [ %.0194.lcssa, %.critedge264.thread ], [ null, %._crit_edge.thread ], [ null, %33 ], [ null, %.thread ], [ %.0194398, %.thread275 ], [ %.0194398, %ReadImage.exit.thread ], [ %.1195287.ph, %.critedge.thread ], [ %.0194398, %244 ], [ %.0194398, %ReadImage.exit ], [ null, %152 ]
-  %.2190 = phi i32 [ 0, %133 ], [ %.0188400, %247 ], [ %.0188.lcssa, %.critedge264 ], [ %.0188.lcssa, %.critedge264.thread ], [ 0, %._crit_edge.thread ], [ 0, %33 ], [ 0, %.thread ], [ %.0188400, %.thread275 ], [ %.0188400, %ReadImage.exit.thread ], [ %.0188400, %.critedge.thread ], [ %.0188400, %244 ], [ %.0188400, %ReadImage.exit ], [ 0, %152 ]
-  %.3182 = phi i32 [ %.0179390, %133 ], [ %.2181, %247 ], [ %.2181, %.critedge264 ], [ %.2181, %.critedge264.thread ], [ %.0179.lcssa472, %._crit_edge.thread ], [ 0, %33 ], [ %89, %.thread ], [ %.2181, %.thread275 ], [ %.2181, %ReadImage.exit.thread ], [ %.2181, %.critedge.thread ], [ %.2181, %244 ], [ %.2181, %ReadImage.exit ], [ %.1180.ph, %152 ]
-  %.7 = phi i32 [ %.0164393, %133 ], [ 0, %247 ], [ 1, %.critedge264 ], [ 0, %.critedge264.thread ], [ %.0164.lcssa473, %._crit_edge.thread ], [ 0, %33 ], [ 0, %.thread ], [ 0, %.thread275 ], [ 0, %ReadImage.exit.thread ], [ 0, %.critedge.thread ], [ 0, %244 ], [ 0, %ReadImage.exit ], [ 0, %152 ]
-  call void @WebPAnimEncoderDelete(ptr noundef %.3197) #7
-  %298 = icmp ne i32 %.7, 0
-  %299 = icmp sgt i32 %.3182, 0
+  %.0198 = phi ptr [ %.1199388, %133 ], [ %.3201, %247 ], [ %.3201, %.critedge264 ], [ %.3201, %.critedge264.thread ], [ %.1199.lcssa471, %._crit_edge.thread ], [ null, %33 ], [ %.1199388, %.thread ], [ %.3201, %.thread275 ], [ %.3201, %ReadImage.exit.thread ], [ %.3201, %.critedge.thread ], [ %.3201, %244 ], [ %.3201, %ReadImage.exit ], [ %.2200.ph, %152 ]
+  %.0194 = phi ptr [ null, %133 ], [ %.1195398, %247 ], [ %.1195.lcssa, %.critedge264 ], [ %.1195.lcssa, %.critedge264.thread ], [ null, %._crit_edge.thread ], [ null, %33 ], [ null, %.thread ], [ %.1195398, %.thread275 ], [ %.1195398, %ReadImage.exit.thread ], [ %.3197287.ph, %.critedge.thread ], [ %.1195398, %244 ], [ %.1195398, %ReadImage.exit ], [ null, %152 ]
+  %.0188 = phi i32 [ 0, %133 ], [ %.1189400, %247 ], [ %.1189.lcssa, %.critedge264 ], [ %.1189.lcssa, %.critedge264.thread ], [ 0, %._crit_edge.thread ], [ 0, %33 ], [ 0, %.thread ], [ %.1189400, %.thread275 ], [ %.1189400, %ReadImage.exit.thread ], [ %.1189400, %.critedge.thread ], [ %.1189400, %244 ], [ %.1189400, %ReadImage.exit ], [ 0, %152 ]
+  %.0179 = phi i32 [ %.1180390, %133 ], [ %.3182, %247 ], [ %.3182, %.critedge264 ], [ %.3182, %.critedge264.thread ], [ %.1180.lcssa472, %._crit_edge.thread ], [ 0, %33 ], [ %89, %.thread ], [ %.3182, %.thread275 ], [ %.3182, %ReadImage.exit.thread ], [ %.3182, %.critedge.thread ], [ %.3182, %244 ], [ %.3182, %ReadImage.exit ], [ %.2181.ph, %152 ]
+  %.0164 = phi i32 [ %.1393, %133 ], [ 0, %247 ], [ 1, %.critedge264 ], [ 0, %.critedge264.thread ], [ %.1.lcssa473, %._crit_edge.thread ], [ 0, %33 ], [ 0, %.thread ], [ 0, %.thread275 ], [ 0, %ReadImage.exit.thread ], [ 0, %.critedge.thread ], [ 0, %244 ], [ 0, %ReadImage.exit ], [ 0, %152 ]
+  call void @WebPAnimEncoderDelete(ptr noundef %.0194) #7
+  %298 = icmp ne i32 %.0164, 0
+  %299 = icmp sgt i32 %.0179, 0
   %or.cond = select i1 %298, i1 %299, i1 false
   br i1 %or.cond, label %300, label %323
 
@@ -768,7 +768,7 @@ ReadImage.exit:                                   ; preds = %250
 
 312:                                              ; preds = %309
   %313 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %.3182, ptr %313, align 4
+  store i32 %.0179, ptr %313, align 4
   %314 = call i32 @WebPMuxSetAnimationParams(ptr noundef nonnull %301, ptr noundef nonnull %4) #7
   %315 = icmp eq i32 %314, 1
   br i1 %315, label %316, label %.thread22.i
@@ -798,25 +798,25 @@ SetLoopCount.exit:                                ; preds = %300, %.thread26.i, 
   br label %323
 
 323:                                              ; preds = %SetLoopCount.exit, %.loopexit
-  %.8 = phi i32 [ %.0.i265, %SetLoopCount.exit ], [ %.7, %.loopexit ]
+  %.8 = phi i32 [ %.0.i265, %SetLoopCount.exit ], [ %.0164, %.loopexit ]
   %.not257 = icmp eq i32 %.8, 0
   br i1 %.not257, label %.thread298, label %324
 
 324:                                              ; preds = %323
-  %.not258 = icmp eq ptr %.3201, null
+  %.not258 = icmp eq ptr %.0198, null
   br i1 %.not258, label %333, label %325
 
 325:                                              ; preds = %324
   %326 = load ptr, ptr %10, align 8
   %327 = getelementptr inbounds i8, ptr %10, i64 8
   %328 = load i64, ptr %327, align 8
-  %329 = call i32 @ImgIoUtilWriteFile(ptr noundef nonnull %.3201, ptr noundef %326, i64 noundef %328) #7
+  %329 = call i32 @ImgIoUtilWriteFile(ptr noundef nonnull %.0198, ptr noundef %326, i64 noundef %328) #7
   %.not259 = icmp eq i32 %329, 0
   br i1 %.not259, label %.thread298, label %330
 
 330:                                              ; preds = %325
   %331 = load ptr, ptr @stderr, align 8
-  %332 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef nonnull @.str.30, ptr noundef nonnull %.3201) #10
+  %332 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef nonnull @.str.30, ptr noundef nonnull %.0198) #10
   br label %336
 
 333:                                              ; preds = %324
@@ -829,7 +829,7 @@ SetLoopCount.exit:                                ; preds = %300, %.thread26.i, 
   %338 = getelementptr inbounds i8, ptr %10, i64 8
   %339 = load i64, ptr %338, align 8
   %340 = trunc i64 %339 to i32
-  %341 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %337, ptr noundef nonnull @.str.32, i32 noundef %.2190, i32 noundef %340) #10
+  %341 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %337, ptr noundef nonnull @.str.32, i32 noundef %.0188, i32 noundef %340) #10
   br label %.thread298
 
 .thread298:                                       ; preds = %323, %325, %336

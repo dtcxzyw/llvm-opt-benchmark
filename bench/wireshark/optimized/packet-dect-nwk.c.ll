@@ -2164,9 +2164,9 @@ switch.lookup:                                    ; preds = %.preheader2.i
 
 .preheader.i:                                     ; preds = %463, %471
   %.4131.i = phi i32 [ %473, %471 ], [ 0, %463 ]
-  %.3.i = phi i32 [ %474, %471 ], [ %462, %463 ]
+  %.4.i = phi i32 [ %474, %471 ], [ %462, %463 ]
   %465 = load i32, ptr @hf_dect_nwk_s_ie_octet_group_extension, align 4
-  %466 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %465, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0) #5
+  %466 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %465, ptr noundef %0, i32 noundef %.4.i, i32 noundef 1, i32 noundef 0) #5
   switch i32 %.4131.i, label %471 [
     i32 0, label %.sink.split13.i
     i32 1, label %467
@@ -2180,13 +2180,13 @@ switch.lookup:                                    ; preds = %.preheader2.i
   %dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6a_flags.sink.i = phi ptr [ @dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6a_flags, %467 ], [ @dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6_flags, %.preheader.i ]
   %468 = load i32, ptr %hf_dect_nwk_s_ie_terminal_capability_blind_slot_6a.sink.i, align 4
   %469 = load i32, ptr @ett_dect_nwk_s_ie_element, align 4
-  %470 = call ptr @proto_tree_add_bitmask(ptr noundef %82, ptr noundef %0, i32 noundef %.3.i, i32 noundef %468, i32 noundef %469, ptr noundef nonnull %dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6a_flags.sink.i, i32 noundef 0) #5
+  %470 = call ptr @proto_tree_add_bitmask(ptr noundef %82, ptr noundef %0, i32 noundef %.4.i, i32 noundef %468, i32 noundef %469, ptr noundef nonnull %dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6a_flags.sink.i, i32 noundef 0) #5
   br label %471
 
 471:                                              ; preds = %.sink.split13.i, %.preheader.i
-  %472 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3.i) #5
+  %472 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4.i) #5
   %473 = add i32 %.4131.i, 1
-  %474 = add i32 %.3.i, 1
+  %474 = add i32 %.4.i, 1
   %.not137.i = icmp sgt i8 %472, -1
   br i1 %.not137.i, label %.preheader.i, label %dissect_dect_nwk_s_ie_auth_type.exit, !llvm.loop !15
 

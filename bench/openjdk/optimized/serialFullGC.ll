@@ -4116,8 +4116,8 @@ define linkonce_odr hidden void @_ZN9Compacter25phase2_calculate_new_addrEv(ptr 
   br label %_ZN10DeadSpacerC2EP15ContiguousSpace.exit
 
 _ZN10DeadSpacerC2EP15ContiguousSpace.exit:        ; preds = %20, %6, %26
-  %.sroa.4.0 = phi i1 [ true, %26 ], [ false, %6 ], [ false, %20 ]
-  %.sroa.0.0 = phi i64 [ %34, %26 ], [ 0, %6 ], [ 0, %20 ]
+  %.sroa.4.2 = phi i1 [ true, %26 ], [ false, %6 ], [ false, %20 ]
+  %.sroa.0.2 = phi i64 [ %34, %26 ], [ 0, %6 ], [ 0, %20 ]
   %35 = icmp ult ptr %9, %11
   br i1 %35, label %.lr.ph, label %._crit_edge.thread
 
@@ -4127,9 +4127,9 @@ _ZN10DeadSpacerC2EP15ContiguousSpace.exit:        ; preds = %20, %6, %26
 
 37:                                               ; preds = %.lr.ph, %_ZN9Compacter5allocEm.exit52
   %.03269 = phi ptr [ %9, %.lr.ph ], [ %.1, %_ZN9Compacter5allocEm.exit52 ]
-  %.03368 = phi i8 [ 0, %.lr.ph ], [ %.3, %_ZN9Compacter5allocEm.exit52 ]
-  %.sroa.0.167 = phi i64 [ %.sroa.0.0, %.lr.ph ], [ %.sroa.0.3, %_ZN9Compacter5allocEm.exit52 ]
-  %.sroa.4.166 = phi i1 [ %.sroa.4.0, %.lr.ph ], [ %.sroa.4.3, %_ZN9Compacter5allocEm.exit52 ]
+  %.03368 = phi i8 [ 0, %.lr.ph ], [ %.134, %_ZN9Compacter5allocEm.exit52 ]
+  %.sroa.0.067 = phi i64 [ %.sroa.0.2, %.lr.ph ], [ %.sroa.0.1, %_ZN9Compacter5allocEm.exit52 ]
+  %.sroa.4.066 = phi i1 [ %.sroa.4.2, %.lr.ph ], [ %.sroa.4.1, %_ZN9Compacter5allocEm.exit52 ]
   %38 = load i8, ptr @UseCompressedClassPointers, align 1
   %39 = trunc i8 %38 to i1
   %40 = getelementptr inbounds i8, ptr %.03269, i64 8
@@ -4403,18 +4403,18 @@ _ZN7oopDesc4sizeEv.exit.i:                        ; preds = %202, %182, %175, %1
 
 _ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit: ; preds = %_ZN9Compacter18prefetch_read_scanEPv.exit.i, %_ZN7oopDesc4sizeEv.exit.i, %142
   %.0.i = phi ptr [ %11, %142 ], [ %.01113.i, %_ZN9Compacter18prefetch_read_scanEPv.exit.i ], [ %11, %_ZN7oopDesc4sizeEv.exit.i ]
-  br i1 %.sroa.4.166, label %209, label %255
+  br i1 %.sroa.4.066, label %209, label %255
 
 209:                                              ; preds = %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit
   %210 = ptrtoint ptr %.0.i to i64
   %211 = ptrtoint ptr %.03269 to i64
   %212 = sub i64 %210, %211
   %213 = lshr i64 %212, 3
-  %.not.i42 = icmp ult i64 %.sroa.0.167, %213
+  %.not.i42 = icmp ult i64 %.sroa.0.067, %213
   br i1 %.not.i42, label %255, label %214
 
 214:                                              ; preds = %209
-  %215 = sub nuw nsw i64 %.sroa.0.167, %213
+  %215 = sub nuw nsw i64 %.sroa.0.067, %213
   tail call void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef nonnull %.03269, i64 noundef %213, i1 noundef zeroext true) #16
   %.promoted.i43 = load i32, ptr %4, align 4
   %216 = zext i32 %.promoted.i43 to i64
@@ -4486,20 +4486,20 @@ _ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit: ; preds = %_ZN9Comp
   br label %258
 
 258:                                              ; preds = %257, %255
-  %.134 = phi i8 [ %.03368, %255 ], [ 1, %257 ]
+  %.3 = phi i8 [ %.03368, %255 ], [ 1, %257 ]
   store ptr %.0.i, ptr %.03269, align 8
   br label %_ZN9Compacter5allocEm.exit52
 
 _ZN9Compacter5allocEm.exit52:                     ; preds = %238, %229, %._crit_edge.i45, %258, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit
-  %.sroa.4.3 = phi i1 [ %.sroa.4.166, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ false, %258 ], [ true, %._crit_edge.i45 ], [ true, %229 ], [ true, %238 ]
-  %.sroa.0.3 = phi i64 [ %.sroa.0.167, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.sroa.0.167, %258 ], [ %215, %._crit_edge.i45 ], [ %215, %229 ], [ %215, %238 ]
-  %.3 = phi i8 [ %.03368, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.134, %258 ], [ %.03368, %._crit_edge.i45 ], [ %.03368, %229 ], [ %.03368, %238 ]
+  %.sroa.4.1 = phi i1 [ %.sroa.4.066, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ false, %258 ], [ true, %._crit_edge.i45 ], [ true, %229 ], [ true, %238 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.067, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.sroa.0.067, %258 ], [ %215, %._crit_edge.i45 ], [ %215, %229 ], [ %215, %238 ]
+  %.134 = phi i8 [ %.03368, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.3, %258 ], [ %.03368, %._crit_edge.i45 ], [ %.03368, %229 ], [ %.03368, %238 ]
   %.1 = phi ptr [ %141, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.0.i, %258 ], [ %.0.i, %._crit_edge.i45 ], [ %.0.i, %229 ], [ %.0.i, %238 ]
   %259 = icmp ult ptr %.1, %11
   br i1 %259, label %37, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN9Compacter5allocEm.exit52
-  %260 = trunc nuw i8 %.3 to i1
+  %260 = trunc nuw i8 %.134 to i1
   br i1 %260, label %262, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN10DeadSpacerC2EP15ContiguousSpace.exit, %._crit_edge
@@ -8044,9 +8044,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %58
 
 58:                                               ; preds = %56, %49
-  %.1.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %49 ], [ %57, %56 ]
-  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %60 = add i64 %.026.ph.i.i.i.i.i, %59
   %61 = icmp ult i64 %60, %38
   br i1 %61, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop20AdjustPointerClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
@@ -8271,9 +8271,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %58
 
 58:                                               ; preds = %56, %49
-  %.1.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %49 ], [ %57, %56 ]
-  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %60 = add i64 %.026.ph.i.i.i.i.i, %59
   %61 = icmp ult i64 %60, %38
   br i1 %61, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc20AdjustPointerClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
@@ -12701,9 +12701,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br label %25
 
 25:                                               ; preds = %23, %16
-  %.1.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
+  %.027.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
   %.026.ph.i.i = phi i64 [ %.0917, %16 ], [ %24, %23 ]
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %27 = add i64 %.026.ph.i.i, %26
   %28 = icmp ult i64 %27, %3
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
@@ -13179,9 +13179,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br label %25
 
 25:                                               ; preds = %23, %16
-  %.1.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
+  %.027.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
   %.026.ph.i.i = phi i64 [ %.0917, %16 ], [ %24, %23 ]
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %27 = add i64 %.026.ph.i.i, %26
   %28 = icmp ult i64 %27, %3
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread

@@ -488,14 +488,14 @@ retransmission_indicator.exit:                    ; preds = %46, %49
   %.0368 = phi i16 [ 0, %retransmission_indicator.exit ], [ 0, %89 ], [ 0, %88 ], [ %87, %84 ], [ 0, %83 ], [ %58, %55 ], [ %72, %74 ], [ %72, %69 ]
   %.0361 = phi i32 [ 0, %retransmission_indicator.exit ], [ %92, %89 ], [ 3, %88 ], [ 3, %84 ], [ 4, %83 ], [ 4, %55 ], [ 4, %74 ], [ 4, %69 ]
   %.0360 = phi i8 [ 0, %retransmission_indicator.exit ], [ 0, %89 ], [ 0, %88 ], [ %86, %84 ], [ 0, %83 ], [ %57, %55 ], [ %71, %74 ], [ %71, %69 ]
-  %.1 = phi i32 [ %54, %retransmission_indicator.exit ], [ %54, %89 ], [ %54, %88 ], [ %54, %84 ], [ %54, %83 ], [ %68, %55 ], [ %82, %74 ], [ %54, %69 ]
+  %.0359 = phi i32 [ %54, %retransmission_indicator.exit ], [ %54, %89 ], [ %54, %88 ], [ %54, %84 ], [ %54, %83 ], [ %68, %55 ], [ %82, %74 ], [ %54, %69 ]
   %.not385 = icmp eq i8 %.0.i, 0
   br i1 %.not385, label %100, label %94
 
 94:                                               ; preds = %93
-  %95 = sext i32 %.1 to i64
+  %95 = sext i32 %.0359 to i64
   %96 = getelementptr i8, ptr %6, i64 %95
-  %97 = sub i32 256, %.1
+  %97 = sub i32 256, %.0359
   %98 = sext i32 %97 to i64
   %99 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %96, i64 noundef %98, ptr noundef nonnull @.str.146) #4
   br label %100

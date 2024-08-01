@@ -586,16 +586,16 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   %208 = icmp ult i64 %207, %89
   br i1 %208, label %213, label %216, !prof !7
 
-.thread68.i.i:                                    ; preds = %311, %285, %281, %258, %229, %225, %210
-  %.pn59.i.i = phi { ptr, i32 } [ %211, %210 ], [ %.pn57.i.i, %258 ], [ %.pn57.i.i, %225 ], [ %eh.lpad-body.i.i, %311 ], [ %eh.lpad-body.i.i, %281 ], [ %230, %229 ], [ %286, %285 ]
+.thread67.i.i:                                    ; preds = %311, %285, %281, %258, %229, %225, %210
+  %.pn58.i.i = phi { ptr, i32 } [ %211, %210 ], [ %.pn56.i.i, %258 ], [ %.pn56.i.i, %225 ], [ %eh.lpad-body.i.i, %311 ], [ %eh.lpad-body.i.i, %281 ], [ %230, %229 ], [ %286, %285 ]
   %209 = load i64, ptr %16, align 8, !range !8, !noundef !3
-  %.not61.i.i = icmp eq i64 %209, -9223372036854775808
-  br i1 %.not61.i.i, label %.thread113.i, label %312
+  %.not60.i.i = icmp eq i64 %209, -9223372036854775808
+  br i1 %.not60.i.i, label %.thread113.i, label %312
 
 210:                                              ; preds = %310, %275, %.invoke.i.i, %270, %262, %257, %253, %219, %216, %213
   %211 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread68.i.i
+  br label %.thread67.i.i
 
 212:                                              ; preds = %290, %267, %262, %216
   unreachable
@@ -619,8 +619,8 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 221:                                              ; preds = %219
   store ptr %220, ptr %15, align 8
-  %.not53.i.i = icmp eq ptr %220, null
-  br i1 %.not53.i.i, label %222, label %223
+  %.not52.i.i = icmp eq ptr %220, null
+  br i1 %.not52.i.i, label %222, label %223
 
 222:                                              ; preds = %232, %221
   %.042.i.i = phi i8 [ 0, %232 ], [ 1, %221 ]
@@ -633,13 +633,13 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
           to label %231 unwind label %229
 
 225:                                              ; preds = %254, %248, %227
-  %.143.i.i = phi i8 [ %.244.i.i, %227 ], [ %.345.i.i, %248 ], [ %.345.i.i, %254 ]
-  %.pn57.i.i = phi { ptr, i32 } [ %228, %227 ], [ %249, %248 ], [ %255, %254 ]
-  %226 = trunc nuw i8 %.143.i.i to i1
-  br i1 %226, label %258, label %.thread68.i.i
+  %.244.i.i = phi i8 [ %.143.i.i, %227 ], [ %.345.i.i, %248 ], [ %.345.i.i, %254 ]
+  %.pn56.i.i = phi { ptr, i32 } [ %228, %227 ], [ %249, %248 ], [ %255, %254 ]
+  %226 = trunc nuw i8 %.244.i.i to i1
+  br i1 %226, label %258, label %.thread67.i.i
 
 227:                                              ; preds = %250, %234, %233, %232, %222
-  %.244.i.i = phi i8 [ %.345.i.i, %250 ], [ %.345.i.i, %234 ], [ 0, %233 ], [ %.042.i.i, %222 ], [ 0, %232 ]
+  %.143.i.i = phi i8 [ %.345.i.i, %250 ], [ %.345.i.i, %234 ], [ 0, %233 ], [ %.042.i.i, %222 ], [ 0, %232 ]
   %228 = landingpad { ptr, i32 }
           cleanup
   br label %225
@@ -648,7 +648,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   %230 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$17hb0b69769f2015152E"(ptr nonnull align 8 %14) #10
-          to label %.thread68.i.i unwind label %235
+          to label %.thread67.i.i unwind label %235
 
 231:                                              ; preds = %223
   br i1 %224, label %233, label %232
@@ -674,8 +674,8 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 237:                                              ; preds = %222
   %238 = load i8, ptr %13, align 8, !range !9, !noundef !3
-  %.not54.i.i = icmp eq i8 %238, 4
-  br i1 %.not54.i.i, label %239, label %234
+  %.not53.i.i = icmp eq i8 %238, 4
+  br i1 %.not53.i.i, label %239, label %234
 
 239:                                              ; preds = %256, %237
   %.446.i.i = phi i8 [ %.345.i.i, %256 ], [ %.042.i.i, %237 ]
@@ -732,7 +732,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 258:                                              ; preds = %225
   invoke void @"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$17h6d36afcb82f7eae1E"(ptr nonnull align 8 %15) #10
-          to label %.thread68.i.i unwind label %235
+          to label %.thread67.i.i unwind label %235
 
 259:                                              ; preds = %203
   %260 = load i64, ptr %16, align 8, !range !8, !noundef !3
@@ -785,8 +785,8 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 277:                                              ; preds = %275
   store ptr %276, ptr %8, align 8
-  %.not55.i.i = icmp eq ptr %276, null
-  br i1 %.not55.i.i, label %278, label %279
+  %.not54.i.i = icmp eq ptr %276, null
+  br i1 %.not54.i.i, label %278, label %279
 
 278:                                              ; preds = %288, %277
   %.039.i.i = phi i8 [ 0, %288 ], [ 1, %277 ]
@@ -799,13 +799,13 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
           to label %287 unwind label %285
 
 281:                                              ; preds = %300, %283
-  %.241.lpad-body.i.i = phi i8 [ %.241.i.i, %283 ], [ %.039.i.i, %300 ]
+  %.140.lpad-body.i.i = phi i8 [ %.140.i.i, %283 ], [ %.039.i.i, %300 ]
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %284, %283 ], [ %301, %300 ]
-  %282 = trunc nuw i8 %.241.lpad-body.i.i to i1
-  br i1 %282, label %311, label %.thread68.i.i
+  %282 = trunc nuw i8 %.140.lpad-body.i.i to i1
+  br i1 %282, label %311, label %.thread67.i.i
 
 283:                                              ; preds = %306, %305, %290, %289, %288, %278
-  %.241.i.i = phi i8 [ 0, %290 ], [ 0, %289 ], [ %.039.i.i, %306 ], [ %.039.i.i, %305 ], [ %.039.i.i, %278 ], [ 0, %288 ]
+  %.140.i.i = phi i8 [ 0, %290 ], [ 0, %289 ], [ %.039.i.i, %306 ], [ %.039.i.i, %305 ], [ %.039.i.i, %278 ], [ 0, %288 ]
   %284 = landingpad { ptr, i32 }
           cleanup
   br label %281
@@ -814,7 +814,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   %286 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$17hb0b69769f2015152E"(ptr nonnull align 8 %7) #10
-          to label %.thread68.i.i unwind label %235
+          to label %.thread67.i.i unwind label %235
 
 287:                                              ; preds = %279
   br i1 %280, label %288, label %289
@@ -888,9 +888,9 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 311:                                              ; preds = %281
   invoke void @"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$17h6d36afcb82f7eae1E"(ptr nonnull align 8 %8) #10
-          to label %.thread68.i.i unwind label %235
+          to label %.thread67.i.i unwind label %235
 
-312:                                              ; preds = %.thread68.i.i
+312:                                              ; preds = %.thread67.i.i
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %16) #10
           to label %.thread113.i unwind label %235
 
@@ -932,8 +932,8 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-.thread113.i:                                     ; preds = %319, %312, %268, %.thread68.i.i, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn117.i = phi { ptr, i32 } [ %.pn59.i.i, %.thread68.i.i ], [ %.pn59.i.i, %312 ], [ %269, %268 ], [ %320, %319 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+.thread113.i:                                     ; preds = %319, %312, %268, %.thread67.i.i, %.loopexit.split-lp.i, %.loopexit.i
+  %.pn117.i = phi { ptr, i32 } [ %.pn58.i.i, %.thread67.i.i ], [ %.pn58.i.i, %312 ], [ %269, %268 ], [ %320, %319 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h1721f4c39ea87a9eE"(ptr nonnull align 8 %43) #10
           to label %.thread.i unwind label %321
 
@@ -1199,13 +1199,13 @@ define zeroext i1 @"_ZN101_$LT$cranelift_codegen_meta..cdsl..instructions..Instr
 
 .sink.split:                                      ; preds = %62, %37, %40, %61
   %.sink = phi ptr [ %6, %61 ], [ %8, %40 ], [ %8, %37 ], [ %6, %62 ]
-  %.0.ph = phi i1 [ true, %61 ], [ true, %40 ], [ true, %37 ], [ %67, %62 ]
+  %.1.ph = phi i1 [ true, %61 ], [ true, %40 ], [ true, %37 ], [ %67, %62 ]
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %.sink)
   br label %68
 
 68:                                               ; preds = %.sink.split, %42, %12
-  %.0 = phi i1 [ true, %12 ], [ false, %42 ], [ %.0.ph, %.sink.split ]
-  ret i1 %.0
+  %.1 = phi i1 [ true, %12 ], [ false, %42 ], [ %.1.ph, %.sink.split ]
+  ret i1 %.1
 
 69:                                               ; preds = %57, %54, %29, %26
   %70 = landingpad { ptr, i32 }

@@ -165,13 +165,13 @@ define hidden i32 @mbedtls_hkdf_expand(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %.not61.not, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %30, %32, %34, %36, %25, %23
-  %.1 = phi i32 [ %24, %23 ], [ 0, %25 ], [ %27, %.lr.ph ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ 0, %36 ]
+  %.041 = phi i32 [ %24, %23 ], [ 0, %25 ], [ %27, %.lr.ph ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ 0, %36 ]
   call void @mbedtls_md_free(ptr noundef nonnull %8) #5
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 64) #5
   br label %42
 
 42:                                               ; preds = %17, %12, %7, %.loopexit
-  %.0 = phi i32 [ %.1, %.loopexit ], [ -24448, %7 ], [ -24448, %12 ], [ -24448, %17 ]
+  %.0 = phi i32 [ %.041, %.loopexit ], [ -24448, %7 ], [ -24448, %12 ], [ -24448, %17 ]
   ret i32 %.0
 }
 

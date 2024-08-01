@@ -332,17 +332,17 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
 
 .thread142:                                       ; preds = %164, %122, %157
   %166 = phi i32 [ -13, %122 ], [ -14, %157 ], [ -14, %164 ]
-  %.1115144 = phi ptr [ %116, %122 ], [ %151, %157 ], [ %35, %164 ]
-  %167 = ptrtoint ptr %.1115144 to i64
+  %.2144 = phi ptr [ %116, %122 ], [ %151, %157 ], [ %35, %164 ]
+  %167 = ptrtoint ptr %.2144 to i64
   %168 = add i64 %25, %4
   %169 = sub i64 %167, %168
   store i64 %169, ptr %2, align 8
   br label %.loopexit
 
 .thread:                                          ; preds = %44, %65, %95, %164, %5
-  %.2 = phi ptr [ %.0114265, %5 ], [ %35, %164 ], [ %35, %44 ], [ %52, %65 ], [ %80, %95 ]
+  %.1115 = phi ptr [ %.0114265, %5 ], [ %35, %164 ], [ %35, %44 ], [ %52, %65 ], [ %80, %95 ]
   %.1 = phi i64 [ %8, %5 ], [ %34, %164 ], [ %34, %44 ], [ %34, %65 ], [ %34, %95 ]
-  %170 = getelementptr inbounds i8, ptr %.2, i64 1
+  %170 = getelementptr inbounds i8, ptr %.1115, i64 1
   %.not = icmp eq i64 %.1, 0
   br i1 %.not, label %.loopexit, label %5
 

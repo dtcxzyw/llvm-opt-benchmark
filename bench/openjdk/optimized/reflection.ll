@@ -1324,8 +1324,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %43, %49
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %63, %62, %64, %39, %37, %31, %35, %18, %11, %3, %6
-  %.1 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %11 ], [ 0, %18 ], [ 0, %35 ], [ 0, %31 ], [ 1, %37 ], [ 0, %39 ], [ %.32, %64 ], [ %switch, %62 ], [ %switch, %63 ]
-  ret i32 %.1
+  %.026 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %11 ], [ 0, %18 ], [ 0, %35 ], [ 0, %31 ], [ 1, %37 ], [ 0, %39 ], [ %.32, %64 ], [ %switch, %62 ], [ %switch, %63 ]
+  ret i32 %.026
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2564,7 +2564,7 @@ _ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP1
   br i1 %80, label %._crit_edge, label %49, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %78, %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %.sroa.024.0 = phi ptr [ %storemerge.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit ], [ %storemerge.i.i, %78 ]
+  %.sroa.024.1 = phi ptr [ %storemerge.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit ], [ %storemerge.i.i, %78 ]
   call void @_ZN15SignatureStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
   %81 = load ptr, ptr %33, align 8
   %.not.i.i.i.i = icmp eq ptr %81, null
@@ -2587,8 +2587,8 @@ _ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP1
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %85, %83, %9
-  %.sroa.024.1 = phi ptr [ null, %9 ], [ %.sroa.024.0, %83 ], [ %.sroa.024.0, %85 ]
-  ret ptr %.sroa.024.1
+  %.sroa.024.0 = phi ptr [ null, %9 ], [ %.sroa.024.1, %83 ], [ %.sroa.024.1, %85 ]
+  ret ptr %.sroa.024.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4573,13 +4573,13 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %30, %38
   br label %_ZNK6HandleclEv.exit
 
 _ZNK6HandleclEv.exit:                             ; preds = %73, %67, %64, %59, %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %.0 = phi ptr [ null, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ null, %59 ], [ null, %64 ], [ null, %67 ], [ %74, %73 ]
+  %.1 = phi ptr [ null, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ null, %59 ], [ null, %64 ], [ null, %67 ], [ %74, %73 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   br label %75
 
 75:                                               ; preds = %_ZNK6HandleclEv.exit, %28
-  %.1 = phi ptr [ null, %28 ], [ %.0, %_ZNK6HandleclEv.exit ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %28 ], [ %.1, %_ZNK6HandleclEv.exit ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN29java_lang_reflect_Constructor5clazzEP7oopDesc(ptr noundef) local_unnamed_addr #1

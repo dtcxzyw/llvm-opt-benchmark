@@ -9636,19 +9636,19 @@ _ZN4llvh6detail12DenseSetImplIPN6hermes8FunctionENS_8DenseMapIS4_NS0_13DenseSetE
   br i1 %cmp.not2.i3.i.i11.i9.i, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes8FunctionEE5beginEv.exit, label %land.rhs.i4.i.i12.i10.i
 
 land.rhs.i4.i.i12.i10.i:                          ; preds = %_ZN4llvh6detail12DenseSetImplIPN6hermes8FunctionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit, %while.body.i6.i.i15.i16.i
-  %retval.sroa.0.2.i11.i = phi ptr [ %incdec.ptr.i.i.i16.i17.i, %while.body.i6.i.i15.i16.i ], [ %32, %_ZN4llvh6detail12DenseSetImplIPN6hermes8FunctionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit ]
-  %36 = load ptr, ptr %retval.sroa.0.2.i11.i, align 8
+  %retval.sroa.0.3.i11.i = phi ptr [ %incdec.ptr.i.i.i16.i17.i, %while.body.i6.i.i15.i16.i ], [ %32, %_ZN4llvh6detail12DenseSetImplIPN6hermes8FunctionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit ]
+  %36 = load ptr, ptr %retval.sroa.0.3.i11.i, align 8
   %switch.i5.i.i14.i12.i = icmp ugt ptr %36, inttoptr (i64 -3 to ptr)
   br i1 %switch.i5.i.i14.i12.i, label %while.body.i6.i.i15.i16.i, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes8FunctionEE5beginEv.exit
 
 while.body.i6.i.i15.i16.i:                        ; preds = %land.rhs.i4.i.i12.i10.i
-  %incdec.ptr.i.i.i16.i17.i = getelementptr inbounds i8, ptr %retval.sroa.0.2.i11.i, i64 8
+  %incdec.ptr.i.i.i16.i17.i = getelementptr inbounds i8, ptr %retval.sroa.0.3.i11.i, i64 8
   %cmp.not.i7.i.i17.i18.i = icmp eq ptr %incdec.ptr.i.i.i16.i17.i, %cond.i9.i8.i
   br i1 %cmp.not.i7.i.i17.i18.i, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes8FunctionEE5beginEv.exit, label %land.rhs.i4.i.i12.i10.i, !llvm.loop !50
 
 _ZNK4llvh15SmallPtrSetImplIPN6hermes8FunctionEE5beginEv.exit: ; preds = %land.rhs.i4.i.i12.i10.i, %while.body.i6.i.i15.i16.i, %_ZN4llvh6detail12DenseSetImplIPN6hermes8FunctionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit
-  %retval.sroa.0.3.i13.i = phi ptr [ %32, %_ZN4llvh6detail12DenseSetImplIPN6hermes8FunctionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit ], [ %retval.sroa.0.2.i11.i, %land.rhs.i4.i.i12.i10.i ], [ %cond.i9.i8.i, %while.body.i6.i.i15.i16.i ]
-  call void @_ZN4llvh9SetVectorIPN6hermes8FunctionESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEE6insertINS_19SmallPtrSetIteratorIS3_EEEEvT_SF_(ptr noundef nonnull align 8 dereferenceable(48) %worklist, ptr %retval.sroa.0.3.i13.i, ptr %cond.i9.i8.i, ptr %cond.i9.i8.i, ptr %cond.i9.i8.i)
+  %retval.sroa.0.4.i13.i = phi ptr [ %32, %_ZN4llvh6detail12DenseSetImplIPN6hermes8FunctionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit ], [ %retval.sroa.0.3.i11.i, %land.rhs.i4.i.i12.i10.i ], [ %cond.i9.i8.i, %while.body.i6.i.i15.i16.i ]
+  call void @_ZN4llvh9SetVectorIPN6hermes8FunctionESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEE6insertINS_19SmallPtrSetIteratorIS3_EEEEvT_SF_(ptr noundef nonnull align 8 dereferenceable(48) %worklist, ptr %retval.sroa.0.4.i13.i, ptr %cond.i9.i8.i, ptr %cond.i9.i8.i, ptr %cond.i9.i8.i)
   %37 = load ptr, ptr %CurArray.i, align 8
   %38 = load ptr, ptr %targets, align 8
   %cmp.i.i.i.i44 = icmp eq ptr %37, %38
@@ -12837,20 +12837,20 @@ while.cond17.preheader:                           ; preds = %if.end, %while.end2
 
 while.body25:                                     ; preds = %while.cond17.preheader, %while.body25
   %first.sroa.0.284 = phi ptr [ %first.sroa.0.186, %while.cond17.preheader ], [ %incdec.ptr.i15, %while.body25 ]
-  %buffer_ptr.3.idx83 = phi i64 [ 0, %while.cond17.preheader ], [ %buffer_ptr.3.add, %while.body25 ]
-  %buffer_ptr.3.ptr85 = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.3.idx83
-  %buffer_ptr.3.add = add nuw nsw i64 %buffer_ptr.3.idx83, 8
+  %buffer_ptr.2.idx83 = phi i64 [ 0, %while.cond17.preheader ], [ %buffer_ptr.2.add, %while.body25 ]
+  %buffer_ptr.2.ptr85 = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.2.idx83
+  %buffer_ptr.2.add = add nuw nsw i64 %buffer_ptr.2.idx83, 8
   %9 = load ptr, ptr %first.sroa.0.284, align 8
-  store ptr %9, ptr %buffer_ptr.3.ptr85, align 8
+  store ptr %9, ptr %buffer_ptr.2.ptr85, align 8
   %incdec.ptr.i15 = getelementptr inbounds i8, ptr %first.sroa.0.284, i64 8
   %cmp.i9.not = icmp eq ptr %incdec.ptr.i15, %last.coerce
-  %cmp.i11.not = icmp ugt i64 %buffer_ptr.3.idx83, 48
+  %cmp.i11.not = icmp ugt i64 %buffer_ptr.2.idx83, 48
   %or.cond77 = or i1 %cmp.i9.not, %cmp.i11.not
   br i1 %or.cond77, label %while.end27, label %while.body25, !llvm.loop !87
 
 while.end27:                                      ; preds = %while.body25
-  %buffer_ptr.3.ptr = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.3.add
-  %call.i = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %buffer, ptr noundef nonnull %buffer_ptr.3.ptr, ptr noundef nonnull %add.ptr.i)
+  %buffer_ptr.2.ptr = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.2.add
+  %call.i = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %buffer, ptr noundef nonnull %buffer_ptr.2.ptr, ptr noundef nonnull %add.ptr.i)
   %result.0.copyload.i.i = load i64, ptr %add.ptr.i.i, align 8
   %add.i = add i64 %state.sroa.6.092, %state.sroa.16.090
   %add2.i = add i64 %add.i, %state.sroa.0.093
@@ -12898,7 +12898,7 @@ while.end27:                                      ; preds = %while.body25
   %add12.i25.i = add i64 %cond.i.i17.i, %add.i12.i
   %add13.i26.i = add i64 %add12.i25.i, %cond.i15.i24.i
   %add14.i27.i = add i64 %add10.i23.i, %result.0.copyload.i12.i14.i
-  %add = add i64 %buffer_ptr.3.add, %length.094
+  %add = add i64 %buffer_ptr.2.add, %length.094
   br i1 %cmp.i9.not, label %while.end35, label %while.cond17.preheader, !llvm.loop !88
 
 while.end35:                                      ; preds = %while.end27
@@ -13275,8 +13275,8 @@ if.end44:                                         ; preds = %if.else33
 for.body52:                                       ; preds = %if.end44, %for.body52
   %__i48.066 = phi i64 [ %inc56, %for.body52 ], [ 0, %if.end44 ]
   %__q45.065 = phi ptr [ %incdec.ptr54, %for.body52 ], [ %add.ptr38, %if.end44 ]
-  %__p.264 = phi ptr [ %incdec.ptr53, %for.body52 ], [ %add.ptr47, %if.end44 ]
-  %incdec.ptr53 = getelementptr inbounds i8, ptr %__p.264, i64 -1
+  %__p.364 = phi ptr [ %incdec.ptr53, %for.body52 ], [ %add.ptr47, %if.end44 ]
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %__p.364, i64 -1
   %incdec.ptr54 = getelementptr inbounds i8, ptr %__q45.065, i64 -1
   %6 = load i8, ptr %incdec.ptr53, align 1
   %7 = load i8, ptr %incdec.ptr54, align 1
@@ -13287,7 +13287,7 @@ for.body52:                                       ; preds = %if.end44, %for.body
   br i1 %exitcond.not, label %for.end57, label %for.body52, !llvm.loop !91
 
 for.end57:                                        ; preds = %for.body52, %if.end44
-  %__p.2.lcssa = phi ptr [ %add.ptr47, %if.end44 ], [ %__p.0, %for.body52 ]
+  %__p.3.lcssa = phi ptr [ %add.ptr47, %if.end44 ], [ %__p.0, %for.body52 ]
   %rem58 = srem i64 %__n.0, %sub13
   %cmp59 = icmp eq i64 %rem58, 0
   br i1 %cmp59, label %return, label %for.cond.backedge
@@ -13295,7 +13295,7 @@ for.end57:                                        ; preds = %for.body52, %if.end
 for.cond.backedge:                                ; preds = %for.end57, %if.end31
   %__n.0.be = phi i64 [ %__k.0, %if.end31 ], [ %sub13, %for.end57 ]
   %__k.0.be = phi i64 [ %sub32, %if.end31 ], [ %rem58, %for.end57 ]
-  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end31 ], [ %__p.2.lcssa, %for.end57 ]
+  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end31 ], [ %__p.3.lcssa, %for.end57 ]
   br label %for.cond, !llvm.loop !92
 
 return:                                           ; preds = %for.end57, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit

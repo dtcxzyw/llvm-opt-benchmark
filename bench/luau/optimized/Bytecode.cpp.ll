@@ -1882,7 +1882,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit.i: ; preds = %164, %162, %160
           to label %204 unwind label %197
 
 204:                                              ; preds = %._crit_edge.invoke.i, %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit35.i, %131
-  %.1.i = phi i1 [ %148, %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit35.i ], [ false, %131 ], [ false, %._crit_edge.invoke.i ]
+  %.0.i = phi i1 [ %148, %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit35.i ], [ false, %131 ], [ false, %._crit_edge.invoke.i ]
   %205 = load i8, ptr %105, align 8
   %206 = trunc i8 %205 to i1
   br i1 %206, label %207, label %216
@@ -1893,8 +1893,8 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit.i: ; preds = %164, %162, %160
   br label %216
 
 .loopexit42:                                      ; preds = %188, %201, %197, %193
-  %.327.i = phi i32 [ %203, %201 ], [ %200, %197 ], [ %196, %193 ], [ %.226.i, %188 ]
-  %.3.i = phi ptr [ %202, %201 ], [ %199, %197 ], [ %195, %193 ], [ %.2.i, %188 ]
+  %.428.i = phi i32 [ %203, %201 ], [ %200, %197 ], [ %196, %193 ], [ %.226.i, %188 ]
+  %.4.i = phi ptr [ %202, %201 ], [ %199, %197 ], [ %195, %193 ], [ %.2.i, %188 ]
   %208 = load i8, ptr %105, align 8
   %209 = trunc i8 %208 to i1
   br i1 %209, label %210, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit36.i
@@ -1905,10 +1905,10 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit.i: ; preds = %164, %162, %160
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit36.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit36.i: ; preds = %210, %.loopexit42, %.body.i
-  %.428.i = phi i32 [ %.024.i, %.body.i ], [ %.327.i, %.loopexit42 ], [ %.327.i, %210 ]
-  %.4.i = phi ptr [ %.022.i, %.body.i ], [ %.3.i, %.loopexit42 ], [ %.3.i, %210 ]
-  %211 = insertvalue { ptr, i32 } poison, ptr %.4.i, 0
-  %212 = insertvalue { ptr, i32 } %211, i32 %.428.i, 1
+  %.125.i = phi i32 [ %.024.i, %.body.i ], [ %.428.i, %.loopexit42 ], [ %.428.i, %210 ]
+  %.123.i = phi ptr [ %.022.i, %.body.i ], [ %.4.i, %.loopexit42 ], [ %.4.i, %210 ]
+  %211 = insertvalue { ptr, i32 } poison, ptr %.123.i, 0
+  %212 = insertvalue { ptr, i32 } %211, i32 %.125.i, 1
   br label %.body26
 
 213:                                              ; preds = %201, %193
@@ -1926,7 +1926,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit36.
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  br i1 %.1.i, label %112, label %.loopexit43
+  br i1 %.0.i, label %112, label %.loopexit43
 
 217:                                              ; preds = %_ZNSt12_Vector_baseISt6vectorIN4Luau7CodeGen23FunctionBytecodeSummaryESaIS3_EESaIS5_EE11_M_allocateEm.exit.i, %98
   %218 = landingpad { ptr, i32 }
@@ -2131,7 +2131,7 @@ _ZL18serializeSummariesRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %.loopexit43
 
 .loopexit43:                                      ; preds = %216, %_ZL18serializeSummariesRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IS_IN4Luau7CodeGen23FunctionBytecodeSummaryESaISC_EESaISE_EERKS5_.exit.thread, %_ZL18serializeSummariesRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IS_IN4Luau7CodeGen23FunctionBytecodeSummaryESaISC_EESaISE_EERKS5_.exit
-  %.013 = phi i32 [ 0, %_ZL18serializeSummariesRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IS_IN4Luau7CodeGen23FunctionBytecodeSummaryESaISC_EESaISE_EERKS5_.exit ], [ 1, %_ZL18serializeSummariesRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IS_IN4Luau7CodeGen23FunctionBytecodeSummaryESaISC_EESaISE_EERKS5_.exit.thread ], [ 1, %216 ]
+  %.1 = phi i32 [ 0, %_ZL18serializeSummariesRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IS_IN4Luau7CodeGen23FunctionBytecodeSummaryESaISC_EESaISE_EERKS5_.exit ], [ 1, %_ZL18serializeSummariesRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IS_IN4Luau7CodeGen23FunctionBytecodeSummaryESaISC_EESaISE_EERKS5_.exit.thread ], [ 1, %216 ]
   %312 = load ptr, ptr %15, align 8
   %313 = getelementptr inbounds i8, ptr %15, i64 8
   %314 = load ptr, ptr %313, align 8
@@ -2189,9 +2189,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %325, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %48, %59, %71
-  %.1 = phi i32 [ 1, %71 ], [ 1, %59 ], [ 1, %48 ], [ %.013, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.013, %325 ]
+  %.013 = phi i32 [ 1, %71 ], [ 1, %59 ], [ 1, %48 ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.1, %325 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
-  ret i32 %.1
+  ret i32 %.013
 
 331:                                              ; preds = %.loopexit44, %.loopexit.split-lp45, %.body26
   %.pn = phi { ptr, i32 } [ %eh.lpad-body27, %.body26 ], [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]

@@ -376,13 +376,13 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
 
 118:                                              ; preds = %116, %118
   %indvars.iv117 = phi i64 [ 0, %116 ], [ %indvars.iv.next118, %118 ]
-  %.095110 = phi i8 [ 0, %116 ], [ %.1, %118 ]
+  %.1110 = phi i8 [ 0, %116 ], [ %.2, %118 ]
   %119 = getelementptr inbounds [6 x float], ptr %1, i64 0, i64 %indvars.iv117
   %120 = load float, ptr %119, align 4
   %121 = getelementptr inbounds [6 x float], ptr %117, i64 0, i64 %indvars.iv117
   %122 = load float, ptr %121, align 4
   %123 = fcmp une float %120, %122
-  %.1 = select i1 %123, i8 1, i8 %.095110
+  %.2 = select i1 %123, i8 1, i8 %.1110
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next118, 6
   br i1 %exitcond119.not, label %.loopexit, label %118, !llvm.loop !8
@@ -398,7 +398,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
 
 131:                                              ; preds = %.preheader, %144
   %indvars.iv115 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next116, %144 ]
-  %.2108 = phi i8 [ 0, %.preheader ], [ %.3, %144 ]
+  %.3108 = phi i8 [ 0, %.preheader ], [ %.4, %144 ]
   %132 = getelementptr inbounds [3 x float], ptr %1, i64 0, i64 %indvars.iv115
   %133 = load float, ptr %132, align 4
   %134 = getelementptr inbounds [3 x float], ptr %11, i64 0, i64 %indvars.iv115
@@ -418,7 +418,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   br label %144
 
 144:                                              ; preds = %137, %143
-  %.3 = phi i8 [ 1, %143 ], [ %.2108, %137 ]
+  %.4 = phi i8 [ 1, %143 ], [ %.3108, %137 ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next116, 3
   br i1 %exitcond.not, label %.loopexit, label %131, !llvm.loop !9
@@ -527,8 +527,8 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %144, %118, %.loopexit.loopexit113, %192, %180, %168, %156, %109, %97, %85, %61, %37, %19, %124
-  %.5 = phi i8 [ %130, %124 ], [ %25, %19 ], [ %43, %37 ], [ %67, %61 ], [ %91, %85 ], [ %103, %97 ], [ %115, %109 ], [ %162, %156 ], [ %174, %168 ], [ %186, %180 ], [ %198, %192 ], [ %212, %.loopexit.loopexit113 ], [ %.1, %118 ], [ %.3, %144 ]
-  %213 = trunc nuw i8 %.5 to i1
+  %.095 = phi i8 [ %130, %124 ], [ %25, %19 ], [ %43, %37 ], [ %67, %61 ], [ %91, %85 ], [ %103, %97 ], [ %115, %109 ], [ %162, %156 ], [ %174, %168 ], [ %186, %180 ], [ %198, %192 ], [ %212, %.loopexit.loopexit113 ], [ %.2, %118 ], [ %.4, %144 ]
+  %213 = trunc nuw i8 %.095 to i1
   br i1 %213, label %.thread, label %.thread100
 
 .thread:                                          ; preds = %104, %14, %.loopexit
@@ -728,9 +728,9 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKlEE(p
 
 28:                                               ; preds = %.lr.ph110, %.loopexit
   %.1109 = phi i1 [ %.0125, %.lr.ph110 ], [ %.2, %.loopexit ]
-  %.056108 = phi i32 [ 0, %.lr.ph110 ], [ %.359, %.loopexit ]
+  %.056108 = phi i32 [ 0, %.lr.ph110 ], [ %.258, %.loopexit ]
   %.060107 = phi i32 [ 0, %.lr.ph110 ], [ %.262, %.loopexit ]
-  %.063106 = phi i32 [ 0, %.lr.ph110 ], [ %.265, %.loopexit ]
+  %.063106 = phi i32 [ 0, %.lr.ph110 ], [ %.164, %.loopexit ]
   %.168105 = phi i32 [ %.067124, %.lr.ph110 ], [ %.370, %.loopexit ]
   %.185104 = phi ptr [ %.084121, %.lr.ph110 ], [ %.387, %.loopexit ]
   %29 = load ptr, ptr %0, align 8
@@ -836,9 +836,9 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKlEE(p
 .loopexit:                                        ; preds = %.loopexit.loopexit126, %.loopexit.loopexit, %67, %61
   %.387 = phi ptr [ %.286, %61 ], [ %.185104, %67 ], [ %.286, %.loopexit.loopexit ], [ %.185104, %.loopexit.loopexit126 ]
   %.370 = phi i32 [ %.269, %61 ], [ %.168105, %67 ], [ %.269, %.loopexit.loopexit ], [ %.168105, %.loopexit.loopexit126 ]
-  %.265 = phi i32 [ %.063106, %61 ], [ %.063106, %67 ], [ %.063106, %.loopexit.loopexit ], [ %75, %.loopexit.loopexit126 ]
+  %.164 = phi i32 [ %.063106, %61 ], [ %.063106, %67 ], [ %.063106, %.loopexit.loopexit ], [ %75, %.loopexit.loopexit126 ]
   %.262 = phi i32 [ %.060107, %61 ], [ %.060107, %67 ], [ %73, %.loopexit.loopexit ], [ %.060107, %.loopexit.loopexit126 ]
-  %.359 = phi i32 [ %.056108, %61 ], [ %.056108, %67 ], [ %74, %.loopexit.loopexit ], [ %76, %.loopexit.loopexit126 ]
+  %.258 = phi i32 [ %.056108, %61 ], [ %.056108, %67 ], [ %74, %.loopexit.loopexit ], [ %76, %.loopexit.loopexit126 ]
   %.2 = phi i1 [ true, %61 ], [ %.1109, %67 ], [ true, %.loopexit.loopexit ], [ %.1109, %.loopexit.loopexit126 ]
   %77 = load ptr, ptr %14, align 8
   %78 = load ptr, ptr %12, align 8
@@ -847,17 +847,17 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKlEE(p
   %81 = sub i64 %79, %80
   %82 = lshr exact i64 %81, 2
   %83 = trunc i64 %82 to i32
-  %84 = icmp slt i32 %.359, %83
+  %84 = icmp slt i32 %.258, %83
   br i1 %84, label %28, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.loopexit
   %85 = getelementptr inbounds [94 x i32], ptr %5, i64 0, i64 %indvars.iv153
-  store i32 %.265, ptr %85, align 4
+  store i32 %.164, ptr %85, align 4
   %86 = icmp sgt i32 %.262, 0
   br i1 %86, label %.lr.ph119.preheader, label %._crit_edge120
 
 .lr.ph119.preheader:                              ; preds = %._crit_edge
-  %87 = sext i32 %.265 to i64
+  %87 = sext i32 %.164 to i64
   %wide.trip.count = zext nneg i32 %.262 to i64
   br label %.lr.ph119
 

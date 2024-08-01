@@ -22172,7 +22172,7 @@ ehcleanup532:                                     ; preds = %lpad529, %lpad527
   br label %ehcleanup534
 
 if.end533:                                        ; preds = %invoke.cont512, %invoke.cont530
-  %kind.1 = phi i32 [ 0, %invoke.cont530 ], [ %call513, %invoke.cont512 ]
+  %kind.2 = phi i32 [ 0, %invoke.cont530 ], [ %call513, %invoke.cont512 ]
   call void @_ZN4cvc54TermD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %fop) #19
   %221 = load ptr, ptr %argTypes, align 8
   %_M_finish.i912 = getelementptr inbounds i8, ptr %argTypes, i64 8
@@ -22211,7 +22211,7 @@ ehcleanup535:                                     ; preds = %lpad492.loopexit, %
   br label %ehcleanup537
 
 if.end536:                                        ; preds = %if.then.i.i.i922, %invoke.cont.i920, %invoke.cont468
-  %kind.2 = phi i32 [ %kind.1, %invoke.cont.i920 ], [ %kind.1, %if.then.i.i.i922 ], [ %call469, %invoke.cont468 ]
+  %kind.1 = phi i32 [ %kind.2, %invoke.cont.i920 ], [ %kind.2, %if.then.i.i.i922 ], [ %call469, %invoke.cont468 ]
   call void @_ZN4cvc54TermD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %v) #19
   br label %if.end541thread-pre-split
 
@@ -22221,13 +22221,13 @@ ehcleanup537:                                     ; preds = %ehcleanup535, %lpad
   br label %eh.resume
 
 if.end541thread-pre-split:                        ; preds = %if.then399, %invoke.cont368, %if.end536
-  %kind.3 = phi i32 [ %kind.2, %if.end536 ], [ %166, %if.then399 ], [ %spec.select1969, %invoke.cont368 ]
+  %kind.5 = phi i32 [ %kind.1, %if.end536 ], [ %166, %if.then399 ], [ %spec.select1969, %invoke.cont368 ]
   %isBuiltinOperator.0.shrunk.ph = phi i1 [ false, %if.end536 ], [ true, %if.then399 ], [ false, %invoke.cont368 ]
   %.pr = load i32, ptr %p, align 8
   br label %if.end541
 
 if.end541:                                        ; preds = %if.end541thread-pre-split, %if.else359
-  %kind.4 = phi i32 [ %kind.3, %if.end541thread-pre-split ], [ 0, %if.else359 ]
+  %kind.3 = phi i32 [ %kind.5, %if.end541thread-pre-split ], [ 0, %if.else359 ]
   %224 = phi i32 [ %.pr, %if.end541thread-pre-split ], [ %158, %if.else359 ]
   %isBuiltinOperator.0.shrunk = phi i1 [ %isBuiltinOperator.0.shrunk.ph, %if.end541thread-pre-split ], [ false, %if.else359 ]
   switch i32 %224, label %if.then741 [
@@ -22734,7 +22734,7 @@ if.else761:                                       ; preds = %if.end541
   br i1 %isBuiltinOperator.0.shrunk, label %if.then763, label %if.end1143
 
 if.then763:                                       ; preds = %if.else761
-  %265 = and i32 %kind.4, -2
+  %265 = and i32 %kind.3, -2
   %or.cond8 = icmp eq i32 %265, 2
   br i1 %or.cond8, label %if.then767, label %if.end857
 
@@ -23110,7 +23110,7 @@ if.end857:                                        ; preds = %if.end851, %if.then
   br i1 %tobool.i1110, label %if.else880, label %land.lhs.true859
 
 land.lhs.true859:                                 ; preds = %if.end857
-  switch i32 %kind.4, label %cond.true1121 [
+  switch i32 %kind.3, label %cond.true1121 [
     i32 13, label %land.lhs.true863
     i32 11, label %land.lhs.true863
     i32 23, label %land.lhs.true882
@@ -23159,7 +23159,7 @@ if.else.i.i.i.i.i.i1140:                          ; preds = %if.then.i.i.i.i1135
   br label %return
 
 if.else880:                                       ; preds = %land.lhs.true863, %if.end857
-  switch i32 %kind.4, label %cond.true1121 [
+  switch i32 %kind.3, label %cond.true1121 [
     i32 23, label %land.lhs.true882
     i32 25, label %land.lhs.true993
     i32 113, label %if.then1059
@@ -23475,11 +23475,11 @@ cond.true1091:                                    ; preds = %land.lhs.true1078
 cond.true1121:                                    ; preds = %land.lhs.true859, %if.else880, %land.lhs.true993, %land.lhs.true996, %land.lhs.true999, %land.lhs.true1002, %land.lhs.true882, %if.end1072, %land.lhs.true1075, %land.lhs.true1078
   %d_solver1116 = getelementptr inbounds i8, ptr %this, i64 8
   %356 = load ptr, ptr %d_solver1116, align 8
-  call void @_ZNK4cvc56Solver6mkTermENS_4KindERKSt6vectorINS_4TermESaIS3_EE(ptr sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %356, i32 noundef %kind.4, ptr noundef nonnull align 8 dereferenceable(24) %args)
+  call void @_ZNK4cvc56Solver6mkTermENS_4KindERKSt6vectorINS_4TermESaIS3_EE(ptr sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %356, i32 noundef %kind.3, ptr noundef nonnull align 8 dereferenceable(24) %args)
   br label %return
 
 if.end1143:                                       ; preds = %invoke.cont733, %if.else761, %if.end759, %invoke.cont676
-  %kind.5 = phi i32 [ %264, %if.end759 ], [ %kind.4, %if.else761 ], [ %257, %invoke.cont733 ], [ %kind.4, %invoke.cont676 ]
+  %kind.4 = phi i32 [ %264, %if.end759 ], [ %kind.3, %if.else761 ], [ %257, %invoke.cont733 ], [ %kind.3, %invoke.cont676 ]
   %_M_finish.i1268 = getelementptr inbounds i8, ptr %args, i64 8
   %357 = load ptr, ptr %_M_finish.i1268, align 8
   %358 = load ptr, ptr %args, align 8
@@ -23591,7 +23591,7 @@ ehcleanup1251:                                    ; preds = %ehcleanup1169, %lpa
   br label %eh.resume
 
 if.end1252:                                       ; preds = %cleanup1250.thread, %if.end1143
-  %cmp1253 = icmp eq i32 %kind.5, 0
+  %cmp1253 = icmp eq i32 %kind.4, 0
   br i1 %cmp1253, label %if.then1254, label %cond.true1286
 
 if.then1254:                                      ; preds = %if.end1252
@@ -23641,7 +23641,7 @@ ehcleanup1262:                                    ; preds = %lpad1257, %lpad.i16
 cond.true1286:                                    ; preds = %if.end1252, %invoke.cont1260
   %d_solver1281 = getelementptr inbounds i8, ptr %this, i64 8
   %369 = load ptr, ptr %d_solver1281, align 8
-  call void @_ZNK4cvc56Solver6mkTermENS_4KindERKSt6vectorINS_4TermESaIS3_EE(ptr sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %369, i32 noundef %kind.5, ptr noundef nonnull align 8 dereferenceable(24) %args)
+  call void @_ZNK4cvc56Solver6mkTermENS_4KindERKSt6vectorINS_4TermESaIS3_EE(ptr sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %369, i32 noundef %kind.4, ptr noundef nonnull align 8 dereferenceable(24) %args)
   br label %return
 
 return:                                           ; preds = %invoke.cont952, %cond.true1229, %if.else.i.i.i.i.i.i1140, %if.then.i.i.i.i.i.i1138, %cond.end878, %if.then.i.i.i830, %invoke.cont424, %cond.true1286, %cond.true1121, %cond.true1091, %nrvo.skipdtor1053, %nrvo.skipdtor932, %nrvo.skipdtor664, %if.then431, %cleanup

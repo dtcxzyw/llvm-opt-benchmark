@@ -841,7 +841,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %34
-  %.03040 = phi i8 [ %.2, %34 ], [ 0, %13 ]
+  %.03040 = phi i8 [ %.3, %34 ], [ 0, %13 ]
   %.03139 = phi i32 [ %50, %34 ], [ 1, %13 ]
   %.03338 = phi i32 [ %.134, %34 ], [ 0, %13 ]
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
@@ -859,7 +859,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   br label %29
 
 29:                                               ; preds = %24, %.lr.ph
-  %.1 = phi i8 [ 0, %24 ], [ %.03040, %.lr.ph ]
+  %.2 = phi i8 [ 0, %24 ], [ %.03040, %.lr.ph ]
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 16
   %32 = load i64, ptr %31, align 8
@@ -890,7 +890,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   %48 = trunc nuw i32 %47 to i8
   %.134 = select i1 %46, i32 %.03139, i32 %.03338
   %49 = select i1 %46, i8 %48, i8 0
-  %.2 = or i8 %49, %.1
+  %.3 = or i8 %49, %.2
   call void @wtap_rec_reset(ptr noundef nonnull %5) #9
   call void @epan_dissect_reset(ptr noundef nonnull %8) #9
   %50 = add i32 %.03139, 1
@@ -899,7 +899,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
 
 ._crit_edge:                                      ; preds = %34, %29, %13
   %.031.lcssa = phi i32 [ 1, %13 ], [ %.03139, %29 ], [ %50, %34 ]
-  %.3 = phi i8 [ 0, %13 ], [ %.1, %29 ], [ %.2, %34 ]
+  %.1 = phi i8 [ 0, %13 ], [ %.2, %29 ], [ %.3, %34 ]
   %51 = and i32 %.031.lcssa, 7
   %52 = icmp eq i32 %51, 0
   %53 = sext i1 %52 to i32
@@ -907,7 +907,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   %54 = lshr i32 %spec.select, 3
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr i8, ptr %19, i64 %55
-  store i8 %.3, ptr %56, align 1
+  store i8 %.1, ptr %56, align 1
   call void @wtap_rec_cleanup(ptr noundef nonnull %5) #9
   call void @ws_buffer_free(ptr noundef nonnull %4) #9
   call void @epan_dissect_cleanup(ptr noundef nonnull %8) #9

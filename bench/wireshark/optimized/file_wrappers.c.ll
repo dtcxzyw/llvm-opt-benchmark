@@ -1202,7 +1202,7 @@ gz_skip.exit.thread:                              ; preds = %35, %41, %8, %5
 48:                                               ; preds = %71, %gz_skip.exit.thread
   %.036 = phi i32 [ %1, %gz_skip.exit.thread ], [ %.137, %71 ]
   %.033 = phi ptr [ %0, %gz_skip.exit.thread ], [ %.235, %71 ]
-  %.032 = phi i32 [ 0, %gz_skip.exit.thread ], [ %.1, %71 ]
+  %.032 = phi i32 [ 0, %gz_skip.exit.thread ], [ %.2, %71 ]
   %49 = load i32, ptr %44, align 8
   %.not40 = icmp eq i32 %49, 0
   br i1 %.not40, label %61, label %50
@@ -1259,12 +1259,12 @@ gz_skip.exit.thread:                              ; preds = %35, %41, %8, %5
 71:                                               ; preds = %._crit_edge, %68
   %.137 = phi i32 [ %57, %._crit_edge ], [ %.036, %68 ]
   %.235 = phi ptr [ %.134, %._crit_edge ], [ %.033, %68 ]
-  %.1 = phi i32 [ %58, %._crit_edge ], [ %.032, %68 ]
+  %.2 = phi i32 [ %58, %._crit_edge ], [ %.032, %68 ]
   %.not44 = icmp eq i32 %.137, 0
   br i1 %.not44, label %gz_skip.exit, label %48, !llvm.loop !10
 
 gz_skip.exit:                                     ; preds = %38, %31, %71, %65, %68, %61, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.032, %65 ], [ %.1, %71 ], [ -1, %68 ], [ -1, %61 ], [ -1, %31 ], [ -1, %38 ]
+  %.0 = phi i32 [ 0, %3 ], [ %.032, %65 ], [ %.2, %71 ], [ -1, %68 ], [ -1, %61 ], [ -1, %31 ], [ -1, %38 ]
   ret i32 %.0
 }
 
@@ -2763,7 +2763,7 @@ gz_skip.exit.thread:                              ; preds = %38, %44, %12, %9
 49:                                               ; preds = %.preheader, %62
   %50 = phi i32 [ %74, %62 ], [ %.pre, %.preheader ]
   %.045 = phi i32 [ %79, %62 ], [ %45, %.preheader ]
-  %.043 = phi ptr [ %80, %62 ], [ %0, %.preheader ]
+  %.1 = phi ptr [ %80, %62 ], [ %0, %.preheader ]
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %62
 
@@ -2783,7 +2783,7 @@ gz_skip.exit.thread:                              ; preds = %38, %44, %12, %9
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %57
-  %61 = icmp eq ptr %.043, %0
+  %61 = icmp eq ptr %.1, %0
   br i1 %61, label %gz_skip.exit, label %.loopexit
 
 62:                                               ; preds = %57, %49
@@ -2800,7 +2800,7 @@ gz_skip.exit.thread:                              ; preds = %38, %44, %12, %9
   %71 = add i32 %70, 1
   %.044 = select i1 %.not55, i32 %.045., i32 %71
   %72 = zext i32 %.044 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.043, ptr align 1 %64, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1, ptr align 1 %64, i64 %72, i1 false)
   %73 = load i32, ptr %46, align 8
   %74 = sub i32 %73, %.044
   store i32 %74, ptr %46, align 8
@@ -2811,18 +2811,18 @@ gz_skip.exit.thread:                              ; preds = %38, %44, %12, %9
   %78 = add i64 %77, %72
   store i64 %78, ptr %48, align 8
   %79 = sub i32 %.045, %.044
-  %80 = getelementptr i8, ptr %.043, i64 %72
+  %80 = getelementptr i8, ptr %.1, i64 %72
   %81 = icmp ne i32 %79, 0
   %82 = and i1 %.not55, %81
   br i1 %82, label %49, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %62, %60, %gz_skip.exit.thread
-  %.1 = phi ptr [ %.043, %60 ], [ %0, %gz_skip.exit.thread ], [ %80, %62 ]
-  store i8 0, ptr %.1, align 1
+  %.043 = phi ptr [ %.1, %60 ], [ %0, %gz_skip.exit.thread ], [ %80, %62 ]
+  store i8 0, ptr %.043, align 1
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %41, %34, %54, %52, %60, %6, %3, %.loopexit
-  %.0 = phi ptr [ %.1, %.loopexit ], [ null, %3 ], [ null, %6 ], [ null, %60 ], [ null, %52 ], [ null, %54 ], [ null, %34 ], [ null, %41 ]
+  %.0 = phi ptr [ %.043, %.loopexit ], [ null, %3 ], [ null, %6 ], [ null, %60 ], [ null, %52 ], [ null, %54 ], [ null, %34 ], [ null, %41 ]
   ret ptr %.0
 }
 

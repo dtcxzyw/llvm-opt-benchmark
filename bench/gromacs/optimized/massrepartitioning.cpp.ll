@@ -89,9 +89,9 @@ _ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit:   ; preds = %._crit_edge.i, %4
   br i1 %.not196, label %._crit_edge270, label %.lr.ph269
 
 .lr.ph269:                                        ; preds = %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit, %27
-  %.0268 = phi i1 [ %.3324, %27 ], [ false, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
-  %.0115267 = phi i32 [ %.3118322, %27 ], [ 0, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
-  %.0119266 = phi i32 [ %.3122320, %27 ], [ 0, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
+  %.0268 = phi i1 [ %.1324, %27 ], [ false, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
+  %.0115267 = phi i32 [ %.1116322, %27 ], [ 0, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
+  %.0119266 = phi i32 [ %.1120320, %27 ], [ 0, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
   %.sroa.0191.0265 = phi ptr [ %28, %27 ], [ %25, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
   %29 = getelementptr inbounds i8, ptr %.sroa.0191.0265, i64 8
   %30 = load i32, ptr %29, align 8
@@ -384,9 +384,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 149:                                              ; preds = %.lr.ph260, %194
   %indvars.iv297 = phi i64 [ 0, %.lr.ph260 ], [ %indvars.iv.next298, %194 ]
-  %.1259 = phi i1 [ %.0268, %.lr.ph260 ], [ %.2, %194 ]
-  %.1116258 = phi i32 [ %.0115267, %.lr.ph260 ], [ %.2117, %194 ]
-  %.1120257 = phi i32 [ %.0119266, %.lr.ph260 ], [ %.2121, %194 ]
+  %.2259 = phi i1 [ %.0268, %.lr.ph260 ], [ %.3, %194 ]
+  %.2117258 = phi i32 [ %.0115267, %.lr.ph260 ], [ %.3118, %194 ]
+  %.2121257 = phi i32 [ %.0119266, %.lr.ph260 ], [ %.3122, %194 ]
   %150 = getelementptr inbounds float, ptr %116, i64 %indvars.iv297
   %151 = load float, ptr %150, align 4
   %152 = fcmp ogt float %151, 0.000000e+00
@@ -457,17 +457,17 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %188
-  %191 = add nsw i32 %.1116258, 1
+  %191 = add nsw i32 %.2117258, 1
   br label %194
 
 192:                                              ; preds = %188
-  %193 = add nsw i32 %.1120257, 1
+  %193 = add nsw i32 %.2121257, 1
   br label %194
 
 194:                                              ; preds = %165, %149, %190, %192, %187, %172
-  %.2121 = phi i32 [ %.1120257, %187 ], [ %.1120257, %172 ], [ %.1120257, %190 ], [ %193, %192 ], [ %.1120257, %149 ], [ %.1120257, %165 ]
-  %.2117 = phi i32 [ %.1116258, %187 ], [ %.1116258, %172 ], [ %191, %190 ], [ %.1116258, %192 ], [ %.1116258, %149 ], [ %.1116258, %165 ]
-  %.2 = phi i1 [ true, %187 ], [ %.1259, %172 ], [ %.1259, %190 ], [ %.1259, %192 ], [ %.1259, %149 ], [ true, %165 ]
+  %.3122 = phi i32 [ %.2121257, %187 ], [ %.2121257, %172 ], [ %.2121257, %190 ], [ %193, %192 ], [ %.2121257, %149 ], [ %.2121257, %165 ]
+  %.3118 = phi i32 [ %.2117258, %187 ], [ %.2117258, %172 ], [ %191, %190 ], [ %.2117258, %192 ], [ %.2117258, %149 ], [ %.2117258, %165 ]
+  %.3 = phi i1 [ true, %187 ], [ %.2259, %172 ], [ %.2259, %190 ], [ %.2259, %192 ], [ %.2259, %149 ], [ true, %165 ]
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %195 = load i32, ptr %29, align 8
   %196 = sext i32 %195 to i64
@@ -475,17 +475,17 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %197, label %149, label %.loopexit198, !llvm.loop !11
 
 .loopexit198:                                     ; preds = %194, %.preheader, %141, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %.3323 = phi i1 [ %.0268, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %.0268, %.preheader ], [ %.0268, %141 ], [ %.2, %194 ]
-  %.3118321 = phi i32 [ %.0115267, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %.0115267, %.preheader ], [ %.0115267, %141 ], [ %.2117, %194 ]
-  %.3122319 = phi i32 [ %.0119266, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %.0119266, %.preheader ], [ %.0119266, %141 ], [ %.2121, %194 ]
+  %.1323 = phi i1 [ %.0268, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %.0268, %.preheader ], [ %.0268, %141 ], [ %.3, %194 ]
+  %.1116321 = phi i32 [ %.0115267, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %.0115267, %.preheader ], [ %.0115267, %141 ], [ %.3118, %194 ]
+  %.1120319 = phi i32 [ %.0119266, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %.0119266, %.preheader ], [ %.0119266, %141 ], [ %.3122, %194 ]
   %.not197202317 = phi i1 [ false, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ false, %.preheader ], [ true, %141 ], [ false, %194 ]
   tail call void @_ZdlPv(ptr noundef nonnull %116) #10
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit151
 
 _ZNSt6vectorIfSaIfEED2Ev.exit151:                 ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit198
-  %.3324 = phi i1 [ %.3323, %.loopexit198 ], [ %.0268, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.3118322 = phi i32 [ %.3118321, %.loopexit198 ], [ %.0115267, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.3122320 = phi i32 [ %.3122319, %.loopexit198 ], [ %.0119266, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.1324 = phi i1 [ %.1323, %.loopexit198 ], [ %.0268, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.1116322 = phi i32 [ %.1116321, %.loopexit198 ], [ %.0115267, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.1120320 = phi i32 [ %.1120319, %.loopexit198 ], [ %.0119266, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.not197202318 = phi i1 [ %.not197202317, %.loopexit198 ], [ false, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.not.i.i.i152 = icmp eq ptr %.sroa.0176.1, null
   br i1 %.not.i.i.i152, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %198
@@ -507,18 +507,18 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit199, %.loo
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit154
 
 ._crit_edge270:                                   ; preds = %27
-  br i1 %.3324, label %200, label %201
+  br i1 %.1324, label %200, label %201
 
 200:                                              ; preds = %._crit_edge270
   tail call void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 83, ptr nonnull @.str.2)
   br label %201
 
 201:                                              ; preds = %200, %._crit_edge270
-  %202 = icmp sgt i32 %.3118322, 0
+  %202 = icmp sgt i32 %.1116322, 0
   br i1 %202, label %203, label %210
 
 203:                                              ; preds = %201
-  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.3, i32 noundef %.3118322)
+  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.3, i32 noundef %.1116322)
   %204 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   %205 = extractvalue { i64, ptr } %204, 0
   %206 = extractvalue { i64, ptr } %204, 1
@@ -536,11 +536,11 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit199, %.loo
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit154
 
 210:                                              ; preds = %207, %201
-  %.not = icmp eq i32 %.3122320, 0
+  %.not = icmp eq i32 %.1120320, 0
   br i1 %.not, label %.loopexit200, label %211
 
 211:                                              ; preds = %210
-  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.4, i32 noundef %.3122320)
+  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.4, i32 noundef %.1120320)
   %212 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
   %213 = extractvalue { i64, ptr } %212, 0
   %214 = extractvalue { i64, ptr } %212, 1

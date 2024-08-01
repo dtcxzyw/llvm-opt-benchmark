@@ -436,9 +436,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -743,7 +743,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %invoke.cont11
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end94
   %limit13.0.ph146 = phi i32 [ %4, %while.body.lr.ph.lr.ph ], [ %limit13.1, %if.end94 ]
-  %cursor.0.ph145 = phi i32 [ %3, %while.body.lr.ph.lr.ph ], [ %cursor.1, %if.end94 ]
+  %cursor.0.ph145 = phi i32 [ %3, %while.body.lr.ph.lr.ph ], [ %cursor.2, %if.end94 ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -983,9 +983,9 @@ invoke.cont88:                                    ; preds = %invoke.cont84
   br label %if.end94
 
 if.end94:                                         ; preds = %invoke.cont75, %invoke.cont88, %invoke.cont69
-  %cursor.1 = phi i32 [ %37, %invoke.cont88 ], [ %cursor.0136, %invoke.cont75 ], [ %cursor.0136, %invoke.cont69 ]
+  %cursor.2 = phi i32 [ %37, %invoke.cont88 ], [ %cursor.0136, %invoke.cont75 ], [ %cursor.0136, %invoke.cont69 ]
   %limit13.1 = phi i32 [ %sub92, %invoke.cont88 ], [ %limit13.0.ph146, %invoke.cont75 ], [ %limit13.0.ph146, %invoke.cont69 ]
-  %cmp15135 = icmp slt i32 %cursor.1, %limit13.1
+  %cmp15135 = icmp slt i32 %cursor.2, %limit13.1
   br i1 %cmp15135, label %while.body.lr.ph, label %while.end, !llvm.loop !5
 
 if.end95:                                         ; preds = %if.end53
@@ -1015,13 +1015,13 @@ if.else:                                          ; preds = %invoke.cont96
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %invoke.cont102, %invoke.cont47, %if.else, %invoke.cont34, %invoke.cont40, %sw.bb, %invoke.cont21
-  %cursor.2 = phi i32 [ %cursor.0136, %invoke.cont40 ], [ %cursor.0136, %invoke.cont34 ], [ %dec107, %if.else ], [ %cursor.0136, %invoke.cont21 ], [ %cursor.0136, %sw.bb ], [ %cursor.0136, %invoke.cont47 ], [ %cursor.0136, %invoke.cont102 ]
+  %cursor.1 = phi i32 [ %cursor.0136, %invoke.cont40 ], [ %cursor.0136, %invoke.cont34 ], [ %dec107, %if.else ], [ %cursor.0136, %invoke.cont21 ], [ %cursor.0136, %sw.bb ], [ %cursor.0136, %invoke.cont47 ], [ %cursor.0136, %invoke.cont102 ]
   %mode.1.shrunk = phi i1 [ true, %invoke.cont40 ], [ true, %invoke.cont34 ], [ false, %if.else ], [ false, %invoke.cont21 ], [ false, %sw.bb ], [ %cmp49, %invoke.cont47 ], [ %cmp104.not.not, %invoke.cont102 ]
   %openPos.1 = phi i32 [ %openPos.0138, %invoke.cont40 ], [ %openPos.0138, %invoke.cont34 ], [ %openPos.0138, %if.else ], [ %cursor.0136, %invoke.cont21 ], [ %openPos.0138, %sw.bb ], [ %openPos.0138, %invoke.cont47 ], [ %openPos.0138, %invoke.cont102 ]
   %mode.1 = zext i1 %mode.1.shrunk to i32
   %cmp109 = icmp ult i32 %call.i59, 65536
   %cond = select i1 %cmp109, i32 1, i32 2
-  %add = add nsw i32 %cursor.2, %cond
+  %add = add nsw i32 %cursor.1, %cond
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then4.i, %if.else.i, %if.then.i, %sw.epilog
@@ -1033,7 +1033,7 @@ while.cond.backedge:                              ; preds = %if.then4.i, %if.els
 
 while.end:                                        ; preds = %if.end94, %while.cond.backedge, %invoke.cont11
   %limit13.0.ph.lcssa134 = phi i32 [ %4, %invoke.cont11 ], [ %limit13.0.ph146, %while.cond.backedge ], [ %limit13.1, %if.end94 ]
-  %cursor.0.lcssa = phi i32 [ %3, %invoke.cont11 ], [ %cursor.0.be, %while.cond.backedge ], [ %cursor.1, %if.end94 ]
+  %cursor.0.lcssa = phi i32 [ %3, %invoke.cont11 ], [ %cursor.0.be, %while.cond.backedge ], [ %cursor.2, %if.end94 ]
   %openPos.0.lcssa = phi i32 [ -1, %invoke.cont11 ], [ %openPos.0.be, %while.cond.backedge ], [ -1, %if.end94 ]
   %41 = load i32, ptr %limit14, align 4
   %sub111 = sub i32 %limit13.0.ph.lcssa134, %41

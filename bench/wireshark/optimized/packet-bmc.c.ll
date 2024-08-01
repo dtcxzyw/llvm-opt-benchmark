@@ -227,20 +227,20 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not16.i, label %dissect_bmc_schedule_message.exit, label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %71, %.lr.ph13.i
-  %.311.i = phi i32 [ %81, %.lr.ph13.i ], [ %75, %71 ]
+  %.411.i = phi i32 [ %81, %.lr.ph13.i ], [ %75, %71 ]
   %.08610.i = phi i8 [ %82, %.lr.ph13.i ], [ 0, %71 ]
   %76 = load i32, ptr @hf_bmc_serial_number, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %76, ptr noundef %18, i32 noundef %.311.i, i32 noundef 2, i32 noundef 0) #3
-  %78 = add i32 %.311.i, 2
+  %77 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %76, ptr noundef %18, i32 noundef %.411.i, i32 noundef 2, i32 noundef 0) #3
+  %78 = add i32 %.411.i, 2
   %79 = load i32, ptr @hf_bmc_ctch_bs_index, align 4
   %80 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %79, ptr noundef %18, i32 noundef %78, i32 noundef 1, i32 noundef 0) #3
-  %81 = add i32 %.311.i, 3
+  %81 = add i32 %.411.i, 3
   %82 = add nuw i8 %.08610.i, 1
   %exitcond.not.i = icmp eq i8 %82, %72
   br i1 %exitcond.not.i, label %dissect_bmc_schedule_message.exit, label %.lr.ph13.i, !llvm.loop !7
 
 dissect_bmc_schedule_message.exit:                ; preds = %.lr.ph13.i, %._crit_edge8.i, %65, %71
-  %.4.i = phi i32 [ %69, %65 ], [ %.0.lcssa.i, %._crit_edge8.i ], [ %75, %71 ], [ %81, %.lr.ph13.i ]
+  %.3.i = phi i32 [ %69, %65 ], [ %.0.lcssa.i, %._crit_edge8.i ], [ %75, %71 ], [ %81, %.lr.ph13.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %90
 
@@ -254,7 +254,7 @@ dissect_bmc_schedule_message.exit:                ; preds = %.lr.ph13.i, %._crit
   br label %90
 
 90:                                               ; preds = %4, %83, %dissect_bmc_schedule_message.exit, %25
-  %.0 = phi i32 [ 1, %4 ], [ %89, %83 ], [ %.4.i, %dissect_bmc_schedule_message.exit ], [ %31, %25 ]
+  %.0 = phi i32 [ 1, %4 ], [ %89, %83 ], [ %.3.i, %dissect_bmc_schedule_message.exit ], [ %31, %25 ]
   ret i32 %.0
 }
 

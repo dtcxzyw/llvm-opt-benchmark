@@ -1585,8 +1585,8 @@ envoy_extensions_transport_sockets_tls_v3_CertificateValidationContext_match_sub
   %3 = load i64, ptr %1, align 8
   %and.i.i = and i64 %3, -8
   %4 = inttoptr i64 %and.i.i to ptr
-  %cmp233.not = icmp eq i64 %2, 0
-  br i1 %cmp233.not, label %invoke.cont111, label %invoke.cont2.lr.ph
+  %cmp234.not = icmp eq i64 %2, 0
+  br i1 %cmp234.not, label %invoke.cont111, label %invoke.cont2.lr.ph
 
 invoke.cont2.lr.ph:                               ; preds = %envoy_extensions_transport_sockets_tls_v3_CertificateValidationContext_match_subject_alt_names.exit
   %5 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
@@ -1601,11 +1601,11 @@ invoke.cont2.lr.ph:                               ; preds = %envoy_extensions_tr
   %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %string_matcher, i64 16
   br label %invoke.cont2
 
-invoke.cont2:                                     ; preds = %invoke.cont2.lr.ph, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit148
-  %i.0234 = phi i64 [ 0, %invoke.cont2.lr.ph ], [ %inc, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit148 ]
+invoke.cont2:                                     ; preds = %invoke.cont2.lr.ph, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit149
+  %i.0235 = phi i64 [ 0, %invoke.cont2.lr.ph ], [ %inc, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit149 ]
   store i64 25, ptr %ref.tmp1, align 8
   store ptr @.str.31, ptr %5, align 8
-  %call.i53 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %i.0234, ptr noundef nonnull %digits_.i)
+  %call.i53 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %i.0235, ptr noundef nonnull %digits_.i)
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %invoke.cont2
@@ -1629,7 +1629,7 @@ invoke.cont7:                                     ; preds = %invoke.cont6
 invoke.cont12:                                    ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %matcher) #20
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %i.0234
+  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %i.0235
   %10 = load ptr, ptr %arrayidx, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 4
   %11 = load i32, ptr %add.ptr.i.i.i.i, align 4
@@ -1663,12 +1663,12 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   br label %invoke.cont78
 
 lpad.loopexit:                                    ; preds = %invoke.cont6, %invoke.cont2
-  %lpad.loopexit231 = landingpad { ptr, i32 }
+  %lpad.loopexit232 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup187
 
 lpad.loopexit.split-lp:                           ; preds = %if.then114, %if.then128, %if.then140, %if.then155, %if.then166, %if.then177
-  %lpad.loopexit.split-lp232 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp233 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup187
 
@@ -1775,11 +1775,11 @@ if.else70:                                        ; preds = %invoke.cont12
           to label %cleanup107 unwind label %lpad11
 
 invoke.cont78:                                    ; preds = %invoke.cont19, %invoke.cont42, %invoke.cont68, %invoke.cont54, %invoke.cont30
-  %ref.tmp14.sink238 = phi ptr [ %ref.tmp14, %invoke.cont19 ], [ %ref.tmp37, %invoke.cont42 ], [ %ref.tmp64, %invoke.cont68 ], [ %ref.tmp49, %invoke.cont54 ], [ %ref.tmp25, %invoke.cont30 ]
+  %ref.tmp14.sink239 = phi ptr [ %ref.tmp14, %invoke.cont19 ], [ %ref.tmp37, %invoke.cont42 ], [ %ref.tmp64, %invoke.cont68 ], [ %ref.tmp49, %invoke.cont54 ], [ %ref.tmp25, %invoke.cont30 ]
   %cmp94.not.not = phi i1 [ false, %invoke.cont19 ], [ false, %invoke.cont42 ], [ true, %invoke.cont68 ], [ false, %invoke.cont54 ], [ false, %invoke.cont30 ]
   %type.0 = phi i32 [ 0, %invoke.cont19 ], [ 2, %invoke.cont42 ], [ 3, %invoke.cont68 ], [ 4, %invoke.cont54 ], [ 1, %invoke.cont30 ]
-  %call20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %matcher, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14.sink238) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14.sink238) #20
+  %call20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %matcher, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14.sink239) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14.sink239) #20
   %21 = load ptr, ptr %arrayidx, align 8
   %22 = load i8, ptr %21, align 1
   %tobool.i = trunc i8 %22 to i1
@@ -1817,9 +1817,9 @@ cond.false.i:                                     ; preds = %if.then86
   br label %invoke.cont90
 
 invoke.cont90:                                    ; preds = %cond.false.i, %cond.true.i
-  %retval.sroa.0.0.i = phi i64 [ %27, %cond.true.i ], [ %spec.select.i, %cond.false.i ]
+  %retval.sroa.0.0.i132 = phi i64 [ %27, %cond.true.i ], [ %spec.select.i, %cond.false.i ]
   %retval.sroa.4.0.i = phi ptr [ %28, %cond.true.i ], [ %spec.select1.i, %cond.false.i ]
-  invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 %retval.sroa.0.0.i, ptr %retval.sroa.4.0.i)
+  invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 %retval.sroa.0.0.i132, ptr %retval.sroa.4.0.i)
           to label %cleanup unwind label %lpad83
 
 lpad83:                                           ; preds = %if.else.i.i, %if.then96, %invoke.cont90
@@ -1838,13 +1838,13 @@ if.then96:                                        ; preds = %if.end93
 
 invoke.cont99:                                    ; preds = %if.then96
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 31, ptr nonnull @.str.34)
-          to label %if.then.i139 unwind label %lpad101
+          to label %if.then.i140 unwind label %lpad101
 
-if.then.i139:                                     ; preds = %invoke.cont99
+if.then.i140:                                     ; preds = %invoke.cont99
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
           to label %cleanup unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i139
+terminate.lpad.i:                                 ; preds = %if.then.i140
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
@@ -1874,10 +1874,10 @@ if.else.i.i:                                      ; preds = %invoke.cont104
   invoke void @_ZNSt6vectorIN9grpc_core13StringMatcherESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %match_subject_alt_names.i, ptr %34, ptr noundef nonnull align 8 dereferenceable(49) %7)
           to label %cleanup unwind label %lpad83
 
-cleanup:                                          ; preds = %if.then.i.i, %if.else.i.i, %if.then.i139, %invoke.cont90
+cleanup:                                          ; preds = %if.then.i.i, %if.else.i.i, %if.then.i140, %invoke.cont90
   %37 = load i64, ptr %string_matcher, align 8
-  %cmp.i.i.i.i143 = icmp eq i64 %37, 0
-  br i1 %cmp.i.i.i.i143, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i144
+  %cmp.i.i.i.i144 = icmp eq i64 %37, 0
+  br i1 %cmp.i.i.i.i144, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i145
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup
   %38 = load ptr, ptr %regex_matcher_.i.i.i, align 8
@@ -1894,12 +1894,12 @@ _ZN9grpc_core13StringMatcherD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_del
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #20
   br label %cleanup107
 
-if.else.i.i144:                                   ; preds = %cleanup
+if.else.i.i145:                                   ; preds = %cleanup
   %and.i.i.i1.i.i = and i64 %37, 1
   %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
   br i1 %cmp.i.i.i2.i.i, label %cleanup107, label %if.then.i.i3.i.i
 
-if.then.i.i3.i.i:                                 ; preds = %if.else.i.i144
+if.then.i.i3.i.i:                                 ; preds = %if.else.i.i145
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %37)
           to label %cleanup107 unwind label %terminate.lpad.i4.i.i
 
@@ -1910,25 +1910,25 @@ terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
   call void @__clang_call_terminate(ptr %40) #19
   unreachable
 
-cleanup107:                                       ; preds = %if.then.i.i3.i.i, %if.else.i.i144, %_ZN9grpc_core13StringMatcherD2Ev.exit.i.i, %if.else70
+cleanup107:                                       ; preds = %if.then.i.i3.i.i, %if.else.i.i145, %_ZN9grpc_core13StringMatcherD2Ev.exit.i.i, %if.else70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %matcher) #20
   %41 = load ptr, ptr %field, align 8
-  %cmp.not.i145 = icmp eq ptr %41, null
-  br i1 %cmp.not.i145, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit148, label %if.then.i146
+  %cmp.not.i146 = icmp eq ptr %41, null
+  br i1 %cmp.not.i146, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit149, label %if.then.i147
 
-if.then.i146:                                     ; preds = %cleanup107
+if.then.i147:                                     ; preds = %cleanup107
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %41)
-          to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit148 unwind label %terminate.lpad.i147
+          to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit149 unwind label %terminate.lpad.i148
 
-terminate.lpad.i147:                              ; preds = %if.then.i146
+terminate.lpad.i148:                              ; preds = %if.then.i147
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
   call void @__clang_call_terminate(ptr %43) #19
   unreachable
 
-_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit148: ; preds = %cleanup107, %if.then.i146
-  %inc = add nuw i64 %i.0234, 1
+_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit149: ; preds = %cleanup107, %if.then.i147
+  %inc = add nuw i64 %i.0235, 1
   %exitcond.not = icmp eq i64 %inc, %2
   br i1 %exitcond.not, label %invoke.cont111, label %invoke.cont2, !llvm.loop !52
 
@@ -1943,9 +1943,9 @@ ehcleanup108:                                     ; preds = %lpad.i, %lpad.i90, 
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field) #20
   br label %ehcleanup187
 
-invoke.cont111:                                   ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit148, %entry, %envoy_extensions_transport_sockets_tls_v3_CertificateValidationContext_match_subject_alt_names.exit
-  %add.ptr.i.i149 = getelementptr inbounds i8, ptr %certificate_validation_context_proto, i64 80
-  %44 = load i64, ptr %add.ptr.i.i149, align 1
+invoke.cont111:                                   ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit149, %entry, %envoy_extensions_transport_sockets_tls_v3_CertificateValidationContext_match_subject_alt_names.exit
+  %add.ptr.i.i150 = getelementptr inbounds i8, ptr %certificate_validation_context_proto, i64 80
+  %44 = load i64, ptr %add.ptr.i.i150, align 1
   %45 = inttoptr i64 %44 to ptr
   %cmp113.not = icmp eq i64 %44, 0
   br i1 %cmp113.not, label %if.end124, label %if.then114
@@ -1957,18 +1957,18 @@ if.then114:                                       ; preds = %invoke.cont111
 
 invoke.cont117:                                   ; preds = %if.then114
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_138CertificateProviderPluginInstanceParseERKNS_15XdsResourceType13DecodeContextEPK75envoy_extensions_transport_sockets_tls_v3_CertificateProviderPluginInstancePNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %45, ptr noundef nonnull %errors)
-          to label %if.then.i157 unwind label %lpad119
+          to label %if.then.i158 unwind label %lpad119
 
-if.then.i157:                                     ; preds = %invoke.cont117
+if.then.i158:                                     ; preds = %invoke.cont117
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp118) #20
   %certificate_name3.i = getelementptr inbounds i8, ptr %ref.tmp118, i64 32
-  %call4.i154 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %certificate_name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %certificate_name3.i) #20
+  %call4.i155 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %certificate_name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %certificate_name3.i) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %certificate_name3.i) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp118) #20
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
-          to label %if.end124 unwind label %terminate.lpad.i158
+          to label %if.end124 unwind label %terminate.lpad.i159
 
-terminate.lpad.i158:                              ; preds = %if.then.i157
+terminate.lpad.i159:                              ; preds = %if.then.i158
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
@@ -1981,11 +1981,11 @@ lpad119:                                          ; preds = %invoke.cont117
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field115) #20
   br label %ehcleanup187
 
-if.end124:                                        ; preds = %if.then.i157, %invoke.cont111
-  %add.ptr.i.i.i160 = getelementptr inbounds i8, ptr %certificate_validation_context_proto, i64 32
-  %49 = load i64, ptr %add.ptr.i.i.i160, align 1
-  %tobool.not.i161 = icmp eq i64 %49, 0
-  br i1 %tobool.not.i161, label %if.end136, label %invoke.cont125
+if.end124:                                        ; preds = %if.then.i158, %invoke.cont111
+  %add.ptr.i.i.i161 = getelementptr inbounds i8, ptr %certificate_validation_context_proto, i64 32
+  %49 = load i64, ptr %add.ptr.i.i.i161, align 1
+  %tobool.not.i162 = icmp eq i64 %49, 0
+  br i1 %tobool.not.i162, label %if.end136, label %invoke.cont125
 
 invoke.cont125:                                   ; preds = %if.end124
   %50 = inttoptr i64 %49 to ptr
@@ -2000,13 +2000,13 @@ if.then128:                                       ; preds = %invoke.cont125
 
 invoke.cont131:                                   ; preds = %if.then128
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 19, ptr nonnull @.str.17)
-          to label %if.then.i173 unwind label %lpad133
+          to label %if.then.i174 unwind label %lpad133
 
-if.then.i173:                                     ; preds = %invoke.cont131
+if.then.i174:                                     ; preds = %invoke.cont131
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
-          to label %if.end136 unwind label %terminate.lpad.i174
+          to label %if.end136 unwind label %terminate.lpad.i175
 
-terminate.lpad.i174:                              ; preds = %if.then.i173
+terminate.lpad.i175:                              ; preds = %if.then.i174
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
@@ -2019,11 +2019,11 @@ lpad133:                                          ; preds = %invoke.cont131
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field129) #20
   br label %ehcleanup187
 
-if.end136:                                        ; preds = %if.end124, %if.then.i173, %invoke.cont125
-  %add.ptr.i.i.i176 = getelementptr inbounds i8, ptr %certificate_validation_context_proto, i64 24
-  %55 = load i64, ptr %add.ptr.i.i.i176, align 1
-  %tobool.not.i177 = icmp eq i64 %55, 0
-  br i1 %tobool.not.i177, label %invoke.cont149, label %invoke.cont137
+if.end136:                                        ; preds = %if.end124, %if.then.i174, %invoke.cont125
+  %add.ptr.i.i.i177 = getelementptr inbounds i8, ptr %certificate_validation_context_proto, i64 24
+  %55 = load i64, ptr %add.ptr.i.i.i177, align 1
+  %tobool.not.i178 = icmp eq i64 %55, 0
+  br i1 %tobool.not.i178, label %invoke.cont149, label %invoke.cont137
 
 invoke.cont137:                                   ; preds = %if.end136
   %56 = inttoptr i64 %55 to ptr
@@ -2038,13 +2038,13 @@ if.then140:                                       ; preds = %invoke.cont137
 
 invoke.cont143:                                   ; preds = %if.then140
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 19, ptr nonnull @.str.17)
-          to label %if.then.i189 unwind label %lpad145
+          to label %if.then.i190 unwind label %lpad145
 
-if.then.i189:                                     ; preds = %invoke.cont143
+if.then.i190:                                     ; preds = %invoke.cont143
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
-          to label %invoke.cont149 unwind label %terminate.lpad.i190
+          to label %invoke.cont149 unwind label %terminate.lpad.i191
 
-terminate.lpad.i190:                              ; preds = %if.then.i189
+terminate.lpad.i191:                              ; preds = %if.then.i190
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
@@ -2057,17 +2057,17 @@ lpad145:                                          ; preds = %invoke.cont143
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field141) #20
   br label %ehcleanup187
 
-invoke.cont149:                                   ; preds = %if.end136, %invoke.cont137, %if.then.i189
-  %add.ptr.i.i192 = getelementptr inbounds i8, ptr %certificate_validation_context_proto, i64 40
-  %61 = load i64, ptr %add.ptr.i.i192, align 1
+invoke.cont149:                                   ; preds = %if.end136, %invoke.cont137, %if.then.i190
+  %add.ptr.i.i193 = getelementptr inbounds i8, ptr %certificate_validation_context_proto, i64 40
+  %61 = load i64, ptr %add.ptr.i.i193, align 1
   %cmp151.not = icmp eq i64 %61, 0
   br i1 %cmp151.not, label %invoke.cont164, label %invoke.cont153
 
 invoke.cont153:                                   ; preds = %invoke.cont149
   %62 = inttoptr i64 %61 to ptr
   %63 = load i8, ptr %62, align 1
-  %tobool.i193 = trunc i8 %63 to i1
-  br i1 %tobool.i193, label %if.then155, label %invoke.cont164
+  %tobool.i194 = trunc i8 %63 to i1
+  br i1 %tobool.i194, label %if.then155, label %invoke.cont164
 
 if.then155:                                       ; preds = %invoke.cont153
   store ptr %errors, ptr %field156, align 8
@@ -2076,13 +2076,13 @@ if.then155:                                       ; preds = %invoke.cont153
 
 invoke.cont158:                                   ; preds = %if.then155
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 19, ptr nonnull @.str.17)
-          to label %if.then.i201 unwind label %lpad160
+          to label %if.then.i202 unwind label %lpad160
 
-if.then.i201:                                     ; preds = %invoke.cont158
+if.then.i202:                                     ; preds = %invoke.cont158
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
-          to label %invoke.cont164 unwind label %terminate.lpad.i202
+          to label %invoke.cont164 unwind label %terminate.lpad.i203
 
-terminate.lpad.i202:                              ; preds = %if.then.i201
+terminate.lpad.i203:                              ; preds = %if.then.i202
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
@@ -2095,11 +2095,11 @@ lpad160:                                          ; preds = %invoke.cont158
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field156) #20
   br label %ehcleanup187
 
-invoke.cont164:                                   ; preds = %invoke.cont149, %invoke.cont153, %if.then.i201
+invoke.cont164:                                   ; preds = %invoke.cont149, %invoke.cont153, %if.then.i202
   %67 = load i8, ptr %certificate_validation_context_proto, align 1
   %and2.i.i.i.i = and i8 %67, 8
-  %cmp.i.i.i.i204.not = icmp eq i8 %and2.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i204.not, label %invoke.cont175, label %if.then166
+  %cmp.i.i.i.i205.not = icmp eq i8 %and2.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i205.not, label %invoke.cont175, label %if.then166
 
 if.then166:                                       ; preds = %invoke.cont164
   store ptr %errors, ptr %field167, align 8
@@ -2108,13 +2108,13 @@ if.then166:                                       ; preds = %invoke.cont164
 
 invoke.cont169:                                   ; preds = %if.then166
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 19, ptr nonnull @.str.17)
-          to label %if.then.i212 unwind label %lpad171
+          to label %if.then.i213 unwind label %lpad171
 
-if.then.i212:                                     ; preds = %invoke.cont169
+if.then.i213:                                     ; preds = %invoke.cont169
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
-          to label %invoke.cont175 unwind label %terminate.lpad.i213
+          to label %invoke.cont175 unwind label %terminate.lpad.i214
 
-terminate.lpad.i213:                              ; preds = %if.then.i212
+terminate.lpad.i214:                              ; preds = %if.then.i213
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
@@ -2127,11 +2127,11 @@ lpad171:                                          ; preds = %invoke.cont169
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field167) #20
   br label %ehcleanup187
 
-invoke.cont175:                                   ; preds = %invoke.cont164, %if.then.i212
+invoke.cont175:                                   ; preds = %invoke.cont164, %if.then.i213
   %71 = load i8, ptr %certificate_validation_context_proto, align 1
-  %and2.i.i.i.i215 = and i8 %71, 32
-  %cmp.i.i.i.i216.not = icmp eq i8 %and2.i.i.i.i215, 0
-  br i1 %cmp.i.i.i.i216.not, label %nrvo.skipdtor, label %if.then177
+  %and2.i.i.i.i216 = and i8 %71, 32
+  %cmp.i.i.i.i217.not = icmp eq i8 %and2.i.i.i.i216, 0
+  br i1 %cmp.i.i.i.i217.not, label %nrvo.skipdtor, label %if.then177
 
 if.then177:                                       ; preds = %invoke.cont175
   store ptr %errors, ptr %field178, align 8
@@ -2140,13 +2140,13 @@ if.then177:                                       ; preds = %invoke.cont175
 
 invoke.cont180:                                   ; preds = %if.then177
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 19, ptr nonnull @.str.17)
-          to label %if.then.i224 unwind label %lpad182
+          to label %if.then.i225 unwind label %lpad182
 
-if.then.i224:                                     ; preds = %invoke.cont180
+if.then.i225:                                     ; preds = %invoke.cont180
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
-          to label %nrvo.skipdtor unwind label %terminate.lpad.i225
+          to label %nrvo.skipdtor unwind label %terminate.lpad.i226
 
-terminate.lpad.i225:                              ; preds = %if.then.i224
+terminate.lpad.i226:                              ; preds = %if.then.i225
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
@@ -2159,11 +2159,11 @@ lpad182:                                          ; preds = %invoke.cont180
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field178) #20
   br label %ehcleanup187
 
-nrvo.skipdtor:                                    ; preds = %if.then.i224, %invoke.cont175
+nrvo.skipdtor:                                    ; preds = %if.then.i225, %invoke.cont175
   ret void
 
 ehcleanup187:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad182, %lpad171, %lpad160, %lpad145, %lpad133, %lpad119, %ehcleanup108, %lpad9
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup108 ], [ %13, %lpad9 ], [ %74, %lpad182 ], [ %70, %lpad171 ], [ %66, %lpad160 ], [ %60, %lpad145 ], [ %54, %lpad133 ], [ %48, %lpad119 ], [ %lpad.loopexit231, %lpad.loopexit ], [ %lpad.loopexit.split-lp232, %lpad.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup108 ], [ %13, %lpad9 ], [ %74, %lpad182 ], [ %70, %lpad171 ], [ %66, %lpad160 ], [ %60, %lpad145 ], [ %54, %lpad133 ], [ %48, %lpad119 ], [ %lpad.loopexit232, %lpad.loopexit ], [ %lpad.loopexit.split-lp233, %lpad.loopexit.split-lp ]
   call void @_ZN9grpc_core16CommonTlsContext28CertificateValidationContextD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %agg.result) #20
   resume { ptr, i32 } %.pn.pn.pn
 }

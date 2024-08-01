@@ -68,14 +68,14 @@ define internal { double, double } @_ZL15boggs_s_forward5PJ_LPP8PJconsts(double 
 
 11:                                               ; preds = %11, %8
   %.018 = phi i32 [ 20, %8 ], [ %21, %11 ]
-  %.01617 = phi double [ %1, %8 ], [ %18, %11 ]
-  %12 = tail call double @sin(double noundef %.01617) #6
-  %13 = fadd double %.01617, %12
+  %.117 = phi double [ %1, %8 ], [ %18, %11 ]
+  %12 = tail call double @sin(double noundef %.117) #6
+  %13 = fadd double %.117, %12
   %14 = fsub double %13, %10
-  %15 = tail call double @cos(double noundef %.01617) #6
+  %15 = tail call double @cos(double noundef %.117) #6
   %16 = fadd double %15, 1.000000e+00
   %17 = fdiv double %14, %16
-  %18 = fsub double %.01617, %17
+  %18 = fsub double %.117, %17
   %19 = tail call double @llvm.fabs.f64(double %17)
   %20 = fcmp olt double %19, 0x3E7AD7F29ABCAF48
   %21 = add nsw i32 %.018, -1
@@ -98,9 +98,9 @@ define internal { double, double } @_ZL15boggs_s_forward5PJ_LPP8PJconsts(double 
   br label %33
 
 33:                                               ; preds = %3, %22
-  %.2 = phi double [ %23, %22 ], [ %1, %3 ]
+  %.016 = phi double [ %23, %22 ], [ %1, %3 ]
   %.sroa.015.0 = phi double [ %32, %22 ], [ 0.000000e+00, %3 ]
-  %34 = tail call double @sin(double noundef %.2) #6
+  %34 = tail call double @sin(double noundef %.016) #6
   %35 = tail call double @llvm.fmuladd.f64(double %34, double 0x3FF6A09E667F3BCD, double %1)
   %36 = fmul double %35, 4.993100e-01
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.015.0, 0

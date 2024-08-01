@@ -596,7 +596,7 @@ cleanup.loopexit:                                 ; preds = %invoke.cont67
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.loopexit, %for.end80, %land.rhs82
-  %retval.0 = phi i1 [ false, %for.end80 ], [ %call88, %land.rhs82 ], [ true, %cleanup.loopexit ]
+  %retval.1 = phi i1 [ false, %for.end80 ], [ %call88, %land.rhs82 ], [ true, %cleanup.loopexit ]
   %25 = load ptr, ptr %other_product, align 8
   %m_imanager.i.i126 = getelementptr inbounds i8, ptr %25, i64 752
   invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE3delERNS1_8intervalE(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i.i126, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i72)
@@ -649,8 +649,8 @@ terminate.lpad.i137:                              ; preds = %_ZN16_scoped_interv
   unreachable
 
 return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit134, %_ZNK3nla15monomial_bounds7is_freeEj.exit
-  %retval.1 = phi i1 [ false, %_ZNK3nla15monomial_bounds7is_freeEj.exit ], [ %retval.0, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit134 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNK3nla15monomial_bounds7is_freeEj.exit ], [ %retval.1, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit134 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1645,13 +1645,13 @@ ehcleanup71:                                      ; preds = %ehcleanup67, %lpad4
 
 return.sink.split:                                ; preds = %invoke.cont46, %invoke.cont9, %cleanup68.thread
   %ex42.sink = phi ptr [ %ex42, %cleanup68.thread ], [ %ex, %invoke.cont9 ], [ %ex42, %invoke.cont46 ]
-  %retval.3.ph = phi i1 [ true, %cleanup68.thread ], [ false, %invoke.cont9 ], [ false, %invoke.cont46 ]
+  %retval.2.ph = phi i1 [ true, %cleanup68.thread ], [ false, %invoke.cont9 ], [ false, %invoke.cont46 ]
   call void @_ZN2lp11explanationD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ex42.sink) #16
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end27
-  %retval.3 = phi i1 [ %call, %if.end27 ], [ %retval.3.ph, %return.sink.split ]
-  ret i1 %retval.3
+  %retval.2 = phi i1 [ %call, %if.end27 ], [ %retval.2.ph, %return.sink.split ]
+  ret i1 %retval.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3502,7 +3502,7 @@ cleanup189.sink.split:                            ; preds = %invoke.cont72, %inv
   br label %cleanup189
 
 cleanup189:                                       ; preds = %cleanup189.sink.split, %invoke.cont119, %_ZN8rationalD2Ev.exit129
-  %retval.1 = phi i1 [ false, %_ZN8rationalD2Ev.exit129 ], [ false, %invoke.cont119 ], [ true, %cleanup189.sink.split ]
+  %retval.2 = phi i1 [ false, %_ZN8rationalD2Ev.exit129 ], [ false, %invoke.cont119 ], [ true, %cleanup189.sink.split ]
   %62 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %.noexc.i152 unwind label %terminate.lpad.i151
@@ -3524,8 +3524,8 @@ ehcleanup190:                                     ; preds = %lpad.i, %lpad.i138,
   resume { ptr, i32 } %.pn35.pn.pn.pn
 
 return:                                           ; preds = %.noexc.i152, %if.then
-  %retval.2 = phi i1 [ %call, %if.then ], [ %retval.1, %.noexc.i152 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %call, %if.then ], [ %retval.2, %.noexc.i152 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7665,8 +7665,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !45
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.142 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
-  %m_state.i24 = getelementptr inbounds i8, ptr %curr.142, i64 4
+  %curr.242 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
+  %m_state.i24 = getelementptr inbounds i8, ptr %curr.242, i64 4
   %6 = load i32, ptr %m_state.i24, align 4
   switch i32 %6, label %for.inc34 [
     i32 2, label %if.then21
@@ -7674,30 +7674,30 @@ for.body19:                                       ; preds = %for.cond17.preheade
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %7 = load i32, ptr %curr.142, align 8
+  %7 = load i32, ptr %curr.242, align 8
   %cmp23 = icmp eq i32 %7, %0
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
 land.lhs.true24:                                  ; preds = %if.then21
-  %m_data.i26 = getelementptr inbounds i8, ptr %curr.142, i64 8
+  %m_data.i26 = getelementptr inbounds i8, ptr %curr.242, i64 8
   %8 = load i32, ptr %m_data.i26, align 8
   %cmp.i.i.i27 = icmp eq i32 %8, %0
   br i1 %cmp.i.i.i27, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %land.lhs.true24, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.142, i64 48
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.242, i64 48
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !46
 
 end_remove:                                       ; preds = %land.lhs.true, %land.lhs.true24
-  %curr.2 = phi ptr [ %curr.142, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 48
+  %curr.1 = phi ptr [ %curr.242, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 48
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %2, ptr %add.ptr37
   %m_state.i30 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %9 = load i32, ptr %m_state.i30, align 4
   %cmp.i31 = icmp eq i32 %9, 0
-  %m_state.i32 = getelementptr inbounds i8, ptr %curr.2, i64 4
+  %m_state.i32 = getelementptr inbounds i8, ptr %curr.1, i64 4
   br i1 %cmp.i31, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove

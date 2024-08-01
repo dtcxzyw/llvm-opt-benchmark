@@ -91,8 +91,8 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br i1 %or.cond81, label %.lr.ph, label %.lr.ph73.preheader
 
 .lr.ph:                                           ; preds = %10, %25
-  %.070 = phi i64 [ %.1, %25 ], [ 0, %10 ]
-  %.05169 = phi i32 [ %.152, %25 ], [ %11, %10 ]
+  %.170 = phi i64 [ %.2, %25 ], [ 0, %10 ]
+  %.15269 = phi i32 [ %.253, %25 ], [ %11, %10 ]
   %.05468 = phi i64 [ %26, %25 ], [ 0, %10 ]
   %13 = getelementptr inbounds %struct.pmix_info, ptr %3, i64 %.05468
   %14 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(16) @.str.3, i64 noundef 511) #7
@@ -115,15 +115,15 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br label %25
 
 25:                                               ; preds = %16, %22, %19
-  %.152 = phi i32 [ %18, %16 ], [ %.05169, %22 ], [ %.05169, %19 ]
-  %.1 = phi i64 [ %.070, %16 ], [ %24, %22 ], [ %.070, %19 ]
+  %.253 = phi i32 [ %18, %16 ], [ %.15269, %22 ], [ %.15269, %19 ]
+  %.2 = phi i64 [ %.170, %16 ], [ %24, %22 ], [ %.170, %19 ]
   %26 = add nuw i64 %.05468, 1
   %exitcond.not = icmp eq i64 %26, %4
   br i1 %exitcond.not, label %.lr.ph73.preheader, label %.lr.ph, !llvm.loop !4
 
 .lr.ph73.preheader:                               ; preds = %25, %10
-  %.253 = phi i32 [ %11, %10 ], [ %.152, %25 ]
-  %.2 = phi i64 [ 0, %10 ], [ %.1, %25 ]
+  %.051 = phi i32 [ %11, %10 ], [ %.253, %25 ]
+  %.0 = phi i64 [ 0, %10 ], [ %.2, %25 ]
   br label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %50
@@ -135,7 +135,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 29:                                               ; preds = %.lr.ph73
   %30 = getelementptr inbounds i8, ptr %27, i64 528
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call fastcc i32 @write_local(ptr noundef %0, i64 noundef %.2, i32 noundef %.253, ptr noundef %31, ptr noundef %1, i64 noundef %2)
+  %32 = tail call fastcc i32 @write_local(ptr noundef %0, i64 noundef %.0, i32 noundef %.051, ptr noundef %31, ptr noundef %1, i64 noundef %2)
   %.not66 = icmp eq i32 %32, 0
   br i1 %.not66, label %50, label %.loopexit
 
@@ -146,7 +146,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %27, i64 528
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call fastcc i32 @write_local(ptr noundef %0, i64 noundef %.2, i32 noundef %.253, ptr noundef %37, ptr noundef %1, i64 noundef %2)
+  %38 = tail call fastcc i32 @write_local(ptr noundef %0, i64 noundef %.0, i32 noundef %.051, ptr noundef %37, ptr noundef %1, i64 noundef %2)
   %.not65 = icmp eq i32 %38, 0
   br i1 %.not65, label %50, label %.loopexit
 
@@ -165,7 +165,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %27, i64 528
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call fastcc i32 @write_local(ptr noundef %0, i64 noundef %.2, i32 noundef %.253, ptr noundef %48, ptr noundef %1, i64 noundef %2)
+  %49 = tail call fastcc i32 @write_local(ptr noundef %0, i64 noundef %.0, i32 noundef %.051, ptr noundef %48, ptr noundef %1, i64 noundef %2)
   %.not64 = icmp eq i32 %49, 0
   br i1 %.not64, label %50, label %.loopexit
 

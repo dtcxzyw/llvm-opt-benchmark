@@ -311,8 +311,8 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
 
 .preheader161:                                    ; preds = %22, %88
   %39 = phi i64 [ %89, %88 ], [ %25, %22 ]
-  %.0106 = phi i32 [ %.4110, %88 ], [ 0, %22 ]
-  %.0103 = phi i64 [ %.4, %88 ], [ %25, %22 ]
+  %.0106 = phi i32 [ %.1107, %88 ], [ 0, %22 ]
+  %.0103 = phi i64 [ %.1104, %88 ], [ %25, %22 ]
   %40 = sext i32 %.0106 to i64
   %41 = getelementptr %struct.shm_mq_iovec, ptr %1, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 8
@@ -336,34 +336,34 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
 
 .preheader.outer:                                 ; preds = %47, %._crit_edge152
   %.pre153.ph = phi i64 [ %.pre.pre, %._crit_edge152 ], [ %43, %47 ]
-  %.1107.ph = phi i32 [ %66, %._crit_edge152 ], [ %.0106, %47 ]
-  %.1104.ph = phi i64 [ %65, %._crit_edge152 ], [ %.0103, %47 ]
+  %.2108.ph = phi i32 [ %66, %._crit_edge152 ], [ %.0106, %47 ]
+  %.2105.ph = phi i64 [ %65, %._crit_edge152 ], [ %.0103, %47 ]
   %.0.ph = phi i32 [ %.0, %._crit_edge152 ], [ 0, %47 ]
-  %52 = sext i32 %.1107.ph to i64
+  %52 = sext i32 %.2108.ph to i64
   %53 = getelementptr %struct.shm_mq_iovec, ptr %1, i64 %52
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.outer, %55
-  %.1104 = phi i64 [ %62, %55 ], [ %.1104.ph, %.preheader.outer ]
+  %.2105 = phi i64 [ %62, %55 ], [ %.2105.ph, %.preheader.outer ]
   %.0 = phi i32 [ %61, %55 ], [ %.0.ph, %.preheader.outer ]
-  %54 = icmp ult i64 %.1104, %.pre153.ph
+  %54 = icmp ult i64 %.2105, %.pre153.ph
   br i1 %54, label %55, label %64
 
 55:                                               ; preds = %.preheader
   %56 = load ptr, ptr %53, align 8
-  %57 = getelementptr i8, ptr %56, i64 %.1104
+  %57 = getelementptr i8, ptr %56, i64 %.2105
   %58 = load i8, ptr %57, align 1
   %59 = sext i32 %.0 to i64
   %60 = getelementptr [8 x i8], ptr %8, i64 0, i64 %59
   store i8 %58, ptr %60, align 1
   %61 = add i32 %.0, 1
-  %62 = add nuw i64 %.1104, 1
+  %62 = add nuw i64 %.2105, 1
   %63 = icmp eq i32 %61, 8
   br i1 %63, label %.loopexit166, label %.preheader
 
 64:                                               ; preds = %.preheader
-  %65 = sub nuw i64 %.1104, %.pre153.ph
-  %66 = add i32 %.1107.ph, 1
+  %65 = sub nuw i64 %.2105, %.pre153.ph
+  %66 = add i32 %.2108.ph, 1
   %.not132 = icmp slt i32 %66, %2
   br i1 %.not132, label %._crit_edge152, label %.loopexit166
 
@@ -374,10 +374,10 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
   br label %.preheader.outer
 
 .loopexit166:                                     ; preds = %64, %55
-  %.3109 = phi i32 [ %.1107.ph, %55 ], [ %66, %64 ]
+  %.3109 = phi i32 [ %.2108.ph, %55 ], [ %66, %64 ]
   %.3 = phi i64 [ %62, %55 ], [ %65, %64 ]
-  %.2 = phi i32 [ 8, %55 ], [ %.0, %64 ]
-  %67 = sext i32 %.2 to i64
+  %.1 = phi i32 [ 8, %55 ], [ %.0, %64 ]
+  %67 = sext i32 %.1 to i64
   %68 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %67, ptr noundef nonnull %8, i1 noundef zeroext %3, ptr noundef nonnull %7)
   %69 = icmp eq i32 %68, 2
   br i1 %69, label %70, label %71
@@ -421,8 +421,8 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
 
 88:                                               ; preds = %83, %71, %44
   %89 = phi i64 [ %39, %44 ], [ %74, %71 ], [ %86, %83 ]
-  %.4110 = phi i32 [ %46, %44 ], [ %.3109, %71 ], [ %.0106, %83 ]
-  %.4 = phi i64 [ %45, %44 ], [ %.3, %71 ], [ %87, %83 ]
+  %.1107 = phi i32 [ %46, %44 ], [ %.3109, %71 ], [ %.0106, %83 ]
+  %.1104 = phi i64 [ %45, %44 ], [ %.3, %71 ], [ %87, %83 ]
   %90 = icmp ult i64 %89, %.lcssa146159
   br i1 %90, label %.preheader161, label %91, !llvm.loop !15
 

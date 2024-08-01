@@ -5598,7 +5598,7 @@ if.end227:                                        ; preds = %if.then.i.i107, %_Z
   br i1 %cmp224, label %lor.lhs.false.i334, label %if.then.i
 
 lor.lhs.false.i334:                               ; preds = %for.end, %if.end227
-  %addr.1120 = phi ptr [ %addr_storage, %if.end227 ], [ null, %for.end ]
+  %addr.0120 = phi ptr [ %addr_storage, %if.end227 ], [ null, %for.end ]
   %89 = load i32, ptr %length_.i298, align 8
   %cmp2.i336 = icmp slt i32 %89, 1
   br i1 %cmp2.i336, label %if.then.i342, label %if.end.i337
@@ -5666,7 +5666,7 @@ cond.end:                                         ; preds = %if.then.i306, %if.e
   %frombool255 = zext i1 %call254 to i8
   store i8 %frombool255, ptr %current_send_has_callback_, align 8
   %106 = load ptr, ptr %buf_.i.i, align 8
-  %call257 = call noundef i64 @_ZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddr(ptr noundef nonnull align 8 dereferenceable(352) %retval.i.0.i, ptr noundef %106, i64 noundef %conv, ptr noundef %addr.1120)
+  %call257 = call noundef i64 @_ZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddr(ptr noundef nonnull align 8 dereferenceable(352) %retval.i.0.i, ptr noundef %106, i64 noundef %conv, ptr noundef %addr.0120)
   %conv258 = trunc i64 %call257 to i32
   store ptr null, ptr %current_send_req_wrap_, align 8
   store i8 0, ptr %current_send_has_callback_, align 8
@@ -5861,17 +5861,17 @@ if.then12:                                        ; preds = %if.else
 
 land.rhs:                                         ; preds = %if.then12, %while.body
   %sent.062 = phi i64 [ %sub, %while.body ], [ %conv13, %if.then12 ]
-  %bufs_ptr.addr.061 = phi ptr [ %incdec.ptr, %while.body ], [ %bufs_ptr, %if.then12 ]
-  %count.addr.060 = phi i64 [ %dec, %while.body ], [ %count, %if.then12 ]
-  %len15 = getelementptr inbounds i8, ptr %bufs_ptr.addr.061, i64 8
+  %bufs_ptr.addr.161 = phi ptr [ %incdec.ptr, %while.body ], [ %bufs_ptr, %if.then12 ]
+  %count.addr.160 = phi i64 [ %dec, %while.body ], [ %count, %if.then12 ]
+  %len15 = getelementptr inbounds i8, ptr %bufs_ptr.addr.161, i64 8
   %22 = load i64, ptr %len15, align 8
   %cmp16.not = icmp ugt i64 %22, %sent.062
   br i1 %cmp16.not, label %if.end49, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %sub = sub nuw i64 %sent.062, %22
-  %incdec.ptr = getelementptr inbounds i8, ptr %bufs_ptr.addr.061, i64 16
-  %dec = add i64 %count.addr.060, -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %bufs_ptr.addr.161, i64 16
+  %dec = add i64 %count.addr.160, -1
   %cmp14.not = icmp eq i64 %dec, 0
   br i1 %cmp14.not, label %do.body33, label %land.rhs, !llvm.loop !11
 
@@ -5889,18 +5889,18 @@ do.end44:                                         ; preds = %do.body33
   br label %return
 
 if.end49:                                         ; preds = %land.rhs
-  %len15.le = getelementptr inbounds i8, ptr %bufs_ptr.addr.061, i64 8
-  %23 = load ptr, ptr %bufs_ptr.addr.061, align 8
+  %len15.le = getelementptr inbounds i8, ptr %bufs_ptr.addr.161, i64 8
+  %23 = load ptr, ptr %bufs_ptr.addr.161, align 8
   %add.ptr = getelementptr inbounds i8, ptr %23, i64 %sent.062
-  store ptr %add.ptr, ptr %bufs_ptr.addr.061, align 8
+  store ptr %add.ptr, ptr %bufs_ptr.addr.161, align 8
   %sub31 = sub nuw i64 %22, %sent.062
   store i64 %sub31, ptr %len15.le, align 8
   %cmp50 = icmp eq i32 %call7, 0
   br i1 %cmp50, label %if.then51, label %if.end67
 
 if.then51:                                        ; preds = %if.end8.sink.split.i.i.i.i, %_ZN4node11Environment7optionsEv.exit, %if.then6, %if.then6, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit, %if.end49
-  %bufs_ptr.addr.143 = phi ptr [ %bufs_ptr.addr.061, %if.end49 ], [ %bufs_ptr, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit ], [ %bufs_ptr, %if.then6 ], [ %bufs_ptr, %if.then6 ], [ %bufs_ptr, %_ZN4node11Environment7optionsEv.exit ], [ %bufs_ptr, %if.end8.sink.split.i.i.i.i ]
-  %count.addr.142 = phi i64 [ %count.addr.060, %if.end49 ], [ %count, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit ], [ %count, %if.then6 ], [ %count, %if.then6 ], [ %count, %_ZN4node11Environment7optionsEv.exit ], [ %count, %if.end8.sink.split.i.i.i.i ]
+  %bufs_ptr.addr.043 = phi ptr [ %bufs_ptr.addr.161, %if.end49 ], [ %bufs_ptr, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit ], [ %bufs_ptr, %if.then6 ], [ %bufs_ptr, %if.then6 ], [ %bufs_ptr, %_ZN4node11Environment7optionsEv.exit ], [ %bufs_ptr, %if.end8.sink.split.i.i.i.i ]
+  %count.addr.042 = phi i64 [ %count.addr.160, %if.end49 ], [ %count, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit ], [ %count, %if.then6 ], [ %count, %if.then6 ], [ %count, %_ZN4node11Environment7optionsEv.exit ], [ %count, %if.end8.sink.split.i.i.i.i ]
   call void @_ZN4node10AsyncHooks26DefaultTriggerAsyncIdScopeC1EPNS_9AsyncWrapE(ptr noundef nonnull align 8 dereferenceable(16) %trigger_scope, ptr noundef nonnull %this) #19
   %listener_.i = getelementptr inbounds i8, ptr %this, i64 96
   %24 = load ptr, ptr %listener_.i, align 8
@@ -5937,8 +5937,8 @@ do.body3.i.i:                                     ; preds = %if.end57
 _ZN4node24MakeLibuvRequestCallbackI13uv_udp_send_sPFvPS1_iEE3ForEPNS_7ReqWrapIS1_EES4_.exit.i: ; preds = %if.end57
   %handle_58 = getelementptr inbounds i8, ptr %this, i64 120
   store ptr @"_ZZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddrEN3$_08__invokeEP13uv_udp_send_si", ptr %original_callback_.i.i, align 8
-  %conv.i.i = trunc i64 %count.addr.142 to i32
-  %call.i.i = call noundef i32 @uv_udp_send(ptr noundef nonnull %req_.i.i, ptr noundef nonnull %handle_58, ptr noundef %bufs_ptr.addr.143, i32 noundef %conv.i.i, ptr noundef %addr, ptr noundef nonnull @_ZN4node24MakeLibuvRequestCallbackI13uv_udp_send_sPFvPS1_iEE7WrapperES2_i) #19
+  %conv.i.i = trunc i64 %count.addr.042 to i32
+  %call.i.i = call noundef i32 @uv_udp_send(ptr noundef nonnull %req_.i.i, ptr noundef nonnull %handle_58, ptr noundef %bufs_ptr.addr.043, i32 noundef %conv.i.i, ptr noundef %addr, ptr noundef nonnull @_ZN4node24MakeLibuvRequestCallbackI13uv_udp_send_sPFvPS1_iEE7WrapperES2_i) #19
   %cmp.i = icmp sgt i32 %call.i.i, -1
   br i1 %cmp.i, label %if.then.i, label %delete.notnull
 
@@ -5984,13 +5984,13 @@ cleanup:                                          ; preds = %_ZNK4node11UDPWrapB
   br label %return
 
 if.end67:                                         ; preds = %if.else, %cleanup.thread, %if.end49
-  %err.2 = phi i32 [ %call7, %if.end49 ], [ %call.i.i, %cleanup.thread ], [ %call7, %if.else ]
-  %conv68 = sext i32 %err.2 to i64
+  %err.1 = phi i32 [ %call7, %if.end49 ], [ %call.i.i, %cleanup.thread ], [ %call7, %if.else ]
+  %conv68 = sext i32 %err.1 to i64
   br label %return
 
 return:                                           ; preds = %cleanup, %entry, %if.end67, %do.end44
-  %retval.1 = phi i64 [ -38, %cleanup ], [ %conv68, %if.end67 ], [ %add45, %do.end44 ], [ -9, %entry ]
-  ret i64 %retval.1
+  %retval.0 = phi i64 [ -38, %cleanup ], [ %conv68, %if.end67 ], [ %add45, %do.end44 ], [ -9, %entry ]
+  ret i64 %retval.0
 }
 
 declare i32 @uv_udp_try_send(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0

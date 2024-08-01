@@ -585,8 +585,8 @@ define internal fastcc void @io_buffer_initialize(i64 noundef %0, ptr nocapture 
   unreachable
 
 io_buffer_map_memory.exit:                        ; preds = %14, %10
-  %.0 = phi ptr [ %11, %10 ], [ %16, %14 ]
-  %.not22 = icmp eq ptr %.0, null
+  %.1 = phi ptr [ %11, %10 ], [ %16, %14 ]
+  %.not22 = icmp eq ptr %.1, null
   br i1 %.not22, label %io_buffer_map_memory.exit.thread, label %22
 
 io_buffer_map_memory.exit.thread:                 ; preds = %12, %io_buffer_map_memory.exit
@@ -595,8 +595,8 @@ io_buffer_map_memory.exit.thread:                 ; preds = %12, %io_buffer_map_
   unreachable
 
 22:                                               ; preds = %io_buffer_map_memory.exit, %6
-  %.1 = phi ptr [ %2, %6 ], [ %.0, %io_buffer_map_memory.exit ]
-  store ptr %.1, ptr %1, align 8
+  %.0 = phi ptr [ %2, %6 ], [ %.1, %io_buffer_map_memory.exit ]
+  store ptr %.0, ptr %1, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %3, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1681,8 +1681,8 @@ io_buffer_resize_clear.exit46:                    ; preds = %50, %53
   unreachable
 
 io_buffer_map_memory.exit.i.i:                    ; preds = %62, %60
-  %.0.i.i = phi ptr [ %61, %60 ], [ %63, %62 ]
-  %.not22.i.i = icmp eq ptr %.0.i.i, null
+  %.1.i.i = phi ptr [ %61, %60 ], [ %63, %62 ]
+  %.not22.i.i = icmp eq ptr %.1.i.i, null
   br i1 %.not22.i.i, label %io_buffer_map_memory.exit.thread.i.i, label %io_buffer_initialize.exit.i
 
 io_buffer_map_memory.exit.thread.i.i:             ; preds = %io_buffer_map_memory.exit.i.i
@@ -1696,7 +1696,7 @@ io_buffer_initialize.exit.i:                      ; preds = %io_buffer_map_memor
   br i1 %.not.i47, label %io_buffer_resize_copy.exit, label %io_buffer_initialize.exit.i.thread
 
 io_buffer_initialize.exit.i.thread:               ; preds = %56, %io_buffer_initialize.exit.i
-  %.sroa.0.0.i50 = phi ptr [ %.0.i.i, %io_buffer_initialize.exit.i ], [ undef, %56 ]
+  %.sroa.0.0.i50 = phi ptr [ %.1.i.i, %io_buffer_initialize.exit.i ], [ undef, %56 ]
   %69 = phi ptr [ %.pre, %io_buffer_initialize.exit.i ], [ %10, %56 ]
   %70 = getelementptr inbounds i8, ptr %3, i64 8
   %71 = load i64, ptr %70, align 8
@@ -1749,7 +1749,7 @@ io_buffer_resize_clear.exit.i:                    ; preds = %74, %ruby_nonempty_
   br label %io_buffer_resize_copy.exit
 
 io_buffer_resize_copy.exit:                       ; preds = %io_buffer_initialize.exit.i, %io_buffer_resize_clear.exit.i, %81, %84
-  %.sroa.0.0.i51 = phi ptr [ %.0.i.i, %io_buffer_initialize.exit.i ], [ %.sroa.0.0.i50, %io_buffer_resize_clear.exit.i ], [ %.sroa.0.0.i50, %81 ], [ %.sroa.0.0.i50, %84 ]
+  %.sroa.0.0.i51 = phi ptr [ %.1.i.i, %io_buffer_initialize.exit.i ], [ %.sroa.0.0.i50, %io_buffer_resize_clear.exit.i ], [ %.sroa.0.0.i50, %81 ], [ %.sroa.0.0.i50, %84 ]
   store ptr %.sroa.0.0.i51, ptr %3, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %1, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -5338,12 +5338,12 @@ io_buffer_validate.exit.i.thread:                 ; preds = %.critedge, %io_buff
   br label %rbimpl_rstring_getmem.exit
 
 rbimpl_rstring_getmem.exit:                       ; preds = %13, %27, %io_buffer_validate.exit.i.thread, %io_buffer_validate.exit.i, %18
-  %.132 = phi i64 [ %16, %18 ], [ %29, %27 ], [ 0, %io_buffer_validate.exit.i.thread ], [ 0, %io_buffer_validate.exit.i ], [ %16, %13 ]
-  %.1 = phi ptr [ %.sroa.3.0.copyload, %18 ], [ %26, %27 ], [ null, %io_buffer_validate.exit.i.thread ], [ null, %io_buffer_validate.exit.i ], [ %17, %13 ]
-  %30 = icmp ne ptr %.1, null
-  %31 = icmp ule ptr %.1, %1
+  %.031 = phi i64 [ %16, %18 ], [ %29, %27 ], [ 0, %io_buffer_validate.exit.i.thread ], [ 0, %io_buffer_validate.exit.i ], [ %16, %13 ]
+  %.0 = phi ptr [ %.sroa.3.0.copyload, %18 ], [ %26, %27 ], [ null, %io_buffer_validate.exit.i.thread ], [ null, %io_buffer_validate.exit.i ], [ %17, %13 ]
+  %30 = icmp ne ptr %.0, null
+  %31 = icmp ule ptr %.0, %1
   %or.cond.not = and i1 %30, %31
-  %32 = getelementptr i8, ptr %.1, i64 %.132
+  %32 = getelementptr i8, ptr %.0, i64 %.031
   %33 = getelementptr i8, ptr %1, i64 %2
   %34 = icmp ule ptr %33, %32
   %narrow = select i1 %or.cond.not, i1 %34, i1 false

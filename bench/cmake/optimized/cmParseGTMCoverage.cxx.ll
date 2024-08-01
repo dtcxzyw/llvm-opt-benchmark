@@ -312,9 +312,9 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage16LoadCoverageDataER
   br label %69
 
 .loopexit:                                        ; preds = %64, %.preheader, %.critedge23, %11
-  %.4 = phi i1 [ false, %11 ], [ false, %.critedge23 ], [ true, %.preheader ], [ true, %64 ]
+  %.012 = phi i1 [ false, %11 ], [ false, %.critedge23 ], [ true, %.preheader ], [ true, %64 ]
   call void @_ZN5cmsys9DirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  ret i1 %.4
+  ret i1 %.012
 
 69:                                               ; preds = %.loopexit27, %.loopexit.split-lp, %68, %.body
   %.pn.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %eh.lpad-body, %.body ], [ %lpad.loopexit, %.loopexit27 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -388,7 +388,7 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage12ReadMCovFileEPKc(p
   br label %.outer
 
 .outer:                                           ; preds = %158, %26
-  %.018.ph = phi i32 [ %.220, %158 ], [ 0, %26 ]
+  %.018.ph = phi i32 [ %.119, %158 ], [ 0, %26 ]
   br label %29
 
 29:                                               ; preds = %.outer, %32
@@ -665,7 +665,7 @@ _Z18cmHasLiteralSuffixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
   br label %159
 
 152:                                              ; preds = %129, %130, %113, %146
-  %.119 = phi i32 [ %.018.ph, %113 ], [ %.018.ph, %146 ], [ %119, %130 ], [ %119, %129 ]
+  %.220 = phi i32 [ %.018.ph, %113 ], [ %.018.ph, %146 ], [ %119, %130 ], [ %119, %129 ]
   %153 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %154 unwind label %42
 
@@ -678,7 +678,7 @@ _Z18cmHasLiteralSuffixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
           to label %158 unwind label %42
 
 158:                                              ; preds = %156, %69, %92, %39
-  %.220 = phi i32 [ %.018.ph, %39 ], [ %.018.ph, %92 ], [ %.018.ph, %69 ], [ %.119, %156 ]
+  %.119 = phi i32 [ %.018.ph, %39 ], [ %.018.ph, %92 ], [ %.018.ph, %69 ], [ %.220, %156 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
@@ -945,7 +945,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   resume { ptr, i32 } %.pn57
 
 99:                                               ; preds = %74, %._crit_edge, %94, %93
-  %.0 = phi i1 [ false, %74 ], [ false, %._crit_edge ], [ true, %94 ], [ true, %93 ]
+  %.1 = phi i1 [ false, %74 ], [ false, %._crit_edge ], [ true, %94 ], [ true, %93 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   %.pre = load ptr, ptr %7, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 8
@@ -974,8 +974,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %6, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %102
-  %.16568 = phi i1 [ %.0, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.0, %102 ], [ false, %6 ]
-  ret i1 %.16568
+  %.06568 = phi i1 [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.1, %102 ], [ false, %6 ]
+  ret i1 %.06568
 }
 
 ; Function Attrs: nounwind
@@ -1231,9 +1231,9 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage23FindFunctionInMump
   br label %70
 
 69:                                               ; preds = %15, %67
-  %.1 = phi i1 [ %20, %67 ], [ false, %15 ]
+  %.0 = phi i1 [ %20, %67 ], [ false, %15 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %5) #16
-  ret i1 %.1
+  ret i1 %.0
 
 70:                                               ; preds = %68, %16
   %.pn38.pn = phi { ptr, i32 } [ %.pn38, %68 ], [ %17, %16 ]

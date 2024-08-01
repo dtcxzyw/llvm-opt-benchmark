@@ -1051,7 +1051,7 @@ list_head.exit:                                   ; preds = %101
   br label %108
 
 108:                                              ; preds = %.lr.ph42, %asyncQueueAddEntries.exit
-  %.041 = phi ptr [ %107, %.lr.ph42 ], [ %.2.i, %asyncQueueAddEntries.exit ]
+  %.041 = phi ptr [ %107, %.lr.ph42 ], [ %.1.i29, %asyncQueueAddEntries.exit ]
   %109 = load ptr, ptr @MainLWLockArray, align 8
   %110 = getelementptr i8, ptr %109, i64 3456
   %111 = tail call zeroext i1 @LWLockAcquire(ptr noundef %110, i32 noundef 0) #16
@@ -1231,11 +1231,11 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   br label %195
 
 194:                                              ; preds = %225
-  %.not.i28 = icmp eq ptr %.1.i29, null
+  %.not.i28 = icmp eq ptr %.2.i, null
   br i1 %.not.i28, label %asyncQueueAddEntries.exit, label %195, !llvm.loop !9
 
 195:                                              ; preds = %188, %194
-  %.0.i2739 = phi ptr [ %.041, %188 ], [ %.1.i29, %194 ]
+  %.0.i2739 = phi ptr [ %.041, %188 ], [ %.2.i, %194 ]
   %.sroa.9.0..sroa.9.0..sroa.9.8.38.i38 = phi i32 [ %.sroa.9.0.copyload.i25, %188 ], [ %235, %194 ]
   %196 = load ptr, ptr %.0.i2739, align 8
   %197 = load i16, ptr %196, align 2
@@ -1286,7 +1286,7 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
 
 225:                                              ; preds = %223, %213
   %226 = phi i32 [ %205, %213 ], [ %224, %223 ]
-  %.1.i29 = phi ptr [ %..i.i, %213 ], [ %.0.i2739, %223 ]
+  %.2.i = phi ptr [ %..i.i, %213 ], [ %.0.i2739, %223 ]
   %227 = load ptr, ptr @NotifyCtlData, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 8
   %229 = load ptr, ptr %228, align 8
@@ -1326,7 +1326,7 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   br label %250
 
 250:                                              ; preds = %248, %240
-  %.022.i = phi ptr [ %247, %248 ], [ %180, %240 ]
+  %.123.i = phi ptr [ %247, %248 ], [ %180, %240 ]
   %251 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @NotifyCtlData, i64 noundef %spec.select.i.i) #16
   %252 = and i64 %spec.select.i.i, 3
   %253 = icmp eq i64 %252, 0
@@ -1337,8 +1337,8 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   br label %asyncQueueAddEntries.exit
 
 asyncQueueAddEntries.exit:                        ; preds = %194, %250, %254
-  %.123.i = phi ptr [ %.022.i, %254 ], [ %.022.i, %250 ], [ %180, %194 ]
-  %.2.i = phi ptr [ %.1.i29, %254 ], [ %.1.i29, %250 ], [ null, %194 ]
+  %.022.i = phi ptr [ %.123.i, %254 ], [ %.123.i, %250 ], [ %180, %194 ]
+  %.1.i29 = phi ptr [ %.2.i, %254 ], [ %.2.i, %250 ], [ null, %194 ]
   %255 = load ptr, ptr @asyncQueueControl, align 8
   store i64 %spec.select.i.i, ptr %255, align 8
   %.sroa.9.0..sroa_idx36.i = getelementptr inbounds i8, ptr %255, i64 8
@@ -1346,14 +1346,14 @@ asyncQueueAddEntries.exit:                        ; preds = %194, %250, %254
   store i32 %.sroa.9.i.0..sroa.9.i.0..sroa.9.i.0..sroa.9.0..sroa.9.0..sroa.9.0.copyload37.i, ptr %.sroa.9.0..sroa_idx36.i, align 8
   %.sroa.13.0..sroa_idx40.i = getelementptr inbounds i8, ptr %255, i64 12
   store i32 %.sroa.13.0.copyload.i, ptr %.sroa.13.0..sroa_idx40.i, align 4
-  tail call void @LWLockRelease(ptr noundef %.123.i) #16
+  tail call void @LWLockRelease(ptr noundef %.022.i) #16
   call void @llvm.lifetime.end.p0(i64 8080, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.9.i)
   %256 = load ptr, ptr @MainLWLockArray, align 8
   %257 = getelementptr i8, ptr %256, i64 3456
   tail call void @LWLockRelease(ptr noundef %257) #16
-  %.not15 = icmp eq ptr %.2.i, null
+  %.not15 = icmp eq ptr %.1.i29, null
   br i1 %.not15, label %.loopexit, label %108, !llvm.loop !10
 
 .loopexit:                                        ; preds = %asyncQueueAddEntries.exit, %101, %list_head.exit, %0, %.thread

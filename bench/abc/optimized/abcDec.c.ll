@@ -1323,14 +1323,14 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
 
 .critedge.us:                                     ; preds = %.lr.ph144, %.critedge.us
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.critedge.us ], [ 0, %.lr.ph144 ]
-  %.3106142.us = phi i32 [ %85, %.critedge.us ], [ 0, %.lr.ph144 ]
+  %.4107142.us = phi i32 [ %85, %.critedge.us ], [ 0, %.lr.ph144 ]
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv187
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr %0, align 8
   %83 = call i32 @Dau_DsdDecompose(ptr noundef %81, i32 noundef %82, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %7) #17
   %84 = call i32 @Dau_DsdCountAnds(ptr noundef nonnull %7) #17
-  %85 = add nsw i32 %84, %.3106142.us
+  %85 = add nsw i32 %84, %.4107142.us
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %86 = load i32, ptr %75, align 8
   %87 = sext i32 %86 to i64
@@ -1364,7 +1364,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
 
 101:                                              ; preds = %.lr.ph154, %114
   %indvars.iv193 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next194, %114 ]
-  %.1104151 = phi i32 [ 0, %.lr.ph154 ], [ %112, %114 ]
+  %.2105151 = phi i32 [ 0, %.lr.ph154 ], [ %112, %114 ]
   br i1 %.not112, label %105, label %102
 
 102:                                              ; preds = %101
@@ -1379,7 +1379,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
   %109 = load i32, ptr %0, align 8
   %110 = call i32 @Bdc_ManDecompose(ptr noundef %96, ptr noundef %108, ptr noundef null, i32 noundef %109, ptr noundef null, i32 noundef 1000) #17
   %111 = call i32 @Bdc_ManAndNum(ptr noundef %96) #17
-  %112 = add nsw i32 %111, %.1104151
+  %112 = add nsw i32 %111, %.2105151
   br i1 %.not112, label %114, label %113
 
 113:                                              ; preds = %105
@@ -1394,13 +1394,13 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
   br i1 %117, label %101, label %._crit_edge155, !llvm.loop !19
 
 ._crit_edge155:                                   ; preds = %114, %93
-  %.1104.lcssa = phi i32 [ 0, %93 ], [ %112, %114 ]
+  %.2105.lcssa = phi i32 [ 0, %93 ], [ %112, %114 ]
   call void @Bdc_ManFree(ptr noundef %96) #17
   br label %.loopexit
 
 118:                                              ; preds = %.lr.ph149, %129
   %indvars.iv190 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next191, %129 ]
-  %.2105147 = phi i32 [ 0, %.lr.ph149 ], [ %131, %129 ]
+  %.3106147 = phi i32 [ 0, %.lr.ph149 ], [ %131, %129 ]
   br i1 %.not112, label %122, label %119
 
 119:                                              ; preds = %118
@@ -1423,7 +1423,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
 
 129:                                              ; preds = %128, %122
   %130 = call i32 @Kit_DsdCountAigNodes(ptr noundef %127) #17
-  %131 = add nsw i32 %130, %.2105147
+  %131 = add nsw i32 %130, %.3106147
   call void @Kit_DsdNtkFree(ptr noundef %127) #17
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %132 = load i32, ptr %89, align 8
@@ -1433,7 +1433,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
 
 .lr.ph144.split:                                  ; preds = %.lr.ph144, %.lr.ph144.split
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph144.split ], [ 0, %.lr.ph144 ]
-  %.3106142 = phi i32 [ %143, %.lr.ph144.split ], [ 0, %.lr.ph144 ]
+  %.4107142 = phi i32 [ %143, %.lr.ph144.split ], [ 0, %.lr.ph144 ]
   %135 = trunc nuw nsw i64 %indvars.iv184 to i32
   %136 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %135)
   %137 = load ptr, ptr %78, align 8
@@ -1443,7 +1443,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
   %141 = call i32 @Dau_DsdDecompose(ptr noundef %139, i32 noundef %140, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %7) #17
   %puts115 = call i32 @puts(ptr nonnull dereferenceable(1) %7)
   %142 = call i32 @Dau_DsdCountAnds(ptr noundef nonnull %7) #17
-  %143 = add nsw i32 %142, %.3106142
+  %143 = add nsw i32 %142, %.4107142
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %144 = load i32, ptr %75, align 8
   %145 = sext i32 %144 to i64
@@ -1618,14 +1618,14 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
 
 .critedge120.us:                                  ; preds = %.lr.ph, %.critedge120.us
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %.critedge120.us ], [ 0, %.lr.ph ]
-  %.4107138.us = phi i32 [ %222, %.critedge120.us ], [ 0, %.lr.ph ]
+  %.5108138.us = phi i32 [ %222, %.critedge120.us ], [ 0, %.lr.ph ]
   %216 = load ptr, ptr %215, align 8
   %217 = getelementptr inbounds ptr, ptr %216, i64 %indvars.iv178
   %218 = load ptr, ptr %217, align 8
   %219 = load i32, ptr %0, align 8
   %220 = call i32 @Dsc_Decompose(ptr noundef %218, i32 noundef %219, ptr noundef nonnull %8, ptr noundef %211) #17
   %221 = call i32 @Dsc_CountAnds(ptr noundef nonnull %8) #17
-  %222 = add nsw i32 %221, %.4107138.us
+  %222 = add nsw i32 %221, %.5108138.us
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %223 = load i32, ptr %212, align 8
   %224 = sext i32 %223 to i64
@@ -1634,7 +1634,7 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.4107138 = phi i32 [ %236, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.5108138 = phi i32 [ %236, %.lr.ph.split ], [ 0, %.lr.ph ]
   %226 = trunc nuw nsw i64 %indvars.iv to i32
   %227 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %226)
   %228 = load ptr, ptr %215, align 8
@@ -1647,7 +1647,7 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
   %234 = select i1 %.not113, ptr @.str.24, ptr %8
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %234)
   %235 = call i32 @Dsc_CountAnds(ptr noundef nonnull %8) #17
-  %236 = add nsw i32 %235, %.4107138
+  %236 = add nsw i32 %235, %.5108138
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %237 = load i32, ptr %212, align 8
   %238 = sext i32 %237 to i64
@@ -1655,13 +1655,13 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
   br i1 %239, label %.lr.ph.split, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.critedge120.us, %209
-  %.4107.lcssa = phi i32 [ 0, %209 ], [ %222, %.critedge120.us ], [ %236, %.lr.ph.split ]
+  %.5108.lcssa = phi i32 [ 0, %209 ], [ %222, %.critedge120.us ], [ %236, %.lr.ph.split ]
   call void @Dsc_free_pool(ptr noundef %211) #17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %205, %.lr.ph144.split, %.critedge.us, %129, %.preheader136, %.preheader131, %.preheader, %70, %._crit_edge155, %._crit_edge, %Vec_StrFree.exit
-  %.5108 = phi i32 [ %.0103.lcssa, %Vec_StrFree.exit ], [ %.1104.lcssa, %._crit_edge155 ], [ %.4107.lcssa, %._crit_edge ], [ 0, %70 ], [ 0, %.preheader ], [ 0, %.preheader131 ], [ 0, %.preheader136 ], [ %131, %129 ], [ %85, %.critedge.us ], [ %143, %.lr.ph144.split ], [ 0, %205 ]
-  %240 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.5108)
+  %.1104 = phi i32 [ %.0103.lcssa, %Vec_StrFree.exit ], [ %.2105.lcssa, %._crit_edge155 ], [ %.5108.lcssa, %._crit_edge ], [ 0, %70 ], [ 0, %.preheader ], [ 0, %.preheader131 ], [ 0, %.preheader136 ], [ %131, %129 ], [ %85, %.critedge.us ], [ %143, %.lr.ph144.split ], [ 0, %205 ]
+  %240 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.1104)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %241 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #17
   %242 = icmp slt i32 %241, 0

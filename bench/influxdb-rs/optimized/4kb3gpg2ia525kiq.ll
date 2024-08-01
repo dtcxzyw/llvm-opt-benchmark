@@ -815,7 +815,7 @@ default.unreachable:                              ; preds = %3
           to label %91 unwind label %89
 
 88:                                               ; preds = %.body165.thread
-  br i1 %.2103, label %.thread292, label %.body176.thread
+  br i1 %.3, label %.thread292, label %.body176.thread
 
 89:                                               ; preds = %137, %.critedge, %"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7060ba6b0f81d494E.exit.i"
   %90 = landingpad { ptr, i32 }
@@ -845,7 +845,7 @@ default.unreachable:                              ; preds = %3
   br i1 %97, label %.critedge, label %100
 
 .body165.thread:                                  ; preds = %129, %.body165, %98
-  %.2103 = phi i1 [ true, %98 ], [ false, %.body165 ], [ false, %129 ]
+  %.3 = phi i1 [ true, %98 ], [ false, %.body165 ], [ false, %129 ]
   %.pn128 = phi { ptr, i32 } [ %99, %98 ], [ %114, %.body165 ], [ %130, %129 ]
   invoke void @"_ZN4core3ptr229drop_in_place$LT$std..collections..hash..set..IntoIter$LT$$LP$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$C$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$RP$$GT$$GT$17h3c8951a311726a25E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %19) #16
           to label %88 unwind label %133

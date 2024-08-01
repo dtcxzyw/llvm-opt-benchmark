@@ -98,8 +98,8 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
 
 6:                                                ; preds = %.lr.ph, %80
   %7 = phi ptr [ %5, %.lr.ph ], [ %81, %80 ]
-  %.06588 = phi ptr [ null, %.lr.ph ], [ %.2, %80 ]
-  %.06687 = phi ptr [ null, %.lr.ph ], [ %.268, %80 ]
+  %.06588 = phi ptr [ null, %.lr.ph ], [ %.1, %80 ]
+  %.06687 = phi ptr [ null, %.lr.ph ], [ %.167, %80 ]
   %.06986 = phi ptr [ null, %.lr.ph ], [ %.170, %80 ]
   %8 = icmp eq ptr %.06588, null
   %9 = icmp eq ptr %.06687, null
@@ -121,19 +121,19 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %12, %11
-  %.1 = phi ptr [ %16, %12 ], [ %.06588, %11 ]
+  %.2 = phi ptr [ %16, %12 ], [ %.06588, %11 ]
   br i1 %9, label %19, label %25
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 264
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull %.1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #4
+  %23 = tail call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull %.2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #4
   %24 = icmp eq ptr %23, null
   br i1 %24, label %._crit_edge, label %25
 
 25:                                               ; preds = %19, %18
-  %.167 = phi ptr [ %23, %19 ], [ %.06687, %18 ]
+  %.268 = phi ptr [ %23, %19 ], [ %.06687, %18 ]
   %26 = icmp eq ptr %.06986, null
   br i1 %26, label %27, label %33
 
@@ -141,14 +141,14 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 264
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef nonnull %.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #4
+  %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef nonnull %.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #4
   %32 = icmp eq ptr %31, null
   br i1 %32, label %._crit_edge, label %33
 
 33:                                               ; preds = %25, %27, %6
   %.170 = phi ptr [ %31, %27 ], [ %.06986, %25 ], [ %.06986, %6 ]
-  %.268 = phi ptr [ %.167, %27 ], [ %.167, %25 ], [ %.06687, %6 ]
-  %.2 = phi ptr [ %.1, %27 ], [ %.1, %25 ], [ %.06588, %6 ]
+  %.167 = phi ptr [ %.268, %27 ], [ %.268, %25 ], [ %.06687, %6 ]
+  %.1 = phi ptr [ %.2, %27 ], [ %.2, %25 ], [ %.06588, %6 ]
   %34 = getelementptr inbounds i8, ptr %7, i64 12
   %35 = load i32, ptr %34, align 4
   switch i32 %35, label %79 [
@@ -164,7 +164,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 488
   %42 = load ptr, ptr %41, align 8
-  tail call void (ptr, ptr, ptr, ...) %42(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.268, i32 noundef %38, i64 noundef %39) #4
+  tail call void (ptr, ptr, ptr, ...) %42(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.167, i32 noundef %38, i64 noundef %39) #4
   br label %80
 
 43:                                               ; preds = %33

@@ -2800,10 +2800,10 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit491:             ; preds = %956
   br label %957
 
 957:                                              ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit491, %868
-  %.sroa.0712.0 = phi float [ %.sroa.0712.0.copyload720, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit491 ], [ 1.000000e+00, %868 ]
-  %.sroa.18818.0 = phi float [ %.sroa.18818.0.copyload834, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit491 ], [ 1.000000e+00, %868 ]
-  %.sroa.17778.0 = phi float [ %.sroa.17778.0.copyload794, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit491 ], [ 1.000000e+00, %868 ]
-  %.sroa.16.0 = phi float [ %.sroa.16.0.copyload754, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit491 ], [ 1.000000e+00, %868 ]
+  %.sroa.0712.1 = phi float [ %.sroa.0712.0.copyload720, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit491 ], [ 1.000000e+00, %868 ]
+  %.sroa.18818.1 = phi float [ %.sroa.18818.0.copyload834, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit491 ], [ 1.000000e+00, %868 ]
+  %.sroa.17778.1 = phi float [ %.sroa.17778.0.copyload794, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit491 ], [ 1.000000e+00, %868 ]
+  %.sroa.16.1 = phi float [ %.sroa.16.0.copyload754, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit491 ], [ 1.000000e+00, %868 ]
   %958 = icmp eq i32 %123, 2
   br i1 %958, label %959, label %1172
 
@@ -3104,7 +3104,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit491:             ; preds = %956
   %.sink917.sroa.phi969 = phi ptr [ %.sink917.sroa.gep970, %1170 ], [ %.sink917.sroa.gep971, %1171 ]
   %.sink917.sroa.phi972 = phi ptr [ %.sink917.sroa.gep973, %1170 ], [ %.sink917.sroa.gep974, %1171 ]
   %.sink917 = phi ptr [ %32, %1170 ], [ %34, %1171 ]
-  %.sroa.0712.1.ph = load float, ptr %.sink917, align 4
+  %.sroa.0712.2.ph = load float, ptr %.sink917, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.15, ptr noundef nonnull align 4 dereferenceable(16) %.sink917.sroa.phi, i64 16, i1 false)
   %.sroa.16.0.copyload756 = load float, ptr %.sink917.sroa.phi960, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.17, ptr noundef nonnull align 4 dereferenceable(16) %.sink917.sroa.phi963, i64 16, i1 false)
@@ -3114,10 +3114,10 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit491:             ; preds = %956
   br label %1172
 
 1172:                                             ; preds = %.sink.split, %957
-  %.sroa.0712.1 = phi float [ %.sroa.0712.0, %957 ], [ %.sroa.0712.1.ph, %.sink.split ]
-  %.sroa.18818.1 = phi float [ %.sroa.18818.0, %957 ], [ %.sroa.18818.0.copyload836, %.sink.split ]
-  %.sroa.17778.1 = phi float [ %.sroa.17778.0, %957 ], [ %.sroa.17778.0.copyload796, %.sink.split ]
-  %.sroa.16.1 = phi float [ %.sroa.16.0, %957 ], [ %.sroa.16.0.copyload756, %.sink.split ]
+  %.sroa.0712.2 = phi float [ %.sroa.0712.1, %957 ], [ %.sroa.0712.2.ph, %.sink.split ]
+  %.sroa.18818.2 = phi float [ %.sroa.18818.1, %957 ], [ %.sroa.18818.0.copyload836, %.sink.split ]
+  %.sroa.17778.2 = phi float [ %.sroa.17778.1, %957 ], [ %.sroa.17778.0.copyload796, %.sink.split ]
+  %.sroa.16.2 = phi float [ %.sroa.16.1, %957 ], [ %.sroa.16.0.copyload756, %.sink.split ]
   %1173 = load i32, ptr %122, align 8
   %1174 = icmp eq i32 %1173, 3
   br i1 %1174, label %1175, label %1265
@@ -3312,24 +3312,24 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit491:             ; preds = %956
   br label %1265
 
 1265:                                             ; preds = %1172, %1264, %1263, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, %867, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit426, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit478, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit348, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit400, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit240, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit292
-  %.sroa.0712.2 = phi float [ %66, %867 ], [ %.sroa.0712.0.copyload715, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit348 ], [ %.sroa.0712.0.copyload716, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit400 ], [ %.sroa.0712.0.copyload717, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit426 ], [ %.sroa.0712.0.copyload718, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit478 ], [ %.sroa.0712.0.copyload713, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit240 ], [ %.sroa.0712.0.copyload714, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit292 ], [ %.sroa.0712.0.copyload, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit ], [ %.sroa.0712.0.copyload723, %1263 ], [ %.sroa.0712.0.copyload724, %1264 ], [ %.sroa.0712.1, %1172 ]
-  %.sroa.18818.2 = phi float [ %.sroa.18818.0.copyload832, %867 ], [ %.sroa.18818.0.copyload824, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit348 ], [ %.sroa.18818.0.copyload826, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit400 ], [ %.sroa.18818.0.copyload828, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit426 ], [ %.sroa.18818.0.copyload830, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit478 ], [ %.sroa.18818.0.copyload820, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit240 ], [ %.sroa.18818.0.copyload822, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit292 ], [ %.sroa.18818.0.copyload, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit ], [ %.sroa.18818.0.copyload840, %1263 ], [ %.sroa.18818.0.copyload842, %1264 ], [ %.sroa.18818.1, %1172 ]
-  %.sroa.17778.2 = phi float [ %82, %867 ], [ %.sroa.17778.0.copyload784, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit348 ], [ %.sroa.17778.0.copyload786, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit400 ], [ %.sroa.17778.0.copyload788, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit426 ], [ %.sroa.17778.0.copyload790, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit478 ], [ %.sroa.17778.0.copyload780, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit240 ], [ %.sroa.17778.0.copyload782, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit292 ], [ %.sroa.17778.0.copyload, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit ], [ %.sroa.17778.0.copyload800, %1263 ], [ %.sroa.17778.0.copyload802, %1264 ], [ %.sroa.17778.1, %1172 ]
-  %.sroa.16.2 = phi float [ %74, %867 ], [ %.sroa.16.0.copyload744, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit348 ], [ %.sroa.16.0.copyload746, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit400 ], [ %.sroa.16.0.copyload748, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit426 ], [ %.sroa.16.0.copyload750, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit478 ], [ %.sroa.16.0.copyload740, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit240 ], [ %.sroa.16.0.copyload742, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit292 ], [ %.sroa.16.0.copyload, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit ], [ %.sroa.16.0.copyload760, %1263 ], [ %.sroa.16.0.copyload762, %1264 ], [ %.sroa.16.1, %1172 ]
+  %.sroa.0712.0 = phi float [ %66, %867 ], [ %.sroa.0712.0.copyload715, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit348 ], [ %.sroa.0712.0.copyload716, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit400 ], [ %.sroa.0712.0.copyload717, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit426 ], [ %.sroa.0712.0.copyload718, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit478 ], [ %.sroa.0712.0.copyload713, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit240 ], [ %.sroa.0712.0.copyload714, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit292 ], [ %.sroa.0712.0.copyload, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit ], [ %.sroa.0712.0.copyload723, %1263 ], [ %.sroa.0712.0.copyload724, %1264 ], [ %.sroa.0712.2, %1172 ]
+  %.sroa.18818.0 = phi float [ %.sroa.18818.0.copyload832, %867 ], [ %.sroa.18818.0.copyload824, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit348 ], [ %.sroa.18818.0.copyload826, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit400 ], [ %.sroa.18818.0.copyload828, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit426 ], [ %.sroa.18818.0.copyload830, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit478 ], [ %.sroa.18818.0.copyload820, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit240 ], [ %.sroa.18818.0.copyload822, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit292 ], [ %.sroa.18818.0.copyload, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit ], [ %.sroa.18818.0.copyload840, %1263 ], [ %.sroa.18818.0.copyload842, %1264 ], [ %.sroa.18818.2, %1172 ]
+  %.sroa.17778.0 = phi float [ %82, %867 ], [ %.sroa.17778.0.copyload784, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit348 ], [ %.sroa.17778.0.copyload786, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit400 ], [ %.sroa.17778.0.copyload788, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit426 ], [ %.sroa.17778.0.copyload790, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit478 ], [ %.sroa.17778.0.copyload780, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit240 ], [ %.sroa.17778.0.copyload782, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit292 ], [ %.sroa.17778.0.copyload, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit ], [ %.sroa.17778.0.copyload800, %1263 ], [ %.sroa.17778.0.copyload802, %1264 ], [ %.sroa.17778.2, %1172 ]
+  %.sroa.16.0 = phi float [ %74, %867 ], [ %.sroa.16.0.copyload744, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit348 ], [ %.sroa.16.0.copyload746, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit400 ], [ %.sroa.16.0.copyload748, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit426 ], [ %.sroa.16.0.copyload750, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit478 ], [ %.sroa.16.0.copyload740, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit240 ], [ %.sroa.16.0.copyload742, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit292 ], [ %.sroa.16.0.copyload, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit ], [ %.sroa.16.0.copyload760, %1263 ], [ %.sroa.16.0.copyload762, %1264 ], [ %.sroa.16.2, %1172 ]
   %1266 = getelementptr inbounds i8, ptr %1, i64 1132
-  store float %.sroa.0712.2, ptr %1266, align 4
+  store float %.sroa.0712.0, ptr %1266, align 4
   %.sroa.15.0..sroa_idx738 = getelementptr inbounds i8, ptr %1, i64 1136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.0..sroa_idx738, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.15, i64 16, i1 false)
   %.sroa.16.0..sroa_idx763 = getelementptr inbounds i8, ptr %1, i64 1152
-  store float %.sroa.16.2, ptr %.sroa.16.0..sroa_idx763, align 8
+  store float %.sroa.16.0, ptr %.sroa.16.0..sroa_idx763, align 8
   %.sroa.17.0..sroa_idx777 = getelementptr inbounds i8, ptr %1, i64 1156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.17.0..sroa_idx777, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.17, i64 16, i1 false)
   %.sroa.17778.0..sroa_idx803 = getelementptr inbounds i8, ptr %1, i64 1172
-  store float %.sroa.17778.2, ptr %.sroa.17778.0..sroa_idx803, align 4
+  store float %.sroa.17778.0, ptr %.sroa.17778.0..sroa_idx803, align 4
   %.sroa.18.0..sroa_idx817 = getelementptr inbounds i8, ptr %1, i64 1176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.18.0..sroa_idx817, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.18, i64 16, i1 false)
   %.sroa.18818.0..sroa_idx843 = getelementptr inbounds i8, ptr %1, i64 1192
-  store float %.sroa.18818.2, ptr %.sroa.18818.0..sroa_idx843, align 8
+  store float %.sroa.18818.0, ptr %.sroa.18818.0..sroa_idx843, align 8
   br label %1267
 
 1267:                                             ; preds = %1265, %125
@@ -10534,36 +10534,36 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vc
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, %60, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %40, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.418.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.2.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.12.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.8.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
   call void @_ZdlPv(ptr noundef nonnull %31) #22
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i, %58, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %32, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.620.i = phi ptr [ %22, %58 ], [ %.418.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.4.i = phi i1 [ false, %58 ], [ %.2.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.1024.i = phi ptr [ %22, %58 ], [ %.12.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.6.i = phi i1 [ false, %58 ], [ %.8.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
   call void @_ZdlPv(ptr noundef nonnull %23) #22
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i, %56, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %24, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.822.i = phi ptr [ %14, %56 ], [ %.620.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.6.i = phi i1 [ false, %56 ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.822.i = phi ptr [ %14, %56 ], [ %.1024.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.4.i = phi i1 [ false, %56 ], [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
   call void @_ZdlPv(ptr noundef nonnull %15) #22
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.1024.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.8.i = phi i1 [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #22
-  %75 = icmp eq ptr %1, %.1024.i
-  %or.cond.i = select i1 %.8.i, i1 true, i1 %75
+  %75 = icmp eq ptr %1, %.620.i
+  %or.cond.i = select i1 %.2.i, i1 true, i1 %75
   br i1 %or.cond.i, label %.body.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i
-  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.1024.i, %.body.i ]
+  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.620.i, %.body.i ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
   %78 = getelementptr inbounds i8, ptr %76, i64 -24
   %79 = load ptr, ptr %78, align 8

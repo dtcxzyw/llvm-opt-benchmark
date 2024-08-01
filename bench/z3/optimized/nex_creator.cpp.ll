@@ -3835,7 +3835,7 @@ call.i.i.i.noexc:                                 ; preds = %for.body.i
   br i1 %call.i.i.i49, label %for.cond.i, label %cleanup, !llvm.loop !21
 
 cleanup:                                          ; preds = %invoke.cont46, %invoke.cont42, %invoke.cont31, %for.body, %call.i.i.i.noexc, %call.i.noexc
-  %retval.0 = phi i1 [ %cmp.not.i.not.not.not, %call.i.noexc ], [ %cmp.not.i.not.not.not, %call.i.i.i.noexc ], [ false, %for.body ], [ false, %invoke.cont31 ], [ false, %invoke.cont42 ], [ false, %invoke.cont46 ]
+  %retval.1 = phi i1 [ %cmp.not.i.not.not.not, %call.i.noexc ], [ %cmp.not.i.not.not.not, %call.i.i.i.noexc ], [ false, %for.body ], [ false, %invoke.cont31 ], [ false, %invoke.cont42 ], [ false, %invoke.cont46 ]
   %39 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIPKN3nla3nexES3_St9_IdentityIS3_ESt8functionIFbS3_S3_EESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(72) %s, ptr noundef %39)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i51
@@ -3864,8 +3864,8 @@ terminate.lpad.i.i51:                             ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %if.then.i.i.i.i.i.i54, %invoke.cont.i.i, %_ZNK8rational6is_oneEv.exit, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %_ZNK8rational6is_oneEv.exit ], [ %retval.0, %invoke.cont.i.i ], [ %retval.0, %if.then.i.i.i.i.i.i54 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK8rational6is_oneEv.exit ], [ %retval.1, %invoke.cont.i.i ], [ %retval.1, %if.then.i.i.i.i.i.i54 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

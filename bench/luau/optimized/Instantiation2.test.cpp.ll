@@ -2096,8 +2096,8 @@ _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit67.i: ; preds = %155, %_ZNSt
 
 176:                                              ; preds = %173, %171
   %.pn38.i = phi { ptr, i32 } [ %174, %173 ], [ %172, %171 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn38.i, 0
-  %177 = call ptr @__cxa_begin_catch(ptr %.5.i) #16
+  %.9.i = extractvalue { ptr, i32 } %.pn38.i, 0
+  %177 = call ptr @__cxa_begin_catch(ptr %.9.i) #16
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %19)
           to label %178 unwind label %183
 
@@ -2262,8 +2262,8 @@ _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit67.i: ; preds = %155, %_ZNSt
 
 .body72.i:                                        ; preds = %240, %233, %224
   %.pn41.pn.i = phi { ptr, i32 } [ %.pn41.i, %240 ], [ %234, %233 ], [ %225, %224 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn41.pn.i, 0
-  %241 = call ptr @__cxa_begin_catch(ptr %.8.i) #16
+  %.11.i = extractvalue { ptr, i32 } %.pn41.pn.i, 0
+  %241 = call ptr @__cxa_begin_catch(ptr %.11.i) #16
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %24)
           to label %242 unwind label %247
 
@@ -2477,8 +2477,8 @@ _ZN4Luau12DenseHashMapIPKNS_11TypePackVarES3_NS_16DenseHashPointerESt8equal_toIS
 
 .body77.i:                                        ; preds = %317, %310, %295
   %.pn46.pn.i = phi { ptr, i32 } [ %.pn46.i, %317 ], [ %311, %310 ], [ %296, %295 ]
-  %.12.i = extractvalue { ptr, i32 } %.pn46.pn.i, 0
-  %318 = call ptr @__cxa_begin_catch(ptr %.12.i) #16
+  %.15.i = extractvalue { ptr, i32 } %.pn46.pn.i, 0
+  %318 = call ptr @__cxa_begin_catch(ptr %.15.i) #16
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %33)
           to label %319 unwind label %324
 
@@ -2573,8 +2573,8 @@ _ZN4Luau12DenseHashMapIPKNS_11TypePackVarES3_NS_16DenseHashPointerESt8equal_toIS
 
 349:                                              ; preds = %346, %344
   %.pn49.i = phi { ptr, i32 } [ %347, %346 ], [ %345, %344 ]
-  %.14.i = extractvalue { ptr, i32 } %.pn49.i, 0
-  %350 = call ptr @__cxa_begin_catch(ptr %.14.i) #16
+  %.18.i = extractvalue { ptr, i32 } %.pn49.i, 0
+  %350 = call ptr @__cxa_begin_catch(ptr %.18.i) #16
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %39)
           to label %351 unwind label %356
 
@@ -2727,8 +2727,8 @@ _ZN4Luau12DenseHashMapIPKNS_11TypePackVarES3_NS_16DenseHashPointerESt8equal_toIS
 
 .body87.i:                                        ; preds = %406, %399, %390
   %.pn52.pn.i = phi { ptr, i32 } [ %.pn52.i, %406 ], [ %400, %399 ], [ %391, %390 ]
-  %.17.i = extractvalue { ptr, i32 } %.pn52.pn.i, 0
-  %407 = call ptr @__cxa_begin_catch(ptr %.17.i) #16
+  %.20.i = extractvalue { ptr, i32 } %.pn52.pn.i, 0
+  %407 = call ptr @__cxa_begin_catch(ptr %.20.i) #16
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %44)
           to label %408 unwind label %413
 

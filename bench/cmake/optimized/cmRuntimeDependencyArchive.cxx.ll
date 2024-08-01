@@ -1678,7 +1678,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSESt16
   br label %.loopexit34
 
 .loopexit:                                        ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSESt16initializer_listIS5_E.exit.preheader, %54
-  %.0 = xor i1 %55, true
+  %.1 = xor i1 %55, true
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   %64 = load ptr, ptr %9, align 8
   %65 = getelementptr inbounds i8, ptr %9, i64 8
@@ -1717,9 +1717,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %71
 
 _Z12cmExpandListSt17basic_string_viewIcSt11char_traitsIcEERSt6vectorINSt7__cxx1112basic_stringIcS1_SaIcEEESaIS7_EEN6cmList13EmptyElementsE.exit: ; preds = %69, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %46
-  %.1 = phi i1 [ true, %46 ], [ %.0, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.0, %69 ]
+  %.0 = phi i1 [ true, %46 ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.1, %69 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  ret i1 %.1
+  ret i1 %.0
 
 71:                                               ; preds = %70, %.body29, %38
   %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %70 ], [ %39, %38 ], [ %.pn19, %.body29 ]
@@ -2997,7 +2997,7 @@ _ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5
   br label %55
 
 55:                                               ; preds = %43, %.loopexit22
-  %.011 = phi ptr [ %16, %.loopexit22 ], [ %14, %43 ]
+  %.112 = phi ptr [ %16, %.loopexit22 ], [ %14, %43 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit22 ], [ %44, %43 ]
   %.1 = phi i1 [ %54, %.loopexit22 ], [ false, %43 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
@@ -3005,7 +3005,7 @@ _ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5
   br i1 %.1, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %55, %.preheader
-  %56 = phi ptr [ %57, %.preheader ], [ %.011, %55 ]
+  %56 = phi ptr [ %57, %.preheader ], [ %.112, %55 ]
   %57 = getelementptr inbounds i8, ptr %56, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #17
   %58 = icmp eq ptr %57, %2

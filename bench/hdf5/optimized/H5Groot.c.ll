@@ -420,7 +420,7 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   br label %229
 
 229:                                              ; preds = %200, %208, %188, %182, %177
-  %.166 = phi i1 [ true, %208 ], [ %1, %200 ], [ %1, %188 ], [ %1, %182 ], [ %1, %177 ]
+  %.2 = phi i1 [ true, %208 ], [ %1, %200 ], [ %1, %188 ], [ %1, %182 ], [ %1, %177 ]
   %230 = load ptr, ptr %46, align 8
   %231 = call i32 @H5G__name_init(ptr noundef %230, ptr noundef nonnull @.str.11) #5
   %232 = load ptr, ptr %7, align 8
@@ -432,10 +432,10 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   %237 = load i32, ptr %236, align 8
   %238 = add i32 %237, -1
   store i32 %238, ptr %236, align 8
-  br i1 %.166, label %268, label %.thread97
+  br i1 %.2, label %268, label %.thread97
 
 239:                                              ; preds = %14, %23, %36, %56, %63, %71, %86, %196, %204, %131, %148, %173
-  %.2.ph = phi i1 [ false, %173 ], [ false, %148 ], [ false, %131 ], [ %1, %204 ], [ %1, %196 ], [ true, %86 ], [ false, %71 ], [ false, %63 ], [ false, %56 ], [ false, %36 ], [ false, %23 ], [ false, %14 ]
+  %.065.ph = phi i1 [ false, %173 ], [ false, %148 ], [ false, %131 ], [ %1, %204 ], [ %1, %196 ], [ true, %86 ], [ false, %71 ], [ false, %63 ], [ false, %56 ], [ false, %36 ], [ false, %23 ], [ false, %14 ]
   %240 = load ptr, ptr %7, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 1456
   %242 = load ptr, ptr %241, align 8
@@ -483,10 +483,10 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 304
   store ptr %262, ptr %266, align 8
-  br i1 %.2.ph, label %268, label %.thread97
+  br i1 %.065.ph, label %268, label %.thread97
 
 267:                                              ; preds = %255
-  br i1 %.2.ph, label %268, label %.thread97
+  br i1 %.065.ph, label %268, label %.thread97
 
 268:                                              ; preds = %229, %259, %267
   %.095102 = phi i32 [ -1, %259 ], [ -1, %267 ], [ 0, %229 ]

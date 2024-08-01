@@ -16024,7 +16024,7 @@ define hidden void @_ZN13project_model11utf8_stdout17h0711734f47f47c07E(ptr noal
   br label %210
 
 .thread147:                                       ; preds = %57, %137, %146
-  %.158.ph = phi i1 [ false, %146 ], [ false, %137 ], [ true, %57 ]
+  %.057.ph = phi i1 [ false, %146 ], [ false, %137 ], [ true, %57 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread138
@@ -16511,11 +16511,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16283260474565314852.exit87: ; pre
   br label %210
 
 .thread142:                                       ; preds = %.thread138
-  br i1 %.057131, label %.thread142.thread, label %.body
+  br i1 %.158131, label %.thread142.thread, label %.body
 
 .thread138:                                       ; preds = %.thread154, %156, %155, %157, %70, %.thread147
   %.pn66133 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread147 ], [ %71, %70 ], [ %.pn159, %156 ], [ %119, %155 ], [ %119, %157 ], [ %100, %.thread154 ]
-  %.057131 = phi i1 [ %.158.ph, %.thread147 ], [ false, %70 ], [ false, %156 ], [ false, %155 ], [ false, %157 ], [ false, %.thread154 ]
+  %.158131 = phi i1 [ %.057.ph, %.thread147 ], [ false, %70 ], [ false, %156 ], [ false, %155 ], [ false, %157 ], [ false, %.thread154 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb130281c96da2e5fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #34
           to label %.thread142 unwind label %130
 

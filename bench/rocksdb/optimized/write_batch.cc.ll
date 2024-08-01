@@ -4663,7 +4663,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %10 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %state_.i23, align 8
-  call void @_ZdaPv(ptr noundef nonnull %s.sroa.13.1) #23
+  call void @_ZdaPv(ptr noundef nonnull %s.sroa.13.0) #23
   resume { ptr, i32 } %10
 
 if.else:                                          ; preds = %entry
@@ -4678,7 +4678,7 @@ if.end20:                                         ; preds = %if.else, %if.then, 
   %s.sroa.5.0 = phi i8 [ 0, %if.then ], [ 0, %land.lhs.true ], [ %5, %if.then7 ], [ 0, %if.then3 ], [ 0, %if.else ]
   %s.sroa.7.0 = phi i8 [ 0, %if.then ], [ 0, %land.lhs.true ], [ %frombool.i, %if.then7 ], [ 0, %if.then3 ], [ 0, %if.else ]
   %s.sroa.9.0 = phi i8 [ 0, %if.then ], [ 0, %land.lhs.true ], [ %frombool12.i, %if.then7 ], [ 0, %if.then3 ], [ 0, %if.else ]
-  %s.sroa.13.1 = phi ptr [ null, %if.then ], [ null, %land.lhs.true ], [ %9, %if.then7 ], [ null, %if.then3 ], [ null, %if.else ]
+  %s.sroa.13.0 = phi ptr [ null, %if.then ], [ null, %land.lhs.true ], [ %9, %if.then7 ], [ null, %if.then3 ], [ null, %if.else ]
   %s.sroa.11.0 = phi i8 [ 0, %if.then ], [ 0, %land.lhs.true ], [ %8, %if.then7 ], [ 0, %if.then3 ], [ 0, %if.else ]
   store i64 %ts_sz.0, ptr %agg.result, align 8, !alias.scope !16
   %12 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4698,7 +4698,7 @@ if.end20:                                         ; preds = %if.else, %if.then, 
   store i8 %s.sroa.11.0, ptr %scope_.i22, align 1
   %state_.i23 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr null, ptr %state_.i23, align 8
-  %cmp.i.not.i.i = icmp eq ptr %s.sroa.13.1, null
+  %cmp.i.not.i.i = icmp eq ptr %s.sroa.13.0, null
   br i1 %cmp.i.not.i.i, label %invoke.cont21.thread, label %cond.false.i
 
 invoke.cont21.thread:                             ; preds = %if.end20
@@ -4706,14 +4706,14 @@ invoke.cont21.thread:                             ; preds = %if.end20
   br label %_ZN7rocksdb6StatusD2Ev.exit16
 
 cond.false.i:                                     ; preds = %if.end20
-  invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr nonnull sret(%"class.std::unique_ptr.24") align 8 %ref.tmp.i, ptr noundef nonnull %s.sroa.13.1)
+  invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr nonnull sret(%"class.std::unique_ptr.24") align 8 %ref.tmp.i, ptr noundef nonnull %s.sroa.13.0)
           to label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i15 unwind label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i15: ; preds = %cond.false.i
   %.pre.i = load ptr, ptr %ref.tmp.i, align 8
   store ptr %.pre.i, ptr %state_.i23, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @_ZdaPv(ptr noundef nonnull %s.sroa.13.1) #23
+  call void @_ZdaPv(ptr noundef nonnull %s.sroa.13.0) #23
   br label %_ZN7rocksdb6StatusD2Ev.exit16
 
 _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %invoke.cont21.thread, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i15

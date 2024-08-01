@@ -2110,8 +2110,8 @@ _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i16: 
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i16, %if.end, %if.then, %land.lhs.true.i, %_ZN7rocksdb25CacheWithSecondaryAdapter18ProcessDummyResultEPPNS_5Cache6HandleEb.exit
-  %result.2 = phi ptr [ null, %_ZN7rocksdb25CacheWithSecondaryAdapter18ProcessDummyResultEPPNS_5Cache6HandleEb.exit ], [ %call2, %land.lhs.true.i ], [ %call17, %if.end ], [ %call17, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i16 ], [ null, %if.then ]
-  ret ptr %result.2
+  %result.0 = phi ptr [ null, %_ZN7rocksdb25CacheWithSecondaryAdapter18ProcessDummyResultEPPNS_5Cache6HandleEb.exit ], [ %call2, %land.lhs.true.i ], [ %call17, %if.end ], [ %call17, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i16 ], [ null, %if.then ]
+  ret ptr %result.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2487,11 +2487,11 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.0255 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
   %my_pending.sroa.0.0254 = phi ptr [ null, %for.cond.preheader ], [ %my_pending.sroa.0.3, %for.inc ]
-  %my_pending.sroa.9.0253 = phi ptr [ null, %for.cond.preheader ], [ %my_pending.sroa.9.2, %for.inc ]
-  %my_pending.sroa.19.0252 = phi ptr [ null, %for.cond.preheader ], [ %my_pending.sroa.19.2, %for.inc ]
-  %inner_pending.sroa.0.0250 = phi ptr [ null, %for.cond.preheader ], [ %inner_pending.sroa.0.2, %for.inc ]
-  %inner_pending.sroa.7.0249 = phi ptr [ null, %for.cond.preheader ], [ %inner_pending.sroa.7.2, %for.inc ]
-  %inner_pending.sroa.13.0248 = phi ptr [ null, %for.cond.preheader ], [ %inner_pending.sroa.13.2, %for.inc ]
+  %my_pending.sroa.9.0253 = phi ptr [ null, %for.cond.preheader ], [ %my_pending.sroa.9.1, %for.inc ]
+  %my_pending.sroa.19.0252 = phi ptr [ null, %for.cond.preheader ], [ %my_pending.sroa.19.1, %for.inc ]
+  %inner_pending.sroa.0.0250 = phi ptr [ null, %for.cond.preheader ], [ %inner_pending.sroa.0.1, %for.inc ]
+  %inner_pending.sroa.7.0249 = phi ptr [ null, %for.cond.preheader ], [ %inner_pending.sroa.7.1, %for.inc ]
+  %inner_pending.sroa.13.0248 = phi ptr [ null, %for.cond.preheader ], [ %inner_pending.sroa.13.1, %for.inc ]
   %add.ptr = getelementptr inbounds %"struct.rocksdb::Cache::AsyncLookupHandle", ptr %async_handles, i64 %i.0255
   %pending_cache = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %0 = load ptr, ptr %pending_cache, align 8
@@ -2558,10 +2558,10 @@ _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRK
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i
-  %my_pending.sroa.19.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %my_pending.sroa.19.0252, %if.then.i ]
+  %my_pending.sroa.19.4 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %my_pending.sroa.19.0252, %if.then.i ]
   %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %my_pending.sroa.9.0253, %if.then.i ]
-  %my_pending.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %my_pending.sroa.0.0254, %if.then.i ]
-  %my_pending.sroa.9.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
+  %my_pending.sroa.0.6 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %my_pending.sroa.0.0254, %if.then.i ]
+  %my_pending.sroa.9.4 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   store ptr null, ptr %pending_cache, align 8
   br label %for.inc
 
@@ -2576,8 +2576,8 @@ lpad.loopexit.split-lp211.loopexit:               ; preds = %cond.true.i.i.i38, 
   br label %ehcleanup82
 
 lpad.loopexit.split-lp211.loopexit.split-lp:      ; preds = %if.then.i.i.i52.invoke, %if.then.i.i.i91, %if.then12
-  %inner_pending.sroa.0.0244 = phi ptr [ %inner_pending.sroa.0.2, %if.then.i.i.i91 ], [ %inner_pending.sroa.0.2, %if.then12 ], [ %inner_pending.sroa.0.0250, %if.then.i.i.i52.invoke ]
-  %my_pending.sroa.0.2.ph.ph = phi ptr [ %my_pending.sroa.0.4260, %if.then.i.i.i91 ], [ %my_pending.sroa.0.3, %if.then12 ], [ %my_pending.sroa.0.0254, %if.then.i.i.i52.invoke ]
+  %inner_pending.sroa.0.0244 = phi ptr [ %inner_pending.sroa.0.1, %if.then.i.i.i91 ], [ %inner_pending.sroa.0.1, %if.then12 ], [ %inner_pending.sroa.0.0250, %if.then.i.i.i52.invoke ]
+  %my_pending.sroa.0.1.ph.ph = phi ptr [ %my_pending.sroa.0.4260, %if.then.i.i.i91 ], [ %my_pending.sroa.0.3, %if.then12 ], [ %my_pending.sroa.0.0254, %if.then.i.i.i52.invoke ]
   %lpad.loopexit.split-lp216 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup82
@@ -2646,18 +2646,18 @@ _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRK
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49, %if.then.i24, %for.body, %invoke.cont
-  %inner_pending.sroa.13.2 = phi ptr [ %inner_pending.sroa.13.0248, %for.body ], [ %inner_pending.sroa.13.0248, %invoke.cont ], [ %add.ptr19.i.i50, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %inner_pending.sroa.13.0248, %if.then.i24 ]
-  %inner_pending.sroa.7.2 = phi ptr [ %inner_pending.sroa.7.0249, %for.body ], [ %inner_pending.sroa.7.0249, %invoke.cont ], [ %incdec.ptr.i.i46, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %incdec.ptr.i25, %if.then.i24 ]
-  %inner_pending.sroa.0.2 = phi ptr [ %inner_pending.sroa.0.0250, %for.body ], [ %inner_pending.sroa.0.0250, %invoke.cont ], [ %cond.i10.i.i41, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %inner_pending.sroa.0.0250, %if.then.i24 ]
-  %my_pending.sroa.19.2 = phi ptr [ %my_pending.sroa.19.0252, %for.body ], [ %my_pending.sroa.19.1, %invoke.cont ], [ %my_pending.sroa.19.0252, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %my_pending.sroa.19.0252, %if.then.i24 ]
-  %my_pending.sroa.9.2 = phi ptr [ %my_pending.sroa.9.0253, %for.body ], [ %my_pending.sroa.9.1, %invoke.cont ], [ %my_pending.sroa.9.0253, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %my_pending.sroa.9.0253, %if.then.i24 ]
-  %my_pending.sroa.0.3 = phi ptr [ %my_pending.sroa.0.0254, %for.body ], [ %my_pending.sroa.0.1, %invoke.cont ], [ %my_pending.sroa.0.0254, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %my_pending.sroa.0.0254, %if.then.i24 ]
+  %inner_pending.sroa.13.1 = phi ptr [ %inner_pending.sroa.13.0248, %for.body ], [ %inner_pending.sroa.13.0248, %invoke.cont ], [ %add.ptr19.i.i50, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %inner_pending.sroa.13.0248, %if.then.i24 ]
+  %inner_pending.sroa.7.1 = phi ptr [ %inner_pending.sroa.7.0249, %for.body ], [ %inner_pending.sroa.7.0249, %invoke.cont ], [ %incdec.ptr.i.i46, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %incdec.ptr.i25, %if.then.i24 ]
+  %inner_pending.sroa.0.1 = phi ptr [ %inner_pending.sroa.0.0250, %for.body ], [ %inner_pending.sroa.0.0250, %invoke.cont ], [ %cond.i10.i.i41, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %inner_pending.sroa.0.0250, %if.then.i24 ]
+  %my_pending.sroa.19.1 = phi ptr [ %my_pending.sroa.19.0252, %for.body ], [ %my_pending.sroa.19.4, %invoke.cont ], [ %my_pending.sroa.19.0252, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %my_pending.sroa.19.0252, %if.then.i24 ]
+  %my_pending.sroa.9.1 = phi ptr [ %my_pending.sroa.9.0253, %for.body ], [ %my_pending.sroa.9.4, %invoke.cont ], [ %my_pending.sroa.9.0253, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %my_pending.sroa.9.0253, %if.then.i24 ]
+  %my_pending.sroa.0.3 = phi ptr [ %my_pending.sroa.0.0254, %for.body ], [ %my_pending.sroa.0.6, %invoke.cont ], [ %my_pending.sroa.0.0254, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i49 ], [ %my_pending.sroa.0.0254, %if.then.i24 ]
   %inc = add nuw i64 %i.0255, 1
   %exitcond.not = icmp eq i64 %inc, %count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
-  %cmp.i.i = icmp eq ptr %inner_pending.sroa.0.2, %inner_pending.sroa.7.2
+  %cmp.i.i = icmp eq ptr %inner_pending.sroa.0.1, %inner_pending.sroa.7.1
   br i1 %cmp.i.i, label %for.cond43.preheader, label %if.then12
 
 if.then12:                                        ; preds = %for.end
@@ -2670,16 +2670,16 @@ if.then12:                                        ; preds = %for.end
           to label %for.body21 unwind label %lpad.loopexit.split-lp211.loopexit.split-lp
 
 for.cond43.preheader:                             ; preds = %for.inc36, %for.end
-  %my_pending.sroa.9.3.lcssa = phi ptr [ %my_pending.sroa.9.2, %for.end ], [ %my_pending.sroa.9.5, %for.inc36 ]
-  %my_pending.sroa.0.4.lcssa = phi ptr [ %my_pending.sroa.0.3, %for.end ], [ %my_pending.sroa.0.6, %for.inc36 ]
-  %cmp.i98.not262 = icmp eq ptr %my_pending.sroa.0.4.lcssa, %my_pending.sroa.9.3.lcssa
+  %my_pending.sroa.9.2.lcssa = phi ptr [ %my_pending.sroa.9.1, %for.end ], [ %my_pending.sroa.9.3, %for.inc36 ]
+  %my_pending.sroa.0.4.lcssa = phi ptr [ %my_pending.sroa.0.3, %for.end ], [ %my_pending.sroa.0.5, %for.inc36 ]
+  %cmp.i98.not262 = icmp eq ptr %my_pending.sroa.0.4.lcssa, %my_pending.sroa.9.2.lcssa
   br i1 %cmp.i98.not262, label %for.end52, label %for.body45
 
 for.body21:                                       ; preds = %if.then12, %for.inc36
-  %my_pending.sroa.0.4260 = phi ptr [ %my_pending.sroa.0.6, %for.inc36 ], [ %my_pending.sroa.0.3, %if.then12 ]
-  %my_pending.sroa.9.3259 = phi ptr [ %my_pending.sroa.9.5, %for.inc36 ], [ %my_pending.sroa.9.2, %if.then12 ]
-  %my_pending.sroa.19.3258 = phi ptr [ %my_pending.sroa.19.5, %for.inc36 ], [ %my_pending.sroa.19.2, %if.then12 ]
-  %__begin1.sroa.0.0257 = phi ptr [ %incdec.ptr.i96, %for.inc36 ], [ %inner_pending.sroa.0.2, %if.then12 ]
+  %my_pending.sroa.0.4260 = phi ptr [ %my_pending.sroa.0.5, %for.inc36 ], [ %my_pending.sroa.0.3, %if.then12 ]
+  %my_pending.sroa.9.2259 = phi ptr [ %my_pending.sroa.9.3, %for.inc36 ], [ %my_pending.sroa.9.1, %if.then12 ]
+  %my_pending.sroa.19.2258 = phi ptr [ %my_pending.sroa.19.3, %for.inc36 ], [ %my_pending.sroa.19.1, %if.then12 ]
+  %__begin1.sroa.0.0257 = phi ptr [ %incdec.ptr.i96, %for.inc36 ], [ %inner_pending.sroa.0.1, %if.then12 ]
   %6 = load ptr, ptr %__begin1.sroa.0.0257, align 8
   %call25 = invoke noundef ptr @_ZN7rocksdb5Cache17AsyncLookupHandle6ResultEv(ptr noundef nonnull align 8 dereferenceable(74) %6)
           to label %invoke.cont24 unwind label %lpad.loopexit210
@@ -2729,15 +2729,15 @@ invoke.cont29:                                    ; preds = %invoke.cont28
   br i1 %call30, label %if.then31, label %for.inc36
 
 if.then31:                                        ; preds = %invoke.cont29
-  %cmp.not.i61 = icmp eq ptr %my_pending.sroa.9.3259, %my_pending.sroa.19.3258
+  %cmp.not.i61 = icmp eq ptr %my_pending.sroa.9.2259, %my_pending.sroa.19.2258
   br i1 %cmp.not.i61, label %if.else.i65, label %if.then.i62
 
 if.then.i62:                                      ; preds = %if.then31
-  store ptr %6, ptr %my_pending.sroa.9.3259, align 8
+  store ptr %6, ptr %my_pending.sroa.9.2259, align 8
   br label %invoke.cont32
 
 if.else.i65:                                      ; preds = %if.then31
-  %sub.ptr.lhs.cast.i.i.i.i66 = ptrtoint ptr %my_pending.sroa.9.3259 to i64
+  %sub.ptr.lhs.cast.i.i.i.i66 = ptrtoint ptr %my_pending.sroa.9.2259 to i64
   %sub.ptr.rhs.cast.i.i.i.i67 = ptrtoint ptr %my_pending.sroa.0.4260 to i64
   %sub.ptr.sub.i.i.i.i68 = sub i64 %sub.ptr.lhs.cast.i.i.i.i66, %sub.ptr.rhs.cast.i.i.i.i67
   %cmp.i.i.i69 = icmp eq i64 %sub.ptr.sub.i.i.i.i68, 9223372036854775800
@@ -2790,27 +2790,27 @@ _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRK
   br label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i88, %if.then.i62
-  %my_pending.sroa.19.4 = phi ptr [ %add.ptr19.i.i89, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i88 ], [ %my_pending.sroa.19.3258, %if.then.i62 ]
-  %add.ptr.i.i.i.i.i84.pn = phi ptr [ %add.ptr.i.i.i.i.i84, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i88 ], [ %my_pending.sroa.9.3259, %if.then.i62 ]
-  %my_pending.sroa.0.5 = phi ptr [ %cond.i10.i.i80, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i88 ], [ %my_pending.sroa.0.4260, %if.then.i62 ]
-  %my_pending.sroa.9.4 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i84.pn, i64 8
+  %my_pending.sroa.19.5 = phi ptr [ %add.ptr19.i.i89, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i88 ], [ %my_pending.sroa.19.2258, %if.then.i62 ]
+  %add.ptr.i.i.i.i.i84.pn = phi ptr [ %add.ptr.i.i.i.i.i84, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i88 ], [ %my_pending.sroa.9.2259, %if.then.i62 ]
+  %my_pending.sroa.0.7 = phi ptr [ %cond.i10.i.i80, %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i88 ], [ %my_pending.sroa.0.4260, %if.then.i62 ]
+  %my_pending.sroa.9.5 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i84.pn, i64 8
   %pending_cache33 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr null, ptr %pending_cache33, align 8
   br label %for.inc36
 
 for.inc36:                                        ; preds = %invoke.cont24, %invoke.cont32, %invoke.cont29
-  %my_pending.sroa.19.5 = phi ptr [ %my_pending.sroa.19.4, %invoke.cont32 ], [ %my_pending.sroa.19.3258, %invoke.cont29 ], [ %my_pending.sroa.19.3258, %invoke.cont24 ]
-  %my_pending.sroa.9.5 = phi ptr [ %my_pending.sroa.9.4, %invoke.cont32 ], [ %my_pending.sroa.9.3259, %invoke.cont29 ], [ %my_pending.sroa.9.3259, %invoke.cont24 ]
-  %my_pending.sroa.0.6 = phi ptr [ %my_pending.sroa.0.5, %invoke.cont32 ], [ %my_pending.sroa.0.4260, %invoke.cont29 ], [ %my_pending.sroa.0.4260, %invoke.cont24 ]
+  %my_pending.sroa.19.3 = phi ptr [ %my_pending.sroa.19.5, %invoke.cont32 ], [ %my_pending.sroa.19.2258, %invoke.cont29 ], [ %my_pending.sroa.19.2258, %invoke.cont24 ]
+  %my_pending.sroa.9.3 = phi ptr [ %my_pending.sroa.9.5, %invoke.cont32 ], [ %my_pending.sroa.9.2259, %invoke.cont29 ], [ %my_pending.sroa.9.2259, %invoke.cont24 ]
+  %my_pending.sroa.0.5 = phi ptr [ %my_pending.sroa.0.7, %invoke.cont32 ], [ %my_pending.sroa.0.4260, %invoke.cont29 ], [ %my_pending.sroa.0.4260, %invoke.cont24 ]
   %incdec.ptr.i96 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0257, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i96, %inner_pending.sroa.7.2
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i96, %inner_pending.sroa.7.1
   br i1 %cmp.i.not, label %for.cond43.preheader, label %for.body21
 
 for.body45:                                       ; preds = %for.cond43.preheader, %for.inc50
   %__begin2.sroa.0.0266 = phi ptr [ %incdec.ptr.i131, %for.inc50 ], [ %my_pending.sroa.0.4.lcssa, %for.cond43.preheader ]
   %my_secondary_handles.sroa.12.0265 = phi ptr [ %my_secondary_handles.sroa.12.1, %for.inc50 ], [ null, %for.cond43.preheader ]
   %my_secondary_handles.sroa.7.0264 = phi ptr [ %my_secondary_handles.sroa.7.1, %for.inc50 ], [ null, %for.cond43.preheader ]
-  %my_secondary_handles.sroa.0.0263 = phi ptr [ %my_secondary_handles.sroa.0.1, %for.inc50 ], [ null, %for.cond43.preheader ]
+  %my_secondary_handles.sroa.0.0263 = phi ptr [ %my_secondary_handles.sroa.0.2, %for.inc50 ], [ null, %for.cond43.preheader ]
   %16 = load ptr, ptr %__begin2.sroa.0.0266, align 8
   %pending_handle = getelementptr inbounds i8, ptr %16, i64 56
   %cmp.not.i101 = icmp eq ptr %my_secondary_handles.sroa.7.0264, %my_secondary_handles.sroa.12.0265
@@ -2876,16 +2876,16 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertI
   br label %for.inc50
 
 for.inc50:                                        ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i102
-  %my_secondary_handles.sroa.0.1 = phi ptr [ %cond.i10.i.i118, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %my_secondary_handles.sroa.0.0263, %if.then.i102 ]
+  %my_secondary_handles.sroa.0.2 = phi ptr [ %cond.i10.i.i118, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %my_secondary_handles.sroa.0.0263, %if.then.i102 ]
   %add.ptr.i.i.i.i.i121.pn = phi ptr [ %add.ptr.i.i.i.i.i121, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %my_secondary_handles.sroa.7.0264, %if.then.i102 ]
   %my_secondary_handles.sroa.12.1 = phi ptr [ %add.ptr19.i.i125, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %my_secondary_handles.sroa.12.0265, %if.then.i102 ]
   %my_secondary_handles.sroa.7.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i121.pn, i64 8
   %incdec.ptr.i131 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0266, i64 8
-  %cmp.i98.not = icmp eq ptr %incdec.ptr.i131, %my_pending.sroa.9.3.lcssa
+  %cmp.i98.not = icmp eq ptr %incdec.ptr.i131, %my_pending.sroa.9.2.lcssa
   br i1 %cmp.i98.not, label %for.end52, label %for.body45
 
 for.end52:                                        ; preds = %for.inc50, %for.cond43.preheader
-  %my_secondary_handles.sroa.0.0.lcssa = phi ptr [ null, %for.cond43.preheader ], [ %my_secondary_handles.sroa.0.1, %for.inc50 ]
+  %my_secondary_handles.sroa.0.0.lcssa = phi ptr [ null, %for.cond43.preheader ], [ %my_secondary_handles.sroa.0.2, %for.inc50 ]
   %my_secondary_handles.sroa.7.0.lcssa = phi ptr [ null, %for.cond43.preheader ], [ %my_secondary_handles.sroa.7.1, %for.inc50 ]
   %my_secondary_handles.sroa.12.0.lcssa = phi ptr [ null, %for.cond43.preheader ], [ %my_secondary_handles.sroa.12.1, %for.inc50 ]
   %20 = load ptr, ptr %secondary_cache_, align 8
@@ -2950,7 +2950,7 @@ _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i: ; 
 _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont76, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i
   store ptr null, ptr %secondary_handle, align 8
   %incdec.ptr.i141 = getelementptr inbounds i8, ptr %__begin160.sroa.0.0271, i64 8
-  %cmp.i138.not = icmp eq ptr %incdec.ptr.i141, %my_pending.sroa.9.3.lcssa
+  %cmp.i138.not = icmp eq ptr %incdec.ptr.i141, %my_pending.sroa.9.2.lcssa
   br i1 %cmp.i138.not, label %for.end81, label %for.body68
 
 lpad57:                                           ; preds = %for.end52
@@ -3001,11 +3001,11 @@ _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EE
   br label %ehcleanup82
 
 for.end81:                                        ; preds = %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit136
-  %tobool.not.i.i.i154 = icmp eq ptr %inner_pending.sroa.0.2, null
+  %tobool.not.i.i.i154 = icmp eq ptr %inner_pending.sroa.0.1, null
   br i1 %tobool.not.i.i.i154, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit, label %if.then.i.i.i155
 
 if.then.i.i.i155:                                 ; preds = %for.end81
-  call void @_ZdlPv(ptr noundef nonnull %inner_pending.sroa.0.2) #20
+  call void @_ZdlPv(ptr noundef nonnull %inner_pending.sroa.0.1) #20
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit: ; preds = %for.end81, %if.then.i.i.i155
@@ -3020,8 +3020,8 @@ return:                                           ; preds = %if.then.i.i.i157, %
   ret void
 
 ehcleanup82:                                      ; preds = %lpad.loopexit210, %lpad.loopexit.split-lp211.loopexit.split-lp, %lpad.loopexit.split-lp211.loopexit, %if.then.i.i.i143, %lpad57, %if.then.i.i.i146, %ehcleanup, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit153
-  %inner_pending.sroa.0.0241 = phi ptr [ %inner_pending.sroa.0.2, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit153 ], [ %inner_pending.sroa.0.2, %ehcleanup ], [ %inner_pending.sroa.0.2, %if.then.i.i.i146 ], [ %inner_pending.sroa.0.2, %lpad57 ], [ %inner_pending.sroa.0.2, %if.then.i.i.i143 ], [ %inner_pending.sroa.0.2, %lpad.loopexit210 ], [ %inner_pending.sroa.0.0250, %lpad.loopexit.split-lp211.loopexit ], [ %inner_pending.sroa.0.0244, %lpad.loopexit.split-lp211.loopexit.split-lp ]
-  %my_pending.sroa.0.7 = phi ptr [ %my_pending.sroa.0.4.lcssa, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit153 ], [ %my_pending.sroa.0.4.lcssa, %ehcleanup ], [ %my_pending.sroa.0.4.lcssa, %if.then.i.i.i146 ], [ %my_pending.sroa.0.4.lcssa, %lpad57 ], [ %my_pending.sroa.0.4.lcssa, %if.then.i.i.i143 ], [ %my_pending.sroa.0.4260, %lpad.loopexit210 ], [ %my_pending.sroa.0.0254, %lpad.loopexit.split-lp211.loopexit ], [ %my_pending.sroa.0.2.ph.ph, %lpad.loopexit.split-lp211.loopexit.split-lp ]
+  %inner_pending.sroa.0.0241 = phi ptr [ %inner_pending.sroa.0.1, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit153 ], [ %inner_pending.sroa.0.1, %ehcleanup ], [ %inner_pending.sroa.0.1, %if.then.i.i.i146 ], [ %inner_pending.sroa.0.1, %lpad57 ], [ %inner_pending.sroa.0.1, %if.then.i.i.i143 ], [ %inner_pending.sroa.0.1, %lpad.loopexit210 ], [ %inner_pending.sroa.0.0250, %lpad.loopexit.split-lp211.loopexit ], [ %inner_pending.sroa.0.0244, %lpad.loopexit.split-lp211.loopexit.split-lp ]
+  %my_pending.sroa.0.2 = phi ptr [ %my_pending.sroa.0.4.lcssa, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit153 ], [ %my_pending.sroa.0.4.lcssa, %ehcleanup ], [ %my_pending.sroa.0.4.lcssa, %if.then.i.i.i146 ], [ %my_pending.sroa.0.4.lcssa, %lpad57 ], [ %my_pending.sroa.0.4.lcssa, %if.then.i.i.i143 ], [ %my_pending.sroa.0.4260, %lpad.loopexit210 ], [ %my_pending.sroa.0.0254, %lpad.loopexit.split-lp211.loopexit ], [ %my_pending.sroa.0.1.ph.ph, %lpad.loopexit.split-lp211.loopexit.split-lp ]
   %.pn18 = phi { ptr, i32 } [ %33, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit153 ], [ %lpad.phi, %ehcleanup ], [ %lpad.phi, %if.then.i.i.i146 ], [ %31, %lpad57 ], [ %31, %if.then.i.i.i143 ], [ %lpad.loopexit212, %lpad.loopexit210 ], [ %lpad.loopexit215, %lpad.loopexit.split-lp211.loopexit ], [ %lpad.loopexit.split-lp216, %lpad.loopexit.split-lp211.loopexit.split-lp ]
   %tobool.not.i.i.i159 = icmp eq ptr %inner_pending.sroa.0.0241, null
   br i1 %tobool.not.i.i.i159, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit161, label %if.then.i.i.i160
@@ -3031,11 +3031,11 @@ if.then.i.i.i160:                                 ; preds = %ehcleanup82
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit161
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit161: ; preds = %ehcleanup82, %if.then.i.i.i160
-  %tobool.not.i.i.i162 = icmp eq ptr %my_pending.sroa.0.7, null
+  %tobool.not.i.i.i162 = icmp eq ptr %my_pending.sroa.0.2, null
   br i1 %tobool.not.i.i.i162, label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit164, label %if.then.i.i.i163
 
 if.then.i.i.i163:                                 ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit161
-  call void @_ZdlPv(ptr noundef nonnull %my_pending.sroa.0.7) #20
+  call void @_ZdlPv(ptr noundef nonnull %my_pending.sroa.0.2) #20
   br label %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit164
 
 _ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit164: ; preds = %_ZNSt6vectorIPN7rocksdb5Cache17AsyncLookupHandleESaIS3_EED2Ev.exit161, %if.then.i.i.i163

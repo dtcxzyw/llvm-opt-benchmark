@@ -191,8 +191,8 @@ fmap_readn.exit97.thread:                         ; preds = %35, %38, %fmap_read
 
 55:                                               ; preds = %45, %54
   %56 = phi i64 [ %.pre, %54 ], [ %51, %45 ]
-  %.067 = phi i64 [ 13, %54 ], [ %50, %45 ]
-  %or.cond158.not244 = icmp ugt i64 %56, %.067
+  %.168 = phi i64 [ 13, %54 ], [ %50, %45 ]
+  %or.cond158.not244 = icmp ugt i64 %56, %.168
   br i1 %or.cond158.not244, label %.lr.ph, label %fmap_readn.exit102.thread.thread
 
 .lr.ph:                                           ; preds = %55
@@ -204,15 +204,15 @@ fmap_readn.exit97.thread:                         ; preds = %35, %38, %fmap_read
 
 57:                                               ; preds = %.lr.ph, %133
   %.0248 = phi i1 [ false, %.lr.ph ], [ %.1, %133 ]
-  %.168247 = phi i64 [ %.067, %.lr.ph ], [ %.5, %133 ]
+  %.2247 = phi i64 [ %.168, %.lr.ph ], [ %.4, %133 ]
   %58 = load ptr, ptr %10, align 8
-  %59 = call ptr %58(ptr noundef nonnull %9, i64 noundef %.168247, i64 noundef 1, i32 noundef 0) #4
+  %59 = call ptr %58(ptr noundef nonnull %9, i64 noundef %.2247, i64 noundef 1, i32 noundef 0) #4
   %.not26.i100 = icmp eq ptr %59, null
   br i1 %.not26.i100, label %fmap_readn.exit102.thread, label %fmap_readn.exit102
 
 fmap_readn.exit102:                               ; preds = %57
   %60 = load i8, ptr %59, align 1
-  %61 = add nuw i64 %.168247, 1
+  %61 = add nuw i64 %.2247, 1
   switch i8 %60, label %131 [
     i8 59, label %.thread
     i8 33, label %63
@@ -220,7 +220,7 @@ fmap_readn.exit102:                               ; preds = %57
   ]
 
 fmap_readn.exit102.thread:                        ; preds = %133, %57
-  %.168.lcssa = phi i64 [ %.5, %133 ], [ %.168247, %57 ]
+  %.2.lcssa = phi i64 [ %.4, %133 ], [ %.2247, %57 ]
   %.0.lcssa = phi i1 [ %.1, %133 ], [ %.0248, %57 ]
   br i1 %.0.lcssa, label %62, label %fmap_readn.exit102.thread.thread
 
@@ -229,7 +229,7 @@ fmap_readn.exit102.thread:                        ; preds = %133, %57
   br label %138
 
 fmap_readn.exit102.thread.thread:                 ; preds = %55, %fmap_readn.exit102.thread
-  %.168.lcssa323 = phi i64 [ %.168.lcssa, %fmap_readn.exit102.thread ], [ %.067, %55 ]
+  %.2.lcssa323 = phi i64 [ %.2.lcssa, %fmap_readn.exit102.thread ], [ %.168, %55 ]
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.15) #4
   br label %135
 
@@ -247,7 +247,7 @@ fmap_readn.exit102.thread.thread:                 ; preds = %55, %fmap_readn.exi
 
 fmap_readn.exit107:                               ; preds = %65
   %68 = load i8, ptr %67, align 1
-  %69 = add i64 %.168247, 2
+  %69 = add i64 %.2247, 2
   switch i8 %68, label %75 [
     i8 -7, label %70
     i8 1, label %72
@@ -261,7 +261,7 @@ fmap_readn.exit107.thread:                        ; preds = %65, %63
 
 70:                                               ; preds = %fmap_readn.exit107
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #4
-  %71 = add i64 %.168247, 8
+  %71 = add i64 %.2247, 8
   br label %133
 
 72:                                               ; preds = %fmap_readn.exit107
@@ -287,19 +287,19 @@ fmap_readn.exit107.thread:                        ; preds = %65, %63
 
 78:                                               ; preds = %87, %77
   %79 = phi i64 [ %.pre320, %77 ], [ %91, %87 ]
-  %.2 = phi i64 [ %69, %77 ], [ %90, %87 ]
-  %or.cond160.not = icmp ugt i64 %79, %.2
+  %.3 = phi i64 [ %69, %77 ], [ %90, %87 ]
+  %or.cond160.not = icmp ugt i64 %79, %.3
   br i1 %or.cond160.not, label %80, label %fmap_readn.exit112.thread
 
 80:                                               ; preds = %78
   %81 = load ptr, ptr %10, align 8
-  %82 = call ptr %81(ptr noundef nonnull %9, i64 noundef %.2, i64 noundef 1, i32 noundef 0) #4
+  %82 = call ptr %81(ptr noundef nonnull %9, i64 noundef %.3, i64 noundef 1, i32 noundef 0) #4
   %.not26.i110 = icmp eq ptr %82, null
   br i1 %.not26.i110, label %fmap_readn.exit112.thread, label %fmap_readn.exit112
 
 fmap_readn.exit112:                               ; preds = %80
   %83 = load i8, ptr %82, align 1
-  %84 = add nuw i64 %.2, 1
+  %84 = add nuw i64 %.3, 1
   %85 = icmp eq i8 %83, 0
   br i1 %85, label %86, label %87
 
@@ -348,7 +348,7 @@ fmap_readn.exit117.thread:                        ; preds = %96, %94, %fmap_read
   br label %135
 
 100:                                              ; preds = %fmap_readn.exit117
-  %101 = add i64 %.168247, 10
+  %101 = add i64 %.2247, 10
   %.4..4..4. = load i16, ptr %.4..4..4..sroa_idx, align 2
   %102 = zext i16 %.4..4..4. to i32
   %.6..6..6. = load i16, ptr %.6..6..6..sroa_idx, align 2
@@ -377,26 +377,26 @@ fmap_readn.exit117.thread:                        ; preds = %96, %94, %fmap_read
   br label %113
 
 113:                                              ; preds = %112, %106
-  %.3 = phi i64 [ %111, %106 ], [ %101, %112 ]
-  %114 = add i64 %.3, 1
+  %.5 = phi i64 [ %111, %106 ], [ %101, %112 ]
+  %114 = add i64 %.5, 1
   %.pre319 = load i64, ptr %29, align 8
   br label %115
 
 115:                                              ; preds = %124, %113
   %116 = phi i64 [ %.pre319, %113 ], [ %128, %124 ]
-  %.4 = phi i64 [ %114, %113 ], [ %127, %124 ]
-  %or.cond162.not = icmp ugt i64 %116, %.4
+  %.6 = phi i64 [ %114, %113 ], [ %127, %124 ]
+  %or.cond162.not = icmp ugt i64 %116, %.6
   br i1 %or.cond162.not, label %117, label %fmap_readn.exit122.thread
 
 117:                                              ; preds = %115
   %118 = load ptr, ptr %10, align 8
-  %119 = call ptr %118(ptr noundef nonnull %9, i64 noundef %.4, i64 noundef 1, i32 noundef 0) #4
+  %119 = call ptr %118(ptr noundef nonnull %9, i64 noundef %.6, i64 noundef 1, i32 noundef 0) #4
   %.not26.i120 = icmp eq ptr %119, null
   br i1 %.not26.i120, label %fmap_readn.exit122.thread, label %fmap_readn.exit122
 
 fmap_readn.exit122:                               ; preds = %117
   %120 = load i8, ptr %119, align 1
-  %121 = add nuw i64 %.4, 1
+  %121 = add nuw i64 %.6, 1
   %122 = icmp eq i8 %120, 0
   br i1 %122, label %123, label %124
 
@@ -427,15 +427,15 @@ fmap_readn.exit122.thread:                        ; preds = %117, %115
   br label %135
 
 133:                                              ; preds = %70, %86, %123
-  %.5 = phi i64 [ %121, %123 ], [ %71, %70 ], [ %84, %86 ]
+  %.4 = phi i64 [ %121, %123 ], [ %71, %70 ], [ %84, %86 ]
   %.1 = phi i1 [ true, %123 ], [ %.0248, %70 ], [ %.0248, %86 ]
   %134 = load i64, ptr %29, align 8
-  %or.cond158.not = icmp ugt i64 %134, %.5
+  %or.cond158.not = icmp ugt i64 %134, %.4
   br i1 %or.cond158.not, label %57, label %fmap_readn.exit102.thread
 
 135:                                              ; preds = %fmap_readn.exit102.thread.thread, %131, %130, %fmap_readn.exit122.thread, %fmap_readn.exit117.thread, %93, %fmap_readn.exit112.thread, %fmap_readn.exit107.thread, %53, %fmap_readn.exit97.thread
   %.str.16.sink = phi ptr [ @.str.16, %fmap_readn.exit102.thread.thread ], [ @.str.43, %131 ], [ @.str.38, %130 ], [ @.str.38, %fmap_readn.exit122.thread ], [ @.str.33, %fmap_readn.exit117.thread ], [ @.str.30, %93 ], [ @.str.20, %fmap_readn.exit112.thread ], [ @.str.20, %fmap_readn.exit107.thread ], [ @.str.12, %53 ], [ @.str.8, %fmap_readn.exit97.thread ]
-  %.6 = phi i64 [ %.168.lcssa323, %fmap_readn.exit102.thread.thread ], [ %61, %131 ], [ %121, %130 ], [ %.4, %fmap_readn.exit122.thread ], [ %61, %fmap_readn.exit117.thread ], [ %84, %93 ], [ %.2, %fmap_readn.exit112.thread ], [ %61, %fmap_readn.exit107.thread ], [ 13, %53 ], [ 6, %fmap_readn.exit97.thread ]
+  %.067 = phi i64 [ %.2.lcssa323, %fmap_readn.exit102.thread.thread ], [ %61, %131 ], [ %121, %130 ], [ %.6, %fmap_readn.exit122.thread ], [ %61, %fmap_readn.exit117.thread ], [ %84, %93 ], [ %.3, %fmap_readn.exit112.thread ], [ %61, %fmap_readn.exit107.thread ], [ 13, %53 ], [ 6, %fmap_readn.exit97.thread ]
   %136 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull %.str.16.sink) #4
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %138, label %149
@@ -445,9 +445,9 @@ fmap_readn.exit122.thread:                        ; preds = %117, %115
   br label %140
 
 138:                                              ; preds = %135, %62
-  %.6152.ph = phi i64 [ %.168.lcssa, %62 ], [ %.6, %135 ]
-  %139 = icmp eq i64 %.6152.ph, 14
-  %spec.store.select155 = select i1 %139, i64 6, i64 %.6152.ph
+  %.067152.ph = phi i64 [ %.2.lcssa, %62 ], [ %.067, %135 ]
+  %139 = icmp eq i64 %.067152.ph, 14
+  %spec.store.select155 = select i1 %139, i64 6, i64 %.067152.ph
   br label %140
 
 140:                                              ; preds = %.thread, %138
@@ -465,8 +465,8 @@ fmap_readn.exit122.thread:                        ; preds = %117, %115
   br label %149
 
 149:                                              ; preds = %135, %140, %144, %fmap_readn.exit.thread, %27, %14, %6
-  %.272 = phi i32 [ 3, %6 ], [ 0, %14 ], [ 0, %27 ], [ 0, %fmap_readn.exit.thread ], [ %148, %144 ], [ 0, %140 ], [ %136, %135 ]
-  ret i32 %.272
+  %.070 = phi i32 [ 3, %6 ], [ 0, %14 ], [ 0, %27 ], [ 0, %fmap_readn.exit.thread ], [ %148, %144 ], [ 0, %140 ], [ %136, %135 ]
+  ret i32 %.070
 }
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1

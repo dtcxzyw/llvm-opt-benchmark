@@ -232,7 +232,7 @@ _run_spank_job_script.exit:                       ; preds = %23, %37, %75, %77, 
   br label %86
 
 86:                                               ; preds = %16, %_run_spank_job_script.exit, %.critedge
-  %.132 = phi ptr [ %20, %_run_spank_job_script.exit ], [ null, %.critedge ], [ null, %16 ]
+  %.031 = phi ptr [ %20, %_run_spank_job_script.exit ], [ null, %.critedge ], [ null, %16 ]
   %.030 = phi i32 [ %.011.i, %_run_spank_job_script.exit ], [ 0, %.critedge ], [ 0, %16 ]
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %129, label %87
@@ -258,7 +258,7 @@ _run_spank_job_script.exit:                       ; preds = %23, %37, %75, %77, 
   %98 = getelementptr inbounds i8, ptr %11, i64 48
   store ptr %9, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %11, i64 56
-  %.not38 = icmp eq ptr %.132, null
+  %.not38 = icmp eq ptr %.031, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %99, i8 0, i64 17, i1 false)
   br i1 %.not38, label %100, label %102
 
@@ -267,11 +267,11 @@ _run_spank_job_script.exit:                       ; preds = %23, %37, %75, %77, 
   br label %102
 
 102:                                              ; preds = %100, %87
-  %.2 = phi ptr [ %.132, %87 ], [ %101, %100 ]
+  %.3 = phi ptr [ %.031, %87 ], [ %101, %100 ]
   %103 = icmp eq i16 %88, -2
   %104 = mul nuw nsw i32 %89, 1000
   %.0 = select i1 %103, i32 -1, i32 %104
-  store ptr %.2, ptr %11, align 8
+  store ptr %.3, ptr %11, align 8
   store i32 %.0, ptr %93, align 4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   %105 = call i32 @glob(ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull @_ef, ptr noundef nonnull %4) #8
@@ -340,9 +340,9 @@ _script_list_create.exit:                         ; preds = %110, %106
   br label %129
 
 129:                                              ; preds = %126, %86
-  %.3 = phi ptr [ %.132, %86 ], [ %.2, %126 ]
+  %.2 = phi ptr [ %.031, %86 ], [ %.3, %126 ]
   %.1 = phi i32 [ %.030, %86 ], [ %spec.select, %126 ]
-  call void @env_array_free(ptr noundef %.3) #8
+  call void @env_array_free(ptr noundef %.2) #8
   br label %130
 
 130:                                              ; preds = %129, %124

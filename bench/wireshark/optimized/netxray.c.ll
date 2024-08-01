@@ -424,9 +424,9 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %175
 
 175:                                              ; preds = %98, %94, %113, %114, %127, %128, %142, %143, %156, %157, %171
-  %.0116 = phi double [ %151, %157 ], [ %151, %156 ], [ %136, %143 ], [ %136, %142 ], [ %122, %128 ], [ %122, %127 ], [ %108, %114 ], [ %108, %113 ], [ %97, %94 ], [ %100, %98 ], [ %174, %171 ]
-  %.0112 = phi double [ 0.000000e+00, %157 ], [ %68, %156 ], [ 0.000000e+00, %143 ], [ %68, %142 ], [ 0.000000e+00, %128 ], [ %68, %127 ], [ 0.000000e+00, %114 ], [ %68, %113 ], [ %68, %94 ], [ %68, %98 ], [ %68, %171 ]
-  %176 = fcmp ult double %.0116, 1.000000e+07
+  %.1117 = phi double [ %151, %157 ], [ %151, %156 ], [ %136, %143 ], [ %136, %142 ], [ %122, %128 ], [ %122, %127 ], [ %108, %114 ], [ %108, %113 ], [ %97, %94 ], [ %100, %98 ], [ %174, %171 ]
+  %.1 = phi double [ 0.000000e+00, %157 ], [ %68, %156 ], [ 0.000000e+00, %143 ], [ %68, %142 ], [ 0.000000e+00, %128 ], [ %68, %127 ], [ 0.000000e+00, %114 ], [ %68, %113 ], [ %68, %94 ], [ %68, %98 ], [ %68, %171 ]
+  %176 = fcmp ult double %.1117, 1.000000e+07
   %177 = getelementptr inbounds i8, ptr %0, i64 148
   br i1 %176, label %179, label %178
 
@@ -445,9 +445,9 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %247
 
 182:                                              ; preds = %75, %73, %178, %179, %69
-  %.1117 = phi double [ 1.000000e+03, %69 ], [ 1.000000e+06, %75 ], [ 1.000000e+03, %73 ], [ %.0116, %178 ], [ %.0116, %179 ]
-  %.1 = phi double [ %68, %69 ], [ %68, %75 ], [ %68, %73 ], [ %.0112, %178 ], [ %.0112, %179 ]
-  %183 = fdiv double %.1, %.1117
+  %.0116 = phi double [ 1.000000e+03, %69 ], [ 1.000000e+06, %75 ], [ 1.000000e+03, %73 ], [ %.1117, %178 ], [ %.1117, %179 ]
+  %.0112 = phi double [ %68, %69 ], [ %68, %75 ], [ %68, %73 ], [ %.1, %178 ], [ %.1, %179 ]
+  %183 = fdiv double %.0112, %.0116
   %184 = icmp eq i32 %.0118, 4
   br i1 %184, label %185, label %202
 
@@ -527,7 +527,7 @@ switch.lookup:                                    ; preds = %190
   %215 = zext i32 %214 to i64
   store i64 %215, ptr %207, align 8
   %216 = getelementptr inbounds i8, ptr %207, i64 8
-  store double %.1117, ptr %216, align 8
+  store double %.0116, ptr %216, align 8
   %217 = getelementptr inbounds i8, ptr %207, i64 16
   store double %183, ptr %217, align 8
   %218 = getelementptr inbounds i8, ptr %207, i64 48
@@ -924,7 +924,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   br label %49
 
 49:                                               ; preds = %37, %45, %48
-  %.0 = phi i32 [ 0, %48 ], [ 4, %45 ], [ 0, %37 ]
+  %.1 = phi i32 [ 0, %48 ], [ 4, %45 ], [ 0, %37 ]
   %50 = getelementptr inbounds i8, ptr %2, i64 84
   store i8 0, ptr %50, align 4
   %51 = getelementptr inbounds i8, ptr %2, i64 88
@@ -1189,7 +1189,7 @@ default.unreachable148:                           ; preds = %165, %133
   unreachable
 
 183:                                              ; preds = %103, %96, %30, %20, %115, %33, %35, %66, %49, %168, %171, %174, %177, %180, %161, %157, %153, %149, %18, %15, %13
-  %.1 = phi i32 [ 0, %13 ], [ 0, %20 ], [ 0, %180 ], [ 0, %177 ], [ 0, %174 ], [ 0, %171 ], [ 0, %168 ], [ 0, %161 ], [ 0, %157 ], [ 0, %153 ], [ 0, %149 ], [ 0, %115 ], [ %.0, %66 ], [ %.0, %49 ], [ 0, %33 ], [ 0, %35 ], [ 0, %18 ], [ 0, %15 ], [ 4, %30 ], [ %spec.select, %96 ], [ %spec.select140, %103 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %20 ], [ 0, %180 ], [ 0, %177 ], [ 0, %174 ], [ 0, %171 ], [ 0, %168 ], [ 0, %161 ], [ 0, %157 ], [ 0, %153 ], [ 0, %149 ], [ 0, %115 ], [ %.1, %66 ], [ %.1, %49 ], [ 0, %33 ], [ 0, %35 ], [ 0, %18 ], [ 0, %15 ], [ 4, %30 ], [ %spec.select, %96 ], [ %spec.select140, %103 ]
   store i32 0, ptr %2, align 8
   %184 = call ptr @wtap_block_create(i32 noundef 5) #7
   %185 = getelementptr inbounds i8, ptr %2, i64 232
@@ -1228,7 +1228,7 @@ default.unreachable148:                           ; preds = %165, %133
   %212 = getelementptr inbounds i8, ptr %6, i64 8
   %.val142 = load i16, ptr %212, align 4
   %213 = zext i16 %.val142 to i32
-  %214 = sub nsw i32 %213, %.1
+  %214 = sub nsw i32 %213, %.0
   %215 = getelementptr inbounds i8, ptr %2, i64 64
   store i32 %214, ptr %215, align 8
   br label %.sink.split149
@@ -1257,13 +1257,13 @@ default.unreachable148:                           ; preds = %165, %133
   %234 = getelementptr inbounds i8, ptr %6, i64 10
   %.val144 = load i16, ptr %234, align 2
   %235 = zext i16 %.val144 to i32
-  %236 = sub nsw i32 %235, %.1
+  %236 = sub nsw i32 %235, %.0
   %237 = getelementptr inbounds i8, ptr %2, i64 64
   store i32 %236, ptr %237, align 8
   %238 = getelementptr inbounds i8, ptr %6, i64 8
   %.val146 = load i16, ptr %238, align 4
   %239 = zext i16 %.val146 to i32
-  %240 = sub nsw i32 %239, %.1
+  %240 = sub nsw i32 %239, %.0
   br label %.sink.split149
 
 .sink.split149:                                   ; preds = %216, %194
@@ -1273,7 +1273,7 @@ default.unreachable148:                           ; preds = %165, %133
   br label %242
 
 242:                                              ; preds = %.sink.split149, %5
-  %.0129 = phi i32 [ -1, %5 ], [ %.1, %.sink.split149 ]
+  %.0129 = phi i32 [ -1, %5 ], [ %.0, %.sink.split149 ]
   ret i32 %.0129
 }
 

@@ -150,19 +150,19 @@ define dso_local i32 @Curl_client_write(ptr noundef %0, i32 noundef %1, ptr noun
 
 34:                                               ; preds = %28, %25
   %35 = phi i8 [ %.pre.i, %28 ], [ %23, %25 ]
-  %.047.i = phi i64 [ %30, %28 ], [ %3, %25 ]
+  %.148.i = phi i64 [ %30, %28 ], [ %3, %25 ]
   %36 = and i8 %35, -2
   store i8 %36, ptr %22, align 8
   br label %37
 
 37:                                               ; preds = %34, %21
-  %.148.i = phi i64 [ %.047.i, %34 ], [ %3, %21 ]
-  %38 = tail call ptr @memchr(ptr noundef nonnull %2, i32 noundef 13, i64 noundef %.148.i) #10
+  %.047.i = phi i64 [ %.148.i, %34 ], [ %3, %21 ]
+  %38 = tail call ptr @memchr(ptr noundef nonnull %2, i32 noundef 13, i64 noundef %.047.i) #10
   %.not53.i = icmp eq ptr %38, null
   br i1 %.not53.i, label %convert_lineends.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %2, i64 %.148.i
+  %39 = getelementptr inbounds i8, ptr %2, i64 %.047.i
   %40 = getelementptr inbounds i8, ptr %39, i64 -1
   %41 = icmp ult ptr %38, %40
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i
@@ -249,7 +249,7 @@ define dso_local i32 @Curl_client_write(ptr noundef %0, i32 noundef %1, ptr noun
   br label %convert_lineends.exit
 
 convert_lineends.exit:                            ; preds = %72, %37, %18, %14, %6, %4
-  %.015 = phi i64 [ %3, %14 ], [ %3, %6 ], [ %3, %4 ], [ %75, %72 ], [ %3, %18 ], [ %.148.i, %37 ]
+  %.015 = phi i64 [ %3, %14 ], [ %3, %6 ], [ %3, %4 ], [ %75, %72 ], [ %3, %18 ], [ %.047.i, %37 ]
   %76 = getelementptr inbounds i8, ptr %0, i64 328
   %77 = load ptr, ptr %76, align 8
   %.not18 = icmp eq ptr %77, null
@@ -494,8 +494,8 @@ define dso_local i32 @Curl_client_unpause(ptr noundef %0) local_unnamed_addr #0 
 
 12:                                               ; preds = %._crit_edge, %23
   %indvars.iv31 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next32, %23 ]
-  %.028 = phi i32 [ 0, %._crit_edge ], [ %.1, %23 ]
-  %.not24 = icmp eq i32 %.028, 0
+  %.128 = phi i32 [ 0, %._crit_edge ], [ %.2, %23 ]
+  %.not24 = icmp eq i32 %.128, 0
   br i1 %.not24, label %13, label %23
 
 13:                                               ; preds = %12
@@ -512,7 +512,7 @@ define dso_local i32 @Curl_client_unpause(ptr noundef %0) local_unnamed_addr #0 
   br label %23
 
 23:                                               ; preds = %13, %12
-  %.1 = phi i32 [ %.028, %12 ], [ %22, %13 ]
+  %.2 = phi i32 [ %.128, %12 ], [ %22, %13 ]
   %24 = getelementptr inbounds [3 x %struct.tempbuf], ptr %2, i64 0, i64 %indvars.iv31
   call void @Curl_dyn_free(ptr noundef nonnull %24) #9
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
@@ -520,8 +520,8 @@ define dso_local i32 @Curl_client_unpause(ptr noundef %0) local_unnamed_addr #0 
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !9
 
 .loopexit:                                        ; preds = %23, %1
-  %.2 = phi i32 [ 0, %1 ], [ %.1, %23 ]
-  ret i32 %.2
+  %.0 = phi i32 [ 0, %1 ], [ %.2, %23 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1371,8 +1371,8 @@ get_max_body_write_len.exit:                      ; preds = %45
 
 52:                                               ; preds = %get_max_body_write_len.exit, %50, %45
   %53 = phi i16 [ %51, %50 ], [ %36, %get_max_body_write_len.exit ], [ %36, %45 ]
-  %.171 = phi i64 [ %spec.select, %50 ], [ %spec.select, %get_max_body_write_len.exit ], [ 0, %45 ]
-  %.1 = phi i64 [ %spec.select93, %50 ], [ %spec.select93, %get_max_body_write_len.exit ], [ %4, %45 ]
+  %.070 = phi i64 [ %spec.select, %50 ], [ %spec.select, %get_max_body_write_len.exit ], [ 0, %45 ]
+  %.069 = phi i64 [ %spec.select93, %50 ], [ %spec.select93, %get_max_body_write_len.exit ], [ %4, %45 ]
   %54 = getelementptr inbounds i8, ptr %0, i64 1712
   %55 = load i64, ptr %54, align 8
   switch i64 %55, label %56 [
@@ -1388,11 +1388,11 @@ get_max_body_write_len.exit:                      ; preds = %45
 
 get_max_body_write_len.exit100:                   ; preds = %52, %56
   %.0.i99 = phi i64 [ %..i98, %56 ], [ %55, %52 ]
-  %spec.select94 = tail call i64 @llvm.umin.i64(i64 %.1, i64 %.0.i99)
+  %spec.select94 = tail call i64 @llvm.umin.i64(i64 %.069, i64 %.0.i99)
   br label %59
 
 59:                                               ; preds = %52, %get_max_body_write_len.exit100
-  %.2 = phi i64 [ %.1, %52 ], [ %spec.select94, %get_max_body_write_len.exit100 ]
+  %.2 = phi i64 [ %.069, %52 ], [ %spec.select94, %get_max_body_write_len.exit100 ]
   %60 = load i64, ptr %23, align 8
   %61 = add i64 %60, %.2
   store i64 %61, ptr %23, align 8
@@ -1431,7 +1431,7 @@ Curl_cwriter_write.exit103._crit_edge:            ; preds = %Curl_cwriter_write.
   br i1 %.not88, label %78, label %Curl_cwriter_write.exit
 
 78:                                               ; preds = %75
-  %.not89 = icmp eq i64 %.171, 0
+  %.not89 = icmp eq i64 %.070, 0
   br i1 %.not89, label %93, label %79
 
 79:                                               ; preds = %78
@@ -1451,7 +1451,7 @@ Curl_cwriter_write.exit103._crit_edge:            ; preds = %Curl_cwriter_write.
   %87 = load i64, ptr %22, align 8
   %88 = load i64, ptr %46, align 8
   %89 = load i64, ptr %23, align 8
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef %.171, i64 noundef %87, i64 noundef %88, i64 noundef %89) #9
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef %.070, i64 noundef %87, i64 noundef %88, i64 noundef %89) #9
   br label %90
 
 90:                                               ; preds = %82, %86

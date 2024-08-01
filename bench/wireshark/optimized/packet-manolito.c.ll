@@ -150,7 +150,7 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   br label %30
 
 30:                                               ; preds = %.preheader, %84
-  %.0111 = phi ptr [ %.6, %84 ], [ null, %.preheader ]
+  %.0111 = phi ptr [ %.1112, %84 ], [ null, %.preheader ]
   %.0110 = phi i32 [ %.1, %84 ], [ 20, %.preheader ]
   %31 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0110) #2
   %32 = load ptr, ptr %29, align 8
@@ -162,19 +162,19 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   %35 = icmp eq i16 %31, 17227
   %spec.select = select i1 %35, ptr @.str.28, ptr null
   %36 = icmp eq i16 %31, 20035
-  %.2 = select i1 %36, ptr @.str.29, ptr %spec.select
+  %.3 = select i1 %36, ptr @.str.29, ptr %spec.select
   %37 = icmp eq i16 %31, 17998
-  %.3 = select i1 %37, ptr @.str.30, ptr %.2
+  %.4 = select i1 %37, ptr @.str.30, ptr %.3
   %38 = icmp eq i16 %31, 18756
-  %.4 = select i1 %38, ptr @.str.31, ptr %.3
+  %.5 = select i1 %38, ptr @.str.31, ptr %.4
   %39 = icmp eq i16 %31, 20564
-  %.5 = select i1 %39, ptr @.str.32, ptr %.4
+  %.6 = select i1 %39, ptr @.str.32, ptr %.5
   %40 = icmp eq i16 %31, 19781
-  %spec.select117 = select i1 %40, ptr @.str.33, ptr %.5
+  %spec.select117 = select i1 %40, ptr @.str.33, ptr %.6
   br label %41
 
 41:                                               ; preds = %34, %30
-  %.6 = phi ptr [ %.0111, %30 ], [ %spec.select117, %34 ]
+  %.1112 = phi ptr [ %.0111, %30 ], [ %spec.select117, %34 ]
   %42 = add i32 %.0110, 2
   %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #2
   %44 = add i32 %.0110, 3
@@ -256,14 +256,14 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not115, label %86, label %30, !llvm.loop !4
 
 86:                                               ; preds = %84
-  %.not116 = icmp eq ptr %.6, null
+  %.not116 = icmp eq ptr %.1112, null
   br i1 %.not116, label %88, label %.sink.split
 
 .sink.split:                                      ; preds = %86, %24, %21
-  %.6.lcssa.sink = phi ptr [ @.str.26, %21 ], [ @.str.27, %24 ], [ %.6, %86 ]
+  %.1112.lcssa.sink = phi ptr [ @.str.26, %21 ], [ @.str.27, %24 ], [ %.1112, %86 ]
   %.0109.ph = phi i32 [ 19, %21 ], [ 20, %24 ], [ %.1, %86 ]
   %87 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull %.6.lcssa.sink) #2
+  tail call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull %.1112.lcssa.sink) #2
   br label %88
 
 88:                                               ; preds = %.sink.split, %86

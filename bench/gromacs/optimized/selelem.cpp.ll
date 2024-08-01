@@ -1622,8 +1622,8 @@ define i16 @_ZNK3gmx20SelectionTreeElement26requiredTopologyPropertiesEv(ptr noc
   br label %27
 
 27:                                               ; preds = %25, %1
-  %.sroa.026.1 = phi i8 [ 0, %1 ], [ %spec.select34, %25 ]
-  %.sroa.9.1 = phi i8 [ 0, %1 ], [ %spec.select35, %25 ]
+  %.sroa.026.0 = phi i8 [ 0, %1 ], [ %spec.select34, %25 ]
+  %.sroa.9.0 = phi i8 [ 0, %1 ], [ %spec.select35, %25 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 96
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %2, align 8
@@ -1658,8 +1658,8 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %27, %36
 
 .lr.ph:                                           ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
   %42 = phi ptr [ %102, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %41, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ]
-  %.sroa.9.241 = phi i8 [ %52, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %.sroa.9.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ]
-  %.sroa.026.240 = phi i8 [ %50, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %.sroa.026.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ]
+  %.sroa.9.241 = phi i8 [ %52, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %.sroa.9.0, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ]
+  %.sroa.026.240 = phi i8 [ %50, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %.sroa.026.0, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ]
   %43 = trunc nuw i8 %.sroa.026.240 to i1
   %44 = trunc nuw i8 %.sroa.9.241 to i1
   %45 = select i1 %43, i1 %44, i1 false
@@ -1797,8 +1797,8 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %48, %_Z
   resume { ptr, i32 } %104
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
-  %.sroa.026.2.lcssa = phi i8 [ %.sroa.026.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ], [ %50, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %.sroa.026.240, %.lr.ph ]
-  %.sroa.9.2.lcssa = phi i8 [ %.sroa.9.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ], [ %52, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %.sroa.9.241, %.lr.ph ]
+  %.sroa.026.2.lcssa = phi i8 [ %.sroa.026.0, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ], [ %50, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %.sroa.026.240, %.lr.ph ]
+  %.sroa.9.2.lcssa = phi i8 [ %.sroa.9.0, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ], [ %52, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %.sroa.9.241, %.lr.ph ]
   %105 = load ptr, ptr %30, align 8
   %.not.i.i.i16 = icmp eq ptr %105, null
   br i1 %.not.i.i.i16, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %106
@@ -3002,8 +3002,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i10, %106, %93, %._crit_edge, %1
-  %.1 = phi i1 [ true, %1 ], [ %.lcssa, %._crit_edge ], [ %.lcssa, %93 ], [ %.lcssa, %106 ], [ %.lcssa, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i10 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %1 ], [ %.lcssa, %._crit_edge ], [ %.lcssa, %93 ], [ %.lcssa, %106 ], [ %.lcssa, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i10 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

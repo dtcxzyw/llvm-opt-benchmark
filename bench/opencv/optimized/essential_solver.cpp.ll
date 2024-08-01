@@ -3783,7 +3783,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit562:                 ; preds = %2314, %2316
   br label %.body
 
 2327:                                             ; preds = %1145, %_ZNSt6vectorIdSaIdEED2Ev.exit560
-  %.0196 = phi i32 [ %2313, %_ZNSt6vectorIdSaIdEED2Ev.exit560 ], [ 0, %1145 ]
+  %.1 = phi i32 [ %2313, %_ZNSt6vectorIdSaIdEED2Ev.exit560 ], [ 0, %1145 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #19
   br label %.loopexit593
 
@@ -3793,7 +3793,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit562:                 ; preds = %2314, %2316
   br label %2330
 
 .loopexit593:                                     ; preds = %._crit_edge, %153, %2327
-  %.1 = phi i32 [ %.0196, %2327 ], [ 0, %153 ], [ 0, %._crit_edge ]
+  %.0196 = phi i32 [ %.1, %2327 ], [ 0, %153 ], [ 0, %._crit_edge ]
   %2328 = load ptr, ptr %18, align 8
   %.not.i.i.i565 = icmp eq ptr %2328, null
   br i1 %.not.i.i.i565, label %_ZNSt6vectorIdSaIdEED2Ev.exit566, label %2329
@@ -3803,7 +3803,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit562:                 ; preds = %2314, %2316
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit566
 
 _ZNSt6vectorIdSaIdEED2Ev.exit566:                 ; preds = %.loopexit593, %2329
-  ret i32 %.1
+  ret i32 %.0196
 
 2330:                                             ; preds = %.body, %148, %146
   %.pn257.pn = phi { ptr, i32 } [ %.pn257, %.body ], [ %147, %146 ], [ %149, %148 ]

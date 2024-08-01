@@ -8652,7 +8652,7 @@ lpad226:                                          ; preds = %invoke.cont227, %in
   br label %ehcleanup238
 
 if.end237:                                        ; preds = %invoke.cont214, %invoke.cont229, %invoke.cont209
-  %varLhs.0 = phi i1 [ %cmp221, %invoke.cont229 ], [ true, %invoke.cont214 ], [ true, %invoke.cont209 ]
+  %varLhs.3 = phi i1 [ %cmp221, %invoke.cont229 ], [ true, %invoke.cont214 ], [ true, %invoke.cont209 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %val) #20
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %veq_c) #20
   br label %if.end267
@@ -8716,7 +8716,7 @@ lpad256:                                          ; preds = %invoke.cont257, %in
   br label %ehcleanup268
 
 if.end267:                                        ; preds = %if.end237, %invoke.cont259, %if.else240, %invoke.cont194
-  %varLhs.1 = phi i1 [ true, %invoke.cont194 ], [ %varLhs.0, %if.end237 ], [ true, %if.else240 ], [ true, %invoke.cont259 ]
+  %varLhs.2 = phi i1 [ true, %invoke.cont194 ], [ %varLhs.3, %if.end237 ], [ true, %if.else240 ], [ true, %invoke.cont259 ]
   %240 = load ptr, ptr %var2, align 8
   %bf.load.i.i1025 = load i64, ptr %240, align 8
   %241 = and i64 %bf.load.i.i1025, 1152920405095219200
@@ -8781,7 +8781,7 @@ ehcleanup269:                                     ; preds = %lpad.i.i672, %ehcle
   br label %ehcleanup271
 
 if.end270:                                        ; preds = %if.then13.i.i1044, %if.then.i.i1038, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1035, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit655
-  %varLhs.2 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit655 ], [ %varLhs.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1035 ], [ %varLhs.1, %if.then.i.i1038 ], [ %varLhs.1, %if.then13.i.i1044 ]
+  %varLhs.1 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit655 ], [ %varLhs.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1035 ], [ %varLhs.2, %if.then.i.i1038 ], [ %varLhs.2, %if.then13.i.i1044 ]
   %248 = load ptr, ptr %_M_parent.i.i.i.i.i629, align 8
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %msum, ptr noundef %248)
           to label %if.end274 unwind label %terminate.lpad.i.i
@@ -8799,7 +8799,7 @@ ehcleanup271:                                     ; preds = %lpad106, %lpad.i.i6
   br label %ehcleanup455
 
 if.end274:                                        ; preds = %if.end270, %if.then13.i.i450, %if.then.i.i444, %_ZN4cvc58internal8TypeNodeD2Ev.exit441, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit577, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit628
-  %varLhs.3 = phi i1 [ %cmp85, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit577 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit628 ], [ true, %_ZN4cvc58internal8TypeNodeD2Ev.exit441 ], [ true, %if.then.i.i444 ], [ true, %if.then13.i.i450 ], [ %varLhs.2, %if.end270 ]
+  %varLhs.0 = phi i1 [ %cmp85, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit577 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit628 ], [ true, %_ZN4cvc58internal8TypeNodeD2Ev.exit441 ], [ true, %if.then.i.i444 ], [ true, %if.then13.i.i450 ], [ %varLhs.1, %if.end270 ]
   %251 = load i8, ptr %second.i224, align 8
   %tobool276 = trunc i8 %251 to i1
   br i1 %tobool276, label %if.then277, label %if.end284
@@ -9572,7 +9572,7 @@ lpad411:                                          ; preds = %if.else.i1489, %if.
 if.then421:                                       ; preds = %if.then383
   %342 = load ptr, ptr %rAdd, align 8
   store ptr %342, ptr %agg.tmp423, align 8
-  %cond429 = select i1 %varLhs.3, i32 1, i32 -1
+  %cond429 = select i1 %varLhs.0, i32 1, i32 -1
   invoke void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp427, i32 noundef %cond429)
           to label %invoke.cont431 unwind label %lpad430
 

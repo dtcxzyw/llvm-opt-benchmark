@@ -817,10 +817,10 @@ if.end.i.i4:                                      ; preds = %if.then3
 
 if.else:                                          ; preds = %if.end12.i, %if.end.i.i, %if.then1.i.i, %if.then15.i, %if.else.i, %_queues_lookup.exit.i, %_release_xid_data.exit.i, %queue_get.exit
   %retval.0.i11 = phi i32 [ %retval.0.i12.i, %queue_get.exit ], [ 0, %if.end12.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ], [ -1, %if.then15.i ], [ 0, %if.else.i ], [ -14, %_queues_lookup.exit.i ], [ -1, %_release_xid_data.exit.i ]
-  %obj.010 = phi ptr [ null, %queue_get.exit ], [ %call8.i, %if.end12.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.then15.i ], [ null, %if.else.i ], [ null, %_queues_lookup.exit.i ], [ null, %_release_xid_data.exit.i ]
+  %obj.110 = phi ptr [ null, %queue_get.exit ], [ %call8.i, %if.end12.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.then15.i ], [ null, %if.else.i ], [ null, %_queues_lookup.exit.i ], [ null, %_release_xid_data.exit.i ]
   %call5 = call fastcc i32 @handle_queue_error(i32 noundef %retval.0.i11, ptr noundef %self, i64 noundef %0)
   %tobool6.not = icmp eq i32 %call5, 0
-  %spec.select = select i1 %tobool6.not, ptr %obj.010, ptr null
+  %spec.select = select i1 %tobool6.not, ptr %obj.110, ptr null
   br label %return
 
 return:                                           ; preds = %if.else, %if.then3, %if.end.i.i4, %entry

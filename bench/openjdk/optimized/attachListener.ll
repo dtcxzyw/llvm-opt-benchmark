@@ -657,12 +657,12 @@ define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(p
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %7 = phi i8 [ %11, %.lr.ph ], [ %6, %2 ]
-  %.01118 = phi i8 [ %.1, %.lr.ph ], [ 0, %2 ]
-  %.01217 = phi i8 [ %spec.select, %.lr.ph ], [ 0, %2 ]
+  %.118 = phi i8 [ %.2, %.lr.ph ], [ 0, %2 ]
+  %.11317 = phi i8 [ %spec.select, %.lr.ph ], [ 0, %2 ]
   %8 = icmp eq i8 %7, 108
-  %spec.select = select i1 %8, i8 1, i8 %.01217
+  %spec.select = select i1 %8, i8 1, i8 %.11317
   %9 = icmp eq i8 %7, 101
-  %.1 = select i1 %9, i8 1, i8 %.01118
+  %.2 = select i1 %9, i8 1, i8 %.118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next
   %11 = load i8, ptr %10, align 1
@@ -671,21 +671,21 @@ define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(p
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = and i8 %spec.select, 1
-  %13 = and i8 %.1, 1
+  %13 = and i8 %.2, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.012.lcssa = phi i8 [ 0, %2 ], [ %12, %._crit_edge.loopexit ]
-  %.011.lcssa = phi i8 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
+  %.113.lcssa = phi i8 [ 0, %2 ], [ %12, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i8 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %14, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintThreads, i64 16), ptr %3, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 24
-  store i8 %.012.lcssa, ptr %16, align 8
+  store i8 %.113.lcssa, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 25
-  store i8 %.011.lcssa, ptr %17, align 1
+  store i8 %.1.lcssa, ptr %17, align 1
   %18 = getelementptr inbounds i8, ptr %3, i64 26
   store i8 1, ptr %18, align 2
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #8

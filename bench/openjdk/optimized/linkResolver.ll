@@ -2115,13 +2115,13 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %183, %185
   br label %_ZN12ResourceMarkD2Ev.exit59
 
 _ZN12ResourceMarkD2Ev.exit59:                     ; preds = %208, %206, %228, %213, %231
-  %.0 = phi ptr [ %232, %231 ], [ null, %213 ], [ null, %228 ], [ null, %206 ], [ null, %208 ]
+  %.1 = phi ptr [ %232, %231 ], [ null, %213 ], [ null, %228 ], [ null, %206 ], [ null, %208 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #10
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %59, %57, %35, %33, %_ZN12ResourceMarkD2Ev.exit59
-  %.1 = phi ptr [ %.0, %_ZN12ResourceMarkD2Ev.exit59 ], [ null, %33 ], [ null, %35 ], [ null, %57 ], [ null, %59 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %_ZN12ResourceMarkD2Ev.exit59 ], [ null, %33 ], [ null, %35 ], [ null, %57 ], [ null, %59 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2234,15 +2234,15 @@ define hidden noundef ptr @_ZN12LinkResolver25resolve_method_staticallyEN9Byteco
   br label %65
 
 65:                                               ; preds = %50, %31, %63, %61, %55, %53
-  %.0 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %64, %63 ], [ %62, %61 ], [ null, %31 ], [ %51, %50 ]
+  %.1 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %64, %63 ], [ %62, %61 ], [ null, %31 ], [ %51, %50 ]
   %66 = getelementptr inbounds i8, ptr %6, i64 32
   br label %67
 
 67:                                               ; preds = %65, %9
   %.sink = phi ptr [ %66, %65 ], [ %26, %9 ]
-  %.1 = phi ptr [ %.0, %65 ], [ %30, %9 ]
+  %.0 = phi ptr [ %.1, %65 ], [ %30, %9 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #10
-  ret ptr %.1
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN12ConstantPool19method_at_if_loadedERK18constantPoolHandlei(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
@@ -2666,13 +2666,13 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %_ZN12ResourceMarkD2Ev.exit48
 
 _ZN12ResourceMarkD2Ev.exit48:                     ; preds = %193, %194, %230, %228, %170, %168, %190, %175
-  %.0 = phi ptr [ null, %175 ], [ null, %190 ], [ null, %168 ], [ null, %170 ], [ null, %228 ], [ null, %230 ], [ %.pre, %194 ], [ %.pre, %193 ]
+  %.1 = phi ptr [ null, %175 ], [ null, %190 ], [ null, %168 ], [ null, %170 ], [ null, %228 ], [ null, %230 ], [ %.pre, %194 ], [ %.pre, %193 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #10
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %57, %55, %33, %31, %_ZN12ResourceMarkD2Ev.exit48
-  %.1 = phi ptr [ %.0, %_ZN12ResourceMarkD2Ev.exit48 ], [ null, %31 ], [ null, %33 ], [ null, %55 ], [ null, %57 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %_ZN12ResourceMarkD2Ev.exit48 ], [ null, %31 ], [ null, %33 ], [ null, %55 ], [ null, %57 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

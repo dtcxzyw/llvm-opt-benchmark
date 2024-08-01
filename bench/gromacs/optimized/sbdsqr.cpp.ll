@@ -272,7 +272,7 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph993:                                        ; preds = %.lr.ph993, %.lr.ph993.preheader
   %indvars.iv1273 = phi i64 [ 2, %.lr.ph993.preheader ], [ %indvars.iv.next1274, %.lr.ph993 ]
-  %.0820991 = phi float [ %132, %.lr.ph993.preheader ], [ %145, %.lr.ph993 ]
+  %.1991 = phi float [ %132, %.lr.ph993.preheader ], [ %145, %.lr.ph993 ]
   %.0847989 = phi float [ %132, %.lr.ph993.preheader ], [ %143, %.lr.ph993 ]
   %136 = getelementptr inbounds float, ptr %38, i64 %indvars.iv1273
   %137 = load float, ptr %136, align 4
@@ -283,8 +283,8 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %141 = fadd float %.0847989, %140
   %142 = fdiv float %.0847989, %141
   %143 = fmul float %138, %142
-  %144 = fcmp olt float %.0820991, %143
-  %145 = select i1 %144, float %.0820991, float %143
+  %144 = fcmp olt float %.1991, %143
+  %145 = select i1 %144, float %.1991, float %143
   %146 = fcmp oeq float %145, 0.000000e+00
   %indvars.iv.next1274 = add nuw nsw i64 %indvars.iv1273, 1
   %exitcond1277.not = icmp eq i64 %indvars.iv.next1274, %wide.trip.count1276
@@ -292,10 +292,10 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %or.cond1435, label %.loopexit920, label %.lr.ph993, !llvm.loop !7
 
 .loopexit920:                                     ; preds = %.lr.ph993, %134, %.thread1345
-  %.1 = phi float [ %132, %.thread1345 ], [ %132, %134 ], [ %145, %.lr.ph993 ]
+  %.0820 = phi float [ %132, %.thread1345 ], [ %132, %134 ], [ %145, %.lr.ph993 ]
   %147 = sitofp i32 %130 to float
   %148 = call noundef float @sqrtf(float noundef %147) #7
-  %149 = fdiv float %.1, %148
+  %149 = fdiv float %.0820, %148
   %150 = fmul float %149, 0x3EB4000000000000
   store float %150, ptr %17, align 4
   %151 = load i32, ptr %1, align 4
@@ -593,7 +593,7 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1055:                                       ; preds = %.lr.ph1055.preheader, %280
   %indvars.iv1290 = phi i64 [ %172, %.lr.ph1055.preheader ], [ %indvars.iv.next1291, %280 ]
-  %.21053 = phi float [ %273, %.lr.ph1055.preheader ], [ %288, %280 ]
+  %.31053 = phi float [ %273, %.lr.ph1055.preheader ], [ %288, %280 ]
   %.28491051 = phi float [ %273, %.lr.ph1055.preheader ], [ %286, %280 ]
   %275 = getelementptr inbounds float, ptr %39, i64 %indvars.iv1290
   %276 = load float, ptr %275, align 4
@@ -610,8 +610,8 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %284 = fadd float %.28491051, %277
   %285 = fdiv float %.28491051, %284
   %286 = fmul float %285, %283
-  %287 = fcmp olt float %.21053, %286
-  %288 = select i1 %287, float %.21053, float %286
+  %287 = fcmp olt float %.31053, %286
+  %288 = select i1 %287, float %.31053, float %286
   %indvars.iv.next1291 = add nsw i64 %indvars.iv1290, -1
   %.not879.not = icmp sgt i64 %indvars.iv.next1291, %274
   br i1 %.not879.not, label %.lr.ph1055, label %.loopexit, !llvm.loop !10
@@ -621,14 +621,14 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %290 = phi float [ %272, %280 ], [ %239, %256 ], [ %239, %244 ], [ %272, %271 ]
   %291 = phi i1 [ false, %280 ], [ true, %256 ], [ true, %244 ], [ false, %271 ]
   %.1835898 = phi i32 [ %.1835902, %280 ], [ 1, %256 ], [ 1, %244 ], [ %.1835902, %271 ]
-  %.3 = phi float [ %288, %280 ], [ %264, %256 ], [ %248, %244 ], [ %273, %271 ]
+  %.2 = phi float [ %288, %280 ], [ %264, %256 ], [ %248, %244 ], [ %273, %271 ]
   %.neg943 = xor i32 %.0846, -1
   store float 0x3E80000000000000, ptr %17, align 4
   store float 0x3E49999980000000, ptr %18, align 4
   %292 = load i32, ptr %1, align 4
   %293 = sitofp i32 %292 to float
   %294 = fmul float %293, 0x3EB4000000000000
-  %295 = fdiv float %.3, %.2826922
+  %295 = fdiv float %.2, %.2826922
   %296 = fmul float %295, %294
   %297 = fcmp ugt float %296, 0x3E80000000000000
   br i1 %297, label %298, label %.thread906

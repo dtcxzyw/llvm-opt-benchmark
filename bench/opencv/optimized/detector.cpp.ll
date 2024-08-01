@@ -1094,7 +1094,7 @@ _ZN5zxing3RefINS_6qrcode13PatternResultEED2Ev.exit: ; preds = %80, %75, %_ZN5zxi
   br label %_ZN5zxing3RefINS_6qrcode13PatternResultEED2Ev.exit21
 
 _ZN5zxing3RefINS_6qrcode13PatternResultEED2Ev.exit21: ; preds = %102, %97, %.critedge, %_ZN5zxing3RefINS_6qrcode13PatternResultEED2Ev.exit
-  %.1 = phi i32 [ %95, %_ZN5zxing3RefINS_6qrcode13PatternResultEED2Ev.exit ], [ -1, %.critedge ], [ -1, %97 ], [ -1, %102 ]
+  %.2 = phi i32 [ %95, %_ZN5zxing3RefINS_6qrcode13PatternResultEED2Ev.exit ], [ -1, %.critedge ], [ -1, %97 ], [ -1, %102 ]
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
   %106 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #14
@@ -1107,8 +1107,8 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit16: ; preds = %52, %47, %4
   resume { ptr, i32 } %46
 
 108:                                              ; preds = %2, %_ZN5zxing3RefINS_6qrcode13PatternResultEED2Ev.exit21
-  %.2 = phi i32 [ %.1, %_ZN5zxing3RefINS_6qrcode13PatternResultEED2Ev.exit21 ], [ -1, %2 ]
-  ret i32 %.2
+  %.011 = phi i32 [ %.2, %_ZN5zxing3RefINS_6qrcode13PatternResultEED2Ev.exit21 ], [ -1, %2 ]
+  ret i32 %.011
 }
 
 declare void @_ZN5zxing12ErrorHandlerC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
@@ -7541,7 +7541,7 @@ define hidden noundef float @_ZN5zxing6qrcode8Detector24sizeOfBlackWhiteBlackRun
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %47
   %.06079.us = phi i32 [ %.1.us, %47 ], [ %.062, %.lr.ph ]
   %.06178.us = phi i32 [ %48, %47 ], [ %.059, %.lr.ph ]
-  %.06377.us = phi i32 [ %.164.us, %47 ], [ 0, %.lr.ph ]
+  %.06377.us = phi i32 [ %.2.us, %47 ], [ 0, %.lr.ph ]
   %.06776.us = phi i32 [ %.168.us, %47 ], [ %19, %.lr.ph ]
   %28 = icmp eq i32 %.06377.us, 1
   %29 = mul nsw i32 %23, %.06178.us
@@ -7562,7 +7562,7 @@ define hidden noundef float @_ZN5zxing6qrcode8Detector24sizeOfBlackWhiteBlackRun
   br label %39
 
 39:                                               ; preds = %.lr.ph.split.us, %37
-  %.164.us = phi i32 [ %.06377.us, %.lr.ph.split.us ], [ %38, %37 ]
+  %.2.us = phi i32 [ %.06377.us, %.lr.ph.split.us ], [ %38, %37 ]
   %40 = add nsw i32 %.06776.us, %.pre-phi93
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %47
@@ -7586,7 +7586,7 @@ define hidden noundef float @_ZN5zxing6qrcode8Detector24sizeOfBlackWhiteBlackRun
 .lr.ph.split:                                     ; preds = %.lr.ph, %74
   %.06079 = phi i32 [ %.1, %74 ], [ %.062, %.lr.ph ]
   %.06178 = phi i32 [ %75, %74 ], [ %.059, %.lr.ph ]
-  %.06377 = phi i32 [ %.164, %74 ], [ 0, %.lr.ph ]
+  %.06377 = phi i32 [ %.2, %74 ], [ 0, %.lr.ph ]
   %.06776 = phi i32 [ %.168, %74 ], [ %19, %.lr.ph ]
   %49 = icmp eq i32 %.06377, 1
   %50 = mul nsw i32 %23, %.06079
@@ -7619,7 +7619,7 @@ define hidden noundef float @_ZN5zxing6qrcode8Detector24sizeOfBlackWhiteBlackRun
   br label %66
 
 66:                                               ; preds = %64, %.lr.ph.split
-  %.164 = phi i32 [ %.06377, %.lr.ph.split ], [ %65, %64 ]
+  %.2 = phi i32 [ %.06377, %.lr.ph.split ], [ %65, %64 ]
   %67 = add nsw i32 %.06776, %.pre-phi93
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %69, label %74
@@ -7641,8 +7641,8 @@ define hidden noundef float @_ZN5zxing6qrcode8Detector24sizeOfBlackWhiteBlackRun
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %74, %69, %47, %42
-  %.2 = phi i32 [ %.164.us, %42 ], [ %.164.us, %47 ], [ %.164, %69 ], [ %.164, %74 ]
-  %76 = icmp eq i32 %.2, 2
+  %.164 = phi i32 [ %.2.us, %42 ], [ %.2.us, %47 ], [ %.2, %69 ], [ %.2, %74 ]
+  %76 = icmp eq i32 %.164, 2
   br i1 %76, label %77, label %._crit_edge.thread
 
 77:                                               ; preds = %._crit_edge
@@ -10289,7 +10289,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit: ; pr
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %16, %154, %._crit_edge
   %168 = phi ptr [ %114, %._crit_edge ], [ %114, %154 ], [ %19, %16 ], [ %114, %._crit_edge.thread.sink.split ]
-  %.0 = phi i32 [ -1, %._crit_edge ], [ 1, %154 ], [ -1, %16 ], [ 1, %._crit_edge.thread.sink.split ]
+  %.1 = phi i32 [ -1, %._crit_edge ], [ 1, %154 ], [ -1, %16 ], [ 1, %._crit_edge.thread.sink.split ]
   %169 = load ptr, ptr %6, align 8
   %170 = load ptr, ptr %168, align 8
   %.not4.i.i.i.i = icmp eq ptr %169, %170
@@ -10336,8 +10336,8 @@ _ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i: ; pred
   br label %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EED2Ev.exit: ; preds = %183, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i, %5
-  %.1 = phi i32 [ -1, %5 ], [ %.0, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i ], [ %.0, %183 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %5 ], [ %.1, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i ], [ %.1, %183 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

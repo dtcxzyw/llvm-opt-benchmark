@@ -2888,7 +2888,7 @@ if.then801:                                       ; preds = %if.end798
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end768.thread, %write_filtered_pack.exit.thread, %if.end798, %if.then801, %if.end768, %write_filtered_pack.exit, %if.then656, %if.end644, %if.end597, %if.end561
-  %ret.3 = phi i32 [ %call562, %if.end561 ], [ %call598, %if.end597 ], [ %call649, %if.end644 ], [ %call657, %if.then656 ], [ %call92.i, %write_filtered_pack.exit ], [ %retval.0.i246, %if.end768 ], [ 0, %if.then801 ], [ 0, %if.end798 ], [ %call13.i, %write_filtered_pack.exit.thread ], [ %call42.i, %if.end768.thread ]
+  %ret.0 = phi i32 [ %call562, %if.end561 ], [ %call598, %if.end597 ], [ %call649, %if.end644 ], [ %call657, %if.then656 ], [ %call92.i, %write_filtered_pack.exit ], [ %retval.0.i246, %if.end768 ], [ 0, %if.then801 ], [ 0, %if.end798 ], [ %call13.i, %write_filtered_pack.exit.thread ], [ %call42.i, %if.end768.thread ]
   call void @string_list_clear(ptr noundef nonnull %names, i32 noundef 1) #15
   call void @string_list_clear(ptr noundef nonnull %existing, i32 noundef 0) #15
   call void @string_list_clear(ptr noundef nonnull %non_kept_packs40.i, i32 noundef 0) #15
@@ -2896,7 +2896,7 @@ cleanup:                                          ; preds = %if.end768.thread, %
   %318 = load ptr, ptr %geometry, align 8
   call void @free(ptr noundef %318) #15
   call void @list_objects_filter_release(ptr noundef nonnull %filter_options) #15
-  ret i32 %ret.3
+  ret i32 %ret.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

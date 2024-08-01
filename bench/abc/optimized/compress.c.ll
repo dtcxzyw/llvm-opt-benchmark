@@ -653,8 +653,8 @@ makeMaps_e.exit.i:                                ; preds = %309
 
 347:                                              ; preds = %358, %344
   %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %358 ], [ %346, %344 ]
-  %.181.i = phi i32 [ %360, %358 ], [ %345, %344 ]
-  %348 = and i32 %.181.i, 1
+  %.282.i = phi i32 [ %360, %358 ], [ %345, %344 ]
+  %348 = and i32 %.282.i, 1
   %.not94.i = icmp eq i32 %348, 0
   %349 = getelementptr inbounds i16, ptr %297, i64 %indvars.iv117.i
   br i1 %.not94.i, label %353, label %350
@@ -675,11 +675,11 @@ makeMaps_e.exit.i:                                ; preds = %309
 
 356:                                              ; preds = %353, %350
   %indvars.iv.next118.i = add nsw i64 %indvars.iv117.i, 1
-  %357 = icmp slt i32 %.181.i, 2
+  %357 = icmp slt i32 %.282.i, 2
   br i1 %357, label %.loopexit96.loopexit.i, label %358
 
 358:                                              ; preds = %356
-  %359 = add nsw i32 %.181.i, -2
+  %359 = add nsw i32 %.282.i, -2
   %360 = lshr i32 %359, 1
   br label %347
 
@@ -688,8 +688,8 @@ makeMaps_e.exit.i:                                ; preds = %309
   br label %.loopexit96.i
 
 .loopexit96.i:                                    ; preds = %.loopexit96.loopexit.i, %342
-  %.386.i = phi i32 [ %.083107.i, %342 ], [ %361, %.loopexit96.loopexit.i ]
-  %.282.i = phi i32 [ %.080108.i, %342 ], [ 0, %.loopexit96.loopexit.i ]
+  %.184.i = phi i32 [ %.083107.i, %342 ], [ %361, %.loopexit96.loopexit.i ]
+  %.181.i = phi i32 [ %.080108.i, %342 ], [ 0, %.loopexit96.loopexit.i ]
   %362 = load i8, ptr %320, align 1
   store i8 %326, ptr %320, align 1
   %.not95102.i = icmp eq i8 %338, %362
@@ -711,10 +711,10 @@ makeMaps_e.exit.i:                                ; preds = %309
   %367 = trunc i64 %366 to i32
   %368 = add nsw i32 %367, 1
   %369 = trunc i32 %368 to i16
-  %370 = sext i32 %.386.i to i64
+  %370 = sext i32 %.184.i to i64
   %371 = getelementptr inbounds i16, ptr %297, i64 %370
   store i16 %369, ptr %371, align 2
-  %372 = add nsw i32 %.386.i, 1
+  %372 = add nsw i32 %.184.i, 1
   %373 = sext i32 %368 to i64
   %374 = getelementptr inbounds [258 x i32], ptr %319, i64 0, i64 %373
   %375 = load i32, ptr %374, align 4
@@ -727,7 +727,7 @@ makeMaps_e.exit.i:                                ; preds = %309
   %378 = phi i32 [ %325, %340 ], [ %.pre126.i, %._crit_edge.i ]
   %379 = phi i8 [ %326, %340 ], [ %338, %._crit_edge.i ]
   %.487.i = phi i32 [ %.083107.i, %340 ], [ %372, %._crit_edge.i ]
-  %.3.i = phi i32 [ %341, %340 ], [ %.282.i, %._crit_edge.i ]
+  %.3.i = phi i32 [ %341, %340 ], [ %.181.i, %._crit_edge.i ]
   %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 1
   %380 = sext i32 %378 to i64
   %381 = icmp slt i64 %indvars.iv.next121.i, %380
@@ -779,13 +779,13 @@ makeMaps_e.exit.i:                                ; preds = %309
   br label %generateMTFValues.exit
 
 generateMTFValues.exit:                           ; preds = %.preheader.i, %._crit_edge111.i, %.loopexit.loopexit.i
-  %.7.i = phi i32 [ %.487.i, %._crit_edge111.i ], [ %400, %.loopexit.loopexit.i ], [ 0, %.preheader.i ]
+  %.5.i = phi i32 [ %.487.i, %._crit_edge111.i ], [ %400, %.loopexit.loopexit.i ], [ 0, %.preheader.i ]
   %401 = add nsw i32 %310, 1
   %402 = trunc i32 %401 to i16
-  %403 = sext i32 %.7.i to i64
+  %403 = sext i32 %.5.i to i64
   %404 = getelementptr inbounds i16, ptr %297, i64 %403
   store i16 %402, ptr %404, align 2
-  %405 = add nsw i32 %.7.i, 1
+  %405 = add nsw i32 %.5.i, 1
   %406 = getelementptr inbounds i8, ptr %0, i64 672
   %407 = sext i32 %401 to i64
   %408 = getelementptr inbounds [258 x i32], ptr %406, i64 0, i64 %407

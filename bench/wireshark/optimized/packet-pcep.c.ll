@@ -3895,7 +3895,7 @@ define internal fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr no
 
 10:                                               ; preds = %.lr.ph409, %284
   %.0407 = phi i32 [ 0, %.lr.ph409 ], [ %286, %284 ]
-  %.0344406 = phi i32 [ %2, %.lr.ph409 ], [ %.2346, %284 ]
+  %.0344406 = phi i32 [ %2, %.lr.ph409 ], [ %.1345, %284 ]
   %11 = add i32 %.0407, %.0344406
   %12 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %11) #2
   %13 = add i32 %11, 2
@@ -4103,21 +4103,21 @@ define internal fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr no
   br i1 %.not355366, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, label %.lr.ph370
 
 .lr.ph370:                                        ; preds = %128, %.lr.ph370
-  %.1345368 = phi i32 [ %141, %.lr.ph370 ], [ %129, %128 ]
-  %.0347367 = phi i16 [ %142, %.lr.ph370 ], [ %14, %128 ]
+  %.2346368 = phi i32 [ %141, %.lr.ph370 ], [ %129, %128 ]
+  %.1348367 = phi i16 [ %142, %.lr.ph370 ], [ %14, %128 ]
   %130 = load i32, ptr @hf_pcep_op_conf_assoc_range_reserved, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %130, ptr noundef %1, i32 noundef %.1345368, i32 noundef 2, i32 noundef 0) #2
-  %132 = add i32 %.1345368, 2
+  %131 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %130, ptr noundef %1, i32 noundef %.2346368, i32 noundef 2, i32 noundef 0) #2
+  %132 = add i32 %.2346368, 2
   %133 = load i32, ptr @hf_pcep_op_conf_assoc_range_assoc_type, align 4
   %134 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %133, ptr noundef %1, i32 noundef %132, i32 noundef 2, i32 noundef 0) #2
-  %135 = add i32 %.1345368, 4
+  %135 = add i32 %.2346368, 4
   %136 = load i32, ptr @hf_pcep_op_conf_assoc_range_start_assoc, align 4
   %137 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %136, ptr noundef %1, i32 noundef %135, i32 noundef 2, i32 noundef 0) #2
-  %138 = add i32 %.1345368, 6
+  %138 = add i32 %.2346368, 6
   %139 = load i32, ptr @hf_pcep_op_conf_assoc_range_range, align 4
   %140 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %139, ptr noundef %1, i32 noundef %138, i32 noundef 2, i32 noundef 0) #2
-  %141 = add i32 %.1345368, 8
-  %142 = add i16 %.0347367, -8
+  %141 = add i32 %.2346368, 8
+  %142 = add i16 %.1348367, -8
   %.not355 = icmp eq i16 %142, 0
   br i1 %.not355, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, label %.lr.ph370, !llvm.loop !18
 
@@ -4326,9 +4326,9 @@ define internal fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr no
   br label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit
 
 dissect_pcep_path_setup_capabilities_sub_tlvs.exit: ; preds = %229, %226, %.lr.ph370, %50, %.preheader361, %128, %.preheader, %195, %190, %165, %156, %162, %150, %271, %267, %263, %250, %246, %238, %143, %122, %114, %110, %106, %102, %98, %86, %74, %70, %66, %59, %46, %28
-  %.1348 = phi i16 [ %14, %271 ], [ %14, %267 ], [ %14, %263 ], [ %14, %250 ], [ %14, %246 ], [ %14, %238 ], [ %14, %190 ], [ 8, %150 ], [ 20, %156 ], [ %14, %162 ], [ %14, %165 ], [ %14, %143 ], [ %14, %122 ], [ %14, %114 ], [ %14, %110 ], [ %14, %106 ], [ %14, %102 ], [ %14, %98 ], [ %14, %86 ], [ %14, %74 ], [ %14, %70 ], [ %14, %66 ], [ %14, %59 ], [ %14, %46 ], [ %14, %28 ], [ %14, %195 ], [ %14, %.preheader ], [ 0, %128 ], [ %14, %.preheader361 ], [ %14, %50 ], [ 0, %.lr.ph370 ], [ %14, %226 ], [ %14, %229 ]
-  %.2346 = phi i32 [ %.0344406, %271 ], [ %.0344406, %267 ], [ %.0344406, %263 ], [ %.0344406, %250 ], [ %.0344406, %246 ], [ %.0344406, %238 ], [ %.0344406, %190 ], [ %.0344406, %150 ], [ %.0344406, %156 ], [ %.0344406, %162 ], [ %.0344406, %165 ], [ %.0344406, %143 ], [ %.0344406, %122 ], [ %.0344406, %114 ], [ %.0344406, %110 ], [ %.0344406, %106 ], [ %.0344406, %102 ], [ %.0344406, %98 ], [ %.0344406, %86 ], [ %.0344406, %74 ], [ %.0344406, %70 ], [ %.0344406, %66 ], [ %.0344406, %59 ], [ %.0344406, %46 ], [ %.0344406, %28 ], [ %.0344406, %195 ], [ %.0344406, %.preheader ], [ %129, %128 ], [ %.0344406, %.preheader361 ], [ %.0344406, %50 ], [ %141, %.lr.ph370 ], [ %.0344406, %226 ], [ %.0344406, %229 ]
-  %275 = zext i16 %.1348 to i32
+  %.0347 = phi i16 [ %14, %271 ], [ %14, %267 ], [ %14, %263 ], [ %14, %250 ], [ %14, %246 ], [ %14, %238 ], [ %14, %190 ], [ 8, %150 ], [ 20, %156 ], [ %14, %162 ], [ %14, %165 ], [ %14, %143 ], [ %14, %122 ], [ %14, %114 ], [ %14, %110 ], [ %14, %106 ], [ %14, %102 ], [ %14, %98 ], [ %14, %86 ], [ %14, %74 ], [ %14, %70 ], [ %14, %66 ], [ %14, %59 ], [ %14, %46 ], [ %14, %28 ], [ %14, %195 ], [ %14, %.preheader ], [ 0, %128 ], [ %14, %.preheader361 ], [ %14, %50 ], [ 0, %.lr.ph370 ], [ %14, %226 ], [ %14, %229 ]
+  %.1345 = phi i32 [ %.0344406, %271 ], [ %.0344406, %267 ], [ %.0344406, %263 ], [ %.0344406, %250 ], [ %.0344406, %246 ], [ %.0344406, %238 ], [ %.0344406, %190 ], [ %.0344406, %150 ], [ %.0344406, %156 ], [ %.0344406, %162 ], [ %.0344406, %165 ], [ %.0344406, %143 ], [ %.0344406, %122 ], [ %.0344406, %114 ], [ %.0344406, %110 ], [ %.0344406, %106 ], [ %.0344406, %102 ], [ %.0344406, %98 ], [ %.0344406, %86 ], [ %.0344406, %74 ], [ %.0344406, %70 ], [ %.0344406, %66 ], [ %.0344406, %59 ], [ %.0344406, %46 ], [ %.0344406, %28 ], [ %.0344406, %195 ], [ %.0344406, %.preheader ], [ %129, %128 ], [ %.0344406, %.preheader361 ], [ %.0344406, %50 ], [ %141, %.lr.ph370 ], [ %.0344406, %226 ], [ %.0344406, %229 ]
+  %275 = zext i16 %.0347 to i32
   %276 = sub nsw i32 0, %275
   %277 = and i32 %276, 3
   %.not356 = icmp eq i32 %277, 0
@@ -4341,7 +4341,7 @@ dissect_pcep_path_setup_capabilities_sub_tlvs.exit._crit_edge: ; preds = %dissec
 278:                                              ; preds = %dissect_pcep_path_setup_capabilities_sub_tlvs.exit
   %279 = load i32, ptr @hf_pcep_tlv_padding, align 4
   %280 = add i32 %.0407, 4
-  %281 = add i32 %280, %.2346
+  %281 = add i32 %280, %.1345
   %282 = add i32 %281, %275
   %283 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %279, ptr noundef %1, i32 noundef %282, i32 noundef %277, i32 noundef 0) #2
   br label %284

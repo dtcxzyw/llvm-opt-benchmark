@@ -229,13 +229,13 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %79, %69, %76
 
 .critedge108:                                     ; preds = %.critedge108.loopexit, %.critedge107, %16
   %.0165 = phi i32 [ %19, %16 ], [ %19, %.critedge107 ], [ %82, %.critedge108.loopexit ]
-  %.1 = phi i32 [ %1, %16 ], [ %1, %.critedge107 ], [ %85, %.critedge108.loopexit ]
+  %.098 = phi i32 [ %1, %16 ], [ %1, %.critedge107 ], [ %85, %.critedge108.loopexit ]
   %.097 = phi ptr [ %0, %16 ], [ %21, %.critedge107 ], [ %21, %.critedge108.loopexit ]
-  %86 = icmp slt i32 %.1, %9
+  %86 = icmp slt i32 %.098, %9
   br i1 %86, label %.lr.ph207.preheader, label %.critedge2
 
 .lr.ph207.preheader:                              ; preds = %.critedge108
-  %87 = sext i32 %.1 to i64
+  %87 = sext i32 %.098 to i64
   br label %.lr.ph207
 
 .lr.ph207:                                        ; preds = %.lr.ph207.preheader, %98
@@ -268,9 +268,9 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %79, %69, %76
 
 .critedge2:                                       ; preds = %84, %98, %.critedge108
   %.097251 = phi ptr [ %.097, %.critedge108 ], [ %.097, %98 ], [ %21, %84 ]
-  %.1249 = phi i32 [ %.1, %.critedge108 ], [ %.1, %98 ], [ %9, %84 ]
+  %.098249 = phi i32 [ %.098, %.critedge108 ], [ %.098, %98 ], [ %9, %84 ]
   %.0165248 = phi i32 [ %.0165, %.critedge108 ], [ %.0165, %98 ], [ %19, %84 ]
-  %.pre = sext i32 %.1249 to i64
+  %.pre = sext i32 %.098249 to i64
   br i1 %.not102, label %.critedge2.thread, label %99
 
 99:                                               ; preds = %.critedge2

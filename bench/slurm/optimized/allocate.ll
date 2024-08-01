@@ -804,7 +804,7 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noun
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
-  %.032 = phi double [ 0.000000e+00, %1 ], [ %.2, %.backedge.backedge ]
+  %.032 = phi double [ 0.000000e+00, %1 ], [ %.133, %.backedge.backedge ]
   %.029 = phi i32 [ 0, %1 ], [ %26, %.backedge.backedge ]
   %.028 = phi double [ 0.000000e+00, %1 ], [ %.1, %.backedge.backedge ]
   %.not = icmp eq i32 %.029, 0
@@ -824,7 +824,7 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noun
   br label %11
 
 11:                                               ; preds = %4, %6, %8
-  %.133 = phi double [ %10, %8 ], [ %.032, %6 ], [ 1.000000e-01, %4 ]
+  %.2 = phi double [ %10, %8 ], [ %.032, %6 ], [ 1.000000e-01, %4 ]
   %12 = icmp eq i32 %.029, 1
   %13 = tail call i32 @get_log_level() #9
   br i1 %12, label %14, label %17
@@ -842,18 +842,18 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noun
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.30, double noundef %.028, double noundef %.133) #9
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.30, double noundef %.028, double noundef %.2) #9
   br label %20
 
 20:                                               ; preds = %17, %19, %14, %16
-  %21 = fmul double %.133, 1.000000e+06
+  %21 = fmul double %.2, 1.000000e+06
   %22 = fptoui double %21 to i32
   %23 = tail call i32 @usleep(i32 noundef %22) #9
-  %24 = fadd double %.028, %.133
+  %24 = fadd double %.028, %.2
   br label %25
 
 25:                                               ; preds = %20, %.backedge
-  %.2 = phi double [ %.133, %20 ], [ %.032, %.backedge ]
+  %.133 = phi double [ %.2, %20 ], [ %.032, %.backedge ]
   %.1 = phi double [ %24, %20 ], [ %.028, %.backedge ]
   %26 = add nuw nsw i32 %.029, 1
   %27 = load i32, ptr %2, align 8

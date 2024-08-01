@@ -2478,13 +2478,13 @@ percpu_arena_update.exit.i.i.i:                   ; preds = %if.then10.i.i.i.i, 
   br label %if.end63.i.i.i
 
 if.end63.i.i.i:                                   ; preds = %percpu_arena_update.exit.i.i.i, %percpu_arena_choose.exit.i.i.i
-  %ret.1.i.i.i = phi ptr [ %37, %percpu_arena_update.exit.i.i.i ], [ %ret.0.i.i.i, %percpu_arena_choose.exit.i.i.i ]
-  %last_thd65.i.i.i = getelementptr inbounds i8, ptr %ret.1.i.i.i, i64 16
+  %ret.2.i.i.i = phi ptr [ %37, %percpu_arena_update.exit.i.i.i ], [ %ret.0.i.i.i, %percpu_arena_choose.exit.i.i.i ]
+  %last_thd65.i.i.i = getelementptr inbounds i8, ptr %ret.2.i.i.i, i64 16
   store ptr %tsd, ptr %last_thd65.i.i.i, align 16
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end63.i.i.i, %land.lhs.true52.i.i.i, %land.lhs.true47.i.i.i, %if.end43.i.i.i, %if.then3.i.i.i.i, %if.then5.i.i.i
-  %arena.addr.0.ph.i = phi ptr [ %23, %if.then5.i.i.i ], [ %call4.i.i.i.i, %if.then3.i.i.i.i ], [ %ret.0.i.i.i, %if.end43.i.i.i ], [ %ret.0.i.i.i, %land.lhs.true47.i.i.i ], [ %ret.0.i.i.i, %land.lhs.true52.i.i.i ], [ %ret.1.i.i.i, %if.end63.i.i.i ]
+  %arena.addr.0.ph.i = phi ptr [ %23, %if.then5.i.i.i ], [ %call4.i.i.i.i, %if.then3.i.i.i.i ], [ %ret.0.i.i.i, %if.end43.i.i.i ], [ %ret.0.i.i.i, %land.lhs.true47.i.i.i ], [ %ret.0.i.i.i, %land.lhs.true52.i.i.i ], [ %ret.2.i.i.i, %if.end63.i.i.i ]
   %.pr.i = load ptr, ptr %arena14.i, align 8
   %cmp26.i = icmp eq ptr %.pr.i, null
   br i1 %cmp26.i, label %return.sink.split.i, label %tsd_tcache_data_init_impl.exit

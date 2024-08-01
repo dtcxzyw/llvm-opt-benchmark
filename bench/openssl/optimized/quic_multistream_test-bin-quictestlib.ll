@@ -122,12 +122,12 @@ if.end17:                                         ; preds = %if.then12
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end17, %if.end10
-  %tmpbio.0 = phi ptr [ %call13, %if.end17 ], [ null, %if.end10 ]
+  %tmpbio.1 = phi ptr [ %call13, %if.end17 ], [ null, %if.end10 ]
   %cmp20.not = icmp eq ptr %tracebio, null
   br i1 %cmp20.not, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  store ptr %tmpbio.0, ptr %tracebio, align 8
+  store ptr %tmpbio.1, ptr %tracebio, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then21, %if.end19
@@ -293,7 +293,7 @@ if.end127:                                        ; preds = %if.end120
   store ptr %20, ptr %sbio132, align 8
   %22 = load ptr, ptr %fault, align 8
   %tracebio134 = getelementptr inbounds i8, ptr %22, i64 288
-  store ptr %tmpbio.0, ptr %tracebio134, align 8
+  store ptr %tmpbio.1, ptr %tracebio134, align 8
   %23 = load ptr, ptr %fault, align 8
   %flags136 = getelementptr inbounds i8, ptr %23, i64 296
   store i32 %flags, ptr %flags136, align 8
@@ -450,7 +450,7 @@ err:                                              ; preds = %if.end202.err_crit_
   %42 = phi ptr [ null, %if.then5 ], [ %serverctx, %if.then189 ], [ %.pre, %if.end202.err_crit_edge ], [ null, %land.lhs.true ], [ null, %if.then173 ], [ null, %cond.end ], [ null, %if.end156 ], [ null, %if.end149 ], [ null, %if.end139 ], [ null, %if.end120 ], [ null, %if.end114 ], [ null, %if.then110 ], [ null, %if.end97 ], [ null, %if.then91 ], [ null, %if.then55 ], [ null, %if.then48 ], [ null, %if.then37 ], [ null, %if.end78 ], [ null, %lor.lhs.false ], [ null, %if.end64 ], [ null, %if.else ], [ null, %if.end28 ], [ null, %if.end22 ], [ null, %if.then12 ]
   %fisbio.0 = phi ptr [ null, %if.then5 ], [ %call158, %if.then189 ], [ %call158, %if.end202.err_crit_edge ], [ %call158, %land.lhs.true ], [ %call158, %if.then173 ], [ %call158, %cond.end ], [ %call158, %if.end156 ], [ null, %if.end149 ], [ null, %if.end139 ], [ null, %if.end120 ], [ null, %if.end114 ], [ null, %if.then110 ], [ null, %if.end97 ], [ null, %if.then91 ], [ null, %if.then55 ], [ null, %if.then48 ], [ null, %if.then37 ], [ null, %if.end78 ], [ null, %lor.lhs.false ], [ null, %if.end64 ], [ null, %if.else ], [ null, %if.end28 ], [ null, %if.end22 ], [ null, %if.then12 ]
   %peeraddr.0 = phi ptr [ null, %if.then5 ], [ %call29, %if.then189 ], [ %call29, %if.end202.err_crit_edge ], [ %call29, %land.lhs.true ], [ %call29, %if.then173 ], [ %call29, %cond.end ], [ %call29, %if.end156 ], [ %call29, %if.end149 ], [ %call29, %if.end139 ], [ %call29, %if.end120 ], [ %call29, %if.end114 ], [ %call29, %if.then110 ], [ %call29, %if.end97 ], [ %call29, %if.then91 ], [ %call29, %if.then55 ], [ %call29, %if.then48 ], [ %call29, %if.then37 ], [ %call29, %if.end78 ], [ %call29, %lor.lhs.false ], [ %call29, %if.end64 ], [ %call29, %if.else ], [ %call29, %if.end28 ], [ null, %if.end22 ], [ null, %if.then12 ]
-  %tmpbio.1 = phi ptr [ null, %if.then5 ], [ %tmpbio.0, %if.then189 ], [ %tmpbio.0, %if.end202.err_crit_edge ], [ %tmpbio.0, %land.lhs.true ], [ %tmpbio.0, %if.then173 ], [ %tmpbio.0, %cond.end ], [ %tmpbio.0, %if.end156 ], [ %tmpbio.0, %if.end149 ], [ %tmpbio.0, %if.end139 ], [ %tmpbio.0, %if.end120 ], [ %tmpbio.0, %if.end114 ], [ %tmpbio.0, %if.then110 ], [ %tmpbio.0, %if.end97 ], [ %tmpbio.0, %if.then91 ], [ %tmpbio.0, %if.then55 ], [ %tmpbio.0, %if.then48 ], [ %tmpbio.0, %if.then37 ], [ %tmpbio.0, %if.end78 ], [ %tmpbio.0, %lor.lhs.false ], [ %tmpbio.0, %if.end64 ], [ %tmpbio.0, %if.else ], [ %tmpbio.0, %if.end28 ], [ %tmpbio.0, %if.end22 ], [ %call13, %if.then12 ]
+  %tmpbio.0 = phi ptr [ null, %if.then5 ], [ %tmpbio.1, %if.then189 ], [ %tmpbio.1, %if.end202.err_crit_edge ], [ %tmpbio.1, %land.lhs.true ], [ %tmpbio.1, %if.then173 ], [ %tmpbio.1, %cond.end ], [ %tmpbio.1, %if.end156 ], [ %tmpbio.1, %if.end149 ], [ %tmpbio.1, %if.end139 ], [ %tmpbio.1, %if.end120 ], [ %tmpbio.1, %if.end114 ], [ %tmpbio.1, %if.then110 ], [ %tmpbio.1, %if.end97 ], [ %tmpbio.1, %if.then91 ], [ %tmpbio.1, %if.then55 ], [ %tmpbio.1, %if.then48 ], [ %tmpbio.1, %if.then37 ], [ %tmpbio.1, %if.end78 ], [ %tmpbio.1, %lor.lhs.false ], [ %tmpbio.1, %if.end64 ], [ %tmpbio.1, %if.else ], [ %tmpbio.1, %if.end28 ], [ %tmpbio.1, %if.end22 ], [ %call13, %if.then12 ]
   call void @SSL_CTX_free(ptr noundef %42) #10
   call void @BIO_ADDR_free(ptr noundef %peeraddr.0) #10
   %43 = load ptr, ptr %cbio, align 8
@@ -471,7 +471,7 @@ if.then222:                                       ; preds = %err
   br label %if.end223
 
 if.end223:                                        ; preds = %if.then222, %err
-  %call224 = call i32 @BIO_free(ptr noundef %tmpbio.1) #10
+  %call224 = call i32 @BIO_free(ptr noundef %tmpbio.0) #10
   %cmp225.not = icmp eq ptr %tracebio, null
   br i1 %cmp225.not, label %return, label %if.then227
 
@@ -1733,38 +1733,38 @@ PACKET_as_length_prefixed_2.exit:                 ; preds = %lor.lhs.false.i
   br label %do.body
 
 do.body:                                          ; preds = %PACKET_as_length_prefixed_2.exit, %do.cond
-  %sub.sroa.9.1 = phi i64 [ %or.i.i.i, %PACKET_as_length_prefixed_2.exit ], [ %sub.i.i7.i, %do.cond ]
-  %sub.sroa.0.1 = phi ptr [ %add.ptr.i2.i.i, %PACKET_as_length_prefixed_2.exit ], [ %add.ptr.i.i6.i43, %do.cond ]
-  %cmp.i.i = icmp ult i64 %sub.sroa.9.1, 2
+  %sub.sroa.9.0 = phi i64 [ %or.i.i.i, %PACKET_as_length_prefixed_2.exit ], [ %sub.i.i7.i, %do.cond ]
+  %sub.sroa.0.0 = phi ptr [ %add.ptr.i2.i.i, %PACKET_as_length_prefixed_2.exit ], [ %add.ptr.i.i6.i43, %do.cond ]
+  %cmp.i.i = icmp ult i64 %sub.sroa.9.0, 2
   br i1 %cmp.i.i, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.body
-  %4 = load i8, ptr %sub.sroa.0.1, align 1
+  %4 = load i8, ptr %sub.sroa.0.0, align 1
   %conv.i.i = zext i8 %4 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %sub.sroa.0.1, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %sub.sroa.0.0, i64 1
   %5 = load i8, ptr %add.ptr.i.i, align 1
   %conv2.i.i = zext i8 %5 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
-  %6 = and i64 %sub.sroa.9.1, -2
+  %6 = and i64 %sub.sroa.9.0, -2
   %cmp.i.i.i32 = icmp eq i64 %6, 2
   br i1 %cmp.i.i.i32, label %return, label %lor.lhs.false.i33
 
 lor.lhs.false.i33:                                ; preds = %lor.lhs.false
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %sub.sroa.0.1, i64 2
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %sub.sroa.0.0, i64 2
   %7 = load i8, ptr %add.ptr.i2.i, align 1
   %conv.i.i.i35 = zext i8 %7 to i64
   %shl.i.i.i36 = shl nuw nsw i64 %conv.i.i.i35, 8
-  %add.ptr.i.i.i37 = getelementptr inbounds i8, ptr %sub.sroa.0.1, i64 3
+  %add.ptr.i.i.i37 = getelementptr inbounds i8, ptr %sub.sroa.0.0, i64 3
   %8 = load i8, ptr %add.ptr.i.i.i37, align 1
   %conv2.i.i.i38 = zext i8 %8 to i64
   %or.i.i.i39 = or disjoint i64 %shl.i.i.i36, %conv2.i.i.i38
-  %sub.i.i.i40 = add i64 %sub.sroa.9.1, -4
+  %sub.i.i.i40 = add i64 %sub.sroa.9.0, -4
   %cmp.i.i4.i = icmp ult i64 %sub.i.i.i40, %or.i.i.i39
   br i1 %cmp.i.i4.i, label %return, label %do.cond
 
 do.cond:                                          ; preds = %lor.lhs.false.i33
-  %add.ptr.i2.i.i42 = getelementptr inbounds i8, ptr %sub.sroa.0.1, i64 4
+  %add.ptr.i2.i.i42 = getelementptr inbounds i8, ptr %sub.sroa.0.0, i64 4
   %add.ptr.i.i6.i43 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i42, i64 %or.i.i.i39
   %sub.i.i7.i = sub nuw i64 %sub.i.i.i40, %or.i.i.i39
   %cmp.not = icmp eq i32 %or.i.i, %exttype
@@ -1805,12 +1805,12 @@ if.end29:                                         ; preds = %if.end27, %do.end
   %add.ptr = getelementptr inbounds i8, ptr %ext, i64 %10
   %cmp30 = icmp ult ptr %add.ptr.i.i6.i43, %add.ptr
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr.i.i6.i43 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %sub.sroa.0.1 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %sub.sroa.0.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   br i1 %cmp30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end29
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %sub.sroa.0.1, ptr nonnull align 1 %add.ptr.i.i6.i43, i64 %sub.ptr.sub, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %sub.sroa.0.0, ptr nonnull align 1 %add.ptr.i.i6.i43, i64 %sub.ptr.sub, i1 false)
   %.pre76 = load i64, ptr %extlen, align 8
   br label %if.end32
 

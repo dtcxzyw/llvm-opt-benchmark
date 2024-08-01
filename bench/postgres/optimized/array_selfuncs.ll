@@ -296,8 +296,8 @@ floor_log2.exit:                                  ; preds = %17, %19
 
 .lr.ph75.split.us:                                ; preds = %.lr.ph75, %85
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %85 ], [ 0, %.lr.ph75 ]
-  %.173.us = phi double [ %.3.us, %85 ], [ %.052, %.lr.ph75 ]
-  %.072.us = phi i32 [ %.4.us, %85 ], [ 0, %.lr.ph75 ]
+  %.173.us = phi double [ %.2.us, %85 ], [ %.052, %.lr.ph75 ]
+  %.072.us = phi i32 [ %.160.us, %85 ], [ 0, %.lr.ph75 ]
   %.not95 = icmp eq i64 %indvars.iv89, 0
   br i1 %.not95, label %53, label %44
 
@@ -349,7 +349,7 @@ floor_log2.exit:                                  ; preds = %17, %19
   br label %find_next_mcelem.exit.thread.us
 
 find_next_mcelem.exit.thread.us:                  ; preds = %65, %53, %find_next_mcelem.exit.loopexit.us, %69
-  %.362.us = phi i32 [ %73, %69 ], [ %57, %find_next_mcelem.exit.loopexit.us ], [ %.072.us, %53 ], [ %.1.i56.us, %65 ]
+  %.4.us = phi i32 [ %73, %69 ], [ %57, %find_next_mcelem.exit.loopexit.us ], [ %.072.us, %53 ], [ %.1.i56.us, %65 ]
   %.051.us = phi double [ %72, %69 ], [ %43, %find_next_mcelem.exit.loopexit.us ], [ %43, %53 ], [ %43, %65 ]
   br i1 %34, label %78, label %74
 
@@ -364,20 +364,20 @@ find_next_mcelem.exit.thread.us:                  ; preds = %65, %53, %find_next
   br label %80
 
 80:                                               ; preds = %78, %74
-  %.2.us = phi double [ %79, %78 ], [ %77, %74 ]
-  %81 = fcmp olt double %.2.us, 0.000000e+00
+  %.3.us = phi double [ %79, %78 ], [ %77, %74 ]
+  %81 = fcmp olt double %.3.us, 0.000000e+00
   br i1 %81, label %85, label %82
 
 82:                                               ; preds = %80
-  %83 = fcmp ogt double %.2.us, 1.000000e+00
+  %83 = fcmp ogt double %.3.us, 1.000000e+00
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %82
   br label %85
 
 85:                                               ; preds = %84, %82, %80, %44
-  %.4.us = phi i32 [ %.072.us, %44 ], [ %.362.us, %80 ], [ %.362.us, %84 ], [ %.362.us, %82 ]
-  %.3.us = phi double [ %.173.us, %44 ], [ 0.000000e+00, %80 ], [ 1.000000e+00, %84 ], [ %.2.us, %82 ]
+  %.160.us = phi i32 [ %.072.us, %44 ], [ %.4.us, %80 ], [ %.4.us, %84 ], [ %.4.us, %82 ]
+  %.2.us = phi double [ %.173.us, %44 ], [ 0.000000e+00, %80 ], [ 1.000000e+00, %84 ], [ %.3.us, %82 ]
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
   br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph75.split.us, !llvm.loop !7
@@ -387,8 +387,8 @@ find_next_mcelem.exit.loopexit.us:                ; preds = %.lr.ph.i.us
 
 .lr.ph75.split:                                   ; preds = %.lr.ph75, %126
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %126 ], [ 0, %.lr.ph75 ]
-  %.173 = phi double [ %.3, %126 ], [ %.052, %.lr.ph75 ]
-  %.072 = phi i32 [ %.4, %126 ], [ 0, %.lr.ph75 ]
+  %.173 = phi double [ %.2, %126 ], [ %.052, %.lr.ph75 ]
+  %.072 = phi i32 [ %.160, %126 ], [ 0, %.lr.ph75 ]
   %.not94 = icmp eq i64 %indvars.iv85, 0
   br i1 %.not94, label %.preheader, label %86
 
@@ -445,7 +445,7 @@ find_next_mcelem.exit:                            ; preds = %98
   br label %find_next_mcelem.exit.thread
 
 find_next_mcelem.exit.thread:                     ; preds = %106, %find_next_mcelem.exit, %.preheader, %109
-  %.362 = phi i32 [ %114, %109 ], [ %107, %find_next_mcelem.exit ], [ %.072, %.preheader ], [ %1, %106 ]
+  %.4 = phi i32 [ %114, %109 ], [ %107, %find_next_mcelem.exit ], [ %.072, %.preheader ], [ %1, %106 ]
   %.051 = phi double [ %113, %109 ], [ %43, %find_next_mcelem.exit ], [ %43, %.preheader ], [ %43, %106 ]
   br i1 %34, label %115, label %117
 
@@ -460,26 +460,26 @@ find_next_mcelem.exit.thread:                     ; preds = %106, %find_next_mce
   br label %121
 
 121:                                              ; preds = %115, %117
-  %.2 = phi double [ %116, %115 ], [ %120, %117 ]
-  %122 = fcmp olt double %.2, 0.000000e+00
+  %.3 = phi double [ %116, %115 ], [ %120, %117 ]
+  %122 = fcmp olt double %.3, 0.000000e+00
   br i1 %122, label %126, label %123
 
 123:                                              ; preds = %121
-  %124 = fcmp ogt double %.2, 1.000000e+00
+  %124 = fcmp ogt double %.3, 1.000000e+00
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %123
   br label %126
 
 126:                                              ; preds = %121, %123, %125, %86
-  %.4 = phi i32 [ %.072, %86 ], [ %.362, %121 ], [ %.362, %125 ], [ %.362, %123 ]
-  %.3 = phi double [ %.173, %86 ], [ 0.000000e+00, %121 ], [ 1.000000e+00, %125 ], [ %.2, %123 ]
+  %.160 = phi i32 [ %.072, %86 ], [ %.4, %121 ], [ %.4, %125 ], [ %.4, %123 ]
+  %.2 = phi double [ %.173, %86 ], [ 0.000000e+00, %121 ], [ 1.000000e+00, %125 ], [ %.3, %123 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count92
   br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph75.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %126, %85, %floor_log2.exit
-  %.1.lcssa = phi double [ %.052, %floor_log2.exit ], [ %.3.us, %85 ], [ %.3, %126 ]
+  %.1.lcssa = phi double [ %.052, %floor_log2.exit ], [ %.2.us, %85 ], [ %.2, %126 ]
   ret double %.1.lcssa
 }
 
@@ -526,10 +526,10 @@ define internal fastcc double @mcelem_array_contained_selec(ptr nocapture nounde
   br label %38
 
 .preheader:                                       ; preds = %80, %15
-  %.0122.lcssa = phi float [ 1.000000e+00, %15 ], [ %.2124, %80 ]
-  %.0117.lcssa = phi float [ %26, %15 ], [ %.3120, %80 ]
+  %.0122.lcssa = phi float [ 1.000000e+00, %15 ], [ %.1123, %80 ]
+  %.0117.lcssa = phi float [ %26, %15 ], [ %.1118, %80 ]
   %.0114.lcssa = phi i32 [ 0, %15 ], [ %.1115, %80 ]
-  %.0110.lcssa = phi i32 [ 0, %15 ], [ %.3, %80 ]
+  %.0110.lcssa = phi i32 [ 0, %15 ], [ %.1, %80 ]
   %36 = icmp slt i32 %.0110.lcssa, %1
   br i1 %36, label %.lr.ph202.preheader, label %._crit_edge
 
@@ -539,10 +539,10 @@ define internal fastcc double @mcelem_array_contained_selec(ptr nocapture nounde
 
 38:                                               ; preds = %.lr.ph194, %80
   %indvars.iv225 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next226, %80 ]
-  %.0110193 = phi i32 [ 0, %.lr.ph194 ], [ %.3, %80 ]
+  %.0110193 = phi i32 [ 0, %.lr.ph194 ], [ %.1, %80 ]
   %.0114191 = phi i32 [ 0, %.lr.ph194 ], [ %.1115, %80 ]
-  %.0117190 = phi float [ %26, %.lr.ph194 ], [ %.3120, %80 ]
-  %.0122189 = phi float [ 1.000000e+00, %.lr.ph194 ], [ %.2124, %80 ]
+  %.0117190 = phi float [ %26, %.lr.ph194 ], [ %.1118, %80 ]
+  %.0122189 = phi float [ 1.000000e+00, %.lr.ph194 ], [ %.1123, %80 ]
   %.not243 = icmp eq i64 %indvars.iv225, 0
   br i1 %.not243, label %48, label %39
 
@@ -568,8 +568,8 @@ define internal fastcc double @mcelem_array_contained_selec(ptr nocapture nounde
 
 52:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ %51, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %.1118185 = phi float [ %.0117190, %.lr.ph ], [ %65, %60 ]
-  %.1123184 = phi float [ %.0122189, %.lr.ph ], [ %64, %60 ]
+  %.2119185 = phi float [ %.0117190, %.lr.ph ], [ %65, %60 ]
+  %.2124184 = phi float [ %.0122189, %.lr.ph ], [ %64, %60 ]
   %53 = getelementptr i64, ptr %0, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8
   %55 = load i64, ptr %50, align 8
@@ -583,8 +583,8 @@ define internal fastcc double @mcelem_array_contained_selec(ptr nocapture nounde
   %61 = getelementptr float, ptr %2, i64 %indvars.iv
   %62 = load float, ptr %61, align 4
   %63 = fsub float 1.000000e+00, %62
-  %64 = fmul float %.1123184, %63
-  %65 = fsub float %.1118185, %62
+  %64 = fmul float %.2124184, %63
+  %65 = fsub float %.2119185, %62
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
   br i1 %exitcond.not, label %.critedge, label %52, !llvm.loop !9
@@ -600,31 +600,31 @@ define internal fastcc double @mcelem_array_contained_selec(ptr nocapture nounde
   %72 = sext i32 %.0114191 to i64
   %73 = getelementptr float, ptr %29, i64 %72
   store float %71, ptr %73, align 4
-  %74 = fsub float %.1118185, %71
+  %74 = fsub float %.2119185, %71
   %75 = add nsw i32 %67, 1
   br label %78
 
 .critedge:                                        ; preds = %60, %48, %66
-  %.1123182 = phi float [ %.1123184, %66 ], [ %.0122189, %48 ], [ %64, %60 ]
-  %.1118179 = phi float [ %.1118185, %66 ], [ %.0117190, %48 ], [ %65, %60 ]
-  %.1177 = phi i32 [ %67, %66 ], [ %.0110193, %48 ], [ %1, %60 ]
+  %.2124182 = phi float [ %.2124184, %66 ], [ %.0122189, %48 ], [ %64, %60 ]
+  %.2119179 = phi float [ %.2119185, %66 ], [ %.0117190, %48 ], [ %65, %60 ]
+  %.2177 = phi i32 [ %67, %66 ], [ %.0110193, %48 ], [ %1, %60 ]
   %76 = sext i32 %.0114191 to i64
   %77 = getelementptr float, ptr %29, i64 %76
   store float %narrow.sel, ptr %77, align 4
   br label %78
 
 78:                                               ; preds = %.critedge, %69
-  %.1123181 = phi float [ %.1123184, %69 ], [ %.1123182, %.critedge ]
-  %.2119 = phi float [ %74, %69 ], [ %.1118179, %.critedge ]
-  %.2 = phi i32 [ %75, %69 ], [ %.1177, %.critedge ]
+  %.2124181 = phi float [ %.2124184, %69 ], [ %.2124182, %.critedge ]
+  %.3120 = phi float [ %74, %69 ], [ %.2119179, %.critedge ]
+  %.3 = phi i32 [ %75, %69 ], [ %.2177, %.critedge ]
   %79 = add i32 %.0114191, 1
   br label %80
 
 80:                                               ; preds = %39, %78
-  %.2124 = phi float [ %.0122189, %39 ], [ %.1123181, %78 ]
-  %.3120 = phi float [ %.0117190, %39 ], [ %.2119, %78 ]
+  %.1123 = phi float [ %.0122189, %39 ], [ %.2124181, %78 ]
+  %.1118 = phi float [ %.0117190, %39 ], [ %.3120, %78 ]
   %.1115 = phi i32 [ %.0114191, %39 ], [ %79, %78 ]
-  %.3 = phi i32 [ %.0110193, %39 ], [ %.2, %78 ]
+  %.1 = phi i32 [ %.0110193, %39 ], [ %.3, %78 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
   br i1 %exitcond229.not, label %.preheader, label %38, !llvm.loop !10

@@ -563,17 +563,17 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
 
 43:                                               ; preds = %.lr.ph, %43
   %.0170 = phi i32 [ 0, %.lr.ph ], [ %71, %43 ]
-  %.1156169 = phi i32 [ %40, %.lr.ph ], [ %70, %43 ]
+  %.2169 = phi i32 [ %40, %.lr.ph ], [ %70, %43 ]
   %44 = load ptr, ptr %42, align 8
-  %45 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.1156169), !noalias !28
+  %45 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.2169), !noalias !28
   %46 = trunc i64 %45 to i32
-  %47 = add i32 %.1156169, %46
+  %47 = add i32 %.2169, %46
   %48 = lshr i64 %45, 32
   %49 = trunc nuw i64 %48 to i32
   %50 = call ptr @tvb_get_string_enc(ptr noundef %44, ptr noundef %0, i32 noundef %47, i32 noundef %49, i32 noundef 2) #7, !noalias !28
   %51 = add i32 %49, %46
   %52 = load ptr, ptr %42, align 8
-  %53 = add i32 %51, %.1156169
+  %53 = add i32 %51, %.2169
   %54 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %53), !noalias !31
   %55 = trunc i64 %54 to i32
   %56 = add i32 %53, %55
@@ -583,11 +583,11 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
   %60 = add i32 %58, %55
   %61 = load i32, ptr @hf_elasticsearch_header_request, align 4
   %62 = add i32 %60, %51
-  %63 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef %.1156169, i32 noundef %62, i32 noundef 0) #7
+  %63 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef %.2169, i32 noundef %62, i32 noundef 0) #7
   %64 = load i32, ptr @ett_elasticsearch_header, align 4
   %65 = call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64) #7
   %66 = load i32, ptr @hf_elasticsearch_header_key, align 4
-  %67 = call ptr @proto_tree_add_string(ptr noundef %65, i32 noundef %66, ptr noundef %0, i32 noundef %.1156169, i32 noundef %51, ptr noundef %50) #7
+  %67 = call ptr @proto_tree_add_string(ptr noundef %65, i32 noundef %66, ptr noundef %0, i32 noundef %.2169, i32 noundef %51, ptr noundef %50) #7
   %68 = load i32, ptr @hf_elasticsearch_header_value, align 4
   %69 = call ptr @proto_tree_add_string(ptr noundef %65, i32 noundef %68, ptr noundef %0, i32 noundef %53, i32 noundef %60, ptr noundef %59) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull @.str.86, ptr noundef %50, ptr noundef %59) #7
@@ -597,12 +597,12 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %43, %38
-  %.1156.lcssa = phi i32 [ %40, %38 ], [ %70, %43 ]
-  %72 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.1156.lcssa)
+  %.2.lcssa = phi i32 [ %40, %38 ], [ %70, %43 ]
+  %72 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.2.lcssa)
   %.sroa.051.0.extract.trunc = trunc i64 %72 to i32
   %.sroa.252.0.extract.shift = lshr i64 %72, 32
   %.sroa.252.0.extract.trunc = trunc nuw i64 %.sroa.252.0.extract.shift to i32
-  %73 = add i32 %.1156.lcssa, %.sroa.051.0.extract.trunc
+  %73 = add i32 %.2.lcssa, %.sroa.051.0.extract.trunc
   %74 = icmp sgt i32 %.sroa.252.0.extract.trunc, 0
   br i1 %74, label %.lr.ph180, label %.loopexit
 
@@ -612,23 +612,23 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
 
 76:                                               ; preds = %.lr.ph180, %._crit_edge175
   %.1178 = phi i32 [ 0, %.lr.ph180 ], [ %138, %._crit_edge175 ]
-  %.2177 = phi i32 [ %73, %.lr.ph180 ], [ %.3.lcssa, %._crit_edge175 ]
+  %.3177 = phi i32 [ %73, %.lr.ph180 ], [ %.4.lcssa, %._crit_edge175 ]
   %77 = load i32, ptr @hf_elasticsearch_header_response, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %77, ptr noundef %0, i32 noundef %.2177, i32 noundef 0, i32 noundef 0) #7
+  %78 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %77, ptr noundef %0, i32 noundef %.3177, i32 noundef 0, i32 noundef 0) #7
   %79 = load i32, ptr @ett_elasticsearch_header, align 4
   %80 = call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %79) #7
   %81 = load ptr, ptr %75, align 8
-  %82 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.2177), !noalias !36
+  %82 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.3177), !noalias !36
   %83 = trunc i64 %82 to i32
-  %84 = add i32 %.2177, %83
+  %84 = add i32 %.3177, %83
   %85 = lshr i64 %82, 32
   %86 = trunc nuw i64 %85 to i32
   %87 = call ptr @tvb_get_string_enc(ptr noundef %81, ptr noundef %0, i32 noundef %84, i32 noundef %86, i32 noundef 2) #7, !noalias !36
   %88 = add i32 %86, %83
   %89 = load i32, ptr @hf_elasticsearch_header_key, align 4
-  %90 = call ptr @proto_tree_add_string(ptr noundef %80, i32 noundef %89, ptr noundef %0, i32 noundef %.2177, i32 noundef %88, ptr noundef %87) #7
+  %90 = call ptr @proto_tree_add_string(ptr noundef %80, i32 noundef %89, ptr noundef %0, i32 noundef %.3177, i32 noundef %88, ptr noundef %87) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.87, ptr noundef %87) #7
-  %91 = add i32 %88, %.2177
+  %91 = add i32 %88, %.3177
   %92 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %91)
   %.sroa.031.0.extract.trunc = trunc i64 %92 to i32
   %.sroa.232.0.extract.shift = lshr i64 %92, 32
@@ -639,16 +639,16 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
 
 .lr.ph174:                                        ; preds = %76, %read_vint.exit
   %.0154172 = phi i32 [ %137, %read_vint.exit ], [ 0, %76 ]
-  %.3171 = phi i32 [ %136, %read_vint.exit ], [ %93, %76 ]
+  %.4171 = phi i32 [ %136, %read_vint.exit ], [ %93, %76 ]
   %95 = load ptr, ptr %75, align 8
-  %96 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3171) #7, !noalias !39
+  %96 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4171) #7, !noalias !39
   %97 = and i8 %96, 127
   %98 = zext nneg i8 %97 to i32
   %99 = icmp sgt i8 %96, -1
   br i1 %99, label %read_vint.exit, label %100
 
 100:                                              ; preds = %.lr.ph174
-  %101 = add i32 %.3171, 1
+  %101 = add i32 %.4171, 1
   %102 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %101) #7, !noalias !39
   %103 = zext i8 %102 to i32
   %104 = shl nuw nsw i32 %103, 7
@@ -658,7 +658,7 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
   br i1 %107, label %read_vint.exit, label %108
 
 108:                                              ; preds = %100
-  %109 = add i32 %.3171, 2
+  %109 = add i32 %.4171, 2
   %110 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %109) #7, !noalias !39
   %111 = zext i8 %110 to i32
   %112 = shl nuw nsw i32 %111, 14
@@ -668,7 +668,7 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
   br i1 %115, label %read_vint.exit, label %116
 
 116:                                              ; preds = %108
-  %117 = add i32 %.3171, 3
+  %117 = add i32 %.4171, 3
   %118 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %117) #7, !noalias !39
   %119 = zext i8 %118 to i32
   %120 = shl nuw nsw i32 %119, 21
@@ -678,7 +678,7 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
   br i1 %123, label %read_vint.exit, label %124
 
 124:                                              ; preds = %116
-  %125 = add i32 %.3171, 4
+  %125 = add i32 %.4171, 4
   %126 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %125) #7, !noalias !39
   %127 = zext i8 %126 to i32
   %128 = shl i32 %127, 28
@@ -688,28 +688,28 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
 read_vint.exit:                                   ; preds = %.lr.ph174, %100, %108, %116, %124
   %.sroa.0.0.i = phi i32 [ 5, %124 ], [ 1, %.lr.ph174 ], [ 2, %100 ], [ 3, %108 ], [ 4, %116 ]
   %.sroa.6.0.i = phi i32 [ %129, %124 ], [ %98, %.lr.ph174 ], [ %106, %100 ], [ %114, %108 ], [ %122, %116 ]
-  %130 = add i32 %.sroa.0.0.i, %.3171
+  %130 = add i32 %.sroa.0.0.i, %.4171
   %131 = call ptr @tvb_get_string_enc(ptr noundef %95, ptr noundef %0, i32 noundef %130, i32 noundef %.sroa.6.0.i, i32 noundef 2) #7, !noalias !39
   %132 = add i32 %.sroa.6.0.i, %.sroa.0.0.i
   %133 = load i32, ptr @hf_elasticsearch_header_value, align 4
-  %134 = call ptr @proto_tree_add_string(ptr noundef %80, i32 noundef %133, ptr noundef %0, i32 noundef %.3171, i32 noundef %132, ptr noundef %131) #7
+  %134 = call ptr @proto_tree_add_string(ptr noundef %80, i32 noundef %133, ptr noundef %0, i32 noundef %.4171, i32 noundef %132, ptr noundef %131) #7
   %.not168 = icmp eq i32 %.0154172, 0
   %135 = select i1 %.not168, ptr @.str.89, ptr @.str.88
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull %135, ptr noundef %131) #7
-  %136 = add i32 %132, %.3171
+  %136 = add i32 %132, %.4171
   %137 = add nuw nsw i32 %.0154172, 1
   %exitcond184.not = icmp eq i32 %137, %.sroa.232.0.extract.trunc
   br i1 %exitcond184.not, label %._crit_edge175, label %.lr.ph174, !llvm.loop !42
 
 ._crit_edge175:                                   ; preds = %read_vint.exit, %76
-  %.3.lcssa = phi i32 [ %93, %76 ], [ %136, %read_vint.exit ]
-  call void @proto_item_set_end(ptr noundef %78, ptr noundef %0, i32 noundef %.3.lcssa) #7
+  %.4.lcssa = phi i32 [ %93, %76 ], [ %136, %read_vint.exit ]
+  call void @proto_item_set_end(ptr noundef %78, ptr noundef %0, i32 noundef %.4.lcssa) #7
   %138 = add nuw nsw i32 %.1178, 1
   %exitcond185.not = icmp eq i32 %138, %.sroa.252.0.extract.trunc
   br i1 %exitcond185.not, label %.loopexit, label %76, !llvm.loop !43
 
 .loopexit:                                        ; preds = %._crit_edge175, %._crit_edge, %35
-  %.4 = phi i32 [ %.0155, %35 ], [ %73, %._crit_edge ], [ %.3.lcssa, %._crit_edge175 ]
+  %.1156 = phi i32 [ %.0155, %35 ], [ %73, %._crit_edge ], [ %.4.lcssa, %._crit_edge175 ]
   br i1 %.not, label %139, label %183
 
 139:                                              ; preds = %.loopexit
@@ -719,7 +719,7 @@ read_vint.exit:                                   ; preds = %.lr.ph174, %100, %1
 
 141:                                              ; preds = %139
   %142 = load i32, ptr @hf_elasticsearch_data_compressed, align 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %142, ptr noundef %0, i32 noundef %.4, i32 noundef -1, i32 noundef 0) #7
+  %143 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %142, ptr noundef %0, i32 noundef %.1156, i32 noundef -1, i32 noundef 0) #7
   %144 = getelementptr inbounds i8, ptr %1, i64 8
   %145 = load ptr, ptr %144, align 8
   call void @col_append_str(ptr noundef %145, i32 noundef 25, ptr noundef nonnull @.str.91) #7
@@ -731,11 +731,11 @@ read_vint.exit:                                   ; preds = %.lr.ph174, %100, %1
   br i1 %148, label %149, label %.loopexit.i
 
 149:                                              ; preds = %146
-  %150 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.4)
+  %150 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.1156)
   %.sroa.010.0.extract.trunc.i = trunc i64 %150 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %150, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
-  %151 = add i32 %.4, %.sroa.010.0.extract.trunc.i
+  %151 = add i32 %.1156, %.sroa.010.0.extract.trunc.i
   %152 = icmp sgt i32 %.sroa.2.0.extract.trunc.i, 0
   br i1 %152, label %.lr.ph.i, label %.loopexit.i
 
@@ -744,40 +744,40 @@ read_vint.exit:                                   ; preds = %.lr.ph174, %100, %1
   br label %154
 
 154:                                              ; preds = %154, %.lr.ph.i
-  %.043.i = phi i32 [ %151, %.lr.ph.i ], [ %165, %154 ]
+  %.143.i = phi i32 [ %151, %.lr.ph.i ], [ %165, %154 ]
   %.03842.i = phi i32 [ 0, %.lr.ph.i ], [ %166, %154 ]
   %155 = load ptr, ptr %153, align 8
-  %156 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.043.i), !noalias !44
+  %156 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.143.i), !noalias !44
   %157 = trunc i64 %156 to i32
-  %158 = add i32 %.043.i, %157
+  %158 = add i32 %.143.i, %157
   %159 = lshr i64 %156, 32
   %160 = trunc nuw i64 %159 to i32
   %161 = call ptr @tvb_get_string_enc(ptr noundef %155, ptr noundef %0, i32 noundef %158, i32 noundef %160, i32 noundef 2) #7, !noalias !44
   %162 = add i32 %160, %157
   %163 = load i32, ptr @hf_elasticsearch_feature, align 4
-  %164 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %163, ptr noundef %0, i32 noundef %.043.i, i32 noundef %162, ptr noundef %161) #7
-  %165 = add i32 %162, %.043.i
+  %164 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %163, ptr noundef %0, i32 noundef %.143.i, i32 noundef %162, ptr noundef %161) #7
+  %165 = add i32 %162, %.143.i
   %166 = add nuw nsw i32 %.03842.i, 1
   %exitcond.not.i = icmp eq i32 %166, %.sroa.2.0.extract.trunc.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %154, !llvm.loop !47
 
 .loopexit.i:                                      ; preds = %154, %149, %146
-  %.1.i = phi i32 [ %.4, %146 ], [ %151, %149 ], [ %165, %154 ]
+  %.0.i = phi i32 [ %.1156, %146 ], [ %151, %149 ], [ %165, %154 ]
   %167 = getelementptr inbounds i8, ptr %1, i64 408
   %168 = load ptr, ptr %167, align 8
-  %169 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.1.i), !noalias !48
+  %169 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.0.i), !noalias !48
   %170 = trunc i64 %169 to i32
-  %171 = add i32 %.1.i, %170
+  %171 = add i32 %.0.i, %170
   %172 = lshr i64 %169, 32
   %173 = trunc nuw i64 %172 to i32
   %174 = call ptr @tvb_get_string_enc(ptr noundef %168, ptr noundef %0, i32 noundef %171, i32 noundef %173, i32 noundef 2) #7, !noalias !48
   %175 = add i32 %173, %170
   %176 = load i32, ptr @hf_elasticsearch_action, align 4
-  %177 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %176, ptr noundef %0, i32 noundef %.1.i, i32 noundef %175, ptr noundef %174) #7
+  %177 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %176, ptr noundef %0, i32 noundef %.0.i, i32 noundef %175, ptr noundef %174) #7
   %178 = getelementptr inbounds i8, ptr %1, i64 8
   %179 = load ptr, ptr %178, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %179, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef %174) #7
-  %180 = add i32 %175, %.1.i
+  %180 = add i32 %175, %.0.i
   %181 = load i32, ptr @hf_elasticsearch_data, align 4
   %182 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %181, ptr noundef %0, i32 noundef %180, i32 noundef -1, i32 noundef 0) #7
   br label %elasticsearch_decode_binary_request.exit
@@ -797,13 +797,13 @@ read_vint.exit:                                   ; preds = %.lr.ph174, %100, %1
   %189 = load ptr, ptr %185, align 8
   call void @col_append_str(ptr noundef %189, i32 noundef 25, ptr noundef nonnull @.str.91) #7
   %190 = load i32, ptr @hf_elasticsearch_data_compressed, align 4
-  %191 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %190, ptr noundef %0, i32 noundef %.4, i32 noundef -1, i32 noundef 0) #7
+  %191 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %190, ptr noundef %0, i32 noundef %.1156, i32 noundef -1, i32 noundef 0) #7
   br label %elasticsearch_decode_binary_request.exit
 
 192:                                              ; preds = %183
   %193 = load i32, ptr @hf_elasticsearch_data, align 4
-  %194 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #7
-  %195 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %193, ptr noundef %0, i32 noundef %.4, i32 noundef %194, i32 noundef 0) #7
+  %194 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1156) #7
+  %195 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %193, ptr noundef %0, i32 noundef %.1156, i32 noundef %194, i32 noundef 0) #7
   br label %elasticsearch_decode_binary_request.exit
 
 elasticsearch_decode_binary_request.exit:         ; preds = %192, %188, %.loopexit.i, %141

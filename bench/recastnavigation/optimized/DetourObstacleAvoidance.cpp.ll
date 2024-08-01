@@ -1099,18 +1099,18 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %133 = fcmp ogt float %131, 0.000000e+00
   %or.cond = and i1 %132, %133
   %134 = fmul float %129, -5.000000e-01
-  %.195 = select i1 %or.cond, float %134, float %129
-  %135 = fcmp oge float %.195, 0.000000e+00
-  %136 = fcmp olt float %.195, %.064117
+  %.094 = select i1 %or.cond, float %134, float %129
+  %135 = fcmp oge float %.094, 0.000000e+00
+  %136 = fcmp olt float %.094, %.064117
   %or.cond77 = select i1 %135, i1 %136, i1 false
   br i1 %or.cond77, label %137, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread
 
 137:                                              ; preds = %125
-  %138 = fcmp olt float %.195, %49
+  %138 = fcmp olt float %.094, %49
   br i1 %138, label %.loopexit, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread
 
 _ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread: ; preds = %104, %63, %125, %137
-  %.1 = phi float [ %.195, %137 ], [ %.064117, %125 ], [ %.064117, %63 ], [ %.064117, %104 ]
+  %.1 = phi float [ %.094, %137 ], [ %.064117, %125 ], [ %.064117, %63 ], [ %.064117, %104 ]
   %139 = load i32, ptr %52, align 8
   %140 = sext i32 %139 to i64
   %141 = icmp slt i64 %indvars.iv.next, %140
@@ -1178,8 +1178,8 @@ _ZL11isectRaySegPKfS0_S0_S0_Rf.exit:              ; preds = %175
   br i1 %or.cond.not.i.not, label %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread, label %188
 
 188:                                              ; preds = %156, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit
-  %.198 = phi float [ %180, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit ], [ 0.000000e+00, %156 ]
-  %189 = fmul float %.198, 2.000000e+00
+  %.097 = phi float [ %180, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit ], [ 0.000000e+00, %156 ]
+  %189 = fmul float %.097, 2.000000e+00
   %190 = fcmp olt float %189, %.2121
   br i1 %190, label %191, label %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread
 

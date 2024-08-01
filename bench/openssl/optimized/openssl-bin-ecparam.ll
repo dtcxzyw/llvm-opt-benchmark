@@ -410,7 +410,7 @@ if.then140:                                       ; preds = %land.lhs.true137
   br label %if.then221
 
 if.end143:                                        ; preds = %if.end135, %land.lhs.true137, %lor.lhs.false114
-  %gctx_params.1 = phi ptr [ %call105, %lor.lhs.false114 ], [ null, %land.lhs.true137 ], [ null, %if.end135 ]
+  %gctx_params.2 = phi ptr [ %call105, %lor.lhs.false114 ], [ null, %land.lhs.true137 ], [ null, %if.end135 ]
   %tobool144.not = icmp eq i32 %no_seed.0, 0
   br i1 %tobool144.not, label %if.end150, label %land.lhs.true145
 
@@ -486,7 +486,7 @@ if.end179:                                        ; preds = %lor.lhs.false174
   br label %if.end181
 
 if.end181:                                        ; preds = %if.end157, %if.end179
-  %pctx.0 = phi ptr [ %call172, %if.end179 ], [ null, %if.end157 ]
+  %pctx.1 = phi ptr [ %call172, %if.end179 ], [ null, %if.end157 ]
   %21 = load i32, ptr %outformat, align 4
   %cmp182 = icmp eq i32 %21, 4
   %or.cond1 = and i1 %tobool61, %cmp182
@@ -508,7 +508,7 @@ if.then194:                                       ; preds = %if.then188
   br label %if.then221
 
 if.end197:                                        ; preds = %if.then188, %if.end181
-  %ectx_params.0 = phi ptr [ null, %if.end181 ], [ %call191, %if.then188 ]
+  %ectx_params.1 = phi ptr [ null, %if.end181 ], [ %call191, %if.then188 ]
   br i1 %tobool61, label %if.then199, label %if.end222
 
 if.then199:                                       ; preds = %if.end197
@@ -552,35 +552,35 @@ end:                                              ; preds = %if.end65
   br i1 %tobool69.not.not, label %if.then221, label %if.end222
 
 if.then221:                                       ; preds = %sw.bb45, %sw.bb39, %if.end56, %if.then133, %if.then140, %if.then127, %if.then148, %if.then155, %if.then167, %if.then194, %if.then216, %if.then208, %if.then177, %if.then117, %if.end60, %opthelp, %end
-  %gctx_params.261 = phi ptr [ null, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ %call105, %if.then117 ], [ %gctx_params.1, %if.then177 ], [ %gctx_params.1, %if.then208 ], [ %gctx_params.1, %if.then216 ], [ %gctx_params.1, %if.then194 ], [ %gctx_params.1, %if.then167 ], [ %gctx_params.1, %if.then155 ], [ %gctx_params.1, %if.then148 ], [ null, %if.then127 ], [ null, %if.then140 ], [ null, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
-  %gctx_key.159 = phi ptr [ null, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ null, %if.then117 ], [ null, %if.then177 ], [ %call202, %if.then208 ], [ %call202, %if.then216 ], [ null, %if.then194 ], [ null, %if.then167 ], [ null, %if.then155 ], [ null, %if.then148 ], [ null, %if.then127 ], [ null, %if.then140 ], [ null, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
+  %gctx_params.061 = phi ptr [ null, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ %call105, %if.then117 ], [ %gctx_params.2, %if.then177 ], [ %gctx_params.2, %if.then208 ], [ %gctx_params.2, %if.then216 ], [ %gctx_params.2, %if.then194 ], [ %gctx_params.2, %if.then167 ], [ %gctx_params.2, %if.then155 ], [ %gctx_params.2, %if.then148 ], [ null, %if.then127 ], [ null, %if.then140 ], [ null, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
+  %gctx_key.059 = phi ptr [ null, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ null, %if.then117 ], [ null, %if.then177 ], [ %call202, %if.then208 ], [ %call202, %if.then216 ], [ null, %if.then194 ], [ null, %if.then167 ], [ null, %if.then155 ], [ null, %if.then148 ], [ null, %if.then127 ], [ null, %if.then140 ], [ null, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
   %out.057 = phi ptr [ %call62, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ %call62, %if.then117 ], [ %call62, %if.then177 ], [ %call62, %if.then208 ], [ %call62, %if.then216 ], [ %call62, %if.then194 ], [ %call62, %if.then167 ], [ %call62, %if.then155 ], [ %call62, %if.then148 ], [ %call62, %if.then127 ], [ %call62, %if.then140 ], [ %call62, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
-  %pctx.155 = phi ptr [ null, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ null, %if.then117 ], [ %call172, %if.then177 ], [ %pctx.0, %if.then208 ], [ %pctx.0, %if.then216 ], [ %pctx.0, %if.then194 ], [ null, %if.then167 ], [ null, %if.then155 ], [ null, %if.then148 ], [ null, %if.then127 ], [ null, %if.then140 ], [ null, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
-  %ectx_params.153 = phi ptr [ null, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ null, %if.then117 ], [ null, %if.then177 ], [ %ectx_params.0, %if.then208 ], [ %ectx_params.0, %if.then216 ], [ %call191, %if.then194 ], [ null, %if.then167 ], [ null, %if.then155 ], [ null, %if.then148 ], [ null, %if.then127 ], [ null, %if.then140 ], [ null, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
-  %ectx_key.151 = phi ptr [ null, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ null, %if.then117 ], [ null, %if.then177 ], [ null, %if.then208 ], [ %call213, %if.then216 ], [ null, %if.then194 ], [ null, %if.then167 ], [ null, %if.then155 ], [ null, %if.then148 ], [ null, %if.then127 ], [ null, %if.then140 ], [ null, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
+  %pctx.055 = phi ptr [ null, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ null, %if.then117 ], [ %call172, %if.then177 ], [ %pctx.1, %if.then208 ], [ %pctx.1, %if.then216 ], [ %pctx.1, %if.then194 ], [ null, %if.then167 ], [ null, %if.then155 ], [ null, %if.then148 ], [ null, %if.then127 ], [ null, %if.then140 ], [ null, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
+  %ectx_params.053 = phi ptr [ null, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ null, %if.then117 ], [ null, %if.then177 ], [ %ectx_params.1, %if.then208 ], [ %ectx_params.1, %if.then216 ], [ %call191, %if.then194 ], [ null, %if.then167 ], [ null, %if.then155 ], [ null, %if.then148 ], [ null, %if.then127 ], [ null, %if.then140 ], [ null, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
+  %ectx_key.051 = phi ptr [ null, %end ], [ null, %opthelp ], [ null, %if.end60 ], [ null, %if.then117 ], [ null, %if.then177 ], [ null, %if.then208 ], [ %call213, %if.then216 ], [ null, %if.then194 ], [ null, %if.then167 ], [ null, %if.then155 ], [ null, %if.then148 ], [ null, %if.then127 ], [ null, %if.then140 ], [ null, %if.then133 ], [ null, %if.end56 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ]
   %29 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %29) #4
   br label %if.end222
 
 if.end222:                                        ; preds = %if.end197, %if.end210, %sw.bb3, %if.then221, %end
   %ret.064 = phi i32 [ 1, %if.then221 ], [ %spec.select40, %end ], [ 0, %sw.bb3 ], [ 0, %if.end210 ], [ 0, %if.end197 ]
-  %gctx_params.262 = phi ptr [ %gctx_params.261, %if.then221 ], [ null, %end ], [ null, %sw.bb3 ], [ %gctx_params.1, %if.end210 ], [ %gctx_params.1, %if.end197 ]
-  %gctx_key.160 = phi ptr [ %gctx_key.159, %if.then221 ], [ null, %end ], [ null, %sw.bb3 ], [ %call202, %if.end210 ], [ null, %if.end197 ]
+  %gctx_params.062 = phi ptr [ %gctx_params.061, %if.then221 ], [ null, %end ], [ null, %sw.bb3 ], [ %gctx_params.2, %if.end210 ], [ %gctx_params.2, %if.end197 ]
+  %gctx_key.060 = phi ptr [ %gctx_key.059, %if.then221 ], [ null, %end ], [ null, %sw.bb3 ], [ %call202, %if.end210 ], [ null, %if.end197 ]
   %out.058 = phi ptr [ %out.057, %if.then221 ], [ %call62, %end ], [ null, %sw.bb3 ], [ %call62, %if.end210 ], [ %call62, %if.end197 ]
-  %pctx.156 = phi ptr [ %pctx.155, %if.then221 ], [ null, %end ], [ null, %sw.bb3 ], [ %pctx.0, %if.end210 ], [ %pctx.0, %if.end197 ]
-  %ectx_params.154 = phi ptr [ %ectx_params.153, %if.then221 ], [ null, %end ], [ null, %sw.bb3 ], [ %ectx_params.0, %if.end210 ], [ %ectx_params.0, %if.end197 ]
-  %ectx_key.152 = phi ptr [ %ectx_key.151, %if.then221 ], [ null, %end ], [ null, %sw.bb3 ], [ %call213, %if.end210 ], [ null, %if.end197 ]
+  %pctx.056 = phi ptr [ %pctx.055, %if.then221 ], [ null, %end ], [ null, %sw.bb3 ], [ %pctx.1, %if.end210 ], [ %pctx.1, %if.end197 ]
+  %ectx_params.054 = phi ptr [ %ectx_params.053, %if.then221 ], [ null, %end ], [ null, %sw.bb3 ], [ %ectx_params.1, %if.end210 ], [ %ectx_params.1, %if.end197 ]
+  %ectx_key.052 = phi ptr [ %ectx_key.051, %if.then221 ], [ null, %end ], [ null, %sw.bb3 ], [ %call213, %if.end210 ], [ null, %if.end197 ]
   call void @release_engine(ptr noundef %e.0) #4
   %30 = load ptr, ptr %params_key, align 8
   call void @EVP_PKEY_free(ptr noundef %30) #4
   %31 = load ptr, ptr %key, align 8
   call void @EVP_PKEY_free(ptr noundef %31) #4
-  call void @EVP_PKEY_CTX_free(ptr noundef %pctx.156) #4
-  call void @EVP_PKEY_CTX_free(ptr noundef %gctx_params.262) #4
-  call void @EVP_PKEY_CTX_free(ptr noundef %gctx_key.160) #4
+  call void @EVP_PKEY_CTX_free(ptr noundef %pctx.056) #4
+  call void @EVP_PKEY_CTX_free(ptr noundef %gctx_params.062) #4
+  call void @EVP_PKEY_CTX_free(ptr noundef %gctx_key.060) #4
   call void @OSSL_DECODER_CTX_free(ptr noundef null) #4
-  call void @OSSL_ENCODER_CTX_free(ptr noundef %ectx_params.154) #4
-  call void @OSSL_ENCODER_CTX_free(ptr noundef %ectx_key.152) #4
+  call void @OSSL_ENCODER_CTX_free(ptr noundef %ectx_params.054) #4
+  call void @OSSL_ENCODER_CTX_free(ptr noundef %ectx_key.052) #4
   call void @BIO_free_all(ptr noundef %out.058) #4
   ret i32 %ret.064
 }

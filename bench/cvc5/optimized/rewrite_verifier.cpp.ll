@@ -904,8 +904,8 @@ for.body73.lr.ph:                                 ; preds = %_ZN4cvc58internal12
 for.body73:                                       ; preds = %for.body73.lr.ph, %for.inc108
   %cmp72453 = phi i1 [ false, %for.body73.lr.ph ], [ %cmp72, %for.inc108 ]
   %i.0452 = phi i64 [ 0, %for.body73.lr.ph ], [ %inc, %for.inc108 ]
-  %pt_index.0451 = phi i64 [ 0, %for.body73.lr.ph ], [ %pt_index.1, %for.inc108 ]
-  %ptDisequal.0450 = phi i1 [ false, %for.body73.lr.ph ], [ %ptDisequal.1, %for.inc108 ]
+  %pt_index.0451 = phi i64 [ 0, %for.body73.lr.ph ], [ %pt_index.2, %for.inc108 ]
+  %ptDisequal.0450 = phi i1 [ false, %for.body73.lr.ph ], [ %ptDisequal.2, %for.inc108 ]
   %34 = load ptr, ptr %d_sampler, align 8
   %call77 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory11quantifiers12SygusSampler14getSamplePointEm(ptr noundef nonnull align 8 dereferenceable(800) %34, i64 noundef %i.0452)
           to label %invoke.cont76 unwind label %lpad75
@@ -1130,18 +1130,18 @@ lpad93:                                           ; preds = %if.then13.i4.i290, 
   br label %ehcleanup250
 
 for.inc108:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit311, %invoke.cont103, %invoke.cont101
-  %ptDisequal.1 = phi i1 [ true, %invoke.cont103 ], [ true, %invoke.cont101 ], [ %ptDisequal.0450, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit311 ]
-  %pt_index.1 = phi i64 [ %i.0452, %invoke.cont103 ], [ %i.0452, %invoke.cont101 ], [ %pt_index.0451, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit311 ]
+  %ptDisequal.2 = phi i1 [ true, %invoke.cont103 ], [ true, %invoke.cont101 ], [ %ptDisequal.0450, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit311 ]
+  %pt_index.2 = phi i64 [ %i.0452, %invoke.cont103 ], [ %i.0452, %invoke.cont101 ], [ %pt_index.0451, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit311 ]
   %inc = add nuw nsw i64 %i.0452, 1
   %cmp72 = icmp uge i64 %inc, %conv
   %exitcond = icmp eq i64 %inc, %conv
   br i1 %exitcond, label %cond.true113, label %for.body73, !llvm.loop !8
 
 cond.true113:                                     ; preds = %for.inc108
-  br i1 %ptDisequal.1, label %if.then126, label %cleanup249
+  br i1 %ptDisequal.2, label %if.then126, label %cleanup249
 
 if.then126:                                       ; preds = %invoke.cont103, %cond.true113
-  %pt_index.2470 = phi i64 [ %pt_index.1, %cond.true113 ], [ %i.0452, %invoke.cont103 ]
+  %pt_index.1470 = phi i64 [ %pt_index.2, %cond.true113 ], [ %i.0452, %invoke.cont103 ]
   %cmp72.lcssa469 = phi i1 [ %cmp72, %cond.true113 ], [ %cmp72453, %invoke.cont103 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vars, i8 0, i64 24, i1 false)
   %62 = load ptr, ptr %d_sampler, align 8
@@ -1150,7 +1150,7 @@ if.then126:                                       ; preds = %invoke.cont103, %co
 
 invoke.cont129:                                   ; preds = %if.then126
   %63 = load ptr, ptr %d_sampler, align 8
-  %call133 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory11quantifiers12SygusSampler14getSamplePointEm(ptr noundef nonnull align 8 dereferenceable(800) %63, i64 noundef %pt_index.2470)
+  %call133 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory11quantifiers12SygusSampler14getSamplePointEm(ptr noundef nonnull align 8 dereferenceable(800) %63, i64 noundef %pt_index.1470)
           to label %invoke.cont132 unwind label %lpad128
 
 invoke.cont132:                                   ; preds = %invoke.cont129
@@ -1450,7 +1450,7 @@ ehcleanup247:                                     ; preds = %ehcleanup245, %lpad
   br label %ehcleanup250
 
 cleanup249:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit256, %if.then.i.i.i, %invoke.cont.i, %cond.true113
-  %retval.1 = phi i1 [ true, %cond.true113 ], [ %cmp72.lcssa469, %invoke.cont.i ], [ %cmp72.lcssa469, %if.then.i.i.i ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit256 ]
+  %retval.2 = phi i1 [ true, %cond.true113 ], [ %cmp72.lcssa469, %invoke.cont.i ], [ %cmp72.lcssa469, %if.then.i.i.i ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit256 ]
   %96 = load ptr, ptr %bvre, align 8
   %bf.load.i.i379 = load i64, ptr %96, align 8
   %97 = and i64 %bf.load.i.i379, 1152920405095219200
@@ -1574,8 +1574,8 @@ ehcleanup254:                                     ; preds = %lpad.i.i, %ehcleanu
   resume { ptr, i32 } %.pn22.pn.pn.pn.pn.pn
 
 return:                                           ; preds = %if.end.i.i.i.i, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, %if.end, %lor.lhs.false, %entry
-  %retval.2 = phi i1 [ true, %entry ], [ true, %lor.lhs.false ], [ true, %if.end ], [ %retval.1, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i ], [ %retval.1, %if.end.i.i.i.i ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %entry ], [ true, %lor.lhs.false ], [ true, %if.end ], [ %retval.2, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i ], [ %retval.2, %if.end.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

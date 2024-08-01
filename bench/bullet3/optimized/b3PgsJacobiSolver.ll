@@ -3694,8 +3694,8 @@ if.then.i122:                                     ; preds = %_ZN20b3AlignedObjec
   br label %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit
 
 _ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit: ; preds = %_ZN20b3AlignedObjectArrayI18b3SolverConstraintE21expandNonInitializingEv.exit, %if.then.i122
-  %angVelA.sroa.0.1 = phi <2 x float> [ %27, %if.then.i122 ], [ zeroinitializer, %_ZN20b3AlignedObjectArrayI18b3SolverConstraintE21expandNonInitializingEv.exit ]
-  %angVelA.sroa.4.1 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i.i.i, %if.then.i122 ], [ zeroinitializer, %_ZN20b3AlignedObjectArrayI18b3SolverConstraintE21expandNonInitializingEv.exit ]
+  %angVelA.sroa.0.2 = phi <2 x float> [ %27, %if.then.i122 ], [ zeroinitializer, %_ZN20b3AlignedObjectArrayI18b3SolverConstraintE21expandNonInitializingEv.exit ]
+  %angVelA.sroa.4.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i.i.i, %if.then.i122 ], [ zeroinitializer, %_ZN20b3AlignedObjectArrayI18b3SolverConstraintE21expandNonInitializingEv.exit ]
   %30 = load ptr, ptr %13, align 16
   %tobool.not.i123 = icmp eq ptr %30, null
   br i1 %tobool.not.i123, label %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit139, label %if.then.i124
@@ -3711,10 +3711,10 @@ if.then.i124:                                     ; preds = %_ZNK12b3SolverBody1
   br label %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit139
 
 _ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit139: ; preds = %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit, %if.then.i124
-  %angVelB.sroa.0.1 = phi <2 x float> [ %33, %if.then.i124 ], [ zeroinitializer, %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit ]
-  %angVelB.sroa.4.1 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i.i.i136, %if.then.i124 ], [ zeroinitializer, %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit ]
-  %36 = fsub <2 x float> %angVelB.sroa.0.1, %angVelA.sroa.0.1
-  %37 = fsub <2 x float> %angVelB.sroa.4.1, %angVelA.sroa.4.1
+  %angVelB.sroa.0.2 = phi <2 x float> [ %33, %if.then.i124 ], [ zeroinitializer, %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit ]
+  %angVelB.sroa.4.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i.i.i136, %if.then.i124 ], [ zeroinitializer, %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit ]
+  %36 = fsub <2 x float> %angVelB.sroa.0.2, %angVelA.sroa.0.2
+  %37 = fsub <2 x float> %angVelB.sroa.4.2, %angVelA.sroa.4.2
   %sub7.i = extractelement <2 x float> %37, i64 0
   %retval.sroa.3.12.vec.insert.i.i387 = insertelement <2 x float> %37, float 0.000000e+00, i64 1
   store <2 x float> %36, ptr %relAngVel, align 16

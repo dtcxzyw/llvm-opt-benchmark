@@ -598,9 +598,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -790,16 +790,16 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp5.i, label %while.body.i, label %cleanup.i, !llvm.loop !4
 
 cleanup.i:                                        ; preds = %if.else.i, %while.body.i, %invoke.cont.i
-  %retval.0.i = phi ptr [ @.str, %invoke.cont.i ], [ %11, %while.body.i ], [ @.str, %if.else.i ]
+  %retval.1.i = phi ptr [ @.str, %invoke.cont.i ], [ %11, %while.body.i ], [ @.str, %if.else.i ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %gender.i) #18
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %cleanup.i, %invoke.cont21
-  %retval.1.i = phi ptr [ %retval.0.i, %cleanup.i ], [ @.str, %invoke.cont21 ]
+  %retval.0.i = phi ptr [ %retval.1.i, %cleanup.i ], [ @.str, %invoke.cont21 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.addr.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %gender.i)
   %gender = getelementptr inbounds i8, ptr %fillIn, i64 864
-  store ptr %retval.1.i, ptr %gender, align 8
+  store ptr %retval.0.i, ptr %gender, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp19) #18
   br label %arraydestroy.body27.preheader
 
@@ -1707,8 +1707,8 @@ invoke.cont23.i:                                  ; preds = %invoke.cont23.i, %i
   br i1 %cmp26.i, label %invoke.cont23.i, label %cleanup.thread.loopexit.i, !llvm.loop !17
 
 invoke.cont31.i:                                  ; preds = %while.body35.i, %invoke.cont31.lr.ph.i
-  %endSlice.089.i = phi i32 [ %sub.i, %invoke.cont31.lr.ph.i ], [ %dec.i, %while.body35.i ]
-  %conv30.i = zext nneg i32 %endSlice.089.i to i64
+  %endSlice.389.i = phi i32 [ %sub.i, %invoke.cont31.lr.ph.i ], [ %dec.i, %while.body35.i ]
+  %conv30.i = zext nneg i32 %endSlice.389.i to i64
   %arrayidx.i.i44.i = getelementptr inbounds ptr, ptr %19, i64 %conv30.i
   %23 = load ptr, ptr %arrayidx.i.i44.i, align 8
   %dimensionality33.i = getelementptr inbounds i8, ptr %23, i64 8
@@ -1717,8 +1717,8 @@ invoke.cont31.i:                                  ; preds = %while.body35.i, %in
   br i1 %cmp34.i, label %while.body35.i, label %cleanup.thread.i
 
 while.body35.i:                                   ; preds = %invoke.cont31.i
-  %dec.i = add nsw i32 %endSlice.089.i, -1
-  %cmp28.i = icmp sgt i32 %endSlice.089.i, 0
+  %dec.i = add nsw i32 %endSlice.389.i, -1
+  %cmp28.i = icmp sgt i32 %endSlice.389.i, 0
   br i1 %cmp28.i, label %invoke.cont31.i, label %if.then38.i, !llvm.loop !18
 
 if.then38.i:                                      ; preds = %while.body35.i, %while.cond27.preheader.i
@@ -1732,8 +1732,8 @@ cleanup.thread.loopexit.i:                        ; preds = %invoke.cont23.i
   br label %cleanup.thread.i
 
 cleanup.thread.i:                                 ; preds = %invoke.cont31.i, %cleanup.thread.loopexit.i
-  %startSlice.2.ph.i = phi i32 [ %25, %cleanup.thread.loopexit.i ], [ 0, %invoke.cont31.i ]
-  %endSlice.2.ph.i = phi i32 [ %sub.i, %cleanup.thread.loopexit.i ], [ %endSlice.089.i, %invoke.cont31.i ]
+  %startSlice.1.ph.i = phi i32 [ %25, %cleanup.thread.loopexit.i ], [ 0, %invoke.cont31.i ]
+  %endSlice.1.ph.i = phi i32 [ %sub.i, %cleanup.thread.loopexit.i ], [ %endSlice.389.i, %invoke.cont31.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %perRule.i) #18
   br label %if.end42.i
 
@@ -1742,9 +1742,9 @@ cleanup.i:                                        ; preds = %if.then38.i, %if.th
   br label %cleanup127.i
 
 if.end42.i:                                       ; preds = %cleanup.thread.i, %invoke.cont4.i
-  %startSlice.3.i = phi i32 [ 0, %invoke.cont4.i ], [ %startSlice.2.ph.i, %cleanup.thread.i ]
-  %endSlice.3.i = phi i32 [ %sub.i, %invoke.cont4.i ], [ %endSlice.2.ph.i, %cleanup.thread.i ]
-  %cmp43.i = icmp sgt i32 %endSlice.3.i, %startSlice.3.i
+  %startSlice.0.i = phi i32 [ 0, %invoke.cont4.i ], [ %startSlice.1.ph.i, %cleanup.thread.i ]
+  %endSlice.0.i = phi i32 [ %sub.i, %invoke.cont4.i ], [ %endSlice.1.ph.i, %cleanup.thread.i ]
+  %cmp43.i = icmp sgt i32 %endSlice.0.i, %startSlice.0.i
   br i1 %cmp43.i, label %if.then44.i, label %invoke.cont76.i
 
 if.then44.i:                                      ; preds = %if.end42.i
@@ -1783,7 +1783,7 @@ nrvo.unused.i:                                    ; preds = %invoke.cont50.i
   %cond.i2.i.i61.i = select i1 %tobool.not.i.i.i58.i, ptr %31, ptr %fBuffer.i.i.i59.i
   %32 = load i16, ptr %cond.i2.i.i61.i, align 2
   %cmp58.i = icmp eq i16 %32, 48
-  %startSlice.3.endSlice.3.i = select i1 %cmp58.i, i32 %startSlice.3.i, i32 %endSlice.3.i
+  %startSlice.0.endSlice.0.i = select i1 %cmp58.i, i32 %startSlice.0.i, i32 %endSlice.0.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp6) #18
   br label %invoke.cont76.i
 
@@ -1795,7 +1795,7 @@ if.then69.i:                                      ; preds = %invoke.cont.i
   br label %cleanup127.i
 
 invoke.cont76.i:                                  ; preds = %nrvo.unused.i, %if.end42.i, %invoke.cont.i
-  %singleUnitIndex.0.i = phi i32 [ %startSlice.3.endSlice.3.i, %nrvo.unused.i ], [ %startSlice.3.i, %if.end42.i ], [ 0, %invoke.cont.i ]
+  %singleUnitIndex.0.i = phi i32 [ %startSlice.0.endSlice.0.i, %nrvo.unused.i ], [ %startSlice.0.i, %if.end42.i ], [ 0, %invoke.cont.i ]
   %conv75.i = sext i32 %singleUnitIndex.0.i to i64
   %fPool.i65.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %33 = load ptr, ptr %fPool.i65.i, align 8
@@ -2154,13 +2154,13 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp5, label %while.body, label %cleanup, !llvm.loop !4
 
 cleanup:                                          ; preds = %if.else, %while.body, %invoke.cont
-  %retval.0 = phi ptr [ @.str, %invoke.cont ], [ @.str, %if.else ], [ %7, %while.body ]
+  %retval.1 = phi ptr [ @.str, %invoke.cont ], [ @.str, %if.else ], [ %7, %while.body ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %gender) #18
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ @.str, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ @.str, %entry ]
+  ret ptr %retval.0
 }
 
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #5
@@ -3670,7 +3670,7 @@ for.cond57:                                       ; preds = %cleanup437
   br i1 %cmp61, label %for.body62, label %for.cond445.preheader, !llvm.loop !32
 
 for.cond445.preheader:                            ; preds = %for.cond57, %for.cond57.preheader
-  %globalJoinerChar.0.lcssa = phi i16 [ 0, %for.cond57.preheader ], [ %globalJoinerChar.6, %for.cond57 ]
+  %globalJoinerChar.0.lcssa = phi i16 [ 0, %for.cond57.preheader ], [ %globalJoinerChar.2, %for.cond57 ]
   %cmp482.not = icmp eq i16 %globalJoinerChar.0.lcssa, 0
   %fUnion2.i349 = getelementptr inbounds i8, ptr %tmp452, i64 8
   br label %for.body447
@@ -3679,7 +3679,7 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %indvars.iv605 = phi i64 [ 0, %for.body62.lr.ph ], [ %indvars.iv.next606, %for.cond57 ]
   %35 = phi i32 [ %18, %for.body62.lr.ph ], [ %33, %for.cond57 ]
   %caseVariant.addr.0569 = phi ptr [ %caseVariant, %for.body62.lr.ph ], [ %caseVariant.addr.1, %for.cond57 ]
-  %globalJoinerChar.0568 = phi i16 [ 0, %for.body62.lr.ph ], [ %globalJoinerChar.6, %for.cond57 ]
+  %globalJoinerChar.0568 = phi i16 [ 0, %for.body62.lr.ph ], [ %globalJoinerChar.2, %for.cond57 ]
   %pluralCategory.0567 = phi ptr [ @.str, %for.body62.lr.ph ], [ %pluralCategory.1, %for.cond57 ]
   %36 = load ptr, ptr %fPool.i, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv605
@@ -3840,12 +3840,12 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp5.i, label %while.body.i, label %cleanup.i, !llvm.loop !4
 
 cleanup.i:                                        ; preds = %if.else.i, %while.body.i, %invoke.cont.i
-  %retval.0.i = phi ptr [ @.str, %invoke.cont.i ], [ %52, %while.body.i ], [ @.str, %if.else.i ]
+  %retval.1.i = phi ptr [ @.str, %invoke.cont.i ], [ %52, %while.body.i ], [ @.str, %if.else.i ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %gender.i) #18
   br label %invoke.cont98
 
 invoke.cont98:                                    ; preds = %cleanup.i, %invoke.cont96
-  %retval.1.i = phi ptr [ %retval.0.i, %cleanup.i ], [ @.str, %invoke.cont96 ]
+  %retval.0.i = phi ptr [ %retval.1.i, %cleanup.i ], [ @.str, %invoke.cont96 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.addr.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %gender.i)
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp95) #18
@@ -3906,7 +3906,7 @@ invoke.cont114:                                   ; preds = %invoke.cont109
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp23.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119InflectedPluralSinkE, i64 16), ptr %sink.i, align 8
-  store ptr %retval.1.i, ptr %gender2.i.i, align 8
+  store ptr %retval.0.i, ptr %gender2.i.i, align 8
   store ptr %singleCaseVariant.0, ptr %caseVariant3.i.i, align 8
   store ptr %dimensionalityPrefixPatterns, ptr %outArray4.i.i, align 8
   br label %for.body.i.i
@@ -4117,7 +4117,7 @@ cleanup:                                          ; preds = %invoke.cont116
   br label %invoke.cont130
 
 invoke.cont130:                                   ; preds = %arrayctor.cont, %cleanup
-  %singleCaseVariant.2 = phi ptr [ %spec.select.i215, %cleanup ], [ %singleCaseVariant.0, %arrayctor.cont ]
+  %singleCaseVariant.1 = phi ptr [ %spec.select.i215, %cleanup ], [ %singleCaseVariant.0, %arrayctor.cont ]
   %unitPrefix = getelementptr inbounds i8, ptr %37, i64 4
   %85 = load i32, ptr %unitPrefix, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %prefixPattern, align 8
@@ -4195,7 +4195,7 @@ arrayctor.cont168:                                ; preds = %invoke.cont159
           to label %invoke.cont171 unwind label %lpad170.loopexit.split-lp
 
 invoke.cont171:                                   ; preds = %arrayctor.cont168
-  invoke fastcc void @_ZN12_GLOBAL__N_114getMeasureDataERKN6icu_756LocaleERKNS0_11MeasureUnitERK16UNumberUnitWidthPKcPNS0_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp169, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef %singleCaseVariant.2, ptr noundef nonnull %singleUnitArray, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_114getMeasureDataERKN6icu_756LocaleERKNS0_11MeasureUnitERK16UNumberUnitWidthPKcPNS0_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp169, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef %singleCaseVariant.1, ptr noundef nonnull %singleUnitArray, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont174 unwind label %lpad173
 
 invoke.cont174:                                   ; preds = %invoke.cont171
@@ -4361,7 +4361,7 @@ if.end251:                                        ; preds = %if.end250, %if.end1
 
 for.body255:                                      ; preds = %if.end251, %for.inc404
   %indvars.iv602 = phi i64 [ 0, %if.end251 ], [ %indvars.iv.next603, %for.inc404 ]
-  %globalJoinerChar.1560 = phi i16 [ %globalJoinerChar.0568, %if.end251 ], [ %globalJoinerChar.4, %for.inc404 ]
+  %globalJoinerChar.4560 = phi i16 [ %globalJoinerChar.0568, %if.end251 ], [ %globalJoinerChar.5, %for.inc404 ]
   %arrayidx257 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %outArray, i64 %indvars.iv602
   %fUnion.i233 = getelementptr inbounds i8, ptr %arrayidx257, i64 8
   %112 = load i16, ptr %fUnion.i233, align 8
@@ -4747,7 +4747,7 @@ if.then301:                                       ; preds = %if.end297
   br label %if.end305
 
 if.end305:                                        ; preds = %if.end297, %if.then301
-  %globalJoinerChar.2 = phi i16 [ %joinerChar.0.ph, %if.then301 ], [ %globalJoinerChar.1560, %if.end297 ]
+  %globalJoinerChar.7 = phi i16 [ %joinerChar.0.ph, %if.then301 ], [ %globalJoinerChar.4560, %if.end297 ]
   br i1 %cmp131.not, label %if.end337, label %if.then307
 
 if.then307:                                       ; preds = %if.end305
@@ -4947,7 +4947,7 @@ cleanup400.thread.critedge404:                    ; preds = %invoke.cont360
   br label %cleanup400.thread
 
 cleanup400.thread:                                ; preds = %cleanup400.thread.critedge404, %cleanup400.thread.critedge, %if.then296, %cleanup333.thread, %cleanup371.thread
-  %globalJoinerChar.3.ph = phi i16 [ %globalJoinerChar.2, %cleanup371.thread ], [ %globalJoinerChar.2, %cleanup333.thread ], [ %globalJoinerChar.1560, %if.then296 ], [ %globalJoinerChar.2, %cleanup400.thread.critedge ], [ %globalJoinerChar.2, %cleanup400.thread.critedge404 ]
+  %globalJoinerChar.6.ph = phi i16 [ %globalJoinerChar.7, %cleanup371.thread ], [ %globalJoinerChar.7, %cleanup333.thread ], [ %globalJoinerChar.4560, %if.then296 ], [ %globalJoinerChar.7, %cleanup400.thread.critedge ], [ %globalJoinerChar.7, %cleanup400.thread.critedge404 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %coreUnit) #18
   br label %cleanup407
 
@@ -4956,7 +4956,7 @@ cleanup400:                                       ; preds = %invoke.cont396, %if
   br label %for.inc404
 
 for.inc404:                                       ; preds = %cleanup400, %if.then261
-  %globalJoinerChar.4 = phi i16 [ %globalJoinerChar.1560, %if.then261 ], [ %globalJoinerChar.2, %cleanup400 ]
+  %globalJoinerChar.5 = phi i16 [ %globalJoinerChar.4560, %if.then261 ], [ %globalJoinerChar.7, %cleanup400 ]
   %indvars.iv.next603 = add nuw nsw i64 %indvars.iv602, 1
   %exitcond604.not = icmp eq i64 %indvars.iv.next603, 8
   br i1 %exitcond604.not, label %cleanup407, label %for.body255, !llvm.loop !43
@@ -4967,8 +4967,8 @@ ehcleanup403:                                     ; preds = %lpad.i260, %lpad290
   br label %ehcleanup414
 
 cleanup407:                                       ; preds = %for.inc404, %invoke.cont270, %cleanup400.thread, %invoke.cont174
-  %globalJoinerChar.5 = phi i16 [ %globalJoinerChar.0568, %invoke.cont174 ], [ %globalJoinerChar.3.ph, %cleanup400.thread ], [ %globalJoinerChar.1560, %invoke.cont270 ], [ %globalJoinerChar.4, %for.inc404 ]
-  %cleanup.dest.slot.6 = phi i32 [ 1, %invoke.cont174 ], [ 1, %cleanup400.thread ], [ 1, %invoke.cont270 ], [ 0, %for.inc404 ]
+  %globalJoinerChar.3 = phi i16 [ %globalJoinerChar.0568, %invoke.cont174 ], [ %globalJoinerChar.6.ph, %cleanup400.thread ], [ %globalJoinerChar.4560, %invoke.cont270 ], [ %globalJoinerChar.5, %for.inc404 ]
+  %cleanup.dest.slot.3 = phi i32 [ 1, %invoke.cont174 ], [ 1, %cleanup400.thread ], [ 1, %invoke.cont270 ], [ 0, %for.inc404 ]
   br label %arraydestroy.body409
 
 arraydestroy.body409:                             ; preds = %arraydestroy.body409, %cleanup407
@@ -4983,8 +4983,8 @@ arraydestroy.done413:                             ; preds = %arraydestroy.body40
   br label %cleanup423
 
 cleanup423:                                       ; preds = %cleanup.thread, %arraydestroy.done413
-  %globalJoinerChar.6 = phi i16 [ %globalJoinerChar.5, %arraydestroy.done413 ], [ %globalJoinerChar.0568, %cleanup.thread ]
-  %cleanup.dest.slot.7 = phi i32 [ %cleanup.dest.slot.6, %arraydestroy.done413 ], [ 1, %cleanup.thread ]
+  %globalJoinerChar.2 = phi i16 [ %globalJoinerChar.3, %arraydestroy.done413 ], [ %globalJoinerChar.0568, %cleanup.thread ]
+  %cleanup.dest.slot.2 = phi i32 [ %cleanup.dest.slot.3, %arraydestroy.done413 ], [ 1, %cleanup.thread ]
   br label %arraydestroy.body425
 
 arraydestroy.body425:                             ; preds = %arraydestroy.body425, %cleanup423
@@ -4996,7 +4996,7 @@ arraydestroy.body425:                             ; preds = %arraydestroy.body42
 
 cleanup437:                                       ; preds = %arraydestroy.body425
   call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %simpleUnit) #18
-  %cond = icmp eq i32 %cleanup.dest.slot.7, 0
+  %cond = icmp eq i32 %cleanup.dest.slot.2, 0
   br i1 %cond, label %for.cond57, label %cleanup502
 
 ehcleanup414:                                     ; preds = %lpad170.loopexit, %lpad170.loopexit.split-lp, %lpad.i241, %ehcleanup403, %ehcleanup, %lpad173
@@ -5556,8 +5556,8 @@ if.end22.loopexit:                                ; preds = %while.cond13
 
 if.end22:                                         ; preds = %while.body, %if.end22.loopexit, %if.end
   %start.020 = phi i32 [ 0, %if.end ], [ %10, %if.end22.loopexit ], [ %6, %while.body ]
-  %limit.1 = phi i32 [ %6, %if.end ], [ %11, %if.end22.loopexit ], [ %6, %while.body ]
-  %sub23 = sub nsw i32 %limit.1, %start.020
+  %limit.0 = phi i32 [ %6, %if.end ], [ %11, %if.end22.loopexit ], [ %6, %while.body ]
+  %sub23 = sub nsw i32 %limit.0, %start.020
   store i32 %sub23, ptr %length, align 4
   %idx.ext = zext nneg i32 %start.020 to i64
   %add.ptr = getelementptr inbounds i16, ptr %s, i64 %idx.ext
@@ -5744,12 +5744,12 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont25, %invoke.cont35
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont35 ], [ 1, %invoke.cont25 ]
+  %cleanup.dest.slot.2 = phi i32 [ 0, %invoke.cont35 ], [ 1, %invoke.cont25 ]
   call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %compoundCompiled) #18
   br label %cleanup38
 
 cleanup38:                                        ; preds = %cleanup, %invoke.cont17
-  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.0, %cleanup ], [ 1, %invoke.cont17 ]
+  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.2, %cleanup ], [ 1, %invoke.cont17 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %compoundFormat) #18
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %leadFormat) #18
   %cond = icmp ne i32 %cleanup.dest.slot.1, 0
@@ -6679,7 +6679,7 @@ if.end9:                                          ; preds = %invoke.cont5
           to label %cleanup unwind label %lpad4
 
 cleanup:                                          ; preds = %if.end9, %invoke.cont5
-  %retval.0 = phi ptr [ null, %invoke.cont5 ], [ %call, %if.end9 ]
+  %retval.1 = phi ptr [ null, %invoke.cont5 ], [ %call, %if.end9 ]
   br label %arraydestroy.body14
 
 arraydestroy.body14:                              ; preds = %arraydestroy.body14, %cleanup
@@ -6697,8 +6697,8 @@ arraydestroy.body20:                              ; preds = %arraydestroy.body20
   br i1 %arraydestroy.done23, label %eh.resume, label %arraydestroy.body20
 
 return:                                           ; preds = %arraydestroy.body14, %if.then
-  %retval.1 = phi ptr [ null, %if.then ], [ %retval.0, %arraydestroy.body14 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then ], [ %retval.1, %arraydestroy.body14 ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %arraydestroy.body20, %arraydestroy.done2.i
   %.pn = phi { ptr, i32 } [ %1, %arraydestroy.done2.i ], [ %eh.lpad-body8, %arraydestroy.body20 ]
@@ -7603,7 +7603,7 @@ invoke.cont113:                                   ; preds = %invoke.cont112
   br label %cleanup121.thread
 
 cleanup121.thread:                                ; preds = %if.then106, %invoke.cont113
-  %retval.0 = phi ptr [ %emptyWeakModifier108, %if.then106 ], [ %mixedUnitModifier, %invoke.cont113 ]
+  %retval.2 = phi ptr [ %emptyWeakModifier108, %if.then106 ], [ %mixedUnitModifier, %invoke.cont113 ]
   call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %premixedCompiled) #18
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %premixedFormatPattern) #18
   br label %delete.notnull.i
@@ -7618,7 +7618,7 @@ cleanup121:                                       ; preds = %_ZN6icu_7510LocalAr
   br label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %cleanup121, %cleanup121.thread
-  %retval.1114 = phi ptr [ %retval.0, %cleanup121.thread ], [ %emptyWeakModifier14, %cleanup121 ]
+  %retval.1114 = phi ptr [ %retval.2, %cleanup121.thread ], [ %emptyWeakModifier14, %cleanup121 ]
   %44 = load i64, ptr %call, align 8
   %arraydestroy.isempty.i = icmp eq i64 %44, 0
   br i1 %arraydestroy.isempty.i, label %arraydestroy.done2.i, label %arraydestroy.body.preheader.i
@@ -7646,8 +7646,8 @@ ehcleanup122:                                     ; preds = %ehcleanup120, %ehcl
   resume { ptr, i32 } %.pn42.pn.pn.pn
 
 return:                                           ; preds = %cleanup121.thread115, %arraydestroy.done2.i, %if.then
-  %retval.2 = phi ptr [ %emptyWeakModifier, %if.then ], [ %retval.1114, %arraydestroy.done2.i ], [ %emptyWeakModifier14116, %cleanup121.thread115 ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ %emptyWeakModifier, %if.then ], [ %retval.1114, %arraydestroy.done2.i ], [ %emptyWeakModifier14116, %cleanup121.thread115 ]
+  ret ptr %retval.0
 }
 
 declare void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #5

@@ -230,7 +230,7 @@ define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unn
   br label %findwrd.exit89
 
 findwrd.exit89:                                   ; preds = %87, %84
-  %.193 = phi i16 [ 2, %84 ], [ 0, %87 ]
+  %.2 = phi i16 [ 2, %84 ], [ 0, %87 ]
   %storemerge36.i76 = phi ptr [ %.0.lcssa.i86, %84 ], [ %.1.lcssa.i85, %87 ]
   store i8 0, ptr %storemerge36.i76, align 1
   %88 = load i32, ptr %45, align 8
@@ -292,7 +292,7 @@ findwrd.exit89:                                   ; preds = %87, %84
   store i32 %115, ptr %117, align 8
   %118 = load ptr, ptr %47, align 8
   %119 = getelementptr %struct.Syn, ptr %118, i64 %100, i32 3
-  store i16 %.193, ptr %119, align 4
+  store i16 %.2, ptr %119, align 4
   %120 = add i32 %.056142, 1
   br label %findwrd.exit.thread
 

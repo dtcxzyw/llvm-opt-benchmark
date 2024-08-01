@@ -4963,7 +4963,7 @@ define hidden void @"_ZN5tokio7process3imp6orphan24OrphanQueueImpl$LT$T$GT$12rea
   invoke void @"_ZN4core3ptr142drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$core..option..Option$LT$tokio..sync..watch..Receiver$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hda06c9cab9b65ba8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #27
           to label %93 unwind label %73
 
-28:                                               ; preds = %91, %82, %.critedge, %21, %19, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit39"
+28:                                               ; preds = %91, %82, %.critedge, %21, %19, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit38"
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %27
@@ -4976,13 +4976,13 @@ define hidden void @"_ZN5tokio7process3imp6orphan24OrphanQueueImpl$LT$T$GT$12rea
   br i1 %32, label %.critedge, label %36
 
 .body31:                                          ; preds = %34, %72, %68
-  %.1 = phi i8 [ %.4, %68 ], [ %.4, %72 ], [ %.2, %34 ]
+  %.2 = phi i8 [ %.4, %68 ], [ %.4, %72 ], [ %.1, %34 ]
   %.pn21 = phi { ptr, i32 } [ %.pn, %68 ], [ %.pn, %72 ], [ %35, %34 ]
-  %33 = trunc nuw i8 %.1 to i1
+  %33 = trunc nuw i8 %.2 to i1
   br i1 %33, label %88, label %27
 
 34:                                               ; preds = %.thread, %36
-  %.2 = phi i8 [ %.351, %.thread ], [ 1, %36 ]
+  %.1 = phi i8 [ %.350, %.thread ], [ 1, %36 ]
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.body31
@@ -5049,7 +5049,7 @@ define hidden void @"_ZN5tokio7process3imp6orphan24OrphanQueueImpl$LT$T$GT$12rea
 62:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokio..sync..watch..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h610c4e69d89ba427E.exit"
   %.pr = load ptr, ptr %3, align 8
   %.not20 = icmp eq ptr %.pr, null
-  br i1 %.not20, label %.thread, label %.thread52
+  br i1 %.not20, label %.thread, label %.thread51
 
 63:                                               ; preds = %59
   %64 = landingpad { ptr, i32 }
@@ -5095,20 +5095,20 @@ define hidden void @"_ZN5tokio7process3imp6orphan24OrphanQueueImpl$LT$T$GT$12rea
 
 .thread:                                          ; preds = %37, %62
   %75 = phi ptr [ %67, %62 ], [ %0, %37 ]
-  %.351 = phi i8 [ 0, %62 ], [ 1, %37 ]
+  %.350 = phi i8 [ 0, %62 ], [ 1, %37 ]
   invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$tokio..sync..watch..Receiver$LT$$LP$$RP$$GT$$C$std..io..error..Error$GT$$GT$17h43fd6303bc97e32dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
           to label %76 unwind label %34
 
-.thread52:                                        ; preds = %62
+.thread51:                                        ; preds = %62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %"_ZN4core3ptr112drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17ha0337a5df5a64f47E.exit"
 
 76:                                               ; preds = %.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %77 = trunc nuw i8 %.351 to i1
+  %77 = trunc nuw i8 %.350 to i1
   br i1 %77, label %.critedge, label %"_ZN4core3ptr112drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17ha0337a5df5a64f47E.exit"
 
-"_ZN4core3ptr112drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17ha0337a5df5a64f47E.exit": ; preds = %.noexc33, %82, %.thread52, %76
+"_ZN4core3ptr112drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17ha0337a5df5a64f47E.exit": ; preds = %.noexc33, %82, %.thread51, %76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.critedge27
 
@@ -5127,7 +5127,7 @@ define hidden void @"_ZN5tokio7process3imp6orphan24OrphanQueueImpl$LT$T$GT$12rea
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hece2ff75ef233b4aE(ptr noundef nonnull align 1 %78, i1 noundef zeroext false)
           to label %"_ZN4core3ptr112drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17ha0337a5df5a64f47E.exit" unwind label %28
 
-.critedge27:                                      ; preds = %.noexc28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit39", %"_ZN4core3ptr112drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17ha0337a5df5a64f47E.exit"
+.critedge27:                                      ; preds = %.noexc28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit38", %"_ZN4core3ptr112drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17ha0337a5df5a64f47E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !948)
   call void @llvm.experimental.noalias.scope.decl(metadata !951)
   call void @llvm.experimental.noalias.scope.decl(metadata !954)
@@ -5153,14 +5153,14 @@ define hidden void @"_ZN5tokio7process3imp6orphan24OrphanQueueImpl$LT$T$GT$12rea
 89:                                               ; preds = %.noexc28
   store i64 %25, ptr %22, align 8, !alias.scope !924
   %90 = cmpxchg weak ptr %0, i8 0, i8 1 acquire monotonic, align 1
-  %.sroa.18.0.in.i.i37 = extractvalue { i8, i1 } %90, 1
-  br i1 %.sroa.18.0.in.i.i37, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit39", label %91
+  %.sroa.18.0.in.i.i36 = extractvalue { i8, i1 } %90, 1
+  br i1 %.sroa.18.0.in.i.i36, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit38", label %91
 
 91:                                               ; preds = %89
   %92 = invoke noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17ha7d07771867e5354E(ptr noundef nonnull align 1 %0, i64 undef, i32 noundef 1000000000)
-          to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit39" unwind label %28
+          to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit38" unwind label %28
 
-"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit39": ; preds = %89, %91
+"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit38": ; preds = %89, %91
   invoke fastcc void @_ZN5tokio7process3imp6orphan18drain_orphan_queue17hd6c2387c66f06b6cE(ptr noundef nonnull align 8 %0)
           to label %.critedge27 unwind label %28
 
@@ -5477,7 +5477,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb053451e5
           to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h04dd34217b0b88f1E.exit" unwind label %.thread
 
 34:                                               ; preds = %.body18
-  br i1 %.1, label %.thread42, label %.critedge
+  br i1 %.2, label %.thread42, label %.critedge
 
 .thread:                                          ; preds = %17, %20, %27, %33, %37
   %35 = landingpad { ptr, i32 }
@@ -5784,14 +5784,14 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17hdf00783c8dd2a7bbE.llvm.9340333246167
 
 .body18:                                          ; preds = %114, %108, %.body
   %113 = phi i64 [ %.sroa.0.0.copyload1.i, %.body ], [ %115, %114 ], [ %.sroa.0.0.copyload1.i, %108 ]
-  %.1 = phi i1 [ false, %.body ], [ %.2, %114 ], [ false, %108 ]
+  %.2 = phi i1 [ false, %.body ], [ %.1, %114 ], [ false, %108 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %116, %114 ], [ %109, %108 ]
   %.not8 = icmp eq i64 %113, 3
   br i1 %.not8, label %34, label %120
 
 114:                                              ; preds = %110, %97
   %115 = phi i64 [ 3, %97 ], [ %.sroa.0.0.copyload1.i, %110 ]
-  %.2 = phi i1 [ true, %97 ], [ false, %110 ]
+  %.1 = phi i1 [ true, %97 ], [ false, %110 ]
   %116 = landingpad { ptr, i32 }
           cleanup
   br label %.body18
@@ -5811,7 +5811,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17hdf00783c8dd2a7bbE.llvm.9340333246167
   unreachable
 
 120:                                              ; preds = %.body18
-  br i1 %.1, label %121, label %.critedge
+  br i1 %.2, label %121, label %.critedge
 
 121:                                              ; preds = %120
   invoke void @"_ZN4core3ptr72drop_in_place$LT$tokio..runtime..context..runtime..EnterRuntimeGuard$GT$17h88f54215d2b10bfcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #27

@@ -448,7 +448,7 @@ do.end.i:                                         ; preds = %fb_ffs.exit47.i, %d
   %i.0.in57.i = phi i64 [ %add42.i.i.i, %do.end.lr.ph.i ], [ %add42.i.i38.i, %fb_ffs.exit47.i ]
   %ret_summ.sroa.3.056.i = phi i64 [ 0, %do.end.lr.ph.i ], [ %ret_summ.sroa.3.1.i, %fb_ffs.exit47.i ]
   %ret_summ.sroa.0.055.i = phi i64 [ 0, %do.end.lr.ph.i ], [ %ret_summ.sroa.0.1.i, %fb_ffs.exit47.i ]
-  %ret.054.i = phi ptr [ null, %do.end.lr.ph.i ], [ %ret.1.i, %fb_ffs.exit47.i ]
+  %ret.054.i = phi ptr [ null, %do.end.lr.ph.i ], [ %ret.2.i, %fb_ffs.exit47.i ]
   %lg_max_fit.addr.053.i = phi i32 [ %lg_max_fit, %do.end.lr.ph.i ], [ %spec.store.select.i, %fb_ffs.exit47.i ]
   %cmp13.i = icmp eq i32 %lg_max_fit.addr.053.i, 64
   %spec.store.select.i = select i1 %cmp13.i, i32 63, i32 %lg_max_fit.addr.053.i
@@ -491,7 +491,7 @@ if.then30.i:                                      ; preds = %lor.lhs.false.i, %i
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.then30.i, %lor.lhs.false.i
-  %ret.1.i = phi ptr [ %call35.i, %if.then30.i ], [ %ret.054.i, %lor.lhs.false.i ]
+  %ret.2.i = phi ptr [ %call35.i, %if.then30.i ], [ %ret.054.i, %lor.lhs.false.i ]
   %ret_summ.sroa.0.1.i = phi i64 [ %ret_summ.sroa.0.0.copyload.i, %if.then30.i ], [ %ret_summ.sroa.0.055.i, %lor.lhs.false.i ]
   %ret_summ.sroa.3.1.i = phi i64 [ %ret_summ.sroa.3.0.copyload.i, %if.then30.i ], [ %ret_summ.sroa.3.056.i, %lor.lhs.false.i ]
   %cmp48.i = icmp eq i64 %conv1058.i, 199
@@ -531,7 +531,7 @@ fb_ffs.exit47.i:                                  ; preds = %if.end29.i.i44.i, %
   br i1 %cmp.i, label %do.end.i, label %eset_first_fit.exit, !llvm.loop !8
 
 eset_first_fit.exit:                              ; preds = %while.body.i.i.i, %do.end.i, %if.end46.i, %fb_ffs.exit47.i, %while.body.i.i40.i, %if.then.i, %cond.false.i, %fb_ffs.exit.i
-  %retval.0.i = phi ptr [ %call7.i, %cond.false.i ], [ null, %if.then.i ], [ null, %fb_ffs.exit.i ], [ %ret.1.i, %while.body.i.i40.i ], [ %ret.1.i, %fb_ffs.exit47.i ], [ %ret.054.i, %do.end.i ], [ %ret.1.i, %if.end46.i ], [ null, %while.body.i.i.i ]
+  %retval.0.i = phi ptr [ %call7.i, %cond.false.i ], [ null, %if.then.i ], [ null, %fb_ffs.exit.i ], [ %ret.2.i, %while.body.i.i40.i ], [ %ret.2.i, %fb_ffs.exit47.i ], [ %ret.054.i, %do.end.i ], [ %ret.2.i, %if.end46.i ], [ null, %while.body.i.i.i ]
   %cmp2 = icmp ugt i64 %alignment, 4096
   %cmp3 = icmp eq ptr %retval.0.i, null
   %or.cond = select i1 %cmp2, i1 %cmp3, i1 false

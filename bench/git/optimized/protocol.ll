@@ -115,7 +115,7 @@ land.rhs.lr.ph:                                   ; preds = %if.then
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %item.01319 = phi ptr [ %incdec.ptr, %for.inc ], [ %1, %land.rhs.lr.ph ]
-  %version.01418 = phi i32 [ %version.1, %for.inc ], [ 0, %land.rhs.lr.ph ]
+  %version.11418 = phi i32 [ %version.2, %for.inc ], [ 0, %land.rhs.lr.ph ]
   %3 = load ptr, ptr %item.01319, align 8
   %scevgep = getelementptr i8, ptr %3, i64 8
   br label %do.body.i
@@ -151,25 +151,25 @@ switch.lookup:                                    ; preds = %if.then5
 
 parse_protocol_version.exit:                      ; preds = %if.then5, %switch.lookup
   %retval.0.i = phi i32 [ -1, %if.then5 ], [ %spec.select17.i, %switch.lookup ]
-  %spec.select = call i32 @llvm.smax.i32(i32 %retval.0.i, i32 %version.01418)
+  %spec.select = call i32 @llvm.smax.i32(i32 %retval.0.i, i32 %version.11418)
   br label %for.inc
 
 for.inc:                                          ; preds = %do.cond.i, %parse_protocol_version.exit
-  %version.1 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %version.01418, %do.cond.i ]
+  %version.2 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %version.11418, %do.cond.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %item.01319, i64 16
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end
 
 for.end:                                          ; preds = %for.inc, %land.rhs.lr.ph, %if.then
-  %version.0.lcssa = phi i32 [ 0, %if.then ], [ 0, %land.rhs.lr.ph ], [ %version.1, %for.inc ]
+  %version.1.lcssa = phi i32 [ 0, %if.then ], [ 0, %land.rhs.lr.ph ], [ %version.2, %for.inc ]
   call void @string_list_clear(ptr noundef nonnull %list, i32 noundef 0) #6
   br label %if.end10
 
 if.end10:                                         ; preds = %for.end, %entry
-  %version.2 = phi i32 [ %version.0.lcssa, %for.end ], [ 0, %entry ]
-  %conv = zext nneg i32 %version.2 to i64
+  %version.0 = phi i32 [ %version.1.lcssa, %for.end ], [ 0, %entry ]
+  %conv = zext nneg i32 %version.0 to i64
   call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.6, i32 noundef 78, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef %conv) #6
-  ret i32 %version.2
+  ret i32 %version.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

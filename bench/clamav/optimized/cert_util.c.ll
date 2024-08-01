@@ -621,9 +621,9 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
   br label %57
 
 57:                                               ; preds = %49, %43, %29, %11
-  %.1 = phi ptr [ null, %11 ], [ %27, %43 ], [ %27, %49 ], [ null, %29 ]
+  %.035 = phi ptr [ null, %11 ], [ %27, %43 ], [ %27, %49 ], [ null, %29 ]
   %.0 = phi i32 [ 8, %11 ], [ 8, %43 ], [ 0, %49 ], [ 8, %29 ]
-  call void @free(ptr noundef %.1) #15
+  call void @free(ptr noundef %.035) #15
   ret i32 %.0
 }
 

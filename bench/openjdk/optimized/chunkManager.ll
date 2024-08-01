@@ -461,8 +461,8 @@ _ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEPNS_9MetachunkEa.exit
   br label %.thread64
 
 .thread64:                                        ; preds = %51, %49, %96, %111
-  %.7 = phi ptr [ %.4.ph, %111 ], [ null, %96 ], [ null, %49 ], [ null, %51 ]
-  ret ptr %.7
+  %.6 = phi ptr [ %.4.ph, %111 ], [ null, %96 ], [ null, %49 ], [ null, %51 ]
+  ret ptr %.6
 }
 
 declare noundef ptr @_ZN9metaspace19FreeChunkListVector22search_chunk_ascendingEaam(ptr noundef nonnull align 8 dereferenceable(360), i8 noundef signext, i8 noundef signext, i64 noundef) local_unnamed_addr #1

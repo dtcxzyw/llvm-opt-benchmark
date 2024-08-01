@@ -1162,10 +1162,10 @@ if.then39.i.i.i:                                  ; preds = %if.else32.i.i.i
 for.body.i70.i.i:                                 ; preds = %if.end63.i.i.i, %for.body.i70.i.preheader.i
   %40 = phi ptr [ %48, %if.end63.i.i.i ], [ %call35.i.i.i, %for.body.i70.i.preheader.i ]
   %indvars.iv.i71.i.i = phi i64 [ %indvars.iv.next.i74.i.i, %if.end63.i.i.i ], [ 0, %for.body.i70.i.preheader.i ]
-  %block_length.addr.159.i.i.i = phi i32 [ %sub66.i.i.i, %if.end63.i.i.i ], [ %sub12.i.i.i, %for.body.i70.i.preheader.i ]
+  %block_length.addr.259.i.i.i = phi i32 [ %sub66.i.i.i, %if.end63.i.i.i ], [ %sub12.i.i.i, %for.body.i70.i.preheader.i ]
   %add.ptr.i72.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %40, i64 %indvars.iv.i71.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i11.i)
-  %cmp.i.i = icmp ugt i32 %div22.i31.i, %block_length.addr.159.i.i.i
+  %cmp.i.i = icmp ugt i32 %div22.i31.i, %block_length.addr.259.i.i.i
   br i1 %cmp.i.i, label %if.then56.i.i.i, label %if.end.i12.i
 
 if.end.i12.i:                                     ; preds = %for.body.i70.i.i
@@ -1174,7 +1174,7 @@ if.end.i12.i:                                     ; preds = %for.body.i70.i.i
   br i1 %cmp3.not.i.i, label %if.end6.i.i, label %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i
 
 if.end6.i.i:                                      ; preds = %if.end.i12.i
-  %sub.i.i = sub i32 %block_length.addr.159.i.i.i, %div22.i31.i
+  %sub.i.i = sub i32 %block_length.addr.259.i.i.i, %div22.i31.i
   br i1 %cmp5.not.i.i40.i, label %unpack_uint32_little_endian_.exit.thread.i.i, label %for.body.i.i17.i
 
 unpack_uint32_little_endian_.exit.thread.i.i:     ; preds = %if.end6.i.i
@@ -1246,9 +1246,9 @@ read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i: ; preds = %land
 
 if.then56.i.i.i:                                  ; preds = %for.body.i70.i.i, %if.then12.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i11.i)
-  %cmp49.i.i97.i = icmp ugt i32 %block_length.addr.159.i.i.i, 3
-  %sub52.i.i98.i = add i32 %block_length.addr.159.i.i.i, -4
-  %spec.select46.i.i99.i = select i1 %cmp49.i.i97.i, i32 %sub52.i.i98.i, i32 %block_length.addr.159.i.i.i
+  %cmp49.i.i97.i = icmp ugt i32 %block_length.addr.259.i.i.i, 3
+  %sub52.i.i98.i = add i32 %block_length.addr.259.i.i.i, -4
+  %spec.select46.i.i99.i = select i1 %cmp49.i.i97.i, i32 %sub52.i.i98.i, i32 %block_length.addr.259.i.i.i
   %46 = trunc nuw i64 %indvars.iv.i71.i.i to i32
   store i32 %46, ptr %num_comments.i.i.i, align 8
   br label %skip.i.i.i
@@ -1259,9 +1259,9 @@ if.end63.i.i.i:                                   ; preds = %land.lhs.true.if.en
   %arrayidx.i29.i = getelementptr inbounds i8, ptr %47, i64 %idxprom.i28.i
   store i8 0, ptr %arrayidx.i29.i, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i11.i)
-  %cmp49.i.i.i = icmp ugt i32 %block_length.addr.159.i.i.i, 3
-  %sub52.i.i.i = add i32 %block_length.addr.159.i.i.i, -4
-  %spec.select46.i.i.i = select i1 %cmp49.i.i.i, i32 %sub52.i.i.i, i32 %block_length.addr.159.i.i.i
+  %cmp49.i.i.i = icmp ugt i32 %block_length.addr.259.i.i.i, 3
+  %sub52.i.i.i = add i32 %block_length.addr.259.i.i.i, -4
+  %spec.select46.i.i.i = select i1 %cmp49.i.i.i, i32 %sub52.i.i.i, i32 %block_length.addr.259.i.i.i
   %48 = load ptr, ptr %comments36.i.i.i, align 8
   %arrayidx.i73.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %48, i64 %indvars.iv.i71.i.i
   %49 = load i32, ptr %arrayidx.i73.i.i, align 8
@@ -1273,13 +1273,13 @@ if.end63.i.i.i:                                   ; preds = %land.lhs.true.if.en
   br i1 %cmp45.i.i.i, label %for.body.i70.i.i, label %skip.i.i.i, !llvm.loop !10
 
 skip.i.i.i:                                       ; preds = %if.end63.i.i.i, %if.then56.i.i.i, %if.then30.i.i.i, %if.end43.thread.i.i.i, %if.end6.i57.i.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread85.i
-  %block_length.addr.3.i.i.i = phi i32 [ %sub8.i.i.i, %if.end6.i57.i.i ], [ %spec.select46.i.i99.i, %if.then56.i.i.i ], [ %sub12.i.i.i, %if.then30.i.i.i ], [ %sub12.i.i.i, %if.end43.thread.i.i.i ], [ %spec.select.i.i89.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread85.i ], [ %sub66.i.i.i, %if.end63.i.i.i ]
-  %status.1.i.i.i = phi i32 [ 0, %if.end6.i57.i.i ], [ 5, %if.then56.i.i.i ], [ 5, %if.then30.i.i.i ], [ 0, %if.end43.thread.i.i.i ], [ 5, %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread85.i ], [ 0, %if.end63.i.i.i ]
-  %cmp67.not.i.i.i = icmp eq i32 %block_length.addr.3.i.i.i, 0
+  %block_length.addr.1.i.i.i = phi i32 [ %sub8.i.i.i, %if.end6.i57.i.i ], [ %spec.select46.i.i99.i, %if.then56.i.i.i ], [ %sub12.i.i.i, %if.then30.i.i.i ], [ %sub12.i.i.i, %if.end43.thread.i.i.i ], [ %spec.select.i.i89.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread85.i ], [ %sub66.i.i.i, %if.end63.i.i.i ]
+  %status.0.i.i.i = phi i32 [ 0, %if.end6.i57.i.i ], [ 5, %if.then56.i.i.i ], [ 5, %if.then30.i.i.i ], [ 0, %if.end43.thread.i.i.i ], [ 5, %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread85.i ], [ 0, %if.end63.i.i.i ]
+  %cmp67.not.i.i.i = icmp eq i32 %block_length.addr.1.i.i.i, 0
   br i1 %cmp67.not.i.i.i, label %if.end76.i.i.i, label %if.then69.i.i.i
 
 if.then69.i.i.i:                                  ; preds = %skip.i.i.i
-  %conv70.i.i.i = zext i32 %block_length.addr.3.i.i.i to i64
+  %conv70.i.i.i = zext i32 %block_length.addr.1.i.i.i to i64
   %call.i10.i = tail call noundef i32 @fseeko64(ptr noundef %3, i64 noundef %conv70.i.i.i, i32 noundef 1)
   %cmp72.not.i.i.i = icmp eq i32 %call.i10.i, 0
   br i1 %cmp72.not.i.i.i, label %if.end76.i.i.i, label %read_metadata_block_data_vorbis_comment_cb_.exit.i.i
@@ -1288,7 +1288,7 @@ if.end76.i.i.i:                                   ; preds = %if.then69.i.i.i, %s
   br label %read_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
 read_metadata_block_data_vorbis_comment_cb_.exit.i.i: ; preds = %if.end76.i.i.i, %if.then69.i.i.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i, %if.then39.i.i.i, %if.else11.i.i.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread.i
-  %retval.0.i60.i.i = phi i32 [ %status.1.i.i.i, %if.end76.i.i.i ], [ 11, %if.then39.i.i.i ], [ 6, %if.else11.i.i.i ], [ 7, %if.then69.i.i.i ], [ %retval.0.i37.ph.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread.i ], [ %retval.0.i15.ph.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i ]
+  %retval.0.i60.i.i = phi i32 [ %status.0.i.i.i, %if.end76.i.i.i ], [ 11, %if.then39.i.i.i ], [ 6, %if.else11.i.i.i ], [ 7, %if.then69.i.i.i ], [ %retval.0.i37.ph.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread.i ], [ %retval.0.i15.ph.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i54.i.i)
   br label %read_metadata_block_data_.exit
 
@@ -2823,15 +2823,15 @@ if.else63:                                        ; preds = %if.else59
 
 if.end71.sink.split:                              ; preds = %if.else52, %if.else63
   %cond.i.i.i.sink = phi i32 [ 0, %if.else63 ], [ %cond.i.i.i, %if.else52 ]
-  %padding_leftover.0.ph = phi i32 [ %sub66, %if.else63 ], [ 0, %if.else52 ]
-  %padding_is_last.0.ph = phi i32 [ %cond.i.i.i, %if.else63 ], [ 0, %if.else52 ]
+  %padding_leftover.1.ph = phi i32 [ %sub66, %if.else63 ], [ 0, %if.else52 ]
+  %padding_is_last.1.ph = phi i32 [ %cond.i.i.i, %if.else63 ], [ 0, %if.else52 ]
   store i32 %cond.i.i.i.sink, ptr %is_last11, align 4
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end71.sink.split, %if.else59, %if.end48
   %tobool78.not = phi i1 [ true, %if.end48 ], [ true, %if.else59 ], [ false, %if.end71.sink.split ]
-  %padding_leftover.0 = phi i32 [ 0, %if.end48 ], [ 0, %if.else59 ], [ %padding_leftover.0.ph, %if.end71.sink.split ]
-  %padding_is_last.0 = phi i32 [ 0, %if.end48 ], [ 0, %if.else59 ], [ %padding_is_last.0.ph, %if.end71.sink.split ]
+  %padding_leftover.1 = phi i32 [ 0, %if.end48 ], [ 0, %if.else59 ], [ %padding_leftover.1.ph, %if.end71.sink.split ]
+  %padding_is_last.1 = phi i32 [ 0, %if.end48 ], [ 0, %if.else59 ], [ %padding_is_last.1.ph, %if.end71.sink.split ]
   %call72 = tail call fastcc i32 @simple_iterator_pop_(ptr noundef nonnull %iterator)
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %return, label %if.end77
@@ -2840,7 +2840,7 @@ if.end77:                                         ; preds = %if.end71
   br i1 %tobool78.not, label %if.else86, label %if.then79
 
 if.then79:                                        ; preds = %if.end77
-  %cmp80 = icmp eq i32 %padding_leftover.0, 0
+  %cmp80 = icmp eq i32 %padding_leftover.1, 0
   br i1 %cmp80, label %if.then81, label %if.else83
 
 if.then81:                                        ; preds = %if.then79
@@ -2848,8 +2848,8 @@ if.then81:                                        ; preds = %if.then79
   br label %return
 
 if.else83:                                        ; preds = %if.then79
-  %sub84 = add i32 %padding_leftover.0, -4
-  %call85 = tail call fastcc i32 @write_metadata_block_stationary_with_padding_(ptr noundef nonnull %iterator, ptr noundef nonnull %block, i32 noundef %sub84, i32 noundef %padding_is_last.0)
+  %sub84 = add i32 %padding_leftover.1, -4
+  %call85 = tail call fastcc i32 @write_metadata_block_stationary_with_padding_(ptr noundef nonnull %iterator, ptr noundef nonnull %block, i32 noundef %sub84, i32 noundef %padding_is_last.1)
   br label %return
 
 if.else86:                                        ; preds = %if.else34, %if.end77
@@ -4191,15 +4191,15 @@ if.else28:                                        ; preds = %if.else23
 
 if.end35.sink.split:                              ; preds = %if.else17, %if.else28
   %cond.i.i.i.sink = phi i32 [ 0, %if.else28 ], [ %cond.i.i.i, %if.else17 ]
-  %padding_leftover.0.ph = phi i32 [ %sub, %if.else28 ], [ 0, %if.else17 ]
-  %padding_is_last.0.ph = phi i32 [ %cond.i.i.i, %if.else28 ], [ 0, %if.else17 ]
+  %padding_leftover.1.ph = phi i32 [ %sub, %if.else28 ], [ 0, %if.else17 ]
+  %padding_is_last.1.ph = phi i32 [ %cond.i.i.i, %if.else28 ], [ 0, %if.else17 ]
   store i32 %cond.i.i.i.sink, ptr %is_last4, align 4
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end35.sink.split, %if.else23, %if.end13
   %tobool42.not = phi i1 [ true, %if.end13 ], [ true, %if.else23 ], [ false, %if.end35.sink.split ]
-  %padding_leftover.0 = phi i32 [ 0, %if.end13 ], [ 0, %if.else23 ], [ %padding_leftover.0.ph, %if.end35.sink.split ]
-  %padding_is_last.0 = phi i32 [ 0, %if.end13 ], [ 0, %if.else23 ], [ %padding_is_last.0.ph, %if.end35.sink.split ]
+  %padding_leftover.1 = phi i32 [ 0, %if.end13 ], [ 0, %if.else23 ], [ %padding_leftover.1.ph, %if.end35.sink.split ]
+  %padding_is_last.1 = phi i32 [ 0, %if.end13 ], [ 0, %if.else23 ], [ %padding_is_last.1.ph, %if.end35.sink.split ]
   %23 = load i32, ptr %depth.i, align 8
   %dec.i70 = add i32 %23, -1
   store i32 %dec.i70, ptr %depth.i, align 8
@@ -4320,7 +4320,7 @@ if.then.i.i123:                                   ; preds = %if.end3.i115
 if.end47:                                         ; preds = %for.body.i.i.i.i131
   store i32 %or.i.i.i.i138, ptr %length.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %raw_header.i.i.i104)
-  %cmp48 = icmp eq i32 %padding_leftover.0, 0
+  %cmp48 = icmp eq i32 %padding_leftover.1, 0
   br i1 %cmp48, label %if.then49, label %if.else51
 
 if.then49:                                        ; preds = %if.end47
@@ -4328,8 +4328,8 @@ if.then49:                                        ; preds = %if.end47
   br label %return
 
 if.else51:                                        ; preds = %if.end47
-  %sub52 = add i32 %padding_leftover.0, -4
-  %call53 = tail call fastcc i32 @write_metadata_block_stationary_with_padding_(ptr noundef nonnull %iterator, ptr noundef nonnull %block, i32 noundef %sub52, i32 noundef %padding_is_last.0)
+  %sub52 = add i32 %padding_leftover.1, -4
+  %call53 = tail call fastcc i32 @write_metadata_block_stationary_with_padding_(ptr noundef nonnull %iterator, ptr noundef nonnull %block, i32 noundef %sub52, i32 noundef %padding_is_last.1)
   br label %return
 
 if.else54:                                        ; preds = %if.end3, %if.end41
@@ -8702,12 +8702,12 @@ if.then39.i.i:                                    ; preds = %if.else32.i.i
 for.body.i70.i:                                   ; preds = %if.else32.i.i, %if.end63.i.i
   %72 = phi ptr [ %74, %if.end63.i.i ], [ %call35.i.i, %if.else32.i.i ]
   %indvars.iv.i71.i = phi i64 [ %indvars.iv.next.i74.i, %if.end63.i.i ], [ 0, %if.else32.i.i ]
-  %block_length.addr.159.i.i = phi i32 [ %sub66.i.i, %if.end63.i.i ], [ %sub12.i.i, %if.else32.i.i ]
+  %block_length.addr.259.i.i = phi i32 [ %sub66.i.i, %if.end63.i.i ], [ %sub12.i.i, %if.else32.i.i ]
   %add.ptr.i72.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %72, i64 %indvars.iv.i71.i
-  %call48.i.i = call fastcc i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %handle, ptr noundef readonly %read_cb, ptr noundef %add.ptr.i72.i, i32 noundef %block_length.addr.159.i.i)
-  %cmp49.i.i = icmp ugt i32 %block_length.addr.159.i.i, 3
-  %sub52.i.i = add i32 %block_length.addr.159.i.i, -4
-  %spec.select46.i.i = select i1 %cmp49.i.i, i32 %sub52.i.i, i32 %block_length.addr.159.i.i
+  %call48.i.i = call fastcc i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %handle, ptr noundef readonly %read_cb, ptr noundef %add.ptr.i72.i, i32 noundef %block_length.addr.259.i.i)
+  %cmp49.i.i = icmp ugt i32 %block_length.addr.259.i.i, 3
+  %sub52.i.i = add i32 %block_length.addr.259.i.i, -4
+  %spec.select46.i.i = select i1 %cmp49.i.i, i32 %sub52.i.i, i32 %block_length.addr.259.i.i
   switch i32 %call48.i.i, label %read_metadata_block_data_vorbis_comment_cb_.exit.i [
     i32 5, label %if.then56.i.i
     i32 0, label %if.end63.i.i
@@ -8730,13 +8730,13 @@ if.end63.i.i:                                     ; preds = %for.body.i70.i
   br i1 %cmp45.i.i, label %for.body.i70.i, label %skip.i.i, !llvm.loop !10
 
 skip.i.i:                                         ; preds = %if.end63.i.i, %if.then56.i.i, %if.then30.i.i, %if.end43.thread.i.i, %if.end6.i57.i, %sw.bb12.i
-  %block_length.addr.3.i.i = phi i32 [ %spec.select.i.i, %sw.bb12.i ], [ %sub8.i.i, %if.end6.i57.i ], [ %spec.select46.i.i, %if.then56.i.i ], [ %sub12.i.i, %if.then30.i.i ], [ %sub12.i.i, %if.end43.thread.i.i ], [ %sub66.i.i, %if.end63.i.i ]
-  %status.1.i.i = phi i32 [ %call.i55.i, %sw.bb12.i ], [ 0, %if.end6.i57.i ], [ 5, %if.then56.i.i ], [ 5, %if.then30.i.i ], [ 0, %if.end43.thread.i.i ], [ 0, %if.end63.i.i ]
-  %cmp67.not.i.i = icmp eq i32 %block_length.addr.3.i.i, 0
+  %block_length.addr.1.i.i = phi i32 [ %spec.select.i.i, %sw.bb12.i ], [ %sub8.i.i, %if.end6.i57.i ], [ %spec.select46.i.i, %if.then56.i.i ], [ %sub12.i.i, %if.then30.i.i ], [ %sub12.i.i, %if.end43.thread.i.i ], [ %sub66.i.i, %if.end63.i.i ]
+  %status.0.i.i = phi i32 [ %call.i55.i, %sw.bb12.i ], [ 0, %if.end6.i57.i ], [ 5, %if.then56.i.i ], [ 5, %if.then30.i.i ], [ 0, %if.end43.thread.i.i ], [ 0, %if.end63.i.i ]
+  %cmp67.not.i.i = icmp eq i32 %block_length.addr.1.i.i, 0
   br i1 %cmp67.not.i.i, label %if.end76.i.i, label %if.then69.i.i
 
 if.then69.i.i:                                    ; preds = %skip.i.i
-  %conv70.i.i = zext i32 %block_length.addr.3.i.i to i64
+  %conv70.i.i = zext i32 %block_length.addr.1.i.i to i64
   %call71.i.i = call i32 %seek_cb(ptr noundef %handle, i64 noundef %conv70.i.i, i32 noundef 1) #28
   %cmp72.not.i.i = icmp eq i32 %call71.i.i, 0
   br i1 %cmp72.not.i.i, label %if.end76.i.i, label %read_metadata_block_data_vorbis_comment_cb_.exit.i
@@ -8745,7 +8745,7 @@ if.end76.i.i:                                     ; preds = %if.then69.i.i, %ski
   br label %read_metadata_block_data_vorbis_comment_cb_.exit.i
 
 read_metadata_block_data_vorbis_comment_cb_.exit.i: ; preds = %for.body.i70.i, %if.end76.i.i, %if.then69.i.i, %if.then39.i.i, %if.else11.i.i, %sw.bb12.i
-  %retval.0.i60.i = phi i32 [ %status.1.i.i, %if.end76.i.i ], [ 11, %if.then39.i.i ], [ %call.i55.i, %sw.bb12.i ], [ 6, %if.else11.i.i ], [ 7, %if.then69.i.i ], [ %call48.i.i, %for.body.i70.i ]
+  %retval.0.i60.i = phi i32 [ %status.0.i.i, %if.end76.i.i ], [ 11, %if.then39.i.i ], [ %call.i55.i, %sw.bb12.i ], [ 6, %if.else11.i.i ], [ 7, %if.then69.i.i ], [ %call48.i.i, %for.body.i70.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i54.i)
   br label %read_metadata_block_data_cb_.exit
 

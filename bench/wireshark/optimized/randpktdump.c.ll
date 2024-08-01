@@ -130,7 +130,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 .preheader:                                       ; preds = %12, %.preheader.backedge
   %.060 = phi i32 [ %.060.be, %.preheader.backedge ], [ 0, %12 ]
-  %.058 = phi ptr [ %.058.be, %.preheader.backedge ], [ null, %12 ]
+  %.159 = phi ptr [ %.159.be, %.preheader.backedge ], [ null, %12 ]
   %.055 = phi i32 [ %.055.be, %.preheader.backedge ], [ 0, %12 ]
   %19 = call i32 @ws_getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.26, ptr noundef nonnull @longopts, ptr noundef nonnull %3) #6
   switch i32 %19, label %49 [
@@ -148,7 +148,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 .preheader.backedge:                              ; preds = %.preheader, %49, %34, %29, %24, %43, %40, %39
   %.060.be = phi i32 [ %.060, %49 ], [ %.060, %43 ], [ %.060, %40 ], [ 1, %39 ], [ %.060, %34 ], [ %.060, %29 ], [ %.060, %24 ], [ %.060, %.preheader ]
-  %.058.be = phi ptr [ %.058, %49 ], [ %.058, %43 ], [ %42, %40 ], [ %.058, %39 ], [ %.058, %34 ], [ %.058, %29 ], [ %.058, %24 ], [ %.058, %.preheader ]
+  %.159.be = phi ptr [ %.159, %49 ], [ %.159, %43 ], [ %42, %40 ], [ %.159, %39 ], [ %.159, %34 ], [ %.159, %29 ], [ %.159, %24 ], [ %.159, %.preheader ]
   %.055.be = phi i32 [ %.055, %49 ], [ %.055, %43 ], [ %.055, %40 ], [ %.055, %39 ], [ %.055, %34 ], [ %.055, %29 ], [ %.055, %24 ], [ 1, %.preheader ]
   br label %.preheader, !llvm.loop !5
 
@@ -196,7 +196,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br label %.preheader.backedge
 
 40:                                               ; preds = %.preheader
-  call void @g_free(ptr noundef %.058) #6
+  call void @g_free(ptr noundef %.159) #6
   %41 = load ptr, ptr @ws_optarg, align 8
   %42 = call noalias ptr @g_strdup(ptr noundef %41) #6
   br label %.preheader.backedge
@@ -260,11 +260,11 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br i1 %or.cond3, label %74, label %75
 
 74:                                               ; preds = %73
-  call void @g_free(ptr noundef %.058) #6
+  call void @g_free(ptr noundef %.159) #6
   br label %75
 
 75:                                               ; preds = %73, %74
-  %.2 = phi ptr [ null, %74 ], [ %.058, %73 ]
+  %.3 = phi ptr [ null, %74 ], [ %.159, %73 ]
   %76 = call ptr @ws_init_sockets() #6
   %.not71 = icmp eq ptr %76, null
   br i1 %.not71, label %79, label %77
@@ -300,7 +300,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br i1 %71, label %103, label %90
 
 90:                                               ; preds = %88
-  %91 = call i32 @randpkt_parse_type(ptr noundef %.2) #6
+  %91 = call i32 @randpkt_parse_type(ptr noundef %.3) #6
   %92 = call ptr @randpkt_find_example(i32 noundef %91) #6
   %.not74 = icmp eq ptr %92, null
   br i1 %.not74, label %.loopexit, label %93
@@ -362,9 +362,9 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %93, %._crit_edge, %59, %79, %103, %90, %87, %77, %72, %65, %53, %37, %32, %27, %22, %20, %18
-  %.3 = phi ptr [ null, %18 ], [ %.058, %53 ], [ %.058, %37 ], [ %.058, %32 ], [ %.058, %27 ], [ %.058, %22 ], [ %.058, %20 ], [ %.058, %65 ], [ %.058, %72 ], [ %.2, %77 ], [ %.2, %87 ], [ %.2, %103 ], [ %.2, %90 ], [ %.2, %79 ], [ %.058, %59 ], [ %.2, %._crit_edge ], [ %.2, %93 ], [ %.2, %.lr.ph ]
+  %.058 = phi ptr [ null, %18 ], [ %.159, %53 ], [ %.159, %37 ], [ %.159, %32 ], [ %.159, %27 ], [ %.159, %22 ], [ %.159, %20 ], [ %.159, %65 ], [ %.159, %72 ], [ %.3, %77 ], [ %.3, %87 ], [ %.3, %103 ], [ %.3, %90 ], [ %.3, %79 ], [ %.159, %59 ], [ %.3, %._crit_edge ], [ %.3, %93 ], [ %.3, %.lr.ph ]
   %.0 = phi i32 [ 1, %18 ], [ 1, %53 ], [ 1, %37 ], [ 1, %32 ], [ 1, %27 ], [ 0, %22 ], [ 0, %20 ], [ %68, %65 ], [ 1, %72 ], [ 1, %77 ], [ 1, %87 ], [ 1, %103 ], [ 1, %90 ], [ 1, %79 ], [ 0, %59 ], [ 0, %._crit_edge ], [ 0, %93 ], [ 1, %.lr.ph ]
-  call void @g_free(ptr noundef %.3) #6
+  call void @g_free(ptr noundef %.058) #6
   call void @extcap_base_cleanup(ptr noundef nonnull %7) #6
   ret i32 %.0
 }

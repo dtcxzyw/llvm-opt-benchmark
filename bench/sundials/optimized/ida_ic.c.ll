@@ -239,11 +239,11 @@ define i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_u
 
 .preheader:                                       ; preds = %.preheader.preheader, %358
   %.0105175 = phi i32 [ %363, %358 ], [ 1, %.preheader.preheader ]
-  %.2174 = phi double [ %.3172, %358 ], [ %.1, %.preheader.preheader ]
+  %.2174 = phi double [ %.4172, %358 ], [ %.1, %.preheader.preheader ]
   br label %135
 
 135:                                              ; preds = %349, %.preheader
-  %.3172 = phi double [ %.2174, %.preheader ], [ %350, %349 ]
+  %.4172 = phi double [ %.2174, %.preheader ], [ %350, %349 ]
   %.0107171 = phi i32 [ 1, %.preheader ], [ %352, %349 ]
   %136 = load ptr, ptr %40, align 8
   %137 = load ptr, ptr %99, align 8
@@ -618,7 +618,7 @@ IDANewtonIC.exit.i:                               ; preds = %327, %.preheader.i.
   br label %349
 
 349:                                              ; preds = %344, %343
-  %350 = fmul double %.3172, 1.000000e-01
+  %350 = fmul double %.4172, 1.000000e-01
   %351 = fdiv double 1.000000e+00, %350
   store double %351, ptr %98, align 8
   store double %350, ptr %85, align 8
@@ -646,8 +646,8 @@ IDAnlsIC.exit.thread130:                          ; preds = %150, %187, %IDALine
   br i1 %exitcond.not, label %IDAnlsIC.exit.thread134, label %.preheader
 
 IDAnlsIC.exit.thread134:                          ; preds = %358, %IDAnlsIC.exit.thread130, %.loopexit, %129, %.preheader.us, %.thread
-  %.3112 = phi i32 [ %.0.i.ph.ph, %.thread ], [ -24, %.preheader.us ], [ 0, %129 ], [ %.0.i.ph, %.loopexit ], [ -24, %IDAnlsIC.exit.thread130 ], [ 0, %358 ]
-  %.4 = phi double [ %.3172, %.thread ], [ %.1, %.preheader.us ], [ %.1, %129 ], [ %.3172, %.loopexit ], [ %.3172, %IDAnlsIC.exit.thread130 ], [ %.3172, %358 ]
+  %.1110 = phi i32 [ %.0.i.ph.ph, %.thread ], [ -24, %.preheader.us ], [ 0, %129 ], [ %.0.i.ph, %.loopexit ], [ -24, %IDAnlsIC.exit.thread130 ], [ 0, %358 ]
+  %.3 = phi double [ %.4172, %.thread ], [ %.1, %.preheader.us ], [ %.1, %129 ], [ %.4172, %.loopexit ], [ %.4172, %IDAnlsIC.exit.thread130 ], [ %.4172, %358 ]
   %364 = load ptr, ptr %43, align 8
   tail call void @N_VDestroy(ptr noundef %364) #3
   %365 = load ptr, ptr %46, align 8
@@ -656,15 +656,15 @@ IDAnlsIC.exit.thread134:                          ; preds = %358, %IDAnlsIC.exit
 
 366:                                              ; preds = %IDAnlsIC.exit.thread134
   %367 = getelementptr inbounds i8, ptr %0, i64 664
-  store double %.4, ptr %367, align 8
+  store double %.3, ptr %367, align 8
   br label %368
 
 368:                                              ; preds = %366, %IDAnlsIC.exit.thread134
-  %.not123 = icmp eq i32 %.3112, 0
+  %.not123 = icmp eq i32 %.1110, 0
   br i1 %.not123, label %371, label %369
 
 369:                                              ; preds = %368
-  %370 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.3112)
+  %370 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.1110)
   br label %371
 
 371:                                              ; preds = %368, %11, %369, %62, %38, %24, %16, %10, %5

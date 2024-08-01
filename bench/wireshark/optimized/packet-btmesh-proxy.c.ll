@@ -627,38 +627,38 @@ default.unreachable175:                           ; preds = %.loopexit
   br label %.loopexit.i
 
 .lr.ph7.i:                                        ; preds = %.preheader.i, %242
-  %.01176.i = phi i32 [ %243, %242 ], [ 3, %.preheader.i ]
+  %.16.i = phi i32 [ %243, %242 ], [ 3, %.preheader.i ]
   %236 = load i32, ptr @hf_btmesh_proxy_control_list_item, align 4
-  %237 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %221, i32 noundef %236, ptr noundef %202, i32 noundef %.01176.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #5
+  %237 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %221, i32 noundef %236, ptr noundef %202, i32 noundef %.16.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #5
   %238 = load i32, ptr %13, align 4
   %239 = icmp eq i32 %238, 0
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %.lr.ph7.i
-  %241 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef %1, ptr noundef nonnull @ei_btmesh_proxy_wrong_address_type, ptr noundef %202, i32 noundef %.01176.i, i32 noundef 2) #5
+  %241 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef %1, ptr noundef nonnull @ei_btmesh_proxy_wrong_address_type, ptr noundef %202, i32 noundef %.16.i, i32 noundef 2) #5
   br label %242
 
 242:                                              ; preds = %240, %.lr.ph7.i
-  %243 = add i32 %.01176.i, 2
+  %243 = add i32 %.16.i, 2
   %244 = load i32, ptr %5, align 4
   %245 = add i32 %244, -1
   %.not124.i = icmp ugt i32 %243, %245
   br i1 %.not124.i, label %.loopexit.i, label %.lr.ph7.i, !llvm.loop !4
 
 .lr.ph.i:                                         ; preds = %.preheader1.i, %252
-  %.14.i = phi i32 [ %253, %252 ], [ 3, %.preheader1.i ]
+  %.24.i = phi i32 [ %253, %252 ], [ 3, %.preheader1.i ]
   %246 = load i32, ptr @hf_btmesh_proxy_control_list_item, align 4
-  %247 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %221, i32 noundef %246, ptr noundef %202, i32 noundef %.14.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #5
+  %247 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %221, i32 noundef %246, ptr noundef %202, i32 noundef %.24.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #5
   %248 = load i32, ptr %13, align 4
   %249 = icmp eq i32 %248, 0
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %.lr.ph.i
-  %251 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef %1, ptr noundef nonnull @ei_btmesh_proxy_wrong_address_type, ptr noundef %202, i32 noundef %.14.i, i32 noundef 2) #5
+  %251 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef %1, ptr noundef nonnull @ei_btmesh_proxy_wrong_address_type, ptr noundef %202, i32 noundef %.24.i, i32 noundef 2) #5
   br label %252
 
 252:                                              ; preds = %250, %.lr.ph.i
-  %253 = add i32 %.14.i, 2
+  %253 = add i32 %.24.i, 2
   %254 = load i32, ptr %5, align 4
   %255 = add i32 %254, -1
   %.not123.i = icmp ugt i32 %253, %255
@@ -690,15 +690,15 @@ default.unreachable175:                           ; preds = %.loopexit
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %252, %242, %266, %263, %234, %229, %.preheader.i, %.preheader1.i
-  %.2.i = phi i32 [ %272, %266 ], [ 6, %263 ], [ 4, %234 ], [ 4, %229 ], [ 3, %.preheader.i ], [ 3, %.preheader1.i ], [ %243, %242 ], [ %253, %252 ]
+  %.0117.i = phi i32 [ %272, %266 ], [ 6, %263 ], [ 4, %234 ], [ 4, %229 ], [ 3, %.preheader.i ], [ 3, %.preheader1.i ], [ %243, %242 ], [ %253, %252 ]
   %273 = load i32, ptr %7, align 4
   %274 = sub i32 %219, %273
-  %275 = add i32 %.2.i, 7
+  %275 = add i32 %.0117.i, 7
   %.not125.i = icmp eq i32 %274, %275
   br i1 %.not125.i, label %dissect_btmesh_proxy_configuration_msg.exit, label %276
 
 276:                                              ; preds = %.loopexit.i
-  %277 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef %1, ptr noundef nonnull @ei_btmesh_proxy_unknown_payload, ptr noundef %202, i32 noundef %.2.i, i32 noundef -1) #5
+  %277 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef %1, ptr noundef nonnull @ei_btmesh_proxy_unknown_payload, ptr noundef %202, i32 noundef %.0117.i, i32 noundef -1) #5
   br label %dissect_btmesh_proxy_configuration_msg.exit
 
 dissect_btmesh_proxy_configuration_msg.exit:      ; preds = %160, %.loopexit.i, %276

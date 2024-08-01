@@ -8985,9 +8985,9 @@ define void @"_ZN3syn3lit5value31_$LT$impl$u20$syn..lit..Lit$GT$3new17h6bfda8b68
   unreachable
 
 .body88:                                          ; preds = %38, %.body
-  %.049 = phi i8 [ %.2, %.body ], [ %.5, %38 ]
+  %.1 = phi i8 [ %.3, %.body ], [ %.4, %38 ]
   %.pn52 = phi { ptr, i32 } [ %.pn, %.body ], [ %39, %38 ]
-  %37 = trunc nuw i8 %.049 to i1
+  %37 = trunc nuw i8 %.1 to i1
   br i1 %37, label %.body88.thread, label %233
 
 38:                                               ; preds = %80, %77
@@ -9006,7 +9006,7 @@ define void @"_ZN3syn3lit5value31_$LT$impl$u20$syn..lit..Lit$GT$3new17h6bfda8b68
   br i1 %.not158, label %.thread, label %_ZN3syn3lit5value4byte17hf8160151b64e06f7E.exit
 
 .body:                                            ; preds = %207, %181, %148, %131, %119, %116, %110, %71, %43
-  %.2 = phi i8 [ 1, %43 ], [ 0, %71 ], [ 0, %110 ], [ 1, %116 ], [ 1, %119 ], [ 0, %131 ], [ 0, %148 ], [ 0, %181 ], [ 0, %207 ]
+  %.3 = phi i8 [ 1, %43 ], [ 0, %71 ], [ 0, %110 ], [ 1, %116 ], [ 1, %119 ], [ 0, %131 ], [ 0, %148 ], [ 0, %181 ], [ 0, %207 ]
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %72, %71 ], [ %111, %110 ], [ %117, %116 ], [ %117, %119 ], [ %132, %131 ], [ %149, %148 ], [ %182, %181 ], [ %208, %207 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06d379aa815dd14dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #31
           to label %.body88 unwind label %84
@@ -9136,7 +9136,7 @@ _ZN3syn3lit5value13parse_lit_str17h5ba5910252e6e129E.exit: ; preds = %50, %51
   br label %77
 
 77:                                               ; preds = %114, %135, %212, %185, %163, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17h4a0e51931db27312E.exit125", %152, %75, %56
-  %.5 = phi i8 [ 0, %185 ], [ 0, %212 ], [ 0, %163 ], [ 0, %56 ], [ 1, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17h4a0e51931db27312E.exit125" ], [ 0, %152 ], [ 0, %135 ], [ 0, %114 ], [ 0, %75 ]
+  %.4 = phi i8 [ 0, %185 ], [ 0, %212 ], [ 0, %163 ], [ 0, %56 ], [ 1, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17h4a0e51931db27312E.exit125" ], [ 0, %152 ], [ 0, %135 ], [ 0, %114 ], [ 0, %75 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1763
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd25df77e33a469b4E.llvm.8351105841907204142"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23)
           to label %.noexc99 unwind label %38
@@ -9518,7 +9518,7 @@ _ZN3syn3lit5value18parse_lit_byte_str17h27f1130444341b87E.exit: ; preds = %89, %
 214:                                              ; preds = %.noexc99, %80
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1763
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
-  %215 = trunc nuw i8 %.5 to i1
+  %215 = trunc nuw i8 %.4 to i1
   br i1 %215, label %216, label %"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h7bbe7bc4e754db60E.exit"
 
 "_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h7bbe7bc4e754db60E.exit": ; preds = %"_ZN4core3ptr51drop_in_place$LT$proc_macro2..fallback..Literal$GT$17h3abe767333b7ed7bE.llvm.8351105841907204142.exit.i.i", %216, %214

@@ -2924,8 +2924,8 @@ if.end159:                                        ; preds = %entry, %_ZNSt3mapIN
   br label %return
 
 return:                                           ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit146, %if.end159
-  %retval.1 = phi i1 [ true, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit ], [ false, %if.end159 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit146 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit ], [ false, %if.end159 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit146 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %cleanup.action15, %ehcleanup156, %ehcleanup43, %lpad17
   %.pn13.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn.pn, %ehcleanup156 ], [ %.pn8, %ehcleanup43 ], [ %34, %lpad17 ], [ %.pn, %cleanup.action15 ]

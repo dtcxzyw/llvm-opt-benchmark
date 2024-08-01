@@ -652,13 +652,13 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noun
   br label %49
 
 48:                                               ; preds = %37, %29
-  %.025 = phi i32 [ 0, %37 ], [ %34, %29 ]
+  %.1 = phi i32 [ 0, %37 ], [ %34, %29 ]
   %.not34 = icmp eq ptr %30, null
   br i1 %.not34, label %52, label %49
 
 49:                                               ; preds = %.thread, %48
-  %.02552 = phi i32 [ %47, %.thread ], [ %.025, %48 ]
-  %.02651 = phi i32 [ %45, %.thread ], [ %32, %48 ]
+  %.152 = phi i32 [ %47, %.thread ], [ %.1, %48 ]
+  %.12751 = phi i32 [ %45, %.thread ], [ %32, %48 ]
   %50 = getelementptr inbounds i8, ptr %30, i64 40
   %51 = load i32, ptr %50, align 8
   %.not35 = icmp eq i32 %51, 0
@@ -666,11 +666,11 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noun
   br label %52
 
 52:                                               ; preds = %49, %48, %11
-  %.127 = phi i32 [ %20, %11 ], [ %32, %48 ], [ %.02651, %49 ]
-  %.1 = phi i32 [ %28, %11 ], [ %.025, %48 ], [ %.02552, %49 ]
+  %.026 = phi i32 [ %20, %11 ], [ %32, %48 ], [ %.12751, %49 ]
+  %.025 = phi i32 [ %28, %11 ], [ %.1, %48 ], [ %.152, %49 ]
   %.024 = phi i32 [ %.val.i, %11 ], [ 0, %48 ], [ %spec.select, %49 ]
-  %53 = sext i32 %.127 to i64
-  %54 = sext i32 %.1 to i64
+  %53 = sext i32 %.026 to i64
+  %54 = sext i32 %.025 to i64
   %55 = mul nsw i64 %54, %53
   %56 = icmp ugt i64 %55, 4294967295
   br i1 %56, label %63, label %57
@@ -680,7 +680,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noun
   br i1 %.not36, label %59, label %58
 
 58:                                               ; preds = %57
-  store i32 %.127, ptr %1, align 4
+  store i32 %.026, ptr %1, align 4
   br label %59
 
 59:                                               ; preds = %58, %57
@@ -688,7 +688,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noun
   br i1 %.not37, label %61, label %60
 
 60:                                               ; preds = %59
-  store i32 %.1, ptr %2, align 4
+  store i32 %.025, ptr %2, align 4
   br label %61
 
 61:                                               ; preds = %60, %59

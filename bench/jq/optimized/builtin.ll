@@ -424,8 +424,8 @@ define { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_a
   br i1 %.not74106, label %.lr.ph112, label %.loopexit
 
 .lr.ph112:                                        ; preds = %.preheader91, %._crit_edge
-  %.sroa.6.1111 = phi ptr [ %.sroa.6.2, %._crit_edge ], [ %27, %.preheader91 ]
-  %.sroa.065.1110 = phi i64 [ %.sroa.065.2, %._crit_edge ], [ %26, %.preheader91 ]
+  %.sroa.6.2111 = phi ptr [ %.sroa.6.3, %._crit_edge ], [ %27, %.preheader91 ]
+  %.sroa.065.2110 = phi i64 [ %.sroa.065.3, %._crit_edge ], [ %26, %.preheader91 ]
   %.1109 = phi i32 [ %60, %._crit_edge ], [ 0, %.preheader91 ]
   %32 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
   %33 = extractvalue { i64, ptr } %32, 0
@@ -464,22 +464,22 @@ define { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_a
   %54 = tail call { i64, ptr } @jv_copy(i64 %36, ptr %37) #14
   %55 = extractvalue { i64, ptr } %54, 0
   %56 = extractvalue { i64, ptr } %54, 1
-  %57 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.065.1110, ptr %.sroa.6.1111, i64 %55, ptr %56) #14
+  %57 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.065.2110, ptr %.sroa.6.2111, i64 %55, ptr %56) #14
   %58 = extractvalue { i64, ptr } %57, 0
   %59 = extractvalue { i64, ptr } %57, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit125
-  %.sroa.065.2 = phi i64 [ %58, %.loopexit125 ], [ %.sroa.065.1110, %.lr.ph ]
-  %.sroa.6.2 = phi ptr [ %59, %.loopexit125 ], [ %.sroa.6.1111, %.lr.ph ]
+  %.sroa.065.3 = phi i64 [ %58, %.loopexit125 ], [ %.sroa.065.2110, %.lr.ph ]
+  %.sroa.6.3 = phi ptr [ %59, %.loopexit125 ], [ %.sroa.6.2111, %.lr.ph ]
   tail call void @jv_free(i64 %36, ptr %37) #14
   %60 = add nuw nsw i32 %.1109, 1
   %exitcond123.not = icmp eq i32 %60, %31
   br i1 %exitcond123.not, label %.loopexit, label %.lr.ph112, !llvm.loop !6
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader91
-  %.sroa.065.0.lcssa = phi i64 [ %26, %.preheader91 ], [ %.sroa.065.2, %._crit_edge ]
-  %.sroa.6.0.lcssa = phi ptr [ %27, %.preheader91 ], [ %.sroa.6.2, %._crit_edge ]
+  %.sroa.065.1.lcssa = phi i64 [ %26, %.preheader91 ], [ %.sroa.065.3, %._crit_edge ]
+  %.sroa.6.1.lcssa = phi ptr [ %27, %.preheader91 ], [ %.sroa.6.3, %._crit_edge ]
   tail call void @jv_free(i64 %0, ptr %1) #14
   tail call void @jv_free(i64 %2, ptr %3) #14
   br label %74
@@ -504,10 +504,10 @@ define { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_a
   br label %74
 
 74:                                               ; preds = %61, %.loopexit, %12
-  %.sroa.065.3 = phi i64 [ %17, %12 ], [ %.sroa.065.0.lcssa, %.loopexit ], [ %72, %61 ]
-  %.sroa.6.3 = phi ptr [ %18, %12 ], [ %.sroa.6.0.lcssa, %.loopexit ], [ %73, %61 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.065.3, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.6.3, 1
+  %.sroa.065.0 = phi i64 [ %17, %12 ], [ %.sroa.065.1.lcssa, %.loopexit ], [ %72, %61 ]
+  %.sroa.6.0 = phi ptr [ %18, %12 ], [ %.sroa.6.1.lcssa, %.loopexit ], [ %73, %61 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.065.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.6.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
@@ -582,26 +582,26 @@ define { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) local_unname
   %34 = tail call i32 @jv_string_length_bytes(i64 %32, ptr %33) #14
   %35 = mul i32 %34, %30
   %36 = tail call { i64, ptr } @jv_string_empty(i32 noundef %35) #14
-  %.sroa.868.073 = extractvalue { i64, ptr } %36, 1
-  %.sroa.066.074 = extractvalue { i64, ptr } %36, 0
+  %.sroa.868.273 = extractvalue { i64, ptr } %36, 1
+  %.sroa.066.274 = extractvalue { i64, ptr } %36, 0
   %37 = icmp sgt i32 %30, 0
   br i1 %37, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
-  %.sroa.066.077 = phi i64 [ %.sroa.066.0, %.lr.ph ], [ %.sroa.066.074, %29 ]
-  %.sroa.868.076 = phi ptr [ %.sroa.868.0, %.lr.ph ], [ %.sroa.868.073, %29 ]
+  %.sroa.066.277 = phi i64 [ %.sroa.066.2, %.lr.ph ], [ %.sroa.066.274, %29 ]
+  %.sroa.868.276 = phi ptr [ %.sroa.868.2, %.lr.ph ], [ %.sroa.868.273, %29 ]
   %.075 = phi i32 [ %40, %.lr.ph ], [ %30, %29 ]
   %38 = tail call ptr @jv_string_value(i64 %.sroa.026.0, ptr %.sroa.5.0) #14
-  %39 = tail call { i64, ptr } @jv_string_append_buf(i64 %.sroa.066.077, ptr %.sroa.868.076, ptr noundef %38, i32 noundef %34) #14
+  %39 = tail call { i64, ptr } @jv_string_append_buf(i64 %.sroa.066.277, ptr %.sroa.868.276, ptr noundef %38, i32 noundef %34) #14
   %40 = add nsw i32 %.075, -1
-  %.sroa.868.0 = extractvalue { i64, ptr } %39, 1
-  %.sroa.066.0 = extractvalue { i64, ptr } %39, 0
+  %.sroa.868.2 = extractvalue { i64, ptr } %39, 1
+  %.sroa.066.2 = extractvalue { i64, ptr } %39, 0
   %41 = icmp ugt i32 %.075, 1
   br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %25
-  %.sroa.066.1 = phi i64 [ %27, %25 ], [ %.sroa.066.074, %29 ], [ %.sroa.066.0, %.lr.ph ]
-  %.sroa.868.1 = phi ptr [ %28, %25 ], [ %.sroa.868.073, %29 ], [ %.sroa.868.0, %.lr.ph ]
+  %.sroa.066.1 = phi i64 [ %27, %25 ], [ %.sroa.066.274, %29 ], [ %.sroa.066.2, %.lr.ph ]
+  %.sroa.868.1 = phi ptr [ %28, %25 ], [ %.sroa.868.273, %29 ], [ %.sroa.868.2, %.lr.ph ]
   tail call void @jv_free(i64 %.sroa.026.0, ptr %.sroa.5.0) #14
   tail call void @jv_free(i64 %.sroa.020.0, ptr %.sroa.4.0) #14
   br label %62
@@ -638,10 +638,10 @@ define { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) local_unname
   br label %62
 
 62:                                               ; preds = %49, %45, %.loopexit, %11
-  %.sroa.066.2 = phi i64 [ %16, %11 ], [ %.sroa.066.1, %.loopexit ], [ %47, %45 ], [ %60, %49 ]
-  %.sroa.868.2 = phi ptr [ %17, %11 ], [ %.sroa.868.1, %.loopexit ], [ %48, %45 ], [ %61, %49 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.066.2, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.868.2, 1
+  %.sroa.066.0 = phi i64 [ %16, %11 ], [ %.sroa.066.1, %.loopexit ], [ %47, %45 ], [ %60, %49 ]
+  %.sroa.868.0 = phi ptr [ %17, %11 ], [ %.sroa.868.1, %.loopexit ], [ %48, %45 ], [ %61, %49 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.066.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.868.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
@@ -4925,8 +4925,8 @@ f_tostring.exit380:                               ; preds = %120, %123
   %141 = extractvalue { i64, ptr } %133, 1
   %142 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.176) #14
   %143 = tail call ptr @jv_string_value(i64 %134, ptr %141) #14
-  %.sroa.22316.0444 = extractvalue { i64, ptr } %142, 1
-  %.sroa.0312.0445 = extractvalue { i64, ptr } %142, 0
+  %.sroa.22316.1444 = extractvalue { i64, ptr } %142, 1
+  %.sroa.0312.1445 = extractvalue { i64, ptr } %142, 0
   %144 = tail call { i64, ptr } @jv_copy(i64 %134, ptr %141) #14
   %145 = extractvalue { i64, ptr } %144, 0
   %146 = extractvalue { i64, ptr } %144, 1
@@ -4935,8 +4935,8 @@ f_tostring.exit380:                               ; preds = %120, %123
   br i1 %148, label %.lr.ph451, label %._crit_edge452
 
 .lr.ph451:                                        ; preds = %140, %163
-  %.sroa.0312.0449 = phi i64 [ %.sroa.0312.0, %163 ], [ %.sroa.0312.0445, %140 ]
-  %.sroa.22316.0448 = phi ptr [ %.sroa.22316.0, %163 ], [ %.sroa.22316.0444, %140 ]
+  %.sroa.0312.1449 = phi i64 [ %.sroa.0312.1, %163 ], [ %.sroa.0312.1445, %140 ]
+  %.sroa.22316.1448 = phi ptr [ %.sroa.22316.1, %163 ], [ %.sroa.22316.1444, %140 ]
   %.0336447 = phi ptr [ %164, %163 ], [ %143, %140 ]
   %.0337446 = phi i32 [ %165, %163 ], [ 0, %140 ]
   %149 = load i8, ptr %.0336447, align 1
@@ -4952,22 +4952,22 @@ f_tostring.exit380:                               ; preds = %120, %123
   br i1 %.not359, label %158, label %156
 
 156:                                              ; preds = %152
-  %157 = tail call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0312.0449, ptr %.sroa.22316.0448, ptr noundef nonnull %.0336447, i32 noundef 1) #14
+  %157 = tail call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0312.1449, ptr %.sroa.22316.1448, ptr noundef nonnull %.0336447, i32 noundef 1) #14
   br label %163
 
 158:                                              ; preds = %152, %.lr.ph451
   %159 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.184, i32 noundef %150) #14
   %160 = extractvalue { i64, ptr } %159, 0
   %161 = extractvalue { i64, ptr } %159, 1
-  %162 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0312.0449, ptr %.sroa.22316.0448, i64 %160, ptr %161) #14
+  %162 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0312.1449, ptr %.sroa.22316.1448, i64 %160, ptr %161) #14
   br label %163
 
 163:                                              ; preds = %158, %156
   %.pn = phi { i64, ptr } [ %157, %156 ], [ %162, %158 ]
   %164 = getelementptr inbounds i8, ptr %.0336447, i64 1
   %165 = add nuw nsw i32 %.0337446, 1
-  %.sroa.22316.0 = extractvalue { i64, ptr } %.pn, 1
-  %.sroa.0312.0 = extractvalue { i64, ptr } %.pn, 0
+  %.sroa.22316.1 = extractvalue { i64, ptr } %.pn, 1
+  %.sroa.0312.1 = extractvalue { i64, ptr } %.pn, 0
   %166 = tail call { i64, ptr } @jv_copy(i64 %134, ptr %141) #14
   %167 = extractvalue { i64, ptr } %166, 0
   %168 = extractvalue { i64, ptr } %166, 1
@@ -4976,8 +4976,8 @@ f_tostring.exit380:                               ; preds = %120, %123
   br i1 %170, label %.lr.ph451, label %._crit_edge452, !llvm.loop !12
 
 ._crit_edge452:                                   ; preds = %163, %140
-  %.sroa.22316.0.lcssa = phi ptr [ %.sroa.22316.0444, %140 ], [ %.sroa.22316.0, %163 ]
-  %.sroa.0312.0.lcssa = phi i64 [ %.sroa.0312.0445, %140 ], [ %.sroa.0312.0, %163 ]
+  %.sroa.22316.1.lcssa = phi ptr [ %.sroa.22316.1444, %140 ], [ %.sroa.22316.1, %163 ]
+  %.sroa.0312.1.lcssa = phi i64 [ %.sroa.0312.1445, %140 ], [ %.sroa.0312.1, %163 ]
   tail call void @jv_free(i64 %134, ptr %141) #14
   br label %f_tostring.exit
 
@@ -5115,8 +5115,8 @@ sub_1:                                            ; preds = %sub_0
   %235 = extractvalue { i64, ptr } %234, 0
   %236 = extractvalue { i64, ptr } %234, 1
   %237 = tail call i32 @jv_string_length_bytes(i64 %235, ptr %236) #14
-  %.sroa.22316.2424 = extractvalue { i64, ptr } %232, 1
-  %.sroa.0312.2425 = extractvalue { i64, ptr } %232, 0
+  %.sroa.22316.3424 = extractvalue { i64, ptr } %232, 1
+  %.sroa.0312.3425 = extractvalue { i64, ptr } %232, 0
   %238 = icmp sgt i32 %237, 0
   br i1 %238, label %.lr.ph429, label %._crit_edge
 
@@ -5128,8 +5128,8 @@ sub_1:                                            ; preds = %sub_0
 
 242:                                              ; preds = %.lr.ph429, %.thread390
   %indvars.iv494 = phi i64 [ 0, %.lr.ph429 ], [ %indvars.iv.next495, %.thread390 ]
-  %.sroa.0312.2428 = phi i64 [ %.sroa.0312.2425, %.lr.ph429 ], [ %.sroa.0312.2, %.thread390 ]
-  %.sroa.22316.2427 = phi ptr [ %.sroa.22316.2424, %.lr.ph429 ], [ %.sroa.22316.2, %.thread390 ]
+  %.sroa.0312.3428 = phi i64 [ %.sroa.0312.3425, %.lr.ph429 ], [ %.sroa.0312.3, %.thread390 ]
+  %.sroa.22316.3427 = phi ptr [ %.sroa.22316.3424, %.lr.ph429 ], [ %.sroa.22316.3, %.thread390 ]
   %243 = sub nsw i64 %241, %indvars.iv494
   %invariant.gep = getelementptr inbounds i8, ptr %233, i64 %indvars.iv494
   br label %244
@@ -5184,16 +5184,16 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread390
 
 .thread390:                                       ; preds = %262, %266, %264
-  %267 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0312.2428, ptr %.sroa.22316.2427, ptr noundef nonnull %10, i32 noundef 4) #14
+  %267 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0312.3428, ptr %.sroa.22316.3427, ptr noundef nonnull %10, i32 noundef 4) #14
   %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 3
-  %.sroa.22316.2 = extractvalue { i64, ptr } %267, 1
-  %.sroa.0312.2 = extractvalue { i64, ptr } %267, 0
+  %.sroa.22316.3 = extractvalue { i64, ptr } %267, 1
+  %.sroa.0312.3 = extractvalue { i64, ptr } %267, 0
   %268 = icmp ult i64 %indvars.iv.next495, %241
   br i1 %268, label %242, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.thread390, %228
-  %.sroa.22316.2.lcssa = phi ptr [ %.sroa.22316.2424, %228 ], [ %.sroa.22316.2, %.thread390 ]
-  %.sroa.0312.2.lcssa = phi i64 [ %.sroa.0312.2425, %228 ], [ %.sroa.0312.2, %.thread390 ]
+  %.sroa.22316.3.lcssa = phi ptr [ %.sroa.22316.3424, %228 ], [ %.sroa.22316.3, %.thread390 ]
+  %.sroa.0312.3.lcssa = phi i64 [ %.sroa.0312.3425, %228 ], [ %.sroa.0312.3, %.thread390 ]
   call void @jv_free(i64 %230, ptr %231) #14
   br label %f_tostring.exit
 
@@ -5345,10 +5345,10 @@ sub_1:                                            ; preds = %sub_0
   br label %f_tostring.exit
 
 f_tostring.exit:                                  ; preds = %34, %31, %336, %.critedge.thread, %324, %292, %._crit_edge, %.loopexit393, %221, %._crit_edge452, %f_tostring.exit380, %.loopexit, %106, %44, %25, %12
-  %.sroa.0312.3 = phi i64 [ %20, %12 ], [ %344, %336 ], [ %294, %292 ], [ %334, %.critedge.thread ], [ %326, %324 ], [ %.sroa.0312.2.lcssa, %._crit_edge ], [ %223, %221 ], [ %.sroa.0110.0.lcssa, %.loopexit393 ], [ %.sroa.0312.0.lcssa, %._crit_edge452 ], [ %128, %f_tostring.exit380 ], [ %52, %44 ], [ %114, %106 ], [ %.sroa.0194.0.lcssa, %.loopexit ], [ %27, %25 ], [ %36, %34 ], [ %1, %31 ]
-  %.sroa.22316.3 = phi ptr [ %21, %12 ], [ %345, %336 ], [ %295, %292 ], [ %335, %.critedge.thread ], [ %327, %324 ], [ %.sroa.22316.2.lcssa, %._crit_edge ], [ %224, %221 ], [ %.sroa.13.0.lcssa, %.loopexit393 ], [ %.sroa.22316.0.lcssa, %._crit_edge452 ], [ %129, %f_tostring.exit380 ], [ %53, %44 ], [ %115, %106 ], [ %.sroa.15.0.lcssa, %.loopexit ], [ %28, %25 ], [ %37, %34 ], [ %2, %31 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0312.3, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.22316.3, 1
+  %.sroa.0312.0 = phi i64 [ %20, %12 ], [ %344, %336 ], [ %294, %292 ], [ %334, %.critedge.thread ], [ %326, %324 ], [ %.sroa.0312.3.lcssa, %._crit_edge ], [ %223, %221 ], [ %.sroa.0110.0.lcssa, %.loopexit393 ], [ %.sroa.0312.1.lcssa, %._crit_edge452 ], [ %128, %f_tostring.exit380 ], [ %52, %44 ], [ %114, %106 ], [ %.sroa.0194.0.lcssa, %.loopexit ], [ %27, %25 ], [ %36, %34 ], [ %1, %31 ]
+  %.sroa.22316.0 = phi ptr [ %21, %12 ], [ %345, %336 ], [ %295, %292 ], [ %335, %.critedge.thread ], [ %327, %324 ], [ %.sroa.22316.3.lcssa, %._crit_edge ], [ %224, %221 ], [ %.sroa.13.0.lcssa, %.loopexit393 ], [ %.sroa.22316.1.lcssa, %._crit_edge452 ], [ %129, %f_tostring.exit380 ], [ %53, %44 ], [ %115, %106 ], [ %.sroa.15.0.lcssa, %.loopexit ], [ %28, %25 ], [ %37, %34 ], [ %2, %31 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0312.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.22316.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
@@ -5753,8 +5753,8 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
 
 .split.us:                                        ; preds = %149, %457
   %.0390.us = phi ptr [ %.1391.us, %457 ], [ %151, %149 ]
-  %.sroa.0331.1.us = phi i64 [ %.sroa.0331.2.us, %457 ], [ %.sroa.0331.0, %149 ]
-  %.sroa.10334.1.us = phi ptr [ %.sroa.10334.2.us, %457 ], [ %.sroa.10334.0, %149 ]
+  %.sroa.0331.1.us = phi i64 [ %.sroa.0331.3.us, %457 ], [ %.sroa.0331.0, %149 ]
+  %.sroa.10334.1.us = phi ptr [ %.sroa.10334.3.us, %457 ], [ %.sroa.10334.0, %149 ]
   %164 = load ptr, ptr %11, align 8
   %165 = call ptr @jv_string_value(i64 %1, ptr %2) #14
   %166 = call i32 @onig_search(ptr noundef %164, ptr noundef %165, ptr noundef %157, ptr noundef %.0390.us, ptr noundef %157, ptr noundef %158, i32 noundef 0) #14
@@ -6132,8 +6132,8 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
 457:                                              ; preds = %._crit_edge489.us, %._crit_edge480.us
   %.1391.us = phi ptr [ %gep.us, %._crit_edge489.us ], [ %235, %._crit_edge480.us ]
   %.pn421.us = phi { i64, ptr } [ %453, %._crit_edge489.us ], [ %231, %._crit_edge480.us ]
-  %.sroa.10334.2.us = extractvalue { i64, ptr } %.pn421.us, 1
-  %.sroa.0331.2.us = extractvalue { i64, ptr } %.pn421.us, 0
+  %.sroa.10334.3.us = extractvalue { i64, ptr } %.pn421.us, 1
+  %.sroa.0331.3.us = extractvalue { i64, ptr } %.pn421.us, 0
   %458 = icmp ule ptr %.1391.us, %157
   %459 = select i1 %.3, i1 %458, i1 false
   br i1 %459, label %.split.us, label %.loopexit, !llvm.loop !24
@@ -6258,8 +6258,8 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %457, %.split491.us, %528, %523
-  %.sroa.0331.3 = phi i64 [ %525, %523 ], [ %.us-phi, %.split491.us ], [ %540, %528 ], [ %.sroa.0331.2.us, %457 ]
-  %.sroa.10334.3 = phi ptr [ %526, %523 ], [ %.us-phi492, %.split491.us ], [ %541, %528 ], [ %.sroa.10334.2.us, %457 ]
+  %.sroa.0331.2 = phi i64 [ %525, %523 ], [ %.us-phi, %.split491.us ], [ %540, %528 ], [ %.sroa.0331.3.us, %457 ]
+  %.sroa.10334.2 = phi ptr [ %526, %523 ], [ %.us-phi492, %.split491.us ], [ %541, %528 ], [ %.sroa.10334.3.us, %457 ]
   call void @onig_region_free(ptr noundef %158, i32 noundef 1) #14
   %542 = load ptr, ptr %11, align 8
   call void @onig_free(ptr noundef %542) #14
@@ -6268,8 +6268,8 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   br label %543
 
 543:                                              ; preds = %.loopexit, %130, %108, %91, %40, %25
-  %.sroa.0382.0 = phi i64 [ %36, %25 ], [ %51, %40 ], [ %101, %91 ], [ %142, %130 ], [ %.sroa.0331.3, %.loopexit ], [ %116, %108 ]
-  %.sroa.7.0 = phi ptr [ %37, %25 ], [ %52, %40 ], [ %102, %91 ], [ %143, %130 ], [ %.sroa.10334.3, %.loopexit ], [ %117, %108 ]
+  %.sroa.0382.0 = phi i64 [ %36, %25 ], [ %51, %40 ], [ %101, %91 ], [ %142, %130 ], [ %.sroa.0331.2, %.loopexit ], [ %116, %108 ]
+  %.sroa.7.0 = phi ptr [ %37, %25 ], [ %52, %40 ], [ %102, %91 ], [ %143, %130 ], [ %.sroa.10334.2, %.loopexit ], [ %117, %108 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0382.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.7.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -6548,16 +6548,16 @@ set_tm_yday.exit:                                 ; preds = %81, %83
   br label %110
 
 110:                                              ; preds = %103, %98
-  %.sroa.051.0 = phi i64 [ %108, %103 ], [ %100, %98 ]
-  %.sroa.653.0 = phi ptr [ %109, %103 ], [ %101, %98 ]
+  %.sroa.051.1 = phi i64 [ %108, %103 ], [ %100, %98 ]
+  %.sroa.653.1 = phi ptr [ %109, %103 ], [ %101, %98 ]
   call void @jv_free(i64 %1, ptr %2) #14
   br label %111
 
 111:                                              ; preds = %110, %33, %10
-  %.sroa.051.1 = phi i64 [ %15, %10 ], [ %38, %33 ], [ %.sroa.051.0, %110 ]
-  %.sroa.653.1 = phi ptr [ %16, %10 ], [ %39, %33 ], [ %.sroa.653.0, %110 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.051.1, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.653.1, 1
+  %.sroa.051.0 = phi i64 [ %15, %10 ], [ %38, %33 ], [ %.sroa.051.1, %110 ]
+  %.sroa.653.0 = phi ptr [ %16, %10 ], [ %39, %33 ], [ %.sroa.653.1, %110 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.051.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.653.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
@@ -7342,8 +7342,8 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   br label %92
 
 92:                                               ; preds = %.lr.ph, %116
-  %.sroa.8.080 = phi ptr [ %79, %.lr.ph ], [ %.sroa.8.1, %116 ]
-  %.sroa.072.079 = phi i64 [ %78, %.lr.ph ], [ %.sroa.072.1, %116 ]
+  %.sroa.8.180 = phi ptr [ %79, %.lr.ph ], [ %.sroa.8.2, %116 ]
+  %.sroa.072.179 = phi i64 [ %78, %.lr.ph ], [ %.sroa.072.2, %116 ]
   %.sroa.5.078 = phi ptr [ %85, %.lr.ph ], [ %.sroa.5.1, %116 ]
   %.sroa.020.077 = phi i64 [ %84, %.lr.ph ], [ %.sroa.020.1, %116 ]
   %.076 = phi i32 [ 1, %.lr.ph ], [ %117, %116 ]
@@ -7366,7 +7366,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
 
 108:                                              ; preds = %92
   tail call void @jv_free(i64 %.sroa.020.077, ptr %.sroa.5.078) #14
-  tail call void @jv_free(i64 %.sroa.072.079, ptr %.sroa.8.080) #14
+  tail call void @jv_free(i64 %.sroa.072.179, ptr %.sroa.8.180) #14
   %109 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
   %110 = extractvalue { i64, ptr } %109, 0
   %111 = extractvalue { i64, ptr } %109, 1
@@ -7382,8 +7382,8 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
 116:                                              ; preds = %108, %115
   %.sroa.020.1 = phi i64 [ %97, %108 ], [ %.sroa.020.077, %115 ]
   %.sroa.5.1 = phi ptr [ %98, %108 ], [ %.sroa.5.078, %115 ]
-  %.sroa.072.1 = phi i64 [ %113, %108 ], [ %.sroa.072.079, %115 ]
-  %.sroa.8.1 = phi ptr [ %114, %108 ], [ %.sroa.8.080, %115 ]
+  %.sroa.072.2 = phi i64 [ %113, %108 ], [ %.sroa.072.179, %115 ]
+  %.sroa.8.2 = phi ptr [ %114, %108 ], [ %.sroa.8.180, %115 ]
   %117 = add nuw nsw i32 %.076, 1
   %118 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
   %119 = extractvalue { i64, ptr } %118, 0
@@ -7395,18 +7395,18 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
 ._crit_edge:                                      ; preds = %116, %73
   %.sroa.020.0.lcssa = phi i64 [ %84, %73 ], [ %.sroa.020.1, %116 ]
   %.sroa.5.0.lcssa = phi ptr [ %85, %73 ], [ %.sroa.5.1, %116 ]
-  %.sroa.072.0.lcssa = phi i64 [ %78, %73 ], [ %.sroa.072.1, %116 ]
-  %.sroa.8.0.lcssa = phi ptr [ %79, %73 ], [ %.sroa.8.1, %116 ]
+  %.sroa.072.1.lcssa = phi i64 [ %78, %73 ], [ %.sroa.072.2, %116 ]
+  %.sroa.8.1.lcssa = phi ptr [ %79, %73 ], [ %.sroa.8.2, %116 ]
   tail call void @jv_free(i64 %0, ptr %1) #14
   tail call void @jv_free(i64 %2, ptr %3) #14
   tail call void @jv_free(i64 %.sroa.020.0.lcssa, ptr %.sroa.5.0.lcssa) #14
   br label %123
 
 123:                                              ; preds = %._crit_edge, %69, %50, %28, %13
-  %.sroa.072.2 = phi i64 [ %24, %13 ], [ %39, %28 ], [ %61, %50 ], [ %71, %69 ], [ %.sroa.072.0.lcssa, %._crit_edge ]
-  %.sroa.8.2 = phi ptr [ %25, %13 ], [ %40, %28 ], [ %62, %50 ], [ %72, %69 ], [ %.sroa.8.0.lcssa, %._crit_edge ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.072.2, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.8.2, 1
+  %.sroa.072.0 = phi i64 [ %24, %13 ], [ %39, %28 ], [ %61, %50 ], [ %71, %69 ], [ %.sroa.072.1.lcssa, %._crit_edge ]
+  %.sroa.8.0 = phi ptr [ %25, %13 ], [ %40, %28 ], [ %62, %50 ], [ %72, %69 ], [ %.sroa.8.1.lcssa, %._crit_edge ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.072.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.8.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 

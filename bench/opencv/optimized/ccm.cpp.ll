@@ -4543,10 +4543,10 @@ _ZNSt10shared_ptrIN2cv3ccm10ColorSpaceEED2Ev.exit: ; preds = %17, %36, %49, %_ZN
 
 60:                                               ; preds = %56, %58
   %.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ]
-  %.1 = phi i1 [ %.0, %58 ], [ true, %56 ]
+  %.3 = phi i1 [ %.0, %58 ], [ true, %56 ]
   call void @_ZNSt10shared_ptrIN2cv3ccm10ColorSpaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
-  br i1 %.1, label %61, label %62
+  br i1 %.3, label %61, label %62
 
 61:                                               ; preds = %.thread17, %.thread, %60
   %.pn.pn.pn16 = phi { ptr, i32 } [ %54, %.thread ], [ %.pn, %60 ], [ %55, %.thread17 ]

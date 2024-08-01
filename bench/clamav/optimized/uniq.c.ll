@@ -103,14 +103,14 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %31
 
 31:                                               ; preds = %.lr.ph, %33
-  %.065 = phi ptr [ %26, %.lr.ph ], [ %34, %33 ]
-  %32 = getelementptr inbounds i8, ptr %.065, i64 13
+  %.165 = phi ptr [ %26, %.lr.ph ], [ %34, %33 ]
+  %32 = getelementptr inbounds i8, ptr %.165, i64 13
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %30, ptr noundef nonnull dereferenceable(15) %32, i64 15)
   %.not55 = icmp eq i32 %bcmp, 0
   br i1 %.not55, label %.loopexit62, label %33
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %.065, align 8
+  %34 = load ptr, ptr %.165, align 8
   %.not54 = icmp eq ptr %34, null
   br i1 %.not54, label %.loopexit, label %31
 
@@ -190,7 +190,7 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .loopexit62:                                      ; preds = %31, %78
   %82 = phi i32 [ %.pre69, %78 ], [ %18, %31 ]
-  %.2 = phi ptr [ %36, %78 ], [ %.065, %31 ]
+  %.2 = phi ptr [ %36, %78 ], [ %.165, %31 ]
   %83 = add i32 %82, 1
   store i32 %83, ptr %17, align 8
   %84 = getelementptr inbounds i8, ptr %.2, i64 8

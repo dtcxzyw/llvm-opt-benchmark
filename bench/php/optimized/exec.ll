@@ -421,26 +421,26 @@ define internal fastcc void @php_exec_ex(ptr noundef %0, ptr nocapture noundef w
   br label %27
 
 27:                                               ; preds = %18, %25
-  %.0167 = phi ptr [ null, %18 ], [ %26, %25 ]
+  %.1168 = phi ptr [ null, %18 ], [ %26, %25 ]
   %28 = phi i64 [ 80, %18 ], [ 96, %25 ]
-  %.0148 = phi i32 [ 2, %18 ], [ 3, %25 ]
+  %.1 = phi i32 [ 2, %18 ], [ 3, %25 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 %28
-  %30 = icmp ugt i32 %.0148, %7
+  %30 = icmp ugt i32 %.1, %7
   %31 = getelementptr inbounds i8, ptr %29, i64 16
   %spec.select189 = select i1 %30, ptr null, ptr %31
   br label %33
 
 32:                                               ; preds = %9, %16
   %.0153 = phi i32 [ 0, %9 ], [ 4, %16 ]
-  %.1152 = phi ptr [ null, %9 ], [ %11, %16 ]
+  %.0151 = phi ptr [ null, %9 ], [ %11, %16 ]
   %.0149 = phi i32 [ 1, %9 ], [ 9, %16 ]
-  %.1 = phi i32 [ 0, %9 ], [ 1, %16 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0149, i32 noundef %.1, ptr noundef null, i32 noundef %.0153, ptr noundef %.1152) #10
+  %.0148 = phi i32 [ 0, %9 ], [ 1, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0149, i32 noundef %.0148, ptr noundef null, i32 noundef %.0153, ptr noundef %.0151) #10
   br label %99
 
 33:                                               ; preds = %23, %27
   %.0169.ph = phi ptr [ %spec.select189, %27 ], [ null, %23 ]
-  %.1168.ph = phi ptr [ %.0167, %27 ], [ null, %23 ]
+  %.0167.ph = phi ptr [ %.1168, %27 ], [ null, %23 ]
   %.not181 = icmp eq i64 %21, 0
   br i1 %.not181, label %34, label %37
 
@@ -464,7 +464,7 @@ define internal fastcc void @php_exec_ex(ptr noundef %0, ptr nocapture noundef w
   br label %99
 
 42:                                               ; preds = %37
-  %.not183 = icmp eq ptr %.1168.ph, null
+  %.not183 = icmp eq ptr %.0167.ph, null
   br i1 %.not183, label %43, label %45
 
 43:                                               ; preds = %42
@@ -472,18 +472,18 @@ define internal fastcc void @php_exec_ex(ptr noundef %0, ptr nocapture noundef w
   br label %87
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr %.1168.ph, align 8
+  %46 = load ptr, ptr %.0167.ph, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load i8, ptr %47, align 8
   %49 = icmp eq i8 %48, 7
-  %50 = getelementptr inbounds i8, ptr %.1168.ph, i64 8
+  %50 = getelementptr inbounds i8, ptr %.0167.ph, i64 8
   br i1 %49, label %51, label %67
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds i8, ptr %46, i64 8
   %53 = load i8, ptr %50, align 8
   %54 = icmp eq i8 %53, 10
-  %spec.select = select i1 %54, ptr %52, ptr %.1168.ph
+  %spec.select = select i1 %54, ptr %52, ptr %.0167.ph
   %55 = load ptr, ptr %spec.select, align 8
   %56 = load i32, ptr %55, align 4
   %57 = icmp ugt i32 %56, 1
@@ -513,7 +513,7 @@ define internal fastcc void @php_exec_ex(ptr noundef %0, ptr nocapture noundef w
   br i1 %70, label %71, label %81
 
 71:                                               ; preds = %67
-  %72 = load ptr, ptr %.1168.ph, align 8
+  %72 = load ptr, ptr %.0167.ph, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
   %.not184 = icmp eq ptr %74, null
@@ -530,7 +530,7 @@ define internal fastcc void @php_exec_ex(ptr noundef %0, ptr nocapture noundef w
   br label %81
 
 81:                                               ; preds = %79, %67
-  %.0145 = phi ptr [ %80, %79 ], [ %.1168.ph, %67 ]
+  %.0145 = phi ptr [ %80, %79 ], [ %.0167.ph, %67 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %.0145) #10
   store ptr %68, ptr %.0145, align 8
   %82 = getelementptr inbounds i8, ptr %.0145, i64 8
@@ -623,8 +623,8 @@ define ptr @php_escape_shell_cmd(ptr noundef %0) local_unnamed_addr #0 {
   br label %70
 
 .lr.ph:                                           ; preds = %10, %51
-  %.0159183 = phi ptr [ %.3, %51 ], [ null, %10 ]
-  %.0162182 = phi i64 [ %.3165, %51 ], [ 0, %10 ]
+  %.0159183 = phi ptr [ %.1, %51 ], [ null, %10 ]
+  %.0162182 = phi i64 [ %.1163, %51 ], [ 0, %10 ]
   %.0166181 = phi i64 [ %52, %51 ], [ 0, %10 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 %.0166181
   %17 = sub nuw i64 %2, %.0166181
@@ -698,10 +698,10 @@ define ptr @php_escape_shell_cmd(ptr noundef %0) local_unnamed_addr #0 {
   br label %42
 
 42:                                               ; preds = %37, %.thread, %32
-  %.1163 = phi i64 [ %40, %.thread ], [ %.0162182, %32 ], [ %.0162182, %37 ]
-  %.2 = phi ptr [ %.0159183, %.thread ], [ %36, %32 ], [ null, %37 ]
-  %43 = add i64 %.1163, 1
-  %44 = getelementptr inbounds [1 x i8], ptr %15, i64 0, i64 %.1163
+  %.3165 = phi i64 [ %40, %.thread ], [ %.0162182, %32 ], [ %.0162182, %37 ]
+  %.3 = phi ptr [ %.0159183, %.thread ], [ %36, %32 ], [ null, %37 ]
+  %43 = add i64 %.3165, 1
+  %44 = getelementptr inbounds [1 x i8], ptr %15, i64 0, i64 %.3165
   store i8 %30, ptr %44, align 1
   br label %51
 
@@ -720,19 +720,19 @@ define ptr @php_escape_shell_cmd(ptr noundef %0) local_unnamed_addr #0 {
 
 51:                                               ; preds = %42, %48, %.lr.ph, %22
   %.1167 = phi i64 [ %.0166181, %.lr.ph ], [ %28, %22 ], [ %.0166181, %48 ], [ %.0166181, %42 ]
-  %.3165 = phi i64 [ %.0162182, %.lr.ph ], [ %25, %22 ], [ %49, %48 ], [ %43, %42 ]
-  %.3 = phi ptr [ %.0159183, %.lr.ph ], [ %.0159183, %22 ], [ %.0159183, %48 ], [ %.2, %42 ]
+  %.1163 = phi i64 [ %.0162182, %.lr.ph ], [ %25, %22 ], [ %49, %48 ], [ %43, %42 ]
+  %.1 = phi ptr [ %.0159183, %.lr.ph ], [ %.0159183, %22 ], [ %.0159183, %48 ], [ %.3, %42 ]
   %52 = add i64 %.1167, 1
   %53 = icmp ult i64 %52, %2
   br i1 %53, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %51
   %54 = getelementptr inbounds i8, ptr %11, i64 24
-  %55 = getelementptr inbounds [1 x i8], ptr %54, i64 0, i64 %.3165
+  %55 = getelementptr inbounds [1 x i8], ptr %54, i64 0, i64 %.1163
   store i8 0, ptr %55, align 1
   %56 = load i64, ptr @cmd_max_len, align 8
   %57 = add i64 %56, 1
-  %58 = icmp ugt i64 %.3165, %57
+  %58 = icmp ugt i64 %.1163, %57
   br i1 %58, label %59, label %70
 
 59:                                               ; preds = %._crit_edge
@@ -761,7 +761,7 @@ define ptr @php_escape_shell_cmd(ptr noundef %0) local_unnamed_addr #0 {
 
 70:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi ptr [ %15, %._crit_edge.thread ], [ %54, %._crit_edge ]
-  %.0162.lcssa186 = phi i64 [ 0, %._crit_edge.thread ], [ %.3165, %._crit_edge ]
+  %.0162.lcssa186 = phi i64 [ 0, %._crit_edge.thread ], [ %.1163, %._crit_edge ]
   %72 = sub i64 %4, %.0162.lcssa186
   %73 = icmp ugt i64 %72, 4096
   br i1 %73, label %74, label %106
@@ -875,7 +875,7 @@ define ptr @php_escape_shell_arg(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not163, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %42
-  %.0152162 = phi i64 [ %.2, %42 ], [ 1, %10 ]
+  %.0152162 = phi i64 [ %.1, %42 ], [ 1, %10 ]
   %.0153161 = phi i64 [ %43, %42 ], [ 0, %10 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 %.0153161
   %18 = sub nuw i64 %2, %.0153161
@@ -915,21 +915,21 @@ define ptr @php_escape_shell_arg(ptr noundef %0) local_unnamed_addr #0 {
   br label %39
 
 39:                                               ; preds = %30, %32
-  %.1 = phi i64 [ %37, %32 ], [ %.0152162, %30 ]
-  %40 = add i64 %.1, 1
-  %41 = getelementptr inbounds [1 x i8], ptr %16, i64 0, i64 %.1
+  %.2 = phi i64 [ %37, %32 ], [ %.0152162, %30 ]
+  %40 = add i64 %.2, 1
+  %41 = getelementptr inbounds [1 x i8], ptr %16, i64 0, i64 %.2
   store i8 %31, ptr %41, align 1
   br label %42
 
 42:                                               ; preds = %.lr.ph, %39, %23
   %.1154 = phi i64 [ %.0153161, %.lr.ph ], [ %29, %23 ], [ %.0153161, %39 ]
-  %.2 = phi i64 [ %.0152162, %.lr.ph ], [ %26, %23 ], [ %40, %39 ]
+  %.1 = phi i64 [ %.0152162, %.lr.ph ], [ %26, %23 ], [ %40, %39 ]
   %43 = add i64 %.1154, 1
   %44 = icmp ult i64 %43, %2
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42, %10
-  %.0152.lcssa = phi i64 [ 1, %10 ], [ %.2, %42 ]
+  %.0152.lcssa = phi i64 [ 1, %10 ], [ %.1, %42 ]
   %45 = add i64 %.0152.lcssa, 1
   %46 = getelementptr inbounds [1 x i8], ptr %16, i64 0, i64 %.0152.lcssa
   store i8 39, ptr %46, align 1

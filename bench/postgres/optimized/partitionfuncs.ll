@@ -176,9 +176,9 @@ list_length.exit:                                 ; preds = %36
   br label %.thread73
 
 .thread73:                                        ; preds = %56, %.thread91, %.thread73.loopexit, %.lr.ph
-  %.1 = phi i64 [ 0, %56 ], [ 0, %.lr.ph ], [ %78, %.thread73.loopexit ], [ 0, %.thread91 ]
+  %.055 = phi i64 [ 0, %56 ], [ 0, %.lr.ph ], [ %78, %.thread73.loopexit ], [ 0, %.thread91 ]
   %79 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 %.1, ptr %79, align 8
+  store i64 %.055, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %37, i64 40
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr @heap_form_tuple(ptr noundef %81, ptr noundef nonnull %3, ptr noundef nonnull %4) #5

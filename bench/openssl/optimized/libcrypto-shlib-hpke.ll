@@ -1587,8 +1587,8 @@ if.else:                                          ; preds = %if.end21, %hpke_kem
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else, %if.then26
-  %spub.0 = phi ptr [ %call29, %if.then26 ], [ %call34, %if.else ]
-  %cmp36 = icmp eq ptr %spub.0, null
+  %spub.1 = phi ptr [ %call29, %if.then26 ], [ %call34, %if.else ]
+  %cmp36 = icmp eq ptr %spub.1, null
   br i1 %cmp36, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %if.end35
@@ -1598,7 +1598,7 @@ if.then37:                                        ; preds = %if.end35
   br label %err
 
 if.end38:                                         ; preds = %if.end35
-  %call40 = call i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef nonnull %call, ptr noundef nonnull %spub.0, ptr noundef nonnull %params) #5
+  %call40 = call i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef nonnull %call, ptr noundef nonnull %spub.1, ptr noundef nonnull %params) #5
   %cmp41.not = icmp eq i32 %call40, 1
   br i1 %cmp41.not, label %if.end50, label %if.then42
 
@@ -1620,7 +1620,7 @@ if.then48:                                        ; preds = %if.else44
   br label %err
 
 if.end50:                                         ; preds = %if.else44, %if.end38
-  %spub.1 = phi ptr [ %spub.0, %if.end38 ], [ null, %if.else44 ]
+  %spub.2 = phi ptr [ %spub.1, %if.end38 ], [ null, %if.else44 ]
   %call51 = call i32 @EVP_PKEY_decapsulate(ptr noundef nonnull %call, ptr noundef null, ptr noundef nonnull %lsslen, ptr noundef %enc, i64 noundef %enclen) #5
   %cmp52.not = icmp eq i32 %call51, 1
   br i1 %cmp52.not, label %if.end54, label %if.then53
@@ -1658,9 +1658,9 @@ if.end65:                                         ; preds = %if.end60
 err:                                              ; preds = %if.end54, %if.end65, %if.then64, %if.then53, %if.then48, %if.then42, %if.then37, %if.then20, %if.then10
   %cmp66 = phi i1 [ true, %if.then10 ], [ true, %if.then20 ], [ true, %if.then37 ], [ true, %if.then42 ], [ true, %if.then53 ], [ true, %if.end54 ], [ true, %if.then64 ], [ false, %if.end65 ], [ true, %if.then48 ]
   %erv.0 = phi i32 [ 0, %if.then10 ], [ 0, %if.then20 ], [ 0, %if.then37 ], [ 0, %if.then42 ], [ 0, %if.then53 ], [ 0, %if.end54 ], [ 0, %if.then64 ], [ 1, %if.end65 ], [ 0, %if.then48 ]
-  %spub.2 = phi ptr [ null, %if.then10 ], [ null, %if.then20 ], [ null, %if.then37 ], [ %spub.0, %if.then42 ], [ %spub.1, %if.then53 ], [ %spub.1, %if.end54 ], [ %spub.1, %if.then64 ], [ %spub.1, %if.end65 ], [ null, %if.then48 ]
+  %spub.0 = phi ptr [ null, %if.then10 ], [ null, %if.then20 ], [ null, %if.then37 ], [ %spub.1, %if.then42 ], [ %spub.2, %if.then53 ], [ %spub.2, %if.end54 ], [ %spub.2, %if.then64 ], [ %spub.2, %if.end65 ], [ null, %if.then48 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %call) #5
-  call void @EVP_PKEY_free(ptr noundef %spub.2) #5
+  call void @EVP_PKEY_free(ptr noundef %spub.0) #5
   br i1 %cmp66, label %if.then67, label %return
 
 if.then67:                                        ; preds = %err
@@ -2649,28 +2649,28 @@ if.else:                                          ; preds = %if.end
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end5.i, %if.else
-  %chosen.sroa.6.1.in = phi ptr [ %chosen.sroa.6.0.suite_in.sroa_idx, %if.else ], [ %call7.i, %if.end5.i ]
-  %chosen.sroa.5.1 = phi i16 [ %chosen.sroa.5.0.copyload, %if.else ], [ %8, %if.end5.i ]
-  %chosen.sroa.0.1 = phi i16 [ %chosen.sroa.0.0.copyload, %if.else ], [ %7, %if.end5.i ]
-  %chosen.sroa.6.1 = load i16, ptr %chosen.sroa.6.1.in, align 2
-  %chosen.sroa.6.0.insert.ext29 = zext i16 %chosen.sroa.6.1 to i48
+  %chosen.sroa.6.0.in = phi ptr [ %chosen.sroa.6.0.suite_in.sroa_idx, %if.else ], [ %call7.i, %if.end5.i ]
+  %chosen.sroa.5.0 = phi i16 [ %chosen.sroa.5.0.copyload, %if.else ], [ %8, %if.end5.i ]
+  %chosen.sroa.0.0 = phi i16 [ %chosen.sroa.0.0.copyload, %if.else ], [ %7, %if.end5.i ]
+  %chosen.sroa.6.0 = load i16, ptr %chosen.sroa.6.0.in, align 2
+  %chosen.sroa.6.0.insert.ext29 = zext i16 %chosen.sroa.6.0 to i48
   %chosen.sroa.6.0.insert.shift30 = shl nuw i48 %chosen.sroa.6.0.insert.ext29, 32
-  %chosen.sroa.5.0.insert.ext24 = zext i16 %chosen.sroa.5.1 to i48
+  %chosen.sroa.5.0.insert.ext24 = zext i16 %chosen.sroa.5.0 to i48
   %chosen.sroa.5.0.insert.shift25 = shl nuw nsw i48 %chosen.sroa.5.0.insert.ext24, 16
-  %chosen.sroa.0.0.insert.ext20 = zext i16 %chosen.sroa.0.1 to i48
+  %chosen.sroa.0.0.insert.ext20 = zext i16 %chosen.sroa.0.0 to i48
   %9 = or disjoint i48 %chosen.sroa.6.0.insert.shift30, %chosen.sroa.0.0.insert.ext20
   %chosen.sroa.0.0.insert.insert22 = or disjoint i48 %9, %chosen.sroa.5.0.insert.shift25
-  %call.i15 = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %chosen.sroa.0.1) #5
+  %call.i15 = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %chosen.sroa.0.0) #5
   %cmp.i16 = icmp eq ptr %call.i15, null
   br i1 %cmp.i16, label %if.then16, label %if.end.i17
 
 if.end.i17:                                       ; preds = %if.end13
-  %call1.i = tail call ptr @ossl_HPKE_KDF_INFO_find_id(i16 noundef zeroext %chosen.sroa.5.1) #5
+  %call1.i = tail call ptr @ossl_HPKE_KDF_INFO_find_id(i16 noundef zeroext %chosen.sroa.5.0) #5
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %if.then16, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i17
-  %call5.i = tail call ptr @ossl_HPKE_AEAD_INFO_find_id(i16 noundef zeroext %chosen.sroa.6.1) #5
+  %call5.i = tail call ptr @ossl_HPKE_AEAD_INFO_find_id(i16 noundef zeroext %chosen.sroa.6.0) #5
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %if.then16, label %if.end17
 
@@ -2681,11 +2681,11 @@ if.then16:                                        ; preds = %if.end13, %if.end.i
   br label %return
 
 if.end17:                                         ; preds = %if.end4.i
-  store i16 %chosen.sroa.0.1, ptr %suite, align 2
+  store i16 %chosen.sroa.0.0, ptr %suite, align 2
   %chosen.sroa.5.0.suite.sroa_idx = getelementptr inbounds i8, ptr %suite, i64 2
-  store i16 %chosen.sroa.5.1, ptr %chosen.sroa.5.0.suite.sroa_idx, align 2
+  store i16 %chosen.sroa.5.0, ptr %chosen.sroa.5.0.suite.sroa_idx, align 2
   %chosen.sroa.6.0.suite.sroa_idx = getelementptr inbounds i8, ptr %suite, i64 4
-  store i16 %chosen.sroa.6.1, ptr %chosen.sroa.6.0.suite.sroa_idx, align 2
+  store i16 %chosen.sroa.6.0, ptr %chosen.sroa.6.0.suite.sroa_idx, align 2
   %taglen = getelementptr inbounds i8, ptr %call5.i, i64 16
   %10 = load i64, ptr %taglen, align 8
   %cmp18.not = icmp ult i64 %10, %ctlen

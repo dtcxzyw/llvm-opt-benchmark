@@ -943,13 +943,13 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %exitcond1646.not, label %.loopexit1406, label %.lr.ph1426, !llvm.loop !17
 
 644:                                              ; preds = %596, %604
-  %.31293 = phi double [ %603, %596 ], [ %612, %604 ]
+  %.41294 = phi double [ %603, %596 ], [ %612, %604 ]
   %645 = load double, ptr %478, align 8
-  %646 = tail call double @llvm.fmuladd.f64(double %645, double %645, double %.31293)
+  %646 = tail call double @llvm.fmuladd.f64(double %645, double %645, double %.41294)
   %647 = tail call noundef double @llvm.fabs.f64(double %646)
   %sqrt1399 = tail call double @llvm.sqrt.f64(double %647)
   %648 = fadd double %645, %sqrt1399
-  %649 = fdiv double %.31293, %648
+  %649 = fdiv double %.41294, %648
   store double %649, ptr %14, align 8
   %650 = load i32, ptr %1, align 4
   %651 = add nsw i32 %650, 1
@@ -987,7 +987,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .loopexit1406:                                    ; preds = %.lr.ph1426, %.lr.ph1430, %613, %644
   %.012521744 = phi double [ 0.000000e+00, %644 ], [ %486, %613 ], [ 0.000000e+00, %.lr.ph1430 ], [ %486, %.lr.ph1426 ]
   %.012571742 = phi double [ %587, %644 ], [ 0.000000e+00, %613 ], [ %587, %.lr.ph1430 ], [ 0.000000e+00, %.lr.ph1426 ]
-  %.412941740 = phi double [ %.31293, %644 ], [ %.21292, %613 ], [ %.31293, %.lr.ph1430 ], [ %.21292, %.lr.ph1426 ]
+  %.312931740 = phi double [ %.41294, %644 ], [ %.21292, %613 ], [ %.41294, %.lr.ph1430 ], [ %.21292, %.lr.ph1426 ]
   %.01302 = phi i32 [ %651, %644 ], [ %620, %613 ], [ %651, %.lr.ph1430 ], [ %620, %.lr.ph1426 ]
   %667 = add nsw i32 %.01302, -1
   %668 = add nsw i32 %.01302, 1
@@ -1098,7 +1098,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %721 = tail call double @llvm.fmuladd.f64(double %33, double 2.000000e+00, double %720)
   %722 = tail call noundef double @llvm.fabs.f64(double %717)
   %723 = tail call double @llvm.fmuladd.f64(double %722, double 3.000000e+00, double %721)
-  %724 = tail call noundef double @llvm.fabs.f64(double %.412941740)
+  %724 = tail call noundef double @llvm.fabs.f64(double %.312931740)
   %725 = tail call double @llvm.fmuladd.f64(double %724, double %716, double %723)
   %726 = tail call noundef double @llvm.fabs.f64(double %718)
   %727 = fmul double %725, 0x3CB0000000000000
@@ -1110,13 +1110,13 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %730, label %734, label %731
 
 731:                                              ; preds = %729
-  %732 = fcmp ogt double %.012571742, %.412941740
-  %733 = select i1 %732, double %.012571742, double %.412941740
+  %732 = fcmp ogt double %.012571742, %.312931740
+  %733 = select i1 %732, double %.012571742, double %.312931740
   br label %737
 
 734:                                              ; preds = %729
-  %735 = fcmp olt double %.012521744, %.412941740
-  %736 = select i1 %735, double %.012521744, double %.412941740
+  %735 = fcmp olt double %.012521744, %.312931740
+  %736 = select i1 %735, double %.012521744, double %.312931740
   br label %737
 
 737:                                              ; preds = %734, %731
@@ -1371,20 +1371,20 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %900, label %901, label %904
 
 901:                                              ; preds = %899
-  %902 = fsub double %.11253, %.412941740
+  %902 = fsub double %.11253, %.312931740
   %903 = fmul double %902, 5.000000e-01
   store double %903, ptr %14, align 8
   br label %907
 
 904:                                              ; preds = %899
-  %905 = fsub double %.11258, %.412941740
+  %905 = fsub double %.11258, %.312931740
   %906 = fmul double %905, 5.000000e-01
   store double %906, ptr %14, align 8
   br label %907
 
 907:                                              ; preds = %894, %901, %904
   %908 = phi double [ %887, %894 ], [ %903, %901 ], [ %906, %904 ]
-  %909 = fadd double %.412941740, %908
+  %909 = fadd double %.312931740, %908
   %910 = load double, ptr %6, align 8
   %911 = call double @llvm.fmuladd.f64(double %910, double %910, double %908)
   %912 = call double @sqrt(double noundef %911) #5
@@ -1637,20 +1637,20 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.not1366 = icmp eq i32 %1046, 0
   %1047 = call double @llvm.fmuladd.f64(double %1045, double %1045, double %.612701512)
   %1048 = call double @llvm.fmuladd.f64(double %1045, double %1045, double %.312771511)
-  %.41278 = select i1 %.not1366, double %1048, double %.312771511
-  %.71271 = select i1 %.not1366, double %.612701512, double %1047
+  %.51279 = select i1 %.not1366, double %1048, double %.312771511
+  %.81272 = select i1 %.not1366, double %.612701512, double %1047
   %1049 = fneg double %1025
-  %1050 = call double @llvm.fmuladd.f64(double %1049, double %.71271, double %1010)
+  %1050 = call double @llvm.fmuladd.f64(double %1049, double %.81272, double %1010)
   %1051 = fneg double %1018
-  %1052 = call double @llvm.fmuladd.f64(double %1051, double %.41278, double %1050)
+  %1052 = call double @llvm.fmuladd.f64(double %1051, double %.51279, double %1050)
   store double %1052, ptr %10, align 8
   br label %1053
 
 1053:                                             ; preds = %1028, %1036, %1043
   %1054 = phi i32 [ %1046, %1043 ], [ 1, %1028 ], [ 0, %1036 ]
   %1055 = phi double [ %1052, %1043 ], [ %1035, %1028 ], [ %1042, %1036 ]
-  %.51279 = phi double [ %.41278, %1043 ], [ %.312771511, %1028 ], [ %.312771511, %1036 ]
-  %.81272 = phi double [ %.71271, %1043 ], [ %.612701512, %1028 ], [ %.612701512, %1036 ]
+  %.41278 = phi double [ %.51279, %1043 ], [ %.312771511, %1028 ], [ %.312771511, %1036 ]
+  %.71271 = phi double [ %.81272, %1043 ], [ %.612701512, %1028 ], [ %.612701512, %1036 ]
   %1056 = fadd double %1018, %1025
   %1057 = fmul double %1018, %1025
   %1058 = fneg double %1057
@@ -1677,7 +1677,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %1070 = getelementptr inbounds double, ptr %19, i64 %1020
   %1071 = load double, ptr %1070, align 8
   %1072 = fmul double %1018, %1018
-  %1073 = fadd double %.51279, %.81272
+  %1073 = fadd double %.41278, %.71271
   %1074 = fmul double %1072, %1073
   %1075 = call double @llvm.fmuladd.f64(double %1071, double %1071, double %1074)
   br label %1087
@@ -1685,7 +1685,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 1076:                                             ; preds = %1068
   %1077 = load double, ptr %544, align 8
   %1078 = fmul double %1025, %1025
-  %1079 = fadd double %.51279, %.81272
+  %1079 = fadd double %.41278, %.71271
   %1080 = fmul double %1078, %1079
   %1081 = call double @llvm.fmuladd.f64(double %1077, double %1077, double %1080)
   br label %1087
@@ -1693,8 +1693,8 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 1082:                                             ; preds = %1067
   %1083 = fmul double %1025, %1025
   %1084 = fmul double %1018, %1018
-  %1085 = fmul double %1084, %.51279
-  %1086 = call double @llvm.fmuladd.f64(double %1083, double %.81272, double %1085)
+  %1085 = fmul double %1084, %.41278
+  %1086 = call double @llvm.fmuladd.f64(double %1083, double %.71271, double %1085)
   br label %1087
 
 1087:                                             ; preds = %1082, %1076, %1069, %1064

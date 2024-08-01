@@ -4226,8 +4226,8 @@ if.then951:                                       ; preds = %get_base_commit.exi
 
 for.body.i222:                                    ; preds = %commit_base_at.exit.i, %if.then951
   %indvars.iv.i223 = phi i64 [ 0, %if.then951 ], [ %indvars.iv.next.i225, %commit_base_at.exit.i ]
-  %commit_base.sroa.20.093.i = phi ptr [ null, %if.then951 ], [ %commit_base.sroa.20.1.i, %commit_base_at.exit.i ]
-  %commit_base.sroa.10.092.i = phi i32 [ 0, %if.then951 ], [ %commit_base.sroa.10.1.i, %commit_base_at.exit.i ]
+  %commit_base.sroa.20.093.i = phi ptr [ null, %if.then951 ], [ %commit_base.sroa.20.2.i, %commit_base_at.exit.i ]
+  %commit_base.sroa.10.092.i = phi i32 [ 0, %if.then951 ], [ %commit_base.sroa.10.2.i, %commit_base_at.exit.i ]
   %arrayidx.i224 = getelementptr inbounds ptr, ptr %list.0.ph333, i64 %indvars.iv.i223
   %163 = load ptr, ptr %arrayidx.i224, align 8
   %bf.load2.i = load i32, ptr %163, align 8
@@ -4259,10 +4259,10 @@ if.end.i.i.i:                                     ; preds = %for.body.i222
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end.i.i.i, %for.body.i222
-  %commit_base.sroa.10.1.i = phi i32 [ %commit_base.sroa.10.092.i, %for.body.i222 ], [ %add.i.i.i, %if.end.i.i.i ]
-  %commit_base.sroa.20.1.i = phi ptr [ %commit_base.sroa.20.093.i, %for.body.i222 ], [ %call4.i.i.i, %if.end.i.i.i ]
+  %commit_base.sroa.10.2.i = phi i32 [ %commit_base.sroa.10.092.i, %for.body.i222 ], [ %add.i.i.i, %if.end.i.i.i ]
+  %commit_base.sroa.20.2.i = phi ptr [ %commit_base.sroa.20.093.i, %for.body.i222 ], [ %call4.i.i.i, %if.end.i.i.i ]
   %idxprom14.i.i.i = zext nneg i32 %div.i.i.i to i64
-  %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %commit_base.sroa.20.1.i, i64 %idxprom14.i.i.i
+  %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %commit_base.sroa.20.2.i, i64 %idxprom14.i.i.i
   %173 = load ptr, ptr %arrayidx15.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %173, null
   br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %commit_base_at.exit.i
@@ -4309,24 +4309,24 @@ if.then22.i:                                      ; preds = %for.end.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
   %call25100.i = phi ptr [ %call2596.i, %while.body.lr.ph.i ], [ %call25.i209, %while.cond.backedge.i ]
-  %commit_base.sroa.20.299.i = phi ptr [ %commit_base.sroa.20.1.i, %while.body.lr.ph.i ], [ %commit_base.sroa.20.3.i, %while.cond.backedge.i ]
-  %commit_base.sroa.10.298.i = phi i32 [ %commit_base.sroa.10.1.i, %while.body.lr.ph.i ], [ %commit_base.sroa.10.3.i, %while.cond.backedge.i ]
+  %commit_base.sroa.20.199.i = phi ptr [ %commit_base.sroa.20.2.i, %while.body.lr.ph.i ], [ %commit_base.sroa.20.3.i, %while.cond.backedge.i ]
+  %commit_base.sroa.10.198.i = phi i32 [ %commit_base.sroa.10.2.i, %while.body.lr.ph.i ], [ %commit_base.sroa.10.3.i, %while.cond.backedge.i ]
   %175 = getelementptr i8, ptr %call25100.i, i64 64
   %call25.val.i = load i32, ptr %175, align 8
   %div.i.i27.i = udiv i32 %call25.val.i, 131064
   %rem.i.i49.i = urem i32 %call25.val.i, 131064
-  %cmp.not.i.i29.i = icmp ugt i32 %commit_base.sroa.10.298.i, %div.i.i27.i
+  %cmp.not.i.i29.i = icmp ugt i32 %commit_base.sroa.10.198.i, %div.i.i27.i
   br i1 %cmp.not.i.i29.i, label %if.end12.i.i44.i, label %if.end.i.i30.i
 
 if.end.i.i30.i:                                   ; preds = %while.body.i
   %add.i.i32.i = add nuw nsw i32 %div.i.i27.i, 1
   %176 = shl nuw nsw i32 %add.i.i32.i, 3
   %mul.i.i.i34.i = zext nneg i32 %176 to i64
-  %call4.i.i35.i = call ptr @xrealloc(ptr noundef %commit_base.sroa.20.299.i, i64 noundef %mul.i.i.i34.i) #20
-  %177 = zext nneg i32 %commit_base.sroa.10.298.i to i64
+  %call4.i.i35.i = call ptr @xrealloc(ptr noundef %commit_base.sroa.20.199.i, i64 noundef %mul.i.i.i34.i) #20
+  %177 = zext nneg i32 %commit_base.sroa.10.198.i to i64
   %178 = shl nuw nsw i64 %177, 3
   %scevgep109.i = getelementptr i8, ptr %call4.i.i35.i, i64 %178
-  %179 = sub nuw nsw i32 %div.i.i27.i, %commit_base.sroa.10.298.i
+  %179 = sub nuw nsw i32 %div.i.i27.i, %commit_base.sroa.10.198.i
   %180 = shl nuw nsw i32 %179, 3
   %narrow115.i = add nuw nsw i32 %180, 8
   %181 = zext nneg i32 %narrow115.i to i64
@@ -4334,8 +4334,8 @@ if.end.i.i30.i:                                   ; preds = %while.body.i
   br label %if.end12.i.i44.i
 
 if.end12.i.i44.i:                                 ; preds = %if.end.i.i30.i, %while.body.i
-  %commit_base.sroa.10.3.i = phi i32 [ %commit_base.sroa.10.298.i, %while.body.i ], [ %add.i.i32.i, %if.end.i.i30.i ]
-  %commit_base.sroa.20.3.i = phi ptr [ %commit_base.sroa.20.299.i, %while.body.i ], [ %call4.i.i35.i, %if.end.i.i30.i ]
+  %commit_base.sroa.10.3.i = phi i32 [ %commit_base.sroa.10.198.i, %while.body.i ], [ %add.i.i32.i, %if.end.i.i30.i ]
+  %commit_base.sroa.20.3.i = phi ptr [ %commit_base.sroa.20.199.i, %while.body.i ], [ %call4.i.i35.i, %if.end.i.i30.i ]
   %idxprom14.i.i46.i = zext nneg i32 %div.i.i27.i to i64
   %arrayidx15.i.i47.i = getelementptr inbounds ptr, ptr %commit_base.sroa.20.3.i, i64 %idxprom14.i.i46.i
   %182 = load ptr, ptr %arrayidx15.i.i47.i, align 8
@@ -4419,14 +4419,14 @@ while.cond.backedge.i:                            ; preds = %do.end.i, %commit_b
   br i1 %cmp26.not.i, label %for.body.i.preheader.i, label %while.body.i, !llvm.loop !22
 
 for.body.i.preheader.i:                           ; preds = %while.cond.backedge.i, %while.cond.preheader.i208
-  %commit_base.sroa.20.2.lcssa120.i = phi ptr [ %commit_base.sroa.20.1.i, %while.cond.preheader.i208 ], [ %commit_base.sroa.20.3.i, %while.cond.backedge.i ]
-  %commit_base.sroa.10.2.lcssa119.i = phi i32 [ %commit_base.sroa.10.1.i, %while.cond.preheader.i208 ], [ %commit_base.sroa.10.3.i, %while.cond.backedge.i ]
-  %193 = zext nneg i32 %commit_base.sroa.10.2.lcssa119.i to i64
+  %commit_base.sroa.20.1.lcssa120.i = phi ptr [ %commit_base.sroa.20.2.i, %while.cond.preheader.i208 ], [ %commit_base.sroa.20.3.i, %while.cond.backedge.i ]
+  %commit_base.sroa.10.1.lcssa119.i = phi i32 [ %commit_base.sroa.10.2.i, %while.cond.preheader.i208 ], [ %commit_base.sroa.10.3.i, %while.cond.backedge.i ]
+  %193 = zext nneg i32 %commit_base.sroa.10.1.lcssa119.i to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %commit_base.sroa.20.2.lcssa120.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %commit_base.sroa.20.1.lcssa120.i, i64 %indvars.iv.i.i
   %194 = load ptr, ptr %arrayidx.i.i, align 8
   call void @free(ptr noundef %194) #20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4434,7 +4434,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond113.not.i, label %prepare_bases.exit, label %for.body.i.i, !llvm.loop !23
 
 prepare_bases.exit:                               ; preds = %for.body.i.i
-  call void @free(ptr noundef nonnull %commit_base.sroa.20.2.lcssa120.i) #20
+  call void @free(ptr noundef nonnull %commit_base.sroa.20.1.lcssa120.i) #20
   call void @llvm.lifetime.end.p0(i64 3024, ptr nonnull %revs.i)
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %diffopt.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid27.i)
@@ -6974,7 +6974,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
   %5 = phi ptr [ %3, %while.body.lr.ph ], [ %16, %sw.epilog ]
   %i.020 = phi i32 [ %0, %while.body.lr.ph ], [ %i.1, %sw.epilog ]
-  %show_header.019 = phi i32 [ 1, %while.body.lr.ph ], [ %show_header.2, %sw.epilog ]
+  %show_header.019 = phi i32 [ 1, %while.body.lr.ph ], [ %show_header.1, %sw.epilog ]
   %6 = load ptr, ptr %5, align 8
   %call = call i32 @simplify_commit(ptr noundef %revs, ptr noundef %6) #20
   switch i32 %call, label %sw.epilog [
@@ -7050,7 +7050,7 @@ sw.bb9:                                           ; preds = %while.body
   br label %return
 
 sw.epilog:                                        ; preds = %if.end, %while.body
-  %show_header.2 = phi i32 [ %show_header.019, %while.body ], [ 0, %if.end ]
+  %show_header.1 = phi i32 [ %show_header.019, %while.body ], [ 0, %if.end ]
   %i.1 = phi i32 [ %i.020, %while.body ], [ %dec, %if.end ]
   %15 = load ptr, ptr %list.addr, align 8
   %next = getelementptr inbounds i8, ptr %15, i64 8

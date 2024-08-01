@@ -207,7 +207,7 @@ if.end10.i:                                       ; preds = %if.end.i
 
 .thread:                                          ; preds = %if.end.i, %if.end10.i
   %9 = phi i32 [ %.pre.fr, %if.end10.i ], [ 0, %if.end.i ]
-  %c.01221 = phi i32 [ %conv.i, %if.end10.i ], [ 0, %if.end.i ]
+  %c.11221 = phi i32 [ %conv.i, %if.end10.i ], [ 0, %if.end.i ]
   %10 = phi i32 [ %8, %if.end10.i ], [ 2, %if.end.i ]
   %arrayidx.i.i1319 = getelementptr i8, ptr %opaque, i64 1132
   %arrayidx10.i.i = getelementptr i8, ptr %opaque, i64 1120
@@ -251,8 +251,8 @@ if.else:                                          ; preds = %if.end9
   br label %if.end13
 
 if.end13:                                         ; preds = %.thread, %if.then12, %if.else
-  %c.2 = phi i32 [ %18, %if.else ], [ %c.01221, %.thread ], [ 0, %if.then12 ]
-  %conv14 = zext i32 %c.2 to i64
+  %c.0 = phi i32 [ %18, %if.else ], [ %c.11221, %.thread ], [ 0, %if.then12 ]
+  %conv14 = zext i32 %c.0 to i64
   store i64 %conv14, ptr %value, align 8
   br label %return
 

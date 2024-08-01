@@ -860,7 +860,7 @@ error.thread:                                     ; preds = %if.then, %if.then19
   br label %qobject_unref_impl.exit168
 
 error:                                            ; preds = %if.then68, %qdict_is_list.exit.thread, %if.then128
-  %dst.1 = phi ptr [ %call109.fr, %if.then128 ], [ null, %qdict_is_list.exit.thread ], [ null, %if.then68 ]
+  %dst.0 = phi ptr [ %call109.fr, %if.then128 ], [ null, %qdict_is_list.exit.thread ], [ null, %if.then68 ]
   %two_level.0 = phi ptr [ null, %if.then128 ], [ null, %qdict_is_list.exit.thread ], [ %call, %if.then68 ]
   call void @g_free(ptr noundef null) #7
   %tobool168.not = icmp eq ptr %call57, null
@@ -888,7 +888,7 @@ if.then5.i166:                                    ; preds = %land.lhs.true.i163
 
 qobject_unref_impl.exit168:                       ; preds = %error.thread, %error, %land.lhs.true.i163, %if.then5.i166
   %two_level.0230 = phi ptr [ %call, %error.thread ], [ %two_level.0, %error ], [ %two_level.0, %land.lhs.true.i163 ], [ %two_level.0, %if.then5.i166 ]
-  %dst.1229 = phi ptr [ null, %error.thread ], [ %dst.1, %error ], [ %dst.1, %land.lhs.true.i163 ], [ %dst.1, %if.then5.i166 ]
+  %dst.0229 = phi ptr [ null, %error.thread ], [ %dst.0, %error ], [ %dst.0, %land.lhs.true.i163 ], [ %dst.0, %if.then5.i166 ]
   %tobool178.not = icmp eq ptr %two_level.0230, null
   br i1 %tobool178.not, label %qobject_unref_impl.exit178, label %lor.lhs.false.i170
 
@@ -913,11 +913,11 @@ if.then5.i176:                                    ; preds = %land.lhs.true.i173
   br label %qobject_unref_impl.exit178
 
 qobject_unref_impl.exit178:                       ; preds = %qobject_unref_impl.exit168, %land.lhs.true.i173, %if.then5.i176
-  %tobool188.not = icmp eq ptr %dst.1229, null
+  %tobool188.not = icmp eq ptr %dst.0229, null
   br i1 %tobool188.not, label %return, label %lor.lhs.false.i180
 
 lor.lhs.false.i180:                               ; preds = %qobject_unref_impl.exit178
-  %refcnt.i181 = getelementptr inbounds i8, ptr %dst.1229, i64 8
+  %refcnt.i181 = getelementptr inbounds i8, ptr %dst.0229, i64 8
   %31 = load i64, ptr %refcnt.i181, align 8
   %tobool1.not.i182 = icmp eq i64 %31, 0
   br i1 %tobool1.not.i182, label %if.else.i187, label %land.lhs.true.i183
@@ -933,7 +933,7 @@ land.lhs.true.i183:                               ; preds = %lor.lhs.false.i180
   br i1 %cmp.i185, label %if.then5.i186, label %return
 
 if.then5.i186:                                    ; preds = %land.lhs.true.i183
-  call void @qobject_destroy(ptr noundef nonnull %dst.1229) #7
+  call void @qobject_destroy(ptr noundef nonnull %dst.0229) #7
   br label %return
 
 return:                                           ; preds = %if.end106.thread, %if.end106, %if.then5.i186, %land.lhs.true.i183, %qobject_unref_impl.exit178, %if.then5.i156, %land.lhs.true.i153, %for.end144
@@ -1204,7 +1204,7 @@ for.end.thread.i:                                 ; preds = %entry
   br label %qdict_crumple_for_keyval_qiv.exit
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
-  %tmp.032.i = phi ptr [ %tmp.2.i, %for.inc.i ], [ null, %entry ]
+  %tmp.032.i = phi ptr [ %tmp.1.i, %for.inc.i ], [ null, %entry ]
   %ent.031.i = phi ptr [ %call13.i, %for.inc.i ], [ %call.i, %entry ]
   %value.i = getelementptr inbounds i8, ptr %ent.031.i, i64 8
   %0 = load ptr, ptr %value.i, align 8
@@ -1250,26 +1250,26 @@ if.then.i:                                        ; preds = %sw.epilog.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.epilog.i
-  %tmp.1.i = phi ptr [ %tmp.032.i, %sw.epilog.i ], [ %call12.i, %if.then.i ]
+  %tmp.2.i = phi ptr [ %tmp.032.i, %sw.epilog.i ], [ %call12.i, %if.then.i ]
   %2 = load ptr, ptr %ent.031.i, align 8
-  tail call void @qdict_put_str(ptr noundef %tmp.1.i, ptr noundef %2, ptr noundef %s.0.i) #7
+  tail call void @qdict_put_str(ptr noundef %tmp.2.i, ptr noundef %2, ptr noundef %s.0.i) #7
   tail call void @g_free(ptr noundef %buf.0.i) #7
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %qobject_type.exit.i, %qobject_type.exit.i, %qobject_type.exit.i, %qobject_type.exit.i
-  %tmp.2.i = phi ptr [ %tmp.1.i, %if.end.i ], [ %tmp.032.i, %qobject_type.exit.i ], [ %tmp.032.i, %qobject_type.exit.i ], [ %tmp.032.i, %qobject_type.exit.i ], [ %tmp.032.i, %qobject_type.exit.i ]
+  %tmp.1.i = phi ptr [ %tmp.2.i, %if.end.i ], [ %tmp.032.i, %qobject_type.exit.i ], [ %tmp.032.i, %qobject_type.exit.i ], [ %tmp.032.i, %qobject_type.exit.i ], [ %tmp.032.i, %qobject_type.exit.i ]
   %call13.i = tail call ptr @qdict_next(ptr noundef %qdict, ptr noundef nonnull %ent.031.i) #7
   %tobool.not.i = icmp eq ptr %call13.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !20
 
 for.end.i:                                        ; preds = %for.inc.i
-  %tobool14.not.i = icmp eq ptr %tmp.2.i, null
-  %cond15.i = select i1 %tobool14.not.i, ptr %qdict, ptr %tmp.2.i
+  %tobool14.not.i = icmp eq ptr %tmp.1.i, null
+  %cond15.i = select i1 %tobool14.not.i, ptr %qdict, ptr %tmp.1.i
   %call16.i = tail call ptr @qdict_crumple(ptr noundef %cond15.i, ptr noundef %errp)
   br i1 %tobool14.not.i, label %qdict_crumple_for_keyval_qiv.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.end.i
-  %refcnt.i.i = getelementptr inbounds i8, ptr %tmp.2.i, i64 8
+  %refcnt.i.i = getelementptr inbounds i8, ptr %tmp.1.i, i64 8
   %3 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i.i, label %if.else.i27.i, label %land.lhs.true.i25.i
@@ -1285,7 +1285,7 @@ land.lhs.true.i25.i:                              ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i26.i, label %if.then5.i.i, label %qdict_crumple_for_keyval_qiv.exit
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i25.i
-  tail call void @qobject_destroy(ptr noundef nonnull %tmp.2.i) #7
+  tail call void @qobject_destroy(ptr noundef nonnull %tmp.1.i) #7
   br label %qdict_crumple_for_keyval_qiv.exit
 
 qdict_crumple_for_keyval_qiv.exit:                ; preds = %for.end.thread.i, %for.end.i, %land.lhs.true.i25.i, %if.then5.i.i

@@ -2020,7 +2020,7 @@ Vec_IntPush.exit194:                              ; preds = %.Vec_IntGrow.exit10
 
 .preheader245:                                    ; preds = %Vec_IntPush.exit194, %Vec_IntPush.exit231
   %indvars.iv286 = phi i64 [ 0, %Vec_IntPush.exit194 ], [ %indvars.iv.next287, %Vec_IntPush.exit231 ]
-  %.2271 = phi ptr [ %.1, %Vec_IntPush.exit194 ], [ %.10, %Vec_IntPush.exit231 ]
+  %.2271 = phi ptr [ %.1, %Vec_IntPush.exit194 ], [ %.5, %Vec_IntPush.exit231 ]
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %153 = trunc nuw nsw i64 %indvars.iv.next287 to i32
   %154 = trunc nuw nsw i64 %indvars.iv.next287 to i32
@@ -2028,13 +2028,13 @@ Vec_IntPush.exit194:                              ; preds = %.Vec_IntGrow.exit10
 
 .preheader244:                                    ; preds = %.preheader245, %345
   %indvars.iv282 = phi i64 [ 0, %.preheader245 ], [ %indvars.iv.next283, %345 ]
-  %.3269 = phi ptr [ %.2271, %.preheader245 ], [ %.10, %345 ]
+  %.3269 = phi ptr [ %.2271, %.preheader245 ], [ %.5, %345 ]
   %155 = trunc nuw nsw i64 %indvars.iv282 to i32
   br label %156
 
 156:                                              ; preds = %.preheader244, %344
   %indvars.iv278 = phi i64 [ 0, %.preheader244 ], [ %indvars.iv.next279, %344 ]
-  %.4267 = phi ptr [ %.3269, %.preheader244 ], [ %.10, %344 ]
+  %.4267 = phi ptr [ %.3269, %.preheader244 ], [ %.5, %344 ]
   %157 = add nuw nsw i64 %indvars.iv278, %indvars.iv282
   %.not = icmp ne i64 %157, %indvars.iv286
   %158 = icmp ugt i64 %indvars.iv282, %indvars.iv278
@@ -2096,7 +2096,7 @@ Abc_Clock.exit196:                                ; preds = %159, %178
 
 .preheader243.us:                                 ; preds = %.preheader243.lr.ph, %._crit_edge.us
   %.0155264.us = phi ptr [ %324, %._crit_edge.us ], [ %163, %.preheader243.lr.ph ]
-  %.5263.us = phi ptr [ %.9.us, %._crit_edge.us ], [ %.4267, %.preheader243.lr.ph ]
+  %.6263.us = phi ptr [ %.10.us, %._crit_edge.us ], [ %.4267, %.preheader243.lr.ph ]
   %189 = getelementptr inbounds i8, ptr %.0155264.us, i64 16
   %190 = ptrtoint ptr %.0155264.us to i64
   %191 = sub i64 %190, %19
@@ -2106,20 +2106,20 @@ Abc_Clock.exit196:                                ; preds = %159, %178
 
 194:                                              ; preds = %.preheader243.us, %.loopexit242.us
   %.0154262.us = phi ptr [ %171, %.preheader243.us ], [ %196, %.loopexit242.us ]
-  %.6261.us = phi ptr [ %.5263.us, %.preheader243.us ], [ %.9.us, %.loopexit242.us ]
+  %.7261.us = phi ptr [ %.6263.us, %.preheader243.us ], [ %.10.us, %.loopexit242.us ]
   %195 = icmp ugt ptr %.0154262.us, %.0155264.us
   %or.cond168.us = or i1 %188, %195
   br i1 %or.cond168.us, label %.preheader.us, label %.loopexit242.us
 
 .loopexit242.us:                                  ; preds = %Bdc_SpfdHashLookup.exit208.us, %194
-  %.9.us = phi ptr [ %.6261.us, %194 ], [ %.8.us, %Bdc_SpfdHashLookup.exit208.us ]
+  %.10.us = phi ptr [ %.7261.us, %194 ], [ %.9.us, %Bdc_SpfdHashLookup.exit208.us ]
   %196 = getelementptr inbounds i8, ptr %.0154262.us, i64 24
   %197 = icmp ult ptr %196, %175
   br i1 %197, label %194, label %._crit_edge.us, !llvm.loop !25
 
 198:                                              ; preds = %.preheader.us, %Bdc_SpfdHashLookup.exit208.us
   %.0157260.us = phi i32 [ 0, %.preheader.us ], [ %317, %Bdc_SpfdHashLookup.exit208.us ]
-  %.7259.us = phi ptr [ %.6261.us, %.preheader.us ], [ %.8.us, %Bdc_SpfdHashLookup.exit208.us ]
+  %.8259.us = phi ptr [ %.7261.us, %.preheader.us ], [ %.9.us, %Bdc_SpfdHashLookup.exit208.us ]
   %199 = load i64, ptr %189, align 8
   %200 = and i32 %.0157260.us, 1
   %sext = sub nsw i32 0, %200
@@ -2191,7 +2191,7 @@ Bdc_SpfdHashValue.exit.i201.us:                   ; preds = %215
 
 .loopexit.us:                                     ; preds = %.loopexit.us.loopexit, %Bdc_SpfdHashValue.exit.i201.us
   %.013.i207.ph.us = phi ptr [ %225, %Bdc_SpfdHashValue.exit.i201.us ], [ %235, %.loopexit.us.loopexit ]
-  %236 = load i64, ptr %.7259.us, align 8
+  %236 = load i64, ptr %.8259.us, align 8
   %237 = and i64 %236, -9223372034707292160
   %238 = or disjoint i64 %237, %193
   %239 = shl nuw i32 %.0157260.us, 29
@@ -2205,19 +2205,19 @@ Bdc_SpfdHashValue.exit.i201.us:                   ; preds = %215
   %247 = or disjoint i64 %323, %241
   %248 = or disjoint i64 %247, %246
   %249 = or disjoint i64 %248, %244
-  %250 = getelementptr inbounds i8, ptr %.7259.us, i64 16
+  %250 = getelementptr inbounds i8, ptr %.8259.us, i64 16
   store i64 %.0151.us, ptr %250, align 8
   %251 = shl i64 %211, 30
   %252 = and i64 %251, 1073741824
   %253 = or disjoint i64 %249, %238
   %254 = or disjoint i64 %253, %252
-  store i64 %254, ptr %.7259.us, align 8
-  %255 = ptrtoint ptr %.7259.us to i64
+  store i64 %254, ptr %.8259.us, align 8
+  %255 = ptrtoint ptr %.8259.us to i64
   %256 = sub i64 %255, %19
   %257 = sdiv exact i64 %256, 24
   %258 = trunc i64 %257 to i32
   store i32 %258, ptr %.013.i207.ph.us, align 4
-  %259 = getelementptr inbounds i8, ptr %.7259.us, i64 24
+  %259 = getelementptr inbounds i8, ptr %.8259.us, i64 24
   %260 = load i32, ptr %22, align 4
   %261 = load i32, ptr %21, align 8
   %262 = icmp eq i32 %260, %261
@@ -2346,7 +2346,7 @@ Vec_IntPush.exit222.us:                           ; preds = %Vec_IntGrow.exit.i2
   br i1 %316, label %.split.us, label %Bdc_SpfdHashLookup.exit208.us
 
 Bdc_SpfdHashLookup.exit208.us:                    ; preds = %.preheader.i202.us, %Vec_IntPush.exit222.us, %198
-  %.8.us = phi ptr [ %.7259.us, %198 ], [ %259, %Vec_IntPush.exit222.us ], [ %.7259.us, %.preheader.i202.us ]
+  %.9.us = phi ptr [ %.8259.us, %198 ], [ %259, %Vec_IntPush.exit222.us ], [ %.8259.us, %.preheader.i202.us ]
   %317 = add nuw nsw i32 %.0157260.us, 1
   %exitcond277.not = icmp eq i32 %317, 5
   br i1 %exitcond277.not, label %.loopexit242.us, label %198, !llvm.loop !26
@@ -2370,8 +2370,8 @@ Bdc_SpfdHashLookup.exit208.us:                    ; preds = %.preheader.i202.us,
   br label %399
 
 ._crit_edge265:                                   ; preds = %._crit_edge.us, %.preheader243.lr.ph, %Abc_Clock.exit196
-  %.5.lcssa = phi ptr [ %.4267, %Abc_Clock.exit196 ], [ %.4267, %.preheader243.lr.ph ], [ %.9.us, %._crit_edge.us ]
-  %327 = ptrtoint ptr %.5.lcssa to i64
+  %.6.lcssa = phi ptr [ %.4267, %Abc_Clock.exit196 ], [ %.4267, %.preheader243.lr.ph ], [ %.10.us, %._crit_edge.us ]
+  %327 = ptrtoint ptr %.6.lcssa to i64
   %328 = sub i64 %327, %19
   %329 = sdiv exact i64 %328, 24
   %330 = trunc i64 %329 to i32
@@ -2401,7 +2401,7 @@ Abc_Clock.exit224:                                ; preds = %._crit_edge265, %33
   br label %344
 
 344:                                              ; preds = %156, %Abc_Clock.exit224
-  %.10 = phi ptr [ %.4267, %156 ], [ %.5.lcssa, %Abc_Clock.exit224 ]
+  %.5 = phi ptr [ %.4267, %156 ], [ %.6.lcssa, %Abc_Clock.exit224 ]
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next279, 6
   br i1 %exitcond281.not, label %345, label %156, !llvm.loop !28
@@ -2412,7 +2412,7 @@ Abc_Clock.exit224:                                ; preds = %._crit_edge265, %33
   br i1 %exitcond285.not, label %346, label %.preheader244, !llvm.loop !29
 
 346:                                              ; preds = %345
-  %347 = ptrtoint ptr %.10 to i64
+  %347 = ptrtoint ptr %.5 to i64
   %348 = sub i64 %347, %19
   %349 = sdiv exact i64 %348, 24
   %350 = trunc i64 %349 to i32

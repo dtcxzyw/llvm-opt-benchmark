@@ -432,7 +432,7 @@ for.body.preheader:                               ; preds = %if.else65
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %total.069 = phi double [ %add84, %for.body ], [ 0.000000e+00, %for.body.preheader ]
+  %total.169 = phi double [ %add84, %for.body ], [ 0.000000e+00, %for.body.preheader ]
   %prev.sroa.3.068 = phi double [ %35, %for.body ], [ %31, %for.body.preheader ]
   %prev.sroa.0.067 = phi double [ %34, %for.body ], [ %32, %for.body.preheader ]
   %edge.sroa.0.066 = phi ptr [ %incdec.ptr.i, %for.body ], [ %29, %for.body.preheader ]
@@ -446,17 +446,17 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub.i58 = fsub double %34, %prev.sroa.0.067
   %add.i59 = fadd double %prev.sroa.3.068, %35
   %mul.i60 = fmul double %sub.i58, %add.i59
-  %add84 = fadd double %total.069, %mul.i60
+  %add84 = fadd double %total.169, %mul.i60
   %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.066, i64 8
   %36 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %36
   br i1 %cmp.i.not, label %if.end87, label %for.body, !llvm.loop !9
 
 if.end87:                                         ; preds = %for.body, %if.else65, %if.then29, %if.then4
-  %total.1 = phi double [ %add25, %if.then4 ], [ %add64, %if.then29 ], [ 0.000000e+00, %if.else65 ], [ %add84, %for.body ]
-  %cmp.i61 = fcmp ogt double %total.1, 0.000000e+00
+  %total.0 = phi double [ %add25, %if.then4 ], [ %add64, %if.then29 ], [ 0.000000e+00, %if.else65 ], [ %add84, %for.body ]
+  %cmp.i61 = fcmp ogt double %total.0, 0.000000e+00
   %conv.i = zext i1 %cmp.i61 to i32
-  %cmp1.i = fcmp olt double %total.1, 0.000000e+00
+  %cmp1.i = fcmp olt double %total.0, 0.000000e+00
   %conv2.neg.i = sext i1 %cmp1.i to i32
   %sub.i62 = add nsw i32 %conv2.neg.i, %conv.i
   br label %return

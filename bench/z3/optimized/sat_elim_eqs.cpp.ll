@@ -535,7 +535,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorIPN3sat6c
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc154
   %it.0227 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr155, %for.inc154 ]
-  %it2.0226 = phi ptr [ %0, %for.body.lr.ph ], [ %it2.2, %for.inc154 ]
+  %it2.0226 = phi ptr [ %0, %for.body.lr.ph ], [ %it2.1, %for.inc154 ]
   %5 = load ptr, ptr %it.0227, align 8
   %m_size.i = getelementptr inbounds i8, ptr %5, i64 4
   %6 = load i32, ptr %m_size.i, align 4
@@ -812,16 +812,16 @@ sw.bb:                                            ; preds = %for.end77, %if.end1
 
 for.body116:                                      ; preds = %sw.bb, %for.body116
   %it.1232 = phi ptr [ %incdec.ptr119, %for.body116 ], [ %it.0227, %sw.bb ]
-  %it2.1231 = phi ptr [ %incdec.ptr117, %for.body116 ], [ %it2.0226, %sw.bb ]
+  %it2.2231 = phi ptr [ %incdec.ptr117, %for.body116 ], [ %it2.0226, %sw.bb ]
   %44 = load ptr, ptr %it.1232, align 8
-  store ptr %44, ptr %it2.1231, align 8
-  %incdec.ptr117 = getelementptr inbounds i8, ptr %it2.1231, i64 8
+  store ptr %44, ptr %it2.2231, align 8
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %it2.2231, i64 8
   %incdec.ptr119 = getelementptr inbounds i8, ptr %it.1232, i64 8
   %cmp115.not = icmp eq ptr %incdec.ptr119, %add.ptr.i
   br i1 %cmp115.not, label %for.end120, label %for.body116, !llvm.loop !10
 
 for.end120:                                       ; preds = %for.body116, %sw.bb
-  %it2.1.lcssa = phi ptr [ %it2.0226, %sw.bb ], [ %incdec.ptr117, %for.body116 ]
+  %it2.2.lcssa = phi ptr [ %it2.0226, %sw.bb ], [ %incdec.ptr117, %for.body116 ]
   %45 = load ptr, ptr %cs, align 8
   %tobool.not.i = icmp eq ptr %45, null
   br i1 %tobool.not.i, label %return, label %return.sink.split
@@ -990,7 +990,7 @@ if.then151:                                       ; preds = %if.end148
   br label %for.inc154
 
 for.inc154:                                       ; preds = %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit155, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit173, %if.then151, %if.end148, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit, %if.then12
-  %it2.2 = phi ptr [ %incdec.ptr, %if.then12 ], [ %it2.0226, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit ], [ %incdec.ptr149, %if.end148 ], [ %incdec.ptr149, %if.then151 ], [ %it2.0226, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit173 ], [ %it2.0226, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit155 ]
+  %it2.1 = phi ptr [ %incdec.ptr, %if.then12 ], [ %it2.0226, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit ], [ %incdec.ptr149, %if.end148 ], [ %incdec.ptr149, %if.then151 ], [ %it2.0226, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit173 ], [ %it2.0226, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit155 ]
   %incdec.ptr155 = getelementptr inbounds i8, ptr %it.0227, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr155, %add.ptr.i
   br i1 %cmp.not, label %for.end156, label %for.body, !llvm.loop !14
@@ -1001,7 +1001,7 @@ for.end156:                                       ; preds = %for.inc154
   br i1 %tobool.not.i188, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %for.end156, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit, %for.end120
-  %it2.0.lcssa266.sink = phi ptr [ %it2.1.lcssa, %for.end120 ], [ %it2.2, %for.end156 ], [ %0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
+  %it2.0.lcssa266.sink = phi ptr [ %it2.2.lcssa, %for.end120 ], [ %it2.1, %for.end156 ], [ %0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
   %.sink277 = phi ptr [ %45, %for.end120 ], [ %.pre254, %for.end156 ], [ %0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
   %sub.ptr.lhs.cast.i190 = ptrtoint ptr %it2.0.lcssa266.sink to i64
   %sub.ptr.rhs.cast.i191 = ptrtoint ptr %.sink277 to i64

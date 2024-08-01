@@ -1377,18 +1377,18 @@ define internal fastcc void @_ZN7xgboost3gbm12_GLOBAL__N_110MakeIndptrEPNS0_11GB
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %14 = phi i32 [ %18, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
   %15 = phi ptr [ %19, %.lr.ph.i.i ], [ %13, %.lr.ph.preheader.i.i ]
-  %.sroa.02.010.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %8, %.lr.ph.preheader.i.i ]
+  %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %8, %.lr.ph.preheader.i.i ]
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %14, %16
   %18 = tail call i32 @llvm.smax.i32(i32 %14, i32 %16)
-  %spec.select.i.i = select i1 %17, ptr %15, ptr %.sroa.02.010.i.i
+  %spec.select.i.i = select i1 %17, ptr %15, ptr %.sroa.02.110.i.i
   %19 = getelementptr inbounds i8, ptr %15, i64 4
   %.not.i.i = icmp eq ptr %19, %10
   br i1 %.not.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEET_S8_S8_.exit, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEET_S8_S8_.exit: ; preds = %.lr.ph.i.i, %12
-  %.sroa.02.2.i.i = phi ptr [ %8, %12 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %20 = load i32, ptr %.sroa.02.2.i.i, align 4
+  %.sroa.02.0.i.i = phi ptr [ %8, %12 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %20 = load i32, ptr %.sroa.02.0.i.i, align 4
   %21 = add nsw i32 %20, 1
   %22 = getelementptr inbounds i8, ptr %0, i64 248
   %23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1568,10 +1568,10 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %64, %66, %68, %70
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %95 = phi ptr [ %99, %.lr.ph.i ], [ %93, %.lr.ph.i.preheader ]
   %.016.i = phi i32 [ %97, %.lr.ph.i ], [ %94, %.lr.ph.i.preheader ]
-  %.sroa.0.015.i = phi ptr [ %98, %.lr.ph.i ], [ %.lcssa, %.lr.ph.i.preheader ]
+  %.sroa.0.115.i = phi ptr [ %98, %.lr.ph.i ], [ %.lcssa, %.lr.ph.i.preheader ]
   %96 = load i32, ptr %95, align 4
   %97 = add nsw i32 %96, %.016.i
-  %98 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 4
+  %98 = getelementptr inbounds i8, ptr %.sroa.0.115.i, i64 4
   store i32 %97, ptr %98, align 4
   %99 = getelementptr inbounds i8, ptr %95, i64 4
   %.not.i39 = icmp eq ptr %99, %.lcssa44
@@ -5333,7 +5333,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.01936 = phi i32 [ %89, %.lr.ph ], [ 0, %.preheader ]
+  %.136 = phi i32 [ %89, %.lr.ph ], [ 0, %.preheader ]
   %79 = load ptr, ptr %1, align 8
   %80 = getelementptr inbounds %"class.std::vector", ptr %79, i64 %indvars.iv
   %81 = getelementptr inbounds i8, ptr %80, i64 8
@@ -5344,7 +5344,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %86 = sub i64 %84, %85
   %87 = lshr exact i64 %86, 3
   %88 = trunc i64 %87 to i32
-  %89 = add i32 %.01936, %88
+  %89 = add i32 %.136, %88
   %90 = trunc nuw i64 %indvars.iv to i32
   call void @_ZN7xgboost3gbm11GBTreeModel16CommitModelGroupEOSt6vectorISt10unique_ptrINS_7RegTreeESt14default_deleteIS4_EESaIS7_EEj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(24) %80, i32 noundef %90)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5356,11 +5356,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %95, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %68
-  %.1 = phi i32 [ %77, %68 ], [ 0, %.preheader ], [ %89, %.lr.ph ]
+  %.019 = phi i32 [ %77, %68 ], [ 0, %.preheader ], [ %89, %.lr.ph ]
   %96 = load ptr, ptr %10, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 -4
   %98 = load i32, ptr %97, align 4
-  %99 = add nsw i32 %98, %.1
+  %99 = add nsw i32 %98, %.019
   %100 = getelementptr inbounds i8, ptr %0, i64 264
   %101 = load ptr, ptr %100, align 8
   %.not.i.i = icmp eq ptr %96, %101
@@ -5430,7 +5430,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %102, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
   call fastcc void @_ZN7xgboost3gbm12_GLOBAL__N_18ValidateERKNS0_11GBTreeModelE(ptr noundef nonnull align 8 dereferenceable(280) %0)
-  ret i32 %.1
+  ret i32 %.019
 
 128:                                              ; preds = %27, %78
   %.pn.pn = phi { ptr, i32 } [ %.pn, %78 ], [ %28, %27 ]

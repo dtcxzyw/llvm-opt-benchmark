@@ -463,17 +463,17 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream
 
 .preheader.i:                                     ; preds = %50, %57
   %.02646.i = phi i32 [ %58, %57 ], [ 0, %50 ]
-  %.04145.i = phi ptr [ %59, %57 ], [ %52, %50 ]
-  %59 = getelementptr inbounds i8, ptr %.04145.i, i64 1
-  %60 = load i8, ptr %.04145.i, align 1
+  %.145.i = phi ptr [ %59, %57 ], [ %52, %50 ]
+  %59 = getelementptr inbounds i8, ptr %.145.i, i64 1
+  %60 = load i8, ptr %.145.i, align 1
   %.not33.i = icmp sgt i8 %60, -1
   br i1 %.not33.i, label %.loopexit53.i, label %57
 
 .loopexit53.i:                                    ; preds = %.preheader.i, %50, %43, %36, %28
-  %.1.i = phi ptr [ %31, %28 ], [ %38, %36 ], [ %45, %43 ], [ %52, %50 ], [ %59, %.preheader.i ]
+  %.041.i = phi ptr [ %31, %28 ], [ %38, %36 ], [ %45, %43 ], [ %52, %50 ], [ %59, %.preheader.i ]
   %.0.i = phi i32 [ %35, %28 ], [ %42, %36 ], [ %49, %43 ], [ %56, %50 ], [ %56, %.preheader.i ]
   %61 = zext i32 %.0.i to i64
-  store ptr %.1.i, ptr %0, align 8
+  store ptr %.041.i, ptr %0, align 8
   br label %_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj.exit
 
 .thread14:                                        ; preds = %.thread, %25
@@ -1646,17 +1646,17 @@ define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInput
 
 .preheader:                                       ; preds = %38, %45
   %.02646 = phi i32 [ %46, %45 ], [ 0, %38 ]
-  %.04145 = phi ptr [ %47, %45 ], [ %40, %38 ]
-  %47 = getelementptr inbounds i8, ptr %.04145, i64 1
-  %48 = load i8, ptr %.04145, align 1
+  %.145 = phi ptr [ %47, %45 ], [ %40, %38 ]
+  %47 = getelementptr inbounds i8, ptr %.145, i64 1
+  %48 = load i8, ptr %.145, align 1
   %.not33 = icmp sgt i8 %48, -1
   br i1 %.not33, label %.loopexit53, label %45
 
 .loopexit53:                                      ; preds = %.preheader, %16, %24, %31, %38
-  %.1 = phi ptr [ %19, %16 ], [ %26, %24 ], [ %33, %31 ], [ %40, %38 ], [ %47, %.preheader ]
+  %.041 = phi ptr [ %19, %16 ], [ %26, %24 ], [ %33, %31 ], [ %40, %38 ], [ %47, %.preheader ]
   %.0 = phi i32 [ %23, %16 ], [ %30, %24 ], [ %37, %31 ], [ %44, %38 ], [ %44, %.preheader ]
   %49 = zext i32 %.0 to i64
-  store ptr %.1, ptr %0, align 8
+  store ptr %.041, ptr %0, align 8
   br label %.loopexit
 
 50:                                               ; preds = %13, %11
@@ -2113,16 +2113,16 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
 
 .preheader:                                       ; preds = %42, %49
   %.02948 = phi i32 [ %50, %49 ], [ 0, %42 ]
-  %.04547 = phi ptr [ %51, %49 ], [ %44, %42 ]
-  %51 = getelementptr inbounds i8, ptr %.04547, i64 1
-  %52 = load i8, ptr %.04547, align 1
+  %.147 = phi ptr [ %51, %49 ], [ %44, %42 ]
+  %51 = getelementptr inbounds i8, ptr %.147, i64 1
+  %52 = load i8, ptr %.147, align 1
   %.not38 = icmp sgt i8 %52, -1
   br i1 %.not38, label %.loopexit, label %49
 
 .loopexit:                                        ; preds = %.preheader, %20, %28, %35, %42
   %.031.ph = phi i32 [ %48, %42 ], [ %41, %35 ], [ %34, %28 ], [ %27, %20 ], [ %48, %.preheader ]
-  %.1.pn.ph = phi ptr [ %44, %42 ], [ %37, %35 ], [ %30, %28 ], [ %23, %20 ], [ %51, %.preheader ]
-  store ptr %.1.pn.ph, ptr %0, align 8
+  %.045.pn.ph = phi ptr [ %44, %42 ], [ %37, %35 ], [ %30, %28 ], [ %23, %20 ], [ %51, %.preheader ]
+  store ptr %.045.pn.ph, ptr %0, align 8
   br label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit
 
 53:                                               ; preds = %11

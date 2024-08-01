@@ -145,10 +145,10 @@ if.end22.lr.ph:                                   ; preds = %if.end15
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end22.lr.ph, %if.end173
-  %bl.0172 = phi ptr [ null, %if.end22.lr.ph ], [ %bl.1.lcssa.ph, %if.end173 ]
+  %bl.1172 = phi ptr [ null, %if.end22.lr.ph ], [ %bl.2.lcssa.ph, %if.end173 ]
   %p.0171 = phi ptr [ %incdec.ptr16, %if.end22.lr.ph ], [ %incdec.ptr36, %if.end173 ]
   %tmpsize.0170 = phi i32 [ 24, %if.end22.lr.ph ], [ %tmpsize.2, %if.end173 ]
-  %tmp.0169 = phi ptr [ %ftmp, %if.end22.lr.ph ], [ %tmp.2, %if.end173 ]
+  %tmp.1169 = phi ptr [ %ftmp, %if.end22.lr.ph ], [ %tmp.3, %if.end173 ]
   %c.0168 = phi i32 [ %conv17, %if.end22.lr.ph ], [ %conv37, %if.end173 ]
   %len.0167 = phi i32 [ 0, %if.end22.lr.ph ], [ %len.2, %if.end173 ]
   %num.addr.1166 = phi i32 [ %dec18, %if.end22.lr.ph ], [ %num.addr.3.ph, %if.end173 ]
@@ -161,7 +161,7 @@ if.end34.preheader:                               ; preds = %if.end22, %if.end22
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end34.preheader, %if.end79
-  %bl.1137 = phi ptr [ %bl.381, %if.end79 ], [ %bl.0172, %if.end34.preheader ]
+  %bl.2137 = phi ptr [ %bl.381, %if.end79 ], [ %bl.1172, %if.end34.preheader ]
   %l.0136 = phi i64 [ %l.1, %if.end79 ], [ 0, %if.end34.preheader ]
   %p.1135 = phi ptr [ %incdec.ptr36, %if.end79 ], [ %p.0171, %if.end34.preheader ]
   %use_bn.0134 = phi i32 [ %use_bn.178, %if.end79 ], [ 0, %if.end34.preheader ]
@@ -187,7 +187,7 @@ if.end46:                                         ; preds = %if.end43
   br i1 %or.cond3, label %if.then51, label %if.end64
 
 if.then51:                                        ; preds = %if.end46
-  %cmp52 = icmp eq ptr %bl.1137, null
+  %cmp52 = icmp eq ptr %bl.2137, null
   br i1 %cmp52, label %if.end56, label %lor.lhs.false59
 
 if.end56:                                         ; preds = %if.then51
@@ -196,8 +196,8 @@ if.end56:                                         ; preds = %if.then51
   br i1 %cmp57, label %err, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %if.then51, %if.end56
-  %bl.274 = phi ptr [ %call55, %if.end56 ], [ %bl.1137, %if.then51 ]
-  %call60 = call i32 @BN_set_word(ptr noundef nonnull %bl.274, i64 noundef %l.0136) #5
+  %bl.474 = phi ptr [ %call55, %if.end56 ], [ %bl.2137, %if.then51 ]
+  %call60 = call i32 @BN_set_word(ptr noundef nonnull %bl.474, i64 noundef %l.0136) #5
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %err, label %if.then66
 
@@ -205,7 +205,7 @@ if.end64:                                         ; preds = %if.end46
   br i1 %tobool47, label %if.else76, label %if.then66
 
 if.then66:                                        ; preds = %lor.lhs.false59, %if.end64
-  %bl.380 = phi ptr [ %bl.1137, %if.end64 ], [ %bl.274, %lor.lhs.false59 ]
+  %bl.380 = phi ptr [ %bl.2137, %if.end64 ], [ %bl.474, %lor.lhs.false59 ]
   %use_bn.179 = phi i32 [ %use_bn.0134, %if.end64 ], [ 1, %lor.lhs.false59 ]
   %call67 = call i32 @BN_mul_word(ptr noundef %bl.380, i64 noundef 10) #5
   %tobool68.not = icmp eq i32 %call67, 0
@@ -226,7 +226,7 @@ if.else76:                                        ; preds = %if.end64
   br label %if.end79
 
 if.end79:                                         ; preds = %lor.lhs.false69, %if.else76
-  %bl.381 = phi ptr [ %bl.380, %lor.lhs.false69 ], [ %bl.1137, %if.else76 ]
+  %bl.381 = phi ptr [ %bl.380, %lor.lhs.false69 ], [ %bl.2137, %if.else76 ]
   %use_bn.178 = phi i32 [ %use_bn.179, %lor.lhs.false69 ], [ 0, %if.else76 ]
   %l.1 = phi i64 [ %l.0136, %lor.lhs.false69 ], [ %add, %if.else76 ]
   %cmp31 = icmp ult i32 %num.addr.2133, 2
@@ -235,7 +235,7 @@ if.end79:                                         ; preds = %lor.lhs.false69, %i
 for.end:                                          ; preds = %if.end79, %if.end34, %if.end34
   %use_bn.0.lcssa.ph = phi i32 [ %use_bn.178, %if.end79 ], [ %use_bn.0134, %if.end34 ], [ %use_bn.0134, %if.end34 ]
   %l.0.lcssa.ph = phi i64 [ %l.1, %if.end79 ], [ %l.0136, %if.end34 ], [ %l.0136, %if.end34 ]
-  %bl.1.lcssa.ph = phi ptr [ %bl.381, %if.end79 ], [ %bl.1137, %if.end34 ], [ %bl.1137, %if.end34 ]
+  %bl.2.lcssa.ph = phi ptr [ %bl.381, %if.end79 ], [ %bl.2137, %if.end34 ], [ %bl.2137, %if.end34 ]
   %num.addr.3.ph = phi i32 [ 0, %if.end79 ], [ %dec35, %if.end34 ], [ %dec35, %if.end34 ]
   %cmp80 = icmp eq i32 %len.0167, 0
   br i1 %cmp80, label %if.then82, label %if.end103
@@ -250,7 +250,7 @@ if.end89:                                         ; preds = %if.then82
   br i1 %tobool90.not, label %if.end103.thread, label %if.then91
 
 if.then91:                                        ; preds = %if.end89
-  %call94 = call i32 @BN_add_word(ptr noundef %bl.1.lcssa.ph, i64 noundef %conv93) #5
+  %call94 = call i32 @BN_add_word(ptr noundef %bl.2.lcssa.ph, i64 noundef %conv93) #5
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %err, label %if.then105
 
@@ -267,18 +267,18 @@ for.cond133.preheader:                            ; preds = %if.end103.thread, %
   br label %for.cond133
 
 if.then105:                                       ; preds = %if.then91, %if.end103
-  %call106 = call i32 @BN_num_bits(ptr noundef %bl.1.lcssa.ph) #5
+  %call106 = call i32 @BN_num_bits(ptr noundef %bl.2.lcssa.ph) #5
   %add107 = add nsw i32 %call106, 6
   %div = sdiv i32 %add107, 7
   %cmp108 = icmp sgt i32 %div, %tmpsize.0170
   br i1 %cmp108, label %if.then110, label %if.end123
 
 if.then110:                                       ; preds = %if.then105
-  %cmp112.not = icmp eq ptr %tmp.0169, %ftmp
+  %cmp112.not = icmp eq ptr %tmp.1169, %ftmp
   br i1 %cmp112.not, label %if.end115, label %if.then114
 
 if.then114:                                       ; preds = %if.then110
-  call void @CRYPTO_free(ptr noundef %tmp.0169, ptr noundef nonnull @.str, i32 noundef 133) #5
+  call void @CRYPTO_free(ptr noundef %tmp.1169, ptr noundef nonnull @.str, i32 noundef 133) #5
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then114, %if.then110
@@ -289,7 +289,7 @@ if.end115:                                        ; preds = %if.then114, %if.the
   br i1 %cmp119, label %if.then183, label %if.end123
 
 if.end123:                                        ; preds = %if.end115, %if.then105
-  %tmp.1 = phi ptr [ %call118, %if.end115 ], [ %tmp.0169, %if.then105 ]
+  %tmp.2 = phi ptr [ %call118, %if.end115 ], [ %tmp.1169, %if.then105 ]
   %tmpsize.1 = phi i32 [ %add116, %if.end115 ], [ %tmpsize.0170, %if.then105 ]
   %add107.off = add i32 %call106, 12
   %tobool125.not157 = icmp ult i32 %add107.off, 13
@@ -298,7 +298,7 @@ if.end123:                                        ; preds = %if.end115, %if.then
 while.body:                                       ; preds = %if.end123, %if.end130
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end130 ], [ 0, %if.end123 ]
   %dec124159.in = phi i32 [ %dec124159, %if.end130 ], [ %div, %if.end123 ]
-  %call126 = call i64 @BN_div_word(ptr noundef %bl.1.lcssa.ph, i64 noundef 128) #5
+  %call126 = call i64 @BN_div_word(ptr noundef %bl.2.lcssa.ph, i64 noundef 128) #5
   %cmp127 = icmp eq i64 %call126, -1
   br i1 %cmp127, label %err, label %if.end130
 
@@ -306,7 +306,7 @@ if.end130:                                        ; preds = %while.body
   %dec124159 = add nsw i32 %dec124159.in, -1
   %conv131 = trunc i64 %call126 to i8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds i8, ptr %tmp.1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds i8, ptr %tmp.2, i64 %indvars.iv
   store i8 %conv131, ptr %arrayidx, align 1
   %tobool125.not = icmp eq i32 %dec124159, 0
   br i1 %tobool125.not, label %if.end145.loopexit176, label %while.body, !llvm.loop !4
@@ -317,7 +317,7 @@ for.cond133:                                      ; preds = %for.cond133.prehead
   %conv134 = trunc i64 %l.3 to i8
   %and = and i8 %conv134, 127
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %arrayidx139 = getelementptr inbounds i8, ptr %tmp.0169, i64 %indvars.iv208
+  %arrayidx139 = getelementptr inbounds i8, ptr %tmp.1169, i64 %indvars.iv208
   store i8 %and, ptr %arrayidx139, align 1
   %shr = lshr i64 %l.3, 7
   %cmp140 = icmp ult i64 %l.3, 128
@@ -332,10 +332,10 @@ if.end145.loopexit176:                            ; preds = %if.end130
   br label %if.end145
 
 if.end145:                                        ; preds = %if.end145.loopexit176, %if.end145.loopexit, %if.end123
-  %i.2 = phi i32 [ 0, %if.end123 ], [ %5, %if.end145.loopexit ], [ %6, %if.end145.loopexit176 ]
-  %tmp.2 = phi ptr [ %tmp.1, %if.end123 ], [ %tmp.0169, %if.end145.loopexit ], [ %tmp.1, %if.end145.loopexit176 ]
+  %i.1 = phi i32 [ 0, %if.end123 ], [ %5, %if.end145.loopexit ], [ %6, %if.end145.loopexit176 ]
+  %tmp.3 = phi ptr [ %tmp.2, %if.end123 ], [ %tmp.1169, %if.end145.loopexit ], [ %tmp.2, %if.end145.loopexit176 ]
   %tmpsize.2 = phi i32 [ %tmpsize.1, %if.end123 ], [ %tmpsize.0170, %if.end145.loopexit ], [ %tmpsize.1, %if.end145.loopexit176 ]
-  %add172 = add nsw i32 %i.2, %len.0167
+  %add172 = add nsw i32 %i.1, %len.0167
   br i1 %cmp146.not, label %if.end173, label %if.then148
 
 if.then148:                                       ; preds = %if.end145
@@ -343,19 +343,19 @@ if.then148:                                       ; preds = %if.end145
   br i1 %cmp150, label %err.sink.split, label %while.cond154.preheader
 
 while.cond154.preheader:                          ; preds = %if.then148
-  %cmp156161 = icmp sgt i32 %i.2, 1
+  %cmp156161 = icmp sgt i32 %i.1, 1
   br i1 %cmp156161, label %while.body158.preheader, label %while.end166
 
 while.body158.preheader:                          ; preds = %while.cond154.preheader
   %7 = sext i32 %len.0167 to i64
-  %8 = zext nneg i32 %i.2 to i64
+  %8 = zext nneg i32 %i.1 to i64
   br label %while.body158
 
 while.body158:                                    ; preds = %while.body158.preheader, %while.body158
   %indvars.iv213 = phi i64 [ %8, %while.body158.preheader ], [ %indvars.iv.next214, %while.body158 ]
   %indvars.iv211 = phi i64 [ %7, %while.body158.preheader ], [ %indvars.iv.next212, %while.body158 ]
   %indvars.iv.next214 = add nsw i64 %indvars.iv213, -1
-  %arrayidx160 = getelementptr inbounds i8, ptr %tmp.2, i64 %indvars.iv.next214
+  %arrayidx160 = getelementptr inbounds i8, ptr %tmp.3, i64 %indvars.iv.next214
   %9 = load i8, ptr %arrayidx160, align 1
   %or = or i8 %9, -128
   %indvars.iv.next212 = add nsw i64 %indvars.iv211, 1
@@ -370,7 +370,7 @@ while.end166.loopexit:                            ; preds = %while.body158
 
 while.end166:                                     ; preds = %while.end166.loopexit, %while.cond154.preheader
   %len.1.lcssa = phi i32 [ %len.0167, %while.cond154.preheader ], [ %10, %while.end166.loopexit ]
-  %11 = load i8, ptr %tmp.2, align 1
+  %11 = load i8, ptr %tmp.3, align 1
   %inc168 = add nsw i32 %len.1.lcssa, 1
   %idxprom169 = sext i32 %len.1.lcssa to i64
   %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 %idxprom169
@@ -383,39 +383,39 @@ if.end173:                                        ; preds = %if.end145, %while.e
   br i1 %cmp19, label %for.end174, label %if.end22
 
 for.end174:                                       ; preds = %if.end173
-  %cmp176.not = icmp eq ptr %tmp.2, %ftmp
+  %cmp176.not = icmp eq ptr %tmp.3, %ftmp
   br i1 %cmp176.not, label %return.sink.split, label %if.then178
 
 if.then178:                                       ; preds = %for.end174
-  call void @CRYPTO_free(ptr noundef %tmp.2, ptr noundef nonnull @.str, i32 noundef 167) #5
+  call void @CRYPTO_free(ptr noundef %tmp.3, ptr noundef nonnull @.str, i32 noundef 167) #5
   br label %return.sink.split
 
 err.sink.split:                                   ; preds = %if.then148, %if.then82, %if.end22, %if.end43
   %.sink257 = phi i32 [ 98, %if.end43 ], [ 85, %if.end22 ], [ 117, %if.then82 ], [ 157, %if.then148 ]
   %.sink = phi i32 [ 130, %if.end43 ], [ 131, %if.end22 ], [ 147, %if.then82 ], [ 107, %if.then148 ]
-  %tmp.3.ph = phi ptr [ %tmp.0169, %if.end43 ], [ %tmp.0169, %if.end22 ], [ %tmp.0169, %if.then82 ], [ %tmp.2, %if.then148 ]
-  %bl.4.ph = phi ptr [ %bl.1137, %if.end43 ], [ %bl.0172, %if.end22 ], [ %bl.1.lcssa.ph, %if.then82 ], [ %bl.1.lcssa.ph, %if.then148 ]
+  %tmp.0.ph = phi ptr [ %tmp.1169, %if.end43 ], [ %tmp.1169, %if.end22 ], [ %tmp.1169, %if.then82 ], [ %tmp.3, %if.then148 ]
+  %bl.0.ph = phi ptr [ %bl.2137, %if.end43 ], [ %bl.1172, %if.end22 ], [ %bl.2.lcssa.ph, %if.then82 ], [ %bl.2.lcssa.ph, %if.then148 ]
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink257, ptr noundef nonnull @__func__.a2d_ASN1_OBJECT) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #5
   br label %err
 
 err:                                              ; preds = %if.then91, %if.then66, %lor.lhs.false69, %if.end56, %lor.lhs.false59, %while.body, %err.sink.split
-  %tmp.3 = phi ptr [ %tmp.3.ph, %err.sink.split ], [ %tmp.1, %while.body ], [ %tmp.0169, %lor.lhs.false59 ], [ %tmp.0169, %if.end56 ], [ %tmp.0169, %lor.lhs.false69 ], [ %tmp.0169, %if.then66 ], [ %tmp.0169, %if.then91 ]
-  %bl.4 = phi ptr [ %bl.4.ph, %err.sink.split ], [ %bl.1.lcssa.ph, %while.body ], [ %bl.380, %if.then66 ], [ %bl.380, %lor.lhs.false69 ], [ null, %if.end56 ], [ %bl.274, %lor.lhs.false59 ], [ %bl.1.lcssa.ph, %if.then91 ]
-  %cmp181.not = icmp eq ptr %tmp.3, %ftmp
+  %tmp.0 = phi ptr [ %tmp.0.ph, %err.sink.split ], [ %tmp.2, %while.body ], [ %tmp.1169, %lor.lhs.false59 ], [ %tmp.1169, %if.end56 ], [ %tmp.1169, %lor.lhs.false69 ], [ %tmp.1169, %if.then66 ], [ %tmp.1169, %if.then91 ]
+  %bl.0 = phi ptr [ %bl.0.ph, %err.sink.split ], [ %bl.2.lcssa.ph, %while.body ], [ %bl.380, %if.then66 ], [ %bl.380, %lor.lhs.false69 ], [ null, %if.end56 ], [ %bl.474, %lor.lhs.false59 ], [ %bl.2.lcssa.ph, %if.then91 ]
+  %cmp181.not = icmp eq ptr %tmp.0, %ftmp
   br i1 %cmp181.not, label %return.sink.split, label %if.then183
 
 if.then183:                                       ; preds = %if.end115, %err
-  %bl.493 = phi ptr [ %bl.4, %err ], [ %bl.1.lcssa.ph, %if.end115 ]
-  %tmp.392 = phi ptr [ %tmp.3, %err ], [ null, %if.end115 ]
-  call void @CRYPTO_free(ptr noundef %tmp.392, ptr noundef nonnull @.str, i32 noundef 172) #5
+  %bl.093 = phi ptr [ %bl.0, %err ], [ %bl.2.lcssa.ph, %if.end115 ]
+  %tmp.092 = phi ptr [ %tmp.0, %err ], [ null, %if.end115 ]
+  call void @CRYPTO_free(ptr noundef %tmp.092, ptr noundef nonnull @.str, i32 noundef 172) #5
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %err, %if.then183, %if.then14, %if.else10, %for.end174, %if.then178, %if.end15
-  %bl.487.sink = phi ptr [ %bl.1.lcssa.ph, %if.then178 ], [ %bl.1.lcssa.ph, %for.end174 ], [ null, %if.end15 ], [ %bl.493, %if.then183 ], [ %bl.4, %err ], [ null, %if.then14 ], [ null, %if.else10 ]
+  %bl.087.sink = phi ptr [ %bl.2.lcssa.ph, %if.then178 ], [ %bl.2.lcssa.ph, %for.end174 ], [ null, %if.end15 ], [ %bl.093, %if.then183 ], [ %bl.0, %err ], [ null, %if.then14 ], [ null, %if.else10 ]
   %retval.0.ph = phi i32 [ %len.2, %if.then178 ], [ %len.2, %for.end174 ], [ 0, %if.end15 ], [ 0, %if.then183 ], [ 0, %err ], [ 0, %if.then14 ], [ 0, %if.else10 ]
-  call void @BN_free(ptr noundef %bl.487.sink) #5
+  call void @BN_free(ptr noundef %bl.087.sink) #5
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry

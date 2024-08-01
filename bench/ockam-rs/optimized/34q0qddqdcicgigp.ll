@@ -7325,9 +7325,9 @@ common.ret:                                       ; preds = %680, %107, %87
   ret void
 
 87:                                               ; preds = %699, %662
-  %.sroa.0639.0 = phi i8 [ 0, %699 ], [ %.sroa.0639.2, %662 ]
+  %.sroa.0639.0 = phi i8 [ 0, %699 ], [ %.sroa.0639.1, %662 ]
   %.sroa.6640.0 = phi i8 [ 1, %699 ], [ 0, %662 ]
-  %.sroa.9642.0 = phi ptr [ undef, %699 ], [ %.sroa.9642.2, %662 ]
+  %.sroa.9642.0 = phi ptr [ undef, %699 ], [ %.sroa.9642.1, %662 ]
   store i8 %.sroa.0639.0, ptr %0, align 8
   %.sroa.6640.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %.sroa.6640.0, ptr %.sroa.6640.0..sroa_idx, align 1
@@ -8767,7 +8767,7 @@ common.ret:                                       ; preds = %680, %107, %87
   br label %557
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h7c3f44c103284008E.exit": ; preds = %222, %683
-  %.sroa.9642.1 = phi ptr [ %.fca.1.extract, %683 ], [ %223, %222 ]
+  %.sroa.9642.2 = phi ptr [ %.fca.1.extract, %683 ], [ %223, %222 ]
   %547 = getelementptr inbounds i8, ptr %1, i64 25
   store i8 0, ptr %547, align 1
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %54)
@@ -9117,8 +9117,8 @@ common.ret:                                       ; preds = %680, %107, %87
   br label %662
 
 662:                                              ; preds = %199, %.thread645, %125, %152, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE.exit", %661
-  %.sroa.0639.2 = phi i8 [ 1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE.exit" ], [ 0, %661 ], [ 0, %152 ], [ 0, %125 ], [ 0, %.thread645 ], [ 0, %199 ]
-  %.sroa.9642.2 = phi ptr [ %.sroa.9642.1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE.exit" ], [ undef, %661 ], [ undef, %152 ], [ undef, %125 ], [ undef, %.thread645 ], [ undef, %199 ]
+  %.sroa.0639.1 = phi i8 [ 1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE.exit" ], [ 0, %661 ], [ 0, %152 ], [ 0, %125 ], [ 0, %.thread645 ], [ 0, %199 ]
+  %.sroa.9642.1 = phi ptr [ %.sroa.9642.2, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE.exit" ], [ undef, %661 ], [ undef, %152 ], [ undef, %125 ], [ undef, %.thread645 ], [ undef, %199 ]
   %663 = getelementptr inbounds i8, ptr %1, i64 26
   store i8 0, ptr %663, align 2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %82)
@@ -9352,9 +9352,9 @@ common.ret:                                       ; preds = %680, %107, %87
   ret void
 
 87:                                               ; preds = %699, %662
-  %.sroa.0639.0 = phi i8 [ 0, %699 ], [ %.sroa.0639.2, %662 ]
+  %.sroa.0639.0 = phi i8 [ 0, %699 ], [ %.sroa.0639.1, %662 ]
   %.sroa.6640.0 = phi i8 [ 1, %699 ], [ 0, %662 ]
-  %.sroa.9642.0 = phi ptr [ undef, %699 ], [ %.sroa.9642.2, %662 ]
+  %.sroa.9642.0 = phi ptr [ undef, %699 ], [ %.sroa.9642.1, %662 ]
   store i8 %.sroa.0639.0, ptr %0, align 8
   %.sroa.6640.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %.sroa.6640.0, ptr %.sroa.6640.0..sroa_idx, align 1
@@ -10794,7 +10794,7 @@ common.ret:                                       ; preds = %680, %107, %87
   br label %557
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h7c3f44c103284008E.exit": ; preds = %222, %683
-  %.sroa.9642.1 = phi ptr [ %.fca.1.extract, %683 ], [ %223, %222 ]
+  %.sroa.9642.2 = phi ptr [ %.fca.1.extract, %683 ], [ %223, %222 ]
   %547 = getelementptr inbounds i8, ptr %1, i64 25
   store i8 0, ptr %547, align 1
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %54)
@@ -11144,8 +11144,8 @@ common.ret:                                       ; preds = %680, %107, %87
   br label %662
 
 662:                                              ; preds = %199, %.thread645, %125, %152, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE.exit", %661
-  %.sroa.0639.2 = phi i8 [ 1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE.exit" ], [ 0, %661 ], [ 0, %152 ], [ 0, %125 ], [ 0, %.thread645 ], [ 0, %199 ]
-  %.sroa.9642.2 = phi ptr [ %.sroa.9642.1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE.exit" ], [ undef, %661 ], [ undef, %152 ], [ undef, %125 ], [ undef, %.thread645 ], [ undef, %199 ]
+  %.sroa.0639.1 = phi i8 [ 1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE.exit" ], [ 0, %661 ], [ 0, %152 ], [ 0, %125 ], [ 0, %.thread645 ], [ 0, %199 ]
+  %.sroa.9642.1 = phi ptr [ %.sroa.9642.2, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE.exit" ], [ undef, %661 ], [ undef, %152 ], [ undef, %125 ], [ undef, %.thread645 ], [ undef, %199 ]
   %663 = getelementptr inbounds i8, ptr %1, i64 26
   store i8 0, ptr %663, align 2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %82)

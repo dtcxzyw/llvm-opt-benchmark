@@ -2893,14 +2893,14 @@ ehcleanup76:                                      ; preds = %ehcleanup75, %lpad2
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup75 ], [ %282, %lpad2 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %appParams.i) #26
   call void @_ZN4fizz6client9CachedPskD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %quicCachedPsk) #26
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %288 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
-  %matches = icmp eq i32 %ehselector.slot.3, %288
+  %matches = icmp eq i32 %ehselector.slot.0, %288
   br i1 %matches, label %catch, label %ehcleanup96
 
 catch:                                            ; preds = %ehcleanup76
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %289 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #26
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %289 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp77, ptr noundef nonnull @.str, i32 noundef 84, i32 noundef 2)
           to label %invoke.cont79 unwind label %lpad78
 
@@ -9606,8 +9606,8 @@ monotonic_fail22.i89.i:                           ; preds = %while.cond.i
   br i1 %12, label %cleanup, label %if.end3.i
 
 if.end3.i:                                        ; preds = %monotonic_fail22.i89.i, %while.cond.i
-  %before.addr.17.i = phi i32 [ %13, %monotonic_fail22.i89.i ], [ %before.addr.0.i, %while.cond.i ]
-  %cmp4.i = icmp eq i32 %before.addr.17.i, 1
+  %before.addr.1.i = phi i32 [ %13, %monotonic_fail22.i89.i ], [ %before.addr.0.i, %while.cond.i ]
+  %cmp4.i = icmp eq i32 %before.addr.1.i, 1
   br i1 %cmp4.i, label %seqcst.i123.i, label %monotonic_fail22.i.i
 
 seqcst.i123.i:                                    ; preds = %if.end3.i
@@ -9617,7 +9617,7 @@ seqcst.i123.i:                                    ; preds = %if.end3.i
   br i1 %cmp8.i, label %cleanup, label %while.cond.i.backedge
 
 monotonic_fail22.i.i:                             ; preds = %if.end3.i
-  %15 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 %before.addr.17.i, i32 1 release monotonic, align 4
+  %15 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 %before.addr.1.i, i32 1 release monotonic, align 4
   %16 = extractvalue { i32, i1 } %15, 1
   %17 = extractvalue { i32, i1 } %15, 0
   br i1 %16, label %if.then31.i, label %while.cond.i.backedge
@@ -9724,7 +9724,7 @@ if.then.i:                                        ; preds = %invoke.cont15
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i, %invoke.cont15, %invoke.cont9
-  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ false, %invoke.cont15 ], [ true, %if.then.i ]
+  %retval.1 = phi i1 [ false, %invoke.cont9 ], [ false, %invoke.cont15 ], [ true, %if.then.i ]
   %7 = load i8, ptr %hasValue.i.i, align 8
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %return
@@ -9749,8 +9749,8 @@ _ZN5folly8OptionalISt4pairINS_7dynamicEmEED2Ev.exit13: ; preds = %ehcleanup, %if
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %_ZNK6wangle16LRUInMemoryCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8proxygen23PersistentQuicCachedPskESt5mutexE15hasChangedSinceEm.exit
-  %retval.1 = phi i1 [ true, %_ZNK6wangle16LRUInMemoryCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8proxygen23PersistentQuicCachedPskESt5mutexE15hasChangedSinceEm.exit ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZNK6wangle16LRUInMemoryCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8proxygen23PersistentQuicCachedPskESt5mutexE15hasChangedSinceEm.exit ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9805,7 +9805,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEON8proxygen23PersistentQuicCachedPskEEED2Ev.exit
-  %updated.041 = phi i1 [ false, %for.body.lr.ph ], [ true, %_ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEON8proxygen23PersistentQuicCachedPskEEED2Ev.exit ]
+  %updated.141 = phi i1 [ false, %for.body.lr.ph ], [ true, %_ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEON8proxygen23PersistentQuicCachedPskEEED2Ev.exit ]
   %__begin2.sroa.0.040 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEON8proxygen23PersistentQuicCachedPskEEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i.i)
   store i32 4, ptr %ref.tmp.i.i, align 8
@@ -9936,15 +9936,15 @@ ehcleanup:                                        ; preds = %lpad14, %lpad.i.i14
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.i, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad.i.i ], [ %lpad.loopexit30, %lpad.loopexit ], [ %lpad.loopexit.split-lp31, %lpad.loopexit.split-lp ]
-  %updated.2 = phi i1 [ %updated.041, %ehcleanup ], [ %updated.041, %lpad.i.i ], [ %updated.041, %lpad.loopexit ], [ false, %lpad.loopexit.split-lp ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %updated.2 = phi i1 [ %updated.141, %ehcleanup ], [ %updated.141, %lpad.i.i ], [ %updated.141, %lpad.loopexit ], [ false, %lpad.loopexit.split-lp ]
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5folly9TypeErrorE) #26
-  %matches = icmp eq i32 %ehselector.slot.1, %14
+  %matches = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches, label %catch49, label %catch.fallthrough
 
 catch49:                                          ; preds = %catch.dispatch
-  %15 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #26
+  %15 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp52, ptr noundef nonnull @.str.86, i32 noundef 88, i32 noundef 2)
           to label %invoke.cont53 unwind label %terminate.lpad
 
@@ -9976,11 +9976,11 @@ if.then:                                          ; preds = %_ZNSt8functionIFvNS
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #26
-  %matches21 = icmp eq i32 %ehselector.slot.1, %18
+  %matches21 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches21, label %catch34, label %catch.fallthrough22
 
 catch34:                                          ; preds = %catch.fallthrough
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #26
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37, ptr noundef nonnull @.str.86, i32 noundef 90, i32 noundef 2)
           to label %invoke.cont38 unwind label %terminate.lpad
 
@@ -10002,11 +10002,11 @@ invoke.cont41:                                    ; preds = %invoke.cont39
 
 catch.fallthrough22:                              ; preds = %catch.fallthrough
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
-  %matches23 = icmp eq i32 %ehselector.slot.1, %21
+  %matches23 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches23, label %catch, label %terminate.handler
 
 catch:                                            ; preds = %catch.fallthrough22
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #26
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp24, ptr noundef nonnull @.str.86, i32 noundef 92, i32 noundef 2)
           to label %invoke.cont25 unwind label %terminate.lpad
 
@@ -10046,7 +10046,7 @@ terminate.lpad:                                   ; preds = %invoke.cont31.invok
   unreachable
 
 terminate.handler:                                ; preds = %catch.fallthrough22
-  call void @__clang_call_terminate(ptr %exn.slot.1) #30
+  call void @__clang_call_terminate(ptr %exn.slot.0) #30
   unreachable
 }
 
@@ -10709,9 +10709,9 @@ if.then9:                                         ; preds = %if.end5
 do.body:                                          ; preds = %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit, %if.then9
   %21 = phi i64 [ %16, %if.then9 ], [ %24, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit ]
   %22 = phi ptr [ %15, %if.then9 ], [ %25, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit ]
-  %chunk.0 = phi ptr [ %add.ptr, %if.then9 ], [ %add.ptr14, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit ]
+  %chunk.1 = phi ptr [ %add.ptr, %if.then9 ], [ %add.ptr14, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then9 ], [ %add, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i42 = getelementptr inbounds i8, ptr %chunk.0, i64 15
+  %outboundOverflowCount_.i42 = getelementptr inbounds i8, ptr %chunk.1, i64 15
   %23 = load i8, ptr %outboundOverflowCount_.i42, align 1
   %cmp.not.i = icmp eq i8 %23, -1
   br i1 %cmp.not.i, label %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit, label %if.then.i
@@ -10748,11 +10748,11 @@ do.end:                                           ; preds = %_ZN5folly3f146detai
 
 if.end19:                                         ; preds = %do.end, %if.end5
   %firstEmpty.sroa.0.0.in.in = phi i16 [ %20, %if.end5 ], [ %29, %do.end ]
-  %chunk.1 = phi ptr [ %add.ptr, %if.end5 ], [ %add.ptr14, %do.end ]
+  %chunk.0 = phi ptr [ %add.ptr, %if.end5 ], [ %add.ptr14, %do.end ]
   %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 4095
   %31 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true)
   %conv = zext nneg i16 %31 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %chunk.1, i64 0, i64 %conv
+  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %chunk.0, i64 0, i64 %conv
   %32 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i53 = icmp eq i8 %32, 0
   br i1 %cmp.i53, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %if.then.i54
@@ -10764,7 +10764,7 @@ if.then.i54:                                      ; preds = %if.end19
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %if.end19
   %conv4.i = trunc i64 %hp.coerce1 to i8
   store i8 %conv4.i, ptr %arrayidx.i.i.i, align 1
-  %rawItems_.i.i.i55 = getelementptr inbounds i8, ptr %chunk.1, i64 16
+  %rawItems_.i.i.i55 = getelementptr inbounds i8, ptr %chunk.0, i64 16
   %arrayidx.i.i.i.i.i56 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i55, i64 0, i64 %conv
   %33 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %shr.i.i.i.i.i = lshr i64 %33, 8
@@ -11967,14 +11967,14 @@ invoke.cont18:                                    ; preds = %invoke.cont14, %inv
 ehcleanup19:                                      ; preds = %lpad3, %lpad.body.i.i, %ehcleanup
   %.pn4 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %8, %lpad3 ], [ %eh.lpad-body.i.i, %lpad.body.i.i ]
   call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %dynObj) #26
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn4, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn4, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn4, 1
   %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
-  %matches = icmp eq i32 %ehselector.slot.2, %12
+  %matches = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches, label %catch, label %terminate.handler
 
 catch:                                            ; preds = %ehcleanup19
-  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #26
+  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp20, ptr noundef nonnull @.str.86, i32 noundef 112, i32 noundef 2)
           to label %invoke.cont21 unwind label %terminate.lpad
 
@@ -12016,7 +12016,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i, %invok
   unreachable
 
 terminate.handler:                                ; preds = %ehcleanup19
-  call void @__clang_call_terminate(ptr %exn.slot.2) #30
+  call void @__clang_call_terminate(ptr %exn.slot.0) #30
   unreachable
 }
 
@@ -13486,7 +13486,7 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZNSt10shared_ptrIN6wangle16CachePersistenceEED2Ev.exit
-  %nSyncFailures.0 = phi i32 [ %nSyncFailures.2, %_ZNSt10shared_ptrIN6wangle16CachePersistenceEED2Ev.exit ], [ 0, %while.cond.preheader ]
+  %nSyncFailures.0 = phi i32 [ %nSyncFailures.1, %_ZNSt10shared_ptrIN6wangle16CachePersistenceEED2Ev.exit ], [ 0, %while.cond.preheader ]
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
   %call1.i.i.i.i3 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %persistenceLock_.i) #26, !noalias !145
   %tobool.not.i.i.i4 = icmp eq i32 %call1.i.i.i.i3, 0
@@ -13612,7 +13612,7 @@ invoke.cont18:                                    ; preds = %if.then15
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end9, %invoke.cont12, %if.then14, %invoke.cont18
-  %nSyncFailures.1 = phi i32 [ 0, %invoke.cont18 ], [ %inc, %if.then14 ], [ 0, %invoke.cont12 ], [ 0, %if.end9 ]
+  %nSyncFailures.2 = phi i32 [ 0, %invoke.cont18 ], [ %inc, %if.then14 ], [ 0, %invoke.cont12 ], [ 0, %if.end9 ]
   %13 = load i8, ptr %stopSyncer_, align 8
   %tobool25 = trunc i8 %13 to i1
   br i1 %tobool25, label %cleanup, label %if.then26
@@ -13637,7 +13637,7 @@ _ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11uniq
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit, %if.end23, %if.then, %invoke.cont6
-  %nSyncFailures.2 = phi i32 [ %nSyncFailures.0, %invoke.cont6 ], [ %nSyncFailures.0, %if.then ], [ %nSyncFailures.1, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit ], [ %nSyncFailures.1, %if.end23 ]
+  %nSyncFailures.1 = phi i32 [ %nSyncFailures.0, %invoke.cont6 ], [ %nSyncFailures.0, %if.then ], [ %nSyncFailures.2, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit ], [ %nSyncFailures.2, %if.end23 ]
   %switch = phi i1 [ false, %invoke.cont6 ], [ false, %if.then ], [ true, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit ], [ true, %if.end23 ]
   %15 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %15, null

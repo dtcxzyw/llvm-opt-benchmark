@@ -1930,7 +1930,7 @@ stringize.exit.i:                                 ; preds = %for.cond13.i.i.i.i
 
 while.cond.i.backedge:                            ; preds = %stringize.exit.i, %if.end33.i, %if.end64.i, %paste.exit103.i, %if.end103.i, %for.end116.i, %if.end140.i, %for.end161.i, %if.end163.i
   %67 = phi ptr [ %66, %stringize.exit.i ], [ %storemerge.i, %if.end33.i ], [ %99, %if.end64.i ], [ %108, %paste.exit103.i ], [ %124, %if.end103.i ], [ %126, %for.end116.i ], [ %call141.i, %if.end140.i ], [ %143, %for.end161.i ], [ %144, %if.end163.i ]
-  %cur.0.i.be = phi ptr [ %call3.i.i.i, %stringize.exit.i ], [ %cur.1.i, %if.end33.i ], [ %cur.3.i, %if.end64.i ], [ %cur.0.i447, %paste.exit103.i ], [ %cur.5.i, %if.end103.i ], [ %call.i142.i, %for.end116.i ], [ %cur.8.i, %if.end140.i ], [ %cur.9.i.lcssa, %for.end161.i ], [ %call.i153.i, %if.end163.i ]
+  %cur.0.i.be = phi ptr [ %call3.i.i.i, %stringize.exit.i ], [ %cur.1.i, %if.end33.i ], [ %cur.2.i, %if.end64.i ], [ %cur.0.i447, %paste.exit103.i ], [ %cur.5.i, %if.end103.i ], [ %call.i142.i, %for.end116.i ], [ %cur.7.i, %if.end140.i ], [ %cur.9.i.lcssa, %for.end161.i ], [ %call.i153.i, %if.end163.i ]
   %68 = load i32, ptr %67, align 16
   %cmp.not.i150 = icmp eq i32 %68, 6
   br i1 %cmp.not.i150, label %subst.exit, label %while.body.i151, !llvm.loop !31
@@ -2111,12 +2111,12 @@ paste.exit.i:                                     ; preds = %if.then54.i
 
 for.body.i164:                                    ; preds = %paste.exit.i, %for.body.i164
   %t.0.i163444 = phi ptr [ %t.0.i163, %for.body.i164 ], [ %t.0.i163441, %paste.exit.i ]
-  %cur.2.i443 = phi ptr [ %call.i91.i, %for.body.i164 ], [ %cur.0.i447, %paste.exit.i ]
+  %cur.3.i443 = phi ptr [ %call.i91.i, %for.body.i164 ], [ %cur.0.i447, %paste.exit.i ]
   %call.i91.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i91.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %t.0.i163444, i64 128, i1 false)
   %next.i92.i = getelementptr inbounds i8, ptr %call.i91.i, i64 8
   store ptr null, ptr %next.i92.i, align 8
-  %next62.i = getelementptr inbounds i8, ptr %cur.2.i443, i64 8
+  %next62.i = getelementptr inbounds i8, ptr %cur.3.i443, i64 8
   store ptr %call.i91.i, ptr %next62.i, align 8
   %t.0.in.i = getelementptr inbounds i8, ptr %t.0.i163444, i64 8
   %t.0.i163 = load ptr, ptr %t.0.in.i, align 8
@@ -2125,7 +2125,7 @@ for.body.i164:                                    ; preds = %paste.exit.i, %for.
   br i1 %cmp60.not.i, label %if.end64.i, label %for.body.i164, !llvm.loop !32
 
 if.end64.i:                                       ; preds = %for.body.i164, %paste.exit.i, %if.then50.i
-  %cur.3.i = phi ptr [ %cur.0.i447, %if.then50.i ], [ %cur.0.i447, %paste.exit.i ], [ %call.i91.i, %for.body.i164 ]
+  %cur.2.i = phi ptr [ %cur.0.i447, %if.then50.i ], [ %cur.0.i447, %paste.exit.i ], [ %call.i91.i, %for.body.i164 ]
   %98 = load ptr, ptr %next41.i, align 8
   %next66.i = getelementptr inbounds i8, ptr %98, i64 8
   %99 = load ptr, ptr %next66.i, align 8
@@ -2342,8 +2342,8 @@ if.then129.i:                                     ; preds = %has_varargs.exit.i
 
 for.body135.i:                                    ; preds = %if.then129.i, %for.body135.i
   %t130.0.i438 = phi ptr [ %t130.0.i, %for.body135.i ], [ %t130.0.i435, %if.then129.i ]
-  %cur.7.i437 = phi ptr [ %t130.0.i438, %for.body135.i ], [ %cur.0.i447, %if.then129.i ]
-  %next136.i = getelementptr inbounds i8, ptr %cur.7.i437, i64 8
+  %cur.8.i437 = phi ptr [ %t130.0.i438, %for.body135.i ], [ %cur.0.i447, %if.then129.i ]
+  %next136.i = getelementptr inbounds i8, ptr %cur.8.i437, i64 8
   store ptr %t130.0.i438, ptr %next136.i, align 8
   %next138.i = getelementptr inbounds i8, ptr %t130.0.i438, i64 8
   %t130.0.i = load ptr, ptr %next138.i, align 8
@@ -2352,7 +2352,7 @@ for.body135.i:                                    ; preds = %if.then129.i, %for.
   br i1 %cmp134.not.i, label %if.end140.i, label %for.body135.i, !llvm.loop !36
 
 if.end140.i:                                      ; preds = %for.inc.i147.i, %for.body135.i, %if.then129.i, %if.then123.i, %has_varargs.exit.i
-  %cur.8.i = phi ptr [ %cur.0.i447, %has_varargs.exit.i ], [ %cur.0.i447, %if.then123.i ], [ %cur.0.i447, %if.then129.i ], [ %t130.0.i438, %for.body135.i ], [ %cur.0.i447, %for.inc.i147.i ]
+  %cur.7.i = phi ptr [ %cur.0.i447, %has_varargs.exit.i ], [ %cur.0.i447, %if.then123.i ], [ %cur.0.i447, %if.then129.i ], [ %t130.0.i438, %for.body135.i ], [ %cur.0.i447, %for.inc.i147.i ]
   %136 = load ptr, ptr %tok.addr.i148, align 8
   %call141.i = call ptr @skip(ptr noundef %136, ptr noundef nonnull @.str.88) #14
   store ptr %call141.i, ptr %tok.addr.i148, align 8

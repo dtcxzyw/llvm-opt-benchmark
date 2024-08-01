@@ -274,7 +274,7 @@ invoke.cont.loopexit:                             ; preds = %for.body12
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.loopexit, %for.end
-  %numSampleDirections.1 = phi i32 [ %cond, %for.end ], [ %13, %invoke.cont.loopexit ]
+  %numSampleDirections.0 = phi i32 [ %cond, %for.end ], [ %13, %invoke.cont.loopexit ]
   %mVcount.i = getelementptr inbounds i8, ptr %hd, i64 4
   %mVertices.i = getelementptr inbounds i8, ptr %hd, i64 8
   %mVertexStride.i = getelementptr inbounds i8, ptr %hd, i64 16
@@ -285,7 +285,7 @@ invoke.cont:                                      ; preds = %invoke.cont.loopexi
   %mMaxFaces.i = getelementptr inbounds i8, ptr %hd, i64 28
   store i32 4096, ptr %mMaxFaces.i, align 4
   store i32 1, ptr %hd, align 8
-  store i32 %numSampleDirections.1, ptr %mVcount.i, align 4
+  store i32 %numSampleDirections.0, ptr %mVcount.i, align 4
   store ptr %supportPoints, ptr %mVertices.i, align 8
   store i32 16, ptr %mVertexStride.i, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %hl, i64 24

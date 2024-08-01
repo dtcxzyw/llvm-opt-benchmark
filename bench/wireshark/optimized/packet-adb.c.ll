@@ -413,19 +413,19 @@ define internal i32 @dissect_adb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0523.ph = phi ptr [ %122, %123 ], [ null, %121 ], [ null, %114 ], [ null, %93 ], [ null, %90 ]
   %.0402.ph = phi i32 [ %98, %123 ], [ %98, %121 ], [ %98, %114 ], [ 0, %93 ], [ 0, %90 ]
   %.0397.ph = phi i32 [ %100, %123 ], [ %100, %121 ], [ %100, %114 ], [ 0, %93 ], [ 0, %90 ]
-  %.1393.ph.shrunk = phi i1 [ %.not436, %123 ], [ %.not436, %121 ], [ %.not436, %114 ], [ true, %93 ], [ true, %90 ]
-  %.1391.ph.shrunk = phi i1 [ %not..not436, %123 ], [ %not..not436, %121 ], [ %not..not436, %114 ], [ false, %93 ], [ false, %90 ]
+  %.0392.ph.shrunk = phi i1 [ %.not436, %123 ], [ %.not436, %121 ], [ %.not436, %114 ], [ true, %93 ], [ true, %90 ]
+  %.0390.ph.shrunk = phi i1 [ %not..not436, %123 ], [ %not..not436, %121 ], [ %not..not436, %114 ], [ false, %93 ], [ false, %90 ]
   %.0388.ph = phi i32 [ %spec.select463, %123 ], [ 0, %121 ], [ 0, %114 ], [ 0, %93 ], [ 0, %90 ]
-  %.1391.ph = zext i1 %.1391.ph.shrunk to i32
-  %.1393.ph = zext i1 %.1393.ph.shrunk to i32
+  %.0390.ph = zext i1 %.0390.ph.shrunk to i32
+  %.0392.ph = zext i1 %.0392.ph.shrunk to i32
   %127 = load i32, ptr %91, align 4
   %128 = icmp ugt i32 %127, %27
   br i1 %128, label %144, label %129
 
 129:                                              ; preds = %82, %88, %126
   %.0388551 = phi i32 [ %.0388.ph, %126 ], [ 0, %88 ], [ 0, %82 ]
-  %.1391549 = phi i32 [ %.1391.ph, %126 ], [ 0, %88 ], [ 0, %82 ]
-  %.1393546 = phi i32 [ %.1393.ph, %126 ], [ 1, %88 ], [ 1, %82 ]
+  %.0390549 = phi i32 [ %.0390.ph, %126 ], [ 0, %88 ], [ 0, %82 ]
+  %.0392546 = phi i32 [ %.0392.ph, %126 ], [ 1, %88 ], [ 1, %82 ]
   %.0397544 = phi i32 [ %.0397.ph, %126 ], [ 0, %88 ], [ 0, %82 ]
   %.0402542 = phi i32 [ %.0402.ph, %126 ], [ 0, %88 ], [ 0, %82 ]
   %.0523540 = phi ptr [ %.0523.ph, %126 ], [ null, %88 ], [ null, %82 ]
@@ -455,7 +455,7 @@ define internal i32 @dissect_adb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %138 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20) #4
   %139 = xor i32 %138, %136
   %.not440 = icmp ne i32 %139, -1
-  %.not441 = icmp eq i32 %.1393546, 0
+  %.not441 = icmp eq i32 %.0392546, 0
   %or.cond563 = select i1 %.not440, i1 true, i1 %.not441
   br i1 %or.cond563, label %.thread553, label %140
 
@@ -465,20 +465,20 @@ define internal i32 @dissect_adb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.thread553
 
 .thread553:                                       ; preds = %137, %135, %140
-  %.2394556 = phi i32 [ 1, %140 ], [ 0, %135 ], [ 0, %137 ]
-  %.1403 = phi i32 [ %141, %140 ], [ %.0402542, %135 ], [ %.0402542, %137 ]
-  %.1398 = phi i32 [ %142, %140 ], [ %.0397544, %135 ], [ %.0397544, %137 ]
+  %.3395556 = phi i32 [ 1, %140 ], [ 0, %135 ], [ 0, %137 ]
+  %.2404 = phi i32 [ %141, %140 ], [ %.0402542, %135 ], [ %.0402542, %137 ]
+  %.2399 = phi i32 [ %142, %140 ], [ %.0397544, %135 ], [ %.0397544, %137 ]
   %143 = icmp eq i32 %136, 1313165391
   %spec.select465 = select i1 %143, i32 1, i32 %.0388551
   br label %144
 
 144:                                              ; preds = %.thread553, %129, %132, %126
-  %.1391547 = phi i32 [ %.1391.ph, %126 ], [ %.1391549, %132 ], [ %.1391549, %129 ], [ %.1391549, %.thread553 ]
+  %.0390547 = phi i32 [ %.0390.ph, %126 ], [ %.0390549, %132 ], [ %.0390549, %129 ], [ %.0390549, %.thread553 ]
   %.0523538 = phi ptr [ %.0523.ph, %126 ], [ %.0523540, %132 ], [ %.0523540, %129 ], [ %.0523540, %.thread553 ]
   %.0525537 = phi ptr [ %89, %126 ], [ %.0525536, %132 ], [ %.0525536, %129 ], [ %.0525536, %.thread553 ]
-  %.2404 = phi i32 [ %.0402.ph, %126 ], [ %.0402542, %132 ], [ %.0402542, %129 ], [ %.1403, %.thread553 ]
-  %.2399 = phi i32 [ %.0397.ph, %126 ], [ %.0397544, %132 ], [ %.0397544, %129 ], [ %.1398, %.thread553 ]
-  %.3395 = phi i32 [ %.1393.ph, %126 ], [ %.1393546, %132 ], [ 0, %129 ], [ %.2394556, %.thread553 ]
+  %.1403 = phi i32 [ %.0402.ph, %126 ], [ %.0402542, %132 ], [ %.0402542, %129 ], [ %.2404, %.thread553 ]
+  %.1398 = phi i32 [ %.0397.ph, %126 ], [ %.0397544, %132 ], [ %.0397544, %129 ], [ %.2399, %.thread553 ]
+  %.2394 = phi i32 [ %.0392.ph, %126 ], [ %.0392546, %132 ], [ 0, %129 ], [ %.3395556, %.thread553 ]
   %.1389 = phi i32 [ %.0388.ph, %126 ], [ %.0388551, %132 ], [ %.0388551, %129 ], [ %spec.select465, %.thread553 ]
   %.not442 = icmp eq ptr %.0523538, null
   br i1 %.not442, label %proto_item_set_generated.exit, label %145
@@ -486,7 +486,7 @@ define internal i32 @dissect_adb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 145:                                              ; preds = %144
   %146 = load i32, ptr %.0525537, align 8
   %147 = icmp eq i32 %146, 1313165391
-  %148 = icmp ne i32 %.1391547, 0
+  %148 = icmp ne i32 %.0390547, 0
   %or.cond22 = and i1 %148, %147
   br i1 %or.cond22, label %161, label %149
 
@@ -582,7 +582,7 @@ proto_item_set_generated.exit473:                 ; preds = %180, %177, %174, %p
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %144, %proto_item_set_generated.exit473
-  %.not446 = icmp eq i32 %.3395, 0
+  %.not446 = icmp eq i32 %.2394, 0
   br i1 %.not446, label %414, label %196
 
 196:                                              ; preds = %proto_item_set_generated.exit
@@ -685,12 +685,12 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
 263:                                              ; preds = %254, %246, %240, %233, %225, %212, %196
   %264 = load i32, ptr @hf_data_length, align 4
   %265 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %264, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #4
-  %.not448 = icmp eq i32 %.2404, 0
+  %.not448 = icmp eq i32 %.1403, 0
   br i1 %.not448, label %268, label %266
 
 266:                                              ; preds = %263
   %267 = load ptr, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %267, i32 noundef 25, ptr noundef nonnull @.str.87, i32 noundef %.2404) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %267, i32 noundef 25, ptr noundef nonnull @.str.87, i32 noundef %.1403) #4
   br label %268
 
 268:                                              ; preds = %266, %263
@@ -799,7 +799,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
 
 323:                                              ; preds = %314, %302
   %.127.sink.i = phi ptr [ %.127.i, %314 ], [ %8, %302 ]
-  %.1.i = phi i32 [ %..i, %314 ], [ %304, %302 ]
+  %.0.i = phi i32 [ %..i, %314 ], [ %304, %302 ]
   %324 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %.127.sink.i, ptr %324, align 8
   %325 = getelementptr inbounds i8, ptr %5, i64 48
@@ -814,7 +814,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   store i32 0, ptr %329, align 16
   %330 = getelementptr inbounds i8, ptr %5, i64 88
   store ptr null, ptr %330, align 8
-  %331 = icmp eq i32 %.1.i, 0
+  %331 = icmp eq i32 %.0.i, 0
   br i1 %331, label %332, label %334
 
 332:                                              ; preds = %323
@@ -867,14 +867,14 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   %354 = getelementptr inbounds i8, ptr %348, i64 24
   store i32 %273, ptr %354, align 8
   %355 = getelementptr inbounds i8, ptr %348, i64 20
-  store i32 %.2404, ptr %355, align 4
+  store i32 %.1403, ptr %355, align 4
   %spec.select.i = select i1 %.not448, i32 %351, i32 -1
   %356 = getelementptr inbounds i8, ptr %348, i64 28
   store i32 %spec.select.i, ptr %356, align 4
   %357 = getelementptr inbounds i8, ptr %348, i64 32
   store i32 0, ptr %357, align 8
   %358 = call ptr @wmem_file_scope() #4
-  %359 = zext i32 %.2404 to i64
+  %359 = zext i32 %.1403 to i64
   %360 = call noalias ptr @wmem_alloc(ptr noundef %358, i64 noundef %359) #4
   %361 = getelementptr inbounds i8, ptr %348, i64 40
   store ptr %360, ptr %361, align 8
@@ -952,7 +952,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   %388 = getelementptr inbounds i8, ptr %.2121.i, i64 16
   %389 = load i32, ptr %388, align 8
   %390 = icmp eq i32 %389, 0
-  %391 = icmp eq i32 %.1.i, 1
+  %391 = icmp eq i32 %.0.i, 1
   %or.cond.i = and i1 %391, %390
   br i1 %or.cond.i, label %392, label %save_command.exit
 
@@ -974,7 +974,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br i1 %or.cond5.i, label %397, label %save_command.exit
 
 397:                                              ; preds = %394
-  %398 = icmp eq i32 %.1.i, 1
+  %398 = icmp eq i32 %.0.i, 1
   br i1 %398, label %399, label %406
 
 399:                                              ; preds = %397
@@ -1017,7 +1017,7 @@ save_command.exit:                                ; preds = %382, %385, %.thread
 414:                                              ; preds = %282, %save_command.exit, %proto_item_set_generated.exit
   %.1526 = phi ptr [ %.0525537, %proto_item_set_generated.exit ], [ %348, %save_command.exit ], [ %.0525537, %282 ]
   %.1524 = phi ptr [ %.0523538, %proto_item_set_generated.exit ], [ %.3.i, %save_command.exit ], [ %.0523538, %282 ]
-  %.3400 = phi i32 [ %.2399, %proto_item_set_generated.exit ], [ %273, %save_command.exit ], [ %273, %282 ]
+  %.3400 = phi i32 [ %.1398, %proto_item_set_generated.exit ], [ %273, %save_command.exit ], [ %273, %282 ]
   %.0384 = phi i32 [ 0, %proto_item_set_generated.exit ], [ 24, %save_command.exit ], [ 24, %282 ]
   %.0380 = phi ptr [ null, %proto_item_set_generated.exit ], [ %272, %save_command.exit ], [ %272, %282 ]
   %415 = getelementptr inbounds i8, ptr %1, i64 80
@@ -1034,8 +1034,8 @@ save_command.exit:                                ; preds = %382, %385, %.thread
   %423 = getelementptr inbounds i8, ptr %.1526, i64 4
   %424 = load i32, ptr %423, align 4
   %.not451 = icmp eq i32 %424, %27
-  %spec.select466 = select i1 %.not451, i32 %.3395, i32 0
-  %spec.select467 = select i1 %.not451, i32 %.1391547, i32 1
+  %spec.select466 = select i1 %.not451, i32 %.2394, i32 0
+  %spec.select467 = select i1 %.not451, i32 %.0390547, i32 1
   %425 = getelementptr inbounds i8, ptr %.1526, i64 20
   %426 = load i32, ptr %425, align 4
   %427 = getelementptr inbounds i8, ptr %.1526, i64 24
@@ -1067,11 +1067,11 @@ save_command.exit:                                ; preds = %382, %385, %.thread
   br label %441
 
 441:                                              ; preds = %432, %.thread573, %437, %414
-  %.3405 = phi i32 [ %426, %437 ], [ %426, %.thread573 ], [ %426, %432 ], [ %.2404, %414 ]
+  %.3405 = phi i32 [ %426, %437 ], [ %426, %.thread573 ], [ %426, %432 ], [ %.1403, %414 ]
   %.4401 = phi i32 [ %428, %437 ], [ %428, %.thread573 ], [ %428, %432 ], [ %.3400, %414 ]
-  %.5 = phi i32 [ %spec.select466, %437 ], [ %spec.select466, %.thread573 ], [ 0, %432 ], [ %.3395, %414 ]
-  %.3 = phi i32 [ %spec.select467, %437 ], [ %spec.select467, %.thread573 ], [ 1, %432 ], [ %.1391547, %414 ]
-  %442 = icmp ne i32 %.3, 0
+  %.4 = phi i32 [ %spec.select466, %437 ], [ %spec.select466, %.thread573 ], [ 0, %432 ], [ %.2394, %414 ]
+  %.2 = phi i32 [ %spec.select467, %437 ], [ %spec.select467, %.thread573 ], [ 1, %432 ], [ %.0390547, %414 ]
+  %442 = icmp ne i32 %.2, 0
   %or.cond28 = and i1 %421, %442
   br i1 %or.cond28, label %443, label %proto_item_set_generated.exit489
 
@@ -1198,7 +1198,7 @@ proto_item_set_generated.exit492:                 ; preds = %497, %494, %491, %p
   br i1 %502, label %503, label %686
 
 503:                                              ; preds = %proto_item_set_generated.exit492
-  %504 = icmp eq i32 %.5, 0
+  %504 = icmp eq i32 %.4, 0
   %505 = icmp ne i32 %.3405, 0
   %or.cond31 = select i1 %504, i1 true, i1 %505
   br i1 %or.cond31, label %506, label %686

@@ -7993,7 +7993,7 @@ if.then.i.i.i728:                                 ; preds = %lpad153.body, %lpad
   br label %if.then.i.i.i732
 
 ehcleanup157.thread1140:                          ; preds = %invoke.cont66, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i270, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i352, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i393, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i475, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i516, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i598, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i639, %cond.true.i.i.i.i
-  %f.sroa.0.5.ph.ph = phi ptr [ %call5.i.i.i.i.i326.sink1184, %cond.true.i.i.i.i ], [ %call5.i.i.i.i.i654, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i639 ], [ %call5.i.i.i.i.i613, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i598 ], [ %call5.i.i.i.i.i531, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i516 ], [ %call5.i.i.i.i.i490, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i475 ], [ %call5.i.i.i.i.i408, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i393 ], [ %call5.i.i.i.i.i367, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i352 ], [ %call5.i.i.i.i.i285, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i270 ], [ %call5.i.i.i.i.i245, %invoke.cont66 ]
+  %f.sroa.0.2.ph.ph = phi ptr [ %call5.i.i.i.i.i326.sink1184, %cond.true.i.i.i.i ], [ %call5.i.i.i.i.i654, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i639 ], [ %call5.i.i.i.i.i613, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i598 ], [ %call5.i.i.i.i.i531, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i516 ], [ %call5.i.i.i.i.i490, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i475 ], [ %call5.i.i.i.i.i408, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i393 ], [ %call5.i.i.i.i.i367, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i352 ], [ %call5.i.i.i.i.i285, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i270 ], [ %call5.i.i.i.i.i245, %invoke.cont66 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i732
@@ -8005,8 +8005,8 @@ ehcleanup157:                                     ; preds = %if.else.i584, %if.e
 
 if.then.i.i.i732:                                 ; preds = %if.then.i.i.i728, %ehcleanup157.thread1140
   %.pn.pn1138 = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup157.thread1140 ], [ %.pn, %if.then.i.i.i728 ]
-  %f.sroa.0.191137 = phi ptr [ %f.sroa.0.5.ph.ph, %ehcleanup157.thread1140 ], [ %call5.i.i.i.i.i326.sink1184, %if.then.i.i.i728 ]
-  call void @_ZdlPv(ptr noundef nonnull %f.sroa.0.191137) #25
+  %f.sroa.0.31137 = phi ptr [ %f.sroa.0.2.ph.ph, %ehcleanup157.thread1140 ], [ %call5.i.i.i.i.i326.sink1184, %if.then.i.i.i728 ]
+  call void @_ZdlPv(ptr noundef nonnull %f.sroa.0.31137) #25
   br label %ehcleanup184
 
 for.inc161:                                       ; preds = %if.then.i.i.i724

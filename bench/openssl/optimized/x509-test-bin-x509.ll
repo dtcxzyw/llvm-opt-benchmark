@@ -128,10 +128,10 @@ err:                                              ; preds = %if.end45, %if.end54
   %param.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end5 ], [ null, %if.end13 ], [ %call29, %if.end21 ], [ %call29, %if.end38 ], [ %call29, %if.then56 ], [ %call29, %if.end60 ], [ %call29, %if.end71 ], [ %call29, %if.end54 ], [ %call29, %if.end45 ]
   %ctx.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end5 ], [ null, %if.end13 ], [ null, %if.end21 ], [ %call35, %if.end38 ], [ %call35, %if.then56 ], [ %call35, %if.end60 ], [ %call35, %if.end71 ], [ %call35, %if.end54 ], [ %call35, %if.end45 ]
   %crl.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end5 ], [ null, %if.end13 ], [ %call18, %if.end21 ], [ %call18, %if.end38 ], [ %call18, %if.then56 ], [ %call18, %if.end60 ], [ %call18, %if.end71 ], [ %call18, %if.end54 ], [ %call18, %if.end45 ]
-  %crls.1 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end5 ], [ null, %if.end13 ], [ null, %if.end21 ], [ null, %if.end38 ], [ %call42, %if.then56 ], [ %call42, %if.end60 ], [ %call42, %if.end71 ], [ %call42, %if.end54 ], [ %call42, %if.end45 ]
+  %crls.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end5 ], [ null, %if.end13 ], [ null, %if.end21 ], [ null, %if.end38 ], [ %call42, %if.then56 ], [ %call42, %if.end60 ], [ %call42, %if.end71 ], [ %call42, %if.end54 ], [ %call42, %if.end45 ]
   %certs.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end5 ], [ null, %if.end13 ], [ null, %if.end21 ], [ null, %if.end38 ], [ null, %if.then56 ], [ %call57, %if.end60 ], [ %call57, %if.end71 ], [ null, %if.end54 ], [ null, %if.end45 ]
   %resp.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end5 ], [ null, %if.end13 ], [ %call26, %if.end21 ], [ %call26, %if.end38 ], [ %call26, %if.then56 ], [ %call26, %if.end60 ], [ %call26, %if.end71 ], [ %call26, %if.end54 ], [ null, %if.end45 ]
-  %bs.1 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end5 ], [ null, %if.end13 ], [ null, %if.end21 ], [ null, %if.end38 ], [ %call53, %if.then56 ], [ %call53, %if.end60 ], [ %call53, %if.end71 ], [ null, %if.end54 ], [ null, %if.end45 ]
+  %bs.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end5 ], [ null, %if.end13 ], [ null, %if.end21 ], [ null, %if.end38 ], [ %call53, %if.then56 ], [ %call53, %if.end60 ], [ %call53, %if.end71 ], [ null, %if.end54 ], [ null, %if.end45 ]
   %id.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end5 ], [ null, %if.end13 ], [ null, %if.end21 ], [ null, %if.end38 ], [ null, %if.then56 ], [ null, %if.end60 ], [ %call68, %if.end71 ], [ null, %if.end54 ], [ null, %if.end45 ]
   call void @X509_STORE_CTX_free(ptr noundef %ctx.0) #3
   call void @X509_VERIFY_PARAM_free(ptr noundef %param.0) #3
@@ -140,9 +140,9 @@ err:                                              ; preds = %if.end45, %if.end54
   call void @X509_free(ptr noundef %x509_2.0) #3
   call void @X509_CRL_free(ptr noundef %crl.0) #3
   call void @OCSP_CERTID_free(ptr noundef %id.0) #3
-  call void @OCSP_BASICRESP_free(ptr noundef %bs.1) #3
+  call void @OCSP_BASICRESP_free(ptr noundef %bs.0) #3
   call void @OCSP_RESPONSE_free(ptr noundef %resp.0) #3
-  call void @OPENSSL_sk_free(ptr noundef %crls.1) #3
+  call void @OPENSSL_sk_free(ptr noundef %crls.0) #3
   call void @OPENSSL_sk_free(ptr noundef %certs.0) #3
   call void @ERR_clear_error() #3
   ret i32 0

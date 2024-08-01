@@ -2662,7 +2662,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIP10func
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc104
-  %r.0105 = phi ptr [ %0, %for.body.lr.ph ], [ %r.2, %for.inc104 ]
+  %r.0105 = phi ptr [ %0, %for.body.lr.ph ], [ %r.1, %for.inc104 ]
   %__begin1.0104 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr, %for.inc104 ]
   %4 = load ptr, ptr %__begin1.0104, align 8
   %5 = load ptr, ptr %m_else, align 8
@@ -2939,7 +2939,7 @@ cond.false95:                                     ; preds = %if.else92
           to label %if.end103 unwind label %lpad34.loopexit.split-lp
 
 if.end103:                                        ; preds = %cond.false.invoke, %cond.false95, %if.else92, %invoke.cont78, %if.then61
-  %r.1 = phi ptr [ %call54, %if.then61 ], [ %call.i83, %invoke.cont78 ], [ %r.0105, %if.else92 ], [ %call.i87, %cond.false95 ], [ %46, %cond.false.invoke ]
+  %r.2 = phi ptr [ %call54, %if.then61 ], [ %call.i83, %invoke.cont78 ], [ %r.0105, %if.else92 ], [ %call.i87, %cond.false95 ], [ %46, %cond.false.invoke ]
   %49 = load ptr, ptr %eqs, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %49, %m_initial_buffer.i.i32
   %cmp.i.i.i.i.i = icmp eq ptr %49, null
@@ -2958,7 +2958,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   unreachable
 
 for.inc104:                                       ; preds = %if.end.i.i.i.i.i, %if.end103, %for.body
-  %r.2 = phi ptr [ %r.0105, %for.body ], [ %r.1, %if.end103 ], [ %r.1, %if.end.i.i.i.i.i ]
+  %r.1 = phi ptr [ %r.0105, %for.body ], [ %r.2, %if.end103 ], [ %r.2, %if.end.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0104, i64 8
   %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp5.not, label %for.end105, label %for.body
@@ -2987,7 +2987,7 @@ ehcleanup:                                        ; preds = %lpad34, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit, %if.end.i.i.i.i.i92, %for.end105, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %r.2, %for.end105 ], [ %r.2, %if.end.i.i.i.i.i92 ], [ %0, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit ], [ %0, %if.end ]
+  %retval.0 = phi ptr [ null, %entry ], [ %r.1, %for.end105 ], [ %r.1, %if.end.i.i.i.i.i92 ], [ %0, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit ], [ %0, %if.end ]
   ret ptr %retval.0
 }
 

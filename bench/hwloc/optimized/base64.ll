@@ -136,14 +136,14 @@ define hidden i32 @hwloc_encode_to_base64(ptr nocapture noundef readonly %0, i64
   br label %89
 
 89:                                               ; preds = %86, %._crit_edge
-  %.2 = phi i64 [ %63, %86 ], [ %.043.lcssa, %._crit_edge ]
-  %.not48 = icmp ult i64 %.2, %3
+  %.1 = phi i64 [ %63, %86 ], [ %.043.lcssa, %._crit_edge ]
+  %.not48 = icmp ult i64 %.1, %3
   br i1 %.not48, label %90, label %.loopexit
 
 90:                                               ; preds = %89
-  %91 = getelementptr inbounds i8, ptr %2, i64 %.2
+  %91 = getelementptr inbounds i8, ptr %2, i64 %.1
   store i8 0, ptr %91, align 1
-  %92 = trunc i64 %.2 to i32
+  %92 = trunc i64 %.1 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %89, %56, %90
@@ -321,9 +321,9 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br i1 %cond92112, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %76
-  %.055114 = phi i32 [ %79, %76 ], [ %71, %.preheader ]
-  %.161113 = phi ptr [ %77, %76 ], [ %69, %.preheader ]
-  %72 = sext i32 %.055114 to i64
+  %.1114 = phi i32 [ %79, %76 ], [ %71, %.preheader ]
+  %.262113 = phi ptr [ %77, %76 ], [ %69, %.preheader ]
+  %72 = sext i32 %.1114 to i64
   %73 = getelementptr inbounds i16, ptr %9, i64 %72
   %74 = load i16, ptr %73, align 2
   %75 = and i16 %74, 8192
@@ -331,31 +331,31 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br i1 %.not85, label %80, label %76
 
 76:                                               ; preds = %.lr.ph
-  %77 = getelementptr inbounds i8, ptr %.161113, i64 1
-  %78 = load i8, ptr %.161113, align 1
+  %77 = getelementptr inbounds i8, ptr %.262113, i64 1
+  %78 = load i8, ptr %.262113, align 1
   %79 = sext i8 %78 to i32
   %cond92 = icmp eq i8 %78, 0
   br i1 %cond92, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 80:                                               ; preds = %.lr.ph
-  %.not86 = icmp eq i32 %.055114, 61
+  %.not86 = icmp eq i32 %.1114, 61
   br i1 %.not86, label %81, label %.loopexit
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %.161113, i64 1
-  %83 = load i8, ptr %.161113, align 1
+  %82 = getelementptr inbounds i8, ptr %.262113, i64 1
+  %83 = load i8, ptr %.262113, align 1
   %84 = sext i8 %83 to i32
   br label %85
 
 85:                                               ; preds = %81, %68
-  %.262 = phi ptr [ %69, %68 ], [ %82, %81 ]
-  %.1 = phi i32 [ %71, %68 ], [ %84, %81 ]
-  %.not87115 = icmp eq i32 %.1, 0
+  %.161 = phi ptr [ %69, %68 ], [ %82, %81 ]
+  %.055 = phi i32 [ %71, %68 ], [ %84, %81 ]
+  %.not87115 = icmp eq i32 %.055, 0
   br i1 %.not87115, label %._crit_edge, label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %85, %90
-  %.2117 = phi i32 [ %93, %90 ], [ %.1, %85 ]
-  %.3116 = phi ptr [ %91, %90 ], [ %.262, %85 ]
+  %.2117 = phi i32 [ %93, %90 ], [ %.055, %85 ]
+  %.3116 = phi ptr [ %91, %90 ], [ %.161, %85 ]
   %86 = sext i32 %.2117 to i64
   %87 = getelementptr inbounds i16, ptr %9, i64 %86
   %88 = load i16, ptr %87, align 2

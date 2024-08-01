@@ -67,8 +67,8 @@ define dso_local noundef ptr @Curl_splay(i64 %0, i32 %1, ptr noundef %2) local_u
   br i1 %.not83, label %51, label %.critedge85
 
 .critedge85:                                      ; preds = %23, %.critedge, %25
-  %.161 = phi ptr [ %18, %.critedge ], [ %.060, %25 ], [ %.060, %23 ]
-  store ptr %.161, ptr %.057, align 8
+  %.2 = phi ptr [ %18, %.critedge ], [ %.060, %25 ], [ %.060, %23 ]
+  store ptr %.2, ptr %.057, align 8
   br label %50
 
 32:                                               ; preds = %13
@@ -107,35 +107,35 @@ define dso_local noundef ptr @Curl_splay(i64 %0, i32 %1, ptr noundef %2) local_u
   br i1 %.not81, label %51, label %.critedge88
 
 .critedge88:                                      ; preds = %35, %.critedge90, %41
-  %.2 = phi ptr [ %34, %.critedge90 ], [ %.060, %41 ], [ %.060, %35 ]
+  %.4 = phi ptr [ %34, %.critedge90 ], [ %.060, %41 ], [ %.060, %35 ]
   %48 = getelementptr inbounds i8, ptr %.058, i64 8
-  store ptr %.2, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.2, i64 8
+  store ptr %.4, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %.4, i64 8
   br label %50
 
 50:                                               ; preds = %.critedge88, %.critedge85
-  %.3.in = phi ptr [ %.161, %.critedge85 ], [ %49, %.critedge88 ]
-  %.159 = phi ptr [ %.058, %.critedge85 ], [ %.2, %.critedge88 ]
-  %.1 = phi ptr [ %.161, %.critedge85 ], [ %.057, %.critedge88 ]
+  %.3.in = phi ptr [ %.2, %.critedge85 ], [ %49, %.critedge88 ]
+  %.159 = phi ptr [ %.058, %.critedge85 ], [ %.4, %.critedge88 ]
+  %.1 = phi ptr [ %.2, %.critedge85 ], [ %.057, %.critedge88 ]
   %.3 = load ptr, ptr %.3.in, align 8
   br label %7
 
 51:                                               ; preds = %32, %.critedge90, %.thread91, %.critedge, %17
-  %.4 = phi ptr [ %18, %.critedge ], [ %.060, %17 ], [ %34, %.critedge90 ], [ %.060, %.thread91 ], [ %.060, %32 ]
-  %52 = load ptr, ptr %.4, align 8
+  %.161 = phi ptr [ %18, %.critedge ], [ %.060, %17 ], [ %34, %.critedge90 ], [ %.060, %.thread91 ], [ %.060, %32 ]
+  %52 = load ptr, ptr %.161, align 8
   %53 = getelementptr inbounds i8, ptr %.058, i64 8
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %.4, i64 8
+  %54 = getelementptr inbounds i8, ptr %.161, i64 8
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %.057, align 8
   %56 = load ptr, ptr %6, align 8
-  store ptr %56, ptr %.4, align 8
+  store ptr %56, ptr %.161, align 8
   %57 = load ptr, ptr %4, align 8
   store ptr %57, ptr %54, align 8
   br label %58
 
 58:                                               ; preds = %3, %51
-  %.0 = phi ptr [ %.4, %51 ], [ null, %3 ]
+  %.0 = phi ptr [ %.161, %51 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -205,8 +205,8 @@ define dso_local noundef ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, p
   br i1 %.not83.i, label %Curl_splay.exit, label %.critedge85.i
 
 .critedge85.i:                                    ; preds = %.critedge.i, %27, %25
-  %.161.i = phi ptr [ %20, %.critedge.i ], [ %.060.i, %27 ], [ %.060.i, %25 ]
-  store ptr %.161.i, ptr %.057.i, align 8
+  %.2.i = phi ptr [ %20, %.critedge.i ], [ %.060.i, %27 ], [ %.060.i, %25 ]
+  store ptr %.2.i, ptr %.057.i, align 8
   br label %52
 
 34:                                               ; preds = %15
@@ -245,39 +245,39 @@ define dso_local noundef ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, p
   br i1 %.not81.i, label %Curl_splay.exit, label %.critedge88.i
 
 .critedge88.i:                                    ; preds = %.critedge90.i, %43, %37
-  %.2.i = phi ptr [ %36, %.critedge90.i ], [ %.060.i, %43 ], [ %.060.i, %37 ]
+  %.4.i = phi ptr [ %36, %.critedge90.i ], [ %.060.i, %43 ], [ %.060.i, %37 ]
   %50 = getelementptr inbounds i8, ptr %.058.i, i64 8
-  store ptr %.2.i, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %.2.i, i64 8
+  store ptr %.4.i, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %.4.i, i64 8
   br label %52
 
 52:                                               ; preds = %.critedge88.i, %.critedge85.i
-  %.3.in.i = phi ptr [ %.161.i, %.critedge85.i ], [ %51, %.critedge88.i ]
-  %.159.i = phi ptr [ %.058.i, %.critedge85.i ], [ %.2.i, %.critedge88.i ]
-  %.1.i = phi ptr [ %.161.i, %.critedge85.i ], [ %.057.i, %.critedge88.i ]
+  %.3.in.i = phi ptr [ %.2.i, %.critedge85.i ], [ %51, %.critedge88.i ]
+  %.159.i = phi ptr [ %.058.i, %.critedge85.i ], [ %.4.i, %.critedge88.i ]
+  %.1.i = phi ptr [ %.2.i, %.critedge85.i ], [ %.057.i, %.critedge88.i ]
   %.3.i = load ptr, ptr %.3.in.i, align 8
   br label %9
 
 Curl_splay.exit:                                  ; preds = %19, %.critedge.i, %34, %.thread91.i, %.critedge90.i
-  %.4.i = phi ptr [ %20, %.critedge.i ], [ %.060.i, %19 ], [ %36, %.critedge90.i ], [ %.060.i, %.thread91.i ], [ %.060.i, %34 ]
-  %53 = load ptr, ptr %.4.i, align 8
+  %.161.i = phi ptr [ %20, %.critedge.i ], [ %.060.i, %19 ], [ %36, %.critedge90.i ], [ %.060.i, %.thread91.i ], [ %.060.i, %34 ]
+  %53 = load ptr, ptr %.161.i, align 8
   %54 = getelementptr inbounds i8, ptr %.058.i, i64 8
   store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %.4.i, i64 8
+  %55 = getelementptr inbounds i8, ptr %.161.i, i64 8
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %.057.i, align 8
   %57 = load ptr, ptr %8, align 8
-  store ptr %57, ptr %.4.i, align 8
+  store ptr %57, ptr %.161.i, align 8
   %58 = load ptr, ptr %5, align 8
   store ptr %58, ptr %55, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  %59 = getelementptr inbounds i8, ptr %.4.i, i64 32
+  %59 = getelementptr inbounds i8, ptr %.161.i, i64 32
   %60 = load i64, ptr %59, align 8
   %or.cond.not = icmp eq i64 %60, %0
   br i1 %or.cond.not, label %61, label %71
 
 61:                                               ; preds = %Curl_splay.exit
-  %62 = getelementptr inbounds i8, ptr %.4.i, i64 40
+  %62 = getelementptr inbounds i8, ptr %.161.i, i64 40
   %63 = load i32, ptr %62, align 8
   %spec.select = icmp eq i32 %63, %1
   br i1 %spec.select, label %64, label %71
@@ -286,8 +286,8 @@ Curl_splay.exit:                                  ; preds = %19, %.critedge.i, %
   %65 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 -1, i64 16, i1 false)
   %66 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %.4.i, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %.4.i, i64 24
+  store ptr %.161.i, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %.161.i, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %68, ptr %69, align 8
@@ -308,24 +308,24 @@ Curl_splay.exit:                                  ; preds = %19, %.critedge.i, %
   br i1 %74, label %.critedge67, label %75
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %.4.i, i64 40
+  %76 = getelementptr inbounds i8, ptr %.161.i, i64 40
   %77 = load i32, ptr %76, align 8
   %78 = icmp sgt i32 %77, %1
   br i1 %78, label %.critedge65, label %.critedge67
 
 .critedge65:                                      ; preds = %71, %75
-  %79 = load ptr, ptr %.4.i, align 8
+  %79 = load ptr, ptr %.161.i, align 8
   store ptr %79, ptr %3, align 8
   %80 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %.4.i, ptr %80, align 8
-  store ptr null, ptr %.4.i, align 8
+  store ptr %.161.i, ptr %80, align 8
+  store ptr null, ptr %.161.i, align 8
   br label %83
 
 .critedge67:                                      ; preds = %73, %75
   %81 = load ptr, ptr %55, align 8
   %82 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %81, ptr %82, align 8
-  store ptr %.4.i, ptr %3, align 8
+  store ptr %.161.i, ptr %3, align 8
   store ptr null, ptr %55, align 8
   br label %83
 
@@ -341,7 +341,7 @@ Curl_splay.exit:                                  ; preds = %19, %.critedge.i, %
 
 .sink.split:                                      ; preds = %64, %83
   %.sink = phi ptr [ %86, %83 ], [ %67, %64 ]
-  %.0.ph = phi ptr [ %3, %83 ], [ %.4.i, %64 ]
+  %.0.ph = phi ptr [ %3, %83 ], [ %.161.i, %64 ]
   store ptr %3, ptr %.sink, align 8
   br label %87
 
@@ -415,8 +415,8 @@ define dso_local ptr @Curl_splaygetbest(i64 %0, i32 %1, ptr noundef %2, ptr noca
   br i1 %.not83.i, label %Curl_splay.exit, label %.critedge85.i
 
 .critedge85.i:                                    ; preds = %.critedge.i, %26, %24
-  %.161.i = phi ptr [ %19, %.critedge.i ], [ %.060.i, %26 ], [ %.060.i, %24 ]
-  store ptr %.161.i, ptr %.057.i, align 8
+  %.2.i = phi ptr [ %19, %.critedge.i ], [ %.060.i, %26 ], [ %.060.i, %24 ]
+  store ptr %.2.i, ptr %.057.i, align 8
   br label %51
 
 33:                                               ; preds = %14
@@ -455,33 +455,33 @@ define dso_local ptr @Curl_splaygetbest(i64 %0, i32 %1, ptr noundef %2, ptr noca
   br i1 %.not81.i, label %Curl_splay.exit, label %.critedge88.i
 
 .critedge88.i:                                    ; preds = %.critedge90.i, %42, %36
-  %.2.i = phi ptr [ %35, %.critedge90.i ], [ %.060.i, %42 ], [ %.060.i, %36 ]
+  %.4.i = phi ptr [ %35, %.critedge90.i ], [ %.060.i, %42 ], [ %.060.i, %36 ]
   %49 = getelementptr inbounds i8, ptr %.058.i, i64 8
-  store ptr %.2.i, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %.2.i, i64 8
+  store ptr %.4.i, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %.4.i, i64 8
   br label %51
 
 51:                                               ; preds = %.critedge88.i, %.critedge85.i
-  %.3.in.i = phi ptr [ %.161.i, %.critedge85.i ], [ %50, %.critedge88.i ]
-  %.159.i = phi ptr [ %.058.i, %.critedge85.i ], [ %.2.i, %.critedge88.i ]
-  %.1.i = phi ptr [ %.161.i, %.critedge85.i ], [ %.057.i, %.critedge88.i ]
+  %.3.in.i = phi ptr [ %.2.i, %.critedge85.i ], [ %50, %.critedge88.i ]
+  %.159.i = phi ptr [ %.058.i, %.critedge85.i ], [ %.4.i, %.critedge88.i ]
+  %.1.i = phi ptr [ %.2.i, %.critedge85.i ], [ %.057.i, %.critedge88.i ]
   %.3.i = load ptr, ptr %.3.in.i, align 8
   br label %8
 
 Curl_splay.exit:                                  ; preds = %18, %.critedge.i, %33, %.thread91.i, %.critedge90.i
-  %.4.i = phi ptr [ %19, %.critedge.i ], [ %.060.i, %18 ], [ %35, %.critedge90.i ], [ %.060.i, %.thread91.i ], [ %.060.i, %33 ]
-  %52 = load ptr, ptr %.4.i, align 8
+  %.161.i = phi ptr [ %19, %.critedge.i ], [ %.060.i, %18 ], [ %35, %.critedge90.i ], [ %.060.i, %.thread91.i ], [ %.060.i, %33 ]
+  %52 = load ptr, ptr %.161.i, align 8
   %53 = getelementptr inbounds i8, ptr %.058.i, i64 8
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %.4.i, i64 8
+  %54 = getelementptr inbounds i8, ptr %.161.i, i64 8
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %.057.i, align 8
   %56 = load ptr, ptr %7, align 8
-  store ptr %56, ptr %.4.i, align 8
+  store ptr %56, ptr %.161.i, align 8
   %57 = load ptr, ptr %5, align 8
   store ptr %57, ptr %54, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  %58 = getelementptr inbounds i8, ptr %.4.i, i64 32
+  %58 = getelementptr inbounds i8, ptr %.161.i, i64 32
   %59 = load i64, ptr %58, align 8
   %60 = icmp sgt i64 %59, %0
   br i1 %60, label %.critedge, label %61
@@ -491,15 +491,15 @@ Curl_splay.exit:                                  ; preds = %18, %.critedge.i, %
   br i1 %62, label %.critedge41, label %63
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %.4.i, i64 40
+  %64 = getelementptr inbounds i8, ptr %.161.i, i64 40
   %65 = load i32, ptr %64, align 8
   %66 = icmp sgt i32 %65, %1
   br i1 %66, label %.critedge, label %.critedge41
 
 .critedge41:                                      ; preds = %61, %63
-  %67 = getelementptr inbounds i8, ptr %.4.i, i64 16
+  %67 = getelementptr inbounds i8, ptr %.161.i, i64 16
   %68 = load ptr, ptr %67, align 8
-  %.not39 = icmp eq ptr %68, %.4.i
+  %.not39 = icmp eq ptr %68, %.161.i
   br i1 %.not39, label %78, label %69
 
 69:                                               ; preds = %.critedge41
@@ -508,9 +508,9 @@ Curl_splay.exit:                                  ; preds = %18, %.critedge.i, %
   %71 = load ptr, ptr %54, align 8
   %72 = getelementptr inbounds i8, ptr %68, i64 8
   store ptr %71, ptr %72, align 8
-  %73 = load ptr, ptr %.4.i, align 8
+  %73 = load ptr, ptr %.161.i, align 8
   store ptr %73, ptr %68, align 8
-  %74 = getelementptr inbounds i8, ptr %.4.i, i64 24
+  %74 = getelementptr inbounds i8, ptr %.161.i, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %68, i64 24
   store ptr %75, ptr %76, align 8
@@ -523,9 +523,9 @@ Curl_splay.exit:                                  ; preds = %18, %.critedge.i, %
   br label %.critedge
 
 .critedge:                                        ; preds = %63, %Curl_splay.exit, %4, %78, %69
-  %.4.i.sink = phi ptr [ %.4.i, %78 ], [ %.4.i, %69 ], [ null, %4 ], [ null, %Curl_splay.exit ], [ null, %63 ]
-  %.0 = phi ptr [ %79, %78 ], [ %68, %69 ], [ null, %4 ], [ %.4.i, %Curl_splay.exit ], [ %.4.i, %63 ]
-  store ptr %.4.i.sink, ptr %3, align 8
+  %.161.i.sink = phi ptr [ %.161.i, %78 ], [ %.161.i, %69 ], [ null, %4 ], [ null, %Curl_splay.exit ], [ null, %63 ]
+  %.0 = phi ptr [ %79, %78 ], [ %68, %69 ], [ null, %4 ], [ %.161.i, %Curl_splay.exit ], [ %.161.i, %63 ]
+  store ptr %.161.i.sink, ptr %3, align 8
   ret ptr %.0
 }
 
@@ -623,8 +623,8 @@ define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr nound
   br i1 %.not83.i, label %Curl_splay.exit, label %.critedge85.i
 
 .critedge85.i:                                    ; preds = %.critedge.i, %44, %42
-  %.161.i = phi ptr [ %37, %.critedge.i ], [ %.060.i, %44 ], [ %.060.i, %42 ]
-  store ptr %.161.i, ptr %.057.i, align 8
+  %.2.i = phi ptr [ %37, %.critedge.i ], [ %.060.i, %44 ], [ %.060.i, %42 ]
+  store ptr %.2.i, ptr %.057.i, align 8
   br label %69
 
 51:                                               ; preds = %32
@@ -663,51 +663,51 @@ define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr nound
   br i1 %.not81.i, label %Curl_splay.exit, label %.critedge88.i
 
 .critedge88.i:                                    ; preds = %.critedge90.i, %60, %54
-  %.2.i = phi ptr [ %53, %.critedge90.i ], [ %.060.i, %60 ], [ %.060.i, %54 ]
+  %.4.i = phi ptr [ %53, %.critedge90.i ], [ %.060.i, %60 ], [ %.060.i, %54 ]
   %67 = getelementptr inbounds i8, ptr %.058.i, i64 8
-  store ptr %.2.i, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %.2.i, i64 8
+  store ptr %.4.i, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %.4.i, i64 8
   br label %69
 
 69:                                               ; preds = %.critedge88.i, %.critedge85.i
-  %.3.in.i = phi ptr [ %.161.i, %.critedge85.i ], [ %68, %.critedge88.i ]
-  %.159.i = phi ptr [ %.058.i, %.critedge85.i ], [ %.2.i, %.critedge88.i ]
-  %.1.i = phi ptr [ %.161.i, %.critedge85.i ], [ %.057.i, %.critedge88.i ]
+  %.3.in.i = phi ptr [ %.2.i, %.critedge85.i ], [ %68, %.critedge88.i ]
+  %.159.i = phi ptr [ %.058.i, %.critedge85.i ], [ %.4.i, %.critedge88.i ]
+  %.1.i = phi ptr [ %.2.i, %.critedge85.i ], [ %.057.i, %.critedge88.i ]
   %.3.i = load ptr, ptr %.3.in.i, align 8
   br label %26
 
 Curl_splay.exit:                                  ; preds = %36, %.critedge.i, %51, %.thread91.i, %.critedge90.i
-  %.4.i = phi ptr [ %37, %.critedge.i ], [ %.060.i, %36 ], [ %53, %.critedge90.i ], [ %.060.i, %.thread91.i ], [ %.060.i, %51 ]
-  %70 = load ptr, ptr %.4.i, align 8
+  %.161.i = phi ptr [ %37, %.critedge.i ], [ %.060.i, %36 ], [ %53, %.critedge90.i ], [ %.060.i, %.thread91.i ], [ %.060.i, %51 ]
+  %70 = load ptr, ptr %.161.i, align 8
   %71 = getelementptr inbounds i8, ptr %.058.i, i64 8
   store ptr %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %.4.i, i64 8
+  %72 = getelementptr inbounds i8, ptr %.161.i, i64 8
   %73 = load ptr, ptr %72, align 8
   store ptr %73, ptr %.057.i, align 8
   %74 = load ptr, ptr %25, align 8
-  store ptr %74, ptr %.4.i, align 8
+  store ptr %74, ptr %.161.i, align 8
   %75 = load ptr, ptr %5, align 8
   store ptr %75, ptr %72, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  %.not52 = icmp eq ptr %.4.i, %1
+  %.not52 = icmp eq ptr %.161.i, %1
   br i1 %.not52, label %76, label %148
 
 76:                                               ; preds = %Curl_splay.exit
-  %77 = getelementptr inbounds i8, ptr %.4.i, i64 16
+  %77 = getelementptr inbounds i8, ptr %.161.i, i64 16
   %78 = load ptr, ptr %77, align 8
   %.not53 = icmp eq ptr %78, %1
   br i1 %.not53, label %89, label %79
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds i8, ptr %78, i64 32
-  %81 = getelementptr inbounds i8, ptr %.4.i, i64 32
+  %81 = getelementptr inbounds i8, ptr %.161.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false)
   %82 = load ptr, ptr %72, align 8
   %83 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %82, ptr %83, align 8
-  %84 = load ptr, ptr %.4.i, align 8
+  %84 = load ptr, ptr %.161.i, align 8
   store ptr %84, ptr %78, align 8
-  %85 = getelementptr inbounds i8, ptr %.4.i, i64 24
+  %85 = getelementptr inbounds i8, ptr %.161.i, i64 24
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %78, i64 24
   store ptr %86, ptr %87, align 8
@@ -716,7 +716,7 @@ Curl_splay.exit:                                  ; preds = %36, %.critedge.i, %
   br label %.sink.split
 
 89:                                               ; preds = %76
-  %90 = load ptr, ptr %.4.i, align 8
+  %90 = load ptr, ptr %.161.i, align 8
   %.not54 = icmp eq ptr %90, null
   br i1 %.not54, label %91, label %93
 
@@ -782,8 +782,8 @@ Curl_splay.exit:                                  ; preds = %36, %.critedge.i, %
   br i1 %.not83.i77, label %Curl_splay.exit78, label %.critedge85.i74
 
 .critedge85.i74:                                  ; preds = %.critedge.i76, %115, %113
-  %.161.i75 = phi ptr [ %108, %.critedge.i76 ], [ %.060.i57, %115 ], [ %.060.i57, %113 ]
-  store ptr %.161.i75, ptr %.057.i59, align 8
+  %.2.i75 = phi ptr [ %108, %.critedge.i76 ], [ %.060.i57, %115 ], [ %.060.i57, %113 ]
+  store ptr %.2.i75, ptr %.057.i59, align 8
   br label %140
 
 122:                                              ; preds = %103
@@ -822,29 +822,29 @@ Curl_splay.exit:                                  ; preds = %36, %.critedge.i, %
   br i1 %.not81.i72, label %Curl_splay.exit78, label %.critedge88.i65
 
 .critedge88.i65:                                  ; preds = %.critedge90.i71, %131, %125
-  %.2.i66 = phi ptr [ %124, %.critedge90.i71 ], [ %.060.i57, %131 ], [ %.060.i57, %125 ]
+  %.4.i66 = phi ptr [ %124, %.critedge90.i71 ], [ %.060.i57, %131 ], [ %.060.i57, %125 ]
   %138 = getelementptr inbounds i8, ptr %.058.i58, i64 8
-  store ptr %.2.i66, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %.2.i66, i64 8
+  store ptr %.4.i66, ptr %138, align 8
+  %139 = getelementptr inbounds i8, ptr %.4.i66, i64 8
   br label %140
 
 140:                                              ; preds = %.critedge88.i65, %.critedge85.i74
-  %.3.in.i67 = phi ptr [ %.161.i75, %.critedge85.i74 ], [ %139, %.critedge88.i65 ]
-  %.159.i68 = phi ptr [ %.058.i58, %.critedge85.i74 ], [ %.2.i66, %.critedge88.i65 ]
-  %.1.i69 = phi ptr [ %.161.i75, %.critedge85.i74 ], [ %.057.i59, %.critedge88.i65 ]
+  %.3.in.i67 = phi ptr [ %.2.i75, %.critedge85.i74 ], [ %139, %.critedge88.i65 ]
+  %.159.i68 = phi ptr [ %.058.i58, %.critedge85.i74 ], [ %.4.i66, %.critedge88.i65 ]
+  %.1.i69 = phi ptr [ %.2.i75, %.critedge85.i74 ], [ %.057.i59, %.critedge88.i65 ]
   %.3.i70 = load ptr, ptr %.3.in.i67, align 8
   br label %97
 
 Curl_splay.exit78:                                ; preds = %107, %.critedge.i76, %122, %.thread91.i63, %.critedge90.i71
-  %.4.i61 = phi ptr [ %108, %.critedge.i76 ], [ %.060.i57, %107 ], [ %124, %.critedge90.i71 ], [ %.060.i57, %.thread91.i63 ], [ %.060.i57, %122 ]
-  %141 = load ptr, ptr %.4.i61, align 8
+  %.161.i61 = phi ptr [ %108, %.critedge.i76 ], [ %.060.i57, %107 ], [ %124, %.critedge90.i71 ], [ %.060.i57, %.thread91.i63 ], [ %.060.i57, %122 ]
+  %141 = load ptr, ptr %.161.i61, align 8
   %142 = getelementptr inbounds i8, ptr %.058.i58, i64 8
   store ptr %141, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %.4.i61, i64 8
+  %143 = getelementptr inbounds i8, ptr %.161.i61, i64 8
   %144 = load ptr, ptr %143, align 8
   store ptr %144, ptr %.057.i59, align 8
   %145 = load ptr, ptr %96, align 8
-  store ptr %145, ptr %.4.i61, align 8
+  store ptr %145, ptr %.161.i61, align 8
   %146 = load ptr, ptr %4, align 8
   store ptr %146, ptr %143, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
@@ -853,7 +853,7 @@ Curl_splay.exit78:                                ; preds = %107, %.critedge.i76
   br label %.sink.split
 
 .sink.split:                                      ; preds = %79, %Curl_splay.exit78, %91, %17
-  %.0.sink = phi ptr [ %0, %17 ], [ %78, %79 ], [ %.4.i61, %Curl_splay.exit78 ], [ %92, %91 ]
+  %.0.sink = phi ptr [ %0, %17 ], [ %78, %79 ], [ %.161.i61, %Curl_splay.exit78 ], [ %92, %91 ]
   store ptr %.0.sink, ptr %2, align 8
   br label %148
 

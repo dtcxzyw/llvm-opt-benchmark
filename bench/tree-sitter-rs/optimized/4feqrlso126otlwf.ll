@@ -606,19 +606,19 @@ switch.lookup:                                    ; preds = %59
           to label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17hea716aff86ee1144E.exit" unwind label %88
 
 "_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE.exit": ; preds = %.thread, %83
-  %.046 = phi i32 [ %.047, %.thread ], [ 0, %83 ]
+  %.146 = phi i32 [ %.147, %.thread ], [ 0, %83 ]
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %17)
   br label %92
 
 .thread:                                          ; preds = %switch.lookup, %83
-  %.047 = phi i32 [ 0, %83 ], [ %switch.load, %switch.lookup ]
+  %.147 = phi i32 [ 0, %83 ], [ %switch.load, %switch.lookup ]
   %91 = getelementptr inbounds i8, ptr %17, i64 8
   call fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %91)
   br label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE.exit"
 
 92:                                               ; preds = %93, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE.exit"
-  %.1 = phi i32 [ %.046, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE.exit" ], [ 4, %93 ]
-  ret i32 %.1
+  %.2 = phi i32 [ %.146, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE.exit" ], [ 4, %93 ]
+  ret i32 %.2
 
 93:                                               ; preds = %67, %55
   call void @"_ZN63_$LT$tree_sitter..Language$u20$as$u20$core..ops..drop..Drop$GT$4drop17h16817d4e8c1c3e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21)
@@ -1092,8 +1092,8 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
   resume { ptr, i32 } %.pn40
 
 175:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit", %98, %107, %_ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit
-  %.3 = phi i32 [ 0, %107 ], [ 1, %_ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit ], [ %.42, %98 ], [ 2, %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit" ]
-  ret i32 %.3
+  %.1 = phi i32 [ 0, %107 ], [ 1, %_ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit ], [ %.42, %98 ], [ 2, %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit" ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nonlazybind uwtable

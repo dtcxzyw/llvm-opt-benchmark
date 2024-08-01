@@ -178,12 +178,12 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   br label %279
 
 42:                                               ; preds = %24, %37, %32, %20
-  %.086 = phi ptr [ %3, %20 ], [ %7, %32 ], [ %7, %37 ], [ %7, %24 ]
-  call void @archive_entry_copy_stat(ptr noundef %1, ptr noundef nonnull %.086) #12
+  %.1 = phi ptr [ %3, %20 ], [ %7, %32 ], [ %7, %37 ], [ %7, %24 ]
+  call void @archive_entry_copy_stat(ptr noundef %1, ptr noundef nonnull %.1) #12
   br label %43
 
 43:                                               ; preds = %42, %16
-  %.1 = phi ptr [ %.086, %42 ], [ %3, %16 ]
+  %.086 = phi ptr [ %.1, %42 ], [ %3, %16 ]
   %44 = call i64 @archive_entry_uid(ptr noundef %1) #12
   %45 = call ptr @archive_read_disk_uname(ptr noundef nonnull %0, i64 noundef %44) #12
   %.not108 = icmp eq ptr %45, null
@@ -211,7 +211,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   br i1 %55, label %56, label %80
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %.1, i64 24
+  %57 = getelementptr inbounds i8, ptr %.086, i64 24
   %58 = load i32, ptr %57, align 8
   %59 = trunc i32 %58 to i16
   %trunc = and i16 %59, -4096
@@ -263,14 +263,14 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   br label %80
 
 80:                                               ; preds = %56, %71, %78, %.thread, %51
-  %81 = getelementptr inbounds i8, ptr %.1, i64 24
+  %81 = getelementptr inbounds i8, ptr %.086, i64 24
   %82 = load i32, ptr %81, align 8
   %83 = and i32 %82, 61440
   %84 = icmp eq i32 %83, 40960
   br i1 %84, label %85, label %109
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %.1, i64 48
+  %86 = getelementptr inbounds i8, ptr %.086, i64 48
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, 1
   %89 = call noalias ptr @malloc(i64 noundef %88) #14

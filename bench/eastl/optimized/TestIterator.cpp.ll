@@ -632,7 +632,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i374: ; preds = %ehcleanup, %_ZN5ea
   br i1 %cmp.not.i.i.i376, label %eh.resume, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i374, !llvm.loop !46
 
 lpad71.thread:                                    ; preds = %invoke.cont91, %invoke.cont86, %invoke.cont81, %if.then.i.i.i104
-  %v69.sroa.0.4.ph = phi ptr [ %call.i.i.i.i.i123, %if.then.i.i.i104 ], [ %call.i.i.i.i.i188, %invoke.cont81 ], [ %call.i.i.i.i.i188, %invoke.cont86 ], [ %call.i.i.i.i.i188, %invoke.cont91 ]
+  %v69.sroa.0.0.ph = phi ptr [ %call.i.i.i.i.i123, %if.then.i.i.i104 ], [ %call.i.i.i.i.i188, %invoke.cont81 ], [ %call.i.i.i.i.i188, %invoke.cont86 ], [ %call.i.i.i.i.i188, %invoke.cont91 ]
   %lpad.thr_comm490 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.sink.split
@@ -643,15 +643,15 @@ lpad71:                                           ; preds = %if.then.i.i.i168
   br label %eh.resume.sink.split
 
 lpad99:                                           ; preds = %if.then.i.i.i304, %invoke.cont114, %invoke.cont109
-  %v97.sroa.0.4 = phi ptr [ %call.i.i.i.i.i324, %invoke.cont114 ], [ %call.i.i.i.i.i324, %invoke.cont109 ], [ %call.i.i.i.i.i291, %if.then.i.i.i304 ]
+  %v97.sroa.0.0 = phi ptr [ %call.i.i.i.i.i324, %invoke.cont114 ], [ %call.i.i.i.i.i324, %invoke.cont109 ], [ %call.i.i.i.i.i291, %if.then.i.i.i304 ]
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.sink.split
 
 eh.resume.sink.split:                             ; preds = %lpad99.thread504, %lpad99, %lpad71.thread, %lpad71, %lpad, %lpad.thread.loopexit.split-lp, %lpad.thread.loopexit
-  %v97.sroa.0.4507.sink = phi ptr [ %v.sroa.0.0518, %lpad ], [ %v.sroa.0.1, %lpad.thread.loopexit.split-lp ], [ %v.sroa.0.1, %lpad.thread.loopexit ], [ %v69.sroa.0.4.ph, %lpad71.thread ], [ %call.i.i.i.i.i155, %lpad71 ], [ %call.i.i.i.i.i258, %lpad99.thread504 ], [ %v97.sroa.0.4, %lpad99 ]
+  %v97.sroa.0.0507.sink = phi ptr [ %v.sroa.0.0518, %lpad ], [ %v.sroa.0.1, %lpad.thread.loopexit.split-lp ], [ %v.sroa.0.1, %lpad.thread.loopexit ], [ %v69.sroa.0.0.ph, %lpad71.thread ], [ %call.i.i.i.i.i155, %lpad71 ], [ %call.i.i.i.i.i258, %lpad99.thread504 ], [ %v97.sroa.0.0, %lpad99 ]
   %.pn6.ph = phi { ptr, i32 } [ %lpad.thr_comm.split-lp455, %lpad ], [ %lpad.loopexit.split-lp, %lpad.thread.loopexit.split-lp ], [ %lpad.loopexit, %lpad.thread.loopexit ], [ %lpad.thr_comm490, %lpad71.thread ], [ %lpad.thr_comm.split-lp491, %lpad71 ], [ %39, %lpad99.thread504 ], [ %49, %lpad99 ]
-  call void @_ZdaPv(ptr noundef nonnull %v97.sroa.0.4507.sink) #11
+  call void @_ZdaPv(ptr noundef nonnull %v97.sroa.0.0507.sink) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i374, %eh.resume.sink.split, %ehcleanup, %lpad
@@ -2318,27 +2318,27 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i874: ; preds = %ehcleanup380, %_ZN
   br i1 %cmp.not.i.i.i876, label %common.resume, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i874, !llvm.loop !46
 
 lpad407:                                          ; preds = %if.then.i.i.i602, %invoke.cont417, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i616
-  %intVector406.sroa.0.3 = phi ptr [ %call.i.i.i.i.i624, %invoke.cont417 ], [ %call.i.i.i.i.i624, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i616 ], [ %call.i.i.i.i.i589, %if.then.i.i.i602 ]
+  %intVector406.sroa.0.0 = phi ptr [ %call.i.i.i.i.i624, %invoke.cont417 ], [ %call.i.i.i.i.i624, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i616 ], [ %call.i.i.i.i.i589, %if.then.i.i.i602 ]
   %153 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i890
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i890:  ; preds = %lpad407, %lpad407.thread1281
   %154 = phi { ptr, i32 } [ %136, %lpad407.thread1281 ], [ %153, %lpad407 ]
-  %intVector406.sroa.0.31284 = phi ptr [ %call.i.i.i.i.i555, %lpad407.thread1281 ], [ %intVector406.sroa.0.3, %lpad407 ]
-  call void @_ZdaPv(ptr noundef nonnull %intVector406.sroa.0.31284) #11
+  %intVector406.sroa.0.01284 = phi ptr [ %call.i.i.i.i.i555, %lpad407.thread1281 ], [ %intVector406.sroa.0.0, %lpad407 ]
+  call void @_ZdaPv(ptr noundef nonnull %intVector406.sroa.0.01284) #11
   br label %common.resume
 
 lpad426:                                          ; preds = %if.then.i.i.i717, %invoke.cont436, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i731
-  %intVector425.sroa.0.3 = phi ptr [ %call.i.i.i.i.i739, %invoke.cont436 ], [ %call.i.i.i.i.i739, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i731 ], [ %call.i.i.i.i.i704, %if.then.i.i.i717 ]
+  %intVector425.sroa.0.0 = phi ptr [ %call.i.i.i.i.i739, %invoke.cont436 ], [ %call.i.i.i.i.i739, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i731 ], [ %call.i.i.i.i.i704, %if.then.i.i.i717 ]
   %155 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i895
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i895:  ; preds = %lpad426, %lpad426.thread1287
   %156 = phi { ptr, i32 } [ %139, %lpad426.thread1287 ], [ %155, %lpad426 ]
-  %intVector425.sroa.0.31290 = phi ptr [ %call.i.i.i.i.i669, %lpad426.thread1287 ], [ %intVector425.sroa.0.3, %lpad426 ]
-  call void @_ZdaPv(ptr noundef nonnull %intVector425.sroa.0.31290) #11
+  %intVector425.sroa.0.01290 = phi ptr [ %call.i.i.i.i.i669, %lpad426.thread1287 ], [ %intVector425.sroa.0.0, %lpad426 ]
+  call void @_ZdaPv(ptr noundef nonnull %intVector425.sroa.0.01290) #11
   br label %common.resume
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i900:  ; preds = %invoke.cont458, %invoke.cont454, %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit750
@@ -2354,8 +2354,8 @@ lpad472:                                          ; preds = %for.body480
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i905:  ; preds = %lpad472, %lpad472.thread1299
   %158 = phi { ptr, i32 } [ %142, %lpad472.thread1299 ], [ %157, %lpad472 ]
-  %v.sroa.0.21302 = phi ptr [ %call.i.i.i.i.i826, %lpad472.thread1299 ], [ %call.i.i.i.i.i858, %lpad472 ]
-  call void @_ZdaPv(ptr noundef nonnull %v.sroa.0.21302) #11
+  %v.sroa.0.01302 = phi ptr [ %call.i.i.i.i.i826, %lpad472.thread1299 ], [ %call.i.i.i.i.i858, %lpad472 ]
+  call void @_ZdaPv(ptr noundef nonnull %v.sroa.0.01302) #11
   br label %common.resume
 
 _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i.i: ; preds = %for.inc486

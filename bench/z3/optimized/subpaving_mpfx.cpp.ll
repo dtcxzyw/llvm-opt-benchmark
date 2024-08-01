@@ -14743,7 +14743,7 @@ if.else11.i:                                      ; preds = %if.else8.i
   br label %_Z3divI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit
 
 _Z3divI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit: ; preds = %if.then.i, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i, %if.then10.i, %if.else11.i
-  %new_l_kind.0 = phi i32 [ 1, %if.then.i ], [ %..i, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i ], [ 1, %if.else11.i ], [ 1, %if.then10.i ]
+  %new_l_kind.3 = phi i32 [ 1, %if.then.i ], [ %..i, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i ], [ 1, %if.else11.i ], [ 1, %if.then10.i ]
   %bf.load.i = load i32, ptr %retval.0.i.i301, align 4
   %cmp.i = icmp ult i32 %bf.load.i, 2
   %195 = load ptr, ptr %m_c.i562, align 8
@@ -14958,7 +14958,7 @@ if.else11.i660:                                   ; preds = %if.else8.i657
   br label %if.end58
 
 if.end58:                                         ; preds = %if.else11.i660, %if.then10.i659, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i654, %if.then.i662, %if.then54
-  %new_l_kind.2 = phi i32 [ 0, %if.then54 ], [ 1, %if.then.i662 ], [ %..i655, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i654 ], [ 1, %if.else11.i660 ], [ 1, %if.then10.i659 ]
+  %new_l_kind.0 = phi i32 [ 0, %if.then54 ], [ 1, %if.then.i662 ], [ %..i655, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i654 ], [ 1, %if.else11.i660 ], [ 1, %if.then10.i659 ]
   %223 = load ptr, ptr %m_c.i637, align 8
   %m_to_plus_inf.i.i.i.i665 = getelementptr inbounds i8, ptr %223, i64 28
   store i8 1, ptr %m_to_plus_inf.i.i.i.i665, align 4
@@ -15163,7 +15163,7 @@ if.else11.i759:                                   ; preds = %if.else8.i756
   br label %_Z3divI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit762
 
 _Z3divI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit762: ; preds = %if.then.i761, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i753, %if.then10.i758, %if.else11.i759
-  %new_l_kind.3 = phi i32 [ 1, %if.then.i761 ], [ %..i754, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i753 ], [ 1, %if.else11.i759 ], [ 1, %if.then10.i758 ]
+  %new_l_kind.5 = phi i32 [ 1, %if.then.i761 ], [ %..i754, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i753 ], [ 1, %if.else11.i759 ], [ 1, %if.then10.i758 ]
   %246 = load ptr, ptr %m_c.i735, align 8
   %m_to_plus_inf.i.i.i.i764 = getelementptr inbounds i8, ptr %246, i64 28
   store i8 1, ptr %m_to_plus_inf.i.i.i.i764, align 4
@@ -15274,7 +15274,7 @@ if.else11.i814:                                   ; preds = %if.else8.i811
   br label %_Z3divI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit817
 
 _Z3divI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit817: ; preds = %if.then.i816, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i808, %if.then10.i813, %if.else11.i814
-  %new_l_kind.4 = phi i32 [ 1, %if.then.i816 ], [ %..i809, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i808 ], [ 1, %if.else11.i814 ], [ 1, %if.then10.i813 ]
+  %new_l_kind.6 = phi i32 [ 1, %if.then.i816 ], [ %..i809, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i808 ], [ 1, %if.else11.i814 ], [ 1, %if.then10.i813 ]
   %257 = load ptr, ptr %m_c.i790, align 8
   %m_to_plus_inf.i.i.i.i819 = getelementptr inbounds i8, ptr %257, i64 28
   store i8 1, ptr %m_to_plus_inf.i.i.i.i819, align 4
@@ -15566,7 +15566,7 @@ if.else11.i946:                                   ; preds = %if.else8.i943
   br label %if.end124
 
 if.end124:                                        ; preds = %if.else11.i946, %if.then10.i945, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i940, %if.then.i948, %if.then120
-  %new_l_kind.6 = phi i32 [ 0, %if.then120 ], [ 1, %if.then.i948 ], [ %..i941, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i940 ], [ 1, %if.else11.i946 ], [ 1, %if.then10.i945 ]
+  %new_l_kind.2 = phi i32 [ 0, %if.then120 ], [ 1, %if.then.i948 ], [ %..i941, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i940 ], [ 1, %if.else11.i946 ], [ 1, %if.then10.i945 ]
   %297 = load ptr, ptr %m_c.i923, align 8
   %m_to_plus_inf.i.i.i.i951 = getelementptr inbounds i8, ptr %297, i64 28
   store i8 1, ptr %m_to_plus_inf.i.i.i.i951, align 4
@@ -15763,7 +15763,7 @@ if.else11.i1038:                                  ; preds = %if.else8.i1035
   br label %_Z3divI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit1041
 
 _Z3divI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit1041: ; preds = %if.then.i1040, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i1032, %if.then10.i1037, %if.else11.i1038
-  %new_l_kind.7 = phi i32 [ 1, %if.then.i1040 ], [ %..i1033, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i1032 ], [ 1, %if.else11.i1038 ], [ 1, %if.then10.i1037 ]
+  %new_l_kind.8 = phi i32 [ 1, %if.then.i1040 ], [ %..i1033, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i1032 ], [ 1, %if.else11.i1038 ], [ 1, %if.then10.i1037 ]
   %bf.load.i1043 = load i32, ptr %retval.0.i.i230, align 4
   %cmp.i1044 = icmp ult i32 %bf.load.i1043, 2
   %325 = load ptr, ptr %m_c.i1019, align 8
@@ -15818,8 +15818,8 @@ if.else11.i1065:                                  ; preds = %if.else8.i1062
   br label %if.end150
 
 if.end150:                                        ; preds = %if.else11.i1065, %if.then10.i1064, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i1059, %if.then.i1067, %if.else11.i969, %if.then10.i968, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i963, %if.then.i971, %if.else11.i837, %if.then10.i836, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i831, %if.then.i839, %if.else11.i782, %if.then10.i781, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i776, %if.then.i784, %if.else11.i683, %if.then10.i682, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i677, %if.then.i685, %if.else11.i587, %if.then10.i586, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i582, %if.then.i589, %if.then94, %if.then76, %if.then143, %if.then34
-  %new_l_kind.8 = phi i32 [ %new_l_kind.0, %if.then34 ], [ 0, %if.then76 ], [ 0, %if.then94 ], [ %new_l_kind.7, %if.then143 ], [ %new_l_kind.0, %if.then.i589 ], [ %new_l_kind.0, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i582 ], [ %new_l_kind.0, %if.then10.i586 ], [ %new_l_kind.0, %if.else11.i587 ], [ %new_l_kind.2, %if.then.i685 ], [ %new_l_kind.2, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i677 ], [ %new_l_kind.2, %if.then10.i682 ], [ %new_l_kind.2, %if.else11.i683 ], [ %new_l_kind.3, %if.then.i784 ], [ %new_l_kind.3, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i776 ], [ %new_l_kind.3, %if.then10.i781 ], [ %new_l_kind.3, %if.else11.i782 ], [ %new_l_kind.4, %if.then.i839 ], [ %new_l_kind.4, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i831 ], [ %new_l_kind.4, %if.then10.i836 ], [ %new_l_kind.4, %if.else11.i837 ], [ %new_l_kind.6, %if.then.i971 ], [ %new_l_kind.6, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i963 ], [ %new_l_kind.6, %if.then10.i968 ], [ %new_l_kind.6, %if.else11.i969 ], [ %new_l_kind.7, %if.then.i1067 ], [ %new_l_kind.7, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i1059 ], [ %new_l_kind.7, %if.then10.i1064 ], [ %new_l_kind.7, %if.else11.i1065 ]
-  %new_u_kind.6 = phi i32 [ 2, %if.then34 ], [ 2, %if.then76 ], [ 2, %if.then94 ], [ 2, %if.then143 ], [ 1, %if.then.i589 ], [ %..i583, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i582 ], [ 1, %if.then10.i586 ], [ 1, %if.else11.i587 ], [ 1, %if.then.i685 ], [ %..i678, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i677 ], [ 1, %if.then10.i682 ], [ 1, %if.else11.i683 ], [ 1, %if.then.i784 ], [ %..i777, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i776 ], [ 1, %if.then10.i781 ], [ 1, %if.else11.i782 ], [ 1, %if.then.i839 ], [ %..i832, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i831 ], [ 1, %if.then10.i836 ], [ 1, %if.else11.i837 ], [ 1, %if.then.i971 ], [ %..i964, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i963 ], [ 1, %if.then10.i968 ], [ 1, %if.else11.i969 ], [ 1, %if.then.i1067 ], [ %..i1060, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i1059 ], [ 1, %if.then10.i1064 ], [ 1, %if.else11.i1065 ]
+  %new_l_kind.1 = phi i32 [ %new_l_kind.3, %if.then34 ], [ 0, %if.then76 ], [ 0, %if.then94 ], [ %new_l_kind.8, %if.then143 ], [ %new_l_kind.3, %if.then.i589 ], [ %new_l_kind.3, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i582 ], [ %new_l_kind.3, %if.then10.i586 ], [ %new_l_kind.3, %if.else11.i587 ], [ %new_l_kind.0, %if.then.i685 ], [ %new_l_kind.0, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i677 ], [ %new_l_kind.0, %if.then10.i682 ], [ %new_l_kind.0, %if.else11.i683 ], [ %new_l_kind.5, %if.then.i784 ], [ %new_l_kind.5, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i776 ], [ %new_l_kind.5, %if.then10.i781 ], [ %new_l_kind.5, %if.else11.i782 ], [ %new_l_kind.6, %if.then.i839 ], [ %new_l_kind.6, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i831 ], [ %new_l_kind.6, %if.then10.i836 ], [ %new_l_kind.6, %if.else11.i837 ], [ %new_l_kind.2, %if.then.i971 ], [ %new_l_kind.2, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i963 ], [ %new_l_kind.2, %if.then10.i968 ], [ %new_l_kind.2, %if.else11.i969 ], [ %new_l_kind.8, %if.then.i1067 ], [ %new_l_kind.8, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i1059 ], [ %new_l_kind.8, %if.then10.i1064 ], [ %new_l_kind.8, %if.else11.i1065 ]
+  %new_u_kind.0 = phi i32 [ 2, %if.then34 ], [ 2, %if.then76 ], [ 2, %if.then94 ], [ 2, %if.then143 ], [ 1, %if.then.i589 ], [ %..i583, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i582 ], [ 1, %if.then10.i586 ], [ 1, %if.else11.i587 ], [ 1, %if.then.i685 ], [ %..i678, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i677 ], [ 1, %if.then10.i682 ], [ 1, %if.else11.i683 ], [ 1, %if.then.i784 ], [ %..i777, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i776 ], [ 1, %if.then10.i781 ], [ 1, %if.else11.i782 ], [ 1, %if.then.i839 ], [ %..i832, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i831 ], [ 1, %if.then10.i836 ], [ 1, %if.else11.i837 ], [ 1, %if.then.i971 ], [ %..i964, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i963 ], [ 1, %if.then10.i968 ], [ 1, %if.else11.i969 ], [ 1, %if.then.i1067 ], [ %..i1060, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit29.i1059 ], [ 1, %if.then10.i1064 ], [ 1, %if.else11.i1065 ]
   %m_l_val.i.i1070 = getelementptr inbounds i8, ptr %r, i64 20
   %bf.load.i.i = load i32, ptr %m_l_val.i.i1070, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 1
@@ -15862,11 +15862,11 @@ if.end150:                                        ; preds = %if.else11.i1065, %i
   %bf.clear20.i.i1087 = and i32 %bf.load17.i.i1086, 1
   %bf.set21.i.i1088 = or disjoint i32 %bf.clear20.i.i1087, %bf.lshr.i.i1083
   store i32 %bf.set21.i.i1088, ptr %m_result_upper, align 4
-  %cmp = icmp eq i32 %new_l_kind.8, 0
+  %cmp = icmp eq i32 %new_l_kind.1, 0
   %frombool.i.i1089 = zext i1 %cmp to i8
   %m_l_inf.i.i1090 = getelementptr inbounds i8, ptr %r, i64 24
   store i8 %frombool.i.i1089, ptr %m_l_inf.i.i1090, align 8
-  %cmp155 = icmp eq i32 %new_u_kind.6, 2
+  %cmp155 = icmp eq i32 %new_u_kind.0, 2
   %frombool.i.i1091 = zext i1 %cmp155 to i8
   %m_u_inf.i.i1092 = getelementptr inbounds i8, ptr %r, i64 32
   store i8 %frombool.i.i1091, ptr %m_u_inf.i.i1092, align 8
@@ -24068,10 +24068,10 @@ _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_confi
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread
-  %vs.0 = phi ptr [ %35, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i ]
+  %vs.1 = phi ptr [ %35, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %31, i64 8
   %46 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %46, ptr %arrayidx28, align 8
   %inc29 = add i32 %33, 1
   store i32 %inc29, ptr %32, align 4
@@ -24097,7 +24097,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7inc_refEPNS5_4cellE.exit: ; preds = %sw.bb30, %if.end25, %sw.bb
-  %vs.1 = phi ptr [ %35, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %35, %sw.bb ]
+  %vs.0 = phi ptr [ %35, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %35, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %33, %sw.bb ]
   %bf.load.i52 = load i32, ptr %31, align 8
   %inc.i53 = add i32 %bf.load.i52, 1
@@ -24112,7 +24112,7 @@ _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_confi
   %48 = getelementptr inbounds i8, ptr %31, i64 4
   store i32 %sz.0, ptr %48, align 4
   %49 = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr %vs.1, ptr %49, align 8
+  store ptr %vs.0, ptr %49, align 8
   call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %c.192)
   %cmp12.not.wide = icmp eq i64 %29, 0
   br i1 %cmp12.not.wide, label %for.end, label %for.body, !llvm.loop !74
@@ -25662,8 +25662,8 @@ if.end46:                                         ; preds = %if.else35
 for.body54:                                       ; preds = %if.end46, %for.body54
   %__i50.066 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
   %__q47.065 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
-  %__p.264 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.264, i64 -8
+  %__p.364 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.364, i64 -8
   %incdec.ptr56 = getelementptr inbounds i8, ptr %__q47.065, i64 -8
   %6 = load ptr, ptr %incdec.ptr55, align 8
   %7 = load ptr, ptr %incdec.ptr56, align 8
@@ -25674,7 +25674,7 @@ for.body54:                                       ; preds = %if.end46, %for.body
   br i1 %exitcond.not, label %for.end59, label %for.body54, !llvm.loop !94
 
 for.end59:                                        ; preds = %for.body54, %if.end46
-  %__p.2.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
+  %__p.3.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
   %rem60 = srem i64 %__n.0, %sub15
   %cmp61 = icmp eq i64 %rem60, 0
   br i1 %cmp61, label %return, label %for.cond.backedge
@@ -25682,7 +25682,7 @@ for.end59:                                        ; preds = %for.body54, %if.end
 for.cond.backedge:                                ; preds = %for.end59, %if.end33
   %__n.0.be = phi i64 [ %__k.0, %if.end33 ], [ %sub15, %for.end59 ]
   %__k.0.be = phi i64 [ %sub34, %if.end33 ], [ %rem60, %for.end59 ]
-  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.2.lcssa, %for.end59 ]
+  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.3.lcssa, %for.end59 ]
   br label %for.cond, !llvm.loop !95
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPPN9subpaving9context_tINS0_11config_mpfxEE4ineqES6_ET0_T_S8_S7_.exit, %_ZSt4moveIPPN9subpaving9context_tINS0_11config_mpfxEE4ineqES6_ET0_T_S8_S7_.exit
@@ -29643,7 +29643,7 @@ _Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i: ; preds =
   br label %_Z3mulI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit
 
 _Z3mulI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit: ; preds = %if.then.i, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i, %lor.lhs.false3.i
-  %new_l_kind.0 = phi i32 [ 1, %if.then.i ], [ %..i, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i ], [ 1, %lor.lhs.false3.i ]
+  %new_l_kind.1 = phi i32 [ 1, %if.then.i ], [ %..i, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i ], [ 1, %lor.lhs.false3.i ]
   %84 = load ptr, ptr %m_c.i, align 8
   %m_to_plus_inf.i.i.i.i217 = getelementptr inbounds i8, ptr %84, i64 28
   store i8 1, ptr %m_to_plus_inf.i.i.i.i217, align 4
@@ -29709,7 +29709,7 @@ _Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i247: ; pred
   br label %_Z3mulI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit255
 
 _Z3mulI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit255: ; preds = %if.then.i254, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i247, %lor.lhs.false3.i252
-  %new_l_kind.1 = phi i32 [ 1, %if.then.i254 ], [ %..i251, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i247 ], [ 1, %lor.lhs.false3.i252 ]
+  %new_l_kind.2 = phi i32 [ 1, %if.then.i254 ], [ %..i251, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i247 ], [ 1, %lor.lhs.false3.i252 ]
   %88 = load ptr, ptr %m_c.i, align 8
   %m_to_plus_inf.i.i.i.i257 = getelementptr inbounds i8, ptr %88, i64 28
   store i8 1, ptr %m_to_plus_inf.i.i.i.i257, align 4
@@ -29788,7 +29788,7 @@ _Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i291: ; pred
   br label %_Z3mulI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit299
 
 _Z3mulI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit299: ; preds = %if.then.i298, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i291, %lor.lhs.false3.i296
-  %new_l_kind.2 = phi i32 [ 1, %if.then.i298 ], [ %..i295, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i291 ], [ 1, %lor.lhs.false3.i296 ]
+  %new_l_kind.3 = phi i32 [ 1, %if.then.i298 ], [ %..i295, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i291 ], [ 1, %lor.lhs.false3.i296 ]
   %95 = load ptr, ptr %m_c.i, align 8
   %m_to_plus_inf.i.i.i.i301 = getelementptr inbounds i8, ptr %95, i64 28
   store i8 1, ptr %m_to_plus_inf.i.i.i.i301, align 4
@@ -29854,7 +29854,7 @@ _Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i331: ; pred
   br label %_Z3mulI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit339
 
 _Z3mulI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit339: ; preds = %if.then.i338, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i331, %lor.lhs.false3.i336
-  %new_l_kind.3 = phi i32 [ 1, %if.then.i338 ], [ %..i335, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i331 ], [ 1, %lor.lhs.false3.i336 ]
+  %new_l_kind.4 = phi i32 [ 1, %if.then.i338 ], [ %..i335, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i331 ], [ 1, %lor.lhs.false3.i336 ]
   %99 = load ptr, ptr %m_c.i, align 8
   %m_to_plus_inf.i.i.i.i341 = getelementptr inbounds i8, ptr %99, i64 28
   store i8 1, ptr %m_to_plus_inf.i.i.i.i341, align 4
@@ -29887,8 +29887,8 @@ _Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i350: ; pred
   br label %if.end44
 
 if.end44:                                         ; preds = %lor.lhs.false3.i355, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i350, %if.then.i357, %lor.lhs.false3.i317, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i312, %if.then.i319, %lor.lhs.false3.i271, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i266, %if.then.i273, %lor.lhs.false3.i233, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i228, %if.then.i235
-  %new_l_kind.4 = phi i32 [ %new_l_kind.0, %if.then.i235 ], [ %new_l_kind.0, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i228 ], [ %new_l_kind.0, %lor.lhs.false3.i233 ], [ %new_l_kind.1, %if.then.i273 ], [ %new_l_kind.1, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i266 ], [ %new_l_kind.1, %lor.lhs.false3.i271 ], [ %new_l_kind.2, %if.then.i319 ], [ %new_l_kind.2, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i312 ], [ %new_l_kind.2, %lor.lhs.false3.i317 ], [ %new_l_kind.3, %if.then.i357 ], [ %new_l_kind.3, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i350 ], [ %new_l_kind.3, %lor.lhs.false3.i355 ]
-  %new_u_kind.4 = phi i32 [ 1, %if.then.i235 ], [ %..i232, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i228 ], [ 1, %lor.lhs.false3.i233 ], [ 1, %if.then.i273 ], [ %..i270, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i266 ], [ 1, %lor.lhs.false3.i271 ], [ 1, %if.then.i319 ], [ %..i316, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i312 ], [ 1, %lor.lhs.false3.i317 ], [ 1, %if.then.i357 ], [ %..i354, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i350 ], [ 1, %lor.lhs.false3.i355 ]
+  %new_l_kind.0 = phi i32 [ %new_l_kind.1, %if.then.i235 ], [ %new_l_kind.1, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i228 ], [ %new_l_kind.1, %lor.lhs.false3.i233 ], [ %new_l_kind.2, %if.then.i273 ], [ %new_l_kind.2, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i266 ], [ %new_l_kind.2, %lor.lhs.false3.i271 ], [ %new_l_kind.3, %if.then.i319 ], [ %new_l_kind.3, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i312 ], [ %new_l_kind.3, %lor.lhs.false3.i317 ], [ %new_l_kind.4, %if.then.i357 ], [ %new_l_kind.4, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i350 ], [ %new_l_kind.4, %lor.lhs.false3.i355 ]
+  %new_u_kind.0 = phi i32 [ 1, %if.then.i235 ], [ %..i232, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i228 ], [ 1, %lor.lhs.false3.i233 ], [ 1, %if.then.i273 ], [ %..i270, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i266 ], [ 1, %lor.lhs.false3.i271 ], [ 1, %if.then.i319 ], [ %..i316, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i312 ], [ 1, %lor.lhs.false3.i317 ], [ 1, %if.then.i357 ], [ %..i354, %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit.i350 ], [ 1, %lor.lhs.false3.i355 ]
   %m_l_val.i.i360 = getelementptr inbounds i8, ptr %b, i64 20
   %bf.load.i.i = load i32, ptr %m_l_val.i.i360, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 1
@@ -29931,11 +29931,11 @@ if.end44:                                         ; preds = %lor.lhs.false3.i355
   %bf.clear20.i.i377 = and i32 %bf.load17.i.i376, 1
   %bf.set21.i.i378 = or disjoint i32 %bf.clear20.i.i377, %bf.lshr.i.i373
   store i32 %bf.set21.i.i378, ptr %m_result_upper, align 4
-  %cmp = icmp eq i32 %new_l_kind.4, 0
+  %cmp = icmp eq i32 %new_l_kind.0, 0
   %frombool.i.i379 = zext i1 %cmp to i8
   %m_l_inf.i.i380 = getelementptr inbounds i8, ptr %b, i64 24
   store i8 %frombool.i.i379, ptr %m_l_inf.i.i380, align 8
-  %cmp49 = icmp eq i32 %new_u_kind.4, 2
+  %cmp49 = icmp eq i32 %new_u_kind.0, 2
   %frombool.i.i381 = zext i1 %cmp49 to i8
   br label %if.end50
 
@@ -30058,7 +30058,7 @@ if.then.i:                                        ; preds = %_ZNK9subpaving9cont
 
 if.end9:                                          ; preds = %if.then.i, %_ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit.i, %_ZNK9subpaving9context_tINS_11config_mpfxEE13splitting_varEPNS2_4nodeE.exit.thread
   %10 = phi ptr [ %0, %_ZNK9subpaving9context_tINS_11config_mpfxEE13splitting_varEPNS2_4nodeE.exit.thread ], [ %7, %if.then.i ], [ %7, %_ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit.i ]
-  %x.1 = phi i32 [ 0, %_ZNK9subpaving9context_tINS_11config_mpfxEE13splitting_varEPNS2_4nodeE.exit.thread ], [ 0, %if.then.i ], [ %inc.i, %_ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit.i ]
+  %x.0 = phi i32 [ 0, %_ZNK9subpaving9context_tINS_11config_mpfxEE13splitting_varEPNS2_4nodeE.exit.thread ], [ 0, %if.then.i ], [ %inc.i, %_ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit.i ]
   %m_only_non_def = getelementptr inbounds i8, ptr %this, i64 16
   %m_lowers.i = getelementptr inbounds i8, ptr %n, i64 8
   %m_uppers.i = getelementptr inbounds i8, ptr %n, i64 24
@@ -30066,7 +30066,7 @@ if.end9:                                          ; preds = %if.then.i, %_ZNK9su
 
 do.body:                                          ; preds = %_ZNK9subpaving25round_robing_var_selectorINS_11config_mpfxEE4nextERj.exit47, %if.end9
   %11 = phi ptr [ %10, %if.end9 ], [ %33, %_ZNK9subpaving25round_robing_var_selectorINS_11config_mpfxEE4nextERj.exit47 ]
-  %x.2 = phi i32 [ %x.1, %if.end9 ], [ %x.3, %_ZNK9subpaving25round_robing_var_selectorINS_11config_mpfxEE4nextERj.exit47 ]
+  %x.1 = phi i32 [ %x.0, %if.end9 ], [ %x.3, %_ZNK9subpaving25round_robing_var_selectorINS_11config_mpfxEE4nextERj.exit47 ]
   %12 = load i8, ptr %m_only_non_def, align 8
   %tobool = trunc i8 %12 to i1
   br i1 %tobool, label %lor.lhs.false, label %if.then12
@@ -30074,7 +30074,7 @@ do.body:                                          ; preds = %_ZNK9subpaving25rou
 lor.lhs.false:                                    ; preds = %do.body
   %m_defs.i = getelementptr inbounds i8, ptr %11, i64 304
   %13 = load ptr, ptr %m_defs.i, align 8
-  %idxprom.i.i = zext i32 %x.2 to i64
+  %idxprom.i.i = zext i32 %x.1 to i64
   %arrayidx.i.i10 = getelementptr inbounds ptr, ptr %13, i64 %idxprom.i.i
   %14 = load ptr, ptr %arrayidx.i.i10, align 8
   %cmp.i11.not = icmp eq ptr %14, null
@@ -30089,7 +30089,7 @@ if.then.i.i:                                      ; preds = %sw.epilog.i.i
   %16 = load ptr, ptr %m_lowers.i, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  %idxprom.i.i14 = zext i32 %x.2 to i64
+  %idxprom.i.i14 = zext i32 %x.1 to i64
   %arrayidx.i.i15 = getelementptr inbounds ptr, ptr %18, i64 %idxprom.i.i14
   %.pre = load ptr, ptr %n, align 8
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit
@@ -30110,7 +30110,7 @@ if.end.i.i12:                                     ; preds = %sw.epilog.i.i, %if.
 sw.bb.i.i:                                        ; preds = %if.end.i.i12, %if.end.i.i12
   %19 = getelementptr inbounds i8, ptr %c.017.i.i, i64 4
   %20 = load i32, ptr %19, align 4
-  %cmp4.i.i = icmp eq i32 %20, %x.2
+  %cmp4.i.i = icmp eq i32 %20, %x.1
   br i1 %cmp4.i.i, label %if.then5.i.i, label %sw.epilog.i.i
 
 if.then5.i.i:                                     ; preds = %sw.bb.i.i
@@ -30120,7 +30120,7 @@ if.then5.i.i:                                     ; preds = %sw.bb.i.i
 sw.bb12.i.i:                                      ; preds = %if.end.i.i12
   %21 = getelementptr inbounds i8, ptr %c.017.i.i, i64 16
   %22 = load ptr, ptr %21, align 8
-  %idxprom13.i.i = zext i32 %x.2 to i64
+  %idxprom13.i.i = zext i32 %x.1 to i64
   %arrayidx14.i.i = getelementptr inbounds ptr, ptr %22, i64 %idxprom13.i.i
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit
 
@@ -30147,7 +30147,7 @@ if.then.i.i30:                                    ; preds = %sw.epilog.i.i26
   %25 = load ptr, ptr %m_uppers.i, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %idxprom.i.i31 = zext i32 %x.2 to i64
+  %idxprom.i.i31 = zext i32 %x.1 to i64
   %arrayidx.i.i32 = getelementptr inbounds ptr, ptr %27, i64 %idxprom.i.i31
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit
 
@@ -30167,7 +30167,7 @@ if.end.i.i16:                                     ; preds = %sw.epilog.i.i26, %_
 sw.bb.i.i33:                                      ; preds = %if.end.i.i16, %if.end.i.i16
   %28 = getelementptr inbounds i8, ptr %c.017.i.i19, i64 4
   %29 = load i32, ptr %28, align 4
-  %cmp4.i.i34 = icmp eq i32 %29, %x.2
+  %cmp4.i.i34 = icmp eq i32 %29, %x.1
   br i1 %cmp4.i.i34, label %if.then5.i.i35, label %sw.epilog.i.i26
 
 if.then5.i.i35:                                   ; preds = %sw.bb.i.i33
@@ -30177,7 +30177,7 @@ if.then5.i.i35:                                   ; preds = %sw.bb.i.i33
 sw.bb12.i.i22:                                    ; preds = %if.end.i.i16
   %30 = getelementptr inbounds i8, ptr %c.017.i.i19, i64 16
   %31 = load ptr, ptr %30, align 8
-  %idxprom13.i.i23 = zext i32 %x.2 to i64
+  %idxprom13.i.i23 = zext i32 %x.1 to i64
   %arrayidx14.i.i24 = getelementptr inbounds ptr, ptr %31, i64 %idxprom13.i.i23
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit
 
@@ -30211,7 +30211,7 @@ if.end24:                                         ; preds = %lor.lhs.false18.if.
   br i1 %cmp.i.i.i41, label %if.then.i45, label %_ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit.i42
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit.i42: ; preds = %if.end24
-  %inc.i38 = add i32 %x.2, 1
+  %inc.i38 = add i32 %x.1, 1
   %arrayidx.i.i.i43 = getelementptr inbounds i8, ptr %34, i64 -4
   %35 = load i32, ptr %arrayidx.i.i.i43, align 4
   %cmp.not.i44 = icmp ult i32 %inc.i38, %35
@@ -30222,11 +30222,11 @@ if.then.i45:                                      ; preds = %_ZNK9subpaving9cont
 
 _ZNK9subpaving25round_robing_var_selectorINS_11config_mpfxEE4nextERj.exit47: ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit.i42, %if.then.i45
   %x.3 = phi i32 [ 0, %if.then.i45 ], [ %inc.i38, %_ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit.i42 ]
-  %cmp25.not = icmp eq i32 %x.3, %x.1
+  %cmp25.not = icmp eq i32 %x.3, %x.0
   br i1 %cmp25.not, label %return, label %do.body, !llvm.loop !104
 
 return:                                           ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit, %lor.lhs.false18, %_ZNK9subpaving25round_robing_var_selectorINS_11config_mpfxEE4nextERj.exit47, %entry, %_ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit
-  %retval.0 = phi i32 [ -1, %_ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit ], [ -1, %entry ], [ %x.2, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit ], [ %x.2, %lor.lhs.false18 ], [ -1, %_ZNK9subpaving25round_robing_var_selectorINS_11config_mpfxEE4nextERj.exit47 ]
+  %retval.0 = phi i32 [ -1, %_ZNK9subpaving9context_tINS_11config_mpfxEE8num_varsEv.exit ], [ -1, %entry ], [ %x.1, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit ], [ %x.1, %lor.lhs.false18 ], [ -1, %_ZNK9subpaving25round_robing_var_selectorINS_11config_mpfxEE4nextERj.exit47 ]
   ret i32 %retval.0
 }
 

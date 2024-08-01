@@ -96,8 +96,8 @@ lor.lhs.false:                                    ; preds = %if.then17
   br label %if.end28
 
 if.end28:                                         ; preds = %lor.lhs.false, %if.then17
-  %ret.0 = phi i64 [ 1, %if.then17 ], [ %spec.select, %lor.lhs.false ]
-  %conv29 = trunc nuw nsw i64 %ret.0 to i32
+  %ret.1 = phi i64 [ 1, %if.then17 ], [ %spec.select, %lor.lhs.false ]
+  %conv29 = trunc nuw nsw i64 %ret.1 to i32
   %detached30 = getelementptr inbounds i8, ptr %p7, i64 20
   store i32 %conv29, ptr %detached30, align 4
   br label %sw.epilog
@@ -115,8 +115,8 @@ sw.default:                                       ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end28, %if.else31, %if.else, %if.then6, %land.lhs.true, %if.then, %sw.default
-  %ret.1 = phi i64 [ 0, %sw.default ], [ %ret.0, %if.end28 ], [ 0, %if.else31 ], [ %conv1, %if.then6 ], [ %conv1, %land.lhs.true ], [ 0, %if.then ], [ 0, %if.else ]
-  ret i64 %ret.1
+  %ret.0 = phi i64 [ 0, %sw.default ], [ %ret.1, %if.end28 ], [ 0, %if.else31 ], [ %conv1, %if.then6 ], [ %conv1, %land.lhs.true ], [ 0, %if.then ], [ 0, %if.else ]
+  ret i64 %ret.0
 }
 
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1

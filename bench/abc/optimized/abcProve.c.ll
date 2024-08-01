@@ -141,7 +141,7 @@ Abc_Clock.exit:                                   ; preds = %47, %50
 
 86:                                               ; preds = %.lr.ph, %247
   %.0127221 = phi i32 [ 0, %.lr.ph ], [ %248, %247 ]
-  %.0128220 = phi ptr [ %12, %.lr.ph ], [ %.4, %247 ]
+  %.0128220 = phi ptr [ %12, %.lr.ph ], [ %.5, %247 ]
   %87 = load i32, ptr %13, align 4
   %.not145 = icmp eq i32 %87, 0
   br i1 %.not145, label %108, label %88
@@ -268,26 +268,26 @@ Abc_Clock.exit174:                                ; preds = %147, %150
   br label %163
 
 163:                                              ; preds = %173, %Abc_Clock.exit174
-  %.1 = phi ptr [ %.0128220, %Abc_Clock.exit174 ], [ %174, %173 ]
+  %.3 = phi ptr [ %.0128220, %Abc_Clock.exit174 ], [ %174, %173 ]
   %.0 = phi i32 [ %162, %Abc_Clock.exit174 ], [ %177, %173 ]
-  %164 = call i32 @Abc_NtkRewrite(ptr noundef %.1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
-  %165 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %.1) #14
+  %164 = call i32 @Abc_NtkRewrite(ptr noundef %.3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %165 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %.3) #14
   %166 = icmp sgt i32 %165, -1
   %167 = icmp eq i32 %.0, 1
   %or.cond = select i1 %166, i1 true, i1 %167
   br i1 %or.cond, label %179, label %168
 
 168:                                              ; preds = %163
-  %169 = call i32 @Abc_NtkRefactor(ptr noundef %.1, i32 noundef 10, i32 noundef 1, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
-  %170 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %.1) #14
+  %169 = call i32 @Abc_NtkRefactor(ptr noundef %.3, i32 noundef 10, i32 noundef 1, i32 noundef 16, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %170 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %.3) #14
   %171 = icmp sgt i32 %170, -1
   %172 = icmp eq i32 %.0, 2
   %or.cond164 = select i1 %171, i1 true, i1 %172
   br i1 %or.cond164, label %179, label %173
 
 173:                                              ; preds = %168
-  %174 = call ptr @Abc_NtkBalance(ptr noundef %.1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
-  call void @Abc_NtkDelete(ptr noundef %.1) #14
+  %174 = call ptr @Abc_NtkBalance(ptr noundef %.3, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  call void @Abc_NtkDelete(ptr noundef %.3) #14
   %175 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %174) #14
   %176 = icmp sgt i32 %175, -1
   %177 = add nsw i32 %.0, -3
@@ -296,15 +296,15 @@ Abc_Clock.exit174:                                ; preds = %147, %150
   br i1 %or.cond166, label %179, label %163
 
 179:                                              ; preds = %173, %168, %163
-  %.1188 = phi i32 [ %165, %163 ], [ %170, %168 ], [ %175, %173 ]
-  %.2 = phi ptr [ %.1, %163 ], [ %.1, %168 ], [ %174, %173 ]
+  %.3190 = phi i32 [ %165, %163 ], [ %170, %168 ], [ %175, %173 ]
+  %.4 = phi ptr [ %.3, %163 ], [ %.3, %168 ], [ %174, %173 ]
   %180 = load i32, ptr %13, align 4
-  call fastcc void @Abc_NtkMiterPrint(ptr noundef %.2, ptr noundef nonnull @.str.7, i64 noundef %.0.i173, i32 noundef %180)
+  call fastcc void @Abc_NtkMiterPrint(ptr noundef %.4, ptr noundef nonnull @.str.7, i64 noundef %.0.i173, i32 noundef %180)
   br label %181
 
 181:                                              ; preds = %179, %145
-  %.2189 = phi i32 [ %131, %145 ], [ %.1188, %179 ]
-  %.3 = phi ptr [ %.0128220, %145 ], [ %.2, %179 ]
+  %.2189 = phi i32 [ %131, %145 ], [ %.3190, %179 ]
+  %.2 = phi ptr [ %.0128220, %145 ], [ %.4, %179 ]
   %182 = load i32, ptr %1, align 8
   %.not152 = icmp eq i32 %182, 0
   br i1 %.not152, label %247, label %183
@@ -345,9 +345,9 @@ Abc_Clock.exit176:                                ; preds = %183, %186
   %203 = fmul double %202, %199
   %204 = fptosi double %203 to i32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %205 = getelementptr i8, ptr %.3, i64 124
+  %205 = getelementptr i8, ptr %.2, i64 124
   %.val.i = load i32, ptr %205, align 4
-  %206 = getelementptr i8, ptr %.3, i64 56
+  %206 = getelementptr i8, ptr %.2, i64 56
   %.val42.i = load ptr, ptr %206, align 8
   %207 = getelementptr i8, ptr %.val42.i, i64 4
   %.val42.val.i = load i32, ptr %207, align 4
@@ -364,10 +364,10 @@ Abc_Clock.exit176:                                ; preds = %183, %186
   store i32 1, ptr %83, align 4
   store i32 0, ptr %84, align 8
   store i64 %197, ptr %85, align 8
-  %212 = call ptr @Abc_NtkToFraig(ptr noundef %.3, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0) #14
+  %212 = call ptr @Abc_NtkToFraig(ptr noundef %.2, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0) #14
   call void @Fraig_ManProveMiter(ptr noundef %212) #14
   %213 = call i32 @Fraig_ManCheckMiter(ptr noundef %212) #14
-  %214 = call ptr @Abc_NtkFromFraig(ptr noundef %212, ptr noundef %.3) #14
+  %214 = call ptr @Abc_NtkFromFraig(ptr noundef %212, ptr noundef %.2) #14
   %215 = icmp eq i32 %213, 0
   br i1 %215, label %216, label %Abc_NtkMiterFraig.exit
 
@@ -408,7 +408,7 @@ Abc_NtkMiterFraig.exit:                           ; preds = %196, %221
   store i64 %233, ptr %11, align 8
   call void @Fraig_ManFree(ptr noundef %212) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  call void @Abc_NtkDelete(ptr noundef nonnull %.3) #14
+  call void @Abc_NtkDelete(ptr noundef nonnull %.2) #14
   %234 = load i32, ptr %13, align 4
   call fastcc void @Abc_NtkMiterPrint(ptr noundef %214, ptr noundef nonnull @.str.8, i64 noundef %.0.i175, i32 noundef %234)
   %235 = icmp sgt i32 %213, -1
@@ -441,19 +441,19 @@ Abc_NtkMiterFraig.exit:                           ; preds = %196, %221
   br label %341
 
 247:                                              ; preds = %181, %244
-  %.3190 = phi i32 [ %.2189, %181 ], [ %213, %244 ]
-  %.4 = phi ptr [ %.3, %181 ], [ %214, %244 ]
+  %.4191 = phi i32 [ %.2189, %181 ], [ %213, %244 ]
+  %.5 = phi ptr [ %.2, %181 ], [ %214, %244 ]
   %248 = add nuw nsw i32 %.0127221, 1
   %249 = load i32, ptr %63, align 8
   %250 = icmp slt i32 %248, %249
   br i1 %250, label %86, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %247
-  %251 = icmp slt i32 %.3190, 0
+  %251 = icmp slt i32 %.4191, 0
   br i1 %251, label %._crit_edge.thread, label %.thread198
 
 ._crit_edge.thread:                               ; preds = %62, %._crit_edge
-  %.0128.lcssa229 = phi ptr [ %.4, %._crit_edge ], [ %12, %62 ]
+  %.0128.lcssa229 = phi ptr [ %.5, %._crit_edge ], [ %12, %62 ]
   %252 = getelementptr inbounds i8, ptr %1, i64 8
   %253 = load i32, ptr %252, align 8
   %.not159 = icmp eq i32 %253, 0
@@ -532,7 +532,7 @@ Abc_Clock.exit178:                                ; preds = %261, %264
   br label %.thread207
 
 .thread207:                                       ; preds = %276, %279
-  %.5192.ph = phi i32 [ %294, %279 ], [ 0, %276 ]
+  %.6193.ph = phi i32 [ %294, %279 ], [ 0, %276 ]
   %295 = load i32, ptr %13, align 4
   call fastcc void @Abc_NtkMiterPrint(ptr noundef nonnull %275, ptr noundef nonnull @.str.10, i64 noundef %.0.i177, i32 noundef %295)
   br label %.thread198
@@ -596,36 +596,36 @@ Abc_Clock.exit180:                                ; preds = %305, %308
   br label %.thread198
 
 .thread198:                                       ; preds = %Abc_NtkMiterFraig.exit, %121, %._crit_edge, %.thread207, %321
-  %.7201 = phi ptr [ %.0128.lcssa229, %321 ], [ %275, %.thread207 ], [ %.4, %._crit_edge ], [ %.0128220, %121 ], [ %214, %Abc_NtkMiterFraig.exit ]
-  %.7194 = phi i32 [ %326, %321 ], [ %.5192.ph, %.thread207 ], [ %.3190, %._crit_edge ], [ %131, %121 ], [ %213, %Abc_NtkMiterFraig.exit ]
+  %.6201 = phi ptr [ %.0128.lcssa229, %321 ], [ %275, %.thread207 ], [ %.5, %._crit_edge ], [ %.0128220, %121 ], [ %214, %Abc_NtkMiterFraig.exit ]
+  %.7194 = phi i32 [ %326, %321 ], [ %.6193.ph, %.thread207 ], [ %.4191, %._crit_edge ], [ %131, %121 ], [ %213, %Abc_NtkMiterFraig.exit ]
   %328 = icmp eq i32 %.7194, 0
   br i1 %328, label %329, label %341
 
 329:                                              ; preds = %.thread198
-  %330 = getelementptr inbounds i8, ptr %.7201, i64 304
+  %330 = getelementptr inbounds i8, ptr %.6201, i64 304
   %331 = load ptr, ptr %330, align 8
   %332 = icmp eq ptr %331, null
   br i1 %332, label %333, label %341
 
 333:                                              ; preds = %329
-  %334 = getelementptr i8, ptr %.7201, i64 56
-  %.7.val = load ptr, ptr %334, align 8
-  %335 = getelementptr i8, ptr %.7.val, i64 4
-  %.7.val.val = load i32, ptr %335, align 4
-  %336 = sext i32 %.7.val.val to i64
+  %334 = getelementptr i8, ptr %.6201, i64 56
+  %.6.val = load ptr, ptr %334, align 8
+  %335 = getelementptr i8, ptr %.6.val, i64 4
+  %.6.val.val = load i32, ptr %335, align 4
+  %336 = sext i32 %.6.val.val to i64
   %337 = shl nsw i64 %336, 2
   %338 = call noalias ptr @malloc(i64 noundef %337) #15
   store ptr %338, ptr %330, align 8
-  %.7.val167.val = load i32, ptr %335, align 4
-  %339 = sext i32 %.7.val167.val to i64
+  %.6.val167.val = load i32, ptr %335, align 4
+  %339 = sext i32 %.6.val167.val to i64
   %340 = shl nsw i64 %339, 2
   call void @llvm.memset.p0.i64(ptr align 4 %338, i8 0, i64 %340, i1 false)
   br label %341
 
 341:                                              ; preds = %.thread198, %329, %333, %246, %144, %Abc_Clock.exit
-  %.7201.sink = phi ptr [ %214, %246 ], [ %.0128220, %144 ], [ %12, %Abc_Clock.exit ], [ %.7201, %333 ], [ %.7201, %329 ], [ %.7201, %.thread198 ]
+  %.6201.sink = phi ptr [ %214, %246 ], [ %.0128220, %144 ], [ %12, %Abc_Clock.exit ], [ %.6201, %333 ], [ %.6201, %329 ], [ %.6201, %.thread198 ]
   %.0129 = phi i32 [ -1, %246 ], [ -1, %144 ], [ %60, %Abc_Clock.exit ], [ %.7194, %333 ], [ %.7194, %329 ], [ %.7194, %.thread198 ]
-  store ptr %.7201.sink, ptr %0, align 8
+  store ptr %.6201.sink, ptr %0, align 8
   ret i32 %.0129
 }
 

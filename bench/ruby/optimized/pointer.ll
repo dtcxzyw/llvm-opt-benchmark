@@ -532,9 +532,9 @@ rb_fiddle_ptr_new.exit18:                         ; preds = %rb_num2ulong_inline
   br label %78
 
 78:                                               ; preds = %rb_fiddle_ptr_new.exit16, %rb_fiddle_ptr_new.exit18, %rb_fiddle_ptr_new.exit
-  %.1 = phi i64 [ %1, %rb_fiddle_ptr_new.exit ], [ %31, %rb_fiddle_ptr_new.exit16 ], [ %spec.select, %rb_fiddle_ptr_new.exit18 ]
+  %.011 = phi i64 [ %1, %rb_fiddle_ptr_new.exit ], [ %31, %rb_fiddle_ptr_new.exit16 ], [ %spec.select, %rb_fiddle_ptr_new.exit18 ]
   %.0 = phi i64 [ %14, %rb_fiddle_ptr_new.exit ], [ %36, %rb_fiddle_ptr_new.exit16 ], [ %67, %rb_fiddle_ptr_new.exit18 ]
-  %.not14 = icmp eq i64 %.1, 0
+  %.not14 = icmp eq i64 %.011, 0
   br i1 %.not14, label %rb_obj_write.exit, label %79
 
 79:                                               ; preds = %78
@@ -542,13 +542,13 @@ rb_fiddle_ptr_new.exit18:                         ; preds = %rb_num2ulong_inline
   %81 = getelementptr inbounds i8, ptr %80, i64 32
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 32
-  store i64 %.1, ptr %83, align 8
-  %84 = and i64 %.1, 7
+  store i64 %.011, ptr %83, align 8
+  %84 = and i64 %.011, 7
   %.not25 = icmp eq i64 %84, 0
   br i1 %.not25, label %85, label %rb_obj_write.exit
 
 85:                                               ; preds = %79
-  call void @rb_gc_writebarrier(i64 noundef %.0, i64 noundef %.1) #10
+  call void @rb_gc_writebarrier(i64 noundef %.0, i64 noundef %.011) #10
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %52, %85, %79, %78
@@ -657,7 +657,7 @@ rb_num2ulong_inline.exit:                         ; preds = %15, %17
 
 20:                                               ; preds = %rb_num2ulong_inline.exit, %3
   %.024 = phi ptr [ %19, %rb_num2ulong_inline.exit ], [ null, %3 ]
-  %.1 = phi i64 [ %spec.select, %rb_num2ulong_inline.exit ], [ 0, %3 ]
+  %.0 = phi i64 [ %spec.select, %rb_num2ulong_inline.exit ], [ 0, %3 ]
   %21 = icmp sgt i32 %0, 1
   br i1 %21, label %22, label %get_freefunc.exit
 
@@ -735,15 +735,15 @@ get_freefunc.exit:                                ; preds = %20, %rb_num2ulong_i
 
 49:                                               ; preds = %48, %45, %42
   %50 = getelementptr inbounds i8, ptr %43, i64 32
-  store i64 %.1, ptr %50, align 8
-  %51 = and i64 %.1, 7
+  store i64 %.0, ptr %50, align 8
+  %51 = and i64 %.0, 7
   %52 = icmp ne i64 %51, 0
-  %53 = icmp eq i64 %.1, 0
+  %53 = icmp eq i64 %.0, 0
   %54 = or i1 %53, %52
   br i1 %54, label %rb_obj_write.exit, label %55
 
 55:                                               ; preds = %49
-  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.1) #10
+  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.0) #10
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %49, %55

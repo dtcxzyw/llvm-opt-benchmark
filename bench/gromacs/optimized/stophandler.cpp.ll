@@ -199,7 +199,7 @@ define noundef range(i32 -1, 2) i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_I
   br label %29
 
 29:                                               ; preds = %22, %25, %16
-  %.06 = phi i32 [ 1, %16 ], [ -1, %25 ], [ 0, %22 ]
+  %.1 = phi i32 [ 1, %16 ], [ -1, %25 ], [ 0, %22 ]
   %.0 = phi i32 [ %.sroa.speculated, %16 ], [ %28, %25 ], [ -1, %22 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %34, label %30
@@ -221,8 +221,8 @@ define noundef range(i32 -1, 2) i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_I
   br label %41
 
 41:                                               ; preds = %34, %2
-  %.1 = phi i32 [ %.06, %34 ], [ 0, %2 ]
-  ret i32 %.1
+  %.06 = phi i32 [ %.1, %34 ], [ 0, %2 ]
+  ret i32 %.06
 }
 
 declare noundef i32 @_Z22gmx_get_stop_conditionv() local_unnamed_addr #3

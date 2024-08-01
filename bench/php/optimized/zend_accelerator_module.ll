@@ -1831,19 +1831,19 @@ define hidden void @zif_opcache_compile_file(ptr nocapture noundef readonly %0, 
   br label %36
 
 36:                                               ; preds = %32, %30
-  %.0 = phi ptr [ %31, %30 ], [ null, %32 ]
+  %.1 = phi ptr [ %31, %30 ], [ null, %32 ]
   store ptr %27, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %37
 
 37:                                               ; preds = %36, %24
-  %.1 = phi ptr [ %25, %24 ], [ %.0, %36 ]
+  %.0 = phi ptr [ %25, %24 ], [ %.1, %36 ]
   store i32 %21, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
-  %.not10 = icmp eq ptr %.1, null
+  %.not10 = icmp eq ptr %.0, null
   br i1 %.not10, label %39, label %38
 
 38:                                               ; preds = %37
-  call void @destroy_op_array(ptr noundef nonnull %.1) #14
-  call void @_efree(ptr noundef nonnull %.1) #14
+  call void @destroy_op_array(ptr noundef nonnull %.0) #14
+  call void @_efree(ptr noundef nonnull %.0) #14
   br label %39
 
 39:                                               ; preds = %37, %38

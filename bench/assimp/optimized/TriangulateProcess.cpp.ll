@@ -243,8 +243,8 @@ for.body62.lr.ph:                                 ; preds = %for.cond59.preheade
 
 for.body62:                                       ; preds = %for.body62.lr.ph, %for.inc476
   %indvars.iv546 = phi i64 [ 0, %for.body62.lr.ph ], [ %indvars.iv.next547, %for.inc476 ]
-  %curOut.0489 = phi ptr [ %9, %for.body62.lr.ph ], [ %curOut.3, %for.inc476 ]
-  %ngonEncoder.sroa.0.0487 = phi i32 [ -1, %for.body62.lr.ph ], [ %ngonEncoder.sroa.0.2, %for.inc476 ]
+  %curOut.0489 = phi ptr [ %9, %for.body62.lr.ph ], [ %curOut.1, %for.inc476 ]
+  %ngonEncoder.sroa.0.0487 = phi i32 [ -1, %for.body62.lr.ph ], [ %ngonEncoder.sroa.0.1, %for.inc476 ]
   %11 = load ptr, ptr %mFaces64, align 8
   %arrayidx66 = getelementptr inbounds %struct.aiFace, ptr %11, i64 %indvars.iv546
   %mIndices = getelementptr inbounds i8, ptr %arrayidx66, i64 8
@@ -700,7 +700,7 @@ _ZNK10aiVector3tIfEixEj.exit272:                  ; preds = %_ZNK10aiVector3tIfE
   br i1 %exitcond522.not, label %while.cond.preheader, label %for.body268, !llvm.loop !11
 
 for.cond294.preheader:                            ; preds = %for.cond294.preheader.preheader, %if.end394
-  %curOut.1479 = phi ptr [ %incdec.ptr386, %if.end394 ], [ %curOut.0489, %for.cond294.preheader.preheader ]
+  %curOut.2479 = phi ptr [ %incdec.ptr386, %if.end394 ], [ %curOut.0489, %for.cond294.preheader.preheader ]
   %num.0478 = phi i32 [ %dec, %if.end394 ], [ %13, %for.cond294.preheader.preheader ]
   %prev.0477 = phi i32 [ %prev.1, %if.end394 ], [ %sub68, %for.cond294.preheader.preheader ]
   %next.0476 = phi i32 [ %next.1., %if.end394 ], [ 0, %for.cond294.preheader.preheader ]
@@ -905,9 +905,9 @@ invoke.cont381:                                   ; preds = %if.then380
           to label %if.end453 unwind label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 if.end384:                                        ; preds = %for.end373, %for.inc371
-  %incdec.ptr386 = getelementptr inbounds i8, ptr %curOut.1479, i64 16
-  store i32 3, ptr %curOut.1479, align 8
-  %mIndices388 = getelementptr inbounds i8, ptr %curOut.1479, i64 8
+  %incdec.ptr386 = getelementptr inbounds i8, ptr %curOut.2479, i64 16
+  store i32 3, ptr %curOut.2479, align 8
+  %mIndices388 = getelementptr inbounds i8, ptr %curOut.2479, i64 8
   %194 = load ptr, ptr %mIndices388, align 8
   %tobool389.not = icmp eq ptr %194, null
   br i1 %tobool389.not, label %if.then390, label %if.end394
@@ -936,10 +936,10 @@ if.end394:                                        ; preds = %invoke.cont391, %if
   br i1 %cmp293, label %for.cond294.preheader, label %if.then405, !llvm.loop !15
 
 if.then405:                                       ; preds = %if.end394, %while.cond.preheader
-  %curOut.1.lcssa557 = phi ptr [ %curOut.0489, %while.cond.preheader ], [ %incdec.ptr386, %if.end394 ]
-  %incdec.ptr407 = getelementptr inbounds i8, ptr %curOut.1.lcssa557, i64 16
-  store i32 3, ptr %curOut.1.lcssa557, align 8
-  %mIndices409 = getelementptr inbounds i8, ptr %curOut.1.lcssa557, i64 8
+  %curOut.2.lcssa557 = phi ptr [ %curOut.0489, %while.cond.preheader ], [ %incdec.ptr386, %if.end394 ]
+  %incdec.ptr407 = getelementptr inbounds i8, ptr %curOut.2.lcssa557, i64 16
+  store i32 3, ptr %curOut.2.lcssa557, align 8
+  %mIndices409 = getelementptr inbounds i8, ptr %curOut.2.lcssa557, i64 8
   %198 = load ptr, ptr %mIndices409, align 8
   %tobool410.not = icmp eq ptr %198, null
   br i1 %tobool410.not, label %if.then411, label %if.end415
@@ -1004,13 +1004,13 @@ for.end448:                                       ; preds = %for.cond440
   br label %if.end453
 
 if.end453:                                        ; preds = %if.end262, %invoke.cont381, %for.end448
-  %curOut.2 = phi ptr [ %incdec.ptr407, %for.end448 ], [ %curOut.1479, %invoke.cont381 ], [ %curOut.0489, %if.end262 ]
-  %cmp455.not482 = icmp eq ptr %curOut.0489, %curOut.2
+  %curOut.3 = phi ptr [ %incdec.ptr407, %for.end448 ], [ %curOut.2479, %invoke.cont381 ], [ %curOut.0489, %if.end262 ]
+  %cmp455.not482 = icmp eq ptr %curOut.0489, %curOut.3
   br i1 %cmp455.not482, label %for.end473, label %for.body456
 
 for.body456:                                      ; preds = %if.end453, %invoke.cont471
   %f.0484 = phi ptr [ %incdec.ptr472, %invoke.cont471 ], [ %curOut.0489, %if.end453 ]
-  %ngonEncoder.sroa.0.1483 = phi i32 [ %219, %invoke.cont471 ], [ %ngonEncoder.sroa.0.0487, %if.end453 ]
+  %ngonEncoder.sroa.0.2483 = phi i32 [ %219, %invoke.cont471 ], [ %ngonEncoder.sroa.0.0487, %if.end453 ]
   %mIndices458 = getelementptr inbounds i8, ptr %f.0484, i64 8
   %208 = load ptr, ptr %mIndices458, align 8
   %209 = load i32, ptr %208, align 4
@@ -1032,14 +1032,14 @@ for.body456:                                      ; preds = %if.end453, %invoke.
   store i32 %214, ptr %arrayidx467, align 4
   %tri.val.i323 = load ptr, ptr %mIndices458, align 8
   %tri.val.val.i324 = load i32, ptr %tri.val.i323, align 4
-  %cmp.i.i325 = icmp eq i32 %tri.val.val.i324, %ngonEncoder.sroa.0.1483
+  %cmp.i.i325 = icmp eq i32 %tri.val.val.i324, %ngonEncoder.sroa.0.2483
   br i1 %cmp.i.i325, label %if.then.i326, label %invoke.cont471
 
 if.then.i326:                                     ; preds = %for.body456
   %arrayidx3.i327 = getelementptr inbounds i8, ptr %tri.val.i323, i64 8
   %215 = load i32, ptr %arrayidx3.i327, align 4
   store i32 %215, ptr %tri.val.i323, align 4
-  store i32 %ngonEncoder.sroa.0.1483, ptr %arrayidx3.i327, align 4
+  store i32 %ngonEncoder.sroa.0.2483, ptr %arrayidx3.i327, align 4
   %216 = load ptr, ptr %mIndices458, align 8
   %arrayidx5.i328 = getelementptr inbounds i8, ptr %216, i64 4
   %217 = load <2 x i32>, ptr %arrayidx5.i328, align 4
@@ -1052,11 +1052,11 @@ if.then.i326:                                     ; preds = %for.body456
 invoke.cont471:                                   ; preds = %if.then.i326, %for.body456
   %219 = phi i32 [ %.pre6.i331, %if.then.i326 ], [ %tri.val.val.i324, %for.body456 ]
   %incdec.ptr472 = getelementptr inbounds i8, ptr %f.0484, i64 16
-  %cmp455.not = icmp eq ptr %incdec.ptr472, %curOut.2
+  %cmp455.not = icmp eq ptr %incdec.ptr472, %curOut.3
   br i1 %cmp455.not, label %for.end473, label %for.body456, !llvm.loop !19
 
 for.end473:                                       ; preds = %invoke.cont471, %if.end453
-  %ngonEncoder.sroa.0.1.lcssa = phi i32 [ %ngonEncoder.sroa.0.0487, %if.end453 ], [ %219, %invoke.cont471 ]
+  %ngonEncoder.sroa.0.2.lcssa = phi i32 [ %ngonEncoder.sroa.0.0487, %if.end453 ], [ %219, %invoke.cont471 ]
   %220 = load ptr, ptr %mIndices, align 8
   %isnull = icmp eq ptr %220, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1070,8 +1070,8 @@ delete.end:                                       ; preds = %delete.notnull, %fo
   br label %for.inc476
 
 for.inc476:                                       ; preds = %if.then.i254, %invoke.cont177, %if.then.i, %if.then79, %if.then71, %delete.end
-  %ngonEncoder.sroa.0.2 = phi i32 [ %ngonEncoder.sroa.0.0487, %if.then71 ], [ %ngonEncoder.sroa.0.1.lcssa, %delete.end ], [ %.pre6.i, %if.then.i ], [ %tri.val.val.i, %if.then79 ], [ %.pre9.i, %if.then.i254 ], [ %tri1.val.val.i, %invoke.cont177 ]
-  %curOut.3 = phi ptr [ %incdec.ptr, %if.then71 ], [ %curOut.2, %delete.end ], [ %incdec.ptr, %if.then.i ], [ %incdec.ptr, %if.then79 ], [ %incdec.ptr175, %if.then.i254 ], [ %incdec.ptr175, %invoke.cont177 ]
+  %ngonEncoder.sroa.0.1 = phi i32 [ %ngonEncoder.sroa.0.0487, %if.then71 ], [ %ngonEncoder.sroa.0.2.lcssa, %delete.end ], [ %.pre6.i, %if.then.i ], [ %tri.val.val.i, %if.then79 ], [ %.pre9.i, %if.then.i254 ], [ %tri1.val.val.i, %invoke.cont177 ]
+  %curOut.1 = phi ptr [ %incdec.ptr, %if.then71 ], [ %curOut.3, %delete.end ], [ %incdec.ptr, %if.then.i ], [ %incdec.ptr, %if.then79 ], [ %incdec.ptr175, %if.then.i254 ], [ %incdec.ptr175, %invoke.cont177 ]
   %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
   %221 = load i32, ptr %mNumFaces14, align 8
   %222 = zext i32 %221 to i64
@@ -1079,7 +1079,7 @@ for.inc476:                                       ; preds = %if.then.i254, %invo
   br i1 %cmp61, label %for.body62, label %for.end478, !llvm.loop !20
 
 for.end478:                                       ; preds = %for.inc476, %for.cond59.preheader
-  %curOut.0.lcssa = phi ptr [ %9, %for.cond59.preheader ], [ %curOut.3, %for.inc476 ]
+  %curOut.0.lcssa = phi ptr [ %9, %for.cond59.preheader ], [ %curOut.1, %for.inc476 ]
   %mFaces479 = getelementptr inbounds i8, ptr %pMesh, i64 208
   %223 = load ptr, ptr %mFaces479, align 8
   %isnull480 = icmp eq ptr %223, null

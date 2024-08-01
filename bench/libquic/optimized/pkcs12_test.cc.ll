@@ -216,7 +216,7 @@ cleanup.sink.split.i:                             ; preds = %invoke.cont41.i, %i
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %cleanup.sink.split.i, %invoke.cont41.i
-  %retval.0.i = phi i1 [ true, %invoke.cont41.i ], [ false, %cleanup.sink.split.i ]
+  %retval.2.i = phi i1 [ true, %invoke.cont41.i ], [ false, %cleanup.sink.split.i ]
   %cmp.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit.i, label %if.then.i.i
 
@@ -266,7 +266,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
   br label %if.then.i11.i
 
 if.then.i11.i:                                    ; preds = %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit.i, %if.then30.i, %if.then22.i, %if.then14.i
-  %retval.1.ph.i = phi i1 [ false, %if.then30.i ], [ false, %if.then22.i ], [ %retval.0.i, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit.i ], [ false, %if.then14.i ]
+  %retval.1.ph.i = phi i1 [ false, %if.then30.i ], [ false, %if.then22.i ], [ %retval.2.i, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit.i ], [ false, %if.then14.i ]
   invoke void @PKCS12_free(ptr noundef nonnull %call3.i)
           to label %if.then.i14.i unwind label %terminate.lpad.i12.i
 
@@ -403,7 +403,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
   br label %if.then.i4
 
 if.then.i4:                                       ; preds = %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, %if.then5
-  %retval.1.ph = phi i1 [ false, %if.then5 ], [ %or.cond.not, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit ]
+  %retval.0.ph = phi i1 [ false, %if.then5 ], [ %or.cond.not, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit ]
   invoke void @sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @X509_free)
           to label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit unwind label %terminate.lpad.i5
 
@@ -415,8 +415,8 @@ terminate.lpad.i5:                                ; preds = %if.then.i4
   unreachable
 
 _ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit: ; preds = %entry, %if.then.i4
-  %retval.18 = phi i1 [ %retval.1.ph, %if.then.i4 ], [ false, %entry ]
-  ret i1 %retval.18
+  %retval.08 = phi i1 [ %retval.0.ph, %if.then.i4 ], [ false, %entry ]
+  ret i1 %retval.08
 
 ehcleanup:                                        ; preds = %lpad11, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad11 ], [ %2, %lpad ]

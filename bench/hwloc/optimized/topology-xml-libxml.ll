@@ -376,14 +376,14 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br i1 %93, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71, %96
-  %.04470 = phi ptr [ %98, %96 ], [ null, %71 ]
+  %.170 = phi ptr [ %98, %96 ], [ null, %71 ]
   %94 = load ptr, ptr %7, align 8
   %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %94, ptr noundef nonnull dereferenceable(8) @.str.24) #13
   %.not58 = icmp eq i32 %95, 0
   br i1 %.not58, label %96, label %.loopexit
 
 96:                                               ; preds = %.lr.ph
-  call void @free(ptr noundef %.04470) #10
+  call void @free(ptr noundef %.170) #10
   %97 = load ptr, ptr %8, align 8
   %98 = call noalias ptr @strdup(ptr noundef %97) #10
   %99 = load ptr, ptr %72, align 8
@@ -394,7 +394,7 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br i1 %103, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %96, %71
-  %.044.lcssa = phi ptr [ null, %71 ], [ %98, %96 ]
+  %.1.lcssa = phi ptr [ null, %71 ], [ %98, %96 ]
   %104 = call i32 @hwloc__xml_import_diff(ptr noundef nonnull %0, ptr noundef %4) #10
   %105 = icmp eq ptr %5, null
   %106 = icmp ne i32 %104, 0
@@ -402,11 +402,11 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br i1 %or.cond, label %108, label %107
 
 107:                                              ; preds = %._crit_edge
-  store ptr %.044.lcssa, ptr %5, align 8
+  store ptr %.1.lcssa, ptr %5, align 8
   br label %109
 
 108:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %.044.lcssa) #10
+  call void @free(ptr noundef %.1.lcssa) #10
   br label %109
 
 109:                                              ; preds = %108, %107
@@ -419,8 +419,8 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br label %hwloc_libxml2_cleanup.exit
 
 .loopexit:                                        ; preds = %.lr.ph, %61, %63
-  %.1 = phi ptr [ null, %63 ], [ null, %61 ], [ %.04470, %.lr.ph ]
-  call void @free(ptr noundef %.1) #10
+  %.044 = phi ptr [ null, %63 ], [ null, %61 ], [ %.170, %.lr.ph ]
+  call void @free(ptr noundef %.044) #10
   call void @xmlFreeDoc(ptr noundef nonnull %.045) #10
   %.b.i63 = load i1, ptr @hwloc_libxml2_needs_cleanup, align 4
   br i1 %.b.i63, label %111, label %hwloc_libxml2_cleanup.exit

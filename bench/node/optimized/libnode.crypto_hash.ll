@@ -2969,13 +2969,13 @@ cleanup39.critedge:                               ; preds = %cond.end
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.end, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit, %lor.lhs.false, %cleanup39.critedge, %lor.rhs
-  %retval.1.ph = phi i1 [ true, %if.end ], [ true, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ false, %lor.lhs.false ], [ false, %cleanup39.critedge ], [ false, %lor.rhs ]
+  %retval.0.ph = phi i1 [ true, %if.end ], [ true, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ false, %lor.lhs.false ], [ false, %cleanup39.critedge ], [ false, %lor.rhs ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call) #20
   br label %_ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit: ; preds = %entry, %if.then.i
-  %retval.127 = phi i1 [ %retval.1.ph, %if.then.i ], [ false, %entry ]
-  ret i1 %retval.127
+  %retval.027 = phi i1 [ %retval.0.ph, %if.then.i ], [ false, %entry ]
+  ret i1 %retval.027
 }
 
 declare void @_ZN4node6crypto10ByteSource18FromStringOrBufferEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr sret(%"class.node::crypto::ByteSource") align 8, ptr noundef, ptr) local_unnamed_addr #0

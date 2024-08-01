@@ -566,42 +566,42 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i4
   br label %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i
 
 _ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i: ; preds = %if.then.i.i.i.i.i, %if.end.i4
-  %it.sroa.54.0.i = phi ptr [ null, %if.end.i4 ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  %it.sroa.100.0.i = phi ptr [ null, %if.end.i4 ], [ %0, %if.then.i.i.i.i.i ]
+  %it.sroa.54.1.i = phi ptr [ null, %if.end.i4 ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i ]
+  %it.sroa.100.1.i = phi ptr [ null, %if.end.i4 ], [ %0, %if.then.i.i.i.i.i ]
   %cmp1739.i = icmp ugt i64 %call.i.i6, 2
   br i1 %cmp1739.i, label %for.body.i, label %if.then29.i
 
 for.body.i:                                       ; preds = %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i
   %len.0747.i = phi i64 [ %sub.i5, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %call.i.i6, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
   %wp.0746.i = phi ptr [ %incdec.ptr27.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %call3, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.0.0745.i = phi ptr [ %it.sroa.0.15.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %data.val33.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.100.1741.i = phi ptr [ %it.sroa.100.16.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %it.sroa.100.0.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.54.1740.i = phi ptr [ %it.sroa.54.25.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %it.sroa.54.0.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %2 = ptrtoint ptr %it.sroa.100.1741.i to i64
+  %it.sroa.0.0745.i = phi ptr [ %it.sroa.0.3.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %data.val33.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %it.sroa.100.0741.i = phi ptr [ %it.sroa.100.4.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %it.sroa.100.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %it.sroa.54.0740.i = phi ptr [ %it.sroa.54.4.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %it.sroa.54.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %2 = ptrtoint ptr %it.sroa.100.0741.i to i64
   %add.i.i.i = add i64 %2, 1
-  %3 = ptrtoint ptr %it.sroa.54.1740.i to i64
+  %3 = ptrtoint ptr %it.sroa.54.0740.i to i64
   %cmp.not.i.i.i = icmp ugt i64 %add.i.i.i, %3
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  %4 = load i8, ptr %it.sroa.100.1741.i, align 1
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.100.1741.i, i64 1
+  %4 = load i8, ptr %it.sroa.100.0741.i, align 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.100.0741.i, i64 1
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i.i)
-  %cmp37.i.i = icmp eq ptr %it.sroa.54.1740.i, %it.sroa.100.1741.i
+  %cmp37.i.i = icmp eq ptr %it.sroa.54.0740.i, %it.sroa.100.0741.i
   br i1 %cmp37.i.i, label %for.body.i.i, label %if.then8.i.i
 
 for.body.i.i:                                     ; preds = %if.else.i.i.i, %if.end6.i.i
-  %it.sroa.54.2.i = phi ptr [ %add.ptr.i.i.i.i, %if.end6.i.i ], [ %it.sroa.54.1740.i, %if.else.i.i.i ]
-  %it.sroa.0.1.i = phi ptr [ %6, %if.end6.i.i ], [ %it.sroa.0.0745.i, %if.else.i.i.i ]
+  %it.sroa.54.9.i = phi ptr [ %add.ptr.i.i.i.i, %if.end6.i.i ], [ %it.sroa.54.0740.i, %if.else.i.i.i ]
+  %it.sroa.0.7.i = phi ptr [ %6, %if.end6.i.i ], [ %it.sroa.0.0745.i, %if.else.i.i.i ]
   %sub.ptr.sub.i41.i.i = phi i64 [ %8, %if.end6.i.i ], [ 0, %if.else.i.i.i ]
-  %5 = phi ptr [ %7, %if.end6.i.i ], [ %it.sroa.100.1741.i, %if.else.i.i.i ]
+  %5 = phi ptr [ %7, %if.end6.i.i ], [ %it.sroa.100.0741.i, %if.else.i.i.i ]
   %copied.040.i.i = phi i64 [ %copied.1.i.i, %if.end6.i.i ], [ 0, %if.else.i.i.i ]
   %p.039.i.i = phi ptr [ %add.ptr.i.i, %if.end6.i.i ], [ %val.i.i.i.i, %if.else.i.i.i ]
   %len.addr.038.i.i = phi i64 [ %sub.i.i, %if.end6.i.i ], [ 1, %if.else.i.i.i ]
-  %cmp2.not.i.i = icmp eq ptr %it.sroa.54.2.i, %5
+  %cmp2.not.i.i = icmp eq ptr %it.sroa.54.9.i, %5
   br i1 %cmp2.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -611,7 +611,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.i.i
   %copied.1.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ %copied.040.i.i, %for.body.i.i ]
-  %6 = load ptr, ptr %it.sroa.0.1.i, align 8
+  %6 = load ptr, ptr %it.sroa.0.7.i, align 8
   %cmp.i.i.i = icmp eq ptr %6, %data.val33.i
   br i1 %cmp.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit.i, label %if.end6.i.i
 
@@ -631,12 +631,12 @@ for.end.i.i:                                      ; preds = %if.end6.i.i
   br i1 %cmp7.not.i.i, label %if.end11.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %for.end.i.i, %if.else.i.i.i
-  %.lcssa.i577.i = phi ptr [ %7, %for.end.i.i ], [ %it.sroa.100.1741.i, %if.else.i.i.i ]
+  %.lcssa.i577.i = phi ptr [ %7, %for.end.i.i ], [ %it.sroa.100.0741.i, %if.else.i.i.i ]
   %copied.0.lcssa.i575.i = phi i64 [ %copied.1.i.i, %for.end.i.i ], [ 0, %if.else.i.i.i ]
   %p.0.lcssa.i574.i = phi ptr [ %add.ptr.i.i, %for.end.i.i ], [ %val.i.i.i.i, %if.else.i.i.i ]
   %len.addr.0.lcssa.i572.i = phi i64 [ %sub.i.i, %for.end.i.i ], [ 1, %if.else.i.i.i ]
-  %it.sroa.0.2570.i = phi ptr [ %6, %for.end.i.i ], [ %it.sroa.0.0745.i, %if.else.i.i.i ]
-  %it.sroa.54.5561.i = phi ptr [ %add.ptr.i.i.i.i, %for.end.i.i ], [ %it.sroa.54.1740.i, %if.else.i.i.i ]
+  %it.sroa.0.5570.i = phi ptr [ %6, %for.end.i.i ], [ %it.sroa.0.0745.i, %if.else.i.i.i ]
+  %it.sroa.54.6561.i = phi ptr [ %add.ptr.i.i.i.i, %for.end.i.i ], [ %it.sroa.54.0740.i, %if.else.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %p.0.lcssa.i574.i, ptr noundef nonnull align 1 dereferenceable(1) %.lcssa.i577.i, i64 %len.addr.0.lcssa.i572.i, i1 false)
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %.lcssa.i577.i, i64 %len.addr.0.lcssa.i572.i
   br label %if.end11.i.i
@@ -644,14 +644,14 @@ if.then8.i.i:                                     ; preds = %for.end.i.i, %if.el
 if.end11.i.i:                                     ; preds = %if.then8.i.i, %for.end.i.i
   %copied.0.lcssa.i576.i = phi i64 [ %copied.1.i.i, %for.end.i.i ], [ %copied.0.lcssa.i575.i, %if.then8.i.i ]
   %len.addr.0.lcssa.i573.i = phi i64 [ 0, %for.end.i.i ], [ %len.addr.0.lcssa.i572.i, %if.then8.i.i ]
-  %it.sroa.0.2571.i = phi ptr [ %6, %for.end.i.i ], [ %it.sroa.0.2570.i, %if.then8.i.i ]
-  %it.sroa.54.5562.i = phi ptr [ %add.ptr.i.i.i.i, %for.end.i.i ], [ %it.sroa.54.5561.i, %if.then8.i.i ]
-  %it.sroa.100.3.i = phi ptr [ %7, %for.end.i.i ], [ %add.ptr10.i.i, %if.then8.i.i ]
-  %cmp.i23.i.i = icmp eq ptr %it.sroa.100.3.i, %it.sroa.54.5562.i
+  %it.sroa.0.5571.i = phi ptr [ %6, %for.end.i.i ], [ %it.sroa.0.5570.i, %if.then8.i.i ]
+  %it.sroa.54.6562.i = phi ptr [ %add.ptr.i.i.i.i, %for.end.i.i ], [ %it.sroa.54.6561.i, %if.then8.i.i ]
+  %it.sroa.100.7.i = phi ptr [ %7, %for.end.i.i ], [ %add.ptr10.i.i, %if.then8.i.i ]
+  %cmp.i23.i.i = icmp eq ptr %it.sroa.100.7.i, %it.sroa.54.6562.i
   br i1 %cmp.i23.i.i, label %if.then.i25.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i
 
 if.then.i25.i.i:                                  ; preds = %if.end11.i.i
-  %9 = load ptr, ptr %it.sroa.0.2571.i, align 8
+  %9 = load ptr, ptr %it.sroa.0.5571.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %9, %data.val33.i
   br i1 %cmp.i.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i, label %if.end.i.i.i.i
 
@@ -664,16 +664,16 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i25.i.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i: ; preds = %if.end.i.i.i.i, %if.then.i25.i.i, %if.end11.i.i
-  %it.sroa.54.7.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i ], [ %it.sroa.54.5562.i, %if.end11.i.i ], [ %it.sroa.54.5562.i, %if.then.i25.i.i ]
-  %it.sroa.100.4.i = phi ptr [ %10, %if.end.i.i.i.i ], [ %it.sroa.100.3.i, %if.end11.i.i ], [ %it.sroa.54.5562.i, %if.then.i25.i.i ]
-  %it.sroa.0.3.i = phi ptr [ %9, %if.end.i.i.i.i ], [ %it.sroa.0.2571.i, %if.end11.i.i ], [ %it.sroa.0.2571.i, %if.then.i25.i.i ]
+  %it.sroa.54.7.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i ], [ %it.sroa.54.6562.i, %if.end11.i.i ], [ %it.sroa.54.6562.i, %if.then.i25.i.i ]
+  %it.sroa.100.8.i = phi ptr [ %10, %if.end.i.i.i.i ], [ %it.sroa.100.7.i, %if.end11.i.i ], [ %it.sroa.54.6562.i, %if.then.i25.i.i ]
+  %it.sroa.0.6.i = phi ptr [ %9, %if.end.i.i.i.i ], [ %it.sroa.0.5571.i, %if.end11.i.i ], [ %it.sroa.0.5571.i, %if.then.i25.i.i ]
   %add12.i.i = add i64 %len.addr.0.lcssa.i573.i, %copied.0.lcssa.i576.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit.i: ; preds = %if.end.i.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i
-  %it.sroa.54.8.i = phi ptr [ %it.sroa.54.7.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i ], [ %it.sroa.54.2.i, %if.end.i.i ]
-  %it.sroa.100.5.i = phi ptr [ %it.sroa.100.4.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i ], [ %it.sroa.54.2.i, %if.end.i.i ]
-  %it.sroa.0.4.i = phi ptr [ %it.sroa.0.3.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i ], [ %it.sroa.0.1.i, %if.end.i.i ]
+  %it.sroa.54.12.i = phi ptr [ %it.sroa.54.7.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i ], [ %it.sroa.54.9.i, %if.end.i.i ]
+  %it.sroa.100.9.i = phi ptr [ %it.sroa.100.8.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i ], [ %it.sroa.54.9.i, %if.end.i.i ]
+  %it.sroa.0.8.i = phi ptr [ %it.sroa.0.6.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i ], [ %it.sroa.0.7.i, %if.end.i.i ]
   %retval.0.i.i = phi i64 [ %add12.i.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i ], [ %copied.1.i.i, %if.end.i.i ]
   %cmp.not.i.i.i.i.i = icmp eq i64 %retval.0.i.i, 1
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i, label %if.then.i.i.i.i92.i.invoke
@@ -681,41 +681,41 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exi
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit.i
   %12 = load i8, ptr %val.i.i.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i.i)
-  %.pre.i = ptrtoint ptr %it.sroa.54.8.i to i64
+  %.pre.i = ptrtoint ptr %it.sroa.54.12.i to i64
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit.i
 
 _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i, %if.then.i.i.i
   %.pre-phi.i = phi i64 [ %3, %if.then.i.i.i ], [ %.pre.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ]
-  %it.sroa.54.9.i = phi ptr [ %it.sroa.54.1740.i, %if.then.i.i.i ], [ %it.sroa.54.8.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ]
-  %it.sroa.100.6.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %it.sroa.100.5.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ]
-  %it.sroa.0.5.i = phi ptr [ %it.sroa.0.0745.i, %if.then.i.i.i ], [ %it.sroa.0.4.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ]
+  %it.sroa.54.2.i = phi ptr [ %it.sroa.54.0740.i, %if.then.i.i.i ], [ %it.sroa.54.12.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ]
+  %it.sroa.100.2.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %it.sroa.100.9.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ]
+  %it.sroa.0.1.i = phi ptr [ %it.sroa.0.0745.i, %if.then.i.i.i ], [ %it.sroa.0.8.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ]
   %retval.0.i.i.i = phi i8 [ %4, %if.then.i.i.i ], [ %12, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ]
   %conv.i = zext i8 %retval.0.i.i.i to i32
   %shl.i = shl nuw nsw i32 %conv.i, 16
-  %13 = ptrtoint ptr %it.sroa.100.6.i to i64
+  %13 = ptrtoint ptr %it.sroa.100.2.i to i64
   %add.i.i37.i = add i64 %13, 1
   %cmp.not.i.i39.i = icmp ugt i64 %add.i.i37.i, %.pre-phi.i
   br i1 %cmp.not.i.i39.i, label %if.else.i.i43.i, label %if.then.i.i40.i
 
 if.then.i.i40.i:                                  ; preds = %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit.i
-  %14 = load i8, ptr %it.sroa.100.6.i, align 1
-  %add.ptr.i.i41.i = getelementptr inbounds i8, ptr %it.sroa.100.6.i, i64 1
+  %14 = load i8, ptr %it.sroa.100.2.i, align 1
+  %add.ptr.i.i41.i = getelementptr inbounds i8, ptr %it.sroa.100.2.i, i64 1
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit48.i
 
 if.else.i.i43.i:                                  ; preds = %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i35.i)
-  %cmp37.i107.i = icmp eq ptr %it.sroa.54.9.i, %it.sroa.100.6.i
+  %cmp37.i107.i = icmp eq ptr %it.sroa.54.2.i, %it.sroa.100.2.i
   br i1 %cmp37.i107.i, label %for.body.i154.i, label %if.then8.i114.i
 
 for.body.i154.i:                                  ; preds = %if.else.i.i43.i, %if.end6.i184.i
-  %it.sroa.54.10.i = phi ptr [ %add.ptr.i.i.i175.i, %if.end6.i184.i ], [ %it.sroa.54.9.i, %if.else.i.i43.i ]
-  %it.sroa.0.6.i = phi ptr [ %16, %if.end6.i184.i ], [ %it.sroa.0.5.i, %if.else.i.i43.i ]
+  %it.sroa.54.16.i = phi ptr [ %add.ptr.i.i.i175.i, %if.end6.i184.i ], [ %it.sroa.54.2.i, %if.else.i.i43.i ]
+  %it.sroa.0.11.i = phi ptr [ %16, %if.end6.i184.i ], [ %it.sroa.0.1.i, %if.else.i.i43.i ]
   %sub.ptr.sub.i41.i155.i = phi i64 [ %18, %if.end6.i184.i ], [ 0, %if.else.i.i43.i ]
-  %15 = phi ptr [ %17, %if.end6.i184.i ], [ %it.sroa.100.6.i, %if.else.i.i43.i ]
+  %15 = phi ptr [ %17, %if.end6.i184.i ], [ %it.sroa.100.2.i, %if.else.i.i43.i ]
   %copied.040.i156.i = phi i64 [ %copied.1.i163.i, %if.end6.i184.i ], [ 0, %if.else.i.i43.i ]
   %p.039.i157.i = phi ptr [ %add.ptr.i185.i, %if.end6.i184.i ], [ %val.i.i.i35.i, %if.else.i.i43.i ]
   %len.addr.038.i158.i = phi i64 [ %sub.i186.i, %if.end6.i184.i ], [ 1, %if.else.i.i43.i ]
-  %cmp2.not.i159.i = icmp eq ptr %it.sroa.54.10.i, %15
+  %cmp2.not.i159.i = icmp eq ptr %it.sroa.54.16.i, %15
   br i1 %cmp2.not.i159.i, label %if.end.i162.i, label %if.then.i160.i
 
 if.then.i160.i:                                   ; preds = %for.body.i154.i
@@ -725,7 +725,7 @@ if.then.i160.i:                                   ; preds = %for.body.i154.i
 
 if.end.i162.i:                                    ; preds = %if.then.i160.i, %for.body.i154.i
   %copied.1.i163.i = phi i64 [ %add.i161.i, %if.then.i160.i ], [ %copied.040.i156.i, %for.body.i154.i ]
-  %16 = load ptr, ptr %it.sroa.0.6.i, align 8
+  %16 = load ptr, ptr %it.sroa.0.11.i, align 8
   %cmp.i.i164.i = icmp eq ptr %16, %data.val33.i
   br i1 %cmp.i.i164.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit196.i, label %if.end6.i184.i
 
@@ -745,12 +745,12 @@ for.end.i108.i:                                   ; preds = %if.end6.i184.i
   br i1 %cmp7.not.i113.i, label %if.end11.i117.i, label %if.then8.i114.i
 
 if.then8.i114.i:                                  ; preds = %for.end.i108.i, %if.else.i.i43.i
-  %.lcssa.i112605.i = phi ptr [ %17, %for.end.i108.i ], [ %it.sroa.100.6.i, %if.else.i.i43.i ]
+  %.lcssa.i112605.i = phi ptr [ %17, %for.end.i108.i ], [ %it.sroa.100.2.i, %if.else.i.i43.i ]
   %copied.0.lcssa.i111603.i = phi i64 [ %copied.1.i163.i, %for.end.i108.i ], [ 0, %if.else.i.i43.i ]
   %p.0.lcssa.i110602.i = phi ptr [ %add.ptr.i185.i, %for.end.i108.i ], [ %val.i.i.i35.i, %if.else.i.i43.i ]
   %len.addr.0.lcssa.i109600.i = phi i64 [ %sub.i186.i, %for.end.i108.i ], [ 1, %if.else.i.i43.i ]
-  %it.sroa.0.7598.i = phi ptr [ %16, %for.end.i108.i ], [ %it.sroa.0.5.i, %if.else.i.i43.i ]
-  %it.sroa.54.13589.i = phi ptr [ %add.ptr.i.i.i175.i, %for.end.i108.i ], [ %it.sroa.54.9.i, %if.else.i.i43.i ]
+  %it.sroa.0.9598.i = phi ptr [ %16, %for.end.i108.i ], [ %it.sroa.0.1.i, %if.else.i.i43.i ]
+  %it.sroa.54.13589.i = phi ptr [ %add.ptr.i.i.i175.i, %for.end.i108.i ], [ %it.sroa.54.2.i, %if.else.i.i43.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %p.0.lcssa.i110602.i, ptr noundef nonnull align 1 dereferenceable(1) %.lcssa.i112605.i, i64 %len.addr.0.lcssa.i109600.i, i1 false)
   %add.ptr10.i115.i = getelementptr inbounds i8, ptr %.lcssa.i112605.i, i64 %len.addr.0.lcssa.i109600.i
   br label %if.end11.i117.i
@@ -758,14 +758,14 @@ if.then8.i114.i:                                  ; preds = %for.end.i108.i, %if
 if.end11.i117.i:                                  ; preds = %if.then8.i114.i, %for.end.i108.i
   %copied.0.lcssa.i111604.i = phi i64 [ %copied.1.i163.i, %for.end.i108.i ], [ %copied.0.lcssa.i111603.i, %if.then8.i114.i ]
   %len.addr.0.lcssa.i109601.i = phi i64 [ 0, %for.end.i108.i ], [ %len.addr.0.lcssa.i109600.i, %if.then8.i114.i ]
-  %it.sroa.0.7599.i = phi ptr [ %16, %for.end.i108.i ], [ %it.sroa.0.7598.i, %if.then8.i114.i ]
+  %it.sroa.0.9599.i = phi ptr [ %16, %for.end.i108.i ], [ %it.sroa.0.9598.i, %if.then8.i114.i ]
   %it.sroa.54.13590.i = phi ptr [ %add.ptr.i.i.i175.i, %for.end.i108.i ], [ %it.sroa.54.13589.i, %if.then8.i114.i ]
-  %it.sroa.100.8.i = phi ptr [ %17, %for.end.i108.i ], [ %add.ptr10.i115.i, %if.then8.i114.i ]
-  %cmp.i23.i118.i = icmp eq ptr %it.sroa.100.8.i, %it.sroa.54.13590.i
+  %it.sroa.100.11.i = phi ptr [ %17, %for.end.i108.i ], [ %add.ptr10.i115.i, %if.then8.i114.i ]
+  %cmp.i23.i118.i = icmp eq ptr %it.sroa.100.11.i, %it.sroa.54.13590.i
   br i1 %cmp.i23.i118.i, label %if.then.i25.i122.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i
 
 if.then.i25.i122.i:                               ; preds = %if.end11.i117.i
-  %19 = load ptr, ptr %it.sroa.0.7599.i, align 8
+  %19 = load ptr, ptr %it.sroa.0.9599.i, align 8
   %cmp.i.i.i124.i = icmp eq ptr %19, %data.val33.i
   br i1 %cmp.i.i.i124.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i, label %if.end.i.i.i128.i
 
@@ -778,16 +778,16 @@ if.end.i.i.i128.i:                                ; preds = %if.then.i25.i122.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i: ; preds = %if.end.i.i.i128.i, %if.then.i25.i122.i, %if.end11.i117.i
-  %it.sroa.54.15.i = phi ptr [ %add.ptr.i.i.i.i137.i, %if.end.i.i.i128.i ], [ %it.sroa.54.13590.i, %if.end11.i117.i ], [ %it.sroa.54.13590.i, %if.then.i25.i122.i ]
-  %it.sroa.100.9.i = phi ptr [ %20, %if.end.i.i.i128.i ], [ %it.sroa.100.8.i, %if.end11.i117.i ], [ %it.sroa.54.13590.i, %if.then.i25.i122.i ]
-  %it.sroa.0.8.i = phi ptr [ %19, %if.end.i.i.i128.i ], [ %it.sroa.0.7599.i, %if.end11.i117.i ], [ %it.sroa.0.7599.i, %if.then.i25.i122.i ]
+  %it.sroa.54.14.i = phi ptr [ %add.ptr.i.i.i.i137.i, %if.end.i.i.i128.i ], [ %it.sroa.54.13590.i, %if.end11.i117.i ], [ %it.sroa.54.13590.i, %if.then.i25.i122.i ]
+  %it.sroa.100.12.i = phi ptr [ %20, %if.end.i.i.i128.i ], [ %it.sroa.100.11.i, %if.end11.i117.i ], [ %it.sroa.54.13590.i, %if.then.i25.i122.i ]
+  %it.sroa.0.10.i = phi ptr [ %19, %if.end.i.i.i128.i ], [ %it.sroa.0.9599.i, %if.end11.i117.i ], [ %it.sroa.0.9599.i, %if.then.i25.i122.i ]
   %add12.i120.i = add i64 %len.addr.0.lcssa.i109601.i, %copied.0.lcssa.i111604.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit196.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit196.i: ; preds = %if.end.i162.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i
-  %it.sroa.54.16.i = phi ptr [ %it.sroa.54.15.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i ], [ %it.sroa.54.10.i, %if.end.i162.i ]
-  %it.sroa.100.10.i = phi ptr [ %it.sroa.100.9.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i ], [ %it.sroa.54.10.i, %if.end.i162.i ]
-  %it.sroa.0.9.i = phi ptr [ %it.sroa.0.8.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i ], [ %it.sroa.0.6.i, %if.end.i162.i ]
+  %it.sroa.54.19.i = phi ptr [ %it.sroa.54.14.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i ], [ %it.sroa.54.16.i, %if.end.i162.i ]
+  %it.sroa.100.13.i = phi ptr [ %it.sroa.100.12.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i ], [ %it.sroa.54.16.i, %if.end.i162.i ]
+  %it.sroa.0.12.i = phi ptr [ %it.sroa.0.10.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i ], [ %it.sroa.0.11.i, %if.end.i162.i ]
   %retval.0.i121.i = phi i64 [ %add12.i120.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i ], [ %copied.1.i163.i, %if.end.i162.i ]
   %cmp.not.i.i.i.i45.i = icmp eq i64 %retval.0.i121.i, 1
   br i1 %cmp.not.i.i.i.i45.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i, label %if.then.i.i.i.i92.i.invoke
@@ -795,41 +795,41 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exi
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit196.i
   %22 = load i8, ptr %val.i.i.i35.i, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i.i.i35.i)
-  %.pre784.i = ptrtoint ptr %it.sroa.54.16.i to i64
+  %.pre784.i = ptrtoint ptr %it.sroa.54.19.i to i64
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit48.i
 
 _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit48.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i, %if.then.i.i40.i
   %.pre-phi785.i = phi i64 [ %.pre-phi.i, %if.then.i.i40.i ], [ %.pre784.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i ]
-  %it.sroa.54.17.i = phi ptr [ %it.sroa.54.9.i, %if.then.i.i40.i ], [ %it.sroa.54.16.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i ]
-  %it.sroa.100.11.i = phi ptr [ %add.ptr.i.i41.i, %if.then.i.i40.i ], [ %it.sroa.100.10.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i ]
-  %it.sroa.0.10.i = phi ptr [ %it.sroa.0.5.i, %if.then.i.i40.i ], [ %it.sroa.0.9.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i ]
+  %it.sroa.54.3.i = phi ptr [ %it.sroa.54.2.i, %if.then.i.i40.i ], [ %it.sroa.54.19.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i ]
+  %it.sroa.100.3.i = phi ptr [ %add.ptr.i.i41.i, %if.then.i.i40.i ], [ %it.sroa.100.13.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i ]
+  %it.sroa.0.2.i = phi ptr [ %it.sroa.0.1.i, %if.then.i.i40.i ], [ %it.sroa.0.12.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i ]
   %retval.0.i.i42.i = phi i8 [ %14, %if.then.i.i40.i ], [ %22, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i ]
   %conv6.i = zext i8 %retval.0.i.i42.i to i32
   %shl7.i = shl nuw nsw i32 %conv6.i, 8
-  %23 = ptrtoint ptr %it.sroa.100.11.i to i64
+  %23 = ptrtoint ptr %it.sroa.100.3.i to i64
   %add.i.i51.i = add i64 %23, 1
   %cmp.not.i.i53.i = icmp ugt i64 %add.i.i51.i, %.pre-phi785.i
   br i1 %cmp.not.i.i53.i, label %if.else.i.i57.i, label %if.then.i.i54.i
 
 if.then.i.i54.i:                                  ; preds = %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit48.i
-  %24 = load i8, ptr %it.sroa.100.11.i, align 1
-  %add.ptr.i.i55.i = getelementptr inbounds i8, ptr %it.sroa.100.11.i, i64 1
+  %24 = load i8, ptr %it.sroa.100.3.i, align 1
+  %add.ptr.i.i55.i = getelementptr inbounds i8, ptr %it.sroa.100.3.i, i64 1
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i
 
 if.else.i.i57.i:                                  ; preds = %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit48.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i49.i)
-  %cmp37.i202.i = icmp eq ptr %it.sroa.54.17.i, %it.sroa.100.11.i
+  %cmp37.i202.i = icmp eq ptr %it.sroa.54.3.i, %it.sroa.100.3.i
   br i1 %cmp37.i202.i, label %for.body.i249.i, label %if.then8.i209.i
 
 for.body.i249.i:                                  ; preds = %if.else.i.i57.i, %if.end6.i279.i
-  %it.sroa.54.18.i = phi ptr [ %add.ptr.i.i.i270.i, %if.end6.i279.i ], [ %it.sroa.54.17.i, %if.else.i.i57.i ]
-  %it.sroa.0.11.i = phi ptr [ %26, %if.end6.i279.i ], [ %it.sroa.0.10.i, %if.else.i.i57.i ]
+  %it.sroa.54.23.i = phi ptr [ %add.ptr.i.i.i270.i, %if.end6.i279.i ], [ %it.sroa.54.3.i, %if.else.i.i57.i ]
+  %it.sroa.0.15.i = phi ptr [ %26, %if.end6.i279.i ], [ %it.sroa.0.2.i, %if.else.i.i57.i ]
   %sub.ptr.sub.i41.i250.i = phi i64 [ %28, %if.end6.i279.i ], [ 0, %if.else.i.i57.i ]
-  %25 = phi ptr [ %27, %if.end6.i279.i ], [ %it.sroa.100.11.i, %if.else.i.i57.i ]
+  %25 = phi ptr [ %27, %if.end6.i279.i ], [ %it.sroa.100.3.i, %if.else.i.i57.i ]
   %copied.040.i251.i = phi i64 [ %copied.1.i258.i, %if.end6.i279.i ], [ 0, %if.else.i.i57.i ]
   %p.039.i252.i = phi ptr [ %add.ptr.i280.i, %if.end6.i279.i ], [ %val.i.i.i49.i, %if.else.i.i57.i ]
   %len.addr.038.i253.i = phi i64 [ %sub.i281.i, %if.end6.i279.i ], [ 1, %if.else.i.i57.i ]
-  %cmp2.not.i254.i = icmp eq ptr %it.sroa.54.18.i, %25
+  %cmp2.not.i254.i = icmp eq ptr %it.sroa.54.23.i, %25
   br i1 %cmp2.not.i254.i, label %if.end.i257.i, label %if.then.i255.i
 
 if.then.i255.i:                                   ; preds = %for.body.i249.i
@@ -839,7 +839,7 @@ if.then.i255.i:                                   ; preds = %for.body.i249.i
 
 if.end.i257.i:                                    ; preds = %if.then.i255.i, %for.body.i249.i
   %copied.1.i258.i = phi i64 [ %add.i256.i, %if.then.i255.i ], [ %copied.040.i251.i, %for.body.i249.i ]
-  %26 = load ptr, ptr %it.sroa.0.11.i, align 8
+  %26 = load ptr, ptr %it.sroa.0.15.i, align 8
   %cmp.i.i259.i = icmp eq ptr %26, %data.val33.i
   br i1 %cmp.i.i259.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit291.i, label %if.end6.i279.i
 
@@ -859,12 +859,12 @@ for.end.i203.i:                                   ; preds = %if.end6.i279.i
   br i1 %cmp7.not.i208.i, label %if.end11.i212.i, label %if.then8.i209.i
 
 if.then8.i209.i:                                  ; preds = %for.end.i203.i, %if.else.i.i57.i
-  %.lcssa.i207633.i = phi ptr [ %27, %for.end.i203.i ], [ %it.sroa.100.11.i, %if.else.i.i57.i ]
+  %.lcssa.i207633.i = phi ptr [ %27, %for.end.i203.i ], [ %it.sroa.100.3.i, %if.else.i.i57.i ]
   %copied.0.lcssa.i206631.i = phi i64 [ %copied.1.i258.i, %for.end.i203.i ], [ 0, %if.else.i.i57.i ]
   %p.0.lcssa.i205630.i = phi ptr [ %add.ptr.i280.i, %for.end.i203.i ], [ %val.i.i.i49.i, %if.else.i.i57.i ]
   %len.addr.0.lcssa.i204628.i = phi i64 [ %sub.i281.i, %for.end.i203.i ], [ 1, %if.else.i.i57.i ]
-  %it.sroa.0.12626.i = phi ptr [ %26, %for.end.i203.i ], [ %it.sroa.0.10.i, %if.else.i.i57.i ]
-  %it.sroa.54.21617.i = phi ptr [ %add.ptr.i.i.i270.i, %for.end.i203.i ], [ %it.sroa.54.17.i, %if.else.i.i57.i ]
+  %it.sroa.0.13626.i = phi ptr [ %26, %for.end.i203.i ], [ %it.sroa.0.2.i, %if.else.i.i57.i ]
+  %it.sroa.54.20617.i = phi ptr [ %add.ptr.i.i.i270.i, %for.end.i203.i ], [ %it.sroa.54.3.i, %if.else.i.i57.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %p.0.lcssa.i205630.i, ptr noundef nonnull align 1 dereferenceable(1) %.lcssa.i207633.i, i64 %len.addr.0.lcssa.i204628.i, i1 false)
   %add.ptr10.i210.i = getelementptr inbounds i8, ptr %.lcssa.i207633.i, i64 %len.addr.0.lcssa.i204628.i
   br label %if.end11.i212.i
@@ -872,14 +872,14 @@ if.then8.i209.i:                                  ; preds = %for.end.i203.i, %if
 if.end11.i212.i:                                  ; preds = %if.then8.i209.i, %for.end.i203.i
   %copied.0.lcssa.i206632.i = phi i64 [ %copied.1.i258.i, %for.end.i203.i ], [ %copied.0.lcssa.i206631.i, %if.then8.i209.i ]
   %len.addr.0.lcssa.i204629.i = phi i64 [ 0, %for.end.i203.i ], [ %len.addr.0.lcssa.i204628.i, %if.then8.i209.i ]
-  %it.sroa.0.12627.i = phi ptr [ %26, %for.end.i203.i ], [ %it.sroa.0.12626.i, %if.then8.i209.i ]
-  %it.sroa.54.21618.i = phi ptr [ %add.ptr.i.i.i270.i, %for.end.i203.i ], [ %it.sroa.54.21617.i, %if.then8.i209.i ]
-  %it.sroa.100.13.i = phi ptr [ %27, %for.end.i203.i ], [ %add.ptr10.i210.i, %if.then8.i209.i ]
-  %cmp.i23.i213.i = icmp eq ptr %it.sroa.100.13.i, %it.sroa.54.21618.i
+  %it.sroa.0.13627.i = phi ptr [ %26, %for.end.i203.i ], [ %it.sroa.0.13626.i, %if.then8.i209.i ]
+  %it.sroa.54.20618.i = phi ptr [ %add.ptr.i.i.i270.i, %for.end.i203.i ], [ %it.sroa.54.20617.i, %if.then8.i209.i ]
+  %it.sroa.100.15.i = phi ptr [ %27, %for.end.i203.i ], [ %add.ptr10.i210.i, %if.then8.i209.i ]
+  %cmp.i23.i213.i = icmp eq ptr %it.sroa.100.15.i, %it.sroa.54.20618.i
   br i1 %cmp.i23.i213.i, label %if.then.i25.i217.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i
 
 if.then.i25.i217.i:                               ; preds = %if.end11.i212.i
-  %29 = load ptr, ptr %it.sroa.0.12627.i, align 8
+  %29 = load ptr, ptr %it.sroa.0.13627.i, align 8
   %cmp.i.i.i219.i = icmp eq ptr %29, %data.val33.i
   br i1 %cmp.i.i.i219.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i, label %if.end.i.i.i223.i
 
@@ -892,16 +892,16 @@ if.end.i.i.i223.i:                                ; preds = %if.then.i25.i217.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i: ; preds = %if.end.i.i.i223.i, %if.then.i25.i217.i, %if.end11.i212.i
-  %it.sroa.54.23.i = phi ptr [ %add.ptr.i.i.i.i232.i, %if.end.i.i.i223.i ], [ %it.sroa.54.21618.i, %if.end11.i212.i ], [ %it.sroa.54.21618.i, %if.then.i25.i217.i ]
-  %it.sroa.100.14.i = phi ptr [ %30, %if.end.i.i.i223.i ], [ %it.sroa.100.13.i, %if.end11.i212.i ], [ %it.sroa.54.21618.i, %if.then.i25.i217.i ]
-  %it.sroa.0.13.i = phi ptr [ %29, %if.end.i.i.i223.i ], [ %it.sroa.0.12627.i, %if.end11.i212.i ], [ %it.sroa.0.12627.i, %if.then.i25.i217.i ]
+  %it.sroa.54.21.i = phi ptr [ %add.ptr.i.i.i.i232.i, %if.end.i.i.i223.i ], [ %it.sroa.54.20618.i, %if.end11.i212.i ], [ %it.sroa.54.20618.i, %if.then.i25.i217.i ]
+  %it.sroa.100.16.i = phi ptr [ %30, %if.end.i.i.i223.i ], [ %it.sroa.100.15.i, %if.end11.i212.i ], [ %it.sroa.54.20618.i, %if.then.i25.i217.i ]
+  %it.sroa.0.14.i = phi ptr [ %29, %if.end.i.i.i223.i ], [ %it.sroa.0.13627.i, %if.end11.i212.i ], [ %it.sroa.0.13627.i, %if.then.i25.i217.i ]
   %add12.i215.i = add i64 %len.addr.0.lcssa.i204629.i, %copied.0.lcssa.i206632.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit291.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit291.i: ; preds = %if.end.i257.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i
-  %it.sroa.54.24.i = phi ptr [ %it.sroa.54.23.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i ], [ %it.sroa.54.18.i, %if.end.i257.i ]
-  %it.sroa.100.15.i = phi ptr [ %it.sroa.100.14.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i ], [ %it.sroa.54.18.i, %if.end.i257.i ]
-  %it.sroa.0.14.i = phi ptr [ %it.sroa.0.13.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i ], [ %it.sroa.0.11.i, %if.end.i257.i ]
+  %it.sroa.54.26.i = phi ptr [ %it.sroa.54.21.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i ], [ %it.sroa.54.23.i, %if.end.i257.i ]
+  %it.sroa.100.17.i = phi ptr [ %it.sroa.100.16.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i ], [ %it.sroa.54.23.i, %if.end.i257.i ]
+  %it.sroa.0.16.i = phi ptr [ %it.sroa.0.14.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i ], [ %it.sroa.0.15.i, %if.end.i257.i ]
   %retval.0.i216.i = phi i64 [ %add12.i215.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i214.i ], [ %copied.1.i258.i, %if.end.i257.i ]
   %cmp.not.i.i.i.i59.i = icmp eq i64 %retval.0.i216.i, 1
   br i1 %cmp.not.i.i.i.i59.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i, label %if.then.i.i.i.i92.i.invoke
@@ -912,9 +912,9 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i
 
 _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i, %if.then.i.i54.i
-  %it.sroa.54.25.i = phi ptr [ %it.sroa.54.24.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i ], [ %it.sroa.54.17.i, %if.then.i.i54.i ]
-  %it.sroa.100.16.i = phi ptr [ %it.sroa.100.15.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i ], [ %add.ptr.i.i55.i, %if.then.i.i54.i ]
-  %it.sroa.0.15.i = phi ptr [ %it.sroa.0.14.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i ], [ %it.sroa.0.10.i, %if.then.i.i54.i ]
+  %it.sroa.54.4.i = phi ptr [ %it.sroa.54.26.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i ], [ %it.sroa.54.3.i, %if.then.i.i54.i ]
+  %it.sroa.100.4.i = phi ptr [ %it.sroa.100.17.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i ], [ %add.ptr.i.i55.i, %if.then.i.i54.i ]
+  %it.sroa.0.3.i = phi ptr [ %it.sroa.0.16.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i ], [ %it.sroa.0.2.i, %if.then.i.i54.i ]
   %retval.0.i.i56.i = phi i8 [ %32, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i61.i ], [ %24, %if.then.i.i54.i ]
   %conv10.i = zext i8 %retval.0.i.i56.i to i32
   %33 = or disjoint i32 %shl7.i, %conv10.i
@@ -956,34 +956,34 @@ for.end.i:                                        ; preds = %_ZN8facebook5velox8
 if.then29.i:                                      ; preds = %for.end.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i
   %len.0.lcssa796.i = phi i64 [ %sub.i5, %for.end.i ], [ %call.i.i6, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
   %wp.0.lcssa795.i = phi ptr [ %incdec.ptr27.i, %for.end.i ], [ %call3, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.0.0.lcssa794.i = phi ptr [ %it.sroa.0.15.i, %for.end.i ], [ %data.val33.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.100.1.lcssa793.i = phi ptr [ %it.sroa.100.16.i, %for.end.i ], [ %it.sroa.100.0.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.54.1.lcssa792.i = phi ptr [ %it.sroa.54.25.i, %for.end.i ], [ %it.sroa.54.0.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %38 = ptrtoint ptr %it.sroa.100.1.lcssa793.i to i64
+  %it.sroa.0.0.lcssa794.i = phi ptr [ %it.sroa.0.3.i, %for.end.i ], [ %data.val33.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %it.sroa.100.0.lcssa793.i = phi ptr [ %it.sroa.100.4.i, %for.end.i ], [ %it.sroa.100.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %it.sroa.54.0.lcssa792.i = phi ptr [ %it.sroa.54.4.i, %for.end.i ], [ %it.sroa.54.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+  %38 = ptrtoint ptr %it.sroa.100.0.lcssa793.i to i64
   %add.i.i68.i = add i64 %38, 1
-  %39 = ptrtoint ptr %it.sroa.54.1.lcssa792.i to i64
+  %39 = ptrtoint ptr %it.sroa.54.0.lcssa792.i to i64
   %cmp.not.i.i70.i = icmp ugt i64 %add.i.i68.i, %39
   br i1 %cmp.not.i.i70.i, label %if.else.i.i74.i, label %if.then.i.i71.i
 
 if.then.i.i71.i:                                  ; preds = %if.then29.i
-  %40 = load i8, ptr %it.sroa.100.1.lcssa793.i, align 1
-  %add.ptr.i.i72.i = getelementptr inbounds i8, ptr %it.sroa.100.1.lcssa793.i, i64 1
+  %40 = load i8, ptr %it.sroa.100.0.lcssa793.i, align 1
+  %add.ptr.i.i72.i = getelementptr inbounds i8, ptr %it.sroa.100.0.lcssa793.i, i64 1
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit79.i
 
 if.else.i.i74.i:                                  ; preds = %if.then29.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i66.i)
-  %cmp37.i297.i = icmp eq ptr %it.sroa.54.1.lcssa792.i, %it.sroa.100.1.lcssa793.i
+  %cmp37.i297.i = icmp eq ptr %it.sroa.54.0.lcssa792.i, %it.sroa.100.0.lcssa793.i
   br i1 %cmp37.i297.i, label %for.body.i344.i, label %if.then8.i304.i
 
 for.body.i344.i:                                  ; preds = %if.else.i.i74.i, %if.end6.i374.i
-  %it.sroa.54.26.i = phi ptr [ %add.ptr.i.i.i365.i, %if.end6.i374.i ], [ %it.sroa.54.1.lcssa792.i, %if.else.i.i74.i ]
-  %it.sroa.0.16.i = phi ptr [ %42, %if.end6.i374.i ], [ %it.sroa.0.0.lcssa794.i, %if.else.i.i74.i ]
+  %it.sroa.54.30.i = phi ptr [ %add.ptr.i.i.i365.i, %if.end6.i374.i ], [ %it.sroa.54.0.lcssa792.i, %if.else.i.i74.i ]
+  %it.sroa.0.19.i = phi ptr [ %42, %if.end6.i374.i ], [ %it.sroa.0.0.lcssa794.i, %if.else.i.i74.i ]
   %sub.ptr.sub.i41.i345.i = phi i64 [ %44, %if.end6.i374.i ], [ 0, %if.else.i.i74.i ]
-  %41 = phi ptr [ %43, %if.end6.i374.i ], [ %it.sroa.100.1.lcssa793.i, %if.else.i.i74.i ]
+  %41 = phi ptr [ %43, %if.end6.i374.i ], [ %it.sroa.100.0.lcssa793.i, %if.else.i.i74.i ]
   %copied.040.i346.i = phi i64 [ %copied.1.i353.i, %if.end6.i374.i ], [ 0, %if.else.i.i74.i ]
   %p.039.i347.i = phi ptr [ %add.ptr.i375.i, %if.end6.i374.i ], [ %val.i.i.i66.i, %if.else.i.i74.i ]
   %len.addr.038.i348.i = phi i64 [ %sub.i376.i, %if.end6.i374.i ], [ 1, %if.else.i.i74.i ]
-  %cmp2.not.i349.i = icmp eq ptr %it.sroa.54.26.i, %41
+  %cmp2.not.i349.i = icmp eq ptr %it.sroa.54.30.i, %41
   br i1 %cmp2.not.i349.i, label %if.end.i352.i, label %if.then.i350.i
 
 if.then.i350.i:                                   ; preds = %for.body.i344.i
@@ -993,7 +993,7 @@ if.then.i350.i:                                   ; preds = %for.body.i344.i
 
 if.end.i352.i:                                    ; preds = %if.then.i350.i, %for.body.i344.i
   %copied.1.i353.i = phi i64 [ %add.i351.i, %if.then.i350.i ], [ %copied.040.i346.i, %for.body.i344.i ]
-  %42 = load ptr, ptr %it.sroa.0.16.i, align 8
+  %42 = load ptr, ptr %it.sroa.0.19.i, align 8
   %cmp.i.i354.i = icmp eq ptr %42, %data.val33.i
   br i1 %cmp.i.i354.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit386.i, label %if.end6.i374.i
 
@@ -1013,12 +1013,12 @@ for.end.i298.i:                                   ; preds = %if.end6.i374.i
   br i1 %cmp7.not.i303.i, label %if.end11.i307.i, label %if.then8.i304.i
 
 if.then8.i304.i:                                  ; preds = %for.end.i298.i, %if.else.i.i74.i
-  %.lcssa.i302661.i = phi ptr [ %43, %for.end.i298.i ], [ %it.sroa.100.1.lcssa793.i, %if.else.i.i74.i ]
+  %.lcssa.i302661.i = phi ptr [ %43, %for.end.i298.i ], [ %it.sroa.100.0.lcssa793.i, %if.else.i.i74.i ]
   %copied.0.lcssa.i301659.i = phi i64 [ %copied.1.i353.i, %for.end.i298.i ], [ 0, %if.else.i.i74.i ]
   %p.0.lcssa.i300658.i = phi ptr [ %add.ptr.i375.i, %for.end.i298.i ], [ %val.i.i.i66.i, %if.else.i.i74.i ]
   %len.addr.0.lcssa.i299656.i = phi i64 [ %sub.i376.i, %for.end.i298.i ], [ 1, %if.else.i.i74.i ]
   %it.sroa.0.17654.i = phi ptr [ %42, %for.end.i298.i ], [ %it.sroa.0.0.lcssa794.i, %if.else.i.i74.i ]
-  %it.sroa.54.29645.i = phi ptr [ %add.ptr.i.i.i365.i, %for.end.i298.i ], [ %it.sroa.54.1.lcssa792.i, %if.else.i.i74.i ]
+  %it.sroa.54.27645.i = phi ptr [ %add.ptr.i.i.i365.i, %for.end.i298.i ], [ %it.sroa.54.0.lcssa792.i, %if.else.i.i74.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %p.0.lcssa.i300658.i, ptr noundef nonnull align 1 dereferenceable(1) %.lcssa.i302661.i, i64 %len.addr.0.lcssa.i299656.i, i1 false)
   %add.ptr10.i305.i = getelementptr inbounds i8, ptr %.lcssa.i302661.i, i64 %len.addr.0.lcssa.i299656.i
   br label %if.end11.i307.i
@@ -1027,9 +1027,9 @@ if.end11.i307.i:                                  ; preds = %if.then8.i304.i, %f
   %copied.0.lcssa.i301660.i = phi i64 [ %copied.1.i353.i, %for.end.i298.i ], [ %copied.0.lcssa.i301659.i, %if.then8.i304.i ]
   %len.addr.0.lcssa.i299657.i = phi i64 [ 0, %for.end.i298.i ], [ %len.addr.0.lcssa.i299656.i, %if.then8.i304.i ]
   %it.sroa.0.17655.i = phi ptr [ %42, %for.end.i298.i ], [ %it.sroa.0.17654.i, %if.then8.i304.i ]
-  %it.sroa.54.29646.i = phi ptr [ %add.ptr.i.i.i365.i, %for.end.i298.i ], [ %it.sroa.54.29645.i, %if.then8.i304.i ]
-  %it.sroa.100.18.i = phi ptr [ %43, %for.end.i298.i ], [ %add.ptr10.i305.i, %if.then8.i304.i ]
-  %cmp.i23.i308.i = icmp eq ptr %it.sroa.100.18.i, %it.sroa.54.29646.i
+  %it.sroa.54.27646.i = phi ptr [ %add.ptr.i.i.i365.i, %for.end.i298.i ], [ %it.sroa.54.27645.i, %if.then8.i304.i ]
+  %it.sroa.100.19.i = phi ptr [ %43, %for.end.i298.i ], [ %add.ptr10.i305.i, %if.then8.i304.i ]
+  %cmp.i23.i308.i = icmp eq ptr %it.sroa.100.19.i, %it.sroa.54.27646.i
   br i1 %cmp.i23.i308.i, label %if.then.i25.i312.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i
 
 if.then.i25.i312.i:                               ; preds = %if.end11.i307.i
@@ -1046,16 +1046,16 @@ if.end.i.i.i318.i:                                ; preds = %if.then.i25.i312.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i: ; preds = %if.end.i.i.i318.i, %if.then.i25.i312.i, %if.end11.i307.i
-  %it.sroa.54.31.i = phi ptr [ %add.ptr.i.i.i.i327.i, %if.end.i.i.i318.i ], [ %it.sroa.54.29646.i, %if.end11.i307.i ], [ %it.sroa.54.29646.i, %if.then.i25.i312.i ]
-  %it.sroa.100.19.i = phi ptr [ %46, %if.end.i.i.i318.i ], [ %it.sroa.100.18.i, %if.end11.i307.i ], [ %it.sroa.54.29646.i, %if.then.i25.i312.i ]
+  %it.sroa.54.28.i = phi ptr [ %add.ptr.i.i.i.i327.i, %if.end.i.i.i318.i ], [ %it.sroa.54.27646.i, %if.end11.i307.i ], [ %it.sroa.54.27646.i, %if.then.i25.i312.i ]
+  %it.sroa.100.20.i = phi ptr [ %46, %if.end.i.i.i318.i ], [ %it.sroa.100.19.i, %if.end11.i307.i ], [ %it.sroa.54.27646.i, %if.then.i25.i312.i ]
   %it.sroa.0.18.i = phi ptr [ %45, %if.end.i.i.i318.i ], [ %it.sroa.0.17655.i, %if.end11.i307.i ], [ %it.sroa.0.17655.i, %if.then.i25.i312.i ]
   %add12.i310.i = add i64 %len.addr.0.lcssa.i299657.i, %copied.0.lcssa.i301660.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit386.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit386.i: ; preds = %if.end.i352.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i
-  %it.sroa.54.32.i = phi ptr [ %it.sroa.54.31.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i ], [ %it.sroa.54.26.i, %if.end.i352.i ]
-  %it.sroa.100.20.i = phi ptr [ %it.sroa.100.19.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i ], [ %it.sroa.54.26.i, %if.end.i352.i ]
-  %it.sroa.0.19.i = phi ptr [ %it.sroa.0.18.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i ], [ %it.sroa.0.16.i, %if.end.i352.i ]
+  %it.sroa.54.33.i = phi ptr [ %it.sroa.54.28.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i ], [ %it.sroa.54.30.i, %if.end.i352.i ]
+  %it.sroa.100.21.i = phi ptr [ %it.sroa.100.20.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i ], [ %it.sroa.54.30.i, %if.end.i352.i ]
+  %it.sroa.0.20.i = phi ptr [ %it.sroa.0.18.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i ], [ %it.sroa.0.19.i, %if.end.i352.i ]
   %retval.0.i311.i = phi i64 [ %add12.i310.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i309.i ], [ %copied.1.i353.i, %if.end.i352.i ]
   %cmp.not.i.i.i.i76.i = icmp eq i64 %retval.0.i311.i, 1
   br i1 %cmp.not.i.i.i.i76.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i, label %if.then.i.i.i.i92.i.invoke
@@ -1066,9 +1066,9 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit79.i
 
 _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit79.i: ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i, %if.then.i.i71.i
-  %it.sroa.54.33.i = phi ptr [ %it.sroa.54.32.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i ], [ %it.sroa.54.1.lcssa792.i, %if.then.i.i71.i ]
-  %it.sroa.100.21.i = phi ptr [ %it.sroa.100.20.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i ], [ %add.ptr.i.i72.i, %if.then.i.i71.i ]
-  %it.sroa.0.20.i = phi ptr [ %it.sroa.0.19.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i ], [ %it.sroa.0.0.lcssa794.i, %if.then.i.i71.i ]
+  %it.sroa.54.5.i = phi ptr [ %it.sroa.54.33.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i ], [ %it.sroa.54.0.lcssa792.i, %if.then.i.i71.i ]
+  %it.sroa.100.5.i = phi ptr [ %it.sroa.100.21.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i ], [ %add.ptr.i.i72.i, %if.then.i.i71.i ]
+  %it.sroa.0.4.i = phi ptr [ %it.sroa.0.20.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i ], [ %it.sroa.0.0.lcssa794.i, %if.then.i.i71.i ]
   %retval.0.i.i73.i = phi i8 [ %48, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i78.i ], [ %40, %if.then.i.i71.i ]
   %conv33.i = zext i8 %retval.0.i.i73.i to i32
   %shr35.i = lshr i32 %conv33.i, 2
@@ -1082,26 +1082,26 @@ _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit79.i: ;
 
 if.then41.i:                                      ; preds = %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit79.i
   %shl34.i = shl nuw nsw i32 %conv33.i, 16
-  %50 = ptrtoint ptr %it.sroa.100.21.i to i64
+  %50 = ptrtoint ptr %it.sroa.100.5.i to i64
   %add.i.i83.i = add i64 %50, 1
-  %51 = ptrtoint ptr %it.sroa.54.33.i to i64
+  %51 = ptrtoint ptr %it.sroa.54.5.i to i64
   %cmp.not.i.i85.i = icmp ugt i64 %add.i.i83.i, %51
   br i1 %cmp.not.i.i85.i, label %if.else.i.i89.i, label %if.then.i.i86.i
 
 if.then.i.i86.i:                                  ; preds = %if.then41.i
-  %52 = load i8, ptr %it.sroa.100.21.i, align 1
+  %52 = load i8, ptr %it.sroa.100.5.i, align 1
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit94.i
 
 if.else.i.i89.i:                                  ; preds = %if.then41.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i.i81.i)
-  %cmp37.i392.i = icmp eq ptr %it.sroa.54.33.i, %it.sroa.100.21.i
+  %cmp37.i392.i = icmp eq ptr %it.sroa.54.5.i, %it.sroa.100.5.i
   br i1 %cmp37.i392.i, label %for.body.i439.i, label %if.then8.i399.i
 
 for.body.i439.i:                                  ; preds = %if.else.i.i89.i, %if.end6.i469.i
-  %it.sroa.0.21.i = phi ptr [ %55, %if.end6.i469.i ], [ %it.sroa.0.20.i, %if.else.i.i89.i ]
+  %it.sroa.0.22.i = phi ptr [ %55, %if.end6.i469.i ], [ %it.sroa.0.4.i, %if.else.i.i89.i ]
   %sub.ptr.sub.i41.i440.i = phi i64 [ %57, %if.end6.i469.i ], [ 0, %if.else.i.i89.i ]
-  %53 = phi ptr [ %56, %if.end6.i469.i ], [ %it.sroa.100.21.i, %if.else.i.i89.i ]
-  %54 = phi ptr [ %add.ptr.i.i.i460.i, %if.end6.i469.i ], [ %it.sroa.54.33.i, %if.else.i.i89.i ]
+  %53 = phi ptr [ %56, %if.end6.i469.i ], [ %it.sroa.100.5.i, %if.else.i.i89.i ]
+  %54 = phi ptr [ %add.ptr.i.i.i460.i, %if.end6.i469.i ], [ %it.sroa.54.5.i, %if.else.i.i89.i ]
   %copied.040.i441.i = phi i64 [ %copied.1.i448.i, %if.end6.i469.i ], [ 0, %if.else.i.i89.i ]
   %p.039.i442.i = phi ptr [ %add.ptr.i470.i, %if.end6.i469.i ], [ %val.i.i.i81.i, %if.else.i.i89.i ]
   %len.addr.038.i443.i = phi i64 [ %sub.i471.i, %if.end6.i469.i ], [ 1, %if.else.i.i89.i ]
@@ -1115,7 +1115,7 @@ if.then.i445.i:                                   ; preds = %for.body.i439.i
 
 if.end.i447.i:                                    ; preds = %if.then.i445.i, %for.body.i439.i
   %copied.1.i448.i = phi i64 [ %add.i446.i, %if.then.i445.i ], [ %copied.040.i441.i, %for.body.i439.i ]
-  %55 = load ptr, ptr %it.sroa.0.21.i, align 8
+  %55 = load ptr, ptr %it.sroa.0.22.i, align 8
   %cmp.i.i449.i = icmp eq ptr %55, %data.val33.i
   br i1 %cmp.i.i449.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit481.i, label %if.end6.i469.i
 
@@ -1135,7 +1135,7 @@ for.end.i393.i:                                   ; preds = %if.end6.i469.i
   br i1 %cmp7.not.i398.i, label %if.end11.i402.i, label %if.then8.i399.i
 
 if.then8.i399.i:                                  ; preds = %for.end.i393.i, %if.else.i.i89.i
-  %.lcssa.i397686.i = phi ptr [ %56, %for.end.i393.i ], [ %it.sroa.100.21.i, %if.else.i.i89.i ]
+  %.lcssa.i397686.i = phi ptr [ %56, %for.end.i393.i ], [ %it.sroa.100.5.i, %if.else.i.i89.i ]
   %copied.0.lcssa.i396684.i = phi i64 [ %copied.1.i448.i, %for.end.i393.i ], [ 0, %if.else.i.i89.i ]
   %p.0.lcssa.i395683.i = phi ptr [ %add.ptr.i470.i, %for.end.i393.i ], [ %val.i.i.i81.i, %if.else.i.i89.i ]
   %len.addr.0.lcssa.i394681.i = phi i64 [ %sub.i471.i, %for.end.i393.i ], [ 1, %if.else.i.i89.i ]

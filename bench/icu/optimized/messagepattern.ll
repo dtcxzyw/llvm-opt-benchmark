@@ -4257,9 +4257,9 @@ while.end.loopexit.split.loop.exit380:            ; preds = %_ZNK6icu_7513Unicod
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit380, %if.else38
-  %index.addr.0.lcssa = phi i32 [ %call40, %if.else38 ], [ %83, %while.end.loopexit.split.loop.exit380 ], [ %cond.i240, %while.body ]
-  %sub50 = sub nsw i32 %index.addr.0.lcssa, %call40
-  %call51 = tail call noundef i32 @_ZN6icu_7514MessagePattern14skipWhiteSpaceEi(ptr noundef nonnull align 8 dereferenceable(127) %this, i32 noundef %index.addr.0.lcssa)
+  %index.addr.1.lcssa = phi i32 [ %call40, %if.else38 ], [ %83, %while.end.loopexit.split.loop.exit380 ], [ %cond.i240, %while.body ]
+  %sub50 = sub nsw i32 %index.addr.1.lcssa, %call40
+  %call51 = tail call noundef i32 @_ZN6icu_7514MessagePattern14skipWhiteSpaceEi(ptr noundef nonnull align 8 dereferenceable(127) %this, i32 noundef %index.addr.1.lcssa)
   %84 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i258 = icmp slt i16 %84, 0
   %85 = ashr i16 %84, 5
@@ -4275,7 +4275,7 @@ if.then55:                                        ; preds = %while.end
   br label %return
 
 if.end56:                                         ; preds = %while.end
-  %cmp57 = icmp ne i32 %index.addr.0.lcssa, %call40
+  %cmp57 = icmp ne i32 %index.addr.1.lcssa, %call40
   %cmp.i.i267 = icmp ugt i32 %cond.i261, %call51
   %or.cond358 = and i1 %cmp57, %cmp.i.i267
   br i1 %or.cond358, label %_ZNK6icu_7513UnicodeString6charAtEi.exit276, label %if.then65
@@ -4360,7 +4360,7 @@ if.end98:                                         ; preds = %if.then88
   br i1 %tobool94.not, label %if.end104.thread368, label %if.end104
 
 if.end104:                                        ; preds = %if.else79, %if.end98
-  %argType.0302 = phi i32 [ 5, %if.end98 ], [ 4, %if.else79 ]
+  %argType.1302 = phi i32 [ 5, %if.end98 ], [ 4, %if.else79 ]
   %cmp106 = icmp eq i16 %89, 125
   br i1 %cmp106, label %if.then109, label %if.else120
 
@@ -4403,16 +4403,16 @@ if.then118:                                       ; preds = %if.end104.thread
   br label %if.end126
 
 if.else120:                                       ; preds = %if.end104, %if.end104.thread.thread
-  %argType.0302321331337 = phi i32 [ 3, %if.end104.thread.thread ], [ %argType.0302, %if.end104 ]
+  %argType.1302321331337 = phi i32 [ 3, %if.end104.thread.thread ], [ %argType.1302, %if.end104 ]
   %inc112 = add nuw nsw i32 %call51, 1
-  %call121 = tail call noundef i32 @_ZN6icu_7514MessagePattern24parsePluralOrSelectStyleE22UMessagePatternArgTypeiiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %this, i32 noundef %argType.0302321331337, i32 noundef %inc112, i32 noundef %nestingLevel, ptr noundef %parseError, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call121 = tail call noundef i32 @_ZN6icu_7514MessagePattern24parsePluralOrSelectStyleE22UMessagePatternArgTypeiiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %this, i32 noundef %argType.1302321331337, i32 noundef %inc112, i32 noundef %nestingLevel, ptr noundef %parseError, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %if.end126
 
 if.end126:                                        ; preds = %if.end104.thread368, %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.then114, %if.else120, %if.then118
-  %argType.1 = phi i32 [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 1, %if.then114 ], [ 2, %if.then118 ], [ %argType.0302321331337, %if.else120 ], [ 1, %if.end104.thread368 ]
-  %index.addr.1 = phi i32 [ %conv.i189, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %call115, %if.then114 ], [ %call119, %if.then118 ], [ %call121, %if.else120 ], [ %call51, %if.end104.thread368 ]
-  tail call void @_ZN6icu_7514MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %this, i32 noundef %0, i32 noundef 6, i32 noundef %index.addr.1, i32 noundef 1, i32 noundef %argType.1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %add127 = add nsw i32 %index.addr.1, 1
+  %argType.0 = phi i32 [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 1, %if.then114 ], [ 2, %if.then118 ], [ %argType.1302321331337, %if.else120 ], [ 1, %if.end104.thread368 ]
+  %index.addr.0 = phi i32 [ %conv.i189, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %call115, %if.then114 ], [ %call119, %if.then118 ], [ %call121, %if.else120 ], [ %call51, %if.end104.thread368 ]
+  tail call void @_ZN6icu_7514MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %this, i32 noundef %0, i32 noundef 6, i32 noundef %index.addr.0, i32 noundef 1, i32 noundef %argType.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %add127 = add nsw i32 %index.addr.0, 1
   br label %return
 
 return:                                           ; preds = %if.end7.i.i, %entry, %_ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit, %if.end126, %if.then109, %if.then68, %if.then65, %if.then55, %if.then37, %_ZN6icu_7514MessagePattern13setParseErrorEP11UParseErrori.exit231, %if.else21, %if.then19, %if.then12, %_ZN6icu_7514MessagePattern13setParseErrorEP11UParseErrori.exit

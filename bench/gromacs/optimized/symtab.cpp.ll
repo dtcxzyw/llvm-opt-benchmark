@@ -700,10 +700,10 @@ define noundef i32 @_ZNK18StringTableBuilder15findEntryByNameERKNSt7__cxx1112bas
 
 26:                                               ; preds = %22, %24
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  %.1 = phi i1 [ %.0, %24 ], [ true, %22 ]
+  %.3 = phi i1 [ %.0, %24 ], [ true, %22 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
-  br i1 %.1, label %27, label %28
+  br i1 %.3, label %27, label %28
 
 27:                                               ; preds = %.thread21, %.thread, %26
   %.pn.pn.pn20 = phi { ptr, i32 } [ %20, %.thread ], [ %.pn, %26 ], [ %21, %.thread21 ]

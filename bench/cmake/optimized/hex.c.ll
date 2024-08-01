@@ -698,12 +698,12 @@ define dso_local i32 @rhash_sprintI64(ptr noundef writeonly %0, i64 noundef %1) 
   br label %.loopexit27
 
 .preheader26:                                     ; preds = %9, %.preheader26
-  %.01929 = phi ptr [ %17, %.preheader26 ], [ %10, %9 ]
+  %.129 = phi ptr [ %17, %.preheader26 ], [ %10, %9 ]
   %.12128 = phi i64 [ %18, %.preheader26 ], [ %1, %9 ]
   %14 = urem i64 %.12128, 10
   %15 = trunc nuw nsw i64 %14 to i8
   %16 = or disjoint i8 %15, 48
-  %17 = getelementptr inbounds i8, ptr %.01929, i64 -1
+  %17 = getelementptr inbounds i8, ptr %.129, i64 -1
   store i8 %16, ptr %17, align 1
   %18 = udiv i64 %.12128, 10
   %19 = icmp uge ptr %17, %3
@@ -712,12 +712,12 @@ define dso_local i32 @rhash_sprintI64(ptr noundef writeonly %0, i64 noundef %1) 
   br i1 %21, label %.preheader26, label %.loopexit27, !llvm.loop !13
 
 .loopexit27:                                      ; preds = %.preheader26, %12
-  %.1 = phi ptr [ %13, %12 ], [ %17, %.preheader26 ]
+  %.019 = phi ptr [ %13, %12 ], [ %17, %.preheader26 ]
   %22 = ptrtoint ptr %10 to i64
-  %23 = ptrtoint ptr %.1 to i64
+  %23 = ptrtoint ptr %.019 to i64
   %24 = sub i64 %22, %23
   %25 = add i64 %24, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %.1, i64 %25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %.019, i64 %25, i1 false)
   %26 = trunc i64 %24 to i32
   br label %.loopexit
 

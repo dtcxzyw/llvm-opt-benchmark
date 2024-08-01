@@ -2074,9 +2074,9 @@ define { ptr, ptr } @_ZN7uu_uniq15map_clap_errors17h703005e348667558E(ptr noalia
           to label %34 unwind label %.thread
 
 .body:                                            ; preds = %.body71.thread, %.body71
-  %.040 = phi i1 [ %.2170, %.body71.thread ], [ %.2, %.body71 ]
+  %.1 = phi i1 [ %.3170, %.body71.thread ], [ %.3, %.body71 ]
   %.pn58 = phi { ptr, i32 } [ %.pn56171, %.body71.thread ], [ %.pn56, %.body71 ]
-  br i1 %.040, label %.body.thread, label %common.resume
+  br i1 %.1, label %.body.thread, label %common.resume
 
 .thread:                                          ; preds = %1, %270
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -2141,15 +2141,15 @@ define { ptr, ptr } @_ZN7uu_uniq15map_clap_errors17h703005e348667558E(ptr noalia
           to label %57 unwind label %55
 
 .body71:                                          ; preds = %55, %.body77.thread, %.body77
-  %.042 = phi i8 [ %.244176, %.body77.thread ], [ %.244, %.body77 ], [ %.143, %55 ]
-  %.2 = phi i1 [ %.4177, %.body77.thread ], [ %.4, %.body77 ], [ %.3, %55 ]
+  %.143 = phi i8 [ %.345176, %.body77.thread ], [ %.345, %.body77 ], [ %.042, %55 ]
+  %.3 = phi i1 [ %.5177, %.body77.thread ], [ %.5, %.body77 ], [ %.2, %55 ]
   %.pn56 = phi { ptr, i32 } [ %.pn178, %.body77.thread ], [ %.pn, %.body77 ], [ %56, %55 ]
-  %54 = trunc nuw i8 %.042 to i1
+  %54 = trunc nuw i8 %.143 to i1
   br i1 %54, label %.body71.thread, label %.body
 
 55:                                               ; preds = %291, %257, %48
-  %.143 = phi i8 [ 1, %48 ], [ %.547, %257 ], [ 1, %291 ]
-  %.3 = phi i1 [ true, %48 ], [ true, %257 ], [ false, %291 ]
+  %.042 = phi i8 [ 1, %48 ], [ %.547, %257 ], [ 1, %291 ]
+  %.2 = phi i1 [ true, %48 ], [ true, %257 ], [ false, %291 ]
   %56 = landingpad { ptr, i32 }
           cleanup
   br label %.body71
@@ -2212,17 +2212,17 @@ define { ptr, ptr } @_ZN7uu_uniq15map_clap_errors17h703005e348667558E(ptr noalia
           to label %80 unwind label %78
 
 .body77:                                          ; preds = %78, %.body80.thread, %.body80
-  %.049 = phi i8 [ %.251.lpad-body159, %.body80.thread ], [ %.352, %.body80 ], [ %.150, %78 ]
-  %.244 = phi i8 [ %.446.lpad-body160, %.body80.thread ], [ %.547, %.body80 ], [ %.345, %78 ]
-  %.4 = phi i1 [ %.6.lpad-body161, %.body80.thread ], [ true, %.body80 ], [ %.5, %78 ]
+  %.150 = phi i8 [ %.251.lpad-body159, %.body80.thread ], [ %.352, %.body80 ], [ %.049, %78 ]
+  %.345 = phi i8 [ %.446.lpad-body160, %.body80.thread ], [ %.547, %.body80 ], [ %.244, %78 ]
+  %.5 = phi i1 [ %.6.lpad-body161, %.body80.thread ], [ true, %.body80 ], [ %.4, %78 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body81162, %.body80.thread ], [ %238, %.body80 ], [ %79, %78 ]
-  %77 = trunc nuw i8 %.049 to i1
+  %77 = trunc nuw i8 %.150 to i1
   br i1 %77, label %.body77.thread, label %.body71
 
 78:                                               ; preds = %282, %246, %71
-  %.150 = phi i8 [ 1, %71 ], [ %.352, %246 ], [ 1, %282 ]
-  %.345 = phi i8 [ 1, %71 ], [ %.547, %246 ], [ 1, %282 ]
-  %.5 = phi i1 [ true, %71 ], [ true, %246 ], [ false, %282 ]
+  %.049 = phi i8 [ 1, %71 ], [ %.352, %246 ], [ 1, %282 ]
+  %.244 = phi i8 [ 1, %71 ], [ %.547, %246 ], [ 1, %282 ]
+  %.4 = phi i1 [ true, %71 ], [ true, %246 ], [ false, %282 ]
   %79 = landingpad { ptr, i32 }
           cleanup
   br label %.body77
@@ -2957,14 +2957,14 @@ common.resume:                                    ; preds = %.body, %.body.threa
 
 .body77.thread:                                   ; preds = %90, %.body77
   %.pn178 = phi { ptr, i32 } [ %.pn, %.body77 ], [ %91, %90 ]
-  %.4177 = phi i1 [ %.4, %.body77 ], [ true, %90 ]
-  %.244176 = phi i8 [ %.244, %.body77 ], [ 1, %90 ]
+  %.5177 = phi i1 [ %.5, %.body77 ], [ true, %90 ]
+  %.345176 = phi i8 [ %.345, %.body77 ], [ 1, %90 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h77910d778c8684d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #18
           to label %.body71 unwind label %309
 
 .body71.thread:                                   ; preds = %67, %.body71
   %.pn56171 = phi { ptr, i32 } [ %.pn56, %.body71 ], [ %68, %67 ]
-  %.2170 = phi i1 [ %.2, %.body71 ], [ true, %67 ]
+  %.3170 = phi i1 [ %.3, %.body71 ], [ true, %67 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h77910d778c8684d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #18
           to label %.body unwind label %309
 

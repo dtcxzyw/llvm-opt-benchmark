@@ -245,7 +245,7 @@ if.end.i:                                         ; preds = %_ZNK14arrow_vendore
 
 while.body.i.i:                                   ; preds = %if.end.i, %if.end.i.i
   %18 = phi i32 [ %inc.i.i, %if.end.i.i ], [ 0, %if.end.i ]
-  %kappa.1.i = phi i32 [ %dec.i.i, %if.end.i.i ], [ %spec.select.i.i.i, %if.end.i ]
+  %kappa.2.i = phi i32 [ %dec.i.i, %if.end.i.i ], [ %spec.select.i.i.i, %if.end.i ]
   %integrals.025.i.i = phi i32 [ %rem.i.i, %if.end.i.i ], [ %conv.i.i, %if.end.i ]
   %divisor.024.i.i = phi i32 [ %div38.i.i, %if.end.i.i ], [ %17, %if.end.i ]
   %div.i.i = udiv i32 %integrals.025.i.i, %divisor.024.i.i
@@ -258,7 +258,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %if.end.i
   %inc.i.i = add nsw i32 %20, 1
   store i32 %inc.i.i, ptr %length, align 4
   %rem.i.i = urem i32 %integrals.025.i.i, %divisor.024.i.i
-  %dec.i.i = add nsw i32 %kappa.1.i, -1
+  %dec.i.i = add nsw i32 %kappa.2.i, -1
   %conv21.i.i = zext i32 %rem.i.i to i64
   %shl25.i.i = shl i64 %conv21.i.i, %sh_prom.i114.i
   %add26.i.i = add i64 %shl25.i.i, %and.i.i
@@ -336,17 +336,17 @@ if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
   %div38.i.i = udiv i32 %divisor.024.i.i, 10
-  %cmp.i.i = icmp ugt i32 %kappa.1.i, 1
+  %cmp.i.i = icmp ugt i32 %kappa.2.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %for.cond.i.i.preheader, !llvm.loop !8
 
 for.cond.i.i.preheader:                           ; preds = %if.end.i.i, %if.end.i
   %.ph = phi i32 [ 0, %if.end.i ], [ %inc.i.i, %if.end.i.i ]
-  %kappa.2.i.ph = phi i32 [ %spec.select.i.i.i, %if.end.i ], [ 0, %if.end.i.i ]
+  %kappa.1.i.ph = phi i32 [ %spec.select.i.i.i, %if.end.i ], [ 0, %if.end.i.i ]
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.cond.i.i
   %25 = phi i32 [ %inc51.i.i, %for.cond.i.i ], [ %.ph, %for.cond.i.i.preheader ]
-  %kappa.2.i = phi i32 [ %dec55.i.i, %for.cond.i.i ], [ %kappa.2.i.ph, %for.cond.i.i.preheader ]
+  %kappa.1.i = phi i32 [ %dec55.i.i, %for.cond.i.i ], [ %kappa.1.i.ph, %for.cond.i.i.preheader ]
   %unsafe_interval.sroa.0.0.i.i = phi i64 [ %mul41.i.i, %for.cond.i.i ], [ %sub.i.i.i113.i, %for.cond.i.i.preheader ]
   %fractionals.0.i.i = phi i64 [ %and54.i.i, %for.cond.i.i ], [ %and.i.i, %for.cond.i.i.preheader ]
   %unit.0.i.i = phi i64 [ %mul39.i.i, %for.cond.i.i ], [ 1, %for.cond.i.i.preheader ]
@@ -363,7 +363,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i.prehea
   %inc51.i.i = add nsw i32 %26, 1
   store i32 %inc51.i.i, ptr %length, align 4
   %and54.i.i = and i64 %mul.i.i, %sub14.i.i
-  %dec55.i.i = add nsw i32 %kappa.2.i, -1
+  %dec55.i.i = add nsw i32 %kappa.1.i, -1
   %cmp57.i.i = icmp ult i64 %and54.i.i, %mul41.i.i
   br i1 %cmp57.i.i, label %if.then58.i.i, label %for.cond.i.i, !llvm.loop !9
 
@@ -502,11 +502,11 @@ _ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16: ; 
   %37 = load i32, ptr %arrayidx2.i.i.i51, align 4
   store i32 0, ptr %length, align 4
   %cmp106.i.i = icmp sgt i32 %spec.select.i.i.i49, 0
-  br i1 %cmp106.i.i, label %while.body.i.i63, label %while.end.i.i
+  br i1 %cmp106.i.i, label %while.body.i.i64, label %while.end.i.i
 
-while.body.i.i63:                                 ; preds = %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16, %if.end.i.i71
+while.body.i.i64:                                 ; preds = %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16, %if.end.i.i71
   %38 = phi i32 [ %inc.i.i68, %if.end.i.i71 ], [ 0, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ]
-  %kappa.0.i64 = phi i32 [ %dec14.i.i, %if.end.i.i71 ], [ %spec.select.i.i.i49, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ]
+  %kappa.4.i = phi i32 [ %dec14.i.i, %if.end.i.i71 ], [ %spec.select.i.i.i49, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ]
   %requested_digits.addr.0109.i.i = phi i32 [ %dec.i.i69, %if.end.i.i71 ], [ %requested_digits, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ]
   %integrals.0108.i.i = phi i32 [ %rem.i.i70, %if.end.i.i71 ], [ %conv.i.i43, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ]
   %divisor.0107.i.i = phi i32 [ %div16.i.i, %if.end.i.i71 ], [ %37, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ]
@@ -521,18 +521,18 @@ while.body.i.i63:                                 ; preds = %_ZNK14arrow_vendore
   store i32 %inc.i.i68, ptr %length, align 4
   %dec.i.i69 = add nsw i32 %requested_digits.addr.0109.i.i, -1
   %rem.i.i70 = urem i32 %integrals.0108.i.i, %divisor.0107.i.i
-  %dec14.i.i = add nsw i32 %kappa.0.i64, -1
+  %dec14.i.i = add nsw i32 %kappa.4.i, -1
   %cmp15.i.i = icmp eq i32 %dec.i.i69, 0
   br i1 %cmp15.i.i, label %if.then18.i.i, label %if.end.i.i71
 
-if.end.i.i71:                                     ; preds = %while.body.i.i63
+if.end.i.i71:                                     ; preds = %while.body.i.i64
   %div16.i.i = udiv i32 %divisor.0107.i.i, 10
-  %cmp.i.i72 = icmp ugt i32 %kappa.0.i64, 1
-  br i1 %cmp.i.i72, label %while.body.i.i63, label %while.end.i.i, !llvm.loop !10
+  %cmp.i.i72 = icmp ugt i32 %kappa.4.i, 1
+  br i1 %cmp.i.i72, label %while.body.i.i64, label %while.end.i.i, !llvm.loop !10
 
 while.end.i.i:                                    ; preds = %if.end.i.i71, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16
   %.pr.i = phi i32 [ 0, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ], [ %inc.i.i68, %if.end.i.i71 ]
-  %kappa.1.i52 = phi i32 [ %spec.select.i.i.i49, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ], [ %dec14.i.i, %if.end.i.i71 ]
+  %kappa.0.i52 = phi i32 [ %spec.select.i.i.i49, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ], [ %dec14.i.i, %if.end.i.i71 ]
   %divisor.0.lcssa.i.i = phi i32 [ %37, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ], [ %div16.i.i, %if.end.i.i71 ]
   %integrals.0.lcssa.i.i = phi i32 [ %conv.i.i43, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ], [ %rem.i.i70, %if.end.i.i71 ]
   %requested_digits.addr.0.lcssa.i.i = phi i32 [ %requested_digits, %_ZNK14arrow_vendored17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16 ], [ %dec.i.i69, %if.end.i.i71 ]
@@ -545,18 +545,18 @@ while.cond32.preheader.i.i:                       ; preds = %while.end.i.i
   %41 = select i1 %cmp33112.i.i, i1 %cmp34113.i.i, i1 false
   br i1 %41, label %while.body35.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread
 
-if.then18.i.i:                                    ; preds = %while.body.i.i63, %while.end.i.i
-  %42 = phi i32 [ %.pr.i, %while.end.i.i ], [ %inc.i.i68, %while.body.i.i63 ]
-  %kappa.2.i56 = phi i32 [ %kappa.1.i52, %while.end.i.i ], [ %dec14.i.i, %while.body.i.i63 ]
-  %divisor.0105.i.i = phi i32 [ %divisor.0.lcssa.i.i, %while.end.i.i ], [ %divisor.0107.i.i, %while.body.i.i63 ]
-  %integrals.1101.i.i = phi i32 [ %integrals.0.lcssa.i.i, %while.end.i.i ], [ %rem.i.i70, %while.body.i.i63 ]
-  %conv19.i.i57 = zext i32 %integrals.1101.i.i to i64
-  %shl23.i.i = shl i64 %conv19.i.i57, %sh_prom.i.i
+if.then18.i.i:                                    ; preds = %while.body.i.i64, %while.end.i.i
+  %42 = phi i32 [ %.pr.i, %while.end.i.i ], [ %inc.i.i68, %while.body.i.i64 ]
+  %kappa.3.i57 = phi i32 [ %kappa.0.i52, %while.end.i.i ], [ %dec14.i.i, %while.body.i.i64 ]
+  %divisor.0105.i.i = phi i32 [ %divisor.0.lcssa.i.i, %while.end.i.i ], [ %divisor.0107.i.i, %while.body.i.i64 ]
+  %integrals.1101.i.i = phi i32 [ %integrals.0.lcssa.i.i, %while.end.i.i ], [ %rem.i.i70, %while.body.i.i64 ]
+  %conv19.i.i58 = zext i32 %integrals.1101.i.i to i64
+  %shl23.i.i = shl i64 %conv19.i.i58, %sh_prom.i.i
   %add24.i.i = add i64 %shl23.i.i, %and.i.i44
   %conv25.i.i = zext i32 %divisor.0105.i.i to i64
   %shl29.i.i = shl i64 %conv25.i.i, %sh_prom.i.i
-  %or.cond.i.i.i58 = icmp ugt i64 %shl29.i.i, 2
-  br i1 %or.cond.i.i.i58, label %if.end3.i.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread
+  %or.cond.i.i.i59 = icmp ugt i64 %shl29.i.i, 2
+  br i1 %or.cond.i.i.i59, label %if.end3.i.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread
 
 if.end3.i.i.i:                                    ; preds = %if.then18.i.i
   %sub4.i.i.i = sub i64 %shl29.i.i, %add24.i.i
@@ -566,12 +566,12 @@ if.end3.i.i.i:                                    ; preds = %if.then18.i.i
 land.lhs.true.i.i.i:                              ; preds = %if.end3.i.i.i
   %mul.i37.i.i = shl i64 %add24.i.i, 1
   %sub6.i.i.i = sub i64 %shl29.i.i, %mul.i37.i.i
-  %cmp8.not.i.i.i62 = icmp ult i64 %sub6.i.i.i, 2
-  br i1 %cmp8.not.i.i.i62, label %if.end10.i.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread90
+  %cmp8.not.i.i.i63 = icmp ult i64 %sub6.i.i.i, 2
+  br i1 %cmp8.not.i.i.i63, label %if.end10.i.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread90
 
 if.end10.i.i.i:                                   ; preds = %land.lhs.true.i.i.i, %if.end3.i.i.i
-  %cmp11.i.i.i59 = icmp ugt i64 %add24.i.i, 1
-  br i1 %cmp11.i.i.i59, label %land.lhs.true12.i.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread
+  %cmp11.i.i.i60 = icmp ugt i64 %add24.i.i, 1
+  br i1 %cmp11.i.i.i60, label %land.lhs.true12.i.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread
 
 land.lhs.true12.i.i.i:                            ; preds = %if.end10.i.i.i
   %sub13.i.i.i = add i64 %add24.i.i, -1
@@ -580,8 +580,8 @@ land.lhs.true12.i.i.i:                            ; preds = %if.end10.i.i.i
   br i1 %cmp16.not.i.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread, label %if.then17.i.i.i
 
 if.then17.i.i.i:                                  ; preds = %land.lhs.true12.i.i.i
-  %sub18.i.i.i60 = add nsw i32 %42, -1
-  %idxprom.i.i.i.i = sext i32 %sub18.i.i.i60 to i64
+  %sub18.i.i.i61 = add nsw i32 %42, -1
+  %idxprom.i.i.i.i = sext i32 %sub18.i.i.i61 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i.i.i.i
   %43 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %inc.i36.i.i = add i8 %43, 1
@@ -590,7 +590,7 @@ if.then17.i.i.i:                                  ; preds = %land.lhs.true12.i.i
   br i1 %cmp2034.i.i.i, label %for.body.preheader.i.i.i, label %for.end.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %if.then17.i.i.i
-  %idxprom.i21.phi.trans.insert.i.i.i = zext nneg i32 %sub18.i.i.i60 to i64
+  %idxprom.i21.phi.trans.insert.i.i.i = zext nneg i32 %sub18.i.i.i61 to i64
   %arrayidx.i22.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i21.phi.trans.insert.i.i.i
   %.pre.i.i.i = load i8, ptr %arrayidx.i22.phi.trans.insert.i.i.i, align 1
   br label %for.body.i.i.i
@@ -598,8 +598,8 @@ for.body.preheader.i.i.i:                         ; preds = %if.then17.i.i.i
 for.body.i.i.i:                                   ; preds = %if.end24.i.i.i, %for.body.preheader.i.i.i
   %indvars.iv125.i.i = phi i64 [ %indvars.iv.next126.i.i, %if.end24.i.i.i ], [ %idxprom.i21.phi.trans.insert.i.i.i, %for.body.preheader.i.i.i ]
   %44 = phi i8 [ %inc28.i.i.i, %if.end24.i.i.i ], [ %.pre.i.i.i, %for.body.preheader.i.i.i ]
-  %cmp22.not.i.i.i61 = icmp eq i8 %44, 58
-  br i1 %cmp22.not.i.i.i61, label %if.end24.i.i.i, label %for.end.i.i.i
+  %cmp22.not.i.i.i62 = icmp eq i8 %44, 58
+  br i1 %cmp22.not.i.i.i62, label %if.end24.i.i.i, label %for.end.i.i.i
 
 if.end24.i.i.i:                                   ; preds = %for.body.i.i.i
   %arrayidx.i22.i.i.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %indvars.iv125.i.i
@@ -619,7 +619,7 @@ for.end.i.i.i:                                    ; preds = %if.end24.i.i.i, %fo
 
 while.body35.i.i:                                 ; preds = %while.cond32.preheader.i.i, %while.body35.i.i
   %47 = phi i32 [ %inc46.i.i, %while.body35.i.i ], [ %.pr.i, %while.cond32.preheader.i.i ]
-  %kappa.3.i54 = phi i32 [ %dec51.i.i, %while.body35.i.i ], [ %kappa.1.i52, %while.cond32.preheader.i.i ]
+  %kappa.1.i54 = phi i32 [ %dec51.i.i, %while.body35.i.i ], [ %kappa.0.i52, %while.cond32.preheader.i.i ]
   %requested_digits.addr.2116.i.i = phi i32 [ %dec47.i.i, %while.body35.i.i ], [ %requested_digits.addr.0.lcssa.i.i, %while.cond32.preheader.i.i ]
   %w_error.0115.i.i = phi i64 [ %mul36.i.i, %while.body35.i.i ], [ 1, %while.cond32.preheader.i.i ]
   %fractionals.0114.i.i = phi i64 [ %and50.i.i, %while.body35.i.i ], [ %and.i.i44, %while.cond32.preheader.i.i ]
@@ -636,7 +636,7 @@ while.body35.i.i:                                 ; preds = %while.cond32.prehea
   store i32 %inc46.i.i, ptr %length, align 4
   %dec47.i.i = add nsw i32 %requested_digits.addr.2116.i.i, -1
   %and50.i.i = and i64 %mul.i.i55, %sub8.i.i
-  %dec51.i.i = add nsw i32 %kappa.3.i54, -1
+  %dec51.i.i = add nsw i32 %kappa.1.i54, -1
   %cmp33.i.i = icmp ugt i32 %requested_digits.addr.2116.i.i, 1
   %cmp34.i.i = icmp ugt i64 %and50.i.i, %mul36.i.i
   %49 = select i1 %cmp33.i.i, i1 %cmp34.i.i, i1 false
@@ -711,9 +711,9 @@ for.end.i61.i.i:                                  ; preds = %if.end24.i72.i.i, %
   br i1 %cmp31.i62.i.i, label %return.sink.split.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread90
 
 return.sink.split.i.i:                            ; preds = %for.end.i61.i.i, %for.end.i.i.i
-  %kappa.4.i = phi i32 [ %kappa.2.i56, %for.end.i.i.i ], [ %dec51.i.i, %for.end.i61.i.i ]
+  %kappa.2.i56 = phi i32 [ %kappa.3.i57, %for.end.i.i.i ], [ %dec51.i.i, %for.end.i61.i.i ]
   store i8 49, ptr %buffer.coerce0, align 1
-  %add.i64.i.i = add nsw i32 %kappa.4.i, 1
+  %add.i64.i.i = add nsw i32 %kappa.2.i56, 1
   br label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread90
 
 _ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread: ; preds = %land.lhs.true12.i.i.i, %if.end10.i.i.i, %if.then18.i.i, %land.lhs.true12.i51.i.i, %if.end10.i49.i.i, %if.end55.i.i, %while.end52.i.i, %while.cond32.preheader.i.i
@@ -722,7 +722,7 @@ _ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.ex
   br label %if.end
 
 _ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread90: ; preds = %return.sink.split.i.i, %for.end.i.i.i, %land.lhs.true.i.i.i, %for.end.i61.i.i
-  %kappa.5.i.ph = phi i32 [ %dec51.i.i, %for.end.i61.i.i ], [ %kappa.2.i56, %land.lhs.true.i.i.i ], [ %kappa.2.i56, %for.end.i.i.i ], [ %add.i64.i.i, %return.sink.split.i.i ]
+  %kappa.5.i.ph = phi i32 [ %dec51.i.i, %for.end.i61.i.i ], [ %kappa.3.i57, %land.lhs.true.i.i.i ], [ %kappa.3.i57, %for.end.i.i.i ], [ %add.i64.i.i, %return.sink.split.i.i ]
   %55 = load i32, ptr %mk.i8, align 4
   %add9.i93 = sub i32 %kappa.5.i.ph, %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ten_mk.i7)

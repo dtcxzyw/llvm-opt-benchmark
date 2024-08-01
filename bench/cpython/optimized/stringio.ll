@@ -1405,7 +1405,7 @@ if.end.i:                                         ; preds = %if.then1.i
   br i1 %cmp8.i, label %exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end20, %if.end, %if.end.i, %if.else.i
-  %value.13243 = phi ptr [ %3, %if.else.i ], [ %3, %if.end.i ], [ null, %if.end ], [ %3, %if.end20 ]
+  %value.03243 = phi ptr [ %3, %if.else.i ], [ %3, %if.end.i ], [ null, %if.end ], [ %3, %if.end20 ]
   %newline_obj.03442 = phi ptr [ null, %if.else.i ], [ %4, %if.end.i ], [ null, %if.end ], [ null, %if.end20 ]
   %newline.0.ph.i = phi ptr [ @.str.37, %if.else.i ], [ %call7.i, %if.end.i ], [ @.str.37, %if.end ], [ @.str.37, %if.end20 ]
   %10 = load i8, ptr %newline.0.ph.i, align 1
@@ -1442,15 +1442,15 @@ if.then51.i:                                      ; preds = %land.lhs.true46.i, 
 
 if.end53.i:                                       ; preds = %land.lhs.true46.i, %land.lhs.true31.i, %land.lhs.true21.i, %land.lhs.true.i, %skip_optional_pos
   %cmp.i36 = phi i1 [ false, %land.lhs.true.i ], [ false, %land.lhs.true46.i ], [ false, %land.lhs.true31.i ], [ false, %land.lhs.true21.i ], [ true, %skip_optional_pos ]
-  %value.133 = phi ptr [ %value.13243, %land.lhs.true.i ], [ %value.13243, %land.lhs.true46.i ], [ %value.13243, %land.lhs.true31.i ], [ %value.13243, %land.lhs.true21.i ], [ %3, %skip_optional_pos ]
+  %value.033 = phi ptr [ %value.03243, %land.lhs.true.i ], [ %value.03243, %land.lhs.true46.i ], [ %value.03243, %land.lhs.true31.i ], [ %value.03243, %land.lhs.true21.i ], [ %3, %skip_optional_pos ]
   %newline.0108.i = phi ptr [ %newline.0.ph.i, %land.lhs.true.i ], [ %newline.0.ph.i, %land.lhs.true46.i ], [ %newline.0.ph.i, %land.lhs.true31.i ], [ %newline.0.ph.i, %land.lhs.true21.i ], [ null, %skip_optional_pos ]
-  %tobool54.i = icmp ne ptr %value.133, null
-  %cmp56.i = icmp ne ptr %value.133, @_Py_NoneStruct
+  %tobool54.i = icmp ne ptr %value.033, null
+  %cmp56.i = icmp ne ptr %value.033, @_Py_NoneStruct
   %or.cond.i = and i1 %tobool54.i, %cmp56.i
   br i1 %or.cond.i, label %land.lhs.true58.i, label %if.end66.i
 
 land.lhs.true58.i:                                ; preds = %if.end53.i
-  %15 = getelementptr i8, ptr %value.133, i64 8
+  %15 = getelementptr i8, ptr %value.033, i64 8
   %value.val73.i = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %value.val73.i, i64 168
   %call59.val.i = load i64, ptr %16, align 8
@@ -1609,7 +1609,7 @@ if.end134.i:                                      ; preds = %if.then123.i, %if.e
   br i1 %or.cond.i, label %if.then139.i, label %if.else156.i
 
 if.then139.i:                                     ; preds = %if.end134.i
-  %call140.i = call i64 @PyUnicode_GetLength(ptr noundef nonnull %value.133) #6
+  %call140.i = call i64 @PyUnicode_GetLength(ptr noundef nonnull %value.033) #6
   %38 = icmp sgt i64 %call140.i, 0
   br i1 %38, label %if.then145.i, label %if.else156.i
 
@@ -1655,7 +1655,7 @@ if.end150.i:                                      ; preds = %if.end30.i.i, %if.e
   store i32 1, ptr %state.i, align 8
   %pos.i = getelementptr inbounds i8, ptr %self, i64 24
   store i64 0, ptr %pos.i, align 8
-  %call151.i = call fastcc i64 @write_str(ptr noundef nonnull %self, ptr noundef nonnull %value.133)
+  %call151.i = call fastcc i64 @write_str(ptr noundef nonnull %self, ptr noundef nonnull %value.033)
   %cmp152.i = icmp slt i64 %call151.i, 0
   br i1 %cmp152.i, label %exit, label %if.end165.i
 

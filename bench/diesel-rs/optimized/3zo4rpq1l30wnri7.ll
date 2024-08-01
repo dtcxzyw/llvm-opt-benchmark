@@ -517,15 +517,15 @@ _ZN5serde2de7Visitor9visit_seq17hab9c26b9feb4ac0aE.exit.i: ; preds = %.noexc
           to label %234 unwind label %46
 
 66:                                               ; preds = %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit", %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit, %234, %233, %231, %229, %222, %210
-  %.131 = phi i1 [ false, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
-  %.128 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ false, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
-  %.125 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ false, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
-  %.122 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ false, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
-  %.119 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ false, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
-  %.116 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ false, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
-  %.113 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ false, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
-  %.110 = phi i1 [ true, %234 ], [ true, %233 ], [ false, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
-  %.1 = phi i1 [ true, %234 ], [ false, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
+  %.232 = phi i1 [ false, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
+  %.229 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ false, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
+  %.226 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ false, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
+  %.223 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ false, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
+  %.220 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ false, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
+  %.217 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ true, %229 ], [ false, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
+  %.214 = phi i1 [ true, %234 ], [ true, %233 ], [ true, %231 ], [ false, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
+  %.211 = phi i1 [ true, %234 ], [ true, %233 ], [ false, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
+  %.2 = phi i1 [ true, %234 ], [ false, %233 ], [ true, %231 ], [ true, %229 ], [ true, %222 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %_ZN5serde2de7Visitor9visit_f6417h123f313bc3ad7fe1E.exit ], [ true, %_ZN5serde2de7Visitor9visit_i6417hab63df3a9835d278E.exit ], [ true, %210 ], [ true, %_ZN5serde2de7Visitor10visit_none17hfa8850680a6843ceE.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
   call void @llvm.experimental.noalias.scope.decl(metadata !136)
   %67 = load i64, ptr %44, align 8, !range !138, !alias.scope !136, !noalias !139, !noundef !5
@@ -1098,15 +1098,15 @@ _ZN5serde2de7Visitor9visit_seq17hab9c26b9feb4ac0aE.exit.i93: ; preds = %.noexc94
 
 .body:                                            ; preds = %225, %220, %182, %217, %162, %214, %140, %211, %118, %199, %96, %191, %74, %62, %46
   %.pn = phi { ptr, i32 } [ %47, %46 ], [ %63, %62 ], [ %75, %74 ], [ %97, %96 ], [ %192, %191 ], [ %200, %199 ], [ %212, %211 ], [ %119, %118 ], [ %215, %214 ], [ %141, %140 ], [ %218, %217 ], [ %163, %162 ], [ %221, %220 ], [ %183, %182 ], [ %226, %225 ]
-  %.232 = phi i1 [ %.030, %46 ], [ false, %62 ], [ %.131, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
-  %.229 = phi i1 [ true, %46 ], [ true, %62 ], [ %.128, %74 ], [ false, %96 ], [ false, %191 ], [ false, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
-  %.226 = phi i1 [ true, %46 ], [ true, %62 ], [ %.125, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ false, %211 ], [ false, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
-  %.223 = phi i1 [ true, %46 ], [ true, %62 ], [ %.122, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ false, %214 ], [ false, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
-  %.220 = phi i1 [ true, %46 ], [ true, %62 ], [ %.119, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ false, %217 ], [ false, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
-  %.217 = phi i1 [ true, %46 ], [ true, %62 ], [ %.116, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ false, %220 ], [ false, %182 ], [ true, %225 ]
-  %.214 = phi i1 [ %.012, %46 ], [ true, %62 ], [ %.113, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ false, %225 ]
-  %.211 = phi i1 [ %.09, %46 ], [ true, %62 ], [ %.110, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
-  %.2 = phi i1 [ %.0, %46 ], [ true, %62 ], [ %.1, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
+  %.131 = phi i1 [ %.030, %46 ], [ false, %62 ], [ %.232, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
+  %.128 = phi i1 [ true, %46 ], [ true, %62 ], [ %.229, %74 ], [ false, %96 ], [ false, %191 ], [ false, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
+  %.125 = phi i1 [ true, %46 ], [ true, %62 ], [ %.226, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ false, %211 ], [ false, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
+  %.122 = phi i1 [ true, %46 ], [ true, %62 ], [ %.223, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ false, %214 ], [ false, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
+  %.119 = phi i1 [ true, %46 ], [ true, %62 ], [ %.220, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ false, %217 ], [ false, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
+  %.116 = phi i1 [ true, %46 ], [ true, %62 ], [ %.217, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ false, %220 ], [ false, %182 ], [ true, %225 ]
+  %.113 = phi i1 [ %.012, %46 ], [ true, %62 ], [ %.214, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ false, %225 ]
+  %.110 = phi i1 [ %.09, %46 ], [ true, %62 ], [ %.211, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
+  %.1 = phi i1 [ %.0, %46 ], [ true, %62 ], [ %.2, %74 ], [ true, %96 ], [ true, %191 ], [ true, %199 ], [ true, %211 ], [ true, %118 ], [ true, %214 ], [ true, %140 ], [ true, %217 ], [ true, %162 ], [ true, %220 ], [ true, %182 ], [ true, %225 ]
   %235 = load i64, ptr %1, align 8, !range !4, !noundef !5
   %236 = add nsw i64 %235, -8
   %237 = icmp ult i64 %236, 4
@@ -1137,31 +1137,31 @@ _ZN5serde2de7Visitor9visit_seq17hab9c26b9feb4ac0aE.exit.i93: ; preds = %.noexc94
   ]
 
 243:                                              ; preds = %.body
-  br i1 %.2, label %267, label %239
+  br i1 %.1, label %267, label %239
 
 244:                                              ; preds = %.body
-  br i1 %.232, label %269, label %239
+  br i1 %.131, label %269, label %239
 
 245:                                              ; preds = %240
-  br i1 %.211, label %266, label %239
+  br i1 %.110, label %266, label %239
 
 246:                                              ; preds = %240
-  br i1 %.229, label %252, label %239
+  br i1 %.128, label %252, label %239
 
 247:                                              ; preds = %240
-  br i1 %.226, label %256, label %239
+  br i1 %.125, label %256, label %239
 
 248:                                              ; preds = %240
-  br i1 %.223, label %258, label %239
+  br i1 %.122, label %258, label %239
 
 249:                                              ; preds = %240
-  br i1 %.220, label %260, label %239
+  br i1 %.119, label %260, label %239
 
 250:                                              ; preds = %240
-  br i1 %.217, label %262, label %239
+  br i1 %.116, label %262, label %239
 
 251:                                              ; preds = %240
-  br i1 %.214, label %264, label %239
+  br i1 %.113, label %264, label %239
 
 252:                                              ; preds = %246
   %253 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1362,15 +1362,15 @@ _ZN5serde2de9SeqAccess12next_element17hc7a231401a9dfbd7E.llvm.127060411083477399
           to label %225 unwind label %36
 
 65:                                               ; preds = %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit", %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit", %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit", %44, %225, %224, %222, %220, %204, %192
-  %.131 = phi i1 [ false, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
-  %.128 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ false, %192 ], [ true, %44 ]
-  %.125 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ false, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
-  %.122 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ false, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
-  %.119 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ false, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
-  %.116 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ false, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
-  %.113 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ false, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
-  %.110 = phi i1 [ true, %225 ], [ true, %224 ], [ false, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
-  %.1 = phi i1 [ true, %225 ], [ false, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
+  %.232 = phi i1 [ false, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
+  %.229 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ false, %192 ], [ true, %44 ]
+  %.226 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ false, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
+  %.223 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ false, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
+  %.220 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ false, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
+  %.217 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ true, %220 ], [ false, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
+  %.214 = phi i1 [ true, %225 ], [ true, %224 ], [ true, %222 ], [ false, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
+  %.211 = phi i1 [ true, %225 ], [ true, %224 ], [ false, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
+  %.2 = phi i1 [ true, %225 ], [ false, %224 ], [ true, %222 ], [ true, %220 ], [ true, %204 ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h3011bcb103cc7018E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h03a9cc3ff52cda46E.exit" ], [ true, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h45766804c4803cb0E.exit" ], [ true, %192 ], [ true, %44 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !346)
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
   %66 = load i64, ptr %34, align 8, !range !138, !alias.scope !349, !noalias !351, !noundef !5
@@ -1939,15 +1939,15 @@ _ZN5serde2de9SeqAccess12next_element17hc7a231401a9dfbd7E.llvm.127060411083477399
 
 .body:                                            ; preds = %209, %199, %174, %197, %152, %195, %132, %193, %112, %183, %92, %70, %54, %36
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ], [ %71, %70 ], [ %184, %183 ], [ %93, %92 ], [ %194, %193 ], [ %113, %112 ], [ %196, %195 ], [ %133, %132 ], [ %198, %197 ], [ %153, %152 ], [ %200, %199 ], [ %175, %174 ], [ %210, %209 ]
-  %.232 = phi i1 [ %.030, %36 ], [ false, %54 ], [ %.131, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
-  %.229 = phi i1 [ true, %36 ], [ true, %54 ], [ %.128, %70 ], [ false, %183 ], [ false, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
-  %.226 = phi i1 [ true, %36 ], [ true, %54 ], [ %.125, %70 ], [ true, %183 ], [ true, %92 ], [ false, %193 ], [ false, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
-  %.223 = phi i1 [ true, %36 ], [ true, %54 ], [ %.122, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ false, %195 ], [ false, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
-  %.220 = phi i1 [ true, %36 ], [ true, %54 ], [ %.119, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ false, %197 ], [ false, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
-  %.217 = phi i1 [ true, %36 ], [ true, %54 ], [ %.116, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ false, %199 ], [ false, %174 ], [ true, %209 ]
-  %.214 = phi i1 [ %.012, %36 ], [ true, %54 ], [ %.113, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ false, %209 ]
-  %.211 = phi i1 [ %.09, %36 ], [ true, %54 ], [ %.110, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
-  %.2 = phi i1 [ %.0, %36 ], [ true, %54 ], [ %.1, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
+  %.131 = phi i1 [ %.030, %36 ], [ false, %54 ], [ %.232, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
+  %.128 = phi i1 [ true, %36 ], [ true, %54 ], [ %.229, %70 ], [ false, %183 ], [ false, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
+  %.125 = phi i1 [ true, %36 ], [ true, %54 ], [ %.226, %70 ], [ true, %183 ], [ true, %92 ], [ false, %193 ], [ false, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
+  %.122 = phi i1 [ true, %36 ], [ true, %54 ], [ %.223, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ false, %195 ], [ false, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
+  %.119 = phi i1 [ true, %36 ], [ true, %54 ], [ %.220, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ false, %197 ], [ false, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
+  %.116 = phi i1 [ true, %36 ], [ true, %54 ], [ %.217, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ false, %199 ], [ false, %174 ], [ true, %209 ]
+  %.113 = phi i1 [ %.012, %36 ], [ true, %54 ], [ %.214, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ false, %209 ]
+  %.110 = phi i1 [ %.09, %36 ], [ true, %54 ], [ %.211, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
+  %.1 = phi i1 [ %.0, %36 ], [ true, %54 ], [ %.2, %70 ], [ true, %183 ], [ true, %92 ], [ true, %193 ], [ true, %112 ], [ true, %195 ], [ true, %132 ], [ true, %197 ], [ true, %152 ], [ true, %199 ], [ true, %174 ], [ true, %209 ]
   %226 = load i64, ptr %1, align 8, !range !4, !noundef !5
   %227 = add nsw i64 %226, -8
   %228 = icmp ult i64 %227, 4
@@ -1978,31 +1978,31 @@ _ZN5serde2de9SeqAccess12next_element17hc7a231401a9dfbd7E.llvm.127060411083477399
   ]
 
 234:                                              ; preds = %.body
-  br i1 %.2, label %258, label %230
+  br i1 %.1, label %258, label %230
 
 235:                                              ; preds = %.body
-  br i1 %.232, label %260, label %230
+  br i1 %.131, label %260, label %230
 
 236:                                              ; preds = %231
-  br i1 %.211, label %257, label %230
+  br i1 %.110, label %257, label %230
 
 237:                                              ; preds = %231
-  br i1 %.229, label %243, label %230
+  br i1 %.128, label %243, label %230
 
 238:                                              ; preds = %231
-  br i1 %.226, label %247, label %230
+  br i1 %.125, label %247, label %230
 
 239:                                              ; preds = %231
-  br i1 %.223, label %249, label %230
+  br i1 %.122, label %249, label %230
 
 240:                                              ; preds = %231
-  br i1 %.220, label %251, label %230
+  br i1 %.119, label %251, label %230
 
 241:                                              ; preds = %231
-  br i1 %.217, label %253, label %230
+  br i1 %.116, label %253, label %230
 
 242:                                              ; preds = %231
-  br i1 %.214, label %255, label %230
+  br i1 %.113, label %255, label %230
 
 243:                                              ; preds = %237
   %244 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2582,11 +2582,11 @@ _ZN5serde2de9MapAccess10next_value17h124d620276d65266E.exit.i: ; preds = %123
   invoke void @_ZN9toml_edit4item4Item4span17h1694642d9e48df48E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %59)
           to label %195 unwind label %193, !noalias !660
 
-193:                                              ; preds = %.noexc86.i, %372, %.noexc84.i, %370, %.noexc81.i, %367, %334, %332, %.noexc.i55, %207, %205, %201, %192
-  %.030.i = phi i1 [ true, %205 ], [ true, %334 ], [ true, %332 ], [ true, %192 ], [ true, %201 ], [ false, %207 ], [ false, %.noexc.i55 ], [ true, %367 ], [ true, %.noexc81.i ], [ true, %370 ], [ true, %.noexc84.i ], [ true, %372 ], [ true, %.noexc86.i ]
-  %.012.i = phi i1 [ true, %205 ], [ true, %334 ], [ false, %332 ], [ true, %192 ], [ true, %201 ], [ true, %207 ], [ true, %.noexc.i55 ], [ false, %367 ], [ false, %.noexc81.i ], [ true, %370 ], [ true, %.noexc84.i ], [ true, %372 ], [ true, %.noexc86.i ]
-  %.09.i = phi i1 [ true, %205 ], [ false, %334 ], [ true, %332 ], [ true, %192 ], [ true, %201 ], [ true, %207 ], [ true, %.noexc.i55 ], [ true, %367 ], [ true, %.noexc81.i ], [ false, %370 ], [ false, %.noexc84.i ], [ true, %372 ], [ true, %.noexc86.i ]
-  %.0.i54 = phi i1 [ false, %205 ], [ true, %334 ], [ true, %332 ], [ true, %192 ], [ true, %201 ], [ true, %207 ], [ true, %.noexc.i55 ], [ true, %367 ], [ true, %.noexc81.i ], [ true, %370 ], [ true, %.noexc84.i ], [ false, %372 ], [ false, %.noexc86.i ]
+193:                                              ; preds = %.noexc86.i, %372, %.noexc84.i, %370, %.noexc81.i, %367, %334, %332, %.noexc.i56, %207, %205, %201, %192
+  %.030.i = phi i1 [ true, %205 ], [ true, %334 ], [ true, %332 ], [ true, %192 ], [ true, %201 ], [ false, %207 ], [ false, %.noexc.i56 ], [ true, %367 ], [ true, %.noexc81.i ], [ true, %370 ], [ true, %.noexc84.i ], [ true, %372 ], [ true, %.noexc86.i ]
+  %.012.i = phi i1 [ true, %205 ], [ true, %334 ], [ false, %332 ], [ true, %192 ], [ true, %201 ], [ true, %207 ], [ true, %.noexc.i56 ], [ false, %367 ], [ false, %.noexc81.i ], [ true, %370 ], [ true, %.noexc84.i ], [ true, %372 ], [ true, %.noexc86.i ]
+  %.09.i = phi i1 [ true, %205 ], [ false, %334 ], [ true, %332 ], [ true, %192 ], [ true, %201 ], [ true, %207 ], [ true, %.noexc.i56 ], [ true, %367 ], [ true, %.noexc81.i ], [ false, %370 ], [ false, %.noexc84.i ], [ true, %372 ], [ true, %.noexc86.i ]
+  %.0.i54 = phi i1 [ false, %205 ], [ true, %334 ], [ true, %332 ], [ true, %192 ], [ true, %201 ], [ true, %207 ], [ true, %.noexc.i56 ], [ true, %367 ], [ true, %.noexc81.i ], [ true, %370 ], [ true, %.noexc84.i ], [ false, %372 ], [ false, %.noexc86.i ]
   %194 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -2651,23 +2651,23 @@ _ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i: ; preds = %201
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30), !noalias !669
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %208, i64 24, i1 false), !noalias !660
   invoke void @_ZN9toml_edit2de5array14ArraySeqAccess3new17h89bb80d8a46e15a9E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, ptr, ptr, {}, { {} } } }) align 8 dereferenceable(32) %31, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %30)
-          to label %.noexc.i55 unwind label %193, !noalias !660
+          to label %.noexc.i56 unwind label %193, !noalias !660
 
-.noexc.i55:                                       ; preds = %207
+.noexc.i56:                                       ; preds = %207
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !669
   invoke void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$migrations_internals..TomlMetadata$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h01fc273c2c5f083bE.llvm.12706041108347739931"(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %48, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %31)
           to label %374 unwind label %193, !noalias !660
 
 209:                                              ; preds = %374, %373, %371, %369, %366, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i, %354, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i
-  %.131.i = phi i1 [ false, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
-  %.128.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ false, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
-  %.125.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ false, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
-  %.122.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ false, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
-  %.119.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ false, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
-  %.116.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ false, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
-  %.113.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ false, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
-  %.110.i = phi i1 [ true, %374 ], [ true, %373 ], [ false, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
-  %.1.i56 = phi i1 [ true, %374 ], [ false, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
+  %.232.i = phi i1 [ false, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
+  %.229.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ false, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
+  %.226.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ false, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
+  %.223.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ false, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
+  %.220.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ false, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
+  %.217.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ true, %369 ], [ false, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
+  %.214.i = phi i1 [ true, %374 ], [ true, %373 ], [ true, %371 ], [ false, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
+  %.211.i = phi i1 [ true, %374 ], [ true, %373 ], [ false, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
+  %.2.i = phi i1 [ true, %374 ], [ false, %373 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %_ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_f6417hf611cfc857a658f2E.exit.i ], [ true, %_ZN5serde2de7Visitor9visit_i6417hd2168c3d906c0977E.exit.i ], [ true, %354 ], [ true, %_ZN5serde2de7Visitor10visit_none17h9c387f8254765f1dE.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !673)
   call void @llvm.experimental.noalias.scope.decl(metadata !676)
   %210 = load i64, ptr %48, align 8, !range !138, !alias.scope !676, !noalias !678, !noundef !5
@@ -3215,21 +3215,21 @@ _ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i: ; preds = %"_ZN9tom
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %34), !noalias !665
   br label %209
 
-374:                                              ; preds = %.noexc.i55
+374:                                              ; preds = %.noexc.i56
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31), !noalias !669
   br label %209
 
 .body.i:                                          ; preds = %364, %361, %358, %355, %343, %335, %326, %305, %283, %261, %239, %217, %193
   %.pn.i = phi { ptr, i32 } [ %194, %193 ], [ %218, %217 ], [ %240, %239 ], [ %336, %335 ], [ %344, %343 ], [ %356, %355 ], [ %262, %261 ], [ %359, %358 ], [ %284, %283 ], [ %362, %361 ], [ %306, %305 ], [ %365, %364 ], [ %327, %326 ]
-  %.232.i = phi i1 [ %.030.i, %193 ], [ %.131.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
-  %.229.i = phi i1 [ true, %193 ], [ %.128.i, %217 ], [ false, %239 ], [ false, %335 ], [ false, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
-  %.226.i = phi i1 [ true, %193 ], [ %.125.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ false, %355 ], [ false, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
-  %.223.i = phi i1 [ true, %193 ], [ %.122.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ false, %358 ], [ false, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
-  %.220.i = phi i1 [ true, %193 ], [ %.119.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ false, %361 ], [ false, %305 ], [ true, %364 ], [ true, %326 ]
-  %.217.i = phi i1 [ true, %193 ], [ %.116.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ false, %364 ], [ false, %326 ]
-  %.214.i = phi i1 [ %.012.i, %193 ], [ %.113.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
-  %.211.i = phi i1 [ %.09.i, %193 ], [ %.110.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
-  %.2.i = phi i1 [ %.0.i54, %193 ], [ %.1.i56, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
+  %.131.i = phi i1 [ %.030.i, %193 ], [ %.232.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
+  %.128.i = phi i1 [ true, %193 ], [ %.229.i, %217 ], [ false, %239 ], [ false, %335 ], [ false, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
+  %.125.i = phi i1 [ true, %193 ], [ %.226.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ false, %355 ], [ false, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
+  %.122.i = phi i1 [ true, %193 ], [ %.223.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ false, %358 ], [ false, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
+  %.119.i = phi i1 [ true, %193 ], [ %.220.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ false, %361 ], [ false, %305 ], [ true, %364 ], [ true, %326 ]
+  %.116.i = phi i1 [ true, %193 ], [ %.217.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ false, %364 ], [ false, %326 ]
+  %.113.i = phi i1 [ %.012.i, %193 ], [ %.214.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
+  %.110.i = phi i1 [ %.09.i, %193 ], [ %.211.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
+  %.1.i55 = phi i1 [ %.0.i54, %193 ], [ %.2.i, %217 ], [ true, %239 ], [ true, %335 ], [ true, %343 ], [ true, %355 ], [ true, %261 ], [ true, %358 ], [ true, %283 ], [ true, %361 ], [ true, %305 ], [ true, %364 ], [ true, %326 ]
   %375 = load i64, ptr %59, align 8, !range !4, !alias.scope !663, !noalias !660, !noundef !5
   %376 = add nsw i64 %375, -8
   %377 = icmp ult i64 %376, 4
@@ -3257,31 +3257,31 @@ _ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i: ; preds = %"_ZN9tom
   ]
 
 382:                                              ; preds = %.body.i
-  br i1 %.2.i, label %406, label %.body.thread
+  br i1 %.1.i55, label %406, label %.body.thread
 
 383:                                              ; preds = %.body.i
-  br i1 %.232.i, label %408, label %.body.thread
+  br i1 %.131.i, label %408, label %.body.thread
 
 384:                                              ; preds = %379
-  br i1 %.211.i, label %405, label %.body.thread
+  br i1 %.110.i, label %405, label %.body.thread
 
 385:                                              ; preds = %379
-  br i1 %.229.i, label %391, label %.body.thread
+  br i1 %.128.i, label %391, label %.body.thread
 
 386:                                              ; preds = %379
-  br i1 %.226.i, label %395, label %.body.thread
+  br i1 %.125.i, label %395, label %.body.thread
 
 387:                                              ; preds = %379
-  br i1 %.223.i, label %397, label %.body.thread
+  br i1 %.122.i, label %397, label %.body.thread
 
 388:                                              ; preds = %379
-  br i1 %.220.i, label %399, label %.body.thread
+  br i1 %.119.i, label %399, label %.body.thread
 
 389:                                              ; preds = %379
-  br i1 %.217.i, label %401, label %.body.thread
+  br i1 %.116.i, label %401, label %.body.thread
 
 390:                                              ; preds = %379
-  br i1 %.214.i, label %403, label %.body.thread
+  br i1 %.113.i, label %403, label %.body.thread
 
 391:                                              ; preds = %385
   %392 = getelementptr inbounds i8, ptr %59, i64 8
@@ -3450,7 +3450,7 @@ _ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i: ; preds = %"_ZN9tom
   br label %433
 
 435:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc4a285cdf0c1e26fE.exit", %431
-  %.1.ph = phi i1 [ true, %431 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc4a285cdf0c1e26fE.exit" ]
+  %.2.ph = phi i1 [ true, %431 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc4a285cdf0c1e26fE.exit" ]
   %436 = load i64, ptr %1, align 8, !range !4, !noundef !5
   %437 = add nsw i64 %436, -8
   %438 = icmp ugt i64 %437, 3
@@ -3467,7 +3467,7 @@ _ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i: ; preds = %"_ZN9tom
   br i1 %443, label %444, label %445
 
 444:                                              ; preds = %442
-  br i1 %.1.ph, label %446, label %433
+  br i1 %.2.ph, label %446, label %433
 
 445:                                              ; preds = %442
   call fastcc void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17hdf01d94f63be10d9E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %1)
@@ -3489,7 +3489,7 @@ _ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i: ; preds = %"_ZN9tom
 
 .body.thread87:                                   ; preds = %422, %185, %175, %169, %.body.thread95
   %.pn93 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread95 ], [ %423, %422 ], [ %186, %185 ], [ %170, %169 ], [ %176, %175 ]
-  %.292 = phi i1 [ true, %.body.thread95 ], [ true, %422 ], [ false, %185 ], [ false, %169 ], [ false, %175 ]
+  %.192 = phi i1 [ true, %.body.thread95 ], [ true, %422 ], [ false, %185 ], [ false, %169 ], [ false, %175 ]
   %448 = load i64, ptr %1, align 8, !range !4, !noundef !5
   %449 = add nsw i64 %448, -8
   %450 = icmp ugt i64 %449, 3
@@ -3506,7 +3506,7 @@ _ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i: ; preds = %"_ZN9tom
   br i1 %455, label %456, label %457
 
 456:                                              ; preds = %454
-  br i1 %.292, label %458, label %.body.thread
+  br i1 %.192, label %458, label %.body.thread
 
 457:                                              ; preds = %454
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17hdf01d94f63be10d9E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %1) #9

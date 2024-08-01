@@ -1292,7 +1292,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 17:                                               ; preds = %.lr.ph94, %14
   %indvars.iv104 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next105, %14 ]
   %18 = phi ptr [ %12, %.lr.ph94 ], [ %16, %14 ]
-  %.05292 = phi i32 [ 0, %.lr.ph94 ], [ %.469, %14 ]
+  %.05292 = phi i32 [ 0, %.lr.ph94 ], [ %.25469, %14 ]
   %19 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv104
   %20 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %5, i32 noundef 0) #16
   %21 = trunc i64 %20 to i32
@@ -1313,10 +1313,10 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 
 28:                                               ; preds = %46, %.lr.ph.split.us
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %46 ], [ 0, %.lr.ph.split.us ]
-  %.04380.us = phi i1 [ %.2.us, %46 ], [ false, %.lr.ph.split.us ]
-  %.04479.us = phi i1 [ %.145.us, %46 ], [ false, %.lr.ph.split.us ]
-  %.04978.us = phi i32 [ %.150.us, %46 ], [ %21, %.lr.ph.split.us ]
-  %.15377.us = phi i32 [ %.355.us, %46 ], [ %.05292, %.lr.ph.split.us ]
+  %.04380.us = phi i1 [ %.3.us, %46 ], [ false, %.lr.ph.split.us ]
+  %.04479.us = phi i1 [ %.246.us, %46 ], [ false, %.lr.ph.split.us ]
+  %.04978.us = phi i32 [ %.251.us, %46 ], [ %21, %.lr.ph.split.us ]
+  %.15377.us = phi i32 [ %.4.us, %46 ], [ %.05292, %.lr.ph.split.us ]
   %29 = getelementptr inbounds %struct.mca_base_var_enum_value_flag_t, ptr %27, i64 %indvars.iv100
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, %.04978.us
@@ -1345,10 +1345,10 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %38, %32
-  %.355.us = phi i32 [ %spec.select, %38 ], [ %.15377.us, %32 ]
-  %.150.us = phi i32 [ %44, %38 ], [ %.04978.us, %32 ]
-  %.145.us = phi i1 [ true, %38 ], [ %.04479.us, %32 ]
-  %.2.us = phi i1 [ %spec.select118, %38 ], [ %.04380.us, %32 ]
+  %.4.us = phi i32 [ %spec.select, %38 ], [ %.15377.us, %32 ]
+  %.251.us = phi i32 [ %44, %38 ], [ %.04978.us, %32 ]
+  %.246.us = phi i1 [ true, %38 ], [ %.04479.us, %32 ]
+  %.3.us = phi i1 [ %spec.select118, %38 ], [ %.04380.us, %32 ]
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count102
   br i1 %exitcond103.not, label %._crit_edge, label %28, !llvm.loop !17
@@ -1387,15 +1387,15 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   br i1 %exitcond.not, label %.thread.thread, label %49, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %46
-  br i1 %.145.us, label %.thread, label %.thread.thread
+  br i1 %.246.us, label %.thread, label %.thread.thread
 
 .thread:                                          ; preds = %38, %60, %._crit_edge
-  %.371 = phi i1 [ %.2.us, %._crit_edge ], [ false, %60 ], [ %spec.select118, %38 ]
-  %.25170 = phi i32 [ %.150.us, %._crit_edge ], [ %21, %60 ], [ 0, %38 ]
-  %.469 = phi i32 [ %.355.us, %._crit_edge ], [ %62, %60 ], [ %spec.select, %38 ]
-  %64 = icmp ne i32 %.25170, 0
+  %.171 = phi i1 [ %.3.us, %._crit_edge ], [ false, %60 ], [ %spec.select118, %38 ]
+  %.15070 = phi i32 [ %.251.us, %._crit_edge ], [ %21, %60 ], [ 0, %38 ]
+  %.25469 = phi i32 [ %.4.us, %._crit_edge ], [ %62, %60 ], [ %spec.select, %38 ]
+  %64 = icmp ne i32 %.15070, 0
   %or.cond = select i1 %24, i1 %64, i1 false
-  %or.cond64 = select i1 %.371, i1 true, i1 %or.cond
+  %or.cond64 = select i1 %.171, i1 true, i1 %or.cond
   br i1 %or.cond64, label %.thread.thread, label %14
 
 .thread.thread:                                   ; preds = %17, %54, %.thread, %._crit_edge, %63
@@ -1404,7 +1404,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   br label %66
 
 ._crit_edge95:                                    ; preds = %14, %.preheader
-  %.052.lcssa = phi i32 [ 0, %.preheader ], [ %.469, %14 ]
+  %.052.lcssa = phi i32 [ 0, %.preheader ], [ %.25469, %14 ]
   call void @opal_argv_free(ptr noundef nonnull %10) #16
   store i32 %.052.lcssa, ptr %2, align 4
   br label %66

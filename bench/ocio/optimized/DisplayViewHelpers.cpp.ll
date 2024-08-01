@@ -412,8 +412,8 @@ for.body.lr.ph:                                   ; preds = %invoke.cont13
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97
   %idx.0465 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97 ]
-  %needGamma.0464 = phi i1 [ true, %for.body.lr.ph ], [ %needGamma.1, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97 ]
-  %needExposure.0463 = phi i1 [ true, %for.body.lr.ph ], [ %needExposure.2, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97 ]
+  %needGamma.1464 = phi i1 [ true, %for.body.lr.ph ], [ %needGamma.2, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97 ]
+  %needExposure.1463 = phi i1 [ true, %for.body.lr.ph ], [ %needExposure.2, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97 ]
   %26 = load ptr, ptr %grpTransform, align 8
   %vtable19 = load ptr, ptr %26, align 8
   %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 80
@@ -534,14 +534,14 @@ lpad31:                                           ; preds = %invoke.cont32, %if.
 
 invoke.cont38:                                    ; preds = %invoke.cont32
   %not.call33 = xor i1 %call33, true
-  %spec.select = select i1 %not.call33, i1 %needExposure.0463, i1 false
+  %spec.select = select i1 %not.call33, i1 %needExposure.1463, i1 false
   %not.call39 = xor i1 %call39, true
-  %spec.select14 = select i1 %not.call39, i1 %needGamma.0464, i1 false
+  %spec.select14 = select i1 %not.call39, i1 %needGamma.1464, i1 false
   br label %if.end42
 
 if.end42:                                         ; preds = %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread, %invoke.cont38, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
-  %needExposure.2 = phi i1 [ %needExposure.0463, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ %spec.select, %invoke.cont38 ], [ %needExposure.0463, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
-  %needGamma.1 = phi i1 [ %needGamma.0464, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ %spec.select14, %invoke.cont38 ], [ %needGamma.0464, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+  %needExposure.2 = phi i1 [ %needExposure.1463, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ %spec.select, %invoke.cont38 ], [ %needExposure.1463, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+  %needGamma.2 = phi i1 [ %needGamma.1464, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ %spec.select14, %invoke.cont38 ], [ %needGamma.1464, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
   %49 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i36 = icmp eq ptr %49, null
   br i1 %cmp.not.i.i.i36, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev25ExposureContrastTransformEED2Ev.exit, label %if.then.i.i.i37
@@ -693,8 +693,8 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97: ; preds = %_ZN
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97, %invoke.cont13
-  %needExposure.0.lcssa = phi i1 [ true, %invoke.cont13 ], [ %needExposure.2, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97 ]
-  %needGamma.0.lcssa = phi i1 [ true, %invoke.cont13 ], [ %needGamma.1, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97 ]
+  %needExposure.1.lcssa = phi i1 [ true, %invoke.cont13 ], [ %needExposure.2, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97 ]
+  %needGamma.1.lcssa = phi i1 [ true, %invoke.cont13 ], [ %needGamma.2, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit97 ]
   %_M_refcount.i.i98 = getelementptr inbounds i8, ptr %grpTransform, i64 8
   %71 = load ptr, ptr %_M_refcount.i.i98, align 8
   %cmp.not.i.i.i99 = icmp eq ptr %71, null
@@ -774,7 +774,7 @@ ehcleanup43:                                      ; preds = %lpad31, %lpad21
   br label %ehcleanup118
 
 if.end44:                                         ; preds = %if.end8.sink.split.i.i.i.i120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i117, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i107, %for.end
-  %brmerge = select i1 %needExposure.0.lcssa, i1 true, i1 %needGamma.0.lcssa
+  %brmerge = select i1 %needExposure.1.lcssa, i1 true, i1 %needGamma.1.lcssa
   %82 = load ptr, ptr %channelView, align 8
   %cmp.i129 = icmp ne ptr %82, null
   %or.cond = select i1 %brmerge, i1 true, i1 %cmp.i129
@@ -789,8 +789,8 @@ if.then48:                                        ; preds = %if.end44
   br label %cleanup
 
 if.end49:                                         ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit, %if.end44
-  %needGamma.2457 = phi i1 [ %needGamma.0.lcssa, %if.end44 ], [ true, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit ]
-  %needExposure.3456 = phi i1 [ %needExposure.0.lcssa, %if.end44 ], [ true, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit ]
+  %needGamma.0457 = phi i1 [ %needGamma.1.lcssa, %if.end44 ], [ true, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit ]
+  %needExposure.0456 = phi i1 [ %needExposure.1.lcssa, %if.end44 ], [ true, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit ]
   invoke void @_ZN19OpenColorIO_v2_4dev21LegacyViewingPipeline6CreateEv(ptr nonnull sret(%"class.std::shared_ptr.24") align 8 %pipeline)
           to label %invoke.cont50 unwind label %lpad12
 
@@ -898,7 +898,7 @@ if.end8.sink.split.i.i.i.i162:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20DisplayViewTransformEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20DisplayViewTransformEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20DisplayViewTransformEEC2IS1_vEERKS_IT_E.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i149, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i159, %if.end8.sink.split.i.i.i.i162
-  br i1 %needExposure.3456, label %if.then56, label %if.end82
+  br i1 %needExposure.0456, label %if.then56, label %if.end82
 
 if.then56:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20DisplayViewTransformEED2Ev.exit
   invoke void @_ZN19OpenColorIO_v2_4dev25ExposureContrastTransform6CreateEv(ptr nonnull sret(%"class.std::shared_ptr.30") align 8 %ex57)
@@ -1125,7 +1125,7 @@ lpad63:                                           ; preds = %invoke.cont72, %inv
   br label %ehcleanup117
 
 if.end82:                                         ; preds = %if.end8.sink.split.i.i.i.i234, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i231, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i221, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit211, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20DisplayViewTransformEED2Ev.exit
-  br i1 %needGamma.2457, label %if.then84, label %if.end105
+  br i1 %needGamma.0457, label %if.then84, label %if.end105
 
 if.then84:                                        ; preds = %if.end82
   invoke void @_ZN19OpenColorIO_v2_4dev25ExposureContrastTransform6CreateEv(ptr nonnull sret(%"class.std::shared_ptr.30") align 8 %ex85)

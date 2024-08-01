@@ -2473,8 +2473,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body.i:                                          ; preds = %73, %66, %52
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %73 ], [ %67, %66 ], [ %53, %52 ]
-  %.14.i = extractvalue { ptr, i32 } %.pn.pn.i, 0
-  %74 = call ptr @__cxa_begin_catch(ptr %.14.i) #15
+  %.36.i = extractvalue { ptr, i32 } %.pn.pn.i, 0
+  %74 = call ptr @__cxa_begin_catch(ptr %.36.i) #15
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
           to label %75 unwind label %80
 

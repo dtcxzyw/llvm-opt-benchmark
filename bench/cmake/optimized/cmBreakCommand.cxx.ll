@@ -198,13 +198,13 @@ define dso_local noundef zeroext i1 @_Z14cmBreakCommandRKSt6vectorINSt7__cxx1112
 
 .sink.split:                                      ; preds = %60, %43, %31
   %.sink = phi ptr [ %3, %31 ], [ %6, %43 ], [ %6, %60 ]
-  %.3.ph = phi i1 [ false, %31 ], [ true, %43 ], [ %not..ph42, %60 ]
+  %.228.ph = phi i1 [ false, %31 ], [ true, %43 ], [ %not..ph42, %60 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.sink) #5
   br label %63
 
 63:                                               ; preds = %.sink.split, %34
-  %.3 = phi i1 [ true, %34 ], [ %.3.ph, %.sink.split ]
-  ret i1 %.3
+  %.228 = phi i1 [ true, %34 ], [ %.228.ph, %.sink.split ]
+  ret i1 %.228
 
 64:                                               ; preds = %44, %52, %61, %15, %23, %32
   %.sink50 = phi ptr [ %3, %32 ], [ %3, %23 ], [ %3, %15 ], [ %6, %61 ], [ %6, %52 ], [ %6, %44 ]

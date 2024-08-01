@@ -105,9 +105,9 @@ if.end43:                                         ; preds = %if.then36
 
 err:                                              ; preds = %if.end43, %if.end33, %if.then36, %if.end28, %land.lhs.true21, %if.end13, %land.lhs.true, %entry, %lor.lhs.false
   %testprov.0 = phi ptr [ %call14, %if.then36 ], [ %call14, %if.end28 ], [ %call14, %land.lhs.true21 ], [ %call14, %if.end13 ], [ null, %land.lhs.true ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call14, %if.end33 ], [ %call14, %if.end43 ]
-  %testprovmd.1 = phi ptr [ %call29, %if.then36 ], [ %call29, %if.end28 ], [ null, %land.lhs.true21 ], [ null, %if.end13 ], [ null, %land.lhs.true ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call29, %if.end33 ], [ %call44, %if.end43 ]
+  %testprovmd.0 = phi ptr [ %call29, %if.then36 ], [ %call29, %if.end28 ], [ null, %land.lhs.true21 ], [ null, %if.end13 ], [ null, %land.lhs.true ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call29, %if.end33 ], [ %call44, %if.end43 ]
   %res.0 = phi i32 [ 0, %if.then36 ], [ 0, %if.end28 ], [ 0, %land.lhs.true21 ], [ 0, %if.end13 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end33 ], [ %spec.select, %if.end43 ]
-  tail call void @EVP_MD_free(ptr noundef %testprovmd.1) #4
+  tail call void @EVP_MD_free(ptr noundef %testprovmd.0) #4
   %call50 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %testprov.0) #4
   tail call void @OSSL_LIB_CTX_free(ptr noundef %call) #4
   ret i32 %res.0

@@ -8471,8 +8471,8 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
 
 .lr.ph116.split.us:                               ; preds = %.lr.ph116, %19
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %19 ], [ 0, %.lr.ph116 ]
-  %.061114.us = phi i32 [ %.4.us, %19 ], [ 1000000000, %.lr.ph116 ]
-  %.063113.us = phi i32 [ %.467.us, %19 ], [ -1, %.lr.ph116 ]
+  %.061114.us = phi i32 [ %.3.us, %19 ], [ 1000000000, %.lr.ph116 ]
+  %.063113.us = phi i32 [ %.366.us, %19 ], [ -1, %.lr.ph116 ]
   %.069112.us = phi i32 [ %18, %19 ], [ 0, %.lr.ph116 ]
   %.val86.us = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val86.us, i64 %indvars.iv155
@@ -8497,8 +8497,8 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
 .critedge2.us:                                    ; preds = %.critedge2.us.loopexit, %.lr.ph116.split.us
   %.val80.us = phi i32 [ %.val82.us, %.lr.ph116.split.us ], [ %.val81.us.us, %.critedge2.us.loopexit ]
   %.062.lcssa.us = phi i32 [ 0, %.lr.ph116.split.us ], [ %22, %.critedge2.us.loopexit ]
-  %.467.us = phi i32 [ %.063113.us, %.lr.ph116.split.us ], [ %.366.us.us, %.critedge2.us.loopexit ]
-  %.4.us = phi i32 [ %.061114.us, %.lr.ph116.split.us ], [ %.3.us.us, %.critedge2.us.loopexit ]
+  %.366.us = phi i32 [ %.063113.us, %.lr.ph116.split.us ], [ %.467.us.us, %.critedge2.us.loopexit ]
+  %.3.us = phi i32 [ %.061114.us, %.lr.ph116.split.us ], [ %.4.us.us, %.critedge2.us.loopexit ]
   %23 = icmp eq i32 %18, 2
   %24 = icmp slt i32 %.062.lcssa.us, %.val80.us
   %or.cond167 = select i1 %23, i1 true, i1 %24
@@ -8510,8 +8510,8 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
 
 26:                                               ; preds = %56, %.lr.ph.us
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %56 ], [ 0, %.lr.ph.us ]
-  %.194.us.us = phi i32 [ %.3.us.us, %56 ], [ %.061114.us, %.lr.ph.us ]
-  %.16492.us.us = phi i32 [ %.366.us.us, %56 ], [ %.063113.us, %.lr.ph.us ]
+  %.294.us.us = phi i32 [ %.4.us.us, %56 ], [ %.061114.us, %.lr.ph.us ]
+  %.26592.us.us = phi i32 [ %.467.us.us, %56 ], [ %.063113.us, %.lr.ph.us ]
   %.val85.us.us = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i32, ptr %.val85.us.us, i64 %indvars.iv151
   %28 = load i32, ptr %27, align 4
@@ -8549,14 +8549,14 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
   br i1 %53, label %56, label %54
 
 54:                                               ; preds = %26
-  %55 = icmp sgt i32 %.194.us.us, %52
-  %spec.select.us.us = select i1 %55, i32 %28, i32 %.16492.us.us
-  %spec.select78.us.us = tail call i32 @llvm.smin.i32(i32 %.194.us.us, i32 %52)
+  %55 = icmp sgt i32 %.294.us.us, %52
+  %spec.select.us.us = select i1 %55, i32 %28, i32 %.26592.us.us
+  %spec.select78.us.us = tail call i32 @llvm.smin.i32(i32 %.294.us.us, i32 %52)
   br label %56
 
 56:                                               ; preds = %54, %26
-  %.366.us.us = phi i32 [ %.16492.us.us, %26 ], [ %spec.select.us.us, %54 ]
-  %.3.us.us = phi i32 [ %.194.us.us, %26 ], [ %spec.select78.us.us, %54 ]
+  %.467.us.us = phi i32 [ %.26592.us.us, %26 ], [ %spec.select.us.us, %54 ]
+  %.4.us.us = phi i32 [ %.294.us.us, %26 ], [ %spec.select78.us.us, %54 ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %.val81.us.us = load i32, ptr %15, align 4
   %57 = sext i32 %.val81.us.us to i64
@@ -8572,10 +8572,10 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
 
 .lr.ph116.split:                                  ; preds = %.lr.ph116, %59
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %59 ], [ 0, %.lr.ph116 ]
-  %.061114 = phi i32 [ %.4, %59 ], [ 1000000000, %.lr.ph116 ]
-  %.063113 = phi i32 [ %.467, %59 ], [ -1, %.lr.ph116 ]
+  %.061114 = phi i32 [ %.3, %59 ], [ 1000000000, %.lr.ph116 ]
+  %.063113 = phi i32 [ %.366, %59 ], [ -1, %.lr.ph116 ]
   %.069112 = phi i32 [ %66, %59 ], [ 0, %.lr.ph116 ]
-  %.070111 = phi i32 [ %.373, %59 ], [ 0, %.lr.ph116 ]
+  %.070111 = phi i32 [ %.272, %59 ], [ 0, %.lr.ph116 ]
   %.val86 = load ptr, ptr %7, align 8
   %62 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val86, i64 %indvars.iv147
   %63 = getelementptr i8, ptr %62, i64 4
@@ -8591,8 +8591,8 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
 
 68:                                               ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %.194 = phi i32 [ %.061114, %.lr.ph ], [ %.3, %101 ]
-  %.16492 = phi i32 [ %.063113, %.lr.ph ], [ %.366, %101 ]
+  %.294 = phi i32 [ %.061114, %.lr.ph ], [ %.4, %101 ]
+  %.26592 = phi i32 [ %.063113, %.lr.ph ], [ %.467, %101 ]
   %.17191 = phi i32 [ %.070111, %.lr.ph ], [ %71, %101 ]
   %.val85 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i32, ptr %.val85, i64 %indvars.iv
@@ -8633,15 +8633,15 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
   br i1 %97, label %101, label %98
 
 98:                                               ; preds = %68
-  %99 = icmp sgt i32 %.194, %96
-  %spec.select = select i1 %99, i32 %70, i32 %.16492
-  %spec.select78 = tail call i32 @llvm.smin.i32(i32 %.194, i32 %96)
+  %99 = icmp sgt i32 %.294, %96
+  %spec.select = select i1 %99, i32 %70, i32 %.26592
+  %spec.select78 = tail call i32 @llvm.smin.i32(i32 %.294, i32 %96)
   %100 = icmp sgt i32 %.17191, 4
   br i1 %100, label %.critedge2.loopexit, label %101
 
 101:                                              ; preds = %98, %68
-  %.366 = phi i32 [ %.16492, %68 ], [ %spec.select, %98 ]
-  %.3 = phi i32 [ %.194, %68 ], [ %spec.select78, %98 ]
+  %.467 = phi i32 [ %.26592, %68 ], [ %spec.select, %98 ]
+  %.4 = phi i32 [ %.294, %68 ], [ %spec.select78, %98 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val81 = load i32, ptr %63, align 4
   %102 = sext i32 %.val81 to i64
@@ -8650,16 +8650,16 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
 
 .critedge2.loopexit:                              ; preds = %101, %98
   %.062.lcssa.ph.in = phi i64 [ %indvars.iv, %98 ], [ %indvars.iv.next, %101 ]
-  %.467.ph = phi i32 [ %spec.select, %98 ], [ %.366, %101 ]
-  %.4.ph = phi i32 [ %spec.select78, %98 ], [ %.3, %101 ]
+  %.366.ph = phi i32 [ %spec.select, %98 ], [ %.467, %101 ]
+  %.3.ph = phi i32 [ %spec.select78, %98 ], [ %.4, %101 ]
   %.062.lcssa.ph = trunc i64 %.062.lcssa.ph.in to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph116.split
   %.062.lcssa = phi i32 [ 0, %.lr.ph116.split ], [ %.062.lcssa.ph, %.critedge2.loopexit ]
-  %.373 = phi i32 [ %.070111, %.lr.ph116.split ], [ %71, %.critedge2.loopexit ]
-  %.467 = phi i32 [ %.063113, %.lr.ph116.split ], [ %.467.ph, %.critedge2.loopexit ]
-  %.4 = phi i32 [ %.061114, %.lr.ph116.split ], [ %.4.ph, %.critedge2.loopexit ]
+  %.272 = phi i32 [ %.070111, %.lr.ph116.split ], [ %71, %.critedge2.loopexit ]
+  %.366 = phi i32 [ %.063113, %.lr.ph116.split ], [ %.366.ph, %.critedge2.loopexit ]
+  %.3 = phi i32 [ %.061114, %.lr.ph116.split ], [ %.3.ph, %.critedge2.loopexit ]
   %104 = icmp eq i32 %66, 2
   br i1 %104, label %.critedge, label %105
 
@@ -8669,10 +8669,10 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
   br i1 %106, label %.critedge, label %59
 
 .critedge:                                        ; preds = %105, %.critedge2, %59, %.critedge2.us, %19
-  %.568 = phi i32 [ %.467.us, %19 ], [ %.467.us, %.critedge2.us ], [ %.467, %59 ], [ %.467, %.critedge2 ], [ %.467, %105 ]
-  %.5 = phi i32 [ %.4.us, %19 ], [ %.4.us, %.critedge2.us ], [ %.4, %59 ], [ %.4, %.critedge2 ], [ %.4, %105 ]
-  %107 = icmp sgt i32 %.568, 0
-  %108 = icmp slt i32 %.5, 200
+  %.164 = phi i32 [ %.366.us, %19 ], [ %.366.us, %.critedge2.us ], [ %.366, %59 ], [ %.366, %.critedge2 ], [ %.366, %105 ]
+  %.1 = phi i32 [ %.3.us, %19 ], [ %.3.us, %.critedge2.us ], [ %.3, %59 ], [ %.3, %.critedge2 ], [ %.3, %105 ]
+  %107 = icmp sgt i32 %.164, 0
+  %108 = icmp slt i32 %.1, 200
   %or.cond79 = select i1 %107, i1 %108, i1 false
   br i1 %or.cond79, label %109, label %.critedge5
 
@@ -8685,7 +8685,7 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr i8, ptr %115, i64 8
   %.val.i.i88 = load ptr, ptr %116, align 8
-  %117 = zext nneg i32 %.568 to i64
+  %117 = zext nneg i32 %.164 to i64
   %118 = getelementptr inbounds i32, ptr %.val.i.i88, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = getelementptr i8, ptr %113, i64 8
@@ -8710,7 +8710,7 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %0, i64 8
   %137 = load i32, ptr %136, align 8
-  %138 = and i32 %.5, 3
+  %138 = and i32 %.1, 3
   %139 = tail call ptr @Gia_ManDeriveSolutionOne(ptr noundef %129, ptr noundef %131, ptr noundef %133, ptr noundef %135, ptr noundef nonnull %124, i32 noundef %137, i32 noundef %138) #27
   %140 = icmp ne ptr %139, null
   %141 = icmp ne ptr %3, null
@@ -9127,7 +9127,7 @@ Supp_ManCleanMatrix.exit.us:                      ; preds = %Vec_WrdFreeP.exit.i
   %83 = phi ptr [ %318, %Supp_ManCleanMatrix.exit ], [ %22, %.lr.ph145 ]
   %84 = phi i32 [ %319, %Supp_ManCleanMatrix.exit ], [ %64, %.lr.ph145 ]
   %.069143 = phi i32 [ %333, %Supp_ManCleanMatrix.exit ], [ 0, %.lr.ph145 ]
-  %.070142 = phi i32 [ %.1.lcssa, %Supp_ManCleanMatrix.exit ], [ -1, %.lr.ph145 ]
+  %.1142 = phi i32 [ %.2.lcssa, %Supp_ManCleanMatrix.exit ], [ -1, %.lr.ph145 ]
   call void @Supp_ManAddPatternsFunc(ptr noundef nonnull %20, i32 noundef %.069143)
   %85 = call i32 @Supp_ManRandomSolution(ptr noundef nonnull %20, i32 noundef 0, i32 noundef 0)
   %86 = icmp sgt i32 %84, 0
@@ -9136,11 +9136,11 @@ Supp_ManCleanMatrix.exit.us:                      ; preds = %Vec_WrdFreeP.exit.i
 .lr.ph:                                           ; preds = %.lr.ph145.split, %Supp_ManRandomSolution.exit
   %87 = phi ptr [ %313, %Supp_ManRandomSolution.exit ], [ %82, %.lr.ph145.split ]
   %88 = phi ptr [ %312, %Supp_ManRandomSolution.exit ], [ %83, %.lr.ph145.split ]
-  %.1141 = phi i32 [ %.2, %Supp_ManRandomSolution.exit ], [ %.070142, %.lr.ph145.split ]
+  %.2141 = phi i32 [ %.3, %Supp_ManRandomSolution.exit ], [ %.1142, %.lr.ph145.split ]
   %.071140 = phi i32 [ %.020.lcssa.i172, %Supp_ManRandomSolution.exit ], [ %85, %.lr.ph145.split ]
   %.072139 = phi i32 [ %314, %Supp_ManRandomSolution.exit ], [ 0, %.lr.ph145.split ]
   %89 = call i32 @Supp_ManMinimize(ptr noundef nonnull %20, i32 noundef %.071140, i32 poison, i32 noundef 0)
-  %90 = icmp eq i32 %.1141, -1
+  %90 = icmp eq i32 %.2141, -1
   br i1 %90, label %137, label %91
 
 91:                                               ; preds = %.lr.ph
@@ -9151,7 +9151,7 @@ Supp_ManCleanMatrix.exit.us:                      ; preds = %Vec_WrdFreeP.exit.i
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr i8, ptr %96, i64 8
   %.val.i.i.i = load ptr, ptr %97, align 8
-  %98 = sext i32 %.1141 to i64
+  %98 = sext i32 %.2141 to i64
   %99 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr i8, ptr %94, i64 8
@@ -9243,7 +9243,7 @@ Supp_SetWeight.exit89:                            ; preds = %129, %Supp_SetWeigh
   br label %138
 
 138:                                              ; preds = %137, %Supp_SetWeight.exit89
-  %.2 = phi i32 [ %89, %137 ], [ %.1141, %Supp_SetWeight.exit89 ]
+  %.3 = phi i32 [ %89, %137 ], [ %.2141, %Supp_SetWeight.exit89 ]
   %139 = load ptr, ptr %57, align 8
   %140 = load ptr, ptr %58, align 8
   %141 = getelementptr i8, ptr %140, i64 4
@@ -9621,7 +9621,7 @@ Supp_ManRandomSolution.exit:                      ; preds = %Supp_ManReconstruct
   %317 = phi ptr [ %82, %.lr.ph145.split ], [ %313, %Supp_ManRandomSolution.exit ]
   %318 = phi ptr [ %83, %.lr.ph145.split ], [ %312, %Supp_ManRandomSolution.exit ]
   %319 = phi i32 [ %84, %.lr.ph145.split ], [ %315, %Supp_ManRandomSolution.exit ]
-  %.1.lcssa = phi i32 [ %.070142, %.lr.ph145.split ], [ %.2, %Supp_ManRandomSolution.exit ]
+  %.2.lcssa = phi i32 [ %.1142, %.lr.ph145.split ], [ %.3, %Supp_ManRandomSolution.exit ]
   %320 = load ptr, ptr %58, align 8
   %321 = getelementptr i8, ptr %320, i64 4
   %.val8.i = load i32, ptr %321, align 4
@@ -9671,7 +9671,7 @@ Supp_ManCleanMatrix.exit:                         ; preds = %Vec_WrdFreeP.exit.i
   br i1 %335, label %.lr.ph145.split, label %._crit_edge146, !llvm.loop !81
 
 ._crit_edge146:                                   ; preds = %Supp_ManCleanMatrix.exit.us, %Supp_ManCleanMatrix.exit, %51
-  %.070.lcssa = phi i32 [ -1, %51 ], [ %.1.lcssa, %Supp_ManCleanMatrix.exit ], [ -1, %Supp_ManCleanMatrix.exit.us ]
+  %.1.lcssa = phi i32 [ -1, %51 ], [ %.2.lcssa, %Supp_ManCleanMatrix.exit ], [ -1, %Supp_ManCleanMatrix.exit.us ]
   br i1 %.not, label %._crit_edge146._crit_edge, label %336
 
 ._crit_edge146._crit_edge:                        ; preds = %._crit_edge146
@@ -9738,7 +9738,7 @@ Abc_Clock.exit112:                                ; preds = %Vec_WecSizeSize.exi
   %364 = fdiv double %363, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.38, double noundef %364)
   %365 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35)
-  %366 = icmp eq i32 %.070.lcssa, -1
+  %366 = icmp eq i32 %.1.lcssa, -1
   br i1 %366, label %367, label %368
 
 367:                                              ; preds = %Abc_Clock.exit112
@@ -9746,7 +9746,7 @@ Abc_Clock.exit112:                                ; preds = %Vec_WecSizeSize.exi
   br label %369
 
 368:                                              ; preds = %Abc_Clock.exit112
-  call void @Supp_PrintOne(ptr noundef nonnull %20, i32 noundef %.070.lcssa)
+  call void @Supp_PrintOne(ptr noundef nonnull %20, i32 noundef %.1.lcssa)
   br label %369
 
 369:                                              ; preds = %._crit_edge146._crit_edge, %367, %368

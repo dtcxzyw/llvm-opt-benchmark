@@ -574,9 +574,9 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   br label %30
 
 30:                                               ; preds = %.lr.ph, %82
-  %.1101 = phi ptr [ %spec.select, %.lr.ph ], [ %spec.select76, %82 ]
+  %.2101 = phi ptr [ %spec.select, %.lr.ph ], [ %spec.select76, %82 ]
   %.064100 = phi i16 [ %26, %.lr.ph ], [ %85, %82 ]
-  %31 = call ptr @H5B2__protect_internal(ptr noundef nonnull %12, ptr noundef %.1101, ptr noundef nonnull %4, i16 noundef zeroext %.064100, i1 noundef zeroext false, i32 noundef 128) #8
+  %31 = call ptr @H5B2__protect_internal(ptr noundef nonnull %12, ptr noundef %.2101, ptr noundef nonnull %4, i16 noundef zeroext %.064100, i1 noundef zeroext false, i32 noundef 128) #8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %37
 
@@ -587,13 +587,13 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   br label %151
 
 37:                                               ; preds = %30
-  %.not71 = icmp eq ptr %.1101, null
-  %.not72 = icmp eq ptr %.1101, %12
+  %.not71 = icmp eq ptr %.2101, null
+  %.not72 = icmp eq ptr %.2101, %12
   %or.cond77 = or i1 %.not71, %.not72
   br i1 %or.cond77, label %45, label %38
 
 38:                                               ; preds = %37
-  %39 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.1101) #8
+  %39 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.2101) #8
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %45
 
@@ -696,8 +696,8 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
 
 ._crit_edge:                                      ; preds = %82, %24
   %.064.lcssa = phi i16 [ 0, %24 ], [ %85, %82 ]
-  %.1.lcssa = phi ptr [ %spec.select, %24 ], [ %spec.select76, %82 ]
-  %102 = call ptr @H5B2__protect_leaf(ptr noundef nonnull %12, ptr noundef %.1.lcssa, ptr noundef nonnull %4, i1 noundef zeroext false, i32 noundef 128) #8
+  %.2.lcssa = phi ptr [ %spec.select, %24 ], [ %spec.select76, %82 ]
+  %102 = call ptr @H5B2__protect_leaf(ptr noundef nonnull %12, ptr noundef %.2.lcssa, ptr noundef nonnull %4, i1 noundef zeroext false, i32 noundef 128) #8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %104, label %108
 
@@ -708,13 +708,13 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   br label %151
 
 108:                                              ; preds = %._crit_edge
-  %.not = icmp eq ptr %.1.lcssa, null
-  %.not69 = icmp eq ptr %.1.lcssa, %12
+  %.not = icmp eq ptr %.2.lcssa, null
+  %.not69 = icmp eq ptr %.2.lcssa, %12
   %or.cond78 = or i1 %.not, %.not69
   br i1 %or.cond78, label %116, label %109
 
 109:                                              ; preds = %108
-  %110 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.1.lcssa) #8
+  %110 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.2.lcssa) #8
   %111 = icmp slt i32 %110, 0
   br i1 %111, label %112, label %116
 
@@ -777,14 +777,14 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   br label %.thread80
 
 151:                                              ; preds = %112, %104, %41, %33, %20
-  %.5 = phi ptr [ %spec.select, %20 ], [ %.1101, %33 ], [ %.1101, %41 ], [ %.1.lcssa, %104 ], [ %.1.lcssa, %112 ]
-  %.not74 = icmp eq ptr %.5, null
-  %.not75 = icmp eq ptr %.5, %12
+  %.1 = phi ptr [ %spec.select, %20 ], [ %.2101, %33 ], [ %.2101, %41 ], [ %.2.lcssa, %104 ], [ %.2.lcssa, %112 ]
+  %.not74 = icmp eq ptr %.1, null
+  %.not75 = icmp eq ptr %.1, %12
   %or.cond = or i1 %.not74, %.not75
   br i1 %or.cond, label %.thread80, label %152
 
 152:                                              ; preds = %151
-  %153 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.5) #8
+  %153 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.1) #8
   %154 = icmp slt i32 %153, 0
   br i1 %154, label %155, label %.thread80
 

@@ -684,8 +684,8 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
 
 20:                                               ; preds = %18, %14
   %21 = phi ptr [ @.str.19, %18 ], [ %16, %14 ]
-  %.1 = phi ptr [ getelementptr inbounds (i8, ptr @adjustMode, i64 32), %18 ], [ %.046, %14 ]
-  %22 = load i32, ptr %.1, align 8
+  %.2 = phi ptr [ getelementptr inbounds (i8, ptr @adjustMode, i64 32), %18 ], [ %.046, %14 ]
+  %22 = load i32, ptr %.2, align 8
   store i32 %22, ptr %2, align 8
   %23 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %21, ptr %23, align 8
@@ -693,7 +693,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %24, label %25, label %.loopexit
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %.1, i64 16
+  %26 = getelementptr inbounds i8, ptr %.2, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %1, i64 %28
@@ -721,8 +721,8 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %38, %20, %25
-  %.2 = phi ptr [ %.1, %25 ], [ %.1, %20 ], [ getelementptr inbounds (i8, ptr @adjustMode, i64 544), %38 ]
-  %42 = getelementptr inbounds i8, ptr %.2, i64 8
+  %.1 = phi ptr [ %.2, %25 ], [ %.2, %20 ], [ getelementptr inbounds (i8, ptr @adjustMode, i64 544), %38 ]
+  %42 = getelementptr inbounds i8, ptr %.1, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %53
@@ -1809,9 +1809,9 @@ parseFactor.exit.thread:                          ; preds = %.loopexit40
   br label %parseFactor.exit
 
 parseFactor.exit:                                 ; preds = %20, %22
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.vec.insert21, %20 ], [ %.sroa.0.0.vec.insert19, %22 ]
+  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.0.vec.insert21, %20 ], [ %.sroa.0.0.vec.insert19, %22 ]
   %.sink38.i = phi float [ %21, %20 ], [ %25, %22 ]
-  %.sroa.0.4.vec.insert28 = insertelement <2 x float> %.sroa.0.0, float %.sink38.i, i64 1
+  %.sroa.0.4.vec.insert28 = insertelement <2 x float> %.sroa.0.3, float %.sink38.i, i64 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %50
@@ -1887,16 +1887,16 @@ parseFactor.exit15.thread:                        ; preds = %.loopexit
   br label %parseFactor.exit15
 
 parseFactor.exit15:                               ; preds = %44, %47
-  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.0.vec.insert25, %44 ], [ %.sroa.0.0.vec.insert23, %47 ]
+  %.sroa.0.5 = phi <2 x float> [ %.sroa.0.0.vec.insert25, %44 ], [ %.sroa.0.0.vec.insert23, %47 ]
   %.sink38.i13 = phi float [ %46, %44 ], [ %49, %47 ]
-  %.sroa.0.4.vec.insert30 = insertelement <2 x float> %.sroa.0.3, float %.sink38.i13, i64 1
+  %.sroa.0.4.vec.insert30 = insertelement <2 x float> %.sroa.0.5, float %.sink38.i13, i64 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %50
 
 50:                                               ; preds = %26, %parseFactor.exit15.thread, %parseFactor.exit15, %parseFactor.exit
   %.sroa.11.0 = phi i8 [ %.sink.i10, %parseFactor.exit15 ], [ %.sink.i, %parseFactor.exit ], [ 1, %parseFactor.exit15.thread ], [ 1, %26 ]
-  %.sroa.0.6 = phi <2 x float> [ %.sroa.0.4.vec.insert30, %parseFactor.exit15 ], [ %.sroa.0.4.vec.insert28, %parseFactor.exit ], [ <float 4.000000e+00, float 4.000000e+00>, %parseFactor.exit15.thread ], [ <float 4.000000e+00, float 4.000000e+00>, %26 ]
+  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.4.vec.insert30, %parseFactor.exit15 ], [ %.sroa.0.4.vec.insert28, %parseFactor.exit ], [ <float 4.000000e+00, float 4.000000e+00>, %parseFactor.exit15.thread ], [ <float 4.000000e+00, float 4.000000e+00>, %26 ]
   %51 = load i8, ptr @Verbose, align 1
   %.not8 = icmp eq i8 %51, 0
   br i1 %.not8, label %58, label %52
@@ -1904,15 +1904,15 @@ parseFactor.exit15:                               ; preds = %44, %47
 52:                                               ; preds = %50
   %53 = load ptr, ptr @stderr, align 8
   %54 = zext nneg i8 %.sroa.11.0 to i32
-  %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.6, i64 0
+  %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.1, i64 0
   %55 = fpext float %.sroa.0.0.vec.extract to double
-  %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.6, i64 1
+  %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.1, i64 1
   %56 = fpext float %.sroa.0.4.vec.extract to double
   %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.9, i32 noundef %54, double noundef %55, double noundef %56) #22
   br label %58
 
 58:                                               ; preds = %52, %50
-  %.fca.0.insert = insertvalue { <2 x float>, i8 } poison, <2 x float> %.sroa.0.6, 0
+  %.fca.0.insert = insertvalue { <2 x float>, i8 } poison, <2 x float> %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { <2 x float>, i8 } %.fca.0.insert, i8 %.sroa.11.0, 1
   ret { <2 x float>, i8 } %.fca.1.insert
 }
@@ -1990,9 +1990,9 @@ parseFactor.exit.thread:                          ; preds = %.loopexit40
   br label %parseFactor.exit
 
 parseFactor.exit:                                 ; preds = %20, %22
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.vec.insert21, %20 ], [ %.sroa.0.0.vec.insert19, %22 ]
+  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.0.vec.insert21, %20 ], [ %.sroa.0.0.vec.insert19, %22 ]
   %.sink38.i = phi float [ %21, %20 ], [ %25, %22 ]
-  %.sroa.0.4.vec.insert28 = insertelement <2 x float> %.sroa.0.0, float %.sink38.i, i64 1
+  %.sroa.0.4.vec.insert28 = insertelement <2 x float> %.sroa.0.3, float %.sink38.i, i64 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %50
@@ -2068,16 +2068,16 @@ parseFactor.exit15.thread:                        ; preds = %.loopexit
   br label %parseFactor.exit15
 
 parseFactor.exit15:                               ; preds = %44, %47
-  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.0.vec.insert25, %44 ], [ %.sroa.0.0.vec.insert23, %47 ]
+  %.sroa.0.5 = phi <2 x float> [ %.sroa.0.0.vec.insert25, %44 ], [ %.sroa.0.0.vec.insert23, %47 ]
   %.sink38.i13 = phi float [ %46, %44 ], [ %49, %47 ]
-  %.sroa.0.4.vec.insert30 = insertelement <2 x float> %.sroa.0.3, float %.sink38.i13, i64 1
+  %.sroa.0.4.vec.insert30 = insertelement <2 x float> %.sroa.0.5, float %.sink38.i13, i64 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %50
 
 50:                                               ; preds = %26, %parseFactor.exit15.thread, %parseFactor.exit15, %parseFactor.exit
   %.sroa.11.0 = phi i8 [ %.sink.i10, %parseFactor.exit15 ], [ %.sink.i, %parseFactor.exit ], [ 1, %parseFactor.exit15.thread ], [ 1, %26 ]
-  %.sroa.0.6 = phi <2 x float> [ %.sroa.0.4.vec.insert30, %parseFactor.exit15 ], [ %.sroa.0.4.vec.insert28, %parseFactor.exit ], [ <float 0x40099999A0000000, float 0x40099999A0000000>, %parseFactor.exit15.thread ], [ <float 0x40099999A0000000, float 0x40099999A0000000>, %26 ]
+  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.4.vec.insert30, %parseFactor.exit15 ], [ %.sroa.0.4.vec.insert28, %parseFactor.exit ], [ <float 0x40099999A0000000, float 0x40099999A0000000>, %parseFactor.exit15.thread ], [ <float 0x40099999A0000000, float 0x40099999A0000000>, %26 ]
   %51 = load i8, ptr @Verbose, align 1
   %.not8 = icmp eq i8 %51, 0
   br i1 %.not8, label %58, label %52
@@ -2085,15 +2085,15 @@ parseFactor.exit15:                               ; preds = %44, %47
 52:                                               ; preds = %50
   %53 = load ptr, ptr @stderr, align 8
   %54 = zext nneg i8 %.sroa.11.0 to i32
-  %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.6, i64 0
+  %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.1, i64 0
   %55 = fpext float %.sroa.0.0.vec.extract to double
-  %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.6, i64 1
+  %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.1, i64 1
   %56 = fpext float %.sroa.0.4.vec.extract to double
   %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.10, i32 noundef %54, double noundef %55, double noundef %56) #22
   br label %58
 
 58:                                               ; preds = %52, %50
-  %.fca.0.insert = insertvalue { <2 x float>, i8 } poison, <2 x float> %.sroa.0.6, 0
+  %.fca.0.insert = insertvalue { <2 x float>, i8 } poison, <2 x float> %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { <2 x float>, i8 } %.fca.0.insert, i8 %.sroa.11.0, 1
   ret { <2 x float>, i8 } %.fca.1.insert
 }

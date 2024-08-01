@@ -599,7 +599,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph.i.i:                                       ; preds = %.preheader145.i.i, %105
   %.0124152.i.i = phi ptr [ %.0124.i.i, %105 ], [ %.0124150.i.i, %.preheader145.i.i ]
-  %.0122151.i.i = phi i32 [ %.1123.i.i, %105 ], [ 0, %.preheader145.i.i ]
+  %.1123151.i.i = phi i32 [ %.2.i.i, %105 ], [ 0, %.preheader145.i.i ]
   %97 = getelementptr inbounds i8, ptr %.0124152.i.i, i64 24
   %98 = load ptr, ptr %97, align 8
   %.not138.i.i = icmp eq ptr %98, null
@@ -608,23 +608,23 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 99:                                               ; preds = %.lr.ph.i.i
   %100 = getelementptr inbounds i8, ptr %.0124152.i.i, i64 12
   %101 = load i32, ptr %100, align 4
-  %102 = add nuw i32 %.0122151.i.i, 1
-  %103 = zext i32 %.0122151.i.i to i64
+  %102 = add nuw i32 %.1123151.i.i, 1
+  %103 = zext i32 %.1123151.i.i to i64
   %104 = getelementptr i32, ptr %95, i64 %103
   store i32 %101, ptr %104, align 4
   br label %105
 
 105:                                              ; preds = %99, %.lr.ph.i.i
-  %.1123.i.i = phi i32 [ %102, %99 ], [ %.0122151.i.i, %.lr.ph.i.i ]
+  %.2.i.i = phi i32 [ %102, %99 ], [ %.1123151.i.i, %.lr.ph.i.i ]
   %.0124.i.i = load ptr, ptr %.0124152.i.i, align 8
   %106 = icmp ne ptr %.0124.i.i, null
-  %107 = icmp ult i32 %.1123.i.i, %19
+  %107 = icmp ult i32 %.2.i.i, %19
   %108 = select i1 %106, i1 %107, i1 false
   br i1 %108, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !4
 
 .loopexit.i.i:                                    ; preds = %105, %.preheader145.i.i, %89
-  %.2.i.i = phi i32 [ 0, %89 ], [ 0, %.preheader145.i.i ], [ %.1123.i.i, %105 ]
-  %.not136.i.i = icmp ult i32 %.2.i.i, %88
+  %.0122.i.i = phi i32 [ 0, %89 ], [ 0, %.preheader145.i.i ], [ %.2.i.i, %105 ]
+  %.not136.i.i = icmp ult i32 %.0122.i.i, %88
   br i1 %.not136.i.i, label %dissect_pft_fec_detailed.exit.thread.i, label %109
 
 109:                                              ; preds = %.loopexit.i.i
@@ -632,12 +632,12 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %111 = zext nneg i32 %64 to i64
   %112 = tail call noalias ptr @wmem_alloc0(ptr noundef %110, i64 noundef %111) #3
   %113 = tail call ptr @tvb_new_real_data(ptr noundef %112, i32 noundef %64, i32 noundef %64) #3
-  %114 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_edcp_reassembly_info, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.130, i32 noundef %19, i32 noundef %.2.i.i, i32 noundef %88) #3
-  %.not164.i.i = icmp eq i32 %.2.i.i, 0
+  %114 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_edcp_reassembly_info, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.130, i32 noundef %19, i32 noundef %.0122.i.i, i32 noundef %88) #3
+  %.not164.i.i = icmp eq i32 %.0122.i.i, 0
   br i1 %.not164.i.i, label %._crit_edge162.thread.i.i, label %.lr.ph161.i.preheader.i
 
 .lr.ph161.i.preheader.i:                          ; preds = %109
-  %115 = zext i32 %.2.i.i to i64
+  %115 = zext i32 %.0122.i.i to i64
   br label %.lr.ph161.i.i
 
 ._crit_edge162.thread.i.i:                        ; preds = %109

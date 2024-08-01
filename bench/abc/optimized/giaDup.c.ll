@@ -18828,7 +18828,7 @@ Vec_IntFree.exit230:                              ; preds = %.critedge2, %242
 
 249:                                              ; preds = %.lr.ph255, %272
   %indvars.iv264 = phi i64 [ 0, %.lr.ph255 ], [ %indvars.iv.next265, %272 ]
-  %.0254 = phi i32 [ 0, %.lr.ph255 ], [ %.1, %272 ]
+  %.0254 = phi i32 [ 0, %.lr.ph255 ], [ %.2, %272 ]
   %250 = getelementptr inbounds i32, ptr %.val154, i64 %indvars.iv264
   %251 = load i32, ptr %250, align 4
   %252 = ashr i32 %251, 1
@@ -18850,7 +18850,7 @@ Vec_IntFree.exit230:                              ; preds = %.critedge2, %242
   br label %263
 
 263:                                              ; preds = %256, %249
-  %.1 = phi i32 [ %262, %256 ], [ %.0254, %249 ]
+  %.2 = phi i32 [ %262, %256 ], [ %.0254, %249 ]
   %264 = getelementptr inbounds i8, ptr %247, i64 %253
   %265 = load i8, ptr %264, align 1
   %switch = icmp ult i8 %265, 2
@@ -18890,7 +18890,7 @@ Vec_IntFree.exit233:                              ; preds = %273, %274
   br label %334
 
 .critedge4:                                       ; preds = %272, %Vec_IntFree.exit230
-  %.0.lcssa = phi i32 [ 0, %Vec_IntFree.exit230 ], [ %.1, %272 ]
+  %.0.lcssa = phi i32 [ 0, %Vec_IntFree.exit230 ], [ %.2, %272 ]
   store i32 0, ptr %8, align 4
   %276 = icmp sgt i32 %.val162, 0
   br i1 %276, label %.lr.ph257, label %.critedge6
@@ -20748,7 +20748,7 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %8
 .lr.ph113:                                        ; preds = %.preheader, %85
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %85 ], [ 0, %.preheader ]
   %.val81112 = phi ptr [ %.val81, %85 ], [ %.val81108, %.preheader ]
-  %.1111 = phi i32 [ %100, %85 ], [ 1, %.preheader ]
+  %.2111 = phi i32 [ %100, %85 ], [ 1, %.preheader ]
   %.val72 = load ptr, ptr %14, align 8
   %.not66 = icmp eq ptr %.val72, null
   br i1 %.not66, label %.critedge4, label %85
@@ -20769,7 +20769,7 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %8
   %97 = lshr i32 %96, 29
   %98 = and i32 %97, 1
   %99 = xor i32 %98, %95
-  %100 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %6, i32 noundef %.1111, i32 noundef %99) #29
+  %100 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %6, i32 noundef %.2111, i32 noundef %99) #29
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %.val80 = load i32, ptr %16, align 8
   %.val81 = load ptr, ptr %62, align 8
@@ -20781,10 +20781,10 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %8
   br i1 %104, label %.lr.ph113, label %.critedge4, !llvm.loop !264
 
 .critedge4:                                       ; preds = %65, %.lr.ph104, %85, %.lr.ph113, %.preheader87, %.preheader
-  %.2 = phi i32 [ 1, %.preheader ], [ 0, %.preheader87 ], [ %100, %85 ], [ %.1111, %.lr.ph113 ], [ %80, %65 ], [ %.0102, %.lr.ph104 ]
+  %.1 = phi i32 [ 1, %.preheader ], [ 0, %.preheader87 ], [ %100, %85 ], [ %.2111, %.lr.ph113 ], [ %80, %65 ], [ %.0102, %.lr.ph104 ]
   %105 = icmp sgt i32 %3, 0
   %106 = zext i1 %105 to i32
-  %107 = xor i32 %.2, %106
+  %107 = xor i32 %.1, %106
   %108 = icmp sgt i32 %1, 0
   br i1 %108, label %.lr.ph118, label %._crit_edge
 
@@ -34573,7 +34573,7 @@ Gia_ObjIsHead.exit:                               ; preds = %39
   br i1 %16, label %.preheader121, label %.loopexit
 
 .preheader121:                                    ; preds = %47, %.preheader121
-  %.0131 = phi i32 [ %spec.select, %.preheader121 ], [ %49, %47 ]
+  %.1131 = phi i32 [ %spec.select, %.preheader121 ], [ %49, %47 ]
   %.089130 = phi i32 [ %58, %.preheader121 ], [ %50, %47 ]
   %51 = zext nneg i32 %.089130 to i64
   %52 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val103, i64 %51, i32 1
@@ -34582,14 +34582,14 @@ Gia_ObjIsHead.exit:                               ; preds = %39
   %55 = getelementptr inbounds i32, ptr %6, i64 %54
   %56 = load i32, ptr %55, align 4
   %.not100 = icmp eq i32 %56, -1
-  %spec.select = select i1 %.not100, i32 %.0131, i32 %56
+  %spec.select = select i1 %.not100, i32 %.1131, i32 %56
   %57 = getelementptr inbounds i32, ptr %.val3.i, i64 %51
   %58 = load i32, ptr %57, align 4
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.preheader121, label %.loopexit, !llvm.loop !430
 
 .loopexit:                                        ; preds = %.preheader121, %47
-  %.2 = phi i32 [ %49, %47 ], [ %spec.select, %.preheader121 ]
+  %.0 = phi i32 [ %49, %47 ], [ %spec.select, %.preheader121 ]
   br label %60
 
 60:                                               ; preds = %.loopexit, %60
@@ -34599,7 +34599,7 @@ Gia_ObjIsHead.exit:                               ; preds = %39
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds i32, ptr %6, i64 %64
-  store i32 %.2, ptr %65, align 4
+  store i32 %.0, ptr %65, align 4
   %66 = getelementptr inbounds i32, ptr %.val3.i, i64 %61
   %67 = load i32, ptr %66, align 4
   %68 = icmp sgt i32 %67, 0

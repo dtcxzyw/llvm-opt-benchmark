@@ -2195,7 +2195,7 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap27merge_monitor_state_vecto
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK13CellTypeState5mergeES_i.exit
   %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK13CellTypeState5mergeES_i.exit ]
-  %.023 = phi i1 [ false, %.lr.ph.preheader ], [ %35, %_ZNK13CellTypeState5mergeES_i.exit ]
+  %.123 = phi i1 [ false, %.lr.ph.preheader ], [ %35, %_ZNK13CellTypeState5mergeES_i.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = getelementptr inbounds %class.CellTypeState, ptr %1, i64 %indvars.iv.next
   %19 = getelementptr inbounds %class.CellTypeState, ptr %2, i64 %indvars.iv.next
@@ -2226,14 +2226,14 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap27merge_monitor_state_vecto
 _ZNK13CellTypeState5mergeES_i.exit:               ; preds = %.lr.ph, %28, %32
   %.sroa.0.0.i = phi i32 [ %21, %.lr.ph ], [ %31, %28 ], [ %33, %32 ]
   %34 = icmp ne i32 %.sroa.0.0.i, %.sroa.01.0.copyload
-  %35 = select i1 %.023, i1 true, i1 %34
+  %35 = select i1 %.123, i1 true, i1 %34
   store i32 %.sroa.0.0.i, ptr %19, align 4
   %.not19.not = icmp sgt i64 %indvars.iv.next, %17
   br i1 %.not19.not, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %_ZNK13CellTypeState5mergeES_i.exit, %7, %3
-  %.1 = phi i1 [ false, %7 ], [ false, %3 ], [ %35, %_ZNK13CellTypeState5mergeES_i.exit ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %7 ], [ false, %3 ], [ %35, %_ZNK13CellTypeState5mergeES_i.exit ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2413,7 +2413,7 @@ _ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread: 
 
 .lr.ph.i17:                                       ; preds = %_ZNK13CellTypeState5mergeES_i.exit.i22, %.lr.ph.preheader.i16
   %indvars.iv.i18 = phi i64 [ %58, %.lr.ph.preheader.i16 ], [ %indvars.iv.next.i19, %_ZNK13CellTypeState5mergeES_i.exit.i22 ]
-  %.023.i = phi i1 [ false, %.lr.ph.preheader.i16 ], [ %77, %_ZNK13CellTypeState5mergeES_i.exit.i22 ]
+  %.123.i = phi i1 [ false, %.lr.ph.preheader.i16 ], [ %77, %_ZNK13CellTypeState5mergeES_i.exit.i22 ]
   %indvars.iv.next.i19 = add nsw i64 %indvars.iv.i18, -1
   %60 = getelementptr inbounds %class.CellTypeState, ptr %48, i64 %indvars.iv.next.i19
   %61 = getelementptr inbounds %class.CellTypeState, ptr %49, i64 %indvars.iv.next.i19
@@ -2444,7 +2444,7 @@ _ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread: 
 _ZNK13CellTypeState5mergeES_i.exit.i22:           ; preds = %74, %70, %.lr.ph.i17
   %.sroa.0.0.i.i23 = phi i32 [ %63, %.lr.ph.i17 ], [ %73, %70 ], [ %75, %74 ]
   %76 = icmp ne i32 %.sroa.0.0.i.i23, %.sroa.01.0.copyload.i20
-  %77 = select i1 %.023.i, i1 true, i1 %76
+  %77 = select i1 %.123.i, i1 true, i1 %76
   store i32 %.sroa.0.0.i.i23, ptr %61, align 4
   %.not19.not.i = icmp sgt i64 %indvars.iv.next.i19, %59
   br i1 %.not19.not.i, label %.lr.ph.i17, label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit, !llvm.loop !23

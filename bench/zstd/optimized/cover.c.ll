@@ -1312,7 +1312,7 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %brmerge, label %_compressCleanup, label %for.body22
 
 for.body22:                                       ; preds = %for.end, %if.end29
-  %totalCompressedSize.032 = phi i64 [ %add, %if.end29 ], [ %dictBufferCapacity, %for.end ]
+  %totalCompressedSize.132 = phi i64 [ %add, %if.end29 ], [ %dictBufferCapacity, %for.end ]
   %i.131 = phi i64 [ %inc31, %if.end29 ], [ %cond, %for.end ]
   %arrayidx23 = getelementptr inbounds i64, ptr %offsets, i64 %i.131
   %3 = load i64, ptr %arrayidx23, align 8
@@ -1324,13 +1324,13 @@ for.body22:                                       ; preds = %for.end, %if.end29
   br i1 %cmp.i, label %if.end29, label %_compressCleanup
 
 if.end29:                                         ; preds = %for.body22
-  %add = add i64 %call25, %totalCompressedSize.032
+  %add = add i64 %call25, %totalCompressedSize.132
   %inc31 = add i64 %i.131, 1
   %exitcond35.not = icmp eq i64 %inc31, %nbSamples
   br i1 %exitcond35.not, label %_compressCleanup, label %for.body22, !llvm.loop !18
 
 _compressCleanup:                                 ; preds = %if.end29, %for.body22, %for.end
-  %totalCompressedSize.1 = phi i64 [ %.mux, %for.end ], [ %add, %if.end29 ], [ %call25, %for.body22 ]
+  %totalCompressedSize.0 = phi i64 [ %.mux, %for.end ], [ %add, %if.end29 ], [ %call25, %for.body22 ]
   %call33 = tail call i64 @ZSTD_freeCCtx(ptr noundef %call9) #23
   %call34 = tail call i64 @ZSTD_freeCDict(ptr noundef %call10) #23
   br i1 %tobool, label %if.end37, label %if.then36
@@ -1340,7 +1340,7 @@ if.then36:                                        ; preds = %_compressCleanup
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then36, %_compressCleanup
-  ret i64 %totalCompressedSize.1
+  ret i64 %totalCompressedSize.0
 }
 
 declare i64 @ZSTD_compressBound(i64 noundef) local_unnamed_addr #5

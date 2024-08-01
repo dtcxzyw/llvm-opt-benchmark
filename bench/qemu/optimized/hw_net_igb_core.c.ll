@@ -1072,7 +1072,7 @@ for.body173.lr.ph.i:                              ; preds = %if.else162.i
 
 for.body173.i:                                    ; preds = %for.inc197.i, %for.body173.lr.ph.i
   %macp.0238.i = phi ptr [ %add.ptr165.i, %for.body173.lr.ph.i ], [ %add.ptr198.i, %for.inc197.i ]
-  %queues.2237.i = phi i16 [ 0, %for.body173.lr.ph.i ], [ %queues.3.i, %for.inc197.i ]
+  %queues.3237.i = phi i16 [ 0, %for.body173.lr.ph.i ], [ %queues.4.i, %for.inc197.i ]
   %arrayidx174.i = getelementptr i8, ptr %macp.0238.i, i64 4
   %72 = load i32, ptr %arrayidx174.i, align 4
   %tobool176.not.i = icmp sgt i32 %72, -1
@@ -1090,17 +1090,17 @@ if.then190.i:                                     ; preds = %if.end178.i
   %and192.i = lshr i32 %72, 18
   %74 = trunc nuw nsw i32 %and192.i to i16
   %75 = and i16 %74, 255
-  %conv195.i = or i16 %75, %queues.2237.i
+  %conv195.i = or i16 %75, %queues.3237.i
   br label %for.inc197.i
 
 for.inc197.i:                                     ; preds = %if.then190.i, %if.end178.i, %for.body173.i
-  %queues.3.i = phi i16 [ %queues.2237.i, %if.end178.i ], [ %conv195.i, %if.then190.i ], [ %queues.2237.i, %for.body173.i ]
+  %queues.4.i = phi i16 [ %queues.3237.i, %if.end178.i ], [ %conv195.i, %if.then190.i ], [ %queues.3237.i, %for.body173.i ]
   %add.ptr198.i = getelementptr i8, ptr %macp.0238.i, i64 8
   %cmp171.i = icmp ult ptr %add.ptr198.i, %add.ptr170.i
   br i1 %cmp171.i, label %for.body173.i, label %for.end199.i, !llvm.loop !10
 
 for.end199.i:                                     ; preds = %for.inc197.i, %if.else162.i
-  %queues.2.lcssa.i = phi i16 [ 0, %if.else162.i ], [ %queues.3.i, %for.inc197.i ]
+  %queues.3.lcssa.i = phi i16 [ 0, %if.else162.i ], [ %queues.4.i, %for.inc197.i ]
   %add.ptr202.i = getelementptr i8, ptr %core, i64 21728
   %add.ptr207.i = getelementptr i8, ptr %core, i64 21792
   %cmp208239.i = icmp ult ptr %add.ptr202.i, %add.ptr207.i
@@ -1112,7 +1112,7 @@ for.body210.lr.ph.i:                              ; preds = %for.end199.i
 
 for.body210.i:                                    ; preds = %for.inc235.i, %for.body210.lr.ph.i
   %macp.1241.i = phi ptr [ %add.ptr202.i, %for.body210.lr.ph.i ], [ %add.ptr236.i, %for.inc235.i ]
-  %queues.4240.i = phi i16 [ %queues.2.lcssa.i, %for.body210.lr.ph.i ], [ %queues.5.i, %for.inc235.i ]
+  %queues.5240.i = phi i16 [ %queues.3.lcssa.i, %for.body210.lr.ph.i ], [ %queues.6.i, %for.inc235.i ]
   %arrayidx211.i = getelementptr i8, ptr %macp.1241.i, i64 4
   %76 = load i32, ptr %arrayidx211.i, align 4
   %tobool213.not.i = icmp sgt i32 %76, -1
@@ -1130,18 +1130,18 @@ if.then227.i:                                     ; preds = %if.end215.i
   %and229.i = lshr i32 %76, 18
   %78 = trunc nuw nsw i32 %and229.i to i16
   %79 = and i16 %78, 255
-  %conv233.i = or i16 %79, %queues.4240.i
+  %conv233.i = or i16 %79, %queues.5240.i
   br label %for.inc235.i
 
 for.inc235.i:                                     ; preds = %if.then227.i, %if.end215.i, %for.body210.i
-  %queues.5.i = phi i16 [ %queues.4240.i, %if.end215.i ], [ %conv233.i, %if.then227.i ], [ %queues.4240.i, %for.body210.i ]
+  %queues.6.i = phi i16 [ %queues.5240.i, %if.end215.i ], [ %conv233.i, %if.then227.i ], [ %queues.5240.i, %for.body210.i ]
   %add.ptr236.i = getelementptr i8, ptr %macp.1241.i, i64 8
   %cmp208.i = icmp ult ptr %add.ptr236.i, %add.ptr207.i
   br i1 %cmp208.i, label %for.body210.i, label %for.end237.i, !llvm.loop !11
 
 for.end237.i:                                     ; preds = %for.inc235.i, %for.end199.i
-  %queues.4.lcssa.i = phi i16 [ %queues.2.lcssa.i, %for.end199.i ], [ %queues.5.i, %for.inc235.i ]
-  %tobool238.not.i = icmp eq i16 %queues.4.lcssa.i, 0
+  %queues.5.lcssa.i = phi i16 [ %queues.3.lcssa.i, %for.end199.i ], [ %queues.6.i, %for.inc235.i ]
+  %tobool238.not.i = icmp eq i16 %queues.5.lcssa.i, 0
   %80 = and i8 %61, 1
   %tobool245.not.i = icmp eq i8 %80, 0
   br i1 %tobool238.not.i, label %if.then239.i, label %if.else290.i
@@ -1172,7 +1172,7 @@ if.then239.i:                                     ; preds = %for.end237.i
 
 for.body272.i:                                    ; preds = %if.then239.i, %for.body272.i
   %indvars.iv263.i = phi i64 [ %indvars.iv.next264.i, %for.body272.i ], [ 0, %if.then239.i ]
-  %queues.6244.i = phi i16 [ %queues.7.i, %for.body272.i ], [ 0, %if.then239.i ]
+  %queues.7244.i = phi i16 [ %queues.8.i, %for.body272.i ], [ 0, %if.then239.i ]
   %83 = add nuw nsw i64 %indvars.iv263.i, 5812
   %arrayidx276.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 %83
   %84 = load i32, ptr %arrayidx276.i, align 4
@@ -1181,7 +1181,7 @@ for.body272.i:                                    ; preds = %if.then239.i, %for.
   %shl281.i = shl nuw nsw i64 1, %indvars.iv263.i
   %85 = trunc nuw i64 %shl281.i to i16
   %conv284.i = select i1 %tobool278.not.i, i16 0, i16 %85
-  %queues.7.i = or i16 %conv284.i, %queues.6244.i
+  %queues.8.i = or i16 %conv284.i, %queues.7244.i
   %indvars.iv.next264.i = add nuw nsw i64 %indvars.iv263.i, 1
   %exitcond266.not.i = icmp eq i64 %indvars.iv.next264.i, 8
   br i1 %exitcond266.not.i, label %if.end300.i, label %for.body272.i, !llvm.loop !12
@@ -1195,7 +1195,7 @@ if.then297.i:                                     ; preds = %if.else290.i
   br label %if.end300.i
 
 if.end300.i:                                      ; preds = %for.body272.i, %for.body146.i, %if.then297.i, %if.else290.i, %if.then239.i
-  %queues.8.i = phi i16 [ %queues.4.lcssa.i, %if.then297.i ], [ %queues.4.lcssa.i, %if.else290.i ], [ 0, %if.then239.i ], [ %queues.1.i, %for.body146.i ], [ %queues.7.i, %for.body272.i ]
+  %queues.2.i = phi i16 [ %queues.5.lcssa.i, %if.then297.i ], [ %queues.5.lcssa.i, %if.else290.i ], [ 0, %if.then239.i ], [ %queues.1.i, %for.body146.i ], [ %queues.8.i, %for.body272.i ]
   %core.val.i = load i32, ptr %arrayidx.i78, align 4
   %86 = and i32 %core.val.i, 262144
   %tobool304.not.i = icmp eq i32 %86, 0
@@ -1235,7 +1235,7 @@ for.body317.i:                                    ; preds = %for.body317.i, %if.
 
 for.body351.i:                                    ; preds = %if.then305.i, %for.body351.i
   %indvars.iv275.i = phi i64 [ %indvars.iv.next276.i, %for.body351.i ], [ 0, %if.then305.i ]
-  %mask.2250.i = phi i16 [ %mask.3.i, %for.body351.i ], [ 0, %if.then305.i ]
+  %mask.3250.i = phi i16 [ %mask.4.i, %for.body351.i ], [ 0, %if.then305.i ]
   %94 = add nuw nsw i64 %indvars.iv275.i, 5812
   %arrayidx355.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 %94
   %95 = load i32, ptr %arrayidx355.i, align 4
@@ -1244,18 +1244,18 @@ for.body351.i:                                    ; preds = %if.then305.i, %for.
   %shl360.i = shl nuw nsw i64 1, %indvars.iv275.i
   %96 = trunc nuw i64 %shl360.i to i16
   %conv363.i = select i1 %tobool357.not.i, i16 0, i16 %96
-  %mask.3.i = or i16 %conv363.i, %mask.2250.i
+  %mask.4.i = or i16 %conv363.i, %mask.3250.i
   %indvars.iv.next276.i = add nuw nsw i64 %indvars.iv275.i, 1
   %exitcond278.not.i = icmp eq i64 %indvars.iv.next276.i, 8
   br i1 %exitcond278.not.i, label %if.end368.i, label %for.body351.i, !llvm.loop !14
 
 if.end368.i:                                      ; preds = %for.body317.i, %for.body351.i
-  %mask.4.i = phi i16 [ %mask.3.i, %for.body351.i ], [ %mask.1.i, %for.body317.i ]
-  %and371175.i = and i16 %mask.4.i, %queues.8.i
+  %mask.2.i = phi i16 [ %mask.4.i, %for.body351.i ], [ %mask.1.i, %for.body317.i ]
+  %and371175.i = and i16 %mask.2.i, %queues.2.i
   br label %if.end373.i
 
 if.end373.i:                                      ; preds = %if.end368.i, %if.end300.i
-  %queues.9.i = phi i16 [ %and371175.i, %if.end368.i ], [ %queues.8.i, %if.end300.i ]
+  %queues.9.i = phi i16 [ %and371175.i, %if.end368.i ], [ %queues.2.i, %if.end300.i ]
   %97 = and i8 %61, 1
   %tobool377.i = icmp ne i8 %97, 0
   %tobool379.i = icmp ne i16 %queues.9.i, 0
@@ -1626,7 +1626,7 @@ trace_e1000e_rx_flt_dropped.exit:                 ; preds = %if.then22, %land.lh
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
   %ecauses.0292 = phi i32 [ 0, %for.cond.preheader ], [ %ecauses.1, %for.inc ]
-  %causes.0291 = phi i32 [ 0, %for.cond.preheader ], [ %causes.2, %for.inc ]
+  %causes.0291 = phi i32 [ 0, %for.cond.preheader ], [ %causes.1, %for.inc ]
   %shl = shl nuw nsw i64 1, %indvars.iv
   %and = and i64 %shl, %conv26
   %tobool27.not = icmp eq i64 %and, 0
@@ -2729,7 +2729,7 @@ trace_e1000e_rx_written_to_guest.exit:            ; preds = %igb_write_packet_to
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %lor.lhs.false, %trace_e1000e_rx_written_to_guest.exit, %trace_e1000e_rx_not_written_to_guest.exit
-  %causes.2 = phi i32 [ %spec.select, %trace_e1000e_rx_written_to_guest.exit ], [ %or, %trace_e1000e_rx_not_written_to_guest.exit ], [ %causes.0291, %lor.lhs.false ], [ %causes.0291, %for.body ]
+  %causes.1 = phi i32 [ %spec.select, %trace_e1000e_rx_written_to_guest.exit ], [ %or, %trace_e1000e_rx_not_written_to_guest.exit ], [ %causes.0291, %lor.lhs.false ], [ %causes.0291, %for.body ]
   %ecauses.1 = phi i32 [ %or79, %trace_e1000e_rx_written_to_guest.exit ], [ %ecauses.0292, %trace_e1000e_rx_not_written_to_guest.exit ], [ %ecauses.0292, %lor.lhs.false ], [ %ecauses.0292, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -2761,17 +2761,17 @@ if.then8.i.i225:                                  ; preds = %if.then.i.i222
   %345 = load i64, ptr %_now.i.i215, align 8
   %tv_usec.i.i228 = getelementptr inbounds i8, ptr %_now.i.i215, i64 8
   %346 = load i64, ptr %tv_usec.i.i228, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i227, i64 noundef %345, i64 noundef %346, i32 noundef %causes.2) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i227, i64 noundef %345, i64 noundef %346, i32 noundef %causes.1) #15
   br label %trace_e1000e_rx_interrupt_set.exit
 
 if.else.i.i224:                                   ; preds = %if.then.i.i222
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %causes.2) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %causes.1) #15
   br label %trace_e1000e_rx_interrupt_set.exit
 
 trace_e1000e_rx_interrupt_set.exit:               ; preds = %for.end, %land.lhs.true5.i.i219, %if.then8.i.i225, %if.else.i.i224
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i215)
   call fastcc void @igb_raise_interrupts(ptr noundef %core, i64 noundef 1376, i32 noundef %ecauses.1)
-  call fastcc void @igb_raise_interrupts(ptr noundef %core, i64 noundef 48, i32 noundef %causes.2)
+  call fastcc void @igb_raise_interrupts(ptr noundef %core, i64 noundef 48, i32 noundef %causes.1)
   br label %return
 
 return:                                           ; preds = %if.end, %trace_e1000e_rx_interrupt_set.exit, %trace_e1000e_rx_flt_dropped.exit

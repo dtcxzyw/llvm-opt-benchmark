@@ -1376,13 +1376,13 @@ if.then4.i.i225:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then4.i.i225, %if.then.i.i228, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit
-  %retval.0 = phi i32 [ 0, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit ], [ -1, %if.then.i.i228 ], [ -1, %if.then4.i.i225 ]
+  %retval.5 = phi i32 [ 0, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit ], [ -1, %if.then.i.i228 ], [ -1, %if.then4.i.i225 ]
   call void @_ZN6hermes18SourceErrorManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %sm) #20
   br label %cleanup78
 
 cleanup78:                                        ; preds = %cleanup, %_ZN4llvh11raw_ostreamlsEPKc.exit187
-  %cleanup.dest.slot.1 = phi i1 [ %cmp.i197, %cleanup ], [ false, %_ZN4llvh11raw_ostreamlsEPKc.exit187 ]
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ -1, %_ZN4llvh11raw_ostreamlsEPKc.exit187 ]
+  %cleanup.dest.slot.0 = phi i1 [ %cmp.i197, %cleanup ], [ false, %_ZN4llvh11raw_ostreamlsEPKc.exit187 ]
+  %retval.4 = phi i32 [ %retval.5, %cleanup ], [ -1, %_ZN4llvh11raw_ostreamlsEPKc.exit187 ]
   %bf.load.i232 = load i8, ptr %HasError.i116, align 8
   %bf.cast.i233 = trunc i8 %bf.load.i232 to i1
   br i1 %bf.cast.i233, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %if.then.i234
@@ -1404,10 +1404,10 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; pr
   br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
 _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %cleanup78, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
-  br i1 %cleanup.dest.slot.1, label %if.end79, label %cleanup112
+  br i1 %cleanup.dest.slot.0, label %if.end79, label %cleanup112
 
 if.end79:                                         ; preds = %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, %cond.end
-  %retval.2 = phi i32 [ 0, %cond.end ], [ %retval.1, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
+  %retval.3 = phi i32 [ 0, %cond.end ], [ %retval.4, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %call80 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL11ProfileFileB5cxx11, i64 152)) #20
   br i1 %call80, label %if.then81, label %if.else91
 
@@ -1789,7 +1789,7 @@ if.end8.sink.split.i.i.i.i365:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %cleanup108
 
 cleanup108:                                       ; preds = %if.end8.sink.split.i.i.i.i365, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i362, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i352, %_ZN4llvh8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit342, %_ZN4llvh11raw_ostreamlsEPKc.exit332
-  %retval.3 = phi i32 [ -1, %_ZN4llvh11raw_ostreamlsEPKc.exit332 ], [ %retval.2, %_ZN4llvh8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit342 ], [ %retval.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i352 ], [ %retval.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i362 ], [ %retval.2, %if.end8.sink.split.i.i.i.i365 ]
+  %retval.7 = phi i32 [ -1, %_ZN4llvh11raw_ostreamlsEPKc.exit332 ], [ %retval.3, %_ZN4llvh8OptionalISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit342 ], [ %retval.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i352 ], [ %retval.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i362 ], [ %retval.3, %if.end8.sink.split.i.i.i.i365 ]
   %bf.load.i376 = load i8, ptr %HasError.i276, align 8
   %bf.cast.i377 = trunc i8 %bf.load.i376 to i1
   br i1 %bf.cast.i377, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit385, label %if.then.i378
@@ -1817,7 +1817,7 @@ if.end111:                                        ; preds = %if.end8.sink.split.
   br label %cleanup112
 
 cleanup112:                                       ; preds = %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit385, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, %if.end111
-  %retval.4 = phi i32 [ 0, %if.end111 ], [ %retval.3, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit385 ], [ %retval.1, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
+  %retval.6 = phi i32 [ 0, %if.end111 ], [ %retval.7, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit385 ], [ %retval.4, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %119 = load ptr, ptr %sourceMap, align 8
   %cmp.not.i386 = icmp eq ptr %119, null
   br i1 %cmp.not.i386, label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit389, label %_ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i387
@@ -1832,7 +1832,7 @@ _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit389: ; pre
   br label %cleanup113
 
 cleanup113:                                       ; preds = %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit389, %_ZN4llvh11raw_ostreamlsEc.exit
-  %retval.5 = phi i32 [ %retval.4, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit389 ], [ -1, %_ZN4llvh11raw_ostreamlsEc.exit ]
+  %retval.2 = phi i32 [ %retval.6, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit389 ], [ -1, %_ZN4llvh11raw_ostreamlsEc.exit ]
   %120 = load i8, ptr %hasVal.i.i, align 8
   %tobool.i.i.i391 = trunc i8 %120 to i1
   br i1 %tobool.i.i.i391, label %if.then.i.i.i392, label %_ZN4llvh8OptionalINS_14raw_fd_ostreamEED2Ev.exit
@@ -1872,7 +1872,7 @@ if.then.i.i.i396:                                 ; preds = %_ZSt8_DestroyIPNSt7
   br label %cleanup115
 
 cleanup115:                                       ; preds = %if.then.i.i.i396, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %_ZN4llvh11raw_ostreamlsEPKc.exit59
-  %retval.6 = phi i32 [ 1, %_ZN4llvh11raw_ostreamlsEPKc.exit59 ], [ %retval.5, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %retval.5, %if.then.i.i.i396 ]
+  %retval.1 = phi i32 [ 1, %_ZN4llvh11raw_ostreamlsEPKc.exit59 ], [ %retval.2, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %retval.2, %if.then.i.i.i396 ]
   %second.i = getelementptr inbounds i8, ptr %ret, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #20
   %125 = load ptr, ptr %ret, align 8
@@ -1889,7 +1889,7 @@ _ZNSt10unique_ptrIN6hermes12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pr
   br label %cleanup117
 
 cleanup117:                                       ; preds = %_ZNSt10unique_ptrIN6hermes12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit43
-  %retval.7 = phi i32 [ %retval.6, %_ZNSt10unique_ptrIN6hermes12MemoryBufferESt14default_deleteIS1_EED2Ev.exit ], [ -1, %_ZN4llvh11raw_ostreamlsEPKc.exit43 ]
+  %retval.0 = phi i32 [ %retval.1, %_ZNSt10unique_ptrIN6hermes12MemoryBufferESt14default_deleteIS1_EED2Ev.exit ], [ -1, %_ZN4llvh11raw_ostreamlsEPKc.exit43 ]
   %bf.load.i403 = load i8, ptr %HasError.i, align 8
   %bf.cast.i404 = trunc i8 %bf.load.i403 to i1
   br i1 %bf.cast.i404, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit412, label %if.then.i405
@@ -1912,7 +1912,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i410: ;
 
 _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit412: ; preds = %cleanup117, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i410
   call void @_ZN4llvh8InitLLVMD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %initLLVM) #20
-  ret i32 %retval.7
+  ret i32 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN4llvh2cl23ParseCommandLineOptionsEiPKPKcNS_9StringRefEPNS_11raw_ostreamE(i32 noundef, ptr noundef, ptr, i64, ptr noundef) local_unnamed_addr #0
@@ -4843,7 +4843,7 @@ if.then.i.i.i303:                                 ; preds = %cleanup270.critedge
   br label %cleanup270
 
 cleanup270:                                       ; preds = %if.then.i.i.i303, %cleanup270.critedge139, %if.then.i.i.i299, %cleanup270.critedge138, %if.then.i.i.i295, %cleanup270.critedge137, %if.then4.i.i, %if.then.i.i, %if.end.i, %if.then244, %if.else247, %cleanup270.critedge, %entry, %if.else255, %if.then108, %if.then103, %if.then93, %if.then88, %if.else38, %if.else21, %if.then18
-  %retval.4 = phi i1 [ false, %if.then18 ], [ false, %if.else21 ], [ false, %if.else38 ], [ false, %if.then88 ], [ false, %if.then93 ], [ false, %if.then103 ], [ false, %if.then108 ], [ false, %if.else255 ], [ false, %entry ], [ false, %cleanup270.critedge ], [ false, %if.else247 ], [ false, %if.then244 ], [ true, %if.end.i ], [ false, %if.then.i.i ], [ false, %if.then4.i.i ], [ false, %cleanup270.critedge137 ], [ false, %if.then.i.i.i295 ], [ false, %cleanup270.critedge138 ], [ false, %if.then.i.i.i299 ], [ false, %cleanup270.critedge139 ], [ false, %if.then.i.i.i303 ]
+  %retval.0 = phi i1 [ false, %if.then18 ], [ false, %if.else21 ], [ false, %if.else38 ], [ false, %if.then88 ], [ false, %if.then93 ], [ false, %if.then103 ], [ false, %if.then108 ], [ false, %if.else255 ], [ false, %entry ], [ false, %cleanup270.critedge ], [ false, %if.else247 ], [ false, %if.then244 ], [ true, %if.end.i ], [ false, %if.then.i.i ], [ false, %if.then4.i.i ], [ false, %cleanup270.critedge137 ], [ false, %if.then.i.i.i295 ], [ false, %cleanup270.critedge138 ], [ false, %if.then.i.i.i299 ], [ false, %cleanup270.critedge139 ], [ false, %if.then.i.i.i303 ]
   %35 = load ptr, ptr %commandTokens, align 8
   %cmp.i.i.i = icmp eq ptr %35, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorINS_9StringRefELj8EED2Ev.exit, label %if.then.i.i305
@@ -4853,7 +4853,7 @@ if.then.i.i305:                                   ; preds = %cleanup270
   br label %_ZN4llvh11SmallVectorINS_9StringRefELj8EED2Ev.exit
 
 _ZN4llvh11SmallVectorINS_9StringRefELj8EED2Ev.exit: ; preds = %cleanup270, %if.then.i.i305
-  ret i1 %retval.4
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

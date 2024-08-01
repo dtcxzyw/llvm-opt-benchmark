@@ -739,7 +739,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i284, %247
   br i1 %299, label %267, label %.preheader378, !llvm.loop !13
 
 300:                                              ; preds = %.lr.ph465, %._crit_edge460
-  %.2464 = phi i1 [ %.0228.lcssa, %.lr.ph465 ], [ %.5, %._crit_edge460 ]
+  %.2464 = phi i1 [ %.0228.lcssa, %.lr.ph465 ], [ %.3, %._crit_edge460 ]
   %.0229463 = phi i32 [ 0, %.lr.ph465 ], [ %.1230.lcssa, %._crit_edge460 ]
   %.0236462 = phi i64 [ 0, %.lr.ph465 ], [ %892, %._crit_edge460 ]
   %301 = load ptr, ptr %60, align 8
@@ -761,7 +761,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i284, %247
   br i1 %.not472, label %.loopexit377, label %.lr.ph432
 
 .lr.ph432:                                        ; preds = %.preheader376, %337
-  %.3431 = phi i1 [ %.4, %337 ], [ %.2464, %.preheader376 ]
+  %.4431 = phi i1 [ %.5, %337 ], [ %.2464, %.preheader376 ]
   %.1234430 = phi i64 [ %338, %337 ], [ 0, %.preheader376 ]
   %309 = load ptr, ptr %262, align 8
   %310 = getelementptr inbounds %struct.pmix_info, ptr %309, i64 %.1234430
@@ -806,14 +806,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i284, %247
   br label %337
 
 337:                                              ; preds = %.lr.ph432, %316, %324, %332, %328, %320, %312
-  %.4 = phi i1 [ %.3431, %.lr.ph432 ], [ %.3431, %312 ], [ %.3431, %316 ], [ %.3431, %320 ], [ %.3431, %324 ], [ %336, %332 ], [ %.3431, %328 ]
+  %.5 = phi i1 [ %.4431, %.lr.ph432 ], [ %.4431, %312 ], [ %.4431, %316 ], [ %.4431, %320 ], [ %.4431, %324 ], [ %336, %332 ], [ %.4431, %328 ]
   %338 = add nuw i64 %.1234430, 1
   %339 = load i64, ptr %118, align 8
   %340 = icmp ult i64 %338, %339
   br i1 %340, label %.lr.ph432, label %.loopexit377, !llvm.loop !14
 
 .loopexit377:                                     ; preds = %337, %.preheader376, %306
-  %.5 = phi i1 [ %.2464, %306 ], [ %.2464, %.preheader376 ], [ %.4, %337 ]
+  %.3 = phi i1 [ %.2464, %306 ], [ %.2464, %.preheader376 ], [ %.5, %337 ]
   %341 = getelementptr inbounds i8, ptr %302, i64 40
   %342 = load ptr, ptr %341, align 8
   %.not259 = icmp eq ptr %342, null
@@ -1676,7 +1676,7 @@ pmix_obj_run_destructors.exit338:                 ; preds = %.lr.ph.i334, %751
   %766 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 344), align 8
   %767 = call i32 @PMIx_Setenv(ptr noundef nonnull @.str.22, ptr noundef %766, i1 noundef zeroext true, ptr noundef nonnull %12) #12
   %768 = call i32 @PMIx_Setenv(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i1 noundef zeroext true, ptr noundef nonnull %12) #12
-  br i1 %.5, label %812, label %769
+  br i1 %.3, label %812, label %769
 
 769:                                              ; preds = %765
   %770 = getelementptr inbounds i8, ptr %392, i64 544

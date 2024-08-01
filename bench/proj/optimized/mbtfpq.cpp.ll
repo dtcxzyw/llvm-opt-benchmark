@@ -84,17 +84,17 @@ define internal { double, double } @_ZL16mbtfpq_s_inverse5PJ_XYP8PJconsts(double
   br label %16
 
 16:                                               ; preds = %11, %13
-  %.sroa.3.0 = phi double [ %15, %13 ], [ %., %11 ]
+  %.sroa.3.1 = phi double [ %15, %13 ], [ %., %11 ]
   %.0 = phi double [ %4, %13 ], [ %.17, %11 ]
   %17 = fmul double %0, 0x40099A71E940BE43
-  %18 = tail call double @cos(double noundef %.sroa.3.0) #6
+  %18 = tail call double @cos(double noundef %.sroa.3.1) #6
   %19 = fmul double %18, 2.000000e+00
-  %20 = fmul double %.sroa.3.0, 5.000000e-01
+  %20 = fmul double %.sroa.3.1, 5.000000e-01
   %21 = tail call double @cos(double noundef %20) #6
   %22 = fdiv double %19, %21
   %23 = fadd double %22, 1.000000e+00
   %24 = fdiv double %17, %23
-  %25 = tail call double @sin(double noundef %.sroa.3.0) #6
+  %25 = tail call double @sin(double noundef %.sroa.3.1) #6
   %26 = fadd double %.0, %25
   %27 = fmul double %26, 0x3FE2BEC333018867
   %28 = tail call double @llvm.fabs.f64(double %27)
@@ -119,10 +119,10 @@ define internal { double, double } @_ZL16mbtfpq_s_inverse5PJ_XYP8PJconsts(double
   br label %39
 
 39:                                               ; preds = %34, %37, %32, %9
-  %.sroa.3.1 = phi double [ %4, %9 ], [ %27, %32 ], [ %36, %34 ], [ %38, %37 ]
+  %.sroa.3.0 = phi double [ %4, %9 ], [ %27, %32 ], [ %36, %34 ], [ %38, %37 ]
   %.sroa.03.0 = phi double [ 0.000000e+00, %9 ], [ %24, %32 ], [ %24, %34 ], [ %24, %37 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.03.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.1, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
 }
 

@@ -1823,7 +1823,7 @@ acct_policy_set_qos_order.exit:                   ; preds = %41
   br i1 %.not116, label %.loopexit, label %acct_policy_set_qos_order.exit.thread167
 
 acct_policy_set_qos_order.exit.thread167:         ; preds = %38, %37, %43, %acct_policy_set_qos_order.exit
-  %.1 = phi i1 [ %45, %43 ], [ true, %acct_policy_set_qos_order.exit ], [ true, %37 ], [ true, %38 ]
+  %.2 = phi i1 [ %45, %43 ], [ true, %acct_policy_set_qos_order.exit ], [ true, %37 ], [ true, %38 ]
   %46 = load i16, ptr @accounting_enforce, align 2
   %47 = and i16 %46, 16
   %.not117.not = icmp ne i16 %47, 0
@@ -1939,7 +1939,7 @@ acct_policy_set_qos_order.exit.thread167:         ; preds = %38, %37, %43, %acct
 
 _set_time_limit.exit:                             ; preds = %110, %106
   %112 = phi i16 [ 1, %106 ], [ %94, %110 ]
-  %.1155 = phi i32 [ %.sink.i, %106 ], [ %spec.select172, %110 ]
+  %.5 = phi i32 [ %.sink.i, %106 ], [ %spec.select172, %110 ]
   %113 = load ptr, ptr %23, align 8
   %.not122 = icmp eq ptr %113, null
   br i1 %.not122, label %128, label %114
@@ -1958,20 +1958,20 @@ _set_time_limit.exit:                             ; preds = %110, %106
   br i1 %121, label %128, label %122
 
 122:                                              ; preds = %118
-  %.not124 = icmp ne i32 %.1155, -1
+  %.not124 = icmp ne i32 %.5, -1
   %123 = fcmp olt double %120, 1.000000e+00
   %or.cond133 = or i1 %.not124, %123
   br i1 %or.cond133, label %124, label %128
 
 124:                                              ; preds = %122
-  %125 = uitofp i32 %.1155 to double
+  %125 = uitofp i32 %.5 to double
   %126 = fmul double %120, %125
   %127 = fptoui double %126 to i32
   br label %128
 
 128:                                              ; preds = %122, %_set_time_limit.exit, %114, %118, %124, %99
   %129 = phi i16 [ %112, %_set_time_limit.exit ], [ %112, %114 ], [ %112, %118 ], [ %112, %124 ], [ %112, %122 ], [ %94, %99 ]
-  %.2156 = phi i32 [ %.1155, %_set_time_limit.exit ], [ %.1155, %114 ], [ %.1155, %118 ], [ %127, %124 ], [ -1, %122 ], [ %.0196, %99 ]
+  %.2156 = phi i32 [ %.5, %_set_time_limit.exit ], [ %.5, %114 ], [ %.5, %118 ], [ %127, %124 ], [ -1, %122 ], [ %.0196, %99 ]
   %130 = load i32, ptr %97, align 8
   %.not125 = icmp ugt i32 %130, %72
   br i1 %.not125, label %141, label %131
@@ -2018,11 +2018,11 @@ _set_time_limit.exit:                             ; preds = %110, %106
 
 154:                                              ; preds = %141, %96, %93
   %155 = phi i16 [ %94, %96 ], [ %129, %141 ], [ %94, %93 ]
-  %.3 = phi i32 [ %.0196, %96 ], [ %.2156, %141 ], [ %.0196, %93 ]
+  %.1155 = phi i32 [ %.0196, %96 ], [ %.2156, %141 ], [ %.0196, %93 ]
   br i1 %.not126197, label %156, label %.backedge
 
 .backedge:                                        ; preds = %178, %180, %209, %154
-  %.0.be = phi i32 [ %.3, %154 ], [ %.3, %180 ], [ %.5, %209 ], [ %.3, %178 ]
+  %.0.be = phi i32 [ %.1155, %154 ], [ %.1155, %180 ], [ %.4, %209 ], [ %.1155, %178 ]
   %.pn = load ptr, ptr %67, align 8
   %.098.in.be = getelementptr inbounds i8, ptr %.pn, i64 72
   %.098 = load ptr, ptr %.098.in.be, align 8
@@ -2078,7 +2078,7 @@ _set_time_limit.exit:                             ; preds = %110, %106
   br i1 %.not129, label %.backedge, label %183
 
 183:                                              ; preds = %180
-  %184 = icmp eq i32 %.3, -2
+  %184 = icmp eq i32 %.1155, -2
   br i1 %184, label %185, label %209
 
 185:                                              ; preds = %183
@@ -2102,7 +2102,7 @@ _set_time_limit.exit:                             ; preds = %110, %106
   br label %_set_time_limit.exit141
 
 _set_time_limit.exit141:                          ; preds = %192, %188
-  %.4 = phi i32 [ %.sink.i140, %188 ], [ %spec.select173, %192 ]
+  %.6 = phi i32 [ %.sink.i140, %188 ], [ %spec.select173, %192 ]
   %194 = load ptr, ptr %23, align 8
   %.not130 = icmp eq ptr %194, null
   br i1 %.not130, label %209, label %195
@@ -2121,21 +2121,21 @@ _set_time_limit.exit141:                          ; preds = %192, %188
   br i1 %202, label %209, label %203
 
 203:                                              ; preds = %199
-  %.not132 = icmp ne i32 %.4, -1
+  %.not132 = icmp ne i32 %.6, -1
   %204 = fcmp olt double %201, 1.000000e+00
   %or.cond134 = or i1 %.not132, %204
   br i1 %or.cond134, label %205, label %209
 
 205:                                              ; preds = %203
-  %206 = uitofp i32 %.4 to double
+  %206 = uitofp i32 %.6 to double
   %207 = fmul double %201, %206
   %208 = fptoui double %207 to i32
   br label %209
 
 209:                                              ; preds = %203, %_set_time_limit.exit141, %195, %199, %205, %183
-  %.5 = phi i32 [ %.4, %_set_time_limit.exit141 ], [ %.4, %195 ], [ %.4, %199 ], [ %208, %205 ], [ -1, %203 ], [ %.3, %183 ]
+  %.4 = phi i32 [ %.6, %_set_time_limit.exit141 ], [ %.6, %195 ], [ %.6, %199 ], [ %208, %205 ], [ -1, %203 ], [ %.1155, %183 ]
   %210 = load i32, ptr %181, align 8
-  %211 = icmp ugt i32 %.5, %210
+  %211 = icmp ugt i32 %.4, %210
   br i1 %211, label %212, label %.backedge
 
 212:                                              ; preds = %209
@@ -2148,11 +2148,11 @@ _set_time_limit.exit141:                          ; preds = %192, %188
 
 216:                                              ; preds = %212
   %217 = load i32, ptr %56, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, i32 noundef %217, i32 noundef %.5) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, i32 noundef %217, i32 noundef %.4) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %acct_policy_set_qos_order.exit.thread167, %212, %216, %164, %168, %144, %148, %131, %135, %79, %83, %43, %41
-  %.2 = phi i1 [ false, %43 ], [ false, %41 ], [ false, %83 ], [ false, %79 ], [ false, %135 ], [ false, %131 ], [ false, %148 ], [ false, %144 ], [ false, %168 ], [ false, %164 ], [ false, %216 ], [ false, %212 ], [ %.1, %acct_policy_set_qos_order.exit.thread167 ], [ %.1, %.backedge ]
+  %.1 = phi i1 [ false, %43 ], [ false, %41 ], [ false, %83 ], [ false, %79 ], [ false, %135 ], [ false, %131 ], [ false, %148 ], [ false, %144 ], [ false, %168 ], [ false, %164 ], [ false, %216 ], [ false, %212 ], [ %.2, %acct_policy_set_qos_order.exit.thread167 ], [ %.2, %.backedge ]
   br i1 %1, label %219, label %218
 
 218:                                              ; preds = %.loopexit
@@ -2164,7 +2164,7 @@ _set_time_limit.exit141:                          ; preds = %192, %188
   br label %220
 
 220:                                              ; preds = %11, %2, %219, %8
-  %.096 = phi i1 [ %.2, %219 ], [ false, %8 ], [ true, %2 ], [ true, %11 ]
+  %.096 = phi i1 [ %.1, %219 ], [ false, %8 ], [ true, %2 ], [ true, %11 ]
   ret i1 %.096
 }
 
@@ -2285,7 +2285,7 @@ define internal fastcc range(i32 0, 2) i32 @_qos_job_runnable_pre_select(ptr nou
   br label %_set_time_limit.exit
 
 _set_time_limit.exit:                             ; preds = %70, %65
-  %.0153 = phi i32 [ %.sink.i, %65 ], [ %spec.select, %70 ]
+  %.4 = phi i32 [ %.sink.i, %65 ], [ %spec.select, %70 ]
   %72 = getelementptr inbounds i8, ptr %0, i64 760
   %73 = load ptr, ptr %72, align 8
   %.not124 = icmp eq ptr %73, null
@@ -2305,19 +2305,19 @@ _set_time_limit.exit:                             ; preds = %70, %65
   br i1 %81, label %88, label %82
 
 82:                                               ; preds = %78
-  %.not126 = icmp ne i32 %.0153, -1
+  %.not126 = icmp ne i32 %.4, -1
   %83 = fcmp olt double %80, 1.000000e+00
   %or.cond = or i1 %.not126, %83
   br i1 %or.cond, label %84, label %88
 
 84:                                               ; preds = %82
-  %85 = uitofp i32 %.0153 to double
+  %85 = uitofp i32 %.4 to double
   %86 = fmul double %80, %85
   %87 = fptoui double %86 to i32
   br label %88
 
 88:                                               ; preds = %82, %_set_time_limit.exit, %74, %78, %84
-  %.1 = phi i32 [ %.0153, %_set_time_limit.exit ], [ %.0153, %74 ], [ %.0153, %78 ], [ %87, %84 ], [ -1, %82 ]
+  %.1 = phi i32 [ %.4, %_set_time_limit.exit ], [ %.4, %74 ], [ %.4, %78 ], [ %87, %84 ], [ -1, %82 ]
   %89 = load i32, ptr %57, align 8
   store i32 %89, ptr %53, align 8
   %.not127 = icmp ugt i32 %89, %16
@@ -2364,7 +2364,7 @@ _set_time_limit.exit:                             ; preds = %70, %65
   br label %204
 
 112:                                              ; preds = %100, %99, %56, %52, %49
-  %.2 = phi i32 [ -2, %49 ], [ -2, %56 ], [ %.1, %99 ], [ %.1, %100 ], [ -2, %52 ]
+  %.0153 = phi i32 [ -2, %49 ], [ -2, %56 ], [ %.1, %99 ], [ %.1, %100 ], [ -2, %52 ]
   %113 = getelementptr inbounds i8, ptr %2, i64 96
   %114 = load i32, ptr %113, align 8
   %115 = icmp eq i32 %114, -1
@@ -2458,7 +2458,7 @@ _set_time_limit.exit:                             ; preds = %70, %65
   br i1 %.not132, label %204, label %165
 
 165:                                              ; preds = %162
-  %166 = icmp eq i32 %.2, -2
+  %166 = icmp eq i32 %.0153, -2
   br i1 %166, label %167, label %_set_time_limit.exit141
 
 167:                                              ; preds = %165
@@ -2484,7 +2484,7 @@ _set_time_limit.exit:                             ; preds = %70, %65
   br label %_set_time_limit.exit141
 
 _set_time_limit.exit141:                          ; preds = %176, %171, %165
-  %.4 = phi i32 [ %.2, %165 ], [ %.sink.i140, %171 ], [ %spec.select154, %176 ]
+  %.2 = phi i32 [ %.0153, %165 ], [ %.sink.i140, %171 ], [ %spec.select154, %176 ]
   %178 = getelementptr inbounds i8, ptr %0, i64 760
   %179 = load ptr, ptr %178, align 8
   %.not133 = icmp eq ptr %179, null
@@ -2504,22 +2504,22 @@ _set_time_limit.exit141:                          ; preds = %176, %171, %165
   br i1 %187, label %194, label %188
 
 188:                                              ; preds = %184
-  %.not135 = icmp ne i32 %.4, -1
+  %.not135 = icmp ne i32 %.2, -1
   %189 = fcmp olt double %186, 1.000000e+00
   %or.cond136 = or i1 %.not135, %189
   br i1 %or.cond136, label %190, label %194
 
 190:                                              ; preds = %188
-  %191 = uitofp i32 %.4 to double
+  %191 = uitofp i32 %.2 to double
   %192 = fmul double %186, %191
   %193 = fptoui double %192 to i32
   br label %194
 
 194:                                              ; preds = %188, %190, %184, %180, %_set_time_limit.exit141
-  %.5 = phi i32 [ %.4, %_set_time_limit.exit141 ], [ %.4, %180 ], [ %.4, %184 ], [ %193, %190 ], [ -1, %188 ]
+  %.3 = phi i32 [ %.2, %_set_time_limit.exit141 ], [ %.2, %180 ], [ %.2, %184 ], [ %193, %190 ], [ -1, %188 ]
   %195 = load i32, ptr %163, align 8
   store i32 %195, ptr %159, align 8
-  %196 = icmp ugt i32 %.5, %195
+  %196 = icmp ugt i32 %.3, %195
   br i1 %196, label %197, label %204
 
 197:                                              ; preds = %194
@@ -2533,7 +2533,7 @@ _set_time_limit.exit141:                          ; preds = %176, %171, %165
 
 202:                                              ; preds = %197
   %203 = load i32, ptr %159, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.80, ptr noundef nonnull %0, i32 noundef %.5, i32 noundef %203) #12
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.80, ptr noundef nonnull %0, i32 noundef %.3, i32 noundef %203) #12
   br label %204
 
 204:                                              ; preds = %194, %162, %158, %156, %42, %37, %95, %90, %108, %103, %128, %123, %151, %146, %202, %197, %3
@@ -2599,7 +2599,7 @@ _set_time_limit.exit:                             ; preds = %23, %18
   %35 = icmp eq i32 %28, -2
   %.not20.i = icmp eq i32 %34, 0
   %.sink.i = select i1 %.not20.i, i32 %32, i32 %34
-  %.0 = select i1 %35, i32 %.sink.i, i32 %28
+  %.1256 = select i1 %35, i32 %.sink.i, i32 %28
   %36 = getelementptr inbounds i8, ptr %0, i64 760
   %37 = load ptr, ptr %36, align 8
   %.not184 = icmp eq ptr %37, null
@@ -2619,26 +2619,26 @@ _set_time_limit.exit:                             ; preds = %23, %18
   br i1 %.not185, label %53, label %46
 
 46:                                               ; preds = %42
-  %47 = icmp ne i32 %.0, -1
+  %47 = icmp ne i32 %.1256, -1
   %48 = fcmp olt double %40, 1.000000e+00
   %or.cond = or i1 %47, %48
   br i1 %or.cond, label %49, label %53
 
 49:                                               ; preds = %46
-  %50 = uitofp i32 %.0 to double
+  %50 = uitofp i32 %.1256 to double
   %51 = fmul double %40, %50
   %52 = fptoui double %51 to i32
   br label %53
 
 53:                                               ; preds = %38, %42, %49, %46, %_set_time_limit.exit
-  %.1256 = phi i32 [ %.0, %_set_time_limit.exit ], [ %.0, %38 ], [ %.0, %42 ], [ %52, %49 ], [ -1, %46 ]
+  %.0 = phi i32 [ %.1256, %_set_time_limit.exit ], [ %.1256, %38 ], [ %.1256, %42 ], [ %52, %49 ], [ -1, %46 ]
   %.0165 = phi double [ 1.000000e+00, %_set_time_limit.exit ], [ %40, %38 ], [ %40, %42 ], [ %40, %49 ], [ %40, %46 ]
   %54 = load i32, ptr @slurmctld_tres_cnt, align 4
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %53
-  %56 = zext i32 %.1256 to i64
+  %56 = zext i32 %.0 to i64
   %wide.trip.count = zext nneg i32 %54 to i64
   br label %57
 
@@ -3668,7 +3668,7 @@ _validate_tres_limits_for_assoc.exit227:          ; preds = %602, %584
   br label %.backedge
 
 .loopexit314:                                     ; preds = %.backedge, %.thread289, %_validate_tres_limits_for_assoc.exit227, %610, %_validate_tres_limits_for_assoc.exit218, %554, %_validate_tres_limits_for_assoc.exit, %514, %459, %465, %_validate_tres_usage_limits.exit247, %440, %386, %392, %363, %369, %_get_tres_state_reason.exit211, %301, %_get_tres_state_reason.exit206, %253, %_get_tres_state_reason.exit, %205, %82, %80
-  %.2 = phi i1 [ false, %82 ], [ false, %80 ], [ false, %205 ], [ false, %_get_tres_state_reason.exit ], [ false, %253 ], [ false, %_get_tres_state_reason.exit206 ], [ false, %301 ], [ false, %_get_tres_state_reason.exit211 ], [ false, %369 ], [ false, %363 ], [ false, %392 ], [ false, %386 ], [ false, %440 ], [ false, %_validate_tres_usage_limits.exit247 ], [ false, %465 ], [ false, %459 ], [ false, %514 ], [ false, %_validate_tres_limits_for_assoc.exit ], [ false, %554 ], [ false, %_validate_tres_limits_for_assoc.exit218 ], [ false, %610 ], [ false, %_validate_tres_limits_for_assoc.exit227 ], [ true, %.thread289 ], [ true, %.backedge ]
+  %.1169 = phi i1 [ false, %82 ], [ false, %80 ], [ false, %205 ], [ false, %_get_tres_state_reason.exit ], [ false, %253 ], [ false, %_get_tres_state_reason.exit206 ], [ false, %301 ], [ false, %_get_tres_state_reason.exit211 ], [ false, %369 ], [ false, %363 ], [ false, %392 ], [ false, %386 ], [ false, %440 ], [ false, %_validate_tres_usage_limits.exit247 ], [ false, %465 ], [ false, %459 ], [ false, %514 ], [ false, %_validate_tres_limits_for_assoc.exit ], [ false, %554 ], [ false, %_validate_tres_limits_for_assoc.exit218 ], [ false, %610 ], [ false, %_validate_tres_limits_for_assoc.exit227 ], [ true, %.thread289 ], [ true, %.backedge ]
   br i1 %2, label %630, label %629
 
 629:                                              ; preds = %.loopexit314
@@ -3680,7 +3680,7 @@ _validate_tres_limits_for_assoc.exit227:          ; preds = %602, %584
   br label %631
 
 631:                                              ; preds = %15, %3, %630
-  %.0170 = phi i1 [ %.2, %630 ], [ true, %3 ], [ true, %15 ]
+  %.0170 = phi i1 [ %.1169, %630 ], [ true, %3 ], [ true, %15 ]
   ret i1 %.0170
 }
 
@@ -5693,7 +5693,7 @@ select.unfold:                                    ; preds = %17, %24, %14, %13
   %45 = fadd double %44, 0xC1EFFFFFFFE00000
   %46 = call double @llvm.fabs.f64(double %45)
   %or.cond80 = fcmp olt double %46, 1.000000e-05
-  %.051 = select i1 %or.cond80, double -1.000000e+00, double %44
+  %.152 = select i1 %or.cond80, double -1.000000e+00, double %44
   %.not77 = icmp eq ptr %.0109.ph, null
   br i1 %.not77, label %condstore.split, label %47
 
@@ -5709,7 +5709,7 @@ select.unfold:                                    ; preds = %17, %24, %14, %13
   br label %54
 
 54:                                               ; preds = %49, %47
-  %.0 = phi i64 [ %53, %49 ], [ %38, %47 ]
+  %.1 = phi i64 [ %53, %49 ], [ %38, %47 ]
   %55 = icmp eq i64 %30, -1
   br i1 %55, label %56, label %61
 
@@ -5721,7 +5721,7 @@ select.unfold:                                    ; preds = %17, %24, %14, %13
   br label %61
 
 61:                                               ; preds = %56, %54
-  %.049 = phi i64 [ %60, %56 ], [ %30, %54 ]
+  %.150 = phi i64 [ %60, %56 ], [ %30, %54 ]
   %62 = icmp eq i64 %34, -1
   br i1 %62, label %63, label %68
 
@@ -5733,7 +5733,7 @@ select.unfold:                                    ; preds = %17, %24, %14, %13
   br label %68
 
 68:                                               ; preds = %63, %61
-  %.047 = phi i64 [ %67, %63 ], [ %34, %61 ]
+  %.148 = phi i64 [ %67, %63 ], [ %34, %61 ]
   %69 = icmp eq i64 %42, -1
   br i1 %69, label %70, label %75
 
@@ -5745,8 +5745,8 @@ select.unfold:                                    ; preds = %17, %24, %14, %13
   br label %75
 
 75:                                               ; preds = %70, %68
-  %.057 = phi i64 [ %74, %70 ], [ %42, %68 ]
-  %76 = fcmp oeq double %.051, -1.000000e+00
+  %.259 = phi i64 [ %74, %70 ], [ %42, %68 ]
+  %76 = fcmp oeq double %.152, -1.000000e+00
   br i1 %76, label %77, label %condstore.split
 
 77:                                               ; preds = %75
@@ -5758,17 +5758,17 @@ select.unfold:                                    ; preds = %17, %24, %14, %13
   br label %condstore.split
 
 condstore.split:                                  ; preds = %77, %75, %78, %select.unfold
-  %.158 = phi i64 [ %.057, %78 ], [ %.057, %75 ], [ %42, %select.unfold ], [ %.057, %77 ]
-  %.152 = phi double [ %80, %78 ], [ %.051, %75 ], [ %.051, %select.unfold ], [ -1.000000e+00, %77 ]
-  %.150 = phi i64 [ %.049, %78 ], [ %.049, %75 ], [ %30, %select.unfold ], [ %.049, %77 ]
-  %.148 = phi i64 [ %.047, %78 ], [ %.047, %75 ], [ %34, %select.unfold ], [ %.047, %77 ]
-  %.1 = phi i64 [ %.0, %78 ], [ %.0, %75 ], [ %38, %select.unfold ], [ %.0, %77 ]
-  %.not78 = icmp ne i64 %.1, -1
-  %81 = icmp ult i64 %.150, %.1
-  %.162 = call i64 @llvm.umin.i64(i64 %.150, i64 %.1)
+  %.158 = phi i64 [ %.259, %78 ], [ %.259, %75 ], [ %42, %select.unfold ], [ %.259, %77 ]
+  %.2 = phi double [ %80, %78 ], [ %.152, %75 ], [ %.152, %select.unfold ], [ -1.000000e+00, %77 ]
+  %.049 = phi i64 [ %.150, %78 ], [ %.150, %75 ], [ %30, %select.unfold ], [ %.150, %77 ]
+  %.047 = phi i64 [ %.148, %78 ], [ %.148, %75 ], [ %34, %select.unfold ], [ %.148, %77 ]
+  %.0 = phi i64 [ %.1, %78 ], [ %.1, %75 ], [ %38, %select.unfold ], [ %.1, %77 ]
+  %.not78 = icmp ne i64 %.0, -1
+  %81 = icmp ult i64 %.049, %.0
+  %.263 = call i64 @llvm.umin.i64(i64 %.049, i64 %.0)
   %82 = or i1 %.not78, %81
-  %83 = icmp ult i64 %.148, %.162
-  %spec.select83 = call i64 @llvm.umin.i64(i64 %.148, i64 %.162)
+  %83 = icmp ult i64 %.047, %.263
+  %spec.select83 = call i64 @llvm.umin.i64(i64 %.047, i64 %.263)
   %84 = or i1 %82, %83
   %85 = icmp ult i64 %.158, %spec.select83
   %spec.select86 = call i64 @llvm.umin.i64(i64 %.158, i64 %spec.select83)
@@ -5784,18 +5784,18 @@ condstore.split:                                  ; preds = %77, %75, %78, %sele
 
 acct_policy_set_qos_order.exit:                   ; preds = %24, %23, %87, %condstore.split
   %.not76118 = phi i1 [ false, %condstore.split ], [ false, %87 ], [ true, %23 ], [ true, %24 ]
-  %.3 = phi i64 [ %spec.select86, %condstore.split ], [ %spec.select86, %87 ], [ -1, %23 ], [ -1, %24 ]
+  %.061 = phi i64 [ %spec.select86, %condstore.split ], [ %spec.select86, %87 ], [ -1, %23 ], [ -1, %24 ]
   %.060 = phi i64 [ %spec.select83, %condstore.split ], [ %spec.select83, %87 ], [ -1, %23 ], [ -1, %24 ]
-  %.259 = phi i64 [ %.158, %condstore.split ], [ %.158, %87 ], [ -1, %23 ], [ -1, %24 ]
-  %.2 = phi double [ %.152, %condstore.split ], [ %.152, %87 ], [ -1.000000e+00, %23 ], [ -1.000000e+00, %24 ]
-  %.2.fr = freeze double %.2
+  %.057 = phi i64 [ %.158, %condstore.split ], [ %.158, %87 ], [ -1, %23 ], [ -1, %24 ]
+  %.051 = phi double [ %.2, %condstore.split ], [ %.2, %87 ], [ -1.000000e+00, %23 ], [ -1.000000e+00, %24 ]
+  %.051.fr = freeze double %.051
   %.not79140 = icmp eq ptr %5, null
   br i1 %.not79140, label %_apply_limit_factor.exit92.thread._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %acct_policy_set_qos_order.exit
-  %88 = fcmp ugt double %.2.fr, 0.000000e+00
-  %.259.fr = freeze i64 %.259
-  %89 = icmp eq i64 %.259.fr, -1
+  %88 = fcmp ugt double %.051.fr, 0.000000e+00
+  %.057.fr = freeze i64 %.057
+  %89 = icmp eq i64 %.057.fr, -1
   %or.cond = or i1 %.not76118, %89
   %.060.fr = freeze i64 %.060
   %90 = icmp eq i64 %.060.fr, -1
@@ -5810,7 +5810,7 @@ acct_policy_set_qos_order.exit:                   ; preds = %24, %23, %87, %cond
 _apply_limit_factor.exit.us.us:                   ; preds = %.lr.ph.split.us.split.us.split, %_apply_limit_factor.exit92.thread.us.us
   %.not146.us.us = phi i1 [ false, %_apply_limit_factor.exit92.thread.us.us ], [ true, %.lr.ph.split.us.split.us.split ]
   %.056142.us.us = phi ptr [ %101, %_apply_limit_factor.exit92.thread.us.us ], [ %5, %.lr.ph.split.us.split.us.split ]
-  %.4141.us.us = phi i64 [ %.6.us.us, %_apply_limit_factor.exit92.thread.us.us ], [ %.3, %.lr.ph.split.us.split.us.split ]
+  %.4141.us.us = phi i64 [ %.7.us.us, %_apply_limit_factor.exit92.thread.us.us ], [ %.061, %.lr.ph.split.us.split.us.split ]
   %91 = getelementptr inbounds i8, ptr %.056142.us.us, i64 224
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 24
@@ -5826,7 +5826,7 @@ _apply_limit_factor.exit.us.us:                   ; preds = %.lr.ph.split.us.spl
   br label %_apply_limit_factor.exit92.thread.us.us
 
 _apply_limit_factor.exit92.thread.us.us:          ; preds = %97, %_apply_limit_factor.exit.us.us
-  %.6.us.us = phi i64 [ %94, %97 ], [ %.4141.us.us, %_apply_limit_factor.exit.us.us ]
+  %.7.us.us = phi i64 [ %94, %97 ], [ %.4141.us.us, %_apply_limit_factor.exit.us.us ]
   %98 = getelementptr inbounds i8, ptr %.056142.us.us, i64 312
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 72
@@ -5843,7 +5843,7 @@ _apply_limit_factor.exit.us.us152:                ; preds = %.lr.ph.split.us.spl
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 24
   %105 = load i64, ptr %104, align 8
-  %106 = icmp ult i64 %105, %.3
+  %106 = icmp ult i64 %105, %.061
   br i1 %106, label %_apply_limit_factor.exit92.us.us157.thread, label %_apply_limit_factor.exit92.us.us157
 
 _apply_limit_factor.exit92.us.us157.thread:       ; preds = %_apply_limit_factor.exit.us.us152
@@ -5861,7 +5861,7 @@ _apply_limit_factor.exit92.us.us157:              ; preds = %_apply_limit_factor
 _apply_limit_factor.exit.us:                      ; preds = %.lr.ph.split.us.split, %125
   %.not146.us = phi i1 [ false, %125 ], [ true, %.lr.ph.split.us.split ]
   %.056142.us = phi ptr [ %129, %125 ], [ %5, %.lr.ph.split.us.split ]
-  %.4141.us = phi i64 [ %.6.us, %125 ], [ %.3, %.lr.ph.split.us.split ]
+  %.4141.us = phi i64 [ %.7.us, %125 ], [ %.061, %.lr.ph.split.us.split ]
   %111 = getelementptr inbounds i8, ptr %.056142.us, i64 88
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 24
@@ -5876,14 +5876,14 @@ _apply_limit_factor.exit.us:                      ; preds = %.lr.ph.split.us.spl
   br label %_apply_limit_factor.exit92.us
 
 _apply_limit_factor.exit92.us:                    ; preds = %117, %_apply_limit_factor.exit.us
-  %.5.us = phi i64 [ %114, %117 ], [ %.4141.us, %_apply_limit_factor.exit.us ]
+  %.6.us = phi i64 [ %114, %117 ], [ %.4141.us, %_apply_limit_factor.exit.us ]
   %118 = getelementptr inbounds i8, ptr %.056142.us, i64 224
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 24
   %121 = load i64, ptr %120, align 8
   %122 = icmp ne i64 %121, -1
   %or.cond7.us = select i1 %.not146.us, i1 %122, i1 false
-  %123 = icmp ult i64 %121, %.5.us
+  %123 = icmp ult i64 %121, %.6.us
   %or.cond88.us = select i1 %or.cond7.us, i1 %123, i1 false
   br i1 %or.cond88.us, label %124, label %_apply_limit_factor.exit92.thread.us
 
@@ -5892,7 +5892,7 @@ _apply_limit_factor.exit92.us:                    ; preds = %117, %_apply_limit_
   br label %_apply_limit_factor.exit92.thread.us
 
 _apply_limit_factor.exit92.thread.us:             ; preds = %124, %_apply_limit_factor.exit92.us
-  %.6.us = phi i64 [ %121, %124 ], [ %.5.us, %_apply_limit_factor.exit92.us ]
+  %.7.us = phi i64 [ %121, %124 ], [ %.6.us, %_apply_limit_factor.exit92.us ]
   br i1 %or.cond87.us, label %_apply_limit_factor.exit92.thread._crit_edge, label %125
 
 125:                                              ; preds = %_apply_limit_factor.exit92.thread.us
@@ -5906,7 +5906,7 @@ _apply_limit_factor.exit92.thread.us:             ; preds = %124, %_apply_limit_
 .lr.ph.split:                                     ; preds = %.lr.ph, %163
   %.not146 = phi i1 [ false, %163 ], [ true, %.lr.ph ]
   %.056142 = phi ptr [ %167, %163 ], [ %5, %.lr.ph ]
-  %.4141 = phi i64 [ %.6, %163 ], [ %.3, %.lr.ph ]
+  %.4141 = phi i64 [ %.7, %163 ], [ %.061, %.lr.ph ]
   %130 = getelementptr inbounds i8, ptr %.056142, i64 88
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 24
@@ -5916,7 +5916,7 @@ _apply_limit_factor.exit92.thread.us:             ; preds = %124, %_apply_limit_
 
 134:                                              ; preds = %.lr.ph.split
   %135 = sitofp i64 %133 to double
-  %136 = fmul double %.2.fr, %135
+  %136 = fmul double %.051.fr, %135
   %137 = fptosi double %136 to i64
   %138 = icmp slt i64 %137, 0
   %139 = call i32 @get_log_level() #12
@@ -5951,7 +5951,7 @@ _apply_limit_factor.exit:                         ; preds = %143, %144, %.lr.ph.
 
 .thread:                                          ; preds = %147, %_apply_limit_factor.exit, %142, %141
   %.154128 = phi i1 [ false, %141 ], [ false, %142 ], [ false, %_apply_limit_factor.exit ], [ true, %147 ]
-  %.5126 = phi i64 [ %.4141, %141 ], [ %.4141, %142 ], [ %.4141, %_apply_limit_factor.exit ], [ %.0107, %147 ]
+  %.6126 = phi i64 [ %.4141, %141 ], [ %.4141, %142 ], [ %.4141, %_apply_limit_factor.exit ], [ %.0107, %147 ]
   %.pn.in = getelementptr inbounds i8, ptr %.056142, i64 224
   %.pn = load ptr, ptr %.pn.in, align 8
   %.in = getelementptr inbounds i8, ptr %.pn, i64 24
@@ -5961,7 +5961,7 @@ _apply_limit_factor.exit:                         ; preds = %143, %144, %.lr.ph.
 
 149:                                              ; preds = %.thread
   %150 = sitofp i64 %148 to double
-  %151 = fmul double %.2.fr, %150
+  %151 = fmul double %.051.fr, %150
   %152 = fptosi double %151 to i64
   %153 = icmp slt i64 %152, 0
   %154 = call i32 @get_log_level() #12
@@ -5987,7 +5987,7 @@ _apply_limit_factor.exit92:                       ; preds = %158, %159, %.thread
   %or.cond5 = and i1 %90, %.not146
   %160 = icmp ne i64 %.1108, -1
   %or.cond7 = select i1 %or.cond5, i1 %160, i1 false
-  %161 = icmp ult i64 %.1108, %.5126
+  %161 = icmp ult i64 %.1108, %.6126
   %or.cond88 = select i1 %or.cond7, i1 %161, i1 false
   br i1 %or.cond88, label %162, label %_apply_limit_factor.exit92.thread
 
@@ -5996,7 +5996,7 @@ _apply_limit_factor.exit92:                       ; preds = %158, %159, %.thread
   br label %_apply_limit_factor.exit92.thread
 
 _apply_limit_factor.exit92.thread:                ; preds = %156, %157, %162, %_apply_limit_factor.exit92
-  %.6 = phi i64 [ %.1108, %162 ], [ %.5126, %_apply_limit_factor.exit92 ], [ %.5126, %157 ], [ %.5126, %156 ]
+  %.7 = phi i64 [ %.1108, %162 ], [ %.6126, %_apply_limit_factor.exit92 ], [ %.6126, %157 ], [ %.6126, %156 ]
   br i1 %.154128, label %_apply_limit_factor.exit92.thread._crit_edge, label %163
 
 163:                                              ; preds = %_apply_limit_factor.exit92.thread
@@ -6008,9 +6008,9 @@ _apply_limit_factor.exit92.thread:                ; preds = %156, %157, %162, %_
   br i1 %.not79, label %_apply_limit_factor.exit92.thread._crit_edge, label %.lr.ph.split, !llvm.loop !31
 
 _apply_limit_factor.exit92.thread._crit_edge:     ; preds = %_apply_limit_factor.exit92.thread.us.us, %_apply_limit_factor.exit92.us.us157, %125, %_apply_limit_factor.exit92.thread.us, %163, %_apply_limit_factor.exit92.thread, %_apply_limit_factor.exit92.us.us157.thread, %.lr.ph.split.us.split.us.split, %acct_policy_set_qos_order.exit
-  %.7 = phi i64 [ %.3, %acct_policy_set_qos_order.exit ], [ %.3, %.lr.ph.split.us.split.us.split ], [ %105, %_apply_limit_factor.exit92.us.us157.thread ], [ %.6, %_apply_limit_factor.exit92.thread ], [ %.6, %163 ], [ %.6.us, %_apply_limit_factor.exit92.thread.us ], [ %.6.us, %125 ], [ %.3, %_apply_limit_factor.exit92.us.us157 ], [ %.6.us.us, %_apply_limit_factor.exit92.thread.us.us ]
+  %.5 = phi i64 [ %.061, %acct_policy_set_qos_order.exit ], [ %.061, %.lr.ph.split.us.split.us.split ], [ %105, %_apply_limit_factor.exit92.us.us157.thread ], [ %.7, %_apply_limit_factor.exit92.thread ], [ %.7, %163 ], [ %.7.us, %_apply_limit_factor.exit92.thread.us ], [ %.7.us, %125 ], [ %.061, %_apply_limit_factor.exit92.us.us157 ], [ %.7.us.us, %_apply_limit_factor.exit92.thread.us.us ]
   call void @assoc_mgr_unlock(ptr noundef nonnull %3) #12
-  %168 = trunc i64 %.7 to i32
+  %168 = trunc i64 %.5 to i32
   br label %169
 
 169:                                              ; preds = %2, %_apply_limit_factor.exit92.thread._crit_edge
@@ -8027,17 +8027,17 @@ acct_policy_set_qos_order.exit.thread:            ; preds = %20, %21, %30, %24
   br label %_get_prio_thresh.exit14
 
 _get_prio_thresh.exit14:                          ; preds = %acct_policy_set_qos_order.exit.thread, %36, %30, %29
-  %.3 = phi i32 [ 0, %29 ], [ 0, %30 ], [ %spec.select39, %36 ], [ %spec.select3843, %acct_policy_set_qos_order.exit.thread ]
+  %.2 = phi i32 [ 0, %29 ], [ 0, %30 ], [ %spec.select39, %36 ], [ %spec.select3843, %acct_policy_set_qos_order.exit.thread ]
   %45 = getelementptr inbounds i8, ptr %10, i64 252
   %46 = load i32, ptr %45, align 4
-  %47 = icmp ne i32 %.3, 0
+  %47 = icmp ne i32 %.2, 0
   %48 = icmp eq i32 %46, -1
   %or.cond.i15 = or i1 %47, %48
-  %spec.select40 = select i1 %or.cond.i15, i32 %.3, i32 %46
+  %spec.select40 = select i1 %or.cond.i15, i32 %.2, i32 %46
   br label %_get_prio_thresh.exit16
 
 _get_prio_thresh.exit16:                          ; preds = %_get_prio_thresh.exit14, %11, %14
-  %.5 = phi i32 [ 0, %14 ], [ 0, %11 ], [ %spec.select40, %_get_prio_thresh.exit14 ]
+  %.022 = phi i32 [ 0, %14 ], [ 0, %11 ], [ %spec.select40, %_get_prio_thresh.exit14 ]
   br i1 %1, label %50, label %49
 
 49:                                               ; preds = %_get_prio_thresh.exit16
@@ -8045,7 +8045,7 @@ _get_prio_thresh.exit16:                          ; preds = %_get_prio_thresh.ex
   br label %50
 
 50:                                               ; preds = %_get_prio_thresh.exit16, %49, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.5, %49 ], [ %.5, %_get_prio_thresh.exit16 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.022, %49 ], [ %.022, %_get_prio_thresh.exit16 ]
   ret i32 %.0
 }
 
@@ -10330,12 +10330,12 @@ _validate_time_limit.exit323:                     ; preds = %691, %693
   br label %.loopexit369
 
 .loopexit369:                                     ; preds = %.backedge, %35, %38, %175, %172, %208, %205, %286, %283, %354, %351, %418, %415, %490, %487, %541, %538, %582, %579, %639, %636, %703, %700
-  %.1195 = phi i1 [ false, %38 ], [ false, %35 ], [ false, %175 ], [ false, %172 ], [ false, %208 ], [ false, %205 ], [ false, %286 ], [ false, %283 ], [ false, %354 ], [ false, %351 ], [ false, %418 ], [ false, %415 ], [ false, %490 ], [ false, %487 ], [ false, %541 ], [ false, %538 ], [ false, %582 ], [ false, %579 ], [ false, %639 ], [ false, %636 ], [ false, %703 ], [ false, %700 ], [ true, %.backedge ]
+  %.0194 = phi i1 [ false, %38 ], [ false, %35 ], [ false, %175 ], [ false, %172 ], [ false, %208 ], [ false, %205 ], [ false, %286 ], [ false, %283 ], [ false, %354 ], [ false, %351 ], [ false, %418 ], [ false, %415 ], [ false, %490 ], [ false, %487 ], [ false, %541 ], [ false, %538 ], [ false, %582 ], [ false, %579 ], [ false, %639 ], [ false, %636 ], [ false, %703 ], [ false, %700 ], [ true, %.backedge ]
   call void @slurmdb_free_qos_rec_members(ptr noundef nonnull %9) #12
   br label %710
 
 710:                                              ; preds = %.loopexit369, %15
-  %.0189 = phi i1 [ %.1195, %.loopexit369 ], [ false, %15 ]
+  %.0189 = phi i1 [ %.0194, %.loopexit369 ], [ false, %15 ]
   ret i1 %.0189
 }
 
@@ -12011,7 +12011,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noca
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %49
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %49 ], [ 0, %.lr.ph ]
-  %.062.us = phi i64 [ %.2.us, %49 ], [ 0, %.lr.ph ]
+  %.062.us = phi i64 [ %.1.us, %49 ], [ 0, %.lr.ph ]
   %12 = trunc nuw nsw i64 %indvars.iv118 to i32
   store i32 %12, ptr %0, align 4
   br i1 %.not, label %17, label %13
@@ -12084,7 +12084,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noca
 
 41:                                               ; preds = %36, %.thread126
   %42 = phi i64 [ %.pre123, %.thread126 ], [ %.pre122, %36 ]
-  %.1.us = phi i64 [ %40, %.thread126 ], [ %.062.us, %36 ]
+  %.2.us = phi i64 [ %40, %.thread126 ], [ %.062.us, %36 ]
   %.not59.us = icmp eq i64 %.pre, 0
   %or.cond60.us = or i1 %.not58, %.not59.us
   br i1 %or.cond60.us, label %49, label %43
@@ -12093,12 +12093,12 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noca
   %44 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv118
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, %.pre
-  %47 = sub i64 %42, %.1.us
+  %47 = sub i64 %42, %.2.us
   %48 = icmp ugt i64 %46, %47
   br i1 %48, label %._crit_edge, label %49
 
 49:                                               ; preds = %.thread, %43, %41, %21, %18, %13
-  %.2.us = phi i64 [ %.062.us, %13 ], [ %.062.us, %18 ], [ %.062.us, %21 ], [ %.1.us, %43 ], [ %.1.us, %41 ], [ %.062.us, %.thread ]
+  %.1.us = phi i64 [ %.062.us, %13 ], [ %.062.us, %18 ], [ %.062.us, %21 ], [ %.2.us, %43 ], [ %.2.us, %41 ], [ %.062.us, %.thread ]
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %50 = load i32, ptr @g_tres_count, align 4
   %51 = zext i32 %50 to i64

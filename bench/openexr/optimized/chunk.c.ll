@@ -1389,7 +1389,7 @@ for.cond96.preheader.lr.ph:                       ; preds = %for.cond92.preheade
 
 for.cond96.preheader.us:                          ; preds = %for.cond96.preheader.lr.ph, %for.cond96.for.inc113_crit_edge.us
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %for.cond96.for.inc113_crit_edge.us ], [ 0, %for.cond96.preheader.lr.ph ]
-  %chunkoff.1129.us = phi i64 [ %add109.us, %for.cond96.for.inc113_crit_edge.us ], [ 0, %for.cond96.preheader.lr.ph ]
+  %chunkoff.2129.us = phi i64 [ %add109.us, %for.cond96.for.inc113_crit_edge.us ], [ 0, %for.cond96.preheader.lr.ph ]
   %arrayidx106.us = getelementptr inbounds i32, ptr %4, i64 %indvars.iv141
   %25 = load i32, ptr %arrayidx106.us, align 4
   %conv107.us = sext i32 %25 to i64
@@ -1397,12 +1397,12 @@ for.cond96.preheader.us:                          ; preds = %for.cond96.preheade
 
 for.body99.us:                                    ; preds = %for.cond96.preheader.us, %for.body99.us
   %indvars.iv = phi i64 [ 0, %for.cond96.preheader.us ], [ %indvars.iv.next, %for.body99.us ]
-  %chunkoff.2126.us = phi i64 [ %chunkoff.1129.us, %for.cond96.preheader.us ], [ %add109.us, %for.body99.us ]
+  %chunkoff.3126.us = phi i64 [ %chunkoff.2129.us, %for.cond96.preheader.us ], [ %add109.us, %for.body99.us ]
   %arrayidx102.us = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %26 = load i32, ptr %arrayidx102.us, align 4
   %conv103.us = sext i32 %26 to i64
   %mul108.us = mul nsw i64 %conv107.us, %conv103.us
-  %add109.us = add nsw i64 %mul108.us, %chunkoff.2126.us
+  %add109.us = add nsw i64 %mul108.us, %chunkoff.3126.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %idxprom78
   br i1 %exitcond.not, label %for.cond96.for.inc113_crit_edge.us, label %for.body99.us, !llvm.loop !9
@@ -1419,7 +1419,7 @@ if.then88:                                        ; preds = %if.end76
   br label %return
 
 for.cond117.preheader:                            ; preds = %for.cond96.for.inc113_crit_edge.us, %for.cond92.preheader
-  %chunkoff.1.lcssa = phi i64 [ 0, %for.cond92.preheader ], [ %add109.us, %for.cond96.for.inc113_crit_edge.us ]
+  %chunkoff.2.lcssa = phi i64 [ 0, %for.cond92.preheader ], [ %add109.us, %for.cond96.for.inc113_crit_edge.us ]
   %cmp118132 = icmp sgt i32 %levelx, 0
   br i1 %cmp118132, label %for.body120.lr.ph, label %sw.epilog
 
@@ -1429,12 +1429,12 @@ for.body120.lr.ph:                                ; preds = %for.cond117.prehead
 
 for.body120:                                      ; preds = %for.body120.lr.ph, %for.body120
   %indvars.iv146 = phi i64 [ 0, %for.body120.lr.ph ], [ %indvars.iv.next147, %for.body120 ]
-  %chunkoff.3133 = phi i64 [ %chunkoff.1.lcssa, %for.body120.lr.ph ], [ %add127, %for.body120 ]
+  %chunkoff.4133 = phi i64 [ %chunkoff.2.lcssa, %for.body120.lr.ph ], [ %add127, %for.body120 ]
   %arrayidx123 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv146
   %28 = load i32, ptr %arrayidx123, align 4
   %conv124 = sext i32 %28 to i64
   %mul126 = mul nsw i64 %conv124, %conv125
-  %add127 = add nsw i64 %mul126, %chunkoff.3133
+  %add127 = add nsw i64 %mul126, %chunkoff.4133
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %idxprom78
   br i1 %exitcond150.not, label %sw.epilog, label %for.body120, !llvm.loop !11
@@ -1447,11 +1447,11 @@ sw.default:                                       ; preds = %if.end17
 
 sw.epilog:                                        ; preds = %for.body120, %for.body, %for.cond117.preheader, %for.cond96.preheader.lr.ph, %for.cond.preheader
   %.sink = phi i32 [ %16, %for.cond.preheader ], [ %23, %for.cond96.preheader.lr.ph ], [ %23, %for.cond117.preheader ], [ %16, %for.body ], [ %23, %for.body120 ]
-  %chunkoff.3.lcssa.sink = phi i64 [ 0, %for.cond.preheader ], [ 0, %for.cond96.preheader.lr.ph ], [ %chunkoff.1.lcssa, %for.cond117.preheader ], [ %add, %for.body ], [ %add127, %for.body120 ]
+  %chunkoff.4.lcssa.sink = phi i64 [ 0, %for.cond.preheader ], [ 0, %for.cond96.preheader.lr.ph ], [ %chunkoff.2.lcssa, %for.cond117.preheader ], [ %add, %for.body ], [ %add127, %for.body120 ]
   %mul131 = mul nsw i32 %.sink, %tiley
   %add132 = add nuw nsw i32 %mul131, %tilex
   %conv133 = zext nneg i32 %add132 to i64
-  %add134 = add nsw i64 %chunkoff.3.lcssa.sink, %conv133
+  %add134 = add nsw i64 %chunkoff.4.lcssa.sink, %conv133
   %chunk_count = getelementptr inbounds i8, ptr %part, i64 244
   %30 = load i32, ptr %chunk_count, align 4
   %conv138 = sext i32 %30 to i64

@@ -1479,7 +1479,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i
   unreachable
 
 cleanup43:                                        ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i, %cleanup, %if.then
-  %retval.1 = phi i1 [ true, %if.then ], [ %call39, %cleanup ], [ %call39, %if.then.i.i.i.i ], [ %call39, %if.then2.i.i.i.i ]
+  %retval.0 = phi i1 [ true, %if.then ], [ %call39, %cleanup ], [ %call39, %if.then.i.i.i.i ], [ %call39, %if.then2.i.i.i.i ]
   %41 = load ptr, ptr %atms, align 8
   %tobool.not.i.i.i42 = icmp eq ptr %41, null
   br i1 %tobool.not.i.i.i42, label %_ZN10ptr_vectorI3appED2Ev.exit, label %if.then.i.i.i
@@ -1514,7 +1514,7 @@ terminate.lpad.i.i47:                             ; preds = %if.then.i.i.i45
   unreachable
 
 _ZN10ptr_vectorI3appED2Ev.exit48:                 ; preds = %_ZN10ptr_vectorI3appED2Ev.exit, %if.then.i.i.i45
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp, %lpad23
   %.pn = phi { ptr, i32 } [ %34, %lpad23 ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ]
@@ -9222,7 +9222,7 @@ if.end81:                                         ; preds = %invoke.cont78
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont68, %for.inc73, %invoke.cont48, %for.inc53, %invoke.cont31, %for.inc, %for.cond63.preheader, %for.cond43.preheader, %for.cond.preheader, %if.end81, %invoke.cont78, %invoke.cont58, %invoke.cont38, %invoke.cont24
-  %retval.0.ph = phi i1 [ true, %if.end81 ], [ false, %invoke.cont78 ], [ false, %invoke.cont58 ], [ false, %invoke.cont38 ], [ false, %invoke.cont24 ], [ true, %for.cond.preheader ], [ true, %for.cond43.preheader ], [ true, %for.cond63.preheader ], [ %call32, %for.inc ], [ %call32, %invoke.cont31 ], [ %call49, %for.inc53 ], [ %call49, %invoke.cont48 ], [ %call69, %for.inc73 ], [ %call69, %invoke.cont68 ]
+  %retval.1.ph = phi i1 [ true, %if.end81 ], [ false, %invoke.cont78 ], [ false, %invoke.cont58 ], [ false, %invoke.cont38 ], [ false, %invoke.cont24 ], [ true, %for.cond.preheader ], [ true, %for.cond43.preheader ], [ true, %for.cond63.preheader ], [ %call32, %for.inc ], [ %call32, %invoke.cont31 ], [ %call49, %for.inc53 ], [ %call49, %invoke.cont48 ], [ %call69, %for.inc73 ], [ %call69, %invoke.cont68 ]
   %.pr = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %.pr, null
   br i1 %cmp.i.i.i, label %return, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i
@@ -9307,8 +9307,8 @@ return.sink.split:                                ; preds = %return.sink.split.s
   br label %return
 
 return:                                           ; preds = %return.sink.split, %invoke.cont, %if.end13, %if.then.i.i.i.i.i110, %invoke.cont.i.i, %cleanup, %_ZNK4decl13get_family_idEv.exit, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit
-  %retval.1 = phi i1 [ false, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ %retval.0.ph, %cleanup ], [ %retval.0.ph, %invoke.cont.i.i ], [ %retval.0.ph, %if.then.i.i.i.i.i110 ], [ false, %if.end13 ], [ false, %invoke.cont ], [ true, %return.sink.split ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ %retval.1.ph, %cleanup ], [ %retval.1.ph, %invoke.cont.i.i ], [ %retval.1.ph, %if.then.i.i.i.i.i110 ], [ false, %if.end13 ], [ false, %invoke.cont ], [ true, %return.sink.split ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12283,7 +12283,7 @@ _ZNK10arith_util10is_numeralEPK4exprR8rational.exit: ; preds = %sw.bb74
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont57, %_ZN8rationalD2Ev.exit147, %invoke.cont35, %_ZN8rationalD2Ev.exit93, %invoke.cont17, %_ZN8rationalD2Ev.exit, %for.cond52.preheader, %for.cond30.preheader, %for.cond.preheader, %if.end7, %if.end72, %_ZNK10arith_util10is_numeralEPK4exprR8rational.exit, %invoke.cont, %invoke.cont69, %invoke.cont47, %invoke.cont25, %invoke.cont10
-  %retval.0 = phi i1 [ false, %invoke.cont10 ], [ false, %invoke.cont25 ], [ false, %invoke.cont47 ], [ false, %invoke.cont69 ], [ %call.i150, %_ZNK10arith_util10is_numeralEPK4exprR8rational.exit ], [ false, %invoke.cont ], [ true, %if.end72 ], [ false, %if.end7 ], [ true, %for.cond.preheader ], [ true, %for.cond30.preheader ], [ true, %for.cond52.preheader ], [ %call18, %_ZN8rationalD2Ev.exit ], [ %call18, %invoke.cont17 ], [ %call36, %_ZN8rationalD2Ev.exit93 ], [ %call36, %invoke.cont35 ], [ %call58, %_ZN8rationalD2Ev.exit147 ], [ %call58, %invoke.cont57 ]
+  %retval.1 = phi i1 [ false, %invoke.cont10 ], [ false, %invoke.cont25 ], [ false, %invoke.cont47 ], [ false, %invoke.cont69 ], [ %call.i150, %_ZNK10arith_util10is_numeralEPK4exprR8rational.exit ], [ false, %invoke.cont ], [ true, %if.end72 ], [ false, %if.end7 ], [ true, %for.cond.preheader ], [ true, %for.cond30.preheader ], [ true, %for.cond52.preheader ], [ %call18, %_ZN8rationalD2Ev.exit ], [ %call18, %invoke.cont17 ], [ %call36, %_ZN8rationalD2Ev.exit93 ], [ %call36, %invoke.cont35 ], [ %call58, %_ZN8rationalD2Ev.exit147 ], [ %call58, %invoke.cont57 ]
   %67 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(16) %m)
           to label %.noexc.i152 unwind label %terminate.lpad.i151
@@ -12300,8 +12300,8 @@ terminate.lpad.i151:                              ; preds = %.noexc.i152, %clean
   unreachable
 
 return:                                           ; preds = %if.end, %.noexc.i152, %_ZNK4decl13get_family_idEv.exit, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ %retval.0, %.noexc.i152 ], [ false, %if.end ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ %retval.1, %.noexc.i152 ], [ false, %if.end ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

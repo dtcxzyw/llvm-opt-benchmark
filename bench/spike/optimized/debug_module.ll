@@ -2364,7 +2364,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit119: ; preds = %_ZN14debug_module
 
 342:                                              ; preds = %335, %.critedge
   %indvars.iv153 = phi i64 [ 0, %335 ], [ %indvars.iv.next154, %.critedge ]
-  %.088142 = phi i32 [ 0, %335 ], [ %.1, %.critedge ]
+  %.1142 = phi i32 [ 0, %335 ], [ %.2, %.critedge ]
   %343 = add nuw nsw i64 %indvars.iv153, %339
   %344 = load ptr, ptr %340, align 8
   %345 = load ptr, ptr %344, align 8
@@ -2409,11 +2409,11 @@ _ZN14debug_module_t19selected_hart_stateEv.exit119: ; preds = %_ZN14debug_module
 377:                                              ; preds = %358
   %378 = trunc nuw nsw i64 %indvars.iv153 to i32
   %379 = shl nuw i32 1, %378
-  %380 = or i32 %379, %.088142
+  %380 = or i32 %379, %.1142
   br label %.critedge
 
 .critedge:                                        ; preds = %358, %377, %342
-  %.1 = phi i32 [ %380, %377 ], [ %.088142, %358 ], [ %.088142, %342 ]
+  %.2 = phi i32 [ %380, %377 ], [ %.1142, %358 ], [ %.1142, %342 ]
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next154, 32
   br i1 %exitcond.not, label %_ZN14debug_module_t13sb_read_startEv.exit, label %342, !llvm.loop !7
@@ -2660,19 +2660,19 @@ _ZN14debug_module_t19selected_hart_stateEv.exit126: ; preds = %528
 556:                                              ; preds = %.preheader, %556
   %557 = phi i1 [ true, %.preheader ], [ false, %556 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %556 ]
-  %.2140 = phi i32 [ 0, %.preheader ], [ %564, %556 ]
+  %.3140 = phi i32 [ 0, %.preheader ], [ %564, %556 ]
   %558 = getelementptr inbounds [2 x i8], ptr %57, i64 0, i64 %indvars.iv
   %559 = load i8, ptr %558, align 1
   %560 = and i8 %559, 1
   %561 = zext nneg i8 %560 to i32
   %562 = trunc nuw nsw i64 %indvars.iv to i32
   %563 = shl nuw nsw i32 %561, %562
-  %564 = or i32 %563, %.2140
+  %564 = or i32 %563, %.3140
   br i1 %557, label %556, label %_ZN14debug_module_t13sb_read_startEv.exit, !llvm.loop !8
 
 _ZN14debug_module_t13sb_read_startEv.exit:        ; preds = %556, %.critedge, %20, %24, %491, %490, %.thread131, %55, %50, %39, %514, %523, %503, %512, %492, %501, %476, %482, %478, %_ZN14debug_module_t19selected_hart_stateEv.exit126, %525, %464, %461, %458, %455, %381, %331, %325, %317, %297, %_ZN14debug_module_t19selected_hart_stateEv.exit119, %58, %25, %30
-  %.3 = phi i32 [ %17, %30 ], [ %17, %25 ], [ -1, %39 ], [ %46, %55 ], [ %46, %50 ], [ %555, %_ZN14debug_module_t19selected_hart_stateEv.exit126 ], [ %527, %525 ], [ %516, %523 ], [ %516, %514 ], [ %505, %512 ], [ %505, %503 ], [ %494, %501 ], [ %494, %492 ], [ %469, %476 ], [ %469, %482 ], [ %469, %478 ], [ %466, %464 ], [ %463, %461 ], [ %460, %458 ], [ %457, %455 ], [ %454, %381 ], [ %334, %331 ], [ %330, %325 ], [ %324, %317 ], [ %316, %297 ], [ %op.rdx176, %_ZN14debug_module_t19selected_hart_stateEv.exit119 ], [ %99, %58 ], [ 0, %.thread131 ], [ %469, %490 ], [ %469, %491 ], [ -1, %24 ], [ -1, %20 ], [ %.1, %.critedge ], [ %564, %556 ]
-  store i32 %.3, ptr %2, align 4
+  %.088 = phi i32 [ %17, %30 ], [ %17, %25 ], [ -1, %39 ], [ %46, %55 ], [ %46, %50 ], [ %555, %_ZN14debug_module_t19selected_hart_stateEv.exit126 ], [ %527, %525 ], [ %516, %523 ], [ %516, %514 ], [ %505, %512 ], [ %505, %503 ], [ %494, %501 ], [ %494, %492 ], [ %469, %476 ], [ %469, %482 ], [ %469, %478 ], [ %466, %464 ], [ %463, %461 ], [ %460, %458 ], [ %457, %455 ], [ %454, %381 ], [ %334, %331 ], [ %330, %325 ], [ %324, %317 ], [ %316, %297 ], [ %op.rdx176, %_ZN14debug_module_t19selected_hart_stateEv.exit119 ], [ %99, %58 ], [ 0, %.thread131 ], [ %469, %490 ], [ %469, %491 ], [ -1, %24 ], [ -1, %20 ], [ %.2, %.critedge ], [ %564, %556 ]
+  store i32 %.088, ptr %2, align 4
   br label %565
 
 565:                                              ; preds = %.thread131, %_ZN14debug_module_t13sb_read_startEv.exit
@@ -2786,7 +2786,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   br label %62
 
 62:                                               ; preds = %59, %55
-  %.071 = phi i32 [ 5, %59 ], [ 0, %55 ]
+  %.1 = phi i32 [ 5, %59 ], [ 0, %55 ]
   %63 = icmp ult i32 %26, 4096
   br i1 %63, label %64, label %124
 
@@ -2801,15 +2801,15 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds i8, ptr %0, i64 60
-  %71 = add nuw nsw i32 %.071, 1
-  %72 = shl nuw nsw i32 %.071, 2
+  %71 = add nuw nsw i32 %.1, 1
+  %72 = shl nuw nsw i32 %.1, 2
   %73 = zext nneg i32 %72 to i64
   %74 = getelementptr inbounds i8, ptr %70, i64 %73
   store <4 x i8> <i8 115, i8 16, i8 36, i8 123>, ptr %74, align 4
   br label %75
 
 75:                                               ; preds = %69, %68
-  %.1 = phi i32 [ %.071, %68 ], [ %71, %69 ]
+  %.2 = phi i32 [ %.1, %68 ], [ %71, %69 ]
   br i1 %.not75, label %95, label %76
 
 76:                                               ; preds = %75
@@ -2828,7 +2828,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 79:                                               ; preds = %76, %77
   %.sink = phi i8 [ 52, %77 ], [ 36, %76 ]
   %80 = getelementptr inbounds i8, ptr %0, i64 60
-  %81 = shl nuw nsw i32 %.1, 2
+  %81 = shl nuw nsw i32 %.2, 2
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %80, i64 %82
   store i8 3, ptr %83, align 4
@@ -2852,8 +2852,8 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 
 95:                                               ; preds = %75
   %96 = getelementptr inbounds i8, ptr %0, i64 60
-  %97 = add nuw nsw i32 %.1, 1
-  %98 = shl nuw nsw i32 %.1, 2
+  %97 = add nuw nsw i32 %.2, 1
+  %98 = shl nuw nsw i32 %.2, 2
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds i8, ptr %96, i64 %99
   store i8 115, ptr %100, align 4
@@ -2891,12 +2891,12 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   br label %322
 
 116:                                              ; preds = %107, %111, %79
-  %.3 = add nuw nsw i32 %.1, 2
+  %.4 = add nuw nsw i32 %.2, 2
   br i1 %spec.select.i, label %.thread91, label %.thread94
 
 .thread94:                                        ; preds = %116
   %117 = getelementptr inbounds i8, ptr %0, i64 60
-  %118 = shl nuw nsw i32 %.3, 2
+  %118 = shl nuw nsw i32 %.4, 2
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds i8, ptr %117, i64 %119
   store i8 115, ptr %120, align 4
@@ -2934,7 +2934,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 .thread:                                          ; preds = %128, %127
   %.sink117 = phi i8 [ 32, %127 ], [ 48, %128 ]
   %.sink121 = getelementptr inbounds i8, ptr %0, i64 60
-  %130 = shl nuw nsw i32 %.071, 2
+  %130 = shl nuw nsw i32 %.1, 2
   %131 = zext nneg i32 %130 to i64
   %132 = getelementptr inbounds i8, ptr %.sink121, i64 %131
   store i8 35, ptr %132, align 4
@@ -2949,7 +2949,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   %138 = or i8 %137, 56
   %139 = getelementptr inbounds i8, ptr %132, i64 3
   store i8 %138, ptr %139, align 1
-  %.488 = add nuw nsw i32 %.071, 1
+  %.688 = add nuw nsw i32 %.1, 1
   br label %259
 
 140:                                              ; preds = %128, %127
@@ -2958,7 +2958,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   %142 = shl nuw nsw i32 %20, 7
   %143 = and i32 %142, 3968
   %144 = or disjoint i32 %143, %.sink140
-  %145 = shl nuw nsw i32 %.071, 2
+  %145 = shl nuw nsw i32 %.1, 2
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds i8, ptr %141, i64 %146
   %148 = trunc i32 %144 to i8
@@ -2971,15 +2971,15 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   store i8 0, ptr %152, align 2
   %153 = getelementptr inbounds i8, ptr %147, i64 3
   store i8 56, ptr %153, align 1
-  %.4 = add nuw nsw i32 %.071, 1
+  %.6 = add nuw nsw i32 %.1, 1
   %154 = and i32 %20, 131071
   %brmerge.not = icmp eq i32 %154, 69640
   br i1 %brmerge.not, label %155, label %259
 
 155:                                              ; preds = %140
   %156 = getelementptr inbounds i8, ptr %0, i64 60
-  %157 = or disjoint i32 %.071, 2
-  %158 = shl nuw nsw i32 %.4, 2
+  %157 = or disjoint i32 %.1, 2
+  %158 = shl nuw nsw i32 %.6, 2
   %159 = zext nneg i32 %158 to i64
   %160 = getelementptr inbounds i8, ptr %156, i64 %159
   store <4 x i8> <i8 115, i8 16, i8 36, i8 123>, ptr %160, align 4
@@ -3003,11 +3003,11 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 
 168:                                              ; preds = %167
   %169 = getelementptr inbounds i8, ptr %0, i64 60
-  %170 = add nuw nsw i32 %.071, 1
+  %170 = add nuw nsw i32 %.1, 1
   %171 = shl nsw i32 %166, 7
   %172 = and i32 %171, 3968
   %173 = or disjoint i32 %172, 939532295
-  %174 = shl nuw nsw i32 %.071, 2
+  %174 = shl nuw nsw i32 %.1, 2
   %175 = zext nneg i32 %174 to i64
   %176 = getelementptr inbounds i8, ptr %169, i64 %175
   %177 = trunc i32 %173 to i8
@@ -3024,11 +3024,11 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 
 183:                                              ; preds = %167
   %184 = getelementptr inbounds i8, ptr %0, i64 60
-  %185 = add nuw nsw i32 %.071, 1
+  %185 = add nuw nsw i32 %.1, 1
   %186 = shl nsw i32 %166, 7
   %187 = and i32 %186, 3968
   %188 = or disjoint i32 %187, 939536391
-  %189 = shl nuw nsw i32 %.071, 2
+  %189 = shl nuw nsw i32 %.1, 2
   %190 = zext nneg i32 %189 to i64
   %191 = getelementptr inbounds i8, ptr %184, i64 %190
   %192 = trunc i32 %188 to i8
@@ -3055,9 +3055,9 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 
 200:                                              ; preds = %199
   %201 = getelementptr inbounds i8, ptr %0, i64 60
-  %202 = add nuw nsw i32 %.071, 1
+  %202 = add nuw nsw i32 %.1, 1
   %203 = shl i32 %20, 20
-  %204 = shl nuw nsw i32 %.071, 2
+  %204 = shl nuw nsw i32 %.1, 2
   %205 = zext nneg i32 %204 to i64
   %206 = getelementptr inbounds i8, ptr %201, i64 %205
   store i8 39, ptr %206, align 4
@@ -3077,9 +3077,9 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 
 216:                                              ; preds = %199
   %217 = getelementptr inbounds i8, ptr %0, i64 60
-  %218 = add nuw nsw i32 %.071, 1
+  %218 = add nuw nsw i32 %.1, 1
   %219 = shl i32 %20, 20
-  %220 = shl nuw nsw i32 %.071, 2
+  %220 = shl nuw nsw i32 %.1, 2
   %221 = zext nneg i32 %220 to i64
   %222 = getelementptr inbounds i8, ptr %217, i64 %221
   store i8 39, ptr %222, align 4
@@ -3148,11 +3148,11 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   br label %322
 
 259:                                              ; preds = %.thread, %140, %155, %183, %168, %216, %200
-  %.5 = phi i32 [ %157, %155 ], [ %.4, %140 ], [ %185, %183 ], [ %170, %168 ], [ %218, %216 ], [ %202, %200 ], [ %.488, %.thread ]
+  %.5 = phi i32 [ %157, %155 ], [ %.6, %140 ], [ %185, %183 ], [ %170, %168 ], [ %218, %216 ], [ %202, %200 ], [ %.688, %.thread ]
   br i1 %spec.select.i, label %.thread91, label %270
 
 .thread91:                                        ; preds = %116, %259
-  %.593 = phi i32 [ %.5, %259 ], [ %.3, %116 ]
+  %.593 = phi i32 [ %.5, %259 ], [ %.4, %116 ]
   %260 = getelementptr inbounds i8, ptr %0, i64 60
   %261 = shl nuw nsw i32 %.593, 2
   %262 = zext nneg i32 %261 to i64
@@ -3171,13 +3171,13 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 
 .sink.split:                                      ; preds = %.thread91, %.thread94
   %.sink142 = phi ptr [ %123, %.thread94 ], [ %269, %.thread91 ]
-  %.6.ph.in = phi i32 [ %.1, %.thread94 ], [ %.593, %.thread91 ]
-  %.6.ph = add nuw nsw i32 %.6.ph.in, 3
+  %.071.ph.in = phi i32 [ %.2, %.thread94 ], [ %.593, %.thread91 ]
+  %.071.ph = add nuw nsw i32 %.071.ph.in, 3
   store i8 123, ptr %.sink142, align 1
   br label %270
 
 270:                                              ; preds = %.sink.split, %259, %52
-  %.6 = phi i32 [ %.5, %259 ], [ 0, %52 ], [ %.6.ph, %.sink.split ]
+  %.071 = phi i32 [ %.5, %259 ], [ 0, %52 ], [ %.071.ph, %.sink.split ]
   %271 = load i32, ptr %19, align 8
   %272 = and i32 %271, 262144
   %.not78 = icmp eq i32 %272, 0
@@ -3189,7 +3189,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   %276 = load i32, ptr %275, align 4
   %277 = getelementptr inbounds i8, ptr %0, i64 40
   %278 = load i32, ptr %277, align 8
-  %279 = shl nuw nsw i32 %.6, 2
+  %279 = shl nuw nsw i32 %.071, 2
   %280 = add i32 %279, %278
   %281 = sub i32 %276, %280
   %282 = shl i32 %281, 11
@@ -3218,7 +3218,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   br label %308
 
 302:                                              ; preds = %270
-  %303 = shl nuw nsw i32 %.6, 2
+  %303 = shl nuw nsw i32 %.071, 2
   %304 = zext nneg i32 %303 to i64
   %305 = getelementptr inbounds i8, ptr %273, i64 %304
   store i8 115, ptr %305, align 4

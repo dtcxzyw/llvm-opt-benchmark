@@ -774,8 +774,8 @@ _ZNK3dap4json19JsonCppDeserializer11deserializeINS_3anyEEEbPSt6vectorIT_SaIS5_EE
   br label %72
 
 72:                                               ; preds = %14, %28, %70, %36, %22, %.thread, %.thread20, %66, %56, %67
-  %.2 = phi i1 [ false, %56 ], [ false, %66 ], [ false, %67 ], [ true, %.thread20 ], [ true, %.thread ], [ true, %22 ], [ true, %36 ], [ true, %70 ], [ true, %28 ], [ true, %14 ]
-  ret i1 %.2
+  %.115 = phi i1 [ false, %56 ], [ false, %66 ], [ false, %67 ], [ true, %.thread20 ], [ true, %.thread ], [ true, %22 ], [ true, %36 ], [ true, %70 ], [ true, %28 ], [ true, %14 ]
+  ret i1 %.115
 
 73:                                               ; preds = %62, %52, %37
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %53, %52 ], [ %63, %62 ]
@@ -1651,8 +1651,8 @@ _ZN3dap4json19JsonCppDeserializerD2Ev.exit:       ; preds = %33, %36, %39
   br i1 %41, label %.loopexit, label %25
 
 .loopexit:                                        ; preds = %_ZN3dap4json19JsonCppDeserializerD2Ev.exit, %40, %10, %2
-  %.2 = phi i1 [ false, %2 ], [ true, %10 ], [ %31, %40 ], [ %31, %_ZN3dap4json19JsonCppDeserializerD2Ev.exit ]
-  ret i1 %.2
+  %.08 = phi i1 [ false, %2 ], [ true, %10 ], [ %31, %40 ], [ %31, %_ZN3dap4json19JsonCppDeserializerD2Ev.exit ]
+  ret i1 %.08
 }
 
 ; Function Attrs: mustprogress uwtable

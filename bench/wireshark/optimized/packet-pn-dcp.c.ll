@@ -897,14 +897,14 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   br label %128
 
 128:                                              ; preds = %126, %117, %108
-  %.2.i = phi i32 [ %119, %126 ], [ %119, %117 ], [ %75, %108 ]
+  %.3.i = phi i32 [ %119, %126 ], [ %119, %117 ], [ %75, %108 ]
   %129 = icmp ne i8 %5, 4
   %or.cond15.i = or i1 %129, %109
   br i1 %or.cond15.i, label %138, label %130
 
 130:                                              ; preds = %128
   %131 = load i32, ptr @hf_pn_dcp_block_qualifier, align 4
-  %132 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.2.i, ptr noundef %2, ptr noundef %67, i32 noundef %131, ptr noundef nonnull %59) #3
+  %132 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.3.i, ptr noundef %2, ptr noundef %67, i32 noundef %131, ptr noundef nonnull %59) #3
   %133 = load i16, ptr %59, align 2
   %134 = zext i16 %133 to i32
   %135 = call ptr @val_to_str_const(i32 noundef %134, ptr noundef nonnull @pn_dcp_block_qualifier, ptr noundef nonnull @.str.119) #3
@@ -915,9 +915,9 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   br label %138
 
 138:                                              ; preds = %130, %128
-  %.3.i = phi i32 [ %.2.i, %128 ], [ %132, %130 ]
+  %.4.i = phi i32 [ %.3.i, %128 ], [ %132, %130 ]
   %139 = load i32, ptr @hf_pn_dcp_suboption_ip_ip, align 4
-  %140 = call i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %.3.i, ptr noundef %2, ptr noundef %67, i32 noundef %139, ptr noundef nonnull %61) #3
+  %140 = call i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %.4.i, ptr noundef %2, ptr noundef %67, i32 noundef %139, ptr noundef nonnull %61) #3
   store i32 2, ptr %62, align 8
   %141 = getelementptr inbounds i8, ptr %62, i64 4
   store i32 4, ptr %141, align 4
@@ -969,14 +969,14 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   br label %163
 
 163:                                              ; preds = %158, %155
-  %.4.i = phi i32 [ %160, %158 ], [ %75, %155 ]
+  %.5.i = phi i32 [ %160, %158 ], [ %75, %155 ]
   %164 = icmp ne i8 %5, 4
   %or.cond23.i = or i1 %164, %156
   br i1 %or.cond23.i, label %.thread191.i, label %165
 
 165:                                              ; preds = %163
   %166 = load i32, ptr @hf_pn_dcp_block_qualifier, align 4
-  %167 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.4.i, ptr noundef %2, ptr noundef %67, i32 noundef %166, ptr noundef nonnull %59) #3
+  %167 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.5.i, ptr noundef %2, ptr noundef %67, i32 noundef %166, ptr noundef nonnull %59) #3
   %168 = load i16, ptr %57, align 2
   %169 = add i16 %168, -2
   store i16 %169, ptr %57, align 2
@@ -987,7 +987,7 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   br label %.thread191.i
 
 .thread191.i:                                     ; preds = %165, %163
-  %.5193.i = phi i32 [ %167, %165 ], [ %.4.i, %163 ]
+  %.6193.i = phi i32 [ %167, %165 ], [ %.5.i, %163 ]
   br i1 %or.cond188.i, label %173, label %177
 
 173:                                              ; preds = %.thread191.i
@@ -999,7 +999,7 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
 
 177:                                              ; preds = %173, %.thread191.i
   %178 = load i32, ptr @hf_pn_dcp_suboption_ip_ip, align 4
-  %179 = call i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %.5193.i, ptr noundef %2, ptr noundef %67, i32 noundef %178, ptr noundef nonnull %61) #3
+  %179 = call i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %.6193.i, ptr noundef %2, ptr noundef %67, i32 noundef %178, ptr noundef nonnull %61) #3
   store i32 2, ptr %62, align 8
   %180 = getelementptr inbounds i8, ptr %62, i64 4
   store i32 4, ptr %180, align 4
@@ -1074,7 +1074,7 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   br label %dissect_PNDCP_Suboption_IP.exit
 
 dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %210
-  %.6.i = phi i32 [ %213, %210 ], [ %207, %177 ], [ %152, %138 ], [ %101, %99 ]
+  %.2.i = phi i32 [ %213, %210 ], [ %207, %177 ], [ %152, %138 ], [ %101, %99 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %58)
@@ -1528,9 +1528,9 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
   br i1 %.not264280.i, label %dissect_PNDCP_Suboption_Device.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %443, %.lr.ph.i
-  %.2245281.i = phi i32 [ %448, %.lr.ph.i ], [ %.1244.i, %443 ]
+  %.3246281.i = phi i32 [ %448, %.lr.ph.i ], [ %.1244.i, %443 ]
   %447 = load i32, ptr @hf_pn_dcp_option, align 4
-  %448 = call fastcc i32 @dissect_PNDCP_Option(ptr noundef %0, i32 noundef %.2245281.i, ptr noundef %2, ptr noundef %67, ptr noundef null, i32 noundef %447, i32 noundef 0)
+  %448 = call fastcc i32 @dissect_PNDCP_Option(ptr noundef %0, i32 noundef %.3246281.i, ptr noundef %2, ptr noundef %67, ptr noundef null, i32 noundef %447, i32 noundef 0)
   %449 = load i16, ptr %43, align 2
   %450 = add i16 %449, -2
   store i16 %450, ptr %43, align 2
@@ -1719,7 +1719,7 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
   br label %dissect_PNDCP_Suboption_Device.exit
 
 dissect_PNDCP_Suboption_Device.exit:              ; preds = %.lr.ph.i, %284, %341, %392, %423, %426, %443, %470, %489, %508, %551, %552, %556
-  %.3246.i = phi i32 [ %559, %556 ], [ %521, %552 ], [ %521, %551 ], [ %498, %508 ], [ %479, %489 ], [ %474, %470 ], [ %401, %426 ], [ %401, %423 ], [ %349, %392 ], [ %344, %341 ], [ %287, %284 ], [ %.1244.i, %443 ], [ %448, %.lr.ph.i ]
+  %.2245.i = phi i32 [ %559, %556 ], [ %521, %552 ], [ %521, %551 ], [ %498, %508 ], [ %479, %489 ], [ %474, %470 ], [ %401, %426 ], [ %401, %423 ], [ %349, %392 ], [ %344, %341 ], [ %287, %284 ], [ %.1244.i, %443 ], [ %448, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %44)
@@ -2637,7 +2637,7 @@ dissect_PNDCP_Suboption_Manuf.exit:               ; preds = %957, %962
   br label %969
 
 969:                                              ; preds = %dissect_PNDCP_Suboption_Device.exit, %dissect_PNDCP_Suboption_Control.exit, %dissect_PNDCP_Suboption_TSN.exit, %dissect_PNDCP_Suboption_Manuf.exit, %968, %dissect_PNDCP_Suboption_All.exit, %dissect_PNDCP_Suboption_DeviceInitiative.exit, %dissect_PNDCP_Suboption_DHCP.exit, %dissect_PNDCP_Suboption_IP.exit
-  %.0 = phi i32 [ %.6.i, %dissect_PNDCP_Suboption_IP.exit ], [ %.3246.i, %dissect_PNDCP_Suboption_Device.exit ], [ %.3.i101, %dissect_PNDCP_Suboption_DHCP.exit ], [ %.084.i, %dissect_PNDCP_Suboption_Control.exit ], [ %733, %dissect_PNDCP_Suboption_DeviceInitiative.exit ], [ %.2202.i, %dissect_PNDCP_Suboption_TSN.exit ], [ %.0.i112, %dissect_PNDCP_Suboption_All.exit ], [ %.0.i113, %dissect_PNDCP_Suboption_Manuf.exit ], [ %69, %968 ]
+  %.0 = phi i32 [ %.2.i, %dissect_PNDCP_Suboption_IP.exit ], [ %.2245.i, %dissect_PNDCP_Suboption_Device.exit ], [ %.3.i101, %dissect_PNDCP_Suboption_DHCP.exit ], [ %.084.i, %dissect_PNDCP_Suboption_Control.exit ], [ %733, %dissect_PNDCP_Suboption_DeviceInitiative.exit ], [ %.2202.i, %dissect_PNDCP_Suboption_TSN.exit ], [ %.0.i112, %dissect_PNDCP_Suboption_All.exit ], [ %.0.i113, %dissect_PNDCP_Suboption_Manuf.exit ], [ %69, %968 ]
   %970 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %65, i32 noundef %970) #3
   %971 = and i32 %970, 1

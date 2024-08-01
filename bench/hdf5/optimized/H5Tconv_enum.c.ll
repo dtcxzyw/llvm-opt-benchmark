@@ -473,8 +473,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
   br i1 %.not160, label %.thread170, label %29
 
 29:                                               ; preds = %22, %25, %8
-  %.0138.ph = phi ptr [ %9, %8 ], [ %7, %25 ], [ %7, %22 ]
-  %30 = load ptr, ptr %.0138.ph, align 8
+  %.1.ph = phi ptr [ %9, %8 ], [ %7, %25 ], [ %7, %22 ]
+  %30 = load ptr, ptr %.1.ph, align 8
   %.not161 = icmp eq ptr %30, null
   br i1 %.not161, label %38, label %31
 
@@ -490,7 +490,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
   br label %169
 
 38:                                               ; preds = %31, %29
-  %39 = getelementptr inbounds i8, ptr %.0138.ph, i64 8
+  %39 = getelementptr inbounds i8, ptr %.1.ph, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not162 = icmp eq ptr %40, null
   br i1 %.not162, label %48, label %41
@@ -508,7 +508,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
 
 48:                                               ; preds = %41, %38
   %49 = tail call ptr @H5T_copy(ptr noundef %0, i32 noundef 1) #10
-  store ptr %49, ptr %.0138.ph, align 8
+  store ptr %49, ptr %.1.ph, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %55
 
@@ -539,13 +539,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
   br i1 %67, label %.thread170, label %68
 
 68:                                               ; preds = %62
-  %69 = load ptr, ptr %.0138.ph, align 8
+  %69 = load ptr, ptr %.1.ph, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 40
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 52
   %73 = load i32, ptr %72, align 4
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.0138.ph, i64 24
+  %75 = getelementptr inbounds i8, ptr %.1.ph, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = shl nuw nsw i64 %74, 2
   %78 = tail call ptr @realloc(ptr noundef %76, i64 noundef %77) #13
@@ -562,7 +562,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
 
 85:                                               ; preds = %68
   store ptr %78, ptr %75, align 8
-  %86 = load ptr, ptr %.0138.ph, align 8
+  %86 = load ptr, ptr %.1.ph, align 8
   %87 = tail call i32 @H5T__sort_name(ptr noundef %86, ptr noundef null) #10
   %88 = load ptr, ptr %39, align 8
   %89 = tail call i32 @H5T__sort_name(ptr noundef %88, ptr noundef null) #10
@@ -657,9 +657,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
 ._crit_edge188.thread:                            ; preds = %96, %123, %._crit_edge188
   %128 = phi i32 [ %121, %123 ], [ %121, %._crit_edge188 ], [ 1, %96 ]
   %129 = phi i32 [ %.sroa.0.1, %123 ], [ %.sroa.0.1, %._crit_edge188 ], [ 0, %96 ]
-  %130 = getelementptr inbounds i8, ptr %.0138.ph, i64 16
+  %130 = getelementptr inbounds i8, ptr %.1.ph, i64 16
   store i32 %129, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %.0138.ph, i64 20
+  %131 = getelementptr inbounds i8, ptr %.1.ph, i64 20
   store i32 %128, ptr %131, align 4
   %132 = zext i32 %128 to i64
   %133 = shl nuw nsw i64 %132, 2
@@ -740,13 +740,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
   br label %.thread170
 
 165:                                              ; preds = %._crit_edge, %123
-  %166 = load ptr, ptr %.0138.ph, align 8
+  %166 = load ptr, ptr %.1.ph, align 8
   %167 = load ptr, ptr %75, align 8
   %168 = tail call i32 @H5T__sort_value(ptr noundef %166, ptr noundef %167) #10
   br label %.thread170
 
 169:                                              ; preds = %34, %44, %51, %58, %80, %136
-  %170 = tail call fastcc i32 @H5T__conv_enum_free(ptr noundef nonnull %.0138.ph)
+  %170 = tail call fastcc i32 @H5T__conv_enum_free(ptr noundef nonnull %.1.ph)
   %171 = icmp slt i32 %170, 0
   br i1 %171, label %172, label %176
 
@@ -761,8 +761,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
   br label %.thread170
 
 .thread170:                                       ; preds = %11, %25, %18, %62, %165, %._crit_edge194, %176
-  %.2 = phi i32 [ -1, %176 ], [ 0, %25 ], [ 0, %18 ], [ 0, %62 ], [ -1, %11 ], [ 0, %165 ], [ 0, %._crit_edge194 ]
-  ret i32 %.2
+  %.1145 = phi i32 [ -1, %176 ], [ 0, %25 ], [ 0, %18 ], [ 0, %62 ], [ -1, %11 ], [ 0, %165 ], [ 0, %._crit_edge194 ]
+  ret i32 %.1145
 }
 
 ; Function Attrs: nounwind uwtable
@@ -791,7 +791,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_free(ptr noundef %0)
   br label %14
 
 14:                                               ; preds = %10, %7, %2
-  %.0 = phi i32 [ -1, %10 ], [ 0, %7 ], [ 0, %2 ]
+  %.1 = phi i32 [ -1, %10 ], [ 0, %7 ], [ 0, %2 ]
   %15 = load ptr, ptr %0, align 8
   %.not13 = icmp eq ptr %15, null
   br i1 %.not13, label %23, label %16
@@ -808,13 +808,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_free(ptr noundef %0)
   br label %23
 
 23:                                               ; preds = %19, %16, %14
-  %.1 = phi i32 [ -1, %19 ], [ %.0, %16 ], [ %.0, %14 ]
+  %.2 = phi i32 [ -1, %19 ], [ %.1, %16 ], [ %.1, %14 ]
   tail call void @free(ptr noundef nonnull %0) #10
   br label %24
 
 24:                                               ; preds = %23, %1
-  %.2 = phi i32 [ %.1, %23 ], [ 0, %1 ]
-  ret i32 %.2
+  %.0 = phi i32 [ %.2, %23 ], [ 0, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -667,23 +667,23 @@ _ZN10async_task5utils14abort_on_panic17h2575768a55ca6576E.exit: ; preds = %"_ZN4
   br label %77
 
 77:                                               ; preds = %77, %74
-  %.193 = phi i64 [ %23, %74 ], [ %87, %77 ]
-  %78 = and i64 %.193, 16
+  %.294 = phi i64 [ %23, %74 ], [ %87, %77 ]
+  %78 = and i64 %.294, 16
   %.not314 = icmp eq i64 %78, 0
-  %79 = and i64 %.193, -32
+  %79 = and i64 %.294, -32
   %80 = or disjoint i64 %79, 12
-  %81 = and i64 %.193, -8
+  %81 = and i64 %.294, -8
   %82 = or disjoint i64 %81, 4
   %.098 = select i1 %.not314, i64 %80, i64 %82
   %83 = load ptr, ptr %8, align 8, !noundef !14
   %84 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = cmpxchg weak ptr %84, i64 %.193, i64 %.098 acq_rel acquire, align 8
+  %85 = cmpxchg weak ptr %84, i64 %.294, i64 %.098 acq_rel acquire, align 8
   %86 = extractvalue { i64, i1 } %85, 1
   %87 = extractvalue { i64, i1 } %85, 0
   br i1 %86, label %88, label %77
 
 88:                                               ; preds = %77
-  %89 = and i64 %.193, 24
+  %89 = and i64 %.294, 24
   %or.cond = icmp eq i64 %89, 16
   br i1 %or.cond, label %114, label %90
 
@@ -746,7 +746,7 @@ _ZN10async_task5utils14abort_on_panic17h26353773066b8b88E.exit: ; preds = %103, 
   br label %114
 
 114:                                              ; preds = %_ZN10async_task5utils14abort_on_panic17h26353773066b8b88E.exit, %88
-  %115 = and i64 %.193, 32
+  %115 = and i64 %.294, 32
   %116 = icmp eq i64 %115, 0
   br i1 %116, label %129, label %117
 
@@ -877,11 +877,11 @@ _ZN10async_task5utils14abort_on_panic17h7e0fe89e44b67cf6E.exit: ; preds = %149
 
 161:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h647f583b2230cb71E.exit", %175
   %.096 = phi i1 [ false, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h647f583b2230cb71E.exit" ], [ %.197, %175 ]
-  %.294 = phi i64 [ %23, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h647f583b2230cb71E.exit" ], [ %180, %175 ]
-  %162 = and i64 %.294, 8
+  %.193 = phi i64 [ %23, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h647f583b2230cb71E.exit" ], [ %180, %175 ]
+  %162 = and i64 %.193, 8
   %163 = icmp eq i64 %162, 0
   %.095.v = select i1 %163, i64 -11, i64 -4
-  %.095 = and i64 %.095.v, %.294
+  %.095 = and i64 %.095.v, %.193
   %brmerge = select i1 %163, i1 true, i1 %.096
   br i1 %brmerge, label %175, label %164
 
@@ -933,7 +933,7 @@ _ZN10async_task5utils14abort_on_panic17h7e0fe89e44b67cf6E.exit: ; preds = %149
   %.197 = phi i1 [ %.096, %161 ], [ true, %174 ]
   %176 = load ptr, ptr %8, align 8, !noundef !14
   %177 = getelementptr inbounds i8, ptr %176, i64 8
-  %178 = cmpxchg weak ptr %177, i64 %.294, i64 %.095 acq_rel acquire, align 8
+  %178 = cmpxchg weak ptr %177, i64 %.193, i64 %.095 acq_rel acquire, align 8
   %179 = extractvalue { i64, i1 } %178, 1
   %180 = extractvalue { i64, i1 } %178, 0
   br i1 %179, label %181, label %161
@@ -1593,7 +1593,7 @@ default.unreachable:                              ; preds = %351, %54
 
 119:                                              ; preds = %115, %92
   %120 = phi ptr [ %95, %92 ], [ %112, %115 ]
-  %.015.i.i.ph.i.i = phi ptr [ %93, %92 ], [ %116, %115 ]
+  %.1.i.i.ph.i.i = phi ptr [ %93, %92 ], [ %116, %115 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !216
   %121 = load i64, ptr %120, align 8, !range !219, !noalias !216, !noundef !14
   %122 = icmp eq i64 %121, 2
@@ -1634,7 +1634,7 @@ default.unreachable:                              ; preds = %351, %54
   %132 = load ptr, ptr %74, align 8, !noalias !216, !nonnull !14, !align !74, !noundef !14
   store ptr %132, ptr %120, align 8, !noalias !216
   %.sroa.649.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %55, i64 184
-  store ptr %.015.i.i.ph.i.i, ptr %.sroa.649.0..sroa_idx.i.i, align 8, !noalias !216
+  store ptr %.1.i.i.ph.i.i, ptr %.sroa.649.0..sroa_idx.i.i, align 8, !noalias !216
   %.sroa.750.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %55, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.i.i, i64 16, i1 false), !noalias !216
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %55, i64 208
@@ -1683,7 +1683,7 @@ default.unreachable:                              ; preds = %351, %54
   unreachable
 
 140:                                              ; preds = %._crit_edge71.i, %.thread114.i.i
-  %141 = phi ptr [ %.015.i.i.ph.i.i, %.thread114.i.i ], [ %.pre72.i, %._crit_edge71.i ]
+  %141 = phi ptr [ %.1.i.i.ph.i.i, %.thread114.i.i ], [ %.pre72.i, %._crit_edge71.i ]
   %142 = phi ptr [ %.sroa.8.0..sroa_idx.i.i, %.thread114.i.i ], [ %.phi.trans.insert109.i.i, %._crit_edge71.i ]
   %143 = phi ptr [ %133, %.thread114.i.i ], [ %138, %._crit_edge71.i ]
   %144 = getelementptr inbounds i8, ptr %55, i64 192
@@ -2580,23 +2580,23 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i145.i.i.i: ; preds = %
   br label %470
 
 470:                                              ; preds = %470, %467
-  %.193 = phi i64 [ %34, %467 ], [ %480, %470 ]
-  %471 = and i64 %.193, 16
+  %.294 = phi i64 [ %34, %467 ], [ %480, %470 ]
+  %471 = and i64 %.294, 16
   %.not314 = icmp eq i64 %471, 0
-  %472 = and i64 %.193, -32
+  %472 = and i64 %.294, -32
   %473 = or disjoint i64 %472, 12
-  %474 = and i64 %.193, -8
+  %474 = and i64 %.294, -8
   %475 = or disjoint i64 %474, 4
   %.098 = select i1 %.not314, i64 %473, i64 %475
   %476 = load ptr, ptr %19, align 8, !noundef !14
   %477 = getelementptr inbounds i8, ptr %476, i64 8
-  %478 = cmpxchg weak ptr %477, i64 %.193, i64 %.098 acq_rel acquire, align 8
+  %478 = cmpxchg weak ptr %477, i64 %.294, i64 %.098 acq_rel acquire, align 8
   %479 = extractvalue { i64, i1 } %478, 1
   %480 = extractvalue { i64, i1 } %478, 0
   br i1 %479, label %481, label %470
 
 481:                                              ; preds = %470
-  %482 = and i64 %.193, 24
+  %482 = and i64 %.294, 24
   %or.cond = icmp eq i64 %482, 16
   br i1 %or.cond, label %507, label %483
 
@@ -2659,7 +2659,7 @@ _ZN10async_task5utils14abort_on_panic17hdd33d86de31b6b06E.exit: ; preds = %496, 
   br label %507
 
 507:                                              ; preds = %_ZN10async_task5utils14abort_on_panic17hdd33d86de31b6b06E.exit, %481
-  %508 = and i64 %.193, 32
+  %508 = and i64 %.294, 32
   %509 = icmp eq i64 %508, 0
   br i1 %509, label %522, label %510
 
@@ -2790,11 +2790,11 @@ _ZN10async_task5utils14abort_on_panic17haefe654835456d80E.exit: ; preds = %542
 
 554:                                              ; preds = %.preheader, %563
   %.096 = phi i1 [ %.197, %563 ], [ false, %.preheader ]
-  %.294 = phi i64 [ %568, %563 ], [ %34, %.preheader ]
-  %555 = and i64 %.294, 8
+  %.193 = phi i64 [ %568, %563 ], [ %34, %.preheader ]
+  %555 = and i64 %.193, 8
   %556 = icmp eq i64 %555, 0
   %.095.v = select i1 %556, i64 -11, i64 -4
-  %.095 = and i64 %.095.v, %.294
+  %.095 = and i64 %.095.v, %.193
   %brmerge = select i1 %556, i1 true, i1 %.096
   br i1 %brmerge, label %563, label %557
 
@@ -2823,7 +2823,7 @@ _ZN10async_task5utils14abort_on_panic17haefe654835456d80E.exit: ; preds = %542
   %.197 = phi i1 [ %.096, %554 ], [ true, %562 ]
   %564 = load ptr, ptr %19, align 8, !noundef !14
   %565 = getelementptr inbounds i8, ptr %564, i64 8
-  %566 = cmpxchg weak ptr %565, i64 %.294, i64 %.095 acq_rel acquire, align 8
+  %566 = cmpxchg weak ptr %565, i64 %.193, i64 %.095 acq_rel acquire, align 8
   %567 = extractvalue { i64, i1 } %566, 1
   %568 = extractvalue { i64, i1 } %566, 0
   br i1 %567, label %569, label %554

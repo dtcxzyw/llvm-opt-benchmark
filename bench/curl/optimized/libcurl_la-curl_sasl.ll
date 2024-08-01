@@ -570,7 +570,7 @@ if.then169:                                       ; preds = %if.then166
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then169, %if.then166
-  %result.1 = phi i32 [ %call170, %if.then169 ], [ 0, %if.then166 ]
+  %result.2 = phi i32 [ %call170, %if.then169 ], [ 0, %if.then166 ]
   %29 = load ptr, ptr %sasl, align 8
   %maxirlen = getelementptr inbounds i8, ptr %29, i64 40
   %30 = load i64, ptr %maxirlen, align 8
@@ -592,7 +592,7 @@ if.then180:                                       ; preds = %land.lhs.true174
   br label %if.end181
 
 if.end181:                                        ; preds = %if.then180, %land.lhs.true174, %if.end171
-  %tobool182.not = icmp eq i32 %result.1, 0
+  %tobool182.not = icmp eq i32 %result.2, 0
   br i1 %tobool182.not, label %if.end186, label %if.end196
 
 if.end186:                                        ; preds = %if.end181
@@ -613,9 +613,9 @@ if.then188:                                       ; preds = %if.end186
   br label %if.end196
 
 if.end196:                                        ; preds = %if.end181, %if.else, %if.else134, %if.end186, %if.then188, %if.end162
-  %result.3 = phi i32 [ %call185, %if.end186 ], [ 0, %if.then188 ], [ %result.0, %if.end162 ], [ 0, %if.else134 ], [ 0, %if.else ], [ %result.1, %if.end181 ]
+  %result.1 = phi i32 [ %call185, %if.end186 ], [ 0, %if.then188 ], [ %result.0, %if.end162 ], [ 0, %if.else134 ], [ 0, %if.else ], [ %result.2, %if.end181 ]
   call void @Curl_bufref_free(ptr noundef nonnull %resp) #7
-  ret i32 %result.3
+  ret i32 %result.1
 }
 
 declare void @Curl_conn_get_host(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -939,9 +939,9 @@ sw.epilog.thread:                                 ; preds = %if.then96, %if.end2
 
 sw.epilog:                                        ; preds = %sw.bb60, %sw.bb41, %if.then78, %if.else, %if.end66, %if.then68, %if.end48, %sw.bb33, %if.then36, %sw.bb56, %sw.bb30, %sw.bb27, %sw.bb24, %sw.bb23
   %newstate.0 = phi i32 [ 14, %if.then78 ], [ 17, %if.else ], [ 17, %if.end66 ], [ 17, %if.then68 ], [ 9, %sw.bb56 ], [ 17, %if.end48 ], [ 17, %sw.bb33 ], [ 17, %if.then36 ], [ 17, %sw.bb30 ], [ 17, %sw.bb27 ], [ 3, %sw.bb24 ], [ 17, %sw.bb23 ], [ 17, %sw.bb41 ], [ 17, %sw.bb60 ]
-  %result.3 = phi i32 [ %call81, %if.then78 ], [ %call83, %if.else ], [ %call65, %if.end66 ], [ %call72, %if.then68 ], [ %call59, %sw.bb56 ], [ %call47, %if.end48 ], [ %call34, %sw.bb33 ], [ %call39, %if.then36 ], [ %call32, %sw.bb30 ], [ %call29, %sw.bb27 ], [ %call26, %sw.bb24 ], [ %call, %sw.bb23 ], [ %call42, %sw.bb41 ], [ %call61, %sw.bb60 ]
+  %result.1 = phi i32 [ %call81, %if.then78 ], [ %call83, %if.else ], [ %call65, %if.end66 ], [ %call72, %if.then68 ], [ %call59, %sw.bb56 ], [ %call47, %if.end48 ], [ %call34, %sw.bb33 ], [ %call39, %if.then36 ], [ %call32, %sw.bb30 ], [ %call29, %sw.bb27 ], [ %call26, %sw.bb24 ], [ %call, %sw.bb23 ], [ %call42, %sw.bb41 ], [ %call61, %sw.bb60 ]
   call void @Curl_bufref_free(ptr noundef nonnull %serverdata) #7
-  switch i32 %result.3, label %sw.default116 [
+  switch i32 %result.1, label %sw.default116 [
     i32 61, label %sw.bb105
     i32 0, label %sw.bb108
   ]
@@ -974,13 +974,13 @@ if.then111:                                       ; preds = %sw.bb108
   br label %sw.epilog117
 
 sw.default116:                                    ; preds = %sw.epilog.thread102, %sw.epilog
-  %result.3105 = phi i32 [ 1, %sw.epilog.thread102 ], [ %result.3, %sw.epilog ]
+  %result.1105 = phi i32 [ 1, %sw.epilog.thread102 ], [ %result.1, %sw.epilog ]
   store i32 2, ptr %progress, align 4
   br label %sw.epilog117
 
 sw.epilog117:                                     ; preds = %sw.bb108, %if.then111, %sw.default116, %sw.bb105
   %newstate.1 = phi i32 [ 0, %sw.default116 ], [ %newstate.0101, %sw.bb108 ], [ %newstate.0101, %if.then111 ], [ 16, %sw.bb105 ]
-  %result.4 = phi i32 [ %result.3105, %sw.default116 ], [ %call109, %sw.bb108 ], [ %call114, %if.then111 ], [ %call107, %sw.bb105 ]
+  %result.4 = phi i32 [ %result.1105, %sw.default116 ], [ %call109, %sw.bb108 ], [ %call114, %if.then111 ], [ %call107, %sw.bb105 ]
   call void @Curl_bufref_free(ptr noundef nonnull %resp) #7
   store i32 %newstate.1, ptr %state, align 8
   br label %return

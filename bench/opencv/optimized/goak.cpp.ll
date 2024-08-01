@@ -769,7 +769,7 @@ _ZN2cv6detail5YieldINS_6GArrayIhEEE5yieldERNS_5GCallEi.exit: ; preds = %54
 
 .body58:                                          ; preds = %.body62, %38, %35, %60
   %.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %.body62 ], [ %36, %38 ], [ %36, %35 ]
-  %.1 = phi i1 [ true, %60 ], [ false, %.body62 ], [ true, %38 ], [ true, %35 ]
+  %.4 = phi i1 [ true, %60 ], [ false, %.body62 ], [ true, %38 ], [ true, %35 ]
   %62 = load i64, ptr %8, align 8
   %63 = getelementptr inbounds [3 x ptr], ptr @constinit.21, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
@@ -785,7 +785,7 @@ _ZN2cv6detail5YieldINS_6GArrayIhEEE5yieldERNS_5GCallEi.exit: ; preds = %54
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit65: ; preds = %.body58
-  br i1 %.1, label %69, label %.critedge
+  br i1 %.4, label %69, label %.critedge
 
 69:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit65
   %70 = load ptr, ptr %22, align 8
@@ -1209,7 +1209,7 @@ _ZN2cv6detail5YieldINS_6GFrameEE5yieldERNS_5GCallEi.exit: ; preds = %52
 
 .body52:                                          ; preds = %.body56, %36, %33, %58
   %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %.body56 ], [ %34, %36 ], [ %34, %33 ]
-  %.1 = phi i1 [ true, %58 ], [ false, %.body56 ], [ true, %36 ], [ true, %33 ]
+  %.3 = phi i1 [ true, %58 ], [ false, %.body56 ], [ true, %36 ], [ true, %33 ]
   %60 = load i64, ptr %9, align 8
   %61 = getelementptr inbounds [3 x ptr], ptr @constinit.21, i64 0, i64 %60
   %62 = load ptr, ptr %61, align 8
@@ -1225,7 +1225,7 @@ _ZN2cv6detail5YieldINS_6GFrameEE5yieldERNS_5GCallEi.exit: ; preds = %52
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit59: ; preds = %.body52
-  br i1 %.1, label %67, label %.critedge
+  br i1 %.3, label %67, label %.critedge
 
 67:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit59
   %68 = load ptr, ptr %23, align 8
@@ -1561,7 +1561,7 @@ _ZN2cv6detail5YieldINS_6GFrameEE5yieldERNS_5GCallEi.exit: ; preds = %50
 
 .body50:                                          ; preds = %.body54, %34, %31, %56
   %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %.body54 ], [ %32, %34 ], [ %32, %31 ]
-  %.1 = phi i1 [ true, %56 ], [ false, %.body54 ], [ true, %34 ], [ true, %31 ]
+  %.3 = phi i1 [ true, %56 ], [ false, %.body54 ], [ true, %34 ], [ true, %31 ]
   %58 = load i64, ptr %7, align 8
   %59 = getelementptr inbounds [3 x ptr], ptr @constinit.21, i64 0, i64 %58
   %60 = load ptr, ptr %59, align 8
@@ -1577,7 +1577,7 @@ _ZN2cv6detail5YieldINS_6GFrameEE5yieldERNS_5GCallEi.exit: ; preds = %50
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit57: ; preds = %.body50
-  br i1 %.1, label %65, label %.critedge
+  br i1 %.3, label %65, label %.critedge
 
 65:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit57
   %66 = load ptr, ptr %21, align 8

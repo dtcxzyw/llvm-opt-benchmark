@@ -655,7 +655,7 @@ invoke.cont175:                                   ; preds = %invoke.cont173
           to label %cleanup unwind label %lpad34
 
 cleanup:                                          ; preds = %invoke.cont175, %invoke.cont164, %invoke.cont148, %invoke.cont133, %if.then84, %if.then46, %if.then37
-  %retval.0 = phi i1 [ false, %if.then84 ], [ false, %invoke.cont133 ], [ false, %if.then46 ], [ false, %if.then37 ], [ false, %invoke.cont148 ], [ false, %invoke.cont164 ], [ %call174, %invoke.cont175 ]
+  %retval.2 = phi i1 [ false, %if.then84 ], [ false, %invoke.cont133 ], [ false, %if.then46 ], [ false, %if.then37 ], [ false, %invoke.cont148 ], [ false, %invoke.cont164 ], [ %call174, %invoke.cont175 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_file) #13
   br label %cleanup179
 
@@ -665,7 +665,7 @@ ehcleanup178:                                     ; preds = %ehcleanup152, %ehcl
   br label %ehcleanup180
 
 cleanup179:                                       ; preds = %if.then2, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %if.then2 ]
+  %retval.1 = phi i1 [ %retval.2, %cleanup ], [ false, %if.then2 ]
   %43 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %args_map, ptr noundef %43)
           to label %return unwind label %terminate.lpad.i.i
@@ -683,8 +683,8 @@ ehcleanup180:                                     ; preds = %ehcleanup178, %lpad
   resume { ptr, i32 } %.pn27.pn.pn
 
 return:                                           ; preds = %cleanup179, %entry
-  %retval.2 = phi i1 [ false, %entry ], [ %retval.1, %cleanup179 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %cleanup179 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_Z17InitSocketLibraryv() local_unnamed_addr #1

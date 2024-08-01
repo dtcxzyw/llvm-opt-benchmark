@@ -109,10 +109,10 @@ push.exit.i:                                      ; preds = %30
 top.exit.i:                                       ; preds = %pop.exit.i, %push.exit.i
   %.073148.i = phi i32 [ %.03347, %push.exit.i ], [ %.174137.i, %pop.exit.i ]
   %.078147.i = phi ptr [ null, %push.exit.i ], [ %.179.i, %pop.exit.i ]
-  %.sroa.23.1146.i = phi i64 [ 1, %push.exit.i ], [ %.sroa.23.3.i, %pop.exit.i ]
-  %.sroa.11.0145.i = phi i64 [ 1, %push.exit.i ], [ %.sroa.11.2.i, %pop.exit.i ]
-  %.sroa.0.1144.i = phi ptr [ %malloc.i, %push.exit.i ], [ %.sroa.0.3.i, %pop.exit.i ]
-  %45 = getelementptr ptr, ptr %.sroa.0.1144.i, i64 %.sroa.11.0145.i
+  %.sroa.23.0146.i = phi i64 [ 1, %push.exit.i ], [ %.sroa.23.1.i, %pop.exit.i ]
+  %.sroa.11.0145.i = phi i64 [ 1, %push.exit.i ], [ %.sroa.11.1.i, %pop.exit.i ]
+  %.sroa.0.0144.i = phi ptr [ %malloc.i, %push.exit.i ], [ %.sroa.0.1.i, %pop.exit.i ]
+  %45 = getelementptr ptr, ptr %.sroa.0.0144.i, i64 %.sroa.11.0145.i
   %46 = getelementptr i8, ptr %45, i64 -8
   %47 = load ptr, ptr %46, align 8
   %.not.i = icmp eq ptr %47, null
@@ -232,22 +232,22 @@ top.exit.i:                                       ; preds = %pop.exit.i, %push.e
   %115 = load i8, ptr %114, align 1
   %116 = or i8 %115, 1
   store i8 %116, ptr %114, align 1
-  %117 = icmp eq i64 %.sroa.11.0145.i, %.sroa.23.1146.i
+  %117 = icmp eq i64 %.sroa.11.0145.i, %.sroa.23.0146.i
   br i1 %117, label %118, label %push.exit105.i
 
 118:                                              ; preds = %97
-  %119 = shl i64 %.sroa.23.1146.i, 1
+  %119 = shl i64 %.sroa.23.0146.i, 1
   %mul.ov.i.i.i.i.i102.i = icmp ugt i64 %119, 2305843009213693951
   br i1 %mul.ov.i.i.i.i.i102.i, label %127, label %120
 
 120:                                              ; preds = %118
-  %121 = shl i64 %.sroa.23.1146.i, 4
-  %122 = call ptr @realloc(ptr noundef %.sroa.0.1144.i, i64 noundef %121) #16
+  %121 = shl i64 %.sroa.23.0146.i, 4
+  %122 = call ptr @realloc(ptr noundef %.sroa.0.0144.i, i64 noundef %121) #16
   %123 = icmp eq ptr %122, null
   br i1 %123, label %127, label %124
 
 124:                                              ; preds = %120
-  %125 = shl i64 %.sroa.23.1146.i, 3
+  %125 = shl i64 %.sroa.23.0146.i, 3
   %126 = getelementptr inbounds i8, ptr %122, i64 %125
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %126, i8 0, i64 %125, i1 false)
   br label %push.exit105.i
@@ -261,9 +261,9 @@ top.exit.i:                                       ; preds = %pop.exit.i, %push.e
   unreachable
 
 push.exit105.i:                                   ; preds = %124, %97
-  %.sroa.0.2.i = phi ptr [ %122, %124 ], [ %.sroa.0.1144.i, %97 ]
-  %.sroa.23.2.i = phi i64 [ %119, %124 ], [ %.sroa.23.1146.i, %97 ]
-  %131 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %.sroa.11.0145.i
+  %.sroa.0.3.i = phi ptr [ %122, %124 ], [ %.sroa.0.0144.i, %97 ]
+  %.sroa.23.3.i = phi i64 [ %119, %124 ], [ %.sroa.23.0146.i, %97 ]
+  %131 = getelementptr inbounds ptr, ptr %.sroa.0.3.i, i64 %.sroa.11.0145.i
   store ptr %.176142.i, ptr %131, align 8
   %132 = add i64 %.sroa.11.0145.i, 1
   br label %pop.exit.i
@@ -290,15 +290,15 @@ push.exit105.i:                                   ; preds = %124, %97
 
 pop.exit.i:                                       ; preds = %.critedge.i, %push.exit105.i
   %.174137.i = phi i32 [ %.174143.i, %push.exit105.i ], [ %.174.lcssa.i, %.critedge.i ]
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.2.i, %push.exit105.i ], [ %.sroa.0.1144.i, %.critedge.i ]
-  %.sroa.11.2.i = phi i64 [ %132, %push.exit105.i ], [ %134, %.critedge.i ]
-  %.sroa.23.3.i = phi i64 [ %.sroa.23.2.i, %push.exit105.i ], [ %.sroa.23.1146.i, %.critedge.i ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.3.i, %push.exit105.i ], [ %.sroa.0.0144.i, %.critedge.i ]
+  %.sroa.11.1.i = phi i64 [ %132, %push.exit105.i ], [ %134, %.critedge.i ]
+  %.sroa.23.1.i = phi i64 [ %.sroa.23.3.i, %push.exit105.i ], [ %.sroa.23.0146.i, %.critedge.i ]
   %.179.i = phi ptr [ null, %push.exit105.i ], [ %133, %.critedge.i ]
-  %147 = icmp eq i64 %.sroa.11.2.i, 0
+  %147 = icmp eq i64 %.sroa.11.1.i, 0
   br i1 %147, label %top.exit.thread.i, label %top.exit.i
 
 top.exit.thread.i:                                ; preds = %pop.exit.i, %top.exit.i
-  %.sroa.0.1.lcssa.i = phi ptr [ %.sroa.0.3.i, %pop.exit.i ], [ %.sroa.0.1144.i, %top.exit.i ]
+  %.sroa.0.0.lcssa.i = phi ptr [ %.sroa.0.1.i, %pop.exit.i ], [ %.sroa.0.0144.i, %top.exit.i ]
   %.073.lcssa.i = phi i32 [ %.174137.i, %pop.exit.i ], [ %.073148.i, %top.exit.i ]
   %148 = call ptr @agfstout(ptr noundef %33, ptr noundef nonnull %.049) #12
   %.not87149.i = icmp eq ptr %148, null
@@ -368,7 +368,7 @@ top.exit.thread.i:                                ; preds = %pop.exit.i, %top.ex
   br i1 %.not87.i, label %dfs.exit, label %.lr.ph152.i
 
 dfs.exit:                                         ; preds = %188, %top.exit.thread.i
-  call void @free(ptr noundef %.sroa.0.1.lcssa.i) #12
+  call void @free(ptr noundef %.sroa.0.0.lcssa.i) #12
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   %189 = load i8, ptr %1, align 8
   %190 = trunc i8 %189 to i1

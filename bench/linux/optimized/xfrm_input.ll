@@ -744,7 +744,7 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 xfrm_parse_spi.exit44:                            ; preds = %.xfrm_parse_spi.exit44_crit_edge, %232, %204
   %248 = phi ptr [ %.pre, %.xfrm_parse_spi.exit44_crit_edge ], [ %206, %204 ], [ %234, %232 ]
-  %.456 = phi i32 [ %2, %.xfrm_parse_spi.exit44_crit_edge ], [ %215, %204 ], [ %240, %232 ]
+  %.254 = phi i32 [ %2, %.xfrm_parse_spi.exit44_crit_edge ], [ %215, %204 ], [ %240, %232 ]
   %.2 = phi i32 [ 0, %.xfrm_parse_spi.exit44_crit_edge ], [ 0, %204 ], [ %242, %232 ]
   %249 = getelementptr inbounds i8, ptr %0, i64 180
   %250 = load i16, ptr %249, align 4
@@ -757,7 +757,7 @@ xfrm_parse_spi.exit44:                            ; preds = %.xfrm_parse_spi.exi
   br label %257
 
 257:                                              ; preds = %xfrm_parse_spi.exit45.thread75, %xfrm_parse_spi.exit44
-  %.557 = phi i32 [ %.456, %xfrm_parse_spi.exit44 ], [ %.9.ph, %xfrm_parse_spi.exit45.thread75 ]
+  %.355 = phi i32 [ %.254, %xfrm_parse_spi.exit44 ], [ %.9.ph, %xfrm_parse_spi.exit45.thread75 ]
   %.3 = phi i32 [ %.2, %xfrm_parse_spi.exit44 ], [ %.6.ph, %xfrm_parse_spi.exit45.thread75 ]
   %258 = phi i32 [ %1, %xfrm_parse_spi.exit44 ], [ %397, %xfrm_parse_spi.exit45.thread75 ]
   %259 = phi i32 [ %3, %xfrm_parse_spi.exit44 ], [ 0, %xfrm_parse_spi.exit45.thread75 ]
@@ -796,7 +796,7 @@ xfrm_parse_spi.exit44:                            ; preds = %.xfrm_parse_spi.exi
   %282 = phi ptr [ %277, %.thread64 ], [ null, %268 ]
   %283 = trunc i32 %258 to i8
   %284 = trunc i32 %263 to i16
-  %285 = tail call ptr @xfrm_state_lookup(ptr noundef %8, i32 noundef %262, ptr noundef %261, i32 noundef %.557, i8 noundef zeroext %283, i16 noundef zeroext %284) #10
+  %285 = tail call ptr @xfrm_state_lookup(ptr noundef %8, i32 noundef %262, ptr noundef %261, i32 noundef %.355, i8 noundef zeroext %283, i16 noundef zeroext %284) #10
   %286 = icmp eq ptr %285, null
   br i1 %286, label %287, label %293
 
@@ -811,7 +811,7 @@ xfrm_parse_spi.exit44:                            ; preds = %.xfrm_parse_spi.exi
   br label %292
 
 292:                                              ; preds = %291, %287
-  tail call void @xfrm_audit_state_notfound(ptr noundef %0, i16 noundef zeroext %284, i32 noundef %.557, i32 noundef %.3) #10
+  tail call void @xfrm_audit_state_notfound(ptr noundef %0, i16 noundef zeroext %284, i32 noundef %.355, i32 noundef %.3) #10
   br label %.thread87
 
 293:                                              ; preds = %281
@@ -877,7 +877,7 @@ xfrm_parse_spi.exit44:                            ; preds = %.xfrm_parse_spi.exi
   br i1 %338, label %.thread88, label %xfrm_parse_spi.exit
 
 xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %336, %84, %80
-  %.4 = phi i32 [ %.3, %336 ], [ %82, %80 ], [ %82, %84 ], [ %146, %138 ], [ 0, %119 ], [ 0, %110 ]
+  %.1 = phi i32 [ %.3, %336 ], [ %82, %80 ], [ %82, %84 ], [ %146, %138 ], [ 0, %119 ], [ 0, %110 ]
   %339 = phi i32 [ %258, %336 ], [ %1, %80 ], [ %1, %84 ], [ %1, %138 ], [ %1, %119 ], [ %1, %110 ]
   %340 = phi i32 [ %259, %336 ], [ %3, %80 ], [ %3, %84 ], [ %3, %138 ], [ %3, %119 ], [ %3, %110 ]
   %341 = phi ptr [ %285, %336 ], [ %61, %80 ], [ %61, %84 ], [ %61, %138 ], [ %61, %119 ], [ %61, %110 ]
@@ -909,7 +909,7 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   br i1 %359, label %360, label %1214
 
 360:                                              ; preds = %357
-  %361 = tail call i32 @xfrm_replay_check(ptr noundef %341, ptr noundef %0, i32 noundef %.4) #10
+  %361 = tail call i32 @xfrm_replay_check(ptr noundef %341, ptr noundef %0, i32 noundef %.1) #10
   %362 = icmp eq i32 %361, 0
   br i1 %362, label %363, label %1214
 
@@ -939,10 +939,10 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   br i1 %375, label %xfrm_parse_spi.exit.thread, label %376
 
 376:                                              ; preds = %371, %367, %366
-  %377 = tail call i32 @xfrm_replay_seqhi(ptr noundef %341, i32 noundef %.4) #10
+  %377 = tail call i32 @xfrm_replay_seqhi(ptr noundef %341, i32 noundef %.1) #10
   %378 = tail call i32 @llvm.bswap.i32(i32 %377)
   %379 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %.4, ptr %379, align 8
+  store i32 %.1, ptr %379, align 8
   %380 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %378, ptr %380, align 4
   %381 = load ptr, ptr %5, align 8
@@ -972,7 +972,7 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
 
 395:                                              ; preds = %._crit_edge, %77
   %396 = phi ptr [ %6, %77 ], [ %.pre92, %._crit_edge ]
-  %.5 = phi i32 [ %79, %77 ], [ %.4, %._crit_edge ]
+  %.0 = phi i32 [ %79, %77 ], [ %.1, %._crit_edge ]
   %397 = phi i32 [ %1, %77 ], [ %393, %._crit_edge ]
   %398 = phi ptr [ %61, %77 ], [ %341, %._crit_edge ]
   %399 = phi i32 [ %10, %77 ], [ %342, %._crit_edge ]
@@ -1010,12 +1010,12 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   br label %1214
 
 419:                                              ; preds = %406
-  %420 = tail call i32 @xfrm_replay_recheck(ptr noundef %398, ptr noundef %0, i32 noundef %.5) #10
+  %420 = tail call i32 @xfrm_replay_recheck(ptr noundef %398, ptr noundef %0, i32 noundef %.0) #10
   %421 = icmp eq i32 %420, 0
   br i1 %421, label %422, label %1214
 
 422:                                              ; preds = %419
-  tail call void @xfrm_replay_advance(ptr noundef %398, i32 noundef %.5) #10
+  tail call void @xfrm_replay_advance(ptr noundef %398, i32 noundef %.0) #10
   %423 = getelementptr inbounds i8, ptr %0, i64 112
   %424 = load i32, ptr %423, align 8
   %425 = zext i32 %424 to i64

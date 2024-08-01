@@ -890,8 +890,8 @@ gc_compact.exit.i:                                ; preds = %163, %180
 .lr.ph.i.i:                                       ; preds = %242, %.lr.ph.preheader.i.i
   %.0187314.i.i = phi ptr [ %243, %242 ], [ %207, %.lr.ph.preheader.i.i ]
   %.0189313.i.i = phi i32 [ %244, %242 ], [ %206, %.lr.ph.preheader.i.i ]
-  %.1222312.i.i = phi ptr [ %.3224.i.i, %242 ], [ %.0221.ph.i.i, %.lr.ph.preheader.i.i ]
-  %.1230311.i.i = phi i64 [ %.3232.i.i, %242 ], [ %.0229.ph.i.i, %.lr.ph.preheader.i.i ]
+  %.2223312.i.i = phi ptr [ %.3224.i.i, %242 ], [ %.0221.ph.i.i, %.lr.ph.preheader.i.i ]
+  %.2231311.i.i = phi i64 [ %.3232.i.i, %242 ], [ %.0229.ph.i.i, %.lr.ph.preheader.i.i ]
   %208 = load ptr, ptr %.0187314.i.i, align 8
   %209 = getelementptr inbounds i8, ptr %.0187314.i.i, i64 25
   %210 = load i8, ptr %209, align 1
@@ -931,43 +931,43 @@ gc_compact.exit.i:                                ; preds = %163, %180
   %230 = and i32 %226, 1073741823
   %231 = or disjoint i32 %230, -2147483648
   store i32 %231, ptr %225, align 4
-  %232 = icmp eq i64 %.1230311.i.i, 510
+  %232 = icmp eq i64 %.2231311.i.i, 510
   br i1 %232, label %233, label %gc_stack_next.exit.i.i
 
 233:                                              ; preds = %229
-  %234 = getelementptr inbounds i8, ptr %.1222312.i.i, i64 8
+  %234 = getelementptr inbounds i8, ptr %.2223312.i.i, i64 8
   %235 = load ptr, ptr %234, align 8
   %.not.i.i.i = icmp eq ptr %235, null
   br i1 %.not.i.i.i, label %236, label %gc_stack_next.exit.i.i
 
 236:                                              ; preds = %233
   %237 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.1222312.i.i, ptr %237, align 8
+  store ptr %.2223312.i.i, ptr %237, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 8
   store ptr null, ptr %238, align 8
   store ptr %237, ptr %234, align 8
   br label %gc_stack_next.exit.i.i
 
 gc_stack_next.exit.i.i:                           ; preds = %236, %233, %229
-  %.2231.i.i = phi i64 [ %.1230311.i.i, %229 ], [ 0, %233 ], [ 0, %236 ]
-  %.2223.i.i = phi ptr [ %.1222312.i.i, %229 ], [ %235, %233 ], [ %237, %236 ]
-  %239 = getelementptr inbounds i8, ptr %.2223.i.i, i64 16
-  %240 = add i64 %.2231.i.i, 1
-  %241 = getelementptr inbounds [510 x ptr], ptr %239, i64 0, i64 %.2231.i.i
+  %.4233.i.i = phi i64 [ %.2231311.i.i, %229 ], [ 0, %233 ], [ 0, %236 ]
+  %.4225.i.i = phi ptr [ %.2223312.i.i, %229 ], [ %235, %233 ], [ %237, %236 ]
+  %239 = getelementptr inbounds i8, ptr %.4225.i.i, i64 16
+  %240 = add i64 %.4233.i.i, 1
+  %241 = getelementptr inbounds [510 x ptr], ptr %239, i64 0, i64 %.4233.i.i
   store ptr %218, ptr %241, align 8
   br label %242
 
 242:                                              ; preds = %gc_stack_next.exit.i.i, %224, %.lr.ph.i.i
-  %.3232.i.i = phi i64 [ %.1230311.i.i, %224 ], [ %240, %gc_stack_next.exit.i.i ], [ %.1230311.i.i, %.lr.ph.i.i ]
-  %.3224.i.i = phi ptr [ %.1222312.i.i, %224 ], [ %.2223.i.i, %gc_stack_next.exit.i.i ], [ %.1222312.i.i, %.lr.ph.i.i ]
+  %.3232.i.i = phi i64 [ %.2231311.i.i, %224 ], [ %240, %gc_stack_next.exit.i.i ], [ %.2231311.i.i, %.lr.ph.i.i ]
+  %.3224.i.i = phi ptr [ %.2223312.i.i, %224 ], [ %.4225.i.i, %gc_stack_next.exit.i.i ], [ %.2223312.i.i, %.lr.ph.i.i ]
   %243 = getelementptr inbounds i8, ptr %.0187314.i.i, i64 32
   %244 = add i32 %.0189313.i.i, -2
   %.not258.i.i = icmp eq i32 %244, 0
   br i1 %.not258.i.i, label %.loopexit295.i.i, label %.lr.ph.i.i
 
 .loopexit295.i.i:                                 ; preds = %242, %204, %202
-  %.4233.i.i = phi i64 [ %.0229.ph.i.i, %202 ], [ %.0229.ph.i.i, %204 ], [ %.3232.i.i, %242 ]
-  %.4225.i.i = phi ptr [ %.0221.ph.i.i, %202 ], [ %.0221.ph.i.i, %204 ], [ %.3224.i.i, %242 ]
+  %.1230.i.i = phi i64 [ %.0229.ph.i.i, %202 ], [ %.0229.ph.i.i, %204 ], [ %.3232.i.i, %242 ]
+  %.1222.i.i = phi ptr [ %.0221.ph.i.i, %202 ], [ %.0221.ph.i.i, %204 ], [ %.3224.i.i, %242 ]
   %245 = getelementptr inbounds i8, ptr %.0184.i.i, i64 24
   %246 = load ptr, ptr %245, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 168
@@ -988,8 +988,8 @@ gc_stack_next.exit.i.i:                           ; preds = %236, %233, %229
 .lr.ph357.i.i:                                    ; preds = %285, %.lr.ph357.preheader.i.i
   %.1188356.i.i = phi ptr [ %286, %285 ], [ %253, %.lr.ph357.preheader.i.i ]
   %.1190355.i.i = phi i32 [ %287, %285 ], [ %252, %.lr.ph357.preheader.i.i ]
-  %.5226354.i.i = phi ptr [ %.7228.i.i, %285 ], [ %.4225.i.i, %.lr.ph357.preheader.i.i ]
-  %.5234353.i.i = phi i64 [ %.7236.i.i, %285 ], [ %.4233.i.i, %.lr.ph357.preheader.i.i ]
+  %.5226354.i.i = phi ptr [ %.6227.i.i, %285 ], [ %.1222.i.i, %.lr.ph357.preheader.i.i ]
+  %.5234353.i.i = phi i64 [ %.6235.i.i, %285 ], [ %.1230.i.i, %.lr.ph357.preheader.i.i ]
   %254 = load ptr, ptr %.1188356.i.i, align 8
   %255 = getelementptr inbounds i8, ptr %254, i64 9
   %256 = load i8, ptr %255, align 1
@@ -1043,17 +1043,17 @@ gc_stack_next.exit.i.i:                           ; preds = %236, %233, %229
   br label %gc_stack_next.exit279.i.i
 
 gc_stack_next.exit279.i.i:                        ; preds = %279, %276, %272
-  %.6235.i.i = phi i64 [ %.5234353.i.i, %272 ], [ 0, %276 ], [ 0, %279 ]
-  %.6227.i.i = phi ptr [ %.5226354.i.i, %272 ], [ %278, %276 ], [ %280, %279 ]
-  %282 = getelementptr inbounds i8, ptr %.6227.i.i, i64 16
-  %283 = add i64 %.6235.i.i, 1
-  %284 = getelementptr inbounds [510 x ptr], ptr %282, i64 0, i64 %.6235.i.i
+  %.7236.i.i = phi i64 [ %.5234353.i.i, %272 ], [ 0, %276 ], [ 0, %279 ]
+  %.7228.i.i = phi ptr [ %.5226354.i.i, %272 ], [ %278, %276 ], [ %280, %279 ]
+  %282 = getelementptr inbounds i8, ptr %.7228.i.i, i64 16
+  %283 = add i64 %.7236.i.i, 1
+  %284 = getelementptr inbounds [510 x ptr], ptr %282, i64 0, i64 %.7236.i.i
   store ptr %261, ptr %284, align 8
   br label %285
 
 285:                                              ; preds = %gc_stack_next.exit279.i.i, %267, %.lr.ph357.i.i
-  %.7236.i.i = phi i64 [ %.5234353.i.i, %267 ], [ %283, %gc_stack_next.exit279.i.i ], [ %.5234353.i.i, %.lr.ph357.i.i ]
-  %.7228.i.i = phi ptr [ %.5226354.i.i, %267 ], [ %.6227.i.i, %gc_stack_next.exit279.i.i ], [ %.5226354.i.i, %.lr.ph357.i.i ]
+  %.6235.i.i = phi i64 [ %.5234353.i.i, %267 ], [ %283, %gc_stack_next.exit279.i.i ], [ %.5234353.i.i, %.lr.ph357.i.i ]
+  %.6227.i.i = phi ptr [ %.5226354.i.i, %267 ], [ %.7228.i.i, %gc_stack_next.exit279.i.i ], [ %.5226354.i.i, %.lr.ph357.i.i ]
   %286 = getelementptr inbounds i8, ptr %.1188356.i.i, i64 16
   %287 = add i32 %.1190355.i.i, -1
   %.not271.i.i = icmp eq i32 %287, 0
@@ -1088,8 +1088,8 @@ gc_stack_next.exit279.i.i:                        ; preds = %279, %276, %272
 .lr.ph321.i.i:                                    ; preds = %300, %327
   %.2320.i.i = phi ptr [ %328, %327 ], [ %291, %300 ]
   %.2191319.i.i = phi i32 [ %329, %327 ], [ %290, %300 ]
-  %.8318.i.i = phi ptr [ %.10.i.i, %327 ], [ %.4225.i.i, %300 ]
-  %.8237317.i.i = phi i64 [ %.10239.i.i, %327 ], [ %.4233.i.i, %300 ]
+  %.9318.i.i = phi ptr [ %.10.i.i, %327 ], [ %.1222.i.i, %300 ]
+  %.9238317.i.i = phi i64 [ %.10239.i.i, %327 ], [ %.1230.i.i, %300 ]
   %303 = getelementptr inbounds i8, ptr %.2320.i.i, i64 9
   %304 = load i8, ptr %303, align 1
   %.not266.i.i = icmp eq i8 %304, 0
@@ -1112,43 +1112,43 @@ gc_stack_next.exit279.i.i:                        ; preds = %279, %276, %272
   %315 = and i32 %311, 1073741823
   %316 = or disjoint i32 %315, -2147483648
   store i32 %316, ptr %310, align 4
-  %317 = icmp eq i64 %.8237317.i.i, 510
+  %317 = icmp eq i64 %.9238317.i.i, 510
   br i1 %317, label %318, label %gc_stack_next.exit281.i.i
 
 318:                                              ; preds = %314
-  %319 = getelementptr inbounds i8, ptr %.8318.i.i, i64 8
+  %319 = getelementptr inbounds i8, ptr %.9318.i.i, i64 8
   %320 = load ptr, ptr %319, align 8
   %.not.i280.i.i = icmp eq ptr %320, null
   br i1 %.not.i280.i.i, label %321, label %gc_stack_next.exit281.i.i
 
 321:                                              ; preds = %318
   %322 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.8318.i.i, ptr %322, align 8
+  store ptr %.9318.i.i, ptr %322, align 8
   %323 = getelementptr inbounds i8, ptr %322, i64 8
   store ptr null, ptr %323, align 8
   store ptr %322, ptr %319, align 8
   br label %gc_stack_next.exit281.i.i
 
 gc_stack_next.exit281.i.i:                        ; preds = %321, %318, %314
-  %.9238.i.i = phi i64 [ %.8237317.i.i, %314 ], [ 0, %318 ], [ 0, %321 ]
-  %.9.i.i = phi ptr [ %.8318.i.i, %314 ], [ %320, %318 ], [ %322, %321 ]
-  %324 = getelementptr inbounds i8, ptr %.9.i.i, i64 16
-  %325 = add i64 %.9238.i.i, 1
-  %326 = getelementptr inbounds [510 x ptr], ptr %324, i64 0, i64 %.9238.i.i
+  %.11240.i.i = phi i64 [ %.9238317.i.i, %314 ], [ 0, %318 ], [ 0, %321 ]
+  %.11.i.i = phi ptr [ %.9318.i.i, %314 ], [ %320, %318 ], [ %322, %321 ]
+  %324 = getelementptr inbounds i8, ptr %.11.i.i, i64 16
+  %325 = add i64 %.11240.i.i, 1
+  %326 = getelementptr inbounds [510 x ptr], ptr %324, i64 0, i64 %.11240.i.i
   store ptr %306, ptr %326, align 8
   br label %327
 
 327:                                              ; preds = %gc_stack_next.exit281.i.i, %305, %.lr.ph321.i.i
-  %.10239.i.i = phi i64 [ %.8237317.i.i, %305 ], [ %325, %gc_stack_next.exit281.i.i ], [ %.8237317.i.i, %.lr.ph321.i.i ]
-  %.10.i.i = phi ptr [ %.8318.i.i, %305 ], [ %.9.i.i, %gc_stack_next.exit281.i.i ], [ %.8318.i.i, %.lr.ph321.i.i ]
+  %.10239.i.i = phi i64 [ %.9238317.i.i, %305 ], [ %325, %gc_stack_next.exit281.i.i ], [ %.9238317.i.i, %.lr.ph321.i.i ]
+  %.10.i.i = phi ptr [ %.9318.i.i, %305 ], [ %.11.i.i, %gc_stack_next.exit281.i.i ], [ %.9318.i.i, %.lr.ph321.i.i ]
   %328 = getelementptr inbounds i8, ptr %.2320.i.i, i64 16
   %329 = add i32 %.2191319.i.i, -1
   %.not260.i.i = icmp eq i32 %329, 0
   br i1 %.not260.i.i, label %.loopexit294.i.i, label %.lr.ph321.i.i
 
 330:                                              ; preds = %384, %292, %288
-  %.11240.i.i = phi i64 [ %.4233.i.i, %292 ], [ %.15244.i.i, %384 ], [ %.4233.i.i, %288 ]
-  %.11.i.i = phi ptr [ %.4225.i.i, %292 ], [ %.15.i.i, %384 ], [ %.4225.i.i, %288 ]
+  %.13242.i.i = phi i64 [ %.1230.i.i, %292 ], [ %.12241.i.i, %384 ], [ %.1230.i.i, %288 ]
+  %.13.i.i = phi ptr [ %.1222.i.i, %292 ], [ %.12.i.i, %384 ], [ %.1222.i.i, %288 ]
   %.3192.i.i = phi i32 [ %290, %292 ], [ %380, %384 ], [ %290, %288 ]
   %.3.i.i = phi ptr [ %291, %292 ], [ %386, %384 ], [ %291, %288 ]
   %.not267339.i.i = icmp eq i32 %.3192.i.i, 0
@@ -1187,8 +1187,8 @@ gc_stack_next.exit281.i.i:                        ; preds = %321, %318, %314
 .lr.ph349.i.i:                                    ; preds = %342, %372
   %347 = phi i32 [ %373, %372 ], [ %346, %342 ]
   %.4.pn347.i.i = phi ptr [ %.5348.i.i, %372 ], [ %.4341.i.i, %342 ]
-  %.12346.i.i = phi ptr [ %.14.i.i, %372 ], [ %.11.i.i, %342 ]
-  %.12241345.i.i = phi i64 [ %.14243.i.i, %372 ], [ %.11240.i.i, %342 ]
+  %.14346.i.i = phi ptr [ %.15.i.i, %372 ], [ %.13.i.i, %342 ]
+  %.14243345.i.i = phi i64 [ %.15244.i.i, %372 ], [ %.13242.i.i, %342 ]
   %.5348.i.i = getelementptr inbounds i8, ptr %.4.pn347.i.i, i64 16
   %348 = getelementptr inbounds i8, ptr %.4.pn347.i.i, i64 25
   %349 = load i8, ptr %348, align 1
@@ -1212,35 +1212,35 @@ gc_stack_next.exit281.i.i:                        ; preds = %321, %318, %314
   %360 = and i32 %356, 1073741823
   %361 = or disjoint i32 %360, -2147483648
   store i32 %361, ptr %355, align 4
-  %362 = icmp eq i64 %.12241345.i.i, 510
+  %362 = icmp eq i64 %.14243345.i.i, 510
   br i1 %362, label %363, label %gc_stack_next.exit283.i.i
 
 363:                                              ; preds = %359
-  %364 = getelementptr inbounds i8, ptr %.12346.i.i, i64 8
+  %364 = getelementptr inbounds i8, ptr %.14346.i.i, i64 8
   %365 = load ptr, ptr %364, align 8
   %.not.i282.i.i = icmp eq ptr %365, null
   br i1 %.not.i282.i.i, label %366, label %gc_stack_next.exit283.i.i
 
 366:                                              ; preds = %363
   %367 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.12346.i.i, ptr %367, align 8
+  store ptr %.14346.i.i, ptr %367, align 8
   %368 = getelementptr inbounds i8, ptr %367, i64 8
   store ptr null, ptr %368, align 8
   store ptr %367, ptr %364, align 8
   br label %gc_stack_next.exit283.i.i
 
 gc_stack_next.exit283.i.i:                        ; preds = %366, %363, %359
-  %.13242.i.i = phi i64 [ %.12241345.i.i, %359 ], [ 0, %363 ], [ 0, %366 ]
-  %.13.i.i = phi ptr [ %.12346.i.i, %359 ], [ %365, %363 ], [ %367, %366 ]
-  %369 = getelementptr inbounds i8, ptr %.13.i.i, i64 16
-  %370 = add i64 %.13242.i.i, 1
-  %371 = getelementptr inbounds [510 x ptr], ptr %369, i64 0, i64 %.13242.i.i
+  %.16245.i.i = phi i64 [ %.14243345.i.i, %359 ], [ 0, %363 ], [ 0, %366 ]
+  %.16.i.i = phi ptr [ %.14346.i.i, %359 ], [ %365, %363 ], [ %367, %366 ]
+  %369 = getelementptr inbounds i8, ptr %.16.i.i, i64 16
+  %370 = add i64 %.16245.i.i, 1
+  %371 = getelementptr inbounds [510 x ptr], ptr %369, i64 0, i64 %.16245.i.i
   store ptr %351, ptr %371, align 8
   br label %372
 
 372:                                              ; preds = %gc_stack_next.exit283.i.i, %350, %.lr.ph349.i.i
-  %.14243.i.i = phi i64 [ %.12241345.i.i, %350 ], [ %370, %gc_stack_next.exit283.i.i ], [ %.12241345.i.i, %.lr.ph349.i.i ]
-  %.14.i.i = phi ptr [ %.12346.i.i, %350 ], [ %.13.i.i, %gc_stack_next.exit283.i.i ], [ %.12346.i.i, %.lr.ph349.i.i ]
+  %.15244.i.i = phi i64 [ %.14243345.i.i, %350 ], [ %370, %gc_stack_next.exit283.i.i ], [ %.14243345.i.i, %.lr.ph349.i.i ]
+  %.15.i.i = phi ptr [ %.14346.i.i, %350 ], [ %.16.i.i, %gc_stack_next.exit283.i.i ], [ %.14346.i.i, %.lr.ph349.i.i ]
   %373 = add i32 %347, -1
   %.not269.i.i = icmp eq i32 %373, 0
   br i1 %.not269.i.i, label %.outer.i.i.backedge, label %.lr.ph349.i.i
@@ -1257,8 +1257,8 @@ gc_stack_next.exit283.i.i:                        ; preds = %366, %363, %359
   br label %.loopexit294.i.i
 
 .loopexit294.i.i:                                 ; preds = %327, %377, %300
-  %.15244.i.i = phi i64 [ %.0229.ph.i.i, %377 ], [ %.4233.i.i, %300 ], [ %.10239.i.i, %327 ]
-  %.15.i.i = phi ptr [ %.0221.ph.i.i, %377 ], [ %.4225.i.i, %300 ], [ %.10.i.i, %327 ]
+  %.12241.i.i = phi i64 [ %.0229.ph.i.i, %377 ], [ %.1230.i.i, %300 ], [ %.10239.i.i, %327 ]
+  %.12.i.i = phi ptr [ %.0221.ph.i.i, %377 ], [ %.1222.i.i, %300 ], [ %.10.i.i, %327 ]
   %.0185.i.i = phi ptr [ %.0184.i.i, %377 ], [ %289, %300 ], [ %289, %327 ]
   %379 = getelementptr inbounds i8, ptr %.0185.i.i, i64 24
   %380 = load i32, ptr %379, align 8
@@ -1326,8 +1326,8 @@ gc_stack_next.exit283.i.i:                        ; preds = %366, %363, %359
 .lr.ph335.i.i:                                    ; preds = %407, %443
   %412 = phi i32 [ %444, %443 ], [ %411, %407 ]
   %.0186.pn333.i.i = phi ptr [ %.1334.i.i, %443 ], [ %.0186327.i.i, %407 ]
-  %.16332.i.i = phi ptr [ %.18.i.i, %443 ], [ %.15.i.i, %407 ]
-  %.16245331.i.i = phi i64 [ %.18247.i.i, %443 ], [ %.15244.i.i, %407 ]
+  %.17332.i.i = phi ptr [ %.18.i.i, %443 ], [ %.12.i.i, %407 ]
+  %.17246331.i.i = phi i64 [ %.18247.i.i, %443 ], [ %.12241.i.i, %407 ]
   %.1334.i.i = getelementptr inbounds i8, ptr %.0186.pn333.i.i, i64 32
   %413 = getelementptr inbounds i8, ptr %.0186.pn333.i.i, i64 40
   %414 = load i8, ptr %413, align 8
@@ -1362,35 +1362,35 @@ gc_stack_next.exit283.i.i:                        ; preds = %366, %363, %359
   %431 = and i32 %427, 1073741823
   %432 = or disjoint i32 %431, -2147483648
   store i32 %432, ptr %426, align 4
-  %433 = icmp eq i64 %.16245331.i.i, 510
+  %433 = icmp eq i64 %.17246331.i.i, 510
   br i1 %433, label %434, label %gc_stack_next.exit285.i.i
 
 434:                                              ; preds = %430
-  %435 = getelementptr inbounds i8, ptr %.16332.i.i, i64 8
+  %435 = getelementptr inbounds i8, ptr %.17332.i.i, i64 8
   %436 = load ptr, ptr %435, align 8
   %.not.i284.i.i = icmp eq ptr %436, null
   br i1 %.not.i284.i.i, label %437, label %gc_stack_next.exit285.i.i
 
 437:                                              ; preds = %434
   %438 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.16332.i.i, ptr %438, align 8
+  store ptr %.17332.i.i, ptr %438, align 8
   %439 = getelementptr inbounds i8, ptr %438, i64 8
   store ptr null, ptr %439, align 8
   store ptr %438, ptr %435, align 8
   br label %gc_stack_next.exit285.i.i
 
 gc_stack_next.exit285.i.i:                        ; preds = %437, %434, %430
-  %.17246.i.i = phi i64 [ %.16245331.i.i, %430 ], [ 0, %434 ], [ 0, %437 ]
-  %.17.i.i = phi ptr [ %.16332.i.i, %430 ], [ %436, %434 ], [ %438, %437 ]
-  %440 = getelementptr inbounds i8, ptr %.17.i.i, i64 16
-  %441 = add i64 %.17246.i.i, 1
-  %442 = getelementptr inbounds [510 x ptr], ptr %440, i64 0, i64 %.17246.i.i
+  %.19248.i.i = phi i64 [ %.17246331.i.i, %430 ], [ 0, %434 ], [ 0, %437 ]
+  %.19.i.i = phi ptr [ %.17332.i.i, %430 ], [ %436, %434 ], [ %438, %437 ]
+  %440 = getelementptr inbounds i8, ptr %.19.i.i, i64 16
+  %441 = add i64 %.19248.i.i, 1
+  %442 = getelementptr inbounds [510 x ptr], ptr %440, i64 0, i64 %.19248.i.i
   store ptr %422, ptr %442, align 8
   br label %443
 
 443:                                              ; preds = %gc_stack_next.exit285.i.i, %421, %418
-  %.18247.i.i = phi i64 [ %.16245331.i.i, %421 ], [ %441, %gc_stack_next.exit285.i.i ], [ %.16245331.i.i, %418 ]
-  %.18.i.i = phi ptr [ %.16332.i.i, %421 ], [ %.17.i.i, %gc_stack_next.exit285.i.i ], [ %.16332.i.i, %418 ]
+  %.18247.i.i = phi i64 [ %.17246331.i.i, %421 ], [ %441, %gc_stack_next.exit285.i.i ], [ %.17246331.i.i, %418 ]
+  %.18.i.i = phi ptr [ %.17332.i.i, %421 ], [ %.19.i.i, %gc_stack_next.exit285.i.i ], [ %.17332.i.i, %418 ]
   %444 = add i32 %412, -1
   %.not264.i.i = icmp eq i32 %444, 0
   br i1 %.not264.i.i, label %.outer.i.i.backedge, label %.lr.ph335.i.i
@@ -1428,13 +1428,13 @@ gc_stack_next.exit285.i.i:                        ; preds = %437, %434, %430
   br label %197
 
 .loopexit.i11.i:                                  ; preds = %451, %448, %197, %445, %374, %285, %387, %330, %250, %200
-  %.19248.i.i = phi i64 [ %.0229.ph.i.i, %200 ], [ %.4233.i.i, %250 ], [ %.11240.i.i, %330 ], [ %.15244.i.i, %387 ], [ %.7236.i.i, %285 ], [ %.11240.i.i, %374 ], [ %.15244.i.i, %445 ], [ %.0229.ph.i.i, %197 ], [ %.0229.ph.i.i, %448 ], [ %.0229.ph.i.i, %451 ]
-  %.19.i.i = phi ptr [ %.0221.ph.i.i, %200 ], [ %.4225.i.i, %250 ], [ %.11.i.i, %330 ], [ %.15.i.i, %387 ], [ %.7228.i.i, %285 ], [ %.11.i.i, %374 ], [ %.15.i.i, %445 ], [ %.0221.ph.i.i, %197 ], [ %.0221.ph.i.i, %448 ], [ %.0221.ph.i.i, %451 ]
-  %464 = icmp eq i64 %.19248.i.i, 0
+  %.8237.i.i = phi i64 [ %.0229.ph.i.i, %200 ], [ %.1230.i.i, %250 ], [ %.13242.i.i, %330 ], [ %.12241.i.i, %387 ], [ %.6235.i.i, %285 ], [ %.13242.i.i, %374 ], [ %.12241.i.i, %445 ], [ %.0229.ph.i.i, %197 ], [ %.0229.ph.i.i, %448 ], [ %.0229.ph.i.i, %451 ]
+  %.8.i.i = phi ptr [ %.0221.ph.i.i, %200 ], [ %.1222.i.i, %250 ], [ %.13.i.i, %330 ], [ %.12.i.i, %387 ], [ %.6227.i.i, %285 ], [ %.13.i.i, %374 ], [ %.12.i.i, %445 ], [ %.0221.ph.i.i, %197 ], [ %.0221.ph.i.i, %448 ], [ %.0221.ph.i.i, %451 ]
+  %464 = icmp eq i64 %.8237.i.i, 0
   br i1 %464, label %465, label %469
 
 465:                                              ; preds = %.loopexit.i11.i
-  %466 = load ptr, ptr %.19.i.i, align 8
+  %466 = load ptr, ptr %.8.i.i, align 8
   %.not272.i.i = icmp eq ptr %466, null
   br i1 %.not272.i.i, label %gc_mark_grey.exit.i, label %467
 
@@ -1443,22 +1443,22 @@ gc_stack_next.exit285.i.i:                        ; preds = %437, %434, %430
   br label %473
 
 469:                                              ; preds = %.loopexit.i11.i
-  %470 = getelementptr inbounds i8, ptr %.19.i.i, i64 16
-  %471 = add i64 %.19248.i.i, -1
+  %470 = getelementptr inbounds i8, ptr %.8.i.i, i64 16
+  %471 = add i64 %.8237.i.i, -1
   %472 = getelementptr inbounds [510 x ptr], ptr %470, i64 0, i64 %471
   br label %473
 
 473:                                              ; preds = %469, %467
   %.20249.i.i = phi i64 [ 509, %467 ], [ %471, %469 ]
-  %.20.i.i = phi ptr [ %466, %467 ], [ %.19.i.i, %469 ]
+  %.20.i.i = phi ptr [ %466, %467 ], [ %.8.i.i, %469 ]
   %.0.in.i.i = phi ptr [ %468, %467 ], [ %472, %469 ]
   %.0.i12.i = load ptr, ptr %.0.in.i.i, align 8
   %.not273.i.i = icmp eq ptr %.0.i12.i, null
   br i1 %.not273.i.i, label %gc_mark_grey.exit.i, label %.outer.i.i.backedge
 
 .outer.i.i.backedge:                              ; preds = %443, %372, %473, %407, %342
-  %.0229.ph.i.i.be = phi i64 [ %.20249.i.i, %473 ], [ %.11240.i.i, %342 ], [ %.15244.i.i, %407 ], [ %.14243.i.i, %372 ], [ %.18247.i.i, %443 ]
-  %.0221.ph.i.i.be = phi ptr [ %.20.i.i, %473 ], [ %.11.i.i, %342 ], [ %.15.i.i, %407 ], [ %.14.i.i, %372 ], [ %.18.i.i, %443 ]
+  %.0229.ph.i.i.be = phi i64 [ %.20249.i.i, %473 ], [ %.13242.i.i, %342 ], [ %.12241.i.i, %407 ], [ %.15244.i.i, %372 ], [ %.18247.i.i, %443 ]
+  %.0221.ph.i.i.be = phi ptr [ %.20.i.i, %473 ], [ %.13.i.i, %342 ], [ %.12.i.i, %407 ], [ %.15.i.i, %372 ], [ %.18.i.i, %443 ]
   %.0184.ph.i.i.be = phi ptr [ %.0.i12.i, %473 ], [ %334, %342 ], [ %399, %407 ], [ %334, %372 ], [ %399, %443 ]
   br label %.outer.i.i
 
@@ -1718,7 +1718,7 @@ gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %
   br i1 %.not2764.i, label %gc_collect_roots.exit, label %.lr.ph67.i
 
 .lr.ph67.i:                                       ; preds = %gc_compact.exit.i167, %979
-  %.0294 = phi i32 [ %.7, %979 ], [ 0, %gc_compact.exit.i167 ]
+  %.0294 = phi i32 [ %.1295, %979 ], [ 0, %gc_compact.exit.i167 ]
   %indvars.iv.i168 = phi i64 [ %indvars.iv.next.i169, %979 ], [ 1, %gc_compact.exit.i167 ]
   %.02665.i = phi i32 [ %.1.i, %979 ], [ 0, %gc_compact.exit.i167 ]
   %590 = load ptr, ptr @gc_globals, align 8
@@ -1745,7 +1745,7 @@ gc_compact.exit.i167:                             ; preds = %.loopexit.i.i166, %
   br label %.outer.i.i172
 
 .outer.i.i172:                                    ; preds = %.outer.backedge.i.i180, %602
-  %.1295 = phi i32 [ %.0294, %602 ], [ %.6, %.outer.backedge.i.i180 ]
+  %.2296 = phi i32 [ %.0294, %602 ], [ %.4, %.outer.backedge.i.i180 ]
   %.pre.i28.i = phi i32 [ %603, %602 ], [ %.pre.i28.pre.i, %.outer.backedge.i.i180 ]
   %.0231.ph.i.i = phi i64 [ 0, %602 ], [ %.0231.ph.be.i.i, %.outer.backedge.i.i180 ]
   %.0223.ph.i.i = phi ptr [ %15, %602 ], [ %.0223.ph.be.i.i, %.outer.backedge.i.i180 ]
@@ -1903,7 +1903,7 @@ gc_add_garbage.exit292:                           ; preds = %gc_grow_root_buffer
   br label %677
 
 677:                                              ; preds = %676, %671, %663
-  %.2296 = phi i32 [ %.1295, %671 ], [ 1, %676 ], [ %.1295, %663 ]
+  %.7 = phi i32 [ %.2296, %671 ], [ 1, %676 ], [ %.2296, %663 ]
   %678 = phi i32 [ %664, %671 ], [ %.pre399.i.i, %676 ], [ %664, %663 ]
   %679 = and i32 %678, 128
   %.not265.i.i204 = icmp eq i32 %679, 0
@@ -1922,8 +1922,8 @@ gc_add_garbage.exit292:                           ; preds = %gc_grow_root_buffer
 .lr.ph.i.i206:                                    ; preds = %712, %.lr.ph.preheader.i.i205
   %.0189331.i.i = phi ptr [ %713, %712 ], [ %683, %.lr.ph.preheader.i.i205 ]
   %.0191330.i.i = phi i32 [ %714, %712 ], [ %682, %.lr.ph.preheader.i.i205 ]
-  %.1224329.i.i = phi ptr [ %.3226.i.i, %712 ], [ %.0223.ph.i.i, %.lr.ph.preheader.i.i205 ]
-  %.1232328.i.i = phi i64 [ %.3234.i.i, %712 ], [ %.0231.ph.i.i, %.lr.ph.preheader.i.i205 ]
+  %.2225329.i.i = phi ptr [ %.3226.i.i, %712 ], [ %.0223.ph.i.i, %.lr.ph.preheader.i.i205 ]
+  %.2233328.i.i = phi i64 [ %.3234.i.i, %712 ], [ %.0231.ph.i.i, %.lr.ph.preheader.i.i205 ]
   %684 = load ptr, ptr %.0189331.i.i, align 8
   %685 = getelementptr inbounds i8, ptr %684, i64 8
   %686 = getelementptr inbounds i8, ptr %684, i64 9
@@ -1953,43 +1953,43 @@ gc_add_garbage.exit292:                           ; preds = %gc_grow_root_buffer
 700:                                              ; preds = %691
   %701 = and i32 %697, 1073741823
   store i32 %701, ptr %696, align 4
-  %702 = icmp eq i64 %.1232328.i.i, 510
+  %702 = icmp eq i64 %.2233328.i.i, 510
   br i1 %702, label %703, label %gc_stack_next.exit.i.i212
 
 703:                                              ; preds = %700
-  %704 = getelementptr inbounds i8, ptr %.1224329.i.i, i64 8
+  %704 = getelementptr inbounds i8, ptr %.2225329.i.i, i64 8
   %705 = load ptr, ptr %704, align 8
   %.not.i.i.i213 = icmp eq ptr %705, null
   br i1 %.not.i.i.i213, label %706, label %gc_stack_next.exit.i.i212
 
 706:                                              ; preds = %703
   %707 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.1224329.i.i, ptr %707, align 8
+  store ptr %.2225329.i.i, ptr %707, align 8
   %708 = getelementptr inbounds i8, ptr %707, i64 8
   store ptr null, ptr %708, align 8
   store ptr %707, ptr %704, align 8
   br label %gc_stack_next.exit.i.i212
 
 gc_stack_next.exit.i.i212:                        ; preds = %706, %703, %700
-  %.2233.i.i = phi i64 [ %.1232328.i.i, %700 ], [ 0, %703 ], [ 0, %706 ]
-  %.2225.i.i = phi ptr [ %.1224329.i.i, %700 ], [ %705, %703 ], [ %707, %706 ]
-  %709 = getelementptr inbounds i8, ptr %.2225.i.i, i64 16
-  %710 = add i64 %.2233.i.i, 1
-  %711 = getelementptr inbounds [510 x ptr], ptr %709, i64 0, i64 %.2233.i.i
+  %.4235.i.i = phi i64 [ %.2233328.i.i, %700 ], [ 0, %703 ], [ 0, %706 ]
+  %.4227.i.i = phi ptr [ %.2225329.i.i, %700 ], [ %705, %703 ], [ %707, %706 ]
+  %709 = getelementptr inbounds i8, ptr %.4227.i.i, i64 16
+  %710 = add i64 %.4235.i.i, 1
+  %711 = getelementptr inbounds [510 x ptr], ptr %709, i64 0, i64 %.4235.i.i
   store ptr %693, ptr %711, align 8
   br label %712
 
 712:                                              ; preds = %gc_stack_next.exit.i.i212, %691, %688, %.lr.ph.i.i206
-  %.3234.i.i = phi i64 [ %710, %gc_stack_next.exit.i.i212 ], [ %.1232328.i.i, %691 ], [ %.1232328.i.i, %688 ], [ %.1232328.i.i, %.lr.ph.i.i206 ]
-  %.3226.i.i = phi ptr [ %.2225.i.i, %gc_stack_next.exit.i.i212 ], [ %.1224329.i.i, %691 ], [ %.1224329.i.i, %688 ], [ %.1224329.i.i, %.lr.ph.i.i206 ]
+  %.3234.i.i = phi i64 [ %710, %gc_stack_next.exit.i.i212 ], [ %.2233328.i.i, %691 ], [ %.2233328.i.i, %688 ], [ %.2233328.i.i, %.lr.ph.i.i206 ]
+  %.3226.i.i = phi ptr [ %.4227.i.i, %gc_stack_next.exit.i.i212 ], [ %.2225329.i.i, %691 ], [ %.2225329.i.i, %688 ], [ %.2225329.i.i, %.lr.ph.i.i206 ]
   %713 = getelementptr inbounds i8, ptr %.0189331.i.i, i64 16
   %714 = add i32 %.0191330.i.i, -1
   %.not266.i.i207 = icmp eq i32 %714, 0
   br i1 %.not266.i.i207, label %.loopexit303.i.i, label %.lr.ph.i.i206
 
 .loopexit303.i.i:                                 ; preds = %712, %680, %677
-  %.4235.i.i = phi i64 [ %.0231.ph.i.i, %677 ], [ %.0231.ph.i.i, %680 ], [ %.3234.i.i, %712 ]
-  %.4227.i.i = phi ptr [ %.0223.ph.i.i, %677 ], [ %.0223.ph.i.i, %680 ], [ %.3226.i.i, %712 ]
+  %.1232.i.i = phi i64 [ %.0231.ph.i.i, %677 ], [ %.0231.ph.i.i, %680 ], [ %.3234.i.i, %712 ]
+  %.1224.i.i = phi ptr [ %.0223.ph.i.i, %677 ], [ %.0223.ph.i.i, %680 ], [ %.3226.i.i, %712 ]
   %715 = getelementptr inbounds i8, ptr %.0184.i.i175, i64 24
   %716 = load ptr, ptr %715, align 8
   %717 = getelementptr inbounds i8, ptr %716, i64 168
@@ -2010,8 +2010,8 @@ gc_stack_next.exit.i.i212:                        ; preds = %706, %703, %700
 .lr.ph374.i.i:                                    ; preds = %752, %.lr.ph374.preheader.i.i
   %.1190373.i.i = phi ptr [ %753, %752 ], [ %723, %.lr.ph374.preheader.i.i ]
   %.1192372.i.i = phi i32 [ %754, %752 ], [ %722, %.lr.ph374.preheader.i.i ]
-  %.5228371.i.i = phi ptr [ %.7230.i.i, %752 ], [ %.4227.i.i, %.lr.ph374.preheader.i.i ]
-  %.5236370.i.i = phi i64 [ %.7238.i.i, %752 ], [ %.4235.i.i, %.lr.ph374.preheader.i.i ]
+  %.5228371.i.i = phi ptr [ %.6229.i.i, %752 ], [ %.1224.i.i, %.lr.ph374.preheader.i.i ]
+  %.5236370.i.i = phi i64 [ %.6237.i.i, %752 ], [ %.1232.i.i, %.lr.ph374.preheader.i.i ]
   %724 = load ptr, ptr %.1190373.i.i, align 8
   %725 = getelementptr inbounds i8, ptr %724, i64 8
   %726 = getelementptr inbounds i8, ptr %724, i64 9
@@ -2059,17 +2059,17 @@ gc_stack_next.exit.i.i212:                        ; preds = %706, %703, %700
   br label %gc_stack_next.exit287.i.i
 
 gc_stack_next.exit287.i.i:                        ; preds = %746, %743, %740
-  %.6237.i.i = phi i64 [ %.5236370.i.i, %740 ], [ 0, %743 ], [ 0, %746 ]
-  %.6229.i.i = phi ptr [ %.5228371.i.i, %740 ], [ %745, %743 ], [ %747, %746 ]
-  %749 = getelementptr inbounds i8, ptr %.6229.i.i, i64 16
-  %750 = add i64 %.6237.i.i, 1
-  %751 = getelementptr inbounds [510 x ptr], ptr %749, i64 0, i64 %.6237.i.i
+  %.7238.i.i = phi i64 [ %.5236370.i.i, %740 ], [ 0, %743 ], [ 0, %746 ]
+  %.7230.i.i = phi ptr [ %.5228371.i.i, %740 ], [ %745, %743 ], [ %747, %746 ]
+  %749 = getelementptr inbounds i8, ptr %.7230.i.i, i64 16
+  %750 = add i64 %.7238.i.i, 1
+  %751 = getelementptr inbounds [510 x ptr], ptr %749, i64 0, i64 %.7238.i.i
   store ptr %733, ptr %751, align 8
   br label %752
 
 752:                                              ; preds = %gc_stack_next.exit287.i.i, %731, %728, %.lr.ph374.i.i
-  %.7238.i.i = phi i64 [ %750, %gc_stack_next.exit287.i.i ], [ %.5236370.i.i, %731 ], [ %.5236370.i.i, %728 ], [ %.5236370.i.i, %.lr.ph374.i.i ]
-  %.7230.i.i = phi ptr [ %.6229.i.i, %gc_stack_next.exit287.i.i ], [ %.5228371.i.i, %731 ], [ %.5228371.i.i, %728 ], [ %.5228371.i.i, %.lr.ph374.i.i ]
+  %.6237.i.i = phi i64 [ %750, %gc_stack_next.exit287.i.i ], [ %.5236370.i.i, %731 ], [ %.5236370.i.i, %728 ], [ %.5236370.i.i, %.lr.ph374.i.i ]
+  %.6229.i.i = phi ptr [ %.7230.i.i, %gc_stack_next.exit287.i.i ], [ %.5228371.i.i, %731 ], [ %.5228371.i.i, %728 ], [ %.5228371.i.i, %.lr.ph374.i.i ]
   %753 = getelementptr inbounds i8, ptr %.1190373.i.i, i64 16
   %754 = add i32 %.1192372.i.i, -1
   %.not279.i.i = icmp eq i32 %754, 0
@@ -2101,8 +2101,8 @@ gc_stack_next.exit287.i.i:                        ; preds = %746, %743, %740
 .lr.ph338.i.i:                                    ; preds = %766, %790
   %.2337.i.i = phi ptr [ %791, %790 ], [ %758, %766 ]
   %.2193336.i.i = phi i32 [ %792, %790 ], [ %757, %766 ]
-  %.8335.i.i = phi ptr [ %.10.i.i209, %790 ], [ %.4227.i.i, %766 ]
-  %.8239334.i.i = phi i64 [ %.10241.i.i, %790 ], [ %.4235.i.i, %766 ]
+  %.9335.i.i = phi ptr [ %.10.i.i209, %790 ], [ %.1224.i.i, %766 ]
+  %.9240334.i.i = phi i64 [ %.10241.i.i, %790 ], [ %.1232.i.i, %766 ]
   %768 = getelementptr inbounds i8, ptr %.2337.i.i, i64 9
   %769 = load i8, ptr %768, align 1
   %.not278.i.i = icmp eq i8 %769, 0
@@ -2122,44 +2122,44 @@ gc_stack_next.exit287.i.i:                        ; preds = %746, %743, %740
 778:                                              ; preds = %770
   %779 = and i32 %775, 1073741823
   store i32 %779, ptr %774, align 4
-  %780 = icmp eq i64 %.8239334.i.i, 510
+  %780 = icmp eq i64 %.9240334.i.i, 510
   br i1 %780, label %781, label %gc_stack_next.exit289.i.i
 
 781:                                              ; preds = %778
-  %782 = getelementptr inbounds i8, ptr %.8335.i.i, i64 8
+  %782 = getelementptr inbounds i8, ptr %.9335.i.i, i64 8
   %783 = load ptr, ptr %782, align 8
   %.not.i288.i.i = icmp eq ptr %783, null
   br i1 %.not.i288.i.i, label %784, label %gc_stack_next.exit289.i.i
 
 784:                                              ; preds = %781
   %785 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.8335.i.i, ptr %785, align 8
+  store ptr %.9335.i.i, ptr %785, align 8
   %786 = getelementptr inbounds i8, ptr %785, i64 8
   store ptr null, ptr %786, align 8
   store ptr %785, ptr %782, align 8
   br label %gc_stack_next.exit289.i.i
 
 gc_stack_next.exit289.i.i:                        ; preds = %784, %781, %778
-  %.9240.i.i = phi i64 [ %.8239334.i.i, %778 ], [ 0, %781 ], [ 0, %784 ]
-  %.9.i.i211 = phi ptr [ %.8335.i.i, %778 ], [ %783, %781 ], [ %785, %784 ]
-  %787 = getelementptr inbounds i8, ptr %.9.i.i211, i64 16
-  %788 = add i64 %.9240.i.i, 1
-  %789 = getelementptr inbounds [510 x ptr], ptr %787, i64 0, i64 %.9240.i.i
+  %.11242.i.i = phi i64 [ %.9240334.i.i, %778 ], [ 0, %781 ], [ 0, %784 ]
+  %.11.i.i211 = phi ptr [ %.9335.i.i, %778 ], [ %783, %781 ], [ %785, %784 ]
+  %787 = getelementptr inbounds i8, ptr %.11.i.i211, i64 16
+  %788 = add i64 %.11242.i.i, 1
+  %789 = getelementptr inbounds [510 x ptr], ptr %787, i64 0, i64 %.11242.i.i
   store ptr %771, ptr %789, align 8
   br label %790
 
 790:                                              ; preds = %gc_stack_next.exit289.i.i, %770, %.lr.ph338.i.i
-  %.10241.i.i = phi i64 [ %788, %gc_stack_next.exit289.i.i ], [ %.8239334.i.i, %770 ], [ %.8239334.i.i, %.lr.ph338.i.i ]
-  %.10.i.i209 = phi ptr [ %.9.i.i211, %gc_stack_next.exit289.i.i ], [ %.8335.i.i, %770 ], [ %.8335.i.i, %.lr.ph338.i.i ]
+  %.10241.i.i = phi i64 [ %788, %gc_stack_next.exit289.i.i ], [ %.9240334.i.i, %770 ], [ %.9240334.i.i, %.lr.ph338.i.i ]
+  %.10.i.i209 = phi ptr [ %.11.i.i211, %gc_stack_next.exit289.i.i ], [ %.9335.i.i, %770 ], [ %.9335.i.i, %.lr.ph338.i.i ]
   %791 = getelementptr inbounds i8, ptr %.2337.i.i, i64 16
   %792 = add i32 %.2193336.i.i, -1
   %.not268.i.i210 = icmp eq i32 %792, 0
   br i1 %.not268.i.i210, label %.loopexit302.i.i, label %.lr.ph338.i.i
 
 793:                                              ; preds = %894, %759, %755
-  %.3297 = phi i32 [ %.4, %894 ], [ %.2296, %755 ], [ %.2296, %759 ]
-  %.11242.i.i = phi i64 [ %.15246.i.i, %894 ], [ %.4235.i.i, %755 ], [ %.4235.i.i, %759 ]
-  %.11.i.i185 = phi ptr [ %.15.i.i183, %894 ], [ %.4227.i.i, %755 ], [ %.4227.i.i, %759 ]
+  %.6 = phi i32 [ %.5, %894 ], [ %.7, %755 ], [ %.7, %759 ]
+  %.13244.i.i = phi i64 [ %.12243.i.i, %894 ], [ %.1232.i.i, %755 ], [ %.1232.i.i, %759 ]
+  %.13.i.i185 = phi ptr [ %.12.i.i183, %894 ], [ %.1224.i.i, %755 ], [ %.1224.i.i, %759 ]
   %.3194.i.i = phi i32 [ %890, %894 ], [ %757, %755 ], [ %757, %759 ]
   %.3.i.i186 = phi ptr [ %896, %894 ], [ %758, %755 ], [ %758, %759 ]
   %.not274356.i.i = icmp eq i32 %.3194.i.i, 0
@@ -2195,8 +2195,8 @@ gc_stack_next.exit289.i.i:                        ; preds = %784, %781, %778
 .lr.ph366.i.i:                                    ; preds = %804, %831
   %808 = phi i32 [ %832, %831 ], [ %807, %804 ]
   %.4.pn364.i.i = phi ptr [ %.5365.i.i, %831 ], [ %.4358.i.i, %804 ]
-  %.12363.i.i = phi ptr [ %.14.i.i190, %831 ], [ %.11.i.i185, %804 ]
-  %.12243362.i.i = phi i64 [ %.14245.i.i, %831 ], [ %.11242.i.i, %804 ]
+  %.14363.i.i = phi ptr [ %.15.i.i190, %831 ], [ %.13.i.i185, %804 ]
+  %.14245362.i.i = phi i64 [ %.15246.i.i, %831 ], [ %.13244.i.i, %804 ]
   %.5365.i.i = getelementptr inbounds i8, ptr %.4.pn364.i.i, i64 16
   %809 = getelementptr inbounds i8, ptr %.4.pn364.i.i, i64 25
   %810 = load i8, ptr %809, align 1
@@ -2217,35 +2217,35 @@ gc_stack_next.exit289.i.i:                        ; preds = %784, %781, %778
 819:                                              ; preds = %811
   %820 = and i32 %816, 1073741823
   store i32 %820, ptr %815, align 4
-  %821 = icmp eq i64 %.12243362.i.i, 510
+  %821 = icmp eq i64 %.14245362.i.i, 510
   br i1 %821, label %822, label %gc_stack_next.exit291.i.i
 
 822:                                              ; preds = %819
-  %823 = getelementptr inbounds i8, ptr %.12363.i.i, i64 8
+  %823 = getelementptr inbounds i8, ptr %.14363.i.i, i64 8
   %824 = load ptr, ptr %823, align 8
   %.not.i290.i.i = icmp eq ptr %824, null
   br i1 %.not.i290.i.i, label %825, label %gc_stack_next.exit291.i.i
 
 825:                                              ; preds = %822
   %826 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.12363.i.i, ptr %826, align 8
+  store ptr %.14363.i.i, ptr %826, align 8
   %827 = getelementptr inbounds i8, ptr %826, i64 8
   store ptr null, ptr %827, align 8
   store ptr %826, ptr %823, align 8
   br label %gc_stack_next.exit291.i.i
 
 gc_stack_next.exit291.i.i:                        ; preds = %825, %822, %819
-  %.13244.i.i = phi i64 [ %.12243362.i.i, %819 ], [ 0, %822 ], [ 0, %825 ]
-  %.13.i.i192 = phi ptr [ %.12363.i.i, %819 ], [ %824, %822 ], [ %826, %825 ]
-  %828 = getelementptr inbounds i8, ptr %.13.i.i192, i64 16
-  %829 = add i64 %.13244.i.i, 1
-  %830 = getelementptr inbounds [510 x ptr], ptr %828, i64 0, i64 %.13244.i.i
+  %.16247.i.i = phi i64 [ %.14245362.i.i, %819 ], [ 0, %822 ], [ 0, %825 ]
+  %.16.i.i192 = phi ptr [ %.14363.i.i, %819 ], [ %824, %822 ], [ %826, %825 ]
+  %828 = getelementptr inbounds i8, ptr %.16.i.i192, i64 16
+  %829 = add i64 %.16247.i.i, 1
+  %830 = getelementptr inbounds [510 x ptr], ptr %828, i64 0, i64 %.16247.i.i
   store ptr %812, ptr %830, align 8
   br label %831
 
 831:                                              ; preds = %gc_stack_next.exit291.i.i, %811, %.lr.ph366.i.i
-  %.14245.i.i = phi i64 [ %829, %gc_stack_next.exit291.i.i ], [ %.12243362.i.i, %811 ], [ %.12243362.i.i, %.lr.ph366.i.i ]
-  %.14.i.i190 = phi ptr [ %.13.i.i192, %gc_stack_next.exit291.i.i ], [ %.12363.i.i, %811 ], [ %.12363.i.i, %.lr.ph366.i.i ]
+  %.15246.i.i = phi i64 [ %829, %gc_stack_next.exit291.i.i ], [ %.14245362.i.i, %811 ], [ %.14245362.i.i, %.lr.ph366.i.i ]
+  %.15.i.i190 = phi ptr [ %.16.i.i192, %gc_stack_next.exit291.i.i ], [ %.14363.i.i, %811 ], [ %.14363.i.i, %.lr.ph366.i.i ]
   %832 = add i32 %808, -1
   %.not276.i.i191 = icmp eq i32 %832, 0
   br i1 %.not276.i.i191, label %.outer.backedge.i.i180, label %.lr.ph366.i.i
@@ -2357,9 +2357,9 @@ gc_grow_root_buffer.exit.i:                       ; preds = %860, %859
   br label %.loopexit302.i.i
 
 .loopexit302.i.i:                                 ; preds = %790, %872, %gc_grow_root_buffer.exit.i, %836, %766
-  %.4 = phi i32 [ %.1295, %836 ], [ %.2296, %766 ], [ %.1295, %gc_grow_root_buffer.exit.i ], [ %.1295, %872 ], [ %.2296, %790 ]
-  %.15246.i.i = phi i64 [ %.0231.ph.i.i, %836 ], [ %.4235.i.i, %766 ], [ %.0231.ph.i.i, %gc_grow_root_buffer.exit.i ], [ %.0231.ph.i.i, %872 ], [ %.10241.i.i, %790 ]
-  %.15.i.i183 = phi ptr [ %.0223.ph.i.i, %836 ], [ %.4227.i.i, %766 ], [ %.0223.ph.i.i, %gc_grow_root_buffer.exit.i ], [ %.0223.ph.i.i, %872 ], [ %.10.i.i209, %790 ]
+  %.5 = phi i32 [ %.2296, %836 ], [ %.7, %766 ], [ %.2296, %gc_grow_root_buffer.exit.i ], [ %.2296, %872 ], [ %.7, %790 ]
+  %.12243.i.i = phi i64 [ %.0231.ph.i.i, %836 ], [ %.1232.i.i, %766 ], [ %.0231.ph.i.i, %gc_grow_root_buffer.exit.i ], [ %.0231.ph.i.i, %872 ], [ %.10241.i.i, %790 ]
+  %.12.i.i183 = phi ptr [ %.0223.ph.i.i, %836 ], [ %.1224.i.i, %766 ], [ %.0223.ph.i.i, %gc_grow_root_buffer.exit.i ], [ %.0223.ph.i.i, %872 ], [ %.10.i.i209, %790 ]
   %.0186.i.i = phi ptr [ %.0184.i.i175, %836 ], [ %756, %766 ], [ %.0184.i.i175, %gc_grow_root_buffer.exit.i ], [ %.0184.i.i175, %872 ], [ %756, %790 ]
   %889 = getelementptr inbounds i8, ptr %.0186.i.i, i64 24
   %890 = load i32, ptr %889, align 8
@@ -2424,8 +2424,8 @@ gc_grow_root_buffer.exit.i:                       ; preds = %860, %859
 .lr.ph352.i.i:                                    ; preds = %916, %949
   %920 = phi i32 [ %950, %949 ], [ %919, %916 ]
   %.0187.pn350.i.i = phi ptr [ %.1188351.i.i, %949 ], [ %.0187344.i.i, %916 ]
-  %.16349.i.i = phi ptr [ %.18.i.i198, %949 ], [ %.15.i.i183, %916 ]
-  %.16247348.i.i = phi i64 [ %.18249.i.i, %949 ], [ %.15246.i.i, %916 ]
+  %.17349.i.i = phi ptr [ %.18.i.i198, %949 ], [ %.12.i.i183, %916 ]
+  %.17248348.i.i = phi i64 [ %.18249.i.i, %949 ], [ %.12243.i.i, %916 ]
   %.1188351.i.i = getelementptr inbounds i8, ptr %.0187.pn350.i.i, i64 32
   %921 = getelementptr inbounds i8, ptr %.0187.pn350.i.i, i64 40
   %922 = load i8, ptr %921, align 8
@@ -2457,35 +2457,35 @@ gc_grow_root_buffer.exit.i:                       ; preds = %860, %859
 937:                                              ; preds = %929
   %938 = and i32 %934, 1073741823
   store i32 %938, ptr %933, align 4
-  %939 = icmp eq i64 %.16247348.i.i, 510
+  %939 = icmp eq i64 %.17248348.i.i, 510
   br i1 %939, label %940, label %gc_stack_next.exit293.i.i
 
 940:                                              ; preds = %937
-  %941 = getelementptr inbounds i8, ptr %.16349.i.i, i64 8
+  %941 = getelementptr inbounds i8, ptr %.17349.i.i, i64 8
   %942 = load ptr, ptr %941, align 8
   %.not.i292.i.i = icmp eq ptr %942, null
   br i1 %.not.i292.i.i, label %943, label %gc_stack_next.exit293.i.i
 
 943:                                              ; preds = %940
   %944 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.16349.i.i, ptr %944, align 8
+  store ptr %.17349.i.i, ptr %944, align 8
   %945 = getelementptr inbounds i8, ptr %944, i64 8
   store ptr null, ptr %945, align 8
   store ptr %944, ptr %941, align 8
   br label %gc_stack_next.exit293.i.i
 
 gc_stack_next.exit293.i.i:                        ; preds = %943, %940, %937
-  %.17248.i.i = phi i64 [ %.16247348.i.i, %937 ], [ 0, %940 ], [ 0, %943 ]
-  %.17.i.i200 = phi ptr [ %.16349.i.i, %937 ], [ %942, %940 ], [ %944, %943 ]
-  %946 = getelementptr inbounds i8, ptr %.17.i.i200, i64 16
-  %947 = add i64 %.17248.i.i, 1
-  %948 = getelementptr inbounds [510 x ptr], ptr %946, i64 0, i64 %.17248.i.i
+  %.19250.i.i = phi i64 [ %.17248348.i.i, %937 ], [ 0, %940 ], [ 0, %943 ]
+  %.19.i.i200 = phi ptr [ %.17349.i.i, %937 ], [ %942, %940 ], [ %944, %943 ]
+  %946 = getelementptr inbounds i8, ptr %.19.i.i200, i64 16
+  %947 = add i64 %.19250.i.i, 1
+  %948 = getelementptr inbounds [510 x ptr], ptr %946, i64 0, i64 %.19250.i.i
   store ptr %930, ptr %948, align 8
   br label %949
 
 949:                                              ; preds = %gc_stack_next.exit293.i.i, %929, %926
-  %.18249.i.i = phi i64 [ %947, %gc_stack_next.exit293.i.i ], [ %.16247348.i.i, %929 ], [ %.16247348.i.i, %926 ]
-  %.18.i.i198 = phi ptr [ %.17.i.i200, %gc_stack_next.exit293.i.i ], [ %.16349.i.i, %929 ], [ %.16349.i.i, %926 ]
+  %.18249.i.i = phi i64 [ %947, %gc_stack_next.exit293.i.i ], [ %.17248348.i.i, %929 ], [ %.17248348.i.i, %926 ]
+  %.18.i.i198 = phi ptr [ %.19.i.i200, %gc_stack_next.exit293.i.i ], [ %.17349.i.i, %929 ], [ %.17349.i.i, %926 ]
   %950 = add i32 %920, -1
   %.not272.i.i199 = icmp eq i32 %950, 0
   br i1 %.not272.i.i199, label %.outer.backedge.i.i180, label %.lr.ph352.i.i
@@ -2520,14 +2520,14 @@ gc_stack_next.exit293.i.i:                        ; preds = %943, %940, %937
   br label %604
 
 .loopexit.i30.i:                                  ; preds = %957, %954, %604, %951, %833, %752, %897, %793, %720, %608
-  %.5 = phi i32 [ %.4, %897 ], [ %.3297, %793 ], [ %.2296, %720 ], [ %.1295, %608 ], [ %.2296, %752 ], [ %.3297, %833 ], [ %.4, %951 ], [ %.1295, %604 ], [ %.1295, %954 ], [ %.1295, %957 ]
-  %.19250.i.i = phi i64 [ %.15246.i.i, %897 ], [ %.11242.i.i, %793 ], [ %.4235.i.i, %720 ], [ %.0231.ph.i.i, %608 ], [ %.7238.i.i, %752 ], [ %.11242.i.i, %833 ], [ %.15246.i.i, %951 ], [ %.0231.ph.i.i, %604 ], [ %.0231.ph.i.i, %954 ], [ %.0231.ph.i.i, %957 ]
-  %.19.i.i177 = phi ptr [ %.15.i.i183, %897 ], [ %.11.i.i185, %793 ], [ %.4227.i.i, %720 ], [ %.0223.ph.i.i, %608 ], [ %.7230.i.i, %752 ], [ %.11.i.i185, %833 ], [ %.15.i.i183, %951 ], [ %.0223.ph.i.i, %604 ], [ %.0223.ph.i.i, %954 ], [ %.0223.ph.i.i, %957 ]
-  %968 = icmp eq i64 %.19250.i.i, 0
+  %.3297 = phi i32 [ %.5, %897 ], [ %.6, %793 ], [ %.7, %720 ], [ %.2296, %608 ], [ %.7, %752 ], [ %.6, %833 ], [ %.5, %951 ], [ %.2296, %604 ], [ %.2296, %954 ], [ %.2296, %957 ]
+  %.8239.i.i = phi i64 [ %.12243.i.i, %897 ], [ %.13244.i.i, %793 ], [ %.1232.i.i, %720 ], [ %.0231.ph.i.i, %608 ], [ %.6237.i.i, %752 ], [ %.13244.i.i, %833 ], [ %.12243.i.i, %951 ], [ %.0231.ph.i.i, %604 ], [ %.0231.ph.i.i, %954 ], [ %.0231.ph.i.i, %957 ]
+  %.8.i.i177 = phi ptr [ %.12.i.i183, %897 ], [ %.13.i.i185, %793 ], [ %.1224.i.i, %720 ], [ %.0223.ph.i.i, %608 ], [ %.6229.i.i, %752 ], [ %.13.i.i185, %833 ], [ %.12.i.i183, %951 ], [ %.0223.ph.i.i, %604 ], [ %.0223.ph.i.i, %954 ], [ %.0223.ph.i.i, %957 ]
+  %968 = icmp eq i64 %.8239.i.i, 0
   br i1 %968, label %969, label %973
 
 969:                                              ; preds = %.loopexit.i30.i
-  %970 = load ptr, ptr %.19.i.i177, align 8
+  %970 = load ptr, ptr %.8.i.i177, align 8
   %.not280.i.i = icmp eq ptr %970, null
   br i1 %.not280.i.i, label %gc_collect_white.exit.i, label %971
 
@@ -2536,23 +2536,23 @@ gc_stack_next.exit293.i.i:                        ; preds = %943, %940, %937
   br label %977
 
 973:                                              ; preds = %.loopexit.i30.i
-  %974 = getelementptr inbounds i8, ptr %.19.i.i177, i64 16
-  %975 = add i64 %.19250.i.i, -1
+  %974 = getelementptr inbounds i8, ptr %.8.i.i177, i64 16
+  %975 = add i64 %.8239.i.i, -1
   %976 = getelementptr inbounds [510 x ptr], ptr %974, i64 0, i64 %975
   br label %977
 
 977:                                              ; preds = %973, %971
   %.20251.i.i = phi i64 [ 509, %971 ], [ %975, %973 ]
-  %.20.i.i178 = phi ptr [ %970, %971 ], [ %.19.i.i177, %973 ]
+  %.20.i.i178 = phi ptr [ %970, %971 ], [ %.8.i.i177, %973 ]
   %.0.in.i.i179 = phi ptr [ %972, %971 ], [ %976, %973 ]
   %.0.i31.i = load ptr, ptr %.0.in.i.i179, align 8
   %.not281.i.i = icmp eq ptr %.0.i31.i, null
   br i1 %.not281.i.i, label %gc_collect_white.exit.i, label %.outer.backedge.i.i180
 
 .outer.backedge.i.i180:                           ; preds = %949, %831, %977, %916, %804
-  %.6 = phi i32 [ %.5, %977 ], [ %.4, %916 ], [ %.3297, %804 ], [ %.3297, %831 ], [ %.4, %949 ]
-  %.0231.ph.be.i.i = phi i64 [ %.20251.i.i, %977 ], [ %.15246.i.i, %916 ], [ %.11242.i.i, %804 ], [ %.14245.i.i, %831 ], [ %.18249.i.i, %949 ]
-  %.0223.ph.be.i.i = phi ptr [ %.20.i.i178, %977 ], [ %.15.i.i183, %916 ], [ %.11.i.i185, %804 ], [ %.14.i.i190, %831 ], [ %.18.i.i198, %949 ]
+  %.4 = phi i32 [ %.3297, %977 ], [ %.5, %916 ], [ %.6, %804 ], [ %.6, %831 ], [ %.5, %949 ]
+  %.0231.ph.be.i.i = phi i64 [ %.20251.i.i, %977 ], [ %.12243.i.i, %916 ], [ %.13244.i.i, %804 ], [ %.15246.i.i, %831 ], [ %.18249.i.i, %949 ]
+  %.0223.ph.be.i.i = phi ptr [ %.20.i.i178, %977 ], [ %.12.i.i183, %916 ], [ %.13.i.i185, %804 ], [ %.15.i.i190, %831 ], [ %.18.i.i198, %949 ]
   %.0184.ph.be.i.i181 = phi ptr [ %.0.i31.i, %977 ], [ %909, %916 ], [ %797, %804 ], [ %797, %831 ], [ %909, %949 ]
   %.phi.trans.insert.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0184.ph.be.i.i181, i64 4
   %.pre.i28.pre.i = load i32, ptr %.phi.trans.insert.i.phi.trans.insert.i, align 4
@@ -2565,7 +2565,7 @@ gc_collect_white.exit.i:                          ; preds = %977, %969
   br label %979
 
 979:                                              ; preds = %gc_collect_white.exit.i, %.lr.ph67.i
-  %.7 = phi i32 [ %.5, %gc_collect_white.exit.i ], [ %.0294, %.lr.ph67.i ]
+  %.1295 = phi i32 [ %.3297, %gc_collect_white.exit.i ], [ %.0294, %.lr.ph67.i ]
   %.1.i = phi i32 [ %978, %gc_collect_white.exit.i ], [ %.02665.i, %.lr.ph67.i ]
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i168, 1
   %lftr.wideiv504 = trunc i64 %indvars.iv.next.i169 to i32
@@ -2578,7 +2578,7 @@ gc_collect_roots.exit.loopexit:                   ; preds = %979
 
 gc_collect_roots.exit:                            ; preds = %gc_collect_roots.exit.loopexit, %gc_compact.exit.i167
   %980 = phi i32 [ %588, %gc_compact.exit.i167 ], [ %.pre515, %gc_collect_roots.exit.loopexit ]
-  %.8 = phi i32 [ 0, %gc_compact.exit.i167 ], [ %.7, %gc_collect_roots.exit.loopexit ]
+  %.8 = phi i32 [ 0, %gc_compact.exit.i167 ], [ %.1295, %gc_collect_roots.exit.loopexit ]
   %.026.lcssa.i = phi i32 [ 0, %gc_compact.exit.i167 ], [ %.1.i, %gc_collect_roots.exit.loopexit ]
   %.not135 = icmp eq i32 %980, 0
   br i1 %.not135, label %981, label %984
@@ -2682,7 +2682,7 @@ gc_stack_free.exit:                               ; preds = %.lr.ph.i232, %981
 .lr.ph408:                                        ; preds = %.lr.ph408.preheader, %1249
   %.1118406.pn = phi ptr [ %.1118406, %1249 ], [ %.pre516, %.lr.ph408.preheader ]
   %.1405 = phi i32 [ %1250, %1249 ], [ 1, %.lr.ph408.preheader ]
-  %.0120404 = phi i32 [ %.1121, %1249 ], [ %.026.lcssa.i, %.lr.ph408.preheader ]
+  %.1121404 = phi i32 [ %.2122, %1249 ], [ %.026.lcssa.i, %.lr.ph408.preheader ]
   %.1118406 = getelementptr inbounds i8, ptr %.1118406.pn, i64 8
   %1018 = load ptr, ptr %.1118406, align 8
   %1019 = ptrtoint ptr %1018 to i64
@@ -2832,8 +2832,8 @@ gc_remove_from_buffer.exit.i242:                  ; preds = %gc_remove_from_buff
 .lr.ph255.i:                                      ; preds = %1101, %.lr.ph255.preheader.i
   %.0122254.i = phi ptr [ %1102, %1101 ], [ %1084, %.lr.ph255.preheader.i ]
   %.0128253.i = phi i32 [ %1103, %1101 ], [ %1083, %.lr.ph255.preheader.i ]
-  %.1156252.i = phi ptr [ %.3158.i, %1101 ], [ %.0155.ph.i, %.lr.ph255.preheader.i ]
-  %.1163251.i = phi i64 [ %.3165.i, %1101 ], [ %.0162.ph.i, %.lr.ph255.preheader.i ]
+  %.3158252.i = phi ptr [ %.4159.i, %1101 ], [ %.0155.ph.i, %.lr.ph255.preheader.i ]
+  %.3165251.i = phi i64 [ %.4166.i, %1101 ], [ %.0162.ph.i, %.lr.ph255.preheader.i ]
   %1085 = load ptr, ptr %.0122254.i, align 8
   %1086 = getelementptr inbounds i8, ptr %1085, i64 8
   %1087 = load i32, ptr %1086, align 8
@@ -2843,43 +2843,43 @@ gc_remove_from_buffer.exit.i242:                  ; preds = %gc_remove_from_buff
 
 1089:                                             ; preds = %.lr.ph255.i
   %1090 = load ptr, ptr %1085, align 8
-  %1091 = icmp eq i64 %.1163251.i, 510
+  %1091 = icmp eq i64 %.3165251.i, 510
   br i1 %1091, label %1092, label %gc_stack_next.exit.i
 
 1092:                                             ; preds = %1089
-  %1093 = getelementptr inbounds i8, ptr %.1156252.i, i64 8
+  %1093 = getelementptr inbounds i8, ptr %.3158252.i, i64 8
   %1094 = load ptr, ptr %1093, align 8
   %.not.i.i238 = icmp eq ptr %1094, null
   br i1 %.not.i.i238, label %1095, label %gc_stack_next.exit.i
 
 1095:                                             ; preds = %1092
   %1096 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.1156252.i, ptr %1096, align 8
+  store ptr %.3158252.i, ptr %1096, align 8
   %1097 = getelementptr inbounds i8, ptr %1096, i64 8
   store ptr null, ptr %1097, align 8
   store ptr %1096, ptr %1093, align 8
   br label %gc_stack_next.exit.i
 
 gc_stack_next.exit.i:                             ; preds = %1095, %1092, %1089
-  %.2164.i = phi i64 [ %.1163251.i, %1089 ], [ 0, %1092 ], [ 0, %1095 ]
-  %.2157.i = phi ptr [ %.1156252.i, %1089 ], [ %1094, %1092 ], [ %1096, %1095 ]
-  %1098 = getelementptr inbounds i8, ptr %.2157.i, i64 16
-  %1099 = add i64 %.2164.i, 1
-  %1100 = getelementptr inbounds [510 x ptr], ptr %1098, i64 0, i64 %.2164.i
+  %.5167.i = phi i64 [ %.3165251.i, %1089 ], [ 0, %1092 ], [ 0, %1095 ]
+  %.5160.i = phi ptr [ %.3158252.i, %1089 ], [ %1094, %1092 ], [ %1096, %1095 ]
+  %1098 = getelementptr inbounds i8, ptr %.5160.i, i64 16
+  %1099 = add i64 %.5167.i, 1
+  %1100 = getelementptr inbounds [510 x ptr], ptr %1098, i64 0, i64 %.5167.i
   store ptr %1090, ptr %1100, align 8
   br label %1101
 
 1101:                                             ; preds = %gc_stack_next.exit.i, %.lr.ph255.i
-  %.3165.i = phi i64 [ %1099, %gc_stack_next.exit.i ], [ %.1163251.i, %.lr.ph255.i ]
-  %.3158.i = phi ptr [ %.2157.i, %gc_stack_next.exit.i ], [ %.1156252.i, %.lr.ph255.i ]
+  %.4166.i = phi i64 [ %1099, %gc_stack_next.exit.i ], [ %.3165251.i, %.lr.ph255.i ]
+  %.4159.i = phi ptr [ %.5160.i, %gc_stack_next.exit.i ], [ %.3158252.i, %.lr.ph255.i ]
   %1102 = getelementptr inbounds i8, ptr %.0122254.i, i64 16
   %1103 = add i32 %.0128253.i, -1
   %.not188.i = icmp eq i32 %1103, 0
   br i1 %.not188.i, label %.loopexit232.i, label %.lr.ph255.i
 
 .loopexit232.i:                                   ; preds = %1101, %1081, %1079
-  %.4166.i = phi i64 [ %.0162.ph.i, %1079 ], [ %.0162.ph.i, %1081 ], [ %.3165.i, %1101 ]
-  %.4159.i = phi ptr [ %.0155.ph.i, %1079 ], [ %.0155.ph.i, %1081 ], [ %.3158.i, %1101 ]
+  %.2164.i = phi i64 [ %.0162.ph.i, %1079 ], [ %.0162.ph.i, %1081 ], [ %.4166.i, %1101 ]
+  %.2157.i = phi ptr [ %.0155.ph.i, %1079 ], [ %.0155.ph.i, %1081 ], [ %.4159.i, %1101 ]
   %1104 = getelementptr inbounds i8, ptr %.0117237.i, i64 24
   %1105 = load ptr, ptr %1104, align 8
   %1106 = getelementptr inbounds i8, ptr %1105, i64 168
@@ -2897,8 +2897,8 @@ gc_stack_next.exit.i:                             ; preds = %1095, %1092, %1089
 .lr.ph263.i:                                      ; preds = %.preheader.i236, %1125
   %.1123262.i = phi ptr [ %1126, %1125 ], [ %1110, %.preheader.i236 ]
   %.1129261.i = phi i32 [ %1127, %1125 ], [ %1109, %.preheader.i236 ]
-  %.5160260.i = phi ptr [ %.7.i, %1125 ], [ %.4159.i, %.preheader.i236 ]
-  %.5167259.i = phi i64 [ %.7169.i, %1125 ], [ %.4166.i, %.preheader.i236 ]
+  %.6161260.i = phi ptr [ %.7.i, %1125 ], [ %.2157.i, %.preheader.i236 ]
+  %.6168259.i = phi i64 [ %.7169.i, %1125 ], [ %.2164.i, %.preheader.i236 ]
   %1111 = getelementptr inbounds i8, ptr %.1123262.i, i64 9
   %1112 = load i8, ptr %1111, align 1
   %.not204.i = icmp eq i8 %1112, 0
@@ -2906,43 +2906,43 @@ gc_stack_next.exit.i:                             ; preds = %1095, %1092, %1089
 
 1113:                                             ; preds = %.lr.ph263.i
   %1114 = load ptr, ptr %.1123262.i, align 8
-  %1115 = icmp eq i64 %.5167259.i, 510
+  %1115 = icmp eq i64 %.6168259.i, 510
   br i1 %1115, label %1116, label %gc_stack_next.exit209.i
 
 1116:                                             ; preds = %1113
-  %1117 = getelementptr inbounds i8, ptr %.5160260.i, i64 8
+  %1117 = getelementptr inbounds i8, ptr %.6161260.i, i64 8
   %1118 = load ptr, ptr %1117, align 8
   %.not.i208.i = icmp eq ptr %1118, null
   br i1 %.not.i208.i, label %1119, label %gc_stack_next.exit209.i
 
 1119:                                             ; preds = %1116
   %1120 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.5160260.i, ptr %1120, align 8
+  store ptr %.6161260.i, ptr %1120, align 8
   %1121 = getelementptr inbounds i8, ptr %1120, i64 8
   store ptr null, ptr %1121, align 8
   store ptr %1120, ptr %1117, align 8
   br label %gc_stack_next.exit209.i
 
 gc_stack_next.exit209.i:                          ; preds = %1119, %1116, %1113
-  %.6168.i = phi i64 [ %.5167259.i, %1113 ], [ 0, %1116 ], [ 0, %1119 ]
-  %.6161.i = phi ptr [ %.5160260.i, %1113 ], [ %1118, %1116 ], [ %1120, %1119 ]
-  %1122 = getelementptr inbounds i8, ptr %.6161.i, i64 16
-  %1123 = add i64 %.6168.i, 1
-  %1124 = getelementptr inbounds [510 x ptr], ptr %1122, i64 0, i64 %.6168.i
+  %.8170.i = phi i64 [ %.6168259.i, %1113 ], [ 0, %1116 ], [ 0, %1119 ]
+  %.8.i = phi ptr [ %.6161260.i, %1113 ], [ %1118, %1116 ], [ %1120, %1119 ]
+  %1122 = getelementptr inbounds i8, ptr %.8.i, i64 16
+  %1123 = add i64 %.8170.i, 1
+  %1124 = getelementptr inbounds [510 x ptr], ptr %1122, i64 0, i64 %.8170.i
   store ptr %1114, ptr %1124, align 8
   br label %1125
 
 1125:                                             ; preds = %gc_stack_next.exit209.i, %.lr.ph263.i
-  %.7169.i = phi i64 [ %1123, %gc_stack_next.exit209.i ], [ %.5167259.i, %.lr.ph263.i ]
-  %.7.i = phi ptr [ %.6161.i, %gc_stack_next.exit209.i ], [ %.5160260.i, %.lr.ph263.i ]
+  %.7169.i = phi i64 [ %1123, %gc_stack_next.exit209.i ], [ %.6168259.i, %.lr.ph263.i ]
+  %.7.i = phi ptr [ %.8.i, %gc_stack_next.exit209.i ], [ %.6161260.i, %.lr.ph263.i ]
   %1126 = getelementptr inbounds i8, ptr %.1123262.i, i64 16
   %1127 = add i32 %.1129261.i, -1
   %.not190.i = icmp eq i32 %1127, 0
   br i1 %.not190.i, label %._crit_edge.i237, label %.lr.ph263.i
 
 ._crit_edge.i237:                                 ; preds = %1125, %.preheader.i236
-  %.5167.lcssa.i = phi i64 [ %.4166.i, %.preheader.i236 ], [ %.7169.i, %1125 ]
-  %.5160.lcssa.i = phi ptr [ %.4159.i, %.preheader.i236 ], [ %.7.i, %1125 ]
+  %.6168.lcssa.i = phi i64 [ %.2164.i, %.preheader.i236 ], [ %.7169.i, %1125 ]
+  %.6161.lcssa.i = phi ptr [ %.2157.i, %.preheader.i236 ], [ %.7.i, %1125 ]
   %1128 = getelementptr inbounds i8, ptr %1108, i64 4
   %1129 = load i32, ptr %1128, align 4
   %1130 = and i32 %1129, 1073740800
@@ -3009,8 +3009,8 @@ gc_remove_from_buffer.exit218.i:                  ; preds = %gc_remove_from_buff
   br label %1190
 
 1165:                                             ; preds = %1196, %.loopexit232.i
-  %.8170.i = phi i64 [ %.12174.i, %1196 ], [ %.4166.i, %.loopexit232.i ]
-  %.8.i = phi ptr [ %.12.i, %1196 ], [ %.4159.i, %.loopexit232.i ]
+  %.10172.i = phi i64 [ %.9171.i, %1196 ], [ %.2164.i, %.loopexit232.i ]
+  %.10.i = phi ptr [ %.9.i, %1196 ], [ %.2157.i, %.loopexit232.i ]
   %.2130.i = phi i32 [ %1192, %1196 ], [ %1109, %.loopexit232.i ]
   %.2124.i = phi ptr [ %1198, %1196 ], [ %1110, %.loopexit232.i ]
   %.not198282.i = icmp eq i32 %.2130.i, 0
@@ -3033,8 +3033,8 @@ gc_remove_from_buffer.exit218.i:                  ; preds = %gc_remove_from_buff
 .lr.ph294.i:                                      ; preds = %1169, %1186
   %1171 = phi i32 [ %1187, %1186 ], [ %1168, %1169 ]
   %.3.pn291.i = phi ptr [ %.4292.i, %1186 ], [ %.3284.i, %1169 ]
-  %.9290.i = phi ptr [ %.11.i, %1186 ], [ %.8.i, %1169 ]
-  %.9171289.i = phi i64 [ %.11173.i, %1186 ], [ %.8170.i, %1169 ]
+  %.11290.i = phi ptr [ %.12.i, %1186 ], [ %.10.i, %1169 ]
+  %.11173289.i = phi i64 [ %.12174.i, %1186 ], [ %.10172.i, %1169 ]
   %.4292.i = getelementptr inbounds i8, ptr %.3.pn291.i, i64 16
   %1172 = getelementptr inbounds i8, ptr %.3.pn291.i, i64 25
   %1173 = load i8, ptr %1172, align 1
@@ -3043,35 +3043,35 @@ gc_remove_from_buffer.exit218.i:                  ; preds = %gc_remove_from_buff
 
 1174:                                             ; preds = %.lr.ph294.i
   %1175 = load ptr, ptr %.4292.i, align 8
-  %1176 = icmp eq i64 %.9171289.i, 510
+  %1176 = icmp eq i64 %.11173289.i, 510
   br i1 %1176, label %1177, label %gc_stack_next.exit220.i
 
 1177:                                             ; preds = %1174
-  %1178 = getelementptr inbounds i8, ptr %.9290.i, i64 8
+  %1178 = getelementptr inbounds i8, ptr %.11290.i, i64 8
   %1179 = load ptr, ptr %1178, align 8
   %.not.i219.i = icmp eq ptr %1179, null
   br i1 %.not.i219.i, label %1180, label %gc_stack_next.exit220.i
 
 1180:                                             ; preds = %1177
   %1181 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.9290.i, ptr %1181, align 8
+  store ptr %.11290.i, ptr %1181, align 8
   %1182 = getelementptr inbounds i8, ptr %1181, i64 8
   store ptr null, ptr %1182, align 8
   store ptr %1181, ptr %1178, align 8
   br label %gc_stack_next.exit220.i
 
 gc_stack_next.exit220.i:                          ; preds = %1180, %1177, %1174
-  %.10172.i = phi i64 [ %.9171289.i, %1174 ], [ 0, %1177 ], [ 0, %1180 ]
-  %.10.i = phi ptr [ %.9290.i, %1174 ], [ %1179, %1177 ], [ %1181, %1180 ]
-  %1183 = getelementptr inbounds i8, ptr %.10.i, i64 16
-  %1184 = add i64 %.10172.i, 1
-  %1185 = getelementptr inbounds [510 x ptr], ptr %1183, i64 0, i64 %.10172.i
+  %.13175.i = phi i64 [ %.11173289.i, %1174 ], [ 0, %1177 ], [ 0, %1180 ]
+  %.13.i = phi ptr [ %.11290.i, %1174 ], [ %1179, %1177 ], [ %1181, %1180 ]
+  %1183 = getelementptr inbounds i8, ptr %.13.i, i64 16
+  %1184 = add i64 %.13175.i, 1
+  %1185 = getelementptr inbounds [510 x ptr], ptr %1183, i64 0, i64 %.13175.i
   store ptr %1175, ptr %1185, align 8
   br label %1186
 
 1186:                                             ; preds = %gc_stack_next.exit220.i, %.lr.ph294.i
-  %.11173.i = phi i64 [ %1184, %gc_stack_next.exit220.i ], [ %.9171289.i, %.lr.ph294.i ]
-  %.11.i = phi ptr [ %.10.i, %gc_stack_next.exit220.i ], [ %.9290.i, %.lr.ph294.i ]
+  %.12174.i = phi i64 [ %1184, %gc_stack_next.exit220.i ], [ %.11173289.i, %.lr.ph294.i ]
+  %.12.i = phi ptr [ %.13.i, %gc_stack_next.exit220.i ], [ %.11290.i, %.lr.ph294.i ]
   %1187 = add i32 %1171, -1
   %.not202.i = icmp eq i32 %1187, 0
   br i1 %.not202.i, label %.outer.i.backedge, label %.lr.ph294.i
@@ -3081,8 +3081,8 @@ gc_stack_next.exit220.i:                          ; preds = %1180, %1177, %1174
   br i1 %.not198.i, label %.loopexit229.i, label %.lr.ph286.i
 
 1190:                                             ; preds = %gc_remove_from_buffer.exit218.i, %._crit_edge.i237, %.loopexit233.i
-  %.12174.i = phi i64 [ %.5167.lcssa.i, %gc_remove_from_buffer.exit218.i ], [ %.5167.lcssa.i, %._crit_edge.i237 ], [ %.0162.ph.i, %.loopexit233.i ]
-  %.12.i = phi ptr [ %.5160.lcssa.i, %gc_remove_from_buffer.exit218.i ], [ %.5160.lcssa.i, %._crit_edge.i237 ], [ %.0155.ph.i, %.loopexit233.i ]
+  %.9171.i = phi i64 [ %.6168.lcssa.i, %gc_remove_from_buffer.exit218.i ], [ %.6168.lcssa.i, %._crit_edge.i237 ], [ %.0162.ph.i, %.loopexit233.i ]
+  %.9.i = phi ptr [ %.6161.lcssa.i, %gc_remove_from_buffer.exit218.i ], [ %.6161.lcssa.i, %._crit_edge.i237 ], [ %.0155.ph.i, %.loopexit233.i ]
   %.0119.i = phi ptr [ %1108, %gc_remove_from_buffer.exit218.i ], [ %1108, %._crit_edge.i237 ], [ %.0117237.i, %.loopexit233.i ]
   %1191 = getelementptr inbounds i8, ptr %.0119.i, i64 24
   %1192 = load i32, ptr %1191, align 8
@@ -3134,8 +3134,8 @@ gc_stack_next.exit220.i:                          ; preds = %1180, %1177, %1174
 .lr.ph279.i:                                      ; preds = %1211, %1234
   %1213 = phi i32 [ %1235, %1234 ], [ %1210, %1211 ]
   %.0120.pn276.i = phi ptr [ %.1121277.i, %1234 ], [ %.0120269.i, %1211 ]
-  %.13275.i = phi ptr [ %.15.i, %1234 ], [ %.12.i, %1211 ]
-  %.13175274.i = phi i64 [ %.15177.i, %1234 ], [ %.12174.i, %1211 ]
+  %.14275.i = phi ptr [ %.15.i, %1234 ], [ %.9.i, %1211 ]
+  %.14176274.i = phi i64 [ %.15177.i, %1234 ], [ %.9171.i, %1211 ]
   %.1121277.i = getelementptr inbounds i8, ptr %.0120.pn276.i, i64 32
   %1214 = getelementptr inbounds i8, ptr %.0120.pn276.i, i64 40
   %1215 = load i8, ptr %1214, align 8
@@ -3155,35 +3155,35 @@ gc_stack_next.exit220.i:                          ; preds = %1180, %1177, %1174
 
 1222:                                             ; preds = %1219
   %1223 = load ptr, ptr %.6.i, align 8
-  %1224 = icmp eq i64 %.13175274.i, 510
+  %1224 = icmp eq i64 %.14176274.i, 510
   br i1 %1224, label %1225, label %gc_stack_next.exit222.i
 
 1225:                                             ; preds = %1222
-  %1226 = getelementptr inbounds i8, ptr %.13275.i, i64 8
+  %1226 = getelementptr inbounds i8, ptr %.14275.i, i64 8
   %1227 = load ptr, ptr %1226, align 8
   %.not.i221.i = icmp eq ptr %1227, null
   br i1 %.not.i221.i, label %1228, label %gc_stack_next.exit222.i
 
 1228:                                             ; preds = %1225
   %1229 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.13275.i, ptr %1229, align 8
+  store ptr %.14275.i, ptr %1229, align 8
   %1230 = getelementptr inbounds i8, ptr %1229, i64 8
   store ptr null, ptr %1230, align 8
   store ptr %1229, ptr %1226, align 8
   br label %gc_stack_next.exit222.i
 
 gc_stack_next.exit222.i:                          ; preds = %1228, %1225, %1222
-  %.14176.i = phi i64 [ %.13175274.i, %1222 ], [ 0, %1225 ], [ 0, %1228 ]
-  %.14.i = phi ptr [ %.13275.i, %1222 ], [ %1227, %1225 ], [ %1229, %1228 ]
-  %1231 = getelementptr inbounds i8, ptr %.14.i, i64 16
-  %1232 = add i64 %.14176.i, 1
-  %1233 = getelementptr inbounds [510 x ptr], ptr %1231, i64 0, i64 %.14176.i
+  %.16178.i = phi i64 [ %.14176274.i, %1222 ], [ 0, %1225 ], [ 0, %1228 ]
+  %.16.i = phi ptr [ %.14275.i, %1222 ], [ %1227, %1225 ], [ %1229, %1228 ]
+  %1231 = getelementptr inbounds i8, ptr %.16.i, i64 16
+  %1232 = add i64 %.16178.i, 1
+  %1233 = getelementptr inbounds [510 x ptr], ptr %1231, i64 0, i64 %.16178.i
   store ptr %1223, ptr %1233, align 8
   br label %1234
 
 1234:                                             ; preds = %gc_stack_next.exit222.i, %1219
-  %.15177.i = phi i64 [ %1232, %gc_stack_next.exit222.i ], [ %.13175274.i, %1219 ]
-  %.15.i = phi ptr [ %.14.i, %gc_stack_next.exit222.i ], [ %.13275.i, %1219 ]
+  %.15177.i = phi i64 [ %1232, %gc_stack_next.exit222.i ], [ %.14176274.i, %1219 ]
+  %.15.i = phi ptr [ %.16.i, %gc_stack_next.exit222.i ], [ %.14275.i, %1219 ]
   %1235 = add i32 %1213, -1
   %.not196.i = icmp eq i32 %1235, 0
   br i1 %.not196.i, label %.outer.i.backedge, label %.lr.ph279.i
@@ -3193,14 +3193,14 @@ gc_stack_next.exit222.i:                          ; preds = %1228, %1225, %1222
   br i1 %.not194.i, label %.loopexit229.i, label %.lr.ph271.i
 
 .loopexit229.i:                                   ; preds = %1065, %.lr.ph397, %1236, %1188, %1199, %1165, %1077, %.loopexit233.i
-  %.16178.i = phi i64 [ %.0162.ph.i, %1077 ], [ %.0162.ph.i, %.loopexit233.i ], [ %.8170.i, %1165 ], [ %.12174.i, %1199 ], [ %.8170.i, %1188 ], [ %.12174.i, %1236 ], [ %.0162.ph.i, %.lr.ph397 ], [ %.0162.ph.i, %1065 ]
-  %.16.i = phi ptr [ %.0155.ph.i, %1077 ], [ %.0155.ph.i, %.loopexit233.i ], [ %.8.i, %1165 ], [ %.12.i, %1199 ], [ %.8.i, %1188 ], [ %.12.i, %1236 ], [ %.0155.ph.i, %.lr.ph397 ], [ %.0155.ph.i, %1065 ]
+  %.1163.i = phi i64 [ %.0162.ph.i, %1077 ], [ %.0162.ph.i, %.loopexit233.i ], [ %.10172.i, %1165 ], [ %.9171.i, %1199 ], [ %.10172.i, %1188 ], [ %.9171.i, %1236 ], [ %.0162.ph.i, %.lr.ph397 ], [ %.0162.ph.i, %1065 ]
+  %.1156.i = phi ptr [ %.0155.ph.i, %1077 ], [ %.0155.ph.i, %.loopexit233.i ], [ %.10.i, %1165 ], [ %.9.i, %1199 ], [ %.10.i, %1188 ], [ %.9.i, %1236 ], [ %.0155.ph.i, %.lr.ph397 ], [ %.0155.ph.i, %1065 ]
   %.2127.i = phi i32 [ %.1126.i, %1077 ], [ %.1126.i, %.loopexit233.i ], [ %.1126.i, %1165 ], [ %.1126.i, %1199 ], [ %.1126.i, %1188 ], [ %.1126.i, %1236 ], [ %.0125.ph.i, %.lr.ph397 ], [ %.0125.ph.i, %1065 ]
-  %1238 = icmp eq i64 %.16178.i, 0
+  %1238 = icmp eq i64 %.1163.i, 0
   br i1 %1238, label %1239, label %1243
 
 1239:                                             ; preds = %.loopexit229.i
-  %1240 = load ptr, ptr %.16.i, align 8
+  %1240 = load ptr, ptr %.1156.i, align 8
   %.not199.i = icmp eq ptr %1240, null
   br i1 %.not199.i, label %gc_remove_nested_data_from_buffer.exit, label %1241
 
@@ -3209,22 +3209,22 @@ gc_stack_next.exit222.i:                          ; preds = %1228, %1225, %1222
   br label %1247
 
 1243:                                             ; preds = %.loopexit229.i
-  %1244 = getelementptr inbounds i8, ptr %.16.i, i64 16
-  %1245 = add i64 %.16178.i, -1
+  %1244 = getelementptr inbounds i8, ptr %.1156.i, i64 16
+  %1245 = add i64 %.1163.i, -1
   %1246 = getelementptr inbounds [510 x ptr], ptr %1244, i64 0, i64 %1245
   br label %1247
 
 1247:                                             ; preds = %1243, %1241
   %.17179.i = phi i64 [ 509, %1241 ], [ %1245, %1243 ]
-  %.17.i = phi ptr [ %1240, %1241 ], [ %.16.i, %1243 ]
+  %.17.i = phi ptr [ %1240, %1241 ], [ %.1156.i, %1243 ]
   %.0.in.i = phi ptr [ %1242, %1241 ], [ %1246, %1243 ]
   %.0.i235 = load ptr, ptr %.0.in.i, align 8
   %.not200.i = icmp eq ptr %.0.i235, null
   br i1 %.not200.i, label %gc_remove_nested_data_from_buffer.exit, label %.outer.i.backedge
 
 .outer.i.backedge:                                ; preds = %1234, %1186, %1247, %1211, %1169
-  %.0162.ph.i.be = phi i64 [ %.17179.i, %1247 ], [ %.8170.i, %1169 ], [ %.12174.i, %1211 ], [ %.11173.i, %1186 ], [ %.15177.i, %1234 ]
-  %.0155.ph.i.be = phi ptr [ %.17.i, %1247 ], [ %.8.i, %1169 ], [ %.12.i, %1211 ], [ %.11.i, %1186 ], [ %.15.i, %1234 ]
+  %.0162.ph.i.be = phi i64 [ %.17179.i, %1247 ], [ %.10172.i, %1169 ], [ %.9171.i, %1211 ], [ %.12174.i, %1186 ], [ %.15177.i, %1234 ]
+  %.0155.ph.i.be = phi ptr [ %.17.i, %1247 ], [ %.10.i, %1169 ], [ %.9.i, %1211 ], [ %.12.i, %1186 ], [ %.15.i, %1234 ]
   %.0125.ph.i.be = phi i32 [ %.2127.i, %1247 ], [ %.1126.i, %1169 ], [ %.1126.i, %1211 ], [ %.1126.i, %1186 ], [ %.1126.i, %1234 ]
   %.0117.ph.i.be = phi ptr [ %.0.i235, %1247 ], [ %1170, %1169 ], [ %1212, %1211 ], [ %1170, %1186 ], [ %1212, %1234 ]
   br label %.outer.i
@@ -3232,17 +3232,17 @@ gc_stack_next.exit222.i:                          ; preds = %1228, %1225, %1222
 gc_remove_nested_data_from_buffer.exit:           ; preds = %1239, %1247
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %1248 = sub nsw i32 %.0120404, %.2127.i
+  %1248 = sub nsw i32 %.1121404, %.2127.i
   br label %1249
 
 1249:                                             ; preds = %gc_remove_nested_data_from_buffer.exit, %.lr.ph408
-  %.1121 = phi i32 [ %1248, %gc_remove_nested_data_from_buffer.exit ], [ %.0120404, %.lr.ph408 ]
+  %.2122 = phi i32 [ %1248, %gc_remove_nested_data_from_buffer.exit ], [ %.1121404, %.lr.ph408 ]
   %1250 = add i32 %.1405, 1
   %.not138 = icmp eq i32 %1250, %985
   br i1 %.not138, label %._crit_edge409, label %.lr.ph408
 
 ._crit_edge409:                                   ; preds = %1249, %987, %._crit_edge
-  %.0120.lcssa = phi i32 [ %.026.lcssa.i, %._crit_edge ], [ %.026.lcssa.i, %987 ], [ %.1121, %1249 ]
+  %.1121.lcssa = phi i32 [ %.026.lcssa.i, %._crit_edge ], [ %.026.lcssa.i, %987 ], [ %.2122, %1249 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %1251 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #15
   %1252 = icmp eq i32 %1251, 0
@@ -3345,8 +3345,8 @@ gc_remove_nested_data_from_buffer.exit:           ; preds = %1239, %1247
   br label %1522
 
 1304:                                             ; preds = %1288, %984
-  %.1126 = phi i1 [ true, %1288 ], [ %.0125, %984 ]
-  %.2122 = phi i32 [ %.0120.lcssa, %1288 ], [ %.026.lcssa.i, %984 ]
+  %.2127 = phi i1 [ true, %1288 ], [ %.0125, %984 ]
+  %.0120 = phi i32 [ %.1121.lcssa, %1288 ], [ %.026.lcssa.i, %984 ]
   %.val150 = load ptr, ptr %114, align 8
   %.not1.i251 = icmp eq ptr %.val150, null
   br i1 %.not1.i251, label %gc_stack_free.exit256, label %.lr.ph.i252
@@ -3538,9 +3538,9 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
   store i64 %1406, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 64), align 8
   call void @zend_fiber_switch_unblock() #15
   %1407 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
-  %1408 = add i32 %1407, %.2122
+  %1408 = add i32 %1407, %.0120
   store i32 %1408, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
-  %1409 = add nsw i32 %.2122, %.0128
+  %1409 = add nsw i32 %.0120, %.0128
   store i8 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
   %.pr302 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   %1410 = add i32 %.pr302, 1
@@ -3634,7 +3634,7 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
 
 .loopexit.i259:                                   ; preds = %.thread, %.loopexit.loopexit.i, %1414, %1413
   %.1129527536 = phi i32 [ %1409, %.loopexit.loopexit.i ], [ %1409, %1414 ], [ %1409, %1413 ], [ %.0128, %.thread ]
-  %.2127529535 = phi i1 [ %.1126, %.loopexit.loopexit.i ], [ %.1126, %1414 ], [ %.1126, %1413 ], [ %.0125, %.thread ]
+  %.1126529535 = phi i1 [ %.2127, %.loopexit.loopexit.i ], [ %.2127, %1414 ], [ %.2127, %1413 ], [ %.0125, %.thread ]
   %1454 = phi i32 [ %.pre.i263, %.loopexit.loopexit.i ], [ %.pr302, %1414 ], [ 0, %1413 ], [ 0, %.thread ]
   store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 12), align 4
   %1455 = add i32 %1454, 1
@@ -3642,10 +3642,10 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
   br label %gc_compact.exit
 
 gc_compact.exit:                                  ; preds = %.thread, %1403, %.loopexit.i259
-  %.2127530 = phi i1 [ %.1126, %1403 ], [ %.2127529535, %.loopexit.i259 ], [ %.0125, %.thread ]
+  %.1126530 = phi i1 [ %.2127, %1403 ], [ %.1126529535, %.loopexit.i259 ], [ %.0125, %.thread ]
   %.1129528 = phi i32 [ %1409, %1403 ], [ %.1129527536, %.loopexit.i259 ], [ %.0128, %.thread ]
   %1456 = phi i32 [ %.pr302, %1403 ], [ %1454, %.loopexit.i259 ], [ 0, %.thread ]
-  %brmerge.not = and i1 %.0124.not, %.2127530
+  %brmerge.not = and i1 %.0124.not, %.1126530
   br i1 %brmerge.not, label %119, label %.loopexit
 
 .loopexit:                                        ; preds = %gc_compact.exit, %gc_stack_free.exit
@@ -3993,8 +3993,8 @@ gc_stack_next.exit:                               ; preds = %.lr.ph._crit_edge
 .lr.ph.i:                                         ; preds = %72, %.lr.ph.preheader.i
   %.0178309.i = phi ptr [ %73, %72 ], [ %31, %.lr.ph.preheader.i ]
   %.0180308.i = phi i32 [ %74, %72 ], [ %30, %.lr.ph.preheader.i ]
-  %.1213307.i = phi ptr [ %.3215.i, %72 ], [ %.0212.ph.i, %.lr.ph.preheader.i ]
-  %.1221306.i = phi i64 [ %.3223.i, %72 ], [ %.0220.ph.i, %.lr.ph.preheader.i ]
+  %.2214307.i = phi ptr [ %.3215.i, %72 ], [ %.0212.ph.i, %.lr.ph.preheader.i ]
+  %.2222306.i = phi i64 [ %.3223.i, %72 ], [ %.0220.ph.i, %.lr.ph.preheader.i ]
   %32 = load ptr, ptr %.0178309.i, align 8
   %33 = getelementptr inbounds i8, ptr %.0178309.i, i64 25
   %34 = load i8, ptr %33, align 1
@@ -4046,43 +4046,43 @@ gc_stack_next.exit:                               ; preds = %.lr.ph._crit_edge
 60:                                               ; preds = %52
   %61 = and i32 %58, 1073741823
   store i32 %61, ptr %57, align 4
-  %62 = icmp eq i64 %.1221306.i, 510
+  %62 = icmp eq i64 %.2222306.i, 510
   br i1 %62, label %63, label %gc_stack_next.exit.i
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %.1213307.i, i64 8
+  %64 = getelementptr inbounds i8, ptr %.2214307.i, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i, label %66, label %gc_stack_next.exit.i
 
 66:                                               ; preds = %63
   %67 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.1213307.i, ptr %67, align 8
+  store ptr %.2214307.i, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 8
   store ptr null, ptr %68, align 8
   store ptr %67, ptr %64, align 8
   br label %gc_stack_next.exit.i
 
 gc_stack_next.exit.i:                             ; preds = %66, %63, %60
-  %.2222.i = phi i64 [ %.1221306.i, %60 ], [ 0, %63 ], [ 0, %66 ]
-  %.2214.i = phi ptr [ %.1213307.i, %60 ], [ %65, %63 ], [ %67, %66 ]
-  %69 = getelementptr inbounds i8, ptr %.2214.i, i64 16
-  %70 = add i64 %.2222.i, 1
-  %71 = getelementptr inbounds [510 x ptr], ptr %69, i64 0, i64 %.2222.i
+  %.4224.i = phi i64 [ %.2222306.i, %60 ], [ 0, %63 ], [ 0, %66 ]
+  %.4216.i = phi ptr [ %.2214307.i, %60 ], [ %65, %63 ], [ %67, %66 ]
+  %69 = getelementptr inbounds i8, ptr %.4216.i, i64 16
+  %70 = add i64 %.4224.i, 1
+  %71 = getelementptr inbounds [510 x ptr], ptr %69, i64 0, i64 %.4224.i
   store ptr %54, ptr %71, align 8
   br label %72
 
 72:                                               ; preds = %gc_stack_next.exit.i, %52, %50, %49, %47, %.lr.ph.i
-  %.3223.i = phi i64 [ %.1221306.i, %47 ], [ %.1221306.i, %49 ], [ %.1221306.i, %50 ], [ %.1221306.i, %52 ], [ %70, %gc_stack_next.exit.i ], [ %.1221306.i, %.lr.ph.i ]
-  %.3215.i = phi ptr [ %.1213307.i, %47 ], [ %.1213307.i, %49 ], [ %.1213307.i, %50 ], [ %.1213307.i, %52 ], [ %.2214.i, %gc_stack_next.exit.i ], [ %.1213307.i, %.lr.ph.i ]
+  %.3223.i = phi i64 [ %.2222306.i, %47 ], [ %.2222306.i, %49 ], [ %.2222306.i, %50 ], [ %.2222306.i, %52 ], [ %70, %gc_stack_next.exit.i ], [ %.2222306.i, %.lr.ph.i ]
+  %.3215.i = phi ptr [ %.2214307.i, %47 ], [ %.2214307.i, %49 ], [ %.2214307.i, %50 ], [ %.2214307.i, %52 ], [ %.4216.i, %gc_stack_next.exit.i ], [ %.2214307.i, %.lr.ph.i ]
   %73 = getelementptr inbounds i8, ptr %.0178309.i, i64 32
   %74 = add i32 %.0180308.i, -2
   %.not251.i = icmp eq i32 %74, 0
   br i1 %.not251.i, label %.loopexit290.i, label %.lr.ph.i
 
 .loopexit290.i:                                   ; preds = %72, %28, %26
-  %.4224.i = phi i64 [ %.0220.ph.i, %26 ], [ %.0220.ph.i, %28 ], [ %.3223.i, %72 ]
-  %.4216.i = phi ptr [ %.0212.ph.i, %26 ], [ %.0212.ph.i, %28 ], [ %.3215.i, %72 ]
+  %.1221.i = phi i64 [ %.0220.ph.i, %26 ], [ %.0220.ph.i, %28 ], [ %.3223.i, %72 ]
+  %.1213.i = phi ptr [ %.0212.ph.i, %26 ], [ %.0212.ph.i, %28 ], [ %.3215.i, %72 ]
   %75 = getelementptr inbounds i8, ptr %.0175.i, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 168
@@ -4103,8 +4103,8 @@ gc_stack_next.exit.i:                             ; preds = %66, %63, %60
 .lr.ph352.i:                                      ; preds = %121, %.lr.ph352.preheader.i
   %.1179351.i = phi ptr [ %122, %121 ], [ %83, %.lr.ph352.preheader.i ]
   %.1181350.i = phi i32 [ %123, %121 ], [ %82, %.lr.ph352.preheader.i ]
-  %.5217349.i = phi ptr [ %.7219.i, %121 ], [ %.4216.i, %.lr.ph352.preheader.i ]
-  %.5225348.i = phi i64 [ %.7227.i, %121 ], [ %.4224.i, %.lr.ph352.preheader.i ]
+  %.5217349.i = phi ptr [ %.6218.i, %121 ], [ %.1213.i, %.lr.ph352.preheader.i ]
+  %.5225348.i = phi i64 [ %.6226.i, %121 ], [ %.1221.i, %.lr.ph352.preheader.i ]
   %84 = getelementptr inbounds i8, ptr %.1179351.i, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 8
@@ -4170,17 +4170,17 @@ gc_stack_next.exit.i:                             ; preds = %66, %63, %60
   br label %gc_stack_next.exit274.i
 
 gc_stack_next.exit274.i:                          ; preds = %115, %112, %109
-  %.6226.i = phi i64 [ %.5225348.i, %109 ], [ 0, %112 ], [ 0, %115 ]
-  %.6218.i = phi ptr [ %.5217349.i, %109 ], [ %114, %112 ], [ %116, %115 ]
-  %118 = getelementptr inbounds i8, ptr %.6218.i, i64 16
-  %119 = add i64 %.6226.i, 1
-  %120 = getelementptr inbounds [510 x ptr], ptr %118, i64 0, i64 %.6226.i
+  %.7227.i = phi i64 [ %.5225348.i, %109 ], [ 0, %112 ], [ 0, %115 ]
+  %.7219.i = phi ptr [ %.5217349.i, %109 ], [ %114, %112 ], [ %116, %115 ]
+  %118 = getelementptr inbounds i8, ptr %.7219.i, i64 16
+  %119 = add i64 %.7227.i, 1
+  %120 = getelementptr inbounds [510 x ptr], ptr %118, i64 0, i64 %.7227.i
   store ptr %103, ptr %120, align 8
   br label %121
 
 121:                                              ; preds = %gc_stack_next.exit274.i, %101, %99, %98, %96, %.lr.ph352.i
-  %.7227.i = phi i64 [ %.5225348.i, %96 ], [ %.5225348.i, %98 ], [ %.5225348.i, %99 ], [ %.5225348.i, %101 ], [ %119, %gc_stack_next.exit274.i ], [ %.5225348.i, %.lr.ph352.i ]
-  %.7219.i = phi ptr [ %.5217349.i, %96 ], [ %.5217349.i, %98 ], [ %.5217349.i, %99 ], [ %.5217349.i, %101 ], [ %.6218.i, %gc_stack_next.exit274.i ], [ %.5217349.i, %.lr.ph352.i ]
+  %.6226.i = phi i64 [ %.5225348.i, %96 ], [ %.5225348.i, %98 ], [ %.5225348.i, %99 ], [ %.5225348.i, %101 ], [ %119, %gc_stack_next.exit274.i ], [ %.5225348.i, %.lr.ph352.i ]
+  %.6218.i = phi ptr [ %.5217349.i, %96 ], [ %.5217349.i, %98 ], [ %.5217349.i, %99 ], [ %.5217349.i, %101 ], [ %.7219.i, %gc_stack_next.exit274.i ], [ %.5217349.i, %.lr.ph352.i ]
   %122 = getelementptr inbounds i8, ptr %.1179351.i, i64 32
   %123 = add i32 %.1181350.i, -2
   %.not264.i = icmp eq i32 %123, 0
@@ -4211,8 +4211,8 @@ gc_stack_next.exit274.i:                          ; preds = %115, %112, %109
 .lr.ph316.i:                                      ; preds = %134, %157
   %.2315.i = phi ptr [ %158, %157 ], [ %127, %134 ]
   %.2182314.i = phi i32 [ %159, %157 ], [ %126, %134 ]
-  %.8313.i = phi ptr [ %.10.i, %157 ], [ %.4216.i, %134 ]
-  %.8228312.i = phi i64 [ %.10230.i, %157 ], [ %.4224.i, %134 ]
+  %.9313.i = phi ptr [ %.10.i, %157 ], [ %.1213.i, %134 ]
+  %.9229312.i = phi i64 [ %.10230.i, %157 ], [ %.1221.i, %134 ]
   %136 = getelementptr inbounds i8, ptr %.2315.i, i64 9
   %137 = load i8, ptr %136, align 1
   %.not259.i = icmp eq i8 %137, 0
@@ -4231,43 +4231,43 @@ gc_stack_next.exit274.i:                          ; preds = %115, %112, %109
 145:                                              ; preds = %138
   %146 = and i32 %143, 1073741823
   store i32 %146, ptr %142, align 4
-  %147 = icmp eq i64 %.8228312.i, 510
+  %147 = icmp eq i64 %.9229312.i, 510
   br i1 %147, label %148, label %gc_stack_next.exit276.i
 
 148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %.8313.i, i64 8
+  %149 = getelementptr inbounds i8, ptr %.9313.i, i64 8
   %150 = load ptr, ptr %149, align 8
   %.not.i275.i = icmp eq ptr %150, null
   br i1 %.not.i275.i, label %151, label %gc_stack_next.exit276.i
 
 151:                                              ; preds = %148
   %152 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.8313.i, ptr %152, align 8
+  store ptr %.9313.i, ptr %152, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 8
   store ptr null, ptr %153, align 8
   store ptr %152, ptr %149, align 8
   br label %gc_stack_next.exit276.i
 
 gc_stack_next.exit276.i:                          ; preds = %151, %148, %145
-  %.9229.i = phi i64 [ %.8228312.i, %145 ], [ 0, %148 ], [ 0, %151 ]
-  %.9.i = phi ptr [ %.8313.i, %145 ], [ %150, %148 ], [ %152, %151 ]
-  %154 = getelementptr inbounds i8, ptr %.9.i, i64 16
-  %155 = add i64 %.9229.i, 1
-  %156 = getelementptr inbounds [510 x ptr], ptr %154, i64 0, i64 %.9229.i
+  %.11231.i = phi i64 [ %.9229312.i, %145 ], [ 0, %148 ], [ 0, %151 ]
+  %.11.i = phi ptr [ %.9313.i, %145 ], [ %150, %148 ], [ %152, %151 ]
+  %154 = getelementptr inbounds i8, ptr %.11.i, i64 16
+  %155 = add i64 %.11231.i, 1
+  %156 = getelementptr inbounds [510 x ptr], ptr %154, i64 0, i64 %.11231.i
   store ptr %139, ptr %156, align 8
   br label %157
 
 157:                                              ; preds = %gc_stack_next.exit276.i, %138, %.lr.ph316.i
-  %.10230.i = phi i64 [ %.8228312.i, %138 ], [ %155, %gc_stack_next.exit276.i ], [ %.8228312.i, %.lr.ph316.i ]
-  %.10.i = phi ptr [ %.8313.i, %138 ], [ %.9.i, %gc_stack_next.exit276.i ], [ %.8313.i, %.lr.ph316.i ]
+  %.10230.i = phi i64 [ %.9229312.i, %138 ], [ %155, %gc_stack_next.exit276.i ], [ %.9229312.i, %.lr.ph316.i ]
+  %.10.i = phi ptr [ %.9313.i, %138 ], [ %.11.i, %gc_stack_next.exit276.i ], [ %.9313.i, %.lr.ph316.i ]
   %158 = getelementptr inbounds i8, ptr %.2315.i, i64 16
   %159 = add i32 %.2182314.i, -1
   %.not253.i = icmp eq i32 %159, 0
   br i1 %.not253.i, label %.loopexit289.i, label %.lr.ph316.i
 
 160:                                              ; preds = %.loopexit289.i, %128, %124
-  %.11231.i = phi i64 [ %.4224.i, %128 ], [ %.15235.i, %.loopexit289.i ], [ %.4224.i, %124 ]
-  %.11.i = phi ptr [ %.4216.i, %128 ], [ %.15.i, %.loopexit289.i ], [ %.4216.i, %124 ]
+  %.13233.i = phi i64 [ %.1221.i, %128 ], [ %.12232.i, %.loopexit289.i ], [ %.1221.i, %124 ]
+  %.13.i = phi ptr [ %.1213.i, %128 ], [ %.12.i, %.loopexit289.i ], [ %.1213.i, %124 ]
   %.3183.i = phi i32 [ %126, %128 ], [ %204, %.loopexit289.i ], [ %126, %124 ]
   %.3.i = phi ptr [ %127, %128 ], [ %206, %.loopexit289.i ], [ %127, %124 ]
   %.not260334.i = icmp eq i32 %.3183.i, 0
@@ -4302,8 +4302,8 @@ gc_stack_next.exit276.i:                          ; preds = %151, %148, %145
 .lr.ph344.i:                                      ; preds = %170, %196
   %174 = phi i32 [ %197, %196 ], [ %173, %170 ]
   %.4.pn342.i = phi ptr [ %.5343.i, %196 ], [ %.4336.i, %170 ]
-  %.12341.i = phi ptr [ %.14.i, %196 ], [ %.11.i, %170 ]
-  %.12232340.i = phi i64 [ %.14234.i, %196 ], [ %.11231.i, %170 ]
+  %.14341.i = phi ptr [ %.15.i, %196 ], [ %.13.i, %170 ]
+  %.14234340.i = phi i64 [ %.15235.i, %196 ], [ %.13233.i, %170 ]
   %.5343.i = getelementptr inbounds i8, ptr %.4.pn342.i, i64 16
   %175 = getelementptr inbounds i8, ptr %.4.pn342.i, i64 25
   %176 = load i8, ptr %175, align 1
@@ -4323,35 +4323,35 @@ gc_stack_next.exit276.i:                          ; preds = %151, %148, %145
 184:                                              ; preds = %177
   %185 = and i32 %182, 1073741823
   store i32 %185, ptr %181, align 4
-  %186 = icmp eq i64 %.12232340.i, 510
+  %186 = icmp eq i64 %.14234340.i, 510
   br i1 %186, label %187, label %gc_stack_next.exit278.i
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %.12341.i, i64 8
+  %188 = getelementptr inbounds i8, ptr %.14341.i, i64 8
   %189 = load ptr, ptr %188, align 8
   %.not.i277.i = icmp eq ptr %189, null
   br i1 %.not.i277.i, label %190, label %gc_stack_next.exit278.i
 
 190:                                              ; preds = %187
   %191 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.12341.i, ptr %191, align 8
+  store ptr %.14341.i, ptr %191, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 8
   store ptr null, ptr %192, align 8
   store ptr %191, ptr %188, align 8
   br label %gc_stack_next.exit278.i
 
 gc_stack_next.exit278.i:                          ; preds = %190, %187, %184
-  %.13233.i = phi i64 [ %.12232340.i, %184 ], [ 0, %187 ], [ 0, %190 ]
-  %.13.i = phi ptr [ %.12341.i, %184 ], [ %189, %187 ], [ %191, %190 ]
-  %193 = getelementptr inbounds i8, ptr %.13.i, i64 16
-  %194 = add i64 %.13233.i, 1
-  %195 = getelementptr inbounds [510 x ptr], ptr %193, i64 0, i64 %.13233.i
+  %.16236.i = phi i64 [ %.14234340.i, %184 ], [ 0, %187 ], [ 0, %190 ]
+  %.16.i = phi ptr [ %.14341.i, %184 ], [ %189, %187 ], [ %191, %190 ]
+  %193 = getelementptr inbounds i8, ptr %.16.i, i64 16
+  %194 = add i64 %.16236.i, 1
+  %195 = getelementptr inbounds [510 x ptr], ptr %193, i64 0, i64 %.16236.i
   store ptr %178, ptr %195, align 8
   br label %196
 
 196:                                              ; preds = %gc_stack_next.exit278.i, %177, %.lr.ph344.i
-  %.14234.i = phi i64 [ %.12232340.i, %177 ], [ %194, %gc_stack_next.exit278.i ], [ %.12232340.i, %.lr.ph344.i ]
-  %.14.i = phi ptr [ %.12341.i, %177 ], [ %.13.i, %gc_stack_next.exit278.i ], [ %.12341.i, %.lr.ph344.i ]
+  %.15235.i = phi i64 [ %.14234340.i, %177 ], [ %194, %gc_stack_next.exit278.i ], [ %.14234340.i, %.lr.ph344.i ]
+  %.15.i = phi ptr [ %.14341.i, %177 ], [ %.16.i, %gc_stack_next.exit278.i ], [ %.14341.i, %.lr.ph344.i ]
   %197 = add i32 %174, -1
   %.not262.i = icmp eq i32 %197, 0
   br i1 %.not262.i, label %.outer.i.backedge, label %.lr.ph344.i
@@ -4368,8 +4368,8 @@ gc_stack_next.exit278.i:                          ; preds = %190, %187, %184
   br label %.loopexit289.i
 
 .loopexit289.i:                                   ; preds = %157, %201, %134
-  %.15235.i = phi i64 [ %.0220.ph.i, %201 ], [ %.4224.i, %134 ], [ %.10230.i, %157 ]
-  %.15.i = phi ptr [ %.0212.ph.i, %201 ], [ %.4216.i, %134 ], [ %.10.i, %157 ]
+  %.12232.i = phi i64 [ %.0220.ph.i, %201 ], [ %.1221.i, %134 ], [ %.10230.i, %157 ]
+  %.12.i = phi ptr [ %.0212.ph.i, %201 ], [ %.1213.i, %134 ], [ %.10.i, %157 ]
   %.0176.i = phi ptr [ %.0175.i, %201 ], [ %125, %134 ], [ %125, %157 ]
   %203 = getelementptr inbounds i8, ptr %.0176.i, i64 24
   %204 = load i32, ptr %203, align 8
@@ -4425,8 +4425,8 @@ gc_stack_next.exit278.i:                          ; preds = %190, %187, %184
 .lr.ph330.i:                                      ; preds = %225, %257
   %229 = phi i32 [ %258, %257 ], [ %228, %225 ]
   %.0177.pn328.i = phi ptr [ %.1329.i, %257 ], [ %.0177322.i, %225 ]
-  %.16327.i = phi ptr [ %.18.i, %257 ], [ %.15.i, %225 ]
-  %.16236326.i = phi i64 [ %.18238.i, %257 ], [ %.15235.i, %225 ]
+  %.17327.i = phi ptr [ %.18.i, %257 ], [ %.12.i, %225 ]
+  %.17237326.i = phi i64 [ %.18238.i, %257 ], [ %.12232.i, %225 ]
   %.1329.i = getelementptr inbounds i8, ptr %.0177.pn328.i, i64 32
   %230 = getelementptr inbounds i8, ptr %.0177.pn328.i, i64 40
   %231 = load i8, ptr %230, align 8
@@ -4457,35 +4457,35 @@ gc_stack_next.exit278.i:                          ; preds = %190, %187, %184
 245:                                              ; preds = %238
   %246 = and i32 %243, 1073741823
   store i32 %246, ptr %242, align 4
-  %247 = icmp eq i64 %.16236326.i, 510
+  %247 = icmp eq i64 %.17237326.i, 510
   br i1 %247, label %248, label %gc_stack_next.exit280.i
 
 248:                                              ; preds = %245
-  %249 = getelementptr inbounds i8, ptr %.16327.i, i64 8
+  %249 = getelementptr inbounds i8, ptr %.17327.i, i64 8
   %250 = load ptr, ptr %249, align 8
   %.not.i279.i = icmp eq ptr %250, null
   br i1 %.not.i279.i, label %251, label %gc_stack_next.exit280.i
 
 251:                                              ; preds = %248
   %252 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.16327.i, ptr %252, align 8
+  store ptr %.17327.i, ptr %252, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 8
   store ptr null, ptr %253, align 8
   store ptr %252, ptr %249, align 8
   br label %gc_stack_next.exit280.i
 
 gc_stack_next.exit280.i:                          ; preds = %251, %248, %245
-  %.17237.i = phi i64 [ %.16236326.i, %245 ], [ 0, %248 ], [ 0, %251 ]
-  %.17.i = phi ptr [ %.16327.i, %245 ], [ %250, %248 ], [ %252, %251 ]
-  %254 = getelementptr inbounds i8, ptr %.17.i, i64 16
-  %255 = add i64 %.17237.i, 1
-  %256 = getelementptr inbounds [510 x ptr], ptr %254, i64 0, i64 %.17237.i
+  %.19239.i = phi i64 [ %.17237326.i, %245 ], [ 0, %248 ], [ 0, %251 ]
+  %.19.i = phi ptr [ %.17327.i, %245 ], [ %250, %248 ], [ %252, %251 ]
+  %254 = getelementptr inbounds i8, ptr %.19.i, i64 16
+  %255 = add i64 %.19239.i, 1
+  %256 = getelementptr inbounds [510 x ptr], ptr %254, i64 0, i64 %.19239.i
   store ptr %239, ptr %256, align 8
   br label %257
 
 257:                                              ; preds = %gc_stack_next.exit280.i, %238, %235
-  %.18238.i = phi i64 [ %.16236326.i, %238 ], [ %255, %gc_stack_next.exit280.i ], [ %.16236326.i, %235 ]
-  %.18.i = phi ptr [ %.16327.i, %238 ], [ %.17.i, %gc_stack_next.exit280.i ], [ %.16327.i, %235 ]
+  %.18238.i = phi i64 [ %.17237326.i, %238 ], [ %255, %gc_stack_next.exit280.i ], [ %.17237326.i, %235 ]
+  %.18.i = phi ptr [ %.17327.i, %238 ], [ %.19.i, %gc_stack_next.exit280.i ], [ %.17327.i, %235 ]
   %258 = add i32 %229, -1
   %.not257.i = icmp eq i32 %258, 0
   br i1 %.not257.i, label %.outer.i.backedge, label %.lr.ph330.i
@@ -4519,13 +4519,13 @@ gc_stack_next.exit280.i:                          ; preds = %251, %248, %245
   br label %21
 
 .loopexit.i:                                      ; preds = %265, %262, %21, %259, %198, %121, %.preheader.i, %160, %80, %24
-  %.19239.i = phi i64 [ %.0220.ph.i, %24 ], [ %.4224.i, %80 ], [ %.11231.i, %160 ], [ %.15235.i, %.preheader.i ], [ %.7227.i, %121 ], [ %.11231.i, %198 ], [ %.15235.i, %259 ], [ %.0220.ph.i, %21 ], [ %.0220.ph.i, %262 ], [ %.0220.ph.i, %265 ]
-  %.19.i = phi ptr [ %.0212.ph.i, %24 ], [ %.4216.i, %80 ], [ %.11.i, %160 ], [ %.15.i, %.preheader.i ], [ %.7219.i, %121 ], [ %.11.i, %198 ], [ %.15.i, %259 ], [ %.0212.ph.i, %21 ], [ %.0212.ph.i, %262 ], [ %.0212.ph.i, %265 ]
-  %275 = icmp eq i64 %.19239.i, 0
+  %.8228.i = phi i64 [ %.0220.ph.i, %24 ], [ %.1221.i, %80 ], [ %.13233.i, %160 ], [ %.12232.i, %.preheader.i ], [ %.6226.i, %121 ], [ %.13233.i, %198 ], [ %.12232.i, %259 ], [ %.0220.ph.i, %21 ], [ %.0220.ph.i, %262 ], [ %.0220.ph.i, %265 ]
+  %.8.i = phi ptr [ %.0212.ph.i, %24 ], [ %.1213.i, %80 ], [ %.13.i, %160 ], [ %.12.i, %.preheader.i ], [ %.6218.i, %121 ], [ %.13.i, %198 ], [ %.12.i, %259 ], [ %.0212.ph.i, %21 ], [ %.0212.ph.i, %262 ], [ %.0212.ph.i, %265 ]
+  %275 = icmp eq i64 %.8228.i, 0
   br i1 %275, label %276, label %280
 
 276:                                              ; preds = %.loopexit.i
-  %277 = load ptr, ptr %.19.i, align 8
+  %277 = load ptr, ptr %.8.i, align 8
   %.not265.i = icmp eq ptr %277, null
   br i1 %.not265.i, label %gc_scan_black.exit, label %278
 
@@ -4534,22 +4534,22 @@ gc_stack_next.exit280.i:                          ; preds = %251, %248, %245
   br label %284
 
 280:                                              ; preds = %.loopexit.i
-  %281 = getelementptr inbounds i8, ptr %.19.i, i64 16
-  %282 = add i64 %.19239.i, -1
+  %281 = getelementptr inbounds i8, ptr %.8.i, i64 16
+  %282 = add i64 %.8228.i, -1
   %283 = getelementptr inbounds [510 x ptr], ptr %281, i64 0, i64 %282
   br label %284
 
 284:                                              ; preds = %280, %278
   %.20240.i = phi i64 [ 509, %278 ], [ %282, %280 ]
-  %.20.i = phi ptr [ %277, %278 ], [ %.19.i, %280 ]
+  %.20.i = phi ptr [ %277, %278 ], [ %.8.i, %280 ]
   %.0.in.i = phi ptr [ %279, %278 ], [ %283, %280 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not266.i = icmp eq ptr %.0.i, null
   br i1 %.not266.i, label %gc_scan_black.exit, label %.outer.i.backedge
 
 .outer.i.backedge:                                ; preds = %257, %196, %284, %225, %170
-  %.0220.ph.i.be = phi i64 [ %.20240.i, %284 ], [ %.11231.i, %170 ], [ %.15235.i, %225 ], [ %.14234.i, %196 ], [ %.18238.i, %257 ]
-  %.0212.ph.i.be = phi ptr [ %.20.i, %284 ], [ %.11.i, %170 ], [ %.15.i, %225 ], [ %.14.i, %196 ], [ %.18.i, %257 ]
+  %.0220.ph.i.be = phi i64 [ %.20240.i, %284 ], [ %.13233.i, %170 ], [ %.12232.i, %225 ], [ %.15235.i, %196 ], [ %.18238.i, %257 ]
+  %.0212.ph.i.be = phi ptr [ %.20.i, %284 ], [ %.13.i, %170 ], [ %.12.i, %225 ], [ %.15.i, %196 ], [ %.18.i, %257 ]
   %.0175.ph.i.be = phi ptr [ %.0.i, %284 ], [ %164, %170 ], [ %219, %225 ], [ %164, %196 ], [ %219, %257 ]
   br label %.outer.i
 
@@ -4593,8 +4593,8 @@ gc_scan_black.exit:                               ; preds = %276, %284
 .lr.ph304:                                        ; preds = %.lr.ph304.preheader, %319
   %.0145303 = phi i32 [ %321, %319 ], [ %294, %.lr.ph304.preheader ]
   %.0147302 = phi ptr [ %320, %319 ], [ %295, %.lr.ph304.preheader ]
-  %.1185301 = phi ptr [ %.3187, %319 ], [ %.0184.ph, %.lr.ph304.preheader ]
-  %.1192300 = phi i64 [ %.3194, %319 ], [ %.0191.ph, %.lr.ph304.preheader ]
+  %.3187301 = phi ptr [ %.4188, %319 ], [ %.0184.ph, %.lr.ph304.preheader ]
+  %.3194300 = phi i64 [ %.4195, %319 ], [ %.0191.ph, %.lr.ph304.preheader ]
   %296 = load ptr, ptr %.0147302, align 8
   %297 = getelementptr inbounds i8, ptr %296, i64 8
   %298 = load i32, ptr %297, align 8
@@ -4614,43 +4614,43 @@ gc_scan_black.exit:                               ; preds = %276, %284
   %307 = and i32 %303, 1073741823
   %308 = or disjoint i32 %307, 1073741824
   store i32 %308, ptr %302, align 4
-  %309 = icmp eq i64 %.1192300, 510
+  %309 = icmp eq i64 %.3194300, 510
   br i1 %309, label %310, label %gc_stack_next.exit237
 
 310:                                              ; preds = %306
-  %311 = getelementptr inbounds i8, ptr %.1185301, i64 8
+  %311 = getelementptr inbounds i8, ptr %.3187301, i64 8
   %312 = load ptr, ptr %311, align 8
   %.not.i236 = icmp eq ptr %312, null
   br i1 %.not.i236, label %313, label %gc_stack_next.exit237
 
 313:                                              ; preds = %310
   %314 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.1185301, ptr %314, align 8
+  store ptr %.3187301, ptr %314, align 8
   %315 = getelementptr inbounds i8, ptr %314, i64 8
   store ptr null, ptr %315, align 8
   store ptr %314, ptr %311, align 8
   br label %gc_stack_next.exit237
 
 gc_stack_next.exit237:                            ; preds = %313, %310, %306
-  %.2193 = phi i64 [ %.1192300, %306 ], [ 0, %310 ], [ 0, %313 ]
-  %.2186 = phi ptr [ %.1185301, %306 ], [ %312, %310 ], [ %314, %313 ]
-  %316 = getelementptr inbounds i8, ptr %.2186, i64 16
-  %317 = add i64 %.2193, 1
-  %318 = getelementptr inbounds [510 x ptr], ptr %316, i64 0, i64 %.2193
+  %.5196 = phi i64 [ %.3194300, %306 ], [ 0, %310 ], [ 0, %313 ]
+  %.5189 = phi ptr [ %.3187301, %306 ], [ %312, %310 ], [ %314, %313 ]
+  %316 = getelementptr inbounds i8, ptr %.5189, i64 16
+  %317 = add i64 %.5196, 1
+  %318 = getelementptr inbounds [510 x ptr], ptr %316, i64 0, i64 %.5196
   store ptr %301, ptr %318, align 8
   br label %319
 
 319:                                              ; preds = %300, %gc_stack_next.exit237, %.lr.ph304
-  %.3194 = phi i64 [ %317, %gc_stack_next.exit237 ], [ %.1192300, %300 ], [ %.1192300, %.lr.ph304 ]
-  %.3187 = phi ptr [ %.2186, %gc_stack_next.exit237 ], [ %.1185301, %300 ], [ %.1185301, %.lr.ph304 ]
+  %.4195 = phi i64 [ %317, %gc_stack_next.exit237 ], [ %.3194300, %300 ], [ %.3194300, %.lr.ph304 ]
+  %.4188 = phi ptr [ %.5189, %gc_stack_next.exit237 ], [ %.3187301, %300 ], [ %.3187301, %.lr.ph304 ]
   %320 = getelementptr inbounds i8, ptr %.0147302, i64 16
   %321 = add i32 %.0145303, -1
   %.not218 = icmp eq i32 %321, 0
   br i1 %.not218, label %.loopexit258, label %.lr.ph304
 
 .loopexit258:                                     ; preds = %319, %292, %290
-  %.4195 = phi i64 [ %.0191.ph, %290 ], [ %.0191.ph, %292 ], [ %.3194, %319 ]
-  %.4188 = phi ptr [ %.0184.ph, %290 ], [ %.0184.ph, %292 ], [ %.3187, %319 ]
+  %.2193 = phi i64 [ %.0191.ph, %290 ], [ %.0191.ph, %292 ], [ %.4195, %319 ]
+  %.2186 = phi ptr [ %.0184.ph, %290 ], [ %.0184.ph, %292 ], [ %.4188, %319 ]
   %322 = getelementptr inbounds i8, ptr %.0142293453, i64 24
   %323 = load ptr, ptr %322, align 8
   %324 = getelementptr inbounds i8, ptr %323, i64 168
@@ -4672,29 +4672,29 @@ gc_stack_next.exit237:                            ; preds = %313, %310, %306
   %335 = and i32 %331, 1073741823
   %336 = or disjoint i32 %335, 1073741824
   store i32 %336, ptr %330, align 4
-  %337 = icmp eq i64 %.4195, 510
+  %337 = icmp eq i64 %.2193, 510
   br i1 %337, label %338, label %gc_stack_next.exit239
 
 338:                                              ; preds = %334
-  %339 = getelementptr inbounds i8, ptr %.4188, i64 8
+  %339 = getelementptr inbounds i8, ptr %.2186, i64 8
   %340 = load ptr, ptr %339, align 8
   %.not.i238 = icmp eq ptr %340, null
   br i1 %.not.i238, label %341, label %gc_stack_next.exit239
 
 341:                                              ; preds = %338
   %342 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.4188, ptr %342, align 8
+  store ptr %.2186, ptr %342, align 8
   %343 = getelementptr inbounds i8, ptr %342, i64 8
   store ptr null, ptr %343, align 8
   store ptr %342, ptr %339, align 8
   br label %gc_stack_next.exit239
 
 gc_stack_next.exit239:                            ; preds = %341, %338, %334
-  %.5196 = phi i64 [ %.4195, %334 ], [ 0, %338 ], [ 0, %341 ]
-  %.5189 = phi ptr [ %.4188, %334 ], [ %340, %338 ], [ %342, %341 ]
-  %344 = getelementptr inbounds i8, ptr %.5189, i64 16
-  %345 = add i64 %.5196, 1
-  %346 = getelementptr inbounds [510 x ptr], ptr %344, i64 0, i64 %.5196
+  %.6197 = phi i64 [ %.2193, %334 ], [ 0, %338 ], [ 0, %341 ]
+  %.6190 = phi ptr [ %.2186, %334 ], [ %340, %338 ], [ %342, %341 ]
+  %344 = getelementptr inbounds i8, ptr %.6190, i64 16
+  %345 = add i64 %.6197, 1
+  %346 = getelementptr inbounds [510 x ptr], ptr %344, i64 0, i64 %.6197
   store ptr %326, ptr %346, align 8
   %.not220306 = icmp eq i32 %327, 0
   br i1 %.not220306, label %.loopexit257, label %.lr.ph311
@@ -4702,8 +4702,8 @@ gc_stack_next.exit239:                            ; preds = %341, %338, %334
 .lr.ph311:                                        ; preds = %gc_stack_next.exit239, %368
   %.1146310 = phi i32 [ %370, %368 ], [ %327, %gc_stack_next.exit239 ]
   %.1148309 = phi ptr [ %369, %368 ], [ %328, %gc_stack_next.exit239 ]
-  %.6190308 = phi ptr [ %.8, %368 ], [ %.5189, %gc_stack_next.exit239 ]
-  %.6197307 = phi i64 [ %.8199, %368 ], [ %345, %gc_stack_next.exit239 ]
+  %.7308 = phi ptr [ %.8, %368 ], [ %.6190, %gc_stack_next.exit239 ]
+  %.7198307 = phi i64 [ %.8199, %368 ], [ %345, %gc_stack_next.exit239 ]
   %347 = getelementptr inbounds i8, ptr %.1148309, i64 9
   %348 = load i8, ptr %347, align 1
   %.not230 = icmp eq i8 %348, 0
@@ -4721,43 +4721,43 @@ gc_stack_next.exit239:                            ; preds = %341, %338, %334
   %356 = and i32 %352, 1073741823
   %357 = or disjoint i32 %356, 1073741824
   store i32 %357, ptr %351, align 4
-  %358 = icmp eq i64 %.6197307, 510
+  %358 = icmp eq i64 %.7198307, 510
   br i1 %358, label %359, label %gc_stack_next.exit241
 
 359:                                              ; preds = %355
-  %360 = getelementptr inbounds i8, ptr %.6190308, i64 8
+  %360 = getelementptr inbounds i8, ptr %.7308, i64 8
   %361 = load ptr, ptr %360, align 8
   %.not.i240 = icmp eq ptr %361, null
   br i1 %.not.i240, label %362, label %gc_stack_next.exit241
 
 362:                                              ; preds = %359
   %363 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.6190308, ptr %363, align 8
+  store ptr %.7308, ptr %363, align 8
   %364 = getelementptr inbounds i8, ptr %363, i64 8
   store ptr null, ptr %364, align 8
   store ptr %363, ptr %360, align 8
   br label %gc_stack_next.exit241
 
 gc_stack_next.exit241:                            ; preds = %362, %359, %355
-  %.7198 = phi i64 [ %.6197307, %355 ], [ 0, %359 ], [ 0, %362 ]
-  %.7 = phi ptr [ %.6190308, %355 ], [ %361, %359 ], [ %363, %362 ]
-  %365 = getelementptr inbounds i8, ptr %.7, i64 16
-  %366 = add i64 %.7198, 1
-  %367 = getelementptr inbounds [510 x ptr], ptr %365, i64 0, i64 %.7198
+  %.9200 = phi i64 [ %.7198307, %355 ], [ 0, %359 ], [ 0, %362 ]
+  %.9 = phi ptr [ %.7308, %355 ], [ %361, %359 ], [ %363, %362 ]
+  %365 = getelementptr inbounds i8, ptr %.9, i64 16
+  %366 = add i64 %.9200, 1
+  %367 = getelementptr inbounds [510 x ptr], ptr %365, i64 0, i64 %.9200
   store ptr %350, ptr %367, align 8
   br label %368
 
 368:                                              ; preds = %349, %gc_stack_next.exit241, %.lr.ph311
-  %.8199 = phi i64 [ %366, %gc_stack_next.exit241 ], [ %.6197307, %349 ], [ %.6197307, %.lr.ph311 ]
-  %.8 = phi ptr [ %.7, %gc_stack_next.exit241 ], [ %.6190308, %349 ], [ %.6190308, %.lr.ph311 ]
+  %.8199 = phi i64 [ %366, %gc_stack_next.exit241 ], [ %.7198307, %349 ], [ %.7198307, %.lr.ph311 ]
+  %.8 = phi ptr [ %.9, %gc_stack_next.exit241 ], [ %.7308, %349 ], [ %.7308, %.lr.ph311 ]
   %369 = getelementptr inbounds i8, ptr %.1148309, i64 16
   %370 = add i32 %.1146310, -1
   %.not220 = icmp eq i32 %370, 0
   br i1 %.not220, label %.loopexit257, label %.lr.ph311
 
 371:                                              ; preds = %.loopexit258, %329, %419
-  %.9200 = phi i64 [ %.13204, %419 ], [ %.4195, %329 ], [ %.4195, %.loopexit258 ]
-  %.9 = phi ptr [ %.13, %419 ], [ %.4188, %329 ], [ %.4188, %.loopexit258 ]
+  %.11202 = phi i64 [ %.10201, %419 ], [ %.2193, %329 ], [ %.2193, %.loopexit258 ]
+  %.11 = phi ptr [ %.10, %419 ], [ %.2186, %329 ], [ %.2186, %.loopexit258 ]
   %.2149 = phi ptr [ %421, %419 ], [ %328, %329 ], [ %328, %.loopexit258 ]
   %.2 = phi i32 [ %415, %419 ], [ %327, %329 ], [ %327, %.loopexit258 ]
   %.not226329 = icmp eq i32 %.2, 0
@@ -4791,8 +4791,8 @@ gc_stack_next.exit241:                            ; preds = %362, %359, %355
 .lr.ph339:                                        ; preds = %380, %407
   %385 = phi i32 [ %408, %407 ], [ %384, %380 ]
   %.3150.pn337 = phi ptr [ %.4151338, %407 ], [ %.3150330, %380 ]
-  %.10336 = phi ptr [ %.12, %407 ], [ %.9, %380 ]
-  %.10201335 = phi i64 [ %.12203, %407 ], [ %.9200, %380 ]
+  %.12336 = phi ptr [ %.13, %407 ], [ %.11, %380 ]
+  %.12203335 = phi i64 [ %.13204, %407 ], [ %.11202, %380 ]
   %.4151338 = getelementptr inbounds i8, ptr %.3150.pn337, i64 16
   %386 = getelementptr inbounds i8, ptr %.3150.pn337, i64 25
   %387 = load i8, ptr %386, align 1
@@ -4811,35 +4811,35 @@ gc_stack_next.exit241:                            ; preds = %362, %359, %355
   %395 = and i32 %391, 1073741823
   %396 = or disjoint i32 %395, 1073741824
   store i32 %396, ptr %390, align 4
-  %397 = icmp eq i64 %.10201335, 510
+  %397 = icmp eq i64 %.12203335, 510
   br i1 %397, label %398, label %gc_stack_next.exit243
 
 398:                                              ; preds = %394
-  %399 = getelementptr inbounds i8, ptr %.10336, i64 8
+  %399 = getelementptr inbounds i8, ptr %.12336, i64 8
   %400 = load ptr, ptr %399, align 8
   %.not.i242 = icmp eq ptr %400, null
   br i1 %.not.i242, label %401, label %gc_stack_next.exit243
 
 401:                                              ; preds = %398
   %402 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.10336, ptr %402, align 8
+  store ptr %.12336, ptr %402, align 8
   %403 = getelementptr inbounds i8, ptr %402, i64 8
   store ptr null, ptr %403, align 8
   store ptr %402, ptr %399, align 8
   br label %gc_stack_next.exit243
 
 gc_stack_next.exit243:                            ; preds = %401, %398, %394
-  %.11202 = phi i64 [ %.10201335, %394 ], [ 0, %398 ], [ 0, %401 ]
-  %.11 = phi ptr [ %.10336, %394 ], [ %400, %398 ], [ %402, %401 ]
-  %404 = getelementptr inbounds i8, ptr %.11, i64 16
-  %405 = add i64 %.11202, 1
-  %406 = getelementptr inbounds [510 x ptr], ptr %404, i64 0, i64 %.11202
+  %.14205 = phi i64 [ %.12203335, %394 ], [ 0, %398 ], [ 0, %401 ]
+  %.14 = phi ptr [ %.12336, %394 ], [ %400, %398 ], [ %402, %401 ]
+  %404 = getelementptr inbounds i8, ptr %.14, i64 16
+  %405 = add i64 %.14205, 1
+  %406 = getelementptr inbounds [510 x ptr], ptr %404, i64 0, i64 %.14205
   store ptr %389, ptr %406, align 8
   br label %407
 
 407:                                              ; preds = %388, %gc_stack_next.exit243, %.lr.ph339
-  %.12203 = phi i64 [ %405, %gc_stack_next.exit243 ], [ %.10201335, %388 ], [ %.10201335, %.lr.ph339 ]
-  %.12 = phi ptr [ %.11, %gc_stack_next.exit243 ], [ %.10336, %388 ], [ %.10336, %.lr.ph339 ]
+  %.13204 = phi i64 [ %405, %gc_stack_next.exit243 ], [ %.12203335, %388 ], [ %.12203335, %.lr.ph339 ]
+  %.13 = phi ptr [ %.14, %gc_stack_next.exit243 ], [ %.12336, %388 ], [ %.12336, %.lr.ph339 ]
   %408 = add i32 %385, -1
   %.not228 = icmp eq i32 %408, 0
   br i1 %.not228, label %.outer.backedge, label %.lr.ph339
@@ -4856,8 +4856,8 @@ gc_stack_next.exit243:                            ; preds = %401, %398, %394
   br label %.loopexit257
 
 .loopexit257:                                     ; preds = %368, %gc_stack_next.exit239, %412
-  %.13204 = phi i64 [ %.0191.ph, %412 ], [ %345, %gc_stack_next.exit239 ], [ %.8199, %368 ]
-  %.13 = phi ptr [ %.0184.ph, %412 ], [ %.5189, %gc_stack_next.exit239 ], [ %.8, %368 ]
+  %.10201 = phi i64 [ %.0191.ph, %412 ], [ %345, %gc_stack_next.exit239 ], [ %.8199, %368 ]
+  %.10 = phi ptr [ %.0184.ph, %412 ], [ %.6190, %gc_stack_next.exit239 ], [ %.8, %368 ]
   %.0143 = phi ptr [ %.0142293453, %412 ], [ %326, %gc_stack_next.exit239 ], [ %326, %368 ]
   %414 = getelementptr inbounds i8, ptr %.0143, i64 24
   %415 = load i32, ptr %414, align 8
@@ -4918,16 +4918,16 @@ gc_stack_next.exit243:                            ; preds = %401, %398, %394
   br i1 %.not224320, label %.outer.backedge, label %.lr.ph325
 
 .outer.backedge:                                  ; preds = %472, %407, %439, %380, %499
-  %.0191.ph.be = phi i64 [ %.18209, %499 ], [ %.9200, %380 ], [ %.13204, %439 ], [ %.12203, %407 ], [ %.16207, %472 ]
-  %.0184.ph.be = phi ptr [ %.18, %499 ], [ %.9, %380 ], [ %.13, %439 ], [ %.12, %407 ], [ %.16, %472 ]
+  %.0191.ph.be = phi i64 [ %.18209, %499 ], [ %.11202, %380 ], [ %.10201, %439 ], [ %.13204, %407 ], [ %.16207, %472 ]
+  %.0184.ph.be = phi ptr [ %.18, %499 ], [ %.11, %380 ], [ %.10, %439 ], [ %.13, %407 ], [ %.16, %472 ]
   %.0142.ph.be = phi ptr [ %.0, %499 ], [ %375, %380 ], [ %434, %439 ], [ %375, %407 ], [ %434, %472 ]
   br label %.outer
 
 .lr.ph325:                                        ; preds = %439, %472
   %444 = phi i32 [ %473, %472 ], [ %443, %439 ]
   %.0144.pn323 = phi ptr [ %.1324, %472 ], [ %.0144317, %439 ]
-  %.14322 = phi ptr [ %.16, %472 ], [ %.13, %439 ]
-  %.14205321 = phi i64 [ %.16207, %472 ], [ %.13204, %439 ]
+  %.15322 = phi ptr [ %.16, %472 ], [ %.10, %439 ]
+  %.15206321 = phi i64 [ %.16207, %472 ], [ %.10201, %439 ]
   %.1324 = getelementptr inbounds i8, ptr %.0144.pn323, i64 32
   %445 = getelementptr inbounds i8, ptr %.0144.pn323, i64 40
   %446 = load i8, ptr %445, align 8
@@ -4957,35 +4957,35 @@ gc_stack_next.exit243:                            ; preds = %401, %398, %394
   %460 = and i32 %456, 1073741823
   %461 = or disjoint i32 %460, 1073741824
   store i32 %461, ptr %455, align 4
-  %462 = icmp eq i64 %.14205321, 510
+  %462 = icmp eq i64 %.15206321, 510
   br i1 %462, label %463, label %gc_stack_next.exit245
 
 463:                                              ; preds = %459
-  %464 = getelementptr inbounds i8, ptr %.14322, i64 8
+  %464 = getelementptr inbounds i8, ptr %.15322, i64 8
   %465 = load ptr, ptr %464, align 8
   %.not.i244 = icmp eq ptr %465, null
   br i1 %.not.i244, label %466, label %gc_stack_next.exit245
 
 466:                                              ; preds = %463
   %467 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #16
-  store ptr %.14322, ptr %467, align 8
+  store ptr %.15322, ptr %467, align 8
   %468 = getelementptr inbounds i8, ptr %467, i64 8
   store ptr null, ptr %468, align 8
   store ptr %467, ptr %464, align 8
   br label %gc_stack_next.exit245
 
 gc_stack_next.exit245:                            ; preds = %466, %463, %459
-  %.15206 = phi i64 [ %.14205321, %459 ], [ 0, %463 ], [ 0, %466 ]
-  %.15 = phi ptr [ %.14322, %459 ], [ %465, %463 ], [ %467, %466 ]
-  %469 = getelementptr inbounds i8, ptr %.15, i64 16
-  %470 = add i64 %.15206, 1
-  %471 = getelementptr inbounds [510 x ptr], ptr %469, i64 0, i64 %.15206
+  %.17208 = phi i64 [ %.15206321, %459 ], [ 0, %463 ], [ 0, %466 ]
+  %.17 = phi ptr [ %.15322, %459 ], [ %465, %463 ], [ %467, %466 ]
+  %469 = getelementptr inbounds i8, ptr %.17, i64 16
+  %470 = add i64 %.17208, 1
+  %471 = getelementptr inbounds [510 x ptr], ptr %469, i64 0, i64 %.17208
   store ptr %454, ptr %471, align 8
   br label %472
 
 472:                                              ; preds = %453, %gc_stack_next.exit245, %450
-  %.16207 = phi i64 [ %470, %gc_stack_next.exit245 ], [ %.14205321, %453 ], [ %.14205321, %450 ]
-  %.16 = phi ptr [ %.15, %gc_stack_next.exit245 ], [ %.14322, %453 ], [ %.14322, %450 ]
+  %.16207 = phi i64 [ %470, %gc_stack_next.exit245 ], [ %.15206321, %453 ], [ %.15206321, %450 ]
+  %.16 = phi ptr [ %.17, %gc_stack_next.exit245 ], [ %.15322, %453 ], [ %.15322, %450 ]
   %473 = add i32 %444, -1
   %.not224 = icmp eq i32 %473, 0
   br i1 %.not224, label %.outer.backedge, label %.lr.ph325
@@ -5020,13 +5020,13 @@ gc_stack_next.exit245:                            ; preds = %466, %463, %459
   br i1 %.not, label %.lr.ph454, label %.lr.ph._crit_edge
 
 .loopexit254:                                     ; preds = %477, %480, %.lr.ph454, %474, %409, %.outer, %422, %371, %288, %gc_scan_black.exit
-  %.17208 = phi i64 [ %.0191.ph, %gc_scan_black.exit ], [ %.0191.ph, %288 ], [ %.9200, %371 ], [ %.13204, %422 ], [ %.0191.ph, %.outer ], [ %.9200, %409 ], [ %.13204, %474 ], [ %.0191.ph, %.lr.ph454 ], [ %.0191.ph, %480 ], [ %.0191.ph, %477 ]
-  %.17 = phi ptr [ %.0184.ph, %gc_scan_black.exit ], [ %.0184.ph, %288 ], [ %.9, %371 ], [ %.13, %422 ], [ %.0184.ph, %.outer ], [ %.9, %409 ], [ %.13, %474 ], [ %.0184.ph, %.lr.ph454 ], [ %.0184.ph, %480 ], [ %.0184.ph, %477 ]
-  %490 = icmp eq i64 %.17208, 0
+  %.1192 = phi i64 [ %.0191.ph, %gc_scan_black.exit ], [ %.0191.ph, %288 ], [ %.11202, %371 ], [ %.10201, %422 ], [ %.0191.ph, %.outer ], [ %.11202, %409 ], [ %.10201, %474 ], [ %.0191.ph, %.lr.ph454 ], [ %.0191.ph, %480 ], [ %.0191.ph, %477 ]
+  %.1185 = phi ptr [ %.0184.ph, %gc_scan_black.exit ], [ %.0184.ph, %288 ], [ %.11, %371 ], [ %.10, %422 ], [ %.0184.ph, %.outer ], [ %.11, %409 ], [ %.10, %474 ], [ %.0184.ph, %.lr.ph454 ], [ %.0184.ph, %480 ], [ %.0184.ph, %477 ]
+  %490 = icmp eq i64 %.1192, 0
   br i1 %490, label %491, label %495
 
 491:                                              ; preds = %.loopexit254
-  %492 = load ptr, ptr %.17, align 8
+  %492 = load ptr, ptr %.1185, align 8
   %.not233 = icmp eq ptr %492, null
   br i1 %.not233, label %.thread, label %493
 
@@ -5035,14 +5035,14 @@ gc_stack_next.exit245:                            ; preds = %466, %463, %459
   br label %499
 
 495:                                              ; preds = %.loopexit254
-  %496 = getelementptr inbounds i8, ptr %.17, i64 16
-  %497 = add i64 %.17208, -1
+  %496 = getelementptr inbounds i8, ptr %.1185, i64 16
+  %497 = add i64 %.1192, -1
   %498 = getelementptr inbounds [510 x ptr], ptr %496, i64 0, i64 %497
   br label %499
 
 499:                                              ; preds = %495, %493
   %.18209 = phi i64 [ 509, %493 ], [ %497, %495 ]
-  %.18 = phi ptr [ %492, %493 ], [ %.17, %495 ]
+  %.18 = phi ptr [ %492, %493 ], [ %.1185, %495 ]
   %.0.in = phi ptr [ %494, %493 ], [ %498, %495 ]
   %.0 = load ptr, ptr %.0.in, align 8
   %.not234 = icmp eq ptr %.0, null

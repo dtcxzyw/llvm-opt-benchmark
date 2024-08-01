@@ -258,14 +258,14 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false.prehe
   %t2h.0108 = phi i64 [ %spec.select, %if.end97 ], [ %conv81, %lor.lhs.false.preheader ]
   %t2l.0107 = phi i64 [ %sub103, %if.end97 ], [ %conv83, %lor.lhs.false.preheader ]
   %rem.0106 = phi i64 [ %add93, %if.end97 ], [ %asmresult76, %lor.lhs.false.preheader ]
-  %q.0105 = phi i64 [ %dec, %if.end97 ], [ %asmresult, %lor.lhs.false.preheader ]
+  %q.1105 = phi i64 [ %dec, %if.end97 ], [ %asmresult, %lor.lhs.false.preheader ]
   %cmp87 = icmp ne i64 %t2h.0108, %rem.0106
   %cmp89.not = icmp ugt i64 %t2l.0107, %cond75
   %or.cond = select i1 %cmp87, i1 true, i1 %cmp89.not
   br i1 %or.cond, label %if.end92, label %if.end104
 
 if.end92:                                         ; preds = %lor.lhs.false
-  %dec = add i64 %q.0105, -1
+  %dec = add i64 %q.1105, -1
   %add93 = add i64 %rem.0106, %14
   %cmp94 = icmp ult i64 %add93, %14
   br i1 %cmp94, label %if.end104, label %if.end97
@@ -279,17 +279,17 @@ if.end97:                                         ; preds = %if.end92
   br i1 %cmp85, label %if.end104, label %lor.lhs.false
 
 if.end104:                                        ; preds = %if.end92, %if.end97, %lor.lhs.false, %cond.end74, %for.body
-  %q.1 = phi i64 [ -1, %for.body ], [ %asmresult, %cond.end74 ], [ %dec, %if.end92 ], [ %dec, %if.end97 ], [ %q.0105, %lor.lhs.false ]
+  %q.0 = phi i64 [ -1, %for.body ], [ %asmresult, %cond.end74 ], [ %dec, %if.end92 ], [ %dec, %if.end97 ], [ %q.1105, %lor.lhs.false ]
   %23 = load ptr, ptr %call1, align 8
   %24 = load ptr, ptr %call3, align 8
-  %call107 = tail call i64 @bn_mul_words(ptr noundef %23, ptr noundef %24, i32 noundef %5, i64 noundef %q.1) #3
+  %call107 = tail call i64 @bn_mul_words(ptr noundef %23, ptr noundef %24, i32 noundef %5, i64 noundef %q.0) #3
   %25 = load ptr, ptr %call1, align 8
   %arrayidx110 = getelementptr inbounds i64, ptr %25, i64 %12
   store i64 %call107, ptr %arrayidx110, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %wnum.0116, i64 -8
   %26 = load ptr, ptr %call1, align 8
   %call113 = tail call i64 @bn_sub_words(ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %incdec.ptr, ptr noundef %26, i32 noundef %add57) #3
-  %sub114 = sub i64 %q.1, %call113
+  %sub114 = sub i64 %q.0, %call113
   %sub115 = sub i64 0, %call113
   br i1 %cmp117111, label %for.body119, label %for.end126
 

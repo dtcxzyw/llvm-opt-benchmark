@@ -7435,11 +7435,11 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditions
   br label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
 
 _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit: ; preds = %24, %22, %13, %15
-  %.sroa.5.0 = phi i8 [ %2, %13 ], [ -54, %15 ], [ %2, %22 ], [ %2, %24 ]
-  %.sroa.7100.0 = phi i32 [ 0, %13 ], [ %17, %15 ], [ 0, %22 ], [ 0, %24 ]
-  %.sroa.7100.0.insert.ext101 = zext i32 %.sroa.7100.0 to i64
+  %.sroa.5.1 = phi i8 [ %2, %13 ], [ -54, %15 ], [ %2, %22 ], [ %2, %24 ]
+  %.sroa.7100.1 = phi i32 [ 0, %13 ], [ %17, %15 ], [ 0, %22 ], [ 0, %24 ]
+  %.sroa.7100.0.insert.ext101 = zext i32 %.sroa.7100.1 to i64
   %.sroa.7100.0.insert.shift102 = shl nuw i64 %.sroa.7100.0.insert.ext101, 32
-  %.sroa.5.0.insert.ext82 = zext i8 %.sroa.5.0 to i64
+  %.sroa.5.0.insert.ext82 = zext i8 %.sroa.5.1 to i64
   %.sroa.5.0.insert.shift83 = shl nuw nsw i64 %.sroa.5.0.insert.ext82, 8
   %.sroa.6.0.insert.insert91 = or disjoint i64 %.sroa.7100.0.insert.shift102, %.sroa.5.0.insert.shift83
   %.sroa.077.0.insert.insert80 = or disjoint i64 %.sroa.6.0.insert.insert91, 16384001
@@ -7450,8 +7450,8 @@ _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64
 
 25:                                               ; preds = %._crit_edge, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %14, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ]
-  %.sroa.5.1 = phi i8 [ %2, %._crit_edge ], [ %.sroa.5.0, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ]
-  %.sroa.7100.1 = phi i32 [ 0, %._crit_edge ], [ %.sroa.7100.0, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ]
+  %.sroa.5.0 = phi i8 [ %2, %._crit_edge ], [ %.sroa.5.1, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ]
+  %.sroa.7100.0 = phi i32 [ 0, %._crit_edge ], [ %.sroa.7100.1, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ]
   %.sroa.268.0.insert.ext = zext i8 %1 to i64
   %.sroa.268.0.insert.shift = shl nuw nsw i64 %.sroa.268.0.insert.ext, 8
   %.sroa.067.0.insert.insert = or disjoint i64 %.sroa.268.0.insert.shift, 4311351297
@@ -7482,8 +7482,8 @@ _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64
   br label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit60
 
 _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit60: ; preds = %33, %31, %25, %26
-  %.sroa.5.2 = phi i8 [ %.sroa.5.1, %25 ], [ -54, %26 ], [ %.sroa.5.1, %31 ], [ %.sroa.5.1, %33 ]
-  %.sroa.7100.2 = phi i32 [ %.sroa.7100.1, %25 ], [ %27, %26 ], [ %.sroa.7100.1, %31 ], [ %.sroa.7100.1, %33 ]
+  %.sroa.5.2 = phi i8 [ %.sroa.5.0, %25 ], [ -54, %26 ], [ %.sroa.5.0, %31 ], [ %.sroa.5.0, %33 ]
+  %.sroa.7100.2 = phi i32 [ %.sroa.7100.0, %25 ], [ %27, %26 ], [ %.sroa.7100.0, %31 ], [ %.sroa.7100.0, %33 ]
   %.sroa.7100.0.insert.ext = zext i32 %.sroa.7100.2 to i64
   %.sroa.7100.0.insert.shift = shl nuw i64 %.sroa.7100.0.insert.ext, 32
   %.sroa.5.0.insert.ext = zext i8 %.sroa.5.2 to i64

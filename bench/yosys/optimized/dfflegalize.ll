@@ -15152,16 +15152,16 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit: ; preds 
   br label %78
 
 78:                                               ; preds = %70, %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
-  %.1 = phi i32 [ 0, %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit ], [ %spec.select85, %70 ]
+  %.068 = phi i32 [ 0, %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit ], [ %spec.select85, %70 ]
   %79 = getelementptr inbounds i8, ptr %1, i64 677
   %80 = load i8, ptr %79, align 1
   %81 = trunc i8 %80 to i1
   %82 = getelementptr inbounds i8, ptr %1, i64 685
   %83 = load i8, ptr %82, align 1
   %84 = trunc i8 %83 to i1
-  %85 = or i32 %.1, 2
-  %spec.select77 = select i1 %84, i32 %.1, i32 %85
-  %.2 = select i1 %81, i32 %spec.select77, i32 %.1
+  %85 = or i32 %.068, 2
+  %spec.select77 = select i1 %84, i32 %.068, i32 %85
+  %.2 = select i1 %81, i32 %spec.select77, i32 %.068
   %86 = getelementptr inbounds i8, ptr %1, i64 676
   %87 = load i8, ptr %86, align 4
   %88 = trunc i8 %87 to i1

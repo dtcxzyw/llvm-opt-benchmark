@@ -12,9 +12,9 @@ entry:
   br i1 %cmp50, label %while.cond2.preheader, label %while.end58
 
 while.cond2.preheader:                            ; preds = %entry, %if.end
-  %outWrite.053 = phi ptr [ %outWrite.2, %if.end ], [ %out, %entry ]
-  %in.pn52 = phi ptr [ %runEnd.3, %if.end ], [ %in, %entry ]
-  %runStart.051 = phi ptr [ %runStart.2, %if.end ], [ %in, %entry ]
+  %outWrite.053 = phi ptr [ %outWrite.1, %if.end ], [ %out, %entry ]
+  %in.pn52 = phi ptr [ %runEnd.2, %if.end ], [ %in, %entry ]
+  %runStart.051 = phi ptr [ %runStart.1, %if.end ], [ %in, %entry ]
   %sub.ptr.rhs.cast = ptrtoint ptr %runStart.051 to i64
   br label %while.cond2
 
@@ -57,26 +57,26 @@ if.then:                                          ; preds = %while.end.thread, %
   br label %if.end
 
 land.lhs.true21:                                  ; preds = %while.end, %land.lhs.true21.backedge
-  %runEnd.241 = phi ptr [ %add.ptr22, %land.lhs.true21.backedge ], [ %runEnd.1, %while.end ]
-  %add.ptr22 = getelementptr inbounds i8, ptr %runEnd.241, i64 1
+  %runEnd.341 = phi ptr [ %add.ptr22, %land.lhs.true21.backedge ], [ %runEnd.1, %while.end ]
+  %add.ptr22 = getelementptr inbounds i8, ptr %runEnd.341, i64 1
   %cmp23.not = icmp uge ptr %add.ptr22, %add.ptr
   br i1 %cmp23.not, label %land.rhs37, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true21
-  %5 = load i8, ptr %runEnd.241, align 1
+  %5 = load i8, ptr %runEnd.341, align 1
   %6 = load i8, ptr %add.ptr22, align 1
   %cmp27.not = icmp eq i8 %5, %6
   br i1 %cmp27.not, label %lor.lhs.false28, label %land.rhs37
 
 lor.lhs.false28:                                  ; preds = %lor.lhs.false
-  %add.ptr29 = getelementptr inbounds i8, ptr %runEnd.241, i64 2
+  %add.ptr29 = getelementptr inbounds i8, ptr %runEnd.341, i64 2
   %cmp30.not = icmp ult ptr %add.ptr29, %add.ptr
   br i1 %cmp30.not, label %lor.lhs.false31, label %land.rhs37
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false28
   %7 = load i8, ptr %add.ptr29, align 1
   %cmp36.not = icmp eq i8 %5, %7
-  %sub.ptr.lhs.cast38 = ptrtoint ptr %runEnd.241 to i64
+  %sub.ptr.lhs.cast38 = ptrtoint ptr %runEnd.341 to i64
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast
   %cmp41 = icmp sgt i64 %sub.ptr.sub40, 126
   %or.cond39.not67 = or i1 %cmp41, %cmp36.not
@@ -87,33 +87,33 @@ land.lhs.true21.backedge:                         ; preds = %lor.lhs.false31, %l
   br label %land.lhs.true21
 
 land.rhs37:                                       ; preds = %lor.lhs.false28, %lor.lhs.false, %land.lhs.true21
-  %sub.ptr.lhs.cast38.old = ptrtoint ptr %runEnd.241 to i64
+  %sub.ptr.lhs.cast38.old = ptrtoint ptr %runEnd.341 to i64
   %sub.ptr.sub40.old = sub i64 %sub.ptr.lhs.cast38.old, %sub.ptr.rhs.cast
   %cmp41.old = icmp sgt i64 %sub.ptr.sub40.old, 126
   %brmerge65 = or i1 %cmp41.old, %cmp23.not
   br i1 %brmerge65, label %while.end45.loopexit.split.loop.exit, label %land.lhs.true21.backedge
 
 while.end45.loopexit.split.loop.exit:             ; preds = %land.rhs37
-  %runEnd.241.mux66.le = select i1 %cmp41.old, ptr %runEnd.241, ptr %add.ptr22
+  %runEnd.341.mux66.le = select i1 %cmp41.old, ptr %runEnd.341, ptr %add.ptr22
   br label %while.end45.loopexit
 
 while.end45.loopexit.split.loop.exit74:           ; preds = %lor.lhs.false31
-  %runEnd.241.mux.le = select i1 %or.cond39.not67, ptr %runEnd.241, ptr %add.ptr22
+  %runEnd.341.mux.le = select i1 %or.cond39.not67, ptr %runEnd.341, ptr %add.ptr22
   br label %while.end45.loopexit
 
 while.end45.loopexit:                             ; preds = %while.end45.loopexit.split.loop.exit74, %while.end45.loopexit.split.loop.exit
-  %runEnd.2.lcssa.ph = phi ptr [ %runEnd.241.mux66.le, %while.end45.loopexit.split.loop.exit ], [ %runEnd.241.mux.le, %while.end45.loopexit.split.loop.exit74 ]
-  %.pre = ptrtoint ptr %runEnd.2.lcssa.ph to i64
+  %runEnd.3.lcssa.ph = phi ptr [ %runEnd.341.mux66.le, %while.end45.loopexit.split.loop.exit ], [ %runEnd.341.mux.le, %while.end45.loopexit.split.loop.exit74 ]
+  %.pre = ptrtoint ptr %runEnd.3.lcssa.ph to i64
   br label %while.end45
 
 while.end45:                                      ; preds = %while.end.thread, %while.end45.loopexit
   %sub.ptr.rhs.cast47.pre-phi = phi i64 [ %.pre, %while.end45.loopexit ], [ %.pre55, %while.end.thread ]
-  %runEnd.2.lcssa = phi ptr [ %runEnd.2.lcssa.ph, %while.end45.loopexit ], [ %runEnd.1, %while.end.thread ]
+  %runEnd.3.lcssa = phi ptr [ %runEnd.3.lcssa.ph, %while.end45.loopexit ], [ %runEnd.1, %while.end.thread ]
   %sub.ptr.sub48 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast47.pre-phi
   %conv49 = trunc i64 %sub.ptr.sub48 to i8
   store i8 %conv49, ptr %outWrite.053, align 1
-  %outWrite.144 = getelementptr i8, ptr %outWrite.053, i64 1
-  %cmp5245 = icmp ult ptr %runStart.051, %runEnd.2.lcssa
+  %outWrite.244 = getelementptr i8, ptr %outWrite.053, i64 1
+  %cmp5245 = icmp ult ptr %runStart.051, %runEnd.3.lcssa
   br i1 %cmp5245, label %while.body53.preheader, label %if.end
 
 while.body53.preheader:                           ; preds = %while.end45
@@ -122,24 +122,24 @@ while.body53.preheader:                           ; preds = %while.end45
   br label %while.body53
 
 while.body53:                                     ; preds = %while.body53.preheader, %while.body53
-  %outWrite.147 = phi ptr [ %outWrite.1, %while.body53 ], [ %outWrite.144, %while.body53.preheader ]
-  %runStart.146 = phi ptr [ %incdec.ptr54, %while.body53 ], [ %runStart.051, %while.body53.preheader ]
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %runStart.146, i64 1
-  %9 = load i8, ptr %runStart.146, align 1
-  store i8 %9, ptr %outWrite.147, align 1
-  %outWrite.1 = getelementptr inbounds i8, ptr %outWrite.147, i64 1
+  %outWrite.247 = phi ptr [ %outWrite.2, %while.body53 ], [ %outWrite.244, %while.body53.preheader ]
+  %runStart.246 = phi ptr [ %incdec.ptr54, %while.body53 ], [ %runStart.051, %while.body53.preheader ]
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %runStart.246, i64 1
+  %9 = load i8, ptr %runStart.246, align 1
+  store i8 %9, ptr %outWrite.247, align 1
+  %outWrite.2 = getelementptr inbounds i8, ptr %outWrite.247, i64 1
   %exitcond.not = icmp eq ptr %incdec.ptr54, %scevgep
   br i1 %exitcond.not, label %if.end, label %while.body53, !llvm.loop !6
 
 if.end:                                           ; preds = %while.body53, %while.end45, %if.then
-  %runStart.2 = phi ptr [ %runEnd.1, %if.then ], [ %runStart.051, %while.end45 ], [ %incdec.ptr54, %while.body53 ]
-  %runEnd.3 = phi ptr [ %runEnd.1, %if.then ], [ %runEnd.2.lcssa, %while.end45 ], [ %runEnd.2.lcssa, %while.body53 ]
-  %outWrite.2 = phi ptr [ %incdec.ptr18, %if.then ], [ %outWrite.144, %while.end45 ], [ %outWrite.1, %while.body53 ]
-  %cmp = icmp ult ptr %runStart.2, %add.ptr
+  %runStart.1 = phi ptr [ %runEnd.1, %if.then ], [ %runStart.051, %while.end45 ], [ %incdec.ptr54, %while.body53 ]
+  %runEnd.2 = phi ptr [ %runEnd.1, %if.then ], [ %runEnd.3.lcssa, %while.end45 ], [ %runEnd.3.lcssa, %while.body53 ]
+  %outWrite.1 = phi ptr [ %incdec.ptr18, %if.then ], [ %outWrite.244, %while.end45 ], [ %outWrite.2, %while.body53 ]
+  %cmp = icmp ult ptr %runStart.1, %add.ptr
   br i1 %cmp, label %while.cond2.preheader, label %while.end58, !llvm.loop !7
 
 while.end58:                                      ; preds = %if.end, %entry
-  %outWrite.0.lcssa = phi ptr [ %out, %entry ], [ %outWrite.2, %if.end ]
+  %outWrite.0.lcssa = phi ptr [ %out, %entry ], [ %outWrite.1, %if.end ]
   %sub.ptr.lhs.cast59 = ptrtoint ptr %outWrite.0.lcssa to i64
   %sub.ptr.rhs.cast60 = ptrtoint ptr %out to i64
   %sub.ptr.sub61 = sub i64 %sub.ptr.lhs.cast59, %sub.ptr.rhs.cast60

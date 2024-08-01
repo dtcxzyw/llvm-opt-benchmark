@@ -28,7 +28,7 @@ define i32 @Msat_SolverParseDimacs(ptr nocapture noundef %0, ptr nocapture nound
   br label %skipLine.exit.i.outer
 
 skipLine.exit.i.outer:                            ; preds = %skipLine.exit42.i, %3
-  %.044.i.ph = phi ptr [ %.7.i, %skipLine.exit42.i ], [ %8, %3 ]
+  %.044.i.ph = phi ptr [ %.8.i, %skipLine.exit42.i ], [ %8, %3 ]
   %.017.i.ph = phi ptr [ %68, %skipLine.exit42.i ], [ null, %3 ]
   %.016.i.ph = phi ptr [ %67, %skipLine.exit42.i ], [ null, %3 ]
   %14 = icmp eq ptr %.016.i.ph, null
@@ -39,8 +39,8 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
   br label %15
 
 15:                                               ; preds = %.critedge.i.i, %skipLine.exit.i
-  %.145.i = phi ptr [ %.044.i, %skipLine.exit.i ], [ %17, %.critedge.i.i ]
-  %16 = load i8, ptr %.145.i, align 1
+  %.2.i = phi ptr [ %.044.i, %skipLine.exit.i ], [ %17, %.critedge.i.i ]
+  %16 = load i8, ptr %.2.i, align 1
   switch i8 %16, label %69 [
     i8 32, label %.critedge.i.i
     i8 13, label %.critedge.i.i
@@ -54,30 +54,30 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
   ]
 
 .critedge.i.i:                                    ; preds = %15, %15, %15, %15, %15, %15
-  %17 = getelementptr inbounds i8, ptr %.145.i, i64 1
+  %17 = getelementptr inbounds i8, ptr %.2.i, i64 1
   br label %15, !llvm.loop !4
 
 .preheader.i:                                     ; preds = %15, %21
   %18 = phi i8 [ %.pr.i, %21 ], [ %16, %15 ]
-  %.2.i = phi ptr [ %22, %21 ], [ %.145.i, %15 ]
+  %.3.i = phi ptr [ %22, %21 ], [ %.2.i, %15 ]
   switch i8 %18, label %21 [
     i8 0, label %skipLine.exit.i.backedge
     i8 10, label %19
   ]
 
 19:                                               ; preds = %.preheader.i
-  %20 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %20 = getelementptr inbounds i8, ptr %.3.i, i64 1
   br label %skipLine.exit.i.backedge
 
 21:                                               ; preds = %.preheader.i
-  %22 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %22 = getelementptr inbounds i8, ptr %.3.i, i64 1
   %.pr.i = load i8, ptr %22, align 1
   br label %.preheader.i
 
 .preheader47.i:                                   ; preds = %15, %.preheader47.i.backedge
-  %.145.pn.i = phi ptr [ %.4.i, %.preheader47.i.backedge ], [ %.145.i, %15 ]
-  %.4.i = getelementptr inbounds i8, ptr %.145.pn.i, i64 1
-  %23 = load i8, ptr %.4.i, align 1
+  %.2.pn.i = phi ptr [ %.5.i, %.preheader47.i.backedge ], [ %.2.i, %15 ]
+  %.5.i = getelementptr inbounds i8, ptr %.2.pn.i, i64 1
+  %23 = load i8, ptr %.5.i, align 1
   switch i8 %23, label %Msat_ReadWhitespace.exit23.i [
     i8 32, label %.preheader47.i.backedge
     i8 13, label %.preheader47.i.backedge
@@ -92,7 +92,7 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
 
 Msat_ReadWhitespace.exit23.i:                     ; preds = %.preheader47.i, %25
   %24 = phi i8 [ %.pre.i, %25 ], [ %23, %.preheader47.i ]
-  %.5.i = phi ptr [ %26, %25 ], [ %.4.i, %.preheader47.i ]
+  %.6.i = phi ptr [ %26, %25 ], [ %.5.i, %.preheader47.i ]
   switch i8 %24, label %25 [
     i8 32, label %Msat_ReadNotWhitespace.exit.i.preheader
     i8 13, label %Msat_ReadNotWhitespace.exit.i.preheader
@@ -106,13 +106,13 @@ Msat_ReadNotWhitespace.exit.i.preheader:          ; preds = %Msat_ReadWhitespace
   br label %Msat_ReadNotWhitespace.exit.i
 
 25:                                               ; preds = %Msat_ReadWhitespace.exit23.i
-  %26 = getelementptr inbounds i8, ptr %.5.i, i64 1
+  %26 = getelementptr inbounds i8, ptr %.6.i, i64 1
   %.pre.i = load i8, ptr %26, align 1
   br label %Msat_ReadWhitespace.exit23.i, !llvm.loop !6
 
 Msat_ReadNotWhitespace.exit.i:                    ; preds = %Msat_ReadNotWhitespace.exit.i.preheader, %.critedge.i.i.i
   %27 = phi i8 [ %.pre127.i, %.critedge.i.i.i ], [ %24, %Msat_ReadNotWhitespace.exit.i.preheader ]
-  %28 = phi ptr [ %29, %.critedge.i.i.i ], [ %.5.i, %Msat_ReadNotWhitespace.exit.i.preheader ]
+  %28 = phi ptr [ %29, %.critedge.i.i.i ], [ %.6.i, %Msat_ReadNotWhitespace.exit.i.preheader ]
   switch i8 %27, label %.loopexit46.i [
     i8 32, label %.critedge.i.i.i
     i8 13, label %.critedge.i.i.i
@@ -216,23 +216,23 @@ Msat_ReadInt.exit.i:                              ; preds = %.lr.ph.i.i
 
 Msat_ReadInt.exit40.i:                            ; preds = %.lr.ph.i34.i, %65
   %62 = phi i8 [ %.pre131.i, %65 ], [ %60, %.lr.ph.i34.i ]
-  %.6.i = phi ptr [ %66, %65 ], [ %59, %.lr.ph.i34.i ]
+  %.7.i = phi ptr [ %66, %65 ], [ %59, %.lr.ph.i34.i ]
   switch i8 %62, label %65 [
     i8 0, label %skipLine.exit42.i
     i8 10, label %63
   ]
 
 63:                                               ; preds = %Msat_ReadInt.exit40.i
-  %64 = getelementptr inbounds i8, ptr %.6.i, i64 1
+  %64 = getelementptr inbounds i8, ptr %.7.i, i64 1
   br label %skipLine.exit42.i
 
 65:                                               ; preds = %Msat_ReadInt.exit40.i
-  %66 = getelementptr inbounds i8, ptr %.6.i, i64 1
+  %66 = getelementptr inbounds i8, ptr %.7.i, i64 1
   %.pre131.i = load i8, ptr %66, align 1
   br label %Msat_ReadInt.exit40.i
 
 skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40.i, %63
-  %.7.i = phi ptr [ %64, %63 ], [ %.6.i, %Msat_ReadInt.exit40.i ]
+  %.8.i = phi ptr [ %64, %63 ], [ %.7.i, %Msat_ReadInt.exit40.i ]
   %67 = tail call ptr @Msat_SolverAlloc(i32 noundef %46, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef 0) #11
   tail call void @Msat_SolverClean(ptr noundef %67, i32 noundef %46) #11
   tail call void @Msat_SolverSetVerbosity(ptr noundef %67, i32 noundef %2) #11
@@ -253,7 +253,7 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
   br label %73
 
 73:                                               ; preds = %.backedge, %71
-  %74 = phi ptr [ %.145.i, %71 ], [ %.be, %.backedge ]
+  %74 = phi ptr [ %.2.i, %71 ], [ %.be, %.backedge ]
   %75 = load i8, ptr %74, align 1
   switch i8 %75, label %.loopexit.i.i [
     i8 32, label %.critedge.i.i.i.i
@@ -339,7 +339,7 @@ Msat_ReadClause.exit.i:                           ; preds = %Msat_ReadInt.exit.i
   br i1 %.not.i, label %Msat_ReadDimacs.exit, label %skipLine.exit.i.backedge
 
 skipLine.exit.i.backedge:                         ; preds = %.preheader.i, %Msat_ReadClause.exit.i, %19
-  %.044.i.be = phi ptr [ %89, %Msat_ReadClause.exit.i ], [ %20, %19 ], [ %.2.i, %.preheader.i ]
+  %.044.i.be = phi ptr [ %89, %Msat_ReadClause.exit.i ], [ %20, %19 ], [ %.3.i, %.preheader.i ]
   br label %skipLine.exit.i
 
 106:                                              ; preds = %15

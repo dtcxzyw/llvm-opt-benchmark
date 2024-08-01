@@ -1982,13 +1982,13 @@ list_length.exit109.thread:                       ; preds = %list_length.exit109
   br label %56
 
 56:                                               ; preds = %52, %54
-  %.0 = phi ptr [ %55, %54 ], [ %16, %52 ]
-  tail call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %46, ptr noundef %8, ptr noundef %.0, ptr noundef null, ptr noundef null, i32 noundef %spec.store.select, ptr noundef %5, i1 noundef zeroext %9)
+  %.1 = phi ptr [ %55, %54 ], [ %16, %52 ]
+  tail call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %46, ptr noundef %8, ptr noundef %.1, ptr noundef null, ptr noundef null, i32 noundef %spec.store.select, ptr noundef %5, i1 noundef zeroext %9)
   br label %57
 
 57:                                               ; preds = %56, %49, %43
   %.296 = phi ptr [ %46, %56 ], [ %.195113, %49 ], [ %.195113, %43 ]
-  %.1 = phi ptr [ %.0, %56 ], [ null, %49 ], [ null, %43 ]
+  %.0 = phi ptr [ %.1, %56 ], [ null, %49 ], [ null, %43 ]
   %58 = load ptr, ptr %42, align 8
   %59 = tail call ptr @get_cheapest_path_for_pathkeys(ptr noundef %58, ptr noundef %44, ptr noundef null, i32 noundef 0, i1 noundef zeroext %9) #5
   %.not103 = icmp eq ptr %59, null
@@ -2008,7 +2008,7 @@ list_length.exit109.thread:                       ; preds = %list_length.exit109
   br i1 %.not104, label %73, label %66
 
 66:                                               ; preds = %65
-  %67 = icmp eq ptr %.1, null
+  %67 = icmp eq ptr %.0, null
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
@@ -2020,7 +2020,7 @@ list_length.exit109.thread:                       ; preds = %list_length.exit109
   br label %72
 
 72:                                               ; preds = %68, %70, %66
-  %.2 = phi ptr [ %71, %70 ], [ %.1, %66 ], [ %16, %68 ]
+  %.2 = phi ptr [ %71, %70 ], [ %.0, %66 ], [ %16, %68 ]
   tail call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %59, ptr noundef %8, ptr noundef %.2, ptr noundef null, ptr noundef null, i32 noundef %spec.store.select, ptr noundef %5, i1 noundef zeroext %9)
   br label %73
 

@@ -1474,7 +1474,7 @@ invoke.cont52:                                    ; preds = %if.then47
   br label %if.end62
 
 if.end62:                                         ; preds = %invoke.cont45, %invoke.cont52, %if.end36
-  %abort_percentage_numerator.0 = phi i32 [ %11, %if.end36 ], [ %.sroa.speculated173, %invoke.cont52 ], [ %11, %invoke.cont45 ]
+  %abort_percentage_numerator.1 = phi i32 [ %11, %if.end36 ], [ %.sroa.speculated173, %invoke.cont52 ], [ %11, %invoke.cont45 ]
   %delay_header63 = getelementptr inbounds i8, ptr %fi_policy.0, i64 120
   %call64 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %delay_header63) #25
   %cmp.i52 = icmp ne i64 %13, 0
@@ -1517,7 +1517,7 @@ invoke.cont97:                                    ; preds = %if.then81
   br label %if.end101
 
 if.end101:                                        ; preds = %invoke.cont79, %invoke.cont97, %if.end62
-  %delay.sroa.0.0 = phi i64 [ %13, %if.end62 ], [ %.sroa.speculated169, %invoke.cont97 ], [ 0, %invoke.cont79 ]
+  %delay.sroa.0.1 = phi i64 [ %13, %if.end62 ], [ %.sroa.speculated169, %invoke.cont97 ], [ 0, %invoke.cont79 ]
   %delay_percentage_header102 = getelementptr inbounds i8, ptr %fi_policy.0, i64 152
   %call103 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %delay_percentage_header102) #25
   br i1 %call103, label %if.end127, label %if.then104
@@ -1558,17 +1558,17 @@ invoke.cont117:                                   ; preds = %if.then112
   br label %if.end127
 
 if.end127:                                        ; preds = %invoke.cont110, %invoke.cont117, %if.end101
-  %delay_percentage_numerator.0 = phi i32 [ %12, %if.end101 ], [ %.sroa.speculated, %invoke.cont117 ], [ %12, %invoke.cont110 ]
+  %delay_percentage_numerator.1 = phi i32 [ %12, %if.end101 ], [ %.sroa.speculated, %invoke.cont117 ], [ %12, %invoke.cont110 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer) #25
   %.pre = load i32, ptr %abort_code, align 4
   br label %if.end128
 
 if.end128:                                        ; preds = %if.end127, %lor.lhs.false12
   %37 = phi i32 [ %10, %lor.lhs.false12 ], [ %.pre, %if.end127 ]
-  %delay.sroa.0.1 = phi i64 [ %13, %lor.lhs.false12 ], [ %delay.sroa.0.0, %if.end127 ]
-  %delay_percentage_numerator.1 = phi i32 [ %12, %lor.lhs.false12 ], [ %delay_percentage_numerator.0, %if.end127 ]
-  %abort_percentage_numerator.1 = phi i32 [ %11, %lor.lhs.false12 ], [ %abort_percentage_numerator.0, %if.end127 ]
-  %cmp.i86 = icmp ne i64 %delay.sroa.0.1, 0
+  %delay.sroa.0.0 = phi i64 [ %13, %lor.lhs.false12 ], [ %delay.sroa.0.1, %if.end127 ]
+  %delay_percentage_numerator.0 = phi i32 [ %12, %lor.lhs.false12 ], [ %delay_percentage_numerator.1, %if.end127 ]
+  %abort_percentage_numerator.0 = phi i32 [ %11, %lor.lhs.false12 ], [ %abort_percentage_numerator.1, %if.end127 ]
+  %cmp.i86 = icmp ne i64 %delay.sroa.0.0, 0
   %cmp134 = icmp ne i32 %37, 0
   %brmerge = select i1 %cmp.i86, i1 true, i1 %cmp134
   br i1 %brmerge, label %if.then138, label %.thread
@@ -1588,11 +1588,11 @@ if.then141:                                       ; preds = %if.then138
   %delay_rand_generator_ = getelementptr inbounds i8, ptr %this, i64 64
   %delay_percentage_denominator = getelementptr inbounds i8, ptr %fi_policy.0, i64 188
   %40 = load i32, ptr %delay_percentage_denominator, align 4
-  %cmp.i87 = icmp eq i32 %delay_percentage_numerator.1, 0
+  %cmp.i87 = icmp eq i32 %delay_percentage_numerator.0, 0
   br i1 %cmp.i87, label %if.end146, label %if.end.i88
 
 if.end.i88:                                       ; preds = %if.then141
-  %cmp1.not.i = icmp ult i32 %delay_percentage_numerator.1, %40
+  %cmp1.not.i = icmp ult i32 %delay_percentage_numerator.0, %40
   br i1 %cmp1.not.i, label %if.end3.i, label %if.end146
 
 if.end3.i:                                        ; preds = %if.end.i88
@@ -1666,30 +1666,30 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i.i.i.i.i: ; preds = %while.body.i.i.
   br label %if.end13.i.i.i.i.i.i.i
 
 if.end13.i.i.i.i.i.i.i:                           ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %product.1.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %mul.i33.i.i.i.i.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i.i ]
-  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
+  %product.0.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %mul.i33.i.i.i.i.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i.i ]
+  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.0.i.i.i.i.i.i.i, 32
   br label %_ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i
 
 _ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i: ; preds = %if.end13.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.0.i.i.in.i.i.i.i.i = phi i64 [ %and2.i.i1.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %shr.i.i.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i.i ]
   %retval.0.i.i.i.i.i.i.i = trunc nuw i64 %retval.0.i.i.in.i.i.i.i.i to i32
-  %cmp4.i = icmp ugt i32 %delay_percentage_numerator.1, %retval.0.i.i.i.i.i.i.i
+  %cmp4.i = icmp ugt i32 %delay_percentage_numerator.0, %retval.0.i.i.i.i.i.i.i
   %44 = freeze i1 %cmp4.i
   br label %if.end146
 
 if.end146:                                        ; preds = %_ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i, %if.end.i88, %if.then141, %if.then138
-  %delay_request.0 = phi i1 [ false, %if.then138 ], [ %44, %_ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i ], [ false, %if.then141 ], [ true, %if.end.i88 ]
+  %delay_request.1 = phi i1 [ false, %if.then138 ], [ %44, %_ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i ], [ false, %if.then141 ], [ true, %if.end.i88 ]
   br i1 %cmp134, label %if.then148, label %if.end152
 
 if.then148:                                       ; preds = %if.end146
   %abort_rand_generator_ = getelementptr inbounds i8, ptr %this, i64 48
   %abort_percentage_denominator = getelementptr inbounds i8, ptr %fi_policy.0, i64 108
   %45 = load i32, ptr %abort_percentage_denominator, align 4
-  %cmp.i90 = icmp eq i32 %abort_percentage_numerator.1, 0
+  %cmp.i90 = icmp eq i32 %abort_percentage_numerator.0, 0
   br i1 %cmp.i90, label %if.end152, label %if.end.i91
 
 if.end.i91:                                       ; preds = %if.then148
-  %cmp1.not.i92 = icmp ult i32 %abort_percentage_numerator.1, %45
+  %cmp1.not.i92 = icmp ult i32 %abort_percentage_numerator.0, %45
   br i1 %cmp1.not.i92, label %if.end3.i94, label %if.end152
 
 if.end3.i94:                                      ; preds = %if.end.i91
@@ -1763,18 +1763,18 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i.i.i.i.i147: ; preds = %while.body.i
   br label %if.end13.i.i.i.i.i.i.i117
 
 if.end13.i.i.i.i.i.i.i117:                        ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i.i.i.i.i147, %if.then6.i.i.i.i.i.i.i124, %if.end.i.i.i.i.i.i.i111
-  %product.1.i.i.i.i.i.i.i118 = phi i64 [ %mul.i.i.i.i.i.i.i.i114, %if.end.i.i.i.i.i.i.i111 ], [ %mul.i33.i.i.i.i.i.i.i144, %while.cond.if.end13.loopexit_crit_edge.i.i.i.i.i.i.i147 ], [ %mul.i.i.i.i.i.i.i.i114, %if.then6.i.i.i.i.i.i.i124 ]
-  %shr.i.i.i.i.i.i.i.i119 = lshr i64 %product.1.i.i.i.i.i.i.i118, 32
+  %product.0.i.i.i.i.i.i.i118 = phi i64 [ %mul.i.i.i.i.i.i.i.i114, %if.end.i.i.i.i.i.i.i111 ], [ %mul.i33.i.i.i.i.i.i.i144, %while.cond.if.end13.loopexit_crit_edge.i.i.i.i.i.i.i147 ], [ %mul.i.i.i.i.i.i.i.i114, %if.then6.i.i.i.i.i.i.i124 ]
+  %shr.i.i.i.i.i.i.i.i119 = lshr i64 %product.0.i.i.i.i.i.i.i118, 32
   br label %_ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i120
 
 _ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i120: ; preds = %if.end13.i.i.i.i.i.i.i117, %if.then.i.i.i.i.i.i.i148
   %retval.0.i.i.in.i.i.i.i.i121 = phi i64 [ %and2.i.i1.i.i.i.i.i151, %if.then.i.i.i.i.i.i.i148 ], [ %shr.i.i.i.i.i.i.i.i119, %if.end13.i.i.i.i.i.i.i117 ]
   %retval.0.i.i.i.i.i.i.i122 = trunc nuw i64 %retval.0.i.i.in.i.i.i.i.i121 to i32
-  %cmp4.i123 = icmp ugt i32 %abort_percentage_numerator.1, %retval.0.i.i.i.i.i.i.i122
+  %cmp4.i123 = icmp ugt i32 %abort_percentage_numerator.0, %retval.0.i.i.i.i.i.i.i122
   br label %if.end152
 
 if.end152:                                        ; preds = %_ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i120, %if.end.i91, %if.then148, %if.end146
-  %abort_request.0 = phi i1 [ false, %if.end146 ], [ %cmp4.i123, %_ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i120 ], [ false, %if.then148 ], [ true, %if.end.i91 ]
+  %abort_request.1 = phi i1 [ false, %if.end146 ], [ %cmp4.i123, %_ZN4absl12lts_202308027UniformIjNS0_21IntervalClosedOpenTagERNS0_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESE_E4typeET0_OT1_SE_SE_.exit.i120 ], [ false, %if.then148 ], [ true, %if.end.i91 ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
           to label %if.end153 unwind label %terminate.lpad.i153
 
@@ -1788,8 +1788,8 @@ terminate.lpad.i153:                              ; preds = %if.end152
 if.end153:                                        ; preds = %if.end152
   %max_faults = getelementptr inbounds i8, ptr %fi_policy.0, i64 192
   %51 = load i32, ptr %max_faults, align 8
-  %delay.sroa.0.1. = select i1 %delay_request.0, i64 %delay.sroa.0.1, i64 0
-  br i1 %abort_request.0, label %if.then.i.i.i.i.i.i, label %cleanup.action
+  %delay.sroa.0.0. = select i1 %delay_request.1, i64 %delay.sroa.0.0, i64 0
+  br i1 %abort_request.1, label %if.then.i.i.i.i.i.i, label %cleanup.action
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end153
   %52 = load i32, ptr %abort_code, align 4
@@ -1802,7 +1802,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end153
   store i64 54, ptr %ref.tmp161, align 8
   store i32 %51, ptr %agg.result, align 8
   %delay_time_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %delay.sroa.0.1., ptr %delay_time_.i, align 8
+  store i64 %delay.sroa.0.0., ptr %delay_time_.i, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %abort_request_.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -1818,7 +1818,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   br label %if.then.i.i.i.i159
 
 cleanup.action:                                   ; preds = %if.end153, %.thread
-  %.ph = phi i64 [ 0, %.thread ], [ %delay.sroa.0.1., %if.end153 ]
+  %.ph = phi i64 [ 0, %.thread ], [ %delay.sroa.0.0., %if.end153 ]
   %.ph197 = phi i32 [ %38, %.thread ], [ %51, %if.end153 ]
   store i32 %.ph197, ptr %agg.result, align 8
   %delay_time_.i200 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3310,9 +3310,9 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end9.i.i
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i, %if.then.i.i
-  %agg.tmp.sroa.9.0 = phi ptr [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ %12, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
-  %agg.tmp.sroa.5.0 = phi i8 [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ %10, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
-  %agg.tmp.sroa.0.0 = phi i8 [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ 1, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ 0, %if.then.i.i ]
+  %agg.tmp.sroa.9.4 = phi ptr [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ %12, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
+  %agg.tmp.sroa.5.4 = phi i8 [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ %10, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
+  %agg.tmp.sroa.0.2 = phi i8 [ undef, %if.then.i.i.i.i.i.i.i.i.i ], [ undef, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ 1, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ 0, %if.then.i.i ]
   %17 = phi ptr [ %5, %if.then.i.i.i.i.i.i.i.i.i ], [ %5, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ %5, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ %3, %if.then.i.i ]
   %switch.i.i = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i ], [ true, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i ], [ false, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ false, %if.then.i.i ]
   %18 = load i8, ptr %result.i.i, align 8, !noalias !38
@@ -3340,9 +3340,9 @@ _ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i: ; preds = %if.the
   br i1 %switch.i.i, label %sw.bb16.i.i, label %"_ZN9grpc_core14promise_detail6TrySeqINS_5SleepEJZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0SC_EEclEv.exit"
 
 sw.bb16.i.i:                                      ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i, %entry
-  %agg.tmp.sroa.9.1 = phi ptr [ undef, %entry ], [ %agg.tmp.sroa.9.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
-  %agg.tmp.sroa.5.1 = phi i8 [ undef, %entry ], [ %agg.tmp.sroa.5.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
-  %agg.tmp.sroa.0.1 = phi i8 [ undef, %entry ], [ %agg.tmp.sroa.0.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.9.0 = phi ptr [ undef, %entry ], [ %agg.tmp.sroa.9.4, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.5.0 = phi i8 [ undef, %entry ], [ %agg.tmp.sroa.5.4, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.0.0 = phi i8 [ undef, %entry ], [ %agg.tmp.sroa.0.2, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %abort_request_.i.i.i24.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -3482,9 +3482,9 @@ cleanup44.i.i:                                    ; preds = %_ZN9grpc_core10Stat
   br i1 %46, label %if.then.i57.i.i, label %"_ZN9grpc_core14promise_detail6TrySeqINS_5SleepEJZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0SC_EEclEv.exit.thread"
 
 if.then.i57.i.i:                                  ; preds = %cleanup44.i.i, %cleanup44.thread.i.i
-  %agg.tmp.sroa.9.2 = phi ptr [ %agg.tmp.sroa.9.1, %cleanup44.thread.i.i ], [ %45, %cleanup44.i.i ]
-  %agg.tmp.sroa.5.2 = phi i8 [ %agg.tmp.sroa.5.1, %cleanup44.thread.i.i ], [ %43, %cleanup44.i.i ]
-  %agg.tmp.sroa.0.2 = phi i8 [ %agg.tmp.sroa.0.1, %cleanup44.thread.i.i ], [ 1, %cleanup44.i.i ]
+  %agg.tmp.sroa.9.1 = phi ptr [ %agg.tmp.sroa.9.0, %cleanup44.thread.i.i ], [ %45, %cleanup44.i.i ]
+  %agg.tmp.sroa.5.1 = phi i8 [ %agg.tmp.sroa.5.0, %cleanup44.thread.i.i ], [ %43, %cleanup44.i.i ]
+  %agg.tmp.sroa.0.1 = phi i8 [ %agg.tmp.sroa.0.0, %cleanup44.thread.i.i ], [ 1, %cleanup44.i.i ]
   %switch10114.i.i = phi i1 [ true, %cleanup44.thread.i.i ], [ false, %cleanup44.i.i ]
   %47 = phi ptr [ %37, %cleanup44.thread.i.i ], [ %34, %cleanup44.i.i ]
   %48 = load i64, ptr %47, align 8, !noalias !38
@@ -3551,9 +3551,9 @@ eh.resume.i.i:                                    ; preds = %lpad19.i.i, %lpad.i
   br label %if.then.i
 
 "_ZN9grpc_core14promise_detail6TrySeqINS_5SleepEJZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0SC_EEclEv.exit": ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit62.i.i
-  %agg.tmp.sroa.9.5 = phi ptr [ %agg.tmp.sroa.9.2, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit62.i.i ], [ %agg.tmp.sroa.9.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
-  %agg.tmp.sroa.5.5 = phi i8 [ %agg.tmp.sroa.5.2, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit62.i.i ], [ %agg.tmp.sroa.5.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
-  %agg.tmp.sroa.0.3 = phi i8 [ %agg.tmp.sroa.0.2, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit62.i.i ], [ %agg.tmp.sroa.0.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.9.5 = phi ptr [ %agg.tmp.sroa.9.1, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit62.i.i ], [ %agg.tmp.sroa.9.4, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.5.5 = phi i8 [ %agg.tmp.sroa.5.1, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit62.i.i ], [ %agg.tmp.sroa.5.4, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.0.3 = phi i8 [ %agg.tmp.sroa.0.1, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit62.i.i ], [ %agg.tmp.sroa.0.2, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result.i.i), !noalias !35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result17.i.i), !noalias !35

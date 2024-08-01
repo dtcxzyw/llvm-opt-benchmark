@@ -771,13 +771,13 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   br label %78
 
 78:                                               ; preds = %.sink.split53, %66, %75
-  %.1 = phi i32 [ 0, %75 ], [ %73, %66 ], [ %77, %.sink.split53 ]
+  %.2 = phi i32 [ 0, %75 ], [ %73, %66 ], [ %77, %.sink.split53 ]
   call void @VP8LDelete(ptr noundef nonnull %62) #10
   br label %79
 
 79:                                               ; preds = %78, %60
-  %.2 = phi i32 [ %.1, %78 ], [ %.035, %60 ]
-  %.not50 = icmp eq i32 %.2, 0
+  %.1 = phi i32 [ %.2, %78 ], [ %.035, %60 ]
+  %.not50 = icmp eq i32 %.1, 0
   br i1 %.not50, label %82, label %80
 
 80:                                               ; preds = %79
@@ -803,7 +803,7 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   br label %91
 
 91:                                               ; preds = %80, %88, %85, %82, %61, %31, %18, %WebPParseHeaders.exit
-  %.0 = phi i32 [ %.0..0..0..0..0..0.3.i, %WebPParseHeaders.exit ], [ 2, %18 ], [ 1, %31 ], [ 1, %61 ], [ %.2, %80 ], [ %90, %88 ], [ 0, %85 ], [ 0, %82 ]
+  %.0 = phi i32 [ %.0..0..0..0..0..0.3.i, %WebPParseHeaders.exit ], [ 2, %18 ], [ 1, %31 ], [ 1, %61 ], [ %.1, %80 ], [ %90, %88 ], [ 0, %85 ], [ 0, %82 ]
   ret i32 %.0
 }
 
@@ -1502,26 +1502,26 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
   %24 = icmp ugt i32 %2, 10
   %25 = and i32 %21, -2
   %26 = and i32 %23, -2
-  %.060 = select i1 %24, i32 %25, i32 %21
-  %.059 = select i1 %24, i32 %26, i32 %23
-  %27 = or i32 %.059, %.060
+  %.161 = select i1 %24, i32 %25, i32 %21
+  %.1 = select i1 %24, i32 %26, i32 %23
+  %27 = or i32 %.1, %.161
   %or.cond.i = icmp slt i32 %27, 0
   %28 = icmp slt i32 %17, 1
   %or.cond3.not38.not43.not52.not62.i = or i1 %28, %or.cond.i
   %29 = icmp slt i32 %19, 1
   %or.cond5.not36.not41.not50.not60.i = or i1 %29, %or.cond3.not38.not43.not52.not62.i
-  %.not.i = icmp sge i32 %.060, %6
+  %.not.i = icmp sge i32 %.161, %6
   %or.cond29.not39.not48.not58.i = or i1 %.not.i, %or.cond5.not36.not41.not50.not60.i
   %30 = icmp sgt i32 %17, %6
   %or.cond30.not47.not57.i = or i1 %30, %or.cond29.not39.not48.not58.i
-  %31 = sub nsw i32 %6, %.060
+  %31 = sub nsw i32 %6, %.161
   %32 = icmp slt i32 %31, %17
   %or.cond32.not45.not55.i = select i1 %or.cond30.not47.not57.i, i1 true, i1 %32
-  %.not28.i = icmp sge i32 %.059, %8
+  %.not28.i = icmp sge i32 %.1, %8
   %or.cond33.not53.i = or i1 %.not28.i, %or.cond32.not45.not55.i
   %33 = icmp sgt i32 %19, %8
   %or.cond34.i = or i1 %33, %or.cond33.not53.i
-  %34 = sub nsw i32 %8, %.059
+  %34 = sub nsw i32 %8, %.1
   %35 = icmp slt i32 %34, %19
   %narrow.i.not = select i1 %or.cond34.i, i1 true, i1 %35
   br i1 %narrow.i.not, label %92, label %37
@@ -1532,18 +1532,18 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
   br label %37
 
 37:                                               ; preds = %.critedge, %15, %9
-  %.161 = phi i32 [ %.060, %15 ], [ 0, %9 ], [ 0, %.critedge ]
-  %.1 = phi i32 [ %.059, %15 ], [ 0, %9 ], [ 0, %.critedge ]
+  %.060 = phi i32 [ %.161, %15 ], [ 0, %9 ], [ 0, %.critedge ]
+  %.059 = phi i32 [ %.1, %15 ], [ 0, %9 ], [ 0, %.critedge ]
   %.058 = phi i32 [ %17, %15 ], [ %6, %9 ], [ %6, %.critedge ]
   %.0 = phi i32 [ %19, %15 ], [ %8, %9 ], [ %8, %.critedge ]
   %38 = getelementptr inbounds i8, ptr %1, i64 120
-  store i32 %.161, ptr %38, align 8
+  store i32 %.060, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %1, i64 128
-  store i32 %.1, ptr %39, align 8
-  %40 = add nsw i32 %.058, %.161
+  store i32 %.059, ptr %39, align 8
+  %40 = add nsw i32 %.058, %.060
   %41 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %40, ptr %41, align 4
-  %42 = add nsw i32 %.0, %.1
+  %42 = add nsw i32 %.0, %.059
   %43 = getelementptr inbounds i8, ptr %1, i64 132
   store i32 %42, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %1, i64 12

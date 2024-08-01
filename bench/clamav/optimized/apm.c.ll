@@ -439,8 +439,8 @@ fmap_readn.exit147.thread:                        ; preds = %106, %100, %fmap_re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %145, %._crit_edge, %156, %76, %121, %fmap_readn.exit147.thread, %63, %58, %fmap_readn.exit142.thread, %fmap_readn.exit137.thread, %26, %17, %fmap_readn.exit.thread, %8
-  %.3 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 26, %17 ], [ 26, %26 ], [ 26, %fmap_readn.exit137.thread ], [ 26, %fmap_readn.exit142.thread ], [ 26, %58 ], [ 26, %63 ], [ %77, %76 ], [ 26, %fmap_readn.exit147.thread ], [ 26, %121 ], [ 0, %156 ], [ 0, %._crit_edge ], [ 2, %8 ], [ %152, %145 ]
-  ret i32 %.3
+  %.049 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 26, %17 ], [ 26, %26 ], [ 26, %fmap_readn.exit137.thread ], [ 26, %fmap_readn.exit142.thread ], [ 26, %58 ], [ 26, %63 ], [ %77, %76 ], [ 26, %fmap_readn.exit147.thread ], [ 26, %121 ], [ 0, %156 ], [ 0, %._crit_edge ], [ 2, %8 ], [ %152, %145 ]
+  ret i32 %.049
 }
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
@@ -569,9 +569,9 @@ fmap_readn.exit.thread:                           ; preds = %25, %19, %fmap_read
   br i1 %.not, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %51, %54, %46, %4, %fmap_readn.exit.thread
-  %.2 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 0, %4 ], [ %53, %51 ], [ 0, %54 ], [ %50, %46 ]
+  %.1 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 0, %4 ], [ %53, %51 ], [ 0, %54 ], [ %50, %46 ]
   %56 = call i32 @partition_intersection_list_free(ptr noundef nonnull %5) #5
-  ret i32 %.2
+  ret i32 %.1
 }
 
 declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

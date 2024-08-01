@@ -2641,21 +2641,21 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
   br i1 %45, label %._crit_edge, label %40
 
 ._crit_edge:                                      ; preds = %40, %.lr.ph, %34
-  %.059 = phi i8 [ %37, %34 ], [ %36, %.lr.ph ], [ %37, %40 ]
+  %.160 = phi i8 [ %37, %34 ], [ %36, %.lr.ph ], [ %37, %40 ]
   call void @opal_argv_free(ptr noundef nonnull %38) #17
-  %46 = trunc i8 %.059 to i1
+  %46 = trunc i8 %.160 to i1
   br label %47
 
 47:                                               ; preds = %20, %._crit_edge, %32, %30, %27, %3
-  %.160 = phi i1 [ %46, %._crit_edge ], [ true, %32 ], [ true, %30 ], [ true, %27 ], [ true, %20 ], [ true, %3 ]
+  %.059 = phi i1 [ %46, %._crit_edge ], [ true, %32 ], [ true, %30 ], [ true, %27 ], [ true, %20 ], [ true, %3 ]
   store ptr null, ptr %12, align 8
   %48 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %12, ptr noundef nonnull @.str.126, ptr noundef nonnull %spec.select) #17
   %49 = icmp sgt i32 %16, 0
   br i1 %49, label %.lr.ph109, label %._crit_edge110
 
 .lr.ph109:                                        ; preds = %47
-  %50 = select i1 %.160, ptr @.str.87, ptr @.str.128
-  %51 = select i1 %.160, ptr @.str.131, ptr @.str.132
+  %50 = select i1 %.059, ptr @.str.87, ptr @.str.128
+  %51 = select i1 %.059, ptr @.str.131, ptr @.str.132
   %wide.trip.count = and i64 %.val, 2147483647
   %52 = getelementptr inbounds i8, ptr %0, i64 64
   %53 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2664,7 +2664,7 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
 
 55:                                               ; preds = %.lr.ph109, %125
   %indvars.iv129 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next130, %125 ]
-  %.0107 = phi ptr [ null, %.lr.ph109 ], [ %.2, %125 ]
+  %.0107 = phi ptr [ null, %.lr.ph109 ], [ %.1, %125 ]
   %56 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv129
   %57 = load i32, ptr %56, align 4
   %58 = call i32 @mca_base_var_get(i32 noundef %57, ptr noundef nonnull %6) #17
@@ -2721,7 +2721,7 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
   br label %.thread154
 
 .thread154:                                       ; preds = %75, %68, %.thread
-  %.1152 = phi ptr [ %0, %.thread ], [ %.0107, %68 ], [ %0, %75 ]
+  %.2152 = phi ptr [ %0, %.thread ], [ %.0107, %68 ], [ %0, %75 ]
   %85 = phi i32 [ %74, %.thread ], [ 1, %68 ], [ %spec.select159, %75 ]
   %86 = load i32, ptr %56, align 4
   %87 = call i32 @mca_base_var_dump(i32 noundef %86, ptr noundef nonnull %7, i32 noundef %85) #17
@@ -2800,13 +2800,13 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
   br label %125
 
 125:                                              ; preds = %59, %.thread154, %55, %64, %123
-  %.2 = phi ptr [ %.0107, %55 ], [ %.0107, %64 ], [ %.1152, %.thread154 ], [ %.1152, %123 ], [ %.0107, %59 ]
+  %.1 = phi ptr [ %.0107, %55 ], [ %.0107, %64 ], [ %.2152, %.thread154 ], [ %.2152, %123 ], [ %.0107, %59 ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge110, label %55, !llvm.loop !29
 
 ._crit_edge110:                                   ; preds = %125, %47
-  %.0.lcssa = phi ptr [ null, %47 ], [ %.2, %125 ]
+  %.0.lcssa = phi ptr [ null, %47 ], [ %.1, %125 ]
   %126 = getelementptr inbounds i8, ptr %0, i64 200
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i8, ptr %0, i64 216
@@ -2816,8 +2816,8 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
   br i1 %130, label %.lr.ph119, label %._crit_edge120
 
 .lr.ph119:                                        ; preds = %._crit_edge110
-  %131 = select i1 %.160, ptr @.str.87, ptr @.str.128
-  %132 = select i1 %.160, ptr @.str.131, ptr @.str.132
+  %131 = select i1 %.059, ptr @.str.87, ptr @.str.128
+  %132 = select i1 %.059, ptr @.str.131, ptr @.str.132
   %wide.trip.count138 = and i64 %.val93, 2147483647
   %133 = getelementptr inbounds i8, ptr %0, i64 64
   %134 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2826,7 +2826,7 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
 
 136:                                              ; preds = %.lr.ph119, %200
   %indvars.iv135 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next136, %200 ]
-  %.3117 = phi ptr [ %.0.lcssa, %.lr.ph119 ], [ %.5, %200 ]
+  %.3117 = phi ptr [ %.0.lcssa, %.lr.ph119 ], [ %.4, %200 ]
   %137 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv135
   %138 = load i32, ptr %137, align 4
   %139 = call i32 @mca_base_pvar_get(i32 noundef %138, ptr noundef nonnull %5) #17
@@ -2864,7 +2864,7 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
 
 156:                                              ; preds = %149, %148, %145
   %157 = phi i8 [ %.pre146, %149 ], [ %146, %148 ], [ %146, %145 ]
-  %.4 = phi ptr [ %0, %149 ], [ %0, %148 ], [ %.3117, %145 ]
+  %.5 = phi ptr [ %0, %149 ], [ %0, %148 ], [ %.3117, %145 ]
   %158 = load i32, ptr %137, align 4
   %159 = and i8 %157, 1
   %160 = xor i8 %159, 1
@@ -2945,7 +2945,7 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
   br label %200
 
 200:                                              ; preds = %156, %136, %140, %198
-  %.5 = phi ptr [ %.3117, %136 ], [ %.3117, %140 ], [ %.4, %156 ], [ %.4, %198 ]
+  %.4 = phi ptr [ %.3117, %136 ], [ %.3117, %140 ], [ %.5, %156 ], [ %.5, %198 ]
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
   br i1 %exitcond139.not, label %._crit_edge120, label %136, !llvm.loop !31

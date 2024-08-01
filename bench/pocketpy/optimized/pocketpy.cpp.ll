@@ -12076,14 +12076,14 @@ _ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit257: ; preds = %_ZNSt10shared_ptr
 
 683:                                              ; preds = %682, %671, %669
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %682 ], [ %672, %671 ], [ %670, %669 ]
-  %.222 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.121 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %684 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4pkpy9ExceptionE) #35
-  %685 = icmp eq i32 %.222, %684
+  %685 = icmp eq i32 %.121, %684
   br i1 %685, label %686, label %_ZN4pkpy3anyD2Ev.exit260
 
 686:                                              ; preds = %683
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %687 = call ptr @__cxa_begin_catch(ptr %.2) #35
+  %.1 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %687 = call ptr @__cxa_begin_catch(ptr %.1) #35
   invoke void @_ZNK4pkpy9Exception7summaryEv(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %61, ptr noundef nonnull align 8 dereferenceable(88) %687)
           to label %688 unwind label %697
 
@@ -12459,23 +12459,23 @@ define linkonce_odr noundef ptr @_ZNK4pkpy9Exception4selfEv(ptr noundef nonnull 
 
 28:                                               ; preds = %26, %24
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  %.1 = phi i1 [ %.0, %26 ], [ true, %24 ]
+  %.4 = phi i1 [ %.0, %26 ], [ true, %24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   br label %29
 
 29:                                               ; preds = %28, %22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %28 ], [ %23, %22 ]
-  %.2 = phi i1 [ %.1, %28 ], [ true, %22 ]
+  %.3 = phi i1 [ %.4, %28 ], [ true, %22 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
   br label %30
 
 30:                                               ; preds = %20, %29
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %29 ], [ %21, %20 ]
-  %.3 = phi i1 [ %.2, %29 ], [ true, %20 ]
+  %.2 = phi i1 [ %.3, %29 ], [ true, %20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #35
-  br i1 %.3, label %31, label %33
+  br i1 %.2, label %31, label %33
 
 31:                                               ; preds = %.thread, %30
   %.pn.pn.pn.pn19 = phi { ptr, i32 } [ %19, %.thread ], [ %.pn.pn.pn, %30 ]
@@ -13784,10 +13784,10 @@ _ZNSt3mapIKSt10type_indexN4pkpy4TypeESt4lessIS1_ESaISt4pairIS1_S3_EEE4findERS1_.
 
 45:                                               ; preds = %41, %43
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.1 = phi i1 [ %.0, %43 ], [ true, %41 ]
+  %.2 = phi i1 [ %.0, %43 ], [ true, %41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #35
-  br i1 %.1, label %46, label %49
+  br i1 %.2, label %46, label %49
 
 46:                                               ; preds = %.thread, %45
   %.pn.pn16 = phi { ptr, i32 } [ %40, %.thread ], [ %.pn, %45 ]
@@ -15379,7 +15379,7 @@ define internal noundef ptr @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN4$_178__invok
 
 .thread.i:                                        ; preds = %43, %28, %23
   %49 = phi ptr [ %46, %43 ], [ null, %23 ], [ null, %28 ]
-  %.09.i = phi ptr [ %30, %43 ], [ null, %23 ], [ %30, %28 ]
+  %.19.i = phi ptr [ %30, %43 ], [ null, %23 ], [ %30, %28 ]
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.207)
   %50 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 9, ptr nonnull @.str.204)
           to label %.noexc.i unwind label %51
@@ -15417,27 +15417,27 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit40.i:        ; preds = %.noexc38.i
 
 57:                                               ; preds = %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit40.i, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i, %43, %19
   %58 = phi ptr [ %22, %19 ], [ %49, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i ], [ %46, %43 ], [ null, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit40.i ]
-  %.1.i = phi ptr [ %20, %19 ], [ %.09.i, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i ], [ %30, %43 ], [ null, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit40.i ]
-  %59 = ptrtoint ptr %.1.i to i64
+  %.0.i = phi ptr [ %20, %19 ], [ %.19.i, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i ], [ %30, %43 ], [ null, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit40.i ]
+  %59 = ptrtoint ptr %.0.i to i64
   %60 = and i64 %59, 3
   %61 = icmp eq i64 %60, 2
   br i1 %61, label %65, label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i
 
 _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i: ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %.1.i, i64 10
+  %62 = getelementptr inbounds i8, ptr %.0.i, i64 10
   %63 = load i16, ptr %62, align 2
   %64 = icmp eq i16 %63, 1
   br i1 %64, label %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit.i, label %65
 
 65:                                               ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i, %57
-  %66 = getelementptr inbounds i8, ptr %.1.i, i64 10
+  %66 = getelementptr inbounds i8, ptr %.0.i, i64 10
   %67 = select i1 %61, ptr @_ZN4pkpy2VM6tp_intE, ptr %66
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %67, align 2
   call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 1, i16 %.sroa.0.0.copyload.i.i.i)
   br label %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit.i
 
 _ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit.i: ; preds = %65, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i
-  %68 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %68 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %69 = load i16, ptr %68, align 8
   %70 = call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %58, i16 %69)
   br i1 %70, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK4$_17clES1_NS_8ArgsViewE.exit", label %71
@@ -16869,10 +16869,10 @@ _ZNSt3mapIKSt10type_indexN4pkpy4TypeESt4lessIS1_ESaISt4pairIS1_S3_EEE4findERS1_.
 
 45:                                               ; preds = %41, %43
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.1 = phi i1 [ %.0, %43 ], [ true, %41 ]
+  %.2 = phi i1 [ %.0, %43 ], [ true, %41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #35
-  br i1 %.1, label %46, label %49
+  br i1 %.2, label %46, label %49
 
 46:                                               ; preds = %.thread, %45
   %.pn.pn16 = phi { ptr, i32 } [ %40, %.thread ], [ %.pn, %45 ]
@@ -17478,10 +17478,10 @@ _ZNSt3mapIKSt10type_indexN4pkpy4TypeESt4lessIS1_ESaISt4pairIS1_S3_EEE4findERS1_.
 
 45:                                               ; preds = %41, %43
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.1 = phi i1 [ %.0, %43 ], [ true, %41 ]
+  %.2 = phi i1 [ %.0, %43 ], [ true, %41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #35
-  br i1 %.1, label %46, label %49
+  br i1 %.2, label %46, label %49
 
 46:                                               ; preds = %.thread, %45
   %.pn.pn16 = phi { ptr, i32 } [ %40, %.thread ], [ %.pn, %45 ]
@@ -20109,24 +20109,24 @@ define internal void @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN4$_498__invokeES1_PN
   br label %31
 
 31:                                               ; preds = %29, %27
-  %.114.i = phi i1 [ %.013.i, %29 ], [ true, %27 ]
+  %.417.i = phi i1 [ %.013.i, %29 ], [ true, %27 ]
   %.pn.i = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #35, !noalias !70
   br label %32
 
 32:                                               ; preds = %31, %25
-  %.215.i = phi i1 [ %.114.i, %31 ], [ true, %25 ]
+  %.316.i = phi i1 [ %.417.i, %31 ], [ true, %25 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %31 ], [ %26, %25 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #35, !noalias !70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #35, !noalias !70
   br label %33
 
 33:                                               ; preds = %32, %23
-  %.316.i = phi i1 [ %.215.i, %32 ], [ true, %23 ]
+  %.215.i = phi i1 [ %.316.i, %32 ], [ true, %23 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %32 ], [ %24, %23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #35, !noalias !70
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #35, !noalias !70
-  br i1 %.316.i, label %34, label %_ZN4pkpy7SStreamD2Ev.exit24.i
+  br i1 %.215.i, label %34, label %_ZN4pkpy7SStreamD2Ev.exit24.i
 
 34:                                               ; preds = %33, %.thread.i
   %.pn.pn.pn.pn3.i = phi { ptr, i32 } [ %22, %.thread.i ], [ %.pn.pn.pn.i, %33 ]
@@ -21034,10 +21034,10 @@ _ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4less
 
 33:                                               ; preds = %29, %31
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
-  %.1 = phi i1 [ %.0, %31 ], [ true, %29 ]
+  %.2 = phi i1 [ %.0, %31 ], [ true, %29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #35
-  br i1 %.1, label %34, label %37
+  br i1 %.2, label %34, label %37
 
 34:                                               ; preds = %.thread, %33
   %.pn.pn16 = phi { ptr, i32 } [ %28, %.thread ], [ %.pn, %33 ]
@@ -23210,10 +23210,10 @@ _ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4less
 
 33:                                               ; preds = %29, %31
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
-  %.1 = phi i1 [ %.0, %31 ], [ true, %29 ]
+  %.2 = phi i1 [ %.0, %31 ], [ true, %29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #35
-  br i1 %.1, label %34, label %37
+  br i1 %.2, label %34, label %37
 
 34:                                               ; preds = %.thread, %33
   %.pn.pn16 = phi { ptr, i32 } [ %28, %.thread ], [ %.pn, %33 ]
@@ -25757,8 +25757,8 @@ _ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %50, %53
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %.085 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
   %.04984 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.283 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.283, i64 -8
+  %.383 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
+  %63 = getelementptr inbounds i8, ptr %.383, i64 -8
   %64 = getelementptr inbounds i8, ptr %.04984, i64 -8
   %65 = load ptr, ptr %63, align 8
   %66 = load ptr, ptr %64, align 8
@@ -25769,7 +25769,7 @@ _ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %50, %53
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.2.lcssa = phi ptr [ %61, %59 ], [ %.053, %.lr.ph ]
+  %.3.lcssa = phi ptr [ %61, %59 ], [ %.053, %.lr.ph ]
   %68 = srem i64 %.076, %25
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %_ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, label %.backedge
@@ -25777,7 +25777,7 @@ _ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %50, %53
 .backedge:                                        ; preds = %._crit_edge, %45
   %.076.be = phi i64 [ %.074, %45 ], [ %25, %._crit_edge ]
   %.074.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
-  %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.2.lcssa, %._crit_edge ]
+  %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !105
 
 _ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge91, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit
@@ -27661,10 +27661,10 @@ _ZNSt3mapIKSt10type_indexN4pkpy4TypeESt4lessIS1_ESaISt4pairIS1_S3_EEE4findERS1_.
 
 45:                                               ; preds = %41, %43
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.1 = phi i1 [ %.0, %43 ], [ true, %41 ]
+  %.2 = phi i1 [ %.0, %43 ], [ true, %41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #35
-  br i1 %.1, label %46, label %49
+  br i1 %.2, label %46, label %49
 
 46:                                               ; preds = %.thread, %45
   %.pn.pn16 = phi { ptr, i32 } [ %40, %.thread ], [ %.pn, %45 ]
@@ -30456,10 +30456,10 @@ _ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4less
 
 33:                                               ; preds = %29, %31
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
-  %.1 = phi i1 [ %.0, %31 ], [ true, %29 ]
+  %.2 = phi i1 [ %.0, %31 ], [ true, %29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #35
-  br i1 %.1, label %34, label %37
+  br i1 %.2, label %34, label %37
 
 34:                                               ; preds = %.thread, %33
   %.pn.pn16 = phi { ptr, i32 } [ %28, %.thread ], [ %.pn, %33 ]
@@ -33605,8 +33605,8 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit38.thread.i: ; preds = %_ZN4pkpy7is
           to label %66 unwind label %69
 
 .thread10.i:                                      ; preds = %60, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i, %29, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i
-  %.0.ph.in.i = getelementptr inbounds i8, ptr %0, i64 264520
-  %.0.ph.i = load ptr, ptr %.0.ph.in.i, align 8
+  %.1.ph.in.i = getelementptr inbounds i8, ptr %0, i64 264520
+  %.1.ph.i = load ptr, ptr %.1.ph.in.i, align 8
   %64 = load i32, ptr %16, align 8
   %65 = add nsw i32 %64, -1
   store i32 %65, ptr %16, align 8
@@ -33652,11 +33652,11 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit38.thread.i: ; preds = %_ZN4pkpy7is
   resume { ptr, i32 } %.pn36.i
 
 "_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_178clES1_NS_8ArgsViewE.exit": ; preds = %12, %.thread10.i
-  %.1.i = phi ptr [ %14, %12 ], [ %.0.ph.i, %.thread10.i ]
+  %.0.i = phi ptr [ %14, %12 ], [ %.1.ph.i, %.thread10.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  ret ptr %.1.i
+  ret ptr %.0.i
 }
 
 declare void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
@@ -34204,10 +34204,10 @@ _ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4less
 
 33:                                               ; preds = %29, %31
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
-  %.1 = phi i1 [ %.0, %31 ], [ true, %29 ]
+  %.2 = phi i1 [ %.0, %31 ], [ true, %29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #35
-  br i1 %.1, label %34, label %37
+  br i1 %.2, label %34, label %37
 
 34:                                               ; preds = %.thread, %33
   %.pn.pn16 = phi { ptr, i32 } [ %28, %.thread ], [ %.pn, %33 ]
@@ -34914,10 +34914,10 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.
 
 59:                                               ; preds = %55, %57
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
-  %.1 = phi i1 [ %.0, %57 ], [ true, %55 ]
+  %.3 = phi i1 [ %.0, %57 ], [ true, %55 ]
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #35
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #35
-  br i1 %.1, label %60, label %62
+  br i1 %.3, label %60, label %62
 
 60:                                               ; preds = %.thread19, %.thread, %59
   %.pn.pn.pn18 = phi { ptr, i32 } [ %53, %.thread ], [ %.pn, %59 ], [ %54, %.thread19 ]
@@ -37149,8 +37149,8 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
   br i1 %or.cond18.i, label %.loopexit.i, label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %63, %.lr.ph20.i
-  %.119.i = phi i16 [ %73, %.lr.ph20.i ], [ %65, %63 ]
-  %72 = add i16 %.119.i, 1
+  %.319.i = phi i16 [ %73, %.lr.ph20.i ], [ %65, %63 ]
+  %72 = add i16 %.319.i, 1
   %73 = and i16 %72, %64
   %74 = zext i16 %73 to i64
   %75 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %66, i64 %74
@@ -37235,8 +37235,8 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
   br i1 %or.cond18.i20, label %.loopexit.i16, label %.lr.ph20.i21
 
 .lr.ph20.i21:                                     ; preds = %108, %.lr.ph20.i21
-  %.119.i22 = phi i16 [ %118, %.lr.ph20.i21 ], [ %110, %108 ]
-  %117 = add i16 %.119.i22, 1
+  %.319.i22 = phi i16 [ %118, %.lr.ph20.i21 ], [ %110, %108 ]
+  %117 = add i16 %.319.i22, 1
   %118 = and i16 %117, %109
   %119 = zext i16 %118 to i64
   %120 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %111, i64 %119
@@ -37431,8 +37431,8 @@ define linkonce_odr void @_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12N
   br i1 %or.cond18.i.i, label %.loopexit.i.i, label %.lr.ph20.i.i
 
 .lr.ph20.i.i:                                     ; preds = %36, %.lr.ph20.i.i
-  %.119.i.i = phi i16 [ %46, %.lr.ph20.i.i ], [ %38, %36 ]
-  %45 = add i16 %.119.i.i, 1
+  %.319.i.i = phi i16 [ %46, %.lr.ph20.i.i ], [ %38, %36 ]
+  %45 = add i16 %.319.i.i, 1
   %46 = and i16 %45, %37
   %47 = zext i16 %46 to i64
   %48 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %39, i64 %47
@@ -37599,23 +37599,23 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
 
 59:                                               ; preds = %57, %55
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
-  %.1 = phi i1 [ %.0, %57 ], [ true, %55 ]
+  %.4 = phi i1 [ %.0, %57 ], [ true, %55 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   br label %60
 
 60:                                               ; preds = %59, %53
   %.pn.pn = phi { ptr, i32 } [ %.pn, %59 ], [ %54, %53 ]
-  %.2 = phi i1 [ %.1, %59 ], [ true, %53 ]
+  %.3 = phi i1 [ %.4, %59 ], [ true, %53 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
   br label %61
 
 61:                                               ; preds = %51, %60
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %60 ], [ %52, %51 ]
-  %.3 = phi i1 [ %.2, %60 ], [ true, %51 ]
+  %.2 = phi i1 [ %.3, %60 ], [ true, %51 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #35
-  br i1 %.3, label %62, label %64
+  br i1 %.2, label %62, label %64
 
 62:                                               ; preds = %.thread, %61
   %.pn.pn.pn.pn38 = phi { ptr, i32 } [ %50, %.thread ], [ %.pn.pn.pn, %61 ]

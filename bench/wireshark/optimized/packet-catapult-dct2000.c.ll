@@ -2772,8 +2772,8 @@ proto_item_set_generated.exit:                    ; preds = %800, %803, %806
   br label %.sink.split834
 
 1123:                                             ; preds = %743, %1118, %780, %770, %754
-  %.1 = phi ptr [ %744, %743 ], [ %755, %754 ], [ %771, %770 ], [ %781, %780 ], [ %.0488, %1118 ]
-  %1124 = icmp eq ptr %.1, null
+  %.2 = phi ptr [ %744, %743 ], [ %755, %754 ], [ %771, %770 ], [ %781, %780 ], [ %.0488, %1118 ]
+  %1124 = icmp eq ptr %.2, null
   %1125 = load i32, ptr @catapult_dct2000_try_ipprim_heuristic, align 4
   %1126 = icmp ne i32 %1125, 0
   %or.cond11 = select i1 %1124, i1 %1126, i1 false
@@ -3110,8 +3110,8 @@ proto_item_set_hidden.exit650:                    ; preds = %1274, %1271, %1259,
   br label %1299
 
 1299:                                             ; preds = %1127, %1296, %1123
-  %.2 = phi ptr [ %1139, %1296 ], [ null, %1127 ], [ %.1, %1123 ]
-  %1300 = icmp eq ptr %.2, null
+  %.3 = phi ptr [ %1139, %1296 ], [ null, %1127 ], [ %.2, %1123 ]
+  %1300 = icmp eq ptr %.3, null
   %1301 = load i32, ptr @catapult_dct2000_try_sctpprim_heuristic, align 4
   %1302 = icmp ne i32 %1301, 0
   %or.cond16 = select i1 %1300, i1 %1302, i1 false
@@ -3251,7 +3251,7 @@ proto_item_set_hidden.exit657:                    ; preds = %1355, %1352, %set_a
 
 .thread685:                                       ; preds = %..thread685_crit_edge, %.thread679
   %1368 = phi i32 [ %1365, %.thread679 ], [ %.pre807, %..thread685_crit_edge ]
-  %.4.ph = phi ptr [ %1305, %.thread679 ], [ %.2, %..thread685_crit_edge ]
+  %.5.ph = phi ptr [ %1305, %.thread679 ], [ %.3, %..thread685_crit_edge ]
   call void @proto_item_set_len(ptr noundef %.0486665674, i32 noundef %1368) #9
   br label %1381
 
@@ -3276,18 +3276,18 @@ proto_item_set_hidden.exit657:                    ; preds = %1355, %1352, %set_a
 
 1379:                                             ; preds = %.thread677, %1376, %590, %588, %586, %584, %578, %574, %570, %568, %566
   %.0489 = phi ptr [ null, %1376 ], [ null, %.thread677 ], [ null, %590 ], [ null, %588 ], [ null, %586 ], [ null, %584 ], [ null, %578 ], [ %577, %574 ], [ %573, %570 ], [ null, %568 ], [ null, %566 ]
-  %.5 = phi ptr [ %1377, %1376 ], [ %1372, %.thread677 ], [ %591, %590 ], [ %589, %588 ], [ %587, %586 ], [ %585, %584 ], [ %579, %578 ], [ %575, %574 ], [ %571, %570 ], [ %569, %568 ], [ %567, %566 ]
+  %.1 = phi ptr [ %1377, %1376 ], [ %1372, %.thread677 ], [ %591, %590 ], [ %589, %588 ], [ %587, %586 ], [ %585, %584 ], [ %579, %578 ], [ %575, %574 ], [ %571, %570 ], [ %569, %568 ], [ %567, %566 ]
   %1380 = load i32, ptr %7, align 4
   call void @proto_item_set_len(ptr noundef %.0486665674, i32 noundef %1380) #9
-  %.not573 = icmp eq ptr %.5, null
+  %.not573 = icmp eq ptr %.1, null
   br i1 %.not573, label %.thread696, label %1381
 
 1381:                                             ; preds = %1379, %.thread685
   %1382 = phi i32 [ %1368, %.thread685 ], [ %1380, %1379 ]
-  %.5693 = phi ptr [ %.4.ph, %.thread685 ], [ %.5, %1379 ]
+  %.1693 = phi ptr [ %.5.ph, %.thread685 ], [ %.1, %1379 ]
   %.0489692 = phi ptr [ null, %.thread685 ], [ %.0489, %1379 ]
   %1383 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1382) #9
-  %1384 = call i32 @call_dissector_only(ptr noundef nonnull %.5693, ptr noundef %1383, ptr noundef %1, ptr noundef %2, ptr noundef %.0489692) #9
+  %1384 = call i32 @call_dissector_only(ptr noundef nonnull %.1693, ptr noundef %1383, ptr noundef %1, ptr noundef %2, ptr noundef %.0489692) #9
   %1385 = icmp eq i32 %1384, 0
   br i1 %1385, label %..thread696_crit_edge, label %1390
 
@@ -3638,13 +3638,13 @@ define internal fastcc void @attach_mac_lte_info(ptr noundef %0, ptr nocapture n
   br label %.thread144
 
 .thread144:                                       ; preds = %63, %.thread146, %.thread142, %88, %79, %102, %100, %51
-  %.4 = phi i32 [ 21, %88 ], [ 20, %79 ], [ 18, %102 ], [ 15, %100 ], [ 9, %51 ], [ %.1.ph, %.thread142 ], [ 16, %.thread146 ], [ 18, %63 ]
-  %115 = icmp ult i32 %.4, %2
+  %.2 = phi i32 [ 21, %88 ], [ 20, %79 ], [ 18, %102 ], [ 15, %100 ], [ 9, %51 ], [ %.1.ph, %.thread142 ], [ 16, %.thread146 ], [ 18, %63 ]
+  %115 = icmp ult i32 %.2, %2
   br i1 %115, label %116, label %123
 
 116:                                              ; preds = %.thread144
-  %117 = add nuw nsw i32 %.4, 1
-  %118 = zext nneg i32 %.4 to i64
+  %117 = add nuw nsw i32 %.2, 1
+  %118 = zext nneg i32 %.2 to i64
   %119 = getelementptr i32, ptr %1, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = trunc i32 %120 to i16
@@ -3653,7 +3653,7 @@ define internal fastcc void @attach_mac_lte_info(ptr noundef %0, ptr nocapture n
   br label %123
 
 123:                                              ; preds = %116, %.thread144
-  %.5 = phi i32 [ %117, %116 ], [ %.4, %.thread144 ]
+  %.5 = phi i32 [ %117, %116 ], [ %.2, %.thread144 ]
   %124 = icmp eq i8 %18, 0
   %125 = icmp ult i32 %.5, %2
   %or.cond = and i1 %125, %124
@@ -4569,23 +4569,23 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %149
 
 147:                                              ; preds = %114, %.thread
-  %.4203 = phi i32 [ %118, %.thread ], [ %116, %114 ]
-  %148 = add i32 %.4203, -1
+  %.5203 = phi i32 [ %118, %.thread ], [ %116, %114 ]
+  %148 = add i32 %.5203, -1
   br label %149
 
 149:                                              ; preds = %121, %145, %147
-  %.5 = phi i32 [ %146, %145 ], [ %125, %121 ], [ %148, %147 ]
-  %150 = add i32 %.5, 1
+  %.6 = phi i32 [ %146, %145 ], [ %125, %121 ], [ %148, %147 ]
+  %150 = add i32 %.6, 1
   %151 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %150) #9
-  %152 = add i32 %.5, 4
+  %152 = add i32 %.6, 4
   %153 = load i32, ptr @hf_catapult_dct2000_integrity_algorithm, align 4
-  %154 = add i32 %.5, 5
+  %154 = add i32 %.6, 5
   %155 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %106, i32 noundef %153, ptr noundef %0, i32 noundef %152, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #9
   %156 = icmp ugt i8 %151, 3
   br i1 %156, label %157, label %185
 
 157:                                              ; preds = %149
-  %158 = add i32 %.5, 7
+  %158 = add i32 %.6, 7
   %159 = load i32, ptr @hf_catapult_dct2000_integrity_key, align 4
   %160 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %159, ptr noundef %0, i32 noundef %158, i32 noundef 16, i32 noundef 0) #9
   br label %161
@@ -4630,22 +4630,22 @@ get_key.exit:                                     ; preds = %161
   br label %183
 
 183:                                              ; preds = %181, %182, %get_key.exit
-  %184 = add i32 %.5, 23
+  %184 = add i32 %.6, 23
   br label %185
 
 185:                                              ; preds = %95, %149, %183, %98, %96
-  %.6 = phi i32 [ %97, %96 ], [ %184, %183 ], [ %154, %149 ], [ %111, %98 ], [ %.3, %95 ]
-  %186 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6) #9
+  %.4 = phi i32 [ %97, %96 ], [ %184, %183 ], [ %154, %149 ], [ %111, %98 ], [ %.3, %95 ]
+  %186 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #9
   %.not195 = icmp eq i32 %186, 0
   br i1 %.not195, label %.thread204, label %187
 
 187:                                              ; preds = %185
-  %188 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6) #9
+  %188 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4) #9
   %.not196 = icmp eq i8 %188, -86
   br i1 %.not196, label %189, label %.thread204
 
 189:                                              ; preds = %187
-  %190 = add i32 %.6, 1
+  %190 = add i32 %.4, 1
   %191 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %190) #9
   %192 = icmp sgt i8 %191, -1
   %193 = and i8 %191, 3

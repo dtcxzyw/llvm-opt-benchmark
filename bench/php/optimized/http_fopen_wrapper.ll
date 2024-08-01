@@ -766,8 +766,8 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %320, label %.preheader105, label %.preheader498
 
 .preheader105:                                    ; preds = %318, %322
-  %.12409 = phi ptr [ %323, %322 ], [ %313, %318 ]
-  %321 = load i8, ptr %.12409, align 1
+  %.2 = phi ptr [ %323, %322 ], [ %313, %318 ]
+  %321 = load i8, ptr %.2, align 1
   switch i8 %321, label %322 [
     i8 0, label %.critedge7
     i8 13, label %.critedge7
@@ -775,11 +775,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   ]
 
 322:                                              ; preds = %.preheader105
-  %323 = getelementptr inbounds i8, ptr %.12409, i64 1
+  %323 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %.preheader105
 
 .critedge7:                                       ; preds = %.preheader105, %.preheader105, %.preheader105
-  %324 = ptrtoint ptr %.12409 to i64
+  %324 = ptrtoint ptr %.2 to i64
   %325 = sub i64 %324, %315
   %326 = load ptr, ptr %19, align 8
   %.not2784 = icmp eq ptr %326, null
@@ -835,8 +835,8 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %.thread17
 
 350:                                              ; preds = %.preheader498, %352
-  %.2 = phi ptr [ %353, %352 ], [ %313, %.preheader498 ]
-  %351 = load i8, ptr %.2, align 1
+  %.3 = phi ptr [ %353, %352 ], [ %313, %.preheader498 ]
+  %351 = load i8, ptr %.3, align 1
   switch i8 %351, label %352 [
     i8 0, label %.critedge9.preheader
     i8 13, label %.critedge9.preheader
@@ -845,11 +845,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 .critedge9.preheader:                             ; preds = %.preheader108, %.preheader108, %.preheader108, %350, %350, %350
   %.ph = phi i8 [ %351, %350 ], [ %351, %350 ], [ %351, %350 ], [ %309, %.preheader108 ], [ %309, %.preheader108 ], [ %309, %.preheader108 ]
-  %.22412.ph = phi ptr [ %.2, %350 ], [ %.2, %350 ], [ %.2, %350 ], [ %.02408, %.preheader108 ], [ %.02408, %.preheader108 ], [ %.02408, %.preheader108 ]
+  %.22412.ph = phi ptr [ %.3, %350 ], [ %.3, %350 ], [ %.3, %350 ], [ %.02408, %.preheader108 ], [ %.02408, %.preheader108 ], [ %.02408, %.preheader108 ]
   br label %.critedge9
 
 352:                                              ; preds = %350
-  %353 = getelementptr inbounds i8, ptr %.2, i64 1
+  %353 = getelementptr inbounds i8, ptr %.3, i64 1
   br label %350
 
 .critedge9:                                       ; preds = %.critedge9.preheader, %.critedge11
@@ -931,8 +931,8 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %377, label %.preheader111, label %.preheader510
 
 .preheader111:                                    ; preds = %375, %379
-  %.5 = phi ptr [ %380, %379 ], [ %370, %375 ]
-  %378 = load i8, ptr %.5, align 1
+  %.6 = phi ptr [ %380, %379 ], [ %370, %375 ]
+  %378 = load i8, ptr %.6, align 1
   switch i8 %378, label %379 [
     i8 0, label %.critedge17
     i8 13, label %.critedge17
@@ -940,11 +940,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   ]
 
 379:                                              ; preds = %.preheader111
-  %380 = getelementptr inbounds i8, ptr %.5, i64 1
+  %380 = getelementptr inbounds i8, ptr %.6, i64 1
   br label %.preheader111
 
 .critedge17:                                      ; preds = %.preheader111, %.preheader111, %.preheader111
-  %381 = ptrtoint ptr %.5 to i64
+  %381 = ptrtoint ptr %.6 to i64
   %382 = sub i64 %381, %372
   %383 = load ptr, ptr %19, align 8
   %.not2768 = icmp eq ptr %383, null
@@ -1000,8 +1000,8 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %.thread17
 
 407:                                              ; preds = %.preheader510, %409
-  %.6 = phi ptr [ %410, %409 ], [ %370, %.preheader510 ]
-  %408 = load i8, ptr %.6, align 1
+  %.7 = phi ptr [ %410, %409 ], [ %370, %.preheader510 ]
+  %408 = load i8, ptr %.7, align 1
   switch i8 %408, label %409 [
     i8 0, label %.critedge19.preheader
     i8 13, label %.critedge19.preheader
@@ -1010,11 +1010,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 .critedge19.preheader:                            ; preds = %.preheader114, %.preheader114, %.preheader114, %407, %407, %407
   %.ph508 = phi i8 [ %408, %407 ], [ %408, %407 ], [ %408, %407 ], [ %366, %.preheader114 ], [ %366, %.preheader114 ], [ %366, %.preheader114 ]
-  %.52415.ph = phi ptr [ %.6, %407 ], [ %.6, %407 ], [ %.6, %407 ], [ %.4, %.preheader114 ], [ %.4, %.preheader114 ], [ %.4, %.preheader114 ]
+  %.52415.ph = phi ptr [ %.7, %407 ], [ %.7, %407 ], [ %.7, %407 ], [ %.4, %.preheader114 ], [ %.4, %.preheader114 ], [ %.4, %.preheader114 ]
   br label %.critedge19
 
 409:                                              ; preds = %407
-  %410 = getelementptr inbounds i8, ptr %.6, i64 1
+  %410 = getelementptr inbounds i8, ptr %.7, i64 1
   br label %407
 
 .critedge19:                                      ; preds = %.critedge19.preheader, %.critedge21
@@ -1087,7 +1087,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %.critedge2997.thread
 
 .thread20:                                        ; preds = %418, %430
-  %.0247023 = phi ptr [ null, %430 ], [ %154, %418 ]
+  %.1247123 = phi ptr [ null, %430 ], [ %154, %418 ]
   %432 = phi ptr [ %.pr19, %430 ], [ %427, %418 ]
   %433 = getelementptr inbounds i8, ptr %432, i64 4
   %434 = load i32, ptr %433, align 4
@@ -1109,12 +1109,12 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %442
 
 442:                                              ; preds = %.thread20, %441, %436
-  %.not2793 = icmp eq ptr %.0247023, null
+  %.not2793 = icmp eq ptr %.1247123, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   br i1 %.not2793, label %.critedge2997.thread, label %.preheader104
 
 .preheader104:                                    ; preds = %442, %444
-  %443 = call ptr @_php_stream_get_line(ptr noundef nonnull %.0247023, ptr noundef nonnull %20, i64 noundef 1023, ptr noundef null) #15
+  %443 = call ptr @_php_stream_get_line(ptr noundef nonnull %.1247123, ptr noundef nonnull %20, i64 noundef 1023, ptr noundef null) #15
   %.not2794 = icmp eq ptr %443, null
   br i1 %.not2794, label %446, label %444
 
@@ -1127,18 +1127,18 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   ]
 
 446:                                              ; preds = %.preheader104, %444, %444, %444
-  %447 = call i32 @php_stream_xport_crypto_setup(ptr noundef nonnull %.0247023, i32 noundef 57, ptr noundef null) #15
+  %447 = call i32 @php_stream_xport_crypto_setup(ptr noundef nonnull %.1247123, i32 noundef 57, ptr noundef null) #15
   %448 = icmp slt i32 %447, 0
   br i1 %448, label %452, label %449
 
 449:                                              ; preds = %446
-  %450 = call i32 @php_stream_xport_crypto_enable(ptr noundef nonnull %.0247023, i32 noundef 1) #15
+  %450 = call i32 @php_stream_xport_crypto_enable(ptr noundef nonnull %.1247123, i32 noundef 1) #15
   %451 = icmp slt i32 %450, 0
   br i1 %451, label %452, label %.critedge2997.thread29
 
 452:                                              ; preds = %449, %446
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.18) #15
-  %453 = call i32 @_php_stream_free(ptr noundef nonnull %.0247023, i32 noundef 3) #15
+  %453 = call i32 @_php_stream_free(ptr noundef nonnull %.1247123, i32 noundef 3) #15
   br label %.critedge2997.thread
 
 .critedge2997:                                    ; preds = %186
@@ -1146,23 +1146,23 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %454, label %.critedge2997.thread, label %.critedge2997.thread29
 
 .critedge2997.thread29:                           ; preds = %449, %.critedge2997
-  %.1247131 = phi ptr [ %154, %.critedge2997 ], [ %.0247023, %449 ]
+  %.0247031 = phi ptr [ %154, %.critedge2997 ], [ %.1247123, %449 ]
   %455 = and i32 %3, 32
   %.not2795 = icmp eq i32 %455, 0
   br i1 %.not2795, label %458, label %456
 
 456:                                              ; preds = %.critedge2997.thread29
-  %457 = call i32 @_php_stream_set_option(ptr noundef nonnull %.1247131, i32 noundef 5, i32 noundef 1, ptr noundef null) #15
+  %457 = call i32 @_php_stream_set_option(ptr noundef nonnull %.0247031, i32 noundef 5, i32 noundef 1, ptr noundef null) #15
   br label %458
 
 458:                                              ; preds = %456, %.critedge2997.thread29
-  %.02456 = phi i32 [ %457, %456 ], [ 0, %.critedge2997.thread29 ]
-  %459 = getelementptr inbounds i8, ptr %.1247131, i64 116
+  %.12457 = phi i32 [ %457, %456 ], [ 0, %.critedge2997.thread29 ]
+  %459 = getelementptr inbounds i8, ptr %.0247031, i64 116
   %460 = load i32, ptr %459, align 4
   %461 = and i32 %460, 12
   %462 = and i32 %460, -13
   store i32 %462, ptr %459, align 4
-  %463 = call ptr @php_stream_context_set(ptr noundef nonnull %.1247131, ptr noundef %4) #15
+  %463 = call ptr @php_stream_context_set(ptr noundef nonnull %.0247031, ptr noundef %4) #15
   br i1 %148, label %464, label %.critedge37
 
 464:                                              ; preds = %458
@@ -1881,9 +1881,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %797
 
 797:                                              ; preds = %.sink.split444, %783
-  %.12465 = phi ptr [ %.02464, %783 ], [ %791, %.sink.split444 ]
-  %798 = getelementptr inbounds i8, ptr %.12465, i64 24
-  %799 = getelementptr inbounds i8, ptr %.12465, i64 16
+  %.22466 = phi ptr [ %.02464, %783 ], [ %791, %.sink.split444 ]
+  %798 = getelementptr inbounds i8, ptr %.22466, i64 24
+  %799 = getelementptr inbounds i8, ptr %.22466, i64 16
   %800 = load i64, ptr %799, align 8
   call void @zend_str_tolower(ptr noundef nonnull %798, i64 noundef %800) #15
   %801 = and i32 %6, 5
@@ -1900,22 +1900,22 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %spec.select = zext i1 %804 to i32
   %805 = call fastcc zeroext i1 @check_has_header(ptr noundef nonnull %798, ptr noundef nonnull @.str.32)
   %806 = or disjoint i32 %spec.select, 2
-  %.12444 = select i1 %805, i32 %806, i32 %spec.select
+  %.32446 = select i1 %805, i32 %806, i32 %spec.select
   %807 = call fastcc zeroext i1 @check_has_header(ptr noundef nonnull %798, ptr noundef nonnull @.str.33)
-  %808 = or disjoint i32 %.12444, 8
-  %.22445 = select i1 %807, i32 %808, i32 %.12444
+  %808 = or disjoint i32 %.32446, 8
+  %.42447 = select i1 %807, i32 %808, i32 %.32446
   %809 = call fastcc zeroext i1 @check_has_header(ptr noundef nonnull %798, ptr noundef nonnull @.str.34)
-  %810 = or disjoint i32 %.22445, 4
-  %.32446 = select i1 %809, i32 %810, i32 %.22445
+  %810 = or disjoint i32 %.42447, 4
+  %.52448 = select i1 %809, i32 %810, i32 %.42447
   %811 = call fastcc zeroext i1 @check_has_header(ptr noundef nonnull %798, ptr noundef nonnull @.str.29)
-  %812 = or i32 %.32446, 16
-  %.42447 = select i1 %811, i32 %812, i32 %.32446
+  %812 = or i32 %.52448, 16
+  %.62449 = select i1 %811, i32 %812, i32 %.52448
   %813 = call fastcc zeroext i1 @check_has_header(ptr noundef nonnull %798, ptr noundef nonnull @.str.30)
-  %814 = or i32 %.42447, 32
-  %.52448 = select i1 %813, i32 %814, i32 %.42447
+  %814 = or i32 %.62449, 32
+  %.72450 = select i1 %813, i32 %814, i32 %.62449
   %815 = call fastcc zeroext i1 @check_has_header(ptr noundef nonnull %798, ptr noundef nonnull @.str.35)
-  %816 = or i32 %.52448, 64
-  %.62449 = select i1 %815, i32 %816, i32 %.52448
+  %816 = or i32 %.72450, 64
+  %.8 = select i1 %815, i32 %816, i32 %.72450
   %or.cond43 = and i1 %149, %.02468.shrunk5
   br i1 %or.cond43, label %817, label %.thread49
 
@@ -2034,36 +2034,36 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %.thread49
 
 .thread49:                                        ; preds = %848, %.critedge53, %840, %774, %803, %817, %821
-  %.0243856 = phi ptr [ null, %774 ], [ %779, %803 ], [ %779, %817 ], [ %779, %821 ], [ null, %840 ], [ %779, %.critedge53 ], [ %779, %848 ]
-  %.7245055 = phi i32 [ 0, %774 ], [ %.62449, %803 ], [ %.62449, %817 ], [ %.62449, %821 ], [ %.62449, %840 ], [ %.62449, %.critedge53 ], [ %.62449, %848 ]
-  %.2246654 = phi ptr [ %.02464, %774 ], [ %.12465, %803 ], [ %.12465, %817 ], [ %.12465, %821 ], [ %.12465, %840 ], [ %.12465, %.critedge53 ], [ %.12465, %848 ]
-  %858 = getelementptr inbounds i8, ptr %.2246654, i64 4
+  %.1243956 = phi ptr [ null, %774 ], [ %779, %803 ], [ %779, %817 ], [ %779, %821 ], [ null, %840 ], [ %779, %.critedge53 ], [ %779, %848 ]
+  %.1244455 = phi i32 [ 0, %774 ], [ %.8, %803 ], [ %.8, %817 ], [ %.8, %821 ], [ %.8, %840 ], [ %.8, %.critedge53 ], [ %.8, %848 ]
+  %.1246554 = phi ptr [ %.02464, %774 ], [ %.22466, %803 ], [ %.22466, %817 ], [ %.22466, %821 ], [ %.22466, %840 ], [ %.22466, %.critedge53 ], [ %.22466, %848 ]
+  %858 = getelementptr inbounds i8, ptr %.1246554, i64 4
   %859 = load i32, ptr %858, align 4
   %860 = and i32 %859, 64
   %.not2848 = icmp eq i32 %860, 0
   br i1 %.not2848, label %861, label %867
 
 861:                                              ; preds = %.thread49
-  %862 = load i32, ptr %.2246654, align 4
+  %862 = load i32, ptr %.1246554, align 4
   %863 = icmp ne i32 %862, 0
   call void @llvm.assume(i1 %863)
   %864 = add i32 %862, -1
-  store i32 %864, ptr %.2246654, align 4
+  store i32 %864, ptr %.1246554, align 4
   %865 = icmp eq i32 %864, 0
   br i1 %865, label %866, label %867
 
 866:                                              ; preds = %861
-  call void @_efree(ptr noundef nonnull %.2246654) #15
+  call void @_efree(ptr noundef nonnull %.1246554) #15
   br label %867
 
 867:                                              ; preds = %861, %866, %.thread49
-  %868 = and i32 %.7245055, 4
+  %868 = and i32 %.1244455, 4
   %869 = icmp eq i32 %868, 0
   br i1 %869, label %.thread64, label %946
 
 .thread64:                                        ; preds = %697, %._crit_edge, %694, %767, %746, %773, %685, %692, %867
-  %.1243970 = phi ptr [ %.0243856, %867 ], [ null, %692 ], [ null, %685 ], [ null, %773 ], [ null, %746 ], [ null, %767 ], [ null, %694 ], [ null, %._crit_edge ], [ null, %697 ]
-  %.868 = phi i32 [ %.7245055, %867 ], [ 0, %692 ], [ 0, %685 ], [ 0, %773 ], [ 0, %746 ], [ 0, %767 ], [ 0, %694 ], [ 0, %._crit_edge ], [ 0, %697 ]
+  %.0243870 = phi ptr [ %.1243956, %867 ], [ null, %692 ], [ null, %685 ], [ null, %773 ], [ null, %746 ], [ null, %767 ], [ null, %694 ], [ null, %._crit_edge ], [ null, %697 ]
+  %.0244368 = phi i32 [ %.1244455, %867 ], [ 0, %692 ], [ 0, %685 ], [ 0, %773 ], [ 0, %746 ], [ 0, %767 ], [ 0, %694 ], [ 0, %._crit_edge ], [ 0, %697 ]
   %870 = getelementptr inbounds i8, ptr %33, i64 8
   %871 = load ptr, ptr %870, align 8
   %.not2849 = icmp eq ptr %871, null
@@ -2215,9 +2215,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %946
 
 946:                                              ; preds = %945, %.thread64, %867
-  %.1243969 = phi ptr [ %.1243970, %945 ], [ %.1243970, %.thread64 ], [ %.0243856, %867 ]
-  %.867 = phi i32 [ %.868, %945 ], [ %.868, %.thread64 ], [ %.7245055, %867 ]
-  %947 = and i32 %.867, 8
+  %.0243869 = phi ptr [ %.0243870, %945 ], [ %.0243870, %.thread64 ], [ %.1243956, %867 ]
+  %.0244367 = phi i32 [ %.0244368, %945 ], [ %.0244368, %.thread64 ], [ %.1244455, %867 ]
+  %947 = and i32 %.0244367, 8
   %.not2860 = icmp ne i32 %947, 0
   %948 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 40), align 8
   %.not2861 = icmp eq ptr %948, null
@@ -2304,7 +2304,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %988
 
 988:                                              ; preds = %981, %946
-  %989 = and i32 %.867, 2
+  %989 = and i32 %.0244367, 2
   %990 = icmp eq i32 %989, 0
   br i1 %990, label %991, label %1072
 
@@ -2481,7 +2481,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %1072
 
 1072:                                             ; preds = %1065, %988
-  %1073 = and i32 %.867, 64
+  %1073 = and i32 %.0244367, 64
   %1074 = icmp eq i32 %1073, 0
   br i1 %1074, label %1075, label %1090
 
@@ -2543,7 +2543,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1102:                                             ; preds = %1100, %1097
   %.02463 = phi ptr [ %1099, %1097 ], [ %1101, %1100 ]
-  %1103 = and i32 %.867, 1
+  %1103 = and i32 %.0244367, 1
   %1104 = icmp eq i32 %1103, 0
   %1105 = icmp ne ptr %.02463, null
   %or.cond57 = select i1 %1104, i1 %1105, i1 false
@@ -2608,13 +2608,13 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %1134
 
 1134:                                             ; preds = %1106, %1133, %1102
-  %.not2890 = icmp eq ptr %.1243969, null
+  %.not2890 = icmp eq ptr %.0243869, null
   %.pre393 = and i32 %6, 5
   br i1 %.not2890, label %._crit_edge392, label %1135
 
 1135:                                             ; preds = %1134
   %or.cond59 = icmp ne i32 %.pre393, 0
-  %1136 = and i32 %.867, 16
+  %1136 = and i32 %.0244367, 16
   %.not2891 = icmp eq i32 %1136, 0
   %1137 = and i1 %or.cond59, %.not2891
   %or.cond3003 = and i1 %148, %1137
@@ -2744,13 +2744,13 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1199 = load ptr, ptr %18, align 8
   %1200 = getelementptr inbounds i8, ptr %1199, i64 16
   store i64 %1191, ptr %1200, align 8
-  %1201 = or disjoint i32 %.867, 16
-  %1202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1243969) #16
+  %1201 = or disjoint i32 %.0244367, 16
+  %1202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0243869) #16
   br label %1205
 
 1203:                                             ; preds = %1135, %1144, %1140, %1138
   %.pr78 = load ptr, ptr %18, align 8
-  %1204 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1243969) #16
+  %1204 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0243869) #16
   %.not2901 = icmp eq ptr %.pr78, null
   br i1 %.not2901, label %1212, label %._crit_edge357
 
@@ -2762,7 +2762,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1205:                                             ; preds = %._crit_edge357, %.thread79
   %1206 = phi i64 [ %1191, %.thread79 ], [ %.pre359, %._crit_edge357 ]
   %1207 = phi i64 [ %1202, %.thread79 ], [ %1204, %._crit_edge357 ]
-  %.984 = phi i32 [ %1201, %.thread79 ], [ %.867, %._crit_edge357 ]
+  %.1084 = phi i32 [ %1201, %.thread79 ], [ %.0244367, %._crit_edge357 ]
   %1208 = phi ptr [ %1199, %.thread79 ], [ %.pr78, %._crit_edge357 ]
   %1209 = add i64 %1206, %1207
   %1210 = getelementptr inbounds i8, ptr %18, i64 8
@@ -2772,7 +2772,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1212:                                             ; preds = %1203, %1205
   %1213 = phi i64 [ %1204, %1203 ], [ %1207, %1205 ]
-  %.982 = phi i32 [ %.867, %1203 ], [ %.984, %1205 ]
+  %.1082 = phi i32 [ %.0244367, %1203 ], [ %.1084, %1205 ]
   %.02497 = phi i64 [ %1204, %1203 ], [ %1209, %1205 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02497) #15
   %.pre360 = load ptr, ptr %18, align 8
@@ -2784,11 +2784,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1215 = phi i64 [ %.pre362, %1212 ], [ %1206, %1205 ]
   %1216 = phi ptr [ %.pre360, %1212 ], [ %1208, %1205 ]
   %1217 = phi i64 [ %1213, %1212 ], [ %1207, %1205 ]
-  %.983 = phi i32 [ %.982, %1212 ], [ %.984, %1205 ]
+  %.1083 = phi i32 [ %.1082, %1212 ], [ %.1084, %1205 ]
   %.12498 = phi i64 [ %.02497, %1212 ], [ %1209, %1205 ]
   %1218 = getelementptr inbounds i8, ptr %1216, i64 24
   %1219 = getelementptr inbounds i8, ptr %1218, i64 %1215
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1219, ptr nonnull align 1 %.1243969, i64 %1217, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1219, ptr nonnull align 1 %.0243869, i64 %1217, i1 false)
   %1220 = load ptr, ptr %18, align 8
   %1221 = getelementptr inbounds i8, ptr %1220, i64 16
   store i64 %.12498, ptr %1221, align 8
@@ -2814,11 +2814,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1231 = load ptr, ptr %18, align 8
   %1232 = getelementptr inbounds i8, ptr %1231, i64 16
   store i64 %1222, ptr %1232, align 8
-  call void @_efree(ptr noundef nonnull %.1243969) #15
+  call void @_efree(ptr noundef nonnull %.0243869) #15
   br label %._crit_edge392
 
 ._crit_edge392:                                   ; preds = %1134, %1226
-  %.10 = phi i32 [ %.983, %1226 ], [ %.867, %1134 ]
+  %.9 = phi i32 [ %.1083, %1226 ], [ %.0244367, %1134 ]
   %or.cond63 = icmp ne i32 %.pre393, 0
   %or.cond65 = and i1 %or.cond63, %148
   br i1 %or.cond65, label %1233, label %1343
@@ -2842,7 +2842,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %.not2906, label %1343, label %1243
 
 1243:                                             ; preds = %1239
-  %1244 = and i32 %.10, 16
+  %1244 = and i32 %.9, 16
   %.not2909 = icmp eq i32 %1244, 0
   %.pre379.pre = load ptr, ptr %18, align 8
   br i1 %.not2909, label %1245, label %1298
@@ -2956,7 +2956,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1298:                                             ; preds = %1291, %1243
   %.pre379 = phi ptr [ %1296, %1291 ], [ %.pre379.pre, %1243 ]
-  %1299 = and i32 %.10, 32
+  %1299 = and i32 %.9, 32
   %.not2917 = icmp eq i32 %1299, 0
   br i1 %.not2917, label %1300, label %1314
 
@@ -3088,7 +3088,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1358 = getelementptr inbounds i8, ptr %.sink460, i64 16
   store i64 %.12510.sink, ptr %1358, align 8
   %1359 = getelementptr inbounds i8, ptr %.sink460, i64 24
-  %1360 = call i64 @_php_stream_write(ptr noundef nonnull %.1247131, ptr noundef nonnull %1359, i64 noundef %.12510.sink) #15
+  %1360 = call i64 @_php_stream_write(ptr noundef nonnull %.0247031, ptr noundef nonnull %1359, i64 noundef %.12510.sink) #15
   store i8 0, ptr %14, align 16
   %1361 = getelementptr inbounds i8, ptr %7, i64 8
   %1362 = load i8, ptr %1361, align 8
@@ -3102,11 +3102,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %1366
 
 1366:                                             ; preds = %1364, %1357
-  %1367 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.1247131) #15
+  %1367 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0247031) #15
   br i1 %1367, label %1447, label %1368
 
 1368:                                             ; preds = %1366
-  %1369 = call ptr @_php_stream_get_line(ptr noundef nonnull %.1247131, ptr noundef nonnull %15, i64 noundef 127, ptr noundef nonnull %23) #15
+  %1369 = call ptr @_php_stream_get_line(ptr noundef nonnull %.0247031, ptr noundef nonnull %15, i64 noundef 127, ptr noundef nonnull %23) #15
   %.not2924 = icmp eq ptr %1369, null
   br i1 %.not2924, label %1447, label %1370
 
@@ -3146,11 +3146,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %or.cond69, label %.preheader102, label %1399
 
 .preheader102:                                    ; preds = %1382
-  %1386 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.1247131) #15
+  %1386 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0247031) #15
   br i1 %1386, label %.critedge71thread-pre-split, label %.lr.ph150
 
 .lr.ph150:                                        ; preds = %.preheader102, %.critedge73
-  %1387 = call ptr @_php_stream_get_line(ptr noundef nonnull %.1247131, ptr noundef nonnull %15, i64 noundef 127, ptr noundef nonnull %23) #15
+  %1387 = call ptr @_php_stream_get_line(ptr noundef nonnull %.0247031, ptr noundef nonnull %15, i64 noundef 127, ptr noundef nonnull %23) #15
   %.not2927 = icmp eq ptr %1387, null
   br i1 %.not2927, label %.critedge71thread-pre-split, label %1388
 
@@ -3165,7 +3165,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %.not2928, label %.critedge71, label %.critedge73
 
 .critedge73:                                      ; preds = %1388, %1391
-  %1393 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.1247131) #15
+  %1393 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0247031) #15
   br i1 %1393, label %.critedge71thread-pre-split, label %.lr.ph150
 
 .critedge71thread-pre-split:                      ; preds = %.lr.ph150, %.critedge73, %.preheader102
@@ -3261,7 +3261,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %1428
 
 1426:                                             ; preds = %1414, %1412
-  %1427 = call ptr @_php_stream_get_line(ptr noundef nonnull %.1247131, ptr noundef null, i64 noundef 0, ptr noundef null) #15
+  %1427 = call ptr @_php_stream_get_line(ptr noundef nonnull %.0247031, ptr noundef null, i64 noundef 0, ptr noundef null) #15
   call void @_efree(ptr noundef %1427) #15
   %.pre390 = load i64, ptr %23, align 8
   br label %1428
@@ -3287,11 +3287,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   store i32 262, ptr %1438, align 8
   %1439 = load ptr, ptr %7, align 8
   %1440 = call ptr @zend_hash_next_index_insert(ptr noundef %1439, ptr noundef nonnull %24) #15
-  %1441 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.1247131) #15
+  %1441 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0247031) #15
   br i1 %1441, label %._crit_edge178, label %.lr.ph177
 
 .lr.ph177:                                        ; preds = %1428
-  %1442 = getelementptr inbounds i8, ptr %.1247131, i64 96
+  %1442 = getelementptr inbounds i8, ptr %.0247031, i64 96
   %1443 = and i32 %.1242490, -4
   %or.cond89 = icmp eq i32 %1443, 300
   %1444 = add i32 %.1242490, -307
@@ -3301,24 +3301,24 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %1449
 
 1447:                                             ; preds = %1368, %1366
-  %1448 = call i32 @_php_stream_free(ptr noundef nonnull %.1247131, i32 noundef 3) #15
+  %1448 = call i32 @_php_stream_free(ptr noundef nonnull %.0247031, i32 noundef 3) #15
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.51) #15
   br label %.critedge2997.thread
 
 1449:                                             ; preds = %.lr.ph177, %.backedge
-  %.02425175 = phi ptr [ null, %.lr.ph177 ], [ %.02425.be, %.backedge ]
+  %.12426175 = phi ptr [ null, %.lr.ph177 ], [ %.12426.be, %.backedge ]
   %.02429174 = phi i8 [ 1, %.lr.ph177 ], [ %.02429.be, %.backedge ]
-  %.02453173 = phi i64 [ 0, %.lr.ph177 ], [ %.02453.be, %.backedge ]
-  %.02458172 = phi ptr [ null, %.lr.ph177 ], [ %1452, %.backedge ]
-  %.not2934 = icmp eq ptr %.02458172, null
+  %.12454173 = phi i64 [ 0, %.lr.ph177 ], [ %.12454.be, %.backedge ]
+  %.12459172 = phi ptr [ null, %.lr.ph177 ], [ %1452, %.backedge ]
+  %.not2934 = icmp eq ptr %.12459172, null
   br i1 %.not2934, label %1451, label %1450
 
 1450:                                             ; preds = %1449
-  call void @_efree(ptr noundef nonnull %.02458172) #15
+  call void @_efree(ptr noundef nonnull %.12459172) #15
   br label %1451
 
 1451:                                             ; preds = %1450, %1449
-  %1452 = call ptr @_php_stream_get_line(ptr noundef nonnull %.1247131, ptr noundef null, i64 noundef 0, ptr noundef nonnull %25) #15
+  %1452 = call ptr @_php_stream_get_line(ptr noundef nonnull %.0247031, ptr noundef null, i64 noundef 0, ptr noundef nonnull %25) #15
   %.not2935 = icmp eq ptr %1452, null
   br i1 %.not2935, label %._crit_edge178, label %1453
 
@@ -3495,9 +3495,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %.not2977, label %1507, label %.backedge
 
 1507:                                             ; preds = %1495, %1481, %1482, %1484, %1493, %1501, %.thread96, %1492, %1490, %1487, %1477
-  %.12454 = phi i64 [ %.02453173, %1493 ], [ %.02453173, %1495 ], [ %.02453173, %.thread96 ], [ %.02453173, %1501 ], [ %1489, %1492 ], [ %1489, %1490 ], [ %1489, %1487 ], [ %.02453173, %1484 ], [ %.02453173, %1482 ], [ %.02453173, %1481 ], [ %.02453173, %1477 ]
+  %.22455 = phi i64 [ %.12454173, %1493 ], [ %.12454173, %1495 ], [ %.12454173, %.thread96 ], [ %.12454173, %1501 ], [ %1489, %1492 ], [ %1489, %1490 ], [ %1489, %1487 ], [ %.12454173, %1484 ], [ %.12454173, %1482 ], [ %.12454173, %1481 ], [ %.12454173, %1477 ]
   %.22431 = phi i8 [ %.02429174, %1493 ], [ %.02429174, %1495 ], [ %.02429174, %.thread96 ], [ %.02429174, %1501 ], [ %.02429174, %1492 ], [ %.02429174, %1490 ], [ %.02429174, %1487 ], [ %.02429174, %1484 ], [ %.02429174, %1482 ], [ %.02429174, %1481 ], [ %.12430, %1477 ]
-  %.12426 = phi ptr [ %.02425175, %1493 ], [ %.02425175, %1495 ], [ null, %.thread96 ], [ %.02425175, %1501 ], [ %.02425175, %1492 ], [ %.02425175, %1490 ], [ %.02425175, %1487 ], [ %.02425175, %1484 ], [ %.02425175, %1482 ], [ %.02425175, %1481 ], [ %.02425175, %1477 ]
+  %.22427 = phi ptr [ %.12426175, %1493 ], [ %.12426175, %1495 ], [ null, %.thread96 ], [ %.12426175, %1501 ], [ %.12426175, %1492 ], [ %.12426175, %1490 ], [ %.12426175, %1487 ], [ %.12426175, %1484 ], [ %.12426175, %1482 ], [ %.12426175, %1481 ], [ %.12426175, %1477 ]
   %1508 = load i64, ptr %25, align 8
   %1509 = and i64 %1508, -8
   %1510 = add i64 %1509, 32
@@ -3520,17 +3520,17 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %.backedge
 
 .backedge:                                        ; preds = %1507, %.thread96
-  %.02453.be = phi i64 [ %.12454, %1507 ], [ %.02453173, %.thread96 ]
+  %.12454.be = phi i64 [ %.22455, %1507 ], [ %.12454173, %.thread96 ]
   %.02429.be = phi i8 [ %.22431, %1507 ], [ %.02429174, %.thread96 ]
-  %.02425.be = phi ptr [ %.12426, %1507 ], [ %1506, %.thread96 ]
-  %1519 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.1247131) #15
+  %.12426.be = phi ptr [ %.22427, %1507 ], [ %1506, %.thread96 ]
+  %1519 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0247031) #15
   br i1 %1519, label %._crit_edge178, label %1449
 
 ._crit_edge178:                                   ; preds = %.backedge, %1451, %1453, %1453, %1428
-  %.02453.lcssa = phi i64 [ 0, %1428 ], [ %.02453173, %1453 ], [ %.02453173, %1453 ], [ %.02453173, %1451 ], [ %.02453.be, %.backedge ]
+  %.12454.lcssa = phi i64 [ 0, %1428 ], [ %.12454173, %1453 ], [ %.12454173, %1453 ], [ %.12454173, %1451 ], [ %.12454.be, %.backedge ]
   %.02429.lcssa = phi i8 [ 1, %1428 ], [ %.02429174, %1453 ], [ %.02429174, %1453 ], [ %.02429174, %1451 ], [ %.02429.be, %.backedge ]
-  %.02425.lcssa = phi ptr [ null, %1428 ], [ %.02425175, %1453 ], [ %.02425175, %1453 ], [ %.02425175, %1451 ], [ %.02425.be, %.backedge ]
-  %.12459 = phi ptr [ null, %1428 ], [ %1452, %1453 ], [ %1452, %1453 ], [ null, %1451 ], [ %1452, %.backedge ]
+  %.12426.lcssa = phi ptr [ null, %1428 ], [ %.12426175, %1453 ], [ %.12426175, %1453 ], [ %.12426175, %1451 ], [ %.12426.be, %.backedge ]
+  %.22460 = phi ptr [ null, %1428 ], [ %1452, %1453 ], [ %1452, %1453 ], [ null, %1451 ], [ %1452, %.backedge ]
   br i1 %.12462.shrunk, label %1520, label %1524
 
 1520:                                             ; preds = %._crit_edge178
@@ -3573,12 +3573,12 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %1533
 
 1533:                                             ; preds = %1532, %1530, %1527
-  %1534 = call i32 @_php_stream_free(ptr noundef nonnull %.1247131, i32 noundef 3) #15
-  %.not2941 = icmp eq ptr %.02425.lcssa, null
+  %1534 = call i32 @_php_stream_free(ptr noundef nonnull %.0247031, i32 noundef 3) #15
+  %.not2941 = icmp eq ptr %.12426.lcssa, null
   br i1 %.not2941, label %1536, label %1535
 
 1535:                                             ; preds = %1533
-  call void @php_stream_filter_free(ptr noundef nonnull %.02425.lcssa) #15
+  call void @php_stream_filter_free(ptr noundef nonnull %.12426.lcssa) #15
   br label %1536
 
 1536:                                             ; preds = %1535, %1533
@@ -3927,13 +3927,13 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %.critedge2997.thread
 
 .critedge2997.thread:                             ; preds = %.thread25, %442, %452, %1520, %1522, %1711, %.loopexit, %1524, %1526, %1525, %.critedge2997, %1707, %1681, %1655, %1624, %1447
-  %.22472 = phi ptr [ null, %.critedge2997 ], [ null, %1447 ], [ %.1247131, %1526 ], [ null, %1624 ], [ null, %1655 ], [ null, %1681 ], [ null, %1707 ], [ %1710, %.loopexit ], [ null, %1711 ], [ %.1247131, %1525 ], [ %.1247131, %1524 ], [ %.1247131, %1522 ], [ %.1247131, %1520 ], [ null, %452 ], [ null, %442 ], [ null, %.thread25 ]
+  %.22472 = phi ptr [ null, %.critedge2997 ], [ null, %1447 ], [ %.0247031, %1526 ], [ null, %1624 ], [ null, %1655 ], [ null, %1681 ], [ null, %1707 ], [ %1710, %.loopexit ], [ null, %1711 ], [ %.0247031, %1525 ], [ %.0247031, %1524 ], [ %.0247031, %1522 ], [ %.0247031, %1520 ], [ null, %452 ], [ null, %442 ], [ null, %.thread25 ]
   %.02469 = phi ptr [ %33, %.critedge2997 ], [ %33, %1447 ], [ %33, %1526 ], [ null, %1624 ], [ %1622, %1655 ], [ %1622, %1681 ], [ %1622, %1707 ], [ %1622, %.loopexit ], [ %33, %1711 ], [ %33, %1525 ], [ %33, %1524 ], [ %33, %1522 ], [ %33, %1520 ], [ %33, %452 ], [ %33, %442 ], [ %33, %.thread25 ]
-  %.22460 = phi ptr [ null, %.critedge2997 ], [ null, %1447 ], [ %.12459, %1526 ], [ %.12459, %1624 ], [ %.12459, %1655 ], [ %.12459, %1681 ], [ %.12459, %1707 ], [ %.12459, %.loopexit ], [ %.12459, %1711 ], [ %.12459, %1525 ], [ %.12459, %1524 ], [ %.12459, %1522 ], [ %.12459, %1520 ], [ null, %452 ], [ null, %442 ], [ null, %.thread25 ]
-  %.12457 = phi i32 [ 0, %.critedge2997 ], [ %.02456, %1447 ], [ %.02456, %1526 ], [ %.02456, %1624 ], [ %.02456, %1655 ], [ %.02456, %1681 ], [ %.02456, %1707 ], [ %.02456, %.loopexit ], [ %.02456, %1711 ], [ %.02456, %1525 ], [ %.02456, %1524 ], [ %.02456, %1522 ], [ %.02456, %1520 ], [ 0, %452 ], [ 0, %442 ], [ 0, %.thread25 ]
-  %.22455 = phi i64 [ 0, %.critedge2997 ], [ 0, %1447 ], [ %.02453.lcssa, %1526 ], [ %.02453.lcssa, %1624 ], [ %.02453.lcssa, %1655 ], [ %.02453.lcssa, %1681 ], [ %.02453.lcssa, %1707 ], [ %.02453.lcssa, %.loopexit ], [ %.02453.lcssa, %1711 ], [ %.02453.lcssa, %1525 ], [ %.02453.lcssa, %1524 ], [ %.02453.lcssa, %1522 ], [ %.02453.lcssa, %1520 ], [ 0, %452 ], [ 0, %442 ], [ 0, %.thread25 ]
+  %.02458 = phi ptr [ null, %.critedge2997 ], [ null, %1447 ], [ %.22460, %1526 ], [ %.22460, %1624 ], [ %.22460, %1655 ], [ %.22460, %1681 ], [ %.22460, %1707 ], [ %.22460, %.loopexit ], [ %.22460, %1711 ], [ %.22460, %1525 ], [ %.22460, %1524 ], [ %.22460, %1522 ], [ %.22460, %1520 ], [ null, %452 ], [ null, %442 ], [ null, %.thread25 ]
+  %.02456 = phi i32 [ 0, %.critedge2997 ], [ %.12457, %1447 ], [ %.12457, %1526 ], [ %.12457, %1624 ], [ %.12457, %1655 ], [ %.12457, %1681 ], [ %.12457, %1707 ], [ %.12457, %.loopexit ], [ %.12457, %1711 ], [ %.12457, %1525 ], [ %.12457, %1524 ], [ %.12457, %1522 ], [ %.12457, %1520 ], [ 0, %452 ], [ 0, %442 ], [ 0, %.thread25 ]
+  %.02453 = phi i64 [ 0, %.critedge2997 ], [ 0, %1447 ], [ %.12454.lcssa, %1526 ], [ %.12454.lcssa, %1624 ], [ %.12454.lcssa, %1655 ], [ %.12454.lcssa, %1681 ], [ %.12454.lcssa, %1707 ], [ %.12454.lcssa, %.loopexit ], [ %.12454.lcssa, %1711 ], [ %.12454.lcssa, %1525 ], [ %.12454.lcssa, %1524 ], [ %.12454.lcssa, %1522 ], [ %.12454.lcssa, %1520 ], [ 0, %452 ], [ 0, %442 ], [ 0, %.thread25 ]
   %.02452 = phi i32 [ 0, %.critedge2997 ], [ %461, %1447 ], [ %461, %1526 ], [ %461, %1624 ], [ %461, %1655 ], [ %461, %1681 ], [ %461, %1707 ], [ %461, %.loopexit ], [ %461, %1711 ], [ %461, %1525 ], [ %461, %1524 ], [ %461, %1522 ], [ %461, %1520 ], [ 0, %452 ], [ 0, %442 ], [ 0, %.thread25 ]
-  %.32428 = phi ptr [ null, %.critedge2997 ], [ null, %1447 ], [ %.02425.lcssa, %1526 ], [ null, %1624 ], [ null, %1655 ], [ null, %1681 ], [ null, %1707 ], [ null, %.loopexit ], [ null, %1711 ], [ %.02425.lcssa, %1525 ], [ %.02425.lcssa, %1524 ], [ %.02425.lcssa, %1522 ], [ %.02425.lcssa, %1520 ], [ null, %452 ], [ null, %442 ], [ null, %.thread25 ]
+  %.02425 = phi ptr [ null, %.critedge2997 ], [ null, %1447 ], [ %.12426.lcssa, %1526 ], [ null, %1624 ], [ null, %1655 ], [ null, %1681 ], [ null, %1707 ], [ null, %.loopexit ], [ null, %1711 ], [ %.12426.lcssa, %1525 ], [ %.12426.lcssa, %1524 ], [ %.12426.lcssa, %1522 ], [ %.12426.lcssa, %1520 ], [ null, %452 ], [ null, %442 ], [ null, %.thread25 ]
   %1712 = load ptr, ptr %18, align 8
   %.not2983 = icmp eq ptr %1712, null
   br i1 %.not2983, label %1724, label %1713
@@ -3965,11 +3965,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1724:                                             ; preds = %1723, %.critedge2997.thread
   %1725 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 0, ptr %1725, align 8
-  %.not2985 = icmp eq ptr %.22460, null
+  %.not2985 = icmp eq ptr %.02458, null
   br i1 %.not2985, label %1727, label %1726
 
 1726:                                             ; preds = %1724
-  call void @_efree(ptr noundef nonnull %.22460) #15
+  call void @_efree(ptr noundef nonnull %.02458) #15
   br label %1727
 
 1727:                                             ; preds = %1726, %1724
@@ -4018,7 +4018,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   store i64 0, ptr %1745, align 8
   %1746 = load ptr, ptr %4, align 8
   %1747 = getelementptr inbounds i8, ptr %1746, i64 48
-  store i64 %.22455, ptr %1747, align 8
+  store i64 %.02453, ptr %1747, align 8
   %1748 = load ptr, ptr %4, align 8
   %1749 = getelementptr inbounds i8, ptr %1748, i64 32
   %1750 = load i32, ptr %1749, align 8
@@ -4029,7 +4029,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %.not2990, label %1754, label %1753
 
 1753:                                             ; preds = %1744
-  call void @php_stream_notification_notify(ptr noundef nonnull %4, i32 noundef 7, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef 0, i64 noundef %.22455, ptr noundef null) #15
+  call void @php_stream_notification_notify(ptr noundef nonnull %4, i32 noundef 7, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef 0, i64 noundef %.02453, ptr noundef null) #15
   br label %1754
 
 1754:                                             ; preds = %1741, %1742, %1744, %1753
@@ -4038,7 +4038,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %.not2991, label %1758, label %1756
 
 1756:                                             ; preds = %1754
-  %1757 = call i32 @_php_stream_set_option(ptr noundef nonnull %.22472, i32 noundef 5, i32 noundef %.12457, ptr noundef null) #15
+  %1757 = call i32 @_php_stream_set_option(ptr noundef nonnull %.22472, i32 noundef 5, i32 noundef %.02456, ptr noundef null) #15
   br label %1758
 
 1758:                                             ; preds = %1756, %1754
@@ -4050,12 +4050,12 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   store i64 0, ptr %1762, align 8
   %1763 = getelementptr inbounds i8, ptr %.22472, i64 98
   %1764 = call i64 @php_strlcpy(ptr noundef nonnull %1763, ptr noundef %2, i64 noundef 16) #15
-  %.not2992 = icmp eq ptr %.32428, null
+  %.not2992 = icmp eq ptr %.02425, null
   br i1 %.not2992, label %1767, label %1765
 
 1765:                                             ; preds = %1758
   %1766 = getelementptr inbounds i8, ptr %.22472, i64 16
-  call void @_php_stream_filter_append(ptr noundef nonnull %1766, ptr noundef nonnull %.32428) #15
+  call void @_php_stream_filter_append(ptr noundef nonnull %1766, ptr noundef nonnull %.02425) #15
   br label %1767
 
 1767:                                             ; preds = %1765, %1758

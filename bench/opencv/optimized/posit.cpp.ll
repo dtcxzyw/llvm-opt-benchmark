@@ -305,7 +305,7 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
 46:                                               ; preds = %.split217.us.i, %27
   %.0180220.i = phi i32 [ 0, %27 ], [ %140, %.split217.us.i ]
   %.0183219.i = phi float [ 0.000000e+00, %27 ], [ %139, %.split217.us.i ]
-  %.0184218.i = phi float [ %11, %27 ], [ %.2186255.i, %.split217.us.i ]
+  %.0184218.i = phi float [ %11, %27 ], [ %.1185255.i, %.split217.us.i ]
   %47 = icmp eq i32 %.0180220.i, 0
   br i1 %47, label %.preheader204.i, label %.preheader205.i
 
@@ -335,7 +335,7 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
 
 .lr.ph.i:                                         ; preds = %.preheader205.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader205.i ]
-  %.1185207.i = phi float [ %91, %.lr.ph.i ], [ 0.000000e+00, %.preheader205.i ]
+  %.2186207.i = phi float [ %91, %.lr.ph.i ], [ 0.000000e+00, %.preheader205.i ]
   %57 = getelementptr inbounds float, ptr %31, i64 %indvars.iv.i
   %58 = load float, ptr %57, align 4
   %59 = load float, ptr %37, align 4
@@ -362,8 +362,8 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   store float %77, ptr %71, align 4
   %78 = fsub float %77, %72
   %79 = tail call float @llvm.fabs.f32(float %78)
-  %80 = fcmp olt float %.1185207.i, %79
-  %..1185.i = select i1 %80, float %79, float %.1185207.i
+  %80 = fcmp olt float %.2186207.i, %79
+  %..2186.i = select i1 %80, float %79, float %.2186207.i
   %81 = getelementptr inbounds float, ptr %35, i64 %60
   %82 = load float, ptr %81, align 4
   %83 = getelementptr inbounds i8, ptr %73, i64 4
@@ -374,13 +374,13 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   store float %87, ptr %81, align 4
   %88 = fsub float %87, %82
   %89 = tail call float @llvm.fabs.f32(float %88)
-  %90 = fcmp olt float %..1185.i, %89
-  %91 = select i1 %90, float %89, float %..1185.i
+  %90 = fcmp olt float %..2186.i, %89
+  %91 = select i1 %90, float %89, float %..2186.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %44
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph210.i
-  %.2186.i = phi float [ %.0184218.i, %.lr.ph210.i ], [ %91, %.lr.ph.i ]
+  %.1185.i = phi float [ %.0184218.i, %.lr.ph210.i ], [ %91, %.lr.ph.i ]
   br i1 %36, label %.preheader.us.i, label %.split217.us.i
 
 .preheader.us.i:                                  ; preds = %.loopexit.i, %.split.us.us.i
@@ -427,7 +427,7 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   br label %.split217.us.i
 
 .split217.us.i:                                   ; preds = %.split217.us.loopexit.i, %.loopexit.i, %.preheader204.i, %.preheader205.i
-  %.2186255.i = phi float [ %.2186.i, %.split217.us.loopexit.i ], [ %.2186.i, %.loopexit.i ], [ 0.000000e+00, %.preheader205.i ], [ %.0184218.i, %.preheader204.i ]
+  %.1185255.i = phi float [ %.1185.i, %.split217.us.loopexit.i ], [ %.1185.i, %.loopexit.i ], [ 0.000000e+00, %.preheader205.i ], [ %.0184218.i, %.preheader204.i ]
   %102 = phi <4 x float> [ %100, %.split217.us.loopexit.i ], [ zeroinitializer, %.loopexit.i ], [ zeroinitializer, %.preheader205.i ], [ zeroinitializer, %.preheader204.i ]
   %103 = phi <2 x float> [ %101, %.split217.us.loopexit.i ], [ zeroinitializer, %.loopexit.i ], [ zeroinitializer, %.preheader205.i ], [ zeroinitializer, %.preheader204.i ]
   %104 = shufflevector <4 x float> %102, <4 x float> poison, <2 x i32> <i32 1, i32 poison>
@@ -473,7 +473,7 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   %138 = fmul float %137, 5.000000e-01
   %139 = fmul float %28, %138
   %140 = add nuw nsw i32 %.0180220.i, 1
-  %141 = fpext float %.2186255.i to double
+  %141 = fpext float %.1185255.i to double
   %142 = fcmp olt double %141, %4
   %or.cond200.i = select i1 %21, i1 %142, i1 false
   %143 = icmp eq i32 %140, %.sroa.7.0.extract.trunc.i

@@ -1052,7 +1052,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc28
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc28, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.11.0 = phi ptr [ %26, %.noexc28 ], [ %26, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.063.0 = phi ptr [ %25, %.noexc28 ], [ %25, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.063.1 = phi ptr [ %25, %.noexc28 ], [ %25, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.0.i.i.i.i.i = phi ptr [ %27, %.noexc28 ], [ %26, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %30 = ptrtoint ptr %16 to i64
@@ -1172,7 +1172,7 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE12emplace_backIJRKS2_EEERS2_DpOT_.exit: ; 
           to label %71 unwind label %.loopexit.split-lp80
 
 71:                                               ; preds = %._crit_edge
-  store ptr %.sroa.063.0, ptr %70, align 8, !noalias !25
+  store ptr %.sroa.063.1, ptr %70, align 8, !noalias !25
   %72 = getelementptr inbounds i8, ptr %70, i64 8
   store ptr %.0.i.i.i.i.i, ptr %72, align 8, !noalias !25
   %73 = getelementptr inbounds i8, ptr %70, i64 16
@@ -1232,7 +1232,7 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
   store ptr @"_ZNSt17_Function_handlerIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEZNS0_25ObservablesReducerBuilder5buildEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %88, align 8
   %93 = load i32, ptr %.sroa.054.094, align 8
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds double, ptr %.sroa.063.0, i64 %.02296
+  %95 = getelementptr inbounds double, ptr %.sroa.063.1, i64 %.02296
   %96 = getelementptr inbounds double, ptr %95, i64 %94
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %95, ptr %3, align 8
@@ -1408,11 +1408,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %142, %_ZSt8_Destroy
 .body:                                            ; preds = %.loopexit79, %.loopexit.split-lp80, %61, %58
   %.pn25 = phi { ptr, i32 } [ %59, %61 ], [ %59, %58 ], [ %lpad.loopexit81, %.loopexit79 ], [ %lpad.loopexit.split-lp82, %.loopexit.split-lp80 ]
   call void @_ZNSt6vectorISt8functionIFvlEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
-  %.not.i.i.i51 = icmp eq ptr %.sroa.063.0, null
+  %.not.i.i.i51 = icmp eq ptr %.sroa.063.1, null
   br i1 %.not.i.i.i51, label %_ZNSt6vectorIdSaIdEED2Ev.exit52, label %146
 
 146:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.063.0) #14
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.063.1) #14
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit52
 
 _ZNSt6vectorIdSaIdEED2Ev.exit52:                  ; preds = %146, %.body, %.body.thread

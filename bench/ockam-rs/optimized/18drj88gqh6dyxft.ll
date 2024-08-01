@@ -1627,16 +1627,16 @@ define hidden { i64, ptr } @"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de
 
 ._crit_edge:                                      ; preds = %5, %9
   %.pn = phi { i64, ptr } [ %12, %9 ], [ zeroinitializer, %5 ]
-  %.sroa.0.0 = extractvalue { i64, ptr } %.pn, 0
-  %.sroa.4.0 = extractvalue { i64, ptr } %.pn, 1
+  %.sroa.0.1 = extractvalue { i64, ptr } %.pn, 0
+  %.sroa.4.1 = extractvalue { i64, ptr } %.pn, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %15
 
 15:                                               ; preds = %._crit_edge, %6
-  %.sroa.4.1 = phi ptr [ %8, %6 ], [ %.sroa.4.0, %._crit_edge ]
-  %.sroa.0.1 = phi i64 [ 1, %6 ], [ %.sroa.0.0, %._crit_edge ]
-  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %8, %6 ], [ %.sroa.4.1, %._crit_edge ]
+  %.sroa.0.0 = phi i64 [ 1, %6 ], [ %.sroa.0.1, %._crit_edge ]
+  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.4.0, 1
   ret { i64, ptr } %17
 }
 
@@ -4387,8 +4387,8 @@ common.resume:                                    ; preds = %53, %57, %28
   br label %42
 
 "_ZN25ockam_transport_websocket6router1_109_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_websocket..router..WebSocketRouterRequest$GT$9serialize17h66db6e716d7398cdE.llvm.10085540174115877777.exit.thread": ; preds = %.noexc7, %19, %"_ZN25ockam_transport_websocket6router1_109_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_websocket..router..WebSocketRouterRequest$GT$9serialize17h66db6e716d7398cdE.llvm.10085540174115877777.exit"
-  %.0.i13 = phi ptr [ %25, %"_ZN25ockam_transport_websocket6router1_109_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_websocket..router..WebSocketRouterRequest$GT$9serialize17h66db6e716d7398cdE.llvm.10085540174115877777.exit" ], [ %21, %.noexc7 ], [ %17, %19 ]
-  %41 = invoke noundef nonnull align 8 ptr @"_ZN10ockam_core7message106_$LT$impl$u20$core..convert..From$LT$serde_bare..error..Error$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h7dbbf957bb8a38b8E"(ptr noalias noundef nonnull align 8 %.0.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de05196e861459032a255d939f01b64a.59.llvm.10085540174115877777)
+  %.1.i13 = phi ptr [ %25, %"_ZN25ockam_transport_websocket6router1_109_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_websocket..router..WebSocketRouterRequest$GT$9serialize17h66db6e716d7398cdE.llvm.10085540174115877777.exit" ], [ %21, %.noexc7 ], [ %17, %19 ]
+  %41 = invoke noundef nonnull align 8 ptr @"_ZN10ockam_core7message106_$LT$impl$u20$core..convert..From$LT$serde_bare..error..Error$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h7dbbf957bb8a38b8E"(ptr noalias noundef nonnull align 8 %.1.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de05196e861459032a255d939f01b64a.59.llvm.10085540174115877777)
           to label %43 unwind label %.loopexit.split-lp
 
 42:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$ockam_transport_websocket..router..WebSocketRouterRequest$GT$17hba6296ef2783d8c4E.llvm.10085540174115877777.exit11", %"_ZN4core3ptr78drop_in_place$LT$ockam_transport_websocket..router..WebSocketRouterRequest$GT$17hba6296ef2783d8c4E.llvm.10085540174115877777.exit"
@@ -4535,8 +4535,8 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
   br i1 %16, label %11, label %18
 
 17:                                               ; preds = %18, %12
-  %.0 = phi ptr [ %15, %18 ], [ null, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %15, %18 ], [ null, %12 ]
+  ret ptr %.1
 
 18:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4)
@@ -7691,13 +7691,13 @@ common.resume:                                    ; preds = %76, %16
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc7488969cd42b542E.exit.thread.sink.split": ; preds = %59, %57
-  %.sroa.11.1.ph.ph = phi ptr [ %.sroa.026.0.copyload.i, %57 ], [ %.sroa.01.0.copyload.i, %59 ]
+  %.sroa.11.0.ph.ph = phi ptr [ %.sroa.026.0.copyload.i, %57 ], [ %.sroa.01.0.copyload.i, %59 ]
   %.sroa.528.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.528.0..sroa_idx.i, i64 24, i1 false)
   br label %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc7488969cd42b542E.exit.thread"
 
 "_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc7488969cd42b542E.exit.thread": ; preds = %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc7488969cd42b542E.exit.thread.sink.split", %57, %27, %59
-  %.sroa.11.1.ph = phi ptr [ null, %59 ], [ null, %27 ], [ null, %57 ], [ %.sroa.11.1.ph.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc7488969cd42b542E.exit.thread.sink.split" ]
+  %.sroa.11.0.ph = phi ptr [ null, %59 ], [ null, %27 ], [ null, %57 ], [ %.sroa.11.0.ph.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc7488969cd42b542E.exit.thread.sink.split" ]
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %4), !noalias !1327
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4), !noalias !1323
   br label %68
@@ -7722,7 +7722,7 @@ common.resume:                                    ; preds = %76, %16
   unreachable
 
 68:                                               ; preds = %47, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc7488969cd42b542E.exit.thread"
-  %.sroa.11.223 = phi ptr [ %.sroa.011.0.copyload.i, %47 ], [ %.sroa.11.1.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc7488969cd42b542E.exit.thread" ]
+  %.sroa.11.223 = phi ptr [ %.sroa.011.0.copyload.i, %47 ], [ %.sroa.11.0.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc7488969cd42b542E.exit.thread" ]
   %69 = icmp eq ptr %.sroa.11.223, null
   br i1 %69, label %75, label %71
 
@@ -8360,16 +8360,16 @@ define hidden { i64, ptr } @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$
 
 ._crit_edge.i:                                    ; preds = %9, %13
   %.pn.i = phi { i64, ptr } [ %16, %13 ], [ zeroinitializer, %9 ]
-  %.sroa.0.0.i = extractvalue { i64, ptr } %.pn.i, 0
-  %.sroa.4.0.i = extractvalue { i64, ptr } %.pn.i, 1
+  %.sroa.0.1.i = extractvalue { i64, ptr } %.pn.i, 0
+  %.sroa.4.1.i = extractvalue { i64, ptr } %.pn.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1468
   br label %"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h6058aa6349aca79dE.llvm.10085540174115877777.exit"
 
 "_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h6058aa6349aca79dE.llvm.10085540174115877777.exit": ; preds = %10, %._crit_edge.i
-  %.sroa.4.1.i = phi ptr [ %12, %10 ], [ %.sroa.4.0.i, %._crit_edge.i ]
-  %.sroa.0.1.i = phi i64 [ 1, %10 ], [ %.sroa.0.0.i, %._crit_edge.i ]
-  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1.i, 0
-  %20 = insertvalue { i64, ptr } %19, ptr %.sroa.4.1.i, 1
+  %.sroa.4.0.i = phi ptr [ %12, %10 ], [ %.sroa.4.1.i, %._crit_edge.i ]
+  %.sroa.0.0.i = phi i64 [ 1, %10 ], [ %.sroa.0.1.i, %._crit_edge.i ]
+  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %20 = insertvalue { i64, ptr } %19, ptr %.sroa.4.0.i, 1
   ret { i64, ptr } %20
 }
 
@@ -9373,7 +9373,7 @@ define hidden void @_ZN25ockam_transport_websocket6router6handle21WebSocketRoute
           to label %18 unwind label %16
 
 .body:                                            ; preds = %.thread87
-  br i1 %.3, label %.body.thread97, label %113
+  br i1 %.4, label %.body.thread97, label %113
 
 16:                                               ; preds = %18, %2
   %17 = landingpad { ptr, i32 }
@@ -9435,15 +9435,15 @@ define hidden void @_ZN25ockam_transport_websocket6router6handle21WebSocketRoute
   br label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$ockam_core..error..Error$GT$$GT$17h5277fafb7da5d5ffE.exit"
 
 .thread87:                                        ; preds = %.thread74, %112, %111, %110, %31
-  %.326 = phi i8 [ %.427, %31 ], [ %.7, %112 ], [ %.7, %110 ], [ %.62981, %111 ], [ 1, %.thread74 ]
-  %.3 = phi i1 [ %.4, %31 ], [ %.6, %112 ], [ %.6, %110 ], [ %.584, %111 ], [ false, %.thread74 ]
+  %.427 = phi i8 [ %.326, %31 ], [ %.629, %112 ], [ %.629, %110 ], [ %.781, %111 ], [ 1, %.thread74 ]
+  %.4 = phi i1 [ %.3, %31 ], [ %.5, %112 ], [ %.5, %110 ], [ %.684, %111 ], [ false, %.thread74 ]
   %.pn37 = phi { ptr, i32 } [ %32, %31 ], [ %57, %112 ], [ %57, %110 ], [ %.pn86, %111 ], [ %47, %.thread74 ]
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$ockam_core..error..Error$GT$$GT$17h5277fafb7da5d5ffE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #33
           to label %.body unwind label %85
 
 31:                                               ; preds = %.thread73, %91, %87, %66, %62, %21
-  %.427 = phi i8 [ 1, %21 ], [ 0, %62 ], [ 0, %66 ], [ 1, %87 ], [ 1, %91 ], [ 1, %.thread73 ]
-  %.4 = phi i1 [ false, %21 ], [ true, %62 ], [ true, %66 ], [ false, %87 ], [ false, %91 ], [ false, %.thread73 ]
+  %.326 = phi i8 [ 1, %21 ], [ 0, %62 ], [ 0, %66 ], [ 1, %87 ], [ 1, %91 ], [ 1, %.thread73 ]
+  %.3 = phi i1 [ false, %21 ], [ true, %62 ], [ true, %66 ], [ false, %87 ], [ false, %91 ], [ false, %.thread73 ]
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %.thread87
@@ -9525,8 +9525,8 @@ define hidden void @_ZN25ockam_transport_websocket6router6handle21WebSocketRoute
           to label %60 unwind label %56
 
 56:                                               ; preds = %44, %55, %79
-  %.7 = phi i8 [ 1, %44 ], [ 0, %55 ], [ 1, %79 ]
-  %.6 = phi i1 [ false, %44 ], [ true, %55 ], [ false, %79 ]
+  %.629 = phi i8 [ 1, %44 ], [ 0, %55 ], [ 1, %79 ]
+  %.5 = phi i1 [ false, %44 ], [ true, %55 ], [ false, %79 ]
   %57 = landingpad { ptr, i32 }
           cleanup
   %58 = load ptr, ptr %11, align 8, !noundef !10
@@ -9738,8 +9738,8 @@ define hidden void @_ZN25ockam_transport_websocket6router6handle21WebSocketRoute
 
 111:                                              ; preds = %.thread74, %56
   %.pn86 = phi { ptr, i32 } [ %47, %.thread74 ], [ %57, %56 ]
-  %.584 = phi i1 [ false, %.thread74 ], [ %.6, %56 ]
-  %.62981 = phi i8 [ 1, %.thread74 ], [ %.7, %56 ]
+  %.684 = phi i1 [ false, %.thread74 ], [ %.5, %56 ]
+  %.781 = phi i8 [ 1, %.thread74 ], [ %.629, %56 ]
   invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$alloc..vec..into_iter..IntoIter$LT$core..net..socket_addr..SocketAddr$GT$$C$std..io..error..Error$GT$$GT$17h7a0b4a3f6a3d10f4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #33
           to label %.thread87 unwind label %85
 
@@ -9749,13 +9749,13 @@ define hidden void @_ZN25ockam_transport_websocket6router6handle21WebSocketRoute
 
 113:                                              ; preds = %.body.thread97, %.body
   %.pn3996 = phi { ptr, i32 } [ %.pn39102, %.body.thread97 ], [ %.pn37, %.body ]
-  %.02395 = phi i8 [ %.023101, %.body.thread97 ], [ %.326, %.body ]
-  %114 = trunc nuw i8 %.02395 to i1
+  %.12495 = phi i8 [ %.124101, %.body.thread97 ], [ %.427, %.body ]
+  %114 = trunc nuw i8 %.12495 to i1
   br i1 %114, label %.thread103, label %115
 
 .body.thread97:                                   ; preds = %27, %.body
   %.pn39102 = phi { ptr, i32 } [ %.pn37, %.body ], [ %28, %27 ]
-  %.023101 = phi i8 [ %.326, %.body ], [ 0, %27 ]
+  %.124101 = phi i8 [ %.427, %.body ], [ 0, %27 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h39dad8d6778c2678E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #33
           to label %113 unwind label %85
 
@@ -9810,8 +9810,8 @@ define hidden noundef align 8 ptr @"_ZN25ockam_transport_websocket6router1_109_$
   br label %17
 
 17:                                               ; preds = %14, %11, %10
-  %.0 = phi ptr [ %8, %10 ], [ %12, %11 ], [ %16, %14 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %8, %10 ], [ %12, %11 ], [ %16, %14 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10345,22 +10345,22 @@ _ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread: ; 
 
 _ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit: ; preds = %40, %43
   %.pn.i.i.i.i.i.i = phi { i64, ptr } [ %46, %43 ], [ zeroinitializer, %40 ]
-  %.sroa.0.0.i.i.i.i.i.i = extractvalue { i64, ptr } %.pn.i.i.i.i.i.i, 0
-  %.sroa.4.0.i.i.i.i.i.i = extractvalue { i64, ptr } %.pn.i.i.i.i.i.i, 1
+  %.sroa.0.1.i.i.i.i.i.i = extractvalue { i64, ptr } %.pn.i.i.i.i.i.i, 0
+  %.sroa.4.1.i.i.i.i.i.i = extractvalue { i64, ptr } %.pn.i.i.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !2043
-  %switch.i = icmp eq i64 %.sroa.0.0.i.i.i.i.i.i, 0
+  %switch.i = icmp eq i64 %.sroa.0.1.i.i.i.i.i.i, 0
   br i1 %switch.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit", label %49
 
 49:                                               ; preds = %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit
-  %.sroa.0.1.i.i.i.i.i.i25 = phi i64 [ 1, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread ], [ %.sroa.0.0.i.i.i.i.i.i, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ]
-  %.sroa.4.1.i.i.i.i.i.i23 = phi ptr [ %42, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread ], [ %.sroa.4.0.i.i.i.i.i.i, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ]
-  %50 = icmp ne ptr %.sroa.4.1.i.i.i.i.i.i23, null
+  %.sroa.0.0.i.i.i.i.i.i25 = phi i64 [ 1, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread ], [ %.sroa.0.1.i.i.i.i.i.i, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ]
+  %.sroa.4.0.i.i.i.i.i.i23 = phi ptr [ %42, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit.thread ], [ %.sroa.4.1.i.i.i.i.i.i, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ]
+  %50 = icmp ne ptr %.sroa.4.0.i.i.i.i.i.i23, null
   call void @llvm.assume(i1 %50)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit": ; preds = %12, %.lr.ph.i.i._crit_edge.i.i.i.i, %34, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i", %49, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit
-  %.sroa.3.0 = phi ptr [ %.sroa.4.0.i.i.i.i.i.i, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ], [ %.sroa.4.1.i.i.i.i.i.i23, %49 ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i" ], [ %36, %34 ], [ %.lcssa.i.i.i.i, %.lr.ph.i.i._crit_edge.i.i.i.i ], [ %13, %12 ]
-  %.sroa.0.0 = phi i64 [ 0, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ], [ %.sroa.0.1.i.i.i.i.i.i25, %49 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i" ], [ 1, %34 ], [ 1, %.lr.ph.i.i._crit_edge.i.i.i.i ], [ 1, %12 ]
+  %.sroa.3.0 = phi ptr [ %.sroa.4.1.i.i.i.i.i.i, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ], [ %.sroa.4.0.i.i.i.i.i.i23, %49 ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i" ], [ %36, %34 ], [ %.lcssa.i.i.i.i, %.lr.ph.i.i._crit_edge.i.i.i.i ], [ %13, %12 ]
+  %.sroa.0.0 = phi i64 [ 0, %_ZN5serde2de13VariantAccess15newtype_variant17ha3078d2992c0fab6E.exit ], [ %.sroa.0.0.i.i.i.i.i.i25, %49 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i" ], [ 1, %34 ], [ 1, %.lr.ph.i.i._crit_edge.i.i.i.i ], [ 1, %12 ]
   %51 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %52 = insertvalue { i64, ptr } %51, ptr %.sroa.3.0, 1
   ret { i64, ptr } %52

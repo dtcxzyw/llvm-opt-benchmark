@@ -283,7 +283,7 @@ if.end22:                                         ; preds = %if.then7
   br label %return
 
 do.body:                                          ; preds = %_ZN6AssimpL12getFlushModeENS_11Compression9FlushModeE.exit, %if.end43
-  %total.0 = phi i64 [ 0, %_ZN6AssimpL12getFlushModeENS_11Compression9FlushModeE.exit ], [ %add, %if.end43 ]
+  %total.1 = phi i64 [ 0, %_ZN6AssimpL12getFlushModeENS_11Compression9FlushModeE.exit ], [ %add, %if.end43 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32786) %block, i8 0, i64 32786, i1 false)
   %12 = load ptr, ptr %this, align 8
   %avail_out29 = getelementptr inbounds i8, ptr %12, i64 40
@@ -319,10 +319,10 @@ if.end43:                                         ; preds = %do.body
   %17 = load i32, ptr %avail_out46, align 8
   %conv47 = zext i32 %17 to i64
   %sub = sub nsw i64 32786, %conv47
-  %add = add i64 %sub, %total.0
+  %add = add i64 %sub, %total.1
   call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %uncompressed, i64 noundef %add)
   %18 = load ptr, ptr %uncompressed, align 8
-  %add.ptr49 = getelementptr inbounds i8, ptr %18, i64 %total.0
+  %add.ptr49 = getelementptr inbounds i8, ptr %18, i64 %total.1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr49, ptr nonnull align 16 %block, i64 %sub, i1 false)
   br i1 %cmp36.not, label %return, label %do.body, !llvm.loop !4
 

@@ -261,14 +261,14 @@ ft_lzw_file_skip_output.exit.i:                   ; preds = %49, %33
   %60 = phi ptr [ %75, %73 ], [ %.pre62.i, %.preheader.i ]
   %61 = phi ptr [ %76, %73 ], [ %.pre.i, %.preheader.i ]
   %.043.i = phi i64 [ %71, %73 ], [ %3, %.preheader.i ]
-  %.042.i = phi i64 [ %66, %73 ], [ 0, %.preheader.i ]
+  %.1.i = phi i64 [ %66, %73 ], [ 0, %.preheader.i ]
   %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %60 to i64
   %64 = sub i64 %62, %63
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %64, i64 %.043.i)
-  %65 = getelementptr inbounds i8, ptr %2, i64 %.042.i
+  %65 = getelementptr inbounds i8, ptr %2, i64 %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %60, i64 %spec.select.i, i1 false)
-  %66 = add i64 %spec.select.i, %.042.i
+  %66 = add i64 %spec.select.i, %.1.i
   %67 = load ptr, ptr %58, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 %spec.select.i
   store ptr %68, ptr %58, align 8
@@ -289,8 +289,8 @@ ft_lzw_file_skip_output.exit.i:                   ; preds = %49, %33
   br i1 %.not59.i, label %ft_lzw_file_io.exit, label %59
 
 ft_lzw_file_io.exit:                              ; preds = %46, %59, %73, %20, %ft_lzw_file_skip_output.exit.i, %54
-  %.1.i = phi i64 [ 0, %ft_lzw_file_skip_output.exit.i ], [ 0, %54 ], [ 0, %20 ], [ %66, %73 ], [ %66, %59 ], [ 0, %46 ]
-  ret i64 %.1.i
+  %.042.i = phi i64 [ 0, %ft_lzw_file_skip_output.exit.i ], [ 0, %54 ], [ 0, %20 ], [ %66, %73 ], [ %66, %59 ], [ 0, %46 ]
+  ret i64 %.042.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -505,18 +505,18 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   br i1 %49, label %.loopexit, label %.preheader.sink.split
 
 .preheader.sink.split:                            ; preds = %48, %.split191.us, %224
-  %.1115.ph.ph = phi i32 [ %.2111, %224 ], [ %.2111, %.split191.us ], [ %44, %48 ]
-  %.1110.ph.ph = phi i32 [ %.2111, %224 ], [ %.2111, %.split191.us ], [ 0, %48 ]
-  %.1105.ph.ph = phi i32 [ %.2106, %224 ], [ %.2106, %.split191.us ], [ %44, %48 ]
-  %.1102.ph.ph = phi i64 [ %.us-phi, %224 ], [ %.us-phi, %.split191.us ], [ 1, %48 ]
+  %.4118.ph.ph = phi i32 [ %.2111, %224 ], [ %.2111, %.split191.us ], [ %44, %48 ]
+  %.4113.ph.ph = phi i32 [ %.2111, %224 ], [ %.2111, %.split191.us ], [ 0, %48 ]
+  %.4108.ph.ph = phi i32 [ %.2106, %224 ], [ %.2106, %.split191.us ], [ %44, %48 ]
+  %.4.ph.ph = phi i64 [ %.us-phi, %224 ], [ %.us-phi, %.split191.us ], [ 1, %48 ]
   store i32 1, ptr %0, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.sink.split, %16
-  %.1115.ph = phi i32 [ %12, %16 ], [ %.1115.ph.ph, %.preheader.sink.split ]
-  %.1110.ph = phi i32 [ %14, %16 ], [ %.1110.ph.ph, %.preheader.sink.split ]
-  %.1105.ph = phi i32 [ %10, %16 ], [ %.1105.ph.ph, %.preheader.sink.split ]
-  %.1102.ph = phi i64 [ 0, %16 ], [ %.1102.ph.ph, %.preheader.sink.split ]
+  %.4118.ph = phi i32 [ %12, %16 ], [ %.4118.ph.ph, %.preheader.sink.split ]
+  %.4113.ph = phi i32 [ %14, %16 ], [ %.4113.ph.ph, %.preheader.sink.split ]
+  %.4108.ph = phi i32 [ %10, %16 ], [ %.4108.ph.ph, %.preheader.sink.split ]
+  %.4.ph = phi i64 [ 0, %16 ], [ %.4.ph.ph, %.preheader.sink.split ]
   %50 = call fastcc i32 @ft_lzwstate_get_code(ptr noundef nonnull %0)
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %.loopexit168, label %.lr.ph
@@ -529,8 +529,8 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
 
 55:                                               ; preds = %.lr.ph, %60
   %56 = phi i32 [ %50, %.lr.ph ], [ %61, %60 ]
-  %.1105185 = phi i32 [ %.1105.ph, %.lr.ph ], [ 0, %60 ]
-  %.1115184 = phi i32 [ %.1115.ph, %.lr.ph ], [ 0, %60 ]
+  %.4108185 = phi i32 [ %.4108.ph, %.lr.ph ], [ 0, %60 ]
+  %.4118184 = phi i32 [ %.4118.ph, %.lr.ph ], [ 0, %60 ]
   %57 = icmp eq i32 %56, 256
   br i1 %57, label %58, label %63
 
@@ -628,18 +628,18 @@ ft_lzwstate_stack_grow.exit:                      ; preds = %93, %95
 96:                                               ; preds = %69, %ft_lzwstate_stack_grow.exit
   %.pre-phi221 = phi i64 [ %.pre220, %ft_lzwstate_stack_grow.exit ], [ %72, %69 ]
   %97 = phi i32 [ %.pre, %ft_lzwstate_stack_grow.exit ], [ %71, %69 ]
-  %98 = trunc i32 %.1105185 to i8
+  %98 = trunc i32 %.4108185 to i8
   %99 = getelementptr inbounds i8, ptr %0, i64 112
   %100 = load ptr, ptr %99, align 8
   %101 = add i32 %97, 1
   store i32 %101, ptr %70, align 8
   %102 = getelementptr inbounds i8, ptr %100, i64 %.pre-phi221
   store i8 %98, ptr %102, align 1
-  %103 = icmp ugt i32 %.1115184, 255
+  %103 = icmp ugt i32 %.4118184, 255
   br i1 %103, label %.lr.ph188, label %.loopexit167
 
 .lr.ph188:                                        ; preds = %.thread, %96
-  %.0224 = phi i32 [ %.1115184, %96 ], [ %56, %.thread ]
+  %.1224 = phi i32 [ %.4118184, %96 ], [ %56, %.thread ]
   %104 = getelementptr inbounds i8, ptr %0, i64 88
   %105 = getelementptr inbounds i8, ptr %0, i64 120
   %106 = getelementptr inbounds i8, ptr %0, i64 128
@@ -652,7 +652,7 @@ ft_lzwstate_stack_grow.exit:                      ; preds = %93, %95
 
 111:                                              ; preds = %.lr.ph188, %134
   %112 = phi ptr [ %.pre210, %.lr.ph188 ], [ %144, %134 ]
-  %.1187 = phi i32 [ %.0224, %.lr.ph188 ], [ %147, %134 ]
+  %.2187 = phi i32 [ %.1224, %.lr.ph188 ], [ %147, %134 ]
   %.not141 = icmp eq ptr %112, null
   br i1 %.not141, label %.loopexit168, label %113
 
@@ -723,7 +723,7 @@ ft_lzwstate_stack_grow.exit151:                   ; preds = %131, %133
   %135 = phi i32 [ %.pre213, %ft_lzwstate_stack_grow.exit151 ], [ %114, %113 ]
   %136 = phi ptr [ %.pre211, %ft_lzwstate_stack_grow.exit151 ], [ %.pre212, %113 ]
   %137 = load ptr, ptr %110, align 8
-  %138 = add i32 %.1187, -256
+  %138 = add i32 %.2187, -256
   %139 = zext i32 %138 to i64
   %140 = getelementptr inbounds i8, ptr %137, i64 %139
   %141 = load i8, ptr %140, align 1
@@ -739,7 +739,7 @@ ft_lzwstate_stack_grow.exit151:                   ; preds = %131, %133
   br i1 %148, label %111, label %.loopexit167, !llvm.loop !6
 
 .loopexit167:                                     ; preds = %134, %96, %63
-  %.2 = phi i32 [ %56, %63 ], [ %.1115184, %96 ], [ %147, %134 ]
+  %.0 = phi i32 [ %56, %63 ], [ %.4118184, %96 ], [ %147, %134 ]
   %149 = getelementptr inbounds i8, ptr %0, i64 120
   %150 = load i32, ptr %149, align 8
   %151 = zext i32 %150 to i64
@@ -807,7 +807,7 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %172, %174
 175:                                              ; preds = %ft_lzwstate_stack_grow.exit160, %.loopexit167
   %.pre-phi219 = phi i64 [ %.pre218, %ft_lzwstate_stack_grow.exit160 ], [ %151, %.loopexit167 ]
   %176 = phi i32 [ %.pre214, %ft_lzwstate_stack_grow.exit160 ], [ %150, %.loopexit167 ]
-  %177 = trunc nuw i32 %.2 to i8
+  %177 = trunc nuw i32 %.0 to i8
   %178 = getelementptr inbounds i8, ptr %0, i64 112
   %179 = load ptr, ptr %178, align 8
   %180 = add i32 %176, 1
@@ -818,10 +818,10 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %172, %174
   br label %182
 
 182:                                              ; preds = %175, %16
-  %.2116 = phi i32 [ %12, %16 ], [ %.1115184, %175 ]
+  %.2116 = phi i32 [ %12, %16 ], [ %.4118184, %175 ]
   %.2111 = phi i32 [ %14, %16 ], [ %56, %175 ]
-  %.2106 = phi i32 [ %10, %16 ], [ %.2, %175 ]
-  %.2103 = phi i64 [ 0, %16 ], [ %.1102.ph, %175 ]
+  %.2106 = phi i32 [ %10, %16 ], [ %.0, %175 ]
+  %.2103 = phi i64 [ 0, %16 ], [ %.4.ph, %175 ]
   %183 = getelementptr inbounds i8, ptr %0, i64 120
   %.not140 = icmp eq ptr %1, null
   %184 = getelementptr inbounds i8, ptr %0, i64 112
@@ -833,19 +833,19 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %172, %174
 
 185:                                              ; preds = %187, %.split.us
   %186 = phi i32 [ %.promoted, %.split.us ], [ %188, %187 ]
-  %.3.us = phi i64 [ %.2103, %.split.us ], [ %189, %187 ]
+  %.5.us = phi i64 [ %.2103, %.split.us ], [ %189, %187 ]
   %.not138.us = icmp eq i32 %186, 0
   br i1 %.not138.us, label %.split191.us, label %187
 
 187:                                              ; preds = %185
   %188 = add i32 %186, -1
   store i32 %188, ptr %183, align 8
-  %189 = add i64 %.3.us, 1
+  %189 = add i64 %.5.us, 1
   %190 = icmp eq i64 %189, %2
   br i1 %190, label %.loopexit, label %185, !llvm.loop !7
 
 .split:                                           ; preds = %182, %192
-  %.3 = phi i64 [ %199, %192 ], [ %.2103, %182 ]
+  %.5 = phi i64 [ %199, %192 ], [ %.2103, %182 ]
   %191 = load i32, ptr %183, align 8
   %.not138 = icmp eq i32 %191, 0
   br i1 %.not138, label %.split191.us, label %192
@@ -857,14 +857,14 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %172, %174
   %195 = zext i32 %193 to i64
   %196 = getelementptr inbounds i8, ptr %194, i64 %195
   %197 = load i8, ptr %196, align 1
-  %198 = getelementptr inbounds i8, ptr %1, i64 %.3
+  %198 = getelementptr inbounds i8, ptr %1, i64 %.5
   store i8 %197, ptr %198, align 1
-  %199 = add i64 %.3, 1
+  %199 = add i64 %.5, 1
   %200 = icmp eq i64 %199, %2
   br i1 %200, label %.loopexit, label %.split, !llvm.loop !7
 
 .split191.us:                                     ; preds = %.split, %185
-  %.us-phi = phi i64 [ %.3.us, %185 ], [ %.3, %.split ]
+  %.us-phi = phi i64 [ %.5.us, %185 ], [ %.5, %.split ]
   %201 = getelementptr inbounds i8, ptr %0, i64 64
   %202 = load i32, ptr %201, align 8
   %203 = getelementptr inbounds i8, ptr %0, i64 56
@@ -932,20 +932,20 @@ ft_lzwstate_prefix_grow.exit:                     ; preds = %209
   br label %.preheader.sink.split
 
 .loopexit:                                        ; preds = %192, %187, %16, %48, %3, %.loopexit168
-  %.3117 = phi i32 [ %12, %3 ], [ %12, %16 ], [ %.4118, %.loopexit168 ], [ %44, %48 ], [ %.2116, %187 ], [ %.2116, %192 ]
-  %.3112 = phi i32 [ %14, %3 ], [ %14, %16 ], [ %.4113, %.loopexit168 ], [ 0, %48 ], [ %.2111, %187 ], [ %.2111, %192 ]
-  %.3107 = phi i32 [ %10, %3 ], [ %10, %16 ], [ %.4108, %.loopexit168 ], [ %44, %48 ], [ %.2106, %187 ], [ %.2106, %192 ]
-  %.4 = phi i64 [ 0, %3 ], [ 0, %16 ], [ %.5, %.loopexit168 ], [ 1, %48 ], [ %2, %187 ], [ %2, %192 ]
-  store i32 %.3117, ptr %11, align 8
-  store i32 %.3107, ptr %9, align 4
-  store i32 %.3112, ptr %13, align 8
-  ret i64 %.4
+  %.0114 = phi i32 [ %12, %3 ], [ %12, %16 ], [ %.3117, %.loopexit168 ], [ %44, %48 ], [ %.2116, %187 ], [ %.2116, %192 ]
+  %.0109 = phi i32 [ %14, %3 ], [ %14, %16 ], [ %.3112, %.loopexit168 ], [ 0, %48 ], [ %.2111, %187 ], [ %.2111, %192 ]
+  %.0104 = phi i32 [ %10, %3 ], [ %10, %16 ], [ %.3107, %.loopexit168 ], [ %44, %48 ], [ %.2106, %187 ], [ %.2106, %192 ]
+  %.0101 = phi i64 [ 0, %3 ], [ 0, %16 ], [ %.3, %.loopexit168 ], [ 1, %48 ], [ %2, %187 ], [ %2, %192 ]
+  store i32 %.0114, ptr %11, align 8
+  store i32 %.0104, ptr %9, align 4
+  store i32 %.0109, ptr %13, align 8
+  ret i64 %.0101
 
 .loopexit168:                                     ; preds = %60, %111, %.preheader, %ft_lzwstate_prefix_grow.exit.thread, %ft_lzwstate_stack_grow.exit160.thread, %ft_lzwstate_stack_grow.exit151.thread, %ft_lzwstate_stack_grow.exit.thread, %67, %37, %25, %18, %22
-  %.4118 = phi i32 [ %.1115184, %67 ], [ %12, %18 ], [ %12, %22 ], [ %12, %25 ], [ %12, %37 ], [ %.1115184, %ft_lzwstate_stack_grow.exit.thread ], [ %.1115184, %ft_lzwstate_stack_grow.exit151.thread ], [ %.1115184, %ft_lzwstate_stack_grow.exit160.thread ], [ %.2116, %ft_lzwstate_prefix_grow.exit.thread ], [ %.1115.ph, %.preheader ], [ %.1115184, %111 ], [ 0, %60 ]
-  %.4113 = phi i32 [ %56, %67 ], [ %14, %18 ], [ %14, %22 ], [ %14, %25 ], [ 0, %37 ], [ %56, %ft_lzwstate_stack_grow.exit.thread ], [ %56, %ft_lzwstate_stack_grow.exit151.thread ], [ %56, %ft_lzwstate_stack_grow.exit160.thread ], [ %.2111, %ft_lzwstate_prefix_grow.exit.thread ], [ %.1110.ph, %.preheader ], [ %56, %111 ], [ %.1110.ph, %60 ]
-  %.4108 = phi i32 [ %.1105185, %67 ], [ %10, %18 ], [ %10, %22 ], [ %10, %25 ], [ %10, %37 ], [ %.1105185, %ft_lzwstate_stack_grow.exit.thread ], [ %.1105185, %ft_lzwstate_stack_grow.exit151.thread ], [ %.2, %ft_lzwstate_stack_grow.exit160.thread ], [ %.2106, %ft_lzwstate_prefix_grow.exit.thread ], [ %.1105.ph, %.preheader ], [ %.1105185, %111 ], [ 0, %60 ]
-  %.5 = phi i64 [ %.1102.ph, %67 ], [ 0, %18 ], [ 0, %22 ], [ 0, %25 ], [ 0, %37 ], [ %.1102.ph, %ft_lzwstate_stack_grow.exit.thread ], [ %.1102.ph, %ft_lzwstate_stack_grow.exit151.thread ], [ %.1102.ph, %ft_lzwstate_stack_grow.exit160.thread ], [ %.us-phi, %ft_lzwstate_prefix_grow.exit.thread ], [ %.1102.ph, %.preheader ], [ %.1102.ph, %111 ], [ %.1102.ph, %60 ]
+  %.3117 = phi i32 [ %.4118184, %67 ], [ %12, %18 ], [ %12, %22 ], [ %12, %25 ], [ %12, %37 ], [ %.4118184, %ft_lzwstate_stack_grow.exit.thread ], [ %.4118184, %ft_lzwstate_stack_grow.exit151.thread ], [ %.4118184, %ft_lzwstate_stack_grow.exit160.thread ], [ %.2116, %ft_lzwstate_prefix_grow.exit.thread ], [ %.4118.ph, %.preheader ], [ %.4118184, %111 ], [ 0, %60 ]
+  %.3112 = phi i32 [ %56, %67 ], [ %14, %18 ], [ %14, %22 ], [ %14, %25 ], [ 0, %37 ], [ %56, %ft_lzwstate_stack_grow.exit.thread ], [ %56, %ft_lzwstate_stack_grow.exit151.thread ], [ %56, %ft_lzwstate_stack_grow.exit160.thread ], [ %.2111, %ft_lzwstate_prefix_grow.exit.thread ], [ %.4113.ph, %.preheader ], [ %56, %111 ], [ %.4113.ph, %60 ]
+  %.3107 = phi i32 [ %.4108185, %67 ], [ %10, %18 ], [ %10, %22 ], [ %10, %25 ], [ %10, %37 ], [ %.4108185, %ft_lzwstate_stack_grow.exit.thread ], [ %.4108185, %ft_lzwstate_stack_grow.exit151.thread ], [ %.0, %ft_lzwstate_stack_grow.exit160.thread ], [ %.2106, %ft_lzwstate_prefix_grow.exit.thread ], [ %.4108.ph, %.preheader ], [ %.4108185, %111 ], [ 0, %60 ]
+  %.3 = phi i64 [ %.4.ph, %67 ], [ 0, %18 ], [ 0, %22 ], [ 0, %25 ], [ 0, %37 ], [ %.4.ph, %ft_lzwstate_stack_grow.exit.thread ], [ %.4.ph, %ft_lzwstate_stack_grow.exit151.thread ], [ %.4.ph, %ft_lzwstate_stack_grow.exit160.thread ], [ %.us-phi, %ft_lzwstate_prefix_grow.exit.thread ], [ %.4.ph, %.preheader ], [ %.4.ph, %111 ], [ %.4.ph, %60 ]
   store i32 3, ptr %0, align 8
   br label %.loopexit
 }
@@ -1018,7 +1018,7 @@ define internal fastcc i32 @ft_lzwstate_get_code(ptr noundef %0) unnamed_addr #0
   br label %39
 
 39:                                               ; preds = %37, %16
-  %.049 = phi i32 [ %22, %37 ], [ %3, %16 ]
+  %.150 = phi i32 [ %22, %37 ], [ %3, %16 ]
   br i1 %.not, label %41, label %40
 
 40:                                               ; preds = %39
@@ -1028,7 +1028,7 @@ define internal fastcc i32 @ft_lzwstate_get_code(ptr noundef %0) unnamed_addr #0
   br label %41
 
 41:                                               ; preds = %40, %39
-  %42 = phi i32 [ 9, %40 ], [ %.049, %39 ]
+  %42 = phi i32 [ 9, %40 ], [ %.150, %39 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 4
   %44 = load i32, ptr %43, align 4
   %.not.i = icmp eq i32 %44, 0
@@ -1065,9 +1065,9 @@ ft_lzwstate_refill.exit:                          ; preds = %45
   br i1 %63, label %ft_lzwstate_refill.exit.thread, label %64
 
 64:                                               ; preds = %ft_lzwstate_refill.exit, %11
-  %.2 = phi i32 [ %3, %11 ], [ %42, %ft_lzwstate_refill.exit ]
+  %.049 = phi i32 [ %3, %11 ], [ %42, %ft_lzwstate_refill.exit ]
   %.047 = phi i32 [ %5, %11 ], [ 0, %ft_lzwstate_refill.exit ]
-  %65 = add i32 %.047, %.2
+  %65 = add i32 %.047, %.049
   store i32 %65, ptr %4, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 8
   %67 = lshr i32 %.047, 3
@@ -1079,7 +1079,7 @@ ft_lzwstate_refill.exit:                          ; preds = %45
   %73 = zext i8 %72 to i32
   %74 = lshr i32 %73, %70
   %75 = sub nuw nsw i32 8, %70
-  %76 = sub i32 %.2, %75
+  %76 = sub i32 %.049, %75
   %77 = icmp ugt i32 %76, 7
   br i1 %77, label %78, label %86
 

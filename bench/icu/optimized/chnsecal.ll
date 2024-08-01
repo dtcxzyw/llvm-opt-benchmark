@@ -608,17 +608,17 @@ if.end32.if.end37_crit_edge:                      ; preds = %if.end32
 
 if.end37:                                         ; preds = %if.end32.if.end37_crit_edge, %if.end14
   %tobool39.not = phi i32 [ %9, %if.end32.if.end37_crit_edge ], [ 12, %if.end14 ]
-  %m.1 = phi i32 [ %spec.select, %if.end32.if.end37_crit_edge ], [ %call10, %if.end14 ]
-  %add40 = add nsw i32 %m.1, %amount
+  %m.0 = phi i32 [ %spec.select, %if.end32.if.end37_crit_edge ], [ %call10, %if.end14 ]
+  %add40 = add nsw i32 %m.0, %amount
   %rem = srem i32 %add40, %tobool39.not
   %cmp41 = icmp slt i32 %rem, 0
   %add43 = select i1 %cmp41, i32 %tobool39.not, i32 0
   %spec.select26 = add nsw i32 %add43, %rem
-  %cmp45.not = icmp eq i32 %spec.select26, %m.1
+  %cmp45.not = icmp eq i32 %spec.select26, %m.0
   br i1 %cmp45.not, label %sw.epilog, label %if.then46
 
 if.then46:                                        ; preds = %if.end37
-  %sub47 = sub nsw i32 %spec.select26, %m.1
+  %sub47 = sub nsw i32 %spec.select26, %m.0
   %vtable48 = load ptr, ptr %this, align 8
   %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 504
   %10 = load ptr, ptr %vfn49, align 8
@@ -1499,15 +1499,15 @@ if.then30:                                        ; preds = %lor.lhs.false, %lan
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false, %if.then30
-  %cacheValue.0 = phi i32 [ %call35, %if.then30 ], [ %call13, %lor.lhs.false ], [ %call13, %if.then ]
-  call void @_ZN6icu_7513CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef nonnull @_ZL28gChineseCalendarNewYearCache, i32 noundef %gyear, i32 noundef %cacheValue.0, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %cacheValue.1 = phi i32 [ %call35, %if.then30 ], [ %call13, %lor.lhs.false ], [ %call13, %if.then ]
+  call void @_ZN6icu_7513CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef nonnull @_ZL28gChineseCalendarNewYearCache, i32 noundef %gyear, i32 noundef %cacheValue.1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end, %entry
-  %cacheValue.1 = phi i32 [ %cacheValue.0, %if.end ], [ %call, %entry ]
+  %cacheValue.0 = phi i32 [ %cacheValue.1, %if.end ], [ %call, %entry ]
   %9 = load i32, ptr %status, align 4
   %cmp.i.inv = icmp sgt i32 %9, 0
-  %spec.select = select i1 %cmp.i.inv, i32 0, i32 %cacheValue.1
+  %spec.select = select i1 %cmp.i.inv, i32 0, i32 %cacheValue.0
   ret i32 %spec.select
 }
 

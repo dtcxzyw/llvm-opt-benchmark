@@ -522,7 +522,7 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr nocapture noundef readonly %0, i32 
   %.069.ph.ph.ph = phi ptr [ %39, %44 ], [ %20, %24 ]
   %.067.ph.ph.ph = phi ptr [ %38, %44 ], [ %22, %24 ]
   %.165.ph.ph.ph = phi i32 [ %.0.ph.ph.ph, %44 ], [ 1, %24 ]
-  %.062.ph.ph.ph = phi ptr [ %49, %44 ], [ %17, %24 ]
+  %.163.ph.ph.ph = phi ptr [ %49, %44 ], [ %17, %24 ]
   %.0.ph.ph.ph = phi i32 [ %45, %44 ], [ 2, %24 ]
   br label %.outer.outer
 
@@ -568,7 +568,7 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr nocapture noundef readonly %0, i32 
   %39 = getelementptr inbounds i8, ptr %.069, i64 1
   %40 = add i32 %.165.ph.ph, 1
   %41 = zext i32 %.165.ph.ph to i64
-  %42 = getelementptr inbounds ptr, ptr %.062.ph.ph.ph, i64 %41
+  %42 = getelementptr inbounds ptr, ptr %.163.ph.ph.ph, i64 %41
   store ptr %38, ptr %42, align 8
   %43 = icmp eq i32 %40, %.0.ph.ph.ph
   br i1 %43, label %44, label %.outer.outer
@@ -578,7 +578,7 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr nocapture noundef readonly %0, i32 
   %46 = or disjoint i32 %45, 1
   %47 = zext i32 %46 to i64
   %48 = shl nuw nsw i64 %47, 3
-  %49 = tail call ptr @realloc(ptr noundef nonnull %.062.ph.ph.ph, i64 noundef %48) #29
+  %49 = tail call ptr @realloc(ptr noundef nonnull %.163.ph.ph.ph, i64 noundef %48) #29
   %50 = icmp eq ptr %49, null
   br i1 %50, label %63, label %.outer.outer.outer
 
@@ -606,9 +606,9 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr nocapture noundef readonly %0, i32 
 60:                                               ; preds = %25
   store i8 0, ptr %.067.ph, align 1
   %61 = zext i32 %.165.ph.ph to i64
-  %62 = getelementptr inbounds ptr, ptr %.062.ph.ph.ph, i64 %61
+  %62 = getelementptr inbounds ptr, ptr %.163.ph.ph.ph, i64 %61
   store ptr null, ptr %62, align 8
-  store ptr %.062.ph.ph.ph, ptr %4, align 8
+  store ptr %.163.ph.ph.ph, ptr %4, align 8
   store i32 %.165.ph.ph, ptr %3, align 4
   store ptr %22, ptr %2, align 8
   br label %.thread105
@@ -618,8 +618,8 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr nocapture noundef readonly %0, i32 
   br label %.thread100
 
 .thread100:                                       ; preds = %63, %19
-  %.2.ph98103 = phi ptr [ %17, %19 ], [ %.062.ph.ph.ph, %63 ]
-  tail call void @free(ptr noundef nonnull %.2.ph98103) #23
+  %.062.ph98103 = phi ptr [ %17, %19 ], [ %.163.ph.ph.ph, %63 ]
+  tail call void @free(ptr noundef nonnull %.062.ph98103) #23
   br label %.thread105
 
 .thread105:                                       ; preds = %16, %11, %5, %60, %.thread100
@@ -1394,12 +1394,12 @@ sub_1:                                            ; preds = %sub_0
   br i1 %70, label %99, label %71
 
 71:                                               ; preds = %68, %52
-  %.051 = phi i64 [ %58, %68 ], [ 0, %52 ]
-  %.050 = phi i64 [ %66, %68 ], [ 0, %52 ]
+  %.152 = phi i64 [ %58, %68 ], [ 0, %52 ]
+  %.1 = phi i64 [ %66, %68 ], [ 0, %52 ]
   br i1 %3, label %72, label %98
 
 72:                                               ; preds = %71
-  %73 = tail call i32 @H5Oexists_by_name(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %.050) #23
+  %73 = tail call i32 @H5Oexists_by_name(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %.1) #23
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %99, label %75
 
@@ -1408,7 +1408,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %76, label %99, label %77
 
 77:                                               ; preds = %75
-  %78 = call i32 @H5Oget_info_by_name3(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1, i64 noundef %.050) #23
+  %78 = call i32 @H5Oget_info_by_name3(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1, i64 noundef %.1) #23
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %85
 
@@ -1453,27 +1453,27 @@ sub_1:                                            ; preds = %sub_0
   br label %99
 
 99:                                               ; preds = %93, %98, %92, %88, %84, %80, %75, %72, %68, %63, %60
-  %.152 = phi i64 [ %58, %60 ], [ %58, %63 ], [ %58, %68 ], [ %.051, %72 ], [ %.051, %75 ], [ %.051, %80 ], [ %.051, %84 ], [ %.051, %88 ], [ %.051, %92 ], [ %.051, %98 ], [ %.051, %93 ]
-  %.1 = phi i64 [ 0, %60 ], [ %66, %63 ], [ %66, %68 ], [ %.050, %72 ], [ %.050, %75 ], [ %.050, %80 ], [ %.050, %84 ], [ %.050, %88 ], [ %.050, %92 ], [ %.050, %98 ], [ %.050, %93 ]
+  %.051 = phi i64 [ %58, %60 ], [ %58, %63 ], [ %58, %68 ], [ %.152, %72 ], [ %.152, %75 ], [ %.152, %80 ], [ %.152, %84 ], [ %.152, %88 ], [ %.152, %92 ], [ %.152, %98 ], [ %.152, %93 ]
+  %.050 = phi i64 [ 0, %60 ], [ %66, %63 ], [ %66, %68 ], [ %.1, %72 ], [ %.1, %75 ], [ %.1, %80 ], [ %.1, %84 ], [ %.1, %88 ], [ %.1, %92 ], [ %.1, %98 ], [ %.1, %93 ]
   %.0 = phi i32 [ -1, %60 ], [ -1, %63 ], [ -1, %68 ], [ 0, %72 ], [ -1, %75 ], [ -1, %80 ], [ -1, %84 ], [ -1, %88 ], [ -1, %92 ], [ 1, %98 ], [ 1, %93 ]
-  %.not59 = icmp eq i64 %.152, 0
+  %.not59 = icmp eq i64 %.051, 0
   br i1 %.not59, label %101, label %.thread67
 
 .thread67:                                        ; preds = %55, %99
   %.074 = phi i32 [ %.0, %99 ], [ -1, %55 ]
-  %.173 = phi i64 [ %.1, %99 ], [ 0, %55 ]
-  %.15272 = phi i64 [ %.152, %99 ], [ %58, %55 ]
-  %100 = call i32 @H5Pclose(i64 noundef %.15272) #23
+  %.05073 = phi i64 [ %.050, %99 ], [ 0, %55 ]
+  %.05172 = phi i64 [ %.051, %99 ], [ %58, %55 ]
+  %100 = call i32 @H5Pclose(i64 noundef %.05172) #23
   br label %101
 
 101:                                              ; preds = %.thread67, %99
   %.066 = phi i32 [ %.074, %.thread67 ], [ %.0, %99 ]
-  %.165 = phi i64 [ %.173, %.thread67 ], [ %.1, %99 ]
-  %.not60 = icmp eq i64 %.165, 0
+  %.05065 = phi i64 [ %.05073, %.thread67 ], [ %.050, %99 ]
+  %.not60 = icmp eq i64 %.05065, 0
   br i1 %.not60, label %.thread75, label %102
 
 102:                                              ; preds = %101
-  %103 = call i32 @H5Pclose(i64 noundef %.165) #23
+  %103 = call i32 @H5Pclose(i64 noundef %.05065) #23
   br label %.thread75
 
 .thread75:                                        ; preds = %12, %16, %20, %25, %29, %30, %39, %43, %47, %51, %102, %101

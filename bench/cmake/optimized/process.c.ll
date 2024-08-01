@@ -966,20 +966,20 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   unreachable
 
 .thread140:                                       ; preds = %81, %91
-  %.2143 = phi i32 [ %92, %91 ], [ %.1161, %81 ]
+  %.3143 = phi i32 [ %92, %91 ], [ %.1161, %81 ]
   %.0132 = phi i32 [ %.0134, %91 ], [ -1, %81 ]
-  %104 = icmp slt i32 %.2143, 3
+  %104 = icmp slt i32 %.3143, 3
   %105 = icmp eq i32 %.0132, -1
   %or.cond3 = and i1 %104, %105
   br i1 %or.cond3, label %106, label %.thread140.thread
 
 106:                                              ; preds = %.thread140
-  %107 = tail call i32 @uv__nonblock_fcntl(i32 noundef %.2143, i32 noundef 0) #12
+  %107 = tail call i32 @uv__nonblock_fcntl(i32 noundef %.3143, i32 noundef 0) #12
   br label %.thread140.thread
 
 .thread140.thread:                                ; preds = %78, %106, %.thread140
   %.0132149 = phi i32 [ -1, %106 ], [ %.0132, %.thread140 ], [ %.1161, %78 ]
-  %.2143148 = phi i32 [ %.2143, %106 ], [ %.2143, %.thread140 ], [ %.1161, %78 ]
+  %.3143148 = phi i32 [ %.3143, %106 ], [ %.3143, %.thread140 ], [ %.1161, %78 ]
   %.not109 = icmp slt i32 %.0132149, %1
   br i1 %.not109, label %110, label %108
 
@@ -988,8 +988,8 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   br label %110
 
 110:                                              ; preds = %.thread140.thread, %108, %60
-  %.3 = phi i32 [ %.1161, %60 ], [ %.2143148, %108 ], [ %.2143148, %.thread140.thread ]
-  %111 = add nsw i32 %.3, 1
+  %.2 = phi i32 [ %.1161, %60 ], [ %.3143148, %108 ], [ %.3143148, %.thread140.thread ]
+  %111 = add nsw i32 %.2, 1
   %112 = icmp slt i32 %111, %1
   br i1 %112, label %.lr.ph162, label %._crit_edge, !llvm.loop !17
 

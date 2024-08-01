@@ -135,8 +135,8 @@ if.then4:                                         ; preds = %if.then
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then, %if.then4
-  %de.0 = phi ptr [ %call5, %if.then4 ], [ %2, %if.then ]
-  %call6 = call ptr @dictGetVal(ptr noundef %de.0) #14
+  %de.1 = phi ptr [ %call5, %if.then4 ], [ %2, %if.then ]
+  %call6 = call ptr @dictGetVal(ptr noundef %de.1) #14
   %.pr = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4824), align 8
   %and = and i32 %.pr, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -202,8 +202,8 @@ if.else14:                                        ; preds = %if.else
   br i1 %cmp15, label %if.then16, label %if.else19
 
 if.then16:                                        ; preds = %for.body, %if.else14
-  %de.1869197 = phi ptr [ %de.0, %if.else14 ], [ %2, %for.body ]
-  %call17 = call ptr @dictGetVal(ptr noundef %de.1869197) #14
+  %de.0869197 = phi ptr [ %de.1, %if.else14 ], [ %2, %for.body ]
+  %call17 = call ptr @dictGetVal(ptr noundef %de.0869197) #14
   %8 = ptrtoint ptr %call17 to i64
   %sub18 = xor i64 %8, -1
   br label %if.end22
@@ -939,7 +939,7 @@ if.then24:                                        ; preds = %while.body
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then24, %for.end136
-  %bestdbid.1228 = phi i32 [ %bestdbid.0230, %if.then24 ], [ %bestdbid.4, %for.end136 ]
+  %bestdbid.1228 = phi i32 [ %bestdbid.0230, %if.then24 ], [ %bestdbid.3, %for.end136 ]
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
   %cmp31221 = icmp sgt i32 %18, 0
   br i1 %cmp31221, label %for.body.lr.ph, label %if.then236
@@ -1052,7 +1052,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 
 for.body74:                                       ; preds = %for.end, %for.inc134
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %for.inc134 ], [ 15, %for.end ]
-  %bestdbid.2227 = phi i32 [ %bestdbid.3, %for.inc134 ], [ %bestdbid.1228, %for.end ]
+  %bestdbid.2227 = phi i32 [ %bestdbid.4, %for.inc134 ], [ %bestdbid.1228, %for.end ]
   %arrayidx76 = getelementptr inbounds %struct.evictionPoolEntry, ptr %17, i64 %indvars.iv248
   %key = getelementptr inbounds i8, ptr %arrayidx76, i64 8
   %33 = load ptr, ptr %key, align 8
@@ -1097,14 +1097,14 @@ if.then130:                                       ; preds = %if.end123
   br label %for.end136
 
 for.inc134:                                       ; preds = %if.end123, %for.body74
-  %bestdbid.3 = phi i32 [ %bestdbid.2227, %for.body74 ], [ %34, %if.end123 ]
+  %bestdbid.4 = phi i32 [ %bestdbid.2227, %for.body74 ], [ %34, %if.end123 ]
   %indvars.iv.next249 = add nsw i64 %indvars.iv248, -1
   %cmp72.not = icmp eq i64 %indvars.iv248, 0
   br i1 %cmp72.not, label %for.end136, label %for.body74, !llvm.loop !11
 
 for.end136:                                       ; preds = %for.inc134, %if.then130
   %bestkey.1 = phi ptr [ %call131, %if.then130 ], [ null, %for.inc134 ]
-  %bestdbid.4 = phi i32 [ %34, %if.then130 ], [ %bestdbid.3, %for.inc134 ]
+  %bestdbid.3 = phi i32 [ %34, %if.then130 ], [ %bestdbid.4, %for.inc134 ]
   %cmp28 = icmp eq ptr %bestkey.1, null
   br i1 %cmp28, label %for.cond.preheader, label %if.then182.loopexit, !llvm.loop !12
 
@@ -1171,12 +1171,12 @@ if.end180:                                        ; preds = %cond.end164
   br i1 %tobool181.not, label %if.then236, label %if.then182
 
 if.then182.loopexit:                              ; preds = %for.end136
-  %.pre253 = sext i32 %bestdbid.4 to i64
+  %.pre253 = sext i32 %bestdbid.3 to i64
   br label %if.then182
 
 if.then182:                                       ; preds = %if.then182.loopexit, %if.end180
   %idx.ext183.pre-phi = phi i64 [ %.pre253, %if.then182.loopexit ], [ %idx.ext150, %if.end180 ]
-  %bestdbid.5197 = phi i32 [ %bestdbid.4, %if.then182.loopexit ], [ %rem, %if.end180 ]
+  %bestdbid.5197 = phi i32 [ %bestdbid.3, %if.then182.loopexit ], [ %rem, %if.end180 ]
   %bestkey.2196 = phi ptr [ %bestkey.1, %if.then182.loopexit ], [ %call174, %if.end180 ]
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 64), align 8
   %add.ptr184 = getelementptr inbounds %struct.redisDb, ptr %52, i64 %idx.ext183.pre-phi
@@ -1435,7 +1435,7 @@ if.end253:                                        ; preds = %freeMemoryGetNotCou
   br i1 %tobool244.not, label %while.end262, label %land.rhs, !llvm.loop !15
 
 while.end262:                                     ; preds = %land.rhs, %if.end253, %freeMemoryGetNotCountedMemory.exit.i163, %while.body248, %if.end241
-  %result.1 = phi i32 [ 2, %if.end241 ], [ 0, %while.body248 ], [ 0, %freeMemoryGetNotCountedMemory.exit.i163 ], [ 2, %if.end253 ], [ 2, %land.rhs ]
+  %result.3 = phi i32 [ 2, %if.end241 ], [ 0, %while.body248 ], [ 0, %freeMemoryGetNotCountedMemory.exit.i163 ], [ 2, %if.end253 ], [ 2, %land.rhs ]
   %79 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5352), align 8
   %tobool263.not = icmp eq i64 %79, 0
   br i1 %tobool263.not, label %update_metrics, label %if.end267
@@ -1454,13 +1454,13 @@ if.then272:                                       ; preds = %if.end267
   br label %if.end274thread-pre-split
 
 if.end274thread-pre-split:                        ; preds = %cant_free, %if.then272
-  %result.2.ph = phi i32 [ %cond233, %cant_free ], [ %result.1, %if.then272 ]
+  %result.2.ph = phi i32 [ %cond233, %cant_free ], [ %result.3, %if.then272 ]
   %.pr = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5352), align 8
   br label %if.end274
 
 if.end274:                                        ; preds = %if.end274thread-pre-split, %if.end267
   %80 = phi i64 [ %.pr, %if.end274thread-pre-split ], [ %.pre251, %if.end267 ]
-  %result.2 = phi i32 [ %result.2.ph, %if.end274thread-pre-split ], [ %result.1, %if.end267 ]
+  %result.2 = phi i32 [ %result.2.ph, %if.end274thread-pre-split ], [ %result.3, %if.end267 ]
   %tobool275.not = icmp eq i64 %80, 0
   br i1 %tobool275.not, label %update_metrics, label %if.end279
 
@@ -1478,13 +1478,13 @@ if.then284:                                       ; preds = %if.end279
   br label %update_metrics
 
 update_metrics:                                   ; preds = %while.end262, %if.end274, %if.end279, %if.then284
-  %result.2266272 = phi i32 [ %result.2, %if.end279 ], [ %result.2, %if.then284 ], [ %result.2, %if.end274 ], [ %result.1, %while.end262 ]
+  %result.2266272 = phi i32 [ %result.2, %if.end279 ], [ %result.2, %if.then284 ], [ %result.2, %if.end274 ], [ %result.3, %while.end262 ]
   %81 = add nsw i32 %result.2266272, -1
   %or.cond = icmp ult i32 %81, 2
   br i1 %or.cond, label %if.then291, label %if.then299
 
 if.then291:                                       ; preds = %if.end4, %update_metrics
-  %result.3206 = phi i32 [ %result.2266272, %update_metrics ], [ 2, %if.end4 ]
+  %result.0206 = phi i32 [ %result.2266272, %update_metrics ], [ 2, %if.end4 ]
   %82 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2032), align 8
   %cmp292 = icmp eq i64 %82, 0
   br i1 %cmp292, label %if.then294, label %return
@@ -1510,12 +1510,12 @@ if.then302:                                       ; preds = %if.then299
 
 return.sink.split:                                ; preds = %if.then302, %if.then294
   %call.i180.sink = phi i64 [ %call.i180, %if.then294 ], [ 0, %if.then302 ]
-  %retval.0.ph = phi i32 [ %result.3206, %if.then294 ], [ 0, %if.then302 ]
+  %retval.0.ph = phi i32 [ %result.0206, %if.then294 ], [ 0, %if.then302 ]
   store i64 %call.i180.sink, ptr getelementptr inbounds (i8, ptr @server, i64 2032), align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i, %entry, %lor.lhs.false.i, %if.then291, %if.then299, %isSafeToPerformEvictions.exit
-  %retval.0 = phi i32 [ 0, %isSafeToPerformEvictions.exit ], [ 0, %if.then299 ], [ %result.3206, %if.then291 ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ %retval.0.ph, %return.sink.split ]
+  %retval.0 = phi i32 [ 0, %isSafeToPerformEvictions.exit ], [ 0, %if.then299 ], [ %result.0206, %if.then291 ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 

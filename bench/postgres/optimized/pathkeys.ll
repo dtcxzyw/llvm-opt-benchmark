@@ -2116,8 +2116,8 @@ find_var_for_subquery_tle.exit:                   ; preds = %57
   br i1 %99, label %.lr.ph266, label %.thread151
 
 .lr.ph266:                                        ; preds = %.lr.ph188.split.preheader, %.thread155
-  %.091186265 = phi i32 [ %.394, %.thread155 ], [ -1, %.lr.ph188.split.preheader ]
-  %.089187264 = phi ptr [ %.3, %.thread155 ], [ null, %.lr.ph188.split.preheader ]
+  %.091186265 = phi i32 [ %.192, %.thread155 ], [ -1, %.lr.ph188.split.preheader ]
+  %.190187264 = phi ptr [ %.2, %.thread155 ], [ null, %.lr.ph188.split.preheader ]
   %indvars.iv226263 = phi i64 [ %indvars.iv.next227, %.thread155 ], [ 0, %.lr.ph188.split.preheader ]
   %100 = load ptr, ptr %90, align 8
   %101 = getelementptr %union.ListCell, ptr %100, i64 %indvars.iv226263
@@ -2138,8 +2138,8 @@ find_var_for_subquery_tle.exit:                   ; preds = %57
   br i1 %112, label %.lr.ph, label %.thread155
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %find_var_for_subquery_tle.exit128.thread
-  %.192179261 = phi i32 [ %.293, %find_var_for_subquery_tle.exit128.thread ], [ %.091186265, %.preheader.preheader ]
-  %.190180260 = phi ptr [ %.2, %find_var_for_subquery_tle.exit128.thread ], [ %.089187264, %.preheader.preheader ]
+  %.293179261 = phi i32 [ %.394, %find_var_for_subquery_tle.exit128.thread ], [ %.091186265, %.preheader.preheader ]
+  %.3180260 = phi ptr [ %.4, %find_var_for_subquery_tle.exit128.thread ], [ %.190187264, %.preheader.preheader ]
   %indvars.iv259 = phi i64 [ %indvars.iv.next, %find_var_for_subquery_tle.exit128.thread ], [ 0, %.preheader.preheader ]
   %113 = load ptr, ptr %14, align 8
   %114 = getelementptr %union.ListCell, ptr %113, i64 %indvars.iv259
@@ -2330,14 +2330,14 @@ list_length.exit137:                              ; preds = %make_canonical_path
 
 211:                                              ; preds = %205, %list_length.exit137
   %.0 = phi i32 [ %204, %list_length.exit137 ], [ %spec.select, %205 ]
-  %212 = icmp sgt i32 %.0, %.192179261
-  %spec.select115 = tail call i32 @llvm.smax.i32(i32 %.0, i32 %.192179261)
-  %spec.select116 = select i1 %212, ptr %.0.i131, ptr %.190180260
+  %212 = icmp sgt i32 %.0, %.293179261
+  %spec.select115 = tail call i32 @llvm.smax.i32(i32 %.0, i32 %.293179261)
+  %spec.select116 = select i1 %212, ptr %.0.i131, ptr %.3180260
   br label %find_var_for_subquery_tle.exit128.thread
 
 find_var_for_subquery_tle.exit128.thread:         ; preds = %139, %119, %.lr.ph.i120, %.lr.ph, %211, %146, %141, %find_var_for_subquery_tle.exit128
-  %.293 = phi i32 [ %.192179261, %146 ], [ %.192179261, %141 ], [ %.192179261, %find_var_for_subquery_tle.exit128 ], [ %spec.select115, %211 ], [ %.192179261, %.lr.ph ], [ %.192179261, %.lr.ph.i120 ], [ %.192179261, %119 ], [ %.192179261, %139 ]
-  %.2 = phi ptr [ %.190180260, %146 ], [ %.190180260, %141 ], [ %.190180260, %find_var_for_subquery_tle.exit128 ], [ %spec.select116, %211 ], [ %.190180260, %.lr.ph ], [ %.190180260, %.lr.ph.i120 ], [ %.190180260, %119 ], [ %.190180260, %139 ]
+  %.394 = phi i32 [ %.293179261, %146 ], [ %.293179261, %141 ], [ %.293179261, %find_var_for_subquery_tle.exit128 ], [ %spec.select115, %211 ], [ %.293179261, %.lr.ph ], [ %.293179261, %.lr.ph.i120 ], [ %.293179261, %119 ], [ %.293179261, %139 ]
+  %.4 = phi ptr [ %.3180260, %146 ], [ %.3180260, %141 ], [ %.3180260, %find_var_for_subquery_tle.exit128 ], [ %spec.select116, %211 ], [ %.3180260, %.lr.ph ], [ %.3180260, %.lr.ph.i120 ], [ %.3180260, %119 ], [ %.3180260, %139 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv259, 1
   %213 = load i32, ptr %13, align 4
   %214 = sext i32 %213 to i64
@@ -2345,8 +2345,8 @@ find_var_for_subquery_tle.exit128.thread:         ; preds = %139, %119, %.lr.ph.
   br i1 %215, label %.lr.ph, label %.thread155, !llvm.loop !11
 
 .thread155:                                       ; preds = %find_var_for_subquery_tle.exit128.thread, %.preheader.preheader, %.lr.ph266
-  %.394 = phi i32 [ %.091186265, %.lr.ph266 ], [ %.091186265, %.preheader.preheader ], [ %.293, %find_var_for_subquery_tle.exit128.thread ]
-  %.3 = phi ptr [ %.089187264, %.lr.ph266 ], [ %.089187264, %.preheader.preheader ], [ %.2, %find_var_for_subquery_tle.exit128.thread ]
+  %.192 = phi i32 [ %.091186265, %.lr.ph266 ], [ %.091186265, %.preheader.preheader ], [ %.394, %find_var_for_subquery_tle.exit128.thread ]
+  %.2 = phi ptr [ %.190187264, %.lr.ph266 ], [ %.190187264, %.preheader.preheader ], [ %.4, %find_var_for_subquery_tle.exit128.thread ]
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226263, 1
   %216 = load i32, ptr %89, align 4
   %217 = sext i32 %216 to i64
@@ -2354,14 +2354,14 @@ find_var_for_subquery_tle.exit128.thread:         ; preds = %139, %119, %.lr.ph.
   br i1 %218, label %.lr.ph266, label %.thread151
 
 .thread151:                                       ; preds = %.thread155, %.lr.ph188.split.preheader, %77
-  %.4 = phi ptr [ %85, %77 ], [ null, %.lr.ph188.split.preheader ], [ %.3, %.thread155 ]
-  %.not114 = icmp eq ptr %.4, null
+  %.089 = phi ptr [ %85, %77 ], [ null, %.lr.ph188.split.preheader ], [ %.2, %.thread155 ]
+  %.not114 = icmp eq ptr %.089, null
   br i1 %.not114, label %.thread, label %219
 
 219:                                              ; preds = %.thread151
-  %220 = getelementptr i8, ptr %.4, i64 8
-  %.4.val = load ptr, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %.4.val, i64 56
+  %220 = getelementptr i8, ptr %.089, i64 8
+  %.089.val = load ptr, ptr %220, align 8
+  %221 = getelementptr inbounds i8, ptr %.089.val, i64 56
   %222 = load i8, ptr %221, align 8
   %223 = trunc i8 %222 to i1
   br i1 %223, label %pathkey_is_redundant.exit, label %.preheader.i138
@@ -2393,11 +2393,11 @@ find_var_for_subquery_tle.exit128.thread:         ; preds = %139, %119, %.lr.ph.
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 8
   %234 = load ptr, ptr %233, align 8
-  %235 = icmp eq ptr %234, %.4.val
+  %235 = icmp eq ptr %234, %.089.val
   br i1 %235, label %pathkey_is_redundant.exit, label %229
 
 .loopexit:                                        ; preds = %229, %.preheader.i138, %.lr.ph.i140
-  %236 = tail call ptr @lappend(ptr noundef %.085199269, ptr noundef nonnull %.4) #10
+  %236 = tail call ptr @lappend(ptr noundef %.085199269, ptr noundef nonnull %.089) #10
   %237 = add i32 %.086198270, 1
   br label %pathkey_is_redundant.exit
 

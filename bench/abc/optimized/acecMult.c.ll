@@ -2257,7 +2257,7 @@ define internal fastcc i32 @Abc_Tt6MinBase(ptr nocapture noundef %0, ptr noundef
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %35
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %35 ], [ 0, %.lr.ph ]
   %.035.us = phi i32 [ %.1.us, %35 ], [ 0, %.lr.ph ]
-  %.02431.us = phi i64 [ %.2.us, %35 ], [ %4, %.lr.ph ]
+  %.02431.us = phi i64 [ %.125.us, %35 ], [ %4, %.lr.ph ]
   %6 = trunc nuw nsw i64 %indvars.iv40 to i32
   %7 = shl nuw i32 1, %6
   %8 = zext nneg i32 %7 to i64
@@ -2294,12 +2294,12 @@ define internal fastcc i32 @Abc_Tt6MinBase(ptr nocapture noundef %0, ptr noundef
   br label %33
 
 33:                                               ; preds = %17, %14
-  %.125.us = phi i64 [ %32, %17 ], [ %.02431.us, %14 ]
+  %.2.us = phi i64 [ %32, %17 ], [ %.02431.us, %14 ]
   %34 = add nsw i32 %.035.us, 1
   br label %35
 
 35:                                               ; preds = %33, %.lr.ph.split.us
-  %.2.us = phi i64 [ %.125.us, %33 ], [ %.02431.us, %.lr.ph.split.us ]
+  %.125.us = phi i64 [ %.2.us, %33 ], [ %.02431.us, %.lr.ph.split.us ]
   %.1.us = phi i32 [ %34, %33 ], [ %.035.us, %.lr.ph.split.us ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
@@ -2308,7 +2308,7 @@ define internal fastcc i32 @Abc_Tt6MinBase(ptr nocapture noundef %0, ptr noundef
 .lr.ph.split:                                     ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.lr.ph ]
   %.035 = phi i32 [ %.1, %68 ], [ 0, %.lr.ph ]
-  %.02431 = phi i64 [ %.2, %68 ], [ %4, %.lr.ph ]
+  %.02431 = phi i64 [ %.125, %68 ], [ %4, %.lr.ph ]
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = shl nuw i32 1, %36
   %38 = zext nneg i32 %37 to i64
@@ -2349,19 +2349,19 @@ define internal fastcc i32 @Abc_Tt6MinBase(ptr nocapture noundef %0, ptr noundef
   br label %66
 
 66:                                               ; preds = %47, %44
-  %.125 = phi i64 [ %65, %47 ], [ %.02431, %44 ]
+  %.2 = phi i64 [ %65, %47 ], [ %.02431, %44 ]
   %67 = add nsw i32 %.035, 1
   br label %68
 
 68:                                               ; preds = %.lr.ph.split, %66
-  %.2 = phi i64 [ %.125, %66 ], [ %.02431, %.lr.ph.split ]
+  %.125 = phi i64 [ %.2, %66 ], [ %.02431, %.lr.ph.split ]
   %.1 = phi i32 [ %67, %66 ], [ %.035, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count43
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %68, %35, %3
-  %.024.lcssa = phi i64 [ %4, %3 ], [ %.2.us, %35 ], [ %.2, %68 ]
+  %.024.lcssa = phi i64 [ %4, %3 ], [ %.125.us, %35 ], [ %.125, %68 ]
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1.us, %35 ], [ %.1, %68 ]
   %69 = icmp eq i32 %.0.lcssa, %2
   br i1 %69, label %71, label %70

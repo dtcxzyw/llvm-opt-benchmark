@@ -2503,17 +2503,17 @@ while.body115.preheader:                          ; preds = %if.else110
 
 while.body115:                                    ; preds = %while.body115.preheader, %if.end177
   %70 = phi i16 [ %80, %if.end177 ], [ %.pre308, %while.body115.preheader ]
-  %length.2289 = phi i32 [ %length.3, %if.end177 ], [ %conv40, %while.body115.preheader ]
+  %length.3289 = phi i32 [ %length.4, %if.end177 ], [ %conv40, %while.body115.preheader ]
   %conv117 = zext i16 %70 to i32
-  %add118 = add i32 %length.2289, %conv117
+  %add118 = add i32 %length.3289, %conv117
   %cmp120 = icmp ult i32 %add118, %conv61
-  %sub129.neg = sub i32 %length.2289, %conv61
+  %sub129.neg = sub i32 %length.3289, %conv61
   %sub130 = add i32 %sub129.neg, %conv117
   %conv124 = trunc nuw nsw i32 %add118 to i16
   %.pre313 = and i32 %add118, 65535
   %conv138.pre-phi = select i1 %cmp120, i32 %.pre313, i32 %conv61
   %.sink306 = select i1 %cmp120, i16 %conv124, i16 %1
-  %length.3 = select i1 %cmp120, i32 0, i32 %sub130
+  %length.4 = select i1 %cmp120, i32 0, i32 %sub130
   store i16 %.sink306, ptr %data_count, align 4
   %71 = load ptr, ptr %dma_as87.i, align 8
   %72 = load i64, ptr %dscr, align 8
@@ -2557,7 +2557,7 @@ if.then167:                                       ; preds = %if.then158
 
 if.end177:                                        ; preds = %if.then158, %if.then167, %if.end146
   %80 = phi i16 [ 0, %if.then158 ], [ 0, %if.then167 ], [ %74, %if.end146 ]
-  %tobool114.not = icmp eq i32 %length.3, 0
+  %tobool114.not = icmp eq i32 %length.4, 0
   br i1 %tobool114.not, label %if.else198, label %while.body115, !llvm.loop !11
 
 if.end179:                                        ; preds = %if.then49, %if.else110
@@ -2565,8 +2565,8 @@ if.end179:                                        ; preds = %if.then49, %if.else
   br i1 %cmp180.not, label %if.else198, label %if.then182
 
 if.then182:                                       ; preds = %if.end58, %while.body115, %if.end179
-  %res.3271 = phi i32 [ %res.0292, %if.end179 ], [ %call.i.i.i100, %while.body115 ], [ %call.i.i.i, %if.end58 ]
-  %length.4270 = phi i32 [ 0, %if.end179 ], [ %length.3, %while.body115 ], [ %length.1, %if.end58 ]
+  %res.2271 = phi i32 [ %res.0292, %if.end179 ], [ %call.i.i.i100, %while.body115 ], [ %call.i.i.i, %if.end58 ]
+  %length.2270 = phi i32 [ 0, %if.end179 ], [ %length.4, %while.body115 ], [ %length.1, %if.end58 ]
   %81 = load i16, ptr %errintstsen183, align 2
   %82 = and i16 %81, 512
   %tobool186.not = icmp eq i16 %82, 0
@@ -2660,7 +2660,7 @@ sdhci_update_irq.exit138:                         ; preds = %if.end196, %lor.lhs
   br label %sw.epilog
 
 if.else198:                                       ; preds = %if.end109, %if.then100, %if.end177, %if.then167, %if.end179
-  %length.4263 = phi i32 [ 0, %if.end179 ], [ 0, %if.end177 ], [ %length.3, %if.then167 ], [ 0, %if.end109 ], [ %length.1, %if.then100 ]
+  %length.2263 = phi i32 [ 0, %if.end179 ], [ 0, %if.end177 ], [ %length.4, %if.then167 ], [ 0, %if.end109 ], [ %length.1, %if.then100 ]
   %103 = load i8, ptr %incr203.i, align 1
   %conv199 = zext i8 %103 to i64
   %104 = load i64, ptr %admasysaddr.i, align 8
@@ -2716,8 +2716,8 @@ sw.default:                                       ; preds = %if.end34
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sdhci_update_irq.exit138, %if.else198, %sw.default, %trace_sdhci_adma.exit
-  %length.5 = phi i32 [ %conv40, %sw.default ], [ %conv40, %trace_sdhci_adma.exit ], [ %length.4270, %sdhci_update_irq.exit138 ], [ %length.4263, %if.else198 ]
-  %res.4 = phi i32 [ %res.0292, %sw.default ], [ %res.0292, %trace_sdhci_adma.exit ], [ %res.3271, %sdhci_update_irq.exit138 ], [ 0, %if.else198 ]
+  %length.5 = phi i32 [ %conv40, %sw.default ], [ %conv40, %trace_sdhci_adma.exit ], [ %length.2270, %sdhci_update_irq.exit138 ], [ %length.2263, %if.else198 ]
+  %res.4 = phi i32 [ %res.0292, %sw.default ], [ %res.0292, %trace_sdhci_adma.exit ], [ %res.2271, %sdhci_update_irq.exit138 ], [ 0, %if.else198 ]
   %114 = load i8, ptr %attr88.i, align 2
   %115 = and i8 %114, 4
   %tobool214.not = icmp eq i8 %115, 0
@@ -4964,8 +4964,8 @@ if.then417:                                       ; preds = %do.body409
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.inc.i, %lor.lhs.false, %land.lhs.true.i, %lor.lhs.false9.i, %trace_sdhci_error.exit.i201, %for.cond.preheader.i, %sdhci_buff_access_is_sequential.exit, %if.then417, %do.body409, %if.then405, %do.body397, %sw.bb368, %if.else392, %if.then391, %if.then200, %if.else205, %lor.lhs.false160, %if.then171, %sw.bb91, %sw.bb36, %if.then84, %if.end78, %sw.bb, %if.then32, %if.else, %land.lhs.true24, %land.lhs.true20, %land.lhs.true, %if.then9, %sdhci_update_irq.exit299, %sw.bb329, %sw.bb322, %sw.bb316, %sdhci_update_irq.exit275, %sdhci_update_irq.exit251, %sdhci_update_irq.exit, %if.end115, %sw.bb87
-  %value.2 = phi i32 [ %shl6, %if.then417 ], [ %shl6, %do.body409 ], [ %shl6, %if.then405 ], [ %shl6, %do.body397 ], [ %shl6, %if.then391 ], [ %shl6, %if.else392 ], [ %shl6, %sw.bb368 ], [ %shl6, %sdhci_update_irq.exit299 ], [ %shl6, %sw.bb329 ], [ %shl6, %sw.bb322 ], [ %shl6, %sw.bb316 ], [ %shl6, %sdhci_update_irq.exit275 ], [ %shl6, %sdhci_update_irq.exit251 ], [ %spec.select187, %sdhci_update_irq.exit ], [ %shl6, %if.then200 ], [ %shl6, %if.else205 ], [ %shl6, %if.then171 ], [ %shl6, %lor.lhs.false160 ], [ %shl6, %sdhci_buff_access_is_sequential.exit ], [ %spec.select, %sw.bb91 ], [ %spec.select, %if.end115 ], [ %shl6, %sw.bb87 ], [ %shl6, %sw.bb36 ], [ %shl6, %if.then84 ], [ %shl6, %if.end78 ], [ %shl6, %sw.bb ], [ %shl6, %if.then9 ], [ %shl6, %if.then32 ], [ %shl6, %if.else ], [ %shl6, %land.lhs.true24 ], [ %shl6, %land.lhs.true20 ], [ %shl6, %land.lhs.true ], [ %shl6, %for.cond.preheader.i ], [ %shl6, %trace_sdhci_error.exit.i201 ], [ %spec.select, %lor.lhs.false9.i ], [ %spec.select, %land.lhs.true.i ], [ %spec.select, %lor.lhs.false ], [ %shl6, %for.inc.i ]
-  %shr422 = lshr i32 %value.2, %conv
+  %value.0 = phi i32 [ %shl6, %if.then417 ], [ %shl6, %do.body409 ], [ %shl6, %if.then405 ], [ %shl6, %do.body397 ], [ %shl6, %if.then391 ], [ %shl6, %if.else392 ], [ %shl6, %sw.bb368 ], [ %shl6, %sdhci_update_irq.exit299 ], [ %shl6, %sw.bb329 ], [ %shl6, %sw.bb322 ], [ %shl6, %sw.bb316 ], [ %shl6, %sdhci_update_irq.exit275 ], [ %shl6, %sdhci_update_irq.exit251 ], [ %spec.select187, %sdhci_update_irq.exit ], [ %shl6, %if.then200 ], [ %shl6, %if.else205 ], [ %shl6, %if.then171 ], [ %shl6, %lor.lhs.false160 ], [ %shl6, %sdhci_buff_access_is_sequential.exit ], [ %spec.select, %sw.bb91 ], [ %spec.select, %if.end115 ], [ %shl6, %sw.bb87 ], [ %shl6, %sw.bb36 ], [ %shl6, %if.then84 ], [ %shl6, %if.end78 ], [ %shl6, %sw.bb ], [ %shl6, %if.then9 ], [ %shl6, %if.then32 ], [ %shl6, %if.else ], [ %shl6, %land.lhs.true24 ], [ %shl6, %land.lhs.true20 ], [ %shl6, %land.lhs.true ], [ %shl6, %for.cond.preheader.i ], [ %shl6, %trace_sdhci_error.exit.i201 ], [ %spec.select, %lor.lhs.false9.i ], [ %spec.select, %land.lhs.true.i ], [ %spec.select, %lor.lhs.false ], [ %shl6, %for.inc.i ]
+  %shr422 = lshr i32 %value.0, %conv
   %conv423 = zext i32 %shr422 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %170 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5462,7 +5462,7 @@ if.then55:                                        ; preds = %trace_sdhci_error.e
   br label %if.end64
 
 if.end64:                                         ; preds = %trace_sdhci_response16.exit, %if.then55, %trace_sdhci_error.exit, %trace_sdhci_response4.exit
-  %timeout.0 = phi i1 [ false, %trace_sdhci_response4.exit ], [ false, %trace_sdhci_response16.exit ], [ true, %if.then55 ], [ true, %trace_sdhci_error.exit ]
+  %timeout.1 = phi i1 [ false, %trace_sdhci_response4.exit ], [ false, %trace_sdhci_response16.exit ], [ true, %if.then55 ], [ true, %trace_sdhci_error.exit ]
   %quirks = getelementptr inbounds i8, ptr %s, i64 3268
   %40 = load i32, ptr %quirks, align 4
   %41 = and i32 %40, 16384
@@ -5490,7 +5490,7 @@ if.then77:                                        ; preds = %land.lhs.true71
   br label %if.end83
 
 if.end83:                                         ; preds = %if.end64, %land.lhs.true, %land.lhs.true71, %if.then77, %trace_sdhci_send_command.exit
-  %timeout.1 = phi i1 [ %timeout.0, %if.end64 ], [ %timeout.0, %if.then77 ], [ %timeout.0, %land.lhs.true71 ], [ %timeout.0, %land.lhs.true ], [ false, %trace_sdhci_send_command.exit ]
+  %timeout.0 = phi i1 [ %timeout.1, %if.end64 ], [ %timeout.1, %if.then77 ], [ %timeout.1, %land.lhs.true71 ], [ %timeout.1, %land.lhs.true ], [ false, %trace_sdhci_send_command.exit ]
   %norintstsen84 = getelementptr inbounds i8, ptr %s, i64 3192
   %48 = load i16, ptr %norintstsen84, align 8
   %49 = and i16 %48, 1
@@ -5550,7 +5550,7 @@ sdhci_update_irq.exit:                            ; preds = %if.end93, %lor.lhs.
   %irq.i = getelementptr inbounds i8, ptr %s, i64 3136
   %62 = load ptr, ptr %irq.i, align 16
   call void @qemu_set_irq(ptr noundef %62, i32 noundef %conv22.i.i) #11
-  br i1 %timeout.1, label %if.end106, label %land.lhs.true96
+  br i1 %timeout.0, label %if.end106, label %land.lhs.true96
 
 land.lhs.true96:                                  ; preds = %sdhci_update_irq.exit
   %blksize = getelementptr inbounds i8, ptr %s, i64 3148

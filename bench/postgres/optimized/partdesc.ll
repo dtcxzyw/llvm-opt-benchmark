@@ -255,10 +255,10 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
   br label %124
 
 124:                                              ; preds = %120, %heap_getattr.exit.i
-  %.2.i = phi ptr [ null, %heap_getattr.exit.i ], [ %123, %120 ]
+  %.3.i = phi ptr [ null, %heap_getattr.exit.i ], [ %123, %120 ]
   call void @systable_endscan(ptr noundef %60) #6
   call void @table_close(ptr noundef nonnull %59, i32 noundef 1) #6
-  %.not122.i = icmp eq ptr %.2.i, null
+  %.not122.i = icmp eq ptr %.3.i, null
   br i1 %.not122.i, label %125, label %.thread130.i
 
 125:                                              ; preds = %124
@@ -269,8 +269,8 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
   unreachable
 
 .thread130.i:                                     ; preds = %124, %54
-  %.3133.i = phi ptr [ %.2.i, %124 ], [ %57, %54 ]
-  %128 = load i32, ptr %.3133.i, align 4
+  %.2133.i = phi ptr [ %.3.i, %124 ], [ %57, %54 ]
+  %128 = load i32, ptr %.2133.i, align 4
   %129 = icmp eq i32 %128, 90
   br i1 %129, label %133, label %130
 
@@ -282,7 +282,7 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
   unreachable
 
 133:                                              ; preds = %.thread130.i
-  %134 = getelementptr inbounds i8, ptr %.3133.i, i64 5
+  %134 = getelementptr inbounds i8, ptr %.2133.i, i64 5
   %135 = load i8, ptr %134, align 1
   %136 = trunc i8 %135 to i1
   br i1 %136, label %137, label %143
@@ -309,7 +309,7 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
   %148 = zext i1 %146 to i8
   store i8 %148, ptr %147, align 1
   %149 = getelementptr ptr, ptr %42, i64 %indvars.iv.i22
-  store ptr %.3133.i, ptr %149, align 8
+  store ptr %.2133.i, ptr %149, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i22, 1
   %150 = load i32, ptr %34, align 4
   %151 = sext i32 %150 to i64

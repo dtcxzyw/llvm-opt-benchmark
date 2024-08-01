@@ -2111,7 +2111,7 @@ _ZL10skip_commaRPc.exit49:                        ; preds = %279, %285
   %319 = phi ptr [ %70, %64 ], [ %57, %73 ], [ %57, %74 ], [ %57, %169 ], [ %57, %238 ], [ %57, %.loopexit ], [ %57, %261 ], [ %57, %289 ], [ %57, %302 ], [ %57, %305 ], [ %57, %306 ], [ %57, %312 ], [ %57, %310 ], [ %57, %._crit_edge ]
   %320 = phi ptr [ %71, %64 ], [ %56, %73 ], [ %56, %74 ], [ %56, %169 ], [ %56, %238 ], [ %56, %.loopexit ], [ %56, %261 ], [ %56, %289 ], [ %56, %302 ], [ %56, %305 ], [ %56, %306 ], [ %56, %312 ], [ %56, %310 ], [ %56, %._crit_edge ]
   %321 = phi ptr [ %72, %64 ], [ %55, %73 ], [ %55, %74 ], [ %55, %169 ], [ %55, %238 ], [ %55, %.loopexit ], [ %55, %261 ], [ %55, %289 ], [ %55, %302 ], [ %55, %305 ], [ %55, %306 ], [ %55, %312 ], [ %55, %310 ], [ %55, %._crit_edge ]
-  %.0 = phi i1 [ false, %64 ], [ true, %73 ], [ true, %74 ], [ false, %169 ], [ false, %238 ], [ false, %.loopexit ], [ false, %261 ], [ false, %289 ], [ true, %302 ], [ true, %305 ], [ false, %306 ], [ false, %312 ], [ true, %310 ], [ true, %._crit_edge ]
+  %.1 = phi i1 [ false, %64 ], [ true, %73 ], [ true, %74 ], [ false, %169 ], [ false, %238 ], [ false, %.loopexit ], [ false, %261 ], [ false, %289 ], [ true, %302 ], [ true, %305 ], [ false, %306 ], [ false, %312 ], [ true, %310 ], [ true, %._crit_edge ]
   %322 = load ptr, ptr %319, align 8
   %.not.i.i.i.i = icmp eq ptr %322, null
   br i1 %.not.i.i.i.i, label %324, label %323
@@ -2137,8 +2137,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %324, %326
   br label %327
 
 327:                                              ; preds = %1, %1, %_ZN12ResourceMarkD2Ev.exit
-  %.1 = phi i1 [ %.0, %_ZN12ResourceMarkD2Ev.exit ], [ true, %1 ], [ true, %1 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %_ZN12ResourceMarkD2Ev.exit ], [ true, %1 ], [ true, %1 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2487,30 +2487,30 @@ _Z14multiply_by_1kImEbRT_.exit.thread.i.i:        ; preds = %50
   br label %52
 
 52:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit.thread.i.i, %48, %48
-  %.2.i.i = phi i64 [ %42, %48 ], [ %42, %48 ], [ %51, %_Z14multiply_by_1kImEbRT_.exit.thread.i.i ]
-  %.not4.i16.i.i = icmp ult i64 %.2.i.i, 18014398509481984
+  %.026.i.i = phi i64 [ %42, %48 ], [ %42, %48 ], [ %51, %_Z14multiply_by_1kImEbRT_.exit.thread.i.i ]
+  %.not4.i16.i.i = icmp ult i64 %.026.i.i, 18014398509481984
   br i1 %.not4.i16.i.i, label %_Z14multiply_by_1kImEbRT_.exit17.thread.i.i, label %60
 
 _Z14multiply_by_1kImEbRT_.exit17.thread.i.i:      ; preds = %52
-  %53 = shl nuw i64 %.2.i.i, 10
+  %53 = shl nuw i64 %.026.i.i, 10
   br label %54
 
 54:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit17.thread.i.i, %48, %48
-  %.4.i.i = phi i64 [ %42, %48 ], [ %42, %48 ], [ %53, %_Z14multiply_by_1kImEbRT_.exit17.thread.i.i ]
-  %.not4.i18.i.i = icmp ult i64 %.4.i.i, 18014398509481984
+  %.1.i.i = phi i64 [ %42, %48 ], [ %42, %48 ], [ %53, %_Z14multiply_by_1kImEbRT_.exit17.thread.i.i ]
+  %.not4.i18.i.i = icmp ult i64 %.1.i.i, 18014398509481984
   br i1 %.not4.i18.i.i, label %_Z14multiply_by_1kImEbRT_.exit19.thread.i.i, label %60
 
 _Z14multiply_by_1kImEbRT_.exit19.thread.i.i:      ; preds = %54
-  %55 = shl nuw i64 %.4.i.i, 10
+  %55 = shl nuw i64 %.1.i.i, 10
   br label %56
 
 56:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit19.thread.i.i, %48, %48
-  %.6.i.i = phi i64 [ %42, %48 ], [ %42, %48 ], [ %55, %_Z14multiply_by_1kImEbRT_.exit19.thread.i.i ]
-  %.not4.i20.i.i = icmp ult i64 %.6.i.i, 18014398509481984
+  %.2.i.i = phi i64 [ %42, %48 ], [ %42, %48 ], [ %55, %_Z14multiply_by_1kImEbRT_.exit19.thread.i.i ]
+  %.not4.i20.i.i = icmp ult i64 %.2.i.i, 18014398509481984
   br i1 %.not4.i20.i.i, label %57, label %60
 
 57:                                               ; preds = %56
-  %58 = shl nuw i64 %.6.i.i, 10
+  %58 = shl nuw i64 %.2.i.i, 10
   %59 = getelementptr inbounds i8, ptr %46, i64 1
   br label %61
 
@@ -3412,7 +3412,7 @@ _ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit:
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, %21, %50
-  %.0 = phi i1 [ false, %50 ], [ true, %21 ], [ true, %_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit ]
+  %.1 = phi i1 [ false, %50 ], [ true, %21 ], [ true, %_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit ]
   call void @_ZN2os4freeEPv(ptr noundef %20) #19
   %52 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %52, null
@@ -3435,8 +3435,8 @@ _ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit:
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %56, %54, %1
-  %.1 = phi i1 [ true, %1 ], [ %.0, %54 ], [ %.0, %56 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %1 ], [ %.1, %54 ], [ %.1, %56 ]
+  ret i1 %.0
 }
 
 declare noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef, ptr noundef) local_unnamed_addr #3

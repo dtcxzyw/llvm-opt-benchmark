@@ -299,7 +299,7 @@ if.end97:                                         ; preds = %if.else93, %if.end9
   %28 = phi i64 [ %.pre114, %if.end92 ], [ %14, %if.else93 ]
   %29 = phi i8 [ %.pre113, %if.end92 ], [ %23, %if.else93 ]
   %30 = phi i8 [ %.pre, %if.end92 ], [ %21, %if.else93 ]
-  %crypto_opts.0 = phi ptr [ %call80, %if.end92 ], [ null, %if.else93 ]
+  %crypto_opts.2 = phi ptr [ %call80, %if.end92 ], [ null, %if.else93 ]
   %conv99 = zext i8 %30 to i32
   store i32 %conv99, ptr %0, align 8
   %shl = shl nuw i32 1, %conv99
@@ -458,21 +458,21 @@ if.end207:                                        ; preds = %if.end200, %if.end1
 if.end214:                                        ; preds = %if.end207
   %51 = load ptr, ptr %encryptopts, align 8
   call fastcc void @qobject_unref_impl(ptr noundef %51)
-  call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %crypto_opts.0) #15
+  call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %crypto_opts.2) #15
   %lock = getelementptr inbounds i8, ptr %0, i64 288
   call void @qemu_co_mutex_init(ptr noundef nonnull %lock) #15
   call void @bdrv_graph_rdunlock_main_loop() #15
   br label %return
 
 fail:                                             ; preds = %if.end83, %if.end79, %if.then34, %if.then28, %if.end207, %if.end192, %if.end143, %if.end, %if.then191, %if.then172, %if.then142, %if.then129, %if.then119, %if.then95, %if.else, %if.then78, %if.then68, %if.then58, %if.then48, %if.then39, %if.then24
-  %crypto_opts.1 = phi ptr [ null, %if.end ], [ null, %if.then24 ], [ null, %if.then39 ], [ null, %if.then48 ], [ null, %if.then58 ], [ null, %if.then68 ], [ %crypto_opts.0, %if.then119 ], [ %crypto_opts.0, %if.then129 ], [ %crypto_opts.0, %if.then142 ], [ %crypto_opts.0, %if.end143 ], [ %crypto_opts.0, %if.then172 ], [ %crypto_opts.0, %if.then191 ], [ %crypto_opts.0, %if.end192 ], [ %crypto_opts.0, %if.end207 ], [ null, %if.then78 ], [ null, %if.else ], [ null, %if.then95 ], [ null, %if.then28 ], [ null, %if.then34 ], [ null, %if.end79 ], [ %call80, %if.end83 ]
-  %ret.0 = phi i32 [ %call2, %if.end ], [ -22, %if.then24 ], [ -22, %if.then39 ], [ -22, %if.then48 ], [ -22, %if.then58 ], [ -38, %if.then68 ], [ -22, %if.then119 ], [ -22, %if.then129 ], [ -12, %if.then142 ], [ %call149, %if.end143 ], [ -12, %if.then172 ], [ -22, %if.then191 ], [ %call196, %if.end192 ], [ %call210, %if.end207 ], [ -22, %if.then78 ], [ -22, %if.else ], [ -22, %if.then95 ], [ -95, %if.then28 ], [ -95, %if.then34 ], [ -22, %if.end79 ], [ -22, %if.end83 ]
+  %crypto_opts.1 = phi ptr [ null, %if.end ], [ null, %if.then24 ], [ null, %if.then39 ], [ null, %if.then48 ], [ null, %if.then58 ], [ null, %if.then68 ], [ %crypto_opts.2, %if.then119 ], [ %crypto_opts.2, %if.then129 ], [ %crypto_opts.2, %if.then142 ], [ %crypto_opts.2, %if.end143 ], [ %crypto_opts.2, %if.then172 ], [ %crypto_opts.2, %if.then191 ], [ %crypto_opts.2, %if.end192 ], [ %crypto_opts.2, %if.end207 ], [ null, %if.then78 ], [ null, %if.else ], [ null, %if.then95 ], [ null, %if.then28 ], [ null, %if.then34 ], [ null, %if.end79 ], [ %call80, %if.end83 ]
+  %ret.1 = phi i32 [ %call2, %if.end ], [ -22, %if.then24 ], [ -22, %if.then39 ], [ -22, %if.then48 ], [ -22, %if.then58 ], [ -38, %if.then68 ], [ -22, %if.then119 ], [ -22, %if.then129 ], [ -12, %if.then142 ], [ %call149, %if.end143 ], [ -12, %if.then172 ], [ -22, %if.then191 ], [ %call196, %if.end192 ], [ %call210, %if.end207 ], [ -22, %if.then78 ], [ -22, %if.else ], [ -22, %if.then95 ], [ -95, %if.then28 ], [ -95, %if.then34 ], [ -22, %if.end79 ], [ -22, %if.end83 ]
   call void @bdrv_graph_rdunlock_main_loop() #15
   br label %fail_unlocked
 
 fail_unlocked:                                    ; preds = %entry, %fail
-  %crypto_opts.2 = phi ptr [ null, %entry ], [ %crypto_opts.1, %fail ]
-  %ret.1 = phi i32 [ %call1, %entry ], [ %ret.0, %fail ]
+  %crypto_opts.0 = phi ptr [ null, %entry ], [ %crypto_opts.1, %fail ]
+  %ret.0 = phi i32 [ %call1, %entry ], [ %ret.1, %fail ]
   %l1_table217 = getelementptr inbounds i8, ptr %0, i64 40
   %52 = load ptr, ptr %l1_table217, align 8
   call void @g_free(ptr noundef %52) #15
@@ -513,11 +513,11 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %fail_unlocked, %land.lhs.true.i, %if.then5.i
-  call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %crypto_opts.2) #15
+  call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %crypto_opts.0) #15
   br label %return
 
 return:                                           ; preds = %qobject_unref_impl.exit, %if.end214
-  %retval.0 = phi i32 [ %ret.1, %qobject_unref_impl.exit ], [ 0, %if.end214 ]
+  %retval.0 = phi i32 [ %ret.0, %qobject_unref_impl.exit ], [ 0, %if.end214 ]
   ret i32 %retval.0
 }
 
@@ -663,7 +663,7 @@ if.else57:                                        ; preds = %if.end36
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then50, %if.else57
-  %crypto.0 = phi ptr [ %call53, %if.then50 ], [ null, %if.else57 ]
+  %crypto.1 = phi ptr [ %call53, %if.then50 ], [ null, %if.else57 ]
   %call61 = call i32 @blk_co_pwrite(ptr noundef nonnull %call11, i64 noundef 0, i64 noundef 48, ptr noundef nonnull %header, i32 noundef 0) #15
   %cmp62 = icmp slt i32 %call61, 0
   br i1 %cmp62, label %exit, label %if.end65
@@ -711,10 +711,10 @@ exit.sink.split:                                  ; preds = %for.cond, %for.body
 
 exit:                                             ; preds = %exit.sink.split, %if.then50, %if.end10, %if.then68, %if.end60
   %ret.0 = phi i32 [ %call61, %if.end60 ], [ %call71, %if.then68 ], [ -1, %if.end10 ], [ -22, %if.then50 ], [ %ret.0.ph, %exit.sink.split ]
-  %crypto.1 = phi ptr [ %crypto.0, %if.end60 ], [ %crypto.0, %if.then68 ], [ null, %if.end10 ], [ null, %if.then50 ], [ %crypto.0, %exit.sink.split ]
+  %crypto.0 = phi ptr [ %crypto.1, %if.end60 ], [ %crypto.1, %if.then68 ], [ null, %if.end10 ], [ null, %if.then50 ], [ %crypto.1, %exit.sink.split ]
   call void @blk_co_unref(ptr noundef %call11) #15
   call void @bdrv_co_unref(ptr noundef nonnull %call) #15
-  call void @qcrypto_block_free(ptr noundef %crypto.1) #15
+  call void @qcrypto_block_free(ptr noundef %crypto.0) #15
   br label %return
 
 return:                                           ; preds = %if.end7, %exit, %if.then6, %if.then2
@@ -2110,28 +2110,28 @@ if.end311.thread171:                              ; preds = %if.end208
   br label %do.body318
 
 if.end311:                                        ; preds = %for.inc292, %do.end191
-  %cluster_offset.0 = phi i64 [ %mul183, %do.end191 ], [ %mul221, %for.inc292 ]
-  %70 = call noundef i64 @llvm.bswap.i64(i64 %cluster_offset.0)
+  %cluster_offset.1 = phi i64 [ %mul183, %do.end191 ], [ %mul221, %for.inc292 ]
+  %70 = call noundef i64 @llvm.bswap.i64(i64 %cluster_offset.1)
   store i64 %70, ptr %tmp, align 8
   store i64 %70, ptr %arrayidx128, align 8
   %cmp315 = icmp eq i32 %allocate, 2
   br i1 %cmp315, label %do.body318, label %do.body327
 
 do.body318:                                       ; preds = %if.end311.thread171, %if.end311
-  %cluster_offset.0174 = phi i64 [ %or308, %if.end311.thread171 ], [ %cluster_offset.0, %if.end311 ]
+  %cluster_offset.1174 = phi i64 [ %or308, %if.end311.thread171 ], [ %cluster_offset.1, %if.end311 ]
   %71 = load ptr, ptr %file140, align 8
   %tobool320.not = icmp eq ptr %71, null
   br i1 %tobool320.not, label %if.end335, label %if.end335.sink.split
 
 do.body327.sink.split:                            ; preds = %if.end237, %land.lhs.true240, %if.end208, %if.end249
-  %cluster_offset.0.ph.sink = phi i64 [ %mul221, %if.end249 ], [ %call203, %if.end208 ], [ %mul221, %if.end237 ], [ %mul221, %land.lhs.true240 ]
-  %72 = call noundef i64 @llvm.bswap.i64(i64 %cluster_offset.0.ph.sink)
+  %cluster_offset.1.ph.sink = phi i64 [ %mul221, %if.end249 ], [ %call203, %if.end208 ], [ %mul221, %if.end237 ], [ %mul221, %land.lhs.true240 ]
+  %72 = call noundef i64 @llvm.bswap.i64(i64 %cluster_offset.1.ph.sink)
   store i64 %72, ptr %tmp, align 8
   store i64 %72, ptr %arrayidx128, align 8
   br label %do.body327
 
 do.body327:                                       ; preds = %do.body327.sink.split, %if.end311
-  %cluster_offset.0170 = phi i64 [ %cluster_offset.0, %if.end311 ], [ %cluster_offset.0.ph.sink, %do.body327.sink.split ]
+  %cluster_offset.1170 = phi i64 [ %cluster_offset.1, %if.end311 ], [ %cluster_offset.1.ph.sink, %do.body327.sink.split ]
   %73 = load ptr, ptr %file140, align 8
   %tobool329.not = icmp eq ptr %73, null
   br i1 %tobool329.not, label %if.end335, label %if.end335.sink.split
@@ -2139,13 +2139,13 @@ do.body327:                                       ; preds = %do.body327.sink.spl
 if.end335.sink.split:                             ; preds = %do.body327, %do.body318
   %.sink205 = phi ptr [ %71, %do.body318 ], [ %73, %do.body327 ]
   %.sink204 = phi i32 [ 6, %do.body318 ], [ 5, %do.body327 ]
-  %cluster_offset.0169.ph = phi i64 [ %cluster_offset.0174, %do.body318 ], [ %cluster_offset.0170, %do.body327 ]
+  %cluster_offset.1169.ph = phi i64 [ %cluster_offset.1174, %do.body318 ], [ %cluster_offset.1170, %do.body327 ]
   %74 = load ptr, ptr %.sink205, align 8
   call void @bdrv_co_debug_event(ptr noundef %74, i32 noundef %.sink204) #15
   br label %if.end335
 
 if.end335:                                        ; preds = %if.end335.sink.split, %do.body327, %do.body318
-  %cluster_offset.0169 = phi i64 [ %cluster_offset.0170, %do.body327 ], [ %cluster_offset.0174, %do.body318 ], [ %cluster_offset.0169.ph, %if.end335.sink.split ]
+  %cluster_offset.1169 = phi i64 [ %cluster_offset.1170, %do.body327 ], [ %cluster_offset.1174, %do.body318 ], [ %cluster_offset.1169.ph, %if.end335.sink.split ]
   %75 = load ptr, ptr %file140, align 8
   %mul338 = shl nsw i64 %idxprom127, 3
   %add339 = add i64 %mul338, %l2_offset.0
@@ -2154,8 +2154,8 @@ if.end335:                                        ; preds = %if.end335.sink.spli
   br i1 %cmp341, label %return, label %if.end345
 
 if.end345:                                        ; preds = %if.end335, %lor.lhs.false
-  %cluster_offset.1 = phi i64 [ %cluster_offset.0169, %if.end335 ], [ %37, %lor.lhs.false ]
-  store i64 %cluster_offset.1, ptr %result, align 8
+  %cluster_offset.0 = phi i64 [ %cluster_offset.1169, %if.end335 ], [ %37, %lor.lhs.false ]
+  store i64 %cluster_offset.0, ptr %result, align 8
   br label %return
 
 return:                                           ; preds = %do.end281, %if.then264, %if.end335, %if.end228, %if.then211, %do.end191, %if.then160, %if.then135, %if.else, %if.then92, %do.end, %if.then, %if.end345, %if.then206, %if.then171, %if.then5

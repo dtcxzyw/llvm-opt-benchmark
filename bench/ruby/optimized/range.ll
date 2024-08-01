@@ -1230,9 +1230,9 @@ rb_integer_type_p.exit83.thread:                  ; preds = %51, %rb_integer_typ
   br i1 %.not.i84, label %.preheader125, label %80
 
 .preheader125:                                    ; preds = %69, %.preheader125
-  %.074 = phi i64 [ %72, %.preheader125 ], [ %10, %69 ]
-  %71 = tail call i64 @rb_yield(i64 noundef %.074) #10
-  %72 = tail call i64 @rb_big_plus(i64 noundef %.074, i64 noundef 3) #10
+  %.2 = phi i64 [ %72, %.preheader125 ], [ %10, %69 ]
+  %71 = tail call i64 @rb_yield(i64 noundef %.2) #10
+  %72 = tail call i64 @rb_big_plus(i64 noundef %.2, i64 noundef 3) #10
   %73 = and i64 %72, 1
   %.not114 = icmp eq i64 %73, 0
   br i1 %.not114, label %.preheader125, label %74, !llvm.loop !10
@@ -1287,19 +1287,19 @@ rb_long2num_inline.exit:                          ; preds = %86
 
 93:                                               ; preds = %82, %rb_long2num_inline.exit
   %.pre-phi138 = phi i1 [ %92, %rb_long2num_inline.exit ], [ true, %82 ]
-  %.2 = phi i64 [ %91, %rb_long2num_inline.exit ], [ %10, %82 ]
+  %.3 = phi i64 [ %91, %rb_long2num_inline.exit ], [ %10, %82 ]
   tail call void @llvm.assume(i1 %.pre-phi138)
   tail call void @llvm.assume(i1 %68)
   br label %94
 
 94:                                               ; preds = %93, %66
-  %.3 = phi i64 [ %.2, %93 ], [ %10, %66 ]
-  %95 = and i64 %.3, 1
+  %.074 = phi i64 [ %.3, %93 ], [ %10, %66 ]
+  %95 = and i64 %.074, 1
   %.not118 = icmp eq i64 %95, 0
   br i1 %.not118, label %96, label %range_each_fixnum_loop.exit
 
 96:                                               ; preds = %94
-  %97 = tail call i32 @rb_big_sign(i64 noundef %.3) #10
+  %97 = tail call i32 @rb_big_sign(i64 noundef %.074) #10
   %98 = tail call i32 @rb_big_sign(i64 noundef %17) #10
   %99 = icmp eq i32 %97, %98
   br i1 %99, label %100, label %range_each_fixnum_loop.exit
@@ -1321,7 +1321,7 @@ RANGE_EXCL.exit:                                  ; preds = %100, %103
   %107 = load i64, ptr %106, align 8
   %108 = and i64 %107, -5
   %.not119 = icmp eq i64 %108, 0
-  %109 = tail call i64 @rb_big_cmp(i64 noundef %.3, i64 noundef %17) #10
+  %109 = tail call i64 @rb_big_cmp(i64 noundef %.074, i64 noundef %17) #10
   br i1 %.not119, label %.preheader121, label %.preheader123
 
 .preheader123:                                    ; preds = %RANGE_EXCL.exit
@@ -1333,7 +1333,7 @@ RANGE_EXCL.exit:                                  ; preds = %100, %103
   br i1 %.not79129, label %range_each_fixnum_loop.exit, label %.lr.ph131
 
 .lr.ph:                                           ; preds = %.preheader123, %.lr.ph
-  %.4128 = phi i64 [ %112, %.lr.ph ], [ %.3, %.preheader123 ]
+  %.4128 = phi i64 [ %112, %.lr.ph ], [ %.074, %.preheader123 ]
   %111 = tail call i64 @rb_yield(i64 noundef %.4128) #10
   %112 = tail call i64 @rb_big_plus(i64 noundef %.4128, i64 noundef 3) #10
   %113 = tail call i64 @rb_big_cmp(i64 noundef %112, i64 noundef %17) #10
@@ -1342,7 +1342,7 @@ RANGE_EXCL.exit:                                  ; preds = %100, %103
 
 .lr.ph131:                                        ; preds = %.preheader121, %118
   %115 = phi i64 [ %120, %118 ], [ %109, %.preheader121 ]
-  %.5130 = phi i64 [ %119, %118 ], [ %.3, %.preheader121 ]
+  %.5130 = phi i64 [ %119, %118 ], [ %.074, %.preheader121 ]
   %116 = tail call i64 @rb_yield(i64 noundef %.5130) #10
   %117 = icmp eq i64 %115, 1
   br i1 %117, label %range_each_fixnum_loop.exit, label %118
@@ -1598,8 +1598,8 @@ rb_check_arity.exit:                              ; preds = %RANGE_END.exit
   br label %26
 
 26:                                               ; preds = %24, %21
-  %.0106 = phi i64 [ %19, %21 ], [ %25, %24 ]
-  %27 = tail call i64 @rb_equal(i64 noundef %.0106, i64 noundef 1) #10
+  %.1107 = phi i64 [ %19, %21 ], [ %25, %24 ]
+  %27 = tail call i64 @rb_equal(i64 noundef %.1107, i64 noundef 1) #10
   %.not112 = icmp eq i64 %27, 0
   br i1 %.not112, label %30, label %28
 
@@ -1647,7 +1647,7 @@ RANGE_EXCL.exit:                                  ; preds = %40, %45
   %50 = and i64 %49, -5
   %51 = icmp ne i64 %50, 0
   %52 = zext i1 %51 to i32
-  %53 = tail call i64 @rb_arith_seq_new(i64 noundef %2, i64 noundef %42, i32 noundef %0, ptr noundef %1, ptr noundef nonnull @range_step_size, i64 noundef %7, i64 noundef %14, i64 noundef %.0106, i32 noundef %52) #10
+  %53 = tail call i64 @rb_arith_seq_new(i64 noundef %2, i64 noundef %42, i32 noundef %0, ptr noundef %1, ptr noundef nonnull @range_step_size, i64 noundef %7, i64 noundef %14, i64 noundef %.1107, i32 noundef %52) #10
   br label %.loopexit
 
 .thread:                                          ; preds = %36, %38
@@ -1662,8 +1662,8 @@ RANGE_EXCL.exit:                                  ; preds = %40, %45
   br label %.loopexit
 
 59:                                               ; preds = %.thread, %18
-  %.1107 = phi i64 [ %19, %18 ], [ %.0106, %.thread ]
-  %60 = tail call fastcc i64 @check_step_domain(i64 noundef %.1107)
+  %.0106 = phi i64 [ %19, %18 ], [ %.1107, %.thread ]
+  %60 = tail call fastcc i64 @check_step_domain(i64 noundef %.0106)
   store i64 3, ptr %4, align 16
   %61 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %60, ptr %61, align 8

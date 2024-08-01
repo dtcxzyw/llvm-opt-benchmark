@@ -50,7 +50,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
   %9 = phi i8 [ %51, %49 ], [ %8, %5 ]
   %.061 = phi ptr [ %.0, %49 ], [ %.057, %5 ]
   %.04260 = phi i8 [ %50, %49 ], [ %6, %5 ]
-  %.04359 = phi ptr [ %.2, %49 ], [ %7, %5 ]
+  %.04359 = phi ptr [ %.1, %49 ], [ %7, %5 ]
   %10 = getelementptr inbounds i8, ptr %.04359, i64 -1
   %11 = load i8, ptr %10, align 1
   switch i8 %9, label %15 [
@@ -117,9 +117,9 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
 
 39:                                               ; preds = %37, %36
   %40 = phi i8 [ %.pre, %37 ], [ %9, %36 ]
-  %.1 = phi ptr [ %38, %37 ], [ %.04359, %36 ]
-  %41 = getelementptr inbounds i8, ptr %.1, i64 1
-  store i8 %40, ptr %.1, align 1
+  %.2 = phi ptr [ %38, %37 ], [ %.04359, %36 ]
+  %41 = getelementptr inbounds i8, ptr %.2, i64 1
+  store i8 %40, ptr %.2, align 1
   br label %49
 
 .thread:                                          ; preds = %29, %24, %34
@@ -143,7 +143,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
   br label %49
 
 49:                                               ; preds = %39, %44, %45, %47, %12, %13
-  %.2 = phi ptr [ %14, %13 ], [ %.04359, %12 ], [ %41, %39 ], [ %48, %47 ], [ %46, %45 ], [ %.04359, %44 ]
+  %.1 = phi ptr [ %14, %13 ], [ %.04359, %12 ], [ %41, %39 ], [ %48, %47 ], [ %46, %45 ], [ %.04359, %44 ]
   %50 = load i8, ptr %.061, align 1
   %.0 = getelementptr inbounds i8, ptr %.061, i64 1
   %51 = load i8, ptr %.0, align 1
@@ -151,7 +151,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %49, %5, %1
-  %.043.lcssa.sink = phi ptr [ %3, %1 ], [ %7, %5 ], [ %.2, %49 ]
+  %.043.lcssa.sink = phi ptr [ %3, %1 ], [ %7, %5 ], [ %.1, %49 ]
   store i8 0, ptr %.043.lcssa.sink, align 1
   ret ptr %3
 }

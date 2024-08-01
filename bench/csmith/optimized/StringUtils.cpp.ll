@@ -338,8 +338,8 @@ define dso_local void @_ZN11StringUtils12split_stringERKNSt7__cxx1112basic_strin
   br label %7
 
 7:                                                ; preds = %.backedge, %3
-  %.1 = phi i64 [ 0, %3 ], [ %.1.be, %.backedge ]
-  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1) #16
+  %.2 = phi i64 [ 0, %3 ], [ %.2.be, %.backedge ]
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.2) #16
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %_ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm.exit [
     i8 32, label %.backedge
@@ -348,14 +348,14 @@ define dso_local void @_ZN11StringUtils12split_stringERKNSt7__cxx1112basic_strin
   ]
 
 .backedge:                                        ; preds = %7, %7, %7, %23
-  %.1.be.in = phi i64 [ %10, %23 ], [ %.1, %7 ], [ %.1, %7 ], [ %.1, %7 ]
-  %.1.be = add i64 %.1.be.in, 1
+  %.2.be.in = phi i64 [ %10, %23 ], [ %.2, %7 ], [ %.2, %7 ], [ %.2, %7 ]
+  %.2.be = add i64 %.2.be.in, 1
   br label %7, !llvm.loop !5
 
 _ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm.exit: ; preds = %7
-  %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %2, i64 noundef %.1) #16
-  %11 = sub i64 %10, %.1
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1, i64 noundef %11)
+  %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %2, i64 noundef %.2) #16
+  %11 = sub i64 %10, %.2
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.2, i64 noundef %11)
   %12 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   br i1 %12, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, label %13
 
@@ -409,8 +409,8 @@ define dso_local void @_ZN11StringUtils12split_stringERKNSt7__cxx1112basic_strin
   br label %7
 
 7:                                                ; preds = %.backedge, %3
-  %.1 = phi i64 [ 0, %3 ], [ %.1.be, %.backedge ]
-  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1) #16
+  %.2 = phi i64 [ 0, %3 ], [ %.2.be, %.backedge ]
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.2) #16
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %_ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm.exit [
     i8 32, label %.backedge
@@ -419,8 +419,8 @@ define dso_local void @_ZN11StringUtils12split_stringERKNSt7__cxx1112basic_strin
   ]
 
 .backedge:                                        ; preds = %7, %7, %7, %34
-  %.1.be.in = phi i64 [ %.010.i, %34 ], [ %.1, %7 ], [ %.1, %7 ], [ %.1, %7 ]
-  %.1.be = add i64 %.1.be.in, 1
+  %.2.be.in = phi i64 [ %.010.i, %34 ], [ %.2, %7 ], [ %.2, %7 ], [ %.2, %7 ]
+  %.2.be = add i64 %.2.be.in, 1
   br label %7, !llvm.loop !5
 
 _ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm.exit: ; preds = %7
@@ -433,11 +433,11 @@ _ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 .preheader.i:                                     ; preds = %11
   %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  %14 = icmp ugt i64 %13, %.1
+  %14 = icmp ugt i64 %13, %.2
   br i1 %14, label %.lr.ph.i, label %_ZN11StringUtils13find_any_charERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS7_.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %18
-  %.011.i = phi i64 [ %19, %18 ], [ %.1, %.preheader.i ]
+  %.011.i = phi i64 [ %19, %18 ], [ %.2, %.preheader.i ]
   %15 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.011.i) #16
   %16 = load i8, ptr %15, align 1
   %17 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %16, i64 noundef 0) #16
@@ -452,8 +452,8 @@ _ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 _ZN11StringUtils13find_any_charERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS7_.exit: ; preds = %.lr.ph.i, %18, %_ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm.exit, %11, %.preheader.i
   %.010.i = phi i64 [ -1, %11 ], [ -1, %_ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm.exit ], [ -1, %.preheader.i ], [ -1, %18 ], [ %.011.i, %.lr.ph.i ]
-  %22 = sub i64 %.010.i, %.1
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1, i64 noundef %22)
+  %22 = sub i64 %.010.i, %.2
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.2, i64 noundef %22)
   %23 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   br i1 %23, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, label %24
 
@@ -504,8 +504,8 @@ define dso_local void @_ZN11StringUtils16split_int_stringERKNSt7__cxx1112basic_s
   br label %7
 
 7:                                                ; preds = %.backedge, %3
-  %.1 = phi i64 [ 0, %3 ], [ %.1.be, %.backedge ]
-  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1) #16
+  %.2 = phi i64 [ 0, %3 ], [ %.2.be, %.backedge ]
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.2) #16
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %_ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm.exit [
     i8 32, label %.backedge
@@ -514,8 +514,8 @@ define dso_local void @_ZN11StringUtils16split_int_stringERKNSt7__cxx1112basic_s
   ]
 
 .backedge:                                        ; preds = %7, %7, %7, %57
-  %.1.be.in = phi i64 [ %.010.i, %57 ], [ %.1, %7 ], [ %.1, %7 ], [ %.1, %7 ]
-  %.1.be = add i64 %.1.be.in, 1
+  %.2.be.in = phi i64 [ %.010.i, %57 ], [ %.2, %7 ], [ %.2, %7 ], [ %.2, %7 ]
+  %.2.be = add i64 %.2.be.in, 1
   br label %7, !llvm.loop !5
 
 _ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm.exit: ; preds = %7
@@ -528,11 +528,11 @@ _ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 .preheader.i:                                     ; preds = %11
   %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  %14 = icmp ugt i64 %13, %.1
+  %14 = icmp ugt i64 %13, %.2
   br i1 %14, label %.lr.ph.i, label %_ZN11StringUtils13find_any_charERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS7_.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %18
-  %.011.i = phi i64 [ %19, %18 ], [ %.1, %.preheader.i ]
+  %.011.i = phi i64 [ %19, %18 ], [ %.2, %.preheader.i ]
   %15 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.011.i) #16
   %16 = load i8, ptr %15, align 1
   %17 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %16, i64 noundef 0) #16
@@ -547,8 +547,8 @@ _ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 _ZN11StringUtils13find_any_charERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS7_.exit: ; preds = %.lr.ph.i, %18, %_ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm.exit, %11, %.preheader.i
   %.010.i = phi i64 [ -1, %11 ], [ -1, %_ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm.exit ], [ -1, %.preheader.i ], [ -1, %18 ], [ %.011.i, %.lr.ph.i ]
-  %22 = sub i64 %.010.i, %.1
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1, i64 noundef %22)
+  %22 = sub i64 %.010.i, %.2
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.2, i64 noundef %22)
   %23 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   br i1 %23, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, label %24
 

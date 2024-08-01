@@ -476,8 +476,8 @@ lpad16.body:                                      ; preds = %lpad16.loopexit.spl
   %eh.lpad-body = phi { ptr, i32 } [ %22, %lpad.i ], [ %65, %ehcleanup.i ], [ %66, %cleanup.action.i ], [ %lpad.loopexit, %lpad16.loopexit ], [ %lpad.loopexit141, %lpad16.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit160, %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp161, %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %else_case) #14
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args) #14
-  %exn.slot.0 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %eh.lpad-body, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %eh.lpad-body, 1
   call void @_ZN6vectorI10ref_vectorI4expr11ast_managerELb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %stores) #14
   br label %ehcleanup65
 
@@ -1028,16 +1028,16 @@ cleanup64:                                        ; preds = %call.i.noexc, %_ZNK
   ret void
 
 ehcleanup65:                                      ; preds = %lpad16.body, %lpad4, %lpad2
-  %ehselector.slot.1 = phi i32 [ %ehselector.slot.0, %lpad16.body ], [ %5, %lpad2 ], [ %8, %lpad4 ]
-  %exn.slot.1 = phi ptr [ %exn.slot.0, %lpad16.body ], [ %4, %lpad2 ], [ %7, %lpad4 ]
+  %ehselector.slot.1 = phi i32 [ %ehselector.slot.2, %lpad16.body ], [ %5, %lpad2 ], [ %8, %lpad4 ]
+  %exn.slot.1 = phi ptr [ %exn.slot.2, %lpad16.body ], [ %4, %lpad2 ], [ %7, %lpad4 ]
   call void @_ZN15model_evaluatorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mev) #14
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup65, %lpad
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %ehcleanup65 ], [ %2, %lpad ]
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %ehcleanup65 ], [ %1, %lpad ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val68 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup65 ], [ %2, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup65 ], [ %1, %lpad ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val68 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val68
 }
 
@@ -1847,8 +1847,8 @@ lpad77:                                           ; preds = %invoke.cont80, %if.
   br label %eh.resume
 
 return:                                           ; preds = %land.rhs.i.i, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit145, %entry, %land.rhs.i.i177, %if.end67, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit185, %invoke.cont81, %_Z9is_groundPK4expr.exit172, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit158, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %retval.2 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit158 ], [ false, %_Z9is_groundPK4expr.exit172 ], [ true, %invoke.cont81 ], [ true, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit185 ], [ false, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit ], [ false, %if.end67 ], [ true, %land.rhs.i.i177 ], [ false, %entry ], [ false, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit145 ], [ false, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ false, %land.rhs.i.i ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit158 ], [ false, %_Z9is_groundPK4expr.exit172 ], [ true, %invoke.cont81 ], [ true, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit185 ], [ false, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit ], [ false, %if.end67 ], [ true, %land.rhs.i.i177 ], [ false, %entry ], [ false, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit145 ], [ false, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ false, %land.rhs.i.i ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad77, %lpad34, %lpad.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad.body ], [ %lpad.phi, %lpad34 ], [ %109, %lpad77 ]

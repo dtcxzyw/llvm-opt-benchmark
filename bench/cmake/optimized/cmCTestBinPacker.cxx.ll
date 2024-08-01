@@ -2256,25 +2256,25 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
 .lr.ph:                                           ; preds = %71, %.lr.ph
   %.088 = phi i64 [ %78, %.lr.ph ], [ 0, %71 ]
   %.sroa.023.087 = phi ptr [ %75, %.lr.ph ], [ %62, %71 ]
-  %.sroa.041.286 = phi ptr [ %74, %.lr.ph ], [ %72, %71 ]
-  %74 = getelementptr inbounds i8, ptr %.sroa.041.286, i64 8
+  %.sroa.041.386 = phi ptr [ %74, %.lr.ph ], [ %72, %71 ]
+  %74 = getelementptr inbounds i8, ptr %.sroa.041.386, i64 8
   %75 = getelementptr inbounds i8, ptr %.sroa.023.087, i64 8
-  %76 = load ptr, ptr %.sroa.041.286, align 8
+  %76 = load ptr, ptr %.sroa.041.386, align 8
   %77 = load ptr, ptr %.sroa.023.087, align 8
-  store ptr %77, ptr %.sroa.041.286, align 8
+  store ptr %77, ptr %.sroa.041.386, align 8
   store ptr %76, ptr %.sroa.023.087, align 8
   %78 = add nuw nsw i64 %.088, 1
   %exitcond.not = icmp eq i64 %78, %.080
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %71
-  %.sroa.041.2.lcssa = phi ptr [ %72, %71 ], [ %.sroa.041.0, %.lr.ph ]
+  %.sroa.041.3.lcssa = phi ptr [ %72, %71 ], [ %.sroa.041.0, %.lr.ph ]
   %79 = srem i64 %.079, %31
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %57
-  %.sroa.041.0.be = phi ptr [ %.sroa.041.1.lcssa, %57 ], [ %.sroa.041.2.lcssa, %._crit_edge ]
+  %.sroa.041.0.be = phi ptr [ %.sroa.041.1.lcssa, %57 ], [ %.sroa.041.3.lcssa, %._crit_edge ]
   %.080.be = phi i64 [ %58, %57 ], [ %79, %._crit_edge ]
   %.079.be = phi i64 [ %.080, %57 ], [ %31, %._crit_edge ]
   br label %30, !llvm.loop !85
@@ -4318,22 +4318,22 @@ define linkonce_odr dso_local void @_ZNSt3_V28__rotateISt16reverse_iteratorIN9__
 .lr.ph:                                           ; preds = %39, %.lr.ph
   %.050 = phi i64 [ %46, %.lr.ph ], [ 0, %39 ]
   %.sroa.017.049 = phi ptr [ %45, %.lr.ph ], [ %41, %39 ]
-  %.sroa.022.248 = phi ptr [ %44, %.lr.ph ], [ %42, %39 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.022.248, i64 32
+  %.sroa.022.348 = phi ptr [ %44, %.lr.ph ], [ %42, %39 ]
+  %44 = getelementptr inbounds i8, ptr %.sroa.022.348, i64 32
   %45 = getelementptr inbounds i8, ptr %.sroa.017.049, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.248, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.017.049) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.348, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.017.049) #17
   %46 = add nuw nsw i64 %.050, 1
   %exitcond.not = icmp eq i64 %46, %.046
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !303
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
-  %.sroa.022.2.lcssa = phi ptr [ %42, %39 ], [ %.sroa.022.0, %.lr.ph ]
+  %.sroa.022.3.lcssa = phi ptr [ %42, %39 ], [ %.sroa.022.0, %.lr.ph ]
   %47 = srem i64 %.045, %26
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %37
-  %.sroa.022.0.be = phi ptr [ %.sroa.022.1.lcssa, %37 ], [ %.sroa.022.2.lcssa, %._crit_edge ]
+  %.sroa.022.0.be = phi ptr [ %.sroa.022.1.lcssa, %37 ], [ %.sroa.022.3.lcssa, %._crit_edge ]
   %.046.be = phi i64 [ %38, %37 ], [ %47, %._crit_edge ]
   %.045.be = phi i64 [ %.046, %37 ], [ %26, %._crit_edge ]
   br label %25, !llvm.loop !304

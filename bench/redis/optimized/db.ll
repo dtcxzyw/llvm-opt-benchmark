@@ -4295,7 +4295,7 @@ if.end16:                                         ; preds = %dbIteratorInit.exit
 
 while.cond:                                       ; preds = %if.end39, %if.end16
   %bf.clear3091 = phi i32 [ undef, %if.end16 ], [ %bf.clear3090, %if.end39 ]
-  %numkeys.0 = phi i64 [ 0, %if.end16 ], [ %numkeys.1, %if.end39 ]
+  %numkeys.0 = phi i64 [ 0, %if.end16 ], [ %numkeys.2, %if.end39 ]
   br i1 %tobool17.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %while.cond
@@ -4454,14 +4454,14 @@ sdslen.exit70:                                    ; preds = %if.then36, %sw.bb.i
 
 if.end39:                                         ; preds = %keyIsExpired.exit, %sdslen.exit70, %sdslen.exit46
   %bf.clear3090 = phi i32 [ %bf.clear30, %keyIsExpired.exit ], [ %bf.clear30, %sdslen.exit70 ], [ %bf.clear3091, %sdslen.exit46 ]
-  %numkeys.1 = phi i64 [ %numkeys.0, %keyIsExpired.exit ], [ %inc, %sdslen.exit70 ], [ %numkeys.0, %sdslen.exit46 ]
+  %numkeys.2 = phi i64 [ %numkeys.0, %keyIsExpired.exit ], [ %inc, %sdslen.exit70 ], [ %numkeys.0, %sdslen.exit46 ]
   %33 = load i64, ptr %flags, align 8
   %and = and i64 %33, 1024
   %tobool40.not = icmp eq i64 %and, 0
   br i1 %tobool40.not, label %while.cond, label %while.end, !llvm.loop !23
 
 while.end:                                        ; preds = %if.end39, %cond.end
-  %numkeys.2 = phi i64 [ %numkeys.1, %if.end39 ], [ %numkeys.0, %cond.end ]
+  %numkeys.1 = phi i64 [ %numkeys.2, %if.end39 ], [ %numkeys.0, %cond.end ]
   br i1 %tobool17.not, label %if.end45, label %if.then44
 
 if.then44:                                        ; preds = %while.end
@@ -4473,14 +4473,14 @@ if.end45:                                         ; preds = %if.then44, %while.e
   br i1 %tobool46.not, label %if.end48, label %if.then47
 
 if.then47:                                        ; preds = %if.then.i, %if.end45
-  %numkeys.28386 = phi i64 [ %numkeys.2, %if.end45 ], [ %numkeys.0, %if.then.i ]
+  %numkeys.18386 = phi i64 [ %numkeys.1, %if.end45 ], [ %numkeys.0, %if.then.i ]
   tail call void @dictResetIterator(ptr noundef nonnull %di.i25) #17
   tail call void @zfree(ptr noundef nonnull %dbit.0) #17
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then47, %if.end45
-  %numkeys.28387 = phi i64 [ %numkeys.28386, %if.then47 ], [ %numkeys.2, %if.end45 ]
-  tail call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call1, i64 noundef %numkeys.28387) #17
+  %numkeys.18387 = phi i64 [ %numkeys.18386, %if.then47 ], [ %numkeys.1, %if.end45 ]
+  tail call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call1, i64 noundef %numkeys.18387) #17
   ret void
 }
 
@@ -5541,7 +5541,7 @@ entry:
   %1 = trunc i64 %v to i32
   %conv.i = and i32 %1, 16383
   %shr.i = lshr i64 %v, 14
-  %v.addr.0 = select i1 %tobool.not.i, i64 %v, i64 %shr.i
+  %v.addr.1 = select i1 %tobool.not.i, i64 %v, i64 %shr.i
   %retval.0.i = select i1 %tobool.not.i, i32 0, i32 %conv.i
   %cmp = icmp sgt i32 %onlyslot, -1
   br i1 %cmp, label %if.then, label %if.end9
@@ -5564,7 +5564,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp5, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then2, %if.else, %entry
-  %v.addr.1 = phi i64 [ %v.addr.0, %if.else ], [ %v.addr.0, %entry ], [ 0, %if.then2 ]
+  %v.addr.0 = phi i64 [ %v.addr.1, %if.else ], [ %v.addr.1, %entry ], [ 0, %if.then2 ]
   %slot.0 = phi i32 [ %retval.0.i, %if.else ], [ %retval.0.i, %entry ], [ %onlyslot, %if.then2 ]
   switch i32 %keyType, label %if.else19 [
     i32 0, label %if.end21
@@ -5604,7 +5604,7 @@ if.end34:                                         ; preds = %do.body
   br label %if.then39
 
 if.end35:                                         ; preds = %if.end21, %lor.end
-  %call29 = tail call i64 @dictScan(ptr noundef %d.0, i64 noundef %v.addr.1, ptr noundef %fn, ptr noundef %privdata) #17
+  %call29 = tail call i64 @dictScan(ptr noundef %d.0, i64 noundef %v.addr.0, ptr noundef %fn, ptr noundef %privdata) #17
   %cmp36.not = icmp eq i64 %call29, 0
   br i1 %cmp36.not, label %if.then39, label %if.end35.if.end49_crit_edge
 
@@ -8337,7 +8337,7 @@ for.end:                                          ; preds = %if.end53
   br label %if.end72
 
 if.end72:                                         ; preds = %for.end, %if.then21
-  %first.1 = phi i32 [ %5, %if.then21 ], [ %add57, %for.end ]
+  %first.0 = phi i32 [ %5, %if.then21 ], [ %add57, %for.end ]
   %find_keys_type = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %10 = load i32, ptr %find_keys_type, align 8
   switch i32 %10, label %invalid_spec [
@@ -8354,7 +8354,7 @@ if.then75:                                        ; preds = %if.end72
   br i1 %cmp77, label %if.then79, label %if.else83
 
 if.then79:                                        ; preds = %if.then75
-  %add82 = add nsw i32 %12, %first.1
+  %add82 = add nsw i32 %12, %first.0
   br label %if.end147
 
 if.else83:                                        ; preds = %if.then75
@@ -8377,9 +8377,9 @@ cond.false102:                                    ; preds = %if.else90
   unreachable
 
 cond.end103:                                      ; preds = %if.else90
-  %sub104 = sub nsw i32 %argc, %first.1
+  %sub104 = sub nsw i32 %argc, %first.0
   %div = sdiv i32 %sub104, %13
-  %add109 = add i32 %first.1, -1
+  %add109 = add i32 %first.0, -1
   %add110 = add i32 %add109, %div
   br label %if.end147
 
@@ -8392,7 +8392,7 @@ if.then117:                                       ; preds = %if.end72
   br i1 %cmp122.not, label %if.end125, label %invalid_spec
 
 if.end125:                                        ; preds = %if.then117
-  %add128 = add nsw i32 %15, %first.1
+  %add128 = add nsw i32 %15, %first.0
   %idxprom129 = sext i32 %add128 to i64
   %arrayidx130 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom129
   %16 = load ptr, ptr %arrayidx130, align 8
@@ -8450,7 +8450,7 @@ sdslen.exit:                                      ; preds = %if.end125, %sw.bb.i
 if.end139:                                        ; preds = %sdslen.exit
   %firstkey = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %24 = load i32, ptr %firstkey, align 4
-  %add141 = add nsw i32 %24, %first.1
+  %add141 = add nsw i32 %24, %first.0
   %conv142 = trunc i64 %23 to i32
   %add143 = add i32 %conv142, -1
   %sub144 = add i32 %add143, %add141
@@ -8458,7 +8458,7 @@ if.end139:                                        ; preds = %sdslen.exit
 
 if.end147:                                        ; preds = %if.then79, %cond.end103, %if.then86, %if.end139
   %step.0 = phi i32 [ %11, %if.then79 ], [ %11, %cond.end103 ], [ %11, %if.then86 ], [ %14, %if.end139 ]
-  %first.2 = phi i32 [ %first.1, %if.then79 ], [ %first.1, %cond.end103 ], [ %first.1, %if.then86 ], [ %add141, %if.end139 ]
+  %first.2 = phi i32 [ %first.0, %if.then79 ], [ %first.0, %cond.end103 ], [ %first.0, %if.then86 ], [ %add141, %if.end139 ]
   %last.0 = phi i32 [ %add82, %if.then79 ], [ %add110, %cond.end103 ], [ %add89, %if.then86 ], [ %sub144, %if.end139 ]
   %25 = load i32, ptr %numkeys, align 8
   %reass.sub = sub i32 %last.0, %first.2

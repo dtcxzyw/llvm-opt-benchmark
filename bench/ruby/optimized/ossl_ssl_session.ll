@@ -169,8 +169,8 @@ define internal noundef i64 @ossl_ssl_session_initialize(i64 noundef returned %0
   unreachable
 
 31:                                               ; preds = %.thread, %25, %16
-  %.1 = phi ptr [ %17, %16 ], [ %27, %25 ], [ %23, %.thread ]
-  store ptr %.1, ptr %5, align 8
+  %.0 = phi ptr [ %17, %16 ], [ %27, %25 ], [ %23, %.thread ]
+  store ptr %.0, ptr %5, align 8
   ret i64 %0
 }
 

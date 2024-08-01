@@ -3176,7 +3176,7 @@ if.end119:                                        ; preds = %.noexc133, %for.con
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont112, %if.end.i114, %invoke.cont, %if.end.i, %invoke.cont98, %if.end119
-  %retval.0 = phi i1 [ true, %if.end119 ], [ true, %invoke.cont98 ], [ false, %if.end.i ], [ false, %invoke.cont ], [ false, %if.end.i114 ], [ false, %invoke.cont112 ]
+  %retval.1 = phi i1 [ true, %if.end119 ], [ true, %invoke.cont98 ], [ false, %if.end.i ], [ false, %invoke.cont ], [ false, %if.end.i114 ], [ false, %invoke.cont112 ]
   %32 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %ifd_offsets_seen, ptr noundef %32)
           to label %return unwind label %terminate.lpad.i.i
@@ -3189,8 +3189,8 @@ terminate.lpad.i.i:                               ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %cleanup, %if.end
-  %retval.1 = phi i1 [ false, %if.end ], [ %retval.0, %cleanup ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.end ], [ %retval.1, %cleanup ]
+  ret i1 %retval.0
 }
 
 declare noundef ptr @_ZN18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0

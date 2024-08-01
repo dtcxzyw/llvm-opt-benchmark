@@ -1435,7 +1435,7 @@ define internal fastcc i64 @tar_atol(ptr nocapture noundef readonly %0, i64 noun
 
 .lr.ph78.i.i:                                     ; preds = %.preheader.i.i, %47
   %.03977.in.in.i.i = phi i8 [ %.039.in.in.i.i, %47 ], [ %.039.in.in71.i.i, %.preheader.i.i ]
-  %.04376.i.i = phi i64 [ %49, %47 ], [ 0, %.preheader.i.i ]
+  %.176.i.i = phi i64 [ %49, %47 ], [ 0, %.preheader.i.i ]
   %.275.i.i = phi i64 [ %51, %47 ], [ %.14693.i.i, %.preheader.i.i ]
   %.24974.i.i = phi ptr [ %50, %47 ], [ %.14892.i.i, %.preheader.i.i ]
   %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i32
@@ -1446,18 +1446,18 @@ define internal fastcc i64 @tar_atol(ptr nocapture noundef readonly %0, i64 noun
   br i1 %or.cond.i.i, label %42, label %.critedge4.i.i
 
 42:                                               ; preds = %.lr.ph78.i.i
-  %43 = icmp sgt i64 %.04376.i.i, %.04195.i.i
+  %43 = icmp sgt i64 %.176.i.i, %.04195.i.i
   br i1 %43, label %tar_atol256.exit, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ne i64 %.04376.i.i, %.04195.i.i
+  %45 = icmp ne i64 %.176.i.i, %.04195.i.i
   %46 = zext nneg i32 %.03977.i.i to i64
   %.not52.i.i = icmp ugt i64 %.04096.i.i, %46
   %or.cond54.i.i = select i1 %45, i1 true, i1 %.not52.i.i
   br i1 %or.cond54.i.i, label %47, label %tar_atol256.exit
 
 47:                                               ; preds = %44
-  %48 = shl nsw i64 %.04376.i.i, 3
+  %48 = shl nsw i64 %.176.i.i, 3
   %49 = or disjoint i64 %48, %46
   %50 = getelementptr inbounds i8, ptr %.24974.i.i, i64 1
   %51 = add i64 %.275.i.i, -1
@@ -1466,9 +1466,9 @@ define internal fastcc i64 @tar_atol(ptr nocapture noundef readonly %0, i64 noun
   br i1 %52, label %.lr.ph78.i.i, label %.critedge4.i.i, !llvm.loop !22
 
 .critedge4.i.i:                                   ; preds = %47, %.lr.ph78.i.i, %.preheader.i.i
-  %.1.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.04376.i.i, %.lr.ph78.i.i ], [ %49, %47 ]
-  %53 = sub nsw i64 0, %.1.i.i
-  %spec.select.i.i = select i1 %38, i64 %53, i64 %.1.i.i
+  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.176.i.i, %.lr.ph78.i.i ], [ %49, %47 ]
+  %53 = sub nsw i64 0, %.043.i.i
+  %spec.select.i.i = select i1 %38, i64 %53, i64 %.043.i.i
   br label %tar_atol256.exit
 
 tar_atol256.exit:                                 ; preds = %.critedge2.i.i, %44, %42, %.critedge4.i.i, %.critedge53.i.i, %32, %28, %19, %10
@@ -2520,7 +2520,7 @@ define internal fastcc i32 @header_pax_extensions(ptr noundef %0, ptr noundef %1
 
 .lr.ph78.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %99
   %.03977.in.in.i.i.i.i = phi i8 [ %.039.in.in.i.i.i.i, %99 ], [ %.039.in.in71.i.i.i.i, %.preheader.i.i.i.i ]
-  %.04376.i.i.i.i = phi i64 [ %101, %99 ], [ 0, %.preheader.i.i.i.i ]
+  %.176.i.i.i.i = phi i64 [ %101, %99 ], [ 0, %.preheader.i.i.i.i ]
   %.275.i.i.i.i = phi i64 [ %103, %99 ], [ %.14693.i.i.i.i, %.preheader.i.i.i.i ]
   %.24974.i.i.i.i = phi ptr [ %102, %99 ], [ %.14892.i.i.i.i, %.preheader.i.i.i.i ]
   %.03977.in.i.i.i.i = zext nneg i8 %.03977.in.in.i.i.i.i to i32
@@ -2531,18 +2531,18 @@ define internal fastcc i32 @header_pax_extensions(ptr noundef %0, ptr noundef %1
   br i1 %or.cond.i.i.i.i, label %94, label %.critedge4.i.i.i.i
 
 94:                                               ; preds = %.lr.ph78.i.i.i.i
-  %95 = icmp sgt i64 %.04376.i.i.i.i, 922337203685477580
+  %95 = icmp sgt i64 %.176.i.i.i.i, 922337203685477580
   br i1 %95, label %tar_atol10.exit.i.i, label %96
 
 96:                                               ; preds = %94
-  %97 = icmp ne i64 %.04376.i.i.i.i, 922337203685477580
+  %97 = icmp ne i64 %.176.i.i.i.i, 922337203685477580
   %98 = zext nneg i32 %.03977.i.i.i.i to i64
   %.not52.i.i.i.i = icmp ugt i64 %.04096.i.i.i.i, %98
   %or.cond54.i.i.i.i = select i1 %97, i1 true, i1 %.not52.i.i.i.i
   br i1 %or.cond54.i.i.i.i, label %99, label %tar_atol10.exit.i.i
 
 99:                                               ; preds = %96
-  %100 = mul nsw i64 %.04376.i.i.i.i, 10
+  %100 = mul nsw i64 %.176.i.i.i.i, 10
   %101 = add nuw nsw i64 %100, %98
   %102 = getelementptr inbounds i8, ptr %.24974.i.i.i.i, i64 1
   %103 = add i64 %.275.i.i.i.i, -1
@@ -2551,9 +2551,9 @@ define internal fastcc i32 @header_pax_extensions(ptr noundef %0, ptr noundef %1
   br i1 %104, label %.lr.ph78.i.i.i.i, label %.critedge4.i.i.i.i, !llvm.loop !22
 
 .critedge4.i.i.i.i:                               ; preds = %99, %.lr.ph78.i.i.i.i, %.preheader.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %.04376.i.i.i.i, %.lr.ph78.i.i.i.i ], [ %101, %99 ]
-  %105 = sub nsw i64 0, %.1.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %90, i64 %105, i64 %.1.i.i.i.i
+  %.043.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %.176.i.i.i.i, %.lr.ph78.i.i.i.i ], [ %101, %99 ]
+  %105 = sub nsw i64 0, %.043.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %90, i64 %105, i64 %.043.i.i.i.i
   br label %tar_atol10.exit.i.i
 
 tar_atol10.exit.i.i:                              ; preds = %.critedge2.i.i.i.i, %96, %94, %.critedge4.i.i.i.i, %.critedge53.i.i.i.i, %83
@@ -3394,7 +3394,7 @@ pax_time.exit272.i.i:                             ; preds = %444, %.preheader.i2
 
 .lr.ph78.i.i291.i.i:                              ; preds = %.preheader.i.i281.i.i, %469
   %.03977.in.in.i.i292.i.i = phi i8 [ %.039.in.in.i.i301.i.i, %469 ], [ %.039.in.in71.i.i282.i.i, %.preheader.i.i281.i.i ]
-  %.04376.i.i293.i.i = phi i64 [ %471, %469 ], [ 0, %.preheader.i.i281.i.i ]
+  %.176.i.i293.i.i = phi i64 [ %471, %469 ], [ 0, %.preheader.i.i281.i.i ]
   %.275.i.i294.i.i = phi i64 [ %473, %469 ], [ %.14693.i.i285.i.i, %.preheader.i.i281.i.i ]
   %.24974.i.i295.i.i = phi ptr [ %472, %469 ], [ %.14892.i.i286.i.i, %.preheader.i.i281.i.i ]
   %.03977.in.i.i296.i.i = zext nneg i8 %.03977.in.in.i.i292.i.i to i32
@@ -3405,18 +3405,18 @@ pax_time.exit272.i.i:                             ; preds = %444, %.preheader.i2
   br i1 %or.cond.i.i298.i.i, label %464, label %.critedge4.i.i287.i.i
 
 464:                                              ; preds = %.lr.ph78.i.i291.i.i
-  %465 = icmp sgt i64 %.04376.i.i293.i.i, 922337203685477580
+  %465 = icmp sgt i64 %.176.i.i293.i.i, 922337203685477580
   br i1 %465, label %tar_atol10.exit304.i.i, label %466
 
 466:                                              ; preds = %464
-  %467 = icmp ne i64 %.04376.i.i293.i.i, 922337203685477580
+  %467 = icmp ne i64 %.176.i.i293.i.i, 922337203685477580
   %468 = zext nneg i32 %.03977.i.i297.i.i to i64
   %.not52.i.i299.i.i = icmp ugt i64 %.04096.i.i283.i.i, %468
   %or.cond54.i.i300.i.i = select i1 %467, i1 true, i1 %.not52.i.i299.i.i
   br i1 %or.cond54.i.i300.i.i, label %469, label %tar_atol10.exit304.i.i
 
 469:                                              ; preds = %466
-  %470 = mul nsw i64 %.04376.i.i293.i.i, 10
+  %470 = mul nsw i64 %.176.i.i293.i.i, 10
   %471 = add nuw nsw i64 %470, %468
   %472 = getelementptr inbounds i8, ptr %.24974.i.i295.i.i, i64 1
   %473 = add i64 %.275.i.i294.i.i, -1
@@ -3425,9 +3425,9 @@ pax_time.exit272.i.i:                             ; preds = %444, %.preheader.i2
   br i1 %474, label %.lr.ph78.i.i291.i.i, label %.critedge4.i.i287.i.i, !llvm.loop !22
 
 .critedge4.i.i287.i.i:                            ; preds = %469, %.lr.ph78.i.i291.i.i, %.preheader.i.i281.i.i
-  %.1.i.i288.i.i = phi i64 [ 0, %.preheader.i.i281.i.i ], [ %.04376.i.i293.i.i, %.lr.ph78.i.i291.i.i ], [ %471, %469 ]
-  %475 = sub nsw i64 0, %.1.i.i288.i.i
-  %spec.select.i.i289.i.i = select i1 %460, i64 %475, i64 %.1.i.i288.i.i
+  %.043.i.i288.i.i = phi i64 [ 0, %.preheader.i.i281.i.i ], [ %.176.i.i293.i.i, %.lr.ph78.i.i291.i.i ], [ %471, %469 ]
+  %475 = sub nsw i64 0, %.043.i.i288.i.i
+  %spec.select.i.i289.i.i = select i1 %460, i64 %475, i64 %.043.i.i288.i.i
   br label %tar_atol10.exit304.i.i
 
 tar_atol10.exit304.i.i:                           ; preds = %.critedge2.i.i302.i.i, %466, %464, %.critedge4.i.i287.i.i, %.critedge53.i.i277.i.i, %453
@@ -3615,7 +3615,7 @@ pax_time.exit323.i.i:                             ; preds = %525, %.preheader.i3
 
 .lr.ph78.i.i342.i.i:                              ; preds = %.preheader.i.i332.i.i, %556
   %.03977.in.in.i.i343.i.i = phi i8 [ %.039.in.in.i.i352.i.i, %556 ], [ %.039.in.in71.i.i333.i.i, %.preheader.i.i332.i.i ]
-  %.04376.i.i344.i.i = phi i64 [ %558, %556 ], [ 0, %.preheader.i.i332.i.i ]
+  %.176.i.i344.i.i = phi i64 [ %558, %556 ], [ 0, %.preheader.i.i332.i.i ]
   %.275.i.i345.i.i = phi i64 [ %560, %556 ], [ %.14693.i.i336.i.i, %.preheader.i.i332.i.i ]
   %.24974.i.i346.i.i = phi ptr [ %559, %556 ], [ %.14892.i.i337.i.i, %.preheader.i.i332.i.i ]
   %.03977.in.i.i347.i.i = zext nneg i8 %.03977.in.in.i.i343.i.i to i32
@@ -3626,18 +3626,18 @@ pax_time.exit323.i.i:                             ; preds = %525, %.preheader.i3
   br i1 %or.cond.i.i349.i.i, label %551, label %.critedge4.i.i338.i.i
 
 551:                                              ; preds = %.lr.ph78.i.i342.i.i
-  %552 = icmp sgt i64 %.04376.i.i344.i.i, 922337203685477580
+  %552 = icmp sgt i64 %.176.i.i344.i.i, 922337203685477580
   br i1 %552, label %tar_atol10.exit355.i.i, label %553
 
 553:                                              ; preds = %551
-  %554 = icmp ne i64 %.04376.i.i344.i.i, 922337203685477580
+  %554 = icmp ne i64 %.176.i.i344.i.i, 922337203685477580
   %555 = zext nneg i32 %.03977.i.i348.i.i to i64
   %.not52.i.i350.i.i = icmp ugt i64 %.04096.i.i334.i.i, %555
   %or.cond54.i.i351.i.i = select i1 %554, i1 true, i1 %.not52.i.i350.i.i
   br i1 %or.cond54.i.i351.i.i, label %556, label %tar_atol10.exit355.i.i
 
 556:                                              ; preds = %553
-  %557 = mul nsw i64 %.04376.i.i344.i.i, 10
+  %557 = mul nsw i64 %.176.i.i344.i.i, 10
   %558 = add nuw nsw i64 %557, %555
   %559 = getelementptr inbounds i8, ptr %.24974.i.i346.i.i, i64 1
   %560 = add i64 %.275.i.i345.i.i, -1
@@ -3646,9 +3646,9 @@ pax_time.exit323.i.i:                             ; preds = %525, %.preheader.i3
   br i1 %561, label %.lr.ph78.i.i342.i.i, label %.critedge4.i.i338.i.i, !llvm.loop !22
 
 .critedge4.i.i338.i.i:                            ; preds = %556, %.lr.ph78.i.i342.i.i, %.preheader.i.i332.i.i
-  %.1.i.i339.i.i = phi i64 [ 0, %.preheader.i.i332.i.i ], [ %.04376.i.i344.i.i, %.lr.ph78.i.i342.i.i ], [ %558, %556 ]
-  %562 = sub nsw i64 0, %.1.i.i339.i.i
-  %spec.select.i.i340.i.i = select i1 %547, i64 %562, i64 %.1.i.i339.i.i
+  %.043.i.i339.i.i = phi i64 [ 0, %.preheader.i.i332.i.i ], [ %.176.i.i344.i.i, %.lr.ph78.i.i342.i.i ], [ %558, %556 ]
+  %562 = sub nsw i64 0, %.043.i.i339.i.i
+  %spec.select.i.i340.i.i = select i1 %547, i64 %562, i64 %.043.i.i339.i.i
   br label %tar_atol10.exit355.i.i
 
 .thread.i.i:                                      ; preds = %.critedge2.i.i353.i.i, %.critedge53.i.i328.i.i, %540
@@ -3735,7 +3735,7 @@ tar_atol10.exit355.i.i:                           ; preds = %553, %551, %.crited
 
 .lr.ph78.i.i374.i.i:                              ; preds = %.preheader.i.i364.i.i, %591
   %.03977.in.in.i.i375.i.i = phi i8 [ %.039.in.in.i.i384.i.i, %591 ], [ %.039.in.in71.i.i365.i.i, %.preheader.i.i364.i.i ]
-  %.04376.i.i376.i.i = phi i64 [ %593, %591 ], [ 0, %.preheader.i.i364.i.i ]
+  %.176.i.i376.i.i = phi i64 [ %593, %591 ], [ 0, %.preheader.i.i364.i.i ]
   %.275.i.i377.i.i = phi i64 [ %595, %591 ], [ %.14693.i.i368.i.i, %.preheader.i.i364.i.i ]
   %.24974.i.i378.i.i = phi ptr [ %594, %591 ], [ %.14892.i.i369.i.i, %.preheader.i.i364.i.i ]
   %.03977.in.i.i379.i.i = zext nneg i8 %.03977.in.in.i.i375.i.i to i32
@@ -3746,18 +3746,18 @@ tar_atol10.exit355.i.i:                           ; preds = %553, %551, %.crited
   br i1 %or.cond.i.i381.i.i, label %586, label %.critedge4.i.i370.i.i
 
 586:                                              ; preds = %.lr.ph78.i.i374.i.i
-  %587 = icmp sgt i64 %.04376.i.i376.i.i, 922337203685477580
+  %587 = icmp sgt i64 %.176.i.i376.i.i, 922337203685477580
   br i1 %587, label %tar_atol10.exit387.i.i, label %588
 
 588:                                              ; preds = %586
-  %589 = icmp ne i64 %.04376.i.i376.i.i, 922337203685477580
+  %589 = icmp ne i64 %.176.i.i376.i.i, 922337203685477580
   %590 = zext nneg i32 %.03977.i.i380.i.i to i64
   %.not52.i.i382.i.i = icmp ugt i64 %.04096.i.i366.i.i, %590
   %or.cond54.i.i383.i.i = select i1 %589, i1 true, i1 %.not52.i.i382.i.i
   br i1 %or.cond54.i.i383.i.i, label %591, label %tar_atol10.exit387.i.i
 
 591:                                              ; preds = %588
-  %592 = mul nsw i64 %.04376.i.i376.i.i, 10
+  %592 = mul nsw i64 %.176.i.i376.i.i, 10
   %593 = add nuw nsw i64 %592, %590
   %594 = getelementptr inbounds i8, ptr %.24974.i.i378.i.i, i64 1
   %595 = add i64 %.275.i.i377.i.i, -1
@@ -3766,9 +3766,9 @@ tar_atol10.exit355.i.i:                           ; preds = %553, %551, %.crited
   br i1 %596, label %.lr.ph78.i.i374.i.i, label %.critedge4.i.i370.i.i, !llvm.loop !22
 
 .critedge4.i.i370.i.i:                            ; preds = %591, %.lr.ph78.i.i374.i.i, %.preheader.i.i364.i.i
-  %.1.i.i371.i.i = phi i64 [ 0, %.preheader.i.i364.i.i ], [ %.04376.i.i376.i.i, %.lr.ph78.i.i374.i.i ], [ %593, %591 ]
-  %597 = sub nsw i64 0, %.1.i.i371.i.i
-  %spec.select.i.i372.i.i = select i1 %582, i64 %597, i64 %.1.i.i371.i.i
+  %.043.i.i371.i.i = phi i64 [ 0, %.preheader.i.i364.i.i ], [ %.176.i.i376.i.i, %.lr.ph78.i.i374.i.i ], [ %593, %591 ]
+  %597 = sub nsw i64 0, %.043.i.i371.i.i
+  %spec.select.i.i372.i.i = select i1 %582, i64 %597, i64 %.043.i.i371.i.i
   br label %tar_atol10.exit387.i.i
 
 tar_atol10.exit387.i.i:                           ; preds = %.critedge2.i.i385.i.i, %588, %586, %.critedge4.i.i370.i.i, %.critedge53.i.i360.i.i, %575
@@ -4608,7 +4608,7 @@ define internal fastcc i64 @tar_atol10(ptr nocapture noundef readonly %0, i64 no
 
 .lr.ph78.i:                                       ; preds = %.preheader.i, %17
   %.03977.in.in.i = phi i8 [ %.039.in.in.i, %17 ], [ %.039.in.in71.i, %.preheader.i ]
-  %.04376.i = phi i64 [ %19, %17 ], [ 0, %.preheader.i ]
+  %.176.i = phi i64 [ %19, %17 ], [ 0, %.preheader.i ]
   %.275.i = phi i64 [ %21, %17 ], [ %.14693.i, %.preheader.i ]
   %.24974.i = phi ptr [ %20, %17 ], [ %.14892.i, %.preheader.i ]
   %.03977.in.i = zext nneg i8 %.03977.in.in.i to i32
@@ -4619,18 +4619,18 @@ define internal fastcc i64 @tar_atol10(ptr nocapture noundef readonly %0, i64 no
   br i1 %or.cond.i, label %12, label %.critedge4.i
 
 12:                                               ; preds = %.lr.ph78.i
-  %13 = icmp sgt i64 %.04376.i, 922337203685477580
+  %13 = icmp sgt i64 %.176.i, 922337203685477580
   br i1 %13, label %tar_atol_base_n.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ne i64 %.04376.i, 922337203685477580
+  %15 = icmp ne i64 %.176.i, 922337203685477580
   %16 = zext nneg i32 %.03977.i to i64
   %.not52.i = icmp ugt i64 %.04096.i, %16
   %or.cond54.i = select i1 %15, i1 true, i1 %.not52.i
   br i1 %or.cond54.i, label %17, label %tar_atol_base_n.exit
 
 17:                                               ; preds = %14
-  %18 = mul nsw i64 %.04376.i, 10
+  %18 = mul nsw i64 %.176.i, 10
   %19 = add nuw nsw i64 %18, %16
   %20 = getelementptr inbounds i8, ptr %.24974.i, i64 1
   %21 = add i64 %.275.i, -1
@@ -4639,9 +4639,9 @@ define internal fastcc i64 @tar_atol10(ptr nocapture noundef readonly %0, i64 no
   br i1 %22, label %.lr.ph78.i, label %.critedge4.i, !llvm.loop !22
 
 .critedge4.i:                                     ; preds = %17, %.lr.ph78.i, %.preheader.i
-  %.1.i = phi i64 [ 0, %.preheader.i ], [ %19, %17 ], [ %.04376.i, %.lr.ph78.i ]
-  %23 = sub nsw i64 0, %.1.i
-  %spec.select.i = select i1 %8, i64 %23, i64 %.1.i
+  %.043.i = phi i64 [ 0, %.preheader.i ], [ %19, %17 ], [ %.176.i, %.lr.ph78.i ]
+  %23 = sub nsw i64 0, %.043.i
+  %spec.select.i = select i1 %8, i64 %23, i64 %.043.i
   br label %tar_atol_base_n.exit
 
 tar_atol_base_n.exit:                             ; preds = %.critedge2.i, %12, %14, %2, %.critedge53.i, %.critedge4.i
@@ -4728,7 +4728,7 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0
 
 .lr.ph78.i.i:                                     ; preds = %.preheader.i.i, %32
   %.03977.in.in.i.i = phi i8 [ %.039.in.in.i.i, %32 ], [ %.039.in.in71.i.i, %.preheader.i.i ]
-  %.04376.i.i = phi i64 [ %34, %32 ], [ 0, %.preheader.i.i ]
+  %.176.i.i = phi i64 [ %34, %32 ], [ 0, %.preheader.i.i ]
   %.275.i.i = phi i64 [ %36, %32 ], [ %.14693.i.i, %.preheader.i.i ]
   %.24974.i.i = phi ptr [ %35, %32 ], [ %.14892.i.i, %.preheader.i.i ]
   %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i32
@@ -4739,18 +4739,18 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0
   br i1 %or.cond.i.i, label %27, label %.critedge4.i.i
 
 27:                                               ; preds = %.lr.ph78.i.i
-  %28 = icmp sgt i64 %.04376.i.i, 922337203685477580
+  %28 = icmp sgt i64 %.176.i.i, 922337203685477580
   br i1 %28, label %tar_atol10.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ne i64 %.04376.i.i, 922337203685477580
+  %30 = icmp ne i64 %.176.i.i, 922337203685477580
   %31 = zext nneg i32 %.03977.i.i to i64
   %.not52.i.i = icmp ugt i64 %.04096.i.i, %31
   %or.cond54.i.i = select i1 %30, i1 true, i1 %.not52.i.i
   br i1 %or.cond54.i.i, label %32, label %tar_atol10.exit
 
 32:                                               ; preds = %29
-  %33 = mul nsw i64 %.04376.i.i, 10
+  %33 = mul nsw i64 %.176.i.i, 10
   %34 = add nuw nsw i64 %33, %31
   %35 = getelementptr inbounds i8, ptr %.24974.i.i, i64 1
   %36 = add i64 %.275.i.i, -1
@@ -4759,9 +4759,9 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0
   br i1 %37, label %.lr.ph78.i.i, label %.critedge4.i.i, !llvm.loop !22
 
 .critedge4.i.i:                                   ; preds = %32, %.lr.ph78.i.i, %.preheader.i.i
-  %.1.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.04376.i.i, %.lr.ph78.i.i ], [ %34, %32 ]
-  %38 = sub nsw i64 0, %.1.i.i
-  %spec.select.i.i = select i1 %23, i64 %38, i64 %.1.i.i
+  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.176.i.i, %.lr.ph78.i.i ], [ %34, %32 ]
+  %38 = sub nsw i64 0, %.043.i.i
+  %spec.select.i.i = select i1 %23, i64 %38, i64 %.043.i.i
   br label %tar_atol10.exit
 
 tar_atol10.exit:                                  ; preds = %27, %29, %.critedge4.i.i
@@ -4810,7 +4810,7 @@ tar_atol10.exit:                                  ; preds = %27, %29, %.critedge
 
 .lr.ph78.i.i47:                                   ; preds = %.preheader.i.i37, %55
   %.03977.in.in.i.i48 = phi i8 [ %.039.in.in.i.i57, %55 ], [ %.039.in.in71.i.i38, %.preheader.i.i37 ]
-  %.04376.i.i49 = phi i64 [ %57, %55 ], [ 0, %.preheader.i.i37 ]
+  %.176.i.i49 = phi i64 [ %57, %55 ], [ 0, %.preheader.i.i37 ]
   %.275.i.i50 = phi i64 [ %59, %55 ], [ %.14693.i.i41, %.preheader.i.i37 ]
   %.24974.i.i51 = phi ptr [ %58, %55 ], [ %.14892.i.i42, %.preheader.i.i37 ]
   %.03977.in.i.i52 = zext nneg i8 %.03977.in.in.i.i48 to i32
@@ -4821,18 +4821,18 @@ tar_atol10.exit:                                  ; preds = %27, %29, %.critedge
   br i1 %or.cond.i.i54, label %50, label %.critedge4.i.i43
 
 50:                                               ; preds = %.lr.ph78.i.i47
-  %51 = icmp sgt i64 %.04376.i.i49, 922337203685477580
+  %51 = icmp sgt i64 %.176.i.i49, 922337203685477580
   br i1 %51, label %tar_atol10.exit60, label %52
 
 52:                                               ; preds = %50
-  %53 = icmp ne i64 %.04376.i.i49, 922337203685477580
+  %53 = icmp ne i64 %.176.i.i49, 922337203685477580
   %54 = zext nneg i32 %.03977.i.i53 to i64
   %.not52.i.i55 = icmp ugt i64 %.04096.i.i39, %54
   %or.cond54.i.i56 = select i1 %53, i1 true, i1 %.not52.i.i55
   br i1 %or.cond54.i.i56, label %55, label %tar_atol10.exit60
 
 55:                                               ; preds = %52
-  %56 = mul nsw i64 %.04376.i.i49, 10
+  %56 = mul nsw i64 %.176.i.i49, 10
   %57 = add nuw nsw i64 %56, %54
   %58 = getelementptr inbounds i8, ptr %.24974.i.i51, i64 1
   %59 = add i64 %.275.i.i50, -1
@@ -4841,9 +4841,9 @@ tar_atol10.exit:                                  ; preds = %27, %29, %.critedge
   br i1 %60, label %.lr.ph78.i.i47, label %.critedge4.i.i43, !llvm.loop !22
 
 .critedge4.i.i43:                                 ; preds = %55, %.lr.ph78.i.i47, %.preheader.i.i37
-  %.1.i.i44 = phi i64 [ 0, %.preheader.i.i37 ], [ %.04376.i.i49, %.lr.ph78.i.i47 ], [ %57, %55 ]
-  %61 = sub nsw i64 0, %.1.i.i44
-  %spec.select.i.i45 = select i1 %46, i64 %61, i64 %.1.i.i44
+  %.043.i.i44 = phi i64 [ 0, %.preheader.i.i37 ], [ %.176.i.i49, %.lr.ph78.i.i47 ], [ %57, %55 ]
+  %61 = sub nsw i64 0, %.043.i.i44
+  %spec.select.i.i45 = select i1 %46, i64 %61, i64 %.043.i.i44
   br label %tar_atol10.exit60
 
 tar_atol10.exit60:                                ; preds = %50, %52, %.critedge4.i.i43
@@ -5060,7 +5060,7 @@ define internal fastcc range(i32 -30, 1) i32 @solaris_sparse_parse(ptr noundef %
 
 .lr.ph78.i.i:                                     ; preds = %.preheader.i.i, %32
   %.03977.in.in.i.i = phi i8 [ %.039.in.in.i.i, %32 ], [ %.039.in.in71.i.i, %.preheader.i.i ]
-  %.04376.i.i = phi i64 [ %34, %32 ], [ 0, %.preheader.i.i ]
+  %.176.i.i = phi i64 [ %34, %32 ], [ 0, %.preheader.i.i ]
   %.275.i.i = phi i64 [ %36, %32 ], [ %.14693.i.i, %.preheader.i.i ]
   %.24974.i.i = phi ptr [ %35, %32 ], [ %.14892.i.i, %.preheader.i.i ]
   %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i32
@@ -5071,18 +5071,18 @@ define internal fastcc range(i32 -30, 1) i32 @solaris_sparse_parse(ptr noundef %
   br i1 %or.cond.i.i, label %27, label %.critedge4.i.i
 
 27:                                               ; preds = %.lr.ph78.i.i
-  %28 = icmp sgt i64 %.04376.i.i, 922337203685477580
+  %28 = icmp sgt i64 %.176.i.i, 922337203685477580
   br i1 %28, label %tar_atol10.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ne i64 %.04376.i.i, 922337203685477580
+  %30 = icmp ne i64 %.176.i.i, 922337203685477580
   %31 = zext nneg i32 %.03977.i.i to i64
   %.not52.i.i = icmp ugt i64 %.04096.i.i, %31
   %or.cond54.i.i = select i1 %30, i1 true, i1 %.not52.i.i
   br i1 %or.cond54.i.i, label %32, label %tar_atol10.exit
 
 32:                                               ; preds = %29
-  %33 = mul nsw i64 %.04376.i.i, 10
+  %33 = mul nsw i64 %.176.i.i, 10
   %34 = add nuw nsw i64 %33, %31
   %35 = getelementptr inbounds i8, ptr %.24974.i.i, i64 1
   %36 = add i64 %.275.i.i, -1
@@ -5091,9 +5091,9 @@ define internal fastcc range(i32 -30, 1) i32 @solaris_sparse_parse(ptr noundef %
   br i1 %37, label %.lr.ph78.i.i, label %.critedge4.i.i, !llvm.loop !22
 
 .critedge4.i.i:                                   ; preds = %32, %.lr.ph78.i.i, %.preheader.i.i
-  %.1.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.04376.i.i, %.lr.ph78.i.i ], [ %34, %32 ]
-  %38 = sub nsw i64 0, %.1.i.i
-  %spec.select.i.i = select i1 %23, i64 %38, i64 %.1.i.i
+  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.176.i.i, %.lr.ph78.i.i ], [ %34, %32 ]
+  %38 = sub nsw i64 0, %.043.i.i
+  %spec.select.i.i = select i1 %23, i64 %38, i64 %.043.i.i
   br label %tar_atol10.exit
 
 tar_atol10.exit:                                  ; preds = %27, %29, %.critedge4.i.i
@@ -5564,7 +5564,7 @@ readline.exit.thread:                             ; preds = %tar_flush_unconsume
   br label %.loopexit
 
 readline.exit:                                    ; preds = %25, %39
-  %.132 = phi ptr [ %40, %39 ], [ %12, %25 ]
+  %.2 = phi ptr [ %40, %39 ], [ %12, %25 ]
   %.039.i = phi i64 [ %38, %39 ], [ %22, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %56 = icmp slt i64 %.039.i, 1
@@ -5574,7 +5574,7 @@ readline.exit:                                    ; preds = %25, %39
   %58 = load i64, ptr %2, align 8
   %59 = sub nsw i64 %58, %.039.i
   store i64 %59, ptr %2, align 8
-  %60 = load i8, ptr %.132, align 1
+  %60 = load i8, ptr %.2, align 1
   switch i8 %60, label %.lr.ph [
     i8 35, label %7
     i8 10, label %.loopexit
@@ -5582,13 +5582,13 @@ readline.exit:                                    ; preds = %25, %39
 
 .preheaderthread-pre-split:                       ; preds = %75
   %61 = add nsw i64 %.0244369, -1
-  %62 = getelementptr inbounds i8, ptr %.24270, i64 1
+  %62 = getelementptr inbounds i8, ptr %.1324270, i64 1
   %.pr = load i8, ptr %62, align 1
   %63 = icmp eq i8 %.pr, 10
   br i1 %63, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57, %.preheaderthread-pre-split
-  %.24270 = phi ptr [ %62, %.preheaderthread-pre-split ], [ %.132, %57 ]
+  %.1324270 = phi ptr [ %62, %.preheaderthread-pre-split ], [ %.2, %57 ]
   %.0244369 = phi i64 [ %61, %.preheaderthread-pre-split ], [ %.039.i, %57 ]
   %.0234468 = phi i64 [ %.1, %.preheaderthread-pre-split ], [ 0, %57 ]
   %64 = phi i8 [ %.pr, %.preheaderthread-pre-split ], [ %60, %57 ]

@@ -1295,7 +1295,7 @@ if.then8.i:                                       ; preds = %if.then8.loopexit.i
   br label %return
 
 if.end9.i:                                        ; preds = %if.end6.i, %if.end39.i
-  %len.140.i = phi i64 [ %len.3.i, %if.end39.i ], [ %spec.select.i, %if.end6.i ]
+  %len.140.i = phi i64 [ %len.2.i, %if.end39.i ], [ %spec.select.i, %if.end6.i ]
   %done.039.i = phi i64 [ %add20.i, %if.end39.i ], [ 2, %if.end6.i ]
   %sub.i = sub i64 %len.140.i, %done.039.i
   %5 = load ptr, ptr %out, align 8
@@ -1329,9 +1329,9 @@ if.then26.i:                                      ; preds = %if.end18.i
   %cmp28.i = icmp ugt i64 %len.140.i, -4097
   %add27.i = add i64 %len.140.i, 4096
   %7 = call i64 @llvm.umin.i64(i64 %add27.i, i64 %max_len)
-  %len.2.i = select i1 %cmp28.i, i64 %max_len, i64 %7
+  %len.3.i = select i1 %cmp28.i, i64 %max_len, i64 %7
   %8 = load ptr, ptr %out, align 8
-  %call34.i = call ptr @realloc(ptr noundef %8, i64 noundef %len.2.i) #19
+  %call34.i = call ptr @realloc(ptr noundef %8, i64 noundef %len.3.i) #19
   %cmp35.i = icmp eq ptr %call34.i, null
   br i1 %cmp35.i, label %if.then37.i, label %if.end38.i
 
@@ -1345,8 +1345,8 @@ if.end38.i:                                       ; preds = %if.then26.i
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.end38.i, %if.end18.i
-  %len.3.i = phi i64 [ %len.2.i, %if.end38.i ], [ %len.140.i, %if.end18.i ]
-  %cmp7.i = icmp eq i64 %add20.i, %len.3.i
+  %len.2.i = phi i64 [ %len.3.i, %if.end38.i ], [ %len.140.i, %if.end18.i ]
+  %cmp7.i = icmp eq i64 %add20.i, %len.2.i
   br i1 %cmp7.i, label %if.then8.loopexit.i, label %if.end9.i
 
 if.end24:                                         ; preds = %if.else

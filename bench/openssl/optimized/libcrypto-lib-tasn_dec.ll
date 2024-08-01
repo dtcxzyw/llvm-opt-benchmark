@@ -1136,7 +1136,7 @@ if.end8.i:                                        ; preds = %if.then4.i
 while.cond.backedge.i:                            ; preds = %if.end21.i, %if.end8.i
   %15 = phi ptr [ %add.ptr.i.i, %if.end8.i ], [ %19, %if.end21.i ]
   %len.addr.0.be.i = phi i64 [ %sub.i, %if.end8.i ], [ %sub22.i, %if.end21.i ]
-  %expected_eoc.0.be.i = phi i32 [ %dec.i, %if.end8.i ], [ %expected_eoc.1.i, %if.end21.i ]
+  %expected_eoc.0.be.i = phi i32 [ %dec.i, %if.end8.i ], [ %expected_eoc.2.i, %if.end21.i ]
   %cmp2.i = icmp sgt i64 %len.addr.0.be.i, 0
   br i1 %cmp2.i, label %while.body.i, label %while.end.i, !llvm.loop !9
 
@@ -1168,7 +1168,7 @@ if.else.i:                                        ; preds = %if.end13.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.end19.i
   %19 = phi ptr [ %.pre.i, %if.end19.i ], [ %add.ptr20.i, %if.else.i ]
-  %expected_eoc.1.i = phi i32 [ %inc.i, %if.end19.i ], [ %expected_eoc.021.i, %if.else.i ]
+  %expected_eoc.2.i = phi i32 [ %inc.i, %if.end19.i ], [ %expected_eoc.021.i, %if.else.i ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.neg.i = add i64 %len.addr.020.i, %sub.ptr.rhs.cast.i
@@ -1312,21 +1312,21 @@ if.end10.i:                                       ; preds = %if.then6.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end10.i, %if.then4.i32
-  %typ.0.i = phi ptr [ %call7.i, %if.end10.i ], [ %36, %if.then4.i32 ]
-  %37 = load i32, ptr %typ.0.i, align 8
+  %typ.2.i = phi ptr [ %call7.i, %if.end10.i ], [ %36, %if.then4.i32 ]
+  %37 = load i32, ptr %typ.2.i, align 8
   %cmp12.not.i = icmp eq i32 %37, %32
   br i1 %cmp12.not.i, label %if.end14.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end11.i
-  call void @ASN1_TYPE_set(ptr noundef nonnull %typ.0.i, i32 noundef %32, ptr noundef null) #6
+  call void @ASN1_TYPE_set(ptr noundef nonnull %typ.2.i, i32 noundef %32, ptr noundef null) #6
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then13.i, %if.end11.i
-  %value.i = getelementptr inbounds i8, ptr %typ.0.i, i64 8
+  %value.i = getelementptr inbounds i8, ptr %typ.2.i, i64 8
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end14.i, %if.end.i
-  %typ.1.i = phi ptr [ %typ.0.i, %if.end14.i ], [ null, %if.end.i ]
+  %typ.0.i = phi ptr [ %typ.2.i, %if.end14.i ], [ null, %if.end.i ]
   %opval.0.i = phi ptr [ %pval, %if.end14.i ], [ null, %if.end.i ]
   %pval.addr.0.i = phi ptr [ %value.i, %if.end14.i ], [ %pval, %if.end.i ]
   switch i32 %32, label %if.end59.i [
@@ -1471,18 +1471,18 @@ if.then76.i:                                      ; preds = %if.else73.i
   br label %if.then87.i
 
 sw.epilog.i:                                      ; preds = %if.end42.i, %if.end23.i
-  %tobool79.i = icmp ne ptr %typ.1.i, null
+  %tobool79.i = icmp ne ptr %typ.0.i, null
   %cmp81.i = icmp eq i32 %32, 5
   %or.cond.i = and i1 %cmp81.i, %tobool79.i
   br i1 %or.cond.i, label %if.then83.i, label %asn1_ex_c2i.exit.thread
 
 if.then83.i:                                      ; preds = %sw.epilog.i
-  %value84.i = getelementptr inbounds i8, ptr %typ.1.i, i64 8
+  %value84.i = getelementptr inbounds i8, ptr %typ.0.i, i64 8
   store ptr null, ptr %value84.i, align 8
   br label %asn1_ex_c2i.exit.thread
 
 if.then87.i:                                      ; preds = %if.then76.i, %if.then66.i, %if.then58.i, %if.then51.i, %sw.bb37.i, %sw.bb31.i, %if.then27.i, %if.then22.i, %sw.bb.i
-  call void @ASN1_TYPE_free(ptr noundef %typ.1.i) #6
+  call void @ASN1_TYPE_free(ptr noundef %typ.0.i) #6
   %tobool88.not.i = icmp eq ptr %opval.0.i, null
   br i1 %tobool88.not.i, label %asn1_ex_c2i.exit.thread47, label %if.then89.i
 

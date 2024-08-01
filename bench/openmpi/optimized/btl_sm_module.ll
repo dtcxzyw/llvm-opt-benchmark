@@ -1026,15 +1026,15 @@ mca_smsc_base_has_feature.exit62.thread:          ; preds = %119, %mca_smsc_base
   br label %148
 
 148:                                              ; preds = %127, %mca_smsc_base_has_feature.exit62.thread, %107
-  %.2 = phi ptr [ %46, %107 ], [ %117, %127 ], [ %117, %mca_smsc_base_has_feature.exit62.thread ]
-  %149 = getelementptr inbounds i8, ptr %.2, i64 100
+  %.1 = phi ptr [ %46, %107 ], [ %117, %127 ], [ %117, %mca_smsc_base_has_feature.exit62.thread ]
+  %149 = getelementptr inbounds i8, ptr %.1, i64 100
   store i8 %3, ptr %149, align 4
-  %150 = getelementptr inbounds i8, ptr %.2, i64 96
+  %150 = getelementptr inbounds i8, ptr %.1, i64 96
   store i32 %6, ptr %150, align 8
   br label %mca_btl_sm_frag_return.exit
 
 mca_btl_sm_frag_return.exit:                      ; preds = %opal_free_list_return_mt.exit.sink.split.i.i, %101, %98, %90, %87, %84, %opal_lifo_push_atomic.exit.i.i.i, %116, %mca_smsc_base_has_feature.exit, %148
-  %.0 = phi ptr [ %.2, %148 ], [ null, %mca_smsc_base_has_feature.exit ], [ null, %116 ], [ null, %opal_lifo_push_atomic.exit.i.i.i ], [ null, %84 ], [ null, %87 ], [ null, %90 ], [ null, %98 ], [ null, %101 ], [ null, %opal_free_list_return_mt.exit.sink.split.i.i ]
+  %.0 = phi ptr [ %.1, %148 ], [ null, %mca_smsc_base_has_feature.exit ], [ null, %116 ], [ null, %opal_lifo_push_atomic.exit.i.i.i ], [ null, %84 ], [ null, %87 ], [ null, %90 ], [ null, %98 ], [ null, %101 ], [ null, %opal_free_list_return_mt.exit.sink.split.i.i ]
   ret ptr %.0
 }
 

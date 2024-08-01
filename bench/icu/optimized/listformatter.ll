@@ -523,9 +523,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1420,8 +1420,8 @@ ehcleanup:                                        ; preds = %lpad35, %lpad13, %l
   br label %common.resume
 
 return:                                           ; preds = %entry, %cleanup51
-  %retval.3 = phi ptr [ %retval.2, %cleanup51 ], [ null, %entry ]
-  ret ptr %retval.3
+  %retval.0 = phi ptr [ %retval.2, %cleanup51 ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #5
@@ -1560,7 +1560,7 @@ delete.notnull:                                   ; preds = %if.end54
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end54, %invoke.cont22, %delete.notnull, %if.then53, %if.then43
-  %retval.0 = phi ptr [ null, %if.then43 ], [ null, %if.then53 ], [ null, %delete.notnull ], [ null, %invoke.cont22 ], [ %call45, %if.end54 ]
+  %retval.1 = phi ptr [ null, %if.then43 ], [ null, %if.then53 ], [ null, %delete.notnull ], [ null, %invoke.cont22 ], [ %call45, %if.end54 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ListFormatter16ListPatternsSinkE, i64 16), ptr %sink, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %end.i) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %middle.i) #16
@@ -1575,8 +1575,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.1 = phi ptr [ null, %if.then ], [ %retval.0, %cleanup ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then ], [ %retval.1, %cleanup ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3381,7 +3381,7 @@ lpad57:                                           ; preds = %new.notnull44
   br label %ehcleanup
 
 cleanup64:                                        ; preds = %new.cont62, %invoke.cont30
-  %retval.0 = phi ptr [ %call42, %new.cont62 ], [ undef, %invoke.cont30 ]
+  %retval.1 = phi ptr [ %call42, %new.cont62 ], [ undef, %invoke.cont30 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %spanishOStr) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %spanishYStr) #16
   br i1 %brmerge38, label %return, label %if.end123
@@ -3634,14 +3634,14 @@ ehcleanup.i:                                      ; preds = %lpad.i6.i, %lpad.i.
 return.sink.split:                                ; preds = %new.notnull95, %invoke.cont91, %new.notnull, %invoke.cont12
   %replacement87.sink = phi ptr [ %replacement, %invoke.cont12 ], [ %replacement, %new.notnull ], [ %replacement87, %invoke.cont91 ], [ %replacement87, %new.notnull95 ]
   %hebrewVavStr.sink = phi ptr [ %spanishYStr, %invoke.cont12 ], [ %spanishYStr, %new.notnull ], [ %hebrewVavStr, %invoke.cont91 ], [ %hebrewVavStr, %new.notnull95 ]
-  %retval.3.ph = phi ptr [ %call13, %invoke.cont12 ], [ %call13, %new.notnull ], [ %call93, %invoke.cont91 ], [ %call93, %new.notnull95 ]
+  %retval.2.ph = phi ptr [ %call13, %invoke.cont12 ], [ %call13, %new.notnull ], [ %call93, %invoke.cont91 ], [ %call93, %new.notnull95 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %replacement87.sink) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %hebrewVavStr.sink) #16
   br label %return
 
 return:                                           ; preds = %return.sink.split, %invoke.cont.i, %if.end123, %cleanup64
-  %retval.3 = phi ptr [ %retval.0, %cleanup64 ], [ null, %if.end123 ], [ %call124, %invoke.cont.i ], [ %retval.3.ph, %return.sink.split ]
-  ret ptr %retval.3
+  %retval.2 = phi ptr [ %retval.1, %cleanup64 ], [ null, %if.end123 ], [ %call124, %invoke.cont.i ], [ %retval.2.ph, %return.sink.split ]
+  ret ptr %retval.2
 
 eh.resume:                                        ; preds = %ehcleanup.i, %ehcleanup121, %lpad73, %ehcleanup65, %lpad
   %.pn36 = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %.pn34, %ehcleanup65 ], [ %27, %lpad ], [ %.pn, %ehcleanup121 ], [ %85, %lpad73 ]

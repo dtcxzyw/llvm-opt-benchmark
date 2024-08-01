@@ -501,39 +501,39 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
 
 .lr.ph.i:                                         ; preds = %289, %.lr.ph.i
   %.021.i = phi i64 [ %299, %.lr.ph.i ], [ 0, %289 ]
-  %.01420.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 0, %289 ]
-  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ 0, %289 ]
+  %.120.i = phi i32 [ %.2.i, %.lr.ph.i ], [ 0, %289 ]
+  %.11619.i = phi i32 [ %.217.i, %.lr.ph.i ], [ 0, %289 ]
   %295 = getelementptr inbounds i64, ptr %.pre.i, i64 %.021.i
   %296 = load i64, ptr %295, align 8
   %297 = icmp eq i64 %296, %291
   %298 = icmp eq i64 %296, %293
-  %spec.select.i = select i1 %298, i32 1, i32 %.01420.i
-  %.116.i = select i1 %297, i32 1, i32 %.01519.i
-  %.1.i = select i1 %297, i32 %.01420.i, i32 %spec.select.i
+  %spec.select.i = select i1 %298, i32 1, i32 %.120.i
+  %.217.i = select i1 %297, i32 1, i32 %.11619.i
+  %.2.i = select i1 %297, i32 %.120.i, i32 %spec.select.i
   %299 = add nuw i64 %.021.i, 1
   %exitcond.not.i = icmp eq i64 %299, %294
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %300 = icmp ne i32 %.116.i, 0
-  %301 = icmp ne i32 %.1.i, 0
+  %300 = icmp ne i32 %.217.i, 0
+  %301 = icmp ne i32 %.2.i, 0
   %302 = select i1 %300, i1 %301, i1 false
   %303 = zext i1 %302 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %289
-  %.015.lcssa.i = phi i32 [ 0, %289 ], [ %303, %._crit_edge.loopexit.i ]
+  %.116.lcssa.i = phi i32 [ 0, %289 ], [ %303, %._crit_edge.loopexit.i ]
   %304 = call i32 @XFree(ptr noundef %.pre.i) #13
   br label %x11_is_maximized.exit
 
 x11_is_maximized.exit:                            ; preds = %282, %._crit_edge.i
-  %.217.i = phi i32 [ %.015.lcssa.i, %._crit_edge.i ], [ 0, %282 ]
+  %.015.i = phi i32 [ %.116.lcssa.i, %._crit_edge.i ], [ 0, %282 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  store i32 %.217.i, ptr %153, align 4
+  store i32 %.015.i, ptr %153, align 4
   br label %434
 
 305:                                              ; preds = %230

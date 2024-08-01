@@ -134,7 +134,7 @@ lpad.loopexit.i:                                  ; preds = %while.body4.i.i
   br label %lpad.body.i
 
 lpad.loopexit.split-lp.loopexit.i:                ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i.i, %if.end.i28.i, %if.then.i.i
-  %lits.i.sroa.0.1 = phi ptr [ %18, %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i.i ], [ null, %if.then.i.i ], [ %lits.i.sroa.0.4, %if.end.i28.i ]
+  %lits.i.sroa.0.6 = phi ptr [ %18, %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i.i ], [ null, %if.then.i.i ], [ %lits.i.sroa.0.4, %if.end.i28.i ]
   %lpad.loopexit34.i = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN6dimacs9lex_errorE
@@ -176,7 +176,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.l
   br label %lpad.body.i
 
 lpad.body.i:                                      ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, %cleanup.action.i.i, %ehcleanup.i.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad.loopexit.split-lp.loopexit.i, %lpad.loopexit.i
-  %lits.i.sroa.0.3 = phi ptr [ %lits.i.sroa.0.4, %lpad.loopexit.i ], [ %lits.i.sroa.0.1, %lpad.loopexit.split-lp.loopexit.i ], [ %lits.i.sroa.0.4, %ehcleanup.i.i ], [ %lits.i.sroa.0.4, %cleanup.action.i.i ], [ %.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lits.i.sroa.0.2.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
+  %lits.i.sroa.0.1 = phi ptr [ %lits.i.sroa.0.4, %lpad.loopexit.i ], [ %lits.i.sroa.0.6, %lpad.loopexit.split-lp.loopexit.i ], [ %lits.i.sroa.0.4, %ehcleanup.i.i ], [ %lits.i.sroa.0.4, %cleanup.action.i.i ], [ %.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lits.i.sroa.0.2.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
   %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.loopexit32.i, %lpad.loopexit.i ], [ %lpad.loopexit34.i, %lpad.loopexit.split-lp.loopexit.i ], [ %14, %ehcleanup.i.i ], [ %15, %cleanup.action.i.i ], [ %lpad.loopexit37.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit40.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
   %3 = extractvalue { ptr, i32 } %eh.lpad-body.i, 1
   %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6dimacs9lex_errorE) #16
@@ -351,7 +351,7 @@ unreachable.i.i:                                  ; preds = %invoke.cont.i.i
 .noexc.i:                                         ; preds = %call25.i.noexc.i, %call.i.noexc29.i
   %.pre1.i.i.i = phi i32 [ 0, %call.i.noexc29.i ], [ %.pre1.i.i.i.pre, %call25.i.noexc.i ]
   %call.i30.i.pn = phi ptr [ %call.i30.i, %call.i.noexc29.i ], [ %call25.i31.i, %call25.i.noexc.i ]
-  %lits.i.sroa.0.5 = getelementptr inbounds i8, ptr %call.i30.i.pn, i64 8
+  %lits.i.sroa.0.9 = getelementptr inbounds i8, ptr %call.i30.i.pn, i64 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i.i)
   %arrayidx10.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i30.i.pn, i64 4
@@ -361,7 +361,7 @@ unreachable.i.i:                                  ; preds = %invoke.cont.i.i
 _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i.i: ; preds = %.noexc.i, %lor.lhs.false.i.i.i
   %16 = phi i32 [ %.pre74, %.noexc.i ], [ %12, %lor.lhs.false.i.i.i ]
   %17 = phi i32 [ %.pre1.i.i.i, %.noexc.i ], [ %12, %lor.lhs.false.i.i.i ]
-  %18 = phi ptr [ %lits.i.sroa.0.5, %.noexc.i ], [ %lits.i.sroa.0.4, %lor.lhs.false.i.i.i ]
+  %18 = phi ptr [ %lits.i.sroa.0.9, %.noexc.i ], [ %lits.i.sroa.0.4, %lor.lhs.false.i.i.i ]
   %idx.ext.i.i.i = zext i32 %17 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"class.sat::literal", ptr %18, i64 %idx.ext.i.i.i
   store i32 %add.i.i.i, ptr %add.ptr.i.i.i, align 4
@@ -419,7 +419,7 @@ cleanup.i.loopexit:                               ; preds = %while.cond.i.i
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %cleanup.i.loopexit, %catch.i
-  %22 = phi ptr [ %lits.i.sroa.0.3, %catch.i ], [ %.ph, %cleanup.i.loopexit ]
+  %22 = phi ptr [ %lits.i.sroa.0.1, %catch.i ], [ %.ph, %cleanup.i.loopexit ]
   %retval.0.i = phi i1 [ false, %catch.i ], [ true, %cleanup.i.loopexit ]
   %tobool.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i.i, label %_ZL17parse_dimacs_coreIN6dimacs13stream_bufferEEbRT_RSoRN3sat6solverE.exit, label %if.then.i.i.i.i
@@ -438,11 +438,11 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
 
 ehcleanup.i:                                      ; preds = %lpad15.i, %lpad.body.i
   %lpad.val19.merged.i = phi { ptr, i32 } [ %21, %lpad15.i ], [ %eh.lpad-body.i, %lpad.body.i ]
-  %tobool.not.i.i.i1 = icmp eq ptr %lits.i.sroa.0.3, null
+  %tobool.not.i.i.i1 = icmp eq ptr %lits.i.sroa.0.1, null
   br i1 %tobool.not.i.i.i1, label %_ZN7svectorIN3sat7literalEjED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %ehcleanup.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %lits.i.sroa.0.3, i64 -8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %lits.i.sroa.0.1, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %_ZN7svectorIN3sat7literalEjED2Ev.exit unwind label %terminate.lpad.i.i
 

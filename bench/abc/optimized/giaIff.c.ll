@@ -239,7 +239,7 @@ define i32 @Gia_IffObjCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %.val61108 = phi ptr [ %.val6185, %.lr.ph89 ], [ %.val61, %60 ]
   %indvars.iv98 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next99, %60 ]
   %49 = phi ptr [ %43, %.lr.ph89 ], [ %65, %60 ]
-  %.288 = phi i32 [ %.0.lcssa, %.lr.ph89 ], [ %.3, %60 ]
+  %.388 = phi i32 [ %.0.lcssa, %.lr.ph89 ], [ %.4, %60 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 4
   %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv98
   %52 = load i32, ptr %51, align 4
@@ -257,13 +257,13 @@ define i32 @Gia_IffObjCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 58:                                               ; preds = %54
   store i32 %.val68, ptr %56, align 4
-  %59 = add nsw i32 %.288, 1
+  %59 = add nsw i32 %.388, 1
   %.val61.pre = load ptr, ptr %5, align 8
   br label %60
 
 60:                                               ; preds = %54, %48, %58
   %.val61 = phi ptr [ %.val61108, %48 ], [ %.val61108, %54 ], [ %.val61.pre, %58 ]
-  %.3 = phi i32 [ %.288, %48 ], [ %.288, %54 ], [ %59, %58 ]
+  %.4 = phi i32 [ %.388, %48 ], [ %.388, %54 ], [ %59, %58 ]
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %61 = getelementptr i8, ptr %.val61, i64 8
   %.val61.val = load ptr, ptr %61, align 8
@@ -278,7 +278,7 @@ define i32 @Gia_IffObjCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 .critedge2:                                       ; preds = %60, %.preheader80, %.critedge
   %.val6291 = phi ptr [ %.val6185, %.critedge ], [ %.val6185, %.preheader80 ], [ %.val61, %60 ]
-  %.4 = phi i32 [ %.0.lcssa, %.critedge ], [ %.0.lcssa, %.preheader80 ], [ %.3, %60 ]
+  %.2 = phi i32 [ %.0.lcssa, %.critedge ], [ %.0.lcssa, %.preheader80 ], [ %.4, %60 ]
   %69 = icmp sgt i32 %3, -1
   br i1 %69, label %.preheader, label %.critedge4
 
@@ -303,7 +303,7 @@ define i32 @Gia_IffObjCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %.val62111 = phi ptr [ %.val6291, %.lr.ph95 ], [ %.val62, %92 ]
   %indvars.iv101 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next102, %92 ]
   %81 = phi ptr [ %75, %.lr.ph95 ], [ %97, %92 ]
-  %.594 = phi i32 [ %.4, %.lr.ph95 ], [ %.6, %92 ]
+  %.694 = phi i32 [ %.2, %.lr.ph95 ], [ %.7, %92 ]
   %82 = getelementptr inbounds i8, ptr %81, i64 4
   %83 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv101
   %84 = load i32, ptr %83, align 4
@@ -321,13 +321,13 @@ define i32 @Gia_IffObjCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 90:                                               ; preds = %86
   store i32 %.val70, ptr %88, align 4
-  %91 = add nsw i32 %.594, 1
+  %91 = add nsw i32 %.694, 1
   %.val62.pre = load ptr, ptr %5, align 8
   br label %92
 
 92:                                               ; preds = %86, %80, %90
   %.val62 = phi ptr [ %.val62111, %80 ], [ %.val62111, %86 ], [ %.val62.pre, %90 ]
-  %.6 = phi i32 [ %.594, %80 ], [ %.594, %86 ], [ %91, %90 ]
+  %.7 = phi i32 [ %.694, %80 ], [ %.694, %86 ], [ %91, %90 ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %93 = getelementptr i8, ptr %.val62, i64 8
   %.val62.val = load ptr, ptr %93, align 8
@@ -341,8 +341,8 @@ define i32 @Gia_IffObjCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %100, label %80, label %.critedge4, !llvm.loop !7
 
 .critedge4:                                       ; preds = %92, %.preheader, %.critedge2
-  %.7 = phi i32 [ %.4, %.critedge2 ], [ %.4, %.preheader ], [ %.6, %92 ]
-  ret i32 %.7
+  %.5 = phi i32 [ %.2, %.critedge2 ], [ %.2, %.preheader ], [ %.7, %92 ]
+  ret i32 %.5
 }
 
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #5
@@ -505,13 +505,13 @@ define float @Gia_IffObjTimeTwo(ptr nocapture noundef readonly %0, i32 noundef %
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %6, i64 264
-  %.val39 = load ptr, ptr %7, align 8
-  %8 = getelementptr i8, ptr %.val39, i64 8
-  %.val.val40 = load ptr, ptr %8, align 8
-  %9 = getelementptr inbounds i32, ptr %.val.val40, i64 %5
+  %.val38 = load ptr, ptr %7, align 8
+  %8 = getelementptr i8, ptr %.val38, i64 8
+  %.val.val39 = load ptr, ptr %8, align 8
+  %9 = getelementptr inbounds i32, ptr %.val.val39, i64 %5
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %.val.val40, i64 %11
+  %12 = getelementptr inbounds i32, ptr %.val.val39, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.critedge
@@ -525,10 +525,10 @@ define float @Gia_IffObjTimeTwo(ptr nocapture noundef readonly %0, i32 noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %131 ]
   %18 = phi i32 [ %13, %.lr.ph ], [ %139, %131 ]
   %19 = phi ptr [ %12, %.lr.ph ], [ %138, %131 ]
-  %.val.val43 = phi ptr [ %.val.val40, %.lr.ph ], [ %.val.val, %131 ]
+  %.val.val42 = phi ptr [ %.val.val39, %.lr.ph ], [ %.val.val, %131 ]
   %20 = phi ptr [ %7, %.lr.ph ], [ %133, %131 ]
   %21 = phi ptr [ %6, %.lr.ph ], [ %132, %131 ]
-  %.042 = phi float [ %3, %.lr.ph ], [ %.1, %131 ]
+  %.041 = phi float [ %3, %.lr.ph ], [ %.1, %131 ]
   %22 = getelementptr inbounds i8, ptr %19, i64 4
   %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
@@ -584,10 +584,10 @@ define float @Gia_IffObjTimeTwo(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %42, label %Gia_IffObjTimeOne.exit, label %.preheader76.i
 
 .preheader76.i:                                   ; preds = %.critedge.i
-  %43 = getelementptr inbounds i32, ptr %.val.val43, i64 %26
+  %43 = getelementptr inbounds i32, ptr %.val.val42, i64 %26
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %.val.val43, i64 %45
+  %46 = getelementptr inbounds i32, ptr %.val.val42, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph82.i, label %Gia_IffObjTimeOne.exit
@@ -636,45 +636,45 @@ Gia_IffObjTimeOne.exit:                           ; preds = %60, %.preheader76.i
   %65 = getelementptr inbounds i32, ptr %.val.val82.i, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph.i33, label %.critedge.i29
+  br i1 %67, label %.lr.ph.i32, label %.critedge.i29
 
-.lr.ph.i33:                                       ; preds = %Gia_IffObjTimeOne.exit
+.lr.ph.i32:                                       ; preds = %Gia_IffObjTimeOne.exit
   %68 = getelementptr i8, ptr %21, i64 176
   %69 = getelementptr i8, ptr %21, i64 616
   br label %70
 
-70:                                               ; preds = %83, %.lr.ph.i33
-  %.val104.i = phi ptr [ %.val81.i, %.lr.ph.i33 ], [ %.val.i, %83 ]
-  %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i38, %83 ]
-  %71 = phi ptr [ %65, %.lr.ph.i33 ], [ %88, %83 ]
-  %.084.i = phi i32 [ 0, %.lr.ph.i33 ], [ %.1.i37, %83 ]
+70:                                               ; preds = %83, %.lr.ph.i32
+  %.val104.i = phi ptr [ %.val81.i, %.lr.ph.i32 ], [ %.val.i, %83 ]
+  %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i32 ], [ %indvars.iv.next.i37, %83 ]
+  %71 = phi ptr [ %65, %.lr.ph.i32 ], [ %88, %83 ]
+  %.084.i = phi i32 [ 0, %.lr.ph.i32 ], [ %.1.i36, %83 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 4
-  %73 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv.i34
+  %73 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv.i33
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, %24
   %76 = icmp eq i32 %74, -1
-  %or.cond.i35 = or i1 %75, %76
-  br i1 %or.cond.i35, label %83, label %77
+  %or.cond.i34 = or i1 %75, %76
+  br i1 %or.cond.i34, label %83, label %77
 
 77:                                               ; preds = %70
-  %.val66.i36 = load i32, ptr %68, align 8
+  %.val66.i35 = load i32, ptr %68, align 8
   %.val67.i = load ptr, ptr %69, align 8
   %78 = sext i32 %74 to i64
   %79 = getelementptr inbounds i32, ptr %.val67.i, i64 %78
   %80 = load i32, ptr %79, align 4
-  %.not79.i = icmp eq i32 %80, %.val66.i36
+  %.not79.i = icmp eq i32 %80, %.val66.i35
   br i1 %.not79.i, label %83, label %81
 
 81:                                               ; preds = %77
-  store i32 %.val66.i36, ptr %79, align 4
+  store i32 %.val66.i35, ptr %79, align 4
   %82 = add nsw i32 %.084.i, 1
   %.val.pre.i = load ptr, ptr %20, align 8
   br label %83
 
 83:                                               ; preds = %81, %77, %70
   %.val.i = phi ptr [ %.val104.i, %70 ], [ %.val104.i, %77 ], [ %.val.pre.i, %81 ]
-  %.1.i37 = phi i32 [ %.084.i, %70 ], [ %.084.i, %77 ], [ %82, %81 ]
-  %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i34, 1
+  %.1.i36 = phi i32 [ %.084.i, %70 ], [ %.084.i, %77 ], [ %82, %81 ]
+  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i33, 1
   %84 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %84, align 8
   %85 = getelementptr inbounds i32, ptr %.val.val.i, i64 %5
@@ -683,13 +683,13 @@ Gia_IffObjTimeOne.exit:                           ; preds = %60, %.preheader76.i
   %88 = getelementptr inbounds i32, ptr %.val.val.i, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = sext i32 %89 to i64
-  %91 = icmp slt i64 %indvars.iv.next.i38, %90
+  %91 = icmp slt i64 %indvars.iv.next.i37, %90
   br i1 %91, label %70, label %.critedge.i29, !llvm.loop !4
 
 .critedge.i29:                                    ; preds = %83, %Gia_IffObjTimeOne.exit
   %.val61.val86.i = phi ptr [ %.val.val82.i, %Gia_IffObjTimeOne.exit ], [ %.val.val.i, %83 ]
   %.val6185.i = phi ptr [ %.val81.i, %Gia_IffObjTimeOne.exit ], [ %.val.i, %83 ]
-  %.0.lcssa.i30 = phi i32 [ 0, %Gia_IffObjTimeOne.exit ], [ %.1.i37, %83 ]
+  %.0.lcssa.i30 = phi i32 [ 0, %Gia_IffObjTimeOne.exit ], [ %.1.i36, %83 ]
   %92 = icmp sgt i32 %24, -1
   br i1 %92, label %.preheader80.i, label %Gia_IffObjCount.exit
 
@@ -712,7 +712,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %60, %.preheader76.i
   %.val61108.i = phi ptr [ %.val6185.i, %.lr.ph89.i ], [ %.val61.i, %114 ]
   %indvars.iv98.i = phi i64 [ 0, %.lr.ph89.i ], [ %indvars.iv.next99.i, %114 ]
   %103 = phi ptr [ %97, %.lr.ph89.i ], [ %119, %114 ]
-  %.288.i = phi i32 [ %.0.lcssa.i30, %.lr.ph89.i ], [ %.3.i32, %114 ]
+  %.388.i = phi i32 [ %.0.lcssa.i30, %.lr.ph89.i ], [ %.4.i, %114 ]
   %104 = getelementptr inbounds i8, ptr %103, i64 4
   %105 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv98.i
   %106 = load i32, ptr %105, align 4
@@ -730,13 +730,13 @@ Gia_IffObjTimeOne.exit:                           ; preds = %60, %.preheader76.i
 
 112:                                              ; preds = %108
   store i32 %.val68.i, ptr %110, align 4
-  %113 = add nsw i32 %.288.i, 1
+  %113 = add nsw i32 %.388.i, 1
   %.val61.pre.i = load ptr, ptr %20, align 8
   br label %114
 
 114:                                              ; preds = %112, %108, %102
   %.val61.i = phi ptr [ %.val61108.i, %102 ], [ %.val61108.i, %108 ], [ %.val61.pre.i, %112 ]
-  %.3.i32 = phi i32 [ %.288.i, %102 ], [ %.288.i, %108 ], [ %113, %112 ]
+  %.4.i = phi i32 [ %.388.i, %102 ], [ %.388.i, %108 ], [ %113, %112 ]
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %115 = getelementptr i8, ptr %.val61.i, i64 8
   %.val61.val.i = load ptr, ptr %115, align 8
@@ -750,14 +750,14 @@ Gia_IffObjTimeOne.exit:                           ; preds = %60, %.preheader76.i
   br i1 %122, label %102, label %Gia_IffObjCount.exit, !llvm.loop !6
 
 Gia_IffObjCount.exit:                             ; preds = %114, %.critedge.i29, %.preheader80.i
-  %.4.i = phi i32 [ %.0.lcssa.i30, %.critedge.i29 ], [ %.0.lcssa.i30, %.preheader80.i ], [ %.3.i32, %114 ]
+  %.2.i = phi i32 [ %.0.lcssa.i30, %.critedge.i29 ], [ %.0.lcssa.i30, %.preheader80.i ], [ %.4.i, %114 ]
   %123 = load ptr, ptr %16, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 148
-  %125 = sext i32 %.4.i to i64
+  %125 = sext i32 %.2.i to i64
   %126 = getelementptr inbounds [33 x [33 x float]], ptr %124, i64 0, i64 %125
   %127 = load float, ptr %126, align 4
   %128 = fadd float %.056.i, %127
-  %129 = fcmp ogt float %.042, %128
+  %129 = fcmp ogt float %.041, %128
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %Gia_IffObjCount.exit
@@ -765,7 +765,7 @@ Gia_IffObjCount.exit:                             ; preds = %114, %.critedge.i29
   br label %131
 
 131:                                              ; preds = %Gia_IffObjCount.exit, %130, %17
-  %.1 = phi float [ %.042, %17 ], [ %128, %130 ], [ %.042, %Gia_IffObjCount.exit ]
+  %.1 = phi float [ %.041, %17 ], [ %128, %130 ], [ %.041, %Gia_IffObjCount.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = load ptr, ptr %0, align 8
   %133 = getelementptr i8, ptr %132, i64 264
@@ -1082,7 +1082,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %98, %.critedge.i, %
   %.val61108.i = phi ptr [ %.val6185.i, %.lr.ph89.i ], [ %.val61.i, %150 ]
   %indvars.iv98.i = phi i64 [ 0, %.lr.ph89.i ], [ %indvars.iv.next99.i, %150 ]
   %139 = phi ptr [ %133, %.lr.ph89.i ], [ %155, %150 ]
-  %.288.i = phi i32 [ %.0.lcssa.i57, %.lr.ph89.i ], [ %.3.i62, %150 ]
+  %.388.i = phi i32 [ %.0.lcssa.i57, %.lr.ph89.i ], [ %.4.i, %150 ]
   %140 = getelementptr inbounds i8, ptr %139, i64 4
   %141 = getelementptr inbounds i32, ptr %140, i64 %indvars.iv98.i
   %142 = load i32, ptr %141, align 4
@@ -1100,13 +1100,13 @@ Gia_IffObjTimeOne.exit:                           ; preds = %98, %.critedge.i, %
 
 148:                                              ; preds = %144
   store i32 %.val68.i, ptr %146, align 4
-  %149 = add nsw i32 %.288.i, 1
+  %149 = add nsw i32 %.388.i, 1
   %.val61.pre.i = load ptr, ptr %35, align 8
   br label %150
 
 150:                                              ; preds = %148, %144, %138
   %.val61.i = phi ptr [ %.val61108.i, %138 ], [ %.val61108.i, %144 ], [ %.val61.pre.i, %148 ]
-  %.3.i62 = phi i32 [ %.288.i, %138 ], [ %.288.i, %144 ], [ %149, %148 ]
+  %.4.i = phi i32 [ %.388.i, %138 ], [ %.388.i, %144 ], [ %149, %148 ]
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %151 = getelementptr i8, ptr %.val61.i, i64 8
   %.val61.val.i = load ptr, ptr %151, align 8
@@ -1121,11 +1121,11 @@ Gia_IffObjTimeOne.exit:                           ; preds = %98, %.critedge.i, %
 
 .critedge2.i58:                                   ; preds = %150, %.preheader80.i, %.critedge.i56
   %.val6291.i = phi ptr [ %.val6185.i, %.critedge.i56 ], [ %.val6185.i, %.preheader80.i ], [ %.val61.i, %150 ]
-  %.4.i = phi i32 [ %.0.lcssa.i57, %.critedge.i56 ], [ %.0.lcssa.i57, %.preheader80.i ], [ %.3.i62, %150 ]
+  %.2.i = phi i32 [ %.0.lcssa.i57, %.critedge.i56 ], [ %.0.lcssa.i57, %.preheader80.i ], [ %.4.i, %150 ]
   %159 = icmp sgt i32 %39, -1
-  br i1 %159, label %.preheader.i59, label %Gia_IffObjCount.exit
+  br i1 %159, label %.preheader.i60, label %Gia_IffObjCount.exit
 
-.preheader.i59:                                   ; preds = %.critedge2.i58
+.preheader.i60:                                   ; preds = %.critedge2.i58
   %160 = zext nneg i32 %39 to i64
   %161 = getelementptr i8, ptr %.val6291.i, i64 8
   %.val62.val92.i = load ptr, ptr %161, align 8
@@ -1137,7 +1137,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %98, %.critedge.i, %
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %.lr.ph95.i, label %Gia_IffObjCount.exit
 
-.lr.ph95.i:                                       ; preds = %.preheader.i59
+.lr.ph95.i:                                       ; preds = %.preheader.i60
   %168 = getelementptr i8, ptr %36, i64 176
   %169 = getelementptr i8, ptr %36, i64 616
   br label %170
@@ -1146,7 +1146,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %98, %.critedge.i, %
   %.val62111.i = phi ptr [ %.val6291.i, %.lr.ph95.i ], [ %.val62.i, %182 ]
   %indvars.iv101.i = phi i64 [ 0, %.lr.ph95.i ], [ %indvars.iv.next102.i, %182 ]
   %171 = phi ptr [ %165, %.lr.ph95.i ], [ %187, %182 ]
-  %.594.i = phi i32 [ %.4.i, %.lr.ph95.i ], [ %.6.i, %182 ]
+  %.694.i = phi i32 [ %.2.i, %.lr.ph95.i ], [ %.7.i, %182 ]
   %172 = getelementptr inbounds i8, ptr %171, i64 4
   %173 = getelementptr inbounds i32, ptr %172, i64 %indvars.iv101.i
   %174 = load i32, ptr %173, align 4
@@ -1154,23 +1154,23 @@ Gia_IffObjTimeOne.exit:                           ; preds = %98, %.critedge.i, %
   br i1 %175, label %182, label %176
 
 176:                                              ; preds = %170
-  %.val70.i60 = load i32, ptr %168, align 8
+  %.val70.i61 = load i32, ptr %168, align 8
   %.val71.i = load ptr, ptr %169, align 8
   %177 = sext i32 %174 to i64
   %178 = getelementptr inbounds i32, ptr %.val71.i, i64 %177
   %179 = load i32, ptr %178, align 4
-  %.not.i61 = icmp eq i32 %179, %.val70.i60
-  br i1 %.not.i61, label %182, label %180
+  %.not.i62 = icmp eq i32 %179, %.val70.i61
+  br i1 %.not.i62, label %182, label %180
 
 180:                                              ; preds = %176
-  store i32 %.val70.i60, ptr %178, align 4
-  %181 = add nsw i32 %.594.i, 1
+  store i32 %.val70.i61, ptr %178, align 4
+  %181 = add nsw i32 %.694.i, 1
   %.val62.pre.i = load ptr, ptr %35, align 8
   br label %182
 
 182:                                              ; preds = %180, %176, %170
   %.val62.i = phi ptr [ %.val62111.i, %170 ], [ %.val62111.i, %176 ], [ %.val62.pre.i, %180 ]
-  %.6.i = phi i32 [ %.594.i, %170 ], [ %.594.i, %176 ], [ %181, %180 ]
+  %.7.i = phi i32 [ %.694.i, %170 ], [ %.694.i, %176 ], [ %181, %180 ]
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %183 = getelementptr i8, ptr %.val62.i, i64 8
   %.val62.val.i = load ptr, ptr %183, align 8
@@ -1183,11 +1183,11 @@ Gia_IffObjTimeOne.exit:                           ; preds = %98, %.critedge.i, %
   %190 = icmp slt i64 %indvars.iv.next102.i, %189
   br i1 %190, label %170, label %Gia_IffObjCount.exit, !llvm.loop !7
 
-Gia_IffObjCount.exit:                             ; preds = %182, %.critedge2.i58, %.preheader.i59
-  %.7.i = phi i32 [ %.4.i, %.critedge2.i58 ], [ %.4.i, %.preheader.i59 ], [ %.6.i, %182 ]
+Gia_IffObjCount.exit:                             ; preds = %182, %.critedge2.i58, %.preheader.i60
+  %.5.i59 = phi i32 [ %.2.i, %.critedge2.i58 ], [ %.2.i, %.preheader.i60 ], [ %.7.i, %182 ]
   %191 = load ptr, ptr %17, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 148
-  %193 = sext i32 %.7.i to i64
+  %193 = sext i32 %.5.i59 to i64
   %194 = getelementptr inbounds [33 x [33 x float]], ptr %192, i64 0, i64 %193
   %195 = load float, ptr %194, align 4
   %196 = fadd float %.056.i, %195

@@ -777,7 +777,7 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
 
 .lr.ph217:                                        ; preds = %._crit_edge205, %.loopexit
   %.0165215 = phi ptr [ %133, %.loopexit ], [ %90, %._crit_edge205 ]
-  %.2214 = phi ptr [ %.5, %.loopexit ], [ %.0167.lcssa, %._crit_edge205 ]
+  %.2214 = phi ptr [ %.3, %.loopexit ], [ %.0167.lcssa, %._crit_edge205 ]
   %98 = getelementptr inbounds i8, ptr %.0165215, i64 8
   %99 = load i8, ptr %98, align 8
   %100 = icmp eq i8 %99, 0
@@ -801,7 +801,7 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
 
 .lr.ph211:                                        ; preds = %101, %131
   %.0161209 = phi ptr [ %132, %131 ], [ %104, %101 ]
-  %.3208 = phi ptr [ %.4, %131 ], [ %.2214, %101 ]
+  %.4208 = phi ptr [ %.5, %131 ], [ %.2214, %101 ]
   %112 = getelementptr inbounds i8, ptr %.0161209, i64 8
   %113 = load i8, ptr %112, align 8
   %114 = icmp eq i8 %113, 0
@@ -834,18 +834,18 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
 
 129:                                              ; preds = %123, %.thread194
   %.sink218 = phi ptr [ %126, %.thread194 ], [ %119, %123 ]
-  store ptr %.3208, ptr %.sink218, align 8
-  %130 = getelementptr inbounds i8, ptr %.3208, i64 %3
+  store ptr %.4208, ptr %.sink218, align 8
+  %130 = getelementptr inbounds i8, ptr %.4208, i64 %3
   br label %131
 
 131:                                              ; preds = %.thread194, %115, %123, %129, %.lr.ph211
-  %.4 = phi ptr [ %.3208, %.lr.ph211 ], [ %.3208, %115 ], [ %130, %129 ], [ %.3208, %123 ], [ %.3208, %.thread194 ]
+  %.5 = phi ptr [ %.4208, %.lr.ph211 ], [ %.4208, %115 ], [ %130, %129 ], [ %.4208, %123 ], [ %.4208, %.thread194 ]
   %132 = getelementptr inbounds i8, ptr %.0161209, i64 32
   %.not186 = icmp eq ptr %132, %108
   br i1 %.not186, label %.loopexit, label %.lr.ph211
 
 .loopexit:                                        ; preds = %131, %101, %.lr.ph217
-  %.5 = phi ptr [ %.2214, %.lr.ph217 ], [ %.2214, %101 ], [ %.4, %131 ]
+  %.3 = phi ptr [ %.2214, %.lr.ph217 ], [ %.2214, %101 ], [ %.5, %131 ]
   %133 = getelementptr inbounds i8, ptr %.0165215, i64 32
   %.not184 = icmp eq ptr %133, %94
   br i1 %.not184, label %.loopexit196, label %.lr.ph217

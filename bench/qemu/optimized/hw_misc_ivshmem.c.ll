@@ -365,7 +365,7 @@ do.end.i36.i:                                     ; preds = %do.cond.i33.i
   br label %ivshmem_recv_msg.exit43.i
 
 ivshmem_recv_msg.exit43.i:                        ; preds = %do.end.i36.i, %if.end.i41.i
-  %fd.1.i = phi i1 [ %17, %do.end.i36.i ], [ false, %if.end.i41.i ]
+  %fd.2.i = phi i1 [ %17, %do.end.i36.i ], [ false, %if.end.i41.i ]
   %retval.0.i38.i = phi i64 [ %16, %do.end.i36.i ], [ -9223372036854775808, %if.end.i41.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i22.i)
   %18 = load ptr, ptr %err.i, align 8
@@ -378,7 +378,7 @@ if.then8.i:                                       ; preds = %ivshmem_recv_msg.ex
 
 if.end9.i:                                        ; preds = %ivshmem_recv_msg.exit43.i
   %19 = icmp ugt i64 %retval.0.i38.i, 65535
-  %or.cond1.i = select i1 %fd.1.i, i1 true, i1 %19
+  %or.cond1.i = select i1 %fd.2.i, i1 true, i1 %19
   br i1 %or.cond1.i, label %if.then14.i, label %if.end15.i
 
 if.then14.i:                                      ; preds = %if.end9.i
@@ -392,7 +392,7 @@ if.end15.i:                                       ; preds = %if.end9.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %if.end15.i
-  %fd.2.i = phi i32 [ -1, %if.end15.i ], [ %fd.3.i, %do.cond.i ]
+  %fd.0.i = phi i32 [ -1, %if.end15.i ], [ %fd.3.i, %do.cond.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %msg.i44.i)
   br label %do.body.i46.i
 
@@ -429,7 +429,7 @@ do.end.i58.i:                                     ; preds = %do.cond.i55.i
   br label %ivshmem_recv_msg.exit65.i
 
 ivshmem_recv_msg.exit65.i:                        ; preds = %do.end.i58.i, %if.end.i63.i
-  %fd.3.i = phi i32 [ %call12.i59.i, %do.end.i58.i ], [ %fd.2.i, %if.end.i63.i ]
+  %fd.3.i = phi i32 [ %call12.i59.i, %do.end.i58.i ], [ %fd.0.i, %if.end.i63.i ]
   %retval.0.i60.i = phi i64 [ %20, %do.end.i58.i ], [ -9223372036854775808, %if.end.i63.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i44.i)
   %21 = load ptr, ptr %err.i, align 8

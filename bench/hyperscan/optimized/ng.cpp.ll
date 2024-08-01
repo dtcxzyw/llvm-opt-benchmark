@@ -1326,7 +1326,7 @@ cleanup.action228:                                ; preds = %ehcleanup225.thread
   br label %ehcleanup233
 
 cleanup:                                          ; preds = %for.cond205, %if.end204, %invoke.cont200, %invoke.cont173
-  %retval.0 = phi i1 [ true, %invoke.cont173 ], [ true, %invoke.cont200 ], [ false, %if.end204 ], [ false, %for.cond205 ]
+  %retval.1 = phi i1 [ true, %invoke.cont173 ], [ true, %invoke.cont200 ], [ false, %if.end204 ], [ false, %for.cond205 ]
   call void @_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %g_comp) #17
   br label %return
 
@@ -1336,8 +1336,8 @@ ehcleanup233:                                     ; preds = %lpad166.loopexit, %
   br label %eh.resume
 
 return:                                           ; preds = %if.end148, %if.end103, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ true, %if.end103 ], [ true, %if.end148 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ true, %if.end103 ], [ true, %if.end148 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i106, %lpad158, %ehcleanup73, %cleanup.action76, %ehcleanup52, %cleanup.action55, %ehcleanup20, %cleanup.action23, %ehcleanup, %cleanup.action, %ehcleanup233, %lpad97, %lpad80
   %.pn84.pn = phi { ptr, i32 } [ %.pn84150, %cleanup.action ], [ %4, %ehcleanup ], [ %.pn82153, %cleanup.action23 ], [ %7, %ehcleanup20 ], [ %.pn80156, %cleanup.action55 ], [ %13, %ehcleanup52 ], [ %.pn78159, %cleanup.action76 ], [ %16, %ehcleanup73 ], [ %.pn76, %ehcleanup233 ], [ %35, %lpad97 ], [ %23, %lpad80 ], [ %51, %lpad158 ], [ %51, %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i106 ]

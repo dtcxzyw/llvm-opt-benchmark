@@ -988,13 +988,13 @@ define i32 @Sim_UtilCountSuppSizes(ptr nocapture noundef readonly %0, i32 nounde
 
 .preheader.us:                                    ; preds = %..critedge6_crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %..critedge6_crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.260.us = phi i32 [ %49, %..critedge6_crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %.360.us = phi i32 [ %49, %..critedge6_crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv72
   %40 = load ptr, ptr %39, align 8
   br label %41
 
 41:                                               ; preds = %.preheader.us, %41
-  %.358.us = phi i32 [ %.260.us, %.preheader.us ], [ %49, %41 ]
+  %.458.us = phi i32 [ %.360.us, %.preheader.us ], [ %49, %41 ]
   %.13857.us = phi i32 [ 0, %.preheader.us ], [ %50, %41 ]
   %42 = lshr i32 %.13857.us, 5
   %43 = zext nneg i32 %42 to i64
@@ -1003,7 +1003,7 @@ define i32 @Sim_UtilCountSuppSizes(ptr nocapture noundef readonly %0, i32 nounde
   %46 = and i32 %.13857.us, 31
   %47 = lshr i32 %45, %46
   %48 = and i32 %47, 1
-  %49 = add nsw i32 %48, %.358.us
+  %49 = add nsw i32 %48, %.458.us
   %50 = add nuw nsw i32 %.13857.us, 1
   %exitcond71.not = icmp eq i32 %50, %.val45.val
   br i1 %exitcond71.not, label %..critedge6_crit_edge.us, label %41, !llvm.loop !29
@@ -1014,8 +1014,8 @@ define i32 @Sim_UtilCountSuppSizes(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %exitcond76.not, label %.critedge, label %.preheader.us, !llvm.loop !30
 
 .critedge:                                        ; preds = %..critedge2_crit_edge.us, %..critedge6_crit_edge.us, %.preheader.lr.ph, %.lr.ph55, %.preheader49, %.preheader48
-  %.4 = phi i32 [ 0, %.preheader48 ], [ 0, %.preheader49 ], [ 0, %.lr.ph55 ], [ 0, %.preheader.lr.ph ], [ %49, %..critedge6_crit_edge.us ], [ %30, %..critedge2_crit_edge.us ]
-  ret i32 %.4
+  %.2 = phi i32 [ 0, %.preheader48 ], [ 0, %.preheader49 ], [ 0, %.lr.ph55 ], [ 0, %.preheader.lr.ph ], [ %49, %..critedge6_crit_edge.us ], [ %30, %..critedge2_crit_edge.us ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

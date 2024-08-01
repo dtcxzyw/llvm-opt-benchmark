@@ -1137,14 +1137,14 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %41
 
 39:                                               ; preds = %33, %35
-  %.012 = phi i1 [ %36, %35 ], [ true, %33 ]
+  %.113 = phi i1 [ %36, %35 ], [ true, %33 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   br label %40
 
 40:                                               ; preds = %26, %39
-  %.113 = phi i1 [ %.012, %39 ], [ %27, %26 ]
+  %.012 = phi i1 [ %.113, %39 ], [ %27, %26 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  ret i1 %.113
+  ret i1 %.012
 
 41:                                               ; preds = %37, %30
   %.pn15 = phi { ptr, i32 } [ %38, %37 ], [ %31, %30 ]
@@ -3456,7 +3456,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %166
 
 166:                                              ; preds = %.sink.split, %._crit_edge, %_ZNK11StringPieceneERKS_.exit.thread
-  %.0 = phi i1 [ false, %_ZNK11StringPieceneERKS_.exit.thread ], [ %165, %._crit_edge ], [ false, %.sink.split ]
+  %.1 = phi i1 [ false, %_ZNK11StringPieceneERKS_.exit.thread ], [ %165, %._crit_edge ], [ false, %.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
   %167 = getelementptr inbounds i8, ptr %13, i64 24
   %168 = load ptr, ptr %167, align 8
@@ -3483,10 +3483,10 @@ _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i:    ; preds = %169, %166
   br label %172
 
 _ZN13DepfileParserD2Ev.exit:                      ; preds = %171, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i, %66, %69, %57
-  %.1 = phi i1 [ false, %57 ], [ false, %69 ], [ false, %66 ], [ %.0, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i ], [ %.0, %171 ]
+  %.0 = phi i1 [ false, %57 ], [ false, %69 ], [ false, %66 ], [ %.1, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i ], [ %.1, %171 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   call void @_ZN12ScopedMetricD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #21
-  ret i1 %.1
+  ret i1 %.0
 
 172:                                              ; preds = %.body, %63, %49
   %.pn52.pn = phi { ptr, i32 } [ %.pn52, %.body ], [ %50, %49 ], [ %.pn46, %63 ]

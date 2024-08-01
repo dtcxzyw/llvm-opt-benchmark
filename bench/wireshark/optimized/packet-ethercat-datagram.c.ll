@@ -2339,7 +2339,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
 
 23:                                               ; preds = %._crit_edge.split.us.us, %.split.us
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %._crit_edge.split.us.us ], [ 0, %.split.us ]
-  %.04764.us = phi i32 [ %.1.lcssa.us, %._crit_edge.split.us.us ], [ -1, %.split.us ]
+  %.164.us = phi i32 [ %.2.lcssa.us, %._crit_edge.split.us.us ], [ -1, %.split.us ]
   %24 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %indvars.iv73
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i32
@@ -2347,7 +2347,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
   br i1 %27, label %.loopexit, label %.preheader.us
 
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge77, %.preheader.us
-  %.1.lcssa.us = phi i32 [ %.04764.us, %.preheader.us ], [ %.2.us.us, %._crit_edge77 ]
+  %.2.lcssa.us = phi i32 [ %.164.us, %.preheader.us ], [ %.3.us.us, %._crit_edge77 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 108
   br i1 %exitcond76.not, label %.loopexit, label %23, !llvm.loop !9
@@ -2367,20 +2367,20 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
 
 ._crit_edge77:                                    ; preds = %._crit_edge77, %.lr.ph.us
   %.04662.us.us = phi i32 [ %26, %.lr.ph.us ], [ %.pre, %._crit_edge77 ]
-  %.161.us.us = phi i32 [ %.04764.us, %.lr.ph.us ], [ %.2.us.us, %._crit_edge77 ]
+  %.261.us.us = phi i32 [ %.164.us, %.lr.ph.us ], [ %.3.us.us, %._crit_edge77 ]
   %.04860.us.us = phi i32 [ 0, %.lr.ph.us ], [ %35, %._crit_edge77 ]
   %.not56.us.us = icmp slt i32 %.04662.us.us, %19
   %.pre = add i32 %.04662.us.us, %33
   %.not57.us.us = icmp sgt i32 %.pre, %22
   %34 = select i1 %.not56.us.us, i1 true, i1 %.not57.us.us
-  %.2.us.us = select i1 %34, i32 %.161.us.us, i32 0
+  %.3.us.us = select i1 %34, i32 %.261.us.us, i32 0
   %35 = add nuw nsw i32 %.04860.us.us, 1
   %exitcond72.not = icmp eq i32 %35, %30
   br i1 %exitcond72.not, label %._crit_edge.split.us.us, label %._crit_edge77, !llvm.loop !10
 
 .split:                                           ; preds = %.split.preheader, %._crit_edge.split
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %._crit_edge.split ]
-  %.04764 = phi i32 [ -1, %.split.preheader ], [ %.1.lcssa, %._crit_edge.split ]
+  %.164 = phi i32 [ -1, %.split.preheader ], [ %.2.lcssa, %._crit_edge.split ]
   %36 = load i16, ptr %17, align 2
   %37 = zext i16 %36 to i32
   %38 = add nuw nsw i32 %37, %4
@@ -2410,7 +2410,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
 
 52:                                               ; preds = %.lr.ph, %81
   %.04662 = phi i32 [ %41, %.lr.ph ], [ %.pre-phi81, %81 ]
-  %.161 = phi i32 [ %.04764, %.lr.ph ], [ %.2, %81 ]
+  %.261 = phi i32 [ %.164, %.lr.ph ], [ %.3, %81 ]
   %.04860 = phi i32 [ 0, %.lr.ph ], [ %82, %81 ]
   %53 = load i16, ptr %17, align 2
   %54 = zext i16 %53 to i32
@@ -2464,20 +2464,20 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
 
 81:                                               ; preds = %._crit_edge, %67, %75, %61, %55
   %.pre-phi81 = phi i32 [ %.pre80, %._crit_edge ], [ %56, %67 ], [ %56, %75 ], [ %56, %61 ], [ %56, %55 ]
-  %.2 = phi i32 [ %.161, %._crit_edge ], [ 0, %67 ], [ 0, %75 ], [ 0, %61 ], [ %.161, %55 ]
+  %.3 = phi i32 [ %.261, %._crit_edge ], [ 0, %67 ], [ 0, %75 ], [ 0, %61 ], [ %.261, %55 ]
   %82 = add nuw nsw i32 %.04860, 1
   %exitcond.not = icmp eq i32 %82, %45
   br i1 %exitcond.not, label %._crit_edge.split, label %52, !llvm.loop !10
 
 ._crit_edge.split:                                ; preds = %81, %.preheader
-  %.1.lcssa = phi i32 [ %.04764, %.preheader ], [ %.2, %81 ]
+  %.2.lcssa = phi i32 [ %.164, %.preheader ], [ %.3, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next, 108
   br i1 %exitcond71.not, label %.loopexit, label %.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge.split, %.split, %._crit_edge.split.us.us, %23, %8, %7
-  %.3 = phi i32 [ -1, %8 ], [ -1, %7 ], [ %.1.lcssa.us, %._crit_edge.split.us.us ], [ %.04764.us, %23 ], [ %.1.lcssa, %._crit_edge.split ], [ %.04764, %.split ]
-  ret i32 %.3
+  %.047 = phi i32 [ -1, %8 ], [ -1, %7 ], [ %.2.lcssa.us, %._crit_edge.split.us.us ], [ %.164.us, %23 ], [ %.2.lcssa, %._crit_edge.split ], [ %.164, %.split ]
+  ret i32 %.047
 }
 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

@@ -406,7 +406,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 117:                                              ; preds = %.lr.ph, %221
   %.0127 = phi i64 [ 0, %.lr.ph ], [ %222, %221 ]
-  %.033126 = phi i32 [ 0, %.lr.ph ], [ %.134, %221 ]
+  %.235126 = phi i32 [ 0, %.lr.ph ], [ %.336, %221 ]
   %118 = invoke noundef i64 @_ZN2cv12getTickCountEv()
           to label %119 unwind label %151
 
@@ -735,8 +735,8 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit: ; preds =
   br label %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit95
 
 218:                                              ; preds = %140, %207
-  %.134 = phi i32 [ %.033126, %207 ], [ -1, %140 ]
-  %.1 = phi i32 [ %., %207 ], [ 1, %140 ]
+  %.336 = phi i32 [ %.235126, %207 ], [ -1, %140 ]
+  %.012 = phi i32 [ %., %207 ], [ 1, %140 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #15
   %219 = load ptr, ptr %22, align 8
   %.not.i.i.i96 = icmp eq ptr %219, null
@@ -747,7 +747,7 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit: ; preds =
   br label %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97
 
 _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97: ; preds = %218, %220
-  switch i32 %.1, label %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge.loopexit147 [
+  switch i32 %.012, label %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge.loopexit147 [
     i32 0, label %221
     i32 2, label %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge
   ]
@@ -787,7 +787,7 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_ed
   br label %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge
 
 _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge: ; preds = %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97, %221, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge.loopexit147, %106
-  %.235 = phi i32 [ 0, %106 ], [ %.134, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge.loopexit147 ], [ 0, %221 ], [ 0, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97 ]
+  %.437 = phi i32 [ 0, %106 ], [ %.336, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge.loopexit147 ], [ 0, %221 ], [ 0, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #15
   %233 = getelementptr inbounds i8, ptr %15, i64 8
   %234 = load ptr, ptr %233, align 8
@@ -873,7 +873,7 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit99: ; preds
   br label %.body72
 
 _ZN2cv3PtrINS_3dpm11DPMDetectorEED2Ev.exit:       ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %264, %251, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge, %.thread
-  %.336 = phi i32 [ -1, %.thread ], [ %.235, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge ], [ %.235, %251 ], [ %.235, %264 ], [ %.235, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
+  %.134 = phi i32 [ -1, %.thread ], [ %.437, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit97._crit_edge ], [ %.437, %251 ], [ %.437, %264 ], [ %.437, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
   %270 = load ptr, ptr %14, align 8
   %271 = getelementptr inbounds i8, ptr %14, i64 8
   %272 = load ptr, ptr %271, align 8
@@ -906,12 +906,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %276
 
 _ZL4helpv.exit:                                   ; preds = %275, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i108, %.noexc69
-  %.437 = phi i32 [ -1, %.noexc69 ], [ %.336, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i108 ], [ %.336, %275 ]
+  %.033 = phi i32 [ -1, %.noexc69 ], [ %.134, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i108 ], [ %.134, %275 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
-  ret i32 %.437
+  ret i32 %.033
 
 276:                                              ; preds = %.body72, %55
   %.pn58 = phi { ptr, i32 } [ %56, %55 ], [ %.pn52.pn.pn.pn.pn, %.body72 ]

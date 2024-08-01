@@ -2069,19 +2069,19 @@ _ZN5faiss16PQEncoderGenericD2Ev.exit:             ; preds = %37, %39
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.sroa.0.1 = phi ptr [ %65, %.lr.ph.i ], [ %60, %.lr.ph.i.preheader ]
+  %.sroa.0.2 = phi ptr [ %65, %.lr.ph.i ], [ %60, %.lr.ph.i.preheader ]
   %.012.i = phi i32 [ %67, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.0711.i = phi i64 [ %66, %.lr.ph.i ], [ %59, %.lr.ph.i.preheader ]
   %64 = trunc i64 %.0711.i to i8
-  %65 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 1
-  store i8 %64, ptr %.sroa.0.1, align 1
+  %65 = getelementptr inbounds i8, ptr %.sroa.0.2, i64 1
+  store i8 %64, ptr %.sroa.0.2, align 1
   %66 = lshr i64 %.0711.i, 8
   %67 = add nuw nsw i32 %.012.i, 1
   %exitcond.not = icmp eq i32 %67, %63
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %56
-  %.sroa.0.2 = phi ptr [ %60, %56 ], [ %65, %.lr.ph.i ]
+  %.sroa.0.1 = phi ptr [ %60, %56 ], [ %65, %.lr.ph.i ]
   %.07.lcssa.i = phi i64 [ %59, %56 ], [ %66, %.lr.ph.i ]
   %68 = add i8 %.sroa.7.061, %22
   %69 = and i8 %68, 7
@@ -2095,7 +2095,7 @@ _ZN5faiss16PQEncoderGenericD2Ev.exit:             ; preds = %37, %39
 _ZN5faiss16PQEncoderGeneric6encodeEm.exit:        ; preds = %._crit_edge.i, %71
   %.sroa.19.1 = phi i8 [ %70, %._crit_edge.i ], [ %52, %71 ]
   %.sroa.7.1 = phi i8 [ %69, %._crit_edge.i ], [ %72, %71 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %._crit_edge.i ], [ %.sroa.0.062, %71 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %._crit_edge.i ], [ %.sroa.0.062, %71 ]
   %73 = add nuw i64 %.02963, 1
   %74 = load i64, ptr %15, align 8
   %75 = icmp ult i64 %73, %74
@@ -2474,19 +2474,19 @@ define void @_ZNK5faiss16ProductQuantizer32compute_code_from_distance_tableEPKfP
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.sroa.0.1 = phi ptr [ %34, %.lr.ph.i ], [ %29, %.lr.ph.i.preheader ]
+  %.sroa.0.2 = phi ptr [ %34, %.lr.ph.i ], [ %29, %.lr.ph.i.preheader ]
   %.012.i = phi i32 [ %36, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.0711.i = phi i64 [ %35, %.lr.ph.i ], [ %28, %.lr.ph.i.preheader ]
   %33 = trunc i64 %.0711.i to i8
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 1
-  store i8 %33, ptr %.sroa.0.1, align 1
+  %34 = getelementptr inbounds i8, ptr %.sroa.0.2, i64 1
+  store i8 %33, ptr %.sroa.0.2, align 1
   %35 = lshr i64 %.0711.i, 8
   %36 = add nuw nsw i32 %.012.i, 1
   %exitcond44.not = icmp eq i32 %36, %32
   br i1 %exitcond44.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %25
-  %.sroa.0.2 = phi ptr [ %29, %25 ], [ %34, %.lr.ph.i ]
+  %.sroa.0.1 = phi ptr [ %29, %25 ], [ %34, %.lr.ph.i ]
   %.07.lcssa.i = phi i64 [ %28, %25 ], [ %35, %.lr.ph.i ]
   %37 = add i8 %.sroa.6.033, %10
   %38 = and i8 %37, 7
@@ -2502,7 +2502,7 @@ _ZN5faiss16PQEncoderGeneric6encodeEm.exit:        ; preds = %._crit_edge.i, %40
   %42 = phi i64 [ %.pre, %._crit_edge.i ], [ %11, %40 ]
   %.sroa.17.1 = phi i8 [ %39, %._crit_edge.i ], [ %21, %40 ]
   %.sroa.6.1 = phi i8 [ %38, %._crit_edge.i ], [ %41, %40 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %._crit_edge.i ], [ %.sroa.0.034, %40 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %._crit_edge.i ], [ %.sroa.0.034, %40 ]
   %43 = add nuw i64 %.01635, 1
   %44 = icmp ult i64 %43, %42
   br i1 %44, label %.preheader, label %._crit_edge37, !llvm.loop !32
@@ -2704,19 +2704,19 @@ _ZN5faiss16PQEncoderGenericC2EPhih.exit.us:       ; preds = %88, %.lr.ph127.us
   br i1 %107, label %.lr.ph.i.preheader.us, label %._crit_edge.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %.lr.ph.i.us
-  %.sroa.0.0.us = phi ptr [ %109, %.lr.ph.i.us ], [ %105, %.lr.ph.i.preheader.us ]
+  %.sroa.0.1.us = phi ptr [ %109, %.lr.ph.i.us ], [ %105, %.lr.ph.i.preheader.us ]
   %.012.i.us = phi i32 [ %111, %.lr.ph.i.us ], [ 0, %.lr.ph.i.preheader.us ]
   %.0711.i.us = phi i64 [ %110, %.lr.ph.i.us ], [ %104, %.lr.ph.i.preheader.us ]
   %108 = trunc i64 %.0711.i.us to i8
-  %109 = getelementptr inbounds i8, ptr %.sroa.0.0.us, i64 1
-  store i8 %108, ptr %.sroa.0.0.us, align 1
+  %109 = getelementptr inbounds i8, ptr %.sroa.0.1.us, i64 1
+  store i8 %108, ptr %.sroa.0.1.us, align 1
   %110 = lshr i64 %.0711.i.us, 8
   %111 = add nuw nsw i32 %.012.i.us, 1
   %exitcond.not = icmp eq i32 %111, %umax
   br i1 %exitcond.not, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !23
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us, %101
-  %.sroa.0.1.us = phi ptr [ %105, %101 ], [ %109, %.lr.ph.i.us ]
+  %.sroa.0.0.us = phi ptr [ %105, %101 ], [ %109, %.lr.ph.i.us ]
   %.07.lcssa.i.us = phi i64 [ %104, %101 ], [ %110, %.lr.ph.i.us ]
   %112 = trunc i64 %78 to i8
   %113 = add i8 %82, %112
@@ -2727,7 +2727,7 @@ _ZN5faiss16PQEncoderGenericC2EPhih.exit.us:       ; preds = %88, %.lr.ph127.us
 _ZN5faiss16PQEncoderGeneric6encodeEm.exit.us:     ; preds = %._crit_edge.i.us, %99
   %.sroa.17.1.us = phi i8 [ %115, %._crit_edge.i.us ], [ %95, %99 ]
   %.sroa.6.0.us = phi i8 [ %114, %._crit_edge.i.us ], [ %100, %99 ]
-  %.sroa.0.2.us = phi ptr [ %.sroa.0.1.us, %._crit_edge.i.us ], [ %81, %99 ]
+  %.sroa.0.2.us = phi ptr [ %.sroa.0.0.us, %._crit_edge.i.us ], [ %81, %99 ]
   %.not.i79.us = icmp eq i8 %.sroa.6.0.us, 0
   br i1 %.not.i79.us, label %_ZN5faiss16PQEncoderGenericD2Ev.exit.us, label %116
 
@@ -3139,19 +3139,19 @@ define internal void @_ZNK5faiss16ProductQuantizer13compute_codesEPKfPhm.omp_out
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.sroa.0.1.i = phi ptr [ %60, %.lr.ph.i.i ], [ %55, %.lr.ph.i.preheader.i ]
+  %.sroa.0.2.i = phi ptr [ %60, %.lr.ph.i.i ], [ %55, %.lr.ph.i.preheader.i ]
   %.012.i.i = phi i32 [ %62, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %.0711.i.i = phi i64 [ %61, %.lr.ph.i.i ], [ %54, %.lr.ph.i.preheader.i ]
   %59 = trunc i64 %.0711.i.i to i8
-  %60 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 1
-  store i8 %59, ptr %.sroa.0.1.i, align 1
+  %60 = getelementptr inbounds i8, ptr %.sroa.0.2.i, i64 1
+  store i8 %59, ptr %.sroa.0.2.i, align 1
   %61 = lshr i64 %.0711.i.i, 8
   %62 = add nuw nsw i32 %.012.i.i, 1
   %exitcond44.not.i = icmp eq i32 %62, %58
   br i1 %exitcond44.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %51
-  %.sroa.0.2.i = phi ptr [ %55, %51 ], [ %60, %.lr.ph.i.i ]
+  %.sroa.0.1.i = phi ptr [ %55, %51 ], [ %60, %.lr.ph.i.i ]
   %.07.lcssa.i.i = phi i64 [ %54, %51 ], [ %61, %.lr.ph.i.i ]
   %63 = add i8 %.sroa.6.033.i, %36
   %64 = and i8 %63, 7
@@ -3167,7 +3167,7 @@ _ZN5faiss16PQEncoderGeneric6encodeEm.exit.i:      ; preds = %66, %._crit_edge.i.
   %68 = phi i64 [ %.pre.i, %._crit_edge.i.i ], [ %37, %66 ]
   %.sroa.17.1.i = phi i8 [ %65, %._crit_edge.i.i ], [ %47, %66 ]
   %.sroa.6.1.i = phi i8 [ %64, %._crit_edge.i.i ], [ %67, %66 ]
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.2.i, %._crit_edge.i.i ], [ %.sroa.0.034.i, %66 ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.1.i, %._crit_edge.i.i ], [ %.sroa.0.034.i, %66 ]
   %69 = add nuw i64 %.01635.i, 1
   %70 = icmp ult i64 %69, %68
   br i1 %70, label %.preheader.i, label %._crit_edge37.i, !llvm.loop !32

@@ -230,7 +230,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   unreachable
 
 87:                                               ; preds = %75, %.split100
-  %.2 = phi i32 [ %67, %.split100 ], [ %78, %75 ]
+  %.3 = phi i32 [ %67, %.split100 ], [ %78, %75 ]
   %88 = load ptr, ptr %38, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 115
   %90 = load i8, ptr %89, align 1
@@ -239,11 +239,11 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
 
 91:                                               ; preds = %87
   tail call void @table_close(ptr noundef nonnull %37, i32 noundef 0) #8
-  call void @cluster_rel(i32 noundef %36, i32 noundef %.2, ptr noundef nonnull %5)
+  call void @cluster_rel(i32 noundef %36, i32 noundef %.3, ptr noundef nonnull %5)
   br label %170
 
 92:                                               ; preds = %87, %._crit_edge
-  %.3 = phi i32 [ %.2, %87 ], [ 0, %._crit_edge ]
+  %.050 = phi i32 [ %.3, %87 ], [ 0, %._crit_edge ]
   %.049 = phi ptr [ %37, %87 ], [ null, %._crit_edge ]
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str.6) #8
   %93 = load ptr, ptr @PortalContext, align 8
@@ -254,8 +254,8 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %.not64, label %125, label %96
 
 96:                                               ; preds = %92
-  tail call void @check_index_is_clusterable(ptr noundef nonnull %.049, i32 noundef %.3, i32 noundef 1)
-  %97 = tail call ptr @find_all_inheritors(i32 noundef %.3, i32 noundef 0, ptr noundef null) #8
+  tail call void @check_index_is_clusterable(ptr noundef nonnull %.049, i32 noundef %.050, i32 noundef 1)
+  %97 = tail call ptr @find_all_inheritors(i32 noundef %.050, i32 noundef 0, ptr noundef null) #8
   %98 = getelementptr inbounds i8, ptr %97, i64 4
   %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %get_tables_to_cluster_partitioned.exit, label %.lr.ph.i

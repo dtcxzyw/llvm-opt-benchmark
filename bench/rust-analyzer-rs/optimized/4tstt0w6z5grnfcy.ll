@@ -8725,8 +8725,8 @@ _ZN4core3ops8function6FnOnce9call_once17hf1fa7a3413930670E.exit.thread.i10.i: ; 
           to label %46 unwind label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..attrs..Attr$GT$$GT$17h90a3f0cc5962c70aE.exit.i9.i", !noalias !2592
 
 45:                                               ; preds = %46, %_ZN4core3ops8function6FnOnce9call_once17hf1fa7a3413930670E.exit.i5.i
-  %.sroa.036.1.i = phi ptr [ null, %46 ], [ %.sroa.036.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17hf1fa7a3413930670E.exit.i5.i ]
-  store ptr %.sroa.036.1.i, ptr %0, align 8, !alias.scope !2549, !noalias !2591
+  %.sroa.036.0.i = phi ptr [ null, %46 ], [ %.sroa.036.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17hf1fa7a3413930670E.exit.i5.i ]
+  store ptr %.sroa.036.0.i, ptr %0, align 8, !alias.scope !2549, !noalias !2591
   %.sroa.738.0..sroa_idx39.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.738.0..sroa_idx39.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.738.i, i64 16, i1 false), !noalias !2591
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.738.i)

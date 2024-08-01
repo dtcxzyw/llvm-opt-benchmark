@@ -4253,14 +4253,14 @@ if.end.i:                                         ; preds = %do.end66
 
 if.then.i47:                                      ; preds = %lor.lhs.false, %do.end66, %if.end.i, %do.end52
   %.pr = phi ptr [ %20, %do.end52 ], [ %20, %if.end.i ], [ %20, %do.end66 ], [ %8, %lor.lhs.false ]
-  %retval.0.ph = phi i32 [ 0, %do.end52 ], [ -526, %if.end.i ], [ -526, %do.end66 ], [ 0, %lor.lhs.false ]
+  %retval.1.ph = phi i32 [ 0, %do.end52 ], [ -526, %if.end.i ], [ -526, %do.end66 ], [ 0, %lor.lhs.false ]
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #28
   br label %cleanup68
 
 cleanup68:                                        ; preds = %do.end10, %if.then.i47, %_ZN4node5DebugIJRiRmRhEEEvPNS_9AsyncWrapEPKcDpOT_.exit
-  %retval.1 = phi i32 [ 0, %_ZN4node5DebugIJRiRmRhEEEvPNS_9AsyncWrapEPKcDpOT_.exit ], [ %retval.0.ph, %if.then.i47 ], [ 0, %do.end10 ]
+  %retval.0 = phi i32 [ 0, %_ZN4node5DebugIJRiRmRhEEEvPNS_9AsyncWrapEPKcDpOT_.exit ], [ %retval.1.ph, %if.then.i47 ], [ 0, %do.end10 ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #28
-  ret i32 %retval.1
+  ret i32 %retval.0
 }
 
 declare void @nghttp2_session_callbacks_set_on_frame_not_send_callback(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -9221,7 +9221,7 @@ _ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE9push_backE
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK4node8NgHeaderINS_5http217Http2HeaderTraitsEE6lengthEv.exit, %lor.lhs.false, %lor.lhs.false15, %_ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE9push_backEOS4_.exit
-  %retval.0 = phi i1 [ true, %_ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE9push_backEOS4_.exit ], [ false, %lor.lhs.false15 ], [ false, %lor.lhs.false ], [ false, %_ZNK4node8NgHeaderINS_5http217Http2HeaderTraitsEE6lengthEv.exit ]
+  %retval.1 = phi i1 [ true, %_ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE9push_backEOS4_.exit ], [ false, %lor.lhs.false15 ], [ false, %lor.lhs.false ], [ false, %_ZNK4node8NgHeaderINS_5http217Http2HeaderTraitsEE6lengthEv.exit ]
   %value_.i = getelementptr inbounds i8, ptr %header, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i, align 8
   %34 = load ptr, ptr %buf_.i1.i, align 8
@@ -9245,8 +9245,8 @@ if.end.i.i3.i:                                    ; preds = %_ZN4node14NgRcBufPo
   br label %return
 
 return:                                           ; preds = %do.end6, %if.end.i.i3.i, %_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit.i, %_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE12IsZeroLengthEP13nghttp2_rcbuf.exit
-  %retval.1 = phi i1 [ true, %_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE12IsZeroLengthEP13nghttp2_rcbuf.exit ], [ %retval.0, %_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit.i ], [ %retval.0, %if.end.i.i3.i ], [ true, %do.end6 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE12IsZeroLengthEP13nghttp2_rcbuf.exit ], [ %retval.1, %_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit.i ], [ %retval.1, %if.end.i.i3.i ], [ true, %do.end6 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20177,8 +20177,8 @@ if.then.i:                                        ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %cleanup.thread, %if.end, %if.then.i, %cleanup, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %cmp, %cleanup ], [ %cmp, %if.then.i ], [ false, %if.end ], [ true, %cleanup.thread ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp, %cleanup ], [ %cmp, %if.then.i ], [ false, %if.end ], [ true, %cleanup.thread ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20433,8 +20433,8 @@ if.then.i:                                        ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %cleanup.thread, %if.end, %if.then.i, %cleanup, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %cmp, %cleanup ], [ %cmp, %if.then.i ], [ false, %if.end ], [ true, %cleanup.thread ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp, %cleanup ], [ %cmp, %if.then.i ], [ false, %if.end ], [ true, %cleanup.thread ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

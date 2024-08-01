@@ -568,13 +568,13 @@ if.then6:                                         ; preds = %invoke.cont3
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont3, %if.end, %if.then6
-  %retval.0 = phi ptr [ null, %if.then6 ], [ null, %if.end ], [ %call4, %invoke.cont3 ]
+  %retval.1 = phi ptr [ null, %if.then6 ], [ null, %if.end ], [ %call4, %invoke.cont3 ]
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %l) #6
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.1 = phi ptr [ null, %if.then ], [ %retval.0, %cleanup ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then ], [ %retval.1, %cleanup ]
+  ret ptr %retval.0
 }
 
 declare void @_ZN6icu_7513LocaleBuilder5buildER10UErrorCode(ptr sret(%"class.icu_75::Locale") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
@@ -624,13 +624,13 @@ if.end12:                                         ; preds = %do.body, %if.end2
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end12, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ %call14, %if.end12 ]
+  %retval.1 = phi i32 [ 0, %if.end ], [ %call14, %if.end12 ]
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %l) #6
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.1 = phi i32 [ 0, %if.then ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -711,8 +711,8 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %cleanup20, %if.then
-  %retval.2 = phi i32 [ 0, %if.then ], [ %retval.1, %cleanup20 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 0, %if.then ], [ %retval.1, %cleanup20 ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN6icu_7520CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29), ptr noundef, i32 noundef) unnamed_addr #2

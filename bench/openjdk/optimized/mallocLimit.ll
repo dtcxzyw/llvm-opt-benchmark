@@ -260,18 +260,18 @@ _ZN14MallocLimitSet5resetEv.exit:                 ; preds = %7
   %16 = call noundef zeroext i1 @_ZN12ParserHelper10match_sizeEPm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %0)
   %17 = load ptr, ptr %13, align 8
   %18 = load ptr, ptr %10, align 8
-  %.not43 = icmp ult ptr %17, %18
+  %.not44 = icmp ult ptr %17, %18
   br i1 %16, label %20, label %.preheader
 
 .preheader:                                       ; preds = %15
-  br i1 %.not43, label %.lr.ph, label %.loopexit
+  br i1 %.not44, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %19 = getelementptr inbounds i8, ptr %4, i64 56
   br label %34
 
 20:                                               ; preds = %15
-  br i1 %.not43, label %21, label %.loopexit
+  br i1 %.not44, label %21, label %.loopexit
 
 21:                                               ; preds = %20
   %22 = load i8, ptr %17, align 1
@@ -324,8 +324,8 @@ _ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit: ; preds = %27, %30
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.22, i32 noundef %43, ptr noundef %39) #14
   %44 = load ptr, ptr %19, align 8
   %45 = call noundef zeroext i8 @_ZN7NMTUtil14string_to_flagEPKc(ptr noundef %44) #14
-  %.not.i15.not = icmp eq i8 %45, 27
-  br i1 %.not.i15.not, label %46, label %47
+  %.not.i16.not = icmp eq i8 %45, 27
+  br i1 %.not.i16.not, label %46, label %47
 
 46:                                               ; preds = %34
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #14
@@ -339,8 +339,8 @@ _ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit: ; preds = %27, %30
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
   %48 = load ptr, ptr %13, align 8
   %49 = load ptr, ptr %10, align 8
-  %.not.i16 = icmp ult ptr %48, %49
-  br i1 %.not.i16, label %50, label %53
+  %.not.i17 = icmp ult ptr %48, %49
+  br i1 %.not.i17, label %50, label %53
 
 50:                                               ; preds = %47
   %51 = load i8, ptr %48, align 1
@@ -366,69 +366,69 @@ _ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit: ; preds = %27, %30
 60:                                               ; preds = %54
   %61 = load ptr, ptr %13, align 8
   %62 = load ptr, ptr %10, align 8
-  %.not41 = icmp ult ptr %61, %62
-  br i1 %.not41, label %63, label %_ZN12ParserHelper10match_charEc.exit21
+  %.not42 = icmp ult ptr %61, %62
+  br i1 %.not42, label %63, label %_ZN12ParserHelper10match_charEc.exit22
 
 63:                                               ; preds = %60
   %64 = load i8, ptr %61, align 1
   %65 = icmp eq i8 %64, 58
-  br i1 %65, label %66, label %_ZN12ParserHelper10match_charEc.exit21
+  br i1 %65, label %66, label %_ZN12ParserHelper10match_charEc.exit22
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds i8, ptr %61, i64 1
   store ptr %67, ptr %13, align 8
   %68 = getelementptr inbounds i8, ptr %57, i64 8
-  %.not.i22 = icmp ult ptr %67, %62
-  br i1 %.not.i22, label %69, label %76
+  %.not.i23 = icmp ult ptr %67, %62
+  br i1 %.not.i23, label %69, label %76
 
 69:                                               ; preds = %66
   %70 = call i32 @strncasecmp(ptr noundef nonnull %67, ptr noundef nonnull @.str.5, i64 noundef 3) #15
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit27, label %72
+  br i1 %71, label %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit28, label %72
 
 72:                                               ; preds = %69
   %73 = call i32 @strncasecmp(ptr noundef nonnull %67, ptr noundef nonnull @.str, i64 noundef 5) #15
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit27, label %76
+  br i1 %74, label %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit28, label %76
 
-_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit27: ; preds = %69, %72
-  %.sink.i25 = phi i32 [ 1, %69 ], [ 0, %72 ]
-  %.sink5.i26 = phi i64 [ 3, %69 ], [ 5, %72 ]
-  store i32 %.sink.i25, ptr %68, align 8
-  %75 = getelementptr inbounds i8, ptr %67, i64 %.sink5.i26
+_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit28: ; preds = %69, %72
+  %.sink.i26 = phi i32 [ 1, %69 ], [ 0, %72 ]
+  %.sink5.i27 = phi i64 [ 3, %69 ], [ 5, %72 ]
+  store i32 %.sink.i26, ptr %68, align 8
+  %75 = getelementptr inbounds i8, ptr %67, i64 %.sink5.i27
   store ptr %75, ptr %13, align 8
-  br label %_ZN12ParserHelper10match_charEc.exit21
+  br label %_ZN12ParserHelper10match_charEc.exit22
 
 76:                                               ; preds = %66, %72
   store ptr @.str.10, ptr %2, align 8
   br label %.loopexit
 
-_ZN12ParserHelper10match_charEc.exit21:           ; preds = %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit27, %63, %60
-  %77 = phi ptr [ %75, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit27 ], [ %61, %63 ], [ %61, %60 ]
-  %.not42 = icmp ult ptr %77, %62
-  br i1 %.not42, label %78, label %82
+_ZN12ParserHelper10match_charEc.exit22:           ; preds = %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit28, %63, %60
+  %77 = phi ptr [ %75, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit28 ], [ %61, %63 ], [ %61, %60 ]
+  %.not43 = icmp ult ptr %77, %62
+  br i1 %.not43, label %78, label %82
 
-78:                                               ; preds = %_ZN12ParserHelper10match_charEc.exit21
+78:                                               ; preds = %_ZN12ParserHelper10match_charEc.exit22
   %79 = load i8, ptr %77, align 1
   %80 = icmp eq i8 %79, 44
-  br i1 %80, label %_ZN12ParserHelper10match_charEc.exit30.thread, label %_ZN12ParserHelper10match_charEc.exit30
+  br i1 %80, label %_ZN12ParserHelper10match_charEc.exit31.thread, label %_ZN12ParserHelper10match_charEc.exit31
 
-_ZN12ParserHelper10match_charEc.exit30.thread:    ; preds = %78
+_ZN12ParserHelper10match_charEc.exit31.thread:    ; preds = %78
   %81 = getelementptr inbounds i8, ptr %77, i64 1
   store ptr %81, ptr %13, align 8
   br label %82
 
-_ZN12ParserHelper10match_charEc.exit30:           ; preds = %78
+_ZN12ParserHelper10match_charEc.exit31:           ; preds = %78
   store ptr @.str.14, ptr %2, align 8
   br label %.loopexit
 
-82:                                               ; preds = %_ZN12ParserHelper10match_charEc.exit30.thread, %_ZN12ParserHelper10match_charEc.exit21
-  %83 = phi ptr [ %81, %_ZN12ParserHelper10match_charEc.exit30.thread ], [ %77, %_ZN12ParserHelper10match_charEc.exit21 ]
-  %.not40 = icmp ult ptr %83, %62
-  br i1 %.not40, label %34, label %.loopexit, !llvm.loop !9
+82:                                               ; preds = %_ZN12ParserHelper10match_charEc.exit31.thread, %_ZN12ParserHelper10match_charEc.exit22
+  %83 = phi ptr [ %81, %_ZN12ParserHelper10match_charEc.exit31.thread ], [ %77, %_ZN12ParserHelper10match_charEc.exit22 ]
+  %.not41 = icmp ult ptr %83, %62
+  br i1 %.not41, label %34, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %82, %.preheader, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit, %20, %_ZN12ParserHelper10match_charEc.exit30, %76, %59, %53, %46, %33, %_ZN12ParserHelper10match_charEc.exit, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %33 ], [ false, %_ZN12ParserHelper10match_charEc.exit ], [ false, %_ZN12ParserHelper10match_charEc.exit30 ], [ false, %76 ], [ false, %59 ], [ false, %53 ], [ false, %46 ], [ true, %20 ], [ true, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit ], [ true, %.preheader ], [ true, %82 ]
+.loopexit:                                        ; preds = %82, %.preheader, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit, %20, %_ZN12ParserHelper10match_charEc.exit31, %76, %59, %53, %46, %33, %_ZN12ParserHelper10match_charEc.exit, %14
+  %.0 = phi i1 [ false, %14 ], [ false, %33 ], [ false, %_ZN12ParserHelper10match_charEc.exit ], [ false, %_ZN12ParserHelper10match_charEc.exit31 ], [ false, %76 ], [ false, %59 ], [ false, %53 ], [ false, %46 ], [ true, %20 ], [ true, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit ], [ true, %.preheader ], [ true, %82 ]
   ret i1 %.0
 }
 
@@ -504,30 +504,30 @@ _Z14multiply_by_1kImEbRT_.exit.thread.i:          ; preds = %28
   br label %30
 
 30:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit.thread.i, %26, %26
-  %.2.i = phi i64 [ %20, %26 ], [ %20, %26 ], [ %29, %_Z14multiply_by_1kImEbRT_.exit.thread.i ]
-  %.not4.i16.i = icmp ult i64 %.2.i, 18014398509481984
+  %.026.i = phi i64 [ %20, %26 ], [ %20, %26 ], [ %29, %_Z14multiply_by_1kImEbRT_.exit.thread.i ]
+  %.not4.i16.i = icmp ult i64 %.026.i, 18014398509481984
   br i1 %.not4.i16.i, label %_Z14multiply_by_1kImEbRT_.exit17.thread.i, label %_ZL13parse_integerImEbPKcPPcPT_.exit.thread
 
 _Z14multiply_by_1kImEbRT_.exit17.thread.i:        ; preds = %30
-  %31 = shl nuw i64 %.2.i, 10
+  %31 = shl nuw i64 %.026.i, 10
   br label %32
 
 32:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit17.thread.i, %26, %26
-  %.4.i = phi i64 [ %20, %26 ], [ %20, %26 ], [ %31, %_Z14multiply_by_1kImEbRT_.exit17.thread.i ]
-  %.not4.i18.i = icmp ult i64 %.4.i, 18014398509481984
+  %.1.i = phi i64 [ %20, %26 ], [ %20, %26 ], [ %31, %_Z14multiply_by_1kImEbRT_.exit17.thread.i ]
+  %.not4.i18.i = icmp ult i64 %.1.i, 18014398509481984
   br i1 %.not4.i18.i, label %_Z14multiply_by_1kImEbRT_.exit19.thread.i, label %_ZL13parse_integerImEbPKcPPcPT_.exit.thread
 
 _Z14multiply_by_1kImEbRT_.exit19.thread.i:        ; preds = %32
-  %33 = shl nuw i64 %.4.i, 10
+  %33 = shl nuw i64 %.1.i, 10
   br label %34
 
 34:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit19.thread.i, %26, %26
-  %.6.i = phi i64 [ %20, %26 ], [ %20, %26 ], [ %33, %_Z14multiply_by_1kImEbRT_.exit19.thread.i ]
-  %.not4.i20.i = icmp ult i64 %.6.i, 18014398509481984
+  %.2.i = phi i64 [ %20, %26 ], [ %20, %26 ], [ %33, %_Z14multiply_by_1kImEbRT_.exit19.thread.i ]
+  %.not4.i20.i = icmp ult i64 %.2.i, 18014398509481984
   br i1 %.not4.i20.i, label %35, label %_ZL13parse_integerImEbPKcPPcPT_.exit.thread
 
 35:                                               ; preds = %34
-  %36 = shl nuw i64 %.6.i, 10
+  %36 = shl nuw i64 %.2.i, 10
   %37 = getelementptr inbounds i8, ptr %24, i64 1
   br label %38
 
@@ -537,8 +537,8 @@ _ZL13parse_integerImEbPKcPPcPT_.exit.thread:      ; preds = %8, %_Z18parse_integ
 
 38:                                               ; preds = %35, %26
   %39 = phi ptr [ %24, %26 ], [ %37, %35 ]
-  %.8.i = phi i64 [ %20, %26 ], [ %36, %35 ]
-  store i64 %.8.i, ptr %1, align 8
+  %.3.i = phi i64 [ %20, %26 ], [ %36, %35 ]
+  store i64 %.3.i, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %39, ptr %4, align 8
   br label %40

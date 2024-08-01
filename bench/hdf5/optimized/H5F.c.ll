@@ -2136,7 +2136,7 @@ define range(i32 -1, 1) i32 @H5Fclose_async(ptr noundef %0, ptr noundef %1, i32 
 
 45:                                               ; preds = %41, %33
   %.031 = phi ptr [ %35, %41 ], [ null, %33 ]
-  %.029 = phi ptr [ %43, %41 ], [ null, %33 ]
+  %.130 = phi ptr [ %43, %41 ], [ null, %33 ]
   %.028 = phi ptr [ %6, %41 ], [ null, %33 ]
   %46 = call i32 @H5I_dec_app_ref_async(i64 noundef %3, ptr noundef %.028) #4
   %47 = icmp slt i32 %46, 0
@@ -2169,11 +2169,11 @@ define range(i32 -1, 1) i32 @H5Fclose_async(ptr noundef %0, ptr noundef %1, i32 
 63:                                               ; preds = %52, %54, %59, %48
   %.026 = phi i32 [ -1, %48 ], [ -1, %59 ], [ 0, %54 ], [ 0, %52 ]
   %.0 = phi i1 [ true, %48 ], [ true, %59 ], [ false, %54 ], [ false, %52 ]
-  %.not36 = icmp eq ptr %.029, null
+  %.not36 = icmp eq ptr %.130, null
   br i1 %.not36, label %72, label %64
 
 64:                                               ; preds = %63
-  %65 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.029) #4
+  %65 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.130) #4
   %66 = icmp slt i64 %65, 0
   br i1 %66, label %.thread64, label %72
 
@@ -2544,7 +2544,7 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
   br label %.thread108
 
 103:                                              ; preds = %96, %88
-  %.052 = phi ptr [ %91, %88 ], [ %97, %96 ]
+  %.153 = phi ptr [ %91, %88 ], [ %97, %96 ]
   %104 = call ptr @H5I_object(i64 noundef %2) #4
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %110
@@ -2556,7 +2556,7 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
   br label %141
 
 110:                                              ; preds = %103
-  %111 = getelementptr inbounds i8, ptr %.052, i64 8
+  %111 = getelementptr inbounds i8, ptr %.153, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %104, i64 8
@@ -2593,7 +2593,7 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
   %133 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 %.0, ptr %133, align 8
   %134 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %135 = call i32 @H5VL_group_specific(ptr noundef nonnull %.052, ptr noundef nonnull %5, i64 noundef %134, ptr noundef null) #4
+  %135 = call i32 @H5VL_group_specific(ptr noundef nonnull %.153, ptr noundef nonnull %5, i64 noundef %134, ptr noundef null) #4
   %136 = icmp slt i32 %135, 0
   br i1 %136, label %137, label %141
 
@@ -2611,9 +2611,9 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
 142:                                              ; preds = %.thread79, %141
   %.04789 = phi i1 [ true, %.thread79 ], [ %.047, %141 ]
   %.04987 = phi i32 [ -1, %.thread79 ], [ %.049, %141 ]
-  %.15386 = phi ptr [ null, %.thread79 ], [ %.052, %141 ]
+  %.05286 = phi ptr [ null, %.thread79 ], [ %.153, %141 ]
   %143 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %144 = call i32 @H5VL_group_close(ptr noundef %.15386, i64 noundef %143, ptr noundef null) #4
+  %144 = call i32 @H5VL_group_close(ptr noundef %.05286, i64 noundef %143, ptr noundef null) #4
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %146, label %150
 
@@ -2624,9 +2624,9 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
   br label %150
 
 150:                                              ; preds = %146, %142
-  %.150 = phi i32 [ -1, %146 ], [ %.04987, %142 ]
-  %.1 = phi i1 [ true, %146 ], [ %.04789, %142 ]
-  %151 = call i32 @H5VL_free_object(ptr noundef %.15386) #4
+  %.251 = phi i32 [ -1, %146 ], [ %.04987, %142 ]
+  %.2 = phi i1 [ true, %146 ], [ %.04789, %142 ]
+  %151 = call i32 @H5VL_free_object(ptr noundef %.05286) #4
   %152 = icmp slt i32 %151, 0
   br i1 %152, label %.thread111, label %158
 
@@ -2642,19 +2642,19 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
   br label %.thread103
 
 158:                                              ; preds = %150, %141
-  %.251.ph = phi i32 [ %.049, %141 ], [ %.150, %150 ]
-  %.2.ph = phi i1 [ %.047, %141 ], [ %.1, %150 ]
+  %.150.ph = phi i32 [ %.049, %141 ], [ %.251, %150 ]
+  %.1.ph = phi i1 [ %.047, %141 ], [ %.2, %150 ]
   %159 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
-  br i1 %.2.ph, label %.thread103, label %161
+  br i1 %.1.ph, label %.thread103, label %161
 
 .thread103:                                       ; preds = %23, %16, %.thread111, %.thread108, %158
-  %.25195107 = phi i32 [ %.251.ph, %158 ], [ -1, %.thread108 ], [ -1, %.thread111 ], [ -1, %16 ], [ -1, %23 ]
+  %.15095107 = phi i32 [ %.150.ph, %158 ], [ -1, %.thread108 ], [ -1, %.thread111 ], [ -1, %16 ], [ -1, %23 ]
   %160 = call i32 @H5E_dump_api_stack() #4
   br label %161
 
 161:                                              ; preds = %.thread103, %158
-  %.25195106 = phi i32 [ %.25195107, %.thread103 ], [ %.251.ph, %158 ]
-  ret i32 %.25195106
+  %.15095106 = phi i32 [ %.15095107, %.thread103 ], [ %.150.ph, %158 ]
+  ret i32 %.15095106
 }
 
 declare i32 @H5CX_set_loc(i64 noundef) local_unnamed_addr #1
@@ -2805,12 +2805,12 @@ define range(i32 -1, 1) i32 @H5Funmount(i64 noundef %0, ptr noundef %1) local_un
   br label %.thread89
 
 83:                                               ; preds = %76, %68
-  %.0 = phi ptr [ %71, %68 ], [ %77, %76 ]
+  %.1 = phi ptr [ %71, %68 ], [ %77, %76 ]
   store i32 1, ptr %3, align 8
   %84 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %1, ptr %84, align 8
   %85 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %86 = call i32 @H5VL_group_specific(ptr noundef nonnull %.0, ptr noundef nonnull %3, i64 noundef %85, ptr noundef null) #4
+  %86 = call i32 @H5VL_group_specific(ptr noundef nonnull %.1, ptr noundef nonnull %3, i64 noundef %85, ptr noundef null) #4
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %88, label %92
 
@@ -2825,11 +2825,11 @@ define range(i32 -1, 1) i32 @H5Funmount(i64 noundef %0, ptr noundef %1) local_un
   br i1 %.not95, label %93, label %109
 
 93:                                               ; preds = %.thread60, %92
-  %.170 = phi ptr [ null, %.thread60 ], [ %.0, %92 ]
+  %.070 = phi ptr [ null, %.thread60 ], [ %.1, %92 ]
   %.03469 = phi i1 [ true, %.thread60 ], [ %87, %92 ]
   %.03767 = phi i32 [ -1, %.thread60 ], [ %.037, %92 ]
   %94 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %95 = call i32 @H5VL_group_close(ptr noundef %.170, i64 noundef %94, ptr noundef null) #4
+  %95 = call i32 @H5VL_group_close(ptr noundef %.070, i64 noundef %94, ptr noundef null) #4
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %97, label %101
 
@@ -2840,9 +2840,9 @@ define range(i32 -1, 1) i32 @H5Funmount(i64 noundef %0, ptr noundef %1) local_un
   br label %101
 
 101:                                              ; preds = %97, %93
-  %.138 = phi i32 [ -1, %97 ], [ %.03767, %93 ]
-  %.135 = phi i1 [ true, %97 ], [ %.03469, %93 ]
-  %102 = call i32 @H5VL_free_object(ptr noundef %.170) #4
+  %.239 = phi i32 [ -1, %97 ], [ %.03767, %93 ]
+  %.2 = phi i1 [ true, %97 ], [ %.03469, %93 ]
+  %102 = call i32 @H5VL_free_object(ptr noundef %.070) #4
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %.thread92, label %109
 
@@ -2858,19 +2858,19 @@ define range(i32 -1, 1) i32 @H5Funmount(i64 noundef %0, ptr noundef %1) local_un
   br label %.thread84
 
 109:                                              ; preds = %101, %92
-  %.239.ph = phi i32 [ %.037, %92 ], [ %.138, %101 ]
-  %.2.ph = phi i1 [ %87, %92 ], [ %.135, %101 ]
+  %.138.ph = phi i32 [ %.037, %92 ], [ %.239, %101 ]
+  %.135.ph = phi i1 [ %87, %92 ], [ %.2, %101 ]
   %110 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
-  br i1 %.2.ph, label %.thread84, label %112
+  br i1 %.135.ph, label %.thread84, label %112
 
 .thread84:                                        ; preds = %20, %13, %.thread92, %.thread89, %109
-  %.2397688 = phi i32 [ %.239.ph, %109 ], [ -1, %.thread89 ], [ -1, %.thread92 ], [ -1, %13 ], [ -1, %20 ]
+  %.1387688 = phi i32 [ %.138.ph, %109 ], [ -1, %.thread89 ], [ -1, %.thread92 ], [ -1, %13 ], [ -1, %20 ]
   %111 = call i32 @H5E_dump_api_stack() #4
   br label %112
 
 112:                                              ; preds = %.thread84, %109
-  %.2397687 = phi i32 [ %.2397688, %.thread84 ], [ %.239.ph, %109 ]
-  ret i32 %.2397687
+  %.1387687 = phi i32 [ %.1387688, %.thread84 ], [ %.138.ph, %109 ]
+  ret i32 %.1387687
 }
 
 ; Function Attrs: nounwind uwtable

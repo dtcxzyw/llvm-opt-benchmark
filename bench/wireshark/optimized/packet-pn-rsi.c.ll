@@ -828,8 +828,8 @@ define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef
   br label %50
 
 50:                                               ; preds = %29, %42, %16, %23
-  %.1.sink = phi ptr [ %22, %16 ], [ %28, %23 ], [ %41, %29 ], [ %49, %42 ]
-  %51 = getelementptr inbounds i8, ptr %.1.sink, i64 24
+  %.2.sink = phi ptr [ %22, %16 ], [ %28, %23 ], [ %41, %29 ], [ %49, %42 ]
+  %51 = getelementptr inbounds i8, ptr %.2.sink, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = tail call ptr @fragment_get(ptr noundef nonnull @pn_rsi_reassembly_table, ptr noundef nonnull %2, i32 noundef %52, ptr noundef null) #3
   %54 = load i32, ptr %51, align 8
@@ -855,7 +855,7 @@ define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %.1.sink, i64 24
+  %69 = getelementptr inbounds i8, ptr %.2.sink, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = zext nneg i8 %6 to i32
   %72 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @pn_rsi_reassembly_table, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %70, ptr noundef null, i32 noundef %5, i32 noundef %71) #3

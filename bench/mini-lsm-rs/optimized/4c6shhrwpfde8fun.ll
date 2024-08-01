@@ -3426,9 +3426,9 @@ common.resume:                                    ; preds = %.body, %426, %.thre
   unreachable
 
 .body:                                            ; preds = %.loopexit.split-lp220, %.thread169, %407
-  %.031 = phi i8 [ %.7, %407 ], [ %.7, %.thread169 ], [ %.4186, %.loopexit.split-lp220 ]
+  %.132 = phi i8 [ %.3, %407 ], [ %.3, %.thread169 ], [ %.5186, %.loopexit.split-lp220 ]
   %.pn49 = phi { ptr, i32 } [ %.pn47, %407 ], [ %.pn47, %.thread169 ], [ %lpad.loopexit.split-lp222, %.loopexit.split-lp220 ]
-  %58 = trunc nuw i8 %.031 to i1
+  %58 = trunc nuw i8 %.132 to i1
   br i1 %58, label %.thread, label %common.resume
 
 .body.thread:                                     ; preds = %338
@@ -3736,7 +3736,7 @@ common.resume:                                    ; preds = %.body, %426, %.thre
           to label %164 unwind label %162
 
 161:                                              ; preds = %162, %157
-  %.3 = phi i8 [ 0, %162 ], [ 1, %157 ]
+  %.4 = phi i8 [ 0, %162 ], [ 1, %157 ]
   %.pn44 = phi { ptr, i32 } [ %163, %162 ], [ %158, %157 ]
   invoke fastcc void @"_ZN4core3ptr132drop_in_place$LT$moka..sync..value_initializer..InitResult$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$anyhow..Error$GT$$GT$17h4f0fb1053f4fa79bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #34
           to label %.thread175 unwind label %167
@@ -4046,7 +4046,7 @@ common.resume:                                    ; preds = %.body, %426, %.thre
           to label %269 unwind label %267
 
 266:                                              ; preds = %267, %262
-  %.5 = phi i8 [ 0, %267 ], [ 1, %262 ]
+  %.6 = phi i8 [ 0, %267 ], [ 1, %262 ]
   %.pn42 = phi { ptr, i32 } [ %268, %267 ], [ %263, %262 ]
   invoke fastcc void @"_ZN4core3ptr132drop_in_place$LT$moka..sync..value_initializer..InitResult$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$anyhow..Error$GT$$GT$17h4f0fb1053f4fa79bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #34
           to label %.thread175 unwind label %167
@@ -4094,7 +4094,7 @@ common.resume:                                    ; preds = %.body, %426, %.thre
 
 281:                                              ; preds = %.thread209, %.thread201
   %.pn40208 = phi { ptr, i32 } [ %272, %.thread201 ], [ %276, %.thread209 ]
-  %.6207 = phi i8 [ 1, %.thread201 ], [ 0, %.thread209 ]
+  %.7207 = phi i8 [ 1, %.thread201 ], [ 0, %.thread209 ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hdf331ddad05a6ea3E"(ptr nonnull %241, ptr nonnull %242) #34
           to label %.thread175 unwind label %167
 
@@ -4372,7 +4372,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 "_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$17h91b791193f7bc62bE.exit120": ; preds = %400, %403, %.noexc115
   %.sroa.0.0190 = phi i64 [ %.sroa.0.1, %.noexc115 ], [ %.sroa.0.0.ph, %403 ], [ %.sroa.0.0.ph, %400 ]
   %.sroa.5.0188 = phi ptr [ %.sroa.5.1, %.noexc115 ], [ %.sroa.5.0.ph, %403 ], [ %.sroa.5.0.ph, %400 ]
-  %.4186 = phi i8 [ 1, %.noexc115 ], [ 0, %403 ], [ 0, %400 ]
+  %.5186 = phi i8 [ 1, %.noexc115 ], [ 0, %403 ], [ 0, %400 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !659)
   call void @llvm.experimental.noalias.scope.decl(metadata !662)
   %394 = load ptr, ptr %27, align 8, !alias.scope !665, !nonnull !4, !noundef !4
@@ -4398,7 +4398,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$17h91b791193f7bc62bE.exit120" unwind label %410
 
 .thread169:                                       ; preds = %.loopexit214, %.loopexit.split-lp215, %.thread175, %422, %285, %"_ZN4core3ptr296drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$17ha2e752104378607aE.exit103", %410
-  %.7 = phi i8 [ 0, %410 ], [ 1, %"_ZN4core3ptr296drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$17ha2e752104378607aE.exit103" ], [ 1, %285 ], [ %.2167, %422 ], [ %.2167, %.thread175 ], [ 1, %.loopexit.split-lp215 ], [ 1, %.loopexit214 ]
+  %.3 = phi i8 [ 0, %410 ], [ 1, %"_ZN4core3ptr296drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$17ha2e752104378607aE.exit103" ], [ 1, %285 ], [ %.2167, %422 ], [ %.2167, %.thread175 ], [ 1, %.loopexit.split-lp215 ], [ 1, %.loopexit214 ]
   %.pn47 = phi { ptr, i32 } [ %411, %410 ], [ %.pn37, %"_ZN4core3ptr296drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$17ha2e752104378607aE.exit103" ], [ %.pn37, %285 ], [ %.pn44.pn168, %422 ], [ %.pn44.pn168, %.thread175 ], [ %lpad.loopexit.split-lp217, %.loopexit.split-lp215 ], [ %lpad.loopexit216, %.loopexit214 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !666)
   call void @llvm.experimental.noalias.scope.decl(metadata !669)
@@ -4420,7 +4420,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 
 "_ZN4core3ptr313drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$17h72b790df4d7c6d25E.exit118": ; preds = %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$17h91b791193f7bc62bE.exit120", %397
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  %412 = trunc nuw i8 %.4186 to i1
+  %412 = trunc nuw i8 %.5186 to i1
   br i1 %412, label %415, label %"_ZN4core3ptr94drop_in_place$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$GT$17h907ded683d66b3fcE.exit"
 
 "_ZN4core3ptr94drop_in_place$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$GT$17h907ded683d66b3fcE.exit": ; preds = %419, %415, %"_ZN4core3ptr313drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$17h72b790df4d7c6d25E.exit118"
@@ -4446,7 +4446,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 
 .thread175:                                       ; preds = %277, %266, %281, %161, %.body.i, %197, %193, %186, %.thread178
   %.pn44.pn168 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread178 ], [ %187, %186 ], [ %194, %197 ], [ %194, %193 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn42, %266 ], [ %278, %277 ], [ %.pn40208, %281 ], [ %.pn44, %161 ]
-  %.2167 = phi i8 [ 1, %.thread178 ], [ 1, %186 ], [ 1, %197 ], [ 1, %193 ], [ 1, %.body.i ], [ %.5, %266 ], [ 0, %277 ], [ %.6207, %281 ], [ %.3, %161 ]
+  %.2167 = phi i8 [ 1, %.thread178 ], [ 1, %186 ], [ 1, %197 ], [ 1, %193 ], [ 1, %.body.i ], [ %.6, %266 ], [ 0, %277 ], [ %.7207, %281 ], [ %.4, %161 ]
   %420 = cmpxchg ptr %60, i64 8, i64 0 release monotonic, align 8
   %421 = extractvalue { i64, i1 } %420, 1
   br i1 %421, label %.thread169, label %422
@@ -4842,8 +4842,8 @@ define hidden noundef zeroext i1 @"_ZN4moka6common10concurrent11housekeeper30Thr
   resume { ptr, i32 } %33
 
 37:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$scheduled_thread_pool..JobHandle$GT$17h13112b4db7b1fdaeE.exit", %9, %1
-  %.1 = phi i1 [ false, %1 ], [ false, %9 ], [ true, %"_ZN4core3ptr53drop_in_place$LT$scheduled_thread_pool..JobHandle$GT$17h13112b4db7b1fdaeE.exit" ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %1 ], [ false, %9 ], [ true, %"_ZN4core3ptr53drop_in_place$LT$scheduled_thread_pool..JobHandle$GT$17h13112b4db7b1fdaeE.exit" ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

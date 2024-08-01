@@ -346,8 +346,8 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
   br i1 %67, label %.preheader.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %83, %63
-  %.2.us = phi i32 [ %64, %63 ], [ %.183.us, %83 ]
-  %68 = sitofp i32 %.2.us to double
+  %.082.us = phi i32 [ %64, %63 ], [ %.2.us, %83 ]
+  %68 = sitofp i32 %.082.us to double
   %69 = tail call double @llvm.fmuladd.f64(double %58, double %68, double %55)
   store double %69, ptr %3, align 8
   %70 = fmul double %58, 1.000000e+02
@@ -358,7 +358,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 
 74:                                               ; preds = %.preheader.us, %83
   %indvars.iv119 = phi i64 [ 40, %.preheader.us ], [ %indvars.iv.next120, %83 ]
-  %.082101.us = phi i32 [ %64, %.preheader.us ], [ %.183.us, %83 ]
+  %.183101.us = phi i32 [ %64, %.preheader.us ], [ %.2.us, %83 ]
   %75 = or disjoint i64 %indvars.iv119, %87
   %76 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %75
   %77 = load double, ptr %76, align 8
@@ -368,11 +368,11 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 79:                                               ; preds = %74
   %80 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %75, i32 1
   %81 = load i32, ptr %80, align 8
-  %82 = add nsw i32 %81, %.082101.us
+  %82 = add nsw i32 %81, %.183101.us
   br label %83
 
 83:                                               ; preds = %79, %74
-  %.183.us = phi i32 [ %82, %79 ], [ %.082101.us, %74 ]
+  %.2.us = phi i32 [ %82, %79 ], [ %.183101.us, %74 ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 2
   %84 = icmp ult i64 %indvars.iv119, 43
   br i1 %84, label %74, label %.loopexit.us, !llvm.loop !9
@@ -416,7 +416,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 
 103:                                              ; preds = %.preheader, %112
   %indvars.iv112 = phi i64 [ 40, %.preheader ], [ %indvars.iv.next113, %112 ]
-  %.082101 = phi i32 [ %98, %.preheader ], [ %.183, %112 ]
+  %.183101 = phi i32 [ %98, %.preheader ], [ %.2, %112 ]
   %104 = or disjoint i64 %indvars.iv112, %102
   %105 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %104
   %106 = load double, ptr %105, align 8
@@ -426,18 +426,18 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 108:                                              ; preds = %103
   %109 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %104, i32 1
   %110 = load i32, ptr %109, align 8
-  %111 = add nsw i32 %110, %.082101
+  %111 = add nsw i32 %110, %.183101
   br label %112
 
 112:                                              ; preds = %103, %108
-  %.183 = phi i32 [ %111, %108 ], [ %.082101, %103 ]
+  %.2 = phi i32 [ %111, %108 ], [ %.183101, %103 ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 2
   %113 = icmp ult i64 %indvars.iv112, 43
   br i1 %113, label %103, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %112, %95
-  %.2 = phi i32 [ %98, %95 ], [ %.183, %112 ]
-  %114 = sitofp i32 %.2 to double
+  %.082 = phi i32 [ %98, %95 ], [ %.2, %112 ]
+  %114 = sitofp i32 %.082 to double
   %115 = load double, ptr %3, align 8
   %116 = tail call double @llvm.fmuladd.f64(double %90, double %114, double %115)
   store double %116, ptr %3, align 8

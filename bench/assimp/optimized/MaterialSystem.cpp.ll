@@ -1745,8 +1745,8 @@ ehcleanup:                                        ; preds = %lpad48, %lpad
   resume { ptr, i32 } %lpad.val69.merged
 
 return:                                           ; preds = %_ZNKSt14default_deleteI18aiMaterialPropertyEclEPS0_.exit.i, %if.then35, %if.end60, %entry
-  %retval.1 = phi i32 [ -1, %entry ], [ -3, %_ZNKSt14default_deleteI18aiMaterialPropertyEclEPS0_.exit.i ], [ 0, %if.then35 ], [ 0, %if.end60 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %entry ], [ -3, %_ZNKSt14default_deleteI18aiMaterialPropertyEclEPS0_.exit.i ], [ 0, %if.then35 ], [ 0, %if.end60 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

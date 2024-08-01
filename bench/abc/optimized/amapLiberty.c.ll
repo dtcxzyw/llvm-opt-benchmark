@@ -2416,8 +2416,8 @@ Amap_LibertySkipSpaces.exit:                      ; preds = %14, %Amap_LibertyCh
   br label %Amap_LibertySkipEntry.exit
 
 .lr.ph.i168:                                      ; preds = %36, %.lr.ph.preheader.i
-  %.130.i = phi ptr [ %37, %36 ], [ %.0.lcssa.i, %.lr.ph.preheader.i ]
-  %35 = load i8, ptr %.130.i, align 1
+  %.230.i = phi ptr [ %37, %36 ], [ %.0.lcssa.i, %.lr.ph.preheader.i ]
+  %35 = load i8, ptr %.230.i, align 1
   switch i8 %35, label %36 [
     i8 32, label %Amap_LibertySkipEntry.exit
     i8 13, label %Amap_LibertySkipEntry.exit
@@ -2432,32 +2432,32 @@ Amap_LibertySkipSpaces.exit:                      ; preds = %14, %Amap_LibertyCh
   ]
 
 36:                                               ; preds = %.lr.ph.i168
-  %37 = getelementptr inbounds i8, ptr %.130.i, i64 1
+  %37 = getelementptr inbounds i8, ptr %.230.i, i64 1
   %exitcond.not.i = icmp eq ptr %37, %2
   br i1 %exitcond.not.i, label %Amap_LibertySkipEntry.exit, label %.lr.ph.i168, !llvm.loop !30
 
 Amap_LibertySkipEntry.exit:                       ; preds = %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %36, %.preheader.i, %.preheader26.i, %33
-  %.2.i = phi ptr [ %34, %33 ], [ %.0.lcssa.i, %.preheader26.i ], [ %.0.i, %.preheader.i ], [ %.130.i, %.lr.ph.i168 ], [ %.130.i, %.lr.ph.i168 ], [ %.130.i, %.lr.ph.i168 ], [ %.130.i, %.lr.ph.i168 ], [ %.130.i, %.lr.ph.i168 ], [ %.130.i, %.lr.ph.i168 ], [ %.130.i, %.lr.ph.i168 ], [ %.130.i, %.lr.ph.i168 ], [ %.130.i, %.lr.ph.i168 ], [ %.130.i, %.lr.ph.i168 ], [ %scevgep.i, %36 ]
-  store ptr %.2.i, ptr %1, align 8
-  %.not179 = icmp eq ptr %.2.i, %2
+  %.1.i = phi ptr [ %34, %33 ], [ %.0.lcssa.i, %.preheader26.i ], [ %.0.i, %.preheader.i ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %scevgep.i, %36 ]
+  store ptr %.1.i, ptr %1, align 8
+  %.not179 = icmp eq ptr %.1.i, %2
   br i1 %.not179, label %166, label %38
 
 38:                                               ; preds = %Amap_LibertySkipEntry.exit
   %39 = load ptr, ptr %18, align 8
-  %40 = ptrtoint ptr %.2.i to i64
+  %40 = ptrtoint ptr %.1.i to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
   %43 = trunc i64 %42 to i32
-  %44 = icmp ult ptr %.2.i, %2
+  %44 = icmp ult ptr %.1.i, %2
   br i1 %44, label %.lr.ph.i170, label %Amap_LibertySkipSpaces.exit178
 
 .lr.ph.i170:                                      ; preds = %38
   %45 = sub i64 %24, %40
-  %scevgep25.i171 = getelementptr i8, ptr %.2.i, i64 %45
+  %scevgep25.i171 = getelementptr i8, ptr %.1.i, i64 %45
   br label %.lr.ph.split.us.i172
 
 .lr.ph.split.us.i172:                             ; preds = %Amap_LibertyCharIsSpace.exit.thread.us.i174, %.lr.ph.i170
-  %.014.us.i173 = phi ptr [ %52, %Amap_LibertyCharIsSpace.exit.thread.us.i174 ], [ %.2.i, %.lr.ph.i170 ]
+  %.014.us.i173 = phi ptr [ %52, %Amap_LibertyCharIsSpace.exit.thread.us.i174 ], [ %.1.i, %.lr.ph.i170 ]
   %46 = load i8, ptr %.014.us.i173, align 1
   %47 = icmp eq i8 %46, 10
   br i1 %47, label %thread-pre-split.us.i176, label %50
@@ -2485,7 +2485,7 @@ Amap_LibertyCharIsSpace.exit.thread.us.i174:      ; preds = %50, %50, %50, %50, 
   br i1 %exitcond26.not.i175, label %Amap_LibertySkipSpaces.exit178, label %.lr.ph.split.us.i172, !llvm.loop !28
 
 Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCharIsSpace.exit.thread.us.i174, %38
-  %.0.lcssa.i169 = phi ptr [ %.2.i, %38 ], [ %scevgep25.i171, %Amap_LibertyCharIsSpace.exit.thread.us.i174 ], [ %.014.us.i173, %50 ]
+  %.0.lcssa.i169 = phi ptr [ %.1.i, %38 ], [ %scevgep25.i171, %Amap_LibertyCharIsSpace.exit.thread.us.i174 ], [ %.014.us.i173, %50 ]
   store ptr %.0.lcssa.i169, ptr %1, align 8
   %.not180 = icmp eq ptr %.0.lcssa.i169, %2
   br i1 %.not180, label %166, label %53
@@ -2832,8 +2832,8 @@ define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipEntry(ptr nocapture 
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
-  %.130 = phi ptr [ %18, %17 ], [ %4, %.lr.ph.preheader ]
-  %16 = load i8, ptr %.130, align 1
+  %.230 = phi ptr [ %18, %17 ], [ %4, %.lr.ph.preheader ]
+  %16 = load i8, ptr %.230, align 1
   switch i8 %16, label %17 [
     i8 32, label %.loopexit
     i8 13, label %.loopexit
@@ -2848,14 +2848,14 @@ define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipEntry(ptr nocapture 
   ]
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.130, i64 1
+  %18 = getelementptr inbounds i8, ptr %.230, i64 1
   %exitcond.not = icmp eq ptr %18, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.preheader, %.preheader26, %14
-  %.2 = phi ptr [ %15, %14 ], [ %4, %.preheader26 ], [ %.0, %.preheader ], [ %scevgep, %17 ], [ %.130, %.lr.ph ], [ %.130, %.lr.ph ], [ %.130, %.lr.ph ], [ %.130, %.lr.ph ], [ %.130, %.lr.ph ], [ %.130, %.lr.ph ], [ %.130, %.lr.ph ], [ %.130, %.lr.ph ], [ %.130, %.lr.ph ], [ %.130, %.lr.ph ]
-  store ptr %.2, ptr %0, align 8
-  %19 = icmp eq ptr %.2, %1
+  %.1 = phi ptr [ %15, %14 ], [ %4, %.preheader26 ], [ %.0, %.preheader ], [ %scevgep, %17 ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ]
+  store ptr %.1, ptr %0, align 8
+  %19 = icmp eq ptr %.1, %1
   %20 = zext i1 %19 to i32
   ret i32 %20
 }
@@ -3018,8 +3018,8 @@ define internal fastcc noundef ptr @Amap_LibertyFindMatch(ptr noundef readonly %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %.324 = phi i32 [ %.5, %24 ], [ 0, %.lr.ph.preheader ]
-  %.11823 = phi ptr [ %25, %24 ], [ %0, %.lr.ph.preheader ]
-  %18 = load i8, ptr %.11823, align 1
+  %.21923 = phi ptr [ %25, %24 ], [ %0, %.lr.ph.preheader ]
+  %18 = load i8, ptr %.21923, align 1
   %19 = icmp eq i8 %18, 123
   %20 = zext i1 %19 to i32
   %spec.select20 = add nsw i32 %.324, %20
@@ -3030,13 +3030,13 @@ define internal fastcc noundef ptr @Amap_LibertyFindMatch(ptr noundef readonly %
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.11823, i64 1
+  %25 = getelementptr inbounds i8, ptr %.21923, i64 1
   %exitcond.not = icmp eq ptr %25, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %.lr.ph29, %16, %.preheader21, %.preheader
-  %.219 = phi ptr [ %0, %.preheader ], [ %0, %.preheader21 ], [ %.01727, %.lr.ph29 ], [ %scevgep35, %16 ], [ %.11823, %.lr.ph ], [ %scevgep, %24 ]
-  ret ptr %.219
+  %.118 = phi ptr [ %0, %.preheader ], [ %0, %.preheader21 ], [ %.01727, %.lr.ph29 ], [ %scevgep35, %16 ], [ %.21923, %.lr.ph ], [ %scevgep, %24 ]
+  ret ptr %.118
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

@@ -922,14 +922,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
 
 50:                                               ; preds = %._crit_edge, %15
   %51 = phi i64 [ %.pre, %._crit_edge ], [ %17, %15 ]
-  %.026 = phi ptr [ %29, %._crit_edge ], [ null, %15 ]
+  %.1 = phi ptr [ %29, %._crit_edge ], [ null, %15 ]
   store i64 %51, ptr %5, align 8
   br label %52
 
 52:                                               ; preds = %50, %46, %39, %31, %23, %11
-  %.1 = phi ptr [ null, %11 ], [ null, %23 ], [ null, %31 ], [ %29, %39 ], [ %29, %46 ], [ %.026, %50 ]
+  %.026 = phi ptr [ null, %11 ], [ null, %23 ], [ null, %31 ], [ %29, %39 ], [ %29, %46 ], [ %.1, %50 ]
   %.0 = phi i32 [ -1, %11 ], [ -1, %23 ], [ -1, %31 ], [ -1, %39 ], [ -1, %46 ], [ 0, %50 ]
-  call void @free(ptr noundef %.1) #6
+  call void @free(ptr noundef %.026) #6
   ret i32 %.0
 }
 

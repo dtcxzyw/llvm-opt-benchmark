@@ -5873,8 +5873,8 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
 .lr.ph:                                           ; preds = %35, %.lr.ph
   %.01555 = phi i64 [ %42, %.lr.ph ], [ 0, %35 ]
   %.sroa.0.054 = phi ptr [ %41, %.lr.ph ], [ %36, %35 ]
-  %.sroa.020.253 = phi ptr [ %40, %.lr.ph ], [ %38, %35 ]
-  %40 = getelementptr inbounds i8, ptr %.sroa.020.253, i64 -32
+  %.sroa.020.353 = phi ptr [ %40, %.lr.ph ], [ %38, %35 ]
+  %40 = getelementptr inbounds i8, ptr %.sroa.020.353, i64 -32
   %41 = getelementptr inbounds i8, ptr %.sroa.0.054, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %41) #16
   %42 = add nuw nsw i64 %.01555, 1
@@ -5882,7 +5882,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %.lr.ph, %35
-  %.sroa.020.2.lcssa = phi ptr [ %38, %35 ], [ %.sroa.020.0, %.lr.ph ]
+  %.sroa.020.3.lcssa = phi ptr [ %38, %35 ], [ %.sroa.020.0, %.lr.ph ]
   %43 = srem i64 %.050, %23
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit, label %.backedge
@@ -5890,7 +5890,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
 .backedge:                                        ; preds = %._crit_edge, %33
   %.050.be = phi i64 [ %.049, %33 ], [ %23, %._crit_edge ]
   %.049.be = phi i64 [ %34, %33 ], [ %43, %._crit_edge ]
-  %.sroa.020.0.be = phi ptr [ %.sroa.020.1.lcssa, %33 ], [ %.sroa.020.2.lcssa, %._crit_edge ]
+  %.sroa.020.0.be = phi ptr [ %.sroa.020.1.lcssa, %33 ], [ %.sroa.020.3.lcssa, %._crit_edge ]
   br label %22, !llvm.loop !119
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit: ; preds = %._crit_edge, %._crit_edge61, %.lr.ph.i, %5, %3

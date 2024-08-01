@@ -3756,7 +3756,7 @@ _ZL18haveFepLambdaMovesRK10t_inputrec.exit164.thread: ; preds = %242, %244, %_ZL
 
 278:                                              ; preds = %.preheader192, %309
   %indvars.iv207 = phi i64 [ 0, %.preheader192 ], [ %indvars.iv.next208, %309 ]
-  %.2130201 = phi i32 [ %.1129, %.preheader192 ], [ %.3131, %309 ]
+  %.3131201 = phi i32 [ %.1129, %.preheader192 ], [ %.4, %309 ]
   %279 = getelementptr inbounds [7 x i8], ptr %35, i64 0, i64 %indvars.iv207
   %280 = load i8, ptr %279, align 1
   %281 = trunc i8 %280 to i1
@@ -3806,25 +3806,25 @@ _ZL18haveFepLambdaMovesRK10t_inputrec.exit164.thread: ; preds = %242, %244, %_ZL
   %.sink222 = phi ptr [ %26, %285 ], [ %27, %300 ]
   %302 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %.sink222) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink222) #22
-  %303 = sext i32 %.2130201 to i64
+  %303 = sext i32 %.3131201 to i64
   %304 = load ptr, ptr %21, align 8
   %305 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %304, i64 %303
   %306 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %307 unwind label %286
 
 307:                                              ; preds = %301
-  %308 = add nsw i32 %.2130201, 1
+  %308 = add nsw i32 %.3131201, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
   br label %309
 
 309:                                              ; preds = %278, %307
-  %.3131 = phi i32 [ %308, %307 ], [ %.2130201, %278 ]
+  %.4 = phi i32 [ %308, %307 ], [ %.3131201, %278 ]
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %.not188 = icmp eq i64 %indvars.iv.next208, 7
   br i1 %.not188, label %.loopexit, label %278
 
 .loopexit:                                        ; preds = %309, %271
-  %.4 = phi i32 [ %.1129, %271 ], [ %.3131, %309 ]
+  %.2130 = phi i32 [ %.1129, %271 ], [ %.4, %309 ]
   %310 = load i32, ptr %42, align 4
   %311 = icmp sgt i32 %310, 0
   br i1 %311, label %312, label %419
@@ -3884,7 +3884,7 @@ _ZL18haveFepLambdaMovesRK10t_inputrec.exit167.thread: ; preds = %321, %323, %_ZL
   %.1118.neg = sub i32 %.neg204, %spec.select148
   %.neg191 = add i32 %.1118.neg, %.neg
   %340 = sext i32 %331 to i64
-  %341 = sext i32 %.4 to i64
+  %341 = sext i32 %.2130 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %399
@@ -4042,7 +4042,7 @@ _ZL19print_lambda_vectorP8t_lambdaibbPc.exit175:  ; preds = %369, %.split57.us.i
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZL18haveFepLambdaMovesRK10t_inputrec.exit167.thread
-  %.5.lcssa = phi i32 [ %.4, %_ZL18haveFepLambdaMovesRK10t_inputrec.exit167.thread ], [ %404, %._crit_edge.loopexit ]
+  %.5.lcssa = phi i32 [ %.2130, %_ZL18haveFepLambdaMovesRK10t_inputrec.exit167.thread ], [ %404, %._crit_edge.loopexit ]
   br i1 %.0133, label %405, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge

@@ -4914,10 +4914,10 @@ for.body.lr.ph:                                   ; preds = %if.end8.sink.split.
 
 for.body:                                         ; preds = %for.body.lr.ph, %sw.epilog
   %inBD.02212 = phi i32 [ %call5, %for.body.lr.ph ], [ %outBD.2, %sw.epilog ]
-  %numSavedOps.02211 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %sw.epilog ]
+  %numSavedOps.12211 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %sw.epilog ]
   %19 = load ptr, ptr %m_ops.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.28", ptr %19, i64 %numSavedOps.02211
-  %inc = add nuw i64 %numSavedOps.02211, 1
+  %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.28", ptr %19, i64 %numSavedOps.12211
+  %inc = add nuw i64 %numSavedOps.12211, 1
   %cmp7 = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp7, label %if.then8, label %if.end
 
@@ -24085,24 +24085,24 @@ ehcleanup28:                                      ; preds = %lpad25, %lpad23
   br label %ehcleanup99
 
 lpad36:                                           ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i, %if.then.i.i57, %call.i.noexc, %invoke.cont58, %invoke.cont53, %for.end, %if.then
-  %values.sroa.0.2 = phi ptr [ %values.sroa.0.172, %call.i.noexc ], [ %values.sroa.0.172, %invoke.cont58 ], [ %values.sroa.0.172, %invoke.cont53 ], [ %values.sroa.0.172, %for.end ], [ null, %if.then.i.i57 ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i ], [ null, %if.then ]
+  %values.sroa.0.0 = phi ptr [ %values.sroa.0.172, %call.i.noexc ], [ %values.sroa.0.172, %invoke.cont58 ], [ %values.sroa.0.172, %invoke.cont53 ], [ %values.sroa.0.172, %for.end ], [ null, %if.then.i.i57 ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i ], [ null, %if.then ]
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %lpad36.body
 
 lpad36.body:                                      ; preds = %ehcleanup93.i, %lpad36
-  %values.sroa.0.3 = phi ptr [ %values.sroa.0.172, %ehcleanup93.i ], [ %values.sroa.0.2, %lpad36 ]
+  %values.sroa.0.2 = phi ptr [ %values.sroa.0.172, %ehcleanup93.i ], [ %values.sroa.0.0, %lpad36 ]
   %eh.lpad-body35 = phi { ptr, i32 } [ %.pn8.i, %ehcleanup93.i ], [ %25, %lpad36 ]
-  %tobool.not.i.i.i = icmp eq ptr %values.sroa.0.3, null
+  %tobool.not.i.i.i = icmp eq ptr %values.sroa.0.2, null
   br i1 %tobool.not.i.i.i, label %ehcleanup99, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad36.body
-  call void @_ZdlPv(ptr noundef nonnull %values.sroa.0.3) #27
+  call void @_ZdlPv(ptr noundef nonnull %values.sroa.0.2) #27
   br label %ehcleanup99
 
 for.end:                                          ; preds = %_ZN9Imath_3_14halfC2Ef.exit, %invoke.cont37
   %values.sroa.0.172 = phi ptr [ null, %invoke.cont37 ], [ %call5.i.i.i.i59, %_ZN9Imath_3_14halfC2Ef.exit ]
-  %values.sroa.8.171 = phi ptr [ null, %invoke.cont37 ], [ %add.ptr37.i, %_ZN9Imath_3_14halfC2Ef.exit ]
+  %values.sroa.8.071 = phi ptr [ null, %invoke.cont37 ], [ %add.ptr37.i, %_ZN9Imath_3_14halfC2Ef.exit ]
   %26 = load ptr, ptr %m_formatter, align 8
   %vtable51 = load ptr, ptr %m_array.i, align 8
   %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 40
@@ -24139,7 +24139,7 @@ call.i.noexc:                                     ; preds = %invoke.cont58
   store i64 5, ptr %_M_width.i.i, align 8
   %29 = ptrtoint ptr %values.sroa.0.172 to i64
   %invariant.gep.i = getelementptr inbounds i8, ptr %oss.i, i64 16
-  %cmp.i.not14.i = icmp eq ptr %values.sroa.0.172, %values.sroa.8.171
+  %cmp.i.not14.i = icmp eq ptr %values.sroa.0.172, %values.sroa.8.071
   br i1 %cmp.i.not14.i, label %invoke.cont63, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %.noexc34
@@ -24230,7 +24230,7 @@ invoke.cont78.i:                                  ; preds = %if.end72.i
 if.end89.i:                                       ; preds = %invoke.cont78.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #25
   %add.ptr.i.i = getelementptr inbounds i32, ptr %it.sroa.0.015.i, i64 %conv91.i
-  %cmp.i.not.i = icmp eq ptr %add.ptr.i.i, %values.sroa.8.171
+  %cmp.i.not.i = icmp eq ptr %add.ptr.i.i, %values.sroa.8.071
   br i1 %cmp.i.not.i, label %invoke.cont63, label %for.body.i, !llvm.loop !123
 
 ehcleanup93.i:                                    ; preds = %lpad61.i, %ehcleanup.i, %lpad.i32

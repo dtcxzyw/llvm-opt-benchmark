@@ -524,22 +524,22 @@ define range(i32 0, 2) i32 @H5FL_blk_free_block_avail(ptr nocapture noundef %0, 
   br i1 %.not26.i, label %H5FL__blk_find_list.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5, %7
-  %.pn.i = phi ptr [ %.0.i, %7 ], [ %4, %5 ]
-  %.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %.0.i = load ptr, ptr %.0.in.i, align 8
-  %.not27.i = icmp eq ptr %.0.i, null
+  %.pn.i = phi ptr [ %.1.i, %7 ], [ %4, %5 ]
+  %.1.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
+  %.1.i = load ptr, ptr %.1.in.i, align 8
+  %.not27.i = icmp eq ptr %.1.i, null
   br i1 %.not27.i, label %H5FL__blk_find_list.exit.thread, label %7
 
 7:                                                ; preds = %.preheader.i
-  %8 = load i64, ptr %.0.i, align 8
+  %8 = load i64, ptr %.1.i, align 8
   %9 = icmp eq i64 %8, %1
   br i1 %9, label %10, label %.preheader.i
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %11 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %14 = getelementptr inbounds i8, ptr %.1.i, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   br i1 %13, label %17, label %18
@@ -561,13 +561,13 @@ define range(i32 0, 2) i32 @H5FL_blk_free_block_avail(ptr nocapture noundef %0, 
   %23 = load ptr, ptr %3, align 8
   store ptr %23, ptr %11, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 32
-  store ptr %.0.i, ptr %24, align 8
-  store ptr %.0.i, ptr %3, align 8
+  store ptr %.1.i, ptr %24, align 8
+  store ptr %.1.i, ptr %3, align 8
   br label %H5FL__blk_find_list.exit
 
 H5FL__blk_find_list.exit:                         ; preds = %22, %5
-  %.1.i = phi ptr [ %.0.i, %22 ], [ %4, %5 ]
-  %25 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %.0.i = phi ptr [ %.1.i, %22 ], [ %4, %5 ]
+  %25 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not4 = icmp eq ptr %26, null
   br i1 %.not4, label %H5FL__blk_find_list.exit.thread, label %27
@@ -621,22 +621,22 @@ H5FL__blk_init.exit:                              ; preds = %5
   br i1 %.not26.i, label %H5FL__blk_find_list.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %20, %22
-  %.pn.i = phi ptr [ %.0.i30, %22 ], [ %19, %20 ]
-  %.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %.0.i30 = load ptr, ptr %.0.in.i, align 8
-  %.not27.i = icmp eq ptr %.0.i30, null
+  %.pn.i = phi ptr [ %.1.i, %22 ], [ %19, %20 ]
+  %.1.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
+  %.1.i = load ptr, ptr %.1.in.i, align 8
+  %.not27.i = icmp eq ptr %.1.i, null
   br i1 %.not27.i, label %.loopexit, label %22
 
 22:                                               ; preds = %.preheader.i
-  %23 = load i64, ptr %.0.i30, align 8
+  %23 = load i64, ptr %.1.i, align 8
   %24 = icmp eq i64 %23, %1
   br i1 %24, label %25, label %.preheader.i
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.0.i30, i64 24
+  %26 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  %29 = getelementptr inbounds i8, ptr %.0.i30, i64 32
+  %29 = getelementptr inbounds i8, ptr %.1.i, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   br i1 %28, label %32, label %33
@@ -658,13 +658,13 @@ H5FL__blk_init.exit:                              ; preds = %5
   %38 = load ptr, ptr %18, align 8
   store ptr %38, ptr %26, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 32
-  store ptr %.0.i30, ptr %39, align 8
-  store ptr %.0.i30, ptr %18, align 8
+  store ptr %.1.i, ptr %39, align 8
+  store ptr %.1.i, ptr %18, align 8
   br label %H5FL__blk_find_list.exit
 
 H5FL__blk_find_list.exit:                         ; preds = %37, %20
-  %.1.i = phi ptr [ %.0.i30, %37 ], [ %19, %20 ]
-  %40 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %.0.i30 = phi ptr [ %.1.i, %37 ], [ %19, %20 ]
+  %40 = getelementptr inbounds i8, ptr %.0.i30, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not29 = icmp eq ptr %41, null
   br i1 %.not29, label %H5FL__blk_create_list.exit, label %42
@@ -672,7 +672,7 @@ H5FL__blk_find_list.exit:                         ; preds = %37, %20
 42:                                               ; preds = %H5FL__blk_find_list.exit
   %43 = load ptr, ptr %41, align 8
   store ptr %43, ptr %40, align 8
-  %44 = getelementptr inbounds i8, ptr %.1.i, i64 12
+  %44 = getelementptr inbounds i8, ptr %.0.i30, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, -1
   store i32 %46, ptr %44, align 4
@@ -724,7 +724,7 @@ H5FL__blk_find_list.exit:                         ; preds = %37, %20
   br label %H5FL__blk_create_list.exit
 
 H5FL__blk_create_list.exit:                       ; preds = %69, %68, %57, %H5FL__blk_find_list.exit
-  %.025 = phi ptr [ %.1.i, %H5FL__blk_find_list.exit ], [ null, %57 ], [ %55, %68 ], [ %55, %69 ]
+  %.025 = phi ptr [ %.0.i30, %H5FL__blk_find_list.exit ], [ null, %57 ], [ %55, %68 ], [ %55, %69 ]
   %72 = add i64 %1, 8
   %73 = tail call noalias ptr @malloc(i64 noundef %72) #12
   %74 = icmp eq ptr %73, null
@@ -803,22 +803,22 @@ define noalias noundef ptr @H5FL_blk_free(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not26.i, label %45, label %.preheader.i
 
 .preheader.i:                                     ; preds = %7, %9
-  %.pn.i = phi ptr [ %.0.i, %9 ], [ %6, %7 ]
-  %.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %.0.i = load ptr, ptr %.0.in.i, align 8
-  %.not27.i = icmp eq ptr %.0.i, null
+  %.pn.i = phi ptr [ %.1.i, %9 ], [ %6, %7 ]
+  %.1.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
+  %.1.i = load ptr, ptr %.1.in.i, align 8
+  %.not27.i = icmp eq ptr %.1.i, null
   br i1 %.not27.i, label %.loopexit, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = load i64, ptr %.0.i, align 8
+  %10 = load i64, ptr %.1.i, align 8
   %11 = icmp eq i64 %10, %4
   br i1 %11, label %12, label %.preheader.i
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %13 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %16 = getelementptr inbounds i8, ptr %.1.i, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   br i1 %15, label %19, label %20
@@ -873,18 +873,18 @@ define noalias noundef ptr @H5FL_blk_free(ptr nocapture noundef %0, ptr noundef 
 
 .sink.split.sink.split:                           ; preds = %24, %32
   %.sink32 = phi ptr [ %30, %32 ], [ %25, %24 ]
-  %.sink = phi ptr [ %26, %32 ], [ %.0.i, %24 ]
+  %.sink = phi ptr [ %26, %32 ], [ %.1.i, %24 ]
   %44 = getelementptr inbounds i8, ptr %.sink32, i64 32
   store ptr %.sink, ptr %44, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %28
-  %.0.i.lcssa30.sink = phi ptr [ %26, %28 ], [ %.sink, %.sink.split.sink.split ]
-  store ptr %.0.i.lcssa30.sink, ptr %5, align 8
+  %.1.i.lcssa30.sink = phi ptr [ %26, %28 ], [ %.sink, %.sink.split.sink.split ]
+  store ptr %.1.i.lcssa30.sink, ptr %5, align 8
   br label %45
 
 45:                                               ; preds = %.sink.split, %7
-  %.021.ph = phi ptr [ %6, %7 ], [ %.0.i.lcssa30.sink, %.sink.split ]
+  %.021.ph = phi ptr [ %6, %7 ], [ %.1.i.lcssa30.sink, %.sink.split ]
   %46 = getelementptr inbounds i8, ptr %.021.ph, i64 16
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %3, align 8

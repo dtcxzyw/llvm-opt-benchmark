@@ -829,7 +829,7 @@ if.then14:                                        ; preds = %if.end
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %if.end
-  %mit_delay.1 = phi i32 [ 0, %if.end ], [ %mul, %if.then14 ]
+  %mit_delay.0 = phi i32 [ 0, %if.end ], [ %mul, %if.then14 ]
   %arrayidx19 = getelementptr i8, ptr %s, i64 21648
   %5 = load i32, ptr %arrayidx19, align 16
   %tobool20.not = icmp eq i32 %5, 0
@@ -842,20 +842,20 @@ if.then24:                                        ; preds = %if.end17
   %arrayidx26 = getelementptr i8, ptr %s, i64 21660
   %6 = load i32, ptr %arrayidx26, align 4
   %mul27 = shl i32 %6, 2
-  %7 = add i32 %mit_delay.1, -1
+  %7 = add i32 %mit_delay.0, -1
   %8 = add i32 %mul27, -1
   %or.cond37.not = icmp ult i32 %8, %7
-  %spec.select39 = select i1 %or.cond37.not, i32 %mul27, i32 %mit_delay.1
+  %spec.select39 = select i1 %or.cond37.not, i32 %mul27, i32 %mit_delay.0
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then24, %if.end17
-  %mit_delay.3 = phi i32 [ %mit_delay.1, %if.end17 ], [ %spec.select39, %if.then24 ]
+  %mit_delay.1 = phi i32 [ %mit_delay.0, %if.end17 ], [ %spec.select39, %if.then24 ]
   %arrayidx30 = getelementptr i8, ptr %s, i64 11572
   %9 = load i32, ptr %arrayidx30, align 4
-  %10 = add i32 %mit_delay.3, -1
+  %10 = add i32 %mit_delay.1, -1
   %11 = add i32 %9, -1
   %or.cond38.not = icmp ult i32 %11, %10
-  %mit_delay.4 = select i1 %or.cond38.not, i32 %9, i32 %mit_delay.3
+  %mit_delay.4 = select i1 %or.cond38.not, i32 %9, i32 %mit_delay.1
   %cond = tail call i32 @llvm.umax.i32(i32 %mit_delay.4, i32 500)
   store i8 1, ptr %mit_timer_on, align 8
   %mit_timer = getelementptr inbounds i8, ptr %s, i64 208528
@@ -2110,11 +2110,11 @@ iov_from_buf.exit:                                ; preds = %if.then.i110, %if.e
 
 while.body:                                       ; preds = %iov_from_buf.exit, %while.body
   %10 = phi i64 [ %11, %while.body ], [ %9, %iov_from_buf.exit ]
-  %iov.addr.0137 = phi ptr [ %incdec.ptr, %while.body ], [ %iov, %iov_from_buf.exit ]
-  %iov_ofs.0136 = phi i64 [ %sub, %while.body ], [ 4, %iov_from_buf.exit ]
-  %sub = sub nuw i64 %iov_ofs.0136, %10
-  %incdec.ptr = getelementptr i8, ptr %iov.addr.0137, i64 16
-  %iov_len38 = getelementptr i8, ptr %iov.addr.0137, i64 24
+  %iov.addr.2137 = phi ptr [ %incdec.ptr, %while.body ], [ %iov, %iov_from_buf.exit ]
+  %iov_ofs.2136 = phi i64 [ %sub, %while.body ], [ 4, %iov_from_buf.exit ]
+  %sub = sub nuw i64 %iov_ofs.2136, %10
+  %incdec.ptr = getelementptr i8, ptr %iov.addr.2137, i64 16
+  %iov_len38 = getelementptr i8, ptr %iov.addr.2137, i64 24
   %11 = load i64, ptr %iov_len38, align 8
   %cmp39.not = icmp ugt i64 %11, %sub
   br i1 %cmp39.not, label %if.end42, label %while.body, !llvm.loop !11
@@ -2127,10 +2127,10 @@ if.end42:                                         ; preds = %while.body, %iov_fr
 
 if.end44:                                         ; preds = %if.end42, %land.lhs.true, %if.end19
   %size.0 = phi i64 [ %sub43, %if.end42 ], [ %call2, %land.lhs.true ], [ %call2, %if.end19 ]
-  %iov_ofs.2 = phi i64 [ %iov_ofs.1, %if.end42 ], [ 0, %land.lhs.true ], [ 0, %if.end19 ]
+  %iov_ofs.0 = phi i64 [ %iov_ofs.1, %if.end42 ], [ 0, %land.lhs.true ], [ 0, %if.end19 ]
   %vlan_status.0 = phi i8 [ 9, %if.end42 ], [ 1, %land.lhs.true ], [ 1, %if.end19 ]
   %vlan_special.0 = phi i16 [ %6, %if.end42 ], [ 0, %land.lhs.true ], [ 0, %if.end19 ]
-  %iov.addr.2 = phi ptr [ %iov.addr.1, %if.end42 ], [ %iov, %land.lhs.true ], [ %iov, %if.end19 ]
+  %iov.addr.0 = phi ptr [ %iov.addr.1, %if.end42 ], [ %iov, %land.lhs.true ], [ %iov, %if.end19 ]
   %12 = load i8, ptr %filter_buf.0, align 1
   %arrayidx1.i.i = getelementptr i8, ptr %filter_buf.0, i64 1
   %13 = load <4 x i8>, ptr %arrayidx1.i.i, align 1
@@ -2204,9 +2204,9 @@ if.then53:                                        ; preds = %if.else.i117, %if.t
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond164
   %26 = phi i32 [ %spec.store.select, %do.cond164 ], [ %17, %do.body.preheader ]
-  %iov_ofs.3 = phi i64 [ %iov_ofs.7, %do.cond164 ], [ %iov_ofs.2, %do.body.preheader ]
+  %iov_ofs.3 = phi i64 [ %iov_ofs.7, %do.cond164 ], [ %iov_ofs.0, %do.body.preheader ]
   %desc_offset.0 = phi i64 [ %desc_offset.1, %do.cond164 ], [ 0, %do.body.preheader ]
-  %iov.addr.3 = phi ptr [ %iov.addr.7, %do.cond164 ], [ %iov.addr.2, %do.body.preheader ]
+  %iov.addr.3 = phi ptr [ %iov.addr.7, %do.cond164 ], [ %iov.addr.0, %do.body.preheader ]
   %sub55 = sub i64 %add, %desc_offset.0
   %27 = load i32, ptr %rxbuf_size.i, align 16
   %conv56 = zext i32 %27 to i64
@@ -2244,33 +2244,33 @@ if.then75:                                        ; preds = %if.then72
   br label %do.body87
 
 do.body87:                                        ; preds = %do.body87, %if.then75
-  %iov_ofs.4 = phi i64 [ %iov_ofs.3, %if.then75 ], [ %spec.select99, %do.body87 ]
+  %iov_ofs.5 = phi i64 [ %iov_ofs.3, %if.then75 ], [ %spec.select99, %do.body87 ]
   %ba.0 = phi i64 [ %30, %if.then75 ], [ %add96, %do.body87 ]
   %copy_size.1 = phi i64 [ %spec.select98, %if.then75 ], [ %sub95, %do.body87 ]
-  %iov.addr.4 = phi ptr [ %iov.addr.3, %if.then75 ], [ %spec.select100, %do.body87 ]
-  %iov_len88 = getelementptr inbounds i8, ptr %iov.addr.4, i64 8
+  %iov.addr.5 = phi ptr [ %iov.addr.3, %if.then75 ], [ %spec.select100, %do.body87 ]
+  %iov_len88 = getelementptr inbounds i8, ptr %iov.addr.5, i64 8
   %32 = load i64, ptr %iov_len88, align 8
-  %sub89 = sub i64 %32, %iov_ofs.4
+  %sub89 = sub i64 %32, %iov_ofs.5
   %cond = call i64 @llvm.umin.i64(i64 %copy_size.1, i64 %sub89)
-  %33 = load ptr, ptr %iov.addr.4, align 8
-  %add.ptr93 = getelementptr i8, ptr %33, i64 %iov_ofs.4
+  %33 = load ptr, ptr %iov.addr.5, align 8
+  %add.ptr93 = getelementptr i8, ptr %33, i64 %iov_ofs.5
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %call.i.i.i.i122 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %ba.0, i32 1, ptr noundef %add.ptr93, i64 noundef %cond, i1 noundef zeroext true) #13
   %sub95 = sub i64 %copy_size.1, %cond
   %add96 = add i64 %cond, %ba.0
-  %add97 = add i64 %cond, %iov_ofs.4
+  %add97 = add i64 %cond, %iov_ofs.5
   %34 = load i64, ptr %iov_len88, align 8
   %cmp99 = icmp eq i64 %add97, %34
   %spec.select99 = select i1 %cmp99, i64 0, i64 %add97
   %spec.select100.idx = select i1 %cmp99, i64 16, i64 0
-  %spec.select100 = getelementptr i8, ptr %iov.addr.4, i64 %spec.select100.idx
+  %spec.select100 = getelementptr i8, ptr %iov.addr.5, i64 %spec.select100.idx
   %tobool104.not = icmp eq i64 %sub95, 0
   br i1 %tobool104.not, label %if.end105, label %do.body87, !llvm.loop !12
 
 if.end105:                                        ; preds = %do.body87, %if.then72
-  %iov_ofs.6 = phi i64 [ %iov_ofs.3, %if.then72 ], [ %spec.select99, %do.body87 ]
-  %iov.addr.6 = phi ptr [ %iov.addr.3, %if.then72 ], [ %spec.select100, %do.body87 ]
+  %iov_ofs.4 = phi i64 [ %iov_ofs.3, %if.then72 ], [ %spec.select99, %do.body87 ]
+  %iov.addr.4 = phi ptr [ %iov.addr.3, %if.then72 ], [ %spec.select100, %do.body87 ]
   %add106 = add i64 %spec.select, %desc_offset.0
   %conv107 = trunc i64 %spec.select to i16
   store i16 %conv107, ptr %length, align 8
@@ -2283,9 +2283,9 @@ if.end105:                                        ; preds = %do.body87, %if.then
   br label %if.end125
 
 if.end125:                                        ; preds = %if.end105, %do.body
-  %iov_ofs.7 = phi i64 [ %iov_ofs.3, %do.body ], [ %iov_ofs.6, %if.end105 ]
+  %iov_ofs.7 = phi i64 [ %iov_ofs.3, %do.body ], [ %iov_ofs.4, %if.end105 ]
   %desc_offset.1 = phi i64 [ %desc_offset.0, %do.body ], [ %add106, %if.end105 ]
-  %iov.addr.7 = phi ptr [ %iov.addr.3, %do.body ], [ %iov.addr.6, %if.end105 ]
+  %iov.addr.7 = phi ptr [ %iov.addr.3, %do.body ], [ %iov.addr.4, %if.end105 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %call.i.i.i.i124 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %add67, i32 1, ptr noundef nonnull %desc, i64 noundef 16, i1 noundef zeroext true) #13

@@ -4674,8 +4674,8 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr nocapture noundef write
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.097.us = phi ptr [ %59, %._crit_edge.us ], [ %0, %.preheader.lr.ph ]
   %.04596.us = phi i32 [ %63, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %.04795.us = phi i32 [ %.2.us, %._crit_edge.us ], [ 1, %.preheader.lr.ph ]
-  %.04994.us = phi i32 [ %.251.us, %._crit_edge.us ], [ 1, %.preheader.lr.ph ]
+  %.14895.us = phi i32 [ %.3.us, %._crit_edge.us ], [ 1, %.preheader.lr.ph ]
+  %.15094.us = phi i32 [ %.352.us, %._crit_edge.us ], [ 1, %.preheader.lr.ph ]
   %.05593.us = phi ptr [ %62, %._crit_edge.us ], [ %17, %.preheader.lr.ph ]
   %.05892.us = phi ptr [ %61, %._crit_edge.us ], [ %14, %.preheader.lr.ph ]
   br label %28
@@ -4683,8 +4683,8 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr nocapture noundef write
 28:                                               ; preds = %.preheader.us, %52
   %.187.us = phi ptr [ %.097.us, %.preheader.us ], [ %59, %52 ]
   %.04686.us = phi i32 [ 0, %.preheader.us ], [ %60, %52 ]
-  %.14885.us = phi i32 [ %.04795.us, %.preheader.us ], [ %.2.us, %52 ]
-  %.15084.us = phi i32 [ %.04994.us, %.preheader.us ], [ %.251.us, %52 ]
+  %.285.us = phi i32 [ %.14895.us, %.preheader.us ], [ %.3.us, %52 ]
+  %.25184.us = phi i32 [ %.15094.us, %.preheader.us ], [ %.352.us, %52 ]
   %.15683.us = phi ptr [ %.05593.us, %.preheader.us ], [ %.257.us, %52 ]
   %.15982.us = phi ptr [ %.05892.us, %.preheader.us ], [ %.260.us, %52 ]
   %29 = load i8, ptr %.15982.us, align 1
@@ -4730,8 +4730,8 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr nocapture noundef write
   %.061.us = phi i32 [ %.zext80.us, %42 ], [ %41, %36 ], [ %35, %28 ]
   %.054.us = phi i32 [ %.zext77.us, %42 ], [ %39, %36 ], [ %35, %28 ]
   %.053.us = phi i32 [ %.zext.us, %42 ], [ %32, %36 ], [ %35, %28 ]
-  %.251.us = phi i32 [ 0, %42 ], [ %.15084.us, %36 ], [ %35, %28 ]
-  %.2.us = phi i32 [ 0, %42 ], [ %.14885.us, %36 ], [ %.14885.us, %28 ]
+  %.352.us = phi i32 [ 0, %42 ], [ %.25184.us, %36 ], [ %35, %28 ]
+  %.3.us = phi i32 [ 0, %42 ], [ %.285.us, %36 ], [ %.285.us, %28 ]
   %.257.us = getelementptr inbounds i8, ptr %.15683.us, i64 4
   %.260.us = getelementptr inbounds i8, ptr %.15982.us, i64 4
   %53 = shl i32 %35, 24
@@ -4754,8 +4754,8 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr nocapture noundef write
   br i1 %exitcond103.not, label %._crit_edge98.loopexit, label %.preheader.us, !llvm.loop !10
 
 ._crit_edge98.loopexit:                           ; preds = %._crit_edge.us
-  %64 = icmp eq i32 %.251.us, 0
-  %65 = icmp eq i32 %.2.us, 0
+  %64 = icmp eq i32 %.352.us, 0
+  %65 = icmp eq i32 %.3.us, 0
   %66 = select i1 %65, i32 3, i32 2
   %67 = select i1 %64, i32 %66, i32 1
   br label %.thread71

@@ -912,12 +912,12 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
   br i1 %83, label %54, label %.critedge4, !llvm.loop !16
 
 .critedge4:                                       ; preds = %54, %.preheader, %45
-  %.156 = phi i32 [ %53, %45 ], [ -1, %.preheader ], [ %80, %54 ]
+  %.055 = phi i32 [ %53, %45 ], [ -1, %.preheader ], [ %80, %54 ]
   %84 = getelementptr inbounds i8, ptr %0, i64 8
   %85 = getelementptr inbounds [2 x i32], ptr %84, i64 0, i64 %4
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 1
-  %88 = xor i32 %87, %.156
+  %88 = xor i32 %87, %.055
   ret i32 %88
 }
 

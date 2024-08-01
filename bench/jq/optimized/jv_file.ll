@@ -92,8 +92,8 @@ define { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %.outer.us
 
 .outer.us:                                        ; preds = %.outer.us.preheader, %._crit_edge.us
-  %.sroa.029.1.ph.us = phi i64 [ %.sroa.029.2.lcssa.us, %._crit_edge.us ], [ %.sroa.029.0109, %.outer.us.preheader ]
-  %.sroa.10.1.ph.us = phi ptr [ %.sroa.10.2.lcssa.us, %._crit_edge.us ], [ %.sroa.10.0108, %.outer.us.preheader ]
+  %.sroa.029.1.ph.us = phi i64 [ %.sroa.029.4.lcssa.us, %._crit_edge.us ], [ %.sroa.029.0109, %.outer.us.preheader ]
+  %.sroa.10.1.ph.us = phi ptr [ %.sroa.10.4.lcssa.us, %._crit_edge.us ], [ %.sroa.10.0108, %.outer.us.preheader ]
   br label %96
 
 54:                                               ; preds = %96
@@ -151,9 +151,9 @@ define { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) local_unnamed_
 .lr.ph.us:                                        ; preds = %75, %.lr.ph.us
   %83 = phi ptr [ %90, %.lr.ph.us ], [ %81, %75 ]
   %84 = phi i64 [ %89, %.lr.ph.us ], [ %80, %75 ]
-  %.sroa.10.287.us = phi ptr [ %87, %.lr.ph.us ], [ %.sroa.10.1.ph.us, %75 ]
-  %.sroa.029.286.us = phi i64 [ %86, %.lr.ph.us ], [ %.sroa.029.1.ph.us, %75 ]
-  %85 = call { i64, ptr } @jv_array_append(i64 %.sroa.029.286.us, ptr %.sroa.10.287.us, i64 %84, ptr %83) #8
+  %.sroa.10.487.us = phi ptr [ %87, %.lr.ph.us ], [ %.sroa.10.1.ph.us, %75 ]
+  %.sroa.029.486.us = phi i64 [ %86, %.lr.ph.us ], [ %.sroa.029.1.ph.us, %75 ]
+  %85 = call { i64, ptr } @jv_array_append(i64 %.sroa.029.486.us, ptr %.sroa.10.487.us, i64 %84, ptr %83) #8
   %86 = extractvalue { i64, ptr } %85, 0
   %87 = extractvalue { i64, ptr } %85, 1
   %88 = call { i64, ptr } @jv_parser_next(ptr noundef %51) #8
@@ -164,8 +164,8 @@ define { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not80.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !6
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %75
-  %.sroa.029.2.lcssa.us = phi i64 [ %.sroa.029.1.ph.us, %75 ], [ %86, %.lr.ph.us ]
-  %.sroa.10.2.lcssa.us = phi ptr [ %.sroa.10.1.ph.us, %75 ], [ %87, %.lr.ph.us ]
+  %.sroa.029.4.lcssa.us = phi i64 [ %.sroa.029.1.ph.us, %75 ], [ %86, %.lr.ph.us ]
+  %.sroa.10.4.lcssa.us = phi ptr [ %.sroa.10.1.ph.us, %75 ], [ %87, %.lr.ph.us ]
   %.lcssa82.us = phi i64 [ %80, %75 ], [ %89, %.lr.ph.us ]
   %.lcssa81.us = phi ptr [ %81, %75 ], [ %90, %.lr.ph.us ]
   %92 = call { i64, ptr } @jv_copy(i64 %.lcssa82.us, ptr %.lcssa81.us) #8
@@ -236,14 +236,14 @@ define { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %.outer, !llvm.loop !4
 
 .split93.us:                                      ; preds = %._crit_edge.us
-  call void @jv_free(i64 %.sroa.029.2.lcssa.us, ptr %.sroa.10.2.lcssa.us) #8
+  call void @jv_free(i64 %.sroa.029.4.lcssa.us, ptr %.sroa.10.4.lcssa.us) #8
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %98, %96, %54, %.split93.us
   %124 = phi ptr [ %52, %.split93.us ], [ %52, %54 ], [ %52, %96 ], [ %48, %98 ], [ %48, %100 ]
   %.0110 = phi ptr [ %51, %.split93.us ], [ %51, %54 ], [ %51, %96 ], [ null, %98 ], [ null, %100 ]
-  %.sroa.029.4 = phi i64 [ %.lcssa82.us, %.split93.us ], [ %.sroa.029.1.ph.us, %54 ], [ %.sroa.029.1.ph.us, %96 ], [ %.sroa.029.1.ph, %98 ], [ %.sroa.029.1.ph, %100 ]
-  %.sroa.10.4 = phi ptr [ %.lcssa81.us, %.split93.us ], [ %.sroa.10.1.ph.us, %54 ], [ %.sroa.10.1.ph.us, %96 ], [ %.sroa.10.1.ph, %98 ], [ %.sroa.10.1.ph, %100 ]
+  %.sroa.029.2 = phi i64 [ %.lcssa82.us, %.split93.us ], [ %.sroa.029.1.ph.us, %54 ], [ %.sroa.029.1.ph.us, %96 ], [ %.sroa.029.1.ph, %98 ], [ %.sroa.029.1.ph, %100 ]
+  %.sroa.10.2 = phi ptr [ %.lcssa81.us, %.split93.us ], [ %.sroa.10.1.ph.us, %54 ], [ %.sroa.10.1.ph.us, %96 ], [ %.sroa.10.1.ph, %98 ], [ %.sroa.10.1.ph, %100 ]
   br i1 %.not71, label %125, label %126
 
 125:                                              ; preds = %.critedge
@@ -258,7 +258,7 @@ define { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %or.cond3.not, label %137, label %130
 
 130:                                              ; preds = %126
-  call void @jv_free(i64 %.sroa.029.4, ptr %.sroa.10.4) #8
+  call void @jv_free(i64 %.sroa.029.2, ptr %.sroa.10.2) #8
   %131 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.4, ptr noundef %0) #8
   %132 = extractvalue { i64, ptr } %131, 0
   %133 = extractvalue { i64, ptr } %131, 1
@@ -268,16 +268,16 @@ define { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %137
 
 137:                                              ; preds = %126, %130
-  %.sroa.066.0 = phi i64 [ %135, %130 ], [ %.sroa.029.4, %126 ]
-  %.sroa.6.0 = phi ptr [ %136, %130 ], [ %.sroa.10.4, %126 ]
+  %.sroa.066.1 = phi i64 [ %135, %130 ], [ %.sroa.029.2, %126 ]
+  %.sroa.6.1 = phi ptr [ %136, %130 ], [ %.sroa.10.2, %126 ]
   call void @llvm.stackrestore.p0(ptr %124)
   br label %138
 
 138:                                              ; preds = %137, %35, %25, %7
-  %.sroa.066.1 = phi i64 [ %15, %7 ], [ %31, %25 ], [ %.sroa.066.0, %137 ], [ %44, %35 ]
-  %.sroa.6.1 = phi ptr [ %16, %7 ], [ %32, %25 ], [ %.sroa.6.0, %137 ], [ %45, %35 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.066.1, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.6.1, 1
+  %.sroa.066.0 = phi i64 [ %15, %7 ], [ %31, %25 ], [ %.sroa.066.1, %137 ], [ %44, %35 ]
+  %.sroa.6.0 = phi ptr [ %16, %7 ], [ %32, %25 ], [ %.sroa.6.1, %137 ], [ %45, %35 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.066.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.6.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 

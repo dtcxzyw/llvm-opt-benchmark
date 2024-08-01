@@ -906,7 +906,7 @@ sw.bb133:                                         ; preds = %if.end55, %if.end55
 for.body149:                                      ; preds = %sw.bb133, %for.inc163
   %conv1465 = phi i32 [ 98, %sw.bb133 ], [ %conv14615, %for.inc163 ]
   %descr143.04 = phi ptr [ @descriptors, %sw.bb133 ], [ %incdec.ptr164, %for.inc163 ]
-  %typecode.addr.03 = phi i32 [ %typecode, %sw.bb133 ], [ %typecode.addr.1, %for.inc163 ]
+  %typecode.addr.13 = phi i32 [ %typecode, %sw.bb133 ], [ %typecode.addr.2, %for.inc163 ]
   %is_integer_type = getelementptr inbounds i8, ptr %descr143.04, i64 40
   %31 = load i32, ptr %is_integer_type, align 8
   %tobool150.not = icmp eq i32 %31, 0
@@ -923,11 +923,11 @@ land.lhs.true155:                                 ; preds = %land.lhs.true
   %is_signed = getelementptr inbounds i8, ptr %descr143.04, i64 44
   %33 = load i32, ptr %is_signed, align 4
   %cmp157 = icmp eq i32 %33, %mf_descr.sroa.5.0.copyload
-  %spec.select = select i1 %cmp157, i32 %conv1465, i32 %typecode.addr.03
+  %spec.select = select i1 %cmp157, i32 %conv1465, i32 %typecode.addr.13
   br label %for.inc163
 
 for.inc163:                                       ; preds = %land.lhs.true155, %for.body149, %land.lhs.true
-  %typecode.addr.1 = phi i32 [ %typecode.addr.03, %land.lhs.true ], [ %typecode.addr.03, %for.body149 ], [ %spec.select, %land.lhs.true155 ]
+  %typecode.addr.2 = phi i32 [ %typecode.addr.13, %land.lhs.true ], [ %typecode.addr.13, %for.body149 ], [ %spec.select, %land.lhs.true155 ]
   %incdec.ptr164 = getelementptr i8, ptr %descr143.04, i64 48
   %34 = load i8, ptr %incdec.ptr164, align 8
   %conv14615 = zext i8 %34 to i32
@@ -987,8 +987,8 @@ default.unreachable:                              ; preds = %if.end55
 
 sw.epilog:                                        ; preds = %if.end185, %if.end106, %if.end75, %for.cond171.preheader, %for.cond94.preheader, %for.cond65.preheader, %sw.bb121, %sw.bb110
   %converted_items.0 = phi ptr [ %call128, %sw.bb121 ], [ %call116, %sw.bb110 ], [ %call60, %for.cond65.preheader ], [ %call89, %for.cond94.preheader ], [ %call166, %for.cond171.preheader ], [ %call60, %if.end75 ], [ %call89, %if.end106 ], [ %call166, %if.end185 ]
-  %typecode.addr.2 = phi i32 [ %typecode, %sw.bb121 ], [ %typecode, %sw.bb110 ], [ %typecode, %for.cond65.preheader ], [ %typecode, %for.cond94.preheader ], [ %typecode.addr.1, %for.cond171.preheader ], [ %typecode, %if.end75 ], [ %typecode, %if.end106 ], [ %typecode.addr.1, %if.end185 ]
-  %conv191 = trunc i32 %typecode.addr.2 to i8
+  %typecode.addr.0 = phi i32 [ %typecode, %sw.bb121 ], [ %typecode, %sw.bb110 ], [ %typecode, %for.cond65.preheader ], [ %typecode, %for.cond94.preheader ], [ %typecode.addr.2, %for.cond171.preheader ], [ %typecode, %if.end75 ], [ %typecode, %if.end106 ], [ %typecode.addr.2, %if.end185 ]
+  %conv191 = trunc i32 %typecode.addr.0 to i8
   %call192 = call fastcc ptr @make_array(ptr noundef %arraytype, i8 noundef signext %conv191, ptr noundef nonnull %converted_items.0)
   %38 = load i64, ptr %converted_items.0, align 8
   %39 = and i64 %38, 2147483648

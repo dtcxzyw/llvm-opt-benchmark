@@ -6415,7 +6415,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit525
   br label %548
 
 548:                                              ; preds = %613, %584, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit553.thread771, %"_ZN10ockam_core12flow_control13flow_controls19flow_controls_debug86_$LT$impl$u20$ockam_core..flow_control..flow_controls..flow_controls..FlowControls$GT$13debug_address28_$u7b$$u7b$closure$u7d$$u7d$17ha8ac871b5d89926bE.exit", %547
-  %.2 = phi i8 [ 0, %547 ], [ 1, %"_ZN10ockam_core12flow_control13flow_controls19flow_controls_debug86_$LT$impl$u20$ockam_core..flow_control..flow_controls..flow_controls..FlowControls$GT$13debug_address28_$u7b$$u7b$closure$u7d$$u7d$17ha8ac871b5d89926bE.exit" ], [ 1, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit553.thread771 ], [ 1, %584 ], [ 1, %613 ]
+  %.3 = phi i8 [ 0, %547 ], [ 1, %"_ZN10ockam_core12flow_control13flow_controls19flow_controls_debug86_$LT$impl$u20$ockam_core..flow_control..flow_controls..flow_controls..FlowControls$GT$13debug_address28_$u7b$$u7b$closure$u7d$$u7d$17ha8ac871b5d89926bE.exit" ], [ 1, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit553.thread771 ], [ 1, %584 ], [ 1, %613 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !946)
   call void @llvm.experimental.noalias.scope.decl(metadata !949)
   %549 = load ptr, ptr %86, align 8, !alias.scope !952, !nonnull !4, !noundef !4
@@ -6710,7 +6710,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit553
   br label %548
 
 .body:                                            ; preds = %648, %551, %544
-  %.3 = phi i8 [ %.0324, %544 ], [ %.2, %551 ], [ %.2, %648 ]
+  %.2 = phi i8 [ %.0324, %544 ], [ %.3, %551 ], [ %.3, %648 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %544 ], [ %552, %551 ], [ %649, %648 ]
   %647 = load ptr, ptr %39, align 8, !noundef !4
   %.not356 = icmp eq ptr %647, null
@@ -6729,7 +6729,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit553
   br i1 %.not353, label %654, label %652
 
 652:                                              ; preds = %650
-  %653 = trunc nuw i8 %.2 to i1
+  %653 = trunc nuw i8 %.3 to i1
   br i1 %653, label %655, label %654
 
 654:                                              ; preds = %655, %652, %650
@@ -6741,7 +6741,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit553
   br label %654
 
 656:                                              ; preds = %.body
-  %657 = trunc nuw i8 %.3 to i1
+  %657 = trunc nuw i8 %.2 to i1
   br i1 %657, label %659, label %658
 
 658:                                              ; preds = %659, %656, %.body, %.thread

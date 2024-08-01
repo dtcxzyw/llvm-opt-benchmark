@@ -730,7 +730,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %225, %228
   br label %.body62
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit65:     ; preds = %233, %_ZN2cv5utils5trace7details6RegionD2Ev.exit, %183
-  %.1 = phi i32 [ 2, %183 ], [ %., %_ZN2cv5utils5trace7details6RegionD2Ev.exit ], [ %., %233 ]
+  %.017 = phi i32 [ 2, %183 ], [ %., %_ZN2cv5utils5trace7details6RegionD2Ev.exit ], [ %., %233 ]
   %241 = load i32, ptr %166, align 8
   %.not.i66 = icmp eq i32 %241, 0
   br i1 %.not.i66, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit67, label %242
@@ -763,7 +763,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit67:     ; preds = %_ZN2cv5utils5trace7
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit69:     ; preds = %_ZN2cv5utils5trace7details6RegionD2Ev.exit67, %247
-  %switch = icmp eq i32 %.1, 0
+  %switch = icmp eq i32 %.017, 0
   br i1 %switch, label %168, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit69._crit_edge
 
 .body62:                                          ; preds = %237, %221, %239
@@ -791,7 +791,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit69._crit_edge: ; preds = %168, %_ZN2cv
   br label %.body57
 
 254:                                              ; preds = %124, %_ZN2cv5utils5trace7details6RegionD2Ev.exit69._crit_edge
-  %.033 = phi i32 [ 0, %_ZN2cv5utils5trace7details6RegionD2Ev.exit69._crit_edge ], [ -1, %124 ]
+  %.134 = phi i32 [ 0, %_ZN2cv5utils5trace7details6RegionD2Ev.exit69._crit_edge ], [ -1, %124 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #9
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %25) #9
   br label %256
@@ -807,7 +807,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit69._crit_edge: ; preds = %168, %_ZN2cv
   br label %263
 
 256:                                              ; preds = %45, %254
-  %.134 = phi i32 [ %.033, %254 ], [ 0, %45 ]
+  %.033 = phi i32 [ %.134, %254 ], [ 0, %45 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #9
   %257 = getelementptr inbounds i8, ptr %19, i64 8
   %258 = load i32, ptr %257, align 8
@@ -826,7 +826,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit69._crit_edge: ; preds = %168, %_ZN2cv
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit71:     ; preds = %256, %259
-  ret i32 %.134
+  ret i32 %.033
 
 263:                                              ; preds = %255, %56, %55
   %.pn54 = phi { ptr, i32 } [ %57, %56 ], [ %.pn48.pn.pn.pn.pn, %255 ], [ %.pn38, %55 ]

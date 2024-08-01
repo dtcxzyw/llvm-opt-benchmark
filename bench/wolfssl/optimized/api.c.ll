@@ -3244,7 +3244,7 @@ do.body221.i:                                     ; preds = %if.then216.i
 
 do.end233.i:                                      ; preds = %do.body221.i, %if.then216.i, %do.body214.i
   %.pre174.i = phi ptr [ null, %do.body221.i ], [ null, %do.body214.i ], [ %call217.i, %if.then216.i ]
-  %_ret.6.i = phi i32 [ 0, %do.body221.i ], [ 0, %do.body214.i ], [ 1, %if.then216.i ]
+  %_ret.7.i = phi i32 [ 0, %do.body221.i ], [ 0, %do.body214.i ], [ 1, %if.then216.i ]
   %isSharedCtx235.i = getelementptr inbounds i8, ptr %test_ctx, i64 180
   %bf.load236.i = load i8, ptr %isSharedCtx235.i, align 4
   %bf.clear237.i = and i8 %bf.load236.i, -2
@@ -3253,14 +3253,14 @@ do.end233.i:                                      ; preds = %do.body221.i, %if.t
 
 if.end239.i:                                      ; preds = %do.end233.i, %if.then201.i
   %35 = phi ptr [ %1, %if.then201.i ], [ %.pre174.i, %do.end233.i ]
-  %_ret.7.i = phi i32 [ %_ret.5.i, %if.then201.i ], [ %_ret.6.i, %do.end233.i ]
+  %_ret.6.i = phi i32 [ %_ret.5.i, %if.then201.i ], [ %_ret.7.i, %do.end233.i ]
   tail call void @wolfSSL_CTX_SetIORecv(ptr noundef %35, ptr noundef nonnull @test_ssl_memio_read_cb) #24
   tail call void @wolfSSL_CTX_SetIOSend(ptr noundef %35, ptr noundef nonnull @test_ssl_memio_write_cb) #24
   tail call void @wolfSSL_CTX_set_verify(ptr noundef %35, i32 noundef 3, ptr noundef null) #24
   %caPemFile252.i = getelementptr inbounds i8, ptr %test_ctx, i64 136
   %36 = load ptr, ptr %caPemFile252.i, align 8
   %cmp253.not.i = icmp eq ptr %36, null
-  %cmp286.not.i = icmp eq i32 %_ret.7.i, 0
+  %cmp286.not.i = icmp eq i32 %_ret.6.i, 0
   br i1 %cmp253.not.i, label %do.body285.i, label %do.body255.i
 
 do.body255.i:                                     ; preds = %if.end239.i
@@ -4238,7 +4238,7 @@ if.then92:                                        ; preds = %if.end90
   br i1 %cmp94.not, label %if.end98, label %done
 
 if.end98:                                         ; preds = %if.then92, %if.end90
-  %err.0 = phi i32 [ 1, %if.then92 ], [ 0, %if.end90 ]
+  %err.1 = phi i32 [ 1, %if.then92 ], [ 0, %if.end90 ]
   %call99 = call i32 @wolfSSL_use_certificate_file(ptr noundef nonnull %call86, ptr noundef nonnull %certFile.0111114119126, i32 noundef 1) #24
   %cmp100.not = icmp eq i32 %call99, 1
   br i1 %cmp100.not, label %if.end103, label %done
@@ -4330,17 +4330,17 @@ if.end164:                                        ; preds = %if.then162, %land.l
 done:                                             ; preds = %if.end149, %if.else144, %if.end108, %if.end103, %if.end98, %if.then92, %if.end85, %if.end46, %if.end164, %if.then131, %if.then14
   %ctx.082 = phi ptr [ null, %if.then14 ], [ %ctx.08387104, %if.end46 ], [ %ctx.08387104, %if.end85 ], [ %ctx.08387104, %if.then92 ], [ %ctx.08387104, %if.end98 ], [ %ctx.08387104, %if.end103 ], [ %ctx.08387104, %if.end108 ], [ %ctx.08387104, %if.then131 ], [ %ctx.08387104, %if.end149 ], [ %ctx.08387104, %if.end164 ], [ %ctx.08387104, %if.else144 ]
   %tobool179.not80 = phi i1 [ true, %if.then14 ], [ %tobool179.not8189102, %if.end46 ], [ %tobool179.not8189102, %if.end85 ], [ %tobool179.not8189102, %if.then92 ], [ %tobool179.not8189102, %if.end98 ], [ %tobool179.not8189102, %if.end103 ], [ %tobool179.not8189102, %if.end108 ], [ %tobool179.not8189102, %if.then131 ], [ %tobool179.not8189102, %if.end149 ], [ %tobool179.not8189102, %if.end164 ], [ %tobool179.not8189102, %if.else144 ]
-  %err.1 = phi i32 [ 0, %if.then14 ], [ 0, %if.end46 ], [ 0, %if.end85 ], [ %call93, %if.then92 ], [ %err.0, %if.end98 ], [ %err.0, %if.end103 ], [ %err.0, %if.end108 ], [ %call125, %if.then131 ], [ %call125, %if.end149 ], [ %call125, %if.end164 ], [ %call125, %if.else144 ]
+  %err.0 = phi i32 [ 0, %if.then14 ], [ 0, %if.end46 ], [ 0, %if.end85 ], [ %call93, %if.then92 ], [ %err.1, %if.end98 ], [ %err.1, %if.end103 ], [ %err.1, %if.end108 ], [ %call125, %if.then131 ], [ %call125, %if.end149 ], [ %call125, %if.end164 ], [ %call125, %if.else144 ]
   %ssl.0 = phi ptr [ null, %if.then14 ], [ null, %if.end46 ], [ null, %if.end85 ], [ %call86, %if.then92 ], [ %call86, %if.end98 ], [ %call86, %if.end103 ], [ %call86, %if.end108 ], [ %call86, %if.then131 ], [ %call86, %if.end149 ], [ %call86, %if.end164 ], [ %call86, %if.else144 ]
   br i1 %cmp.not, label %if.end177, label %if.then168
 
 if.then168:                                       ; preds = %if.end59.thread, %if.end72.thread, %done
   %ssl.0136 = phi ptr [ %ssl.0, %done ], [ null, %if.end72.thread ], [ null, %if.end59.thread ]
-  %err.1135 = phi i32 [ %err.1, %done ], [ 0, %if.end72.thread ], [ 0, %if.end59.thread ]
+  %err.0135 = phi i32 [ %err.0, %done ], [ 0, %if.end72.thread ], [ 0, %if.end59.thread ]
   %tobool179.not80133 = phi i1 [ %tobool179.not80, %done ], [ %tobool179.not8189102, %if.end72.thread ], [ %tobool179.not8189102, %if.end59.thread ]
   %ctx.082131 = phi ptr [ %ctx.082, %done ], [ %ctx.08387104, %if.end72.thread ], [ %ctx.08387104, %if.end59.thread ]
   %last_err = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 %err.1135, ptr %last_err, align 8
+  store i32 %err.0135, ptr %last_err, align 8
   %on_cleanup = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %on_cleanup, align 8
   %cmp173.not = icmp eq ptr %22, null
@@ -29481,10 +29481,10 @@ do.body329:                                       ; preds = %if.then324
 do.end341:                                        ; preds = %do.body265.critedge, %do.body252, %do.body290, %do.body271, %do.body309, %if.then324, %do.body329
   %ssl.360 = phi ptr [ %call306, %do.body329 ], [ %call306, %if.then324 ], [ null, %do.body309 ], [ null, %do.body271 ], [ null, %do.body290 ], [ null, %do.body252 ], [ null, %do.body265.critedge ]
   %ctx.35559 = phi ptr [ %call249, %do.body329 ], [ %call249, %if.then324 ], [ %call249, %do.body309 ], [ %call249, %do.body271 ], [ %call249, %do.body290 ], [ null, %do.body252 ], [ null, %do.body265.critedge ]
-  %_ret.17 = phi i32 [ 0, %do.body329 ], [ 1, %if.then324 ], [ 0, %do.body309 ], [ 0, %do.body271 ], [ 0, %do.body290 ], [ 0, %do.body252 ], [ 0, %do.body265.critedge ]
+  %_ret.18 = phi i32 [ 0, %do.body329 ], [ 1, %if.then324 ], [ 0, %do.body309 ], [ 0, %do.body271 ], [ 0, %do.body290 ], [ 0, %do.body252 ], [ 0, %do.body265.critedge ]
   call void @wolfSSL_CTX_free(ptr noundef %ctx.35559) #24
   call void @wolfSSL_free(ptr noundef %ssl.360) #24
-  ret i32 %_ret.17
+  ret i32 %_ret.18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -36125,7 +36125,7 @@ if.then7.critedge:                                ; preds = %if.then, %entry
 
 for.body:                                         ; preds = %if.then7.critedge, %for.inc
   %indvars.iv = phi i64 [ 0, %if.then7.critedge ], [ %indvars.iv.next.pre-phi, %for.inc ]
-  %res.148 = phi i32 [ 0, %if.then7.critedge ], [ %res.2, %for.inc ]
+  %res.248 = phi i32 [ 0, %if.then7.critedge ], [ %res.3, %for.inc ]
   %2 = load i32, ptr @testAll, align 4
   %tobool9.not = icmp eq i32 %2, 0
   br i1 %tobool9.not, label %land.lhs.true, label %if.end12
@@ -36242,17 +36242,17 @@ do.end46:                                         ; preds = %if.end28, %do.body3
   %bf.clear52 = and i8 %bf.load51, -3
   %bf.set = or disjoint i8 %bf.clear52, %bf.shl
   store i8 %bf.set, ptr %fail, align 8
-  %or = or i32 %res.148, %land.ext
+  %or = or i32 %res.248, %land.ext
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true.for.inc_crit_edge, %do.end46
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %land.lhs.true.for.inc_crit_edge ], [ %3, %do.end46 ]
-  %res.2 = phi i32 [ %res.148, %land.lhs.true.for.inc_crit_edge ], [ %or, %do.end46 ]
+  %res.3 = phi i32 [ %res.248, %land.lhs.true.for.inc_crit_edge ], [ %or, %do.end46 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 854
   br i1 %exitcond.not, label %if.end60, label %for.body, !llvm.loop !56
 
 if.end60:                                         ; preds = %for.inc, %if.then3
-  %res.3 = phi i32 [ 1, %if.then3 ], [ %res.2, %for.inc ]
+  %res.1 = phi i32 [ 1, %if.then3 ], [ %res.3, %for.inc ]
   %25 = load i32, ptr @testAll, align 4
   %tobool61.not = icmp eq i32 %25, 0
   br i1 %tobool61.not, label %if.then62, label %if.end64
@@ -36262,7 +36262,7 @@ if.then62:                                        ; preds = %if.end60
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then62, %if.end60
-  %cmp65.not = icmp eq i32 %res.3, 0
+  %cmp65.not = icmp eq i32 %res.1, 0
   br i1 %cmp65.not, label %if.end91, label %if.then67
 
 if.then67:                                        ; preds = %if.end64
@@ -36299,7 +36299,7 @@ if.end91:                                         ; preds = %for.end88, %if.end6
   %puts27 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   %30 = load ptr, ptr @stdout, align 8
   %call93 = tail call i32 @fflush(ptr noundef %30)
-  ret i32 %res.3
+  ret i32 %res.1
 }
 
 declare i32 @wolfSSL_Init() local_unnamed_addr #4
@@ -37674,10 +37674,10 @@ test_cm_load_ca_buffer.exit19:                    ; preds = %if.then.i18, %if.en
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then.i11, %test_cm_load_ca_buffer.exit.thread, %if.then3, %test_cm_load_ca_buffer.exit, %if.end9, %test_cm_load_ca_buffer.exit19, %if.then11, %entry
-  %ret.1 = phi i32 [ %retval.0.i17, %test_cm_load_ca_buffer.exit19 ], [ %call12, %if.then11 ], [ %call2.i9, %if.end9 ], [ %call, %entry ], [ -1, %if.then.i11 ], [ -1, %test_cm_load_ca_buffer.exit.thread ], [ -125, %if.then3 ], [ %call2.i, %test_cm_load_ca_buffer.exit ]
+  %ret.0 = phi i32 [ %retval.0.i17, %test_cm_load_ca_buffer.exit19 ], [ %call12, %if.then11 ], [ %call2.i9, %if.end9 ], [ %call, %entry ], [ -1, %if.then.i11 ], [ -1, %test_cm_load_ca_buffer.exit.thread ], [ -125, %if.then3 ], [ %call2.i, %test_cm_load_ca_buffer.exit ]
   %16 = load ptr, ptr %cert_buf, align 8
   call void @free(ptr noundef %16) #24
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -37782,10 +37782,10 @@ test_cm_load_ca_buffer_ex.exit21:                 ; preds = %if.then.i20, %if.en
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then.i13, %test_cm_load_ca_buffer_ex.exit.thread, %if.then3, %test_cm_load_ca_buffer_ex.exit, %if.end9, %test_cm_load_ca_buffer_ex.exit21, %if.then11, %entry
-  %ret.1 = phi i32 [ %retval.0.i19, %test_cm_load_ca_buffer_ex.exit21 ], [ %call12, %if.then11 ], [ %call2.i11, %if.end9 ], [ %call, %entry ], [ -1, %if.then.i13 ], [ -1, %test_cm_load_ca_buffer_ex.exit.thread ], [ -125, %if.then3 ], [ %call2.i, %test_cm_load_ca_buffer_ex.exit ]
+  %ret.0 = phi i32 [ %retval.0.i19, %test_cm_load_ca_buffer_ex.exit21 ], [ %call12, %if.then11 ], [ %call2.i11, %if.end9 ], [ %call, %entry ], [ -1, %if.then.i13 ], [ -1, %test_cm_load_ca_buffer_ex.exit.thread ], [ -125, %if.then3 ], [ %call2.i, %test_cm_load_ca_buffer_ex.exit ]
   %16 = load ptr, ptr %cert_buf, align 8
   call void @free(ptr noundef %16) #24
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

@@ -4302,7 +4302,7 @@ define linkonce_odr noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0
   %.0193 = phi ptr [ %.1, %225 ], [ %0, %3 ]
   %.0127192 = phi ptr [ %.1128, %225 ], [ %1, %3 ]
   %.0129191 = phi i64 [ %.1130, %225 ], [ %2, %3 ]
-  %.0144190 = phi i64 [ %.6, %225 ], [ 0, %3 ]
+  %.0144190 = phi i64 [ %.4, %225 ], [ 0, %3 ]
   %12 = lshr i64 %9, 1
   %13 = getelementptr inbounds %"class.marisa::grimoire::trie::Entry", ptr %.0193, i64 %12
   %14 = getelementptr inbounds i8, ptr %.0127192, i64 -16
@@ -4669,12 +4669,12 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie5EntryEEEiRKT_m.exit160
   br label %204
 
 204:                                              ; preds = %199, %201, %197
-  %.4 = phi i64 [ %198, %197 ], [ %203, %201 ], [ %.0144190, %199 ]
+  %.5 = phi i64 [ %198, %197 ], [ %203, %201 ], [ %.0144190, %199 ]
   %205 = icmp eq i64 %156, 16
   br i1 %205, label %206, label %208
 
 206:                                              ; preds = %204
-  %207 = add i64 %.4, 1
+  %207 = add i64 %.5, 1
   br label %213
 
 208:                                              ; preds = %204
@@ -4683,16 +4683,16 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie5EntryEEEiRKT_m.exit160
 
 210:                                              ; preds = %208
   %211 = tail call noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie5EntryEEEmT_S7_m(ptr noundef %.3140.lcssa, ptr noundef %.0127192, i64 noundef %.0129191)
-  %212 = add i64 %211, %.4
+  %212 = add i64 %211, %.5
   br label %213
 
 213:                                              ; preds = %208, %210, %206
-  %.5 = phi i64 [ %207, %206 ], [ %212, %210 ], [ %.4, %208 ]
+  %.6 = phi i64 [ %207, %206 ], [ %212, %210 ], [ %.5, %208 ]
   %214 = icmp eq i64 %152, 16
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %213
-  %216 = add i64 %.5, 1
+  %216 = add i64 %.6, 1
   br label %225
 
 217:                                              ; preds = %213
@@ -4704,7 +4704,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie5EntryEEEiRKT_m.exit160
   br i1 %220, label %221, label %223
 
 221:                                              ; preds = %219
-  %222 = add i64 %.5, 1
+  %222 = add i64 %.6, 1
   br label %225
 
 223:                                              ; preds = %219
@@ -4712,7 +4712,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie5EntryEEEiRKT_m.exit160
   br label %225
 
 225:                                              ; preds = %188, %192, %190, %179, %183, %181, %215, %221, %223, %217
-  %.6 = phi i64 [ %216, %215 ], [ %222, %221 ], [ %.5, %223 ], [ %.5, %217 ], [ %180, %179 ], [ %185, %183 ], [ %.1145, %181 ], [ %189, %188 ], [ %194, %192 ], [ %.1145, %190 ]
+  %.4 = phi i64 [ %216, %215 ], [ %222, %221 ], [ %.6, %223 ], [ %.6, %217 ], [ %180, %179 ], [ %185, %183 ], [ %.1145, %181 ], [ %189, %188 ], [ %194, %192 ], [ %.1145, %190 ]
   %.1130 = phi i64 [ %.0129191, %215 ], [ %.0129191, %221 ], [ %224, %223 ], [ %.0129191, %217 ], [ %.0129191, %179 ], [ %.0129191, %183 ], [ %.0129191, %181 ], [ %.0129191, %188 ], [ %.0129191, %192 ], [ %.0129191, %190 ]
   %.1128 = phi ptr [ %.3140.lcssa, %215 ], [ %.3140.lcssa, %221 ], [ %.3140.lcssa, %223 ], [ %.3140.lcssa, %217 ], [ %.0127192, %179 ], [ %.0127192, %183 ], [ %.0127192, %181 ], [ %.2143.lcssa, %188 ], [ %.2143.lcssa, %192 ], [ %.2143.lcssa, %190 ]
   %.1 = phi ptr [ %.2143.lcssa, %215 ], [ %.3140.lcssa, %221 ], [ %.2143.lcssa, %223 ], [ %.2143.lcssa, %217 ], [ %.3140.lcssa, %179 ], [ %.3140.lcssa, %183 ], [ %.3140.lcssa, %181 ], [ %.0193, %188 ], [ %.0193, %192 ], [ %.0193, %190 ]
@@ -4724,7 +4724,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie5EntryEEEiRKT_m.exit160
   br i1 %230, label %.lr.ph195, label %._crit_edge196, !llvm.loop !31
 
 ._crit_edge196:                                   ; preds = %225, %3
-  %.0144.lcssa = phi i64 [ 0, %3 ], [ %.6, %225 ]
+  %.0144.lcssa = phi i64 [ 0, %3 ], [ %.4, %225 ]
   %.0129.lcssa = phi i64 [ %2, %3 ], [ %.1130, %225 ]
   %.0127.lcssa = phi ptr [ %1, %3 ], [ %.1128, %225 ]
   %.0.lcssa = phi ptr [ %0, %3 ], [ %.1, %225 ]

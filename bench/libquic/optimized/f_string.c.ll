@@ -36,7 +36,7 @@ if.then2:                                         ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end31
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end31 ]
-  %n.017 = phi i32 [ 0, %for.body.lr.ph ], [ %add32, %if.end31 ]
+  %n.117 = phi i32 [ 0, %for.body.lr.ph ], [ %add32, %if.end31 ]
   %cmp8.not = icmp ne i64 %indvars.iv, 0
   %1 = trunc nuw nsw i64 %indvars.iv to i32
   %rem = urem i32 %1, 35
@@ -50,11 +50,11 @@ if.then10:                                        ; preds = %for.body
   br i1 %cmp12.not, label %if.end14, label %err
 
 if.end14:                                         ; preds = %if.then10
-  %add = add nsw i32 %n.017, 2
+  %add = add nsw i32 %n.117, 2
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end14, %for.body
-  %n.1 = phi i32 [ %add, %if.end14 ], [ %n.017, %for.body ]
+  %n.2 = phi i32 [ %add, %if.end14 ], [ %n.117, %for.body ]
   %2 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx, align 1
@@ -74,7 +74,7 @@ if.end15:                                         ; preds = %if.end14, %for.body
   br i1 %cmp28.not, label %if.end31, label %err
 
 if.end31:                                         ; preds = %if.end15
-  %add32 = add nsw i32 %n.1, 2
+  %add32 = add nsw i32 %n.2, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %a, align 8
   %10 = sext i32 %9 to i64
@@ -105,7 +105,7 @@ if.then:                                          ; preds = %if.then165
 if.end:                                           ; preds = %entry, %if.then165
   %slen.0123 = phi i32 [ %slen.1, %if.then165 ], [ 0, %entry ]
   %num.0121 = phi i32 [ %add, %if.then165 ], [ 0, %entry ]
-  %s.0120 = phi ptr [ %s.1, %if.then165 ], [ null, %entry ]
+  %s.0120 = phi ptr [ %s.2, %if.then165 ], [ null, %entry ]
   %bufsize.0119 = phi i32 [ %call166, %if.then165 ], [ %call, %entry ]
   %0 = zext nneg i32 %bufsize.0119 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %0
@@ -243,7 +243,7 @@ if.end102:                                        ; preds = %if.end98
   br label %if.end105
 
 if.end105:                                        ; preds = %if.end102, %if.end83
-  %s.1 = phi ptr [ %sp.0, %if.end102 ], [ %s.0120, %if.end83 ]
+  %s.2 = phi ptr [ %sp.0, %if.end102 ], [ %s.0120, %if.end83 ]
   %slen.1 = phi i32 [ %add104, %if.end102 ], [ %slen.0123, %if.end83 ]
   %cmp107113.not = icmp eq i32 %sub79, 0
   br i1 %cmp107113.not, label %for.end162, label %for.cond110.preheader.preheader
@@ -258,7 +258,7 @@ for.cond110.preheader:                            ; preds = %for.cond110.prehead
   %indvars.iv145 = phi i64 [ 0, %for.cond110.preheader.preheader ], [ %indvars.iv.next146, %for.inc159 ]
   %indvars.iv143 = phi i64 [ 0, %for.cond110.preheader.preheader ], [ %indvars.iv.next144, %for.inc159 ]
   %8 = add nuw nsw i64 %indvars.iv145, %7
-  %arrayidx149 = getelementptr inbounds i8, ptr %s.1, i64 %8
+  %arrayidx149 = getelementptr inbounds i8, ptr %s.2, i64 %8
   br label %for.body113
 
 for.body113:                                      ; preds = %for.cond110.preheader, %if.end146
@@ -316,20 +316,20 @@ if.then165:                                       ; preds = %for.end162
   br i1 %cmp, label %if.then, label %if.end
 
 for.end169:                                       ; preds = %for.end162, %entry, %if.then
-  %s.2 = phi ptr [ %s.1, %if.then ], [ null, %entry ], [ %s.1, %for.end162 ]
+  %s.1 = phi ptr [ %s.2, %if.then ], [ null, %entry ], [ %s.2, %for.end162 ]
   %num.1 = phi i32 [ %add, %if.then ], [ 0, %entry ], [ %add, %for.end162 ]
   store i32 %num.1, ptr %bs, align 8
   %data = getelementptr inbounds i8, ptr %bs, i64 8
-  store ptr %s.2, ptr %data, align 8
+  store ptr %s.1, ptr %data, align 8
   br label %if.end171
 
 err_sl:                                           ; preds = %for.end, %if.end22, %if.end7, %for.end.thread, %if.then
-  %s.0105 = phi ptr [ %s.1, %if.then ], [ %s.0120, %for.end.thread ], [ %s.0120, %if.end7 ], [ %s.0120, %if.end22 ], [ %s.0120, %for.end ]
+  %s.0105 = phi ptr [ %s.2, %if.then ], [ %s.0120, %for.end.thread ], [ %s.0120, %if.end7 ], [ %s.0120, %if.end22 ], [ %s.0120, %for.end ]
   tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 171, ptr noundef nonnull @.str.3, i32 noundef 191) #6
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then82, %if.then101, %if.else143, %for.end169, %err_sl
-  %s.3 = phi ptr [ %s.2, %for.end169 ], [ %s.0105, %err_sl ], [ %s.0120, %if.then82 ], [ %s.0120, %if.then101 ], [ %s.1, %if.else143 ]
+  %s.3 = phi ptr [ %s.1, %for.end169 ], [ %s.0105, %err_sl ], [ %s.0120, %if.then82 ], [ %s.0120, %if.then101 ], [ %s.2, %if.else143 ]
   %ret.0 = phi i32 [ 1, %for.end169 ], [ 0, %err_sl ], [ 0, %if.then82 ], [ 0, %if.then101 ], [ 0, %if.else143 ]
   %cmp172.not = icmp eq ptr %s.3, null
   br i1 %cmp172.not, label %if.end175, label %if.then174

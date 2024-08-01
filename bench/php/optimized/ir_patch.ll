@@ -19,7 +19,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
 
 10:                                               ; preds = %15, %6
   %.016 = phi i32 [ %2, %6 ], [ %17, %15 ]
-  %.015 = phi i32 [ 0, %6 ], [ %.1, %15 ]
+  %.1 = phi i32 [ 0, %6 ], [ %.2, %15 ]
   %.0 = phi ptr [ %9, %6 ], [ %16, %15 ]
   %11 = load ptr, ptr %.0, align 8
   %12 = icmp eq ptr %11, %3
@@ -27,18 +27,18 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
 
 13:                                               ; preds = %10
   store ptr %4, ptr %.0, align 8
-  %14 = add nsw i32 %.015, 1
+  %14 = add nsw i32 %.1, 1
   br label %15
 
 15:                                               ; preds = %13, %10
-  %.1 = phi i32 [ %14, %13 ], [ %.015, %10 ]
+  %.2 = phi i32 [ %14, %13 ], [ %.1, %10 ]
   %16 = getelementptr inbounds i8, ptr %.0, i64 8
   %17 = add i32 %.016, -1
   %.not19 = icmp eq i32 %17, 0
   br i1 %.not19, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %15, %5
-  %.2 = phi i32 [ 0, %5 ], [ %.1, %15 ]
+  %.015 = phi i32 [ 0, %5 ], [ %.2, %15 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 %1
   %19 = getelementptr inbounds i8, ptr %18, i64 -4
   %20 = icmp ugt ptr %19, %0
@@ -164,9 +164,9 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %51, %69
-  %.148.i.i = phi i32 [ %71, %69 ], [ %.047.i.i.ph.ph, %51 ]
+  %.249.i.i = phi i32 [ %71, %69 ], [ %.047.i.i.ph.ph, %51 ]
   %72 = and i32 %.0.i.i.ph, 15
-  %73 = add i32 %.148.i.i, %72
+  %73 = add i32 %.249.i.i, %72
   br label %_asm_x86_inslen.exit.i
 
 74:                                               ; preds = %51
@@ -203,10 +203,10 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br label %.loopexit56.i.i
 
 94:                                               ; preds = %84, %82
-  %.151.i.i = phi ptr [ %85, %84 ], [ %.050.i.i.ph, %82 ]
-  %.249.i.i = phi i32 [ %88, %84 ], [ %.047.i.i.ph.ph, %82 ]
-  %95 = add i32 %.249.i.i, 1
-  %96 = getelementptr inbounds i8, ptr %.151.i.i, i64 2
+  %.353.i.i = phi ptr [ %85, %84 ], [ %.050.i.i.ph, %82 ]
+  %.4.i.i = phi i32 [ %88, %84 ], [ %.047.i.i.ph.ph, %82 ]
+  %95 = add i32 %.4.i.i, 1
+  %96 = getelementptr inbounds i8, ptr %.353.i.i, i64 2
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i64
   %99 = getelementptr inbounds [256 x i8], ptr @_asm_x86_inslen.map_op2, i64 0, i64 %98
@@ -220,8 +220,8 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
 .loopexit56.i.i:                                  ; preds = %51, %100, %90, %78, %74, %67
   %.252.i.i = phi ptr [ %.050.i.i.ph, %100 ], [ %92, %90 ], [ %.050.i.i.ph, %78 ], [ %68, %67 ], [ %.050.i.i.ph, %74 ], [ %.050.i.i.ph, %51 ]
   %.3.i.i = phi i32 [ %102, %100 ], [ %93, %90 ], [ %.047.i.i.ph.ph, %78 ], [ %.047.i.i.ph.ph, %67 ], [ %.047.i.i.ph.ph, %74 ], [ %.047.i.i.ph.ph, %51 ]
-  %.1.i.i = phi i32 [ %.0.i.i.ph, %100 ], [ %91, %90 ], [ %spec.store.select.i.i, %78 ], [ %.0.i.i.ph, %67 ], [ 2, %74 ], [ %.0.i.i.ph, %51 ]
-  %103 = and i32 %.1.i.i, 15
+  %.2.i.i = phi i32 [ %.0.i.i.ph, %100 ], [ %91, %90 ], [ %spec.store.select.i.i, %78 ], [ %.0.i.i.ph, %67 ], [ 2, %74 ], [ %.0.i.i.ph, %51 ]
+  %103 = and i32 %.2.i.i, 15
   %104 = add i32 %103, %.3.i.i
   %105 = getelementptr inbounds i8, ptr %.252.i.i, i64 1
   %106 = load i8, ptr %105, align 1
@@ -255,13 +255,13 @@ default.unreachable:                              ; preds = %.loopexit56.i.i
   unreachable
 
 118:                                              ; preds = %116, %114, %109
-  %.4.i.i = phi i32 [ %117, %116 ], [ %115, %114 ], [ %104, %109 ]
+  %.5.i.i = phi i32 [ %117, %116 ], [ %115, %114 ], [ %104, %109 ]
   %119 = and i32 %107, 7
   %120 = icmp eq i32 %119, 4
   br i1 %120, label %121, label %_asm_x86_inslen.exit.i
 
 121:                                              ; preds = %118
-  %122 = add i32 %.4.i.i, 1
+  %122 = add i32 %.5.i.i, 1
   %123 = icmp ult i8 %106, 64
   br i1 %123, label %124, label %_asm_x86_inslen.exit.i
 
@@ -270,12 +270,12 @@ default.unreachable:                              ; preds = %.loopexit56.i.i
   %126 = load i8, ptr %125, align 1
   %127 = and i8 %126, 7
   %128 = icmp eq i8 %127, 5
-  %129 = add i32 %.4.i.i, 5
+  %129 = add i32 %.5.i.i, 5
   %spec.select.i.i = select i1 %128, i32 %129, i32 %122
   br label %_asm_x86_inslen.exit.i
 
 _asm_x86_inslen.exit.i:                           ; preds = %124, %121, %118, %112, %.loopexit56.i.i, %.loopexit.i.i, %52
-  %.054.i.i = phi i32 [ %113, %112 ], [ %73, %.loopexit.i.i ], [ %55, %52 ], [ %104, %.loopexit56.i.i ], [ %122, %121 ], [ %.4.i.i, %118 ], [ %spec.select.i.i, %124 ]
+  %.054.i.i = phi i32 [ %113, %112 ], [ %73, %.loopexit.i.i ], [ %55, %52 ], [ %104, %.loopexit56.i.i ], [ %122, %121 ], [ %.5.i.i, %118 ], [ %spec.select.i.i, %124 ]
   %130 = zext i32 %.054.i.i to i64
   %131 = getelementptr inbounds i8, ptr %.02657.i, i64 %130
   %132 = icmp ult ptr %131, %19
@@ -291,7 +291,7 @@ _asm_x86_inslen.exit.i:                           ; preds = %124, %121, %118, %1
 
 ir_patch_code.exit:                               ; preds = %.loopexit, %._crit_edge.i, %133
   %.0.lcssa91.i = phi i32 [ %.1.i, %133 ], [ 0, %._crit_edge.i ], [ 0, %.loopexit ]
-  %135 = add nsw i32 %.0.lcssa91.i, %.2
+  %135 = add nsw i32 %.0.lcssa91.i, %.015
   ret i32 %135
 }
 

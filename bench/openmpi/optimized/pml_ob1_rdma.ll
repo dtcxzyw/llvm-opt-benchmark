@@ -31,14 +31,14 @@ define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_btls(ptr nocaptu
   %.val64 = load i64, ptr %7, align 8
   %8 = trunc i64 %.val64 to i32
   %9 = icmp eq i32 %6, 0
-  br i1 %9, label %._crit_edge75.thread, label %.preheader
+  br i1 %9, label %._crit_edge76.thread, label %.preheader
 
 .preheader:                                       ; preds = %4
   %10 = icmp sgt i32 %6, 0
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 224), align 16
   %12 = icmp sgt i32 %11, 0
   %13 = select i1 %10, i1 %12, i1 false
-  br i1 %13, label %.lr.ph, label %._crit_edge75.thread
+  br i1 %13, label %.lr.ph, label %._crit_edge76.thread
 
 .lr.ph:                                           ; preds = %.preheader
   %14 = getelementptr inbounds i8, ptr %0, i64 216
@@ -51,11 +51,11 @@ define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_btls(ptr nocaptu
   br label %19
 
 19:                                               ; preds = %.lr.ph, %67
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next81, %67 ]
-  %.05373 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %67 ]
-  %.05571 = phi i32 [ 0, %.lr.ph ], [ %.156, %67 ]
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next82, %67 ]
+  %.05374 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %67 ]
+  %.05572 = phi i32 [ 0, %.lr.ph ], [ %.156, %67 ]
   %20 = load i64, ptr %14, align 8
-  %21 = add i64 %20, %indvars.iv80
+  %21 = add i64 %20, %indvars.iv81
   %22 = urem i64 %21, %sext60
   %23 = load i64, ptr %5, align 8
   %24 = icmp ugt i64 %23, %22
@@ -71,10 +71,10 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %19, %25
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load i8, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 232), align 8
-  %.fr77 = freeze i8 %30
-  %31 = trunc i8 %.fr77 to i1
-  %.not6168 = or i1 %16, %31
-  br i1 %.not6168, label %._crit_edge, label %mca_bml_base_btl_array_get_index.exit66.preheader
+  %.fr78 = freeze i8 %30
+  %31 = trunc i8 %.fr78 to i1
+  %.not6169 = or i1 %16, %31
+  br i1 %.not6169, label %._crit_edge, label %mca_bml_base_btl_array_get_index.exit66.preheader
 
 mca_bml_base_btl_array_get_index.exit66.preheader: ; preds = %mca_bml_base_btl_array_get_index.exit
   %32 = load i64, ptr %7, align 8
@@ -133,7 +133,7 @@ mca_bml_base_btl_array_get_index.exit66:          ; preds = %mca_bml_base_btl_ar
 
 58:                                               ; preds = %53, %.thread
   %.054 = phi ptr [ %56, %53 ], [ null, %.thread ]
-  %59 = sext i32 %.05571 to i64
+  %59 = sext i32 %.05572 to i64
   %60 = getelementptr inbounds %struct.mca_pml_ob1_com_btl_t, ptr %3, i64 %59
   store ptr %.0.i, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 8
@@ -141,30 +141,30 @@ mca_bml_base_btl_array_get_index.exit66:          ; preds = %mca_bml_base_btl_ar
   %62 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %63 = load float, ptr %62, align 4
   %64 = fpext float %63 to double
-  %65 = fadd double %.05373, %64
-  %66 = add nsw i32 %.05571, 1
+  %65 = fadd double %.05374, %64
+  %66 = add nsw i32 %.05572, 1
   br label %67
 
 67:                                               ; preds = %53, %49, %._crit_edge, %58
-  %.156 = phi i32 [ %.05571, %._crit_edge ], [ %.05571, %53 ], [ %66, %58 ], [ %.05571, %49 ]
-  %.1 = phi double [ %.05373, %._crit_edge ], [ %.05373, %53 ], [ %65, %58 ], [ %.05373, %49 ]
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %68 = icmp ult i64 %indvars.iv.next81, %18
+  %.156 = phi i32 [ %.05572, %._crit_edge ], [ %.05572, %53 ], [ %66, %58 ], [ %.05572, %49 ]
+  %.1 = phi double [ %.05374, %._crit_edge ], [ %.05374, %53 ], [ %65, %58 ], [ %.05374, %49 ]
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %68 = icmp ult i64 %indvars.iv.next82, %18
   %69 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 224), align 16
   %70 = icmp slt i32 %.156, %69
   %71 = select i1 %68, i1 %70, i1 false
-  br i1 %71, label %19, label %._crit_edge75, !llvm.loop !6
+  br i1 %71, label %19, label %._crit_edge76, !llvm.loop !6
 
-._crit_edge75:                                    ; preds = %67
+._crit_edge76:                                    ; preds = %67
   %72 = icmp eq i32 %.156, 0
-  br i1 %72, label %._crit_edge75.thread, label %73
+  br i1 %72, label %._crit_edge76.thread, label %73
 
-73:                                               ; preds = %._crit_edge75
+73:                                               ; preds = %._crit_edge76
   %74 = load i32, ptr @opal_leave_pinned, align 4
   %75 = icmp eq i32 %74, 0
   %76 = fcmp olt double %.1, 5.000000e-01
   %or.cond = select i1 %75, i1 %76, i1 false
-  br i1 %or.cond, label %._crit_edge75.thread, label %77
+  br i1 %or.cond, label %._crit_edge76.thread, label %77
 
 77:                                               ; preds = %73
   %78 = icmp eq i32 %.156, 1
@@ -219,9 +219,9 @@ mca_bml_base_btl_array_get_index.exit66:          ; preds = %mca_bml_base_btl_ar
 
 104:                                              ; preds = %101, %85
   %.129.i = phi i64 [ %103, %101 ], [ 0, %85 ]
-  %.1.i = phi i64 [ %spec.select.i, %101 ], [ 0, %85 ]
+  %.0.i67 = phi i64 [ %spec.select.i, %101 ], [ 0, %85 ]
   %105 = getelementptr inbounds i8, ptr %86, i64 16
-  store i64 %.1.i, ptr %105, align 8
+  store i64 %.0.i67, ptr %105, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %85, !llvm.loop !7
@@ -242,10 +242,10 @@ mca_pml_ob1_calc_weighted_length.exit:            ; preds = %79, %._crit_edge.i
   %sext = and i64 %.val, 2147483647
   %112 = urem i64 %111, %sext
   store i64 %112, ptr %109, align 8
-  br label %._crit_edge75.thread
+  br label %._crit_edge76.thread
 
-._crit_edge75.thread:                             ; preds = %.preheader, %._crit_edge75, %73, %4, %mca_pml_ob1_calc_weighted_length.exit
-  %.0 = phi i64 [ %.pre-phi, %mca_pml_ob1_calc_weighted_length.exit ], [ 0, %4 ], [ 0, %73 ], [ 0, %._crit_edge75 ], [ 0, %.preheader ]
+._crit_edge76.thread:                             ; preds = %.preheader, %._crit_edge76, %73, %4, %mca_pml_ob1_calc_weighted_length.exit
+  %.0 = phi i64 [ %.pre-phi, %mca_pml_ob1_calc_weighted_length.exit ], [ 0, %4 ], [ 0, %73 ], [ 0, %._crit_edge76 ], [ 0, %.preheader ]
   ret i64 %.0
 }
 
@@ -416,9 +416,9 @@ define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_pipeline_btls(pt
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 224), align 16
   %9 = icmp sgt i32 %8, 0
   %10 = select i1 %7, i1 %9, i1 false
-  br i1 %10, label %.lr.ph, label %.thread52
+  br i1 %10, label %.lr.ph, label %.thread53
 
-.thread52:                                        ; preds = %3
+.thread53:                                        ; preds = %3
   tail call void @qsort(ptr noundef %2, i64 noundef 0, i64 noundef 24, ptr noundef nonnull @mca_pml_ob1_com_btl_comp) #7
   br label %._crit_edge.i
 
@@ -435,9 +435,9 @@ define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_pipeline_btls(pt
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %36
-  %.040.us = phi double [ %.1.us, %36 ], [ 0.000000e+00, %.lr.ph ]
-  %.02939.us = phi i32 [ %.130.us, %36 ], [ 0, %.lr.ph ]
-  %.03138.us = phi i32 [ %37, %36 ], [ 0, %.lr.ph ]
+  %.041.us = phi double [ %.1.us, %36 ], [ 0.000000e+00, %.lr.ph ]
+  %.02940.us = phi i32 [ %.130.us, %36 ], [ 0, %.lr.ph ]
+  %.03139.us = phi i32 [ %37, %36 ], [ 0, %.lr.ph ]
   %16 = load i64, ptr %4, align 8
   %17 = icmp eq i64 %16, 1
   br i1 %17, label %24, label %18
@@ -463,32 +463,32 @@ mca_bml_base_btl_array_get_next.exit.us:          ; preds = %24, %18
   br i1 %27, label %.thread.us, label %36
 
 .thread.us:                                       ; preds = %mca_bml_base_btl_array_get_next.exit.us
-  %28 = sext i32 %.02939.us to i64
+  %28 = sext i32 %.02940.us to i64
   %29 = getelementptr inbounds %struct.mca_pml_ob1_com_btl_t, ptr %2, i64 %28
   store ptr %.0.i.us, ptr %29, align 8
-  %30 = add nsw i32 %.02939.us, 1
+  %30 = add nsw i32 %.02940.us, 1
   %31 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %.0.i.us, i64 4
   %33 = load float, ptr %32, align 4
   %34 = fpext float %33 to double
-  %35 = fadd double %.040.us, %34
+  %35 = fadd double %.041.us, %34
   br label %36
 
 36:                                               ; preds = %.thread.us, %mca_bml_base_btl_array_get_next.exit.us
-  %.130.us = phi i32 [ %.02939.us, %mca_bml_base_btl_array_get_next.exit.us ], [ %30, %.thread.us ]
-  %.1.us = phi double [ %.040.us, %mca_bml_base_btl_array_get_next.exit.us ], [ %35, %.thread.us ]
-  %37 = add nuw nsw i32 %.03138.us, 1
+  %.130.us = phi i32 [ %.02940.us, %mca_bml_base_btl_array_get_next.exit.us ], [ %30, %.thread.us ]
+  %.1.us = phi double [ %.041.us, %mca_bml_base_btl_array_get_next.exit.us ], [ %35, %.thread.us ]
+  %37 = add nuw nsw i32 %.03139.us, 1
   %38 = icmp slt i32 %37, %5
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 224), align 16
   %40 = icmp slt i32 %37, %39
   %41 = select i1 %38, i1 %40, i1 false
-  br i1 %41, label %.lr.ph.split.us, label %._crit_edge42, !llvm.loop !10
+  br i1 %41, label %.lr.ph.split.us, label %._crit_edge43, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %71
-  %.040 = phi double [ %.1, %71 ], [ 0.000000e+00, %.lr.ph.split.preheader ]
-  %.02939 = phi i32 [ %.130, %71 ], [ 0, %.lr.ph.split.preheader ]
-  %.03138 = phi i32 [ %72, %71 ], [ 0, %.lr.ph.split.preheader ]
+  %.041 = phi double [ %.1, %71 ], [ 0.000000e+00, %.lr.ph.split.preheader ]
+  %.02940 = phi i32 [ %.130, %71 ], [ 0, %.lr.ph.split.preheader ]
+  %.03139 = phi i32 [ %72, %71 ], [ 0, %.lr.ph.split.preheader ]
   %42 = load i64, ptr %4, align 8
   %43 = icmp eq i64 %42, 1
   br i1 %43, label %44, label %46
@@ -538,40 +538,40 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_btl_ar
   br i1 %53, label %.thread, label %71
 
 .thread:                                          ; preds = %mca_bml_base_btl_array_get_index.exit, %mca_bml_base_btl_array_get_next.exit, %._crit_edge
-  %63 = sext i32 %.02939 to i64
+  %63 = sext i32 %.02940 to i64
   %64 = getelementptr inbounds %struct.mca_pml_ob1_com_btl_t, ptr %2, i64 %63
   store ptr %.0.i, ptr %64, align 8
-  %65 = add nsw i32 %.02939, 1
+  %65 = add nsw i32 %.02940, 1
   %66 = getelementptr inbounds i8, ptr %64, i64 8
   store ptr null, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %68 = load float, ptr %67, align 4
   %69 = fpext float %68 to double
-  %70 = fadd double %.040, %69
+  %70 = fadd double %.041, %69
   br label %71
 
 71:                                               ; preds = %._crit_edge, %.thread
-  %.130 = phi i32 [ %.02939, %._crit_edge ], [ %65, %.thread ]
-  %.1 = phi double [ %.040, %._crit_edge ], [ %70, %.thread ]
-  %72 = add nuw nsw i32 %.03138, 1
+  %.130 = phi i32 [ %.02940, %._crit_edge ], [ %65, %.thread ]
+  %.1 = phi double [ %.041, %._crit_edge ], [ %70, %.thread ]
+  %72 = add nuw nsw i32 %.03139, 1
   %73 = icmp slt i32 %72, %5
   %74 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 224), align 16
   %75 = icmp slt i32 %72, %74
   %76 = select i1 %73, i1 %75, i1 false
-  br i1 %76, label %.lr.ph.split, label %._crit_edge42, !llvm.loop !10
+  br i1 %76, label %.lr.ph.split, label %._crit_edge43, !llvm.loop !10
 
-._crit_edge42:                                    ; preds = %71, %36
+._crit_edge43:                                    ; preds = %71, %36
   %.029.lcssa = phi i32 [ %.130.us, %36 ], [ %.130, %71 ]
   %.0.lcssa = phi double [ %.1.us, %36 ], [ %.1, %71 ]
   %77 = icmp eq i32 %.029.lcssa, 1
   br i1 %77, label %78, label %80
 
-78:                                               ; preds = %._crit_edge42
+78:                                               ; preds = %._crit_edge43
   %79 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %1, ptr %79, align 8
   br label %mca_pml_ob1_calc_weighted_length.exit
 
-80:                                               ; preds = %._crit_edge42
+80:                                               ; preds = %._crit_edge43
   %81 = sext i32 %.029.lcssa to i64
   tail call void @qsort(ptr noundef %2, i64 noundef %81, i64 noundef 24, ptr noundef nonnull @mca_pml_ob1_com_btl_comp) #7
   %82 = icmp sgt i32 %.029.lcssa, 0
@@ -615,16 +615,16 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_btl_ar
 
 103:                                              ; preds = %100, %84
   %.129.i = phi i64 [ %102, %100 ], [ 0, %84 ]
-  %.1.i = phi i64 [ %spec.select.i, %100 ], [ 0, %84 ]
+  %.0.i35 = phi i64 [ %spec.select.i, %100 ], [ 0, %84 ]
   %104 = getelementptr inbounds i8, ptr %85, i64 16
-  store i64 %.1.i, ptr %104, align 8
+  store i64 %.0.i35, ptr %104, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %84, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %103, %.thread52, %80
-  %105 = phi i64 [ %81, %80 ], [ 0, %.thread52 ], [ %81, %103 ]
-  %.028.lcssa.i = phi i64 [ %1, %80 ], [ %1, %.thread52 ], [ %.129.i, %103 ]
+._crit_edge.i:                                    ; preds = %103, %.thread53, %80
+  %105 = phi i64 [ %81, %80 ], [ 0, %.thread53 ], [ %81, %103 ]
+  %.028.lcssa.i = phi i64 [ %1, %80 ], [ %1, %.thread53 ], [ %.129.i, %103 ]
   %106 = getelementptr inbounds i8, ptr %2, i64 16
   %107 = load i64, ptr %106, align 8
   %108 = add i64 %107, %.028.lcssa.i

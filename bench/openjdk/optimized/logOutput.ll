@@ -570,7 +570,7 @@ _ZL9sort_tagsPN6LogTag4typeE.exit:                ; preds = %17
 .lr.ph65:                                         ; preds = %.critedge, %37
   %.064 = phi ptr [ %.0, %37 ], [ %.060, %.critedge ]
   %.04163 = phi i8 [ %.2, %37 ], [ 0, %.critedge ]
-  %.04262 = phi i1 [ %.143, %37 ], [ false, %.critedge ]
+  %.04262 = phi i1 [ %.244, %37 ], [ false, %.critedge ]
   %33 = call noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(112) %.064) #12
   br i1 %33, label %34, label %37
 
@@ -581,14 +581,14 @@ _ZL9sort_tagsPN6LogTag4typeE.exit:                ; preds = %17
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %34, %.lr.ph65
-  %.143 = phi i1 [ true, %34 ], [ %.04262, %.lr.ph65 ]
+  %.244 = phi i1 [ true, %34 ], [ %.04262, %.lr.ph65 ]
   %.2 = phi i8 [ %spec.select, %34 ], [ %.04163, %.lr.ph65 ]
   %.0 = load ptr, ptr %.064, align 8
   %.not50 = icmp eq ptr %.0, null
   br i1 %.not50, label %._crit_edge66, label %.lr.ph65, !llvm.loop !20
 
 ._crit_edge66:                                    ; preds = %37
-  br i1 %.143, label %.thread, label %38
+  br i1 %.244, label %.thread, label %38
 
 38:                                               ; preds = %._crit_edge66
   %39 = trunc nuw i8 %.2 to i1
@@ -596,7 +596,7 @@ _ZL9sort_tagsPN6LogTag4typeE.exit:                ; preds = %17
 
 .thread:                                          ; preds = %34, %38, %._crit_edge66
   %40 = phi i1 [ false, %38 ], [ true, %._crit_edge66 ], [ true, %34 ]
-  %.353 = phi i8 [ %.2, %38 ], [ %.2, %._crit_edge66 ], [ %spec.select, %34 ]
+  %.153 = phi i8 [ %.2, %38 ], [ %.2, %._crit_edge66 ], [ %spec.select, %34 ]
   %41 = load i64, ptr %1, align 8
   %42 = add i64 %41, 2
   %43 = load i64, ptr %2, align 8
@@ -613,7 +613,7 @@ _ZL9sort_tagsPN6LogTag4typeE.exit:                ; preds = %17
   br label %50
 
 50:                                               ; preds = %45, %.thread
-  %51 = trunc nuw i8 %.353 to i1
+  %51 = trunc nuw i8 %.153 to i1
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %50

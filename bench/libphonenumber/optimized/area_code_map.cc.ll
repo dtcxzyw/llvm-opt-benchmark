@@ -282,7 +282,7 @@ _ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread: ; preds = %4
           to label %.thread unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .thread:                                          ; preds = %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit, %67
-  %.1.ph = phi ptr [ %69, %67 ], [ null, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit ]
+  %.2.ph = phi ptr [ %69, %67 ], [ null, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   br label %.loopexit42
 
@@ -297,7 +297,7 @@ _ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread: ; preds = %4
   br label %72
 
 .loopexit42:                                      ; preds = %70, %26, %.thread
-  %.2 = phi ptr [ %.1.ph, %.thread ], [ null, %26 ], [ null, %70 ]
+  %.3 = phi ptr [ %.2.ph, %.thread ], [ null, %26 ], [ null, %70 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   br label %73
 
@@ -307,8 +307,8 @@ _ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread: ; preds = %4
   resume { ptr, i32 } %.pn33.pn
 
 73:                                               ; preds = %2, %.loopexit42
-  %.3 = phi ptr [ %.2, %.loopexit42 ], [ null, %2 ]
-  ret ptr %.3
+  %.0 = phi ptr [ %.3, %.loopexit42 ], [ null, %2 ]
+  ret ptr %.0
 }
 
 declare noundef i32 @_ZNK4i18n12phonenumbers17DefaultMapStorage15GetNumOfEntriesEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #0

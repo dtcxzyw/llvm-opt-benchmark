@@ -2075,7 +2075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLISt17basic_string_viewIcS
   br i1 %43, label %.invoke, label %46
 
 .invoke:                                          ; preds = %.loopexit143, %.loopexit143.thread, %42
-  %44 = phi i64 [ %.020.i.i, %42 ], [ 2, %.loopexit143.thread ], [ %.2, %.loopexit143 ]
+  %44 = phi i64 [ %.020.i.i, %42 ], [ 2, %.loopexit143.thread ], [ %.153, %.loopexit143 ]
   %45 = phi i64 [ %.sroa.0120.0, %42 ], [ %47, %.loopexit143.thread ], [ %47, %.loopexit143 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, i64 noundef %44, i64 noundef %45) #21
           to label %.cont unwind label %.loopexit.split-lp
@@ -2091,7 +2091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLISt17basic_string_viewIcS
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %46, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit
   %.052175 = phi i64 [ %63, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ], [ 2, %46 ]
-  %.060174 = phi i64 [ %.161, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ], [ 1, %46 ]
+  %.060174 = phi i64 [ %.262, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ], [ 1, %46 ]
   %50 = getelementptr inbounds i8, ptr %48, i64 %.052175
   %51 = sub nuw i64 %47, %.052175
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %51, i64 2)
@@ -2121,17 +2121,17 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i83: ; preds = %_ZNSt11char_tra
   br label %.loopexit143
 
 _Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i83, %58, %54
-  %.161 = phi i64 [ %55, %54 ], [ %59, %58 ], [ %.060174, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i83 ]
-  %.153 = phi i64 [ %56, %54 ], [ %.052175, %58 ], [ %.052175, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i83 ]
-  %63 = add i64 %.153, 1
+  %.262 = phi i64 [ %55, %54 ], [ %59, %58 ], [ %.060174, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i83 ]
+  %.2 = phi i64 [ %56, %54 ], [ %.052175, %58 ], [ %.052175, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i83 ]
+  %63 = add i64 %.2, 1
   %64 = icmp ult i64 %63, %47
   br i1 %64, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, label %.loopexit143, !llvm.loop !12
 
 .loopexit143:                                     ; preds = %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit, %61
-  %.262 = phi i64 [ 0, %61 ], [ %.161, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ]
-  %.2 = phi i64 [ %62, %61 ], [ %63, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ]
-  %.sroa.speculated.i86 = call i64 @llvm.umin.i64(i64 %47, i64 %.2)
-  %65 = icmp ult i64 %47, %.2
+  %.161 = phi i64 [ 0, %61 ], [ %.262, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ]
+  %.153 = phi i64 [ %62, %61 ], [ %63, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ]
+  %.sroa.speculated.i86 = call i64 @llvm.umin.i64(i64 %47, i64 %.153)
+  %65 = icmp ult i64 %47, %.153
   br i1 %65, label %.invoke, label %69
 
 .loopexit143.thread:                              ; preds = %46
@@ -2145,11 +2145,11 @@ _Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
   br label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread
 
 69:                                               ; preds = %.loopexit143
-  %70 = sub nuw i64 %47, %.2
-  %71 = getelementptr inbounds i8, ptr %48, i64 %.2
+  %70 = sub nuw i64 %47, %.153
+  %71 = getelementptr inbounds i8, ptr %48, i64 %.153
   %72 = trunc nuw i8 %.0 to i1
   %73 = select i1 %72, ptr %6, ptr %7
-  %74 = icmp eq i64 %.262, 0
+  %74 = icmp eq i64 %.161, 0
   br i1 %74, label %75, label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread
 
 75:                                               ; preds = %69

@@ -198,8 +198,8 @@ while.cond.preheader.i14.i:                       ; preds = %do.end.i.i
   br i1 %tobool2.not6.i.i, label %q_tree_node_next.exit.i, label %while.body.i15.i
 
 while.body.i15.i:                                 ; preds = %while.cond.preheader.i14.i, %while.body.i15.i
-  %tmp.07.i.i = phi ptr [ %7, %while.body.i15.i ], [ %4, %while.cond.preheader.i14.i ]
-  %left.i16.i = getelementptr inbounds i8, ptr %tmp.07.i.i, i64 16
+  %tmp.17.i.i = phi ptr [ %7, %while.body.i15.i ], [ %4, %while.cond.preheader.i14.i ]
+  %left.i16.i = getelementptr inbounds i8, ptr %tmp.17.i.i, i64 16
   %7 = load ptr, ptr %left.i16.i, align 8
   %left_child.i17.i = getelementptr inbounds i8, ptr %7, i64 33
   %8 = load i8, ptr %left_child.i17.i, align 1
@@ -298,8 +298,8 @@ while.cond.preheader.i14.i:                       ; preds = %do.end.i.i
   br i1 %tobool2.not6.i.i, label %q_tree_node_next.exit.i, label %while.body.i15.i
 
 while.body.i15.i:                                 ; preds = %while.cond.preheader.i14.i, %while.body.i15.i
-  %tmp.07.i.i = phi ptr [ %6, %while.body.i15.i ], [ %3, %while.cond.preheader.i14.i ]
-  %left.i16.i = getelementptr inbounds i8, ptr %tmp.07.i.i, i64 16
+  %tmp.17.i.i = phi ptr [ %6, %while.body.i15.i ], [ %3, %while.cond.preheader.i14.i ]
+  %left.i16.i = getelementptr inbounds i8, ptr %tmp.17.i.i, i64 16
   %6 = load ptr, ptr %left.i16.i, align 8
   %left_child.i17.i = getelementptr inbounds i8, ptr %6, i64 33
   %7 = load i8, ptr %left_child.i17.i, align 1
@@ -384,8 +384,8 @@ while.cond.preheader.i14.i.i:                     ; preds = %do.end.i.i.i
   br i1 %tobool2.not6.i.i.i, label %q_tree_node_next.exit.i.i, label %while.body.i15.i.i
 
 while.body.i15.i.i:                               ; preds = %while.cond.preheader.i14.i.i, %while.body.i15.i.i
-  %tmp.07.i.i.i = phi ptr [ %19, %while.body.i15.i.i ], [ %16, %while.cond.preheader.i14.i.i ]
-  %left.i16.i.i = getelementptr inbounds i8, ptr %tmp.07.i.i.i, i64 16
+  %tmp.17.i.i.i = phi ptr [ %19, %while.body.i15.i.i ], [ %16, %while.cond.preheader.i14.i.i ]
+  %left.i16.i.i = getelementptr inbounds i8, ptr %tmp.17.i.i.i, i64 16
   %19 = load ptr, ptr %left.i16.i.i, align 8
   %left_child.i17.i.i = getelementptr inbounds i8, ptr %19, i64 33
   %20 = load i8, ptr %left_child.i17.i.i, align 1
@@ -599,8 +599,8 @@ while.cond.preheader.i:                           ; preds = %if.then44
   br i1 %tobool2.not6.i, label %q_tree_node_next.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
-  %tmp.07.i = phi ptr [ %19, %while.body.i ], [ %17, %while.cond.preheader.i ]
-  %left.i = getelementptr inbounds i8, ptr %tmp.07.i, i64 16
+  %tmp.17.i = phi ptr [ %19, %while.body.i ], [ %17, %while.cond.preheader.i ]
+  %left.i = getelementptr inbounds i8, ptr %tmp.17.i, i64 16
   %19 = load ptr, ptr %left.i, align 8
   %left_child.i = getelementptr inbounds i8, ptr %19, i64 33
   %20 = load i8, ptr %left_child.i, align 1
@@ -633,8 +633,8 @@ while.cond.preheader.i140:                        ; preds = %if.else95
   br i1 %tobool2.not6.i141, label %q_tree_node_previous.exit, label %while.body.i142
 
 while.body.i142:                                  ; preds = %while.cond.preheader.i140, %while.body.i142
-  %tmp.07.i143 = phi ptr [ %25, %while.body.i142 ], [ %23, %while.cond.preheader.i140 ]
-  %right.i144 = getelementptr inbounds i8, ptr %tmp.07.i143, i64 24
+  %tmp.17.i143 = phi ptr [ %25, %while.body.i142 ], [ %23, %while.cond.preheader.i140 ]
+  %right.i144 = getelementptr inbounds i8, ptr %tmp.17.i143, i64 24
   %25 = load ptr, ptr %right.i144, align 8
   %right_child.i145 = getelementptr inbounds i8, ptr %25, i64 34
   %26 = load i8, ptr %right_child.i145, align 2
@@ -672,8 +672,8 @@ while.end138.thread:                              ; preds = %if.else126
 
 while.body133:                                    ; preds = %if.else126, %while.body133
   %next.0183 = phi ptr [ %next.0, %while.body133 ], [ %next.0179, %if.else126 ]
-  %idx.2182 = phi i32 [ %inc134, %while.body133 ], [ %idx.0.lcssa201, %if.else126 ]
-  %inc134 = add i32 %idx.2182, 1
+  %idx.3182 = phi i32 [ %inc134, %while.body133 ], [ %idx.0.lcssa201, %if.else126 ]
+  %inc134 = add i32 %idx.3182, 1
   %idxprom135 = sext i32 %inc134 to i64
   %arrayidx136 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom135
   store ptr %next.0183, ptr %arrayidx136, align 8
@@ -726,7 +726,7 @@ if.end153:                                        ; preds = %if.else151, %if.the
 if.else161:                                       ; preds = %while.end138.thread, %while.end138
   %36 = phi ptr [ %next.0179, %while.end138.thread ], [ %31, %while.end138 ]
   %left_child131.le221 = phi ptr [ %left_child131.le212, %while.end138.thread ], [ %left_child131.le, %while.end138 ]
-  %idx.2.lcssa219 = phi i32 [ %idx.0.lcssa201, %while.end138.thread ], [ %inc134, %while.end138 ]
+  %idx.3.lcssa219 = phi i32 [ %idx.0.lcssa201, %while.end138.thread ], [ %inc134, %while.end138 ]
   %next.0.lcssa178217 = phi ptr [ %next.0179, %while.end138.thread ], [ %next.0, %while.end138 ]
   %balance162 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 32
   %37 = load i8, ptr %balance162, align 8
@@ -737,7 +737,7 @@ if.else161:                                       ; preds = %while.end138.thread
 if.end166:                                        ; preds = %if.else161, %if.end153
   %38 = phi ptr [ %36, %if.else161 ], [ %31, %if.end153 ]
   %left_child131.le220 = phi ptr [ %left_child131.le221, %if.else161 ], [ %left_child131.le, %if.end153 ]
-  %idx.2.lcssa218 = phi i32 [ %idx.2.lcssa219, %if.else161 ], [ %inc134, %if.end153 ]
+  %idx.3.lcssa218 = phi i32 [ %idx.3.lcssa219, %if.else161 ], [ %inc134, %if.end153 ]
   %next.0.lcssa178216 = phi ptr [ %next.0.lcssa178217, %if.else161 ], [ %next.0, %if.end153 ]
   %right_child168188 = getelementptr inbounds i8, ptr %23, i64 34
   %39 = load i8, ptr %right_child168188, align 2
@@ -803,7 +803,7 @@ while.body195.sink.split:                         ; preds = %if.end262, %while.b
   br label %while.body195
 
 while.body195:                                    ; preds = %while.body195.sink.split, %if.end191
-  %idx.4 = phi i32 [ %idx.2.lcssa218, %if.end191 ], [ %idx.4.ph, %while.body195.sink.split ]
+  %idx.4 = phi i32 [ %idx.3.lcssa218, %if.end191 ], [ %idx.4.ph, %while.body195.sink.split ]
   %balance.1 = phi ptr [ %38, %if.end191 ], [ %balance.1.ph, %while.body195.sink.split ]
   %dec196 = add i32 %idx.4, -1
   %idxprom197 = sext i32 %dec196 to i64
@@ -1139,8 +1139,8 @@ while.cond.preheader.i7:                          ; preds = %do.end.i
   br i1 %tobool2.not6.i, label %q_tree_node_next.exit, label %while.body.i8
 
 while.body.i8:                                    ; preds = %while.cond.preheader.i7, %while.body.i8
-  %tmp.07.i = phi ptr [ %9, %while.body.i8 ], [ %6, %while.cond.preheader.i7 ]
-  %left.i9 = getelementptr inbounds i8, ptr %tmp.07.i, i64 16
+  %tmp.17.i = phi ptr [ %9, %while.body.i8 ], [ %6, %while.cond.preheader.i7 ]
+  %left.i9 = getelementptr inbounds i8, ptr %tmp.17.i, i64 16
   %9 = load ptr, ptr %left.i9, align 8
   %left_child.i10 = getelementptr inbounds i8, ptr %9, i64 33
   %10 = load i8, ptr %left_child.i10, align 1

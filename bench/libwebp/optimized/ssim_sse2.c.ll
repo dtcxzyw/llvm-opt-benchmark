@@ -79,7 +79,7 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
   %.lcssa = phi <4 x i32> [ zeroinitializer, %5 ], [ %39, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ 16, %5 ], [ %40, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ 16, %5 ], [ %40, %._crit_edge.loopexit ]
   %.058.lcssa = phi <2 x i64> [ %.05864, %5 ], [ %.058, %._crit_edge.loopexit ]
   %.059.lcssa = phi <2 x i64> [ %.05965, %5 ], [ %.059, %._crit_edge.loopexit ]
   %41 = bitcast <2 x i64> %.059.lcssa to <16 x i8>
@@ -100,12 +100,12 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
 
 55:                                               ; preds = %._crit_edge, %3
   %.055 = phi i32 [ %54, %._crit_edge ], [ 0, %3 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge ], [ 0, %3 ]
-  %56 = icmp slt i32 %.1, %2
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %3 ]
+  %56 = icmp slt i32 %.0, %2
   br i1 %56, label %.lr.ph76.preheader, label %._crit_edge77
 
 .lr.ph76.preheader:                               ; preds = %55
-  %57 = zext nneg i32 %.1 to i64
+  %57 = zext nneg i32 %.0 to i64
   %wide.trip.count = zext i32 %2 to i64
   br label %.lr.ph76
 

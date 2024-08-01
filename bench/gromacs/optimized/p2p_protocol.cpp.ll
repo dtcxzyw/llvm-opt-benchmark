@@ -480,9 +480,9 @@ _ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41: ; preds
   br i1 %.not38, label %.thread50, label %.thread55
 
 .thread55:                                        ; preds = %72, %76
-  %.160 = phi ptr [ %81, %76 ], [ %75, %72 ]
+  %.03160 = phi ptr [ %81, %76 ], [ %75, %72 ]
   %phi.call.ph4759 = phi ptr [ %15, %76 ], [ %40, %72 ]
-  tail call fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr noundef nonnull %.160, ptr noundef nonnull %phi.call.ph4759)
+  tail call fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr noundef nonnull %.03160, ptr noundef nonnull %phi.call.ph4759)
   br label %_ZL23tMPI_Prep_recv_envelopeP11tmpi_threadP10tmpi_comm_S0_S0_PviP14tmpi_datatype_ii.exit
 
 .thread50:                                        ; preds = %68, %64, %76
@@ -957,7 +957,7 @@ define void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0) local_
 
 .preheader52:                                     ; preds = %.preheader52.lr.ph, %.loopexit50
   %indvars.iv = phi i64 [ 0, %.preheader52.lr.ph ], [ %indvars.iv.next, %.loopexit50 ]
-  %.03460 = phi i32 [ %8, %.preheader52.lr.ph ], [ %.2, %.loopexit50 ]
+  %.160 = phi i32 [ %8, %.preheader52.lr.ph ], [ %.3, %.loopexit50 ]
   br label %16
 
 16:                                               ; preds = %.preheader52, %16
@@ -984,11 +984,11 @@ define void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0) local_
   br i1 %.not41, label %.preheader, label %.preheader51, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader51, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit
-  %.159 = phi i32 [ %29, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ], [ %.03460, %.preheader51 ]
+  %.259 = phi i32 [ %29, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ], [ %.160, %.preheader51 ]
   %.13758 = phi ptr [ %28, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ], [ %.03656, %.preheader51 ]
   %27 = getelementptr inbounds i8, ptr %.13758, i64 128
   %28 = load ptr, ptr %27, align 8
-  %29 = add nsw i32 %.159, 1
+  %29 = add nsw i32 %.259, 1
   %.val = load ptr, ptr %15, align 8
   %.0.in3.i = getelementptr inbounds i8, ptr %.val, i64 136
   %.04.i = load ptr, ptr %.0.in3.i, align 8
@@ -1206,7 +1206,7 @@ _ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit:    ; preds = %_ZL25tMPI_Recv_env_
   br i1 %.not42, label %.loopexit50, label %.preheader, !llvm.loop !16
 
 .loopexit50:                                      ; preds = %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit, %23
-  %.2 = phi i32 [ %.03460, %23 ], [ %29, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ]
+  %.3 = phi i32 [ %.160, %23 ], [ %29, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %125 = load i32, ptr @Nthreads, align 4
   %126 = sext i32 %125 to i64
@@ -1214,10 +1214,10 @@ _ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit:    ; preds = %_ZL25tMPI_Recv_env_
   br i1 %127, label %.preheader52, label %.loopexit54, !llvm.loop !17
 
 .loopexit54:                                      ; preds = %.loopexit50, %1
-  %.3 = phi i32 [ %8, %1 ], [ %.2, %.loopexit50 ]
+  %.034 = phi i32 [ %8, %1 ], [ %.3, %.loopexit50 ]
   %128 = getelementptr inbounds i8, ptr %0, i64 352
   %129 = load i32, ptr %128, align 8
-  %130 = add nsw i32 %129, %.3
+  %130 = add nsw i32 %129, %.034
   store i32 %130, ptr %128, align 8
   ret void
 }

@@ -2806,7 +2806,7 @@ if.end101:                                        ; preds = %if.then55.i, %check
   br i1 %cmp102.not, label %do.cond, label %if.then104
 
 if.then104:                                       ; preds = %if.end96, %if.end101.thread132, %if.end101
-  %rv.1131 = phi i32 [ %retval.0.i104, %if.end101 ], [ %retval.0.i104.ph, %if.end101.thread132 ], [ %call95, %if.end96 ]
+  %rv.2131 = phi i32 [ %retval.0.i104, %if.end101 ], [ %retval.0.i104.ph, %if.end101.thread132 ], [ %call95, %if.end96 ]
   %324 = load i8, ptr %strict_header, align 2
   %tobool106.not = icmp eq i8 %324, 0
   br i1 %tobool106.not, label %do.cond, label %if.end114
@@ -2824,7 +2824,7 @@ if.then112:                                       ; preds = %if.end89, %if.end76
   br label %if.end114
 
 if.end114:                                        ; preds = %if.then104, %if.then112
-  %rv.3 = phi i32 [ %call113, %if.then112 ], [ %rv.1131, %if.then104 ]
+  %rv.3 = phi i32 [ %call113, %if.then112 ], [ %rv.2131, %if.then104 ]
   %scratch.val68 = load ptr, ptr %scratch, align 8
   %tobool.not.i109 = icmp eq ptr %scratch.val68, null
   br i1 %tobool.not.i109, label %priv_destroy_scratch.exit113, label %if.then.i110
@@ -3007,7 +3007,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %outbuf.045 = phi ptr [ %buf, %while.body.lr.ph ], [ %outbuf.1, %if.end41 ]
   %nCopied.044 = phi i64 [ 0, %while.body.lr.ph ], [ %nCopied.1, %if.end41 ]
   %notdone.043 = phi i64 [ %sz, %while.body.lr.ph ], [ %notdone.1, %if.end41 ]
-  %rv.042 = phi i32 [ -1, %while.body.lr.ph ], [ %rv.1, %if.end41 ]
+  %rv.042 = phi i32 [ -1, %while.body.lr.ph ], [ %rv.2, %if.end41 ]
   %0 = load i64, ptr %navail, align 8
   %cmp1 = icmp sgt i64 %0, 0
   br i1 %cmp1, label %if.then, label %if.else
@@ -3078,7 +3078,7 @@ if.then34:                                        ; preds = %if.else32
   br label %while.end
 
 if.end41:                                         ; preds = %if.then14, %if.then29, %if.then
-  %rv.1 = phi i32 [ %rv.042, %if.then ], [ %call, %if.then14 ], [ %call27, %if.then29 ]
+  %rv.2 = phi i32 [ %rv.042, %if.then ], [ %call, %if.then14 ], [ %call27, %if.then29 ]
   %notdone.1 = phi i64 [ %sub7, %if.then ], [ %sub15, %if.then14 ], [ %notdone.043, %if.then29 ]
   %nCopied.1 = phi i64 [ %add9, %if.then ], [ %add17, %if.then14 ], [ %nCopied.044, %if.then29 ]
   %outbuf.1 = phi ptr [ %add.ptr8, %if.then ], [ %add.ptr16, %if.then14 ], [ %outbuf.045, %if.then29 ]
@@ -3087,12 +3087,12 @@ if.end41:                                         ; preds = %if.then14, %if.then
 
 while.end:                                        ; preds = %if.end41, %if.then11, %if.else32, %if.then34
   %nCopied.040 = phi i64 [ %nCopied.044, %if.then34 ], [ %nCopied.044, %if.else32 ], [ %nCopied.1, %if.end41 ], [ %nCopied.044, %if.then11 ]
-  %rv.2 = phi i32 [ %call37, %if.then34 ], [ %call27, %if.else32 ], [ %rv.1, %if.end41 ], [ %call, %if.then11 ]
-  %rv.2.fr = freeze i32 %rv.2
-  %cmp42 = icmp eq i32 %rv.2.fr, -1
+  %rv.1 = phi i32 [ %call37, %if.then34 ], [ %call27, %if.else32 ], [ %rv.2, %if.end41 ], [ %call, %if.then11 ]
+  %rv.1.fr = freeze i32 %rv.1
+  %cmp42 = icmp eq i32 %rv.1.fr, -1
   %cmp44 = icmp eq i64 %nCopied.040, %sz
   %. = select i1 %cmp44, i32 0, i32 10
-  %spec.select58 = select i1 %cmp42, i32 %., i32 %rv.2.fr
+  %spec.select58 = select i1 %cmp42, i32 %., i32 %rv.1.fr
   br label %while.end.thread
 
 while.end.thread:                                 ; preds = %while.end, %entry
@@ -3119,7 +3119,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
   %0 = phi i64 [ %.pre, %while.body.lr.ph ], [ %8, %if.end26 ]
   %nCopied.029 = phi i64 [ 0, %while.body.lr.ph ], [ %nCopied.1, %if.end26 ]
-  %rv.028 = phi i32 [ -1, %while.body.lr.ph ], [ %rv.1, %if.end26 ]
+  %rv.028 = phi i32 [ -1, %while.body.lr.ph ], [ %rv.2, %if.end26 ]
   %notdone.027 = phi i64 [ %conv, %while.body.lr.ph ], [ %notdone.1, %if.end26 ]
   %cmp2 = icmp sgt i64 %0, 0
   br i1 %cmp2, label %if.then, label %if.else
@@ -3165,19 +3165,19 @@ if.then20:                                        ; preds = %if.else17
 if.end26:                                         ; preds = %if.then14, %if.then
   %8 = phi i64 [ %sub, %if.then ], [ %5, %if.then14 ]
   %notdone.1 = phi i64 [ %sub9, %if.then ], [ %notdone.027, %if.then14 ]
-  %rv.1 = phi i32 [ %rv.028, %if.then ], [ %call, %if.then14 ]
+  %rv.2 = phi i32 [ %rv.028, %if.then ], [ %call, %if.then14 ]
   %nCopied.1 = phi i64 [ %add10, %if.then ], [ %nCopied.029, %if.then14 ]
   %cmp.not = icmp eq i64 %notdone.1, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %if.end26, %if.else17, %if.then20
   %nCopied.024 = phi i64 [ %nCopied.029, %if.then20 ], [ %nCopied.029, %if.else17 ], [ %nCopied.1, %if.end26 ]
-  %rv.2 = phi i32 [ %call23, %if.then20 ], [ %call, %if.else17 ], [ %rv.1, %if.end26 ]
-  %rv.2.fr = freeze i32 %rv.2
-  %cmp27 = icmp eq i32 %rv.2.fr, -1
+  %rv.1 = phi i32 [ %call23, %if.then20 ], [ %call, %if.else17 ], [ %rv.2, %if.end26 ]
+  %rv.1.fr = freeze i32 %rv.1
+  %cmp27 = icmp eq i32 %rv.1.fr, -1
   %cmp31 = icmp eq i64 %nCopied.024, %conv
   %. = select i1 %cmp31, i32 0, i32 10
-  %spec.select40 = select i1 %cmp27, i32 %., i32 %rv.2.fr
+  %spec.select40 = select i1 %cmp27, i32 %., i32 %rv.1.fr
   br label %while.end.thread
 
 while.end.thread:                                 ; preds = %while.end, %entry
@@ -3801,7 +3801,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end64
   %indvars.iv148 = phi i64 [ 0, %while.body.lr.ph ], [ %indvars.iv.next149, %if.end64 ]
-  %clist.0106 = phi ptr [ null, %while.body.lr.ph ], [ %clist.2, %if.end64 ]
+  %clist.0106 = phi ptr [ null, %while.body.lr.ph ], [ %clist.3, %if.end64 ]
   %pulled.0105 = phi i32 [ 0, %while.body.lr.ph ], [ %add68, %if.end64 ]
   %nalloced.0104 = phi i32 [ 0, %while.body.lr.ph ], [ %nalloced.2, %if.end64 ]
   store i32 0, ptr %nlen, align 4
@@ -3857,7 +3857,7 @@ if.then27:                                        ; preds = %if.then23
 
 if.end30:                                         ; preds = %if.then23, %if.end20
   %nalloced.1 = phi i32 [ %nalloced.0104, %if.end20 ], [ 4, %if.then23 ]
-  %clist.1 = phi ptr [ %clist.0106, %if.end20 ], [ %call24, %if.then23 ]
+  %clist.2 = phi ptr [ %clist.0106, %if.end20 ], [ %call24, %if.then23 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %15 = trunc nuw i64 %indvars.iv.next149 to i32
   %cmp32.not = icmp sgt i32 %nalloced.1, %15
@@ -3886,7 +3886,7 @@ if.then41:                                        ; preds = %if.then34
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %add.ptr = getelementptr inbounds %struct.exr_attr_string_t, ptr %call38, i64 %indvars.iv
-  %arrayidx = getelementptr inbounds %struct.exr_attr_string_t, ptr %clist.1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds %struct.exr_attr_string_t, ptr %clist.2, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv148
@@ -3894,13 +3894,13 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %19 = load ptr, ptr %free_fn, align 8
-  call void %19(ptr noundef %clist.1) #10
+  call void %19(ptr noundef %clist.2) #10
   br label %if.end47
 
 if.end47:                                         ; preds = %for.end, %if.end30
   %nalloced.2 = phi i32 [ %mul, %for.end ], [ %nalloced.1, %if.end30 ]
-  %clist.2 = phi ptr [ %call38, %for.end ], [ %clist.1, %if.end30 ]
-  %add.ptr49 = getelementptr inbounds %struct.exr_attr_string_t, ptr %clist.2, i64 %indvars.iv148
+  %clist.3 = phi ptr [ %call38, %for.end ], [ %clist.2, %if.end30 ]
+  %add.ptr49 = getelementptr inbounds %struct.exr_attr_string_t, ptr %clist.3, i64 %indvars.iv148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr49, ptr noundef nonnull align 8 dereferenceable(16) %nil, i64 16, i1 false)
   %20 = load i32, ptr %nlen, align 4
   %call51 = call i32 @exr_attr_string_init(ptr noundef %ctxt, ptr noundef %add.ptr49, i32 noundef %20) #10
@@ -3938,7 +3938,7 @@ if.end64:                                         ; preds = %if.end55
 while.end:                                        ; preds = %if.end64, %while.cond.preheader
   %nstr.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %15, %if.end64 ]
   %nalloced.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %nalloced.2, %if.end64 ]
-  %clist.0.lcssa = phi ptr [ null, %while.cond.preheader ], [ %clist.2, %if.end64 ]
+  %clist.0.lcssa = phi ptr [ null, %while.cond.preheader ], [ %clist.3, %if.end64 ]
   %call69 = call i32 @exr_attr_string_vector_destroy(ptr noundef %ctxt, ptr noundef %attrdata) #10
   store i32 %nstr.0.lcssa, ptr %attrdata, align 8
   %alloc_size = getelementptr inbounds i8, ptr %attrdata, i64 4
@@ -3950,7 +3950,7 @@ while.end:                                        ; preds = %if.end64, %while.co
 extract_string_vector_fail:                       ; preds = %if.end47, %if.then61, %if.then41, %if.then27, %if.then17, %if.then4
   %rv.0 = phi i32 [ %call5, %if.then4 ], [ %call19, %if.then17 ], [ %call28, %if.then27 ], [ %call43, %if.then41 ], [ %call63, %if.then61 ], [ %call51, %if.end47 ]
   %nstr.1 = phi i32 [ %6, %if.then4 ], [ %10, %if.then17 ], [ %13, %if.then27 ], [ %17, %if.then41 ], [ %15, %if.then61 ], [ %15, %if.end47 ]
-  %clist.3 = phi ptr [ %clist.0106, %if.then4 ], [ %clist.0106, %if.then17 ], [ null, %if.then27 ], [ %clist.1, %if.then41 ], [ %clist.2, %if.then61 ], [ %clist.2, %if.end47 ]
+  %clist.1 = phi ptr [ %clist.0106, %if.then4 ], [ %clist.0106, %if.then17 ], [ null, %if.then27 ], [ %clist.2, %if.then41 ], [ %clist.3, %if.then61 ], [ %clist.3, %if.end47 ]
   %cmp72109 = icmp sgt i32 %nstr.1, 0
   br i1 %cmp72109, label %for.body74.preheader, label %for.end80
 
@@ -3960,19 +3960,19 @@ for.body74.preheader:                             ; preds = %extract_string_vect
 
 for.body74:                                       ; preds = %for.body74.preheader, %for.body74
   %indvars.iv151 = phi i64 [ 0, %for.body74.preheader ], [ %indvars.iv.next152, %for.body74 ]
-  %add.ptr76 = getelementptr inbounds %struct.exr_attr_string_t, ptr %clist.3, i64 %indvars.iv151
+  %add.ptr76 = getelementptr inbounds %struct.exr_attr_string_t, ptr %clist.1, i64 %indvars.iv151
   %call77 = call i32 @exr_attr_string_destroy(ptr noundef %ctxt, ptr noundef %add.ptr76) #10
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count
   br i1 %exitcond154.not, label %for.end80, label %for.body74, !llvm.loop !21
 
 for.end80:                                        ; preds = %for.body74, %extract_string_vector_fail
-  %tobool.not = icmp eq ptr %clist.3, null
+  %tobool.not = icmp eq ptr %clist.1, null
   br i1 %tobool.not, label %return, label %if.then81
 
 if.then81:                                        ; preds = %for.end80
   %29 = load ptr, ptr %free_fn, align 8
-  call void %29(ptr noundef nonnull %clist.3) #10
+  call void %29(ptr noundef nonnull %clist.1) #10
   br label %return
 
 return:                                           ; preds = %for.end80, %if.then81, %check_bad_attrsz.exit, %while.end

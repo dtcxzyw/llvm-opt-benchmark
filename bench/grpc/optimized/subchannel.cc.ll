@@ -6652,7 +6652,7 @@ if.then.i.i85:                                    ; preds = %if.then.i81
   br label %ehcleanup104
 
 invoke.cont89:                                    ; preds = %if.end68, %invoke.cont78, %if.then.i73, %if.then.i.i77
-  %socket.sroa.0.0 = phi ptr [ %33, %if.end68 ], [ null, %invoke.cont78 ], [ null, %if.then.i73 ], [ null, %if.then.i.i77 ]
+  %socket.sroa.0.2 = phi ptr [ %33, %if.end68 ], [ null, %invoke.cont78 ], [ null, %if.then.i73 ], [ null, %if.then.i.i77 ]
   %69 = load ptr, ptr %connected_subchannel_, align 8
   %pollset_set_ = getelementptr inbounds i8, ptr %this, i64 312
   %70 = load ptr, ptr %pollset_set_, align 8
@@ -6772,45 +6772,45 @@ lpad99:                                           ; preds = %_ZN9grpc_core17Weak
   br label %ehcleanup102
 
 cleanup:                                          ; preds = %if.then.i.i113, %invoke.cont100, %invoke.cont38
-  %socket.sroa.0.1 = phi ptr [ %33, %invoke.cont38 ], [ %socket.sroa.0.0, %invoke.cont100 ], [ %socket.sroa.0.0, %if.then.i.i113 ]
-  %retval.0 = xor i1 %tobool, true
-  %cmp.not.i137 = icmp eq ptr %socket.sroa.0.1, null
+  %socket.sroa.0.0 = phi ptr [ %33, %invoke.cont38 ], [ %socket.sroa.0.2, %invoke.cont100 ], [ %socket.sroa.0.2, %if.then.i.i113 ]
+  %retval.2 = xor i1 %tobool, true
+  %cmp.not.i137 = icmp eq ptr %socket.sroa.0.0, null
   br i1 %cmp.not.i137, label %cleanup103, label %if.then.i138
 
 if.then.i138:                                     ; preds = %cleanup
-  %refs_.i.i139 = getelementptr inbounds i8, ptr %socket.sroa.0.1, i64 8
+  %refs_.i.i139 = getelementptr inbounds i8, ptr %socket.sroa.0.0, i64 8
   %89 = atomicrmw sub ptr %refs_.i.i139, i64 1 acq_rel, align 8
   %cmp.i.i.i140 = icmp eq i64 %89, 1
   br i1 %cmp.i.i.i140, label %if.then.i.i142, label %cleanup103
 
 if.then.i.i142:                                   ; preds = %if.then.i138
-  %vtable.i.i.i143 = load ptr, ptr %socket.sroa.0.1, align 8
+  %vtable.i.i.i143 = load ptr, ptr %socket.sroa.0.0, align 8
   %vfn.i.i.i144 = getelementptr inbounds i8, ptr %vtable.i.i.i143, i64 8
   %90 = load ptr, ptr %vfn.i.i.i144, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(64) %socket.sroa.0.1) #26
+  call void %90(ptr noundef nonnull align 8 dereferenceable(64) %socket.sroa.0.0) #26
   br label %cleanup103
 
 ehcleanup102:                                     ; preds = %lpad92.thread, %if.then.i117, %delete.notnull.i.i133, %if.then.i129, %cleanup.action, %lpad99, %lpad63, %lpad37
-  %socket.sroa.0.2 = phi ptr [ %socket.sroa.0.0, %lpad99 ], [ %33, %lpad63 ], [ %33, %lpad37 ], [ %33, %cleanup.action ], [ %socket.sroa.0.0, %if.then.i129 ], [ %socket.sroa.0.0, %delete.notnull.i.i133 ], [ %socket.sroa.0.0, %if.then.i117 ], [ %socket.sroa.0.0, %lpad92.thread ]
+  %socket.sroa.0.1 = phi ptr [ %socket.sroa.0.2, %lpad99 ], [ %33, %lpad63 ], [ %33, %lpad37 ], [ %33, %cleanup.action ], [ %socket.sroa.0.2, %if.then.i129 ], [ %socket.sroa.0.2, %delete.notnull.i.i133 ], [ %socket.sroa.0.2, %if.then.i117 ], [ %socket.sroa.0.2, %lpad92.thread ]
   %.pn7 = phi { ptr, i32 } [ %88, %lpad99 ], [ %60, %lpad63 ], [ %40, %lpad37 ], [ %.pn3, %cleanup.action ], [ %85, %if.then.i129 ], [ %85, %delete.notnull.i.i133 ], [ %lpad.thr_comm.split-lp, %if.then.i117 ], [ %lpad.thr_comm, %lpad92.thread ]
-  %cmp.not.i146 = icmp eq ptr %socket.sroa.0.2, null
+  %cmp.not.i146 = icmp eq ptr %socket.sroa.0.1, null
   br i1 %cmp.not.i146, label %ehcleanup104, label %if.then.i147
 
 if.then.i147:                                     ; preds = %ehcleanup102
-  %refs_.i.i148 = getelementptr inbounds i8, ptr %socket.sroa.0.2, i64 8
+  %refs_.i.i148 = getelementptr inbounds i8, ptr %socket.sroa.0.1, i64 8
   %91 = atomicrmw sub ptr %refs_.i.i148, i64 1 acq_rel, align 8
   %cmp.i.i.i149 = icmp eq i64 %91, 1
   br i1 %cmp.i.i.i149, label %if.then.i.i151, label %ehcleanup104
 
 if.then.i.i151:                                   ; preds = %if.then.i147
-  %vtable.i.i.i152 = load ptr, ptr %socket.sroa.0.2, align 8
+  %vtable.i.i.i152 = load ptr, ptr %socket.sroa.0.1, align 8
   %vfn.i.i.i153 = getelementptr inbounds i8, ptr %vtable.i.i.i152, i64 8
   %92 = load ptr, ptr %vfn.i.i.i153, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(64) %socket.sroa.0.2) #26
+  call void %92(ptr noundef nonnull align 8 dereferenceable(64) %socket.sroa.0.1) #26
   br label %ehcleanup104
 
 cleanup103:                                       ; preds = %if.then.i.i142, %if.then.i138, %cleanup, %if.then.i.i22, %invoke.cont32
-  %retval.1 = phi i1 [ false, %invoke.cont32 ], [ false, %if.then.i.i22 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i138 ], [ %retval.0, %if.then.i.i142 ]
+  %retval.1 = phi i1 [ false, %invoke.cont32 ], [ false, %if.then.i.i22 ], [ %retval.2, %cleanup ], [ %retval.2, %if.then.i138 ], [ %retval.2, %if.then.i.i142 ]
   %93 = load i64, ptr %stk, align 8
   %cmp.i.i.i.i155 = icmp eq i64 %93, 0
   br i1 %cmp.i.i.i.i155, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -6859,7 +6859,7 @@ ehcleanup104:                                     ; preds = %if.then.i.i85, %if.
   br label %ehcleanup106
 
 cleanup105:                                       ; preds = %if.then.i.i4.i.i, %if.else.i.i, %if.then.i.i.i.i.i157, %if.then.i.i.i156, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %invoke.cont9
-  %retval.2 = phi i1 [ false, %invoke.cont9 ], [ %retval.1, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %retval.1, %if.then.i.i.i156 ], [ %retval.1, %if.then.i.i.i.i.i157 ], [ %retval.1, %if.else.i.i ], [ %retval.1, %if.then.i.i4.i.i ]
+  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ %retval.1, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %retval.1, %if.then.i.i.i156 ], [ %retval.1, %if.then.i.i.i.i.i157 ], [ %retval.1, %if.else.i.i ], [ %retval.1, %if.then.i.i4.i.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19ChannelStackBuilderE, i64 16), ptr %builder, align 8
   %stack_.i.i = getelementptr inbounds i8, ptr %builder, i64 64
   %101 = load ptr, ptr %stack_.i.i, align 8
@@ -6875,7 +6875,7 @@ _ZN9grpc_core23ChannelStackBuilderImplD2Ev.exit:  ; preds = %cleanup105, %if.the
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args_.i.i) #26
   %target_.i.i = getelementptr inbounds i8, ptr %builder, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target_.i.i) #26
-  ret i1 %retval.2
+  ret i1 %retval.0
 
 ehcleanup106:                                     ; preds = %ehcleanup104, %lpad4
   %.pn7.pn.pn = phi { ptr, i32 } [ %.pn7.pn, %ehcleanup104 ], [ %14, %lpad4 ]

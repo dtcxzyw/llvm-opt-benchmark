@@ -167,8 +167,8 @@ while.body.preheader.i:                           ; preds = %if.end
 while.body.i:                                     ; preds = %if.end75.i, %while.body.preheader.i
   %queryList.addr.051.i = phi ptr [ %2, %if.end75.i ], [ %queryList, %while.body.preheader.i ]
   %cmp4950.i = phi i1 [ false, %if.end75.i ], [ true, %while.body.preheader.i ]
-  %ampersandLen.049.i = phi i32 [ %ampersandLen.1.i, %if.end75.i ], [ 0, %while.body.preheader.i ]
-  %write.048.i = phi ptr [ %write.2.i, %if.end75.i ], [ %dest, %while.body.preheader.i ]
+  %ampersandLen.049.i = phi i32 [ %ampersandLen.2.i, %if.end75.i ], [ 0, %while.body.preheader.i ]
+  %write.048.i = phi ptr [ %write.1.i, %if.end75.i ], [ %dest, %while.body.preheader.i ]
   %0 = load ptr, ptr %queryList.addr.051.i, align 8
   %value3.i = getelementptr inbounds i8, ptr %queryList.addr.051.i, i64 8
   %1 = load ptr, ptr %value3.i, align 8
@@ -218,11 +218,11 @@ if.else52.i:                                      ; preds = %if.end48.i
   br label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.else52.i, %if.end48.i
-  %write.1.i = phi ptr [ %incdec.ptr.i, %if.else52.i ], [ %write.048.i, %if.end48.i ]
-  %ampersandLen.1.i = phi i32 [ %ampersandLen.049.i, %if.else52.i ], [ 1, %if.end48.i ]
+  %write.2.i = phi ptr [ %incdec.ptr.i, %if.else52.i ], [ %write.048.i, %if.end48.i ]
+  %ampersandLen.2.i = phi i32 [ %ampersandLen.049.i, %if.else52.i ], [ 1, %if.end48.i ]
   %idx.ext.i = sext i32 %cond6.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
-  %call54.i = tail call ptr @uriEscapeExA(ptr noundef %0, ptr noundef %add.ptr.i, ptr noundef %write.1.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
+  %call54.i = tail call ptr @uriEscapeExA(ptr noundef %0, ptr noundef %add.ptr.i, ptr noundef %write.2.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
   br i1 %cmp7.i, label %if.end75.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %if.end53.i
@@ -243,19 +243,19 @@ if.end68.i:                                       ; preds = %if.then57.i
   br label %if.end75.i
 
 if.end75.i:                                       ; preds = %if.end68.i, %if.end53.i
-  %write.2.i = phi ptr [ %call73.i, %if.end68.i ], [ %call54.i, %if.end53.i ]
+  %write.1.i = phi ptr [ %call73.i, %if.end68.i ], [ %call54.i, %if.end53.i ]
   %next.i = getelementptr inbounds i8, ptr %queryList.addr.051.i, i64 16
   %2 = load ptr, ptr %next.i, align 8
   %cmp1.not.i = icmp eq ptr %2, null
   br i1 %cmp1.not.i, label %if.then78.i, label %while.body.i, !llvm.loop !4
 
 if.then78.i:                                      ; preds = %if.end75.i
-  store i8 0, ptr %write.2.i, align 1
+  store i8 0, ptr %write.1.i, align 1
   %cmp80.not.i = icmp eq ptr %charsWritten, null
   br i1 %cmp80.not.i, label %return, label %if.then82.i
 
 if.then82.i:                                      ; preds = %if.then78.i
-  %sub.ptr.lhs.cast83.i = ptrtoint ptr %write.2.i to i64
+  %sub.ptr.lhs.cast83.i = ptrtoint ptr %write.1.i to i64
   %sub.ptr.sub85.i = sub i64 %sub.ptr.lhs.cast83.i, %sub.ptr.rhs.cast61.i
   %conv86.i = trunc i64 %sub.ptr.sub85.i to i32
   %add87.i = add nsw i32 %conv86.i, 1
@@ -1060,8 +1060,8 @@ while.body.preheader.i:                           ; preds = %if.end
 while.body.i:                                     ; preds = %if.end76.i, %while.body.preheader.i
   %queryList.addr.051.i = phi ptr [ %2, %if.end76.i ], [ %queryList, %while.body.preheader.i ]
   %cmp4950.i = phi i1 [ false, %if.end76.i ], [ true, %while.body.preheader.i ]
-  %ampersandLen.049.i = phi i32 [ %ampersandLen.1.i, %if.end76.i ], [ 0, %while.body.preheader.i ]
-  %write.048.i = phi ptr [ %write.2.i, %if.end76.i ], [ %dest, %while.body.preheader.i ]
+  %ampersandLen.049.i = phi i32 [ %ampersandLen.2.i, %if.end76.i ], [ 0, %while.body.preheader.i ]
+  %write.048.i = phi ptr [ %write.1.i, %if.end76.i ], [ %dest, %while.body.preheader.i ]
   %0 = load ptr, ptr %queryList.addr.051.i, align 8
   %value3.i = getelementptr inbounds i8, ptr %queryList.addr.051.i, i64 8
   %1 = load ptr, ptr %value3.i, align 8
@@ -1112,11 +1112,11 @@ if.else52.i:                                      ; preds = %if.end48.i
   br label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.else52.i, %if.end48.i
-  %write.1.i = phi ptr [ %incdec.ptr.i, %if.else52.i ], [ %write.048.i, %if.end48.i ]
-  %ampersandLen.1.i = phi i32 [ %ampersandLen.049.i, %if.else52.i ], [ 1, %if.end48.i ]
+  %write.2.i = phi ptr [ %incdec.ptr.i, %if.else52.i ], [ %write.048.i, %if.end48.i ]
+  %ampersandLen.2.i = phi i32 [ %ampersandLen.049.i, %if.else52.i ], [ 1, %if.end48.i ]
   %idx.ext.i = sext i32 %cond6.i to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %0, i64 %idx.ext.i
-  %call54.i = tail call ptr @uriEscapeExW(ptr noundef %0, ptr noundef %add.ptr.i, ptr noundef %write.1.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
+  %call54.i = tail call ptr @uriEscapeExW(ptr noundef %0, ptr noundef %add.ptr.i, ptr noundef %write.2.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
   br i1 %cmp7.i, label %if.end76.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %if.end53.i
@@ -1138,19 +1138,19 @@ if.end69.i:                                       ; preds = %if.then57.i
   br label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.end69.i, %if.end53.i
-  %write.2.i = phi ptr [ %call74.i, %if.end69.i ], [ %call54.i, %if.end53.i ]
+  %write.1.i = phi ptr [ %call74.i, %if.end69.i ], [ %call54.i, %if.end53.i ]
   %next.i = getelementptr inbounds i8, ptr %queryList.addr.051.i, i64 16
   %2 = load ptr, ptr %next.i, align 8
   %cmp1.not.i = icmp eq ptr %2, null
   br i1 %cmp1.not.i, label %if.then79.i, label %while.body.i, !llvm.loop !8
 
 if.then79.i:                                      ; preds = %if.end76.i
-  store i32 0, ptr %write.2.i, align 4
+  store i32 0, ptr %write.1.i, align 4
   %cmp81.not.i = icmp eq ptr %charsWritten, null
   br i1 %cmp81.not.i, label %return, label %if.then83.i
 
 if.then83.i:                                      ; preds = %if.then79.i
-  %sub.ptr.lhs.cast84.i = ptrtoint ptr %write.2.i to i64
+  %sub.ptr.lhs.cast84.i = ptrtoint ptr %write.1.i to i64
   %sub.ptr.sub86.i = sub i64 %sub.ptr.lhs.cast84.i, %sub.ptr.rhs.cast61.i
   %sub.ptr.div87.i = lshr exact i64 %sub.ptr.sub86.i, 2
   %conv88.i = trunc i64 %sub.ptr.div87.i to i32

@@ -119,14 +119,14 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not45, label %.thread63, label %43
 
 43:                                               ; preds = %.thread59, %41
-  %.162 = phi ptr [ %32, %.thread59 ], [ %42, %41 ]
+  %.262 = phi ptr [ %32, %.thread59 ], [ %42, %41 ]
   %44 = phi ptr [ %17, %.thread59 ], [ null, %41 ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.thread56
 
 .thread56:                                        ; preds = %31, %.thread53, %43
   %45 = phi ptr [ %44, %43 ], [ %17, %.thread53 ], [ %17, %31 ]
-  %.2 = phi ptr [ %.162, %43 ], [ %19, %.thread53 ], [ null, %31 ]
+  %.1 = phi ptr [ %.262, %43 ], [ %19, %.thread53 ], [ null, %31 ]
   %.not46 = icmp eq ptr %45, null
   br i1 %.not46, label %.thread63, label %46
 
@@ -135,7 +135,7 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread63
 
 .thread63:                                        ; preds = %28, %41, %.thread56, %46
-  %.266 = phi ptr [ %.2, %.thread56 ], [ %.2, %46 ], [ %29, %28 ], [ null, %41 ]
+  %.166 = phi ptr [ %.1, %.thread56 ], [ %.1, %46 ], [ %29, %28 ], [ null, %41 ]
   %.not47 = icmp eq ptr %.0, null
   br i1 %.not47, label %48, label %47
 
@@ -144,7 +144,7 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %48
 
 48:                                               ; preds = %.thread63, %47, %9
-  %.033 = phi ptr [ null, %9 ], [ %.266, %47 ], [ %.266, %.thread63 ]
+  %.033 = phi ptr [ null, %9 ], [ %.166, %47 ], [ %.166, %.thread63 ]
   ret ptr %.033
 }
 
@@ -177,24 +177,24 @@ define i32 @Mio_LibraryReadExclude(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %21
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0911 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ]
+  %.111 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ]
   %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #18
   %13 = add i64 %12, 1
   %14 = call noalias ptr @malloc(i64 noundef %13) #19
   %15 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %3) #17
   %16 = call i32 @st__insert(ptr noundef %1, ptr noundef %14, ptr noundef null) #17
-  %17 = add nuw nsw i32 %.0911, 1
+  %17 = add nuw nsw i32 %.111, 1
   %18 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #17
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.09.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
+  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
   %20 = call i32 @fclose(ptr noundef nonnull %5)
   br label %21
 
 21:                                               ; preds = %2, %._crit_edge, %9
-  %.0 = phi i32 [ -1, %9 ], [ %.09.lcssa, %._crit_edge ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %9 ], [ %.1.lcssa, %._crit_edge ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -267,7 +267,7 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
   br label %15
 
 15:                                               ; preds = %27, %4
-  %.030.idx.i = phi i64 [ 0, %4 ], [ %.2.add.i, %27 ]
+  %.030.idx.i = phi i64 [ 0, %4 ], [ %.131.add.i, %27 ]
   %.030.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.030.idx.i
   %16 = load i8, ptr %.030.ptr.i, align 1
   switch i8 %16, label %27 [
@@ -277,23 +277,23 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
   ]
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
-  %.131.ptr4.i = phi ptr [ %.131.ptr.i, %.lr.ph.i ], [ %.030.ptr.i, %15 ]
-  %.131.idx3.i = phi i64 [ %.131.add.i, %.lr.ph.i ], [ %.030.idx.i, %15 ]
-  %.131.add.i = add nsw i64 %.131.idx3.i, 1
-  store i8 32, ptr %.131.ptr4.i, align 1
-  %.131.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.131.add.i
-  %17 = load i8, ptr %.131.ptr.i, align 1
+  %.2.ptr4.i = phi ptr [ %.2.ptr.i, %.lr.ph.i ], [ %.030.ptr.i, %15 ]
+  %.2.idx3.i = phi i64 [ %.2.add.i, %.lr.ph.i ], [ %.030.idx.i, %15 ]
+  %.2.add.i = add nsw i64 %.2.idx3.i, 1
+  store i8 32, ptr %.2.ptr4.i, align 1
+  %.2.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.2.add.i
+  %17 = load i8, ptr %.2.ptr.i, align 1
   %.not38.i = icmp eq i8 %17, 10
   br i1 %.not38.i, label %.loopexit.thread.i, label %.lr.ph.i, !llvm.loop !6
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.i, %15
-  %.2.idx7.i = phi i64 [ %.030.idx.i, %15 ], [ %.131.add.i, %.lr.ph.i ]
-  %.2.ptr9.i = getelementptr inbounds i8, ptr %0, i64 %.2.idx7.i
-  %18 = icmp sgt i64 %.2.idx7.i, 0
+  %.131.idx7.i = phi i64 [ %.030.idx.i, %15 ], [ %.2.add.i, %.lr.ph.i ]
+  %.131.ptr9.i = getelementptr inbounds i8, ptr %0, i64 %.131.idx7.i
+  %18 = icmp sgt i64 %.131.idx7.i, 0
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %.loopexit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.2.ptr9.i, i64 -1
+  %20 = getelementptr inbounds i8, ptr %.131.ptr9.i, i64 -1
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %27 [
     i8 13, label %22
@@ -301,11 +301,11 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
   ]
 
 22:                                               ; preds = %19
-  %.not.i = icmp eq i64 %.2.idx7.i, 1
+  %.not.i = icmp eq i64 %.131.idx7.i, 1
   br i1 %.not.i, label %27, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %.2.ptr9.i, i64 -2
+  %24 = getelementptr inbounds i8, ptr %.131.ptr9.i, i64 -2
   %25 = load i8, ptr %24, align 1
   %.not41.i = icmp eq i8 %25, 92
   br i1 %.not41.i, label %26, label %27
@@ -316,12 +316,12 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
 
 .sink.split.i:                                    ; preds = %26, %19
   store i8 32, ptr %20, align 1
-  store i8 32, ptr %.2.ptr9.i, align 1
+  store i8 32, ptr %.131.ptr9.i, align 1
   br label %27
 
 27:                                               ; preds = %15, %.sink.split.i, %23, %22, %19, %.loopexit.thread.i
-  %.2.idx8.i = phi i64 [ 1, %22 ], [ %.2.idx7.i, %.loopexit.thread.i ], [ %.2.idx7.i, %23 ], [ %.2.idx7.i, %19 ], [ %.2.idx7.i, %.sink.split.i ], [ %.030.idx.i, %15 ]
-  %.2.add.i = add nsw i64 %.2.idx8.i, 1
+  %.131.idx8.i = phi i64 [ 1, %22 ], [ %.131.idx7.i, %.loopexit.thread.i ], [ %.131.idx7.i, %23 ], [ %.131.idx7.i, %19 ], [ %.131.idx7.i, %.sink.split.i ], [ %.030.idx.i, %15 ]
+  %.131.add.i = add nsw i64 %.131.idx8.i, 1
   br label %15, !llvm.loop !7
 
 Io_ReadFileRemoveComments.exit:                   ; preds = %15
@@ -366,18 +366,18 @@ Io_ReadFileRemoveComments.exit:                   ; preds = %15
   br i1 %37, label %.preheader.i, label %.thread.i
 
 .preheader.i:                                     ; preds = %.critedge2.i, %.backedge.i
-  %.167106.i = phi ptr [ %44, %.backedge.i ], [ %.066108.i, %.critedge2.i ]
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.167106.i, ptr noundef nonnull dereferenceable(5) @.str.11) #18
+  %.2106.i = phi ptr [ %44, %.backedge.i ], [ %.066108.i, %.critedge2.i ]
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2106.i, ptr noundef nonnull dereferenceable(5) @.str.11) #18
   %.not50.i = icmp eq i32 %38, 0
   br i1 %.not50.i, label %.thread.i, label %39
 
 39:                                               ; preds = %.preheader.i
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.167106.i, ptr noundef nonnull dereferenceable(5) @.str.13) #18
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2106.i, ptr noundef nonnull dereferenceable(5) @.str.13) #18
   %.not51.i = icmp eq i32 %40, 0
   br i1 %.not51.i, label %.critedge.i, label %41
 
 41:                                               ; preds = %39
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.167106.i, ptr noundef nonnull dereferenceable(6) @.str.12) #18
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2106.i, ptr noundef nonnull dereferenceable(6) @.str.12) #18
   %43 = icmp eq i32 %42, 0
   %44 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
   br i1 %43, label %45, label %.backedge.i
@@ -669,7 +669,7 @@ Mio_LibraryReadGate.exit.thread70.i:              ; preds = %146, %.lr.ph.i.i, %
 .critedge.i:                                      ; preds = %.outer.outer.i, %.outer.i, %154, %33, %.backedge.i, %39
   %.038.ph.ph105.i = phi i32 [ %.038.ph.ph137.i, %39 ], [ %.038.ph.ph137.i, %.backedge.i ], [ %.038.ph.ph137.i, %33 ], [ %.038.ph.ph137.i, %154 ], [ %.038.ph.ph137.i, %.outer.i ], [ %.1.i, %.outer.outer.i ]
   %.039.ph97.i = phi i32 [ %.039.ph126.i, %39 ], [ %.039.ph126.i, %.backedge.i ], [ %.039.ph126.i, %33 ], [ %.039.ph126.i, %154 ], [ %164, %.outer.i ], [ %.140.i, %.outer.outer.i ]
-  %.2.i = phi ptr [ null, %.backedge.i ], [ %.167106.i, %39 ], [ null, %154 ], [ %.066108.i, %33 ], [ null, %.outer.i ], [ null, %.outer.outer.i ]
+  %.167.i = phi ptr [ null, %.backedge.i ], [ %.2106.i, %39 ], [ null, %154 ], [ %.066108.i, %33 ], [ null, %.outer.i ], [ null, %.outer.outer.i ]
   %180 = icmp eq i32 %.039.ph97.i, 0
   br i1 %180, label %.critedge.thread.i, label %181
 
@@ -678,11 +678,11 @@ Mio_LibraryReadGate.exit.thread70.i:              ; preds = %146, %.lr.ph.i.i, %
   br label %187
 
 181:                                              ; preds = %.critedge.i
-  %.not53.i = icmp eq ptr %.2.i, null
+  %.not53.i = icmp eq ptr %.167.i, null
   br i1 %.not53.i, label %184, label %182
 
 182:                                              ; preds = %181
-  %183 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2.i, ptr noundef nonnull dereferenceable(5) @.str.13) #18
+  %183 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.167.i, ptr noundef nonnull dereferenceable(5) @.str.13) #18
   %.not54.i = icmp eq i32 %183, 0
   br i1 %.not54.i, label %184, label %187
 

@@ -335,7 +335,7 @@ for.body.us.i:                                    ; preds = %sw.epilog.i, %for.i
   %vent.035.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc.us.i ], [ %table.0.i, %sw.epilog.i ]
   %version.034.us.i = phi i32 [ %version.0.lcssa.fr.i, %for.inc.us.i ], [ 0, %sw.epilog.i ]
   %hole.033.us.i = phi i32 [ %hole.1.us.i, %for.inc.us.i ], [ 1, %sw.epilog.i ]
-  %tmp_real_max.032.us.i = phi i32 [ %tmp_real_max.2.us.i, %for.inc.us.i ], [ 0, %sw.epilog.i ]
+  %tmp_real_max.032.us.i = phi i32 [ %tmp_real_max.1.us.i, %for.inc.us.i ], [ 0, %sw.epilog.i ]
   %cmeth.us.i = getelementptr inbounds i8, ptr %vent.035.us.i, i64 8
   %6 = load ptr, ptr %cmeth.us.i, align 8
   %cmp17.us.i = icmp eq ptr %6, null
@@ -365,13 +365,13 @@ if.end28.thread.us.i:                             ; preds = %if.end20.us.i
   br i1 %cmp30.not26.us.i, label %if.else36.us.i, label %for.inc.us.i
 
 if.else36.us.i:                                   ; preds = %if.end28.thread.us.i, %if.else.us.i
-  %tmp_real_max.12730.us.i = phi i32 [ %tmp_real_max.032.us.i, %if.else.us.i ], [ %5, %if.end28.thread.us.i ]
+  %tmp_real_max.22730.us.i = phi i32 [ %tmp_real_max.032.us.i, %if.else.us.i ], [ %5, %if.end28.thread.us.i ]
   %8 = load i32, ptr %call.us.i, align 8
   br label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %if.then34.us.i, %if.else36.us.i, %if.end28.thread.us.i, %if.end28.us.i, %for.body.us.i
   %ver_min.1 = phi i32 [ %ver_min.0, %for.body.us.i ], [ %ver_min.0, %if.end28.thread.us.i ], [ %ver_min.0, %if.end28.us.i ], [ %8, %if.else36.us.i ], [ %7, %if.then34.us.i ]
-  %tmp_real_max.2.us.i = phi i32 [ 0, %for.body.us.i ], [ %5, %if.end28.thread.us.i ], [ %tmp_real_max.032.us.i, %if.end28.us.i ], [ %tmp_real_max.12730.us.i, %if.else36.us.i ], [ %tmp_real_max.032.us.i, %if.then34.us.i ]
+  %tmp_real_max.1.us.i = phi i32 [ 0, %for.body.us.i ], [ %5, %if.end28.thread.us.i ], [ %tmp_real_max.032.us.i, %if.end28.us.i ], [ %tmp_real_max.22730.us.i, %if.else36.us.i ], [ %tmp_real_max.032.us.i, %if.then34.us.i ]
   %hole.1.us.i = phi i32 [ 1, %for.body.us.i ], [ 1, %if.end28.thread.us.i ], [ 1, %if.end28.us.i ], [ 0, %if.else36.us.i ], [ 0, %if.then34.us.i ]
   %version.1.us.i = phi i32 [ %version.034.us.i, %for.body.us.i ], [ %version.034.us.i, %if.end28.thread.us.i ], [ %version.034.us.i, %if.end28.us.i ], [ %8, %if.else36.us.i ], [ %version.034.us.i, %if.then34.us.i ]
   %version.0.lcssa.fr.i = freeze i32 %version.1.us.i
@@ -636,7 +636,7 @@ for.body.us:                                      ; preds = %if.end13, %for.inc.
   %vent.035.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %table.0, %if.end13 ]
   %version.034.us = phi i32 [ %version.1.us, %for.inc.us ], [ 0, %if.end13 ]
   %hole.033.us = phi i32 [ %hole.1.us, %for.inc.us ], [ 1, %if.end13 ]
-  %tmp_real_max.032.us = phi i32 [ %tmp_real_max.2.us, %for.inc.us ], [ 0, %if.end13 ]
+  %tmp_real_max.032.us = phi i32 [ %tmp_real_max.1.us, %for.inc.us ], [ 0, %if.end13 ]
   %cmeth.us = getelementptr inbounds i8, ptr %vent.035.us, i64 8
   %6 = load ptr, ptr %cmeth.us, align 8
   %cmp17.us = icmp eq ptr %6, null
@@ -666,19 +666,19 @@ if.end28.thread.us:                               ; preds = %if.end20.us
   br i1 %cmp30.not26.us, label %if.else36.us, label %for.inc.us
 
 if.else36.us:                                     ; preds = %if.end28.thread.us, %if.else.us
-  %tmp_real_max.12730.us = phi i32 [ %tmp_real_max.032.us, %if.else.us ], [ %5, %if.end28.thread.us ]
+  %tmp_real_max.22730.us = phi i32 [ %tmp_real_max.032.us, %if.else.us ], [ %5, %if.end28.thread.us ]
   %8 = load i32, ptr %call.us, align 8
   br label %for.inc.us.sink.split
 
 for.inc.us.sink.split:                            ; preds = %if.then34.us, %if.else36.us
   %.sink = phi i32 [ %8, %if.else36.us ], [ %7, %if.then34.us ]
-  %tmp_real_max.2.us.ph = phi i32 [ %tmp_real_max.12730.us, %if.else36.us ], [ %tmp_real_max.032.us, %if.then34.us ]
+  %tmp_real_max.1.us.ph = phi i32 [ %tmp_real_max.22730.us, %if.else36.us ], [ %tmp_real_max.032.us, %if.then34.us ]
   %version.1.us.ph = phi i32 [ %8, %if.else36.us ], [ %version.034.us, %if.then34.us ]
   store i32 %.sink, ptr %min_version, align 4
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.inc.us.sink.split, %if.end28.thread.us, %if.end28.us, %for.body.us
-  %tmp_real_max.2.us = phi i32 [ 0, %for.body.us ], [ %tmp_real_max.032.us, %if.end28.us ], [ %5, %if.end28.thread.us ], [ %tmp_real_max.2.us.ph, %for.inc.us.sink.split ]
+  %tmp_real_max.1.us = phi i32 [ 0, %for.body.us ], [ %tmp_real_max.032.us, %if.end28.us ], [ %5, %if.end28.thread.us ], [ %tmp_real_max.1.us.ph, %for.inc.us.sink.split ]
   %hole.1.us = phi i32 [ 1, %for.body.us ], [ 1, %if.end28.us ], [ 1, %if.end28.thread.us ], [ 0, %for.inc.us.sink.split ]
   %version.1.us = phi i32 [ %version.034.us, %for.body.us ], [ %version.034.us, %if.end28.us ], [ %version.034.us, %if.end28.thread.us ], [ %version.1.us.ph, %for.inc.us.sink.split ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %vent.035.us, i64 24
@@ -691,7 +691,7 @@ for.body:                                         ; preds = %if.end13.thread, %f
   %vent.035 = phi ptr [ %incdec.ptr, %for.inc ], [ %table.0, %if.end13.thread ]
   %version.034 = phi i32 [ %version.1, %for.inc ], [ 0, %if.end13.thread ]
   %hole.033 = phi i32 [ %hole.1, %for.inc ], [ 1, %if.end13.thread ]
-  %tmp_real_max.032 = phi i32 [ %tmp_real_max.2, %for.inc ], [ 0, %if.end13.thread ]
+  %tmp_real_max.032 = phi i32 [ %tmp_real_max.1, %for.inc ], [ 0, %if.end13.thread ]
   %cmeth = getelementptr inbounds i8, ptr %vent.035, i64 8
   %11 = load ptr, ptr %cmeth, align 8
   %cmp17 = icmp eq ptr %11, null
@@ -725,24 +725,24 @@ if.else36:                                        ; preds = %if.else
   br i1 %cmp40.not, label %if.end43, label %if.then42
 
 if.then42:                                        ; preds = %if.end28.thread, %if.else36
-  %tmp_real_max.1273040 = phi i32 [ %tmp_real_max.032, %if.else36 ], [ %10, %if.end28.thread ]
-  store i32 %tmp_real_max.1273040, ptr %real_max, align 4
+  %tmp_real_max.2273040 = phi i32 [ %tmp_real_max.032, %if.else36 ], [ %10, %if.end28.thread ]
+  store i32 %tmp_real_max.2273040, ptr %real_max, align 4
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %if.else36
-  %tmp_real_max.1273041 = phi i32 [ %tmp_real_max.1273040, %if.then42 ], [ 0, %if.else36 ]
+  %tmp_real_max.2273041 = phi i32 [ %tmp_real_max.2273040, %if.then42 ], [ 0, %if.else36 ]
   %13 = load i32, ptr %call, align 8
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then34, %if.end43
   %.sink46 = phi i32 [ %13, %if.end43 ], [ %12, %if.then34 ]
-  %tmp_real_max.2.ph = phi i32 [ %tmp_real_max.1273041, %if.end43 ], [ %tmp_real_max.032, %if.then34 ]
+  %tmp_real_max.1.ph = phi i32 [ %tmp_real_max.2273041, %if.end43 ], [ %tmp_real_max.032, %if.then34 ]
   %version.1.ph = phi i32 [ %13, %if.end43 ], [ %version.034, %if.then34 ]
   store i32 %.sink46, ptr %min_version, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.end28.thread, %if.end28, %for.body
-  %tmp_real_max.2 = phi i32 [ 0, %for.body ], [ %tmp_real_max.032, %if.end28 ], [ %10, %if.end28.thread ], [ %tmp_real_max.2.ph, %for.inc.sink.split ]
+  %tmp_real_max.1 = phi i32 [ 0, %for.body ], [ %tmp_real_max.032, %if.end28 ], [ %10, %if.end28.thread ], [ %tmp_real_max.1.ph, %for.inc.sink.split ]
   %hole.1 = phi i32 [ 1, %for.body ], [ 1, %if.end28 ], [ 1, %if.end28.thread ], [ 0, %for.inc.sink.split ]
   %version.1 = phi i32 [ %version.034, %for.body ], [ %version.034, %if.end28 ], [ %version.034, %if.end28.thread ], [ %version.1.ph, %for.inc.sink.split ]
   %incdec.ptr = getelementptr inbounds i8, ptr %vent.035, i64 24
@@ -1003,7 +1003,7 @@ if.then88:                                        ; preds = %lor.lhs.false84, %i
   br label %err
 
 if.end90:                                         ; preds = %lor.lhs.false84, %lor.lhs.false70
-  %sig.0 = phi ptr [ %call67, %lor.lhs.false70 ], [ %call81, %lor.lhs.false84 ]
+  %sig.1 = phi ptr [ %call67, %lor.lhs.false70 ], [ %call81, %lor.lhs.false84 ]
   %22 = load i32, ptr %sig34, align 4
   switch i32 %22, label %if.end101 [
     i32 980, label %if.then100
@@ -1013,12 +1013,12 @@ if.end90:                                         ; preds = %lor.lhs.false84, %l
 
 if.then100:                                       ; preds = %if.end90, %if.end90, %if.end90
   %23 = load i64, ptr %siglen, align 8
-  call void @BUF_reverse(ptr noundef nonnull %sig.0, ptr noundef null, i64 noundef %23) #11
+  call void @BUF_reverse(ptr noundef nonnull %sig.1, ptr noundef null, i64 noundef %23) #11
   br label %if.end101
 
 if.end101:                                        ; preds = %if.end90, %if.then100
   %24 = load i64, ptr %siglen, align 8
-  %call102 = call i32 @WPACKET_sub_memcpy__(ptr noundef %pkt, ptr noundef nonnull %sig.0, i64 noundef %24, i64 noundef 2) #11
+  %call102 = call i32 @WPACKET_sub_memcpy__(ptr noundef %pkt, ptr noundef nonnull %sig.1, i64 noundef %24, i64 noundef 2) #11
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %if.then104, label %if.end105
 
@@ -1034,14 +1034,14 @@ if.end105:                                        ; preds = %if.end101
   br i1 %tobool107.not, label %err, label %if.end109
 
 if.end109:                                        ; preds = %if.end105
-  call void @CRYPTO_free(ptr noundef nonnull %sig.0, ptr noundef nonnull @.str, i32 noundef 432) #11
+  call void @CRYPTO_free(ptr noundef nonnull %sig.1, ptr noundef nonnull @.str, i32 noundef 432) #11
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call11) #11
   br label %return
 
 err:                                              ; preds = %if.end105, %if.end14, %if.then104, %if.then88, %if.then79, %if.then74, %if.then65, %if.then45, %if.then32, %if.then24, %if.then13, %if.then9, %if.then
-  %sig.1 = phi ptr [ null, %if.then ], [ null, %if.then9 ], [ null, %if.then13 ], [ null, %if.then32 ], [ null, %if.then45 ], [ null, %if.then65 ], [ %call67, %if.then74 ], [ %sig.0, %if.end105 ], [ %sig.0, %if.then104 ], [ null, %if.then79 ], [ %call81, %if.then88 ], [ null, %if.then24 ], [ null, %if.end14 ]
+  %sig.0 = phi ptr [ null, %if.then ], [ null, %if.then9 ], [ null, %if.then13 ], [ null, %if.then32 ], [ null, %if.then45 ], [ null, %if.then65 ], [ %call67, %if.then74 ], [ %sig.1, %if.end105 ], [ %sig.1, %if.then104 ], [ null, %if.then79 ], [ %call81, %if.then88 ], [ null, %if.then24 ], [ null, %if.end14 ]
   %mctx.0 = phi ptr [ null, %if.then ], [ null, %if.then9 ], [ null, %if.then13 ], [ %call11, %if.then32 ], [ %call11, %if.then45 ], [ %call11, %if.then65 ], [ %call11, %if.then74 ], [ %call11, %if.end105 ], [ %call11, %if.then104 ], [ %call11, %if.then79 ], [ %call11, %if.then88 ], [ %call11, %if.then24 ], [ %call11, %if.end14 ]
-  call void @CRYPTO_free(ptr noundef %sig.1, ptr noundef nonnull @.str, i32 noundef 436) #11
+  call void @CRYPTO_free(ptr noundef %sig.0, ptr noundef nonnull @.str, i32 noundef 436) #11
   call void @EVP_MD_CTX_free(ptr noundef %mctx.0) #11
   br label %return
 
@@ -1370,8 +1370,8 @@ if.then67:                                        ; preds = %if.else64
 
 if.end69:                                         ; preds = %PACKET_get_net_2.exit78, %if.then61
   %pkt.val.i.i79 = phi i64 [ %pkt.val64, %if.then61 ], [ %sub.i.i76, %PACKET_get_net_2.exit78 ]
-  %len.1 = phi i64 [ %pkt.val64, %if.then61 ], [ %or.i.i74, %PACKET_get_net_2.exit78 ]
-  %conv70 = and i64 %len.1, 4294967295
+  %len.0 = phi i64 [ %pkt.val64, %if.then61 ], [ %or.i.i74, %PACKET_get_net_2.exit78 ]
+  %conv70 = and i64 %len.0, 4294967295
   %cmp.i.i80 = icmp ult i64 %pkt.val.i.i79, %conv70
   br i1 %cmp.i.i80, label %if.then73, label %if.end74
 
@@ -1434,8 +1434,8 @@ if.end102:                                        ; preds = %if.then96
   br label %if.end104
 
 if.end104:                                        ; preds = %if.end86, %if.end102
-  %data.1 = phi ptr [ %21, %if.end86 ], [ %call98, %if.end102 ]
-  %gost_data.0 = phi ptr [ null, %if.end86 ], [ %call98, %if.end102 ]
+  %data.0 = phi ptr [ %21, %if.end86 ], [ %call98, %if.end102 ]
+  %gost_data.1 = phi ptr [ null, %if.end86 ], [ %call98, %if.end102 ]
   %25 = load ptr, ptr %peer_sigalg, align 8
   %cmp108.not = icmp eq ptr %25, null
   br i1 %cmp108.not, label %if.end126, label %land.lhs.true110
@@ -1494,7 +1494,7 @@ if.then140:                                       ; preds = %lor.lhs.false133, %
   br label %err
 
 if.end141:                                        ; preds = %lor.lhs.false133
-  %call143 = call i32 @EVP_DigestVerifyFinal(ptr noundef nonnull %call, ptr noundef %data.1, i64 noundef %conv70) #11
+  %call143 = call i32 @EVP_DigestVerifyFinal(ptr noundef nonnull %call, ptr noundef %data.0, i64 noundef %conv70) #11
   %cmp144 = icmp slt i32 %call143, 1
   br i1 %cmp144, label %if.then146, label %if.end155
 
@@ -1505,7 +1505,7 @@ if.then146:                                       ; preds = %if.end141
   br label %err
 
 if.else148:                                       ; preds = %if.end126
-  %call150 = call i32 @EVP_DigestVerify(ptr noundef nonnull %call, ptr noundef %data.1, i64 noundef %conv70, ptr noundef %30, i64 noundef %31) #11
+  %call150 = call i32 @EVP_DigestVerify(ptr noundef nonnull %call, ptr noundef %data.0, i64 noundef %conv70, ptr noundef %30, i64 noundef %31) #11
   %cmp151 = icmp slt i32 %call150, 1
   br i1 %cmp151, label %if.then153, label %if.end155
 
@@ -1549,13 +1549,13 @@ if.else182:                                       ; preds = %land.lhs.true176, %
 
 err:                                              ; preds = %land.lhs.true176, %if.else182, %if.then96, %if.end74, %if.end14, %if.then153, %if.then146, %if.then140, %if.then124, %if.then85, %if.then73, %if.then67, %if.then27, %if.then22, %if.then13, %if.then7, %if.then3, %if.then
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then3 ], [ 0, %if.then7 ], [ 0, %if.end14 ], [ 0, %if.then85 ], [ 0, %if.then96 ], [ 0, %if.then124 ], [ 0, %if.then140 ], [ 0, %if.then146 ], [ 3, %if.else182 ], [ 0, %if.then153 ], [ 0, %if.end74 ], [ 0, %if.then73 ], [ 0, %if.then67 ], [ 0, %if.then27 ], [ 0, %if.then13 ], [ 0, %if.then22 ], [ 2, %land.lhs.true176 ]
-  %gost_data.1 = phi ptr [ null, %if.then ], [ null, %if.then3 ], [ null, %if.then7 ], [ null, %if.end14 ], [ null, %if.then85 ], [ null, %if.then96 ], [ %gost_data.0, %if.then124 ], [ %gost_data.0, %if.then140 ], [ %gost_data.0, %if.then146 ], [ %gost_data.0, %if.else182 ], [ %gost_data.0, %if.then153 ], [ null, %if.end74 ], [ null, %if.then73 ], [ null, %if.then67 ], [ null, %if.then27 ], [ null, %if.then13 ], [ null, %if.then22 ], [ %gost_data.0, %land.lhs.true176 ]
+  %gost_data.0 = phi ptr [ null, %if.then ], [ null, %if.then3 ], [ null, %if.then7 ], [ null, %if.end14 ], [ null, %if.then85 ], [ null, %if.then96 ], [ %gost_data.1, %if.then124 ], [ %gost_data.1, %if.then140 ], [ %gost_data.1, %if.then146 ], [ %gost_data.1, %if.else182 ], [ %gost_data.1, %if.then153 ], [ null, %if.end74 ], [ null, %if.then73 ], [ null, %if.then67 ], [ null, %if.then27 ], [ null, %if.then13 ], [ null, %if.then22 ], [ %gost_data.1, %land.lhs.true176 ]
   %handshake_buffer = getelementptr inbounds i8, ptr %s, i64 352
   %40 = load ptr, ptr %handshake_buffer, align 8
   %call185 = call i32 @BIO_free(ptr noundef %40) #11
   store ptr null, ptr %handshake_buffer, align 8
   call void @EVP_MD_CTX_free(ptr noundef %call) #11
-  call void @CRYPTO_free(ptr noundef %gost_data.1, ptr noundef nonnull @.str, i32 noundef 606) #11
+  call void @CRYPTO_free(ptr noundef %gost_data.0, ptr noundef nonnull @.str, i32 noundef 606) #11
   ret i32 %ret.0
 }
 
@@ -2544,18 +2544,18 @@ if.then69:                                        ; preds = %if.end66
   br label %err
 
 if.end70:                                         ; preds = %if.end40, %land.lhs.true47, %if.end66
-  %spki_len.1116 = phi i64 [ %or7.i.i66, %if.end66 ], [ %or7.i.i, %land.lhs.true47 ], [ %or7.i.i, %if.end40 ]
+  %spki_len.0116 = phi i64 [ %or7.i.i66, %if.end66 ], [ %or7.i.i, %land.lhs.true47 ], [ %or7.i.i, %if.end40 ]
   %pkt.val.i.i71115 = phi i64 [ %sub.i.i68, %if.end66 ], [ %or7.i.i, %land.lhs.true47 ], [ %or7.i.i, %if.end40 ]
   %21 = phi ptr [ %add.ptr.i2.i67, %if.end66 ], [ %add.ptr.i2.i, %land.lhs.true47 ], [ %add.ptr.i2.i, %if.end40 ]
   store ptr %21, ptr %spki, align 8
-  %add.ptr.i.i74 = getelementptr inbounds i8, ptr %21, i64 %spki_len.1116
+  %add.ptr.i.i74 = getelementptr inbounds i8, ptr %21, i64 %spki_len.0116
   store ptr %add.ptr.i.i74, ptr %pkt, align 8
-  %sub.i.i75 = sub nuw nsw i64 %pkt.val.i.i71115, %spki_len.1116
+  %sub.i.i75 = sub nuw nsw i64 %pkt.val.i.i71115, %spki_len.0116
   store i64 %sub.i.i75, ptr %9, align 8
   %22 = load ptr, ptr %0, align 8
   %propq = getelementptr inbounds i8, ptr %0, i64 1096
   %23 = load ptr, ptr %propq, align 8
-  %call71 = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %spki, i64 noundef %spki_len.1116, ptr noundef %22, ptr noundef %23) #11
+  %call71 = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %spki, i64 noundef %spki_len.0116, ptr noundef %22, ptr noundef %23) #11
   %cmp72 = icmp ne ptr %call71, null
   %24 = load ptr, ptr %spki, align 8
   %cmp74.not = icmp eq ptr %24, %add.ptr.i.i74
@@ -2599,7 +2599,7 @@ land.lhs.true87:                                  ; preds = %if.end80
 if.then97:                                        ; preds = %land.lhs.true87
   %pkt.val45 = load i64, ptr %9, align 8
   %sub = add nsw i64 %or7.i.i, -3
-  %sub99 = sub nsw i64 %sub, %spki_len.1116
+  %sub99 = sub nsw i64 %sub, %spki_len.0116
   %cmp100.not = icmp eq i64 %pkt.val45, %sub99
   br i1 %cmp100.not, label %if.end102, label %if.then101
 
@@ -4357,24 +4357,24 @@ while.body.lr.ph.preheader:                       ; preds = %while.cond.preheade
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.preheader, %if.end45
   %best_vers.0.ph159 = phi i32 [ %spec.select, %if.end45 ], [ 0, %while.body.lr.ph.preheader ]
-  %versionslist.sroa.0.1.ph158 = phi ptr [ %add.ptr.i2.i, %if.end45 ], [ %add.ptr.i.i.i, %while.body.lr.ph.preheader ]
-  %versionslist.sroa.5.1.ph157 = phi i64 [ %sub.i.i, %if.end45 ], [ %sub.i.i.i, %while.body.lr.ph.preheader ]
+  %versionslist.sroa.0.0.ph158 = phi ptr [ %add.ptr.i2.i, %if.end45 ], [ %add.ptr.i.i.i, %while.body.lr.ph.preheader ]
+  %versionslist.sroa.5.0.ph157 = phi i64 [ %sub.i.i, %if.end45 ], [ %sub.i.i.i, %while.body.lr.ph.preheader ]
   %cmp6.i64 = icmp eq i32 %best_vers.0.ph159, 256
   %cond10.i65 = select i1 %cmp6.i64, i32 65280, i32 %best_vers.0.ph159
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %version_cmp.exit72
-  %versionslist.sroa.0.1152 = phi ptr [ %versionslist.sroa.0.1.ph158, %while.body.lr.ph ], [ %add.ptr.i2.i, %version_cmp.exit72 ]
-  %versionslist.sroa.5.1151 = phi i64 [ %versionslist.sroa.5.1.ph157, %while.body.lr.ph ], [ %sub.i.i, %version_cmp.exit72 ]
-  %14 = load i8, ptr %versionslist.sroa.0.1152, align 1
+  %versionslist.sroa.0.0152 = phi ptr [ %versionslist.sroa.0.0.ph158, %while.body.lr.ph ], [ %add.ptr.i2.i, %version_cmp.exit72 ]
+  %versionslist.sroa.5.0151 = phi i64 [ %versionslist.sroa.5.0.ph157, %while.body.lr.ph ], [ %sub.i.i, %version_cmp.exit72 ]
+  %14 = load i8, ptr %versionslist.sroa.0.0152, align 1
   %conv.i.i = zext i8 %14 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %versionslist.sroa.0.1152, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %versionslist.sroa.0.0152, i64 1
   %15 = load i8, ptr %add.ptr.i.i, align 1
   %conv2.i.i = zext i8 %15 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %versionslist.sroa.0.1152, i64 2
-  %sub.i.i = add i64 %versionslist.sroa.5.1151, -2
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %versionslist.sroa.0.0152, i64 2
+  %sub.i.i = add i64 %versionslist.sroa.5.0151, -2
   %cmp.i54 = icmp eq i32 %or.i.i, %best_vers.0.ph159
   br i1 %cmp.i54, label %version_cmp.exit72, label %if.end.i55
 
@@ -4722,12 +4722,12 @@ sw.epilog.i:                                      ; preds = %if.end9, %sw.epilog
 
 for.body.i:                                       ; preds = %sw.epilog.i, %for.inc.i
   %ver_min.0 = phi i32 [ %ver_min.1, %for.inc.i ], [ 0, %sw.epilog.i ]
-  %real_max.0 = phi i32 [ %real_max.3, %for.inc.i ], [ 0, %sw.epilog.i ]
+  %real_max.1 = phi i32 [ %real_max.2, %for.inc.i ], [ 0, %sw.epilog.i ]
   %7 = phi i32 [ %11, %for.inc.i ], [ %6, %sw.epilog.i ]
   %vent.035.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %table.078, %sw.epilog.i ]
   %version.034.i = phi i32 [ %version.0.lcssa.fr.i, %for.inc.i ], [ 0, %sw.epilog.i ]
   %hole.033.i = phi i32 [ %hole.1.i, %for.inc.i ], [ 1, %sw.epilog.i ]
-  %tmp_real_max.032.i = phi i32 [ %tmp_real_max.2.i, %for.inc.i ], [ 0, %sw.epilog.i ]
+  %tmp_real_max.032.i = phi i32 [ %tmp_real_max.1.i, %for.inc.i ], [ 0, %sw.epilog.i ]
   %cmeth.i = getelementptr inbounds i8, ptr %vent.035.i, i64 8
   %8 = load ptr, ptr %cmeth.i, align 8
   %cmp17.i = icmp eq ptr %8, null
@@ -4757,19 +4757,19 @@ if.then34.i:                                      ; preds = %if.else.i
   br label %for.inc.i
 
 if.else36.i:                                      ; preds = %if.else.i
-  %spec.select85 = select i1 %cmp24.i, i32 %real_max.0, i32 %tmp_real_max.032.i
+  %spec.select85 = select i1 %cmp24.i, i32 %real_max.1, i32 %tmp_real_max.032.i
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.else36.i, %if.end28.thread.i
-  %real_max.1 = phi i32 [ %7, %if.end28.thread.i ], [ %spec.select85, %if.else36.i ]
-  %tmp_real_max.1273041.i = phi i32 [ %7, %if.end28.thread.i ], [ %tmp_real_max.032.i, %if.else36.i ]
+  %real_max.4 = phi i32 [ %7, %if.end28.thread.i ], [ %spec.select85, %if.else36.i ]
+  %tmp_real_max.2273041.i = phi i32 [ %7, %if.end28.thread.i ], [ %tmp_real_max.032.i, %if.else36.i ]
   %10 = load i32, ptr %call.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then34.i, %if.end43.i, %if.end28.thread.i, %if.end28.i, %for.body.i
   %ver_min.1 = phi i32 [ %ver_min.0, %for.body.i ], [ %ver_min.0, %if.end28.thread.i ], [ %ver_min.0, %if.end28.i ], [ %10, %if.end43.i ], [ %9, %if.then34.i ]
-  %real_max.3 = phi i32 [ %real_max.0, %for.body.i ], [ %real_max.0, %if.end28.thread.i ], [ %real_max.0, %if.end28.i ], [ %real_max.1, %if.end43.i ], [ %real_max.0, %if.then34.i ]
-  %tmp_real_max.2.i = phi i32 [ 0, %for.body.i ], [ %7, %if.end28.thread.i ], [ %tmp_real_max.032.i, %if.end28.i ], [ %tmp_real_max.1273041.i, %if.end43.i ], [ %tmp_real_max.032.i, %if.then34.i ]
+  %real_max.2 = phi i32 [ %real_max.1, %for.body.i ], [ %real_max.1, %if.end28.thread.i ], [ %real_max.1, %if.end28.i ], [ %real_max.4, %if.end43.i ], [ %real_max.1, %if.then34.i ]
+  %tmp_real_max.1.i = phi i32 [ 0, %for.body.i ], [ %7, %if.end28.thread.i ], [ %tmp_real_max.032.i, %if.end28.i ], [ %tmp_real_max.2273041.i, %if.end43.i ], [ %tmp_real_max.032.i, %if.then34.i ]
   %hole.1.i = phi i32 [ 1, %for.body.i ], [ 1, %if.end28.thread.i ], [ 1, %if.end28.i ], [ 0, %if.end43.i ], [ 0, %if.then34.i ]
   %version.1.i = phi i32 [ %version.034.i, %for.body.i ], [ %version.034.i, %if.end28.thread.i ], [ %version.034.i, %if.end28.i ], [ %10, %if.end43.i ], [ %version.034.i, %if.then34.i ]
   %version.0.lcssa.fr.i = freeze i32 %version.1.i
@@ -4841,7 +4841,7 @@ if.end73:                                         ; preds = %cond.true53, %cond.
   %16 = load i32, ptr %mode, align 8
   %and74 = and i32 %16, 128
   %cmp75 = icmp eq i32 %and74, 0
-  %spec.select87 = select i1 %cmp75, i32 %version.0.lcssa.fr.i, i32 %real_max.3
+  %spec.select87 = select i1 %cmp75, i32 %version.0.lcssa.fr.i, i32 %real_max.2
   %cmp79 = icmp eq i32 %15, 771
   %cmp82 = icmp sgt i32 %spec.select87, 771
   %or.cond = select i1 %cmp79, i1 %cmp82, i1 false
@@ -4971,7 +4971,7 @@ for.body.us.i:                                    ; preds = %sw.epilog.i, %for.i
   %vent.035.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc.us.i ], [ %table.0.i, %sw.epilog.i ]
   %version.034.us.i = phi i32 [ %version.0.lcssa.fr.i, %for.inc.us.i ], [ 0, %sw.epilog.i ]
   %hole.033.us.i = phi i32 [ %hole.1.us.i, %for.inc.us.i ], [ 1, %sw.epilog.i ]
-  %tmp_real_max.032.us.i = phi i32 [ %tmp_real_max.2.us.i, %for.inc.us.i ], [ 0, %sw.epilog.i ]
+  %tmp_real_max.032.us.i = phi i32 [ %tmp_real_max.1.us.i, %for.inc.us.i ], [ 0, %sw.epilog.i ]
   %cmeth.us.i = getelementptr inbounds i8, ptr %vent.035.us.i, i64 8
   %7 = load ptr, ptr %cmeth.us.i, align 8
   %cmp17.us.i = icmp eq ptr %7, null
@@ -4997,12 +4997,12 @@ if.end28.thread.us.i:                             ; preds = %if.end20.us.i
   br i1 %cmp30.not26.us.i, label %if.else36.us.i, label %for.inc.us.i
 
 if.else36.us.i:                                   ; preds = %if.end28.thread.us.i, %if.else.us.i
-  %tmp_real_max.12730.us.i = phi i32 [ %tmp_real_max.032.us.i, %if.else.us.i ], [ %6, %if.end28.thread.us.i ]
+  %tmp_real_max.22730.us.i = phi i32 [ %tmp_real_max.032.us.i, %if.else.us.i ], [ %6, %if.end28.thread.us.i ]
   %8 = load i32, ptr %call.us.i, align 8
   br label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %if.else36.us.i, %if.else.us.i, %if.end28.thread.us.i, %if.end28.us.i, %for.body.us.i
-  %tmp_real_max.2.us.i = phi i32 [ 0, %for.body.us.i ], [ %tmp_real_max.032.us.i, %if.end28.us.i ], [ %6, %if.end28.thread.us.i ], [ %tmp_real_max.12730.us.i, %if.else36.us.i ], [ %tmp_real_max.032.us.i, %if.else.us.i ]
+  %tmp_real_max.1.us.i = phi i32 [ 0, %for.body.us.i ], [ %tmp_real_max.032.us.i, %if.end28.us.i ], [ %6, %if.end28.thread.us.i ], [ %tmp_real_max.22730.us.i, %if.else36.us.i ], [ %tmp_real_max.032.us.i, %if.else.us.i ]
   %hole.1.us.i = phi i32 [ 1, %for.body.us.i ], [ 1, %if.end28.us.i ], [ 1, %if.end28.thread.us.i ], [ 0, %if.else36.us.i ], [ 0, %if.else.us.i ]
   %version.1.us.i = phi i32 [ %version.034.us.i, %for.body.us.i ], [ %version.034.us.i, %if.end28.us.i ], [ %version.034.us.i, %if.end28.thread.us.i ], [ %8, %if.else36.us.i ], [ %version.034.us.i, %if.else.us.i ]
   %version.0.lcssa.fr.i = freeze i32 %version.1.us.i
@@ -5021,9 +5021,9 @@ for.end.i.if.end6_crit_edge:                      ; preds = %for.end.i
 
 if.end6:                                          ; preds = %for.end.i.if.end6_crit_edge, %sw.default.i
   %10 = phi ptr [ %.pre, %for.end.i.if.end6_crit_edge ], [ %2, %sw.default.i ]
-  %ver_max.1.ph = phi i32 [ %version.0.lcssa.fr.i, %for.end.i.if.end6_crit_edge ], [ %4, %sw.default.i ]
+  %ver_max.2.ph = phi i32 [ %version.0.lcssa.fr.i, %for.end.i.if.end6_crit_edge ], [ %4, %sw.default.i ]
   %version = getelementptr inbounds i8, ptr %s, i64 64
-  store i32 %ver_max.1.ph, ptr %version, align 8
+  store i32 %ver_max.2.ph, ptr %version, align 8
   %ssl3_enc = getelementptr inbounds i8, ptr %10, i64 216
   %11 = load ptr, ptr %ssl3_enc, align 8
   %enc_flags = getelementptr inbounds i8, ptr %11, i64 80
@@ -5033,7 +5033,7 @@ if.end6:                                          ; preds = %for.end.i.if.end6_c
   br i1 %tobool.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.end6
-  %cmp8 = icmp eq i32 %ver_max.1.ph, 256
+  %cmp8 = icmp eq i32 %ver_max.2.ph, 256
   br i1 %cmp8, label %if.then9, label %if.end18
 
 if.then9:                                         ; preds = %if.then7
@@ -5042,13 +5042,13 @@ if.then9:                                         ; preds = %if.then7
   br i1 %tobool11.not, label %return, label %if.end18
 
 if.else:                                          ; preds = %if.end6
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %ver_max.1.ph, i32 771)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %ver_max.2.ph, i32 771)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else, %if.then7, %if.then9
-  %ver_max.2 = phi i32 [ 256, %if.then9 ], [ %ver_max.1.ph, %if.then7 ], [ %spec.select, %if.else ]
+  %ver_max.0 = phi i32 [ 256, %if.then9 ], [ %ver_max.2.ph, %if.then7 ], [ %spec.select, %if.else ]
   %client_version = getelementptr inbounds i8, ptr %s, i64 2388
-  store i32 %ver_max.2, ptr %client_version, align 4
+  store i32 %ver_max.0, ptr %client_version, align 4
   br label %return
 
 return:                                           ; preds = %for.end.i, %sw.epilog.i, %if.then9, %lor.lhs.false, %if.end18
@@ -5226,22 +5226,22 @@ if.then3:                                         ; preds = %if.end, %lor.lhs.fa
   br label %err
 
 while.cond:                                       ; preds = %PACKET_get_length_prefixed_2.exit, %if.end22
-  %cadns.sroa.7.1 = phi i64 [ %or.i.i.i, %PACKET_get_length_prefixed_2.exit ], [ %sub.i.i18, %if.end22 ]
-  %cadns.sroa.0.1 = phi ptr [ %add.ptr.i2.i.i, %PACKET_get_length_prefixed_2.exit ], [ %add.ptr.i.i17, %if.end22 ]
-  switch i64 %cadns.sroa.7.1, label %lor.lhs.false [
+  %cadns.sroa.7.0 = phi i64 [ %or.i.i.i, %PACKET_get_length_prefixed_2.exit ], [ %sub.i.i18, %if.end22 ]
+  %cadns.sroa.0.0 = phi ptr [ %add.ptr.i2.i.i, %PACKET_get_length_prefixed_2.exit ], [ %add.ptr.i.i17, %if.end22 ]
+  switch i64 %cadns.sroa.7.0, label %lor.lhs.false [
     i64 0, label %while.end
     i64 1, label %if.then11
   ]
 
 lor.lhs.false:                                    ; preds = %while.cond
-  %2 = load i8, ptr %cadns.sroa.0.1, align 1
+  %2 = load i8, ptr %cadns.sroa.0.0, align 1
   %conv.i.i = zext i8 %2 to i64
   %shl.i.i = shl nuw nsw i64 %conv.i.i, 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %cadns.sroa.0.1, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %cadns.sroa.0.0, i64 1
   %3 = load i8, ptr %add.ptr.i.i, align 1
   %conv2.i.i = zext i8 %3 to i64
   %or.i.i = or disjoint i64 %shl.i.i, %conv2.i.i
-  %sub.i.i = add i64 %cadns.sroa.7.1, -2
+  %sub.i.i = add i64 %cadns.sroa.7.0, -2
   %cmp.i.i15 = icmp ult i64 %sub.i.i, %or.i.i
   br i1 %cmp.i.i15, label %if.then11, label %if.end12
 
@@ -5252,7 +5252,7 @@ if.then11:                                        ; preds = %while.cond, %lor.lh
   br label %err
 
 if.end12:                                         ; preds = %lor.lhs.false
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %cadns.sroa.0.1, i64 2
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %cadns.sroa.0.0, i64 2
   store ptr %add.ptr.i2.i, ptr %namebytes, align 8
   %add.ptr.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 %or.i.i
   %sub.i.i18 = sub nuw i64 %sub.i.i, %or.i.i
@@ -5296,9 +5296,9 @@ while.end:                                        ; preds = %while.cond
   br label %return
 
 err:                                              ; preds = %if.then27, %if.then21, %if.then17, %if.then11, %if.then3, %if.then
-  %xn.1 = phi ptr [ null, %if.then ], [ null, %if.then17 ], [ %call14, %if.then21 ], [ %call14, %if.then27 ], [ null, %if.then11 ], [ null, %if.then3 ]
+  %xn.0 = phi ptr [ null, %if.then ], [ null, %if.then17 ], [ %call14, %if.then21 ], [ %call14, %if.then27 ], [ null, %if.then11 ], [ null, %if.then3 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %call1, ptr noundef nonnull @X509_NAME_free) #11
-  call void @X509_NAME_free(ptr noundef %xn.1) #11
+  call void @X509_NAME_free(ptr noundef %xn.0) #11
   br label %return
 
 return:                                           ; preds = %err, %while.end

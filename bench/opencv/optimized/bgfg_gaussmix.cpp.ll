@@ -476,10 +476,10 @@ _ZNK2cv11_InputArray6getMatEi.exit45:             ; preds = %69, %72
 
 .lr.ph67.us.us.i:                                 ; preds = %.preheader.us.us.i, %.lr.ph67.us.us.i
   %indvars.iv147.i = phi i64 [ %indvars.iv.next148.i, %.lr.ph67.us.us.i ], [ %indvars.iv137.i, %.preheader.us.us.i ]
-  %.213366.us.us.i = phi float [ %181, %.lr.ph67.us.us.i ], [ %157, %.preheader.us.us.i ]
+  %.313466.us.us.i = phi float [ %181, %.lr.ph67.us.us.i ], [ %157, %.preheader.us.us.i ]
   %179 = getelementptr inbounds %"struct.cv::bgsegm::MixData", ptr %.112876.us.us.i, i64 %indvars.iv147.i, i32 1
   %180 = load float, ptr %179, align 4
-  %181 = fadd float %.213366.us.us.i, %180
+  %181 = fadd float %.313466.us.us.i, %180
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
   %exitcond152.not.i = icmp eq i64 %indvars.iv.next148.i, %wide.trip.count140.i
   br i1 %exitcond152.not.i, label %.loopexit.us.us.i, label %.lr.ph67.us.us.i, !llvm.loop !12
@@ -516,8 +516,8 @@ _ZNK2cv11_InputArray6getMatEi.exit45:             ; preds = %69, %72
 
 .loopexit.us.us.i:                                ; preds = %.lr.ph67.us.us.i, %.preheader.us.us.i, %.thread.us.us.i
   %.1136.us.us.i = phi i32 [ %.sroa.speculated.us.us.i, %.thread.us.us.i ], [ %.0126.in.lcssa.us.us172.i, %.preheader.us.us.i ], [ %.0126.in.lcssa.us.us172.i, %.lr.ph67.us.us.i ]
-  %.3134.us.us.i = phi float [ %189, %.thread.us.us.i ], [ %157, %.preheader.us.us.i ], [ %181, %.lr.ph67.us.us.i ]
-  %193 = fdiv float 1.000000e+00, %.3134.us.us.i
+  %.2133.us.us.i = phi float [ %189, %.thread.us.us.i ], [ %157, %.preheader.us.us.i ], [ %181, %.lr.ph67.us.us.i ]
+  %193 = fdiv float 1.000000e+00, %.2133.us.us.i
   br i1 %121, label %.lr.ph73.us.us.i.preheader, label %._crit_edge74.us.us.i
 
 .lr.ph73.us.us.i.preheader:                       ; preds = %.loopexit.us.us.i
@@ -945,10 +945,10 @@ _ZN2cvplIfLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.us.us.i: ; preds = %361
 
 .lr.ph91.us.us.i:                                 ; preds = %.preheader.us.us.i60, %.lr.ph91.us.us.i
   %indvars.iv188.i = phi i64 [ %indvars.iv.next189.i, %.lr.ph91.us.us.i ], [ %indvars.iv178.i, %.preheader.us.us.i60 ]
-  %.212690.us.us.i = phi float [ %401, %.lr.ph91.us.us.i ], [ %369, %.preheader.us.us.i60 ]
+  %.312790.us.us.i = phi float [ %401, %.lr.ph91.us.us.i ], [ %369, %.preheader.us.us.i60 ]
   %399 = getelementptr inbounds %"struct.cv::bgsegm::MixData.6", ptr %.1123100.us.us.i, i64 %indvars.iv188.i, i32 1
   %400 = load float, ptr %399, align 4
-  %401 = fadd float %.212690.us.us.i, %400
+  %401 = fadd float %.312790.us.us.i, %400
   %indvars.iv.next189.i = add nuw nsw i64 %indvars.iv188.i, 1
   %exitcond193.not.i = icmp eq i64 %indvars.iv.next189.i, %wide.trip.count181.i
   br i1 %exitcond193.not.i, label %.loopexit.us.us.i55, label %.lr.ph91.us.us.i, !llvm.loop !35
@@ -998,8 +998,8 @@ _ZN2cvplIfLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.us.us.i: ; preds = %361
 
 .loopexit.us.us.i55:                              ; preds = %.lr.ph91.us.us.i, %.preheader.us.us.i60, %.thread.us.us.i53
   %.1131.us.us.i = phi i32 [ %.sroa.speculated.us.us.i54, %.thread.us.us.i53 ], [ %.0121.in.lcssa.us.us213.i, %.preheader.us.us.i60 ], [ %.0121.in.lcssa.us.us213.i, %.lr.ph91.us.us.i ]
-  %.3127.us.us.i = phi float [ %412, %.thread.us.us.i53 ], [ %369, %.preheader.us.us.i60 ], [ %401, %.lr.ph91.us.us.i ]
-  %416 = fdiv float 1.000000e+00, %.3127.us.us.i
+  %.2126.us.us.i = phi float [ %412, %.thread.us.us.i53 ], [ %369, %.preheader.us.us.i60 ], [ %401, %.lr.ph91.us.us.i ]
+  %416 = fdiv float 1.000000e+00, %.2126.us.us.i
   br i1 %285, label %.lr.ph97.us.us.i.preheader, label %._crit_edge98.us.us.i
 
 .lr.ph97.us.us.i.preheader:                       ; preds = %.loopexit.us.us.i55

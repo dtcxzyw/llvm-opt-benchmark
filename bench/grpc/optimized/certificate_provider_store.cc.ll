@@ -985,8 +985,8 @@ _ZN9grpc_core13RefCountedPtrINS_24CertificateProviderStore26CertificateProviderW
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then13, %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerED2Ev.exit, %_ZN9grpc_core13RefCountedPtrINS_24CertificateProviderStore26CertificateProviderWrapperEEaSEOS3_.exit25, %_ZN9grpc_core13RefCountedPtrINS_24CertificateProviderStore26CertificateProviderWrapperEEaSEOS3_.exit
-  %result.sroa.0.1 = phi ptr [ null, %_ZN9grpc_core13RefCountedPtrINS_24CertificateProviderStore26CertificateProviderWrapperEEaSEOS3_.exit ], [ %10, %_ZN9grpc_core13RefCountedPtrINS_24CertificateProviderStore26CertificateProviderWrapperEEaSEOS3_.exit25 ], [ %5, %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerED2Ev.exit ], [ %1, %if.then13 ]
-  store ptr %result.sroa.0.1, ptr %agg.result, align 8
+  %result.sroa.0.2 = phi ptr [ null, %_ZN9grpc_core13RefCountedPtrINS_24CertificateProviderStore26CertificateProviderWrapperEEaSEOS3_.exit ], [ %10, %_ZN9grpc_core13RefCountedPtrINS_24CertificateProviderStore26CertificateProviderWrapperEEaSEOS3_.exit25 ], [ %5, %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerED2Ev.exit ], [ %1, %if.then13 ]
+  store ptr %result.sroa.0.2, ptr %agg.result, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN9grpc_core13RefCountedPtrINS_24CertificateProviderStore26CertificateProviderWrapperEED2Ev.exit44 unwind label %terminate.lpad.i35
 

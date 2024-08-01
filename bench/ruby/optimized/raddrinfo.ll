@@ -925,7 +925,7 @@ rb_getaddrinfo.exit:                              ; preds = %165, %166
   br label %.thread64
 
 .thread70:                                        ; preds = %rb_getaddrinfo.exit.thread, %rb_getaddrinfo.exit, %.thread76
-  %.174 = phi i32 [ -2, %.thread76 ], [ %.028.i.ph, %rb_getaddrinfo.exit.thread ], [ %.127.i, %rb_getaddrinfo.exit ]
+  %.02974 = phi i32 [ -2, %.thread76 ], [ %.028.i.ph, %rb_getaddrinfo.exit.thread ], [ %.127.i, %rb_getaddrinfo.exit ]
   %.not43 = icmp eq ptr %15, null
   br i1 %.not43, label %181, label %173
 
@@ -943,12 +943,12 @@ rb_getaddrinfo.exit:                              ; preds = %165, %166
   unreachable
 
 181:                                              ; preds = %173, %.thread70
-  call void @rsock_raise_resolution_error(ptr noundef nonnull @.str.1, i32 noundef %.174) #21
+  call void @rsock_raise_resolution_error(ptr noundef nonnull @.str.1, i32 noundef %.02974) #21
   unreachable
 
 .thread64:                                        ; preds = %169, %59, %._crit_edge.loopexit.i.thread
-  %.468 = phi ptr [ %86, %._crit_edge.loopexit.i.thread ], [ %170, %169 ], [ %60, %59 ]
-  ret ptr %.468
+  %.068 = phi ptr [ %86, %._crit_edge.loopexit.i.thread ], [ %170, %169 ], [ %60, %59 ]
+  ret ptr %.068
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1341,7 +1341,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
 
 118:                                              ; preds = %.preheader, %151
   %indvars.iv138 = phi i64 [ 2, %.preheader ], [ %indvars.iv.next139, %151 ]
-  %.2126 = phi ptr [ null, %.preheader ], [ %.3, %151 ]
+  %.3126 = phi ptr [ null, %.preheader ], [ %.4, %151 ]
   br i1 %116, label %123, label %119
 
 119:                                              ; preds = %118
@@ -1397,22 +1397,22 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   %149 = getelementptr inbounds i8, ptr %130, i64 32
   store ptr null, ptr %149, align 8
   %150 = getelementptr inbounds i8, ptr %130, i64 40
-  store ptr %.2126, ptr %150, align 8
+  store ptr %.3126, ptr %150, align 8
   br label %151
 
 151:                                              ; preds = %119, %125, %144
-  %.3 = phi ptr [ %130, %144 ], [ %.2126, %125 ], [ %.2126, %119 ]
+  %.4 = phi ptr [ %130, %144 ], [ %.3126, %125 ], [ %.3126, %119 ]
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, -1
   %.not144 = icmp eq i64 %indvars.iv138, 0
   br i1 %.not144, label %.loopexit, label %118, !llvm.loop !19
 
 .loopexit:                                        ; preds = %106, %82, %62, %151
-  %.4 = phi ptr [ %.3, %151 ], [ %.1.us, %62 ], [ %.1.us122, %82 ], [ %.1, %106 ]
-  %.not102 = icmp eq ptr %.4, null
+  %.2 = phi ptr [ %.4, %151 ], [ %.1.us, %62 ], [ %.1.us122, %82 ], [ %.1, %106 ]
+  %.not102 = icmp eq ptr %.2, null
   br i1 %.not102, label %parse_numeric_port.exit.thread, label %152
 
 152:                                              ; preds = %.loopexit
-  store ptr %.4, ptr %3, align 8
+  store ptr %.2, ptr %3, align 8
   br label %parse_numeric_port.exit.thread
 
 parse_numeric_port.exit.thread:                   ; preds = %19, %107, %108, %114, %11, %8, %4, %.loopexit, %152

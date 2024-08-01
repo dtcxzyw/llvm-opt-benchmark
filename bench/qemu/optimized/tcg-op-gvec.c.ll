@@ -4595,9 +4595,9 @@ for.cond.preheader:                               ; preds = %if.end3
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %add432 = phi i32 [ %add4, %for.body ], [ %add429, %for.cond.preheader ]
-  %i.131 = phi i32 [ %add432, %for.body ], [ %i.0, %for.cond.preheader ]
+  %i.231 = phi i32 [ %add432, %for.body ], [ %i.0, %for.cond.preheader ]
   %1 = load ptr, ptr @tcg_env, align 8
-  %add7 = add i32 %i.131, %dofs
+  %add7 = add i32 %i.231, %dofs
   %conv8 = zext i32 %add7 to i64
   tail call void @tcg_gen_stl_vec(ptr noundef %t_vec, ptr noundef %1, i64 noundef %conv8, i32 noundef 5) #7
   %add4 = add i32 %add432, 32
@@ -4605,14 +4605,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp5.not, label %sw.bb10, label %for.body, !llvm.loop !37
 
 sw.bb10:                                          ; preds = %for.body, %for.cond.preheader, %if.end3
-  %i.2 = phi i32 [ %i.0, %if.end3 ], [ %i.0, %for.cond.preheader ], [ %add432, %for.body ]
-  %add1233 = add i32 %i.2, 16
+  %i.1 = phi i32 [ %i.0, %if.end3 ], [ %i.0, %for.cond.preheader ], [ %add432, %for.body ]
+  %add1233 = add i32 %i.1, 16
   %cmp13.not34 = icmp ugt i32 %add1233, %oprsz
   br i1 %cmp13.not34, label %sw.epilog, label %for.body15
 
 for.body15:                                       ; preds = %sw.bb10, %for.body15
   %add1236 = phi i32 [ %add12, %for.body15 ], [ %add1233, %sw.bb10 ]
-  %i.335 = phi i32 [ %add1236, %for.body15 ], [ %i.2, %sw.bb10 ]
+  %i.335 = phi i32 [ %add1236, %for.body15 ], [ %i.1, %sw.bb10 ]
   %2 = load ptr, ptr @tcg_env, align 8
   %add16 = add i32 %i.335, %dofs
   %conv17 = zext i32 %add16 to i64
@@ -8073,13 +8073,13 @@ if.end29:                                         ; preds = %expand_2s_vec.exit
   br label %sw.bb34
 
 sw.bb34:                                          ; preds = %if.end29, %if.end23
-  %maxsz.addr.2 = phi i32 [ %maxsz, %if.end23 ], [ %sub33, %if.end29 ]
-  %oprsz.addr.2 = phi i32 [ %oprsz, %if.end23 ], [ %sub32, %if.end29 ]
+  %maxsz.addr.3 = phi i32 [ %maxsz, %if.end23 ], [ %sub33, %if.end29 ]
+  %oprsz.addr.3 = phi i32 [ %oprsz, %if.end23 ], [ %sub32, %if.end29 ]
   %aofs.addr.1 = phi i32 [ %aofs, %if.end23 ], [ %add31, %if.end29 ]
-  %dofs.addr.2 = phi i32 [ %dofs, %if.end23 ], [ %add30, %if.end29 ]
+  %dofs.addr.3 = phi i32 [ %dofs, %if.end23 ], [ %add30, %if.end29 ]
   %fniv_v35 = getelementptr inbounds i8, ptr %g, i64 24
   %16 = load ptr, ptr %fniv_v35, align 8
-  %cmp12.not.i153 = icmp eq i32 %oprsz.addr.2, 0
+  %cmp12.not.i153 = icmp eq i32 %oprsz.addr.3, 0
   br i1 %cmp12.not.i153, label %sw.epilog41, label %for.body.i155
 
 for.body.i155:                                    ; preds = %sw.bb34, %for.body.i155
@@ -8092,11 +8092,11 @@ for.body.i155:                                    ; preds = %sw.bb34, %for.body.
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i157, ptr noundef %17, i64 noundef %conv.i160) #7
   tail call void %16(i32 noundef %vece, ptr noundef %call1.i158, ptr noundef %call.i157, ptr noundef %call19) #7
   %18 = load ptr, ptr @tcg_env, align 8
-  %add2.i161 = add i32 %i.013.i156, %dofs.addr.2
+  %add2.i161 = add i32 %i.013.i156, %dofs.addr.3
   %conv3.i162 = zext i32 %add2.i161 to i64
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i158, ptr noundef %18, i64 noundef %conv3.i162) #7
   %add4.i163 = add i32 %i.013.i156, 16
-  %cmp.i164 = icmp ult i32 %add4.i163, %oprsz.addr.2
+  %cmp.i164 = icmp ult i32 %add4.i163, %oprsz.addr.3
   br i1 %cmp.i164, label %for.body.i155, label %sw.epilog41, !llvm.loop !12
 
 sw.bb36:                                          ; preds = %if.end23
@@ -8127,9 +8127,9 @@ do.body39:                                        ; preds = %if.end23
   unreachable
 
 sw.epilog41:                                      ; preds = %for.body.i168, %for.body.i155, %sw.bb36, %sw.bb34, %expand_2s_vec.exit
-  %maxsz.addr.3 = phi i32 [ %maxsz, %expand_2s_vec.exit ], [ %maxsz.addr.2, %sw.bb34 ], [ %maxsz, %sw.bb36 ], [ %maxsz.addr.2, %for.body.i155 ], [ %maxsz, %for.body.i168 ]
-  %oprsz.addr.3 = phi i32 [ %oprsz, %expand_2s_vec.exit ], [ 0, %sw.bb34 ], [ 0, %sw.bb36 ], [ %oprsz.addr.2, %for.body.i155 ], [ %oprsz, %for.body.i168 ]
-  %dofs.addr.3 = phi i32 [ %dofs, %expand_2s_vec.exit ], [ %dofs.addr.2, %sw.bb34 ], [ %dofs, %sw.bb36 ], [ %dofs.addr.2, %for.body.i155 ], [ %dofs, %for.body.i168 ]
+  %maxsz.addr.4 = phi i32 [ %maxsz, %expand_2s_vec.exit ], [ %maxsz.addr.3, %sw.bb34 ], [ %maxsz, %sw.bb36 ], [ %maxsz.addr.3, %for.body.i155 ], [ %maxsz, %for.body.i168 ]
+  %oprsz.addr.4 = phi i32 [ %oprsz, %expand_2s_vec.exit ], [ 0, %sw.bb34 ], [ 0, %sw.bb36 ], [ %oprsz.addr.3, %for.body.i155 ], [ %oprsz, %for.body.i168 ]
+  %dofs.addr.4 = phi i32 [ %dofs, %expand_2s_vec.exit ], [ %dofs.addr.3, %sw.bb34 ], [ %dofs, %sw.bb36 ], [ %dofs.addr.3, %for.body.i155 ], [ %dofs, %for.body.i168 ]
   tail call void @tcg_temp_free_vec(ptr noundef %call19) #7
   br label %clear_tail
 
@@ -8266,15 +8266,15 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   br label %if.end67
 
 clear_tail:                                       ; preds = %for.body.i133, %for.body.i121, %expand_2sh_vec.exit, %sw.bb6, %sw.bb8, %expand_2s_i32.exit, %expand_2s_i64.exit, %sw.epilog41
-  %maxsz.addr.4 = phi i32 [ %maxsz.addr.3, %sw.epilog41 ], [ %maxsz, %expand_2s_i32.exit ], [ %maxsz, %expand_2s_i64.exit ], [ %maxsz, %expand_2sh_vec.exit ], [ %maxsz.addr.0, %sw.bb6 ], [ %maxsz, %sw.bb8 ], [ %maxsz.addr.0, %for.body.i121 ], [ %maxsz, %for.body.i133 ]
-  %oprsz.addr.4 = phi i32 [ %oprsz.addr.3, %sw.epilog41 ], [ %oprsz, %expand_2s_i32.exit ], [ %oprsz, %expand_2s_i64.exit ], [ %oprsz, %expand_2sh_vec.exit ], [ 0, %sw.bb6 ], [ 0, %sw.bb8 ], [ %oprsz.addr.0, %for.body.i121 ], [ %oprsz, %for.body.i133 ]
-  %dofs.addr.4 = phi i32 [ %dofs.addr.3, %sw.epilog41 ], [ %dofs, %expand_2s_i32.exit ], [ %dofs, %expand_2s_i64.exit ], [ %dofs, %expand_2sh_vec.exit ], [ %dofs.addr.0, %sw.bb6 ], [ %dofs, %sw.bb8 ], [ %dofs.addr.0, %for.body.i121 ], [ %dofs, %for.body.i133 ]
-  %cmp62 = icmp ult i32 %oprsz.addr.4, %maxsz.addr.4
+  %maxsz.addr.2 = phi i32 [ %maxsz.addr.4, %sw.epilog41 ], [ %maxsz, %expand_2s_i32.exit ], [ %maxsz, %expand_2s_i64.exit ], [ %maxsz, %expand_2sh_vec.exit ], [ %maxsz.addr.0, %sw.bb6 ], [ %maxsz, %sw.bb8 ], [ %maxsz.addr.0, %for.body.i121 ], [ %maxsz, %for.body.i133 ]
+  %oprsz.addr.2 = phi i32 [ %oprsz.addr.4, %sw.epilog41 ], [ %oprsz, %expand_2s_i32.exit ], [ %oprsz, %expand_2s_i64.exit ], [ %oprsz, %expand_2sh_vec.exit ], [ 0, %sw.bb6 ], [ 0, %sw.bb8 ], [ %oprsz.addr.0, %for.body.i121 ], [ %oprsz, %for.body.i133 ]
+  %dofs.addr.2 = phi i32 [ %dofs.addr.4, %sw.epilog41 ], [ %dofs, %expand_2s_i32.exit ], [ %dofs, %expand_2s_i64.exit ], [ %dofs, %expand_2sh_vec.exit ], [ %dofs.addr.0, %sw.bb6 ], [ %dofs, %sw.bb8 ], [ %dofs.addr.0, %for.body.i121 ], [ %dofs, %for.body.i133 ]
+  %cmp62 = icmp ult i32 %oprsz.addr.2, %maxsz.addr.2
   br i1 %cmp62, label %if.then64, label %if.end67
 
 if.then64:                                        ; preds = %clear_tail
-  %add65 = add i32 %dofs.addr.4, %oprsz.addr.4
-  %sub66 = sub nuw i32 %maxsz.addr.4, %oprsz.addr.4
+  %add65 = add i32 %dofs.addr.2, %oprsz.addr.2
+  %sub66 = sub nuw i32 %maxsz.addr.2, %oprsz.addr.2
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add65, i32 noundef %sub66, i32 noundef %sub66, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end67
 

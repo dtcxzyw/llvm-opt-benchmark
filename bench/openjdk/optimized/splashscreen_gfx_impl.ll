@@ -798,30 +798,30 @@ define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocap
 
 13:                                               ; preds = %8, %5
   %.071 = phi ptr [ %0, %5 ], [ %12, %8 ]
-  %.0 = phi i32 [ 0, %5 ], [ %11, %8 ]
+  %.1 = phi i32 [ 0, %5 ], [ %11, %8 ]
   %14 = load i8, ptr %.071, align 1
   %15 = zext i8 %14 to i32
-  %16 = or disjoint i32 %.0, %15
+  %16 = or disjoint i32 %.1, %15
   %17 = shl nuw nsw i32 %16, 8
   %18 = getelementptr inbounds i8, ptr %.071, i64 1
   br label %19
 
 19:                                               ; preds = %13, %5
   %.172 = phi ptr [ %0, %5 ], [ %18, %13 ]
-  %.1 = phi i32 [ 0, %5 ], [ %17, %13 ]
+  %.2 = phi i32 [ 0, %5 ], [ %17, %13 ]
   %20 = load i8, ptr %.172, align 1
   %21 = zext i8 %20 to i32
-  %22 = or disjoint i32 %.1, %21
+  %22 = or disjoint i32 %.2, %21
   %23 = shl nuw i32 %22, 8
   %24 = getelementptr inbounds i8, ptr %.172, i64 1
   br label %25
 
 25:                                               ; preds = %19, %5
   %.273 = phi ptr [ %0, %5 ], [ %24, %19 ]
-  %.2 = phi i32 [ 0, %5 ], [ %23, %19 ]
+  %.3 = phi i32 [ 0, %5 ], [ %23, %19 ]
   %26 = load i8, ptr %.273, align 1
   %27 = zext i8 %26 to i32
-  %28 = or disjoint i32 %.2, %27
+  %28 = or disjoint i32 %.3, %27
   br label %65
 
 29:                                               ; preds = %2
@@ -843,30 +843,30 @@ define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocap
 
 37:                                               ; preds = %32, %29
   %.374 = phi ptr [ %0, %29 ], [ %36, %32 ]
-  %.3 = phi i32 [ 0, %29 ], [ %35, %32 ]
+  %.4 = phi i32 [ 0, %29 ], [ %35, %32 ]
   %38 = load i8, ptr %.374, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 16
-  %41 = or disjoint i32 %40, %.3
+  %41 = or disjoint i32 %40, %.4
   %42 = getelementptr inbounds i8, ptr %.374, i64 1
   br label %43
 
 43:                                               ; preds = %37, %29
   %.475 = phi ptr [ %0, %29 ], [ %42, %37 ]
-  %.4 = phi i32 [ 0, %29 ], [ %41, %37 ]
+  %.5 = phi i32 [ 0, %29 ], [ %41, %37 ]
   %44 = load i8, ptr %.475, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
-  %47 = or i32 %46, %.4
+  %47 = or i32 %46, %.5
   %48 = getelementptr inbounds i8, ptr %.475, i64 1
   br label %49
 
 49:                                               ; preds = %43, %29
   %.576 = phi ptr [ %0, %29 ], [ %48, %43 ]
-  %.5 = phi i32 [ 0, %29 ], [ %47, %43 ]
+  %.6 = phi i32 [ 0, %29 ], [ %47, %43 ]
   %50 = load i8, ptr %.576, align 1
   %51 = zext i8 %50 to i32
-  %52 = or i32 %.5, %51
+  %52 = or i32 %.6, %51
   br label %65
 
 53:                                               ; preds = %2
@@ -897,7 +897,7 @@ define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocap
   br label %65
 
 65:                                               ; preds = %53, %56, %58, %59, %62, %29, %49, %5, %25, %2
-  %.6 = phi i32 [ 0, %2 ], [ 0, %53 ], [ %64, %62 ], [ %61, %59 ], [ -1, %58 ], [ %57, %56 ], [ 0, %29 ], [ %52, %49 ], [ 0, %5 ], [ %28, %25 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %53 ], [ %64, %62 ], [ %61, %59 ], [ -1, %58 ], [ %57, %56 ], [ 0, %29 ], [ %52, %49 ], [ 0, %5 ], [ %28, %25 ]
   %66 = getelementptr inbounds i8, ptr %1, i64 48
   %67 = load ptr, ptr %66, align 8
   %.not = icmp eq ptr %67, null
@@ -906,11 +906,11 @@ define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocap
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %1, i64 56
   %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %.6, %70
+  %71 = icmp eq i32 %.0, %70
   br i1 %71, label %118, label %72
 
 72:                                               ; preds = %68
-  %73 = zext i32 %.6 to i64
+  %73 = zext i32 %.0 to i64
   %74 = getelementptr inbounds i32, ptr %67, i64 %73
   %75 = load i32, ptr %74, align 4
   br label %118
@@ -919,7 +919,7 @@ define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocap
   %77 = getelementptr inbounds i8, ptr %1, i64 16
   %78 = load i32, ptr %77, align 8
   %79 = load i32, ptr %1, align 8
-  %80 = and i32 %79, %.6
+  %80 = and i32 %79, %.0
   %81 = sub nsw i32 0, %78
   %82 = shl i32 %80, %81
   %isneg78 = icmp slt i32 %78, 0
@@ -929,7 +929,7 @@ define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocap
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds i8, ptr %1, i64 4
   %88 = load i32, ptr %87, align 4
-  %89 = and i32 %88, %.6
+  %89 = and i32 %88, %.0
   %90 = sub nsw i32 0, %86
   %91 = shl i32 %89, %90
   %isneg80 = icmp slt i32 %86, 0
@@ -940,7 +940,7 @@ define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocap
   %96 = load i32, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %1, i64 8
   %98 = load i32, ptr %97, align 8
-  %99 = and i32 %98, %.6
+  %99 = and i32 %98, %.0
   %100 = sub nsw i32 0, %96
   %101 = shl i32 %99, %100
   %isneg82 = icmp slt i32 %96, 0
@@ -951,7 +951,7 @@ define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocap
   %106 = load i32, ptr %105, align 4
   %107 = getelementptr inbounds i8, ptr %1, i64 12
   %108 = load i32, ptr %107, align 4
-  %109 = and i32 %108, %.6
+  %109 = and i32 %108, %.0
   %110 = sub nsw i32 0, %106
   %111 = shl i32 %109, %110
   %isneg84 = icmp slt i32 %106, 0
@@ -1090,12 +1090,12 @@ define hidden i32 @convertRect2(ptr nocapture noundef readonly %0, ptr nocapture
   %spec.select66 = tail call i32 @llvm.smin.i32(i32 %17, i32 %spec.select)
   %18 = getelementptr inbounds i8, ptr %3, i64 4
   %19 = load i32, ptr %18, align 4
-  %.152 = tail call i32 @llvm.smin.i32(i32 %19, i32 %.051)
+  %.253 = tail call i32 @llvm.smin.i32(i32 %19, i32 %.051)
   %20 = icmp sgt i32 %spec.select66, 0
   br i1 %20, label %.thread.preheader, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %.thread74, %15
-  %.25679 = phi i32 [ %spec.select66, %.thread74 ], [ %spec.select, %15 ]
+  %.15579 = phi i32 [ %spec.select66, %.thread74 ], [ %spec.select, %15 ]
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
@@ -1165,7 +1165,7 @@ define hidden i32 @convertRect2(ptr nocapture noundef readonly %0, ptr nocapture
   %62 = load ptr, ptr %28, align 8
   %63 = load i32, ptr %29, align 4
   %64 = load i32, ptr %30, align 4
-  tail call void @convertLine(ptr noundef %.05067, i32 noundef %59, ptr noundef %.04968, i32 noundef %60, i32 noundef %.152, ptr noundef %61, ptr noundef %62, i32 noundef %2, ptr noundef %.169, i32 noundef %63, ptr poison, i32 noundef %.071, i32 noundef %64)
+  tail call void @convertLine(ptr noundef %.05067, i32 noundef %59, ptr noundef %.04968, i32 noundef %60, i32 noundef %.253, ptr noundef %61, ptr noundef %62, i32 noundef %2, ptr noundef %.169, i32 noundef %63, ptr poison, i32 noundef %.071, i32 noundef %64)
   %65 = load i32, ptr %31, align 8
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %.05067, i64 %66
@@ -1182,9 +1182,9 @@ define hidden i32 @convertRect2(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %exitcond.not, label %._crit_edge, label %.thread, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.thread, %.thread.us, %.._crit_edge_crit_edge
-  %.25678 = phi i32 [ %.25679, %.._crit_edge_crit_edge ], [ %spec.select, %.thread.us ], [ %spec.select66, %.thread ]
+  %.15578 = phi i32 [ %.15579, %.._crit_edge_crit_edge ], [ %spec.select, %.thread.us ], [ %spec.select66, %.thread ]
   %77 = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %50, %.thread.us ], [ %65, %.thread ]
-  %78 = mul nsw i32 %77, %.25678
+  %78 = mul nsw i32 %77, %.15578
   ret i32 %78
 }
 

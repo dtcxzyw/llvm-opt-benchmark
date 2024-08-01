@@ -349,14 +349,14 @@ define internal fastcc i32 @indexOfColumn(ptr noundef %0, ptr noundef %1) unname
 
 .lr.ph:                                           ; preds = %16, %26
   %.028 = phi i32 [ %27, %26 ], [ 0, %16 ]
-  %.02227 = phi i32 [ %.1, %26 ], [ -1, %16 ]
+  %.127 = phi i32 [ %.2, %26 ], [ -1, %16 ]
   %20 = tail call ptr @PQfname(ptr noundef %1, i32 noundef %.028) #10
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %20) #11
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %.lr.ph
-  %24 = icmp sgt i32 %.02227, -1
+  %24 = icmp sgt i32 %.127, -1
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %23
@@ -364,14 +364,14 @@ define internal fastcc i32 @indexOfColumn(ptr noundef %0, ptr noundef %1) unname
   br label %31
 
 26:                                               ; preds = %23, %.lr.ph
-  %.1 = phi i32 [ %.02227, %.lr.ph ], [ %.028, %23 ]
+  %.2 = phi i32 [ %.127, %.lr.ph ], [ %.028, %23 ]
   %27 = add nuw nsw i32 %.028, 1
   %28 = tail call i32 @PQnfields(ptr noundef %1) #10
   %29 = icmp slt i32 %27, %28
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %26
-  %30 = icmp eq i32 %.1, -1
+  %30 = icmp eq i32 %.2, -1
   br i1 %30, label %._crit_edge.thread, label %31
 
 ._crit_edge.thread:                               ; preds = %16, %._crit_edge
@@ -379,7 +379,7 @@ define internal fastcc i32 @indexOfColumn(ptr noundef %0, ptr noundef %1) unname
   br label %31
 
 31:                                               ; preds = %12, %._crit_edge, %._crit_edge.thread, %25, %14
-  %.023 = phi i32 [ -1, %14 ], [ -1, %25 ], [ -1, %._crit_edge.thread ], [ %10, %12 ], [ %.1, %._crit_edge ]
+  %.023 = phi i32 [ -1, %14 ], [ -1, %25 ], [ -1, %._crit_edge.thread ], [ %10, %12 ], [ %.2, %._crit_edge ]
   ret i32 %.023
 }
 

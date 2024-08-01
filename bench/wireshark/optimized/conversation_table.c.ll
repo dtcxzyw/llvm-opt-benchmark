@@ -1692,16 +1692,16 @@ copy_address.exit100:                             ; preds = %copy_address.exit, 
 168:                                              ; preds = %163, %158
   %.sink = phi ptr [ %167, %163 ], [ %162, %158 ]
   %.sink130 = phi i64 [ %140, %163 ], [ %151, %158 ]
-  %.1109113122127 = phi ptr [ %45, %163 ], [ %35, %158 ]
+  %.0109113122127 = phi ptr [ %45, %163 ], [ %35, %158 ]
   %169 = load i64, ptr %.sink, align 8
   %170 = add i64 %169, %.sink130
   store i64 %170, ptr %.sink, align 8
-  %171 = getelementptr inbounds i8, ptr %.1109113122127, i64 184
+  %171 = getelementptr inbounds i8, ptr %.0109113122127, i64 184
   br label %.sink.split
 
 .sink.split:                                      ; preds = %128, %168
   %.sink131 = phi ptr [ %171, %168 ], [ %124, %128 ]
-  %.2.ph = phi ptr [ %.1109113122127, %168 ], [ %95, %128 ]
+  %.2.ph = phi ptr [ %.0109113122127, %168 ], [ %95, %128 ]
   store i32 0, ptr %.sink131, align 8
   br label %172
 

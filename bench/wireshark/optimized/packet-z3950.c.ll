@@ -4624,16 +4624,16 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br label %33
 
 33:                                               ; preds = %31, %28
-  %.0 = phi i32 [ %30, %28 ], [ 0, %31 ]
-  %.not318 = icmp eq i32 %.0, %7
+  %.1 = phi i32 [ %30, %28 ], [ 0, %31 ]
+  %.not318 = icmp eq i32 %.1, %7
   br i1 %.not318, label %36, label %34
 
 34:                                               ; preds = %33
-  %35 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %23, ptr noundef nonnull @ei_marc_invalid_length, ptr noundef nonnull @.str.2518, i32 noundef %.0, i32 noundef %7) #8
+  %35 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %23, ptr noundef nonnull @ei_marc_invalid_length, ptr noundef nonnull @.str.2518, i32 noundef %.1, i32 noundef %7) #8
   br label %36
 
 36:                                               ; preds = %33, %34, %15
-  %.1 = phi i32 [ %.0, %34 ], [ %7, %33 ], [ 0, %15 ]
+  %.0 = phi i32 [ %.1, %34 ], [ %7, %33 ], [ 0, %15 ]
   %37 = load i32, ptr @hf_marc_leader_status, align 4
   %38 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %37, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #8
   %39 = load i32, ptr @hf_marc_leader_type, align 4
@@ -4714,17 +4714,17 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   %78 = call i64 @strtoul(ptr nocapture noundef %75, ptr noundef null, i32 noundef 10) #8
   %79 = trunc i64 %78 to i32
   %80 = icmp ult i32 %79, 24
-  %81 = icmp ult i32 %.1, %79
+  %81 = icmp ult i32 %.0, %79
   %or.cond335 = or i1 %80, %81
   br i1 %or.cond335, label %82, label %84
 
 82:                                               ; preds = %.thread, %77
-  %.0288338 = phi i32 [ 0, %.thread ], [ %79, %77 ]
-  %83 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %71, ptr noundef nonnull @ei_marc_invalid_length, ptr noundef nonnull @.str.2524, i32 noundef %.0288338, i32 noundef %7) #8
+  %.1289338 = phi i32 [ 0, %.thread ], [ %79, %77 ]
+  %83 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %71, ptr noundef nonnull @ei_marc_invalid_length, ptr noundef nonnull @.str.2524, i32 noundef %.1289338, i32 noundef %7) #8
   br label %84
 
 84:                                               ; preds = %77, %82, %68
-  %.1289 = phi i32 [ %.0288338, %82 ], [ 0, %68 ], [ %79, %77 ]
+  %.0288 = phi i32 [ %.1289338, %82 ], [ 0, %68 ], [ %79, %77 ]
   %85 = load i32, ptr @hf_marc_leader_encoding_level, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %85, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #8
   %87 = load i32, ptr @hf_marc_leader_descriptive_cataloging, align 4
@@ -4783,15 +4783,15 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
 112:                                              ; preds = %107, %110, %109, %101
   %113 = load i32, ptr @hf_marc_leader_implementation_defined_length, align 4
   %114 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %113, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0) #8
-  %115 = add i32 %.1289, -1
-  %116 = add i32 %.1289, -25
+  %115 = add i32 %.0288, -1
+  %116 = add i32 %.0288, -25
   %117 = udiv i32 %116, 12
   %118 = load ptr, ptr %21, align 8
   %119 = zext nneg i32 %117 to i64
   %120 = mul nuw nsw i64 %119, 12
   %121 = call noalias ptr @wmem_alloc0(ptr noundef %118, i64 noundef %120) #8
   %122 = load i32, ptr @hf_marc_directory, align 4
-  %123 = add i32 %.1289, -24
+  %123 = add i32 %.0288, -24
   %124 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %122, ptr noundef %0, i32 noundef 24, i32 noundef %123, i32 noundef 0) #8
   %125 = load i32, ptr @ett_marc_directory, align 4
   %126 = call ptr @proto_item_add_subtree(ptr noundef %124, i32 noundef %125) #8
@@ -4799,7 +4799,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %112
-  %128 = sub i32 %.1, %.1289
+  %128 = sub i32 %.0, %.0288
   br label %129
 
 129:                                              ; preds = %.lr.ph, %182
@@ -4918,7 +4918,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   %190 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %189, ptr noundef %0, i32 noundef %.0292.lcssa, i32 noundef 1, i32 noundef 0) #8
   %191 = or disjoint i32 %.0292.lcssa, 1
   %192 = load i32, ptr @hf_marc_fields, align 4
-  %193 = sub i32 %.1, %191
+  %193 = sub i32 %.0, %191
   %194 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %192, ptr noundef %0, i32 noundef %191, i32 noundef %193, i32 noundef 0) #8
   %195 = load i32, ptr @ett_marc_fields, align 4
   %196 = call ptr @proto_item_add_subtree(ptr noundef %194, i32 noundef %195) #8

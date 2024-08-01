@@ -271,21 +271,21 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
   br label %144
 
 .loopexit:                                        ; preds = %6, %58, %49, %40, %32, %24, %16, %8, %97, %79, %75
-  %.2123 = phi float [ %.0121, %75 ], [ %.0121, %79 ], [ %.0121, %97 ], [ %.0121, %6 ], [ %.0121, %8 ], [ %.0121, %16 ], [ %.0121, %24 ], [ %.0121, %32 ], [ %46, %40 ], [ %.0121, %49 ], [ %.0121, %58 ]
-  %.2120 = phi float [ %.0118, %75 ], [ %.0118, %79 ], [ %.0118, %97 ], [ %.0118, %6 ], [ %.0118, %8 ], [ %.0118, %16 ], [ %.0118, %24 ], [ %.0118, %32 ], [ %.0118, %40 ], [ %55, %49 ], [ %.0118, %58 ]
-  %.2113 = phi i32 [ %.0111, %75 ], [ %.0111, %79 ], [ %.0111, %97 ], [ %.0111, %6 ], [ %13, %8 ], [ %.0111, %16 ], [ %.0111, %24 ], [ %.0111, %32 ], [ %.0111, %40 ], [ %.0111, %49 ], [ %.0111, %58 ]
-  %.2110 = phi i32 [ %.0108, %75 ], [ %.0108, %79 ], [ %.0108, %97 ], [ %.0108, %6 ], [ %.0108, %8 ], [ %21, %16 ], [ %.0108, %24 ], [ %.0108, %32 ], [ %.0108, %40 ], [ %.0108, %49 ], [ %.0108, %58 ]
-  %.2107 = phi i32 [ %.0105, %75 ], [ %.0105, %79 ], [ %.0105, %97 ], [ %.0105, %6 ], [ %.0105, %8 ], [ %.0105, %16 ], [ %29, %24 ], [ %.0105, %32 ], [ %.0105, %40 ], [ %.0105, %49 ], [ %.0105, %58 ]
-  %.2 = phi i32 [ %.0103, %75 ], [ %.0103, %79 ], [ %.0103, %97 ], [ %.0103, %6 ], [ %.0103, %8 ], [ %.0103, %16 ], [ %.0103, %24 ], [ %37, %32 ], [ %.0103, %40 ], [ %.0103, %49 ], [ %.0103, %58 ]
+  %.1122 = phi float [ %.0121, %75 ], [ %.0121, %79 ], [ %.0121, %97 ], [ %.0121, %6 ], [ %.0121, %8 ], [ %.0121, %16 ], [ %.0121, %24 ], [ %.0121, %32 ], [ %46, %40 ], [ %.0121, %49 ], [ %.0121, %58 ]
+  %.1119 = phi float [ %.0118, %75 ], [ %.0118, %79 ], [ %.0118, %97 ], [ %.0118, %6 ], [ %.0118, %8 ], [ %.0118, %16 ], [ %.0118, %24 ], [ %.0118, %32 ], [ %.0118, %40 ], [ %55, %49 ], [ %.0118, %58 ]
+  %.1112 = phi i32 [ %.0111, %75 ], [ %.0111, %79 ], [ %.0111, %97 ], [ %.0111, %6 ], [ %13, %8 ], [ %.0111, %16 ], [ %.0111, %24 ], [ %.0111, %32 ], [ %.0111, %40 ], [ %.0111, %49 ], [ %.0111, %58 ]
+  %.1109 = phi i32 [ %.0108, %75 ], [ %.0108, %79 ], [ %.0108, %97 ], [ %.0108, %6 ], [ %.0108, %8 ], [ %21, %16 ], [ %.0108, %24 ], [ %.0108, %32 ], [ %.0108, %40 ], [ %.0108, %49 ], [ %.0108, %58 ]
+  %.1106 = phi i32 [ %.0105, %75 ], [ %.0105, %79 ], [ %.0105, %97 ], [ %.0105, %6 ], [ %.0105, %8 ], [ %.0105, %16 ], [ %29, %24 ], [ %.0105, %32 ], [ %.0105, %40 ], [ %.0105, %49 ], [ %.0105, %58 ]
+  %.1104 = phi i32 [ %.0103, %75 ], [ %.0103, %79 ], [ %.0103, %97 ], [ %.0103, %6 ], [ %.0103, %8 ], [ %.0103, %16 ], [ %.0103, %24 ], [ %37, %32 ], [ %.0103, %40 ], [ %.0103, %49 ], [ %.0103, %58 ]
   %102 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 69, i64 1, ptr %5)
   %103 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 66, i64 1, ptr %5)
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.26, i32 noundef %.2113) #6
-  %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.27, i32 noundef %.2110) #6
-  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.28, i32 noundef %.2107) #6
-  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.29, i32 noundef %.2) #6
-  %108 = fpext float %.2123 to double
+  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.26, i32 noundef %.1112) #6
+  %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.27, i32 noundef %.1109) #6
+  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.28, i32 noundef %.1106) #6
+  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.29, i32 noundef %.1104) #6
+  %108 = fpext float %.1122 to double
   %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.30, double noundef %108) #6
-  %110 = fpext float %.2120 to double
+  %110 = fpext float %.1119 to double
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.31, double noundef %110) #6
   %112 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 58, i64 1, ptr %5)
   %.not141 = icmp eq i32 %.0116, 0
@@ -389,12 +389,12 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergatesAnd(ptr noundef %0, 
   br label %33
 
 .loopexit:                                        ; preds = %8, %6, %16
-  %.226 = phi i32 [ %.024.ph, %16 ], [ %.024.ph, %6 ], [ %13, %8 ]
-  %.2 = phi i32 [ %.022.ph45, %6 ], [ %21, %16 ], [ %.022.ph45, %8 ]
+  %.125 = phi i32 [ %.024.ph, %16 ], [ %.024.ph, %6 ], [ %13, %8 ]
+  %.123 = phi i32 [ %.022.ph45, %6 ], [ %21, %16 ], [ %.022.ph45, %8 ]
   %27 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 30, i64 1, ptr %5)
   %28 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 64, i64 1, ptr %5)
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.6, i32 noundef %.226) #6
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7, i32 noundef %.2) #6
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.6, i32 noundef %.125) #6
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7, i32 noundef %.123) #6
   %31 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 32, i64 1, ptr %5)
   %32 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 33, i64 1, ptr %5)
   br label %33

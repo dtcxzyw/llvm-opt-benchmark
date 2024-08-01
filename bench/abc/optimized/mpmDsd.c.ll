@@ -1922,7 +1922,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr noc
 
 .preheader157:                                    ; preds = %21, %57
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %57 ], [ 0, %21 ]
-  %.0135166 = phi i64 [ %.1136, %57 ], [ %42, %21 ]
+  %.1136166 = phi i64 [ %.2137, %57 ], [ %42, %21 ]
   %45 = trunc nuw nsw i64 %indvars.iv179 to i32
   %46 = shl nuw nsw i32 1, %45
   %47 = and i32 %46, %44
@@ -1931,23 +1931,23 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr noc
 
 48:                                               ; preds = %.preheader157
   %49 = zext nneg i32 %46 to i64
-  %50 = shl i64 %.0135166, %49
+  %50 = shl i64 %.1136166, %49
   %51 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv179
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, %50
-  %54 = and i64 %52, %.0135166
+  %54 = and i64 %52, %.1136166
   %55 = lshr i64 %54, %49
   %56 = or i64 %55, %53
   br label %57
 
 57:                                               ; preds = %.preheader157, %48
-  %.1136 = phi i64 [ %56, %48 ], [ %.0135166, %.preheader157 ]
+  %.2137 = phi i64 [ %56, %48 ], [ %.1136166, %.preheader157 ]
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next180, 6
   br i1 %exitcond182.not, label %.loopexit, label %.preheader157, !llvm.loop !25
 
 .loopexit:                                        ; preds = %57, %21
-  %.2137 = phi i64 [ %42, %21 ], [ %.1136, %57 ]
+  %.0135 = phi i64 [ %42, %21 ], [ %.2137, %57 ]
   %58 = lshr i32 %14, 25
   %59 = xor i32 %58, %14
   %60 = and i32 %59, 1
@@ -1959,7 +1959,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr noc
   %65 = and i32 %64, 1
   %.not146 = icmp ne i32 %65, %6
   %66 = sext i1 %.not146 to i64
-  %67 = xor i64 %.2137, %66
+  %67 = xor i64 %.0135, %66
   switch i32 %8, label %158 [
     i32 1, label %68
     i32 2, label %70
@@ -2018,7 +2018,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr noc
 
 .preheader160:                                    ; preds = %72, %122
   %indvars.iv = phi i64 [ %indvars.iv.next, %122 ], [ 0, %72 ]
-  %.0123163 = phi i64 [ %.1124, %122 ], [ %102, %72 ]
+  %.1124163 = phi i64 [ %.2125, %122 ], [ %102, %72 ]
   %110 = trunc nuw nsw i64 %indvars.iv to i32
   %111 = shl nuw nsw i32 1, %110
   %112 = and i32 %111, %109
@@ -2027,23 +2027,23 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr noc
 
 113:                                              ; preds = %.preheader160
   %114 = zext nneg i32 %111 to i64
-  %115 = shl i64 %.0123163, %114
+  %115 = shl i64 %.1124163, %114
   %116 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
   %117 = load i64, ptr %116, align 8
   %118 = and i64 %117, %115
-  %119 = and i64 %117, %.0123163
+  %119 = and i64 %117, %.1124163
   %120 = lshr i64 %119, %114
   %121 = or i64 %120, %118
   br label %122
 
 122:                                              ; preds = %.preheader160, %113
-  %.1124 = phi i64 [ %121, %113 ], [ %.0123163, %.preheader160 ]
+  %.2125 = phi i64 [ %121, %113 ], [ %.1124163, %.preheader160 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %.loopexit161, label %.preheader160, !llvm.loop !26
 
 .loopexit161:                                     ; preds = %122, %72
-  %.2125 = phi i64 [ %102, %72 ], [ %.1124, %122 ]
+  %.0123 = phi i64 [ %102, %72 ], [ %.2125, %122 ]
   %123 = getelementptr inbounds i8, ptr %0, i64 11324
   %124 = load i32, ptr %123, align 4
   %.not138 = icmp eq i32 %124, 0
@@ -2051,7 +2051,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr noc
 
 .preheader158:                                    ; preds = %.loopexit161, %137
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %137 ], [ 0, %.loopexit161 ]
-  %.0165 = phi i64 [ %.1, %137 ], [ %107, %.loopexit161 ]
+  %.1165 = phi i64 [ %.2, %137 ], [ %107, %.loopexit161 ]
   %125 = trunc nuw nsw i64 %indvars.iv175 to i32
   %126 = shl nuw nsw i32 1, %125
   %127 = and i32 %126, %124
@@ -2060,23 +2060,23 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr noc
 
 128:                                              ; preds = %.preheader158
   %129 = zext nneg i32 %126 to i64
-  %130 = shl i64 %.0165, %129
+  %130 = shl i64 %.1165, %129
   %131 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv175
   %132 = load i64, ptr %131, align 8
   %133 = and i64 %132, %130
-  %134 = and i64 %132, %.0165
+  %134 = and i64 %132, %.1165
   %135 = lshr i64 %134, %129
   %136 = or i64 %135, %133
   br label %137
 
 137:                                              ; preds = %.preheader158, %128
-  %.1 = phi i64 [ %136, %128 ], [ %.0165, %.preheader158 ]
+  %.2 = phi i64 [ %136, %128 ], [ %.1165, %.preheader158 ]
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next176, 6
   br i1 %exitcond178.not, label %.loopexit159, label %.preheader158, !llvm.loop !27
 
 .loopexit159:                                     ; preds = %137, %.loopexit161
-  %.2 = phi i64 [ %107, %.loopexit161 ], [ %.1, %137 ]
+  %.0 = phi i64 [ %107, %.loopexit161 ], [ %.2, %137 ]
   %138 = lshr i32 %14, 25
   %139 = xor i32 %138, %14
   %140 = and i32 %139, 1
@@ -2088,14 +2088,14 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr nocapture noundef %0, ptr noc
   %145 = and i32 %144, 1
   %.not140 = icmp ne i32 %145, %6
   %146 = sext i1 %.not140 to i64
-  %147 = xor i64 %.2125, %146
+  %147 = xor i64 %.0123, %146
   %148 = lshr i32 %74, 25
   %149 = and i32 %148, 1
   %150 = xor i32 %149, %7
   %151 = and i32 %74, 1
   %.not141 = icmp ne i32 %150, %151
   %152 = sext i1 %.not141 to i64
-  %153 = xor i64 %.2, %152
+  %153 = xor i64 %.0, %152
   %154 = and i64 %153, %147
   %155 = xor i64 %153, -1
   %156 = and i64 %142, %155

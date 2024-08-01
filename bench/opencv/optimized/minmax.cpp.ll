@@ -1264,40 +1264,40 @@ define internal void @_ZN2cvL12minMaxIdx_8uEPKhS1_PiS2_PmS3_im(ptr nocapture nou
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.281.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.3.i, %.lr.ph.i ]
-  %.24979.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.350.i, %.lr.ph.i ]
-  %.25578.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.356.i, %.lr.ph.i ]
-  %.26077.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.361.i, %.lr.ph.i ]
+  %.381.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
+  %.35079.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
+  %.35678.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
+  %.36177.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
   %20 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1
   %.not68.i = icmp eq i8 %23, 0
   %24 = zext i8 %21 to i32
-  %25 = icmp sgt i32 %.281.i, %24
+  %25 = icmp sgt i32 %.381.i, %24
   %26 = add i64 %indvars.iv.i, %7
-  %spec.select71.i = select i1 %25, i64 %26, i64 %.26077.i
-  %spec.select72.i = tail call i32 @llvm.smin.i32(i32 %.281.i, i32 %24)
-  %.361.i = select i1 %.not68.i, i64 %.26077.i, i64 %spec.select71.i
-  %.3.i = select i1 %.not68.i, i32 %.281.i, i32 %spec.select72.i
-  %27 = icmp slt i32 %.24979.i, %24
-  %spec.select73.i = select i1 %27, i64 %26, i64 %.25578.i
-  %spec.select74.i = tail call i32 @llvm.smax.i32(i32 %.24979.i, i32 %24)
-  %.356.i = select i1 %.not68.i, i64 %.25578.i, i64 %spec.select73.i
-  %.350.i = select i1 %.not68.i, i32 %.24979.i, i32 %spec.select74.i
+  %spec.select71.i = select i1 %25, i64 %26, i64 %.36177.i
+  %spec.select72.i = tail call i32 @llvm.smin.i32(i32 %.381.i, i32 %24)
+  %.462.i = select i1 %.not68.i, i64 %.36177.i, i64 %spec.select71.i
+  %.4.i = select i1 %.not68.i, i32 %.381.i, i32 %spec.select72.i
+  %27 = icmp slt i32 %.35079.i, %24
+  %spec.select73.i = select i1 %27, i64 %26, i64 %.35678.i
+  %spec.select74.i = tail call i32 @llvm.smax.i32(i32 %.35079.i, i32 %24)
+  %.457.i = select i1 %.not68.i, i64 %.35678.i, i64 %spec.select73.i
+  %.451.i = select i1 %.not68.i, i32 %.35079.i, i32 %spec.select74.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IhiEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !20
 
 _ZN2cvL10minMaxIdx_IhiEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph90.i, %.preheader75.i, %.preheader.i
-  %.462.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.361.i, %.lr.ph.i ]
-  %.457.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.356.i, %.lr.ph.i ]
-  %.451.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.350.i, %.lr.ph.i ]
-  %.4.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.3.i, %.lr.ph.i ]
-  store i64 %.462.i, ptr %4, align 8
-  store i64 %.457.i, ptr %5, align 8
-  store i32 %.4.i, ptr %2, align 4
-  store i32 %.451.i, ptr %3, align 4
+  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.4.i, %.lr.ph.i ]
+  store i64 %.260.i, ptr %4, align 8
+  store i64 %.255.i, ptr %5, align 8
+  store i32 %.2.i, ptr %2, align 4
+  store i32 %.249.i, ptr %3, align 4
   ret void
 }
 
@@ -1347,40 +1347,40 @@ define internal void @_ZN2cvL12minMaxIdx_8sEPKaPKhPiS4_PmS5_im(ptr nocapture nou
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.281.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.3.i, %.lr.ph.i ]
-  %.24979.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.350.i, %.lr.ph.i ]
-  %.25578.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.356.i, %.lr.ph.i ]
-  %.26077.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.361.i, %.lr.ph.i ]
+  %.381.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
+  %.35079.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
+  %.35678.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
+  %.36177.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
   %20 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1
   %.not68.i = icmp eq i8 %23, 0
   %24 = sext i8 %21 to i32
-  %25 = icmp sgt i32 %.281.i, %24
+  %25 = icmp sgt i32 %.381.i, %24
   %26 = add i64 %indvars.iv.i, %7
-  %spec.select71.i = select i1 %25, i64 %26, i64 %.26077.i
-  %spec.select72.i = tail call i32 @llvm.smin.i32(i32 %.281.i, i32 %24)
-  %.361.i = select i1 %.not68.i, i64 %.26077.i, i64 %spec.select71.i
-  %.3.i = select i1 %.not68.i, i32 %.281.i, i32 %spec.select72.i
-  %27 = icmp slt i32 %.24979.i, %24
-  %spec.select73.i = select i1 %27, i64 %26, i64 %.25578.i
-  %spec.select74.i = tail call i32 @llvm.smax.i32(i32 %.24979.i, i32 %24)
-  %.356.i = select i1 %.not68.i, i64 %.25578.i, i64 %spec.select73.i
-  %.350.i = select i1 %.not68.i, i32 %.24979.i, i32 %spec.select74.i
+  %spec.select71.i = select i1 %25, i64 %26, i64 %.36177.i
+  %spec.select72.i = tail call i32 @llvm.smin.i32(i32 %.381.i, i32 %24)
+  %.462.i = select i1 %.not68.i, i64 %.36177.i, i64 %spec.select71.i
+  %.4.i = select i1 %.not68.i, i32 %.381.i, i32 %spec.select72.i
+  %27 = icmp slt i32 %.35079.i, %24
+  %spec.select73.i = select i1 %27, i64 %26, i64 %.35678.i
+  %spec.select74.i = tail call i32 @llvm.smax.i32(i32 %.35079.i, i32 %24)
+  %.457.i = select i1 %.not68.i, i64 %.35678.i, i64 %spec.select73.i
+  %.451.i = select i1 %.not68.i, i32 %.35079.i, i32 %spec.select74.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IaiEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZN2cvL10minMaxIdx_IaiEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph90.i, %.preheader75.i, %.preheader.i
-  %.462.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.361.i, %.lr.ph.i ]
-  %.457.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.356.i, %.lr.ph.i ]
-  %.451.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.350.i, %.lr.ph.i ]
-  %.4.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.3.i, %.lr.ph.i ]
-  store i64 %.462.i, ptr %4, align 8
-  store i64 %.457.i, ptr %5, align 8
-  store i32 %.4.i, ptr %2, align 4
-  store i32 %.451.i, ptr %3, align 4
+  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.4.i, %.lr.ph.i ]
+  store i64 %.260.i, ptr %4, align 8
+  store i64 %.255.i, ptr %5, align 8
+  store i32 %.2.i, ptr %2, align 4
+  store i32 %.249.i, ptr %3, align 4
   ret void
 }
 
@@ -1430,40 +1430,40 @@ define internal void @_ZN2cvL13minMaxIdx_16uEPKtPKhPiS4_PmS5_im(ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.281.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.3.i, %.lr.ph.i ]
-  %.24979.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.350.i, %.lr.ph.i ]
-  %.25578.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.356.i, %.lr.ph.i ]
-  %.26077.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.361.i, %.lr.ph.i ]
+  %.381.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
+  %.35079.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
+  %.35678.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
+  %.36177.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
   %20 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
   %21 = load i16, ptr %20, align 2
   %22 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1
   %.not68.i = icmp eq i8 %23, 0
   %24 = zext i16 %21 to i32
-  %25 = icmp sgt i32 %.281.i, %24
+  %25 = icmp sgt i32 %.381.i, %24
   %26 = add i64 %indvars.iv.i, %7
-  %spec.select71.i = select i1 %25, i64 %26, i64 %.26077.i
-  %spec.select72.i = tail call i32 @llvm.smin.i32(i32 %.281.i, i32 %24)
-  %.361.i = select i1 %.not68.i, i64 %.26077.i, i64 %spec.select71.i
-  %.3.i = select i1 %.not68.i, i32 %.281.i, i32 %spec.select72.i
-  %27 = icmp slt i32 %.24979.i, %24
-  %spec.select73.i = select i1 %27, i64 %26, i64 %.25578.i
-  %spec.select74.i = tail call i32 @llvm.smax.i32(i32 %.24979.i, i32 %24)
-  %.356.i = select i1 %.not68.i, i64 %.25578.i, i64 %spec.select73.i
-  %.350.i = select i1 %.not68.i, i32 %.24979.i, i32 %spec.select74.i
+  %spec.select71.i = select i1 %25, i64 %26, i64 %.36177.i
+  %spec.select72.i = tail call i32 @llvm.smin.i32(i32 %.381.i, i32 %24)
+  %.462.i = select i1 %.not68.i, i64 %.36177.i, i64 %spec.select71.i
+  %.4.i = select i1 %.not68.i, i32 %.381.i, i32 %spec.select72.i
+  %27 = icmp slt i32 %.35079.i, %24
+  %spec.select73.i = select i1 %27, i64 %26, i64 %.35678.i
+  %spec.select74.i = tail call i32 @llvm.smax.i32(i32 %.35079.i, i32 %24)
+  %.457.i = select i1 %.not68.i, i64 %.35678.i, i64 %spec.select73.i
+  %.451.i = select i1 %.not68.i, i32 %.35079.i, i32 %spec.select74.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_ItiEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN2cvL10minMaxIdx_ItiEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph90.i, %.preheader75.i, %.preheader.i
-  %.462.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.361.i, %.lr.ph.i ]
-  %.457.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.356.i, %.lr.ph.i ]
-  %.451.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.350.i, %.lr.ph.i ]
-  %.4.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.3.i, %.lr.ph.i ]
-  store i64 %.462.i, ptr %4, align 8
-  store i64 %.457.i, ptr %5, align 8
-  store i32 %.4.i, ptr %2, align 4
-  store i32 %.451.i, ptr %3, align 4
+  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.4.i, %.lr.ph.i ]
+  store i64 %.260.i, ptr %4, align 8
+  store i64 %.255.i, ptr %5, align 8
+  store i32 %.2.i, ptr %2, align 4
+  store i32 %.249.i, ptr %3, align 4
   ret void
 }
 
@@ -1513,40 +1513,40 @@ define internal void @_ZN2cvL13minMaxIdx_16sEPKsPKhPiS4_PmS5_im(ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.281.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.3.i, %.lr.ph.i ]
-  %.24979.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.350.i, %.lr.ph.i ]
-  %.25578.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.356.i, %.lr.ph.i ]
-  %.26077.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.361.i, %.lr.ph.i ]
+  %.381.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
+  %.35079.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
+  %.35678.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
+  %.36177.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
   %20 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
   %21 = load i16, ptr %20, align 2
   %22 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1
   %.not68.i = icmp eq i8 %23, 0
   %24 = sext i16 %21 to i32
-  %25 = icmp sgt i32 %.281.i, %24
+  %25 = icmp sgt i32 %.381.i, %24
   %26 = add i64 %indvars.iv.i, %7
-  %spec.select71.i = select i1 %25, i64 %26, i64 %.26077.i
-  %spec.select72.i = tail call i32 @llvm.smin.i32(i32 %.281.i, i32 %24)
-  %.361.i = select i1 %.not68.i, i64 %.26077.i, i64 %spec.select71.i
-  %.3.i = select i1 %.not68.i, i32 %.281.i, i32 %spec.select72.i
-  %27 = icmp slt i32 %.24979.i, %24
-  %spec.select73.i = select i1 %27, i64 %26, i64 %.25578.i
-  %spec.select74.i = tail call i32 @llvm.smax.i32(i32 %.24979.i, i32 %24)
-  %.356.i = select i1 %.not68.i, i64 %.25578.i, i64 %spec.select73.i
-  %.350.i = select i1 %.not68.i, i32 %.24979.i, i32 %spec.select74.i
+  %spec.select71.i = select i1 %25, i64 %26, i64 %.36177.i
+  %spec.select72.i = tail call i32 @llvm.smin.i32(i32 %.381.i, i32 %24)
+  %.462.i = select i1 %.not68.i, i64 %.36177.i, i64 %spec.select71.i
+  %.4.i = select i1 %.not68.i, i32 %.381.i, i32 %spec.select72.i
+  %27 = icmp slt i32 %.35079.i, %24
+  %spec.select73.i = select i1 %27, i64 %26, i64 %.35678.i
+  %spec.select74.i = tail call i32 @llvm.smax.i32(i32 %.35079.i, i32 %24)
+  %.457.i = select i1 %.not68.i, i64 %.35678.i, i64 %spec.select73.i
+  %.451.i = select i1 %.not68.i, i32 %.35079.i, i32 %spec.select74.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IsiEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !26
 
 _ZN2cvL10minMaxIdx_IsiEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph90.i, %.preheader75.i, %.preheader.i
-  %.462.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.361.i, %.lr.ph.i ]
-  %.457.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.356.i, %.lr.ph.i ]
-  %.451.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.350.i, %.lr.ph.i ]
-  %.4.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.3.i, %.lr.ph.i ]
-  store i64 %.462.i, ptr %4, align 8
-  store i64 %.457.i, ptr %5, align 8
-  store i32 %.4.i, ptr %2, align 4
-  store i32 %.451.i, ptr %3, align 4
+  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.4.i, %.lr.ph.i ]
+  store i64 %.260.i, ptr %4, align 8
+  store i64 %.255.i, ptr %5, align 8
+  store i32 %.2.i, ptr %2, align 4
+  store i32 %.249.i, ptr %3, align 4
   ret void
 }
 
@@ -1595,37 +1595,37 @@ define internal void @_ZN2cvL13minMaxIdx_32sEPKiPKhPiS4_PmS5_im(ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.278.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.3.i, %.lr.ph.i ]
-  %.24976.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.350.i, %.lr.ph.i ]
-  %.25575.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.356.i, %.lr.ph.i ]
-  %.26074.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.361.i, %.lr.ph.i ]
+  %.378.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
+  %.35076.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
+  %.35675.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
+  %.36174.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
   %19 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1
   %.not68.i = icmp ne i8 %22, 0
-  %23 = icmp slt i32 %20, %.278.i
+  %23 = icmp slt i32 %20, %.378.i
   %or.cond.i = select i1 %.not68.i, i1 %23, i1 false
   %24 = add i64 %indvars.iv.i, %7
-  %.361.i = select i1 %or.cond.i, i64 %24, i64 %.26074.i
-  %.3.i = select i1 %or.cond.i, i32 %20, i32 %.278.i
-  %25 = icmp sgt i32 %20, %.24976.i
+  %.462.i = select i1 %or.cond.i, i64 %24, i64 %.36174.i
+  %.4.i = select i1 %or.cond.i, i32 %20, i32 %.378.i
+  %25 = icmp sgt i32 %20, %.35076.i
   %or.cond71.i = select i1 %.not68.i, i1 %25, i1 false
-  %.356.i = select i1 %or.cond71.i, i64 %24, i64 %.25575.i
-  %.350.i = select i1 %or.cond71.i, i32 %20, i32 %.24976.i
+  %.457.i = select i1 %or.cond71.i, i64 %24, i64 %.35675.i
+  %.451.i = select i1 %or.cond71.i, i32 %20, i32 %.35076.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IiiEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZN2cvL10minMaxIdx_IiiEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph87.i, %.preheader72.i, %.preheader.i
-  %.462.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader72.i ], [ %spec.select.i, %.lr.ph87.i ], [ %.361.i, %.lr.ph.i ]
-  %.457.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader72.i ], [ %.154.i, %.lr.ph87.i ], [ %.356.i, %.lr.ph.i ]
-  %.451.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader72.i ], [ %.148.i, %.lr.ph87.i ], [ %.350.i, %.lr.ph.i ]
-  %.4.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader72.i ], [ %spec.select70.i, %.lr.ph87.i ], [ %.3.i, %.lr.ph.i ]
-  store i64 %.462.i, ptr %4, align 8
-  store i64 %.457.i, ptr %5, align 8
-  store i32 %.4.i, ptr %2, align 4
-  store i32 %.451.i, ptr %3, align 4
+  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader72.i ], [ %spec.select.i, %.lr.ph87.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader72.i ], [ %.154.i, %.lr.ph87.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader72.i ], [ %.148.i, %.lr.ph87.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader72.i ], [ %spec.select70.i, %.lr.ph87.i ], [ %.4.i, %.lr.ph.i ]
+  store i64 %.260.i, ptr %4, align 8
+  store i64 %.255.i, ptr %5, align 8
+  store i32 %.2.i, ptr %2, align 4
+  store i32 %.249.i, ptr %3, align 4
   ret void
 }
 
@@ -1674,37 +1674,37 @@ define internal void @_ZN2cvL13minMaxIdx_32fEPKfPKhPfS4_PmS5_im(ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.277.i = phi float [ %9, %.lr.ph.preheader.i ], [ %.3.i, %.lr.ph.i ]
-  %.24975.i = phi float [ %10, %.lr.ph.preheader.i ], [ %.350.i, %.lr.ph.i ]
-  %.25574.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.356.i, %.lr.ph.i ]
-  %.26073.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.361.i, %.lr.ph.i ]
+  %.377.i = phi float [ %9, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
+  %.35075.i = phi float [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
+  %.35674.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
+  %.36173.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
   %19 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i
   %20 = load float, ptr %19, align 4
   %21 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1
   %.not68.i = icmp ne i8 %22, 0
-  %23 = fcmp olt float %20, %.277.i
+  %23 = fcmp olt float %20, %.377.i
   %or.cond.i = select i1 %.not68.i, i1 %23, i1 false
   %24 = add i64 %indvars.iv.i, %7
-  %.361.i = select i1 %or.cond.i, i64 %24, i64 %.26073.i
-  %.3.i = select i1 %or.cond.i, float %20, float %.277.i
-  %25 = fcmp ogt float %20, %.24975.i
+  %.462.i = select i1 %or.cond.i, i64 %24, i64 %.36173.i
+  %.4.i = select i1 %or.cond.i, float %20, float %.377.i
+  %25 = fcmp ogt float %20, %.35075.i
   %or.cond70.i = select i1 %.not68.i, i1 %25, i1 false
-  %.356.i = select i1 %or.cond70.i, i64 %24, i64 %.25574.i
-  %.350.i = select i1 %or.cond70.i, float %20, float %.24975.i
+  %.457.i = select i1 %or.cond70.i, i64 %24, i64 %.35674.i
+  %.451.i = select i1 %or.cond70.i, float %20, float %.35075.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IffEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !30
 
 _ZN2cvL10minMaxIdx_IffEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph86.i, %.preheader71.i, %.preheader.i
-  %.462.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader71.i ], [ %.159.i, %.lr.ph86.i ], [ %.361.i, %.lr.ph.i ]
-  %.457.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader71.i ], [ %.154.i, %.lr.ph86.i ], [ %.356.i, %.lr.ph.i ]
-  %.451.i = phi float [ %10, %.preheader.i ], [ %10, %.preheader71.i ], [ %.148.i, %.lr.ph86.i ], [ %.350.i, %.lr.ph.i ]
-  %.4.i = phi float [ %9, %.preheader.i ], [ %9, %.preheader71.i ], [ %.1.i, %.lr.ph86.i ], [ %.3.i, %.lr.ph.i ]
-  store i64 %.462.i, ptr %4, align 8
-  store i64 %.457.i, ptr %5, align 8
-  store float %.4.i, ptr %2, align 4
-  store float %.451.i, ptr %3, align 4
+  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader71.i ], [ %.159.i, %.lr.ph86.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader71.i ], [ %.154.i, %.lr.ph86.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi float [ %10, %.preheader.i ], [ %10, %.preheader71.i ], [ %.148.i, %.lr.ph86.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi float [ %9, %.preheader.i ], [ %9, %.preheader71.i ], [ %.1.i, %.lr.ph86.i ], [ %.4.i, %.lr.ph.i ]
+  store i64 %.260.i, ptr %4, align 8
+  store i64 %.255.i, ptr %5, align 8
+  store float %.2.i, ptr %2, align 4
+  store float %.249.i, ptr %3, align 4
   ret void
 }
 
@@ -1753,37 +1753,37 @@ define internal void @_ZN2cvL13minMaxIdx_64fEPKdPKhPdS4_PmS5_im(ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.277.i = phi double [ %9, %.lr.ph.preheader.i ], [ %.3.i, %.lr.ph.i ]
-  %.24975.i = phi double [ %10, %.lr.ph.preheader.i ], [ %.350.i, %.lr.ph.i ]
-  %.25574.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.356.i, %.lr.ph.i ]
-  %.26073.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.361.i, %.lr.ph.i ]
+  %.377.i = phi double [ %9, %.lr.ph.preheader.i ], [ %.4.i, %.lr.ph.i ]
+  %.35075.i = phi double [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
+  %.35674.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
+  %.36173.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
   %19 = getelementptr inbounds double, ptr %0, i64 %indvars.iv.i
   %20 = load double, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1
   %.not68.i = icmp ne i8 %22, 0
-  %23 = fcmp olt double %20, %.277.i
+  %23 = fcmp olt double %20, %.377.i
   %or.cond.i = select i1 %.not68.i, i1 %23, i1 false
   %24 = add i64 %indvars.iv.i, %7
-  %.361.i = select i1 %or.cond.i, i64 %24, i64 %.26073.i
-  %.3.i = select i1 %or.cond.i, double %20, double %.277.i
-  %25 = fcmp ogt double %20, %.24975.i
+  %.462.i = select i1 %or.cond.i, i64 %24, i64 %.36173.i
+  %.4.i = select i1 %or.cond.i, double %20, double %.377.i
+  %25 = fcmp ogt double %20, %.35075.i
   %or.cond70.i = select i1 %.not68.i, i1 %25, i1 false
-  %.356.i = select i1 %or.cond70.i, i64 %24, i64 %.25574.i
-  %.350.i = select i1 %or.cond70.i, double %20, double %.24975.i
+  %.457.i = select i1 %or.cond70.i, i64 %24, i64 %.35674.i
+  %.451.i = select i1 %or.cond70.i, double %20, double %.35075.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IddEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !32
 
 _ZN2cvL10minMaxIdx_IddEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph86.i, %.preheader71.i, %.preheader.i
-  %.462.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader71.i ], [ %.159.i, %.lr.ph86.i ], [ %.361.i, %.lr.ph.i ]
-  %.457.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader71.i ], [ %.154.i, %.lr.ph86.i ], [ %.356.i, %.lr.ph.i ]
-  %.451.i = phi double [ %10, %.preheader.i ], [ %10, %.preheader71.i ], [ %.148.i, %.lr.ph86.i ], [ %.350.i, %.lr.ph.i ]
-  %.4.i = phi double [ %9, %.preheader.i ], [ %9, %.preheader71.i ], [ %.1.i, %.lr.ph86.i ], [ %.3.i, %.lr.ph.i ]
-  store i64 %.462.i, ptr %4, align 8
-  store i64 %.457.i, ptr %5, align 8
-  store double %.4.i, ptr %2, align 8
-  store double %.451.i, ptr %3, align 8
+  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader71.i ], [ %.159.i, %.lr.ph86.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader71.i ], [ %.154.i, %.lr.ph86.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi double [ %10, %.preheader.i ], [ %10, %.preheader71.i ], [ %.148.i, %.lr.ph86.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi double [ %9, %.preheader.i ], [ %9, %.preheader71.i ], [ %.1.i, %.lr.ph86.i ], [ %.4.i, %.lr.ph.i ]
+  store i64 %.260.i, ptr %4, align 8
+  store i64 %.255.i, ptr %5, align 8
+  store double %.2.i, ptr %2, align 8
+  store double %.249.i, ptr %3, align 8
   ret void
 }
 

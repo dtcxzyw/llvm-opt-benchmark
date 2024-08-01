@@ -88,7 +88,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.1231 = phi i32 [ 0, %.lr.ph.preheader ], [ %57, %.lr.ph ]
+  %.2231 = phi i32 [ 0, %.lr.ph.preheader ], [ %57, %.lr.ph ]
   %45 = getelementptr inbounds %struct.cli_exe_section, ptr %1, i64 %indvars.iv, i32 3
   %46 = load i32, ptr %45, align 4
   %47 = udiv i32 %46, %8
@@ -102,19 +102,19 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   %54 = select i1 %.not227, i32 0, i32 512
   %55 = add i32 %54, %52
   %56 = and i32 %55, -512
-  %57 = add i32 %56, %.1231
+  %57 = add i32 %56, %.2231
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph234
-  %.2 = phi i32 [ %44, %.lr.ph234 ], [ %57, %.lr.ph ]
-  %58 = icmp ugt i32 %.2, 1073741824
+  %.1 = phi i32 [ %44, %.lr.ph234 ], [ %57, %.lr.ph ]
+  %58 = icmp ugt i32 %.1, 1073741824
   br i1 %58, label %197, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader228, %.preheader, %.loopexit
-  %.2264 = phi i32 [ %.2, %.loopexit ], [ 0, %.preheader ], [ 0, %.preheader228 ]
-  %59 = add i32 %.2264, %.0207
+  %.1264 = phi i32 [ %.1, %.loopexit ], [ 0, %.preheader ], [ 0, %.preheader228 ]
+  %59 = add i32 %.1264, %.0207
   %60 = zext i32 %59 to i64
   %61 = tail call ptr @cli_max_calloc(i64 noundef %60, i64 noundef 1) #6
   %.not219 = icmp eq ptr %61, null

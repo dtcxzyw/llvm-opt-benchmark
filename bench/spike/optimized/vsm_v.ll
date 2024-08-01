@@ -272,7 +272,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 99:                                               ; preds = %.lr.ph, %.loopexit
-  %.sroa.01.0121 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
+  %.sroa.01.0121 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.1, %.loopexit ]
   %.082120 = phi i64 [ 0, %.lr.ph ], [ %161, %.loopexit ]
   %100 = load ptr, ptr %88, align 8
   %101 = load ptr, ptr %100, align 8
@@ -380,7 +380,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %121
   br i1 %exitcond.not, label %.loopexit, label %121, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.critedge, %107, %99
-  %.sroa.01.2 = phi i8 [ %.sroa.01.0121, %99 ], [ %.sroa.01.0121, %107 ], [ %120, %.critedge ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0121, %99 ], [ %.sroa.01.0121, %107 ], [ %120, %.critedge ]
   %161 = add nuw nsw i64 %.082120, 1
   %exitcond124.not = icmp eq i64 %161, %17
   br i1 %exitcond124.not, label %._crit_edge, label %99, !llvm.loop !7
@@ -604,7 +604,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 99:                                               ; preds = %.lr.ph, %.loopexit
-  %.sroa.01.0121 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
+  %.sroa.01.0121 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.1, %.loopexit ]
   %.082120 = phi i64 [ 0, %.lr.ph ], [ %161, %.loopexit ]
   %100 = load ptr, ptr %88, align 8
   %101 = load ptr, ptr %100, align 8
@@ -712,7 +712,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %121
   br i1 %exitcond.not, label %.loopexit, label %121, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.critedge, %107, %99
-  %.sroa.01.2 = phi i8 [ %.sroa.01.0121, %99 ], [ %.sroa.01.0121, %107 ], [ %120, %.critedge ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0121, %99 ], [ %.sroa.01.0121, %107 ], [ %120, %.critedge ]
   %161 = add nuw nsw i64 %.082120, 1
   %exitcond124.not = icmp eq i64 %161, %17
   br i1 %exitcond124.not, label %._crit_edge, label %99, !llvm.loop !9
@@ -909,7 +909,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 99:                                               ; preds = %.lr.ph, %.loopexit
-  %.sroa.01.0121 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
+  %.sroa.01.0121 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.1, %.loopexit ]
   %.082120 = phi i64 [ 0, %.lr.ph ], [ %161, %.loopexit ]
   %100 = load ptr, ptr %88, align 8
   %101 = load ptr, ptr %100, align 8
@@ -1017,7 +1017,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %121
   br i1 %exitcond.not, label %.loopexit, label %121, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.critedge, %107, %99
-  %.sroa.01.2 = phi i8 [ %.sroa.01.0121, %99 ], [ %.sroa.01.0121, %107 ], [ %120, %.critedge ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0121, %99 ], [ %.sroa.01.0121, %107 ], [ %120, %.critedge ]
   %161 = add nuw nsw i64 %.082120, 1
   %exitcond124.not = icmp eq i64 %161, %17
   br i1 %exitcond124.not, label %._crit_edge, label %99, !llvm.loop !11
@@ -1216,7 +1216,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 99:                                               ; preds = %.lr.ph, %.loopexit
-  %.sroa.01.0121 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
+  %.sroa.01.0121 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.1, %.loopexit ]
   %.082120 = phi i64 [ 0, %.lr.ph ], [ %161, %.loopexit ]
   %100 = load ptr, ptr %88, align 8
   %101 = load ptr, ptr %100, align 8
@@ -1324,7 +1324,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %121
   br i1 %exitcond.not, label %.loopexit, label %121, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.critedge, %107, %99
-  %.sroa.01.2 = phi i8 [ %.sroa.01.0121, %99 ], [ %.sroa.01.0121, %107 ], [ %120, %.critedge ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0121, %99 ], [ %.sroa.01.0121, %107 ], [ %120, %.critedge ]
   %161 = add nuw nsw i64 %.082120, 1
   %exitcond124.not = icmp eq i64 %161, %17
   br i1 %exitcond124.not, label %._crit_edge, label %99, !llvm.loop !13
@@ -1537,7 +1537,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 106:                                              ; preds = %.lr.ph, %.loopexit
-  %.sroa.01.0125 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
+  %.sroa.01.0125 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.1, %.loopexit ]
   %.084124 = phi i64 [ 0, %.lr.ph ], [ %168, %.loopexit ]
   %107 = load ptr, ptr %95, align 8
   %108 = load ptr, ptr %107, align 8
@@ -1645,7 +1645,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %128
   br i1 %exitcond.not, label %.loopexit, label %128, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.critedge, %114, %106
-  %.sroa.01.2 = phi i8 [ %.sroa.01.0125, %106 ], [ %.sroa.01.0125, %114 ], [ %127, %.critedge ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0125, %106 ], [ %.sroa.01.0125, %114 ], [ %127, %.critedge ]
   %168 = add nuw nsw i64 %.084124, 1
   %exitcond128.not = icmp eq i64 %168, %17
   br i1 %exitcond128.not, label %._crit_edge, label %106, !llvm.loop !15
@@ -1860,7 +1860,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 106:                                              ; preds = %.lr.ph, %.loopexit
-  %.sroa.01.0125 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
+  %.sroa.01.0125 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.1, %.loopexit ]
   %.084124 = phi i64 [ 0, %.lr.ph ], [ %168, %.loopexit ]
   %107 = load ptr, ptr %95, align 8
   %108 = load ptr, ptr %107, align 8
@@ -1968,7 +1968,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %128
   br i1 %exitcond.not, label %.loopexit, label %128, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge, %114, %106
-  %.sroa.01.2 = phi i8 [ %.sroa.01.0125, %106 ], [ %.sroa.01.0125, %114 ], [ %127, %.critedge ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0125, %106 ], [ %.sroa.01.0125, %114 ], [ %127, %.critedge ]
   %168 = add nuw nsw i64 %.084124, 1
   %exitcond128.not = icmp eq i64 %168, %17
   br i1 %exitcond128.not, label %._crit_edge, label %106, !llvm.loop !17
@@ -2181,7 +2181,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 106:                                              ; preds = %.lr.ph, %.loopexit
-  %.sroa.01.0125 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
+  %.sroa.01.0125 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.1, %.loopexit ]
   %.084124 = phi i64 [ 0, %.lr.ph ], [ %168, %.loopexit ]
   %107 = load ptr, ptr %95, align 8
   %108 = load ptr, ptr %107, align 8
@@ -2289,7 +2289,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %128
   br i1 %exitcond.not, label %.loopexit, label %128, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.critedge, %114, %106
-  %.sroa.01.2 = phi i8 [ %.sroa.01.0125, %106 ], [ %.sroa.01.0125, %114 ], [ %127, %.critedge ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0125, %106 ], [ %.sroa.01.0125, %114 ], [ %127, %.critedge ]
   %168 = add nuw nsw i64 %.084124, 1
   %exitcond128.not = icmp eq i64 %168, %17
   br i1 %exitcond128.not, label %._crit_edge, label %106, !llvm.loop !19
@@ -2504,7 +2504,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 106:                                              ; preds = %.lr.ph, %.loopexit
-  %.sroa.01.0125 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
+  %.sroa.01.0125 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.1, %.loopexit ]
   %.084124 = phi i64 [ 0, %.lr.ph ], [ %168, %.loopexit ]
   %107 = load ptr, ptr %95, align 8
   %108 = load ptr, ptr %107, align 8
@@ -2612,7 +2612,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %128
   br i1 %exitcond.not, label %.loopexit, label %128, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.critedge, %114, %106
-  %.sroa.01.2 = phi i8 [ %.sroa.01.0125, %106 ], [ %.sroa.01.0125, %114 ], [ %127, %.critedge ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0125, %106 ], [ %.sroa.01.0125, %114 ], [ %127, %.critedge ]
   %168 = add nuw nsw i64 %.084124, 1
   %exitcond128.not = icmp eq i64 %168, %17
   br i1 %exitcond128.not, label %._crit_edge, label %106, !llvm.loop !21

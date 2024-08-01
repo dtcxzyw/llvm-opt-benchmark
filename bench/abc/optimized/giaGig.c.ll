@@ -2714,8 +2714,8 @@ Vec_IntPush.exit303:                              ; preds = %.Vec_IntGrow.exit10
   br label %.preheader360
 
 .preheader360:                                    ; preds = %.preheader360.backedge, %.preheader360.lr.ph
-  %.9.pn = phi ptr [ %.3.i139, %.preheader360.lr.ph ], [ %.9.pn.be, %.preheader360.backedge ]
-  %.0.i304 = getelementptr inbounds i8, ptr %.9.pn, i64 1
+  %.10.pn = phi ptr [ %.3.i139, %.preheader360.lr.ph ], [ %.10.pn.be, %.preheader360.backedge ]
+  %.0.i304 = getelementptr inbounds i8, ptr %.10.pn, i64 1
   %769 = load i8, ptr %.0.i304, align 1
   switch i8 %769, label %.fold.split.i306.loopexit [
     i8 32, label %.preheader360.backedge
@@ -2725,11 +2725,11 @@ Vec_IntPush.exit303:                              ; preds = %.Vec_IntGrow.exit10
   ]
 
 .preheader360.backedge:                           ; preds = %.preheader360, %Vec_IntPush.exit323
-  %.9.pn.be = phi ptr [ %.0.i304, %.preheader360 ], [ %.3.i314, %Vec_IntPush.exit323 ]
+  %.10.pn.be = phi ptr [ %.0.i304, %.preheader360 ], [ %.3.i314, %Vec_IntPush.exit323 ]
   br label %.preheader360, !llvm.loop !9
 
 770:                                              ; preds = %.preheader360
-  %771 = getelementptr inbounds i8, ptr %.9.pn, i64 2
+  %771 = getelementptr inbounds i8, ptr %.10.pn, i64 2
   %772 = tail call i32 @atoi(ptr nocapture noundef nonnull %771) #26
   br label %.fold.split.i306
 
@@ -2829,8 +2829,8 @@ Vec_IntPush.exit323:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not107, label %.preheader360.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %Vec_IntPush.exit323, %Vec_IntPush.exit303
-  %.10 = phi ptr [ %.3.i139, %Vec_IntPush.exit303 ], [ %.3.i314, %Vec_IntPush.exit323 ]
-  %808 = getelementptr inbounds i8, ptr %.10, i64 1
+  %.9 = phi ptr [ %.3.i139, %Vec_IntPush.exit303 ], [ %.3.i314, %Vec_IntPush.exit323 ]
+  %808 = getelementptr inbounds i8, ptr %.9, i64 1
   br label %809
 
 809:                                              ; preds = %811, %.loopexit

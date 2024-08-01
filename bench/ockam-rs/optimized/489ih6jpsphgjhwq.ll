@@ -2119,14 +2119,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br label %.body.i
 
 647:                                              ; preds = %643, %640, %"_ZN4core6option15Option$LT$T$GT$3map17hc64519f0d5ef08abE.exit.thread.i.i", %.thread270.i.i
-  %.sroa.0196.0.i.sroa.phi.i = phi ptr [ %.sroa.0.i.8.i.8.i.8.i.8.gep.sroa_idx33, %643 ], [ %.sroa.0.i.8.i.8.i.8.i.8.gep.sroa_idx33, %640 ], [ %.sroa.0.i, %"_ZN4core6option15Option$LT$T$GT$3map17hc64519f0d5ef08abE.exit.thread.i.i" ], [ %.sroa.0.i, %.thread270.i.i ]
-  %.sroa.0196.0.i.i = phi i64 [ 1, %643 ], [ 1, %640 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17hc64519f0d5ef08abE.exit.thread.i.i" ], [ 0, %.thread270.i.i ]
-  %.sroa.4197.0.i.i = phi ptr [ %.sroa.4.i.sroa.4.0.copyload.i.i, %643 ], [ %.sroa.4.i.sroa.4.0.copyload.i.i, %640 ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17hc64519f0d5ef08abE.exit.thread.i.i" ], [ %.sroa.0201.0.copyload.i.i, %.thread270.i.i ]
+  %.sroa.0196.1.i.sroa.phi.i = phi ptr [ %.sroa.0.i.8.i.8.i.8.i.8.gep.sroa_idx33, %643 ], [ %.sroa.0.i.8.i.8.i.8.i.8.gep.sroa_idx33, %640 ], [ %.sroa.0.i, %"_ZN4core6option15Option$LT$T$GT$3map17hc64519f0d5ef08abE.exit.thread.i.i" ], [ %.sroa.0.i, %.thread270.i.i ]
+  %.sroa.0196.1.i.i = phi i64 [ 1, %643 ], [ 1, %640 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17hc64519f0d5ef08abE.exit.thread.i.i" ], [ 0, %.thread270.i.i ]
+  %.sroa.4197.1.i.i = phi ptr [ %.sroa.4.i.sroa.4.0.copyload.i.i, %643 ], [ %.sroa.4.i.sroa.4.0.copyload.i.i, %640 ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17hc64519f0d5ef08abE.exit.thread.i.i" ], [ %.sroa.0201.0.copyload.i.i, %.thread270.i.i ]
   %648 = getelementptr inbounds i8, ptr %1, i64 32
   store i8 0, ptr %648, align 8, !noalias !51
-  store i64 %.sroa.0196.0.i.i, ptr %71, align 8, !alias.scope !47, !noalias !267
+  store i64 %.sroa.0196.1.i.i, ptr %71, align 8, !alias.scope !47, !noalias !267
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %71, i64 8
-  store ptr %.sroa.4197.0.i.i, ptr %.8..8..8..8..8..sroa_idx, align 8, !alias.scope !47, !noalias !267
+  store ptr %.sroa.4197.1.i.i, ptr %.8..8..8..8..8..sroa_idx, align 8, !alias.scope !47, !noalias !267
   %.sroa.7198.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %71, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7198.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7198.i.i, i64 224, i1 false), !noalias !267
   store i8 1, ptr %106, align 1, !noalias !51
@@ -2134,7 +2134,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.3.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
   store <2 x i64> <i64 240, i64 16>, ptr %.sroa.0.i, align 16, !noalias !38
-  %649 = load i64, ptr %.sroa.0196.0.i.sroa.phi.i, align 8, !noalias !38, !noundef !10
+  %649 = load i64, ptr %.sroa.0196.1.i.sroa.phi.i, align 8, !noalias !38, !noundef !10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull align 8 %71, i64 %649, i1 false), !noalias !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %71)
@@ -9645,13 +9645,13 @@ common.resume:                                    ; preds = %81, %17
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h65ff80fa7eff6a1bE.exit.thread.sink.split": ; preds = %60, %58
-  %.sroa.11.1.ph.ph = phi ptr [ %.sroa.026.0.copyload.i, %58 ], [ %.sroa.01.0.copyload.i, %60 ]
+  %.sroa.11.0.ph.ph = phi ptr [ %.sroa.026.0.copyload.i, %58 ], [ %.sroa.01.0.copyload.i, %60 ]
   %.sroa.528.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.528.0..sroa_idx.i, i64 24, i1 false)
   br label %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h65ff80fa7eff6a1bE.exit.thread"
 
 "_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h65ff80fa7eff6a1bE.exit.thread": ; preds = %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h65ff80fa7eff6a1bE.exit.thread.sink.split", %58, %28, %60
-  %.sroa.11.1.ph = phi ptr [ null, %60 ], [ null, %28 ], [ null, %58 ], [ %.sroa.11.1.ph.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h65ff80fa7eff6a1bE.exit.thread.sink.split" ]
+  %.sroa.11.0.ph = phi ptr [ null, %60 ], [ null, %28 ], [ null, %58 ], [ %.sroa.11.0.ph.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h65ff80fa7eff6a1bE.exit.thread.sink.split" ]
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5), !noalias !1466
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1462
   br label %69
@@ -9676,7 +9676,7 @@ common.resume:                                    ; preds = %81, %17
   unreachable
 
 69:                                               ; preds = %48, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h65ff80fa7eff6a1bE.exit.thread"
-  %.sroa.11.224 = phi ptr [ %.sroa.011.0.copyload.i, %48 ], [ %.sroa.11.1.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h65ff80fa7eff6a1bE.exit.thread" ]
+  %.sroa.11.224 = phi ptr [ %.sroa.011.0.copyload.i, %48 ], [ %.sroa.11.0.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h65ff80fa7eff6a1bE.exit.thread" ]
   %70 = icmp eq ptr %.sroa.11.224, null
   br i1 %70, label %80, label %72
 

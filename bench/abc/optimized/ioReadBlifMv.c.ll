@@ -1720,16 +1720,16 @@ Vec_PtrPush.exit.i.i:                             ; preds = %714, %Vec_PtrGrow.e
   br label %721
 
 721:                                              ; preds = %721, %Vec_PtrPush.exit.i.i
-  %.1.i.i = phi ptr [ %.09.i.i, %Vec_PtrPush.exit.i.i ], [ %722, %721 ]
-  %722 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %.2.i.i = phi ptr [ %.09.i.i, %Vec_PtrPush.exit.i.i ], [ %722, %721 ]
+  %722 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
   %723 = load i8, ptr %722, align 1
   %.not.i113.i = icmp eq i8 %723, 0
   br i1 %.not.i113.i, label %.loopexit.i.i, label %721, !llvm.loop !13
 
 .loopexit.i.i:                                    ; preds = %721, %689
-  %.2.i.i = phi ptr [ %.09.i.i, %689 ], [ %722, %721 ]
-  %724 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
-  %725 = icmp ult ptr %.2.i.i, %.012.i.i69.i
+  %.1.i.i = phi ptr [ %.09.i.i, %689 ], [ %722, %721 ]
+  %724 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %725 = icmp ult ptr %.1.i.i, %.012.i.i69.i
   br i1 %725, label %689, label %Io_MvCollectTokens.exit.i, !llvm.loop !14
 
 Io_MvCollectTokens.exit.i:                        ; preds = %.loopexit.i.i
@@ -1880,16 +1880,16 @@ Vec_PtrPush.exit.i123.i:                          ; preds = %777, %Vec_PtrGrow.e
   br label %784
 
 784:                                              ; preds = %784, %Vec_PtrPush.exit.i123.i
-  %.1.i124.i = phi ptr [ %.09.i120.i, %Vec_PtrPush.exit.i123.i ], [ %785, %784 ]
-  %785 = getelementptr inbounds i8, ptr %.1.i124.i, i64 1
+  %.2.i124.i = phi ptr [ %.09.i120.i, %Vec_PtrPush.exit.i123.i ], [ %785, %784 ]
+  %785 = getelementptr inbounds i8, ptr %.2.i124.i, i64 1
   %786 = load i8, ptr %785, align 1
   %.not.i125.i = icmp eq i8 %786, 0
   br i1 %.not.i125.i, label %.loopexit.i126.i, label %784, !llvm.loop !13
 
 .loopexit.i126.i:                                 ; preds = %784, %752
-  %.2.i127.i = phi ptr [ %.09.i120.i, %752 ], [ %785, %784 ]
-  %787 = getelementptr inbounds i8, ptr %.2.i127.i, i64 1
-  %788 = icmp ult ptr %.2.i127.i, %.012.i.i80.i
+  %.1.i127.i = phi ptr [ %.09.i120.i, %752 ], [ %785, %784 ]
+  %787 = getelementptr inbounds i8, ptr %.1.i127.i, i64 1
+  %788 = icmp ult ptr %.1.i127.i, %.012.i.i80.i
   br i1 %788, label %752, label %Io_MvCollectTokens.exit131.i, !llvm.loop !14
 
 Io_MvCollectTokens.exit131.i:                     ; preds = %.loopexit.i126.i
@@ -2053,16 +2053,16 @@ Vec_PtrPush.exit.i138.i:                          ; preds = %847, %Vec_PtrGrow.e
   br label %854
 
 854:                                              ; preds = %854, %Vec_PtrPush.exit.i138.i
-  %.1.i139.i = phi ptr [ %.09.i135.i, %Vec_PtrPush.exit.i138.i ], [ %855, %854 ]
-  %855 = getelementptr inbounds i8, ptr %.1.i139.i, i64 1
+  %.2.i139.i = phi ptr [ %.09.i135.i, %Vec_PtrPush.exit.i138.i ], [ %855, %854 ]
+  %855 = getelementptr inbounds i8, ptr %.2.i139.i, i64 1
   %856 = load i8, ptr %855, align 1
   %.not.i140.i = icmp eq i8 %856, 0
   br i1 %.not.i140.i, label %.loopexit.i141.i, label %854, !llvm.loop !13
 
 .loopexit.i141.i:                                 ; preds = %854, %822
-  %.2.i142.i = phi ptr [ %.09.i135.i, %822 ], [ %855, %854 ]
-  %857 = getelementptr inbounds i8, ptr %.2.i142.i, i64 1
-  %858 = icmp ult ptr %.2.i142.i, %.012.i.i93.i
+  %.1.i142.i = phi ptr [ %.09.i135.i, %822 ], [ %855, %854 ]
+  %857 = getelementptr inbounds i8, ptr %.1.i142.i, i64 1
+  %858 = icmp ult ptr %.1.i142.i, %.012.i.i93.i
   br i1 %858, label %822, label %Io_MvCollectTokens.exit146.i, !llvm.loop !14
 
 Io_MvCollectTokens.exit146.i:                     ; preds = %.loopexit.i141.i
@@ -6829,15 +6829,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %38
 
 38:                                               ; preds = %38, %Vec_PtrPush.exit
-  %.1 = phi ptr [ %.09, %Vec_PtrPush.exit ], [ %39, %38 ]
-  %39 = getelementptr inbounds i8, ptr %.1, i64 1
+  %.2 = phi ptr [ %.09, %Vec_PtrPush.exit ], [ %39, %38 ]
+  %39 = getelementptr inbounds i8, ptr %.2, i64 1
   %40 = load i8, ptr %39, align 1
   %.not = icmp eq i8 %40, 0
   br i1 %.not, label %.loopexit, label %38, !llvm.loop !13
 
 .loopexit:                                        ; preds = %38, %6
-  %.2 = phi ptr [ %.09, %6 ], [ %39, %38 ]
-  %41 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %.09, %6 ], [ %39, %38 ]
+  %41 = getelementptr inbounds i8, ptr %.1, i64 1
   %42 = icmp ult ptr %41, %2
   br i1 %42, label %6, label %._crit_edge, !llvm.loop !14
 
@@ -6965,22 +6965,22 @@ Io_MvSplitIntoTokens.exit:                        ; preds = %36, %Io_MvFindArrow
 
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %.071139 = phi i32 [ 1, %.lr.ph ], [ %.172, %44 ]
-  %.074138 = phi i32 [ %40, %.lr.ph ], [ %.175, %44 ]
+  %.172139 = phi i32 [ 1, %.lr.ph ], [ %.273, %44 ]
+  %.175138 = phi i32 [ %40, %.lr.ph ], [ %.276, %44 ]
   %45 = getelementptr inbounds ptr, ptr %.val87, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
   %47 = icmp ult ptr %.09.i109, %46
   %48 = sext i1 %47 to i32
-  %.175 = add nsw i32 %.074138, %48
+  %.276 = add nsw i32 %.175138, %48
   %49 = zext i1 %47 to i32
-  %.172 = add nuw nsw i32 %.071139, %49
+  %.273 = add nuw nsw i32 %.172139, %49
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %50 = icmp ugt i64 %indvars.iv, 1
   br i1 %50, label %44, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %44, %Io_MvSplitIntoTokens.exit
-  %.276 = phi i32 [ %40, %Io_MvSplitIntoTokens.exit ], [ %.175, %44 ]
-  %.273 = phi i32 [ 1, %Io_MvSplitIntoTokens.exit ], [ %.172, %44 ]
+  %.074 = phi i32 [ %40, %Io_MvSplitIntoTokens.exit ], [ %.276, %44 ]
+  %.071 = phi i32 [ 1, %Io_MvSplitIntoTokens.exit ], [ %.273, %44 ]
   %51 = getelementptr i8, ptr %7, i64 8
   %52 = sext i32 %.val84 to i64
   %53 = getelementptr ptr, ptr %.val87, i64 %52
@@ -7024,10 +7024,10 @@ Io_MvSplitIntoTokensMv.exit:                      ; preds = %60
   %68 = icmp eq i8 %67, 46
   %69 = getelementptr i8, ptr %9, i64 4
   %.val82 = load i32, ptr %69, align 4
-  %70 = xor i32 %.273, -1
+  %70 = xor i32 %.071, -1
   %71 = select i1 %68, i32 %70, i32 0
   %.070 = add i32 %.val82, %71
-  %72 = add nsw i32 %.273, %.276
+  %72 = add nsw i32 %.071, %.074
   %73 = srem i32 %.070, %72
   %74 = sdiv i32 %.070, %72
   %.not = icmp eq i32 %73, 0
@@ -7071,7 +7071,7 @@ Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge
   br label %Io_MvParseLineNamesMvOne.exit.thread
 
 90:                                               ; preds = %Io_MvSplitIntoTokensMv.exit
-  %91 = icmp eq i32 %.276, 0
+  %91 = icmp eq i32 %.074, 0
   %92 = icmp sgt i32 %74, 1
   %or.cond3 = and i1 %91, %92
   br i1 %or.cond3, label %.preheader, label %.preheader115
@@ -7079,25 +7079,25 @@ Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge
 .preheader115:                                    ; preds = %90
   %.not.i105 = icmp eq i32 %2, 0
   %93 = getelementptr inbounds i8, ptr %0, i64 112
-  %94 = add nsw i32 %.273, 1
+  %94 = add nsw i32 %.071, 1
   %95 = getelementptr i8, ptr %9, i64 4
-  %96 = icmp sgt i32 %.276, 0
+  %96 = icmp sgt i32 %.074, 0
   %97 = sext i32 %72 to i64
-  %wide.trip.count.i57.i = zext nneg i32 %.276 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %.273, i32 1)
+  %wide.trip.count.i57.i = zext nneg i32 %.074 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %.071, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %117
 
 .preheader:                                       ; preds = %90
   %98 = getelementptr inbounds i8, ptr %0, i64 112
   %.not80 = icmp eq i32 %2, 0
-  %smax174 = tail call i32 @llvm.smax.i32(i32 %.273, i32 1)
+  %smax174 = tail call i32 @llvm.smax.i32(i32 %.071, i32 1)
   br label %99
 
 99:                                               ; preds = %.preheader, %109
   %.1143 = phi i32 [ 0, %.preheader ], [ %116, %109 ]
   %.val = load i32, ptr %39, align 4
-  %100 = sub i32 %.1143, %.273
+  %100 = sub i32 %.1143, %.071
   %101 = add i32 %100, %.val
   %.val85 = load ptr, ptr %51, align 8
   %102 = sext i32 %101 to i64
@@ -7129,7 +7129,7 @@ Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge
   %indvars.iv171 = phi i64 [ 0, %.preheader115 ], [ %indvars.iv.next172, %264 ]
   %.val.i104 = load i32, ptr %39, align 4
   %118 = trunc nuw nsw i64 %indvars.iv171 to i32
-  %119 = sub i32 %118, %.273
+  %119 = sub i32 %118, %.071
   %120 = add i32 %119, %.val.i104
   %.val42.i = load ptr, ptr %51, align 8
   %121 = sext i32 %120 to i64
@@ -7186,7 +7186,7 @@ Io_MvGetLine.exit.i:                              ; preds = %140, %.critedge.loo
   %146 = tail call ptr @Abc_ObjName(ptr noundef %144) #20
   %147 = load ptr, ptr %51, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 8
-  %149 = tail call ptr @Io_ReadCreateNode(ptr noundef %145, ptr noundef %146, ptr noundef nonnull %148, i32 noundef %.276) #20
+  %149 = tail call ptr @Io_ReadCreateNode(ptr noundef %145, ptr noundef %146, ptr noundef nonnull %148, i32 noundef %.074) #20
   br label %174
 
 150:                                              ; preds = %117
@@ -7237,7 +7237,7 @@ Io_MvGetLine.exit53.i:                            ; preds = %166, %.critedge.loo
   %170 = load ptr, ptr %93, align 8
   %171 = load ptr, ptr %51, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 8
-  %173 = tail call ptr @Io_ReadCreateNode(ptr noundef %170, ptr noundef %123, ptr noundef nonnull %172, i32 noundef %.276) #20
+  %173 = tail call ptr @Io_ReadCreateNode(ptr noundef %170, ptr noundef %123, ptr noundef nonnull %172, i32 noundef %.074) #20
   br label %174
 
 174:                                              ; preds = %169, %143
@@ -7303,7 +7303,7 @@ Vec_StrPush.exit.i.i:                             ; preds = %Vec_StrGrow.exit.i.
   br i1 %203, label %.preheader.lr.ph.i.i, label %._crit_edge59.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %202
-  %204 = add i32 %.276, %118
+  %204 = add i32 %.074, %118
   %205 = sext i32 %.038.i.i to i64
   br i1 %96, label %.preheader.us.i.i, label %.preheader.i.i
 

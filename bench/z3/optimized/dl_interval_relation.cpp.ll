@@ -7620,7 +7620,7 @@ cleanup.sink.split:                               ; preds = %if.end63, %if.then5
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then81, %invoke.cont77, %if.else84, %if.end63
   %m_den.i.i129 = phi ptr [ %m_den.i.i, %if.end63 ], [ %m_den.i.i130, %if.else84 ], [ %m_den.i.i130, %invoke.cont77 ], [ %m_den.i.i130, %if.then81 ], [ %m_den.i.i, %cleanup.sink.split ]
-  %retval.0 = phi i1 [ false, %if.end63 ], [ true, %if.else84 ], [ false, %invoke.cont77 ], [ true, %if.then81 ], [ true, %cleanup.sink.split ]
+  %retval.1 = phi i1 [ false, %if.end63 ], [ true, %if.else84 ], [ false, %invoke.cont77 ], [ true, %if.then81 ], [ true, %cleanup.sink.split ]
   %30 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %k1)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -7644,8 +7644,8 @@ return.sink.split:                                ; preds = %if.end, %if.then
   br label %return
 
 return:                                           ; preds = %tailrecurse, %if.then28, %for.body, %for.cond, %return.sink.split, %for.cond.preheader, %.noexc.i, %if.end
-  %retval.1 = phi i1 [ false, %if.end ], [ %retval.0, %.noexc.i ], [ true, %for.cond.preheader ], [ true, %return.sink.split ], [ %call22, %for.cond ], [ %call22, %for.body ], [ false, %if.then28 ], [ false, %tailrecurse ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.end ], [ %retval.1, %.noexc.i ], [ true, %for.cond.preheader ], [ true, %return.sink.split ], [ %call22, %for.cond ], [ %call22, %for.body ], [ false, %if.then28 ], [ false, %tailrecurse ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

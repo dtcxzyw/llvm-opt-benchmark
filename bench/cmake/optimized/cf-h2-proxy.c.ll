@@ -383,7 +383,7 @@ cf_h2_proxy_ctx_init.exit:                        ; preds = %93, %94, %98, %103
 
 123:                                              ; preds = %h2_tunnel_go_state.exit59.i, %108
   %124 = phi i32 [ %.pre.i, %108 ], [ 0, %h2_tunnel_go_state.exit59.i ]
-  %.0.i41 = phi i32 [ 0, %108 ], [ %.2.ph.i, %h2_tunnel_go_state.exit59.i ]
+  %.0.i41 = phi i32 [ 0, %108 ], [ %.3.ph.i, %h2_tunnel_go_state.exit59.i ]
   switch i32 %124, label %inspect_response.exit.i [
     i32 0, label %125
     i32 1, label %h2_tunnel_go_state.exit.i
@@ -468,12 +468,12 @@ cf_h2_proxy_ctx_init.exit:                        ; preds = %93, %94, %98, %103
 
 proxy_h2_submit.exit.i.i:                         ; preds = %157, %153, %151, %147
   %.023.i.i.i = phi ptr [ null, %147 ], [ %152, %157 ], [ null, %151 ], [ %152, %153 ]
-  %.1.i.i.i = phi i32 [ -1, %147 ], [ %155, %157 ], [ -1, %151 ], [ %155, %153 ]
+  %.022.i.i.i = phi i32 [ -1, %147 ], [ %155, %157 ], [ -1, %151 ], [ %155, %153 ]
   %.0.i.i.i = phi i32 [ %150, %147 ], [ 55, %157 ], [ 27, %151 ], [ 0, %153 ]
   %159 = load ptr, ptr @Curl_cfree, align 8
   call void %159(ptr noundef %.023.i.i.i) #7
   call void @Curl_dynhds_free(ptr noundef nonnull %5) #7
-  store i32 %.1.i.i.i, ptr %114, align 4
+  store i32 %.022.i.i.i, ptr %114, align 4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -495,8 +495,8 @@ proxy_h2_submit.exit.i.i:                         ; preds = %157, %153, %151, %1
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %164
-  %170 = call ptr @nghttp2_strerror(i32 noundef %.1.i.i.i) #7
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.36, i32 noundef %.1.i.i.i, ptr noundef %170) #7
+  %170 = call ptr @nghttp2_strerror(i32 noundef %.022.i.i.i) #7
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.36, i32 noundef %.022.i.i.i, ptr noundef %170) #7
   br label %171
 
 171:                                              ; preds = %169, %164, %161, %proxy_h2_submit.exit.i.i, %136
@@ -559,8 +559,8 @@ h2_tunnel_go_state.exit.i:                        ; preds = %189, %175, %123
   br label %193
 
 193:                                              ; preds = %191, %h2_tunnel_go_state.exit.i
-  %.1.i = phi i32 [ %190, %h2_tunnel_go_state.exit.i ], [ %192, %191 ]
-  switch i32 %.1.i, label %194 [
+  %.2.i = phi i32 [ %190, %h2_tunnel_go_state.exit.i ], [ %192, %191 ]
+  switch i32 %.2.i, label %194 [
     i32 81, label %212
     i32 0, label %212
   ]
@@ -817,19 +817,19 @@ h2_tunnel_go_state.exit62.i:                      ; preds = %230, %215, %123
   br label %h2_tunnel_go_state.exit59thread-pre-split86.i
 
 h2_tunnel_go_state.exit59thread-pre-split86.i:    ; preds = %297, %.thread.i.i.i, %209
-  %.2.ph.ph.i = phi i32 [ 0, %297 ], [ 0, %.thread.i.i.i ], [ %.1.i, %209 ]
+  %.3.ph.ph.i = phi i32 [ 0, %297 ], [ 0, %.thread.i.i.i ], [ %.2.i, %209 ]
   %.pr.pr.i = load i32, ptr %110, align 8
   br label %h2_tunnel_go_state.exit59.i
 
 h2_tunnel_go_state.exit59.i:                      ; preds = %h2_tunnel_go_state.exit59thread-pre-split86.i, %281
   %301 = phi i32 [ %.pr.pr.i, %h2_tunnel_go_state.exit59thread-pre-split86.i ], [ %283, %281 ]
-  %.2.ph.i = phi i32 [ %.2.ph.ph.i, %h2_tunnel_go_state.exit59thread-pre-split86.i ], [ %283, %281 ]
+  %.3.ph.i = phi i32 [ %.3.ph.ph.i, %h2_tunnel_go_state.exit59thread-pre-split86.i ], [ %283, %281 ]
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %123, label %inspect_response.exit.i, !llvm.loop !5
 
 inspect_response.exit.i:                          ; preds = %h2_tunnel_go_state.exit59.i, %123
-  %.3.i = phi i32 [ %.2.ph.i, %h2_tunnel_go_state.exit59.i ], [ %.0.i41, %123 ]
-  %.not55.i = icmp eq i32 %.3.i, 0
+  %.1.i = phi i32 [ %.3.ph.i, %h2_tunnel_go_state.exit59.i ], [ %.0.i41, %123 ]
+  %.not55.i = icmp eq i32 %.1.i, 0
   br i1 %.not55.i, label %inspect_response.exit.thread80.i, label %inspect_response.exit.thread76.i
 
 inspect_response.exit.thread80.i:                 ; preds = %238, %212, %inspect_response.exit.i
@@ -840,7 +840,7 @@ inspect_response.exit.thread80.i:                 ; preds = %238, %212, %inspect
   br i1 %.not56.i, label %H2_CONNECT.exit.thread46, label %inspect_response.exit.thread76.i
 
 inspect_response.exit.thread76.i:                 ; preds = %279, %272, %257, %255, %inspect_response.exit.thread80.i, %inspect_response.exit.i, %submit_CONNECT.exit.i
-  %.379.ph.i = phi i32 [ %.0.i.i, %submit_CONNECT.exit.i ], [ %.3.i, %inspect_response.exit.i ], [ 0, %inspect_response.exit.thread80.i ], [ %278, %272 ], [ 56, %279 ], [ 56, %257 ], [ 56, %255 ]
+  %.179.ph.i = phi i32 [ %.0.i.i, %submit_CONNECT.exit.i ], [ %.1.i, %inspect_response.exit.i ], [ 0, %inspect_response.exit.thread80.i ], [ %278, %272 ], [ 56, %279 ], [ 56, %257 ], [ 56, %255 ]
   %.pr96.i = load i32, ptr %110, align 8
   switch i32 %.pr96.i, label %308 [
     i32 4, label %H2_CONNECT.exit
@@ -883,7 +883,7 @@ inspect_response.exit.thread76.i:                 ; preds = %279, %272, %257, %2
   br label %H2_CONNECT.exit
 
 H2_CONNECT.exit:                                  ; preds = %319, %inspect_response.exit.thread76.i
-  %322 = icmp eq i32 %.379.ph.i, 0
+  %322 = icmp eq i32 %.179.ph.i, 0
   br i1 %322, label %H2_CONNECT.exit.thread46, label %H2_CONNECT.exit.thread
 
 H2_CONNECT.exit.thread46:                         ; preds = %123, %inspect_response.exit.thread80.i, %H2_CONNECT.exit
@@ -893,7 +893,7 @@ H2_CONNECT.exit.thread46:                         ; preds = %123, %inspect_respo
   br label %H2_CONNECT.exit.thread
 
 H2_CONNECT.exit.thread:                           ; preds = %194, %123, %cf_h2_proxy_ctx_init.exit, %107, %H2_CONNECT.exit.thread46, %H2_CONNECT.exit
-  %.03444 = phi i32 [ %.379.ph.i, %H2_CONNECT.exit ], [ 0, %H2_CONNECT.exit.thread46 ], [ %.0.i, %cf_h2_proxy_ctx_init.exit ], [ 28, %107 ], [ 56, %123 ], [ %.1.i, %194 ]
+  %.03444 = phi i32 [ %.179.ph.i, %H2_CONNECT.exit ], [ 0, %H2_CONNECT.exit.thread46 ], [ %.0.i, %cf_h2_proxy_ctx_init.exit ], [ 28, %107 ], [ 56, %123 ], [ %.2.i, %194 ]
   %326 = phi i8 [ 0, %H2_CONNECT.exit ], [ %325, %H2_CONNECT.exit.thread46 ], [ 0, %cf_h2_proxy_ctx_init.exit ], [ 0, %107 ], [ 0, %123 ], [ 0, %194 ]
   store i8 %326, ptr %3, align 1
   %327 = load i8, ptr %18, align 4
@@ -1155,7 +1155,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not125, label %30, label %94
 
 30:                                               ; preds = %28, %23, %24
-  %.0111 = phi i64 [ %19, %23 ], [ %26, %24 ], [ 0, %28 ]
+  %.1 = phi i64 [ %19, %23 ], [ %26, %24 ], [ 0, %28 ]
   %31 = getelementptr inbounds i8, ptr %7, i64 216
   %32 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %31) #7
   br i1 %32, label %39, label %33
@@ -1216,11 +1216,11 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %61, %56, %52
-  store i64 %.0111, ptr %18, align 8
+  store i64 %.1, ptr %18, align 8
   br label %64
 
 63:                                               ; preds = %.critedge
-  store i64 %.0111, ptr %18, align 8
+  store i64 %.1, ptr %18, align 8
   br i1 %51, label %64, label %77
 
 64:                                               ; preds = %.thread, %63
@@ -1241,7 +1241,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   %74 = load i32, ptr %46, align 8
   %75 = load ptr, ptr %7, align 8
   %76 = tail call i32 @nghttp2_session_get_remote_window_size(ptr noundef %75) #7
-  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.63, i32 noundef %74, i64 noundef %3, i32 noundef %76, i64 noundef %49, i64 noundef %.0111) #7
+  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.63, i32 noundef %74, i64 noundef %3, i32 noundef %76, i64 noundef %49, i64 noundef %.1) #7
   br label %77
 
 77:                                               ; preds = %63, %64, %68, %73
@@ -1287,13 +1287,13 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %94
 
 94:                                               ; preds = %.sink.split, %78, %28
-  %.1 = phi i64 [ %.0111, %78 ], [ %26, %28 ], [ -1, %.sink.split ]
+  %.0111 = phi i64 [ %.1, %78 ], [ %26, %28 ], [ -1, %.sink.split ]
   %95 = getelementptr inbounds i8, ptr %7, i64 152
   %96 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %95) #7
   br i1 %96, label %drain_tunnel.exit, label %97
 
 97:                                               ; preds = %94
-  %98 = icmp sgt i64 %.1, -1
+  %98 = icmp sgt i64 %.0111, -1
   br i1 %98, label %102, label %99
 
 99:                                               ; preds = %97
@@ -1377,7 +1377,7 @@ drain_tunnel.exit.thread:                         ; preds = %108, %124, %drain_t
   %142 = tail call i64 @Curl_bufq_len(ptr noundef nonnull %141) #7
   %143 = getelementptr inbounds i8, ptr %7, i64 80
   %144 = tail call i64 @Curl_bufq_len(ptr noundef nonnull %143) #7
-  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.65, i32 noundef %135, i64 noundef %3, i64 noundef %.1, i32 noundef %136, i32 noundef %138, i32 noundef %140, i64 noundef %142, i64 noundef %144) #7
+  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.65, i32 noundef %135, i64 noundef %3, i64 noundef %.0111, i32 noundef %136, i32 noundef %138, i32 noundef %140, i64 noundef %142, i64 noundef %144) #7
   br label %145
 
 145:                                              ; preds = %133, %128, %drain_tunnel.exit.thread, %drain_tunnel.exit
@@ -1387,7 +1387,7 @@ drain_tunnel.exit.thread:                         ; preds = %108, %124, %drain_t
   br label %148
 
 148:                                              ; preds = %145, %11
-  %.0 = phi i64 [ -1, %11 ], [ %.1, %145 ]
+  %.0 = phi i64 [ -1, %11 ], [ %.0111, %145 ]
   ret i64 %.0
 }
 

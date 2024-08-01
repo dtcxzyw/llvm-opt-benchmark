@@ -1145,8 +1145,8 @@ land.rhs.lr.ph:                                   ; preds = %entry
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end17
   %partIndex.addr.030 = phi i32 [ %partIndex, %land.rhs.lr.ph ], [ %add18, %if.end17 ]
-  %furthest.029 = phi i32 [ %0, %land.rhs.lr.ph ], [ %furthest.1, %if.end17 ]
-  %bestNumber.028 = phi double [ %call1, %land.rhs.lr.ph ], [ %bestNumber.1, %if.end17 ]
+  %furthest.029 = phi i32 [ %0, %land.rhs.lr.ph ], [ %furthest.2, %if.end17 ]
+  %bestNumber.028 = phi double [ %call1, %land.rhs.lr.ph ], [ %bestNumber.2, %if.end17 ]
   %2 = load ptr, ptr %parts.i.i, align 8
   %idxprom.i.i = sext i32 %partIndex.addr.030 to i64
   %arrayidx.i.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %2, i64 %idxprom.i.i
@@ -1182,31 +1182,31 @@ if.then12:                                        ; preds = %if.then
   br i1 %cmp14, label %while.end, label %if.end17
 
 if.end17:                                         ; preds = %if.then, %if.then12, %while.body
-  %bestNumber.1 = phi double [ %call6, %if.then12 ], [ %bestNumber.028, %if.then ], [ %bestNumber.028, %while.body ]
-  %furthest.1 = phi i32 [ %add10, %if.then12 ], [ %furthest.029, %if.then ], [ %furthest.029, %while.body ]
+  %bestNumber.2 = phi double [ %call6, %if.then12 ], [ %bestNumber.028, %if.then ], [ %bestNumber.028, %while.body ]
+  %furthest.2 = phi i32 [ %add10, %if.then12 ], [ %furthest.029, %if.then ], [ %furthest.029, %while.body ]
   %add18 = add nsw i32 %start..i, 1
   %cmp = icmp slt i32 %add18, %1
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %land.rhs, %if.then12, %if.end17
-  %bestNumber.2 = phi double [ %bestNumber.028, %land.rhs ], [ %call6, %if.then12 ], [ %bestNumber.1, %if.end17 ]
-  %furthest.2 = phi i32 [ %furthest.029, %land.rhs ], [ %add10, %if.then12 ], [ %furthest.1, %if.end17 ]
-  %cmp19 = icmp eq i32 %furthest.2, %0
+  %bestNumber.1 = phi double [ %bestNumber.028, %land.rhs ], [ %call6, %if.then12 ], [ %bestNumber.2, %if.end17 ]
+  %furthest.1 = phi i32 [ %furthest.029, %land.rhs ], [ %add10, %if.then12 ], [ %furthest.2, %if.end17 ]
+  %cmp19 = icmp eq i32 %furthest.1, %0
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %entry, %while.end
-  %bestNumber.240 = phi double [ %bestNumber.2, %while.end ], [ %call1, %entry ]
+  %bestNumber.140 = phi double [ %bestNumber.1, %while.end ], [ %call1, %entry ]
   %errorIndex.i = getelementptr inbounds i8, ptr %pos, i64 12
   store i32 %0, ptr %errorIndex.i, align 4
   br label %if.end21
 
 if.else:                                          ; preds = %while.end
-  store i32 %furthest.2, ptr %index.i, align 8
+  store i32 %furthest.1, ptr %index.i, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then20
-  %bestNumber.239 = phi double [ %bestNumber.2, %if.else ], [ %bestNumber.240, %if.then20 ]
-  ret double %bestNumber.239
+  %bestNumber.139 = phi double [ %bestNumber.1, %if.else ], [ %bestNumber.140, %if.then20 ]
+  ret double %bestNumber.139
 }
 
 declare double @uprv_getNaN_75() local_unnamed_addr #2

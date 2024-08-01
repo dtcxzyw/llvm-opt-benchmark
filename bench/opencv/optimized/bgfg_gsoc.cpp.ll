@@ -3917,28 +3917,28 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %20, %23
 
 .lr.ph60.i.us:                                    ; preds = %._crit_edge.i.us, %.lr.ph60.i.us
   %indvars.iv64.i.us = phi i64 [ %indvars.iv.next65.i.us, %.lr.ph60.i.us ], [ %43, %._crit_edge.i.us ]
-  %.sroa.0.258.i.us = phi <2 x float> [ %61, %.lr.ph60.i.us ], [ %.sroa.0.1.i.us, %._crit_edge.i.us ]
-  %.sroa.15.257.i.us = phi float [ %64, %.lr.ph60.i.us ], [ %.sroa.15.1.i.us, %._crit_edge.i.us ]
+  %.sroa.0.358.i.us = phi <2 x float> [ %61, %.lr.ph60.i.us ], [ %.sroa.0.1.i.us, %._crit_edge.i.us ]
+  %.sroa.15.357.i.us = phi float [ %64, %.lr.ph60.i.us ], [ %.sroa.15.1.i.us, %._crit_edge.i.us ]
   %59 = getelementptr inbounds %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val.i.us, i64 %indvars.iv64.i.us
   %60 = load <2 x float>, ptr %59, align 4
-  %61 = fadd <2 x float> %.sroa.0.258.i.us, %60
+  %61 = fadd <2 x float> %.sroa.0.358.i.us, %60
   %62 = getelementptr inbounds i8, ptr %59, i64 8
   %63 = load float, ptr %62, align 4
-  %64 = fadd float %.sroa.15.257.i.us, %63
+  %64 = fadd float %.sroa.15.357.i.us, %63
   %indvars.iv.next65.i.us = add nsw i64 %indvars.iv64.i.us, 1
   %65 = icmp slt i64 %indvars.iv.next65.i.us, %44
   br i1 %65, label %.lr.ph60.i.us, label %.loopexit.us, !llvm.loop !80
 
 .loopexit.us:                                     ; preds = %.lr.ph60.i.us, %._crit_edge.i.us, %30
-  %.sroa.15.3.i.us = phi float [ %.sroa.15.1.i.us, %._crit_edge.i.us ], [ 0.000000e+00, %30 ], [ %64, %.lr.ph60.i.us ]
-  %.sroa.0.3.i.us = phi <2 x float> [ %.sroa.0.1.i.us, %._crit_edge.i.us ], [ zeroinitializer, %30 ], [ %61, %.lr.ph60.i.us ]
+  %.sroa.15.2.i.us = phi float [ %.sroa.15.1.i.us, %._crit_edge.i.us ], [ 0.000000e+00, %30 ], [ %64, %.lr.ph60.i.us ]
+  %.sroa.0.2.i.us = phi <2 x float> [ %.sroa.0.1.i.us, %._crit_edge.i.us ], [ zeroinitializer, %30 ], [ %61, %.lr.ph60.i.us ]
   %.2.i.us = phi i32 [ %.1.i.us, %._crit_edge.i.us ], [ %33, %30 ], [ %33, %.lr.ph60.i.us ]
   %66 = sitofp i32 %.2.i.us to float
-  %.sroa.0.0.vec.extract.i.us = extractelement <2 x float> %.sroa.0.3.i.us, i64 0
+  %.sroa.0.0.vec.extract.i.us = extractelement <2 x float> %.sroa.0.2.i.us, i64 0
   %67 = fdiv float %.sroa.0.0.vec.extract.i.us, %66
-  %.sroa.0.4.vec.extract.i.us = extractelement <2 x float> %.sroa.0.3.i.us, i64 1
+  %.sroa.0.4.vec.extract.i.us = extractelement <2 x float> %.sroa.0.2.i.us, i64 1
   %68 = fdiv float %.sroa.0.4.vec.extract.i.us, %66
-  %69 = fdiv float %.sroa.15.3.i.us, %66
+  %69 = fdiv float %.sroa.15.2.i.us, %66
   %70 = fmul float %67, 2.550000e+02
   %71 = fmul float %68, 2.550000e+02
   %72 = fmul float %69, 2.550000e+02

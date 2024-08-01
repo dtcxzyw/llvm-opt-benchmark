@@ -540,7 +540,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   br label %134
 
 134:                                              ; preds = %131, %124
-  %.1 = phi i32 [ -20, %131 ], [ %.049, %124 ]
+  %.2 = phi i32 [ -20, %131 ], [ %.049, %124 ]
   %135 = load i64, ptr %6, align 8
   %136 = icmp ne i64 %135, 0
   %137 = load ptr, ptr %3, align 8
@@ -600,13 +600,13 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   %160 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %156) #13
   %161 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %156, i64 noundef %160) #11
   %.not61 = icmp eq i32 %161, 0
-  %spec.select = select i1 %.not61, i32 %.1, i32 -30
+  %spec.select = select i1 %.not61, i32 %.2, i32 -30
   br label %162
 
 162:                                              ; preds = %159, %151, %149, %154, %157, %148, %130, %84, %synthesize_ino_value.exit.thread, %23
-  %.2 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %84 ], [ -30, %130 ], [ -25, %148 ], [ %.1, %157 ], [ %.1, %154 ], [ -30, %149 ], [ -30, %151 ], [ %spec.select, %159 ]
+  %.1 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %84 ], [ -30, %130 ], [ -25, %148 ], [ %.2, %157 ], [ %.2, %154 ], [ -30, %149 ], [ -30, %151 ], [ %spec.select, %159 ]
   call void @archive_entry_free(ptr noundef null) #11
-  ret i32 %.2
+  ret i32 %.1
 }
 
 declare ptr @archive_string_default_conversion_for_write(ptr noundef) local_unnamed_addr #1

@@ -353,10 +353,10 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br i1 %105, label %106, label %16
 
 106:                                              ; preds = %103, %10, %1, %123
-  %.sroa.6.1 = phi i64 [ %.pn13, %123 ], [ undef, %1 ], [ %13, %10 ], [ %13, %103 ]
-  %.sroa.0.1 = phi ptr [ %.pn15, %123 ], [ null, %1 ], [ %12, %10 ], [ null, %103 ]
-  %107 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %108 = insertvalue { ptr, i64 } %107, i64 %.sroa.6.1, 1
+  %.sroa.6.0 = phi i64 [ %.pn13, %123 ], [ undef, %1 ], [ %13, %10 ], [ %13, %103 ]
+  %.sroa.0.0 = phi ptr [ %.pn15, %123 ], [ null, %1 ], [ %12, %10 ], [ null, %103 ]
+  %107 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %108 = insertvalue { ptr, i64 } %107, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %108
 
 109:                                              ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17hbe978f9ab4b2712dE.exit"
@@ -687,9 +687,9 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
           to label %44 unwind label %.thread
 
 42:                                               ; preds = %.body.thread, %.body
-  %.sroa.020.1.ph = phi i1 [ %.sroa.020.3, %.body ], [ %.sroa.020.3189, %.body.thread ]
+  %.sroa.020.2.ph = phi i1 [ %.sroa.020.3, %.body ], [ %.sroa.020.3189, %.body.thread ]
   %.pn34.ph = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %.pn.pn190, %.body.thread ]
-  br i1 %.sroa.020.1.ph, label %.thread176, label %"_ZN4core3ptr46drop_in_place$LT$insta..settings..Settings$GT$17h143301b41356216cE.exit"
+  br i1 %.sroa.020.2.ph, label %.thread176, label %"_ZN4core3ptr46drop_in_place$LT$insta..settings..Settings$GT$17h143301b41356216cE.exit"
 
 .thread:                                          ; preds = %.invoke, %6, %44, %52, %56, %67, %69, %74, %80
   %43 = landingpad { ptr, i32 }
@@ -896,14 +896,14 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
           to label %116 unwind label %114
 
 .body:                                            ; preds = %233, %114, %.thread164
-  %.sroa.016.0 = phi i8 [ %.sroa.016.2, %.thread164 ], [ %.sroa.016.2, %233 ], [ %.sroa.016.1, %114 ]
+  %.sroa.016.1 = phi i8 [ %.sroa.016.2, %.thread164 ], [ %.sroa.016.2, %233 ], [ %.sroa.016.0, %114 ]
   %.sroa.020.3 = phi i1 [ true, %.thread164 ], [ false, %233 ], [ true, %114 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn163, %.thread164 ], [ %lpad.thr_comm.split-lp170, %233 ], [ %115, %114 ]
-  %113 = trunc nuw i8 %.sroa.016.0 to i1
+  %113 = trunc nuw i8 %.sroa.016.1 to i1
   br i1 %113, label %.body.thread, label %42
 
 114:                                              ; preds = %232, %227, %.noexc71, %.noexc70, %147, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h93bcf4cc0f27bd71E.exit", %142, %140, %130, %125, %116, %109, %105
-  %.sroa.016.1 = phi i8 [ 1, %105 ], [ 1, %109 ], [ 1, %116 ], [ 1, %125 ], [ 1, %130 ], [ 1, %140 ], [ 1, %142 ], [ 1, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h93bcf4cc0f27bd71E.exit" ], [ 1, %147 ], [ 1, %.noexc70 ], [ 1, %.noexc71 ], [ 0, %227 ], [ 0, %232 ]
+  %.sroa.016.0 = phi i8 [ 1, %105 ], [ 1, %109 ], [ 1, %116 ], [ 1, %125 ], [ 1, %130 ], [ 1, %140 ], [ 1, %142 ], [ 1, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h93bcf4cc0f27bd71E.exit" ], [ 1, %147 ], [ 1, %.noexc70 ], [ 1, %.noexc71 ], [ 0, %227 ], [ 0, %232 ]
   %115 = landingpad { ptr, i32 }
           cleanup
   br label %.body

@@ -516,7 +516,7 @@ getX11FontPath.exit.i:                            ; preds = %154, %._crit_edge.i
   br label %155
 
 155:                                              ; preds = %getX11FontPath.exit.i, %110
-  %.041.i = phi ptr [ %.0.i57.i, %getX11FontPath.exit.i ], [ null, %110 ]
+  %.1.i = phi ptr [ %.0.i57.i, %getX11FontPath.exit.i ], [ null, %110 ]
   call void (...) @awt_output_flush() #13
   %156 = load ptr, ptr %0, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 120
@@ -564,7 +564,7 @@ getX11FontPath.exit.i:                            ; preds = %154, %._crit_edge.i
   br label %184
 
 184:                                              ; preds = %179, %178, %85, %getFontConfigLocations.exit.i
-  %.1.i = phi ptr [ null, %85 ], [ %.041.i, %179 ], [ %.041.i, %178 ], [ null, %getFontConfigLocations.exit.i ]
+  %.041.i = phi ptr [ null, %85 ], [ %.1.i, %179 ], [ %.1.i, %178 ], [ null, %getFontConfigLocations.exit.i ]
   %.not.i66.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i66.i, label %.loopexit9.i.i, label %.preheader8.i.i
 
@@ -575,47 +575,47 @@ getX11FontPath.exit.i:                            ; preds = %154, %._crit_edge.i
 
 .lr.ph.i67.i:                                     ; preds = %.preheader8.i.i, %.lr.ph.i67.i
   %.08512.i.i = phi ptr [ %186, %.lr.ph.i67.i ], [ %.0.i.i, %.preheader8.i.i ]
-  %.010311.i.i = phi i32 [ %187, %.lr.ph.i67.i ], [ 0, %.preheader8.i.i ]
+  %.110411.i.i = phi i32 [ %187, %.lr.ph.i67.i ], [ 0, %.preheader8.i.i ]
   %186 = getelementptr inbounds i8, ptr %.08512.i.i, i64 8
-  %187 = add nuw nsw i32 %.010311.i.i, 1
+  %187 = add nuw nsw i32 %.110411.i.i, 1
   %188 = load ptr, ptr %186, align 8
   %.not111.i.i = icmp eq ptr %188, null
   br i1 %.not111.i.i, label %.loopexit9.i.i, label %.lr.ph.i67.i, !llvm.loop !10
 
 .loopexit9.i.i:                                   ; preds = %.lr.ph.i67.i, %.preheader8.i.i, %184
-  %.1104.i.i = phi i32 [ 0, %184 ], [ 0, %.preheader8.i.i ], [ %187, %.lr.ph.i67.i ]
-  %.not112.i.i = icmp eq ptr %.1.i, null
+  %.0103.i.i = phi i32 [ 0, %184 ], [ 0, %.preheader8.i.i ], [ %187, %.lr.ph.i67.i ]
+  %.not112.i.i = icmp eq ptr %.041.i, null
   br i1 %.not112.i.i, label %.lr.ph21.i.i.preheader, label %.preheader6.i.i
 
 .preheader6.i.i:                                  ; preds = %.loopexit9.i.i
-  %189 = load ptr, ptr %.1.i, align 8
+  %189 = load ptr, ptr %.041.i, align 8
   %.not11313.i.i = icmp eq ptr %189, null
   br i1 %.not11313.i.i, label %.lr.ph21.i.i.preheader, label %.lr.ph16.i.i
 
 .lr.ph16.i.i:                                     ; preds = %.preheader6.i.i, %.lr.ph16.i.i
-  %.115.i.i = phi ptr [ %190, %.lr.ph16.i.i ], [ %.1.i, %.preheader6.i.i ]
-  %.010114.i.i = phi i32 [ %191, %.lr.ph16.i.i ], [ 0, %.preheader6.i.i ]
+  %.115.i.i = phi ptr [ %190, %.lr.ph16.i.i ], [ %.041.i, %.preheader6.i.i ]
+  %.110214.i.i = phi i32 [ %191, %.lr.ph16.i.i ], [ 0, %.preheader6.i.i ]
   %190 = getelementptr inbounds i8, ptr %.115.i.i, i64 8
-  %191 = add nuw nsw i32 %.010114.i.i, 1
+  %191 = add nuw nsw i32 %.110214.i.i, 1
   %192 = load ptr, ptr %190, align 8
   %.not113.i.i = icmp eq ptr %192, null
   br i1 %.not113.i.i, label %.lr.ph21.i.i.preheader, label %.lr.ph16.i.i, !llvm.loop !11
 
 .lr.ph21.i.i.preheader:                           ; preds = %.lr.ph16.i.i, %.loopexit9.i.i, %.preheader6.i.i
-  %.1102.i.i = phi i32 [ 0, %.loopexit9.i.i ], [ 0, %.preheader6.i.i ], [ %191, %.lr.ph16.i.i ]
+  %.0101.i.i = phi i32 [ 0, %.loopexit9.i.i ], [ 0, %.preheader6.i.i ], [ %191, %.lr.ph16.i.i ]
   br label %.lr.ph21.i.i
 
 .lr.ph21.i.i:                                     ; preds = %.lr.ph21.i.i.preheader, %.lr.ph21.i.i
   %.220.i.i = phi ptr [ %193, %.lr.ph21.i.i ], [ @fullLinuxFontPath, %.lr.ph21.i.i.preheader ]
-  %.09919.i.i = phi i32 [ %194, %.lr.ph21.i.i ], [ 0, %.lr.ph21.i.i.preheader ]
+  %.110019.i.i = phi i32 [ %194, %.lr.ph21.i.i ], [ 0, %.lr.ph21.i.i.preheader ]
   %193 = getelementptr inbounds i8, ptr %.220.i.i, i64 8
-  %194 = add nuw nsw i32 %.09919.i.i, 1
+  %194 = add nuw nsw i32 %.110019.i.i, 1
   %195 = load ptr, ptr %193, align 8
   %.not114.i.i = icmp eq ptr %195, null
   br i1 %.not114.i.i, label %._crit_edge.i68.i, label %.lr.ph21.i.i, !llvm.loop !12
 
 ._crit_edge.i68.i:                                ; preds = %.lr.ph21.i.i
-  %196 = add nuw nsw i32 %.1102.i.i, %.1104.i.i
+  %196 = add nuw nsw i32 %.0101.i.i, %.0103.i.i
   %197 = add nuw nsw i32 %196, %194
   %198 = zext nneg i32 %197 to i64
   %199 = call noalias ptr @calloc(i64 noundef %198, i64 noundef 8) #14
@@ -623,12 +623,12 @@ getX11FontPath.exit.i:                            ; preds = %154, %._crit_edge.i
   br i1 %200, label %mergePaths.exit.i, label %.preheader5.i.i
 
 .preheader5.i.i:                                  ; preds = %._crit_edge.i68.i
-  %.not51.i.i = icmp eq i32 %.1104.i.i, 0
+  %.not51.i.i = icmp eq i32 %.0103.i.i, 0
   br i1 %.not51.i.i, label %.preheader4.i.i, label %.lr.ph25.i.i
 
 .lr.ph25.i.i:                                     ; preds = %.preheader5.i.i
   %.not125.i.i = icmp eq i8 %2, 0
-  %201 = zext i32 %.1104.i.i to i64
+  %201 = zext i32 %.0103.i.i to i64
   br i1 %.not125.i.i, label %.lr.ph25.split.us.preheader.i.i, label %.lr.ph25.split.i.i
 
 .lr.ph25.split.us.preheader.i.i:                  ; preds = %.lr.ph25.i.i
@@ -637,14 +637,14 @@ getX11FontPath.exit.i:                            ; preds = %154, %._crit_edge.i
   br label %.preheader4.i.i
 
 .preheader4.i.i:                                  ; preds = %210, %.lr.ph25.split.us.preheader.i.i, %.preheader5.i.i
-  %.094.lcssa.i.i = phi i32 [ 0, %.preheader5.i.i ], [ %.1104.i.i, %.lr.ph25.split.us.preheader.i.i ], [ %.195.i.i, %210 ]
-  %.not52.i.i = icmp eq i32 %.1102.i.i, 0
+  %.094.lcssa.i.i = phi i32 [ 0, %.preheader5.i.i ], [ %.0103.i.i, %.lr.ph25.split.us.preheader.i.i ], [ %.195.i.i, %210 ]
+  %.not52.i.i = icmp eq i32 %.0101.i.i, 0
   br i1 %.not52.i.i, label %.lr.ph41.i.i, label %.lr.ph33.i.i
 
 .lr.ph33.i.i:                                     ; preds = %.preheader4.i.i
   %.not121.i.i = icmp eq i8 %2, 0
   %.not12427.i.i = icmp sgt i32 %.094.lcssa.i.i, 0
-  %wide.trip.count75.i.i = zext i32 %.1102.i.i to i64
+  %wide.trip.count75.i.i = zext i32 %.0101.i.i to i64
   %wide.trip.count70.i.i = zext nneg i32 %.094.lcssa.i.i to i64
   br label %211
 
@@ -681,7 +681,7 @@ getX11FontPath.exit.i:                            ; preds = %154, %._crit_edge.i
 211:                                              ; preds = %.loopexit3.i.i, %.lr.ph33.i.i
   %indvars.iv72.i.i = phi i64 [ 0, %.lr.ph33.i.i ], [ %indvars.iv.next73.i.i, %.loopexit3.i.i ]
   %.29631.i.i = phi i32 [ %.094.lcssa.i.i, %.lr.ph33.i.i ], [ %.397.i.i, %.loopexit3.i.i ]
-  %.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.1.i, i64 %indvars.iv72.i.i
+  %.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.041.i, i64 %indvars.iv72.i.i
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br i1 %.not121.i.i, label %._crit_edge88.i, label %212
 
@@ -845,13 +845,13 @@ mergePaths.exit.i:                                ; preds = %.loopexit.i.i, %._c
   br i1 %.not112.i.i, label %getPlatformFontPathChars.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %253
-  %254 = load ptr, ptr %.1.i, align 8
+  %254 = load ptr, ptr %.041.i, align 8
   %.not5581.i = icmp eq ptr %254, null
   br i1 %.not5581.i, label %._crit_edge84.i, label %.lr.ph83.i
 
 .lr.ph83.i:                                       ; preds = %.preheader.i, %.lr.ph83.i
   %255 = phi ptr [ %257, %.lr.ph83.i ], [ %254, %.preheader.i ]
-  %.082.i = phi ptr [ %256, %.lr.ph83.i ], [ %.1.i, %.preheader.i ]
+  %.082.i = phi ptr [ %256, %.lr.ph83.i ], [ %.041.i, %.preheader.i ]
   %256 = getelementptr inbounds i8, ptr %.082.i, i64 8
   call void @free(ptr noundef nonnull %255) #13
   %257 = load ptr, ptr %256, align 8
@@ -859,7 +859,7 @@ mergePaths.exit.i:                                ; preds = %.loopexit.i.i, %._c
   br i1 %.not55.i, label %._crit_edge84.i, label %.lr.ph83.i, !llvm.loop !21
 
 ._crit_edge84.i:                                  ; preds = %.lr.ph83.i, %.preheader.i
-  call void @free(ptr noundef %.1.i) #13
+  call void @free(ptr noundef %.041.i) #13
   br label %getPlatformFontPathChars.exit
 
 getPlatformFontPathChars.exit:                    ; preds = %253, %._crit_edge84.i
@@ -1524,9 +1524,9 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
 263:                                              ; preds = %.lr.ph558, %308
   %indvars.iv = phi i64 [ 0, %.lr.ph558 ], [ %indvars.iv.next, %308 ]
   %.0434557 = phi ptr [ null, %.lr.ph558 ], [ %.2, %308 ]
-  %.0435556 = phi ptr [ null, %.lr.ph558 ], [ %.2437, %308 ]
-  %.0444554 = phi i32 [ 0, %.lr.ph558 ], [ %.1445, %308 ]
-  %.1448553 = phi i32 [ %.0447, %.lr.ph558 ], [ %.3450, %308 ]
+  %.0435556 = phi ptr [ null, %.lr.ph558 ], [ %.1436, %308 ]
+  %.0444554 = phi i32 [ 0, %.lr.ph558 ], [ %.2446, %308 ]
+  %.1448553 = phi i32 [ %.0447, %.lr.ph558 ], [ %.2449, %308 ]
   %264 = load ptr, ptr %262, align 8
   %265 = getelementptr inbounds ptr, ptr %264, i64 %indvars.iv
   %266 = load ptr, ptr %265, align 8
@@ -1603,8 +1603,8 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br label %297
 
 297:                                              ; preds = %285, %292, %295
-  %.1436 = phi ptr [ %294, %295 ], [ %294, %292 ], [ %288, %285 ]
-  %.1 = phi ptr [ %294, %295 ], [ %294, %292 ], [ %.0434557, %285 ]
+  %.2437 = phi ptr [ %294, %295 ], [ %294, %292 ], [ %288, %285 ]
+  %.3 = phi ptr [ %294, %295 ], [ %294, %292 ], [ %.0434557, %285 ]
   %298 = add nsw i32 %.0444554, 1
   %299 = getelementptr inbounds ptr, ptr %238, i64 %indvars.iv
   %300 = call i32 %101(ptr noundef %266, ptr noundef nonnull @.str.55, i32 noundef 0, ptr noundef %299) #13
@@ -1619,33 +1619,33 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br i1 %or.cond39, label %._crit_edge, label %308
 
 308:                                              ; preds = %297, %289, %273
-  %.3450 = phi i32 [ %.1448553, %273 ], [ %spec.select516, %297 ], [ %spec.select516, %289 ]
-  %.1445 = phi i32 [ %.0444554, %273 ], [ %298, %297 ], [ %.0444554, %289 ]
-  %.2437 = phi ptr [ %.0435556, %273 ], [ %.1436, %297 ], [ %.0435556, %289 ]
-  %.2 = phi ptr [ %.0434557, %273 ], [ %.1, %297 ], [ %.0434557, %289 ]
+  %.2449 = phi i32 [ %.1448553, %273 ], [ %spec.select516, %297 ], [ %spec.select516, %289 ]
+  %.2446 = phi i32 [ %.0444554, %273 ], [ %298, %297 ], [ %.0444554, %289 ]
+  %.1436 = phi ptr [ %.0435556, %273 ], [ %.2437, %297 ], [ %.0435556, %289 ]
+  %.2 = phi ptr [ %.0434557, %273 ], [ %.3, %297 ], [ %.0434557, %289 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond612.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond612.not, label %._crit_edge, label %263, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %308, %297
-  %.2446 = phi i32 [ %.1445, %308 ], [ %298, %297 ]
-  %.3 = phi ptr [ %.2, %308 ], [ %.1, %297 ]
-  %.not505 = icmp eq ptr %.3, null
+  %.1445 = phi i32 [ %.2446, %308 ], [ %298, %297 ]
+  %.1 = phi ptr [ %.2, %308 ], [ %.3, %297 ]
+  %.not505 = icmp eq ptr %.1, null
   br i1 %.not505, label %._crit_edge.thread, label %309
 
 309:                                              ; preds = %._crit_edge
-  %310 = call ptr %107(ptr noundef nonnull %.3) #13
+  %310 = call ptr %107(ptr noundef nonnull %.1) #13
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %260, %309, %._crit_edge
-  %.2446622 = phi i32 [ %.2446, %309 ], [ %.2446, %._crit_edge ], [ 0, %260 ]
+  %.1445622 = phi i32 [ %.1445, %309 ], [ %.1445, %._crit_edge ], [ 0, %260 ]
   br i1 %186, label %326, label %311
 
 311:                                              ; preds = %._crit_edge.thread
   %312 = load ptr, ptr %0, align 8
   %313 = getelementptr inbounds i8, ptr %312, i64 1376
   %314 = load ptr, ptr %313, align 8
-  %315 = call ptr %314(ptr noundef nonnull %0, i32 noundef %.2446622, ptr noundef nonnull %30, ptr noundef null) #13
+  %315 = call ptr %314(ptr noundef nonnull %0, i32 noundef %.1445622, ptr noundef nonnull %30, ptr noundef null) #13
   %316 = icmp eq ptr %315, null
   br i1 %316, label %317, label %322
 

@@ -1509,7 +1509,7 @@ for.cond.preheader.i:                             ; preds = %if.end95.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
   %incdec.ptr104.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %21, %for.cond.preheader.i ]
-  %p_get_reason_strings.0.i = phi ptr [ %p_get_reason_strings.1.i, %for.inc.i ], [ null, %for.cond.preheader.i ]
+  %p_get_reason_strings.1.i = phi ptr [ %p_get_reason_strings.2.i, %for.inc.i ], [ null, %for.cond.preheader.i ]
   %22 = load i32, ptr %incdec.ptr104.i, align 8
   switch i32 %22, label %for.inc.i [
     i32 0, label %if.end117.i
@@ -1571,17 +1571,17 @@ sw.bb115.i:                                       ; preds = %for.cond.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb115.i, %sw.bb113.i, %sw.bb111.i, %sw.bb109.i, %sw.bb107.i, %sw.bb105.i, %sw.bb103.i, %sw.bb.i, %for.cond.i
-  %p_get_reason_strings.1.i = phi ptr [ %.val80.i, %sw.bb115.i ], [ %p_get_reason_strings.0.i, %sw.bb113.i ], [ %p_get_reason_strings.0.i, %sw.bb111.i ], [ %p_get_reason_strings.0.i, %sw.bb109.i ], [ %p_get_reason_strings.0.i, %sw.bb107.i ], [ %p_get_reason_strings.0.i, %sw.bb105.i ], [ %p_get_reason_strings.0.i, %sw.bb103.i ], [ %p_get_reason_strings.0.i, %sw.bb.i ], [ %p_get_reason_strings.0.i, %for.cond.i ]
+  %p_get_reason_strings.2.i = phi ptr [ %.val80.i, %sw.bb115.i ], [ %p_get_reason_strings.1.i, %sw.bb113.i ], [ %p_get_reason_strings.1.i, %sw.bb111.i ], [ %p_get_reason_strings.1.i, %sw.bb109.i ], [ %p_get_reason_strings.1.i, %sw.bb107.i ], [ %p_get_reason_strings.1.i, %sw.bb105.i ], [ %p_get_reason_strings.1.i, %sw.bb103.i ], [ %p_get_reason_strings.1.i, %sw.bb.i ], [ %p_get_reason_strings.1.i, %for.cond.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr104.i, i64 16
   store ptr %incdec.ptr.i, ptr %provider_dispatch.i, align 8
   br label %for.cond.i, !llvm.loop !10
 
 if.end117.i:                                      ; preds = %for.cond.i
-  %cmp118.not.i = icmp eq ptr %p_get_reason_strings.0.i, null
+  %cmp118.not.i = icmp eq ptr %p_get_reason_strings.1.i, null
   br i1 %cmp118.not.i, label %provider_init.exit, label %if.then120.i
 
 if.then120.i:                                     ; preds = %if.end117.i
-  %call122.i = call ptr %p_get_reason_strings.0.i(ptr noundef %20) #11
+  %call122.i = call ptr %p_get_reason_strings.1.i(ptr noundef %20) #11
   %31 = load i32, ptr %call122.i, align 8
   %cmp123.not105.i = icmp eq i32 %31, 0
   br i1 %cmp123.not105.i, label %while.end.i, label %while.body.i
@@ -2151,7 +2151,7 @@ finish:                                           ; preds = %for.body51, %for.co
   br i1 %cmp6469, label %for.body65, label %for.end92
 
 for.body65:                                       ; preds = %finish, %for.inc90
-  %ret.171 = phi i32 [ %ret.3, %for.inc90 ], [ %ret.0, %finish ]
+  %ret.171 = phi i32 [ %ret.2, %for.inc90 ], [ %ret.0, %finish ]
   %curr.370 = phi i32 [ %inc91, %for.inc90 ], [ %curr.2, %finish ]
   %call.i47 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i40, i32 noundef %curr.370) #11
   %activatecnt68 = getelementptr inbounds i8, ptr %call.i47, i64 32
@@ -2177,7 +2177,7 @@ if.then80:                                        ; preds = %if.then75
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then75, %if.then80, %if.end73
-  %ret.2 = phi i32 [ %ret.171, %if.then80 ], [ %ret.171, %if.end73 ], [ 0, %if.then75 ]
+  %ret.3 = phi i32 [ %ret.171, %if.then80 ], [ %ret.171, %if.end73 ], [ 0, %if.then75 ]
   %refcnt85 = getelementptr inbounds i8, ptr %call.i47, i64 16
   %15 = atomicrmw sub ptr %refcnt85, i32 1 monotonic, align 4
   %sub.i48 = add nsw i32 %15, -1
@@ -2190,13 +2190,13 @@ if.then.i50:                                      ; preds = %if.end84
   br label %for.inc90
 
 for.inc90:                                        ; preds = %if.then.i50, %if.end84, %for.body65
-  %ret.3 = phi i32 [ 0, %for.body65 ], [ %ret.2, %if.end84 ], [ %ret.2, %if.then.i50 ]
+  %ret.2 = phi i32 [ 0, %for.body65 ], [ %ret.3, %if.end84 ], [ %ret.3, %if.then.i50 ]
   %inc91 = add i32 %curr.370, 1
   %exitcond81.not = icmp eq i32 %inc91, %max.057
   br i1 %exitcond81.not, label %for.end92, label %for.body65, !llvm.loop !16
 
 for.end92:                                        ; preds = %for.inc90, %finish
-  %ret.1.lcssa = phi i32 [ %ret.0, %finish ], [ %ret.3, %for.inc90 ]
+  %ret.1.lcssa = phi i32 [ %ret.0, %finish ], [ %ret.2, %for.inc90 ]
   call void @OPENSSL_sk_free(ptr noundef nonnull %call.i40) #11
   br label %return
 

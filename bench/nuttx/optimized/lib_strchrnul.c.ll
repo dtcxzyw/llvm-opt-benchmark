@@ -9,18 +9,18 @@ define noundef ptr @strchrnul(ptr noundef readonly %0, i32 noundef %1) local_unn
   br i1 %.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %5, %.preheader ], [ %0, %2 ]
-  %3 = load i8, ptr %.0, align 1
+  %.1 = phi ptr [ %5, %.preheader ], [ %0, %2 ]
+  %3 = load i8, ptr %.1, align 1
   %.not8 = icmp eq i8 %3, 0
   %4 = sext i8 %3 to i32
   %.not9 = icmp eq i32 %4, %1
   %or.cond = or i1 %.not8, %.not9
-  %5 = getelementptr inbounds i8, ptr %.0, i64 1
+  %5 = getelementptr inbounds i8, ptr %.1, i64 1
   br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !6
 
 .critedge:                                        ; preds = %.preheader, %2
-  %.1 = phi ptr [ null, %2 ], [ %.0, %.preheader ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %.1, %.preheader ]
+  ret ptr %.0
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

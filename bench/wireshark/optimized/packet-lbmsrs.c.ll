@@ -1034,14 +1034,14 @@ getFrameTypeName.exit.thread:                     ; preds = %38, %getFrameTypeNa
   br label %88
 
 88:                                               ; preds = %83, %60
-  %.0.i = phi i32 [ %87, %83 ], [ 21, %60 ]
-  %89 = icmp eq i32 %56, %.0.i
+  %.1.i = phi i32 [ %87, %83 ], [ 21, %60 ]
+  %89 = icmp eq i32 %56, %.1.i
   br i1 %89, label %169, label %90
 
 90:                                               ; preds = %88
   %91 = load i32, ptr @hf_lbmsrs_rsocket_mdata_mime_length, align 4
-  %92 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %91, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %93 = add i32 %.0.i, 1
+  %92 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %91, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
+  %93 = add i32 %.1.i, 1
   %94 = sub i32 %56, %93
   %95 = load i32, ptr %6, align 4
   %96 = icmp ult i32 %94, %95
@@ -1160,15 +1160,15 @@ getFrameTypeName.exit.thread:                     ; preds = %38, %getFrameTypeNa
   br label %171
 
 169:                                              ; preds = %153, %58, %74, %77, %88, %90, %97, %103, %115, %122, %127, %132, %139, %148, %155, %164, %47
-  %.1.i.ph = phi i32 [ 7, %47 ], [ 7, %164 ], [ 7, %155 ], [ 7, %148 ], [ 7, %139 ], [ 7, %132 ], [ 7, %127 ], [ 7, %122 ], [ 7, %115 ], [ %106, %103 ], [ %56, %97 ], [ %93, %90 ], [ %56, %88 ], [ 23, %77 ], [ 21, %74 ], [ 7, %58 ], [ 7, %153 ]
+  %.0.i.ph = phi i32 [ 7, %47 ], [ 7, %164 ], [ 7, %155 ], [ 7, %148 ], [ 7, %139 ], [ 7, %132 ], [ 7, %127 ], [ 7, %122 ], [ 7, %115 ], [ %106, %103 ], [ %56, %97 ], [ %93, %90 ], [ %56, %88 ], [ 23, %77 ], [ 21, %74 ], [ 7, %58 ], [ 7, %153 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %170 = sub i32 %.1.i.ph, %15
+  %170 = sub i32 %.0.i.ph, %15
   br label %200
 
 171:                                              ; preds = %166, %157, %153, %150, %141, %134, %129, %124, %117, %110
-  %.1.i = phi i32 [ 13, %166 ], [ 9, %157 ], [ 13, %150 ], [ 13, %141 ], [ 13, %134 ], [ 9, %129 ], [ 9, %124 ], [ 17, %117 ], [ %114, %110 ], [ 9, %153 ]
+  %.0.i = phi i32 [ 13, %166 ], [ 9, %157 ], [ 13, %150 ], [ 13, %141 ], [ 13, %134 ], [ 9, %129 ], [ 9, %124 ], [ 17, %117 ], [ %114, %110 ], [ 9, %153 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -1176,18 +1176,18 @@ getFrameTypeName.exit.thread:                     ; preds = %38, %getFrameTypeNa
   br i1 %.not91, label %191, label %172
 
 172:                                              ; preds = %171
-  %173 = sub i32 %12, %.1.i
+  %173 = sub i32 %12, %.0.i
   %174 = icmp ult i32 %173, 3
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %172
-  %176 = sub i32 %.1.i, %15
+  %176 = sub i32 %.0.i, %15
   br label %200
 
 177:                                              ; preds = %172
   %178 = load i32, ptr @hf_lbmsrs_rsocket_mdata_len, align 4
-  %179 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %178, ptr noundef %0, i32 noundef %.1.i, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %10) #6
-  %180 = add i32 %.1.i, 3
+  %179 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %178, ptr noundef %0, i32 noundef %.0.i, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %10) #6
+  %180 = add i32 %.0.i, 3
   %181 = sub i32 %12, %180
   %182 = load i32, ptr %10, align 4
   %183 = icmp ult i32 %181, %182
@@ -1205,7 +1205,7 @@ getFrameTypeName.exit.thread:                     ; preds = %38, %getFrameTypeNa
   br label %191
 
 191:                                              ; preds = %186, %171
-  %.085 = phi i32 [ %190, %186 ], [ %.1.i, %171 ]
+  %.085 = phi i32 [ %190, %186 ], [ %.0.i, %171 ]
   %.not92 = icmp eq i32 %12, %.085
   br i1 %.not92, label %198, label %192
 
@@ -1525,16 +1525,16 @@ dissect_lbmsrs_stream_request.exit:               ; preds = %74, %77
 
 .lr.ph.i:                                         ; preds = %85, %92
   %.061236.i = phi i32 [ %93, %92 ], [ %3, %85 ]
-  %.0148235.i = phi i32 [ %.2150.i, %92 ], [ 0, %85 ]
-  %.0151234.i = phi i32 [ %.2153.i, %92 ], [ 0, %85 ]
-  %.0154233.i = phi i32 [ %.2156.i, %92 ], [ 0, %85 ]
-  %.0157232.i = phi i32 [ %.2159.i, %92 ], [ 0, %85 ]
-  %.0160231.i = phi i32 [ %.2162.i, %92 ], [ 0, %85 ]
-  %.0163230.i = phi i32 [ %.2165.i, %92 ], [ 0, %85 ]
-  %.0166229.i = phi i32 [ %.2168.i, %92 ], [ 0, %85 ]
-  %.0169228.i = phi i32 [ %.2171.i, %92 ], [ 0, %85 ]
-  %.0172227.i = phi i32 [ %.3175.i, %92 ], [ 0, %85 ]
-  %.0176226.i = phi i32 [ %.3179.i, %92 ], [ 0, %85 ]
+  %.0148235.i = phi i32 [ %.1149.i, %92 ], [ 0, %85 ]
+  %.0151234.i = phi i32 [ %.1152.i, %92 ], [ 0, %85 ]
+  %.0154233.i = phi i32 [ %.1155.i, %92 ], [ 0, %85 ]
+  %.0157232.i = phi i32 [ %.1158.i, %92 ], [ 0, %85 ]
+  %.0160231.i = phi i32 [ %.1161.i, %92 ], [ 0, %85 ]
+  %.0163230.i = phi i32 [ %.1164.i, %92 ], [ 0, %85 ]
+  %.0166229.i = phi i32 [ %.1167.i, %92 ], [ 0, %85 ]
+  %.0169228.i = phi i32 [ %.1170.i, %92 ], [ 0, %85 ]
+  %.0172227.i = phi i32 [ %.1173.i, %92 ], [ 0, %85 ]
+  %.0176226.i = phi i32 [ %.1177.i, %92 ], [ 0, %85 ]
   %95 = sub nuw i32 %86, %.061236.i
   %96 = icmp ult i32 %95, 2
   br i1 %96, label %97, label %100
@@ -1823,7 +1823,7 @@ dissect_lbmsrs_stream_request.exit:               ; preds = %74, %77
 dissect_lbmsrs_sir_ser.exit.i:                    ; preds = %.cont.i, %268, %260, %252, %244, %233, %231, %223, %215, %207, %196, %191, %189, %181, %173, %165, %157, %149, %141, %126, %118, %106, %102
   %.2178.i = phi i32 [ %.0176226.i, %141 ], [ %.0176226.i, %149 ], [ %.0176226.i, %157 ], [ %.0176226.i, %165 ], [ %.0176226.i, %173 ], [ %.0176226.i, %181 ], [ %.0176226.i, %189 ], [ %.0176226.i, %207 ], [ %.0176226.i, %215 ], [ %.0176226.i, %223 ], [ %.0176226.i, %231 ], [ %.0176226.i, %244 ], [ %.0176226.i, %252 ], [ %.0176226.i, %260 ], [ %.0176226.i, %268 ], [ %spec.select.i, %.cont.i ], [ %.0176226.i, %102 ], [ %.0176226.i, %106 ], [ %.0176226.i, %118 ], [ %.0176226.i, %126 ], [ %.0176226.i, %191 ], [ %.0176226.i, %196 ], [ %.0176226.i, %233 ]
   %.2174.i = phi i32 [ %.0172227.i, %141 ], [ %.0172227.i, %149 ], [ %.0172227.i, %157 ], [ %.0172227.i, %165 ], [ %.0172227.i, %173 ], [ %.0172227.i, %181 ], [ %.0172227.i, %189 ], [ %.0172227.i, %207 ], [ %.0172227.i, %215 ], [ %.0172227.i, %223 ], [ %.0172227.i, %231 ], [ %.0172227.i, %244 ], [ %.0172227.i, %252 ], [ %.0172227.i, %260 ], [ %.0172227.i, %268 ], [ %spec.select203.i, %.cont.i ], [ %.0172227.i, %102 ], [ %.0172227.i, %106 ], [ %.0172227.i, %118 ], [ %.0172227.i, %126 ], [ %.0172227.i, %191 ], [ %.0172227.i, %196 ], [ %.0172227.i, %233 ]
-  %.0147.i = phi i32 [ 0, %141 ], [ 0, %149 ], [ 0, %157 ], [ 0, %165 ], [ 0, %173 ], [ 0, %181 ], [ 0, %189 ], [ 0, %207 ], [ 0, %215 ], [ 0, %223 ], [ 0, %231 ], [ 0, %244 ], [ 0, %252 ], [ 0, %260 ], [ 0, %268 ], [ 1, %.cont.i ], [ 0, %102 ], [ 0, %106 ], [ 0, %118 ], [ 0, %126 ], [ 0, %191 ], [ 0, %196 ], [ 0, %233 ]
+  %.1.i = phi i32 [ 0, %141 ], [ 0, %149 ], [ 0, %157 ], [ 0, %165 ], [ 0, %173 ], [ 0, %181 ], [ 0, %189 ], [ 0, %207 ], [ 0, %215 ], [ 0, %223 ], [ 0, %231 ], [ 0, %244 ], [ 0, %252 ], [ 0, %260 ], [ 0, %268 ], [ 1, %.cont.i ], [ 0, %102 ], [ 0, %106 ], [ 0, %118 ], [ 0, %126 ], [ 0, %191 ], [ 0, %196 ], [ 0, %233 ]
   %.0.i.i = phi i32 [ %142, %141 ], [ %150, %149 ], [ %158, %157 ], [ %166, %165 ], [ %174, %173 ], [ %182, %181 ], [ %190, %189 ], [ %208, %207 ], [ %216, %215 ], [ %224, %223 ], [ %232, %231 ], [ %245, %244 ], [ %253, %252 ], [ %261, %260 ], [ %269, %268 ], [ %275, %.cont.i ], [ 0, %102 ], [ 34, %106 ], [ 35, %118 ], [ %104, %126 ], [ %104, %191 ], [ %104, %196 ], [ %104, %233 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
@@ -1877,8 +1877,8 @@ dissect_lbmsrs_sir_ser.exit.i:                    ; preds = %.cont.i, %268, %260
   br label %dissect_lbmsrs_sdr.exit.i
 
 dissect_lbmsrs_sdr.exit.i:                        ; preds = %303, %295, %290, %280, %276
-  %.1170.i = phi i32 [ %308, %303 ], [ %.0169228.i, %276 ], [ %.0169228.i, %280 ], [ %.0169228.i, %290 ], [ %.0169228.i, %295 ]
-  %.1.i = phi i32 [ 1, %303 ], [ 0, %276 ], [ 0, %280 ], [ 0, %290 ], [ 0, %295 ]
+  %.2171.i = phi i32 [ %308, %303 ], [ %.0169228.i, %276 ], [ %.0169228.i, %280 ], [ %.0169228.i, %290 ], [ %.0169228.i, %295 ]
+  %.2.i = phi i32 [ 1, %303 ], [ 0, %276 ], [ 0, %280 ], [ 0, %290 ], [ 0, %295 ]
   %.0.i63.i = phi i32 [ %309, %303 ], [ 0, %276 ], [ 2, %280 ], [ 34, %290 ], [ 35, %295 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   br label %837
@@ -1993,8 +1993,8 @@ dissect_lbmsrs_sdr.exit.i:                        ; preds = %303, %295, %290, %2
   br label %dissect_lbmsrs_rir.exit.i
 
 dissect_lbmsrs_rir.exit.i:                        ; preds = %379, %377, %369, %361, %353, %346, %338, %322, %313, %310
-  %.1167.i = phi i32 [ %.0166229.i, %338 ], [ %.0166229.i, %346 ], [ %.0166229.i, %353 ], [ %.0166229.i, %361 ], [ %.0166229.i, %369 ], [ %.0166229.i, %377 ], [ %382, %379 ], [ %.0166229.i, %310 ], [ %.0166229.i, %313 ], [ %.0166229.i, %322 ]
-  %.2.i = phi i32 [ 0, %338 ], [ 0, %346 ], [ 0, %353 ], [ 0, %361 ], [ 0, %369 ], [ 0, %377 ], [ 1, %379 ], [ 0, %310 ], [ 0, %313 ], [ 0, %322 ]
+  %.2168.i = phi i32 [ %.0166229.i, %338 ], [ %.0166229.i, %346 ], [ %.0166229.i, %353 ], [ %.0166229.i, %361 ], [ %.0166229.i, %369 ], [ %.0166229.i, %377 ], [ %382, %379 ], [ %.0166229.i, %310 ], [ %.0166229.i, %313 ], [ %.0166229.i, %322 ]
+  %.3.i = phi i32 [ 0, %338 ], [ 0, %346 ], [ 0, %353 ], [ 0, %361 ], [ 0, %369 ], [ 0, %377 ], [ 1, %379 ], [ 0, %310 ], [ 0, %313 ], [ 0, %322 ]
   %.0.i64.i = phi i32 [ %339, %338 ], [ %347, %346 ], [ %354, %353 ], [ %362, %361 ], [ %370, %369 ], [ %378, %377 ], [ %383, %379 ], [ 0, %310 ], [ 2, %313 ], [ 3, %322 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   br label %837
@@ -2109,8 +2109,8 @@ dissect_lbmsrs_rir.exit.i:                        ; preds = %379, %377, %369, %3
   br label %dissect_lbmsrs_rdr.exit.i
 
 dissect_lbmsrs_rdr.exit.i:                        ; preds = %453, %451, %443, %435, %427, %420, %412, %396, %387, %384
-  %.1161.i = phi i32 [ %.0160231.i, %412 ], [ %.0160231.i, %420 ], [ %.0160231.i, %427 ], [ %.0160231.i, %435 ], [ %.0160231.i, %443 ], [ %.0160231.i, %451 ], [ %456, %453 ], [ %.0160231.i, %384 ], [ %.0160231.i, %387 ], [ %.0160231.i, %396 ]
-  %.3.i = phi i32 [ 0, %412 ], [ 0, %420 ], [ 0, %427 ], [ 0, %435 ], [ 0, %443 ], [ 0, %451 ], [ 1, %453 ], [ 0, %384 ], [ 0, %387 ], [ 0, %396 ]
+  %.2162.i = phi i32 [ %.0160231.i, %412 ], [ %.0160231.i, %420 ], [ %.0160231.i, %427 ], [ %.0160231.i, %435 ], [ %.0160231.i, %443 ], [ %.0160231.i, %451 ], [ %456, %453 ], [ %.0160231.i, %384 ], [ %.0160231.i, %387 ], [ %.0160231.i, %396 ]
+  %.4.i = phi i32 [ 0, %412 ], [ 0, %420 ], [ 0, %427 ], [ 0, %435 ], [ 0, %443 ], [ 0, %451 ], [ 1, %453 ], [ 0, %384 ], [ 0, %387 ], [ 0, %396 ]
   %.0.i65.i = phi i32 [ %413, %412 ], [ %421, %420 ], [ %428, %427 ], [ %436, %435 ], [ %444, %443 ], [ %452, %451 ], [ %457, %453 ], [ 0, %384 ], [ 2, %387 ], [ 3, %396 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %837
@@ -2225,8 +2225,8 @@ dissect_lbmsrs_rdr.exit.i:                        ; preds = %453, %451, %443, %4
   br label %dissect_lbmsrs_rer.exit.i
 
 dissect_lbmsrs_rer.exit.i:                        ; preds = %527, %525, %517, %509, %501, %494, %486, %470, %461, %458
-  %.1164.i = phi i32 [ %.0163230.i, %486 ], [ %.0163230.i, %494 ], [ %.0163230.i, %501 ], [ %.0163230.i, %509 ], [ %.0163230.i, %517 ], [ %.0163230.i, %525 ], [ %530, %527 ], [ %.0163230.i, %458 ], [ %.0163230.i, %461 ], [ %.0163230.i, %470 ]
-  %.4.i = phi i32 [ 0, %486 ], [ 0, %494 ], [ 0, %501 ], [ 0, %509 ], [ 0, %517 ], [ 0, %525 ], [ 1, %527 ], [ 0, %458 ], [ 0, %461 ], [ 0, %470 ]
+  %.2165.i = phi i32 [ %.0163230.i, %486 ], [ %.0163230.i, %494 ], [ %.0163230.i, %501 ], [ %.0163230.i, %509 ], [ %.0163230.i, %517 ], [ %.0163230.i, %525 ], [ %530, %527 ], [ %.0163230.i, %458 ], [ %.0163230.i, %461 ], [ %.0163230.i, %470 ]
+  %.5.i = phi i32 [ 0, %486 ], [ 0, %494 ], [ 0, %501 ], [ 0, %509 ], [ 0, %517 ], [ 0, %525 ], [ 1, %527 ], [ 0, %458 ], [ 0, %461 ], [ 0, %470 ]
   %.0.i66.i = phi i32 [ %487, %486 ], [ %495, %494 ], [ %502, %501 ], [ %510, %509 ], [ %518, %517 ], [ %526, %525 ], [ %531, %527 ], [ 0, %458 ], [ 2, %461 ], [ 3, %470 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %837
@@ -2341,8 +2341,8 @@ dissect_lbmsrs_rer.exit.i:                        ; preds = %527, %525, %517, %5
   br label %dissect_lbmsrs_wir.exit.i
 
 dissect_lbmsrs_wir.exit.i:                        ; preds = %601, %599, %591, %583, %575, %568, %560, %544, %535, %532
-  %.1158.i = phi i32 [ %.0157232.i, %560 ], [ %.0157232.i, %568 ], [ %.0157232.i, %575 ], [ %.0157232.i, %583 ], [ %.0157232.i, %591 ], [ %.0157232.i, %599 ], [ %604, %601 ], [ %.0157232.i, %532 ], [ %.0157232.i, %535 ], [ %.0157232.i, %544 ]
-  %.5.i = phi i32 [ 0, %560 ], [ 0, %568 ], [ 0, %575 ], [ 0, %583 ], [ 0, %591 ], [ 0, %599 ], [ 1, %601 ], [ 0, %532 ], [ 0, %535 ], [ 0, %544 ]
+  %.2159.i = phi i32 [ %.0157232.i, %560 ], [ %.0157232.i, %568 ], [ %.0157232.i, %575 ], [ %.0157232.i, %583 ], [ %.0157232.i, %591 ], [ %.0157232.i, %599 ], [ %604, %601 ], [ %.0157232.i, %532 ], [ %.0157232.i, %535 ], [ %.0157232.i, %544 ]
+  %.6.i = phi i32 [ 0, %560 ], [ 0, %568 ], [ 0, %575 ], [ 0, %583 ], [ 0, %591 ], [ 0, %599 ], [ 1, %601 ], [ 0, %532 ], [ 0, %535 ], [ 0, %544 ]
   %.0.i67.i = phi i32 [ %561, %560 ], [ %569, %568 ], [ %576, %575 ], [ %584, %583 ], [ %592, %591 ], [ %600, %599 ], [ %605, %601 ], [ 0, %532 ], [ 2, %535 ], [ 3, %544 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %837
@@ -2457,8 +2457,8 @@ dissect_lbmsrs_wir.exit.i:                        ; preds = %601, %599, %591, %5
   br label %dissect_lbmsrs_wdr.exit.i
 
 dissect_lbmsrs_wdr.exit.i:                        ; preds = %675, %673, %665, %657, %649, %642, %634, %618, %609, %606
-  %.1152.i = phi i32 [ %.0151234.i, %634 ], [ %.0151234.i, %642 ], [ %.0151234.i, %649 ], [ %.0151234.i, %657 ], [ %.0151234.i, %665 ], [ %.0151234.i, %673 ], [ %678, %675 ], [ %.0151234.i, %606 ], [ %.0151234.i, %609 ], [ %.0151234.i, %618 ]
-  %.6.i = phi i32 [ 0, %634 ], [ 0, %642 ], [ 0, %649 ], [ 0, %657 ], [ 0, %665 ], [ 0, %673 ], [ 1, %675 ], [ 0, %606 ], [ 0, %609 ], [ 0, %618 ]
+  %.2153.i = phi i32 [ %.0151234.i, %634 ], [ %.0151234.i, %642 ], [ %.0151234.i, %649 ], [ %.0151234.i, %657 ], [ %.0151234.i, %665 ], [ %.0151234.i, %673 ], [ %678, %675 ], [ %.0151234.i, %606 ], [ %.0151234.i, %609 ], [ %.0151234.i, %618 ]
+  %.7.i = phi i32 [ 0, %634 ], [ 0, %642 ], [ 0, %649 ], [ 0, %657 ], [ 0, %665 ], [ 0, %673 ], [ 1, %675 ], [ 0, %606 ], [ 0, %609 ], [ 0, %618 ]
   %.0.i68.i = phi i32 [ %635, %634 ], [ %643, %642 ], [ %650, %649 ], [ %658, %657 ], [ %666, %665 ], [ %674, %673 ], [ %679, %675 ], [ 0, %606 ], [ 2, %609 ], [ 3, %618 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %837
@@ -2573,8 +2573,8 @@ dissect_lbmsrs_wdr.exit.i:                        ; preds = %675, %673, %665, %6
   br label %dissect_lbmsrs_wer.exit.i
 
 dissect_lbmsrs_wer.exit.i:                        ; preds = %749, %747, %739, %731, %723, %716, %708, %692, %683, %680
-  %.1155.i = phi i32 [ %.0154233.i, %708 ], [ %.0154233.i, %716 ], [ %.0154233.i, %723 ], [ %.0154233.i, %731 ], [ %.0154233.i, %739 ], [ %.0154233.i, %747 ], [ %752, %749 ], [ %.0154233.i, %680 ], [ %.0154233.i, %683 ], [ %.0154233.i, %692 ]
-  %.7.i = phi i32 [ 0, %708 ], [ 0, %716 ], [ 0, %723 ], [ 0, %731 ], [ 0, %739 ], [ 0, %747 ], [ 1, %749 ], [ 0, %680 ], [ 0, %683 ], [ 0, %692 ]
+  %.2156.i = phi i32 [ %.0154233.i, %708 ], [ %.0154233.i, %716 ], [ %.0154233.i, %723 ], [ %.0154233.i, %731 ], [ %.0154233.i, %739 ], [ %.0154233.i, %747 ], [ %752, %749 ], [ %.0154233.i, %680 ], [ %.0154233.i, %683 ], [ %.0154233.i, %692 ]
+  %.8.i = phi i32 [ 0, %708 ], [ 0, %716 ], [ 0, %723 ], [ 0, %731 ], [ 0, %739 ], [ 0, %747 ], [ 1, %749 ], [ 0, %680 ], [ 0, %683 ], [ 0, %692 ]
   %.0.i69.i = phi i32 [ %709, %708 ], [ %717, %716 ], [ %724, %723 ], [ %732, %731 ], [ %740, %739 ], [ %748, %747 ], [ %753, %749 ], [ 0, %680 ], [ 2, %683 ], [ 3, %692 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %837
@@ -2699,58 +2699,58 @@ dissect_lbmsrs_wer.exit.i:                        ; preds = %749, %747, %739, %7
   br label %dissect_lbmsrs_sli.exit.i
 
 dissect_lbmsrs_sli.exit.i:                        ; preds = %832, %830, %822, %814, %803, %801, %793, %778, %770, %758, %754
-  %.1149.i = phi i32 [ %.0148235.i, %793 ], [ %.0148235.i, %801 ], [ %.0148235.i, %814 ], [ %.0148235.i, %822 ], [ %.0148235.i, %830 ], [ %835, %832 ], [ %.0148235.i, %754 ], [ %.0148235.i, %758 ], [ %.0148235.i, %770 ], [ %.0148235.i, %778 ], [ %.0148235.i, %803 ]
-  %.8.i = phi i32 [ 0, %793 ], [ 0, %801 ], [ 0, %814 ], [ 0, %822 ], [ 0, %830 ], [ 1, %832 ], [ 0, %754 ], [ 0, %758 ], [ 0, %770 ], [ 0, %778 ], [ 0, %803 ]
+  %.2150.i = phi i32 [ %.0148235.i, %793 ], [ %.0148235.i, %801 ], [ %.0148235.i, %814 ], [ %.0148235.i, %822 ], [ %.0148235.i, %830 ], [ %835, %832 ], [ %.0148235.i, %754 ], [ %.0148235.i, %758 ], [ %.0148235.i, %770 ], [ %.0148235.i, %778 ], [ %.0148235.i, %803 ]
+  %.9.i = phi i32 [ 0, %793 ], [ 0, %801 ], [ 0, %814 ], [ 0, %822 ], [ 0, %830 ], [ 1, %832 ], [ 0, %754 ], [ 0, %758 ], [ 0, %770 ], [ 0, %778 ], [ 0, %803 ]
   %.0.i71.i = phi i32 [ %794, %793 ], [ %802, %801 ], [ %815, %814 ], [ %823, %822 ], [ %831, %830 ], [ %836, %832 ], [ 0, %754 ], [ 34, %758 ], [ 35, %770 ], [ %756, %778 ], [ %756, %803 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %837
 
 837:                                              ; preds = %dissect_lbmsrs_sli.exit.i, %dissect_lbmsrs_wer.exit.i, %dissect_lbmsrs_wdr.exit.i, %dissect_lbmsrs_wir.exit.i, %dissect_lbmsrs_rer.exit.i, %dissect_lbmsrs_rdr.exit.i, %dissect_lbmsrs_rir.exit.i, %dissect_lbmsrs_sdr.exit.i, %dissect_lbmsrs_sir_ser.exit.i
-  %.3179.i = phi i32 [ %.0176226.i, %dissect_lbmsrs_sli.exit.i ], [ %.0176226.i, %dissect_lbmsrs_wer.exit.i ], [ %.0176226.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0176226.i, %dissect_lbmsrs_wir.exit.i ], [ %.0176226.i, %dissect_lbmsrs_rer.exit.i ], [ %.0176226.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0176226.i, %dissect_lbmsrs_rir.exit.i ], [ %.0176226.i, %dissect_lbmsrs_sdr.exit.i ], [ %.2178.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %.3175.i = phi i32 [ %.0172227.i, %dissect_lbmsrs_sli.exit.i ], [ %.0172227.i, %dissect_lbmsrs_wer.exit.i ], [ %.0172227.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0172227.i, %dissect_lbmsrs_wir.exit.i ], [ %.0172227.i, %dissect_lbmsrs_rer.exit.i ], [ %.0172227.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0172227.i, %dissect_lbmsrs_rir.exit.i ], [ %.0172227.i, %dissect_lbmsrs_sdr.exit.i ], [ %.2174.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %.2171.i = phi i32 [ %.0169228.i, %dissect_lbmsrs_sli.exit.i ], [ %.0169228.i, %dissect_lbmsrs_wer.exit.i ], [ %.0169228.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0169228.i, %dissect_lbmsrs_wir.exit.i ], [ %.0169228.i, %dissect_lbmsrs_rer.exit.i ], [ %.0169228.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0169228.i, %dissect_lbmsrs_rir.exit.i ], [ %.1170.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0169228.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %.2168.i = phi i32 [ %.0166229.i, %dissect_lbmsrs_sli.exit.i ], [ %.0166229.i, %dissect_lbmsrs_wer.exit.i ], [ %.0166229.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0166229.i, %dissect_lbmsrs_wir.exit.i ], [ %.0166229.i, %dissect_lbmsrs_rer.exit.i ], [ %.0166229.i, %dissect_lbmsrs_rdr.exit.i ], [ %.1167.i, %dissect_lbmsrs_rir.exit.i ], [ %.0166229.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0166229.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %.2165.i = phi i32 [ %.0163230.i, %dissect_lbmsrs_sli.exit.i ], [ %.0163230.i, %dissect_lbmsrs_wer.exit.i ], [ %.0163230.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0163230.i, %dissect_lbmsrs_wir.exit.i ], [ %.1164.i, %dissect_lbmsrs_rer.exit.i ], [ %.0163230.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0163230.i, %dissect_lbmsrs_rir.exit.i ], [ %.0163230.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0163230.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %.2162.i = phi i32 [ %.0160231.i, %dissect_lbmsrs_sli.exit.i ], [ %.0160231.i, %dissect_lbmsrs_wer.exit.i ], [ %.0160231.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0160231.i, %dissect_lbmsrs_wir.exit.i ], [ %.0160231.i, %dissect_lbmsrs_rer.exit.i ], [ %.1161.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0160231.i, %dissect_lbmsrs_rir.exit.i ], [ %.0160231.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0160231.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %.2159.i = phi i32 [ %.0157232.i, %dissect_lbmsrs_sli.exit.i ], [ %.0157232.i, %dissect_lbmsrs_wer.exit.i ], [ %.0157232.i, %dissect_lbmsrs_wdr.exit.i ], [ %.1158.i, %dissect_lbmsrs_wir.exit.i ], [ %.0157232.i, %dissect_lbmsrs_rer.exit.i ], [ %.0157232.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0157232.i, %dissect_lbmsrs_rir.exit.i ], [ %.0157232.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0157232.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %.2156.i = phi i32 [ %.0154233.i, %dissect_lbmsrs_sli.exit.i ], [ %.1155.i, %dissect_lbmsrs_wer.exit.i ], [ %.0154233.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0154233.i, %dissect_lbmsrs_wir.exit.i ], [ %.0154233.i, %dissect_lbmsrs_rer.exit.i ], [ %.0154233.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0154233.i, %dissect_lbmsrs_rir.exit.i ], [ %.0154233.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0154233.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %.2153.i = phi i32 [ %.0151234.i, %dissect_lbmsrs_sli.exit.i ], [ %.0151234.i, %dissect_lbmsrs_wer.exit.i ], [ %.1152.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0151234.i, %dissect_lbmsrs_wir.exit.i ], [ %.0151234.i, %dissect_lbmsrs_rer.exit.i ], [ %.0151234.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0151234.i, %dissect_lbmsrs_rir.exit.i ], [ %.0151234.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0151234.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %.2150.i = phi i32 [ %.1149.i, %dissect_lbmsrs_sli.exit.i ], [ %.0148235.i, %dissect_lbmsrs_wer.exit.i ], [ %.0148235.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0148235.i, %dissect_lbmsrs_wir.exit.i ], [ %.0148235.i, %dissect_lbmsrs_rer.exit.i ], [ %.0148235.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0148235.i, %dissect_lbmsrs_rir.exit.i ], [ %.0148235.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0148235.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %.9.i = phi i32 [ %.8.i, %dissect_lbmsrs_sli.exit.i ], [ %.7.i, %dissect_lbmsrs_wer.exit.i ], [ %.6.i, %dissect_lbmsrs_wdr.exit.i ], [ %.5.i, %dissect_lbmsrs_wir.exit.i ], [ %.4.i, %dissect_lbmsrs_rer.exit.i ], [ %.3.i, %dissect_lbmsrs_rdr.exit.i ], [ %.2.i, %dissect_lbmsrs_rir.exit.i ], [ %.1.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0147.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.1177.i = phi i32 [ %.0176226.i, %dissect_lbmsrs_sli.exit.i ], [ %.0176226.i, %dissect_lbmsrs_wer.exit.i ], [ %.0176226.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0176226.i, %dissect_lbmsrs_wir.exit.i ], [ %.0176226.i, %dissect_lbmsrs_rer.exit.i ], [ %.0176226.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0176226.i, %dissect_lbmsrs_rir.exit.i ], [ %.0176226.i, %dissect_lbmsrs_sdr.exit.i ], [ %.2178.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.1173.i = phi i32 [ %.0172227.i, %dissect_lbmsrs_sli.exit.i ], [ %.0172227.i, %dissect_lbmsrs_wer.exit.i ], [ %.0172227.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0172227.i, %dissect_lbmsrs_wir.exit.i ], [ %.0172227.i, %dissect_lbmsrs_rer.exit.i ], [ %.0172227.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0172227.i, %dissect_lbmsrs_rir.exit.i ], [ %.0172227.i, %dissect_lbmsrs_sdr.exit.i ], [ %.2174.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.1170.i = phi i32 [ %.0169228.i, %dissect_lbmsrs_sli.exit.i ], [ %.0169228.i, %dissect_lbmsrs_wer.exit.i ], [ %.0169228.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0169228.i, %dissect_lbmsrs_wir.exit.i ], [ %.0169228.i, %dissect_lbmsrs_rer.exit.i ], [ %.0169228.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0169228.i, %dissect_lbmsrs_rir.exit.i ], [ %.2171.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0169228.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.1167.i = phi i32 [ %.0166229.i, %dissect_lbmsrs_sli.exit.i ], [ %.0166229.i, %dissect_lbmsrs_wer.exit.i ], [ %.0166229.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0166229.i, %dissect_lbmsrs_wir.exit.i ], [ %.0166229.i, %dissect_lbmsrs_rer.exit.i ], [ %.0166229.i, %dissect_lbmsrs_rdr.exit.i ], [ %.2168.i, %dissect_lbmsrs_rir.exit.i ], [ %.0166229.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0166229.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.1164.i = phi i32 [ %.0163230.i, %dissect_lbmsrs_sli.exit.i ], [ %.0163230.i, %dissect_lbmsrs_wer.exit.i ], [ %.0163230.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0163230.i, %dissect_lbmsrs_wir.exit.i ], [ %.2165.i, %dissect_lbmsrs_rer.exit.i ], [ %.0163230.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0163230.i, %dissect_lbmsrs_rir.exit.i ], [ %.0163230.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0163230.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.1161.i = phi i32 [ %.0160231.i, %dissect_lbmsrs_sli.exit.i ], [ %.0160231.i, %dissect_lbmsrs_wer.exit.i ], [ %.0160231.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0160231.i, %dissect_lbmsrs_wir.exit.i ], [ %.0160231.i, %dissect_lbmsrs_rer.exit.i ], [ %.2162.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0160231.i, %dissect_lbmsrs_rir.exit.i ], [ %.0160231.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0160231.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.1158.i = phi i32 [ %.0157232.i, %dissect_lbmsrs_sli.exit.i ], [ %.0157232.i, %dissect_lbmsrs_wer.exit.i ], [ %.0157232.i, %dissect_lbmsrs_wdr.exit.i ], [ %.2159.i, %dissect_lbmsrs_wir.exit.i ], [ %.0157232.i, %dissect_lbmsrs_rer.exit.i ], [ %.0157232.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0157232.i, %dissect_lbmsrs_rir.exit.i ], [ %.0157232.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0157232.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.1155.i = phi i32 [ %.0154233.i, %dissect_lbmsrs_sli.exit.i ], [ %.2156.i, %dissect_lbmsrs_wer.exit.i ], [ %.0154233.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0154233.i, %dissect_lbmsrs_wir.exit.i ], [ %.0154233.i, %dissect_lbmsrs_rer.exit.i ], [ %.0154233.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0154233.i, %dissect_lbmsrs_rir.exit.i ], [ %.0154233.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0154233.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.1152.i = phi i32 [ %.0151234.i, %dissect_lbmsrs_sli.exit.i ], [ %.0151234.i, %dissect_lbmsrs_wer.exit.i ], [ %.2153.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0151234.i, %dissect_lbmsrs_wir.exit.i ], [ %.0151234.i, %dissect_lbmsrs_rer.exit.i ], [ %.0151234.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0151234.i, %dissect_lbmsrs_rir.exit.i ], [ %.0151234.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0151234.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.1149.i = phi i32 [ %.2150.i, %dissect_lbmsrs_sli.exit.i ], [ %.0148235.i, %dissect_lbmsrs_wer.exit.i ], [ %.0148235.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0148235.i, %dissect_lbmsrs_wir.exit.i ], [ %.0148235.i, %dissect_lbmsrs_rer.exit.i ], [ %.0148235.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0148235.i, %dissect_lbmsrs_rir.exit.i ], [ %.0148235.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0148235.i, %dissect_lbmsrs_sir_ser.exit.i ]
+  %.0147.i = phi i32 [ %.9.i, %dissect_lbmsrs_sli.exit.i ], [ %.8.i, %dissect_lbmsrs_wer.exit.i ], [ %.7.i, %dissect_lbmsrs_wdr.exit.i ], [ %.6.i, %dissect_lbmsrs_wir.exit.i ], [ %.5.i, %dissect_lbmsrs_rer.exit.i ], [ %.4.i, %dissect_lbmsrs_rdr.exit.i ], [ %.3.i, %dissect_lbmsrs_rir.exit.i ], [ %.2.i, %dissect_lbmsrs_sdr.exit.i ], [ %.1.i, %dissect_lbmsrs_sir_ser.exit.i ]
   %.0.i35 = phi i32 [ %.0.i71.i, %dissect_lbmsrs_sli.exit.i ], [ %.0.i69.i, %dissect_lbmsrs_wer.exit.i ], [ %.0.i68.i, %dissect_lbmsrs_wdr.exit.i ], [ %.0.i67.i, %dissect_lbmsrs_wir.exit.i ], [ %.0.i66.i, %dissect_lbmsrs_rer.exit.i ], [ %.0.i65.i, %dissect_lbmsrs_rdr.exit.i ], [ %.0.i64.i, %dissect_lbmsrs_rir.exit.i ], [ %.0.i63.i, %dissect_lbmsrs_sdr.exit.i ], [ %.0.i.i, %dissect_lbmsrs_sir_ser.exit.i ]
-  %838 = icmp eq i32 %.9.i, 0
+  %838 = icmp eq i32 %.0147.i, 0
   %839 = icmp eq i32 %.0.i35, 0
   %or.cond.i = or i1 %838, %839
   br i1 %or.cond.i, label %.thread.i, label %92
 
 .thread.i:                                        ; preds = %837, %100
-  %.2150202.i = phi i32 [ %.2150.i, %837 ], [ %.0148235.i, %100 ]
-  %.2153201.i = phi i32 [ %.2153.i, %837 ], [ %.0151234.i, %100 ]
-  %.2156200.i = phi i32 [ %.2156.i, %837 ], [ %.0154233.i, %100 ]
-  %.2159199.i = phi i32 [ %.2159.i, %837 ], [ %.0157232.i, %100 ]
-  %.2162198.i = phi i32 [ %.2162.i, %837 ], [ %.0160231.i, %100 ]
-  %.2165197.i = phi i32 [ %.2165.i, %837 ], [ %.0163230.i, %100 ]
-  %.2168196.i = phi i32 [ %.2168.i, %837 ], [ %.0166229.i, %100 ]
-  %.2171195.i = phi i32 [ %.2171.i, %837 ], [ %.0169228.i, %100 ]
-  %.3175194.i = phi i32 [ %.3175.i, %837 ], [ %.0172227.i, %100 ]
-  %.3179193.i = phi i32 [ %.3179.i, %837 ], [ %.0176226.i, %100 ]
+  %.1149202.i = phi i32 [ %.1149.i, %837 ], [ %.0148235.i, %100 ]
+  %.1152201.i = phi i32 [ %.1152.i, %837 ], [ %.0151234.i, %100 ]
+  %.1155200.i = phi i32 [ %.1155.i, %837 ], [ %.0154233.i, %100 ]
+  %.1158199.i = phi i32 [ %.1158.i, %837 ], [ %.0157232.i, %100 ]
+  %.1161198.i = phi i32 [ %.1161.i, %837 ], [ %.0160231.i, %100 ]
+  %.1164197.i = phi i32 [ %.1164.i, %837 ], [ %.0163230.i, %100 ]
+  %.1167196.i = phi i32 [ %.1167.i, %837 ], [ %.0166229.i, %100 ]
+  %.1170195.i = phi i32 [ %.1170.i, %837 ], [ %.0169228.i, %100 ]
+  %.1173194.i = phi i32 [ %.1173.i, %837 ], [ %.0172227.i, %100 ]
+  %.1177193.i = phi i32 [ %.1177.i, %837 ], [ %.0176226.i, %100 ]
   %840 = load ptr, ptr %87, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %840, i32 noundef 25, ptr noundef nonnull @.str.281, i32 noundef %.3179193.i, i32 noundef %.3175194.i, i32 noundef %.2171195.i, i32 noundef %.2168196.i, i32 noundef %.2165197.i, i32 noundef %.2162198.i, i32 noundef %.2159199.i, i32 noundef %.2156200.i, i32 noundef %.2153201.i, i32 noundef %.2150202.i) #6
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %840, i32 noundef 25, ptr noundef nonnull @.str.281, i32 noundef %.1177193.i, i32 noundef %.1173194.i, i32 noundef %.1170195.i, i32 noundef %.1167196.i, i32 noundef %.1164197.i, i32 noundef %.1161198.i, i32 noundef %.1158199.i, i32 noundef %.1155200.i, i32 noundef %.1152201.i, i32 noundef %.1149202.i) #6
   %841 = load ptr, ptr %16, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %841, ptr noundef nonnull @.str.282, i32 noundef %.3179193.i, i32 noundef %.3175194.i, i32 noundef %.2171195.i, i32 noundef %.2168196.i, i32 noundef %.2165197.i, i32 noundef %.2162198.i, i32 noundef %.2159199.i, i32 noundef %.2156200.i, i32 noundef %.2153201.i, i32 noundef %.2150202.i) #6
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %841, ptr noundef nonnull @.str.282, i32 noundef %.1177193.i, i32 noundef %.1173194.i, i32 noundef %.1170195.i, i32 noundef %.1167196.i, i32 noundef %.1164197.i, i32 noundef %.1161198.i, i32 noundef %.1158199.i, i32 noundef %.1155200.i, i32 noundef %.1152201.i, i32 noundef %.1149202.i) #6
   br label %dissect_lbmsrs_batch.exit
 
 ._crit_edge.i:                                    ; preds = %92, %85
-  %.0176.lcssa.i = phi i32 [ 0, %85 ], [ %.3179.i, %92 ]
-  %.0172.lcssa.i = phi i32 [ 0, %85 ], [ %.3175.i, %92 ]
-  %.0169.lcssa.i = phi i32 [ 0, %85 ], [ %.2171.i, %92 ]
-  %.0166.lcssa.i = phi i32 [ 0, %85 ], [ %.2168.i, %92 ]
-  %.0163.lcssa.i = phi i32 [ 0, %85 ], [ %.2165.i, %92 ]
-  %.0160.lcssa.i = phi i32 [ 0, %85 ], [ %.2162.i, %92 ]
-  %.0157.lcssa.i = phi i32 [ 0, %85 ], [ %.2159.i, %92 ]
-  %.0154.lcssa.i = phi i32 [ 0, %85 ], [ %.2156.i, %92 ]
-  %.0151.lcssa.i = phi i32 [ 0, %85 ], [ %.2153.i, %92 ]
-  %.0148.lcssa.i = phi i32 [ 0, %85 ], [ %.2150.i, %92 ]
+  %.0176.lcssa.i = phi i32 [ 0, %85 ], [ %.1177.i, %92 ]
+  %.0172.lcssa.i = phi i32 [ 0, %85 ], [ %.1173.i, %92 ]
+  %.0169.lcssa.i = phi i32 [ 0, %85 ], [ %.1170.i, %92 ]
+  %.0166.lcssa.i = phi i32 [ 0, %85 ], [ %.1167.i, %92 ]
+  %.0163.lcssa.i = phi i32 [ 0, %85 ], [ %.1164.i, %92 ]
+  %.0160.lcssa.i = phi i32 [ 0, %85 ], [ %.1161.i, %92 ]
+  %.0157.lcssa.i = phi i32 [ 0, %85 ], [ %.1158.i, %92 ]
+  %.0154.lcssa.i = phi i32 [ 0, %85 ], [ %.1155.i, %92 ]
+  %.0151.lcssa.i = phi i32 [ 0, %85 ], [ %.1152.i, %92 ]
+  %.0148.lcssa.i = phi i32 [ 0, %85 ], [ %.1149.i, %92 ]
   %.061.lcssa.i = phi i32 [ %3, %85 ], [ %93, %92 ]
   %842 = load ptr, ptr %87, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %842, i32 noundef 25, ptr noundef nonnull @.str.281, i32 noundef %.0176.lcssa.i, i32 noundef %.0172.lcssa.i, i32 noundef %.0169.lcssa.i, i32 noundef %.0166.lcssa.i, i32 noundef %.0163.lcssa.i, i32 noundef %.0160.lcssa.i, i32 noundef %.0157.lcssa.i, i32 noundef %.0154.lcssa.i, i32 noundef %.0151.lcssa.i, i32 noundef %.0148.lcssa.i) #6

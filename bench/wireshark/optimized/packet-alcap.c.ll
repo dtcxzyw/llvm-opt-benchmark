@@ -1178,14 +1178,14 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not173, label %.thread189, label %153
 
 153:                                              ; preds = %149, %145
-  %.0155 = phi ptr [ %148, %145 ], [ %152, %149 ]
+  %.1 = phi ptr [ %148, %145 ], [ %152, %149 ]
   %154 = getelementptr inbounds i8, ptr %7, i64 40
   %155 = load i32, ptr %154, align 8
   %.not174 = icmp eq i32 %155, 0
   br i1 %.not174, label %174, label %156
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %.0155, i64 48
+  %157 = getelementptr inbounds i8, ptr %.1, i64 48
   store i32 %155, ptr %157, align 8
   br label %174
 
@@ -1218,8 +1218,8 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %174
 
 174:                                              ; preds = %162, %170, %156, %153, %141, %88, %132
-  %.1.ph = phi ptr [ %95, %132 ], [ %92, %88 ], [ %140, %141 ], [ %.0155, %153 ], [ %.0155, %156 ], [ %169, %170 ], [ %161, %162 ]
-  %175 = getelementptr inbounds i8, ptr %.1.ph, i64 40
+  %.0155.ph = phi ptr [ %95, %132 ], [ %92, %88 ], [ %140, %141 ], [ %.1, %153 ], [ %.1, %156 ], [ %169, %170 ], [ %161, %162 ]
+  %175 = getelementptr inbounds i8, ptr %.0155.ph, i64 40
   %176 = load ptr, ptr %175, align 8
   %.not181 = icmp eq ptr %176, null
   br i1 %.not181, label %185, label %177
@@ -1271,7 +1271,7 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not192, label %.thread189, label %203
 
 203:                                              ; preds = %202
-  tail call fastcc void @alcap_leg_tree(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.1.ph)
+  tail call fastcc void @alcap_leg_tree(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0155.ph)
   br label %.thread189
 
 .thread189:                                       ; preds = %137, %149, %166, %86, %202, %203, %._crit_edge

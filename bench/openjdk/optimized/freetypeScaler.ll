@@ -198,13 +198,13 @@ setInterpreterVersion.exit:                       ; preds = %22, %27, %34
   br i1 %88, label %.thread, label %.thread101
 
 .thread:                                          ; preds = %65, %71, %85
-  %.07496 = phi i32 [ 0, %85 ], [ 1, %65 ], [ %84, %71 ]
+  %.196 = phi i32 [ 0, %85 ], [ 1, %65 ], [ %84, %71 ]
   call void @free(ptr noundef nonnull %64) #19
   br label %89
 
 89:                                               ; preds = %.thread, %48
-  %.1 = phi i32 [ %59, %48 ], [ %.07496, %.thread ]
-  %.not91 = icmp eq i32 %.1, 0
+  %.074 = phi i32 [ %59, %48 ], [ %.196, %.thread ]
+  %.not91 = icmp eq i32 %.074, 0
   br i1 %.not91, label %.thread101, label %.thread98
 
 .thread98:                                        ; preds = %60, %63, %37, %42, %89
@@ -884,15 +884,15 @@ setupTransform.exit:                              ; preds = %10, %14
   br label %32
 
 32:                                               ; preds = %27, %setupTransform.exit
-  %.0 = phi i32 [ %31, %27 ], [ %25, %setupTransform.exit ]
+  %.1 = phi i32 [ %31, %27 ], [ %25, %setupTransform.exit ]
   %33 = getelementptr inbounds i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @FT_Library_SetLcdFilter(ptr noundef %34, i32 noundef 1) #19
   br label %36
 
 36:                                               ; preds = %32, %4
-  %.1 = phi i32 [ %.0, %32 ], [ 0, %4 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %32 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 declare i64 @FT_MulFix(i64 noundef, i64 noundef) local_unnamed_addr #1

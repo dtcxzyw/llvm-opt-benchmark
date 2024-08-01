@@ -1222,7 +1222,7 @@ for.body128.i:                                    ; preds = %if.end121.i, %for.i
   %added.0258.i = phi i32 [ %added.1.i, %for.inc212.i ], [ 0, %if.end121.i ]
   %cmp126.i = phi i1 [ false, %for.inc212.i ], [ true, %if.end121.i ]
   %i.1257.i = phi i64 [ 1, %for.inc212.i ], [ 0, %if.end121.i ]
-  %ongoing.2256.i = phi i32 [ %ongoing.3.i, %for.inc212.i ], [ %ongoing.1.i, %if.end121.i ]
+  %ongoing.3256.i = phi i32 [ %ongoing.4.i, %for.inc212.i ], [ %ongoing.1.i, %if.end121.i ]
   %arrayidx131.i = getelementptr inbounds [2 x ptr], ptr %baller3.i, i64 0, i64 %i.1257.i
   %107 = load ptr, ptr %arrayidx131.i, align 8
   %tobool132.not.i = icmp eq ptr %107, null
@@ -1331,12 +1331,12 @@ if.then204.i:                                     ; preds = %land.lhs.true199.i
   br label %do.end207.i
 
 do.end207.i:                                      ; preds = %if.then204.i, %land.lhs.true199.i, %land.lhs.true189.i
-  %inc208.i = add nsw i32 %ongoing.2256.i, 1
+  %inc208.i = add nsw i32 %ongoing.3256.i, 1
   %inc209.i = add nsw i32 %added.0258.i, 1
   br label %for.inc212.i
 
 for.inc212.i:                                     ; preds = %do.end207.i, %if.then182.i, %land.lhs.true177.i, %land.lhs.true167.i, %lor.lhs.false151.i, %lor.lhs.false133.i, %for.body128.i
-  %ongoing.3.i = phi i32 [ %ongoing.2256.i, %lor.lhs.false133.i ], [ %ongoing.2256.i, %if.then182.i ], [ %ongoing.2256.i, %land.lhs.true177.i ], [ %ongoing.2256.i, %land.lhs.true167.i ], [ %inc208.i, %do.end207.i ], [ %ongoing.2256.i, %lor.lhs.false151.i ], [ %ongoing.2256.i, %for.body128.i ]
+  %ongoing.4.i = phi i32 [ %ongoing.3256.i, %lor.lhs.false133.i ], [ %ongoing.3256.i, %if.then182.i ], [ %ongoing.3256.i, %land.lhs.true177.i ], [ %ongoing.3256.i, %land.lhs.true167.i ], [ %inc208.i, %do.end207.i ], [ %ongoing.3256.i, %lor.lhs.false151.i ], [ %ongoing.3256.i, %for.body128.i ]
   %added.1.i = phi i32 [ %added.0258.i, %lor.lhs.false133.i ], [ %added.0258.i, %if.then182.i ], [ %added.0258.i, %land.lhs.true177.i ], [ %added.0258.i, %land.lhs.true167.i ], [ %inc209.i, %do.end207.i ], [ %added.0258.i, %lor.lhs.false151.i ], [ %added.0258.i, %for.body128.i ]
   br i1 %cmp126.i, label %for.body128.i, label %for.end214.i, !llvm.loop !9
 
@@ -1345,8 +1345,8 @@ for.end214.i:                                     ; preds = %for.inc212.i
   br i1 %cmp215.i, label %evaluate.i, label %if.end219.i
 
 if.end219.i:                                      ; preds = %for.end214.i, %if.end121.i
-  %ongoing.4.i = phi i32 [ %ongoing.3.i, %for.end214.i ], [ %ongoing.1.i, %if.end121.i ]
-  %cmp220.i = icmp sgt i32 %ongoing.4.i, 0
+  %ongoing.2.i = phi i32 [ %ongoing.4.i, %for.end214.i ], [ %ongoing.1.i, %if.end121.i ]
+  %cmp220.i = icmp sgt i32 %ongoing.2.i, 0
   br i1 %cmp220.i, label %land.lhs.true, label %do.body224.i
 
 do.body224.i:                                     ; preds = %if.end111.i, %if.end219.i

@@ -7409,7 +7409,7 @@ invoke.cont98.lr.ph:                              ; preds = %if.then89
 
 invoke.cont98:                                    ; preds = %invoke.cont98.lr.ph, %for.inc126
   %indvars.iv313 = phi i64 [ 0, %invoke.cont98.lr.ph ], [ %indvars.iv.next314, %for.inc126 ]
-  %body.0301 = phi ptr [ %71, %invoke.cont98.lr.ph ], [ %body.1, %for.inc126 ]
+  %body.1301 = phi ptr [ %71, %invoke.cont98.lr.ph ], [ %body.2, %for.inc126 ]
   %74 = load i32, ptr %m_num_decls.i61, align 4
   %idx.ext.i.i.i = zext i32 %74 to i64
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i, i64 %idx.ext.i.i.i
@@ -7469,7 +7469,7 @@ if.then107:                                       ; preds = %if.then102
           to label %invoke.cont110 unwind label %lpad90.loopexit
 
 invoke.cont110:                                   ; preds = %if.then107
-  %call.i155 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %85, i32 noundef 0, i32 noundef 6, ptr noundef %body.0301, ptr noundef %call111)
+  %call.i155 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %85, i32 noundef 0, i32 noundef 6, ptr noundef %body.1301, ptr noundef %call111)
           to label %invoke.cont112 unwind label %lpad90.loopexit
 
 invoke.cont112:                                   ; preds = %invoke.cont110
@@ -7518,7 +7518,7 @@ lpad90:                                           ; preds = %lpad90.loopexit.spl
   br label %ehcleanup162
 
 if.else116:                                       ; preds = %if.then102
-  %call.i170 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %85, i32 noundef 0, i32 noundef 5, ptr noundef %body.0301, ptr noundef %83)
+  %call.i170 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %85, i32 noundef 0, i32 noundef 5, ptr noundef %body.1301, ptr noundef %83)
           to label %invoke.cont118 unwind label %lpad90.loopexit
 
 invoke.cont118:                                   ; preds = %if.else116
@@ -7556,13 +7556,13 @@ if.end122:                                        ; preds = %if.then.i.i.i177, %
   br label %for.inc126
 
 for.inc126:                                       ; preds = %if.then17.i, %if.end7.i, %land.lhs.true.i, %if.end.i149, %invoke.cont98, %if.end122
-  %body.1 = phi ptr [ %storemerge, %if.end122 ], [ %body.0301, %invoke.cont98 ], [ %body.0301, %if.end.i149 ], [ %body.0301, %land.lhs.true.i ], [ %body.0301, %if.end7.i ], [ %body.0301, %if.then17.i ]
+  %body.2 = phi ptr [ %storemerge, %if.end122 ], [ %body.1301, %invoke.cont98 ], [ %body.1301, %if.end.i149 ], [ %body.1301, %land.lhs.true.i ], [ %body.1301, %if.end7.i ], [ %body.1301, %if.then17.i ]
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
   br i1 %exitcond317.not, label %if.end129, label %invoke.cont98, !llvm.loop !22
 
 if.end129:                                        ; preds = %for.inc126, %if.then89, %invoke.cont84
-  %body.2 = phi ptr [ %71, %invoke.cont84 ], [ %71, %if.then89 ], [ %body.1, %for.inc126 ]
+  %body.0 = phi ptr [ %71, %invoke.cont84 ], [ %71, %if.then89 ], [ %body.2, %for.inc126 ]
   %94 = load ptr, ptr %m_nodes.i.i60, align 8, !noalias !23
   %cmp.i.i.i186 = icmp eq ptr %94, null
   br i1 %cmp.i.i.i186, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i, label %if.end.i.i.i
@@ -7574,7 +7574,7 @@ if.end.i.i.i:                                     ; preds = %if.end129
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i: ; preds = %if.end.i.i.i, %if.end129
   %retval.0.i.i.i = phi i32 [ %95, %if.end.i.i.i ], [ 0, %if.end129 ]
-  invoke void @_ZN9var_substclEP4exprjPKS1_(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(545) %s82, ptr noundef %body.2, i32 noundef %retval.0.i.i.i, ptr noundef %94)
+  invoke void @_ZN9var_substclEP4exprjPKS1_(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(545) %s82, ptr noundef %body.0, i32 noundef %retval.0.i.i.i, ptr noundef %94)
           to label %invoke.cont130 unwind label %lpad90.loopexit.split-lp
 
 invoke.cont130:                                   ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i

@@ -1803,17 +1803,17 @@ define dso_local i64 @hash_get_num_entries(ptr nocapture noundef readonly %0) lo
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %1 ]
-  %.09 = phi i64 [ %9, %.preheader ], [ %4, %1 ]
+  %.19 = phi i64 [ %9, %.preheader ], [ %4, %1 ]
   %7 = getelementptr [32 x %struct.FreeListData], ptr %2, i64 0, i64 %indvars.iv, i32 1
   %8 = load i64, ptr %7, align 8
-  %9 = add i64 %8, %.09
+  %9 = add i64 %8, %.19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader, %1
-  %.1 = phi i64 [ %4, %1 ], [ %9, %.preheader ]
-  ret i64 %.1
+  %.0 = phi i64 [ %4, %1 ], [ %9, %.preheader ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

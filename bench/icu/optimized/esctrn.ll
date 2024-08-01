@@ -446,9 +446,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1395,7 +1395,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %invoke.cont54
   %start.0103 = phi i32 [ %1, %while.body.lr.ph ], [ %add53, %invoke.cont54 ]
   %limit.0102 = phi i32 [ %2, %while.body.lr.ph ], [ %add56, %invoke.cont54 ]
-  %redoPrefix.0101 = phi i8 [ 0, %while.body.lr.ph ], [ %redoPrefix.2, %invoke.cont54 ]
+  %redoPrefix.0101 = phi i8 [ 0, %while.body.lr.ph ], [ %redoPrefix.1, %invoke.cont54 ]
   %7 = load i8, ptr %grokSupplementals, align 8
   %tobool.not = icmp eq i8 %7, 0
   %vtable.i22 = load ptr, ptr %text, align 8
@@ -1592,7 +1592,7 @@ invoke.cont44:                                    ; preds = %if.end
 
 if.end49:                                         ; preds = %invoke.cont44, %invoke.cont27
   %cond1696 = phi i32 [ %cond16, %invoke.cont27 ], [ %cond1697, %invoke.cont44 ]
-  %redoPrefix.2 = phi i8 [ 1, %invoke.cont27 ], [ 0, %invoke.cont44 ]
+  %redoPrefix.1 = phi i8 [ 1, %invoke.cont27 ], [ 0, %invoke.cont44 ]
   %add = add nsw i32 %cond1696, %start.0103
   %vtable = load ptr, ptr %text, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32

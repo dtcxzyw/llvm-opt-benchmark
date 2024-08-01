@@ -106,13 +106,13 @@ define hidden noundef zeroext i1 @_ZN14ElfStringTable9string_atEmPci(ptr nocaptu
   br label %36
 
 36:                                               ; preds = %35, %32
-  %.0 = phi i1 [ true, %32 ], [ false, %35 ]
+  %.1 = phi i1 [ true, %32 ], [ false, %35 ]
   call void @_ZN16MarkedFileReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   br label %37
 
 37:                                               ; preds = %4, %36, %14
-  %.1 = phi i1 [ true, %14 ], [ %.0, %36 ], [ false, %4 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %14 ], [ %.1, %36 ], [ false, %4 ]
+  ret i1 %.0
 }
 
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1

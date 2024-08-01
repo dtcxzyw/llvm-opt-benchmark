@@ -72,28 +72,28 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
 
 .preheader83:                                     ; preds = %10, %.preheader83.backedge
   %12 = phi i8 [ %.be, %.preheader83.backedge ], [ 91, %10 ]
-  %.156 = phi ptr [ %.156.be, %.preheader83.backedge ], [ %.055101, %10 ]
+  %.257 = phi ptr [ %.257.be, %.preheader83.backedge ], [ %.055101, %10 ]
   switch i8 %12, label %13 [
     i8 93, label %.critedge2
     i8 0, label %.critedge2
   ]
 
 13:                                               ; preds = %.preheader83
-  %14 = getelementptr inbounds i8, ptr %.156, i64 1
+  %14 = getelementptr inbounds i8, ptr %.257, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %11, %15
   br i1 %16, label %.preheader, label %20
 
 .preheader:                                       ; preds = %13, %18
   %17 = phi i8 [ %.pr, %18 ], [ %11, %13 ]
-  %.257 = phi ptr [ %19, %18 ], [ %14, %13 ]
+  %.4 = phi ptr [ %19, %18 ], [ %14, %13 ]
   switch i8 %17, label %18 [
     i8 93, label %.critedge2.thread
     i8 0, label %.critedge2.thread
   ]
 
 18:                                               ; preds = %.preheader
-  %19 = getelementptr inbounds i8, ptr %.257, i64 1
+  %19 = getelementptr inbounds i8, ptr %.4, i64 1
   %.pr = load i8, ptr %19, align 1
   br label %.preheader, !llvm.loop !6
 
@@ -102,13 +102,13 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
   br i1 %.not69, label %.preheader83.backedge, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %.156, i64 2
+  %22 = getelementptr inbounds i8, ptr %.257, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 45
   br i1 %24, label %25, label %.preheader83.backedge
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %.156, i64 3
+  %26 = getelementptr inbounds i8, ptr %.257, i64 3
   %.not70 = icmp slt i8 %11, %15
   %.pre.pre = load i8, ptr %26, align 1
   %.not71 = icmp sgt i8 %11, %.pre.pre
@@ -117,19 +117,19 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
 
 .preheader83.backedge:                            ; preds = %25, %21, %20
   %.be = phi i8 [ %23, %21 ], [ 0, %20 ], [ %.pre.pre, %25 ]
-  %.156.be = phi ptr [ %22, %21 ], [ %14, %20 ], [ %26, %25 ]
+  %.257.be = phi ptr [ %22, %21 ], [ %14, %20 ], [ %26, %25 ]
   br label %.preheader83, !llvm.loop !8
 
 .preheader81:                                     ; preds = %25, %28
   %27 = phi i8 [ %.pr77, %28 ], [ %.pre.pre, %25 ]
-  %.3 = phi ptr [ %29, %28 ], [ %26, %25 ]
+  %.6 = phi ptr [ %29, %28 ], [ %26, %25 ]
   switch i8 %27, label %28 [
     i8 93, label %.critedge2.thread
     i8 0, label %.critedge2.thread
   ]
 
 28:                                               ; preds = %.preheader81
-  %29 = getelementptr inbounds i8, ptr %.3, i64 1
+  %29 = getelementptr inbounds i8, ptr %.6, i64 1
   %.pr77 = load i8, ptr %29, align 1
   br label %.preheader81, !llvm.loop !9
 
@@ -149,9 +149,9 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
   br label %39
 
 39:                                               ; preds = %37, %34
-  %.6 = phi ptr [ %35, %34 ], [ %31, %37 ]
+  %.7 = phi ptr [ %35, %34 ], [ %31, %37 ]
   %.1.in = phi i64 [ %36, %34 ], [ %38, %37 ]
-  %40 = ptrtoint ptr %.6 to i64
+  %40 = ptrtoint ptr %.7 to i64
   %.neg = sub i64 %4, %40
   %41 = trunc i64 %.neg to i32
   %42 = add i32 %41, %1
@@ -171,7 +171,7 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %46
   %indvars.iv = phi i64 [ %45, %.lr.ph105.preheader ], [ %indvars.iv.next, %46 ]
   %48 = getelementptr inbounds i8, ptr %.054102, i64 %indvars.iv
-  %49 = tail call fastcc i32 @fnmatch_one(ptr noundef nonnull %.6, i32 noundef %42, ptr noundef %48)
+  %49 = tail call fastcc i32 @fnmatch_one(ptr noundef nonnull %.7, i32 noundef %42, ptr noundef %48)
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.critedge2, label %46
 
@@ -181,8 +181,8 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
   br i1 %.not66, label %.critedge2.thread, label %.critedge2
 
 .critedge2.thread:                                ; preds = %.preheader81, %.preheader81, %.preheader, %.preheader, %.thread80, %8
-  %.7 = phi ptr [ %.055101, %8 ], [ %.055101, %.thread80 ], [ %.257, %.preheader ], [ %.257, %.preheader ], [ %.3, %.preheader81 ], [ %.3, %.preheader81 ]
-  %51 = getelementptr inbounds i8, ptr %.7, i64 1
+  %.156 = phi ptr [ %.055101, %8 ], [ %.055101, %.thread80 ], [ %.4, %.preheader ], [ %.4, %.preheader ], [ %.6, %.preheader81 ], [ %.6, %.preheader81 ]
+  %51 = getelementptr inbounds i8, ptr %.156, i64 1
   %52 = getelementptr inbounds i8, ptr %.054102, i64 1
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %53, %4

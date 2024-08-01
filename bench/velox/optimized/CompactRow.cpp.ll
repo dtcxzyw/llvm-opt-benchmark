@@ -3634,7 +3634,7 @@ for.body42.lr.ph:                                 ; preds = %for.cond40.preheade
 
 for.body42:                                       ; preds = %for.body42.lr.ph, %for.inc53
   %indvars.iv246 = phi i64 [ 0, %for.body42.lr.ph ], [ %indvars.iv.next247, %for.inc53 ]
-  %elementsOffset.1234 = phi i32 [ %add, %for.body42.lr.ph ], [ %elementsOffset.2, %for.inc53 ]
+  %elementsOffset.2234 = phi i32 [ %add, %for.body42.lr.ph ], [ %elementsOffset.3, %for.inc53 ]
   %66 = add nsw i64 %indvars.iv246, %65
   %67 = load ptr, ptr %nulls_.i.i140, align 8
   %tobool.not.i.i141 = icmp eq ptr %67, null
@@ -3698,15 +3698,15 @@ if.then45:                                        ; preds = %if.then8.i.i163, %i
   br label %for.inc53
 
 if.else46:                                        ; preds = %for.body42, %if.then8.i.i163, %if.then4.i.i166, %_ZN8facebook5velox3row10CompactRow8isNullAtEi.exit174
-  %idx.ext48 = sext i32 %elementsOffset.1234 to i64
+  %idx.ext48 = sext i32 %elementsOffset.2234 to i64
   %add.ptr49 = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext48
   %78 = trunc nsw i64 %66 to i32
   %call50 = tail call noundef i32 @_ZN8facebook5velox3row10CompactRow22serializeVariableWidthEiPc(ptr noundef nonnull align 8 dereferenceable(224) %elements, i32 noundef %78, ptr noundef nonnull %add.ptr49)
-  %add51 = add nsw i32 %call50, %elementsOffset.1234
+  %add51 = add nsw i32 %call50, %elementsOffset.2234
   br label %for.inc53
 
 for.inc53:                                        ; preds = %if.then45, %if.else46
-  %elementsOffset.2 = phi i32 [ %elementsOffset.1234, %if.then45 ], [ %add51, %if.else46 ]
+  %elementsOffset.3 = phi i32 [ %elementsOffset.2234, %if.then45 ], [ %add51, %if.else46 ]
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond251.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count250
   br i1 %exitcond251.not, label %return, label %for.body42, !llvm.loop !12
@@ -3732,7 +3732,7 @@ if.then58:                                        ; preds = %if.else56
 
 for.body70:                                       ; preds = %if.then58, %for.inc88
   %indvars.iv = phi i64 [ 0, %if.then58 ], [ %indvars.iv.next, %for.inc88 ]
-  %elementsOffset.3229 = phi i32 [ %add65, %if.then58 ], [ %elementsOffset.4, %for.inc88 ]
+  %elementsOffset.4229 = phi i32 [ %add65, %if.then58 ], [ %elementsOffset.5, %for.inc88 ]
   %80 = add nsw i64 %indvars.iv, %79
   %81 = load ptr, ptr %nulls_.i.i181, align 8
   %tobool.not.i.i182 = icmp eq ptr %81, null
@@ -3798,29 +3798,29 @@ if.then73:                                        ; preds = %if.then8.i.i204, %i
 if.else74:                                        ; preds = %for.body70, %if.then8.i.i204, %if.then4.i.i207, %_ZN8facebook5velox3row10CompactRow8isNullAtEi.exit215
   %mul77 = shl nuw nsw i64 %indvars.iv, 2
   %add.ptr78 = getelementptr inbounds i8, ptr %add.ptr75, i64 %mul77
-  %conv79 = sext i32 %elementsOffset.3229 to i64
-  %conv80 = sub i32 %elementsOffset.3229, %narrow
+  %conv79 = sext i32 %elementsOffset.4229 to i64
+  %conv80 = sub i32 %elementsOffset.4229, %narrow
   store i32 %conv80, ptr %add.ptr78, align 1
   %add.ptr84 = getelementptr inbounds i8, ptr %buffer, i64 %conv79
   %92 = trunc nsw i64 %80 to i32
   %call85 = tail call noundef i32 @_ZN8facebook5velox3row10CompactRow22serializeVariableWidthEiPc(ptr noundef nonnull align 8 dereferenceable(224) %elements, i32 noundef %92, ptr noundef nonnull %add.ptr84)
-  %add86 = add nsw i32 %call85, %elementsOffset.3229
+  %add86 = add nsw i32 %call85, %elementsOffset.4229
   br label %for.inc88
 
 for.inc88:                                        ; preds = %if.then73, %if.else74
-  %elementsOffset.4 = phi i32 [ %elementsOffset.3229, %if.then73 ], [ %add86, %if.else74 ]
+  %elementsOffset.5 = phi i32 [ %elementsOffset.4229, %if.then73 ], [ %add86, %if.else74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end90, label %for.body70, !llvm.loop !13
 
 for.end90:                                        ; preds = %for.inc88
   %add.ptr92 = getelementptr inbounds i8, ptr %add.ptr75, i64 -4
-  %conv95 = sub i32 %elementsOffset.4, %narrow
+  %conv95 = sub i32 %elementsOffset.5, %narrow
   store i32 %conv95, ptr %add.ptr92, align 1
   br label %return
 
 return:                                           ; preds = %for.inc53, %if.end26, %for.cond40.preheader, %for.cond17.preheader, %if.else56, %for.end90, %_ZN8facebook5velox3row10CompactRow19serializeFixedWidthEiiPc.exit
-  %retval.0 = phi i32 [ %conv12, %_ZN8facebook5velox3row10CompactRow19serializeFixedWidthEiiPc.exit ], [ %elementsOffset.4, %for.end90 ], [ %add, %if.else56 ], [ %add, %for.cond17.preheader ], [ %add, %for.cond40.preheader ], [ %conv30, %if.end26 ], [ %elementsOffset.2, %for.inc53 ]
+  %retval.0 = phi i32 [ %conv12, %_ZN8facebook5velox3row10CompactRow19serializeFixedWidthEiiPc.exit ], [ %elementsOffset.5, %for.end90 ], [ %add, %if.else56 ], [ %add, %for.cond17.preheader ], [ %add, %for.cond40.preheader ], [ %conv30, %if.end26 ], [ %elementsOffset.3, %for.inc53 ]
   ret i32 %retval.0
 }
 

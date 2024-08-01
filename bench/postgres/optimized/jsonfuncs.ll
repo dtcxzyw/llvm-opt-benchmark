@@ -1791,8 +1791,8 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr nocapture noundef re
   br label %124
 
 97:                                               ; preds = %94, %60
-  %.2 = phi ptr [ %62, %60 ], [ %95, %94 ]
-  %98 = icmp eq ptr %.2, null
+  %.3 = phi ptr [ %62, %60 ], [ %95, %94 ]
+  %98 = icmp eq ptr %.3, null
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %97
@@ -1804,12 +1804,12 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr nocapture noundef re
   br i1 %101, label %._crit_edge, label %102
 
 102:                                              ; preds = %100
-  %103 = load i32, ptr %.2, align 8
+  %103 = load i32, ptr %.3, align 8
   %104 = icmp eq i32 %103, 18
   br i1 %104, label %105, label %113
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %.2, i64 16
+  %106 = getelementptr inbounds i8, ptr %.3, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = load i32, ptr %107, align 4
   %109 = and i32 %108, 536870912
@@ -1826,11 +1826,11 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr nocapture noundef re
   br label %31
 
 ._crit_edge:                                      ; preds = %100, %.preheader
-  %.3 = phi ptr [ %.065, %.preheader ], [ %.2, %100 ]
+  %.2 = phi ptr [ %.065, %.preheader ], [ %.3, %100 ]
   br i1 %4, label %114, label %121
 
 114:                                              ; preds = %._crit_edge
-  %115 = load i32, ptr %.3, align 8
+  %115 = load i32, ptr %.2, align 8
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %118
 
@@ -1839,12 +1839,12 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr nocapture noundef re
   br label %124
 
 118:                                              ; preds = %114
-  %119 = call fastcc ptr @JsonbValueAsText(ptr noundef nonnull %.3)
+  %119 = call fastcc ptr @JsonbValueAsText(ptr noundef nonnull %.2)
   %120 = ptrtoint ptr %119 to i64
   br label %124
 
 121:                                              ; preds = %._crit_edge
-  %122 = call ptr @JsonbValueToJsonb(ptr noundef %.3) #15
+  %122 = call ptr @JsonbValueToJsonb(ptr noundef %.2) #15
   %123 = ptrtoint ptr %122 to i64
   br label %124
 
@@ -4526,10 +4526,10 @@ define dso_local i64 @jsonb_concat(ptr nocapture noundef readonly %0) local_unna
   br label %IteratorConcat.exit
 
 IteratorConcat.exit:                              ; preds = %.lr.ph82.i, %.lr.ph93.i, %.preheader.i, %.preheader71.i, %.loopexit.sink.split.i
-  %.2.i = phi ptr [ null, %.preheader.i ], [ null, %.preheader71.i ], [ %80, %.loopexit.sink.split.i ], [ %45, %.lr.ph93.i ], [ %68, %.lr.ph82.i ]
+  %.1.i = phi ptr [ null, %.preheader.i ], [ null, %.preheader71.i ], [ %80, %.loopexit.sink.split.i ], [ %45, %.lr.ph93.i ], [ %68, %.lr.ph82.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %81 = call ptr @JsonbValueToJsonb(ptr noundef %.2.i) #15
+  %81 = call ptr @JsonbValueToJsonb(ptr noundef %.1.i) #15
   br label %82
 
 82:                                               ; preds = %26, %22, %IteratorConcat.exit

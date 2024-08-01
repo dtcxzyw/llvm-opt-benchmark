@@ -981,7 +981,7 @@ run_json_server.exit:                             ; preds = %246, %255, %260
   br label %330
 
 330:                                              ; preds = %hwloc_utils_check_api_version.exit._crit_edge, %328
-  %.1 = phi i32 [ %223, %hwloc_utils_check_api_version.exit._crit_edge ], [ %228, %328 ]
+  %.084 = phi i32 [ %223, %hwloc_utils_check_api_version.exit._crit_edge ], [ %228, %328 ]
   %331 = load ptr, ptr @lstopo_misc_output, align 8
   %.not109 = icmp eq ptr %331, null
   %332 = load ptr, ptr @stdout, align 8
@@ -994,7 +994,7 @@ run_json_server.exit:                             ; preds = %246, %255, %260
   br label %335
 
 335:                                              ; preds = %333, %330
-  ret i32 %.1
+  ret i32 %.084
 }
 
 ; Function Attrs: nounwind

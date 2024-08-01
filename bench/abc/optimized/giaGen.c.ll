@@ -2211,7 +2211,7 @@ define range(i32 0, 2) i32 @Gia_ManSimParamRead(ptr noundef %0, ptr nocapture no
   br label %31
 
 17:                                               ; preds = %11, %13
-  %.136 = phi i32 [ %.035.ph, %13 ], [ %.029.ph, %11 ]
+  %.3 = phi i32 [ %.035.ph, %13 ], [ %.029.ph, %11 ]
   %18 = add nsw i32 %.032.ph, 1
   br label %.thread43
 
@@ -2224,18 +2224,18 @@ define range(i32 0, 2) i32 @Gia_ManSimParamRead(ptr noundef %0, ptr nocapture no
   br i1 %.not41, label %.thread43, label %8, !llvm.loop !34
 
 .thread43:                                        ; preds = %.thread, %10, %17
-  %.23151 = phi i32 [ 0, %17 ], [ %.029.ph, %10 ], [ %.029.ph, %.thread ]
-  %.23450 = phi i32 [ %18, %17 ], [ %.032.ph, %10 ], [ %.032.ph, %.thread ]
-  %.349 = phi i32 [ %.136, %17 ], [ %.035.ph, %10 ], [ %.035.ph, %.thread ]
+  %.13051 = phi i32 [ 0, %17 ], [ %.029.ph, %10 ], [ %.029.ph, %.thread ]
+  %.13350 = phi i32 [ %18, %17 ], [ %.032.ph, %10 ], [ %.032.ph, %.thread ]
+  %.13649 = phi i32 [ %.3, %17 ], [ %.035.ph, %10 ], [ %.035.ph, %.thread ]
   %19 = and i32 %9, -2
   %or.cond = icmp eq i32 %19, 48
   %20 = zext i1 %or.cond to i32
-  %spec.select = add nsw i32 %.23151, %20
+  %spec.select = add nsw i32 %.13051, %20
   br label %.outer, !llvm.loop !34
 
 .outer:                                           ; preds = %3, %.thread43
-  %.035.ph = phi i32 [ %.349, %.thread43 ], [ -1, %3 ]
-  %.032.ph = phi i32 [ %.23450, %.thread43 ], [ 0, %3 ]
+  %.035.ph = phi i32 [ %.13649, %.thread43 ], [ -1, %3 ]
+  %.032.ph = phi i32 [ %.13350, %.thread43 ], [ 0, %3 ]
   %.029.ph = phi i32 [ %spec.select, %.thread43 ], [ 0, %3 ]
   br label %8
 

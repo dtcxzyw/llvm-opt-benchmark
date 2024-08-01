@@ -146,12 +146,12 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 
 72:                                               ; preds = %68, %70
   %73 = phi i32 [ %.pre925, %70 ], [ %67, %68 ]
-  %.1630 = phi i32 [ %71, %70 ], [ %.0629897, %68 ]
+  %.2631 = phi i32 [ %71, %70 ], [ %.0629897, %68 ]
   store i32 %73, ptr %65, align 8
   br label %74
 
 74:                                               ; preds = %64, %72, %54
-  %.2631 = phi i32 [ %.1630, %72 ], [ %.0629897, %64 ], [ %.0629897, %54 ]
+  %.1630 = phi i32 [ %.2631, %72 ], [ %.0629897, %64 ], [ %.0629897, %54 ]
   %75 = getelementptr inbounds i8, ptr %.1677896, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 2
@@ -173,18 +173,18 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 
 87:                                               ; preds = %85
   store i16 %50, ptr %77, align 2
-  %88 = add nsw i32 %.2631, -1
+  %88 = add nsw i32 %.1630, -1
   %.pre926 = load i32, ptr %45, align 4
   br label %89
 
 89:                                               ; preds = %85, %87
   %90 = phi i32 [ %.pre926, %87 ], [ %84, %85 ]
-  %.3632 = phi i32 [ %88, %87 ], [ %.2631, %85 ]
+  %.3632 = phi i32 [ %88, %87 ], [ %.1630, %85 ]
   store i32 %90, ptr %82, align 8
   br label %91
 
 91:                                               ; preds = %74, %89, %81
-  %.4633 = phi i32 [ %.3632, %89 ], [ %.2631, %81 ], [ %.2631, %74 ]
+  %.4633 = phi i32 [ %.3632, %89 ], [ %.1630, %81 ], [ %.1630, %74 ]
   %92 = getelementptr inbounds i8, ptr %.1677896, i64 32
   %93 = load ptr, ptr %92, align 8
   %.not755 = icmp eq ptr %93, null
@@ -308,11 +308,11 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   br label %241
 
 156:                                              ; preds = %143, %239
-  %.2616847 = phi double [ 0.000000e+00, %143 ], [ %.4618, %239 ]
-  %.0651846 = phi i32 [ 0, %143 ], [ %.1652, %239 ]
-  %.1655845 = phi i32 [ %.0654, %143 ], [ %.3657, %239 ]
+  %.3617847 = phi double [ 0.000000e+00, %143 ], [ %.5619, %239 ]
+  %.1652846 = phi i32 [ 0, %143 ], [ %.2653, %239 ]
+  %.2656845 = phi i32 [ %.0654, %143 ], [ %.4658, %239 ]
   %.0673844 = phi ptr [ %13, %143 ], [ %158, %239 ]
-  %.0720843 = phi ptr [ null, %143 ], [ %.1721, %239 ]
+  %.1721843 = phi ptr [ null, %143 ], [ %.2722, %239 ]
   %.0728842 = phi ptr [ null, %143 ], [ %.1729, %239 ]
   %157 = getelementptr inbounds i8, ptr %.0673844, i64 32
   %158 = load ptr, ptr %157, align 8
@@ -336,7 +336,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 
 171:                                              ; preds = %168
   store i16 %26, ptr %.0673844, align 8
-  store ptr %.0720843, ptr %157, align 8
+  store ptr %.1721843, ptr %157, align 8
   %172 = load i32, ptr %150, align 4
   %.not806 = icmp eq i32 %172, 0
   br i1 %.not806, label %177, label %173
@@ -344,11 +344,11 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 173:                                              ; preds = %171
   %174 = getelementptr inbounds i8, ptr %.0673844, i64 40
   %175 = load double, ptr %174, align 8
-  %176 = fadd double %.2616847, %175
+  %176 = fadd double %.3617847, %175
   br label %177
 
 177:                                              ; preds = %173, %171
-  %.3617 = phi double [ %176, %173 ], [ %.2616847, %171 ]
+  %.4618 = phi double [ %176, %173 ], [ %.3617847, %171 ]
   %178 = load i32, ptr %147, align 4
   %179 = sext i32 %178 to i64
   %180 = add i64 %179, %161
@@ -394,7 +394,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %204 = load ptr, ptr %152, align 8
   %205 = getelementptr inbounds %struct._reo_hash, ptr %204, i64 %.lcssa833, i32 3
   store ptr %.0673844, ptr %205, align 8
-  %206 = add nsw i32 %.0651846, 1
+  %206 = add nsw i32 %.1652846, 1
   %207 = load i32, ptr %0, align 8
   %.not807 = icmp eq i32 %207, 0
   br i1 %.not807, label %239, label %208
@@ -418,14 +418,14 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 218:                                              ; preds = %213
   store i32 %217, ptr %215, align 8
   %219 = load ptr, ptr %154, align 8
-  %220 = add nsw i32 %.1655845, 1
-  %221 = sext i32 %.1655845 to i64
+  %220 = add nsw i32 %.2656845, 1
+  %221 = sext i32 %.2656845 to i64
   %222 = getelementptr inbounds ptr, ptr %219, i64 %221
   store ptr %163, ptr %222, align 8
   br label %223
 
 223:                                              ; preds = %213, %218, %208
-  %.2656 = phi i32 [ %220, %218 ], [ %.1655845, %213 ], [ %.1655845, %208 ]
+  %.3657 = phi i32 [ %220, %218 ], [ %.2656845, %213 ], [ %.2656845, %208 ]
   %224 = getelementptr inbounds i8, ptr %165, i64 2
   %225 = load i16, ptr %224, align 2
   %226 = sext i16 %225 to i32
@@ -444,8 +444,8 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 233:                                              ; preds = %228
   store i32 %232, ptr %230, align 8
   %234 = load ptr, ptr %154, align 8
-  %235 = add nsw i32 %.2656, 1
-  %236 = sext i32 %.2656 to i64
+  %235 = add nsw i32 %.3657, 1
+  %236 = sext i32 %.3657 to i64
   %237 = getelementptr inbounds ptr, ptr %234, i64 %236
   store ptr %165, ptr %237, align 8
   br label %239
@@ -456,21 +456,21 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 
 239:                                              ; preds = %._crit_edge840, %228, %233, %223, %238
   %.1729 = phi ptr [ %.0728842, %233 ], [ %.0728842, %228 ], [ %.0728842, %223 ], [ %.0728842, %._crit_edge840 ], [ %.0673844, %238 ]
-  %.1721 = phi ptr [ %.0673844, %233 ], [ %.0673844, %228 ], [ %.0673844, %223 ], [ %.0673844, %._crit_edge840 ], [ %.0720843, %238 ]
-  %.3657 = phi i32 [ %235, %233 ], [ %.2656, %228 ], [ %.2656, %223 ], [ %.1655845, %._crit_edge840 ], [ %.1655845, %238 ]
-  %.1652 = phi i32 [ %206, %233 ], [ %206, %228 ], [ %206, %223 ], [ %206, %._crit_edge840 ], [ %.0651846, %238 ]
-  %.4618 = phi double [ %.3617, %233 ], [ %.3617, %228 ], [ %.3617, %223 ], [ %.3617, %._crit_edge840 ], [ %.2616847, %238 ]
+  %.2722 = phi ptr [ %.0673844, %233 ], [ %.0673844, %228 ], [ %.0673844, %223 ], [ %.0673844, %._crit_edge840 ], [ %.1721843, %238 ]
+  %.4658 = phi i32 [ %235, %233 ], [ %.3657, %228 ], [ %.3657, %223 ], [ %.2656845, %._crit_edge840 ], [ %.2656845, %238 ]
+  %.2653 = phi i32 [ %206, %233 ], [ %206, %228 ], [ %206, %223 ], [ %206, %._crit_edge840 ], [ %.1652846, %238 ]
+  %.5619 = phi double [ %.4618, %233 ], [ %.4618, %228 ], [ %.4618, %223 ], [ %.4618, %._crit_edge840 ], [ %.3617847, %238 ]
   %.not762 = icmp eq ptr %158, null
   br i1 %.not762, label %.preheader822, label %156, !llvm.loop !10
 
 .preheader820:                                    ; preds = %630, %.preheader822
-  %.2722.lcssa = phi ptr [ %.1721, %.preheader822 ], [ %.6726, %630 ]
-  %.0716.lcssa = phi ptr [ null, %.preheader822 ], [ %.1674867, %630 ]
-  %.4658.lcssa = phi i32 [ %.3657, %.preheader822 ], [ %.10664, %630 ]
-  %.0639.lcssa = phi i32 [ 0, %.preheader822 ], [ %.4643, %630 ]
-  %.2623.lcssa = phi double [ 0.000000e+00, %.preheader822 ], [ %.3624, %630 ]
-  %.5619.lcssa = phi double [ %.4618, %.preheader822 ], [ %.8, %630 ]
-  %.1.lcssa = phi double [ %.0610, %.preheader822 ], [ %.5, %630 ]
+  %.3723.lcssa = phi ptr [ %.2722, %.preheader822 ], [ %.6726, %630 ]
+  %.1717.lcssa = phi ptr [ null, %.preheader822 ], [ %.1674867, %630 ]
+  %.5659.lcssa = phi i32 [ %.4658, %.preheader822 ], [ %.9663, %630 ]
+  %.1640.lcssa = phi i32 [ 0, %.preheader822 ], [ %.4643, %630 ]
+  %.3624.lcssa = phi double [ 0.000000e+00, %.preheader822 ], [ %.4625, %630 ]
+  %.6620.lcssa = phi double [ %.5619, %.preheader822 ], [ %.9, %630 ]
+  %.2.lcssa = phi double [ %.0610, %.preheader822 ], [ %.6, %630 ]
   %.not764882 = icmp eq ptr %14, null
   br i1 %.not764882, label %.loopexit821, label %.lr.ph889
 
@@ -480,19 +480,19 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 
 241:                                              ; preds = %.lr.ph874, %630
   %242 = phi i32 [ %.pre, %.lr.ph874 ], [ %625, %630 ]
-  %.1873 = phi double [ %.0610, %.lr.ph874 ], [ %.5, %630 ]
+  %.2873 = phi double [ %.0610, %.lr.ph874 ], [ %.6, %630 ]
   %.0612872 = phi double [ 0.000000e+00, %.lr.ph874 ], [ %.1613, %630 ]
-  %.5619871 = phi double [ %.4618, %.lr.ph874 ], [ %.8, %630 ]
-  %.2623870 = phi double [ 0.000000e+00, %.lr.ph874 ], [ %.3624, %630 ]
-  %.0639869 = phi i32 [ 0, %.lr.ph874 ], [ %.4643, %630 ]
-  %.4658868 = phi i32 [ %.3657, %.lr.ph874 ], [ %.10664, %630 ]
+  %.6620871 = phi double [ %.5619, %.lr.ph874 ], [ %.9, %630 ]
+  %.3624870 = phi double [ 0.000000e+00, %.lr.ph874 ], [ %.4625, %630 ]
+  %.1640869 = phi i32 [ 0, %.lr.ph874 ], [ %.4643, %630 ]
+  %.5659868 = phi i32 [ %.4658, %.lr.ph874 ], [ %.9663, %630 ]
   %.1674867 = phi ptr [ %.1729, %.lr.ph874 ], [ %244, %630 ]
-  %.0688866 = phi ptr [ null, %.lr.ph874 ], [ %.3691, %630 ]
-  %.0692865 = phi ptr [ null, %.lr.ph874 ], [ %.3695, %630 ]
-  %.0696864 = phi ptr [ null, %.lr.ph874 ], [ %.5701, %630 ]
-  %.0702863 = phi ptr [ null, %.lr.ph874 ], [ %.5707, %630 ]
-  %.0716862 = phi ptr [ null, %.lr.ph874 ], [ %.1674867, %630 ]
-  %.2722861 = phi ptr [ %.1721, %.lr.ph874 ], [ %.6726, %630 ]
+  %.0688866 = phi ptr [ null, %.lr.ph874 ], [ %.2690, %630 ]
+  %.0692865 = phi ptr [ null, %.lr.ph874 ], [ %.2694, %630 ]
+  %.0696864 = phi ptr [ null, %.lr.ph874 ], [ %.4700, %630 ]
+  %.0702863 = phi ptr [ null, %.lr.ph874 ], [ %.4706, %630 ]
+  %.1717862 = phi ptr [ null, %.lr.ph874 ], [ %.1674867, %630 ]
+  %.3723861 = phi ptr [ %.2722, %.lr.ph874 ], [ %.6726, %630 ]
   %243 = getelementptr inbounds i8, ptr %.1674867, i64 32
   %244 = load ptr, ptr %243, align 8
   %245 = getelementptr inbounds i8, ptr %.1674867, i64 16
@@ -578,7 +578,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   store double %295, ptr %293, align 8
   %296 = getelementptr inbounds i8, ptr %.1674867, i64 40
   %297 = load double, ptr %296, align 8
-  %298 = fsub double %.1873, %297
+  %298 = fsub double %.2873, %297
   br label %345
 
 299:                                              ; preds = %263
@@ -603,8 +603,8 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   br label %314
 
 314:                                              ; preds = %305, %302
-  %.2704 = phi ptr [ %301, %302 ], [ %308, %305 ]
-  %.2694 = phi ptr [ %304, %302 ], [ %313, %305 ]
+  %.3705 = phi ptr [ %301, %302 ], [ %308, %305 ]
+  %.3695 = phi ptr [ %304, %302 ], [ %313, %305 ]
   %315 = getelementptr inbounds i8, ptr %249, i64 6
   %316 = load i16, ptr %315, align 2
   %317 = add i16 %316, -1
@@ -622,7 +622,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %324 = load double, ptr %323, align 8
   %325 = fsub double %324, %.1613
   store double %325, ptr %323, align 8
-  %326 = fsub double %.1873, %.1613
+  %326 = fsub double %.2873, %.1613
   br label %345
 
 327:                                              ; preds = %256
@@ -650,16 +650,16 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %342 = load double, ptr %341, align 8
   %343 = fsub double %342, %.1613
   store double %343, ptr %341, align 8
-  %344 = fsub double %.1873, %.1613
+  %344 = fsub double %.2873, %.1613
   br label %345
 
 345:                                              ; preds = %322, %314, %327, %328, %340, %281, %289
-  %.3705 = phi ptr [ %.1703, %289 ], [ %.1703, %281 ], [ %.2704, %322 ], [ %.2704, %314 ], [ %246, %340 ], [ %246, %328 ], [ %.0702863, %327 ]
-  %.3699 = phi ptr [ %.1697, %289 ], [ %.1697, %281 ], [ %251, %322 ], [ %251, %314 ], [ %330, %340 ], [ %330, %328 ], [ %.0696864, %327 ]
-  %.3695 = phi ptr [ %.1693, %289 ], [ %.1693, %281 ], [ %.2694, %322 ], [ %.2694, %314 ], [ %246, %340 ], [ %246, %328 ], [ %.0692865, %327 ]
-  %.3691 = phi ptr [ %.1689, %289 ], [ %.1689, %281 ], [ %251, %322 ], [ %251, %314 ], [ %332, %340 ], [ %332, %328 ], [ %.0688866, %327 ]
-  %.2 = phi double [ %298, %289 ], [ %.1873, %281 ], [ %326, %322 ], [ %.1873, %314 ], [ %344, %340 ], [ %.1873, %328 ], [ %.1873, %327 ]
-  %346 = icmp eq ptr %.3705, %.3699
+  %.2704 = phi ptr [ %.1703, %289 ], [ %.1703, %281 ], [ %.3705, %322 ], [ %.3705, %314 ], [ %246, %340 ], [ %246, %328 ], [ %.0702863, %327 ]
+  %.2698 = phi ptr [ %.1697, %289 ], [ %.1697, %281 ], [ %251, %322 ], [ %251, %314 ], [ %330, %340 ], [ %330, %328 ], [ %.0696864, %327 ]
+  %.2694 = phi ptr [ %.1693, %289 ], [ %.1693, %281 ], [ %.3695, %322 ], [ %.3695, %314 ], [ %246, %340 ], [ %246, %328 ], [ %.0692865, %327 ]
+  %.2690 = phi ptr [ %.1689, %289 ], [ %.1689, %281 ], [ %251, %322 ], [ %251, %314 ], [ %332, %340 ], [ %332, %328 ], [ %.0688866, %327 ]
+  %.3 = phi double [ %298, %289 ], [ %.2873, %281 ], [ %326, %322 ], [ %.2873, %314 ], [ %344, %340 ], [ %.2873, %328 ], [ %.2873, %327 ]
+  %346 = icmp eq ptr %.2704, %.2698
   br i1 %346, label %347, label %364
 
 347:                                              ; preds = %345
@@ -668,16 +668,16 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not789, label %486, label %349
 
 349:                                              ; preds = %347
-  %350 = getelementptr inbounds i8, ptr %.3699, i64 2
+  %350 = getelementptr inbounds i8, ptr %.2698, i64 2
   %351 = load i16, ptr %350, align 2
   %352 = sext i16 %351 to i32
   %353 = icmp sgt i32 %352, %1
   br i1 %353, label %354, label %486
 
 354:                                              ; preds = %349
-  %355 = getelementptr inbounds i8, ptr %.3699, i64 4
+  %355 = getelementptr inbounds i8, ptr %.2698, i64 4
   store i16 %26, ptr %355, align 4
-  %356 = getelementptr inbounds i8, ptr %.3699, i64 8
+  %356 = getelementptr inbounds i8, ptr %.2698, i64 8
   %357 = load i32, ptr %356, align 8
   %358 = load i32, ptr %144, align 4
   %.not790 = icmp eq i32 %357, %358
@@ -686,29 +686,29 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 359:                                              ; preds = %354
   store i32 %358, ptr %356, align 8
   %360 = load ptr, ptr %154, align 8
-  %361 = add nsw i32 %.4658868, 1
-  %362 = sext i32 %.4658868 to i64
+  %361 = add nsw i32 %.5659868, 1
+  %362 = sext i32 %.5659868 to i64
   %363 = getelementptr inbounds ptr, ptr %360, i64 %362
-  store ptr %.3699, ptr %363, align 8
+  store ptr %.2698, ptr %363, align 8
   br label %486
 
 364:                                              ; preds = %345
-  %365 = ptrtoint ptr %.3699 to i64
+  %365 = ptrtoint ptr %.2698 to i64
   %366 = and i64 %365, 1
   %.not778 = icmp eq i64 %366, 0
-  %367 = ptrtoint ptr %.3705 to i64
+  %367 = ptrtoint ptr %.2704 to i64
   %368 = xor i64 %367, 1
   %369 = inttoptr i64 %368 to ptr
   %370 = and i64 %365, -2
   %371 = inttoptr i64 %370 to ptr
-  %.4706 = select i1 %.not778, ptr %.3705, ptr %369
-  %.4700 = select i1 %.not778, ptr %.3699, ptr %371
+  %.5707 = select i1 %.not778, ptr %.2704, ptr %369
+  %.5701 = select i1 %.not778, ptr %.2698, ptr %371
   %372 = load i32, ptr %147, align 4
   %373 = sext i32 %372 to i64
-  %374 = ptrtoint ptr %.4706 to i64
+  %374 = ptrtoint ptr %.5707 to i64
   %375 = add i64 %373, %374
   %376 = mul i64 %375, 12582917
-  %377 = ptrtoint ptr %.4700 to i64
+  %377 = ptrtoint ptr %.5701 to i64
   %378 = add i64 %376, %377
   %379 = mul i64 %378, 4256249
   %380 = load i32, ptr %151, align 8
@@ -731,13 +731,13 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %.1669849 = phi i32 [ %402, %400 ], [ %387, %.lr.ph851.preheader ]
   %389 = getelementptr inbounds i8, ptr %388, i64 8
   %390 = load ptr, ptr %389, align 8
-  %391 = icmp eq ptr %390, %.4706
+  %391 = icmp eq ptr %390, %.5707
   br i1 %391, label %392, label %400
 
 392:                                              ; preds = %.lr.ph851
   %393 = getelementptr inbounds i8, ptr %388, i64 16
   %394 = load ptr, ptr %393, align 8
-  %395 = icmp eq ptr %394, %.4700
+  %395 = icmp eq ptr %394, %.5701
   br i1 %395, label %.thread811, label %400
 
 .thread811:                                       ; preds = %392
@@ -761,9 +761,9 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %.lcssa824 = phi i64 [ %384, %364 ], [ %403, %400 ]
   %406 = tail call ptr @reoUnitsGetNextUnit(ptr noundef nonnull %0) #2
   %407 = getelementptr inbounds i8, ptr %406, i64 16
-  store ptr %.4706, ptr %407, align 8
+  store ptr %.5707, ptr %407, align 8
   %408 = getelementptr inbounds i8, ptr %406, i64 24
-  store ptr %.4700, ptr %408, align 8
+  store ptr %.5701, ptr %408, align 8
   %409 = getelementptr inbounds i8, ptr %406, i64 6
   store i16 0, ptr %409, align 2
   store i16 %26, ptr %406, align 8
@@ -795,26 +795,26 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %422 = load i16, ptr %421, align 2
   %423 = add i16 %422, 1
   store i16 %423, ptr %421, align 2
-  %424 = getelementptr inbounds i8, ptr %.4700, i64 6
+  %424 = getelementptr inbounds i8, ptr %.5701, i64 6
   %425 = load i16, ptr %424, align 2
   %426 = add i16 %425, 1
   store i16 %426, ptr %424, align 2
   %427 = getelementptr inbounds i8, ptr %406, i64 32
-  store ptr %.2722861, ptr %427, align 8
+  store ptr %.3723861, ptr %427, align 8
   %428 = load i32, ptr %147, align 4
   %429 = load ptr, ptr %152, align 8
   %430 = getelementptr inbounds %struct._reo_hash, ptr %429, i64 %.lcssa824
   store i32 %428, ptr %430, align 8
   %431 = load ptr, ptr %152, align 8
   %432 = getelementptr inbounds %struct._reo_hash, ptr %431, i64 %.lcssa824, i32 1
-  store ptr %.4706, ptr %432, align 8
+  store ptr %.5707, ptr %432, align 8
   %433 = load ptr, ptr %152, align 8
   %434 = getelementptr inbounds %struct._reo_hash, ptr %433, i64 %.lcssa824, i32 2
-  store ptr %.4700, ptr %434, align 8
+  store ptr %.5701, ptr %434, align 8
   %435 = load ptr, ptr %152, align 8
   %436 = getelementptr inbounds %struct._reo_hash, ptr %435, i64 %.lcssa824, i32 3
   store ptr %406, ptr %436, align 8
-  %437 = add nsw i32 %.0639869, 1
+  %437 = add nsw i32 %.1640869, 1
   %438 = load i32, ptr %0, align 8
   %.not783 = icmp eq i32 %438, 0
   br i1 %.not783, label %473, label %439
@@ -843,29 +843,29 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 451:                                              ; preds = %448
   store i32 %450, ptr %445, align 8
   %452 = load ptr, ptr %154, align 8
-  %453 = add nsw i32 %.4658868, 1
-  %454 = sext i32 %.4658868 to i64
+  %453 = add nsw i32 %.5659868, 1
+  %454 = sext i32 %.5659868 to i64
   %455 = getelementptr inbounds ptr, ptr %452, i64 %454
   store ptr %420, ptr %455, align 8
   br label %456
 
 456:                                              ; preds = %451, %448, %444, %439
-  %.5659 = phi i32 [ %453, %451 ], [ %.4658868, %448 ], [ %.4658868, %444 ], [ %.4658868, %439 ]
-  %457 = getelementptr inbounds i8, ptr %.4700, i64 2
+  %.8662 = phi i32 [ %453, %451 ], [ %.5659868, %448 ], [ %.5659868, %444 ], [ %.5659868, %439 ]
+  %457 = getelementptr inbounds i8, ptr %.5701, i64 2
   %458 = load i16, ptr %457, align 2
   %459 = sext i16 %458 to i32
   %460 = icmp sgt i32 %459, %1
   br i1 %460, label %461, label %473
 
 461:                                              ; preds = %456
-  %462 = getelementptr inbounds i8, ptr %.4700, i64 8
+  %462 = getelementptr inbounds i8, ptr %.5701, i64 8
   %463 = load i32, ptr %462, align 8
   %464 = load i32, ptr %144, align 4
   %.not786 = icmp eq i32 %463, %464
   br i1 %.not786, label %473, label %465
 
 465:                                              ; preds = %461
-  %466 = getelementptr inbounds i8, ptr %.4700, i64 4
+  %466 = getelementptr inbounds i8, ptr %.5701, i64 4
   store i16 %153, ptr %466, align 4
   %467 = load i32, ptr %144, align 4
   %.not787 = icmp eq i32 %463, %467
@@ -874,51 +874,51 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 468:                                              ; preds = %465
   store i32 %467, ptr %462, align 8
   %469 = load ptr, ptr %154, align 8
-  %470 = add nsw i32 %.5659, 1
-  %471 = sext i32 %.5659 to i64
+  %470 = add nsw i32 %.8662, 1
+  %471 = sext i32 %.8662 to i64
   %472 = getelementptr inbounds ptr, ptr %469, i64 %471
-  store ptr %.4700, ptr %472, align 8
+  store ptr %.5701, ptr %472, align 8
   br label %473
 
 473:                                              ; preds = %.thread811, %418, %468, %465, %461, %456
-  %.3723 = phi ptr [ %406, %468 ], [ %406, %465 ], [ %406, %461 ], [ %406, %456 ], [ %406, %418 ], [ %.2722861, %.thread811 ]
-  %.2682 = phi ptr [ %406, %468 ], [ %406, %465 ], [ %406, %461 ], [ %406, %456 ], [ %406, %418 ], [ %397, %.thread811 ]
-  %.6660 = phi i32 [ %470, %468 ], [ %.5659, %465 ], [ %.5659, %461 ], [ %.5659, %456 ], [ %.4658868, %418 ], [ %.4658868, %.thread811 ]
-  %.1640 = phi i32 [ %437, %468 ], [ %437, %465 ], [ %437, %461 ], [ %437, %456 ], [ %437, %418 ], [ %.0639869, %.thread811 ]
+  %.5725 = phi ptr [ %406, %468 ], [ %406, %465 ], [ %406, %461 ], [ %406, %456 ], [ %406, %418 ], [ %.3723861, %.thread811 ]
+  %.3683 = phi ptr [ %406, %468 ], [ %406, %465 ], [ %406, %461 ], [ %406, %456 ], [ %406, %418 ], [ %397, %.thread811 ]
+  %.7661 = phi i32 [ %470, %468 ], [ %.8662, %465 ], [ %.8662, %461 ], [ %.8662, %456 ], [ %.5659868, %418 ], [ %.5659868, %.thread811 ]
+  %.3642 = phi i32 [ %437, %468 ], [ %437, %465 ], [ %437, %461 ], [ %437, %456 ], [ %437, %418 ], [ %.1640869, %.thread811 ]
   %474 = load i32, ptr %150, align 4
   %.not788 = icmp eq i32 %474, 0
   br i1 %.not788, label %481, label %475
 
 475:                                              ; preds = %473
-  %476 = getelementptr inbounds i8, ptr %.2682, i64 40
+  %476 = getelementptr inbounds i8, ptr %.3683, i64 40
   %477 = load double, ptr %476, align 8
   %478 = fadd double %.1613, %477
   store double %478, ptr %476, align 8
-  %479 = fadd double %.1613, %.2
-  %480 = fadd double %.5619871, %.1613
+  %479 = fadd double %.1613, %.3
+  %480 = fadd double %.6620871, %.1613
   br label %481
 
 481:                                              ; preds = %475, %473
-  %.6620 = phi double [ %480, %475 ], [ %.5619871, %473 ]
-  %.3 = phi double [ %479, %475 ], [ %.2, %473 ]
+  %.8 = phi double [ %480, %475 ], [ %.6620871, %473 ]
+  %.5 = phi double [ %479, %475 ], [ %.3, %473 ]
   br i1 %.not778, label %486, label %482
 
 482:                                              ; preds = %481
-  %483 = ptrtoint ptr %.2682 to i64
+  %483 = ptrtoint ptr %.3683 to i64
   %484 = xor i64 %483, 1
   %485 = inttoptr i64 %484 to ptr
   br label %486
 
 486:                                              ; preds = %481, %482, %347, %354, %359, %349
-  %.4724 = phi ptr [ %.2722861, %359 ], [ %.2722861, %354 ], [ %.2722861, %349 ], [ %.2722861, %347 ], [ %.3723, %482 ], [ %.3723, %481 ]
-  %.5707 = phi ptr [ %.3705, %359 ], [ %.3705, %354 ], [ %.3705, %349 ], [ %.3705, %347 ], [ %369, %482 ], [ %.3705, %481 ]
-  %.5701 = phi ptr [ %.3699, %359 ], [ %.3699, %354 ], [ %.3699, %349 ], [ %.3699, %347 ], [ %371, %482 ], [ %.3699, %481 ]
-  %.3683 = phi ptr [ %.3699, %359 ], [ %.3699, %354 ], [ %.3699, %349 ], [ %.3699, %347 ], [ %485, %482 ], [ %.2682, %481 ]
-  %.7661 = phi i32 [ %361, %359 ], [ %.4658868, %354 ], [ %.4658868, %349 ], [ %.4658868, %347 ], [ %.6660, %482 ], [ %.6660, %481 ]
-  %.2641 = phi i32 [ %.0639869, %359 ], [ %.0639869, %354 ], [ %.0639869, %349 ], [ %.0639869, %347 ], [ %.1640, %482 ], [ %.1640, %481 ]
-  %.7 = phi double [ %.5619871, %359 ], [ %.5619871, %354 ], [ %.5619871, %349 ], [ %.5619871, %347 ], [ %.6620, %482 ], [ %.6620, %481 ]
-  %.4 = phi double [ %.2, %359 ], [ %.2, %354 ], [ %.2, %349 ], [ %.2, %347 ], [ %.3, %482 ], [ %.3, %481 ]
-  %487 = icmp eq ptr %.3695, %.3691
+  %.4724 = phi ptr [ %.3723861, %359 ], [ %.3723861, %354 ], [ %.3723861, %349 ], [ %.3723861, %347 ], [ %.5725, %482 ], [ %.5725, %481 ]
+  %.4706 = phi ptr [ %.2704, %359 ], [ %.2704, %354 ], [ %.2704, %349 ], [ %.2704, %347 ], [ %369, %482 ], [ %.2704, %481 ]
+  %.4700 = phi ptr [ %.2698, %359 ], [ %.2698, %354 ], [ %.2698, %349 ], [ %.2698, %347 ], [ %371, %482 ], [ %.2698, %481 ]
+  %.1681 = phi ptr [ %.2698, %359 ], [ %.2698, %354 ], [ %.2698, %349 ], [ %.2698, %347 ], [ %485, %482 ], [ %.3683, %481 ]
+  %.6660 = phi i32 [ %361, %359 ], [ %.5659868, %354 ], [ %.5659868, %349 ], [ %.5659868, %347 ], [ %.7661, %482 ], [ %.7661, %481 ]
+  %.2641 = phi i32 [ %.1640869, %359 ], [ %.1640869, %354 ], [ %.1640869, %349 ], [ %.1640869, %347 ], [ %.3642, %482 ], [ %.3642, %481 ]
+  %.7 = phi double [ %.6620871, %359 ], [ %.6620871, %354 ], [ %.6620871, %349 ], [ %.6620871, %347 ], [ %.8, %482 ], [ %.8, %481 ]
+  %.4 = phi double [ %.3, %359 ], [ %.3, %354 ], [ %.3, %349 ], [ %.3, %347 ], [ %.5, %482 ], [ %.5, %481 ]
+  %487 = icmp eq ptr %.2694, %.2690
   br i1 %487, label %488, label %505
 
 488:                                              ; preds = %486
@@ -927,16 +927,16 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not801, label %615, label %490
 
 490:                                              ; preds = %488
-  %491 = getelementptr inbounds i8, ptr %.3691, i64 2
+  %491 = getelementptr inbounds i8, ptr %.2690, i64 2
   %492 = load i16, ptr %491, align 2
   %493 = sext i16 %492 to i32
   %494 = icmp sgt i32 %493, %1
   br i1 %494, label %495, label %615
 
 495:                                              ; preds = %490
-  %496 = getelementptr inbounds i8, ptr %.3691, i64 4
+  %496 = getelementptr inbounds i8, ptr %.2690, i64 4
   store i16 %26, ptr %496, align 4
-  %497 = getelementptr inbounds i8, ptr %.3691, i64 8
+  %497 = getelementptr inbounds i8, ptr %.2690, i64 8
   %498 = load i32, ptr %497, align 8
   %499 = load i32, ptr %144, align 4
   %.not802 = icmp eq i32 %498, %499
@@ -945,19 +945,19 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 500:                                              ; preds = %495
   store i32 %499, ptr %497, align 8
   %501 = load ptr, ptr %154, align 8
-  %502 = add nsw i32 %.7661, 1
-  %503 = sext i32 %.7661 to i64
+  %502 = add nsw i32 %.6660, 1
+  %503 = sext i32 %.6660 to i64
   %504 = getelementptr inbounds ptr, ptr %501, i64 %503
-  store ptr %.3691, ptr %504, align 8
+  store ptr %.2690, ptr %504, align 8
   br label %615
 
 505:                                              ; preds = %486
   %506 = load i32, ptr %147, align 4
   %507 = sext i32 %506 to i64
-  %508 = ptrtoint ptr %.3695 to i64
+  %508 = ptrtoint ptr %.2694 to i64
   %509 = add i64 %507, %508
   %510 = mul i64 %509, 12582917
-  %511 = ptrtoint ptr %.3691 to i64
+  %511 = ptrtoint ptr %.2690 to i64
   %512 = add i64 %510, %511
   %513 = mul i64 %512, 4256249
   %514 = load i32, ptr %151, align 8
@@ -980,13 +980,13 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %.2670855 = phi i32 [ %536, %534 ], [ %521, %.lr.ph857.preheader ]
   %523 = getelementptr inbounds i8, ptr %522, i64 8
   %524 = load ptr, ptr %523, align 8
-  %525 = icmp eq ptr %524, %.3695
+  %525 = icmp eq ptr %524, %.2694
   br i1 %525, label %526, label %534
 
 526:                                              ; preds = %.lr.ph857
   %527 = getelementptr inbounds i8, ptr %522, i64 16
   %528 = load ptr, ptr %527, align 8
-  %529 = icmp eq ptr %528, %.3691
+  %529 = icmp eq ptr %528, %.2690
   br i1 %529, label %.thread813, label %534
 
 .thread813:                                       ; preds = %526
@@ -1010,9 +1010,9 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %.lcssa829 = phi i64 [ %518, %505 ], [ %537, %534 ]
   %540 = tail call ptr @reoUnitsGetNextUnit(ptr noundef nonnull %0) #2
   %541 = getelementptr inbounds i8, ptr %540, i64 16
-  store ptr %.3695, ptr %541, align 8
+  store ptr %.2694, ptr %541, align 8
   %542 = getelementptr inbounds i8, ptr %540, i64 24
-  store ptr %.3691, ptr %542, align 8
+  store ptr %.2690, ptr %542, align 8
   %543 = getelementptr inbounds i8, ptr %540, i64 6
   store i16 0, ptr %543, align 2
   store i16 %26, ptr %540, align 8
@@ -1044,7 +1044,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %556 = load i16, ptr %555, align 2
   %557 = add i16 %556, 1
   store i16 %557, ptr %555, align 2
-  %558 = getelementptr inbounds i8, ptr %.3691, i64 6
+  %558 = getelementptr inbounds i8, ptr %.2690, i64 6
   %559 = load i16, ptr %558, align 2
   %560 = add i16 %559, 1
   store i16 %560, ptr %558, align 2
@@ -1056,10 +1056,10 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   store i32 %562, ptr %564, align 8
   %565 = load ptr, ptr %152, align 8
   %566 = getelementptr inbounds %struct._reo_hash, ptr %565, i64 %.lcssa829, i32 1
-  store ptr %.3695, ptr %566, align 8
+  store ptr %.2694, ptr %566, align 8
   %567 = load ptr, ptr %152, align 8
   %568 = getelementptr inbounds %struct._reo_hash, ptr %567, i64 %.lcssa829, i32 2
-  store ptr %.3691, ptr %568, align 8
+  store ptr %.2690, ptr %568, align 8
   %569 = load ptr, ptr %152, align 8
   %570 = getelementptr inbounds %struct._reo_hash, ptr %569, i64 %.lcssa829, i32 3
   store ptr %540, ptr %570, align 8
@@ -1092,29 +1092,29 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 585:                                              ; preds = %582
   store i32 %584, ptr %579, align 8
   %586 = load ptr, ptr %154, align 8
-  %587 = add nsw i32 %.7661, 1
-  %588 = sext i32 %.7661 to i64
+  %587 = add nsw i32 %.6660, 1
+  %588 = sext i32 %.6660 to i64
   %589 = getelementptr inbounds ptr, ptr %586, i64 %588
   store ptr %554, ptr %589, align 8
   br label %590
 
 590:                                              ; preds = %585, %582, %578, %573
-  %.8662 = phi i32 [ %587, %585 ], [ %.7661, %582 ], [ %.7661, %578 ], [ %.7661, %573 ]
-  %591 = getelementptr inbounds i8, ptr %.3691, i64 2
+  %.11665 = phi i32 [ %587, %585 ], [ %.6660, %582 ], [ %.6660, %578 ], [ %.6660, %573 ]
+  %591 = getelementptr inbounds i8, ptr %.2690, i64 2
   %592 = load i16, ptr %591, align 2
   %593 = sext i16 %592 to i32
   %594 = icmp sgt i32 %593, %1
   br i1 %594, label %595, label %607
 
 595:                                              ; preds = %590
-  %596 = getelementptr inbounds i8, ptr %.3691, i64 8
+  %596 = getelementptr inbounds i8, ptr %.2690, i64 8
   %597 = load i32, ptr %596, align 8
   %598 = load i32, ptr %144, align 4
   %.not798 = icmp eq i32 %597, %598
   br i1 %.not798, label %607, label %599
 
 599:                                              ; preds = %595
-  %600 = getelementptr inbounds i8, ptr %.3691, i64 4
+  %600 = getelementptr inbounds i8, ptr %.2690, i64 4
   store i16 %153, ptr %600, align 4
   %601 = load i32, ptr %144, align 4
   %.not799 = icmp eq i32 %597, %601
@@ -1123,23 +1123,23 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 602:                                              ; preds = %599
   store i32 %601, ptr %596, align 8
   %603 = load ptr, ptr %154, align 8
-  %604 = add nsw i32 %.8662, 1
-  %605 = sext i32 %.8662 to i64
+  %604 = add nsw i32 %.11665, 1
+  %605 = sext i32 %.11665 to i64
   %606 = getelementptr inbounds ptr, ptr %603, i64 %605
-  store ptr %.3691, ptr %606, align 8
+  store ptr %.2690, ptr %606, align 8
   br label %607
 
 607:                                              ; preds = %.thread813, %552, %602, %599, %595, %590
-  %.5725 = phi ptr [ %540, %602 ], [ %540, %599 ], [ %540, %595 ], [ %540, %590 ], [ %540, %552 ], [ %.4724, %.thread813 ]
-  %.2686 = phi ptr [ %540, %602 ], [ %540, %599 ], [ %540, %595 ], [ %540, %590 ], [ %540, %552 ], [ %531, %.thread813 ]
-  %.9663 = phi i32 [ %604, %602 ], [ %.8662, %599 ], [ %.8662, %595 ], [ %.8662, %590 ], [ %.7661, %552 ], [ %.7661, %.thread813 ]
-  %.3642 = phi i32 [ %571, %602 ], [ %571, %599 ], [ %571, %595 ], [ %571, %590 ], [ %571, %552 ], [ %.2641, %.thread813 ]
+  %.7727 = phi ptr [ %540, %602 ], [ %540, %599 ], [ %540, %595 ], [ %540, %590 ], [ %540, %552 ], [ %.4724, %.thread813 ]
+  %.3687 = phi ptr [ %540, %602 ], [ %540, %599 ], [ %540, %595 ], [ %540, %590 ], [ %540, %552 ], [ %531, %.thread813 ]
+  %.10664 = phi i32 [ %604, %602 ], [ %.11665, %599 ], [ %.11665, %595 ], [ %.11665, %590 ], [ %.6660, %552 ], [ %.6660, %.thread813 ]
+  %.5644 = phi i32 [ %571, %602 ], [ %571, %599 ], [ %571, %595 ], [ %571, %590 ], [ %571, %552 ], [ %.2641, %.thread813 ]
   %608 = load i32, ptr %150, align 4
   %.not800 = icmp eq i32 %608, 0
   br i1 %.not800, label %615, label %609
 
 609:                                              ; preds = %607
-  %610 = getelementptr inbounds i8, ptr %.2686, i64 40
+  %610 = getelementptr inbounds i8, ptr %.3687, i64 40
   %611 = load double, ptr %610, align 8
   %612 = fadd double %.1613, %611
   store double %612, ptr %610, align 8
@@ -1148,26 +1148,26 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   br label %615
 
 615:                                              ; preds = %607, %609, %488, %495, %500, %490
-  %.6726 = phi ptr [ %.4724, %500 ], [ %.4724, %495 ], [ %.4724, %490 ], [ %.4724, %488 ], [ %.5725, %609 ], [ %.5725, %607 ]
-  %.3687 = phi ptr [ %.3691, %500 ], [ %.3691, %495 ], [ %.3691, %490 ], [ %.3691, %488 ], [ %.2686, %609 ], [ %.2686, %607 ]
-  %.10664 = phi i32 [ %502, %500 ], [ %.7661, %495 ], [ %.7661, %490 ], [ %.7661, %488 ], [ %.9663, %609 ], [ %.9663, %607 ]
-  %.4643 = phi i32 [ %.2641, %500 ], [ %.2641, %495 ], [ %.2641, %490 ], [ %.2641, %488 ], [ %.3642, %609 ], [ %.3642, %607 ]
-  %.8 = phi double [ %.7, %500 ], [ %.7, %495 ], [ %.7, %490 ], [ %.7, %488 ], [ %614, %609 ], [ %.7, %607 ]
-  %.5 = phi double [ %.4, %500 ], [ %.4, %495 ], [ %.4, %490 ], [ %.4, %488 ], [ %613, %609 ], [ %.4, %607 ]
-  store ptr %.3683, ptr %245, align 8
-  store ptr %.3687, ptr %250, align 8
-  %616 = ptrtoint ptr %.3683 to i64
+  %.6726 = phi ptr [ %.4724, %500 ], [ %.4724, %495 ], [ %.4724, %490 ], [ %.4724, %488 ], [ %.7727, %609 ], [ %.7727, %607 ]
+  %.1685 = phi ptr [ %.2690, %500 ], [ %.2690, %495 ], [ %.2690, %490 ], [ %.2690, %488 ], [ %.3687, %609 ], [ %.3687, %607 ]
+  %.9663 = phi i32 [ %502, %500 ], [ %.6660, %495 ], [ %.6660, %490 ], [ %.6660, %488 ], [ %.10664, %609 ], [ %.10664, %607 ]
+  %.4643 = phi i32 [ %.2641, %500 ], [ %.2641, %495 ], [ %.2641, %490 ], [ %.2641, %488 ], [ %.5644, %609 ], [ %.5644, %607 ]
+  %.9 = phi double [ %.7, %500 ], [ %.7, %495 ], [ %.7, %490 ], [ %.7, %488 ], [ %614, %609 ], [ %.7, %607 ]
+  %.6 = phi double [ %.4, %500 ], [ %.4, %495 ], [ %.4, %490 ], [ %.4, %488 ], [ %613, %609 ], [ %.4, %607 ]
+  store ptr %.1681, ptr %245, align 8
+  store ptr %.1685, ptr %250, align 8
+  %616 = ptrtoint ptr %.1681 to i64
   %617 = and i64 %616, -2
   %618 = inttoptr i64 %617 to ptr
   %619 = getelementptr inbounds i8, ptr %618, i64 6
   %620 = load i16, ptr %619, align 2
   %621 = add i16 %620, 1
   store i16 %621, ptr %619, align 2
-  %622 = getelementptr inbounds i8, ptr %.3687, i64 6
+  %622 = getelementptr inbounds i8, ptr %.1685, i64 6
   %623 = load i16, ptr %622, align 2
   %624 = add i16 %623, 1
   store i16 %624, ptr %622, align 2
-  store ptr %.0716862, ptr %243, align 8
+  store ptr %.1717862, ptr %243, align 8
   %625 = load i32, ptr %150, align 4
   %.not803 = icmp eq i32 %625, 0
   br i1 %.not803, label %630, label %626
@@ -1175,21 +1175,21 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 626:                                              ; preds = %615
   %627 = getelementptr inbounds i8, ptr %.1674867, i64 40
   %628 = load double, ptr %627, align 8
-  %629 = fadd double %.2623870, %628
+  %629 = fadd double %.3624870, %628
   br label %630
 
 630:                                              ; preds = %626, %615
-  %.3624 = phi double [ %629, %626 ], [ %.2623870, %615 ]
+  %.4625 = phi double [ %629, %626 ], [ %.3624870, %615 ]
   %.not763 = icmp eq ptr %244, null
   br i1 %.not763, label %.preheader820, label %241, !llvm.loop !13
 
 631:                                              ; preds = %.lr.ph889, %697
-  %.4625888 = phi double [ %.2623.lcssa, %.lr.ph889 ], [ %.6627, %697 ]
-  %.0645887 = phi i32 [ 0, %.lr.ph889 ], [ %.1646, %697 ]
-  %.0648886 = phi i32 [ 0, %.lr.ph889 ], [ %.1649, %697 ]
-  %.11665885 = phi i32 [ %.4658.lcssa, %.lr.ph889 ], [ %.13, %697 ]
+  %.5626888 = phi double [ %.3624.lcssa, %.lr.ph889 ], [ %.7628, %697 ]
+  %.1646887 = phi i32 [ 0, %.lr.ph889 ], [ %.2647, %697 ]
+  %.1649886 = phi i32 [ 0, %.lr.ph889 ], [ %.2650, %697 ]
+  %.12885 = phi i32 [ %.5659.lcssa, %.lr.ph889 ], [ %.14, %697 ]
   %.2675884 = phi ptr [ %14, %.lr.ph889 ], [ %633, %697 ]
-  %.1717883 = phi ptr [ %.0716.lcssa, %.lr.ph889 ], [ %.2718, %697 ]
+  %.2718883 = phi ptr [ %.1717.lcssa, %.lr.ph889 ], [ %.3719, %697 ]
   %632 = getelementptr inbounds i8, ptr %.2675884, i64 32
   %633 = load ptr, ptr %632, align 8
   %634 = getelementptr inbounds i8, ptr %.2675884, i64 6
@@ -1199,7 +1199,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 
 636:                                              ; preds = %631
   store i16 %240, ptr %.2675884, align 8
-  store ptr %.1717883, ptr %632, align 8
+  store ptr %.2718883, ptr %632, align 8
   %637 = load i32, ptr %150, align 4
   %.not769 = icmp eq i32 %637, 0
   br i1 %.not769, label %642, label %638
@@ -1207,12 +1207,12 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 638:                                              ; preds = %636
   %639 = getelementptr inbounds i8, ptr %.2675884, i64 40
   %640 = load double, ptr %639, align 8
-  %641 = fadd double %.4625888, %640
+  %641 = fadd double %.5626888, %640
   br label %642
 
 642:                                              ; preds = %638, %636
-  %.5626 = phi double [ %641, %638 ], [ %.4625888, %636 ]
-  %643 = add nsw i32 %.0648886, 1
+  %.6627 = phi double [ %641, %638 ], [ %.5626888, %636 ]
+  %643 = add nsw i32 %.1649886, 1
   %644 = load i32, ptr %0, align 8
   %.not770 = icmp eq i32 %644, 0
   br i1 %.not770, label %697, label %645
@@ -1243,14 +1243,14 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 662:                                              ; preds = %657
   store i32 %661, ptr %659, align 8
   %663 = load ptr, ptr %154, align 8
-  %664 = add nsw i32 %.11665885, 1
-  %665 = sext i32 %.11665885 to i64
+  %664 = add nsw i32 %.12885, 1
+  %665 = sext i32 %.12885 to i64
   %666 = getelementptr inbounds ptr, ptr %663, i64 %665
   store ptr %650, ptr %666, align 8
   br label %667
 
 667:                                              ; preds = %657, %662, %645
-  %.12 = phi i32 [ %664, %662 ], [ %.11665885, %657 ], [ %.11665885, %645 ]
+  %.13 = phi i32 [ %664, %662 ], [ %.12885, %657 ], [ %.12885, %645 ]
   %668 = getelementptr inbounds i8, ptr %652, i64 2
   %669 = load i16, ptr %668, align 2
   %670 = sext i16 %669 to i32
@@ -1269,8 +1269,8 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
 677:                                              ; preds = %672
   store i32 %676, ptr %674, align 8
   %678 = load ptr, ptr %154, align 8
-  %679 = add nsw i32 %.12, 1
-  %680 = sext i32 %.12 to i64
+  %679 = add nsw i32 %.13, 1
+  %680 = sext i32 %.13 to i64
   %681 = getelementptr inbounds ptr, ptr %678, i64 %680
   store ptr %652, ptr %681, align 8
   br label %697
@@ -1292,36 +1292,36 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %695 = add i16 %694, -1
   store i16 %695, ptr %693, align 2
   tail call void @reoUnitsRecycleUnit(ptr noundef %0, ptr noundef nonnull %.2675884) #2
-  %696 = add nsw i32 %.0645887, 1
+  %696 = add nsw i32 %.1646887, 1
   br label %697
 
 697:                                              ; preds = %642, %672, %677, %667, %682
-  %.2718 = phi ptr [ %.2675884, %677 ], [ %.2675884, %672 ], [ %.2675884, %667 ], [ %.2675884, %642 ], [ %.1717883, %682 ]
-  %.13 = phi i32 [ %679, %677 ], [ %.12, %672 ], [ %.12, %667 ], [ %.11665885, %642 ], [ %.11665885, %682 ]
-  %.1649 = phi i32 [ %643, %677 ], [ %643, %672 ], [ %643, %667 ], [ %643, %642 ], [ %.0648886, %682 ]
-  %.1646 = phi i32 [ %.0645887, %677 ], [ %.0645887, %672 ], [ %.0645887, %667 ], [ %.0645887, %642 ], [ %696, %682 ]
-  %.6627 = phi double [ %.5626, %677 ], [ %.5626, %672 ], [ %.5626, %667 ], [ %.5626, %642 ], [ %.4625888, %682 ]
+  %.3719 = phi ptr [ %.2675884, %677 ], [ %.2675884, %672 ], [ %.2675884, %667 ], [ %.2675884, %642 ], [ %.2718883, %682 ]
+  %.14 = phi i32 [ %679, %677 ], [ %.13, %672 ], [ %.13, %667 ], [ %.12885, %642 ], [ %.12885, %682 ]
+  %.2650 = phi i32 [ %643, %677 ], [ %643, %672 ], [ %643, %667 ], [ %643, %642 ], [ %.1649886, %682 ]
+  %.2647 = phi i32 [ %.1646887, %677 ], [ %.1646887, %672 ], [ %.1646887, %667 ], [ %.1646887, %642 ], [ %696, %682 ]
+  %.7628 = phi double [ %.6627, %677 ], [ %.6627, %672 ], [ %.6627, %667 ], [ %.6627, %642 ], [ %.5626888, %682 ]
   %.not764 = icmp eq ptr %633, null
   br i1 %.not764, label %.loopexit821, label %631, !llvm.loop !14
 
 .loopexit821:                                     ; preds = %697, %.preheader820, %138
-  %.7727 = phi ptr [ %13, %138 ], [ %.2722.lcssa, %.preheader820 ], [ %.2722.lcssa, %697 ]
-  %.3719 = phi ptr [ %14, %138 ], [ %.0716.lcssa, %.preheader820 ], [ %.2718, %697 ]
-  %.14 = phi i32 [ %.0654, %138 ], [ %.4658.lcssa, %.preheader820 ], [ %.13, %697 ]
-  %.2653 = phi i32 [ %140, %138 ], [ %.1652, %.preheader820 ], [ %.1652, %697 ]
-  %.2650 = phi i32 [ %142, %138 ], [ 0, %.preheader820 ], [ %.1649, %697 ]
-  %.2647 = phi i32 [ 0, %138 ], [ 0, %.preheader820 ], [ %.1646, %697 ]
-  %.5644 = phi i32 [ 0, %138 ], [ %.0639.lcssa, %.preheader820 ], [ %.0639.lcssa, %697 ]
+  %.0720 = phi ptr [ %13, %138 ], [ %.3723.lcssa, %.preheader820 ], [ %.3723.lcssa, %697 ]
+  %.0716 = phi ptr [ %14, %138 ], [ %.1717.lcssa, %.preheader820 ], [ %.3719, %697 ]
+  %.1655 = phi i32 [ %.0654, %138 ], [ %.5659.lcssa, %.preheader820 ], [ %.14, %697 ]
+  %.0651 = phi i32 [ %140, %138 ], [ %.2653, %.preheader820 ], [ %.2653, %697 ]
+  %.0648 = phi i32 [ %142, %138 ], [ 0, %.preheader820 ], [ %.2650, %697 ]
+  %.0645 = phi i32 [ 0, %138 ], [ 0, %.preheader820 ], [ %.2647, %697 ]
+  %.0639 = phi i32 [ 0, %138 ], [ %.1640.lcssa, %.preheader820 ], [ %.1640.lcssa, %697 ]
   %.9638 = phi i32 [ %.8637, %138 ], [ 0, %.preheader820 ], [ 0, %697 ]
-  %.7628 = phi double [ %.1622, %138 ], [ %.2623.lcssa, %.preheader820 ], [ %.6627, %697 ]
-  %.9 = phi double [ %.1615, %138 ], [ %.5619.lcssa, %.preheader820 ], [ %.5619.lcssa, %697 ]
-  %.6 = phi double [ %.0610, %138 ], [ %.1.lcssa, %.preheader820 ], [ %.1.lcssa, %697 ]
+  %.2623 = phi double [ %.1622, %138 ], [ %.3624.lcssa, %.preheader820 ], [ %.7628, %697 ]
+  %.2616 = phi double [ %.1615, %138 ], [ %.6620.lcssa, %.preheader820 ], [ %.6620.lcssa, %697 ]
+  %.1 = phi double [ %.0610, %138 ], [ %.2.lcssa, %.preheader820 ], [ %.2.lcssa, %697 ]
   %698 = load ptr, ptr %6, align 8
   %699 = getelementptr inbounds %struct._reo_plane, ptr %698, i64 %8, i32 7
-  store ptr %.3719, ptr %699, align 8
+  store ptr %.0716, ptr %699, align 8
   %700 = load ptr, ptr %6, align 8
   %701 = getelementptr inbounds %struct._reo_plane, ptr %700, i64 %11, i32 7
-  store ptr %.7727, ptr %701, align 8
+  store ptr %.0720, ptr %701, align 8
   %702 = load ptr, ptr %6, align 8
   %703 = getelementptr inbounds %struct._reo_plane, ptr %702, i64 %8
   %704 = load i32, ptr %703, align 8
@@ -1348,21 +1348,21 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   br label %718
 
 718:                                              ; preds = %711, %.loopexit821
-  %.neg = sub i32 %.2650, %.2653
+  %.neg = sub i32 %.0648, %.0651
   %719 = load ptr, ptr %6, align 8
   %720 = getelementptr inbounds %struct._reo_plane, ptr %719, i64 %8, i32 1
   %721 = load i32, ptr %720, align 4
   %722 = add i32 %.neg, %721
   store i32 %722, ptr %720, align 4
-  %723 = add i32 %.2650, %.2647
-  %724 = add i32 %.2653, %.5644
+  %723 = add i32 %.0648, %.0645
+  %724 = add i32 %.0651, %.0639
   %725 = sub i32 %723, %724
   %726 = load ptr, ptr %6, align 8
   %727 = getelementptr inbounds %struct._reo_plane, ptr %726, i64 %11, i32 1
   %728 = load i32, ptr %727, align 4
   %729 = sub nsw i32 %728, %725
   store i32 %729, ptr %727, align 4
-  %730 = sub nsw i32 %.2647, %.5644
+  %730 = sub nsw i32 %.0645, %.0639
   %731 = getelementptr inbounds i8, ptr %0, i64 100
   %732 = load i32, ptr %731, align 4
   %733 = sub nsw i32 %732, %730
@@ -1372,12 +1372,12 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not766, label %765, label %.preheader
 
 .preheader:                                       ; preds = %718
-  %735 = icmp sgt i32 %.14, 0
+  %735 = icmp sgt i32 %.1655, 0
   br i1 %735, label %.lr.ph910, label %._crit_edge911
 
 .lr.ph910:                                        ; preds = %.preheader
   %736 = getelementptr inbounds i8, ptr %0, i64 88
-  %wide.trip.count = zext nneg i32 %.14 to i64
+  %wide.trip.count = zext nneg i32 %.1655 to i64
   br label %737
 
 737:                                              ; preds = %.lr.ph910, %749
@@ -1439,12 +1439,12 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not767, label %783, label %769
 
 769:                                              ; preds = %765
-  %770 = fsub double %.0610, %.6
+  %770 = fsub double %.0610, %.1
   %771 = getelementptr inbounds %struct._reo_plane, ptr %768, i64 %8, i32 3
-  store double %.7628, ptr %771, align 8
+  store double %.2623, ptr %771, align 8
   %772 = load ptr, ptr %6, align 8
   %773 = getelementptr inbounds %struct._reo_plane, ptr %772, i64 %11, i32 3
-  store double %.9, ptr %773, align 8
+  store double %.2616, ptr %773, align 8
   %774 = load ptr, ptr %6, align 8
   %775 = getelementptr inbounds %struct._reo_plane, ptr %774, i64 %8
   %776 = getelementptr inbounds i8, ptr %775, i64 16

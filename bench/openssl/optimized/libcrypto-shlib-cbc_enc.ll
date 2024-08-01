@@ -102,26 +102,26 @@ sw.bb95:                                          ; preds = %if.then90
 
 sw.bb100:                                         ; preds = %sw.bb95, %if.then90
   %in.addr.2 = phi ptr [ %add.ptr, %if.then90 ], [ %incdec.ptr96, %sw.bb95 ]
-  %tin1.1 = phi i32 [ 0, %if.then90 ], [ %shl98, %sw.bb95 ]
+  %tin1.2 = phi i32 [ 0, %if.then90 ], [ %shl98, %sw.bb95 ]
   %incdec.ptr101 = getelementptr inbounds i8, ptr %in.addr.2, i64 -1
   %7 = load i8, ptr %incdec.ptr101, align 1
   %conv102 = zext i8 %7 to i32
   %shl103 = shl nuw nsw i32 %conv102, 8
-  %or104 = or disjoint i32 %shl103, %tin1.1
+  %or104 = or disjoint i32 %shl103, %tin1.2
   br label %sw.bb105
 
 sw.bb105:                                         ; preds = %sw.bb100, %if.then90
   %in.addr.3 = phi ptr [ %add.ptr, %if.then90 ], [ %incdec.ptr101, %sw.bb100 ]
-  %tin1.2 = phi i32 [ 0, %if.then90 ], [ %or104, %sw.bb100 ]
+  %tin1.3 = phi i32 [ 0, %if.then90 ], [ %or104, %sw.bb100 ]
   %incdec.ptr106 = getelementptr inbounds i8, ptr %in.addr.3, i64 -1
   %8 = load i8, ptr %incdec.ptr106, align 1
   %conv107 = zext i8 %8 to i32
-  %or108 = or i32 %tin1.2, %conv107
+  %or108 = or i32 %tin1.3, %conv107
   br label %sw.bb109
 
 sw.bb109:                                         ; preds = %sw.bb105, %if.then90
   %in.addr.4 = phi ptr [ %add.ptr, %if.then90 ], [ %incdec.ptr106, %sw.bb105 ]
-  %tin1.3 = phi i32 [ 0, %if.then90 ], [ %or108, %sw.bb105 ]
+  %tin1.4 = phi i32 [ 0, %if.then90 ], [ %or108, %sw.bb105 ]
   %incdec.ptr110 = getelementptr inbounds i8, ptr %in.addr.4, i64 -1
   %9 = load i8, ptr %incdec.ptr110, align 1
   %conv111 = zext i8 %9 to i32
@@ -130,42 +130,42 @@ sw.bb109:                                         ; preds = %sw.bb105, %if.then9
 
 sw.bb113:                                         ; preds = %sw.bb109, %if.then90
   %in.addr.5 = phi ptr [ %add.ptr, %if.then90 ], [ %incdec.ptr110, %sw.bb109 ]
-  %tin0.0 = phi i32 [ 0, %if.then90 ], [ %shl112, %sw.bb109 ]
-  %tin1.4 = phi i32 [ 0, %if.then90 ], [ %tin1.3, %sw.bb109 ]
+  %tin0.1 = phi i32 [ 0, %if.then90 ], [ %shl112, %sw.bb109 ]
+  %tin1.5 = phi i32 [ 0, %if.then90 ], [ %tin1.4, %sw.bb109 ]
   %incdec.ptr114 = getelementptr inbounds i8, ptr %in.addr.5, i64 -1
   %10 = load i8, ptr %incdec.ptr114, align 1
   %conv115 = zext i8 %10 to i32
   %shl116 = shl nuw nsw i32 %conv115, 16
-  %or117 = or disjoint i32 %shl116, %tin0.0
+  %or117 = or disjoint i32 %shl116, %tin0.1
   br label %sw.bb118
 
 sw.bb118:                                         ; preds = %sw.bb113, %if.then90
   %in.addr.6 = phi ptr [ %add.ptr, %if.then90 ], [ %incdec.ptr114, %sw.bb113 ]
-  %tin0.1 = phi i32 [ 0, %if.then90 ], [ %or117, %sw.bb113 ]
-  %tin1.5 = phi i32 [ 0, %if.then90 ], [ %tin1.4, %sw.bb113 ]
+  %tin0.2 = phi i32 [ 0, %if.then90 ], [ %or117, %sw.bb113 ]
+  %tin1.6 = phi i32 [ 0, %if.then90 ], [ %tin1.5, %sw.bb113 ]
   %incdec.ptr119 = getelementptr inbounds i8, ptr %in.addr.6, i64 -1
   %11 = load i8, ptr %incdec.ptr119, align 1
   %conv120 = zext i8 %11 to i32
   %shl121 = shl nuw nsw i32 %conv120, 8
-  %or122 = or i32 %shl121, %tin0.1
+  %or122 = or i32 %shl121, %tin0.2
   br label %sw.bb123
 
 sw.bb123:                                         ; preds = %if.then90, %sw.bb118
   %in.addr.7 = phi ptr [ %add.ptr, %if.then90 ], [ %incdec.ptr119, %sw.bb118 ]
-  %tin0.2 = phi i32 [ 0, %if.then90 ], [ %or122, %sw.bb118 ]
-  %tin1.6 = phi i32 [ 0, %if.then90 ], [ %tin1.5, %sw.bb118 ]
+  %tin0.3 = phi i32 [ 0, %if.then90 ], [ %or122, %sw.bb118 ]
+  %tin1.7 = phi i32 [ 0, %if.then90 ], [ %tin1.6, %sw.bb118 ]
   %incdec.ptr124 = getelementptr inbounds i8, ptr %in.addr.7, i64 -1
   %12 = load i8, ptr %incdec.ptr124, align 1
   %conv125 = zext i8 %12 to i32
-  %or126 = or i32 %tin0.2, %conv125
+  %or126 = or i32 %tin0.3, %conv125
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb123, %if.then90
-  %tin0.3 = phi i32 [ 0, %if.then90 ], [ %or126, %sw.bb123 ]
-  %tin1.7 = phi i32 [ 0, %if.then90 ], [ %tin1.6, %sw.bb123 ]
-  %xor127 = xor i32 %tin0.3, %tout0.0.lcssa
+  %tin0.0 = phi i32 [ 0, %if.then90 ], [ %or126, %sw.bb123 ]
+  %tin1.0 = phi i32 [ 0, %if.then90 ], [ %tin1.7, %sw.bb123 ]
+  %xor127 = xor i32 %tin0.0, %tout0.0.lcssa
   store i32 %xor127, ptr %tin, align 8
-  %xor129 = xor i32 %tin1.7, %tout1.0.lcssa
+  %xor129 = xor i32 %tin1.0, %tout1.0.lcssa
   %arrayidx130 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor129, ptr %arrayidx130, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %_schedule, i32 noundef 1) #2

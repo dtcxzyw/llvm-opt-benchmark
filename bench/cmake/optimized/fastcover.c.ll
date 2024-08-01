@@ -597,7 +597,7 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef read
   %.sroa.049.sroa.0.07.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.049.sroa.0.1.i, %71 ]
   %.sroa.049.sroa.4.06.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.049.sroa.4.1.i, %71 ]
   %.sroa.6.05.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.6.1.i, %71 ]
-  %.sroa.16.04.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.16.3.i, %71 ]
+  %.sroa.16.04.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.16.2.i, %71 ]
   %.sroa.011.02.i = phi i32 [ %28, %.lr.ph.i ], [ %.sroa.011.1.i, %71 ]
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv.i
@@ -646,15 +646,15 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef read
   br label %69
 
 69:                                               ; preds = %65, %55
-  %.sroa.16.2.i = phi i32 [ %68, %65 ], [ %.sroa.16.1.i, %55 ]
+  %.sroa.16.3.i = phi i32 [ %68, %65 ], [ %.sroa.16.1.i, %55 ]
   %70 = add i32 %.sroa.011.02.i, 1
   br label %71
 
 71:                                               ; preds = %69, %51
   %.sroa.011.1.i = phi i32 [ %70, %69 ], [ %.sroa.011.02.i, %51 ]
-  %.sroa.16.3.i = phi i32 [ %.sroa.16.2.i, %69 ], [ %.sroa.16.1.i, %51 ]
-  %72 = icmp ugt i32 %.sroa.16.3.i, %.sroa.6.05.i
-  %.sroa.6.1.i = tail call i32 @llvm.umax.i32(i32 %.sroa.16.3.i, i32 %.sroa.6.05.i)
+  %.sroa.16.2.i = phi i32 [ %.sroa.16.3.i, %69 ], [ %.sroa.16.1.i, %51 ]
+  %72 = icmp ugt i32 %.sroa.16.2.i, %.sroa.6.05.i
+  %.sroa.6.1.i = tail call i32 @llvm.umax.i32(i32 %.sroa.16.2.i, i32 %.sroa.6.05.i)
   %.sroa.049.sroa.4.1.i = select i1 %72, i32 %indvars.i, i32 %.sroa.049.sroa.4.06.i
   %.sroa.049.sroa.0.1.i = select i1 %72, i32 %.sroa.011.1.i, i32 %.sroa.049.sroa.0.07.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

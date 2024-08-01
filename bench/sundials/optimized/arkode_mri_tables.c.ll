@@ -5150,7 +5150,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr nocapture noundef
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %.02025 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %13 ]
+  %.125 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %13 ]
   %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %10
@@ -5158,7 +5158,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr nocapture noundef
   %18 = getelementptr inbounds double, ptr %17, i64 %10
   %19 = load double, ptr %18, align 8
   %20 = tail call double @llvm.fabs.f64(double %19)
-  %21 = fadd double %.02025, %20
+  %21 = fadd double %.125, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %13
@@ -5256,20 +5256,20 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly %
 
 .preheader65.us:                                  ; preds = %.preheader65.us.preheader, %._crit_edge.us
   %indvars.iv90 = phi i64 [ 0, %.preheader65.us.preheader ], [ %indvars.iv.next91, %._crit_edge.us ]
-  %.04872.us = phi double [ 0.000000e+00, %.preheader65.us.preheader ], [ %32, %._crit_edge.us ]
+  %.14972.us = phi double [ 0.000000e+00, %.preheader65.us.preheader ], [ %32, %._crit_edge.us ]
   %24 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv90
   %25 = load ptr, ptr %24, align 8
   br label %26
 
 26:                                               ; preds = %.preheader65.us, %26
   %indvars.iv = phi i64 [ 0, %.preheader65.us ], [ %indvars.iv.next, %26 ]
-  %.14970.us = phi double [ %.04872.us, %.preheader65.us ], [ %32, %26 ]
+  %.25070.us = phi double [ %.14972.us, %.preheader65.us ], [ %32, %26 ]
   %27 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds double, ptr %28, i64 %indvars.iv105
   %30 = load double, ptr %29, align 8
   %31 = tail call double @llvm.fabs.f64(double %30)
-  %32 = fadd double %.14970.us, %31
+  %32 = fadd double %.25070.us, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %26
@@ -5280,7 +5280,7 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly %
   br i1 %exitcond94.not, label %.loopexit68, label %.preheader65.us
 
 .loopexit68:                                      ; preds = %._crit_edge.us, %.preheader67, %18
-  %.250 = phi double [ 0.000000e+00, %18 ], [ 0.000000e+00, %.preheader67 ], [ %32, %._crit_edge.us ]
+  %.048 = phi double [ 0.000000e+00, %18 ], [ 0.000000e+00, %.preheader67 ], [ %32, %._crit_edge.us ]
   %33 = load ptr, ptr %17, align 8
   %.not64 = icmp eq ptr %33, null
   br i1 %.not64, label %.loopexit, label %.preheader66
@@ -5299,20 +5299,20 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly %
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us79
   %indvars.iv100 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next101, %._crit_edge.us79 ]
-  %.04777.us = phi double [ 0.000000e+00, %.preheader.us.preheader ], [ %45, %._crit_edge.us79 ]
+  %.177.us = phi double [ 0.000000e+00, %.preheader.us.preheader ], [ %45, %._crit_edge.us79 ]
   %37 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv100
   %38 = load ptr, ptr %37, align 8
   br label %39
 
 39:                                               ; preds = %.preheader.us, %39
   %indvars.iv95 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next96, %39 ]
-  %.175.us = phi double [ %.04777.us, %.preheader.us ], [ %45, %39 ]
+  %.275.us = phi double [ %.177.us, %.preheader.us ], [ %45, %39 ]
   %40 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv95
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds double, ptr %41, i64 %indvars.iv105
   %43 = load double, ptr %42, align 8
   %44 = tail call double @llvm.fabs.f64(double %43)
-  %45 = fadd double %.175.us, %44
+  %45 = fadd double %.275.us, %44
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %._crit_edge.us79, label %39
@@ -5323,9 +5323,9 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly %
   br i1 %exitcond104.not, label %.loopexit, label %.preheader.us
 
 .loopexit:                                        ; preds = %._crit_edge.us79, %.preheader66, %.loopexit68
-  %.2 = phi double [ 0.000000e+00, %.loopexit68 ], [ 0.000000e+00, %.preheader66 ], [ %45, %._crit_edge.us79 ]
-  %46 = fcmp ogt double %.250, 0x3D19000000000000
-  %47 = fcmp ogt double %.2, 0x3D19000000000000
+  %.047 = phi double [ 0.000000e+00, %.loopexit68 ], [ 0.000000e+00, %.preheader66 ], [ %45, %._crit_edge.us79 ]
+  %46 = fcmp ogt double %.048, 0x3D19000000000000
+  %47 = fcmp ogt double %.047, 0x3D19000000000000
   %or.cond3 = select i1 %46, i1 true, i1 %47
   %spec.select = select i1 %or.cond3, i32 %.05185, i32 -1
   %48 = zext i1 %or.cond3 to i32

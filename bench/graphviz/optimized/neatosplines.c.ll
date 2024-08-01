@@ -949,9 +949,9 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
-  %.03950 = phi i32 [ -1111, %.lr.ph.preheader ], [ %.1, %33 ]
-  %.04049 = phi i32 [ -1111, %.lr.ph.preheader ], [ %.141, %33 ]
-  %14 = icmp eq i32 %.03950, -1111
+  %.150 = phi i32 [ -1111, %.lr.ph.preheader ], [ %.2, %33 ]
+  %.14149 = phi i32 [ -1111, %.lr.ph.preheader ], [ %.242, %33 ]
+  %14 = icmp eq i32 %.150, -1111
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %.lr.ph
@@ -966,8 +966,8 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   br label %23
 
 23:                                               ; preds = %15, %.lr.ph
-  %.1 = phi i32 [ %.03950, %.lr.ph ], [ %spec.select, %15 ]
-  %24 = icmp eq i32 %.04049, -1111
+  %.2 = phi i32 [ %.150, %.lr.ph ], [ %spec.select, %15 ]
+  %24 = icmp eq i32 %.14149, -1111
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %23
@@ -982,19 +982,19 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   br label %33
 
 33:                                               ; preds = %25, %23
-  %.141 = phi i32 [ %.04049, %23 ], [ %spec.select47, %25 ]
+  %.242 = phi i32 [ %.14149, %23 ], [ %spec.select47, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph
 
 .loopexit.loopexit:                               ; preds = %33
-  %34 = zext i32 %.141 to i64
-  %35 = zext i32 %.1 to i64
+  %34 = zext i32 %.242 to i64
+  %35 = zext i32 %.2 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %.242 = phi i64 [ 4294966185, %4 ], [ %34, %.loopexit.loopexit ]
-  %.2 = phi i64 [ 4294966185, %4 ], [ %35, %.loopexit.loopexit ]
+  %.040 = phi i64 [ 4294966185, %4 ], [ %34, %.loopexit.loopexit ]
+  %.039 = phi i64 [ 4294966185, %4 ], [ %35, %.loopexit.loopexit ]
   br i1 %13, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %.loopexit
@@ -1008,8 +1008,8 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
 .lr.ph.i:                                         ; preds = %45, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %45 ]
   %.04250.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.143.i, %45 ]
-  %37 = icmp eq i64 %indvars.iv.i, %.2
-  %38 = icmp eq i64 %indvars.iv.i, %.242
+  %37 = icmp eq i64 %indvars.iv.i, %.039
+  %38 = icmp eq i64 %indvars.iv.i, %.040
   %or.cond.i = or i1 %37, %38
   br i1 %or.cond.i, label %45, label %39
 
@@ -1034,9 +1034,9 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
 
 .lr.ph59.i:                                       ; preds = %.loopexit.i, %.lr.ph59.preheader.i
   %indvars.iv69.i = phi i64 [ 0, %.lr.ph59.preheader.i ], [ %indvars.iv.next70.i, %.loopexit.i ]
-  %.04056.i = phi i32 [ 0, %.lr.ph59.preheader.i ], [ %.2.i, %.loopexit.i ]
-  %48 = icmp eq i64 %indvars.iv69.i, %.2
-  %49 = icmp eq i64 %indvars.iv69.i, %.242
+  %.04056.i = phi i32 [ 0, %.lr.ph59.preheader.i ], [ %.141.i, %.loopexit.i ]
+  %48 = icmp eq i64 %indvars.iv69.i, %.039
+  %49 = icmp eq i64 %indvars.iv69.i, %.040
   %or.cond49.i = or i1 %48, %49
   br i1 %or.cond49.i, label %.loopexit.i, label %.preheader.i
 
@@ -1075,7 +1075,7 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.preheader.i, %.lr.ph59.i
-  %.2.i = phi i32 [ %.04056.i, %.lr.ph59.i ], [ %.04056.i, %.preheader.i ], [ %62, %.loopexit.loopexit.i ]
+  %.141.i = phi i32 [ %.04056.i, %.lr.ph59.i ], [ %.04056.i, %.preheader.i ], [ %62, %.loopexit.loopexit.i ]
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count.i
   br i1 %exitcond73.not.i, label %make_barriers.exit, label %.lr.ph59.i

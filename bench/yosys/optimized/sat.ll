@@ -29717,7 +29717,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 192:                                              ; preds = %.lr.ph201, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next, %.critedge ]
-  %.sroa.1.1198 = phi ptr [ null, %.lr.ph201 ], [ %.sroa.1.2, %.critedge ]
+  %.sroa.1.1198 = phi ptr [ null, %.lr.ph201 ], [ %.sroa.1.3, %.critedge ]
   %.sroa.8.1197 = phi ptr [ null, %.lr.ph201 ], [ %.sroa.8.2, %.critedge ]
   %.sroa.13.1196 = phi ptr [ null, %.lr.ph201 ], [ %.sroa.13.2, %.critedge ]
   %193 = load i32, ptr %191, align 4
@@ -29817,7 +29817,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %218
   %.sroa.13.2 = phi ptr [ %236, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.13.1196, %218 ]
   %.pn145 = phi ptr [ %232, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.8.1197, %218 ]
-  %.sroa.1.2 = phi ptr [ %231, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.1.1198, %218 ]
+  %.sroa.1.3 = phi ptr [ %231, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.1.1198, %218 ]
   %.sroa.8.2 = getelementptr inbounds i8, ptr %.pn145, i64 1
   %237 = load i8, ptr %183, align 2
   %238 = trunc i8 %237 to i1
@@ -29883,21 +29883,21 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %260, %224, %206
-  %.sroa.1.3.ph.ph = phi ptr [ %.sroa.1.1198, %224 ], [ %.sroa.1.2, %260 ], [ %.sroa.1.1198, %206 ]
+  %.sroa.1.2.ph.ph = phi ptr [ %.sroa.1.1198, %224 ], [ %.sroa.1.3, %260 ], [ %.sroa.1.1198, %206 ]
   %lpad.loopexit.split-lp148 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %.sroa.1.3 = phi ptr [ %.sroa.1.1198, %.loopexit ], [ %.sroa.1.1.lcssa, %.loopexit.split-lp.loopexit ], [ %.sroa.1.3.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.1.2 = phi ptr [ %.sroa.1.1198, %.loopexit ], [ %.sroa.1.1.lcssa, %.loopexit.split-lp.loopexit ], [ %.sroa.1.2.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit147, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp148, %.loopexit.split-lp.loopexit.split-lp ]
-  %.not.i.i.i.i101 = icmp eq ptr %.sroa.1.3, null
+  %.not.i.i.i.i101 = icmp eq ptr %.sroa.1.2, null
   br i1 %.not.i.i.i.i101, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %271
 
 271:                                              ; preds = %.thread134, %.loopexit.split-lp
   %272 = phi { ptr, i32 } [ %295, %.thread134 ], [ %lpad.phi, %.loopexit.split-lp ]
-  %.sroa.1.3137 = phi ptr [ %.sroa.1.1.lcssa, %.thread134 ], [ %.sroa.1.3, %.loopexit.split-lp ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.1.3137) #25
+  %.sroa.1.2137 = phi ptr [ %.sroa.1.1.lcssa, %.thread134 ], [ %.sroa.1.2, %.loopexit.split-lp ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.1.2137) #25
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 .critedge:                                        ; preds = %261, %270, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit
@@ -29908,7 +29908,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
   br i1 %275, label %192, label %._crit_edge202, !llvm.loop !207
 
 ._crit_edge202:                                   ; preds = %.critedge, %186
-  %.sroa.1.1.lcssa = phi ptr [ null, %186 ], [ %.sroa.1.2, %.critedge ]
+  %.sroa.1.1.lcssa = phi ptr [ null, %186 ], [ %.sroa.1.3, %.critedge ]
   %.lcssa = phi i32 [ %189, %186 ], [ %273, %.critedge ]
   %276 = load i32, ptr %187, align 8
   %.not73 = icmp eq i32 %276, %.068211

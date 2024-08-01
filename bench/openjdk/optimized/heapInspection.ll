@@ -304,7 +304,7 @@ define hidden noundef i32 @_ZN14KlassInfoEntry7compareEPS_S0_(ptr nocapture nonn
   br label %37
 
 37:                                               ; preds = %34, %11, %35
-  %.0 = phi i32 [ %36, %35 ], [ -1, %11 ], [ 1, %34 ]
+  %.1 = phi i32 [ %36, %35 ], [ -1, %11 ], [ 1, %34 ]
   %38 = load ptr, ptr %17, align 8
   %.not.i.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i, label %40, label %39
@@ -326,8 +326,8 @@ define hidden noundef i32 @_ZN14KlassInfoEntry7compareEPS_S0_(ptr nocapture nonn
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %42, %40, %9, %3
-  %.1 = phi i32 [ -1, %3 ], [ 1, %9 ], [ %.0, %40 ], [ %.0, %42 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %3 ], [ 1, %9 ], [ %.1, %40 ], [ %.1, %42 ]
+  ret i32 %.0
 }
 
 declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #1

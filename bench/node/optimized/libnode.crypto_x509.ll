@@ -4313,10 +4313,10 @@ _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5reset
 
 if.end15:                                         ; preds = %cond.end, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit
   %call42531 = phi ptr [ %call424, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit ], [ %call4, %cond.end ]
-  %cert.sroa.0.0 = phi ptr [ %call12, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit ], [ %call2, %cond.end ]
+  %cert.sroa.0.1 = phi ptr [ %call12, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit ], [ %call2, %cond.end ]
   %call17 = tail call i32 @OPENSSL_sk_num(ptr noundef %call42531) #17
   %tobool18.not.not = icmp eq i32 %call17, 0
-  %2 = ptrtoint ptr %cert.sroa.0.0 to i64
+  %2 = ptrtoint ptr %cert.sroa.0.1 to i64
   br i1 %tobool18.not.not, label %cleanup.action, label %cleanup.action34
 
 cleanup.action:                                   ; preds = %if.end15
@@ -4335,14 +4335,14 @@ cleanup.action34:                                 ; preds = %if.end15
 
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit14.sink.split: ; preds = %cleanup.action34, %cleanup.action
   %.sink = phi ptr [ %3, %cleanup.action ], [ %4, %cleanup.action34 ]
-  %retval.sroa.0.1.ph = phi ptr [ %call27, %cleanup.action ], [ %call20, %cleanup.action34 ]
+  %retval.sroa.0.0.ph = phi ptr [ %call27, %cleanup.action ], [ %call20, %cleanup.action34 ]
   tail call void @X509_free(ptr noundef nonnull %.sink) #17
   br label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit14
 
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit14: ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit14.sink.split, %cleanup.action34, %cleanup.action, %lor.lhs.false, %land.lhs.true
-  %retval.sroa.0.1 = phi ptr [ null, %lor.lhs.false ], [ null, %land.lhs.true ], [ %call27, %cleanup.action ], [ %call20, %cleanup.action34 ], [ %retval.sroa.0.1.ph, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit14.sink.split ]
+  %retval.sroa.0.0 = phi ptr [ null, %lor.lhs.false ], [ null, %land.lhs.true ], [ %call27, %cleanup.action ], [ %call20, %cleanup.action34 ], [ %retval.sroa.0.0.ph, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit14.sink.split ]
   tail call void @ERR_clear_error() #17
-  ret ptr %retval.sroa.0.1
+  ret ptr %retval.sroa.0.0
 }
 
 declare ptr @SSL_get1_peer_certificate(ptr noundef) local_unnamed_addr #0

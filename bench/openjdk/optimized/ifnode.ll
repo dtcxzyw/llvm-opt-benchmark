@@ -1134,11 +1134,11 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
 
 127:                                              ; preds = %109, %53, %123, %118, %114
   %.045 = phi i32 [ %57, %53 ], [ %126, %123 ], [ %122, %118 ], [ %57, %114 ], [ %spec.select, %109 ]
-  %.1 = phi i32 [ %55, %53 ], [ %55, %123 ], [ %spec.select62, %118 ], [ %117, %114 ], [ %112, %109 ]
+  %.044 = phi i32 [ %55, %53 ], [ %55, %123 ], [ %spec.select62, %118 ], [ %117, %114 ], [ %112, %109 ]
   %128 = getelementptr inbounds i8, ptr %49, i64 20
   %129 = load i16, ptr %128, align 4
   %130 = sext i16 %129 to i32
-  %131 = tail call noundef ptr @_ZN7TypeInt4makeEiii(i32 noundef %.1, i32 noundef %.045, i32 noundef %130) #8
+  %131 = tail call noundef ptr @_ZN7TypeInt4makeEiii(i32 noundef %.044, i32 noundef %.045, i32 noundef %130) #8
   br label %132
 
 132:                                              ; preds = %3, %7, %22, %27, %38, %32, %17, %12, %53, %66, %78, %83, %99, %127, %103, %91
@@ -5701,7 +5701,7 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
 
 .lr.ph452:                                        ; preds = %_ZN4Node7set_reqEjPS_.exit377, %._crit_edge443
   %.0321451 = phi ptr [ %.0321, %._crit_edge443 ], [ %.0321447, %_ZN4Node7set_reqEjPS_.exit377 ]
-  %.0322450 = phi ptr [ %.2, %._crit_edge443 ], [ null, %_ZN4Node7set_reqEjPS_.exit377 ]
+  %.0322450 = phi ptr [ %.1323, %._crit_edge443 ], [ null, %_ZN4Node7set_reqEjPS_.exit377 ]
   %.0324449 = phi ptr [ %.2326, %._crit_edge443 ], [ null, %_ZN4Node7set_reqEjPS_.exit377 ]
   %419 = load ptr, ptr %.0321451, align 8
   tail call void @_ZN12PhaseIterGVN19rehash_node_delayedEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %419)
@@ -5803,7 +5803,7 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
 
 470:                                              ; preds = %463, %465, %456, %458
   %.2326 = phi ptr [ %462, %458 ], [ %.0324449, %456 ], [ %.0324449, %465 ], [ %.0324449, %463 ]
-  %.2 = phi ptr [ %.0322450, %458 ], [ %.0322450, %456 ], [ %469, %465 ], [ %.0322450, %463 ]
+  %.1323 = phi ptr [ %.0322450, %458 ], [ %.0322450, %456 ], [ %469, %465 ], [ %.0322450, %463 ]
   %.0314 = phi ptr [ %462, %458 ], [ %.0324449, %456 ], [ %469, %465 ], [ %.0322450, %463 ]
   %.0313 = phi ptr [ %358, %458 ], [ %358, %456 ], [ %364, %465 ], [ %364, %463 ]
   br i1 %423, label %.preheader, label %482
@@ -7513,9 +7513,9 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
 24:                                               ; preds = %74, %17
   %.089129 = phi ptr [ %0, %17 ], [ %.090128, %74 ]
   %.090128 = phi ptr [ %20, %17 ], [ %75, %74 ]
-  %.091127 = phi i32 [ 0, %17 ], [ %.192, %74 ]
-  %.094126 = phi i32 [ %21, %17 ], [ %.195, %74 ]
-  %.097125 = phi i32 [ %21, %17 ], [ %.198, %74 ]
+  %.091127 = phi i32 [ 0, %17 ], [ %.293, %74 ]
+  %.094126 = phi i32 [ %21, %17 ], [ %.296, %74 ]
+  %.097125 = phi i32 [ %21, %17 ], [ %.299, %74 ]
   %.0101124 = phi i32 [ 0, %17 ], [ %76, %74 ]
   %25 = load ptr, ptr %.090128, align 8
   %26 = load ptr, ptr %25, align 8
@@ -7590,9 +7590,9 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   br label %74
 
 74:                                               ; preds = %36, %43, %68, %58, %29, %24
-  %.198 = phi i32 [ %62, %68 ], [ %.097125, %58 ], [ %.097125, %43 ], [ %.097125, %36 ], [ %.097125, %29 ], [ %.097125, %24 ]
-  %.195 = phi i32 [ %60, %68 ], [ %.094126, %58 ], [ %.094126, %43 ], [ %.094126, %36 ], [ %.094126, %29 ], [ %.094126, %24 ]
-  %.192 = phi i32 [ %73, %68 ], [ %.091127, %58 ], [ %.091127, %43 ], [ %.091127, %36 ], [ %.091127, %29 ], [ %.091127, %24 ]
+  %.299 = phi i32 [ %62, %68 ], [ %.097125, %58 ], [ %.097125, %43 ], [ %.097125, %36 ], [ %.097125, %29 ], [ %.097125, %24 ]
+  %.296 = phi i32 [ %60, %68 ], [ %.094126, %58 ], [ %.094126, %43 ], [ %.094126, %36 ], [ %.094126, %29 ], [ %.094126, %24 ]
+  %.293 = phi i32 [ %73, %68 ], [ %.091127, %58 ], [ %.091127, %43 ], [ %.091127, %36 ], [ %.091127, %29 ], [ %.091127, %24 ]
   %75 = tail call noundef ptr @_ZN6IfNode10up_one_domEP4Nodeb(ptr noundef nonnull %.090128, i1 noundef zeroext false)
   %.not110 = icmp eq ptr %75, null
   %76 = add nuw nsw i32 %.0101124, 1
@@ -7621,51 +7621,51 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   br label %.loopexit
 
 88:                                               ; preds = %82, %81
-  %89 = icmp eq i32 %.192, 0
+  %89 = icmp eq i32 %.293, 0
   br i1 %89, label %.loopexit, label %90
 
 90:                                               ; preds = %88
-  %91 = add nsw i32 %.192, -1
+  %91 = add nsw i32 %.293, -1
   %92 = srem i32 %91, 3
   %.not111 = icmp eq ptr %23, null
   br i1 %.not111, label %115, label %93
 
 93:                                               ; preds = %90
-  %94 = icmp eq i32 %.192, 1
+  %94 = icmp eq i32 %.293, 1
   br i1 %94, label %.loopexit, label %95
 
 95:                                               ; preds = %93
   %96 = sext i32 %92 to i64
   %.sroa.1.0..sroa_idx = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %96, i32 1
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
-  %97 = add nsw i32 %.192, -2
+  %97 = add nsw i32 %.293, -2
   %98 = srem i32 %97, 3
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %99
   %.sroa.05.0.copyload = load ptr, ptr %100, align 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %100, i64 8
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 8
-  %101 = icmp eq i32 %.sroa.1.0.copyload, %.195
+  %101 = icmp eq i32 %.sroa.1.0.copyload, %.296
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %95
-  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.198, ptr noundef %..i)
+  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
   br label %118
 
 103:                                              ; preds = %95
-  %104 = icmp eq i32 %.sroa.1.0.copyload, %.198
+  %104 = icmp eq i32 %.sroa.1.0.copyload, %.299
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %103
-  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.195, ptr noundef %..i)
+  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.296, ptr noundef %..i)
   br label %118
 
 106:                                              ; preds = %103
-  %107 = icmp eq i32 %.192, 2
+  %107 = icmp eq i32 %.293, 2
   br i1 %107, label %.loopexit, label %108
 
 108:                                              ; preds = %106
-  %109 = add nsw i32 %.192, -3
+  %109 = add nsw i32 %.293, -3
   %110 = srem i32 %109, 3
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %111
@@ -7674,20 +7674,20 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   br i1 %.not112, label %114, label %113
 
 113:                                              ; preds = %108
-  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.195, ptr noundef %..i)
-  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.02.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.198, ptr noundef %..i)
+  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.296, ptr noundef %..i)
+  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.02.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
   br label %118
 
 114:                                              ; preds = %108
-  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.198, ptr noundef %..i)
-  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.02.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.195, ptr noundef %..i)
+  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
+  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.02.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.296, ptr noundef %..i)
   br label %118
 
 115:                                              ; preds = %90
   %116 = sext i32 %92 to i64
   %117 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %116
   %.sroa.0.0.copyload = load ptr, ptr %117, align 16
-  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.0.0.copyload, ptr noundef %22, ptr noundef null, i32 noundef %16, i32 noundef %.198, ptr noundef %..i)
+  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.0.0.copyload, ptr noundef %22, ptr noundef null, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
   br label %118
 
 118:                                              ; preds = %113, %114, %105, %102, %115

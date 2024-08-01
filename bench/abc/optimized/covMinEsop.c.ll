@@ -87,7 +87,7 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
 
 39:                                               ; preds = %.loopexit.i, %26
   %.1145.i = phi ptr [ %.0144.i, %26 ], [ %37, %.loopexit.i ]
-  %.1143.i = phi i32 [ %20, %26 ], [ %38, %.loopexit.i ]
+  %.0142.i = phi i32 [ %20, %26 ], [ %38, %.loopexit.i ]
   %.1.i = phi ptr [ %29, %26 ], [ %36, %.loopexit.i ]
   %.0146329.i = load ptr, ptr %.1.i, align 8
   %cond330.i = icmp eq ptr %.0146329.i, null
@@ -114,8 +114,8 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
 
 47:                                               ; preds = %.loopexit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.loopexit.i.i ]
-  %.065.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.3.i.i, %.loopexit.i.i ]
-  %.04364.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.346.i.i, %.loopexit.i.i ]
+  %.065.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.1.i.i, %.loopexit.i.i ]
+  %.04364.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.144.i.i, %.loopexit.i.i ]
   %48 = getelementptr inbounds [1 x i32], ptr %41, i64 0, i64 %indvars.iv.i.i
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds [1 x i32], ptr %46, i64 0, i64 %indvars.iv.i.i
@@ -148,8 +148,8 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
   br label %65
 
 65:                                               ; preds = %78, %63
-  %.162.i.i = phi i32 [ %.065.i.i, %63 ], [ %.2.i.i, %78 ]
-  %.14461.i.i = phi i32 [ %.04364.i.i, %63 ], [ %.245.i.i, %78 ]
+  %.262.i.i = phi i32 [ %.065.i.i, %63 ], [ %.3.i.i, %78 ]
+  %.24561.i.i = phi i32 [ %.04364.i.i, %63 ], [ %.346.i.i, %78 ]
   %.04760.i.i = phi i32 [ 0, %63 ], [ %79, %78 ]
   %66 = shl nuw nsw i32 1, %.04760.i.i
   %67 = and i32 %66, %59
@@ -157,7 +157,7 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
   br i1 %.not51.i.i, label %78, label %68
 
 68:                                               ; preds = %65
-  %69 = icmp eq i32 %.14461.i.i, -1
+  %69 = icmp eq i32 %.24561.i.i, -1
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %68
@@ -166,7 +166,7 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
   br label %78
 
 73:                                               ; preds = %68
-  %74 = icmp eq i32 %.162.i.i, -1
+  %74 = icmp eq i32 %.262.i.i, -1
   br i1 %74, label %75, label %Min_CubesDistTwo.exit.i
 
 75:                                               ; preds = %73
@@ -175,28 +175,28 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
   br label %78
 
 78:                                               ; preds = %75, %70, %65
-  %.245.i.i = phi i32 [ %72, %70 ], [ %.14461.i.i, %75 ], [ %.14461.i.i, %65 ]
-  %.2.i.i = phi i32 [ %.162.i.i, %70 ], [ %77, %75 ], [ %.162.i.i, %65 ]
+  %.346.i.i = phi i32 [ %72, %70 ], [ %.24561.i.i, %75 ], [ %.24561.i.i, %65 ]
+  %.3.i.i = phi i32 [ %.262.i.i, %70 ], [ %77, %75 ], [ %.262.i.i, %65 ]
   %79 = add nuw nsw i32 %.04760.i.i, 2
   %80 = icmp ult i32 %.04760.i.i, 30
   br i1 %80, label %65, label %.loopexit.i.i, !llvm.loop !7
 
 .loopexit.i.i:                                    ; preds = %78, %47
-  %.346.i.i = phi i32 [ %.04364.i.i, %47 ], [ %.245.i.i, %78 ]
-  %.3.i.i = phi i32 [ %.065.i.i, %47 ], [ %.2.i.i, %78 ]
+  %.144.i.i = phi i32 [ %.04364.i.i, %47 ], [ %.346.i.i, %78 ]
+  %.1.i.i = phi i32 [ %.065.i.i, %47 ], [ %.3.i.i, %78 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %47, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i
-  %81 = icmp sgt i32 %.346.i.i, -1
-  %82 = icmp sgt i32 %.3.i.i, -1
+  %81 = icmp sgt i32 %.144.i.i, -1
+  %82 = icmp sgt i32 %.1.i.i, -1
   %or.cond5.i.i = select i1 %81, i1 %82, i1 false
   br i1 %or.cond5.i.i, label %.thread300.i, label %83
 
 83:                                               ; preds = %._crit_edge.i.i
-  %84 = icmp eq i32 %.346.i.i, -1
-  %85 = icmp eq i32 %.3.i.i, -1
+  %84 = icmp eq i32 %.144.i.i, -1
+  %85 = icmp eq i32 %.1.i.i, -1
   %or.cond7.i.i = select i1 %84, i1 true, i1 %85
   br i1 %or.cond7.i.i, label %.thread.i.i, label %Min_CubesDistTwo.exit.i
 
@@ -216,16 +216,16 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
 
 ._crit_edge.i:                                    ; preds = %Min_CubesDistTwo.exit.i, %39
   %88 = load i32, ptr %0, align 8
-  %89 = icmp slt i32 %.1143.i, %88
+  %89 = icmp slt i32 %.0142.i, %88
   br i1 %89, label %90, label %.thread272.i
 
 90:                                               ; preds = %._crit_edge.i
   %91 = load ptr, ptr %5, align 8
-  %92 = sext i32 %.1143.i to i64
+  %92 = sext i32 %.0142.i to i64
   %93 = getelementptr ptr, ptr %91, i64 %92
   %94 = getelementptr i8, ptr %93, i64 8
-  %.1147333.i = load ptr, ptr %94, align 8
-  %.not160334.i = icmp eq ptr %.1147333.i, null
+  %.2333.i = load ptr, ptr %94, align 8
+  %.not160334.i = icmp eq ptr %.2333.i, null
   br i1 %.not160334.i, label %.thread272.i, label %.lr.ph338.i
 
 .lr.ph338.i:                                      ; preds = %90
@@ -234,8 +234,8 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   br label %97
 
 97:                                               ; preds = %Min_CubesDistTwo.exit199.i, %.lr.ph338.i
-  %.1147336.i = phi ptr [ %.1147333.i, %.lr.ph338.i ], [ %.1147.i, %Min_CubesDistTwo.exit199.i ]
-  %.1149335.i = phi ptr [ %94, %.lr.ph338.i ], [ %.1147336.i, %Min_CubesDistTwo.exit199.i ]
+  %.2336.i = phi ptr [ %.2333.i, %.lr.ph338.i ], [ %.2.i, %Min_CubesDistTwo.exit199.i ]
+  %.2150335.i = phi ptr [ %94, %.lr.ph338.i ], [ %.2336.i, %Min_CubesDistTwo.exit199.i ]
   %98 = load i32, ptr %95, align 8
   %99 = lshr i32 %98, 10
   %100 = and i32 %99, 4095
@@ -243,14 +243,14 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   br i1 %.not67.i172.i, label %.thread.i195.i, label %.lr.ph.i173.i
 
 .lr.ph.i173.i:                                    ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %.1147336.i, i64 12
+  %101 = getelementptr inbounds i8, ptr %.2336.i, i64 12
   %wide.trip.count.i174.i = zext nneg i32 %100 to i64
   br label %102
 
 102:                                              ; preds = %.loopexit.i187.i, %.lr.ph.i173.i
   %indvars.iv.i175.i = phi i64 [ 0, %.lr.ph.i173.i ], [ %indvars.iv.next.i190.i, %.loopexit.i187.i ]
-  %.065.i176.i = phi i32 [ -1, %.lr.ph.i173.i ], [ %.3.i189.i, %.loopexit.i187.i ]
-  %.04364.i177.i = phi i32 [ -1, %.lr.ph.i173.i ], [ %.346.i188.i, %.loopexit.i187.i ]
+  %.065.i176.i = phi i32 [ -1, %.lr.ph.i173.i ], [ %.1.i189.i, %.loopexit.i187.i ]
+  %.04364.i177.i = phi i32 [ -1, %.lr.ph.i173.i ], [ %.144.i188.i, %.loopexit.i187.i ]
   %103 = getelementptr inbounds [1 x i32], ptr %96, i64 0, i64 %indvars.iv.i175.i
   %104 = load i32, ptr %103, align 4
   %105 = getelementptr inbounds [1 x i32], ptr %101, i64 0, i64 %indvars.iv.i175.i
@@ -283,8 +283,8 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   br label %120
 
 120:                                              ; preds = %133, %118
-  %.162.i180.i = phi i32 [ %.065.i176.i, %118 ], [ %.2.i186.i, %133 ]
-  %.14461.i181.i = phi i32 [ %.04364.i177.i, %118 ], [ %.245.i185.i, %133 ]
+  %.262.i180.i = phi i32 [ %.065.i176.i, %118 ], [ %.3.i186.i, %133 ]
+  %.24561.i181.i = phi i32 [ %.04364.i177.i, %118 ], [ %.346.i185.i, %133 ]
   %.04760.i182.i = phi i32 [ 0, %118 ], [ %134, %133 ]
   %121 = shl nuw nsw i32 1, %.04760.i182.i
   %122 = and i32 %121, %114
@@ -292,7 +292,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   br i1 %.not51.i183.i, label %133, label %123
 
 123:                                              ; preds = %120
-  %124 = icmp eq i32 %.14461.i181.i, -1
+  %124 = icmp eq i32 %.24561.i181.i, -1
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %123
@@ -301,7 +301,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   br label %133
 
 128:                                              ; preds = %123
-  %129 = icmp eq i32 %.162.i180.i, -1
+  %129 = icmp eq i32 %.262.i180.i, -1
   br i1 %129, label %130, label %Min_CubesDistTwo.exit199.i
 
 130:                                              ; preds = %128
@@ -310,28 +310,28 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   br label %133
 
 133:                                              ; preds = %130, %125, %120
-  %.245.i185.i = phi i32 [ %127, %125 ], [ %.14461.i181.i, %130 ], [ %.14461.i181.i, %120 ]
-  %.2.i186.i = phi i32 [ %.162.i180.i, %125 ], [ %132, %130 ], [ %.162.i180.i, %120 ]
+  %.346.i185.i = phi i32 [ %127, %125 ], [ %.24561.i181.i, %130 ], [ %.24561.i181.i, %120 ]
+  %.3.i186.i = phi i32 [ %.262.i180.i, %125 ], [ %132, %130 ], [ %.262.i180.i, %120 ]
   %134 = add nuw nsw i32 %.04760.i182.i, 2
   %135 = icmp ult i32 %.04760.i182.i, 30
   br i1 %135, label %120, label %.loopexit.i187.i, !llvm.loop !7
 
 .loopexit.i187.i:                                 ; preds = %133, %102
-  %.346.i188.i = phi i32 [ %.04364.i177.i, %102 ], [ %.245.i185.i, %133 ]
-  %.3.i189.i = phi i32 [ %.065.i176.i, %102 ], [ %.2.i186.i, %133 ]
+  %.144.i188.i = phi i32 [ %.04364.i177.i, %102 ], [ %.346.i185.i, %133 ]
+  %.1.i189.i = phi i32 [ %.065.i176.i, %102 ], [ %.3.i186.i, %133 ]
   %indvars.iv.next.i190.i = add nuw nsw i64 %indvars.iv.i175.i, 1
   %exitcond.not.i191.i = icmp eq i64 %indvars.iv.next.i190.i, %wide.trip.count.i174.i
   br i1 %exitcond.not.i191.i, label %._crit_edge.i192.i, label %102, !llvm.loop !8
 
 ._crit_edge.i192.i:                               ; preds = %.loopexit.i187.i
-  %136 = icmp sgt i32 %.346.i188.i, -1
-  %137 = icmp sgt i32 %.3.i189.i, -1
+  %136 = icmp sgt i32 %.144.i188.i, -1
+  %137 = icmp sgt i32 %.1.i189.i, -1
   %or.cond5.i193.i = select i1 %136, i1 %137, i1 false
   br i1 %or.cond5.i193.i, label %.thread300.i, label %138
 
 138:                                              ; preds = %._crit_edge.i192.i
-  %139 = icmp eq i32 %.346.i188.i, -1
-  %140 = icmp eq i32 %.3.i189.i, -1
+  %139 = icmp eq i32 %.144.i188.i, -1
+  %140 = icmp eq i32 %.1.i189.i, -1
   %or.cond7.i194.i = select i1 %139, i1 true, i1 %140
   br i1 %or.cond7.i194.i, label %.thread.i195.i, label %Min_CubesDistTwo.exit199.i
 
@@ -340,13 +340,13 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   %141 = load ptr, ptr @stdout, align 8
   tail call void @Min_CubeWrite(ptr noundef %141, ptr noundef nonnull %.1.i) #4
   %142 = load ptr, ptr @stdout, align 8
-  tail call void @Min_CubeWrite(ptr noundef %142, ptr noundef nonnull %.1147336.i) #4
+  tail call void @Min_CubeWrite(ptr noundef %142, ptr noundef nonnull %.2336.i) #4
   %puts.i197.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %Min_CubesDistTwo.exit199.i
 
 Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.thread.i195.i, %138
-  %.1147.i = load ptr, ptr %.1147336.i, align 8
-  %.not160.i = icmp eq ptr %.1147.i, null
+  %.2.i = load ptr, ptr %.2336.i, align 8
+  %.not160.i = icmp eq ptr %.2.i, null
   br i1 %.not160.i, label %.thread272.loopexit.i, label %97, !llvm.loop !10
 
 .thread272.loopexit.i:                            ; preds = %Min_CubesDistTwo.exit199.i
@@ -356,16 +356,16 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
 .thread272.i:                                     ; preds = %.thread272.loopexit.i, %90, %._crit_edge.i
   %143 = phi i32 [ %.pre.i, %.thread272.loopexit.i ], [ %88, %90 ], [ %88, %._crit_edge.i ]
   %144 = add nsw i32 %143, -1
-  %145 = icmp slt i32 %.1143.i, %144
+  %145 = icmp slt i32 %.0142.i, %144
   br i1 %145, label %146, label %.thread290.i
 
 146:                                              ; preds = %.thread272.i
   %147 = load ptr, ptr %5, align 8
-  %148 = sext i32 %.1143.i to i64
+  %148 = sext i32 %.0142.i to i64
   %149 = getelementptr ptr, ptr %147, i64 %148
   %150 = getelementptr i8, ptr %149, i64 16
-  %.3339.i = load ptr, ptr %150, align 8
-  %.not162340.i = icmp eq ptr %.3339.i, null
+  %.4339.i = load ptr, ptr %150, align 8
+  %.not162340.i = icmp eq ptr %.4339.i, null
   br i1 %.not162340.i, label %.thread290.i, label %.lr.ph344.i
 
 .lr.ph344.i:                                      ; preds = %146
@@ -374,8 +374,8 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   br label %153
 
 153:                                              ; preds = %Min_CubesDistTwo.exit227.i, %.lr.ph344.i
-  %.3342.i = phi ptr [ %.3339.i, %.lr.ph344.i ], [ %.3.i, %Min_CubesDistTwo.exit227.i ]
-  %.3151341.i = phi ptr [ %150, %.lr.ph344.i ], [ %.3342.i, %Min_CubesDistTwo.exit227.i ]
+  %.4342.i = phi ptr [ %.4339.i, %.lr.ph344.i ], [ %.4.i, %Min_CubesDistTwo.exit227.i ]
+  %.4152341.i = phi ptr [ %150, %.lr.ph344.i ], [ %.4342.i, %Min_CubesDistTwo.exit227.i ]
   %154 = load i32, ptr %151, align 8
   %155 = lshr i32 %154, 10
   %156 = and i32 %155, 4095
@@ -383,14 +383,14 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   br i1 %.not67.i200.i, label %.thread.i223.i, label %.lr.ph.i201.i
 
 .lr.ph.i201.i:                                    ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %.3342.i, i64 12
+  %157 = getelementptr inbounds i8, ptr %.4342.i, i64 12
   %wide.trip.count.i202.i = zext nneg i32 %156 to i64
   br label %158
 
 158:                                              ; preds = %.loopexit.i215.i, %.lr.ph.i201.i
   %indvars.iv.i203.i = phi i64 [ 0, %.lr.ph.i201.i ], [ %indvars.iv.next.i218.i, %.loopexit.i215.i ]
-  %.065.i204.i = phi i32 [ -1, %.lr.ph.i201.i ], [ %.3.i217.i, %.loopexit.i215.i ]
-  %.04364.i205.i = phi i32 [ -1, %.lr.ph.i201.i ], [ %.346.i216.i, %.loopexit.i215.i ]
+  %.065.i204.i = phi i32 [ -1, %.lr.ph.i201.i ], [ %.1.i217.i, %.loopexit.i215.i ]
+  %.04364.i205.i = phi i32 [ -1, %.lr.ph.i201.i ], [ %.144.i216.i, %.loopexit.i215.i ]
   %159 = getelementptr inbounds [1 x i32], ptr %152, i64 0, i64 %indvars.iv.i203.i
   %160 = load i32, ptr %159, align 4
   %161 = getelementptr inbounds [1 x i32], ptr %157, i64 0, i64 %indvars.iv.i203.i
@@ -423,8 +423,8 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   br label %176
 
 176:                                              ; preds = %189, %174
-  %.162.i208.i = phi i32 [ %.065.i204.i, %174 ], [ %.2.i214.i, %189 ]
-  %.14461.i209.i = phi i32 [ %.04364.i205.i, %174 ], [ %.245.i213.i, %189 ]
+  %.262.i208.i = phi i32 [ %.065.i204.i, %174 ], [ %.3.i214.i, %189 ]
+  %.24561.i209.i = phi i32 [ %.04364.i205.i, %174 ], [ %.346.i213.i, %189 ]
   %.04760.i210.i = phi i32 [ 0, %174 ], [ %190, %189 ]
   %177 = shl nuw nsw i32 1, %.04760.i210.i
   %178 = and i32 %177, %170
@@ -432,7 +432,7 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   br i1 %.not51.i211.i, label %189, label %179
 
 179:                                              ; preds = %176
-  %180 = icmp eq i32 %.14461.i209.i, -1
+  %180 = icmp eq i32 %.24561.i209.i, -1
   br i1 %180, label %181, label %184
 
 181:                                              ; preds = %179
@@ -441,7 +441,7 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   br label %189
 
 184:                                              ; preds = %179
-  %185 = icmp eq i32 %.162.i208.i, -1
+  %185 = icmp eq i32 %.262.i208.i, -1
   br i1 %185, label %186, label %Min_CubesDistTwo.exit227.i
 
 186:                                              ; preds = %184
@@ -450,28 +450,28 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   br label %189
 
 189:                                              ; preds = %186, %181, %176
-  %.245.i213.i = phi i32 [ %183, %181 ], [ %.14461.i209.i, %186 ], [ %.14461.i209.i, %176 ]
-  %.2.i214.i = phi i32 [ %.162.i208.i, %181 ], [ %188, %186 ], [ %.162.i208.i, %176 ]
+  %.346.i213.i = phi i32 [ %183, %181 ], [ %.24561.i209.i, %186 ], [ %.24561.i209.i, %176 ]
+  %.3.i214.i = phi i32 [ %.262.i208.i, %181 ], [ %188, %186 ], [ %.262.i208.i, %176 ]
   %190 = add nuw nsw i32 %.04760.i210.i, 2
   %191 = icmp ult i32 %.04760.i210.i, 30
   br i1 %191, label %176, label %.loopexit.i215.i, !llvm.loop !7
 
 .loopexit.i215.i:                                 ; preds = %189, %158
-  %.346.i216.i = phi i32 [ %.04364.i205.i, %158 ], [ %.245.i213.i, %189 ]
-  %.3.i217.i = phi i32 [ %.065.i204.i, %158 ], [ %.2.i214.i, %189 ]
+  %.144.i216.i = phi i32 [ %.04364.i205.i, %158 ], [ %.346.i213.i, %189 ]
+  %.1.i217.i = phi i32 [ %.065.i204.i, %158 ], [ %.3.i214.i, %189 ]
   %indvars.iv.next.i218.i = add nuw nsw i64 %indvars.iv.i203.i, 1
   %exitcond.not.i219.i = icmp eq i64 %indvars.iv.next.i218.i, %wide.trip.count.i202.i
   br i1 %exitcond.not.i219.i, label %._crit_edge.i220.i, label %158, !llvm.loop !8
 
 ._crit_edge.i220.i:                               ; preds = %.loopexit.i215.i
-  %192 = icmp sgt i32 %.346.i216.i, -1
-  %193 = icmp sgt i32 %.3.i217.i, -1
+  %192 = icmp sgt i32 %.144.i216.i, -1
+  %193 = icmp sgt i32 %.1.i217.i, -1
   %or.cond5.i221.i = select i1 %192, i1 %193, i1 false
   br i1 %or.cond5.i221.i, label %.thread300.i, label %194
 
 194:                                              ; preds = %._crit_edge.i220.i
-  %195 = icmp eq i32 %.346.i216.i, -1
-  %196 = icmp eq i32 %.3.i217.i, -1
+  %195 = icmp eq i32 %.144.i216.i, -1
+  %196 = icmp eq i32 %.1.i217.i, -1
   %or.cond7.i222.i = select i1 %195, i1 true, i1 %196
   br i1 %or.cond7.i222.i, label %.thread.i223.i, label %Min_CubesDistTwo.exit227.i
 
@@ -480,13 +480,13 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   %197 = load ptr, ptr @stdout, align 8
   tail call void @Min_CubeWrite(ptr noundef %197, ptr noundef nonnull %.1.i) #4
   %198 = load ptr, ptr @stdout, align 8
-  tail call void @Min_CubeWrite(ptr noundef %198, ptr noundef nonnull %.3342.i) #4
+  tail call void @Min_CubeWrite(ptr noundef %198, ptr noundef nonnull %.4342.i) #4
   %puts.i225.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %Min_CubesDistTwo.exit227.i
 
 Min_CubesDistTwo.exit227.i:                       ; preds = %171, %165, %184, %.thread.i223.i, %194
-  %.3.i = load ptr, ptr %.3342.i, align 8
-  %.not162.i = icmp eq ptr %.3.i, null
+  %.4.i = load ptr, ptr %.4342.i, align 8
+  %.not162.i = icmp eq ptr %.4.i, null
   br i1 %.not162.i, label %.thread290.i, label %153, !llvm.loop !11
 
 .thread290.i:                                     ; preds = %Min_CubesDistTwo.exit227.i, %146, %.thread272.i
@@ -509,12 +509,12 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   br label %Min_EsopAddCube.exit234.i
 
 .thread300.i:                                     ; preds = %._crit_edge.i.i, %._crit_edge.i192.i, %._crit_edge.i220.i
-  %.4308.i = phi ptr [ %.3342.i, %._crit_edge.i220.i ], [ %.1147336.i, %._crit_edge.i192.i ], [ %.0146332.i, %._crit_edge.i.i ]
-  %.4152307.i = phi ptr [ %.3151341.i, %._crit_edge.i220.i ], [ %.1149335.i, %._crit_edge.i192.i ], [ %.0148331.i, %._crit_edge.i.i ]
-  %.9306.i = phi i32 [ %.3.i217.i, %._crit_edge.i220.i ], [ %.3.i189.i, %._crit_edge.i192.i ], [ %.3.i.i, %._crit_edge.i.i ]
-  %.9258305.i = phi i32 [ %.346.i216.i, %._crit_edge.i220.i ], [ %.346.i188.i, %._crit_edge.i192.i ], [ %.346.i.i, %._crit_edge.i.i ]
-  %209 = load ptr, ptr %.4308.i, align 8
-  store ptr %209, ptr %.4152307.i, align 8
+  %.3308.i = phi ptr [ %.4342.i, %._crit_edge.i220.i ], [ %.2336.i, %._crit_edge.i192.i ], [ %.0146332.i, %._crit_edge.i.i ]
+  %.3151307.i = phi ptr [ %.4152341.i, %._crit_edge.i220.i ], [ %.2150335.i, %._crit_edge.i192.i ], [ %.0148331.i, %._crit_edge.i.i ]
+  %.5306.i = phi i32 [ %.1.i217.i, %._crit_edge.i220.i ], [ %.1.i189.i, %._crit_edge.i192.i ], [ %.1.i.i, %._crit_edge.i.i ]
+  %.5254305.i = phi i32 [ %.144.i216.i, %._crit_edge.i220.i ], [ %.144.i188.i, %._crit_edge.i192.i ], [ %.144.i.i, %._crit_edge.i.i ]
+  %209 = load ptr, ptr %.3308.i, align 8
+  store ptr %209, ptr %.3151307.i, align 8
   %210 = load ptr, ptr %6, align 8
   store ptr %210, ptr %.1145.i, align 8
   %211 = load ptr, ptr %.1.i, align 8
@@ -532,23 +532,23 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   %221 = add nsw i32 %220, -2
   store i32 %221, ptr %2, align 8
   %222 = getelementptr inbounds i8, ptr %.1.i, i64 12
-  %223 = shl nuw nsw i32 %.9258305.i, 1
-  %224 = lshr i32 %.9258305.i, 4
+  %223 = shl nuw nsw i32 %.5254305.i, 1
+  %224 = lshr i32 %.5254305.i, 4
   %225 = zext nneg i32 %224 to i64
   %226 = getelementptr inbounds [1 x i32], ptr %222, i64 0, i64 %225
   %227 = load i32, ptr %226, align 4
   %228 = and i32 %223, 30
   %229 = lshr i32 %227, %228
   %230 = and i32 %229, 3
-  %231 = shl nuw nsw i32 %.9306.i, 1
-  %232 = lshr i32 %.9306.i, 4
+  %231 = shl nuw nsw i32 %.5306.i, 1
+  %232 = lshr i32 %.5306.i, 4
   %233 = zext nneg i32 %232 to i64
   %234 = getelementptr inbounds [1 x i32], ptr %222, i64 0, i64 %233
   %235 = load i32, ptr %234, align 4
   %236 = and i32 %231, 30
   %237 = lshr i32 %235, %236
   %238 = and i32 %237, 3
-  %239 = getelementptr inbounds i8, ptr %.4308.i, i64 12
+  %239 = getelementptr inbounds i8, ptr %.3308.i, i64 12
   %240 = getelementptr inbounds [1 x i32], ptr %239, i64 0, i64 %225
   %241 = load i32, ptr %240, align 4
   %242 = lshr i32 %241, %228
@@ -577,7 +577,7 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   %260 = xor i32 %259, %258
   store i32 %260, ptr %244, align 4
   %.not171.i = icmp eq i32 %247, 3
-  %261 = getelementptr inbounds i8, ptr %.4308.i, i64 8
+  %261 = getelementptr inbounds i8, ptr %.3308.i, i64 8
   %262 = load i32, ptr %261, align 8
   %.neg164.i = select i1 %.not171.i, i32 0, i32 -4194304
   %263 = xor i32 %247, %238
@@ -595,7 +595,7 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   br i1 %.not.i228.i, label %Min_EsopAddCube.exit.i, label %269, !llvm.loop !12
 
 Min_EsopAddCube.exit.i:                           ; preds = %269, %Min_EsopAddCube.exit.i
-  %271 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.4308.i)
+  %271 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3308.i)
   %.not.i229.i = icmp eq i32 %271, 0
   br i1 %.not.i229.i, label %Min_EsopAddCube.exit230.i, label %Min_EsopAddCube.exit.i, !llvm.loop !12
 
@@ -607,7 +607,7 @@ Min_EsopAddCube.exit230.i:                        ; preds = %Min_EsopAddCube.exi
 
 275:                                              ; preds = %Min_EsopAddCube.exit230.i
   %.neg170.i = sext i1 %264 to i32
-  %276 = load ptr, ptr %.4308.i, align 8
+  %276 = load ptr, ptr %.3308.i, align 8
   %277 = load ptr, ptr %5, align 8
   %278 = load i32, ptr %261, align 8
   %279 = lshr i32 %278, 22
@@ -667,7 +667,7 @@ Min_EsopAddCube.exit230.i:                        ; preds = %Min_EsopAddCube.exi
   br i1 %.not.i231.i, label %Min_EsopAddCube.exit232.i, label %314, !llvm.loop !12
 
 Min_EsopAddCube.exit232.i:                        ; preds = %314, %Min_EsopAddCube.exit232.i
-  %316 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.4308.i)
+  %316 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3308.i)
   %.not.i233.i = icmp eq i32 %316, 0
   br i1 %.not.i233.i, label %Min_EsopAddCube.exit234.i.backedge, label %Min_EsopAddCube.exit232.i, !llvm.loop !12
 

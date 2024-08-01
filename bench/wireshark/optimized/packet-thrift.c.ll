@@ -2116,7 +2116,7 @@ define i32 @dissect_thrift_t_map(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %31
 
 31:                                               ; preds = %28, %25
-  %.1125 = phi ptr [ %spec.select, %28 ], [ null, %25 ]
+  %.0124 = phi ptr [ %spec.select, %28 ], [ null, %25 ]
   %.0122 = phi i32 [ %30, %28 ], [ %3, %25 ]
   %32 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0122) #7
   %33 = icmp slt i32 %32, 1
@@ -2140,7 +2140,7 @@ define i32 @dissect_thrift_t_map(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %41, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread147
 
 thrift_get_varint_enc.exit.thread147:             ; preds = %40
-  %42 = call ptr @proto_tree_add_expert(ptr noundef %.1125, ptr noundef %1, ptr noundef nonnull @ei_thrift_varint_too_large, ptr noundef %0, i32 noundef %.0122, i32 noundef 5) #7
+  %42 = call ptr @proto_tree_add_expert(ptr noundef %.0124, ptr noundef %1, ptr noundef nonnull @ei_thrift_varint_too_large, ptr noundef %0, i32 noundef %.0122, i32 noundef 5) #7
   br label %thrift_get_varint_enc.exit.thread
 
 43:                                               ; preds = %37
@@ -2150,7 +2150,7 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
 
 46:                                               ; preds = %43
   %47 = load i32, ptr @hf_thrift_i64, align 4
-  %48 = call ptr @proto_tree_add_int64(ptr noundef %.1125, i32 noundef %47, ptr noundef %0, i32 noundef %.0122, i32 noundef %39, i64 noundef %44) #7
+  %48 = call ptr @proto_tree_add_int64(ptr noundef %.0124, i32 noundef %47, ptr noundef %0, i32 noundef %.0122, i32 noundef %39, i64 noundef %44) #7
   %49 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %48, ptr noundef nonnull @ei_thrift_varint_too_large) #7
   br label %thrift_get_varint_enc.exit.thread
 
@@ -5195,9 +5195,9 @@ define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 nound
 9:                                                ; preds = %.lr.ph, %52
   %.03964 = phi i32 [ 0, %.lr.ph ], [ %.1, %52 ]
   %.04063 = phi i32 [ 0, %.lr.ph ], [ %.141, %52 ]
-  %.04262 = phi i8 [ -65, %.lr.ph ], [ %.3, %52 ]
-  %.04461 = phi i8 [ -128, %.lr.ph ], [ %.246, %52 ]
-  %.04760 = phi i32 [ 0, %.lr.ph ], [ %.249, %52 ]
+  %.04262 = phi i8 [ -65, %.lr.ph ], [ %.143, %52 ]
+  %.04461 = phi i8 [ -128, %.lr.ph ], [ %.145, %52 ]
+  %.04760 = phi i32 [ 0, %.lr.ph ], [ %.148, %52 ]
   %.05059 = phi i32 [ %1, %.lr.ph ], [ %53, %52 ]
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05059) #7
   %.not = icmp eq i32 %.04063, 0
@@ -5277,9 +5277,9 @@ define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 nound
   br i1 %43, label %._crit_edge, label %44
 
 44:                                               ; preds = %42, %40, %35, %34, %29, %25, %25, %19, %36
-  %.148 = phi i32 [ 0, %19 ], [ 0, %25 ], [ 0, %25 ], [ 1, %29 ], [ 2, %34 ], [ 2, %35 ], [ 2, %36 ], [ 3, %40 ], [ 3, %42 ]
-  %.145 = phi i8 [ %.04461, %19 ], [ %.04461, %25 ], [ %.04461, %25 ], [ -128, %29 ], [ -96, %34 ], [ -128, %35 ], [ -128, %36 ], [ -112, %40 ], [ -128, %42 ]
-  %.2 = phi i8 [ %.04262, %19 ], [ %.04262, %25 ], [ %.04262, %25 ], [ %.04262, %29 ], [ %.04262, %34 ], [ -97, %35 ], [ %.04262, %36 ], [ %.04262, %40 ], [ %.04262, %42 ]
+  %.249 = phi i32 [ 0, %19 ], [ 0, %25 ], [ 0, %25 ], [ 1, %29 ], [ 2, %34 ], [ 2, %35 ], [ 2, %36 ], [ 3, %40 ], [ 3, %42 ]
+  %.246 = phi i8 [ %.04461, %19 ], [ %.04461, %25 ], [ %.04461, %25 ], [ -128, %29 ], [ -96, %34 ], [ -128, %35 ], [ -128, %36 ], [ -112, %40 ], [ -128, %42 ]
+  %.3 = phi i8 [ %.04262, %19 ], [ %.04262, %25 ], [ %.04262, %25 ], [ %.04262, %29 ], [ %.04262, %34 ], [ -97, %35 ], [ %.04262, %36 ], [ %.04262, %40 ], [ %.04262, %42 ]
   %45 = add i32 %.03964, 1
   br label %52
 
@@ -5295,9 +5295,9 @@ define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 nound
   br label %52
 
 52:                                               ; preds = %14, %11, %49, %44
-  %.249 = phi i32 [ %.04760, %11 ], [ %.148, %44 ], [ %50, %49 ], [ 0, %14 ]
-  %.246 = phi i8 [ %.04461, %11 ], [ %.145, %44 ], [ -128, %49 ], [ %.04461, %14 ]
-  %.3 = phi i8 [ %.04262, %11 ], [ %.2, %44 ], [ -65, %49 ], [ %.04262, %14 ]
+  %.148 = phi i32 [ %.04760, %11 ], [ %.249, %44 ], [ %50, %49 ], [ 0, %14 ]
+  %.145 = phi i8 [ %.04461, %11 ], [ %.246, %44 ], [ -128, %49 ], [ %.04461, %14 ]
+  %.143 = phi i8 [ %.04262, %11 ], [ %.3, %44 ], [ -65, %49 ], [ %.04262, %14 ]
   %.141 = phi i32 [ 1, %11 ], [ 0, %44 ], [ 0, %49 ], [ 1, %14 ]
   %.1 = phi i32 [ %.03964, %11 ], [ %45, %44 ], [ %51, %49 ], [ %.03964, %14 ]
   %53 = add i32 %.05059, 1
@@ -6288,7 +6288,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
 
 230:                                              ; preds = %194, %215, %171
   %231 = phi i32 [ %190, %171 ], [ %214, %194 ], [ %229, %215 ]
-  %.0219 = phi ptr [ %180, %171 ], [ %204, %194 ], [ %225, %215 ]
+  %.1 = phi ptr [ %180, %171 ], [ %204, %194 ], [ %225, %215 ]
   %232 = icmp eq i32 %231, %150
   br i1 %232, label %234, label %233
 
@@ -6297,7 +6297,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   unreachable
 
 234:                                              ; preds = %230, %149
-  %.1 = phi ptr [ %.0219, %230 ], [ null, %149 ]
+  %.0219 = phi ptr [ %.1, %230 ], [ null, %149 ]
   %235 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %150) #7
   %236 = icmp slt i32 %235, 1
   br i1 %236, label %306, label %237
@@ -6360,7 +6360,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   br label %268
 
 263:                                              ; preds = %250
-  %264 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.1, ptr noundef nonnull @ei_thrift_protocol_exception) #7
+  %264 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0219, ptr noundef nonnull @ei_thrift_protocol_exception) #7
   %265 = load i32, ptr @hf_thrift_exception, align 4
   %266 = load i32, ptr @ett_thrift_exception, align 4
   %267 = call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %239, ptr noundef nonnull %1, ptr noundef %22, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %265, i32 noundef %266, ptr noundef nonnull readonly @thrift_exception, ptr noundef null)

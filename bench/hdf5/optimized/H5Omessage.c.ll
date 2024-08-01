@@ -1604,8 +1604,8 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %86
 
 86:                                               ; preds = %83, %81
-  %.1 = phi i32 [ %82, %81 ], [ %85, %83 ]
-  %.not66 = icmp eq i32 %.1, 0
+  %.3 = phi i32 [ %82, %81 ], [ %85, %83 ]
+  %.not66 = icmp eq i32 %.3, 0
   br i1 %.not66, label %87, label %95
 
 87:                                               ; preds = %86
@@ -1623,7 +1623,7 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %94, label %14, label %.preheader
 
 95:                                               ; preds = %86
-  %96 = icmp slt i32 %.1, 0
+  %96 = icmp slt i32 %.3, 0
   br i1 %96, label %97, label %.preheader
 
 97:                                               ; preds = %95
@@ -1633,14 +1633,14 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %.preheader
 
 .preheader:                                       ; preds = %89, %95, %97, %34, %73
-  %.4.ph.ph = phi i32 [ %.1, %95 ], [ %.1, %97 ], [ -1, %34 ], [ -1, %73 ], [ 0, %89 ]
+  %.2.ph.ph = phi i32 [ %.3, %95 ], [ %.3, %97 ], [ -1, %34 ], [ -1, %73 ], [ 0, %89 ]
   %.pr = load i32, ptr %6, align 4
   %.not6774 = icmp eq i32 %.pr, 0
   br i1 %.not6774, label %._crit_edge, label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.preheader, %120
   %101 = phi i32 [ %124, %120 ], [ %.pr, %.preheader ]
-  %.475 = phi i32 [ -1, %120 ], [ %.4.ph.ph, %.preheader ]
+  %.275 = phi i32 [ -1, %120 ], [ %.2.ph.ph, %.preheader ]
   %102 = and i32 %101, 1
   %.not68 = icmp eq i32 %102, 0
   br i1 %.not68, label %110, label %103
@@ -1657,7 +1657,7 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %110
 
 110:                                              ; preds = %103, %106, %.lr.ph76
-  %.5 = phi i32 [ -1, %106 ], [ %.475, %103 ], [ %.475, %.lr.ph76 ]
+  %.6 = phi i32 [ -1, %106 ], [ %.275, %103 ], [ %.275, %.lr.ph76 ]
   %111 = call i32 @H5O_touch_oh(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false) #6
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %113, label %117
@@ -1669,7 +1669,7 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %117
 
 117:                                              ; preds = %113, %110
-  %.6 = phi i32 [ -1, %113 ], [ %.5, %110 ]
+  %.7 = phi i32 [ -1, %113 ], [ %.6, %110 ]
   %118 = call i32 @H5AC_mark_entry_dirty(ptr noundef %1) #6
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %120, label %._crit_edge
@@ -1683,8 +1683,8 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not67, label %._crit_edge, label %.lr.ph76
 
 ._crit_edge:                                      ; preds = %120, %117, %5, %.preheader
-  %.7 = phi i32 [ %.4.ph.ph, %.preheader ], [ 0, %5 ], [ %.6, %117 ], [ -1, %120 ]
-  ret i32 %.7
+  %.5 = phi i32 [ %.2.ph.ph, %.preheader ], [ 0, %5 ], [ %.7, %117 ], [ -1, %120 ]
+  ret i32 %.5
 }
 
 ; Function Attrs: nounwind uwtable

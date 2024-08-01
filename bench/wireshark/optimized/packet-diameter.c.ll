@@ -3548,9 +3548,9 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 
 194:                                              ; preds = %189, %192
   %.0201 = phi i8 [ 0, %189 ], [ %193, %192 ]
-  %.1200 = phi i32 [ %157, %189 ], [ %195, %192 ]
-  %195 = add i32 %.1200, 1
-  %196 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1200) #13
+  %.2200 = phi i32 [ %157, %189 ], [ %195, %192 ]
+  %195 = add i32 %.2200, 1
+  %196 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2200) #13
   %.not197 = icmp eq i8 %196, 0
   br i1 %.not197, label %192, label %197
 
@@ -3560,14 +3560,14 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %192, %197, %188
-  %.2 = phi i32 [ %195, %197 ], [ %157, %188 ], [ %195, %192 ]
+  %.1 = phi i32 [ %195, %197 ], [ %157, %188 ], [ %195, %192 ]
   %200 = and i32 %77, 3
   %.not198 = icmp eq i32 %200, 0
   br i1 %.not198, label %204, label %201
 
 201:                                              ; preds = %.loopexit
   %202 = load ptr, ptr %184, align 8
-  %203 = call ptr @proto_tree_add_expert(ptr noundef %81, ptr noundef %202, ptr noundef nonnull @ei_diameter_avp_pad_missing, ptr noundef %1, i32 noundef %.2, i32 noundef %.pre-phi) #13
+  %203 = call ptr @proto_tree_add_expert(ptr noundef %81, ptr noundef %202, ptr noundef nonnull @ei_diameter_avp_pad_missing, ptr noundef %1, i32 noundef %.1, i32 noundef %.pre-phi) #13
   br label %204
 
 204:                                              ; preds = %.loopexit, %201, %139, %59
@@ -3886,12 +3886,12 @@ define internal i32 @strcase_hash(ptr nocapture noundef readonly %0) #10 {
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %8 = phi i8 [ %14, %.lr.ph ], [ %7, %3 ]
   %.02130 = phi ptr [ %.021, %.lr.ph ], [ %.02127, %3 ]
-  %.129 = phi i32 [ %13, %.lr.ph ], [ %spec.select, %3 ]
+  %.229 = phi i32 [ %13, %.lr.ph ], [ %spec.select, %3 ]
   %9 = add i8 %8, -65
   %or.cond4 = icmp ult i8 %9, 26
   %10 = or disjoint i8 %8, 32
   %spec.select26 = select i1 %or.cond4, i8 %10, i8 %8
-  %11 = mul i32 %.129, 31
+  %11 = mul i32 %.229, 31
   %12 = sext i8 %spec.select26 to i32
   %13 = add i32 %11, %12
   %.021 = getelementptr i8, ptr %.02130, i64 1
@@ -3900,8 +3900,8 @@ define internal i32 @strcase_hash(ptr nocapture noundef readonly %0) #10 {
   br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %1
-  %.2 = phi i32 [ 0, %1 ], [ %spec.select, %3 ], [ %13, %.lr.ph ]
-  ret i32 %.2
+  %.020 = phi i32 [ 0, %1 ], [ %spec.select, %3 ], [ %13, %.lr.ph ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable

@@ -590,9 +590,9 @@ define internal void @format_node_mask(ptr noundef %0, i64 noundef %1) #0 {
   br i1 %.not56, label %.thread.thread71, label %.thread61
 
 .thread61:                                        ; preds = %11, %12
-  %.266 = phi i32 [ %.04258, %12 ], [ %spec.select, %11 ]
+  %.14366 = phi i32 [ %.04258, %12 ], [ %spec.select, %11 ]
   %.04465 = phi i32 [ %7, %12 ], [ 64, %11 ]
-  %13 = sub i32 %.04465, %.266
+  %13 = sub i32 %.04465, %.14366
   %.not49 = icmp eq i32 %.059, 0
   %14 = select i1 %.not49, ptr @.str.330, ptr @.str.329
   %15 = sext i32 %.059 to i64
@@ -605,19 +605,19 @@ define internal void @format_node_mask(ptr noundef %0, i64 noundef %1) #0 {
   ]
 
 19:                                               ; preds = %.thread61
-  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.331, ptr noundef nonnull %14, i32 noundef %.266) #8
+  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.331, ptr noundef nonnull %14, i32 noundef %.14366) #8
   %21 = add i32 %20, %.059
   br label %.thread.thread71
 
 22:                                               ; preds = %.thread61
-  %23 = add nuw i32 %.266, 1
-  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.332, ptr noundef nonnull %14, i32 noundef %.266, i32 noundef %23) #8
+  %23 = add nuw i32 %.14366, 1
+  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.332, ptr noundef nonnull %14, i32 noundef %.14366, i32 noundef %23) #8
   %25 = add i32 %24, %.059
   br label %.thread.thread71
 
 26:                                               ; preds = %.thread61
   %27 = add nsw i32 %.04465, -1
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.333, ptr noundef nonnull %14, i32 noundef %.266, i32 noundef %27) #8
+  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.333, ptr noundef nonnull %14, i32 noundef %.14366, i32 noundef %27) #8
   %29 = add i32 %28, %.059
   br label %.thread.thread71
 
@@ -627,7 +627,7 @@ define internal void @format_node_mask(ptr noundef %0, i64 noundef %1) #0 {
 
 .thread.thread71:                                 ; preds = %.thread, %26, %22, %19, %12
   %.170 = phi i32 [ %.059, %12 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ %.059, %.thread ]
-  %30 = phi i32 [ %7, %12 ], [ %.266, %26 ], [ %.266, %22 ], [ %.266, %19 ], [ %spec.select76, %.thread ]
+  %30 = phi i32 [ %7, %12 ], [ %.14366, %26 ], [ %.14366, %22 ], [ %.14366, %19 ], [ %spec.select76, %.thread ]
   %.3 = select i1 %.not55, i32 -1, i32 %30
   %indvars.iv.next = add i64 %indvars.iv, 1
   %31 = icmp ult i64 %indvars.iv, 63

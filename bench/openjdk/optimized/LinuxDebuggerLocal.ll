@@ -856,7 +856,7 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit18:          ; preds = %36
           to label %47 unwind label %43
 
 47:                                               ; preds = %45, %_ZN7JNIEnv_17ExceptionOccurredEv.exit18
-  %.013 = phi i64 [ 0, %_ZN7JNIEnv_17ExceptionOccurredEv.exit18 ], [ %46, %45 ]
+  %.1 = phi i64 [ 0, %_ZN7JNIEnv_17ExceptionOccurredEv.exit18 ], [ %46, %45 ]
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %_ZN14AutoJavaStringD2Ev.exit, label %48
 
@@ -875,7 +875,7 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit18:          ; preds = %36
   unreachable
 
 _ZN14AutoJavaStringD2Ev.exit:                     ; preds = %48, %47, %_ZN7JNIEnv_17ExceptionOccurredEv.exit
-  %.1 = phi i64 [ 0, %_ZN7JNIEnv_17ExceptionOccurredEv.exit ], [ %.013, %47 ], [ %.013, %48 ]
+  %.013 = phi i64 [ 0, %_ZN7JNIEnv_17ExceptionOccurredEv.exit ], [ %.1, %47 ], [ %.1, %48 ]
   %.not.i19 = icmp eq ptr %20, null
   br i1 %.not.i19, label %_ZN14AutoJavaStringD2Ev.exit20, label %55
 
@@ -894,7 +894,7 @@ _ZN14AutoJavaStringD2Ev.exit:                     ; preds = %48, %47, %_ZN7JNIEn
   unreachable
 
 _ZN14AutoJavaStringD2Ev.exit20:                   ; preds = %_ZN14AutoJavaStringD2Ev.exit, %55
-  ret i64 %.1
+  ret i64 %.013
 
 62:                                               ; preds = %43, %26
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %27, %26 ]

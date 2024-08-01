@@ -4222,13 +4222,13 @@ if.else31:                                        ; preds = %if.then6
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then12, %lor.lhs.false, %if.then23, %if.else, %if.else31
-  %sock.0 = phi i32 [ -1, %if.then12 ], [ -1, %if.then23 ], [ %call7, %lor.lhs.false ], [ %call7, %if.else ], [ -1, %if.else31 ]
+  %sock.1 = phi i32 [ -1, %if.then12 ], [ -1, %if.then23 ], [ %call7, %lor.lhs.false ], [ %call7, %if.else ], [ -1, %if.else31 ]
   call void @freeaddrinfo(ptr noundef nonnull %5) #20
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end35, %lookuphost.exit
-  %sock.1 = phi i32 [ %sock.0, %if.end35 ], [ -1, %lookuphost.exit ]
-  store i32 %sock.1, ptr %call, align 8
+  %sock.0 = phi i32 [ %sock.1, %if.end35 ], [ -1, %lookuphost.exit ]
+  store i32 %sock.0, ptr %call, align 8
   %read = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @tcp_read, ptr %read, align 8
   %write = getelementptr inbounds i8, ptr %call, i64 16

@@ -439,9 +439,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -807,7 +807,7 @@ if.then6:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then6, %if.then
   %1 = phi i32 [ %.pr, %if.then6 ], [ %0, %if.then ]
-  %measTypeBundle.0 = phi ptr [ %call7, %if.then6 ], [ null, %if.then ]
+  %measTypeBundle.1 = phi ptr [ %call7, %if.then6 ], [ null, %if.then ]
   %cmp8 = icmp eq i32 %1, 2
   br i1 %cmp8, label %if.then9, label %if.end15
 
@@ -826,15 +826,15 @@ if.end12:                                         ; preds = %if.then11, %if.then
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end12, %if.end
-  %measTypeBundle.1 = phi ptr [ %call14, %if.end12 ], [ %measTypeBundle.0, %if.end ]
+  %measTypeBundle.2 = phi ptr [ %call14, %if.end12 ], [ %measTypeBundle.1, %if.end ]
   %measDataBundle.0 = phi ptr [ %call13, %if.end12 ], [ %call4, %if.end ]
   call void @ures_close_75(ptr noundef %measDataBundle.0)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end15, %entry
-  %measTypeBundle.2 = phi ptr [ %measTypeBundle.1, %if.end15 ], [ null, %entry ]
+  %measTypeBundle.0 = phi ptr [ %measTypeBundle.2, %if.end15 ], [ null, %entry ]
   call void @ures_close_75(ptr noundef %call1)
-  ret ptr %measTypeBundle.2
+  ret ptr %measTypeBundle.0
 }
 
 declare i32 @ures_getInt_75(ptr noundef, ptr noundef) local_unnamed_addr #5

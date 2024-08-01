@@ -485,9 +485,9 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %91
 
 91:                                               ; preds = %88, %83
-  %.0169 = phi i32 [ %31, %83 ], [ %., %88 ]
+  %.1 = phi i32 [ %31, %83 ], [ %., %88 ]
   %.0168 = phi i32 [ 0, %83 ], [ %.185, %88 ]
-  %.not184 = icmp eq i32 %.0169, 32769
+  %.not184 = icmp eq i32 %.1, 32769
   %92 = load ptr, ptr %9, align 8
   br i1 %.not184, label %.thread, label %94
 
@@ -497,7 +497,7 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %98
 
 94:                                               ; preds = %91
-  %95 = call ptr @val_to_str(i32 noundef %.0169, ptr noundef nonnull @fc_fcs_opcode_abbrev_val, ptr noundef nonnull @.str.188) #4
+  %95 = call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @fc_fcs_opcode_abbrev_val, ptr noundef nonnull @.str.188) #4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.189, ptr noundef %95) #4
   br i1 %.not179, label %96, label %98
 
@@ -507,7 +507,7 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 98:                                               ; preds = %.thread, %77, %94, %73
   %.0171 = phi i32 [ 1, %73 ], [ 0, %94 ], [ 0, %77 ], [ 0, %.thread ]
-  %.1 = phi i32 [ %31, %73 ], [ %.0169, %94 ], [ %31, %77 ], [ 32769, %.thread ]
+  %.0169 = phi i32 [ %31, %73 ], [ %.1, %94 ], [ %31, %77 ], [ 32769, %.thread ]
   %.not182 = icmp eq ptr %2, null
   br i1 %.not182, label %104, label %99
 
@@ -519,7 +519,7 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %104
 
 104:                                              ; preds = %99, %98
-  switch i32 %.1, label %137 [
+  switch i32 %.0169, label %137 [
     i32 32769, label %105
     i32 257, label %106
     i32 273, label %107

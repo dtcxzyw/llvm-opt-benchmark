@@ -591,7 +591,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %start.053 = phi i32 [ 0, %for.body.lr.ph ], [ %start.1, %for.inc ]
-  %end.052 = phi i32 [ 0, %for.body.lr.ph ], [ %end.1, %for.inc ]
+  %end.052 = phi i32 [ 0, %for.body.lr.ph ], [ %end.2, %for.inc ]
   %foundFile.051 = phi i8 [ 0, %for.body.lr.ph ], [ %foundFile.1, %for.inc ]
   %__begin1.050 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %tobool = trunc nuw i8 %foundFile.051 to i1
@@ -613,7 +613,7 @@ if.then5:                                         ; preds = %if.end
 
 for.inc:                                          ; preds = %if.end, %if.then5
   %foundFile.1 = phi i8 [ 1, %if.then5 ], [ %foundFile.051, %if.end ]
-  %end.1 = phi i32 [ %2, %if.then5 ], [ %end.052, %if.end ]
+  %end.2 = phi i32 [ %2, %if.then5 ], [ %end.052, %if.end ]
   %start.1 = phi i32 [ %5, %if.then5 ], [ %start.053, %if.end ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.050, i64 12
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
@@ -622,12 +622,12 @@ for.inc:                                          ; preds = %if.end, %if.then5
 for.end:                                          ; preds = %for.inc, %if.then
   %foundFile.047 = phi i8 [ %foundFile.051, %if.then ], [ %foundFile.1, %for.inc ]
   %start.044 = phi i32 [ %start.053, %if.then ], [ %start.1, %for.inc ]
-  %end.2 = phi i32 [ %3, %if.then ], [ %end.1, %for.inc ]
+  %end.1 = phi i32 [ %3, %if.then ], [ %end.2, %for.inc ]
   %tobool8 = trunc nuw i8 %foundFile.047 to i1
   br i1 %tobool8, label %while.cond.preheader, label %if.then9
 
 while.cond.preheader:                             ; preds = %for.end
-  %cmp1177 = icmp ult i32 %start.044, %end.2
+  %cmp1177 = icmp ult i32 %start.044, %end.1
   br i1 %cmp1177, label %while.body.lr.ph, label %if.then50
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
@@ -684,7 +684,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 while.end.us:                                     ; preds = %if.end45.us.us, %while.body.us
   %fdid.val.us = load i32, ptr %offset_.i, align 8
-  %cmp11.us = icmp ult i32 %fdid.val.us, %end.2
+  %cmp11.us = icmp ult i32 %fdid.val.us, %end.1
   br i1 %cmp11.us, label %while.body.us, label %if.then50, !llvm.loop !11
 
 while.body15.us.us:                               ; preds = %while.body.us, %if.end45.us.us
@@ -809,7 +809,7 @@ while.end:                                        ; preds = %if.end45, %while.bo
   %best.sroa.7.1.lcssa = phi i32 [ %best.sroa.7.080, %while.body ], [ %best.sroa.7.2, %if.end45 ]
   %best.sroa.9.1.lcssa = phi i32 [ %best.sroa.9.081, %while.body ], [ %best.sroa.9.2, %if.end45 ]
   %fdid.val = load i32, ptr %offset_.i, align 8
-  %cmp11 = icmp ult i32 %fdid.val, %end.2
+  %cmp11 = icmp ult i32 %fdid.val, %end.1
   br i1 %cmp11, label %while.body, label %while.end47, !llvm.loop !11
 
 while.end47:                                      ; preds = %while.end

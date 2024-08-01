@@ -1132,7 +1132,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit119: ; preds = %451, %453
   br label %454
 
 _ZN2cv3PtrINS_8ximgproc16FastLineDetectorEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i115, %434, %421, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit, %75
-  %.0 = phi i32 [ -1, %75 ], [ 0, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit ], [ 0, %421 ], [ 0, %434 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i115 ]
+  %.1 = phi i32 [ -1, %75 ], [ 0, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit ], [ 0, %421 ], [ 0, %434 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i115 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #8
   br label %455
 
@@ -1142,10 +1142,10 @@ _ZN2cv3PtrINS_8ximgproc16FastLineDetectorEED2Ev.exit: ; preds = %_ZNSt16_Sp_coun
   br label %456
 
 455:                                              ; preds = %54, %_ZN2cv3PtrINS_8ximgproc16FastLineDetectorEED2Ev.exit
-  %.1 = phi i32 [ %.0, %_ZN2cv3PtrINS_8ximgproc16FastLineDetectorEED2Ev.exit ], [ 0, %54 ]
+  %.0 = phi i32 [ %.1, %_ZN2cv3PtrINS_8ximgproc16FastLineDetectorEED2Ev.exit ], [ 0, %54 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
-  ret i32 %.1
+  ret i32 %.0
 
 456:                                              ; preds = %454, %80, %65, %64
   %.pn100 = phi { ptr, i32 } [ %66, %65 ], [ %.pn97.pn, %454 ], [ %.pn71.pn, %80 ], [ %.pn69, %64 ]

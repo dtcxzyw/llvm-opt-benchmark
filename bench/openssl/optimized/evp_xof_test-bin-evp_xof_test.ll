@@ -443,7 +443,7 @@ if.end6.i:                                        ; preds = %if.end.i
 while.body.i:                                     ; preds = %if.end6.i, %if.end36.i
   %sz.05.i = phi i64 [ %spec.select.i, %if.end36.i ], [ 10, %if.end6.i ]
   %i.04.i = phi i64 [ %add25.i, %if.end36.i ], [ 0, %if.end6.i ]
-  %dupctx.03.i = phi ptr [ %dupctx.1.i, %if.end36.i ], [ null, %if.end6.i ]
+  %dupctx.13.i = phi ptr [ %dupctx.2.i, %if.end36.i ], [ null, %if.end6.i ]
   %cur.02.i = phi ptr [ %cur.1.i, %if.end36.i ], [ %call.i, %if.end6.i ]
   %add.i = add nuw nsw i64 %i.04.i, %sz.05.i
   %cmp14.i = icmp ugt i64 %add.i, 1000
@@ -459,7 +459,7 @@ while.body.i:                                     ; preds = %if.end6.i, %if.end3
 
 if.end24.i:                                       ; preds = %while.body.i
   %add25.i = add nuw nsw i64 %spec.select.i, %i.04.i
-  %cmp26.i = icmp eq ptr %dupctx.03.i, null
+  %cmp26.i = icmp eq ptr %dupctx.13.i, null
   br i1 %cmp26.i, label %land.lhs.true.i, label %if.end36.i
 
 land.lhs.true.i:                                  ; preds = %if.end24.i
@@ -474,7 +474,7 @@ if.then30.i:                                      ; preds = %land.lhs.true.i
 
 if.end36.i:                                       ; preds = %if.then30.i, %land.lhs.true.i, %if.end24.i
   %cur.1.i = phi ptr [ %cur.02.i, %land.lhs.true.i ], [ %cur.02.i, %if.end24.i ], [ %call31.i, %if.then30.i ]
-  %dupctx.1.i = phi ptr [ null, %land.lhs.true.i ], [ %dupctx.03.i, %if.end24.i ], [ %call31.i, %if.then30.i ]
+  %dupctx.2.i = phi ptr [ null, %land.lhs.true.i ], [ %dupctx.13.i, %if.end24.i ], [ %call31.i, %if.then30.i ]
   %cmp12.i = icmp ult i64 %add25.i, 1000
   br i1 %cmp12.i, label %while.body.i, label %while.end.i, !llvm.loop !8
 
@@ -486,10 +486,10 @@ while.end.i:                                      ; preds = %if.end36.i
 
 err.i:                                            ; preds = %if.then30.i, %while.body.i, %while.end.i, %if.end6.i, %if.end.i
   %ret.0.i = phi i32 [ 0, %if.end6.i ], [ 0, %if.end.i ], [ %spec.select20.i, %while.end.i ], [ 0, %while.body.i ], [ 0, %if.then30.i ]
-  %dupctx.2.i = phi ptr [ null, %if.end6.i ], [ null, %if.end.i ], [ %dupctx.1.i, %while.end.i ], [ %call31.i, %if.then30.i ], [ %dupctx.03.i, %while.body.i ]
+  %dupctx.0.i = phi ptr [ null, %if.end6.i ], [ null, %if.end.i ], [ %dupctx.2.i, %while.end.i ], [ %call31.i, %if.then30.i ], [ %dupctx.13.i, %while.body.i ]
   call void @CRYPTO_free(ptr noundef %call2.i, ptr noundef nonnull @.str.7, i32 noundef 454) #4
   call void @EVP_MD_CTX_free(ptr noundef %call.i) #4
-  call void @EVP_MD_CTX_free(ptr noundef %dupctx.2.i) #4
+  call void @EVP_MD_CTX_free(ptr noundef %dupctx.0.i) #4
   br label %err
 
 err:                                              ; preds = %err.i, %if.end, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10

@@ -16317,8 +16317,8 @@ define internal fastcc void @_ZL16getCodegenHeaderB5cxx11PKc(ptr dead_on_unwind 
 
 32:                                               ; preds = %29, %27
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
-  %.03 = extractvalue { ptr, i32 } %.pn, 0
-  %33 = call ptr @__cxa_begin_catch(ptr %.03) #16
+  %.14 = extractvalue { ptr, i32 } %.pn, 0
+  %33 = call ptr @__cxa_begin_catch(ptr %.14) #16
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
           to label %34 unwind label %39
 

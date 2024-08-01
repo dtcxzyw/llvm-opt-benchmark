@@ -781,7 +781,7 @@ _ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit: ; pred
   %108 = phi i64 [ 0, %93 ], [ %196, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfc6b01a6da327d4cE.exit" ]
   %.not.i52 = phi i1 [ false, %93 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfc6b01a6da327d4cE.exit" ]
   %.sroa.29.0 = phi i64 [ 1, %93 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfc6b01a6da327d4cE.exit" ]
-  %.sroa.0109.0 = phi ptr [ %98, %93 ], [ %.sroa.0109.5, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfc6b01a6da327d4cE.exit" ]
+  %.sroa.0109.0 = phi ptr [ %98, %93 ], [ %.sroa.0109.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfc6b01a6da327d4cE.exit" ]
   br i1 %.not.i52, label %109, label %111
 
 109:                                              ; preds = %107
@@ -834,7 +834,7 @@ _ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit: ; pred
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread157": ; preds = %109, %111
   %.0.i54163 = phi ptr [ %114, %111 ], [ %.sroa.0109.0, %109 ]
-  %.sroa.0109.1162 = getelementptr inbounds i8, ptr %.0.i54163, i64 1
+  %.sroa.0109.2162 = getelementptr inbounds i8, ptr %.0.i54163, i64 1
   %117 = load i8, ptr %.0.i54163, align 1, !noundef !8
   switch i8 %117, label %187 [
     i8 92, label %118
@@ -842,16 +842,16 @@ _ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit: ; pred
   ]
 
 118:                                              ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread157"
-  %119 = icmp eq ptr %.sroa.0109.1162, %100
+  %119 = icmp eq ptr %.sroa.0109.2162, %100
   br i1 %119, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread", label %122
 
 120:                                              ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread157"
-  %121 = icmp eq ptr %.sroa.0109.1162, %100
+  %121 = icmp eq ptr %.sroa.0109.2162, %100
   br i1 %121, label %200, label %199
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds i8, ptr %.0.i54163, i64 2
-  %124 = load i8, ptr %.sroa.0109.1162, align 1, !noundef !8
+  %124 = load i8, ptr %.sroa.0109.2162, align 1, !noundef !8
   switch i8 %124, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit63.thread" [
     i8 48, label %187
     i8 116, label %125
@@ -1073,8 +1073,8 @@ _ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i99: 
 
 187:                                              ; preds = %125, %126, %184, %122, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread157"
   %188 = phi i64 [ %108, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread157" ], [ %.pre, %184 ], [ %108, %126 ], [ %108, %125 ], [ %108, %122 ]
-  %.sroa.0109.5 = phi ptr [ %.sroa.0109.1162, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread157" ], [ %134, %184 ], [ %123, %126 ], [ %123, %125 ], [ %123, %122 ]
-  %.1 = phi i8 [ %117, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread157" ], [ %186, %184 ], [ 10, %126 ], [ 9, %125 ], [ 0, %122 ]
+  %.sroa.0109.1 = phi ptr [ %.sroa.0109.2162, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread157" ], [ %134, %184 ], [ %123, %126 ], [ %123, %125 ], [ %123, %122 ]
+  %.0 = phi i8 [ %117, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread157" ], [ %186, %184 ], [ 10, %126 ], [ 9, %125 ], [ 0, %122 ]
   %189 = load i64, ptr %29, align 8, !alias.scope !203, !noundef !8
   %190 = icmp eq i64 %188, %189
   br i1 %190, label %191, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfc6b01a6da327d4cE.exit"
@@ -1091,7 +1091,7 @@ _ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i99: 
   %192 = phi i64 [ %.pre.i, %.noexc108 ], [ %188, %187 ]
   %193 = load ptr, ptr %96, align 8, !alias.scope !203, !nonnull !8, !noundef !8
   %194 = getelementptr inbounds i8, ptr %193, i64 %192
-  store i8 %.1, ptr %194, align 1
+  store i8 %.0, ptr %194, align 1
   %195 = load i64, ptr %97, align 8, !alias.scope !203, !noundef !8
   %196 = add i64 %195, 1
   store i64 %196, ptr %97, align 8, !alias.scope !203

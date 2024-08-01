@@ -251,8 +251,8 @@ define range(i32 0, 256) i32 @mca_fs_base_get_file_amode(i32 noundef %0, i32 nou
   br label %11
 
 11:                                               ; preds = %5, %2
-  %.4 = phi i32 [ %.2, %2 ], [ %spec.select16, %5 ]
-  ret i32 %.4
+  %.3 = phi i32 [ %.2, %2 ], [ %spec.select16, %5 ]
+  ret i32 %.3
 }
 
 ; Function Attrs: nofree nounwind

@@ -295,8 +295,8 @@ _ZN13GrowableArrayIP13ValueMapEntryEC2EiiRKS1_.exit: ; preds = %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.loopexit.loopexit, %.preheader
-  %.sroa.18.1.lcssa108 = phi ptr [ %.sroa.18.3, %.preheader ], [ %.sroa.18.3, %.loopexit.loopexit ], [ %.sroa.18.095, %18 ]
-  %.sroa.11.1.lcssa107 = phi i32 [ %.sroa.11.3, %.preheader ], [ %.sroa.11.3, %.loopexit.loopexit ], [ %.sroa.11.094, %18 ]
+  %.sroa.18.1.lcssa108 = phi ptr [ %.sroa.18.2, %.preheader ], [ %.sroa.18.2, %.loopexit.loopexit ], [ %.sroa.18.095, %18 ]
+  %.sroa.11.1.lcssa107 = phi i32 [ %.sroa.11.2, %.preheader ], [ %.sroa.11.2, %.loopexit.loopexit ], [ %.sroa.11.094, %18 ]
   %.1.lcssa = phi i32 [ %.096, %.preheader ], [ %16, %.loopexit.loopexit ], [ %.096, %18 ]
   %17 = icmp sgt i64 %indvars.iv101, 1
   br i1 %17, label %18, label %_ZN13GrowableArrayIP13ValueMapEntryED2Ev.exit20, !llvm.loop !8
@@ -323,8 +323,8 @@ _ZN13GrowableArrayIP13ValueMapEntryEC2EiiRKS1_.exit: ; preds = %1
 
 .lr.ph:                                           ; preds = %18, %64
   %storemerge85 = phi ptr [ %storemerge, %64 ], [ %storemerge79, %18 ]
-  %.sroa.18.184 = phi ptr [ %.sroa.18.3, %64 ], [ %.sroa.18.095, %18 ]
-  %.sroa.11.183 = phi i32 [ %.sroa.11.3, %64 ], [ %.sroa.11.094, %18 ]
+  %.sroa.18.184 = phi ptr [ %.sroa.18.2, %64 ], [ %.sroa.18.095, %18 ]
+  %.sroa.11.183 = phi i32 [ %.sroa.11.2, %64 ], [ %.sroa.11.094, %18 ]
   %.sroa.057.181 = phi i32 [ %.sroa.057.2, %64 ], [ 0, %18 ]
   %23 = load i32, ptr %0, align 8
   %24 = icmp sgt i32 %23, 0
@@ -397,18 +397,18 @@ _ZN13GrowableArrayIP13ValueMapEntryE8allocateEv.exit.i: ; preds = %_ZN8ValueMap9
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !9
 
 _ZN26GrowableArrayWithAllocatorIP13ValueMapEntry13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %.lr.ph19.preheader.i, %.preheader16.i, %_ZN8ValueMap9is_killedEP11Instruction.exit.thread
-  %.sroa.11.2 = phi i32 [ %.sroa.11.183, %_ZN8ValueMap9is_killedEP11Instruction.exit.thread ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ]
-  %.sroa.18.2 = phi ptr [ %.sroa.18.184, %_ZN8ValueMap9is_killedEP11Instruction.exit.thread ], [ %47, %.preheader16.i ], [ %47, %.lr.ph19.preheader.i ]
+  %.sroa.11.3 = phi i32 [ %.sroa.11.183, %_ZN8ValueMap9is_killedEP11Instruction.exit.thread ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ]
+  %.sroa.18.3 = phi ptr [ %.sroa.18.184, %_ZN8ValueMap9is_killedEP11Instruction.exit.thread ], [ %47, %.preheader16.i ], [ %47, %.lr.ph19.preheader.i ]
   %61 = add nsw i32 %.sroa.057.181, 1
   %62 = sext i32 %.sroa.057.181 to i64
-  %63 = getelementptr inbounds ptr, ptr %.sroa.18.2, i64 %62
+  %63 = getelementptr inbounds ptr, ptr %.sroa.18.3, i64 %62
   store ptr %storemerge85, ptr %63, align 8
   br label %64
 
 64:                                               ; preds = %_ZN8ValueMap9is_killedEP11Instruction.exit, %_ZN26GrowableArrayWithAllocatorIP13ValueMapEntry13GrowableArrayIS1_EE4pushERKS1_.exit
   %.sroa.057.2 = phi i32 [ %.sroa.057.181, %_ZN8ValueMap9is_killedEP11Instruction.exit ], [ %61, %_ZN26GrowableArrayWithAllocatorIP13ValueMapEntry13GrowableArrayIS1_EE4pushERKS1_.exit ]
-  %.sroa.11.3 = phi i32 [ %.sroa.11.183, %_ZN8ValueMap9is_killedEP11Instruction.exit ], [ %.sroa.11.2, %_ZN26GrowableArrayWithAllocatorIP13ValueMapEntry13GrowableArrayIS1_EE4pushERKS1_.exit ]
-  %.sroa.18.3 = phi ptr [ %.sroa.18.184, %_ZN8ValueMap9is_killedEP11Instruction.exit ], [ %.sroa.18.2, %_ZN26GrowableArrayWithAllocatorIP13ValueMapEntry13GrowableArrayIS1_EE4pushERKS1_.exit ]
+  %.sroa.11.2 = phi i32 [ %.sroa.11.183, %_ZN8ValueMap9is_killedEP11Instruction.exit ], [ %.sroa.11.3, %_ZN26GrowableArrayWithAllocatorIP13ValueMapEntry13GrowableArrayIS1_EE4pushERKS1_.exit ]
+  %.sroa.18.2 = phi ptr [ %.sroa.18.184, %_ZN8ValueMap9is_killedEP11Instruction.exit ], [ %.sroa.18.3, %_ZN26GrowableArrayWithAllocatorIP13ValueMapEntry13GrowableArrayIS1_EE4pushERKS1_.exit ]
   %65 = getelementptr inbounds i8, ptr %storemerge85, i64 24
   %storemerge = load ptr, ptr %65, align 8
   %.not = icmp eq ptr %storemerge, null
@@ -417,7 +417,7 @@ _ZN26GrowableArrayWithAllocatorIP13ValueMapEntry13GrowableArrayIS1_EE4pushERKS1_
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.lr.ph91._crit_edge
   %indvars.iv = phi i64 [ %22, %.lr.ph91.preheader ], [ %indvars.iv.next, %.lr.ph91._crit_edge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %66 = getelementptr inbounds ptr, ptr %.sroa.18.3, i64 %indvars.iv.next
+  %66 = getelementptr inbounds ptr, ptr %.sroa.18.2, i64 %indvars.iv.next
   %67 = load ptr, ptr %66, align 8
   %68 = load i64, ptr %67, align 8
   %69 = trunc i64 %68 to i32

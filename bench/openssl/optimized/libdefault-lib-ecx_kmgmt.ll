@@ -119,8 +119,8 @@ land.rhs9:                                        ; preds = %if.end.thread, %if.
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end.thread, %if.then7, %land.rhs9, %if.end, %entry
-  %ok.1 = phi i32 [ %land.ext, %if.end ], [ 0, %entry ], [ 0, %if.then7 ], [ %1, %land.rhs9 ], [ 1, %if.end.thread ]
-  ret i32 %ok.1
+  %ok.0 = phi i32 [ %land.ext, %if.end ], [ 0, %entry ], [ 0, %if.then7 ], [ %1, %land.rhs9 ], [ 1, %if.end.thread ]
+  ret i32 %ok.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -234,8 +234,8 @@ land.rhs65:                                       ; preds = %land.lhs.true59
 
 if.end71:                                         ; preds = %if.then27, %land.lhs.true29, %land.rhs35, %if.then57, %land.lhs.true59, %land.rhs65, %if.then46, %land.lhs.true43
   %tobool74 = phi i1 [ false, %if.then46 ], [ false, %land.lhs.true43 ], [ true, %land.rhs65 ], [ true, %land.lhs.true59 ], [ true, %if.then57 ], [ true, %land.rhs35 ], [ true, %land.lhs.true29 ], [ true, %if.then27 ]
-  %ok.2 = phi i32 [ %ok.0, %if.then46 ], [ %ok.0, %land.lhs.true43 ], [ %13, %land.rhs65 ], [ 0, %land.lhs.true59 ], [ 0, %if.then57 ], [ %6, %land.rhs35 ], [ 0, %land.lhs.true29 ], [ 0, %if.then27 ]
-  %tobool72 = icmp ne i32 %ok.2, 0
+  %ok.3 = phi i32 [ %ok.0, %if.then46 ], [ %ok.0, %land.lhs.true43 ], [ %13, %land.rhs65 ], [ 0, %land.lhs.true59 ], [ 0, %if.then57 ], [ %6, %land.rhs35 ], [ 0, %land.lhs.true29 ], [ 0, %if.then27 ]
+  %tobool72 = icmp ne i32 %ok.3, 0
   %14 = and i1 %tobool74, %tobool72
   %land.ext76 = zext i1 %14 to i32
   br label %return

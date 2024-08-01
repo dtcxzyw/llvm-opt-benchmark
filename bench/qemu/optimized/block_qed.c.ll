@@ -1537,7 +1537,7 @@ cleanup.thread:                                   ; preds = %if.then104, %if.end
 
 cleanup:                                          ; preds = %if.then91, %if.then78
   %backing_file_str.0 = phi ptr [ null, %if.then78 ], [ %call80, %if.then91 ]
-  %retval.0 = phi i32 [ -22, %if.then78 ], [ %call88, %if.then91 ]
+  %retval.1 = phi i32 [ -22, %if.then78 ], [ %call88, %if.then91 ]
   call void @g_free(ptr noundef %backing_file_str.0) #18
   br label %return
 
@@ -1626,15 +1626,15 @@ out:                                              ; preds = %if.end134, %land.lh
   br label %return
 
 if.then158:                                       ; preds = %if.then133, %if.then152
-  %ret.1.ph = phi i32 [ %call150, %if.then152 ], [ %call131, %if.then133 ]
+  %ret.0.ph = phi i32 [ %call150, %if.then152 ], [ %call131, %if.then133 ]
   call void @qed_free_l2_cache(ptr noundef nonnull %l2_cache) #18
   %42 = load ptr, ptr %l1_table, align 8
   call void @qemu_vfree(ptr noundef %42) #18
   br label %return
 
 return:                                           ; preds = %out, %cleanup, %if.then158, %if.then124, %if.then58, %if.then37, %if.then33, %if.then25, %if.then19, %if.then13, %if.then6, %if.then3, %if.then
-  %retval.1 = phi i32 [ %call.i, %if.then ], [ -22, %if.then3 ], [ -95, %if.then6 ], [ %conv, %if.then19 ], [ -22, %if.then58 ], [ %retval.0, %cleanup ], [ %call122, %if.then124 ], [ -22, %if.then37 ], [ -22, %if.then33 ], [ -22, %if.then25 ], [ -22, %if.then13 ], [ %ret.1.ph, %if.then158 ], [ 0, %out ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call.i, %if.then ], [ -22, %if.then3 ], [ -95, %if.then6 ], [ %conv, %if.then19 ], [ -22, %if.then58 ], [ %retval.1, %cleanup ], [ %call122, %if.then124 ], [ -22, %if.then37 ], [ -22, %if.then33 ], [ -22, %if.then25 ], [ -22, %if.then13 ], [ %ret.0.ph, %if.then158 ], [ 0, %out ]
+  ret i32 %retval.0
 }
 
 declare void @qemu_co_mutex_unlock(ptr noundef) #1
@@ -2457,14 +2457,14 @@ if.else:                                          ; preds = %if.end16
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then17
-  %ret.0 = phi i32 [ %call18, %if.then17 ], [ %call19, %if.else ]
-  %cmp21 = icmp slt i32 %ret.0, 0
-  %cmp22 = icmp ne i32 %ret.0, -11
+  %ret.1 = phi i32 [ %call18, %if.then17 ], [ %call19, %if.else ]
+  %cmp21 = icmp slt i32 %ret.1, 0
+  %cmp22 = icmp ne i32 %ret.1, -11
   %or.cond = and i1 %cmp21, %cmp22
   br i1 %or.cond, label %while.end, label %while.body
 
 while.end:                                        ; preds = %trace_qed_aio_next_io.exit, %if.end20, %if.end
-  %ret.1 = phi i32 [ %call13, %if.end ], [ %ret.0, %if.end20 ], [ 0, %trace_qed_aio_next_io.exit ]
+  %ret.0 = phi i32 [ %call13, %if.end ], [ %ret.1, %if.end20 ], [ 0, %trace_qed_aio_next_io.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i31)
   %17 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i32 = icmp ne i32 %17, 0
@@ -2490,18 +2490,18 @@ if.then8.i.i41:                                   ; preds = %if.then.i.i38
   %21 = load i64, ptr %_now.i.i31, align 8
   %tv_usec.i.i44 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %22 = load i64, ptr %tv_usec.i.i44, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i43, i64 noundef %21, i64 noundef %22, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef %ret.1) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i43, i64 noundef %21, i64 noundef %22, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef %ret.0) #18
   br label %trace_qed_aio_complete.exit
 
 if.else.i.i40:                                    ; preds = %if.then.i.i38
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef %ret.1) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef %ret.0) #18
   br label %trace_qed_aio_complete.exit
 
 trace_qed_aio_complete.exit:                      ; preds = %while.end, %land.lhs.true5.i.i35, %if.then8.i.i41, %if.else.i.i40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i31)
   call void @qed_aio_complete(ptr noundef nonnull %acb)
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 declare void @qemu_iovec_reset(ptr noundef) local_unnamed_addr #1

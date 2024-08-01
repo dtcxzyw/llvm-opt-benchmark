@@ -357,12 +357,12 @@ define hidden { i64, i64 } @"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$
   %10 = load i64, ptr %9, align 8, !alias.scope !41, !noalias !44
   %11 = icmp ult i64 %.fca.1.extract, %10
   %.016.i = select i1 %.not.i, i1 %11, i1 false
-  %.sroa.0.0 = zext i1 %.016.i to i64
+  %.sroa.0.1 = zext i1 %.016.i to i64
   br label %12
 
 12:                                               ; preds = %2, %8
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %8 ], [ 0, %2 ]
-  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %8 ], [ 0, %2 ]
+  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %14 = insertvalue { i64, i64 } %13, i64 %.fca.1.extract, 1
   ret { i64, i64 } %14
 }

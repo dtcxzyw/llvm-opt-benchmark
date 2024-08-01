@@ -4607,7 +4607,7 @@ if.then1.i60:                                     ; preds = %if.end.i57
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end.i57, %if.then1.i60, %if.end30, %land.lhs.true21, %if.then19
-  %slotw.1 = phi ptr [ %slotw.0, %land.lhs.true21 ], [ null, %if.then19 ], [ null, %if.end30 ], [ null, %if.then1.i60 ], [ null, %if.end.i57 ]
+  %slotw.2 = phi ptr [ %slotw.0, %land.lhs.true21 ], [ null, %if.then19 ], [ null, %if.end30 ], [ null, %if.then1.i60 ], [ null, %if.end.i57 ]
   %call32 = tail call ptr %slotv.0(ptr noundef nonnull %v, ptr noundef nonnull %w) #11
   %cmp33.not = icmp eq ptr %call32, @_Py_NotImplementedStruct
   br i1 %cmp33.not, label %if.end35, label %return
@@ -4629,12 +4629,12 @@ if.then1.i51:                                     ; preds = %if.end.i48
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end.i48, %if.then1.i51, %if.end35, %if.end17
-  %slotw.2 = phi ptr [ %slotw.1, %if.end35 ], [ %slotw.1, %if.then1.i51 ], [ %slotw.1, %if.end.i48 ], [ %slotw.0, %if.end17 ]
-  %tobool37.not = icmp eq ptr %slotw.2, null
+  %slotw.1 = phi ptr [ %slotw.2, %if.end35 ], [ %slotw.2, %if.then1.i51 ], [ %slotw.2, %if.end.i48 ], [ %slotw.0, %if.end17 ]
+  %tobool37.not = icmp eq ptr %slotw.1, null
   br i1 %tobool37.not, label %return, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
-  %call40 = tail call ptr %slotw.2(ptr noundef nonnull %v, ptr noundef nonnull %w) #11
+  %call40 = tail call ptr %slotw.1(ptr noundef nonnull %v, ptr noundef nonnull %w) #11
   %cmp41.not = icmp eq ptr %call40, @_Py_NotImplementedStruct
   br i1 %cmp41.not, label %if.end43, label %return
 
@@ -5047,7 +5047,7 @@ if.then1.i99:                                     ; preds = %if.end.i96
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end13.thread, %if.end.i96, %if.then1.i99, %if.end26, %land.lhs.true17, %if.then15
-  %slotw.1 = phi ptr [ %6, %land.lhs.true17 ], [ null, %if.then15 ], [ null, %if.end26 ], [ null, %if.then1.i99 ], [ null, %if.end.i96 ], [ null, %if.end13.thread ]
+  %slotw.2 = phi ptr [ %6, %land.lhs.true17 ], [ null, %if.then15 ], [ null, %if.end26 ], [ null, %if.then1.i99 ], [ null, %if.end.i96 ], [ null, %if.end13.thread ]
   %call28 = tail call ptr %4(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef %z) #11
   %cmp29.not = icmp eq ptr %call28, @_Py_NotImplementedStruct
   br i1 %cmp29.not, label %if.end31, label %return
@@ -5070,12 +5070,12 @@ if.then1.i90:                                     ; preds = %if.end.i87
 
 if.end32:                                         ; preds = %if.end13.thread93, %if.end.i87, %if.then1.i90, %if.end31, %if.end13
   %slotv.088 = phi ptr [ %4, %if.end31 ], [ %4, %if.then1.i90 ], [ %4, %if.end.i87 ], [ null, %if.end13 ], [ null, %if.end13.thread93 ]
-  %slotw.2 = phi ptr [ %slotw.1, %if.end31 ], [ %slotw.1, %if.then1.i90 ], [ %slotw.1, %if.end.i87 ], [ %spec.store.select, %if.end13 ], [ %5, %if.end13.thread93 ]
-  %tobool33.not = icmp eq ptr %slotw.2, null
+  %slotw.1 = phi ptr [ %slotw.2, %if.end31 ], [ %slotw.2, %if.then1.i90 ], [ %slotw.2, %if.end.i87 ], [ %spec.store.select, %if.end13 ], [ %5, %if.end13.thread93 ]
+  %tobool33.not = icmp eq ptr %slotw.1, null
   br i1 %tobool33.not, label %if.end40, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  %call36 = tail call ptr %slotw.2(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef %z) #11
+  %call36 = tail call ptr %slotw.1(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef %z) #11
   %cmp37.not = icmp eq ptr %call36, @_Py_NotImplementedStruct
   br i1 %cmp37.not, label %if.end39, label %return
 
@@ -5097,7 +5097,7 @@ if.then1.i81:                                     ; preds = %if.end.i78
 
 if.end40:                                         ; preds = %if.end.thread, %if.end13.thread, %if.end.i78, %if.then1.i81, %if.end39, %if.end32
   %slotv.087 = phi ptr [ %slotv.088, %if.end.i78 ], [ %slotv.088, %if.then1.i81 ], [ %slotv.088, %if.end39 ], [ %slotv.088, %if.end32 ], [ null, %if.end13.thread ], [ null, %if.end.thread ]
-  %slotw.278 = phi ptr [ %slotw.2, %if.end.i78 ], [ %slotw.2, %if.then1.i81 ], [ %slotw.2, %if.end39 ], [ null, %if.end32 ], [ null, %if.end13.thread ], [ null, %if.end.thread ]
+  %slotw.178 = phi ptr [ %slotw.1, %if.end.i78 ], [ %slotw.1, %if.then1.i81 ], [ %slotw.1, %if.end39 ], [ null, %if.end32 ], [ null, %if.end13.thread ], [ null, %if.end.thread ]
   %13 = getelementptr i8, ptr %z, i64 8
   %z.val63 = load ptr, ptr %13, align 8
   %tp_as_number42 = getelementptr inbounds i8, ptr %z.val63, i64 96
@@ -5109,7 +5109,7 @@ if.then44:                                        ; preds = %if.end40
   %arrayidx46 = getelementptr i8, ptr %14, i64 40
   %15 = load ptr, ptr %arrayidx46, align 8
   %cmp47 = icmp eq ptr %15, %slotv.087
-  %cmp48 = icmp eq ptr %15, %slotw.278
+  %cmp48 = icmp eq ptr %15, %slotw.178
   %or.cond60 = or i1 %cmp47, %cmp48
   %tobool51.not99 = icmp eq ptr %15, null
   %tobool51.not = or i1 %tobool51.not99, %or.cond60
@@ -8334,7 +8334,7 @@ if.end18.lr.ph:                                   ; preds = %for.cond.preheader
 
 if.end18.us:                                      ; preds = %if.end18.lr.ph, %if.end33.us
   %call1.i2041.us = phi ptr [ %call1.i20.us, %if.end33.us ], [ %call1.i2037, %if.end18.lr.ph ]
-  %n.040.us = phi i64 [ %n.2.us, %if.end33.us ], [ 0, %if.end18.lr.ph ]
+  %n.040.us = phi i64 [ %n.3.us, %if.end33.us ], [ 0, %if.end18.lr.ph ]
   %call19.us = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %call1.i2041.us, ptr noundef %obj, i32 noundef 2) #11
   %7 = load i64, ptr %call1.i2041.us, align 8
   %8 = and i64 %7, 2147483648
@@ -8376,7 +8376,7 @@ if.end27.us:                                      ; preds = %sw.bb.us
 
 if.end33.us:                                      ; preds = %if.end27.us, %if.end22.us
   %n.1.us = phi i64 [ %inc.us, %if.end27.us ], [ %n.040.us, %if.end22.us ]
-  %n.2.us = add i64 %n.1.us, %inc39
+  %n.3.us = add i64 %n.1.us, %inc39
   %iter.val.i.us = load ptr, ptr %5, align 8
   %tp_iternext.i.us = getelementptr inbounds i8, ptr %iter.val.i.us, i64 224
   %9 = load ptr, ptr %tp_iternext.i.us, align 8
@@ -8400,7 +8400,7 @@ if.then6:                                         ; preds = %if.then4
   br label %return
 
 if.then.i22:                                      ; preds = %if.end33.us, %if.end33, %for.cond.preheader
-  %n.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %n.2, %if.end33 ], [ %n.2.us, %if.end33.us ]
+  %n.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %n.3, %if.end33 ], [ %n.3.us, %if.end33.us ]
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 104
@@ -8431,7 +8431,7 @@ if.then13:                                        ; preds = %if.then.i22, %_PyEr
 
 if.end18:                                         ; preds = %if.end18.lr.ph, %if.end33
   %call1.i2041 = phi ptr [ %call1.i20, %if.end33 ], [ %call1.i2037, %if.end18.lr.ph ]
-  %n.040 = phi i64 [ %n.2, %if.end33 ], [ 0, %if.end18.lr.ph ]
+  %n.040 = phi i64 [ %n.3, %if.end33 ], [ 0, %if.end18.lr.ph ]
   %wrapped.039 = phi i32 [ %spec.select, %if.end33 ], [ 0, %if.end18.lr.ph ]
   %call19 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %call1.i2041, ptr noundef %obj, i32 noundef 2) #11
   %19 = load i64, ptr %call1.i2041, align 8
@@ -8477,7 +8477,7 @@ sw.default:                                       ; preds = %if.then24.us
 if.end33:                                         ; preds = %if.end22
   %cmp36 = icmp eq i64 %n.040, 9223372036854775807
   %spec.select = select i1 %cmp36, i32 1, i32 %wrapped.039
-  %n.2 = add i64 %n.040, %inc39
+  %n.3 = add i64 %n.040, %inc39
   %iter.val.i = load ptr, ptr %5, align 8
   %tp_iternext.i = getelementptr inbounds i8, ptr %iter.val.i, i64 224
   %24 = load ptr, ptr %tp_iternext.i, align 8
@@ -8498,7 +8498,7 @@ Done.loopexit85:                                  ; preds = %if.then24.us
   br label %Done
 
 Done:                                             ; preds = %Py_DECREF.exit52.us, %Py_DECREF.exit52, %if.then24.us, %Done.loopexit85, %if.then26, %if.then30, %if.end43, %if.then13, %for.end, %sw.bb28
-  %n.3 = phi i64 [ %n.0.lcssa, %for.end ], [ %n.040, %sw.bb28 ], [ -1, %if.then13 ], [ -1, %if.end43 ], [ -1, %if.then30 ], [ -1, %if.then26 ], [ %n.040.us, %if.then24.us ], [ -1, %Py_DECREF.exit52 ], [ -1, %Py_DECREF.exit52.us ], [ 1, %Done.loopexit85 ]
+  %n.2 = phi i64 [ %n.0.lcssa, %for.end ], [ %n.040, %sw.bb28 ], [ -1, %if.then13 ], [ -1, %if.end43 ], [ -1, %if.then30 ], [ -1, %if.then26 ], [ %n.040.us, %if.then24.us ], [ -1, %Py_DECREF.exit52 ], [ -1, %Py_DECREF.exit52.us ], [ 1, %Done.loopexit85 ]
   %26 = load i64, ptr %call2, align 8
   %27 = and i64 %26, 2147483648
   %cmp.i57.not = icmp eq i64 %27, 0
@@ -8515,7 +8515,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.then.i, %_PyErr_Occurred.exit.i, %if.end.i, %if.then1.i, %Done, %if.then4, %if.then6
-  %retval.0 = phi i64 [ -1, %if.then6 ], [ -1, %if.then4 ], [ %n.3, %Done ], [ %n.3, %if.then1.i ], [ %n.3, %if.end.i ], [ -1, %_PyErr_Occurred.exit.i ], [ -1, %if.then.i ]
+  %retval.0 = phi i64 [ -1, %if.then6 ], [ -1, %if.then4 ], [ %n.2, %Done ], [ %n.2, %if.then1.i ], [ %n.2, %if.end.i ], [ -1, %_PyErr_Occurred.exit.i ], [ -1, %if.then.i ]
   ret i64 %retval.0
 }
 

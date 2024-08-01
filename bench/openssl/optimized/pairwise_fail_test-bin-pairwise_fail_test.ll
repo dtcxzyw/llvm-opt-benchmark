@@ -299,21 +299,21 @@ if.end72:                                         ; preds = %if.end67
   br i1 %tobool74.not, label %err, label %if.end79
 
 if.end79:                                         ; preds = %sub_0, %if.else.tail, %sub_141, %if.end25, %if.end72, %if.else31.tail, %if.end
-  %bio.0 = phi ptr [ null, %if.end ], [ null, %if.end25 ], [ %call48, %if.end72 ], [ null, %if.else31.tail ], [ null, %sub_141 ], [ null, %if.else.tail ], [ null, %sub_0 ]
-  %ctx.0 = phi ptr [ null, %if.end ], [ null, %if.end25 ], [ %call58, %if.end72 ], [ null, %if.else31.tail ], [ null, %sub_141 ], [ null, %if.else.tail ], [ null, %sub_0 ]
-  %pParams.0 = phi ptr [ null, %if.end ], [ null, %if.end25 ], [ %call53, %if.end72 ], [ null, %if.else31.tail ], [ null, %sub_141 ], [ null, %if.else.tail ], [ null, %sub_0 ]
+  %bio.1 = phi ptr [ null, %if.end ], [ null, %if.end25 ], [ %call48, %if.end72 ], [ null, %if.else31.tail ], [ null, %sub_141 ], [ null, %if.else.tail ], [ null, %sub_0 ]
+  %ctx.1 = phi ptr [ null, %if.end ], [ null, %if.end25 ], [ %call58, %if.end72 ], [ null, %if.else31.tail ], [ null, %sub_141 ], [ null, %if.else.tail ], [ null, %sub_0 ]
+  %pParams.1 = phi ptr [ null, %if.end ], [ null, %if.end25 ], [ %call53, %if.end72 ], [ null, %if.else31.tail ], [ null, %sub_141 ], [ null, %if.else.tail ], [ null, %sub_0 ]
   br label %err
 
 err:                                              ; preds = %if.end72, %if.end67, %if.end62, %if.end57, %if.end52, %if.end47, %if.end40, %if.end25, %if.end18, %if.end, %setup_selftest_pairwise_failure.exit, %if.end79
-  %bio.1 = phi ptr [ %bio.0, %if.end79 ], [ null, %if.end ], [ null, %setup_selftest_pairwise_failure.exit ], [ null, %if.end25 ], [ null, %if.end18 ], [ %call48, %if.end72 ], [ %call48, %if.end67 ], [ %call48, %if.end62 ], [ %call48, %if.end57 ], [ %call48, %if.end52 ], [ %call48, %if.end47 ], [ null, %if.end40 ]
-  %ctx.1 = phi ptr [ %ctx.0, %if.end79 ], [ null, %if.end ], [ null, %setup_selftest_pairwise_failure.exit ], [ null, %if.end25 ], [ null, %if.end18 ], [ %call58, %if.end72 ], [ %call58, %if.end67 ], [ %call58, %if.end62 ], [ %call58, %if.end57 ], [ null, %if.end52 ], [ null, %if.end47 ], [ null, %if.end40 ]
-  %pParams.1 = phi ptr [ %pParams.0, %if.end79 ], [ null, %if.end ], [ null, %setup_selftest_pairwise_failure.exit ], [ null, %if.end25 ], [ null, %if.end18 ], [ %call53, %if.end72 ], [ %call53, %if.end67 ], [ %call53, %if.end62 ], [ %call53, %if.end57 ], [ %call53, %if.end52 ], [ null, %if.end47 ], [ null, %if.end40 ]
+  %bio.0 = phi ptr [ %bio.1, %if.end79 ], [ null, %if.end ], [ null, %setup_selftest_pairwise_failure.exit ], [ null, %if.end25 ], [ null, %if.end18 ], [ %call48, %if.end72 ], [ %call48, %if.end67 ], [ %call48, %if.end62 ], [ %call48, %if.end57 ], [ %call48, %if.end52 ], [ %call48, %if.end47 ], [ null, %if.end40 ]
+  %ctx.0 = phi ptr [ %ctx.1, %if.end79 ], [ null, %if.end ], [ null, %setup_selftest_pairwise_failure.exit ], [ null, %if.end25 ], [ null, %if.end18 ], [ %call58, %if.end72 ], [ %call58, %if.end67 ], [ %call58, %if.end62 ], [ %call58, %if.end57 ], [ null, %if.end52 ], [ null, %if.end47 ], [ null, %if.end40 ]
+  %pParams.0 = phi ptr [ %pParams.1, %if.end79 ], [ null, %if.end ], [ null, %setup_selftest_pairwise_failure.exit ], [ null, %if.end25 ], [ null, %if.end18 ], [ %call53, %if.end72 ], [ %call53, %if.end67 ], [ %call53, %if.end62 ], [ %call53, %if.end57 ], [ %call53, %if.end52 ], [ null, %if.end47 ], [ null, %if.end40 ]
   %ret.0 = phi i32 [ 1, %if.end79 ], [ 0, %if.end ], [ 0, %setup_selftest_pairwise_failure.exit ], [ 0, %if.end25 ], [ 0, %if.end18 ], [ 0, %if.end72 ], [ 0, %if.end67 ], [ 0, %if.end62 ], [ 0, %if.end57 ], [ 0, %if.end52 ], [ 0, %if.end47 ], [ 0, %if.end40 ]
   %22 = load ptr, ptr %pkey, align 8
   call void @EVP_PKEY_free(ptr noundef %22) #4
-  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.1) #4
-  %call80 = call i32 @BIO_free(ptr noundef %bio.1) #4
-  call void @EVP_PKEY_free(ptr noundef %pParams.1) #4
+  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0) #4
+  %call80 = call i32 @BIO_free(ptr noundef %bio.0) #4
+  call void @EVP_PKEY_free(ptr noundef %pParams.0) #4
   ret i32 %ret.0
 }
 

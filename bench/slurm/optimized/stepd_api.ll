@@ -9307,7 +9307,7 @@ _sockname_regex_init.exit:                        ; preds = %11, %13
 
 .lr.ph:                                           ; preds = %.preheader, %68
   %31 = phi ptr [ %69, %68 ], [ %28, %.preheader ]
-  %.020 = phi i32 [ %.2, %68 ], [ 0, %.preheader ]
+  %.120 = phi i32 [ %.2, %68 ], [ 0, %.preheader ]
   %32 = getelementptr inbounds i8, ptr %31, i64 19
   %33 = call fastcc i32 @_sockname_regex(ptr noundef nonnull %4, ptr noundef nonnull %32, ptr noundef nonnull %6)
   %.not17 = icmp eq i32 %33, 0
@@ -9377,25 +9377,25 @@ _sockname_regex_init.exit:                        ; preds = %11, %13
   br label %67
 
 67:                                               ; preds = %64, %61, %57
-  %.1 = phi i32 [ -1, %64 ], [ %.020, %61 ], [ %.020, %57 ]
+  %.3 = phi i32 [ -1, %64 ], [ %.120, %61 ], [ %.120, %57 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #12
   br label %68
 
 68:                                               ; preds = %67, %.lr.ph
-  %.2 = phi i32 [ %.020, %.lr.ph ], [ %.1, %67 ]
+  %.2 = phi i32 [ %.120, %.lr.ph ], [ %.3, %67 ]
   %69 = call ptr @readdir(ptr noundef nonnull %26) #12
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %68, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %68 ]
+  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %68 ]
   %70 = call i32 @closedir(ptr noundef nonnull %26)
   br label %71
 
 71:                                               ; preds = %._crit_edge, %29, %23, %16
-  %.3 = phi i32 [ 0, %16 ], [ 0, %29 ], [ %.0.lcssa, %._crit_edge ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %29 ], [ %.1.lcssa, %._crit_edge ], [ 0, %23 ]
   call void @regfree(ptr noundef nonnull %4) #12
-  ret i32 %.3
+  ret i32 %.0
 }
 
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1

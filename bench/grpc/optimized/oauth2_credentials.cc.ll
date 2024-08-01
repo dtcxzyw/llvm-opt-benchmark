@@ -1345,11 +1345,11 @@ if.then2:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %null_terminated_body.0 = phi ptr [ %call, %if.then2 ], [ null, %if.end ]
+  %null_terminated_body.1 = phi ptr [ %call, %if.then2 ], [ null, %if.end ]
   %4 = load i32, ptr %response, align 8
   %cmp8.not = icmp eq i32 %4, 200
-  %cmp12.not = icmp eq ptr %null_terminated_body.0, null
-  %cond16 = select i1 %cmp12.not, ptr @.str.12, ptr %null_terminated_body.0
+  %cmp12.not = icmp eq ptr %null_terminated_body.1, null
+  %cond16 = select i1 %cmp12.not, ptr @.str.12, ptr %null_terminated_body.1
   br i1 %cmp8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
@@ -1369,7 +1369,7 @@ if.then18:                                        ; preds = %if.else
 
 invoke.cont21:                                    ; preds = %if.then18
   %call22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 189, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %null_terminated_body.0, ptr noundef %call22)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 189, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %null_terminated_body.1, ptr noundef %call22)
           to label %cleanup.sink.split unwind label %lpad23
 
 lpad:                                             ; preds = %if.then134.invoke, %if.then.i.i61.invoke, %if.then.i.i85.invoke, %invoke.cont154, %if.end136, %lor.rhs127, %invoke.cont120, %invoke.cont105, %if.end98, %lor.rhs89, %invoke.cont82, %invoke.cont67, %if.end60, %if.then18
@@ -1836,7 +1836,7 @@ end:                                              ; preds = %if.then.i.i3.i.i, %
   br i1 %cmp162.not, label %if.end166, label %if.then163
 
 if.then163:                                       ; preds = %if.then9, %if.then, %end
-  %null_terminated_body.1123 = phi ptr [ %null_terminated_body.0, %end ], [ %null_terminated_body.0, %if.then9 ], [ null, %if.then ]
+  %null_terminated_body.0123 = phi ptr [ %null_terminated_body.1, %end ], [ %null_terminated_body.1, %if.then9 ], [ null, %if.then ]
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %token_value, i64 32
   %43 = load i8, ptr %_M_engaged.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %43 to i1
@@ -1867,10 +1867,10 @@ terminate.lpad.i.i.i.i.i105:                      ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 if.end166:                                        ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then.i.i.i104, %if.then163, %end
-  %null_terminated_body.1124 = phi ptr [ %null_terminated_body.0, %end ], [ %null_terminated_body.1123, %if.then163 ], [ %null_terminated_body.1123, %if.then.i.i.i104 ], [ %null_terminated_body.1123, %if.then.i.i.i.i.i.i ], [ %null_terminated_body.1123, %if.then.i.i.i.i.i.i.i ]
-  %status.1122 = phi i32 [ 0, %end ], [ 1, %if.then163 ], [ 1, %if.then.i.i.i104 ], [ 1, %if.then.i.i.i.i.i.i ], [ 1, %if.then.i.i.i.i.i.i.i ]
-  call void @gpr_free(ptr noundef %null_terminated_body.1124)
-  ret i32 %status.1122
+  %null_terminated_body.0124 = phi ptr [ %null_terminated_body.1, %end ], [ %null_terminated_body.0123, %if.then163 ], [ %null_terminated_body.0123, %if.then.i.i.i104 ], [ %null_terminated_body.0123, %if.then.i.i.i.i.i.i ], [ %null_terminated_body.0123, %if.then.i.i.i.i.i.i.i ]
+  %status.0122 = phi i32 [ 0, %end ], [ 1, %if.then163 ], [ 1, %if.then.i.i.i104 ], [ 1, %if.then.i.i.i.i.i.i ], [ 1, %if.then.i.i.i.i.i.i.i ]
+  call void @gpr_free(ptr noundef %null_terminated_body.0124)
+  ret i32 %status.0122
 }
 
 declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #0

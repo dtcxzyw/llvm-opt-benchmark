@@ -137,7 +137,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %10 = phi i32 [ %60, %59 ], [ %8, %.preheader ]
   %.067147 = phi i32 [ %.1, %59 ], [ 0, %.preheader ]
   %.068146 = phi i32 [ %.169, %59 ], [ 0, %.preheader ]
-  %.0123145 = phi i32 [ %.2, %59 ], [ 0, %.preheader ]
+  %.0123145 = phi i32 [ %.1124, %59 ], [ 0, %.preheader ]
   %sext = shl i32 %10, 24
   %11 = ashr exact i32 %sext, 24
   switch i32 %11, label %58 [
@@ -260,7 +260,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   unreachable
 
 59:                                               ; preds = %.lr.ph, %55, %57, %52, %47, %44, %41, %parse_flag.exit, %12
-  %.2 = phi i32 [ %.0123145, %57 ], [ %.0123145, %55 ], [ %.0123145, %52 ], [ %.0123145, %47 ], [ %.0123145, %.lr.ph ], [ %.0123145, %44 ], [ %.0123145, %41 ], [ %37, %parse_flag.exit ], [ %.0123145, %12 ]
+  %.1124 = phi i32 [ %.0123145, %57 ], [ %.0123145, %55 ], [ %.0123145, %52 ], [ %.0123145, %47 ], [ %.0123145, %.lr.ph ], [ %.0123145, %44 ], [ %.0123145, %41 ], [ %37, %parse_flag.exit ], [ %.0123145, %12 ]
   %.169 = phi i32 [ %.068146, %57 ], [ %.068146, %55 ], [ %.068146, %52 ], [ %.068146, %47 ], [ 1, %.lr.ph ], [ %.068146, %44 ], [ %.068146, %41 ], [ %.068146, %parse_flag.exit ], [ %.068146, %12 ]
   %.1 = phi i32 [ %.067147, %57 ], [ %.067147, %55 ], [ 1, %52 ], [ %.067147, %47 ], [ %.067147, %.lr.ph ], [ %.067147, %44 ], [ %.067147, %41 ], [ %.067147, %parse_flag.exit ], [ %.067147, %12 ]
   %60 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.63, ptr noundef nonnull @l_opts) #13
@@ -268,7 +268,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %59, %.preheader
-  %.0123.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %59 ]
+  %.0123.lcssa = phi i32 [ 0, %.preheader ], [ %.1124, %59 ]
   %.068.lcssa = phi i32 [ 0, %.preheader ], [ %.169, %59 ]
   %.067.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %59 ]
   %61 = load ptr, ptr @fname_src, align 8

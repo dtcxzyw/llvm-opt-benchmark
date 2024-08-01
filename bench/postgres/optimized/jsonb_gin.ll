@@ -179,9 +179,9 @@ define dso_local i64 @gin_extract_jsonb(ptr nocapture noundef readonly %0) #0 {
   br label %.outer
 
 .outer:                                           ; preds = %.sink.split, %16
-  %.sroa.25.0.ph = phi i32 [ %.sroa.25.4.ph, %.sink.split ], [ %17, %16 ]
+  %.sroa.25.0.ph = phi i32 [ %.sroa.25.1.ph, %.sink.split ], [ %17, %16 ]
   %.sroa.14.0.ph = phi i32 [ %56, %.sink.split ], [ 0, %16 ]
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.3.sink, %.sink.split ], [ %20, %16 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.4.sink, %.sink.split ], [ %20, %16 ]
   br label %22
 
 22:                                               ; preds = %.outer, %22
@@ -256,12 +256,12 @@ define dso_local i64 @gin_extract_jsonb(ptr nocapture noundef readonly %0) #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %54, %49, %46, %44, %39, %34, %32, %27, %24
-  %.sroa.0.3.sink = phi ptr [ %33, %32 ], [ %31, %27 ], [ %.sroa.0.0.ph, %24 ], [ %45, %44 ], [ %43, %39 ], [ %.sroa.0.0.ph, %34 ], [ %55, %54 ], [ %53, %49 ], [ %.sroa.0.0.ph, %46 ]
+  %.sroa.0.4.sink = phi ptr [ %33, %32 ], [ %31, %27 ], [ %.sroa.0.0.ph, %24 ], [ %45, %44 ], [ %43, %39 ], [ %.sroa.0.0.ph, %34 ], [ %55, %54 ], [ %53, %49 ], [ %.sroa.0.0.ph, %46 ]
   %.sink = phi i64 [ %25, %32 ], [ %25, %27 ], [ %25, %24 ], [ %37, %44 ], [ %37, %39 ], [ %37, %34 ], [ %47, %54 ], [ %47, %49 ], [ %47, %46 ]
-  %.sroa.25.4.ph = phi i32 [ 8, %32 ], [ %28, %27 ], [ %.sroa.25.0.ph, %24 ], [ 8, %44 ], [ %40, %39 ], [ %.sroa.25.0.ph, %34 ], [ 8, %54 ], [ %50, %49 ], [ %.sroa.25.0.ph, %46 ]
+  %.sroa.25.1.ph = phi i32 [ 8, %32 ], [ %28, %27 ], [ %.sroa.25.0.ph, %24 ], [ 8, %44 ], [ %40, %39 ], [ %.sroa.25.0.ph, %34 ], [ 8, %54 ], [ %50, %49 ], [ %.sroa.25.0.ph, %46 ]
   %56 = add i32 %.sroa.14.0.ph, 1
   %57 = sext i32 %.sroa.14.0.ph to i64
-  %58 = getelementptr i64, ptr %.sroa.0.3.sink, i64 %57
+  %58 = getelementptr i64, ptr %.sroa.0.4.sink, i64 %57
   store i64 %.sink, ptr %58, align 8
   br label %.outer, !llvm.loop !5
 
@@ -1064,9 +1064,9 @@ define dso_local i64 @gin_extract_jsonb_path(ptr nocapture noundef readonly %0) 
   br label %.outer
 
 .outer:                                           ; preds = %add_gin_entry.exit, %17
-  %.sroa.11.0.ph = phi i32 [ %.sroa.11.1, %add_gin_entry.exit ], [ %18, %17 ]
+  %.sroa.11.0.ph = phi i32 [ %.sroa.11.2, %add_gin_entry.exit ], [ %18, %17 ]
   %.sroa.6.0.ph = phi i32 [ %42, %add_gin_entry.exit ], [ 0, %17 ]
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1, %add_gin_entry.exit ], [ %21, %17 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.2, %add_gin_entry.exit ], [ %21, %17 ]
   %.0.ph = phi ptr [ %.0.ph48, %add_gin_entry.exit ], [ %4, %17 ]
   br label %.outer47
 
@@ -1122,11 +1122,11 @@ define dso_local i64 @gin_extract_jsonb_path(ptr nocapture noundef readonly %0) 
   br label %add_gin_entry.exit
 
 add_gin_entry.exit:                               ; preds = %31, %35, %40
-  %.sroa.11.1 = phi i32 [ 8, %40 ], [ %36, %35 ], [ %.sroa.11.0.ph, %31 ]
-  %.sroa.0.1 = phi ptr [ %41, %40 ], [ %39, %35 ], [ %.sroa.0.0.ph, %31 ]
+  %.sroa.11.2 = phi i32 [ 8, %40 ], [ %36, %35 ], [ %.sroa.11.0.ph, %31 ]
+  %.sroa.0.2 = phi ptr [ %41, %40 ], [ %39, %35 ], [ %.sroa.0.0.ph, %31 ]
   %42 = add i32 %.sroa.6.0.ph, 1
   %43 = sext i32 %.sroa.6.0.ph to i64
-  %44 = getelementptr i64, ptr %.sroa.0.1, i64 %43
+  %44 = getelementptr i64, ptr %.sroa.0.2, i64 %43
   store i64 %33, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %.0.ph48, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -1512,7 +1512,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br i1 %.not3032, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %14
-  %.034 = phi ptr [ %.1, %14 ], [ %3, %.preheader ]
+  %.134 = phi ptr [ %.2, %14 ], [ %3, %.preheader ]
   %.02333 = phi ptr [ %15, %14 ], [ %1, %.preheader ]
   %5 = getelementptr inbounds i8, ptr %.02333, i64 16
   %6 = load i32, ptr %5, align 8
@@ -1526,17 +1526,17 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   store i32 2, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %10, ptr %12, align 8
-  %13 = tail call ptr @lappend(ptr noundef %.034, ptr noundef nonnull %11) #8
+  %13 = tail call ptr @lappend(ptr noundef %.134, ptr noundef nonnull %11) #8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %8
-  %.1 = phi ptr [ %13, %8 ], [ %.034, %.lr.ph ]
+  %.2 = phi ptr [ %13, %8 ], [ %.134, %.lr.ph ]
   %15 = load ptr, ptr %.02333, align 8
   %.not30 = icmp eq ptr %15, null
   br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %14, %.preheader
-  %.0.lcssa = phi ptr [ %3, %.preheader ], [ %.1, %14 ]
+  %.1.lcssa = phi ptr [ %3, %.preheader ], [ %.2, %14 ]
   %16 = load i32, ptr %2, align 8
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %18, label %42
@@ -1602,12 +1602,12 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
 
 46:                                               ; preds = %27, %38, %42
   %.025 = phi ptr [ %34, %27 ], [ %40, %38 ], [ %44, %42 ]
-  %47 = tail call ptr @lappend(ptr noundef %.0.lcssa, ptr noundef nonnull %.025) #8
+  %47 = tail call ptr @lappend(ptr noundef %.1.lcssa, ptr noundef nonnull %.025) #8
   br label %48
 
 48:                                               ; preds = %46, %4
-  %.2 = phi ptr [ %47, %46 ], [ %3, %4 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %47, %46 ], [ %3, %4 ]
+  ret ptr %.0
 }
 
 declare void @jspInit(ptr noundef, ptr noundef) local_unnamed_addr #1

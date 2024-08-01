@@ -7162,7 +7162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit202: ;
   br label %358
 
 357:                                              ; preds = %342, %343, %295
-  %.131 = phi ptr [ null, %295 ], [ %.0.i195, %343 ], [ %.0.i195, %342 ]
+  %.2 = phi ptr [ null, %295 ], [ %.0.i195, %343 ], [ %.0.i195, %342 ]
   %cond = phi i1 [ false, %295 ], [ true, %343 ], [ true, %342 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #17
@@ -7279,13 +7279,13 @@ _ZN12colvarscript10get_cmd_fnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br label %437
 
 397:                                              ; preds = %357, %390, %_ZN12colvarscript10get_cmd_fnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit221, %238
-  %.2 = phi ptr [ %.030, %238 ], [ %.131, %357 ], [ %.0.i219, %390 ], [ %.0.i219, %_ZN12colvarscript10get_cmd_fnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit221 ]
+  %.131 = phi ptr [ %.030, %238 ], [ %.2, %357 ], [ %.0.i219, %390 ], [ %.0.i219, %_ZN12colvarscript10get_cmd_fnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit221 ]
   %.029 = phi ptr [ %153, %238 ], [ %286, %357 ], [ %0, %390 ], [ %0, %_ZN12colvarscript10get_cmd_fnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit221 ]
-  %.not = icmp eq ptr %.2, null
+  %.not = icmp eq ptr %.131, null
   br i1 %.not, label %400, label %398
 
 398:                                              ; preds = %397
-  %399 = invoke noundef i32 %.2(ptr noundef %.029, i32 noundef %1, ptr noundef nonnull %2)
+  %399 = invoke noundef i32 %.131(ptr noundef %.029, i32 noundef %1, ptr noundef nonnull %2)
           to label %436 unwind label %122
 
 400:                                              ; preds = %397
@@ -7404,7 +7404,7 @@ _ZN12colvarscript13add_error_msgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %436
 
 436:                                              ; preds = %.sink.split, %398, %238, %357
-  %.266 = phi i32 [ -1, %238 ], [ -1, %357 ], [ %399, %398 ], [ -1, %.sink.split ]
+  %.165 = phi i32 [ -1, %238 ], [ -1, %357 ], [ %399, %398 ], [ -1, %.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   br label %_ZN12colvarscript14set_result_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -7426,10 +7426,10 @@ _ZN12colvarscript13add_error_msgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZN12colvarscript14set_result_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %59, %57, %436
   %.sink249 = phi ptr [ %8, %436 ], [ %4, %57 ], [ %4, %59 ]
   %.sink248 = phi ptr [ %6, %436 ], [ %5, %57 ], [ %5, %59 ]
-  %.367 = phi i32 [ %.266, %436 ], [ -1, %57 ], [ -1, %59 ]
+  %.064 = phi i32 [ %.165, %436 ], [ -1, %57 ], [ -1, %59 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink249) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink248) #17
-  ret i32 %.367
+  ret i32 %.064
 
 440:                                              ; preds = %439, %.body116, %65
   %.pn106.pn = phi { ptr, i32 } [ %.pn104, %65 ], [ %.pn99.pn.pn.pn, %439 ], [ %eh.lpad-body117, %.body116 ]
@@ -8526,7 +8526,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .thread162:                                       ; preds = %.thread162.sink.split, %198, %221, %160, %158
   %.sink = phi ptr [ %14, %158 ], [ %14, %160 ], [ %16, %221 ], [ %16, %198 ], [ %.sink.ph, %.thread162.sink.split ]
-  %.155.ph = phi i32 [ 0, %158 ], [ 0, %160 ], [ 0, %221 ], [ 0, %198 ], [ -1, %.thread162.sink.split ]
+  %.054.ph = phi i32 [ 0, %158 ], [ 0, %160 ], [ 0, %221 ], [ 0, %198 ], [ -1, %.thread162.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #17
   br label %.sink.split190
 
@@ -8536,7 +8536,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %252
 
 .sink.split190:                                   ; preds = %164, %.thread162
-  %.2.ph = phi i32 [ %.155.ph, %.thread162 ], [ -1, %164 ]
+  %.2.ph = phi i32 [ %.054.ph, %.thread162 ], [ -1, %164 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   br label %251
 

@@ -711,8 +711,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %85, label %.lr.ph47, label %.critedge
 
 .lr.ph47:                                         ; preds = %83, %.critedge2
-  %.146 = phi i64 [ %100, %.critedge2 ], [ %.045, %83 ]
-  %86 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.146)
+  %.246 = phi i64 [ %100, %.critedge2 ], [ %.045, %83 ]
+  %86 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.246)
           to label %87 unwind label %.loopexit
 
 87:                                               ; preds = %.lr.ph47
@@ -721,7 +721,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %89, label %.critedge2, label %90
 
 90:                                               ; preds = %87
-  %91 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.146)
+  %91 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.246)
           to label %92 unwind label %.loopexit
 
 92:                                               ; preds = %90
@@ -730,7 +730,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %94, label %.critedge2, label %95
 
 95:                                               ; preds = %92
-  %96 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.146)
+  %96 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.246)
           to label %97 unwind label %.loopexit
 
 97:                                               ; preds = %95
@@ -739,19 +739,19 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %99, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %92, %87, %97
-  %100 = add nuw i64 %.146, 1
+  %100 = add nuw i64 %.246, 1
   %101 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %102 = icmp ult i64 %100, %101
   br i1 %102, label %.lr.ph47, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %.critedge2, %97, %83, %80
-  %.2 = phi i64 [ %.045, %80 ], [ %.045, %83 ], [ %100, %.critedge2 ], [ %.146, %97 ]
+  %.1 = phi i64 [ %.045, %80 ], [ %.045, %83 ], [ %100, %.critedge2 ], [ %.246, %97 ]
   %103 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
-  %104 = icmp ult i64 %.2, %103
+  %104 = icmp ult i64 %.1, %103
   br i1 %104, label %105, label %.critedge28
 
 105:                                              ; preds = %.critedge
-  %106 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.2)
+  %106 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.1)
           to label %107 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 107:                                              ; preds = %105
@@ -1141,8 +1141,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit28.thread, %50, %22
-  %.2 = phi i1 [ true, %22 ], [ true, %50 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit28.thread ]
-  ret i1 %.2
+  %.011 = phi i1 [ true, %22 ], [ true, %50 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit28.thread ]
+  ret i1 %.011
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr

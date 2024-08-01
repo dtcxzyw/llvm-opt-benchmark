@@ -97,14 +97,14 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %50
 
 50:                                               ; preds = %.lr.ph249, %.loopexit
-  %.0140248 = phi ptr [ %2, %.lr.ph249 ], [ %.4, %.loopexit ]
-  %.0141247 = phi i32 [ 1, %.lr.ph249 ], [ %.4145, %.loopexit ]
-  %.0146246 = phi i8 [ 0, %.lr.ph249 ], [ %.4150, %.loopexit ]
+  %.0140248 = phi ptr [ %2, %.lr.ph249 ], [ %.3, %.loopexit ]
+  %.0141247 = phi i32 [ 1, %.lr.ph249 ], [ %.3144, %.loopexit ]
+  %.0146246 = phi i8 [ 0, %.lr.ph249 ], [ %.3149, %.loopexit ]
   %.0151245 = phi ptr [ %0, %.lr.ph249 ], [ %.2153, %.loopexit ]
-  %.0154244 = phi ptr [ %5, %.lr.ph249 ], [ %.3157, %.loopexit ]
-  %.0161243 = phi i8 [ 0, %.lr.ph249 ], [ %.3164, %.loopexit ]
+  %.0154244 = phi ptr [ %5, %.lr.ph249 ], [ %.2156, %.loopexit ]
+  %.0161243 = phi i8 [ 0, %.lr.ph249 ], [ %.2163, %.loopexit ]
   %.0167242 = phi i1 [ false, %.lr.ph249 ], [ %.1168, %.loopexit ]
-  %.0169241 = phi i8 [ 0, %.lr.ph249 ], [ %.3172, %.loopexit ]
+  %.0169241 = phi i8 [ 0, %.lr.ph249 ], [ %.2171, %.loopexit ]
   %51 = ptrtoint ptr %.0140248 to i64
   %52 = sub i64 %51, %45
   %.not187 = icmp slt i64 %52, %46
@@ -178,18 +178,18 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %97, label %106, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph, %102
-  %.14.us.i = phi i32 [ %103, %102 ], [ 0, %.lr.ph ]
+  %.24.us.i = phi i32 [ %103, %102 ], [ 0, %.lr.ph ]
   %.1643.us.i = phi ptr [ %105, %102 ], [ %96, %.lr.ph ]
   %.1662.us.i = phi ptr [ %104, %102 ], [ %.0151245, %.lr.ph ]
   %98 = load i8, ptr %.1662.us.i, align 1
   %99 = load i8, ptr %.1643.us.i, align 1
   %100 = icmp eq i8 %98, %99
-  %101 = icmp ult i32 %.14.us.i, 273
+  %101 = icmp ult i32 %.24.us.i, 273
   %or.cond5.us.i = select i1 %100, i1 %101, i1 false
   br i1 %or.cond5.us.i, label %102, label %.critedge.us.i
 
 102:                                              ; preds = %.preheader.us.i
-  %103 = add nuw nsw i32 %.14.us.i, 1
+  %103 = add nuw nsw i32 %.24.us.i, 1
   %104 = getelementptr i8, ptr %.1662.us.i, i64 1
   %105 = getelementptr i8, ptr %.1643.us.i, i64 1
   %exitcond.not.i = icmp eq ptr %104, %7
@@ -222,9 +222,9 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %or.cond.us.i, label %127, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %102, %.preheader.us.i, %127, %.lr.ph10.us.i, %109, %106
-  %.2.us.i = phi i32 [ 0, %106 ], [ %.07017.us.i232, %109 ], [ %.09.us.i, %.lr.ph10.us.i ], [ %88, %127 ], [ %88, %102 ], [ %.14.us.i, %.preheader.us.i ]
-  %117 = icmp sgt i32 %.2.us.i, %.07017.us.i232
-  %spec.select.us.i = tail call i32 @llvm.smax.i32(i32 %.2.us.i, i32 %.07017.us.i232)
+  %.1.us.i = phi i32 [ 0, %106 ], [ %.07017.us.i232, %109 ], [ %.09.us.i, %.lr.ph10.us.i ], [ %88, %127 ], [ %88, %102 ], [ %.24.us.i, %.preheader.us.i ]
+  %117 = icmp sgt i32 %.1.us.i, %.07017.us.i232
+  %spec.select.us.i = tail call i32 @llvm.smax.i32(i32 %.1.us.i, i32 %.07017.us.i232)
   %spec.select79.us.i = select i1 %117, i32 %95, i32 %.06719.us.i231
   %118 = load ptr, ptr %.07515.us.i234, align 8
   %.not77.us.i = icmp ne ptr %118, @hist_entries
@@ -407,13 +407,13 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   br label %219
 
 219:                                              ; preds = %._crit_edge.i.thread, %217
-  %.2171 = phi i8 [ 1, %217 ], [ %.0169241, %._crit_edge.i.thread ]
-  %.2163 = phi i8 [ 0, %217 ], [ %.0161243, %._crit_edge.i.thread ]
-  %.2156 = phi ptr [ %.0140248, %217 ], [ %.0154244, %._crit_edge.i.thread ]
-  %.3 = phi ptr [ %218, %217 ], [ %.0140248, %._crit_edge.i.thread ]
+  %.3172 = phi i8 [ 1, %217 ], [ %.0169241, %._crit_edge.i.thread ]
+  %.3164 = phi i8 [ 0, %217 ], [ %.0161243, %._crit_edge.i.thread ]
+  %.3157 = phi ptr [ %.0140248, %217 ], [ %.0154244, %._crit_edge.i.thread ]
+  %.4 = phi ptr [ %218, %217 ], [ %.0140248, %._crit_edge.i.thread ]
   %220 = load i8, ptr %.0151245, align 1
-  %221 = getelementptr i8, ptr %.3, i64 1
-  store i8 %220, ptr %.3, align 1
+  %221 = getelementptr i8, ptr %.4, i64 1
+  store i8 %220, ptr %.4, align 1
   %222 = sext i8 %220 to i32
   br i1 %60, label %239, label %223
 
@@ -501,26 +501,26 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %204, %266
-  %.3172.in = phi i8 [ %.2171, %266 ], [ %.1170, %204 ]
+  %.2171.in = phi i8 [ %.3172, %266 ], [ %.1170, %204 ]
   %.1168 = phi i1 [ %.0167242, %266 ], [ true, %204 ]
-  %.3164 = phi i8 [ %.2163, %266 ], [ %137, %204 ]
-  %.3157 = phi ptr [ %.2156, %266 ], [ %.1155, %204 ]
+  %.2163 = phi i8 [ %.3164, %266 ], [ %137, %204 ]
+  %.2156 = phi ptr [ %.3157, %266 ], [ %.1155, %204 ]
   %.2153 = phi ptr [ %277, %266 ], [ %215, %204 ]
-  %.4150 = phi i8 [ %spec.select194, %266 ], [ %spec.select, %204 ]
-  %.4145 = phi i32 [ %spec.select195, %266 ], [ %spec.select193, %204 ]
-  %.4 = phi ptr [ %221, %266 ], [ %.2, %204 ]
-  %.3172 = shl i8 %.3172.in, 1
+  %.3149 = phi i8 [ %spec.select194, %266 ], [ %spec.select, %204 ]
+  %.3144 = phi i32 [ %spec.select195, %266 ], [ %spec.select193, %204 ]
+  %.3 = phi ptr [ %221, %266 ], [ %.2, %204 ]
+  %.2171 = shl i8 %.2171.in, 1
   %278 = icmp ult ptr %.2153, %7
   br i1 %278, label %50, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %.pre256 = ptrtoint ptr %.4 to i64
+  %.pre256 = ptrtoint ptr %.3 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %40, %._crit_edge.loopexit
   %.pre-phi257 = phi i64 [ %.pre256, %._crit_edge.loopexit ], [ %45, %40 ]
-  %.0161.lcssa = phi i8 [ %.3164, %._crit_edge.loopexit ], [ 0, %40 ]
-  %.0154.lcssa = phi ptr [ %.3157, %._crit_edge.loopexit ], [ %5, %40 ]
+  %.0161.lcssa = phi i8 [ %.2163, %._crit_edge.loopexit ], [ 0, %40 ]
+  %.0154.lcssa = phi ptr [ %.2156, %._crit_edge.loopexit ], [ %5, %40 ]
   store i8 %.0161.lcssa, ptr %.0154.lcssa, align 1
   %279 = sub i64 %.pre-phi257, %45
   %280 = trunc i64 %279 to i32

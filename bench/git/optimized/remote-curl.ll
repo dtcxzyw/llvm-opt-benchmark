@@ -2662,7 +2662,7 @@ if.end.i70:                                       ; preds = %detect_hash_algo.ex
 while.body.i:                                     ; preds = %if.end.i70, %if.end37.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end37.i ], [ 0, %if.end.i70 ]
   %last_ref.042.i = phi ptr [ %last_ref.1.i, %if.end37.i ], [ null, %if.end.i70 ]
-  %refs.041.i = phi ptr [ %refs.2.i, %if.end37.i ], [ null, %if.end.i70 ]
+  %refs.041.i = phi ptr [ %refs.1.i, %if.end37.i ], [ null, %if.end.i70 ]
   %start.039.i = phi ptr [ %start.2.i, %if.end37.i ], [ null, %if.end.i70 ]
   %mid.038.i = phi ptr [ %mid.1.i, %if.end37.i ], [ %61, %if.end.i70 ]
   %tobool3.not.i = icmp eq ptr %start.039.i, null
@@ -2709,7 +2709,7 @@ if.then35.i:                                      ; preds = %if.end26.i
 
 if.end37.i:                                       ; preds = %if.then35.i, %if.end26.i, %while.body.i
   %start.2.i = phi ptr [ %spec.select.i, %while.body.i ], [ null, %if.then35.i ], [ null, %if.end26.i ]
-  %refs.2.i = phi ptr [ %refs.041.i, %while.body.i ], [ %spec.select29.i, %if.then35.i ], [ %spec.select29.i, %if.end26.i ]
+  %refs.1.i = phi ptr [ %refs.041.i, %while.body.i ], [ %spec.select29.i, %if.then35.i ], [ %spec.select29.i, %if.end26.i ]
   %last_ref.1.i = phi ptr [ %last_ref.042.i, %while.body.i ], [ %call29.i, %if.then35.i ], [ %call29.i, %if.end26.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %68 = load i64, ptr %len, align 8
@@ -2717,7 +2717,7 @@ if.end37.i:                                       ; preds = %if.then35.i, %if.en
   br i1 %cmp.i72, label %while.body.i, label %while.end.i, !llvm.loop !15
 
 while.end.i:                                      ; preds = %if.end37.i, %if.end.i70
-  %refs.0.lcssa.i = phi ptr [ null, %if.end.i70 ], [ %refs.2.i, %if.end37.i ]
+  %refs.0.lcssa.i = phi ptr [ null, %if.end.i70 ], [ %refs.1.i, %if.end37.i ]
   %call38.i = call ptr @alloc_ref(ptr noundef nonnull @.str.54) #16
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @url, i64 16), align 8
   %call39.i = call i32 @http_fetch_ref(ptr noundef %69, ptr noundef %call38.i) #16

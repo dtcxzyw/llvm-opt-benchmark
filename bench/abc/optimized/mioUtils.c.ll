@@ -5028,15 +5028,15 @@ define void @Mio_LibraryTransferProfile(ptr noundef %0, ptr noundef %1) local_un
   br label %15
 
 15:                                               ; preds = %.lr.ph31, %20
-  %.129 = phi ptr [ %13, %.lr.ph31 ], [ %21, %20 ]
-  %16 = getelementptr inbounds i8, ptr %.129, i64 104
+  %.229 = phi ptr [ %13, %.lr.ph31 ], [ %21, %20 ]
+  %16 = getelementptr inbounds i8, ptr %.229, i64 104
   %17 = load i64, ptr %16, align 8
   %18 = load i64, ptr %14, align 8
   %19 = icmp eq i64 %17, %18
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %15
-  %21 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.129) #30
+  %21 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.229) #30
   %cond = icmp eq ptr %21, null
   br i1 %cond, label %._crit_edge32, label %15, !llvm.loop !83
 
@@ -5047,9 +5047,9 @@ define void @Mio_LibraryTransferProfile(ptr noundef %0, ptr noundef %1) local_un
   br label %26
 
 .loopexit:                                        ; preds = %15, %8
-  %.2 = phi ptr [ %10, %8 ], [ %.129, %15 ]
+  %.1 = phi ptr [ %10, %8 ], [ %.229, %15 ]
   %25 = tail call i32 @Mio_GateReadProfile(ptr noundef nonnull %.02134) #30
-  tail call void @Mio_GateAddToProfile(ptr noundef nonnull %.2, i32 noundef %25) #30
+  tail call void @Mio_GateAddToProfile(ptr noundef nonnull %.1, i32 noundef %25) #30
   br label %26
 
 26:                                               ; preds = %.lr.ph36, %.loopexit, %._crit_edge32
@@ -5103,15 +5103,15 @@ define void @Mio_LibraryTransferProfile2(ptr noundef %0, ptr noundef %1) local_u
   br label %15
 
 15:                                               ; preds = %.lr.ph31, %20
-  %.129 = phi ptr [ %13, %.lr.ph31 ], [ %21, %20 ]
-  %16 = getelementptr inbounds i8, ptr %.129, i64 104
+  %.229 = phi ptr [ %13, %.lr.ph31 ], [ %21, %20 ]
+  %16 = getelementptr inbounds i8, ptr %.229, i64 104
   %17 = load i64, ptr %16, align 8
   %18 = load i64, ptr %14, align 8
   %19 = icmp eq i64 %17, %18
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %15
-  %21 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.129) #30
+  %21 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.229) #30
   %cond = icmp eq ptr %21, null
   br i1 %cond, label %._crit_edge32, label %15, !llvm.loop !86
 
@@ -5122,9 +5122,9 @@ define void @Mio_LibraryTransferProfile2(ptr noundef %0, ptr noundef %1) local_u
   br label %26
 
 .loopexit:                                        ; preds = %15, %8
-  %.2 = phi ptr [ %10, %8 ], [ %.129, %15 ]
+  %.1 = phi ptr [ %10, %8 ], [ %.229, %15 ]
   %25 = tail call i32 @Mio_GateReadProfile2(ptr noundef nonnull %.02134) #30
-  tail call void @Mio_GateAddToProfile2(ptr noundef nonnull %.2, i32 noundef %25) #30
+  tail call void @Mio_GateAddToProfile2(ptr noundef nonnull %.1, i32 noundef %25) #30
   br label %26
 
 26:                                               ; preds = %.lr.ph36, %.loopexit, %._crit_edge32

@@ -1192,10 +1192,10 @@ define dso_local void @rhash_sha1_final(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not46, label %._crit_edge37, label %.lr.ph36.preheader
 
 .lr.ph36.preheader:                               ; preds = %.thread, %21
-  %.245 = phi i32 [ 0, %.thread ], [ %.0.lcssa, %21 ]
-  %22 = zext nneg i32 %.245 to i64
+  %.145 = phi i32 [ 0, %.thread ], [ %.0.lcssa, %21 ]
+  %22 = zext nneg i32 %.145 to i64
   %scevgep40 = getelementptr i8, ptr %0, i64 %22
-  %narrow = sub nsw i32 56, %.245
+  %narrow = sub nsw i32 56, %.145
   %23 = zext i32 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep40, i8 0, i64 %23, i1 false)
   br label %._crit_edge37

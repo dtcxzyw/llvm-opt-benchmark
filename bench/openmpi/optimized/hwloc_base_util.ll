@@ -371,15 +371,15 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br i1 %.not75, label %148, label %.thread135
 
 .thread135:                                       ; preds = %143, %141, %145
-  %.2138 = phi i32 [ %146, %145 ], [ -18, %141 ], [ %138, %143 ]
+  %.3138 = phi i32 [ %146, %145 ], [ -18, %141 ], [ %138, %143 ]
   %147 = phi ptr [ %.pr131.pre, %145 ], [ %139, %141 ], [ %139, %143 ]
   call void @PMIx_Value_free(ptr noundef nonnull %147, i64 noundef 1) #9
   store ptr null, ptr %25, align 8
   br label %148
 
 148:                                              ; preds = %.thread135, %145, %134
-  %.3 = phi i32 [ %.2138, %.thread135 ], [ %146, %145 ], [ 0, %134 ]
-  %149 = icmp eq i32 %.3, 0
+  %.2 = phi i32 [ %.3138, %.thread135 ], [ %146, %145 ], [ 0, %134 ]
+  %149 = icmp eq i32 %.2, 0
   %150 = load ptr, ptr %1, align 8
   %151 = icmp ne ptr %150, null
   %or.cond5 = select i1 %149, i1 %151, i1 false

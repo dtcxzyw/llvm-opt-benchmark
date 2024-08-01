@@ -321,10 +321,10 @@ _ZNKSt8functionIFddEEclEd.exit52:                 ; preds = %_ZNKSt8functionIFdd
 
 101:                                              ; preds = %97, %99
   %.pn = phi { ptr, i32 } [ %100, %99 ], [ %98, %97 ]
-  %.1 = phi i1 [ %.0, %99 ], [ true, %97 ]
+  %.3 = phi i1 [ %.0, %99 ], [ true, %97 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
-  br i1 %.1, label %102, label %103
+  br i1 %.3, label %102, label %103
 
 102:                                              ; preds = %.thread81, %.thread, %101
   %.pn.pn.pn80 = phi { ptr, i32 } [ %95, %.thread ], [ %.pn, %101 ], [ %96, %.thread81 ]
@@ -737,10 +737,10 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionENS_
 
 80:                                               ; preds = %76, %78
   %.pn = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ]
-  %.1 = phi i1 [ %.0, %78 ], [ true, %76 ]
+  %.3 = phi i1 [ %.0, %78 ], [ true, %76 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
-  br i1 %.1, label %81, label %82
+  br i1 %.3, label %81, label %82
 
 81:                                               ; preds = %.thread76, %.thread, %80
   %.pn.pn.pn75 = phi { ptr, i32 } [ %74, %.thread ], [ %.pn, %80 ], [ %75, %.thread76 ]

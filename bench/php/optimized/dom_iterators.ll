@@ -583,7 +583,7 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
   br label %79
 
 79:                                               ; preds = %67, %69, %72
-  %.086 = phi ptr [ %68, %67 ], [ %71, %69 ], [ %78, %72 ]
+  %.1 = phi ptr [ %68, %67 ], [ %71, %69 ], [ %78, %72 ]
   %80 = getelementptr inbounds i8, ptr %6, i64 48
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %6, i64 40
@@ -591,7 +591,7 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
   %84 = getelementptr inbounds i8, ptr %0, i64 80
   %85 = load i64, ptr %84, align 8
   %86 = trunc i64 %85 to i32
-  %87 = call ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef nonnull %47, ptr noundef %.086, ptr noundef %81, ptr noundef %83, ptr noundef nonnull %2, i32 noundef %86) #8
+  %87 = call ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef nonnull %47, ptr noundef %.1, ptr noundef %81, ptr noundef %83, ptr noundef nonnull %2, i32 noundef %86) #8
   br label %php_dom_libxml_hash_iter.exit
 
 88:                                               ; preds = %11
@@ -634,16 +634,16 @@ php_dom_libxml_hash_iter.exit.thread119:          ; preds = %88, %1, %45, %27
   br label %php_dom_libxml_hash_iter.exit.thread115
 
 php_dom_libxml_hash_iter.exit:                    ; preds = %97, %102, %79, %41
-  %.1.ph = phi ptr [ %101, %97 ], [ %108, %102 ], [ %87, %79 ], [ %44, %41 ]
+  %.086.ph = phi ptr [ %101, %97 ], [ %108, %102 ], [ %87, %79 ], [ %44, %41 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #8
   %110 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 0, ptr %110, align 8
-  %.not109 = icmp eq ptr %.1.ph, null
+  %.not109 = icmp eq ptr %.086.ph, null
   br i1 %.not109, label %php_dom_libxml_hash_iter.exit.thread115, label %111
 
 111:                                              ; preds = %php_dom_libxml_hash_iter.exit
   %112 = load ptr, ptr %6, align 8
-  %113 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.1.ph, ptr noundef nonnull %7, ptr noundef %112) #8
+  %113 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.086.ph, ptr noundef nonnull %7, ptr noundef %112) #8
   br label %php_dom_libxml_hash_iter.exit.thread115
 
 php_dom_libxml_hash_iter.exit.thread115:          ; preds = %38, %32, %php_dom_libxml_hash_iter.exit.thread119, %111, %php_dom_libxml_hash_iter.exit

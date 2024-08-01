@@ -201,20 +201,20 @@ define dso_local ptr @Curl_cookie_init(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not72, label %.preheader85, label %.critedge
 
 .preheader85:                                     ; preds = %35, %.critedge2
-  %.047 = phi ptr [ %38, %.critedge2 ], [ %34, %35 ]
-  %37 = load i8, ptr %.047, align 1
+  %.1 = phi ptr [ %38, %.critedge2 ], [ %34, %35 ]
+  %37 = load i8, ptr %.1, align 1
   switch i8 %37, label %.critedge [
     i8 9, label %.critedge2
     i8 32, label %.critedge2
   ]
 
 .critedge2:                                       ; preds = %.preheader85, %.preheader85
-  %38 = getelementptr inbounds i8, ptr %.047, i64 1
+  %38 = getelementptr inbounds i8, ptr %.1, i64 1
   br label %.preheader85, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader85, %35
-  %.1 = phi ptr [ %32, %35 ], [ %.047, %.preheader85 ]
-  %39 = tail call ptr @Curl_cookie_add(ptr noundef nonnull %0, ptr noundef nonnull %.050, i1 noundef zeroext %.not72, i1 noundef zeroext true, ptr noundef nonnull %.1, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  %.047 = phi ptr [ %32, %35 ], [ %.1, %.preheader85 ]
+  %39 = tail call ptr @Curl_cookie_add(ptr noundef nonnull %0, ptr noundef nonnull %.050, i1 noundef zeroext %.not72, i1 noundef zeroext true, ptr noundef nonnull %.047, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %40 = tail call ptr @Curl_get_line(ptr noundef nonnull %32, i32 noundef 5000, ptr noundef nonnull %.04882) #12
   %.not70 = icmp eq ptr %40, null
   br i1 %.not70, label %._crit_edge, label %35, !llvm.loop !8
@@ -355,9 +355,9 @@ define dso_local ptr @Curl_cookie_add(ptr noundef %0, ptr nocapture noundef %1, 
   br label %627
 
 37:                                               ; preds = %.preheader, %239
-  %.0442 = phi i8 [ %.1443, %239 ], [ 0, %.preheader ]
+  %.0442 = phi i8 [ %.2444, %239 ], [ 0, %.preheader ]
   %.0438 = phi ptr [ %240, %239 ], [ %4, %.preheader ]
-  %.0412 = phi ptr [ %.2414, %239 ], [ %5, %.preheader ]
+  %.0412 = phi ptr [ %.3415, %239 ], [ %5, %.preheader ]
   br label %38
 
 38:                                               ; preds = %.critedge2, %37
@@ -876,9 +876,9 @@ bad_domain.exit:                                  ; preds = %170, %174
   br label %.critedge579
 
 .critedge579:                                     ; preds = %.critedge577, %161, %121, %sanitize_cookie_path.exit.thread, %204, %116, %119, %100, %.critedge, %120, %203, %199, %197, %198, %217, %221, %220, %214, %213, %208, %224, %233, %235, %232, %.critedge583, %sanitize_cookie_path.exit
-  %.1443 = phi i8 [ %.0442, %120 ], [ %.0442, %sanitize_cookie_path.exit ], [ 1, %203 ], [ 1, %199 ], [ %.0442, %197 ], [ %.0442, %198 ], [ %.0442, %204 ], [ %.0442, %208 ], [ %.0442, %220 ], [ %.0442, %221 ], [ %.0442, %217 ], [ %.0442, %214 ], [ %.0442, %213 ], [ %.0442, %232 ], [ %.0442, %235 ], [ %.0442, %233 ], [ %.0442, %224 ], [ %.0442, %.critedge583 ], [ %.0442, %.critedge ], [ %.0442, %100 ], [ %.0442, %119 ], [ %.0442, %116 ], [ %.0442, %sanitize_cookie_path.exit.thread ], [ %.0442, %121 ], [ %.0442, %161 ], [ %.0442, %.critedge577 ]
+  %.2444 = phi i8 [ %.0442, %120 ], [ %.0442, %sanitize_cookie_path.exit ], [ 1, %203 ], [ 1, %199 ], [ %.0442, %197 ], [ %.0442, %198 ], [ %.0442, %204 ], [ %.0442, %208 ], [ %.0442, %220 ], [ %.0442, %221 ], [ %.0442, %217 ], [ %.0442, %214 ], [ %.0442, %213 ], [ %.0442, %232 ], [ %.0442, %235 ], [ %.0442, %233 ], [ %.0442, %224 ], [ %.0442, %.critedge583 ], [ %.0442, %.critedge ], [ %.0442, %100 ], [ %.0442, %119 ], [ %.0442, %116 ], [ %.0442, %sanitize_cookie_path.exit.thread ], [ %.0442, %121 ], [ %.0442, %161 ], [ %.0442, %.critedge577 ]
   %.3441 = phi ptr [ %.2440, %120 ], [ %.2440, %sanitize_cookie_path.exit ], [ %.2440, %203 ], [ %.2440, %199 ], [ %.2440, %197 ], [ %.2440, %198 ], [ %.2440, %204 ], [ %.2440, %208 ], [ %.2440, %220 ], [ %.2440, %221 ], [ %.2440, %217 ], [ %.2440, %214 ], [ %.2440, %213 ], [ %.2440, %232 ], [ %.2440, %235 ], [ %.2440, %233 ], [ %.2440, %224 ], [ %.2440, %.critedge583 ], [ %.1439, %.critedge ], [ %.2440, %100 ], [ %.2440, %119 ], [ %.2440, %116 ], [ %.2440, %sanitize_cookie_path.exit.thread ], [ %.2440, %121 ], [ %.2440, %161 ], [ %.2440, %.critedge577 ]
-  %.2414 = phi ptr [ %.0412, %120 ], [ %.0412, %sanitize_cookie_path.exit ], [ %200, %203 ], [ %200, %199 ], [ %193, %197 ], [ %193, %198 ], [ %.0412, %204 ], [ %.0412, %208 ], [ %.0412, %220 ], [ %.0412, %221 ], [ %.0412, %217 ], [ %.0412, %214 ], [ %.0412, %213 ], [ %.0412, %232 ], [ %.0412, %235 ], [ %.0412, %233 ], [ %.0412, %224 ], [ %.0412, %.critedge583 ], [ %.0412, %.critedge ], [ %.0412, %100 ], [ %.0412, %119 ], [ %.0412, %116 ], [ %.0412, %sanitize_cookie_path.exit.thread ], [ %.0412, %121 ], [ %.0412, %161 ], [ %.0412, %.critedge577 ]
+  %.3415 = phi ptr [ %.0412, %120 ], [ %.0412, %sanitize_cookie_path.exit ], [ %200, %203 ], [ %200, %199 ], [ %193, %197 ], [ %193, %198 ], [ %.0412, %204 ], [ %.0412, %208 ], [ %.0412, %220 ], [ %.0412, %221 ], [ %.0412, %217 ], [ %.0412, %214 ], [ %.0412, %213 ], [ %.0412, %232 ], [ %.0412, %235 ], [ %.0412, %233 ], [ %.0412, %224 ], [ %.0412, %.critedge583 ], [ %.0412, %.critedge ], [ %.0412, %100 ], [ %.0412, %119 ], [ %.0412, %116 ], [ %.0412, %sanitize_cookie_path.exit.thread ], [ %.0412, %121 ], [ %.0412, %161 ], [ %.0412, %.critedge577 ]
   br label %236
 
 236:                                              ; preds = %.critedge23, %.critedge579
@@ -899,26 +899,26 @@ bad_domain.exit:                                  ; preds = %170, %174
   br label %37
 
 241:                                              ; preds = %236
-  %242 = trunc nuw i8 %.1443 to i1
+  %242 = trunc nuw i8 %.2444 to i1
   br i1 %242, label %250, label %243
 
 243:                                              ; preds = %241
   %244 = load ptr, ptr %30, align 8
   %245 = icmp eq ptr %244, null
-  %246 = icmp ne ptr %.2414, null
+  %246 = icmp ne ptr %.3415, null
   %or.cond29 = select i1 %245, i1 %246, i1 false
   br i1 %or.cond29, label %247, label %250
 
 247:                                              ; preds = %243
   %248 = load ptr, ptr @Curl_cstrdup, align 8
-  %249 = call ptr %248(ptr noundef nonnull %.2414) #12
+  %249 = call ptr %248(ptr noundef nonnull %.3415) #12
   store ptr %249, ptr %30, align 8
   %.not530 = icmp eq ptr %249, null
-  %spec.select585 = select i1 %.not530, i8 1, i8 %.1443
+  %spec.select585 = select i1 %.not530, i8 1, i8 %.2444
   br label %250
 
 250:                                              ; preds = %247, %243, %241
-  %.3445 = phi i8 [ %.1443, %241 ], [ %.1443, %243 ], [ %spec.select585, %247 ]
+  %.3445 = phi i8 [ %.2444, %241 ], [ %.2444, %243 ], [ %spec.select585, %247 ]
   %251 = trunc nuw i8 %.3445 to i1
   br i1 %251, label %273, label %252
 
@@ -1197,11 +1197,11 @@ sanitize_cookie_path.exit615:                     ; preds = %338, %.thread.i613,
   store ptr %374, ptr %316, align 8
   %.not494 = icmp eq ptr %374, null
   %375 = select i1 %.not494, i1 true, i1 %.not493
-  %.7 = select i1 %375, i8 1, i8 %.5674
+  %.8 = select i1 %375, i8 1, i8 %.5674
   br label %376
 
 376:                                              ; preds = %370, %321
-  %.8 = phi i8 [ %.5674, %321 ], [ %.7, %370 ]
+  %.6 = phi i8 [ %.5674, %321 ], [ %.8, %370 ]
   store i8 0, ptr %317, align 1
   %377 = call i32 @curl_strequal(ptr noundef nonnull %.0410675, ptr noundef nonnull @.str.19) #12
   %.not495 = icmp eq i32 %377, 0
@@ -1264,7 +1264,7 @@ sanitize_cookie_path.exit615:                     ; preds = %338, %.thread.i613,
   br label %402
 
 402:                                              ; preds = %322, %399, %383, %sanitize_cookie_path.exit615, %385, %379, %335, %321, %327, %382, %376, %390, %396, %393
-  %.9 = phi i8 [ %.5674, %321 ], [ %.5674, %390 ], [ %.5674, %396 ], [ %.5674, %393 ], [ %.8, %382 ], [ %.8, %376 ], [ %.5674, %327 ], [ 1, %335 ], [ %spec.select588, %sanitize_cookie_path.exit615 ], [ 1, %379 ], [ %spec.select590, %383 ], [ 1, %385 ], [ %spec.select591, %399 ], [ %spec.select603, %322 ]
+  %.9 = phi i8 [ %.5674, %321 ], [ %.5674, %390 ], [ %.5674, %396 ], [ %.5674, %393 ], [ %.6, %382 ], [ %.6, %376 ], [ %.5674, %327 ], [ 1, %335 ], [ %spec.select588, %sanitize_cookie_path.exit615 ], [ 1, %379 ], [ %spec.select590, %383 ], [ 1, %385 ], [ %spec.select591, %399 ], [ %spec.select603, %322 ]
   %.2 = phi i32 [ %.0408677, %321 ], [ 5, %390 ], [ 5, %396 ], [ 5, %393 ], [ 3, %382 ], [ 3, %376 ], [ 1, %327 ], [ 2, %335 ], [ 2, %sanitize_cookie_path.exit615 ], [ 3, %379 ], [ 4, %383 ], [ 5, %385 ], [ 6, %399 ], [ 0, %322 ]
   %403 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %10) #12
   %404 = add nsw i32 %.2, 1
@@ -1433,7 +1433,7 @@ sub_1:                                            ; preds = %sub_0
   %.0417702 = phi ptr [ %.0417696, %.lr.ph704 ], [ %.0417, %.thread636 ]
   %.0420701 = phi ptr [ null, %.lr.ph704 ], [ %.1421, %.thread636 ]
   %.0425699 = phi ptr [ null, %.lr.ph704 ], [ %.1426, %.thread636 ]
-  %.0434698 = phi i8 [ 0, %.lr.ph704 ], [ %.3437, %.thread636 ]
+  %.0434698 = phi i8 [ 0, %.lr.ph704 ], [ %.1435, %.thread636 ]
   %488 = getelementptr inbounds i8, ptr %.0417702, i64 8
   %489 = load ptr, ptr %488, align 8
   %490 = load ptr, ptr %483, align 8
@@ -1568,8 +1568,8 @@ sub_1:                                            ; preds = %sub_0
   br label %551
 
 551:                                              ; preds = %540, %550, %543, %541
-  %.1435 = phi i8 [ %.0434698, %541 ], [ %spec.select596, %543 ], [ %spec.select597, %550 ], [ %.0434698, %540 ]
-  %552 = trunc nuw i8 %.1435 to i1
+  %.2436 = phi i8 [ %.0434698, %541 ], [ %spec.select596, %543 ], [ %spec.select597, %550 ], [ %.0434698, %540 ]
+  %552 = trunc nuw i8 %.2436 to i1
   br i1 %552, label %553, label %563
 
 553:                                              ; preds = %551
@@ -1599,12 +1599,12 @@ sub_1:                                            ; preds = %sub_0
   %.not567 = icmp eq ptr %561, null
   %562 = icmp ne ptr %560, null
   %.not569 = xor i1 %.not567, %562
-  %spec.select598 = select i1 %.not569, i8 %.1435, i8 0
+  %spec.select598 = select i1 %.not569, i8 %.2436, i8 0
   br label %563
 
 563:                                              ; preds = %559, %551
-  %.2436 = phi i8 [ %.1435, %551 ], [ %spec.select598, %559 ]
-  %564 = trunc nuw i8 %.2436 to i1
+  %.3437 = phi i8 [ %.2436, %551 ], [ %spec.select598, %559 ]
+  %564 = trunc nuw i8 %.3437 to i1
   br i1 %564, label %565, label %.thread636
 
 565:                                              ; preds = %563
@@ -1623,7 +1623,7 @@ sub_1:                                            ; preds = %sub_0
   br label %627
 
 .thread636:                                       ; preds = %557, %563, %568, %565, %532, %.critedge595
-  %.3437 = phi i8 [ %.0434698, %.critedge595 ], [ %.0434698, %532 ], [ %.2436, %563 ], [ %.2436, %568 ], [ %.2436, %565 ], [ 0, %557 ]
+  %.1435 = phi i8 [ %.0434698, %.critedge595 ], [ %.0434698, %532 ], [ %.3437, %563 ], [ %.3437, %568 ], [ %.3437, %565 ], [ 0, %557 ]
   %.1426 = phi ptr [ %.0425699, %.critedge595 ], [ %.0425699, %532 ], [ %.0425699, %563 ], [ %.0417702, %568 ], [ %.0417702, %565 ], [ %.0425699, %557 ]
   %.1421 = phi ptr [ %.0420701, %.critedge595 ], [ null, %532 ], [ null, %563 ], [ %17, %568 ], [ %17, %565 ], [ null, %557 ]
   %.0417 = load ptr, ptr %.0417702, align 8
@@ -1631,7 +1631,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not540, label %._crit_edge705, label %487, !llvm.loop !17
 
 ._crit_edge705:                                   ; preds = %.thread636
-  %573 = trunc nuw i8 %.3437 to i1
+  %573 = trunc nuw i8 %.1435 to i1
   %.not541 = icmp eq ptr %.1421, null
   br i1 %.not541, label %._crit_edge705.thread, label %574
 
@@ -2141,8 +2141,8 @@ define dso_local ptr @Curl_cookie_getlist(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %10, %pathmatch.exit.thread
   %.061130 = phi ptr [ %.061, %pathmatch.exit.thread ], [ %.061126, %10 ]
-  %.063129 = phi ptr [ %.164, %pathmatch.exit.thread ], [ null, %10 ]
-  %.065128 = phi i64 [ %.166, %pathmatch.exit.thread ], [ 0, %10 ]
+  %.063129 = phi ptr [ %.2, %pathmatch.exit.thread ], [ null, %10 ]
+  %.065128 = phi i64 [ %.267, %pathmatch.exit.thread ], [ 0, %10 ]
   %12 = getelementptr inbounds i8, ptr %.061130, i64 57
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
@@ -2420,32 +2420,32 @@ pathmatch.exit.thread102:                         ; preds = %43, %pathmatch.exit
   br label %.thread
 
 pathmatch.exit.thread:                            ; preds = %53, %46, %pathmatch.exit.thread105, %cookie_tailmatch.exit.thread, %.lr.ph, %38, %121, %pathmatch.exit
-  %.166 = phi i64 [ %143, %121 ], [ %.065128, %pathmatch.exit ], [ %.065128, %38 ], [ %.065128, %.lr.ph ], [ %.065128, %cookie_tailmatch.exit.thread ], [ %.065128, %pathmatch.exit.thread105 ], [ %.065128, %46 ], [ %.065128, %53 ]
-  %.164 = phi ptr [ %70, %121 ], [ %.063129, %pathmatch.exit ], [ %.063129, %38 ], [ %.063129, %.lr.ph ], [ %.063129, %cookie_tailmatch.exit.thread ], [ %.063129, %pathmatch.exit.thread105 ], [ %.063129, %46 ], [ %.063129, %53 ]
+  %.267 = phi i64 [ %143, %121 ], [ %.065128, %pathmatch.exit ], [ %.065128, %38 ], [ %.065128, %.lr.ph ], [ %.065128, %cookie_tailmatch.exit.thread ], [ %.065128, %pathmatch.exit.thread105 ], [ %.065128, %46 ], [ %.065128, %53 ]
+  %.2 = phi ptr [ %70, %121 ], [ %.063129, %pathmatch.exit ], [ %.063129, %38 ], [ %.063129, %.lr.ph ], [ %.063129, %cookie_tailmatch.exit.thread ], [ %.063129, %pathmatch.exit.thread105 ], [ %.063129, %46 ], [ %.063129, %53 ]
   %.061 = load ptr, ptr %.061130, align 8
   %.not78 = icmp eq ptr %.061, null
   br i1 %.not78, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %pathmatch.exit.thread
-  %.not85 = icmp eq i64 %.166, 0
+  %.not85 = icmp eq i64 %.267, 0
   br i1 %.not85, label %Curl_cookie_freelist.exit, label %.thread
 
 .thread:                                          ; preds = %145, %146, %150, %._crit_edge
-  %.2115 = phi ptr [ %.164, %._crit_edge ], [ %70, %150 ], [ %70, %146 ], [ %70, %145 ]
-  %.267114 = phi i64 [ %.166, %._crit_edge ], [ %143, %150 ], [ %143, %146 ], [ %143, %145 ]
+  %.164115 = phi ptr [ %.2, %._crit_edge ], [ %70, %150 ], [ %70, %146 ], [ %70, %145 ]
+  %.166114 = phi i64 [ %.267, %._crit_edge ], [ %143, %150 ], [ %143, %146 ], [ %143, %145 ]
   %151 = load ptr, ptr @Curl_cmalloc, align 8
-  %152 = shl i64 %.267114, 3
+  %152 = shl i64 %.166114, 3
   %153 = tail call ptr %151(i64 noundef %152) #12
   %.not86 = icmp eq ptr %153, null
   br i1 %.not86, label %dup_cookie.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %.thread
-  %.not87132 = icmp eq ptr %.2115, null
+  %.not87132 = icmp eq ptr %.164115, null
   br i1 %.not87132, label %._crit_edge136, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %.preheader, %.lr.ph135
   %.0134 = phi i64 [ %154, %.lr.ph135 ], [ 0, %.preheader ]
-  %.162133 = phi ptr [ %156, %.lr.ph135 ], [ %.2115, %.preheader ]
+  %.162133 = phi ptr [ %156, %.lr.ph135 ], [ %.164115, %.preheader ]
   %154 = add i64 %.0134, 1
   %155 = getelementptr inbounds ptr, ptr %153, i64 %.0134
   store ptr %.162133, ptr %155, align 8
@@ -2454,9 +2454,9 @@ pathmatch.exit.thread:                            ; preds = %53, %46, %pathmatch
   br i1 %.not87, label %._crit_edge136, label %.lr.ph135, !llvm.loop !22
 
 ._crit_edge136:                                   ; preds = %.lr.ph135, %.preheader
-  tail call void @qsort(ptr noundef nonnull %153, i64 noundef %.267114, i64 noundef 8, ptr noundef nonnull @cookie_sort) #12
+  tail call void @qsort(ptr noundef nonnull %153, i64 noundef %.166114, i64 noundef 8, ptr noundef nonnull @cookie_sort) #12
   %157 = load ptr, ptr %153, align 8
-  %158 = add i64 %.267114, -1
+  %158 = add i64 %.166114, -1
   %.not142 = icmp eq i64 %158, 0
   br i1 %.not142, label %._crit_edge140, label %.lr.ph139
 
@@ -2479,12 +2479,12 @@ pathmatch.exit.thread:                            ; preds = %53, %46, %pathmatch
   br label %Curl_cookie_freelist.exit
 
 dup_cookie.exit.thread:                           ; preds = %pathmatch.exit.thread102, %104, %.thread
-  %.4 = phi ptr [ %.2115, %.thread ], [ %.063129, %104 ], [ %.063129, %pathmatch.exit.thread102 ]
-  %.not4.i = icmp eq ptr %.4, null
+  %.3 = phi ptr [ %.164115, %.thread ], [ %.063129, %104 ], [ %.063129, %pathmatch.exit.thread102 ]
+  %.not4.i = icmp eq ptr %.3, null
   br i1 %.not4.i, label %Curl_cookie_freelist.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %dup_cookie.exit.thread, %.lr.ph.i
-  %.05.i = phi ptr [ %166, %.lr.ph.i ], [ %.4, %dup_cookie.exit.thread ]
+  %.05.i = phi ptr [ %166, %.lr.ph.i ], [ %.3, %dup_cookie.exit.thread ]
   %166 = load ptr, ptr %.05.i, align 8
   %167 = load ptr, ptr @Curl_cfree, align 8
   %168 = getelementptr inbounds i8, ptr %.05.i, i64 40
@@ -2512,7 +2512,7 @@ dup_cookie.exit.thread:                           ; preds = %pathmatch.exit.thre
   br i1 %.not.i97, label %Curl_cookie_freelist.exit, label %.lr.ph.i, !llvm.loop !9
 
 Curl_cookie_freelist.exit:                        ; preds = %.lr.ph.i, %10, %dup_cookie.exit.thread, %._crit_edge, %._crit_edge140, %5, %7
-  %.060 = phi ptr [ null, %7 ], [ null, %5 ], [ %157, %._crit_edge140 ], [ %.164, %._crit_edge ], [ null, %dup_cookie.exit.thread ], [ null, %10 ], [ null, %.lr.ph.i ]
+  %.060 = phi ptr [ null, %7 ], [ null, %5 ], [ %157, %._crit_edge140 ], [ %.2, %._crit_edge ], [ null, %dup_cookie.exit.thread ], [ null, %10 ], [ null, %.lr.ph.i ]
   ret ptr %.060
 }
 

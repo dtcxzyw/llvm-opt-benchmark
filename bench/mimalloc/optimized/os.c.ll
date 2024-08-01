@@ -1550,7 +1550,7 @@ if.then34:                                        ; preds = %if.end20.us
   br label %while.end
 
 while.end:                                        ; preds = %if.end20, %if.end36.us, %if.end6, %if.end4.i, %if.then18, %if.then16, %if.then34, %if.then13
-  %all_zero.2 = phi i8 [ %.us-phi53, %if.then13 ], [ %.us-phi57, %if.then16 ], [ %spec.select.us, %if.then34 ], [ %.us-phi57, %if.then18 ], [ %.us-phi57, %if.end4.i ], [ 1, %if.end6 ], [ %spec.select.us, %if.end36.us ], [ %spec.select, %if.end20 ]
+  %all_zero.1 = phi i8 [ %.us-phi53, %if.then13 ], [ %.us-phi57, %if.then16 ], [ %spec.select.us, %if.then34 ], [ %.us-phi57, %if.then18 ], [ %.us-phi57, %if.end4.i ], [ 1, %if.end6 ], [ %spec.select.us, %if.end36.us ], [ %spec.select, %if.end20 ]
   %page.1 = phi i64 [ %.us-phi54, %if.then13 ], [ %.us-phi58, %if.then16 ], [ %inc.us, %if.then34 ], [ %.us-phi58, %if.then18 ], [ %.us-phi58, %if.end4.i ], [ 0, %if.end6 ], [ %pages, %if.end36.us ], [ %pages, %if.end20 ]
   br i1 %cmp1.not, label %if.end39, label %if.then38
 
@@ -1571,7 +1571,7 @@ if.end43:                                         ; preds = %if.then41, %if.end3
   br i1 %cmp44.not, label %return, label %if.then45
 
 if.then45:                                        ; preds = %if.end43
-  %frombool1.i = and i8 %all_zero.2, 1
+  %frombool1.i = and i8 %all_zero.1, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memid, i8 0, i64 16, i1 false)
   %tmp46.sroa.2.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 16
   store i8 1, ptr %tmp46.sroa.2.0.memid.sroa_idx, align 8
@@ -1614,14 +1614,14 @@ if.else:                                          ; preds = %if.then
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then, %if.else
-  %count.0 = phi i64 [ %spec.store.select, %if.else ], [ %call, %if.then ]
-  store atomic i64 %count.0, ptr @_mi_numa_node_count release, align 8
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.5, i64 noundef %count.0) #7
+  %count.1 = phi i64 [ %spec.store.select, %if.else ], [ %call, %if.then ]
+  store atomic i64 %count.1, ptr @_mi_numa_node_count release, align 8
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.5, i64 noundef %count.1) #7
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end6, %entry
-  %count.1 = phi i64 [ %count.0, %if.end6 ], [ %0, %entry ]
-  ret i64 %count.1
+  %count.0 = phi i64 [ %count.1, %if.end6 ], [ %0, %entry ]
+  ret i64 %count.0
 }
 
 declare i64 @_mi_prim_numa_node_count() local_unnamed_addr #2
@@ -1651,13 +1651,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.else.i.i, %if.then.i.i
-  %count.0.i.i = phi i64 [ %spec.store.select.i.i, %if.else.i.i ], [ %call.i.i, %if.then.i.i ]
-  store atomic i64 %count.0.i.i, ptr @_mi_numa_node_count release, align 8
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.5, i64 noundef %count.0.i.i) #7
+  %count.1.i.i = phi i64 [ %spec.store.select.i.i, %if.else.i.i ], [ %call.i.i, %if.then.i.i ]
+  store atomic i64 %count.1.i.i, ptr @_mi_numa_node_count release, align 8
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.5, i64 noundef %count.1.i.i) #7
   br label %_mi_os_numa_node_count.exit
 
 _mi_os_numa_node_count.exit:                      ; preds = %entry, %if.else.i, %if.end6.i.i
-  %retval.0.i = phi i64 [ %0, %entry ], [ %count.0.i.i, %if.end6.i.i ], [ %1, %if.else.i ]
+  %retval.0.i = phi i64 [ %0, %entry ], [ %count.1.i.i, %if.end6.i.i ], [ %1, %if.else.i ]
   %cmp = icmp ult i64 %retval.0.i, 2
   br i1 %cmp, label %return, label %if.end
 

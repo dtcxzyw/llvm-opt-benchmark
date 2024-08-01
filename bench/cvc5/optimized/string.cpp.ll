@@ -739,7 +739,7 @@ invoke.cont:                                      ; preds = %if.then
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then.i.i.i40, %if.end120, %invoke.cont
-  %i.0.be = phi i32 [ %inc, %invoke.cont ], [ %i.35768, %if.end120 ], [ %i.35768, %if.then.i.i.i40 ]
+  %i.0.be = phi i32 [ %inc, %invoke.cont ], [ %i.15768, %if.end120 ], [ %i.15768, %if.then.i.i.i40 ]
   %conv = zext i32 %i.0.be to i64
   %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #18
   %cmp = icmp ugt i64 %call, %conv
@@ -792,14 +792,14 @@ invoke.cont21:                                    ; preds = %if.else
 
 while.body27.lr.ph:                               ; preds = %invoke.cont21, %invoke.cont35
   %conv2486109 = phi i64 [ %conv2486, %invoke.cont35 ], [ %conv2486103, %invoke.cont21 ]
-  %i.1.ph108 = phi i32 [ %inc36, %invoke.cont35 ], [ %inc22, %invoke.cont21 ]
+  %i.2.ph108 = phi i32 [ %inc36, %invoke.cont35 ], [ %inc22, %invoke.cont21 ]
   %hasBrace.0.ph107 = phi i1 [ true, %invoke.cont35 ], [ false, %invoke.cont21 ]
   %isStart.0.ph106 = phi i1 [ false, %invoke.cont35 ], [ true, %invoke.cont21 ]
   br i1 %hasBrace.0.ph107, label %while.body27.us, label %while.body27
 
 while.body27.us:                                  ; preds = %while.body27.lr.ph, %while.cond23.backedge.us
   %conv2491.us = phi i64 [ %conv24.us, %while.cond23.backedge.us ], [ %conv2486109, %while.body27.lr.ph ]
-  %i.190.us = phi i32 [ %inc58.us, %while.cond23.backedge.us ], [ %i.1.ph108, %while.body27.lr.ph ]
+  %i.290.us = phi i32 [ %inc58.us, %while.cond23.backedge.us ], [ %i.2.ph108, %while.body27.lr.ph ]
   %isStart.089.us = phi i1 [ false, %while.cond23.backedge.us ], [ %isStart.0.ph106, %while.body27.lr.ph ]
   %call29.us = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef %conv2491.us) #18
   %7 = load i8, ptr %call29.us, align 1
@@ -845,7 +845,7 @@ invoke.cont55.us:                                 ; preds = %if.end54.us
           to label %invoke.cont57.us unwind label %lpad20.loopexit.loopexit.split.us
 
 invoke.cont57.us:                                 ; preds = %invoke.cont55.us
-  %inc58.us = add i32 %i.190.us, 1
+  %inc58.us = add i32 %i.290.us, 1
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string.4") align 8 %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(128) %hexString)
           to label %cleanup.action81.us unwind label %lpad20.loopexit.loopexit.split.us
 
@@ -868,7 +868,7 @@ lpad20.loopexit.loopexit.split.us:                ; preds = %invoke.cont57.us, %
 
 while.body27:                                     ; preds = %while.body27.lr.ph, %while.cond23.backedge
   %conv2491 = phi i64 [ %conv24, %while.cond23.backedge ], [ %conv2486109, %while.body27.lr.ph ]
-  %i.190 = phi i32 [ %inc58, %while.cond23.backedge ], [ %i.1.ph108, %while.body27.lr.ph ]
+  %i.290 = phi i32 [ %inc58, %while.cond23.backedge ], [ %i.2.ph108, %while.body27.lr.ph ]
   %isStart.089 = phi i1 [ false, %while.cond23.backedge ], [ %isStart.0.ph106, %while.body27.lr.ph ]
   %call29 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef %conv2491) #18
   %10 = load i8, ptr %call29, align 1
@@ -880,7 +880,7 @@ if.then31:                                        ; preds = %while.body27
   br i1 %cmp33, label %if.then34, label %if.end49
 
 if.then34:                                        ; preds = %if.then31, %if.then31.us
-  %.us-phi97 = phi i32 [ %i.190.us, %if.then31.us ], [ %i.190, %if.then31 ]
+  %.us-phi97 = phi i32 [ %i.290.us, %if.then31.us ], [ %i.290, %if.then31 ]
   invoke void @_ZN4cvc58internal6String17addCharToInternalEhRSt6vectorIjSaIjEE(i8 noundef zeroext 123, ptr noundef nonnull align 8 dereferenceable(24) %nonEscCache)
           to label %invoke.cont35 unwind label %lpad20.loopexit.loopexit.split-lp
 
@@ -921,7 +921,7 @@ if.else38:                                        ; preds = %while.body27
   br i1 %cmp40, label %if.then41, label %if.end49
 
 if.then41:                                        ; preds = %if.else38, %if.else38.us
-  %.us-phi95 = phi i32 [ %i.190.us, %if.else38.us ], [ %i.190, %if.else38 ]
+  %.us-phi95 = phi i32 [ %i.290.us, %if.else38.us ], [ %i.290, %if.else38 ]
   br i1 %hasBrace.0.ph107, label %land.rhs, label %cleanup.done
 
 land.rhs:                                         ; preds = %if.then41
@@ -971,7 +971,7 @@ invoke.cont55:                                    ; preds = %if.end54
           to label %invoke.cont57 unwind label %lpad20.loopexit.loopexit.split
 
 invoke.cont57:                                    ; preds = %invoke.cont55
-  %inc58 = add i32 %i.190, 1
+  %inc58 = add i32 %i.290, 1
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string.4") align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(128) %hexString)
           to label %cleanup.done69 unwind label %lpad20.loopexit.loopexit.split
 
@@ -993,8 +993,8 @@ if.end89:                                         ; preds = %cleanup.done
   br i1 %tobool90, label %if.then91, label %if.end103
 
 if.then91:                                        ; preds = %cleanup.done69, %if.end89
-  %i.363 = phi i32 [ %inc47, %if.end89 ], [ %inc58, %cleanup.done69 ]
-  %isEscapeSequence.162 = phi i8 [ %frombool4548, %if.end89 ], [ 1, %cleanup.done69 ]
+  %i.163 = phi i32 [ %inc47, %if.end89 ], [ %inc58, %cleanup.done69 ]
+  %isEscapeSequence.062 = phi i8 [ %frombool4548, %if.end89 ], [ 1, %cleanup.done69 ]
   %call93 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(16) %hexString, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
           to label %invoke.cont92 unwind label %lpad20.loopexit.split-lp.loopexit
 
@@ -1079,8 +1079,8 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %if.end103
 
 if.end103:                                        ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %if.then.i, %if.end89
-  %i.357 = phi i32 [ %inc47, %if.end89 ], [ %i.363, %if.then.i ], [ %i.363, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
-  %isEscapeSequence.2 = phi i8 [ %frombool4548, %if.end89 ], [ %isEscapeSequence.162, %if.then.i ], [ %isEscapeSequence.162, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
+  %i.157 = phi i32 [ %inc47, %if.end89 ], [ %i.163, %if.then.i ], [ %i.163, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
+  %isEscapeSequence.2 = phi i8 [ %frombool4548, %if.end89 ], [ %isEscapeSequence.062, %if.then.i ], [ %isEscapeSequence.062, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %tobool104 = trunc nuw i8 %isEscapeSequence.2 to i1
   br i1 %tobool104, label %if.end103.if.end120_crit_edge, label %if.then105
 
@@ -1089,7 +1089,7 @@ if.end103.if.end120_crit_edge:                    ; preds = %if.end103
   br label %if.end120
 
 if.then105:                                       ; preds = %invoke.cont35, %while.cond23.backedge, %switch.early.test, %cleanup.action81.us, %while.cond23.backedge.us, %switch.early.test.us, %invoke.cont21, %invoke.cont8, %lor.lhs.false12, %invoke.cont94, %if.end103
-  %i.35767 = phi i32 [ %i.357, %if.end103 ], [ %i.363, %invoke.cont94 ], [ %inc7, %invoke.cont8 ], [ %inc7, %lor.lhs.false12 ], [ %inc22, %invoke.cont21 ], [ %inc58.us, %cleanup.action81.us ], [ %inc58.us, %while.cond23.backedge.us ], [ %i.190.us, %switch.early.test.us ], [ %inc58, %while.cond23.backedge ], [ %i.190, %switch.early.test ], [ %inc36, %invoke.cont35 ]
+  %i.15767 = phi i32 [ %i.157, %if.end103 ], [ %i.163, %invoke.cont94 ], [ %inc7, %invoke.cont8 ], [ %inc7, %lor.lhs.false12 ], [ %inc22, %invoke.cont21 ], [ %inc58.us, %cleanup.action81.us ], [ %inc58.us, %while.cond23.backedge.us ], [ %i.290.us, %switch.early.test.us ], [ %inc58, %while.cond23.backedge ], [ %i.290, %switch.early.test ], [ %inc36, %invoke.cont35 ]
   %19 = load ptr, ptr %_M_finish.i, align 8
   %20 = load ptr, ptr %nonEscCache, align 8
   %21 = load ptr, ptr %_M_finish.i36, align 8
@@ -1103,7 +1103,7 @@ if.then105:                                       ; preds = %invoke.cont35, %whi
 
 if.end120:                                        ; preds = %if.end103.if.end120_crit_edge, %if.then105
   %23 = phi ptr [ %.pre, %if.end103.if.end120_crit_edge ], [ %20, %if.then105 ]
-  %i.35768 = phi i32 [ %i.357, %if.end103.if.end120_crit_edge ], [ %i.35767, %if.then105 ]
+  %i.15768 = phi i32 [ %i.157, %if.end103.if.end120_crit_edge ], [ %i.15767, %if.then105 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %hexString) #18
   %tobool.not.i.i.i39 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i39, label %while.cond.backedge, label %if.then.i.i.i40

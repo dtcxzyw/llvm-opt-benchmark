@@ -1814,10 +1814,10 @@ if.end243:                                        ; preds = %invoke.cont233, %if
 invoke.cont263:                                   ; preds = %if.end243, %while.cond153.invoke.cont263_crit_edge
   %136 = phi i8 [ %.pre493, %while.cond153.invoke.cont263_crit_edge ], [ %135, %if.end243 ]
   %pos.1 = phi i64 [ %pos.0, %while.cond153.invoke.cont263_crit_edge ], [ %add252, %if.end243 ]
-  %res_scratch.2 = phi ptr [ %res_scratch.0, %while.cond153.invoke.cont263_crit_edge ], [ %spec.select, %if.end243 ]
+  %res_scratch.1 = phi ptr [ %res_scratch.0, %while.cond153.invoke.cont263_crit_edge ], [ %spec.select, %if.end243 ]
   %cmp.i335 = icmp eq i8 %136, 0
   %cond268 = select i1 %cmp.i335, i64 %pos.1, i64 0
-  store ptr %res_scratch.2, ptr %result, align 8
+  store ptr %res_scratch.1, ptr %result, align 8
   %ref.tmp262.sroa.2.0.result.sroa_idx = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %cond268, ptr %ref.tmp262.sroa.2.0.result.sroa_idx, align 8
   br label %if.end270

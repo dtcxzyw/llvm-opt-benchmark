@@ -153,7 +153,7 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %36
-  %.0221382 = phi ptr [ %6, %36 ], [ %31, %29 ]
+  %.1222382 = phi ptr [ %6, %36 ], [ %31, %29 ]
   %37 = shl i64 %0, 3
   %38 = getelementptr inbounds i8, ptr %4, i64 56
   br label %39
@@ -161,7 +161,7 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
 39:                                               ; preds = %.lr.ph, %252
   %.0212309 = phi i64 [ 0, %.lr.ph ], [ %253, %252 ]
   %.0217308 = phi i64 [ 0, %.lr.ph ], [ %.1218, %252 ]
-  %.0223306 = phi ptr [ null, %.lr.ph ], [ %.2225, %252 ]
+  %.1224306 = phi ptr [ null, %.lr.ph ], [ %.2225, %252 ]
   store i64 -1, ptr %8, align 8
   %40 = getelementptr inbounds %struct.H5D_dset_io_info_t, ptr %1, i64 %.0212309
   %41 = load ptr, ptr %40, align 8
@@ -284,9 +284,9 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
 
 114:                                              ; preds = %109
   store i64 0, ptr %9, align 8
-  %.not252 = icmp ne ptr %.0223306, null
+  %.not252 = icmp ne ptr %.1224306, null
   %brmerge = or i1 %28, %.not252
-  %.0223.mux = select i1 %.not252, ptr %.0223306, ptr %5
+  %.1224.mux = select i1 %.not252, ptr %.1224306, ptr %5
   br i1 %brmerge, label %122, label %115
 
 115:                                              ; preds = %114
@@ -301,9 +301,9 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
   br label %436
 
 122:                                              ; preds = %114, %115
-  %.1224 = phi ptr [ %.0223.mux, %114 ], [ %116, %115 ]
+  %.3226 = phi ptr [ %.1224.mux, %114 ], [ %116, %115 ]
   %123 = load ptr, ptr %66, align 8
-  %124 = getelementptr inbounds ptr, ptr %.1224, i64 %.0212309
+  %124 = getelementptr inbounds ptr, ptr %.3226, i64 %.0212309
   store ptr %123, ptr %124, align 8
   store ptr null, ptr %66, align 8
   %125 = load ptr, ptr %124, align 8
@@ -329,9 +329,9 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
   br label %140
 
 140:                                              ; preds = %136, %109, %104, %102
-  %.2225 = phi ptr [ %.1224, %136 ], [ %.0223306, %109 ], [ %.0223306, %104 ], [ %.0223306, %102 ]
+  %.2225 = phi ptr [ %.3226, %136 ], [ %.1224306, %109 ], [ %.1224306, %104 ], [ %.1224306, %102 ]
   %141 = load ptr, ptr %40, align 8
-  %142 = getelementptr inbounds %union.H5D_storage_t, ptr %.0221382, i64 %.0212309
+  %142 = getelementptr inbounds %union.H5D_storage_t, ptr %.1222382, i64 %.0212309
   %143 = getelementptr inbounds i8, ptr %40, i64 8
   store ptr %142, ptr %143, align 8
   %144 = getelementptr inbounds i8, ptr %40, i64 16
@@ -525,8 +525,8 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %164, %168
   br i1 %exitcond.not, label %._crit_edge, label %39
 
 ._crit_edge:                                      ; preds = %252, %36
-  %.0221383 = phi ptr [ %6, %36 ], [ %.0221382, %252 ]
-  %.0223.lcssa = phi ptr [ null, %36 ], [ %.2225, %252 ]
+  %.1222383 = phi ptr [ %6, %36 ], [ %.1222382, %252 ]
+  %.1224.lcssa = phi ptr [ null, %36 ], [ %.2225, %252 ]
   %.0217.lcssa = phi i64 [ 0, %36 ], [ %.1218, %252 ]
   %255 = icmp eq i64 %.0217.lcssa, %0
   br i1 %255, label %436, label %256
@@ -837,11 +837,11 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %164, %168
   br label %436
 
 436:                                              ; preds = %._crit_edge, %._crit_edge315, %408, %415, %401, %._crit_edge319, %432, %411, %393, %375, %366, %358, %350, %342, %334, %313, %302, %283, %266, %259, %248, %233, %218, %206, %132, %118, %98, %91, %83, %73, %61, %50, %43
-  %.3226 = phi ptr [ %.0223306, %43 ], [ %.0223306, %50 ], [ %.0223306, %61 ], [ %.0223306, %73 ], [ %.0223306, %83 ], [ %.1224, %132 ], [ %.2225, %248 ], [ %.2225, %206 ], [ %.2225, %218 ], [ %.2225, %233 ], [ null, %118 ], [ %.0223306, %98 ], [ %.0223306, %91 ], [ %.0223.lcssa, %259 ], [ %.0223.lcssa, %266 ], [ %.0223.lcssa, %283 ], [ %.0223.lcssa, %302 ], [ %.0223.lcssa, %313 ], [ %.0223.lcssa, %._crit_edge315 ], [ %.0223.lcssa, %393 ], [ %.0223.lcssa, %._crit_edge319 ], [ %.0223.lcssa, %401 ], [ %.0223.lcssa, %411 ], [ %.0223.lcssa, %408 ], [ %.0223.lcssa, %432 ], [ %.0223.lcssa, %415 ], [ %.0223.lcssa, %334 ], [ %.0223.lcssa, %342 ], [ %.0223.lcssa, %350 ], [ %.0223.lcssa, %358 ], [ %.0223.lcssa, %366 ], [ %.0223.lcssa, %375 ], [ %.0223.lcssa, %._crit_edge ]
-  %.1222 = phi ptr [ %.0221382, %43 ], [ %.0221382, %50 ], [ %.0221382, %61 ], [ %.0221382, %73 ], [ %.0221382, %83 ], [ %.0221382, %132 ], [ %.0221382, %248 ], [ %.0221382, %206 ], [ %.0221382, %218 ], [ %.0221382, %233 ], [ %.0221382, %118 ], [ %.0221382, %98 ], [ %.0221382, %91 ], [ %.0221383, %259 ], [ %.0221383, %266 ], [ %.0221383, %283 ], [ %.0221383, %302 ], [ %.0221383, %313 ], [ %.0221383, %._crit_edge315 ], [ %.0221383, %393 ], [ %.0221383, %._crit_edge319 ], [ %.0221383, %401 ], [ %.0221383, %411 ], [ %.0221383, %408 ], [ %.0221383, %432 ], [ %.0221383, %415 ], [ %.0221383, %334 ], [ %.0221383, %342 ], [ %.0221383, %350 ], [ %.0221383, %358 ], [ %.0221383, %366 ], [ %.0221383, %375 ], [ %.0221383, %._crit_edge ]
-  %.1220 = phi i64 [ %.0212309, %43 ], [ %.0212309, %50 ], [ %.0212309, %61 ], [ %.0212309, %73 ], [ %.0212309, %83 ], [ %.0212309, %132 ], [ %.0212309, %248 ], [ %.0212309, %206 ], [ %.0212309, %218 ], [ %.0212309, %233 ], [ %.0212309, %118 ], [ %.0212309, %98 ], [ %.0212309, %91 ], [ %0, %259 ], [ %0, %266 ], [ %0, %283 ], [ %0, %302 ], [ %0, %313 ], [ %0, %._crit_edge315 ], [ %0, %393 ], [ %0, %._crit_edge319 ], [ %0, %401 ], [ %0, %411 ], [ %0, %408 ], [ %0, %432 ], [ %0, %415 ], [ %0, %334 ], [ %0, %342 ], [ %0, %350 ], [ %0, %358 ], [ %0, %366 ], [ %0, %375 ], [ %0, %._crit_edge ]
+  %.0223 = phi ptr [ %.1224306, %43 ], [ %.1224306, %50 ], [ %.1224306, %61 ], [ %.1224306, %73 ], [ %.1224306, %83 ], [ %.3226, %132 ], [ %.2225, %248 ], [ %.2225, %206 ], [ %.2225, %218 ], [ %.2225, %233 ], [ null, %118 ], [ %.1224306, %98 ], [ %.1224306, %91 ], [ %.1224.lcssa, %259 ], [ %.1224.lcssa, %266 ], [ %.1224.lcssa, %283 ], [ %.1224.lcssa, %302 ], [ %.1224.lcssa, %313 ], [ %.1224.lcssa, %._crit_edge315 ], [ %.1224.lcssa, %393 ], [ %.1224.lcssa, %._crit_edge319 ], [ %.1224.lcssa, %401 ], [ %.1224.lcssa, %411 ], [ %.1224.lcssa, %408 ], [ %.1224.lcssa, %432 ], [ %.1224.lcssa, %415 ], [ %.1224.lcssa, %334 ], [ %.1224.lcssa, %342 ], [ %.1224.lcssa, %350 ], [ %.1224.lcssa, %358 ], [ %.1224.lcssa, %366 ], [ %.1224.lcssa, %375 ], [ %.1224.lcssa, %._crit_edge ]
+  %.0221 = phi ptr [ %.1222382, %43 ], [ %.1222382, %50 ], [ %.1222382, %61 ], [ %.1222382, %73 ], [ %.1222382, %83 ], [ %.1222382, %132 ], [ %.1222382, %248 ], [ %.1222382, %206 ], [ %.1222382, %218 ], [ %.1222382, %233 ], [ %.1222382, %118 ], [ %.1222382, %98 ], [ %.1222382, %91 ], [ %.1222383, %259 ], [ %.1222383, %266 ], [ %.1222383, %283 ], [ %.1222383, %302 ], [ %.1222383, %313 ], [ %.1222383, %._crit_edge315 ], [ %.1222383, %393 ], [ %.1222383, %._crit_edge319 ], [ %.1222383, %401 ], [ %.1222383, %411 ], [ %.1222383, %408 ], [ %.1222383, %432 ], [ %.1222383, %415 ], [ %.1222383, %334 ], [ %.1222383, %342 ], [ %.1222383, %350 ], [ %.1222383, %358 ], [ %.1222383, %366 ], [ %.1222383, %375 ], [ %.1222383, %._crit_edge ]
+  %.0219 = phi i64 [ %.0212309, %43 ], [ %.0212309, %50 ], [ %.0212309, %61 ], [ %.0212309, %73 ], [ %.0212309, %83 ], [ %.0212309, %132 ], [ %.0212309, %248 ], [ %.0212309, %206 ], [ %.0212309, %218 ], [ %.0212309, %233 ], [ %.0212309, %118 ], [ %.0212309, %98 ], [ %.0212309, %91 ], [ %0, %259 ], [ %0, %266 ], [ %0, %283 ], [ %0, %302 ], [ %0, %313 ], [ %0, %._crit_edge315 ], [ %0, %393 ], [ %0, %._crit_edge319 ], [ %0, %401 ], [ %0, %411 ], [ %0, %408 ], [ %0, %432 ], [ %0, %415 ], [ %0, %334 ], [ %0, %342 ], [ %0, %350 ], [ %0, %358 ], [ %0, %366 ], [ %0, %375 ], [ %0, %._crit_edge ]
   %.0 = phi i32 [ -1, %43 ], [ -1, %50 ], [ -1, %61 ], [ -1, %73 ], [ -1, %83 ], [ -1, %132 ], [ -1, %248 ], [ -1, %206 ], [ -1, %218 ], [ -1, %233 ], [ -1, %118 ], [ -1, %98 ], [ -1, %91 ], [ -1, %259 ], [ -1, %266 ], [ -1, %283 ], [ -1, %302 ], [ -1, %313 ], [ 0, %._crit_edge315 ], [ -1, %393 ], [ 0, %._crit_edge319 ], [ 0, %401 ], [ -1, %411 ], [ 0, %408 ], [ -1, %432 ], [ 0, %415 ], [ -1, %334 ], [ -1, %342 ], [ -1, %350 ], [ -1, %358 ], [ -1, %366 ], [ -1, %375 ], [ 0, %._crit_edge ]
-  %.not334 = icmp eq i64 %.1220, 0
+  %.not334 = icmp eq i64 %.0219, 0
   br i1 %.not334, label %._crit_edge324, label %.lr.ph323
 
 .lr.ph323:                                        ; preds = %436, %447
@@ -867,12 +867,12 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %164, %168
 447:                                              ; preds = %.lr.ph323, %440, %443
   %.2 = phi i32 [ -1, %443 ], [ %.1321, %440 ], [ %.1321, %.lr.ph323 ]
   %448 = add nuw i64 %.3215320, 1
-  %exitcond369.not = icmp eq i64 %448, %.1220
+  %exitcond369.not = icmp eq i64 %448, %.0219
   br i1 %exitcond369.not, label %._crit_edge324, label %.lr.ph323
 
 ._crit_edge324:                                   ; preds = %447, %.thread384, %436
-  %.1222391 = phi ptr [ %.1222, %436 ], [ null, %.thread384 ], [ %.1222, %447 ]
-  %.3226390 = phi ptr [ %.3226, %436 ], [ null, %.thread384 ], [ %.3226, %447 ]
+  %.0221391 = phi ptr [ %.0221, %436 ], [ null, %.thread384 ], [ %.0221, %447 ]
+  %.0223390 = phi ptr [ %.0223, %436 ], [ null, %.thread384 ], [ %.0223, %447 ]
   %.1.lcssa = phi i32 [ %.0, %436 ], [ -1, %.thread384 ], [ %.2, %447 ]
   %449 = getelementptr inbounds i8, ptr %4, i64 184
   %450 = load i8, ptr %449, align 8
@@ -898,16 +898,16 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %164, %168
   br label %H5D__typeinfo_term.exit
 
 H5D__typeinfo_term.exit:                          ; preds = %456, %460
-  %.not258 = icmp eq ptr %.3226390, null
+  %.not258 = icmp eq ptr %.0223390, null
   br i1 %.not258, label %480, label %.preheader
 
 .preheader:                                       ; preds = %H5D__typeinfo_term.exit
   br i1 %.not.i, label %._crit_edge329, label %.lr.ph328
 
 .lr.ph328:                                        ; preds = %.preheader, %477
-  %.4327 = phi i32 [ %.6, %477 ], [ %.1.lcssa, %.preheader ]
+  %.5327 = phi i32 [ %.7, %477 ], [ %.1.lcssa, %.preheader ]
   %.4216326 = phi i64 [ %478, %477 ], [ 0, %.preheader ]
-  %464 = getelementptr inbounds ptr, ptr %.3226390, i64 %.4216326
+  %464 = getelementptr inbounds ptr, ptr %.0223390, i64 %.4216326
   %465 = load ptr, ptr %464, align 8
   %.not261 = icmp eq ptr %465, null
   br i1 %.not261, label %477, label %466
@@ -926,28 +926,28 @@ H5D__typeinfo_term.exit:                          ; preds = %456, %460
   br label %475
 
 475:                                              ; preds = %471, %466
-  %.5 = phi i32 [ -1, %471 ], [ %.4327, %466 ]
+  %.6 = phi i32 [ -1, %471 ], [ %.5327, %466 ]
   %476 = load ptr, ptr %464, align 8
   store ptr %476, ptr %467, align 8
   br label %477
 
 477:                                              ; preds = %.lr.ph328, %475
-  %.6 = phi i32 [ %.5, %475 ], [ %.4327, %.lr.ph328 ]
+  %.7 = phi i32 [ %.6, %475 ], [ %.5327, %.lr.ph328 ]
   %478 = add nuw i64 %.4216326, 1
   %exitcond370.not = icmp eq i64 %478, %0
   br i1 %exitcond370.not, label %._crit_edge329, label %.lr.ph328
 
 ._crit_edge329:                                   ; preds = %477, %.preheader
-  %.4.lcssa = phi i32 [ %.1.lcssa, %.preheader ], [ %.6, %477 ]
-  %.not259 = icmp eq ptr %.3226390, %5
+  %.5.lcssa = phi i32 [ %.1.lcssa, %.preheader ], [ %.7, %477 ]
+  %.not259 = icmp eq ptr %.0223390, %5
   br i1 %.not259, label %480, label %479
 
 479:                                              ; preds = %._crit_edge329
-  call void @free(ptr noundef nonnull %.3226390) #9
+  call void @free(ptr noundef nonnull %.0223390) #9
   br label %480
 
 480:                                              ; preds = %._crit_edge329, %479, %H5D__typeinfo_term.exit
-  %.7 = phi i32 [ %.4.lcssa, %479 ], [ %.4.lcssa, %._crit_edge329 ], [ %.1.lcssa, %H5D__typeinfo_term.exit ]
+  %.4 = phi i32 [ %.5.lcssa, %479 ], [ %.5.lcssa, %._crit_edge329 ], [ %.1.lcssa, %H5D__typeinfo_term.exit ]
   %481 = getelementptr inbounds i8, ptr %4, i64 96
   %482 = load ptr, ptr %481, align 8
   %483 = call ptr @H5MM_xfree(ptr noundef %482) #9
@@ -966,15 +966,15 @@ H5D__typeinfo_term.exit:                          ; preds = %456, %460
   %496 = getelementptr inbounds i8, ptr %4, i64 136
   %497 = load ptr, ptr %496, align 8
   %498 = call ptr @H5MM_xfree(ptr noundef %497) #9
-  %.not260 = icmp eq ptr %.1222391, %6
+  %.not260 = icmp eq ptr %.0221391, %6
   br i1 %.not260, label %500, label %499
 
 499:                                              ; preds = %480
-  call void @free(ptr noundef %.1222391) #9
+  call void @free(ptr noundef %.0221391) #9
   br label %500
 
 500:                                              ; preds = %499, %480
-  ret i32 %.7
+  ret i32 %.4
 }
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -1615,13 +1615,13 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30, %37
-  %.0214352 = phi ptr [ %6, %37 ], [ %32, %30 ]
+  %.1215352 = phi ptr [ %6, %37 ], [ %32, %30 ]
   %38 = shl i64 %0, 3
   %39 = getelementptr inbounds i8, ptr %4, i64 56
   br label %40
 
 40:                                               ; preds = %.lr.ph, %267
-  %.0201286 = phi ptr [ null, %.lr.ph ], [ %.2, %267 ]
+  %.1286 = phi ptr [ null, %.lr.ph ], [ %.2, %267 ]
   %.0207285 = phi i64 [ 0, %.lr.ph ], [ %269, %267 ]
   store i64 -1, ptr %8, align 8
   %41 = getelementptr inbounds %struct.H5D_dset_io_info_t, ptr %1, i64 %.0207285
@@ -1792,9 +1792,9 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
 
 148:                                              ; preds = %143
   store i64 0, ptr %9, align 8
-  %.not240 = icmp ne ptr %.0201286, null
+  %.not240 = icmp ne ptr %.1286, null
   %brmerge = or i1 %29, %.not240
-  %.0201.mux = select i1 %.not240, ptr %.0201286, ptr %5
+  %.1.mux = select i1 %.not240, ptr %.1286, ptr %5
   br i1 %brmerge, label %156, label %149
 
 149:                                              ; preds = %148
@@ -1809,9 +1809,9 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
   br label %442
 
 156:                                              ; preds = %148, %149
-  %.1 = phi ptr [ %.0201.mux, %148 ], [ %150, %149 ]
+  %.3 = phi ptr [ %.1.mux, %148 ], [ %150, %149 ]
   %157 = load ptr, ptr %100, align 8
-  %158 = getelementptr inbounds ptr, ptr %.1, i64 %.0207285
+  %158 = getelementptr inbounds ptr, ptr %.3, i64 %.0207285
   store ptr %157, ptr %158, align 8
   store ptr null, ptr %100, align 8
   %159 = load ptr, ptr %158, align 8
@@ -1837,9 +1837,9 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
   br label %174
 
 174:                                              ; preds = %170, %143, %138, %136
-  %.2 = phi ptr [ %.1, %170 ], [ %.0201286, %143 ], [ %.0201286, %138 ], [ %.0201286, %136 ]
+  %.2 = phi ptr [ %.3, %170 ], [ %.1286, %143 ], [ %.1286, %138 ], [ %.1286, %136 ]
   %175 = load ptr, ptr %41, align 8
-  %176 = getelementptr inbounds %union.H5D_storage_t, ptr %.0214352, i64 %.0207285
+  %176 = getelementptr inbounds %union.H5D_storage_t, ptr %.1215352, i64 %.0207285
   %177 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %176, ptr %177, align 8
   %178 = getelementptr inbounds i8, ptr %41, i64 16
@@ -1998,8 +1998,8 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %198, %202
   br i1 %exitcond.not, label %._crit_edge, label %40
 
 ._crit_edge:                                      ; preds = %267, %37
-  %.0214353 = phi ptr [ %6, %37 ], [ %.0214352, %267 ]
-  %.0201.lcssa = phi ptr [ null, %37 ], [ %.2, %267 ]
+  %.1215353 = phi ptr [ %6, %37 ], [ %.1215352, %267 ]
+  %.1.lcssa = phi ptr [ null, %37 ], [ %.2, %267 ]
   %271 = call fastcc i32 @H5D__typeinfo_init_phase2(ptr noundef nonnull %4)
   %272 = icmp slt i32 %271, 0
   br i1 %272, label %273, label %277
@@ -2293,11 +2293,11 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %198, %202
   br label %442
 
 442:                                              ; preds = %._crit_edge291, %414, %421, %407, %._crit_edge295, %438, %417, %398, %385, %376, %368, %360, %352, %344, %323, %312, %297, %280, %273, %263, %254, %236, %166, %152, %132, %125, %117, %107, %95, %86, %71, %51, %44
-  %.1215 = phi ptr [ %.0214352, %44 ], [ %.0214352, %51 ], [ %.0214352, %86 ], [ %.0214352, %95 ], [ %.0214352, %107 ], [ %.0214352, %117 ], [ %.0214352, %166 ], [ %.0214352, %236 ], [ %.0214352, %254 ], [ %.0214352, %263 ], [ %.0214352, %152 ], [ %.0214352, %132 ], [ %.0214352, %125 ], [ %.0214352, %71 ], [ %.0214353, %273 ], [ %.0214353, %280 ], [ %.0214353, %297 ], [ %.0214353, %312 ], [ %.0214353, %323 ], [ %.0214353, %._crit_edge291 ], [ %.0214353, %398 ], [ %.0214353, %._crit_edge295 ], [ %.0214353, %407 ], [ %.0214353, %417 ], [ %.0214353, %414 ], [ %.0214353, %438 ], [ %.0214353, %421 ], [ %.0214353, %344 ], [ %.0214353, %352 ], [ %.0214353, %360 ], [ %.0214353, %368 ], [ %.0214353, %376 ], [ %.0214353, %385 ]
-  %.1213 = phi i64 [ %.0207285, %44 ], [ %.0207285, %51 ], [ %.0207285, %86 ], [ %.0207285, %95 ], [ %.0207285, %107 ], [ %.0207285, %117 ], [ %.0207285, %166 ], [ %.0207285, %236 ], [ %.0207285, %254 ], [ %.0207285, %263 ], [ %.0207285, %152 ], [ %.0207285, %132 ], [ %.0207285, %125 ], [ %.0207285, %71 ], [ %0, %273 ], [ %0, %280 ], [ %0, %297 ], [ %0, %312 ], [ %0, %323 ], [ %0, %._crit_edge291 ], [ %0, %398 ], [ %0, %._crit_edge295 ], [ %0, %407 ], [ %0, %417 ], [ %0, %414 ], [ %0, %438 ], [ %0, %421 ], [ %0, %344 ], [ %0, %352 ], [ %0, %360 ], [ %0, %368 ], [ %0, %376 ], [ %0, %385 ]
+  %.0214 = phi ptr [ %.1215352, %44 ], [ %.1215352, %51 ], [ %.1215352, %86 ], [ %.1215352, %95 ], [ %.1215352, %107 ], [ %.1215352, %117 ], [ %.1215352, %166 ], [ %.1215352, %236 ], [ %.1215352, %254 ], [ %.1215352, %263 ], [ %.1215352, %152 ], [ %.1215352, %132 ], [ %.1215352, %125 ], [ %.1215352, %71 ], [ %.1215353, %273 ], [ %.1215353, %280 ], [ %.1215353, %297 ], [ %.1215353, %312 ], [ %.1215353, %323 ], [ %.1215353, %._crit_edge291 ], [ %.1215353, %398 ], [ %.1215353, %._crit_edge295 ], [ %.1215353, %407 ], [ %.1215353, %417 ], [ %.1215353, %414 ], [ %.1215353, %438 ], [ %.1215353, %421 ], [ %.1215353, %344 ], [ %.1215353, %352 ], [ %.1215353, %360 ], [ %.1215353, %368 ], [ %.1215353, %376 ], [ %.1215353, %385 ]
+  %.0212 = phi i64 [ %.0207285, %44 ], [ %.0207285, %51 ], [ %.0207285, %86 ], [ %.0207285, %95 ], [ %.0207285, %107 ], [ %.0207285, %117 ], [ %.0207285, %166 ], [ %.0207285, %236 ], [ %.0207285, %254 ], [ %.0207285, %263 ], [ %.0207285, %152 ], [ %.0207285, %132 ], [ %.0207285, %125 ], [ %.0207285, %71 ], [ %0, %273 ], [ %0, %280 ], [ %0, %297 ], [ %0, %312 ], [ %0, %323 ], [ %0, %._crit_edge291 ], [ %0, %398 ], [ %0, %._crit_edge295 ], [ %0, %407 ], [ %0, %417 ], [ %0, %414 ], [ %0, %438 ], [ %0, %421 ], [ %0, %344 ], [ %0, %352 ], [ %0, %360 ], [ %0, %368 ], [ %0, %376 ], [ %0, %385 ]
   %.0203 = phi i32 [ -1, %44 ], [ -1, %51 ], [ -1, %86 ], [ -1, %95 ], [ -1, %107 ], [ -1, %117 ], [ -1, %166 ], [ -1, %236 ], [ -1, %254 ], [ -1, %263 ], [ -1, %152 ], [ -1, %132 ], [ -1, %125 ], [ -1, %71 ], [ -1, %273 ], [ -1, %280 ], [ -1, %297 ], [ -1, %312 ], [ -1, %323 ], [ 0, %._crit_edge291 ], [ -1, %398 ], [ 0, %._crit_edge295 ], [ 0, %407 ], [ -1, %417 ], [ 0, %414 ], [ -1, %438 ], [ 0, %421 ], [ -1, %344 ], [ -1, %352 ], [ -1, %360 ], [ -1, %368 ], [ -1, %376 ], [ -1, %385 ]
-  %.3 = phi ptr [ %.0201286, %44 ], [ %.0201286, %51 ], [ %.0201286, %86 ], [ %.0201286, %95 ], [ %.0201286, %107 ], [ %.0201286, %117 ], [ %.1, %166 ], [ %.2, %236 ], [ %.2, %254 ], [ %.2, %263 ], [ null, %152 ], [ %.0201286, %132 ], [ %.0201286, %125 ], [ %.0201286, %71 ], [ %.0201.lcssa, %273 ], [ %.0201.lcssa, %280 ], [ %.0201.lcssa, %297 ], [ %.0201.lcssa, %312 ], [ %.0201.lcssa, %323 ], [ %.0201.lcssa, %._crit_edge291 ], [ %.0201.lcssa, %398 ], [ %.0201.lcssa, %._crit_edge295 ], [ %.0201.lcssa, %407 ], [ %.0201.lcssa, %417 ], [ %.0201.lcssa, %414 ], [ %.0201.lcssa, %438 ], [ %.0201.lcssa, %421 ], [ %.0201.lcssa, %344 ], [ %.0201.lcssa, %352 ], [ %.0201.lcssa, %360 ], [ %.0201.lcssa, %368 ], [ %.0201.lcssa, %376 ], [ %.0201.lcssa, %385 ]
-  %.not310 = icmp eq i64 %.1213, 0
+  %.0201 = phi ptr [ %.1286, %44 ], [ %.1286, %51 ], [ %.1286, %86 ], [ %.1286, %95 ], [ %.1286, %107 ], [ %.1286, %117 ], [ %.3, %166 ], [ %.2, %236 ], [ %.2, %254 ], [ %.2, %263 ], [ null, %152 ], [ %.1286, %132 ], [ %.1286, %125 ], [ %.1286, %71 ], [ %.1.lcssa, %273 ], [ %.1.lcssa, %280 ], [ %.1.lcssa, %297 ], [ %.1.lcssa, %312 ], [ %.1.lcssa, %323 ], [ %.1.lcssa, %._crit_edge291 ], [ %.1.lcssa, %398 ], [ %.1.lcssa, %._crit_edge295 ], [ %.1.lcssa, %407 ], [ %.1.lcssa, %417 ], [ %.1.lcssa, %414 ], [ %.1.lcssa, %438 ], [ %.1.lcssa, %421 ], [ %.1.lcssa, %344 ], [ %.1.lcssa, %352 ], [ %.1.lcssa, %360 ], [ %.1.lcssa, %368 ], [ %.1.lcssa, %376 ], [ %.1.lcssa, %385 ]
+  %.not310 = icmp eq i64 %.0212, 0
   br i1 %.not310, label %._crit_edge300, label %.lr.ph299
 
 .lr.ph299:                                        ; preds = %442, %453
@@ -2323,12 +2323,12 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %198, %202
 453:                                              ; preds = %.lr.ph299, %446, %449
   %.2205 = phi i32 [ -1, %449 ], [ %.1204297, %446 ], [ %.1204297, %.lr.ph299 ]
   %454 = add nuw i64 %.3210296, 1
-  %exitcond345.not = icmp eq i64 %454, %.1213
+  %exitcond345.not = icmp eq i64 %454, %.0212
   br i1 %exitcond345.not, label %._crit_edge300, label %.lr.ph299
 
 ._crit_edge300:                                   ; preds = %453, %.thread354, %442
-  %.3361 = phi ptr [ %.3, %442 ], [ null, %.thread354 ], [ %.3, %453 ]
-  %.1215360 = phi ptr [ %.1215, %442 ], [ null, %.thread354 ], [ %.1215, %453 ]
+  %.0201361 = phi ptr [ %.0201, %442 ], [ null, %.thread354 ], [ %.0201, %453 ]
+  %.0214360 = phi ptr [ %.0214, %442 ], [ null, %.thread354 ], [ %.0214, %453 ]
   %.1204.lcssa = phi i32 [ %.0203, %442 ], [ -1, %.thread354 ], [ %.2205, %453 ]
   %455 = getelementptr inbounds i8, ptr %4, i64 184
   %456 = load i8, ptr %455, align 8
@@ -2354,16 +2354,16 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %198, %202
   br label %H5D__typeinfo_term.exit
 
 H5D__typeinfo_term.exit:                          ; preds = %462, %466
-  %.not244 = icmp eq ptr %.3361, null
+  %.not244 = icmp eq ptr %.0201361, null
   br i1 %.not244, label %486, label %.preheader
 
 .preheader:                                       ; preds = %H5D__typeinfo_term.exit
   br i1 %.not.i, label %._crit_edge305, label %.lr.ph304
 
 .lr.ph304:                                        ; preds = %.preheader, %483
-  %.4303 = phi i32 [ %.6, %483 ], [ %.1204.lcssa, %.preheader ]
+  %.5303 = phi i32 [ %.7, %483 ], [ %.1204.lcssa, %.preheader ]
   %.4211302 = phi i64 [ %484, %483 ], [ 0, %.preheader ]
-  %470 = getelementptr inbounds ptr, ptr %.3361, i64 %.4211302
+  %470 = getelementptr inbounds ptr, ptr %.0201361, i64 %.4211302
   %471 = load ptr, ptr %470, align 8
   %.not247 = icmp eq ptr %471, null
   br i1 %.not247, label %483, label %472
@@ -2382,28 +2382,28 @@ H5D__typeinfo_term.exit:                          ; preds = %462, %466
   br label %481
 
 481:                                              ; preds = %477, %472
-  %.5 = phi i32 [ -1, %477 ], [ %.4303, %472 ]
+  %.6 = phi i32 [ -1, %477 ], [ %.5303, %472 ]
   %482 = load ptr, ptr %470, align 8
   store ptr %482, ptr %473, align 8
   br label %483
 
 483:                                              ; preds = %.lr.ph304, %481
-  %.6 = phi i32 [ %.5, %481 ], [ %.4303, %.lr.ph304 ]
+  %.7 = phi i32 [ %.6, %481 ], [ %.5303, %.lr.ph304 ]
   %484 = add nuw i64 %.4211302, 1
   %exitcond346.not = icmp eq i64 %484, %0
   br i1 %exitcond346.not, label %._crit_edge305, label %.lr.ph304
 
 ._crit_edge305:                                   ; preds = %483, %.preheader
-  %.4.lcssa = phi i32 [ %.1204.lcssa, %.preheader ], [ %.6, %483 ]
-  %.not245 = icmp eq ptr %.3361, %5
+  %.5.lcssa = phi i32 [ %.1204.lcssa, %.preheader ], [ %.7, %483 ]
+  %.not245 = icmp eq ptr %.0201361, %5
   br i1 %.not245, label %486, label %485
 
 485:                                              ; preds = %._crit_edge305
-  call void @free(ptr noundef nonnull %.3361) #9
+  call void @free(ptr noundef nonnull %.0201361) #9
   br label %486
 
 486:                                              ; preds = %._crit_edge305, %485, %H5D__typeinfo_term.exit
-  %.7 = phi i32 [ %.4.lcssa, %485 ], [ %.4.lcssa, %._crit_edge305 ], [ %.1204.lcssa, %H5D__typeinfo_term.exit ]
+  %.4 = phi i32 [ %.5.lcssa, %485 ], [ %.5.lcssa, %._crit_edge305 ], [ %.1204.lcssa, %H5D__typeinfo_term.exit ]
   %487 = getelementptr inbounds i8, ptr %4, i64 96
   %488 = load ptr, ptr %487, align 8
   %489 = call ptr @H5MM_xfree(ptr noundef %488) #9
@@ -2422,15 +2422,15 @@ H5D__typeinfo_term.exit:                          ; preds = %462, %466
   %502 = getelementptr inbounds i8, ptr %4, i64 144
   %503 = load ptr, ptr %502, align 8
   %504 = call ptr @H5MM_xfree(ptr noundef %503) #9
-  %.not246 = icmp eq ptr %.1215360, %6
+  %.not246 = icmp eq ptr %.0214360, %6
   br i1 %.not246, label %506, label %505
 
 505:                                              ; preds = %486
-  call void @free(ptr noundef %.1215360) #9
+  call void @free(ptr noundef %.0214360) #9
   br label %506
 
 506:                                              ; preds = %505, %486
-  ret i32 %.7
+  ret i32 %.4
 }
 
 declare i32 @H5Z_can_apply(i64 noundef, i64 noundef) local_unnamed_addr #1

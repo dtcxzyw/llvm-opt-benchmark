@@ -76,7 +76,7 @@ define hidden ptr @phpdbg_btree_find_closest(ptr nocapture noundef readonly %0, 
   br i1 %8, label %.loopexit, label %.preheader50
 
 .preheader50:                                     ; preds = %2, %51
-  %.033 = phi ptr [ %.4, %51 ], [ %4, %2 ]
+  %.033 = phi ptr [ %.5, %51 ], [ %4, %2 ]
   %.030.in = phi i32 [ %.030, %51 ], [ %7, %2 ]
   %.0 = phi i32 [ %.2, %51 ], [ -1, %2 ]
   %.030 = add i32 %.030.in, -1
@@ -147,7 +147,7 @@ define hidden ptr @phpdbg_btree_find_closest(ptr nocapture noundef readonly %0, 
   %42 = getelementptr inbounds i8, ptr %.033, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not = icmp eq ptr %43, null
-  %.33659 = load ptr, ptr %.033, align 8
+  %.459 = load ptr, ptr %.033, align 8
   br i1 %.not, label %.preheader48, label %44
 
 .preheader48:                                     ; preds = %41
@@ -155,31 +155,31 @@ define hidden ptr @phpdbg_btree_find_closest(ptr nocapture noundef readonly %0, 
   br i1 %.not4260, label %.loopexit, label %.lr.ph
 
 44:                                               ; preds = %41
-  %.not43 = icmp eq ptr %.33659, null
+  %.not43 = icmp eq ptr %.459, null
   %spec.select = select i1 %.not43, i32 %.0, i32 %.030
   br label %51
 
 .lr.ph:                                           ; preds = %.preheader48, %.lr.ph
-  %.33662 = phi ptr [ %.336, %.lr.ph ], [ %.33659, %.preheader48 ]
+  %.462 = phi ptr [ %.4, %.lr.ph ], [ %.459, %.preheader48 ]
   %.361 = phi i32 [ %45, %.lr.ph ], [ %.030, %.preheader48 ]
   %45 = add nsw i32 %.361, -1
-  %46 = getelementptr inbounds i8, ptr %.33662, i64 8
+  %46 = getelementptr inbounds i8, ptr %.462, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = icmp ne ptr %47, null
   %49 = zext i1 %48 to i64
-  %50 = getelementptr inbounds [2 x ptr], ptr %.33662, i64 0, i64 %49
-  %.336 = load ptr, ptr %50, align 8
+  %50 = getelementptr inbounds [2 x ptr], ptr %.462, i64 0, i64 %49
+  %.4 = load ptr, ptr %50, align 8
   %.not42 = icmp eq i32 %45, 0
   br i1 %.not42, label %.loopexit, label %.lr.ph
 
 51:                                               ; preds = %13, %44
-  %.4 = phi ptr [ %43, %44 ], [ %14, %13 ]
+  %.5 = phi ptr [ %43, %44 ], [ %14, %13 ]
   %.2 = phi i32 [ %spec.select, %44 ], [ %.0, %13 ]
   %.not47 = icmp eq i32 %.030, 0
   br i1 %.not47, label %.loopexit, label %.preheader50
 
 .loopexit:                                        ; preds = %51, %.lr.ph, %.lr.ph67, %.preheader48, %.preheader, %15, %2
-  %.037 = phi ptr [ null, %2 ], [ null, %15 ], [ %.23563, %.preheader ], [ %.33659, %.preheader48 ], [ %.235, %.lr.ph67 ], [ %.336, %.lr.ph ], [ %.4, %51 ]
+  %.037 = phi ptr [ null, %2 ], [ null, %15 ], [ %.23563, %.preheader ], [ %.459, %.preheader48 ], [ %.235, %.lr.ph67 ], [ %.4, %.lr.ph ], [ %.5, %51 ]
   ret ptr %.037
 }
 
@@ -207,7 +207,7 @@ define hidden noundef ptr @phpdbg_btree_next(ptr nocapture noundef %0) local_unn
   br i1 %10, label %phpdbg_btree_find_closest.exit.thread, label %.preheader50.i
 
 .preheader50.i:                                   ; preds = %1, %53
-  %.033.i = phi ptr [ %.4.i, %53 ], [ %6, %1 ]
+  %.033.i = phi ptr [ %.5.i, %53 ], [ %6, %1 ]
   %.030.in.i = phi i32 [ %.030.i, %53 ], [ %9, %1 ]
   %.0.i = phi i32 [ %.2.i, %53 ], [ -1, %1 ]
   %.030.i = add i32 %.030.in.i, -1
@@ -278,7 +278,7 @@ define hidden noundef ptr @phpdbg_btree_next(ptr nocapture noundef %0) local_unn
   %44 = getelementptr inbounds i8, ptr %.033.i, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %45, null
-  %.33659.i = load ptr, ptr %.033.i, align 8
+  %.459.i = load ptr, ptr %.033.i, align 8
   br i1 %.not.i, label %.preheader48.i, label %46
 
 .preheader48.i:                                   ; preds = %43
@@ -286,36 +286,36 @@ define hidden noundef ptr @phpdbg_btree_next(ptr nocapture noundef %0) local_unn
   br i1 %.not4260.i, label %phpdbg_btree_find_closest.exit, label %.lr.ph.i
 
 46:                                               ; preds = %43
-  %.not43.i = icmp eq ptr %.33659.i, null
+  %.not43.i = icmp eq ptr %.459.i, null
   %spec.select.i = select i1 %.not43.i, i32 %.0.i, i32 %.030.i
   br label %53
 
 .lr.ph.i:                                         ; preds = %.preheader48.i, %.lr.ph.i
-  %.33662.i = phi ptr [ %.336.i, %.lr.ph.i ], [ %.33659.i, %.preheader48.i ]
+  %.462.i = phi ptr [ %.4.i, %.lr.ph.i ], [ %.459.i, %.preheader48.i ]
   %.361.i = phi i32 [ %47, %.lr.ph.i ], [ %.030.i, %.preheader48.i ]
   %47 = add nsw i32 %.361.i, -1
-  %48 = getelementptr inbounds i8, ptr %.33662.i, i64 8
+  %48 = getelementptr inbounds i8, ptr %.462.i, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp ne ptr %49, null
   %51 = zext i1 %50 to i64
-  %52 = getelementptr inbounds [2 x ptr], ptr %.33662.i, i64 0, i64 %51
-  %.336.i = load ptr, ptr %52, align 8
+  %52 = getelementptr inbounds [2 x ptr], ptr %.462.i, i64 0, i64 %51
+  %.4.i = load ptr, ptr %52, align 8
   %.not42.i = icmp eq i32 %47, 0
   br i1 %.not42.i, label %phpdbg_btree_find_closest.exit, label %.lr.ph.i
 
 53:                                               ; preds = %46, %15
-  %.4.i = phi ptr [ %45, %46 ], [ %16, %15 ]
+  %.5.i = phi ptr [ %45, %46 ], [ %16, %15 ]
   %.2.i = phi i32 [ %spec.select.i, %46 ], [ %.0.i, %15 ]
   %.not47.i = icmp eq i32 %.030.i, 0
   br i1 %.not47.i, label %phpdbg_btree_find_closest.exit.thread12, label %.preheader50.i
 
 phpdbg_btree_find_closest.exit:                   ; preds = %.lr.ph.i, %.lr.ph67.i, %.preheader.i, %.preheader48.i
-  %.037.i = phi ptr [ %.23563.i, %.preheader.i ], [ %.33659.i, %.preheader48.i ], [ %.235.i, %.lr.ph67.i ], [ %.336.i, %.lr.ph.i ]
+  %.037.i = phi ptr [ %.23563.i, %.preheader.i ], [ %.459.i, %.preheader48.i ], [ %.235.i, %.lr.ph67.i ], [ %.4.i, %.lr.ph.i ]
   %54 = icmp eq ptr %.037.i, null
   br i1 %54, label %phpdbg_btree_find_closest.exit.thread, label %phpdbg_btree_find_closest.exit.thread12
 
 phpdbg_btree_find_closest.exit.thread12:          ; preds = %53, %phpdbg_btree_find_closest.exit
-  %.037.i14 = phi ptr [ %.037.i, %phpdbg_btree_find_closest.exit ], [ %.4.i, %53 ]
+  %.037.i14 = phi ptr [ %.037.i, %phpdbg_btree_find_closest.exit ], [ %.5.i, %53 ]
   %55 = load i64, ptr %.037.i14, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8
@@ -472,9 +472,9 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr nocapture noundef %0
   br label %18
 
 18:                                               ; preds = %13, %10, %8
-  %.056 = phi i32 [ %indvars, %13 ], [ %.15775, %10 ], [ %.15775, %8 ]
-  %.054 = phi i32 [ %17, %13 ], [ %.15576, %10 ], [ %.15576, %8 ]
-  %.053 = phi ptr [ %.05878, %13 ], [ %.177, %10 ], [ %.177, %8 ]
+  %.157 = phi i32 [ %indvars, %13 ], [ %.05675, %10 ], [ %.05675, %8 ]
+  %.155 = phi i32 [ %17, %13 ], [ %.05476, %10 ], [ %.05476, %8 ]
+  %.1 = phi ptr [ %.05878, %13 ], [ %.05377, %10 ], [ %.05377, %8 ]
   %19 = and i64 %indvars.iv.next, 4294967295
   %20 = lshr i64 %1, %19
   %21 = and i64 %20, 1
@@ -486,9 +486,9 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr nocapture noundef %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %.05878 = phi ptr [ %.05873, %.lr.ph.preheader ], [ %.058, %18 ]
-  %.177 = phi ptr [ null, %.lr.ph.preheader ], [ %.053, %18 ]
-  %.15576 = phi i32 [ undef, %.lr.ph.preheader ], [ %.054, %18 ]
-  %.15775 = phi i32 [ -1, %.lr.ph.preheader ], [ %.056, %18 ]
+  %.05377 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %18 ]
+  %.05476 = phi i32 [ undef, %.lr.ph.preheader ], [ %.155, %18 ]
+  %.05675 = phi i32 [ -1, %.lr.ph.preheader ], [ %.157, %18 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
   %.not = icmp eq i64 %indvars.iv, 0
@@ -498,7 +498,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr nocapture noundef %0
   %25 = load i64, ptr %0, align 8
   %26 = add i64 %25, -1
   store i64 %26, ptr %0, align 8
-  %27 = icmp eq i32 %.15775, -1
+  %27 = icmp eq i32 %.05675, -1
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %24
@@ -516,19 +516,19 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr nocapture noundef %0
   br label %.loopexit69.sink.split
 
 34:                                               ; preds = %24
-  %35 = sext i32 %.15576 to i64
-  %36 = getelementptr inbounds [2 x ptr], ptr %.177, i64 0, i64 %35
+  %35 = sext i32 %.05476 to i64
+  %36 = getelementptr inbounds [2 x ptr], ptr %.05377, i64 0, i64 %35
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.177, i64 16
+  %38 = getelementptr inbounds i8, ptr %.05377, i64 16
   %39 = icmp eq ptr %37, %38
   br i1 %39, label %40, label %64
 
 40:                                               ; preds = %34
-  %.not65 = icmp eq i32 %.15576, 0
+  %.not65 = icmp eq i32 %.05476, 0
   %41 = zext i1 %.not65 to i64
-  %42 = getelementptr inbounds [2 x ptr], ptr %.177, i64 0, i64 %41
+  %42 = getelementptr inbounds [2 x ptr], ptr %.05377, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
-  %44 = add nuw nsw i32 %.15775, 1
+  %44 = add nuw nsw i32 %.05675, 1
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %43, i64 %46, i1 false)
@@ -548,12 +548,12 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr nocapture noundef %0
 
 53:                                               ; preds = %52, %51
   store ptr %38, ptr %42, align 8
-  %.not6679 = icmp eq i32 %.15775, 0
+  %.not6679 = icmp eq i32 %.05675, 0
   br i1 %.not6679, label %.loopexit69.sink.split, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %53
-  %54 = sext i32 %.15775 to i64
-  %55 = getelementptr inbounds %union._phpdbg_btree_branch, ptr %.177, i64 %54
+  %54 = sext i32 %.05675 to i64
+  %55 = getelementptr inbounds %union._phpdbg_btree_branch, ptr %.05377, i64 %54
   %invariant.gep = getelementptr i8, ptr %55, i64 16
   br label %56
 

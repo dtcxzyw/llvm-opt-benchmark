@@ -1359,7 +1359,7 @@ while.body70.lr.ph:                               ; preds = %sw.bb63
 
 while.body70.outer:                               ; preds = %_ZN12substitution11apply_visitERK11expr_offsetRb.exit154.thread, %while.body70.lr.ph
   %indvars.iv772.ph = phi i64 [ %87, %_ZN12substitution11apply_visitERK11expr_offsetRb.exit154.thread ], [ %83, %while.body70.lr.ph ]
-  %visited.1748.ph = phi i1 [ false, %_ZN12substitution11apply_visitERK11expr_offsetRb.exit154.thread ], [ true, %while.body70.lr.ph ]
+  %visited.0748.ph = phi i1 [ false, %_ZN12substitution11apply_visitERK11expr_offsetRb.exit154.thread ], [ true, %while.body70.lr.ph ]
   %84 = load ptr, ptr %e, align 8
   %m_args.i = getelementptr inbounds i8, ptr %84, i64 32
   %85 = load ptr, ptr %m_apply_cache, align 8
@@ -1511,7 +1511,7 @@ _ZN12substitution11apply_visitERK11expr_offsetRb.exit154.thread: ; preds = %lor.
   br i1 %cmp69.not.wide788, label %sw.epilog, label %while.body70.outer
 
 while.end:                                        ; preds = %_ZN12substitution11apply_visitERK11expr_offsetRb.exit154
-  br i1 %visited.1748.ph, label %if.then79, label %sw.epilog
+  br i1 %visited.0748.ph, label %if.then79, label %sw.epilog
 
 if.then79:                                        ; preds = %while.end
   %.pre786 = load ptr, ptr %m_todo, align 8
@@ -3777,7 +3777,7 @@ while.body.lr.ph:                                 ; preds = %sw.bb5
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN12substitution5visitERK11expr_offsetRb.exit49
   %indvars.iv = phi i64 [ %23, %while.body.lr.ph ], [ %24, %_ZN12substitution5visitERK11expr_offsetRb.exit49 ]
-  %visited.159 = phi i1 [ true, %while.body.lr.ph ], [ %visited.2, %_ZN12substitution5visitERK11expr_offsetRb.exit49 ]
+  %visited.159 = phi i1 [ true, %while.body.lr.ph ], [ %visited.3, %_ZN12substitution5visitERK11expr_offsetRb.exit49 ]
   %24 = add nsw i64 %indvars.iv, -1
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %24
   %25 = load ptr, ptr %arrayidx.i, align 8
@@ -3854,7 +3854,7 @@ _ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i25: ; preds = %if.then.i.i3
   br label %_ZN12substitution5visitERK11expr_offsetRb.exit49
 
 _ZN12substitution5visitERK11expr_offsetRb.exit49: ; preds = %_ZNK12substitution9get_colorERK11expr_offset.exit.i47, %_ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i25
-  %visited.2 = phi i1 [ false, %_ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i25 ], [ %visited.159, %_ZNK12substitution9get_colorERK11expr_offset.exit.i47 ]
+  %visited.3 = phi i1 [ false, %_ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i25 ], [ %visited.159, %_ZNK12substitution9get_colorERK11expr_offset.exit.i47 ]
   %cmp.not.wide = icmp eq i64 %24, 0
   br i1 %cmp.not.wide, label %sw.epilog, label %while.body, !llvm.loop !25
 
@@ -3864,8 +3864,8 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %_ZN12substitution5visitERK11expr_offsetRb.exit49, %sw.bb5, %_ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i, %_ZNK12substitution9get_colorERK11expr_offset.exit.i, %sw.bb, %land.lhs.true
-  %visited.3 = phi i1 [ true, %land.lhs.true ], [ true, %sw.bb ], [ false, %_ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i ], [ true, %_ZNK12substitution9get_colorERK11expr_offset.exit.i ], [ true, %sw.bb5 ], [ %visited.2, %_ZN12substitution5visitERK11expr_offsetRb.exit49 ]
-  ret i1 %visited.3
+  %visited.0 = phi i1 [ true, %land.lhs.true ], [ true, %sw.bb ], [ false, %_ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i ], [ true, %_ZNK12substitution9get_colorERK11expr_offset.exit.i ], [ true, %sw.bb5 ], [ %visited.3, %_ZN12substitution5visitERK11expr_offsetRb.exit49 ]
+  ret i1 %visited.0
 }
 
 ; Function Attrs: mustprogress uwtable

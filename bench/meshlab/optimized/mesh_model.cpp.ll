@@ -1701,14 +1701,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i65:  ; preds = %_ZN9QtPrivate8RefCo
 
 113:                                              ; preds = %111, %109, %107
   %.pn = phi { ptr, i32 } [ %112, %111 ], [ %108, %107 ], [ %110, %109 ]
-  %.0 = extractvalue { ptr, i32 } %.pn, 0
-  %.024 = extractvalue { ptr, i32 } %.pn, 1
+  %.2 = extractvalue { ptr, i32 } %.pn, 0
+  %.226 = extractvalue { ptr, i32 } %.pn, 1
   %114 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #28
-  %115 = icmp eq i32 %.024, %114
+  %115 = icmp eq i32 %.226, %114
   br i1 %115, label %116, label %.loopexit
 
 116:                                              ; preds = %113
-  %117 = call ptr @__cxa_begin_catch(ptr %.0) #28
+  %117 = call ptr @__cxa_begin_catch(ptr %.2) #28
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %118 = load ptr, ptr %37, align 8, !noalias !26
   store ptr %118, ptr %14, align 8, !alias.scope !26
@@ -1837,13 +1837,13 @@ _ZNK9MeshModel8fullNameEv.exit:                   ; preds = %116, %121
 
 152:                                              ; preds = %151, %134
   %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %151 ], [ %135, %134 ]
-  %.5 = extractvalue { ptr, i32 } %.pn43.pn.pn, 0
-  %.529 = extractvalue { ptr, i32 } %.pn43.pn.pn, 1
-  %153 = icmp eq i32 %.529, %.024
+  %.4 = extractvalue { ptr, i32 } %.pn43.pn.pn, 0
+  %.428 = extractvalue { ptr, i32 } %.pn43.pn.pn, 1
+  %153 = icmp eq i32 %.428, %.226
   br i1 %153, label %154, label %.loopexit79
 
 154:                                              ; preds = %152
-  %155 = call ptr @__cxa_begin_catch(ptr %.5) #28
+  %155 = call ptr @__cxa_begin_catch(ptr %.4) #28
   br i1 %.not, label %167, label %156
 
 156:                                              ; preds = %154
@@ -1951,8 +1951,8 @@ _ZN7QStringD2Ev.exit70:                           ; preds = %_ZN9QtPrivate8RefCo
 
 190:                                              ; preds = %176, %166, %160
   %.pn51 = phi { ptr, i32 } [ %161, %160 ], [ %.pn49, %166 ], [ %.pn47, %176 ]
-  %.8 = extractvalue { ptr, i32 } %.pn51, 0
-  %.832 = extractvalue { ptr, i32 } %.pn51, 1
+  %.10 = extractvalue { ptr, i32 } %.pn51, 0
+  %.1034 = extractvalue { ptr, i32 } %.pn51, 1
   invoke void @__cxa_end_catch()
           to label %.loopexit79 unwind label %201
 
@@ -1964,20 +1964,20 @@ _ZN7QStringD2Ev.exit70:                           ; preds = %_ZN9QtPrivate8RefCo
   br label %.loopexit
 
 .loopexit79:                                      ; preds = %152, %190, %186
-  %.933 = phi i32 [ %189, %186 ], [ %.832, %190 ], [ %.529, %152 ]
-  %.9 = phi ptr [ %188, %186 ], [ %.8, %190 ], [ %.5, %152 ]
+  %.933 = phi i32 [ %189, %186 ], [ %.1034, %190 ], [ %.428, %152 ]
+  %.9 = phi ptr [ %188, %186 ], [ %.10, %190 ], [ %.4, %152 ]
   invoke void @__cxa_end_catch()
           to label %.loopexit unwind label %201
 
 .loopexit:                                        ; preds = %113, %.loopexit79, %191
-  %.1034 = phi i32 [ %194, %191 ], [ %.933, %.loopexit79 ], [ %.024, %113 ]
-  %.10 = phi ptr [ %193, %191 ], [ %.9, %.loopexit79 ], [ %.0, %113 ]
+  %.327 = phi i32 [ %194, %191 ], [ %.933, %.loopexit79 ], [ %.226, %113 ]
+  %.3 = phi ptr [ %193, %191 ], [ %.9, %.loopexit79 ], [ %.2, %113 ]
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #28
   br label %195
 
 195:                                              ; preds = %.loopexit, %103, %99
-  %.1135 = phi i32 [ %.1034, %.loopexit ], [ %106, %103 ], [ %102, %99 ]
-  %.11 = phi ptr [ %.10, %.loopexit ], [ %105, %103 ], [ %101, %99 ]
+  %.125 = phi i32 [ %.327, %.loopexit ], [ %106, %103 ], [ %102, %99 ]
+  %.1 = phi ptr [ %.3, %.loopexit ], [ %105, %103 ], [ %101, %99 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   br label %198
 
@@ -1990,11 +1990,11 @@ _ZN7QStringD2Ev.exit70:                           ; preds = %_ZN9QtPrivate8RefCo
   ret void
 
 198:                                              ; preds = %195, %95, %91
-  %.1236 = phi i32 [ %.1135, %195 ], [ %98, %95 ], [ %94, %91 ]
-  %.12 = phi ptr [ %.11, %195 ], [ %97, %95 ], [ %93, %91 ]
+  %.024 = phi i32 [ %.125, %195 ], [ %98, %95 ], [ %94, %91 ]
+  %.0 = phi ptr [ %.1, %195 ], [ %97, %95 ], [ %93, %91 ]
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
-  %199 = insertvalue { ptr, i32 } poison, ptr %.12, 0
-  %200 = insertvalue { ptr, i32 } %199, i32 %.1236, 1
+  %199 = insertvalue { ptr, i32 } poison, ptr %.0, 0
+  %200 = insertvalue { ptr, i32 } %199, i32 %.024, 1
   resume { ptr, i32 } %200
 
 201:                                              ; preds = %.loopexit79, %190
@@ -8364,36 +8364,36 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vc
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, %60, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %40, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.418.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.2.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.12.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.8.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
   call void @_ZdlPv(ptr noundef nonnull %31) #27
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i, %58, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %32, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.620.i = phi ptr [ %22, %58 ], [ %.418.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.4.i = phi i1 [ false, %58 ], [ %.2.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.1024.i = phi ptr [ %22, %58 ], [ %.12.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.6.i = phi i1 [ false, %58 ], [ %.8.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
   call void @_ZdlPv(ptr noundef nonnull %23) #27
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i, %56, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %24, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.822.i = phi ptr [ %14, %56 ], [ %.620.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.6.i = phi i1 [ false, %56 ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.822.i = phi ptr [ %14, %56 ], [ %.1024.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.4.i = phi i1 [ false, %56 ], [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
   call void @_ZdlPv(ptr noundef nonnull %15) #27
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.1024.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.8.i = phi i1 [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #27
-  %75 = icmp eq ptr %1, %.1024.i
-  %or.cond.i = select i1 %.8.i, i1 true, i1 %75
+  %75 = icmp eq ptr %1, %.620.i
+  %or.cond.i = select i1 %.2.i, i1 true, i1 %75
   br i1 %or.cond.i, label %.body.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i
-  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.1024.i, %.body.i ]
+  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.620.i, %.body.i ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
   %78 = getelementptr inbounds i8, ptr %76, i64 -24
   %79 = load ptr, ptr %78, align 8

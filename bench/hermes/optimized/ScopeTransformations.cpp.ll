@@ -360,7 +360,7 @@ for.body.preheader:                               ; preds = %_ZN6hermesL24hasAtL
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %scopeDescHasEscapingVar.055 = phi i8 [ %scopeDescHasEscapingVar.2, %for.inc ], [ %cmp.not4.i, %for.body.preheader ]
+  %scopeDescHasEscapingVar.055 = phi i8 [ %scopeDescHasEscapingVar.1, %for.inc ], [ %cmp.not4.i, %for.body.preheader ]
   %i.054 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %15 = load ptr, ptr %innerScopes_.i, align 8
   %arrayidx.i49 = getelementptr inbounds ptr, ptr %15, i64 %i.054
@@ -392,7 +392,7 @@ if.then11:                                        ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then11, %if.end, %for.body
-  %scopeDescHasEscapingVar.2 = phi i8 [ %scopeDescHasEscapingVar.055, %for.body ], [ %scopeDescHasEscapingVar.055, %if.end ], [ %spec.select, %if.then11 ]
+  %scopeDescHasEscapingVar.1 = phi i8 [ %scopeDescHasEscapingVar.055, %for.body ], [ %scopeDescHasEscapingVar.055, %if.end ], [ %spec.select, %if.then11 ]
   %inc = add nuw nsw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc, %conv.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -485,7 +485,7 @@ if.then.i.i.i:                                    ; preds = %if.end15.sink.split
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit, %if.then.i.i.i
-  %scopeDescHasEscapingVar.0.lcssa8390115 = phi i8 [ %scopeDescHasEscapingVar.2, %if.then.i.i.i ], [ %cmp.not4.i, %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit ]
+  %scopeDescHasEscapingVar.0.lcssa8390115 = phi i8 [ %scopeDescHasEscapingVar.1, %if.then.i.i.i ], [ %cmp.not4.i, %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit ]
   %28 = and i8 %scopeDescHasEscapingVar.0.lcssa8390115, 1
   %cond = zext nneg i8 %28 to i32
   ret i32 %cond
@@ -614,8 +614,8 @@ if.end8.i:                                        ; preds = %for.end19
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
 land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.body.i6.i12.i9.i
-  %retval.sroa.0.2.i7.i = phi ptr [ %incdec.ptr.i.i13.i10.i, %while.body.i6.i12.i9.i ], [ %2, %if.end8.i ]
-  %4 = load ptr, ptr %retval.sroa.0.2.i7.i, align 8
+  %retval.sroa.0.3.i7.i = phi ptr [ %incdec.ptr.i.i13.i10.i, %while.body.i6.i12.i9.i ], [ %2, %if.end8.i ]
+  %4 = load ptr, ptr %retval.sroa.0.3.i7.i, align 8
   %magicptr.i5.i11.i8.i = ptrtoint ptr %4 to i64
   switch i64 %magicptr.i5.i11.i8.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit [
     i64 -8, label %while.body.i6.i12.i9.i
@@ -623,12 +623,12 @@ land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.b
   ]
 
 while.body.i6.i12.i9.i:                           ; preds = %land.rhs.i4.i9.i6.i, %land.rhs.i4.i9.i6.i
-  %incdec.ptr.i.i13.i10.i = getelementptr inbounds i8, ptr %retval.sroa.0.2.i7.i, i64 16
+  %incdec.ptr.i.i13.i10.i = getelementptr inbounds i8, ptr %retval.sroa.0.3.i7.i, i64 16
   %cmp.not.i7.i14.i11.i = icmp eq ptr %incdec.ptr.i.i13.i10.i, %add.ptr.i.i.i
   br i1 %cmp.not.i7.i14.i11.i, label %for.end31, label %land.rhs.i4.i9.i6.i, !llvm.loop !9
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit: ; preds = %land.rhs.i4.i9.i6.i, %if.end8.i
-  %add.ptr.i.i.pn16.i = phi ptr [ %2, %if.end8.i ], [ %retval.sroa.0.2.i7.i, %land.rhs.i4.i9.i6.i ]
+  %add.ptr.i.i.pn16.i = phi ptr [ %2, %if.end8.i ], [ %retval.sroa.0.3.i7.i, %land.rhs.i4.i9.i6.i ]
   %cmp.i.i10.not23 = icmp eq ptr %add.ptr.i.i.pn16.i, %add.ptr.i.i.i
   br i1 %cmp.i.i10.not23, label %for.end31, label %for.body27
 

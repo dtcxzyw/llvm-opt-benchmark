@@ -1167,7 +1167,7 @@ trace_dbus_audio_read.exit:                       ; preds = %entry, %land.lhs.tr
   br label %while.cond
 
 while.cond:                                       ; preds = %glib_autoptr_cleanup_GVariant.exit, %trace_dbus_audio_read.exit
-  %size.addr.0 = phi i64 [ %size, %trace_dbus_audio_read.exit ], [ %size.addr.1, %glib_autoptr_cleanup_GVariant.exit ]
+  %size.addr.0 = phi i64 [ %size, %trace_dbus_audio_read.exit ], [ %size.addr.2, %glib_autoptr_cleanup_GVariant.exit ]
   %call = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %while.end, label %while.body
@@ -1199,7 +1199,7 @@ do.end:                                           ; preds = %if.then, %if.else
   br label %cleanup
 
 cleanup:                                          ; preds = %while.body, %do.end
-  %size.addr.1 = phi i64 [ %cond, %do.end ], [ %size.addr.0, %while.body ]
+  %size.addr.2 = phi i64 [ %cond, %do.end ], [ %size.addr.0, %while.body ]
   %v_data.val = load ptr, ptr %v_data, align 8
   %tobool.not.i.i = icmp eq ptr %v_data.val, null
   br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GVariant.exit, label %if.then.i.i9
@@ -1212,8 +1212,8 @@ glib_autoptr_cleanup_GVariant.exit:               ; preds = %cleanup, %if.then.i
   br i1 %tobool2.not, label %while.cond, label %while.end
 
 while.end:                                        ; preds = %glib_autoptr_cleanup_GVariant.exit, %while.cond
-  %size.addr.2 = phi i64 [ %size.addr.1, %glib_autoptr_cleanup_GVariant.exit ], [ %size.addr.0, %while.cond ]
-  ret i64 %size.addr.2
+  %size.addr.1 = phi i64 [ %size.addr.2, %glib_autoptr_cleanup_GVariant.exit ], [ %size.addr.0, %while.cond ]
+  ret i64 %size.addr.1
 }
 
 declare void @audio_generic_run_buffer_in(ptr noundef) #1

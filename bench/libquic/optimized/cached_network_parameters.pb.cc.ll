@@ -1348,7 +1348,7 @@ _ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_st
 
 if.end:                                           ; preds = %_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.then
   %4 = phi i32 [ %.pre, %_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %0, %if.then ]
-  %total_size.0 = phi i32 [ %add, %_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %if.then ]
+  %total_size.1 = phi i32 [ %add, %_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %if.then ]
   %and.i11 = and i32 %4, 2
   %cmp.i12.not = icmp eq i32 %and.i11, 0
   br i1 %cmp.i12.not, label %if.end12, label %if.then7
@@ -1372,12 +1372,12 @@ if.else.i.i.i:                                    ; preds = %if.else.i.i14
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %if.then7, %if.else.i.i14, %if.else.i.i.i
   %.pre54 = phi i32 [ %4, %if.then7 ], [ %.pre54.pre, %if.else.i.i.i ], [ %4, %if.else.i.i14 ]
   %retval.0.i.i15 = phi i32 [ 11, %if.then7 ], [ %6, %if.else.i.i.i ], [ 2, %if.else.i.i14 ]
-  %add11 = add nsw i32 %retval.0.i.i15, %total_size.0
+  %add11 = add nsw i32 %retval.0.i.i15, %total_size.1
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, %if.end
   %7 = phi i32 [ %.pre54, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %4, %if.end ]
-  %total_size.1 = phi i32 [ %add11, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %total_size.0, %if.end ]
+  %total_size.2 = phi i32 [ %add11, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %total_size.1, %if.end ]
   %and.i17 = and i32 %7, 4
   %cmp.i18.not = icmp eq i32 %and.i17, 0
   br i1 %cmp.i18.not, label %if.end19, label %if.then14
@@ -1401,12 +1401,12 @@ if.else.i.i.i22:                                  ; preds = %if.else.i.i20
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit25: ; preds = %if.then14, %if.else.i.i20, %if.else.i.i.i22
   %.pre55 = phi i32 [ %7, %if.then14 ], [ %.pre55.pre, %if.else.i.i.i22 ], [ %7, %if.else.i.i20 ]
   %retval.0.i.i24 = phi i32 [ 11, %if.then14 ], [ %9, %if.else.i.i.i22 ], [ 2, %if.else.i.i20 ]
-  %add18 = add nsw i32 %retval.0.i.i24, %total_size.1
+  %add18 = add nsw i32 %retval.0.i.i24, %total_size.2
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit25, %if.end12
   %10 = phi i32 [ %.pre55, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit25 ], [ %7, %if.end12 ]
-  %total_size.2 = phi i32 [ %add18, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit25 ], [ %total_size.1, %if.end12 ]
+  %total_size.3 = phi i32 [ %add18, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit25 ], [ %total_size.2, %if.end12 ]
   %and.i27 = and i32 %10, 8
   %cmp.i28.not = icmp eq i32 %and.i27, 0
   br i1 %cmp.i28.not, label %if.end26, label %if.then21
@@ -1415,14 +1415,14 @@ if.then21:                                        ; preds = %if.end19
   %max_bandwidth_timestamp_seconds_.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i64, ptr %max_bandwidth_timestamp_seconds_.i, align 8
   %call.i29 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %11)
-  %add24 = add i32 %total_size.2, 1
+  %add24 = add i32 %total_size.3, 1
   %add25 = add i32 %add24, %call.i29
   %.pre56 = load i32, ptr %_has_bits_, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then21, %if.end19
   %12 = phi i32 [ %.pre56, %if.then21 ], [ %10, %if.end19 ]
-  %total_size.3 = phi i32 [ %add25, %if.then21 ], [ %total_size.2, %if.end19 ]
+  %total_size.4 = phi i32 [ %add25, %if.then21 ], [ %total_size.3, %if.end19 ]
   %and.i31 = and i32 %12, 16
   %cmp.i32.not = icmp eq i32 %and.i31, 0
   br i1 %cmp.i32.not, label %if.end33, label %if.then28
@@ -1446,12 +1446,12 @@ if.else.i.i.i36:                                  ; preds = %if.else.i.i34
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit39: ; preds = %if.then28, %if.else.i.i34, %if.else.i.i.i36
   %.pre57 = phi i32 [ %12, %if.then28 ], [ %.pre57.pre, %if.else.i.i.i36 ], [ %12, %if.else.i.i34 ]
   %retval.0.i.i38 = phi i32 [ 11, %if.then28 ], [ %14, %if.else.i.i.i36 ], [ 2, %if.else.i.i34 ]
-  %add32 = add nsw i32 %retval.0.i.i38, %total_size.3
+  %add32 = add nsw i32 %retval.0.i.i38, %total_size.4
   br label %if.end33
 
 if.end33:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit39, %if.end26
   %15 = phi i32 [ %.pre57, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit39 ], [ %12, %if.end26 ]
-  %total_size.4 = phi i32 [ %add32, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit39 ], [ %total_size.3, %if.end26 ]
+  %total_size.5 = phi i32 [ %add32, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit39 ], [ %total_size.4, %if.end26 ]
   %and.i41 = and i32 %15, 32
   %cmp.i42.not = icmp eq i32 %and.i41, 0
   br i1 %cmp.i42.not, label %if.end40, label %if.then35
@@ -1475,12 +1475,12 @@ if.else.i.i.i46:                                  ; preds = %if.else.i.i44
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit49: ; preds = %if.then35, %if.else.i.i44, %if.else.i.i.i46
   %.pre58 = phi i32 [ %15, %if.then35 ], [ %.pre58.pre, %if.else.i.i.i46 ], [ %15, %if.else.i.i44 ]
   %retval.0.i.i48 = phi i32 [ 11, %if.then35 ], [ %17, %if.else.i.i.i46 ], [ 2, %if.else.i.i44 ]
-  %add39 = add nsw i32 %retval.0.i.i48, %total_size.4
+  %add39 = add nsw i32 %retval.0.i.i48, %total_size.5
   br label %if.end40
 
 if.end40:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit49, %if.end33
   %18 = phi i32 [ %.pre58, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit49 ], [ %15, %if.end33 ]
-  %total_size.5 = phi i32 [ %add39, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit49 ], [ %total_size.4, %if.end33 ]
+  %total_size.6 = phi i32 [ %add39, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit49 ], [ %total_size.5, %if.end33 ]
   %and.i51 = and i32 %18, 64
   %cmp.i52.not = icmp eq i32 %and.i51, 0
   br i1 %cmp.i52.not, label %if.end48, label %if.then42
@@ -1489,17 +1489,17 @@ if.then42:                                        ; preds = %if.end40
   %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 64
   %19 = load i64, ptr %timestamp_.i, align 8
   %call.i53 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %19)
-  %add45 = add i32 %total_size.5, 1
+  %add45 = add i32 %total_size.6, 1
   %add46 = add i32 %add45, %call.i53
   br label %if.end48
 
 if.end48:                                         ; preds = %if.end40, %if.then42, %entry
-  %total_size.6 = phi i32 [ %add46, %if.then42 ], [ %total_size.5, %if.end40 ], [ 0, %entry ]
+  %total_size.0 = phi i32 [ %add46, %if.then42 ], [ %total_size.6, %if.end40 ], [ 0, %entry ]
   %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
   %20 = load ptr, ptr %_unknown_fields_.i, align 8
   %call50 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #13
   %21 = trunc i64 %call50 to i32
-  %conv52 = add i32 %total_size.6, %21
+  %conv52 = add i32 %total_size.0, %21
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %conv52, ptr %_cached_size_, align 4
   ret i32 %conv52

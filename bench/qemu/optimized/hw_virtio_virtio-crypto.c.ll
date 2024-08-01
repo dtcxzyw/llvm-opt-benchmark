@@ -853,14 +853,14 @@ if.end37.i.i.i:                                   ; preds = %iov_to_buf.exit38.i
   br label %check_result.thread62.i.i
 
 check_result.thread62.i.i:                        ; preds = %if.end37.i.i.i, %if.then19.i.i.i, %if.end16.i.i.i
-  %dst.0.i.i.i = phi ptr [ %call21.i.i.i, %if.end37.i.i.i ], [ %call21.i.i.i, %if.then19.i.i.i ], [ null, %if.end16.i.i.i ]
+  %dst.1.i.i.i = phi ptr [ %call21.i.i.i, %if.end37.i.i.i ], [ %call21.i.i.i, %if.then19.i.i.i ], [ null, %if.end16.i.i.i ]
   store i32 %req.val.i.i.i, ptr %call1.i.i.i, align 8
   %dst_len43.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 4
   store i32 %dst_data_len.val.i.i.i, ptr %dst_len43.i.i.i, align 4
   %src44.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 8
   store ptr %src.0.i.i.i, ptr %src44.i.i.i, align 8
   %dst45.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 16
-  store ptr %dst.0.i.i.i, ptr %dst45.i.i.i, align 8
+  store ptr %dst.1.i.i.i, ptr %dst45.i.i.i, align 8
   %u.i.i.i = getelementptr inbounds i8, ptr %call.i451.i, i64 152
   store ptr %call1.i.i.i, ptr %u.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.addr.i.i.i)
@@ -869,10 +869,10 @@ check_result.thread62.i.i:                        ; preds = %if.end37.i.i.i, %if
 
 check_result.i.i:                                 ; preds = %if.then36.i.i.i, %if.then13.i.i.i
   %src.1.i.i.i = phi ptr [ %call5.i.i.i, %if.then13.i.i.i ], [ %src.0.i.i.i, %if.then36.i.i.i ]
-  %dst.1.i.i.i = phi ptr [ null, %if.then13.i.i.i ], [ %call21.i.i.i, %if.then36.i.i.i ]
+  %dst.0.i.i.i = phi ptr [ null, %if.then13.i.i.i ], [ %call21.i.i.i, %if.then36.i.i.i ]
   call void @g_free(ptr noundef %call1.i.i.i) #11
   call void @g_free(ptr noundef %src.1.i.i.i) #11
-  call void @g_free(ptr noundef %dst.1.i.i.i) #11
+  call void @g_free(ptr noundef %dst.0.i.i.i) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out_num.addr.i.i.i)
   br label %if.then.critedge.i

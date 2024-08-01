@@ -11609,14 +11609,14 @@ land.end:                                         ; preds = %invoke.cont7, %invo
   br label %lor.end
 
 lor.end:                                          ; preds = %land.end, %entry
-  %cleanup.cond8.1 = phi i1 [ %call4, %land.end ], [ false, %entry ]
+  %cleanup.cond8.0 = phi i1 [ %call4, %land.end ], [ false, %entry ]
   %frombool12 = phi i8 [ %3, %land.end ], [ 1, %entry ]
   store i8 %frombool12, ptr %ref.tmp1, align 1
   invoke void @_ZN4cvc58internal13symfpuLiteral6traits12preconditionERKb(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %invoke.cont13 unwind label %lpad9
 
 invoke.cont13:                                    ; preds = %lor.end
-  br i1 %cleanup.cond8.1, label %cleanup.action, label %cleanup.done
+  br i1 %cleanup.cond8.0, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %invoke.cont13
   %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
@@ -11683,7 +11683,7 @@ ehcleanup.thread:                                 ; preds = %lor.rhs, %land.rhs
 lpad9:                                            ; preds = %lor.end
   %13 = landingpad { ptr, i32 }
           cleanup
-  br i1 %cleanup.cond8.1, label %cleanup.action15, label %ehcleanup
+  br i1 %cleanup.cond8.0, label %cleanup.action15, label %ehcleanup
 
 cleanup.action15:                                 ; preds = %lpad9.thread, %lpad9
   %14 = phi { ptr, i32 } [ %1, %lpad9.thread ], [ %13, %lpad9 ]
@@ -17221,14 +17221,14 @@ land.end:                                         ; preds = %invoke.cont7, %invo
   br label %lor.end
 
 lor.end:                                          ; preds = %land.end, %entry
-  %cleanup.cond8.1 = phi i1 [ %call4, %land.end ], [ false, %entry ]
+  %cleanup.cond8.0 = phi i1 [ %call4, %land.end ], [ false, %entry ]
   %frombool12 = phi i8 [ %3, %land.end ], [ 1, %entry ]
   store i8 %frombool12, ptr %ref.tmp1, align 1
   invoke void @_ZN4cvc58internal13symfpuLiteral6traits12preconditionERKb(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %invoke.cont13 unwind label %lpad9
 
 invoke.cont13:                                    ; preds = %lor.end
-  br i1 %cleanup.cond8.1, label %cleanup.action, label %cleanup.done
+  br i1 %cleanup.cond8.0, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %invoke.cont13
   %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
@@ -17295,7 +17295,7 @@ ehcleanup.thread:                                 ; preds = %lor.rhs, %land.rhs
 lpad9:                                            ; preds = %lor.end
   %13 = landingpad { ptr, i32 }
           cleanup
-  br i1 %cleanup.cond8.1, label %cleanup.action15, label %ehcleanup
+  br i1 %cleanup.cond8.0, label %cleanup.action15, label %ehcleanup
 
 cleanup.action15:                                 ; preds = %lpad9.thread, %lpad9
   %14 = phi { ptr, i32 } [ %1, %lpad9.thread ], [ %13, %lpad9 ]

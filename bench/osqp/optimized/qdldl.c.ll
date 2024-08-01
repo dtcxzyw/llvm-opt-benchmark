@@ -180,7 +180,7 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
   br label %45
 
 .preheader:                                       ; preds = %.loopexit
-  %43 = icmp sgt i64 %.2140, 0
+  %43 = icmp sgt i64 %.1139, 0
   br i1 %43, label %.lr.ph173, label %._crit_edge174
 
 .lr.ph173:                                        ; preds = %.preheader
@@ -189,7 +189,7 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
 
 45:                                               ; preds = %.lr.ph165, %.loopexit
   %.1134163 = phi i64 [ %40, %.lr.ph165 ], [ %75, %.loopexit ]
-  %.0138162 = phi i64 [ 0, %.lr.ph165 ], [ %.2140, %.loopexit ]
+  %.0138162 = phi i64 [ 0, %.lr.ph165 ], [ %.1139, %.loopexit ]
   %46 = getelementptr inbounds i64, ptr %2, i64 %.1134163
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, %.0137175
@@ -244,25 +244,25 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
   br label %._crit_edge157
 
 ._crit_edge157:                                   ; preds = %._crit_edge157.preheader, %._crit_edge157
-  %.1139161 = phi i64 [ %73, %._crit_edge157 ], [ %.0138162, %._crit_edge157.preheader ]
+  %.2140161 = phi i64 [ %73, %._crit_edge157 ], [ %.0138162, %._crit_edge157.preheader ]
   %.1143160 = phi i64 [ %70, %._crit_edge157 ], [ %.1143160.ph, %._crit_edge157.preheader ]
   %70 = add nsw i64 %.1143160, -1
   %71 = getelementptr inbounds i64, ptr %15, i64 %70
   %72 = load i64, ptr %71, align 8
-  %73 = add nsw i64 %.1139161, 1
-  %74 = getelementptr inbounds i64, ptr %12, i64 %.1139161
+  %73 = add nsw i64 %.2140161, 1
+  %74 = getelementptr inbounds i64, ptr %12, i64 %.2140161
   store i64 %72, ptr %74, align 8
   %.not = icmp eq i64 %70, 0
   br i1 %.not, label %.loopexit, label %._crit_edge157, !llvm.loop !12
 
 .loopexit:                                        ; preds = %._crit_edge157, %52, %51
-  %.2140 = phi i64 [ %.0138162, %51 ], [ %.0138162, %52 ], [ %73, %._crit_edge157 ]
+  %.1139 = phi i64 [ %.0138162, %51 ], [ %.0138162, %52 ], [ %73, %._crit_edge157 ]
   %75 = add nsw i64 %.1134163, 1
   %exitcond182.not = icmp eq i64 %75, %38
   br i1 %exitcond182.not, label %.preheader, label %45, !llvm.loop !13
 
 76:                                               ; preds = %.lr.ph173, %._crit_edge170
-  %.2135172.in = phi i64 [ %.2140, %.lr.ph173 ], [ %.2135172, %._crit_edge170 ]
+  %.2135172.in = phi i64 [ %.1139, %.lr.ph173 ], [ %.2135172, %._crit_edge170 ]
   %.2135172 = add nsw i64 %.2135172.in, -1
   %77 = getelementptr inbounds i64, ptr %12, i64 %.2135172
   %78 = load i64, ptr %77, align 8

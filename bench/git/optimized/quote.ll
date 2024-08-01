@@ -769,12 +769,12 @@ for.cond.backedge.i.us:                           ; preds = %land.lhs.true.i.us,
   br label %for.cond.i.us
 
 do.bodythread-pre-split:                          ; preds = %do.cond46
-  %.pr = load i8, ptr %next.3, align 1
+  %.pr = load i8, ptr %next.1, align 1
   %cmp.not.i = icmp eq i8 %.pr, 39
   br i1 %cmp.not.i, label %for.cond.i.preheader, label %return
 
 for.cond.i.preheader:                             ; preds = %for.cond.i.preheader.lr.ph, %do.bodythread-pre-split
-  %next.036 = phi ptr [ %next.3, %do.bodythread-pre-split ], [ %arg, %for.cond.i.preheader.lr.ph ]
+  %next.036 = phi ptr [ %next.1, %do.bodythread-pre-split ], [ %arg, %for.cond.i.preheader.lr.ph ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.cond.backedge.i
@@ -843,7 +843,7 @@ do.body9:                                         ; preds = %sq_dequote_step.exi
   br i1 %cmp14.not, label %if.end16, label %do.body9, !llvm.loop !10
 
 if.end16:                                         ; preds = %do.body9, %sq_dequote_step.exit.thread23
-  %next.3 = phi ptr [ null, %sq_dequote_step.exit.thread23 ], [ %incdec.ptr, %do.body9 ]
+  %next.1 = phi ptr [ null, %sq_dequote_step.exit.thread23 ], [ %incdec.ptr, %do.body9 ]
   %31 = load i32, ptr %nr, align 4
   %32 = load i32, ptr %alloc, align 4
   %cmp20.not = icmp slt i32 %31, %32
@@ -892,7 +892,7 @@ if.then43:                                        ; preds = %do.end38
   br label %do.cond46
 
 do.cond46:                                        ; preds = %do.end38, %if.then43
-  %tobool47.not = icmp eq ptr %next.3, null
+  %tobool47.not = icmp eq ptr %next.1, null
   br i1 %tobool47.not, label %return, label %do.bodythread-pre-split, !llvm.loop !11
 
 return.loopexit31:                                ; preds = %entry
@@ -961,8 +961,8 @@ for.cond.i:                                       ; preds = %for.cond.i, %for.co
   br i1 %cmp.i.i, label %for.cond.i, label %next_quote_pos.exit, !llvm.loop !12
 
 land.rhs.i:                                       ; preds = %for.inc8.i, %land.rhs.lr.ph.i
-  %len.116.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %inc9.i, %for.inc8.i ]
-  %arrayidx3.i = getelementptr inbounds i8, ptr %p.0, i64 %len.116.i
+  %len.216.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %inc9.i, %for.inc8.i ]
+  %arrayidx3.i = getelementptr inbounds i8, ptr %p.0, i64 %len.216.i
   %4 = load i8, ptr %arrayidx3.i, align 1
   %idxprom.i8.i = zext i8 %4 to i64
   %arrayidx.i9.i = getelementptr inbounds [256 x i8], ptr @cq_lookup, i64 0, i64 %idxprom.i8.i
@@ -973,14 +973,14 @@ land.rhs.i:                                       ; preds = %for.inc8.i, %land.r
   br i1 %cmp.i12.i, label %for.inc8.i, label %next_quote_pos.exit
 
 for.inc8.i:                                       ; preds = %land.rhs.i
-  %inc9.i = add nuw nsw i64 %len.116.i, 1
+  %inc9.i = add nuw nsw i64 %len.216.i, 1
   %exitcond.not.i = icmp eq i64 %inc9.i, %maxlen.addr.0
   br i1 %exitcond.not.i, label %do.body109, label %land.rhs.i, !llvm.loop !13
 
 next_quote_pos.exit:                              ; preds = %land.rhs.i, %for.cond.i
   %6 = phi i8 [ %2, %for.cond.i ], [ %4, %land.rhs.i ]
-  %len.2.i = phi i64 [ %len.0.i, %for.cond.i ], [ %len.116.i, %land.rhs.i ]
-  %cmp = icmp eq i64 %len.2.i, %maxlen.addr.0
+  %len.1.i = phi i64 [ %len.0.i, %for.cond.i ], [ %len.216.i, %land.rhs.i ]
+  %cmp = icmp eq i64 %len.1.i, %maxlen.addr.0
   br i1 %cmp, label %do.body109, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %next_quote_pos.exit
@@ -1042,18 +1042,18 @@ do.body16:                                        ; preds = %if.end, %if.end14
   br i1 %tobool8.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %do.body16
-  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef nonnull %p.0, i64 noundef %len.2.i) #11
+  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef nonnull %p.0, i64 noundef %len.1.i) #11
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %do.body16
   br i1 %tobool11.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %call22 = tail call i64 @fwrite(ptr noundef nonnull %p.0, i64 noundef %len.2.i, i64 noundef 1, ptr noundef nonnull %fp)
+  %call22 = tail call i64 @fwrite(ptr noundef nonnull %p.0, i64 noundef %len.1.i, i64 noundef 1, ptr noundef nonnull %fp)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then21, %if.end19
-  %add = add i64 %count.1, %len.2.i
+  %add = add i64 %count.1, %len.1.i
   br i1 %tobool8.not, label %if.end28, label %if.then27
 
 if.then27:                                        ; preds = %if.end23
@@ -1094,11 +1094,11 @@ if.then30:                                        ; preds = %if.end28
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then30, %if.end28
-  %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 %len.2.i
+  %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 %len.1.i
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   %19 = load i8, ptr %add.ptr, align 1
   %conv = zext i8 %19 to i32
-  %add38.neg = xor i64 %len.2.i, -1
+  %add38.neg = xor i64 %len.1.i, -1
   %sub = select i1 %cmp.i, i64 0, i64 %add38.neg
   %maxlen.addr.1 = add i64 %sub, %maxlen.addr.0
   %idxprom = zext i8 %19 to i64
@@ -1292,22 +1292,22 @@ if.end108:                                        ; preds = %if.end108.sink.spli
   br label %for.cond
 
 do.body109:                                       ; preds = %for.cond1.preheader.i, %next_quote_pos.exit, %lor.lhs.false, %for.inc8.i
-  %len.2.i173 = phi i64 [ %maxlen.addr.0, %for.inc8.i ], [ 0, %for.cond1.preheader.i ], [ %maxlen.addr.0, %next_quote_pos.exit ], [ %len.2.i, %lor.lhs.false ]
+  %len.1.i173 = phi i64 [ %maxlen.addr.0, %for.inc8.i ], [ 0, %for.cond1.preheader.i ], [ %maxlen.addr.0, %next_quote_pos.exit ], [ %len.1.i, %lor.lhs.false ]
   br i1 %tobool8.not, label %if.end112, label %if.then111
 
 if.then111:                                       ; preds = %do.body109
-  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef %p.0, i64 noundef %len.2.i173) #11
+  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef %p.0, i64 noundef %len.1.i173) #11
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then111, %do.body109
   br i1 %tobool11.not, label %if.end116, label %if.then114
 
 if.then114:                                       ; preds = %if.end112
-  %call115 = tail call i64 @fwrite(ptr noundef %p.0, i64 noundef %len.2.i173, i64 noundef 1, ptr noundef nonnull %fp)
+  %call115 = tail call i64 @fwrite(ptr noundef %p.0, i64 noundef %len.1.i173, i64 noundef 1, ptr noundef nonnull %fp)
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then114, %if.end112
-  %add117 = add i64 %len.2.i173, %count.0
+  %add117 = add i64 %len.1.i173, %count.0
   %cmp119 = icmp ne ptr %p.0, %name
   %brmerge.not = and i1 %tobool.not, %cmp119
   %.mux = select i1 %cmp119, i64 %add117, i64 0

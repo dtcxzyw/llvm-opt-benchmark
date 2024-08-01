@@ -744,13 +744,13 @@ for.inc:                                          ; preds = %if.then.i70, %if.en
   br i1 %.not.i, label %for.body, label %cleanup
 
 cleanup:                                          ; preds = %for.inc, %invoke.cont77, %if.then92
-  %retval.0 = phi i32 [ %call90, %if.then92 ], [ 0, %invoke.cont77 ], [ 0, %for.inc ]
+  %retval.1 = phi i32 [ %call90, %if.then92 ], [ 0, %invoke.cont77 ], [ 0, %for.inc ]
   store i8 %frombool.i, ptr %m_freeze_swap65, align 8
   br label %return
 
 return:                                           ; preds = %if.end25, %land.lhs.true61, %if.end21, %if.end, %entry, %cleanup, %if.then55, %if.then47, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE9push_backEOS4_.exit59
-  %retval.1 = phi i32 [ -1, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE9push_backEOS4_.exit59 ], [ 0, %if.then47 ], [ %retval.0, %cleanup ], [ %call56, %if.then55 ], [ 1, %entry ], [ -1, %if.end ], [ 1, %if.end21 ], [ 0, %land.lhs.true61 ], [ 0, %if.end25 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE9push_backEOS4_.exit59 ], [ 0, %if.then47 ], [ %retval.1, %cleanup ], [ %call56, %if.then55 ], [ 1, %entry ], [ -1, %if.end ], [ 1, %if.end21 ], [ 0, %land.lhs.true61 ], [ 0, %if.end25 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1830,7 +1830,7 @@ while.end:                                        ; preds = %while.cond.backedge
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end46, %invoke.cont118, %invoke.cont65, %if.then49, %invoke.cont35, %if.end134, %while.end
-  %retval.0 = phi ptr [ %139, %while.end ], [ null, %if.end134 ], [ null, %invoke.cont35 ], [ null, %if.then49 ], [ null, %invoke.cont65 ], [ null, %invoke.cont118 ], [ null, %if.end46 ]
+  %retval.1 = phi ptr [ %139, %while.end ], [ null, %if.end134 ], [ null, %invoke.cont35 ], [ null, %if.then49 ], [ null, %invoke.cont65 ], [ null, %invoke.cont118 ], [ null, %if.end46 ]
   %140 = load ptr, ptr %args, align 8
   %cmp.not.i.i.i.i400 = icmp eq ptr %140, %m_initial_buffer.i.i29
   %cmp.i.i.i.i.i401 = icmp eq ptr %140, null
@@ -1875,8 +1875,8 @@ return.sink.split:                                ; preds = %_ZNK6vectorIPN3euf5
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i.i.i.i.i408, %_ZN10ptr_bufferIN3euf5enodeELj16EED2Ev.exit, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i, %if.then5
-  %retval.1 = phi ptr [ null, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i ], [ null, %if.then5 ], [ %retval.0, %_ZN10ptr_bufferIN3euf5enodeELj16EED2Ev.exit ], [ %retval.0, %if.end.i.i.i.i.i408 ], [ %.then.val.i, %return.sink.split ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i ], [ null, %if.then5 ], [ %retval.1, %_ZN10ptr_bufferIN3euf5enodeELj16EED2Ev.exit ], [ %retval.1, %if.end.i.i.i.i.i408 ], [ %.then.val.i, %return.sink.split ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

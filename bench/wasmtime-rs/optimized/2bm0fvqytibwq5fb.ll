@@ -151,9 +151,9 @@ define align 8 ptr @_ZN22cranelift_codegen_meta8generate17h7c37419d145d31c3E(ptr
           to label %52 unwind label %.loopexit46
 
 50:                                               ; preds = %48, %65, %21, %25, %34
-  %.0 = phi ptr [ %56, %65 ], [ %17, %21 ], [ %24, %25 ], [ %33, %34 ], [ null, %48 ]
+  %.1 = phi ptr [ %56, %65 ], [ %17, %21 ], [ %24, %25 ], [ %33, %34 ], [ null, %48 ]
   call void @"_ZN4core3ptr64drop_in_place$LT$cranelift_codegen_meta..shared..Definitions$GT$17hdb7e16362336a1dbE"(ptr nonnull align 8 %16)
-  ret ptr %.0
+  ret ptr %.1
 
 51:                                               ; preds = %.loopexit46, %.loopexit.split-lp47, %57
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]

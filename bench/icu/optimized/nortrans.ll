@@ -615,8 +615,8 @@ do.body.preheader:                                ; preds = %invoke.cont
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond50
   %c.0 = phi i32 [ %c.2, %do.cond50 ], [ %call.i33, %do.body.preheader ]
-  %limit.0 = phi i32 [ %limit.1, %do.cond50 ], [ %1, %do.body.preheader ]
-  %start.0 = phi i32 [ %start.2, %do.cond50 ], [ %0, %do.body.preheader ]
+  %limit.0 = phi i32 [ %limit.2, %do.cond50 ], [ %1, %do.body.preheader ]
+  %start.0 = phi i32 [ %start.3, %do.cond50 ], [ %0, %do.body.preheader ]
   %3 = load i16, ptr %fUnion2.i, align 8
   %conv2.i3.i = and i16 %3, 1
   %tobool.not.i = icmp eq i16 %conv2.i3.i, 0
@@ -768,22 +768,22 @@ invoke.cont44:                                    ; preds = %if.then40
   br label %do.cond50
 
 do.cond50:                                        ; preds = %if.then.i.i, %invoke.cont38, %invoke.cont44
-  %limit.1 = phi i32 [ %add48, %invoke.cont44 ], [ %limit.0, %invoke.cont38 ], [ %limit.0, %if.then.i.i ]
-  %start.2 = phi i32 [ %add47, %invoke.cont44 ], [ %add, %invoke.cont38 ], [ %add, %if.then.i.i ]
-  %cmp51 = icmp slt i32 %start.2, %limit.1
+  %limit.2 = phi i32 [ %add48, %invoke.cont44 ], [ %limit.0, %invoke.cont38 ], [ %limit.0, %if.then.i.i ]
+  %start.3 = phi i32 [ %add47, %invoke.cont44 ], [ %add, %invoke.cont38 ], [ %add, %if.then.i.i ]
+  %cmp51 = icmp slt i32 %start.3, %limit.2
   br i1 %cmp51, label %do.body, label %do.end52, !llvm.loop !7
 
 do.end52:                                         ; preds = %invoke.cont23, %invoke.cont31, %do.cond50
-  %limit.2 = phi i32 [ %limit.0, %invoke.cont31 ], [ %limit.1, %do.cond50 ], [ %limit.0, %invoke.cont23 ]
-  %start.3 = phi i32 [ %add, %invoke.cont31 ], [ %start.2, %do.cond50 ], [ %start.0, %invoke.cont23 ]
-  store i32 %start.3, ptr %start2, align 4
+  %limit.1 = phi i32 [ %limit.0, %invoke.cont31 ], [ %limit.2, %do.cond50 ], [ %limit.0, %invoke.cont23 ]
+  %start.2 = phi i32 [ %add, %invoke.cont31 ], [ %start.3, %do.cond50 ], [ %start.0, %invoke.cont23 ]
+  store i32 %start.2, ptr %start2, align 4
   %24 = load i32, ptr %limit3, align 4
-  %sub55 = sub i32 %limit.2, %24
+  %sub55 = sub i32 %limit.1, %24
   %contextLimit = getelementptr inbounds i8, ptr %offsets, i64 4
   %25 = load i32, ptr %contextLimit, align 4
   %add56 = add nsw i32 %sub55, %25
   store i32 %add56, ptr %contextLimit, align 4
-  store i32 %limit.2, ptr %limit3, align 4
+  store i32 %limit.1, ptr %limit3, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #6
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %segment) #6
   br label %return

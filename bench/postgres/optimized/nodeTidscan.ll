@@ -358,9 +358,9 @@ list_length.exit.i:                               ; preds = %37, %33
   br i1 %49, label %.lr.ph, label %TidListEval.exit
 
 .lr.ph:                                           ; preds = %.lr.ph97.i, %141
-  %.07394.i40 = phi i32 [ %.376.i, %141 ], [ 0, %.lr.ph97.i ]
-  %.06895.i39 = phi i32 [ %.472.i, %141 ], [ %40, %.lr.ph97.i ]
-  %.06796.i38 = phi ptr [ %.4.i, %141 ], [ %43, %.lr.ph97.i ]
+  %.07394.i40 = phi i32 [ %.174.i, %141 ], [ 0, %.lr.ph97.i ]
+  %.06895.i39 = phi i32 [ %.169.i, %141 ], [ %40, %.lr.ph97.i ]
+  %.06796.i38 = phi ptr [ %.1.i, %141 ], [ %43, %.lr.ph97.i ]
   %indvars.iv105.i37 = phi i64 [ %indvars.iv.next106.i, %141 ], [ 0, %.lr.ph97.i ]
   %50 = load ptr, ptr %46, align 8
   %51 = getelementptr %union.ListCell, ptr %50, i64 %indvars.iv105.i37
@@ -409,11 +409,11 @@ list_length.exit.i:                               ; preds = %37, %33
   br label %80
 
 80:                                               ; preds = %75, %74
-  %.169.i = phi i32 [ %76, %75 ], [ %.06895.i39, %74 ]
-  %.1.i = phi ptr [ %79, %75 ], [ %.06796.i38, %74 ]
+  %.270.i = phi i32 [ %76, %75 ], [ %.06895.i39, %74 ]
+  %.2.i = phi ptr [ %79, %75 ], [ %.06796.i38, %74 ]
   %81 = add i32 %.07394.i40, 1
   %82 = sext i32 %.07394.i40 to i64
-  %83 = getelementptr %struct.ItemPointerData, ptr %.1.i, i64 %82
+  %83 = getelementptr %struct.ItemPointerData, ptr %.2.i, i64 %82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %83, ptr noundef nonnull align 2 dereferenceable(6) %64, i64 6, i1 false)
   br label %141
 
@@ -440,14 +440,14 @@ list_length.exit.i:                               ; preds = %37, %33
 
 97:                                               ; preds = %93, %87
   %98 = phi i32 [ %.pre.i, %93 ], [ %90, %87 ]
-  %.270.i = phi i32 [ %91, %93 ], [ %.06895.i39, %87 ]
-  %.2.i = phi ptr [ %96, %93 ], [ %.06796.i38, %87 ]
+  %.371.i = phi i32 [ %91, %93 ], [ %.06895.i39, %87 ]
+  %.3.i = phi ptr [ %96, %93 ], [ %.06796.i38, %87 ]
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %97, %119
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %119 ], [ 0, %97 ]
-  %.17491.i = phi i32 [ %.275.i, %119 ], [ %.07394.i40, %97 ]
+  %.27591.i = phi i32 [ %.376.i, %119 ], [ %.07394.i40, %97 ]
   %100 = load ptr, ptr %4, align 8
   %101 = getelementptr i8, ptr %100, i64 %indvars.iv.i
   %102 = load i8, ptr %101, align 1
@@ -468,14 +468,14 @@ list_length.exit.i:                               ; preds = %37, %33
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %104
-  %116 = add i32 %.17491.i, 1
-  %117 = sext i32 %.17491.i to i64
-  %118 = getelementptr %struct.ItemPointerData, ptr %.2.i, i64 %117
+  %116 = add i32 %.27591.i, 1
+  %117 = sext i32 %.27591.i to i64
+  %118 = getelementptr %struct.ItemPointerData, ptr %.3.i, i64 %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %118, ptr noundef nonnull align 2 dereferenceable(6) %108, i64 6, i1 false)
   br label %119
 
 119:                                              ; preds = %115, %104, %.lr.ph.i
-  %.275.i = phi i32 [ %.17491.i, %.lr.ph.i ], [ %116, %115 ], [ %.17491.i, %104 ]
+  %.376.i = phi i32 [ %.27591.i, %.lr.ph.i ], [ %116, %115 ], [ %.27591.i, %104 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %120 = load i32, ptr %5, align 4
   %121 = sext i32 %120 to i64
@@ -483,7 +483,7 @@ list_length.exit.i:                               ; preds = %37, %33
   br i1 %122, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %119, %97
-  %.174.lcssa.i = phi i32 [ %.07394.i40, %97 ], [ %.275.i, %119 ]
+  %.275.lcssa.i = phi i32 [ %.07394.i40, %97 ], [ %.376.i, %119 ]
   %123 = load ptr, ptr %3, align 8
   call void @pfree(ptr noundef %123) #8
   %124 = load ptr, ptr %4, align 8
@@ -511,18 +511,18 @@ list_length.exit.i:                               ; preds = %37, %33
   br label %137
 
 137:                                              ; preds = %132, %131
-  %.371.i = phi i32 [ %133, %132 ], [ %.06895.i39, %131 ]
-  %.3.i = phi ptr [ %136, %132 ], [ %.06796.i38, %131 ]
+  %.472.i = phi i32 [ %133, %132 ], [ %.06895.i39, %131 ]
+  %.4.i = phi ptr [ %136, %132 ], [ %.06796.i38, %131 ]
   %138 = add i32 %.07394.i40, 1
   %139 = sext i32 %.07394.i40 to i64
-  %140 = getelementptr %struct.ItemPointerData, ptr %.3.i, i64 %139
+  %140 = getelementptr %struct.ItemPointerData, ptr %.4.i, i64 %139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %140, ptr noundef nonnull align 2 dereferenceable(6) %6, i64 6, i1 false)
   br label %141
 
 141:                                              ; preds = %137, %.thread90.i, %._crit_edge.i, %84, %80, %67, %63
-  %.376.i = phi i32 [ %.07394.i40, %84 ], [ %.174.lcssa.i, %._crit_edge.i ], [ %138, %137 ], [ %.07394.i40, %.thread90.i ], [ %.07394.i40, %63 ], [ %81, %80 ], [ %.07394.i40, %67 ]
-  %.472.i = phi i32 [ %.06895.i39, %84 ], [ %.270.i, %._crit_edge.i ], [ %.371.i, %137 ], [ %.06895.i39, %.thread90.i ], [ %.06895.i39, %63 ], [ %.169.i, %80 ], [ %.06895.i39, %67 ]
-  %.4.i = phi ptr [ %.06796.i38, %84 ], [ %.2.i, %._crit_edge.i ], [ %.3.i, %137 ], [ %.06796.i38, %.thread90.i ], [ %.06796.i38, %63 ], [ %.1.i, %80 ], [ %.06796.i38, %67 ]
+  %.174.i = phi i32 [ %.07394.i40, %84 ], [ %.275.lcssa.i, %._crit_edge.i ], [ %138, %137 ], [ %.07394.i40, %.thread90.i ], [ %.07394.i40, %63 ], [ %81, %80 ], [ %.07394.i40, %67 ]
+  %.169.i = phi i32 [ %.06895.i39, %84 ], [ %.371.i, %._crit_edge.i ], [ %.472.i, %137 ], [ %.06895.i39, %.thread90.i ], [ %.06895.i39, %63 ], [ %.270.i, %80 ], [ %.06895.i39, %67 ]
+  %.1.i = phi ptr [ %.06796.i38, %84 ], [ %.3.i, %._crit_edge.i ], [ %.4.i, %137 ], [ %.06796.i38, %.thread90.i ], [ %.06796.i38, %63 ], [ %.2.i, %80 ], [ %.06796.i38, %67 ]
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i37, 1
   %142 = load i32, ptr %45, align 4
   %143 = sext i32 %142 to i64
@@ -530,21 +530,21 @@ list_length.exit.i:                               ; preds = %37, %33
   br i1 %144, label %.lr.ph, label %._crit_edge98.i
 
 ._crit_edge98.i:                                  ; preds = %141
-  %145 = icmp sgt i32 %.376.i, 1
+  %145 = icmp sgt i32 %.174.i, 1
   br i1 %145, label %146, label %TidListEval.exit
 
 146:                                              ; preds = %._crit_edge98.i
-  %147 = zext nneg i32 %.376.i to i64
-  call void @pg_qsort(ptr noundef %.4.i, i64 noundef %147, i64 noundef 6, ptr noundef nonnull @itemptr_comparator) #8
+  %147 = zext nneg i32 %.174.i to i64
+  call void @pg_qsort(ptr noundef %.1.i, i64 noundef %147, i64 noundef 6, ptr noundef nonnull @itemptr_comparator) #8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %169, %146
   %.06.i.i = phi i64 [ %.1.i.i, %169 ], [ 0, %146 ]
   %.0235.i.i = phi i64 [ %170, %169 ], [ 1, %146 ]
   %148 = mul nuw nsw i64 %.0235.i.i, 6
-  %149 = getelementptr i8, ptr %.4.i, i64 %148
+  %149 = getelementptr i8, ptr %.1.i, i64 %148
   %150 = mul i64 %.06.i.i, 6
-  %151 = getelementptr i8, ptr %.4.i, i64 %150
+  %151 = getelementptr i8, ptr %.1.i, i64 %150
   %.val.i.i.i = load i16, ptr %149, align 2
   %152 = getelementptr i8, ptr %149, i64 2
   %.val18.i.i.i = load i16, ptr %152, align 2
@@ -575,7 +575,7 @@ itemptr_comparator.exit.thread.i.i:               ; preds = %.lr.ph.i.i
 
 166:                                              ; preds = %itemptr_comparator.exit.thread.i.i
   %167 = mul i64 %165, 6
-  %168 = getelementptr i8, ptr %.4.i, i64 %167
+  %168 = getelementptr i8, ptr %.1.i, i64 %167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %168, ptr noundef nonnull align 1 dereferenceable(6) %149, i64 6, i1 false)
   br label %169
 
@@ -591,8 +591,8 @@ qunique.exit.i:                                   ; preds = %169
   br label %TidListEval.exit
 
 TidListEval.exit:                                 ; preds = %.lr.ph97.i, %list_length.exit.i, %._crit_edge98.i, %qunique.exit.i
-  %.067.lcssa111.i = phi ptr [ %.4.i, %qunique.exit.i ], [ %.4.i, %._crit_edge98.i ], [ %43, %list_length.exit.i ], [ %43, %.lr.ph97.i ]
-  %.477.i = phi i32 [ %172, %qunique.exit.i ], [ %.376.i, %._crit_edge98.i ], [ 0, %list_length.exit.i ], [ 0, %.lr.ph97.i ]
+  %.067.lcssa111.i = phi ptr [ %.1.i, %qunique.exit.i ], [ %.1.i, %._crit_edge98.i ], [ %43, %list_length.exit.i ], [ %43, %.lr.ph97.i ]
+  %.477.i = phi i32 [ %172, %qunique.exit.i ], [ %.174.i, %._crit_edge98.i ], [ 0, %list_length.exit.i ], [ 0, %.lr.ph97.i ]
   store ptr %.067.lcssa111.i, ptr %18, align 8
   %173 = getelementptr inbounds i8, ptr %0, i64 236
   store i32 %.477.i, ptr %173, align 4

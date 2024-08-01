@@ -170,7 +170,7 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 88:                                               ; preds = %.lr.ph337, %.loopexit276
   %indvars.iv381 = phi i64 [ 1, %.lr.ph337 ], [ %indvars.iv.next382, %.loopexit276 ]
-  %.0240334 = phi float [ 0.000000e+00, %.lr.ph337 ], [ %.2242, %.loopexit276 ]
+  %.0240334 = phi float [ 0.000000e+00, %.lr.ph337 ], [ %.1241, %.loopexit276 ]
   %.0244333 = phi i32 [ 1, %.lr.ph337 ], [ %.1245, %.loopexit276 ]
   %89 = icmp eq i64 %indvars.iv381, 1
   br i1 %89, label %93, label %90
@@ -264,8 +264,8 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 149:                                              ; preds = %.lr.ph324, %._crit_edge313
   %indvars.iv374 = phi i64 [ %146, %.lr.ph324 ], [ %indvars.iv.next375, %._crit_edge313 ]
   %indvars.iv372 = phi i64 [ 0, %.lr.ph324 ], [ %indvars.iv.next373, %._crit_edge313 ]
-  %.0237322 = phi i32 [ %.0246, %.lr.ph324 ], [ %.5, %._crit_edge313 ]
-  %.1241320 = phi float [ %.0240334, %.lr.ph324 ], [ %269, %._crit_edge313 ]
+  %.0237322 = phi i32 [ %.0246, %.lr.ph324 ], [ %.1, %._crit_edge313 ]
+  %.2242320 = phi float [ %.0240334, %.lr.ph324 ], [ %269, %._crit_edge313 ]
   %150 = trunc nuw nsw i64 %indvars.iv372 to i32
   %151 = mul i32 %30, %150
   %152 = add i32 %145, %151
@@ -300,12 +300,12 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %167 = fmul float %161, 0x3E80000000000000
   %168 = call noundef float @llvm.fabs.f32(float %167)
   %169 = fmul float %168, 1.000000e+01
-  %170 = fsub float %161, %.1241320
+  %170 = fsub float %161, %.2242320
   %171 = fcmp olt float %170, %169
   br i1 %171, label %172, label %174
 
 172:                                              ; preds = %166
-  %173 = fadd float %.1241320, %169
+  %173 = fadd float %.2242320, %169
   store float %173, ptr %15, align 4
   br label %174
 
@@ -373,14 +373,14 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .outer:                                           ; preds = %.outer.preheader, %.split298
   %.0243.ph = phi i32 [ %205, %.split298 ], [ 0, %.outer.preheader ]
-  %.1.ph = phi i32 [ %.2, %.split298 ], [ %.0237322, %.outer.preheader ]
+  %.2.ph = phi i32 [ %.4, %.split298 ], [ %.0237322, %.outer.preheader ]
   %.0236.ph = phi i32 [ %237, %.split298 ], [ 0, %.outer.preheader ]
   %smax = call i32 @llvm.smax.i32(i32 %.0243.ph, i32 5)
   br label %204
 
 204:                                              ; preds = %.outer, %.loopexit
   %.0243 = phi i32 [ %205, %.loopexit ], [ %.0243.ph, %.outer ]
-  %.1 = phi i32 [ %.2, %.loopexit ], [ %.1.ph, %.outer ]
+  %.2 = phi i32 [ %.4, %.loopexit ], [ %.2.ph, %.outer ]
   %205 = add i32 %.0243, 1
   %exitcond358 = icmp eq i32 %.0243, %smax
   br i1 %exitcond358, label %.split.us.split.us, label %206
@@ -403,16 +403,16 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   call void @sscal_(ptr noundef nonnull %21, ptr noundef nonnull %16, ptr noundef %9, ptr noundef nonnull %23)
   call void @slagts_(ptr noundef nonnull %24, ptr noundef nonnull %21, ptr noundef %gep, ptr noundef %gep315, ptr noundef nonnull %81, ptr noundef nonnull %84, ptr noundef %10, ptr noundef %9, ptr noundef nonnull %17, ptr noundef nonnull %20)
   %220 = load float, ptr %15, align 4
-  %221 = fsub float %220, %.1241320
+  %221 = fsub float %220, %.2242320
   %222 = call noundef float @llvm.fabs.f32(float %221)
   %223 = fcmp ogt float %222, %137
-  %.2 = select i1 %223, i32 %158, i32 %.1
-  %.not270 = icmp eq i32 %.2, %158
+  %.4 = select i1 %223, i32 %158, i32 %.2
+  %.not270 = icmp eq i32 %.4, %158
   br i1 %.not270, label %.loopexit, label %224
 
 224:                                              ; preds = %206
   store i32 %180, ptr %14, align 4
-  %225 = sext i32 %.2 to i64
+  %225 = sext i32 %.4 to i64
   %.not271293.not = icmp sgt i64 %indvars.iv374, %225
   br i1 %.not271293.not, label %.lr.ph296, label %.loopexit
 
@@ -445,7 +445,7 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %exitcond359.not, label %.loopexit275, label %.outer
 
 .split.us.split.us:                               ; preds = %204, %181
-  %.us-phi = phi i32 [ %.0237322, %181 ], [ %.1, %204 ]
+  %.us-phi = phi i32 [ %.0237322, %181 ], [ %.2, %204 ]
   %238 = load i32, ptr %12, align 4
   %239 = add nsw i32 %238, 1
   store i32 %239, ptr %12, align 4
@@ -455,7 +455,7 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %.loopexit275
 
 .loopexit275:                                     ; preds = %.split298, %.split298.us.us, %.split.us.split.us
-  %.4 = phi i32 [ %.us-phi, %.split.us.split.us ], [ %.0237322, %.split298.us.us ], [ %.2, %.split298 ]
+  %.5 = phi i32 [ %.us-phi, %.split.us.split.us ], [ %.0237322, %.split298.us.us ], [ %.4, %.split298 ]
   %242 = call float @snrm2_(ptr noundef nonnull %21, ptr noundef %9, ptr noundef nonnull %23)
   %243 = fdiv float 1.000000e+00, %242
   store float %243, ptr %16, align 4
@@ -477,7 +477,7 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %253
 
 253:                                              ; preds = %252, %164
-  %.5 = phi i32 [ %.0237322, %164 ], [ %.4, %252 ]
+  %.1 = phi i32 [ %.0237322, %164 ], [ %.5, %252 ]
   %254 = load i32, ptr %0, align 4
   %.not272304 = icmp slt i32 %254, 1
   br i1 %.not272304, label %._crit_edge308, label %.lr.ph307
@@ -523,7 +523,7 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .loopexit276:                                     ; preds = %._crit_edge313, %149, %._crit_edge292, %93
   %.1245 = phi i32 [ %.0244333, %93 ], [ %.0244333, %._crit_edge292 ], [ %.0244333, %._crit_edge313 ], [ %158, %149 ]
-  %.2242 = phi float [ %.0240334, %93 ], [ %.0240334, %._crit_edge292 ], [ %269, %._crit_edge313 ], [ %.1241320, %149 ]
+  %.1241 = phi float [ %.0240334, %93 ], [ %.0240334, %._crit_edge292 ], [ %269, %._crit_edge313 ], [ %.2242320, %149 ]
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
   %exitcond385.not = icmp eq i64 %indvars.iv.next382, %wide.trip.count384
   br i1 %exitcond385.not, label %.thread, label %88, !llvm.loop !11

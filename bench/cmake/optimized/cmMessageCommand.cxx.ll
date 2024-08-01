@@ -518,11 +518,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit124: ;
 160:                                              ; preds = %133, %.critedge117, %.critedge169, %124, %121, %118, %115, %98, %95, %92, %.critedge, %86, %55, %52, %48, %157
   %spec.select.idx.sink = phi i64 [ %spec.select.idx, %157 ], [ 32, %48 ], [ 32, %52 ], [ 32, %55 ], [ 32, %86 ], [ 32, %.critedge ], [ 32, %92 ], [ 32, %95 ], [ 32, %98 ], [ 32, %115 ], [ 32, %118 ], [ 32, %121 ], [ 32, %124 ], [ 32, %.critedge169 ], [ 32, %.critedge117 ], [ 32, %133 ]
   %.087 = phi i32 [ 0, %157 ], [ 0, %48 ], [ 0, %52 ], [ 0, %55 ], [ 0, %86 ], [ 0, %.critedge ], [ 1, %92 ], [ 2, %95 ], [ 3, %98 ], [ 0, %115 ], [ 0, %118 ], [ 0, %121 ], [ 0, %124 ], [ 0, %.critedge169 ], [ 0, %.critedge117 ], [ 0, %133 ]
-  %.286 = phi i32 [ 3, %157 ], [ 1, %48 ], [ 1, %52 ], [ 2, %55 ], [ 2, %86 ], [ 1, %.critedge ], [ 4, %92 ], [ 4, %95 ], [ 4, %98 ], [ 4, %115 ], [ 5, %118 ], [ 6, %121 ], [ 7, %124 ], [ 2, %.critedge169 ], [ 2, %.critedge117 ], [ 1, %133 ]
-  %.283 = phi i1 [ false, %157 ], [ false, %48 ], [ true, %52 ], [ false, %55 ], [ %72, %86 ], [ %72, %.critedge ], [ false, %92 ], [ false, %95 ], [ false, %98 ], [ false, %115 ], [ false, %118 ], [ false, %121 ], [ false, %124 ], [ %132, %.critedge169 ], [ %132, %.critedge117 ], [ %132, %133 ]
-  %.280 = phi i32 [ 4, %157 ], [ 2, %48 ], [ 2, %52 ], [ 5, %55 ], [ 0, %86 ], [ 1, %.critedge ], [ 4, %92 ], [ 4, %95 ], [ 4, %98 ], [ 4, %115 ], [ 4, %118 ], [ 4, %121 ], [ 4, %124 ], [ 8, %.critedge169 ], [ 8, %.critedge117 ], [ 7, %133 ]
+  %.084 = phi i32 [ 3, %157 ], [ 1, %48 ], [ 1, %52 ], [ 2, %55 ], [ 2, %86 ], [ 1, %.critedge ], [ 4, %92 ], [ 4, %95 ], [ 4, %98 ], [ 4, %115 ], [ 5, %118 ], [ 6, %121 ], [ 7, %124 ], [ 2, %.critedge169 ], [ 2, %.critedge117 ], [ 1, %133 ]
+  %.081 = phi i1 [ false, %157 ], [ false, %48 ], [ true, %52 ], [ false, %55 ], [ %72, %86 ], [ %72, %.critedge ], [ false, %92 ], [ false, %95 ], [ false, %98 ], [ false, %115 ], [ false, %118 ], [ false, %121 ], [ false, %124 ], [ %132, %.critedge169 ], [ %132, %.critedge117 ], [ %132, %133 ]
+  %.078 = phi i32 [ 4, %157 ], [ 2, %48 ], [ 2, %52 ], [ 5, %55 ], [ 0, %86 ], [ 1, %.critedge ], [ 4, %92 ], [ 4, %95 ], [ 4, %98 ], [ 4, %115 ], [ 4, %118 ], [ 4, %121 ], [ 4, %124 ], [ 8, %.critedge169 ], [ 8, %.critedge117 ], [ 7, %133 ]
   %161 = call noundef i32 @_ZNK10cmMakefile18GetCurrentLogLevelEv(ptr noundef nonnull align 8 dereferenceable(3520) %49)
-  %162 = icmp slt i32 %161, %.286
+  %162 = icmp slt i32 %161, %.084
   br i1 %162, label %334, label %163
 
 163:                                              ; preds = %160
@@ -532,7 +532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit124: ;
   %165 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %164, ptr %165, align 8
   call void @_Z6cmJoinRK7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEESt17basic_string_viewIcS5_ESI_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 0, ptr nonnull @.str.12, i64 0, ptr null)
-  switch i32 %.286, label %default.unreachable172 [
+  switch i32 %.084, label %default.unreachable172 [
     i32 1, label %166
     i32 2, label %166
     i32 3, label %211
@@ -551,7 +551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit124: ;
           to label %169 unwind label %207
 
 169:                                              ; preds = %168
-  invoke void @_ZNK11cmMessenger14DisplayMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(64) %167, i32 noundef %.280, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  invoke void @_ZNK11cmMessenger14DisplayMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(64) %167, i32 noundef %.078, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %170 unwind label %209
 
 170:                                              ; preds = %169
@@ -791,7 +791,7 @@ _ZNSt10shared_ptrIN10cmDebugger17cmDebuggerAdapterEED2Ev.exit: ; preds = %244, %
 
 _ZNK5cmake15GetDebugAdapterEv.exit133:            ; preds = %264, %273, %276
   %278 = phi ptr [ %266, %264 ], [ %266, %273 ], [ %.pre, %276 ]
-  invoke void @_ZN10cmDebugger17cmDebuggerAdapter15OnMessageOutputE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(193) %278, i32 noundef %.280, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  invoke void @_ZN10cmDebugger17cmDebuggerAdapter15OnMessageOutputE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(193) %278, i32 noundef %.078, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %279 unwind label %285
 
 279:                                              ; preds = %_ZNK5cmake15GetDebugAdapterEv.exit133
@@ -986,7 +986,7 @@ default.unreachable172:                           ; preds = %287, %163
   unreachable
 
 _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %_ZNK5cmake15GetDebugAdapterEv.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %202, %189, %170, %295, %305, %310, %316, %_ZNSt10shared_ptrIN10cmDebugger17cmDebuggerAdapterEED2Ev.exit, %279, %325
-  br i1 %.283, label %331, label %332
+  br i1 %.081, label %331, label %332
 
 331:                                              ; preds = %_ZN19cmListFileBacktraceD2Ev.exit
   store i8 1, ptr @_ZN13cmSystemTools20s_FatalErrorOccurredE, align 1

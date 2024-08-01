@@ -1696,7 +1696,7 @@ while.end:                                        ; preds = %invoke.cont22, %whi
   %io_s.sroa.35.0 = phi i8 [ %33, %while.endthread-pre-split ], [ %16, %invoke.cont22 ]
   %io_s.sroa.28.0 = phi i8 [ %frombool13.i.i137180189, %while.endthread-pre-split ], [ %15, %invoke.cont22 ]
   %io_s.sroa.21.0 = phi i8 [ %frombool.i.i63134181188, %while.endthread-pre-split ], [ %14, %invoke.cont22 ]
-  %io_s.sroa.44.1 = phi ptr [ %32, %while.endthread-pre-split ], [ %17, %invoke.cont22 ]
+  %io_s.sroa.44.2 = phi ptr [ %32, %while.endthread-pre-split ], [ %17, %invoke.cont22 ]
   %io_s.sroa.10.0 = phi i8 [ %34, %while.endthread-pre-split ], [ %13, %invoke.cont22 ]
   %io_s.sroa.0.0 = phi i8 [ %23, %while.endthread-pre-split ], [ %12, %invoke.cont22 ]
   %35 = phi i8 [ %.pr126, %while.endthread-pre-split ], [ %18, %invoke.cont22 ]
@@ -1718,7 +1718,7 @@ if.else:                                          ; preds = %while.end
   store i8 %frombool9.i.i106, ptr %data_loss_8.i.i105, align 4
   %scope_10.i.i108 = getelementptr inbounds i8, ptr %agg.result, i64 5
   store i8 %io_s.sroa.35.0, ptr %scope_10.i.i108, align 1
-  store ptr %io_s.sroa.44.1, ptr %state_.i.i.i.i97, align 8
+  store ptr %io_s.sroa.44.2, ptr %state_.i.i.i.i97, align 8
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.else, %if.then14
@@ -1734,11 +1734,11 @@ cleanup:                                          ; preds = %while.end
   store ptr null, ptr %state_.i.i.i.i94, align 8, !alias.scope !34
   store i32 0, ptr %sev_.i.i.i.i93, align 2, !alias.scope !34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data) #17
-  %cmp.not.i.i.i114 = icmp eq ptr %io_s.sroa.44.1, null
+  %cmp.not.i.i.i114 = icmp eq ptr %io_s.sroa.44.2, null
   br i1 %cmp.not.i.i.i114, label %return, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i115
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i115: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %io_s.sroa.44.1) #16
+  call void @_ZdaPv(ptr noundef nonnull %io_s.sroa.44.2) #16
   br label %return
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i119: ; preds = %lpad9

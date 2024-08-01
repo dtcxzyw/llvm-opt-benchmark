@@ -794,13 +794,13 @@ if.then.i56.i:                                    ; preds = %cleanup160.i
   br label %invoke.cont117
 
 ehcleanup161.i:                                   ; preds = %ehcleanup127.i, %lpad.i
-  %scoped_file.sroa.0.3.i = phi ptr [ %scoped_file.sroa.0.1.i, %ehcleanup127.i ], [ %scoped_file.sroa.0.0.i, %lpad.i ]
+  %scoped_file.sroa.0.2.i = phi ptr [ %scoped_file.sroa.0.1.i, %ehcleanup127.i ], [ %scoped_file.sroa.0.0.i, %lpad.i ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup127.i ], [ %36, %lpad.i ]
-  %cmp.not.i59.i = icmp eq ptr %scoped_file.sroa.0.3.i, null
+  %cmp.not.i59.i = icmp eq ptr %scoped_file.sroa.0.2.i, null
   br i1 %cmp.not.i59.i, label %ehcleanup, label %if.then.i60.i
 
 if.then.i60.i:                                    ; preds = %ehcleanup161.i
-  %call.i.i61.i = call noundef i32 @fclose(ptr noundef nonnull %scoped_file.sroa.0.3.i)
+  %call.i.i61.i = call noundef i32 @fclose(ptr noundef nonnull %scoped_file.sroa.0.2.i)
   br label %ehcleanup
 
 invoke.cont117:                                   ; preds = %if.then.i56.i, %cleanup160.i, %if.then7.i, %invoke.cont3.i
@@ -824,7 +824,7 @@ if.else126:                                       ; preds = %if.end106
   br i1 %cmp.i85.not247, label %cleanup, label %for.body136
 
 for.body136:                                      ; preds = %if.else126, %invoke.cont139
-  %ok.1245 = phi i1 [ %tobool145, %invoke.cont139 ], [ true, %if.else126 ]
+  %ok.2245 = phi i1 [ %tobool145, %invoke.cont139 ], [ true, %if.else126 ]
   %__begin2128.sroa.0.0244 = phi ptr [ %incdec.ptr.i104, %invoke.cont139 ], [ %32, %if.else126 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %hex_digest.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hex_digest.i) #18
@@ -857,7 +857,7 @@ cond.end.i99:                                     ; preds = %cond.false.i96, %if
   br label %invoke.cont139
 
 invoke.cont139:                                   ; preds = %cond.end.i99, %invoke.cont.i
-  %tobool145 = phi i1 [ %ok.1245, %cond.end.i99 ], [ false, %invoke.cont.i ]
+  %tobool145 = phi i1 [ %ok.2245, %cond.end.i99 ], [ false, %invoke.cont.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hex_digest.i) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hex_digest.i)
   %incdec.ptr.i104 = getelementptr inbounds i8, ptr %__begin2128.sroa.0.0244, i64 40
@@ -1208,8 +1208,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 return:                                           ; preds = %if.then.i, %cleanup, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ true, %cleanup ], [ false, %if.then.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %cleanup ], [ false, %if.then.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -1444,7 +1444,7 @@ lpad67:                                           ; preds = %for.end62
   br label %ehcleanup
 
 if.then.i:                                        ; preds = %if.then12, %cond.end, %if.then39, %if.then46, %invoke.cont68
-  %retval.0 = phi i1 [ true, %invoke.cont68 ], [ false, %if.then46 ], [ false, %cond.end ], [ false, %if.then39 ], [ false, %if.then12 ]
+  %retval.1 = phi i1 [ true, %invoke.cont68 ], [ false, %if.then46 ], [ false, %cond.end ], [ false, %if.then39 ], [ false, %if.then12 ]
   %call.i3.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %ctx)
           to label %cleanup72 unwind label %terminate.lpad.i
 
@@ -1484,8 +1484,8 @@ terminate.lpad.i24:                               ; preds = %if.then.i22
   unreachable
 
 _ZNSt10unique_ptrIi12close_deleteED2Ev.exit:      ; preds = %invoke.cont, %cleanup72, %if.then.i22
-  %retval.143 = phi i1 [ %retval.0, %cleanup72 ], [ %retval.0, %if.then.i22 ], [ false, %invoke.cont ]
-  ret i1 %retval.143
+  %retval.043 = phi i1 [ %retval.1, %cleanup72 ], [ %retval.1, %if.then.i22 ], [ false, %invoke.cont ]
+  ret i1 %retval.043
 
 ehcleanup73:                                      ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20 ], [ %1, %lpad ]

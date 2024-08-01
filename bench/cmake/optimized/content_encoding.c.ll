@@ -563,7 +563,7 @@ process_zlib_error.exit.i:                        ; preds = %18
   br label %process_zlib_error.exit.i26
 
 process_zlib_error.exit.i26:                      ; preds = %34, %33, %29
-  %.0.i27 = phi i32 [ 0, %29 ], [ 61, %33 ], [ 61, %34 ]
+  %.1.i27 = phi i32 [ 0, %29 ], [ 61, %33 ], [ 61, %34 ]
   store i32 0, ptr %22, align 4
   br label %exit_zlib.exit
 
@@ -572,7 +572,7 @@ process_zlib_error.exit.i26:                      ; preds = %34, %33, %29
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %process_zlib_error.exit.i26, %27, %process_zlib_error.exit.i, %18, %35
-  %.1 = phi i32 [ 0, %35 ], [ 23, %process_zlib_error.exit.i ], [ 23, %18 ], [ %.0.i27, %process_zlib_error.exit.i26 ], [ 0, %27 ]
+  %.1 = phi i32 [ 0, %35 ], [ 23, %process_zlib_error.exit.i ], [ 23, %18 ], [ %.1.i27, %process_zlib_error.exit.i26 ], [ 0, %27 ]
   ret i32 %.1
 }
 
@@ -798,7 +798,7 @@ process_zlib_error.exit99:                        ; preds = %75, %76
   br label %exit_zlib.exit87
 
 exit_zlib.exit87:                                 ; preds = %51, %84, %82, %72, %70, %52, %process_zlib_error.exit.i, %48
-  %.3 = phi i32 [ %41, %48 ], [ %41, %process_zlib_error.exit.i ], [ 61, %84 ], [ 61, %82 ], [ 61, %72 ], [ 61, %70 ], [ %53, %52 ], [ 0, %51 ]
+  %.167 = phi i32 [ %41, %48 ], [ %41, %process_zlib_error.exit.i ], [ 61, %84 ], [ 61, %82 ], [ 61, %72 ], [ 61, %70 ], [ %53, %52 ], [ 0, %51 ]
   %86 = load ptr, ptr @Curl_cfree, align 8
   tail call void %86(ptr noundef nonnull %19) #7
   %.not77 = icmp eq i32 %7, 0
@@ -814,7 +814,7 @@ exit_zlib.exit87:                                 ; preds = %51, %84, %82, %72, 
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %33, %31, %15, %13, %exit_zlib.exit87, %87, %90
-  %.0 = phi i32 [ %.3, %90 ], [ %.3, %87 ], [ %.3, %exit_zlib.exit87 ], [ 23, %13 ], [ 23, %15 ], [ 27, %31 ], [ 27, %33 ]
+  %.0 = phi i32 [ %.167, %90 ], [ %.167, %87 ], [ %.167, %exit_zlib.exit87 ], [ 23, %13 ], [ 23, %15 ], [ 27, %31 ], [ 27, %33 ]
   ret i32 %.0
 }
 
@@ -859,13 +859,13 @@ define internal fastcc noundef i32 @exit_zlib(ptr noundef %0, ptr noundef %1, pt
   br label %process_zlib_error.exit
 
 process_zlib_error.exit:                          ; preds = %19, %18, %12
-  %.0 = phi i32 [ %3, %12 ], [ 61, %18 ], [ 61, %19 ]
+  %.1 = phi i32 [ %3, %12 ], [ 61, %18 ], [ 61, %19 ]
   store i32 0, ptr %2, align 4
   br label %20
 
 20:                                               ; preds = %process_zlib_error.exit, %10
-  %.1 = phi i32 [ %.0, %process_zlib_error.exit ], [ %3, %10 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %process_zlib_error.exit ], [ %3, %10 ]
+  ret i32 %.0
 }
 
 declare i32 @cm_zlib_inflateEnd(ptr noundef) local_unnamed_addr #1
@@ -1033,12 +1033,12 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not5873.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader68.i, %51
-  %.175.i = phi ptr [ %50, %51 ], [ %.045.i, %.preheader68.i ]
-  %.14774.i = phi i64 [ %49, %51 ], [ %.046.i, %.preheader68.i ]
-  %48 = load i8, ptr %.175.i, align 1
+  %.275.i = phi ptr [ %50, %51 ], [ %.045.i, %.preheader68.i ]
+  %.24874.i = phi i64 [ %49, %51 ], [ %.046.i, %.preheader68.i ]
+  %48 = load i8, ptr %.275.i, align 1
   %.not59.i = icmp eq i8 %48, 0
-  %49 = add nsw i64 %.14774.i, -1
-  %50 = getelementptr inbounds i8, ptr %.175.i, i64 1
+  %49 = add nsw i64 %.24874.i, -1
+  %50 = getelementptr inbounds i8, ptr %.275.i, i64 1
   br i1 %.not59.i, label %.critedge.i, label %51
 
 51:                                               ; preds = %.lr.ph.i
@@ -1046,21 +1046,21 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not58.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %46
-  %.248.i = phi i64 [ %.046.i, %46 ], [ %49, %.lr.ph.i ]
-  %.2.i = phi ptr [ %.045.i, %46 ], [ %50, %.lr.ph.i ]
+  %.147.i = phi i64 [ %.046.i, %46 ], [ %49, %.lr.ph.i ]
+  %.1.i = phi ptr [ %.045.i, %46 ], [ %50, %.lr.ph.i ]
   %.not61.i = icmp ult i8 %30, 16
   br i1 %.not61.i, label %.critedge2.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i
-  %.not6276.i = icmp eq i64 %.248.i, 0
+  %.not6276.i = icmp eq i64 %.147.i, 0
   br i1 %.not6276.i, label %.loopexit, label %.lr.ph79.i
 
 .lr.ph79.i:                                       ; preds = %.preheader.i, %54
-  %.378.i = phi ptr [ %55, %54 ], [ %.2.i, %.preheader.i ]
-  %.34977.i = phi i64 [ %53, %54 ], [ %.248.i, %.preheader.i ]
+  %.378.i = phi ptr [ %55, %54 ], [ %.1.i, %.preheader.i ]
+  %.477.i = phi i64 [ %53, %54 ], [ %.147.i, %.preheader.i ]
   %52 = load i8, ptr %.378.i, align 1
   %.not63.i = icmp eq i8 %52, 0
-  %53 = add nsw i64 %.34977.i, -1
+  %53 = add nsw i64 %.477.i, -1
   br i1 %.not63.i, label %.critedge2.i, label %54
 
 54:                                               ; preds = %.lr.ph79.i
@@ -1069,21 +1069,21 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not62.i, label %.loopexit, label %.lr.ph79.i, !llvm.loop !13
 
 .critedge2.i:                                     ; preds = %.lr.ph79.i, %.critedge.i
-  %.4.i = phi i64 [ %.248.i, %.critedge.i ], [ %53, %.lr.ph79.i ]
+  %.349.i = phi i64 [ %.147.i, %.critedge.i ], [ %53, %.lr.ph79.i ]
   %56 = and i32 %31, 2
   %.not65.i = icmp eq i32 %56, 0
   br i1 %.not65.i, label %61, label %57
 
 57:                                               ; preds = %.critedge2.i
-  %58 = icmp slt i64 %.4.i, 2
+  %58 = icmp slt i64 %.349.i, 2
   br i1 %58, label %.loopexit, label %59
 
 59:                                               ; preds = %57
-  %60 = add nsw i64 %.4.i, -2
+  %60 = add nsw i64 %.349.i, -2
   br label %61
 
 61:                                               ; preds = %59, %.critedge2.i
-  %.5.i = phi i64 [ %60, %59 ], [ %.4.i, %.critedge2.i ]
+  %.5.i = phi i64 [ %60, %59 ], [ %.349.i, %.critedge2.i ]
   %62 = sub nsw i64 %4, %.5.i
   %63 = getelementptr inbounds i8, ptr %3, i64 %62
   store ptr %63, ptr %6, align 8
@@ -1174,13 +1174,13 @@ process_zlib_error.exit:                          ; preds = %78, %79
   %101 = load ptr, ptr @Curl_cfree, align 8
   tail call void %101(ptr noundef null) #7
   store ptr null, ptr %6, align 8
-  %.pr.i97 = load i32, ptr %13, align 4
+  %.pr.i99 = load i32, ptr %13, align 4
   br label %102
 
 102:                                              ; preds = %100, %97
-  %103 = phi i32 [ %.pr.i97, %100 ], [ %98, %97 ]
-  %.not.i94 = icmp eq i32 %103, 0
-  br i1 %.not.i94, label %exit_zlib.exit, label %104
+  %103 = phi i32 [ %.pr.i99, %100 ], [ %98, %97 ]
+  %.not.i95 = icmp eq i32 %103, 0
+  br i1 %.not.i95, label %exit_zlib.exit, label %104
 
 104:                                              ; preds = %102
   %105 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %6) #7
@@ -1202,14 +1202,14 @@ process_zlib_error.exit:                          ; preds = %78, %79
 
 116:                                              ; preds = %106
   %117 = load i8, ptr %112, align 1
-  %.not.i99 = icmp eq i8 %117, 31
-  br i1 %.not.i99, label %118, label %167
+  %.not.i101 = icmp eq i8 %117, 31
+  br i1 %.not.i101, label %118, label %167
 
 118:                                              ; preds = %116
   %119 = getelementptr inbounds i8, ptr %112, i64 1
   %120 = load i8, ptr %119, align 1
-  %.not53.i101 = icmp eq i8 %120, -117
-  br i1 %.not53.i101, label %121, label %167
+  %.not53.i103 = icmp eq i8 %120, -117
+  br i1 %.not53.i103, label %121, label %167
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds i8, ptr %112, i64 2
@@ -1217,17 +1217,17 @@ process_zlib_error.exit:                          ; preds = %78, %79
   %124 = getelementptr inbounds i8, ptr %112, i64 3
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
-  %.not54.i102 = icmp eq i8 %123, 8
-  %.not55.i103 = icmp ult i8 %125, 32
-  %or.cond.i104 = select i1 %.not54.i102, i1 %.not55.i103, i1 false
-  br i1 %or.cond.i104, label %127, label %167
+  %.not54.i104 = icmp eq i8 %123, 8
+  %.not55.i105 = icmp ult i8 %125, 32
+  %or.cond.i106 = select i1 %.not54.i104, i1 %.not55.i105, i1 false
+  br i1 %or.cond.i106, label %127, label %167
 
 127:                                              ; preds = %121
   %128 = add nsw i64 %114, -10
   %129 = getelementptr inbounds i8, ptr %112, i64 10
   %130 = and i32 %126, 4
-  %.not56.i105 = icmp eq i32 %130, 0
-  br i1 %.not56.i105, label %141, label %131
+  %.not56.i107 = icmp eq i32 %130, 0
+  br i1 %.not56.i107, label %141, label %131
 
 131:                                              ; preds = %127
   %132 = icmp ult i32 %113, 12
@@ -1246,69 +1246,69 @@ process_zlib_error.exit:                          ; preds = %78, %79
   br label %141
 
 141:                                              ; preds = %138, %127
-  %.046.i106 = phi i64 [ %139, %138 ], [ %128, %127 ]
-  %.045.i107 = phi ptr [ %140, %138 ], [ %129, %127 ]
+  %.046.i108 = phi i64 [ %139, %138 ], [ %128, %127 ]
+  %.045.i109 = phi ptr [ %140, %138 ], [ %129, %127 ]
   %142 = and i32 %126, 8
-  %.not57.i108 = icmp eq i32 %142, 0
-  br i1 %.not57.i108, label %.critedge.i116, label %.preheader68.i109
+  %.not57.i110 = icmp eq i32 %142, 0
+  br i1 %.not57.i110, label %.critedge.i118, label %.preheader68.i111
 
-.preheader68.i109:                                ; preds = %141
-  %.not5873.i110 = icmp eq i64 %.046.i106, 0
-  br i1 %.not5873.i110, label %exit_zlib.exit, label %.lr.ph.i111
+.preheader68.i111:                                ; preds = %141
+  %.not5873.i112 = icmp eq i64 %.046.i108, 0
+  br i1 %.not5873.i112, label %exit_zlib.exit, label %.lr.ph.i113
 
-.lr.ph.i111:                                      ; preds = %.preheader68.i109, %146
-  %.175.i112 = phi ptr [ %145, %146 ], [ %.045.i107, %.preheader68.i109 ]
-  %.14774.i113 = phi i64 [ %144, %146 ], [ %.046.i106, %.preheader68.i109 ]
-  %143 = load i8, ptr %.175.i112, align 1
-  %.not59.i114 = icmp eq i8 %143, 0
-  %144 = add nsw i64 %.14774.i113, -1
-  %145 = getelementptr inbounds i8, ptr %.175.i112, i64 1
-  br i1 %.not59.i114, label %.critedge.i116, label %146
+.lr.ph.i113:                                      ; preds = %.preheader68.i111, %146
+  %.275.i114 = phi ptr [ %145, %146 ], [ %.045.i109, %.preheader68.i111 ]
+  %.24874.i115 = phi i64 [ %144, %146 ], [ %.046.i108, %.preheader68.i111 ]
+  %143 = load i8, ptr %.275.i114, align 1
+  %.not59.i116 = icmp eq i8 %143, 0
+  %144 = add nsw i64 %.24874.i115, -1
+  %145 = getelementptr inbounds i8, ptr %.275.i114, i64 1
+  br i1 %.not59.i116, label %.critedge.i118, label %146
 
-146:                                              ; preds = %.lr.ph.i111
-  %.not58.i115 = icmp eq i64 %144, 0
-  br i1 %.not58.i115, label %exit_zlib.exit, label %.lr.ph.i111, !llvm.loop !12
+146:                                              ; preds = %.lr.ph.i113
+  %.not58.i117 = icmp eq i64 %144, 0
+  br i1 %.not58.i117, label %exit_zlib.exit, label %.lr.ph.i113, !llvm.loop !12
 
-.critedge.i116:                                   ; preds = %.lr.ph.i111, %141
-  %.248.i117 = phi i64 [ %.046.i106, %141 ], [ %144, %.lr.ph.i111 ]
-  %.2.i118 = phi ptr [ %.045.i107, %141 ], [ %145, %.lr.ph.i111 ]
-  %.not61.i119 = icmp ult i8 %125, 16
-  br i1 %.not61.i119, label %.critedge2.i127, label %.preheader.i120
+.critedge.i118:                                   ; preds = %.lr.ph.i113, %141
+  %.147.i119 = phi i64 [ %.046.i108, %141 ], [ %144, %.lr.ph.i113 ]
+  %.1.i120 = phi ptr [ %.045.i109, %141 ], [ %145, %.lr.ph.i113 ]
+  %.not61.i121 = icmp ult i8 %125, 16
+  br i1 %.not61.i121, label %.critedge2.i129, label %.preheader.i122
 
-.preheader.i120:                                  ; preds = %.critedge.i116
-  %.not6276.i121 = icmp eq i64 %.248.i117, 0
-  br i1 %.not6276.i121, label %exit_zlib.exit, label %.lr.ph79.i122
+.preheader.i122:                                  ; preds = %.critedge.i118
+  %.not6276.i123 = icmp eq i64 %.147.i119, 0
+  br i1 %.not6276.i123, label %exit_zlib.exit, label %.lr.ph79.i124
 
-.lr.ph79.i122:                                    ; preds = %.preheader.i120, %149
-  %.378.i123 = phi ptr [ %150, %149 ], [ %.2.i118, %.preheader.i120 ]
-  %.34977.i124 = phi i64 [ %148, %149 ], [ %.248.i117, %.preheader.i120 ]
-  %147 = load i8, ptr %.378.i123, align 1
-  %.not63.i125 = icmp eq i8 %147, 0
-  %148 = add nsw i64 %.34977.i124, -1
-  br i1 %.not63.i125, label %.critedge2.i127, label %149
+.lr.ph79.i124:                                    ; preds = %.preheader.i122, %149
+  %.378.i125 = phi ptr [ %150, %149 ], [ %.1.i120, %.preheader.i122 ]
+  %.477.i126 = phi i64 [ %148, %149 ], [ %.147.i119, %.preheader.i122 ]
+  %147 = load i8, ptr %.378.i125, align 1
+  %.not63.i127 = icmp eq i8 %147, 0
+  %148 = add nsw i64 %.477.i126, -1
+  br i1 %.not63.i127, label %.critedge2.i129, label %149
 
-149:                                              ; preds = %.lr.ph79.i122
-  %150 = getelementptr inbounds i8, ptr %.378.i123, i64 1
-  %.not62.i126 = icmp eq i64 %148, 0
-  br i1 %.not62.i126, label %exit_zlib.exit, label %.lr.ph79.i122, !llvm.loop !13
+149:                                              ; preds = %.lr.ph79.i124
+  %150 = getelementptr inbounds i8, ptr %.378.i125, i64 1
+  %.not62.i128 = icmp eq i64 %148, 0
+  br i1 %.not62.i128, label %exit_zlib.exit, label %.lr.ph79.i124, !llvm.loop !13
 
-.critedge2.i127:                                  ; preds = %.lr.ph79.i122, %.critedge.i116
-  %.4.i128 = phi i64 [ %.248.i117, %.critedge.i116 ], [ %148, %.lr.ph79.i122 ]
+.critedge2.i129:                                  ; preds = %.lr.ph79.i124, %.critedge.i118
+  %.349.i130 = phi i64 [ %.147.i119, %.critedge.i118 ], [ %148, %.lr.ph79.i124 ]
   %151 = and i32 %126, 2
-  %.not65.i129 = icmp eq i32 %151, 0
-  br i1 %.not65.i129, label %156, label %152
+  %.not65.i131 = icmp eq i32 %151, 0
+  br i1 %.not65.i131, label %156, label %152
 
-152:                                              ; preds = %.critedge2.i127
-  %153 = icmp slt i64 %.4.i128, 2
+152:                                              ; preds = %.critedge2.i129
+  %153 = icmp slt i64 %.349.i130, 2
   br i1 %153, label %exit_zlib.exit, label %154
 
 154:                                              ; preds = %152
-  %155 = add nsw i64 %.4.i128, -2
+  %155 = add nsw i64 %.349.i130, -2
   br label %156
 
-156:                                              ; preds = %154, %.critedge2.i127
-  %.5.i130 = phi i64 [ %155, %154 ], [ %.4.i128, %.critedge2.i127 ]
-  %157 = sub nsw i64 %114, %.5.i130
+156:                                              ; preds = %154, %.critedge2.i129
+  %.5.i132 = phi i64 [ %155, %154 ], [ %.349.i130, %.critedge2.i129 ]
+  %157 = sub nsw i64 %114, %.5.i132
   %158 = load ptr, ptr @Curl_cfree, align 8
   tail call void %158(ptr noundef nonnull %112) #7
   %159 = getelementptr inbounds i8, ptr %3, i64 %157
@@ -1327,34 +1327,34 @@ process_zlib_error.exit:                          ; preds = %78, %79
 167:                                              ; preds = %118, %116, %121
   %168 = getelementptr i8, ptr %1, i64 80
   %.val = load ptr, ptr %168, align 8
-  %.not.i132 = icmp eq ptr %.val, null
-  br i1 %.not.i132, label %170, label %169
+  %.not.i134 = icmp eq ptr %.val, null
+  br i1 %.not.i134, label %170, label %169
 
 169:                                              ; preds = %167
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.val) #7
-  br label %process_zlib_error.exit133
+  br label %process_zlib_error.exit135
 
 170:                                              ; preds = %167
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  br label %process_zlib_error.exit133
+  br label %process_zlib_error.exit135
 
-process_zlib_error.exit133:                       ; preds = %169, %170
+process_zlib_error.exit135:                       ; preds = %169, %170
   %171 = load i32, ptr %13, align 4
   %172 = icmp eq i32 %171, 4
   br i1 %172, label %173, label %176
 
-173:                                              ; preds = %process_zlib_error.exit133
+173:                                              ; preds = %process_zlib_error.exit135
   %174 = load ptr, ptr @Curl_cfree, align 8
   %175 = load ptr, ptr %6, align 8
   tail call void %174(ptr noundef %175) #7
   store ptr null, ptr %6, align 8
-  %.pr.i138 = load i32, ptr %13, align 4
+  %.pr.i140 = load i32, ptr %13, align 4
   br label %176
 
-176:                                              ; preds = %173, %process_zlib_error.exit133
-  %177 = phi i32 [ %.pr.i138, %173 ], [ %171, %process_zlib_error.exit133 ]
-  %.not.i134 = icmp eq i32 %177, 0
-  br i1 %.not.i134, label %exit_zlib.exit, label %178
+176:                                              ; preds = %173, %process_zlib_error.exit135
+  %177 = phi i32 [ %.pr.i140, %173 ], [ %171, %process_zlib_error.exit135 ]
+  %.not.i136 = icmp eq i32 %177, 0
+  br i1 %.not.i136, label %exit_zlib.exit, label %178
 
 178:                                              ; preds = %176
   %179 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %6) #7
@@ -1385,8 +1385,8 @@ process_zlib_error.exit133:                       ; preds = %169, %170
   %191 = tail call fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 5)
   br label %exit_zlib.exit
 
-exit_zlib.exit:                                   ; preds = %146, %149, %.preheader68.i109, %.preheader.i120, %152, %133, %131, %106, %178, %176, %104, %102, %87, %85, %187, %190, %180, %73, %71, %15, %8
-  %.0 = phi i32 [ %18, %15 ], [ %191, %190 ], [ %183, %180 ], [ 0, %73 ], [ %72, %71 ], [ %11, %8 ], [ 0, %187 ], [ 61, %85 ], [ 61, %87 ], [ 27, %102 ], [ 27, %104 ], [ 61, %176 ], [ 61, %178 ], [ 0, %106 ], [ 0, %131 ], [ 0, %133 ], [ 0, %152 ], [ 0, %.preheader.i120 ], [ 0, %.preheader68.i109 ], [ 0, %149 ], [ 0, %146 ]
+exit_zlib.exit:                                   ; preds = %146, %149, %.preheader68.i111, %.preheader.i122, %152, %133, %131, %106, %178, %176, %104, %102, %87, %85, %187, %190, %180, %73, %71, %15, %8
+  %.0 = phi i32 [ %18, %15 ], [ %191, %190 ], [ %183, %180 ], [ 0, %73 ], [ %72, %71 ], [ %11, %8 ], [ 0, %187 ], [ 61, %85 ], [ 61, %87 ], [ 27, %102 ], [ 27, %104 ], [ 61, %176 ], [ 61, %178 ], [ 0, %106 ], [ 0, %131 ], [ 0, %133 ], [ 0, %152 ], [ 0, %.preheader.i122 ], [ 0, %.preheader68.i111 ], [ 0, %149 ], [ 0, %146 ]
   ret i32 %.0
 }
 

@@ -3434,16 +3434,16 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   br label %301
 
 301:                                              ; preds = %287, %297
-  %.10 = phi i32 [ %300, %297 ], [ %294, %287 ]
+  %.11 = phi i32 [ %300, %297 ], [ %294, %287 ]
   %302 = load i32, ptr %8, align 4
   %303 = icmp eq i32 %302, 0
   br i1 %303, label %304, label %.thread1108
 
 304:                                              ; preds = %301
   %305 = load i32, ptr @hf_dvb_s2_table_ld_initial_service_id, align 4
-  %306 = add i32 %.10, %1
+  %306 = add i32 %.11, %1
   %307 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %305, ptr noundef %0, i32 noundef %306, i32 noundef 2, i32 noundef 0) #3
-  %308 = add i32 %.10, 2
+  %308 = add i32 %.11, 2
   br label %.thread1108
 
 309:                                              ; preds = %272
@@ -3477,29 +3477,29 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   br label %331
 
 331:                                              ; preds = %322, %331
-  %.131151 = phi i32 [ %330, %322 ], [ %338, %331 ]
+  %.141151 = phi i32 [ %330, %322 ], [ %338, %331 ]
   %.010791150 = phi i32 [ 0, %322 ], [ %339, %331 ]
   %332 = load i32, ptr @hf_dvb_s2_table_ld_population_id_base, align 4
-  %333 = add i32 %.131151, %1
+  %333 = add i32 %.141151, %1
   %334 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %332, ptr noundef %0, i32 noundef %333, i32 noundef 2, i32 noundef 0) #3
   %335 = load i32, ptr @hf_dvb_s2_table_ld_population_id_mask, align 4
-  %336 = add i32 %invariant.op1183, %.131151
+  %336 = add i32 %invariant.op1183, %.141151
   %337 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %335, ptr noundef %0, i32 noundef %336, i32 noundef 2, i32 noundef 0) #3
-  %338 = add i32 %.131151, 4
+  %338 = add i32 %.141151, 4
   %339 = add nuw nsw i32 %.010791150, 1
   %exitcond1268.not = icmp eq i32 %.010791150, %327
   br i1 %exitcond1268.not, label %.thread1108, label %331, !llvm.loop !35
 
 .thread1108:                                      ; preds = %331, %304, %301, %309, %320
-  %.14 = phi i32 [ %321, %320 ], [ %319, %309 ], [ %.10, %301 ], [ %308, %304 ], [ %338, %331 ]
-  %.neg1100 = sub i32 %29, %.14
+  %.13 = phi i32 [ %321, %320 ], [ %319, %309 ], [ %.11, %301 ], [ %308, %304 ], [ %338, %331 ]
+  %.neg1100 = sub i32 %29, %.13
   %340 = add i32 %.neg1100, %19
   %341 = icmp sgt i32 %340, 0
   br i1 %341, label %342, label %.loopexit1112
 
 342:                                              ; preds = %.thread1108
   %343 = load i32, ptr @hf_dvb_s2_table_ld_private_data, align 4
-  %344 = add i32 %.14, %1
+  %344 = add i32 %.13, %1
   %345 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %343, ptr noundef %0, i32 noundef %344, i32 noundef %340, i32 noundef 0) #3
   %346 = add i32 %29, %19
   br label %.loopexit1112
@@ -3707,34 +3707,34 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %500 = zext i8 %499 to i32
   %501 = load i32, ptr @hf_dvb_s2_table_ripd_pid_loop_count, align 4
   %502 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %501, ptr noundef %0, i32 noundef %.reass1138, i32 noundef 1, i32 noundef 0) #3
-  %.191120 = add i32 %.181144, 2
+  %.201120 = add i32 %.181144, 2
   br label %503
 
 503:                                              ; preds = %498, %503
-  %.191123 = phi i32 [ %.191120, %498 ], [ %.19, %503 ]
-  %.19.in1122 = phi i32 [ %.181144, %498 ], [ %.191123, %503 ]
+  %.201123 = phi i32 [ %.201120, %498 ], [ %.20, %503 ]
+  %.20.in1122 = phi i32 [ %.181144, %498 ], [ %.201123, %503 ]
   %.010781121 = phi i32 [ 0, %498 ], [ %506, %503 ]
   %504 = load i32, ptr @hf_dvb_s2_table_ripd_pid, align 4
-  %.reass1119 = add i32 %.19.in1122, %invariant.op1183
+  %.reass1119 = add i32 %.20.in1122, %invariant.op1183
   %505 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %504, ptr noundef %0, i32 noundef %.reass1119, i32 noundef 2, i32 noundef 0) #3
   %506 = add nuw nsw i32 %.010781121, 1
-  %.19 = add i32 %.191123, 2
+  %.20 = add i32 %.201123, 2
   %exitcond1263.not = icmp eq i32 %.010781121, %500
   br i1 %exitcond1263.not, label %.loopexit1111, label %503, !llvm.loop !38
 
 .loopexit1111:                                    ; preds = %503, %485
-  %.20 = phi i32 [ %497, %485 ], [ %.19, %503 ]
-  %507 = add i32 %.20, %1
+  %.19 = phi i32 [ %497, %485 ], [ %.20, %503 ]
+  %507 = add i32 %.19, %1
   %508 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %507) #3
   %509 = and i8 %508, 1
   %510 = load i32, ptr @hf_dvb_s2_table_ripd_vpi_vci_flag, align 4
   %511 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %510, ptr noundef %0, i32 noundef %507, i32 noundef 1, i32 noundef 0) #3
-  %512 = add i32 %.20, 1
+  %512 = add i32 %.19, 1
   %.not1093 = icmp eq i8 %509, 0
   br i1 %.not1093, label %525, label %513
 
 513:                                              ; preds = %.loopexit1111
-  %.reass1140 = add i32 %.20, %invariant.op1181
+  %.reass1140 = add i32 %.19, %invariant.op1181
   %514 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1140) #3
   %515 = zext i8 %514 to i32
   %516 = load i32, ptr @hf_dvb_s2_table_ripd_vpi_vci_loop_count, align 4
@@ -3742,61 +3742,61 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   br label %518
 
 518:                                              ; preds = %513, %518
-  %.21.in1130 = phi i32 [ %.20, %513 ], [ %521, %518 ]
+  %.22.in1130 = phi i32 [ %.19, %513 ], [ %521, %518 ]
   %.110801129 = phi i32 [ 0, %513 ], [ %524, %518 ]
   %519 = load i32, ptr @hf_dvb_s2_table_ripd_vpi, align 4
-  %.reass1125 = add i32 %.21.in1130, %invariant.op1183
+  %.reass1125 = add i32 %.22.in1130, %invariant.op1183
   %520 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %519, ptr noundef %0, i32 noundef %.reass1125, i32 noundef 1, i32 noundef 0) #3
-  %521 = add i32 %.21.in1130, 3
+  %521 = add i32 %.22.in1130, 3
   %522 = load i32, ptr @hf_dvb_s2_table_ripd_vci, align 4
-  %.reass1127 = add i32 %.21.in1130, %invariant.op1191
+  %.reass1127 = add i32 %.22.in1130, %invariant.op1191
   %523 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %522, ptr noundef %0, i32 noundef %.reass1127, i32 noundef 2, i32 noundef 0) #3
   %524 = add nuw nsw i32 %.110801129, 1
   %exitcond1264.not = icmp eq i32 %.110801129, %515
   br i1 %exitcond1264.not, label %.loopexit1110, label %518, !llvm.loop !39
 
 .loopexit1110:                                    ; preds = %518
-  %.21.le = add i32 %.21.in1130, 5
+  %.22.le = add i32 %.22.in1130, 5
   br label %525
 
 525:                                              ; preds = %.loopexit1110, %.loopexit1111
-  %.22 = phi i32 [ %512, %.loopexit1111 ], [ %.21.le, %.loopexit1110 ]
-  %526 = add i32 %.22, %1
+  %.21 = phi i32 [ %512, %.loopexit1111 ], [ %.22.le, %.loopexit1110 ]
+  %526 = add i32 %.21, %1
   %527 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %526) #3
   %528 = and i8 %527, 1
   %529 = load i32, ptr @hf_dvb_s2_table_ripd_route_id_flag, align 4
   %530 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %529, ptr noundef %0, i32 noundef %526, i32 noundef 1, i32 noundef 0) #3
-  %531 = add i32 %.22, 1
+  %531 = add i32 %.21, 1
   %.not1095 = icmp eq i8 %528, 0
   br i1 %.not1095, label %.loopexit, label %532
 
 532:                                              ; preds = %525
-  %.reass1142 = add i32 %.22, %invariant.op1181
+  %.reass1142 = add i32 %.21, %invariant.op1181
   %533 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1142) #3
   %534 = zext i8 %533 to i32
   %535 = load i32, ptr @hf_dvb_s2_table_ripd_route_id_loop_count, align 4
   %536 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %535, ptr noundef %0, i32 noundef %.reass1142, i32 noundef 1, i32 noundef 0) #3
-  %.231133 = add i32 %.22, 2
+  %.241133 = add i32 %.21, 2
   br label %537
 
 537:                                              ; preds = %532, %537
-  %.231136 = phi i32 [ %.231133, %532 ], [ %.23, %537 ]
-  %.23.in1135 = phi i32 [ %.22, %532 ], [ %.231136, %537 ]
+  %.241136 = phi i32 [ %.241133, %532 ], [ %.24, %537 ]
+  %.24.in1135 = phi i32 [ %.21, %532 ], [ %.241136, %537 ]
   %.010811134 = phi i32 [ 0, %532 ], [ %540, %537 ]
   %538 = load i32, ptr @hf_dvb_s2_table_ripd_route_id, align 4
-  %.reass1132 = add i32 %.23.in1135, %invariant.op1183
+  %.reass1132 = add i32 %.24.in1135, %invariant.op1183
   %539 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %538, ptr noundef %0, i32 noundef %.reass1132, i32 noundef 2, i32 noundef 0) #3
   %540 = add nuw nsw i32 %.010811134, 1
-  %.23 = add i32 %.231136, 2
+  %.24 = add i32 %.241136, 2
   %exitcond1265.not = icmp eq i32 %.010811134, %534
   br i1 %exitcond1265.not, label %.loopexit, label %537, !llvm.loop !40
 
 .loopexit:                                        ; preds = %537, %525
-  %.24 = phi i32 [ %531, %525 ], [ %.23, %537 ]
+  %.23 = phi i32 [ %531, %525 ], [ %.24, %537 ]
   %541 = load i32, ptr @hf_dvb_s2_table_ripd_channel_id, align 4
-  %542 = add i32 %.24, %1
+  %542 = add i32 %.23, %1
   %543 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %541, ptr noundef %0, i32 noundef %542, i32 noundef 1, i32 noundef 0) #3
-  %544 = add i32 %.24, 1
+  %544 = add i32 %.23, 1
   %545 = add nuw nsw i32 %.110761143, 1
   %exitcond1266.not = icmp eq i32 %545, %484
   br i1 %exitcond1266.not, label %.loopexit1112, label %485, !llvm.loop !41
@@ -4015,7 +4015,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
 
 .loopexit1112:                                    ; preds = %.lr.ph, %.loopexit, %473, %.lr.ph1173, %666, %.preheader, %._crit_edge1164, %72, %75, %._crit_edge1179, %268, %546, %550, %563, %659, %691, %58, %55, %342, %.thread1108, %372, %347, %439, %436, %657, %638
   %.21084 = phi i32 [ %.010821242, %691 ], [ %.010821242, %659 ], [ %.110831277, %657 ], [ %.110831277, %638 ], [ %.010821242, %563 ], [ %.010821242, %550 ], [ %.010821242, %546 ], [ %.010821242, %439 ], [ %.010821242, %436 ], [ %.010821242, %372 ], [ %.010821242, %347 ], [ %.010821242, %342 ], [ %.010821242, %.thread1108 ], [ %.010821242, %268 ], [ %.010821242, %._crit_edge1179 ], [ %.010821242, %75 ], [ %.010821242, %72 ], [ %.010821242, %58 ], [ %.010821242, %55 ], [ %.010821242, %._crit_edge1164 ], [ %.010821242, %.preheader ], [ %.010821242, %666 ], [ %.010821242, %.lr.ph1173 ], [ %.010821242, %473 ], [ %.010821242, %.loopexit ], [ %.010821242, %.lr.ph ]
-  %.28 = phi i32 [ %692, %691 ], [ %665, %659 ], [ %658, %657 ], [ %.26, %638 ], [ %575, %563 ], [ %562, %550 ], [ %549, %546 ], [ %452, %439 ], [ %437, %436 ], [ %376, %372 ], [ %370, %347 ], [ %346, %342 ], [ %.14, %.thread1108 ], [ %271, %268 ], [ %137, %._crit_edge1179 ], [ %87, %75 ], [ %74, %72 ], [ %71, %58 ], [ %.11069, %55 ], [ %241, %._crit_edge1164 ], [ %29, %.preheader ], [ %671, %666 ], [ %266, %.lr.ph1173 ], [ %471, %473 ], [ %544, %.loopexit ], [ %689, %.lr.ph ]
+  %.28 = phi i32 [ %692, %691 ], [ %665, %659 ], [ %658, %657 ], [ %.26, %638 ], [ %575, %563 ], [ %562, %550 ], [ %549, %546 ], [ %452, %439 ], [ %437, %436 ], [ %376, %372 ], [ %370, %347 ], [ %346, %342 ], [ %.13, %.thread1108 ], [ %271, %268 ], [ %137, %._crit_edge1179 ], [ %87, %75 ], [ %74, %72 ], [ %71, %58 ], [ %.11069, %55 ], [ %241, %._crit_edge1164 ], [ %29, %.preheader ], [ %671, %666 ], [ %266, %.lr.ph1173 ], [ %471, %473 ], [ %544, %.loopexit ], [ %689, %.lr.ph ]
   %693 = add i32 %.01244, 1
   %.not = icmp sgt i32 %693, %3
   br i1 %.not, label %._crit_edge1247, label %15, !llvm.loop !43

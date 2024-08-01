@@ -2857,26 +2857,26 @@ if.then10.i:                                      ; preds = %do.end7.i
   br label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
 
 _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %do.end7.i, %if.then10.i
-  %buf.sroa.0.0 = phi ptr [ null, %if.then10.i ], [ %call1.i.i, %do.end7.i ]
-  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp, ptr noundef %buf.sroa.0.0, i64 noundef %conv.i.i.i.i.i) #21
+  %buf.sroa.0.1 = phi ptr [ null, %if.then10.i ], [ %call1.i.i, %do.end7.i ]
+  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp, ptr noundef %buf.sroa.0.1, i64 noundef %conv.i.i.i.i.i) #21
   %call23 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #21
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #21
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
-  %buf.sroa.7.1 = phi i64 [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ 64, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit ]
-  %buf.sroa.0.2 = phi ptr [ null, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call1.i.i, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit ]
-  call void @CRYPTO_clear_free(ptr noundef %buf.sroa.0.2, i64 noundef %buf.sroa.7.1, ptr noundef nonnull @.str.40, i32 noundef 225) #21
+  %buf.sroa.7.0 = phi i64 [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ 64, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit ]
+  %buf.sroa.0.0 = phi ptr [ null, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call1.i.i, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit ]
+  call void @CRYPTO_clear_free(ptr noundef %buf.sroa.0.0, i64 noundef %buf.sroa.7.0, ptr noundef nonnull @.str.40, i32 noundef 225) #21
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.end, %lor.lhs.false, %cleanup
-  %retval.1.ph = phi i1 [ false, %if.end ], [ false, %lor.lhs.false ], [ %tobool20.not, %cleanup ]
+  %retval.0.ph = phi i1 [ false, %if.end ], [ false, %lor.lhs.false ], [ %tobool20.not, %cleanup ]
   call void @HMAC_CTX_free(ptr noundef nonnull %call) #21
   br label %_ZNSt10unique_ptrI11hmac_ctx_stN4node15FunctionDeleterIS0_XadL_Z13HMAC_CTX_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI11hmac_ctx_stN4node15FunctionDeleterIS0_XadL_Z13HMAC_CTX_freeEEEEED2Ev.exit: ; preds = %entry, %if.then.i
-  %retval.120 = phi i1 [ %retval.1.ph, %if.then.i ], [ false, %entry ]
-  ret i1 %retval.120
+  %retval.020 = phi i1 [ %retval.0.ph, %if.then.i ], [ false, %entry ]
+  ret i1 %retval.020
 }
 
 declare noundef ptr @_ZNK4node6crypto13KeyObjectData15GetSymmetricKeyEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0

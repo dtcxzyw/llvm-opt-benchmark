@@ -603,9 +603,9 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr nocapture noundef rea
   br label %.loopexit62
 
 .loopexit62:                                      ; preds = %.lr.ph73.preheader, %.preheader61, %4
-  %.147 = phi ptr [ %2, %4 ], [ %2, %.preheader61 ], [ %scevgep94, %.lr.ph73.preheader ]
-  %.2 = phi i64 [ %1, %4 ], [ %1, %.preheader61 ], [ %24, %.lr.ph73.preheader ]
-  %25 = sub i64 %6, %.2
+  %.046 = phi ptr [ %2, %4 ], [ %2, %.preheader61 ], [ %scevgep94, %.lr.ph73.preheader ]
+  %.043 = phi i64 [ %1, %4 ], [ %1, %.preheader61 ], [ %24, %.lr.ph73.preheader ]
+  %25 = sub i64 %6, %.043
   %.not87 = icmp ult i64 %25, 8
   br i1 %.not87, label %._crit_edge, label %.lr.ph79
 
@@ -616,8 +616,8 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr nocapture noundef rea
   br label %29
 
 29:                                               ; preds = %.lr.ph79, %33
-  %.378 = phi i64 [ %.2, %.lr.ph79 ], [ %35, %33 ]
-  %.24877 = phi ptr [ %.147, %.lr.ph79 ], [ %34, %33 ]
+  %.378 = phi i64 [ %.043, %.lr.ph79 ], [ %35, %33 ]
+  %.24877 = phi ptr [ %.046, %.lr.ph79 ], [ %34, %33 ]
   %.05076 = phi i64 [ 0, %.lr.ph79 ], [ %36, %33 ]
   store i32 0, ptr %27, align 4
   %30 = load i32, ptr %28, align 8
@@ -635,8 +635,8 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr nocapture noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %33, %.loopexit62
-  %.248.lcssa = phi ptr [ %.147, %.loopexit62 ], [ %34, %33 ]
-  %.3.lcssa = phi i64 [ %.2, %.loopexit62 ], [ %35, %33 ]
+  %.248.lcssa = phi ptr [ %.046, %.loopexit62 ], [ %34, %33 ]
+  %.3.lcssa = phi i64 [ %.043, %.loopexit62 ], [ %35, %33 ]
   %.not57 = icmp eq i64 %.3.lcssa, %6
   br i1 %.not57, label %.loopexit, label %37
 

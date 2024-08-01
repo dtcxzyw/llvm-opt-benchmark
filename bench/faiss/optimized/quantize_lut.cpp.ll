@@ -661,7 +661,7 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit327: ; preds = %.lr.ph.i3
 101:                                              ; preds = %.lr.ph, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit345
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit345 ]
   %.0259647 = phi float [ %97, %.lr.ph ], [ %114, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit345 ]
-  %.1614646 = phi float [ 0.000000e+00, %.lr.ph ], [ %115, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit345 ]
+  %.2615646 = phi float [ 0.000000e+00, %.lr.ph ], [ %115, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit345 ]
   %.0624645 = phi float [ 0xFFF0000000000000, %.lr.ph ], [ %.sroa.speculated571, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit345 ]
   %102 = mul i64 %indvars.iv, %2
   %103 = getelementptr inbounds float, ptr %4, i64 %102
@@ -706,7 +706,7 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit345: ; preds = %.lr.ph.i3
   %113 = fcmp olt float %.0624645, %112
   %.sroa.speculated571 = select i1 %113, float %112, float %.0624645
   %114 = fadd float %.0259647, %112
-  %115 = fadd float %.1614646, %.08.lcssa.i335630
+  %115 = fadd float %.2615646, %.08.lcssa.i335630
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %.lr.ph653, label %101, !llvm.loop !18
@@ -869,7 +869,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i371: ; preds = %.noexc375
 171:                                              ; preds = %.lr.ph675, %._crit_edge662
   %indvars.iv814 = phi i64 [ 0, %.lr.ph675 ], [ %indvars.iv.next815, %._crit_edge662 ]
   %.0248673 = phi i64 [ 0, %.lr.ph675 ], [ %.1249.lcssa, %._crit_edge662 ]
-  %.2615672 = phi float [ 0x7FF0000000000000, %.lr.ph675 ], [ %.sroa.speculated534, %._crit_edge662 ]
+  %.3616672 = phi float [ 0x7FF0000000000000, %.lr.ph675 ], [ %.sroa.speculated534, %._crit_edge662 ]
   %.0621671 = phi float [ 0xFFF0000000000000, %.lr.ph675 ], [ %.sroa.speculated539, %._crit_edge662 ]
   %.0622670 = phi float [ 0xFFF0000000000000, %.lr.ph675 ], [ %.1623.lcssa, %._crit_edge662 ]
   %172 = getelementptr inbounds float, ptr %5, i64 %indvars.iv814
@@ -962,8 +962,8 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit403.loopexit: ; preds = %
   %203 = getelementptr inbounds float, ptr %164, i64 %indvars.iv814
   %204 = extractelement <2 x float> %200, i64 1
   store float %204, ptr %203, align 4
-  %205 = fcmp olt float %204, %.2615672
-  %.sroa.speculated534 = select i1 %205, float %204, float %.2615672
+  %205 = fcmp olt float %204, %.3616672
+  %.sroa.speculated534 = select i1 %205, float %204, float %.3616672
   %indvars.iv.next815 = add nuw nsw i64 %indvars.iv814, 1
   %exitcond817.not = icmp eq i64 %indvars.iv.next815, %0
   br i1 %exitcond817.not, label %.preheader644.lr.ph, label %171, !llvm.loop !22
@@ -1062,7 +1062,7 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit421.thread: ; 
 
 _ZNSt6vectorIfSaIfEED2Ev.exit423:                 ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i369, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit421.thread
   %.sroa.speculated522919 = phi float [ %.sroa.speculated522, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit421.thread ], [ -0.000000e+00, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i369 ]
-  %.2615.lcssa917 = phi float [ %.sroa.speculated534, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit421.thread ], [ 0x7FF0000000000000, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i369 ]
+  %.3616.lcssa917 = phi float [ %.sroa.speculated534, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit421.thread ], [ 0x7FF0000000000000, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i369 ]
   %.not.i.i.i424 = icmp eq ptr %.sroa.0553.0, null
   br i1 %.not.i.i.i424, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %243
 
@@ -1281,7 +1281,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit470:                 ; preds = %_ZNSt6vectorIfSaIfE
 
 .lr.ph727:                                        ; preds = %.lr.ph727.preheader, %.lr.ph727
   %indvars.iv864 = phi i64 [ %indvars.iv.next865, %.lr.ph727 ], [ 0, %.lr.ph727.preheader ]
-  %.3616725 = phi float [ %297, %.lr.ph727 ], [ 0.000000e+00, %.lr.ph727.preheader ]
+  %.4725 = phi float [ %297, %.lr.ph727 ], [ 0.000000e+00, %.lr.ph727.preheader ]
   %.0617724 = phi float [ %.sroa.speculated, %.lr.ph727 ], [ 0xFFF0000000000000, %.lr.ph727.preheader ]
   %291 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %indvars.iv864
   %292 = load float, ptr %291, align 4
@@ -1290,7 +1290,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit470:                 ; preds = %_ZNSt6vectorIfSaIfE
   %295 = fsub float %292, %294
   %296 = fcmp olt float %.0617724, %295
   %.sroa.speculated = select i1 %296, float %295, float %.0617724
-  %297 = fadd float %.3616725, %294
+  %297 = fadd float %.4725, %294
   %indvars.iv.next865 = add nuw nsw i64 %indvars.iv864, 1
   %exitcond867.not = icmp eq i64 %indvars.iv.next865, %1
   br i1 %exitcond867.not, label %._crit_edge728, label %.lr.ph727, !llvm.loop !31
@@ -1298,13 +1298,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit470:                 ; preds = %_ZNSt6vectorIfSaIfE
 ._crit_edge728:                                   ; preds = %.lr.ph727, %.preheader641
   %.not.i.i.i.i435930935951 = phi i1 [ true, %.preheader641 ], [ false, %.lr.ph727 ]
   %.0617.lcssa = phi float [ 0xFFF0000000000000, %.preheader641 ], [ %.sroa.speculated, %.lr.ph727 ]
-  %.3616.lcssa = phi float [ 0.000000e+00, %.preheader641 ], [ %297, %.lr.ph727 ]
+  %.4.lcssa = phi float [ 0.000000e+00, %.preheader641 ], [ %297, %.lr.ph727 ]
   %298 = fdiv float 2.550000e+02, %.0617.lcssa
   br i1 %.not763, label %._crit_edge743, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader642.lr.ph, %.lr.ph705, %._crit_edge728
   %299 = phi float [ %298, %._crit_edge728 ], [ -0.000000e+00, %.lr.ph705 ], [ -0.000000e+00, %.preheader642.lr.ph ]
-  %.3616.lcssa969 = phi float [ %.3616.lcssa, %._crit_edge728 ], [ 0.000000e+00, %.lr.ph705 ], [ 0.000000e+00, %.preheader642.lr.ph ]
+  %.4.lcssa969 = phi float [ %.4.lcssa, %._crit_edge728 ], [ 0.000000e+00, %.lr.ph705 ], [ 0.000000e+00, %.preheader642.lr.ph ]
   %.sroa.0.0939949967 = phi ptr [ %.sroa.0.0, %._crit_edge728 ], [ null, %.lr.ph705 ], [ %.sroa.0.0, %.preheader642.lr.ph ]
   %.sroa.0502.0637937950965 = phi ptr [ %.sroa.0502.0637, %._crit_edge728 ], [ null, %.lr.ph705 ], [ %.sroa.0502.0637, %.preheader642.lr.ph ]
   %.not.i.i.i.i435930935951964 = phi i1 [ %.not.i.i.i.i435930935951, %._crit_edge728 ], [ true, %.lr.ph705 ], [ true, %.preheader642.lr.ph ]
@@ -1374,7 +1374,7 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit477.loopexit: 
 
 ._crit_edge743:                                   ; preds = %._crit_edge735, %._crit_edge728
   %323 = phi float [ %298, %._crit_edge728 ], [ %299, %._crit_edge735 ]
-  %.3616.lcssa970 = phi float [ %.3616.lcssa, %._crit_edge728 ], [ %.3616.lcssa969, %._crit_edge735 ]
+  %.4.lcssa970 = phi float [ %.4.lcssa, %._crit_edge728 ], [ %.4.lcssa969, %._crit_edge735 ]
   %.sroa.0.0939949968 = phi ptr [ %.sroa.0.0, %._crit_edge728 ], [ %.sroa.0.0939949967, %._crit_edge735 ]
   %.sroa.0502.0637937950966 = phi ptr [ %.sroa.0502.0637, %._crit_edge728 ], [ %.sroa.0502.0637937950965, %._crit_edge735 ]
   %.not.i.i.i478 = icmp eq ptr %.sroa.0.0939949968, null
@@ -1410,7 +1410,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit481:                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit406
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge756.thread, %326, %_ZNSt6vectorIfSaIfEED2Ev.exit481, %243, %_ZNSt6vectorIfSaIfEED2Ev.exit423, %150, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit, %77
-  %.4 = phi float [ %82, %77 ], [ %137, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit ], [ %137, %150 ], [ %.2615.lcssa917, %_ZNSt6vectorIfSaIfEED2Ev.exit423 ], [ %.2615.lcssa917, %243 ], [ %.3616.lcssa970, %_ZNSt6vectorIfSaIfEED2Ev.exit481 ], [ %.3616.lcssa970, %326 ], [ 0.000000e+00, %._crit_edge756.thread ]
+  %.1614 = phi float [ %82, %77 ], [ %137, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit ], [ %137, %150 ], [ %.3616.lcssa917, %_ZNSt6vectorIfSaIfEED2Ev.exit423 ], [ %.3616.lcssa917, %243 ], [ %.4.lcssa970, %_ZNSt6vectorIfSaIfEED2Ev.exit481 ], [ %.4.lcssa970, %326 ], [ 0.000000e+00, %._crit_edge756.thread ]
   %.0234 = phi float [ %.sroa.speculated586, %77 ], [ %.sroa.speculated565906, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit ], [ %.sroa.speculated565906, %150 ], [ %.sroa.speculated522919, %_ZNSt6vectorIfSaIfEED2Ev.exit423 ], [ %.sroa.speculated522919, %243 ], [ %323, %_ZNSt6vectorIfSaIfEED2Ev.exit481 ], [ %323, %326 ], [ -0.000000e+00, %._crit_edge756.thread ]
   %.not285 = icmp eq ptr %9, null
   br i1 %.not285, label %330, label %329
@@ -1424,7 +1424,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge756.thre
   br i1 %.not286, label %332, label %331
 
 331:                                              ; preds = %330
-  store float %.4, ptr %10, align 4
+  store float %.1614, ptr %10, align 4
   br label %332
 
 332:                                              ; preds = %331, %330

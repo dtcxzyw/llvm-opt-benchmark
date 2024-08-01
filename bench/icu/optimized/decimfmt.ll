@@ -528,9 +528,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3676,8 +3676,8 @@ delete.notnull.i:                                 ; preds = %land.lhs.true
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end, %delete.notnull.i, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %delete.notnull.i ], [ null, %if.end ], [ %call, %land.lhs.true ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ null, %delete.notnull.i ], [ null, %if.end ], [ %call, %land.lhs.true ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5762,7 +5762,7 @@ delete.notnull.i31:                               ; preds = %cleanup.done
   br label %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit: ; preds = %if.then.i, %new.cont, %cleanup.done, %delete.notnull.i31
-  %retval.041 = phi ptr [ null, %delete.notnull.i31 ], [ %call40, %cleanup.done ], [ null, %new.cont ], [ null, %if.then.i ]
+  %retval.241 = phi ptr [ null, %delete.notnull.i31 ], [ %call40, %cleanup.done ], [ null, %new.cont ], [ null, %if.then.i ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %formattable) #16
   br label %cleanup72
 
@@ -5778,7 +5778,7 @@ if.else:                                          ; preds = %invoke.cont31
   br label %cleanup72
 
 cleanup72:                                        ; preds = %invoke.cont, %invoke.cont23, %invoke.cont13, %if.else, %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit
-  %retval.1 = phi ptr [ %retval.041, %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit ], [ null, %if.else ], [ null, %invoke.cont13 ], [ null, %invoke.cont23 ], [ null, %invoke.cont ]
+  %retval.1 = phi ptr [ %retval.241, %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit ], [ null, %if.else ], [ null, %invoke.cont13 ], [ null, %invoke.cont23 ], [ null, %invoke.cont ]
   %suffix.i = getelementptr inbounds i8, ptr %result, i64 144
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %suffix.i) #16
   %prefix.i = getelementptr inbounds i8, ptr %result, i64 80
@@ -5798,8 +5798,8 @@ ehcleanup75:                                      ; preds = %ehcleanup73, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %cleanup72
-  %retval.2 = phi ptr [ %retval.1, %cleanup72 ], [ null, %entry ], [ null, %lor.lhs.false ], [ null, %if.end ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ %retval.1, %cleanup72 ], [ null, %entry ], [ null, %lor.lhs.false ], [ null, %if.end ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

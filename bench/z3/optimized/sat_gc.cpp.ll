@@ -822,9 +822,9 @@ for.body34.lr.ph:                                 ; preds = %_ZN6vectorIPN3sat6c
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.inc89
   %it2.0141 = phi ptr [ %15, %for.body34.lr.ph ], [ %it2.1, %for.inc89 ]
   %it.0140 = phi ptr [ %15, %for.body34.lr.ph ], [ %incdec.ptr90, %for.inc89 ]
-  %activated.0139 = phi i32 [ 0, %for.body34.lr.ph ], [ %activated.2, %for.inc89 ]
+  %activated.0139 = phi i32 [ 0, %for.body34.lr.ph ], [ %activated.1, %for.inc89 ]
   %deleted.0137 = phi i32 [ 0, %for.body34.lr.ph ], [ %deleted.1, %for.inc89 ]
-  %frozen.0136 = phi i32 [ 0, %for.body34.lr.ph ], [ %frozen.2, %for.inc89 ]
+  %frozen.0136 = phi i32 [ 0, %for.body34.lr.ph ], [ %frozen.1, %for.inc89 ]
   %18 = load ptr, ptr %it.0140, align 8
   %m_frozen.i = getelementptr inbounds i8, ptr %18, i64 16
   %bf.load.i = load i32, ptr %m_frozen.i, align 4
@@ -1001,17 +1001,17 @@ if.then81:                                        ; preds = %if.else76
   br label %for.inc89
 
 if.end88:                                         ; preds = %if.end49, %if.then70, %if.else76, %if.then36, %if.then56, %_ZNK3sat6solver3psmERKNS_6clauseE.exit
-  %frozen.1 = phi i32 [ %frozen.0136, %if.then70 ], [ %frozen.0136, %if.else76 ], [ %inc58, %if.then56 ], [ %frozen.0136, %_ZNK3sat6solver3psmERKNS_6clauseE.exit ], [ %frozen.0136, %if.then36 ], [ %frozen.0136, %if.end49 ]
-  %activated.1 = phi i32 [ %inc72, %if.then70 ], [ %activated.0139, %if.else76 ], [ %activated.0139, %if.then56 ], [ %activated.0139, %_ZNK3sat6solver3psmERKNS_6clauseE.exit ], [ %activated.0139, %if.then36 ], [ %activated.0139, %if.end49 ]
+  %frozen.2 = phi i32 [ %frozen.0136, %if.then70 ], [ %frozen.0136, %if.else76 ], [ %inc58, %if.then56 ], [ %frozen.0136, %_ZNK3sat6solver3psmERKNS_6clauseE.exit ], [ %frozen.0136, %if.then36 ], [ %frozen.0136, %if.end49 ]
+  %activated.2 = phi i32 [ %inc72, %if.then70 ], [ %activated.0139, %if.else76 ], [ %activated.0139, %if.then56 ], [ %activated.0139, %_ZNK3sat6solver3psmERKNS_6clauseE.exit ], [ %activated.0139, %if.then36 ], [ %activated.0139, %if.end49 ]
   %46 = load ptr, ptr %it.0140, align 8
   store ptr %46, ptr %it2.0141, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %it2.0141, i64 8
   br label %for.inc89
 
 for.inc89:                                        ; preds = %if.end88, %if.then81, %if.then74, %if.then45
-  %frozen.2 = phi i32 [ %frozen.1, %if.end88 ], [ %frozen.0136, %if.then74 ], [ %frozen.0136, %if.then81 ], [ %frozen.0136, %if.then45 ]
+  %frozen.1 = phi i32 [ %frozen.2, %if.end88 ], [ %frozen.0136, %if.then74 ], [ %frozen.0136, %if.then81 ], [ %frozen.0136, %if.then45 ]
   %deleted.1 = phi i32 [ %deleted.0137, %if.end88 ], [ %deleted.0137, %if.then74 ], [ %inc85, %if.then81 ], [ %inc47, %if.then45 ]
-  %activated.2 = phi i32 [ %activated.1, %if.end88 ], [ %inc72, %if.then74 ], [ %activated.0139, %if.then81 ], [ %activated.0139, %if.then45 ]
+  %activated.1 = phi i32 [ %activated.2, %if.end88 ], [ %inc72, %if.then74 ], [ %activated.0139, %if.then81 ], [ %activated.0139, %if.then45 ]
   %it2.1 = phi ptr [ %incdec.ptr, %if.end88 ], [ %it2.0141, %if.then74 ], [ %it2.0141, %if.then81 ], [ %it2.0141, %if.then45 ]
   %incdec.ptr90 = getelementptr inbounds i8, ptr %it.0140, i64 8
   %cmp33.not = icmp eq ptr %incdec.ptr90, %add.ptr.i
@@ -1024,9 +1024,9 @@ for.end91:                                        ; preds = %for.inc89
 
 if.then.i:                                        ; preds = %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit, %for.end91
   %it2.0.lcssa167 = phi ptr [ %it2.1, %for.end91 ], [ %15, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
-  %activated.0.lcssa166 = phi i32 [ %activated.2, %for.end91 ], [ 0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
+  %activated.0.lcssa166 = phi i32 [ %activated.1, %for.end91 ], [ 0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
   %deleted.0.lcssa165 = phi i32 [ %deleted.1, %for.end91 ], [ 0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
-  %frozen.0.lcssa164 = phi i32 [ %frozen.2, %for.end91 ], [ 0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
+  %frozen.0.lcssa164 = phi i32 [ %frozen.1, %for.end91 ], [ 0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
   %47 = phi ptr [ %.pre, %for.end91 ], [ %15, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %it2.0.lcssa167 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %47 to i64
@@ -1038,9 +1038,9 @@ if.then.i:                                        ; preds = %_ZN6vectorIPN3sat6c
   br label %_ZN6vectorIPN3sat6clauseELb0EjE7set_endEPS2_.exit
 
 _ZN6vectorIPN3sat6clauseELb0EjE7set_endEPS2_.exit: ; preds = %if.end28, %for.end91, %if.then.i
-  %activated.0.lcssa157 = phi i32 [ %activated.2, %for.end91 ], [ %activated.0.lcssa166, %if.then.i ], [ 0, %if.end28 ]
+  %activated.0.lcssa157 = phi i32 [ %activated.1, %for.end91 ], [ %activated.0.lcssa166, %if.then.i ], [ 0, %if.end28 ]
   %deleted.0.lcssa156 = phi i32 [ %deleted.1, %for.end91 ], [ %deleted.0.lcssa165, %if.then.i ], [ 0, %if.end28 ]
-  %frozen.0.lcssa155 = phi i32 [ %frozen.2, %for.end91 ], [ %frozen.0.lcssa164, %if.then.i ], [ 0, %if.end28 ]
+  %frozen.0.lcssa155 = phi i32 [ %frozen.1, %for.end91 ], [ %frozen.0.lcssa164, %if.then.i ], [ 0, %if.end28 ]
   %call93 = tail call noundef i32 @_Z19get_verbosity_levelv()
   %cmp94 = icmp ugt i32 %call93, 9
   br i1 %cmp94, label %if.then95, label %if.end126
@@ -3156,8 +3156,8 @@ if.end46:                                         ; preds = %if.else35
 for.body54:                                       ; preds = %if.end46, %for.body54
   %__i50.066 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
   %__q47.065 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
-  %__p.264 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.264, i64 -8
+  %__p.364 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.364, i64 -8
   %incdec.ptr56 = getelementptr inbounds i8, ptr %__q47.065, i64 -8
   %6 = load ptr, ptr %incdec.ptr55, align 8
   %7 = load ptr, ptr %incdec.ptr56, align 8
@@ -3168,7 +3168,7 @@ for.body54:                                       ; preds = %if.end46, %for.body
   br i1 %exitcond.not, label %for.end59, label %for.body54, !llvm.loop !19
 
 for.end59:                                        ; preds = %for.body54, %if.end46
-  %__p.2.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
+  %__p.3.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
   %rem60 = srem i64 %__n.0, %sub15
   %cmp61 = icmp eq i64 %rem60, 0
   br i1 %cmp61, label %return, label %for.cond.backedge
@@ -3176,7 +3176,7 @@ for.end59:                                        ; preds = %for.body54, %if.end
 for.cond.backedge:                                ; preds = %for.end59, %if.end33
   %__n.0.be = phi i64 [ %__k.0, %if.end33 ], [ %sub15, %for.end59 ]
   %__k.0.be = phi i64 [ %sub34, %if.end33 ], [ %rem60, %for.end59 ]
-  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.2.lcssa, %for.end59 ]
+  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.3.lcssa, %for.end59 ]
   br label %for.cond, !llvm.loop !20
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPPN3sat6clauseES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit

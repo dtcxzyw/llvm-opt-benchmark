@@ -1905,19 +1905,19 @@ sw.bb143:                                         ; preds = %sw.epilog130
   br label %sw.epilog145
 
 sw.epilog145:                                     ; preds = %sw.epilog130, %sw.bb143, %sw.bb140, %sw.bb137
-  %val.addr.1 = phi i32 [ %or142, %sw.bb140 ], [ %and139, %sw.bb137 ], [ %xor, %sw.bb143 ], [ %val.addr.0, %sw.epilog130 ]
+  %val.addr.2 = phi i32 [ %or142, %sw.bb140 ], [ %and139, %sw.bb137 ], [ %xor, %sw.bb143 ], [ %val.addr.0, %sw.epilog130 ]
   %shl146 = shl nuw nsw i32 %bit_mask.0, 8
   %or147 = or i32 %shl146, %bit_mask.0
   %shl148 = shl nuw i32 %or147, 16
   %or149 = or i32 %shl148, %or147
-  %and150 = and i32 %val.addr.1, %or149
+  %and150 = and i32 %val.addr.2, %or149
   %not152 = xor i32 %or149, -1
   %and153 = and i32 %.pre113, %not152
   %or154 = or i32 %and153, %and150
   br label %do_write
 
 do_write:                                         ; preds = %sw.epilog145, %sw.bb105
-  %val.addr.2 = phi i32 [ %or154, %sw.epilog145 ], [ %24, %sw.bb105 ]
+  %val.addr.1 = phi i32 [ %or154, %sw.epilog145 ], [ %24, %sw.bb105 ]
   %cond.in.in.i111.v = select i1 %tobool.i.not.i, i64 595, i64 851
   %cond.in.in.i111 = getelementptr i8, ptr %s, i64 %cond.in.in.i111.v
   %cond.in4.i112 = load i8, ptr %cond.in.in.i111, align 1
@@ -1943,7 +1943,7 @@ if.end166:                                        ; preds = %do_write
   %38 = load i32, ptr %arrayidx168, align 4
   %not169 = xor i32 %36, -1
   %and170 = and i32 %38, %not169
-  %and171 = and i32 %36, %val.addr.2
+  %and171 = and i32 %36, %val.addr.1
   %or172 = or i32 %and170, %and171
   store i32 %or172, ptr %arrayidx168, align 4
   %vram175 = getelementptr inbounds i8, ptr %s, i64 16
@@ -3333,8 +3333,8 @@ for.body.i:                                       ; preds = %if.end291.i, %for.b
 for.body167.i:                                    ; preds = %if.end278.i, %for.body.i
   %cx.0433.i = phi i32 [ 0, %for.body.i ], [ %inc.i, %if.end278.i ]
   %ch_attr_ptr.1432.i = phi ptr [ %ch_attr_ptr.0439.i, %for.body.i ], [ %incdec.ptr.i, %if.end278.i ]
-  %cx_min.0431.i = phi i32 [ %add12.i.i, %for.body.i ], [ %cx_min.2.i, %if.end278.i ]
-  %cx_max.0430.i = phi i32 [ -1, %for.body.i ], [ %cx_max.2.i, %if.end278.i ]
+  %cx_min.0431.i = phi i32 [ %add12.i.i, %for.body.i ], [ %cx_min.1.i, %if.end278.i ]
+  %cx_max.0430.i = phi i32 [ -1, %for.body.i ], [ %cx_max.1.i, %if.end278.i ]
   %src.0428.i = phi ptr [ %add.ptr163.i, %for.body.i ], [ %add.ptr281.i, %if.end278.i ]
   %d1.0427.i = phi ptr [ %dest.0437.i, %for.body.i ], [ %add.ptr280.i, %if.end278.i ]
   %add.ptr168.i = getelementptr i8, ptr %src.0428.i, i64 2
@@ -3359,7 +3359,7 @@ lor.lhs.false178.i:                               ; preds = %if.end175.i
 
 if.then184.i:                                     ; preds = %lor.lhs.false178.i, %if.end175.i
   %spec.select.i = call i32 @llvm.smin.i32(i32 %cx.0433.i, i32 %cx_min.0431.i)
-  %cx_max.1.i = call i32 @llvm.smax.i32(i32 %cx.0433.i, i32 %cx_max.0430.i)
+  %cx_max.2.i = call i32 @llvm.smax.i32(i32 %cx.0433.i, i32 %cx_max.0430.i)
   store i32 %conv176.i, ptr %ch_attr_ptr.1432.i, align 4
   %and193.i = and i32 %conv176.i, 255
   %shr194.i = lshr i32 %conv176.i, 8
@@ -3821,8 +3821,8 @@ do.body.i355.i:                                   ; preds = %do.body.i355.i.preh
   br i1 %tobool48.not.i395.i, label %if.end278.i, label %do.body.i355.i, !llvm.loop !14
 
 if.end278.i:                                      ; preds = %do.body.i355.i, %do.body.i229.i, %do.body.i312.i, %if.then240.i, %land.lhs.true236.i, %land.lhs.true230.i, %if.end227.i, %lor.lhs.false178.i
-  %cx_max.2.i = phi i32 [ %cx_max.1.i, %land.lhs.true230.i ], [ %cx_max.1.i, %if.then240.i ], [ %cx_max.1.i, %land.lhs.true236.i ], [ %cx_max.1.i, %if.end227.i ], [ %cx_max.0430.i, %lor.lhs.false178.i ], [ %cx_max.1.i, %do.body.i312.i ], [ %cx_max.1.i, %do.body.i229.i ], [ %cx_max.1.i, %do.body.i355.i ]
-  %cx_min.2.i = phi i32 [ %spec.select.i, %land.lhs.true230.i ], [ %spec.select.i, %if.then240.i ], [ %spec.select.i, %land.lhs.true236.i ], [ %spec.select.i, %if.end227.i ], [ %cx_min.0431.i, %lor.lhs.false178.i ], [ %spec.select.i, %do.body.i312.i ], [ %spec.select.i, %do.body.i229.i ], [ %spec.select.i, %do.body.i355.i ]
+  %cx_max.1.i = phi i32 [ %cx_max.2.i, %land.lhs.true230.i ], [ %cx_max.2.i, %if.then240.i ], [ %cx_max.2.i, %land.lhs.true236.i ], [ %cx_max.2.i, %if.end227.i ], [ %cx_max.0430.i, %lor.lhs.false178.i ], [ %cx_max.2.i, %do.body.i312.i ], [ %cx_max.2.i, %do.body.i229.i ], [ %cx_max.2.i, %do.body.i355.i ]
+  %cx_min.1.i = phi i32 [ %spec.select.i, %land.lhs.true230.i ], [ %spec.select.i, %if.then240.i ], [ %spec.select.i, %land.lhs.true236.i ], [ %spec.select.i, %if.end227.i ], [ %cx_min.0431.i, %lor.lhs.false178.i ], [ %spec.select.i, %do.body.i312.i ], [ %spec.select.i, %do.body.i229.i ], [ %spec.select.i, %do.body.i355.i ]
   %add.ptr280.i = getelementptr i8, ptr %d1.0427.i, i64 %idx.ext279.i
   %add.ptr281.i = getelementptr i8, ptr %src.0428.i, i64 4
   %incdec.ptr.i = getelementptr i8, ptr %ch_attr_ptr.1432.i, i64 4
@@ -3831,8 +3831,8 @@ if.end278.i:                                      ; preds = %do.body.i355.i, %do
   br i1 %exitcond.i, label %for.end.i, label %for.body167.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %if.end278.i, %for.body167.i
-  %cx_max.0.lcssa.i = phi i32 [ %cx_max.0430.i, %for.body167.i ], [ %cx_max.2.i, %if.end278.i ]
-  %cx_min.0.lcssa.i = phi i32 [ %cx_min.0431.i, %for.body167.i ], [ %cx_min.2.i, %if.end278.i ]
+  %cx_max.0.lcssa.i = phi i32 [ %cx_max.0430.i, %for.body167.i ], [ %cx_max.1.i, %if.end278.i ]
+  %cx_min.0.lcssa.i = phi i32 [ %cx_min.0431.i, %for.body167.i ], [ %cx_min.1.i, %if.end278.i ]
   %ch_attr_ptr.1.lcssa.i = phi ptr [ %ch_attr_ptr.1432.i, %for.body167.i ], [ %incdec.ptr.i, %if.end278.i ]
   %cmp282.not.i = icmp eq i32 %cx_max.0.lcssa.i, -1
   br i1 %cmp282.not.i, label %if.end291.i, label %if.then284.i
@@ -4424,9 +4424,9 @@ sw.bb199.i:                                       ; preds = %if.else177.i
 
 if.end205.i:                                      ; preds = %sw.bb199.i, %sw.bb194.i, %sw.bb189.i, %sw.bb185.i, %update_palette256.exit279.i, %update_palette256.exit.i, %if.then167.i, %if.then154.i
   %bits.0.i = phi i32 [ 4, %if.then154.i ], [ 4, %if.then167.i ], [ 4, %update_palette256.exit.i ], [ 24, %sw.bb194.i ], [ 16, %sw.bb189.i ], [ 16, %sw.bb185.i ], [ 8, %update_palette256.exit279.i ], [ 32, %sw.bb199.i ]
-  %v.2.i = phi i64 [ %..i, %if.then154.i ], [ %.176.i, %if.then167.i ], [ 4, %update_palette256.exit.i ], [ %cond198.i, %sw.bb194.i ], [ %cond193.i, %sw.bb189.i ], [ %cond.i, %sw.bb185.i ], [ 5, %update_palette256.exit279.i ], [ %cond203.i, %sw.bb199.i ]
+  %v.1.i = phi i64 [ %..i, %if.then154.i ], [ %.176.i, %if.then167.i ], [ 4, %update_palette256.exit.i ], [ %cond198.i, %sw.bb194.i ], [ %cond193.i, %sw.bb189.i ], [ %cond.i, %sw.bb185.i ], [ 5, %update_palette256.exit279.i ], [ %cond203.i, %sw.bb199.i ]
   %full_update.addr.3.i56 = phi i32 [ %or156.i, %if.then154.i ], [ %or169.i, %if.then167.i ], [ %or181.i, %update_palette256.exit.i ], [ %full_update.addr.2288.i, %sw.bb194.i ], [ %full_update.addr.2288.i, %sw.bb189.i ], [ %full_update.addr.2288.i, %sw.bb185.i ], [ %or184.i, %update_palette256.exit279.i ], [ %full_update.addr.2288.i, %sw.bb199.i ]
-  %arrayidx206.i = getelementptr [14 x ptr], ptr @vga_draw_line_table, i64 0, i64 %v.2.i
+  %arrayidx206.i = getelementptr [14 x ptr], ptr @vga_draw_line_table, i64 0, i64 %v.1.i
   %260 = load ptr, ptr %arrayidx206.i, align 8
   %261 = getelementptr i8, ptr %surface.0.i55, i64 8
   %surface.0.val184.i = load i8, ptr %261, align 8

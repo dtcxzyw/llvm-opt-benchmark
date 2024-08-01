@@ -1027,9 +1027,9 @@ define noundef ptr @_ZN9uu_csplit11SplitWriter17delete_all_splits17h0ede0576c99c
   br label %16
 
 .body:                                            ; preds = %22, %14, %37
-  %.1 = phi ptr [ %21, %37 ], [ %.023, %14 ], [ %.023, %22 ]
+  %.2 = phi ptr [ %21, %37 ], [ %.023, %14 ], [ %.023, %22 ]
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %15, %14 ], [ %23, %22 ]
-  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h42c0638c95275ff7E"(ptr %.1) #11
+  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h42c0638c95275ff7E"(ptr %.2) #11
           to label %42 unwind label %40
 
 14:                                               ; preds = %26, %24, %16
@@ -1038,12 +1038,12 @@ define noundef ptr @_ZN9uu_csplit11SplitWriter17delete_all_splits17h0ede0576c99c
   br label %.body
 
 ._crit_edge:                                      ; preds = %39, %1
-  %.0.lcssa = phi ptr [ null, %1 ], [ %.4, %39 ]
+  %.0.lcssa = phi ptr [ null, %1 ], [ %.3, %39 ]
   ret ptr %.0.lcssa
 
 16:                                               ; preds = %.lr.ph, %39
   %.sroa.01.024 = phi i64 [ 0, %.lr.ph ], [ %17, %39 ]
-  %.023 = phi ptr [ null, %.lr.ph ], [ %.4, %39 ]
+  %.023 = phi ptr [ null, %.lr.ph ], [ %.3, %39 ]
   %17 = add nuw i64 %.sroa.01.024, 1
   invoke void @_ZN9uu_csplit10split_name9SplitName3get17h005983d60bc81ba9E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %8, i64 noundef %.sroa.01.024)
           to label %18 unwind label %14
@@ -1116,7 +1116,7 @@ define noundef ptr @_ZN9uu_csplit11SplitWriter17delete_all_splits17h0ede0576c99c
   br label %.body
 
 39:                                               ; preds = %31, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i", %32
-  %.4 = phi ptr [ %.023, %31 ], [ %21, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i" ], [ %21, %32 ]
+  %.3 = phi ptr [ %.023, %31 ], [ %21, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i" ], [ %21, %32 ]
   %exitcond.not = icmp eq i64 %17, %6
   br i1 %exitcond.not, label %._crit_edge, label %16
 

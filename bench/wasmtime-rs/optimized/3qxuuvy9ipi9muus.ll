@@ -23377,12 +23377,12 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34: ; preds = %93, %_Z
   unreachable
 
 .noexc39:                                         ; preds = %101, %.noexc38
-  br i1 %.01363, label %102, label %"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hb55fdf47cff0dabcE.exit42"
+  br i1 %.11463, label %102, label %"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hb55fdf47cff0dabcE.exit42"
 
 .thread:                                          ; preds = %.thread84, %97, %.thread67
   %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread67 ], [ %lpad.thr_comm82, %.thread84 ], [ %lpad.thr_comm.split-lp83, %97 ]
-  %.01363 = phi i1 [ true, %.thread67 ], [ %.215.ph, %.thread84 ], [ true, %97 ]
-  %.01661 = phi i1 [ true, %.thread67 ], [ %.218.ph, %.thread84 ], [ false, %97 ]
+  %.11463 = phi i1 [ true, %.thread67 ], [ %.215.ph, %.thread84 ], [ true, %97 ]
+  %.11761 = phi i1 [ true, %.thread67 ], [ %.218.ph, %.thread84 ], [ false, %97 ]
   %100 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h0334ce97825fa31dE(ptr noundef nonnull align 8 %11)
           to label %.noexc38 unwind label %98
 
@@ -23394,7 +23394,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34: ; preds = %93, %_Z
           to label %.noexc39 unwind label %98
 
 "_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hb55fdf47cff0dabcE.exit42": ; preds = %.noexc40, %104, %.noexc39
-  br i1 %.01661, label %105, label %common.resume
+  br i1 %.11761, label %105, label %common.resume
 
 102:                                              ; preds = %.noexc39
   %103 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State7ref_dec17hd797b65205b1b6c1E(ptr noundef nonnull align 8 %11)
@@ -23678,12 +23678,12 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34: ; preds = %93, %_Z
   unreachable
 
 .noexc39:                                         ; preds = %101, %.noexc38
-  br i1 %.01363, label %102, label %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h61773b142151d26dE.exit42"
+  br i1 %.11463, label %102, label %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h61773b142151d26dE.exit42"
 
 .thread:                                          ; preds = %.thread84, %97, %.thread67
   %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread67 ], [ %lpad.thr_comm82, %.thread84 ], [ %lpad.thr_comm.split-lp83, %97 ]
-  %.01363 = phi i1 [ true, %.thread67 ], [ %.215.ph, %.thread84 ], [ true, %97 ]
-  %.01661 = phi i1 [ true, %.thread67 ], [ %.218.ph, %.thread84 ], [ false, %97 ]
+  %.11463 = phi i1 [ true, %.thread67 ], [ %.215.ph, %.thread84 ], [ true, %97 ]
+  %.11761 = phi i1 [ true, %.thread67 ], [ %.218.ph, %.thread84 ], [ false, %97 ]
   %100 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h0334ce97825fa31dE(ptr noundef nonnull align 8 %11)
           to label %.noexc38 unwind label %98
 
@@ -23695,7 +23695,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34: ; preds = %93, %_Z
           to label %.noexc39 unwind label %98
 
 "_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h61773b142151d26dE.exit42": ; preds = %.noexc40, %104, %.noexc39
-  br i1 %.01661, label %105, label %common.resume
+  br i1 %.11761, label %105, label %common.resume
 
 102:                                              ; preds = %.noexc39
   %103 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State7ref_dec17hd797b65205b1b6c1E(ptr noundef nonnull align 8 %11)
@@ -27101,8 +27101,8 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.th
   br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread
 
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread: ; preds = %switch.lookup, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread100, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread102, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread104, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread106, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit, %_ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.3320867604257097217.exit
-  %.1 = phi i8 [ %21, %_ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.3320867604257097217.exit ], [ 12, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread106 ], [ 7, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread104 ], [ 31, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread102 ], [ 20, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread100 ], [ 13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit ], [ %switch.load, %switch.lookup ]
-  ret i8 %.1
+  %.0 = phi i8 [ %21, %_ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.3320867604257097217.exit ], [ 12, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread106 ], [ 7, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread104 ], [ 31, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread102 ], [ 20, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread100 ], [ 13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit ], [ %switch.load, %switch.lookup ]
+  ret i8 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

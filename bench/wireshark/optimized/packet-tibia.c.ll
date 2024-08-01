@@ -1659,12 +1659,12 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   %64 = and i32 %63, -2
   %65 = or disjoint i32 %64, %61
   store i32 %65, ptr %62, align 8
-  %spec.select.neg429 = select i1 %60, i32 -6, i32 -2
+  %spec.select.neg428 = select i1 %60, i32 -6, i32 -2
   %spec.select = select i1 %60, i32 6, i32 2
   %66 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %spec.select) #13
   %67 = zext i16 %66 to i32
   %68 = add nsw i32 %20, -2
-  %69 = add nsw i32 %68, %spec.select.neg429
+  %69 = add nsw i32 %68, %spec.select.neg428
   %70 = icmp eq i32 %69, %67
   br i1 %70, label %71, label %75
 
@@ -1789,8 +1789,8 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   call void @col_set_str(ptr noundef %139, i32 noundef 34, ptr noundef nonnull @.str.217) #13
   %140 = ptrtoint ptr %3 to i64
   %141 = and i64 %140, 4294967295
-  %.not428 = icmp eq i64 %141, 1
-  br i1 %.not428, label %142, label %155
+  %.not427 = icmp eq i64 %141, 1
+  br i1 %.not427, label %142, label %155
 
 142:                                              ; preds = %135
   br i1 %136, label %143, label %145
@@ -2013,11 +2013,11 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
 
 .lr.ph.i:                                         ; preds = %246, %.lr.ph.i
   %.0148.i = phi ptr [ %253, %.lr.ph.i ], [ %250, %246 ]
-  %.0109147.i = phi i32 [ %254, %.lr.ph.i ], [ %.1, %246 ]
-  %252 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0109147.i, i32 noundef 8) #13
+  %.1147.i = phi i32 [ %254, %.lr.ph.i ], [ %.1, %246 ]
+  %252 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.1147.i, i32 noundef 8) #13
   call void @decrypt_xtea_le_ecb(ptr noundef %.0148.i, ptr noundef %252, ptr noundef %.0.i, i32 noundef 32) #13
   %253 = getelementptr i8, ptr %.0148.i, i64 8
-  %254 = add i32 %.0109147.i, 8
+  %254 = add i32 %.1147.i, 8
   %255 = icmp slt i32 %254, %244
   br i1 %255, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
@@ -2032,7 +2032,7 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   br label %dissect_game_packet.exit
 
 260:                                              ; preds = %._crit_edge.i, %proto_item_set_generated.exit136.i
-  %.1.i410 = phi i32 [ 0, %._crit_edge.i ], [ %.1, %proto_item_set_generated.exit136.i ]
+  %.0109.i = phi i32 [ 0, %._crit_edge.i ], [ %.1, %proto_item_set_generated.exit136.i ]
   %.0107.i = phi ptr [ %256, %._crit_edge.i ], [ %0, %proto_item_set_generated.exit136.i ]
   %261 = load i32, ptr %62, align 8
   %262 = and i32 %261, 8
@@ -2040,11 +2040,11 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   br i1 %.not125.i, label %273, label %263
 
 263:                                              ; preds = %260
-  %264 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0107.i, i32 noundef %.1.i410) #13
+  %264 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0107.i, i32 noundef %.0109.i) #13
   %265 = zext i16 %264 to i32
   %266 = load i32, ptr @hf_tibia_payload_len, align 4
-  %267 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %266, ptr noundef %.0107.i, i32 noundef %.1.i410, i32 noundef 2, i32 noundef -2147483648) #13
-  %268 = add nuw nsw i32 %.1.i410, 2
+  %267 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %266, ptr noundef %.0107.i, i32 noundef %.0109.i, i32 noundef 2, i32 noundef -2147483648) #13
+  %268 = add nuw nsw i32 %.0109.i, 2
   %269 = call i32 @tvb_captured_length_remaining(ptr noundef %.0107.i, i32 noundef %268) #13
   %270 = icmp slt i32 %269, %265
   br i1 %270, label %271, label %273
@@ -2054,7 +2054,7 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   br label %dissect_game_packet.exit
 
 273:                                              ; preds = %263, %260
-  %.2.i411 = phi i32 [ %268, %263 ], [ %.1.i410, %260 ]
+  %.2.i410 = phi i32 [ %268, %263 ], [ %.0109.i, %260 ]
   %.0108.i = phi i32 [ %265, %263 ], [ %172, %260 ]
   %274 = getelementptr inbounds i8, ptr %1, i64 284
   %275 = load i32, ptr %274, align 4
@@ -2074,11 +2074,11 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
 284:                                              ; preds = %280
   %285 = getelementptr inbounds i8, ptr %1, i64 408
   %286 = load ptr, ptr %285, align 8
-  %287 = call ptr @ptvcursor_new(ptr noundef %286, ptr noundef %159, ptr noundef %.0107.i, i32 noundef %.2.i411) #13
+  %287 = call ptr @ptvcursor_new(ptr noundef %286, ptr noundef %159, ptr noundef %.0107.i, i32 noundef %.2.i410) #13
   %288 = load ptr, ptr %138, align 8
-  %289 = select i1 %.not428, ptr @.str.387, ptr @.str.388
+  %289 = select i1 %.not427, ptr @.str.387, ptr @.str.388
   call void @col_append_str(ptr noundef %288, i32 noundef 25, ptr noundef nonnull %289) #13
-  %290 = add i32 %.0108.i, %.2.i411
+  %290 = add i32 %.0108.i, %.2.i410
   %291 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
   %292 = icmp slt i32 %291, %290
   br i1 %292, label %.preheader.i.i, label %dissect_loginserv_packet.exit.i
@@ -2323,19 +2323,19 @@ dissect_loginserv_packet.exit.i:                  ; preds = %422, %284
   br i1 %.not127145.i, label %432, label %656
 
 432:                                              ; preds = %.thread.i, %429
-  %433 = call ptr @tvb_new_subset_length(ptr noundef %.0107.i, i32 noundef %.2.i411, i32 noundef %.0108.i) #13
+  %433 = call ptr @tvb_new_subset_length(ptr noundef %.0107.i, i32 noundef %.2.i410, i32 noundef %.0108.i) #13
   %434 = call i32 @call_data_dissector(ptr noundef %433, ptr noundef nonnull %1, ptr noundef %159) #13
-  %435 = add i32 %.0108.i, %.2.i411
+  %435 = add i32 %.0108.i, %.2.i410
   br label %dissect_game_packet.exit
 
 436:                                              ; preds = %429
   %437 = getelementptr inbounds i8, ptr %1, i64 408
   %438 = load ptr, ptr %437, align 8
-  %439 = call ptr @ptvcursor_new(ptr noundef %438, ptr noundef %159, ptr noundef %.0107.i, i32 noundef %.2.i411) #13
+  %439 = call ptr @ptvcursor_new(ptr noundef %438, ptr noundef %159, ptr noundef %.0107.i, i32 noundef %.2.i410) #13
   %440 = load ptr, ptr %138, align 8
-  %441 = select i1 %.not428, ptr @.str.387, ptr @.str.388
+  %441 = select i1 %.not427, ptr @.str.387, ptr @.str.388
   call void @col_append_str(ptr noundef %440, i32 noundef 25, ptr noundef nonnull %441) #13
-  %442 = add i32 %.0108.i, %.2.i411
+  %442 = add i32 %.0108.i, %.2.i410
   %443 = call i32 @ptvcursor_current_offset(ptr noundef %439) #13
   %444 = icmp slt i32 %443, %442
   br i1 %444, label %.preheader.i142.i, label %dissect_gameserv_packet.exit.i
@@ -2698,11 +2698,11 @@ dissect_gameserv_packet.exit.i:                   ; preds = %649, %436
 656:                                              ; preds = %.thread.i
   %657 = getelementptr inbounds i8, ptr %1, i64 408
   %658 = load ptr, ptr %657, align 8
-  %659 = call ptr @ptvcursor_new(ptr noundef %658, ptr noundef %159, ptr noundef %.0107.i, i32 noundef %.2.i411) #13
+  %659 = call ptr @ptvcursor_new(ptr noundef %658, ptr noundef %159, ptr noundef %.0107.i, i32 noundef %.2.i410) #13
   %660 = load ptr, ptr %138, align 8
-  %661 = select i1 %.not428, ptr @.str.387, ptr @.str.388
+  %661 = select i1 %.not427, ptr @.str.387, ptr @.str.388
   call void @col_append_str(ptr noundef %660, i32 noundef 25, ptr noundef nonnull %661) #13
-  %662 = add i32 %.0108.i, %.2.i411
+  %662 = add i32 %.0108.i, %.2.i410
   %663 = call i32 @ptvcursor_current_offset(ptr noundef %659) #13
   %664 = icmp slt i32 %663, %662
   br i1 %664, label %.preheader.i144.i, label %dissect_client_packet.exit.i
@@ -2784,47 +2784,47 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   %709 = getelementptr inbounds i8, ptr %.0.i, i64 64
   store i16 %708, ptr %709, align 8
   %710 = icmp ugt i16 %708, 760
-  %spec.select.i412 = select i1 %710, i32 266, i32 256
+  %spec.select.i411 = select i1 %710, i32 266, i32 256
   %711 = icmp ugt i16 %708, 779
-  %712 = or disjoint i32 %spec.select.i412, 7168
-  %.sroa.0.1.i413 = select i1 %711, i32 %712, i32 %spec.select.i412
+  %712 = or disjoint i32 %spec.select.i411, 7168
+  %.sroa.0.1.i412 = select i1 %711, i32 %712, i32 %spec.select.i411
   %713 = icmp ugt i16 %708, 829
-  %714 = or disjoint i32 %.sroa.0.1.i413, 33
-  %.sroa.0.2.i414 = select i1 %713, i32 %714, i32 %.sroa.0.1.i413
+  %714 = or disjoint i32 %.sroa.0.1.i412, 33
+  %.sroa.0.2.i413 = select i1 %713, i32 %714, i32 %.sroa.0.1.i412
   %715 = icmp ugt i16 %708, 840
-  %716 = or disjoint i32 %.sroa.0.2.i414, 576
-  %.sroa.0.3.i415 = select i1 %715, i32 %716, i32 %.sroa.0.2.i414
+  %716 = or disjoint i32 %.sroa.0.2.i413, 576
+  %.sroa.0.3.i414 = select i1 %715, i32 %716, i32 %.sroa.0.2.i413
   %717 = icmp ugt i16 %708, 952
-  %718 = or i32 %.sroa.0.3.i415, 8192
-  %.sroa.0.4.i416 = select i1 %717, i32 %718, i32 %.sroa.0.3.i415
+  %718 = or i32 %.sroa.0.3.i414, 8192
+  %.sroa.0.4.i415 = select i1 %717, i32 %718, i32 %.sroa.0.3.i414
   %719 = icmp ugt i16 %708, 979
-  %720 = or i32 %.sroa.0.4.i416, 49152
-  %.sroa.0.5.i417 = select i1 %719, i32 %720, i32 %.sroa.0.4.i416
+  %720 = or i32 %.sroa.0.4.i415, 49152
+  %.sroa.0.5.i416 = select i1 %719, i32 %720, i32 %.sroa.0.4.i415
   %721 = icmp ugt i16 %708, 1009
-  %722 = or i32 %.sroa.0.5.i417, 524288
-  %.sroa.0.6.i418 = select i1 %721, i32 %722, i32 %.sroa.0.5.i417
+  %722 = or i32 %.sroa.0.5.i416, 524288
+  %.sroa.0.6.i417 = select i1 %721, i32 %722, i32 %.sroa.0.5.i416
   %723 = icmp ugt i16 %708, 1060
-  %724 = or i32 %.sroa.0.6.i418, 128
-  %.sroa.0.7.i419 = select i1 %723, i32 %724, i32 %.sroa.0.6.i418
+  %724 = or i32 %.sroa.0.6.i417, 128
+  %.sroa.0.7.i418 = select i1 %723, i32 %724, i32 %.sroa.0.6.i417
   %725 = icmp ugt i16 %708, 1070
-  %726 = or i32 %.sroa.0.7.i419, 262144
-  %.sroa.0.8.i420 = select i1 %725, i32 %726, i32 %.sroa.0.7.i419
+  %726 = or i32 %.sroa.0.7.i418, 262144
+  %.sroa.0.8.i419 = select i1 %725, i32 %726, i32 %.sroa.0.7.i418
   %727 = icmp ugt i16 %708, 1071
-  %728 = or i32 %.sroa.0.8.i420, 65536
-  %.sroa.0.9.i421 = select i1 %727, i32 %728, i32 %.sroa.0.8.i420
+  %728 = or i32 %.sroa.0.8.i419, 65536
+  %.sroa.0.9.i420 = select i1 %727, i32 %728, i32 %.sroa.0.8.i419
   %729 = icmp ugt i16 %708, 1073
-  %730 = or i32 %.sroa.0.9.i421, 131072
-  %.sroa.0.10.i422 = select i1 %729, i32 %730, i32 %.sroa.0.9.i421
+  %730 = or i32 %.sroa.0.9.i420, 131072
+  %.sroa.0.10.i421 = select i1 %729, i32 %730, i32 %.sroa.0.9.i420
   %731 = icmp ugt i16 %708, 1100
-  %732 = or i32 %.sroa.0.10.i422, 16
-  %.sroa.0.11.i423 = select i1 %731, i32 %732, i32 %.sroa.0.10.i422
+  %732 = or i32 %.sroa.0.10.i421, 16
+  %.sroa.0.11.i422 = select i1 %731, i32 %732, i32 %.sroa.0.10.i421
   %733 = icmp ugt i16 %708, 1110
-  %734 = and i32 %.sroa.0.11.i423, -6
+  %734 = and i32 %.sroa.0.11.i422, -6
   %735 = or disjoint i32 %734, 4
-  %.sroa.0.12.i424 = select i1 %733, i32 %735, i32 %.sroa.0.11.i423
-  %.sroa.0.0.insert.ext.i425 = zext nneg i32 %.sroa.0.12.i424 to i64
-  %.sroa.0.0.insert.insert.i426 = or disjoint i64 %.sroa.0.0.insert.ext.i425, 42949672960
-  store i64 %.sroa.0.0.insert.insert.i426, ptr %62, align 8
+  %.sroa.0.12.i423 = select i1 %733, i32 %735, i32 %.sroa.0.11.i422
+  %.sroa.0.0.insert.ext.i424 = zext nneg i32 %.sroa.0.12.i423 to i64
+  %.sroa.0.0.insert.insert.i425 = or disjoint i64 %.sroa.0.0.insert.ext.i424, 42949672960
+  store i64 %.sroa.0.0.insert.insert.i425, ptr %62, align 8
   %736 = load i32, ptr @hf_tibia_proto_version, align 4
   %737 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %736, ptr noundef %0, i32 noundef %707, i32 noundef 2, i32 noundef -2147483648) #13
   %738 = add nuw nsw i32 %.1, 5
@@ -2899,12 +2899,12 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
 780:                                              ; preds = %777
   %781 = getelementptr i8, ptr %.0.i, i64 72
   %.val403 = load ptr, ptr %781, align 8
-  %.not.i427 = icmp eq ptr %.val403, null
+  %.not.i426 = icmp eq ptr %.val403, null
   %782 = load i32, ptr @try_otserv_key, align 4
   %.not2.i = icmp eq i32 %782, 0
   %783 = load ptr, ptr @otserv_key, align 8
   %784 = select i1 %.not2.i, ptr null, ptr %783
-  %785 = select i1 %.not.i427, ptr %784, ptr %.val403
+  %785 = select i1 %.not.i426, ptr %784, ptr %.val403
   %.not377 = icmp eq ptr %785, null
   br i1 %.not377, label %786, label %790
 
@@ -2962,31 +2962,31 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   %816 = getelementptr inbounds i8, ptr %1, i64 20
   %817 = load i32, ptr %816, align 4
   store i32 %817, ptr %44, align 8
-  %.pre431.pre = load i32, ptr %62, align 8
+  %.pre430.pre = load i32, ptr %62, align 8
   br label %818
 
 818:                                              ; preds = %812, %777
-  %.pre431 = phi i32 [ %.pre431.pre, %812 ], [ %778, %777 ]
+  %.pre430 = phi i32 [ %.pre430.pre, %812 ], [ %778, %777 ]
   %.0366 = phi i32 [ %796, %812 ], [ 0, %777 ]
   %.5 = phi i32 [ 17, %812 ], [ %.4, %777 ]
   %.0362 = phi ptr [ %808, %812 ], [ %0, %777 ]
   %819 = load i8, ptr %746, align 2
   %820 = and i8 %819, 1
   %.not380 = icmp ne i8 %820, 0
-  %821 = and i32 %.pre431, 256
+  %821 = and i32 %.pre430, 256
   %.not381 = icmp eq i32 %821, 0
-  %or.cond434 = select i1 %.not380, i1 true, i1 %.not381
-  br i1 %or.cond434, label %826, label %822
+  %or.cond433 = select i1 %.not380, i1 true, i1 %.not381
+  br i1 %or.cond433, label %826, label %822
 
 822:                                              ; preds = %818
   %823 = load i32, ptr @hf_tibia_loginflags_gm, align 4
   %824 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %823, ptr noundef %.0362, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #13
   %825 = add nuw nsw i32 %.5, 1
-  %.pre430 = load i32, ptr %62, align 8
+  %.pre429 = load i32, ptr %62, align 8
   br label %826
 
 826:                                              ; preds = %822, %818
-  %827 = phi i32 [ %.pre431, %818 ], [ %.pre430, %822 ]
+  %827 = phi i32 [ %.pre430, %818 ], [ %.pre429, %822 ]
   %.6 = phi i32 [ %.5, %818 ], [ %825, %822 ]
   %828 = and i32 %827, 131072
   %.not382 = icmp eq i32 %828, 0
@@ -3134,11 +3134,11 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
 910:                                              ; preds = %907, %905
   %911 = load i32, ptr %9, align 4
   %912 = add i32 %911, %.8
-  %.pre432 = load i8, ptr %746, align 2
+  %.pre431 = load i8, ptr %746, align 2
   br label %913
 
 913:                                              ; preds = %910, %895
-  %914 = phi i8 [ %.pre432, %910 ], [ %896, %895 ]
+  %914 = phi i8 [ %.pre431, %910 ], [ %896, %895 ]
   %.9 = phi i32 [ %912, %910 ], [ %.8, %895 ]
   %915 = and i8 %914, 1
   %.not393 = icmp eq i8 %915, 0

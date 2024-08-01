@@ -532,9 +532,9 @@ zabbix_add_expert_info_if_too_large.exit604.thread: ; preds = %89
   br label %zabbix_add_expert_info_if_too_large.exit603.thread
 
 zabbix_add_expert_info_if_too_large.exit603:      ; preds = %98, %79
-  %.4 = phi i1 [ %75, %79 ], [ %94, %98 ]
+  %.0634 = phi i1 [ %75, %79 ], [ %94, %98 ]
   %.0500 = phi i32 [ 21, %79 ], [ 13, %98 ]
-  br i1 %.4, label %zabbix_add_expert_info_if_too_large.exit603.thread, label %110
+  br i1 %.0634, label %zabbix_add_expert_info_if_too_large.exit603.thread, label %110
 
 zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %84, %zabbix_add_expert_info_if_too_large.exit603
   %.0500639 = phi i32 [ %.0500, %zabbix_add_expert_info_if_too_large.exit603 ], [ 13, %104 ], [ 21, %84 ], [ 13, %106 ], [ 21, %86 ]
@@ -562,7 +562,7 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
   br label %118
 
 118:                                              ; preds = %116, %114, %113
-  %.0508 = phi ptr [ %112, %113 ], [ %115, %114 ], [ %117, %116 ]
+  %.1509 = phi ptr [ %112, %113 ], [ %115, %114 ], [ %117, %116 ]
   %.0505.in = phi ptr [ %6, %113 ], [ %5, %114 ], [ %5, %116 ]
   %.0505 = load i64, ptr %.0505.in, align 8
   %119 = load i32, ptr %.1.i, align 8
@@ -581,7 +581,7 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
   %128 = getelementptr inbounds i8, ptr %1, i64 408
   %129 = load ptr, ptr %128, align 8
   %130 = trunc i64 %.0505 to i32
-  %131 = call ptr @tvb_get_string_enc(ptr noundef %129, ptr noundef %.0508, i32 noundef 0, i32 noundef %130, i32 noundef 2) #5
+  %131 = call ptr @tvb_get_string_enc(ptr noundef %129, ptr noundef %.1509, i32 noundef 0, i32 noundef %130, i32 noundef 2) #5
   %132 = load i32, ptr %.1.i, align 8
   %133 = load ptr, ptr %120, align 8
   %134 = load i32, ptr %133, align 8
@@ -632,7 +632,7 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
 
 159:                                              ; preds = %156
   %160 = load i32, ptr @hf_zabbix_data, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %160, ptr noundef %.0508, i32 noundef 0, i32 noundef %130, i32 noundef 2) #5
+  %161 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %160, ptr noundef %.1509, i32 noundef 0, i32 noundef %130, i32 noundef 2) #5
   %162 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %161, ptr noundef nonnull @ei_zabbix_json_error, ptr noundef nonnull @.str.104) #5
   br label %647
 
@@ -647,7 +647,7 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
 
 170:                                              ; preds = %163
   %171 = load i32, ptr @hf_zabbix_data, align 4
-  %172 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %171, ptr noundef %.0508, i32 noundef 0, i32 noundef %130, i32 noundef 2) #5
+  %172 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %171, ptr noundef %.1509, i32 noundef 0, i32 noundef %130, i32 noundef 2) #5
   %173 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %172, ptr noundef nonnull @ei_zabbix_json_error, ptr noundef nonnull @.str.105) #5
   br label %647
 
@@ -657,7 +657,7 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
   %177 = call zeroext i1 @json_get_double(ptr noundef %131, ptr noundef %167, ptr noundef nonnull @.str.108, ptr noundef nonnull %7) #5
   %178 = load double, ptr %7, align 8
   %179 = fptosi double %178 to i64
-  %.0506 = select i1 %177, i64 %179, i64 -1
+  %.1507 = select i1 %177, i64 %179, i64 -1
   %180 = call ptr @json_get_string(ptr noundef %131, ptr noundef %167, ptr noundef nonnull @.str.109) #5
   %181 = call ptr @json_get_string(ptr noundef %131, ptr noundef %167, ptr noundef nonnull @.str.110) #5
   %182 = call ptr @json_get_array(ptr noundef %131, ptr noundef %167, ptr noundef nonnull @.str.111) #5
@@ -724,13 +724,13 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
   br label %218
 
 218:                                              ; preds = %210, %212, %215, %206
-  %.0518 = phi ptr [ %209, %206 ], [ %217, %215 ], [ null, %212 ], [ null, %210 ]
+  %.1519 = phi ptr [ %209, %206 ], [ %217, %215 ], [ null, %212 ], [ null, %210 ]
   %219 = call ptr @wmem_file_scope() #5
-  %220 = call noalias ptr @wmem_strdup(ptr noundef %219, ptr noundef %.0518) #5
+  %220 = call noalias ptr @wmem_strdup(ptr noundef %219, ptr noundef %.1519) #5
   %221 = getelementptr inbounds i8, ptr %.1.i, i64 32
   store ptr %220, ptr %221, align 8
-  %.not563 = icmp eq ptr %.0518, null
-  %222 = select i1 %.not563, ptr @ZABBIX_UNKNOWN, ptr %.0518
+  %.not563 = icmp eq ptr %.1519, null
+  %222 = select i1 %.not563, ptr @ZABBIX_UNKNOWN, ptr %.1519
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %63, ptr noundef nonnull @.str.120, ptr noundef nonnull %222) #5
   %223 = load ptr, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %223, i32 noundef 25, ptr noundef nonnull @.str.120, ptr noundef nonnull %222) #5
@@ -747,7 +747,7 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
   %229 = call zeroext i1 @json_get_double(ptr noundef %131, ptr noundef %167, ptr noundef nonnull @.str.122, ptr noundef nonnull %7) #5
   %230 = load double, ptr %7, align 8
   %231 = fptosi double %230 to i32
-  %.0501 = select i1 %229, i32 %231, i32 0
+  %.1 = select i1 %229, i32 %231, i32 0
   %.not560 = icmp eq ptr %228, null
   %232 = select i1 %.not560, ptr @ZABBIX_UNKNOWN, ptr %228
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %63, ptr noundef nonnull @.str.123, ptr noundef nonnull %232) #5
@@ -779,13 +779,13 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
   br label %247
 
 247:                                              ; preds = %244, %241, %237
-  %.0512 = phi ptr [ %246, %244 ], [ null, %241 ], [ null, %237 ]
+  %.1513 = phi ptr [ %246, %244 ], [ null, %241 ], [ null, %237 ]
   %248 = call ptr @wmem_file_scope() #5
-  %249 = call noalias ptr @wmem_strdup(ptr noundef %248, ptr noundef %.0512) #5
+  %249 = call noalias ptr @wmem_strdup(ptr noundef %248, ptr noundef %.1513) #5
   %250 = getelementptr inbounds i8, ptr %.1.i, i64 32
   store ptr %249, ptr %250, align 8
-  %.not559 = icmp eq ptr %.0512, null
-  %251 = select i1 %.not559, ptr @ZABBIX_UNKNOWN, ptr %.0512
+  %.not559 = icmp eq ptr %.1513, null
+  %251 = select i1 %.not559, ptr @ZABBIX_UNKNOWN, ptr %.1513
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %63, ptr noundef nonnull @.str.125, ptr noundef nonnull %251) #5
   %252 = load ptr, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %252, i32 noundef 25, ptr noundef nonnull @.str.125, ptr noundef nonnull %251) #5
@@ -964,7 +964,7 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
   br label %341
 
 341:                                              ; preds = %338, %335
-  %.0502 = phi i32 [ 1, %335 ], [ %spec.select, %338 ]
+  %.1503 = phi i32 [ 1, %335 ], [ %spec.select, %338 ]
   %342 = load i16, ptr %143, align 8
   %343 = zext i16 %342 to i32
   %344 = and i32 %343, 16
@@ -1105,7 +1105,7 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
   br label %409
 
 409:                                              ; preds = %408, %404
-  %.1503 = phi i32 [ 16, %404 ], [ %spec.select602, %408 ]
+  %.2 = phi i32 [ 16, %404 ], [ %spec.select602, %408 ]
   %410 = and i16 %402, 8
   %.not542 = icmp eq i16 %410, 0
   br i1 %.not542, label %413, label %411
@@ -1157,18 +1157,18 @@ zabbix_add_expert_info_if_too_large.exit603.thread: ; preds = %106, %86, %104, %
   br label %433
 
 433:                                              ; preds = %218, %247, %293, %294, %289, %304, %301, %271, %276, %275, %227, %187, %200, %329, %327, %413, %411, %426, %431, %428, %418, %353, %356, %350, %391, %393, %366, %378, %385, %388, %383, %372, %314, %152, %154
-  %.1519 = phi ptr [ null, %152 ], [ null, %154 ], [ %190, %200 ], [ %190, %187 ], [ %.0518, %218 ], [ %228, %227 ], [ null, %247 ], [ null, %271 ], [ null, %276 ], [ null, %275 ], [ null, %289 ], [ null, %294 ], [ null, %293 ], [ null, %304 ], [ null, %301 ], [ null, %314 ], [ null, %327 ], [ null, %329 ], [ %347, %350 ], [ %347, %356 ], [ %347, %353 ], [ null, %366 ], [ null, %372 ], [ null, %378 ], [ null, %383 ], [ null, %388 ], [ null, %385 ], [ null, %393 ], [ null, %391 ], [ null, %411 ], [ null, %413 ], [ null, %426 ], [ null, %431 ], [ null, %428 ], [ null, %418 ]
+  %.0518 = phi ptr [ null, %152 ], [ null, %154 ], [ %190, %200 ], [ %190, %187 ], [ %.1519, %218 ], [ %228, %227 ], [ null, %247 ], [ null, %271 ], [ null, %276 ], [ null, %275 ], [ null, %289 ], [ null, %294 ], [ null, %293 ], [ null, %304 ], [ null, %301 ], [ null, %314 ], [ null, %327 ], [ null, %329 ], [ %347, %350 ], [ %347, %356 ], [ %347, %353 ], [ null, %366 ], [ null, %372 ], [ null, %378 ], [ null, %383 ], [ null, %388 ], [ null, %385 ], [ null, %393 ], [ null, %391 ], [ null, %411 ], [ null, %413 ], [ null, %426 ], [ null, %431 ], [ null, %428 ], [ null, %418 ]
   %.0517 = phi ptr [ null, %152 ], [ null, %154 ], [ %196, %200 ], [ %196, %187 ], [ null, %218 ], [ null, %227 ], [ null, %247 ], [ null, %271 ], [ null, %276 ], [ null, %275 ], [ null, %289 ], [ null, %294 ], [ null, %293 ], [ null, %304 ], [ null, %301 ], [ null, %314 ], [ null, %327 ], [ null, %329 ], [ null, %350 ], [ null, %356 ], [ null, %353 ], [ null, %366 ], [ null, %372 ], [ null, %378 ], [ null, %383 ], [ null, %388 ], [ null, %385 ], [ null, %393 ], [ null, %391 ], [ null, %411 ], [ null, %413 ], [ null, %426 ], [ null, %431 ], [ null, %428 ], [ null, %418 ]
   %.0516 = phi ptr [ null, %152 ], [ null, %154 ], [ %197, %200 ], [ %197, %187 ], [ null, %218 ], [ null, %227 ], [ null, %247 ], [ null, %271 ], [ null, %276 ], [ null, %275 ], [ null, %289 ], [ null, %294 ], [ null, %293 ], [ null, %304 ], [ null, %301 ], [ null, %314 ], [ null, %327 ], [ null, %329 ], [ null, %350 ], [ null, %356 ], [ null, %353 ], [ null, %366 ], [ null, %372 ], [ null, %378 ], [ null, %383 ], [ null, %388 ], [ null, %385 ], [ null, %393 ], [ null, %391 ], [ null, %411 ], [ null, %413 ], [ null, %426 ], [ null, %431 ], [ null, %428 ], [ null, %418 ]
   %.0515 = phi ptr [ null, %152 ], [ null, %154 ], [ %198, %200 ], [ %198, %187 ], [ null, %218 ], [ null, %227 ], [ null, %247 ], [ null, %271 ], [ null, %276 ], [ null, %275 ], [ null, %289 ], [ null, %294 ], [ null, %293 ], [ null, %304 ], [ null, %301 ], [ null, %314 ], [ null, %327 ], [ null, %329 ], [ null, %350 ], [ null, %356 ], [ null, %353 ], [ null, %366 ], [ null, %372 ], [ null, %378 ], [ null, %383 ], [ null, %388 ], [ null, %385 ], [ null, %393 ], [ null, %391 ], [ null, %411 ], [ null, %413 ], [ null, %426 ], [ null, %431 ], [ null, %428 ], [ null, %418 ]
   %.0514 = phi ptr [ null, %152 ], [ null, %154 ], [ null, %200 ], [ null, %187 ], [ null, %218 ], [ null, %227 ], [ null, %247 ], [ %269, %271 ], [ %269, %276 ], [ null, %275 ], [ %287, %289 ], [ %287, %294 ], [ null, %293 ], [ %307, %304 ], [ null, %301 ], [ %318, %314 ], [ null, %327 ], [ %331, %329 ], [ null, %350 ], [ null, %356 ], [ null, %353 ], [ %363, %366 ], [ %363, %372 ], [ %363, %378 ], [ %363, %383 ], [ %363, %388 ], [ %363, %385 ], [ null, %393 ], [ null, %391 ], [ null, %411 ], [ %415, %413 ], [ null, %426 ], [ null, %431 ], [ null, %428 ], [ null, %418 ]
-  %.1513 = phi ptr [ null, %152 ], [ null, %154 ], [ null, %200 ], [ null, %187 ], [ null, %218 ], [ null, %227 ], [ %.0512, %247 ], [ null, %271 ], [ null, %276 ], [ null, %275 ], [ null, %289 ], [ null, %294 ], [ null, %293 ], [ null, %304 ], [ null, %301 ], [ null, %314 ], [ null, %327 ], [ null, %329 ], [ null, %350 ], [ null, %356 ], [ null, %353 ], [ null, %366 ], [ null, %372 ], [ null, %378 ], [ null, %383 ], [ null, %388 ], [ null, %385 ], [ %395, %393 ], [ null, %391 ], [ null, %411 ], [ null, %413 ], [ null, %426 ], [ null, %431 ], [ null, %428 ], [ null, %418 ]
+  %.0512 = phi ptr [ null, %152 ], [ null, %154 ], [ null, %200 ], [ null, %187 ], [ null, %218 ], [ null, %227 ], [ %.1513, %247 ], [ null, %271 ], [ null, %276 ], [ null, %275 ], [ null, %289 ], [ null, %294 ], [ null, %293 ], [ null, %304 ], [ null, %301 ], [ null, %314 ], [ null, %327 ], [ null, %329 ], [ null, %350 ], [ null, %356 ], [ null, %353 ], [ null, %366 ], [ null, %372 ], [ null, %378 ], [ null, %383 ], [ null, %388 ], [ null, %385 ], [ %395, %393 ], [ null, %391 ], [ null, %411 ], [ null, %413 ], [ null, %426 ], [ null, %431 ], [ null, %428 ], [ null, %418 ]
   %.0511 = phi ptr [ null, %152 ], [ null, %154 ], [ %176, %200 ], [ %176, %187 ], [ %176, %218 ], [ %176, %227 ], [ %176, %247 ], [ %176, %271 ], [ %176, %276 ], [ %176, %275 ], [ %176, %289 ], [ %176, %294 ], [ %176, %293 ], [ %176, %304 ], [ %176, %301 ], [ %176, %314 ], [ %176, %327 ], [ %176, %329 ], [ %176, %350 ], [ %176, %356 ], [ %176, %353 ], [ %176, %366 ], [ %176, %372 ], [ %176, %378 ], [ %176, %383 ], [ %176, %388 ], [ %176, %385 ], [ %176, %393 ], [ %176, %391 ], [ %176, %411 ], [ %176, %413 ], [ %176, %426 ], [ %176, %431 ], [ %176, %428 ], [ %176, %418 ]
   %.0510 = phi ptr [ null, %152 ], [ null, %154 ], [ %175, %200 ], [ %175, %187 ], [ %175, %218 ], [ %175, %227 ], [ %175, %247 ], [ %175, %271 ], [ %175, %276 ], [ %175, %275 ], [ %175, %289 ], [ %175, %294 ], [ %175, %293 ], [ %175, %304 ], [ %175, %301 ], [ %175, %314 ], [ %175, %327 ], [ %175, %329 ], [ %175, %350 ], [ %175, %356 ], [ %175, %353 ], [ %175, %366 ], [ %175, %372 ], [ %175, %378 ], [ %175, %383 ], [ %175, %388 ], [ %175, %385 ], [ %175, %393 ], [ %175, %391 ], [ %175, %411 ], [ %175, %413 ], [ %175, %426 ], [ %175, %431 ], [ %175, %428 ], [ %175, %418 ]
-  %.1507 = phi i64 [ -1, %152 ], [ -1, %154 ], [ %.0506, %200 ], [ %.0506, %187 ], [ %.0506, %218 ], [ %.0506, %227 ], [ %.0506, %247 ], [ %.0506, %271 ], [ %.0506, %276 ], [ %.0506, %275 ], [ %.0506, %289 ], [ %.0506, %294 ], [ %.0506, %293 ], [ %.0506, %304 ], [ %.0506, %301 ], [ %.0506, %314 ], [ %.0506, %327 ], [ %.0506, %329 ], [ %.0506, %350 ], [ %.0506, %356 ], [ %.0506, %353 ], [ %.0506, %366 ], [ %.0506, %372 ], [ %.0506, %378 ], [ %.0506, %383 ], [ %.0506, %388 ], [ %.0506, %385 ], [ %.0506, %393 ], [ %.0506, %391 ], [ %.0506, %411 ], [ %.0506, %413 ], [ %.0506, %426 ], [ %.0506, %431 ], [ %.0506, %428 ], [ %.0506, %418 ]
+  %.0506 = phi i64 [ -1, %152 ], [ -1, %154 ], [ %.1507, %200 ], [ %.1507, %187 ], [ %.1507, %218 ], [ %.1507, %227 ], [ %.1507, %247 ], [ %.1507, %271 ], [ %.1507, %276 ], [ %.1507, %275 ], [ %.1507, %289 ], [ %.1507, %294 ], [ %.1507, %293 ], [ %.1507, %304 ], [ %.1507, %301 ], [ %.1507, %314 ], [ %.1507, %327 ], [ %.1507, %329 ], [ %.1507, %350 ], [ %.1507, %356 ], [ %.1507, %353 ], [ %.1507, %366 ], [ %.1507, %372 ], [ %.1507, %378 ], [ %.1507, %383 ], [ %.1507, %388 ], [ %.1507, %385 ], [ %.1507, %393 ], [ %.1507, %391 ], [ %.1507, %411 ], [ %.1507, %413 ], [ %.1507, %426 ], [ %.1507, %431 ], [ %.1507, %428 ], [ %.1507, %418 ]
   %.0504 = phi i16 [ 0, %152 ], [ 0, %154 ], [ %202, %200 ], [ 0, %187 ], [ 0, %218 ], [ 0, %227 ], [ 0, %247 ], [ 0, %271 ], [ 0, %276 ], [ 0, %275 ], [ 0, %289 ], [ 0, %294 ], [ 0, %293 ], [ 0, %304 ], [ 0, %301 ], [ 0, %314 ], [ 0, %327 ], [ 0, %329 ], [ 0, %350 ], [ 0, %356 ], [ 0, %353 ], [ 0, %366 ], [ 0, %372 ], [ 0, %378 ], [ 0, %383 ], [ 0, %388 ], [ 0, %385 ], [ 0, %393 ], [ 0, %391 ], [ 0, %411 ], [ 0, %413 ], [ 0, %426 ], [ 0, %431 ], [ 0, %428 ], [ 0, %418 ]
-  %.2 = phi i32 [ 0, %152 ], [ 0, %154 ], [ 0, %200 ], [ 0, %187 ], [ 0, %218 ], [ 0, %227 ], [ 0, %247 ], [ 0, %271 ], [ 0, %276 ], [ 0, %275 ], [ 0, %289 ], [ 0, %294 ], [ 0, %293 ], [ 0, %304 ], [ 0, %301 ], [ 0, %314 ], [ 4, %327 ], [ 4, %329 ], [ %.0502, %350 ], [ %.0502, %356 ], [ %.0502, %353 ], [ %.0502, %366 ], [ %.0502, %372 ], [ %.0502, %378 ], [ %.0502, %383 ], [ %.0502, %388 ], [ %.0502, %385 ], [ %.0502, %393 ], [ %.0502, %391 ], [ %.1503, %411 ], [ %.1503, %413 ], [ 0, %426 ], [ 0, %431 ], [ 0, %428 ], [ 0, %418 ]
-  %.1 = phi i32 [ 0, %152 ], [ 0, %154 ], [ 0, %200 ], [ 0, %187 ], [ 0, %218 ], [ %.0501, %227 ], [ 0, %247 ], [ 0, %271 ], [ 0, %276 ], [ 0, %275 ], [ 0, %289 ], [ 0, %294 ], [ 0, %293 ], [ 0, %304 ], [ 0, %301 ], [ 0, %314 ], [ 0, %327 ], [ 0, %329 ], [ 0, %350 ], [ 0, %356 ], [ 0, %353 ], [ 0, %366 ], [ 0, %372 ], [ 0, %378 ], [ 0, %383 ], [ 0, %388 ], [ 0, %385 ], [ 0, %393 ], [ 0, %391 ], [ 0, %411 ], [ 0, %413 ], [ 0, %426 ], [ 0, %431 ], [ 0, %428 ], [ 0, %418 ]
+  %.0502 = phi i32 [ 0, %152 ], [ 0, %154 ], [ 0, %200 ], [ 0, %187 ], [ 0, %218 ], [ 0, %227 ], [ 0, %247 ], [ 0, %271 ], [ 0, %276 ], [ 0, %275 ], [ 0, %289 ], [ 0, %294 ], [ 0, %293 ], [ 0, %304 ], [ 0, %301 ], [ 0, %314 ], [ 4, %327 ], [ 4, %329 ], [ %.1503, %350 ], [ %.1503, %356 ], [ %.1503, %353 ], [ %.1503, %366 ], [ %.1503, %372 ], [ %.1503, %378 ], [ %.1503, %383 ], [ %.1503, %388 ], [ %.1503, %385 ], [ %.1503, %393 ], [ %.1503, %391 ], [ %.2, %411 ], [ %.2, %413 ], [ 0, %426 ], [ 0, %431 ], [ 0, %428 ], [ 0, %418 ]
+  %.0501 = phi i32 [ 0, %152 ], [ 0, %154 ], [ 0, %200 ], [ 0, %187 ], [ 0, %218 ], [ %.1, %227 ], [ 0, %247 ], [ 0, %271 ], [ 0, %276 ], [ 0, %275 ], [ 0, %289 ], [ 0, %294 ], [ 0, %293 ], [ 0, %304 ], [ 0, %301 ], [ 0, %314 ], [ 0, %327 ], [ 0, %329 ], [ 0, %350 ], [ 0, %356 ], [ 0, %353 ], [ 0, %366 ], [ 0, %372 ], [ 0, %378 ], [ 0, %383 ], [ 0, %388 ], [ 0, %385 ], [ 0, %393 ], [ 0, %391 ], [ 0, %411 ], [ 0, %413 ], [ 0, %426 ], [ 0, %431 ], [ 0, %428 ], [ 0, %418 ]
   %434 = load i16, ptr %143, align 8
   %435 = zext i16 %434 to i32
   %436 = and i32 %435, 16
@@ -1339,12 +1339,12 @@ proto_item_set_generated.exit:                    ; preds = %437, %440, %443
   br label %proto_item_set_generated.exit609
 
 proto_item_set_generated.exit609:                 ; preds = %513, %510, %507, %501, %498, %495, %489, %486, %483, %472, %469, %458, %455, %505, %450, %478, %481, %464
-  %517 = and i32 %.2, 1
+  %517 = and i32 %.0502, 1
   %.not574 = icmp eq i32 %517, 0
   br i1 %.not574, label %518, label %.sink.split
 
 518:                                              ; preds = %proto_item_set_generated.exit609
-  %519 = and i32 %.2, 2
+  %519 = and i32 %.0502, 2
   %.not575 = icmp eq i32 %519, 0
   br i1 %.not575, label %522, label %.sink.split
 
@@ -1362,12 +1362,12 @@ proto_item_set_generated.exit609:                 ; preds = %513, %510, %507, %5
   br i1 %.not576, label %570, label %526
 
 526:                                              ; preds = %522
-  %.not588 = icmp eq ptr %.1519, null
+  %.not588 = icmp eq ptr %.0518, null
   br i1 %.not588, label %540, label %527
 
 527:                                              ; preds = %526
   %528 = load i32, ptr @hf_zabbix_agent_name, align 4
-  %529 = call ptr @proto_tree_add_string(ptr noundef %65, i32 noundef %528, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.1519) #5
+  %529 = call ptr @proto_tree_add_string(ptr noundef %65, i32 noundef %528, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.0518) #5
   %530 = load i16, ptr %143, align 8
   %531 = and i16 %530, 2
   %.not589 = icmp eq i16 %531, 0
@@ -1395,12 +1395,12 @@ proto_item_set_generated.exit624:                 ; preds = %532, %533, %536
   br label %540
 
 540:                                              ; preds = %527, %proto_item_set_generated.exit624, %526
-  %.not590 = icmp eq i32 %.1, 0
+  %.not590 = icmp eq i32 %.0501, 0
   br i1 %.not590, label %544, label %541
 
 541:                                              ; preds = %540
   %542 = load i32, ptr @hf_zabbix_agent_hb_freq, align 4
-  %543 = call ptr @proto_tree_add_int(ptr noundef %65, i32 noundef %542, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %.1) #5
+  %543 = call ptr @proto_tree_add_int(ptr noundef %65, i32 noundef %542, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %.0501) #5
   br label %544
 
 544:                                              ; preds = %541, %540
@@ -1518,7 +1518,7 @@ proto_item_set_generated.exit627:                 ; preds = %578, %579, %582
 595:                                              ; preds = %593
   %596 = load i32, ptr @hf_zabbix_proxy_config, align 4
   %597 = call ptr @proto_tree_add_boolean(ptr noundef %65, i32 noundef %596, ptr noundef null, i32 noundef 0, i32 noundef 0, i64 noundef 1) #5
-  %598 = and i32 %.2, 4
+  %598 = and i32 %.0502, 4
   %.not585 = icmp eq i32 %598, 0
   br i1 %.not585, label %602, label %599
 
@@ -1528,7 +1528,7 @@ proto_item_set_generated.exit627:                 ; preds = %578, %579, %582
   br label %631
 
 602:                                              ; preds = %595
-  %603 = and i32 %.2, 8
+  %603 = and i32 %.0502, 8
   %.not586 = icmp eq i32 %603, 0
   br i1 %.not586, label %607, label %604
 
@@ -1538,7 +1538,7 @@ proto_item_set_generated.exit627:                 ; preds = %578, %579, %582
   br label %631
 
 607:                                              ; preds = %602
-  %608 = and i32 %.2, 16
+  %608 = and i32 %.0502, 16
   %.not587 = icmp eq i32 %608, 0
   br i1 %.not587, label %631, label %609
 
@@ -1558,12 +1558,12 @@ proto_item_set_generated.exit627:                 ; preds = %578, %579, %582
   br label %631
 
 617:                                              ; preds = %570
-  %.not578 = icmp eq ptr %.1513, null
+  %.not578 = icmp eq ptr %.0512, null
   br i1 %.not578, label %631, label %618
 
 618:                                              ; preds = %617
   %619 = load i32, ptr @hf_zabbix_sender_name, align 4
-  %620 = call ptr @proto_tree_add_string(ptr noundef %65, i32 noundef %619, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.1513) #5
+  %620 = call ptr @proto_tree_add_string(ptr noundef %65, i32 noundef %619, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.0512) #5
   %621 = load i16, ptr %143, align 8
   %622 = and i16 %621, 2
   %.not579 = icmp eq i16 %622, 0
@@ -1600,12 +1600,12 @@ proto_item_set_generated.exit630:                 ; preds = %623, %624, %627
   br label %635
 
 635:                                              ; preds = %632, %631
-  %636 = icmp sgt i64 %.1507, -1
+  %636 = icmp sgt i64 %.0506, -1
   br i1 %636, label %637, label %640
 
 637:                                              ; preds = %635
   %638 = load i32, ptr @hf_zabbix_config_revision, align 4
-  %639 = call ptr @proto_tree_add_int64(ptr noundef %65, i32 noundef %638, ptr noundef null, i32 noundef 0, i32 noundef 0, i64 noundef %.1507) #5
+  %639 = call ptr @proto_tree_add_int64(ptr noundef %65, i32 noundef %638, ptr noundef null, i32 noundef 0, i32 noundef 0, i64 noundef %.0506) #5
   br label %640
 
 640:                                              ; preds = %637, %635
@@ -1619,11 +1619,11 @@ proto_item_set_generated.exit630:                 ; preds = %623, %624, %627
 
 644:                                              ; preds = %641, %640
   %645 = load i32, ptr @hf_zabbix_data, align 4
-  %646 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %645, ptr noundef %.0508, i32 noundef 0, i32 noundef %130, i32 noundef 2) #5
+  %646 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %645, ptr noundef %.1509, i32 noundef 0, i32 noundef %130, i32 noundef 2) #5
   br label %647
 
 647:                                              ; preds = %644, %170, %159, %zabbix_add_expert_info_if_too_large.exit603.thread
-  %.1509 = phi ptr [ %109, %zabbix_add_expert_info_if_too_large.exit603.thread ], [ %.0508, %644 ], [ %.0508, %159 ], [ %.0508, %170 ]
+  %.0508 = phi ptr [ %109, %zabbix_add_expert_info_if_too_large.exit603.thread ], [ %.1509, %644 ], [ %.1509, %159 ], [ %.1509, %170 ]
   %648 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %649 = load i16, ptr %648, align 8
   %650 = and i16 %649, 1
@@ -1656,7 +1656,7 @@ proto_item_set_generated.exit630:                 ; preds = %623, %624, %627
   %665 = getelementptr inbounds i8, ptr %1, i64 24
   call void @nstime_delta(ptr noundef nonnull %11, ptr noundef nonnull %665, ptr noundef nonnull %662) #5
   %666 = load i32, ptr @hf_zabbix_time, align 4
-  %667 = call ptr @proto_tree_add_time(ptr noundef %65, i32 noundef %666, ptr noundef %.1509, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11) #5
+  %667 = call ptr @proto_tree_add_time(ptr noundef %65, i32 noundef %666, ptr noundef %.0508, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11) #5
   %.not.i631 = icmp eq ptr %667, null
   br i1 %.not.i631, label %proto_item_set_generated.exit633, label %668
 

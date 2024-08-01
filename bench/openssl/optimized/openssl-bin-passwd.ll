@@ -321,11 +321,11 @@ land.rhs:                                         ; preds = %do.body116
   br i1 %tobool123.not, label %do.body116, label %if.end127, !llvm.loop !8
 
 if.end127:                                        ; preds = %do.body116, %land.rhs, %if.then114
-  %r.0.not = phi i1 [ false, %if.then114 ], [ %cmp119, %land.rhs ], [ %cmp119, %do.body116 ]
+  %r.1.not = phi i1 [ false, %if.then114 ], [ %cmp119, %land.rhs ], [ %cmp119, %do.body116 ]
   %6 = load ptr, ptr @bio_out, align 8
   %call128 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef nonnull %salt, ptr noundef nonnull %salt_malloc, ptr noundef %passwd.05153.ph, ptr noundef %6, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
   %tobool129.not = icmp eq i32 %call128, 0
-  %brmerge = or i1 %r.0.not, %tobool129.not
+  %brmerge = or i1 %r.1.not, %tobool129.not
   br i1 %brmerge, label %end.loopexit57.split.loop.exit92, label %do.body104
 
 end.loopexit57.split.loop.exit92:                 ; preds = %if.end127
@@ -337,13 +337,13 @@ end.loopexit59:                                   ; preds = %sw.bb37, %sw.bb43
   br label %end
 
 end:                                              ; preds = %do.cond, %do.body, %do.body104, %end.loopexit57.split.loop.exit92, %end.loopexit59, %if.then85, %if.then70, %if.end55, %if.then65, %sw.bb3, %opthelp
-  %passwd_malloc.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then65 ], [ null, %if.then70 ], [ %call78135, %if.then85 ], [ null, %if.end55 ], [ null, %end.loopexit59 ], [ %passwd.05153.ph, %end.loopexit57.split.loop.exit92 ], [ %passwd.05153.ph, %do.body104 ], [ %passwd.05154.ph, %do.body ], [ %passwd.05154.ph, %do.cond ]
+  %passwd_malloc.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then65 ], [ null, %if.then70 ], [ %call78135, %if.then85 ], [ null, %if.end55 ], [ null, %end.loopexit59 ], [ %passwd.05153.ph, %end.loopexit57.split.loop.exit92 ], [ %passwd.05153.ph, %do.body104 ], [ %passwd.05154.ph, %do.body ], [ %passwd.05154.ph, %do.cond ]
   %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb3 ], [ 1, %if.then65 ], [ 1, %if.then70 ], [ 1, %if.then85 ], [ 1, %if.end55 ], [ 1, %end.loopexit59 ], [ %.mux.le, %end.loopexit57.split.loop.exit92 ], [ 0, %do.body104 ], [ 0, %do.cond ], [ 1, %do.body ]
-  %in.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then65 ], [ null, %if.then70 ], [ null, %if.then85 ], [ null, %if.end55 ], [ null, %end.loopexit59 ], [ %call71, %end.loopexit57.split.loop.exit92 ], [ %call71, %do.body104 ], [ null, %do.body ], [ null, %do.cond ]
+  %in.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then65 ], [ null, %if.then70 ], [ null, %if.then85 ], [ null, %if.end55 ], [ null, %end.loopexit59 ], [ %call71, %end.loopexit57.split.loop.exit92 ], [ %call71, %do.body104 ], [ null, %do.body ], [ null, %do.cond ]
   %7 = load ptr, ptr %salt_malloc, align 8
   call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.50, i32 noundef 299) #8
-  call void @CRYPTO_free(ptr noundef %passwd_malloc.1, ptr noundef nonnull @.str.50, i32 noundef 300) #8
-  %call141 = call i32 @BIO_free(ptr noundef %in.1) #8
+  call void @CRYPTO_free(ptr noundef %passwd_malloc.0, ptr noundef nonnull @.str.50, i32 noundef 300) #8
+  %call141 = call i32 @BIO_free(ptr noundef %in.0) #8
   ret i32 %ret.0
 }
 
@@ -543,7 +543,7 @@ if.else.i:                                        ; preds = %if.then14.i
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.else.i, %if.then14.i, %sw.epilog.i
-  %rounds.1.i = phi i32 [ 5000, %sw.epilog.i ], [ 999999999, %if.then14.i ], [ %spec.select.i, %if.else.i ]
+  %rounds.0.i = phi i32 [ 5000, %sw.epilog.i ], [ 999999999, %if.then14.i ], [ %spec.select.i, %if.else.i ]
   %rounds_custom.0.i = phi i64 [ 3, %sw.epilog.i ], [ 20, %if.then14.i ], [ 20, %if.else.i ]
   %salt.addr.0.i = phi ptr [ %15, %sw.epilog.i ], [ %add.ptr15.i, %if.then14.i ], [ %add.ptr15.i, %if.else.i ]
   %call29.i = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %ascii_magic.i, ptr noundef nonnull %cond59, i64 noundef 2) #8
@@ -556,7 +556,7 @@ if.end28.i:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp6.not.i, label %if.then38.i, label %if.end44.i
 
 if.then38.i:                                      ; preds = %if.end28.i
-  %call40.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %tmp_buf.i, ptr noundef nonnull dereferenceable(1) @.str.57, i32 noundef %rounds.1.i) #8
+  %call40.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %tmp_buf.i, ptr noundef nonnull dereferenceable(1) @.str.57, i32 noundef %rounds.0.i) #8
   %call42.i = call i64 @OPENSSL_strlcat(ptr noundef nonnull @shacrypt.out_buf, ptr noundef nonnull %tmp_buf.i, i64 noundef 124) #8
   %call43.i = call i64 @OPENSSL_strlcat(ptr noundef nonnull @shacrypt.out_buf, ptr noundef nonnull @ascii_dollar, i64 noundef 124) #8
   br label %if.end44.i
@@ -756,7 +756,7 @@ for.end193.i:                                     ; preds = %for.body188.i, %for
   %n.5.lcssa.i = phi i64 [ %call33.i, %for.cond185.preheader.i ], [ %sub191.i, %for.body188.i ]
   %cp.1.lcssa.i = phi ptr [ %call180.i, %for.cond185.preheader.i ], [ %add.ptr192.i, %for.body188.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %cp.1.lcssa.i, ptr nonnull align 16 %temp_buf.i, i64 %n.5.lcssa.i, i1 false)
-  %20 = call i32 @llvm.umax.i32(i32 %rounds.1.i, i32 1)
+  %20 = call i32 @llvm.umax.i32(i32 %rounds.0.i, i32 1)
   %umax.i = zext i32 %20 to i64
   br label %for.body199.i
 
@@ -1174,14 +1174,14 @@ do.body531.i:                                     ; preds = %for.end259.i
 while.body548.i:                                  ; preds = %while.body548.i, %do.body531.i
   %i543.0210.i = phi i32 [ 4, %do.body531.i ], [ %dec545.i, %while.body548.i ]
   %w532.0209.i = phi i32 [ %or542.i, %do.body531.i ], [ %shr553.i, %while.body548.i ]
-  %cp.13208.i = phi ptr [ %incdec.ptr.i, %do.body531.i ], [ %incdec.ptr552.i, %while.body548.i ]
+  %cp.14208.i = phi ptr [ %incdec.ptr.i, %do.body531.i ], [ %incdec.ptr552.i, %while.body548.i ]
   %dec545.i = add nsw i32 %i543.0210.i, -1
   %and549.i = and i32 %w532.0209.i, 63
   %idxprom550.i = zext nneg i32 %and549.i to i64
   %arrayidx551.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom550.i
   %68 = load i8, ptr %arrayidx551.i, align 1
-  %incdec.ptr552.i = getelementptr inbounds i8, ptr %cp.13208.i, i64 1
-  store i8 %68, ptr %cp.13208.i, align 1
+  %incdec.ptr552.i = getelementptr inbounds i8, ptr %cp.14208.i, i64 1
+  store i8 %68, ptr %cp.14208.i, align 1
   %shr553.i = lshr i32 %w532.0209.i, 6
   %cmp546.i = icmp ugt i32 %i543.0210.i, 1
   br i1 %cmp546.i, label %while.body548.i, label %do.body556.i, !llvm.loop !28
@@ -1205,14 +1205,14 @@ do.body556.i:                                     ; preds = %while.body548.i
 while.body573.i:                                  ; preds = %while.body573.i, %do.body556.i
   %i568.0213.i = phi i32 [ 4, %do.body556.i ], [ %dec570.i, %while.body573.i ]
   %w557.0212.i = phi i32 [ %or567.i, %do.body556.i ], [ %shr578.i, %while.body573.i ]
-  %cp.14211.i = phi ptr [ %incdec.ptr552.i, %do.body556.i ], [ %incdec.ptr577.i, %while.body573.i ]
+  %cp.15211.i = phi ptr [ %incdec.ptr552.i, %do.body556.i ], [ %incdec.ptr577.i, %while.body573.i ]
   %dec570.i = add nsw i32 %i568.0213.i, -1
   %and574.i = and i32 %w557.0212.i, 63
   %idxprom575.i = zext nneg i32 %and574.i to i64
   %arrayidx576.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom575.i
   %72 = load i8, ptr %arrayidx576.i, align 1
-  %incdec.ptr577.i = getelementptr inbounds i8, ptr %cp.14211.i, i64 1
-  store i8 %72, ptr %cp.14211.i, align 1
+  %incdec.ptr577.i = getelementptr inbounds i8, ptr %cp.15211.i, i64 1
+  store i8 %72, ptr %cp.15211.i, align 1
   %shr578.i = lshr i32 %w557.0212.i, 6
   %cmp571.i = icmp ugt i32 %i568.0213.i, 1
   br i1 %cmp571.i, label %while.body573.i, label %do.body581.i, !llvm.loop !29
@@ -1236,14 +1236,14 @@ do.body581.i:                                     ; preds = %while.body573.i
 while.body598.i:                                  ; preds = %while.body598.i, %do.body581.i
   %i593.0216.i = phi i32 [ 4, %do.body581.i ], [ %dec595.i, %while.body598.i ]
   %w582.0215.i = phi i32 [ %or592.i, %do.body581.i ], [ %shr603.i, %while.body598.i ]
-  %cp.15214.i = phi ptr [ %incdec.ptr577.i, %do.body581.i ], [ %incdec.ptr602.i, %while.body598.i ]
+  %cp.16214.i = phi ptr [ %incdec.ptr577.i, %do.body581.i ], [ %incdec.ptr602.i, %while.body598.i ]
   %dec595.i = add nsw i32 %i593.0216.i, -1
   %and599.i = and i32 %w582.0215.i, 63
   %idxprom600.i = zext nneg i32 %and599.i to i64
   %arrayidx601.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom600.i
   %76 = load i8, ptr %arrayidx601.i, align 1
-  %incdec.ptr602.i = getelementptr inbounds i8, ptr %cp.15214.i, i64 1
-  store i8 %76, ptr %cp.15214.i, align 1
+  %incdec.ptr602.i = getelementptr inbounds i8, ptr %cp.16214.i, i64 1
+  store i8 %76, ptr %cp.16214.i, align 1
   %shr603.i = lshr i32 %w582.0215.i, 6
   %cmp596.i = icmp ugt i32 %i593.0216.i, 1
   br i1 %cmp596.i, label %while.body598.i, label %do.body606.i, !llvm.loop !30
@@ -1267,14 +1267,14 @@ do.body606.i:                                     ; preds = %while.body598.i
 while.body623.i:                                  ; preds = %while.body623.i, %do.body606.i
   %i618.0219.i = phi i32 [ 4, %do.body606.i ], [ %dec620.i, %while.body623.i ]
   %w607.0218.i = phi i32 [ %or617.i, %do.body606.i ], [ %shr628.i, %while.body623.i ]
-  %cp.16217.i = phi ptr [ %incdec.ptr602.i, %do.body606.i ], [ %incdec.ptr627.i, %while.body623.i ]
+  %cp.17217.i = phi ptr [ %incdec.ptr602.i, %do.body606.i ], [ %incdec.ptr627.i, %while.body623.i ]
   %dec620.i = add nsw i32 %i618.0219.i, -1
   %and624.i = and i32 %w607.0218.i, 63
   %idxprom625.i = zext nneg i32 %and624.i to i64
   %arrayidx626.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom625.i
   %80 = load i8, ptr %arrayidx626.i, align 1
-  %incdec.ptr627.i = getelementptr inbounds i8, ptr %cp.16217.i, i64 1
-  store i8 %80, ptr %cp.16217.i, align 1
+  %incdec.ptr627.i = getelementptr inbounds i8, ptr %cp.17217.i, i64 1
+  store i8 %80, ptr %cp.17217.i, align 1
   %shr628.i = lshr i32 %w607.0218.i, 6
   %cmp621.i = icmp ugt i32 %i618.0219.i, 1
   br i1 %cmp621.i, label %while.body623.i, label %do.body631.i, !llvm.loop !31
@@ -1298,14 +1298,14 @@ do.body631.i:                                     ; preds = %while.body623.i
 while.body648.i:                                  ; preds = %while.body648.i, %do.body631.i
   %i643.0222.i = phi i32 [ 4, %do.body631.i ], [ %dec645.i, %while.body648.i ]
   %w632.0221.i = phi i32 [ %or642.i, %do.body631.i ], [ %shr653.i, %while.body648.i ]
-  %cp.17220.i = phi ptr [ %incdec.ptr627.i, %do.body631.i ], [ %incdec.ptr652.i, %while.body648.i ]
+  %cp.18220.i = phi ptr [ %incdec.ptr627.i, %do.body631.i ], [ %incdec.ptr652.i, %while.body648.i ]
   %dec645.i = add nsw i32 %i643.0222.i, -1
   %and649.i = and i32 %w632.0221.i, 63
   %idxprom650.i = zext nneg i32 %and649.i to i64
   %arrayidx651.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom650.i
   %84 = load i8, ptr %arrayidx651.i, align 1
-  %incdec.ptr652.i = getelementptr inbounds i8, ptr %cp.17220.i, i64 1
-  store i8 %84, ptr %cp.17220.i, align 1
+  %incdec.ptr652.i = getelementptr inbounds i8, ptr %cp.18220.i, i64 1
+  store i8 %84, ptr %cp.18220.i, align 1
   %shr653.i = lshr i32 %w632.0221.i, 6
   %cmp646.i = icmp ugt i32 %i643.0222.i, 1
   br i1 %cmp646.i, label %while.body648.i, label %do.body656.i, !llvm.loop !32
@@ -1329,14 +1329,14 @@ do.body656.i:                                     ; preds = %while.body648.i
 while.body673.i:                                  ; preds = %while.body673.i, %do.body656.i
   %i668.0225.i = phi i32 [ 4, %do.body656.i ], [ %dec670.i, %while.body673.i ]
   %w657.0224.i = phi i32 [ %or667.i, %do.body656.i ], [ %shr678.i, %while.body673.i ]
-  %cp.18223.i = phi ptr [ %incdec.ptr652.i, %do.body656.i ], [ %incdec.ptr677.i, %while.body673.i ]
+  %cp.19223.i = phi ptr [ %incdec.ptr652.i, %do.body656.i ], [ %incdec.ptr677.i, %while.body673.i ]
   %dec670.i = add nsw i32 %i668.0225.i, -1
   %and674.i = and i32 %w657.0224.i, 63
   %idxprom675.i = zext nneg i32 %and674.i to i64
   %arrayidx676.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom675.i
   %88 = load i8, ptr %arrayidx676.i, align 1
-  %incdec.ptr677.i = getelementptr inbounds i8, ptr %cp.18223.i, i64 1
-  store i8 %88, ptr %cp.18223.i, align 1
+  %incdec.ptr677.i = getelementptr inbounds i8, ptr %cp.19223.i, i64 1
+  store i8 %88, ptr %cp.19223.i, align 1
   %shr678.i = lshr i32 %w657.0224.i, 6
   %cmp671.i = icmp ugt i32 %i668.0225.i, 1
   br i1 %cmp671.i, label %while.body673.i, label %do.body681.i, !llvm.loop !33
@@ -1360,14 +1360,14 @@ do.body681.i:                                     ; preds = %while.body673.i
 while.body698.i:                                  ; preds = %while.body698.i, %do.body681.i
   %i693.0228.i = phi i32 [ 4, %do.body681.i ], [ %dec695.i, %while.body698.i ]
   %w682.0227.i = phi i32 [ %or692.i, %do.body681.i ], [ %shr703.i, %while.body698.i ]
-  %cp.19226.i = phi ptr [ %incdec.ptr677.i, %do.body681.i ], [ %incdec.ptr702.i, %while.body698.i ]
+  %cp.20226.i = phi ptr [ %incdec.ptr677.i, %do.body681.i ], [ %incdec.ptr702.i, %while.body698.i ]
   %dec695.i = add nsw i32 %i693.0228.i, -1
   %and699.i = and i32 %w682.0227.i, 63
   %idxprom700.i = zext nneg i32 %and699.i to i64
   %arrayidx701.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom700.i
   %92 = load i8, ptr %arrayidx701.i, align 1
-  %incdec.ptr702.i = getelementptr inbounds i8, ptr %cp.19226.i, i64 1
-  store i8 %92, ptr %cp.19226.i, align 1
+  %incdec.ptr702.i = getelementptr inbounds i8, ptr %cp.20226.i, i64 1
+  store i8 %92, ptr %cp.20226.i, align 1
   %shr703.i = lshr i32 %w682.0227.i, 6
   %cmp696.i = icmp ugt i32 %i693.0228.i, 1
   br i1 %cmp696.i, label %while.body698.i, label %do.body706.i, !llvm.loop !34
@@ -1391,14 +1391,14 @@ do.body706.i:                                     ; preds = %while.body698.i
 while.body723.i:                                  ; preds = %while.body723.i, %do.body706.i
   %i718.0231.i = phi i32 [ 4, %do.body706.i ], [ %dec720.i, %while.body723.i ]
   %w707.0230.i = phi i32 [ %or717.i, %do.body706.i ], [ %shr728.i, %while.body723.i ]
-  %cp.20229.i = phi ptr [ %incdec.ptr702.i, %do.body706.i ], [ %incdec.ptr727.i, %while.body723.i ]
+  %cp.21229.i = phi ptr [ %incdec.ptr702.i, %do.body706.i ], [ %incdec.ptr727.i, %while.body723.i ]
   %dec720.i = add nsw i32 %i718.0231.i, -1
   %and724.i = and i32 %w707.0230.i, 63
   %idxprom725.i = zext nneg i32 %and724.i to i64
   %arrayidx726.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom725.i
   %96 = load i8, ptr %arrayidx726.i, align 1
-  %incdec.ptr727.i = getelementptr inbounds i8, ptr %cp.20229.i, i64 1
-  store i8 %96, ptr %cp.20229.i, align 1
+  %incdec.ptr727.i = getelementptr inbounds i8, ptr %cp.21229.i, i64 1
+  store i8 %96, ptr %cp.21229.i, align 1
   %shr728.i = lshr i32 %w707.0230.i, 6
   %cmp721.i = icmp ugt i32 %i718.0231.i, 1
   br i1 %cmp721.i, label %while.body723.i, label %do.body731.i, !llvm.loop !35
@@ -1422,14 +1422,14 @@ do.body731.i:                                     ; preds = %while.body723.i
 while.body748.i:                                  ; preds = %while.body748.i, %do.body731.i
   %i743.0234.i = phi i32 [ 4, %do.body731.i ], [ %dec745.i, %while.body748.i ]
   %w732.0233.i = phi i32 [ %or742.i, %do.body731.i ], [ %shr753.i, %while.body748.i ]
-  %cp.21232.i = phi ptr [ %incdec.ptr727.i, %do.body731.i ], [ %incdec.ptr752.i, %while.body748.i ]
+  %cp.22232.i = phi ptr [ %incdec.ptr727.i, %do.body731.i ], [ %incdec.ptr752.i, %while.body748.i ]
   %dec745.i = add nsw i32 %i743.0234.i, -1
   %and749.i = and i32 %w732.0233.i, 63
   %idxprom750.i = zext nneg i32 %and749.i to i64
   %arrayidx751.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom750.i
   %100 = load i8, ptr %arrayidx751.i, align 1
-  %incdec.ptr752.i = getelementptr inbounds i8, ptr %cp.21232.i, i64 1
-  store i8 %100, ptr %cp.21232.i, align 1
+  %incdec.ptr752.i = getelementptr inbounds i8, ptr %cp.22232.i, i64 1
+  store i8 %100, ptr %cp.22232.i, align 1
   %shr753.i = lshr i32 %w732.0233.i, 6
   %cmp746.i = icmp ugt i32 %i743.0234.i, 1
   br i1 %cmp746.i, label %while.body748.i, label %do.body756.i, !llvm.loop !36
@@ -1453,14 +1453,14 @@ do.body756.i:                                     ; preds = %while.body748.i
 while.body773.i:                                  ; preds = %while.body773.i, %do.body756.i
   %i768.0237.i = phi i32 [ 4, %do.body756.i ], [ %dec770.i, %while.body773.i ]
   %w757.0236.i = phi i32 [ %or767.i, %do.body756.i ], [ %shr778.i, %while.body773.i ]
-  %cp.22235.i = phi ptr [ %incdec.ptr752.i, %do.body756.i ], [ %incdec.ptr777.i, %while.body773.i ]
+  %cp.23235.i = phi ptr [ %incdec.ptr752.i, %do.body756.i ], [ %incdec.ptr777.i, %while.body773.i ]
   %dec770.i = add nsw i32 %i768.0237.i, -1
   %and774.i = and i32 %w757.0236.i, 63
   %idxprom775.i = zext nneg i32 %and774.i to i64
   %arrayidx776.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom775.i
   %104 = load i8, ptr %arrayidx776.i, align 1
-  %incdec.ptr777.i = getelementptr inbounds i8, ptr %cp.22235.i, i64 1
-  store i8 %104, ptr %cp.22235.i, align 1
+  %incdec.ptr777.i = getelementptr inbounds i8, ptr %cp.23235.i, i64 1
+  store i8 %104, ptr %cp.23235.i, align 1
   %shr778.i = lshr i32 %w757.0236.i, 6
   %cmp771.i = icmp ugt i32 %i768.0237.i, 1
   br i1 %cmp771.i, label %while.body773.i, label %do.body781.i, !llvm.loop !37
@@ -1484,14 +1484,14 @@ do.body781.i:                                     ; preds = %while.body773.i
 while.body798.i:                                  ; preds = %while.body798.i, %do.body781.i
   %i793.0240.i = phi i32 [ 4, %do.body781.i ], [ %dec795.i, %while.body798.i ]
   %w782.0239.i = phi i32 [ %or792.i, %do.body781.i ], [ %shr803.i, %while.body798.i ]
-  %cp.23238.i = phi ptr [ %incdec.ptr777.i, %do.body781.i ], [ %incdec.ptr802.i, %while.body798.i ]
+  %cp.24238.i = phi ptr [ %incdec.ptr777.i, %do.body781.i ], [ %incdec.ptr802.i, %while.body798.i ]
   %dec795.i = add nsw i32 %i793.0240.i, -1
   %and799.i = and i32 %w782.0239.i, 63
   %idxprom800.i = zext nneg i32 %and799.i to i64
   %arrayidx801.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom800.i
   %108 = load i8, ptr %arrayidx801.i, align 1
-  %incdec.ptr802.i = getelementptr inbounds i8, ptr %cp.23238.i, i64 1
-  store i8 %108, ptr %cp.23238.i, align 1
+  %incdec.ptr802.i = getelementptr inbounds i8, ptr %cp.24238.i, i64 1
+  store i8 %108, ptr %cp.24238.i, align 1
   %shr803.i = lshr i32 %w782.0239.i, 6
   %cmp796.i = icmp ugt i32 %i793.0240.i, 1
   br i1 %cmp796.i, label %while.body798.i, label %do.body806.i, !llvm.loop !38
@@ -1515,14 +1515,14 @@ do.body806.i:                                     ; preds = %while.body798.i
 while.body823.i:                                  ; preds = %while.body823.i, %do.body806.i
   %i818.0243.i = phi i32 [ 4, %do.body806.i ], [ %dec820.i, %while.body823.i ]
   %w807.0242.i = phi i32 [ %or817.i, %do.body806.i ], [ %shr828.i, %while.body823.i ]
-  %cp.24241.i = phi ptr [ %incdec.ptr802.i, %do.body806.i ], [ %incdec.ptr827.i, %while.body823.i ]
+  %cp.25241.i = phi ptr [ %incdec.ptr802.i, %do.body806.i ], [ %incdec.ptr827.i, %while.body823.i ]
   %dec820.i = add nsw i32 %i818.0243.i, -1
   %and824.i = and i32 %w807.0242.i, 63
   %idxprom825.i = zext nneg i32 %and824.i to i64
   %arrayidx826.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom825.i
   %112 = load i8, ptr %arrayidx826.i, align 1
-  %incdec.ptr827.i = getelementptr inbounds i8, ptr %cp.24241.i, i64 1
-  store i8 %112, ptr %cp.24241.i, align 1
+  %incdec.ptr827.i = getelementptr inbounds i8, ptr %cp.25241.i, i64 1
+  store i8 %112, ptr %cp.25241.i, align 1
   %shr828.i = lshr i32 %w807.0242.i, 6
   %cmp821.i = icmp ugt i32 %i818.0243.i, 1
   br i1 %cmp821.i, label %while.body823.i, label %do.body831.i, !llvm.loop !39
@@ -1546,14 +1546,14 @@ do.body831.i:                                     ; preds = %while.body823.i
 while.body848.i:                                  ; preds = %while.body848.i, %do.body831.i
   %i843.0246.i = phi i32 [ 4, %do.body831.i ], [ %dec845.i, %while.body848.i ]
   %w832.0245.i = phi i32 [ %or842.i, %do.body831.i ], [ %shr853.i, %while.body848.i ]
-  %cp.25244.i = phi ptr [ %incdec.ptr827.i, %do.body831.i ], [ %incdec.ptr852.i, %while.body848.i ]
+  %cp.26244.i = phi ptr [ %incdec.ptr827.i, %do.body831.i ], [ %incdec.ptr852.i, %while.body848.i ]
   %dec845.i = add nsw i32 %i843.0246.i, -1
   %and849.i = and i32 %w832.0245.i, 63
   %idxprom850.i = zext nneg i32 %and849.i to i64
   %arrayidx851.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom850.i
   %116 = load i8, ptr %arrayidx851.i, align 1
-  %incdec.ptr852.i = getelementptr inbounds i8, ptr %cp.25244.i, i64 1
-  store i8 %116, ptr %cp.25244.i, align 1
+  %incdec.ptr852.i = getelementptr inbounds i8, ptr %cp.26244.i, i64 1
+  store i8 %116, ptr %cp.26244.i, align 1
   %shr853.i = lshr i32 %w832.0245.i, 6
   %cmp846.i = icmp ugt i32 %i843.0246.i, 1
   br i1 %cmp846.i, label %while.body848.i, label %do.body856.i, !llvm.loop !40
@@ -1577,14 +1577,14 @@ do.body856.i:                                     ; preds = %while.body848.i
 while.body873.i:                                  ; preds = %while.body873.i, %do.body856.i
   %i868.0249.i = phi i32 [ 4, %do.body856.i ], [ %dec870.i, %while.body873.i ]
   %w857.0248.i = phi i32 [ %or867.i, %do.body856.i ], [ %shr878.i, %while.body873.i ]
-  %cp.26247.i = phi ptr [ %incdec.ptr852.i, %do.body856.i ], [ %incdec.ptr877.i, %while.body873.i ]
+  %cp.27247.i = phi ptr [ %incdec.ptr852.i, %do.body856.i ], [ %incdec.ptr877.i, %while.body873.i ]
   %dec870.i = add nsw i32 %i868.0249.i, -1
   %and874.i = and i32 %w857.0248.i, 63
   %idxprom875.i = zext nneg i32 %and874.i to i64
   %arrayidx876.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom875.i
   %120 = load i8, ptr %arrayidx876.i, align 1
-  %incdec.ptr877.i = getelementptr inbounds i8, ptr %cp.26247.i, i64 1
-  store i8 %120, ptr %cp.26247.i, align 1
+  %incdec.ptr877.i = getelementptr inbounds i8, ptr %cp.27247.i, i64 1
+  store i8 %120, ptr %cp.27247.i, align 1
   %shr878.i = lshr i32 %w857.0248.i, 6
   %cmp871.i = icmp ugt i32 %i868.0249.i, 1
   br i1 %cmp871.i, label %while.body873.i, label %do.body881.i, !llvm.loop !41
@@ -1608,14 +1608,14 @@ do.body881.i:                                     ; preds = %while.body873.i
 while.body898.i:                                  ; preds = %while.body898.i, %do.body881.i
   %i893.0252.i = phi i32 [ 4, %do.body881.i ], [ %dec895.i, %while.body898.i ]
   %w882.0251.i = phi i32 [ %or892.i, %do.body881.i ], [ %shr903.i, %while.body898.i ]
-  %cp.27250.i = phi ptr [ %incdec.ptr877.i, %do.body881.i ], [ %incdec.ptr902.i, %while.body898.i ]
+  %cp.28250.i = phi ptr [ %incdec.ptr877.i, %do.body881.i ], [ %incdec.ptr902.i, %while.body898.i ]
   %dec895.i = add nsw i32 %i893.0252.i, -1
   %and899.i = and i32 %w882.0251.i, 63
   %idxprom900.i = zext nneg i32 %and899.i to i64
   %arrayidx901.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom900.i
   %124 = load i8, ptr %arrayidx901.i, align 1
-  %incdec.ptr902.i = getelementptr inbounds i8, ptr %cp.27250.i, i64 1
-  store i8 %124, ptr %cp.27250.i, align 1
+  %incdec.ptr902.i = getelementptr inbounds i8, ptr %cp.28250.i, i64 1
+  store i8 %124, ptr %cp.28250.i, align 1
   %shr903.i = lshr i32 %w882.0251.i, 6
   %cmp896.i = icmp ugt i32 %i893.0252.i, 1
   br i1 %cmp896.i, label %while.body898.i, label %do.body906.i, !llvm.loop !42
@@ -1639,14 +1639,14 @@ do.body906.i:                                     ; preds = %while.body898.i
 while.body923.i:                                  ; preds = %while.body923.i, %do.body906.i
   %i918.0255.i = phi i32 [ 4, %do.body906.i ], [ %dec920.i, %while.body923.i ]
   %w907.0254.i = phi i32 [ %or917.i, %do.body906.i ], [ %shr928.i, %while.body923.i ]
-  %cp.28253.i = phi ptr [ %incdec.ptr902.i, %do.body906.i ], [ %incdec.ptr927.i, %while.body923.i ]
+  %cp.29253.i = phi ptr [ %incdec.ptr902.i, %do.body906.i ], [ %incdec.ptr927.i, %while.body923.i ]
   %dec920.i = add nsw i32 %i918.0255.i, -1
   %and924.i = and i32 %w907.0254.i, 63
   %idxprom925.i = zext nneg i32 %and924.i to i64
   %arrayidx926.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom925.i
   %128 = load i8, ptr %arrayidx926.i, align 1
-  %incdec.ptr927.i = getelementptr inbounds i8, ptr %cp.28253.i, i64 1
-  store i8 %128, ptr %cp.28253.i, align 1
+  %incdec.ptr927.i = getelementptr inbounds i8, ptr %cp.29253.i, i64 1
+  store i8 %128, ptr %cp.29253.i, align 1
   %shr928.i = lshr i32 %w907.0254.i, 6
   %cmp921.i = icmp ugt i32 %i918.0255.i, 1
   br i1 %cmp921.i, label %while.body923.i, label %do.body931.i, !llvm.loop !43
@@ -1670,14 +1670,14 @@ do.body931.i:                                     ; preds = %while.body923.i
 while.body948.i:                                  ; preds = %while.body948.i, %do.body931.i
   %i943.0258.i = phi i32 [ 4, %do.body931.i ], [ %dec945.i, %while.body948.i ]
   %w932.0257.i = phi i32 [ %or942.i, %do.body931.i ], [ %shr953.i, %while.body948.i ]
-  %cp.29256.i = phi ptr [ %incdec.ptr927.i, %do.body931.i ], [ %incdec.ptr952.i, %while.body948.i ]
+  %cp.30256.i = phi ptr [ %incdec.ptr927.i, %do.body931.i ], [ %incdec.ptr952.i, %while.body948.i ]
   %dec945.i = add nsw i32 %i943.0258.i, -1
   %and949.i = and i32 %w932.0257.i, 63
   %idxprom950.i = zext nneg i32 %and949.i to i64
   %arrayidx951.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom950.i
   %132 = load i8, ptr %arrayidx951.i, align 1
-  %incdec.ptr952.i = getelementptr inbounds i8, ptr %cp.29256.i, i64 1
-  store i8 %132, ptr %cp.29256.i, align 1
+  %incdec.ptr952.i = getelementptr inbounds i8, ptr %cp.30256.i, i64 1
+  store i8 %132, ptr %cp.30256.i, align 1
   %shr953.i = lshr i32 %w932.0257.i, 6
   %cmp946.i = icmp ugt i32 %i943.0258.i, 1
   br i1 %cmp946.i, label %while.body948.i, label %do.body956.i, !llvm.loop !44
@@ -1701,14 +1701,14 @@ do.body956.i:                                     ; preds = %while.body948.i
 while.body973.i:                                  ; preds = %while.body973.i, %do.body956.i
   %i968.0261.i = phi i32 [ 4, %do.body956.i ], [ %dec970.i, %while.body973.i ]
   %w957.0260.i = phi i32 [ %or967.i, %do.body956.i ], [ %shr978.i, %while.body973.i ]
-  %cp.30259.i = phi ptr [ %incdec.ptr952.i, %do.body956.i ], [ %incdec.ptr977.i, %while.body973.i ]
+  %cp.31259.i = phi ptr [ %incdec.ptr952.i, %do.body956.i ], [ %incdec.ptr977.i, %while.body973.i ]
   %dec970.i = add nsw i32 %i968.0261.i, -1
   %and974.i = and i32 %w957.0260.i, 63
   %idxprom975.i = zext nneg i32 %and974.i to i64
   %arrayidx976.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom975.i
   %136 = load i8, ptr %arrayidx976.i, align 1
-  %incdec.ptr977.i = getelementptr inbounds i8, ptr %cp.30259.i, i64 1
-  store i8 %136, ptr %cp.30259.i, align 1
+  %incdec.ptr977.i = getelementptr inbounds i8, ptr %cp.31259.i, i64 1
+  store i8 %136, ptr %cp.31259.i, align 1
   %shr978.i = lshr i32 %w957.0260.i, 6
   %cmp971.i = icmp ugt i32 %i968.0261.i, 1
   br i1 %cmp971.i, label %while.body973.i, label %do.body981.i, !llvm.loop !45
@@ -1732,14 +1732,14 @@ do.body981.i:                                     ; preds = %while.body973.i
 while.body998.i:                                  ; preds = %while.body998.i, %do.body981.i
   %i993.0264.i = phi i32 [ 4, %do.body981.i ], [ %dec995.i, %while.body998.i ]
   %w982.0263.i = phi i32 [ %or992.i, %do.body981.i ], [ %shr1003.i, %while.body998.i ]
-  %cp.31262.i = phi ptr [ %incdec.ptr977.i, %do.body981.i ], [ %incdec.ptr1002.i, %while.body998.i ]
+  %cp.32262.i = phi ptr [ %incdec.ptr977.i, %do.body981.i ], [ %incdec.ptr1002.i, %while.body998.i ]
   %dec995.i = add nsw i32 %i993.0264.i, -1
   %and999.i = and i32 %w982.0263.i, 63
   %idxprom1000.i = zext nneg i32 %and999.i to i64
   %arrayidx1001.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom1000.i
   %140 = load i8, ptr %arrayidx1001.i, align 1
-  %incdec.ptr1002.i = getelementptr inbounds i8, ptr %cp.31262.i, i64 1
-  store i8 %140, ptr %cp.31262.i, align 1
+  %incdec.ptr1002.i = getelementptr inbounds i8, ptr %cp.32262.i, i64 1
+  store i8 %140, ptr %cp.32262.i, align 1
   %shr1003.i = lshr i32 %w982.0263.i, 6
   %cmp996.i = icmp ugt i32 %i993.0264.i, 1
   br i1 %cmp996.i, label %while.body998.i, label %do.body1006.i, !llvm.loop !46
@@ -1763,14 +1763,14 @@ do.body1006.i:                                    ; preds = %while.body998.i
 while.body1023.i:                                 ; preds = %while.body1023.i, %do.body1006.i
   %i1018.0267.i = phi i32 [ 4, %do.body1006.i ], [ %dec1020.i, %while.body1023.i ]
   %w1007.0266.i = phi i32 [ %or1017.i, %do.body1006.i ], [ %shr1028.i, %while.body1023.i ]
-  %cp.32265.i = phi ptr [ %incdec.ptr1002.i, %do.body1006.i ], [ %incdec.ptr1027.i, %while.body1023.i ]
+  %cp.33265.i = phi ptr [ %incdec.ptr1002.i, %do.body1006.i ], [ %incdec.ptr1027.i, %while.body1023.i ]
   %dec1020.i = add nsw i32 %i1018.0267.i, -1
   %and1024.i = and i32 %w1007.0266.i, 63
   %idxprom1025.i = zext nneg i32 %and1024.i to i64
   %arrayidx1026.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom1025.i
   %144 = load i8, ptr %arrayidx1026.i, align 1
-  %incdec.ptr1027.i = getelementptr inbounds i8, ptr %cp.32265.i, i64 1
-  store i8 %144, ptr %cp.32265.i, align 1
+  %incdec.ptr1027.i = getelementptr inbounds i8, ptr %cp.33265.i, i64 1
+  store i8 %144, ptr %cp.33265.i, align 1
   %shr1028.i = lshr i32 %w1007.0266.i, 6
   %cmp1021.i = icmp ugt i32 %i1018.0267.i, 1
   br i1 %cmp1021.i, label %while.body1023.i, label %do.body1031.i, !llvm.loop !47
@@ -1794,14 +1794,14 @@ do.body1031.i:                                    ; preds = %while.body1023.i
 while.body1048.i:                                 ; preds = %while.body1048.i, %do.body1031.i
   %i1043.0270.i = phi i32 [ 4, %do.body1031.i ], [ %dec1045.i, %while.body1048.i ]
   %w1032.0269.i = phi i32 [ %or1042.i, %do.body1031.i ], [ %shr1053.i, %while.body1048.i ]
-  %cp.33268.i = phi ptr [ %incdec.ptr1027.i, %do.body1031.i ], [ %incdec.ptr1052.i, %while.body1048.i ]
+  %cp.34268.i = phi ptr [ %incdec.ptr1027.i, %do.body1031.i ], [ %incdec.ptr1052.i, %while.body1048.i ]
   %dec1045.i = add nsw i32 %i1043.0270.i, -1
   %and1049.i = and i32 %w1032.0269.i, 63
   %idxprom1050.i = zext nneg i32 %and1049.i to i64
   %arrayidx1051.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom1050.i
   %148 = load i8, ptr %arrayidx1051.i, align 1
-  %incdec.ptr1052.i = getelementptr inbounds i8, ptr %cp.33268.i, i64 1
-  store i8 %148, ptr %cp.33268.i, align 1
+  %incdec.ptr1052.i = getelementptr inbounds i8, ptr %cp.34268.i, i64 1
+  store i8 %148, ptr %cp.34268.i, align 1
   %shr1053.i = lshr i32 %w1032.0269.i, 6
   %cmp1046.i = icmp ugt i32 %i1043.0270.i, 1
   br i1 %cmp1046.i, label %while.body1048.i, label %do.body1056.i, !llvm.loop !48
@@ -1815,21 +1815,21 @@ do.body1056.i:                                    ; preds = %while.body1048.i
 while.body1066.i:                                 ; preds = %while.body1066.i, %do.body1056.i
   %i1061.0273.i = phi i32 [ 2, %do.body1056.i ], [ %dec1063.i, %while.body1066.i ]
   %w1057.0272.i = phi i32 [ %conv1059.i, %do.body1056.i ], [ %shr1071.i, %while.body1066.i ]
-  %cp.34271.i = phi ptr [ %incdec.ptr1052.i, %do.body1056.i ], [ %incdec.ptr1070.i, %while.body1066.i ]
+  %cp.35271.i = phi ptr [ %incdec.ptr1052.i, %do.body1056.i ], [ %incdec.ptr1070.i, %while.body1066.i ]
   %dec1063.i = add nsw i32 %i1061.0273.i, -1
   %and1067.i = and i32 %w1057.0272.i, 63
   %idxprom1068.i = zext nneg i32 %and1067.i to i64
   %arrayidx1069.i = getelementptr inbounds [64 x i8], ptr @cov_2char, i64 0, i64 %idxprom1068.i
   %150 = load i8, ptr %arrayidx1069.i, align 1
-  %incdec.ptr1070.i = getelementptr inbounds i8, ptr %cp.34271.i, i64 1
-  store i8 %150, ptr %cp.34271.i, align 1
+  %incdec.ptr1070.i = getelementptr inbounds i8, ptr %cp.35271.i, i64 1
+  store i8 %150, ptr %cp.35271.i, align 1
   %shr1071.i = lshr i32 %w1057.0272.i, 6
   %cmp1064.i = icmp ugt i32 %i1061.0273.i, 1
   br i1 %cmp1064.i, label %while.body1066.i, label %sw.epilog1075.i, !llvm.loop !49
 
 sw.epilog1075.i:                                  ; preds = %while.body1066.i, %while.body522.i
-  %cp.35.i = phi ptr [ %incdec.ptr526.i, %while.body522.i ], [ %incdec.ptr1070.i, %while.body1066.i ]
-  store i8 0, ptr %cp.35.i, align 1
+  %cp.13.i = phi ptr [ %incdec.ptr526.i, %while.body522.i ], [ %incdec.ptr1070.i, %while.body1066.i ]
+  store i8 0, ptr %cp.13.i, align 1
   br label %shacrypt.exit
 
 err.i:                                            ; preds = %for.body.i, %while.body.i, %for.body128.i, %for.body166.i, %if.end252.i, %if.end235.i, %if.then230.i, %if.then222.i, %if.end203.i, %for.body199.i, %for.end259.i, %if.end179.i, %for.end174.i, %for.end153.i, %if.end139.i, %for.end134.i, %if.end120.i, %while.end.i, %for.end.i, %lor.lhs.false85.i, %lor.lhs.false82.i, %lor.lhs.false78.i, %lor.lhs.false75.i, %lor.lhs.false72.i, %if.end68.i, %lor.lhs.false63.i, %lor.lhs.false60.i, %lor.lhs.false.i, %if.end54.i, %if.end44.i

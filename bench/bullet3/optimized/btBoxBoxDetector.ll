@@ -1792,7 +1792,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %i
   %i.076 = phi i32 [ %nq.180, %for.body6.lr.ph ], [ %dec, %if.end72 ]
   %pr.075 = phi ptr [ %r.178, %for.body6.lr.ph ], [ %pr.2, %if.end72 ]
   %pq.074 = phi ptr [ %q.177, %for.body6.lr.ph ], [ %add.ptr17, %if.end72 ]
-  %nr.273 = phi i32 [ 0, %for.body6.lr.ph ], [ %nr.4, %if.end72 ]
+  %nr.273 = phi i32 [ 0, %for.body6.lr.ph ], [ %nr.5, %if.end72 ]
   %arrayidx = getelementptr inbounds float, ptr %pq.074, i64 %indvars.iv
   %1 = load float, ptr %arrayidx, align 4
   %mul = fmul float %1, %conv
@@ -1860,14 +1860,14 @@ if.then35:                                        ; preds = %if.end15
   br i1 %tobool69.not, label %if.end72, label %done
 
 if.end72:                                         ; preds = %if.then35, %if.end15
-  %nr.4 = phi i32 [ %inc67, %if.then35 ], [ %nr.3, %if.end15 ]
+  %nr.5 = phi i32 [ %inc67, %if.then35 ], [ %nr.3, %if.end15 ]
   %pr.2 = phi ptr [ %add.ptr66, %if.then35 ], [ %pr.1, %if.end15 ]
   %dec = add nsw i32 %i.076, -1
   %cmp5 = icmp sgt i32 %i.076, 1
   br i1 %cmp5, label %for.body6, label %for.end, !llvm.loop !30
 
 for.end:                                          ; preds = %if.end72, %for.cond4.preheader
-  %nr.2.lcssa = phi i32 [ 0, %for.cond4.preheader ], [ %nr.4, %if.end72 ]
+  %nr.2.lcssa = phi i32 [ 0, %for.cond4.preheader ], [ %nr.5, %if.end72 ]
   %cmp74 = icmp eq ptr %r.178, %ret
   %cond78 = select i1 %cmp74, ptr %buffer, ptr %ret
   %add = add nsw i32 %sign.079, 2
@@ -1878,19 +1878,19 @@ for.inc81:                                        ; preds = %for.end
   br i1 %cmp, label %for.cond1.preheader, label %done, !llvm.loop !32
 
 done:                                             ; preds = %for.inc81, %if.then35, %if.then
-  %nr.5 = phi i32 [ %inc67, %if.then35 ], [ %inc, %if.then ], [ %nr.2.lcssa, %for.inc81 ]
+  %nr.4 = phi i32 [ %inc67, %if.then35 ], [ %inc, %if.then ], [ %nr.2.lcssa, %for.inc81 ]
   %cmp84.not = icmp eq ptr %r.178, %ret
   br i1 %cmp84.not, label %if.end89, label %if.then85
 
 if.then85:                                        ; preds = %done
-  %mul86 = shl nsw i32 %nr.5, 1
+  %mul86 = shl nsw i32 %nr.4, 1
   %conv87 = sext i32 %mul86 to i64
   %mul88 = shl nsw i64 %conv87, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ret, ptr align 4 %r.178, i64 %mul88, i1 false)
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then85, %done
-  ret i32 %nr.5
+  ret i32 %nr.4
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1640,7 +1640,7 @@ define hidden void @_ZN9Relocator22adjust_stack_map_tableEii(ptr noundef nonnull
   br label %26
 
 26:                                               ; preds = %.lr.ph148, %_ZNK15stack_map_frame4nextEv.exit
-  %.066146 = phi ptr [ %19, %.lr.ph148 ], [ %.2179187224, %_ZNK15stack_map_frame4nextEv.exit ]
+  %.066146 = phi ptr [ %19, %.lr.ph148 ], [ %.1179187224, %_ZNK15stack_map_frame4nextEv.exit ]
   %.067145 = phi ptr [ %22, %.lr.ph148 ], [ %291, %_ZNK15stack_map_frame4nextEv.exit ]
   %.073144 = phi i32 [ -1, %.lr.ph148 ], [ %290, %_ZNK15stack_map_frame4nextEv.exit ]
   %.074143 = phi i8 [ 0, %.lr.ph148 ], [ %.175174189218, %_ZNK15stack_map_frame4nextEv.exit ]
@@ -1884,8 +1884,8 @@ _ZN19same_frame_extended9create_atEPht.exit:      ; preds = %155, %154, %_ZNK15s
   %156 = phi i8 [ %27, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %.pre, %_ZNK15stack_map_frame15is_valid_offsetEi.exit.thread ], [ -9, %154 ], [ -9, %155 ]
   %157 = phi i32 [ %71, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %88, %_ZNK15stack_map_frame15is_valid_offsetEi.exit.thread ], [ %91, %154 ], [ %91, %155 ]
   %.175 = phi i8 [ %.074143, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ 1, %_ZNK15stack_map_frame15is_valid_offsetEi.exit.thread ], [ 1, %154 ], [ 1, %155 ]
-  %.269 = phi ptr [ %.067145, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %.067145, %_ZNK15stack_map_frame15is_valid_offsetEi.exit.thread ], [ %133, %154 ], [ %133, %155 ]
-  %.2 = phi ptr [ %.066146, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %.066146, %_ZNK15stack_map_frame15is_valid_offsetEi.exit.thread ], [ %113, %154 ], [ %113, %155 ]
+  %.168 = phi ptr [ %.067145, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %.067145, %_ZNK15stack_map_frame15is_valid_offsetEi.exit.thread ], [ %133, %154 ], [ %133, %155 ]
+  %.1 = phi ptr [ %.066146, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %.066146, %_ZNK15stack_map_frame15is_valid_offsetEi.exit.thread ], [ %113, %154 ], [ %113, %155 ]
   %158 = icmp ult i8 %156, 64
   %.not.i84 = icmp eq i8 %156, -5
   %or.cond.i = or i1 %158, %.not.i84
@@ -1921,7 +1921,7 @@ _ZN19same_frame_extended9create_atEPht.exit:      ; preds = %155, %154, %_ZNK15s
   br i1 %.not40.i, label %.thread113.thread.thread.thread, label %.thread113
 
 .thread113.thread.thread.thread:                  ; preds = %172
-  %173 = getelementptr inbounds i8, ptr %.269, i64 3
+  %173 = getelementptr inbounds i8, ptr %.168, i64 3
   %.0.i.i.i.i.i.i = load i16, ptr %173, align 1
   %174 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i.i)
   %175 = zext i16 %174 to i32
@@ -1932,7 +1932,7 @@ _ZN19same_frame_extended9create_atEPht.exit:      ; preds = %155, %154, %_ZNK15s
   br i1 %177, label %.thread113, label %_ZNK15stack_map_frame5typesEv.exit.thread190
 
 _ZNK15stack_map_frame5typesEv.exit.thread190:     ; preds = %176
-  %178 = getelementptr inbounds i8, ptr %.269, i64 1
+  %178 = getelementptr inbounds i8, ptr %.168, i64 1
   br label %.lr.ph.preheader
 
 .thread113:                                       ; preds = %172, %176
@@ -1944,7 +1944,7 @@ _ZNK15stack_map_frame5typesEv.exit.thread190:     ; preds = %176
   br label %.thread113.thread
 
 179:                                              ; preds = %.thread113
-  %180 = getelementptr inbounds i8, ptr %.269, i64 3
+  %180 = getelementptr inbounds i8, ptr %.168, i64 3
   br label %_ZNK15stack_map_frame5typesEv.exit
 
 .thread113.thread:                                ; preds = %.thread113..thread113.thread_crit_edge, %161
@@ -1969,14 +1969,14 @@ _ZNK15stack_map_frame5typesEv.exit.thread190:     ; preds = %176
   br i1 %spec.select.i.i33.not.i, label %187, label %185
 
 185:                                              ; preds = %.thread113.thread.thread
-  %186 = getelementptr inbounds i8, ptr %.269, i64 3
+  %186 = getelementptr inbounds i8, ptr %.168, i64 3
   br label %_ZNK15stack_map_frame5typesEv.exit
 
 187:                                              ; preds = %.thread113.thread.thread.thread, %.thread113.thread.thread
   %188 = phi i8 [ -1, %.thread113.thread.thread.thread ], [ %156, %.thread113.thread.thread ]
   %.0.i86.ph115118121124 = phi i32 [ %175, %.thread113.thread.thread.thread ], [ %.0.i86.ph115118121, %.thread113.thread.thread ]
   %.not41.i = icmp eq i8 %188, -1
-  %..i35.i = select i1 %.not41.i, ptr %.269, ptr null
+  %..i35.i = select i1 %.not41.i, ptr %.168, ptr null
   %189 = getelementptr inbounds i8, ptr %..i35.i, i64 5
   %spec.select.i = select i1 %.not41.i, ptr %189, ptr null
   br label %_ZNK15stack_map_frame5typesEv.exit
@@ -2034,7 +2034,7 @@ _ZN22verification_type_info7set_bciEt.exit:       ; preds = %205, %204, %193, %.
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %_ZN22verification_type_info7set_bciEt.exit
-  %.pre161 = load i8, ptr %.269, align 1
+  %.pre161 = load i8, ptr %.168, align 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN19same_frame_extended9create_atEPht.exit, %._crit_edge.loopexit, %_ZNK15stack_map_frame5typesEv.exit
@@ -2096,7 +2096,7 @@ _ZN22verification_type_info7set_bciEt.exit96:     ; preds = %228, %227, %216, %.
   br i1 %exitcond158.not, label %thread-pre-split.loopexit, label %.lr.ph141, !llvm.loop !18
 
 thread-pre-split.loopexit:                        ; preds = %_ZN22verification_type_info7set_bciEt.exit96
-  %.pr.pre = load i8, ptr %.269, align 1
+  %.pr.pre = load i8, ptr %.168, align 1
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.loopexit, %._crit_edge
@@ -2113,7 +2113,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   br i1 %236, label %242, label %237
 
 237:                                              ; preds = %235
-  %238 = getelementptr inbounds i8, ptr %.269, i64 1
+  %238 = getelementptr inbounds i8, ptr %.168, i64 1
   %239 = load i8, ptr %238, align 1
   %240 = add i8 %239, -7
   %or.cond.i.i.i.i.i.i = icmp ult i8 %240, 2
@@ -2125,7 +2125,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   br i1 %.not37.i.i, label %243, label %248
 
 243:                                              ; preds = %242
-  %244 = getelementptr inbounds i8, ptr %.269, i64 3
+  %244 = getelementptr inbounds i8, ptr %.168, i64 3
   %245 = load i8, ptr %244, align 1
   %246 = add i8 %245, -7
   %or.cond.i.i.i.i31.i.i = icmp ult i8 %246, 2
@@ -2148,7 +2148,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   br i1 %spec.select.i.i33.not.i.i, label %264, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %252
-  %257 = getelementptr inbounds i8, ptr %.269, i64 3
+  %257 = getelementptr inbounds i8, ptr %.168, i64 3
   %258 = add nsw i32 %253, -252
   br label %.lr.ph.i.i.i.i
 
@@ -2171,8 +2171,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   br i1 %.not42.i.i, label %.thread210, label %_ZNK15stack_map_frame4nextEv.exit
 
 .thread210:                                       ; preds = %210, %264
-  %265 = getelementptr inbounds i8, ptr %.269, i64 5
-  %266 = getelementptr inbounds i8, ptr %.269, i64 3
+  %265 = getelementptr inbounds i8, ptr %.168, i64 5
+  %266 = getelementptr inbounds i8, ptr %.168, i64 3
   %.0.i.i.i.i.i.i100 = load i16, ptr %266, align 1
   %.not.i.i101 = icmp eq i16 %.0.i.i.i.i.i.i100, 0
   br i1 %.not.i.i101, label %_ZNK10full_frame13end_of_localsEv.exit.thread.i, label %.lr.ph.preheader.i.i
@@ -2180,7 +2180,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
 _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %.thread210
   %.0.i.i.i.i313.i = load i16, ptr %265, align 1
   %267 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i313.i)
-  %268 = getelementptr inbounds i8, ptr %.269, i64 7
+  %268 = getelementptr inbounds i8, ptr %.168, i64 7
   br label %.preheader.i.i102
 
 .lr.ph.preheader.i.i:                             ; preds = %.thread210
@@ -2249,18 +2249,18 @@ _ZNK10full_frame13end_of_localsEv.exit.i:         ; preds = %.lr.ph.i.i
   br i1 %exitcond31.not.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i, !llvm.loop !22
 
 _ZNK15stack_map_frame4nextEv.exit:                ; preds = %.lr.ph.i.i.i.i, %.lr.ph28.i.i, %144, %145, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread, %.preheader.i.i102, %thread-pre-split, %234, %237, %243, %248, %264
-  %.2179187224 = phi ptr [ %.2, %237 ], [ %.2, %243 ], [ %.2, %264 ], [ %.2, %thread-pre-split ], [ %.2, %234 ], [ %.2, %248 ], [ %.2, %.preheader.i.i102 ], [ %.066146, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %113, %145 ], [ %113, %144 ], [ %.2, %.lr.ph28.i.i ], [ %.2, %.lr.ph.i.i.i.i ]
-  %.269178188221 = phi ptr [ %.269, %237 ], [ %.269, %243 ], [ %.269, %264 ], [ %.269, %thread-pre-split ], [ %.269, %234 ], [ %.269, %248 ], [ %.269, %.preheader.i.i102 ], [ %.067145, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %133, %145 ], [ %133, %144 ], [ %.269, %.lr.ph28.i.i ], [ %.269, %.lr.ph.i.i.i.i ]
+  %.1179187224 = phi ptr [ %.1, %237 ], [ %.1, %243 ], [ %.1, %264 ], [ %.1, %thread-pre-split ], [ %.1, %234 ], [ %.1, %248 ], [ %.1, %.preheader.i.i102 ], [ %.066146, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %113, %145 ], [ %113, %144 ], [ %.1, %.lr.ph28.i.i ], [ %.1, %.lr.ph.i.i.i.i ]
+  %.168178188221 = phi ptr [ %.168, %237 ], [ %.168, %243 ], [ %.168, %264 ], [ %.168, %thread-pre-split ], [ %.168, %234 ], [ %.168, %248 ], [ %.168, %.preheader.i.i102 ], [ %.067145, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %133, %145 ], [ %133, %144 ], [ %.168, %.lr.ph28.i.i ], [ %.168, %.lr.ph.i.i.i.i ]
   %.175174189218 = phi i8 [ %.175, %237 ], [ %.175, %243 ], [ %.175, %264 ], [ %.175, %thread-pre-split ], [ %.175, %234 ], [ %.175, %248 ], [ %.175, %.preheader.i.i102 ], [ %.074143, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ 1, %145 ], [ 1, %144 ], [ %.175, %.lr.ph28.i.i ], [ %.175, %.lr.ph.i.i.i.i ]
   %290 = phi i32 [ %157, %237 ], [ %157, %243 ], [ %157, %264 ], [ %157, %thread-pre-split ], [ %157, %234 ], [ %157, %248 ], [ %157, %.preheader.i.i102 ], [ %75, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %91, %145 ], [ %91, %144 ], [ %157, %.lr.ph28.i.i ], [ %157, %.lr.ph.i.i.i.i ]
   %.0.i.i = phi i64 [ %241, %237 ], [ %247, %243 ], [ 0, %264 ], [ 1, %thread-pre-split ], [ 3, %234 ], [ 3, %248 ], [ %.016.lcssa.i.i, %.preheader.i.i102 ], [ 1, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ 3, %145 ], [ 3, %144 ], [ %287, %.lr.ph28.i.i ], [ %261, %.lr.ph.i.i.i.i ]
-  %291 = getelementptr inbounds i8, ptr %.269178188221, i64 %.0.i.i
+  %291 = getelementptr inbounds i8, ptr %.168178188221, i64 %.0.i.i
   %292 = add nuw nsw i32 %.076142, 1
   %exitcond160.not = icmp eq i32 %292, %umax159
   br i1 %exitcond160.not, label %._crit_edge149, label %26, !llvm.loop !23
 
 ._crit_edge149:                                   ; preds = %_ZNK15stack_map_frame4nextEv.exit, %14
-  %.066.lcssa = phi ptr [ %19, %14 ], [ %.2179187224, %_ZNK15stack_map_frame4nextEv.exit ]
+  %.066.lcssa = phi ptr [ %19, %14 ], [ %.1179187224, %_ZNK15stack_map_frame4nextEv.exit ]
   call void @_ZN12methodHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8) #10
   %293 = load ptr, ptr %7, align 8
   %294 = getelementptr inbounds i8, ptr %293, i64 8

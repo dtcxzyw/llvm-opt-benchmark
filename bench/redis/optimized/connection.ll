@@ -464,7 +464,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc15
   %indvars.iv22 = phi i64 [ 0, %entry ], [ %indvars.iv.next23, %for.inc15 ]
-  %info.addr.020 = phi ptr [ %info, %entry ], [ %info.addr.3, %for.inc15 ]
+  %info.addr.020 = phi ptr [ %info, %entry ], [ %info.addr.1, %for.inc15 ]
   %arrayidx = getelementptr inbounds [8 x %struct.connListener], ptr getelementptr inbounds (i8, ptr @server, i64 488), i64 0, i64 %indvars.iv22
   %ct = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %0 = load ptr, ptr %ct, align 8
@@ -487,11 +487,11 @@ for.body6.lr.ph:                                  ; preds = %if.end
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %for.body6
   %indvars.iv = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next, %for.body6 ]
-  %info.addr.117 = phi ptr [ %call3, %for.body6.lr.ph ], [ %call9, %for.body6 ]
+  %info.addr.217 = phi ptr [ %call3, %for.body6.lr.ph ], [ %call9, %for.body6 ]
   %4 = load ptr, ptr %bindaddr, align 8
   %arrayidx8 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx8, align 8
-  %call9 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.117, ptr noundef nonnull @.str.11, ptr noundef %5) #4
+  %call9 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.217, ptr noundef nonnull @.str.11, ptr noundef %5) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i32, ptr %count, align 8
   %7 = sext i32 %6 to i64
@@ -499,29 +499,29 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %f
   br i1 %cmp5, label %for.body6, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body6, %if.end
-  %info.addr.1.lcssa = phi ptr [ %call3, %if.end ], [ %call9, %for.body6 ]
+  %info.addr.2.lcssa = phi ptr [ %call3, %if.end ], [ %call9, %for.body6 ]
   %port = getelementptr inbounds i8, ptr %arrayidx, i64 84
   %8 = load i32, ptr %port, align 4
   %tobool.not = icmp eq i32 %8, 0
   br i1 %tobool.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %for.end
-  %call12 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.1.lcssa, ptr noundef nonnull @.str.12, i32 noundef %8) #4
+  %call12 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.2.lcssa, ptr noundef nonnull @.str.12, i32 noundef %8) #4
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %for.end
-  %info.addr.2 = phi ptr [ %call12, %if.then10 ], [ %info.addr.1.lcssa, %for.end ]
-  %call14 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.2, ptr noundef nonnull @.str.13) #4
+  %info.addr.3 = phi ptr [ %call12, %if.then10 ], [ %info.addr.2.lcssa, %for.end ]
+  %call14 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.3, ptr noundef nonnull @.str.13) #4
   br label %for.inc15
 
 for.inc15:                                        ; preds = %for.body, %if.end13
-  %info.addr.3 = phi ptr [ %info.addr.020, %for.body ], [ %call14, %if.end13 ]
+  %info.addr.1 = phi ptr [ %info.addr.020, %for.body ], [ %call14, %if.end13 ]
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next23, 8
   br i1 %exitcond.not, label %for.end17, label %for.body, !llvm.loop !13
 
 for.end17:                                        ; preds = %for.inc15
-  ret ptr %info.addr.3
+  ret ptr %info.addr.1
 }
 
 declare ptr @sdscatfmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #2

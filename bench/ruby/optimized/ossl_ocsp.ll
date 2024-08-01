@@ -1635,8 +1635,8 @@ rb_num2int_inline.exit72:                         ; preds = %59, %61
   br label %79
 
 79:                                               ; preds = %77, %71
-  %.048 = phi ptr [ null, %71 ], [ %78, %77 ]
-  %80 = call ptr @OCSP_basic_add1_status(ptr noundef nonnull %10, ptr noundef nonnull %14, i32 noundef %23, i32 noundef %.044, ptr noundef %.046, ptr noundef %72, ptr noundef %.048) #4
+  %.149 = phi ptr [ null, %71 ], [ %78, %77 ]
+  %80 = call ptr @OCSP_basic_add1_status(ptr noundef nonnull %10, ptr noundef nonnull %14, i32 noundef %23, i32 noundef %.044, ptr noundef %.046, ptr noundef %72, ptr noundef %.149) #4
   %.not59 = icmp eq ptr %80, null
   br i1 %.not59, label %.loopexit, label %81
 
@@ -1684,18 +1684,18 @@ rb_array_const_ptr.exit78:                        ; preds = %rb_array_len.exit75
 
 .loopexit:                                        ; preds = %rb_array_const_ptr.exit78, %79
   call void @ASN1_TIME_free(ptr noundef %72) #4
-  call void @ASN1_TIME_free(ptr noundef %.048) #4
+  call void @ASN1_TIME_free(ptr noundef %.149) #4
   call void @ASN1_TIME_free(ptr noundef %.046) #4
   %101 = load i64, ptr @eOCSPError, align 8
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %101, ptr noundef null) #5
   unreachable
 
 .critedge:                                        ; preds = %rb_array_len.exit75.thread, %rb_array_len.exit75, %74, %81, %68, %rb_num2int_inline.exit72
-  %.149.ph = phi ptr [ null, %74 ], [ %.048, %81 ], [ null, %68 ], [ null, %rb_num2int_inline.exit72 ], [ %.048, %rb_array_len.exit75 ], [ %.048, %rb_array_len.exit75.thread ]
+  %.048.ph = phi ptr [ null, %74 ], [ %.149, %81 ], [ null, %68 ], [ null, %rb_num2int_inline.exit72 ], [ %.149, %rb_array_len.exit75 ], [ %.149, %rb_array_len.exit75.thread ]
   %.147.ph = phi ptr [ %.046, %74 ], [ %.046, %81 ], [ %.046, %68 ], [ null, %rb_num2int_inline.exit72 ], [ %.046, %rb_array_len.exit75 ], [ %.046, %rb_array_len.exit75.thread ]
   %.045.ph = phi ptr [ %72, %74 ], [ %72, %81 ], [ null, %68 ], [ null, %rb_num2int_inline.exit72 ], [ %72, %rb_array_len.exit75 ], [ %72, %rb_array_len.exit75.thread ]
   call void @ASN1_TIME_free(ptr noundef %.045.ph) #4
-  call void @ASN1_TIME_free(ptr noundef %.149.ph) #4
+  call void @ASN1_TIME_free(ptr noundef %.048.ph) #4
   call void @ASN1_TIME_free(ptr noundef %.147.ph) #4
   %102 = load i32, ptr %9, align 4
   %.not62 = icmp eq i32 %102, 0

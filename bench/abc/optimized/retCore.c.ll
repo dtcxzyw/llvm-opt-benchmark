@@ -89,13 +89,13 @@ Abc_Clock.exit:                                   ; preds = %8, %16
   br label %41
 
 41:                                               ; preds = %39, %38
-  %.0 = phi i32 [ 0, %38 ], [ %40, %39 ]
+  %.1 = phi i32 [ 0, %38 ], [ %40, %39 ]
   %.not69 = icmp eq i32 %3, 0
   br i1 %.not69, label %42, label %57
 
 42:                                               ; preds = %41
   %43 = call i32 @Abc_NtkRetimeIncremental(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0, i32 noundef 1, i32 noundef %5, i32 noundef %6, i32 noundef %7) #9
-  %44 = add nsw i32 %43, %.0
+  %44 = add nsw i32 %43, %.1
   br label %57
 
 45:                                               ; preds = %31
@@ -109,13 +109,13 @@ Abc_Clock.exit:                                   ; preds = %8, %16
   br label %50
 
 50:                                               ; preds = %47, %45
-  %.1 = phi i32 [ %46, %45 ], [ %49, %47 ]
+  %.2 = phi i32 [ %46, %45 ], [ %49, %47 ]
   %.not67 = icmp eq i32 %3, 0
   br i1 %.not67, label %51, label %57
 
 51:                                               ; preds = %50
   %52 = call i32 @Abc_NtkRetimeIncremental(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef %6, i32 noundef %7) #9
-  %53 = add nsw i32 %52, %.1
+  %53 = add nsw i32 %52, %.2
   br label %57
 
 54:                                               ; preds = %31
@@ -127,7 +127,7 @@ Abc_Clock.exit:                                   ; preds = %8, %16
   br label %57
 
 57:                                               ; preds = %50, %51, %41, %42, %56, %54, %36, %34, %32
-  %.2 = phi i32 [ 0, %56 ], [ %55, %54 ], [ %.1, %50 ], [ %53, %51 ], [ %.0, %41 ], [ %44, %42 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ]
+  %.0 = phi i32 [ 0, %56 ], [ %55, %54 ], [ %.2, %50 ], [ %53, %51 ], [ %.1, %41 ], [ %44, %42 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ]
   %.not70 = icmp eq i32 %7, 0
   br i1 %.not70, label %75, label %58
 
@@ -181,7 +181,7 @@ Abc_Clock.exit81:                                 ; preds = %75, %78
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %85 = sub nsw i64 %.0.i80, %.0.i
   store i64 %85, ptr @timeRetime, align 8
-  ret i32 %.2
+  ret i32 %.0
 }
 
 declare i32 @Abc_NtkLevel(ptr noundef) local_unnamed_addr #1

@@ -966,21 +966,21 @@ next_line.loopexit:                               ; preds = %for.cond
 
 lor.lhs.false145.lr.ph:                           ; preds = %lor.lhs.false145.lr.ph.lr.ph, %next_line.loopexit
   %call142194210 = phi i64 [ %call142194206, %lor.lhs.false145.lr.ph.lr.ph ], [ %call142194, %next_line.loopexit ]
-  %found_expected_ct.1.ph209 = phi i32 [ %found_expected_ct.0, %lor.lhs.false145.lr.ph.lr.ph ], [ %found_expected_ct.3, %next_line.loopexit ]
-  %found_keep_alive.1.ph208 = phi i32 [ %found_keep_alive.0, %lor.lhs.false145.lr.ph.lr.ph ], [ %found_keep_alive.4, %next_line.loopexit ]
+  %found_expected_ct.3.ph209 = phi i32 [ %found_expected_ct.0, %lor.lhs.false145.lr.ph.lr.ph ], [ %found_expected_ct.4, %next_line.loopexit ]
+  %found_keep_alive.3.ph208 = phi i32 [ %found_keep_alive.0, %lor.lhs.false145.lr.ph.lr.ph ], [ %found_keep_alive.4, %next_line.loopexit ]
   br label %lor.lhs.false145
 
 lor.lhs.false145:                                 ; preds = %lor.lhs.false145.lr.ph, %next_line.backedge
   %call142197 = phi i64 [ %call142194210, %lor.lhs.false145.lr.ph ], [ %call142, %next_line.backedge ]
-  %found_keep_alive.1196 = phi i32 [ %found_keep_alive.1.ph208, %lor.lhs.false145.lr.ph ], [ %found_keep_alive.1.be, %next_line.backedge ]
+  %found_keep_alive.3196 = phi i32 [ %found_keep_alive.3.ph208, %lor.lhs.false145.lr.ph ], [ %found_keep_alive.3.be, %next_line.backedge ]
   %38 = load ptr, ptr %p, align 8
   %call146 = call ptr @memchr(ptr noundef %38, i32 noundef 10, i64 noundef %call142197) #10
   %cmp147 = icmp eq ptr %call146, null
   br i1 %cmp147, label %if.then149, label %if.end157
 
 if.then149:                                       ; preds = %next_line.loopexit, %next_line.backedge, %lor.lhs.false145, %sw.bb140
-  %found_expected_ct.1.ph.lcssa = phi i32 [ %found_expected_ct.0, %sw.bb140 ], [ %found_expected_ct.1.ph209, %lor.lhs.false145 ], [ %found_expected_ct.1.ph209, %next_line.backedge ], [ %found_expected_ct.3, %next_line.loopexit ]
-  %found_keep_alive.1.lcssa = phi i32 [ %found_keep_alive.0, %sw.bb140 ], [ %found_keep_alive.1.be, %next_line.backedge ], [ %found_keep_alive.1196, %lor.lhs.false145 ], [ %found_keep_alive.4, %next_line.loopexit ]
+  %found_expected_ct.3.ph.lcssa = phi i32 [ %found_expected_ct.0, %sw.bb140 ], [ %found_expected_ct.3.ph209, %lor.lhs.false145 ], [ %found_expected_ct.3.ph209, %next_line.backedge ], [ %found_expected_ct.4, %next_line.loopexit ]
+  %found_keep_alive.3.lcssa = phi i32 [ %found_keep_alive.0, %sw.bb140 ], [ %found_keep_alive.3.be, %next_line.backedge ], [ %found_keep_alive.3196, %lor.lhs.false145 ], [ %found_keep_alive.4, %next_line.loopexit ]
   %call142.lcssa = phi i64 [ %call142194206, %sw.bb140 ], [ %call142, %next_line.backedge ], [ %call142197, %lor.lhs.false145 ], [ %call142194, %next_line.loopexit ]
   %39 = load i32, ptr %buf_size, align 8
   %conv151 = sext i32 %39 to i64
@@ -1169,7 +1169,7 @@ if.else.i:                                        ; preds = %sw.default.i
   br label %parse_http_line1.exit
 
 err91.i:                                          ; preds = %for.inc.i, %while.body.i, %for.inc38.i, %if.end45.i, %for.end40.i, %while.end.i, %for.end.i, %cond.true.i, %if.then182
-  %found_keep_alive.2 = phi i32 [ %conv2.i, %cond.true.i ], [ %conv2.i, %for.end.i ], [ %conv2.i, %while.end.i ], [ %conv2.i, %for.end40.i ], [ %conv2.i, %if.end45.i ], [ %found_keep_alive.1196, %if.then182 ], [ %conv2.i, %for.inc38.i ], [ %conv2.i, %while.body.i ], [ %conv2.i, %for.inc.i ]
+  %found_keep_alive.5 = phi i32 [ %conv2.i, %cond.true.i ], [ %conv2.i, %for.end.i ], [ %conv2.i, %while.end.i ], [ %conv2.i, %for.end40.i ], [ %conv2.i, %if.end45.i ], [ %found_keep_alive.3196, %if.then182 ], [ %conv2.i, %for.inc38.i ], [ %conv2.i, %while.body.i ], [ %conv2.i, %for.inc.i ]
   %line.addr.0.i = phi ptr [ %add.ptr.i, %cond.true.i ], [ %add.ptr.i, %for.end.i ], [ %add.ptr.i, %while.end.i ], [ %add.ptr.i, %for.end40.i ], [ %add.ptr.i, %if.end45.i ], [ %3, %if.then182 ], [ %add.ptr.i, %for.inc38.i ], [ %add.ptr.i, %while.body.i ], [ %add.ptr.i, %for.inc.i ]
   br label %land.rhs95.i
 
@@ -1219,7 +1219,7 @@ sw.bb184:                                         ; preds = %parse_http_line1.ex
 
 next_line.backedge:                               ; preds = %parse_http_line1.exit, %if.end190, %parse_http_line1.exit.thread, %sw.bb186, %sw.bb184
   %.sink = phi i32 [ 2, %sw.bb184 ], [ 4, %sw.bb186 ], [ 3, %parse_http_line1.exit.thread ], [ 3, %if.end190 ], [ 3, %parse_http_line1.exit ]
-  %found_keep_alive.1.be = phi i32 [ %conv2.i, %sw.bb184 ], [ %conv2.i, %sw.bb186 ], [ %found_keep_alive.2, %parse_http_line1.exit.thread ], [ %conv2.i, %if.end190 ], [ %conv2.i, %parse_http_line1.exit ]
+  %found_keep_alive.3.be = phi i32 [ %conv2.i, %sw.bb184 ], [ %conv2.i, %sw.bb186 ], [ %found_keep_alive.5, %parse_http_line1.exit.thread ], [ %conv2.i, %if.end190 ], [ %conv2.i, %parse_http_line1.exit ]
   store i32 %.sink, ptr %rctx, align 8
   %58 = load ptr, ptr %mem, align 8
   %call142 = call i64 @BIO_ctrl(ptr noundef %58, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %p) #9
@@ -1247,22 +1247,22 @@ if.then196:                                       ; preds = %if.end192
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %if.then196
-  %call193.pn = phi ptr [ %call193, %if.then196 ], [ %value.0, %while.cond ]
-  %value.0 = getelementptr inbounds i8, ptr %call193.pn, i64 1
-  %60 = load i8, ptr %value.0, align 1
+  %call193.pn = phi ptr [ %call193, %if.then196 ], [ %value.1, %while.cond ]
+  %value.1 = getelementptr inbounds i8, ptr %call193.pn, i64 1
+  %60 = load i8, ptr %value.1, align 1
   %conv197 = sext i8 %60 to i32
   %call198 = call i32 @ossl_ctype_check(i32 noundef %conv197, i32 noundef 8) #9
   %tobool199.not = icmp eq i32 %call198, 0
   br i1 %tobool199.not, label %while.end, label %while.cond, !llvm.loop !11
 
 while.end:                                        ; preds = %while.cond
-  %call201 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %value.0, i32 noundef 13) #10
+  %call201 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %value.1, i32 noundef 13) #10
   store ptr %call201, ptr %line_end, align 8
   %cmp202 = icmp eq ptr %call201, null
   br i1 %cmp202, label %if.end206, label %if.then217
 
 if.end206:                                        ; preds = %while.end
-  %call205 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %value.0, i32 noundef 10) #10
+  %call205 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %value.1, i32 noundef 10) #10
   store ptr %call205, ptr %line_end, align 8
   %cmp207.not = icmp eq ptr %call205, null
   br i1 %cmp207.not, label %if.end308, label %if.then217
@@ -1280,7 +1280,7 @@ land.lhs.true221:                                 ; preds = %if.then217
   br i1 %cmp223, label %if.then225, label %if.end227
 
 if.then225:                                       ; preds = %land.lhs.true221
-  store ptr %value.0, ptr %redirection_url, align 8
+  store ptr %value.1, ptr %redirection_url, align 8
   br label %return
 
 if.end227:                                        ; preds = %land.lhs.true221, %if.then217
@@ -1289,7 +1289,7 @@ if.end227:                                        ; preds = %land.lhs.true221, %
   br i1 %cmp229, label %if.then231, label %if.end272
 
 if.then231:                                       ; preds = %if.end227
-  %call232 = call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %value.0, ptr noundef nonnull @.str.13, i64 noundef 5) #9
+  %call232 = call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %value.1, ptr noundef nonnull @.str.13, i64 noundef 5) #9
   %63 = load i32, ptr %rctx, align 8
   %cmp236 = icmp eq i32 %63, 2
   br i1 %cmp236, label %land.lhs.true238, label %if.end272
@@ -1300,7 +1300,7 @@ land.lhs.true238:                                 ; preds = %if.then231
   br i1 %cmp239.not, label %if.end272, label %if.then241
 
 if.then241:                                       ; preds = %land.lhs.true238
-  %call243 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %64, ptr noundef nonnull %value.0) #9
+  %call243 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %64, ptr noundef nonnull %value.1) #9
   %cmp244.not = icmp eq i32 %call243, 0
   br i1 %cmp244.not, label %if.end272, label %land.lhs.true246
 
@@ -1311,20 +1311,20 @@ land.lhs.true246:                                 ; preds = %if.then241
   br i1 %cmp249.not, label %lor.lhs.false251, label %if.then268
 
 lor.lhs.false251:                                 ; preds = %land.lhs.true246
-  %call252 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %value.0, i32 noundef 59) #10
+  %call252 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %value.1, i32 noundef 59) #10
   %cmp253 = icmp eq ptr %call252, null
   br i1 %cmp253, label %if.then268, label %lor.lhs.false255
 
 lor.lhs.false255:                                 ; preds = %lor.lhs.false251
   %sub.ptr.lhs.cast = ptrtoint ptr %call252 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %value.0 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %value.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call257 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #10
   %cmp258.not = icmp eq i64 %sub.ptr.sub, %call257
   br i1 %cmp258.not, label %lor.lhs.false260, label %if.then268
 
 lor.lhs.false260:                                 ; preds = %lor.lhs.false255
-  %call265 = call i32 @OPENSSL_strncasecmp(ptr noundef %65, ptr noundef nonnull %value.0, i64 noundef %sub.ptr.sub) #9
+  %call265 = call i32 @OPENSSL_strncasecmp(ptr noundef %65, ptr noundef nonnull %value.1, i64 noundef %sub.ptr.sub) #9
   %cmp266.not = icmp eq i32 %call265, 0
   br i1 %cmp266.not, label %if.end272, label %if.then268
 
@@ -1332,24 +1332,24 @@ if.then268:                                       ; preds = %lor.lhs.false260, %
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 750, ptr noundef nonnull @__func__.OSSL_HTTP_REQ_CTX_nbio) #9
   %66 = load ptr, ptr %expected_ct, align 8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 118, ptr noundef nonnull @.str.14, ptr noundef %66, ptr noundef nonnull %value.0) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 118, ptr noundef nonnull @.str.14, ptr noundef %66, ptr noundef nonnull %value.1) #9
   br label %return
 
 if.end272:                                        ; preds = %if.then241, %lor.lhs.false260, %if.then231, %land.lhs.true238, %if.end227
-  %found_expected_ct.2 = phi i32 [ %found_expected_ct.1.ph209, %land.lhs.true238 ], [ %found_expected_ct.1.ph209, %if.then231 ], [ %found_expected_ct.1.ph209, %if.end227 ], [ 1, %lor.lhs.false260 ], [ 1, %if.then241 ]
+  %found_expected_ct.5 = phi i32 [ %found_expected_ct.3.ph209, %land.lhs.true238 ], [ %found_expected_ct.3.ph209, %if.then231 ], [ %found_expected_ct.3.ph209, %if.end227 ], [ 1, %lor.lhs.false260 ], [ 1, %if.then241 ]
   %call273 = call i32 @OPENSSL_strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.15) #9
   %cmp274 = icmp eq i32 %call273, 0
   br i1 %cmp274, label %if.then276, label %if.else288
 
 if.then276:                                       ; preds = %if.end272
-  %call277 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %value.0, ptr noundef nonnull @.str.16) #9
+  %call277 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %value.1, ptr noundef nonnull @.str.16) #9
   %cmp278 = icmp eq i32 %call277, 0
   br i1 %cmp278, label %if.end308, label %if.else281
 
 if.else281:                                       ; preds = %if.then276
-  %call282 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %value.0, ptr noundef nonnull @.str.17) #9
+  %call282 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %value.1, ptr noundef nonnull @.str.17) #9
   %cmp283 = icmp eq i32 %call282, 0
-  %spec.select = select i1 %cmp283, i32 0, i32 %found_keep_alive.1196
+  %spec.select = select i1 %cmp283, i32 0, i32 %found_keep_alive.3196
   br label %if.end308
 
 if.else288:                                       ; preds = %if.end272
@@ -1358,9 +1358,9 @@ if.else288:                                       ; preds = %if.end272
   br i1 %cmp290, label %if.then292, label %if.end308
 
 if.then292:                                       ; preds = %if.else288
-  %call293 = call i64 @strtoul(ptr noundef nonnull %value.0, ptr noundef nonnull %line_end, i32 noundef 10) #9
+  %call293 = call i64 @strtoul(ptr noundef nonnull %value.1, ptr noundef nonnull %line_end, i32 noundef 10) #9
   %67 = load ptr, ptr %line_end, align 8
-  %cmp294 = icmp eq ptr %67, %value.0
+  %cmp294 = icmp eq ptr %67, %value.1
   br i1 %cmp294, label %if.then300, label %lor.lhs.false296
 
 lor.lhs.false296:                                 ; preds = %if.then292
@@ -1371,7 +1371,7 @@ lor.lhs.false296:                                 ; preds = %if.then292
 if.then300:                                       ; preds = %lor.lhs.false296, %if.then292
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 769, ptr noundef nonnull @__func__.OSSL_HTTP_REQ_CTX_nbio) #9
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 119, ptr noundef nonnull @.str.19, ptr noundef nonnull %value.0) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 119, ptr noundef nonnull @.str.19, ptr noundef nonnull %value.1) #9
   br label %return
 
 if.end301:                                        ; preds = %lor.lhs.false296
@@ -1380,8 +1380,8 @@ if.end301:                                        ; preds = %lor.lhs.false296
   br i1 %tobool303.not, label %return, label %if.end308
 
 if.end308:                                        ; preds = %if.end206, %if.else281, %if.end192, %if.then276, %if.end301, %if.else288
-  %found_keep_alive.4 = phi i32 [ %found_keep_alive.1196, %if.end301 ], [ %found_keep_alive.1196, %if.else288 ], [ 1, %if.then276 ], [ %found_keep_alive.1196, %if.end192 ], [ %spec.select, %if.else281 ], [ %found_keep_alive.1196, %if.end206 ]
-  %found_expected_ct.3 = phi i32 [ %found_expected_ct.2, %if.end301 ], [ %found_expected_ct.2, %if.else288 ], [ %found_expected_ct.2, %if.then276 ], [ %found_expected_ct.1.ph209, %if.end192 ], [ %found_expected_ct.2, %if.else281 ], [ %found_expected_ct.1.ph209, %if.end206 ]
+  %found_keep_alive.4 = phi i32 [ %found_keep_alive.3196, %if.end301 ], [ %found_keep_alive.3196, %if.else288 ], [ 1, %if.then276 ], [ %found_keep_alive.3196, %if.end192 ], [ %spec.select, %if.else281 ], [ %found_keep_alive.3196, %if.end206 ]
+  %found_expected_ct.4 = phi i32 [ %found_expected_ct.5, %if.end301 ], [ %found_expected_ct.5, %if.else288 ], [ %found_expected_ct.5, %if.then276 ], [ %found_expected_ct.3.ph209, %if.end192 ], [ %found_expected_ct.5, %if.else281 ], [ %found_expected_ct.3.ph209, %if.end206 ]
   %69 = load ptr, ptr %buf7, align 8
   br label %for.cond
 
@@ -1425,7 +1425,7 @@ if.end340:                                        ; preds = %if.then332, %if.end
 if.end345:                                        ; preds = %if.end340
   %73 = load ptr, ptr %expected_ct, align 8
   %cmp347 = icmp eq ptr %73, null
-  %tobool350 = icmp ne i32 %found_expected_ct.3, 0
+  %tobool350 = icmp ne i32 %found_expected_ct.4, 0
   %or.cond2 = select i1 %cmp347, i1 true, i1 %tobool350
   br i1 %or.cond2, label %if.end353, label %if.then351
 
@@ -1460,8 +1460,8 @@ if.end363:                                        ; preds = %if.end358
   br label %sw.bb365
 
 sw.bb365:                                         ; preds = %if.end363, %if.end48
-  %found_keep_alive.5 = phi i32 [ %found_keep_alive.0, %if.end48 ], [ %found_keep_alive.4, %if.end363 ]
-  %found_expected_ct.4 = phi i32 [ %found_expected_ct.0, %if.end48 ], [ %found_expected_ct.3, %if.end363 ]
+  %found_keep_alive.2 = phi i32 [ %found_keep_alive.0, %if.end48 ], [ %found_keep_alive.4, %if.end363 ]
+  %found_expected_ct.2 = phi i32 [ %found_expected_ct.0, %if.end48 ], [ %found_expected_ct.4, %if.end363 ]
   %76 = load ptr, ptr %mem, align 8
   %call367 = call i64 @BIO_ctrl(ptr noundef %76, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %p) #9
   %cmp368 = icmp slt i64 %call367, 2
@@ -1543,16 +1543,16 @@ if.end416:                                        ; preds = %if.end412
   br label %sw.default419
 
 sw.default419:                                    ; preds = %if.end416, %if.end48
-  %found_keep_alive.6 = phi i32 [ %found_keep_alive.0, %if.end48 ], [ %found_keep_alive.5, %if.end416 ]
-  %found_expected_ct.5 = phi i32 [ %found_expected_ct.0, %if.end48 ], [ %found_expected_ct.4, %if.end416 ]
+  %found_keep_alive.1 = phi i32 [ %found_keep_alive.0, %if.end48 ], [ %found_keep_alive.2, %if.end416 ]
+  %found_expected_ct.1 = phi i32 [ %found_expected_ct.0, %if.end48 ], [ %found_expected_ct.2, %if.end416 ]
   %82 = load ptr, ptr %mem, align 8
   %call421 = call i64 @BIO_ctrl(ptr noundef %82, i32 noundef 3, i64 noundef 0, ptr noundef null) #9
   %cmp422 = icmp slt i64 %call421, 0
   br i1 %cmp422, label %next_io.backedge, label %lor.lhs.false424
 
 next_io.backedge:                                 ; preds = %sw.default419, %lor.lhs.false424, %if.end85, %if.end118, %if.then130, %if.then149, %if.then164, %sw.bb365, %if.then382
-  %found_keep_alive.0.be = phi i32 [ %found_keep_alive.5, %sw.bb365 ], [ %found_keep_alive.5, %if.then382 ], [ %found_keep_alive.1.lcssa, %if.then149 ], [ %found_keep_alive.1196, %if.then164 ], [ %found_keep_alive.0, %if.then130 ], [ %found_keep_alive.0, %if.end85 ], [ %found_keep_alive.0, %if.end118 ], [ %found_keep_alive.6, %lor.lhs.false424 ], [ %found_keep_alive.6, %sw.default419 ]
-  %found_expected_ct.0.be = phi i32 [ %found_expected_ct.4, %sw.bb365 ], [ %found_expected_ct.4, %if.then382 ], [ %found_expected_ct.1.ph.lcssa, %if.then149 ], [ %found_expected_ct.1.ph209, %if.then164 ], [ %found_expected_ct.0, %if.then130 ], [ %found_expected_ct.0, %if.end85 ], [ %found_expected_ct.0, %if.end118 ], [ %found_expected_ct.5, %lor.lhs.false424 ], [ %found_expected_ct.5, %sw.default419 ]
+  %found_keep_alive.0.be = phi i32 [ %found_keep_alive.2, %sw.bb365 ], [ %found_keep_alive.2, %if.then382 ], [ %found_keep_alive.3.lcssa, %if.then149 ], [ %found_keep_alive.3196, %if.then164 ], [ %found_keep_alive.0, %if.then130 ], [ %found_keep_alive.0, %if.end85 ], [ %found_keep_alive.0, %if.end118 ], [ %found_keep_alive.1, %lor.lhs.false424 ], [ %found_keep_alive.1, %sw.default419 ]
+  %found_expected_ct.0.be = phi i32 [ %found_expected_ct.2, %sw.bb365 ], [ %found_expected_ct.2, %if.then382 ], [ %found_expected_ct.3.ph.lcssa, %if.then149 ], [ %found_expected_ct.3.ph209, %if.then164 ], [ %found_expected_ct.0, %if.then130 ], [ %found_expected_ct.0, %if.end85 ], [ %found_expected_ct.0, %if.end118 ], [ %found_expected_ct.1, %lor.lhs.false424 ], [ %found_expected_ct.1, %sw.default419 ]
   br label %next_io
 
 lor.lhs.false424:                                 ; preds = %sw.default419
@@ -1840,7 +1840,7 @@ land.lhs.true25:                                  ; preds = %land.lhs.true18, %i
   br label %if.end30
 
 if.end30:                                         ; preds = %land.lhs.true18, %land.lhs.true25
-  %port.addr.1 = phi ptr [ %spec.select, %land.lhs.true25 ], [ %port, %land.lhs.true18 ]
+  %port.addr.2 = phi ptr [ %spec.select, %land.lhs.true25 ], [ %port, %land.lhs.true18 ]
   %call31 = tail call ptr @OSSL_HTTP_adapt_proxy(ptr noundef %proxy, ptr noundef %no_proxy, ptr noundef nonnull %server, i32 noundef %use_ssl) #9
   %cmp32.not = icmp eq ptr %call31, null
   br i1 %cmp32.not, label %if.end38, label %land.lhs.true34
@@ -1860,7 +1860,7 @@ if.end38:                                         ; preds = %land.lhs.true34.if.
   %2 = phi ptr [ %.pre, %land.lhs.true34.if.end38_crit_edge ], [ null, %if.end30 ]
   %cmp5.not.i = icmp eq ptr %2, null
   %host.0.i = select i1 %cmp5.not.i, ptr %server, ptr %2
-  %port.0.i = select i1 %cmp5.not.i, ptr %port.addr.1, ptr %1
+  %port.0.i = select i1 %cmp5.not.i, ptr %port.addr.2, ptr %1
   %cmp9.i = icmp eq ptr %port.0.i, null
   br i1 %cmp9.i, label %land.lhs.true.i, label %if.end15.i
 
@@ -1911,7 +1911,7 @@ land.lhs.true48.thread:                           ; preds = %if.end44
 
 if.end57:                                         ; preds = %land.lhs.true48.thread, %land.lhs.true48, %if.end44
   %cbio.068 = phi ptr [ %call16.i, %land.lhs.true48 ], [ %bio, %if.end44 ], [ %bio, %land.lhs.true48.thread ]
-  %port.addr.265 = phi ptr [ %port.addr.1, %land.lhs.true48 ], [ %port, %if.end44 ], [ %port, %land.lhs.true48.thread ]
+  %port.addr.065 = phi ptr [ %port.addr.2, %land.lhs.true48 ], [ %port, %if.end44 ], [ %port, %land.lhs.true48.thread ]
   %proxy.addr.063 = phi ptr [ %call31, %land.lhs.true48 ], [ null, %if.end44 ], [ null, %land.lhs.true48.thread ]
   %cmp7.not5262 = phi i1 [ true, %land.lhs.true48 ], [ false, %if.end44 ], [ false, %land.lhs.true48.thread ]
   br i1 %cmp, label %if.end57.split, label %if.then60
@@ -1919,7 +1919,7 @@ if.end57:                                         ; preds = %land.lhs.true48.thr
 if.end57.split:                                   ; preds = %if.end57
   %conv7444 = zext i1 %cmp7.not5262 to i32
   %cond7745 = select i1 %cmp1.not, ptr %cbio.068, ptr %rbio
-  %call7846 = call fastcc ptr @http_req_ctx_new(i32 noundef %conv7444, ptr noundef nonnull %cbio.068, ptr noundef nonnull %cond7745, ptr noundef null, ptr noundef %arg, i32 noundef %use_ssl, ptr noundef %proxy.addr.063, ptr noundef %server, ptr noundef %port.addr.265, i32 noundef %buf_size, i32 noundef %overall_timeout)
+  %call7846 = call fastcc ptr @http_req_ctx_new(i32 noundef %conv7444, ptr noundef nonnull %cbio.068, ptr noundef nonnull %cond7745, ptr noundef null, ptr noundef %arg, i32 noundef %use_ssl, ptr noundef %proxy.addr.063, ptr noundef %server, ptr noundef %port.addr.065, i32 noundef %buf_size, i32 noundef %overall_timeout)
   br label %end
 
 if.then60:                                        ; preds = %if.end57
@@ -1931,7 +1931,7 @@ if.then60:                                        ; preds = %if.end57
 if.then60.split:                                  ; preds = %if.then60
   %conv7448 = zext i1 %cmp7.not5262 to i32
   %cond7749 = select i1 %cmp1.not, ptr %call63, ptr %rbio
-  %call7850 = call fastcc ptr @http_req_ctx_new(i32 noundef %conv7448, ptr noundef nonnull %call63, ptr noundef nonnull %cond7749, ptr noundef nonnull %bio_update_fn, ptr noundef %arg, i32 noundef %use_ssl, ptr noundef %proxy.addr.063, ptr noundef %server, ptr noundef %port.addr.265, i32 noundef %buf_size, i32 noundef %overall_timeout)
+  %call7850 = call fastcc ptr @http_req_ctx_new(i32 noundef %conv7448, ptr noundef nonnull %call63, ptr noundef nonnull %cond7749, ptr noundef nonnull %bio_update_fn, ptr noundef %arg, i32 noundef %use_ssl, ptr noundef %proxy.addr.063, ptr noundef %server, ptr noundef %port.addr.065, i32 noundef %buf_size, i32 noundef %overall_timeout)
   br label %end
 
 if.then66:                                        ; preds = %if.then60
@@ -2348,7 +2348,7 @@ if.end10:                                         ; preds = %if.end10.lr.ph, %OS
 
 new_rpath:                                        ; preds = %if.then37, %if.end10
   %timeout.addr.1 = phi i32 [ %timeout.addr.087, %if.end10 ], [ %timeout.addr.2.ph, %if.then37 ]
-  %current_url.1 = phi ptr [ %current_url.088, %if.end10 ], [ %7, %if.then37 ]
+  %current_url.2 = phi ptr [ %current_url.088, %if.end10 ], [ %7, %if.then37 ]
   %n_redirs.1 = phi i32 [ %n_redirs.089, %if.end10 ], [ %inc, %if.then37 ]
   %rctx.0 = phi ptr [ %call11, %if.end10 ], [ %rctx.1, %if.then37 ]
   store ptr null, ptr %redirection_url, align 8
@@ -2370,11 +2370,11 @@ if.else:                                          ; preds = %if.then14
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %if.else, %new_rpath
-  %resp.2 = phi ptr [ %call18, %if.else ], [ null, %if.then17 ], [ null, %new_rpath ]
+  %resp.3 = phi ptr [ %call18, %if.else ], [ null, %if.then17 ], [ null, %new_rpath ]
   %rctx.1 = phi ptr [ %rctx.0, %if.else ], [ null, %if.then17 ], [ null, %new_rpath ]
   %4 = load ptr, ptr %path, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 1226) #9
-  %cmp21 = icmp eq ptr %resp.2, null
+  %cmp21 = icmp eq ptr %resp.3, null
   %5 = load ptr, ptr %redirection_url, align 8
   %cmp23 = icmp ne ptr %5, null
   %or.cond = select i1 %cmp21, i1 %cmp23, i1 false
@@ -2391,7 +2391,7 @@ if.end.i:                                         ; preds = %if.then25
   br i1 %cmp1.i, label %land.lhs.true28, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %current_url.1, ptr noundef nonnull dereferenceable(7) @.str.56, i64 noundef 6) #10
+  %call.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %current_url.2, ptr noundef nonnull dereferenceable(7) @.str.56, i64 noundef 6) #10
   %cmp5.i = icmp eq i32 %call.i, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %land.lhs.true28
 
@@ -2429,7 +2429,7 @@ may_still_retry.exit:                             ; preds = %if.then.i
 if.then31:                                        ; preds = %if.end.i19, %land.lhs.true28
   %timeout.addr.2.ph = phi i32 [ %cond.i, %if.end.i19 ], [ %timeout.addr.1, %land.lhs.true28 ]
   %call32 = call i64 @BIO_ctrl(ptr noundef %bio, i32 noundef 1, i64 noundef 0, ptr noundef null) #9
-  call void @CRYPTO_free(ptr noundef nonnull %current_url.1, ptr noundef nonnull @.str, i32 noundef 1231) #9
+  call void @CRYPTO_free(ptr noundef nonnull %current_url.2, ptr noundef nonnull @.str, i32 noundef 1231) #9
   %7 = load ptr, ptr %redirection_url, align 8
   %8 = load i8, ptr %7, align 1
   %cmp35 = icmp eq i8 %8, 47
@@ -2515,12 +2515,12 @@ if.end47:                                         ; preds = %may_still_retry.exi
   br label %if.end48
 
 if.end48:                                         ; preds = %if.end20, %if.end47
-  %resp.2106 = phi ptr [ null, %if.end47 ], [ %resp.2, %if.end20 ]
+  %resp.3106 = phi ptr [ null, %if.end47 ], [ %resp.3, %if.end20 ]
   %20 = load ptr, ptr %host, align 8
   call void @CRYPTO_free(ptr noundef %20, ptr noundef nonnull @.str, i32 noundef 1253) #9
   %21 = load ptr, ptr %port, align 8
   call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 1254) #9
-  %cmp49 = icmp ne ptr %resp.2106, null
+  %cmp49 = icmp ne ptr %resp.3106, null
   %conv50 = zext i1 %cmp49 to i32
   %cmp.not.i37 = icmp eq ptr %rctx.1, null
   br i1 %cmp.not.i37, label %OSSL_HTTP_close.exit48.thread, label %land.lhs.true.i38
@@ -2550,17 +2550,17 @@ OSSL_HTTP_close.exit48.thread:                    ; preds = %if.then5.i46, %land
 
 if.then53:                                        ; preds = %if.then.i41
   call void @OSSL_HTTP_REQ_CTX_free(ptr noundef nonnull %rctx.1)
-  %call54 = call i32 @BIO_free(ptr noundef %resp.2106) #9
+  %call54 = call i32 @BIO_free(ptr noundef %resp.3106) #9
   br label %for.end
 
 for.end:                                          ; preds = %OSSL_HTTP_close.exit36, %for.cond.preheader, %OSSL_HTTP_close.exit48.thread, %if.then53
-  %current_url.2 = phi ptr [ %current_url.1, %if.then53 ], [ %current_url.1, %OSSL_HTTP_close.exit48.thread ], [ %call3, %for.cond.preheader ], [ %7, %OSSL_HTTP_close.exit36 ]
-  %resp.3 = phi ptr [ null, %if.then53 ], [ %resp.2106, %OSSL_HTTP_close.exit48.thread ], [ null, %for.cond.preheader ], [ null, %OSSL_HTTP_close.exit36 ]
-  call void @CRYPTO_free(ptr noundef nonnull %current_url.2, ptr noundef nonnull @.str, i32 noundef 1261) #9
+  %current_url.1 = phi ptr [ %current_url.2, %if.then53 ], [ %current_url.2, %OSSL_HTTP_close.exit48.thread ], [ %call3, %for.cond.preheader ], [ %7, %OSSL_HTTP_close.exit36 ]
+  %resp.1 = phi ptr [ null, %if.then53 ], [ %resp.3106, %OSSL_HTTP_close.exit48.thread ], [ null, %for.cond.preheader ], [ null, %OSSL_HTTP_close.exit36 ]
+  call void @CRYPTO_free(ptr noundef nonnull %current_url.1, ptr noundef nonnull @.str, i32 noundef 1261) #9
   br label %return
 
 return:                                           ; preds = %if.end, %for.end, %OSSL_HTTP_close.exit, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %OSSL_HTTP_close.exit ], [ %resp.3, %for.end ], [ null, %if.end ]
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %OSSL_HTTP_close.exit ], [ %resp.1, %for.end ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -2630,14 +2630,14 @@ OSSL_HTTP_is_alive.exit:                          ; preds = %if.end7
   br i1 %cmp1.i.not, label %land.lhs.true.i, label %if.end19
 
 land.lhs.true.i:                                  ; preds = %if.then3, %if.end7, %OSSL_HTTP_is_alive.exit
-  %resp.024 = phi ptr [ %call6, %OSSL_HTTP_is_alive.exit ], [ null, %if.end7 ], [ null, %if.then3 ]
+  %resp.124 = phi ptr [ %call6, %OSSL_HTTP_is_alive.exit ], [ null, %if.end7 ], [ null, %if.then3 ]
   %upd_fn.i = getelementptr inbounds i8, ptr %rctx.021, i64 40
   %2 = load ptr, ptr %upd_fn.i, align 8
   %cmp1.not.i = icmp eq ptr %2, null
   br i1 %cmp1.not.i, label %OSSL_HTTP_close.exit.thread, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %cmp12 = icmp ne ptr %resp.024, null
+  %cmp12 = icmp ne ptr %resp.124, null
   %conv = zext i1 %cmp12 to i32
   %wbio3.i = getelementptr inbounds i8, ptr %rctx.021, i64 24
   %3 = load ptr, ptr %wbio3.i, align 8
@@ -2657,12 +2657,12 @@ OSSL_HTTP_close.exit.thread:                      ; preds = %if.then5.i, %land.l
 
 if.then15:                                        ; preds = %if.then.i
   tail call void @OSSL_HTTP_REQ_CTX_free(ptr noundef nonnull %rctx.021)
-  %call16 = tail call i32 @BIO_free(ptr noundef %resp.024) #9
+  %call16 = tail call i32 @BIO_free(ptr noundef %resp.124) #9
   br label %if.end19
 
 if.end19:                                         ; preds = %OSSL_HTTP_close.exit.thread, %if.then15, %OSSL_HTTP_is_alive.exit, %if.end
   %rctx.1 = phi ptr [ %rctx.021, %OSSL_HTTP_is_alive.exit ], [ null, %if.end ], [ null, %if.then15 ], [ null, %OSSL_HTTP_close.exit.thread ]
-  %resp.2 = phi ptr [ %call6, %OSSL_HTTP_is_alive.exit ], [ null, %if.end ], [ null, %if.then15 ], [ %resp.024, %OSSL_HTTP_close.exit.thread ]
+  %resp.0 = phi ptr [ %call6, %OSSL_HTTP_is_alive.exit ], [ null, %if.end ], [ null, %if.then15 ], [ %resp.124, %OSSL_HTTP_close.exit.thread ]
   br i1 %cmp, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
@@ -2670,7 +2670,7 @@ if.then22:                                        ; preds = %if.end19
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %if.end19
-  ret ptr %resp.2
+  ret ptr %resp.0
 }
 
 ; Function Attrs: nounwind uwtable

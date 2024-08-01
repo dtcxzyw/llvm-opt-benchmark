@@ -465,13 +465,13 @@ fail:                                             ; preds = %if.then182, %if.end
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end195, %if.then203, %if.end57, %if.end10, %if.end4, %fail, %fail_format, %if.then56, %if.then44, %if.then40
-  %retval.0 = phi i32 [ -22, %fail_format ], [ -22, %if.then40 ], [ -27, %if.then44 ], [ -27, %if.then56 ], [ %ret.0, %fail ], [ -22, %if.end4 ], [ %call12, %if.end10 ], [ -12, %if.end57 ], [ 0, %if.end195 ], [ 0, %if.then203 ]
+  %retval.1 = phi i32 [ -22, %fail_format ], [ -22, %if.then40 ], [ -27, %if.then44 ], [ -27, %if.then56 ], [ %ret.0, %fail ], [ -22, %if.end4 ], [ %call12, %if.end10 ], [ -12, %if.end57 ], [ 0, %if.end195 ], [ 0, %if.then203 ]
   call void @bdrv_graph_rdunlock_main_loop() #16
   br label %return
 
 return:                                           ; preds = %parallels_opts_prealloc.exit.thread114, %parallels_opts_prealloc.exit.thread, %if.end, %glib_autoptr_cleanup_GraphLockableMainloop.exit
-  %retval.1 = phi i32 [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call1, %if.end ], [ -12, %parallels_opts_prealloc.exit.thread ], [ -22, %parallels_opts_prealloc.exit.thread114 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call1, %if.end ], [ -12, %parallels_opts_prealloc.exit.thread ], [ -22, %parallels_opts_prealloc.exit.thread114 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -810,7 +810,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %if.end22
   %sector_num.addr.024 = phi i64 [ %sector_num, %while.body.lr.ph ], [ %add, %if.end22 ]
   %nb_sectors.addr.023 = phi i32 [ %nb_sectors, %while.body.lr.ph ], [ %sub, %if.end22 ]
-  %ret.022 = phi i32 [ 0, %while.body.lr.ph ], [ %ret.1, %if.end22 ]
+  %ret.022 = phi i32 [ 0, %while.body.lr.ph ], [ %ret.2, %if.end22 ]
   %bytes_done.021 = phi i64 [ 0, %while.body.lr.ph ], [ %add25, %if.end22 ]
   call void @qemu_co_mutex_lock(ptr noundef %0) #16
   %3 = load i32, ptr %tracks.i.i, align 4
@@ -908,7 +908,7 @@ if.else14:                                        ; preds = %block_status.exit
   br i1 %cmp18, label %while.end, label %if.end22
 
 if.end22:                                         ; preds = %if.else14, %if.else, %if.then4
-  %ret.1 = phi i32 [ %call7, %if.then4 ], [ %ret.022, %if.else ], [ %call17, %if.else14 ]
+  %ret.2 = phi i32 [ %call7, %if.then4 ], [ %ret.022, %if.else ], [ %call17, %if.else14 ]
   %sub = sub i32 %nb_sectors.addr.023, %n.1
   %conv23 = sext i32 %n.1 to i64
   %add = add i64 %sector_num.addr.024, %conv23
@@ -917,9 +917,9 @@ if.end22:                                         ; preds = %if.else14, %if.else
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end22, %if.then4, %if.else14, %entry
-  %ret.2 = phi i32 [ 0, %entry ], [ %call17, %if.else14 ], [ %call7, %if.then4 ], [ %ret.1, %if.end22 ]
+  %ret.1 = phi i32 [ 0, %entry ], [ %call17, %if.else14 ], [ %call7, %if.then4 ], [ %ret.2, %if.end22 ]
   call void @qemu_iovec_destroy(ptr noundef nonnull %hd_qiov) #16
-  ret i32 %ret.2
+  ret i32 %ret.1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2022,7 +2022,7 @@ if.then71:                                        ; preds = %if.else64
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then71, %if.else64
-  %to_allocate.0 = phi i64 [ %sub68, %if.then71 ], [ %sub8, %if.else64 ]
+  %to_allocate.1 = phi i64 [ %sub68, %if.then71 ], [ %sub8, %if.else64 ]
   %data_start = getelementptr inbounds i8, ptr %0, i64 112
   %28 = load i64, ptr %data_start, align 8
   %mul80 = shl i64 %28, 9
@@ -2046,7 +2046,7 @@ land.lhs.true88:                                  ; preds = %if.end79
 if.then93:                                        ; preds = %land.lhs.true88
   %file94 = getelementptr inbounds i8, ptr %bs, i64 16840
   %32 = load ptr, ptr %file94, align 8
-  %mul97 = mul i64 %to_allocate.0, %conv82
+  %mul97 = mul i64 %to_allocate.1, %conv82
   %call98 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %32, i64 noundef %add84, i64 noundef %mul97, i32 noundef 0) #16
   %cmp99 = icmp slt i32 %call98, 0
   br i1 %cmp99, label %if.then101, label %if.end105
@@ -2057,7 +2057,7 @@ if.then101:                                       ; preds = %if.then93
 
 if.end105:                                        ; preds = %if.end79, %land.lhs.true88, %if.then93, %if.end50
   %host_off.0 = phi i64 [ %mul27, %if.end50 ], [ %add84, %if.then93 ], [ %add84, %land.lhs.true88 ], [ %add84, %if.end79 ]
-  %to_allocate.1 = phi i64 [ %sub8, %if.end50 ], [ %to_allocate.0, %if.then93 ], [ %to_allocate.0, %land.lhs.true88 ], [ %to_allocate.0, %if.end79 ]
+  %to_allocate.0 = phi i64 [ %sub8, %if.end50 ], [ %to_allocate.1, %if.then93 ], [ %to_allocate.1, %land.lhs.true88 ], [ %to_allocate.1, %if.end79 ]
   %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %33 = load ptr, ptr %backing, align 8
   %tobool.not = icmp eq ptr %33, null
@@ -2066,7 +2066,7 @@ if.end105:                                        ; preds = %if.end79, %land.lhs
 if.then106:                                       ; preds = %if.end105
   %34 = load i32, ptr %tracks.i.i, align 4
   %conv108 = zext i32 %34 to i64
-  %mul109 = shl i64 %to_allocate.1, 9
+  %mul109 = shl i64 %to_allocate.0, 9
   %shl = mul i64 %mul109, %conv108
   %call110 = tail call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef %shl) #16
   %35 = load ptr, ptr %backing, align 8
@@ -2126,7 +2126,7 @@ if.end131:                                        ; preds = %if.end121, %if.end1
   %41 = load ptr, ptr %used_bmap, align 8
   %42 = load i64, ptr %used_bmap_size, align 8
   %conv134 = trunc i64 %42 to i32
-  %conv135 = trunc i64 %to_allocate.1 to i32
+  %conv135 = trunc i64 %to_allocate.0 to i32
   %bs.val = load ptr, ptr %opaque, align 8
   %43 = getelementptr i8, ptr %bs.val, i64 112
   %bs.val.val = load i64, ptr %43, align 8
@@ -2150,9 +2150,9 @@ if.end.i:                                         ; preds = %if.end131
   br i1 %cmp5.i, label %return, label %mark_used.exit
 
 mark_used.exit:                                   ; preds = %if.end.i
-  %conv10.i = and i64 %to_allocate.1, 4294967295
+  %conv10.i = and i64 %to_allocate.0, 4294967295
   call void @bitmap_set(ptr noundef %41, i64 noundef %conv1.i, i64 noundef %conv10.i) #16
-  %cmp142134 = icmp sgt i64 %to_allocate.1, 0
+  %cmp142134 = icmp sgt i64 %to_allocate.0, 0
   br i1 %cmp142134, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %mark_used.exit
@@ -2186,7 +2186,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv151 = zext i32 %49 to i64
   %add152 = add i64 %host_off.1135, %conv151
   %inc = add nuw nsw i64 %i.0136, 1
-  %exitcond.not = icmp eq i64 %inc, %to_allocate.1
+  %exitcond.not = icmp eq i64 %inc, %to_allocate.0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %mark_used.exit
@@ -2979,13 +2979,13 @@ parallels_check_leak.exit:                        ; preds = %if.then21.i, %if.th
   br label %out_free
 
 out_free:                                         ; preds = %for.inc.us, %bitmap_new.exit, %for.end, %parallels_check_leak.exit, %out_repair_bat
-  %ret.2 = phi i32 [ %ret.3, %out_repair_bat ], [ %retval.0.i101, %parallels_check_leak.exit ], [ %ret.1, %for.end ], [ 0, %bitmap_new.exit ], [ %ret.1.us, %for.inc.us ]
+  %ret.3 = phi i32 [ %ret.2, %out_repair_bat ], [ %retval.0.i101, %parallels_check_leak.exit ], [ %ret.1, %for.end ], [ 0, %bitmap_new.exit ], [ %ret.1.us, %for.inc.us ]
   call void @g_free(ptr noundef %call8) #16
   call void @g_free(ptr noundef nonnull %call.i.i) #16
   br label %return
 
 out_repair_bat:                                   ; preds = %if.end.i89, %if.end49, %if.end39, %if.end24
-  %ret.3 = phi i32 [ %call.i, %if.end24 ], [ %call.i, %if.end39 ], [ %call.i81, %if.end49 ], [ -16, %if.end.i89 ]
+  %ret.2 = phi i32 [ %call.i, %if.end24 ], [ %call.i, %if.end39 ], [ %call.i81, %if.end49 ], [ -16, %if.end.i89 ]
   %check_errors76 = getelementptr inbounds i8, ptr %res, i64 8
   %52 = load i32, ptr %check_errors76, align 8
   %inc77 = add i32 %52, 1
@@ -2996,7 +2996,7 @@ out_repair_bat:                                   ; preds = %if.end.i89, %if.end
   br label %out_free
 
 return:                                           ; preds = %entry, %out_free
-  %retval.0 = phi i32 [ %ret.2, %out_free ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %ret.3, %out_free ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

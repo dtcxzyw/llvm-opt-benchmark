@@ -45,8 +45,8 @@ define i32 @Abc_NtkRetimeMinArea(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %12 = phi ptr [ %14, %.lr.ph ], [ %9, %.preheader ]
-  %.051 = phi ptr [ %13, %.lr.ph ], [ null, %.preheader ]
-  %13 = tail call ptr @Abc_NtkAttachBottom(ptr noundef %.051, ptr noundef nonnull %12) #7
+  %.151 = phi ptr [ %13, %.lr.ph ], [ null, %.preheader ]
+  %13 = tail call ptr @Abc_NtkAttachBottom(ptr noundef %.151, ptr noundef nonnull %12) #7
   %14 = tail call fastcc ptr @Abc_NtkRetimeMinAreaOne(ptr noundef %0, i32 noundef 0, i32 noundef %3, i32 noundef %4)
   %.not39 = icmp eq ptr %14, null
   br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -939,12 +939,12 @@ Abc_NtkIncrementTravId.exit.i35:                  ; preds = %Vec_IntFill.exit.i.
 
 .sink.split:                                      ; preds = %.critedge2.i27, %355, %.critedge6.i38, %.critedge2.preheader.i24
   %.sink = phi i32 [ 1, %.critedge2.preheader.i24 ], [ 0, %.critedge6.i38 ], [ 0, %355 ], [ 1, %.critedge2.i27 ]
-  %.1.ph = phi ptr [ inttoptr (i64 1 to ptr), %.critedge2.preheader.i24 ], [ %254, %.critedge6.i38 ], [ %254, %355 ], [ inttoptr (i64 1 to ptr), %.critedge2.i27 ]
+  %.0.ph = phi ptr [ inttoptr (i64 1 to ptr), %.critedge2.preheader.i24 ], [ %254, %.critedge6.i38 ], [ %254, %355 ], [ inttoptr (i64 1 to ptr), %.critedge2.i27 ]
   tail call fastcc void @Abc_NtkRetimeMinAreaUpdateLatches(ptr noundef %0, ptr noundef %169, i32 noundef %.sink, i32 noundef %2)
   br label %358
 
 358:                                              ; preds = %.sink.split, %Abc_NtkRetimeMinAreaPrepare.exit
-  %.1 = phi ptr [ null, %Abc_NtkRetimeMinAreaPrepare.exit ], [ %.1.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %Abc_NtkRetimeMinAreaPrepare.exit ], [ %.0.ph, %.sink.split ]
   %359 = getelementptr inbounds i8, ptr %169, i64 8
   %360 = load ptr, ptr %359, align 8
   %.not.i61 = icmp eq ptr %360, null
@@ -957,7 +957,7 @@ Abc_NtkIncrementTravId.exit.i35:                  ; preds = %Vec_IntFill.exit.i.
 Vec_PtrFree.exit:                                 ; preds = %358, %361
   tail call void @free(ptr noundef nonnull %169) #7
   tail call void @Abc_NtkCleanMarkA(ptr noundef %0) #7
-  ret ptr %.1
+  ret ptr %.0
 }
 
 declare ptr @Abc_NtkCollectLatchValues(ptr noundef) local_unnamed_addr #1

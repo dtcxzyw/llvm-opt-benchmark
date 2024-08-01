@@ -590,22 +590,22 @@ define ptr @bb_find_name_rec(ptr noundef %0, i32 noundef %1, ptr nocapture nound
 15:                                               ; preds = %.preheader
   %16 = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
-  %.233 = load ptr, ptr %17, align 8
-  %.not2234 = icmp eq ptr %.233, null
+  %.333 = load ptr, ptr %17, align 8
+  %.not2234 = icmp eq ptr %.333, null
   br i1 %.not2234, label %.loopexit, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %15, %21
-  %.235 = phi ptr [ %.2, %21 ], [ %.233, %15 ]
-  %18 = getelementptr inbounds i8, ptr %.235, i64 72
+  %.335 = phi ptr [ %.3, %21 ], [ %.333, %15 ]
+  %18 = getelementptr inbounds i8, ptr %.335, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @xstrcmp(ptr noundef %19, ptr noundef %0) #17
   %.not23 = icmp eq i32 %20, 0
   br i1 %.not23, label %.loopexit25, label %21
 
 21:                                               ; preds = %.lr.ph36
-  %22 = getelementptr inbounds i8, ptr %.235, i64 80
-  %.2 = load ptr, ptr %22, align 8
-  %.not22 = icmp eq ptr %.2, null
+  %22 = getelementptr inbounds i8, ptr %.335, i64 80
+  %.3 = load ptr, ptr %22, align 8
+  %.not22 = icmp eq ptr %.3, null
   br i1 %.not22, label %.loopexit, label %.lr.ph36, !llvm.loop !18
 
 .loopexit:                                        ; preds = %21, %15, %.preheader
@@ -614,7 +614,7 @@ define ptr @bb_find_name_rec(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   br i1 %exitcond.not, label %.loopexit25, label %.preheader, !llvm.loop !19
 
 .loopexit25:                                      ; preds = %.lr.ph, %.loopexit, %.lr.ph36
-  %.0 = phi ptr [ %.235, %.lr.ph36 ], [ null, %.loopexit ], [ %.02132, %.lr.ph ]
+  %.0 = phi ptr [ %.335, %.lr.ph36 ], [ null, %.loopexit ], [ %.02132, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -782,12 +782,12 @@ define ptr @_handle_replacement(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %16, !llvm.loop !21
 
 .loopexit:                                        ; preds = %16, %47
-  %.2 = phi ptr [ %.028, %47 ], [ %.0.ph, %16 ]
-  %.not33 = icmp eq ptr %.028, %.2
+  %.1 = phi ptr [ %.028, %47 ], [ %.0.ph, %16 ]
+  %.not33 = icmp eq ptr %.028, %.1
   br i1 %.not33, label %51, label %50
 
 50:                                               ; preds = %.loopexit
-  call void @_xmemcat(ptr noundef nonnull %2, ptr noundef %.2, ptr noundef nonnull %.028) #17
+  call void @_xmemcat(ptr noundef nonnull %2, ptr noundef %.1, ptr noundef nonnull %.028) #17
   br label %51
 
 51:                                               ; preds = %50, %.loopexit
@@ -1823,27 +1823,27 @@ define i64 @bb_get_size_num(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br label %35
 
 35:                                               ; preds = %32, %30
-  %.015 = phi i64 [ 1, %30 ], [ %1, %32 ]
-  %.0 = phi i64 [ %31, %30 ], [ %spec.select, %32 ]
+  %.116 = phi i64 [ 1, %30 ], [ %1, %32 ]
+  %.1 = phi i64 [ %31, %30 ], [ %spec.select, %32 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #17
   br label %36
 
 36:                                               ; preds = %35, %14, %13
-  %.116 = phi i64 [ %1, %14 ], [ %.015, %35 ], [ %1, %13 ]
-  %.1 = phi i64 [ %6, %14 ], [ %.0, %35 ], [ %6, %13 ]
-  %.1.fr = freeze i64 %.1
-  %37 = icmp ugt i64 %.116, 1
+  %.015 = phi i64 [ %1, %14 ], [ %.116, %35 ], [ %1, %13 ]
+  %.0 = phi i64 [ %6, %14 ], [ %.1, %35 ], [ %6, %13 ]
+  %.0.fr = freeze i64 %.0
+  %37 = icmp ugt i64 %.015, 1
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %36
-  %39 = add i64 %.116, -1
-  %40 = add i64 %39, %.1.fr
-  %41 = urem i64 %40, %.116
+  %39 = add i64 %.015, -1
+  %40 = add i64 %39, %.0.fr
+  %41 = urem i64 %40, %.015
   %42 = sub nuw i64 %40, %41
   br label %43
 
 43:                                               ; preds = %36, %38, %2, %10
-  %.014 = phi i64 [ 0, %10 ], [ 0, %2 ], [ %42, %38 ], [ %.1.fr, %36 ]
+  %.014 = phi i64 [ 0, %10 ], [ 0, %2 ], [ %42, %38 ], [ %.0.fr, %36 ]
   ret i64 %.014
 }
 

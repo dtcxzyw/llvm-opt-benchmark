@@ -1026,12 +1026,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit141: ;
           to label %302 unwind label %296
 
 302:                                              ; preds = %300, %289
-  %.096 = phi i32 [ 1, %289 ], [ 0, %300 ]
+  %.197 = phi i32 [ 1, %289 ], [ 0, %300 ]
   call void @_ZN6cmListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   br label %303
 
 303:                                              ; preds = %302, %268
-  %.197 = phi i32 [ 1, %268 ], [ %.096, %302 ]
+  %.096 = phi i32 [ 1, %268 ], [ %.197, %302 ]
   %304 = load ptr, ptr %136, align 8
   %.not.i.i = icmp eq ptr %304, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit, label %305
@@ -1048,7 +1048,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit141: ;
   unreachable
 
 _ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit: ; preds = %303, %305
-  %cond = icmp eq i32 %.197, 0
+  %cond = icmp eq i32 %.096, 0
   br i1 %cond, label %336, label %.loopexit177
 
 310:                                              ; preds = %298, %296
@@ -1360,7 +1360,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %.loopexit177 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit177:                                     ; preds = %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit, %434, %250, %230, %211, %176, %121, %110
-  %.4 = phi i1 [ false, %110 ], [ true, %121 ], [ false, %176 ], [ false, %211 ], [ false, %230 ], [ false, %250 ], [ true, %434 ], [ false, %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit ]
+  %.1 = phi i1 [ false, %110 ], [ true, %121 ], [ false, %176 ], [ false, %211 ], [ false, %230 ], [ false, %250 ], [ true, %434 ], [ false, %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit ]
   %435 = load ptr, ptr %5, align 8
   %436 = load ptr, ptr %51, align 8
   %.not4.i.i.i.i155 = icmp eq ptr %435, %436
@@ -1392,8 +1392,8 @@ _ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED
   br label %440
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit163: ; preds = %439, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i161, %44
-  %.5 = phi i1 [ false, %44 ], [ %.4, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i161 ], [ %.4, %439 ]
-  ret i1 %.5
+  %.0 = phi i1 [ false, %44 ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i161 ], [ %.1, %439 ]
+  ret i1 %.0
 
 440:                                              ; preds = %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit143, %.body
   %.pn131.pn = phi { ptr, i32 } [ %.pn131, %.body ], [ %.pn129, %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit143 ]
@@ -2396,7 +2396,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit33
 
 _ZNK7cmValue4IsOnEv.exit:                         ; preds = %80, %79, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %.08 = phi i1 [ false, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ false, %79 ], [ %84, %80 ]
+  %.19 = phi i1 [ false, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ false, %79 ], [ %84, %80 ]
   %110 = getelementptr inbounds i8, ptr %15, i64 56
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %15, i64 64
@@ -2548,8 +2548,8 @@ _ZN10cmMakefile12ScopePushPopD2Ev.exit37:         ; preds = %159
   resume { ptr, i32 } %.pn23.pn.pn.pn.pn
 
 _ZN10cmMakefile12ScopePushPopD2Ev.exit:           ; preds = %_ZN18cmListFileFunctionD2Ev.exit, %2
-  %.19 = phi i1 [ true, %2 ], [ %.08, %_ZN18cmListFileFunctionD2Ev.exit ]
-  ret i1 %.19
+  %.08 = phi i1 [ true, %2 ], [ %.19, %_ZN18cmListFileFunctionD2Ev.exit ]
+  ret i1 %.08
 }
 
 declare void @_ZN10cmMakefile13PolicyPushPopC1EPS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0

@@ -6517,10 +6517,10 @@ define internal fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %
   br label %dissect_spoolss_uint16uni.exit
 
 dissect_spoolss_uint16uni.exit:                   ; preds = %25, %23, %33
-  %.1 = phi ptr [ %36, %33 ], [ %24, %23 ], [ %26, %25 ]
+  %.041 = phi ptr [ %36, %33 ], [ %24, %23 ], [ %26, %25 ]
   %.0 = phi i32 [ %14, %33 ], [ %.026.i, %23 ], [ %32, %25 ]
   %37 = sub i32 %.0, %14
-  %38 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %14, i32 noundef %37, ptr noundef %.1) #5
+  %38 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %14, i32 noundef %37, ptr noundef %.041) #5
   %39 = load i32, ptr @ett_RELSTR, align 4
   %40 = call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #5
   %41 = add i32 %12, -4
@@ -6556,7 +6556,7 @@ dissect_spoolss_uint16uni.exit39:                 ; preds = %51, %45, %dissect_s
   br i1 %.not34, label %60, label %59
 
 59:                                               ; preds = %dissect_spoolss_uint16uni.exit39
-  store ptr %.1, ptr %8, align 8
+  store ptr %.041, ptr %8, align 8
   br label %60
 
 60:                                               ; preds = %59, %dissect_spoolss_uint16uni.exit39

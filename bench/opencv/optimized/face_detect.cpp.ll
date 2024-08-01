@@ -1519,16 +1519,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit259:                 ; preds = %430, %427
   br label %579
 
 579:                                              ; preds = %396, %578
-  %.046 = phi i32 [ 0, %578 ], [ 1, %396 ]
+  %.5 = phi i32 [ 0, %578 ], [ 1, %396 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %67) #9
   br label %580
 
 580:                                              ; preds = %344, %579
-  %.1119 = phi i1 [ %391, %579 ], [ false, %344 ]
-  %.147 = phi i32 [ %.046, %579 ], [ 2, %344 ]
+  %.2120 = phi i1 [ %391, %579 ], [ false, %344 ]
+  %.4 = phi i32 [ %.5, %579 ], [ 2, %344 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %64) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #9
-  br i1 %.1119, label %586, label %592
+  br i1 %.2120, label %586, label %592
 
 581:                                              ; preds = %554, %552, %548, %544, %550, %546, %542
   %.pn210 = phi { ptr, i32 } [ %543, %542 ], [ %551, %550 ], [ %547, %546 ], [ %545, %544 ], [ %549, %548 ], [ %553, %552 ], [ %555, %554 ]
@@ -1559,7 +1559,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit259:                 ; preds = %430, %427
   br label %595
 
 586:                                              ; preds = %580, %332
-  %.2 = phi i32 [ %.147, %580 ], [ 0, %332 ]
+  %.3 = phi i32 [ %.4, %580 ], [ 0, %332 ]
   %587 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.27)
           to label %588 unwind label %288
 
@@ -1573,16 +1573,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit259:                 ; preds = %430, %427
 
 592:                                              ; preds = %590, %284, %580
   %593 = phi i1 [ false, %580 ], [ false, %284 ], [ true, %590 ]
-  %.3 = phi i32 [ %.147, %580 ], [ 1, %284 ], [ %.2, %590 ]
+  %.2 = phi i32 [ %.4, %580 ], [ 1, %284 ], [ %.3, %590 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %49) #9
   br label %594
 
 594:                                              ; preds = %183, %592
-  %.3121 = phi i1 [ %593, %592 ], [ false, %183 ]
-  %.4 = phi i32 [ %.3, %592 ], [ 2, %183 ]
+  %.0118 = phi i1 [ %593, %592 ], [ false, %183 ]
+  %.147 = phi i32 [ %.2, %592 ], [ 2, %183 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #9
-  br i1 %.3121, label %802, label %806
+  br i1 %.0118, label %802, label %806
 
 595:                                              ; preds = %290, %585, %358, %355, %350, %321, %288
   %.pn218 = phi { ptr, i32 } [ %289, %288 ], [ %.pn215.pn, %585 ], [ %.pn182, %358 ], [ %.pn180, %355 ], [ %.pn177.pn, %350 ], [ %.pn174.pn, %321 ], [ %291, %290 ]
@@ -1838,8 +1838,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %699
 
 699:                                              ; preds = %.preheader, %789
-  %.sroa.11.2 = phi i64 [ %.sroa.11.3, %789 ], [ 0, %.preheader ]
-  %.sroa.0288.2 = phi i64 [ %.sroa.0288.3, %789 ], [ 0, %.preheader ]
+  %.sroa.11.0 = phi i64 [ %.sroa.11.4, %789 ], [ 0, %.preheader ]
+  %.sroa.0288.0 = phi i64 [ %.sroa.0288.4, %789 ], [ 0, %.preheader ]
   %.045 = phi i32 [ %786, %789 ], [ 0, %.preheader ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %110) #9
   store i64 0, ptr %679, align 8
@@ -1904,9 +1904,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %719 = icmp ne i64 %710, 0
   %720 = sub i64 %718, %710
   %721 = select i1 %719, i64 %720, i64 0
-  %.sroa.11.3 = add nsw i64 %721, %.sroa.11.2
+  %.sroa.11.4 = add nsw i64 %721, %.sroa.11.0
   %722 = zext i1 %719 to i64
-  %.sroa.0288.3 = add nuw nsw i64 %.sroa.0288.2, %722
+  %.sroa.0288.4 = add nuw nsw i64 %.sroa.0288.0, %722
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %117, ptr noundef nonnull align 8 dereferenceable(96) %110)
           to label %723 unwind label %739
 
@@ -1915,10 +1915,10 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %725 unwind label %743
 
 725:                                              ; preds = %723
-  %726 = sitofp i64 %.sroa.11.3 to double
+  %726 = sitofp i64 %.sroa.11.4 to double
   %727 = fdiv double %726, %724
   %728 = fcmp olt double %727, 0x3CB0000000000000
-  %729 = uitofp nneg i64 %.sroa.0288.3 to double
+  %729 = uitofp nneg i64 %.sroa.0288.4 to double
   %730 = fdiv double %729, %727
   %.0.i275 = select i1 %728, double 0.000000e+00, double %730
   invoke fastcc void @_ZL9visualizeRN2cv3MatEiS1_di(ptr noundef nonnull align 8 dereferenceable(96) %117, i32 noundef %.045, ptr noundef nonnull align 8 dereferenceable(96) %114, double noundef %.0.i275)
@@ -2141,7 +2141,7 @@ select.unfold:                                    ; preds = %785, %702
           to label %800 unwind label %618
 
 800:                                              ; preds = %798, %666
-  %.5 = phi i32 [ 1, %666 ], [ 0, %798 ]
+  %.7 = phi i32 [ 1, %666 ], [ 0, %798 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #9
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %102) #9
   br i1 %637, label %802, label %806
@@ -2165,7 +2165,7 @@ select.unfold:                                    ; preds = %785, %702
           to label %806 unwind label %221
 
 806:                                              ; preds = %804, %594, %800
-  %.6 = phi i32 [ %.4, %594 ], [ %.5, %800 ], [ 0, %804 ]
+  %.6 = phi i32 [ %.147, %594 ], [ %.7, %800 ], [ 0, %804 ]
   %807 = getelementptr inbounds i8, ptr %35, i64 8
   %808 = load ptr, ptr %807, align 8
   %.not.i.i.i.i = icmp eq ptr %808, null
@@ -2260,9 +2260,9 @@ _ZN2cv3PtrINS_14FaceDetectorYNEED2Ev.exit:        ; preds = %806, %825, %838, %_
   br label %847
 
 846:                                              ; preds = %132, %_ZN2cv3PtrINS_14FaceDetectorYNEED2Ev.exit
-  %.7 = phi i32 [ %.6, %_ZN2cv3PtrINS_14FaceDetectorYNEED2Ev.exit ], [ 0, %132 ]
+  %.046 = phi i32 [ %.6, %_ZN2cv3PtrINS_14FaceDetectorYNEED2Ev.exit ], [ 0, %132 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #9
-  ret i32 %.7
+  ret i32 %.046
 
 847:                                              ; preds = %845, %187, %143, %142
   %.pn227 = phi { ptr, i32 } [ %144, %143 ], [ %.pn223.pn.pn, %845 ], [ %.pn129, %187 ], [ %.pn127, %142 ]

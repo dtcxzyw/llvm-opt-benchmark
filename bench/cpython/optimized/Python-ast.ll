@@ -15006,7 +15006,7 @@ for.inc:                                          ; preds = %Py_DECREF.exit
   br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %res.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %call26, %for.inc ]
+  %res.1.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %call26, %for.inc ]
   %tobool30.not = icmp eq ptr %kw, null
   br i1 %tobool30.not, label %cleanup, label %if.then31
 
@@ -15059,7 +15059,7 @@ if.end50:                                         ; preds = %while.body, %if.end
   br i1 %cmp52, label %cleanup, label %while.cond, !llvm.loop !14
 
 cleanup:                                          ; preds = %for.body, %Py_DECREF.exit, %if.end50, %while.cond, %while.body, %if.then38, %if.then31, %for.end, %if.then6, %if.end, %if.then45, %if.then14
-  %res.2 = phi i32 [ -1, %if.end ], [ -1, %if.then6 ], [ -1, %if.then14 ], [ -1, %if.then45 ], [ %res.0.lcssa, %for.end ], [ %res.0.lcssa, %if.then31 ], [ %call51, %if.end50 ], [ %call51, %while.cond ], [ %call34, %while.body ], [ -1, %if.then38 ], [ -1, %for.body ], [ %call26, %Py_DECREF.exit ]
+  %res.0 = phi i32 [ -1, %if.end ], [ -1, %if.then6 ], [ -1, %if.then14 ], [ -1, %if.then45 ], [ %res.1.lcssa, %for.end ], [ %res.1.lcssa, %if.then31 ], [ %call51, %if.end50 ], [ %call51, %while.cond ], [ %call34, %while.body ], [ -1, %if.then38 ], [ -1, %for.body ], [ %call26, %Py_DECREF.exit ]
   %23 = load ptr, ptr %fields, align 8
   %cmp.not.i = icmp eq ptr %23, null
   br i1 %cmp.not.i, label %return, label %if.then.i
@@ -15081,7 +15081,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 return:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %cleanup, %_PyOnceFlag_CallOnce.exit.i
-  %retval.0 = phi i32 [ -1, %_PyOnceFlag_CallOnce.exit.i ], [ %res.2, %cleanup ], [ %res.2, %if.then.i ], [ %res.2, %if.end.i.i ], [ %res.2, %if.then1.i.i ]
+  %retval.0 = phi i32 [ -1, %_PyOnceFlag_CallOnce.exit.i ], [ %res.0, %cleanup ], [ %res.0, %if.then.i ], [ %res.0, %if.end.i.i ], [ %res.0, %if.then1.i.i ]
   ret i32 %retval.0
 }
 
@@ -40911,7 +40911,7 @@ obj2ast_identifier.exit:                          ; preds = %if.then1.i.i, %if.t
   br label %failed
 
 do.body15:                                        ; preds = %if.end.i71, %if.end4.i.i, %if.end.i.i.i.i
-  %arg.0.ph = phi ptr [ %7, %if.end.i.i.i.i ], [ %7, %if.end4.i.i ], [ null, %if.end.i71 ]
+  %arg.1.ph = phi ptr [ %7, %if.end.i.i.i.i ], [ %7, %if.end4.i.i ], [ null, %if.end.i71 ]
   %13 = load ptr, ptr %4, align 8
   %c_recursion_remaining.i.i98 = getelementptr inbounds i8, ptr %13, i64 44
   %14 = load i32, ptr %c_recursion_remaining.i.i98, align 4
@@ -40936,12 +40936,12 @@ if.end.i227:                                      ; preds = %if.then19
 
 if.end22.sink.split:                              ; preds = %if.end.i227, %if.end.i236
   %.sink = phi ptr [ %1, %if.end.i236 ], [ %15, %if.end.i227 ]
-  %arg.1.ph = phi ptr [ null, %if.end.i236 ], [ %arg.0.ph, %if.end.i227 ]
+  %arg.0.ph = phi ptr [ null, %if.end.i236 ], [ %arg.1.ph, %if.end.i227 ]
   call void @_Py_Dealloc(ptr noundef nonnull %.sink) #6
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end22.sink.split, %if.end.i236, %if.then6, %do.body, %if.end.i227, %if.then19, %do.body15
-  %arg.1 = phi ptr [ %arg.0.ph, %do.body15 ], [ %arg.0.ph, %if.end.i227 ], [ %arg.0.ph, %if.then19 ], [ null, %do.body ], [ null, %if.then6 ], [ null, %if.end.i236 ], [ %arg.1.ph, %if.end22.sink.split ]
+  %arg.0 = phi ptr [ %arg.1.ph, %do.body15 ], [ %arg.1.ph, %if.end.i227 ], [ %arg.1.ph, %if.then19 ], [ null, %do.body ], [ null, %if.then6 ], [ null, %if.end.i236 ], [ %arg.0.ph, %if.end22.sink.split ]
   %value23 = getelementptr inbounds i8, ptr %state, i64 1920
   %18 = load ptr, ptr %value23, align 8
   %call24 = call i32 @PyObject_GetOptionalAttr(ptr noundef %obj, ptr noundef %18, ptr noundef nonnull %tmp) #6
@@ -41280,7 +41280,7 @@ if.end165:                                        ; preds = %if.end.i, %if.then1
   %72 = load i32, ptr %col_offset, align 4
   %73 = load i32, ptr %end_lineno, align 4
   %74 = load i32, ptr %end_col_offset, align 4
-  %call166 = call ptr @_PyAST_keyword(ptr noundef %arg.1, ptr noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef %73, i32 noundef %74, ptr noundef %arena)
+  %call166 = call ptr @_PyAST_keyword(ptr noundef %arg.0, ptr noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef %73, i32 noundef %74, ptr noundef %arena)
   store ptr %call166, ptr %out, align 8
   %cmp167 = icmp eq ptr %call166, null
   br i1 %cmp167, label %failed, label %return

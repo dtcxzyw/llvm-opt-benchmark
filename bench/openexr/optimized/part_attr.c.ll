@@ -1614,7 +1614,7 @@ if.end20:                                         ; preds = %lor.lhs.false11
 
 land.rhs:                                         ; preds = %if.end20, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end20 ], [ %indvars.iv.next, %for.inc ]
-  %update_tiles.065 = phi i32 [ 0, %if.end20 ], [ %update_tiles.4, %for.inc ]
+  %update_tiles.065 = phi i32 [ 0, %if.end20 ], [ %update_tiles.1, %for.inc ]
   %8 = load i32, ptr %attributes, align 8
   %9 = sext i32 %8 to i64
   %cmp25 = icmp slt i64 %indvars.iv, %9
@@ -1822,7 +1822,7 @@ if.then127.i:                                     ; preds = %sw.bb123.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.then31.i, %if.then127.i, %sw.bb123.i, %if.then116.i, %if.else112.i, %if.then108.i, %if.then98.i, %if.else94.i, %if.then90.i, %if.then81.i, %sw.bb77.i, %if.then71.i, %sw.bb67.i, %if.then57.i, %sw.bb53.i, %if.then43.i, %if.else39.i, %if.then20.i, %if.else16.i, %if.then8.i, %if.then.i, %if.then32
-  %update_tiles.1 = phi i32 [ %update_tiles.065, %if.then32 ], [ %update_tiles.065, %if.then127.i ], [ %update_tiles.065, %sw.bb123.i ], [ 1, %if.then108.i ], [ %update_tiles.065, %if.then116.i ], [ %update_tiles.065, %if.else112.i ], [ %update_tiles.065, %if.then90.i ], [ %update_tiles.065, %if.then98.i ], [ %update_tiles.065, %if.else94.i ], [ %update_tiles.065, %if.then81.i ], [ %update_tiles.065, %sw.bb77.i ], [ %update_tiles.065, %if.then71.i ], [ %update_tiles.065, %sw.bb67.i ], [ %update_tiles.065, %if.then57.i ], [ %update_tiles.065, %sw.bb53.i ], [ %update_tiles.065, %if.then43.i ], [ %update_tiles.065, %if.else39.i ], [ %update_tiles.065, %if.then.i ], [ %update_tiles.065, %if.then8.i ], [ %update_tiles.065, %if.then20.i ], [ %update_tiles.065, %if.else16.i ], [ 1, %if.then31.i ]
+  %update_tiles.2 = phi i32 [ %update_tiles.065, %if.then32 ], [ %update_tiles.065, %if.then127.i ], [ %update_tiles.065, %sw.bb123.i ], [ 1, %if.then108.i ], [ %update_tiles.065, %if.then116.i ], [ %update_tiles.065, %if.else112.i ], [ %update_tiles.065, %if.then90.i ], [ %update_tiles.065, %if.then98.i ], [ %update_tiles.065, %if.else94.i ], [ %update_tiles.065, %if.then81.i ], [ %update_tiles.065, %sw.bb77.i ], [ %update_tiles.065, %if.then71.i ], [ %update_tiles.065, %sw.bb67.i ], [ %update_tiles.065, %if.then57.i ], [ %update_tiles.065, %sw.bb53.i ], [ %update_tiles.065, %if.then43.i ], [ %update_tiles.065, %if.else39.i ], [ %update_tiles.065, %if.then.i ], [ %update_tiles.065, %if.then8.i ], [ %update_tiles.065, %if.then20.i ], [ %update_tiles.065, %if.else16.i ], [ 1, %if.then31.i ]
   %37 = phi ptr [ null, %if.then32 ], [ %36, %if.then127.i ], [ null, %sw.bb123.i ], [ %34, %if.then108.i ], [ %35, %if.then116.i ], [ null, %if.else112.i ], [ %32, %if.then90.i ], [ %33, %if.then98.i ], [ null, %if.else94.i ], [ %31, %if.then81.i ], [ null, %sw.bb77.i ], [ %30, %if.then71.i ], [ null, %sw.bb67.i ], [ %27, %if.then57.i ], [ null, %sw.bb53.i ], [ %24, %if.then43.i ], [ null, %if.else39.i ], [ %16, %if.then.i ], [ %17, %if.then8.i ], [ %20, %if.then20.i ], [ null, %if.else16.i ], [ %21, %if.then31.i ]
   %rv.0.i = phi i32 [ 32, %if.then32 ], [ %call129.i, %if.then127.i ], [ 32, %sw.bb123.i ], [ %call110.i, %if.then108.i ], [ %call119.i, %if.then116.i ], [ 32, %if.else112.i ], [ %call92.i, %if.then90.i ], [ %call100.i, %if.then98.i ], [ 32, %if.else94.i ], [ %call83.i, %if.then81.i ], [ 32, %sw.bb77.i ], [ %call74.i, %if.then71.i ], [ 32, %sw.bb67.i ], [ %call59.i, %if.then57.i ], [ 32, %sw.bb53.i ], [ %call45.i, %if.then43.i ], [ 32, %if.else39.i ], [ %call3.i, %if.then.i ], [ %call10.i, %if.then8.i ], [ %call22.i, %if.then20.i ], [ 32, %if.else16.i ], [ %call33.i, %if.then31.i ]
   %cmp132.i = icmp ne i32 %rv.0.i, 32
@@ -1840,7 +1840,7 @@ if.end137.i:                                      ; preds = %if.then134.i, %sw.e
   br i1 %cmp138.not.i, label %if.end141.i, label %copy_attr.exit
 
 if.end141.i:                                      ; preds = %if.end137.i.thread, %if.end137.i, %if.then63.i, %if.then49.i, %if.then14.i
-  %update_tiles.2 = phi i32 [ %update_tiles.1, %if.end137.i ], [ %update_tiles.065, %if.then63.i ], [ %update_tiles.065, %if.then49.i ], [ %update_tiles.065, %if.then14.i ], [ 1, %if.end137.i.thread ]
+  %update_tiles.3 = phi i32 [ %update_tiles.2, %if.end137.i ], [ %update_tiles.065, %if.then63.i ], [ %update_tiles.065, %if.then49.i ], [ %update_tiles.065, %if.then14.i ], [ 1, %if.end137.i.thread ]
   switch i32 %14, label %sw.default179.i [
     i32 1, label %sw.bb142.i
     i32 2, label %sw.bb143.i
@@ -2159,20 +2159,20 @@ if.then184.i:                                     ; preds = %sw.epilog181.i
   br label %copy_attr.exit
 
 copy_attr.exit:                                   ; preds = %if.end137.i, %sw.bb142.i, %sw.bb143.i, %sw.bb146.i, %sw.bb147.i, %sw.bb148.i, %sw.bb149.i, %sw.bb150.i, %sw.bb153.i, %sw.bb154.i, %sw.bb155.i, %sw.bb156.i, %sw.bb157.i, %sw.bb158.i, %sw.bb159.i, %sw.bb162.i, %sw.bb168.i, %sw.bb169.i, %sw.bb170.i, %sw.bb171.i, %sw.bb172.i, %sw.bb173.i, %sw.bb174.i, %sw.bb175.i, %sw.epilog181.i, %if.then184.i
-  %update_tiles.3 = phi i32 [ %update_tiles.2, %sw.epilog181.i ], [ %update_tiles.2, %if.then184.i ], [ %update_tiles.2, %sw.bb175.i ], [ %update_tiles.2, %sw.bb174.i ], [ %update_tiles.2, %sw.bb173.i ], [ %update_tiles.2, %sw.bb172.i ], [ %update_tiles.2, %sw.bb171.i ], [ %update_tiles.2, %sw.bb170.i ], [ %update_tiles.2, %sw.bb169.i ], [ %update_tiles.2, %sw.bb168.i ], [ %update_tiles.2, %sw.bb162.i ], [ %update_tiles.2, %sw.bb159.i ], [ %update_tiles.2, %sw.bb158.i ], [ %update_tiles.2, %sw.bb157.i ], [ %update_tiles.2, %sw.bb156.i ], [ %update_tiles.2, %sw.bb155.i ], [ %update_tiles.2, %sw.bb154.i ], [ %update_tiles.2, %sw.bb153.i ], [ %update_tiles.2, %sw.bb150.i ], [ %update_tiles.2, %sw.bb149.i ], [ %update_tiles.2, %sw.bb148.i ], [ %update_tiles.2, %sw.bb147.i ], [ %update_tiles.2, %sw.bb146.i ], [ %update_tiles.2, %sw.bb143.i ], [ %update_tiles.2, %sw.bb142.i ], [ %update_tiles.1, %if.end137.i ]
+  %update_tiles.4 = phi i32 [ %update_tiles.3, %sw.epilog181.i ], [ %update_tiles.3, %if.then184.i ], [ %update_tiles.3, %sw.bb175.i ], [ %update_tiles.3, %sw.bb174.i ], [ %update_tiles.3, %sw.bb173.i ], [ %update_tiles.3, %sw.bb172.i ], [ %update_tiles.3, %sw.bb171.i ], [ %update_tiles.3, %sw.bb170.i ], [ %update_tiles.3, %sw.bb169.i ], [ %update_tiles.3, %sw.bb168.i ], [ %update_tiles.3, %sw.bb162.i ], [ %update_tiles.3, %sw.bb159.i ], [ %update_tiles.3, %sw.bb158.i ], [ %update_tiles.3, %sw.bb157.i ], [ %update_tiles.3, %sw.bb156.i ], [ %update_tiles.3, %sw.bb155.i ], [ %update_tiles.3, %sw.bb154.i ], [ %update_tiles.3, %sw.bb153.i ], [ %update_tiles.3, %sw.bb150.i ], [ %update_tiles.3, %sw.bb149.i ], [ %update_tiles.3, %sw.bb148.i ], [ %update_tiles.3, %sw.bb147.i ], [ %update_tiles.3, %sw.bb146.i ], [ %update_tiles.3, %sw.bb143.i ], [ %update_tiles.3, %sw.bb142.i ], [ %update_tiles.2, %if.end137.i ]
   %retval.0.i = phi i32 [ 0, %sw.epilog181.i ], [ %rv.2.i, %if.then184.i ], [ 0, %sw.bb175.i ], [ 0, %sw.bb174.i ], [ 0, %sw.bb173.i ], [ 0, %sw.bb172.i ], [ 0, %sw.bb171.i ], [ 0, %sw.bb170.i ], [ 0, %sw.bb169.i ], [ 0, %sw.bb168.i ], [ 0, %sw.bb162.i ], [ 0, %sw.bb159.i ], [ 0, %sw.bb158.i ], [ 0, %sw.bb157.i ], [ 0, %sw.bb156.i ], [ 0, %sw.bb155.i ], [ 0, %sw.bb154.i ], [ 0, %sw.bb153.i ], [ 0, %sw.bb150.i ], [ 0, %sw.bb149.i ], [ 0, %sw.bb148.i ], [ 0, %sw.bb147.i ], [ 0, %sw.bb146.i ], [ 0, %sw.bb143.i ], [ 0, %sw.bb142.i ], [ %rv.1.i, %if.end137.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %attr.i)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %copy_attr.exit
-  %update_tiles.4 = phi i32 [ %update_tiles.3, %copy_attr.exit ], [ %update_tiles.065, %for.body ]
+  %update_tiles.1 = phi i32 [ %update_tiles.4, %copy_attr.exit ], [ %update_tiles.065, %for.body ]
   %rv.1 = phi i32 [ %retval.0.i, %copy_attr.exit ], [ 0, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp24 = icmp eq i32 %rv.1, 0
   br i1 %cmp24, label %land.rhs, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %land.rhs
-  %update_tiles.0.lcssa = phi i32 [ %update_tiles.4, %for.inc ], [ %update_tiles.065, %land.rhs ]
+  %update_tiles.0.lcssa = phi i32 [ %update_tiles.1, %for.inc ], [ %update_tiles.065, %land.rhs ]
   %rv.0.lcssa = phi i32 [ %rv.1, %for.inc ], [ 0, %land.rhs ]
   %tobool35.not = icmp eq i32 %update_tiles.0.lcssa, 0
   br i1 %tobool35.not, label %if.end38, label %if.then36
@@ -5246,12 +5246,12 @@ for.end:                                          ; preds = %for.cond, %for.cond
   br label %if.end51
 
 if.end51:                                         ; preds = %for.end, %if.end26
-  %rv.2 = phi i32 [ 0, %for.end ], [ %rv.0, %if.end26 ]
+  %rv.1 = phi i32 [ 0, %for.end ], [ %rv.0, %if.end26 ]
   %call.i68 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
   br label %return
 
 return:                                           ; preds = %entry, %if.end51, %if.then47, %if.then37, %if.then16, %if.then12, %if.then7, %if.then2
-  %retval.0 = phi i32 [ %call, %if.then2 ], [ %call8, %if.then7 ], [ %call13, %if.then12 ], [ %call34, %if.then37 ], [ %call44, %if.then47 ], [ %rv.2, %if.end51 ], [ %call18, %if.then16 ], [ 2, %entry ]
+  %retval.0 = phi i32 [ %call, %if.then2 ], [ %call8, %if.then7 ], [ %call13, %if.then12 ], [ %call34, %if.then37 ], [ %call44, %if.then47 ], [ %rv.1, %if.end51 ], [ %call18, %if.then16 ], [ 2, %entry ]
   ret i32 %retval.0
 }
 
@@ -10525,12 +10525,12 @@ for.body146:                                      ; preds = %for.body146.prehead
   br i1 %67, label %for.body146, label %if.end156, !llvm.loop !11
 
 if.end156:                                        ; preds = %for.body146, %if.end103, %for.body120, %for.body, %if.end37, %for.cond139.preheader, %for.cond72.preheader, %for.cond113.preheader, %if.end44, %if.end27
-  %rv.5 = phi i32 [ %call28, %if.end27 ], [ %call43, %if.end44 ], [ 0, %for.cond113.preheader ], [ 0, %for.cond72.preheader ], [ 0, %for.cond139.preheader ], [ %call39, %if.end37 ], [ %call51, %for.body ], [ %call123, %for.body120 ], [ %call107, %if.end103 ], [ %call149, %for.body146 ]
+  %rv.2 = phi i32 [ %call28, %if.end27 ], [ %call43, %if.end44 ], [ 0, %for.cond113.preheader ], [ 0, %for.cond72.preheader ], [ 0, %for.cond139.preheader ], [ %call39, %if.end37 ], [ %call51, %for.body ], [ %call123, %for.body120 ], [ %call107, %if.end103 ], [ %call149, %for.body146 ]
   %call.i118 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
   br label %return
 
 return:                                           ; preds = %entry, %if.end156, %if.then133, %if.then95, %if.then83, %if.then57, %if.then36, %if.then24, %if.then19, %if.then13, %if.then6, %if.then2
-  %retval.0 = phi i32 [ %call, %if.then2 ], [ %call7, %if.then6 ], [ %call15, %if.then13 ], [ %call21, %if.then19 ], [ 15, %if.then36 ], [ %rv.5, %if.end156 ], [ %call59, %if.then57 ], [ %call102, %if.then95 ], [ %call85, %if.then83 ], [ %call136, %if.then133 ], [ %call26, %if.then24 ], [ 2, %entry ]
+  %retval.0 = phi i32 [ %call, %if.then2 ], [ %call7, %if.then6 ], [ %call15, %if.then13 ], [ %call21, %if.then19 ], [ 15, %if.then36 ], [ %rv.2, %if.end156 ], [ %call59, %if.then57 ], [ %call102, %if.then95 ], [ %call85, %if.then83 ], [ %call136, %if.then133 ], [ %call26, %if.then24 ], [ 2, %entry ]
   ret i32 %retval.0
 }
 

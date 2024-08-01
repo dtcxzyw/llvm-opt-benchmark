@@ -817,7 +817,7 @@ while.body80.preheader:                           ; preds = %_ZNK6vectorIPcLb0Ej
 while.body80:                                     ; preds = %while.body80.preheader, %if.end105
   %indvars.iv205 = phi i64 [ 0, %while.body80.preheader ], [ %indvars.iv.next206, %if.end105 ]
   %last_chunk.0196 = phi ptr [ null, %while.body80.preheader ], [ %last_chunk.1, %if.end105 ]
-  %last_free_obj.0195 = phi ptr [ null, %while.body80.preheader ], [ %last_free_obj.2, %if.end105 ]
+  %last_free_obj.0195 = phi ptr [ null, %while.body80.preheader ], [ %last_free_obj.1, %if.end105 ]
   %obj_idx.0193 = phi i32 [ 0, %while.body80.preheader ], [ %obj_idx.1.lcssa, %if.end105 ]
   %arrayidx.i79 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv205
   %40 = load ptr, ptr %arrayidx.i79, align 8
@@ -874,23 +874,23 @@ for.body100.preheader:                            ; preds = %if.else96
 
 for.body100:                                      ; preds = %for.body100.preheader, %for.body100
   %indvars.iv201 = phi i64 [ %45, %for.body100.preheader ], [ %indvars.iv.next202, %for.body100 ]
-  %last_free_obj.1190 = phi ptr [ %last_free_obj.0195, %for.body100.preheader ], [ %46, %for.body100 ]
+  %last_free_obj.2190 = phi ptr [ %last_free_obj.0195, %for.body100.preheader ], [ %46, %for.body100 ]
   %arrayidx.i86 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv201
   %46 = load ptr, ptr %arrayidx.i86, align 8
-  store ptr %last_free_obj.1190, ptr %46, align 8
+  store ptr %last_free_obj.2190, ptr %46, align 8
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count
   br i1 %exitcond204.not, label %if.end105, label %for.body100, !llvm.loop !15
 
 if.end105:                                        ; preds = %for.body100, %if.else96, %if.then94, %if.end.i83
-  %last_free_obj.2 = phi ptr [ %last_free_obj.0195, %if.end.i83 ], [ %last_free_obj.0195, %if.then94 ], [ %last_free_obj.0195, %if.else96 ], [ %46, %for.body100 ]
+  %last_free_obj.1 = phi ptr [ %last_free_obj.0195, %if.end.i83 ], [ %last_free_obj.0195, %if.then94 ], [ %last_free_obj.0195, %if.else96 ], [ %46, %for.body100 ]
   %last_chunk.1 = phi ptr [ %last_chunk.0196, %if.end.i83 ], [ %last_chunk.0196, %if.then94 ], [ %40, %if.else96 ], [ %40, %for.body100 ]
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %while.end107, label %while.body80, !llvm.loop !16
 
 while.end107:                                     ; preds = %if.end105, %_ZNK6vectorIPcLb0EjE4sizeEv.exit78
-  %last_free_obj.0.lcssa = phi ptr [ null, %_ZNK6vectorIPcLb0EjE4sizeEv.exit78 ], [ %last_free_obj.2, %if.end105 ]
+  %last_free_obj.0.lcssa = phi ptr [ null, %_ZNK6vectorIPcLb0EjE4sizeEv.exit78 ], [ %last_free_obj.1, %if.end105 ]
   %last_chunk.0.lcssa = phi ptr [ null, %_ZNK6vectorIPcLb0EjE4sizeEv.exit78 ], [ %last_chunk.1, %if.end105 ]
   store ptr %last_chunk.0.lcssa, ptr %arrayidx43, align 8
   store ptr %last_free_obj.0.lcssa, ptr %arrayidx, align 8

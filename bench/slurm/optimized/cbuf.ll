@@ -316,7 +316,7 @@ define dso_local i32 @cbuf_lines_used(ptr noundef %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %30, %.lr.ph.i
-  %.03050.i = phi i32 [ 0, %.lr.ph.i ], [ %.131.i, %30 ]
+  %.03050.i = phi i32 [ 0, %.lr.ph.i ], [ %.232.i, %30 ]
   %.03747.i = phi i32 [ %15, %.lr.ph.i ], [ %32, %30 ]
   %.14046.i = phi i32 [ %7, %.lr.ph.i ], [ %spec.select43.i, %30 ]
   %22 = icmp sgt i32 %.14046.i, 0
@@ -327,7 +327,7 @@ define dso_local i32 @cbuf_lines_used(ptr noundef %0) local_unnamed_addr #0 {
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 10
   %28 = zext i1 %27 to i32
-  %.131.i = add nuw nsw i32 %.03050.i, %28
+  %.232.i = add nuw nsw i32 %.03050.i, %28
   %29 = icmp eq i32 %spec.select43.i, 0
   br i1 %29, label %cbuf_find_unread_line.exit, label %30
 
@@ -338,7 +338,7 @@ define dso_local i32 @cbuf_lines_used(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %cbuf_find_unread_line.exit, label %21, !llvm.loop !7
 
 cbuf_find_unread_line.exit:                       ; preds = %21, %30, %13, %5, %9
-  %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 0, %13 ], [ %.131.i, %30 ], [ %.131.i, %21 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 0, %13 ], [ %.232.i, %30 ], [ %.232.i, %21 ]
   %33 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not8 = icmp eq i32 %33, 0
   br i1 %.not8, label %36, label %34
@@ -494,16 +494,16 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr nocapture noundef readonly
   %39 = phi i32 [ %.pre, %33 ], [ %14, %35 ]
   %.168 = phi i32 [ %34, %33 ], [ %.067, %35 ]
   %.054 = phi i32 [ 0, %33 ], [ -1, %35 ]
-  %.1 = phi i32 [ %5, %33 ], [ %spec.select, %35 ]
+  %.0 = phi i32 [ %5, %33 ], [ %spec.select, %35 ]
   br label %40
 
 40:                                               ; preds = %41, %37
   %.269 = phi i32 [ %.168, %37 ], [ %spec.select78, %41 ]
   %.065 = phi i32 [ %39, %37 ], [ %45, %41 ]
   %.063 = phi i32 [ 0, %37 ], [ %46, %41 ]
-  %.059 = phi i32 [ 0, %37 ], [ %.160, %41 ]
-  %.155 = phi i32 [ %.054, %37 ], [ %.256, %41 ]
-  %.2 = phi i32 [ %.1, %37 ], [ %.4, %41 ]
+  %.059 = phi i32 [ 0, %37 ], [ %.261, %41 ]
+  %.155 = phi i32 [ %.054, %37 ], [ %.357, %41 ]
+  %.2 = phi i32 [ %.0, %37 ], [ %.4, %41 ]
   %.not76 = icmp eq i32 %.065, %38
   br i1 %.not76, label %58, label %41
 
@@ -522,9 +522,9 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr nocapture noundef readonly
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 10
   %54 = icmp sgt i32 %.2, 0
-  %.160 = select i1 %53, i32 %.063, i32 %.059
+  %.261 = select i1 %53, i32 %.063, i32 %.059
   %55 = zext i1 %53 to i32
-  %.256 = add nsw i32 %.155, %55
+  %.357 = add nsw i32 %.155, %55
   %narrow = select i1 %53, i1 %54, i1 false
   %spec.select79 = sext i1 %narrow to i32
   %.4 = add nsw i32 %.2, %spec.select79
@@ -534,38 +534,38 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr nocapture noundef readonly
   br i1 %or.cond3, label %58, label %40, !llvm.loop !9
 
 58:                                               ; preds = %41, %40
-  %.471 = phi i32 [ %spec.select78, %41 ], [ %.269, %40 ]
+  %.370 = phi i32 [ %spec.select78, %41 ], [ %.269, %40 ]
   %.164 = phi i32 [ %46, %41 ], [ %.063, %40 ]
-  %.261 = phi i32 [ %.160, %41 ], [ %.059, %40 ]
-  %.357 = phi i32 [ %.256, %41 ], [ %.155, %40 ]
-  %.5 = phi i32 [ %.4, %41 ], [ %.2, %40 ]
+  %.160 = phi i32 [ %.261, %41 ], [ %.059, %40 ]
+  %.256 = phi i32 [ %.357, %41 ], [ %.155, %40 ]
+  %.3 = phi i32 [ %.4, %41 ], [ %.2, %40 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 64
   %60 = load i32, ptr %59, align 8
   %.not77 = icmp eq i32 %60, 0
   br i1 %.not77, label %61, label %67
 
 61:                                               ; preds = %58
-  %62 = icmp sgt i32 %.471, 0
-  %63 = icmp sgt i32 %.5, 0
+  %62 = icmp sgt i32 %.370, 0
+  %63 = icmp sgt i32 %.3, 0
   %or.cond5 = select i1 %62, i1 true, i1 %63
   br i1 %or.cond5, label %64, label %.thread
 
 64:                                               ; preds = %61
   %65 = sext i1 %63 to i32
-  %spec.select80 = add nsw i32 %.5, %65
-  %66 = add nsw i32 %.357, 1
+  %spec.select80 = add nsw i32 %.3, %65
+  %66 = add nsw i32 %.256, 1
   br label %67
 
 67:                                               ; preds = %64, %58
-  %.362 = phi i32 [ %.261, %58 ], [ %.164, %64 ]
-  %.458 = phi i32 [ %.357, %58 ], [ %66, %64 ]
-  %.7 = phi i32 [ %.5, %58 ], [ %spec.select80, %64 ]
-  %68 = icmp sgt i32 %.7, 0
+  %.362 = phi i32 [ %.160, %58 ], [ %.164, %64 ]
+  %.458 = phi i32 [ %.256, %58 ], [ %66, %64 ]
+  %.6 = phi i32 [ %.3, %58 ], [ %spec.select80, %64 ]
+  %68 = icmp sgt i32 %.6, 0
   br i1 %68, label %69, label %.thread
 
 .thread:                                          ; preds = %61, %67
-  %.45885 = phi i32 [ %.458, %67 ], [ %.357, %61 ]
-  %.36284 = phi i32 [ %.362, %67 ], [ %.261, %61 ]
+  %.45885 = phi i32 [ %.458, %67 ], [ %.256, %61 ]
+  %.36284 = phi i32 [ %.362, %67 ], [ %.160, %61 ]
   store i32 %.45885, ptr %2, align 4
   br label %69
 
@@ -820,7 +820,7 @@ define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly %1, i32 no
 
 23:                                               ; preds = %38, %.preheader.i
   %.017 = phi ptr [ %1, %.preheader.i ], [ %30, %38 ]
-  %.035.i = phi i32 [ %..i, %.preheader.i ], [ %.136.i, %38 ]
+  %.035.i = phi i32 [ %..i, %.preheader.i ], [ %.2.i, %38 ]
   %.0.i = phi i32 [ %20, %.preheader.i ], [ %.1.i, %38 ]
   %24 = load i32, ptr %21, align 4
   %reass.sub = sub i32 %24, %.0.i
@@ -844,16 +844,16 @@ define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly %1, i32 no
   br label %38
 
 38:                                               ; preds = %32, %23
-  %.136.i = phi i32 [ %33, %32 ], [ %.035.i, %23 ]
+  %.2.i = phi i32 [ %33, %32 ], [ %.035.i, %23 ]
   %.1.i = phi i32 [ %37, %32 ], [ %.0.i, %23 ]
-  %39 = icmp sgt i32 %.136.i, 0
+  %39 = icmp sgt i32 %.2.i, 0
   br i1 %39, label %23, label %.loopexit.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %38, %18
-  %.2.i = phi i32 [ %..i, %18 ], [ %.136.i, %38 ]
+  %.136.i = phi i32 [ %..i, %18 ], [ %.2.i, %38 ]
   %.034.i = phi i32 [ 0, %18 ], [ %.035..i, %38 ]
-  %40 = sub nsw i32 %..i, %.2.i
-  %41 = icmp eq i32 %..i, %.2.i
+  %40 = sub nsw i32 %..i, %.136.i
+  %41 = icmp eq i32 %..i, %.136.i
   %.034..i = select i1 %41, i32 %.034.i, i32 %40
   br label %cbuf_reader.exit
 
@@ -921,7 +921,7 @@ define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly %1, i32 no
 
 23:                                               ; preds = %38, %.preheader.i
   %.021 = phi ptr [ %1, %.preheader.i ], [ %30, %38 ]
-  %.035.i = phi i32 [ %..i, %.preheader.i ], [ %.136.i, %38 ]
+  %.035.i = phi i32 [ %..i, %.preheader.i ], [ %.2.i, %38 ]
   %.0.i = phi i32 [ %20, %.preheader.i ], [ %.1.i, %38 ]
   %24 = load i32, ptr %21, align 4
   %reass.sub = sub i32 %24, %.0.i
@@ -945,16 +945,16 @@ define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly %1, i32 no
   br label %38
 
 38:                                               ; preds = %32, %23
-  %.136.i = phi i32 [ %33, %32 ], [ %.035.i, %23 ]
+  %.2.i = phi i32 [ %33, %32 ], [ %.035.i, %23 ]
   %.1.i = phi i32 [ %37, %32 ], [ %.0.i, %23 ]
-  %39 = icmp sgt i32 %.136.i, 0
+  %39 = icmp sgt i32 %.2.i, 0
   br i1 %39, label %23, label %cbuf_reader.exit, !llvm.loop !10
 
 cbuf_reader.exit:                                 ; preds = %38, %18
-  %.2.i = phi i32 [ %..i, %18 ], [ %.136.i, %38 ]
+  %.136.i = phi i32 [ %..i, %18 ], [ %.2.i, %38 ]
   %.034.i = phi i32 [ 0, %18 ], [ %.035..i, %38 ]
-  %40 = sub nsw i32 %..i, %.2.i
-  %41 = icmp eq i32 %..i, %.2.i
+  %40 = sub nsw i32 %..i, %.136.i
+  %41 = icmp eq i32 %..i, %.136.i
   %.034..i = select i1 %41, i32 %.034.i, i32 %40
   %42 = icmp sgt i32 %.034..i, 0
   br i1 %42, label %43, label %cbuf_reader.exit.thread
@@ -1045,7 +1045,7 @@ define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly %1, i32 
 
 32:                                               ; preds = %47, %.preheader.i
   %.017 = phi ptr [ %1, %.preheader.i ], [ %39, %47 ]
-  %.042.i = phi i32 [ %25, %.preheader.i ], [ %.143.i, %47 ]
+  %.042.i = phi i32 [ %25, %.preheader.i ], [ %.2.i, %47 ]
   %.0.i = phi i32 [ %30, %.preheader.i ], [ %.1.i, %47 ]
   %33 = load i32, ptr %20, align 4
   %reass.sub = sub i32 %33, %.0.i
@@ -1069,16 +1069,16 @@ define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly %1, i32 
   br label %47
 
 47:                                               ; preds = %41, %32
-  %.143.i = phi i32 [ %42, %41 ], [ %.042.i, %32 ]
+  %.2.i = phi i32 [ %42, %41 ], [ %.042.i, %32 ]
   %.1.i = phi i32 [ %46, %41 ], [ %.0.i, %32 ]
-  %48 = icmp sgt i32 %.143.i, 0
+  %48 = icmp sgt i32 %.2.i, 0
   br i1 %48, label %32, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %47, %27
-  %.2.i = phi i32 [ %25, %27 ], [ %.143.i, %47 ]
+  %.143.i = phi i32 [ %25, %27 ], [ %.2.i, %47 ]
   %.041.i = phi i32 [ 0, %27 ], [ %.042..i, %47 ]
-  %49 = sub nsw i32 %25, %.2.i
-  %50 = icmp eq i32 %25, %.2.i
+  %49 = sub nsw i32 %25, %.143.i
+  %50 = icmp eq i32 %25, %.143.i
   %.041..i = select i1 %50, i32 %.041.i, i32 %49
   br label %cbuf_replayer.exit
 
@@ -1340,8 +1340,8 @@ cbuf_grow.exit:                                   ; preds = %17, %52
   br label %70
 
 70:                                               ; preds = %.preheader, %84
-  %.085 = phi i32 [ %.186, %84 ], [ %.089, %.preheader ]
-  %.0 = phi i32 [ %.1, %84 ], [ %68, %.preheader ]
+  %.085 = phi i32 [ %.287, %84 ], [ %.089, %.preheader ]
+  %.0 = phi i32 [ %.2, %84 ], [ %68, %.preheader ]
   %71 = load i32, ptr %7, align 4
   %reass.sub = sub i32 %71, %.0
   %72 = add i32 %reass.sub, 1
@@ -1362,18 +1362,18 @@ cbuf_grow.exit:                                   ; preds = %17, %52
   br label %84
 
 84:                                               ; preds = %78, %70
-  %.186 = phi i32 [ %79, %78 ], [ %.085, %70 ]
-  %.1 = phi i32 [ %83, %78 ], [ %.0, %70 ]
+  %.287 = phi i32 [ %79, %78 ], [ %.085, %70 ]
+  %.2 = phi i32 [ %83, %78 ], [ %.0, %70 ]
   %85 = icmp eq i32 %.085., %76
-  %86 = icmp sgt i32 %.186, 0
+  %86 = icmp sgt i32 %.287, 0
   %or.cond = select i1 %85, i1 %86, i1 false
   br i1 %or.cond, label %70, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %84, %66
-  %.287 = phi i32 [ %.089, %66 ], [ %.186, %84 ]
+  %.186 = phi i32 [ %.089, %66 ], [ %.287, %84 ]
   %.083 = phi i32 [ 0, %66 ], [ %76, %84 ]
-  %.2 = phi i32 [ %68, %66 ], [ %.1, %84 ]
-  %87 = sub nsw i32 %.089, %.287
+  %.1 = phi i32 [ %68, %66 ], [ %.2, %84 ]
+  %87 = sub nsw i32 %.089, %.186
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %117, label %89
 
@@ -1395,7 +1395,7 @@ cbuf_grow.exit:                                   ; preds = %17, %52
   %102 = add nsw i32 %101, %87
   %.106 = call i32 @llvm.smin.i32(i32 %102, i32 %97)
   store i32 %.106, ptr %9, align 8
-  store i32 %.2, ptr %67, align 4
+  store i32 %.1, ptr %67, align 4
   %103 = sub nsw i32 %.088, %100
   %104 = icmp sgt i32 %87, %103
   br i1 %104, label %105, label %109
@@ -1403,7 +1403,7 @@ cbuf_grow.exit:                                   ; preds = %17, %52
 105:                                              ; preds = %91
   %106 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 1, ptr %106, align 8
-  %107 = add nsw i32 %.2, 1
+  %107 = add nsw i32 %.1, 1
   %108 = srem i32 %107, %98
   store i32 %108, ptr %94, align 4
   br label %109
@@ -1500,7 +1500,7 @@ define dso_local i32 @cbuf_drop_line(ptr noundef %0, i32 noundef %1, i32 noundef
 
 30:                                               ; preds = %41, %.lr.ph.i
   %.051.i = phi i32 [ %2, %.lr.ph.i ], [ %.2.i, %41 ]
-  %.03349.i = phi i32 [ 0, %.lr.ph.i ], [ %.134.i, %41 ]
+  %.03349.i = phi i32 [ 0, %.lr.ph.i ], [ %.235.i, %41 ]
   %.03648.i = phi i32 [ 0, %.lr.ph.i ], [ %31, %41 ]
   %.03747.i = phi i32 [ %23, %.lr.ph.i ], [ %45, %41 ]
   %.14046.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ %spec.select43.i, %41 ]
@@ -1513,7 +1513,7 @@ define dso_local i32 @cbuf_drop_line(ptr noundef %0, i32 noundef %1, i32 noundef
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 10
   %38 = icmp sgt i32 %.051.i, 0
-  %.134.i = select i1 %37, i32 %31, i32 %.03349.i
+  %.235.i = select i1 %37, i32 %31, i32 %.03349.i
   %narrow.i = select i1 %37, i1 %38, i1 false
   %spec.select44.i = sext i1 %narrow.i to i32
   %.2.i = add nsw i32 %.051.i, %spec.select44.i
@@ -1535,13 +1535,13 @@ define dso_local i32 @cbuf_drop_line(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %46, label %cbuf_find_unread_line.exit.thread25, label %cbuf_find_unread_line.exit
 
 cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
-  %47 = icmp sgt i32 %.134.i, 0
+  %47 = icmp sgt i32 %.235.i, 0
   br i1 %47, label %48, label %cbuf_find_unread_line.exit.thread25
 
 48:                                               ; preds = %cbuf_find_unread_line.exit
-  %49 = sub nsw i32 %19, %.134.i
+  %49 = sub nsw i32 %19, %.235.i
   store i32 %49, ptr %18, align 8
-  %50 = add nsw i32 %23, %.134.i
+  %50 = add nsw i32 %23, %.235.i
   %51 = load i32, ptr %29, align 4
   %52 = add nsw i32 %51, 1
   %53 = srem i32 %50, %52
@@ -1549,7 +1549,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   br label %cbuf_find_unread_line.exit.thread25
 
 cbuf_find_unread_line.exit.thread25:              ; preds = %21, %._crit_edge.i, %17, %14, %cbuf_find_unread_line.exit, %48
-  %.038.i21 = phi i32 [ %.134.i, %cbuf_find_unread_line.exit ], [ %.134.i, %48 ], [ 0, %14 ], [ 0, %17 ], [ 0, %._crit_edge.i ], [ 0, %21 ]
+  %.038.i21 = phi i32 [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %48 ], [ 0, %14 ], [ 0, %17 ], [ 0, %._crit_edge.i ], [ 0, %21 ]
   %54 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not19 = icmp eq i32 %54, 0
   br i1 %.not19, label %57, label %55
@@ -1625,7 +1625,7 @@ define dso_local i32 @cbuf_peek_line(ptr noundef %0, ptr noundef writeonly %1, i
 
 33:                                               ; preds = %44, %.lr.ph.i
   %.051.i = phi i32 [ %3, %.lr.ph.i ], [ %.2.i, %44 ]
-  %.03349.i = phi i32 [ 0, %.lr.ph.i ], [ %.134.i, %44 ]
+  %.03349.i = phi i32 [ 0, %.lr.ph.i ], [ %.235.i, %44 ]
   %.03648.i = phi i32 [ 0, %.lr.ph.i ], [ %34, %44 ]
   %.03747.i = phi i32 [ %26, %.lr.ph.i ], [ %48, %44 ]
   %.14046.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ %spec.select43.i, %44 ]
@@ -1638,7 +1638,7 @@ define dso_local i32 @cbuf_peek_line(ptr noundef %0, ptr noundef writeonly %1, i
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 10
   %41 = icmp sgt i32 %.051.i, 0
-  %.134.i = select i1 %40, i32 %34, i32 %.03349.i
+  %.235.i = select i1 %40, i32 %34, i32 %.03349.i
   %narrow.i = select i1 %40, i1 %41, i1 false
   %spec.select44.i = sext i1 %narrow.i to i32
   %.2.i = add nsw i32 %.051.i, %spec.select44.i
@@ -1656,19 +1656,19 @@ define dso_local i32 @cbuf_peek_line(ptr noundef %0, ptr noundef writeonly %1, i
   br i1 %.not.i, label %._crit_edge.i, label %33, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %44, %33, %24
-  %.235.i = phi i32 [ 0, %24 ], [ %.134.i, %33 ], [ %.134.i, %44 ]
-  %.3.i = phi i32 [ %3, %24 ], [ %.2.i, %33 ], [ %.2.i, %44 ]
-  %49 = icmp sgt i32 %.3.i, 0
+  %.134.i = phi i32 [ 0, %24 ], [ %.235.i, %33 ], [ %.235.i, %44 ]
+  %.1.i = phi i32 [ %3, %24 ], [ %.2.i, %33 ], [ %.2.i, %44 ]
+  %49 = icmp sgt i32 %.1.i, 0
   br i1 %49, label %cbuf_find_unread_line.exit.thread, label %cbuf_find_unread_line.exit
 
 cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
-  %50 = icmp sgt i32 %.235.i, 0
+  %50 = icmp sgt i32 %.134.i, 0
   %51 = icmp sgt i32 %2, 0
   %or.cond5 = and i1 %51, %50
   br i1 %or.cond5, label %52, label %cbuf_find_unread_line.exit.thread
 
 52:                                               ; preds = %cbuf_find_unread_line.exit
-  %53 = tail call i32 @llvm.umin.i32(i32 %.235.i, i32 %17)
+  %53 = tail call i32 @llvm.umin.i32(i32 %.134.i, i32 %17)
   %54 = icmp ugt i32 %2, 1
   br i1 %54, label %55, label %cbuf_reader.exit
 
@@ -1683,9 +1683,9 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   br label %58
 
 58:                                               ; preds = %73, %.preheader.i
-  %.040 = phi ptr [ %1, %.preheader.i ], [ %65, %73 ]
-  %.035.i = phi i32 [ %..i, %.preheader.i ], [ %.136.i, %73 ]
-  %.0.i = phi i32 [ %26, %.preheader.i ], [ %.1.i, %73 ]
+  %.041 = phi ptr [ %1, %.preheader.i ], [ %65, %73 ]
+  %.035.i = phi i32 [ %..i, %.preheader.i ], [ %.2.i37, %73 ]
+  %.0.i = phi i32 [ %26, %.preheader.i ], [ %.1.i38, %73 ]
   %59 = load i32, ptr %56, align 4
   %reass.sub.i = sub i32 %59, %.0.i
   %60 = add i32 %reass.sub.i, 1
@@ -1694,8 +1694,8 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   %62 = sext i32 %.0.i to i64
   %63 = getelementptr inbounds i8, ptr %61, i64 %62
   %64 = sext i32 %.035..i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.040, ptr readonly align 1 %63, i64 %64, i1 false)
-  %65 = getelementptr inbounds i8, ptr %.040, i64 %64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.041, ptr readonly align 1 %63, i64 %64, i1 false)
+  %65 = getelementptr inbounds i8, ptr %.041, i64 %64
   %66 = icmp ult i32 %reass.sub.i, 2147483647
   br i1 %66, label %67, label %73
 
@@ -1708,9 +1708,9 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   br label %73
 
 73:                                               ; preds = %67, %58
-  %.136.i = phi i32 [ %68, %67 ], [ %.035.i, %58 ]
-  %.1.i = phi i32 [ %72, %67 ], [ %.0.i, %58 ]
-  %74 = icmp sgt i32 %.136.i, 0
+  %.2.i37 = phi i32 [ %68, %67 ], [ %.035.i, %58 ]
+  %.1.i38 = phi i32 [ %72, %67 ], [ %.0.i, %58 ]
+  %74 = icmp sgt i32 %.2.i37, 0
   br i1 %74, label %58, label %cbuf_reader.exit, !llvm.loop !10
 
 cbuf_reader.exit:                                 ; preds = %73, %55, %52
@@ -1720,7 +1720,7 @@ cbuf_reader.exit:                                 ; preds = %73, %55, %52
   br label %cbuf_find_unread_line.exit.thread
 
 cbuf_find_unread_line.exit.thread:                ; preds = %._crit_edge.i, %20, %16, %cbuf_find_unread_line.exit, %cbuf_reader.exit
-  %.038.i43 = phi i32 [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %cbuf_reader.exit ], [ 0, %16 ], [ 0, %20 ], [ 0, %._crit_edge.i ]
+  %.038.i44 = phi i32 [ %.134.i, %cbuf_find_unread_line.exit ], [ %.134.i, %cbuf_reader.exit ], [ 0, %16 ], [ 0, %20 ], [ 0, %._crit_edge.i ]
   %77 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not36 = icmp eq i32 %77, 0
   br i1 %.not36, label %80, label %78
@@ -1732,7 +1732,7 @@ cbuf_find_unread_line.exit.thread:                ; preds = %._crit_edge.i, %20,
   unreachable
 
 80:                                               ; preds = %cbuf_find_unread_line.exit.thread, %10, %8
-  %.0 = phi i32 [ -1, %8 ], [ 0, %10 ], [ %.038.i43, %cbuf_find_unread_line.exit.thread ]
+  %.0 = phi i32 [ -1, %8 ], [ 0, %10 ], [ %.038.i44, %cbuf_find_unread_line.exit.thread ]
   ret i32 %.0
 }
 
@@ -1770,13 +1770,13 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
   %18 = icmp slt i32 %3, 0
   %19 = icmp ult i32 %2, 2
   %or.cond.i = and i1 %19, %18
-  br i1 %or.cond.i, label %cbuf_find_unread_line.exit.thread47, label %20
+  br i1 %or.cond.i, label %cbuf_find_unread_line.exit.thread48, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %cbuf_find_unread_line.exit.thread47, label %24
+  br i1 %23, label %cbuf_find_unread_line.exit.thread48, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1784,7 +1784,7 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
   %27 = getelementptr inbounds i8, ptr %0, i64 68
   %28 = load i32, ptr %27, align 4
   %.not45.i = icmp eq i32 %26, %28
-  br i1 %.not45.i, label %cbuf_find_unread_line.exit.thread47, label %.lr.ph.i
+  br i1 %.not45.i, label %cbuf_find_unread_line.exit.thread48, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24
   %29 = icmp sgt i32 %3, 0
@@ -1796,7 +1796,7 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
 
 33:                                               ; preds = %44, %.lr.ph.i
   %.051.i = phi i32 [ %3, %.lr.ph.i ], [ %.2.i, %44 ]
-  %.03349.i = phi i32 [ 0, %.lr.ph.i ], [ %.134.i, %44 ]
+  %.03349.i = phi i32 [ 0, %.lr.ph.i ], [ %.235.i, %44 ]
   %.03648.i = phi i32 [ 0, %.lr.ph.i ], [ %34, %44 ]
   %.03747.i = phi i32 [ %26, %.lr.ph.i ], [ %48, %44 ]
   %.14046.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ %spec.select43.i, %44 ]
@@ -1809,7 +1809,7 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 10
   %41 = icmp sgt i32 %.051.i, 0
-  %.134.i = select i1 %40, i32 %34, i32 %.03349.i
+  %.235.i = select i1 %40, i32 %34, i32 %.03349.i
   %narrow.i = select i1 %40, i1 %41, i1 false
   %spec.select44.i = sext i1 %narrow.i to i32
   %.2.i = add nsw i32 %.051.i, %spec.select44.i
@@ -1828,28 +1828,28 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
 
 ._crit_edge.i:                                    ; preds = %44, %33
   %49 = icmp sgt i32 %.2.i, 0
-  br i1 %49, label %cbuf_find_unread_line.exit.thread47, label %cbuf_find_unread_line.exit
+  br i1 %49, label %cbuf_find_unread_line.exit.thread48, label %cbuf_find_unread_line.exit
 
 cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
-  %50 = icmp sgt i32 %.134.i, 0
-  br i1 %50, label %51, label %cbuf_find_unread_line.exit.thread47
+  %50 = icmp sgt i32 %.235.i, 0
+  br i1 %50, label %51, label %cbuf_find_unread_line.exit.thread48
 
 51:                                               ; preds = %cbuf_find_unread_line.exit
   %52 = icmp sgt i32 %2, 0
   br i1 %52, label %53, label %73
 
 53:                                               ; preds = %51
-  %54 = tail call i32 @llvm.umin.i32(i32 %.134.i, i32 %17)
+  %54 = tail call i32 @llvm.umin.i32(i32 %.235.i, i32 %17)
   %.not36 = icmp ne i32 %2, 1
   %..i = tail call i32 @llvm.smin.i32(i32 %22, i32 %54)
   %.old1.i = icmp sgt i32 %..i, 0
-  %or.cond51 = select i1 %.not36, i1 %.old1.i, i1 false
-  br i1 %or.cond51, label %.preheader.i, label %cbuf_reader.exit
+  %or.cond52 = select i1 %.not36, i1 %.old1.i, i1 false
+  br i1 %or.cond52, label %.preheader.i, label %cbuf_reader.exit
 
 .preheader.i:                                     ; preds = %53, %69
-  %.041 = phi ptr [ %61, %69 ], [ %1, %53 ]
-  %.035.i = phi i32 [ %.136.i, %69 ], [ %..i, %53 ]
-  %.0.i = phi i32 [ %.1.i, %69 ], [ %26, %53 ]
+  %.042 = phi ptr [ %61, %69 ], [ %1, %53 ]
+  %.035.i = phi i32 [ %.2.i38, %69 ], [ %..i, %53 ]
+  %.0.i = phi i32 [ %.1.i39, %69 ], [ %26, %53 ]
   %55 = load i32, ptr %32, align 4
   %reass.sub.i = sub i32 %55, %.0.i
   %56 = add i32 %reass.sub.i, 1
@@ -1858,8 +1858,8 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   %58 = sext i32 %.0.i to i64
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
   %60 = sext i32 %.035..i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.041, ptr readonly align 1 %59, i64 %60, i1 false)
-  %61 = getelementptr inbounds i8, ptr %.041, i64 %60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.042, ptr readonly align 1 %59, i64 %60, i1 false)
+  %61 = getelementptr inbounds i8, ptr %.042, i64 %60
   %62 = icmp ult i32 %reass.sub.i, 2147483647
   br i1 %62, label %63, label %69
 
@@ -1872,9 +1872,9 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   br label %69
 
 69:                                               ; preds = %63, %.preheader.i
-  %.136.i = phi i32 [ %64, %63 ], [ %.035.i, %.preheader.i ]
-  %.1.i = phi i32 [ %68, %63 ], [ %.0.i, %.preheader.i ]
-  %70 = icmp sgt i32 %.136.i, 0
+  %.2.i38 = phi i32 [ %64, %63 ], [ %.035.i, %.preheader.i ]
+  %.1.i39 = phi i32 [ %68, %63 ], [ %.0.i, %.preheader.i ]
+  %70 = icmp sgt i32 %.2.i38, 0
   br i1 %70, label %.preheader.i, label %cbuf_reader.exit, !llvm.loop !10
 
 cbuf_reader.exit:                                 ; preds = %69, %53
@@ -1882,35 +1882,35 @@ cbuf_reader.exit:                                 ; preds = %69, %53
   %72 = getelementptr inbounds i8, ptr %1, i64 %71
   store i8 0, ptr %72, align 1
   %.pre = load i32, ptr %21, align 8
-  %.pre50 = load i32, ptr %25, align 8
+  %.pre51 = load i32, ptr %25, align 8
   br label %73
 
 73:                                               ; preds = %cbuf_reader.exit, %51
-  %74 = phi i32 [ %.pre50, %cbuf_reader.exit ], [ %26, %51 ]
+  %74 = phi i32 [ %.pre51, %cbuf_reader.exit ], [ %26, %51 ]
   %75 = phi i32 [ %.pre, %cbuf_reader.exit ], [ %22, %51 ]
-  %76 = sub nsw i32 %75, %.134.i
+  %76 = sub nsw i32 %75, %.235.i
   store i32 %76, ptr %21, align 8
-  %77 = add nsw i32 %74, %.134.i
+  %77 = add nsw i32 %74, %.235.i
   %78 = load i32, ptr %32, align 4
   %79 = add nsw i32 %78, 1
   %80 = srem i32 %77, %79
   store i32 %80, ptr %25, align 8
-  br label %cbuf_find_unread_line.exit.thread47
+  br label %cbuf_find_unread_line.exit.thread48
 
-cbuf_find_unread_line.exit.thread47:              ; preds = %24, %._crit_edge.i, %20, %16, %cbuf_find_unread_line.exit, %73
-  %.038.i43 = phi i32 [ %.134.i, %cbuf_find_unread_line.exit ], [ %.134.i, %73 ], [ 0, %16 ], [ 0, %20 ], [ 0, %._crit_edge.i ], [ 0, %24 ]
+cbuf_find_unread_line.exit.thread48:              ; preds = %24, %._crit_edge.i, %20, %16, %cbuf_find_unread_line.exit, %73
+  %.038.i44 = phi i32 [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %73 ], [ 0, %16 ], [ 0, %20 ], [ 0, %._crit_edge.i ], [ 0, %24 ]
   %81 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not37 = icmp eq i32 %81, 0
   br i1 %.not37, label %84, label %82
 
-82:                                               ; preds = %cbuf_find_unread_line.exit.thread47
+82:                                               ; preds = %cbuf_find_unread_line.exit.thread48
   %83 = tail call ptr @__errno_location() #14
   store i32 %81, ptr %83, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 615, ptr noundef nonnull @__func__.cbuf_read_line) #16
   unreachable
 
-84:                                               ; preds = %cbuf_find_unread_line.exit.thread47, %10, %8
-  %.0 = phi i32 [ -1, %8 ], [ 0, %10 ], [ %.038.i43, %cbuf_find_unread_line.exit.thread47 ]
+84:                                               ; preds = %cbuf_find_unread_line.exit.thread48, %10, %8
+  %.0 = phi i32 [ -1, %8 ], [ 0, %10 ], [ %.038.i44, %cbuf_find_unread_line.exit.thread48 ]
   ret i32 %.0
 }
 
@@ -1986,7 +1986,7 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly %1,
 
 44:                                               ; preds = %59, %.preheader.i
   %.048 = phi ptr [ %1, %.preheader.i ], [ %51, %59 ]
-  %.042.i = phi i32 [ %39, %.preheader.i ], [ %.143.i, %59 ]
+  %.042.i = phi i32 [ %39, %.preheader.i ], [ %.2.i, %59 ]
   %.0.i = phi i32 [ %42, %.preheader.i ], [ %.1.i, %59 ]
   %45 = load i32, ptr %34, align 4
   %reass.sub = sub i32 %45, %.0.i
@@ -2010,9 +2010,9 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly %1,
   br label %59
 
 59:                                               ; preds = %53, %44
-  %.143.i = phi i32 [ %54, %53 ], [ %.042.i, %44 ]
+  %.2.i = phi i32 [ %54, %53 ], [ %.042.i, %44 ]
   %.1.i = phi i32 [ %58, %53 ], [ %.0.i, %44 ]
-  %60 = icmp sgt i32 %.143.i, 0
+  %60 = icmp sgt i32 %.2.i, 0
   br i1 %60, label %44, label %cbuf_replayer.exit, !llvm.loop !11
 
 cbuf_replayer.exit:                               ; preds = %59, %28, %23
@@ -2407,7 +2407,7 @@ define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %28
 
 28:                                               ; preds = %cbuf_put_fd.exit.thread, %.preheader.i
-  %.035.i = phi i32 [ %.136.i, %cbuf_put_fd.exit.thread ], [ %..i, %.preheader.i ]
+  %.035.i = phi i32 [ %.2.i, %cbuf_put_fd.exit.thread ], [ %..i, %.preheader.i ]
   %.0.i = phi i32 [ %.1.i, %cbuf_put_fd.exit.thread ], [ %25, %.preheader.i ]
   %29 = load i32, ptr %26, align 4
   %reass.sub = sub i32 %29, %.0.i
@@ -2444,18 +2444,18 @@ cbuf_put_fd.exit:                                 ; preds = %35
   br label %cbuf_put_fd.exit.thread
 
 cbuf_put_fd.exit.thread:                          ; preds = %39, %43, %cbuf_put_fd.exit
-  %.136.i = phi i32 [ %44, %43 ], [ %.035.i, %cbuf_put_fd.exit ], [ %.035.i, %39 ]
+  %.2.i = phi i32 [ %44, %43 ], [ %.035.i, %cbuf_put_fd.exit ], [ %.035.i, %39 ]
   %.1.i = phi i32 [ %48, %43 ], [ %.0.i, %cbuf_put_fd.exit ], [ %.0.i, %39 ]
   %49 = icmp eq i32 %.035..i, %37
-  %50 = icmp sgt i32 %.136.i, 0
+  %50 = icmp sgt i32 %.2.i, 0
   %or.cond.i = select i1 %49, i1 %50, i1 false
   br i1 %or.cond.i, label %28, label %.loopexit.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %cbuf_put_fd.exit.thread, %23
-  %.2.i = phi i32 [ %..i, %23 ], [ %.136.i, %cbuf_put_fd.exit.thread ]
+  %.136.i = phi i32 [ %..i, %23 ], [ %.2.i, %cbuf_put_fd.exit.thread ]
   %.034.i = phi i32 [ 0, %23 ], [ %37, %cbuf_put_fd.exit.thread ]
-  %51 = sub nsw i32 %..i, %.2.i
-  %52 = icmp eq i32 %..i, %.2.i
+  %51 = sub nsw i32 %..i, %.136.i
+  %52 = icmp eq i32 %..i, %.136.i
   %.034..i = select i1 %52, i32 %.034.i, i32 %51
   br label %cbuf_reader.exit
 
@@ -2532,7 +2532,7 @@ define dso_local i32 @cbuf_read_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %28
 
 28:                                               ; preds = %cbuf_put_fd.exit.thread, %.preheader.i
-  %.035.i = phi i32 [ %.136.i, %cbuf_put_fd.exit.thread ], [ %..i, %.preheader.i ]
+  %.035.i = phi i32 [ %.2.i, %cbuf_put_fd.exit.thread ], [ %..i, %.preheader.i ]
   %.0.i = phi i32 [ %.1.i, %cbuf_put_fd.exit.thread ], [ %25, %.preheader.i ]
   %29 = load i32, ptr %26, align 4
   %reass.sub = sub i32 %29, %.0.i
@@ -2569,18 +2569,18 @@ cbuf_put_fd.exit:                                 ; preds = %35
   br label %cbuf_put_fd.exit.thread
 
 cbuf_put_fd.exit.thread:                          ; preds = %39, %43, %cbuf_put_fd.exit
-  %.136.i = phi i32 [ %44, %43 ], [ %.035.i, %cbuf_put_fd.exit ], [ %.035.i, %39 ]
+  %.2.i = phi i32 [ %44, %43 ], [ %.035.i, %cbuf_put_fd.exit ], [ %.035.i, %39 ]
   %.1.i = phi i32 [ %48, %43 ], [ %.0.i, %cbuf_put_fd.exit ], [ %.0.i, %39 ]
   %49 = icmp eq i32 %.035..i, %37
-  %50 = icmp sgt i32 %.136.i, 0
+  %50 = icmp sgt i32 %.2.i, 0
   %or.cond.i = select i1 %49, i1 %50, i1 false
   br i1 %or.cond.i, label %28, label %cbuf_reader.exit, !llvm.loop !10
 
 cbuf_reader.exit:                                 ; preds = %cbuf_put_fd.exit.thread, %23
-  %.2.i = phi i32 [ %..i, %23 ], [ %.136.i, %cbuf_put_fd.exit.thread ]
+  %.136.i = phi i32 [ %..i, %23 ], [ %.2.i, %cbuf_put_fd.exit.thread ]
   %.034.i = phi i32 [ 0, %23 ], [ %37, %cbuf_put_fd.exit.thread ]
-  %51 = sub nsw i32 %..i, %.2.i
-  %52 = icmp eq i32 %..i, %.2.i
+  %51 = sub nsw i32 %..i, %.136.i
+  %52 = icmp eq i32 %..i, %.136.i
   %.034..i = select i1 %52, i32 %.034.i, i32 %51
   %53 = icmp sgt i32 %.034..i, 0
   br i1 %53, label %54, label %cbuf_reader.exit.thread
@@ -2683,7 +2683,7 @@ define dso_local i32 @cbuf_replay_to_fd(ptr noundef %0, i32 noundef %1, i32 noun
   br label %40
 
 40:                                               ; preds = %cbuf_put_fd.exit.thread, %.preheader.i
-  %.042.i = phi i32 [ %.143.i, %cbuf_put_fd.exit.thread ], [ %33, %.preheader.i ]
+  %.042.i = phi i32 [ %.2.i, %cbuf_put_fd.exit.thread ], [ %33, %.preheader.i ]
   %.0.i = phi i32 [ %.1.i, %cbuf_put_fd.exit.thread ], [ %38, %.preheader.i ]
   %41 = load i32, ptr %28, align 4
   %reass.sub = sub i32 %41, %.0.i
@@ -2720,18 +2720,18 @@ cbuf_put_fd.exit:                                 ; preds = %47
   br label %cbuf_put_fd.exit.thread
 
 cbuf_put_fd.exit.thread:                          ; preds = %51, %55, %cbuf_put_fd.exit
-  %.143.i = phi i32 [ %56, %55 ], [ %.042.i, %cbuf_put_fd.exit ], [ %.042.i, %51 ]
+  %.2.i = phi i32 [ %56, %55 ], [ %.042.i, %cbuf_put_fd.exit ], [ %.042.i, %51 ]
   %.1.i = phi i32 [ %60, %55 ], [ %.0.i, %cbuf_put_fd.exit ], [ %.0.i, %51 ]
   %61 = icmp eq i32 %.042..i, %49
-  %62 = icmp sgt i32 %.143.i, 0
+  %62 = icmp sgt i32 %.2.i, 0
   %or.cond.i = select i1 %61, i1 %62, i1 false
   br i1 %or.cond.i, label %40, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %cbuf_put_fd.exit.thread, %35
-  %.2.i = phi i32 [ %33, %35 ], [ %.143.i, %cbuf_put_fd.exit.thread ]
+  %.143.i = phi i32 [ %33, %35 ], [ %.2.i, %cbuf_put_fd.exit.thread ]
   %.041.i = phi i32 [ 0, %35 ], [ %49, %cbuf_put_fd.exit.thread ]
-  %63 = sub nsw i32 %33, %.2.i
-  %64 = icmp eq i32 %33, %.2.i
+  %63 = sub nsw i32 %33, %.143.i
+  %64 = icmp eq i32 %33, %.143.i
   %.041..i = select i1 %64, i32 %.041.i, i32 %63
   br label %cbuf_replayer.exit
 

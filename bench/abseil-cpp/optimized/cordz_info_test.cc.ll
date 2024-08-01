@@ -17850,7 +17850,7 @@ if.then5.i20:                                     ; preds = %if.else.i18
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %if.then5.i20, %if.else.i18, %if.then.i.i.i30.i102, %if.then.i24
-  %local_stack.sroa.11.3 = phi ptr [ %add.ptr37.i, %if.else.i18 ], [ %add.ptr37.i, %if.then.i24 ], [ %add.ptr37.i100, %if.then.i.i.i30.i102 ], [ %add.ptr.i21, %if.then5.i20 ]
+  %local_stack.sroa.11.1 = phi ptr [ %add.ptr37.i, %if.else.i18 ], [ %add.ptr37.i, %if.then.i24 ], [ %add.ptr37.i100, %if.then.i.i.i30.i102 ], [ %add.ptr.i21, %if.then5.i20 ]
   %local_stack.sroa.0.3 = phi ptr [ %call5.i.i.i.i61, %if.else.i18 ], [ %call5.i.i.i.i61, %if.then.i24 ], [ %call5.i.i.i.i106, %if.then.i.i.i30.i102 ], [ %call5.i.i.i.i61, %if.then5.i20 ]
   %call12 = invoke { ptr, i64 } @_ZNK4absl13cord_internal9CordzInfo8GetStackEv(ptr noundef nonnull align 8 dereferenceable(1332) %1)
           to label %invoke.cont11 unwind label %ehcleanup41.thread126
@@ -17862,7 +17862,7 @@ invoke.cont11:                                    ; preds = %invoke.cont10
           to label %invoke.cont13 unwind label %ehcleanup41.thread126
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %local_stack.sroa.11.3 to i64
+  %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %local_stack.sroa.11.1 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %local_stack.sroa.0.3 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
   %sub.ptr.div.i.i32 = ashr exact i64 %sub.ptr.sub.i.i31, 3
@@ -18091,7 +18091,7 @@ ehcleanup41.thread:                               ; preds = %lpad15, %ehcleanup3
   br label %if.then.i.i.i48
 
 ehcleanup41.thread126:                            ; preds = %invoke.cont11, %invoke.cont10, %if.then.i.i103, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i86, %invoke.cont6
-  %local_stack.sroa.0.4.ph = phi ptr [ %call5.i.i.i.i61, %invoke.cont6 ], [ %call5.i.i.i.i61, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i86 ], [ %call5.i.i.i.i61, %if.then.i.i103 ], [ %local_stack.sroa.0.3, %invoke.cont10 ], [ %local_stack.sroa.0.3, %invoke.cont11 ]
+  %local_stack.sroa.0.0.ph = phi ptr [ %call5.i.i.i.i61, %invoke.cont6 ], [ %call5.i.i.i.i61, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i86 ], [ %call5.i.i.i.i61, %if.then.i.i103 ], [ %local_stack.sroa.0.3, %invoke.cont10 ], [ %local_stack.sroa.0.3, %invoke.cont11 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i48
@@ -18103,8 +18103,8 @@ ehcleanup41:                                      ; preds = %_ZNKSt6vectorIPvSaI
 
 if.then.i.i.i48:                                  ; preds = %ehcleanup41.thread126, %ehcleanup41.thread
   %.pn6.pn.pn124 = phi { ptr, i32 } [ %.pn6.pn, %ehcleanup41.thread ], [ %lpad.thr_comm, %ehcleanup41.thread126 ]
-  %local_stack.sroa.0.5123 = phi ptr [ %local_stack.sroa.0.3, %ehcleanup41.thread ], [ %local_stack.sroa.0.4.ph, %ehcleanup41.thread126 ]
-  call void @_ZdlPv(ptr noundef nonnull %local_stack.sroa.0.5123) #20
+  %local_stack.sroa.0.1123 = phi ptr [ %local_stack.sroa.0.3, %ehcleanup41.thread ], [ %local_stack.sroa.0.0.ph, %ehcleanup41.thread126 ]
+  call void @_ZdlPv(ptr noundef nonnull %local_stack.sroa.0.1123) #20
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i48, %ehcleanup41, %lpad

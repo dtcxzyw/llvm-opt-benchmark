@@ -3363,7 +3363,7 @@ lpad35:                                           ; preds = %invoke.cont34
   br label %eh.resume
 
 cleanup:                                          ; preds = %if.end10, %invoke.cont14, %invoke.cont19, %land.lhs.true21, %invoke.cont27, %invoke.cont45
-  %retval.0 = phi i1 [ true, %invoke.cont45 ], [ true, %invoke.cont27 ], [ false, %land.lhs.true21 ], [ false, %invoke.cont19 ], [ false, %invoke.cont14 ], [ false, %if.end10 ]
+  %retval.1 = phi i1 [ true, %invoke.cont45 ], [ true, %invoke.cont27 ], [ false, %land.lhs.true21 ], [ false, %invoke.cont19 ], [ false, %invoke.cont14 ], [ false, %if.end10 ]
   %30 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %val)
           to label %.noexc.i44 unwind label %terminate.lpad.i43
@@ -3380,8 +3380,8 @@ terminate.lpad.i43:                               ; preds = %.noexc.i44, %cleanu
   unreachable
 
 return:                                           ; preds = %.noexc.i44, %.noexc.i, %if.then3, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ true, %if.then3 ], [ true, %.noexc.i ], [ %retval.0, %.noexc.i44 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then3 ], [ true, %.noexc.i ], [ %retval.1, %.noexc.i44 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad13, %lpad35, %lpad
   %val.sink = phi ptr [ %ref.tmp, %lpad ], [ %val, %lpad35 ], [ %val, %lpad13 ]
@@ -5072,7 +5072,7 @@ invoke.cont99:                                    ; preds = %invoke.cont97
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont44, %invoke.cont49, %invoke.cont, %if.end78, %invoke.cont99, %invoke.cont24, %invoke.cont36
-  %retval.0 = phi i1 [ true, %invoke.cont36 ], [ true, %invoke.cont24 ], [ true, %invoke.cont99 ], [ true, %if.end78 ], [ false, %invoke.cont ], [ false, %invoke.cont49 ], [ false, %invoke.cont44 ]
+  %retval.1 = phi i1 [ true, %invoke.cont36 ], [ true, %invoke.cont24 ], [ true, %invoke.cont99 ], [ true, %if.end78 ], [ false, %invoke.cont ], [ false, %invoke.cont49 ], [ false, %invoke.cont44 ]
   %50 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(16) %inv)
           to label %.noexc.i96 unwind label %terminate.lpad.i95
@@ -5111,8 +5111,8 @@ ehcleanup:                                        ; preds = %lpad12.loopexit, %l
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %.noexc.i100, %if.then2, %if.then5, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ true, %if.then5 ], [ true, %if.then2 ], [ %retval.0, %.noexc.i100 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then5 ], [ true, %if.then2 ], [ %retval.1, %.noexc.i100 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7745,8 +7745,8 @@ ehcleanup53:                                      ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn11
 
 return:                                           ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit38, %_ZNK11ast_manager11is_uninterpEPK4sort.exit38, %_Z16get_array_domainPK4sortj.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_Z15get_array_rangePK4sort.exit, %if.then.i.i.i.i.i, %invoke.cont.i.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit136
-  %retval.1 = phi i1 [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %call39, %_ZN7obj_refI4expr11ast_managerED2Ev.exit136 ], [ %call39, %invoke.cont.i.i ], [ %call39, %if.then.i.i.i.i.i ], [ false, %_Z15get_array_rangePK4sort.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %_Z16get_array_domainPK4sortj.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit38 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit38 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %call39, %_ZN7obj_refI4expr11ast_managerED2Ev.exit136 ], [ %call39, %invoke.cont.i.i ], [ %call39, %if.then.i.i.i.i.i ], [ false, %_Z15get_array_rangePK4sort.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %_Z16get_array_domainPK4sortj.exit ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit38 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit38 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9261,8 +9261,8 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   unreachable
 
 return:                                           ; preds = %if.then2.i.i.i, %if.then.i.i.i, %cleanup, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit14
-  %retval.1 = phi i1 [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit14 ], [ %call6, %cleanup ], [ %call6, %if.then.i.i.i ], [ %call6, %if.then2.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit14 ], [ %call6, %cleanup ], [ %call6, %if.then.i.i.i ], [ %call6, %if.then2.i.i.i ]
+  ret i1 %retval.0
 }
 
 declare noundef ptr @_Z6mk_notR11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0

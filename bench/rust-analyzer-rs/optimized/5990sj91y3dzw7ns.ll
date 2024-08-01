@@ -2109,7 +2109,7 @@ _ZN8flycheck13FlycheckActor3new17h3748c88055f44e74E.exit: ; preds = %8, %33, %36
   unreachable
 
 86:                                               ; preds = %.thread36
-  br i1 %.0634, label %.thread, label %common.resume
+  br i1 %.134, label %.thread, label %common.resume
 
 87:                                               ; preds = %_ZN8flycheck13FlycheckActor3new17h3748c88055f44e74E.exit
   %88 = landingpad { ptr, i32 }
@@ -2264,7 +2264,7 @@ _ZN8flycheck13FlycheckActor3new17h3748c88055f44e74E.exit: ; preds = %8, %33, %36
   unreachable
 
 .thread36:                                        ; preds = %115, %93, %.thread29
-  %.0634 = phi i1 [ true, %.thread29 ], [ false, %93 ], [ false, %115 ]
+  %.134 = phi i1 [ true, %.thread29 ], [ false, %93 ], [ false, %115 ]
   %.pn32 = phi { ptr, i32 } [ %.pn33, %.thread29 ], [ %94, %93 ], [ %116, %115 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$crossbeam_channel..channel..Sender$LT$flycheck..StateChange$GT$$GT$17hdf16da9d9deebbc6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #19
           to label %86 unwind label %130
@@ -2908,8 +2908,8 @@ define hidden void @_ZN8flycheck13FlycheckActor3run17hed23002bd912c6fbE(ptr noal
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %3
-  %.sroa.358.i.sroa.5.1 = phi i64 [ undef, %3 ], [ %.sroa.358.i.sroa.5.1.be, %.outer.backedge ]
-  %.sroa.13.1 = phi i64 [ undef, %3 ], [ %.sroa.13.1.be, %.outer.backedge ]
+  %.sroa.358.i.sroa.5.0 = phi i64 [ undef, %3 ], [ %.sroa.358.i.sroa.5.0.be, %.outer.backedge ]
+  %.sroa.13.0 = phi i64 [ undef, %3 ], [ %.sroa.13.0.be, %.outer.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !452)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.358.i.sroa.0)
@@ -3066,8 +3066,8 @@ define hidden void @_ZN8flycheck13FlycheckActor3run17hed23002bd912c6fbE(ptr noal
   br label %291
 
 291:                                              ; preds = %289, %290, %309
-  %.sroa.358.i.sroa.5.2 = phi i64 [ %.sroa.358.i.sroa.5.3, %309 ], [ %.sroa.358.i.sroa.5.1, %290 ], [ %.sroa.358.i.sroa.5.1, %289 ]
-  %.sroa.13.3 = phi i64 [ %.sroa.358.i.sroa.5.3, %309 ], [ %284, %290 ], [ %.sroa.13.1, %289 ]
+  %.sroa.358.i.sroa.5.4 = phi i64 [ %.sroa.358.i.sroa.5.3, %309 ], [ %.sroa.358.i.sroa.5.0, %290 ], [ %.sroa.358.i.sroa.5.0, %289 ]
+  %.sroa.13.3 = phi i64 [ %.sroa.358.i.sroa.5.3, %309 ], [ %284, %290 ], [ %.sroa.13.0, %289 ]
   %.sroa.0.0 = phi i64 [ %303, %309 ], [ -9223372036854775806, %290 ], [ -9223372036854775805, %289 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %54), !noalias !457
   invoke void @"_ZN4core3ptr92drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$flycheck..CargoCheckMessage$GT$$GT$17h712eb78268c3a703E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55)
@@ -3138,7 +3138,7 @@ define hidden void @_ZN8flycheck13FlycheckActor3run17hed23002bd912c6fbE(ptr noal
   br label %309
 
 309:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$flycheck..CargoCheckMessage$C$crossbeam_channel..err..RecvError$GT$$GT$17h965a26b08423df5fE.exit.i", %308
-  %.sroa.358.i.sroa.5.3 = phi i64 [ %.sroa.358.i.sroa.5.1, %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$flycheck..CargoCheckMessage$C$crossbeam_channel..err..RecvError$GT$$GT$17h965a26b08423df5fE.exit.i" ], [ %.sroa.358.i.sroa.5.0.copyload, %308 ]
+  %.sroa.358.i.sroa.5.3 = phi i64 [ %.sroa.358.i.sroa.5.0, %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$flycheck..CargoCheckMessage$C$crossbeam_channel..err..RecvError$GT$$GT$17h965a26b08423df5fE.exit.i" ], [ %.sroa.358.i.sroa.5.0.copyload, %308 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.358.i.sroa.0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %.sroa.16, ptr noundef nonnull align 8 dereferenceable(272) %.sroa.358.i.sroa.6, i64 272, i1 false)
   br label %291
@@ -3234,16 +3234,16 @@ define hidden void @_ZN8flycheck13FlycheckActor3run17hed23002bd912c6fbE(ptr noal
   ]
 
 325:                                              ; preds = %324, %.thread766
-  %.sroa.358.i.sroa.5.4 = phi i64 [ %.sroa.358.i.sroa.5.2, %324 ], [ %.sroa.358.i.sroa.5.1, %.thread766 ]
-  %.sroa.13.4 = phi i64 [ %.sroa.13.3, %324 ], [ %264, %.thread766 ]
-  %326 = icmp eq i64 %.sroa.13.4, -9223372036854775807
+  %.sroa.358.i.sroa.5.1 = phi i64 [ %.sroa.358.i.sroa.5.4, %324 ], [ %.sroa.358.i.sroa.5.0, %.thread766 ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.3, %324 ], [ %264, %.thread766 ]
+  %326 = icmp eq i64 %.sroa.13.1, -9223372036854775807
   br i1 %326, label %654, label %327
 
 327:                                              ; preds = %325
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %118)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %117)
-  store i64 %.sroa.13.4, ptr %117, align 8
+  store i64 %.sroa.13.1, ptr %117, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke fastcc void @_ZN8flycheck13FlycheckActor20cancel_check_process17ha11ed322cfc200dbE(ptr noalias noundef nonnull align 8 dereferenceable(432) %0)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit
@@ -3972,8 +3972,8 @@ _ZN3std7process7Command11current_dir17h7a15ac82f1872ebdE.exit60.i: ; preds = %.n
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha61c52db360c5e7dE.exit", %652
-  %.sroa.358.i.sroa.5.1.be = phi i64 [ %.sroa.358.i.sroa.5.4, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha61c52db360c5e7dE.exit" ], [ %.sroa.358.i.sroa.5.5, %652 ]
-  %.sroa.13.1.be = phi i64 [ %.sroa.13.4, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha61c52db360c5e7dE.exit" ], [ %.sroa.13.5, %652 ]
+  %.sroa.358.i.sroa.5.0.be = phi i64 [ %.sroa.358.i.sroa.5.1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha61c52db360c5e7dE.exit" ], [ %.sroa.358.i.sroa.5.2, %652 ]
+  %.sroa.13.0.be = phi i64 [ %.sroa.13.1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha61c52db360c5e7dE.exit" ], [ %.sroa.13.2, %652 ]
   br label %.outer
 
 532:                                              ; preds = %.body395
@@ -4524,8 +4524,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit432: ; preds = %611
   br label %652
 
 652:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17h72a378fc71727932E.exit", %890, %.critedge329, %748, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha61c52db360c5e7dE.exit451"
-  %.sroa.358.i.sroa.5.5 = phi i64 [ %.sroa.358.i.sroa.5.2, %748 ], [ %.sroa.358.i.sroa.5.4, %.critedge329 ], [ %.sroa.358.i.sroa.5.4, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha61c52db360c5e7dE.exit451" ], [ %.sroa.358.i.sroa.5.2, %890 ], [ %.sroa.358.i.sroa.5.2, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17h72a378fc71727932E.exit" ]
-  %.sroa.13.5 = phi i64 [ %.sroa.13.3, %748 ], [ -9223372036854775807, %.critedge329 ], [ %.sroa.13.4, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha61c52db360c5e7dE.exit451" ], [ %.sroa.13.3, %890 ], [ %.sroa.13.3, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17h72a378fc71727932E.exit" ]
+  %.sroa.358.i.sroa.5.2 = phi i64 [ %.sroa.358.i.sroa.5.4, %748 ], [ %.sroa.358.i.sroa.5.1, %.critedge329 ], [ %.sroa.358.i.sroa.5.1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha61c52db360c5e7dE.exit451" ], [ %.sroa.358.i.sroa.5.4, %890 ], [ %.sroa.358.i.sroa.5.4, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17h72a378fc71727932E.exit" ]
+  %.sroa.13.2 = phi i64 [ %.sroa.13.3, %748 ], [ -9223372036854775807, %.critedge329 ], [ %.sroa.13.1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha61c52db360c5e7dE.exit451" ], [ %.sroa.13.3, %890 ], [ %.sroa.13.3, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17h72a378fc71727932E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %.sroa.10)
   br label %.outer.backedge

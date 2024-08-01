@@ -1742,7 +1742,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %632
 
 _ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit:      ; preds = %326, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i155, %626, %613, %596, %162, %163
-  %.1 = phi i32 [ 2, %163 ], [ 2, %162 ], [ 0, %596 ], [ 0, %613 ], [ 0, %626 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i155 ], [ 3, %326 ]
+  %.2 = phi i32 [ 2, %163 ], [ 2, %162 ], [ 0, %596 ], [ 0, %613 ], [ 0, %626 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i155 ], [ 3, %326 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %41) #15
   br label %633
 
@@ -1752,7 +1752,7 @@ _ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit:      ; preds = %326, %_ZNSt16_Sp_co
   br label %634
 
 633:                                              ; preds = %114, %_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit
-  %.2 = phi i32 [ %.1, %_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit ], [ 1, %114 ]
+  %.1 = phi i32 [ %.2, %_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit ], [ 1, %114 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #15
   br label %636
@@ -1768,9 +1768,9 @@ _ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit:      ; preds = %326, %_ZNSt16_Sp_co
   br label %637
 
 636:                                              ; preds = %79, %633
-  %.3 = phi i32 [ %.2, %633 ], [ 0, %79 ]
+  %.0 = phi i32 [ %.1, %633 ], [ 0, %79 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #15
-  ret i32 %.3
+  ret i32 %.0
 
 637:                                              ; preds = %635, %122, %119, %95, %94, %89
   %.pn102 = phi { ptr, i32 } [ %96, %95 ], [ %.pn96.pn.pn.pn.pn, %635 ], [ %.pn69, %122 ], [ %.pn67, %119 ], [ %.pn65, %94 ], [ %.pn63, %89 ]

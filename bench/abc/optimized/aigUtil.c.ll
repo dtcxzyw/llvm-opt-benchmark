@@ -5252,8 +5252,8 @@ define void @Aig_ManMuxesDeref(ptr nocapture noundef readnone %0, ptr nocapture 
 
 61:                                               ; preds = %57, %16
   %.val41.i = phi ptr [ %.val41.i.pre, %16 ], [ %.val35.i, %57 ]
-  %.115 = phi ptr [ %.val40.i, %16 ], [ %.val33.i, %57 ]
-  %62 = getelementptr inbounds i8, ptr %.115, i64 24
+  %.216 = phi ptr [ %.val40.i, %16 ], [ %.val33.i, %57 ]
+  %62 = getelementptr inbounds i8, ptr %.216, i64 24
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, 4294967232
   %65 = and i64 %64, 4294967232
@@ -5494,8 +5494,8 @@ define void @Aig_ManMuxesRef(ptr nocapture noundef readnone %0, ptr nocapture no
 
 61:                                               ; preds = %57, %16
   %.val41.i = phi ptr [ %.val41.i.pre, %16 ], [ %.val35.i, %57 ]
-  %.115 = phi ptr [ %.val40.i, %16 ], [ %.val33.i, %57 ]
-  %62 = getelementptr inbounds i8, ptr %.115, i64 24
+  %.216 = phi ptr [ %.val40.i, %16 ], [ %.val33.i, %57 ]
+  %62 = getelementptr inbounds i8, ptr %.216, i64 24
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, 64
   %65 = and i64 %64, 4294967232

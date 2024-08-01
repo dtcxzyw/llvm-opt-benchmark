@@ -172,8 +172,8 @@ ehcleanup:                                        ; preds = %_ZNSt6vectorIPKhSaI
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end, %entry, %_ZN7msdfgen8PngGuardD2Ev.exit
-  %retval.2 = phi i1 [ %retval.1, %_ZN7msdfgen8PngGuardD2Ev.exit ], [ false, %entry ], [ false, %if.end ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %retval.1, %_ZN7msdfgen8PngGuardD2Ev.exit ], [ false, %entry ], [ false, %if.end ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

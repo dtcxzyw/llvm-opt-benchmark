@@ -1299,7 +1299,7 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
   br i1 %brmerge, label %.loopexit, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %._crit_edge, %33
-  %.054 = phi i64 [ %34, %33 ], [ %7, %._crit_edge ]
+  %.154 = phi i64 [ %34, %33 ], [ %7, %._crit_edge ]
   %.14453 = phi i64 [ %35, %33 ], [ %12, %._crit_edge ]
   %26 = getelementptr inbounds i64, ptr %3, i64 %.14453
   %27 = load i64, ptr %26, align 8
@@ -1311,13 +1311,13 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %.lr.ph55
-  %34 = add i64 %31, %.054
+  %34 = add i64 %31, %.154
   %35 = add i64 %.14453, 1
   %exitcond59.not = icmp eq i64 %35, %5
   br i1 %exitcond59.not, label %.loopexit, label %.lr.ph55, !llvm.loop !19
 
 .loopexit:                                        ; preds = %33, %.lr.ph55, %._crit_edge
-  %.1 = phi i64 [ %.mux, %._crit_edge ], [ %34, %33 ], [ %31, %.lr.ph55 ]
+  %.0 = phi i64 [ %.mux, %._crit_edge ], [ %34, %33 ], [ %31, %.lr.ph55 ]
   %36 = tail call i64 @ZSTD_freeCCtx(ptr noundef %19) #26
   %37 = tail call i64 @ZSTD_freeCDict(ptr noundef %22) #26
   br i1 %23, label %39, label %38
@@ -1327,7 +1327,7 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
   br label %39
 
 39:                                               ; preds = %38, %.loopexit
-  ret i64 %.1
+  ret i64 %.0
 }
 
 declare i64 @ZSTD_compressBound(i64 noundef) local_unnamed_addr #5

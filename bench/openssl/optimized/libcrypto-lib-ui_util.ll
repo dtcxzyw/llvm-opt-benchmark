@@ -35,8 +35,8 @@ if.then5.i:                                       ; preds = %if.then2.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %if.then2.i
-  %ok.0.i = phi i32 [ %call7.i, %if.then5.i ], [ %call3.i, %if.then2.i ]
-  %cmp9.i = icmp sgt i32 %ok.0.i, -1
+  %ok.1.i = phi i32 [ %call7.i, %if.then5.i ], [ %call3.i, %if.then2.i ]
+  %cmp9.i = icmp sgt i32 %ok.1.i, -1
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end8.i
@@ -44,12 +44,12 @@ if.then10.i:                                      ; preds = %if.end8.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %if.end8.i
-  %ok.1.i = phi i32 [ %call11.i, %if.then10.i ], [ %ok.0.i, %if.end8.i ]
+  %ok.2.i = phi i32 [ %call11.i, %if.then10.i ], [ %ok.1.i, %if.end8.i ]
   call void @UI_free(ptr noundef nonnull %call.i) #4
   br label %UI_UTIL_read_pw.exit
 
 UI_UTIL_read_pw.exit:                             ; preds = %entry, %if.end.i, %if.end12.i
-  %retval.0.i = phi i32 [ -1, %entry ], [ %ok.1.i, %if.end12.i ], [ -2, %if.end.i ]
+  %retval.0.i = phi i32 [ -1, %entry ], [ %ok.2.i, %if.end12.i ], [ -2, %if.end.i ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %buff, i64 noundef 8192) #4
   ret i32 %retval.0.i
 }
@@ -78,8 +78,8 @@ if.then5:                                         ; preds = %if.then2
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.then2
-  %ok.0 = phi i32 [ %call7, %if.then5 ], [ %call3, %if.then2 ]
-  %cmp9 = icmp sgt i32 %ok.0, -1
+  %ok.1 = phi i32 [ %call7, %if.then5 ], [ %call3, %if.then2 ]
+  %cmp9 = icmp sgt i32 %ok.1, -1
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end8
@@ -87,12 +87,12 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
-  %ok.1 = phi i32 [ %call11, %if.then10 ], [ %ok.0, %if.end8 ]
+  %ok.2 = phi i32 [ %call11, %if.then10 ], [ %ok.1, %if.end8 ]
   tail call void @UI_free(ptr noundef nonnull %call) #4
   br label %return
 
 return:                                           ; preds = %if.end, %if.end12, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ %ok.1, %if.end12 ], [ -2, %if.end ]
+  %retval.0 = phi i32 [ -1, %entry ], [ %ok.2, %if.end12 ], [ -2, %if.end ]
   ret i32 %retval.0
 }
 

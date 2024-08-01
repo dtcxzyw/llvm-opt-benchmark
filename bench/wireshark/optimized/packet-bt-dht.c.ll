@@ -317,7 +317,7 @@ define internal fastcc noundef i32 @dissect_bencoded_dict(ptr noundef %0, ptr no
   br label %32
 
 32:                                               ; preds = %.lr.ph, %dissect_bencoded_dict_entry.exit
-  %.040127 = phi i32 [ %27, %.lr.ph ], [ %.1, %dissect_bencoded_dict_entry.exit ]
+  %.040127 = phi i32 [ %27, %.lr.ph ], [ %.067, %dissect_bencoded_dict_entry.exit ]
   %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.040127) #5
   %34 = icmp eq i8 %33, 101
   br i1 %34, label %._crit_edge, label %35
@@ -743,8 +743,8 @@ sub_193:                                          ; preds = %sub_092
   br label %241
 
 241:                                              ; preds = %238, %205, %195, %164, %159, %153, %151, %dissect_bt_dht_values.exit, %dissect_bt_dht_error.exit, %49
-  %.1 = phi i32 [ %160, %159 ], [ %165, %164 ], [ %204, %195 ], [ %206, %205 ], [ %240, %238 ], [ %154, %153 ], [ %.0.i46, %dissect_bt_dht_error.exit ], [ %.051.i, %dissect_bt_dht_values.exit ], [ %152, %151 ], [ %50, %49 ]
-  %242 = icmp eq i32 %.1, 0
+  %.067 = phi i32 [ %160, %159 ], [ %165, %164 ], [ %204, %195 ], [ %206, %205 ], [ %240, %238 ], [ %154, %153 ], [ %.0.i46, %dissect_bt_dht_error.exit ], [ %.051.i, %dissect_bt_dht_values.exit ], [ %152, %151 ], [ %50, %49 ]
+  %242 = icmp eq i32 %.067, 0
   br i1 %242, label %243, label %245
 
 243:                                              ; preds = %241
@@ -888,12 +888,12 @@ sub_1105:                                         ; preds = %sub_0104
 dissect_bencoded_dict_entry.exit:                 ; preds = %301, %304, %307
   %311 = phi ptr [ null, %301 ], [ %303, %304 ], [ %310, %307 ]
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %37, ptr noundef nonnull @.str.68, ptr noundef %302, ptr noundef %311) #5
-  %312 = sub i32 %.1, %.040127
+  %312 = sub i32 %.067, %.040127
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %312) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %313 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #5
+  %313 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.067) #5
   %314 = icmp sgt i32 %313, 0
   br i1 %314, label %32, label %._crit_edge, !llvm.loop !7
 
@@ -905,7 +905,7 @@ dissect_bencoded_dict_entry.exit:                 ; preds = %301, %304, %307
   br label %323
 
 ._crit_edge:                                      ; preds = %dissect_bencoded_dict_entry.exit, %32, %26
-  %.040.lcssa = phi i32 [ %27, %26 ], [ %.040127, %32 ], [ %.1, %dissect_bencoded_dict_entry.exit ]
+  %.040.lcssa = phi i32 [ %27, %26 ], [ %.040127, %32 ], [ %.067, %dissect_bencoded_dict_entry.exit ]
   %316 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.040.lcssa) #5
   %317 = icmp eq i32 %316, 0
   br i1 %317, label %323, label %318

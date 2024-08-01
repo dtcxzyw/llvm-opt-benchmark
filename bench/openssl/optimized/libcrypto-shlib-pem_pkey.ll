@@ -380,7 +380,7 @@ if.else:                                          ; preds = %pem_read_bio_key_le
   br label %err
 
 err:                                              ; preds = %if.then33, %if.else, %if.end10, %lor.lhs.false
-  %ret.2 = phi ptr [ null, %if.then33 ], [ %ret.1, %if.else ], [ null, %lor.lhs.false ], [ null, %if.end10 ]
+  %ret.0 = phi ptr [ null, %if.then33 ], [ %ret.1, %if.else ], [ null, %lor.lhs.false ], [ null, %if.end10 ]
   call void @ossl_pw_clear_passphrase_data(ptr noundef nonnull %pwdata) #6
   %cmp37.not = icmp eq ptr %new_bio.0, null
   br i1 %cmp37.not, label %return, label %if.then39
@@ -391,7 +391,7 @@ if.then39:                                        ; preds = %err
   br label %return
 
 return:                                           ; preds = %err, %if.then39, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %ret.2, %if.then39 ], [ %ret.2, %err ]
+  %retval.0 = phi ptr [ null, %if.then ], [ %ret.0, %if.then39 ], [ %ret.0, %err ]
   ret ptr %retval.0
 }
 

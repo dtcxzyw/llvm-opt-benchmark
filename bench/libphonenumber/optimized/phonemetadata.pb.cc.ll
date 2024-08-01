@@ -843,11 +843,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread62
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread62: ; preds = %14, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.165 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.059, %14 ]
-  %30 = load i8, ptr %.165, align 1
+  %.365 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.059, %14 ]
+  %30 = load i8, ptr %.365, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.165, i64 1
+  %33 = getelementptr inbounds i8, ptr %.365, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread62
@@ -860,11 +860,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread62: ; preds = %1
   br i1 %40, label %41, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.165, i64 2
+  %42 = getelementptr inbounds i8, ptr %.365, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %34
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.165, i32 noundef %39)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.365, i32 noundef %39)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   %.not = icmp eq ptr %44, null
@@ -949,8 +949,8 @@ _ZN4i18n12phonenumbers12NumberFormat24_internal_mutable_formatB5cxx11Ev.exit: ; 
   br label %82
 
 82:                                               ; preds = %89, %80
-  %.2 = phi ptr [ %81, %80 ], [ %85, %89 ]
-  %83 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %81, %80 ], [ %85, %89 ]
+  %83 = getelementptr inbounds i8, ptr %.1, i64 1
   %84 = tail call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
   %85 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %84, ptr noundef nonnull %83, ptr noundef nonnull %2)
   %.not26 = icmp eq ptr %85, null
@@ -1139,12 +1139,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %.not30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %18, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN4i18n12phonenumbers12NumberFormat25_internal_mutable_patternB5cxx11Ev.exit, %_ZN4i18n12phonenumbers12NumberFormat24_internal_mutable_formatB5cxx11Ev.exit, %_ZN4i18n12phonenumbers12NumberFormat49_internal_mutable_national_prefix_formatting_ruleB5cxx11Ev.exit, %_ZN4i18n12phonenumbers12NumberFormat55_internal_mutable_domestic_carrier_code_formatting_ruleB5cxx11Ev.exit, %174, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %82, %150
-  %.3 = phi ptr [ %.0.i3170, %150 ], [ null, %82 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %174 ], [ null, %_ZN4i18n12phonenumbers12NumberFormat55_internal_mutable_domestic_carrier_code_formatting_ruleB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers12NumberFormat49_internal_mutable_national_prefix_formatting_ruleB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers12NumberFormat24_internal_mutable_formatB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers12NumberFormat25_internal_mutable_patternB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.059, %18 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %150 ], [ %.sroa.0.0.ph, %82 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0.ph, %174 ], [ %.sroa.0.0.ph, %_ZN4i18n12phonenumbers12NumberFormat55_internal_mutable_domestic_carrier_code_formatting_ruleB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN4i18n12phonenumbers12NumberFormat49_internal_mutable_national_prefix_formatting_ruleB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN4i18n12phonenumbers12NumberFormat24_internal_mutable_formatB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN4i18n12phonenumbers12NumberFormat25_internal_mutable_patternB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.sroa.0.0.ph, %18 ], [ 16, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.2 = phi ptr [ %.0.i3170, %150 ], [ null, %82 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %174 ], [ null, %_ZN4i18n12phonenumbers12NumberFormat55_internal_mutable_domestic_carrier_code_formatting_ruleB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers12NumberFormat49_internal_mutable_national_prefix_formatting_ruleB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers12NumberFormat24_internal_mutable_formatB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers12NumberFormat25_internal_mutable_patternB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.059, %18 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0.ph, %150 ], [ %.sroa.0.0.ph, %82 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0.ph, %174 ], [ %.sroa.0.0.ph, %_ZN4i18n12phonenumbers12NumberFormat55_internal_mutable_domestic_carrier_code_formatting_ruleB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN4i18n12phonenumbers12NumberFormat49_internal_mutable_national_prefix_formatting_ruleB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN4i18n12phonenumbers12NumberFormat24_internal_mutable_formatB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN4i18n12phonenumbers12NumberFormat25_internal_mutable_patternB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.sroa.0.0.ph, %18 ], [ 16, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
   %176 = load i32, ptr %7, align 8
-  %177 = or i32 %176, %.sroa.0.1
+  %177 = or i32 %176, %.sroa.0.2
   store i32 %177, ptr %7, align 8
-  ret ptr %.3
+  ret ptr %.2
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -1631,7 +1631,7 @@ _ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit: ; 
   br label %105
 
 105:                                              ; preds = %90, %88
-  %.2 = phi i64 [ %104, %90 ], [ %.1.lcssa, %88 ]
+  %.3 = phi i64 [ %104, %90 ], [ %.1.lcssa, %88 ]
   %106 = and i32 %86, 8
   %.not34 = icmp eq i32 %106, 0
   br i1 %.not34, label %122, label %107
@@ -1648,21 +1648,21 @@ _ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit: ; 
   %116 = add nuw nsw i32 %115, 73
   %117 = lshr i32 %116, 6
   %118 = zext nneg i32 %117 to i64
-  %119 = add i64 %.2, 1
+  %119 = add i64 %.3, 1
   %120 = add i64 %119, %110
   %121 = add i64 %120, %118
   br label %122
 
 122:                                              ; preds = %107, %105
-  %.3 = phi i64 [ %121, %107 ], [ %.2, %105 ]
+  %.4 = phi i64 [ %121, %107 ], [ %.3, %105 ]
   %123 = lshr i32 %86, 3
   %124 = and i32 %123, 2
   %125 = zext nneg i32 %124 to i64
-  %spec.select = add i64 %.3, %125
+  %spec.select = add i64 %.4, %125
   br label %126
 
 126:                                              ; preds = %122, %._crit_edge
-  %.4 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %spec.select, %122 ]
+  %.2 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %spec.select, %122 ]
   %127 = getelementptr inbounds i8, ptr %0, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = ptrtoint ptr %128 to i64
@@ -1675,11 +1675,11 @@ _ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit: ; 
   %133 = inttoptr i64 %132 to ptr
   %134 = getelementptr inbounds i8, ptr %133, i64 8
   %135 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %134) #21
-  %136 = add i64 %135, %.4
+  %136 = add i64 %135, %.2
   br label %137
 
 137:                                              ; preds = %131, %126
-  %.5 = phi i64 [ %136, %131 ], [ %.4, %126 ]
+  %.5 = phi i64 [ %136, %131 ], [ %.2, %126 ]
   %138 = trunc i64 %.5 to i32
   %139 = getelementptr inbounds i8, ptr %0, i64 20
   store atomic i32 %138, ptr %139 monotonic, align 4
@@ -2558,11 +2558,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread64
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread64: ; preds = %14, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.167 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.061, %14 ]
-  %30 = load i8, ptr %.167, align 1
+  %.667 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.061, %14 ]
+  %30 = load i8, ptr %.667, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.167, i64 1
+  %33 = getelementptr inbounds i8, ptr %.667, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread64
@@ -2575,11 +2575,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread64: ; preds = %1
   br i1 %40, label %41, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.167, i64 2
+  %42 = getelementptr inbounds i8, ptr %.667, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %34
-  %43 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.167, i32 noundef %39)
+  %43 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.667, i32 noundef %39)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   %.not = icmp eq ptr %44, null
@@ -2664,11 +2664,11 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc32_internal_mutable_example_numberB5cxx11
   br label %80
 
 80:                                               ; preds = %100, %78
-  %.2 = phi ptr [ %79, %78 ], [ %.0.i.i3676, %100 ]
-  %81 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %79, %78 ], [ %.0.i.i3676, %100 ]
+  %81 = getelementptr inbounds i8, ptr %.1, i64 1
   %82 = load i8, ptr %81, align 1
   %.not.i.i34 = icmp sgt i8 %82, -1
-  %83 = getelementptr inbounds i8, ptr %.2, i64 2
+  %83 = getelementptr inbounds i8, ptr %.1, i64 2
   %84 = zext i8 %82 to i32
   br i1 %.not.i.i34, label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, label %85
 
@@ -2682,7 +2682,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc32_internal_mutable_example_numberB5cxx11
   br i1 %.not16.i.i, label %91, label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit
 
 91:                                               ; preds = %85
-  %92 = getelementptr inbounds i8, ptr %.2, i64 3
+  %92 = getelementptr inbounds i8, ptr %.1, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %80, %91
@@ -2738,11 +2738,11 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %85
   br label %108
 
 108:                                              ; preds = %128, %106
-  %.4 = phi ptr [ %107, %106 ], [ %.0.i.i4080, %128 ]
-  %109 = getelementptr inbounds i8, ptr %.4, i64 1
+  %.3 = phi ptr [ %107, %106 ], [ %.0.i.i4080, %128 ]
+  %109 = getelementptr inbounds i8, ptr %.3, i64 1
   %110 = load i8, ptr %109, align 1
   %.not.i.i37 = icmp sgt i8 %110, -1
-  %111 = getelementptr inbounds i8, ptr %.4, i64 2
+  %111 = getelementptr inbounds i8, ptr %.3, i64 2
   %112 = zext i8 %110 to i32
   br i1 %.not.i.i37, label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit41.thread, label %113
 
@@ -2756,7 +2756,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %85
   br i1 %.not16.i.i38, label %119, label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit41
 
 119:                                              ; preds = %113
-  %120 = getelementptr inbounds i8, ptr %.4, i64 3
+  %120 = getelementptr inbounds i8, ptr %.3, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit41.thread
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit41.thread: ; preds = %108, %119
@@ -2864,8 +2864,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %.not29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %18, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN4i18n12phonenumbers15PhoneNumberDesc41_internal_mutable_national_number_patternB5cxx11Ev.exit, %_ZN4i18n12phonenumbers15PhoneNumberDesc32_internal_mutable_example_numberB5cxx11Ev.exit, %103, %131, %161, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit41, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %137
-  %.6 = phi ptr [ %.0.i3072, %137 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit41 ], [ %.061, %18 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN4i18n12phonenumbers15PhoneNumberDesc41_internal_mutable_national_number_patternB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers15PhoneNumberDesc32_internal_mutable_example_numberB5cxx11Ev.exit ], [ null, %103 ], [ null, %131 ], [ null, %161 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.6
+  %.5 = phi ptr [ %.0.i3072, %137 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit41 ], [ %.061, %18 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN4i18n12phonenumbers15PhoneNumberDesc41_internal_mutable_national_number_patternB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers15PhoneNumberDesc32_internal_mutable_example_numberB5cxx11Ev.exit ], [ null, %103 ], [ null, %131 ], [ null, %161 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.5
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal17PackedInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -3195,7 +3195,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers15PhoneNumberDesc12ByteSize
   br label %33
 
 33:                                               ; preds = %18, %16
-  %.024 = phi i64 [ %32, %18 ], [ %12, %16 ]
+  %.1 = phi i64 [ %32, %18 ], [ %12, %16 ]
   %34 = and i32 %14, 2
   %.not26 = icmp eq i32 %34, 0
   br i1 %.not26, label %50, label %35
@@ -3212,13 +3212,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers15PhoneNumberDesc12ByteSize
   %44 = add nuw nsw i32 %43, 73
   %45 = lshr i32 %44, 6
   %46 = zext nneg i32 %45 to i64
-  %47 = add i64 %.024, 1
+  %47 = add i64 %.1, 1
   %48 = add i64 %47, %38
   %49 = add i64 %48, %46
   br label %50
 
 50:                                               ; preds = %33, %35, %1
-  %.1 = phi i64 [ %49, %35 ], [ %.024, %33 ], [ %12, %1 ]
+  %.024 = phi i64 [ %49, %35 ], [ %.1, %33 ], [ %12, %1 ]
   %51 = getelementptr inbounds i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = ptrtoint ptr %52 to i64
@@ -3231,11 +3231,11 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers15PhoneNumberDesc12ByteSize
   %57 = inttoptr i64 %56 to ptr
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #21
-  %60 = add i64 %59, %.1
+  %60 = add i64 %59, %.024
   br label %61
 
 61:                                               ; preds = %55, %50
-  %.2 = phi i64 [ %60, %55 ], [ %.1, %50 ]
+  %.2 = phi i64 [ %60, %55 ], [ %.024, %50 ]
   %62 = trunc i64 %.2 to i32
   %63 = getelementptr inbounds i8, ptr %0, i64 20
   store atomic i32 %62, ptr %63 monotonic, align 4
@@ -6314,11 +6314,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %51
   br i1 %62, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread399
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread399: ; preds = %47, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1402 = phi ptr [ %60, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0396, %47 ]
-  %63 = load i8, ptr %.1402, align 1
+  %.4402 = phi ptr [ %60, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0396, %47 ]
+  %63 = load i8, ptr %.4402, align 1
   %64 = zext i8 %63 to i32
   %65 = icmp sgt i8 %63, -1
-  %66 = getelementptr inbounds i8, ptr %.1402, i64 1
+  %66 = getelementptr inbounds i8, ptr %.4402, i64 1
   br i1 %65, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, label %67
 
 67:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread399
@@ -6331,11 +6331,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread399: ; preds = %
   br i1 %73, label %74, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %.1402, i64 2
+  %75 = getelementptr inbounds i8, ptr %.4402, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %67
-  %76 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1402, i32 noundef %72)
+  %76 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.4402, i32 noundef %72)
   %77 = extractvalue { ptr, i32 } %76, 0
   %78 = extractvalue { ptr, i32 } %76, 1
   %.not = icmp eq ptr %77, null
@@ -7443,8 +7443,8 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit198: ; preds = %630
   br label %652
 
 652:                                              ; preds = %718, %650
-  %.2 = phi ptr [ %651, %650 ], [ %704, %718 ]
-  %653 = getelementptr inbounds i8, ptr %.2, i64 2
+  %.1 = phi ptr [ %651, %650 ], [ %704, %718 ]
+  %653 = getelementptr inbounds i8, ptr %.1, i64 2
   %654 = load ptr, ptr %27, align 8
   %.not.i.i.i = icmp eq ptr %654, null
   br i1 %.not.i.i.i, label %..thread_crit_edge.i.i.i, label %655
@@ -7506,7 +7506,7 @@ _ZN4i18n12phonenumbers13PhoneMetadata27_internal_add_number_formatEv.exit: ; pre
   br i1 %684, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i206, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i199
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i206: ; preds = %_ZN4i18n12phonenumbers13PhoneMetadata27_internal_add_number_formatEv.exit
-  %685 = getelementptr inbounds i8, ptr %.2, i64 3
+  %685 = getelementptr inbounds i8, ptr %.1, i64 3
   br label %689
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i199: ; preds = %_ZN4i18n12phonenumbers13PhoneMetadata27_internal_add_number_formatEv.exit
@@ -7583,8 +7583,8 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i199: ; preds = %_ZN4i18n12phone
   br label %725
 
 725:                                              ; preds = %791, %723
-  %.3 = phi ptr [ %724, %723 ], [ %777, %791 ]
-  %726 = getelementptr inbounds i8, ptr %.3, i64 2
+  %.2 = phi ptr [ %724, %723 ], [ %777, %791 ]
+  %726 = getelementptr inbounds i8, ptr %.2, i64 2
   %727 = load ptr, ptr %23, align 8
   %.not.i.i.i207 = icmp eq ptr %727, null
   br i1 %.not.i.i.i207, label %..thread_crit_edge.i.i.i212, label %728
@@ -7646,7 +7646,7 @@ _ZN4i18n12phonenumbers13PhoneMetadata32_internal_add_intl_number_formatEv.exit: 
   br i1 %757, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i222, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i215
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i222: ; preds = %_ZN4i18n12phonenumbers13PhoneMetadata32_internal_add_intl_number_formatEv.exit
-  %758 = getelementptr inbounds i8, ptr %.3, i64 3
+  %758 = getelementptr inbounds i8, ptr %.2, i64 3
   br label %762
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i215: ; preds = %_ZN4i18n12phonenumbers13PhoneMetadata32_internal_add_intl_number_formatEv.exit
@@ -8765,12 +8765,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %.not81, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %1318, %1315, %1301, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i337, %1240, %1237, %1223, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i320, %1188, %1185, %1171, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i308, %1136, %1133, %1119, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i296, %1084, %1081, %1067, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i284, %1032, %1029, %1015, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i272, %980, %977, %963, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i260, %928, %925, %911, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i248, %835, %832, %818, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i228, %486, %483, %469, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i161, %434, %431, %417, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i149, %382, %379, %365, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i137, %330, %327, %313, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i125, %278, %275, %261, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i113, %226, %223, %209, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i101, %174, %171, %157, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i89, %122, %119, %105, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %51, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN4i18n12phonenumbers13PhoneMetadata20_internal_mutable_idB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN4i18n12phonenumbers13PhoneMetadata38_internal_mutable_international_prefixB5cxx11Ev.exit, %_ZN4i18n12phonenumbers13PhoneMetadata33_internal_mutable_national_prefixB5cxx11Ev.exit, %_ZN4i18n12phonenumbers13PhoneMetadata39_internal_mutable_preferred_extn_prefixB5cxx11Ev.exit, %_ZN4i18n12phonenumbers13PhoneMetadata45_internal_mutable_national_prefix_for_parsingB5cxx11Ev.exit, %_ZN4i18n12phonenumbers13PhoneMetadata48_internal_mutable_national_prefix_transform_ruleB5cxx11Ev.exit, %_ZN4i18n12phonenumbers13PhoneMetadata48_internal_mutable_preferred_international_prefixB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit198, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit241, %_ZN4i18n12phonenumbers13PhoneMetadata32_internal_mutable_leading_digitsB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit333, %1355, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %779, %776, %762, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i215, %706, %703, %689, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i199, %1332
-  %.4 = phi ptr [ %.0.i82407, %1332 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i199 ], [ null, %689 ], [ null, %703 ], [ null, %706 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i215 ], [ null, %762 ], [ null, %776 ], [ null, %779 ], [ null, %1318 ], [ null, %1315 ], [ null, %1301 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i337 ], [ null, %1240 ], [ null, %1237 ], [ null, %1223 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i320 ], [ null, %1188 ], [ null, %1185 ], [ null, %1171 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i308 ], [ null, %1136 ], [ null, %1133 ], [ null, %1119 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i296 ], [ null, %1084 ], [ null, %1081 ], [ null, %1067 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i284 ], [ null, %1032 ], [ null, %1029 ], [ null, %1015 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i272 ], [ null, %980 ], [ null, %977 ], [ null, %963 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i260 ], [ null, %928 ], [ null, %925 ], [ null, %911 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i248 ], [ null, %835 ], [ null, %832 ], [ null, %818 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i228 ], [ null, %486 ], [ null, %483 ], [ null, %469 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i161 ], [ null, %434 ], [ null, %431 ], [ null, %417 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i149 ], [ null, %382 ], [ null, %379 ], [ null, %365 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i137 ], [ null, %330 ], [ null, %327 ], [ null, %313 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i125 ], [ null, %278 ], [ null, %275 ], [ null, %261 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i113 ], [ null, %226 ], [ null, %223 ], [ null, %209 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i101 ], [ null, %174 ], [ null, %171 ], [ null, %157 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i89 ], [ null, %122 ], [ null, %119 ], [ null, %105 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %.0396, %51 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata20_internal_mutable_idB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata38_internal_mutable_international_prefixB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata33_internal_mutable_national_prefixB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata39_internal_mutable_preferred_extn_prefixB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata45_internal_mutable_national_prefix_for_parsingB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata48_internal_mutable_national_prefix_transform_ruleB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata48_internal_mutable_preferred_international_prefixB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit198 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit241 ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata32_internal_mutable_leading_digitsB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit333 ], [ null, %1355 ], [ %60, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %1332 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i199 ], [ %.sroa.0.0, %689 ], [ %.sroa.0.0, %703 ], [ %.sroa.0.0, %706 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i215 ], [ %.sroa.0.0, %762 ], [ %.sroa.0.0, %776 ], [ %.sroa.0.0, %779 ], [ %.sroa.0.0, %1318 ], [ %.sroa.0.0, %1315 ], [ %.sroa.0.0, %1301 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i337 ], [ %.sroa.0.0, %1240 ], [ %.sroa.0.0, %1237 ], [ %.sroa.0.0, %1223 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i320 ], [ %.sroa.0.0, %1188 ], [ %.sroa.0.0, %1185 ], [ %.sroa.0.0, %1171 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i308 ], [ %.sroa.0.0, %1136 ], [ %.sroa.0.0, %1133 ], [ %.sroa.0.0, %1119 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i296 ], [ %.sroa.0.0, %1084 ], [ %.sroa.0.0, %1081 ], [ %.sroa.0.0, %1067 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i284 ], [ %.sroa.0.0, %1032 ], [ %.sroa.0.0, %1029 ], [ %.sroa.0.0, %1015 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i272 ], [ %.sroa.0.0, %980 ], [ %.sroa.0.0, %977 ], [ %.sroa.0.0, %963 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i260 ], [ %.sroa.0.0, %928 ], [ %.sroa.0.0, %925 ], [ %.sroa.0.0, %911 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i248 ], [ %.sroa.0.0, %835 ], [ %.sroa.0.0, %832 ], [ %.sroa.0.0, %818 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i228 ], [ %.sroa.0.0, %486 ], [ %.sroa.0.0, %483 ], [ %.sroa.0.0, %469 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i161 ], [ %.sroa.0.0, %434 ], [ %.sroa.0.0, %431 ], [ %.sroa.0.0, %417 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i149 ], [ %.sroa.0.0, %382 ], [ %.sroa.0.0, %379 ], [ %.sroa.0.0, %365 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i137 ], [ %.sroa.0.0, %330 ], [ %.sroa.0.0, %327 ], [ %.sroa.0.0, %313 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i125 ], [ %.sroa.0.0, %278 ], [ %.sroa.0.0, %275 ], [ %.sroa.0.0, %261 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i113 ], [ %.sroa.0.0, %226 ], [ %.sroa.0.0, %223 ], [ %.sroa.0.0, %209 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i101 ], [ %.sroa.0.0, %174 ], [ %.sroa.0.0, %171 ], [ %.sroa.0.0, %157 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i89 ], [ %.sroa.0.0, %122 ], [ %.sroa.0.0, %119 ], [ %.sroa.0.0, %105 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %.sroa.0.0, %51 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata20_internal_mutable_idB5cxx11Ev.exit ], [ %515, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata38_internal_mutable_international_prefixB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata33_internal_mutable_national_prefixB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata39_internal_mutable_preferred_extn_prefixB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata45_internal_mutable_national_prefix_for_parsingB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata48_internal_mutable_national_prefix_transform_ruleB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata48_internal_mutable_preferred_international_prefixB5cxx11Ev.exit ], [ %625, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit198 ], [ %849, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit241 ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata32_internal_mutable_leading_digitsB5cxx11Ev.exit ], [ %1254, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit333 ], [ %.sroa.0.0, %1355 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.3 = phi ptr [ %.0.i82407, %1332 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i199 ], [ null, %689 ], [ null, %703 ], [ null, %706 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i215 ], [ null, %762 ], [ null, %776 ], [ null, %779 ], [ null, %1318 ], [ null, %1315 ], [ null, %1301 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i337 ], [ null, %1240 ], [ null, %1237 ], [ null, %1223 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i320 ], [ null, %1188 ], [ null, %1185 ], [ null, %1171 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i308 ], [ null, %1136 ], [ null, %1133 ], [ null, %1119 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i296 ], [ null, %1084 ], [ null, %1081 ], [ null, %1067 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i284 ], [ null, %1032 ], [ null, %1029 ], [ null, %1015 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i272 ], [ null, %980 ], [ null, %977 ], [ null, %963 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i260 ], [ null, %928 ], [ null, %925 ], [ null, %911 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i248 ], [ null, %835 ], [ null, %832 ], [ null, %818 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i228 ], [ null, %486 ], [ null, %483 ], [ null, %469 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i161 ], [ null, %434 ], [ null, %431 ], [ null, %417 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i149 ], [ null, %382 ], [ null, %379 ], [ null, %365 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i137 ], [ null, %330 ], [ null, %327 ], [ null, %313 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i125 ], [ null, %278 ], [ null, %275 ], [ null, %261 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i113 ], [ null, %226 ], [ null, %223 ], [ null, %209 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i101 ], [ null, %174 ], [ null, %171 ], [ null, %157 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i89 ], [ null, %122 ], [ null, %119 ], [ null, %105 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %.0396, %51 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata20_internal_mutable_idB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata38_internal_mutable_international_prefixB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata33_internal_mutable_national_prefixB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata39_internal_mutable_preferred_extn_prefixB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata45_internal_mutable_national_prefix_for_parsingB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata48_internal_mutable_national_prefix_transform_ruleB5cxx11Ev.exit ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata48_internal_mutable_preferred_international_prefixB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit198 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit241 ], [ null, %_ZN4i18n12phonenumbers13PhoneMetadata32_internal_mutable_leading_digitsB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit333 ], [ null, %1355 ], [ %60, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %1332 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i199 ], [ %.sroa.0.0, %689 ], [ %.sroa.0.0, %703 ], [ %.sroa.0.0, %706 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i215 ], [ %.sroa.0.0, %762 ], [ %.sroa.0.0, %776 ], [ %.sroa.0.0, %779 ], [ %.sroa.0.0, %1318 ], [ %.sroa.0.0, %1315 ], [ %.sroa.0.0, %1301 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i337 ], [ %.sroa.0.0, %1240 ], [ %.sroa.0.0, %1237 ], [ %.sroa.0.0, %1223 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i320 ], [ %.sroa.0.0, %1188 ], [ %.sroa.0.0, %1185 ], [ %.sroa.0.0, %1171 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i308 ], [ %.sroa.0.0, %1136 ], [ %.sroa.0.0, %1133 ], [ %.sroa.0.0, %1119 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i296 ], [ %.sroa.0.0, %1084 ], [ %.sroa.0.0, %1081 ], [ %.sroa.0.0, %1067 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i284 ], [ %.sroa.0.0, %1032 ], [ %.sroa.0.0, %1029 ], [ %.sroa.0.0, %1015 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i272 ], [ %.sroa.0.0, %980 ], [ %.sroa.0.0, %977 ], [ %.sroa.0.0, %963 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i260 ], [ %.sroa.0.0, %928 ], [ %.sroa.0.0, %925 ], [ %.sroa.0.0, %911 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i248 ], [ %.sroa.0.0, %835 ], [ %.sroa.0.0, %832 ], [ %.sroa.0.0, %818 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i228 ], [ %.sroa.0.0, %486 ], [ %.sroa.0.0, %483 ], [ %.sroa.0.0, %469 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i161 ], [ %.sroa.0.0, %434 ], [ %.sroa.0.0, %431 ], [ %.sroa.0.0, %417 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i149 ], [ %.sroa.0.0, %382 ], [ %.sroa.0.0, %379 ], [ %.sroa.0.0, %365 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i137 ], [ %.sroa.0.0, %330 ], [ %.sroa.0.0, %327 ], [ %.sroa.0.0, %313 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i125 ], [ %.sroa.0.0, %278 ], [ %.sroa.0.0, %275 ], [ %.sroa.0.0, %261 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i113 ], [ %.sroa.0.0, %226 ], [ %.sroa.0.0, %223 ], [ %.sroa.0.0, %209 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i101 ], [ %.sroa.0.0, %174 ], [ %.sroa.0.0, %171 ], [ %.sroa.0.0, %157 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i89 ], [ %.sroa.0.0, %122 ], [ %.sroa.0.0, %119 ], [ %.sroa.0.0, %105 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %.sroa.0.0, %51 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata20_internal_mutable_idB5cxx11Ev.exit ], [ %515, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata38_internal_mutable_international_prefixB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata33_internal_mutable_national_prefixB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata39_internal_mutable_preferred_extn_prefixB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata45_internal_mutable_national_prefix_for_parsingB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata48_internal_mutable_national_prefix_transform_ruleB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata48_internal_mutable_preferred_international_prefixB5cxx11Ev.exit ], [ %625, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit198 ], [ %849, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit241 ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers13PhoneMetadata32_internal_mutable_leading_digitsB5cxx11Ev.exit ], [ %1254, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit333 ], [ %.sroa.0.0, %1355 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %1357 = load i32, ptr %7, align 8
-  %1358 = or i32 %1357, %.sroa.0.1
+  %1358 = or i32 %1357, %.sroa.0.2
   store i32 %1358, ptr %7, align 8
-  ret ptr %.4
+  ret ptr %.3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10822,7 +10822,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   br label %83
 
 83:                                               ; preds = %68, %66
-  %.3 = phi i64 [ %82, %68 ], [ %.2.lcssa, %66 ]
+  %.4 = phi i64 [ %82, %68 ], [ %.2.lcssa, %66 ]
   %84 = and i32 %64, 4
   %.not86 = icmp eq i32 %84, 0
   br i1 %.not86, label %100, label %85
@@ -10839,13 +10839,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %94 = add nuw nsw i32 %93, 73
   %95 = lshr i32 %94, 6
   %96 = zext nneg i32 %95 to i64
-  %97 = add i64 %.3, 1
+  %97 = add i64 %.4, 1
   %98 = add i64 %97, %88
   %99 = add i64 %98, %96
   br label %100
 
 100:                                              ; preds = %85, %83
-  %.4 = phi i64 [ %99, %85 ], [ %.3, %83 ]
+  %.5 = phi i64 [ %99, %85 ], [ %.4, %83 ]
   %101 = and i32 %64, 8
   %.not87 = icmp eq i32 %101, 0
   br i1 %.not87, label %117, label %102
@@ -10862,13 +10862,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %111 = add nuw nsw i32 %110, 73
   %112 = lshr i32 %111, 6
   %113 = zext nneg i32 %112 to i64
-  %114 = add i64 %.4, 1
+  %114 = add i64 %.5, 1
   %115 = add i64 %114, %105
   %116 = add i64 %115, %113
   br label %117
 
 117:                                              ; preds = %102, %100
-  %.5 = phi i64 [ %116, %102 ], [ %.4, %100 ]
+  %.6 = phi i64 [ %116, %102 ], [ %.5, %100 ]
   %118 = and i32 %64, 16
   %.not88 = icmp eq i32 %118, 0
   br i1 %.not88, label %134, label %119
@@ -10885,13 +10885,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %128 = add nuw nsw i32 %127, 73
   %129 = lshr i32 %128, 6
   %130 = zext nneg i32 %129 to i64
-  %131 = add i64 %.5, 1
+  %131 = add i64 %.6, 1
   %132 = add i64 %131, %122
   %133 = add i64 %132, %130
   br label %134
 
 134:                                              ; preds = %119, %117
-  %.6 = phi i64 [ %133, %119 ], [ %.5, %117 ]
+  %.7 = phi i64 [ %133, %119 ], [ %.6, %117 ]
   %135 = and i32 %64, 32
   %.not89 = icmp eq i32 %135, 0
   br i1 %.not89, label %151, label %136
@@ -10908,13 +10908,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %145 = add nuw nsw i32 %144, 73
   %146 = lshr i32 %145, 6
   %147 = zext nneg i32 %146 to i64
-  %148 = add i64 %.6, 2
+  %148 = add i64 %.7, 2
   %149 = add i64 %148, %139
   %150 = add i64 %149, %147
   br label %151
 
 151:                                              ; preds = %136, %134
-  %.7 = phi i64 [ %150, %136 ], [ %.6, %134 ]
+  %.8 = phi i64 [ %150, %136 ], [ %.7, %134 ]
   %152 = and i32 %64, 64
   %.not90 = icmp eq i32 %152, 0
   br i1 %.not90, label %168, label %153
@@ -10931,13 +10931,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %162 = add nuw nsw i32 %161, 73
   %163 = lshr i32 %162, 6
   %164 = zext nneg i32 %163 to i64
-  %165 = add i64 %.7, 2
+  %165 = add i64 %.8, 2
   %166 = add i64 %165, %156
   %167 = add i64 %166, %164
   br label %168
 
 168:                                              ; preds = %153, %151
-  %.8 = phi i64 [ %167, %153 ], [ %.7, %151 ]
+  %.9 = phi i64 [ %167, %153 ], [ %.8, %151 ]
   %169 = and i32 %64, 128
   %.not91 = icmp eq i32 %169, 0
   br i1 %.not91, label %185, label %170
@@ -10954,13 +10954,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %179 = add nuw nsw i32 %178, 73
   %180 = lshr i32 %179, 6
   %181 = zext nneg i32 %180 to i64
-  %182 = add i64 %.8, 2
+  %182 = add i64 %.9, 2
   %183 = add i64 %182, %173
   %184 = add i64 %183, %181
   br label %185
 
 185:                                              ; preds = %168, %170, %._crit_edge142
-  %.9 = phi i64 [ %184, %170 ], [ %.8, %168 ], [ %.2.lcssa, %._crit_edge142 ]
+  %.3 = phi i64 [ %184, %170 ], [ %.9, %168 ], [ %.2.lcssa, %._crit_edge142 ]
   %186 = and i32 %64, 65280
   %.not92 = icmp eq i32 %186, 0
   br i1 %.not92, label %323, label %187
@@ -10982,13 +10982,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %198 = add nuw nsw i32 %197, 73
   %199 = lshr i32 %198, 6
   %200 = zext nneg i32 %199 to i64
-  %201 = add i64 %.9, 1
+  %201 = add i64 %.3, 1
   %202 = add i64 %201, %192
   %203 = add i64 %202, %200
   br label %204
 
 204:                                              ; preds = %189, %187
-  %.10 = phi i64 [ %203, %189 ], [ %.9, %187 ]
+  %.11 = phi i64 [ %203, %189 ], [ %.3, %187 ]
   %205 = and i32 %64, 512
   %.not94 = icmp eq i32 %205, 0
   br i1 %.not94, label %221, label %206
@@ -11005,13 +11005,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %215 = add nuw nsw i32 %214, 73
   %216 = lshr i32 %215, 6
   %217 = zext nneg i32 %216 to i64
-  %218 = add i64 %.10, 1
+  %218 = add i64 %.11, 1
   %219 = add i64 %218, %209
   %220 = add i64 %219, %217
   br label %221
 
 221:                                              ; preds = %206, %204
-  %.11 = phi i64 [ %220, %206 ], [ %.10, %204 ]
+  %.12 = phi i64 [ %220, %206 ], [ %.11, %204 ]
   %222 = and i32 %64, 1024
   %.not95 = icmp eq i32 %222, 0
   br i1 %.not95, label %238, label %223
@@ -11028,13 +11028,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %232 = add nuw nsw i32 %231, 73
   %233 = lshr i32 %232, 6
   %234 = zext nneg i32 %233 to i64
-  %235 = add i64 %.11, 1
+  %235 = add i64 %.12, 1
   %236 = add i64 %235, %226
   %237 = add i64 %236, %234
   br label %238
 
 238:                                              ; preds = %223, %221
-  %.12 = phi i64 [ %237, %223 ], [ %.11, %221 ]
+  %.13 = phi i64 [ %237, %223 ], [ %.12, %221 ]
   %239 = and i32 %64, 2048
   %.not96 = icmp eq i32 %239, 0
   br i1 %.not96, label %255, label %240
@@ -11051,13 +11051,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %249 = add nuw nsw i32 %248, 73
   %250 = lshr i32 %249, 6
   %251 = zext nneg i32 %250 to i64
-  %252 = add i64 %.12, 1
+  %252 = add i64 %.13, 1
   %253 = add i64 %252, %243
   %254 = add i64 %253, %251
   br label %255
 
 255:                                              ; preds = %240, %238
-  %.13 = phi i64 [ %254, %240 ], [ %.12, %238 ]
+  %.14 = phi i64 [ %254, %240 ], [ %.13, %238 ]
   %256 = and i32 %64, 4096
   %.not97 = icmp eq i32 %256, 0
   br i1 %.not97, label %272, label %257
@@ -11074,13 +11074,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %266 = add nuw nsw i32 %265, 73
   %267 = lshr i32 %266, 6
   %268 = zext nneg i32 %267 to i64
-  %269 = add i64 %.13, 1
+  %269 = add i64 %.14, 1
   %270 = add i64 %269, %260
   %271 = add i64 %270, %268
   br label %272
 
 272:                                              ; preds = %257, %255
-  %.14 = phi i64 [ %271, %257 ], [ %.13, %255 ]
+  %.15 = phi i64 [ %271, %257 ], [ %.14, %255 ]
   %273 = and i32 %64, 8192
   %.not98 = icmp eq i32 %273, 0
   br i1 %.not98, label %289, label %274
@@ -11097,13 +11097,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %283 = add nuw nsw i32 %282, 73
   %284 = lshr i32 %283, 6
   %285 = zext nneg i32 %284 to i64
-  %286 = add i64 %.14, 1
+  %286 = add i64 %.15, 1
   %287 = add i64 %286, %277
   %288 = add i64 %287, %285
   br label %289
 
 289:                                              ; preds = %274, %272
-  %.15 = phi i64 [ %288, %274 ], [ %.14, %272 ]
+  %.16 = phi i64 [ %288, %274 ], [ %.15, %272 ]
   %290 = and i32 %64, 16384
   %.not99 = icmp eq i32 %290, 0
   br i1 %.not99, label %306, label %291
@@ -11120,13 +11120,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %300 = add nuw nsw i32 %299, 73
   %301 = lshr i32 %300, 6
   %302 = zext nneg i32 %301 to i64
-  %303 = add i64 %.15, 1
+  %303 = add i64 %.16, 1
   %304 = add i64 %303, %294
   %305 = add i64 %304, %302
   br label %306
 
 306:                                              ; preds = %291, %289
-  %.16 = phi i64 [ %305, %291 ], [ %.15, %289 ]
+  %.17 = phi i64 [ %305, %291 ], [ %.16, %289 ]
   %307 = and i32 %64, 32768
   %.not100 = icmp eq i32 %307, 0
   br i1 %.not100, label %323, label %308
@@ -11143,13 +11143,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %317 = add nuw nsw i32 %316, 73
   %318 = lshr i32 %317, 6
   %319 = zext nneg i32 %318 to i64
-  %320 = add i64 %.16, 1
+  %320 = add i64 %.17, 1
   %321 = add i64 %320, %311
   %322 = add i64 %321, %319
   br label %323
 
 323:                                              ; preds = %306, %308, %185
-  %.17 = phi i64 [ %322, %308 ], [ %.16, %306 ], [ %.9, %185 ]
+  %.10 = phi i64 [ %322, %308 ], [ %.17, %306 ], [ %.3, %185 ]
   %324 = and i32 %64, 16711680
   %.not101 = icmp eq i32 %324, 0
   br i1 %.not101, label %461, label %325
@@ -11171,13 +11171,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %336 = add nuw nsw i32 %335, 73
   %337 = lshr i32 %336, 6
   %338 = zext nneg i32 %337 to i64
-  %339 = add i64 %.17, 2
+  %339 = add i64 %.10, 2
   %340 = add i64 %339, %330
   %341 = add i64 %340, %338
   br label %342
 
 342:                                              ; preds = %327, %325
-  %.18 = phi i64 [ %341, %327 ], [ %.17, %325 ]
+  %.19 = phi i64 [ %341, %327 ], [ %.10, %325 ]
   %343 = and i32 %64, 131072
   %.not103 = icmp eq i32 %343, 0
   br i1 %.not103, label %359, label %344
@@ -11194,13 +11194,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %353 = add nuw nsw i32 %352, 73
   %354 = lshr i32 %353, 6
   %355 = zext nneg i32 %354 to i64
-  %356 = add i64 %.18, 2
+  %356 = add i64 %.19, 2
   %357 = add i64 %356, %347
   %358 = add i64 %357, %355
   br label %359
 
 359:                                              ; preds = %344, %342
-  %.19 = phi i64 [ %358, %344 ], [ %.18, %342 ]
+  %.20 = phi i64 [ %358, %344 ], [ %.19, %342 ]
   %360 = and i32 %64, 262144
   %.not104 = icmp eq i32 %360, 0
   br i1 %.not104, label %376, label %361
@@ -11217,13 +11217,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %370 = add nuw nsw i32 %369, 73
   %371 = lshr i32 %370, 6
   %372 = zext nneg i32 %371 to i64
-  %373 = add i64 %.19, 2
+  %373 = add i64 %.20, 2
   %374 = add i64 %373, %364
   %375 = add i64 %374, %372
   br label %376
 
 376:                                              ; preds = %361, %359
-  %.20 = phi i64 [ %375, %361 ], [ %.19, %359 ]
+  %.21 = phi i64 [ %375, %361 ], [ %.20, %359 ]
   %377 = and i32 %64, 524288
   %.not105 = icmp eq i32 %377, 0
   br i1 %.not105, label %393, label %378
@@ -11240,13 +11240,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %387 = add nuw nsw i32 %386, 73
   %388 = lshr i32 %387, 6
   %389 = zext nneg i32 %388 to i64
-  %390 = add i64 %.20, 2
+  %390 = add i64 %.21, 2
   %391 = add i64 %390, %381
   %392 = add i64 %391, %389
   br label %393
 
 393:                                              ; preds = %378, %376
-  %.21 = phi i64 [ %392, %378 ], [ %.20, %376 ]
+  %.22 = phi i64 [ %392, %378 ], [ %.21, %376 ]
   %394 = and i32 %64, 1048576
   %.not106 = icmp eq i32 %394, 0
   br i1 %.not106, label %410, label %395
@@ -11263,13 +11263,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %404 = add nuw nsw i32 %403, 73
   %405 = lshr i32 %404, 6
   %406 = zext nneg i32 %405 to i64
-  %407 = add i64 %.21, 2
+  %407 = add i64 %.22, 2
   %408 = add i64 %407, %398
   %409 = add i64 %408, %406
   br label %410
 
 410:                                              ; preds = %395, %393
-  %.22 = phi i64 [ %409, %395 ], [ %.21, %393 ]
+  %.23 = phi i64 [ %409, %395 ], [ %.22, %393 ]
   %411 = and i32 %64, 2097152
   %.not107 = icmp eq i32 %411, 0
   br i1 %.not107, label %427, label %412
@@ -11286,13 +11286,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %421 = add nuw nsw i32 %420, 73
   %422 = lshr i32 %421, 6
   %423 = zext nneg i32 %422 to i64
-  %424 = add i64 %.22, 2
+  %424 = add i64 %.23, 2
   %425 = add i64 %424, %415
   %426 = add i64 %425, %423
   br label %427
 
 427:                                              ; preds = %412, %410
-  %.23 = phi i64 [ %426, %412 ], [ %.22, %410 ]
+  %.24 = phi i64 [ %426, %412 ], [ %.23, %410 ]
   %428 = and i32 %64, 4194304
   %.not108 = icmp eq i32 %428, 0
   br i1 %.not108, label %444, label %429
@@ -11309,13 +11309,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %438 = add nuw nsw i32 %437, 73
   %439 = lshr i32 %438, 6
   %440 = zext nneg i32 %439 to i64
-  %441 = add i64 %.23, 2
+  %441 = add i64 %.24, 2
   %442 = add i64 %441, %432
   %443 = add i64 %442, %440
   br label %444
 
 444:                                              ; preds = %429, %427
-  %.24 = phi i64 [ %443, %429 ], [ %.23, %427 ]
+  %.25 = phi i64 [ %443, %429 ], [ %.24, %427 ]
   %445 = and i32 %64, 8388608
   %.not109 = icmp eq i32 %445, 0
   br i1 %.not109, label %461, label %446
@@ -11332,13 +11332,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %455 = add nuw nsw i32 %454, 73
   %456 = lshr i32 %455, 6
   %457 = zext nneg i32 %456 to i64
-  %458 = add i64 %.24, 2
+  %458 = add i64 %.25, 2
   %459 = add i64 %458, %449
   %460 = add i64 %459, %457
   br label %461
 
 461:                                              ; preds = %444, %446, %323
-  %.25 = phi i64 [ %460, %446 ], [ %.24, %444 ], [ %.17, %323 ]
+  %.18 = phi i64 [ %460, %446 ], [ %.25, %444 ], [ %.10, %323 ]
   %462 = and i32 %64, 520093696
   %.not110 = icmp eq i32 %462, 0
   br i1 %.not110, label %502, label %463
@@ -11360,13 +11360,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %474 = add nuw nsw i32 %473, 73
   %475 = lshr i32 %474, 6
   %476 = zext nneg i32 %475 to i64
-  %477 = add i64 %.25, 2
+  %477 = add i64 %.18, 2
   %478 = add i64 %477, %468
   %479 = add i64 %478, %476
   br label %480
 
 480:                                              ; preds = %465, %463
-  %.26 = phi i64 [ %479, %465 ], [ %.25, %463 ]
+  %.27 = phi i64 [ %479, %465 ], [ %.18, %463 ]
   %481 = and i32 %64, 33554432
   %.not112 = icmp eq i32 %481, 0
   br i1 %.not112, label %495, label %482
@@ -11390,27 +11390,27 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
 
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %482, %486
   %.0.i.i = phi i64 [ %493, %486 ], [ 11, %482 ]
-  %494 = add i64 %.0.i.i, %.26
+  %494 = add i64 %.0.i.i, %.27
   br label %495
 
 495:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, %480
-  %.27 = phi i64 [ %494, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %.26, %480 ]
+  %.28 = phi i64 [ %494, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %.27, %480 ]
   %496 = and i32 %64, 67108864
   %.not113 = icmp eq i32 %496, 0
-  %497 = add i64 %.27, 3
-  %spec.select = select i1 %.not113, i64 %.27, i64 %497
+  %497 = add i64 %.28, 3
+  %spec.select = select i1 %.not113, i64 %.28, i64 %497
   %498 = and i32 %64, 134217728
   %.not114 = icmp eq i32 %498, 0
   %499 = add i64 %spec.select, 3
-  %.29 = select i1 %.not114, i64 %spec.select, i64 %499
+  %.30 = select i1 %.not114, i64 %spec.select, i64 %499
   %500 = and i32 %64, 268435456
   %.not115 = icmp eq i32 %500, 0
-  %501 = add i64 %.29, 3
-  %spec.select117 = select i1 %.not115, i64 %.29, i64 %501
+  %501 = add i64 %.30, 3
+  %spec.select117 = select i1 %.not115, i64 %.30, i64 %501
   br label %502
 
 502:                                              ; preds = %495, %461
-  %.30 = phi i64 [ %.25, %461 ], [ %spec.select117, %495 ]
+  %.26 = phi i64 [ %.18, %461 ], [ %spec.select117, %495 ]
   %503 = getelementptr inbounds i8, ptr %0, i64 8
   %504 = load ptr, ptr %503, align 8
   %505 = ptrtoint ptr %504 to i64
@@ -11423,11 +11423,11 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %482, %
   %509 = inttoptr i64 %508 to ptr
   %510 = getelementptr inbounds i8, ptr %509, i64 8
   %511 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %510) #21
-  %512 = add i64 %511, %.30
+  %512 = add i64 %511, %.26
   br label %513
 
 513:                                              ; preds = %507, %502
-  %.31 = phi i64 [ %512, %507 ], [ %.30, %502 ]
+  %.31 = phi i64 [ %512, %507 ], [ %.26, %502 ]
   %514 = trunc i64 %.31 to i32
   %515 = getelementptr inbounds i8, ptr %0, i64 20
   store atomic i32 %514, ptr %515 monotonic, align 4
@@ -13319,11 +13319,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %25, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %10, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.134 = phi ptr [ %23, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %10 ]
-  %26 = load i8, ptr %.134, align 1
+  %.334 = phi ptr [ %23, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %10 ]
+  %26 = load i8, ptr %.334, align 1
   %27 = zext i8 %26 to i32
   %28 = icmp sgt i8 %26, -1
-  %29 = getelementptr inbounds i8, ptr %.134, i64 1
+  %29 = getelementptr inbounds i8, ptr %.334, i64 1
   br i1 %28, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, label %30
 
 30:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
@@ -13336,11 +13336,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %1
   br i1 %36, label %37, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %.134, i64 2
+  %38 = getelementptr inbounds i8, ptr %.334, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %30
-  %39 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.134, i32 noundef %35)
+  %39 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.334, i32 noundef %35)
   %40 = extractvalue { ptr, i32 } %39, 0
   %41 = extractvalue { ptr, i32 } %39, 1
   %.not = icmp eq ptr %40, null
@@ -13357,8 +13357,8 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   br label %45
 
 45:                                               ; preds = %84, %43
-  %.2 = phi ptr [ %44, %43 ], [ %70, %84 ]
-  %46 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %44, %43 ], [ %70, %84 ]
+  %46 = getelementptr inbounds i8, ptr %.1, i64 1
   %47 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEE11TypeHandlerEEEPNT_4TypeESC_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef null)
   %48 = load i8, ptr %46, align 1
   %49 = zext i8 %48 to i32
@@ -13366,7 +13366,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   br i1 %50, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i: ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %.2, i64 2
+  %51 = getelementptr inbounds i8, ptr %.1, i64 2
   br label %55
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %45
@@ -13499,8 +13499,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %.not13, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %14, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %114, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %72, %69, %55, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %91
-  %.3 = phi ptr [ %.0.i1639, %91 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %55 ], [ null, %69 ], [ null, %72 ], [ %.028, %14 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %114 ], [ %23, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.3
+  %.2 = phi ptr [ %.0.i1639, %91 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %55 ], [ null, %69 ], [ null, %72 ], [ %.028, %14 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %114 ], [ %23, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.2
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -11826,10 +11826,10 @@ define internal noundef zeroext i1 @"_ZN68_$LT$rowan..api..SyntaxNode$LT$L$GT$$u
   br i1 %exitcond.not, label %94, label %95
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2e98b4f4f66c77cdE.exit": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %97, %104
-  %.023.not = phi i1 [ false, %104 ], [ false, %97 ], [ %trunc32, %.loopexit.split-lp.loopexit ], [ %trunc32, %.loopexit.split-lp.loopexit.split-lp ]
+  %.124.not = phi i1 [ false, %104 ], [ false, %97 ], [ %trunc32, %.loopexit.split-lp.loopexit ], [ %trunc32, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %98, %104 ], [ %98, %97 ], [ %lpad.loopexit129, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp130, %.loopexit.split-lp.loopexit.split-lp ]
   %92 = icmp eq i64 %.sroa.2.0.copyload.i, 0
-  %brmerge = or i1 %92, %.023.not
+  %brmerge = or i1 %92, %.124.not
   br i1 %brmerge, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2e98b4f4f66c77cdE.exit70", label %.thread95.thread
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2e98b4f4f66c77cdE.exit.thread": ; preds = %95
@@ -17281,7 +17281,7 @@ define void @"_ZN6ide_db12apply_change38_$LT$impl$u20$ide_db..RootDatabase$GT$12
   br i1 %24, label %26, label %.thread
 
 25:                                               ; preds = %.thread173
-  br i1 %.2, label %.body84.thread, label %.body84.thread131
+  br i1 %.3, label %.body84.thread, label %.body84.thread131
 
 .body84.thread134:                                ; preds = %34, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %28
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -17360,13 +17360,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %49 unwind label %47
 
 .thread173:                                       ; preds = %121, %.body, %148, %80, %47
-  %.2 = phi i1 [ %.3, %47 ], [ true, %148 ], [ true, %80 ], [ true, %.body ], [ true, %121 ]
+  %.3 = phi i1 [ %.2, %47 ], [ true, %148 ], [ true, %80 ], [ true, %.body ], [ true, %121 ]
   %.pn72 = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body155, %148 ], [ %eh.lpad-body155, %80 ], [ %lpad.thr_comm.split-lp164, %.body ], [ %122, %121 ]
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h849efa82548aed5dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %22) #43
           to label %25 unwind label %146
 
 47:                                               ; preds = %54, %79, %72, %70, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit90.thread, %46
-  %.3 = phi i1 [ true, %70 ], [ false, %79 ], [ true, %72 ], [ true, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit90.thread ], [ true, %46 ], [ true, %54 ]
+  %.2 = phi i1 [ true, %70 ], [ false, %79 ], [ true, %72 ], [ true, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit90.thread ], [ true, %46 ], [ true, %54 ]
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %.thread173
@@ -35725,8 +35725,8 @@ default.unreachable1268:                          ; preds = %1111, %1337, %697, 
           to label %697 unwind label %695
 
 "_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Module$GT$17habe144126736c43cE.exit": ; preds = %"_ZN4core3ptr181drop_in_place$LT$once_cell..unsync..Lazy$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..search..FindUsages..search..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h543000b80857357cE.exit", %763, %728, %735, %709, %716, %695
-  %.0149 = phi i1 [ %.1150, %695 ], [ true, %716 ], [ true, %709 ], [ false, %735 ], [ false, %728 ], [ %.2151, %763 ], [ %.2151, %"_ZN4core3ptr181drop_in_place$LT$once_cell..unsync..Lazy$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..search..FindUsages..search..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h543000b80857357cE.exit" ]
-  %.0148 = phi i1 [ %.1, %695 ], [ false, %716 ], [ false, %709 ], [ true, %735 ], [ true, %728 ], [ %.2, %763 ], [ %.2, %"_ZN4core3ptr181drop_in_place$LT$once_cell..unsync..Lazy$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..search..FindUsages..search..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h543000b80857357cE.exit" ]
+  %.1150 = phi i1 [ %.0149, %695 ], [ true, %716 ], [ true, %709 ], [ false, %735 ], [ false, %728 ], [ %.2151, %763 ], [ %.2151, %"_ZN4core3ptr181drop_in_place$LT$once_cell..unsync..Lazy$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..search..FindUsages..search..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h543000b80857357cE.exit" ]
+  %.1 = phi i1 [ %.0148, %695 ], [ false, %716 ], [ false, %709 ], [ true, %735 ], [ true, %728 ], [ %.2, %763 ], [ %.2, %"_ZN4core3ptr181drop_in_place$LT$once_cell..unsync..Lazy$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..search..FindUsages..search..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h543000b80857357cE.exit" ]
   %.pn188.pn.pn.pn.pn = phi { ptr, i32 } [ %696, %695 ], [ %710, %716 ], [ %710, %709 ], [ %729, %735 ], [ %729, %728 ], [ %.pn188.pn.pn.pn, %763 ], [ %.pn188.pn.pn.pn, %"_ZN4core3ptr181drop_in_place$LT$once_cell..unsync..Lazy$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..search..FindUsages..search..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h543000b80857357cE.exit" ]
   %694 = load i64, ptr %69, align 8, !range !394, !noundef !11
   switch i64 %694, label %901 [
@@ -35735,8 +35735,8 @@ default.unreachable1268:                          ; preds = %1111, %1337, %697, 
   ]
 
 695:                                              ; preds = %890, %829, %744, %725, %749, %689
-  %.1150 = phi i1 [ %.2151, %749 ], [ true, %689 ], [ true, %725 ], [ false, %744 ], [ %.2151, %829 ], [ %.2151, %890 ]
-  %.1 = phi i1 [ %.2, %749 ], [ true, %689 ], [ false, %725 ], [ true, %744 ], [ %.2, %829 ], [ %.2, %890 ]
+  %.0149 = phi i1 [ %.2151, %749 ], [ true, %689 ], [ true, %725 ], [ false, %744 ], [ %.2151, %829 ], [ %.2151, %890 ]
+  %.0148 = phi i1 [ %.2, %749 ], [ true, %689 ], [ false, %725 ], [ true, %744 ], [ %.2, %829 ], [ %.2, %890 ]
   %696 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Module$GT$17habe144126736c43cE.exit"
@@ -36373,10 +36373,10 @@ default.unreachable1268:                          ; preds = %1111, %1337, %697, 
   br i1 %906, label %.invoke, label %.body270
 
 907:                                              ; preds = %"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Module$GT$17habe144126736c43cE.exit"
-  br i1 %.0148, label %909, label %.body270
+  br i1 %.1, label %909, label %.body270
 
 908:                                              ; preds = %"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Module$GT$17habe144126736c43cE.exit"
-  br i1 %.0149, label %916, label %.body270
+  br i1 %.1150, label %916, label %.body270
 
 909:                                              ; preds = %907
   %910 = getelementptr inbounds i8, ptr %69, i64 8
@@ -37980,7 +37980,7 @@ _ZN6ide_db6traits23convert_to_def_in_trait17h1492c4349078e2a5E.exit41.i: ; preds
   br i1 %1377, label %1359, label %1371
 
 1378:                                             ; preds = %.noexc561, %1391, %.noexc557, %.noexc552, %1343, %1341, %1339, %.noexc546
-  %.1.shrunk.i = phi i1 [ %1403, %.noexc561 ], [ %1390, %.noexc557 ], [ %1370, %.noexc552 ], [ false, %1341 ], [ false, %1339 ], [ false, %.noexc546 ], [ false, %1343 ], [ false, %1391 ]
+  %.0.shrunk.i = phi i1 [ %1403, %.noexc561 ], [ %1390, %.noexc557 ], [ %1370, %.noexc552 ], [ false, %1341 ], [ false, %1339 ], [ false, %.noexc546 ], [ false, %1343 ], [ false, %1391 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !6271
   br label %1445
 
@@ -38202,7 +38202,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2856947585988979465.ex
           to label %.body528 unwind label %618
 
 1445:                                             ; preds = %1378, %1371
-  %.2.i = phi i1 [ %.1.shrunk.i, %1378 ], [ false, %1371 ]
+  %.2.i = phi i1 [ %.0.shrunk.i, %1378 ], [ false, %1371 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !6355)
@@ -39262,8 +39262,8 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2856947585988979465.ex
   br label %123
 
 196:                                              ; preds = %178, %123
-  %.2 = phi i1 [ %.0, %123 ], [ false, %178 ]
-  ret i1 %.2
+  %.1 = phi i1 [ %.0, %123 ], [ false, %178 ]
+  ret i1 %.1
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -2119,7 +2119,7 @@ do.end10:                                         ; preds = %next.exit
   br i1 %or.cond103, label %peek.exit, label %if.end29
 
 peek.exit:                                        ; preds = %do.end10, %next.exit53
-  %len.080 = phi i64 [ %add, %next.exit53 ], [ %conv12, %do.end10 ]
+  %len.180 = phi i64 [ %add, %next.exit53 ], [ %conv12, %do.end10 ]
   %inc.i527779 = phi i64 [ %inc.i52, %next.exit53 ], [ %inc.i31, %do.end10 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %inc.i527779
   %8 = load i8, ptr %arrayidx.i, align 1
@@ -2128,7 +2128,7 @@ peek.exit:                                        ; preds = %do.end10, %next.exi
   br i1 %or.cond98, label %next.exit53, label %if.end29
 
 next.exit53:                                      ; preds = %peek.exit
-  %mul = mul i64 %len.080, 10
+  %mul = mul i64 %len.180, 10
   %inc.i52 = add nuw i64 %inc.i527779, 1
   store i64 %inc.i52, ptr %next.i.i26, align 8
   %conv26 = zext nneg i8 %8 to i64
@@ -2139,7 +2139,7 @@ next.exit53:                                      ; preds = %peek.exit
 
 if.end29:                                         ; preds = %peek.exit, %next.exit53, %do.end10
   %10 = phi i64 [ %inc.i31, %do.end10 ], [ %inc.i527779, %peek.exit ], [ %inc.i52, %next.exit53 ]
-  %len.1 = phi i64 [ %conv12, %do.end10 ], [ %len.080, %peek.exit ], [ %add, %next.exit53 ]
+  %len.0 = phi i64 [ %conv12, %do.end10 ], [ %len.180, %peek.exit ], [ %add, %next.exit53 ]
   %cmp.i.i56 = icmp ult i64 %10, %.pre93
   %or.cond105 = select i1 %cmp.not, i1 %cmp.i.i56, i1 false
   br i1 %or.cond105, label %peek.exit.i57, label %if.end35
@@ -2154,7 +2154,7 @@ peek.exit.i57:                                    ; preds = %if.end29
 
 if.end35:                                         ; preds = %peek.exit.i57, %if.end29
   %12 = phi i64 [ %10, %if.end29 ], [ %spec.select, %peek.exit.i57 ]
-  %add37 = add i64 %12, %len.1
+  %add37 = add i64 %12, %len.0
   store i64 %add37, ptr %next.i.i26, align 8
   %cmp40.not = icmp ugt i64 %12, %add37
   %cmp44.not = icmp ugt i64 %add37, %.pre93
@@ -2169,11 +2169,11 @@ do.body47:                                        ; preds = %if.end35
 do.end51:                                         ; preds = %if.end35
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %12
   store ptr %add.ptr, ptr %agg.result, align 8
-  store i64 %len.1, ptr %ascii_len, align 8
+  store i64 %len.0, ptr %ascii_len, align 8
   br i1 %is_punycode.0, label %while.cond56.preheader, label %if.end86
 
 while.cond56.preheader:                           ; preds = %do.end51
-  %cmp58.not84 = icmp eq i64 %len.1, 0
+  %cmp58.not84 = icmp eq i64 %len.0, 0
   br i1 %cmp58.not84, label %do.body71.thread, label %while.body60
 
 do.body71.thread:                                 ; preds = %while.cond56.preheader
@@ -2182,7 +2182,7 @@ do.body71.thread:                                 ; preds = %while.cond56.prehea
 
 while.body60:                                     ; preds = %while.cond56.preheader, %if.end68
   %storemerge85 = phi i64 [ %inc, %if.end68 ], [ 0, %while.cond56.preheader ]
-  %13 = phi i64 [ %dec, %if.end68 ], [ %len.1, %while.cond56.preheader ]
+  %13 = phi i64 [ %dec, %if.end68 ], [ %len.0, %while.cond56.preheader ]
   %dec = add i64 %13, -1
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 %dec
   %14 = load i8, ptr %arrayidx, align 1
@@ -2196,7 +2196,7 @@ if.end68:                                         ; preds = %while.body60
 
 do.body71:                                        ; preds = %while.body60, %if.end68
   %dec.lcssa.sink = phi i64 [ 0, %if.end68 ], [ %dec, %while.body60 ]
-  %storemerge.lcssa83 = phi i64 [ %len.1, %if.end68 ], [ %storemerge85, %while.body60 ]
+  %storemerge.lcssa83 = phi i64 [ %len.0, %if.end68 ], [ %storemerge85, %while.body60 ]
   store i64 %dec.lcssa.sink, ptr %ascii_len, align 8
   store i64 %storemerge.lcssa83, ptr %punycode_len, align 8
   %cmp73.not = icmp eq i64 %storemerge.lcssa83, 0
@@ -2208,13 +2208,13 @@ do.body76:                                        ; preds = %do.body71.thread, %
   br label %return
 
 do.end80:                                         ; preds = %do.body71
-  %sub83 = sub i64 %len.1, %storemerge.lcssa83
+  %sub83 = sub i64 %len.0, %storemerge.lcssa83
   %add.ptr84 = getelementptr inbounds i8, ptr %add.ptr, i64 %sub83
   store ptr %add.ptr84, ptr %punycode, align 8
   br label %if.end86
 
 if.end86:                                         ; preds = %do.end80, %do.end51
-  %15 = phi i64 [ %dec, %do.end80 ], [ %len.1, %do.end51 ]
+  %15 = phi i64 [ %dec, %do.end80 ], [ %len.0, %do.end51 ]
   %cmp88 = icmp eq i64 %15, 0
   br i1 %cmp88, label %if.then90, label %return
 
@@ -3992,23 +3992,23 @@ land.rhs.preheader.i:                             ; preds = %while.cond.preheade
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.preheader.i
-  %retval.sroa.5.011.i = phi i64 [ %dec.i, %while.body.i ], [ %hex_len.0.i.i, %land.rhs.preheader.i ]
-  %retval.sroa.0.010.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i.i, %land.rhs.preheader.i ]
-  %18 = load i8, ptr %retval.sroa.0.010.i, align 1
+  %retval.sroa.5.111.i = phi i64 [ %dec.i, %while.body.i ], [ %hex_len.0.i.i, %land.rhs.preheader.i ]
+  %retval.sroa.0.110.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i.i, %land.rhs.preheader.i ]
+  %18 = load i8, ptr %retval.sroa.0.110.i, align 1
   %cmp4.i = icmp eq i8 %18, 48
   br i1 %cmp4.i, label %while.body.i, label %parse_hex_nibbles_for_const_uint.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.010.i, i64 1
-  %dec.i = add i64 %retval.sroa.5.011.i, -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.110.i, i64 1
+  %dec.i = add i64 %retval.sroa.5.111.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %parse_hex_nibbles_for_const_uint.exit, label %land.rhs.i, !llvm.loop !28
 
 parse_hex_nibbles_for_const_uint.exit:            ; preds = %land.rhs.i, %while.body.i, %while.cond.preheader.i
-  %retval.sroa.0.1.i = phi ptr [ %add.ptr.i.i, %while.cond.preheader.i ], [ %retval.sroa.0.010.i, %land.rhs.i ], [ %scevgep.i, %while.body.i ]
-  %retval.sroa.5.1.i = phi i64 [ 0, %while.cond.preheader.i ], [ %retval.sroa.5.011.i, %land.rhs.i ], [ 0, %while.body.i ]
+  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %while.cond.preheader.i ], [ %retval.sroa.0.110.i, %land.rhs.i ], [ %scevgep.i, %while.body.i ]
+  %retval.sroa.5.0.i = phi i64 [ 0, %while.cond.preheader.i ], [ %retval.sroa.5.111.i, %land.rhs.i ], [ 0, %while.body.i ]
   %tobool13 = trunc i8 %.pre.i to i1
-  %cmp = icmp ugt i64 %retval.sroa.5.1.i, 1
+  %cmp = icmp ugt i64 %retval.sroa.5.0.i, 1
   %or.cond.not = select i1 %tobool13, i1 true, i1 %cmp
   br i1 %or.cond.not, label %do.body16, label %do.end20
 
@@ -4017,11 +4017,11 @@ do.body16:                                        ; preds = %next.exit.i.i, %par
   br label %common.ret671
 
 do.end20:                                         ; preds = %parse_hex_nibbles_for_const_uint.exit
-  %cmp22.not = icmp eq i64 %retval.sroa.5.1.i, 0
+  %cmp22.not = icmp eq i64 %retval.sroa.5.0.i, 0
   br i1 %cmp22.not, label %land.lhs.true.i120, label %cond.end
 
 cond.end:                                         ; preds = %do.end20
-  %19 = load i8, ptr %retval.sroa.0.1.i, align 1
+  %19 = load i8, ptr %retval.sroa.0.0.i, align 1
   %cmp.i117 = icmp sgt i8 %19, 96
   %cond.v.i = select i1 %cmp.i117, i8 -87, i8 -48
   %cond.i = add i8 %cond.v.i, %19
@@ -4106,28 +4106,28 @@ land.rhs.preheader.i156:                          ; preds = %while.cond.preheade
   br label %land.rhs.i158
 
 land.rhs.i158:                                    ; preds = %while.body.i162, %land.rhs.preheader.i156
-  %retval.sroa.5.011.i159 = phi i64 [ %dec.i164, %while.body.i162 ], [ %hex_len.0.i.i131, %land.rhs.preheader.i156 ]
-  %retval.sroa.0.010.i160 = phi ptr [ %incdec.ptr.i163, %while.body.i162 ], [ %add.ptr.i.i152, %land.rhs.preheader.i156 ]
-  %30 = load i8, ptr %retval.sroa.0.010.i160, align 1
+  %retval.sroa.5.111.i159 = phi i64 [ %dec.i164, %while.body.i162 ], [ %hex_len.0.i.i131, %land.rhs.preheader.i156 ]
+  %retval.sroa.0.110.i160 = phi ptr [ %incdec.ptr.i163, %while.body.i162 ], [ %add.ptr.i.i152, %land.rhs.preheader.i156 ]
+  %30 = load i8, ptr %retval.sroa.0.110.i160, align 1
   %cmp4.i161 = icmp eq i8 %30, 48
   br i1 %cmp4.i161, label %while.body.i162, label %parse_hex_nibbles_for_const_uint.exit168
 
 while.body.i162:                                  ; preds = %land.rhs.i158
-  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %retval.sroa.0.010.i160, i64 1
-  %dec.i164 = add i64 %retval.sroa.5.011.i159, -1
+  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %retval.sroa.0.110.i160, i64 1
+  %dec.i164 = add i64 %retval.sroa.5.111.i159, -1
   %cmp.not.i165 = icmp eq i64 %dec.i164, 0
   br i1 %cmp.not.i165, label %parse_hex_nibbles_for_const_uint.exit168, label %land.rhs.i158, !llvm.loop !28
 
 parse_hex_nibbles_for_const_uint.exit168:         ; preds = %land.rhs.i158, %while.body.i162, %while.cond.preheader.i154
-  %retval.sroa.0.1.i142 = phi ptr [ %add.ptr.i.i152, %while.cond.preheader.i154 ], [ %retval.sroa.0.010.i160, %land.rhs.i158 ], [ %scevgep.i157, %while.body.i162 ]
-  %retval.sroa.5.1.i143 = phi i64 [ 0, %while.cond.preheader.i154 ], [ %retval.sroa.5.011.i159, %land.rhs.i158 ], [ 0, %while.body.i162 ]
+  %retval.sroa.0.0.i142 = phi ptr [ %add.ptr.i.i152, %while.cond.preheader.i154 ], [ %retval.sroa.0.110.i160, %land.rhs.i158 ], [ %scevgep.i157, %while.body.i162 ]
+  %retval.sroa.5.0.i143 = phi i64 [ 0, %while.cond.preheader.i154 ], [ %retval.sroa.5.111.i159, %land.rhs.i158 ], [ 0, %while.body.i162 ]
   %tobool51 = trunc i8 %.pre.i153 to i1
-  %cmp54 = icmp ugt i64 %retval.sroa.5.1.i143, 6
+  %cmp54 = icmp ugt i64 %retval.sroa.5.0.i143, 6
   %or.cond1.not = select i1 %tobool51, i1 true, i1 %cmp54
   br i1 %or.cond1.not, label %do.body57, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %parse_hex_nibbles_for_const_uint.exit168
-  %cmp63530.not = icmp eq i64 %retval.sroa.5.1.i143, 0
+  %cmp63530.not = icmp eq i64 %retval.sroa.5.0.i143, 0
   br i1 %cmp63530.not, label %land.lhs.true.i174, label %for.body
 
 do.body57:                                        ; preds = %next.exit.i.i134, %parse_hex_nibbles.exit.i150, %parse_hex_nibbles_for_const_uint.exit168
@@ -4138,7 +4138,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %c.0532 = phi i32 [ %or, %for.body ], [ 0, %for.cond.preheader ]
   %i.0531 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %shl = shl i32 %c.0532, 4
-  %arrayidx66 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i142, i64 %i.0531
+  %arrayidx66 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i142, i64 %i.0531
   %31 = load i8, ptr %arrayidx66, align 1
   %cmp.i169 = icmp sgt i8 %31, 96
   %cond.v.i170 = select i1 %cmp.i169, i8 -87, i8 -48
@@ -4146,7 +4146,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %conv68 = zext i8 %cond.i171 to i32
   %or = or i32 %shl, %conv68
   %inc = add nuw nsw i64 %i.0531, 1
-  %exitcond554.not = icmp eq i64 %inc, %retval.sroa.5.1.i143
+  %exitcond554.not = icmp eq i64 %inc, %retval.sroa.5.0.i143
   br i1 %exitcond554.not, label %land.lhs.true.i174, label %for.body, !llvm.loop !29
 
 land.lhs.true.i174:                               ; preds = %for.body, %for.cond.preheader
@@ -5202,21 +5202,21 @@ land.rhs.preheader.i:                             ; preds = %while.cond.preheade
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.preheader.i
-  %retval.sroa.5.011.i = phi i64 [ %dec.i, %while.body.i ], [ %hex_len.0.i.i, %land.rhs.preheader.i ]
-  %retval.sroa.0.010.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i.i, %land.rhs.preheader.i ]
-  %10 = load i8, ptr %retval.sroa.0.010.i, align 1
+  %retval.sroa.5.111.i = phi i64 [ %dec.i, %while.body.i ], [ %hex_len.0.i.i, %land.rhs.preheader.i ]
+  %retval.sroa.0.110.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i.i, %land.rhs.preheader.i ]
+  %10 = load i8, ptr %retval.sroa.0.110.i, align 1
   %cmp4.i = icmp eq i8 %10, 48
   br i1 %cmp4.i, label %while.body.i, label %parse_hex_nibbles_for_const_uint.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.010.i, i64 1
-  %dec.i = add i64 %retval.sroa.5.011.i, -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.110.i, i64 1
+  %dec.i = add i64 %retval.sroa.5.111.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %parse_hex_nibbles_for_const_uint.exit, label %land.rhs.i, !llvm.loop !28
 
 parse_hex_nibbles_for_const_uint.exit:            ; preds = %land.rhs.i, %while.body.i, %while.cond.preheader.i
-  %retval.sroa.0.1.i = phi ptr [ %add.ptr.i.i, %while.cond.preheader.i ], [ %retval.sroa.0.010.i, %land.rhs.i ], [ %scevgep.i, %while.body.i ]
-  %retval.sroa.5.1.i = phi i64 [ 0, %while.cond.preheader.i ], [ %retval.sroa.5.011.i, %land.rhs.i ], [ 0, %while.body.i ]
+  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %while.cond.preheader.i ], [ %retval.sroa.0.110.i, %land.rhs.i ], [ %scevgep.i, %while.body.i ]
+  %retval.sroa.5.0.i = phi i64 [ 0, %while.cond.preheader.i ], [ %retval.sroa.5.111.i, %land.rhs.i ], [ 0, %while.body.i ]
   %tobool6 = trunc i8 %.pre.i to i1
   br i1 %tobool6, label %do.body8, label %do.end12
 
@@ -5225,11 +5225,11 @@ do.body8:                                         ; preds = %next.exit.i.i, %par
   br label %if.end25
 
 do.end12:                                         ; preds = %parse_hex_nibbles_for_const_uint.exit
-  %cmp = icmp ugt i64 %retval.sroa.5.1.i, 16
+  %cmp = icmp ugt i64 %retval.sroa.5.0.i, 16
   br i1 %cmp, label %land.lhs.true.i, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %do.end12
-  %cmp16123.not = icmp eq i64 %retval.sroa.5.1.i, 0
+  %cmp16123.not = icmp eq i64 %retval.sroa.5.0.i, 0
   br i1 %cmp16123.not, label %for.end, label %for.body
 
 land.lhs.true.i:                                  ; preds = %do.end12
@@ -5262,14 +5262,14 @@ if.then.i22:                                      ; preds = %land.lhs.true.i19
   %16 = load ptr, ptr %callback.i23, align 8
   %callback_opaque.i24 = getelementptr inbounds i8, ptr %rdm, i64 16
   %17 = load ptr, ptr %callback_opaque.i24, align 8
-  tail call void %16(ptr noundef %retval.sroa.0.1.i, i64 noundef %retval.sroa.5.1.i, ptr noundef %17) #12
+  tail call void %16(ptr noundef %retval.sroa.0.0.i, i64 noundef %retval.sroa.5.0.i, ptr noundef %17) #12
   br label %if.end19
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.0125 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %v.0124 = phi i64 [ %or, %for.body ], [ 0, %for.cond.preheader ]
   %shl = shl i64 %v.0124, 4
-  %arrayidx = getelementptr inbounds i8, ptr %retval.sroa.0.1.i, i64 %i.0125
+  %arrayidx = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 %i.0125
   %18 = load i8, ptr %arrayidx, align 1
   %cmp.i = icmp sgt i8 %18, 96
   %cond.v.i = select i1 %cmp.i, i8 -87, i8 -48
@@ -5277,7 +5277,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %conv = zext i8 %cond.i to i64
   %or = or i64 %shl, %conv
   %inc = add nuw nsw i64 %i.0125, 1
-  %exitcond.not = icmp eq i64 %inc, %retval.sroa.5.1.i
+  %exitcond.not = icmp eq i64 %inc, %retval.sroa.5.0.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -5798,16 +5798,16 @@ do.body31:                                        ; preds = %do.body23, %if.end.
 
 for.body40:                                       ; preds = %for.cond37.preheader, %do.end63
   %extra.093 = phi i64 [ %extra.0, %do.end63 ], [ %extra.089, %for.cond37.preheader ]
-  %c.092 = phi i32 [ %or67, %do.end63 ], [ %conv19, %for.cond37.preheader ]
-  %i.191 = phi i64 [ %add41, %do.end63 ], [ %i.096, %for.cond37.preheader ]
-  %add41 = add i64 %i.191, 2
+  %c.192 = phi i32 [ %or67, %do.end63 ], [ %conv19, %for.cond37.preheader ]
+  %i.291 = phi i64 [ %add41, %do.end63 ], [ %i.096, %for.cond37.preheader ]
+  %add41 = add i64 %i.291, 2
   %arrayidx43 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add41
   %16 = load i8, ptr %arrayidx43, align 1
   %cmp.i25 = icmp sgt i8 %16, 96
   %cond.v.i26 = select i1 %cmp.i25, i8 9, i8 96
   %cond.i27 = add i8 %cond.v.i26, %16
   %shl46 = shl i8 %cond.i27, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.191
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.291
   %17 = load i8, ptr %gep, align 1
   %cmp.i28 = icmp sgt i8 %17, 96
   %cond.v.i29 = select i1 %cmp.i28, i8 -87, i8 -48
@@ -5844,7 +5844,7 @@ do.body59:                                        ; preds = %utf8_decode.exit48,
   br label %return
 
 do.end63:                                         ; preds = %utf8_decode.exit48
-  %shl64 = shl i32 %c.092, %dec.i39
+  %shl64 = shl i32 %c.192, %dec.i39
   %conv66 = zext i8 %conv6.i38 to i32
   %or67 = or i32 %shl64, %conv66
   %extra.0 = add nsw i64 %extra.093, -1
@@ -5852,10 +5852,10 @@ do.end63:                                         ; preds = %utf8_decode.exit48
   br i1 %cmp38.not, label %if.end68, label %for.body40, !llvm.loop !37
 
 if.end68:                                         ; preds = %do.end63, %for.cond37.preheader, %utf8_decode.exit
-  %i.2 = phi i64 [ %i.096, %utf8_decode.exit ], [ %i.096, %for.cond37.preheader ], [ %add41, %do.end63 ]
-  %c.1 = phi i32 [ %conv19, %utf8_decode.exit ], [ %conv19, %for.cond37.preheader ], [ %or67, %do.end63 ]
-  tail call fastcc void @print_quoted_escaped_char(ptr noundef nonnull %rdm, i8 noundef signext 34, i32 noundef %c.1)
-  %add70 = add i64 %i.2, 2
+  %i.1 = phi i64 [ %i.096, %utf8_decode.exit ], [ %i.096, %for.cond37.preheader ], [ %add41, %do.end63 ]
+  %c.0 = phi i32 [ %conv19, %utf8_decode.exit ], [ %conv19, %for.cond37.preheader ], [ %or67, %do.end63 ]
+  tail call fastcc void @print_quoted_escaped_char(ptr noundef nonnull %rdm, i8 noundef signext 34, i32 noundef %c.0)
+  %add70 = add i64 %i.1, 2
   %cmp = icmp ult i64 %add70, %hex_len.0.i.i
   br i1 %cmp, label %for.body, label %for.end71, !llvm.loop !38
 

@@ -2533,8 +2533,8 @@ _ZN6object3pod10from_bytes17h5b748a4d155a54d1E.exit: ; preds = %3
   br label %10
 
 10:                                               ; preds = %3, %_ZN6object3pod10from_bytes17h5b748a4d155a54d1E.exit
-  %.1 = phi ptr [ %.sroa.0.09, %_ZN6object3pod10from_bytes17h5b748a4d155a54d1E.exit ], [ null, %3 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.sroa.0.09, %_ZN6object3pod10from_bytes17h5b748a4d155a54d1E.exit ], [ null, %3 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

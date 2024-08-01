@@ -2881,15 +2881,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
   br label %81
 
 81:                                               ; preds = %.lr.ph243, %206
-  %.0142242 = phi i8 [ %12, %.lr.ph243 ], [ %.2, %206 ]
-  %.0143241 = phi ptr [ %3, %.lr.ph243 ], [ %.2145, %206 ]
-  %.0146240 = phi i64 [ %75, %.lr.ph243 ], [ %.2148, %206 ]
+  %.0142242 = phi i8 [ %12, %.lr.ph243 ], [ %.1, %206 ]
+  %.0143241 = phi ptr [ %3, %.lr.ph243 ], [ %.1144, %206 ]
+  %.0146240 = phi i64 [ %75, %.lr.ph243 ], [ %.1147, %206 ]
   %.1151239 = phi i32 [ %.0150, %.lr.ph243 ], [ %.2152, %206 ]
   %.0153238 = phi i32 [ %6, %.lr.ph243 ], [ 0, %206 ]
-  %.0156237 = phi i32 [ %74, %.lr.ph243 ], [ %.2158, %206 ]
+  %.0156237 = phi i32 [ %74, %.lr.ph243 ], [ %.1157, %206 ]
   %.0160236 = phi i32 [ %5, %.lr.ph243 ], [ %207, %206 ]
   %.0162235 = phi i32 [ 0, %.lr.ph243 ], [ %208, %206 ]
-  %.0163234 = phi i32 [ 0, %.lr.ph243 ], [ %.2165, %206 ]
+  %.0163234 = phi i32 [ 0, %.lr.ph243 ], [ %.1164, %206 ]
   %82 = load i32, ptr %18, align 8
   %83 = icmp ult i32 %.0160236, %82
   %84 = load ptr, ptr %76, align 8
@@ -2985,11 +2985,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
   br label %141
 
 141:                                              ; preds = %.lr.ph, %189
-  %.1227 = phi i8 [ %.0142242, %.lr.ph ], [ 0, %189 ]
-  %.1144226 = phi ptr [ %.0143241, %.lr.ph ], [ null, %189 ]
-  %.1147225 = phi i64 [ %.0146240, %.lr.ph ], [ %200, %189 ]
-  %.1157224 = phi i32 [ %.0156237, %.lr.ph ], [ %201, %189 ]
-  %.1164223 = phi i32 [ %.0163234, %.lr.ph ], [ %202, %189 ]
+  %.2227 = phi i8 [ %.0142242, %.lr.ph ], [ 0, %189 ]
+  %.2145226 = phi ptr [ %.0143241, %.lr.ph ], [ null, %189 ]
+  %.2148225 = phi i64 [ %.0146240, %.lr.ph ], [ %200, %189 ]
+  %.2158224 = phi i32 [ %.0156237, %.lr.ph ], [ %201, %189 ]
+  %.2165223 = phi i32 [ %.0163234, %.lr.ph ], [ %202, %189 ]
   store i8 0, ptr %10, align 1
   %142 = load i32, ptr %77, align 4
   %143 = icmp eq i32 %142, 0
@@ -2997,7 +2997,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
 
 144:                                              ; preds = %141
   %145 = load ptr, ptr %13, align 8
-  %146 = call i32 @H5HF__man_iblock_entry_addr(ptr noundef %145, i32 noundef %.1157224, ptr noundef nonnull %11) #14
+  %146 = call i32 @H5HF__man_iblock_entry_addr(ptr noundef %145, i32 noundef %.2158224, ptr noundef nonnull %11) #14
   %147 = icmp slt i32 %146, 0
   br i1 %147, label %148, label %152
 
@@ -3014,7 +3014,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
 
 154:                                              ; preds = %152
   %155 = load ptr, ptr %13, align 8
-  %156 = call ptr @H5HF__man_iblock_protect(ptr noundef nonnull %0, i64 noundef %153, i32 noundef %136, ptr noundef %155, i32 noundef %.1157224, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %10) #14
+  %156 = call ptr @H5HF__man_iblock_protect(ptr noundef nonnull %0, i64 noundef %153, i32 noundef %136, ptr noundef %155, i32 noundef %.2158224, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %10) #14
   %157 = icmp eq ptr %156, null
   br i1 %157, label %158, label %162
 
@@ -3026,7 +3026,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
 
 162:                                              ; preds = %141, %152, %154
   %.0149 = phi ptr [ %156, %154 ], [ null, %152 ], [ null, %141 ]
-  %163 = call fastcc ptr @H5HF__sect_indirect_new(ptr noundef nonnull %0, i64 noundef %.1147225, i64 noundef 0, ptr noundef %.0149, i64 noundef %.1147225, i32 noundef 0, i32 noundef 0, i32 noundef %138)
+  %163 = call fastcc ptr @H5HF__sect_indirect_new(ptr noundef nonnull %0, i64 noundef %.2148225, i64 noundef 0, ptr noundef %.0149, i64 noundef %.2148225, i32 noundef 0, i32 noundef 0, i32 noundef %138)
   %164 = icmp eq ptr %163, null
   br i1 %164, label %165, label %169
 
@@ -3037,10 +3037,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
   br label %210
 
 169:                                              ; preds = %162
-  %170 = trunc nuw i8 %.1227 to i1
+  %170 = trunc nuw i8 %.2227 to i1
   %171 = load i32, ptr %17, align 8
   %172 = add i32 %171, -1
-  %173 = call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef nonnull %163, i1 noundef zeroext %170, ptr noundef %.1144226, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %139, i32 noundef %172)
+  %173 = call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef nonnull %163, i1 noundef zeroext %170, ptr noundef %.2145226, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %139, i32 noundef %172)
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %175, label %179
 
@@ -3071,9 +3071,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
   %190 = getelementptr inbounds i8, ptr %163, i64 48
   store ptr %1, ptr %190, align 8
   %191 = getelementptr inbounds i8, ptr %163, i64 56
-  store i32 %.1157224, ptr %191, align 8
+  store i32 %.2158224, ptr %191, align 8
   %192 = load ptr, ptr %16, align 8
-  %193 = zext i32 %.1164223 to i64
+  %193 = zext i32 %.2165223 to i64
   %194 = getelementptr inbounds ptr, ptr %192, i64 %193
   store ptr %163, ptr %194, align 8
   %195 = load i32, ptr %14, align 4
@@ -3082,18 +3082,18 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
   %197 = load ptr, ptr %76, align 8
   %198 = getelementptr inbounds i64, ptr %197, i64 %85
   %199 = load i64, ptr %198, align 8
-  %200 = add i64 %199, %.1147225
-  %201 = add i32 %.1157224, 1
-  %202 = add i32 %.1164223, 1
+  %200 = add i64 %199, %.2148225
+  %201 = add i32 %.2158224, 1
+  %202 = add i32 %.2165223, 1
   %exitcond.not = icmp eq i32 %202, %140
   br i1 %exitcond.not, label %.loopexit, label %141
 
 .loopexit:                                        ; preds = %189, %135, %125
-  %.2165 = phi i32 [ %.0163234, %125 ], [ %.0163234, %135 ], [ %140, %189 ]
-  %.2158 = phi i32 [ %134, %125 ], [ %.0156237, %135 ], [ %201, %189 ]
-  %.2148 = phi i64 [ %133, %125 ], [ %.0146240, %135 ], [ %200, %189 ]
-  %.2145 = phi ptr [ null, %125 ], [ %.0143241, %135 ], [ null, %189 ]
-  %.2 = phi i8 [ 0, %125 ], [ %.0142242, %135 ], [ 0, %189 ]
+  %.1164 = phi i32 [ %.0163234, %125 ], [ %.0163234, %135 ], [ %140, %189 ]
+  %.1157 = phi i32 [ %134, %125 ], [ %.0156237, %135 ], [ %201, %189 ]
+  %.1147 = phi i64 [ %133, %125 ], [ %.0146240, %135 ], [ %200, %189 ]
+  %.1144 = phi ptr [ null, %125 ], [ %.0143241, %135 ], [ null, %189 ]
+  %.1 = phi i8 [ 0, %125 ], [ %.0142242, %135 ], [ 0, %189 ]
   %203 = icmp ult i32 %.0160236, %79
   br i1 %203, label %204, label %206
 

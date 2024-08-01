@@ -99,8 +99,8 @@ define internal fastcc i32 @foreach_inodelevel(ptr noundef %0, ptr noundef %1) u
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %28, %5, %21, %12, %2
-  %.2 = phi i32 [ 0, %2 ], [ -36, %12 ], [ %27, %21 ], [ %8, %5 ], [ 0, %28 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %2 ], [ -36, %12 ], [ %27, %21 ], [ %8, %5 ], [ 0, %28 ]
+  ret i32 %.1
 }
 
 declare void @inode_unlock() local_unnamed_addr #2

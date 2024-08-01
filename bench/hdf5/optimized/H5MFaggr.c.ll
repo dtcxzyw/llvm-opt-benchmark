@@ -435,8 +435,8 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
 
 212:                                              ; preds = %._crit_edge, %205
   %213 = phi i64 [ %.pre, %._crit_edge ], [ %206, %205 ]
-  %.2185 = phi i1 [ false, %._crit_edge ], [ %209, %205 ]
-  %.0182 = phi i64 [ %114, %._crit_edge ], [ %208, %205 ]
+  %.1184 = phi i1 [ false, %._crit_edge ], [ %209, %205 ]
+  %.1 = phi i64 [ %114, %._crit_edge ], [ %208, %205 ]
   %.not243 = icmp eq i64 %213, 0
   br i1 %.not243, label %222, label %214
 
@@ -453,10 +453,10 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br label %265
 
 222:                                              ; preds = %.thread, %214, %212
-  %.0182264 = phi i64 [ %86, %.thread ], [ %.0182, %214 ], [ %.0182, %212 ]
-  %.2185263 = phi i1 [ true, %.thread ], [ %.2185, %214 ], [ %.2185, %212 ]
+  %.1264 = phi i64 [ %86, %.thread ], [ %.1, %214 ], [ %.1, %212 ]
+  %.1184263 = phi i1 [ true, %.thread ], [ %.1184, %214 ], [ %.1184, %212 ]
   %223 = icmp ne i64 %.0188, 0
-  %or.cond3 = and i1 %223, %.2185263
+  %or.cond3 = and i1 %223, %.1184263
   br i1 %or.cond3, label %224, label %261
 
 224:                                              ; preds = %222
@@ -521,7 +521,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br label %265
 
 261:                                              ; preds = %251, %253, %224, %222, %237, %231
-  %.1 = phi i64 [ %245, %253 ], [ %245, %251 ], [ %.0182264, %224 ], [ %.0182264, %222 ], [ %234, %237 ], [ %234, %231 ]
+  %.2 = phi i64 [ %245, %253 ], [ %245, %251 ], [ %.1264, %224 ], [ %.1264, %222 ], [ %234, %237 ], [ %234, %231 ]
   %262 = call i64 @H5F_get_alignment(ptr noundef nonnull %0) #6
   %.not245 = icmp eq i64 %262, 0
   br i1 %.not245, label %265, label %263
@@ -531,8 +531,8 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br label %265
 
 265:                                              ; preds = %263, %261, %257, %247, %240, %227, %218, %190, %180, %172, %140, %132, %116, %109, %80, %72, %10
-  %.2 = phi i64 [ -1, %10 ], [ -1, %247 ], [ -1, %257 ], [ %.1, %263 ], [ %.1, %261 ], [ -1, %72 ], [ -1, %80 ], [ -1, %218 ], [ -1, %227 ], [ -1, %109 ], [ -1, %116 ], [ -1, %132 ], [ -1, %140 ], [ -1, %172 ], [ -1, %180 ], [ -1, %190 ], [ -1, %240 ]
-  ret i64 %.2
+  %.0182 = phi i64 [ -1, %10 ], [ -1, %247 ], [ -1, %257 ], [ %.2, %263 ], [ %.2, %261 ], [ -1, %72 ], [ -1, %80 ], [ -1, %218 ], [ -1, %227 ], [ -1, %109 ], [ -1, %116 ], [ -1, %132 ], [ -1, %140 ], [ -1, %172 ], [ -1, %180 ], [ -1, %190 ], [ -1, %240 ]
+  ret i64 %.0182
 }
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1

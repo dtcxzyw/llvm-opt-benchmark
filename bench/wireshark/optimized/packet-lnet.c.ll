@@ -722,7 +722,7 @@ dissect_ib_msg.exit:                              ; preds = %21, %36
   br label %183
 
 183:                                              ; preds = %89, %176, %169, %147, %125, %112
-  %.1 = phi i32 [ %110, %89 ], [ %182, %176 ], [ %175, %169 ], [ %168, %147 ], [ %146, %125 ], [ %124, %112 ]
+  %.2 = phi i32 [ %110, %89 ], [ %182, %176 ], [ %175, %169 ], [ %168, %147 ], [ %146, %125 ], [ %124, %112 ]
   %184 = load i32, ptr %11, align 4
   switch i32 %184, label %194 [
     i32 214, label %189
@@ -731,38 +731,38 @@ dissect_ib_msg.exit:                              ; preds = %21, %36
 
 185:                                              ; preds = %183
   %186 = load i32, ptr @hf_lnet_o2ib_cookie, align 4
-  %187 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %186, ptr noundef %0, i32 noundef %.1, i32 noundef 8, i32 noundef -2147483648) #5
-  %188 = add i32 %.1, 8
+  %187 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %186, ptr noundef %0, i32 noundef %.2, i32 noundef 8, i32 noundef -2147483648) #5
+  %188 = add i32 %.2, 8
   store i32 0, ptr %8, align 4
   br label %194
 
 189:                                              ; preds = %183
   %190 = load i32, ptr @hf_lnet_o2ib_cookie, align 4
-  %191 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %190, ptr noundef %0, i32 noundef %.1, i32 noundef 8, i32 noundef -2147483648) #5
-  %192 = add i32 %.1, 8
+  %191 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %190, ptr noundef %0, i32 noundef %.2, i32 noundef 8, i32 noundef -2147483648) #5
+  %192 = add i32 %.2, 8
   %193 = call fastcc i32 @dissect_struct_rdma_desc(ptr noundef %0, ptr noundef %20, i32 noundef %192)
   br label %194
 
 194:                                              ; preds = %189, %185, %183
-  %.2 = phi i32 [ %.1, %183 ], [ %188, %185 ], [ %193, %189 ]
+  %.3 = phi i32 [ %.2, %183 ], [ %188, %185 ], [ %193, %189 ]
   %reass.sub = add i32 %13, 96
-  %195 = sub i32 %reass.sub, %.2
+  %195 = sub i32 %reass.sub, %.3
   br label %.thread
 
 .thread:                                          ; preds = %48, %194
   %.1126 = phi i32 [ %195, %194 ], [ %64, %48 ]
-  %.3 = phi i32 [ %.2, %194 ], [ %63, %48 ]
+  %.1 = phi i32 [ %.3, %194 ], [ %63, %48 ]
   %196 = icmp sgt i32 %.1126, 0
   br i1 %196, label %197, label %.thread.thread
 
 197:                                              ; preds = %.thread
   %198 = load i32, ptr @hf_lnet_msg_filler, align 4
-  %199 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %198, ptr noundef %0, i32 noundef %.3, i32 noundef %.1126, i32 noundef 0) #5
-  %200 = add i32 %.3, %.1126
+  %199 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %198, ptr noundef %0, i32 noundef %.1, i32 noundef %.1126, i32 noundef 0) #5
+  %200 = add i32 %.1, %.1126
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %68, %78, %65, %197, %.thread
-  %.4 = phi i32 [ %200, %197 ], [ %.3, %.thread ], [ %77, %68 ], [ %86, %78 ], [ %46, %65 ]
+  %.4 = phi i32 [ %200, %197 ], [ %.1, %.thread ], [ %77, %68 ], [ %86, %78 ], [ %46, %65 ]
   %201 = load i32, ptr %8, align 4
   %.not132 = icmp eq i32 %201, 0
   br i1 %.not132, label %251, label %202

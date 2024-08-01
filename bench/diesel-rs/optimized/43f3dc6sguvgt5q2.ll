@@ -503,7 +503,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           to label %33 unwind label %.loopexit
 
 32:                                               ; preds = %.body169.thread
-  %.pre = trunc nuw i8 %.0106240 to i1
+  %.pre = trunc nuw i8 %.1107240 to i1
   br i1 %.pre, label %.thread, label %.thread255
 
 .loopexit:                                        ; preds = %31, %77
@@ -733,13 +733,13 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   br label %279
 
 .body169:                                         ; preds = %100, %.thread258
-  %.0106 = phi i8 [ %.2108, %.thread258 ], [ %.1107, %100 ]
+  %.1107 = phi i8 [ %.2108, %.thread258 ], [ %.0106, %100 ]
   %.pn143 = phi { ptr, i32 } [ %.pn141, %.thread258 ], [ %101, %100 ]
-  %99 = trunc nuw i8 %.0106 to i1
+  %99 = trunc nuw i8 %.1107 to i1
   br i1 %99, label %.body169.thread, label %.thread255
 
 100:                                              ; preds = %129, %198, %96
-  %.1107 = phi i8 [ 0, %198 ], [ 1, %96 ], [ 1, %129 ]
+  %.0106 = phi i8 [ 0, %198 ], [ 1, %96 ], [ 1, %129 ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %.body169
@@ -750,7 +750,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           to label %105 unwind label %103
 
 .thread258:                                       ; preds = %.body174, %245, %231, %103
-  %.2108 = phi i8 [ 1, %103 ], [ %.5236, %245 ], [ %.098244, %231 ], [ %.098, %.body174 ]
+  %.2108 = phi i8 [ 1, %103 ], [ %.2103236, %245 ], [ %.199244, %231 ], [ %.199, %.body174 ]
   %.pn141 = phi { ptr, i32 } [ %104, %103 ], [ %.pn139237, %245 ], [ %.pn137245, %231 ], [ %.pn137, %.body174 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h43ff86d15b39428cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #11
           to label %.body169 unwind label %201
@@ -878,13 +878,13 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   br label %118
 
 .body174:                                         ; preds = %141, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17hbb7dfb5b74d8ba47E.exit188"
-  %.098 = phi i8 [ %.2100, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17hbb7dfb5b74d8ba47E.exit188" ], [ %.199, %141 ]
+  %.199 = phi i8 [ %.2100, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17hbb7dfb5b74d8ba47E.exit188" ], [ %.098, %141 ]
   %.pn137 = phi { ptr, i32 } [ %.pn135, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17hbb7dfb5b74d8ba47E.exit188" ], [ %142, %141 ]
-  %140 = trunc nuw i8 %.098 to i1
+  %140 = trunc nuw i8 %.199 to i1
   br i1 %140, label %.body174.thread, label %.thread258
 
 141:                                              ; preds = %169, %197, %117
-  %.199 = phi i8 [ 0, %197 ], [ 1, %117 ], [ 1, %169 ]
+  %.098 = phi i8 [ 0, %197 ], [ 1, %117 ], [ 1, %169 ]
   %142 = landingpad { ptr, i32 }
           cleanup
   br label %.body174
@@ -1209,7 +1209,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   br label %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd2127d22adb96bc6E.exit"
 
 231:                                              ; preds = %.body174.thread
-  %.pre253 = trunc nuw i8 %.098244 to i1
+  %.pre253 = trunc nuw i8 %.199244 to i1
   br i1 %.pre253, label %245, label %.thread258
 
 .thread233:                                       ; preds = %223, %226
@@ -1268,13 +1268,13 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 
 .body174.thread:                                  ; preds = %159, %164, %.body174
   %.pn137245 = phi { ptr, i32 } [ %.pn137, %.body174 ], [ %160, %164 ], [ %160, %159 ]
-  %.098244 = phi i8 [ %.098, %.body174 ], [ 1, %164 ], [ 1, %159 ]
+  %.199244 = phi i8 [ %.199, %.body174 ], [ 1, %164 ], [ 1, %159 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd2127d22adb96bc6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18) #11
           to label %231 unwind label %201
 
 245:                                              ; preds = %.thread233, %231
   %.pn139237 = phi { ptr, i32 } [ %232, %.thread233 ], [ %.pn137245, %231 ]
-  %.5236 = phi i8 [ 1, %.thread233 ], [ %.098244, %231 ]
+  %.2103236 = phi i8 [ 1, %.thread233 ], [ %.199244, %231 ]
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17h8b6502e672031d86E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19) #11
           to label %.thread258 unwind label %201
 
@@ -1378,7 +1378,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 
 .body169.thread:                                  ; preds = %119, %124, %.body169
   %.pn143241 = phi { ptr, i32 } [ %.pn143, %.body169 ], [ %120, %124 ], [ %120, %119 ]
-  %.0106240 = phi i8 [ %.0106, %.body169 ], [ 1, %124 ], [ 1, %119 ]
+  %.1107240 = phi i8 [ %.1107, %.body169 ], [ 1, %124 ], [ 1, %119 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17hb30d33c62f4cb495E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #11
           to label %32 unwind label %201
 

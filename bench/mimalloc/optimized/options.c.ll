@@ -377,14 +377,14 @@ if.else68.i:                                      ; preds = %if.then50.i
 
 if.end71.ithread-pre-split:                       ; preds = %if.then54.i, %if.then59.i, %if.then65.i
   %.ph = phi ptr [ %incdec.ptr67.i, %if.then65.i ], [ %incdec.ptr60.i, %if.then59.i ], [ %incdec.ptr.i, %if.then54.i ]
-  %value41.0.i.ph = phi i64 [ %mul66.i, %if.then65.i ], [ %mul.i, %if.then59.i ], [ %call43.i, %if.then54.i ]
+  %value41.1.i.ph = phi i64 [ %mul66.i, %if.then65.i ], [ %mul.i, %if.then59.i ], [ %call43.i, %if.then54.i ]
   %.pr = load i8, ptr %.ph, align 1
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.end71.ithread-pre-split, %if.else68.i
   %33 = phi i8 [ %.pr, %if.end71.ithread-pre-split ], [ %32, %if.else68.i ]
   %34 = phi ptr [ %.ph, %if.end71.ithread-pre-split ], [ %31, %if.else68.i ]
-  %value41.0.i = phi i64 [ %value41.0.i.ph, %if.end71.ithread-pre-split ], [ %div30.i, %if.else68.i ]
+  %value41.1.i = phi i64 [ %value41.1.i.ph, %if.end71.ithread-pre-split ], [ %div30.i, %if.else68.i ]
   switch i8 %33, label %if.end90.i [
     i8 73, label %land.lhs.true76.i
     i8 66, label %if.then86.i
@@ -408,13 +408,13 @@ if.then86.i:                                      ; preds = %if.end71.i
 
 if.end90.i:                                       ; preds = %if.else39.i.if.end90.i_crit_edge, %if.end71.i, %land.lhs.true76.i, %if.then86.i, %if.then81.i
   %36 = phi ptr [ %add.ptr.i, %if.then81.i ], [ %incdec.ptr87.i, %if.then86.i ], [ %.pre, %if.else39.i.if.end90.i_crit_edge ], [ %34, %land.lhs.true76.i ], [ %34, %if.end71.i ]
-  %value41.1.i = phi i64 [ %value41.0.i, %if.then81.i ], [ %value41.0.i, %if.then86.i ], [ %call43.i, %if.else39.i.if.end90.i_crit_edge ], [ %value41.0.i, %land.lhs.true76.i ], [ %value41.0.i, %if.end71.i ]
+  %value41.0.i = phi i64 [ %value41.1.i, %if.then81.i ], [ %value41.1.i, %if.then86.i ], [ %call43.i, %if.else39.i.if.end90.i_crit_edge ], [ %value41.1.i, %land.lhs.true76.i ], [ %value41.1.i, %if.end71.i ]
   %37 = load i8, ptr %36, align 1
   %cmp92.i = icmp eq i8 %37, 0
   br i1 %cmp92.i, label %if.then94.i, label %if.else97.i
 
 if.then94.i:                                      ; preds = %if.end90.i
-  store i64 %value41.1.i, ptr %arrayidx, align 16
+  store i64 %value41.0.i, ptr %arrayidx, align 16
   store i32 2, ptr %init, align 8
   br label %mi_option_init.exit
 

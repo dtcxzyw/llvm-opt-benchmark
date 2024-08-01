@@ -662,7 +662,7 @@ if.then50.i:                                      ; preds = %if.end46.i
   br i1 %cmp56.i, label %fail.i, label %vhost_net_start_one.exit.thread87
 
 fail.i:                                           ; preds = %if.then50.i, %if.then42.i
-  %r.0.i = phi i32 [ %sub.i, %if.then42.i ], [ %call55.i, %if.then50.i ]
+  %r.2.i = phi i32 [ %sub.i, %if.then42.i ], [ %call55.i, %if.then50.i ]
   store i32 -1, ptr %fd.i, align 4
   %31 = load ptr, ptr %nc.i, align 8
   %32 = load ptr, ptr %31, align 8
@@ -733,7 +733,7 @@ vhost_net_start_one.exit:                         ; preds = %if.end80.i, %if.the
   call void @vhost_dev_stop(ptr noundef nonnull %retval.0.i57, ptr noundef %dev, i1 noundef zeroext false) #11
   call void @vhost_dev_disable_notifiers(ptr noundef nonnull %retval.0.i57, ptr noundef %dev) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
-  %cmp53 = icmp slt i32 %r.0.i, 0
+  %cmp53 = icmp slt i32 %r.2.i, 0
   br i1 %cmp53, label %err_start, label %for.inc57
 
 for.inc57:                                        ; preds = %vhost_net_start_one.exit.thread87, %vhost_net_start_one.exit
@@ -742,7 +742,7 @@ for.inc57:                                        ; preds = %vhost_net_start_one
   br i1 %exitcond123.not, label %return, label %for.body32, !llvm.loop !9
 
 err_start:                                        ; preds = %vhost_net_start_one.exit, %if.then43, %vhost_net_start_one.exit.thread90, %vhost_net_start_one.exit.thread
-  %r.0 = phi i32 [ %retval.0.i68.ph, %vhost_net_start_one.exit.thread ], [ %call13.i, %vhost_net_start_one.exit.thread90 ], [ %r.0.i, %vhost_net_start_one.exit ], [ %call45, %if.then43 ]
+  %r.1 = phi i32 [ %retval.0.i68.ph, %vhost_net_start_one.exit.thread ], [ %call13.i, %vhost_net_start_one.exit.thread90 ], [ %r.2.i, %vhost_net_start_one.exit ], [ %call45, %if.then43 ]
   %cmp60109.not = icmp eq i32 %i.1106, 0
   br i1 %cmp60109.not, label %while.end, label %while.body
 
@@ -815,7 +815,7 @@ if.then73:                                        ; preds = %while.end
   br label %return
 
 return:                                           ; preds = %for.inc57, %for.end.thread, %for.cond29.preheader, %if.then27, %if.then73, %while.end, %if.then10
-  %retval.0 = phi i32 [ -38, %if.then10 ], [ %call24128, %if.then27 ], [ %r.0, %if.then73 ], [ %r.0, %while.end ], [ 0, %for.cond29.preheader ], [ 0, %for.end.thread ], [ 0, %for.inc57 ]
+  %retval.0 = phi i32 [ -38, %if.then10 ], [ %call24128, %if.then27 ], [ %r.1, %if.then73 ], [ %r.1, %while.end ], [ 0, %for.cond29.preheader ], [ 0, %for.end.thread ], [ 0, %for.inc57 ]
   ret i32 %retval.0
 }
 

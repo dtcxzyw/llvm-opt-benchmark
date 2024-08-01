@@ -10187,7 +10187,7 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
 93:                                               ; preds = %.lr.ph60, %101
   %indvars.iv73 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next74, %101 ]
   %.03358 = phi i32 [ 0, %.lr.ph60 ], [ %.1, %101 ]
-  %.257 = phi i32 [ 0, %.lr.ph60 ], [ %.3, %101 ]
+  %.357 = phi i32 [ 0, %.lr.ph60 ], [ %.4, %101 ]
   %94 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv73
   %95 = load i32, ptr %94, align 4
   %.not = icmp eq i32 %95, 0
@@ -10198,26 +10198,26 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
   %98 = load i32, ptr %97, align 4
   %99 = icmp ult i32 %.03358, %98
   %100 = trunc nuw i64 %indvars.iv73 to i32
-  %spec.select47 = select i1 %99, i32 %100, i32 %.257
+  %spec.select47 = select i1 %99, i32 %100, i32 %.357
   %spec.select48 = tail call i32 @llvm.umax.i32(i32 %.03358, i32 %98)
   br label %101
 
 101:                                              ; preds = %96, %93
-  %.3 = phi i32 [ %.257, %93 ], [ %spec.select47, %96 ]
+  %.4 = phi i32 [ %.357, %93 ], [ %spec.select47, %96 ]
   %.1 = phi i32 [ %.03358, %93 ], [ %spec.select48, %96 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge61, label %93, !llvm.loop !98
 
 ._crit_edge61:                                    ; preds = %101, %23, %.preheader50
-  %.2.lcssa = phi i32 [ 0, %.preheader50 ], [ 0, %23 ], [ %.3, %101 ]
+  %.3.lcssa = phi i32 [ 0, %.preheader50 ], [ 0, %23 ], [ %.4, %101 ]
   %102 = getelementptr inbounds i8, ptr %0, i64 1896
-  tail call void @_ZN5draco16DirectBitEncoder28EncodeLeastSignificantBits32Eij(ptr noundef nonnull align 8 dereferenceable(32) %102, i32 noundef 4, i32 noundef %.2.lcssa)
+  tail call void @_ZN5draco16DirectBitEncoder28EncodeLeastSignificantBits32Eij(ptr noundef nonnull align 8 dereferenceable(32) %102, i32 noundef 4, i32 noundef %.3.lcssa)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %.preheader, %._crit_edge61
-  %.4 = phi i32 [ %.2.lcssa, %._crit_edge61 ], [ 0, %.preheader ], [ %spec.select, %15 ]
-  ret i32 %.4
+  %.2 = phi i32 [ %.3.lcssa, %._crit_edge61 ], [ 0, %.preheader ], [ %spec.select, %15 ]
+  ret i32 %.2
 }
 
 declare void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterC1Ejj(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i32 noundef) unnamed_addr #0

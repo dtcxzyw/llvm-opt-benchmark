@@ -329,7 +329,7 @@ lpad163:                                          ; preds = %new.notnull160
   br label %ehcleanup171
 
 if.end170:                                        ; preds = %if.else, %new.notnull160, %if.then155
-  %retVal.1 = phi ptr [ %call157, %if.then155 ], [ null, %if.else ], [ %call158, %new.notnull160 ]
+  %retVal.2 = phi ptr [ %call157, %if.then155 ], [ null, %if.else ], [ %call158, %new.notnull160 ]
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %localeObj) #10
   br label %sw.epilog
 
@@ -373,8 +373,8 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 sw.epilog:                                        ; preds = %cleanup.thread, %invoke.cont181, %invoke.cont175, %if.end170, %cleanup.done68, %invoke.cont
-  %retVal.2 = phi ptr [ %call182, %invoke.cont181 ], [ %call176, %invoke.cont175 ], [ %retVal.1, %if.end170 ], [ %call54, %cleanup.done68 ], [ %call1, %invoke.cont ], [ %call27, %cleanup.thread ]
-  %cmp184 = icmp eq ptr %retVal.2, null
+  %retVal.0 = phi ptr [ %call182, %invoke.cont181 ], [ %call176, %invoke.cont175 ], [ %retVal.2, %if.end170 ], [ %call54, %cleanup.done68 ], [ %call1, %invoke.cont ], [ %call27, %cleanup.thread ]
+  %cmp184 = icmp eq ptr %retVal.0, null
   br i1 %cmp184, label %land.lhs.true, label %if.end188
 
 land.lhs.true:                                    ; preds = %sw.bb126, %sw.bb102, %sw.bb78, %sw.epilog
@@ -388,26 +388,26 @@ if.then187:                                       ; preds = %land.lhs.true
 
 if.end188.sink.split:                             ; preds = %invoke.cont134, %invoke.cont110, %invoke.cont86
   %ref.tmp84.sink = phi ptr [ %ref.tmp84, %invoke.cont86 ], [ %ref.tmp108, %invoke.cont110 ], [ %ref.tmp132, %invoke.cont134 ]
-  %retVal.268.ph = phi ptr [ %call79, %invoke.cont86 ], [ %call103, %invoke.cont110 ], [ %call127, %invoke.cont134 ]
+  %retVal.068.ph = phi ptr [ %call79, %invoke.cont86 ], [ %call103, %invoke.cont110 ], [ %call127, %invoke.cont134 ]
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp84.sink) #10
   br label %if.end188
 
 if.end188:                                        ; preds = %if.end188.sink.split, %sw.epilog
-  %retVal.268 = phi ptr [ %retVal.2, %sw.epilog ], [ %retVal.268.ph, %if.end188.sink.split ]
+  %retVal.068 = phi ptr [ %retVal.0, %sw.epilog ], [ %retVal.068.ph, %if.end188.sink.split ]
   %21 = load i32, ptr %status, align 4
   %cmp.i59 = icmp sgt i32 %21, 0
   br i1 %cmp.i59, label %delete.notnull195, label %return
 
 delete.notnull195:                                ; preds = %if.end188
-  %vtable196 = load ptr, ptr %retVal.268, align 8
+  %vtable196 = load ptr, ptr %retVal.068, align 8
   %vfn197 = getelementptr inbounds i8, ptr %vtable196, i64 8
   %22 = load ptr, ptr %vfn197, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(356) %retVal.268) #10
+  call void %22(ptr noundef nonnull align 8 dereferenceable(356) %retVal.068) #10
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.then187, %cleanup, %if.end188, %delete.notnull195, %entry, %sw.default
-  %retval.1 = phi ptr [ null, %sw.default ], [ null, %cleanup ], [ null, %entry ], [ null, %delete.notnull195 ], [ %retVal.268, %if.end188 ], [ null, %if.then187 ], [ null, %land.lhs.true ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %sw.default ], [ null, %cleanup ], [ null, %entry ], [ null, %delete.notnull195 ], [ %retVal.068, %if.end188 ], [ null, %if.then187 ], [ null, %land.lhs.true ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %cleanup.action148, %cleanup.action124, %cleanup.action100, %lpad180, %lpad174, %ehcleanup171, %cleanup.action75, %ehcleanup47, %lpad
   %.pn53 = phi { ptr, i32 } [ %19, %lpad180 ], [ %18, %lpad174 ], [ %.pn, %ehcleanup171 ], [ %.pn41, %cleanup.action148 ], [ %.pn43, %cleanup.action124 ], [ %.pn45, %cleanup.action100 ], [ %.pn47, %cleanup.action75 ], [ %.pn51, %ehcleanup47 ], [ %1, %lpad ]
@@ -1061,7 +1061,7 @@ ehcleanup43:                                      ; preds = %lpad39, %lpad27
   br label %ehcleanup44
 
 cleanup:                                          ; preds = %invoke.cont40, %if.then24
-  %retval.0 = phi i32 [ -1, %if.then24 ], [ %call41, %invoke.cont40 ]
+  %retval.1 = phi i32 [ -1, %if.then24 ], [ %call41, %invoke.cont40 ]
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #10
   br label %return
@@ -1077,8 +1077,8 @@ ehcleanup46:                                      ; preds = %ehcleanup44, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ -1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ -1, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN6icu_7514CurrencyAmountC1EdNS_14ConstChar16PtrER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(128), double noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
@@ -1315,13 +1315,13 @@ if.else25:                                        ; preds = %if.else15
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then19, %if.else25, %if.then14, %invoke.cont5
-  %retval.0 = phi i32 [ -1, %invoke.cont5 ], [ %2, %if.then14 ], [ %2, %if.else25 ], [ %outBufLength, %if.then19 ]
+  %retval.1 = phi i32 [ -1, %invoke.cont5 ], [ %2, %if.then14 ], [ %2, %if.else25 ], [ %outBufLength, %if.then19 ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %res) #10
   br label %return
 
 return:                                           ; preds = %entry, %cleanup, %if.then3
-  %retval.1 = phi i32 [ -1, %if.then3 ], [ %retval.0, %cleanup ], [ -1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then3 ], [ %retval.1, %cleanup ], [ -1, %entry ]
+  ret i32 %retval.0
 }
 
 declare { ptr, i32 } @_ZN6icu_7511Formattable16getDecimalNumberER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
@@ -1952,7 +1952,7 @@ lpad63:                                           ; preds = %if.end61
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont64, %if.else59, %if.else56, %sw.default
-  %retval.0 = phi i32 [ -1, %sw.default ], [ %call65, %invoke.cont64 ], [ -1, %if.else56 ], [ -1, %if.else59 ]
+  %retval.1 = phi i32 [ -1, %sw.default ], [ %call65, %invoke.cont64 ], [ -1, %if.else56 ], [ -1, %if.else59 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #10
   br label %return
 
@@ -1962,8 +1962,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ -1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ -1, %entry ]
+  ret i32 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7513DecimalFormat17getPositivePrefixERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1

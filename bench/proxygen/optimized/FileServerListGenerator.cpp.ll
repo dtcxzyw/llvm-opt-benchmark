@@ -583,8 +583,8 @@ while.end:                                        ; preds = %invoke.cont34
 
 ehcleanup47:                                      ; preds = %delete.notnull.i.i30, %if.then.i28, %ehcleanup46, %lpad30
   %.pn17.pn.pn = phi { ptr, i32 } [ %36, %lpad30 ], [ %.pn17.pn, %ehcleanup46 ], [ %.pn17.pn, %if.then.i28 ], [ %.pn17.pn, %delete.notnull.i.i30 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn17.pn.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn17.pn.pn, 1
+  %exn.slot.3 = extractvalue { ptr, i32 } %.pn17.pn.pn, 0
+  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn17.pn.pn, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line) #18
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstream) #18
   br label %ehcleanup198
@@ -858,14 +858,14 @@ ehcleanup121:                                     ; preds = %ehcleanup89, %ehcle
 
 catch.dispatch122:                                ; preds = %ehcleanup121, %lpad54
   %.pn12.pn.pn.pn = phi { ptr, i32 } [ %.pn12.pn.pn, %ehcleanup121 ], [ %54, %lpad54 ]
-  %exn.slot.8 = extractvalue { ptr, i32 } %.pn12.pn.pn.pn, 0
-  %ehselector.slot.8 = extractvalue { ptr, i32 } %.pn12.pn.pn.pn, 1
+  %exn.slot.6 = extractvalue { ptr, i32 } %.pn12.pn.pn.pn, 0
+  %ehselector.slot.6 = extractvalue { ptr, i32 } %.pn12.pn.pn.pn, 1
   %68 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #18
-  %matches124 = icmp eq i32 %ehselector.slot.8, %68
+  %matches124 = icmp eq i32 %ehselector.slot.6, %68
   br i1 %matches124, label %catch125, label %ehcleanup198
 
 catch125:                                         ; preds = %catch.dispatch122
-  %69 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #18
+  %69 = call ptr @__cxa_begin_catch(ptr %exn.slot.6) #18
   %callback_127 = getelementptr inbounds i8, ptr %this, i64 16
   %70 = load ptr, ptr %callback_127, align 8
   call void @_ZSt17current_exceptionv(ptr nonnull sret(%"class.std::__exception_ptr::exception_ptr") align 8 %agg.tmp128) #18
@@ -1059,22 +1059,22 @@ lpad167:                                          ; preds = %invoke.cont175, %in
   br label %ehcleanup198
 
 ehcleanup198:                                     ; preds = %lpad167, %catch.dispatch122, %ehcleanup47, %lpad26
-  %ehselector.slot.9 = phi i32 [ %ehselector.slot.2, %ehcleanup47 ], [ %93, %lpad167 ], [ %35, %lpad26 ], [ %ehselector.slot.8, %catch.dispatch122 ]
-  %exn.slot.9 = phi ptr [ %exn.slot.2, %ehcleanup47 ], [ %94, %lpad167 ], [ %34, %lpad26 ], [ %exn.slot.8, %catch.dispatch122 ]
+  %ehselector.slot.2 = phi i32 [ %ehselector.slot.3, %ehcleanup47 ], [ %93, %lpad167 ], [ %35, %lpad26 ], [ %ehselector.slot.6, %catch.dispatch122 ]
+  %exn.slot.2 = phi ptr [ %exn.slot.3, %ehcleanup47 ], [ %94, %lpad167 ], [ %34, %lpad26 ], [ %exn.slot.6, %catch.dispatch122 ]
   call void @_ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %servers) #18
   br label %ehcleanup202
 
 ehcleanup202:                                     ; preds = %ehcleanup198, %lpad22, %lpad18
-  %ehselector.slot.10 = phi i32 [ %ehselector.slot.9, %ehcleanup198 ], [ %18, %lpad22 ], [ %10, %lpad18 ]
-  %exn.slot.10 = phi ptr [ %exn.slot.9, %ehcleanup198 ], [ %17, %lpad22 ], [ %9, %lpad18 ]
+  %ehselector.slot.1 = phi i32 [ %ehselector.slot.2, %ehcleanup198 ], [ %18, %lpad22 ], [ %10, %lpad18 ]
+  %exn.slot.1 = phi ptr [ %exn.slot.2, %ehcleanup198 ], [ %17, %lpad22 ], [ %9, %lpad18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad, %ehcleanup202
-  %ehselector.slot.11 = phi i32 [ %ehselector.slot.10, %ehcleanup202 ], [ %6, %lpad ]
-  %exn.slot.11 = phi ptr [ %exn.slot.10, %ehcleanup202 ], [ %7, %lpad ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.11, 0
-  %lpad.val205 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.11, 1
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup202 ], [ %6, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup202 ], [ %7, %lpad ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val205 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val205
 }
 

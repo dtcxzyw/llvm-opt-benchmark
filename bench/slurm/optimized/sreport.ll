@@ -741,12 +741,12 @@ _get_command.exit.thread:                         ; preds = %239
   %246 = sext i32 %.0 to i64
   %247 = getelementptr inbounds ptr, ptr %204, i64 %246
   store ptr %229, ptr %247, align 8
-  %.14356.i = add nsw i32 %.04262.i, 1
-  %248 = icmp slt i32 %.14356.i, %.041.i
+  %.256.i = add nsw i32 %.04262.i, 1
+  %248 = icmp slt i32 %.256.i, %.041.i
   br i1 %248, label %.lr.ph.preheader.i, label %.loopexit.i35
 
 .lr.ph.preheader.i:                               ; preds = %244
-  %249 = sext i32 %.14356.i to i64
+  %249 = sext i32 %.256.i to i64
   br label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %266, %.lr.ph.preheader.i
@@ -801,8 +801,8 @@ _get_command.exit.thread:                         ; preds = %239
 
 .loopexit.i35:                                    ; preds = %266, %.loopexit.loopexit.split.loop.exit.i, %263, %244, %232
   %.138 = phi i32 [ %245, %263 ], [ %245, %.loopexit.loopexit.split.loop.exit.i ], [ %245, %244 ], [ %.0, %232 ], [ %245, %266 ]
-  %.2.i = phi i32 [ %265, %263 ], [ %267, %.loopexit.loopexit.split.loop.exit.i ], [ %.14356.i, %244 ], [ %.04262.i, %232 ], [ %.041.i, %266 ]
-  %268 = add nsw i32 %.2.i, 1
+  %.143.i = phi i32 [ %265, %263 ], [ %267, %.loopexit.loopexit.split.loop.exit.i ], [ %.256.i, %244 ], [ %.04262.i, %232 ], [ %.041.i, %266 ]
+  %268 = add nsw i32 %.143.i, 1
   %269 = icmp slt i32 %268, %.041.i
   br i1 %269, label %.lr.ph63.i, label %_get_command.exit, !llvm.loop !12
 

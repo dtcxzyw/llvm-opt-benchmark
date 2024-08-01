@@ -4281,15 +4281,15 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
           to label %23 unwind label %21
 
 "_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit87": ; preds = %.thread111, %21
-  %.053 = phi i1 [ %.154, %21 ], [ %.255117, %.thread111 ]
+  %.154 = phi i1 [ %.053, %21 ], [ %.4117, %.thread111 ]
   %.pn64 = phi { ptr, i32 } [ %22, %21 ], [ %.pn62118, %.thread111 ]
   %20 = load i64, ptr %1, align 8, !range !167
   %.not.i88 = icmp ne i64 %20, -9223372036854775807
-  %or.cond.not = select i1 %.053, i1 %.not.i88, i1 false
+  %or.cond.not = select i1 %.154, i1 %.not.i88, i1 false
   br i1 %or.cond.not, label %112, label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit90"
 
 21:                                               ; preds = %107, %4
-  %.154 = phi i1 [ true, %4 ], [ false, %107 ]
+  %.053 = phi i1 [ true, %4 ], [ false, %107 ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit87"
@@ -4335,12 +4335,12 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
           to label %38 unwind label %36
 
 35:                                               ; preds = %.thread119, %53
-  %.0 = phi i1 [ %.1125, %.thread119 ], [ %.2, %53 ]
+  %.0 = phi i1 [ %.1125, %.thread119 ], [ %.3, %53 ]
   %.pn62 = phi { ptr, i32 } [ %.pn.pn126, %.thread119 ], [ %.pn, %53 ]
   br i1 %.0, label %.thread111, label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit90"
 
 36:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i", %.noexc68, %.noexc, %28
-  %.356 = phi i1 [ true, %28 ], [ true, %.noexc ], [ true, %.noexc68 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i" ]
+  %.255 = phi i1 [ true, %28 ], [ true, %.noexc ], [ true, %.noexc68 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i" ]
   %37 = landingpad { ptr, i32 }
           cleanup
   br label %.thread111
@@ -4439,7 +4439,7 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
 
 .body73:                                          ; preds = %71, %65, %.body80
   %.152 = phi i1 [ false, %.body80 ], [ true, %65 ], [ true, %71 ]
-  %.2 = phi i1 [ false, %.body80 ], [ true, %65 ], [ false, %71 ]
+  %.3 = phi i1 [ false, %.body80 ], [ true, %65 ], [ false, %71 ]
   %.pn = phi { ptr, i32 } [ %82, %.body80 ], [ %66, %65 ], [ %72, %71 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..stmt..StatementUse$GT$17h6fa0d1e047d154d1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
           to label %53 unwind label %86
@@ -4609,13 +4609,13 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
 
 .thread119:                                       ; preds = %54, %47, %50, %53
   %.pn.pn126 = phi { ptr, i32 } [ %.pn, %53 ], [ %48, %50 ], [ %48, %47 ], [ %55, %54 ]
-  %.1125 = phi i1 [ %.2, %53 ], [ true, %50 ], [ true, %47 ], [ true, %54 ]
+  %.1125 = phi i1 [ %.3, %53 ], [ true, %50 ], [ true, %47 ], [ true, %54 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$diesel..mysql..connection..bind..OutputBinds$GT$17hebbb1f04276e020bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #29
           to label %35 unwind label %86
 
 .thread111:                                       ; preds = %95, %36, %35
   %.pn62118 = phi { ptr, i32 } [ %.pn62, %35 ], [ %37, %36 ], [ %96, %95 ]
-  %.255117 = phi i1 [ false, %35 ], [ %.356, %36 ], [ false, %95 ]
+  %.4117 = phi i1 [ false, %35 ], [ %.255, %36 ], [ false, %95 ]
   invoke void @mysql_free_result(ptr noundef nonnull %27)
           to label %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit87" unwind label %86
 

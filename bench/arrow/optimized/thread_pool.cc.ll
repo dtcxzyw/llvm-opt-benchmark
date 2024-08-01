@@ -5358,14 +5358,14 @@ lpad10.body:                                      ; preds = %lpad.i.i, %if.then.
           to label %cleanup unwind label %ehcleanup
 
 cleanup:                                          ; preds = %lpad10.body, %invoke.cont11
-  %retval.0 = phi i32 [ %.sroa.speculated, %invoke.cont11 ], [ 0, %lpad10.body ]
+  %retval.1 = phi i32 [ %.sroa.speculated, %invoke.cont11 ], [ 0, %lpad10.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str) #28
   br label %cleanup16
 
 cleanup16:                                        ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %entry ]
   call void @_ZN5arrow6ResultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %result) #28
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup:                                        ; preds = %if.then3, %lpad10.body
   %10 = landingpad { ptr, i32 }

@@ -141,8 +141,8 @@ if.then24:                                        ; preds = %if.then14, %if.end2
   unreachable
 
 if.end26:                                         ; preds = %if.end12.thread19, %if.end22, %if.end12
-  %r.2 = phi ptr [ %.pre.i, %if.end12 ], [ %call19, %if.end22 ], [ @strbuf_slopbuf, %if.end12.thread19 ]
-  ret ptr %r.2
+  %r.1 = phi ptr [ %.pre.i, %if.end12 ], [ %call19, %if.end22 ], [ @strbuf_slopbuf, %if.end12.thread19 ]
+  ret ptr %r.1
 }
 
 ; Function Attrs: nofree nounwind memory(read)

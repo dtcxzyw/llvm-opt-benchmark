@@ -1406,10 +1406,10 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
 
 .split.us.split.split.us.us.i:                    ; preds = %.split.us.split.us64.i
   %104 = icmp ugt i32 %88, 4
-  %.0.v.us.us.i = select i1 %104, i32 2, i32 1
-  %.0.us.us.i = lshr i32 %82, %.0.v.us.us.i
+  %.1.v.us.us.i = select i1 %104, i32 2, i32 1
+  %.1.us.us.i = lshr i32 %82, %.1.v.us.us.i
   %105 = sub nsw i32 9, %88
-  %spec.select.us.us.i = tail call i32 @llvm.smin.i32(i32 %.0.us.us.i, i32 %105)
+  %spec.select.us.us.i = tail call i32 @llvm.smin.i32(i32 %.1.us.us.i, i32 %105)
   %spec.store.select.us.us.us.i = tail call i32 @llvm.smax.i32(i32 %spec.select.us.us.i, i32 1)
   %106 = trunc nuw nsw i32 %spec.store.select.us.us.us.i to i8
   %107 = add nuw nsw i32 %spec.store.select.us.us.us.i, %83
@@ -1469,15 +1469,15 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
 
 131:                                              ; preds = %128
   %132 = icmp ugt i32 %129, 4
-  %.0.v.i.us = select i1 %132, i32 2, i32 1
-  %.0.i.us = lshr i32 %127, %.0.v.i.us
+  %.1.v.i.us = select i1 %132, i32 2, i32 1
+  %.1.i.us = lshr i32 %127, %.1.v.i.us
   %133 = sub nsw i32 9, %129
-  %spec.select.i.us = tail call i32 @llvm.smin.i32(i32 %.0.i.us, i32 %133)
+  %spec.select.i.us = tail call i32 @llvm.smin.i32(i32 %.1.i.us, i32 %133)
   br label %134
 
 134:                                              ; preds = %131, %128
-  %.1.i.us = phi i32 [ %127, %128 ], [ %spec.select.i.us, %131 ]
-  %spec.store.select.i.us = tail call i32 @llvm.smax.i32(i32 %.1.i.us, i32 1)
+  %.0.i.us = phi i32 [ %127, %128 ], [ %spec.select.i.us, %131 ]
+  %spec.store.select.i.us = tail call i32 @llvm.smax.i32(i32 %.0.i.us, i32 1)
   %135 = trunc nuw nsw i32 %spec.store.select.i.us to i8
   %136 = getelementptr inbounds i8, ptr %121, i64 1
   store i8 %135, ptr %136, align 1
@@ -1555,15 +1555,15 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
 
 169:                                              ; preds = %166
   %170 = icmp ugt i32 %167, 4
-  %.0.v.i = select i1 %170, i32 2, i32 1
-  %.0.i = lshr i32 %165, %.0.v.i
+  %.1.v.i = select i1 %170, i32 2, i32 1
+  %.1.i = lshr i32 %165, %.1.v.i
   %171 = sub nsw i32 9, %167
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.0.i, i32 %171)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.1.i, i32 %171)
   br label %172
 
 172:                                              ; preds = %169, %166
-  %.1.i = phi i32 [ %165, %166 ], [ %spec.select.i, %169 ]
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 1)
+  %.0.i = phi i32 [ %165, %166 ], [ %spec.select.i, %169 ]
+  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 1)
   %173 = trunc nuw nsw i32 %spec.store.select.i to i8
   %174 = getelementptr inbounds i8, ptr %159, i64 1
   store i8 %173, ptr %174, align 1

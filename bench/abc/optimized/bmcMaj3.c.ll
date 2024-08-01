@@ -5772,9 +5772,9 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %37, %32,
 
 80:                                               ; preds = %376, %Abc_TtNot.exit
   %.068 = phi i32 [ 0, %Abc_TtNot.exit ], [ %.169, %376 ]
-  %.065 = phi i32 [ 0, %Abc_TtNot.exit ], [ %.166, %376 ]
+  %.065 = phi i32 [ 0, %Abc_TtNot.exit ], [ %.267, %376 ]
   %.063 = phi i32 [ 0, %Abc_TtNot.exit ], [ %.0.i93115, %376 ]
-  %.062 = phi i64 [ %.0.i91, %Abc_TtNot.exit ], [ %.3, %376 ]
+  %.062 = phi i64 [ %.0.i91, %Abc_TtNot.exit ], [ %.2, %376 ]
   %.061 = phi i32 [ 0, %Abc_TtNot.exit ], [ %377, %376 ]
   br label %81
 
@@ -6380,19 +6380,19 @@ Abc_Clock.exit106:                                ; preds = %Abc_Clock.exit104, 
   br label %374
 
 374:                                              ; preds = %352, %Abc_Clock.exit106, %348
-  %.2 = phi i64 [ %.0.i105, %Abc_Clock.exit106 ], [ %.062, %348 ], [ %.062, %352 ]
+  %.3 = phi i64 [ %.0.i105, %Abc_Clock.exit106 ], [ %.062, %348 ], [ %.062, %352 ]
   %375 = icmp eq i32 %350, -1
   br i1 %375, label %.loopexit, label %376
 
 376:                                              ; preds = %374, %336
   %.0.i93115 = phi i32 [ -1, %336 ], [ %.0.i93, %374 ]
-  %.166 = phi i32 [ %316, %336 ], [ %.065, %374 ]
-  %.3 = phi i64 [ %.1, %336 ], [ %.2, %374 ]
+  %.267 = phi i32 [ %316, %336 ], [ %.065, %374 ]
+  %.2 = phi i64 [ %.1, %336 ], [ %.3, %374 ]
   %377 = add nuw nsw i32 %.061, 1
   br label %80
 
 .loopexit:                                        ; preds = %336, %374, %313, %81, %.thread, %346
-  %.267 = phi i32 [ %.065, %346 ], [ %.065, %.thread ], [ %.065, %81 ], [ %316, %336 ], [ %.065, %374 ], [ %.065, %313 ]
+  %.166 = phi i32 [ %.065, %346 ], [ %.065, %.thread ], [ %.065, %81 ], [ %316, %336 ], [ %.065, %374 ], [ %.065, %313 ]
   %.164 = phi i32 [ %.0.i93, %346 ], [ %.063, %.thread ], [ %.063, %81 ], [ -1, %336 ], [ %.0.i93, %374 ], [ -1, %313 ]
   %378 = load i32, ptr %74, align 8
   %.not87 = icmp eq i32 %378, 0
@@ -6426,7 +6426,7 @@ Abc_Clock.exit108:                                ; preds = %379, %382
   br i1 %.not88, label %394, label %392
 
 392:                                              ; preds = %390
-  %393 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %.267)
+  %393 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %.166)
   br label %398
 
 394:                                              ; preds = %390
@@ -6888,13 +6888,13 @@ Abc_TtNot.exit.i:                                 ; preds = %Abc_TtNot.exit.loop
 
 .lr.ph.us.i.i:                                    ; preds = %select.unfold..loopexit_crit_edge.us.i.i, %.lr.ph.us.preheader.i.i
   %.01929.us.i.i = phi ptr [ %.019.us.i.i, %select.unfold..loopexit_crit_edge.us.i.i ], [ %.01926.i.i, %.lr.ph.us.preheader.i.i ]
-  %.028.us.i.i = phi ptr [ %120, %select.unfold..loopexit_crit_edge.us.i.i ], [ %4, %.lr.ph.us.preheader.i.i ]
-  %scevgep.i = getelementptr i8, ptr %.028.us.i.i, i64 %111
+  %.128.us.i.i = phi ptr [ %120, %select.unfold..loopexit_crit_edge.us.i.i ], [ %4, %.lr.ph.us.preheader.i.i ]
+  %scevgep.i = getelementptr i8, ptr %.128.us.i.i, i64 %111
   br label %select.unfold.us.i.i
 
 select.unfold.us.i.i:                             ; preds = %select.unfold.us.i.i, %.lr.ph.us.i.i
   %indvars.iv.i57.i = phi i64 [ %111, %.lr.ph.us.i.i ], [ %indvars.iv.next.i58.i, %select.unfold.us.i.i ]
-  %.125.us.i.i = phi ptr [ %.028.us.i.i, %.lr.ph.us.i.i ], [ %120, %select.unfold.us.i.i ]
+  %.225.us.i.i = phi ptr [ %.128.us.i.i, %.lr.ph.us.i.i ], [ %120, %select.unfold.us.i.i ]
   %112 = load i64, ptr %.01929.us.i.i, align 8
   %113 = shl i64 %indvars.iv.i57.i, 2
   %114 = and i64 %113, 4294967292
@@ -6905,10 +6905,10 @@ select.unfold.us.i.i:                             ; preds = %select.unfold.us.i.
   %119 = trunc nuw nsw i32 %117 to i8
   %.0.v.i21.us.i.i = select i1 %118, i8 48, i8 55
   %.0.i22.us.i.i = add nuw nsw i8 %.0.v.i21.us.i.i, %119
-  %120 = getelementptr inbounds i8, ptr %.125.us.i.i, i64 1
-  store i8 %.0.i22.us.i.i, ptr %.125.us.i.i, align 1
+  %120 = getelementptr inbounds i8, ptr %.225.us.i.i, i64 1
+  store i8 %.0.i22.us.i.i, ptr %.225.us.i.i, align 1
   %indvars.iv.next.i58.i = add nsw i64 %indvars.iv.i57.i, -1
-  %exitcond.not.i = icmp eq ptr %.125.us.i.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %.225.us.i.i, %scevgep.i
   br i1 %exitcond.not.i, label %select.unfold..loopexit_crit_edge.us.i.i, label %select.unfold.us.i.i, !llvm.loop !124
 
 select.unfold..loopexit_crit_edge.us.i.i:         ; preds = %select.unfold.us.i.i

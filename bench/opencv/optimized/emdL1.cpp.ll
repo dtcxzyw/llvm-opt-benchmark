@@ -2729,7 +2729,7 @@ define hidden void @_ZN5EmdL110initBVTreeEv(ptr nocapture noundef nonnull align 
 
 60:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %.0110152 = phi ptr [ null, %.lr.ph ], [ %.4, %.loopexit ]
+  %.0110152 = phi ptr [ null, %.lr.ph ], [ %.3, %.loopexit ]
   %.0114150 = phi i32 [ 1, %.lr.ph ], [ %.3117, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load ptr, ptr %46, align 8
@@ -2779,7 +2779,7 @@ define hidden void @_ZN5EmdL110initBVTreeEv(ptr nocapture noundef nonnull align 
 
 94:                                               ; preds = %80, %.thread143
   %.0109149 = phi i32 [ 0, %80 ], [ %234, %.thread143 ]
-  %.2148 = phi ptr [ %.1, %80 ], [ %.4, %.thread143 ]
+  %.2148 = phi ptr [ %.1, %80 ], [ %.3, %.thread143 ]
   %.0111147 = phi ptr [ %70, %80 ], [ %.1112, %.thread143 ]
   %.2116146 = phi i32 [ %.1115, %80 ], [ %.3117, %.thread143 ]
   %95 = load i32, ptr %0, align 8
@@ -2954,13 +2954,13 @@ define hidden void @_ZN5EmdL110initBVTreeEv(ptr nocapture noundef nonnull align 
   br label %205
 
 205:                                              ; preds = %94, %149, %173, %197, %183, %159, %135, %98, %117, %127, %106
-  %.3 = phi ptr [ %103, %98 ], [ %111, %106 ], [ %122, %117 ], [ %132, %127 ], [ %142, %135 ], [ %156, %149 ], [ %166, %159 ], [ %180, %173 ], [ %190, %183 ], [ %204, %197 ], [ %.2148, %94 ]
+  %.4 = phi ptr [ %103, %98 ], [ %111, %106 ], [ %122, %117 ], [ %132, %127 ], [ %142, %135 ], [ %156, %149 ], [ %166, %159 ], [ %180, %173 ], [ %190, %183 ], [ %204, %197 ], [ %.2148, %94 ]
   %206 = load ptr, ptr %93, align 8
-  %.not132 = icmp eq ptr %.3, %206
+  %.not132 = icmp eq ptr %.4, %206
   br i1 %.not132, label %.thread143, label %207
 
 207:                                              ; preds = %205
-  %.not133 = icmp eq ptr %.3, null
+  %.not133 = icmp eq ptr %.4, null
   br i1 %.not133, label %208, label %216
 
 208:                                              ; preds = %207
@@ -2992,7 +2992,7 @@ define hidden void @_ZN5EmdL110initBVTreeEv(ptr nocapture noundef nonnull align 
   resume { ptr, i32 } %.pn
 
 216:                                              ; preds = %207
-  %217 = getelementptr inbounds i8, ptr %.3, i64 32
+  %217 = getelementptr inbounds i8, ptr %.4, i64 32
   %218 = load ptr, ptr %217, align 8
   %.not135 = icmp eq ptr %218, null
   br i1 %.not135, label %.thread143, label %219
@@ -3004,19 +3004,19 @@ define hidden void @_ZN5EmdL110initBVTreeEv(ptr nocapture noundef nonnull align 
   br i1 %222, label %.thread143.sink.split, label %.thread143
 
 .thread143.sink.split:                            ; preds = %219
-  %223 = getelementptr inbounds i8, ptr %.3, i64 24
+  %223 = getelementptr inbounds i8, ptr %.4, i64 24
   store ptr %63, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %.3, i64 40
+  %224 = getelementptr inbounds i8, ptr %.4, i64 40
   store ptr %218, ptr %224, align 8
   store ptr null, ptr %217, align 8
   %225 = add nsw i32 %.2116146, 1
   %226 = sext i32 %.2116146 to i64
   %227 = load ptr, ptr %46, align 8
   %228 = getelementptr inbounds ptr, ptr %227, i64 %226
-  store ptr %.3, ptr %228, align 8
+  store ptr %.4, ptr %228, align 8
   %229 = getelementptr inbounds i8, ptr %218, i64 8
   store ptr %63, ptr %229, align 8
-  store ptr %.3, ptr %220, align 8
+  store ptr %.4, ptr %220, align 8
   %230 = getelementptr inbounds i8, ptr %218, i64 4
   %231 = load i32, ptr %230, align 4
   %.not136 = icmp eq i32 %231, 0
@@ -3031,7 +3031,7 @@ define hidden void @_ZN5EmdL110initBVTreeEv(ptr nocapture noundef nonnull align 
 .thread143:                                       ; preds = %.thread143.sink.split, %169, %145, %113, %112, %205, %219, %216, %191, %193, %123
   %.3117 = phi i32 [ %.2116146, %219 ], [ %.2116146, %216 ], [ %.2116146, %205 ], [ %.2116146, %123 ], [ %.2116146, %193 ], [ %.2116146, %191 ], [ %.2116146, %112 ], [ %.2116146, %113 ], [ %.2116146, %145 ], [ %.2116146, %169 ], [ %225, %.thread143.sink.split ]
   %.1112 = phi ptr [ %.0111147, %219 ], [ %.0111147, %216 ], [ %.0111147, %205 ], [ %.0111147, %123 ], [ %.0111147, %193 ], [ %.0111147, %191 ], [ %.0111147, %112 ], [ %.0111147, %113 ], [ %.0111147, %145 ], [ %.0111147, %169 ], [ %218, %.thread143.sink.split ]
-  %.4 = phi ptr [ %.3, %219 ], [ %.3, %216 ], [ %.3, %205 ], [ %.2148, %123 ], [ %.2148, %193 ], [ %.2148, %191 ], [ %.2148, %112 ], [ %.2148, %113 ], [ %.2148, %145 ], [ %.2148, %169 ], [ %.3, %.thread143.sink.split ]
+  %.3 = phi ptr [ %.4, %219 ], [ %.4, %216 ], [ %.4, %205 ], [ %.2148, %123 ], [ %.2148, %193 ], [ %.2148, %191 ], [ %.2148, %112 ], [ %.2148, %113 ], [ %.2148, %145 ], [ %.2148, %169 ], [ %.4, %.thread143.sink.split ]
   %234 = add nuw nsw i32 %.0109149, 1
   %exitcond.not = icmp eq i32 %234, %83
   br i1 %exitcond.not, label %.loopexit, label %94, !llvm.loop !27

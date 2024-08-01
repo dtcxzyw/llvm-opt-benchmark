@@ -308,14 +308,14 @@ lor.rhs:                                          ; preds = %land.rhs.thread, %l
   br label %if.end37
 
 if.end37:                                         ; preds = %lor.rhs, %land.lhs.true, %land.lhs.true7, %lor.lhs.false10, %land.lhs.true16, %land.lhs.true24
-  %ok.0 = phi i32 [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true16 ], [ 0, %lor.lhs.false10 ], [ 0, %land.lhs.true7 ], [ 0, %land.lhs.true ], [ %7, %lor.rhs ]
+  %ok.1 = phi i32 [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true16 ], [ 0, %lor.lhs.false10 ], [ 0, %land.lhs.true7 ], [ 0, %land.lhs.true ], [ %7, %lor.rhs ]
   %cipher38 = getelementptr inbounds i8, ptr %keydata1, i64 32
   %8 = load ptr, ptr %cipher38, align 8
   %cmp40.not = icmp eq ptr %8, null
   br i1 %cmp40.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %if.end37
-  %tobool42.not = icmp eq i32 %ok.0, 0
+  %tobool42.not = icmp eq i32 %ok.1, 0
   br i1 %tobool42.not, label %return, label %if.then41.land.rhs43_crit_edge
 
 if.then41.land.rhs43_crit_edge:                   ; preds = %if.then41
@@ -333,7 +333,7 @@ land.rhs43:                                       ; preds = %land.rhs.thread, %i
   br label %return
 
 return:                                           ; preds = %land.rhs, %if.end, %if.end37, %land.rhs43, %if.then41, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %ok.0, %if.end37 ], [ 1, %if.end ], [ 0, %if.then41 ], [ %11, %land.rhs43 ], [ 1, %land.rhs ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %ok.1, %if.end37 ], [ 1, %if.end ], [ 0, %if.then41 ], [ %11, %land.rhs43 ], [ 1, %land.rhs ]
   ret i32 %retval.0
 }
 

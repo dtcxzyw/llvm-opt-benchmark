@@ -5158,21 +5158,21 @@ dissect_eht_user_info.exit.i:                     ; preds = %1730, %1728
   br label %dissect_radiotap_rate.exit
 
 dissect_radiotap_rate.exit:                       ; preds = %dissect_eht_user_info.exit.i, %638, %1656, %1631, %618, %615, %612, %472, %466, %422, %418, %417, %411, %407, %380, %376, %348, %347, %299, %295, %1743, %1754, %.split952, %909, %916, %911, %639, %667, %601, %604, %608, %dissect_radiotap_u_sig.exit, %1184, %1174, %dissect_radiotap_0_length_psdu.exit, %dissect_radiotap_he_mu_info.exit, %dissect_radiotap_he_info.exit, %dissect_radiotap_timestamp.exit, %430, %426, %399, %396, %393, %390, %387, %384, %368, %356, %dissect_radiotap_flags.exit, %251
-  %.1910 = phi i8 [ %.0909.ph, %1754 ], [ %.0909.ph, %1743 ], [ %.0909.ph, %dissect_radiotap_u_sig.exit ], [ %.0909.ph, %1184 ], [ %.0909.ph, %.split952 ], [ %.0909.ph, %1174 ], [ %.0909.ph, %dissect_radiotap_0_length_psdu.exit ], [ %.0909.ph, %dissect_radiotap_he_mu_info.exit ], [ %.0909.ph, %dissect_radiotap_he_info.exit ], [ %.0909.ph, %dissect_radiotap_timestamp.exit ], [ %.0909.ph, %909 ], [ %.0909.ph, %911 ], [ %.0909.ph, %916 ], [ %.0909.ph, %667 ], [ %.0909.ph, %639 ], [ %.0909.ph, %604 ], [ %.0909.ph, %608 ], [ %.0909.ph, %601 ], [ %.0909.ph, %430 ], [ %.0909.ph, %426 ], [ %.0909.ph, %399 ], [ %.0909.ph, %396 ], [ %.0909.ph, %393 ], [ %.0909.ph, %390 ], [ %.0909.ph, %387 ], [ %.0909.ph, %384 ], [ %.0909.ph, %368 ], [ %.0909.ph, %356 ], [ %258, %dissect_radiotap_flags.exit ], [ %.0909.ph, %251 ], [ %.0909.ph, %295 ], [ %.0909.ph, %299 ], [ %.0909.ph, %347 ], [ %.0909.ph, %348 ], [ %.0909.ph, %376 ], [ %.0909.ph, %380 ], [ %.0909.ph, %407 ], [ %.0909.ph, %411 ], [ %.0909.ph, %417 ], [ %.0909.ph, %418 ], [ %.0909.ph, %422 ], [ %.0909.ph, %466 ], [ %.0909.ph, %472 ], [ %.0909.ph, %612 ], [ %.0909.ph, %615 ], [ %.0909.ph, %618 ], [ %.0909.ph, %1631 ], [ %.0909.ph, %1656 ], [ %.0909.ph, %638 ], [ %.0909.ph, %dissect_eht_user_info.exit.i ]
-  %.2905 = phi ptr [ %.0903.ph, %1754 ], [ %.0903.ph, %1743 ], [ %.0903.ph, %dissect_radiotap_u_sig.exit ], [ %.0903.ph, %1184 ], [ %.0903.ph, %.split952 ], [ %.0903.ph, %1174 ], [ %.0903.ph, %dissect_radiotap_0_length_psdu.exit ], [ %.0903.ph, %dissect_radiotap_he_mu_info.exit ], [ %.0903.ph, %dissect_radiotap_he_info.exit ], [ %.0903.ph, %dissect_radiotap_timestamp.exit ], [ %.0903.ph, %909 ], [ %.0903.ph, %911 ], [ %.0903.ph, %916 ], [ %.0903.ph, %667 ], [ %.0903.ph, %639 ], [ %.0903.ph, %604 ], [ %.0903.ph, %608 ], [ %.0903.ph, %601 ], [ %.0903.ph, %430 ], [ %.0903.ph, %426 ], [ %.0903.ph, %399 ], [ %.0903.ph, %396 ], [ %.0903.ph, %393 ], [ %.0903.ph, %390 ], [ %.0903.ph, %387 ], [ %.0903.ph, %384 ], [ %.0903.ph, %368 ], [ %.0903.ph, %356 ], [ %.0903.ph, %dissect_radiotap_flags.exit ], [ %.0903.ph, %251 ], [ %.0903.ph, %295 ], [ %.0903.ph, %299 ], [ %.0903.ph, %347 ], [ %.0903.ph, %348 ], [ %.0903.ph, %376 ], [ %.0903.ph, %380 ], [ %.0903.ph, %407 ], [ %.0903.ph, %411 ], [ %.0903.ph, %417 ], [ %421, %418 ], [ %.0903.ph, %422 ], [ %.0903.ph, %466 ], [ %.0903.ph, %472 ], [ %.0903.ph, %612 ], [ %.0903.ph, %615 ], [ %.0903.ph, %618 ], [ %.0903.ph, %1631 ], [ %.0903.ph, %1656 ], [ %.0903.ph, %638 ], [ %.0903.ph, %dissect_eht_user_info.exit.i ]
-  %.2899 = phi i32 [ %.0897.ph, %1754 ], [ %.0897.ph, %1743 ], [ %.0897.ph, %dissect_radiotap_u_sig.exit ], [ %.0897.ph, %1184 ], [ %.0897.ph, %.split952 ], [ %.0897.ph, %1174 ], [ %.0897.ph, %dissect_radiotap_0_length_psdu.exit ], [ %.0897.ph, %dissect_radiotap_he_mu_info.exit ], [ %.0897.ph, %dissect_radiotap_he_info.exit ], [ %.0897.ph, %dissect_radiotap_timestamp.exit ], [ %.0897.ph, %909 ], [ %.0897.ph, %911 ], [ %.0897.ph, %916 ], [ %.0897.ph, %667 ], [ %.0897.ph, %639 ], [ %.0897.ph, %604 ], [ %.0897.ph, %608 ], [ %.0897.ph, %601 ], [ %.0897.ph, %430 ], [ %.0897.ph, %426 ], [ %.0897.ph, %399 ], [ %.0897.ph, %396 ], [ %.0897.ph, %393 ], [ %.0897.ph, %390 ], [ %.0897.ph, %387 ], [ %.0897.ph, %384 ], [ %.0897.ph, %368 ], [ %.0897.ph, %356 ], [ %.0897.ph, %dissect_radiotap_flags.exit ], [ %.0897.ph, %251 ], [ %.0897.ph, %295 ], [ %.0897.ph, %299 ], [ %.0897.ph, %347 ], [ %.0897.ph, %348 ], [ %.0897.ph, %376 ], [ %.0897.ph, %380 ], [ %.0897.ph, %407 ], [ %.0897.ph, %411 ], [ %.0897.ph, %417 ], [ %.us-phi953, %418 ], [ %.0897.ph, %422 ], [ %.0897.ph, %466 ], [ %.0897.ph, %472 ], [ %.0897.ph, %612 ], [ %.0897.ph, %615 ], [ %.0897.ph, %618 ], [ %.0897.ph, %1631 ], [ %.0897.ph, %1656 ], [ %.0897.ph, %638 ], [ %.0897.ph, %dissect_eht_user_info.exit.i ]
-  %.2894 = phi i32 [ %.0892.ph, %1754 ], [ %.0892.ph, %1743 ], [ %.0892.ph, %dissect_radiotap_u_sig.exit ], [ %.0892.ph, %1184 ], [ %.0892.ph, %.split952 ], [ %.0892.ph, %1174 ], [ %.0892.ph, %dissect_radiotap_0_length_psdu.exit ], [ %.0892.ph, %dissect_radiotap_he_mu_info.exit ], [ %.0892.ph, %dissect_radiotap_he_info.exit ], [ %.0892.ph, %dissect_radiotap_timestamp.exit ], [ %.0892.ph, %909 ], [ %.0892.ph, %911 ], [ %.0892.ph, %916 ], [ %.0892.ph, %667 ], [ %.0892.ph, %639 ], [ %.0892.ph, %604 ], [ %.0892.ph, %608 ], [ %.0892.ph, %601 ], [ %.0892.ph, %430 ], [ %.0892.ph, %426 ], [ %.0892.ph, %399 ], [ %.0892.ph, %396 ], [ %.0892.ph, %393 ], [ %.0892.ph, %390 ], [ %.0892.ph, %387 ], [ %.0892.ph, %384 ], [ %.0892.ph, %368 ], [ %.0892.ph, %356 ], [ %.0892.ph, %dissect_radiotap_flags.exit ], [ %.0892.ph, %251 ], [ %.0892.ph, %295 ], [ %.0892.ph, %299 ], [ %.0892.ph, %347 ], [ %.0892.ph, %348 ], [ %.0892.ph, %376 ], [ %.0892.ph, %380 ], [ %.0892.ph, %407 ], [ %.0892.ph, %411 ], [ %.0892.ph, %417 ], [ %419, %418 ], [ %.0892.ph, %422 ], [ %.0892.ph, %466 ], [ %.0892.ph, %472 ], [ %.0892.ph, %612 ], [ %.0892.ph, %615 ], [ %.0892.ph, %618 ], [ %.0892.ph, %1631 ], [ %.0892.ph, %1656 ], [ %.0892.ph, %638 ], [ %.0892.ph, %dissect_eht_user_info.exit.i ]
-  %.1772 = phi i32 [ %.0771.ph, %1754 ], [ %.0771.ph, %1743 ], [ %.0771.ph, %dissect_radiotap_u_sig.exit ], [ %.0771.ph, %1184 ], [ %.0771.ph, %.split952 ], [ %.0771.ph, %1174 ], [ 1, %dissect_radiotap_0_length_psdu.exit ], [ %.0771.ph, %dissect_radiotap_he_mu_info.exit ], [ %.0771.ph, %dissect_radiotap_he_info.exit ], [ %.0771.ph, %dissect_radiotap_timestamp.exit ], [ %.0771.ph, %909 ], [ %.0771.ph, %911 ], [ %.0771.ph, %916 ], [ %.0771.ph, %667 ], [ %.0771.ph, %639 ], [ %.0771.ph, %604 ], [ %.0771.ph, %608 ], [ %.0771.ph, %601 ], [ %.0771.ph, %430 ], [ %.0771.ph, %426 ], [ %.0771.ph, %399 ], [ %.0771.ph, %396 ], [ %.0771.ph, %393 ], [ %.0771.ph, %390 ], [ %.0771.ph, %387 ], [ %.0771.ph, %384 ], [ %.0771.ph, %368 ], [ %.0771.ph, %356 ], [ %.0771.ph, %dissect_radiotap_flags.exit ], [ %.0771.ph, %251 ], [ %.0771.ph, %295 ], [ %.0771.ph, %299 ], [ %.0771.ph, %347 ], [ %.0771.ph, %348 ], [ %.0771.ph, %376 ], [ %.0771.ph, %380 ], [ %.0771.ph, %407 ], [ %.0771.ph, %411 ], [ %.0771.ph, %417 ], [ %.0771.ph, %418 ], [ %.0771.ph, %422 ], [ %.0771.ph, %466 ], [ %.0771.ph, %472 ], [ %.0771.ph, %612 ], [ %.0771.ph, %615 ], [ %.0771.ph, %618 ], [ %.0771.ph, %1631 ], [ %.0771.ph, %1656 ], [ %.0771.ph, %638 ], [ %.0771.ph, %dissect_eht_user_info.exit.i ]
-  %.1756 = phi i32 [ %.0755.ph, %1754 ], [ %.0755.ph, %1743 ], [ %.0755.ph, %dissect_radiotap_u_sig.exit ], [ %.0755.ph, %1184 ], [ %.0755.ph, %.split952 ], [ %.0755.ph, %1174 ], [ %.0755.ph, %dissect_radiotap_0_length_psdu.exit ], [ %.0755.ph, %dissect_radiotap_he_mu_info.exit ], [ %.0755.ph, %dissect_radiotap_he_info.exit ], [ %.0755.ph, %dissect_radiotap_timestamp.exit ], [ %.0755.ph, %909 ], [ %.0755.ph, %911 ], [ %.0755.ph, %916 ], [ %.0755.ph, %667 ], [ %.0755.ph, %639 ], [ %.0755.ph, %604 ], [ %.0755.ph, %608 ], [ %.0755.ph, %601 ], [ %.0755.ph, %430 ], [ %.0755.ph, %426 ], [ %.0755.ph, %399 ], [ %.0755.ph, %396 ], [ %.0755.ph, %393 ], [ %.0755.ph, %390 ], [ %.0755.ph, %387 ], [ %.0755.ph, %384 ], [ %.0755.ph, %368 ], [ %.0755.ph, %356 ], [ 1, %dissect_radiotap_flags.exit ], [ %.0755.ph, %251 ], [ %.0755.ph, %295 ], [ %.0755.ph, %299 ], [ %.0755.ph, %347 ], [ %.0755.ph, %348 ], [ %.0755.ph, %376 ], [ %.0755.ph, %380 ], [ %.0755.ph, %407 ], [ %.0755.ph, %411 ], [ %.0755.ph, %417 ], [ %.0755.ph, %418 ], [ %.0755.ph, %422 ], [ %.0755.ph, %466 ], [ %.0755.ph, %472 ], [ %.0755.ph, %612 ], [ %.0755.ph, %615 ], [ %.0755.ph, %618 ], [ %.0755.ph, %1631 ], [ %.0755.ph, %1656 ], [ %.0755.ph, %638 ], [ %.0755.ph, %dissect_eht_user_info.exit.i ]
+  %.3912 = phi i8 [ %.2911.ph, %1754 ], [ %.2911.ph, %1743 ], [ %.2911.ph, %dissect_radiotap_u_sig.exit ], [ %.2911.ph, %1184 ], [ %.2911.ph, %.split952 ], [ %.2911.ph, %1174 ], [ %.2911.ph, %dissect_radiotap_0_length_psdu.exit ], [ %.2911.ph, %dissect_radiotap_he_mu_info.exit ], [ %.2911.ph, %dissect_radiotap_he_info.exit ], [ %.2911.ph, %dissect_radiotap_timestamp.exit ], [ %.2911.ph, %909 ], [ %.2911.ph, %911 ], [ %.2911.ph, %916 ], [ %.2911.ph, %667 ], [ %.2911.ph, %639 ], [ %.2911.ph, %604 ], [ %.2911.ph, %608 ], [ %.2911.ph, %601 ], [ %.2911.ph, %430 ], [ %.2911.ph, %426 ], [ %.2911.ph, %399 ], [ %.2911.ph, %396 ], [ %.2911.ph, %393 ], [ %.2911.ph, %390 ], [ %.2911.ph, %387 ], [ %.2911.ph, %384 ], [ %.2911.ph, %368 ], [ %.2911.ph, %356 ], [ %258, %dissect_radiotap_flags.exit ], [ %.2911.ph, %251 ], [ %.2911.ph, %295 ], [ %.2911.ph, %299 ], [ %.2911.ph, %347 ], [ %.2911.ph, %348 ], [ %.2911.ph, %376 ], [ %.2911.ph, %380 ], [ %.2911.ph, %407 ], [ %.2911.ph, %411 ], [ %.2911.ph, %417 ], [ %.2911.ph, %418 ], [ %.2911.ph, %422 ], [ %.2911.ph, %466 ], [ %.2911.ph, %472 ], [ %.2911.ph, %612 ], [ %.2911.ph, %615 ], [ %.2911.ph, %618 ], [ %.2911.ph, %1631 ], [ %.2911.ph, %1656 ], [ %.2911.ph, %638 ], [ %.2911.ph, %dissect_eht_user_info.exit.i ]
+  %.3906 = phi ptr [ %.2905.ph, %1754 ], [ %.2905.ph, %1743 ], [ %.2905.ph, %dissect_radiotap_u_sig.exit ], [ %.2905.ph, %1184 ], [ %.2905.ph, %.split952 ], [ %.2905.ph, %1174 ], [ %.2905.ph, %dissect_radiotap_0_length_psdu.exit ], [ %.2905.ph, %dissect_radiotap_he_mu_info.exit ], [ %.2905.ph, %dissect_radiotap_he_info.exit ], [ %.2905.ph, %dissect_radiotap_timestamp.exit ], [ %.2905.ph, %909 ], [ %.2905.ph, %911 ], [ %.2905.ph, %916 ], [ %.2905.ph, %667 ], [ %.2905.ph, %639 ], [ %.2905.ph, %604 ], [ %.2905.ph, %608 ], [ %.2905.ph, %601 ], [ %.2905.ph, %430 ], [ %.2905.ph, %426 ], [ %.2905.ph, %399 ], [ %.2905.ph, %396 ], [ %.2905.ph, %393 ], [ %.2905.ph, %390 ], [ %.2905.ph, %387 ], [ %.2905.ph, %384 ], [ %.2905.ph, %368 ], [ %.2905.ph, %356 ], [ %.2905.ph, %dissect_radiotap_flags.exit ], [ %.2905.ph, %251 ], [ %.2905.ph, %295 ], [ %.2905.ph, %299 ], [ %.2905.ph, %347 ], [ %.2905.ph, %348 ], [ %.2905.ph, %376 ], [ %.2905.ph, %380 ], [ %.2905.ph, %407 ], [ %.2905.ph, %411 ], [ %.2905.ph, %417 ], [ %421, %418 ], [ %.2905.ph, %422 ], [ %.2905.ph, %466 ], [ %.2905.ph, %472 ], [ %.2905.ph, %612 ], [ %.2905.ph, %615 ], [ %.2905.ph, %618 ], [ %.2905.ph, %1631 ], [ %.2905.ph, %1656 ], [ %.2905.ph, %638 ], [ %.2905.ph, %dissect_eht_user_info.exit.i ]
+  %.3900 = phi i32 [ %.2899.ph, %1754 ], [ %.2899.ph, %1743 ], [ %.2899.ph, %dissect_radiotap_u_sig.exit ], [ %.2899.ph, %1184 ], [ %.2899.ph, %.split952 ], [ %.2899.ph, %1174 ], [ %.2899.ph, %dissect_radiotap_0_length_psdu.exit ], [ %.2899.ph, %dissect_radiotap_he_mu_info.exit ], [ %.2899.ph, %dissect_radiotap_he_info.exit ], [ %.2899.ph, %dissect_radiotap_timestamp.exit ], [ %.2899.ph, %909 ], [ %.2899.ph, %911 ], [ %.2899.ph, %916 ], [ %.2899.ph, %667 ], [ %.2899.ph, %639 ], [ %.2899.ph, %604 ], [ %.2899.ph, %608 ], [ %.2899.ph, %601 ], [ %.2899.ph, %430 ], [ %.2899.ph, %426 ], [ %.2899.ph, %399 ], [ %.2899.ph, %396 ], [ %.2899.ph, %393 ], [ %.2899.ph, %390 ], [ %.2899.ph, %387 ], [ %.2899.ph, %384 ], [ %.2899.ph, %368 ], [ %.2899.ph, %356 ], [ %.2899.ph, %dissect_radiotap_flags.exit ], [ %.2899.ph, %251 ], [ %.2899.ph, %295 ], [ %.2899.ph, %299 ], [ %.2899.ph, %347 ], [ %.2899.ph, %348 ], [ %.2899.ph, %376 ], [ %.2899.ph, %380 ], [ %.2899.ph, %407 ], [ %.2899.ph, %411 ], [ %.2899.ph, %417 ], [ %.us-phi953, %418 ], [ %.2899.ph, %422 ], [ %.2899.ph, %466 ], [ %.2899.ph, %472 ], [ %.2899.ph, %612 ], [ %.2899.ph, %615 ], [ %.2899.ph, %618 ], [ %.2899.ph, %1631 ], [ %.2899.ph, %1656 ], [ %.2899.ph, %638 ], [ %.2899.ph, %dissect_eht_user_info.exit.i ]
+  %.3895 = phi i32 [ %.2894.ph, %1754 ], [ %.2894.ph, %1743 ], [ %.2894.ph, %dissect_radiotap_u_sig.exit ], [ %.2894.ph, %1184 ], [ %.2894.ph, %.split952 ], [ %.2894.ph, %1174 ], [ %.2894.ph, %dissect_radiotap_0_length_psdu.exit ], [ %.2894.ph, %dissect_radiotap_he_mu_info.exit ], [ %.2894.ph, %dissect_radiotap_he_info.exit ], [ %.2894.ph, %dissect_radiotap_timestamp.exit ], [ %.2894.ph, %909 ], [ %.2894.ph, %911 ], [ %.2894.ph, %916 ], [ %.2894.ph, %667 ], [ %.2894.ph, %639 ], [ %.2894.ph, %604 ], [ %.2894.ph, %608 ], [ %.2894.ph, %601 ], [ %.2894.ph, %430 ], [ %.2894.ph, %426 ], [ %.2894.ph, %399 ], [ %.2894.ph, %396 ], [ %.2894.ph, %393 ], [ %.2894.ph, %390 ], [ %.2894.ph, %387 ], [ %.2894.ph, %384 ], [ %.2894.ph, %368 ], [ %.2894.ph, %356 ], [ %.2894.ph, %dissect_radiotap_flags.exit ], [ %.2894.ph, %251 ], [ %.2894.ph, %295 ], [ %.2894.ph, %299 ], [ %.2894.ph, %347 ], [ %.2894.ph, %348 ], [ %.2894.ph, %376 ], [ %.2894.ph, %380 ], [ %.2894.ph, %407 ], [ %.2894.ph, %411 ], [ %.2894.ph, %417 ], [ %419, %418 ], [ %.2894.ph, %422 ], [ %.2894.ph, %466 ], [ %.2894.ph, %472 ], [ %.2894.ph, %612 ], [ %.2894.ph, %615 ], [ %.2894.ph, %618 ], [ %.2894.ph, %1631 ], [ %.2894.ph, %1656 ], [ %.2894.ph, %638 ], [ %.2894.ph, %dissect_eht_user_info.exit.i ]
+  %.2773 = phi i32 [ %.1772.ph, %1754 ], [ %.1772.ph, %1743 ], [ %.1772.ph, %dissect_radiotap_u_sig.exit ], [ %.1772.ph, %1184 ], [ %.1772.ph, %.split952 ], [ %.1772.ph, %1174 ], [ 1, %dissect_radiotap_0_length_psdu.exit ], [ %.1772.ph, %dissect_radiotap_he_mu_info.exit ], [ %.1772.ph, %dissect_radiotap_he_info.exit ], [ %.1772.ph, %dissect_radiotap_timestamp.exit ], [ %.1772.ph, %909 ], [ %.1772.ph, %911 ], [ %.1772.ph, %916 ], [ %.1772.ph, %667 ], [ %.1772.ph, %639 ], [ %.1772.ph, %604 ], [ %.1772.ph, %608 ], [ %.1772.ph, %601 ], [ %.1772.ph, %430 ], [ %.1772.ph, %426 ], [ %.1772.ph, %399 ], [ %.1772.ph, %396 ], [ %.1772.ph, %393 ], [ %.1772.ph, %390 ], [ %.1772.ph, %387 ], [ %.1772.ph, %384 ], [ %.1772.ph, %368 ], [ %.1772.ph, %356 ], [ %.1772.ph, %dissect_radiotap_flags.exit ], [ %.1772.ph, %251 ], [ %.1772.ph, %295 ], [ %.1772.ph, %299 ], [ %.1772.ph, %347 ], [ %.1772.ph, %348 ], [ %.1772.ph, %376 ], [ %.1772.ph, %380 ], [ %.1772.ph, %407 ], [ %.1772.ph, %411 ], [ %.1772.ph, %417 ], [ %.1772.ph, %418 ], [ %.1772.ph, %422 ], [ %.1772.ph, %466 ], [ %.1772.ph, %472 ], [ %.1772.ph, %612 ], [ %.1772.ph, %615 ], [ %.1772.ph, %618 ], [ %.1772.ph, %1631 ], [ %.1772.ph, %1656 ], [ %.1772.ph, %638 ], [ %.1772.ph, %dissect_eht_user_info.exit.i ]
+  %.3 = phi i32 [ %.2757.ph, %1754 ], [ %.2757.ph, %1743 ], [ %.2757.ph, %dissect_radiotap_u_sig.exit ], [ %.2757.ph, %1184 ], [ %.2757.ph, %.split952 ], [ %.2757.ph, %1174 ], [ %.2757.ph, %dissect_radiotap_0_length_psdu.exit ], [ %.2757.ph, %dissect_radiotap_he_mu_info.exit ], [ %.2757.ph, %dissect_radiotap_he_info.exit ], [ %.2757.ph, %dissect_radiotap_timestamp.exit ], [ %.2757.ph, %909 ], [ %.2757.ph, %911 ], [ %.2757.ph, %916 ], [ %.2757.ph, %667 ], [ %.2757.ph, %639 ], [ %.2757.ph, %604 ], [ %.2757.ph, %608 ], [ %.2757.ph, %601 ], [ %.2757.ph, %430 ], [ %.2757.ph, %426 ], [ %.2757.ph, %399 ], [ %.2757.ph, %396 ], [ %.2757.ph, %393 ], [ %.2757.ph, %390 ], [ %.2757.ph, %387 ], [ %.2757.ph, %384 ], [ %.2757.ph, %368 ], [ %.2757.ph, %356 ], [ 1, %dissect_radiotap_flags.exit ], [ %.2757.ph, %251 ], [ %.2757.ph, %295 ], [ %.2757.ph, %299 ], [ %.2757.ph, %347 ], [ %.2757.ph, %348 ], [ %.2757.ph, %376 ], [ %.2757.ph, %380 ], [ %.2757.ph, %407 ], [ %.2757.ph, %411 ], [ %.2757.ph, %417 ], [ %.2757.ph, %418 ], [ %.2757.ph, %422 ], [ %.2757.ph, %466 ], [ %.2757.ph, %472 ], [ %.2757.ph, %612 ], [ %.2757.ph, %615 ], [ %.2757.ph, %618 ], [ %.2757.ph, %1631 ], [ %.2757.ph, %1656 ], [ %.2757.ph, %638 ], [ %.2757.ph, %dissect_eht_user_info.exit.i ]
   br label %.outer, !llvm.loop !6
 
 .outer:                                           ; preds = %.preheader, %dissect_radiotap_rate.exit
-  %.0909.ph = phi i8 [ 0, %.preheader ], [ %.1910, %dissect_radiotap_rate.exit ]
-  %.0903.ph = phi ptr [ null, %.preheader ], [ %.2905, %dissect_radiotap_rate.exit ]
-  %.0897.ph = phi i32 [ 0, %.preheader ], [ %.2899, %dissect_radiotap_rate.exit ]
-  %.0892.ph = phi i32 [ 0, %.preheader ], [ %.2894, %dissect_radiotap_rate.exit ]
-  %.0771.ph = phi i32 [ 0, %.preheader ], [ %.1772, %dissect_radiotap_rate.exit ]
-  %.0755.ph = phi i32 [ 0, %.preheader ], [ %.1756, %dissect_radiotap_rate.exit ]
+  %.2911.ph = phi i8 [ 0, %.preheader ], [ %.3912, %dissect_radiotap_rate.exit ]
+  %.2905.ph = phi ptr [ null, %.preheader ], [ %.3906, %dissect_radiotap_rate.exit ]
+  %.2899.ph = phi i32 [ 0, %.preheader ], [ %.3900, %dissect_radiotap_rate.exit ]
+  %.2894.ph = phi i32 [ 0, %.preheader ], [ %.3895, %dissect_radiotap_rate.exit ]
+  %.1772.ph = phi i32 [ 0, %.preheader ], [ %.2773, %dissect_radiotap_rate.exit ]
+  %.2757.ph = phi i32 [ 0, %.preheader ], [ %.3, %dissect_radiotap_rate.exit ]
   br i1 %27, label %.outer.split, label %.outer.split.us
 
 .outer.split.us:                                  ; preds = %.outer, %1759
@@ -5200,22 +5200,22 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_eht_user_in
 
 1766:                                             ; preds = %.split.us, %138
   %.1749933 = phi ptr [ %.1749939, %138 ], [ %.1749.lcssa, %.split.us ]
-  %.2911 = phi i8 [ 0, %138 ], [ %.0909.ph, %.split.us ]
-  %.3906 = phi ptr [ null, %138 ], [ %.0903.ph, %.split.us ]
-  %.3900 = phi i32 [ 0, %138 ], [ %.0897.ph, %.split.us ]
-  %.3895 = phi i32 [ 0, %138 ], [ %.0892.ph, %.split.us ]
-  %.2773 = phi i32 [ 0, %138 ], [ %.0771.ph, %.split.us ]
-  %.2757 = phi i32 [ 0, %138 ], [ %.0755.ph, %.split.us ]
+  %.1910 = phi i8 [ 0, %138 ], [ %.2911.ph, %.split.us ]
+  %.1904 = phi ptr [ null, %138 ], [ %.2905.ph, %.split.us ]
+  %.1898 = phi i32 [ 0, %138 ], [ %.2899.ph, %.split.us ]
+  %.1893 = phi i32 [ 0, %138 ], [ %.2894.ph, %.split.us ]
+  %.0771 = phi i32 [ 0, %138 ], [ %.1772.ph, %.split.us ]
+  %.1756 = phi i32 [ 0, %138 ], [ %.2757.ph, %.split.us ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1749933, ptr noundef nonnull @.str.1247) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer.split.us, %.outer.split, %1766
-  %.3912 = phi i8 [ %.2911, %1766 ], [ %.0909.ph, %.outer.split ], [ %.0909.ph, %.outer.split.us ]
-  %.4907 = phi ptr [ %.3906, %1766 ], [ %.0903.ph, %.outer.split ], [ %.0903.ph, %.outer.split.us ]
-  %.4901 = phi i32 [ %.3900, %1766 ], [ %.0897.ph, %.outer.split ], [ %.0897.ph, %.outer.split.us ]
-  %.4896 = phi i32 [ %.3895, %1766 ], [ %.0892.ph, %.outer.split ], [ %.0892.ph, %.outer.split.us ]
-  %.3774 = phi i32 [ %.2773, %1766 ], [ %.0771.ph, %.outer.split ], [ %.0771.ph, %.outer.split.us ]
-  %.3 = phi i32 [ %.2757, %1766 ], [ %.0755.ph, %.outer.split ], [ %.0755.ph, %.outer.split.us ]
+  %.4913 = phi i8 [ %.1910, %1766 ], [ %.2911.ph, %.outer.split ], [ %.2911.ph, %.outer.split.us ]
+  %.4907 = phi ptr [ %.1904, %1766 ], [ %.2905.ph, %.outer.split ], [ %.2905.ph, %.outer.split.us ]
+  %.4901 = phi i32 [ %.1898, %1766 ], [ %.2899.ph, %.outer.split ], [ %.2899.ph, %.outer.split.us ]
+  %.4896 = phi i32 [ %.1893, %1766 ], [ %.2894.ph, %.outer.split ], [ %.2894.ph, %.outer.split.us ]
+  %.3774 = phi i32 [ %.0771, %1766 ], [ %.1772.ph, %.outer.split ], [ %.1772.ph, %.outer.split.us ]
+  %.4 = phi i32 [ %.1756, %1766 ], [ %.2757.ph, %.outer.split ], [ %.2757.ph, %.outer.split.us ]
   %.not849 = icmp eq i32 %.3774, 0
   br i1 %.not849, label %1769, label %1767
 
@@ -5224,11 +5224,11 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_eht_user_in
   br label %1838
 
 1769:                                             ; preds = %.loopexit, %50, %51
-  %.4913 = phi i8 [ %.3912, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
-  %.5908 = phi ptr [ %.4907, %.loopexit ], [ null, %51 ], [ null, %50 ]
-  %.5902 = phi i32 [ %.4901, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
-  %.5 = phi i32 [ %.4896, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
-  %.4 = phi i32 [ %.3, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
+  %.0909 = phi i8 [ %.4913, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
+  %.0903 = phi ptr [ %.4907, %.loopexit ], [ null, %51 ], [ null, %50 ]
+  %.0897 = phi i32 [ %.4901, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
+  %.0892 = phi i32 [ %.4896, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
+  %.0755 = phi i32 [ %.4, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
   %1770 = getelementptr inbounds i8, ptr %15, i64 28
   %1771 = load i16, ptr %1770, align 4
   %1772 = and i16 %1771, 4
@@ -5306,7 +5306,7 @@ thread-pre-split:                                 ; preds = %1769
   br label %.thread922
 
 .thread922:                                       ; preds = %.thread922.sink.split, %1773, %thread-pre-split
-  %.not853 = icmp eq i32 %.4, 0
+  %.not853 = icmp eq i32 %.0755, 0
   %1788 = getelementptr inbounds i8, ptr %15, i64 12
   %1789 = load i8, ptr %1788, align 4
   br i1 %.not853, label %1795, label %1790
@@ -5314,7 +5314,7 @@ thread-pre-split:                                 ; preds = %1769
 1790:                                             ; preds = %.thread922
   %1791 = or i8 %1789, 1
   store i8 %1791, ptr %1788, align 4
-  %1792 = lshr i8 %.4913, 1
+  %1792 = lshr i8 %.0909, 1
   %.lobit855 = and i8 %1792, 1
   %1793 = zext nneg i8 %.lobit855 to i32
   %1794 = getelementptr inbounds i8, ptr %15, i64 16
@@ -5331,14 +5331,14 @@ thread-pre-split:                                 ; preds = %1769
   %1799 = load i8, ptr %1798, align 4
   %1800 = and i8 %1799, 4
   %1801 = icmp eq i8 %1800, 0
-  %1802 = icmp ne i32 %.4, 0
+  %1802 = icmp ne i32 %.0755, 0
   %or.cond84 = select i1 %1801, i1 %1802, i1 false
   br i1 %or.cond84, label %1803, label %.thread920
 
 1803:                                             ; preds = %1797
   %1804 = or disjoint i8 %1799, 4
   store i8 %1804, ptr %1798, align 4
-  %.not852 = icmp sgt i8 %.4913, -1
+  %.not852 = icmp sgt i8 %.0909, -1
   %1805 = getelementptr inbounds i8, ptr %15, i64 20
   %1806 = load i8, ptr %1805, align 4
   br i1 %.not852, label %1809, label %1807
@@ -5355,7 +5355,7 @@ thread-pre-split:                                 ; preds = %1769
 
 .thread920:                                       ; preds = %1773, %1777, %1784, %1783, %1785, %1774, %1797, %1809, %1807, %1790, %1795, %thread-pre-split
   %1811 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %24) #9
-  %.not856 = icmp eq ptr %.5908, null
+  %.not856 = icmp eq ptr %.0903, null
   br i1 %.not856, label %proto_item_set_hidden.exit, label %1812
 
 1812:                                             ; preds = %.thread920
@@ -5372,17 +5372,17 @@ thread-pre-split:                                 ; preds = %1769
   %1819 = call i32 @tvb_captured_length(ptr noundef %1811) #9
   %1820 = sub i32 %1819, %1816
   %1821 = call i32 @crc32_802_tvb(ptr noundef %1811, i32 noundef %1820) #9
-  %1822 = icmp eq i32 %1821, %.5
+  %1822 = icmp eq i32 %1821, %.0892
   br i1 %1822, label %1823, label %1824
 
 1823:                                             ; preds = %1818
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.5908, ptr noundef nonnull @.str.1248) #9
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0903, ptr noundef nonnull @.str.1248) #9
   br label %proto_item_set_hidden.exit
 
 1824:                                             ; preds = %1818
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.5908, ptr noundef nonnull @.str.1249, i32 noundef %1821) #9
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0903, ptr noundef nonnull @.str.1249, i32 noundef %1821) #9
   %1825 = load i32, ptr @hf_radiotap_fcs_bad, align 4
-  %1826 = call ptr @proto_tree_add_boolean(ptr noundef %.0740, i32 noundef %1825, ptr noundef %0, i32 noundef %.5902, i32 noundef 4, i64 noundef 1) #9
+  %1826 = call ptr @proto_tree_add_boolean(ptr noundef %.0740, i32 noundef %1825, ptr noundef %0, i32 noundef %.0897, i32 noundef 4, i64 noundef 1) #9
   %.not.i883 = icmp eq ptr %1826, null
   br i1 %.not.i883, label %proto_item_set_hidden.exit, label %1827
 
@@ -5400,7 +5400,7 @@ thread-pre-split:                                 ; preds = %1769
   br label %proto_item_set_hidden.exit
 
 1834:                                             ; preds = %1812
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.5908, ptr noundef nonnull @.str.1250) #9
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0903, ptr noundef nonnull @.str.1250) #9
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %1830, %1827, %1824, %1834, %1823, %.thread920
@@ -5514,32 +5514,32 @@ define internal i32 @capture_radiotap(ptr noundef %0, i32 noundef %1, i32 nounde
   %37 = sub nuw nsw i32 8, %36
   %38 = trunc nuw nsw i32 %37 to i16
   %39 = select i1 %.not78, i16 0, i16 %38
-  %.164 = sub i16 %.063.lcssa, %39
-  %40 = icmp ult i16 %.164, 8
+  %.265 = sub i16 %.063.lcssa, %39
+  %40 = icmp ult i16 %.265, 8
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %35
   %42 = select i1 %.not78, i32 0, i32 %37
-  %.1 = add i32 %.060.lcssa, 8
-  %43 = add i32 %.1, %42
-  %44 = add i16 %.164, -8
+  %.2 = add i32 %.060.lcssa, 8
+  %43 = add i32 %.2, %42
+  %44 = add i16 %.265, -8
   br label %45
 
 45:                                               ; preds = %41, %._crit_edge
-  %.265 = phi i16 [ %44, %41 ], [ %.063.lcssa, %._crit_edge ]
-  %.2 = phi i32 [ %43, %41 ], [ %.060.lcssa, %._crit_edge ]
+  %.164 = phi i16 [ %44, %41 ], [ %.063.lcssa, %._crit_edge ]
+  %.1 = phi i32 [ %43, %41 ], [ %.060.lcssa, %._crit_edge ]
   %46 = and i32 %22, 2
   %.not79 = icmp eq i32 %46, 0
   br i1 %.not79, label %.critedge, label %47
 
 47:                                               ; preds = %45
-  %48 = icmp ne i16 %.265, 0
-  %or.cond85.not = icmp ult i32 %.2, %2
+  %48 = icmp ne i16 %.164, 0
+  %or.cond85.not = icmp ult i32 %.1, %2
   %or.cond89 = select i1 %48, i1 %or.cond85.not, i1 false
   br i1 %or.cond89, label %49, label %.loopexit
 
 49:                                               ; preds = %47
-  %50 = sext i32 %.2 to i64
+  %50 = sext i32 %.1 to i64
   %51 = getelementptr i8, ptr %0, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, 32
@@ -5552,8 +5552,8 @@ define internal i32 @capture_radiotap(ptr noundef %0, i32 noundef %1, i32 nounde
 .loopexit.sink.split:                             ; preds = %49, %.critedge
   %ieee80211_cap_handle.sink = phi ptr [ @ieee80211_cap_handle, %.critedge ], [ @ieee80211_datapad_cap_handle, %49 ]
   %55 = load ptr, ptr %ieee80211_cap_handle.sink, align 8
-  %56 = zext i16 %.265 to i32
-  %57 = add i32 %.2, %56
+  %56 = zext i16 %.164 to i32
+  %57 = add i32 %.1, %56
   %58 = tail call i32 @call_capture_dissector(ptr noundef %55, ptr noundef nonnull %0, i32 noundef %57, i32 noundef %2, ptr noundef %3, ptr noundef %4) #9
   br label %.loopexit
 

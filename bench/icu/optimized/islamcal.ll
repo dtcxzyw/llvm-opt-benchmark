@@ -231,8 +231,8 @@ do.cond:                                          ; preds = %do.body
   br i1 %cmp14, label %if.end24, label %do.body, !llvm.loop !4
 
 do.body15:                                        ; preds = %if.end, %do.cond21
-  %origin.1 = phi double [ %add, %do.cond21 ], [ %1, %if.end ]
-  %add = fadd double %origin.1, 8.640000e+07
+  %origin.2 = phi double [ %add, %do.cond21 ], [ %1, %if.end ]
+  %add = fadd double %origin.2, 8.640000e+07
   %call16 = call noundef double @_ZN6icu_7515IslamicCalendar7moonAgeEdR10UErrorCode(double noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %4 = load i32, ptr %status, align 4
   %cmp.i14 = icmp slt i32 %4, 1
@@ -243,8 +243,8 @@ do.cond21:                                        ; preds = %do.body15
   br i1 %cmp22, label %do.body15, label %if.end24, !llvm.loop !6
 
 if.end24:                                         ; preds = %do.cond, %do.cond21
-  %origin.2 = phi double [ %add, %do.cond21 ], [ %sub, %do.cond ]
-  %conv25 = fptosi double %origin.2 to i64
+  %origin.1 = phi double [ %add, %do.cond21 ], [ %sub, %do.cond ]
+  %conv25 = fptosi double %origin.1 to i64
   %conv26 = sitofp i64 %conv25 to double
   %sub27 = fadd double %conv26, 0x42C3562A0CD80000
   %conv28 = fptosi double %sub27 to i64
@@ -1425,9 +1425,9 @@ while.body44.preheader:                           ; preds = %if.then37
 while.body44:                                     ; preds = %while.body44.preheader, %while.body44
   %conv4266 = phi i64 [ %conv42, %while.body44 ], [ %conv4262, %while.body44.preheader ]
   %d.165 = phi i64 [ %sub46, %while.body44 ], [ %conv24, %while.body44.preheader ]
-  %m.064 = phi i32 [ %inc47, %while.body44 ], [ 0, %while.body44.preheader ]
+  %m.164 = phi i32 [ %inc47, %while.body44 ], [ 0, %while.body44.preheader ]
   %sub46 = sub nsw i64 %d.165, %conv4266
-  %inc47 = add nuw nsw i32 %m.064, 1
+  %inc47 = add nuw nsw i32 %m.164, 1
   %vtable48 = load ptr, ptr %this, align 8
   %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 312
   %8 = load ptr, ptr %vfn49, align 8

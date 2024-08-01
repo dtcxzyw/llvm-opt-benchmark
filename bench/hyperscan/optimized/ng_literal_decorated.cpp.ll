@@ -1114,7 +1114,7 @@ ehcleanup:                                        ; preds = %lpad19.loopexit, %l
   br label %ehcleanup71
 
 cleanup70:                                        ; preds = %if.then.i.i.i56, %invoke.cont.i, %invoke.cont
-  %retval.3 = phi i1 [ false, %invoke.cont ], [ %cmp.i33.not82, %invoke.cont.i ], [ %cmp.i33.not82, %if.then.i.i.i56 ]
+  %retval.1 = phi i1 [ false, %invoke.cont ], [ %cmp.i33.not82, %invoke.cont.i ], [ %cmp.i33.not82, %if.then.i.i.i56 ]
   %114 = load ptr, ptr %paths, align 8
   %_M_finish.i57 = getelementptr inbounds i8, ptr %paths, i64 8
   %115 = load ptr, ptr %_M_finish.i57, align 8
@@ -1155,8 +1155,8 @@ ehcleanup71:                                      ; preds = %lpad, %if.then.i.i.
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.end.i, %if.then.i.i.i67, %invoke.cont.i65, %if.end2, %if.end, %entry
-  %retval.4 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end2 ], [ %retval.3, %invoke.cont.i65 ], [ %retval.3, %if.then.i.i.i67 ], [ false, %if.end.i ]
-  ret i1 %retval.4
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end2 ], [ %retval.1, %invoke.cont.i65 ], [ %retval.1, %if.then.i.i.i67 ], [ false, %if.end.i ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN3ue29isAcyclicERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3

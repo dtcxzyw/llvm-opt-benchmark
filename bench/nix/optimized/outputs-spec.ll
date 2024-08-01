@@ -8670,10 +8670,10 @@ _ZNSt6vectorIN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 87:                                               ; preds = %83, %85
   %.pn = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ]
-  %.1 = phi i1 [ %.0, %85 ], [ true, %83 ]
+  %.3 = phi i1 [ %.0, %85 ], [ true, %83 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
-  br i1 %.1, label %88, label %.body
+  br i1 %.3, label %88, label %.body
 
 88:                                               ; preds = %.thread53, %.thread, %87
   %.pn.pn.pn52 = phi { ptr, i32 } [ %81, %.thread ], [ %.pn, %87 ], [ %82, %.thread53 ]

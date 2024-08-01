@@ -106,19 +106,19 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0119193 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.1120193 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %61 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4
   %63 = call i32 @llvm.smax.i32(i32 %62, i32 0)
-  %spec.select = add nuw nsw i32 %63, %.0119193
+  %spec.select = add nuw nsw i32 %63, %.1120193
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0119.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
-  %64 = icmp slt i32 %33, %.0119.lcssa
-  %65 = icmp slt i32 %29, %.0119.lcssa
+  %.1120.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
+  %64 = icmp slt i32 %33, %.1120.lcssa
+  %65 = icmp slt i32 %29, %.1120.lcssa
   %or.cond149 = select i1 %64, i1 true, i1 %65
   %66 = load ptr, ptr %0, align 8
   br i1 %or.cond149, label %67, label %74
@@ -160,7 +160,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
   br i1 %84, label %85, label %.thread164
 
 85:                                               ; preds = %83
-  call fastcc void @RefineBounds(ptr noundef nonnull %12, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %77, ptr noundef nonnull %82, i32 noundef %.0119.lcssa)
+  call fastcc void @RefineBounds(ptr noundef nonnull %12, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %77, ptr noundef nonnull %82, i32 noundef %.1120.lcssa)
   %86 = getelementptr inbounds i8, ptr %12, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = load i32, ptr %12, align 8

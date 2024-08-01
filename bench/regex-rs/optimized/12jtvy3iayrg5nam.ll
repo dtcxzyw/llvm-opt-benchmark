@@ -4329,10 +4329,10 @@ define { i8, i8 } @_ZN12regex_syntax3ast7Literal4byte17h76f184a6dafaf13eE(ptr no
   %10 = icmp ult i32 %9, 256
   %11 = trunc nuw i32 %9 to i8
   %12 = select i1 %or.cond, i1 %10, i1 false
-  %.sroa.4.1 = select i1 %12, i8 %11, i8 undef
-  %.sroa.0.1 = zext i1 %12 to i8
-  %13 = insertvalue { i8, i8 } poison, i8 %.sroa.0.1, 0
-  %14 = insertvalue { i8, i8 } %13, i8 %.sroa.4.1, 1
+  %.sroa.4.0 = select i1 %12, i8 %11, i8 undef
+  %.sroa.0.0 = zext i1 %12 to i8
+  %13 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
+  %14 = insertvalue { i8, i8 } %13, i8 %.sroa.4.0, 1
   ret { i8, i8 } %14
 }
 

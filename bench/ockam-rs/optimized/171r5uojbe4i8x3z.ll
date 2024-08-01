@@ -1222,8 +1222,8 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   unreachable
 
 "_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17hc443d3f8574976f0E.exit.i.i": ; preds = %.critedge.i.i, %119
-  %.sroa.14.0.i = phi i8 [ %.sroa.14.1.i, %.critedge.i.i ], [ %.sroa.718.i.sroa.0.0.copyload51.i, %119 ]
-  %.sroa.8.0.i = phi i64 [ %.sroa.8.1.i, %.critedge.i.i ], [ %116, %119 ]
+  %.sroa.14.1.i = phi i8 [ %.sroa.14.0.i, %.critedge.i.i ], [ %.sroa.718.i.sroa.0.0.copyload51.i, %119 ]
+  %.sroa.8.1.i = phi i64 [ %.sroa.8.0.i, %.critedge.i.i ], [ %116, %119 ]
   call void @"_ZN4core3ptr147drop_in_place$LT$tokio_tungstenite..compat..AllowStd$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$17h7fe7d2c6612c46f5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %15)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.349.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !71
@@ -1233,8 +1233,8 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   br label %159
 
 .critedge.i.i:                                    ; preds = %114, %104, %100
-  %.sroa.14.1.i = phi i8 [ %.sroa.436.0.copyload.i.i, %114 ], [ 0, %100 ], [ 1, %104 ]
-  %.sroa.8.1.i = phi i64 [ %111, %114 ], [ 8, %100 ], [ 8, %104 ]
+  %.sroa.14.0.i = phi i8 [ %.sroa.436.0.copyload.i.i, %114 ], [ 0, %100 ], [ 1, %104 ]
+  %.sroa.8.0.i = phi i64 [ %111, %114 ], [ 8, %100 ], [ 8, %104 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$http..request..Parts$GT$17h0ad957867fff8a18E.llvm.12663281897316000666"(ptr noalias noundef nonnull align 8 dereferenceable(224) %14)
           to label %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17hc443d3f8574976f0E.exit.i.i" unwind label %152, !noalias !79
 
@@ -1290,8 +1290,8 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   br i1 %158, label %165, label %164
 
 159:                                              ; preds = %155, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17hc443d3f8574976f0E.exit.i.i"
-  %.sroa.8.273.i = phi i64 [ %.sroa.8.0.i, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17hc443d3f8574976f0E.exit.i.i" ], [ %.sroa.455.0.copyload.i, %155 ]
-  %.sroa.14.271.i = phi i8 [ %.sroa.14.0.i, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17hc443d3f8574976f0E.exit.i.i" ], [ %.sroa.556.0.copyload.i, %155 ]
+  %.sroa.8.273.i = phi i64 [ %.sroa.8.1.i, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17hc443d3f8574976f0E.exit.i.i" ], [ %.sroa.455.0.copyload.i, %155 ]
+  %.sroa.14.271.i = phi i8 [ %.sroa.14.1.i, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17hc443d3f8574976f0E.exit.i.i" ], [ %.sroa.556.0.copyload.i, %155 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(127) %.sroa.78.sroa.8.i, ptr noundef nonnull align 1 dereferenceable(127) %.sroa.18.i, i64 127, i1 false), !noalias !71
   call void @llvm.lifetime.end.p0(i64 127, ptr nonnull %.sroa.18.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.20.i)
@@ -1432,12 +1432,12 @@ define hidden void @"_ZN114_$LT$tungstenite..handshake..client..ClientHandshake$
 27:                                               ; preds = %.body, %29
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %eh.lpad-body, %.body ]
   %.022 = phi i8 [ 1, %29 ], [ %.2.lpad-body, %.body ]
-  %.021 = phi i8 [ %.1, %29 ], [ %.2.lpad-body, %.body ]
-  %28 = trunc nuw i8 %.021 to i1
+  %.1 = phi i8 [ %.021, %29 ], [ %.2.lpad-body, %.body ]
+  %28 = trunc nuw i8 %.1 to i1
   br i1 %28, label %112, label %107
 
 29:                                               ; preds = %95, %21
-  %.1 = phi i8 [ 0, %95 ], [ 1, %21 ]
+  %.021 = phi i8 [ 0, %95 ], [ 1, %21 ]
   %30 = landingpad { ptr, i32 }
           cleanup
   br label %27
@@ -2530,7 +2530,7 @@ default.unreachable:                              ; preds = %29
   br label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.sink.split
 
 41:                                               ; preds = %34, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread53, %50
-  %.1 = phi i1 [ true, %34 ], [ false, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread53 ], [ false, %50 ]
+  %.0 = phi i1 [ true, %34 ], [ false, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread53 ], [ false, %50 ]
   %42 = landingpad { ptr, i32 }
           cleanup
   %43 = load i64, ptr %12, align 8, !range !85, !noundef !4
@@ -2628,7 +2628,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread: ; preds = %33, %_ZN
   unreachable
 
 69:                                               ; preds = %41
-  br i1 %.1, label %71, label %common.resume
+  br i1 %.0, label %71, label %common.resume
 
 70:                                               ; preds = %41
   invoke void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE.llvm.7653731377883981346"(ptr noalias noundef nonnull align 8 dereferenceable(136) %12) #29
@@ -2760,7 +2760,7 @@ default.unreachable:                              ; preds = %29
   br label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.sink.split
 
 41:                                               ; preds = %34, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread53, %50
-  %.1 = phi i1 [ true, %34 ], [ false, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread53 ], [ false, %50 ]
+  %.0 = phi i1 [ true, %34 ], [ false, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread53 ], [ false, %50 ]
   %42 = landingpad { ptr, i32 }
           cleanup
   %43 = load i64, ptr %12, align 8, !range !85, !noundef !4
@@ -2858,7 +2858,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread: ; preds = %33, %_ZN
   unreachable
 
 69:                                               ; preds = %41
-  br i1 %.1, label %71, label %common.resume
+  br i1 %.0, label %71, label %common.resume
 
 70:                                               ; preds = %41
   invoke void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE.llvm.7653731377883981346"(ptr noalias noundef nonnull align 8 dereferenceable(136) %12) #29
@@ -5781,8 +5781,8 @@ define hidden noundef zeroext i1 @"_ZN5alloc11collections5btree3map25BTreeMap$LT
   br i1 %trunc.i.i, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6614c149a42a3eceE.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6614c149a42a3eceE.exit": ; preds = %11, %.lr.ph.i.i, %6, %2
-  %.1.i = phi i1 [ false, %2 ], [ true, %6 ], [ %.not.i.not.i.i.not, %.lr.ph.i.i ], [ %.not.i.not.i.i.not, %11 ]
-  ret i1 %.1.i
+  %.0.i = phi i1 [ false, %2 ], [ true, %6 ], [ %.not.i.not.i.i.not, %.lr.ph.i.i ], [ %.not.i.not.i.i.not, %11 ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5836,8 +5836,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hdb7359894358faccE.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hdb7359894358faccE.exit": ; preds = %.lr.ph.i, %.loopexit, %2
-  %.1 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5891,8 +5891,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hb5934706af05f564E.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hb5934706af05f564E.exit": ; preds = %.lr.ph.i, %.loopexit, %2
-  %.1 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6483,8 +6483,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h2acc9a92b1e3c863E.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h2acc9a92b1e3c863E.exit": ; preds = %.lr.ph.i, %.loopexit, %2
-  %.1 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9435,16 +9435,16 @@ define hidden { i64, ptr } @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deseri
 
 ._crit_edge.i.i:                                  ; preds = %5, %9
   %.pn.i.i = phi { i64, ptr } [ %12, %9 ], [ zeroinitializer, %5 ]
-  %.sroa.0.0.i.i = extractvalue { i64, ptr } %.pn.i.i, 0
-  %.sroa.4.0.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
+  %.sroa.0.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 0
+  %.sroa.4.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1369
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit"
 
 "_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit": ; preds = %6, %._crit_edge.i.i
-  %.sroa.4.1.i.i = phi ptr [ %8, %6 ], [ %.sroa.4.0.i.i, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi i64 [ 1, %6 ], [ %.sroa.0.0.i.i, %._crit_edge.i.i ]
-  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1.i.i, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.4.1.i.i, 1
+  %.sroa.4.0.i.i = phi ptr [ %8, %6 ], [ %.sroa.4.1.i.i, %._crit_edge.i.i ]
+  %.sroa.0.0.i.i = phi i64 [ 1, %6 ], [ %.sroa.0.1.i.i, %._crit_edge.i.i ]
+  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
+  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.4.0.i.i, 1
   ret { i64, ptr } %16
 }
 

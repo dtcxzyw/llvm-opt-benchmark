@@ -185,8 +185,8 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
 
 29:                                               ; preds = %.lr.ph382, %29
   %indvars.iv418 = phi i64 [ %28, %.lr.ph382 ], [ %indvars.iv.next419, %29 ]
-  %.0164380 = phi i64 [ 0, %.lr.ph382 ], [ %35, %29 ]
-  %30 = mul i64 %.0164380, 10
+  %.1165380 = phi i64 [ 0, %.lr.ph382 ], [ %35, %29 ]
+  %30 = mul i64 %.1165380, 10
   %31 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %indvars.iv418
   %32 = load i8, ptr %31, align 1
   %33 = sext i8 %32 to i64
@@ -198,7 +198,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %37, label %29, label %.loopexit376, !llvm.loop !7
 
 .loopexit376:                                     ; preds = %29, %.critedge2
-  %.1165 = phi i64 [ 0, %.critedge2 ], [ %35, %29 ]
+  %.0164 = phi i64 [ 0, %.critedge2 ], [ %35, %29 ]
   %38 = sub nsw i32 %1, %.0159.lcssa
   %39 = icmp eq i32 %2, 46
   br i1 %39, label %40, label %._crit_edge.thread
@@ -214,7 +214,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit": ; preds = %40, %42
-  %.0323 = phi i32 [ %43, %42 ], [ %1, %40 ]
+  %.8 = phi i32 [ %43, %42 ], [ %1, %40 ]
   %45 = getelementptr inbounds i8, ptr %0, i64 400
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 -8
@@ -243,11 +243,11 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %65, label %66, label %.thread333
 
 66:                                               ; preds = %58, %54
-  %67 = icmp slt i32 %.0323, 2
+  %67 = icmp slt i32 %.8, 2
   br i1 %67, label %76, label %68
 
 68:                                               ; preds = %66
-  switch i32 %.0323, label %76 [
+  switch i32 %.8, label %76 [
     i32 2, label %69
     i32 3, label %71
   ]
@@ -313,7 +313,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %.not192, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit239", label %105
 
 105:                                              ; preds = %97, %89, %.thread331
-  %.0139 = phi i32 [ %88, %.thread331 ], [ %96, %89 ], [ %104, %97 ]
+  %.2 = phi i32 [ %88, %.thread331 ], [ %96, %89 ], [ %104, %97 ]
   %106 = getelementptr inbounds i8, ptr %0, i64 256
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr %107, align 8
@@ -323,15 +323,15 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br label %127
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit239": ; preds = %97
-  %111 = add nuw nsw i32 %.0323, 1
-  %112 = zext nneg i32 %.0323 to i64
+  %111 = add nuw nsw i32 %.8, 1
+  %112 = zext nneg i32 %.8 to i64
   %113 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %112
   store i8 73, ptr %113, align 1
-  %114 = add nuw nsw i32 %.0323, 2
+  %114 = add nuw nsw i32 %.8, 2
   %115 = zext nneg i32 %111 to i64
   %116 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %115
   store i8 78, ptr %116, align 1
-  %117 = add nuw nsw i32 %.0323, 3
+  %117 = add nuw nsw i32 %.8, 3
   %118 = zext nneg i32 %114 to i64
   %119 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %118
   store i8 70, ptr %119, align 1
@@ -352,31 +352,31 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br label %519
 
 127:                                              ; preds = %105, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit"
-  %.1 = phi i32 [ %.0139, %105 ], [ %52, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit" ]
+  %.1 = phi i32 [ %.2, %105 ], [ %52, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit" ]
   %128 = icmp eq i32 %.1, 48
   br i1 %128, label %.lr.ph385, label %.preheader374
 
 .preheader374:                                    ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241", %127
-  %.4327.lcssa = phi i32 [ %.0323, %127 ], [ %.5328, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241" ]
-  %.2.lcssa = phi i32 [ %.1, %127 ], [ %142, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241" ]
-  %129 = add i32 %.2.lcssa, -48
+  %.1324.lcssa = phi i32 [ %.8, %127 ], [ %.12, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241" ]
+  %.3.lcssa = phi i32 [ %.1, %127 ], [ %142, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241" ]
+  %129 = add i32 %.3.lcssa, -48
   %130 = icmp ult i32 %129, 10
   br i1 %130, label %.lr.ph391, label %._crit_edge.thread
 
 .lr.ph385:                                        ; preds = %127, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241"
-  %.4327384 = phi i32 [ %.5328, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241" ], [ %.0323, %127 ]
-  %131 = icmp slt i32 %.4327384, 1025
+  %.1324384 = phi i32 [ %.12, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241" ], [ %.8, %127 ]
+  %131 = icmp slt i32 %.1324384, 1025
   br i1 %131, label %132, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241"
 
 132:                                              ; preds = %.lr.ph385
-  %133 = add nsw i32 %.4327384, 1
-  %134 = sext i32 %.4327384 to i64
+  %133 = add nsw i32 %.1324384, 1
+  %134 = sext i32 %.1324384 to i64
   %135 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %134
   store i8 48, ptr %135, align 1
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit241": ; preds = %.lr.ph385, %132
-  %.5328 = phi i32 [ %133, %132 ], [ %.4327384, %.lr.ph385 ]
+  %.12 = phi i32 [ %133, %132 ], [ %.1324384, %.lr.ph385 ]
   %136 = load ptr, ptr %45, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8
@@ -388,24 +388,24 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %143, label %.lr.ph385, label %.preheader374, !llvm.loop !8
 
 .lr.ph391:                                        ; preds = %.preheader374, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242"
-  %.3390 = phi i32 [ %156, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242" ], [ %.2.lcssa, %.preheader374 ]
-  %.0156389 = phi i32 [ %spec.select, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242" ], [ %.4327.lcssa, %.preheader374 ]
-  %.6329388 = phi i32 [ %.7330, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242" ], [ %.4327.lcssa, %.preheader374 ]
-  %144 = icmp slt i32 %.6329388, 1025
+  %.4390 = phi i32 [ %156, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242" ], [ %.3.lcssa, %.preheader374 ]
+  %.0156389 = phi i32 [ %spec.select, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242" ], [ %.1324.lcssa, %.preheader374 ]
+  %.2325388 = phi i32 [ %.13, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242" ], [ %.1324.lcssa, %.preheader374 ]
+  %144 = icmp slt i32 %.2325388, 1025
   br i1 %144, label %145, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242"
 
 145:                                              ; preds = %.lr.ph391
-  %146 = trunc nuw i32 %.3390 to i8
-  %147 = add nsw i32 %.6329388, 1
-  %148 = sext i32 %.6329388 to i64
+  %146 = trunc nuw i32 %.4390 to i8
+  %147 = add nsw i32 %.2325388, 1
+  %148 = sext i32 %.2325388 to i64
   %149 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %148
   store i8 %146, ptr %149, align 1
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242": ; preds = %.lr.ph391, %145
-  %.7330 = phi i32 [ %147, %145 ], [ %.6329388, %.lr.ph391 ]
-  %.not195 = icmp eq i32 %.3390, 48
-  %spec.select = select i1 %.not195, i32 %.0156389, i32 %.7330
+  %.13 = phi i32 [ %147, %145 ], [ %.2325388, %.lr.ph391 ]
+  %.not195 = icmp eq i32 %.4390, 48
+  %spec.select = select i1 %.not195, i32 %.0156389, i32 %.13
   %150 = load ptr, ptr %45, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 -8
   %152 = load ptr, ptr %151, align 8
@@ -418,7 +418,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %158, label %.lr.ph391, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242"
-  %159 = icmp sgt i32 %spec.select, %.4327.lcssa
+  %159 = icmp sgt i32 %spec.select, %.1324.lcssa
   br i1 %159, label %160, label %._crit_edge.thread
 
 160:                                              ; preds = %._crit_edge
@@ -439,50 +439,50 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
 
 168:                                              ; preds = %.lr.ph397, %168
   %indvars.iv421 = phi i64 [ %167, %.lr.ph397 ], [ %indvars.iv.next422, %168 ]
-  %.2166395 = phi i64 [ %.1165, %.lr.ph397 ], [ %.3167, %168 ]
+  %.4168395 = phi i64 [ %.0164, %.lr.ph397 ], [ %.5169, %168 ]
   %169 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %indvars.iv421
   %170 = load i8, ptr %169, align 1
   %.not194 = icmp eq i8 %170, 46
   %171 = sext i8 %170 to i64
-  %172 = mul i64 %.2166395, 10
+  %172 = mul i64 %.4168395, 10
   %173 = add i64 %172, -48
   %174 = add i64 %173, %171
-  %.3167 = select i1 %.not194, i64 %.2166395, i64 %174
+  %.5169 = select i1 %.not194, i64 %.4168395, i64 %174
   %indvars.iv.next422 = add nsw i64 %indvars.iv421, 1
   %exitcond425.not = icmp eq i64 %indvars.iv.next422, %wide.trip.count424
   br i1 %exitcond425.not, label %.loopexit373, label %168, !llvm.loop !10
 
 .loopexit373:                                     ; preds = %168, %160
-  %.4168 = phi i64 [ %.1165, %160 ], [ %.3167, %168 ]
-  %175 = sub nsw i32 %.0323, %spec.select
+  %.3167 = phi i64 [ %.0164, %160 ], [ %.5169, %168 ]
+  %175 = sub nsw i32 %.8, %spec.select
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader374, %._crit_edge, %.loopexit373, %.loopexit376
-  %.8 = phi i32 [ %.7330, %.loopexit373 ], [ %.7330, %._crit_edge ], [ %1, %.loopexit376 ], [ %.4327.lcssa, %.preheader374 ]
+  %.0323 = phi i32 [ %.13, %.loopexit373 ], [ %.13, %._crit_edge ], [ %1, %.loopexit376 ], [ %.1324.lcssa, %.preheader374 ]
   %.0173 = phi i32 [ %163, %.loopexit373 ], [ %24, %._crit_edge ], [ %24, %.loopexit376 ], [ %24, %.preheader374 ]
-  %.1171 = phi i8 [ %spec.select196, %.loopexit373 ], [ %26, %._crit_edge ], [ %26, %.loopexit376 ], [ %26, %.preheader374 ]
-  %.5169 = phi i64 [ %.4168, %.loopexit373 ], [ %.1165, %._crit_edge ], [ %.1165, %.loopexit376 ], [ %.1165, %.preheader374 ]
+  %.0170 = phi i8 [ %spec.select196, %.loopexit373 ], [ %26, %._crit_edge ], [ %26, %.loopexit376 ], [ %26, %.preheader374 ]
+  %.2166 = phi i64 [ %.3167, %.loopexit373 ], [ %.0164, %._crit_edge ], [ %.0164, %.loopexit376 ], [ %.0164, %.preheader374 ]
   %.0162 = phi i32 [ %175, %.loopexit373 ], [ %38, %._crit_edge ], [ %38, %.loopexit376 ], [ %38, %.preheader374 ]
   %.0160 = phi i8 [ 1, %.loopexit373 ], [ 1, %._crit_edge ], [ 0, %.loopexit376 ], [ 1, %.preheader374 ]
-  %.4 = phi i32 [ %156, %.loopexit373 ], [ %156, %._crit_edge ], [ %2, %.loopexit376 ], [ %.2.lcssa, %.preheader374 ]
-  %176 = and i32 %.4, -33
+  %.0139 = phi i32 [ %156, %.loopexit373 ], [ %156, %._crit_edge ], [ %2, %.loopexit376 ], [ %.3.lcssa, %.preheader374 ]
+  %176 = and i32 %.0139, -33
   %or.cond6 = icmp eq i32 %176, 69
   br i1 %or.cond6, label %177, label %.thread333
 
 177:                                              ; preds = %._crit_edge.thread
-  %178 = icmp slt i32 %.8, 1025
+  %178 = icmp slt i32 %.0323, 1025
   br i1 %178, label %179, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243"
 
 179:                                              ; preds = %177
-  %180 = trunc nuw i32 %.4 to i8
-  %181 = add nsw i32 %.8, 1
-  %182 = sext i32 %.8 to i64
+  %180 = trunc nuw i32 %.0139 to i8
+  %181 = add nsw i32 %.0323, 1
+  %182 = sext i32 %.0323 to i64
   %183 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %182
   store i8 %180, ptr %183, align 1
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243": ; preds = %177, %179
-  %.9 = phi i32 [ %181, %179 ], [ %.8, %177 ]
+  %.14 = phi i32 [ %181, %179 ], [ %.0323, %177 ]
   %184 = getelementptr inbounds i8, ptr %0, i64 400
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 -8
@@ -499,19 +499,19 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
 192:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243"
   %193 = icmp eq i32 %191, 45
   %194 = zext i1 %193 to i8
-  %195 = icmp slt i32 %.9, 1025
+  %195 = icmp slt i32 %.14, 1025
   br i1 %195, label %196, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244"
 
 196:                                              ; preds = %192
   %197 = trunc i32 %191 to i8
-  %198 = add nsw i32 %.9, 1
-  %199 = sext i32 %.9 to i64
+  %198 = add nsw i32 %.14, 1
+  %199 = sext i32 %.14 to i64
   %200 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %199
   store i8 %197, ptr %200, align 1
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244": ; preds = %192, %196
-  %.10 = phi i32 [ %198, %196 ], [ %.9, %192 ]
+  %.15 = phi i32 [ %198, %196 ], [ %.14, %192 ]
   %201 = load ptr, ptr %184, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 -8
   %203 = load ptr, ptr %202, align 8
@@ -522,35 +522,35 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br label %208
 
 208:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244"
-  %.11 = phi i32 [ %.9, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243" ], [ %.10, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244" ]
-  %.0152 = phi i8 [ 0, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243" ], [ %194, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244" ]
-  %.5 = phi i32 [ %191, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243" ], [ %207, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244" ]
-  %209 = add i32 %.5, -48
+  %.4327 = phi i32 [ %.14, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243" ], [ %.15, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244" ]
+  %.1153 = phi i8 [ 0, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243" ], [ %194, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244" ]
+  %.6 = phi i32 [ %191, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243" ], [ %207, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244" ]
+  %209 = add i32 %.6, -48
   %or.cond12 = icmp ult i32 %209, 10
   br i1 %or.cond12, label %.lr.ph402, label %229
 
 .lr.ph402:                                        ; preds = %208, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245"
   %210 = phi i32 [ %227, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ %209, %208 ]
-  %.6401 = phi i32 [ %226, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ %.5, %208 ]
-  %.0143400 = phi i32 [ %.1144, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ 0, %208 ]
-  %.12399 = phi i32 [ %.13, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ %.11, %208 ]
-  %211 = icmp slt i32 %.0143400, 500
-  %212 = mul nsw i32 %.0143400, 10
+  %.7401 = phi i32 [ %226, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ %.6, %208 ]
+  %.1144400 = phi i32 [ %.2145, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ 0, %208 ]
+  %.5328399 = phi i32 [ %.16, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ], [ %.4327, %208 ]
+  %211 = icmp slt i32 %.1144400, 500
+  %212 = mul nsw i32 %.1144400, 10
   %213 = add nsw i32 %210, %212
-  %.1144 = select i1 %211, i32 %213, i32 %.0143400
-  %214 = icmp slt i32 %.12399, 1025
+  %.2145 = select i1 %211, i32 %213, i32 %.1144400
+  %214 = icmp slt i32 %.5328399, 1025
   br i1 %214, label %215, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245"
 
 215:                                              ; preds = %.lr.ph402
-  %216 = trunc nuw i32 %.6401 to i8
-  %217 = add nsw i32 %.12399, 1
-  %218 = sext i32 %.12399 to i64
+  %216 = trunc nuw i32 %.7401 to i8
+  %217 = add nsw i32 %.5328399, 1
+  %218 = sext i32 %.5328399 to i64
   %219 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %218
   store i8 %216, ptr %219, align 1
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245": ; preds = %.lr.ph402, %215
-  %.13 = phi i32 [ %217, %215 ], [ %.12399, %.lr.ph402 ]
+  %.16 = phi i32 [ %217, %215 ], [ %.5328399, %.lr.ph402 ]
   %220 = load ptr, ptr %184, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 -8
   %222 = load ptr, ptr %221, align 8
@@ -572,43 +572,43 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br label %.loopexit371
 
 .loopexit371:                                     ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245", %229
-  %.14 = phi i32 [ %.11, %229 ], [ %.13, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ]
-  %.2145 = phi i32 [ 0, %229 ], [ %.1144, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ]
-  %.7 = phi i32 [ %.5, %229 ], [ %226, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ]
-  %235 = trunc nuw i8 %.0152 to i1
+  %.3326 = phi i32 [ %.4327, %229 ], [ %.16, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ]
+  %.0143 = phi i32 [ 0, %229 ], [ %.2145, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ]
+  %.5 = phi i32 [ %.6, %229 ], [ %226, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245" ]
+  %235 = trunc nuw i8 %.1153 to i1
   br i1 %235, label %236, label %.thread333
 
 236:                                              ; preds = %.loopexit371
-  %237 = sub nsw i32 %.2145, %.0162
+  %237 = sub nsw i32 %.0143, %.0162
   br label %240
 
 .thread333:                                       ; preds = %76, %58, %._crit_edge.thread, %.loopexit371
   %.0162465 = phi i32 [ %.0162, %.loopexit371 ], [ %.0162, %._crit_edge.thread ], [ %38, %58 ], [ %38, %76 ]
-  %.5169464 = phi i64 [ %.5169, %.loopexit371 ], [ %.5169, %._crit_edge.thread ], [ %.1165, %58 ], [ %.1165, %76 ]
-  %.1171462 = phi i8 [ %.1171, %.loopexit371 ], [ %.1171, %._crit_edge.thread ], [ %26, %58 ], [ %26, %76 ]
+  %.2166464 = phi i64 [ %.2166, %.loopexit371 ], [ %.2166, %._crit_edge.thread ], [ %.0164, %58 ], [ %.0164, %76 ]
+  %.0170462 = phi i8 [ %.0170, %.loopexit371 ], [ %.0170, %._crit_edge.thread ], [ %26, %58 ], [ %26, %76 ]
   %.0173460 = phi i32 [ %.0173, %.loopexit371 ], [ %.0173, %._crit_edge.thread ], [ %24, %58 ], [ %24, %76 ]
-  %.7346 = phi i32 [ %.7, %.loopexit371 ], [ %.4, %._crit_edge.thread ], [ 35, %58 ], [ 35, %76 ]
-  %.2145344 = phi i32 [ %.2145, %.loopexit371 ], [ 0, %._crit_edge.thread ], [ 0, %58 ], [ 0, %76 ]
-  %.1153343 = phi i8 [ %.0152, %.loopexit371 ], [ 0, %._crit_edge.thread ], [ 0, %58 ], [ 0, %76 ]
+  %.5346 = phi i32 [ %.5, %.loopexit371 ], [ %.0139, %._crit_edge.thread ], [ 35, %58 ], [ 35, %76 ]
+  %.0143344 = phi i32 [ %.0143, %.loopexit371 ], [ 0, %._crit_edge.thread ], [ 0, %58 ], [ 0, %76 ]
+  %.0152343 = phi i8 [ %.1153, %.loopexit371 ], [ 0, %._crit_edge.thread ], [ 0, %58 ], [ 0, %76 ]
   %.1161342 = phi i8 [ 1, %.loopexit371 ], [ %.0160, %._crit_edge.thread ], [ 1, %58 ], [ 1, %76 ]
-  %.14340 = phi i32 [ %.14, %.loopexit371 ], [ %.8, %._crit_edge.thread ], [ %.0323, %58 ], [ %.0323, %76 ]
-  %238 = add nsw i32 %.2145344, %.0162465
+  %.3326340 = phi i32 [ %.3326, %.loopexit371 ], [ %.0323, %._crit_edge.thread ], [ %.8, %58 ], [ %.8, %76 ]
+  %238 = add nsw i32 %.0143344, %.0162465
   %239 = icmp slt i32 %238, 0
-  %spec.select197 = select i1 %239, i8 1, i8 %.1153343
+  %spec.select197 = select i1 %239, i8 1, i8 %.0152343
   %spec.select198 = tail call i32 @llvm.abs.i32(i32 %238, i1 true)
   br label %240
 
 240:                                              ; preds = %.thread333, %236
-  %.5169463 = phi i64 [ %.5169, %236 ], [ %.5169464, %.thread333 ]
-  %.1171461 = phi i8 [ %.1171, %236 ], [ %.1171462, %.thread333 ]
+  %.2166463 = phi i64 [ %.2166, %236 ], [ %.2166464, %.thread333 ]
+  %.0170461 = phi i8 [ %.0170, %236 ], [ %.0170462, %.thread333 ]
   %.0173459 = phi i32 [ %.0173, %236 ], [ %.0173460, %.thread333 ]
-  %.7345 = phi i32 [ %.7, %236 ], [ %.7346, %.thread333 ]
+  %.5345 = phi i32 [ %.5, %236 ], [ %.5346, %.thread333 ]
   %.1161341 = phi i8 [ 1, %236 ], [ %.1161342, %.thread333 ]
-  %.14339 = phi i32 [ %.14, %236 ], [ %.14340, %.thread333 ]
-  %.2154 = phi i8 [ %.0152, %236 ], [ %spec.select197, %.thread333 ]
+  %.3326339 = phi i32 [ %.3326, %236 ], [ %.3326340, %.thread333 ]
+  %.2154 = phi i8 [ %.1153, %236 ], [ %spec.select197, %.thread333 ]
   %.3146 = phi i32 [ %237, %236 ], [ %spec.select198, %.thread333 ]
   %241 = icmp slt i32 %.3146, 23
-  %242 = trunc nuw i8 %.1171461 to i1
+  %242 = trunc nuw i8 %.0170461 to i1
   %243 = select i1 %241, i1 %242, i1 false
   br i1 %243, label %244, label %.loopexit
 
@@ -618,21 +618,21 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
 
 .preheader:                                       ; preds = %244, %.preheader
   %.0142408 = phi double [ %248, %.preheader ], [ 1.000000e+01, %244 ]
-  %.4147407 = phi i32 [ %249, %.preheader ], [ %.3146, %244 ]
-  %.0149406 = phi double [ %.1150, %.preheader ], [ 1.000000e+00, %244 ]
-  %246 = and i32 %.4147407, 1
+  %.5148407 = phi i32 [ %249, %.preheader ], [ %.3146, %244 ]
+  %.1150406 = phi double [ %.2151, %.preheader ], [ 1.000000e+00, %244 ]
+  %246 = and i32 %.5148407, 1
   %.not193 = icmp eq i32 %246, 0
-  %247 = fmul double %.0149406, %.0142408
-  %.1150 = select i1 %.not193, double %.0149406, double %247
+  %247 = fmul double %.1150406, %.0142408
+  %.2151 = select i1 %.not193, double %.1150406, double %247
   %248 = fmul double %.0142408, %.0142408
-  %249 = lshr i32 %.4147407, 1
-  %.not366 = icmp ult i32 %.4147407, 2
+  %249 = lshr i32 %.5148407, 1
+  %.not366 = icmp ult i32 %.5148407, 2
   br i1 %.not366, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %244, %240
-  %.2151 = phi double [ 1.000000e+00, %244 ], [ 0.000000e+00, %240 ], [ %.1150, %.preheader ]
-  %.5148 = phi i32 [ %.3146, %244 ], [ %.3146, %240 ], [ 0, %.preheader ]
-  %250 = and i32 %.7345, -33
+  %.0149 = phi double [ 1.000000e+00, %244 ], [ 0.000000e+00, %240 ], [ %.2151, %.preheader ]
+  %.4147 = phi i32 [ %.3146, %244 ], [ %.3146, %240 ], [ 0, %.preheader ]
+  %250 = and i32 %.5345, -33
   switch i32 %250, label %418 [
     i32 76, label %251
     i32 72, label %321
@@ -719,34 +719,34 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 303:                                              ; preds = %280
-  %304 = icmp slt i32 %.14339, 1025
+  %304 = icmp slt i32 %.3326339, 1025
   br i1 %304, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246", label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246": ; preds = %303
-  %305 = trunc i32 %.7345 to i8
-  %306 = sext i32 %.14339 to i64
+  %305 = trunc i32 %.5345 to i8
+  %306 = sext i32 %.3326339 to i64
   %307 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %306
   store i8 %305, ptr %307, align 1
-  %.not369 = icmp eq i32 %.14339, 1024
+  %.not369 = icmp eq i32 %.3326339, 1024
   br i1 %.not369, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread", label %308
 
 308:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246"
-  %309 = add nsw i32 %.14339, 1
+  %309 = add nsw i32 %.3326339, 1
   %310 = trunc nuw i32 %288 to i8
-  %311 = add nsw i32 %.14339, 2
+  %311 = add nsw i32 %.3326339, 2
   %312 = sext i32 %309 to i64
   %313 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %312
   store i8 %310, ptr %313, align 1
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 314:                                              ; preds = %.thread347
-  %315 = icmp slt i32 %.14339, 1025
+  %315 = icmp slt i32 %.3326339, 1025
   br i1 %315, label %316, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 316:                                              ; preds = %314
-  %317 = trunc i32 %.7345 to i8
-  %318 = add nsw i32 %.14339, 1
-  %319 = sext i32 %.14339 to i64
+  %317 = trunc i32 %.5345 to i8
+  %318 = add nsw i32 %.3326339, 1
+  %319 = sext i32 %.3326339 to i64
   %320 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %319
   store i8 %317, ptr %320, align 1
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
@@ -831,34 +831,34 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 373:                                              ; preds = %350
-  %374 = icmp slt i32 %.14339, 1025
+  %374 = icmp slt i32 %.3326339, 1025
   br i1 %374, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249", label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249": ; preds = %373
-  %375 = trunc i32 %.7345 to i8
-  %376 = sext i32 %.14339 to i64
+  %375 = trunc i32 %.5345 to i8
+  %376 = sext i32 %.3326339 to i64
   %377 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %376
   store i8 %375, ptr %377, align 1
-  %.not368 = icmp eq i32 %.14339, 1024
+  %.not368 = icmp eq i32 %.3326339, 1024
   br i1 %.not368, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread", label %378
 
 378:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249"
-  %379 = add nsw i32 %.14339, 1
+  %379 = add nsw i32 %.3326339, 1
   %380 = trunc nuw i32 %358 to i8
-  %381 = add nsw i32 %.14339, 2
+  %381 = add nsw i32 %.3326339, 2
   %382 = sext i32 %379 to i64
   %383 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %382
   store i8 %380, ptr %383, align 1
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 384:                                              ; preds = %.thread351
-  %385 = icmp slt i32 %.14339, 1025
+  %385 = icmp slt i32 %.3326339, 1025
   br i1 %385, label %386, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 386:                                              ; preds = %384
-  %387 = trunc i32 %.7345 to i8
-  %388 = add nsw i32 %.14339, 1
-  %389 = sext i32 %.14339 to i64
+  %387 = trunc i32 %.5345 to i8
+  %388 = add nsw i32 %.3326339, 1
+  %389 = sext i32 %.3326339 to i64
   %390 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %389
   store i8 %387, ptr %390, align 1
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
@@ -904,13 +904,13 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br label %.thread358
 
 .thread358:                                       ; preds = %391, %395, %407, %.thread449, %404
-  %412 = icmp slt i32 %.14339, 1025
+  %412 = icmp slt i32 %.3326339, 1025
   br i1 %412, label %413, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 413:                                              ; preds = %.thread358
-  %414 = trunc i32 %.7345 to i8
-  %415 = add nsw i32 %.14339, 1
-  %416 = sext i32 %.14339 to i64
+  %414 = trunc i32 %.5345 to i8
+  %415 = add nsw i32 %.3326339, 1
+  %416 = sext i32 %.3326339 to i64
   %417 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %416
   store i8 %414, ptr %417, align 1
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
@@ -927,10 +927,10 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247": ; preds = %.thread351, %.thread347, %413, %386, %378, %316, %308, %360, %418, %290
-  %.22 = phi i32 [ %.14339, %290 ], [ %.14339, %360 ], [ %.14339, %418 ], [ %311, %308 ], [ %318, %316 ], [ %381, %378 ], [ %388, %386 ], [ %415, %413 ], [ %.14339, %.thread347 ], [ %.14339, %.thread351 ]
+  %.6329 = phi i32 [ %.3326339, %290 ], [ %.3326339, %360 ], [ %.3326339, %418 ], [ %311, %308 ], [ %318, %316 ], [ %381, %378 ], [ %388, %386 ], [ %415, %413 ], [ %.3326339, %.thread347 ], [ %.3326339, %.thread351 ]
   %.0141 = phi i1 [ false, %290 ], [ false, %360 ], [ false, %418 ], [ true, %308 ], [ true, %316 ], [ false, %378 ], [ false, %386 ], [ false, %413 ], [ false, %.thread347 ], [ false, %.thread351 ]
   %.0140 = phi i1 [ false, %290 ], [ false, %360 ], [ false, %418 ], [ false, %308 ], [ false, %316 ], [ true, %378 ], [ true, %386 ], [ false, %413 ], [ false, %.thread347 ], [ false, %.thread351 ]
-  %426 = icmp sgt i32 %.22, 1024
+  %426 = icmp sgt i32 %.6329, 1024
   br i1 %426, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread", label %432
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread": ; preds = %373, %303, %.thread358, %384, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249", %314, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
@@ -947,35 +947,35 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
 432:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread", %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247"
   %.0140364 = phi i1 [ %.0140365, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread" ], [ %.0140, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" ]
   %.0141362 = phi i1 [ %.0141363, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread" ], [ %.0141, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" ]
-  %.23 = phi i32 [ 1024, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread" ], [ %.22, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" ]
-  %433 = sext i32 %.23 to i64
+  %.7330 = phi i32 [ 1024, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread" ], [ %.6329, %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247" ]
+  %433 = sext i32 %.7330 to i64
   %434 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %433
   store i8 0, ptr %434, align 1
   br i1 %243, label %435, label %448
 
 435:                                              ; preds = %432
-  %436 = fcmp oeq double %.2151, 0.000000e+00
+  %436 = fcmp oeq double %.0149, 0.000000e+00
   br i1 %436, label %437, label %440
 
 437:                                              ; preds = %435
-  %438 = uitofp i64 %.5169463 to double
+  %438 = uitofp i64 %.2166463 to double
   %439 = getelementptr inbounds i8, ptr %3, i64 32
   store double %438, ptr %439, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
 440:                                              ; preds = %435
   %441 = trunc nuw i8 %.2154 to i1
-  %442 = uitofp i64 %.5169463 to double
+  %442 = uitofp i64 %.2166463 to double
   %443 = getelementptr inbounds i8, ptr %3, i64 32
   br i1 %441, label %444, label %446
 
 444:                                              ; preds = %440
-  %445 = fdiv double %442, %.2151
+  %445 = fdiv double %442, %.0149
   store double %445, ptr %443, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
 446:                                              ; preds = %440
-  %447 = fmul double %.2151, %442
+  %447 = fmul double %.0149, %442
   store double %447, ptr %443, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
@@ -1123,7 +1123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 507:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %508 = trunc nuw i8 %.2154 to i1
   %.not200 = xor i1 %508, true
-  %509 = add nsw i32 %.5148, %.0173459
+  %509 = add nsw i32 %.4147, %.0173459
   %510 = icmp sgt i32 %509, 300
   %or.cond = select i1 %.not200, i1 %510, i1 false
   br i1 %or.cond, label %511, label %512
@@ -1602,7 +1602,7 @@ switch.early.test640:                             ; preds = %81
   %.0567 = phi i32 [ 0, %.critedge27.preheader ], [ %.2569, %.critedge27.backedge ]
   %.5553 = phi i32 [ %87, %.critedge27.preheader ], [ %130, %.critedge27.backedge ]
   %.2533 = phi i32 [ 2, %.critedge27.preheader ], [ %.3534, %.critedge27.backedge ]
-  %.4 = phi i32 [ %.0530.ph, %.critedge27.preheader ], [ %.6, %.critedge27.backedge ]
+  %.4 = phi i32 [ %.0530.ph, %.critedge27.preheader ], [ %.5, %.critedge27.backedge ]
   %89 = icmp slt i32 %.2533, 1024
   %90 = icmp sgt i64 %.0573, -1
   %or.cond15 = select i1 %89, i1 %90, i1 false
@@ -1678,7 +1678,7 @@ switch.early.test640:                             ; preds = %81
   %.1574 = phi i64 [ %115, %112 ], [ -1, %124 ], [ -1, %125 ], [ -1, %116 ]
   %.2569 = phi i32 [ %.1568, %112 ], [ %.0567, %124 ], [ %.0567, %125 ], [ %.0567, %116 ]
   %.3534 = phi i32 [ %93, %112 ], [ %.2533, %124 ], [ %.2533, %125 ], [ %.2533, %116 ]
-  %.6 = phi i32 [ %.4, %112 ], [ 1, %124 ], [ 1, %125 ], [ 1, %116 ]
+  %.5 = phi i32 [ %.4, %112 ], [ 1, %124 ], [ 1, %125 ], [ 1, %116 ]
   %127 = load ptr, ptr %0, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 24
   %129 = load ptr, ptr %128, align 8
@@ -1735,7 +1735,7 @@ switch.early.test643:                             ; preds = %126
   %.2575652676 = phi i64 [ %.1574, %141 ], [ 0, %.thread ]
   %.6554653674 = phi i32 [ %130, %141 ], [ %87, %.thread ]
   %.4535655673 = phi i32 [ %.3534, %141 ], [ 2, %.thread ]
-  %.7659672 = phi i32 [ %.6, %141 ], [ %.0530.ph, %.thread ]
+  %.7659672 = phi i32 [ %.5, %141 ], [ %.0530.ph, %.thread ]
   %143 = trunc nuw i32 %.6554653674 to i8
   %144 = add nsw i32 %.4535655673, 1
   %145 = sext i32 %.4535655673 to i64
@@ -1745,7 +1745,7 @@ switch.early.test643:                             ; preds = %126
 
 147:                                              ; preds = %.thread663, %141
   %.2575652675 = phi i64 [ %.2575652676, %.thread663 ], [ %.1574, %141 ]
-  %.7659671 = phi i32 [ %.7659672, %.thread663 ], [ %.6, %141 ]
+  %.7659671 = phi i32 [ %.7659672, %.thread663 ], [ %.5, %141 ]
   %.5536 = phi i32 [ %144, %.thread663 ], [ %.3534, %141 ]
   %148 = load ptr, ptr %0, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 24
@@ -1819,7 +1819,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %191, label %.thread694, label %.thread718
 
 .thread694:                                       ; preds = %.thread, %190
-  %.7658687703 = phi i32 [ %.6, %190 ], [ %.0530.ph, %.thread ]
+  %.7658687703 = phi i32 [ %.5, %190 ], [ %.0530.ph, %.thread ]
   %.4535656688702 = phi i32 [ %.3534, %190 ], [ 2, %.thread ]
   %.6554654690701 = phi i32 [ %130, %190 ], [ %87, %.thread ]
   %.2575651693700 = phi i64 [ %.1574, %190 ], [ 0, %.thread ]
@@ -1834,7 +1834,7 @@ switch.early.test643:                             ; preds = %126
   %.2575651692 = phi i64 [ %.1574, %132 ], [ 0, %.thread ]
   %.6554654691 = phi i32 [ %130, %132 ], [ %87, %.thread ]
   %.4535656689 = phi i32 [ %.3534, %132 ], [ 2, %.thread ]
-  %.7658686 = phi i32 [ %.6, %132 ], [ %.0530.ph, %.thread ]
+  %.7658686 = phi i32 [ %.5, %132 ], [ %.0530.ph, %.thread ]
   %197 = phi i32 [ %133, %132 ], [ %140, %.thread ]
   %or.cond37 = icmp eq i32 %197, 83
   br i1 %or.cond37, label %198, label %.thread705
@@ -1863,8 +1863,8 @@ switch.early.test643:                             ; preds = %126
   br label %.thread705.thread
 
 .thread705.thread:                                ; preds = %207, %209
-  %.11542.ph.ph = phi i32 [ %211, %209 ], [ %.4535656689, %207 ]
-  %214 = sext i32 %.11542.ph.ph to i64
+  %.9540.ph.ph = phi i32 [ %211, %209 ], [ %.4535656689, %207 ]
+  %214 = sext i32 %.9540.ph.ph to i64
   %215 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %214
   store i8 0, ptr %215, align 1
   br label %246
@@ -1880,18 +1880,18 @@ switch.early.test643:                             ; preds = %126
   br label %266
 
 .thread718:                                       ; preds = %.thread694, %190
-  %.7657.ph = phi i32 [ %.6, %190 ], [ %.7658687703, %.thread694 ]
+  %.7657.ph = phi i32 [ %.5, %190 ], [ %.7658687703, %.thread694 ]
   %.2575650.ph = phi i64 [ %.1574, %190 ], [ %.2575651693700, %.thread694 ]
-  %.11542.ph717 = phi i32 [ %.3534, %190 ], [ %193, %.thread694 ]
-  %221 = sext i32 %.11542.ph717 to i64
+  %.9540.ph717 = phi i32 [ %.3534, %190 ], [ %193, %.thread694 ]
+  %221 = sext i32 %.9540.ph717 to i64
   %222 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %221
   store i8 0, ptr %222, align 1
   br label %226
 
 223:                                              ; preds = %179, %181, %186
   %.0600 = phi i1 [ false, %186 ], [ true, %181 ], [ true, %179 ]
-  %.11542 = phi i32 [ %.7538, %186 ], [ %183, %181 ], [ %.7538, %179 ]
-  %224 = sext i32 %.11542 to i64
+  %.9540 = phi i32 [ %.7538, %186 ], [ %183, %181 ], [ %.7538, %179 ]
+  %224 = sext i32 %.9540 to i64
   %225 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %224
   store i8 0, ptr %225, align 1
   br i1 %or.cond31, label %226, label %245
@@ -2022,7 +2022,7 @@ switch.early.test643:                             ; preds = %126
   %.3576 = phi i64 [ %.4577, %317 ], [ 0, %288 ]
   %.7555 = phi i32 [ %321, %317 ], [ %294, %288 ]
   %.12543 = phi i32 [ %.13544, %317 ], [ 2, %288 ]
-  %.8 = phi i32 [ %.10, %317 ], [ %.0530.ph, %288 ]
+  %.8 = phi i32 [ %.9, %317 ], [ %.0530.ph, %288 ]
   %296 = icmp slt i32 %.12543, 1024
   %297 = icmp sgt i64 %.3576, -1
   %or.cond45 = select i1 %296, i1 %297, i1 false
@@ -2064,7 +2064,7 @@ switch.early.test643:                             ; preds = %126
 317:                                              ; preds = %307, %316, %315, %298
   %.4577 = phi i64 [ %306, %298 ], [ -1, %315 ], [ -1, %316 ], [ -1, %307 ]
   %.13544 = phi i32 [ %300, %298 ], [ %.12543, %315 ], [ %.12543, %316 ], [ %.12543, %307 ]
-  %.10 = phi i32 [ %.8, %298 ], [ 1, %315 ], [ 1, %316 ], [ 1, %307 ]
+  %.9 = phi i32 [ %.8, %298 ], [ 1, %315 ], [ 1, %316 ], [ 1, %307 ]
   %318 = load ptr, ptr %0, align 8
   %319 = getelementptr inbounds i8, ptr %318, i64 24
   %320 = load ptr, ptr %319, align 8
@@ -2226,8 +2226,8 @@ switch.early.test643:                             ; preds = %126
   br label %.thread784.thread
 
 .thread784.thread:                                ; preds = %399, %401
-  %.21.ph.ph = phi i32 [ %403, %401 ], [ %.14545745769, %399 ]
-  %406 = sext i32 %.21.ph.ph to i64
+  %.19.ph.ph = phi i32 [ %403, %401 ], [ %.14545745769, %399 ]
+  %406 = sext i32 %.19.ph.ph to i64
   %407 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %406
   store i8 0, ptr %407, align 1
   br label %439
@@ -2246,16 +2246,16 @@ switch.early.test643:                             ; preds = %126
 
 .thread795:                                       ; preds = %.thread774, %382
   %.5578739.ph = phi i64 [ %.4577, %382 ], [ %.5578740773779, %.thread774 ]
-  %.21.ph794 = phi i32 [ %.13544, %382 ], [ %385, %.thread774 ]
-  %414 = sext i32 %.21.ph794 to i64
+  %.19.ph794 = phi i32 [ %.13544, %382 ], [ %385, %.thread774 ]
+  %414 = sext i32 %.19.ph794 to i64
   %415 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %414
   store i8 0, ptr %415, align 1
   br label %419
 
 416:                                              ; preds = %371, %373, %378
   %.0596 = phi i1 [ false, %378 ], [ true, %373 ], [ true, %371 ]
-  %.21 = phi i32 [ %.17, %378 ], [ %375, %373 ], [ %.17, %371 ]
-  %417 = sext i32 %.21 to i64
+  %.19 = phi i32 [ %.17, %378 ], [ %375, %373 ], [ %.17, %371 ]
+  %417 = sext i32 %.19 to i64
   %418 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %417
   store i8 0, ptr %418, align 1
   br i1 %or.cond51, label %419, label %438
@@ -2403,16 +2403,16 @@ switch.early.test643:                             ; preds = %126
   br i1 %or.cond59, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge, %505
-  %.10558 = phi i32 [ %509, %505 ], [ %.9557.lcssa, %._crit_edge ]
-  %.24 = phi i32 [ %.25, %505 ], [ %.22.lcssa, %._crit_edge ]
+  %.11559 = phi i32 [ %509, %505 ], [ %.9557.lcssa, %._crit_edge ]
+  %.25 = phi i32 [ %.26, %505 ], [ %.22.lcssa, %._crit_edge ]
   %.13 = phi i32 [ %.14, %505 ], [ %.11.lcssa, %._crit_edge ]
-  %491 = icmp slt i32 %.24, 1024
+  %491 = icmp slt i32 %.25, 1024
   br i1 %491, label %492, label %497
 
 492:                                              ; preds = %.preheader
-  %493 = trunc i32 %.10558 to i8
-  %494 = add nsw i32 %.24, 1
-  %495 = sext i32 %.24 to i64
+  %493 = trunc i32 %.11559 to i8
+  %494 = add nsw i32 %.25, 1
+  %495 = sext i32 %.25 to i64
   %496 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %495
   store i8 %493, ptr %496, align 1
   br label %505
@@ -2432,7 +2432,7 @@ switch.early.test643:                             ; preds = %126
   br label %505
 
 505:                                              ; preds = %497, %498, %492
-  %.25 = phi i32 [ %494, %492 ], [ %.24, %497 ], [ %.24, %498 ]
+  %.26 = phi i32 [ %494, %492 ], [ %.25, %497 ], [ %.25, %498 ]
   %.14 = phi i32 [ %.13, %492 ], [ 1, %497 ], [ 1, %498 ]
   %506 = load ptr, ptr %0, align 8
   %507 = getelementptr inbounds i8, ptr %506, i64 24
@@ -2443,9 +2443,9 @@ switch.early.test643:                             ; preds = %126
   br i1 %511, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %505, %._crit_edge
-  %.11559 = phi i32 [ %.9557.lcssa, %._crit_edge ], [ %509, %505 ]
-  %.26 = phi i32 [ %.22.lcssa, %._crit_edge ], [ %.25, %505 ]
-  switch i32 %.11559, label %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit" [
+  %.10558 = phi i32 [ %.9557.lcssa, %._crit_edge ], [ %509, %505 ]
+  %.24 = phi i32 [ %.22.lcssa, %._crit_edge ], [ %.26, %505 ]
+  switch i32 %.10558, label %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit" [
     i32 104, label %512
     i32 102, label %512
     i32 101, label %512
@@ -2457,7 +2457,7 @@ switch.early.test643:                             ; preds = %126
 
 512:                                              ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
   %513 = load ptr, ptr %11, align 8
-  %514 = tail call noundef i32 @_ZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %513, i32 noundef %.26, i32 noundef %.11559, ptr noundef %1)
+  %514 = tail call noundef i32 @_ZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %513, i32 noundef %.24, i32 noundef %.10558, ptr noundef %1)
   br label %.loopexit817
 
 "_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit": ; preds = %.loopexit
@@ -2474,24 +2474,24 @@ switch.early.test643:                             ; preds = %126
   br label %522
 
 522:                                              ; preds = %515, %"_ZZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenEENK3$_0clEi.exit"
-  %523 = and i32 %.11559, -33
+  %523 = and i32 %.10558, -33
   %or.cond61 = icmp eq i32 %523, 85
   br i1 %or.cond61, label %524, label %574
 
 524:                                              ; preds = %522
-  %525 = icmp slt i32 %.26, 1024
+  %525 = icmp slt i32 %.24, 1024
   br i1 %525, label %526, label %531
 
 526:                                              ; preds = %524
-  %527 = trunc nuw i32 %.11559 to i8
-  %528 = add nsw i32 %.26, 1
-  %529 = sext i32 %.26 to i64
+  %527 = trunc nuw i32 %.10558 to i8
+  %528 = add nsw i32 %.24, 1
+  %529 = sext i32 %.24 to i64
   %530 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %529
   store i8 %527, ptr %530, align 1
   br label %531
 
 531:                                              ; preds = %526, %524
-  %.27 = phi i32 [ %528, %526 ], [ %.26, %524 ]
+  %.27 = phi i32 [ %528, %526 ], [ %.24, %524 ]
   %532 = load ptr, ptr %0, align 8
   %533 = getelementptr inbounds i8, ptr %532, i64 24
   %534 = load ptr, ptr %533, align 8
@@ -2566,13 +2566,13 @@ switch.early.test643:                             ; preds = %126
   ]
 
 575:                                              ; preds = %574
-  %576 = icmp slt i32 %.26, 1024
+  %576 = icmp slt i32 %.24, 1024
   br i1 %576, label %577, label %602
 
 577:                                              ; preds = %575
-  %578 = trunc nuw i32 %.11559 to i8
-  %579 = add nsw i32 %.26, 1
-  %580 = sext i32 %.26 to i64
+  %578 = trunc nuw i32 %.10558 to i8
+  %579 = add nsw i32 %.24, 1
+  %580 = sext i32 %.24 to i64
   %581 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %580
   store i8 %578, ptr %581, align 1
   br label %602
@@ -2589,13 +2589,13 @@ switch.early.test643:                             ; preds = %126
   br i1 %590, label %591, label %598
 
 591:                                              ; preds = %582
-  %592 = icmp slt i32 %.26, 1024
+  %592 = icmp slt i32 %.24, 1024
   br i1 %592, label %593, label %602
 
 593:                                              ; preds = %591
-  %594 = trunc nuw i32 %.11559 to i8
-  %595 = add nsw i32 %.26, 1
-  %596 = sext i32 %.26 to i64
+  %594 = trunc nuw i32 %.10558 to i8
+  %595 = add nsw i32 %.24, 1
+  %596 = sext i32 %.24 to i64
   %597 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %596
   store i8 %594, ptr %597, align 1
   br label %602
@@ -2610,8 +2610,8 @@ switch.early.test643:                             ; preds = %126
 602:                                              ; preds = %591, %593, %575, %577, %563, %565, %598, %570
   %.1594 = phi i1 [ %or.cond63, %570 ], [ false, %598 ], [ %or.cond63, %565 ], [ %or.cond63, %563 ], [ true, %577 ], [ true, %575 ], [ false, %593 ], [ false, %591 ]
   %.0592 = phi i1 [ false, %570 ], [ false, %598 ], [ true, %565 ], [ true, %563 ], [ false, %577 ], [ false, %575 ], [ true, %593 ], [ true, %591 ]
-  %.33 = phi i32 [ %.29, %570 ], [ %.26, %598 ], [ %567, %565 ], [ %.29, %563 ], [ %579, %577 ], [ %.26, %575 ], [ %595, %593 ], [ %.26, %591 ]
-  %603 = sext i32 %.33 to i64
+  %.31 = phi i32 [ %.29, %570 ], [ %.24, %598 ], [ %567, %565 ], [ %.29, %563 ], [ %579, %577 ], [ %.24, %575 ], [ %595, %593 ], [ %.24, %591 ]
+  %603 = sext i32 %.31 to i64
   %604 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %603
   store i8 0, ptr %604, align 1
   %605 = icmp ugt i64 %.6579.lcssa, 4294967295
@@ -2905,8 +2905,8 @@ switch.early.test643:                             ; preds = %126
 765:                                              ; preds = %754, %738, %724, %726, %759, %731
   %.1585 = phi i8 [ %.0584, %731 ], [ 0, %759 ], [ %.0584, %726 ], [ %.0584, %724 ], [ 1, %738 ], [ 0, %754 ]
   %.0583 = phi i1 [ false, %731 ], [ false, %759 ], [ true, %726 ], [ true, %724 ], [ false, %738 ], [ true, %754 ]
-  %.42 = phi i32 [ %.38, %731 ], [ %.35, %759 ], [ %728, %726 ], [ %.38, %724 ], [ %740, %738 ], [ %756, %754 ]
-  %766 = sext i32 %.42 to i64
+  %.40 = phi i32 [ %.38, %731 ], [ %.35, %759 ], [ %728, %726 ], [ %.38, %724 ], [ %740, %738 ], [ %756, %754 ]
+  %766 = sext i32 %.40 to i64
   %767 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %766
   store i8 0, ptr %767, align 1
   %768 = icmp sgt i32 %.35, 0
@@ -3501,7 +3501,7 @@ switch.early.test:                                ; preds = %1046, %.loopexit816
   br label %.loopexit816
 
 .preheader815:                                    ; preds = %1056, %1086
-  %.16564 = phi i32 [ %1089, %1086 ], [ 0, %1056 ]
+  %.17565 = phi i32 [ %1089, %1086 ], [ 0, %1056 ]
   %.0525 = phi i32 [ %1087, %1086 ], [ 0, %1056 ]
   %1068 = load ptr, ptr %0, align 8
   %1069 = getelementptr inbounds i8, ptr %1068, i64 24
@@ -3540,7 +3540,7 @@ switch.early.test:                                ; preds = %1046, %.loopexit816
 1086:                                             ; preds = %.preheader815, %1075, %1079
   %.0526 = phi i32 [ %1076, %1075 ], [ %1080, %1079 ], [ %1072, %.preheader815 ]
   %1087 = add nuw nsw i32 %.0525, 1
-  %1088 = shl nsw i32 %.16564, 4
+  %1088 = shl nsw i32 %.17565, 4
   %1089 = add nuw nsw i32 %.0526, %1088
   br label %.preheader815, !llvm.loop !21
 
@@ -3560,7 +3560,7 @@ switch.early.test:                                ; preds = %1046, %.loopexit816
 
 1099:                                             ; preds = %1097, %1105
   %.0895 = phi i32 [ 1, %1097 ], [ %1107, %1105 ]
-  %.17565894 = phi i32 [ %1098, %1097 ], [ %1109, %1105 ]
+  %.18566894 = phi i32 [ %1098, %1097 ], [ %1109, %1105 ]
   %1100 = load ptr, ptr %0, align 8
   %1101 = getelementptr inbounds i8, ptr %1100, i64 24
   %1102 = load ptr, ptr %1101, align 8
@@ -3572,7 +3572,7 @@ switch.early.test:                                ; preds = %1046, %.loopexit816
 1105:                                             ; preds = %1099
   %1106 = add nsw i32 %1103, -48
   %1107 = add nuw nsw i32 %.0895, 1
-  %1108 = shl nsw i32 %.17565894, 3
+  %1108 = shl nsw i32 %.18566894, 3
   %1109 = or disjoint i32 %1106, %1108
   %exitcond.not = icmp eq i32 %1107, 3
   br i1 %exitcond.not, label %.loopexit816, label %1099, !llvm.loop !22
@@ -3595,8 +3595,8 @@ switch.early.test:                                ; preds = %1046, %.loopexit816
   br label %.loopexit816
 
 .loopexit816:                                     ; preds = %1105, %1056, %1056, %1056, %1056, %switch.early.test, %1061, %1062, %1063, %1064, %1065, %1066, %1067, %1114, %1090, %1081, %1110, %1051
-  %.18566 = phi i32 [ 92, %1051 ], [ 92, %1114 ], [ %.17565894, %1110 ], [ %.16564, %1090 ], [ %.16564, %1081 ], [ 11, %1067 ], [ 9, %1066 ], [ 13, %1065 ], [ 10, %1064 ], [ 12, %1063 ], [ 8, %1062 ], [ 7, %1061 ], [ %.15563896, %switch.early.test ], [ %1060, %1056 ], [ %1060, %1056 ], [ %1060, %1056 ], [ %1060, %1056 ], [ %1109, %1105 ]
-  %1121 = trunc i32 %.18566 to i8
+  %.16564 = phi i32 [ 92, %1051 ], [ 92, %1114 ], [ %.18566894, %1110 ], [ %.17565, %1090 ], [ %.17565, %1081 ], [ 11, %1067 ], [ 9, %1066 ], [ 13, %1065 ], [ 10, %1064 ], [ 12, %1063 ], [ 8, %1062 ], [ 7, %1061 ], [ %.15563896, %switch.early.test ], [ %1060, %1056 ], [ %1060, %1056 ], [ %1060, %1056 ], [ %1060, %1056 ], [ %1109, %1105 ]
+  %1121 = trunc i32 %.16564 to i8
   %1122 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %indvars.iv
   store i8 %1121, ptr %1122, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5005,14 +5005,14 @@ _ZN7glslang13TInputScanner4peekEv.exit.i54:       ; preds = %240
 
 _ZN7glslang13TInputScanner3getEv.exit55:          ; preds = %_ZN7glslang13TInputScanner4peekEv.exit.i54, %259, %_ZN7glslang13TInputScanner4peekEv.exit.i44
   %.sink = phi ptr [ %180, %_ZN7glslang13TInputScanner4peekEv.exit.i44 ], [ %227, %259 ], [ %227, %_ZN7glslang13TInputScanner4peekEv.exit.i54 ]
-  %.014.in = phi i8 [ %202, %_ZN7glslang13TInputScanner4peekEv.exit.i44 ], [ %249, %259 ], [ %249, %_ZN7glslang13TInputScanner4peekEv.exit.i54 ]
+  %.1.in = phi i8 [ %202, %_ZN7glslang13TInputScanner4peekEv.exit.i44 ], [ %249, %259 ], [ %249, %_ZN7glslang13TInputScanner4peekEv.exit.i54 ]
   tail call void @_ZN7glslang13TInputScanner7advanceEv(ptr noundef nonnull align 8 dereferenceable(90) %.sink)
-  %273 = icmp eq i8 %.014.in, 92
+  %273 = icmp eq i8 %.1.in, 92
   br i1 %273, label %50, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZN7glslang13TInputScanner3getEv.exit55, %_ZN7glslang13TInputScanner3getEv.exit
-  %.1.in = phi i8 [ %25, %_ZN7glslang13TInputScanner3getEv.exit ], [ %.014.in, %_ZN7glslang13TInputScanner3getEv.exit55 ]
-  switch i8 %.1.in, label %330 [
+  %.014.in = phi i8 [ %25, %_ZN7glslang13TInputScanner3getEv.exit ], [ %.1.in, %_ZN7glslang13TInputScanner3getEv.exit55 ]
+  switch i8 %.014.in, label %330 [
     i8 13, label %274
     i8 10, label %_ZN7glslang13TInputScanner3getEv.exit74
   ]
@@ -5119,11 +5119,11 @@ _ZN7glslang13TInputScanner4peekEv.exit.i73:       ; preds = %.preheader184
   br label %_ZN7glslang13TInputScanner3getEv.exit74
 
 330:                                              ; preds = %.loopexit
-  %.1 = zext i8 %.1.in to i32
+  %.014 = zext i8 %.014.in to i32
   br label %_ZN7glslang13TInputScanner3getEv.exit74
 
 _ZN7glslang13TInputScanner3getEv.exit74:          ; preds = %19, %_ZN7glslang13TInputScanner3getEv.exit45, %_ZN7glslang13TInputScanner4peekEv.exit24, %126, %89, %196, %243, %291, %301, %280, %185, %232, %8, %78, %329, %.thread84, %_ZN7glslang13TInputScanner4peekEv.exit64, %.loopexit, %330
-  %.0 = phi i32 [ 10, %.loopexit ], [ 10, %_ZN7glslang13TInputScanner4peekEv.exit64 ], [ 10, %.thread84 ], [ 10, %329 ], [ %.1, %330 ], [ 92, %78 ], [ -1, %8 ], [ -1, %232 ], [ -1, %185 ], [ 10, %280 ], [ 10, %301 ], [ 10, %291 ], [ -1, %243 ], [ -1, %196 ], [ 92, %89 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit45 ], [ 92, %_ZN7glslang13TInputScanner4peekEv.exit24 ], [ 92, %126 ], [ -1, %19 ]
+  %.0 = phi i32 [ 10, %.loopexit ], [ 10, %_ZN7glslang13TInputScanner4peekEv.exit64 ], [ 10, %.thread84 ], [ 10, %329 ], [ %.014, %330 ], [ 92, %78 ], [ -1, %8 ], [ -1, %232 ], [ -1, %185 ], [ 10, %280 ], [ 10, %301 ], [ 10, %291 ], [ -1, %243 ], [ -1, %196 ], [ 92, %89 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit45 ], [ 92, %_ZN7glslang13TInputScanner4peekEv.exit24 ], [ 92, %126 ], [ -1, %19 ]
   ret i32 %.0
 }
 

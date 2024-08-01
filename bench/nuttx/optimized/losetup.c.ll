@@ -163,13 +163,13 @@ define internal i32 @loop_open(ptr nocapture noundef readonly %0) #0 {
   br label %12
 
 12:                                               ; preds = %6, %10
-  %.0 = phi i32 [ 0, %10 ], [ -24, %6 ]
+  %.1 = phi i32 [ 0, %10 ], [ -24, %6 ]
   %13 = tail call i32 @nxmutex_unlock(ptr noundef nonnull %3) #6
   br label %14
 
 14:                                               ; preds = %12, %1
-  %.1 = phi i32 [ %.0, %12 ], [ %4, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %12 ], [ %4, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -192,13 +192,13 @@ define internal i32 @loop_close(ptr nocapture noundef readonly %0) #0 {
   br label %12
 
 12:                                               ; preds = %6, %10
-  %.0 = phi i32 [ 0, %10 ], [ -5, %6 ]
+  %.1 = phi i32 [ 0, %10 ], [ -5, %6 ]
   %13 = tail call i32 @nxmutex_unlock(ptr noundef nonnull %3) #6
   br label %14
 
 14:                                               ; preds = %12, %1
-  %.1 = phi i32 [ %.0, %12 ], [ %4, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %12 ], [ %4, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

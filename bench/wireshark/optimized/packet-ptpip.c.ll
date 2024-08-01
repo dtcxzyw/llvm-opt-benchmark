@@ -742,7 +742,7 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nocap
   br label %dissect_ptpIP_operation_request.exit
 
 dissect_ptpIP_operation_request.exit:             ; preds = %105, %106, %108, %112, %114
-  %.0100 = phi i32 [ 18, %105 ], [ 18, %114 ], [ 18, %112 ], [ 22, %108 ], [ 18, %106 ]
+  %.1 = phi i32 [ 18, %105 ], [ 18, %114 ], [ 18, %112 ], [ 22, %108 ], [ 18, %106 ]
   %116 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 14) #5
   %117 = load i32, ptr @hf_ptp_transactionID, align 4
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %117, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef -2147483648) #5
@@ -842,8 +842,8 @@ dissect_ptpIP_operation_response.exit:            ; preds = %128, %132
   br label %dissect_ptpIP_start_data.exit
 
 dissect_ptpIP_start_data.exit:                    ; preds = %157, %147, %11, %165, %159, %139, %dissect_ptpIP_operation_response.exit, %dissect_ptpIP_operation_request.exit, %80, %74, %47, %24
-  %.1 = phi i32 [ 8, %11 ], [ 12, %165 ], [ 12, %159 ], [ 14, %139 ], [ 14, %dissect_ptpIP_operation_response.exit ], [ %.0100, %dissect_ptpIP_operation_request.exit ], [ 8, %80 ], [ 12, %74 ], [ %73, %47 ], [ %46, %24 ], [ 20, %147 ], [ 20, %157 ]
-  %171 = and i32 %.1, 65535
+  %.0100 = phi i32 [ 8, %11 ], [ 12, %165 ], [ 12, %159 ], [ 14, %139 ], [ 14, %dissect_ptpIP_operation_response.exit ], [ %.1, %dissect_ptpIP_operation_request.exit ], [ 8, %80 ], [ 12, %74 ], [ %73, %47 ], [ %46, %24 ], [ 20, %147 ], [ 20, %157 ]
+  %171 = and i32 %.0100, 65535
   br label %172
 
 172:                                              ; preds = %4, %dissect_ptpIP_start_data.exit

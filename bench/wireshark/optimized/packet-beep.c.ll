@@ -994,19 +994,19 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   br label %.thread328
 
 .thread328:                                       ; preds = %.thread328.sink.split, %307, %318, %.thread326
-  %.4271 = phi i32 [ %317, %318 ], [ %.3270, %.thread326 ], [ %.3270, %307 ], [ %317, %.thread328.sink.split ]
-  %322 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4271) #5
+  %.5 = phi i32 [ %317, %318 ], [ %.3270, %.thread326 ], [ %.3270, %307 ], [ %317, %.thread328.sink.split ]
+  %322 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5) #5
   %323 = icmp sgt i32 %322, 0
   br i1 %323, label %324, label %327
 
 324:                                              ; preds = %.thread328
-  %325 = tail call fastcc i32 @dissect_beep_tree(ptr noundef %0, i32 noundef %.4271, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %326 = add i32 %325, %.4271
+  %325 = tail call fastcc i32 @dissect_beep_tree(ptr noundef %0, i32 noundef %.5, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %326 = add i32 %325, %.5
   br label %327
 
 327:                                              ; preds = %.thread328, %324, %275
-  %.5 = phi i32 [ %326, %324 ], [ %.4271, %.thread328 ], [ %.3270, %275 ]
-  %328 = sub i32 %.5, %1
+  %.4271 = phi i32 [ %326, %324 ], [ %.5, %.thread328 ], [ %.3270, %275 ]
+  %328 = sub i32 %.4271, %1
   br label %329
 
 329:                                              ; preds = %198, %252, %264, %267, %.thread321, %231, %122, %123, %126, %97, %99, %102, %327

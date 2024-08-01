@@ -231,13 +231,13 @@ if.then7:                                         ; preds = %if.end, %if.end5
   br i1 %cmp9, label %err.sink.split, label %if.end12
 
 if.end12:                                         ; preds = %if.end5, %if.then7
-  %sk.0 = phi ptr [ %call8, %if.then7 ], [ %.pr, %if.end5 ]
+  %sk.1 = phi ptr [ %call8, %if.then7 ], [ %.pr, %if.end5 ]
   %call13 = tail call ptr @X509_ATTRIBUTE_dup(ptr noundef %attr) #3
   %cmp14 = icmp eq ptr %call13, null
   br i1 %cmp14, label %err, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %call19 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %sk.0, ptr noundef nonnull %call13) #3
+  %call19 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %sk.1, ptr noundef nonnull %call13) #3
   %tobool.not = icmp eq i32 %call19, 0
   br i1 %tobool.not, label %err.sink.split, label %if.end21
 
@@ -247,13 +247,13 @@ if.end21:                                         ; preds = %if.end16
   br i1 %cmp22, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end21
-  store ptr %sk.0, ptr %x, align 8
+  store ptr %sk.1, ptr %x, align 8
   br label %return
 
 err.sink.split:                                   ; preds = %if.end16, %if.then7
   %.sink = phi i32 [ 99, %if.then7 ], [ 109, %if.end16 ]
   %new_attr.0.ph = phi ptr [ null, %if.then7 ], [ %call13, %if.end16 ]
-  %sk.1.ph = phi ptr [ null, %if.then7 ], [ %sk.0, %if.end16 ]
+  %sk.0.ph = phi ptr [ null, %if.then7 ], [ %sk.1, %if.end16 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.X509at_add1_attr) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524303, ptr noundef null) #3
@@ -261,18 +261,18 @@ err.sink.split:                                   ; preds = %if.end16, %if.then7
 
 err:                                              ; preds = %err.sink.split, %if.end12
   %new_attr.0 = phi ptr [ null, %if.end12 ], [ %new_attr.0.ph, %err.sink.split ]
-  %sk.1 = phi ptr [ %sk.0, %if.end12 ], [ %sk.1.ph, %err.sink.split ]
+  %sk.0 = phi ptr [ %sk.1, %if.end12 ], [ %sk.0.ph, %err.sink.split ]
   tail call void @X509_ATTRIBUTE_free(ptr noundef %new_attr.0) #3
   %5 = load ptr, ptr %x, align 8
   %cmp25 = icmp eq ptr %5, null
   br i1 %cmp25, label %if.then26, label %return
 
 if.then26:                                        ; preds = %err
-  tail call void @OPENSSL_sk_free(ptr noundef %sk.1) #3
+  tail call void @OPENSSL_sk_free(ptr noundef %sk.0) #3
   br label %return
 
 return:                                           ; preds = %err, %if.then26, %if.end21, %if.then23, %if.then4, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ %sk.0, %if.then23 ], [ %sk.0, %if.end21 ], [ null, %if.then26 ], [ null, %err ]
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ %sk.1, %if.then23 ], [ %sk.1, %if.end21 ], [ null, %if.then26 ], [ null, %err ]
   ret ptr %retval.0
 }
 
@@ -777,7 +777,7 @@ if.else31:                                        ; preds = %if.end22
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then26, %if.else31
-  %stmp.1 = phi ptr [ %stmp.025, %if.then26 ], [ null, %if.else31 ]
+  %stmp.2 = phi ptr [ %stmp.025, %if.then26 ], [ null, %if.else31 ]
   %set = getelementptr inbounds i8, ptr %attr, i64 8
   %2 = load ptr, ptr %set, align 8
   %call35 = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %call19) #3
@@ -788,12 +788,12 @@ err:                                              ; preds = %if.end32, %if.then2
   %.sink27 = phi i32 [ 300, %lor.lhs.false ], [ 300, %if.then8 ], [ 315, %if.end18 ], [ 320, %if.then26 ], [ 328, %if.end32 ]
   %.sink = phi i32 [ 524301, %lor.lhs.false ], [ 524301, %if.then8 ], [ 524301, %if.end18 ], [ 524301, %if.then26 ], [ 524303, %if.end32 ]
   %ttmp.0 = phi ptr [ null, %lor.lhs.false ], [ null, %if.then8 ], [ null, %if.end18 ], [ %call19, %if.then26 ], [ %call19, %if.end32 ]
-  %stmp.2 = phi ptr [ %call9, %lor.lhs.false ], [ %call9, %if.then8 ], [ %stmp.025, %if.end18 ], [ %stmp.025, %if.then26 ], [ %stmp.1, %if.end32 ]
+  %stmp.1 = phi ptr [ %call9, %lor.lhs.false ], [ %call9, %if.then8 ], [ %stmp.025, %if.end18 ], [ %stmp.025, %if.then26 ], [ %stmp.2, %if.end32 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink27, ptr noundef nonnull @__func__.X509_ATTRIBUTE_set1_data) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #3
   tail call void @ASN1_TYPE_free(ptr noundef %ttmp.0) #3
-  tail call void @ASN1_STRING_free(ptr noundef %stmp.2) #3
+  tail call void @ASN1_STRING_free(ptr noundef %stmp.1) #3
   br label %return
 
 return:                                           ; preds = %if.end32, %err, %if.then17, %if.then5, %if.then

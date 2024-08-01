@@ -768,9 +768,9 @@ define internal i32 @dissect_iax2(ptr noundef %0, ptr noundef %1, ptr noundef %2
 29:                                               ; preds = %22, %24, %26
   %.060 = phi i32 [ 4, %24 ], [ 2, %26 ], [ 2, %22 ]
   %.058 = phi i16 [ %25, %24 ], [ %28, %26 ], [ 0, %22 ]
-  %.1 = phi i32 [ 2, %24 ], [ %., %26 ], [ 3, %22 ]
+  %.0 = phi i32 [ 2, %24 ], [ %., %26 ], [ 3, %22 ]
   %30 = load i32, ptr @hf_iax2_packet_type, align 4
-  %31 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef %.060, i32 noundef %.1) #13
+  %31 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef %.060, i32 noundef %.0) #13
   %32 = load i32, ptr @ett_iax2_full_mini_subtree, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #13
   %.not62 = icmp eq i16 %.058, 0
@@ -783,10 +783,10 @@ define internal i32 @dissect_iax2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %38
 
 38:                                               ; preds = %34, %29
-  store i32 %.1, ptr @ii_arr, align 16
+  store i32 %.0, ptr @ii_arr, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) getelementptr inbounds (i8, ptr @ii_arr, i64 4), i8 0, i64 6, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) getelementptr inbounds (i8, ptr @ii_arr, i64 12), i8 0, i64 44, i1 false)
-  switch i32 %.1, label %default.unreachable97 [
+  switch i32 %.0, label %default.unreachable97 [
     i32 1, label %39
     i32 0, label %526
     i32 2, label %570
@@ -2065,14 +2065,14 @@ call_list_find.exit.i:                            ; preds = %.lr.ph.i.i, %686, %
   br i1 %690, label %645, label %.loopexit.i, !llvm.loop !8
 
 691:                                              ; preds = %call_list_find.exit77.i, %.lr.ph23.i
-  %.222.i = phi ptr [ null, %.lr.ph23.i ], [ %.3.i, %call_list_find.exit77.i ]
-  %.15221.i = phi i32 [ %639, %.lr.ph23.i ], [ %715, %call_list_find.exit77.i ]
-  %.15520.i = phi i32 [ 0, %.lr.ph23.i ], [ %729, %call_list_find.exit77.i ]
-  %692 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.15221.i) #13
-  %693 = add i32 %.15221.i, 2
+  %.322.i = phi ptr [ null, %.lr.ph23.i ], [ %.4.i, %call_list_find.exit77.i ]
+  %.25321.i = phi i32 [ %639, %.lr.ph23.i ], [ %715, %call_list_find.exit77.i ]
+  %.25620.i = phi i32 [ 0, %.lr.ph23.i ], [ %729, %call_list_find.exit77.i ]
+  %692 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.25321.i) #13
+  %693 = add i32 %.25321.i, 2
   %694 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %693) #13
   %695 = tail call i32 @tvb_captured_length(ptr noundef %0) #13
-  %reass.sub88 = sub i32 %695, %.15221.i
+  %reass.sub88 = sub i32 %695, %.25321.i
   %696 = add i32 %reass.sub88, -4
   %697 = zext i16 %694 to i32
   %698 = icmp ult i32 %696, %697
@@ -2080,7 +2080,7 @@ call_list_find.exit.i:                            ; preds = %.lr.ph.i.i, %686, %
 
 699:                                              ; preds = %691
   %700 = tail call i32 @tvb_captured_length(ptr noundef %0) #13
-  %reass.sub89 = sub i32 %700, %.15221.i
+  %reass.sub89 = sub i32 %700, %.25321.i
   %701 = add i32 %reass.sub89, 65532
   %.pre.i77 = and i32 %701, 65535
   br label %702
@@ -2090,27 +2090,27 @@ call_list_find.exit.i:                            ; preds = %.lr.ph.i.i, %686, %
   br i1 %.not.i73, label %._crit_edge.i70.i, label %703
 
 ._crit_edge.i70.i:                                ; preds = %702
-  %.pre30.i.i = add i32 %.15221.i, 4
+  %.pre30.i.i = add i32 %.25321.i, 4
   br label %dissect_trunkcall_nots.exit.i
 
 703:                                              ; preds = %702
   %704 = add nuw nsw i32 %.pre.i69.pre-phi.i, 6
   %705 = load i32, ptr @ett_iax2_trunk_call, align 4
   %706 = zext i16 %692 to i32
-  %707 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %33, ptr noundef %0, i32 noundef %.15221.i, i32 noundef %704, i32 noundef %705, ptr noundef null, ptr noundef nonnull @.str.522, i32 noundef %706) #13
+  %707 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %33, ptr noundef %0, i32 noundef %.25321.i, i32 noundef %704, i32 noundef %705, ptr noundef null, ptr noundef nonnull @.str.522, i32 noundef %706) #13
   %708 = load i32, ptr @hf_iax2_trunk_call_scallno, align 4
-  %709 = tail call ptr @proto_tree_add_item(ptr noundef %707, i32 noundef %708, ptr noundef %0, i32 noundef %.15221.i, i32 noundef 2, i32 noundef 0) #13
+  %709 = tail call ptr @proto_tree_add_item(ptr noundef %707, i32 noundef %708, ptr noundef %0, i32 noundef %.25321.i, i32 noundef 2, i32 noundef 0) #13
   %710 = load i32, ptr @hf_iax2_trunk_call_len, align 4
   %711 = tail call ptr @proto_tree_add_item(ptr noundef %707, i32 noundef %710, ptr noundef %0, i32 noundef %693, i32 noundef 2, i32 noundef 0) #13
   %712 = load i32, ptr @hf_iax2_trunk_call_data, align 4
-  %713 = add i32 %.15221.i, 4
+  %713 = add i32 %.25321.i, 4
   %714 = tail call ptr @proto_tree_add_item(ptr noundef %707, i32 noundef %712, ptr noundef %0, i32 noundef %713, i32 noundef %.pre.i69.pre-phi.i, i32 noundef 0) #13
   br label %dissect_trunkcall_nots.exit.i
 
 dissect_trunkcall_nots.exit.i:                    ; preds = %703, %._crit_edge.i70.i
   %.pre-phi31.i.i = phi i32 [ %.pre30.i.i, %._crit_edge.i70.i ], [ %713, %703 ]
   %715 = add i32 %.pre-phi31.i.i, %.pre.i69.pre-phi.i
-  %.not5.i71.i = icmp eq ptr %.222.i, null
+  %.not5.i71.i = icmp eq ptr %.322.i, null
   br i1 %.not5.i71.i, label %.thread10.i, label %.lr.ph.i72.i
 
 .thread10.i:                                      ; preds = %dissect_trunkcall_nots.exit.i
@@ -2120,7 +2120,7 @@ dissect_trunkcall_nots.exit.i:                    ; preds = %703, %._crit_edge.i
   br label %call_list_find.exit77.i
 
 .lr.ph.i72.i:                                     ; preds = %dissect_trunkcall_nots.exit.i, %720
-  %.046.i73.i = phi ptr [ %722, %720 ], [ %.222.i, %dissect_trunkcall_nots.exit.i ]
+  %.046.i73.i = phi ptr [ %722, %720 ], [ %.322.i, %dissect_trunkcall_nots.exit.i ]
   %718 = load i16, ptr %.046.i73.i, align 8
   %719 = icmp eq i16 %718, %692
   br i1 %719, label %call_list_find.exit77.i, label %720
@@ -2138,7 +2138,7 @@ dissect_trunkcall_nots.exit.i:                    ; preds = %703, %._crit_edge.i
   br label %.preheader.i79.i
 
 .preheader.i79.i:                                 ; preds = %.preheader.i79.i, %.preheader.i79.preheader.i
-  %.0.i80.i = phi ptr [ %726, %.preheader.i79.i ], [ %.222.i, %.preheader.i79.preheader.i ]
+  %.0.i80.i = phi ptr [ %726, %.preheader.i79.i ], [ %.322.i, %.preheader.i79.preheader.i ]
   %725 = getelementptr inbounds i8, ptr %.0.i80.i, i64 8
   %726 = load ptr, ptr %725, align 8
   %.not14.i81.i = icmp eq ptr %726, null
@@ -2150,21 +2150,21 @@ dissect_trunkcall_nots.exit.i:                    ; preds = %703, %._crit_edge.i
   br label %call_list_find.exit77.i
 
 call_list_find.exit77.i:                          ; preds = %.lr.ph.i72.i, %727, %.thread10.i
-  %.3.i = phi ptr [ %.222.i, %727 ], [ %717, %.thread10.i ], [ %.222.i, %.lr.ph.i72.i ]
-  %729 = add i32 %.15520.i, 1
+  %.4.i = phi ptr [ %.322.i, %727 ], [ %717, %.thread10.i ], [ %.322.i, %.lr.ph.i72.i ]
+  %729 = add i32 %.25620.i, 1
   %730 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %715) #13
   %731 = icmp sgt i32 %730, 3
   br i1 %731, label %691, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %call_list_find.exit.i, %call_list_find.exit77.i
-  %.256.i = phi i32 [ %729, %call_list_find.exit77.i ], [ %688, %call_list_find.exit.i ]
-  %.253.i = phi i32 [ %715, %call_list_find.exit77.i ], [ %674, %call_list_find.exit.i ]
-  %.4.i = phi ptr [ %.3.i, %call_list_find.exit77.i ], [ %.1.i76, %call_list_find.exit.i ]
+  %.155.i = phi i32 [ %729, %call_list_find.exit77.i ], [ %688, %call_list_find.exit.i ]
+  %.152.i = phi i32 [ %715, %call_list_find.exit77.i ], [ %674, %call_list_find.exit.i ]
+  %.2.i = phi ptr [ %.4.i, %call_list_find.exit77.i ], [ %.1.i76, %call_list_find.exit.i ]
   br label %.lr.ph.i84.i
 
 .lr.ph.i84.i:                                     ; preds = %.lr.ph.i84.i, %.loopexit.i
   %.06.i.i = phi i32 [ %732, %.lr.ph.i84.i ], [ 0, %.loopexit.i ]
-  %.035.i.i = phi ptr [ %734, %.lr.ph.i84.i ], [ %.4.i, %.loopexit.i ]
+  %.035.i.i = phi ptr [ %734, %.lr.ph.i84.i ], [ %.2.i, %.loopexit.i ]
   %732 = add i32 %.06.i.i, 1
   %733 = getelementptr inbounds i8, ptr %.035.i.i, i64 8
   %734 = load ptr, ptr %733, align 8
@@ -2172,8 +2172,8 @@ call_list_find.exit77.i:                          ; preds = %.lr.ph.i72.i, %727,
   br i1 %.not.i85.i, label %call_list_length.exit.i, label %.lr.ph.i84.i, !llvm.loop !10
 
 call_list_length.exit.i:                          ; preds = %.lr.ph.i84.i, %.preheader.i, %.preheader11.i
-  %.25339.i = phi i32 [ %639, %.preheader.i ], [ %639, %.preheader11.i ], [ %.253.i, %.lr.ph.i84.i ]
-  %.25638.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader11.i ], [ %.256.i, %.lr.ph.i84.i ]
+  %.15239.i = phi i32 [ %639, %.preheader.i ], [ %639, %.preheader11.i ], [ %.152.i, %.lr.ph.i84.i ]
+  %.15538.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader11.i ], [ %.155.i, %.lr.ph.i84.i ]
   %.0.lcssa.i.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader11.i ], [ %732, %.lr.ph.i84.i ]
   br i1 %.not.i73, label %dissect_trunkpacket.exit, label %735
 
@@ -2198,18 +2198,18 @@ call_list_length.exit.i:                          ; preds = %.lr.ph.i84.i, %.pre
 
 dissect_trunkpacket.exit:                         ; preds = %call_list_length.exit.i, %735, %738, %741
   %745 = load ptr, ptr %13, align 8
-  %746 = icmp eq i32 %.25638.i, 1
+  %746 = icmp eq i32 %.15538.i, 1
   %747 = select i1 %746, ptr @.str.517, ptr @.str.520
   %748 = icmp eq i32 %.0.lcssa.i.i, 1
   %749 = select i1 %748, ptr @.str.517, ptr @.str.520
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %745, i32 noundef 25, ptr noundef nonnull @.str.519, i32 noundef %.25638.i, ptr noundef nonnull %747, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull %749) #13
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %745, i32 noundef 25, ptr noundef nonnull @.str.519, i32 noundef %.15538.i, ptr noundef nonnull %747, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull %749) #13
   br label %750
 
 default.unreachable97:                            ; preds = %38
   unreachable
 
 750:                                              ; preds = %dissect_trunkpacket.exit, %dissect_minivideopacket.exit, %dissect_minipacket.exit, %dissect_fullpacket.exit
-  %.059 = phi i32 [ %.25339.i, %dissect_trunkpacket.exit ], [ %614, %dissect_minivideopacket.exit ], [ %567, %dissect_minipacket.exit ], [ %.0.i, %dissect_fullpacket.exit ]
+  %.059 = phi i32 [ %.15239.i, %dissect_trunkpacket.exit ], [ %614, %dissect_minivideopacket.exit ], [ %567, %dissect_minipacket.exit ], [ %.0.i, %dissect_fullpacket.exit ]
   call void @proto_item_set_len(ptr noundef %17, i32 noundef %.059) #13
   %751 = load i32, ptr @iax2_tap, align 4
   call void @tap_queue_packet(i32 noundef %751, ptr noundef %1, ptr noundef nonnull @ii_arr) #13
@@ -2516,13 +2516,13 @@ is_reverse_circuit.exit70.i:                      ; preds = %.lr.ph.i65.i
   unreachable
 
 iax_lookup_call_from_dest.exit:                   ; preds = %.lr.ph.i57.i, %.lr.ph.i74.i, %.lr.ph.i, %.lr.ph.i37, %.loopexit.i, %47, %11, %iax2_new_circuit_for_call.exit.i, %65
-  %.1 = phi i32 [ 0, %65 ], [ 0, %.loopexit.i ], [ 0, %47 ], [ 0, %11 ], [ 1, %iax2_new_circuit_for_call.exit.i ], [ 1, %.lr.ph.i37 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i74.i ], [ 1, %.lr.ph.i57.i ]
+  %.042 = phi i32 [ 0, %65 ], [ 0, %.loopexit.i ], [ 0, %47 ], [ 0, %11 ], [ 1, %iax2_new_circuit_for_call.exit.i ], [ 1, %.lr.ph.i37 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i74.i ], [ 1, %.lr.ph.i57.i ]
   %.0 = phi ptr [ null, %65 ], [ null, %.loopexit.i ], [ null, %47 ], [ null, %11 ], [ %22, %iax2_new_circuit_for_call.exit.i ], [ %71, %.lr.ph.i37 ], [ %71, %.lr.ph.i ], [ %22, %.lr.ph.i74.i ], [ %22, %.lr.ph.i57.i ]
   %.not32 = icmp eq ptr %3, null
   br i1 %.not32, label %89, label %88
 
 88:                                               ; preds = %iax_lookup_call_from_dest.exit
-  store i32 %.1, ptr %3, align 4
+  store i32 %.042, ptr %3, align 4
   br label %89
 
 89:                                               ; preds = %88, %iax_lookup_call_from_dest.exit

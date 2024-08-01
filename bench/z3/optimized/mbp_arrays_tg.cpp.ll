@@ -345,7 +345,7 @@ for.cond.preheader:                               ; preds = %_ZN15ref_vector_cor
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
   %18 = phi ptr [ null, %for.cond.preheader ], [ %205, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %progress.0 = phi i1 [ false, %for.cond.preheader ], [ %progress.3, %for.inc ]
+  %progress.0 = phi i1 [ false, %for.cond.preheader ], [ %progress.1, %for.inc ]
   %19 = load ptr, ptr %m_nodes.i77, align 8
   %cmp.i.i78 = icmp eq ptr %19, null
   br i1 %cmp.i.i78, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
@@ -582,8 +582,8 @@ invoke.cont22.if.end55_crit_edge:                 ; preds = %invoke.cont22
   br label %if.end55
 
 if.then24:                                        ; preds = %invoke.cont22, %invoke.cont20
-  %a.3 = phi ptr [ %38, %invoke.cont20 ], [ %53, %invoke.cont22 ]
-  %b.3 = phi ptr [ %39, %invoke.cont20 ], [ %54, %invoke.cont22 ]
+  %a.2 = phi ptr [ %38, %invoke.cont20 ], [ %53, %invoke.cont22 ]
+  %b.2 = phi ptr [ %39, %invoke.cont20 ], [ %54, %invoke.cont22 ]
   %55 = load ptr, ptr %m_seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i)
   store ptr %22, ptr %tmp.i.i.i, align 8
@@ -622,7 +622,7 @@ land.lhs.true.i:                                  ; preds = %_ZNK11ast_manager6i
 
 invoke.cont27:                                    ; preds = %land.lhs.true.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %land.rhs.i.i.i, %invoke.cont25
   %retval.0.i = phi i1 [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ false, %invoke.cont25 ], [ false, %land.rhs.i.i.i ], [ %cmp.i, %land.lhs.true.i ]
-  invoke void @_ZN3mbp12mbp_array_tg4impl9mk_wr_peqEP4exprS3_(ptr nonnull sret(%class.peq) align 8 %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %a.3, ptr noundef %b.3)
+  invoke void @_ZN3mbp12mbp_array_tg4impl9mk_wr_peqEP4exprS3_(ptr nonnull sret(%class.peq) align 8 %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %a.2, ptr noundef %b.2)
           to label %invoke.cont30 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont30:                                    ; preds = %invoke.cont27
@@ -1573,7 +1573,7 @@ invoke.cont207:                                   ; preds = %if.then206
 
 for.inc:                                          ; preds = %if.then.i.i.i, %if.then22.i.i.i, %land.rhs.i.i.i393, %land.lhs.true.i388, %land.rhs.i.i.i.i.i379, %land.lhs.true203, %_ZNK17array_recognizers9is_selectEP4expr.exit.i.i.i, %_ZNK17array_recognizers10is_select1EP4expr.exit.i.i, %_ZNK17array_recognizers8is_storeEP4expr.exit.i, %cleanup.thread, %invoke.cont50, %if.end200, %invoke.cont204, %invoke.cont207, %invoke.cont16
   %205 = phi ptr [ %18, %invoke.cont16 ], [ %18, %invoke.cont207 ], [ %18, %invoke.cont204 ], [ %18, %if.end200 ], [ %72, %invoke.cont50 ], [ %18, %cleanup.thread ], [ %18, %_ZNK17array_recognizers8is_storeEP4expr.exit.i ], [ %18, %_ZNK17array_recognizers10is_select1EP4expr.exit.i.i ], [ %18, %_ZNK17array_recognizers9is_selectEP4expr.exit.i.i.i ], [ %18, %land.lhs.true203 ], [ %18, %land.rhs.i.i.i.i.i379 ], [ %18, %land.lhs.true.i388 ], [ %18, %land.rhs.i.i.i393 ], [ %18, %if.then22.i.i.i ], [ %18, %if.then.i.i.i ]
-  %progress.3 = phi i1 [ %progress.0, %invoke.cont16 ], [ true, %invoke.cont207 ], [ %progress.0, %invoke.cont204 ], [ %progress.0, %if.end200 ], [ true, %invoke.cont50 ], [ true, %cleanup.thread ], [ %progress.0, %_ZNK17array_recognizers8is_storeEP4expr.exit.i ], [ %progress.0, %_ZNK17array_recognizers10is_select1EP4expr.exit.i.i ], [ %progress.0, %_ZNK17array_recognizers9is_selectEP4expr.exit.i.i.i ], [ %progress.0, %land.lhs.true203 ], [ %progress.0, %land.rhs.i.i.i.i.i379 ], [ %progress.0, %land.lhs.true.i388 ], [ %progress.0, %land.rhs.i.i.i393 ], [ %progress.0, %if.then22.i.i.i ], [ %progress.0, %if.then.i.i.i ]
+  %progress.1 = phi i1 [ %progress.0, %invoke.cont16 ], [ true, %invoke.cont207 ], [ %progress.0, %invoke.cont204 ], [ %progress.0, %if.end200 ], [ true, %invoke.cont50 ], [ true, %cleanup.thread ], [ %progress.0, %_ZNK17array_recognizers8is_storeEP4expr.exit.i ], [ %progress.0, %_ZNK17array_recognizers10is_select1EP4expr.exit.i.i ], [ %progress.0, %_ZNK17array_recognizers9is_selectEP4expr.exit.i.i.i ], [ %progress.0, %land.lhs.true203 ], [ %progress.0, %land.rhs.i.i.i.i.i379 ], [ %progress.0, %land.lhs.true.i388 ], [ %progress.0, %land.rhs.i.i.i393 ], [ %progress.0, %if.then22.i.i.i ], [ %progress.0, %if.then.i.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !41
 

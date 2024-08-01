@@ -1320,7 +1320,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i, %for.body.lr.ph.i
-  %ref.tmp.sroa.0.0 = phi ptr [ null, %for.body.lr.ph.i ], [ %ref.tmp.sroa.0.5, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i ]
+  %ref.tmp.sroa.0.1 = phi ptr [ null, %for.body.lr.ph.i ], [ %ref.tmp.sroa.0.6, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i ]
   %ref.tmp.sroa.7.0 = phi ptr [ null, %for.body.lr.ph.i ], [ %ref.tmp.sroa.7.5, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i ]
   %ref.tmp.sroa.11.0 = phi ptr [ null, %for.body.lr.ph.i ], [ %ref.tmp.sroa.11.5, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i ]
   %idx.039.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i ]
@@ -1345,7 +1345,7 @@ for.body15.lr.ph.i:                               ; preds = %invoke.cont9.i
   br i1 %19, label %for.end37.i, label %for.body15.i
 
 for.body15.i:                                     ; preds = %for.body15.lr.ph.i, %for.inc35.i
-  %ref.tmp.sroa.0.1 = phi ptr [ %ref.tmp.sroa.0.4, %for.inc35.i ], [ %ref.tmp.sroa.0.0, %for.body15.lr.ph.i ]
+  %ref.tmp.sroa.0.2 = phi ptr [ %ref.tmp.sroa.0.5, %for.inc35.i ], [ %ref.tmp.sroa.0.1, %for.body15.lr.ph.i ]
   %ref.tmp.sroa.7.1 = phi ptr [ %ref.tmp.sroa.7.4, %for.inc35.i ], [ %ref.tmp.sroa.7.0, %for.body15.lr.ph.i ]
   %ref.tmp.sroa.11.1 = phi ptr [ %ref.tmp.sroa.11.4, %for.inc35.i ], [ %ref.tmp.sroa.11.0, %for.body15.lr.ph.i ]
   %__begin4.sroa.0.037.i = phi ptr [ %incdec.ptr.i19.i, %for.inc35.i ], [ %15, %for.body15.lr.ph.i ]
@@ -1355,7 +1355,7 @@ for.body15.i:                                     ; preds = %for.body15.lr.ph.i,
   br i1 %cmp.i13.not34.i, label %for.inc35.i, label %for.body23.i
 
 for.body23.i:                                     ; preds = %for.body15.i, %for.inc.i
-  %ref.tmp.sroa.0.2 = phi ptr [ %ref.tmp.sroa.0.3, %for.inc.i ], [ %ref.tmp.sroa.0.1, %for.body15.i ]
+  %ref.tmp.sroa.0.3 = phi ptr [ %ref.tmp.sroa.0.4, %for.inc.i ], [ %ref.tmp.sroa.0.2, %for.body15.i ]
   %ref.tmp.sroa.7.2 = phi ptr [ %ref.tmp.sroa.7.3, %for.inc.i ], [ %ref.tmp.sroa.7.1, %for.body15.i ]
   %ref.tmp.sroa.11.2 = phi ptr [ %ref.tmp.sroa.11.3, %for.inc.i ], [ %ref.tmp.sroa.11.1, %for.body15.i ]
   %__begin5.sroa.0.035.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %20, %for.body15.i ]
@@ -1405,7 +1405,7 @@ invoke.cont29.i:                                  ; preds = %invoke.cont.i.i
 
 if.then31.i:                                      ; preds = %invoke.cont29.i
   %24 = load ptr, ptr %cs.i, align 8, !noalias !26
-  %cmp.i.not9.i.i = icmp eq ptr %ref.tmp.sroa.0.2, %ref.tmp.sroa.7.2
+  %cmp.i.not9.i.i = icmp eq ptr %ref.tmp.sroa.0.3, %ref.tmp.sroa.7.2
   br i1 %cmp.i.not9.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -1414,7 +1414,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
   br i1 %cmp.i.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then31.i, %for.cond.i.i
-  %__begin0.sroa.0.010.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.cond.i.i ], [ %ref.tmp.sroa.0.2, %if.then31.i ]
+  %__begin0.sroa.0.010.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.cond.i.i ], [ %ref.tmp.sroa.0.3, %if.then31.i ]
   %25 = load ptr, ptr %__begin0.sroa.0.010.i.i, align 8, !noalias !26
   %cmp.i17.i = icmp eq ptr %25, %24
   br i1 %cmp.i17.i, label %for.inc.i, label %for.cond.i.i
@@ -1430,7 +1430,7 @@ if.then.i.i.i76:                                  ; preds = %for.end.i.i
 
 if.else.i.i.i:                                    ; preds = %for.end.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.7.2 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.0.2 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.0.3 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i78, label %_ZNKSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -1465,17 +1465,17 @@ _ZNSt12_Vector_baseIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE11_M_allocateEm
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE11_M_allocateEm.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i.i, ptr align 8 %ref.tmp.sroa.0.2, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false), !noalias !26
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i.i, ptr align 8 %ref.tmp.sroa.0.3, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false), !noalias !26
   br label %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i.i
 
 _ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE11_M_allocateEm.exit.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %ref.tmp.sroa.0.2, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %ref.tmp.sroa.0.3, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, label %if.then.i18.i.i.i.i
 
 if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.2) #16, !noalias !26
+  call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.3) #16, !noalias !26
   br label %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i.i
@@ -1508,7 +1508,7 @@ lpad25.body.i:                                    ; preds = %lpad25.loopexit.spl
   br label %ehcleanup.i
 
 for.inc.i:                                        ; preds = %for.body.i.i, %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %if.then.i.i.i76, %invoke.cont29.i, %invoke.cont26.i
-  %ref.tmp.sroa.0.3 = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %ref.tmp.sroa.0.2, %if.then.i.i.i76 ], [ %ref.tmp.sroa.0.2, %invoke.cont29.i ], [ %ref.tmp.sroa.0.2, %invoke.cont26.i ], [ %ref.tmp.sroa.0.2, %for.body.i.i ]
+  %ref.tmp.sroa.0.4 = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %ref.tmp.sroa.0.3, %if.then.i.i.i76 ], [ %ref.tmp.sroa.0.3, %invoke.cont29.i ], [ %ref.tmp.sroa.0.3, %invoke.cont26.i ], [ %ref.tmp.sroa.0.3, %for.body.i.i ]
   %ref.tmp.sroa.7.3 = phi ptr [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i4.i.i, %if.then.i.i.i76 ], [ %ref.tmp.sroa.7.2, %invoke.cont29.i ], [ %ref.tmp.sroa.7.2, %invoke.cont26.i ], [ %ref.tmp.sroa.7.2, %for.body.i.i ]
   %ref.tmp.sroa.11.3 = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %ref.tmp.sroa.11.2, %if.then.i.i.i76 ], [ %ref.tmp.sroa.11.2, %invoke.cont29.i ], [ %ref.tmp.sroa.11.2, %invoke.cont26.i ], [ %ref.tmp.sroa.11.2, %for.body.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.035.i, i64 32
@@ -1516,7 +1516,7 @@ for.inc.i:                                        ; preds = %for.body.i.i, %_ZNS
   br i1 %cmp.i13.not.i, label %for.inc35.i, label %for.body23.i
 
 for.inc35.i:                                      ; preds = %for.inc.i, %for.body15.i
-  %ref.tmp.sroa.0.4 = phi ptr [ %ref.tmp.sroa.0.1, %for.body15.i ], [ %ref.tmp.sroa.0.3, %for.inc.i ]
+  %ref.tmp.sroa.0.5 = phi ptr [ %ref.tmp.sroa.0.2, %for.body15.i ], [ %ref.tmp.sroa.0.4, %for.inc.i ]
   %ref.tmp.sroa.7.4 = phi ptr [ %ref.tmp.sroa.7.1, %for.body15.i ], [ %ref.tmp.sroa.7.3, %for.inc.i ]
   %ref.tmp.sroa.11.4 = phi ptr [ %ref.tmp.sroa.11.1, %for.body15.i ], [ %ref.tmp.sroa.11.3, %for.inc.i ]
   %incdec.ptr.i19.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.037.i, i64 32
@@ -1524,7 +1524,7 @@ for.inc35.i:                                      ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.not.i, label %for.end37.i, label %for.body15.i, !llvm.loop !29
 
 for.end37.i:                                      ; preds = %for.inc35.i, %for.body15.lr.ph.i, %invoke.cont9.i
-  %ref.tmp.sroa.0.5 = phi ptr [ %ref.tmp.sroa.0.0, %invoke.cont9.i ], [ %ref.tmp.sroa.0.0, %for.body15.lr.ph.i ], [ %ref.tmp.sroa.0.4, %for.inc35.i ]
+  %ref.tmp.sroa.0.6 = phi ptr [ %ref.tmp.sroa.0.1, %invoke.cont9.i ], [ %ref.tmp.sroa.0.1, %for.body15.lr.ph.i ], [ %ref.tmp.sroa.0.5, %for.inc35.i ]
   %ref.tmp.sroa.7.5 = phi ptr [ %ref.tmp.sroa.7.0, %invoke.cont9.i ], [ %ref.tmp.sroa.7.0, %for.body15.lr.ph.i ], [ %ref.tmp.sroa.7.4, %for.inc35.i ]
   %ref.tmp.sroa.11.5 = phi ptr [ %ref.tmp.sroa.11.0, %invoke.cont9.i ], [ %ref.tmp.sroa.11.0, %for.body15.lr.ph.i ], [ %ref.tmp.sroa.11.4, %for.inc35.i ]
   %27 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !26
@@ -1605,17 +1605,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i: ; preds = %i
   br i1 %exitcond.not.i, label %invoke.cont10, label %for.body.i, !llvm.loop !31
 
 ehcleanup.i:                                      ; preds = %lpad25.body.i, %lpad.loopexit29.i
-  %ref.tmp.sroa.0.6 = phi ptr [ %ref.tmp.sroa.0.2, %lpad25.body.i ], [ %ref.tmp.sroa.0.0, %lpad.loopexit29.i ]
+  %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.3, %lpad25.body.i ], [ %ref.tmp.sroa.0.1, %lpad.loopexit29.i ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad25.body.i ], [ %lpad.loopexit31.i, %lpad.loopexit29.i ]
-  %tobool.not.i.i.i.i = icmp eq ptr %ref.tmp.sroa.0.6, null
+  %tobool.not.i.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0, null
   br i1 %tobool.not.i.i.i.i, label %lpad9.body, label %if.then.i.i.i24.i
 
 if.then.i.i.i24.i:                                ; preds = %ehcleanup.i
-  call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.6) #16, !noalias !26
+  call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.0) #16, !noalias !26
   br label %lpad9.body
 
 invoke.cont10:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i, %for.cond.preheader.i, %land.lhs.true1.i, %land.lhs.true.i, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit
-  %ref.tmp.sroa.0.7 = phi ptr [ null, %land.lhs.true.i ], [ null, %land.lhs.true1.i ], [ null, %for.cond.preheader.i ], [ null, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit ], [ %ref.tmp.sroa.0.5, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i ]
+  %ref.tmp.sroa.0.7 = phi ptr [ null, %land.lhs.true.i ], [ null, %land.lhs.true1.i ], [ null, %for.cond.preheader.i ], [ null, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit ], [ %ref.tmp.sroa.0.6, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i ]
   %ref.tmp.sroa.7.6 = phi ptr [ null, %land.lhs.true.i ], [ null, %land.lhs.true1.i ], [ null, %for.cond.preheader.i ], [ null, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit ], [ %ref.tmp.sroa.7.5, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i ]
   %ref.tmp.sroa.11.6 = phi ptr [ null, %land.lhs.true.i ], [ null, %land.lhs.true1.i ], [ null, %for.cond.preheader.i ], [ null, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit ], [ %ref.tmp.sroa.11.5, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cs.i)

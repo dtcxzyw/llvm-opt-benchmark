@@ -3563,8 +3563,8 @@ invoke.cont1:                                     ; preds = %if.then
   %add.ptr.i.i = getelementptr inbounds i8, ptr %permission, i64 8
   %3 = load i64, ptr %add.ptr.i.i, align 1
   %4 = inttoptr i64 %3 to ptr
-  %ret.2.in.i.val = load i64, ptr %4, align 1
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsEENK3$_0clEPK35envoy_config_rbac_v3_Permission_Set"(ptr noalias nonnull align 8 %permission_set_json, ptr noundef nonnull align 8 dereferenceable(8) %parse_permission_set_to_json, i64 %ret.2.in.i.val)
+  %ret.0.in.i.val = load i64, ptr %4, align 1
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsEENK3$_0clEPK35envoy_config_rbac_v3_Permission_Set"(ptr noalias nonnull align 8 %permission_set_json, ptr noundef nonnull align 8 dereferenceable(8) %parse_permission_set_to_json, i64 %ret.0.in.i.val)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont1
@@ -3638,8 +3638,8 @@ invoke.cont14:                                    ; preds = %if.then11
   %add.ptr.i.i51 = getelementptr inbounds i8, ptr %permission, i64 8
   %14 = load i64, ptr %add.ptr.i.i51, align 1
   %15 = inttoptr i64 %14 to ptr
-  %ret.2.in.i49.val = load i64, ptr %15, align 1
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsEENK3$_0clEPK35envoy_config_rbac_v3_Permission_Set"(ptr noalias nonnull align 8 %permission_set_json18, ptr noundef nonnull align 8 dereferenceable(8) %parse_permission_set_to_json, i64 %ret.2.in.i49.val)
+  %ret.0.in.i49.val = load i64, ptr %15, align 1
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsEENK3$_0clEPK35envoy_config_rbac_v3_Permission_Set"(ptr noalias nonnull align 8 %permission_set_json18, ptr noundef nonnull align 8 dereferenceable(8) %parse_permission_set_to_json, i64 %ret.0.in.i49.val)
           to label %invoke.cont19 unwind label %lpad15
 
 invoke.cont19:                                    ; preds = %invoke.cont14
@@ -3769,8 +3769,8 @@ _upb_MiniTable_CopyFieldData.exit24.i82:          ; preds = %invoke.cont44
   br label %invoke.cont46
 
 invoke.cont46:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit24.i82, %invoke.cont44
-  %ret.2.in.i81 = phi ptr [ %32, %_upb_MiniTable_CopyFieldData.exit24.i82 ], [ null, %invoke.cont44 ]
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_124ParseHeaderMatcherToJsonEPK35envoy_config_route_v3_HeaderMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %header_json, ptr noundef %ret.2.in.i81, ptr noundef %errors)
+  %ret.0.in.i81 = phi ptr [ %32, %_upb_MiniTable_CopyFieldData.exit24.i82 ], [ null, %invoke.cont44 ]
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_124ParseHeaderMatcherToJsonEPK35envoy_config_route_v3_HeaderMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %header_json, ptr noundef %ret.0.in.i81, ptr noundef %errors)
           to label %invoke.cont48 unwind label %lpad45
 
 invoke.cont48:                                    ; preds = %invoke.cont46
@@ -3844,8 +3844,8 @@ _upb_MiniTable_CopyFieldData.exit24.i102:         ; preds = %invoke.cont61
   br label %invoke.cont63
 
 invoke.cont63:                                    ; preds = %_upb_MiniTable_CopyFieldData.exit24.i102, %invoke.cont61
-  %ret.2.in.i101 = phi ptr [ %42, %_upb_MiniTable_CopyFieldData.exit24.i102 ], [ null, %invoke.cont61 ]
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122ParsePathMatcherToJsonEPK33envoy_type_matcher_v3_PathMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %url_path_json, ptr noundef %ret.2.in.i101, ptr noundef %errors)
+  %ret.0.in.i101 = phi ptr [ %42, %_upb_MiniTable_CopyFieldData.exit24.i102 ], [ null, %invoke.cont61 ]
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122ParsePathMatcherToJsonEPK33envoy_type_matcher_v3_PathMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %url_path_json, ptr noundef %ret.0.in.i101, ptr noundef %errors)
           to label %invoke.cont65 unwind label %lpad62
 
 invoke.cont65:                                    ; preds = %invoke.cont63
@@ -3983,8 +3983,8 @@ _upb_MiniTable_CopyFieldData.exit24.i141:         ; preds = %invoke.cont117
   br label %invoke.cont119
 
 invoke.cont119:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i141, %invoke.cont117
-  %ret.2.in.i140 = phi ptr [ %61, %_upb_MiniTable_CopyFieldData.exit24.i141 ], [ null, %invoke.cont117 ]
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %not_rule_json, ptr noundef %ret.2.in.i140, ptr noundef nonnull %errors)
+  %ret.0.in.i140 = phi ptr [ %61, %_upb_MiniTable_CopyFieldData.exit24.i141 ], [ null, %invoke.cont117 ]
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %not_rule_json, ptr noundef %ret.0.in.i140, ptr noundef nonnull %errors)
           to label %invoke.cont121 unwind label %lpad118
 
 invoke.cont121:                                   ; preds = %invoke.cont119
@@ -4029,8 +4029,8 @@ _upb_MiniTable_CopyFieldData.exit24.i151:         ; preds = %invoke.cont134
   br label %invoke.cont136
 
 invoke.cont136:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i151, %invoke.cont134
-  %ret.2.in.i150 = phi ptr [ %66, %_upb_MiniTable_CopyFieldData.exit24.i151 ], [ null, %invoke.cont134 ]
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_124ParseStringMatcherToJsonEPK35envoy_type_matcher_v3_StringMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %requested_server_name_json, ptr noundef %ret.2.in.i150, ptr noundef nonnull %errors)
+  %ret.0.in.i150 = phi ptr [ %66, %_upb_MiniTable_CopyFieldData.exit24.i151 ], [ null, %invoke.cont134 ]
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_124ParseStringMatcherToJsonEPK35envoy_type_matcher_v3_StringMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %requested_server_name_json, ptr noundef %ret.0.in.i150, ptr noundef nonnull %errors)
           to label %invoke.cont138 unwind label %lpad135
 
 invoke.cont138:                                   ; preds = %invoke.cont136
@@ -4236,8 +4236,8 @@ invoke.cont1:                                     ; preds = %if.then
   %add.ptr.i.i = getelementptr inbounds i8, ptr %principal, i64 8
   %3 = load i64, ptr %add.ptr.i.i, align 1
   %4 = inttoptr i64 %3 to ptr
-  %ret.2.in.i.val = load i64, ptr %4, align 1
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsEENK3$_0clEPK34envoy_config_rbac_v3_Principal_Set"(ptr noalias nonnull align 8 %principal_set_json, ptr noundef nonnull align 8 dereferenceable(8) %parse_principal_set_to_json, i64 %ret.2.in.i.val)
+  %ret.0.in.i.val = load i64, ptr %4, align 1
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsEENK3$_0clEPK34envoy_config_rbac_v3_Principal_Set"(ptr noalias nonnull align 8 %principal_set_json, ptr noundef nonnull align 8 dereferenceable(8) %parse_principal_set_to_json, i64 %ret.0.in.i.val)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont1
@@ -4311,8 +4311,8 @@ invoke.cont14:                                    ; preds = %if.then11
   %add.ptr.i.i58 = getelementptr inbounds i8, ptr %principal, i64 8
   %14 = load i64, ptr %add.ptr.i.i58, align 1
   %15 = inttoptr i64 %14 to ptr
-  %ret.2.in.i56.val = load i64, ptr %15, align 1
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsEENK3$_0clEPK34envoy_config_rbac_v3_Principal_Set"(ptr noalias nonnull align 8 %principal_set_json18, ptr noundef nonnull align 8 dereferenceable(8) %parse_principal_set_to_json, i64 %ret.2.in.i56.val)
+  %ret.0.in.i56.val = load i64, ptr %15, align 1
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsEENK3$_0clEPK34envoy_config_rbac_v3_Principal_Set"(ptr noalias nonnull align 8 %principal_set_json18, ptr noundef nonnull align 8 dereferenceable(8) %parse_principal_set_to_json, i64 %ret.0.in.i56.val)
           to label %invoke.cont19 unwind label %lpad15
 
 invoke.cont19:                                    ; preds = %invoke.cont14
@@ -4811,8 +4811,8 @@ _upb_MiniTable_CopyFieldData.exit24.i176:         ; preds = %invoke.cont123
   br label %invoke.cont125
 
 invoke.cont125:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i176, %invoke.cont123
-  %ret.2.in.i175 = phi ptr [ %78, %_upb_MiniTable_CopyFieldData.exit24.i176 ], [ null, %invoke.cont123 ]
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_124ParseHeaderMatcherToJsonEPK35envoy_config_route_v3_HeaderMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %header_json, ptr noundef %ret.2.in.i175, ptr noundef %errors)
+  %ret.0.in.i175 = phi ptr [ %78, %_upb_MiniTable_CopyFieldData.exit24.i176 ], [ null, %invoke.cont123 ]
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_124ParseHeaderMatcherToJsonEPK35envoy_config_route_v3_HeaderMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %header_json, ptr noundef %ret.0.in.i175, ptr noundef %errors)
           to label %invoke.cont127 unwind label %lpad124
 
 invoke.cont127:                                   ; preds = %invoke.cont125
@@ -4857,8 +4857,8 @@ _upb_MiniTable_CopyFieldData.exit24.i187:         ; preds = %invoke.cont140
   br label %invoke.cont142
 
 invoke.cont142:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i187, %invoke.cont140
-  %ret.2.in.i186 = phi ptr [ %83, %_upb_MiniTable_CopyFieldData.exit24.i187 ], [ null, %invoke.cont140 ]
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122ParsePathMatcherToJsonEPK33envoy_type_matcher_v3_PathMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %url_path_json, ptr noundef %ret.2.in.i186, ptr noundef %errors)
+  %ret.0.in.i186 = phi ptr [ %83, %_upb_MiniTable_CopyFieldData.exit24.i187 ], [ null, %invoke.cont140 ]
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122ParsePathMatcherToJsonEPK33envoy_type_matcher_v3_PathMatcherPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %url_path_json, ptr noundef %ret.0.in.i186, ptr noundef %errors)
           to label %invoke.cont144 unwind label %lpad141
 
 invoke.cont144:                                   ; preds = %invoke.cont142
@@ -4926,8 +4926,8 @@ _upb_MiniTable_CopyFieldData.exit24.i204:         ; preds = %invoke.cont170
   br label %invoke.cont172
 
 invoke.cont172:                                   ; preds = %_upb_MiniTable_CopyFieldData.exit24.i204, %invoke.cont170
-  %ret.2.in.i203 = phi ptr [ %92, %_upb_MiniTable_CopyFieldData.exit24.i204 ], [ null, %invoke.cont170 ]
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %not_id_json, ptr noundef %ret.2.in.i203, ptr noundef nonnull %errors)
+  %ret.0.in.i203 = phi ptr [ %92, %_upb_MiniTable_CopyFieldData.exit24.i204 ], [ null, %invoke.cont170 ]
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %not_id_json, ptr noundef %ret.0.in.i203, ptr noundef nonnull %errors)
           to label %invoke.cont174 unwind label %lpad171
 
 invoke.cont174:                                   ; preds = %invoke.cont172
@@ -5865,16 +5865,16 @@ ehcleanup26.i:                                    ; preds = %arraydestroy.body21
   br label %ehcleanup28.i
 
 ehcleanup28.i:                                    ; preds = %ehcleanup26.i, %lpad4.i
-  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.element.i, %ehcleanup26.i ], [ %arrayinit.endOfInit.0.i, %lpad4.i ]
+  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.element.i, %ehcleanup26.i ], [ %arrayinit.endOfInit.0.i, %lpad4.i ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup26.i ], [ %56, %lpad4.i ]
   %cleanup.isactive.1.i = phi i1 [ %58, %ehcleanup26.i ], [ false, %lpad4.i ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp2.i) #22, !noalias !83
-  %arraydestroy.isempty.i = icmp eq ptr %ref.tmp1.i, %arrayinit.endOfInit.1.i
+  %arraydestroy.isempty.i = icmp eq ptr %ref.tmp1.i, %arrayinit.endOfInit.2.i
   %or.cond.i = select i1 %cleanup.isactive.1.i, i1 true, i1 %arraydestroy.isempty.i
   br i1 %or.cond.i, label %ehcleanup151, label %arraydestroy.body29.i
 
 arraydestroy.body29.i:                            ; preds = %ehcleanup28.i, %arraydestroy.body29.i
-  %arraydestroy.elementPast30.i = phi ptr [ %arraydestroy.element31.i, %arraydestroy.body29.i ], [ %arrayinit.endOfInit.1.i, %ehcleanup28.i ]
+  %arraydestroy.elementPast30.i = phi ptr [ %arraydestroy.element31.i, %arraydestroy.body29.i ], [ %arrayinit.endOfInit.2.i, %ehcleanup28.i ]
   %arraydestroy.element31.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast30.i, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element31.i) #22, !noalias !83
   %arraydestroy.done32.i = icmp eq ptr %arraydestroy.element31.i, %ref.tmp1.i

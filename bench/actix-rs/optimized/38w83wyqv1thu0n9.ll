@@ -8255,21 +8255,21 @@ define void @_ZN9actix_web4rmap11ResourceMap6finish17h93dbadc3ec5b962bE(ptr noal
   br label %.split.us.preheader.i
 
 .split.us.preheader.i:                            ; preds = %1, %"_ZN4core4cell16RefCell$LT$T$GT$7replace17hc7300a17a505a3b7E.exit"
-  %.sroa.12.0 = phi ptr [ undef, %1 ], [ %.sroa.12.1.lcssa, %"_ZN4core4cell16RefCell$LT$T$GT$7replace17hc7300a17a505a3b7E.exit" ]
+  %.sroa.12.0 = phi ptr [ undef, %1 ], [ %.sroa.12.2.lcssa, %"_ZN4core4cell16RefCell$LT$T$GT$7replace17hc7300a17a505a3b7E.exit" ]
   %.sroa.7.0 = phi ptr [ null, %1 ], [ %16, %"_ZN4core4cell16RefCell$LT$T$GT$7replace17hc7300a17a505a3b7E.exit" ]
-  %.sroa.4.0 = phi ptr [ %., %1 ], [ %.sroa.4.1.lcssa, %"_ZN4core4cell16RefCell$LT$T$GT$7replace17hc7300a17a505a3b7E.exit" ]
+  %.sroa.4.0 = phi ptr [ %., %1 ], [ %.sroa.4.2.lcssa, %"_ZN4core4cell16RefCell$LT$T$GT$7replace17hc7300a17a505a3b7E.exit" ]
   %9 = icmp eq ptr %.sroa.7.0, null
   %10 = icmp eq ptr %.sroa.7.0, %.sroa.12.0
   %or.cond26 = select i1 %9, i1 true, i1 %10
   br i1 %or.cond26, label %select.unfold.us.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit"
 
 select.unfold.us.i:                               ; preds = %.split.us.preheader.i, %.split.us.i
-  %.sroa.4.127 = phi ptr [ null, %.split.us.i ], [ %.sroa.4.0, %.split.us.preheader.i ]
-  %11 = icmp eq ptr %.sroa.4.127, null
+  %.sroa.4.227 = phi ptr [ null, %.split.us.i ], [ %.sroa.4.0, %.split.us.preheader.i ]
+  %11 = icmp eq ptr %.sroa.4.227, null
   br i1 %11, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h39da3a4f4a3225f9E.exit.thread.i", label %.split.us.i
 
 .split.us.i:                                      ; preds = %select.unfold.us.i
-  %12 = getelementptr i8, ptr %.sroa.4.127, i64 16
+  %12 = getelementptr i8, ptr %.sroa.4.227, i64 16
   %.val5.us.i = load i64, ptr %12, align 8, !noalias !1990, !noundef !13
   %13 = icmp eq i64 %.val5.us.i, 0
   br i1 %13, label %select.unfold.us.i, label %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit_crit_edge"
@@ -8278,14 +8278,14 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
   ret void
 
 ".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit_crit_edge": ; preds = %.split.us.i
-  %14 = getelementptr i8, ptr %.sroa.4.127, i64 8
+  %14 = getelementptr i8, ptr %.sroa.4.227, i64 8
   %.val.us.i = load ptr, ptr %14, align 8, !noalias !1990, !nonnull !13, !noundef !13
   %15 = getelementptr inbounds ptr, ptr %.val.us.i, i64 %.val5.us.i
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit": ; preds = %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit_crit_edge", %.split.us.preheader.i
-  %.sroa.12.1.lcssa = phi ptr [ %15, %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit_crit_edge" ], [ %.sroa.12.0, %.split.us.preheader.i ]
-  %.sroa.4.1.lcssa = phi ptr [ null, %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit_crit_edge" ], [ %.sroa.4.0, %.split.us.preheader.i ]
+  %.sroa.12.2.lcssa = phi ptr [ %15, %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit_crit_edge" ], [ %.sroa.12.0, %.split.us.preheader.i ]
+  %.sroa.4.2.lcssa = phi ptr [ null, %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit_crit_edge" ], [ %.sroa.4.0, %.split.us.preheader.i ]
   %.sink.i16.us.i.lcssa = phi ptr [ %.val.us.i, %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit_crit_edge" ], [ %.sroa.7.0, %.split.us.preheader.i ]
   %16 = getelementptr inbounds i8, ptr %.sink.i16.us.i.lcssa, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)

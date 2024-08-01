@@ -909,7 +909,7 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr nocaptur
   br label %154
 
 154:                                              ; preds = %148, %137, %130, %128, %142, %139, %.thread222, %.thread224, %133, %125
-  %.sroa.5368.5 = phi i32 [ %.sroa.5368.0, %125 ], [ 0, %137 ], [ 5, %.thread224 ], [ 6, %.thread222 ], [ 4, %142 ], [ 4, %139 ], [ %.sroa.5368.0, %133 ], [ %.sroa.5368.0, %130 ], [ %.sroa.5368.0, %128 ], [ 0, %148 ]
+  %.sroa.5368.3 = phi i32 [ %.sroa.5368.0, %125 ], [ 0, %137 ], [ 5, %.thread224 ], [ 6, %.thread222 ], [ 4, %142 ], [ 4, %139 ], [ %.sroa.5368.0, %133 ], [ %.sroa.5368.0, %130 ], [ %.sroa.5368.0, %128 ], [ 0, %148 ]
   %.sroa.16.sroa.0.4 = phi i8 [ %.sroa.16.sroa.0.0, %125 ], [ %.sroa.16.sroa.0.0, %137 ], [ %153, %.thread224 ], [ %152, %.thread222 ], [ %143, %142 ], [ %140, %139 ], [ %.sroa.16.sroa.0.0, %133 ], [ %131, %130 ], [ %.sroa.16.sroa.0.0, %128 ], [ %.sroa.16.sroa.0.0, %148 ]
   %.sroa.42.0 = phi i16 [ 0, %125 ], [ 0, %137 ], [ 0, %.thread224 ], [ 0, %.thread222 ], [ 0, %142 ], [ 0, %139 ], [ 0, %133 ], [ %132, %130 ], [ 0, %128 ], [ 0, %148 ]
   %.sroa.43.4 = phi i32 [ %.sroa.43.0, %125 ], [ %.sroa.43.0, %137 ], [ %.sroa.43.0, %.thread224 ], [ %.sroa.43.0, %.thread222 ], [ %.sroa.43.0, %142 ], [ %.lobit, %139 ], [ %.sroa.43.0, %133 ], [ %.sroa.43.0, %130 ], [ %.sroa.43.0, %128 ], [ %.sroa.43.0, %148 ]
@@ -932,7 +932,7 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr nocaptur
   br label %.thread225
 
 161:                                              ; preds = %154
-  %switch.tableidx = add i32 %.sroa.5368.5, -3
+  %switch.tableidx = add i32 %.sroa.5368.3, -3
   %162 = icmp ult i32 %switch.tableidx, 4
   br i1 %162, label %switch.lookup, label %.thread225
 
@@ -957,7 +957,7 @@ switch.lookup:                                    ; preds = %161
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
   %.sroa.5368.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 4
-  store i32 %.sroa.5368.5, ptr %.sroa.5368.0..sroa_idx, align 8
+  store i32 %.sroa.5368.3, ptr %.sroa.5368.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 92
   %.sroa.16.sroa.28.0.insert.ext = zext nneg i8 %.sroa.16.sroa.28.0 to i16
   %.sroa.16.sroa.28.0.insert.shift = shl nuw nsw i16 %.sroa.16.sroa.28.0.insert.ext, 8
@@ -1025,7 +1025,7 @@ switch.lookup:                                    ; preds = %161
   br label %180
 
 180:                                              ; preds = %177, %168
-  %.0143 = phi i32 [ 0, %168 ], [ 4, %177 ]
+  %.1 = phi i32 [ 0, %168 ], [ 4, %177 ]
   %181 = getelementptr inbounds i8, ptr %2, i64 84
   store i8 0, ptr %181, align 4
   br label %194
@@ -1056,15 +1056,15 @@ switch.lookup:                                    ; preds = %161
   br label %194
 
 194:                                              ; preds = %190, %180, %122
-  %.1 = phi i32 [ 0, %122 ], [ 4, %190 ], [ %.0143, %180 ]
+  %.0143 = phi i32 [ 0, %122 ], [ 4, %190 ], [ %.1, %180 ]
   %195 = load i32, ptr %108, align 8
   %196 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %195, ptr noundef %4, ptr noundef %5) #7
   %.not193 = icmp eq i32 %196, 0
-  %..1 = select i1 %.not193, i32 -1, i32 %.1
+  %..0143 = select i1 %.not193, i32 -1, i32 %.0143
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %6, %194, %._crit_edge, %17, %188, %175, %120, %102, %97, %94, %91, %34, %29, %24
-  %.0142 = phi i32 [ -1, %102 ], [ 0, %188 ], [ 0, %175 ], [ -1, %120 ], [ -1, %97 ], [ -1, %94 ], [ -1, %91 ], [ -1, %34 ], [ -1, %29 ], [ -1, %24 ], [ -1, %17 ], [ -1, %._crit_edge ], [ %..1, %194 ], [ -1, %6 ]
+  %.0142 = phi i32 [ -1, %102 ], [ 0, %188 ], [ 0, %175 ], [ -1, %120 ], [ -1, %97 ], [ -1, %94 ], [ -1, %91 ], [ -1, %34 ], [ -1, %29 ], [ -1, %24 ], [ -1, %17 ], [ -1, %._crit_edge ], [ %..0143, %194 ], [ -1, %6 ]
   ret i32 %.0142
 }
 

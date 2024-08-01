@@ -165,15 +165,15 @@ end.i:                                            ; preds = %lor.lhs.false.i, %i
   br label %get_cert_and_key.exit
 
 get_cert_and_key.exit:                            ; preds = %lor.lhs.false.i, %lor.lhs.false5, %end.i
-  %signer.0 = phi ptr [ null, %lor.lhs.false5 ], [ null, %end.i ], [ %call2.i, %lor.lhs.false.i ]
-  %key.0 = phi ptr [ null, %lor.lhs.false5 ], [ null, %end.i ], [ %call9.i, %lor.lhs.false.i ]
+  %signer.1 = phi ptr [ null, %lor.lhs.false5 ], [ null, %end.i ], [ %call2.i, %lor.lhs.false.i ]
+  %key.1 = phi ptr [ null, %lor.lhs.false5 ], [ null, %end.i ], [ %call9.i, %lor.lhs.false.i ]
   %retval.0.i = phi i32 [ 0, %lor.lhs.false5 ], [ 0, %end.i ], [ 1, %lor.lhs.false.i ]
   %call7 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 128, ptr noundef nonnull @.str.23, i32 noundef %retval.0.i) #6
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %err, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %get_cert_and_key.exit
-  %call12 = tail call i32 @OPENSSL_sk_push(ptr noundef %call1, ptr noundef %signer.0) #6
+  %call12 = tail call i32 @OPENSSL_sk_push(ptr noundef %call1, ptr noundef %signer.1) #6
   %cmp13 = icmp ne i32 %call12, 0
   %conv14 = zext i1 %cmp13 to i32
   %call15 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 129, ptr noundef nonnull @.str.24, i32 noundef %conv14) #6
@@ -182,7 +182,7 @@ lor.lhs.false9:                                   ; preds = %get_cert_and_key.ex
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false9
   %call18 = tail call ptr @EVP_sha1() #6
-  %call19 = tail call i32 @OCSP_basic_sign(ptr noundef %call, ptr noundef %signer.0, ptr noundef %key.0, ptr noundef %call18, ptr noundef null, i64 noundef 1) #6
+  %call19 = tail call i32 @OCSP_basic_sign(ptr noundef %call, ptr noundef %signer.1, ptr noundef %key.1, ptr noundef %call18, ptr noundef null, i64 noundef 1) #6
   %cmp20 = icmp ne i32 %call19, 0
   %conv21 = zext i1 %cmp20 to i32
   %call22 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 131, ptr noundef nonnull @.str.25, i32 noundef %conv21) #6
@@ -199,7 +199,7 @@ if.end:                                           ; preds = %lor.lhs.false17
 
 lor.lhs.false29:                                  ; preds = %if.end
   %2 = load ptr, ptr %tmp, align 8
-  %call30 = call i32 @X509_cmp(ptr noundef %2, ptr noundef %signer.0) #6
+  %call30 = call i32 @X509_cmp(ptr noundef %2, ptr noundef %signer.1) #6
   %call31 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 134, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef %call30, i32 noundef 0) #6
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %err, label %if.end34
@@ -214,7 +214,7 @@ if.end34:                                         ; preds = %lor.lhs.false29
 
 lor.lhs.false38:                                  ; preds = %if.end34
   %call39 = call ptr @EVP_sha1() #6
-  %call40 = call i32 @OCSP_basic_sign(ptr noundef %call35, ptr noundef %signer.0, ptr noundef %key.0, ptr noundef %call39, ptr noundef null, i64 noundef 0) #6
+  %call40 = call i32 @OCSP_basic_sign(ptr noundef %call35, ptr noundef %signer.1, ptr noundef %key.1, ptr noundef %call39, ptr noundef null, i64 noundef 0) #6
   %cmp41 = icmp ne i32 %call40, 0
   %conv42 = zext i1 %cmp41 to i32
   %call43 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 143, ptr noundef nonnull @.str.29, i32 noundef %conv42) #6
@@ -231,21 +231,21 @@ if.end46:                                         ; preds = %lor.lhs.false38
 
 lor.lhs.false52:                                  ; preds = %if.end46
   %3 = load ptr, ptr %tmp, align 8
-  %call53 = call i32 @X509_cmp(ptr noundef %3, ptr noundef %signer.0) #6
+  %call53 = call i32 @X509_cmp(ptr noundef %3, ptr noundef %signer.1) #6
   %call54 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 146, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef %call53, i32 noundef 0) #6
   %tobool55.not = icmp ne i32 %call54, 0
   %spec.select = zext i1 %tobool55.not to i32
   br label %err
 
 err:                                              ; preds = %lor.lhs.false52, %if.end46, %if.end34, %lor.lhs.false38, %if.end, %lor.lhs.false29, %entry, %lor.lhs.false, %get_cert_and_key.exit, %lor.lhs.false9, %lor.lhs.false17
-  %signer.1 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %signer.0, %get_cert_and_key.exit ], [ %signer.0, %lor.lhs.false9 ], [ %signer.0, %lor.lhs.false17 ], [ %signer.0, %if.end ], [ %signer.0, %lor.lhs.false29 ], [ %signer.0, %if.end34 ], [ %signer.0, %lor.lhs.false38 ], [ %signer.0, %if.end46 ], [ %signer.0, %lor.lhs.false52 ]
-  %key.1 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %key.0, %get_cert_and_key.exit ], [ %key.0, %lor.lhs.false9 ], [ %key.0, %lor.lhs.false17 ], [ %key.0, %if.end ], [ %key.0, %lor.lhs.false29 ], [ %key.0, %if.end34 ], [ %key.0, %lor.lhs.false38 ], [ %key.0, %if.end46 ], [ %key.0, %lor.lhs.false52 ]
+  %signer.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %signer.1, %get_cert_and_key.exit ], [ %signer.1, %lor.lhs.false9 ], [ %signer.1, %lor.lhs.false17 ], [ %signer.1, %if.end ], [ %signer.1, %lor.lhs.false29 ], [ %signer.1, %if.end34 ], [ %signer.1, %lor.lhs.false38 ], [ %signer.1, %if.end46 ], [ %signer.1, %lor.lhs.false52 ]
+  %key.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %key.1, %get_cert_and_key.exit ], [ %key.1, %lor.lhs.false9 ], [ %key.1, %lor.lhs.false17 ], [ %key.1, %if.end ], [ %key.1, %lor.lhs.false29 ], [ %key.1, %if.end34 ], [ %key.1, %lor.lhs.false38 ], [ %key.1, %if.end46 ], [ %key.1, %lor.lhs.false52 ]
   %bs.0 = phi ptr [ %call, %entry ], [ %call, %lor.lhs.false ], [ %call, %get_cert_and_key.exit ], [ %call, %lor.lhs.false9 ], [ %call, %lor.lhs.false17 ], [ %call, %if.end ], [ %call, %lor.lhs.false29 ], [ %call35, %if.end34 ], [ %call35, %lor.lhs.false38 ], [ %call35, %if.end46 ], [ %call35, %lor.lhs.false52 ]
   %ret.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %get_cert_and_key.exit ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false17 ], [ 0, %if.end ], [ 0, %lor.lhs.false29 ], [ 0, %if.end34 ], [ 0, %lor.lhs.false38 ], [ 0, %if.end46 ], [ %spec.select, %lor.lhs.false52 ]
   call void @OCSP_BASICRESP_free(ptr noundef %bs.0) #6
   call void @OPENSSL_sk_free(ptr noundef %call1) #6
-  call void @X509_free(ptr noundef %signer.1) #6
-  call void @EVP_PKEY_free(ptr noundef %key.1) #6
+  call void @X509_free(ptr noundef %signer.0) #6
+  call void @EVP_PKEY_free(ptr noundef %key.0) #6
   ret i32 %ret.0
 }
 

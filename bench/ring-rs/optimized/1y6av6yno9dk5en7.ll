@@ -3513,7 +3513,7 @@ _ZN4ring6digest7Context6finish17ha820283835585a81E.exit.i: ; preds = %.noexc
   br label %_ZN9untrusted5input5Input8read_all17h75345cb0014326b2E.exit
 
 _ZN9untrusted5input5Input8read_all17h75345cb0014326b2E.exit: ; preds = %73, %69
-  %.1.i = phi i1 [ true, %73 ], [ %72, %69 ]
+  %.0.i = phi i1 [ true, %73 ], [ %72, %69 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !1414)
@@ -3555,7 +3555,7 @@ _ZN9untrusted5input5Input8read_all17h75345cb0014326b2E.exit: ; preds = %73, %69
   br label %84
 
 84:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit", %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit40"
-  %.0 = phi i1 [ true, %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit" ], [ %.1.i, %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit40" ]
+  %.0 = phi i1 [ true, %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit" ], [ %.0.i, %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit40" ]
   ret i1 %.0
 
 "_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i1.i.i", %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i", %30

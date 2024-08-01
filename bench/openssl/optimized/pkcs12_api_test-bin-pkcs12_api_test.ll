@@ -489,14 +489,14 @@ if.then26:                                        ; preds = %if.end
   br i1 %tobool29.not, label %err, label %if.end34
 
 if.end34:                                         ; preds = %if.end, %if.then18, %if.then26, %if.end11
-  %ptr.0 = phi ptr [ %call12, %if.end11 ], [ %call19, %if.then18 ], [ %call27, %if.then26 ], [ null, %if.end ]
+  %ptr.1 = phi ptr [ %call12, %if.end11 ], [ %call19, %if.then18 ], [ %call27, %if.then26 ], [ null, %if.end ]
   br label %err
 
 err:                                              ; preds = %if.then26, %if.then18, %if.end11, %if.end7, %if.then2, %pkcs12_create_ex2_setup.exit, %if.end34
   %cmp35 = phi i32 [ 0, %if.then2 ], [ 1, %if.end34 ], [ 0, %if.end11 ], [ 0, %if.end7 ], [ 0, %if.then18 ], [ 0, %if.then26 ], [ 0, %pkcs12_create_ex2_setup.exit ]
-  %ptr.1 = phi ptr [ %call3, %if.then2 ], [ %ptr.0, %if.end34 ], [ %call12, %if.end11 ], [ %call3, %if.end7 ], [ %call19, %if.then18 ], [ %call27, %if.then26 ], [ null, %pkcs12_create_ex2_setup.exit ]
+  %ptr.0 = phi ptr [ %call3, %if.then2 ], [ %ptr.1, %if.end34 ], [ %call12, %if.end11 ], [ %call3, %if.end7 ], [ %call19, %if.then18 ], [ %call27, %if.then26 ], [ null, %pkcs12_create_ex2_setup.exit ]
   call void @PKCS12_free(ptr noundef %retval.0.i) #5
-  call void @PKCS12_free(ptr noundef %ptr.1) #5
+  call void @PKCS12_free(ptr noundef %ptr.0) #5
   %8 = load ptr, ptr %key, align 8
   call void @EVP_PKEY_free(ptr noundef %8) #5
   %9 = load ptr, ptr %cert, align 8

@@ -67,13 +67,13 @@ define ptr @Java_java_io_UnixFileSystem_canonicalize0(ptr noundef %0, ptr nocapt
   br label %16
 
 16:                                               ; preds = %14, %13
-  %.0 = phi ptr [ null, %13 ], [ %15, %14 ]
+  %.1 = phi ptr [ null, %13 ], [ %15, %14 ]
   call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %8) #7
   br label %17
 
 17:                                               ; preds = %7, %16, %6
-  %.1 = phi ptr [ null, %6 ], [ null, %7 ], [ %.0, %16 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %6 ], [ null, %7 ], [ %.1, %16 ]
+  ret ptr %.0
 }
 
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -135,13 +135,13 @@ statMode.exit.thread:                             ; preds = %16
   br label %28
 
 28:                                               ; preds = %statMode.exit.thread, %19
-  %.0 = phi i32 [ %27, %19 ], [ 0, %statMode.exit.thread ]
+  %.1 = phi i32 [ %27, %19 ], [ 0, %statMode.exit.thread ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %14) #7
   br label %29
 
 29:                                               ; preds = %13, %28, %.thread
-  %.1 = phi i32 [ 0, %.thread ], [ 0, %13 ], [ %.0, %28 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %13 ], [ %.1, %28 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -196,13 +196,13 @@ switch.lookup:                                    ; preds = %4
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %.critedge.loopexit
-  %.0 = phi i8 [ 0, %.critedge.loopexit ], [ 1, %.preheader ]
+  %.1 = phi i8 [ 0, %.critedge.loopexit ], [ 1, %.preheader ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %17) #7
   br label %24
 
 24:                                               ; preds = %16, %.critedge, %.thread
-  %.1 = phi i8 [ 0, %.thread ], [ 0, %16 ], [ %.0, %.critedge ]
-  ret i8 %.1
+  %.0 = phi i8 [ 0, %.thread ], [ 0, %16 ], [ %.1, %.critedge ]
+  ret i8 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -296,13 +296,13 @@ statMode.exit.thread:                             ; preds = %23
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.critedge.loopexit, %statMode.exit.thread
-  %.0 = phi i8 [ 0, %statMode.exit.thread ], [ 0, %.critedge.loopexit ], [ 1, %32 ]
+  %.1 = phi i8 [ 0, %statMode.exit.thread ], [ 0, %.critedge.loopexit ], [ 1, %32 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %17) #7
   br label %38
 
 38:                                               ; preds = %16, %.critedge, %.thread
-  %.1 = phi i8 [ 0, %.thread ], [ 0, %16 ], [ %.0, %.critedge ]
-  ret i8 %.1
+  %.0 = phi i8 [ 0, %.thread ], [ 0, %16 ], [ %.1, %.critedge ]
+  ret i8 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -348,13 +348,13 @@ define i64 @Java_java_io_UnixFileSystem_getLastModifiedTime0(ptr noundef %0, ptr
   br label %27
 
 27:                                               ; preds = %19, %16
-  %.0 = phi i64 [ %26, %19 ], [ 0, %16 ]
+  %.1 = phi i64 [ %26, %19 ], [ 0, %16 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %14) #7
   br label %28
 
 28:                                               ; preds = %13, %27, %.thread
-  %.1 = phi i64 [ 0, %.thread ], [ 0, %13 ], [ %.0, %27 ]
-  ret i64 %.1
+  %.0 = phi i64 [ 0, %.thread ], [ 0, %13 ], [ %.1, %27 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -389,13 +389,13 @@ define i64 @Java_java_io_UnixFileSystem_getLength0(ptr noundef %0, ptr nocapture
   %18 = icmp eq i32 %17, 0
   %19 = getelementptr inbounds i8, ptr %4, i64 48
   %20 = load i64, ptr %19, align 8
-  %.0 = select i1 %18, i64 %20, i64 0
+  %.1 = select i1 %18, i64 %20, i64 0
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %14) #7
   br label %21
 
 21:                                               ; preds = %13, %16, %.thread
-  %.1 = phi i64 [ 0, %.thread ], [ 0, %13 ], [ %.0, %16 ]
-  ret i64 %.1
+  %.0 = phi i64 [ 0, %.thread ], [ 0, %13 ], [ %.1, %16 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -441,18 +441,18 @@ sub_0:                                            ; preds = %6
 
 .sink.split:                                      ; preds = %18, %15
   %.str.6.sink = phi ptr [ @.str.5, %15 ], [ @.str.6, %18 ]
-  %.0.ph = phi i8 [ 0, %15 ], [ 1, %18 ]
+  %.1.ph = phi i8 [ 0, %15 ], [ 1, %18 ]
   tail call void @JNU_ThrowIOExceptionWithLastError(ptr noundef %0, ptr noundef nonnull %.str.6.sink) #7
   br label %21
 
 21:                                               ; preds = %.sink.split, %18, %15, %.tail
-  %.0 = phi i8 [ 0, %15 ], [ 0, %.tail ], [ 1, %18 ], [ %.0.ph, %.sink.split ]
+  %.1 = phi i8 [ 0, %15 ], [ 0, %.tail ], [ 1, %18 ], [ %.1.ph, %.sink.split ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %7) #7
   br label %22
 
 22:                                               ; preds = %6, %21, %5
-  %.1 = phi i8 [ 0, %5 ], [ 0, %6 ], [ %.0, %21 ]
-  ret i8 %.1
+  %.0 = phi i8 [ 0, %5 ], [ 0, %6 ], [ %.1, %21 ]
+  ret i8 %.0
 }
 
 declare i32 @handleOpen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -490,8 +490,8 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_delete0(ptr nounde
   br label %18
 
 18:                                               ; preds = %12, %15, %.thread
-  %.1 = phi i8 [ 0, %.thread ], [ 0, %12 ], [ %spec.select, %15 ]
-  ret i8 %.1
+  %.0 = phi i8 [ 0, %.thread ], [ 0, %12 ], [ %spec.select, %15 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -717,8 +717,8 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_createDirectory0(p
   br label %18
 
 18:                                               ; preds = %12, %15, %.thread
-  %.1 = phi i8 [ 0, %.thread ], [ 0, %12 ], [ %spec.select, %15 ]
-  ret i8 %.1
+  %.0 = phi i8 [ 0, %.thread ], [ 0, %12 ], [ %spec.select, %15 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -782,8 +782,8 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_rename0(ptr nounde
   br label %32
 
 32:                                               ; preds = %13, %31, %.thread
-  %.2 = phi i8 [ 0, %.thread ], [ 0, %13 ], [ %.1, %31 ]
-  ret i8 %.2
+  %.0 = phi i8 [ 0, %.thread ], [ 0, %13 ], [ %.1, %31 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -841,13 +841,13 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setLastModifiedTim
   br label %35
 
 35:                                               ; preds = %21, %18
-  %.0 = phi i8 [ 0, %18 ], [ %spec.select, %21 ]
+  %.1 = phi i8 [ 0, %18 ], [ %spec.select, %21 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %16) #7
   br label %36
 
 36:                                               ; preds = %15, %35, %.thread
-  %.1 = phi i8 [ 0, %.thread ], [ 0, %15 ], [ %.0, %35 ]
-  ret i8 %.1
+  %.0 = phi i8 [ 0, %.thread ], [ 0, %15 ], [ %.1, %35 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -911,13 +911,13 @@ statMode.exit:                                    ; preds = %16
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %.critedge.loopexit, %statMode.exit.thread
-  %.0 = phi i8 [ 0, %statMode.exit.thread ], [ 0, %.critedge.loopexit ], [ 1, %22 ]
+  %.1 = phi i8 [ 0, %statMode.exit.thread ], [ 0, %.critedge.loopexit ], [ 1, %22 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %14) #7
   br label %28
 
 28:                                               ; preds = %13, %.critedge, %.thread
-  %.1 = phi i8 [ 0, %.thread ], [ 0, %13 ], [ %.0, %.critedge ]
-  ret i8 %.1
+  %.0 = phi i8 [ 0, %.thread ], [ 0, %13 ], [ %.1, %.critedge ]
+  ret i8 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -993,13 +993,13 @@ define i64 @Java_java_io_UnixFileSystem_getSpace0(ptr noundef %0, ptr nocapture 
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %18, %25, %31, %37, %24
-  %.0 = phi i64 [ 0, %24 ], [ %42, %37 ], [ %36, %31 ], [ %30, %25 ], [ 0, %18 ], [ 0, %20 ]
+  %.1 = phi i64 [ 0, %24 ], [ %42, %37 ], [ %36, %31 ], [ %30, %25 ], [ 0, %18 ], [ 0, %20 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %15) #7
   br label %43
 
 43:                                               ; preds = %14, %.critedge, %.thread
-  %.1 = phi i64 [ 0, %.thread ], [ 0, %14 ], [ %.0, %.critedge ]
-  ret i64 %.1
+  %.0 = phi i64 [ 0, %.thread ], [ 0, %14 ], [ %.1, %.critedge ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

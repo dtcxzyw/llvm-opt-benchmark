@@ -101,13 +101,13 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN104_$LT$tracing_subscriber..regis
   br label %18
 
 18:                                               ; preds = %11, %16
-  %.1 = phi i64 [ %17, %16 ], [ 0, %11 ]
+  %.2 = phi i64 [ %17, %16 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %14, %8, %2, %18
-  %.2 = phi i64 [ %.1, %18 ], [ 0, %2 ], [ %15, %14 ], [ 0, %8 ]
-  %20 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h00d0c4448e4c437dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.2)
+  %.0 = phi i64 [ %.2, %18 ], [ 0, %2 ], [ %15, %14 ], [ 0, %8 ]
+  %20 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h00d0c4448e4c437dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.0)
   %.fca.0.extract = extractvalue { i64, i64 } %20, 0
   %switch = icmp eq i64 %.fca.0.extract, 0
   br i1 %switch, label %21, label %22

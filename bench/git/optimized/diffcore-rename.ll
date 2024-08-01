@@ -542,7 +542,7 @@ for.body.lr.ph.i.i:                               ; preds = %hash_filespec.exit.
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %p1.048.i.i = phi ptr [ %call.i22.i.i, %for.body.lr.ph.i.i ], [ %call43.i.i, %for.inc.i.i ]
-  %best_score.047.i.i = phi i32 [ -1, %for.body.lr.ph.i.i ], [ %best_score.2.i.i, %for.inc.i.i ]
+  %best_score.047.i.i = phi i32 [ -1, %for.body.lr.ph.i.i ], [ %best_score.1.i.i, %for.inc.i.i ]
   %i.046.i.i = phi i32 [ 100, %for.body.lr.ph.i.i ], [ %i.1.i.i, %for.inc.i.i ]
   %best.045.i.i = phi ptr [ null, %for.body.lr.ph.i.i ], [ %best.2.i.i, %for.inc.i.i ]
   %filespec.i.i = getelementptr inbounds i8, ptr %p1.048.i.i, i64 24
@@ -677,27 +677,27 @@ if.then33.i.i:                                    ; preds = %basename_same.exit.
   br i1 %cmp34.i.i, label %for.end.i.i, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.then33.i.i, %basename_same.exit.i.i
-  %best.1.i.i = phi ptr [ %p1.048.i.i, %if.then33.i.i ], [ %best.045.i.i, %basename_same.exit.i.i ]
-  %best_score.1.i.i = phi i32 [ %add.i.i, %if.then33.i.i ], [ %best_score.047.i.i, %basename_same.exit.i.i ]
+  %best.3.i.i = phi ptr [ %p1.048.i.i, %if.then33.i.i ], [ %best.045.i.i, %basename_same.exit.i.i ]
+  %best_score.2.i.i = phi i32 [ %add.i.i, %if.then33.i.i ], [ %best_score.047.i.i, %basename_same.exit.i.i ]
   %dec.i.i = add nsw i32 %i.046.i.i, -1
   %tobool39.not.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %tobool39.not.i.i, label %for.end.i.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end38.i.i, %land.lhs.true.i.i, %if.end.i.i, %oideq.exit.i.i
-  %best.2.i.i = phi ptr [ %best.045.i.i, %land.lhs.true.i.i ], [ %best.1.i.i, %if.end38.i.i ], [ %best.045.i.i, %oideq.exit.i.i ], [ %best.045.i.i, %if.end.i.i ]
+  %best.2.i.i = phi ptr [ %best.045.i.i, %land.lhs.true.i.i ], [ %best.3.i.i, %if.end38.i.i ], [ %best.045.i.i, %oideq.exit.i.i ], [ %best.045.i.i, %if.end.i.i ]
   %i.1.i.i = phi i32 [ %i.046.i.i, %land.lhs.true.i.i ], [ %dec.i.i, %if.end38.i.i ], [ %i.046.i.i, %oideq.exit.i.i ], [ %i.046.i.i, %if.end.i.i ]
-  %best_score.2.i.i = phi i32 [ %best_score.047.i.i, %land.lhs.true.i.i ], [ %best_score.1.i.i, %if.end38.i.i ], [ %best_score.047.i.i, %oideq.exit.i.i ], [ %best_score.047.i.i, %if.end.i.i ]
+  %best_score.1.i.i = phi i32 [ %best_score.047.i.i, %land.lhs.true.i.i ], [ %best_score.2.i.i, %if.end38.i.i ], [ %best_score.047.i.i, %oideq.exit.i.i ], [ %best_score.047.i.i, %if.end.i.i ]
   %call43.i.i = call ptr @hashmap_get_next(ptr noundef nonnull %file_table.i, ptr noundef nonnull %p1.048.i.i) #14
   %tobool.not.i.i171 = icmp eq ptr %call43.i.i, null
   br i1 %tobool.not.i.i171, label %for.end.i.i, label %for.body.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.end38.i.i, %if.then33.i.i
-  %best.3.i.i = phi ptr [ %best.2.i.i, %for.inc.i.i ], [ %p1.048.i.i, %if.then33.i.i ], [ %best.1.i.i, %if.end38.i.i ]
-  %tobool45.not.i.i = icmp eq ptr %best.3.i.i, null
+  %best.1.i.i = phi ptr [ %best.2.i.i, %for.inc.i.i ], [ %p1.048.i.i, %if.then33.i.i ], [ %best.3.i.i, %if.end38.i.i ]
+  %tobool45.not.i.i = icmp eq ptr %best.1.i.i, null
   br i1 %tobool45.not.i.i, label %find_identical_files.exit.i, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %for.end.i.i
-  %index.i.i = getelementptr inbounds i8, ptr %best.3.i.i, i64 16
+  %index.i.i = getelementptr inbounds i8, ptr %best.1.i.i, i64 16
   %86 = load i32, ptr %index.i.i, align 8
   %idxprom.i31.i.i = sext i32 %86 to i64
   %87 = load ptr, ptr @rename_dst, align 8

@@ -200,16 +200,16 @@ if.then17.i:                                      ; preds = %if.end14.i
   br i1 %cmp19.i, label %ec_GFp_simple_point2oct.exit, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then17.i, %if.end14.i
-  %new_ctx.0.i = phi ptr [ %call18.i, %if.then17.i ], [ null, %if.end14.i ]
-  %ctx.addr.0.i = phi ptr [ %call18.i, %if.then17.i ], [ %ctx, %if.end14.i ]
-  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0.i) #2
-  %call24.i = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0.i) #2
-  %call25.i = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0.i) #2
+  %new_ctx.2.i = phi ptr [ %call18.i, %if.then17.i ], [ null, %if.end14.i ]
+  %ctx.addr.2.i = phi ptr [ %call18.i, %if.then17.i ], [ %ctx, %if.end14.i ]
+  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.2.i) #2
+  %call24.i = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.2.i) #2
+  %call25.i = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.2.i) #2
   %cmp26.i = icmp eq ptr %call25.i, null
   br i1 %cmp26.i, label %if.then69.i, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end23.i
-  %call30.i = tail call i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %call24.i, ptr noundef nonnull %call25.i, ptr noundef nonnull %ctx.addr.0.i) #2
+  %call30.i = tail call i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %call24.i, ptr noundef nonnull %call25.i, ptr noundef nonnull %ctx.addr.2.i) #2
   %tobool31.not.i = icmp eq i32 %call30.i, 0
   br i1 %tobool31.not.i, label %if.then69.i, label %if.end33.i
 
@@ -253,7 +253,7 @@ if.end59.i:                                       ; preds = %if.end57.i, %if.end
   br i1 %cmp60.not.i, label %if.then66.i, label %if.then69.sink.split.i
 
 if.then66.i:                                      ; preds = %if.end59.i
-  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.0.i) #2
+  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.2.i) #2
   br label %ec_GFp_simple_point2oct.exit
 
 if.then69.sink.split.i:                           ; preds = %if.end59.i, %if.then52.i, %if.end44.i
@@ -262,13 +262,13 @@ if.then69.sink.split.i:                           ; preds = %if.end59.i, %if.the
   br label %if.then69.i
 
 if.then69.i:                                      ; preds = %if.then69.sink.split.i, %if.end29.i, %if.end23.i
-  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.0.i) #2
+  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.2.i) #2
   br label %ec_GFp_simple_point2oct.exit
 
 ec_GFp_simple_point2oct.exit:                     ; preds = %if.then.i, %if.then2.i, %if.end3.i, %if.then13.i, %if.then17.i, %if.then66.i, %if.then69.i
-  %new_ctx.245.sink.i = phi ptr [ %new_ctx.0.i, %if.then66.i ], [ null, %if.end3.i ], [ %new_ctx.0.i, %if.then69.i ], [ null, %if.then.i ], [ null, %if.then2.i ], [ null, %if.then13.i ], [ null, %if.then17.i ]
+  %new_ctx.045.sink.i = phi ptr [ %new_ctx.2.i, %if.then66.i ], [ null, %if.end3.i ], [ %new_ctx.2.i, %if.then69.i ], [ null, %if.then.i ], [ null, %if.then2.i ], [ null, %if.then13.i ], [ null, %if.then17.i ]
   %retval.0.i = phi i64 [ %cond.i, %if.then66.i ], [ %cond.i, %if.end3.i ], [ 0, %if.then69.i ], [ 0, %if.then.i ], [ 0, %if.then2.i ], [ 0, %if.then13.i ], [ 0, %if.then17.i ]
-  tail call void @BN_CTX_free(ptr noundef %new_ctx.245.sink.i) #2
+  tail call void @BN_CTX_free(ptr noundef %new_ctx.045.sink.i) #2
   br label %return
 
 return:                                           ; preds = %ec_GFp_simple_point2oct.exit, %if.then

@@ -1598,7 +1598,7 @@ if.then104:                                       ; preds = %if.then97
   br label %return
 
 if.end111:                                        ; preds = %if.end, %if.then97, %if.then78
-  %i.1 = phi i32 [ %add, %if.then97 ], [ %add, %if.end ], [ %i.0139, %if.then78 ]
+  %i.2 = phi i32 [ %add, %if.then97 ], [ %add, %if.end ], [ %i.0139, %if.then78 ]
   call void @u_setMemoryFunctions_75(ptr noundef null, ptr noundef nonnull @ctest_libMalloc, ptr noundef nonnull @ctest_libRealloc, ptr noundef nonnull @ctest_libFree, ptr noundef nonnull %errorCode) #23
   %71 = load i32, ptr %errorCode, align 4
   %cmp112 = icmp sgt i32 %71, 0
@@ -1840,8 +1840,8 @@ if.else224:                                       ; preds = %if.else216, %land.l
   br label %return
 
 for.inc:                                          ; preds = %if.end153, %if.then27, %if.then41, %if.then55, %if.then71, %if.then130, %if.then173, %if.then187, %if.then201, %if.then222, %if.then194, %if.then180, %if.then166, %if.then137, %if.then138, %if.end111, %if.then62, %if.then48, %if.else28.tail, %if.else.tail, %lor.lhs.false, %for.body
-  %i.2 = phi i32 [ %i.0139, %for.body ], [ %i.0139, %if.else.tail ], [ %i.0139, %lor.lhs.false ], [ %i.0139, %if.then27 ], [ %i.0139, %if.else28.tail ], [ %i.0139, %if.then41 ], [ %i.0139, %if.then48 ], [ %i.0139, %if.then55 ], [ %i.0139, %if.then62 ], [ %i.0139, %if.then71 ], [ %i.1, %if.end111 ], [ %i.0139, %if.then130 ], [ %i.0139, %if.then137 ], [ %i.0139, %if.then138 ], [ %inc148, %if.end153 ], [ %i.0139, %if.then166 ], [ %i.0139, %if.then173 ], [ %i.0139, %if.then180 ], [ %i.0139, %if.then187 ], [ %i.0139, %if.then194 ], [ %i.0139, %if.then201 ], [ %add223, %if.then222 ]
-  %inc250 = add nuw nsw i32 %i.2, 1
+  %i.1 = phi i32 [ %i.0139, %for.body ], [ %i.0139, %if.else.tail ], [ %i.0139, %lor.lhs.false ], [ %i.0139, %if.then27 ], [ %i.0139, %if.else28.tail ], [ %i.0139, %if.then41 ], [ %i.0139, %if.then48 ], [ %i.0139, %if.then55 ], [ %i.0139, %if.then62 ], [ %i.0139, %if.then71 ], [ %i.2, %if.end111 ], [ %i.0139, %if.then130 ], [ %i.0139, %if.then137 ], [ %i.0139, %if.then138 ], [ %inc148, %if.end153 ], [ %i.0139, %if.then166 ], [ %i.0139, %if.then173 ], [ %i.0139, %if.then180 ], [ %i.0139, %if.then187 ], [ %i.0139, %if.then194 ], [ %i.0139, %if.then201 ], [ %add223, %if.then222 ]
+  %inc250 = add nuw nsw i32 %i.1, 1
   %cmp = icmp slt i32 %inc250, %argc
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 

@@ -115,21 +115,21 @@ define hidden void @dissect_zbee_zdp_req_mgmt_nwk_disc(ptr noundef %0, ptr nound
   br i1 %.not45, label %21, label %.preheader
 
 .preheader:                                       ; preds = %11, %.preheader
-  %.140 = phi i32 [ %19, %.preheader ], [ %.03946, %11 ]
-  %14 = shl nuw nsw i32 2, %.140
+  %.2 = phi i32 [ %19, %.preheader ], [ %.03946, %11 ]
+  %14 = shl nuw nsw i32 2, %.2
   %15 = and i32 %14, %5
   %16 = icmp ne i32 %15, 0
-  %17 = icmp ult i32 %.140, 26
+  %17 = icmp ult i32 %.2, 26
   %18 = and i1 %17, %16
-  %19 = add nuw nsw i32 %.140, 1
+  %19 = add nuw nsw i32 %.2, 1
   br i1 %18, label %.preheader, label %20, !llvm.loop !4
 
 20:                                               ; preds = %.preheader
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.3, i32 noundef %.140) #3
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.3, i32 noundef %.2) #3
   br label %21
 
 21:                                               ; preds = %11, %20, %8
-  %.3 = phi i32 [ %.03946, %8 ], [ %.140, %20 ], [ %.03946, %11 ]
+  %.3 = phi i32 [ %.03946, %8 ], [ %.2, %20 ], [ %.03946, %11 ]
   %.1 = phi i32 [ %.047, %8 ], [ 0, %20 ], [ 0, %11 ]
   %22 = add nuw nsw i32 %.3, 1
   %23 = icmp ult i32 %.3, 26
@@ -487,17 +487,17 @@ define hidden void @dissect_zbee_zdp_req_security_get_configuration(ptr noundef 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.021 = phi i32 [ %12, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.121 = phi i32 [ %12, %.lr.ph ], [ 1, %.lr.ph.preheader ]
   %10 = load i32, ptr @hf_zbee_zdp_tlv_id, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %.021, i32 noundef 1, i32 noundef 0) #3
-  %12 = add nuw nsw i32 %.021, 1
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %.121, i32 noundef 1, i32 noundef 0) #3
+  %12 = add nuw nsw i32 %.121, 1
   %lftr.wideiv = trunc i32 %12 to i8
   %exitcond.not = icmp eq i8 %9, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %3
-  %.1 = phi i32 [ 0, %3 ], [ 1, %5 ], [ %12, %.lr.ph ]
-  tail call void @zdp_dump_excess(ptr noundef %0, i32 noundef %.1, ptr noundef %1, ptr noundef %2) #3
+  %.0 = phi i32 [ 0, %3 ], [ 1, %5 ], [ %12, %.lr.ph ]
+  tail call void @zdp_dump_excess(ptr noundef %0, i32 noundef %.0, ptr noundef %1, ptr noundef %2) #3
   ret void
 }
 

@@ -1712,8 +1712,8 @@ for.body286.lr.ph:                                ; preds = %invoke.cont275
   br label %for.body286
 
 for.body286:                                      ; preds = %for.body286.lr.ph, %for.inc436
-  %meshIdx.0714 = phi i32 [ 0, %for.body286.lr.ph ], [ %meshIdx.2, %for.inc436 ]
-  %mats.0713 = phi ptr [ %call276, %for.body286.lr.ph ], [ %mats.2, %for.inc436 ]
+  %meshIdx.0714 = phi i32 [ 0, %for.body286.lr.ph ], [ %meshIdx.1, %for.inc436 ]
+  %mats.0713 = phi ptr [ %call276, %for.body286.lr.ph ], [ %mats.1, %for.inc436 ]
   %__begin1278.sroa.0.0712 = phi ptr [ %119, %for.body286.lr.ph ], [ %incdec.ptr.i560, %for.inc436 ]
   %meshes289 = getelementptr inbounds i8, ptr %__begin1278.sroa.0.0712, i64 32
   %138 = load ptr, ptr %meshes289, align 8
@@ -1798,11 +1798,11 @@ invoke.cont314:                                   ; preds = %_ZN8aiString3SetERK
 
 for.body325:                                      ; preds = %invoke.cont314, %invoke.cont430
   %pi.0709 = phi ptr [ %incdec.ptr326, %invoke.cont430 ], [ %call315, %invoke.cont314 ]
-  %meshIdx.1708 = phi i32 [ %inc333, %invoke.cont430 ], [ %meshIdx.0714, %invoke.cont314 ]
-  %mats.1707 = phi ptr [ %incdec.ptr432, %invoke.cont430 ], [ %mats.0713, %invoke.cont314 ]
+  %meshIdx.2708 = phi i32 [ %inc333, %invoke.cont430 ], [ %meshIdx.0714, %invoke.cont314 ]
+  %mats.2707 = phi ptr [ %incdec.ptr432, %invoke.cont430 ], [ %mats.0713, %invoke.cont314 ]
   %it2.sroa.0.0705 = phi ptr [ %incdec.ptr.i559, %invoke.cont430 ], [ %149, %invoke.cont314 ]
   %incdec.ptr326 = getelementptr inbounds i8, ptr %pi.0709, i64 4
-  store i32 %meshIdx.1708, ptr %pi.0709, align 4
+  store i32 %meshIdx.2708, ptr %pi.0709, align 4
   %call329 = invoke noalias noundef nonnull dereferenceable(1320) ptr @_Znwm(i64 noundef 1320) #19
           to label %invoke.cont328 unwind label %lpad29.loopexit.split-lp.loopexit
 
@@ -1822,12 +1822,12 @@ invoke.cont328:                                   ; preds = %for.body325
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %mBones.i, i8 0, i64 17, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mAnimMeshes.i, i8 0, i64 36, i1 false)
   %151 = load ptr, ptr %mMeshes, align 8
-  %idxprom331 = zext i32 %meshIdx.1708 to i64
+  %idxprom331 = zext i32 %meshIdx.2708 to i64
   %arrayidx332 = getelementptr inbounds ptr, ptr %151, i64 %idxprom331
   store ptr %call329, ptr %arrayidx332, align 8
-  %inc333 = add i32 %meshIdx.1708, 1
+  %inc333 = add i32 %meshIdx.2708, 1
   %mMaterialIndex = getelementptr inbounds i8, ptr %call329, i64 232
-  store i32 %meshIdx.1708, ptr %mMaterialIndex, align 8
+  store i32 %meshIdx.2708, ptr %mMaterialIndex, align 8
   store i32 4, ptr %call329, align 8
   %vertices335 = getelementptr inbounds i8, ptr %it2.sroa.0.0705, i64 32
   %_M_finish.i529 = getelementptr inbounds i8, ptr %it2.sroa.0.0705, i64 40
@@ -2014,15 +2014,15 @@ if.end429:                                        ; preds = %if.else417, %_ZN8ai
           to label %invoke.cont430 unwind label %lpad29.loopexit.split-lp.loopexit
 
 invoke.cont430:                                   ; preds = %if.end429
-  %incdec.ptr432 = getelementptr inbounds i8, ptr %mats.1707, i64 8
-  store ptr %call407, ptr %mats.1707, align 8
+  %incdec.ptr432 = getelementptr inbounds i8, ptr %mats.2707, i64 8
+  store ptr %call407, ptr %mats.2707, align 8
   %incdec.ptr.i559 = getelementptr inbounds i8, ptr %it2.sroa.0.0705, i64 80
   %cmp.i528.not = icmp eq ptr %incdec.ptr.i559, %150
   br i1 %cmp.i528.not, label %for.inc436, label %for.body325, !llvm.loop !53
 
 for.inc436:                                       ; preds = %invoke.cont430, %invoke.cont314, %for.body286
-  %mats.2 = phi ptr [ %mats.0713, %for.body286 ], [ %mats.0713, %invoke.cont314 ], [ %incdec.ptr432, %invoke.cont430 ]
-  %meshIdx.2 = phi i32 [ %meshIdx.0714, %for.body286 ], [ %meshIdx.0714, %invoke.cont314 ], [ %inc333, %invoke.cont430 ]
+  %mats.1 = phi ptr [ %mats.0713, %for.body286 ], [ %mats.0713, %invoke.cont314 ], [ %incdec.ptr432, %invoke.cont430 ]
+  %meshIdx.1 = phi i32 [ %meshIdx.0714, %for.body286 ], [ %meshIdx.0714, %invoke.cont314 ], [ %inc333, %invoke.cont430 ]
   %incdec.ptr.i560 = getelementptr inbounds i8, ptr %__begin1278.sroa.0.0712, i64 56
   %cmp.i513.not = icmp eq ptr %incdec.ptr.i560, %120
   br i1 %cmp.i513.not, label %for.end438, label %for.body286

@@ -3219,23 +3219,23 @@ define internal i32 @dissect_ldap_ProtocolOp(i1 zeroext %0, ptr noundef %1, i32 
   br label %48
 
 48:                                               ; preds = %.critedge.i, %43
-  %.0.i = phi ptr [ %42, %43 ], [ %47, %.critedge.i ]
-  %49 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %.1.i = phi ptr [ %42, %43 ], [ %47, %.critedge.i ]
+  %49 = getelementptr inbounds i8, ptr %.1.i, i64 28
   store i32 %21, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %20, i64 20
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %52 = getelementptr inbounds i8, ptr %.1.i, i64 4
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %53 = getelementptr inbounds i8, ptr %.1.i, i64 8
   %54 = getelementptr inbounds i8, ptr %20, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  %55 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %55 = getelementptr inbounds i8, ptr %.1.i, i64 24
   store i32 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %56 = getelementptr inbounds i8, ptr %.1.i, i64 32
   store i32 %18, ptr %56, align 8
-  store i32 1, ptr %.0.i, align 8
+  store i32 1, ptr %.1.i, align 8
   %57 = load ptr, ptr %40, align 8
-  %58 = call ptr @wmem_map_insert(ptr noundef %57, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i) #12
+  %58 = call ptr @wmem_map_insert(ptr noundef %57, ptr noundef nonnull %.1.i, ptr noundef nonnull %.1.i) #12
   br label %.thread35
 
 59:                                               ; preds = %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38
@@ -3269,13 +3269,13 @@ thread-pre-split.i:                               ; preds = %66, %63
 
 73:                                               ; preds = %thread-pre-split.i, %36
   %74 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %37, %36 ]
-  %.1.ph.i = phi ptr [ %62, %thread-pre-split.i ], [ %35, %36 ]
+  %.0.ph.i = phi ptr [ %62, %thread-pre-split.i ], [ %35, %36 ]
   %.not66.i = icmp eq i32 %74, 0
   br i1 %.not66.i, label %83, label %75
 
 75:                                               ; preds = %73
   %76 = load i32, ptr @hf_ldap_response_in, align 4
-  %77 = getelementptr inbounds i8, ptr %.1.ph.i, i64 24
+  %77 = getelementptr inbounds i8, ptr %.0.ph.i, i64 24
   %78 = load i32, ptr %77, align 8
   %79 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %76, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %78) #12
   %.not.i.i = icmp eq ptr %79, null
@@ -3289,7 +3289,7 @@ thread-pre-split.i:                               ; preds = %66, %63
 
 83:                                               ; preds = %73
   %84 = load i32, ptr @hf_ldap_response_to, align 4
-  %85 = getelementptr inbounds i8, ptr %.1.ph.i, i64 4
+  %85 = getelementptr inbounds i8, ptr %.0.ph.i, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %84, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %86) #12
   %.not.i67.i = icmp eq ptr %87, null
@@ -3310,7 +3310,7 @@ thread-pre-split.i:                               ; preds = %66, %63
 
 proto_item_set_generated.exit69.i:                ; preds = %91, %88, %83
   %95 = getelementptr inbounds i8, ptr %20, i64 24
-  %96 = getelementptr inbounds i8, ptr %.1.ph.i, i64 8
+  %96 = getelementptr inbounds i8, ptr %.0.ph.i, i64 8
   call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %95, ptr noundef nonnull %96) #12
   %97 = load i32, ptr @hf_ldap_time, align 4
   %98 = call ptr @proto_tree_add_time(ptr noundef %4, i32 noundef %97, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -3336,7 +3336,7 @@ proto_item_set_generated.exit69.i:                ; preds = %91, %88, %83
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %105 = load i32, ptr @ldap_tap, align 4
   %106 = load ptr, ptr %19, align 8
-  call void @tap_queue_packet(i32 noundef %105, ptr noundef %106, ptr noundef nonnull %.1.ph.i) #12
+  call void @tap_queue_packet(i32 noundef %105, ptr noundef %106, ptr noundef nonnull %.0.ph.i) #12
   br label %108
 
 .thread35:                                        ; preds = %59, %48, %38

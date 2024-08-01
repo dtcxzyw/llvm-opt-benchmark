@@ -235,9 +235,9 @@ if.else:                                          ; preds = %if.end51
 
 if.end71:                                         ; preds = %if.then38.if.end71_crit_edge, %if.then56, %if.else
   %sub.ptr.rhs.cast74.pre-phi = phi i64 [ %.pre351, %if.then38.if.end71_crit_edge ], [ %sub.ptr.rhs.cast, %if.then56 ], [ %sub.ptr.rhs.cast, %if.else ]
-  %passwd_len.0 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub63, %if.then56 ], [ 0, %if.else ]
-  %passwd_off.0 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub.ptr.sub61, %if.then56 ], [ 0, %if.else ]
-  %user_len.0 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub66, %if.then56 ], [ %sub69, %if.else ]
+  %passwd_len.1 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub63, %if.then56 ], [ 0, %if.else ]
+  %passwd_off.1 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub.ptr.sub61, %if.then56 ], [ 0, %if.else ]
+  %user_len.1 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub66, %if.then56 ], [ %sub69, %if.else ]
   call fastcc void @strbuf_addch(ptr noundef nonnull %norm, i32 noundef 64)
   %incdec.ptr72 = getelementptr inbounds i8, ptr %call33, i64 1
   %sub.ptr.lhs.cast73 = ptrtoint ptr %incdec.ptr72 to i64
@@ -246,9 +246,9 @@ if.end71:                                         ; preds = %if.then38.if.end71_
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end71, %while.end
-  %passwd_len.1 = phi i64 [ %passwd_len.0, %if.end71 ], [ 0, %while.end ]
-  %passwd_off.1 = phi i64 [ %passwd_off.0, %if.end71 ], [ 0, %while.end ]
-  %user_len.1 = phi i64 [ %user_len.0, %if.end71 ], [ 0, %while.end ]
+  %passwd_len.0 = phi i64 [ %passwd_len.1, %if.end71 ], [ 0, %while.end ]
+  %passwd_off.0 = phi i64 [ %passwd_off.1, %if.end71 ], [ 0, %while.end ]
+  %user_len.0 = phi i64 [ %user_len.1, %if.end71 ], [ 0, %while.end ]
   %user_off.0 = phi i64 [ %17, %if.end71 ], [ 0, %while.end ]
   %url_len.0 = phi i64 [ %sub76, %if.end71 ], [ %sub, %while.end ]
   %url.addr.1 = phi ptr [ %incdec.ptr72, %if.end71 ], [ %url.addr.0.lcssa, %while.end ]
@@ -465,13 +465,13 @@ land.lhs.true170:                                 ; preds = %if.then164
   br label %if.end177
 
 if.end177:                                        ; preds = %land.lhs.true170, %if.then164
-  %url.addr.3 = phi ptr [ %add.ptr167, %if.then164 ], [ %spec.select, %land.lhs.true170 ]
-  %cmp178 = icmp eq ptr %url.addr.3, %add.ptr
+  %url.addr.4 = phi ptr [ %add.ptr167, %if.then164 ], [ %spec.select, %land.lhs.true170 ]
+  %cmp178 = icmp eq ptr %url.addr.4, %add.ptr
   %.pre352 = ptrtoint ptr %add.ptr to i64
   br i1 %cmp178, label %if.end254, label %if.else181
 
 if.else181:                                       ; preds = %if.end177
-  %sub.ptr.rhs.cast183 = ptrtoint ptr %url.addr.3 to i64
+  %sub.ptr.rhs.cast183 = ptrtoint ptr %url.addr.4 to i64
   %sub.ptr.sub184 = sub i64 %.pre352, %sub.ptr.rhs.cast183
   switch i64 %sub.ptr.sub184, label %if.else209 [
     i64 2, label %land.lhs.true187
@@ -486,14 +486,14 @@ land.lhs.true187:                                 ; preds = %if.else181
   br i1 %tobool190.not, label %if.else209, label %sub_0
 
 sub_0:                                            ; preds = %land.lhs.true187
-  %46 = load i8, ptr %url.addr.3, align 1
+  %46 = load i8, ptr %url.addr.4, align 1
   %47 = zext i8 %46 to i32
   %48 = add nsw i32 %47, -56
   %.not334 = icmp eq i32 %48, 0
   br i1 %.not334, label %sub_1, label %land.lhs.true191.tail
 
 sub_1:                                            ; preds = %sub_0
-  %49 = getelementptr inbounds i8, ptr %url.addr.3, i64 1
+  %49 = getelementptr inbounds i8, ptr %url.addr.4, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = add nsw i32 %51, -48
@@ -512,14 +512,14 @@ land.lhs.true201:                                 ; preds = %if.else181
   br i1 %tobool204.not, label %if.else209, label %sub_0296
 
 sub_0296:                                         ; preds = %land.lhs.true201
-  %55 = load i8, ptr %url.addr.3, align 1
+  %55 = load i8, ptr %url.addr.4, align 1
   %56 = zext i8 %55 to i32
   %57 = add nsw i32 %56, -52
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %sub_1297, label %land.lhs.true205.tail
 
 sub_1297:                                         ; preds = %sub_0296
-  %58 = getelementptr inbounds i8, ptr %url.addr.3, i64 1
+  %58 = getelementptr inbounds i8, ptr %url.addr.4, i64 1
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = add nsw i32 %60, -52
@@ -527,7 +527,7 @@ sub_1297:                                         ; preds = %sub_0296
   br i1 %.not333, label %sub_2, label %land.lhs.true205.tail
 
 sub_2:                                            ; preds = %sub_1297
-  %62 = getelementptr inbounds i8, ptr %url.addr.3, i64 2
+  %62 = getelementptr inbounds i8, ptr %url.addr.4, i64 2
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = add nsw i32 %64, -51
@@ -539,7 +539,7 @@ land.lhs.true205.tail:                            ; preds = %sub_0296, %sub_1297
   br i1 %tobool207.not, label %if.end254, label %if.else209
 
 if.else209:                                       ; preds = %land.lhs.true187, %land.lhs.true191.tail, %if.else181, %land.lhs.true205.tail, %land.lhs.true201
-  %call210 = call i64 @strspn(ptr noundef nonnull %url.addr.3, ptr noundef nonnull @.str.18) #14
+  %call210 = call i64 @strspn(ptr noundef nonnull %url.addr.4, ptr noundef nonnull @.str.18) #14
   %cmp214 = icmp ult i64 %call210, %sub.ptr.sub184
   br i1 %cmp214, label %if.then216, label %if.end223
 
@@ -572,7 +572,7 @@ if.end223:                                        ; preds = %if.else209
   br i1 %cmp227, label %if.end231, label %if.then237
 
 if.end231:                                        ; preds = %if.end223
-  %call230 = call i64 @strtoul(ptr nocapture noundef nonnull %url.addr.3, ptr noundef null, i32 noundef 10) #15
+  %call230 = call i64 @strtoul(ptr nocapture noundef nonnull %url.addr.4, ptr noundef null, i32 noundef 10) #15
   %68 = add i64 %call230, -65536
   %or.cond = icmp ult i64 %68, -65535
   br i1 %or.cond, label %if.then237, label %if.end244
@@ -605,29 +605,29 @@ if.end244:                                        ; preds = %if.end231
   call fastcc void @strbuf_addch(ptr noundef nonnull %norm, i32 noundef 58)
   %len245 = getelementptr inbounds i8, ptr %norm, i64 8
   %70 = load i64, ptr %len245, align 8
-  call void @strbuf_add(ptr noundef nonnull %norm, ptr noundef nonnull %url.addr.3, i64 noundef %sub.ptr.sub184) #15
+  call void @strbuf_add(ptr noundef nonnull %norm, ptr noundef nonnull %url.addr.4, i64 noundef %sub.ptr.sub184) #15
   br label %if.end254
 
 if.end254:                                        ; preds = %if.end177, %land.lhs.true191.tail, %land.lhs.true205.tail, %if.end244
-  %port_off.0 = phi i64 [ 0, %land.lhs.true191.tail ], [ 0, %land.lhs.true205.tail ], [ %70, %if.end244 ], [ 0, %if.end177 ]
-  %port_len.0 = phi i64 [ 0, %land.lhs.true191.tail ], [ 0, %land.lhs.true205.tail ], [ %sub.ptr.sub184, %if.end244 ], [ 0, %if.end177 ]
+  %port_off.1 = phi i64 [ 0, %land.lhs.true191.tail ], [ 0, %land.lhs.true205.tail ], [ %70, %if.end244 ], [ 0, %if.end177 ]
+  %port_len.1 = phi i64 [ 0, %land.lhs.true191.tail ], [ 0, %land.lhs.true205.tail ], [ %sub.ptr.sub184, %if.end244 ], [ 0, %if.end177 ]
   %sub.ptr.sub257.neg = sub i64 %sub.ptr.lhs.cast140, %.pre352
   %sub258 = add i64 %sub.ptr.sub257.neg, %url_len.1.lcssa
   br label %if.end259
 
 if.end259:                                        ; preds = %if.end254, %while.end161
-  %port_off.1 = phi i64 [ %port_off.0, %if.end254 ], [ 0, %while.end161 ]
-  %port_len.1 = phi i64 [ %port_len.0, %if.end254 ], [ 0, %while.end161 ]
+  %port_off.0 = phi i64 [ %port_off.1, %if.end254 ], [ 0, %while.end161 ]
+  %port_len.0 = phi i64 [ %port_len.1, %if.end254 ], [ 0, %while.end161 ]
   %url_len.2 = phi i64 [ %sub258, %if.end254 ], [ %url_len.1.lcssa, %while.end161 ]
-  %url.addr.4 = phi ptr [ %add.ptr, %if.end254 ], [ %url.addr.2.lcssa, %while.end161 ]
+  %url.addr.3 = phi ptr [ %add.ptr, %if.end254 ], [ %url.addr.2.lcssa, %while.end161 ]
   %tobool260.not = icmp eq i64 %host_off.0, 0
   %len268.phi.trans.insert = getelementptr inbounds i8, ptr %norm, i64 8
   %.pre = load i64, ptr %len268.phi.trans.insert, align 8
   br i1 %tobool260.not, label %if.end267, label %if.then261
 
 if.then261:                                       ; preds = %if.end259
-  %tobool264.not = icmp eq i64 %port_len.1, 0
-  %add265.neg = xor i64 %port_len.1, -1
+  %tobool264.not = icmp eq i64 %port_len.0, 0
+  %add265.neg = xor i64 %port_len.0, -1
   %cond.neg = select i1 %tobool264.not, i64 0, i64 %add265.neg
   %sub263 = sub i64 %cond.neg, %host_off.0
   %sub266 = add i64 %sub263, %.pre
@@ -640,10 +640,10 @@ if.end267:                                        ; preds = %if.end259, %if.then
   %71 = load ptr, ptr %buf269, align 8
   %add.ptr270 = getelementptr inbounds i8, ptr %71, i64 %.pre
   call fastcc void @strbuf_addch(ptr noundef nonnull %norm, i32 noundef 47)
-  %72 = load i8, ptr %url.addr.4, align 1
+  %72 = load i8, ptr %url.addr.3, align 1
   %cmp272 = icmp eq i8 %72, 47
   %url.addr.5.idx = zext i1 %cmp272 to i64
-  %url.addr.5 = getelementptr inbounds i8, ptr %url.addr.4, i64 %url.addr.5.idx
+  %url.addr.5 = getelementptr inbounds i8, ptr %url.addr.3, i64 %url.addr.5.idx
   %73 = load i64, ptr %len268, align 8
   %call279325 = call i64 @strcspn(ptr noundef nonnull %url.addr.5, ptr noundef nonnull @.str.2) #14
   %call284327 = call fastcc i32 @append_normalized_escapes(ptr noundef nonnull %norm, ptr noundef nonnull %url.addr.5, i64 noundef %call279325)
@@ -940,19 +940,19 @@ if.then381:                                       ; preds = %if.end378
   %user_off386 = getelementptr inbounds i8, ptr %out_info, i64 32
   store i64 %user_off.0, ptr %user_off386, align 8
   %user_len387 = getelementptr inbounds i8, ptr %out_info, i64 40
-  store i64 %user_len.1, ptr %user_len387, align 8
+  store i64 %user_len.0, ptr %user_len387, align 8
   %passwd_off388 = getelementptr inbounds i8, ptr %out_info, i64 48
-  store i64 %passwd_off.1, ptr %passwd_off388, align 8
+  store i64 %passwd_off.0, ptr %passwd_off388, align 8
   %passwd_len389 = getelementptr inbounds i8, ptr %out_info, i64 56
-  store i64 %passwd_len.1, ptr %passwd_len389, align 8
+  store i64 %passwd_len.0, ptr %passwd_len389, align 8
   %host_off390 = getelementptr inbounds i8, ptr %out_info, i64 64
   store i64 %host_off.0, ptr %host_off390, align 8
   %host_len391 = getelementptr inbounds i8, ptr %out_info, i64 72
   store i64 %host_len.0, ptr %host_len391, align 8
   %port_off392 = getelementptr inbounds i8, ptr %out_info, i64 80
-  store i64 %port_off.1, ptr %port_off392, align 8
+  store i64 %port_off.0, ptr %port_off392, align 8
   %port_len393 = getelementptr inbounds i8, ptr %out_info, i64 88
-  store i64 %port_len.1, ptr %port_len393, align 8
+  store i64 %port_len.0, ptr %port_len393, align 8
   %path_off394 = getelementptr inbounds i8, ptr %out_info, i64 96
   store i64 %.pre, ptr %path_off394, align 8
   %path_len395 = getelementptr inbounds i8, ptr %out_info, i64 104
@@ -1143,19 +1143,19 @@ if.end29:                                         ; preds = %if.end61.i, %if.the
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end29, %if.end10
-  %key.1 = phi ptr [ %incdec.ptr, %if.end10 ], [ %add.ptr, %if.end29 ]
+  %key.0 = phi ptr [ %incdec.ptr, %if.end10 ], [ %add.ptr, %if.end29 ]
   %key31 = getelementptr inbounds i8, ptr %cb, i64 160
   %24 = load ptr, ptr %key31, align 8
   %tobool32.not = icmp eq ptr %24, null
   br i1 %tobool32.not, label %if.end37, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end30
-  %call34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key.1, ptr noundef nonnull dereferenceable(1) %24) #14
+  %call34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key.0, ptr noundef nonnull dereferenceable(1) %24) #14
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.end37, label %return
 
 if.end37:                                         ; preds = %land.lhs.true, %if.end30
-  %call38 = call ptr @string_list_insert(ptr noundef nonnull %cb, ptr noundef nonnull %key.1) #15
+  %call38 = call ptr @string_list_insert(ptr noundef nonnull %cb, ptr noundef nonnull %key.0) #15
   %util = getelementptr inbounds i8, ptr %call38, i64 8
   %25 = load ptr, ptr %util, align 8
   %tobool39.not = icmp eq ptr %25, null
@@ -1212,8 +1212,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %33 = load i64, ptr %len.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %32, i64 %33
   store i8 0, ptr %arrayidx3.i, align 1
-  %call.i36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key.1) #14
-  call void @strbuf_add(ptr noundef nonnull %synthkey, ptr noundef nonnull %key.1, i64 noundef %call.i36) #15
+  %call.i36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key.0) #14
+  call void @strbuf_add(ptr noundef nonnull %synthkey, ptr noundef nonnull %key.0, i64 noundef %call.i36) #15
   %collect_fn = getelementptr inbounds i8, ptr %cb, i64 176
   %34 = load ptr, ptr %collect_fn, align 8
   %35 = load ptr, ptr %buf.i, align 8

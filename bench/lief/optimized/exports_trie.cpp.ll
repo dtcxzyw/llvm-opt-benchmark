@@ -525,14 +525,14 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
           to label %191 unwind label %166
 
 191:                                              ; preds = %190, %162, %159
-  %.3 = phi i32 [ 2, %159 ], [ 2, %162 ], [ 0, %190 ]
+  %.4 = phi i32 [ 2, %159 ], [ 2, %162 ], [ 0, %190 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
   br label %192
 
 192:                                              ; preds = %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit94, %191
-  %.4 = phi i32 [ %.3, %191 ], [ %.2, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit94 ]
+  %.3 = phi i32 [ %.4, %191 ], [ %.2, %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsED2Ev.exit94 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #14
-  %switch89 = icmp ne i32 %.4, 0
+  %switch89 = icmp ne i32 %.3, 0
   %193 = add nuw nsw i64 %.0116, 1
   %exitcond.not = icmp eq i64 %193, %140
   %or.cond119 = select i1 %switch89, i1 true, i1 %exitcond.not

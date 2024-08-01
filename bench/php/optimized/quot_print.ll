@@ -236,8 +236,8 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   br i1 %.not181, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %85
-  %.0160185 = phi ptr [ %.3, %85 ], [ %12, %2 ]
-  %.0161184 = phi i64 [ %.3164, %85 ], [ 0, %2 ]
+  %.0160185 = phi ptr [ %.1, %85 ], [ %12, %2 ]
+  %.0161184 = phi i64 [ %.1162, %85 ], [ 0, %2 ]
   %.0165183 = phi i64 [ %.1166, %85 ], [ %1, %2 ]
   %.0167182 = phi ptr [ %.1168, %85 ], [ %0, %2 ]
   %13 = add i64 %.0165183, -1
@@ -331,21 +331,21 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   br label %64
 
 64:                                               ; preds = %60, %56
-  %.1162 = phi i64 [ 3, %60 ], [ %46, %56 ]
-  %.1 = phi ptr [ %63, %60 ], [ %.0160185, %56 ]
-  %65 = getelementptr inbounds i8, ptr %.1, i64 1
-  store i8 61, ptr %.1, align 1
+  %.2163 = phi i64 [ 3, %60 ], [ %46, %56 ]
+  %.2 = phi ptr [ %63, %60 ], [ %.0160185, %56 ]
+  %65 = getelementptr inbounds i8, ptr %.2, i64 1
+  store i8 61, ptr %.2, align 1
   %66 = lshr i32 %16, 4
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr @.str, i64 %67
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %.1, i64 2
+  %70 = getelementptr inbounds i8, ptr %.2, i64 2
   store i8 %69, ptr %65, align 1
   %71 = and i32 %16, 15
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr @.str, i64 %72
   %74 = load i8, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %.1, i64 3
+  %75 = getelementptr inbounds i8, ptr %.2, i64 3
   store i8 %74, ptr %70, align 1
   br label %85
 
@@ -364,22 +364,22 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   br label %83
 
 83:                                               ; preds = %79, %76
-  %.2163 = phi i64 [ 1, %79 ], [ %77, %76 ]
-  %.2 = phi ptr [ %82, %79 ], [ %.0160185, %76 ]
-  %84 = getelementptr inbounds i8, ptr %.2, i64 1
-  store i8 %15, ptr %.2, align 1
+  %.3164 = phi i64 [ 1, %79 ], [ %77, %76 ]
+  %.3 = phi ptr [ %82, %79 ], [ %.0160185, %76 ]
+  %84 = getelementptr inbounds i8, ptr %.3, i64 1
+  store i8 %15, ptr %.3, align 1
   br label %85
 
 85:                                               ; preds = %64, %83, %22
   %.1168 = phi ptr [ %24, %22 ], [ %14, %64 ], [ %14, %83 ]
   %.1166 = phi i64 [ %27, %22 ], [ %13, %64 ], [ %13, %83 ]
-  %.3164 = phi i64 [ 0, %22 ], [ %.1162, %64 ], [ %.2163, %83 ]
-  %.3 = phi ptr [ %26, %22 ], [ %75, %64 ], [ %84, %83 ]
+  %.1162 = phi i64 [ 0, %22 ], [ %.2163, %64 ], [ %.3164, %83 ]
+  %.1 = phi ptr [ %26, %22 ], [ %75, %64 ], [ %84, %83 ]
   %.not = icmp eq i64 %.1166, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %85, %2
-  %.0160.lcssa = phi ptr [ %12, %2 ], [ %.3, %85 ]
+  %.0160.lcssa = phi ptr [ %12, %2 ], [ %.1, %85 ]
   store i8 0, ptr %.0160.lcssa, align 1
   %86 = ptrtoint ptr %.0160.lcssa to i64
   %87 = ptrtoint ptr %12 to i64

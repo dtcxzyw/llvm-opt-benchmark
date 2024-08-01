@@ -298,13 +298,13 @@ define internal i32 @dissect_pn532_hci(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph202:                                        ; preds = %.preheader, %118
   %116 = phi i32 [ %121, %118 ], [ %.1170, %.preheader ]
-  %.3201 = phi i16 [ %119, %118 ], [ 0, %.preheader ]
+  %.4201 = phi i16 [ %119, %118 ], [ 0, %.preheader ]
   %117 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %116) #2
   %.not180 = icmp eq i16 %117, 255
   br i1 %.not180, label %.critedge2, label %118
 
 118:                                              ; preds = %.lr.ph202
-  %119 = add i16 %.3201, 1
+  %119 = add i16 %.4201, 1
   %120 = zext i16 %119 to i32
   %121 = add nuw nsw i32 %.1170, %120
   %122 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %121) #2
@@ -312,14 +312,14 @@ define internal i32 @dissect_pn532_hci(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %123, label %.lr.ph202, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %118, %.lr.ph202
-  %.3.lcssa = phi i16 [ %119, %118 ], [ %.3201, %.lr.ph202 ]
-  %.not181 = icmp eq i16 %.3.lcssa, 0
+  %.4.lcssa = phi i16 [ %119, %118 ], [ %.4201, %.lr.ph202 ]
+  %.not181 = icmp eq i16 %.4.lcssa, 0
   br i1 %.not181, label %.critedge2.thread213, label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %111, %.critedge2
-  %.4185 = phi i16 [ %.3.lcssa, %.critedge2 ], [ 1, %111 ]
+  %.3185 = phi i16 [ %.4.lcssa, %.critedge2 ], [ 1, %111 ]
   %124 = load i32, ptr @hf_postable, align 4
-  %125 = zext i16 %.4185 to i32
+  %125 = zext i16 %.3185 to i32
   %126 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %124, ptr noundef %0, i32 noundef %.1170, i32 noundef %125, i32 noundef 0) #2
   %127 = add nuw nsw i32 %.1170, %125
   br label %.critedge2.thread213

@@ -704,7 +704,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br label %2684
 
 44:                                               ; preds = %.lr.ph1993, %2682
-  %.01991 = phi ptr [ %12, %.lr.ph1993 ], [ %.2, %2682 ]
+  %.01991 = phi ptr [ %12, %.lr.ph1993 ], [ %.1, %2682 ]
   %.07401990 = phi i32 [ %17, %.lr.ph1993 ], [ %.2742, %2682 ]
   %45 = load i16, ptr %.01991, align 2
   %46 = load i32, ptr %18, align 4
@@ -743,7 +743,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %63, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %61, %71
-  %.07441976 = phi i32 [ %.1745, %71 ], [ %62, %61 ]
+  %.07441976 = phi i32 [ %.2746, %71 ], [ %62, %61 ]
   %.07501975 = phi i32 [ %80, %71 ], [ 0, %61 ]
   %.not767 = icmp eq i32 %.07501975, 0
   br i1 %.not767, label %70, label %64
@@ -758,13 +758,13 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br label %70
 
 70:                                               ; preds = %64, %.lr.ph
-  %.1745 = phi i32 [ %69, %64 ], [ %.07441976, %.lr.ph ]
-  %.not768 = icmp eq i32 %.1745, 0
+  %.2746 = phi i32 [ %69, %64 ], [ %.07441976, %.lr.ph ]
+  %.not768 = icmp eq i32 %.2746, 0
   br i1 %.not768, label %._crit_edge, label %71
 
 71:                                               ; preds = %70
   %.val802 = load ptr, ptr %19, align 8
-  %72 = sext i32 %.1745 to i64
+  %72 = sext i32 %.2746 to i64
   %73 = getelementptr inbounds i8, ptr %.val802, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %73, i64 8
@@ -778,7 +778,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %71, %70, %61
-  %.2746 = phi i32 [ %62, %61 ], [ 0, %70 ], [ %.1745, %71 ]
+  %.1745 = phi i32 [ %62, %61 ], [ 0, %70 ], [ %.2746, %71 ]
   %81 = load i32, ptr %18, align 4
   %82 = and i32 %81, 2
   %.not769 = icmp eq i32 %82, 0
@@ -786,7 +786,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %._crit_edge
   %.val8041979 = load ptr, ptr %19, align 8
-  %83 = sext i32 %.2746 to i64
+  %83 = sext i32 %.1745 to i64
   %84 = getelementptr inbounds i8, ptr %.val8041979, i64 %83
   %85 = getelementptr inbounds i8, ptr %84, i64 -4
   %86 = load i32, ptr %85, align 4
@@ -4235,8 +4235,8 @@ stack_pop.exit1576:                               ; preds = %1806, %1814
   %1820 = add i32 %1819, -1
   %or.cond = icmp ult i32 %1820, 2
   %1821 = zext i16 %1800 to i64
-  %.1.idx = select i1 %or.cond, i64 %1821, i64 0
-  %.1 = getelementptr inbounds i16, ptr %1799, i64 %.1.idx
+  %.2.idx = select i1 %or.cond, i64 %1821, i64 0
+  %.2 = getelementptr inbounds i16, ptr %1799, i64 %.2.idx
   %1822 = load i32, ptr %21, align 4
   %1823 = load i32, ptr %24, align 4
   %1824 = add nsw i32 %1823, -24
@@ -4596,8 +4596,8 @@ stack_pop.exit1653:                               ; preds = %1975, %1983
   br label %2009
 
 2009:                                             ; preds = %2007, %2005
-  %.1752 = phi i32 [ %2006, %2005 ], [ %2008, %2007 ]
-  %2010 = call i32 @jv_object_iter_valid(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.1752) #12
+  %.2753 = phi i32 [ %2006, %2005 ], [ %2008, %2007 ]
+  %2010 = call i32 @jv_object_iter_valid(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.2753) #12
   %.not785 = icmp eq i32 %2010, 0
   br i1 %.not785, label %2048, label %.thread1929
 
@@ -4640,19 +4640,19 @@ stack_pop.exit1653:                               ; preds = %1975, %1983
   br i1 %2039, label %2049, label %2047
 
 .thread1929:                                      ; preds = %2009
-  %2040 = call { i64, ptr } @jv_object_iter_key(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.1752) #12
+  %2040 = call { i64, ptr } @jv_object_iter_key(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.2753) #12
   %2041 = extractvalue { i64, ptr } %2040, 0
   %2042 = extractvalue { i64, ptr } %2040, 1
-  %2043 = call { i64, ptr } @jv_object_iter_value(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.1752) #12
+  %2043 = call { i64, ptr } @jv_object_iter_value(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.2753) #12
   %2044 = extractvalue { i64, ptr } %2043, 0
   %2045 = extractvalue { i64, ptr } %2043, 1
   %2046 = icmp eq i32 %.0739, 0
   br i1 %2046, label %.thread1948, label %2047
 
 2047:                                             ; preds = %.thread1929, %2028
-  %.sroa.7.11941 = phi ptr [ %2045, %.thread1929 ], [ %2038, %2028 ]
-  %.sroa.0138.11939 = phi i64 [ %2044, %.thread1929 ], [ %2037, %2028 ]
-  call void @jv_free(i64 %.sroa.0138.11939, ptr %.sroa.7.11941) #12
+  %.sroa.7.31941 = phi ptr [ %2045, %.thread1929 ], [ %2038, %2028 ]
+  %.sroa.0138.31939 = phi i64 [ %2044, %.thread1929 ], [ %2037, %2028 ]
+  call void @jv_free(i64 %.sroa.0138.31939, ptr %.sroa.7.31941) #12
   br label %2048
 
 2048:                                             ; preds = %2011, %2013, %2009, %1990, %2047
@@ -4716,11 +4716,11 @@ stack_push.exit1660:                              ; preds = %2050, %2059
   br label %2682
 
 .thread1948:                                      ; preds = %.thread1929, %2049
-  %.sroa.0138.119381959 = phi i64 [ %2037, %2049 ], [ %2044, %.thread1929 ]
-  %.sroa.7.119401958 = phi ptr [ %2038, %2049 ], [ %2045, %.thread1929 ]
-  %.sroa.0147.119421957 = phi i64 [ %2031, %2049 ], [ %2041, %.thread1929 ]
-  %.sroa.4.119441956 = phi ptr [ %2032, %2049 ], [ %2042, %.thread1929 ]
-  %.275319471955 = phi i32 [ %.0751, %2049 ], [ %.1752, %.thread1929 ]
+  %.sroa.0138.319381959 = phi i64 [ %2037, %2049 ], [ %2044, %.thread1929 ]
+  %.sroa.7.319401958 = phi ptr [ %2038, %2049 ], [ %2045, %.thread1929 ]
+  %.sroa.0147.319421957 = phi i64 [ %2031, %2049 ], [ %2041, %.thread1929 ]
+  %.sroa.4.319441956 = phi ptr [ %2032, %2049 ], [ %2042, %.thread1929 ]
+  %.175219471955 = phi i32 [ %.0751, %2049 ], [ %.2753, %.thread1929 ]
   %2080 = load i32, ptr %21, align 4
   %2081 = load i32, ptr %20, align 8
   %.sroa.2.0.insert.ext.i1661 = zext i32 %2081 to i64
@@ -4771,7 +4771,7 @@ stack_push.exit1671:                              ; preds = %.thread1948, %2086
   store i64 %.sroa.08.017.i1647, ptr %2106, align 8
   %.sroa.2.0..0..sroa_idx.i1668 = getelementptr inbounds i8, ptr %2106, i64 8
   store ptr %.sroa.4.019.i1646, ptr %.sroa.2.0..0..sroa_idx.i1668, align 8
-  %2107 = sitofp i32 %.275319471955 to double
+  %2107 = sitofp i32 %.175219471955 to double
   %2108 = call { i64, ptr } @jv_number(double noundef %2107) #12
   %2109 = extractvalue { i64, ptr } %2108, 0
   %2110 = extractvalue { i64, ptr } %2108, 1
@@ -4821,10 +4821,10 @@ stack_push.exit1678:                              ; preds = %stack_push.exit1671
   %.sroa.2.0..0..sroa_idx.i1675 = getelementptr inbounds i8, ptr %2136, i64 8
   store ptr %2110, ptr %.sroa.2.0..0..sroa_idx.i1675, align 8
   call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01991, i64 %.sroa.0.0.insert.insert.i1664)
-  %2137 = call { i64, ptr } @jv_copy(i64 %.sroa.0138.119381959, ptr %.sroa.7.119401958) #12
+  %2137 = call { i64, ptr } @jv_copy(i64 %.sroa.0138.319381959, ptr %.sroa.7.319401958) #12
   %2138 = extractvalue { i64, ptr } %2137, 0
   %2139 = extractvalue { i64, ptr } %2137, 1
-  call fastcc void @path_append(ptr noundef nonnull %0, i64 %.sroa.0147.119421957, ptr %.sroa.4.119441956, i64 %2138, ptr %2139)
+  call fastcc void @path_append(ptr noundef nonnull %0, i64 %.sroa.0147.319421957, ptr %.sroa.4.319441956, i64 %2138, ptr %2139)
   %2140 = load i32, ptr %21, align 4
   %2141 = load i32, ptr %24, align 4
   %2142 = add nsw i32 %2141, -24
@@ -4867,9 +4867,9 @@ stack_push.exit1685:                              ; preds = %stack_push.exit1678
   store i32 %2142, ptr %21, align 4
   %.val.i1681 = load ptr, ptr %19, align 8
   %2165 = getelementptr inbounds i8, ptr %.val.i1681, i64 %2162
-  store i64 %.sroa.0138.119381959, ptr %2165, align 8
+  store i64 %.sroa.0138.319381959, ptr %2165, align 8
   %.sroa.2.0..0..sroa_idx.i1682 = getelementptr inbounds i8, ptr %2165, i64 8
-  store ptr %.sroa.7.119401958, ptr %.sroa.2.0..0..sroa_idx.i1682, align 8
+  store ptr %.sroa.7.319401958, ptr %.sroa.2.0..0..sroa_idx.i1682, align 8
   br label %2682
 
 2166:                                             ; preds = %110, %2459, %2331, %2282, %2283, %112, %940, %992, %1000, %1015, %frame_local_var.exit1344, %1541, %stack_pop.exit1513, %1738, %1883, %2048, %stack_pop.exit1711, %2222, %stack_pop.exit1758, %2464, %1792, %1789, %110
@@ -5936,7 +5936,7 @@ stack_push.exit1891:                              ; preds = %frame_pop.exit1884,
 
 2682:                                             ; preds = %2166, %stack_push.exit1685, %stack_push.exit1660, %110, %stack_push.exit1891, %stack_push.exit1845, %stack_push.exit1801, %2332, %2321, %2294, %stack_push.exit1736, %2184, %2180, %stack_push.exit1583, %1793, %stack_push.exit1558, %stack_push.exit1495, %stack_push.exit1405, %1364, %1293, %frame_local_var.exit1300, %stack_push.exit1257, %stack_push.exit1221, %stack_push.exit1178, %frame_local_var.exit, %stack_pop.exit1074, %stack_push.exit1056, %stack_push.exit1024, %stack_push.exit974, %stack_push.exit942, %stack_push.exit885, %stack_push.exit864, %stack_push.exit832, %stack_push.exit
   %.2742 = phi i32 [ 0, %110 ], [ 0, %stack_push.exit1891 ], [ 0, %stack_push.exit1845 ], [ 0, %stack_push.exit1801 ], [ 0, %2332 ], [ 0, %2321 ], [ 0, %2294 ], [ 0, %stack_push.exit1736 ], [ 0, %2184 ], [ 0, %2180 ], [ 0, %stack_push.exit1660 ], [ 0, %stack_push.exit1685 ], [ 0, %stack_push.exit1583 ], [ 0, %1793 ], [ 0, %stack_push.exit1558 ], [ 0, %stack_push.exit1495 ], [ 0, %stack_push.exit1405 ], [ 0, %1364 ], [ 0, %1293 ], [ 0, %frame_local_var.exit1300 ], [ 0, %stack_push.exit1257 ], [ 0, %stack_push.exit1221 ], [ 0, %stack_push.exit1178 ], [ 0, %frame_local_var.exit ], [ 0, %stack_pop.exit1074 ], [ 0, %stack_push.exit1056 ], [ 0, %stack_push.exit1024 ], [ 0, %stack_push.exit974 ], [ 0, %stack_push.exit942 ], [ 0, %stack_push.exit885 ], [ 0, %stack_push.exit864 ], [ 0, %stack_push.exit832 ], [ 0, %stack_push.exit ], [ 1, %2166 ]
-  %.2 = phi ptr [ %111, %110 ], [ %2613, %stack_push.exit1891 ], [ %2564, %stack_push.exit1845 ], [ %2384, %stack_push.exit1801 ], [ %2336, %2332 ], [ %2330, %2321 ], [ %2297, %2294 ], [ %2281, %stack_push.exit1736 ], [ %111, %2184 ], [ %2183, %2180 ], [ %111, %stack_push.exit1660 ], [ %111, %stack_push.exit1685 ], [ %.1, %stack_push.exit1583 ], [ %1797, %1793 ], [ %111, %stack_push.exit1558 ], [ %111, %stack_push.exit1495 ], [ %111, %stack_push.exit1405 ], [ %1340, %1364 ], [ %1251, %1293 ], [ %1157, %frame_local_var.exit1300 ], [ %1078, %stack_push.exit1257 ], [ %958, %stack_push.exit1221 ], [ %111, %stack_push.exit1178 ], [ %790, %frame_local_var.exit ], [ %111, %stack_pop.exit1074 ], [ %676, %stack_push.exit1056 ], [ %111, %stack_push.exit1024 ], [ %111, %stack_push.exit974 ], [ %111, %stack_push.exit942 ], [ %111, %stack_push.exit885 ], [ %111, %stack_push.exit864 ], [ %111, %stack_push.exit832 ], [ %144, %stack_push.exit ], [ %2167, %2166 ]
+  %.1 = phi ptr [ %111, %110 ], [ %2613, %stack_push.exit1891 ], [ %2564, %stack_push.exit1845 ], [ %2384, %stack_push.exit1801 ], [ %2336, %2332 ], [ %2330, %2321 ], [ %2297, %2294 ], [ %2281, %stack_push.exit1736 ], [ %111, %2184 ], [ %2183, %2180 ], [ %111, %stack_push.exit1660 ], [ %111, %stack_push.exit1685 ], [ %.2, %stack_push.exit1583 ], [ %1797, %1793 ], [ %111, %stack_push.exit1558 ], [ %111, %stack_push.exit1495 ], [ %111, %stack_push.exit1405 ], [ %1340, %1364 ], [ %1251, %1293 ], [ %1157, %frame_local_var.exit1300 ], [ %1078, %stack_push.exit1257 ], [ %958, %stack_push.exit1221 ], [ %111, %stack_push.exit1178 ], [ %790, %frame_local_var.exit ], [ %111, %stack_pop.exit1074 ], [ %676, %stack_push.exit1056 ], [ %111, %stack_push.exit1024 ], [ %111, %stack_push.exit974 ], [ %111, %stack_push.exit942 ], [ %111, %stack_push.exit885 ], [ %111, %stack_push.exit864 ], [ %111, %stack_push.exit832 ], [ %144, %stack_push.exit ], [ %2167, %2166 ]
   %2683 = load i32, ptr %15, align 8
   %.not764 = icmp eq i32 %2683, 0
   br i1 %.not764, label %44, label %._crit_edge1994
@@ -6710,8 +6710,8 @@ define range(i32 0, 2) i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not3944.i, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.sroa.5.147.i = phi ptr [ %54, %.lr.ph.i ], [ %26, %.preheader.i ]
-  %.sroa.035.146.i = phi i64 [ %53, %.lr.ph.i ], [ %25, %.preheader.i ]
+  %.sroa.5.247.i = phi ptr [ %54, %.lr.ph.i ], [ %26, %.preheader.i ]
+  %.sroa.035.246.i = phi i64 [ %53, %.lr.ph.i ], [ %25, %.preheader.i ]
   %.145.i = phi i32 [ %55, %.lr.ph.i ], [ 0, %.preheader.i ]
   %37 = call { i64, ptr } @jv_copy(i64 %2, ptr %3) #12
   %38 = extractvalue { i64, ptr } %37, 0
@@ -6728,7 +6728,7 @@ define range(i32 0, 2) i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 
   %49 = call { i64, ptr } @jv_object_get(i64 %41, ptr %42, i64 %31, ptr %32) #12
   %50 = extractvalue { i64, ptr } %49, 0
   %51 = extractvalue { i64, ptr } %49, 1
-  %52 = call { i64, ptr } @jv_object_set(i64 %.sroa.035.146.i, ptr %.sroa.5.147.i, i64 %47, ptr %48, i64 %50, ptr %51) #12
+  %52 = call { i64, ptr } @jv_object_set(i64 %.sroa.035.246.i, ptr %.sroa.5.247.i, i64 %47, ptr %48, i64 %50, ptr %51) #12
   %53 = extractvalue { i64, ptr } %52, 0
   %54 = extractvalue { i64, ptr } %52, 1
   %55 = add nuw nsw i32 %.145.i, 1
@@ -6736,8 +6736,8 @@ define range(i32 0, 2) i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i
-  %.sroa.035.0.lcssa.i = phi i64 [ %25, %.preheader.i ], [ %53, %.lr.ph.i ]
-  %.sroa.5.0.lcssa.i = phi ptr [ %26, %.preheader.i ], [ %54, %.lr.ph.i ]
+  %.sroa.035.1.lcssa.i = phi i64 [ %25, %.preheader.i ], [ %53, %.lr.ph.i ]
+  %.sroa.5.1.lcssa.i = phi ptr [ %26, %.preheader.i ], [ %54, %.lr.ph.i ]
   call void @jv_free(i64 %2, ptr %3) #12
   call void @jv_free(i64 %28, ptr %29) #12
   call void @jv_free(i64 %31, ptr %32) #12
@@ -6748,12 +6748,12 @@ define range(i32 0, 2) i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 
   br label %.thread
 
 57:                                               ; preds = %.loopexit.i, %21
-  %.sroa.035.2.i = phi i64 [ %.sroa.035.0.lcssa.i, %.loopexit.i ], [ %2, %21 ]
-  %.sroa.5.2.i = phi ptr [ %.sroa.5.0.lcssa.i, %.loopexit.i ], [ %3, %21 ]
+  %.sroa.035.0.i = phi i64 [ %.sroa.035.1.lcssa.i, %.loopexit.i ], [ %2, %21 ]
+  %.sroa.5.0.i = phi ptr [ %.sroa.5.1.lcssa.i, %.loopexit.i ], [ %3, %21 ]
   %58 = load ptr, ptr %5, align 8
   %59 = getelementptr inbounds i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = call i32 @block_compile(ptr %58, ptr %60, ptr noundef nonnull %12, ptr noundef %11, i64 %.sroa.035.2.i, ptr %.sroa.5.2.i) #12
+  %61 = call i32 @block_compile(ptr %58, ptr %60, ptr noundef nonnull %12, ptr noundef %11, i64 %.sroa.035.0.i, ptr %.sroa.5.0.i) #12
   %.not33 = icmp eq i32 %61, 0
   br i1 %.not33, label %71, label %.thread
 

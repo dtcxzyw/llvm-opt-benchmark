@@ -1320,7 +1320,7 @@ define dso_local ptr @colNameToVar(ptr noundef %0, ptr noundef %1, i1 noundef ze
 
 .lr.ph58:                                         ; preds = %.lr.ph, %check_lateral_ref_ok.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %check_lateral_ref_ok.exit ], [ 0, %.lr.ph ]
-  %.14756 = phi ptr [ %.2, %check_lateral_ref_ok.exit ], [ null, %.lr.ph ]
+  %.24756 = phi ptr [ %.3, %check_lateral_ref_ok.exit ], [ null, %.lr.ph ]
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
@@ -1346,7 +1346,7 @@ define dso_local ptr @colNameToVar(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br i1 %.not37, label %check_lateral_ref_ok.exit, label %26
 
 26:                                               ; preds = %24
-  %.not38 = icmp eq ptr %.14756, null
+  %.not38 = icmp eq ptr %.24756, null
   br i1 %.not38, label %31, label %.split
 
 .split:                                           ; preds = %26
@@ -1404,7 +1404,7 @@ define dso_local ptr @colNameToVar(ptr noundef %0, ptr noundef %1, i1 noundef ze
   unreachable
 
 check_lateral_ref_ok.exit:                        ; preds = %34, %31, %24, %21, %.lr.ph58
-  %.2 = phi ptr [ %.14756, %24 ], [ %.14756, %21 ], [ %.14756, %.lr.ph58 ], [ %25, %31 ], [ %25, %34 ]
+  %.3 = phi ptr [ %.24756, %24 ], [ %.24756, %21 ], [ %.24756, %.lr.ph58 ], [ %25, %31 ], [ %25, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %6, align 4
   %59 = sext i32 %58 to i64
@@ -1412,8 +1412,8 @@ check_lateral_ref_ok.exit:                        ; preds = %34, %31, %24, %21, 
   br i1 %60, label %.lr.ph58, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %check_lateral_ref_ok.exit, %.lr.ph, %.lr.ph67
-  %.1.lcssa = phi ptr [ null, %.lr.ph67 ], [ null, %.lr.ph ], [ %.2, %check_lateral_ref_ok.exit ]
-  %.not36 = icmp ne ptr %.1.lcssa, null
+  %.2.lcssa = phi ptr [ null, %.lr.ph67 ], [ null, %.lr.ph ], [ %.3, %check_lateral_ref_ok.exit ]
+  %.not36 = icmp ne ptr %.2.lcssa, null
   %brmerge = or i1 %.not36, %2
   br i1 %brmerge, label %._crit_edge68, label %61
 
@@ -1424,8 +1424,8 @@ check_lateral_ref_ok.exit:                        ; preds = %34, %31, %24, %21, 
   br i1 %.not, label %._crit_edge68, label %.lr.ph67, !llvm.loop !13
 
 ._crit_edge68:                                    ; preds = %61, %._crit_edge, %.split60
-  %.3 = phi ptr [ null, %.split60 ], [ %.1.lcssa, %._crit_edge ], [ null, %61 ]
-  ret ptr %.3
+  %.1 = phi ptr [ null, %.split60 ], [ %.2.lcssa, %._crit_edge ], [ null, %61 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5011,7 +5011,7 @@ list_length.exit:                                 ; preds = %10, %13
 
 26:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %.059 = phi ptr [ %23, %.lr.ph ], [ %.3, %88 ]
+  %.059 = phi ptr [ %23, %.lr.ph ], [ %.1, %88 ]
   %27 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %25, i64 0, i64 %indvars.iv
   %28 = getelementptr inbounds i8, ptr %27, i64 95
   %29 = load i8, ptr %28, align 1
@@ -5088,7 +5088,7 @@ list_length.exit:                                 ; preds = %10, %13
 
 67:                                               ; preds = %65, %54
   %.041 = phi ptr [ %57, %54 ], [ %66, %65 ]
-  %.1 = phi ptr [ %..i57, %54 ], [ null, %65 ]
+  %.3 = phi ptr [ %..i57, %54 ], [ null, %65 ]
   %68 = load ptr, ptr %8, align 8
   %69 = tail call ptr @pstrdup(ptr noundef %.041) #10
   %70 = tail call ptr @makeString(ptr noundef %69) #10
@@ -5097,7 +5097,7 @@ list_length.exit:                                 ; preds = %10, %13
   br label %72
 
 72:                                               ; preds = %67, %52
-  %.2 = phi ptr [ %.1, %67 ], [ %.059, %52 ]
+  %.2 = phi ptr [ %.3, %67 ], [ %.059, %52 ]
   br i1 %.not49, label %88, label %73
 
 73:                                               ; preds = %72
@@ -5120,7 +5120,7 @@ list_length.exit:                                 ; preds = %10, %13
   br label %88
 
 88:                                               ; preds = %72, %73, %43, %44
-  %.3 = phi ptr [ %..i, %44 ], [ null, %43 ], [ %.2, %73 ], [ %.2, %72 ]
+  %.1 = phi ptr [ %..i, %44 ], [ null, %43 ], [ %.2, %73 ], [ %.2, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !29

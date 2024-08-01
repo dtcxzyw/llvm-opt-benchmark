@@ -25,7 +25,7 @@ define hidden i32 @PORT_GetPortMixerCount() local_unnamed_addr #0 {
   br i1 %7, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %0, %18
-  %.0 = phi i32 [ %.1, %18 ], [ 0, %0 ]
+  %.1 = phi i32 [ %.2, %18 ], [ 0, %0 ]
   %8 = load i32, ptr %1, align 4
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %.loopexit
@@ -37,22 +37,22 @@ define hidden i32 @PORT_GetPortMixerCount() local_unnamed_addr #0 {
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
-  %15 = add nsw i32 %.0, 1
+  %15 = add nsw i32 %.1, 1
   %16 = load ptr, ptr %3, align 8
   %17 = call i32 @snd_ctl_close(ptr noundef %16) #11
   br label %18
 
 18:                                               ; preds = %10, %14
-  %.1 = phi i32 [ %.0, %10 ], [ %15, %14 ]
+  %.2 = phi i32 [ %.1, %10 ], [ %15, %14 ]
   %19 = call i32 @snd_card_next(ptr noundef nonnull %1) #11
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.preheader, %18, %0
-  %.2 = phi i32 [ 0, %0 ], [ %.0, %.preheader ], [ %.1, %18 ]
+  %.0 = phi i32 [ 0, %0 ], [ %.1, %.preheader ], [ %.2, %18 ]
   %21 = load ptr, ptr %4, align 8
   call void @snd_ctl_card_info_free(ptr noundef %21) #11
-  ret i32 %.2
+  ret i32 %.0
 }
 
 declare void @initAlsaSupport(...) local_unnamed_addr #1
@@ -619,7 +619,7 @@ createVolumeControl.exit:                         ; preds = %62, %64
 
 76:                                               ; preds = %.preheader, %getControlSlot.exit119.thread
   %.0160 = phi i32 [ 0, %.preheader ], [ %114, %getControlSlot.exit119.thread ]
-  %.079159 = phi i32 [ 0, %.preheader ], [ %.1, %getControlSlot.exit119.thread ]
+  %.2159 = phi i32 [ 0, %.preheader ], [ %.3, %getControlSlot.exit119.thread ]
   br i1 %.not90, label %.critedge117, label %77
 
 77:                                               ; preds = %76
@@ -690,20 +690,20 @@ createVolumeControl.exit122:                      ; preds = %94, %96
   br i1 %.not99, label %getControlSlot.exit119.thread, label %110
 
 110:                                              ; preds = %106
-  %111 = add nsw i32 %.079159, 1
-  %112 = sext i32 %.079159 to i64
+  %111 = add nsw i32 %.2159, 1
+  %112 = sext i32 %.2159 to i64
   %113 = getelementptr inbounds [10 x ptr], ptr %9, i64 0, i64 %112
   store ptr %109, ptr %113, align 8
   br label %getControlSlot.exit119.thread
 
 getControlSlot.exit119.thread:                    ; preds = %createVolumeControl.exit122, %80, %77, %.critedge117, %106, %110
-  %.1 = phi i32 [ %.079159, %.critedge117 ], [ %.079159, %106 ], [ %111, %110 ], [ %.079159, %77 ], [ %.079159, %80 ], [ %.079159, %createVolumeControl.exit122 ]
+  %.3 = phi i32 [ %.2159, %.critedge117 ], [ %.2159, %106 ], [ %111, %110 ], [ %.2159, %77 ], [ %.2159, %80 ], [ %.2159, %createVolumeControl.exit122 ]
   %114 = add nuw nsw i32 %.0160, 1
   %exitcond.not = icmp eq i32 %114, 32
   br i1 %exitcond.not, label %getControlSlot.exit.thread, label %76, !llvm.loop !9
 
 getControlSlot.exit.thread:                       ; preds = %getControlSlot.exit119.thread, %47, %75, %createVolumeControl.exit
-  %.2 = phi i32 [ 1, %75 ], [ 0, %createVolumeControl.exit ], [ 0, %47 ], [ %.1, %getControlSlot.exit119.thread ]
+  %.1 = phi i32 [ 1, %75 ], [ 0, %createVolumeControl.exit ], [ 0, %47 ], [ %.3, %getControlSlot.exit119.thread ]
   br i1 %41, label %115, label %getControlSlot.exit124.thread
 
 115:                                              ; preds = %getControlSlot.exit.thread
@@ -737,15 +737,15 @@ getControlSlot.exit.thread:                       ; preds = %getControlSlot.exit
   br i1 %.not103, label %getControlSlot.exit124.thread, label %134
 
 134:                                              ; preds = %119
-  %135 = add nsw i32 %.2, 1
-  %136 = sext i32 %.2 to i64
+  %135 = add nsw i32 %.1, 1
+  %136 = sext i32 %.1 to i64
   %137 = getelementptr inbounds [10 x ptr], ptr %9, i64 0, i64 %136
   store ptr %133, ptr %137, align 8
   br label %getControlSlot.exit124.thread
 
 getControlSlot.exit124.thread:                    ; preds = %115, %getControlSlot.exit.thread, %119, %134, %22
   %.080 = phi i32 [ %29, %134 ], [ %29, %119 ], [ %29, %getControlSlot.exit.thread ], [ 0, %22 ], [ %29, %115 ]
-  %.3 = phi i32 [ %135, %134 ], [ %.2, %119 ], [ %.2, %getControlSlot.exit.thread ], [ 0, %22 ], [ %.2, %115 ]
+  %.079 = phi i32 [ %135, %134 ], [ %.1, %119 ], [ %.1, %getControlSlot.exit.thread ], [ 0, %22 ], [ %.1, %115 ]
   %138 = call i32 @snd_mixer_selem_has_playback_switch(ptr noundef %20) #11
   %.not104 = icmp eq i32 %138, 0
   br i1 %.not104, label %139, label %141
@@ -786,14 +786,14 @@ getControlSlot.exit124.thread:                    ; preds = %115, %getControlSlo
   br i1 %.not108, label %getControlSlot.exit126.thread, label %160
 
 160:                                              ; preds = %145
-  %161 = add nsw i32 %.3, 1
-  %162 = sext i32 %.3 to i64
+  %161 = add nsw i32 %.079, 1
+  %162 = sext i32 %.079 to i64
   %163 = getelementptr inbounds [10 x ptr], ptr %9, i64 0, i64 %162
   store ptr %159, ptr %163, align 8
   br label %getControlSlot.exit126.thread
 
 getControlSlot.exit126.thread:                    ; preds = %141, %160, %145, %139
-  %.4 = phi i32 [ %161, %160 ], [ %.3, %145 ], [ %.3, %139 ], [ %.3, %141 ]
+  %.4 = phi i32 [ %161, %160 ], [ %.079, %145 ], [ %.079, %139 ], [ %.079, %141 ]
   %164 = call ptr @snd_mixer_selem_get_name(ptr noundef %20) #11
   %165 = getelementptr inbounds i8, ptr %2, i64 8
   %166 = load ptr, ptr %165, align 8

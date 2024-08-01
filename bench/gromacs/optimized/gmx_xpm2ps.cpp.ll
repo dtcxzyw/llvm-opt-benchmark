@@ -4919,8 +4919,8 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
 
 .preheader:                                       ; preds = %._crit_edge, %426
   %.1205501 = phi i32 [ %427, %426 ], [ %.0204.lcssa, %._crit_edge ]
-  %.sroa.0365.0500 = phi ptr [ %.sroa.0365.1, %426 ], [ null, %._crit_edge ]
-  %.sroa.6.0499 = phi ptr [ %.sroa.6.1, %426 ], [ null, %._crit_edge ]
+  %.sroa.0365.1500 = phi ptr [ %.sroa.0365.2, %426 ], [ null, %._crit_edge ]
+  %.sroa.6.1499 = phi ptr [ %.sroa.6.2, %426 ], [ null, %._crit_edge ]
   %.sroa.0363.0498 = phi ptr [ %428, %426 ], [ %3, %._crit_edge ]
   %408 = getelementptr inbounds i8, ptr %.sroa.0363.0498, i64 264
   %409 = getelementptr inbounds i8, ptr %.sroa.0363.0498, i64 272
@@ -4929,14 +4929,14 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
   %412 = ptrtoint ptr %410 to i64
   %413 = ptrtoint ptr %411 to i64
   %414 = sub i64 %412, %413
-  %415 = ptrtoint ptr %.sroa.6.0499 to i64
-  %416 = ptrtoint ptr %.sroa.0365.0500 to i64
+  %415 = ptrtoint ptr %.sroa.6.1499 to i64
+  %416 = ptrtoint ptr %.sroa.0365.1500 to i64
   %417 = sub i64 %415, %416
   %418 = icmp ugt i64 %414, %417
   br i1 %418, label %419, label %426
 
 419:                                              ; preds = %.preheader
-  %420 = icmp eq ptr %.sroa.0365.0500, %.sroa.6.0499
+  %420 = icmp eq ptr %.sroa.0365.1500, %.sroa.6.1499
   br i1 %420, label %421, label %423
 
 421:                                              ; preds = %419
@@ -4955,16 +4955,16 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
   br label %426
 
 426:                                              ; preds = %423, %.preheader
-  %.sroa.6.1 = phi ptr [ %425, %423 ], [ %.sroa.6.0499, %.preheader ]
-  %.sroa.0365.1 = phi ptr [ %424, %423 ], [ %.sroa.0365.0500, %.preheader ]
+  %.sroa.6.2 = phi ptr [ %425, %423 ], [ %.sroa.6.1499, %.preheader ]
+  %.sroa.0365.2 = phi ptr [ %424, %423 ], [ %.sroa.0365.1500, %.preheader ]
   %427 = add nuw nsw i32 %.1205501, 1
   %428 = getelementptr inbounds i8, ptr %.sroa.0363.0498, i64 288
   %.not443 = icmp eq ptr %428, %4
   br i1 %.not443, label %.loopexit486, label %.preheader
 
 .loopexit486:                                     ; preds = %426, %._crit_edge
-  %.sroa.6.2 = phi ptr [ null, %._crit_edge ], [ %.sroa.6.1, %426 ]
-  %.sroa.0365.2 = phi ptr [ null, %._crit_edge ], [ %.sroa.0365.1, %426 ]
+  %.sroa.6.0 = phi ptr [ null, %._crit_edge ], [ %.sroa.6.2, %426 ]
+  %.sroa.0365.0 = phi ptr [ null, %._crit_edge ], [ %.sroa.0365.2, %426 ]
   %429 = ptrtoint ptr %1 to i64
   %430 = getelementptr inbounds i8, ptr %1, i64 48
   %431 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %430) #24
@@ -5064,7 +5064,7 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
   br label %480
 
 480:                                              ; preds = %474, %470
-  %.048.i = phi float [ %479, %474 ], [ 0.000000e+00, %470 ]
+  %.149.i = phi float [ %479, %474 ], [ 0.000000e+00, %470 ]
   %481 = load float, ptr %216, align 4
   %482 = fcmp ogt float %481, 0.000000e+00
   br i1 %482, label %483, label %496
@@ -5079,7 +5079,7 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
   %490 = fpext float %489 to double
   %491 = fdiv double %490, 0x40026BB1BBB55516
   %492 = call double @llvm.fmuladd.f64(double %488, double %491, double %486)
-  %493 = fpext float %.048.i to double
+  %493 = fpext float %.149.i to double
   %494 = fadd double %492, %493
   %495 = fptrunc double %494 to float
   br label %502
@@ -5091,11 +5091,11 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
 
 499:                                              ; preds = %496
   %500 = load float, ptr %246, align 4
-  %501 = fadd float %.048.i, %500
+  %501 = fadd float %.149.i, %500
   br label %502
 
 502:                                              ; preds = %499, %496, %483
-  %.149.i = phi float [ %495, %483 ], [ %501, %499 ], [ %.048.i, %496 ]
+  %.2.i = phi float [ %495, %483 ], [ %501, %499 ], [ %.149.i, %496 ]
   %503 = getelementptr inbounds i8, ptr %1, i64 80
   %504 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %503, i64 noundef 0)
   %505 = load i8, ptr %504, align 1
@@ -5103,7 +5103,7 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
   %506 = load float, ptr %200, align 4
   %507 = fadd float %506, 4.000000e+00
   %508 = fpext float %507 to double
-  %.050.i = select i1 %.not53.i, double 0.000000e+00, double %508
+  %.151.i = select i1 %.not53.i, double 0.000000e+00, double %508
   switch i32 %11, label %530 [
     i32 1, label %509
     i32 2, label %517
@@ -5146,19 +5146,19 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
   %526 = load float, ptr %128, align 4
   %527 = fpext float %526 to double
   %528 = call double @llvm.fmuladd.f64(double %527, double 1.200000e+00, double 4.000000e+00)
-  %529 = call double @llvm.fmuladd.f64(double %528, double 2.000000e+00, double %.050.i)
+  %529 = call double @llvm.fmuladd.f64(double %528, double 2.000000e+00, double %.151.i)
   br label %535
 
 530:                                              ; preds = %521, %520, %517, %513, %512, %502
   %531 = load float, ptr %128, align 4
   %532 = fpext float %531 to double
   %533 = call double @llvm.fmuladd.f64(double %532, double 1.200000e+00, double 4.000000e+00)
-  %534 = fadd double %.050.i, %533
+  %534 = fadd double %.151.i, %533
   br label %535
 
 535:                                              ; preds = %530, %525
-  %.151.in.i = phi double [ %529, %525 ], [ %534, %530 ]
-  %.151.i = fptrunc double %.151.in.i to float
+  %.252.in.i = phi double [ %529, %525 ], [ %534, %530 ]
+  %.252.i = fptrunc double %.252.in.i to float
   %536 = load float, ptr %169, align 4
   %537 = fcmp ogt float %536, 0.000000e+00
   br i1 %537, label %538, label %548
@@ -5170,7 +5170,7 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
   %542 = load float, ptr %190, align 4
   %543 = fpext float %542 to double
   %544 = fadd double %541, %543
-  %545 = fpext float %.151.i to double
+  %545 = fpext float %.252.i to double
   %546 = fadd double %544, %545
   %547 = fptrunc double %546 to float
   br label %554
@@ -5182,11 +5182,11 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
 
 551:                                              ; preds = %548
   %552 = load float, ptr %194, align 4
-  %553 = fadd float %552, %.151.i
+  %553 = fadd float %552, %.252.i
   br label %554
 
 554:                                              ; preds = %551, %548, %538
-  %.252.i = phi float [ %547, %538 ], [ %553, %551 ], [ %.151.i, %548 ]
+  %.3.i = phi float [ %547, %538 ], [ %553, %551 ], [ %.252.i, %548 ]
   %555 = sdiv exact i64 %456, 288
   %556 = add nsw i64 %555, -1
   %557 = uitofp i64 %556 to float
@@ -5227,12 +5227,12 @@ _ZL10box_dh_topbP7t_psrec.exit69.i:               ; preds = %_ZL10box_dh_topbP7t
   br label %_ZL7box_dimN3gmx8ArrayRefI8t_matrixEES2_P7t_psrecibPfS5_S5_S5_.exit
 
 _ZL7box_dimN3gmx8ArrayRefI8t_matrixEES2_P7t_psrecibPfS5_S5_S5_.exit: ; preds = %._crit_edge.i, %_ZL10box_dh_topbP7t_psrec.exit.i, %_ZL10box_dh_topbP7t_psrec.exit.thread88.i, %_ZL10box_dh_topbP7t_psrec.exit.thread.i, %_ZL10box_dh_topbP7t_psrec.exit69.i
-  %.3.i = phi float [ %.252.i, %_ZL10box_dh_topbP7t_psrec.exit69.i ], [ %.252.i, %_ZL10box_dh_topbP7t_psrec.exit.i ], [ 0.000000e+00, %._crit_edge.i ], [ %.252.i, %_ZL10box_dh_topbP7t_psrec.exit.thread.i ], [ %.252.i, %_ZL10box_dh_topbP7t_psrec.exit.thread88.i ]
-  %.2.i = phi float [ %.149.i, %_ZL10box_dh_topbP7t_psrec.exit69.i ], [ %.149.i, %_ZL10box_dh_topbP7t_psrec.exit.i ], [ 0.000000e+00, %._crit_edge.i ], [ %.149.i, %_ZL10box_dh_topbP7t_psrec.exit.thread.i ], [ %.149.i, %_ZL10box_dh_topbP7t_psrec.exit.thread88.i ]
+  %.050.i = phi float [ %.3.i, %_ZL10box_dh_topbP7t_psrec.exit69.i ], [ %.3.i, %_ZL10box_dh_topbP7t_psrec.exit.i ], [ 0.000000e+00, %._crit_edge.i ], [ %.3.i, %_ZL10box_dh_topbP7t_psrec.exit.thread.i ], [ %.3.i, %_ZL10box_dh_topbP7t_psrec.exit.thread88.i ]
+  %.048.i = phi float [ %.2.i, %_ZL10box_dh_topbP7t_psrec.exit69.i ], [ %.2.i, %_ZL10box_dh_topbP7t_psrec.exit.i ], [ 0.000000e+00, %._crit_edge.i ], [ %.2.i, %_ZL10box_dh_topbP7t_psrec.exit.thread.i ], [ %.2.i, %_ZL10box_dh_topbP7t_psrec.exit.thread88.i ]
   %.1.i = phi float [ %575, %_ZL10box_dh_topbP7t_psrec.exit69.i ], [ %566, %_ZL10box_dh_topbP7t_psrec.exit.i ], [ %.0.lcssa.i, %._crit_edge.i ], [ %572, %_ZL10box_dh_topbP7t_psrec.exit.thread.i ], [ %570, %_ZL10box_dh_topbP7t_psrec.exit.thread88.i ]
-  %576 = fadd float %.086.lcssa.i, %.2.i
+  %576 = fadd float %.086.lcssa.i, %.048.i
   %577 = fptosi float %576 to i32
-  %578 = fadd float %.3.i, %.1.i
+  %578 = fadd float %.050.i, %.1.i
   %579 = fptosi float %578 to i32
   %580 = sitofp i32 %577 to float
   %581 = load float, ptr %144, align 4
@@ -5317,7 +5317,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %592, %595
           to label %.noexc260 unwind label %.loopexit.split-lp449.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc260:                                        ; preds = %.noexc
-  %.pre320.i = fadd float %.2.i, -1.000000e+00
+  %.pre320.i = fadd float %.048.i, -1.000000e+00
   br i1 %.not442491, label %._crit_edge.i254, label %.lr.ph.i252
 
 .lr.ph.i252:                                      ; preds = %.noexc260
@@ -5325,7 +5325,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %592, %595
   br label %613
 
 613:                                              ; preds = %_ZL10box_dh_topbP7t_psrec.exit.i253, %.lr.ph.i252
-  %.0280.i = phi float [ %.3.i, %.lr.ph.i252 ], [ %632, %_ZL10box_dh_topbP7t_psrec.exit.i253 ]
+  %.0280.i = phi float [ %.050.i, %.lr.ph.i252 ], [ %632, %_ZL10box_dh_topbP7t_psrec.exit.i253 ]
   %.sroa.0247.0279.i = phi ptr [ %1, %.lr.ph.i252 ], [ %621, %_ZL10box_dh_topbP7t_psrec.exit.i253 ]
   %614 = getelementptr i8, ptr %.sroa.0247.0279.i, i64 8
   %.val189.i = load i32, ptr %614, align 8
@@ -5378,7 +5378,7 @@ _ZL10box_dh_topbP7t_psrec.exit.i253:              ; preds = %628, %624
   br i1 %.not442491, label %._crit_edge303.i, label %.lr.ph302.i
 
 .lr.ph302.i:                                      ; preds = %.noexc262
-  %638 = fadd float %.3.i, -1.000000e+00
+  %638 = fadd float %.050.i, -1.000000e+00
   br label %639
 
 639:                                              ; preds = %_ZL10box_dh_topbP7t_psrec.exit217.i, %.lr.ph302.i
@@ -5948,7 +5948,7 @@ _ZL10box_dh_topbP7t_psrec.exit.i253:              ; preds = %628, %624
 
 862:                                              ; preds = %861
   %863 = load float, ptr %190, align 4
-  %864 = fsub float %.2.i, %863
+  %864 = fsub float %.048.i, %863
   %865 = load float, ptr %206, align 4
   %866 = uitofp i64 %.1260.lcssa.i to float
   %867 = fneg float %865
@@ -6038,8 +6038,8 @@ _ZL10box_dh_topbP7t_psrec.exit217.i:              ; preds = %891, %887
 
 907:                                              ; preds = %905
   %908 = fmul float %.086.lcssa.i, 5.000000e-01
-  %909 = fadd float %908, %.2.i
-  %910 = fadd float %.3.i, -2.000000e+00
+  %909 = fadd float %908, %.048.i
+  %910 = fadd float %.050.i, -2.000000e+00
   %911 = load float, ptr %190, align 4
   %912 = fsub float %910, %911
   %913 = fpext float %912 to double
@@ -6143,12 +6143,12 @@ _ZL10draw_boxesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit: ; preds = 
 .lr.ph523:                                        ; preds = %924
   %925 = add nsw i64 %.pre-phi558, -1
   %926 = fmul float %.086.lcssa.i, 5.000000e-01
-  %927 = fadd float %926, %.2.i
+  %927 = fadd float %926, %.048.i
   br label %928
 
 928:                                              ; preds = %.lr.ph523, %_ZL10box_dh_topbP7t_psrec.exit
   %.0187521 = phi i64 [ 0, %.lr.ph523 ], [ %1080, %_ZL10box_dh_topbP7t_psrec.exit ]
-  %.0194519 = phi float [ %.3.i, %.lr.ph523 ], [ %1089, %_ZL10box_dh_topbP7t_psrec.exit ]
+  %.0194519 = phi float [ %.050.i, %.lr.ph523 ], [ %1089, %_ZL10box_dh_topbP7t_psrec.exit ]
   %929 = icmp eq i64 %.0187521, %925
   %or.cond439 = select i1 %450, i1 %929, i1 false
   %or.cond525 = select i1 %443, i1 true, i1 %or.cond439
@@ -6284,7 +6284,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %979 = trunc nuw nsw i64 %indvars.iv535 to i32
   %980 = uitofp nneg i32 %979 to float
   %981 = load float, ptr %132, align 4
-  %982 = call float @llvm.fmuladd.f32(float %980, float %981, float %.2.i)
+  %982 = call float @llvm.fmuladd.f32(float %980, float %981, float %.048.i)
   invoke void @_Z9ps_movetoP8t_psdataff(ptr noundef nonnull %45, float noundef %982, float noundef %.0194519)
           to label %983 unwind label %.loopexit.split-lp449.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
@@ -6388,7 +6388,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %1023 = trunc nuw nsw i64 %indvars.iv529 to i32
   %1024 = uitofp nneg i32 %1023 to float
   %1025 = load float, ptr %132, align 4
-  %1026 = call float @llvm.fmuladd.f32(float %1024, float %1025, float %.2.i)
+  %1026 = call float @llvm.fmuladd.f32(float %1024, float %1025, float %.048.i)
   invoke void @_Z9ps_movetoP8t_psdataff(ptr noundef nonnull %45, float noundef %1026, float noundef %.0194519)
           to label %1027 unwind label %.loopexit.split-lp449.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
@@ -6535,7 +6535,7 @@ _ZL10box_dh_topbP7t_psrec.exit:                   ; preds = %._crit_edge509.spli
           to label %1093 unwind label %.loopexit.split-lp449.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1093:                                             ; preds = %1092
-  %1094 = fadd float %.2.i, -1.500000e+00
+  %1094 = fadd float %.048.i, -1.500000e+00
   %1095 = load float, ptr %166, align 4
   %1096 = fptosi float %1095 to i32
   invoke void @_Z12ps_linewidthP8t_psdatai(ptr noundef nonnull %45, i32 noundef %1096)
@@ -6545,7 +6545,7 @@ _ZL10box_dh_topbP7t_psrec.exit:                   ; preds = %._crit_edge509.spli
   br i1 %.not442491, label %_ZL14draw_zerolinesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit, label %.lr.ph86.i
 
 .lr.ph86.i:                                       ; preds = %.noexc314
-  %1097 = fadd float %.3.i, -1.500000e+00
+  %1097 = fadd float %.050.i, -1.500000e+00
   %1098 = fpext float %1094 to double
   %1099 = fadd float %.086.lcssa.i, %1094
   %1100 = fadd float %1099, 2.000000e+00
@@ -6791,8 +6791,8 @@ _ZL14draw_zerolinesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit: ; pred
   br i1 %1218, label %1219, label %.thread432
 
 1219:                                             ; preds = %.thread, %1216
-  %.sroa.0347.0430 = phi ptr [ %.sroa.0365.2, %.thread ], [ %.sroa.0371.0.lcssa, %1216 ]
-  %.sroa.5.0428 = phi ptr [ %.sroa.6.2, %.thread ], [ %.sroa.6372.0.lcssa, %1216 ]
+  %.sroa.0347.0430 = phi ptr [ %.sroa.0365.0, %.thread ], [ %.sroa.0371.0.lcssa, %1216 ]
+  %.sroa.5.0428 = phi ptr [ %.sroa.6.0, %.thread ], [ %.sroa.6372.0.lcssa, %1216 ]
   %1220 = load float, ptr %128, align 4
   %1221 = ptrtoint ptr %.sroa.5.0428 to i64
   %1222 = ptrtoint ptr %.sroa.0347.0430 to i64
@@ -6875,15 +6875,15 @@ _ZL14draw_zerolinesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit: ; pred
   br i1 %.not216, label %1252, label %.thread432
 
 .thread432:                                       ; preds = %.thread, %1237
-  %.sroa.5.0429437 = phi ptr [ %.sroa.6372.0.lcssa, %1237 ], [ %.sroa.6.2, %.thread ]
-  %.sroa.0347.0431436 = phi ptr [ %.sroa.0371.0.lcssa, %1237 ], [ %.sroa.0365.2, %.thread ]
+  %.sroa.5.0429437 = phi ptr [ %.sroa.6372.0.lcssa, %1237 ], [ %.sroa.6.0, %.thread ]
+  %.sroa.0347.0431436 = phi ptr [ %.sroa.0371.0.lcssa, %1237 ], [ %.sroa.0365.0, %.thread ]
   %1238 = load float, ptr %128, align 4
   %1239 = ptrtoint ptr %.sroa.5.0429437 to i64
   %1240 = ptrtoint ptr %.sroa.0347.0431436 to i64
   %1241 = sub i64 %1239, %1240
   %1242 = getelementptr inbounds i8, ptr %.sroa.0347.0431436, i64 %1241
   %1243 = fmul float %.086.lcssa.i, 5.000000e-01
-  %1244 = fadd float %1243, %.2.i
+  %1244 = fadd float %1243, %.048.i
   br label %.thread432.invoke
 
 .thread432.invoke:                                ; preds = %.noexc336, %.thread432
@@ -6891,7 +6891,7 @@ _ZL14draw_zerolinesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit: ; pred
   %1246 = phi float [ %1243, %.thread432 ], [ %1281, %.noexc336 ]
   %1247 = phi ptr [ %51, %.thread432 ], [ %1288, %.noexc336 ]
   %1248 = phi float [ %1238, %.thread432 ], [ %1255, %.noexc336 ]
-  %1249 = phi ptr [ %.sroa.0347.0431436, %.thread432 ], [ %.sroa.0365.2, %.noexc336 ]
+  %1249 = phi ptr [ %.sroa.0347.0431436, %.thread432 ], [ %.sroa.0365.0, %.noexc336 ]
   %1250 = phi ptr [ %1242, %.thread432 ], [ %1287, %.noexc336 ]
   %1251 = phi i32 [ %17, %.thread432 ], [ 0, %.noexc336 ]
   invoke fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi(ptr noundef nonnull %45, float noundef %1245, float noundef %1246, ptr noundef nonnull align 8 dereferenceable(32) %1247, float noundef %1248, ptr noundef nonnull %119, ptr %1249, ptr %1250, i32 noundef %1251)
@@ -6899,14 +6899,14 @@ _ZL14draw_zerolinesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit: ; pred
 
 1252:                                             ; preds = %1237
   %1253 = fmul float %.086.lcssa.i, 5.000000e-01
-  %1254 = fadd float %1253, %.2.i
+  %1254 = fadd float %1253, %.048.i
   %1255 = load float, ptr %128, align 4
   %1256 = ptrtoint ptr %.sroa.6372.0.lcssa to i64
   %1257 = ptrtoint ptr %.sroa.0371.0.lcssa to i64
   %1258 = sub i64 %1256, %1257
   %1259 = getelementptr inbounds i8, ptr %.sroa.0371.0.lcssa, i64 %1258
-  %1260 = ptrtoint ptr %.sroa.6.2 to i64
-  %1261 = ptrtoint ptr %.sroa.0365.2 to i64
+  %1260 = ptrtoint ptr %.sroa.6.0 to i64
+  %1261 = ptrtoint ptr %.sroa.0365.0 to i64
   %1262 = sub i64 %1260, %1261
   %1263 = ashr exact i64 %1258, 6
   %1264 = ashr exact i64 %1262, 6
@@ -6936,7 +6936,7 @@ _ZL14draw_zerolinesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit: ; pred
   %1284 = fadd double %1283, %1272
   %1285 = fadd double %1284, %1276
   %1286 = fptrunc double %1285 to float
-  %1287 = getelementptr inbounds i8, ptr %.sroa.0365.2, i64 %1262
+  %1287 = getelementptr inbounds i8, ptr %.sroa.0365.0, i64 %1262
   %1288 = getelementptr inbounds i8, ptr %3, i64 48
   br label %.thread432.invoke
 

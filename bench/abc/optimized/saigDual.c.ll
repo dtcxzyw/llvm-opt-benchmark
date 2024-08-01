@@ -417,7 +417,7 @@ Saig_ObjDualFanin.exit206:                        ; preds = %Aig_ObjFaninId0.exi
 
 221:                                              ; preds = %.lr.ph283, %260
   %indvars.iv295 = phi i64 [ 0, %.lr.ph283 ], [ %indvars.iv.next296, %260 ]
-  %.2132281 = phi ptr [ %168, %.lr.ph283 ], [ %261, %260 ]
+  %.3133281 = phi ptr [ %168, %.lr.ph283 ], [ %261, %260 ]
   %222 = load ptr, ptr %175, align 8
   %223 = getelementptr i8, ptr %222, i64 8
   %.val166 = load ptr, ptr %223, align 8
@@ -492,7 +492,7 @@ Saig_ObjDualFanin.exit221:                        ; preds = %Aig_ObjFaninId0.exi
 
 260:                                              ; preds = %244, %255, %253
   %.sink329 = phi ptr [ %248, %244 ], [ %259, %255 ], [ %254, %253 ]
-  %261 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.2132281, ptr noundef %.sink329) #8
+  %261 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.3133281, ptr noundef %.sink329) #8
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %.val180 = load i32, ptr %173, align 8
   %262 = sext i32 %.val180 to i64
@@ -500,8 +500,8 @@ Saig_ObjDualFanin.exit221:                        ; preds = %Aig_ObjFaninId0.exi
   br i1 %263, label %221, label %.critedge4, !llvm.loop !8
 
 .critedge4:                                       ; preds = %217, %260, %.preheader269, %.preheader
-  %.4134 = phi ptr [ %168, %.preheader ], [ %168, %.preheader269 ], [ %261, %260 ], [ %218, %217 ]
-  %264 = ptrtoint ptr %.4134 to i64
+  %.2132 = phi ptr [ %168, %.preheader ], [ %168, %.preheader269 ], [ %261, %260 ], [ %218, %217 ]
+  %264 = ptrtoint ptr %.2132 to i64
   %265 = sext i32 %5 to i64
   %266 = xor i64 %264, %265
   %267 = inttoptr i64 %266 to ptr

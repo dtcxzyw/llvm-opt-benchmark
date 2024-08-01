@@ -5541,9 +5541,9 @@ while.cond82.preheader:                           ; preds = %if.then79
   br i1 %cmp66, label %while.cond82.us, label %while.cond82
 
 while.cond82.us:                                  ; preds = %while.cond82.preheader, %while.cond82.us.backedge
-  %str.1.pn.us = phi ptr [ %str.2.us, %while.cond82.us.backedge ], [ %str.1, %while.cond82.preheader ]
-  %str.2.us = getelementptr inbounds i8, ptr %str.1.pn.us, i64 1
-  %4 = load i8, ptr %str.2.us, align 1
+  %str.1.pn.us = phi ptr [ %str.3.us, %while.cond82.us.backedge ], [ %str.1, %while.cond82.preheader ]
+  %str.3.us = getelementptr inbounds i8, ptr %str.1.pn.us, i64 1
+  %4 = load i8, ptr %str.3.us, align 1
   switch i8 %4, label %while.body94.us [
     i8 0, label %if.end131
     i8 101, label %if.end131
@@ -5560,7 +5560,7 @@ if.then102.us:                                    ; preds = %while.body94.us
           to label %invoke.cont115.us unwind label %lpad68.loopexit.split.us
 
 invoke.cont115.us:                                ; preds = %if.then102.us
-  %6 = load i8, ptr %str.2.us, align 1
+  %6 = load i8, ptr %str.3.us, align 1
   %conv113.us = sext i8 %6 to i32
   %sub114.us = add nsw i32 %conv113.us, -48
   store i32 %sub114.us, ptr %ref.tmp111, align 8, !alias.scope !27
@@ -5580,9 +5580,9 @@ lpad68.loopexit.split.us:                         ; preds = %invoke.cont115.us, 
   br label %ehcleanup287
 
 while.cond82:                                     ; preds = %while.cond82.preheader, %while.cond82.backedge
-  %str.1.pn = phi ptr [ %str.2, %while.cond82.backedge ], [ %str.1, %while.cond82.preheader ]
-  %str.2 = getelementptr inbounds i8, ptr %str.1.pn, i64 1
-  %7 = load i8, ptr %str.2, align 1
+  %str.1.pn = phi ptr [ %str.3, %while.cond82.backedge ], [ %str.1, %while.cond82.preheader ]
+  %str.3 = getelementptr inbounds i8, ptr %str.1.pn, i64 1
+  %7 = load i8, ptr %str.3, align 1
   switch i8 %7, label %while.body94 [
     i8 0, label %if.end131
     i8 101, label %if.end131
@@ -5599,7 +5599,7 @@ if.then102:                                       ; preds = %while.body94
           to label %invoke.cont115 unwind label %lpad68.loopexit.split
 
 invoke.cont115:                                   ; preds = %if.then102
-  %9 = load i8, ptr %str.2, align 1
+  %9 = load i8, ptr %str.3, align 1
   %conv113 = sext i8 %9 to i32
   %sub114 = add nsw i32 %conv113, -48
   store i32 %sub114, ptr %ref.tmp111, align 8, !alias.scope !27
@@ -5629,7 +5629,7 @@ lpad68.loopexit.split-lp:                         ; preds = %if.then79
 
 if.end131:                                        ; preds = %while.cond82, %while.cond82, %while.cond82, %while.cond82.us, %while.cond82.us, %while.cond82.us, %invoke.cont71
   %10 = phi i8 [ %.pr188, %invoke.cont71 ], [ %4, %while.cond82.us ], [ %4, %while.cond82.us ], [ %4, %while.cond82.us ], [ %7, %while.cond82 ], [ %7, %while.cond82 ], [ %7, %while.cond82 ]
-  %str.3 = phi ptr [ %str.1, %invoke.cont71 ], [ %str.2.us, %while.cond82.us ], [ %str.2.us, %while.cond82.us ], [ %str.2.us, %while.cond82.us ], [ %str.2, %while.cond82 ], [ %str.2, %while.cond82 ], [ %str.2, %while.cond82 ]
+  %str.2 = phi ptr [ %str.1, %invoke.cont71 ], [ %str.3.us, %while.cond82.us ], [ %str.3.us, %while.cond82.us ], [ %str.3.us, %while.cond82.us ], [ %str.3, %while.cond82 ], [ %str.3, %while.cond82 ], [ %str.3, %while.cond82 ]
   switch i8 %10, label %if.end202.thread [
     i8 101, label %if.then139
     i8 69, label %if.then139
@@ -5666,10 +5666,10 @@ cleanup.action:                                   ; preds = %if.then141
   br label %ehcleanup287
 
 if.end149:                                        ; preds = %if.then139
-  %incdec.ptr150 = getelementptr inbounds i8, ptr %str.3, i64 1
+  %incdec.ptr150 = getelementptr inbounds i8, ptr %str.2, i64 1
   %13 = load i8, ptr %incdec.ptr150, align 1
   %cmp153 = icmp eq i8 %13, 45
-  %incdec.ptr155 = getelementptr inbounds i8, ptr %str.3, i64 2
+  %incdec.ptr155 = getelementptr inbounds i8, ptr %str.2, i64 2
   %cmp158 = icmp eq i8 %13, 43
   %14 = or i1 %cmp153, %cmp158
   %str.4 = select i1 %14, ptr %incdec.ptr155, ptr %incdec.ptr150
@@ -5679,14 +5679,14 @@ if.end149:                                        ; preds = %if.then139
 
 while.body166:                                    ; preds = %if.end149, %if.end199
   %16 = phi i8 [ %20, %if.end199 ], [ %15, %if.end149 ]
-  %exp.0226 = phi i64 [ %exp.1, %if.end199 ], [ 0, %if.end149 ]
+  %exp.1226 = phi i64 [ %exp.2, %if.end199 ], [ 0, %if.end149 ]
   %str.5225 = phi ptr [ %incdec.ptr200, %if.end199 ], [ %str.4, %if.end149 ]
   %17 = add i8 %16, -48
   %or.cond80 = icmp ult i8 %17, 10
   br i1 %or.cond80, label %if.then174, label %if.else179
 
 if.then174:                                       ; preds = %while.body166
-  %mul = mul i64 %exp.0226, 10
+  %mul = mul i64 %exp.1226, 10
   %sub177 = zext nneg i8 %17 to i64
   %add = add i64 %mul, %sub177
   br label %if.end199
@@ -5723,7 +5723,7 @@ cleanup.action196:                                ; preds = %if.then183
   br label %ehcleanup287
 
 if.end199:                                        ; preds = %if.else179, %if.then174
-  %exp.1 = phi i64 [ %add, %if.then174 ], [ %exp.0226, %if.else179 ]
+  %exp.2 = phi i64 [ %add, %if.then174 ], [ %exp.1226, %if.else179 ]
   %incdec.ptr200 = getelementptr inbounds i8, ptr %str.5225, i64 1
   %20 = load i8, ptr %incdec.ptr200, align 1
   %tobool165.not = icmp eq i8 %20, 0
@@ -5733,7 +5733,7 @@ if.end202.thread:                                 ; preds = %if.end131
   br i1 %cmp66, label %invoke.cont268, label %invoke.cont222
 
 if.then204:                                       ; preds = %if.end199
-  %cmp205 = icmp ugt i64 %exp.1, 4294967295
+  %cmp205 = icmp ugt i64 %exp.2, 4294967295
   br i1 %cmp205, label %if.then206, label %invoke.cont222
 
 if.then206:                                       ; preds = %if.then204
@@ -5764,8 +5764,8 @@ cleanup.action219:                                ; preds = %if.then206
   br label %ehcleanup287
 
 invoke.cont222:                                   ; preds = %if.end149, %if.end202.thread, %if.then204
-  %exp.2197203 = phi i64 [ %exp.1, %if.then204 ], [ 0, %if.end202.thread ], [ 0, %if.end149 ]
-  %exp_sign.1198202 = phi i1 [ %cmp153, %if.then204 ], [ false, %if.end202.thread ], [ %cmp153, %if.end149 ]
+  %exp.0197203 = phi i64 [ %exp.2, %if.then204 ], [ 0, %if.end202.thread ], [ 0, %if.end149 ]
+  %exp_sign.0198202 = phi i1 [ %cmp153, %if.then204 ], [ false, %if.end202.thread ], [ %cmp153, %if.end149 ]
   store ptr %this, ptr %b, align 8
   %m_num.i120 = getelementptr inbounds i8, ptr %b, i64 8
   store i32 0, ptr %m_num.i120, align 8
@@ -5805,7 +5805,7 @@ lpad225:                                          ; preds = %invoke.cont233, %if
   br label %ehcleanup265
 
 if.end237:                                        ; preds = %invoke.cont233, %invoke.cont222
-  %cmp238.not = icmp eq i64 %exp.2197203, 0
+  %cmp238.not = icmp eq i64 %exp.0197203, 0
   br i1 %cmp238.not, label %if.end264, label %invoke.cont242
 
 invoke.cont242:                                   ; preds = %if.end237
@@ -5848,12 +5848,12 @@ invoke.cont242:                                   ; preds = %if.end237
 
 invoke.cont244:                                   ; preds = %invoke.cont242
   store i32 1, ptr %m_den.i.i142, align 8
-  %conv248 = trunc nuw i64 %exp.2197203 to i32
+  %conv248 = trunc nuw i64 %exp.0197203 to i32
   invoke void @_ZN11mpq_managerILb1EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i137, i32 noundef %conv248, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i127)
           to label %invoke.cont251 unwind label %lpad243
 
 invoke.cont251:                                   ; preds = %invoke.cont244
-  br i1 %exp_sign.1198202, label %if.then253, label %if.else257
+  br i1 %exp_sign.0198202, label %if.then253, label %if.else257
 
 if.then253:                                       ; preds = %invoke.cont251
   invoke void @_ZN11mpq_managerILb1EE3divERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i127, ptr noundef nonnull align 8 dereferenceable(32) %a)
@@ -11804,9 +11804,9 @@ while.cond82.preheader:                           ; preds = %if.then79
   br i1 %cmp66, label %while.cond82.us, label %while.cond82
 
 while.cond82.us:                                  ; preds = %while.cond82.preheader, %while.cond82.us.backedge
-  %str.1.pn.us = phi ptr [ %str.2.us, %while.cond82.us.backedge ], [ %str.1, %while.cond82.preheader ]
-  %str.2.us = getelementptr inbounds i8, ptr %str.1.pn.us, i64 1
-  %4 = load i8, ptr %str.2.us, align 1
+  %str.1.pn.us = phi ptr [ %str.3.us, %while.cond82.us.backedge ], [ %str.1, %while.cond82.preheader ]
+  %str.3.us = getelementptr inbounds i8, ptr %str.1.pn.us, i64 1
+  %4 = load i8, ptr %str.3.us, align 1
   switch i8 %4, label %while.body94.us [
     i8 0, label %if.end131
     i8 101, label %if.end131
@@ -11823,7 +11823,7 @@ if.then102.us:                                    ; preds = %while.body94.us
           to label %invoke.cont115.us unwind label %lpad68.loopexit.split.us
 
 invoke.cont115.us:                                ; preds = %if.then102.us
-  %6 = load i8, ptr %str.2.us, align 1
+  %6 = load i8, ptr %str.3.us, align 1
   %conv113.us = sext i8 %6 to i32
   %sub114.us = add nsw i32 %conv113.us, -48
   store i32 %sub114.us, ptr %ref.tmp111, align 8, !alias.scope !61
@@ -11843,9 +11843,9 @@ lpad68.loopexit.split.us:                         ; preds = %invoke.cont115.us, 
   br label %ehcleanup287
 
 while.cond82:                                     ; preds = %while.cond82.preheader, %while.cond82.backedge
-  %str.1.pn = phi ptr [ %str.2, %while.cond82.backedge ], [ %str.1, %while.cond82.preheader ]
-  %str.2 = getelementptr inbounds i8, ptr %str.1.pn, i64 1
-  %7 = load i8, ptr %str.2, align 1
+  %str.1.pn = phi ptr [ %str.3, %while.cond82.backedge ], [ %str.1, %while.cond82.preheader ]
+  %str.3 = getelementptr inbounds i8, ptr %str.1.pn, i64 1
+  %7 = load i8, ptr %str.3, align 1
   switch i8 %7, label %while.body94 [
     i8 0, label %if.end131
     i8 101, label %if.end131
@@ -11862,7 +11862,7 @@ if.then102:                                       ; preds = %while.body94
           to label %invoke.cont115 unwind label %lpad68.loopexit.split
 
 invoke.cont115:                                   ; preds = %if.then102
-  %9 = load i8, ptr %str.2, align 1
+  %9 = load i8, ptr %str.3, align 1
   %conv113 = sext i8 %9 to i32
   %sub114 = add nsw i32 %conv113, -48
   store i32 %sub114, ptr %ref.tmp111, align 8, !alias.scope !61
@@ -11892,7 +11892,7 @@ lpad68.loopexit.split-lp:                         ; preds = %if.then79
 
 if.end131:                                        ; preds = %while.cond82, %while.cond82, %while.cond82, %while.cond82.us, %while.cond82.us, %while.cond82.us, %invoke.cont71
   %10 = phi i8 [ %.pr179, %invoke.cont71 ], [ %4, %while.cond82.us ], [ %4, %while.cond82.us ], [ %4, %while.cond82.us ], [ %7, %while.cond82 ], [ %7, %while.cond82 ], [ %7, %while.cond82 ]
-  %str.3 = phi ptr [ %str.1, %invoke.cont71 ], [ %str.2.us, %while.cond82.us ], [ %str.2.us, %while.cond82.us ], [ %str.2.us, %while.cond82.us ], [ %str.2, %while.cond82 ], [ %str.2, %while.cond82 ], [ %str.2, %while.cond82 ]
+  %str.2 = phi ptr [ %str.1, %invoke.cont71 ], [ %str.3.us, %while.cond82.us ], [ %str.3.us, %while.cond82.us ], [ %str.3.us, %while.cond82.us ], [ %str.3, %while.cond82 ], [ %str.3, %while.cond82 ], [ %str.3, %while.cond82 ]
   switch i8 %10, label %if.end202.thread [
     i8 101, label %if.then139
     i8 69, label %if.then139
@@ -11929,10 +11929,10 @@ cleanup.action:                                   ; preds = %if.then141
   br label %ehcleanup287
 
 if.end149:                                        ; preds = %if.then139
-  %incdec.ptr150 = getelementptr inbounds i8, ptr %str.3, i64 1
+  %incdec.ptr150 = getelementptr inbounds i8, ptr %str.2, i64 1
   %13 = load i8, ptr %incdec.ptr150, align 1
   %cmp153 = icmp eq i8 %13, 45
-  %incdec.ptr155 = getelementptr inbounds i8, ptr %str.3, i64 2
+  %incdec.ptr155 = getelementptr inbounds i8, ptr %str.2, i64 2
   %cmp158 = icmp eq i8 %13, 43
   %14 = or i1 %cmp153, %cmp158
   %str.4 = select i1 %14, ptr %incdec.ptr155, ptr %incdec.ptr150
@@ -11942,14 +11942,14 @@ if.end149:                                        ; preds = %if.then139
 
 while.body166:                                    ; preds = %if.end149, %if.end199
   %16 = phi i8 [ %20, %if.end199 ], [ %15, %if.end149 ]
-  %exp.0217 = phi i64 [ %exp.1, %if.end199 ], [ 0, %if.end149 ]
+  %exp.1217 = phi i64 [ %exp.2, %if.end199 ], [ 0, %if.end149 ]
   %str.5216 = phi ptr [ %incdec.ptr200, %if.end199 ], [ %str.4, %if.end149 ]
   %17 = add i8 %16, -48
   %or.cond80 = icmp ult i8 %17, 10
   br i1 %or.cond80, label %if.then174, label %if.else179
 
 if.then174:                                       ; preds = %while.body166
-  %mul = mul i64 %exp.0217, 10
+  %mul = mul i64 %exp.1217, 10
   %sub177 = zext nneg i8 %17 to i64
   %add = add i64 %mul, %sub177
   br label %if.end199
@@ -11986,7 +11986,7 @@ cleanup.action196:                                ; preds = %if.then183
   br label %ehcleanup287
 
 if.end199:                                        ; preds = %if.else179, %if.then174
-  %exp.1 = phi i64 [ %add, %if.then174 ], [ %exp.0217, %if.else179 ]
+  %exp.2 = phi i64 [ %add, %if.then174 ], [ %exp.1217, %if.else179 ]
   %incdec.ptr200 = getelementptr inbounds i8, ptr %str.5216, i64 1
   %20 = load i8, ptr %incdec.ptr200, align 1
   %tobool165.not = icmp eq i8 %20, 0
@@ -11996,7 +11996,7 @@ if.end202.thread:                                 ; preds = %if.end131
   br i1 %cmp66, label %invoke.cont268, label %invoke.cont222
 
 if.then204:                                       ; preds = %if.end199
-  %cmp205 = icmp ugt i64 %exp.1, 4294967295
+  %cmp205 = icmp ugt i64 %exp.2, 4294967295
   br i1 %cmp205, label %if.then206, label %invoke.cont222
 
 if.then206:                                       ; preds = %if.then204
@@ -12027,8 +12027,8 @@ cleanup.action219:                                ; preds = %if.then206
   br label %ehcleanup287
 
 invoke.cont222:                                   ; preds = %if.end149, %if.end202.thread, %if.then204
-  %exp.2188194 = phi i64 [ %exp.1, %if.then204 ], [ 0, %if.end202.thread ], [ 0, %if.end149 ]
-  %exp_sign.1189193 = phi i1 [ %cmp153, %if.then204 ], [ false, %if.end202.thread ], [ %cmp153, %if.end149 ]
+  %exp.0188194 = phi i64 [ %exp.2, %if.then204 ], [ 0, %if.end202.thread ], [ 0, %if.end149 ]
+  %exp_sign.0189193 = phi i1 [ %cmp153, %if.then204 ], [ false, %if.end202.thread ], [ %cmp153, %if.end149 ]
   store ptr %this, ptr %b, align 8
   %m_num.i120 = getelementptr inbounds i8, ptr %b, i64 8
   store i32 0, ptr %m_num.i120, align 8
@@ -12068,7 +12068,7 @@ lpad225:                                          ; preds = %invoke.cont233, %if
   br label %ehcleanup265
 
 if.end237:                                        ; preds = %invoke.cont233, %invoke.cont222
-  %cmp238.not = icmp eq i64 %exp.2188194, 0
+  %cmp238.not = icmp eq i64 %exp.0188194, 0
   br i1 %cmp238.not, label %if.end264, label %invoke.cont242
 
 invoke.cont242:                                   ; preds = %if.end237
@@ -12111,12 +12111,12 @@ invoke.cont242:                                   ; preds = %if.end237
 
 invoke.cont244:                                   ; preds = %invoke.cont242
   store i32 1, ptr %m_den.i.i142, align 8
-  %conv248 = trunc nuw i64 %exp.2188194 to i32
+  %conv248 = trunc nuw i64 %exp.0188194 to i32
   invoke void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i137, i32 noundef %conv248, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i127)
           to label %invoke.cont251 unwind label %lpad243
 
 invoke.cont251:                                   ; preds = %invoke.cont244
-  br i1 %exp_sign.1189193, label %if.then253, label %if.else257
+  br i1 %exp_sign.0189193, label %if.then253, label %if.else257
 
 if.then253:                                       ; preds = %invoke.cont251
   invoke void @_ZN11mpq_managerILb0EE3divERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i127, ptr noundef nonnull align 8 dereferenceable(32) %a)

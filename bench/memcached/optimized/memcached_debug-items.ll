@@ -331,7 +331,7 @@ for.end.thread:                                   ; preds = %for.inc, %if.end
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %limit.0382 = phi i64 [ 0, %for.body.lr.ph ], [ %limit.4, %for.inc ]
+  %limit.0382 = phi i64 [ 0, %for.body.lr.ph ], [ %limit.1, %for.inc ]
   %search.0381 = phi ptr [ %0, %for.body.lr.ph ], [ %3, %for.inc ]
   %tries.0380 = phi i32 [ 5, %for.body.lr.ph ], [ %dec, %for.inc ]
   %removed.0379 = phi i32 [ 0, %for.body.lr.ph ], [ %removed.2, %for.inc ]
@@ -532,8 +532,8 @@ sw.bb:                                            ; preds = %if.end76
   br label %sw.bb78
 
 sw.bb78:                                          ; preds = %sw.bb, %if.end76
-  %limit.1 = phi i64 [ %limit.0382, %if.end76 ], [ %div, %sw.bb ]
-  %cmp79 = icmp eq i64 %limit.1, 0
+  %limit.3 = phi i64 [ %limit.0382, %if.end76 ], [ %div, %sw.bb ]
+  %cmp79 = icmp eq i64 %limit.3, 0
   br i1 %cmp79, label %if.then81, label %if.end85
 
 if.then81:                                        ; preds = %sw.bb78
@@ -544,7 +544,7 @@ if.then81:                                        ; preds = %sw.bb78
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then81, %sw.bb78
-  %limit.2 = phi i64 [ %div84, %if.then81 ], [ %limit.1, %sw.bb78 ]
+  %limit.4 = phi i64 [ %div84, %if.then81 ], [ %limit.3, %sw.bb78 ]
   %43 = and i16 %22, 16
   %cmp89.not = icmp eq i16 %43, 0
   br i1 %cmp89.not, label %if.else107, label %if.then91
@@ -857,7 +857,7 @@ if.else.i170:                                     ; preds = %if.end19.i154
 if.else107:                                       ; preds = %if.end85
   %arrayidx109 = getelementptr inbounds [256 x i64], ptr @sizes_bytes, i64 0, i64 %idxprom
   %117 = load i64, ptr %arrayidx109, align 8
-  %cmp110 = icmp ugt i64 %117, %limit.2
+  %cmp110 = icmp ugt i64 %117, %limit.4
   br i1 %cmp110, label %if.then116, label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %if.else107
@@ -1181,7 +1181,7 @@ do_item_unlink_q.exit269:                         ; preds = %if.then24.i252, %if
 for.inc:                                          ; preds = %if.end76, %do_item_remove.exit137, %if.end19, %do_item_remove.exit, %if.then44, %if.end18
   %removed.2 = phi i32 [ %removed.0379, %if.end18 ], [ %removed.0379, %if.end19 ], [ %removed.0379, %if.then44 ], [ %inc75, %do_item_remove.exit ], [ %removed.0379, %if.end76 ], [ %inc96, %do_item_remove.exit137 ]
   %tries.1 = phi i32 [ %inc, %if.end18 ], [ %tries.0380, %if.end19 ], [ %tries.0380, %if.then44 ], [ %tries.0380, %do_item_remove.exit ], [ %tries.0380, %if.end76 ], [ %tries.0380, %do_item_remove.exit137 ]
-  %limit.4 = phi i64 [ %limit.0382, %if.end18 ], [ %limit.0382, %if.end19 ], [ %limit.0382, %if.then44 ], [ %limit.0382, %do_item_remove.exit ], [ %limit.0382, %if.end76 ], [ %limit.2, %do_item_remove.exit137 ]
+  %limit.1 = phi i64 [ %limit.0382, %if.end18 ], [ %limit.0382, %if.end19 ], [ %limit.0382, %if.then44 ], [ %limit.0382, %do_item_remove.exit ], [ %limit.0382, %if.end76 ], [ %limit.4, %do_item_remove.exit137 ]
   %dec = add nsw i32 %tries.1, -1
   %cmp3 = icmp sgt i32 %tries.1, 1
   %cmp4 = icmp ne ptr %3, null
@@ -1189,24 +1189,24 @@ for.inc:                                          ; preds = %if.end76, %do_item_
   br i1 %191, label %for.body, label %for.end.thread, !llvm.loop !8
 
 if.then223.thread:                                ; preds = %if.else.i170, %if.then24.i164, %do_item_unlink_q.exit225, %do_item_unlink_q.exit269
-  %removed.1.ph.ph = phi i32 [ %inc209, %do_item_unlink_q.exit269 ], [ %inc120, %do_item_unlink_q.exit225 ], [ %inc96, %if.then24.i164 ], [ %inc96, %if.else.i170 ]
-  %move_to_lru.1.ph.ph = phi i8 [ 64, %do_item_unlink_q.exit269 ], [ -128, %do_item_unlink_q.exit225 ], [ 64, %if.then24.i164 ], [ 64, %if.else.i170 ]
+  %removed.3.ph.ph = phi i32 [ %inc209, %do_item_unlink_q.exit269 ], [ %inc120, %do_item_unlink_q.exit225 ], [ %inc96, %if.then24.i164 ], [ %inc96, %if.else.i170 ]
+  %move_to_lru.3.ph.ph = phi i8 [ 64, %do_item_unlink_q.exit269 ], [ -128, %do_item_unlink_q.exit225 ], [ 64, %if.then24.i164 ], [ 64, %if.else.i170 ]
   %call220310 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx) #18
   %slabs_clsid = getelementptr inbounds i8, ptr %search.0381, i64 40
   %192 = load i8, ptr %slabs_clsid, align 8
   %193 = and i8 %192, 63
-  %conv233 = or disjoint i8 %193, %move_to_lru.1.ph.ph
+  %conv233 = or disjoint i8 %193, %move_to_lru.3.ph.ph
   store i8 %conv233, ptr %slabs_clsid, align 8
   tail call fastcc void @item_link_q(ptr noundef nonnull %search.0381)
   br label %if.end234
 
 if.then223:                                       ; preds = %if.end76, %lor.lhs.false112, %if.else191, %land.lhs.true197, %if.then188, %do.body176, %if.then181, %if.then128
-  %removed.1.ph = phi i32 [ %removed.0379, %lor.lhs.false112 ], [ %removed.0379, %if.else191 ], [ %removed.0379, %land.lhs.true197 ], [ %removed.0379, %if.then188 ], [ %inc178, %do.body176 ], [ %inc178, %if.then181 ], [ %removed.0379, %if.then128 ], [ %removed.0379, %if.end76 ]
+  %removed.3.ph = phi i32 [ %removed.0379, %lor.lhs.false112 ], [ %removed.0379, %if.else191 ], [ %removed.0379, %land.lhs.true197 ], [ %removed.0379, %if.then188 ], [ %inc178, %do.body176 ], [ %inc178, %if.then181 ], [ %removed.0379, %if.then128 ], [ %removed.0379, %if.end76 ]
   %call220 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx) #18
   br label %if.end234
 
 if.end234:                                        ; preds = %if.then223, %if.then223.thread
-  %removed.1.ph313 = phi i32 [ %removed.1.ph.ph, %if.then223.thread ], [ %removed.1.ph, %if.then223 ]
+  %removed.3.ph313 = phi i32 [ %removed.3.ph.ph, %if.then223.thread ], [ %removed.3.ph, %if.then223 ]
   %194 = and i8 %flags, 4
   %cmp237 = icmp eq i8 %194, 0
   br i1 %cmp237, label %if.then239, label %return
@@ -1247,7 +1247,7 @@ do_item_remove.exit291:                           ; preds = %if.then239, %if.the
   br label %return
 
 return:                                           ; preds = %for.end.thread, %do_item_remove.exit291, %if.end234, %entry, %if.then14
-  %retval.0 = phi i32 [ 0, %if.then14 ], [ 0, %entry ], [ %removed.1.ph313, %if.end234 ], [ %removed.1.ph313, %do_item_remove.exit291 ], [ %removed.0.lcssa, %for.end.thread ]
+  %retval.0 = phi i32 [ 0, %if.then14 ], [ 0, %entry ], [ %removed.3.ph313, %if.end234 ], [ %removed.3.ph313, %do_item_remove.exit291 ], [ %removed.0.lcssa, %for.end.thread ]
   ret i32 %retval.0
 }
 
@@ -4166,8 +4166,8 @@ while.body.lr.ph:                                 ; preds = %if.end16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end139
-  %am.0106 = phi ptr [ %call11, %while.body.lr.ph ], [ %am.2, %if.end139 ]
-  %last_ratio.0105 = phi double [ %4, %while.body.lr.ph ], [ %last_ratio.2, %if.end139 ]
+  %am.0106 = phi ptr [ %call11, %while.body.lr.ph ], [ %am.1, %if.end139 ]
+  %last_ratio.0105 = phi double [ %4, %while.body.lr.ph ], [ %last_ratio.1, %if.end139 ]
   %to_sleep.0104 = phi i32 [ 1000, %while.body.lr.ph ], [ %to_sleep.4, %if.end139 ]
   %last_automove_check.0103 = phi i32 [ 0, %while.body.lr.ph ], [ %last_automove_check.1, %if.end139 ]
   %last_crawler_check.0102 = phi i32 [ 0, %while.body.lr.ph ], [ %last_crawler_check.1, %if.end139 ]
@@ -4209,18 +4209,18 @@ if.end45:                                         ; preds = %for.body
   br i1 %tobool.i, label %for.body.i, label %if.end5.i
 
 for.body.i:                                       ; preds = %if.end45, %if.else.i
-  %did_moves.030.i = phi i32 [ %inc.i, %if.else.i ], [ 0, %if.end45 ]
+  %did_moves.130.i = phi i32 [ %inc.i, %if.else.i ], [ 0, %if.end45 ]
   %call1.i = call i32 @lru_pull_tail(i32 noundef %12, i32 noundef 192, i64 noundef 0, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null)
   %cmp2.i = icmp slt i32 %call1.i, 1
   br i1 %cmp2.i, label %if.end5.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i32 %did_moves.030.i, 1
+  %inc.i = add nuw nsw i32 %did_moves.130.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 500
   br i1 %exitcond.not.i, label %if.end5.i, label %for.body.i, !llvm.loop !18
 
 if.end5.i:                                        ; preds = %if.else.i, %for.body.i, %if.end45
-  %did_moves.1.i = phi i32 [ 0, %if.end45 ], [ 500, %if.else.i ], [ %did_moves.030.i, %for.body.i ]
+  %did_moves.0.i = phi i32 [ 0, %if.end45 ], [ 500, %if.else.i ], [ %did_moves.130.i, %for.body.i ]
   %14 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 144), align 8
   %tobool6.i = trunc i8 %14 to i1
   br i1 %tobool6.i, label %if.then7.i, label %if.end53.i
@@ -4272,11 +4272,11 @@ if.end53.i:                                       ; preds = %if.end17.i, %if.end
   %total_bytes.0.i = phi i64 [ %add48.i, %if.end17.i ], [ 0, %if.end5.i ]
   %hot_age.0.i = phi i32 [ %conv25.i, %if.end17.i ], [ 0, %if.end5.i ]
   %warm_age.0.i = phi i32 [ %conv28.i, %if.end17.i ], [ 0, %if.end5.i ]
-  %26 = add nuw nsw i32 %did_moves.1.i, 499
+  %26 = add nuw nsw i32 %did_moves.0.i, 499
   br label %for.body57.i
 
 for.body57.i:                                     ; preds = %if.end73.i, %if.end53.i
-  %did_moves.232.i = phi i32 [ %did_moves.1.i, %if.end53.i ], [ %inc74.i, %if.end73.i ]
+  %did_moves.232.i = phi i32 [ %did_moves.0.i, %if.end53.i ], [ %inc74.i, %if.end73.i ]
   %call58.i = call i32 @lru_pull_tail(i32 noundef %12, i32 noundef 0, i64 noundef %total_bytes.0.i, i8 noundef zeroext 2, i32 noundef %hot_age.0.i, ptr noundef null)
   %tobool59.not.i = icmp eq i32 %call58.i, 0
   br i1 %tobool59.not.i, label %lor.lhs.false.i, label %if.then62.i
@@ -4671,12 +4671,12 @@ if.then112:                                       ; preds = %if.then110
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then112, %if.then110
-  %last_ratio.1 = phi double [ %84, %if.then112 ], [ %last_ratio.0105, %if.then110 ]
-  %am.1 = phi ptr [ %call114, %if.then112 ], [ %am.0106, %if.then110 ]
+  %last_ratio.2 = phi double [ %84, %if.then112 ], [ %last_ratio.0105, %if.then110 ]
+  %am.2 = phi ptr [ %call114, %if.then112 ], [ %am.0106, %if.then110 ]
   %.val80 = load ptr, ptr getelementptr inbounds (i8, ptr @slab_automove_default, i64 16), align 8
   %.val81 = load ptr, ptr getelementptr inbounds (i8, ptr @slab_automove_extstore, i64 16), align 8
   %85 = select i1 %cmp.not, ptr %.val80, ptr %.val81
-  call void %85(ptr noundef %am.1, ptr noundef nonnull %src, ptr noundef nonnull %dst) #18
+  call void %85(ptr noundef %am.2, ptr noundef nonnull %src, ptr noundef nonnull %dst) #18
   %86 = load i32, ptr %src, align 4
   %cmp116 = icmp ne i32 %86, -1
   %87 = load i32, ptr %dst, align 4
@@ -4713,14 +4713,14 @@ if.then132:                                       ; preds = %if.end129
 if.end139:                                        ; preds = %if.end129, %if.then132, %land.lhs.true108, %if.end106
   %last_automove_check.1 = phi i32 [ %93, %if.then132 ], [ %last_automove_check.0103, %land.lhs.true108 ], [ %last_automove_check.0103, %if.end106 ], [ %last_automove_check.0103, %if.end129 ]
   %to_sleep.4 = phi i32 [ %to_sleep.3, %if.then132 ], [ %to_sleep.3, %land.lhs.true108 ], [ %to_sleep.3, %if.end106 ], [ 1000, %if.end129 ]
-  %last_ratio.2 = phi double [ %last_ratio.1, %if.then132 ], [ %last_ratio.0105, %land.lhs.true108 ], [ %last_ratio.0105, %if.end106 ], [ %last_ratio.1, %if.end129 ]
-  %am.2 = phi ptr [ %am.1, %if.then132 ], [ %am.0106, %land.lhs.true108 ], [ %am.0106, %if.end106 ], [ %am.1, %if.end129 ]
+  %last_ratio.1 = phi double [ %last_ratio.2, %if.then132 ], [ %last_ratio.0105, %land.lhs.true108 ], [ %last_ratio.0105, %if.end106 ], [ %last_ratio.2, %if.end129 ]
+  %am.1 = phi ptr [ %am.2, %if.then132 ], [ %am.0106, %land.lhs.true108 ], [ %am.0106, %if.end106 ], [ %am.2, %if.end129 ]
   %94 = load volatile i32, ptr @do_run_lru_maintainer_thread, align 4
   %tobool.not = icmp eq i32 %94, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !25
 
 while.end:                                        ; preds = %if.end139, %if.end16
-  %am.0.lcssa = phi ptr [ %call11, %if.end16 ], [ %am.2, %if.end139 ]
+  %am.0.lcssa = phi ptr [ %call11, %if.end16 ], [ %am.1, %if.end139 ]
   %call140 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_maintainer_lock) #18
   %.val82 = load ptr, ptr getelementptr inbounds (i8, ptr @slab_automove_default, i64 8), align 8
   %.val83 = load ptr, ptr getelementptr inbounds (i8, ptr @slab_automove_extstore, i64 8), align 8

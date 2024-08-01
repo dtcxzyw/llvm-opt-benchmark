@@ -5725,8 +5725,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp.i.not13, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %invoke.cont3, %for.inc
-  %retval.sroa.0.014 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %2, %invoke.cont3 ]
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.014)
+  %retval.sroa.0.114 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %2, %invoke.cont3 ]
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.114)
           to label %invoke.cont15 unwind label %terminate.lpad.loopexit
 
 invoke.cont15:                                    ; preds = %for.body
@@ -5783,7 +5783,7 @@ for.inc.critedge:                                 ; preds = %invoke.cont17
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.critedge, %if.end.i.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.014, i64 32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.114, i64 32
   %8 = load ptr, ptr %_M_finish.i3, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %8
   br i1 %cmp.i.not, label %cleanup, label %for.body, !llvm.loop !65
@@ -5795,13 +5795,13 @@ cleanup.critedge:                                 ; preds = %land.rhs.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i.i, %for.inc, %invoke.cont3, %cleanup.critedge
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.014, %cleanup.critedge ], [ %3, %invoke.cont3 ], [ %retval.sroa.0.014, %if.end.i.i ], [ %8, %for.inc ]
+  %retval.sroa.0.2 = phi ptr [ %retval.sroa.0.114, %cleanup.critedge ], [ %3, %invoke.cont3 ], [ %retval.sroa.0.114, %if.end.i.i ], [ %8, %for.inc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref) #18
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.sroa.0.2 = phi ptr [ %1, %if.then ], [ %retval.sroa.0.1, %cleanup ]
-  ret ptr %retval.sroa.0.2
+  %retval.sroa.0.0 = phi ptr [ %1, %if.then ], [ %retval.sroa.0.2, %cleanup ]
+  ret ptr %retval.sroa.0.0
 
 terminate.lpad.loopexit:                          ; preds = %for.body, %invoke.cont16
   %lpad.loopexit = landingpad { ptr, i32 }

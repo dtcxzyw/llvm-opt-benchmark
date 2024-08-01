@@ -281,9 +281,9 @@ define dso_local void @uv_pipe_connect(ptr noundef %0, ptr noundef %1, ptr nound
   br label %32
 
 32:                                               ; preds = %26, %.thread, %10, %24
-  %.1 = phi i32 [ %11, %10 ], [ %25, %24 ], [ 0, %.thread ], [ %28, %26 ]
+  %.0 = phi i32 [ %11, %10 ], [ %25, %24 ], [ 0, %.thread ], [ %28, %26 ]
   %33 = getelementptr inbounds i8, ptr %1, i64 232
-  store i32 %.1, ptr %33, align 8
+  store i32 %.0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %1, i64 120
   store ptr %0, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 8
@@ -302,7 +302,7 @@ define dso_local void @uv_pipe_connect(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %43, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %43, ptr %44, align 8
-  %.not34 = icmp eq i32 %.1, 0
+  %.not34 = icmp eq i32 %.0, 0
   br i1 %.not34, label %47, label %45
 
 45:                                               ; preds = %32

@@ -1083,8 +1083,8 @@ opal_obj_run_destructors.exit280:                 ; preds = %opal_obj_run_destru
   br i1 %.not230, label %520, label %.thread
 
 519:                                              ; preds = %opal_thread_add_fetch_32.exit274, %opal_thread_add_fetch_32.exit266
-  %.2 = phi i1 [ %.not231, %opal_thread_add_fetch_32.exit266 ], [ %.not230, %opal_thread_add_fetch_32.exit274 ]
-  br i1 %.2, label %520, label %.thread
+  %.1182 = phi i1 [ %.not231, %opal_thread_add_fetch_32.exit266 ], [ %.not230, %opal_thread_add_fetch_32.exit274 ]
+  br i1 %.1182, label %520, label %.thread
 
 520:                                              ; preds = %opal_obj_run_destructors.exit280, %opal_obj_run_destructors.exit272, %519
   %521 = call ptr @mca_fcoll_base_component_lookup(ptr noundef nonnull @.str.18) #11

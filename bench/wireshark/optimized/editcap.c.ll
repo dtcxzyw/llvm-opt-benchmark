@@ -323,8 +323,8 @@ define hidden range(i32 0, 4) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %41 = load ptr, ptr %1, align 8
   %42 = call ptr @configuration_init(ptr noundef %41, ptr noundef null) #21
   %.not = icmp eq ptr %42, null
-  %.0353.sroa.gep = getelementptr inbounds i8, ptr %22, i64 16
-  %.0353.sroa.gep389 = getelementptr inbounds i8, ptr %20, i64 16
+  %.2355.sroa.gep = getelementptr inbounds i8, ptr %22, i64 16
+  %.2355.sroa.gep389 = getelementptr inbounds i8, ptr %20, i64 16
   br i1 %.not, label %46, label %43
 
 43:                                               ; preds = %2
@@ -490,11 +490,11 @@ lookup_secrets_type.exit:                         ; preds = %.preheader666
   br label %98
 
 98:                                               ; preds = %95, %89
-  %.1365 = phi ptr [ %.0364, %89 ], [ %96, %95 ]
-  %.1362 = phi ptr [ %.0361, %89 ], [ %97, %95 ]
-  %99 = call ptr @g_array_append_vals(ptr noundef %.1365, ptr noundef nonnull %26, i32 noundef 1) #21
+  %.2366 = phi ptr [ %.0364, %89 ], [ %96, %95 ]
+  %.2363 = phi ptr [ %.0361, %89 ], [ %97, %95 ]
+  %99 = call ptr @g_array_append_vals(ptr noundef %.2366, ptr noundef nonnull %26, i32 noundef 1) #21
   %100 = call noalias ptr @g_strdup(ptr noundef %91) #21
-  call void @g_ptr_array_add(ptr noundef %.1362, ptr noundef %100) #21
+  call void @g_ptr_array_add(ptr noundef %.2363, ptr noundef %100) #21
   call void @g_strfreev(ptr noundef nonnull %76) #21
   br label %.backedge2537
 
@@ -1231,8 +1231,8 @@ set_rel_time.exit:                                ; preds = %371, %390, %._crit_
 .backedge2537:                                    ; preds = %set_rel_time.exit, %set_time_adjustment.exit, %58, %53, %358, %224, %212, %205, %188, %185, %198, %201, %191, %159, %160, %369, %308, %256, %255, %250, %249, %246, %240, %204, %165, %143, %120, %119, %118, %114, %101, %98, %57, %56
   %.0386.be = phi i32 [ %.0386, %set_rel_time.exit ], [ %.0386, %369 ], [ %.0386, %358 ], [ %.0386, %set_time_adjustment.exit ], [ %.0386, %308 ], [ %.0386, %256 ], [ %.0386, %255 ], [ %.0386, %250 ], [ %.0386, %249 ], [ %.0386, %246 ], [ %.0386, %240 ], [ %.0386, %224 ], [ %.0386, %212 ], [ %.0386, %205 ], [ %.0386, %204 ], [ %.0386, %185 ], [ %.0386, %188 ], [ %.0386, %198 ], [ %.0386, %201 ], [ %.0386, %191 ], [ %167, %165 ], [ %.0386, %159 ], [ %.0386, %160 ], [ %.0386, %143 ], [ %.0386, %120 ], [ %.0386, %119 ], [ %.0386, %118 ], [ %.0386, %114 ], [ %.0386, %101 ], [ %.0386, %98 ], [ %.0386, %57 ], [ %.0386, %56 ], [ %.0386, %53 ], [ %.0386, %58 ]
   %.0367.be = phi i32 [ %.0367, %set_rel_time.exit ], [ %.0367, %369 ], [ %.0367, %358 ], [ %.0367, %set_time_adjustment.exit ], [ %.0367, %308 ], [ %.0367, %256 ], [ %.0367, %255 ], [ %252, %250 ], [ %.0367, %249 ], [ %.0367, %246 ], [ %.0367, %240 ], [ %.0367, %224 ], [ %.0367, %212 ], [ %.0367, %205 ], [ %.0367, %204 ], [ %.0367, %185 ], [ %.0367, %188 ], [ %.0367, %198 ], [ %.0367, %201 ], [ %.0367, %191 ], [ %.0367, %165 ], [ %.0367, %159 ], [ %.0367, %160 ], [ %.0367, %143 ], [ %.0367, %120 ], [ %.0367, %119 ], [ %.0367, %118 ], [ %.0367, %114 ], [ %.0367, %101 ], [ %.0367, %98 ], [ %.0367, %57 ], [ %.0367, %56 ], [ %.0367, %53 ], [ %.0367, %58 ]
-  %.0364.be = phi ptr [ %.0364, %set_rel_time.exit ], [ %.0364, %369 ], [ %.0364, %358 ], [ %.0364, %set_time_adjustment.exit ], [ %.0364, %308 ], [ %.0364, %256 ], [ %.0364, %255 ], [ %.0364, %250 ], [ %.0364, %249 ], [ %.0364, %246 ], [ %.0364, %240 ], [ %.0364, %224 ], [ %.0364, %212 ], [ %.0364, %205 ], [ %.0364, %204 ], [ %.0364, %185 ], [ %.0364, %188 ], [ %.0364, %198 ], [ %.0364, %201 ], [ %.0364, %191 ], [ %.0364, %165 ], [ %.0364, %159 ], [ %.0364, %160 ], [ %.0364, %143 ], [ %.0364, %120 ], [ %.0364, %119 ], [ %.0364, %118 ], [ %.0364, %114 ], [ %.0364, %101 ], [ %.1365, %98 ], [ %.0364, %57 ], [ %.0364, %56 ], [ %.0364, %53 ], [ %.0364, %58 ]
-  %.0361.be = phi ptr [ %.0361, %set_rel_time.exit ], [ %.0361, %369 ], [ %.0361, %358 ], [ %.0361, %set_time_adjustment.exit ], [ %.0361, %308 ], [ %.0361, %256 ], [ %.0361, %255 ], [ %.0361, %250 ], [ %.0361, %249 ], [ %.0361, %246 ], [ %.0361, %240 ], [ %.0361, %224 ], [ %.0361, %212 ], [ %.0361, %205 ], [ %.0361, %204 ], [ %.0361, %185 ], [ %.0361, %188 ], [ %.0361, %198 ], [ %.0361, %201 ], [ %.0361, %191 ], [ %.0361, %165 ], [ %.0361, %159 ], [ %.0361, %160 ], [ %.0361, %143 ], [ %.0361, %120 ], [ %.0361, %119 ], [ %.0361, %118 ], [ %.0361, %114 ], [ %.0361, %101 ], [ %.1362, %98 ], [ %.0361, %57 ], [ %.0361, %56 ], [ %.0361, %53 ], [ %.0361, %58 ]
+  %.0364.be = phi ptr [ %.0364, %set_rel_time.exit ], [ %.0364, %369 ], [ %.0364, %358 ], [ %.0364, %set_time_adjustment.exit ], [ %.0364, %308 ], [ %.0364, %256 ], [ %.0364, %255 ], [ %.0364, %250 ], [ %.0364, %249 ], [ %.0364, %246 ], [ %.0364, %240 ], [ %.0364, %224 ], [ %.0364, %212 ], [ %.0364, %205 ], [ %.0364, %204 ], [ %.0364, %185 ], [ %.0364, %188 ], [ %.0364, %198 ], [ %.0364, %201 ], [ %.0364, %191 ], [ %.0364, %165 ], [ %.0364, %159 ], [ %.0364, %160 ], [ %.0364, %143 ], [ %.0364, %120 ], [ %.0364, %119 ], [ %.0364, %118 ], [ %.0364, %114 ], [ %.0364, %101 ], [ %.2366, %98 ], [ %.0364, %57 ], [ %.0364, %56 ], [ %.0364, %53 ], [ %.0364, %58 ]
+  %.0361.be = phi ptr [ %.0361, %set_rel_time.exit ], [ %.0361, %369 ], [ %.0361, %358 ], [ %.0361, %set_time_adjustment.exit ], [ %.0361, %308 ], [ %.0361, %256 ], [ %.0361, %255 ], [ %.0361, %250 ], [ %.0361, %249 ], [ %.0361, %246 ], [ %.0361, %240 ], [ %.0361, %224 ], [ %.0361, %212 ], [ %.0361, %205 ], [ %.0361, %204 ], [ %.0361, %185 ], [ %.0361, %188 ], [ %.0361, %198 ], [ %.0361, %201 ], [ %.0361, %191 ], [ %.0361, %165 ], [ %.0361, %159 ], [ %.0361, %160 ], [ %.0361, %143 ], [ %.0361, %120 ], [ %.0361, %119 ], [ %.0361, %118 ], [ %.0361, %114 ], [ %.0361, %101 ], [ %.2363, %98 ], [ %.0361, %57 ], [ %.0361, %56 ], [ %.0361, %53 ], [ %.0361, %58 ]
   %.0346.be = phi i32 [ %.0346, %set_rel_time.exit ], [ %.0346, %369 ], [ %.0346, %358 ], [ %.0346, %set_time_adjustment.exit ], [ %.0346, %308 ], [ %.0346, %256 ], [ %.0346, %255 ], [ %.0346, %250 ], [ %.0346, %249 ], [ %.0346, %246 ], [ %.0346, %240 ], [ %.0346, %224 ], [ %.0346, %212 ], [ %.0346, %205 ], [ %.0346, %204 ], [ %.0346, %185 ], [ %.0346, %188 ], [ %.0346, %198 ], [ %.0346, %201 ], [ %.0346, %191 ], [ %.0346, %165 ], [ %.0346, %159 ], [ %.0346, %160 ], [ %.0346, %143 ], [ %.0346, %120 ], [ %.0346, %119 ], [ %.0346, %118 ], [ %.0346, %114 ], [ %.0346, %101 ], [ %.0346, %98 ], [ %.0346, %57 ], [ %.0346, %56 ], [ %.0346, %53 ], [ 1, %58 ]
   %.0326.be = phi i32 [ %.0326, %set_rel_time.exit ], [ %.0326, %369 ], [ %.0326, %358 ], [ %.0326, %set_time_adjustment.exit ], [ %.0326, %308 ], [ %.0326, %256 ], [ %.0326, %255 ], [ %.0326, %250 ], [ 1, %249 ], [ %.0326, %246 ], [ %.0326, %240 ], [ %.0326, %224 ], [ %.0326, %212 ], [ %.0326, %205 ], [ %.0326, %204 ], [ %.0326, %185 ], [ %.0326, %188 ], [ %.0326, %198 ], [ %.0326, %201 ], [ %.0326, %191 ], [ %.0326, %165 ], [ %.0326, %159 ], [ %.0326, %160 ], [ %.0326, %143 ], [ %.0326, %120 ], [ %.0326, %119 ], [ %.0326, %118 ], [ %.0326, %114 ], [ %.0326, %101 ], [ %.0326, %98 ], [ %.0326, %57 ], [ %.0326, %56 ], [ %.0326, %53 ], [ %.0326, %58 ]
   %.0324.be = phi i32 [ %.0324, %set_rel_time.exit ], [ %.0324, %369 ], [ %.0324, %358 ], [ %.0324, %set_time_adjustment.exit ], [ %.0324, %308 ], [ %258, %256 ], [ %.0324, %255 ], [ %.0324, %250 ], [ %.0324, %249 ], [ %.0324, %246 ], [ %.0324, %240 ], [ %.0324, %224 ], [ %.0324, %212 ], [ %.0324, %205 ], [ %.0324, %204 ], [ %.0324, %185 ], [ %.0324, %188 ], [ %.0324, %198 ], [ %.0324, %201 ], [ %.0324, %191 ], [ %.0324, %165 ], [ %.0324, %159 ], [ %.0324, %160 ], [ %.0324, %143 ], [ %.0324, %120 ], [ %.0324, %119 ], [ %.0324, %118 ], [ %.0324, %114 ], [ %.0324, %101 ], [ %.0324, %98 ], [ %.0324, %57 ], [ %.0324, %56 ], [ %.0324, %53 ], [ %.0324, %58 ]
@@ -1682,7 +1682,7 @@ validate_secrets_file.exit:                       ; preds = %604, %609, %612
 .lr.ph1102:                                       ; preds = %.lr.ph1102.preheader, %702
   %647 = phi i32 [ %.pre1620, %.lr.ph1102.preheader ], [ %704, %702 ]
   %indvars.iv1586 = phi i64 [ %646, %.lr.ph1102.preheader ], [ %indvars.iv.next1587, %702 ]
-  %.05831099 = phi i32 [ 0, %.lr.ph1102.preheader ], [ %.3586, %702 ]
+  %.05831099 = phi i32 [ 0, %.lr.ph1102.preheader ], [ %.4587, %702 ]
   %648 = getelementptr ptr, ptr %1, i64 %indvars.iv1586
   %649 = load ptr, ptr %648, align 8
   %650 = icmp ugt i32 %647, 511
@@ -1776,7 +1776,7 @@ add_selection.exit.thread:                        ; preds = %.lr.ph1102
   br label %695
 
 695:                                              ; preds = %694, %693
-  %.2585 = phi i32 [ -1, %693 ], [ %spec.select653, %694 ]
+  %.3586 = phi i32 [ -1, %693 ], [ %spec.select653, %694 ]
   %696 = phi i32 [ -1, %693 ], [ %688, %694 ]
   %.b.i = load i1, ptr @verbose, align 4
   br i1 %.b.i, label %697, label %702
@@ -1789,7 +1789,7 @@ add_selection.exit.thread:                        ; preds = %.lr.ph1102
   br label %702
 
 702:                                              ; preds = %697, %695, %672, %.thread1628
-  %.3586 = phi i32 [ %spec.select, %672 ], [ %spec.select, %.thread1628 ], [ %.2585, %697 ], [ %.2585, %695 ]
+  %.4587 = phi i32 [ %spec.select, %672 ], [ %spec.select, %.thread1628 ], [ %.3586, %697 ], [ %.3586, %695 ]
   %703 = load i32, ptr @max_selected, align 4
   %704 = add i32 %703, 1
   store i32 %704, ptr @max_selected, align 4
@@ -1801,7 +1801,7 @@ add_selection.exit.thread:                        ; preds = %.lr.ph1102
 
 .loopexit659:                                     ; preds = %702, %641, %add_selection.exit.thread
   %708 = phi i32 [ %.pre1619, %add_selection.exit.thread ], [ %.pre1620, %641 ], [ %704, %702 ]
-  %.0583819 = phi i32 [ %.05831099, %add_selection.exit.thread ], [ 0, %641 ], [ %.3586, %702 ]
+  %.0583819 = phi i32 [ %.05831099, %add_selection.exit.thread ], [ 0, %641 ], [ %.4587, %702 ]
   %.b442 = load i1, ptr @keep_em, align 4
   %709 = icmp eq i32 %708, 0
   %or.cond9 = select i1 %.b442, i1 %709, i1 false
@@ -1866,10 +1866,10 @@ add_selection.exit.thread:                        ; preds = %.lr.ph1102
   %.0340.ph1158 = phi i32 [ 0, %.lr.ph1119.lr.ph ], [ %.03401116, %.thread ]
   %.0345.ph1157 = phi i32 [ 0, %.lr.ph1119.lr.ph ], [ %736, %.thread ]
   %.0369.ph1156 = phi i32 [ 0, %.lr.ph1119.lr.ph ], [ %.5374, %.thread ]
-  %.0376.ph1155 = phi ptr [ null, %.lr.ph1119.lr.ph ], [ %.5381, %.thread ]
+  %.1377.ph1155 = phi ptr [ null, %.lr.ph1119.lr.ph ], [ %.6382, %.thread ]
   %.0384.ph1153 = phi i32 [ 0, %.lr.ph1119.lr.ph ], [ %.1385, %.thread ]
-  %.0590.ph1152 = phi ptr [ null, %.lr.ph1119.lr.ph ], [ %.3593, %.thread ]
-  %.0594.ph1151 = phi ptr [ null, %.lr.ph1119.lr.ph ], [ %.4598, %.thread ]
+  %.0590.ph1152 = phi ptr [ null, %.lr.ph1119.lr.ph ], [ %.1591, %.thread ]
+  %.0594.ph1151 = phi ptr [ null, %.lr.ph1119.lr.ph ], [ %.1595, %.thread ]
   %734 = icmp sgt i32 %.0384.ph1153, 0
   %or.cond29 = select i1 %469, i1 %734, i1 false
   br label %735
@@ -1880,9 +1880,9 @@ add_selection.exit.thread:                        ; preds = %.lr.ph1102
   %.03401116 = phi i32 [ %.0340.ph1158, %.lr.ph1119 ], [ %.0340.be, %.backedge ]
   %.03451115 = phi i32 [ %.0345.ph1157, %.lr.ph1119 ], [ %736, %.backedge ]
   %.03691114 = phi i32 [ %.0369.ph1156, %.lr.ph1119 ], [ %.5374, %.backedge ]
-  %.03761113 = phi ptr [ %.0376.ph1155, %.lr.ph1119 ], [ %.5381, %.backedge ]
-  %.05901112 = phi ptr [ %.0590.ph1152, %.lr.ph1119 ], [ %.3593, %.backedge ]
-  %.05941111 = phi ptr [ %.0594.ph1151, %.lr.ph1119 ], [ %.4598, %.backedge ]
+  %.13771113 = phi ptr [ %.1377.ph1155, %.lr.ph1119 ], [ %.6382, %.backedge ]
+  %.05901112 = phi ptr [ %.0590.ph1152, %.lr.ph1119 ], [ %.1591, %.backedge ]
+  %.05941111 = phi ptr [ %.0594.ph1151, %.lr.ph1119 ], [ %.1595, %.backedge ]
   %736 = add nuw i32 %.03451115, 1
   %737 = icmp eq i32 %.03451115, 0
   br i1 %737, label %738, label %788
@@ -1929,11 +1929,11 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br label %760
 
 760:                                              ; preds = %758, %755
-  %.1595 = phi ptr [ %756, %755 ], [ %759, %758 ]
+  %.3597 = phi ptr [ %756, %755 ], [ %759, %758 ]
   %storemerge.i = phi ptr [ %757, %755 ], [ null, %758 ]
   call void @g_free(ptr noundef nonnull %747) #21
   %761 = add i32 %.03691114, 1
-  %762 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.03691114, ptr noundef nonnull %20, ptr noundef %.1595, ptr noundef %storemerge.i)
+  %762 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.03691114, ptr noundef nonnull %20, ptr noundef %.3597, ptr noundef %storemerge.i)
   br label %770
 
 763:                                              ; preds = %739
@@ -1946,10 +1946,10 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br label %770
 
 770:                                              ; preds = %763, %760
-  %.3597 = phi ptr [ %.1595, %760 ], [ %.05941111, %763 ]
+  %.2596 = phi ptr [ %.3597, %760 ], [ %.05941111, %763 ]
   %.2592 = phi ptr [ %storemerge.i, %760 ], [ %.05901112, %763 ]
-  %.1377 = phi ptr [ %762, %760 ], [ %769, %763 ]
-  %.1370 = phi i32 [ %761, %760 ], [ %.03691114, %763 ]
+  %.3379 = phi ptr [ %762, %760 ], [ %769, %763 ]
+  %.2371 = phi i32 [ %761, %760 ], [ %.03691114, %763 ]
   %771 = load ptr, ptr %723, align 8
   %772 = load ptr, ptr %771, align 8
   %773 = load ptr, ptr %772, align 8
@@ -1966,7 +1966,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br label %781
 
 781:                                              ; preds = %775, %770
-  %782 = call fastcc ptr @editcap_dump_open(ptr noundef %.1377, ptr noundef nonnull %23, ptr noundef %721, ptr noundef nonnull %11, ptr noundef nonnull %13)
+  %782 = call fastcc ptr @editcap_dump_open(ptr noundef %.3379, ptr noundef nonnull %23, ptr noundef %721, ptr noundef nonnull %11, ptr noundef nonnull %13)
   %783 = icmp eq ptr %782, null
   br i1 %783, label %784, label %788
 
@@ -1974,14 +1974,14 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   %785 = load i32, ptr %11, align 4
   %786 = load ptr, ptr %13, align 8
   %787 = load i32, ptr @out_file_type_subtype, align 4
-  call void @cfile_dump_open_failure_message(ptr noundef %.1377, i32 noundef %785, ptr noundef %786, i32 noundef %787) #21
+  call void @cfile_dump_open_failure_message(ptr noundef %.3379, i32 noundef %785, ptr noundef %786, i32 noundef %787) #21
   br label %list_secrets_types.exit
 
 788:                                              ; preds = %781, %735
-  %.4598 = phi ptr [ %.3597, %781 ], [ %.05941111, %735 ]
-  %.3593 = phi ptr [ %.2592, %781 ], [ %.05901112, %735 ]
-  %.2378 = phi ptr [ %.1377, %781 ], [ %.03761113, %735 ]
-  %.2371 = phi i32 [ %.1370, %781 ], [ %.03691114, %735 ]
+  %.1595 = phi ptr [ %.2596, %781 ], [ %.05941111, %735 ]
+  %.1591 = phi ptr [ %.2592, %781 ], [ %.05901112, %735 ]
+  %.2378 = phi ptr [ %.3379, %781 ], [ %.13771113, %735 ]
+  %.1370 = phi i32 [ %.2371, %781 ], [ %.03691114, %735 ]
   %.1330 = phi ptr [ %782, %781 ], [ %.03291118, %735 ]
   %789 = call fastcc i32 @process_new_idbs(ptr noundef nonnull %482, ptr noundef %.1330, ptr noundef %721, ptr noundef nonnull %11, ptr noundef nonnull %13)
   %.not472 = icmp eq i32 %789, 0
@@ -2018,7 +2018,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br i1 %808, label %809, label %.preheader2411
 
 809:                                              ; preds = %807
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %.0353.sroa.gep389, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %.2355.sroa.gep389, i64 16, i1 false)
   call void @nstime_sum(ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %18) #21
   br label %.preheader2411
 
@@ -2026,30 +2026,30 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br label %810
 
 810:                                              ; preds = %.preheader2411, %824
-  %.3379 = phi ptr [ %820, %824 ], [ %.2378, %.preheader2411 ]
-  %.3372 = phi i32 [ %819, %824 ], [ %.2371, %.preheader2411 ]
-  %.2331 = phi ptr [ %825, %824 ], [ %.1330, %.preheader2411 ]
-  %811 = call i32 @nstime_cmp(ptr noundef nonnull %.0353.sroa.gep389, ptr noundef nonnull %19) #21
+  %.5381 = phi ptr [ %820, %824 ], [ %.2378, %.preheader2411 ]
+  %.4373 = phi i32 [ %819, %824 ], [ %.1370, %.preheader2411 ]
+  %.3332 = phi ptr [ %825, %824 ], [ %.1330, %.preheader2411 ]
+  %811 = call i32 @nstime_cmp(ptr noundef nonnull %.2355.sroa.gep389, ptr noundef nonnull %19) #21
   %812 = icmp sgt i32 %811, 0
   br i1 %812, label %813, label %.loopexit655
 
 813:                                              ; preds = %810
-  %814 = call i32 @wtap_dump_close(ptr noundef %.2331, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %13) #21
+  %814 = call i32 @wtap_dump_close(ptr noundef %.3332, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %13) #21
   %.not474 = icmp eq i32 %814, 0
   br i1 %.not474, label %815, label %818
 
 815:                                              ; preds = %813
   %816 = load i32, ptr %11, align 4
   %817 = load ptr, ptr %13, align 8
-  call void @cfile_close_failure_message(ptr noundef %.3379, i32 noundef %816, ptr noundef %817) #21
+  call void @cfile_close_failure_message(ptr noundef %.5381, i32 noundef %816, ptr noundef %817) #21
   br label %list_secrets_types.exit
 
 818:                                              ; preds = %813
-  call void @g_free(ptr noundef %.3379) #21
+  call void @g_free(ptr noundef %.5381) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %20, i64 280, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0353.sroa.gep, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
-  %819 = add i32 %.3372, 1
-  %820 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.3372, ptr noundef nonnull %22, ptr noundef %.4598, ptr noundef %.3593)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.2355.sroa.gep, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  %819 = add i32 %.4373, 1
+  %820 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.4373, ptr noundef nonnull %22, ptr noundef %.1595, ptr noundef %.1591)
   call void @nstime_sum(ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %18) #21
   %.b452 = load i1, ptr @verbose, align 4
   br i1 %.b452, label %821, label %824
@@ -2072,9 +2072,9 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br label %list_secrets_types.exit
 
 .loopexit655:                                     ; preds = %810, %805, %799
-  %.4380 = phi ptr [ %.2378, %805 ], [ %.2378, %799 ], [ %.3379, %810 ]
-  %.4373 = phi i32 [ %.2371, %805 ], [ %.2371, %799 ], [ %.3372, %810 ]
-  %.3332 = phi ptr [ %.1330, %805 ], [ %.1330, %799 ], [ %.2331, %810 ]
+  %.4380 = phi ptr [ %.2378, %805 ], [ %.2378, %799 ], [ %.5381, %810 ]
+  %.3372 = phi i32 [ %.1370, %805 ], [ %.1370, %799 ], [ %.4373, %810 ]
+  %.2331 = phi ptr [ %.1330, %805 ], [ %.1330, %799 ], [ %.3332, %810 ]
   br i1 %or.cond29, label %831, label %852
 
 831:                                              ; preds = %.loopexit655
@@ -2083,7 +2083,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br i1 %833, label %834, label %852
 
 834:                                              ; preds = %831
-  %835 = call i32 @wtap_dump_close(ptr noundef %.3332, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %13) #21
+  %835 = call i32 @wtap_dump_close(ptr noundef %.2331, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %13) #21
   %.not475 = icmp eq i32 %835, 0
   br i1 %.not475, label %836, label %839
 
@@ -2095,8 +2095,8 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
 
 839:                                              ; preds = %834
   call void @g_free(ptr noundef %.4380) #21
-  %840 = add i32 %.4373, 1
-  %841 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.4373, ptr noundef nonnull %20, ptr noundef %.4598, ptr noundef %.3593)
+  %840 = add i32 %.3372, 1
+  %841 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.3372, ptr noundef nonnull %20, ptr noundef %.1595, ptr noundef %.1591)
   %.b451 = load i1, ptr @verbose, align 4
   br i1 %.b451, label %842, label %845
 
@@ -2118,9 +2118,9 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br label %list_secrets_types.exit
 
 852:                                              ; preds = %831, %845, %.loopexit655
-  %.5381 = phi ptr [ %841, %845 ], [ %.4380, %831 ], [ %.4380, %.loopexit655 ]
-  %.5374 = phi i32 [ %840, %845 ], [ %.4373, %831 ], [ %.4373, %.loopexit655 ]
-  %.4333 = phi ptr [ %846, %845 ], [ %.3332, %831 ], [ %.3332, %.loopexit655 ]
+  %.6382 = phi ptr [ %841, %845 ], [ %.4380, %831 ], [ %.4380, %.loopexit655 ]
+  %.5374 = phi i32 [ %840, %845 ], [ %.3372, %831 ], [ %.3372, %.loopexit655 ]
+  %.4333 = phi ptr [ %846, %845 ], [ %.2331, %831 ], [ %.2331, %.loopexit655 ]
   %.b427 = load i1, ptr @check_startstop, align 4
   br i1 %.b427, label %853, label %.thread614
 
@@ -2137,12 +2137,12 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br i1 %or.cond13, label %857, label %866
 
 857:                                              ; preds = %856
-  %858 = call i32 @nstime_cmp(ptr noundef nonnull %.0353.sroa.gep389, ptr noundef nonnull @starttime) #21
+  %858 = call i32 @nstime_cmp(ptr noundef nonnull %.2355.sroa.gep389, ptr noundef nonnull @starttime) #21
   %859 = icmp sgt i32 %858, -1
   br i1 %859, label %860, label %863
 
 860:                                              ; preds = %857
-  %861 = call i32 @nstime_cmp(ptr noundef nonnull %.0353.sroa.gep389, ptr noundef nonnull @stoptime) #21
+  %861 = call i32 @nstime_cmp(ptr noundef nonnull %.2355.sroa.gep389, ptr noundef nonnull @stoptime) #21
   %862 = icmp slt i32 %861, 0
   br label %863
 
@@ -2155,7 +2155,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br i1 %.b428, label %867, label %871
 
 867:                                              ; preds = %866
-  %868 = call i32 @nstime_cmp(ptr noundef nonnull %.0353.sroa.gep389, ptr noundef nonnull @starttime) #21
+  %868 = call i32 @nstime_cmp(ptr noundef nonnull %.2355.sroa.gep389, ptr noundef nonnull @starttime) #21
   %869 = icmp sgt i32 %868, -1
   %870 = zext i1 %869 to i32
   br label %874
@@ -2164,7 +2164,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br i1 %.b430, label %872, label %.thread
 
 872:                                              ; preds = %871
-  %873 = call i32 @nstime_cmp(ptr noundef nonnull %.0353.sroa.gep389, ptr noundef nonnull @stoptime) #21
+  %873 = call i32 @nstime_cmp(ptr noundef nonnull %.2355.sroa.gep389, ptr noundef nonnull @stoptime) #21
   %.lobit = lshr i32 %873, 31
   br label %874
 
@@ -2262,7 +2262,7 @@ selected.exit:                                    ; preds = %886, %.thread614
   br i1 %.b456, label %921, label %905
 
 905:                                              ; preds = %904
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %.0353.sroa.gep389, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %.2355.sroa.gep389, i64 16, i1 false)
   call void @nstime_delta(ptr noundef nonnull %38, ptr noundef nonnull %37, ptr noundef nonnull @previous_time) #21
   %906 = load i64, ptr %38, align 8
   %907 = icmp slt i64 %906, 0
@@ -2276,7 +2276,7 @@ selected.exit:                                    ; preds = %886, %.thread614
   %911 = load i64, ptr @previous_time, align 8
   %912 = load i64, ptr @strict_time_adj.0, align 8
   %913 = add i64 %912, %911
-  store i64 %913, ptr %.0353.sroa.gep, align 8
+  store i64 %913, ptr %.2355.sroa.gep, align 8
   %914 = load i32, ptr getelementptr inbounds (i8, ptr @previous_time, i64 8), align 8
   %915 = load i32, ptr @strict_time_adj.1, align 8
   %916 = add i32 %915, %914
@@ -2285,7 +2285,7 @@ selected.exit:                                    ; preds = %886, %.thread614
 
 918:                                              ; preds = %910
   %919 = add i64 %913, 1
-  store i64 %919, ptr %.0353.sroa.gep, align 8
+  store i64 %919, ptr %.2355.sroa.gep, align 8
   %920 = add nsw i32 %916, -1000000000
   br label %.sink.split
 
@@ -2293,7 +2293,7 @@ selected.exit:                                    ; preds = %886, %.thread614
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %20, i64 280, i1 false)
   %922 = load i64, ptr @strict_time_adj.0, align 8
   %923 = add i64 %922, %900
-  store i64 %923, ptr %.0353.sroa.gep, align 8
+  store i64 %923, ptr %.2355.sroa.gep, align 8
   %924 = load i32, ptr @strict_time_adj.1, align 8
   %925 = add i32 %924, %902
   %926 = icmp sgt i32 %925, 999999999
@@ -2301,7 +2301,7 @@ selected.exit:                                    ; preds = %886, %.thread614
 
 927:                                              ; preds = %921
   %928 = add i64 %923, 1
-  store i64 %928, ptr %.0353.sroa.gep, align 8
+  store i64 %928, ptr %.2355.sroa.gep, align 8
   %929 = add i32 %902, -1000000000
   %930 = add i32 %929, %924
   br label %.sink.split
@@ -2312,13 +2312,13 @@ selected.exit:                                    ; preds = %886, %.thread614
   br label %931
 
 931:                                              ; preds = %.sink.split, %905, %899
-  %.0353.sroa.phi = phi ptr [ %.0353.sroa.gep389, %905 ], [ %.0353.sroa.gep389, %899 ], [ %.0353.sroa.gep, %.sink.split ]
-  %.0353 = phi ptr [ %20, %905 ], [ %20, %899 ], [ %22, %.sink.split ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @previous_time, ptr noundef nonnull align 8 dereferenceable(16) %.0353.sroa.phi, i64 16, i1 false)
+  %.2355.sroa.phi = phi ptr [ %.2355.sroa.gep389, %905 ], [ %.2355.sroa.gep389, %899 ], [ %.2355.sroa.gep, %.sink.split ]
+  %.2355 = phi ptr [ %20, %905 ], [ %20, %899 ], [ %22, %.sink.split ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @previous_time, ptr noundef nonnull align 8 dereferenceable(16) %.2355.sroa.phi, i64 16, i1 false)
   br label %932
 
 932:                                              ; preds = %931, %898
-  %.1354 = phi ptr [ %.0353, %931 ], [ %20, %898 ]
+  %.1354 = phi ptr [ %.2355, %931 ], [ %20, %898 ]
   %933 = load i64, ptr @time_adj.0, align 8
   %.not480 = icmp eq i64 %933, 0
   br i1 %.not480, label %937, label %934
@@ -2326,21 +2326,21 @@ selected.exit:                                    ; preds = %886, %.thread614
 934:                                              ; preds = %932
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.1354, i64 280, i1 false)
   %.b458 = load i1, ptr @time_adj.2, align 8
-  %935 = load i64, ptr %.0353.sroa.gep, align 8
+  %935 = load i64, ptr %.2355.sroa.gep, align 8
   %936 = sub i64 0, %933
   %storemerge481.p = select i1 %.b458, i64 %936, i64 %933
   %storemerge481 = add i64 %935, %storemerge481.p
-  store i64 %storemerge481, ptr %.0353.sroa.gep, align 8
+  store i64 %storemerge481, ptr %.2355.sroa.gep, align 8
   br label %937
 
 937:                                              ; preds = %934, %932
-  %.2355 = phi ptr [ %22, %934 ], [ %.1354, %932 ]
+  %.3356 = phi ptr [ %22, %934 ], [ %.1354, %932 ]
   %938 = load i32, ptr @time_adj.1, align 8
   %.not482 = icmp eq i32 %938, 0
   br i1 %.not482, label %958, label %939
 
 939:                                              ; preds = %937
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.2355, i64 280, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.3356, i64 280, i1 false)
   %.b457 = load i1, ptr @time_adj.2, align 8
   %940 = load i32, ptr %727, align 8
   br i1 %.b457, label %941, label %950
@@ -2350,9 +2350,9 @@ selected.exit:                                    ; preds = %886, %.thread614
   br i1 %942, label %943, label %947
 
 943:                                              ; preds = %941
-  %944 = load i64, ptr %.0353.sroa.gep, align 8
+  %944 = load i64, ptr %.2355.sroa.gep, align 8
   %945 = add i64 %944, -1
-  store i64 %945, ptr %.0353.sroa.gep, align 8
+  store i64 %945, ptr %.2355.sroa.gep, align 8
   %946 = add i32 %940, 1000000000
   br label %947
 
@@ -2367,9 +2367,9 @@ selected.exit:                                    ; preds = %886, %.thread614
   br i1 %952, label %953, label %.sink.split2044
 
 953:                                              ; preds = %950
-  %954 = load i64, ptr %.0353.sroa.gep, align 8
+  %954 = load i64, ptr %.2355.sroa.gep, align 8
   %955 = add i64 %954, 1
-  store i64 %955, ptr %.0353.sroa.gep, align 8
+  store i64 %955, ptr %.2355.sroa.gep, align 8
   %956 = add i32 %938, -1000000000
   %957 = add i32 %956, %940
   br label %.sink.split2044
@@ -2380,8 +2380,8 @@ selected.exit:                                    ; preds = %886, %.thread614
   br label %958
 
 958:                                              ; preds = %.sink.split2044, %937, %895
-  %.3356 = phi ptr [ %.2355, %937 ], [ %20, %895 ], [ %22, %.sink.split2044 ]
-  %959 = load i32, ptr %.3356, align 8
+  %.0353 = phi ptr [ %.3356, %937 ], [ %20, %895 ], [ %22, %.sink.split2044 ]
+  %959 = load i32, ptr %.0353, align 8
   %960 = icmp eq i32 %959, 0
   br i1 %960, label %961, label %.loopexit656
 
@@ -2389,33 +2389,33 @@ selected.exit:                                    ; preds = %886, %.thread614
   br i1 %.not467, label %973, label %962
 
 962:                                              ; preds = %961
-  %963 = getelementptr inbounds i8, ptr %.3356, i64 64
+  %963 = getelementptr inbounds i8, ptr %.0353, i64 64
   %964 = load i32, ptr %963, align 8
   %965 = icmp ugt i32 %964, %.0324
   br i1 %965, label %966, label %967
 
 966:                                              ; preds = %962
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.3356, i64 280, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.0353, i64 280, i1 false)
   store i32 %.0324, ptr %728, align 8
   br label %967
 
 967:                                              ; preds = %966, %962
-  %.4357 = phi ptr [ %22, %966 ], [ %.3356, %962 ]
+  %.6359 = phi ptr [ %22, %966 ], [ %.0353, %962 ]
   br i1 %.not483, label %973, label %968
 
 968:                                              ; preds = %967
-  %969 = getelementptr inbounds i8, ptr %.4357, i64 68
+  %969 = getelementptr inbounds i8, ptr %.6359, i64 68
   %970 = load i32, ptr %969, align 4
   %971 = icmp ugt i32 %970, %.0324
   br i1 %971, label %972, label %973
 
 972:                                              ; preds = %968
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.4357, i64 280, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.6359, i64 280, i1 false)
   store i32 %.0324, ptr %729, align 4
   br label %973
 
 973:                                              ; preds = %967, %968, %972, %961
-  %.5358 = phi ptr [ %22, %972 ], [ %.4357, %968 ], [ %.4357, %967 ], [ %.3356, %961 ]
+  %.5358 = phi ptr [ %22, %972 ], [ %.6359, %968 ], [ %.6359, %967 ], [ %.0353, %961 ]
   %974 = load i32, ptr @out_frame_type, align 4
   %.not484 = icmp eq i32 %974, -2
   br i1 %.not484, label %976, label %975
@@ -2426,9 +2426,9 @@ selected.exit:                                    ; preds = %886, %.thread614
   br label %976
 
 976:                                              ; preds = %975, %973
-  %.6359 = phi ptr [ %22, %975 ], [ %.5358, %973 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.6359, i64 280, i1 false)
-  %977 = getelementptr inbounds i8, ptr %.6359, i64 64
+  %.7360 = phi ptr [ %22, %975 ], [ %.5358, %973 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.7360, i64 280, i1 false)
+  %977 = getelementptr inbounds i8, ptr %.7360, i64 64
   call fastcc void @handle_chopping(ptr noundef nonnull byval(%struct._chop_t) align 8 %15, ptr noundef nonnull %728, ptr noundef nonnull %977, ptr noundef nonnull %17, i32 noundef %.0326)
   %.b425 = load i1, ptr @set_unused, align 4
   br i1 %.b425, label %978, label %980
@@ -2558,7 +2558,7 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br i1 %or.cond31, label %1038, label %.loopexit656
 
 1038:                                             ; preds = %1034
-  %1039 = load i64, ptr %.0353.sroa.gep, align 8
+  %1039 = load i64, ptr %.2355.sroa.gep, align 8
   store i64 %1039, ptr %39, align 8
   %1040 = load i32, ptr %727, align 8
   store i32 %1040, ptr %732, align 8
@@ -2621,13 +2621,13 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br label %.loopexit656
 
 .loopexit656:                                     ; preds = %1034, %958, %1072, %1058
-  %.8 = phi ptr [ %22, %1072 ], [ %22, %1058 ], [ %.3356, %958 ], [ %22, %1034 ]
+  %.4357 = phi ptr [ %22, %1072 ], [ %22, %1058 ], [ %.0353, %958 ], [ %22, %1034 ]
   %1074 = load double, ptr @err_prob, align 8
   %1075 = fcmp ogt double %1074, 0.000000e+00
   br i1 %1075, label %1076, label %.thread622
 
 1076:                                             ; preds = %.loopexit656
-  %1077 = load i32, ptr %.8, align 8
+  %1077 = load i32, ptr %.4357, align 8
   switch i32 %1077, label %.thread1632 [
     i32 0, label %.thread1641
     i32 1, label %1080
@@ -2644,13 +2644,13 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
 
 1080:                                             ; preds = %1076, %1076, %1079, %1078
   %.sink2409 = phi i64 [ 64, %1079 ], [ 100, %1078 ], [ 68, %1076 ], [ 68, %1076 ]
-  %1081 = getelementptr inbounds i8, ptr %.8, i64 %.sink2409
-  %.0349 = load i32, ptr %1081, align 4
-  %1082 = icmp ugt i32 %.0367, %.0349
+  %1081 = getelementptr inbounds i8, ptr %.4357, i64 %.sink2409
+  %.1350 = load i32, ptr %1081, align 4
+  %1082 = icmp ugt i32 %.0367, %.1350
   br i1 %1082, label %1086, label %1089
 
 .thread1641:                                      ; preds = %1076
-  %1083 = getelementptr inbounds i8, ptr %.8, i64 64
+  %1083 = getelementptr inbounds i8, ptr %.4357, i64 64
   %1084 = load i32, ptr %1083, align 8
   %1085 = icmp ugt i32 %.0367, %1084
   br i1 %1085, label %1086, label %.thread1643
@@ -2659,9 +2659,9 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br i1 %.not2050, label %.thread622, label %1086
 
 1086:                                             ; preds = %.thread1641, %.thread1632, %1080
-  %.03491636 = phi i32 [ 0, %.thread1632 ], [ %.0349, %1080 ], [ %1084, %.thread1641 ]
+  %.13501636 = phi i32 [ 0, %.thread1632 ], [ %.1350, %1080 ], [ %1084, %.thread1641 ]
   %1087 = load ptr, ptr @stderr, align 8
-  %1088 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1087, ptr noundef nonnull @.str.64, i32 noundef %.0367, i32 noundef %.03491636, i32 noundef %.03381117) #22
+  %1088 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1087, ptr noundef nonnull @.str.64, i32 noundef %.0367, i32 noundef %.13501636, i32 noundef %.03381117) #22
   br label %.thread622
 
 1089:                                             ; preds = %1080
@@ -2669,8 +2669,8 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br i1 %cond, label %.thread1643, label %1096
 
 .thread1643:                                      ; preds = %.thread1641, %1089
-  %.034916371647 = phi i32 [ %.0349, %1089 ], [ %1084, %.thread1641 ]
-  %1090 = getelementptr inbounds i8, ptr %.8, i64 72
+  %.135016371647 = phi i32 [ %.1350, %1089 ], [ %1084, %.thread1641 ]
+  %1090 = getelementptr inbounds i8, ptr %.4357, i64 72
   %1091 = load i32, ptr %1090, align 8
   %1092 = icmp eq i32 %1091, 89
   br i1 %1092, label %1093, label %1096
@@ -2681,15 +2681,15 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br label %1096
 
 1096:                                             ; preds = %.thread1643, %1093, %1089
-  %.034916371646 = phi i32 [ %.034916371647, %1093 ], [ %.034916371647, %.thread1643 ], [ %.0349, %1089 ]
+  %.135016371646 = phi i32 [ %.135016371647, %1093 ], [ %.135016371647, %.thread1643 ], [ %.1350, %1089 ]
   %.0322 = phi i32 [ %1095, %1093 ], [ 0, %.thread1643 ], [ 0, %1089 ]
   %1097 = add i32 %.0322, %.0367
-  %1098 = icmp slt i32 %1097, %.034916371646
+  %1098 = icmp slt i32 %1097, %.135016371646
   br i1 %1098, label %.lr.ph1142, label %.thread622
 
 .lr.ph1142:                                       ; preds = %1096
   %1099 = load ptr, ptr %17, align 8
-  %1100 = add i32 %.034916371646, -2
+  %1100 = add i32 %.135016371646, -2
   br label %1101
 
 1101:                                             ; preds = %.lr.ph1142, %.thread641
@@ -2755,14 +2755,14 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br i1 %1139, label %1146, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %1137
-  %1140 = icmp slt i32 %.61140, %.034916371646
+  %1140 = icmp slt i32 %.61140, %.135016371646
   br i1 %1140, label %.critedge.preheader1180, label %.thread641
 
 .critedge.preheader1180:                          ; preds = %.critedge.preheader
   %1141 = sext i32 %.61140 to i64
   %scevgep = getelementptr i8, ptr %1099, i64 %1141
   %1142 = xor i32 %.61140, -1
-  %1143 = add i32 %.034916371646, %1142
+  %1143 = add i32 %.135016371646, %1142
   %1144 = zext i32 %1143 to i64
   %1145 = add nuw nsw i64 %1144, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 -86, i64 %1145, i1 false)
@@ -2779,9 +2779,9 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br label %.thread641
 
 .thread641:                                       ; preds = %.critedge.preheader1180, %.critedge.preheader, %.thread629, %.thread632, %1146, %1148, %.thread643, %1101
-  %.7 = phi i32 [ %.61140, %1101 ], [ %.61140, %.thread643 ], [ %.61140, %1148 ], [ %.61140, %1146 ], [ %.61140, %.thread632 ], [ %.61140, %.thread629 ], [ %.034916371646, %.critedge.preheader ], [ %.034916371646, %.critedge.preheader1180 ]
+  %.7 = phi i32 [ %.61140, %1101 ], [ %.61140, %.thread643 ], [ %.61140, %1148 ], [ %.61140, %1146 ], [ %.61140, %.thread632 ], [ %.61140, %.thread629 ], [ %.135016371646, %.critedge.preheader ], [ %.135016371646, %.critedge.preheader1180 ]
   %1152 = add i32 %.7, 1
-  %1153 = icmp slt i32 %1152, %.034916371646
+  %1153 = icmp slt i32 %1152, %.135016371646
   br i1 %1153, label %1101, label %.thread622, !llvm.loop !30
 
 .thread622:                                       ; preds = %.thread641, %.thread1632, %1096, %.loopexit656, %1086
@@ -2789,8 +2789,8 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br i1 %.b426, label %1154, label %.loopexit
 
 1154:                                             ; preds = %.thread622
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.8, i64 280, i1 false)
-  %1155 = getelementptr inbounds i8, ptr %.8, i64 232
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.4357, i64 280, i1 false)
+  %1155 = getelementptr inbounds i8, ptr %.4357, i64 232
   %1156 = load ptr, ptr %1155, align 8
   %1157 = call i32 @wtap_block_remove_nth_option_instance(ptr noundef %1156, i32 noundef 1, i32 noundef 0) #21
   %1158 = icmp eq i32 %1157, 0
@@ -2804,7 +2804,7 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br i1 %1161, label %.lr.ph1144, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph1144, %1154, %.thread622
-  %.9 = phi ptr [ %.8, %.thread622 ], [ %22, %1154 ], [ %22, %.lr.ph1144 ]
+  %.9 = phi ptr [ %.4357, %.thread622 ], [ %22, %1154 ], [ %22, %.lr.ph1144 ]
   %1162 = load ptr, ptr @frames_user_comments, align 8
   %.not489 = icmp eq ptr %1162, null
   br i1 %.not489, label %1178, label %1163
@@ -2865,7 +2865,7 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   %1188 = load i32, ptr %11, align 4
   %1189 = load ptr, ptr %13, align 8
   %1190 = load i32, ptr @out_file_type_subtype, align 4
-  call void @cfile_write_failure_message(ptr noundef %1187, ptr noundef %.5381, i32 noundef %1188, ptr noundef %1189, i32 noundef %736, i32 noundef %1190) #21
+  call void @cfile_write_failure_message(ptr noundef %1187, ptr noundef %.6382, i32 noundef %1188, ptr noundef %1189, i32 noundef %736, i32 noundef %1190) #21
   %1191 = call i32 @wtap_dump_close(ptr noundef %.4333, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %13) #21
   br label %list_secrets_types.exit
 
@@ -2885,9 +2885,9 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
 
 .outer._crit_edge:                                ; preds = %.thread, %.backedge, %.loopexit658
   %.0384.ph.lcssa817 = phi i32 [ 0, %.loopexit658 ], [ %.0384.ph1153, %.backedge ], [ %.1385, %.thread ]
-  %.0594.lcssa = phi ptr [ null, %.loopexit658 ], [ %.4598, %.backedge ], [ %.4598, %.thread ]
-  %.0590.lcssa = phi ptr [ null, %.loopexit658 ], [ %.3593, %.backedge ], [ %.3593, %.thread ]
-  %.0376.lcssa = phi ptr [ null, %.loopexit658 ], [ %.5381, %.backedge ], [ %.5381, %.thread ]
+  %.0594.lcssa = phi ptr [ null, %.loopexit658 ], [ %.1595, %.backedge ], [ %.1595, %.thread ]
+  %.0590.lcssa = phi ptr [ null, %.loopexit658 ], [ %.1591, %.backedge ], [ %.1591, %.thread ]
+  %.1377.lcssa = phi ptr [ null, %.loopexit658 ], [ %.6382, %.backedge ], [ %.6382, %.thread ]
   %.0345.lcssa = phi i32 [ 0, %.loopexit658 ], [ %736, %.backedge ], [ %736, %.thread ]
   %.0340.lcssa = phi i32 [ 0, %.loopexit658 ], [ %.0340.be, %.backedge ], [ %.03401116, %.thread ]
   %.0338.lcssa = phi i32 [ 0, %.loopexit658 ], [ %.03381117, %.backedge ], [ %.03381117, %.thread ]
@@ -2923,7 +2923,7 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br i1 %.not495, label %1208, label %1221
 
 1208:                                             ; preds = %1207
-  call void @g_free(ptr noundef %.0376.lcssa) #21
+  call void @g_free(ptr noundef %.1377.lcssa) #21
   %1209 = load i32, ptr @ws_optind, align 4
   %1210 = add i32 %1209, 1
   %1211 = sext i32 %1210 to i64
@@ -2942,7 +2942,7 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br label %list_secrets_types.exit
 
 1221:                                             ; preds = %1208, %1207
-  %.6382 = phi ptr [ %.0376.lcssa, %1207 ], [ %1214, %1208 ]
+  %.7383 = phi ptr [ %.1377.lcssa, %1207 ], [ %1214, %1208 ]
   %.5334 = phi ptr [ %.0329.lcssa, %1207 ], [ %1215, %1208 ]
   %1222 = call fastcc i32 @process_new_idbs(ptr noundef nonnull %482, ptr noundef nonnull %.5334, ptr noundef %721, ptr noundef nonnull %11, ptr noundef nonnull %13)
   %.not496 = icmp eq i32 %1222, 0
@@ -2956,7 +2956,7 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   %1228 = load i32, ptr %11, align 4
   %1229 = load ptr, ptr %13, align 8
   %1230 = load i32, ptr @out_file_type_subtype, align 4
-  call void @cfile_write_failure_message(ptr noundef %1227, ptr noundef %.6382, i32 noundef %1228, ptr noundef %1229, i32 noundef %.0345.lcssa, i32 noundef %1230) #21
+  call void @cfile_write_failure_message(ptr noundef %1227, ptr noundef %.7383, i32 noundef %1228, ptr noundef %1229, i32 noundef %.0345.lcssa, i32 noundef %1230) #21
   %1231 = call i32 @wtap_dump_close(ptr noundef nonnull %.5334, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %13) #21
   br label %list_secrets_types.exit
 
@@ -2968,7 +2968,7 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
 1234:                                             ; preds = %1232
   %1235 = load i32, ptr %11, align 4
   %1236 = load ptr, ptr %13, align 8
-  call void @cfile_close_failure_message(ptr noundef %.6382, i32 noundef %1235, ptr noundef %1236) #21
+  call void @cfile_close_failure_message(ptr noundef %.7383, i32 noundef %1235, ptr noundef %1236) #21
   br label %list_secrets_types.exit
 
 1237:                                             ; preds = %1232
@@ -3002,13 +3002,13 @@ remove_vlan_info.exit:                            ; preds = %991, %983, %981, %9
   br label %list_secrets_types.exit
 
 list_secrets_types.exit:                          ; preds = %fileset_extract_prefix_suffix.exit.thread, %1238, %1247, %1246, %1234, %1223, %1217, %1183, %848, %836, %827, %815, %790, %784
-  %.7383 = phi ptr [ %.6382, %1238 ], [ %.6382, %1247 ], [ %.6382, %1246 ], [ %.6382, %1234 ], [ %.6382, %1223 ], [ %1214, %1217 ], [ %.1377, %784 ], [ %841, %848 ], [ %.5381, %1183 ], [ %.4380, %836 ], [ %820, %827 ], [ %.3379, %815 ], [ %.2378, %790 ], [ %.03761113, %fileset_extract_prefix_suffix.exit.thread ]
+  %.0376 = phi ptr [ %.7383, %1238 ], [ %.7383, %1247 ], [ %.7383, %1246 ], [ %.7383, %1234 ], [ %.7383, %1223 ], [ %1214, %1217 ], [ %.3379, %784 ], [ %841, %848 ], [ %.6382, %1183 ], [ %.4380, %836 ], [ %820, %827 ], [ %.5381, %815 ], [ %.2378, %790 ], [ %.13771113, %fileset_extract_prefix_suffix.exit.thread ]
   %.0348 = phi i32 [ 0, %1238 ], [ 0, %1247 ], [ 0, %1246 ], [ 2, %1234 ], [ 2, %1223 ], [ 3, %1217 ], [ 3, %784 ], [ 3, %848 ], [ 2, %1183 ], [ 2, %836 ], [ 3, %827 ], [ 2, %815 ], [ 2, %790 ], [ 2, %fileset_extract_prefix_suffix.exit.thread ]
-  %.not510 = icmp eq ptr %.7383, null
+  %.not510 = icmp eq ptr %.0376, null
   br i1 %.not510, label %list_secrets_types.exit.thread, label %1257
 
 1257:                                             ; preds = %list_secrets_types.exit
-  call void @g_free(ptr noundef nonnull %.7383) #21
+  call void @g_free(ptr noundef nonnull %.0376) #21
   br label %list_secrets_types.exit.thread
 
 list_secrets_types.exit.thread:                   ; preds = %71, %set_rel_time.exit.thread, %set_time_adjustment.exit.thread, %set_strict_time_adj.exit.thread, %517, %519, %472, %483, %710, %585, %503, %465, %439, %61, %92, %.loopexit667, %107, %137, %127, %161, %173, %209, %221, %228, %233, %239, %254, %362, %368, %370, %425, %427, %429, %1257, %list_secrets_types.exit

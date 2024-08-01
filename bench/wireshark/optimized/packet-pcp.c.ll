@@ -1272,7 +1272,7 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
 
 .lr.ph.i146:                                      ; preds = %301, %.loopexit.i
   %.0118126.i = phi i32 [ %403, %.loopexit.i ], [ 0, %301 ]
-  %.0119125.i = phi i32 [ %.2.i150, %.loopexit.i ], [ 24, %301 ]
+  %.0119125.i = phi i32 [ %.1.i150, %.loopexit.i ], [ 24, %301 ]
   %319 = load i32, ptr @hf_pcp_result, align 4
   %320 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %319, ptr noundef %0, i32 noundef %.0119125.i, i32 noundef -1, i32 noundef 0) #5
   %321 = load i32, ptr @ett_pcp, align 4
@@ -1289,40 +1289,40 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
   %329 = load i32, ptr @hf_pcp_result_valfmt, align 4
   %330 = tail call ptr @proto_tree_add_item(ptr noundef %322, i32 noundef %329, ptr noundef %0, i32 noundef %327, i32 noundef 4, i32 noundef 0) #5
   %331 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %327) #5
-  %.1121.i = add i32 %323, 8
+  %.2121.i = add i32 %323, 8
   %.fr128.i = freeze i32 %331
   %332 = icmp eq i32 %.fr128.i, 0
   br i1 %332, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %328, %.split.us.i
-  %.1124.us.i = phi i32 [ %.1.us.i, %.split.us.i ], [ %.1121.i, %328 ]
+  %.2124.us.i = phi i32 [ %.2.us.i, %.split.us.i ], [ %.2121.i, %328 ]
   %.0123.us.i = phi i32 [ %342, %.split.us.i ], [ 0, %328 ]
-  %.1.in122.us.i = phi i32 [ %.1124.us.i, %.split.us.i ], [ %323, %328 ]
+  %.2.in122.us.i = phi i32 [ %.2124.us.i, %.split.us.i ], [ %323, %328 ]
   %333 = load i32, ptr @hf_pcp_instance, align 4
-  %334 = tail call ptr @proto_tree_add_item(ptr noundef %322, i32 noundef %333, ptr noundef %0, i32 noundef %.1124.us.i, i32 noundef 8, i32 noundef 0) #5
+  %334 = tail call ptr @proto_tree_add_item(ptr noundef %322, i32 noundef %333, ptr noundef %0, i32 noundef %.2124.us.i, i32 noundef 8, i32 noundef 0) #5
   %335 = load i32, ptr @ett_pcp, align 4
   %336 = tail call ptr @proto_item_add_subtree(ptr noundef %334, i32 noundef %335) #5
   %337 = load i32, ptr @hf_pcp_pmid_inst, align 4
-  %338 = tail call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %337, ptr noundef %0, i32 noundef %.1124.us.i, i32 noundef 4, i32 noundef 0) #5
-  %339 = add i32 %.1.in122.us.i, 12
+  %338 = tail call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %337, ptr noundef %0, i32 noundef %.2124.us.i, i32 noundef 4, i32 noundef 0) #5
+  %339 = add i32 %.2.in122.us.i, 12
   %340 = load i32, ptr @hf_pcp_instance_value_insitu, align 4
   %341 = tail call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %340, ptr noundef %0, i32 noundef %339, i32 noundef 4, i32 noundef 0) #5
   %342 = add nuw i32 %.0123.us.i, 1
-  %.1.us.i = add i32 %.1124.us.i, 8
+  %.2.us.i = add i32 %.2124.us.i, 8
   %exitcond130.not.i = icmp eq i32 %342, %326
   br i1 %exitcond130.not.i, label %.loopexit.i, label %.split.us.i, !llvm.loop !11
 
 .split.i:                                         ; preds = %328, %400
-  %.1124.i = phi i32 [ %.1.i148, %400 ], [ %.1121.i, %328 ]
+  %.2124.i = phi i32 [ %.2.i148, %400 ], [ %.2121.i, %328 ]
   %.0123.i = phi i32 [ %401, %400 ], [ 0, %328 ]
-  %.1.in122.i = phi i32 [ %.1124.i, %400 ], [ %323, %328 ]
+  %.2.in122.i = phi i32 [ %.2124.i, %400 ], [ %323, %328 ]
   %343 = load i32, ptr @hf_pcp_instance, align 4
-  %344 = tail call ptr @proto_tree_add_item(ptr noundef %322, i32 noundef %343, ptr noundef %0, i32 noundef %.1124.i, i32 noundef 8, i32 noundef 0) #5
+  %344 = tail call ptr @proto_tree_add_item(ptr noundef %322, i32 noundef %343, ptr noundef %0, i32 noundef %.2124.i, i32 noundef 8, i32 noundef 0) #5
   %345 = load i32, ptr @ett_pcp, align 4
   %346 = tail call ptr @proto_item_add_subtree(ptr noundef %344, i32 noundef %345) #5
   %347 = load i32, ptr @hf_pcp_pmid_inst, align 4
-  %348 = tail call ptr @proto_tree_add_item(ptr noundef %346, i32 noundef %347, ptr noundef %0, i32 noundef %.1124.i, i32 noundef 4, i32 noundef 0) #5
-  %349 = add i32 %.1.in122.i, 12
+  %348 = tail call ptr @proto_tree_add_item(ptr noundef %346, i32 noundef %347, ptr noundef %0, i32 noundef %.2124.i, i32 noundef 4, i32 noundef 0) #5
+  %349 = add i32 %.2.in122.i, 12
   %350 = load i32, ptr @hf_pcp_instance_valoffset, align 4
   %351 = tail call ptr @proto_tree_add_item(ptr noundef %346, i32 noundef %350, ptr noundef %0, i32 noundef %349, i32 noundef 4, i32 noundef 0) #5
   %352 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %349) #5
@@ -1411,13 +1411,13 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
 
 400:                                              ; preds = %398, %396, %394, %390, %386, %382, %378, %374, %370, %366, %362
   %401 = add nuw i32 %.0123.i, 1
-  %.1.i148 = add i32 %.1124.i, 8
+  %.2.i148 = add i32 %.2124.i, 8
   %exitcond.not.i149 = icmp eq i32 %401, %326
   br i1 %exitcond.not.i149, label %.loopexit.i, label %.split.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %400, %.split.us.i, %.lr.ph.i146
-  %.2.i150 = phi i32 [ %327, %.lr.ph.i146 ], [ %.1.us.i, %.split.us.i ], [ %.1.i148, %400 ]
-  %402 = sub i32 %.2.i150, %.0119125.i
+  %.1.i150 = phi i32 [ %327, %.lr.ph.i146 ], [ %.2.us.i, %.split.us.i ], [ %.2.i148, %400 ]
+  %402 = sub i32 %.1.i150, %.0119125.i
   tail call void @proto_item_set_len(ptr noundef %322, i32 noundef %402) #5
   %403 = add nuw i32 %.0118126.i, 1
   %exitcond131.not.i = icmp eq i32 %403, %318

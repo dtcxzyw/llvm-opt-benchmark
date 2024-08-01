@@ -1948,7 +1948,7 @@ thread-pre-split471:                              ; preds = %53
 
 .thread479:                                       ; preds = %69, %71
   %storemerge = phi ptr [ null, %71 ], [ %70, %69 ]
-  %.0364 = phi ptr [ %72, %71 ], [ null, %69 ]
+  %.1365 = phi ptr [ %72, %71 ], [ null, %69 ]
   store ptr %storemerge, ptr %7, align 8
   br label %75
 
@@ -1957,7 +1957,7 @@ thread-pre-split471:                              ; preds = %53
   br i1 %74, label %75, label %91
 
 75:                                               ; preds = %.thread479, %73
-  %.1365482 = phi ptr [ %.0364, %.thread479 ], [ null, %73 ]
+  %.2366482 = phi ptr [ %.1365, %.thread479 ], [ null, %73 ]
   %.not411 = icmp eq i32 %10, 5
   br i1 %.not411, label %76, label %92
 
@@ -2034,11 +2034,11 @@ thread-pre-split483:                              ; preds = %82
   br label %.thread536
 
 106:                                              ; preds = %92
-  %.not416 = icmp eq ptr %.1365482, null
+  %.not416 = icmp eq ptr %.2366482, null
   br i1 %.not416, label %.thread536, label %107
 
 107:                                              ; preds = %106
-  %108 = call ptr @php_mail_build_headers(ptr noundef nonnull %.1365482)
+  %108 = call ptr @php_mail_build_headers(ptr noundef nonnull %.2366482)
   store ptr %108, ptr %7, align 8
   %109 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not417 = icmp eq ptr %109, null

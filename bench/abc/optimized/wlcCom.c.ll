@@ -882,12 +882,12 @@ Wlc_AbcUpdateNtk.exit:                            ; preds = %Abc_UtilStrsav.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %5, %9, %.loopexit.sink.split
-  %.252 = phi i32 [ %.050.ph, %.loopexit.sink.split ], [ %.050.ph, %18 ], [ %.050.ph, %5 ], [ %13, %9 ]
-  %.2 = phi i32 [ %.048.ph141, %.loopexit.sink.split ], [ %.048.ph141, %5 ], [ %22, %18 ], [ %.048.ph141, %9 ]
+  %.151 = phi i32 [ %.050.ph, %.loopexit.sink.split ], [ %.050.ph, %18 ], [ %.050.ph, %5 ], [ %13, %9 ]
+  %.149 = phi i32 [ %.048.ph141, %.loopexit.sink.split ], [ %.048.ph141, %5 ], [ %22, %18 ], [ %.048.ph141, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.77)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.78)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.79, i32 noundef %.252)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.80, i32 noundef %.2)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.79, i32 noundef %.151)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.80, i32 noundef %.149)
   %.not67 = icmp eq i32 %.046.ph146, 0
   %51 = select i1 %.not67, ptr @.str.42, ptr @.str.41
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.81, ptr noundef nonnull %51)
@@ -1736,10 +1736,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandMemAbs(ptr nocapture noundef rea
   br label %31
 
 .loopexit:                                        ; preds = %5, %10, %9
-  %.2 = phi i32 [ %.024.ph, %9 ], [ %.024.ph, %5 ], [ %14, %10 ]
+  %.125 = phi i32 [ %.024.ph, %9 ], [ %.024.ph, %5 ], [ %14, %10 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.119)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.120)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.96, i32 noundef %.2)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.96, i32 noundef %.125)
   %.not33 = icmp eq i32 %.022.ph81, 0
   %28 = select i1 %.not33, ptr @.str.42, ptr @.str.41
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.121, ptr noundef nonnull %28)
@@ -1824,10 +1824,10 @@ Wlc_AbcUpdateNtk.exit:                            ; preds = %22, %24
   br label %26
 
 .loopexit:                                        ; preds = %5, %10, %9
-  %.2 = phi i32 [ %.016.ph, %9 ], [ %.016.ph, %5 ], [ %14, %10 ]
+  %.117 = phi i32 [ %.016.ph, %9 ], [ %.016.ph, %5 ], [ %14, %10 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.124)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.120)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.125, i32 noundef %.2)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.125, i32 noundef %.117)
   %.not25 = icmp eq i32 %.0, 0
   %25 = select i1 %.not25, ptr @.str.42, ptr @.str.41
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.45, ptr noundef nonnull %25)

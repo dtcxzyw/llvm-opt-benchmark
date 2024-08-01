@@ -1479,7 +1479,7 @@ Abc_Clock.exit226:                                ; preds = %Abc_NtkMfsUpdateNet
 
 263:                                              ; preds = %.loopexit286, %254
   %.pre503 = phi i32 [ %.pre503.pre, %254 ], [ %564, %.loopexit286 ]
-  %.0160 = phi i32 [ -1, %254 ], [ %.4164, %.loopexit286 ]
+  %.0160 = phi i32 [ -1, %254 ], [ %.2162, %.loopexit286 ]
   %.0152 = phi i32 [ -1, %254 ], [ %.1153300, %.loopexit286 ]
   br i1 %19, label %264, label %287
 
@@ -1751,7 +1751,7 @@ Abc_MfsObjProb.exit232:                           ; preds = %364, %370
 
 .loopexit:                                        ; preds = %.loopexit.loopexit514, %.loopexit.loopexit444, %.loopexit.loopexit441, %.loopexit.loopexit, %287
   %.1153300 = phi i32 [ 1, %287 ], [ %378, %.loopexit.loopexit ], [ %380, %.loopexit.loopexit441 ], [ %382, %.loopexit.loopexit444 ], [ %384, %.loopexit.loopexit514 ]
-  %.4164 = phi i32 [ %.0160, %287 ], [ %379, %.loopexit.loopexit ], [ %381, %.loopexit.loopexit441 ], [ %383, %.loopexit.loopexit444 ], [ 0, %.loopexit.loopexit514 ]
+  %.2162 = phi i32 [ %.0160, %287 ], [ %379, %.loopexit.loopexit ], [ %381, %.loopexit.loopexit441 ], [ %383, %.loopexit.loopexit444 ], [ 0, %.loopexit.loopexit514 ]
   %385 = icmp eq i32 %.1153300, %296
   br i1 %385, label %.loopexit288, label %386
 
@@ -1759,7 +1759,7 @@ Abc_MfsObjProb.exit232:                           ; preds = %364, %370
   %387 = load ptr, ptr %152, align 8
   %388 = getelementptr i8, ptr %387, i64 8
   %.val212 = load ptr, ptr %388, align 8
-  %389 = sext i32 %.4164 to i64
+  %389 = sext i32 %.2162 to i64
   %390 = getelementptr inbounds i32, ptr %.val212, i64 %389
   %391 = load i32, ptr %390, align 4
   %392 = shl nsw i32 %391, 1
@@ -1852,7 +1852,7 @@ Abc_NtkMfsTryResubOnce.exit247:                   ; preds = %386
 444:                                              ; preds = %443
   %445 = getelementptr inbounds i8, ptr %1, i64 16
   %446 = load i32, ptr %445, align 8
-  %447 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %446, i32 noundef %2, i32 noundef %3, i32 noundef %.1153300, i32 noundef %.4164)
+  %447 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %446, i32 noundef %2, i32 noundef %3, i32 noundef %.1153300, i32 noundef %.2162)
   br label %448
 
 448:                                              ; preds = %444, %443

@@ -179,7 +179,7 @@ while.cond85.preheader:                           ; preds = %cond.end81
 
 while.cond85:                                     ; preds = %while.cond85.preheader, %for.end142
   %j.4 = phi i32 [ %inc141, %for.end142 ], [ 0, %while.cond85.preheader ]
-  %block_peak.4 = phi i32 [ %cond138, %for.end142 ], [ 0, %while.cond85.preheader ]
+  %block_peak.5 = phi i32 [ %cond138, %for.end142 ], [ 0, %while.cond85.preheader ]
   %samples.addr.2 = phi i32 [ %sub143, %for.end142 ], [ %samples, %while.cond85.preheader ]
   %cmp86.not = icmp eq i32 %samples.addr.2, 0
   br i1 %cmp86.not, label %if.end200, label %while.body88
@@ -191,7 +191,7 @@ while.body88:                                     ; preds = %while.cond85
 
 for.body99:                                       ; preds = %while.body88, %for.body99
   %indvars.iv = phi i64 [ 0, %while.body88 ], [ %indvars.iv.next, %for.body99 ]
-  %block_peak.5111 = phi i32 [ %block_peak.4, %while.body88 ], [ %cond138, %for.body99 ]
+  %block_peak.6111 = phi i32 [ %block_peak.5, %while.body88 ], [ %cond138, %for.body99 ]
   %j.5109 = phi i32 [ %j.4, %while.body88 ], [ %inc141, %for.body99 ]
   %9 = load ptr, ptr %input, align 8
   %idxprom101 = zext i32 %j.5109 to i64
@@ -205,7 +205,7 @@ for.body99:                                       ; preds = %while.body88, %for.
   %cmp107 = icmp eq i32 %10, -2147483648
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %cond112 = select i1 %cmp107, i32 2147483647, i32 %11
-  %cond118 = tail call i32 @llvm.smax.i32(i32 %block_peak.5111, i32 %cond112)
+  %cond118 = tail call i32 @llvm.smax.i32(i32 %block_peak.6111, i32 %cond112)
   %12 = load ptr, ptr %arrayidx119, align 8
   %arrayidx121 = getelementptr inbounds i32, ptr %12, i64 %idxprom101
   %13 = load i32, ptr %arrayidx121, align 4
@@ -231,7 +231,7 @@ for.end142:                                       ; preds = %for.body99
 
 while.cond152:                                    ; preds = %cond.end81, %for.end190
   %j.6 = phi i32 [ %inc189, %for.end190 ], [ 0, %cond.end81 ]
-  %block_peak.6 = phi i32 [ %cond186, %for.end190 ], [ 0, %cond.end81 ]
+  %block_peak.7 = phi i32 [ %cond186, %for.end190 ], [ 0, %cond.end81 ]
   %samples.addr.3 = phi i32 [ %sub191, %for.end190 ], [ %samples, %cond.end81 ]
   %cmp153.not = icmp eq i32 %samples.addr.3, 0
   br i1 %cmp153.not, label %if.end200, label %while.body155
@@ -243,7 +243,7 @@ while.body155:                                    ; preds = %while.cond152
 
 for.body166:                                      ; preds = %while.body155, %for.body166
   %indvars.iv132 = phi i64 [ 0, %while.body155 ], [ %indvars.iv.next133, %for.body166 ]
-  %block_peak.7114 = phi i32 [ %block_peak.6, %while.body155 ], [ %cond186, %for.body166 ]
+  %block_peak.8114 = phi i32 [ %block_peak.7, %while.body155 ], [ %cond186, %for.body166 ]
   %j.7112 = phi i32 [ %j.6, %while.body155 ], [ %inc189, %for.body166 ]
   %15 = load ptr, ptr %input, align 8
   %idxprom168 = zext i32 %j.7112 to i64
@@ -257,7 +257,7 @@ for.body166:                                      ; preds = %while.body155, %for
   %cmp175 = icmp eq i32 %16, -2147483648
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %cond180 = select i1 %cmp175, i32 2147483647, i32 %17
-  %cond186 = tail call i32 @llvm.smax.i32(i32 %block_peak.7114, i32 %cond180)
+  %cond186 = tail call i32 @llvm.smax.i32(i32 %block_peak.8114, i32 %cond180)
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %inc189 = add i32 %j.7112, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
@@ -270,11 +270,11 @@ for.end190:                                       ; preds = %for.body166
   br i1 %cmp194.not, label %while.cond152, label %return, !llvm.loop !13
 
 if.end200:                                        ; preds = %while.cond85, %while.cond152, %while.cond, %while.cond31
-  %block_peak.8 = phi i32 [ %block_peak.2, %while.cond31 ], [ %block_peak.0, %while.cond ], [ %block_peak.6, %while.cond152 ], [ %block_peak.4, %while.cond85 ]
+  %block_peak.4 = phi i32 [ %block_peak.2, %while.cond31 ], [ %block_peak.0, %while.cond ], [ %block_peak.7, %while.cond152 ], [ %block_peak.5, %while.cond85 ]
   %sub201 = add i32 %bps, -1
   %shl202 = shl nuw i32 1, %sub201
   %conv203 = uitofp i32 %shl202 to double
-  %conv204 = uitofp nneg i32 %block_peak.8 to double
+  %conv204 = uitofp nneg i32 %block_peak.4 to double
   %div205 = fdiv double %conv204, %conv203
   %18 = load double, ptr @title_peak_, align 8
   %cmp206 = fcmp ogt double %div205, %18

@@ -359,18 +359,18 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
 26:                                               ; preds = %23
   %27 = add nsw i32 %.083.ph157, 2048
   %28 = sext i32 %27 to i64
-  %29 = call ptr @realloc(ptr noundef %.086.ph156, i64 noundef %28) #11
+  %29 = call ptr @realloc(ptr noundef %.187.ph156, i64 noundef %28) #11
   %.not103 = icmp eq ptr %29, null
   br i1 %.not103, label %30, label %33
 
 30:                                               ; preds = %26
-  call void @free(ptr noundef %.086.ph156) #8
+  call void @free(ptr noundef %.187.ph156) #8
   %31 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.7) #8
   %32 = call i32 @fclose(ptr noundef nonnull %6)
   br label %87
 
 33:                                               ; preds = %26
-  %.not104 = icmp eq ptr %.086.ph156, null
+  %.not104 = icmp eq ptr %.187.ph156, null
   br i1 %.not104, label %34, label %36
 
 34:                                               ; preds = %33
@@ -380,7 +380,7 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   br label %36
 
 36:                                               ; preds = %33, %34, %23
-  %.187 = phi ptr [ %29, %33 ], [ %29, %34 ], [ %.086.ph156, %23 ]
+  %.288 = phi ptr [ %29, %33 ], [ %29, %34 ], [ %.187.ph156, %23 ]
   %.184 = phi i32 [ %27, %33 ], [ %27, %34 ], [ %.083.ph157, %23 ]
   %.180 = phi i32 [ 2048, %33 ], [ 2046, %34 ], [ %.079.ph158, %23 ]
   %.1 = phi i32 [ %.078.ph159, %33 ], [ 2, %34 ], [ %.078.ph159, %23 ]
@@ -407,12 +407,12 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
 
 44:                                               ; preds = %41
   %45 = sext i32 %.2147 to i64
-  %46 = getelementptr inbounds i8, ptr %.187, i64 %45
+  %46 = getelementptr inbounds i8, ptr %.288, i64 %45
   store i8 91, ptr %46, align 1
   %47 = load i8, ptr %.076148, align 1
   %48 = add nsw i32 %.2147, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %.187, i64 %49
+  %50 = getelementptr inbounds i8, ptr %.288, i64 %49
   store i8 %47, ptr %50, align 1
   %51 = add nsw i32 %.2147, 2
   br label %52
@@ -423,7 +423,7 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   %.sink196 = phi i32 [ 3, %44 ], [ 1, %41 ], [ 1, %.lr.ph151 ]
   %.sink = phi i32 [ -3, %44 ], [ -1, %41 ], [ -1, %.lr.ph151 ]
   %53 = sext i32 %.sink200 to i64
-  %54 = getelementptr inbounds i8, ptr %.187, i64 %53
+  %54 = getelementptr inbounds i8, ptr %.288, i64 %53
   store i8 %.sink197, ptr %54, align 1
   %55 = add nsw i32 %.2147, %.sink196
   %56 = add nsw i32 %.281146, %.sink
@@ -437,7 +437,7 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   %.2.lcssa = phi i32 [ %.1, %36 ], [ %55, %52 ]
   %59 = add nsw i32 %.2.lcssa, 1
   %60 = sext i32 %.2.lcssa to i64
-  %61 = getelementptr inbounds i8, ptr %.187, i64 %60
+  %61 = getelementptr inbounds i8, ptr %.288, i64 %60
   store i8 124, ptr %61, align 1
   %62 = add nsw i32 %.281.lcssa, -1
   %63 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 2048, ptr noundef nonnull %6)
@@ -448,11 +448,11 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   %.078.ph159 = phi i32 [ %59, %.outer ], [ 0, %.preheader ]
   %.079.ph158 = phi i32 [ %62, %.outer ], [ 0, %.preheader ]
   %.083.ph157 = phi i32 [ %.184, %.outer ], [ 0, %.preheader ]
-  %.086.ph156 = phi ptr [ %.187, %.outer ], [ null, %.preheader ]
+  %.187.ph156 = phi ptr [ %.288, %.outer ], [ null, %.preheader ]
   br label %10
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
-  %.086.ph.lcssa129 = phi ptr [ %.086.ph156, %.backedge ], [ %.187, %.outer ]
+  %.187.ph.lcssa129 = phi ptr [ %.187.ph156, %.backedge ], [ %.288, %.outer ]
   %.083.ph.lcssa128 = phi i32 [ %.083.ph157, %.backedge ], [ %.184, %.outer ]
   %.079.ph.lcssa127 = phi i32 [ %.079.ph158, %.backedge ], [ %62, %.outer ]
   %.078.ph.lcssa126 = phi i32 [ %.078.ph159, %.backedge ], [ %59, %.outer ]
@@ -462,10 +462,10 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
 .outer._crit_edge.thread:                         ; preds = %.preheader, %.outer._crit_edge
   %.078.ph.lcssa126183 = phi i32 [ %.078.ph.lcssa126, %.outer._crit_edge ], [ 0, %.preheader ]
   %.083.ph.lcssa128181 = phi i32 [ %.083.ph.lcssa128, %.outer._crit_edge ], [ 0, %.preheader ]
-  %.086.ph.lcssa129180 = phi ptr [ %.086.ph.lcssa129, %.outer._crit_edge ], [ null, %.preheader ]
+  %.187.ph.lcssa129180 = phi ptr [ %.187.ph.lcssa129, %.outer._crit_edge ], [ null, %.preheader ]
   %65 = add nsw i32 %.083.ph.lcssa128181, 4
   %66 = sext i32 %65 to i64
-  %67 = call ptr @realloc(ptr noundef %.086.ph.lcssa129180, i64 noundef %66) #11
+  %67 = call ptr @realloc(ptr noundef %.187.ph.lcssa129180, i64 noundef %66) #11
   %.not99 = icmp eq ptr %67, null
   br i1 %.not99, label %68, label %71
 
@@ -476,20 +476,20 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
 
 71:                                               ; preds = %.outer._crit_edge, %.outer._crit_edge.thread
   %.078.ph.lcssa126182 = phi i32 [ %.078.ph.lcssa126183, %.outer._crit_edge.thread ], [ %.078.ph.lcssa126, %.outer._crit_edge ]
-  %.288 = phi ptr [ %67, %.outer._crit_edge.thread ], [ %.086.ph.lcssa129, %.outer._crit_edge ]
+  %.389 = phi ptr [ %67, %.outer._crit_edge.thread ], [ %.187.ph.lcssa129, %.outer._crit_edge ]
   %72 = add nsw i32 %.078.ph.lcssa126182, -1
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %.288, i64 %73
+  %74 = getelementptr inbounds i8, ptr %.389, i64 %73
   store i8 41, ptr %74, align 1
   %75 = sext i32 %.078.ph.lcssa126182 to i64
-  %76 = getelementptr inbounds i8, ptr %.288, i64 %75
+  %76 = getelementptr inbounds i8, ptr %.389, i64 %75
   store i8 36, ptr %76, align 1
   %77 = add nsw i32 %.078.ph.lcssa126182, 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %.288, i64 %78
+  %79 = getelementptr inbounds i8, ptr %.389, i64 %78
   store i8 0, ptr %79, align 1
   %80 = call i32 @fclose(ptr noundef nonnull %6)
-  %81 = call i32 @cli_regcomp(ptr noundef nonnull @authreg, ptr noundef %.288, i32 noundef 7) #8
+  %81 = call i32 @cli_regcomp(ptr noundef nonnull @authreg, ptr noundef %.389, i32 noundef 7) #8
   %.not106 = icmp eq i32 %81, 0
   br i1 %.not106, label %86, label %84
 
@@ -503,12 +503,12 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   br label %87
 
 84:                                               ; preds = %71
-  %85 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.8, ptr noundef nonnull %.288) #8
-  call void @free(ptr noundef nonnull %.288) #8
+  %85 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.8, ptr noundef nonnull %.389) #8
+  call void @free(ptr noundef nonnull %.389) #8
   br label %87
 
 86:                                               ; preds = %71
-  call void @free(ptr noundef nonnull %.288) #8
+  call void @free(ptr noundef nonnull %.389) #8
   br label %.thread117
 
 .thread117:                                       ; preds = %.thread, %86

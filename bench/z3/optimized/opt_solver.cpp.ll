@@ -2152,8 +2152,8 @@ ehcleanup52:                                      ; preds = %ehcleanup, %lpad8, 
   resume { ptr, i32 } %.pn.pn
 
 if.end53:                                         ; preds = %if.end51, %entry
-  %w.sroa.0.1 = phi i64 [ %call.i.i, %if.end51 ], [ 0, %entry ]
-  %w.sroa.15.1 = phi i8 [ 1, %if.end51 ], [ 0, %entry ]
+  %w.sroa.0.0 = phi i64 [ %call.i.i, %if.end51 ], [ 0, %entry ]
+  %w.sroa.15.0 = phi i8 [ 1, %if.end51 ], [ 0, %entry ]
   %m_last_model = getelementptr inbounds i8, ptr %this, i64 960
   %7 = load ptr, ptr %m_last_model, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
@@ -2277,17 +2277,17 @@ if.end78:                                         ; preds = %if.end65, %if.then6
   br i1 %tobool.i15, label %if.then81, label %if.end106
 
 if.then81:                                        ; preds = %if.end78
-  %tobool.i17 = trunc nuw i8 %w.sroa.15.1 to i1
+  %tobool.i17 = trunc nuw i8 %w.sroa.15.0 to i1
   br i1 %tobool.i17, label %if.then.i18, label %_ZN9stopwatch4stopEv.exit
 
 if.then.i18:                                      ; preds = %if.then81
   %call.i.i19 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
-  %sub.i.i.i = sub i64 %call.i.i19, %w.sroa.0.1
+  %sub.i.i.i = sub i64 %call.i.i19, %w.sroa.0.0
   br label %_ZN9stopwatch4stopEv.exit
 
 _ZN9stopwatch4stopEv.exit:                        ; preds = %if.then81, %if.then.i18
   %w.sroa.7.0 = phi i64 [ %sub.i.i.i, %if.then.i18 ], [ 0, %if.then81 ]
-  %w.sroa.15.2 = phi i8 [ 0, %if.then.i18 ], [ %w.sroa.15.1, %if.then81 ]
+  %w.sroa.15.2 = phi i8 [ 0, %if.then.i18 ], [ %w.sroa.15.0, %if.then81 ]
   %call82 = call noundef i32 @_Z19get_verbosity_levelv()
   %cmp83.not = icmp eq i32 %call82, 0
   br i1 %cmp83.not, label %if.end106, label %if.then84
@@ -2308,7 +2308,7 @@ if.then86:                                        ; preds = %if.then84
 
 _ZN9stopwatch4stopEv.exit.i:                      ; preds = %if.then86
   %call.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
-  %sub.i.i.i.i = sub i64 %w.sroa.7.0, %w.sroa.0.1
+  %sub.i.i.i.i = sub i64 %w.sroa.7.0, %w.sroa.0.0
   %add.i.i.i = add i64 %sub.i.i.i.i, %call.i.i.i
   %call.i.i4.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
   br label %_ZNK9stopwatch11get_secondsEv.exit
@@ -2334,7 +2334,7 @@ if.else95:                                        ; preds = %if.then84
 
 _ZN9stopwatch4stopEv.exit.i29:                    ; preds = %if.else95
   %call.i.i.i30 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
-  %sub.i.i.i.i32 = sub i64 %w.sroa.7.0, %w.sroa.0.1
+  %sub.i.i.i.i32 = sub i64 %w.sroa.7.0, %w.sroa.0.0
   %add.i.i.i34 = add i64 %sub.i.i.i.i32, %call.i.i.i30
   %call.i.i4.i35 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
   br label %_ZNK9stopwatch11get_secondsEv.exit36

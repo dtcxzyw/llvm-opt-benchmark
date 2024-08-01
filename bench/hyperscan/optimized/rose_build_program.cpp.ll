@@ -8552,33 +8552,33 @@ invoke.cont12.lr.ph.i:                            ; preds = %invoke.cont33
   br label %invoke.cont12.i
 
 for.cond.cleanup.i:                               ; preds = %cleanup74.i
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %triggers.i.sroa.0.2, %triggers.i.sroa.10.2
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %triggers.i.sroa.0.1, %triggers.i.sroa.10.1
   br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont94.i, label %if.then.i.i.i.i.i280
 
 if.then.i.i.i.i.i280:                             ; preds = %for.cond.cleanup.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %triggers.i.sroa.10.2 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %triggers.i.sroa.0.2 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %triggers.i.sroa.10.1 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %triggers.i.sroa.0.1 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 12
   %258 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i1 true), !range !202
   %sub.i.i.i.i.i.i = shl nuw nsw i64 %258, 1
   %mul.i.i.i.i.i = xor i64 %sub.i.i.i.i.i.i, 126
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_SF_T0_T1_"(ptr %triggers.i.sroa.0.2, ptr %triggers.i.sroa.10.2, i64 noundef %mul.i.i.i.i.i)
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_SF_T0_T1_"(ptr %triggers.i.sroa.0.1, ptr %triggers.i.sroa.10.1, i64 noundef %mul.i.i.i.i.i)
   %cmp.i14.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i, 192
   br i1 %cmp.i14.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i, label %for.cond.preheader.i48.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i280
-  %queue4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.2, i64 4
-  %event5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.2, i64 8
+  %queue4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.1, i64 4
+  %event5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.1, i64 8
   br label %for.body.i.i.i.i.i.i.i303
 
 for.body.i.i.i.i.i.i.i303:                        ; preds = %for.inc.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i
   %__i.sroa.0.045.i.idx.i.i.i.i.i.i = phi i64 [ 12, %for.body.lr.ph.i.i.i.i.i.i.i ], [ %__i.sroa.0.045.i.add.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
-  %__first.coerce.pn44.i.i.i.i.i.i.i = phi ptr [ %triggers.i.sroa.0.2, %for.body.lr.ph.i.i.i.i.i.i.i ], [ %__i.sroa.0.045.i.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
-  %__i.sroa.0.045.i.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.2, i64 %__i.sroa.0.045.i.idx.i.i.i.i.i.i
+  %__first.coerce.pn44.i.i.i.i.i.i.i = phi ptr [ %triggers.i.sroa.0.1, %for.body.lr.ph.i.i.i.i.i.i.i ], [ %__i.sroa.0.045.i.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
+  %__i.sroa.0.045.i.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.1, i64 %__i.sroa.0.045.i.idx.i.i.i.i.i.i
   %event.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn44.i.i.i.i.i.i.i, i64 20
   %259 = load i8, ptr %__i.sroa.0.045.i.ptr.i.i.i.i.i.i, align 1, !range !151, !noundef !80
-  %260 = load i8, ptr %triggers.i.sroa.0.2, align 1, !range !151, !noundef !80
+  %260 = load i8, ptr %triggers.i.sroa.0.1, align 1, !range !151, !noundef !80
   %cmp.i.i.i.i.i.i.i.i.i.i.i304 = icmp ult i8 %259, %260
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i304, label %if.then9.i.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i.i.i
 
@@ -8613,8 +8613,8 @@ if.then9.i.i.i.i.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__op
   %sub.ptr.div.neg.i.i.i.i.i.i.i.i.i.i.i.i = sdiv exact i64 %__i.sroa.0.045.i.idx.i.i.i.i.i.i, -12
   %add.ptr.i29.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn44.i.i.i.i.i.i.i, i64 24
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::TriggerInfo", ptr %add.ptr.i29.i.i.i.i.i.i.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %triggers.i.sroa.0.2, i64 %__i.sroa.0.045.i.idx.i.i.i.i.i.i, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %triggers.i.sroa.0.2, ptr noundef nonnull align 4 dereferenceable(12) %__val.i.i.i.i.i.i.i, i64 12, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %triggers.i.sroa.0.1, i64 %__i.sroa.0.045.i.idx.i.i.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %triggers.i.sroa.0.1, ptr noundef nonnull align 4 dereferenceable(12) %__val.i.i.i.i.i.i.i, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__val.i.i.i.i.i.i.i)
   br label %for.inc.i.i.i.i.i.i.i
 
@@ -8673,8 +8673,8 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %"_ZSt25__unguarded_
   br i1 %cmp.i28.not.i.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_SF_T0_.exit.i.i.i.i.i.i", label %for.body.i.i.i.i.i.i.i303, !llvm.loop !204
 
 "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_SF_T0_.exit.i.i.i.i.i.i": ; preds = %for.inc.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.2, i64 192
-  %cmp.i.not7.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i, %triggers.i.sroa.10.2
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.1, i64 192
+  %cmp.i.not7.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i, %triggers.i.sroa.10.1
   br i1 %cmp.i.not7.i.i.i.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EvT_SC_T0_.exit.i.i.i", label %for.body.i24.i.i.i.i.i.i
 
 for.body.i24.i.i.i.i.i.i:                         ; preds = %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_SF_T0_.exit.i.i.i.i.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_T0_.exit.i40.i.i.i.i.i.i"
@@ -8730,25 +8730,25 @@ while.body.i.i44.i.i.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__op
   store i32 %__val.sroa.6.0.copyload.i.i26.i.i.i.i.i.i, ptr %__val.sroa.6.0..sroa_idx16.i.i43.i.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %__val.sroa.5.i.i23.i.i.i.i.i.i)
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.08.i.i.i.i.i.i.i, i64 12
-  %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %triggers.i.sroa.10.2
+  %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %triggers.i.sroa.10.1
   br i1 %cmp.i.not.i.i.i.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EvT_SC_T0_.exit.i.i.i", label %for.body.i24.i.i.i.i.i.i, !llvm.loop !205
 
 for.cond.preheader.i48.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i280
-  %__i.sroa.0.042.i49.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.2, i64 12
-  %cmp.i28.not43.i50.i.i.i.i.i.i = icmp eq ptr %__i.sroa.0.042.i49.i.i.i.i.i.i, %triggers.i.sroa.10.2
+  %__i.sroa.0.042.i49.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.1, i64 12
+  %cmp.i28.not43.i50.i.i.i.i.i.i = icmp eq ptr %__i.sroa.0.042.i49.i.i.i.i.i.i, %triggers.i.sroa.10.1
   br i1 %cmp.i28.not43.i50.i.i.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EvT_SC_T0_.exit.i.i.i", label %for.body.lr.ph.i51.i.i.i.i.i.i
 
 for.body.lr.ph.i51.i.i.i.i.i.i:                   ; preds = %for.cond.preheader.i48.i.i.i.i.i.i
-  %queue4.i.i.i52.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.2, i64 4
-  %event5.i.i.i53.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.2, i64 8
+  %queue4.i.i.i52.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.1, i64 4
+  %event5.i.i.i53.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.1, i64 8
   br label %for.body.i55.i.i.i.i.i.i
 
 for.body.i55.i.i.i.i.i.i:                         ; preds = %for.inc.i92.i.i.i.i.i.i, %for.body.lr.ph.i51.i.i.i.i.i.i
   %__i.sroa.0.045.i56.i.i.i.i.i.i = phi ptr [ %__i.sroa.0.042.i49.i.i.i.i.i.i, %for.body.lr.ph.i51.i.i.i.i.i.i ], [ %__i.sroa.0.0.i93.i.i.i.i.i.i, %for.inc.i92.i.i.i.i.i.i ]
-  %__first.coerce.pn44.i57.i.i.i.i.i.i = phi ptr [ %triggers.i.sroa.0.2, %for.body.lr.ph.i51.i.i.i.i.i.i ], [ %__i.sroa.0.045.i56.i.i.i.i.i.i, %for.inc.i92.i.i.i.i.i.i ]
+  %__first.coerce.pn44.i57.i.i.i.i.i.i = phi ptr [ %triggers.i.sroa.0.1, %for.body.lr.ph.i51.i.i.i.i.i.i ], [ %__i.sroa.0.045.i56.i.i.i.i.i.i, %for.inc.i92.i.i.i.i.i.i ]
   %event.i.i.i58.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn44.i57.i.i.i.i.i.i, i64 20
   %269 = load i8, ptr %__i.sroa.0.045.i56.i.i.i.i.i.i, align 1, !range !151, !noundef !80
-  %270 = load i8, ptr %triggers.i.sroa.0.2, align 1, !range !151, !noundef !80
+  %270 = load i8, ptr %triggers.i.sroa.0.1, align 1, !range !151, !noundef !80
   %cmp.i.i.i.i.i59.i.i.i.i.i.i = icmp ult i8 %269, %270
   br i1 %cmp.i.i.i.i.i59.i.i.i.i.i.i, label %if.then9.i96.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i60.i.i.i.i.i.i
 
@@ -8785,8 +8785,8 @@ if.then9.i96.i.i.i.i.i.i:                         ; preds = %"_ZN9__gnu_cxx5__op
   %sub.ptr.div.neg.i.i.i.i.i.i101.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i100.i.i.i.i.i.i, -12
   %add.ptr.i29.i102.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn44.i57.i.i.i.i.i.i, i64 24
   %add.ptr.i.i.i.i.i.i103.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::TriggerInfo", ptr %add.ptr.i29.i102.i.i.i.i.i.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i101.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i103.i.i.i.i.i.i, ptr nonnull align 4 %triggers.i.sroa.0.2, i64 %sub.ptr.sub.i.i.i.i.i.i100.i.i.i.i.i.i, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %triggers.i.sroa.0.2, ptr noundef nonnull align 4 dereferenceable(12) %__val.i46.i.i.i.i.i.i, i64 12, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i103.i.i.i.i.i.i, ptr nonnull align 4 %triggers.i.sroa.0.1, i64 %sub.ptr.sub.i.i.i.i.i.i100.i.i.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %triggers.i.sroa.0.1, ptr noundef nonnull align 4 dereferenceable(12) %__val.i46.i.i.i.i.i.i, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__val.i46.i.i.i.i.i.i)
   br label %for.inc.i92.i.i.i.i.i.i
 
@@ -8841,22 +8841,22 @@ while.body.i.i95.i.i.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__op
 
 for.inc.i92.i.i.i.i.i.i:                          ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_T0_.exit.i88.i.i.i.i.i.i", %if.then9.i96.i.i.i.i.i.i
   %__i.sroa.0.0.i93.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.045.i56.i.i.i.i.i.i, i64 12
-  %cmp.i28.not.i94.i.i.i.i.i.i = icmp eq ptr %__i.sroa.0.0.i93.i.i.i.i.i.i, %triggers.i.sroa.10.2
+  %cmp.i28.not.i94.i.i.i.i.i.i = icmp eq ptr %__i.sroa.0.0.i93.i.i.i.i.i.i, %triggers.i.sroa.10.1
   br i1 %cmp.i28.not.i94.i.i.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EvT_SC_T0_.exit.i.i.i", label %for.body.i55.i.i.i.i.i.i, !llvm.loop !204
 
 "_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EvT_SC_T0_.exit.i.i.i": ; preds = %for.inc.i92.i.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_T0_.exit.i40.i.i.i.i.i.i", %for.cond.preheader.i48.i.i.i.i.i.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EEEvT_SF_T0_.exit.i.i.i.i.i.i"
-  %incdec.ptr.i16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.2, i64 12
-  %cmp.i13.not17.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i16.i.i.i.i.i.i, %triggers.i.sroa.10.2
+  %incdec.ptr.i16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %triggers.i.sroa.0.1, i64 12
+  %cmp.i13.not17.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i16.i.i.i.i.i.i, %triggers.i.sroa.10.1
   br i1 %cmp.i13.not17.i.i.i.i.i.i, label %"_ZN3ue215sort_and_uniqueISt6vectorINS_11TriggerInfoESaIS2_EEZNS_L27addInfixTriggerInstructionsES4_RNS_11RoseProgramEE3$_0EEvRT_T0_.exit.i.i", label %while.body.preheader.i.i.i.i.i.i
 
 while.body.preheader.i.i.i.i.i.i:                 ; preds = %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EvT_SC_T0_.exit.i.i.i"
-  %.pre.i.i.i.i.i.i = load i8, ptr %triggers.i.sroa.0.2, align 4, !range !151
+  %.pre.i.i.i.i.i.i = load i8, ptr %triggers.i.sroa.0.1, align 4, !range !151
   br label %while.body.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %if.end9.i.i.i.i.i.i, %while.body.preheader.i.i.i.i.i.i
   %276 = phi i8 [ %277, %if.end9.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i, %while.body.preheader.i.i.i.i.i.i ]
   %incdec.ptr.i19.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %if.end9.i.i.i.i.i.i ], [ %incdec.ptr.i16.i.i.i.i.i.i, %while.body.preheader.i.i.i.i.i.i ]
-  %__first.sroa.0.018.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i19.i.i.i.i.i.i, %if.end9.i.i.i.i.i.i ], [ %triggers.i.sroa.0.2, %while.body.preheader.i.i.i.i.i.i ]
+  %__first.sroa.0.018.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i19.i.i.i.i.i.i, %if.end9.i.i.i.i.i.i ], [ %triggers.i.sroa.0.1, %while.body.preheader.i.i.i.i.i.i ]
   %277 = load i8, ptr %incdec.ptr.i19.i.i.i.i.i.i, align 4, !range !151, !noundef !80
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %276, %277
   br i1 %cmp.i.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i
@@ -8879,16 +8879,16 @@ _ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN3ue211Trigg
 
 if.end9.i.i.i.i.i.i:                              ; preds = %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i19.i.i.i.i.i.i, i64 12
-  %cmp.i13.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %triggers.i.sroa.10.2
+  %cmp.i13.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %triggers.i.sroa.10.1
   br i1 %cmp.i13.not.i.i.i.i.i.i, label %"_ZN3ue215sort_and_uniqueISt6vectorINS_11TriggerInfoESaIS2_EEZNS_L27addInfixTriggerInstructionsES4_RNS_11RoseProgramEE3$_0EEvRT_T0_.exit.i.i", label %while.body.i.i.i.i.i.i, !llvm.loop !206
 
 _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i298 = icmp eq ptr %__first.sroa.0.018.i.i.i.i.i.i, %triggers.i.sroa.10.2
+  %cmp.i.i.i.i.i.i298 = icmp eq ptr %__first.sroa.0.018.i.i.i.i.i.i, %triggers.i.sroa.10.1
   br i1 %cmp.i.i.i.i.i.i298, label %"_ZN3ue215sort_and_uniqueISt6vectorINS_11TriggerInfoESaIS2_EEZNS_L27addInfixTriggerInstructionsES4_RNS_11RoseProgramEE3$_0EEvRT_T0_.exit.i.i", label %if.end.i.i.i.i.i299
 
 if.end.i.i.i.i.i299:                              ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i.i.i
   %incdec.ptr.i2439.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.018.i.i.i.i.i.i, i64 24
-  %cmp.i25.not40.i.i.i.i.i = icmp eq ptr %incdec.ptr.i2439.i.i.i.i.i, %triggers.i.sroa.10.2
+  %cmp.i25.not40.i.i.i.i.i = icmp eq ptr %incdec.ptr.i2439.i.i.i.i.i, %triggers.i.sroa.10.1
   br i1 %cmp.i25.not40.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i.i.i, label %while.body.preheader.i.i.i.i.i
 
 while.body.preheader.i.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i299
@@ -8928,7 +8928,7 @@ if.then16.i.i.i.i.i:                              ; preds = %_ZNK9__gnu_cxx5__op
 if.end20.i.i.i.i.i:                               ; preds = %if.then16.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i.i.i.i
   %__dest.sroa.0.1.i.i.i.i.i = phi ptr [ %__dest.sroa.0.042.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i.i.i.i ], [ %incdec.ptr.i27.i.i.i.i.i, %if.then16.i.i.i.i.i ]
   %incdec.ptr.i24.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i2443.i.i.i.i.i, i64 12
-  %cmp.i25.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i24.i.i.i.i.i, %triggers.i.sroa.10.2
+  %cmp.i25.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i24.i.i.i.i.i, %triggers.i.sroa.10.1
   br i1 %cmp.i25.not.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i.i.i, label %while.body.i.i.i.i.i301, !llvm.loop !207
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i.i.i: ; preds = %if.end20.i.i.i.i.i, %if.end.i.i.i.i.i299
@@ -8936,18 +8936,18 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS
   %incdec.ptr.i28.i.i.i.i.i = getelementptr inbounds i8, ptr %__dest.sroa.0.0.lcssa.i.i.i.i.i, i64 12
   %.pre233.i = ptrtoint ptr %incdec.ptr.i28.i.i.i.i.i to i64
   %.pre234.i = sub i64 %.pre233.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i302 = getelementptr inbounds i8, ptr %triggers.i.sroa.0.2, i64 %.pre234.i
-  %cmp.i.not.i.i33.i.i.i = icmp eq ptr %incdec.ptr.i28.i.i.i.i.i, %triggers.i.sroa.10.2
-  %spec.select = select i1 %cmp.i.not.i.i33.i.i.i, ptr %triggers.i.sroa.10.2, ptr %add.ptr.i.i.i.i.i302
+  %add.ptr.i.i.i.i.i302 = getelementptr inbounds i8, ptr %triggers.i.sroa.0.1, i64 %.pre234.i
+  %cmp.i.not.i.i33.i.i.i = icmp eq ptr %incdec.ptr.i28.i.i.i.i.i, %triggers.i.sroa.10.1
+  %spec.select = select i1 %cmp.i.not.i.i33.i.i.i, ptr %triggers.i.sroa.10.1, ptr %add.ptr.i.i.i.i.i302
   br label %"_ZN3ue215sort_and_uniqueISt6vectorINS_11TriggerInfoESaIS2_EEZNS_L27addInfixTriggerInstructionsES4_RNS_11RoseProgramEE3$_0EEvRT_T0_.exit.i.i"
 
 "_ZN3ue215sort_and_uniqueISt6vectorINS_11TriggerInfoESaIS2_EEZNS_L27addInfixTriggerInstructionsES4_RNS_11RoseProgramEE3$_0EEvRT_T0_.exit.i.i": ; preds = %if.end9.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i.i.i, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EvT_SC_T0_.exit.i.i.i"
-  %288 = phi ptr [ %triggers.i.sroa.10.2, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EvT_SC_T0_.exit.i.i.i" ], [ %triggers.i.sroa.10.2, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i.i.i ], [ %spec.select, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i.i.i ], [ %triggers.i.sroa.10.2, %if.end9.i.i.i.i.i.i ]
-  %cmp.i.not32.i.i = icmp eq ptr %triggers.i.sroa.0.2, %288
+  %288 = phi ptr [ %triggers.i.sroa.10.1, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEZNS2_L27addInfixTriggerInstructionsES7_RNS2_11RoseProgramEE3$_0EvT_SC_T0_.exit.i.i.i" ], [ %triggers.i.sroa.10.1, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i.i.i ], [ %spec.select, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211TriggerInfoESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i.i.i ], [ %triggers.i.sroa.10.1, %if.end9.i.i.i.i.i.i ]
+  %cmp.i.not32.i.i = icmp eq ptr %triggers.i.sroa.0.1, %288
   br i1 %cmp.i.not32.i.i, label %invoke.cont94.i, label %for.body.i.i282
 
 for.body.i.i282:                                  ; preds = %"_ZN3ue215sort_and_uniqueISt6vectorINS_11TriggerInfoESaIS2_EEZNS_L27addInfixTriggerInstructionsES4_RNS_11RoseProgramEE3$_0EEvRT_T0_.exit.i.i", %_ZNSt10unique_ptrIN3ue221RoseInstrTriggerInfixESt14default_deleteIS1_EED2Ev.exit.i.i
-  %__begin1.sroa.0.033.i.i = phi ptr [ %incdec.ptr.i.i.i294, %_ZNSt10unique_ptrIN3ue221RoseInstrTriggerInfixESt14default_deleteIS1_EED2Ev.exit.i.i ], [ %triggers.i.sroa.0.2, %"_ZN3ue215sort_and_uniqueISt6vectorINS_11TriggerInfoESaIS2_EEZNS_L27addInfixTriggerInstructionsES4_RNS_11RoseProgramEE3$_0EEvRT_T0_.exit.i.i" ]
+  %__begin1.sroa.0.033.i.i = phi ptr [ %incdec.ptr.i.i.i294, %_ZNSt10unique_ptrIN3ue221RoseInstrTriggerInfixESt14default_deleteIS1_EED2Ev.exit.i.i ], [ %triggers.i.sroa.0.1, %"_ZN3ue215sort_and_uniqueISt6vectorINS_11TriggerInfoESaIS2_EEZNS_L27addInfixTriggerInstructionsES4_RNS_11RoseProgramEE3$_0EEvRT_T0_.exit.i.i" ]
   %call.i.i134.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %call.i.i.noexc.i unwind label %lpad93.i
 
@@ -9065,9 +9065,9 @@ _ZNSt10unique_ptrIN3ue221RoseInstrTriggerInfixESt14default_deleteIS1_EED2Ev.exit
   br i1 %cmp.i.not.i.i295, label %invoke.cont94.i, label %for.body.i.i282
 
 invoke.cont12.i:                                  ; preds = %cleanup74.i, %invoke.cont12.lr.ph.i
-  %triggers.i.sroa.0.0 = phi ptr [ null, %invoke.cont12.lr.ph.i ], [ %triggers.i.sroa.0.2, %cleanup74.i ]
-  %triggers.i.sroa.10.0 = phi ptr [ null, %invoke.cont12.lr.ph.i ], [ %triggers.i.sroa.10.2, %cleanup74.i ]
-  %triggers.i.sroa.16.0 = phi ptr [ null, %invoke.cont12.lr.ph.i ], [ %triggers.i.sroa.16.2, %cleanup74.i ]
+  %triggers.i.sroa.0.0 = phi ptr [ null, %invoke.cont12.lr.ph.i ], [ %triggers.i.sroa.0.1, %cleanup74.i ]
+  %triggers.i.sroa.10.0 = phi ptr [ null, %invoke.cont12.lr.ph.i ], [ %triggers.i.sroa.10.1, %cleanup74.i ]
+  %triggers.i.sroa.16.0 = phi ptr [ null, %invoke.cont12.lr.ph.i ], [ %triggers.i.sroa.16.1, %cleanup74.i ]
   %__begin1.sroa.0.0224.i = phi ptr [ %__begin1.sroa.0.0222.i, %invoke.cont12.lr.ph.i ], [ %__begin1.sroa.0.0.i276, %cleanup74.i ]
   %target.i.i.i275 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0224.i, i64 40
   %308 = load ptr, ptr %target.i.i.i275, align 8
@@ -9406,19 +9406,19 @@ _ZNSt6vectorIN3ue211TriggerInfoESaIS1_EE17_M_realloc_insertIJRKhRKjRjEEEvN9__gnu
   br label %cleanup74.i
 
 cleanup74.i:                                      ; preds = %if.then.i191.i, %_ZNSt6vectorIN3ue211TriggerInfoESaIS1_EE17_M_realloc_insertIJRKhRKjRjEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, %invoke.cont20.i, %invoke.cont17.i
-  %triggers.i.sroa.0.2 = phi ptr [ %triggers.i.sroa.0.0, %invoke.cont20.i ], [ %triggers.i.sroa.0.0, %invoke.cont17.i ], [ %call5.i.i.i.i291, %_ZNSt6vectorIN3ue211TriggerInfoESaIS1_EE17_M_realloc_insertIJRKhRKjRjEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %triggers.i.sroa.0.0, %if.then.i191.i ]
-  %triggers.i.sroa.10.2 = phi ptr [ %triggers.i.sroa.10.0, %invoke.cont20.i ], [ %triggers.i.sroa.10.0, %invoke.cont17.i ], [ %incdec.ptr.i286, %_ZNSt6vectorIN3ue211TriggerInfoESaIS1_EE17_M_realloc_insertIJRKhRKjRjEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %incdec.ptr.i.i, %if.then.i191.i ]
-  %triggers.i.sroa.16.2 = phi ptr [ %triggers.i.sroa.16.0, %invoke.cont20.i ], [ %triggers.i.sroa.16.0, %invoke.cont17.i ], [ %add.ptr30.i, %_ZNSt6vectorIN3ue211TriggerInfoESaIS1_EE17_M_realloc_insertIJRKhRKjRjEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %triggers.i.sroa.16.0, %if.then.i191.i ]
+  %triggers.i.sroa.0.1 = phi ptr [ %triggers.i.sroa.0.0, %invoke.cont20.i ], [ %triggers.i.sroa.0.0, %invoke.cont17.i ], [ %call5.i.i.i.i291, %_ZNSt6vectorIN3ue211TriggerInfoESaIS1_EE17_M_realloc_insertIJRKhRKjRjEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %triggers.i.sroa.0.0, %if.then.i191.i ]
+  %triggers.i.sroa.10.1 = phi ptr [ %triggers.i.sroa.10.0, %invoke.cont20.i ], [ %triggers.i.sroa.10.0, %invoke.cont17.i ], [ %incdec.ptr.i286, %_ZNSt6vectorIN3ue211TriggerInfoESaIS1_EE17_M_realloc_insertIJRKhRKjRjEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %incdec.ptr.i.i, %if.then.i191.i ]
+  %triggers.i.sroa.16.1 = phi ptr [ %triggers.i.sroa.16.0, %invoke.cont20.i ], [ %triggers.i.sroa.16.0, %invoke.cont17.i ], [ %add.ptr30.i, %_ZNSt6vectorIN3ue211TriggerInfoESaIS1_EE17_M_realloc_insertIJRKhRKjRjEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %triggers.i.sroa.16.0, %if.then.i191.i ]
   %__begin1.sroa.0.0.i276 = load ptr, ptr %__begin1.sroa.0.0224.i, align 8
   %cmp.i.i.i.i.not.i277 = icmp eq ptr %__begin1.sroa.0.0.i276, %m_header.i.i.i.i.i.i272
   br i1 %cmp.i.i.i.i.not.i277, label %for.cond.cleanup.i, label %invoke.cont12.i
 
 invoke.cont94.i:                                  ; preds = %_ZNSt10unique_ptrIN3ue221RoseInstrTriggerInfixESt14default_deleteIS1_EED2Ev.exit.i.i, %"_ZN3ue215sort_and_uniqueISt6vectorINS_11TriggerInfoESaIS2_EEZNS_L27addInfixTriggerInstructionsES4_RNS_11RoseProgramEE3$_0EEvRT_T0_.exit.i.i", %for.cond.cleanup.i
-  %tobool.not.i.i.i.i296 = icmp eq ptr %triggers.i.sroa.0.2, null
+  %tobool.not.i.i.i.i296 = icmp eq ptr %triggers.i.sroa.0.1, null
   br i1 %tobool.not.i.i.i.i296, label %invoke.cont36, label %if.then.i.i.i193.i
 
 if.then.i.i.i193.i:                               ; preds = %invoke.cont94.i
-  call void @_ZdlPv(ptr noundef nonnull %triggers.i.sroa.0.2) #26
+  call void @_ZdlPv(ptr noundef nonnull %triggers.i.sroa.0.1) #26
   br label %invoke.cont36
 
 lpad93.i:                                         ; preds = %for.body.i.i282
@@ -9428,11 +9428,11 @@ lpad93.i:                                         ; preds = %for.body.i.i282
 
 lpad93.body.i:                                    ; preds = %lpad93.i, %_ZNKSt14default_deleteIN3ue215RoseInstructionEEclEPS1_.exit.i13.i.i.i286, %lpad.i.i.i284
   %eh.lpad-body.i = phi { ptr, i32 } [ %340, %lpad93.i ], [ %305, %_ZNKSt14default_deleteIN3ue215RoseInstructionEEclEPS1_.exit.i13.i.i.i286 ], [ %305, %lpad.i.i.i284 ]
-  %tobool.not.i.i.i197.i = icmp eq ptr %triggers.i.sroa.0.2, null
+  %tobool.not.i.i.i197.i = icmp eq ptr %triggers.i.sroa.0.1, null
   br i1 %tobool.not.i.i.i197.i, label %ehcleanup86, label %if.then.i.i.i198.i
 
 if.then.i.i.i198.i:                               ; preds = %lpad93.body.i
-  call void @_ZdlPv(ptr noundef nonnull %triggers.i.sroa.0.2) #26
+  call void @_ZdlPv(ptr noundef nonnull %triggers.i.sroa.0.1) #26
   br label %ehcleanup86
 
 ehcleanup96.i:                                    ; preds = %lpad27.i.loopexit, %lpad27.i.loopexit.split-lp, %lpad41.i, %lpad24.i, %lpad19.i, %lpad11.i

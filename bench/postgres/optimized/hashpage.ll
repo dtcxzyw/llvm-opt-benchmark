@@ -1722,10 +1722,10 @@ BufferGetPage.exit137:                            ; preds = %33, %39
 
 60:                                               ; preds = %.lr.ph163, %147
   %indvars.iv176 = phi i64 [ 1, %.lr.ph163 ], [ %indvars.iv.next177, %147 ]
-  %.1160 = phi i32 [ %.0115, %.lr.ph163 ], [ %.3, %147 ]
-  %.1118159 = phi ptr [ %.0117, %.lr.ph163 ], [ %.3120, %147 ]
-  %.1124157 = phi i16 [ %.0123, %.lr.ph163 ], [ %.3126, %147 ]
-  %.1130156 = phi i64 [ %.0129, %.lr.ph163 ], [ %.3132, %147 ]
+  %.1160 = phi i32 [ %.0115, %.lr.ph163 ], [ %.2, %147 ]
+  %.1118159 = phi ptr [ %.0117, %.lr.ph163 ], [ %.2119, %147 ]
+  %.1124157 = phi i16 [ %.0123, %.lr.ph163 ], [ %.2125, %147 ]
+  %.1130156 = phi i64 [ %.0129, %.lr.ph163 ], [ %.2131, %147 ]
   store i8 0, ptr %13, align 1
   %61 = add nsw i64 %indvars.iv176, -1
   %62 = getelementptr [0 x %struct.ItemIdData], ptr %57, i64 0, i64 %61
@@ -1873,31 +1873,31 @@ log_split_page.exit:                              ; preds = %89, %99, %102, %Buf
   br label %BufferGetPage.exit139
 
 BufferGetPage.exit139:                            ; preds = %137, %131, %76
-  %.2131 = phi i64 [ %.1130156, %76 ], [ 0, %131 ], [ 0, %137 ]
-  %.2125 = phi i16 [ %.1124157, %76 ], [ 0, %131 ], [ 0, %137 ]
-  %.2119 = phi ptr [ %.1118159, %76 ], [ %136, %131 ], [ %142, %137 ]
-  %.2 = phi i32 [ %.1160, %76 ], [ %129, %131 ], [ %129, %137 ]
-  %143 = add i16 %.2125, 1
-  %144 = zext i16 %.2125 to i64
+  %.3132 = phi i64 [ %.1130156, %76 ], [ 0, %131 ], [ 0, %137 ]
+  %.3126 = phi i16 [ %.1124157, %76 ], [ 0, %131 ], [ 0, %137 ]
+  %.3120 = phi ptr [ %.1118159, %76 ], [ %136, %131 ], [ %142, %137 ]
+  %.3 = phi i32 [ %.1160, %76 ], [ %129, %131 ], [ %129, %137 ]
+  %143 = add i16 %.3126, 1
+  %144 = zext i16 %.3126 to i64
   %145 = getelementptr [408 x ptr], ptr %12, i64 0, i64 %144
   store ptr %77, ptr %145, align 8
-  %146 = add i64 %.2131, %83
+  %146 = add i64 %.3132, %83
   br label %147
 
 147:                                              ; preds = %BufferGetPage.exit139, %.thread, %70, %60
-  %.3132 = phi i64 [ %.1130156, %60 ], [ %.1130156, %70 ], [ %146, %BufferGetPage.exit139 ], [ %.1130156, %.thread ]
-  %.3126 = phi i16 [ %.1124157, %60 ], [ %.1124157, %70 ], [ %143, %BufferGetPage.exit139 ], [ %.1124157, %.thread ]
-  %.3120 = phi ptr [ %.1118159, %60 ], [ %.1118159, %70 ], [ %.2119, %BufferGetPage.exit139 ], [ %.1118159, %.thread ]
-  %.3 = phi i32 [ %.1160, %60 ], [ %.1160, %70 ], [ %.2, %BufferGetPage.exit139 ], [ %.1160, %.thread ]
+  %.2131 = phi i64 [ %.1130156, %60 ], [ %.1130156, %70 ], [ %146, %BufferGetPage.exit139 ], [ %.1130156, %.thread ]
+  %.2125 = phi i16 [ %.1124157, %60 ], [ %.1124157, %70 ], [ %143, %BufferGetPage.exit139 ], [ %.1124157, %.thread ]
+  %.2119 = phi ptr [ %.1118159, %60 ], [ %.1118159, %70 ], [ %.3120, %BufferGetPage.exit139 ], [ %.1118159, %.thread ]
+  %.2 = phi i32 [ %.1160, %60 ], [ %.1160, %70 ], [ %.3, %BufferGetPage.exit139 ], [ %.1160, %.thread ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180 = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
   br i1 %exitcond180, label %._crit_edge164, label %60, !llvm.loop !9
 
 ._crit_edge164:                                   ; preds = %147, %50
-  %.1130.lcssa = phi i64 [ %.0129, %50 ], [ %.3132, %147 ]
-  %.1124.lcssa = phi i16 [ %.0123, %50 ], [ %.3126, %147 ]
-  %.1118.lcssa = phi ptr [ %.0117, %50 ], [ %.3120, %147 ]
-  %.1.lcssa = phi i32 [ %.0115, %50 ], [ %.3, %147 ]
+  %.1130.lcssa = phi i64 [ %.0129, %50 ], [ %.2131, %147 ]
+  %.1124.lcssa = phi i16 [ %.0123, %50 ], [ %.2125, %147 ]
+  %.1118.lcssa = phi ptr [ %.0117, %50 ], [ %.2119, %147 ]
+  %.1.lcssa = phi i32 [ %.0115, %50 ], [ %.2, %147 ]
   %148 = getelementptr inbounds i8, ptr %.0121, i64 4
   %149 = load i32, ptr %148, align 4
   %150 = icmp eq i32 %.0, %4

@@ -3563,8 +3563,8 @@ Vec_StrAlloc.exit:                                ; preds = %Abc_Clock.exit, %29
 41:                                               ; preds = %.lr.ph, %204
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %204 ]
   %42 = phi ptr [ %37, %.lr.ph ], [ %205, %204 ]
-  %.0107 = phi i32 [ 0, %.lr.ph ], [ %.2, %204 ]
-  %.051106 = phi i32 [ %19, %.lr.ph ], [ %.253, %204 ]
+  %.0107 = phi i32 [ 0, %.lr.ph ], [ %.1, %204 ]
+  %.051106 = phi i32 [ %19, %.lr.ph ], [ %.152, %204 ]
   %.val68 = load ptr, ptr %36, align 8
   %43 = getelementptr i8, ptr %42, i64 8
   %.val69.val = load ptr, ptr %43, align 8
@@ -3910,7 +3910,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %Vec_PtrCleanSimInfo
   br label %195
 
 195:                                              ; preds = %Vec_PtrCleanSimInfo.exit, %147
-  %.152 = phi i32 [ %194, %Vec_PtrCleanSimInfo.exit ], [ %.051106, %147 ]
+  %.253 = phi i32 [ %194, %Vec_PtrCleanSimInfo.exit ], [ %.051106, %147 ]
   %196 = srem i32 %.0107, %19
   %197 = icmp eq i32 %196, 0
   %198 = zext i1 %197 to i32
@@ -3925,8 +3925,8 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %Vec_PtrCleanSimInfo
   br label %204
 
 204:                                              ; preds = %Vec_StrPush.exit90, %Vec_StrPush.exit, %Vec_StrPush.exit83, %195
-  %.253 = phi i32 [ %.051106, %Vec_StrPush.exit ], [ %.051106, %Vec_StrPush.exit83 ], [ %.051106, %Vec_StrPush.exit90 ], [ %.152, %195 ]
-  %.2 = phi i32 [ %.0107, %Vec_StrPush.exit ], [ %.0107, %Vec_StrPush.exit83 ], [ %.0107, %Vec_StrPush.exit90 ], [ %203, %195 ]
+  %.152 = phi i32 [ %.051106, %Vec_StrPush.exit ], [ %.051106, %Vec_StrPush.exit83 ], [ %.051106, %Vec_StrPush.exit90 ], [ %.253, %195 ]
+  %.1 = phi i32 [ %.0107, %Vec_StrPush.exit ], [ %.0107, %Vec_StrPush.exit83 ], [ %.0107, %Vec_StrPush.exit90 ], [ %203, %195 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %205 = load ptr, ptr %23, align 8
   %206 = getelementptr i8, ptr %205, i64 4
@@ -3936,7 +3936,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %Vec_PtrCleanSimInfo
   br i1 %208, label %41, label %.critedge.loopexit, !llvm.loop !20
 
 .critedge.loopexit:                               ; preds = %204, %41
-  %.0.lcssa.ph = phi i32 [ %.0107, %41 ], [ %.2, %204 ]
+  %.0.lcssa.ph = phi i32 [ %.0107, %41 ], [ %.1, %204 ]
   %209 = add nsw i32 %.0.lcssa.ph, -1
   br label %.critedge
 

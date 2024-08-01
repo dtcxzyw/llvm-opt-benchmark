@@ -294,8 +294,8 @@ if.else.i.i:                                      ; preds = %if.end.i
   store i16 %cond.i.i, ptr %events18.i.i, align 4
   %cmp19.i.i = icmp sgt i32 %.sink.i.i, -1
   %narrow.i.i = and i1 %tobool.not.i.i, %cmp19.i.i
-  %npfd.0.i.i = zext i1 %narrow.i.i to i64
-  %arrayidx30.i.i = getelementptr inbounds [2 x %struct.pollfd], ptr %pfds.i.i, i64 0, i64 %npfd.0.i.i
+  %npfd.1.i.i = zext i1 %narrow.i.i to i64
+  %arrayidx30.i.i = getelementptr inbounds [2 x %struct.pollfd], ptr %pfds.i.i, i64 0, i64 %npfd.1.i.i
   store i32 %.sink.i7.i, ptr %arrayidx30.i.i, align 8
   %10 = shl nuw nsw i8 %bf.clear.i11, 2
   %conv34.i.i = zext nneg i8 %10 to i16
@@ -323,7 +323,7 @@ poll_two_descriptors.exit.thread16:               ; preds = %lor.rhs.i.i
   br label %return
 
 if.end60.i.i:                                     ; preds = %lor.rhs.i.i, %if.end48.i.i, %land.lhs.true39.i.i, %if.then.i.i
-  %npfd.135.i.i = phi i64 [ 1, %if.end48.i.i ], [ 0, %lor.rhs.i.i ], [ 1, %if.then.i.i ], [ %inc46.mux.i.i, %land.lhs.true39.i.i ]
+  %npfd.035.i.i = phi i64 [ 1, %if.end48.i.i ], [ 0, %lor.rhs.i.i ], [ 1, %if.then.i.i ], [ %inc46.mux.i.i, %land.lhs.true39.i.i ]
   br i1 %cmp61.not.i.i, label %if.end64.i.i, label %if.then63.i.i
 
 if.then63.i.i:                                    ; preds = %if.end60.i.i
@@ -335,7 +335,7 @@ if.end64.i.i:                                     ; preds = %if.then63.i.i, %if.
   br i1 %cmp5.i.not.i30.not.i.i, label %do.body.us.i.i, label %do.body.i.i
 
 do.body.us.i.i:                                   ; preds = %if.end64.i.i, %land.rhs.us.i.i
-  %call81.us.i.i = call i32 @poll(ptr noundef nonnull %pfds.i.i, i64 noundef %npfd.135.i.i, i32 noundef -1) #10
+  %call81.us.i.i = call i32 @poll(ptr noundef nonnull %pfds.i.i, i64 noundef %npfd.035.i.i, i32 noundef -1) #10
   %cmp82.us.i.i = icmp eq i32 %call81.us.i.i, -1
   br i1 %cmp82.us.i.i, label %land.rhs.us.i.i, label %do.end.i.i
 
@@ -350,7 +350,7 @@ do.body.i.i:                                      ; preds = %if.end64.i.i, %land
   %retval.sroa.0.0.i.i.i = call i64 @llvm.usub.sat.i64(i64 %retval.sroa.0.0.copyload.i, i64 %call70.i.i)
   %div.i.i = udiv i64 %retval.sroa.0.0.i.i.i, 1000000
   %conv79.i.i = trunc i64 %div.i.i to i32
-  %call81.i.i = call i32 @poll(ptr noundef nonnull %pfds.i.i, i64 noundef %npfd.135.i.i, i32 noundef %conv79.i.i) #10
+  %call81.i.i = call i32 @poll(ptr noundef nonnull %pfds.i.i, i64 noundef %npfd.035.i.i, i32 noundef %conv79.i.i) #10
   %cmp82.i.i = icmp eq i32 %call81.i.i, -1
   br i1 %cmp82.i.i, label %land.rhs.i.i, label %do.end.i.i
 

@@ -617,33 +617,33 @@ _ZL9dumpudataP8_IO_FILEP5Udata.exit.i:            ; preds = %201, %188
   %247 = getelementptr inbounds i8, ptr %245, i64 20
   %248 = load i32, ptr %247, align 4
   %249 = zext i32 %248 to i64
-  %.not.i.i39.i = icmp eq i32 %248, 0
-  br i1 %.not.i.i39.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i.i, label %.lr.ph.i.i40.i
+  %.not.i.i40.i = icmp eq i32 %248, 0
+  br i1 %.not.i.i40.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i.i, label %.lr.ph.i.i41.i
 
-.lr.ph.i.i40.i:                                   ; preds = %243, %254
-  %.07.i.i41.i = phi i64 [ %258, %254 ], [ 0, %243 ]
-  %250 = getelementptr inbounds i8, ptr %246, i64 %.07.i.i41.i
+.lr.ph.i.i41.i:                                   ; preds = %243, %254
+  %.07.i.i42.i = phi i64 [ %258, %254 ], [ 0, %243 ]
+  %250 = getelementptr inbounds i8, ptr %246, i64 %.07.i.i42.i
   %251 = load i8, ptr %250, align 1
-  %.fr.i.i42.i = freeze i8 %251
-  %252 = icmp sgt i8 %.fr.i.i42.i, 31
-  br i1 %252, label %switch.early.test.i.i44.i, label %254
+  %.fr.i.i43.i = freeze i8 %251
+  %252 = icmp sgt i8 %.fr.i.i43.i, 31
+  br i1 %252, label %switch.early.test.i.i45.i, label %254
 
-switch.early.test.i.i44.i:                        ; preds = %.lr.ph.i.i40.i
-  switch i8 %.fr.i.i42.i, label %253 [
+switch.early.test.i.i45.i:                        ; preds = %.lr.ph.i.i41.i
+  switch i8 %.fr.i.i43.i, label %253 [
     i8 92, label %254
     i8 34, label %254
   ]
 
-253:                                              ; preds = %switch.early.test.i.i44.i
+253:                                              ; preds = %switch.early.test.i.i45.i
   br label %254
 
-254:                                              ; preds = %253, %switch.early.test.i.i44.i, %switch.early.test.i.i44.i, %.lr.ph.i.i40.i
-  %255 = phi i8 [ %.fr.i.i42.i, %253 ], [ 63, %switch.early.test.i.i44.i ], [ 63, %.lr.ph.i.i40.i ], [ 63, %switch.early.test.i.i44.i ]
+254:                                              ; preds = %253, %switch.early.test.i.i45.i, %switch.early.test.i.i45.i, %.lr.ph.i.i41.i
+  %255 = phi i8 [ %.fr.i.i43.i, %253 ], [ 63, %switch.early.test.i.i45.i ], [ 63, %.lr.ph.i.i41.i ], [ 63, %switch.early.test.i.i45.i ]
   %256 = zext nneg i8 %255 to i32
   %257 = tail call i32 @fputc(i32 noundef %256, ptr noundef %0)
-  %258 = add nuw nsw i64 %.07.i.i41.i, 1
-  %exitcond.not.i.i43.i = icmp eq i64 %258, %249
-  br i1 %exitcond.not.i.i43.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i.i, label %.lr.ph.i.i40.i, !llvm.loop !7
+  %258 = add nuw nsw i64 %.07.i.i42.i, 1
+  %exitcond.not.i.i44.i = icmp eq i64 %258, %249
+  br i1 %exitcond.not.i.i44.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i.i, label %.lr.ph.i.i41.i, !llvm.loop !7
 
 _ZL14dumpstringdataP8_IO_FILEPKcm.exit.i.i:       ; preds = %254, %243
   %259 = getelementptr inbounds i8, ptr %240, i64 164
@@ -707,7 +707,7 @@ _ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i36.i:  ; preds = %285, %267
   br i1 %291, label %.lr.ph131.i.i, label %._crit_edge.i38.i
 
 .lr.ph131.i.i:                                    ; preds = %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i36.i, %382
-  %.081130.i.i = phi ptr [ %.2.i.i, %382 ], [ %287, %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i36.i ]
+  %.081130.i.i = phi ptr [ %.1.i39.i, %382 ], [ %287, %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i36.i ]
   %.082129.i.i = phi i1 [ %.183.i.i, %382 ], [ true, %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i36.i ]
   %.084128.i.i = phi ptr [ %383, %382 ], [ %289, %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i36.i ]
   %292 = getelementptr inbounds i8, ptr %.084128.i.i, i64 12
@@ -721,19 +721,19 @@ _ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i36.i:  ; preds = %285, %267
   br i1 %296, label %.lr.ph125.i.i, label %.critedge.i.i
 
 .lr.ph125.i.i:                                    ; preds = %.preheader.i.i, %299
-  %.1124.i.i = phi ptr [ %300, %299 ], [ %.081130.i.i, %.preheader.i.i ]
-  %297 = getelementptr inbounds i8, ptr %.1124.i.i, i64 48
+  %.2124.i.i = phi ptr [ %300, %299 ], [ %.081130.i.i, %.preheader.i.i ]
+  %297 = getelementptr inbounds i8, ptr %.2124.i.i, i64 48
   %298 = load ptr, ptr %297, align 8
   %.not98.i.i = icmp ult ptr %.084128.i.i, %298
   br i1 %.not98.i.i, label %.critedge.i.i, label %299
 
 299:                                              ; preds = %.lr.ph125.i.i
-  %300 = getelementptr inbounds i8, ptr %.1124.i.i, i64 40
+  %300 = getelementptr inbounds i8, ptr %.2124.i.i, i64 40
   %301 = icmp ult ptr %300, %295
   br i1 %301, label %.lr.ph125.i.i, label %.critedge.i.i, !llvm.loop !11
 
 .critedge.i.i:                                    ; preds = %299, %.lr.ph125.i.i, %.preheader.i.i
-  %.1.lcssa.i.i = phi ptr [ %.081130.i.i, %.preheader.i.i ], [ %300, %299 ], [ %.1124.i.i, %.lr.ph125.i.i ]
+  %.2.lcssa.i.i = phi ptr [ %.081130.i.i, %.preheader.i.i ], [ %300, %299 ], [ %.2124.i.i, %.lr.ph125.i.i ]
   br i1 %.082129.i.i, label %304, label %302
 
 302:                                              ; preds = %.critedge.i.i
@@ -741,7 +741,7 @@ _ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i36.i:  ; preds = %285, %267
   br label %304
 
 304:                                              ; preds = %302, %.critedge.i.i
-  %305 = getelementptr inbounds i8, ptr %.1.lcssa.i.i, i64 8
+  %305 = getelementptr inbounds i8, ptr %.2.lcssa.i.i, i64 8
   %306 = load ptr, ptr %305, align 8
   %307 = icmp eq ptr %.084128.i.i, %306
   br i1 %307, label %308, label %342
@@ -830,7 +830,7 @@ _ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i:    ; preds = %331, %322, %316
 350:                                              ; preds = %346
   %351 = getelementptr inbounds i8, ptr %347, i64 24
   %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr inbounds i8, ptr %.1.lcssa.i.i, i64 24
+  %353 = getelementptr inbounds i8, ptr %.2.lcssa.i.i, i64 24
   %354 = load ptr, ptr %353, align 8
   %.not100.i.i = icmp eq ptr %354, null
   br i1 %.not100.i.i, label %364, label %355
@@ -848,7 +848,7 @@ _ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i:    ; preds = %331, %322, %316
 
 364:                                              ; preds = %355, %350
   %365 = phi i32 [ %363, %355 ], [ 0, %350 ]
-  %366 = load ptr, ptr %.1.lcssa.i.i, align 8
+  %366 = load ptr, ptr %.2.lcssa.i.i, align 8
   %367 = ptrtoint ptr %.084128.i.i to i64
   %368 = ptrtoint ptr %366 to i64
   %369 = sub i64 %367, %368
@@ -878,7 +878,7 @@ _ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i:    ; preds = %331, %322, %316
 
 382:                                              ; preds = %380, %378, %375, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i, %312, %.lr.ph131.i.i
   %.183.i.i = phi i1 [ false, %312 ], [ false, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i ], [ false, %380 ], [ false, %375 ], [ false, %378 ], [ %.082129.i.i, %.lr.ph131.i.i ]
-  %.2.i.i = phi ptr [ %.1.lcssa.i.i, %312 ], [ %.1.lcssa.i.i, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i ], [ %.1.lcssa.i.i, %380 ], [ %.1.lcssa.i.i, %375 ], [ %.1.lcssa.i.i, %378 ], [ %.081130.i.i, %.lr.ph131.i.i ]
+  %.1.i39.i = phi ptr [ %.2.lcssa.i.i, %312 ], [ %.2.lcssa.i.i, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i ], [ %.2.lcssa.i.i, %380 ], [ %.2.lcssa.i.i, %375 ], [ %.2.lcssa.i.i, %378 ], [ %.081130.i.i, %.lr.ph131.i.i ]
   %383 = getelementptr inbounds i8, ptr %.084128.i.i, i64 16
   %384 = load ptr, ptr %262, align 8
   %385 = icmp ult ptr %383, %384
@@ -899,9 +899,9 @@ _ZL10dumpthreadP8_IO_FILEP9lua_State.exit.i:      ; preds = %._crit_edge.i38.i, 
   %.val17.i = load i32, ptr %388, align 4
   %389 = icmp ult i32 %.val17.i, 8
   %390 = add i32 %.val17.i, 8
-  %spec.select.i45.i = select i1 %389, i32 16, i32 %390
+  %spec.select.i46.i = select i1 %389, i32 16, i32 %390
   %391 = zext i8 %.val.i to i32
-  %392 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %391, i32 noundef %spec.select.i45.i) #8
+  %392 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %391, i32 noundef %spec.select.i46.i) #8
   br label %_ZL7dumpobjP8_IO_FILEP8GCObject.exit
 
 393:                                              ; preds = %3
@@ -933,8 +933,8 @@ _ZL10dumpthreadP8_IO_FILEP9lua_State.exit.i:      ; preds = %._crit_edge.i38.i, 
   %417 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %416, i32 noundef %413) #8
   %418 = getelementptr inbounds i8, ptr %2, i64 88
   %419 = load ptr, ptr %418, align 8
-  %.not.i46.i = icmp eq ptr %419, null
-  br i1 %.not.i46.i, label %443, label %420
+  %.not.i47.i = icmp eq ptr %419, null
+  br i1 %.not.i47.i, label %443, label %420
 
 420:                                              ; preds = %393
   %421 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 11, i64 1, ptr %0)
@@ -943,53 +943,53 @@ _ZL10dumpthreadP8_IO_FILEP9lua_State.exit.i:      ; preds = %._crit_edge.i38.i, 
   %424 = getelementptr inbounds i8, ptr %422, i64 20
   %425 = load i32, ptr %424, align 4
   %426 = zext i32 %425 to i64
-  %.not.i.i47.i = icmp eq i32 %425, 0
-  br i1 %.not.i.i47.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i52.i, label %.lr.ph.i.i48.i
+  %.not.i.i48.i = icmp eq i32 %425, 0
+  br i1 %.not.i.i48.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i, label %.lr.ph.i.i49.i
 
-.lr.ph.i.i48.i:                                   ; preds = %420, %431
-  %.07.i.i49.i = phi i64 [ %435, %431 ], [ 0, %420 ]
-  %427 = getelementptr inbounds i8, ptr %423, i64 %.07.i.i49.i
+.lr.ph.i.i49.i:                                   ; preds = %420, %431
+  %.07.i.i50.i = phi i64 [ %435, %431 ], [ 0, %420 ]
+  %427 = getelementptr inbounds i8, ptr %423, i64 %.07.i.i50.i
   %428 = load i8, ptr %427, align 1
-  %.fr.i.i50.i = freeze i8 %428
-  %429 = icmp sgt i8 %.fr.i.i50.i, 31
-  br i1 %429, label %switch.early.test.i.i66.i, label %431
+  %.fr.i.i51.i = freeze i8 %428
+  %429 = icmp sgt i8 %.fr.i.i51.i, 31
+  br i1 %429, label %switch.early.test.i.i67.i, label %431
 
-switch.early.test.i.i66.i:                        ; preds = %.lr.ph.i.i48.i
-  switch i8 %.fr.i.i50.i, label %430 [
+switch.early.test.i.i67.i:                        ; preds = %.lr.ph.i.i49.i
+  switch i8 %.fr.i.i51.i, label %430 [
     i8 92, label %431
     i8 34, label %431
   ]
 
-430:                                              ; preds = %switch.early.test.i.i66.i
+430:                                              ; preds = %switch.early.test.i.i67.i
   br label %431
 
-431:                                              ; preds = %430, %switch.early.test.i.i66.i, %switch.early.test.i.i66.i, %.lr.ph.i.i48.i
-  %432 = phi i8 [ %.fr.i.i50.i, %430 ], [ 63, %switch.early.test.i.i66.i ], [ 63, %.lr.ph.i.i48.i ], [ 63, %switch.early.test.i.i66.i ]
+431:                                              ; preds = %430, %switch.early.test.i.i67.i, %switch.early.test.i.i67.i, %.lr.ph.i.i49.i
+  %432 = phi i8 [ %.fr.i.i51.i, %430 ], [ 63, %switch.early.test.i.i67.i ], [ 63, %.lr.ph.i.i49.i ], [ 63, %switch.early.test.i.i67.i ]
   %433 = zext nneg i8 %432 to i32
   %434 = tail call i32 @fputc(i32 noundef %433, ptr noundef %0)
-  %435 = add nuw nsw i64 %.07.i.i49.i, 1
-  %exitcond.not.i.i51.i = icmp eq i64 %435, %426
-  br i1 %exitcond.not.i.i51.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i52.i, label %.lr.ph.i.i48.i, !llvm.loop !7
+  %435 = add nuw nsw i64 %.07.i.i50.i, 1
+  %exitcond.not.i.i52.i = icmp eq i64 %435, %426
+  br i1 %exitcond.not.i.i52.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i, label %.lr.ph.i.i49.i, !llvm.loop !7
 
-_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i52.i:     ; preds = %431, %420
+_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i:     ; preds = %431, %420
   %436 = getelementptr inbounds i8, ptr %2, i64 64
   %437 = load ptr, ptr %436, align 8
-  %.not35.i53.i = icmp eq ptr %437, null
-  br i1 %.not35.i53.i, label %440, label %438
+  %.not35.i54.i = icmp eq ptr %437, null
+  br i1 %.not35.i54.i, label %440, label %438
 
-438:                                              ; preds = %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i52.i
+438:                                              ; preds = %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i
   %439 = load i32, ptr %437, align 4
   br label %440
 
-440:                                              ; preds = %438, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i52.i
-  %441 = phi i32 [ %439, %438 ], [ 0, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i52.i ]
+440:                                              ; preds = %438, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i
+  %441 = phi i32 [ %439, %438 ], [ 0, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i ]
   %442 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %441) #8
   br label %443
 
 443:                                              ; preds = %440, %393
   %444 = load i32, ptr %399, align 8
-  %.not36.i54.i = icmp eq i32 %444, 0
-  br i1 %.not36.i54.i, label %463, label %445
+  %.not36.i55.i = icmp eq i32 %444, 0
+  br i1 %.not36.i55.i, label %463, label %445
 
 445:                                              ; preds = %443
   %446 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 14, i64 1, ptr %0)
@@ -998,19 +998,19 @@ _ZL14dumpstringdataP8_IO_FILEPKcm.exit.i52.i:     ; preds = %431, %420
   %449 = load i32, ptr %399, align 8
   %450 = sext i32 %449 to i64
   %.not.i41.i.i = icmp eq i32 %449, 0
-  br i1 %.not.i41.i.i, label %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i58.i, label %.lr.ph.i42.i.i
+  br i1 %.not.i41.i.i, label %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i59.i, label %.lr.ph.i42.i.i
 
 .lr.ph.i42.i.i:                                   ; preds = %445, %461
-  %.011.i.i55.i = phi i64 [ %462, %461 ], [ 0, %445 ]
-  %.0910.i.i56.i = phi i1 [ %.1.i.i57.i, %461 ], [ true, %445 ]
-  %451 = getelementptr inbounds %struct.lua_TValue, ptr %448, i64 %.011.i.i55.i
+  %.011.i.i56.i = phi i64 [ %462, %461 ], [ 0, %445 ]
+  %.0910.i.i57.i = phi i1 [ %.1.i.i58.i, %461 ], [ true, %445 ]
+  %451 = getelementptr inbounds %struct.lua_TValue, ptr %448, i64 %.011.i.i56.i
   %452 = getelementptr inbounds i8, ptr %451, i64 12
   %453 = load i32, ptr %452, align 4
   %454 = icmp sgt i32 %453, 4
   br i1 %454, label %455, label %461
 
 455:                                              ; preds = %.lr.ph.i42.i.i
-  br i1 %.0910.i.i56.i, label %458, label %456
+  br i1 %.0910.i.i57.i, label %458, label %456
 
 456:                                              ; preds = %455
   %457 = tail call i32 @fputc(i32 noundef 44, ptr noundef %0)
@@ -1022,16 +1022,16 @@ _ZL14dumpstringdataP8_IO_FILEPKcm.exit.i52.i:     ; preds = %431, %420
   br label %461
 
 461:                                              ; preds = %458, %.lr.ph.i42.i.i
-  %.1.i.i57.i = phi i1 [ false, %458 ], [ %.0910.i.i56.i, %.lr.ph.i42.i.i ]
-  %462 = add nuw i64 %.011.i.i55.i, 1
+  %.1.i.i58.i = phi i1 [ false, %458 ], [ %.0910.i.i57.i, %.lr.ph.i42.i.i ]
+  %462 = add nuw i64 %.011.i.i56.i, 1
   %exitcond.not.i43.i.i = icmp eq i64 %462, %450
-  br i1 %exitcond.not.i43.i.i, label %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i58.i, label %.lr.ph.i42.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i43.i.i, label %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i59.i, label %.lr.ph.i42.i.i, !llvm.loop !9
 
-_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i58.i:  ; preds = %461, %445
-  %fputc.i59.i = tail call i32 @fputc(i32 93, ptr %0)
+_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i59.i:  ; preds = %461, %445
+  %fputc.i60.i = tail call i32 @fputc(i32 93, ptr %0)
   br label %463
 
-463:                                              ; preds = %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i58.i, %443
+463:                                              ; preds = %_ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i59.i, %443
   %464 = load i32, ptr %397, align 4
   %.not37.i.i = icmp eq i32 %464, 0
   br i1 %.not37.i.i, label %_ZL9dumpprotoP8_IO_FILEP5Proto.exit.i, label %465
@@ -1040,16 +1040,16 @@ _ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i58.i:  ; preds = %461, %445
   %466 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 11, i64 1, ptr %0)
   %467 = load i32, ptr %397, align 4
   %468 = icmp sgt i32 %467, 0
-  br i1 %468, label %.lr.ph.i62.i, label %._crit_edge.i60.i
+  br i1 %468, label %.lr.ph.i63.i, label %._crit_edge.i61.i
 
-.lr.ph.i62.i:                                     ; preds = %465
+.lr.ph.i63.i:                                     ; preds = %465
   %469 = getelementptr inbounds i8, ptr %2, i64 24
   br label %470
 
-470:                                              ; preds = %473, %.lr.ph.i62.i
-  %indvars.iv.i63.i = phi i64 [ 0, %.lr.ph.i62.i ], [ %indvars.iv.next.i65.i, %473 ]
-  %.not40.i64.i = icmp eq i64 %indvars.iv.i63.i, 0
-  br i1 %.not40.i64.i, label %473, label %471
+470:                                              ; preds = %473, %.lr.ph.i63.i
+  %indvars.iv.i64.i = phi i64 [ 0, %.lr.ph.i63.i ], [ %indvars.iv.next.i66.i, %473 ]
+  %.not40.i65.i = icmp eq i64 %indvars.iv.i64.i, 0
+  br i1 %.not40.i65.i, label %473, label %471
 
 471:                                              ; preds = %470
   %472 = tail call i32 @fputc(i32 noundef 44, ptr noundef %0)
@@ -1057,20 +1057,20 @@ _ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i58.i:  ; preds = %461, %445
 
 473:                                              ; preds = %471, %470
   %474 = load ptr, ptr %469, align 8
-  %475 = getelementptr inbounds ptr, ptr %474, i64 %indvars.iv.i63.i
+  %475 = getelementptr inbounds ptr, ptr %474, i64 %indvars.iv.i64.i
   %476 = load ptr, ptr %475, align 8
   %477 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef %476) #8
-  %indvars.iv.next.i65.i = add nuw nsw i64 %indvars.iv.i63.i, 1
+  %indvars.iv.next.i66.i = add nuw nsw i64 %indvars.iv.i64.i, 1
   %478 = load i32, ptr %397, align 4
   %479 = sext i32 %478 to i64
-  %480 = icmp slt i64 %indvars.iv.next.i65.i, %479
-  br i1 %480, label %470, label %._crit_edge.i60.i, !llvm.loop !13
+  %480 = icmp slt i64 %indvars.iv.next.i66.i, %479
+  br i1 %480, label %470, label %._crit_edge.i61.i, !llvm.loop !13
 
-._crit_edge.i60.i:                                ; preds = %473, %465
-  %fputc38.i61.i = tail call i32 @fputc(i32 93, ptr %0)
+._crit_edge.i61.i:                                ; preds = %473, %465
+  %fputc38.i62.i = tail call i32 @fputc(i32 93, ptr %0)
   br label %_ZL9dumpprotoP8_IO_FILEP5Proto.exit.i
 
-_ZL9dumpprotoP8_IO_FILEP5Proto.exit.i:            ; preds = %._crit_edge.i60.i, %463
+_ZL9dumpprotoP8_IO_FILEP5Proto.exit.i:            ; preds = %._crit_edge.i61.i, %463
   %fputc39.i.i = tail call i32 @fputc(i32 125, ptr %0)
   br label %_ZL7dumpobjP8_IO_FILEP8GCObject.exit
 
@@ -1081,8 +1081,8 @@ _ZL9dumpprotoP8_IO_FILEP5Proto.exit.i:            ; preds = %._crit_edge.i60.i, 
   %485 = getelementptr inbounds i8, ptr %2, i64 8
   %486 = load ptr, ptr %485, align 8
   %487 = getelementptr inbounds i8, ptr %2, i64 16
-  %.not.i67.i = icmp eq ptr %486, %487
-  %488 = select i1 %.not.i67.i, ptr @.str.45, ptr @.str.44
+  %.not.i68.i = icmp eq ptr %486, %487
+  %488 = select i1 %.not.i68.i, ptr @.str.45, ptr @.str.44
   %489 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.43, i32 noundef %484, i32 noundef 40, ptr noundef nonnull %488) #8
   %490 = load ptr, ptr %485, align 8
   %491 = getelementptr inbounds i8, ptr %490, i64 12
@@ -1098,7 +1098,7 @@ _ZL9dumpprotoP8_IO_FILEP5Proto.exit.i:            ; preds = %._crit_edge.i60.i, 
   br label %_ZL9dumpupvalP8_IO_FILEP5UpVal.exit.i
 
 _ZL9dumpupvalP8_IO_FILEP5UpVal.exit.i:            ; preds = %494, %481
-  %fputc.i68.i = tail call i32 @fputc(i32 125, ptr %0)
+  %fputc.i69.i = tail call i32 @fputc(i32 125, ptr %0)
   br label %_ZL7dumpobjP8_IO_FILEP8GCObject.exit
 
 _ZL7dumpobjP8_IO_FILEP8GCObject.exit:             ; preds = %3, %_ZL10dumpstringP8_IO_FILEP7TString.exit.i, %_ZL9dumptableP8_IO_FILEP5Table.exit.i, %_ZL11dumpclosureP8_IO_FILEP7Closure.exit.i, %_ZL9dumpudataP8_IO_FILEP5Udata.exit.i, %_ZL10dumpthreadP8_IO_FILEP9lua_State.exit.i, %386, %_ZL9dumpprotoP8_IO_FILEP5Proto.exit.i, %_ZL9dumpupvalP8_IO_FILEP5UpVal.exit.i

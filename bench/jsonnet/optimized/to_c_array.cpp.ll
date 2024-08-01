@@ -137,12 +137,12 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture
           to label %44 unwind label %.loopexit.split-lp
 
 44:                                               ; preds = %42, %24
-  %.08 = phi i32 [ 1, %24 ], [ 0, %42 ]
+  %.2 = phi i32 [ 1, %24 ], [ 0, %42 ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %4) #5
   br label %45
 
 45:                                               ; preds = %14, %44
-  %.19 = phi i32 [ %.08, %44 ], [ 1, %14 ]
+  %.19 = phi i32 [ %.2, %44 ], [ 1, %14 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #5
   br label %47
 
@@ -152,8 +152,8 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture
   resume { ptr, i32 } %.pn
 
 47:                                               ; preds = %45, %7
-  %.2 = phi i32 [ 1, %7 ], [ %.19, %45 ]
-  ret i32 %.2
+  %.08 = phi i32 [ 1, %7 ], [ %.19, %45 ]
+  ret i32 %.08
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0

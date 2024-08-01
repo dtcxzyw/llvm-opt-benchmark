@@ -1947,7 +1947,7 @@ entry:
 for.cond:                                         ; preds = %if.end61, %entry
   %1 = phi i32 [ %.pre33, %entry ], [ %12, %if.end61 ]
   %2 = phi i32 [ %.pre, %entry ], [ %add42, %if.end61 ]
-  %start.0 = phi i32 [ %0, %entry ], [ %start.2, %if.end61 ]
+  %start.0 = phi i32 [ %0, %entry ], [ %start.1, %if.end61 ]
   %add = add nsw i32 %2, 1
   %cmp.not = icmp slt i32 %add, %1
   br i1 %cmp.not, label %if.end33, label %if.then
@@ -2028,7 +2028,7 @@ if.end30:                                         ; preds = %socket_read.exit
 if.end33:                                         ; preds = %if.end30, %for.cond
   %11 = phi i32 [ %.pre34, %if.end30 ], [ %2, %for.cond ]
   %12 = phi i32 [ %add32, %if.end30 ], [ %1, %for.cond ]
-  %start.2 = phi i32 [ 0, %if.end30 ], [ %start.0, %for.cond ]
+  %start.1 = phi i32 [ 0, %if.end30 ], [ %start.0, %for.cond ]
   %idxprom = sext i32 %11 to i64
   %arrayidx = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 %idxprom
   %13 = load i8, ptr %arrayidx, align 1
@@ -4164,7 +4164,7 @@ cond.end148:                                      ; preds = %if.else136.tail, %c
   br label %if.end156
 
 if.end156:                                        ; preds = %next_arg.exit189.tail, %cond.end148
-  %resp.1 = phi i32 [ %., %cond.end148 ], [ 0, %next_arg.exit189.tail ]
+  %resp.0 = phi i32 [ %., %cond.end148 ], [ 0, %next_arg.exit189.tail ]
   %call158 = tail call fastcc i32 @parse_response_code(ptr noundef %ctx, ptr noundef nonnull %cb119, ptr noundef %115)
   %data164 = getelementptr inbounds i8, ptr %94, i64 24
   %141 = load ptr, ptr %data164, align 8
@@ -4183,7 +4183,7 @@ if.end174:                                        ; preds = %if.end23.i109, %if.
   br i1 %tobool.not, label %if.end, label %return
 
 return.loopexit.split.loop.exit270:               ; preds = %if.end156
-  %spec.select.le = tail call i32 @llvm.umax.i32(i32 %call158, i32 %resp.1)
+  %spec.select.le = tail call i32 @llvm.umax.i32(i32 %call158, i32 %resp.0)
   br label %return
 
 return:                                           ; preds = %if.end174, %if.then27, %socket_write.exit, %if.then77, %if.end99, %return.loopexit.split.loop.exit270, %entry, %socket_write.exit152, %for.end, %if.else84, %if.then49, %if.else41, %if.then11, %if.then4

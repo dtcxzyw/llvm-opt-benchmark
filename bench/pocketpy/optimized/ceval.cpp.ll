@@ -799,9 +799,9 @@ define noundef zeroext i1 @_ZN4pkpy2VM5py_ltEPNS_8PyObjectES2_(ptr noundef nonnu
   br label %50
 
 50:                                               ; preds = %49, %39
-  %.1 = phi ptr [ %48, %39 ], [ %.0, %49 ]
+  %.2 = phi ptr [ %48, %39 ], [ %.0, %49 ]
   %51 = load ptr, ptr %34, align 8
-  %52 = icmp eq ptr %.1, %51
+  %52 = icmp eq ptr %.2, %51
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
@@ -809,10 +809,10 @@ define noundef zeroext i1 @_ZN4pkpy2VM5py_ltEPNS_8PyObjectES2_(ptr noundef nonnu
   br label %54
 
 54:                                               ; preds = %50, %53, %33
-  %.2 = phi ptr [ %.1, %53 ], [ %.1, %50 ], [ %.0, %33 ]
+  %.1 = phi ptr [ %.2, %53 ], [ %.2, %50 ], [ %.0, %33 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 264528
   %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %.2, %56
+  %57 = icmp eq ptr %.1, %56
   ret i1 %57
 }
 
@@ -907,9 +907,9 @@ define noundef zeroext i1 @_ZN4pkpy2VM5py_leEPNS_8PyObjectES2_(ptr noundef nonnu
   br label %50
 
 50:                                               ; preds = %49, %39
-  %.1 = phi ptr [ %48, %39 ], [ %.0, %49 ]
+  %.2 = phi ptr [ %48, %39 ], [ %.0, %49 ]
   %51 = load ptr, ptr %34, align 8
-  %52 = icmp eq ptr %.1, %51
+  %52 = icmp eq ptr %.2, %51
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
@@ -917,10 +917,10 @@ define noundef zeroext i1 @_ZN4pkpy2VM5py_leEPNS_8PyObjectES2_(ptr noundef nonnu
   br label %54
 
 54:                                               ; preds = %50, %53, %33
-  %.2 = phi ptr [ %.1, %53 ], [ %.1, %50 ], [ %.0, %33 ]
+  %.1 = phi ptr [ %.2, %53 ], [ %.2, %50 ], [ %.0, %33 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 264528
   %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %.2, %56
+  %57 = icmp eq ptr %.1, %56
   ret i1 %57
 }
 
@@ -1011,9 +1011,9 @@ define noundef zeroext i1 @_ZN4pkpy2VM5py_gtEPNS_8PyObjectES2_(ptr noundef nonnu
   br label %50
 
 50:                                               ; preds = %49, %39
-  %.1 = phi ptr [ %48, %39 ], [ %.0, %49 ]
+  %.2 = phi ptr [ %48, %39 ], [ %.0, %49 ]
   %51 = load ptr, ptr %34, align 8
-  %52 = icmp eq ptr %.1, %51
+  %52 = icmp eq ptr %.2, %51
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
@@ -1021,10 +1021,10 @@ define noundef zeroext i1 @_ZN4pkpy2VM5py_gtEPNS_8PyObjectES2_(ptr noundef nonnu
   br label %54
 
 54:                                               ; preds = %50, %53, %33
-  %.2 = phi ptr [ %.1, %53 ], [ %.1, %50 ], [ %.0, %33 ]
+  %.1 = phi ptr [ %.2, %53 ], [ %.2, %50 ], [ %.0, %33 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 264528
   %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %.2, %56
+  %57 = icmp eq ptr %.1, %56
   ret i1 %57
 }
 
@@ -1115,9 +1115,9 @@ define noundef zeroext i1 @_ZN4pkpy2VM5py_geEPNS_8PyObjectES2_(ptr noundef nonnu
   br label %50
 
 50:                                               ; preds = %49, %39
-  %.1 = phi ptr [ %48, %39 ], [ %.0, %49 ]
+  %.2 = phi ptr [ %48, %39 ], [ %.0, %49 ]
   %51 = load ptr, ptr %34, align 8
-  %52 = icmp eq ptr %.1, %51
+  %52 = icmp eq ptr %.2, %51
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
@@ -1125,10 +1125,10 @@ define noundef zeroext i1 @_ZN4pkpy2VM5py_geEPNS_8PyObjectES2_(ptr noundef nonnu
   br label %54
 
 54:                                               ; preds = %50, %53, %33
-  %.2 = phi ptr [ %.1, %53 ], [ %.1, %50 ], [ %.0, %33 ]
+  %.1 = phi ptr [ %.2, %53 ], [ %.2, %50 ], [ %.0, %33 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 264528
   %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %.2, %56
+  %57 = icmp eq ptr %.1, %56
   ret i1 %57
 }
 
@@ -1375,7 +1375,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   br label %.body
 
 .loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %4850, %201
-  %.1.ph.ph.ph.ph = phi ptr [ %.03554, %201 ], [ %.2, %4850 ]
+  %.1.ph.ph.ph.ph = phi ptr [ %.03554, %201 ], [ %.3, %4850 ]
   %lpad.loopexit.split-lp4980 = landingpad { ptr, i32 }
           catch ptr @_ZTIN4pkpy16HandledExceptionE
           catch ptr @_ZTIN4pkpy18UnhandledExceptionE
@@ -1383,16 +1383,16 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   br label %.body
 
 .backedge4983:                                    ; preds = %.backedge4983.backedge, %.backedge4983.preheader
-  %.2 = phi ptr [ %.03554, %.backedge4983.preheader ], [ %.2.be, %.backedge4983.backedge ]
-  %202 = getelementptr inbounds i8, ptr %.2, i64 16
+  %.3 = phi ptr [ %.03554, %.backedge4983.preheader ], [ %.3.be, %.backedge4983.backedge ]
+  %202 = getelementptr inbounds i8, ptr %.3, i64 16
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 48
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %.2, i64 4
+  %206 = getelementptr inbounds i8, ptr %.3, i64 4
   %207 = load i32, ptr %206, align 4
   %208 = add nsw i32 %207, 1
   store i32 %208, ptr %206, align 4
-  store i32 %207, ptr %.2, align 8
+  store i32 %207, ptr %.3, align 8
   %209 = sext i32 %207 to i64
   %210 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %209
   %.sroa.0623.0.copyload = load i8, ptr %210, align 2
@@ -1412,16 +1412,16 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1201 = zext i8 %.sroa.0623.0.copyload to i32
   %.sroa.293.0.insert.insert2073 = or disjoint i32 %.sroa.2932074.0.insert.shift2942, %.sroa.0623.0.insert.ext1201
   %.sroa.0623.0.insert.insert1203 = or disjoint i32 %.sroa.293.0.insert.insert2073, %.sroa.293.0.insert.shift2071
-  invoke void %211(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1203)
+  invoke void %211(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1203)
           to label %213 unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit
 
 213:                                              ; preds = %212, %.backedge4983
-  %214 = getelementptr inbounds i8, ptr %.2, i64 24
-  %215 = getelementptr inbounds i8, ptr %.2, i64 48
+  %214 = getelementptr inbounds i8, ptr %.3, i64 24
+  %215 = getelementptr inbounds i8, ptr %.3, i64 48
   %216 = getelementptr inbounds i8, ptr %203, i64 224
   %217 = getelementptr inbounds i8, ptr %203, i64 184
-  %218 = getelementptr inbounds i8, ptr %.2, i64 32
-  %219 = getelementptr inbounds i8, ptr %.2, i64 40
+  %218 = getelementptr inbounds i8, ptr %.3, i64 32
+  %219 = getelementptr inbounds i8, ptr %.3, i64 40
   %220 = getelementptr inbounds i8, ptr %203, i64 328
   %221 = getelementptr inbounds i8, ptr %203, i64 342
   %222 = getelementptr inbounds i8, ptr %203, i64 344
@@ -1560,7 +1560,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %227 = load i32, ptr %206, align 4
   %228 = add nsw i32 %227, 1
   store i32 %228, ptr %206, align 4
-  store i32 %227, ptr %.2, align 8
+  store i32 %227, ptr %.3, align 8
   %229 = sext i32 %227 to i64
   %230 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %229
   %.sroa.0623.0.copyload624 = load i8, ptr %230, align 2
@@ -1580,7 +1580,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1198 = zext i8 %.sroa.0623.0.copyload624 to i32
   %.sroa.293.0.insert.insert2069 = or disjoint i32 %.sroa.2932074.0.insert.shift2938, %.sroa.0623.0.insert.ext1198
   %.sroa.0623.0.insert.insert1200 = or disjoint i32 %.sroa.293.0.insert.insert2069, %.sroa.293.0.insert.shift2067
-  invoke void %231(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1200)
+  invoke void %231(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1200)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 233:                                              ; preds = %.backedge
@@ -1590,7 +1590,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %236 = load i32, ptr %206, align 4
   %237 = add nsw i32 %236, 1
   store i32 %237, ptr %206, align 4
-  store i32 %236, ptr %.2, align 8
+  store i32 %236, ptr %.3, align 8
   %238 = sext i32 %236 to i64
   %239 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %238
   %.sroa.0623.0.copyload625 = load i8, ptr %239, align 2
@@ -1610,7 +1610,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1195 = zext i8 %.sroa.0623.0.copyload625 to i32
   %.sroa.293.0.insert.insert2065 = or disjoint i32 %.sroa.2932074.0.insert.shift2934, %.sroa.0623.0.insert.ext1195
   %.sroa.0623.0.insert.insert1197 = or disjoint i32 %.sroa.293.0.insert.insert2065, %.sroa.293.0.insert.shift2063
-  invoke void %240(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1197)
+  invoke void %240(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1197)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 242:                                              ; preds = %.backedge
@@ -1623,7 +1623,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %247 = load i32, ptr %206, align 4
   %248 = add nsw i32 %247, 1
   store i32 %248, ptr %206, align 4
-  store i32 %247, ptr %.2, align 8
+  store i32 %247, ptr %.3, align 8
   %249 = sext i32 %247 to i64
   %250 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %249
   %.sroa.0623.0.copyload626 = load i8, ptr %250, align 2
@@ -1643,7 +1643,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1192 = zext i8 %.sroa.0623.0.copyload626 to i32
   %.sroa.293.0.insert.insert2061 = or disjoint i32 %.sroa.2932074.0.insert.shift2930, %.sroa.0623.0.insert.ext1192
   %.sroa.0623.0.insert.insert1194 = or disjoint i32 %.sroa.293.0.insert.insert2061, %.sroa.293.0.insert.shift2059
-  invoke void %251(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1194)
+  invoke void %251(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1194)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 253:                                              ; preds = %.backedge
@@ -1655,7 +1655,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %258 = load i32, ptr %206, align 4
   %259 = add nsw i32 %258, 1
   store i32 %259, ptr %206, align 4
-  store i32 %258, ptr %.2, align 8
+  store i32 %258, ptr %.3, align 8
   %260 = sext i32 %258 to i64
   %261 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %260
   %.sroa.0623.0.copyload627 = load i8, ptr %261, align 2
@@ -1675,7 +1675,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1189 = zext i8 %.sroa.0623.0.copyload627 to i32
   %.sroa.293.0.insert.insert2057 = or disjoint i32 %.sroa.2932074.0.insert.shift2926, %.sroa.0623.0.insert.ext1189
   %.sroa.0623.0.insert.insert1191 = or disjoint i32 %.sroa.293.0.insert.insert2057, %.sroa.293.0.insert.shift2055
-  invoke void %262(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1191)
+  invoke void %262(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1191)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 264:                                              ; preds = %.backedge
@@ -1696,7 +1696,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %276 = load i32, ptr %206, align 4
   %277 = add nsw i32 %276, 1
   store i32 %277, ptr %206, align 4
-  store i32 %276, ptr %.2, align 8
+  store i32 %276, ptr %.3, align 8
   %278 = sext i32 %276 to i64
   %279 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %278
   %.sroa.0623.0.copyload628 = load i8, ptr %279, align 2
@@ -1716,7 +1716,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1186 = zext i8 %.sroa.0623.0.copyload628 to i32
   %.sroa.293.0.insert.insert2053 = or disjoint i32 %.sroa.2932074.0.insert.shift2922, %.sroa.0623.0.insert.ext1186
   %.sroa.0623.0.insert.insert1188 = or disjoint i32 %.sroa.293.0.insert.insert2053, %.sroa.293.0.insert.shift2051
-  invoke void %280(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1188)
+  invoke void %280(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1188)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 282:                                              ; preds = %.backedge
@@ -1776,7 +1776,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %301 = load i32, ptr %206, align 4
   %302 = add nsw i32 %301, 1
   store i32 %302, ptr %206, align 4
-  store i32 %301, ptr %.2, align 8
+  store i32 %301, ptr %.3, align 8
   %303 = sext i32 %301 to i64
   %304 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %303
   %.sroa.0623.0.copyload629 = load i8, ptr %304, align 2
@@ -1796,7 +1796,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1183 = zext i8 %.sroa.0623.0.copyload629 to i32
   %.sroa.293.0.insert.insert2049 = or disjoint i32 %.sroa.2932074.0.insert.shift2918, %.sroa.0623.0.insert.ext1183
   %.sroa.0623.0.insert.insert1185 = or disjoint i32 %.sroa.293.0.insert.insert2049, %.sroa.293.0.insert.shift2047
-  invoke void %305(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1185)
+  invoke void %305(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1185)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 307:                                              ; preds = %.backedge
@@ -1811,7 +1811,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %314 = load i32, ptr %206, align 4
   %315 = add nsw i32 %314, 1
   store i32 %315, ptr %206, align 4
-  store i32 %314, ptr %.2, align 8
+  store i32 %314, ptr %.3, align 8
   %316 = sext i32 %314 to i64
   %317 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %316
   %.sroa.0623.0.copyload630 = load i8, ptr %317, align 2
@@ -1831,7 +1831,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1180 = zext i8 %.sroa.0623.0.copyload630 to i32
   %.sroa.293.0.insert.insert2045 = or disjoint i32 %.sroa.2932074.0.insert.shift2914, %.sroa.0623.0.insert.ext1180
   %.sroa.0623.0.insert.insert1182 = or disjoint i32 %.sroa.293.0.insert.insert2045, %.sroa.293.0.insert.shift2043
-  invoke void %318(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1182)
+  invoke void %318(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1182)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 320:                                              ; preds = %.backedge
@@ -1843,7 +1843,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %324 = load i32, ptr %206, align 4
   %325 = add nsw i32 %324, 1
   store i32 %325, ptr %206, align 4
-  store i32 %324, ptr %.2, align 8
+  store i32 %324, ptr %.3, align 8
   %326 = sext i32 %324 to i64
   %327 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %326
   %.sroa.0623.0.copyload631 = load i8, ptr %327, align 2
@@ -1863,7 +1863,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1177 = zext i8 %.sroa.0623.0.copyload631 to i32
   %.sroa.293.0.insert.insert2041 = or disjoint i32 %.sroa.2932074.0.insert.shift2910, %.sroa.0623.0.insert.ext1177
   %.sroa.0623.0.insert.insert1179 = or disjoint i32 %.sroa.293.0.insert.insert2041, %.sroa.293.0.insert.shift2039
-  invoke void %328(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1179)
+  invoke void %328(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1179)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 330:                                              ; preds = %.backedge
@@ -1875,7 +1875,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %334 = load i32, ptr %206, align 4
   %335 = add nsw i32 %334, 1
   store i32 %335, ptr %206, align 4
-  store i32 %334, ptr %.2, align 8
+  store i32 %334, ptr %.3, align 8
   %336 = sext i32 %334 to i64
   %337 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %336
   %.sroa.0623.0.copyload632 = load i8, ptr %337, align 2
@@ -1895,7 +1895,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1174 = zext i8 %.sroa.0623.0.copyload632 to i32
   %.sroa.293.0.insert.insert2037 = or disjoint i32 %.sroa.2932074.0.insert.shift2906, %.sroa.0623.0.insert.ext1174
   %.sroa.0623.0.insert.insert1176 = or disjoint i32 %.sroa.293.0.insert.insert2037, %.sroa.293.0.insert.shift2035
-  invoke void %338(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1176)
+  invoke void %338(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1176)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 340:                                              ; preds = %.backedge
@@ -1907,7 +1907,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %344 = load i32, ptr %206, align 4
   %345 = add nsw i32 %344, 1
   store i32 %345, ptr %206, align 4
-  store i32 %344, ptr %.2, align 8
+  store i32 %344, ptr %.3, align 8
   %346 = sext i32 %344 to i64
   %347 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %346
   %.sroa.0623.0.copyload633 = load i8, ptr %347, align 2
@@ -1927,7 +1927,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1171 = zext i8 %.sroa.0623.0.copyload633 to i32
   %.sroa.293.0.insert.insert2033 = or disjoint i32 %.sroa.2932074.0.insert.shift2902, %.sroa.0623.0.insert.ext1171
   %.sroa.0623.0.insert.insert1173 = or disjoint i32 %.sroa.293.0.insert.insert2033, %.sroa.293.0.insert.shift2031
-  invoke void %348(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1173)
+  invoke void %348(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1173)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 350:                                              ; preds = %.backedge
@@ -1940,7 +1940,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %355 = load i32, ptr %206, align 4
   %356 = add nsw i32 %355, 1
   store i32 %356, ptr %206, align 4
-  store i32 %355, ptr %.2, align 8
+  store i32 %355, ptr %.3, align 8
   %357 = sext i32 %355 to i64
   %358 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %357
   %.sroa.0623.0.copyload634 = load i8, ptr %358, align 2
@@ -1960,7 +1960,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1168 = zext i8 %.sroa.0623.0.copyload634 to i32
   %.sroa.293.0.insert.insert2029 = or disjoint i32 %.sroa.2932074.0.insert.shift2898, %.sroa.0623.0.insert.ext1168
   %.sroa.0623.0.insert.insert1170 = or disjoint i32 %.sroa.293.0.insert.insert2029, %.sroa.293.0.insert.shift2027
-  invoke void %359(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1170)
+  invoke void %359(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1170)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 361:                                              ; preds = %.backedge
@@ -1972,7 +1972,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %365 = load i32, ptr %206, align 4
   %366 = add nsw i32 %365, 1
   store i32 %366, ptr %206, align 4
-  store i32 %365, ptr %.2, align 8
+  store i32 %365, ptr %.3, align 8
   %367 = sext i32 %365 to i64
   %368 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %367
   %.sroa.0623.0.copyload635 = load i8, ptr %368, align 2
@@ -1992,7 +1992,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   %.sroa.0623.0.insert.ext1165 = zext i8 %.sroa.0623.0.copyload635 to i32
   %.sroa.293.0.insert.insert2025 = or disjoint i32 %.sroa.2932074.0.insert.shift2894, %.sroa.0623.0.insert.ext1165
   %.sroa.0623.0.insert.insert1167 = or disjoint i32 %.sroa.293.0.insert.insert2025, %.sroa.293.0.insert.shift2023
-  invoke void %369(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1167)
+  invoke void %369(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1167)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 371:                                              ; preds = %.backedge
@@ -2622,7 +2622,7 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %646 = load i32, ptr %206, align 4
   %647 = add nsw i32 %646, 1
   store i32 %647, ptr %206, align 4
-  store i32 %646, ptr %.2, align 8
+  store i32 %646, ptr %.3, align 8
   %648 = sext i32 %646 to i64
   %649 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %648
   %.sroa.0623.0.copyload636 = load i8, ptr %649, align 2
@@ -2642,7 +2642,7 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %.sroa.0623.0.insert.ext1162 = zext i8 %.sroa.0623.0.copyload636 to i32
   %.sroa.293.0.insert.insert2021 = or disjoint i32 %.sroa.2932074.0.insert.shift2890, %.sroa.0623.0.insert.ext1162
   %.sroa.0623.0.insert.insert1164 = or disjoint i32 %.sroa.293.0.insert.insert2021, %.sroa.293.0.insert.shift2019
-  invoke void %650(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1164)
+  invoke void %650(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1164)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 652:                                              ; preds = %.backedge
@@ -2653,7 +2653,7 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %655 = load i32, ptr %206, align 4
   %656 = add nsw i32 %655, 1
   store i32 %656, ptr %206, align 4
-  store i32 %655, ptr %.2, align 8
+  store i32 %655, ptr %.3, align 8
   %657 = sext i32 %655 to i64
   %658 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %657
   %.sroa.0623.0.copyload637 = load i8, ptr %658, align 2
@@ -2673,7 +2673,7 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %.sroa.0623.0.insert.ext1159 = zext i8 %.sroa.0623.0.copyload637 to i32
   %.sroa.293.0.insert.insert2017 = or disjoint i32 %.sroa.2932074.0.insert.shift2886, %.sroa.0623.0.insert.ext1159
   %.sroa.0623.0.insert.insert1161 = or disjoint i32 %.sroa.293.0.insert.insert2017, %.sroa.293.0.insert.shift2015
-  invoke void %659(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1161)
+  invoke void %659(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1161)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 661:                                              ; preds = %.backedge
@@ -2700,7 +2700,7 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %674 = load i32, ptr %206, align 4
   %675 = add nsw i32 %674, 1
   store i32 %675, ptr %206, align 4
-  store i32 %674, ptr %.2, align 8
+  store i32 %674, ptr %.3, align 8
   %676 = sext i32 %674 to i64
   %677 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %676
   %.sroa.0623.0.copyload638 = load i8, ptr %677, align 2
@@ -2720,7 +2720,7 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %.sroa.0623.0.insert.ext1156 = zext i8 %.sroa.0623.0.copyload638 to i32
   %.sroa.293.0.insert.insert2013 = or disjoint i32 %.sroa.2932074.0.insert.shift2882, %.sroa.0623.0.insert.ext1156
   %.sroa.0623.0.insert.insert1158 = or disjoint i32 %.sroa.293.0.insert.insert2013, %.sroa.293.0.insert.shift2011
-  invoke void %678(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1158)
+  invoke void %678(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1158)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 680:                                              ; preds = %.backedge
@@ -2754,7 +2754,7 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %692 = load i32, ptr %206, align 4
   %693 = add nsw i32 %692, 1
   store i32 %693, ptr %206, align 4
-  store i32 %692, ptr %.2, align 8
+  store i32 %692, ptr %.3, align 8
   %694 = sext i32 %692 to i64
   %695 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %694
   %.sroa.0623.0.copyload639 = load i8, ptr %695, align 2
@@ -2774,11 +2774,11 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %.sroa.0623.0.insert.ext1153 = zext i8 %.sroa.0623.0.copyload639 to i32
   %.sroa.293.0.insert.insert2009 = or disjoint i32 %.sroa.2932074.0.insert.shift2878, %.sroa.0623.0.insert.ext1153
   %.sroa.0623.0.insert.insert1155 = or disjoint i32 %.sroa.293.0.insert.insert2009, %.sroa.293.0.insert.shift2007
-  invoke void %696(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1155)
+  invoke void %696(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1155)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 698:                                              ; preds = %682
-  %699 = invoke noundef ptr @_ZN4pkpy5Frame17f_closure_try_getENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(56) %.2, i16 %.sroa.2932074.0)
+  %699 = invoke noundef ptr @_ZN4pkpy5Frame17f_closure_try_getENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(56) %.3, i16 %.sroa.2932074.0)
           to label %700 unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 700:                                              ; preds = %698
@@ -2793,7 +2793,7 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %704 = load i32, ptr %206, align 4
   %705 = add nsw i32 %704, 1
   store i32 %705, ptr %206, align 4
-  store i32 %704, ptr %.2, align 8
+  store i32 %704, ptr %.3, align 8
   %706 = sext i32 %704 to i64
   %707 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %706
   %.sroa.0623.0.copyload640 = load i8, ptr %707, align 2
@@ -2813,7 +2813,7 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
   %.sroa.0623.0.insert.ext1150 = zext i8 %.sroa.0623.0.copyload640 to i32
   %.sroa.293.0.insert.insert2005 = or disjoint i32 %.sroa.2932074.0.insert.shift2874, %.sroa.0623.0.insert.ext1150
   %.sroa.0623.0.insert.insert1152 = or disjoint i32 %.sroa.293.0.insert.insert2005, %.sroa.293.0.insert.shift2003
-  invoke void %708(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1152)
+  invoke void %708(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1152)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 710:                                              ; preds = %700
@@ -2903,7 +2903,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit:
   %757 = load i32, ptr %206, align 4
   %758 = add nsw i32 %757, 1
   store i32 %758, ptr %206, align 4
-  store i32 %757, ptr %.2, align 8
+  store i32 %757, ptr %.3, align 8
   %759 = sext i32 %757 to i64
   %760 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %759
   %.sroa.0623.0.copyload641 = load i8, ptr %760, align 2
@@ -2923,7 +2923,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit:
   %.sroa.0623.0.insert.ext1147 = zext i8 %.sroa.0623.0.copyload641 to i32
   %.sroa.293.0.insert.insert2001 = or disjoint i32 %.sroa.2932074.0.insert.shift2870, %.sroa.0623.0.insert.ext1147
   %.sroa.0623.0.insert.insert1149 = or disjoint i32 %.sroa.293.0.insert.insert2001, %.sroa.293.0.insert.shift1999
-  invoke void %761(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1149)
+  invoke void %761(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1149)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread: ; preds = %.lr.ph.i.i, %718, %743, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
@@ -3015,7 +3015,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %811 = load i32, ptr %206, align 4
   %812 = add nsw i32 %811, 1
   store i32 %812, ptr %206, align 4
-  store i32 %811, ptr %.2, align 8
+  store i32 %811, ptr %.3, align 8
   %813 = sext i32 %811 to i64
   %814 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %813
   %.sroa.0623.0.copyload642 = load i8, ptr %814, align 2
@@ -3035,7 +3035,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1144 = zext i8 %.sroa.0623.0.copyload642 to i32
   %.sroa.293.0.insert.insert1997 = or disjoint i32 %.sroa.2932074.0.insert.shift2866, %.sroa.0623.0.insert.ext1144
   %.sroa.0623.0.insert.insert1146 = or disjoint i32 %.sroa.293.0.insert.insert1997, %.sroa.293.0.insert.shift1995
-  invoke void %815(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1146)
+  invoke void %815(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1146)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4145.thread: ; preds = %.lr.ph.i.i4135, %772, %797, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4145
@@ -3046,7 +3046,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %818 = load i32, ptr %206, align 4
   %819 = add nsw i32 %818, 1
   store i32 %819, ptr %206, align 4
-  store i32 %818, ptr %.2, align 8
+  store i32 %818, ptr %.3, align 8
   %820 = sext i32 %818 to i64
   %821 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %820
   %.sroa.0623.0.copyload643 = load i8, ptr %821, align 2
@@ -3066,11 +3066,11 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1141 = zext i8 %.sroa.0623.0.copyload643 to i32
   %.sroa.293.0.insert.insert1993 = or disjoint i32 %.sroa.2932074.0.insert.shift2862, %.sroa.0623.0.insert.ext1141
   %.sroa.0623.0.insert.insert1143 = or disjoint i32 %.sroa.293.0.insert.insert1993, %.sroa.293.0.insert.shift1991
-  invoke void %822(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1143)
+  invoke void %822(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1143)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 824:                                              ; preds = %.backedge
-  %825 = invoke noundef ptr @_ZN4pkpy5Frame17f_closure_try_getENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(56) %.2, i16 %.sroa.2932074.0)
+  %825 = invoke noundef ptr @_ZN4pkpy5Frame17f_closure_try_getENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(56) %.3, i16 %.sroa.2932074.0)
           to label %826 unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 826:                                              ; preds = %824
@@ -3085,7 +3085,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %830 = load i32, ptr %206, align 4
   %831 = add nsw i32 %830, 1
   store i32 %831, ptr %206, align 4
-  store i32 %830, ptr %.2, align 8
+  store i32 %830, ptr %.3, align 8
   %832 = sext i32 %830 to i64
   %833 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %832
   %.sroa.0623.0.copyload644 = load i8, ptr %833, align 2
@@ -3105,7 +3105,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1138 = zext i8 %.sroa.0623.0.copyload644 to i32
   %.sroa.293.0.insert.insert1989 = or disjoint i32 %.sroa.2932074.0.insert.shift2858, %.sroa.0623.0.insert.ext1138
   %.sroa.0623.0.insert.insert1140 = or disjoint i32 %.sroa.293.0.insert.insert1989, %.sroa.293.0.insert.shift1987
-  invoke void %834(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1140)
+  invoke void %834(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1140)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 836:                                              ; preds = %826
@@ -3195,7 +3195,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %883 = load i32, ptr %206, align 4
   %884 = add nsw i32 %883, 1
   store i32 %884, ptr %206, align 4
-  store i32 %883, ptr %.2, align 8
+  store i32 %883, ptr %.3, align 8
   %885 = sext i32 %883 to i64
   %886 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %885
   %.sroa.0623.0.copyload645 = load i8, ptr %886, align 2
@@ -3215,7 +3215,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1135 = zext i8 %.sroa.0623.0.copyload645 to i32
   %.sroa.293.0.insert.insert1985 = or disjoint i32 %.sroa.2932074.0.insert.shift2854, %.sroa.0623.0.insert.ext1135
   %.sroa.0623.0.insert.insert1137 = or disjoint i32 %.sroa.293.0.insert.insert1985, %.sroa.293.0.insert.shift1983
-  invoke void %887(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1137)
+  invoke void %887(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1137)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4156.thread: ; preds = %.lr.ph.i.i4146, %844, %869, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4156
@@ -3307,7 +3307,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %937 = load i32, ptr %206, align 4
   %938 = add nsw i32 %937, 1
   store i32 %938, ptr %206, align 4
-  store i32 %937, ptr %.2, align 8
+  store i32 %937, ptr %.3, align 8
   %939 = sext i32 %937 to i64
   %940 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %939
   %.sroa.0623.0.copyload646 = load i8, ptr %940, align 2
@@ -3327,7 +3327,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1132 = zext i8 %.sroa.0623.0.copyload646 to i32
   %.sroa.293.0.insert.insert1981 = or disjoint i32 %.sroa.2932074.0.insert.shift2850, %.sroa.0623.0.insert.ext1132
   %.sroa.0623.0.insert.insert1134 = or disjoint i32 %.sroa.293.0.insert.insert1981, %.sroa.293.0.insert.shift1979
-  invoke void %941(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1134)
+  invoke void %941(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1134)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4167.thread: ; preds = %.lr.ph.i.i4157, %898, %923, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4167
@@ -3338,7 +3338,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %944 = load i32, ptr %206, align 4
   %945 = add nsw i32 %944, 1
   store i32 %945, ptr %206, align 4
-  store i32 %944, ptr %.2, align 8
+  store i32 %944, ptr %.3, align 8
   %946 = sext i32 %944 to i64
   %947 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %946
   %.sroa.0623.0.copyload647 = load i8, ptr %947, align 2
@@ -3358,7 +3358,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1129 = zext i8 %.sroa.0623.0.copyload647 to i32
   %.sroa.293.0.insert.insert1977 = or disjoint i32 %.sroa.2932074.0.insert.shift2846, %.sroa.0623.0.insert.ext1129
   %.sroa.0623.0.insert.insert1131 = or disjoint i32 %.sroa.293.0.insert.insert1977, %.sroa.293.0.insert.shift1975
-  invoke void %948(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1131)
+  invoke void %948(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1131)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 950:                                              ; preds = %.backedge
@@ -3448,7 +3448,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %997 = load i32, ptr %206, align 4
   %998 = add nsw i32 %997, 1
   store i32 %998, ptr %206, align 4
-  store i32 %997, ptr %.2, align 8
+  store i32 %997, ptr %.3, align 8
   %999 = sext i32 %997 to i64
   %1000 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %999
   %.sroa.0623.0.copyload648 = load i8, ptr %1000, align 2
@@ -3468,7 +3468,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1126 = zext i8 %.sroa.0623.0.copyload648 to i32
   %.sroa.293.0.insert.insert1973 = or disjoint i32 %.sroa.2932074.0.insert.shift2842, %.sroa.0623.0.insert.ext1126
   %.sroa.0623.0.insert.insert1128 = or disjoint i32 %.sroa.293.0.insert.insert1973, %.sroa.293.0.insert.shift1971
-  invoke void %1001(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1128)
+  invoke void %1001(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1128)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4178.thread: ; preds = %.lr.ph.i.i4168, %958, %983, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4178
@@ -3560,7 +3560,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1051 = load i32, ptr %206, align 4
   %1052 = add nsw i32 %1051, 1
   store i32 %1052, ptr %206, align 4
-  store i32 %1051, ptr %.2, align 8
+  store i32 %1051, ptr %.3, align 8
   %1053 = sext i32 %1051 to i64
   %1054 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1053
   %.sroa.0623.0.copyload649 = load i8, ptr %1054, align 2
@@ -3580,7 +3580,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1123 = zext i8 %.sroa.0623.0.copyload649 to i32
   %.sroa.293.0.insert.insert1969 = or disjoint i32 %.sroa.2932074.0.insert.shift2838, %.sroa.0623.0.insert.ext1123
   %.sroa.0623.0.insert.insert1125 = or disjoint i32 %.sroa.293.0.insert.insert1969, %.sroa.293.0.insert.shift1967
-  invoke void %1055(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1125)
+  invoke void %1055(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1125)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4189.thread: ; preds = %.lr.ph.i.i4179, %1012, %1037, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4189
@@ -3591,7 +3591,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1058 = load i32, ptr %206, align 4
   %1059 = add nsw i32 %1058, 1
   store i32 %1059, ptr %206, align 4
-  store i32 %1058, ptr %.2, align 8
+  store i32 %1058, ptr %.3, align 8
   %1060 = sext i32 %1058 to i64
   %1061 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1060
   %.sroa.0623.0.copyload650 = load i8, ptr %1061, align 2
@@ -3611,7 +3611,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1120 = zext i8 %.sroa.0623.0.copyload650 to i32
   %.sroa.293.0.insert.insert1965 = or disjoint i32 %.sroa.2932074.0.insert.shift2834, %.sroa.0623.0.insert.ext1120
   %.sroa.0623.0.insert.insert1122 = or disjoint i32 %.sroa.293.0.insert.insert1965, %.sroa.293.0.insert.shift1963
-  invoke void %1062(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1122)
+  invoke void %1062(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1122)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1064:                                             ; preds = %.backedge
@@ -3628,7 +3628,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1072 = load i32, ptr %206, align 4
   %1073 = add nsw i32 %1072, 1
   store i32 %1073, ptr %206, align 4
-  store i32 %1072, ptr %.2, align 8
+  store i32 %1072, ptr %.3, align 8
   %1074 = sext i32 %1072 to i64
   %1075 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1074
   %.sroa.0623.0.copyload651 = load i8, ptr %1075, align 2
@@ -3648,7 +3648,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1117 = zext i8 %.sroa.0623.0.copyload651 to i32
   %.sroa.293.0.insert.insert1961 = or disjoint i32 %.sroa.2932074.0.insert.shift2830, %.sroa.0623.0.insert.ext1117
   %.sroa.0623.0.insert.insert1119 = or disjoint i32 %.sroa.293.0.insert.insert1961, %.sroa.293.0.insert.shift1959
-  invoke void %1076(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1119)
+  invoke void %1076(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1119)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1078:                                             ; preds = %.backedge
@@ -3729,24 +3729,24 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   br label %1098
 
 1098:                                             ; preds = %1096, %1094
-  %.13595 = phi i1 [ %.03594, %1096 ], [ true, %1094 ]
+  %.43598 = phi i1 [ %.03594, %1096 ], [ true, %1094 ]
   %.pn4035 = phi { ptr, i32 } [ %1097, %1096 ], [ %1095, %1094 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
   br label %1099
 
 1099:                                             ; preds = %1098, %1092
-  %.23596 = phi i1 [ %.13595, %1098 ], [ true, %1092 ]
+  %.33597 = phi i1 [ %.43598, %1098 ], [ true, %1092 ]
   %.pn4035.pn = phi { ptr, i32 } [ %.pn4035, %1098 ], [ %1093, %1092 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #21
   br label %1100
 
 1100:                                             ; preds = %1090, %1099
-  %.33597 = phi i1 [ %.23596, %1099 ], [ true, %1090 ]
+  %.23596 = phi i1 [ %.33597, %1099 ], [ true, %1090 ]
   %.pn4035.pn.pn = phi { ptr, i32 } [ %.pn4035.pn, %1099 ], [ %1091, %1090 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #21
-  br i1 %.33597, label %1101, label %.body
+  br i1 %.23596, label %1101, label %.body
 
 1101:                                             ; preds = %.thread, %1100
   %.pn4035.pn.pn.pn4917 = phi { ptr, i32 } [ %1089, %.thread ], [ %.pn4035.pn.pn, %1100 ]
@@ -3769,7 +3769,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1108 = load i32, ptr %206, align 4
   %1109 = add nsw i32 %1108, 1
   store i32 %1109, ptr %206, align 4
-  store i32 %1108, ptr %.2, align 8
+  store i32 %1108, ptr %.3, align 8
   %1110 = sext i32 %1108 to i64
   %1111 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1110
   %.sroa.0623.0.copyload652 = load i8, ptr %1111, align 2
@@ -3789,7 +3789,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1114 = zext i8 %.sroa.0623.0.copyload652 to i32
   %.sroa.293.0.insert.insert1957 = or disjoint i32 %.sroa.2932074.0.insert.shift2826, %.sroa.0623.0.insert.ext1114
   %.sroa.0623.0.insert.insert1116 = or disjoint i32 %.sroa.293.0.insert.insert1957, %.sroa.293.0.insert.shift1955
-  invoke void %1112(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1116)
+  invoke void %1112(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1116)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1114:                                             ; preds = %1104
@@ -3879,7 +3879,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1161 = load i32, ptr %206, align 4
   %1162 = add nsw i32 %1161, 1
   store i32 %1162, ptr %206, align 4
-  store i32 %1161, ptr %.2, align 8
+  store i32 %1161, ptr %.3, align 8
   %1163 = sext i32 %1161 to i64
   %1164 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1163
   %.sroa.0623.0.copyload653 = load i8, ptr %1164, align 2
@@ -3899,7 +3899,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1111 = zext i8 %.sroa.0623.0.copyload653 to i32
   %.sroa.293.0.insert.insert1953 = or disjoint i32 %.sroa.2932074.0.insert.shift2822, %.sroa.0623.0.insert.ext1111
   %.sroa.0623.0.insert.insert1113 = or disjoint i32 %.sroa.293.0.insert.insert1953, %.sroa.293.0.insert.shift1951
-  invoke void %1165(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1113)
+  invoke void %1165(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1113)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4200.thread: ; preds = %.lr.ph.i.i4190, %1122, %1147, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4200
@@ -3991,7 +3991,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1215 = load i32, ptr %206, align 4
   %1216 = add nsw i32 %1215, 1
   store i32 %1216, ptr %206, align 4
-  store i32 %1215, ptr %.2, align 8
+  store i32 %1215, ptr %.3, align 8
   %1217 = sext i32 %1215 to i64
   %1218 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1217
   %.sroa.0623.0.copyload654 = load i8, ptr %1218, align 2
@@ -4011,7 +4011,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1108 = zext i8 %.sroa.0623.0.copyload654 to i32
   %.sroa.293.0.insert.insert1949 = or disjoint i32 %.sroa.2932074.0.insert.shift2818, %.sroa.0623.0.insert.ext1108
   %.sroa.0623.0.insert.insert1110 = or disjoint i32 %.sroa.293.0.insert.insert1949, %.sroa.293.0.insert.shift1947
-  invoke void %1219(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1110)
+  invoke void %1219(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1110)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4211.thread: ; preds = %.lr.ph.i.i4201, %1176, %1201, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4211
@@ -4022,7 +4022,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1222 = load i32, ptr %206, align 4
   %1223 = add nsw i32 %1222, 1
   store i32 %1223, ptr %206, align 4
-  store i32 %1222, ptr %.2, align 8
+  store i32 %1222, ptr %.3, align 8
   %1224 = sext i32 %1222 to i64
   %1225 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1224
   %.sroa.0623.0.copyload655 = load i8, ptr %1225, align 2
@@ -4042,7 +4042,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1105 = zext i8 %.sroa.0623.0.copyload655 to i32
   %.sroa.293.0.insert.insert1945 = or disjoint i32 %.sroa.2932074.0.insert.shift2814, %.sroa.0623.0.insert.ext1105
   %.sroa.0623.0.insert.insert1107 = or disjoint i32 %.sroa.293.0.insert.insert1945, %.sroa.293.0.insert.shift1943
-  invoke void %1226(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1107)
+  invoke void %1226(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1107)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1228:                                             ; preds = %.backedge
@@ -4064,7 +4064,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1239 = load i32, ptr %206, align 4
   %1240 = add nsw i32 %1239, 1
   store i32 %1240, ptr %206, align 4
-  store i32 %1239, ptr %.2, align 8
+  store i32 %1239, ptr %.3, align 8
   %1241 = sext i32 %1239 to i64
   %1242 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1241
   %.sroa.0623.0.copyload656 = load i8, ptr %1242, align 2
@@ -4084,7 +4084,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1102 = zext i8 %.sroa.0623.0.copyload656 to i32
   %.sroa.293.0.insert.insert1941 = or disjoint i32 %.sroa.2932074.0.insert.shift2810, %.sroa.0623.0.insert.ext1102
   %.sroa.0623.0.insert.insert1104 = or disjoint i32 %.sroa.293.0.insert.insert1941, %.sroa.293.0.insert.shift1939
-  invoke void %1243(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1104)
+  invoke void %1243(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1104)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1245:                                             ; preds = %.backedge
@@ -4147,7 +4147,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1276 = load i32, ptr %206, align 4
   %1277 = add nsw i32 %1276, 1
   store i32 %1277, ptr %206, align 4
-  store i32 %1276, ptr %.2, align 8
+  store i32 %1276, ptr %.3, align 8
   %1278 = sext i32 %1276 to i64
   %1279 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1278
   %.sroa.0623.0.copyload657 = load i8, ptr %1279, align 2
@@ -4167,7 +4167,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1099 = zext i8 %.sroa.0623.0.copyload657 to i32
   %.sroa.293.0.insert.insert1937 = or disjoint i32 %.sroa.2932074.0.insert.shift2806, %.sroa.0623.0.insert.ext1099
   %.sroa.0623.0.insert.insert1101 = or disjoint i32 %.sroa.293.0.insert.insert1937, %.sroa.293.0.insert.shift1935
-  invoke void %1280(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1101)
+  invoke void %1280(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1101)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1282:                                             ; preds = %.backedge
@@ -4243,7 +4243,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1321 = load i32, ptr %206, align 4
   %1322 = add nsw i32 %1321, 1
   store i32 %1322, ptr %206, align 4
-  store i32 %1321, ptr %.2, align 8
+  store i32 %1321, ptr %.3, align 8
   %1323 = sext i32 %1321 to i64
   %1324 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1323
   %.sroa.0623.0.copyload658 = load i8, ptr %1324, align 2
@@ -4263,7 +4263,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1096 = zext i8 %.sroa.0623.0.copyload658 to i32
   %.sroa.293.0.insert.insert1933 = or disjoint i32 %.sroa.2932074.0.insert.shift2802, %.sroa.0623.0.insert.ext1096
   %.sroa.0623.0.insert.insert1098 = or disjoint i32 %.sroa.293.0.insert.insert1933, %.sroa.293.0.insert.shift1931
-  invoke void %1325(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1098)
+  invoke void %1325(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1098)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1327:                                             ; preds = %.backedge
@@ -4325,7 +4325,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1358 = load i32, ptr %206, align 4
   %1359 = add nsw i32 %1358, 1
   store i32 %1359, ptr %206, align 4
-  store i32 %1358, ptr %.2, align 8
+  store i32 %1358, ptr %.3, align 8
   %1360 = sext i32 %1358 to i64
   %1361 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1360
   %.sroa.0623.0.copyload659 = load i8, ptr %1361, align 2
@@ -4345,7 +4345,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1093 = zext i8 %.sroa.0623.0.copyload659 to i32
   %.sroa.293.0.insert.insert1929 = or disjoint i32 %.sroa.2932074.0.insert.shift2798, %.sroa.0623.0.insert.ext1093
   %.sroa.0623.0.insert.insert1095 = or disjoint i32 %.sroa.293.0.insert.insert1929, %.sroa.293.0.insert.shift1927
-  invoke void %1362(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1095)
+  invoke void %1362(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1095)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1364:                                             ; preds = %.backedge
@@ -4360,7 +4360,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1371 = load i32, ptr %206, align 4
   %1372 = add nsw i32 %1371, 1
   store i32 %1372, ptr %206, align 4
-  store i32 %1371, ptr %.2, align 8
+  store i32 %1371, ptr %.3, align 8
   %1373 = sext i32 %1371 to i64
   %1374 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1373
   %.sroa.0623.0.copyload660 = load i8, ptr %1374, align 2
@@ -4380,7 +4380,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1090 = zext i8 %.sroa.0623.0.copyload660 to i32
   %.sroa.293.0.insert.insert1925 = or disjoint i32 %.sroa.2932074.0.insert.shift2794, %.sroa.0623.0.insert.ext1090
   %.sroa.0623.0.insert.insert1092 = or disjoint i32 %.sroa.293.0.insert.insert1925, %.sroa.293.0.insert.shift1923
-  invoke void %1375(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1092)
+  invoke void %1375(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1092)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1377:                                             ; preds = %.backedge
@@ -4436,7 +4436,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1401 = load i32, ptr %206, align 4
   %1402 = add nsw i32 %1401, 1
   store i32 %1402, ptr %206, align 4
-  store i32 %1401, ptr %.2, align 8
+  store i32 %1401, ptr %.3, align 8
   %1403 = sext i32 %1401 to i64
   %1404 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1403
   %.sroa.0623.0.copyload661 = load i8, ptr %1404, align 2
@@ -4456,7 +4456,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1087 = zext i8 %.sroa.0623.0.copyload661 to i32
   %.sroa.293.0.insert.insert1921 = or disjoint i32 %.sroa.2932074.0.insert.shift2790, %.sroa.0623.0.insert.ext1087
   %.sroa.0623.0.insert.insert1089 = or disjoint i32 %.sroa.293.0.insert.insert1921, %.sroa.293.0.insert.shift1919
-  invoke void %1405(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1089)
+  invoke void %1405(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1089)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1407:                                             ; preds = %.backedge
@@ -4474,7 +4474,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1415 = load i32, ptr %206, align 4
   %1416 = add nsw i32 %1415, 1
   store i32 %1416, ptr %206, align 4
-  store i32 %1415, ptr %.2, align 8
+  store i32 %1415, ptr %.3, align 8
   %1417 = sext i32 %1415 to i64
   %1418 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1417
   %.sroa.0623.0.copyload662 = load i8, ptr %1418, align 2
@@ -4494,7 +4494,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1084 = zext i8 %.sroa.0623.0.copyload662 to i32
   %.sroa.293.0.insert.insert1917 = or disjoint i32 %.sroa.2932074.0.insert.shift2786, %.sroa.0623.0.insert.ext1084
   %.sroa.0623.0.insert.insert1086 = or disjoint i32 %.sroa.293.0.insert.insert1917, %.sroa.293.0.insert.shift1915
-  invoke void %1419(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1086)
+  invoke void %1419(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1086)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1421:                                             ; preds = %.backedge
@@ -4513,7 +4513,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %1430 = load i32, ptr %206, align 4
   %1431 = add nsw i32 %1430, 1
   store i32 %1431, ptr %206, align 4
-  store i32 %1430, ptr %.2, align 8
+  store i32 %1430, ptr %.3, align 8
   %1432 = sext i32 %1430 to i64
   %1433 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1432
   %.sroa.0623.0.copyload663 = load i8, ptr %1433, align 2
@@ -4533,7 +4533,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   %.sroa.0623.0.insert.ext1081 = zext i8 %.sroa.0623.0.copyload663 to i32
   %.sroa.293.0.insert.insert1913 = or disjoint i32 %.sroa.2932074.0.insert.shift2782, %.sroa.0623.0.insert.ext1081
   %.sroa.0623.0.insert.insert1083 = or disjoint i32 %.sroa.293.0.insert.insert1913, %.sroa.293.0.insert.shift1911
-  invoke void %1434(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1083)
+  invoke void %1434(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1083)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1436:                                             ; preds = %.backedge
@@ -4600,7 +4600,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit: ; p
   %1467 = load i32, ptr %206, align 4
   %1468 = add nsw i32 %1467, 1
   store i32 %1468, ptr %206, align 4
-  store i32 %1467, ptr %.2, align 8
+  store i32 %1467, ptr %.3, align 8
   %1469 = sext i32 %1467 to i64
   %1470 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1469
   %.sroa.0623.0.copyload664 = load i8, ptr %1470, align 2
@@ -4620,7 +4620,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit: ; p
   %.sroa.0623.0.insert.ext1078 = zext i8 %.sroa.0623.0.copyload664 to i32
   %.sroa.293.0.insert.insert1909 = or disjoint i32 %.sroa.2932074.0.insert.shift2778, %.sroa.0623.0.insert.ext1078
   %.sroa.0623.0.insert.insert1080 = or disjoint i32 %.sroa.293.0.insert.insert1909, %.sroa.293.0.insert.shift1907
-  invoke void %1471(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1080)
+  invoke void %1471(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1080)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1473:                                             ; preds = %.backedge
@@ -4700,7 +4700,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4227:
   %1512 = load i32, ptr %206, align 4
   %1513 = add nsw i32 %1512, 1
   store i32 %1513, ptr %206, align 4
-  store i32 %1512, ptr %.2, align 8
+  store i32 %1512, ptr %.3, align 8
   %1514 = sext i32 %1512 to i64
   %1515 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1514
   %.sroa.0623.0.copyload665 = load i8, ptr %1515, align 2
@@ -4720,7 +4720,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4227:
   %.sroa.0623.0.insert.ext1075 = zext i8 %.sroa.0623.0.copyload665 to i32
   %.sroa.293.0.insert.insert1905 = or disjoint i32 %.sroa.2932074.0.insert.shift2774, %.sroa.0623.0.insert.ext1075
   %.sroa.0623.0.insert.insert1077 = or disjoint i32 %.sroa.293.0.insert.insert1905, %.sroa.293.0.insert.shift1903
-  invoke void %1516(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1077)
+  invoke void %1516(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1077)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1518:                                             ; preds = %.backedge
@@ -4750,7 +4750,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4227:
   %1531 = load i32, ptr %206, align 4
   %1532 = add nsw i32 %1531, 1
   store i32 %1532, ptr %206, align 4
-  store i32 %1531, ptr %.2, align 8
+  store i32 %1531, ptr %.3, align 8
   %1533 = sext i32 %1531 to i64
   %1534 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1533
   %.sroa.0623.0.copyload666 = load i8, ptr %1534, align 2
@@ -4770,7 +4770,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4227:
   %.sroa.0623.0.insert.ext1072 = zext i8 %.sroa.0623.0.copyload666 to i32
   %.sroa.293.0.insert.insert1901 = or disjoint i32 %.sroa.2932074.0.insert.shift2770, %.sroa.0623.0.insert.ext1072
   %.sroa.0623.0.insert.insert1074 = or disjoint i32 %.sroa.293.0.insert.insert1901, %.sroa.293.0.insert.shift1899
-  invoke void %1535(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1074)
+  invoke void %1535(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1074)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1537:                                             ; preds = %.backedge
@@ -4826,7 +4826,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4227:
   %1562 = load i32, ptr %206, align 4
   %1563 = add nsw i32 %1562, 1
   store i32 %1563, ptr %206, align 4
-  store i32 %1562, ptr %.2, align 8
+  store i32 %1562, ptr %.3, align 8
   %1564 = sext i32 %1562 to i64
   %1565 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1564
   %.sroa.0623.0.copyload667 = load i8, ptr %1565, align 2
@@ -4846,7 +4846,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4227:
   %.sroa.0623.0.insert.ext1069 = zext i8 %.sroa.0623.0.copyload667 to i32
   %.sroa.293.0.insert.insert1897 = or disjoint i32 %.sroa.2932074.0.insert.shift2766, %.sroa.0623.0.insert.ext1069
   %.sroa.0623.0.insert.insert1071 = or disjoint i32 %.sroa.293.0.insert.insert1897, %.sroa.293.0.insert.shift1895
-  invoke void %1566(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1071)
+  invoke void %1566(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1071)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1568:                                             ; preds = %.backedge
@@ -4868,7 +4868,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4227:
   %1577 = load i32, ptr %206, align 4
   %1578 = add nsw i32 %1577, 1
   store i32 %1578, ptr %206, align 4
-  store i32 %1577, ptr %.2, align 8
+  store i32 %1577, ptr %.3, align 8
   %1579 = sext i32 %1577 to i64
   %1580 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1579
   %.sroa.0623.0.copyload668 = load i8, ptr %1580, align 2
@@ -4888,7 +4888,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4227:
   %.sroa.0623.0.insert.ext1066 = zext i8 %.sroa.0623.0.copyload668 to i32
   %.sroa.293.0.insert.insert1893 = or disjoint i32 %.sroa.2932074.0.insert.shift2762, %.sroa.0623.0.insert.ext1066
   %.sroa.0623.0.insert.insert1068 = or disjoint i32 %.sroa.293.0.insert.insert1893, %.sroa.293.0.insert.shift1891
-  invoke void %1581(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1068)
+  invoke void %1581(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1068)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1583:                                             ; preds = %.backedge
@@ -4903,7 +4903,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4227:
   %1588 = load i32, ptr %206, align 4
   %1589 = add nsw i32 %1588, 1
   store i32 %1589, ptr %206, align 4
-  store i32 %1588, ptr %.2, align 8
+  store i32 %1588, ptr %.3, align 8
   %1590 = sext i32 %1588 to i64
   %1591 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1590
   %.sroa.0623.0.copyload669 = load i8, ptr %1591, align 2
@@ -4923,7 +4923,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4227:
   %.sroa.0623.0.insert.ext1063 = zext i8 %.sroa.0623.0.copyload669 to i32
   %.sroa.293.0.insert.insert1889 = or disjoint i32 %.sroa.2932074.0.insert.shift2758, %.sroa.0623.0.insert.ext1063
   %.sroa.0623.0.insert.insert1065 = or disjoint i32 %.sroa.293.0.insert.insert1889, %.sroa.293.0.insert.shift1887
-  invoke void %1592(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1065)
+  invoke void %1592(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1065)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1594:                                             ; preds = %.backedge
@@ -4983,7 +4983,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_NS_7StrNameEDpOT_.exit4231: ; 
   %1621 = load i32, ptr %206, align 4
   %1622 = add nsw i32 %1621, 1
   store i32 %1622, ptr %206, align 4
-  store i32 %1621, ptr %.2, align 8
+  store i32 %1621, ptr %.3, align 8
   %1623 = sext i32 %1621 to i64
   %1624 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1623
   %.sroa.0623.0.copyload670 = load i8, ptr %1624, align 2
@@ -5003,7 +5003,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_NS_7StrNameEDpOT_.exit4231: ; 
   %.sroa.0623.0.insert.ext1060 = zext i8 %.sroa.0623.0.copyload670 to i32
   %.sroa.293.0.insert.insert1885 = or disjoint i32 %.sroa.2932074.0.insert.shift2754, %.sroa.0623.0.insert.ext1060
   %.sroa.0623.0.insert.insert1062 = or disjoint i32 %.sroa.293.0.insert.insert1885, %.sroa.293.0.insert.shift1883
-  invoke void %1625(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1062)
+  invoke void %1625(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1062)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1627:                                             ; preds = %.backedge
@@ -5116,7 +5116,7 @@ _ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit: ; preds = %1672
   %1685 = load i32, ptr %206, align 4
   %1686 = add nsw i32 %1685, 1
   store i32 %1686, ptr %206, align 4
-  store i32 %1685, ptr %.2, align 8
+  store i32 %1685, ptr %.3, align 8
   %1687 = sext i32 %1685 to i64
   %1688 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1687
   %.sroa.0623.0.copyload671 = load i8, ptr %1688, align 2
@@ -5136,7 +5136,7 @@ _ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit: ; preds = %1672
   %.sroa.0623.0.insert.ext1057 = zext i8 %.sroa.0623.0.copyload671 to i32
   %.sroa.293.0.insert.insert1881 = or disjoint i32 %.sroa.2932074.0.insert.shift2750, %.sroa.0623.0.insert.ext1057
   %.sroa.0623.0.insert.insert1059 = or disjoint i32 %.sroa.293.0.insert.insert1881, %.sroa.293.0.insert.shift1879
-  invoke void %1689(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1059)
+  invoke void %1689(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1059)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1691:                                             ; preds = %.backedge
@@ -5254,7 +5254,7 @@ _ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit: ; preds = %1736
   %1751 = load i32, ptr %206, align 4
   %1752 = add nsw i32 %1751, 1
   store i32 %1752, ptr %206, align 4
-  store i32 %1751, ptr %.2, align 8
+  store i32 %1751, ptr %.3, align 8
   %1753 = sext i32 %1751 to i64
   %1754 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1753
   %.sroa.0623.0.copyload672 = load i8, ptr %1754, align 2
@@ -5274,7 +5274,7 @@ _ZN4pkpy2VM4callIJPNS_8PyObjectERS3_EEES3_S3_DpOT_.exit: ; preds = %1736
   %.sroa.0623.0.insert.ext1054 = zext i8 %.sroa.0623.0.copyload672 to i32
   %.sroa.293.0.insert.insert1877 = or disjoint i32 %.sroa.2932074.0.insert.shift2746, %.sroa.0623.0.insert.ext1054
   %.sroa.0623.0.insert.insert1056 = or disjoint i32 %.sroa.293.0.insert.insert1877, %.sroa.293.0.insert.shift1875
-  invoke void %1755(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1056)
+  invoke void %1755(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1056)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1757:                                             ; preds = %.backedge
@@ -5337,7 +5337,7 @@ _ZN4pkpy5BytesD2Ev.exit:                          ; preds = %_ZN4pkpy6py_varINS_
   %1790 = load i32, ptr %206, align 4
   %1791 = add nsw i32 %1790, 1
   store i32 %1791, ptr %206, align 4
-  store i32 %1790, ptr %.2, align 8
+  store i32 %1790, ptr %.3, align 8
   %1792 = sext i32 %1790 to i64
   %1793 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1792
   %.sroa.0623.0.copyload673 = load i8, ptr %1793, align 2
@@ -5357,7 +5357,7 @@ _ZN4pkpy5BytesD2Ev.exit:                          ; preds = %_ZN4pkpy6py_varINS_
   %.sroa.0623.0.insert.ext1051 = zext i8 %.sroa.0623.0.copyload673 to i32
   %.sroa.293.0.insert.insert1873 = or disjoint i32 %.sroa.2932074.0.insert.shift2742, %.sroa.0623.0.insert.ext1051
   %.sroa.0623.0.insert.insert1053 = or disjoint i32 %.sroa.293.0.insert.insert1873, %.sroa.293.0.insert.shift1871
-  invoke void %1794(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1053)
+  invoke void %1794(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1053)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1796:                                             ; preds = %1776
@@ -5400,7 +5400,7 @@ _ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %1807
   %1813 = load i32, ptr %206, align 4
   %1814 = add nsw i32 %1813, 1
   store i32 %1814, ptr %206, align 4
-  store i32 %1813, ptr %.2, align 8
+  store i32 %1813, ptr %.3, align 8
   %1815 = sext i32 %1813 to i64
   %1816 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1815
   %.sroa.0623.0.copyload674 = load i8, ptr %1816, align 2
@@ -5420,7 +5420,7 @@ _ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %1807
   %.sroa.0623.0.insert.ext1048 = zext i8 %.sroa.0623.0.copyload674 to i32
   %.sroa.293.0.insert.insert1869 = or disjoint i32 %.sroa.2932074.0.insert.shift2738, %.sroa.0623.0.insert.ext1048
   %.sroa.0623.0.insert.insert1050 = or disjoint i32 %.sroa.293.0.insert.insert1869, %.sroa.293.0.insert.shift1867
-  invoke void %1817(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1050)
+  invoke void %1817(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1050)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1819:                                             ; preds = %1807
@@ -5466,7 +5466,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit: ; preds = %_ZN4pkpy6py_varINS
   %1835 = load i32, ptr %206, align 4
   %1836 = add nsw i32 %1835, 1
   store i32 %1836, ptr %206, align 4
-  store i32 %1835, ptr %.2, align 8
+  store i32 %1835, ptr %.3, align 8
   %1837 = sext i32 %1835 to i64
   %1838 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1837
   %.sroa.0623.0.copyload675 = load i8, ptr %1838, align 2
@@ -5486,7 +5486,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit: ; preds = %_ZN4pkpy6py_varINS
   %.sroa.0623.0.insert.ext1045 = zext i8 %.sroa.0623.0.copyload675 to i32
   %.sroa.293.0.insert.insert1865 = or disjoint i32 %.sroa.2932074.0.insert.shift2734, %.sroa.0623.0.insert.ext1045
   %.sroa.0623.0.insert.insert1047 = or disjoint i32 %.sroa.293.0.insert.insert1865, %.sroa.293.0.insert.shift1863
-  invoke void %1839(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1047)
+  invoke void %1839(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1047)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1841:                                             ; preds = %1827
@@ -5526,7 +5526,7 @@ _ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %1849
   %1854 = load i32, ptr %206, align 4
   %1855 = add nsw i32 %1854, 1
   store i32 %1855, ptr %206, align 4
-  store i32 %1854, ptr %.2, align 8
+  store i32 %1854, ptr %.3, align 8
   %1856 = sext i32 %1854 to i64
   %1857 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1856
   %.sroa.0623.0.copyload676 = load i8, ptr %1857, align 2
@@ -5546,7 +5546,7 @@ _ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %1849
   %.sroa.0623.0.insert.ext1042 = zext i8 %.sroa.0623.0.copyload676 to i32
   %.sroa.293.0.insert.insert1861 = or disjoint i32 %.sroa.2932074.0.insert.shift2730, %.sroa.0623.0.insert.ext1042
   %.sroa.0623.0.insert.insert1044 = or disjoint i32 %.sroa.293.0.insert.insert1861, %.sroa.293.0.insert.shift1859
-  invoke void %1858(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1044)
+  invoke void %1858(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1044)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1860:                                             ; preds = %1849
@@ -5610,7 +5610,7 @@ _ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4274: ; preds = %1872
   %1886 = load i32, ptr %206, align 4
   %1887 = add nsw i32 %1886, 1
   store i32 %1887, ptr %206, align 4
-  store i32 %1886, ptr %.2, align 8
+  store i32 %1886, ptr %.3, align 8
   %1888 = sext i32 %1886 to i64
   %1889 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1888
   %.sroa.0623.0.copyload677 = load i8, ptr %1889, align 2
@@ -5630,7 +5630,7 @@ _ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4274: ; preds = %1872
   %.sroa.0623.0.insert.ext1039 = zext i8 %.sroa.0623.0.copyload677 to i32
   %.sroa.293.0.insert.insert1857 = or disjoint i32 %.sroa.2932074.0.insert.shift2726, %.sroa.0623.0.insert.ext1039
   %.sroa.0623.0.insert.insert1041 = or disjoint i32 %.sroa.293.0.insert.insert1857, %.sroa.293.0.insert.shift1855
-  invoke void %1890(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1041)
+  invoke void %1890(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1041)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1892:                                             ; preds = %1867
@@ -5705,7 +5705,7 @@ _ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4285: ; preds = %_ZNK4pkpy8P
   %1921 = load i32, ptr %206, align 4
   %1922 = add nsw i32 %1921, 1
   store i32 %1922, ptr %206, align 4
-  store i32 %1921, ptr %.2, align 8
+  store i32 %1921, ptr %.3, align 8
   %1923 = sext i32 %1921 to i64
   %1924 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1923
   %.sroa.0623.0.copyload678 = load i8, ptr %1924, align 2
@@ -5725,7 +5725,7 @@ _ZN4pkpy2VM4callIJRPNS_8PyObjectEEEES3_S3_DpOT_.exit4285: ; preds = %_ZNK4pkpy8P
   %.sroa.0623.0.insert.ext1036 = zext i8 %.sroa.0623.0.copyload678 to i32
   %.sroa.293.0.insert.insert1853 = or disjoint i32 %.sroa.2932074.0.insert.shift2722, %.sroa.0623.0.insert.ext1036
   %.sroa.0623.0.insert.insert1038 = or disjoint i32 %.sroa.293.0.insert.insert1853, %.sroa.293.0.insert.shift1851
-  invoke void %1925(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1038)
+  invoke void %1925(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1038)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1927:                                             ; preds = %1902
@@ -5769,7 +5769,7 @@ _ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %1931
   %1944 = load i32, ptr %206, align 4
   %1945 = add nsw i32 %1944, 1
   store i32 %1945, ptr %206, align 4
-  store i32 %1944, ptr %.2, align 8
+  store i32 %1944, ptr %.3, align 8
   %1946 = sext i32 %1944 to i64
   %1947 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1946
   %.sroa.0623.0.copyload679 = load i8, ptr %1947, align 2
@@ -5789,7 +5789,7 @@ _ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %1931
   %.sroa.0623.0.insert.ext1033 = zext i8 %.sroa.0623.0.copyload679 to i32
   %.sroa.293.0.insert.insert1849 = or disjoint i32 %.sroa.2932074.0.insert.shift2718, %.sroa.0623.0.insert.ext1033
   %.sroa.0623.0.insert.insert1035 = or disjoint i32 %.sroa.293.0.insert.insert1849, %.sroa.293.0.insert.shift1847
-  invoke void %1948(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1035)
+  invoke void %1948(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1035)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1950:                                             ; preds = %.backedge
@@ -5884,7 +5884,7 @@ _ZN4pkpy7SStreamD2Ev.exit:                        ; preds = %_ZN4pkpy6py_varINS_
   %1973 = load i32, ptr %206, align 4
   %1974 = add nsw i32 %1973, 1
   store i32 %1974, ptr %206, align 4
-  store i32 %1973, ptr %.2, align 8
+  store i32 %1973, ptr %.3, align 8
   %1975 = sext i32 %1973 to i64
   %1976 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %1975
   %.sroa.0623.0.copyload680 = load i8, ptr %1976, align 2
@@ -5904,7 +5904,7 @@ _ZN4pkpy7SStreamD2Ev.exit:                        ; preds = %_ZN4pkpy6py_varINS_
   %.sroa.0623.0.insert.ext1030 = zext i8 %.sroa.0623.0.copyload680 to i32
   %.sroa.293.0.insert.insert1845 = or disjoint i32 %.sroa.2932074.0.insert.shift2714, %.sroa.0623.0.insert.ext1030
   %.sroa.0623.0.insert.insert1032 = or disjoint i32 %.sroa.293.0.insert.insert1845, %.sroa.293.0.insert.shift1843
-  invoke void %1977(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1032)
+  invoke void %1977(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1032)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 1979:                                             ; preds = %1966
@@ -5972,7 +5972,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4299: ; preds = %_ZN4pkpy6py_va
   %2004 = load i32, ptr %206, align 4
   %2005 = add nsw i32 %2004, 1
   store i32 %2005, ptr %206, align 4
-  store i32 %2004, ptr %.2, align 8
+  store i32 %2004, ptr %.3, align 8
   %2006 = sext i32 %2004 to i64
   %2007 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2006
   %.sroa.0623.0.copyload681 = load i8, ptr %2007, align 2
@@ -5992,7 +5992,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4299: ; preds = %_ZN4pkpy6py_va
   %.sroa.0623.0.insert.ext1027 = zext i8 %.sroa.0623.0.copyload681 to i32
   %.sroa.293.0.insert.insert1841 = or disjoint i32 %.sroa.2932074.0.insert.shift2710, %.sroa.0623.0.insert.ext1027
   %.sroa.0623.0.insert.insert1029 = or disjoint i32 %.sroa.293.0.insert.insert1841, %.sroa.293.0.insert.shift1839
-  invoke void %2008(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1029)
+  invoke void %2008(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1029)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2010:                                             ; preds = %1984
@@ -6072,7 +6072,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4307: ; preds = %_ZN4pkpy6py_va
   %2039 = load i32, ptr %206, align 4
   %2040 = add nsw i32 %2039, 1
   store i32 %2040, ptr %206, align 4
-  store i32 %2039, ptr %.2, align 8
+  store i32 %2039, ptr %.3, align 8
   %2041 = sext i32 %2039 to i64
   %2042 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2041
   %.sroa.0623.0.copyload682 = load i8, ptr %2042, align 2
@@ -6092,7 +6092,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4307: ; preds = %_ZN4pkpy6py_va
   %.sroa.0623.0.insert.ext1024 = zext i8 %.sroa.0623.0.copyload682 to i32
   %.sroa.293.0.insert.insert1837 = or disjoint i32 %.sroa.2932074.0.insert.shift2706, %.sroa.0623.0.insert.ext1024
   %.sroa.0623.0.insert.insert1026 = or disjoint i32 %.sroa.293.0.insert.insert1837, %.sroa.293.0.insert.shift1835
-  invoke void %2043(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1026)
+  invoke void %2043(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1026)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2045:                                             ; preds = %2027, %2019
@@ -6151,7 +6151,7 @@ _ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4313: ; preds = %2059
   %2069 = load i32, ptr %206, align 4
   %2070 = add nsw i32 %2069, 1
   store i32 %2070, ptr %206, align 4
-  store i32 %2069, ptr %.2, align 8
+  store i32 %2069, ptr %.3, align 8
   %2071 = sext i32 %2069 to i64
   %2072 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2071
   %.sroa.0623.0.copyload683 = load i8, ptr %2072, align 2
@@ -6171,7 +6171,7 @@ _ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit4313: ; preds = %2059
   %.sroa.0623.0.insert.ext1021 = zext i8 %.sroa.0623.0.copyload683 to i32
   %.sroa.293.0.insert.insert1833 = or disjoint i32 %.sroa.2932074.0.insert.shift2702, %.sroa.0623.0.insert.ext1021
   %.sroa.0623.0.insert.insert1023 = or disjoint i32 %.sroa.293.0.insert.insert1833, %.sroa.293.0.insert.shift1831
-  invoke void %2073(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1023)
+  invoke void %2073(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1023)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2075:                                             ; preds = %2051
@@ -6266,7 +6266,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4323: ; preds = %_ZN4pkpy2VM4ca
   %2113 = load i32, ptr %206, align 4
   %2114 = add nsw i32 %2113, 1
   store i32 %2114, ptr %206, align 4
-  store i32 %2113, ptr %.2, align 8
+  store i32 %2113, ptr %.3, align 8
   %2115 = sext i32 %2113 to i64
   %2116 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2115
   %.sroa.0623.0.copyload684 = load i8, ptr %2116, align 2
@@ -6286,7 +6286,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4323: ; preds = %_ZN4pkpy2VM4ca
   %.sroa.0623.0.insert.ext1018 = zext i8 %.sroa.0623.0.copyload684 to i32
   %.sroa.293.0.insert.insert1829 = or disjoint i32 %.sroa.2932074.0.insert.shift2698, %.sroa.0623.0.insert.ext1018
   %.sroa.0623.0.insert.insert1020 = or disjoint i32 %.sroa.293.0.insert.insert1829, %.sroa.293.0.insert.shift1827
-  invoke void %2117(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1020)
+  invoke void %2117(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1020)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2119:                                             ; preds = %_ZNK4pkpy8PyObject4attrENS_7StrNameE.exit4319, %_ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit4317, %2090, %2082
@@ -6391,7 +6391,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit: ; preds = %2148
   %2168 = load i32, ptr %206, align 4
   %2169 = add nsw i32 %2168, 1
   store i32 %2169, ptr %206, align 4
-  store i32 %2168, ptr %.2, align 8
+  store i32 %2168, ptr %.3, align 8
   %2170 = sext i32 %2168 to i64
   %2171 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2170
   %.sroa.0623.0.copyload685 = load i8, ptr %2171, align 2
@@ -6411,7 +6411,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit: ; preds = %2148
   %.sroa.0623.0.insert.ext1015 = zext i8 %.sroa.0623.0.copyload685 to i32
   %.sroa.293.0.insert.insert1825 = or disjoint i32 %.sroa.2932074.0.insert.shift2694, %.sroa.0623.0.insert.ext1015
   %.sroa.0623.0.insert.insert1017 = or disjoint i32 %.sroa.293.0.insert.insert1825, %.sroa.293.0.insert.shift1823
-  invoke void %2172(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1017)
+  invoke void %2172(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1017)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2174:                                             ; preds = %.backedge
@@ -6496,7 +6496,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4330: ; preds = %
   %2217 = load i32, ptr %206, align 4
   %2218 = add nsw i32 %2217, 1
   store i32 %2218, ptr %206, align 4
-  store i32 %2217, ptr %.2, align 8
+  store i32 %2217, ptr %.3, align 8
   %2219 = sext i32 %2217 to i64
   %2220 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2219
   %.sroa.0623.0.copyload686 = load i8, ptr %2220, align 2
@@ -6516,7 +6516,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4330: ; preds = %
   %.sroa.0623.0.insert.ext1012 = zext i8 %.sroa.0623.0.copyload686 to i32
   %.sroa.293.0.insert.insert1821 = or disjoint i32 %.sroa.2932074.0.insert.shift2690, %.sroa.0623.0.insert.ext1012
   %.sroa.0623.0.insert.insert1014 = or disjoint i32 %.sroa.293.0.insert.insert1821, %.sroa.293.0.insert.shift1819
-  invoke void %2221(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1014)
+  invoke void %2221(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1014)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2223:                                             ; preds = %.backedge
@@ -6571,7 +6571,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4330: ; preds = %
   %2251 = load i32, ptr %206, align 4
   %2252 = add nsw i32 %2251, 1
   store i32 %2252, ptr %206, align 4
-  store i32 %2251, ptr %.2, align 8
+  store i32 %2251, ptr %.3, align 8
   %2253 = sext i32 %2251 to i64
   %2254 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2253
   %.sroa.0623.0.copyload687 = load i8, ptr %2254, align 2
@@ -6591,7 +6591,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4330: ; preds = %
   %.sroa.0623.0.insert.ext1009 = zext i8 %.sroa.0623.0.copyload687 to i32
   %.sroa.293.0.insert.insert1817 = or disjoint i32 %.sroa.2932074.0.insert.shift2686, %.sroa.0623.0.insert.ext1009
   %.sroa.0623.0.insert.insert1011 = or disjoint i32 %.sroa.293.0.insert.insert1817, %.sroa.293.0.insert.shift1815
-  invoke void %2255(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1011)
+  invoke void %2255(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1011)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2257:                                             ; preds = %2223, %2232
@@ -6711,7 +6711,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4337: ; preds = %
   %2313 = load i32, ptr %206, align 4
   %2314 = add nsw i32 %2313, 1
   store i32 %2314, ptr %206, align 4
-  store i32 %2313, ptr %.2, align 8
+  store i32 %2313, ptr %.3, align 8
   %2315 = sext i32 %2313 to i64
   %2316 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2315
   %.sroa.0623.0.copyload688 = load i8, ptr %2316, align 2
@@ -6731,7 +6731,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4337: ; preds = %
   %.sroa.0623.0.insert.ext1006 = zext i8 %.sroa.0623.0.copyload688 to i32
   %.sroa.293.0.insert.insert1813 = or disjoint i32 %.sroa.2932074.0.insert.shift2682, %.sroa.0623.0.insert.ext1006
   %.sroa.0623.0.insert.insert1008 = or disjoint i32 %.sroa.293.0.insert.insert1813, %.sroa.293.0.insert.shift1811
-  invoke void %2317(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1008)
+  invoke void %2317(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1008)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2319:                                             ; preds = %.backedge
@@ -6786,7 +6786,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4337: ; preds = %
   %2347 = load i32, ptr %206, align 4
   %2348 = add nsw i32 %2347, 1
   store i32 %2348, ptr %206, align 4
-  store i32 %2347, ptr %.2, align 8
+  store i32 %2347, ptr %.3, align 8
   %2349 = sext i32 %2347 to i64
   %2350 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2349
   %.sroa.0623.0.copyload689 = load i8, ptr %2350, align 2
@@ -6806,7 +6806,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4337: ; preds = %
   %.sroa.0623.0.insert.ext1003 = zext i8 %.sroa.0623.0.copyload689 to i32
   %.sroa.293.0.insert.insert1809 = or disjoint i32 %.sroa.2932074.0.insert.shift2678, %.sroa.0623.0.insert.ext1003
   %.sroa.0623.0.insert.insert1005 = or disjoint i32 %.sroa.293.0.insert.insert1809, %.sroa.293.0.insert.shift1807
-  invoke void %2351(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1005)
+  invoke void %2351(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1005)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2353:                                             ; preds = %2319, %2328
@@ -6926,7 +6926,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4346: ; preds = %
   %2409 = load i32, ptr %206, align 4
   %2410 = add nsw i32 %2409, 1
   store i32 %2410, ptr %206, align 4
-  store i32 %2409, ptr %.2, align 8
+  store i32 %2409, ptr %.3, align 8
   %2411 = sext i32 %2409 to i64
   %2412 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2411
   %.sroa.0623.0.copyload690 = load i8, ptr %2412, align 2
@@ -6946,7 +6946,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4346: ; preds = %
   %.sroa.0623.0.insert.ext1000 = zext i8 %.sroa.0623.0.copyload690 to i32
   %.sroa.293.0.insert.insert1805 = or disjoint i32 %.sroa.2932074.0.insert.shift2674, %.sroa.0623.0.insert.ext1000
   %.sroa.0623.0.insert.insert1002 = or disjoint i32 %.sroa.293.0.insert.insert1805, %.sroa.293.0.insert.shift1803
-  invoke void %2413(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert1002)
+  invoke void %2413(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert1002)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2415:                                             ; preds = %.backedge
@@ -7001,7 +7001,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4346: ; preds = %
   %2443 = load i32, ptr %206, align 4
   %2444 = add nsw i32 %2443, 1
   store i32 %2444, ptr %206, align 4
-  store i32 %2443, ptr %.2, align 8
+  store i32 %2443, ptr %.3, align 8
   %2445 = sext i32 %2443 to i64
   %2446 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2445
   %.sroa.0623.0.copyload691 = load i8, ptr %2446, align 2
@@ -7021,7 +7021,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4346: ; preds = %
   %.sroa.0623.0.insert.ext997 = zext i8 %.sroa.0623.0.copyload691 to i32
   %.sroa.293.0.insert.insert1801 = or disjoint i32 %.sroa.2932074.0.insert.shift2670, %.sroa.0623.0.insert.ext997
   %.sroa.0623.0.insert.insert999 = or disjoint i32 %.sroa.293.0.insert.insert1801, %.sroa.293.0.insert.shift1799
-  invoke void %2447(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert999)
+  invoke void %2447(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert999)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2449:                                             ; preds = %2415, %2424
@@ -7141,7 +7141,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4355: ; preds = %
   %2505 = load i32, ptr %206, align 4
   %2506 = add nsw i32 %2505, 1
   store i32 %2506, ptr %206, align 4
-  store i32 %2505, ptr %.2, align 8
+  store i32 %2505, ptr %.3, align 8
   %2507 = sext i32 %2505 to i64
   %2508 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2507
   %.sroa.0623.0.copyload692 = load i8, ptr %2508, align 2
@@ -7161,7 +7161,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4355: ; preds = %
   %.sroa.0623.0.insert.ext994 = zext i8 %.sroa.0623.0.copyload692 to i32
   %.sroa.293.0.insert.insert1797 = or disjoint i32 %.sroa.2932074.0.insert.shift2666, %.sroa.0623.0.insert.ext994
   %.sroa.0623.0.insert.insert996 = or disjoint i32 %.sroa.293.0.insert.insert1797, %.sroa.293.0.insert.shift1795
-  invoke void %2509(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert996)
+  invoke void %2509(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert996)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2511:                                             ; preds = %.backedge
@@ -7243,7 +7243,7 @@ _ZN4pkpy2VM17ZeroDivisionErrorEv.exit:            ; preds = %.noexc4357
   %2545 = load i32, ptr %206, align 4
   %2546 = add nsw i32 %2545, 1
   store i32 %2546, ptr %206, align 4
-  store i32 %2545, ptr %.2, align 8
+  store i32 %2545, ptr %.3, align 8
   %2547 = sext i32 %2545 to i64
   %2548 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2547
   %.sroa.0623.0.copyload693 = load i8, ptr %2548, align 2
@@ -7263,7 +7263,7 @@ _ZN4pkpy2VM17ZeroDivisionErrorEv.exit:            ; preds = %.noexc4357
   %.sroa.0623.0.insert.ext991 = zext i8 %.sroa.0623.0.copyload693 to i32
   %.sroa.293.0.insert.insert1793 = or disjoint i32 %.sroa.2932074.0.insert.shift2662, %.sroa.0623.0.insert.ext991
   %.sroa.0623.0.insert.insert993 = or disjoint i32 %.sroa.293.0.insert.insert1793, %.sroa.293.0.insert.shift1791
-  invoke void %2549(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert993)
+  invoke void %2549(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert993)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2551:                                             ; preds = %2511, %2520
@@ -7339,7 +7339,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4364: ; preds = %
   %2586 = load i32, ptr %206, align 4
   %2587 = add nsw i32 %2586, 1
   store i32 %2587, ptr %206, align 4
-  store i32 %2586, ptr %.2, align 8
+  store i32 %2586, ptr %.3, align 8
   %2588 = sext i32 %2586 to i64
   %2589 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2588
   %.sroa.0623.0.copyload694 = load i8, ptr %2589, align 2
@@ -7359,7 +7359,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4364: ; preds = %
   %.sroa.0623.0.insert.ext988 = zext i8 %.sroa.0623.0.copyload694 to i32
   %.sroa.293.0.insert.insert1789 = or disjoint i32 %.sroa.2932074.0.insert.shift2658, %.sroa.0623.0.insert.ext988
   %.sroa.0623.0.insert.insert990 = or disjoint i32 %.sroa.293.0.insert.insert1789, %.sroa.293.0.insert.shift1787
-  invoke void %2590(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert990)
+  invoke void %2590(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert990)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2592:                                             ; preds = %.backedge
@@ -7441,7 +7441,7 @@ _ZN4pkpy2VM17ZeroDivisionErrorEv.exit4371:        ; preds = %.noexc4366
   %2626 = load i32, ptr %206, align 4
   %2627 = add nsw i32 %2626, 1
   store i32 %2627, ptr %206, align 4
-  store i32 %2626, ptr %.2, align 8
+  store i32 %2626, ptr %.3, align 8
   %2628 = sext i32 %2626 to i64
   %2629 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2628
   %.sroa.0623.0.copyload695 = load i8, ptr %2629, align 2
@@ -7461,7 +7461,7 @@ _ZN4pkpy2VM17ZeroDivisionErrorEv.exit4371:        ; preds = %.noexc4366
   %.sroa.0623.0.insert.ext985 = zext i8 %.sroa.0623.0.copyload695 to i32
   %.sroa.293.0.insert.insert1785 = or disjoint i32 %.sroa.2932074.0.insert.shift2654, %.sroa.0623.0.insert.ext985
   %.sroa.0623.0.insert.insert987 = or disjoint i32 %.sroa.293.0.insert.insert1785, %.sroa.293.0.insert.shift1783
-  invoke void %2630(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert987)
+  invoke void %2630(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert987)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2632:                                             ; preds = %2592, %2601
@@ -7537,7 +7537,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2667 = load i32, ptr %206, align 4
   %2668 = add nsw i32 %2667, 1
   store i32 %2668, ptr %206, align 4
-  store i32 %2667, ptr %.2, align 8
+  store i32 %2667, ptr %.3, align 8
   %2669 = sext i32 %2667 to i64
   %2670 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2669
   %.sroa.0623.0.copyload696 = load i8, ptr %2670, align 2
@@ -7557,7 +7557,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext982 = zext i8 %.sroa.0623.0.copyload696 to i32
   %.sroa.293.0.insert.insert1781 = or disjoint i32 %.sroa.2932074.0.insert.shift2650, %.sroa.0623.0.insert.ext982
   %.sroa.0623.0.insert.insert984 = or disjoint i32 %.sroa.293.0.insert.insert1781, %.sroa.293.0.insert.shift1779
-  invoke void %2671(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert984)
+  invoke void %2671(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert984)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2673:                                             ; preds = %.backedge
@@ -7590,7 +7590,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2692 = load i32, ptr %206, align 4
   %2693 = add nsw i32 %2692, 1
   store i32 %2693, ptr %206, align 4
-  store i32 %2692, ptr %.2, align 8
+  store i32 %2692, ptr %.3, align 8
   %2694 = sext i32 %2692 to i64
   %2695 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2694
   %.sroa.0623.0.copyload697 = load i8, ptr %2695, align 2
@@ -7610,7 +7610,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext979 = zext i8 %.sroa.0623.0.copyload697 to i32
   %.sroa.293.0.insert.insert1777 = or disjoint i32 %.sroa.2932074.0.insert.shift2646, %.sroa.0623.0.insert.ext979
   %.sroa.0623.0.insert.insert981 = or disjoint i32 %.sroa.293.0.insert.insert1777, %.sroa.293.0.insert.shift1775
-  invoke void %2696(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert981)
+  invoke void %2696(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert981)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2698:                                             ; preds = %2682, %2673
@@ -7628,7 +7628,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2705 = load i32, ptr %206, align 4
   %2706 = add nsw i32 %2705, 1
   store i32 %2706, ptr %206, align 4
-  store i32 %2705, ptr %.2, align 8
+  store i32 %2705, ptr %.3, align 8
   %2707 = sext i32 %2705 to i64
   %2708 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2707
   %.sroa.0623.0.copyload698 = load i8, ptr %2708, align 2
@@ -7648,7 +7648,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext976 = zext i8 %.sroa.0623.0.copyload698 to i32
   %.sroa.293.0.insert.insert1773 = or disjoint i32 %.sroa.2932074.0.insert.shift2642, %.sroa.0623.0.insert.ext976
   %.sroa.0623.0.insert.insert978 = or disjoint i32 %.sroa.293.0.insert.insert1773, %.sroa.293.0.insert.shift1771
-  invoke void %2709(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert978)
+  invoke void %2709(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert978)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2711:                                             ; preds = %.backedge
@@ -7681,7 +7681,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2729 = load i32, ptr %206, align 4
   %2730 = add nsw i32 %2729, 1
   store i32 %2730, ptr %206, align 4
-  store i32 %2729, ptr %.2, align 8
+  store i32 %2729, ptr %.3, align 8
   %2731 = sext i32 %2729 to i64
   %2732 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2731
   %.sroa.0623.0.copyload699 = load i8, ptr %2732, align 2
@@ -7701,7 +7701,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext973 = zext i8 %.sroa.0623.0.copyload699 to i32
   %.sroa.293.0.insert.insert1769 = or disjoint i32 %.sroa.2932074.0.insert.shift2638, %.sroa.0623.0.insert.ext973
   %.sroa.0623.0.insert.insert975 = or disjoint i32 %.sroa.293.0.insert.insert1769, %.sroa.293.0.insert.shift1767
-  invoke void %2733(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert975)
+  invoke void %2733(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert975)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2735:                                             ; preds = %2720, %2711
@@ -7719,7 +7719,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2742 = load i32, ptr %206, align 4
   %2743 = add nsw i32 %2742, 1
   store i32 %2743, ptr %206, align 4
-  store i32 %2742, ptr %.2, align 8
+  store i32 %2742, ptr %.3, align 8
   %2744 = sext i32 %2742 to i64
   %2745 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2744
   %.sroa.0623.0.copyload700 = load i8, ptr %2745, align 2
@@ -7739,7 +7739,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext970 = zext i8 %.sroa.0623.0.copyload700 to i32
   %.sroa.293.0.insert.insert1765 = or disjoint i32 %.sroa.2932074.0.insert.shift2634, %.sroa.0623.0.insert.ext970
   %.sroa.0623.0.insert.insert972 = or disjoint i32 %.sroa.293.0.insert.insert1765, %.sroa.293.0.insert.shift1763
-  invoke void %2746(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert972)
+  invoke void %2746(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert972)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2748:                                             ; preds = %.backedge
@@ -7763,7 +7763,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2760 = load i32, ptr %206, align 4
   %2761 = add nsw i32 %2760, 1
   store i32 %2761, ptr %206, align 4
-  store i32 %2760, ptr %.2, align 8
+  store i32 %2760, ptr %.3, align 8
   %2762 = sext i32 %2760 to i64
   %2763 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2762
   %.sroa.0623.0.copyload701 = load i8, ptr %2763, align 2
@@ -7783,7 +7783,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext967 = zext i8 %.sroa.0623.0.copyload701 to i32
   %.sroa.293.0.insert.insert1761 = or disjoint i32 %.sroa.2932074.0.insert.shift2630, %.sroa.0623.0.insert.ext967
   %.sroa.0623.0.insert.insert969 = or disjoint i32 %.sroa.293.0.insert.insert1761, %.sroa.293.0.insert.shift1759
-  invoke void %2764(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert969)
+  invoke void %2764(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert969)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2766:                                             ; preds = %.backedge
@@ -7807,7 +7807,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2778 = load i32, ptr %206, align 4
   %2779 = add nsw i32 %2778, 1
   store i32 %2779, ptr %206, align 4
-  store i32 %2778, ptr %.2, align 8
+  store i32 %2778, ptr %.3, align 8
   %2780 = sext i32 %2778 to i64
   %2781 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2780
   %.sroa.0623.0.copyload702 = load i8, ptr %2781, align 2
@@ -7827,7 +7827,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext964 = zext i8 %.sroa.0623.0.copyload702 to i32
   %.sroa.293.0.insert.insert1757 = or disjoint i32 %.sroa.2932074.0.insert.shift2626, %.sroa.0623.0.insert.ext964
   %.sroa.0623.0.insert.insert966 = or disjoint i32 %.sroa.293.0.insert.insert1757, %.sroa.293.0.insert.shift1755
-  invoke void %2782(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert966)
+  invoke void %2782(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert966)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2784:                                             ; preds = %.backedge
@@ -7860,7 +7860,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2803 = load i32, ptr %206, align 4
   %2804 = add nsw i32 %2803, 1
   store i32 %2804, ptr %206, align 4
-  store i32 %2803, ptr %.2, align 8
+  store i32 %2803, ptr %.3, align 8
   %2805 = sext i32 %2803 to i64
   %2806 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2805
   %.sroa.0623.0.copyload703 = load i8, ptr %2806, align 2
@@ -7880,7 +7880,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext961 = zext i8 %.sroa.0623.0.copyload703 to i32
   %.sroa.293.0.insert.insert1753 = or disjoint i32 %.sroa.2932074.0.insert.shift2622, %.sroa.0623.0.insert.ext961
   %.sroa.0623.0.insert.insert963 = or disjoint i32 %.sroa.293.0.insert.insert1753, %.sroa.293.0.insert.shift1751
-  invoke void %2807(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert963)
+  invoke void %2807(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert963)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2809:                                             ; preds = %2793, %2784
@@ -7898,7 +7898,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2816 = load i32, ptr %206, align 4
   %2817 = add nsw i32 %2816, 1
   store i32 %2817, ptr %206, align 4
-  store i32 %2816, ptr %.2, align 8
+  store i32 %2816, ptr %.3, align 8
   %2818 = sext i32 %2816 to i64
   %2819 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2818
   %.sroa.0623.0.copyload704 = load i8, ptr %2819, align 2
@@ -7918,7 +7918,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext958 = zext i8 %.sroa.0623.0.copyload704 to i32
   %.sroa.293.0.insert.insert1749 = or disjoint i32 %.sroa.2932074.0.insert.shift2618, %.sroa.0623.0.insert.ext958
   %.sroa.0623.0.insert.insert960 = or disjoint i32 %.sroa.293.0.insert.insert1749, %.sroa.293.0.insert.shift1747
-  invoke void %2820(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert960)
+  invoke void %2820(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert960)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2822:                                             ; preds = %.backedge
@@ -7951,7 +7951,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2840 = load i32, ptr %206, align 4
   %2841 = add nsw i32 %2840, 1
   store i32 %2841, ptr %206, align 4
-  store i32 %2840, ptr %.2, align 8
+  store i32 %2840, ptr %.3, align 8
   %2842 = sext i32 %2840 to i64
   %2843 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2842
   %.sroa.0623.0.copyload705 = load i8, ptr %2843, align 2
@@ -7971,7 +7971,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext955 = zext i8 %.sroa.0623.0.copyload705 to i32
   %.sroa.293.0.insert.insert1745 = or disjoint i32 %.sroa.2932074.0.insert.shift2614, %.sroa.0623.0.insert.ext955
   %.sroa.0623.0.insert.insert957 = or disjoint i32 %.sroa.293.0.insert.insert1745, %.sroa.293.0.insert.shift1743
-  invoke void %2844(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert957)
+  invoke void %2844(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert957)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2846:                                             ; preds = %2831, %2822
@@ -7989,7 +7989,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2853 = load i32, ptr %206, align 4
   %2854 = add nsw i32 %2853, 1
   store i32 %2854, ptr %206, align 4
-  store i32 %2853, ptr %.2, align 8
+  store i32 %2853, ptr %.3, align 8
   %2855 = sext i32 %2853 to i64
   %2856 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2855
   %.sroa.0623.0.copyload706 = load i8, ptr %2856, align 2
@@ -8009,7 +8009,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext952 = zext i8 %.sroa.0623.0.copyload706 to i32
   %.sroa.293.0.insert.insert1741 = or disjoint i32 %.sroa.2932074.0.insert.shift2610, %.sroa.0623.0.insert.ext952
   %.sroa.0623.0.insert.insert954 = or disjoint i32 %.sroa.293.0.insert.insert1741, %.sroa.293.0.insert.shift1739
-  invoke void %2857(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert954)
+  invoke void %2857(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert954)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2859:                                             ; preds = %.backedge
@@ -8064,7 +8064,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %2887 = load i32, ptr %206, align 4
   %2888 = add nsw i32 %2887, 1
   store i32 %2888, ptr %206, align 4
-  store i32 %2887, ptr %.2, align 8
+  store i32 %2887, ptr %.3, align 8
   %2889 = sext i32 %2887 to i64
   %2890 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2889
   %.sroa.0623.0.copyload707 = load i8, ptr %2890, align 2
@@ -8084,7 +8084,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4378: ; preds = %
   %.sroa.0623.0.insert.ext949 = zext i8 %.sroa.0623.0.copyload707 to i32
   %.sroa.293.0.insert.insert1737 = or disjoint i32 %.sroa.2932074.0.insert.shift2606, %.sroa.0623.0.insert.ext949
   %.sroa.0623.0.insert.insert951 = or disjoint i32 %.sroa.293.0.insert.insert1737, %.sroa.293.0.insert.shift1735
-  invoke void %2891(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert951)
+  invoke void %2891(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert951)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2893:                                             ; preds = %2859, %2868
@@ -8160,7 +8160,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4404: ; preds = %
   %2928 = load i32, ptr %206, align 4
   %2929 = add nsw i32 %2928, 1
   store i32 %2929, ptr %206, align 4
-  store i32 %2928, ptr %.2, align 8
+  store i32 %2928, ptr %.3, align 8
   %2930 = sext i32 %2928 to i64
   %2931 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2930
   %.sroa.0623.0.copyload708 = load i8, ptr %2931, align 2
@@ -8180,7 +8180,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4404: ; preds = %
   %.sroa.0623.0.insert.ext946 = zext i8 %.sroa.0623.0.copyload708 to i32
   %.sroa.293.0.insert.insert1733 = or disjoint i32 %.sroa.2932074.0.insert.shift2602, %.sroa.0623.0.insert.ext946
   %.sroa.0623.0.insert.insert948 = or disjoint i32 %.sroa.293.0.insert.insert1733, %.sroa.293.0.insert.shift1731
-  invoke void %2932(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert948)
+  invoke void %2932(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert948)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2934:                                             ; preds = %.backedge
@@ -8235,7 +8235,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4404: ; preds = %
   %2962 = load i32, ptr %206, align 4
   %2963 = add nsw i32 %2962, 1
   store i32 %2963, ptr %206, align 4
-  store i32 %2962, ptr %.2, align 8
+  store i32 %2962, ptr %.3, align 8
   %2964 = sext i32 %2962 to i64
   %2965 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %2964
   %.sroa.0623.0.copyload709 = load i8, ptr %2965, align 2
@@ -8255,7 +8255,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4404: ; preds = %
   %.sroa.0623.0.insert.ext943 = zext i8 %.sroa.0623.0.copyload709 to i32
   %.sroa.293.0.insert.insert1729 = or disjoint i32 %.sroa.2932074.0.insert.shift2598, %.sroa.0623.0.insert.ext943
   %.sroa.0623.0.insert.insert945 = or disjoint i32 %.sroa.293.0.insert.insert1729, %.sroa.293.0.insert.shift1727
-  invoke void %2966(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert945)
+  invoke void %2966(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert945)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 2968:                                             ; preds = %2934, %2943
@@ -8331,7 +8331,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4411: ; preds = %
   %3003 = load i32, ptr %206, align 4
   %3004 = add nsw i32 %3003, 1
   store i32 %3004, ptr %206, align 4
-  store i32 %3003, ptr %.2, align 8
+  store i32 %3003, ptr %.3, align 8
   %3005 = sext i32 %3003 to i64
   %3006 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3005
   %.sroa.0623.0.copyload710 = load i8, ptr %3006, align 2
@@ -8351,7 +8351,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4411: ; preds = %
   %.sroa.0623.0.insert.ext940 = zext i8 %.sroa.0623.0.copyload710 to i32
   %.sroa.293.0.insert.insert1725 = or disjoint i32 %.sroa.2932074.0.insert.shift2594, %.sroa.0623.0.insert.ext940
   %.sroa.0623.0.insert.insert942 = or disjoint i32 %.sroa.293.0.insert.insert1725, %.sroa.293.0.insert.shift1723
-  invoke void %3007(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert942)
+  invoke void %3007(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert942)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3009:                                             ; preds = %.backedge
@@ -8403,7 +8403,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4411: ; preds = %
   %3034 = load i32, ptr %206, align 4
   %3035 = add nsw i32 %3034, 1
   store i32 %3035, ptr %206, align 4
-  store i32 %3034, ptr %.2, align 8
+  store i32 %3034, ptr %.3, align 8
   %3036 = sext i32 %3034 to i64
   %3037 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3036
   %.sroa.0623.0.copyload711 = load i8, ptr %3037, align 2
@@ -8423,7 +8423,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4411: ; preds = %
   %.sroa.0623.0.insert.ext937 = zext i8 %.sroa.0623.0.copyload711 to i32
   %.sroa.293.0.insert.insert1721 = or disjoint i32 %.sroa.2932074.0.insert.shift2590, %.sroa.0623.0.insert.ext937
   %.sroa.0623.0.insert.insert939 = or disjoint i32 %.sroa.293.0.insert.insert1721, %.sroa.293.0.insert.shift1719
-  invoke void %3038(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert939)
+  invoke void %3038(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert939)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3040:                                             ; preds = %3009, %3018
@@ -8499,7 +8499,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4418: ; preds = %
   %3075 = load i32, ptr %206, align 4
   %3076 = add nsw i32 %3075, 1
   store i32 %3076, ptr %206, align 4
-  store i32 %3075, ptr %.2, align 8
+  store i32 %3075, ptr %.3, align 8
   %3077 = sext i32 %3075 to i64
   %3078 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3077
   %.sroa.0623.0.copyload712 = load i8, ptr %3078, align 2
@@ -8519,7 +8519,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4418: ; preds = %
   %.sroa.0623.0.insert.ext934 = zext i8 %.sroa.0623.0.copyload712 to i32
   %.sroa.293.0.insert.insert1717 = or disjoint i32 %.sroa.2932074.0.insert.shift2586, %.sroa.0623.0.insert.ext934
   %.sroa.0623.0.insert.insert936 = or disjoint i32 %.sroa.293.0.insert.insert1717, %.sroa.293.0.insert.shift1715
-  invoke void %3079(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert936)
+  invoke void %3079(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert936)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3081:                                             ; preds = %.backedge
@@ -8571,7 +8571,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4418: ; preds = %
   %3106 = load i32, ptr %206, align 4
   %3107 = add nsw i32 %3106, 1
   store i32 %3107, ptr %206, align 4
-  store i32 %3106, ptr %.2, align 8
+  store i32 %3106, ptr %.3, align 8
   %3108 = sext i32 %3106 to i64
   %3109 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3108
   %.sroa.0623.0.copyload713 = load i8, ptr %3109, align 2
@@ -8591,7 +8591,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4418: ; preds = %
   %.sroa.0623.0.insert.ext931 = zext i8 %.sroa.0623.0.copyload713 to i32
   %.sroa.293.0.insert.insert1713 = or disjoint i32 %.sroa.2932074.0.insert.shift2582, %.sroa.0623.0.insert.ext931
   %.sroa.0623.0.insert.insert933 = or disjoint i32 %.sroa.293.0.insert.insert1713, %.sroa.293.0.insert.shift1711
-  invoke void %3110(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert933)
+  invoke void %3110(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert933)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3112:                                             ; preds = %3081, %3090
@@ -8667,7 +8667,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4425: ; preds = %
   %3147 = load i32, ptr %206, align 4
   %3148 = add nsw i32 %3147, 1
   store i32 %3148, ptr %206, align 4
-  store i32 %3147, ptr %.2, align 8
+  store i32 %3147, ptr %.3, align 8
   %3149 = sext i32 %3147 to i64
   %3150 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3149
   %.sroa.0623.0.copyload714 = load i8, ptr %3150, align 2
@@ -8687,7 +8687,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4425: ; preds = %
   %.sroa.0623.0.insert.ext928 = zext i8 %.sroa.0623.0.copyload714 to i32
   %.sroa.293.0.insert.insert1709 = or disjoint i32 %.sroa.2932074.0.insert.shift2578, %.sroa.0623.0.insert.ext928
   %.sroa.0623.0.insert.insert930 = or disjoint i32 %.sroa.293.0.insert.insert1709, %.sroa.293.0.insert.shift1707
-  invoke void %3151(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert930)
+  invoke void %3151(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert930)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3153:                                             ; preds = %.backedge
@@ -8740,7 +8740,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4425: ; preds = %
   %3179 = load i32, ptr %206, align 4
   %3180 = add nsw i32 %3179, 1
   store i32 %3180, ptr %206, align 4
-  store i32 %3179, ptr %.2, align 8
+  store i32 %3179, ptr %.3, align 8
   %3181 = sext i32 %3179 to i64
   %3182 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3181
   %.sroa.0623.0.copyload715 = load i8, ptr %3182, align 2
@@ -8760,7 +8760,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4425: ; preds = %
   %.sroa.0623.0.insert.ext925 = zext i8 %.sroa.0623.0.copyload715 to i32
   %.sroa.293.0.insert.insert1705 = or disjoint i32 %.sroa.2932074.0.insert.shift2574, %.sroa.0623.0.insert.ext925
   %.sroa.0623.0.insert.insert927 = or disjoint i32 %.sroa.293.0.insert.insert1705, %.sroa.293.0.insert.shift1703
-  invoke void %3183(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert927)
+  invoke void %3183(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert927)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3185:                                             ; preds = %3153, %3162
@@ -8836,7 +8836,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4432: ; preds = %
   %3220 = load i32, ptr %206, align 4
   %3221 = add nsw i32 %3220, 1
   store i32 %3221, ptr %206, align 4
-  store i32 %3220, ptr %.2, align 8
+  store i32 %3220, ptr %.3, align 8
   %3222 = sext i32 %3220 to i64
   %3223 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3222
   %.sroa.0623.0.copyload716 = load i8, ptr %3223, align 2
@@ -8856,7 +8856,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4432: ; preds = %
   %.sroa.0623.0.insert.ext922 = zext i8 %.sroa.0623.0.copyload716 to i32
   %.sroa.293.0.insert.insert1701 = or disjoint i32 %.sroa.2932074.0.insert.shift2570, %.sroa.0623.0.insert.ext922
   %.sroa.0623.0.insert.insert924 = or disjoint i32 %.sroa.293.0.insert.insert1701, %.sroa.293.0.insert.shift1699
-  invoke void %3224(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert924)
+  invoke void %3224(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert924)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3226:                                             ; preds = %.backedge
@@ -8941,7 +8941,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4435: ; preds = %
   %3269 = load i32, ptr %206, align 4
   %3270 = add nsw i32 %3269, 1
   store i32 %3270, ptr %206, align 4
-  store i32 %3269, ptr %.2, align 8
+  store i32 %3269, ptr %.3, align 8
   %3271 = sext i32 %3269 to i64
   %3272 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3271
   %.sroa.0623.0.copyload717 = load i8, ptr %3272, align 2
@@ -8961,7 +8961,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4435: ; preds = %
   %.sroa.0623.0.insert.ext919 = zext i8 %.sroa.0623.0.copyload717 to i32
   %.sroa.293.0.insert.insert1697 = or disjoint i32 %.sroa.2932074.0.insert.shift2566, %.sroa.0623.0.insert.ext919
   %.sroa.0623.0.insert.insert921 = or disjoint i32 %.sroa.293.0.insert.insert1697, %.sroa.293.0.insert.shift1695
-  invoke void %3273(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert921)
+  invoke void %3273(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert921)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3275:                                             ; preds = %.backedge
@@ -8982,7 +8982,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4435: ; preds = %
   %3285 = load i32, ptr %206, align 4
   %3286 = add nsw i32 %3285, 1
   store i32 %3286, ptr %206, align 4
-  store i32 %3285, ptr %.2, align 8
+  store i32 %3285, ptr %.3, align 8
   %3287 = sext i32 %3285 to i64
   %3288 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3287
   %.sroa.0623.0.copyload718 = load i8, ptr %3288, align 2
@@ -9002,7 +9002,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4435: ; preds = %
   %.sroa.0623.0.insert.ext916 = zext i8 %.sroa.0623.0.copyload718 to i32
   %.sroa.293.0.insert.insert1693 = or disjoint i32 %.sroa.2932074.0.insert.shift2562, %.sroa.0623.0.insert.ext916
   %.sroa.0623.0.insert.insert918 = or disjoint i32 %.sroa.293.0.insert.insert1693, %.sroa.293.0.insert.shift1691
-  invoke void %3289(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert918)
+  invoke void %3289(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert918)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3291:                                             ; preds = %.backedge
@@ -9079,7 +9079,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %3329 = load i32, ptr %206, align 4
   %3330 = add nsw i32 %3329, 1
   store i32 %3330, ptr %206, align 4
-  store i32 %3329, ptr %.2, align 8
+  store i32 %3329, ptr %.3, align 8
   %3331 = sext i32 %3329 to i64
   %3332 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3331
   %.sroa.0623.0.copyload719 = load i8, ptr %3332, align 2
@@ -9099,14 +9099,14 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.sroa.0623.0.insert.ext913 = zext i8 %.sroa.0623.0.copyload719 to i32
   %.sroa.293.0.insert.insert1689 = or disjoint i32 %.sroa.2932074.0.insert.shift2558, %.sroa.0623.0.insert.ext913
   %.sroa.0623.0.insert.insert915 = or disjoint i32 %.sroa.293.0.insert.insert1689, %.sroa.293.0.insert.shift1687
-  invoke void %3333(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert915)
+  invoke void %3333(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert915)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3335:                                             ; preds = %.backedge
   %3336 = zext i16 %.sroa.2932074.0 to i32
   %3337 = add nuw nsw i32 %3336, 1
   store i32 %3337, ptr %206, align 4
-  store i32 %3336, ptr %.2, align 8
+  store i32 %3336, ptr %.3, align 8
   %3338 = zext i16 %.sroa.2932074.0 to i64
   %3339 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3338
   %.sroa.0623.0.copyload720 = load i8, ptr %3339, align 2
@@ -9126,7 +9126,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.sroa.0623.0.insert.ext910 = zext i8 %.sroa.0623.0.copyload720 to i32
   %.sroa.293.0.insert.insert1685 = or disjoint i32 %.sroa.2932074.0.insert.shift2554, %.sroa.0623.0.insert.ext910
   %.sroa.0623.0.insert.insert912 = or disjoint i32 %.sroa.293.0.insert.insert1685, %.sroa.293.0.insert.shift1683
-  invoke void %3340(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert912)
+  invoke void %3340(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert912)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3342:                                             ; preds = %.backedge
@@ -9153,7 +9153,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.0.i.i = trunc i64 %.0.in.i.i to i32
   %3355 = add nsw i32 %.0.i.i, 1
   store i32 %3355, ptr %206, align 4
-  store i32 %.0.i.i, ptr %.2, align 8
+  store i32 %.0.i.i, ptr %.3, align 8
   %sext = shl i64 %.0.in.i.i, 32
   %3356 = ashr exact i64 %sext, 30
   %3357 = getelementptr inbounds i8, ptr %205, i64 %3356
@@ -9174,7 +9174,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.sroa.0623.0.insert.ext907 = zext i8 %.sroa.0623.0.copyload721 to i32
   %.sroa.293.0.insert.insert1681 = or disjoint i32 %.sroa.2932074.0.insert.shift2550, %.sroa.0623.0.insert.ext907
   %.sroa.0623.0.insert.insert909 = or disjoint i32 %.sroa.293.0.insert.insert1681, %.sroa.293.0.insert.shift1679
-  invoke void %3358(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert909)
+  invoke void %3358(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert909)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3360:                                             ; preds = %.backedge
@@ -9199,7 +9199,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %3371 = load i32, ptr %206, align 4
   %3372 = add nsw i32 %3371, 1
   store i32 %3372, ptr %206, align 4
-  store i32 %3371, ptr %.2, align 8
+  store i32 %3371, ptr %.3, align 8
   %3373 = sext i32 %3371 to i64
   %3374 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3373
   %.sroa.0623.0.copyload722 = load i8, ptr %3374, align 2
@@ -9219,7 +9219,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.sroa.0623.0.insert.ext904 = zext i8 %.sroa.0623.0.copyload722 to i32
   %.sroa.293.0.insert.insert1677 = or disjoint i32 %.sroa.2932074.0.insert.shift2546, %.sroa.0623.0.insert.ext904
   %.sroa.0623.0.insert.insert906 = or disjoint i32 %.sroa.293.0.insert.insert1677, %.sroa.293.0.insert.shift1675
-  invoke void %3375(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert906)
+  invoke void %3375(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert906)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3377:                                             ; preds = %.backedge
@@ -9244,7 +9244,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %3388 = load i32, ptr %206, align 4
   %3389 = add nsw i32 %3388, 1
   store i32 %3389, ptr %206, align 4
-  store i32 %3388, ptr %.2, align 8
+  store i32 %3388, ptr %.3, align 8
   %3390 = sext i32 %3388 to i64
   %3391 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3390
   %.sroa.0623.0.copyload723 = load i8, ptr %3391, align 2
@@ -9264,7 +9264,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.sroa.0623.0.insert.ext901 = zext i8 %.sroa.0623.0.copyload723 to i32
   %.sroa.293.0.insert.insert1673 = or disjoint i32 %.sroa.2932074.0.insert.shift2542, %.sroa.0623.0.insert.ext901
   %.sroa.0623.0.insert.insert903 = or disjoint i32 %.sroa.293.0.insert.insert1673, %.sroa.293.0.insert.shift1671
-  invoke void %3392(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert903)
+  invoke void %3392(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert903)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3394:                                             ; preds = %.backedge
@@ -9293,7 +9293,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %3406 = phi i32 [ %.pre5431, %3402 ], [ %3401, %3400 ]
   %3407 = add nsw i32 %3406, 1
   store i32 %3407, ptr %206, align 4
-  store i32 %3406, ptr %.2, align 8
+  store i32 %3406, ptr %.3, align 8
   %3408 = sext i32 %3406 to i64
   %3409 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3408
   %.sroa.0623.0.copyload724 = load i8, ptr %3409, align 2
@@ -9313,7 +9313,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.sroa.0623.0.insert.ext898 = zext i8 %.sroa.0623.0.copyload724 to i32
   %.sroa.293.0.insert.insert1669 = or disjoint i32 %.sroa.2932074.0.insert.shift2538, %.sroa.0623.0.insert.ext898
   %.sroa.0623.0.insert.insert900 = or disjoint i32 %.sroa.293.0.insert.insert1669, %.sroa.293.0.insert.shift1667
-  invoke void %3410(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert900)
+  invoke void %3410(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert900)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3412:                                             ; preds = %.backedge
@@ -9342,7 +9342,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %3424 = phi i32 [ %.pre5430, %3420 ], [ %3419, %3418 ]
   %3425 = add nsw i32 %3424, 1
   store i32 %3425, ptr %206, align 4
-  store i32 %3424, ptr %.2, align 8
+  store i32 %3424, ptr %.3, align 8
   %3426 = sext i32 %3424 to i64
   %3427 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3426
   %.sroa.0623.0.copyload725 = load i8, ptr %3427, align 2
@@ -9362,7 +9362,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.sroa.0623.0.insert.ext895 = zext i8 %.sroa.0623.0.copyload725 to i32
   %.sroa.293.0.insert.insert1665 = or disjoint i32 %.sroa.2932074.0.insert.shift2534, %.sroa.0623.0.insert.ext895
   %.sroa.0623.0.insert.insert897 = or disjoint i32 %.sroa.293.0.insert.insert1665, %.sroa.293.0.insert.shift1663
-  invoke void %3428(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert897)
+  invoke void %3428(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert897)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3430:                                             ; preds = %.backedge
@@ -9399,7 +9399,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %3447 = phi i32 [ %.pre5429, %3444 ], [ %3443, %3437 ]
   %3448 = add nsw i32 %3447, 1
   store i32 %3448, ptr %206, align 4
-  store i32 %3447, ptr %.2, align 8
+  store i32 %3447, ptr %.3, align 8
   %3449 = sext i32 %3447 to i64
   %3450 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3449
   %.sroa.0623.0.copyload726 = load i8, ptr %3450, align 2
@@ -9419,14 +9419,14 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.sroa.0623.0.insert.ext892 = zext i8 %.sroa.0623.0.copyload726 to i32
   %.sroa.293.0.insert.insert1661 = or disjoint i32 %.sroa.2932074.0.insert.shift2530, %.sroa.0623.0.insert.ext892
   %.sroa.0623.0.insert.insert894 = or disjoint i32 %.sroa.293.0.insert.insert1661, %.sroa.293.0.insert.shift1659
-  invoke void %3451(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert894)
+  invoke void %3451(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert894)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3453:                                             ; preds = %.backedge
   %3454 = zext i16 %.sroa.2932074.0 to i32
   %3455 = add nuw nsw i32 %3454, 1
   store i32 %3455, ptr %206, align 4
-  store i32 %3454, ptr %.2, align 8
+  store i32 %3454, ptr %.3, align 8
   %3456 = zext i16 %.sroa.2932074.0 to i64
   %3457 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3456
   %.sroa.0623.0.copyload727 = load i8, ptr %3457, align 2
@@ -9446,19 +9446,19 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.sroa.0623.0.insert.ext889 = zext i8 %.sroa.0623.0.copyload727 to i32
   %.sroa.293.0.insert.insert1657 = or disjoint i32 %.sroa.2932074.0.insert.shift2526, %.sroa.0623.0.insert.ext889
   %.sroa.0623.0.insert.insert891 = or disjoint i32 %.sroa.293.0.insert.insert1657, %.sroa.293.0.insert.shift1655
-  invoke void %3458(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert891)
+  invoke void %3458(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert891)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3460:                                             ; preds = %.backedge
   %3461 = zext i16 %.sroa.2932074.0 to i32
-  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.2, ptr noundef nonnull %147, i32 noundef %3461)
+  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.3, ptr noundef nonnull %147, i32 noundef %3461)
           to label %3462 unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3462:                                             ; preds = %3460
   %3463 = load i32, ptr %206, align 4
   %3464 = add nsw i32 %3463, 1
   store i32 %3464, ptr %206, align 4
-  store i32 %3463, ptr %.2, align 8
+  store i32 %3463, ptr %.3, align 8
   %3465 = sext i32 %3463 to i64
   %3466 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3465
   %.sroa.0623.0.copyload728 = load i8, ptr %3466, align 2
@@ -9478,7 +9478,7 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   %.sroa.0623.0.insert.ext886 = zext i8 %.sroa.0623.0.copyload728 to i32
   %.sroa.293.0.insert.insert1653 = or disjoint i32 %.sroa.2932074.0.insert.shift2522, %.sroa.0623.0.insert.ext886
   %.sroa.0623.0.insert.insert888 = or disjoint i32 %.sroa.293.0.insert.insert1653, %.sroa.293.0.insert.shift1651
-  invoke void %3467(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert888)
+  invoke void %3467(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert888)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3469:                                             ; preds = %.backedge
@@ -9597,14 +9597,14 @@ _ZN4pkpy2VM12RuntimeErrorERKNS_3StrE.exit:        ; preds = %.noexc4453
 
 3514:                                             ; preds = %_ZN4pkpy2VM12RuntimeErrorERKNS_3StrE.exit, %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit
   %3515 = phi i32 [ %3505, %_ZN4pkpy2VM12RuntimeErrorERKNS_3StrE.exit ], [ %3503, %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit ]
-  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.2, ptr noundef nonnull %147, i32 noundef %3515)
+  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.3, ptr noundef nonnull %147, i32 noundef %3515)
           to label %3516 unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3516:                                             ; preds = %3514
   %3517 = load i32, ptr %206, align 4
   %3518 = add nsw i32 %3517, 1
   store i32 %3518, ptr %206, align 4
-  store i32 %3517, ptr %.2, align 8
+  store i32 %3517, ptr %.3, align 8
   %3519 = sext i32 %3517 to i64
   %3520 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3519
   %.sroa.0623.0.copyload729 = load i8, ptr %3520, align 2
@@ -9624,7 +9624,7 @@ _ZN4pkpy2VM12RuntimeErrorERKNS_3StrE.exit:        ; preds = %.noexc4453
   %.sroa.0623.0.insert.ext883 = zext i8 %.sroa.0623.0.copyload729 to i32
   %.sroa.293.0.insert.insert1649 = or disjoint i32 %.sroa.2932074.0.insert.shift2518, %.sroa.0623.0.insert.ext883
   %.sroa.0623.0.insert.insert885 = or disjoint i32 %.sroa.293.0.insert.insert1649, %.sroa.293.0.insert.shift1647
-  invoke void %3521(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert885)
+  invoke void %3521(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert885)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3523:                                             ; preds = %.backedge
@@ -10237,7 +10237,7 @@ _ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4502: ; preds = %_ZN4pkpy2VM5_exe
   %3790 = load i32, ptr %206, align 4
   %3791 = add nsw i32 %3790, 1
   store i32 %3791, ptr %206, align 4
-  store i32 %3790, ptr %.2, align 8
+  store i32 %3790, ptr %.3, align 8
   %3792 = sext i32 %3790 to i64
   %3793 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3792
   %.sroa.0623.0.copyload730 = load i8, ptr %3793, align 2
@@ -10257,7 +10257,7 @@ _ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit4502: ; preds = %_ZN4pkpy2VM5_exe
   %.sroa.0623.0.insert.ext880 = zext i8 %.sroa.0623.0.copyload730 to i32
   %.sroa.293.0.insert.insert1645 = or disjoint i32 %.sroa.2932074.0.insert.shift2514, %.sroa.0623.0.insert.ext880
   %.sroa.0623.0.insert.insert882 = or disjoint i32 %.sroa.293.0.insert.insert1645, %.sroa.293.0.insert.shift1643
-  invoke void %3794(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert882)
+  invoke void %3794(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert882)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3796:                                             ; preds = %3686, %3684
@@ -10286,7 +10286,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4504: ; preds = %3802
   %3807 = load i32, ptr %206, align 4
   %3808 = add nsw i32 %3807, 1
   store i32 %3808, ptr %206, align 4
-  store i32 %3807, ptr %.2, align 8
+  store i32 %3807, ptr %.3, align 8
   %3809 = sext i32 %3807 to i64
   %3810 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3809
   %.sroa.0623.0.copyload731 = load i8, ptr %3810, align 2
@@ -10306,7 +10306,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4504: ; preds = %3802
   %.sroa.0623.0.insert.ext877 = zext i8 %.sroa.0623.0.copyload731 to i32
   %.sroa.293.0.insert.insert1641 = or disjoint i32 %.sroa.2932074.0.insert.shift2510, %.sroa.0623.0.insert.ext877
   %.sroa.0623.0.insert.insert879 = or disjoint i32 %.sroa.293.0.insert.insert1641, %.sroa.293.0.insert.shift1639
-  invoke void %3811(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert879)
+  invoke void %3811(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert879)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3813:                                             ; preds = %3802
@@ -10345,7 +10345,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4504: ; preds = %3802
   br label %.backedge4983.backedge
 
 .backedge4983.backedge:                           ; preds = %3826, %3914, %3935
-  %.2.be = phi ptr [ %3937, %3935 ], [ %3916, %3914 ], [ %3828, %3826 ]
+  %.3.be = phi ptr [ %3937, %3935 ], [ %3916, %3914 ], [ %3828, %3826 ]
   br label %.backedge4983
 
 3829:                                             ; preds = %3824
@@ -10356,7 +10356,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4504: ; preds = %3802
   %3832 = load i32, ptr %206, align 4
   %3833 = add nsw i32 %3832, 1
   store i32 %3833, ptr %206, align 4
-  store i32 %3832, ptr %.2, align 8
+  store i32 %3832, ptr %.3, align 8
   %3834 = sext i32 %3832 to i64
   %3835 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3834
   %.sroa.0623.0.copyload732 = load i8, ptr %3835, align 2
@@ -10376,7 +10376,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4504: ; preds = %3802
   %.sroa.0623.0.insert.ext874 = zext i8 %.sroa.0623.0.copyload732 to i32
   %.sroa.293.0.insert.insert1637 = or disjoint i32 %.sroa.2932074.0.insert.shift2506, %.sroa.0623.0.insert.ext874
   %.sroa.0623.0.insert.insert876 = or disjoint i32 %.sroa.293.0.insert.insert1637, %.sroa.293.0.insert.shift1635
-  invoke void %3836(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert876)
+  invoke void %3836(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert876)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3838:                                             ; preds = %.backedge
@@ -10541,7 +10541,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %3920 = load i32, ptr %206, align 4
   %3921 = add nsw i32 %3920, 1
   store i32 %3921, ptr %206, align 4
-  store i32 %3920, ptr %.2, align 8
+  store i32 %3920, ptr %.3, align 8
   %3922 = sext i32 %3920 to i64
   %3923 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3922
   %.sroa.0623.0.copyload733 = load i8, ptr %3923, align 2
@@ -10561,7 +10561,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %.sroa.0623.0.insert.ext871 = zext i8 %.sroa.0623.0.copyload733 to i32
   %.sroa.293.0.insert.insert1633 = or disjoint i32 %.sroa.2932074.0.insert.shift2502, %.sroa.0623.0.insert.ext871
   %.sroa.0623.0.insert.insert873 = or disjoint i32 %.sroa.293.0.insert.insert1633, %.sroa.293.0.insert.shift1631
-  invoke void %3924(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert873)
+  invoke void %3924(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert873)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3926:                                             ; preds = %.backedge
@@ -10581,7 +10581,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
           to label %3933 unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit
 
 3933:                                             ; preds = %3931
-  %3934 = icmp eq ptr %.2, %127
+  %3934 = icmp eq ptr %.3, %127
   br i1 %3934, label %.loopexit4982, label %3935
 
 3935:                                             ; preds = %3933
@@ -10648,7 +10648,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %3971 = load i32, ptr %206, align 4
   %3972 = add nsw i32 %3971, 1
   store i32 %3972, ptr %206, align 4
-  store i32 %3971, ptr %.2, align 8
+  store i32 %3971, ptr %.3, align 8
   %3973 = sext i32 %3971 to i64
   %3974 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3973
   %.sroa.0623.0.copyload734 = load i8, ptr %3974, align 2
@@ -10668,7 +10668,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %.sroa.0623.0.insert.ext868 = zext i8 %.sroa.0623.0.copyload734 to i32
   %.sroa.293.0.insert.insert1629 = or disjoint i32 %.sroa.2932074.0.insert.shift2498, %.sroa.0623.0.insert.ext868
   %.sroa.0623.0.insert.insert870 = or disjoint i32 %.sroa.293.0.insert.insert1629, %.sroa.293.0.insert.shift1627
-  invoke void %3975(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert870)
+  invoke void %3975(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert870)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3977:                                             ; preds = %.backedge
@@ -10691,7 +10691,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %3990 = load i32, ptr %206, align 4
   %3991 = add nsw i32 %3990, 1
   store i32 %3991, ptr %206, align 4
-  store i32 %3990, ptr %.2, align 8
+  store i32 %3990, ptr %.3, align 8
   %3992 = sext i32 %3990 to i64
   %3993 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3992
   %.sroa.0623.0.copyload735 = load i8, ptr %3993, align 2
@@ -10711,7 +10711,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %.sroa.0623.0.insert.ext865 = zext i8 %.sroa.0623.0.copyload735 to i32
   %.sroa.293.0.insert.insert1625 = or disjoint i32 %.sroa.2932074.0.insert.shift2494, %.sroa.0623.0.insert.ext865
   %.sroa.0623.0.insert.insert867 = or disjoint i32 %.sroa.293.0.insert.insert1625, %.sroa.293.0.insert.shift1623
-  invoke void %3994(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert867)
+  invoke void %3994(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert867)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 3996:                                             ; preds = %.backedge
@@ -10749,7 +10749,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %4012 = load i32, ptr %206, align 4
   %4013 = add nsw i32 %4012, 1
   store i32 %4013, ptr %206, align 4
-  store i32 %4012, ptr %.2, align 8
+  store i32 %4012, ptr %.3, align 8
   %4014 = sext i32 %4012 to i64
   %4015 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4014
   %.sroa.0623.0.copyload736 = load i8, ptr %4015, align 2
@@ -10769,7 +10769,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %.sroa.0623.0.insert.ext862 = zext i8 %.sroa.0623.0.copyload736 to i32
   %.sroa.293.0.insert.insert1621 = or disjoint i32 %.sroa.2932074.0.insert.shift2490, %.sroa.0623.0.insert.ext862
   %.sroa.0623.0.insert.insert864 = or disjoint i32 %.sroa.293.0.insert.insert1621, %.sroa.293.0.insert.shift1619
-  invoke void %4016(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert864)
+  invoke void %4016(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert864)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4018:                                             ; preds = %.backedge
@@ -10786,7 +10786,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %4026 = load i32, ptr %206, align 4
   %4027 = add nsw i32 %4026, 1
   store i32 %4027, ptr %206, align 4
-  store i32 %4026, ptr %.2, align 8
+  store i32 %4026, ptr %.3, align 8
   %4028 = sext i32 %4026 to i64
   %4029 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4028
   %.sroa.0623.0.copyload737 = load i8, ptr %4029, align 2
@@ -10806,7 +10806,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %.sroa.0623.0.insert.ext859 = zext i8 %.sroa.0623.0.copyload737 to i32
   %.sroa.293.0.insert.insert1617 = or disjoint i32 %.sroa.2932074.0.insert.shift2486, %.sroa.0623.0.insert.ext859
   %.sroa.0623.0.insert.insert861 = or disjoint i32 %.sroa.293.0.insert.insert1617, %.sroa.293.0.insert.shift1615
-  invoke void %4030(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert861)
+  invoke void %4030(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert861)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4032:                                             ; preds = %.backedge
@@ -10848,7 +10848,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %4051 = load i32, ptr %206, align 4
   %4052 = add nsw i32 %4051, 1
   store i32 %4052, ptr %206, align 4
-  store i32 %4051, ptr %.2, align 8
+  store i32 %4051, ptr %.3, align 8
   %4053 = sext i32 %4051 to i64
   %4054 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4053
   %.sroa.0623.0.copyload738 = load i8, ptr %4054, align 2
@@ -10868,7 +10868,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3862
   %.sroa.0623.0.insert.ext856 = zext i8 %.sroa.0623.0.copyload738 to i32
   %.sroa.293.0.insert.insert1613 = or disjoint i32 %.sroa.2932074.0.insert.shift2482, %.sroa.0623.0.insert.ext856
   %.sroa.0623.0.insert.insert858 = or disjoint i32 %.sroa.293.0.insert.insert1613, %.sroa.293.0.insert.shift1611
-  invoke void %4055(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert858)
+  invoke void %4055(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert858)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4057:                                             ; preds = %.backedge
@@ -10890,7 +10890,7 @@ _ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %40
   %4067 = load i32, ptr %206, align 4
   %4068 = add nsw i32 %4067, 1
   store i32 %4068, ptr %206, align 4
-  store i32 %4067, ptr %.2, align 8
+  store i32 %4067, ptr %.3, align 8
   %4069 = sext i32 %4067 to i64
   %4070 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4069
   %.sroa.0623.0.copyload739 = load i8, ptr %4070, align 2
@@ -10910,7 +10910,7 @@ _ZN4pkpy6py_varINS_11StarWrapperEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %40
   %.sroa.0623.0.insert.ext853 = zext i8 %.sroa.0623.0.copyload739 to i32
   %.sroa.293.0.insert.insert1609 = or disjoint i32 %.sroa.2932074.0.insert.shift2478, %.sroa.0623.0.insert.ext853
   %.sroa.0623.0.insert.insert855 = or disjoint i32 %.sroa.293.0.insert.insert1609, %.sroa.293.0.insert.shift1607
-  invoke void %4071(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert855)
+  invoke void %4071(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert855)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4073:                                             ; preds = %.backedge
@@ -10966,7 +10966,7 @@ _ZN4pkpy2VM11call_methodIJEEEPNS_8PyObjectES3_NS_7StrNameEDpOT_.exit: ; preds = 
   %4099 = load i32, ptr %206, align 4
   %4100 = add nsw i32 %4099, 1
   store i32 %4100, ptr %206, align 4
-  store i32 %4099, ptr %.2, align 8
+  store i32 %4099, ptr %.3, align 8
   %4101 = sext i32 %4099 to i64
   %4102 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4101
   %.sroa.0623.0.copyload740 = load i8, ptr %4102, align 2
@@ -10986,7 +10986,7 @@ _ZN4pkpy2VM11call_methodIJEEEPNS_8PyObjectES3_NS_7StrNameEDpOT_.exit: ; preds = 
   %.sroa.0623.0.insert.ext850 = zext i8 %.sroa.0623.0.copyload740 to i32
   %.sroa.293.0.insert.insert1605 = or disjoint i32 %.sroa.2932074.0.insert.shift2474, %.sroa.0623.0.insert.ext850
   %.sroa.0623.0.insert.insert852 = or disjoint i32 %.sroa.293.0.insert.insert1605, %.sroa.293.0.insert.shift1603
-  invoke void %4103(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert852)
+  invoke void %4103(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert852)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4105:                                             ; preds = %.backedge
@@ -11003,7 +11003,7 @@ _ZN4pkpy2VM11call_methodIJEEEPNS_8PyObjectES3_NS_7StrNameEDpOT_.exit: ; preds = 
   %4113 = load i32, ptr %206, align 4
   %4114 = add nsw i32 %4113, 1
   store i32 %4114, ptr %206, align 4
-  store i32 %4113, ptr %.2, align 8
+  store i32 %4113, ptr %.3, align 8
   %4115 = sext i32 %4113 to i64
   %4116 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4115
   %.sroa.0623.0.copyload741 = load i8, ptr %4116, align 2
@@ -11023,7 +11023,7 @@ _ZN4pkpy2VM11call_methodIJEEEPNS_8PyObjectES3_NS_7StrNameEDpOT_.exit: ; preds = 
   %.sroa.0623.0.insert.ext847 = zext i8 %.sroa.0623.0.copyload741 to i32
   %.sroa.293.0.insert.insert1601 = or disjoint i32 %.sroa.2932074.0.insert.shift2470, %.sroa.0623.0.insert.ext847
   %.sroa.0623.0.insert.insert849 = or disjoint i32 %.sroa.293.0.insert.insert1601, %.sroa.293.0.insert.shift1599
-  invoke void %4117(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert849)
+  invoke void %4117(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert849)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4119:                                             ; preds = %.backedge
@@ -11040,7 +11040,7 @@ _ZN4pkpy2VM11call_methodIJEEEPNS_8PyObjectES3_NS_7StrNameEDpOT_.exit: ; preds = 
 
 4127:                                             ; preds = %4124
   %4128 = load ptr, ptr %202, align 8
-  %4129 = load i32, ptr %.2, align 8
+  %4129 = load i32, ptr %.3, align 8
   %4130 = getelementptr inbounds i8, ptr %4128, i64 304
   %4131 = getelementptr inbounds i8, ptr %4128, i64 72
   %4132 = sext i32 %4129 to i64
@@ -11051,7 +11051,7 @@ _ZN4pkpy2VM11call_methodIJEEEPNS_8PyObjectES3_NS_7StrNameEDpOT_.exit: ; preds = 
   %4137 = load ptr, ptr %4130, align 8
   %4138 = getelementptr inbounds %"struct.pkpy::CodeBlock", ptr %4137, i64 %4136, i32 4
   %4139 = load i32, ptr %4138, align 4
-  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.2, ptr noundef nonnull %147, i32 noundef %4139)
+  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.3, ptr noundef nonnull %147, i32 noundef %4139)
           to label %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4140:                                             ; preds = %4124
@@ -11065,7 +11065,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit: ; preds = %
   %4143 = load i32, ptr %206, align 4
   %4144 = add nsw i32 %4143, 1
   store i32 %4144, ptr %206, align 4
-  store i32 %4143, ptr %.2, align 8
+  store i32 %4143, ptr %.3, align 8
   %4145 = sext i32 %4143 to i64
   %4146 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4145
   %.sroa.0623.0.copyload742 = load i8, ptr %4146, align 2
@@ -11085,7 +11085,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit: ; preds = %
   %.sroa.0623.0.insert.ext844 = zext i8 %.sroa.0623.0.copyload742 to i32
   %.sroa.293.0.insert.insert1597 = or disjoint i32 %.sroa.2932074.0.insert.shift2466, %.sroa.0623.0.insert.ext844
   %.sroa.0623.0.insert.insert846 = or disjoint i32 %.sroa.293.0.insert.insert1597, %.sroa.293.0.insert.shift1595
-  invoke void %4147(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert846)
+  invoke void %4147(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert846)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4149:                                             ; preds = %.backedge
@@ -11102,7 +11102,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit: ; preds = %
 
 4157:                                             ; preds = %4154
   %4158 = load ptr, ptr %202, align 8
-  %4159 = load i32, ptr %.2, align 8
+  %4159 = load i32, ptr %.3, align 8
   %4160 = getelementptr inbounds i8, ptr %4158, i64 304
   %4161 = getelementptr inbounds i8, ptr %4158, i64 72
   %4162 = sext i32 %4159 to i64
@@ -11113,7 +11113,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit: ; preds = %
   %4167 = load ptr, ptr %4160, align 8
   %4168 = getelementptr inbounds %"struct.pkpy::CodeBlock", ptr %4167, i64 %4166, i32 4
   %4169 = load i32, ptr %4168, align 4
-  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.2, ptr noundef nonnull %147, i32 noundef %4169)
+  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.3, ptr noundef nonnull %147, i32 noundef %4169)
           to label %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4521 unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4170:                                             ; preds = %4154
@@ -11127,7 +11127,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4521: ; preds
   %4174 = load i32, ptr %206, align 4
   %4175 = add nsw i32 %4174, 1
   store i32 %4175, ptr %206, align 4
-  store i32 %4174, ptr %.2, align 8
+  store i32 %4174, ptr %.3, align 8
   %4176 = sext i32 %4174 to i64
   %4177 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4176
   %.sroa.0623.0.copyload743 = load i8, ptr %4177, align 2
@@ -11147,7 +11147,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4521: ; preds
   %.sroa.0623.0.insert.ext841 = zext i8 %.sroa.0623.0.copyload743 to i32
   %.sroa.293.0.insert.insert1593 = or disjoint i32 %.sroa.2932074.0.insert.shift2462, %.sroa.0623.0.insert.ext841
   %.sroa.0623.0.insert.insert843 = or disjoint i32 %.sroa.293.0.insert.insert1593, %.sroa.293.0.insert.shift1591
-  invoke void %4178(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert843)
+  invoke void %4178(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert843)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4180:                                             ; preds = %.backedge
@@ -11164,7 +11164,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4521: ; preds
 
 4188:                                             ; preds = %4185
   %4189 = load ptr, ptr %202, align 8
-  %4190 = load i32, ptr %.2, align 8
+  %4190 = load i32, ptr %.3, align 8
   %4191 = getelementptr inbounds i8, ptr %4189, i64 304
   %4192 = getelementptr inbounds i8, ptr %4189, i64 72
   %4193 = sext i32 %4190 to i64
@@ -11175,7 +11175,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4521: ; preds
   %4198 = load ptr, ptr %4191, align 8
   %4199 = getelementptr inbounds %"struct.pkpy::CodeBlock", ptr %4198, i64 %4197, i32 4
   %4200 = load i32, ptr %4199, align 4
-  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.2, ptr noundef nonnull %147, i32 noundef %4200)
+  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.3, ptr noundef nonnull %147, i32 noundef %4200)
           to label %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4523 unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4201:                                             ; preds = %4185
@@ -11189,7 +11189,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4523: ; preds
   %4205 = load i32, ptr %206, align 4
   %4206 = add nsw i32 %4205, 1
   store i32 %4206, ptr %206, align 4
-  store i32 %4205, ptr %.2, align 8
+  store i32 %4205, ptr %.3, align 8
   %4207 = sext i32 %4205 to i64
   %4208 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4207
   %.sroa.0623.0.copyload744 = load i8, ptr %4208, align 2
@@ -11209,7 +11209,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4523: ; preds
   %.sroa.0623.0.insert.ext838 = zext i8 %.sroa.0623.0.copyload744 to i32
   %.sroa.293.0.insert.insert1589 = or disjoint i32 %.sroa.2932074.0.insert.shift2458, %.sroa.0623.0.insert.ext838
   %.sroa.0623.0.insert.insert840 = or disjoint i32 %.sroa.293.0.insert.insert1589, %.sroa.293.0.insert.shift1587
-  invoke void %4209(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert840)
+  invoke void %4209(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert840)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4211:                                             ; preds = %.backedge
@@ -11226,7 +11226,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4523: ; preds
 
 4219:                                             ; preds = %4216
   %4220 = load ptr, ptr %202, align 8
-  %4221 = load i32, ptr %.2, align 8
+  %4221 = load i32, ptr %.3, align 8
   %4222 = getelementptr inbounds i8, ptr %4220, i64 304
   %4223 = getelementptr inbounds i8, ptr %4220, i64 72
   %4224 = sext i32 %4221 to i64
@@ -11237,7 +11237,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4523: ; preds
   %4229 = load ptr, ptr %4222, align 8
   %4230 = getelementptr inbounds %"struct.pkpy::CodeBlock", ptr %4229, i64 %4228, i32 4
   %4231 = load i32, ptr %4230, align 4
-  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.2, ptr noundef nonnull %147, i32 noundef %4231)
+  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.3, ptr noundef nonnull %147, i32 noundef %4231)
           to label %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4525 unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4232:                                             ; preds = %4216
@@ -11252,7 +11252,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4525: ; preds
   %4236 = load i32, ptr %206, align 4
   %4237 = add nsw i32 %4236, 1
   store i32 %4237, ptr %206, align 4
-  store i32 %4236, ptr %.2, align 8
+  store i32 %4236, ptr %.3, align 8
   %4238 = sext i32 %4236 to i64
   %4239 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4238
   %.sroa.0623.0.copyload745 = load i8, ptr %4239, align 2
@@ -11272,7 +11272,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4525: ; preds
   %.sroa.0623.0.insert.ext835 = zext i8 %.sroa.0623.0.copyload745 to i32
   %.sroa.293.0.insert.insert1585 = or disjoint i32 %.sroa.2932074.0.insert.shift2454, %.sroa.0623.0.insert.ext835
   %.sroa.0623.0.insert.insert837 = or disjoint i32 %.sroa.293.0.insert.insert1585, %.sroa.293.0.insert.shift1583
-  invoke void %4240(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert837)
+  invoke void %4240(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert837)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4242:                                             ; preds = %.backedge
@@ -11304,7 +11304,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4525: ; preds
 
 .invoke5652:                                      ; preds = %4257, %4285
   %4258 = load ptr, ptr %202, align 8
-  %4259 = load i32, ptr %.2, align 8
+  %4259 = load i32, ptr %.3, align 8
   %4260 = getelementptr inbounds i8, ptr %4258, i64 304
   %4261 = getelementptr inbounds i8, ptr %4258, i64 72
   %4262 = sext i32 %4259 to i64
@@ -11315,7 +11315,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4525: ; preds
   %4267 = load ptr, ptr %4260, align 8
   %4268 = getelementptr inbounds %"struct.pkpy::CodeBlock", ptr %4267, i64 %4266, i32 4
   %4269 = load i32, ptr %4268, align 4
-  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.2, ptr noundef nonnull %147, i32 noundef %4269)
+  invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.3, ptr noundef nonnull %147, i32 noundef %4269)
           to label %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4528 unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 .invoke5651:                                      ; preds = %4257, %4287
@@ -11391,7 +11391,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4528: ; preds
   %4290 = load i32, ptr %206, align 4
   %4291 = add nsw i32 %4290, 1
   store i32 %4291, ptr %206, align 4
-  store i32 %4290, ptr %.2, align 8
+  store i32 %4290, ptr %.3, align 8
   %4292 = sext i32 %4290 to i64
   %4293 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4292
   %.sroa.0623.0.copyload746 = load i8, ptr %4293, align 2
@@ -11411,7 +11411,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4528: ; preds
   %.sroa.0623.0.insert.ext832 = zext i8 %.sroa.0623.0.copyload746 to i32
   %.sroa.293.0.insert.insert1581 = or disjoint i32 %.sroa.2932074.0.insert.shift2450, %.sroa.0623.0.insert.ext832
   %.sroa.0623.0.insert.insert834 = or disjoint i32 %.sroa.293.0.insert.insert1581, %.sroa.293.0.insert.shift1579
-  invoke void %4294(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert834)
+  invoke void %4294(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert834)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4296:                                             ; preds = %.backedge
@@ -11456,7 +11456,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4536: ; preds = %4296
   %4318 = load i32, ptr %206, align 4
   %4319 = add nsw i32 %4318, 1
   store i32 %4319, ptr %206, align 4
-  store i32 %4318, ptr %.2, align 8
+  store i32 %4318, ptr %.3, align 8
   %4320 = sext i32 %4318 to i64
   %4321 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4320
   %.sroa.0623.0.copyload747 = load i8, ptr %4321, align 2
@@ -11476,7 +11476,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4536: ; preds = %4296
   %.sroa.0623.0.insert.ext829 = zext i8 %.sroa.0623.0.copyload747 to i32
   %.sroa.293.0.insert.insert1577 = or disjoint i32 %.sroa.2932074.0.insert.shift2446, %.sroa.0623.0.insert.ext829
   %.sroa.0623.0.insert.insert831 = or disjoint i32 %.sroa.293.0.insert.insert1577, %.sroa.293.0.insert.shift1575
-  invoke void %4322(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert831)
+  invoke void %4322(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert831)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4324:                                             ; preds = %4313
@@ -12101,7 +12101,7 @@ _ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit: ; preds =
   %4573 = load i32, ptr %206, align 4
   %4574 = add nsw i32 %4573, 1
   store i32 %4574, ptr %206, align 4
-  store i32 %4573, ptr %.2, align 8
+  store i32 %4573, ptr %.3, align 8
   %4575 = sext i32 %4573 to i64
   %4576 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4575
   %.sroa.0623.0.copyload748 = load i8, ptr %4576, align 2
@@ -12121,7 +12121,7 @@ _ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit: ; preds =
   %.sroa.0623.0.insert.ext826 = zext i8 %.sroa.0623.0.copyload748 to i32
   %.sroa.293.0.insert.insert1573 = or disjoint i32 %.sroa.2932074.0.insert.shift2442, %.sroa.0623.0.insert.ext826
   %.sroa.0623.0.insert.insert828 = or disjoint i32 %.sroa.293.0.insert.insert1573, %.sroa.293.0.insert.shift1571
-  invoke void %4577(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert828)
+  invoke void %4577(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert828)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4579:                                             ; preds = %.backedge
@@ -12132,7 +12132,7 @@ _ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit: ; preds =
   %4581 = load i32, ptr %206, align 4
   %4582 = add nsw i32 %4581, 1
   store i32 %4582, ptr %206, align 4
-  store i32 %4581, ptr %.2, align 8
+  store i32 %4581, ptr %.3, align 8
   %4583 = sext i32 %4581 to i64
   %4584 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4583
   %.sroa.0623.0.copyload749 = load i8, ptr %4584, align 2
@@ -12152,7 +12152,7 @@ _ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit: ; preds =
   %.sroa.0623.0.insert.ext823 = zext i8 %.sroa.0623.0.copyload749 to i32
   %.sroa.293.0.insert.insert1569 = or disjoint i32 %.sroa.2932074.0.insert.shift2438, %.sroa.0623.0.insert.ext823
   %.sroa.0623.0.insert.insert825 = or disjoint i32 %.sroa.293.0.insert.insert1569, %.sroa.293.0.insert.shift1567
-  invoke void %4585(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert825)
+  invoke void %4585(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert825)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4587:                                             ; preds = %.backedge
@@ -12348,7 +12348,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4604: ; preds = %_ZN4pkpy6py_va
   %4655 = load i32, ptr %206, align 4
   %4656 = add nsw i32 %4655, 1
   store i32 %4656, ptr %206, align 4
-  store i32 %4655, ptr %.2, align 8
+  store i32 %4655, ptr %.3, align 8
   %4657 = sext i32 %4655 to i64
   %4658 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4657
   %.sroa.0623.0.copyload750 = load i8, ptr %4658, align 2
@@ -12368,7 +12368,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4604: ; preds = %_ZN4pkpy6py_va
   %.sroa.0623.0.insert.ext820 = zext i8 %.sroa.0623.0.copyload750 to i32
   %.sroa.293.0.insert.insert1565 = or disjoint i32 %.sroa.2932074.0.insert.shift2434, %.sroa.0623.0.insert.ext820
   %.sroa.0623.0.insert.insert822 = or disjoint i32 %.sroa.293.0.insert.insert1565, %.sroa.293.0.insert.shift1563
-  invoke void %4659(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert822)
+  invoke void %4659(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert822)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4596: ; preds = %.loopexit4969, %.loopexit.split-lp4970, %4625, %4623, %4611
@@ -12424,7 +12424,7 @@ _ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit: ; preds = %_ZN4pkpy7is_typ
   %4686 = load i32, ptr %206, align 4
   %4687 = add nsw i32 %4686, 1
   store i32 %4687, ptr %206, align 4
-  store i32 %4686, ptr %.2, align 8
+  store i32 %4686, ptr %.3, align 8
   %4688 = sext i32 %4686 to i64
   %4689 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4688
   %.sroa.0623.0.copyload751 = load i8, ptr %4689, align 2
@@ -12444,7 +12444,7 @@ _ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit: ; preds = %_ZN4pkpy7is_typ
   %.sroa.0623.0.insert.ext817 = zext i8 %.sroa.0623.0.copyload751 to i32
   %.sroa.293.0.insert.insert1561 = or disjoint i32 %.sroa.2932074.0.insert.shift2430, %.sroa.0623.0.insert.ext817
   %.sroa.0623.0.insert.insert819 = or disjoint i32 %.sroa.293.0.insert.insert1561, %.sroa.293.0.insert.shift1559
-  invoke void %4690(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert819)
+  invoke void %4690(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert819)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4692:                                             ; preds = %.backedge
@@ -12525,24 +12525,24 @@ _ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit: ; preds = %_ZN4pkpy7is_typ
   br label %4712
 
 4712:                                             ; preds = %4710, %4708
-  %.13610 = phi i1 [ %.03609, %4710 ], [ true, %4708 ]
+  %.43613 = phi i1 [ %.03609, %4710 ], [ true, %4708 ]
   %.pn3866 = phi { ptr, i32 } [ %4711, %4710 ], [ %4709, %4708 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %105) #21
   br label %4713
 
 4713:                                             ; preds = %4712, %4706
-  %.23611 = phi i1 [ %.13610, %4712 ], [ true, %4706 ]
+  %.33612 = phi i1 [ %.43613, %4712 ], [ true, %4706 ]
   %.pn3866.pn = phi { ptr, i32 } [ %.pn3866, %4712 ], [ %4707, %4706 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %109) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #21
   br label %4714
 
 4714:                                             ; preds = %4704, %4713
-  %.33612 = phi i1 [ %.23611, %4713 ], [ true, %4704 ]
+  %.23611 = phi i1 [ %.33612, %4713 ], [ true, %4704 ]
   %.pn3866.pn.pn = phi { ptr, i32 } [ %.pn3866.pn, %4713 ], [ %4705, %4704 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %107) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %108) #21
-  br i1 %.33612, label %4715, label %.body
+  br i1 %.23611, label %4715, label %.body
 
 4715:                                             ; preds = %.thread4922, %4714
   %.pn3866.pn.pn.pn4925 = phi { ptr, i32 } [ %4703, %.thread4922 ], [ %.pn3866.pn.pn, %4714 ]
@@ -12584,7 +12584,7 @@ _ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit: ; preds = %_ZN4pkpy7is_typ
   %4735 = load i32, ptr %206, align 4
   %4736 = add nsw i32 %4735, 1
   store i32 %4736, ptr %206, align 4
-  store i32 %4735, ptr %.2, align 8
+  store i32 %4735, ptr %.3, align 8
   %4737 = sext i32 %4735 to i64
   %4738 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4737
   %.sroa.0623.0.copyload752 = load i8, ptr %4738, align 2
@@ -12604,7 +12604,7 @@ _ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit: ; preds = %_ZN4pkpy7is_typ
   %.sroa.0623.0.insert.ext814 = zext i8 %.sroa.0623.0.copyload752 to i32
   %.sroa.293.0.insert.insert1557 = or disjoint i32 %.sroa.2932074.0.insert.shift2426, %.sroa.0623.0.insert.ext814
   %.sroa.0623.0.insert.insert816 = or disjoint i32 %.sroa.293.0.insert.insert1557, %.sroa.293.0.insert.shift1555
-  invoke void %4739(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert816)
+  invoke void %4739(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert816)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4741:                                             ; preds = %.backedge
@@ -12685,24 +12685,24 @@ _ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit: ; preds = %_ZN4pkpy7is_typ
   br label %4761
 
 4761:                                             ; preds = %4759, %4757
-  %.13615 = phi i1 [ %.03614, %4759 ], [ true, %4757 ]
+  %.43618 = phi i1 [ %.03614, %4759 ], [ true, %4757 ]
   %.pn3859 = phi { ptr, i32 } [ %4760, %4759 ], [ %4758, %4757 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %111) #21
   br label %4762
 
 4762:                                             ; preds = %4761, %4755
-  %.23616 = phi i1 [ %.13615, %4761 ], [ true, %4755 ]
+  %.33617 = phi i1 [ %.43618, %4761 ], [ true, %4755 ]
   %.pn3859.pn = phi { ptr, i32 } [ %.pn3859, %4761 ], [ %4756, %4755 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %115) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #21
   br label %4763
 
 4763:                                             ; preds = %4753, %4762
-  %.33617 = phi i1 [ %.23616, %4762 ], [ true, %4753 ]
+  %.23616 = phi i1 [ %.33617, %4762 ], [ true, %4753 ]
   %.pn3859.pn.pn = phi { ptr, i32 } [ %.pn3859.pn, %4762 ], [ %4754, %4753 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #21
-  br i1 %.33617, label %4764, label %.body
+  br i1 %.23616, label %4764, label %.body
 
 4764:                                             ; preds = %.thread4926, %4763
   %.pn3859.pn.pn.pn4929 = phi { ptr, i32 } [ %4752, %.thread4926 ], [ %.pn3859.pn.pn, %4763 ]
@@ -12742,7 +12742,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %4765, %4775, %_
   %4781 = load i32, ptr %206, align 4
   %4782 = add nsw i32 %4781, 1
   store i32 %4782, ptr %206, align 4
-  store i32 %4781, ptr %.2, align 8
+  store i32 %4781, ptr %.3, align 8
   %4783 = sext i32 %4781 to i64
   %4784 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4783
   %.sroa.0623.0.copyload753 = load i8, ptr %4784, align 2
@@ -12762,7 +12762,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %4765, %4775, %_
   %.sroa.0623.0.insert.ext811 = zext i8 %.sroa.0623.0.copyload753 to i32
   %.sroa.293.0.insert.insert1553 = or disjoint i32 %.sroa.2932074.0.insert.shift2422, %.sroa.0623.0.insert.ext811
   %.sroa.0623.0.insert.insert813 = or disjoint i32 %.sroa.293.0.insert.insert1553, %.sroa.293.0.insert.shift1551
-  invoke void %4785(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert813)
+  invoke void %4785(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert813)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4787:                                             ; preds = %.backedge
@@ -12774,7 +12774,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %4765, %4775, %_
   %4791 = load i32, ptr %206, align 4
   %4792 = add nsw i32 %4791, 1
   store i32 %4792, ptr %206, align 4
-  store i32 %4791, ptr %.2, align 8
+  store i32 %4791, ptr %.3, align 8
   %4793 = sext i32 %4791 to i64
   %4794 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4793
   %.sroa.0623.0.copyload754 = load i8, ptr %4794, align 2
@@ -12794,7 +12794,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %4765, %4775, %_
   %.sroa.0623.0.insert.ext808 = zext i8 %.sroa.0623.0.copyload754 to i32
   %.sroa.293.0.insert.insert1549 = or disjoint i32 %.sroa.2932074.0.insert.shift2418, %.sroa.0623.0.insert.ext808
   %.sroa.0623.0.insert.insert810 = or disjoint i32 %.sroa.293.0.insert.insert1549, %.sroa.293.0.insert.shift1547
-  invoke void %4795(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert810)
+  invoke void %4795(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert810)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4797:                                             ; preds = %.backedge
@@ -12806,7 +12806,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %4765, %4775, %_
   %4801 = load i32, ptr %206, align 4
   %4802 = add nsw i32 %4801, 1
   store i32 %4802, ptr %206, align 4
-  store i32 %4801, ptr %.2, align 8
+  store i32 %4801, ptr %.3, align 8
   %4803 = sext i32 %4801 to i64
   %4804 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4803
   %.sroa.0623.0.copyload755 = load i8, ptr %4804, align 2
@@ -12826,7 +12826,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %4765, %4775, %_
   %.sroa.0623.0.insert.ext805 = zext i8 %.sroa.0623.0.copyload755 to i32
   %.sroa.293.0.insert.insert1545 = or disjoint i32 %.sroa.2932074.0.insert.shift2414, %.sroa.0623.0.insert.ext805
   %.sroa.0623.0.insert.insert807 = or disjoint i32 %.sroa.293.0.insert.insert1545, %.sroa.293.0.insert.shift1543
-  invoke void %4805(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert807)
+  invoke void %4805(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert807)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4807:                                             ; preds = %.backedge
@@ -12907,24 +12907,24 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %4765, %4775, %_
   br label %4827
 
 4827:                                             ; preds = %4825, %4823
-  %.13620 = phi i1 [ %.03619, %4825 ], [ true, %4823 ]
+  %.43623 = phi i1 [ %.03619, %4825 ], [ true, %4823 ]
   %.pn = phi { ptr, i32 } [ %4826, %4825 ], [ %4824, %4823 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #21
   br label %4828
 
 4828:                                             ; preds = %4827, %4821
-  %.23621 = phi i1 [ %.13620, %4827 ], [ true, %4821 ]
+  %.33622 = phi i1 [ %.43623, %4827 ], [ true, %4821 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %4827 ], [ %4822, %4821 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #21
   br label %4829
 
 4829:                                             ; preds = %4819, %4828
-  %.33622 = phi i1 [ %.23621, %4828 ], [ true, %4819 ]
+  %.23621 = phi i1 [ %.33622, %4828 ], [ true, %4819 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %4828 ], [ %4820, %4819 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %120) #21
-  br i1 %.33622, label %4830, label %.body
+  br i1 %.23621, label %4830, label %.body
 
 4830:                                             ; preds = %.thread4930, %4829
   %.pn.pn.pn.pn4933 = phi { ptr, i32 } [ %4818, %.thread4930 ], [ %.pn.pn.pn, %4829 ]
@@ -13024,7 +13024,7 @@ _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc4620
   %4870 = load i32, ptr %206, align 4
   %4871 = add nsw i32 %4870, 1
   store i32 %4871, ptr %206, align 4
-  store i32 %4870, ptr %.2, align 8
+  store i32 %4870, ptr %.3, align 8
   %4872 = sext i32 %4870 to i64
   %4873 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4872
   %.sroa.0623.0.copyload756 = load i8, ptr %4873, align 2
@@ -13044,7 +13044,7 @@ _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc4620
   %.sroa.0623.0.insert.ext802 = zext i8 %.sroa.0623.0.copyload756 to i32
   %.sroa.293.0.insert.insert1541 = or disjoint i32 %.sroa.2932074.0.insert.shift2410, %.sroa.0623.0.insert.ext802
   %.sroa.0623.0.insert.insert804 = or disjoint i32 %.sroa.293.0.insert.insert1541, %.sroa.293.0.insert.shift1539
-  invoke void %4874(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert804)
+  invoke void %4874(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert804)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4876:                                             ; preds = %.backedge
@@ -13079,7 +13079,7 @@ _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc4620
   %4890 = load i32, ptr %206, align 4
   %4891 = add nsw i32 %4890, 1
   store i32 %4891, ptr %206, align 4
-  store i32 %4890, ptr %.2, align 8
+  store i32 %4890, ptr %.3, align 8
   %4892 = sext i32 %4890 to i64
   %4893 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4892
   %.sroa.0623.0.copyload757 = load i8, ptr %4893, align 2
@@ -13099,7 +13099,7 @@ _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc4620
   %.sroa.0623.0.insert.ext799 = zext i8 %.sroa.0623.0.copyload757 to i32
   %.sroa.293.0.insert.insert1537 = or disjoint i32 %.sroa.2932074.0.insert.shift2406, %.sroa.0623.0.insert.ext799
   %.sroa.0623.0.insert.insert801 = or disjoint i32 %.sroa.293.0.insert.insert1537, %.sroa.293.0.insert.shift1535
-  invoke void %4894(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert801)
+  invoke void %4894(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert801)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4896:                                             ; preds = %.backedge
@@ -13133,7 +13133,7 @@ _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc4620
   %4910 = load i32, ptr %206, align 4
   %4911 = add nsw i32 %4910, 1
   store i32 %4911, ptr %206, align 4
-  store i32 %4910, ptr %.2, align 8
+  store i32 %4910, ptr %.3, align 8
   %4912 = sext i32 %4910 to i64
   %4913 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4912
   %.sroa.0623.0.copyload758 = load i8, ptr %4913, align 2
@@ -13153,7 +13153,7 @@ _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc4620
   %.sroa.0623.0.insert.ext796 = zext i8 %.sroa.0623.0.copyload758 to i32
   %.sroa.293.0.insert.insert1533 = or disjoint i32 %.sroa.2932074.0.insert.shift2402, %.sroa.0623.0.insert.ext796
   %.sroa.0623.0.insert.insert798 = or disjoint i32 %.sroa.293.0.insert.insert1533, %.sroa.293.0.insert.shift1531
-  invoke void %4914(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert798)
+  invoke void %4914(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert798)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4916:                                             ; preds = %.backedge
@@ -13204,7 +13204,7 @@ _ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4630: ; preds = %._ZN4pkpy2V
   %4939 = load i32, ptr %206, align 4
   %4940 = add nsw i32 %4939, 1
   store i32 %4940, ptr %206, align 4
-  store i32 %4939, ptr %.2, align 8
+  store i32 %4939, ptr %.3, align 8
   %4941 = sext i32 %4939 to i64
   %4942 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4941
   %.sroa.0623.0.copyload759 = load i8, ptr %4942, align 2
@@ -13224,7 +13224,7 @@ _ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4630: ; preds = %._ZN4pkpy2V
   %.sroa.0623.0.insert.ext793 = zext i8 %.sroa.0623.0.copyload759 to i32
   %.sroa.293.0.insert.insert1529 = or disjoint i32 %.sroa.2932074.0.insert.shift2398, %.sroa.0623.0.insert.ext793
   %.sroa.0623.0.insert.insert795 = or disjoint i32 %.sroa.293.0.insert.insert1529, %.sroa.293.0.insert.shift1527
-  invoke void %4943(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert795)
+  invoke void %4943(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert795)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4945:                                             ; preds = %.backedge
@@ -13307,7 +13307,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit:            ; preds = %.noexc4635
   %4975 = load i32, ptr %206, align 4
   %4976 = add nsw i32 %4975, 1
   store i32 %4976, ptr %206, align 4
-  store i32 %4975, ptr %.2, align 8
+  store i32 %4975, ptr %.3, align 8
   %4977 = sext i32 %4975 to i64
   %4978 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4977
   %.sroa.0623.0.copyload760 = load i8, ptr %4978, align 2
@@ -13327,7 +13327,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit:            ; preds = %.noexc4635
   %.sroa.0623.0.insert.ext790 = zext i8 %.sroa.0623.0.copyload760 to i32
   %.sroa.293.0.insert.insert1525 = or disjoint i32 %.sroa.2932074.0.insert.shift2394, %.sroa.0623.0.insert.ext790
   %.sroa.0623.0.insert.insert792 = or disjoint i32 %.sroa.293.0.insert.insert1525, %.sroa.293.0.insert.shift1523
-  invoke void %4979(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert792)
+  invoke void %4979(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert792)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 4981:                                             ; preds = %.backedge
@@ -13377,7 +13377,7 @@ _ZN4pkpy2VM14AssertionErrorEv.exit:               ; preds = %.noexc4639, %_ZN4pk
   %4994 = load i32, ptr %206, align 4
   %4995 = add nsw i32 %4994, 1
   store i32 %4995, ptr %206, align 4
-  store i32 %4994, ptr %.2, align 8
+  store i32 %4994, ptr %.3, align 8
   %4996 = sext i32 %4994 to i64
   %4997 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %4996
   %.sroa.0623.0.copyload761 = load i8, ptr %4997, align 2
@@ -13397,7 +13397,7 @@ _ZN4pkpy2VM14AssertionErrorEv.exit:               ; preds = %.noexc4639, %_ZN4pk
   %.sroa.0623.0.insert.ext787 = zext i8 %.sroa.0623.0.copyload761 to i32
   %.sroa.293.0.insert.insert1521 = or disjoint i32 %.sroa.2932074.0.insert.shift2390, %.sroa.0623.0.insert.ext787
   %.sroa.0623.0.insert.insert789 = or disjoint i32 %.sroa.293.0.insert.insert1521, %.sroa.293.0.insert.shift1519
-  invoke void %4998(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert789)
+  invoke void %4998(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert789)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 5000:                                             ; preds = %.backedge
@@ -13408,7 +13408,7 @@ _ZN4pkpy2VM14AssertionErrorEv.exit:               ; preds = %.noexc4639, %_ZN4pk
   %5002 = load i32, ptr %206, align 4
   %5003 = add nsw i32 %5002, 1
   store i32 %5003, ptr %206, align 4
-  store i32 %5002, ptr %.2, align 8
+  store i32 %5002, ptr %.3, align 8
   %5004 = sext i32 %5002 to i64
   %5005 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5004
   %.sroa.0623.0.copyload762 = load i8, ptr %5005, align 2
@@ -13428,7 +13428,7 @@ _ZN4pkpy2VM14AssertionErrorEv.exit:               ; preds = %.noexc4639, %_ZN4pk
   %.sroa.0623.0.insert.ext784 = zext i8 %.sroa.0623.0.copyload762 to i32
   %.sroa.293.0.insert.insert1517 = or disjoint i32 %.sroa.2932074.0.insert.shift2386, %.sroa.0623.0.insert.ext784
   %.sroa.0623.0.insert.insert786 = or disjoint i32 %.sroa.293.0.insert.insert1517, %.sroa.293.0.insert.shift1515
-  invoke void %5006(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert786)
+  invoke void %5006(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert786)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 5008:                                             ; preds = %.backedge
@@ -13440,7 +13440,7 @@ _ZN4pkpy2VM14AssertionErrorEv.exit:               ; preds = %.noexc4639, %_ZN4pk
   %5012 = load i32, ptr %206, align 4
   %5013 = add nsw i32 %5012, 1
   store i32 %5013, ptr %206, align 4
-  store i32 %5012, ptr %.2, align 8
+  store i32 %5012, ptr %.3, align 8
   %5014 = sext i32 %5012 to i64
   %5015 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5014
   %.sroa.0623.0.copyload763 = load i8, ptr %5015, align 2
@@ -13460,7 +13460,7 @@ _ZN4pkpy2VM14AssertionErrorEv.exit:               ; preds = %.noexc4639, %_ZN4pk
   %.sroa.0623.0.insert.ext781 = zext i8 %.sroa.0623.0.copyload763 to i32
   %.sroa.293.0.insert.insert1513 = or disjoint i32 %.sroa.2932074.0.insert.shift2382, %.sroa.0623.0.insert.ext781
   %.sroa.0623.0.insert.insert783 = or disjoint i32 %.sroa.293.0.insert.insert1513, %.sroa.293.0.insert.shift1511
-  invoke void %5016(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert783)
+  invoke void %5016(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert783)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 5018:                                             ; preds = %.backedge
@@ -13509,7 +13509,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4641: ; preds = %5018
   %5043 = load i32, ptr %206, align 4
   %5044 = add nsw i32 %5043, 1
   store i32 %5044, ptr %206, align 4
-  store i32 %5043, ptr %.2, align 8
+  store i32 %5043, ptr %.3, align 8
   %5045 = sext i32 %5043 to i64
   %5046 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5045
   %.sroa.0623.0.copyload764 = load i8, ptr %5046, align 2
@@ -13529,7 +13529,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4641: ; preds = %5018
   %.sroa.0623.0.insert.ext778 = zext i8 %.sroa.0623.0.copyload764 to i32
   %.sroa.293.0.insert.insert1509 = or disjoint i32 %.sroa.2932074.0.insert.shift2378, %.sroa.0623.0.insert.ext778
   %.sroa.0623.0.insert.insert780 = or disjoint i32 %.sroa.293.0.insert.insert1509, %.sroa.293.0.insert.shift1507
-  invoke void %5047(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert780)
+  invoke void %5047(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert780)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 5049:                                             ; preds = %5038
@@ -13543,34 +13543,34 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4641: ; preds = %5018
 
 .body:                                            ; preds = %.loopexit4954, %.loopexit.split-lp4955.loopexit.split-lp.loopexit, %.loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp4955.loopexit, %4519, %.body4695, %4506, %4509, %1983, %1981, %1930, %1927, %1895, %1892, %1844, %1841, %1800, %1796, %2528, %4480, %4473, %2609, %4829, %4830, %4763, %4764, %4714, %4715, %1100, %1101, %5049, %4990, %4968, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4596, %.body4576, %4324, %4275, %3813, %3796, %3513, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4325, %2079, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4309, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4301, %1860, %1819, %635, %537, %297
   %.pn4089 = phi { ptr, i32 } [ %5050, %5049 ], [ %4991, %4990 ], [ %4969, %4968 ], [ %.pn.pn.pn.pn4933, %4830 ], [ %.pn.pn.pn, %4829 ], [ %.pn3859.pn.pn.pn4929, %4764 ], [ %.pn3859.pn.pn, %4763 ], [ %.pn3866.pn.pn.pn4925, %4715 ], [ %.pn3866.pn.pn, %4714 ], [ %.pn3875, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4596 ], [ %.pn3882, %.body4576 ], [ %4325, %4324 ], [ %4276, %4275 ], [ %3814, %3813 ], [ %.pn3908, %3796 ], [ %.pn3911, %3513 ], [ %2120, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4325 ], [ %.pn3989, %2079 ], [ %2046, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4309 ], [ %.pn3993, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4301 ], [ %1861, %1860 ], [ %1820, %1819 ], [ %.pn4035.pn.pn.pn4917, %1101 ], [ %.pn4035.pn.pn, %1100 ], [ %.pn4071, %537 ], [ %636, %635 ], [ %.pn4081, %297 ], [ %2529, %2528 ], [ %2610, %2609 ], [ %4481, %4480 ], [ %4474, %4473 ], [ %1797, %1796 ], [ %1797, %1800 ], [ %1842, %1841 ], [ %1842, %1844 ], [ %1893, %1892 ], [ %1893, %1895 ], [ %1928, %1927 ], [ %1928, %1930 ], [ %.pn3998, %1981 ], [ %.pn3998, %1983 ], [ %4507, %4509 ], [ %4507, %4506 ], [ %eh.lpad-body4696, %.body4695 ], [ %eh.lpad-body4696, %4519 ], [ %lpad.loopexit4956, %.loopexit4954 ], [ %lpad.loopexit4960, %.loopexit.split-lp4955.loopexit ], [ %lpad.loopexit4976, %.loopexit.split-lp4955.loopexit.split-lp.loopexit ], [ %lpad.loopexit4979, %.loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp4980, %.loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.3 = phi ptr [ %.2, %5049 ], [ %.2, %4990 ], [ %.2, %4968 ], [ %.2, %4830 ], [ %.2, %4829 ], [ %.2, %4764 ], [ %.2, %4763 ], [ %.2, %4715 ], [ %.2, %4714 ], [ %.2, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4596 ], [ %.2, %.body4576 ], [ %.2, %4324 ], [ %.2, %4275 ], [ %.2, %3813 ], [ %.2, %3796 ], [ %.2, %3513 ], [ %.2, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4325 ], [ %.2, %2079 ], [ %.2, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4309 ], [ %.2, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4301 ], [ %.2, %1860 ], [ %.2, %1819 ], [ %.2, %1101 ], [ %.2, %1100 ], [ %.2, %537 ], [ %.2, %635 ], [ %.2, %297 ], [ %.2, %2528 ], [ %.2, %2609 ], [ %.2, %4480 ], [ %.2, %4473 ], [ %.2, %1796 ], [ %.2, %1800 ], [ %.2, %1841 ], [ %.2, %1844 ], [ %.2, %1892 ], [ %.2, %1895 ], [ %.2, %1927 ], [ %.2, %1930 ], [ %.2, %1981 ], [ %.2, %1983 ], [ %.2, %4509 ], [ %.2, %4506 ], [ %.2, %.body4695 ], [ %.2, %4519 ], [ %.2, %.loopexit4954 ], [ %.2, %.loopexit.split-lp4955.loopexit ], [ %.2, %.loopexit.split-lp4955.loopexit.split-lp.loopexit ], [ %.2, %.loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.1.ph.ph.ph.ph, %.loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.25 = extractvalue { ptr, i32 } %.pn4089, 0
-  %.253590 = extractvalue { ptr, i32 } %.pn4089, 1
+  %.2 = phi ptr [ %.3, %5049 ], [ %.3, %4990 ], [ %.3, %4968 ], [ %.3, %4830 ], [ %.3, %4829 ], [ %.3, %4764 ], [ %.3, %4763 ], [ %.3, %4715 ], [ %.3, %4714 ], [ %.3, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4596 ], [ %.3, %.body4576 ], [ %.3, %4324 ], [ %.3, %4275 ], [ %.3, %3813 ], [ %.3, %3796 ], [ %.3, %3513 ], [ %.3, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4325 ], [ %.3, %2079 ], [ %.3, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4309 ], [ %.3, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4301 ], [ %.3, %1860 ], [ %.3, %1819 ], [ %.3, %1101 ], [ %.3, %1100 ], [ %.3, %537 ], [ %.3, %635 ], [ %.3, %297 ], [ %.3, %2528 ], [ %.3, %2609 ], [ %.3, %4480 ], [ %.3, %4473 ], [ %.3, %1796 ], [ %.3, %1800 ], [ %.3, %1841 ], [ %.3, %1844 ], [ %.3, %1892 ], [ %.3, %1895 ], [ %.3, %1927 ], [ %.3, %1930 ], [ %.3, %1981 ], [ %.3, %1983 ], [ %.3, %4509 ], [ %.3, %4506 ], [ %.3, %.body4695 ], [ %.3, %4519 ], [ %.3, %.loopexit4954 ], [ %.3, %.loopexit.split-lp4955.loopexit ], [ %.3, %.loopexit.split-lp4955.loopexit.split-lp.loopexit ], [ %.3, %.loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.1.ph.ph.ph.ph, %.loopexit.split-lp4955.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.03560 = extractvalue { ptr, i32 } %.pn4089, 0
+  %.03565 = extractvalue { ptr, i32 } %.pn4089, 1
   %5051 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4pkpy16HandledExceptionE) #21
-  %5052 = icmp ne i32 %.253590, %5051
+  %5052 = icmp ne i32 %.03565, %5051
   br i1 %5052, label %5055, label %5053
 
 5053:                                             ; preds = %.body
-  %5054 = call ptr @__cxa_begin_catch(ptr %.25) #21
+  %5054 = call ptr @__cxa_begin_catch(ptr %.03560) #21
   br label %.backedge4991
 
 .backedge4991:                                    ; preds = %5074, %5277, %5053
-  %.03554.be = phi ptr [ %.3, %5053 ], [ %5278, %5277 ], [ %.3, %5074 ]
+  %.03554.be = phi ptr [ %.2, %5053 ], [ %5278, %5277 ], [ %.2, %5074 ]
   call void @__cxa_end_catch()
   br label %200, !llvm.loop !47
 
 5055:                                             ; preds = %.body
   %5056 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4pkpy18UnhandledExceptionE) #21
-  %5057 = icmp eq i32 %.253590, %5056
+  %5057 = icmp eq i32 %.03565, %5056
   br i1 %5057, label %5058, label %5071
 
 5058:                                             ; preds = %5055
-  %5059 = call ptr @__cxa_begin_catch(ptr %.25) #21
+  %5059 = call ptr @__cxa_begin_catch(ptr %.03560) #21
   %5060 = load ptr, ptr %131, align 8
   %5061 = getelementptr inbounds i8, ptr %5060, i64 -8
   store ptr %5061, ptr %131, align 8
   %5062 = load ptr, ptr %5061, align 8
-  %5063 = icmp eq ptr %.3, %127
+  %5063 = icmp eq ptr %.2, %127
   invoke void @_ZN4pkpy2VM11__pop_frameEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
           to label %5064 unwind label %.loopexit4986
 
@@ -13591,11 +13591,11 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4641: ; preds = %5018
 
 5071:                                             ; preds = %5055
   %5072 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4pkpy19ToBeRaisedExceptionE) #21
-  %5073 = icmp eq i32 %.253590, %5072
+  %5073 = icmp eq i32 %.03565, %5072
   br i1 %5073, label %5074, label %.loopexit4985
 
 5074:                                             ; preds = %5071
-  %5075 = call ptr @__cxa_begin_catch(ptr %.25) #21
+  %5075 = call ptr @__cxa_begin_catch(ptr %.03560) #21
   br label %.backedge4991
 
 5076:                                             ; preds = %.backedge
@@ -13649,7 +13649,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %5086
   %5099 = load i32, ptr %206, align 4
   %5100 = add nsw i32 %5099, 1
   store i32 %5100, ptr %206, align 4
-  store i32 %5099, ptr %.2, align 8
+  store i32 %5099, ptr %.3, align 8
   %5101 = sext i32 %5099 to i64
   %5102 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5101
   %.sroa.0623.0.copyload765 = load i8, ptr %5102, align 2
@@ -13669,7 +13669,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %5086
   %.sroa.0623.0.insert.ext775 = zext i8 %.sroa.0623.0.copyload765 to i32
   %.sroa.293.0.insert.insert1505 = or disjoint i32 %.sroa.2932074.0.insert.shift2374, %.sroa.0623.0.insert.ext775
   %.sroa.0623.0.insert.insert777 = or disjoint i32 %.sroa.293.0.insert.insert1505, %.sroa.293.0.insert.shift1503
-  invoke void %5103(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert777)
+  invoke void %5103(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert777)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 5105:                                             ; preds = %.backedge
@@ -13723,7 +13723,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4651: ; preds = %5115
   %5128 = load i32, ptr %206, align 4
   %5129 = add nsw i32 %5128, 1
   store i32 %5129, ptr %206, align 4
-  store i32 %5128, ptr %.2, align 8
+  store i32 %5128, ptr %.3, align 8
   %5130 = sext i32 %5128 to i64
   %5131 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5130
   %.sroa.0623.0.copyload766 = load i8, ptr %5131, align 2
@@ -13743,7 +13743,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4651: ; preds = %5115
   %.sroa.0623.0.insert.ext772 = zext i8 %.sroa.0623.0.copyload766 to i32
   %.sroa.293.0.insert.insert1501 = or disjoint i32 %.sroa.2932074.0.insert.shift2370, %.sroa.0623.0.insert.ext772
   %.sroa.0623.0.insert.insert774 = or disjoint i32 %.sroa.293.0.insert.insert1501, %.sroa.293.0.insert.shift1499
-  invoke void %5132(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert774)
+  invoke void %5132(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert774)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 5134:                                             ; preds = %.backedge
@@ -13863,7 +13863,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4663: ; preds = %_ZN4pkpy12Name
   %5195 = load i32, ptr %206, align 4
   %5196 = add nsw i32 %5195, 1
   store i32 %5196, ptr %206, align 4
-  store i32 %5195, ptr %.2, align 8
+  store i32 %5195, ptr %.3, align 8
   %5197 = sext i32 %5195 to i64
   %5198 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5197
   %.sroa.0623.0.copyload767 = load i8, ptr %5198, align 2
@@ -13883,7 +13883,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4663: ; preds = %_ZN4pkpy12Name
   %.sroa.0623.0.insert.ext769 = zext i8 %.sroa.0623.0.copyload767 to i32
   %.sroa.293.0.insert.insert1497 = or disjoint i32 %.sroa.2932074.0.insert.shift2366, %.sroa.0623.0.insert.ext769
   %.sroa.0623.0.insert.insert771 = or disjoint i32 %.sroa.293.0.insert.insert1497, %.sroa.293.0.insert.shift1495
-  invoke void %5199(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert771)
+  invoke void %5199(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert771)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 5201:                                             ; preds = %.backedge
@@ -14003,7 +14003,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4677: ; preds = %_ZN4pkpy12Name
   %5262 = load i32, ptr %206, align 4
   %5263 = add nsw i32 %5262, 1
   store i32 %5263, ptr %206, align 4
-  store i32 %5262, ptr %.2, align 8
+  store i32 %5262, ptr %.3, align 8
   %5264 = sext i32 %5262 to i64
   %5265 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %5264
   %.sroa.0623.0.copyload768 = load i8, ptr %5265, align 2
@@ -14028,7 +14028,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4677: ; preds = %_ZN4pkpy12Name
   %.sroa.0623.0.insert.ext = zext i8 %.sroa.0623.0.copyload768 to i32
   %.sroa.293.0.insert.insert = or disjoint i32 %.sroa.2932074.0.insert.shift, %.sroa.0623.0.insert.ext
   %.sroa.0623.0.insert.insert = or disjoint i32 %.sroa.293.0.insert.insert, %.sroa.293.0.insert.shift
-  invoke void %5266(ptr noundef nonnull %0, ptr noundef nonnull %.2, i32 %.sroa.0623.0.insert.insert)
+  invoke void %5266(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 %.sroa.0623.0.insert.insert)
           to label %.backedge.backedge unwind label %.loopexit.split-lp4955.loopexit.split-lp.loopexit
 
 5268:                                             ; preds = %.backedge
@@ -14556,8 +14556,8 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
   br i1 %or.cond18.i, label %.loopexit.i, label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %63, %.lr.ph20.i
-  %.119.i = phi i16 [ %73, %.lr.ph20.i ], [ %65, %63 ]
-  %72 = add i16 %.119.i, 1
+  %.319.i = phi i16 [ %73, %.lr.ph20.i ], [ %65, %63 ]
+  %72 = add i16 %.319.i, 1
   %73 = and i16 %72, %64
   %74 = zext i16 %73 to i64
   %75 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %66, i64 %74
@@ -14642,8 +14642,8 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
   br i1 %or.cond18.i20, label %.loopexit.i16, label %.lr.ph20.i21
 
 .lr.ph20.i21:                                     ; preds = %108, %.lr.ph20.i21
-  %.119.i22 = phi i16 [ %118, %.lr.ph20.i21 ], [ %110, %108 ]
-  %117 = add i16 %.119.i22, 1
+  %.319.i22 = phi i16 [ %118, %.lr.ph20.i21 ], [ %110, %108 ]
+  %117 = add i16 %.319.i22, 1
   %118 = and i16 %117, %109
   %119 = zext i16 %118 to i64
   %120 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %111, i64 %119
@@ -15820,10 +15820,10 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.
 
 59:                                               ; preds = %55, %57
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
-  %.1 = phi i1 [ %.0, %57 ], [ true, %55 ]
+  %.3 = phi i1 [ %.0, %57 ], [ true, %55 ]
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
-  br i1 %.1, label %60, label %62
+  br i1 %.3, label %60, label %62
 
 60:                                               ; preds = %.thread19, %.thread, %59
   %.pn.pn.pn18 = phi { ptr, i32 } [ %53, %.thread ], [ %.pn, %59 ], [ %54, %.thread19 ]
@@ -17060,8 +17060,8 @@ define linkonce_odr void @_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12N
   br i1 %or.cond18.i.i, label %.loopexit.i.i, label %.lr.ph20.i.i
 
 .lr.ph20.i.i:                                     ; preds = %36, %.lr.ph20.i.i
-  %.119.i.i = phi i16 [ %46, %.lr.ph20.i.i ], [ %38, %36 ]
-  %45 = add i16 %.119.i.i, 1
+  %.319.i.i = phi i16 [ %46, %.lr.ph20.i.i ], [ %38, %36 ]
+  %45 = add i16 %.319.i.i, 1
   %46 = and i16 %45, %37
   %47 = zext i16 %46 to i64
   %48 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %39, i64 %47
@@ -17228,23 +17228,23 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
 
 59:                                               ; preds = %57, %55
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
-  %.1 = phi i1 [ %.0, %57 ], [ true, %55 ]
+  %.4 = phi i1 [ %.0, %57 ], [ true, %55 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   br label %60
 
 60:                                               ; preds = %59, %53
   %.pn.pn = phi { ptr, i32 } [ %.pn, %59 ], [ %54, %53 ]
-  %.2 = phi i1 [ %.1, %59 ], [ true, %53 ]
+  %.3 = phi i1 [ %.4, %59 ], [ true, %53 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   br label %61
 
 61:                                               ; preds = %51, %60
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %60 ], [ %52, %51 ]
-  %.3 = phi i1 [ %.2, %60 ], [ true, %51 ]
+  %.2 = phi i1 [ %.3, %60 ], [ true, %51 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
-  br i1 %.3, label %62, label %64
+  br i1 %.2, label %62, label %64
 
 62:                                               ; preds = %.thread, %61
   %.pn.pn.pn.pn38 = phi { ptr, i32 } [ %50, %.thread ], [ %.pn.pn.pn, %61 ]
@@ -18514,10 +18514,10 @@ _ZNSt3mapIKSt10type_indexN4pkpy4TypeESt4lessIS1_ESaISt4pairIS1_S3_EEE4findERS1_.
 
 45:                                               ; preds = %41, %43
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.1 = phi i1 [ %.0, %43 ], [ true, %41 ]
+  %.2 = phi i1 [ %.0, %43 ], [ true, %41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #21
-  br i1 %.1, label %46, label %49
+  br i1 %.2, label %46, label %49
 
 46:                                               ; preds = %.thread, %45
   %.pn.pn16 = phi { ptr, i32 } [ %40, %.thread ], [ %.pn, %45 ]
@@ -19694,10 +19694,10 @@ _ZNSt3mapIKSt10type_indexN4pkpy4TypeESt4lessIS1_ESaISt4pairIS1_S3_EEE4findERS1_.
 
 45:                                               ; preds = %41, %43
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.1 = phi i1 [ %.0, %43 ], [ true, %41 ]
+  %.2 = phi i1 [ %.0, %43 ], [ true, %41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #21
-  br i1 %.1, label %46, label %49
+  br i1 %.2, label %46, label %49
 
 46:                                               ; preds = %.thread, %45
   %.pn.pn16 = phi { ptr, i32 } [ %40, %.thread ], [ %.pn, %45 ]

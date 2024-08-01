@@ -497,22 +497,22 @@ define ptr @Cudd_bddIteConstant(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %114 = inttoptr i64 %113 to ptr
   %115 = xor i64 %40, 1
   %116 = inttoptr i64 %115 to ptr
-  %.0101.i = select i1 %112, ptr %116, ptr %1
-  %.199.i = select i1 %112, ptr %114, ptr %.098
+  %.1102.i = select i1 %112, ptr %116, ptr %1
+  %.2100.i = select i1 %112, ptr %114, ptr %.098
   br label %117
 
 117:                                              ; preds = %93, %111, %99, %97, %90, %78, %76
   %.1106.i = phi ptr [ %.0105.i, %90 ], [ %.099, %78 ], [ %.099, %76 ], [ %.099, %111 ], [ %.099, %99 ], [ %.099, %97 ], [ %.099, %93 ]
-  %.1102.i = phi ptr [ %.098, %90 ], [ %.098, %78 ], [ %.098, %76 ], [ %.0101.i, %111 ], [ %.098, %99 ], [ %.098, %97 ], [ %.098, %93 ]
-  %.2100.i = phi ptr [ %.098.i, %90 ], [ %1, %78 ], [ %1, %76 ], [ %.199.i, %111 ], [ %1, %99 ], [ %1, %97 ], [ %1, %93 ]
+  %.0101.i = phi ptr [ %.098, %90 ], [ %.098, %78 ], [ %.098, %76 ], [ %.1102.i, %111 ], [ %.098, %99 ], [ %.098, %97 ], [ %.098, %93 ]
+  %.199.i = phi ptr [ %.098.i, %90 ], [ %1, %78 ], [ %1, %76 ], [ %.2100.i, %111 ], [ %1, %99 ], [ %1, %97 ], [ %1, %93 ]
   %.not134.i = phi i1 [ false, %90 ], [ true, %78 ], [ true, %76 ], [ false, %111 ], [ true, %99 ], [ true, %97 ], [ true, %93 ]
-  %118 = ptrtoint ptr %.2100.i to i64
+  %118 = ptrtoint ptr %.199.i to i64
   %119 = and i64 %118, 1
   %.not132.i = icmp eq i64 %119, 0
   br i1 %.not132.i, label %120, label %.thread146.i
 
 120:                                              ; preds = %117
-  %121 = ptrtoint ptr %.1102.i to i64
+  %121 = ptrtoint ptr %.0101.i to i64
   %122 = and i64 %121, 1
   %.not133.i = icmp eq i64 %122, 0
   br i1 %.not133.i, label %133, label %.thread.i
@@ -527,8 +527,8 @@ define ptr @Cudd_bddIteConstant(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 .thread.i:                                        ; preds = %.thread146.i, %120
   %127 = phi i64 [ %125, %.thread146.i ], [ %121, %120 ]
-  %.3156.i = phi ptr [ %124, %.thread146.i ], [ %.2100.i, %120 ]
-  %.2107152.i = phi ptr [ %.1102.i, %.thread146.i ], [ %.1106.i, %120 ]
+  %.3156.i = phi ptr [ %124, %.thread146.i ], [ %.199.i, %120 ]
+  %.2107152.i = phi ptr [ %.0101.i, %.thread146.i ], [ %.1106.i, %120 ]
   %128 = and i64 %127, -2
   %129 = inttoptr i64 %128 to ptr
   %130 = ptrtoint ptr %.2107152.i to i64
@@ -543,14 +543,14 @@ define ptr @Cudd_bddIteConstant(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %134
 
 134:                                              ; preds = %.thread146.i, %.thread.i, %.thread160.i, %133
-  %.1100 = phi ptr [ %.099, %133 ], [ %132, %.thread.i ], [ %.1102.i, %.thread146.i ], [ %.1106.i, %.thread160.i ]
-  %.1 = phi ptr [ %.098, %133 ], [ %129, %.thread.i ], [ %.1106.i, %.thread146.i ], [ %.1102.i, %.thread160.i ]
-  %.097 = phi ptr [ %1, %133 ], [ %.3156.i, %.thread.i ], [ %124, %.thread146.i ], [ %.2100.i, %.thread160.i ]
-  %.3158.i = phi ptr [ %.2100.i, %133 ], [ %.3156.i, %.thread.i ], [ %124, %.thread146.i ], [ %.2100.i, %.thread160.i ]
+  %.1100 = phi ptr [ %.099, %133 ], [ %132, %.thread.i ], [ %.0101.i, %.thread146.i ], [ %.1106.i, %.thread160.i ]
+  %.1 = phi ptr [ %.098, %133 ], [ %129, %.thread.i ], [ %.1106.i, %.thread146.i ], [ %.0101.i, %.thread160.i ]
+  %.097 = phi ptr [ %1, %133 ], [ %.3156.i, %.thread.i ], [ %124, %.thread146.i ], [ %.199.i, %.thread160.i ]
+  %.3158.i = phi ptr [ %.199.i, %133 ], [ %.3156.i, %.thread.i ], [ %124, %.thread146.i ], [ %.199.i, %.thread160.i ]
   %135 = phi i1 [ false, %133 ], [ true, %.thread.i ], [ false, %.thread146.i ], [ false, %.thread160.i ]
   %.097145.i = phi i64 [ 0, %133 ], [ 1, %.thread.i ], [ 0, %.thread146.i ], [ 0, %.thread160.i ]
-  %.3104143.i = phi ptr [ %.1102.i, %133 ], [ %129, %.thread.i ], [ %.1106.i, %.thread146.i ], [ %.1102.i, %.thread160.i ]
-  %.3108141.i = phi ptr [ %.1106.i, %133 ], [ %132, %.thread.i ], [ %.1102.i, %.thread146.i ], [ %.1106.i, %.thread160.i ]
+  %.3104143.i = phi ptr [ %.0101.i, %133 ], [ %129, %.thread.i ], [ %.1106.i, %.thread146.i ], [ %.0101.i, %.thread160.i ]
+  %.3108141.i = phi ptr [ %.1106.i, %133 ], [ %132, %.thread.i ], [ %.0101.i, %.thread146.i ], [ %.1106.i, %.thread160.i ]
   %136 = load i32, ptr %.3158.i, align 8
   %137 = icmp eq i32 %136, 2147483647
   br i1 %137, label %144, label %138

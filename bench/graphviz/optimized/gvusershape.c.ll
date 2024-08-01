@@ -1193,10 +1193,10 @@ define internal fastcc void @svg_size(ptr nocapture noundef %0) unnamed_addr #0 
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %find_attribute.exit.thread
-  %.0281 = phi i32 [ 0, %1 ], [ %.4, %find_attribute.exit.thread ]
-  %.024280 = phi i32 [ 0, %1 ], [ %.428, %find_attribute.exit.thread ]
-  %.032278 = phi i8 [ 0, %1 ], [ %.436, %find_attribute.exit.thread ]
-  %.037277 = phi i8 [ 0, %1 ], [ %.441, %find_attribute.exit.thread ]
+  %.0281 = phi i32 [ 0, %1 ], [ %.2, %find_attribute.exit.thread ]
+  %.024280 = phi i32 [ 0, %1 ], [ %.226, %find_attribute.exit.thread ]
+  %.032278 = phi i8 [ 0, %1 ], [ %.234, %find_attribute.exit.thread ]
+  %.037277 = phi i8 [ 0, %1 ], [ %.239, %find_attribute.exit.thread ]
   br label %agxbputc.exit
 
 agxbputc.exit:                                    ; preds = %agxbputc.exit.backedge, %.preheader
@@ -1438,10 +1438,10 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
 
 .lr.ph.i.preheader:                               ; preds = %agxbuse.exit, %293
   %95 = phi i8 [ %294, %293 ], [ %94, %agxbuse.exit ]
-  %.1248 = phi i32 [ %.3, %293 ], [ %.0281, %agxbuse.exit ]
+  %.1248 = phi i32 [ %.4, %293 ], [ %.0281, %agxbuse.exit ]
   %.125247 = phi i32 [ %.327, %293 ], [ %.024280, %agxbuse.exit ]
   %.031246 = phi ptr [ %122, %293 ], [ %93, %agxbuse.exit ]
-  %.133245 = phi i8 [ %.335, %293 ], [ %.032278, %agxbuse.exit ]
+  %.133245 = phi i8 [ %.436, %293 ], [ %.032278, %agxbuse.exit ]
   %.138244 = phi i8 [ %.340, %293 ], [ %.037277, %agxbuse.exit ]
   %invariant.gep.i249 = getelementptr i8, ptr %.031246, i64 2
   br label %.lr.ph.i
@@ -1665,8 +1665,8 @@ sub_161.i:                                        ; preds = %135
   br label %svg_units_convert.exit
 
 svg_units_convert.exit:                           ; preds = %sub_137.i, %.tail35.i, %.tail40.i, %181, %sub_161.i, %172, %sub_156.i, %166, %.tail50.i, %.tail45.i, %157, %150, %141, %sub_1.i, %135, %187, %190
-  %.234 = phi i8 [ 1, %190 ], [ %.133245, %187 ], [ 1, %135 ], [ 1, %sub_1.i ], [ 1, %141 ], [ 1, %150 ], [ 1, %157 ], [ 1, %.tail45.i ], [ 1, %.tail50.i ], [ 1, %166 ], [ 1, %sub_156.i ], [ 1, %172 ], [ 1, %sub_161.i ], [ 1, %181 ], [ 1, %.tail40.i ], [ 1, %.tail35.i ], [ 1, %sub_137.i ]
-  %.2 = phi i32 [ %193, %190 ], [ %.1248, %187 ], [ 0, %135 ], [ 0, %sub_1.i ], [ %146, %141 ], [ %154, %150 ], [ %161, %157 ], [ 0, %.tail45.i ], [ 0, %.tail50.i ], [ %168, %166 ], [ 0, %sub_156.i ], [ %177, %172 ], [ 0, %sub_161.i ], [ %186, %181 ], [ 0, %.tail40.i ], [ 0, %.tail35.i ], [ 0, %sub_137.i ]
+  %.335 = phi i8 [ 1, %190 ], [ %.133245, %187 ], [ 1, %135 ], [ 1, %sub_1.i ], [ 1, %141 ], [ 1, %150 ], [ 1, %157 ], [ 1, %.tail45.i ], [ 1, %.tail50.i ], [ 1, %166 ], [ 1, %sub_156.i ], [ 1, %172 ], [ 1, %sub_161.i ], [ 1, %181 ], [ 1, %.tail40.i ], [ 1, %.tail35.i ], [ 1, %sub_137.i ]
+  %.3 = phi i32 [ %193, %190 ], [ %.1248, %187 ], [ 0, %135 ], [ 0, %sub_1.i ], [ %146, %141 ], [ %154, %150 ], [ %161, %157 ], [ 0, %.tail45.i ], [ 0, %.tail50.i ], [ %168, %166 ], [ 0, %sub_156.i ], [ %177, %172 ], [ 0, %sub_161.i ], [ %186, %181 ], [ 0, %.tail40.i ], [ 0, %.tail35.i ], [ 0, %sub_137.i ]
   call void @free(ptr noundef nonnull %127) #21
   %194 = trunc nuw i8 %.138244 to i1
   br i1 %194, label %find_attribute.exit.thread, label %293
@@ -1825,8 +1825,8 @@ sub_161.i62:                                      ; preds = %208
   br label %svg_units_convert.exit91
 
 svg_units_convert.exit91:                         ; preds = %sub_137.i74, %.tail35.i84, %.tail40.i81, %254, %sub_161.i62, %245, %sub_156.i67, %239, %.tail50.i71, %.tail45.i80, %230, %223, %214, %sub_1.i87, %208, %260, %263
-  %.239 = phi i8 [ 1, %263 ], [ %.138244, %260 ], [ 1, %208 ], [ 1, %sub_1.i87 ], [ 1, %214 ], [ 1, %223 ], [ 1, %230 ], [ 1, %.tail45.i80 ], [ 1, %.tail50.i71 ], [ 1, %239 ], [ 1, %sub_156.i67 ], [ 1, %245 ], [ 1, %sub_161.i62 ], [ 1, %254 ], [ 1, %.tail40.i81 ], [ 1, %.tail35.i84 ], [ 1, %sub_137.i74 ]
-  %.226 = phi i32 [ %266, %263 ], [ %.125247, %260 ], [ 0, %208 ], [ 0, %sub_1.i87 ], [ %219, %214 ], [ %227, %223 ], [ %234, %230 ], [ 0, %.tail45.i80 ], [ 0, %.tail50.i71 ], [ %241, %239 ], [ 0, %sub_156.i67 ], [ %250, %245 ], [ 0, %sub_161.i62 ], [ %259, %254 ], [ 0, %.tail40.i81 ], [ 0, %.tail35.i84 ], [ 0, %sub_137.i74 ]
+  %.441 = phi i8 [ 1, %263 ], [ %.138244, %260 ], [ 1, %208 ], [ 1, %sub_1.i87 ], [ 1, %214 ], [ 1, %223 ], [ 1, %230 ], [ 1, %.tail45.i80 ], [ 1, %.tail50.i71 ], [ 1, %239 ], [ 1, %sub_156.i67 ], [ 1, %245 ], [ 1, %sub_161.i62 ], [ 1, %254 ], [ 1, %.tail40.i81 ], [ 1, %.tail35.i84 ], [ 1, %sub_137.i74 ]
+  %.428 = phi i32 [ %266, %263 ], [ %.125247, %260 ], [ 0, %208 ], [ 0, %sub_1.i87 ], [ %219, %214 ], [ %227, %223 ], [ %234, %230 ], [ 0, %.tail45.i80 ], [ 0, %.tail50.i71 ], [ %241, %239 ], [ 0, %sub_156.i67 ], [ %250, %245 ], [ 0, %sub_161.i62 ], [ %259, %254 ], [ 0, %.tail40.i81 ], [ 0, %.tail35.i84 ], [ 0, %sub_137.i74 ]
   call void @free(ptr noundef nonnull %200) #21
   %267 = trunc nuw i8 %.133245 to i1
   br i1 %267, label %find_attribute.exit.thread, label %293
@@ -1875,21 +1875,21 @@ strview_str.exit102:                              ; preds = %272
   br label %293
 
 293:                                              ; preds = %svg_units_convert.exit91, %292, %268, %svg_units_convert.exit
-  %.340 = phi i8 [ %.138244, %svg_units_convert.exit ], [ %.239, %svg_units_convert.exit91 ], [ %.138244, %292 ], [ %.138244, %268 ]
-  %.335 = phi i8 [ %.234, %svg_units_convert.exit ], [ %.133245, %svg_units_convert.exit91 ], [ %.133245, %292 ], [ %.133245, %268 ]
-  %.327 = phi i32 [ %.125247, %svg_units_convert.exit ], [ %.226, %svg_units_convert.exit91 ], [ %.125247, %292 ], [ %.125247, %268 ]
-  %.3 = phi i32 [ %.2, %svg_units_convert.exit ], [ %.1248, %svg_units_convert.exit91 ], [ %.1248, %292 ], [ %.1248, %268 ]
+  %.340 = phi i8 [ %.138244, %svg_units_convert.exit ], [ %.441, %svg_units_convert.exit91 ], [ %.138244, %292 ], [ %.138244, %268 ]
+  %.436 = phi i8 [ %.335, %svg_units_convert.exit ], [ %.133245, %svg_units_convert.exit91 ], [ %.133245, %292 ], [ %.133245, %268 ]
+  %.327 = phi i32 [ %.125247, %svg_units_convert.exit ], [ %.428, %svg_units_convert.exit91 ], [ %.125247, %292 ], [ %.125247, %268 ]
+  %.4 = phi i32 [ %.3, %svg_units_convert.exit ], [ %.1248, %svg_units_convert.exit91 ], [ %.1248, %292 ], [ %.1248, %268 ]
   %294 = load i8, ptr %122, align 1
   %.not57.i = icmp eq i8 %294, 0
   br i1 %.not57.i, label %find_attribute.exit.thread, label %.lr.ph.i.preheader
 
 find_attribute.exit.thread:                       ; preds = %svg_units_convert.exit, %svg_units_convert.exit91, %293, %.loopexit54.i, %111, %agxbuse.exit, %281
-  %.441 = phi i8 [ 1, %281 ], [ %.037277, %agxbuse.exit ], [ %.138244, %111 ], [ %.138244, %.loopexit54.i ], [ %.138244, %svg_units_convert.exit ], [ %.239, %svg_units_convert.exit91 ], [ %.340, %293 ]
-  %.436 = phi i8 [ 1, %281 ], [ %.032278, %agxbuse.exit ], [ %.133245, %111 ], [ %.133245, %.loopexit54.i ], [ %.234, %svg_units_convert.exit ], [ %.133245, %svg_units_convert.exit91 ], [ %.335, %293 ]
-  %.428 = phi i32 [ %291, %281 ], [ %.024280, %agxbuse.exit ], [ %.125247, %111 ], [ %.125247, %.loopexit54.i ], [ %.125247, %svg_units_convert.exit ], [ %.226, %svg_units_convert.exit91 ], [ %.327, %293 ]
-  %.4 = phi i32 [ %286, %281 ], [ %.0281, %agxbuse.exit ], [ %.1248, %111 ], [ %.1248, %.loopexit54.i ], [ %.2, %svg_units_convert.exit ], [ %.1248, %svg_units_convert.exit91 ], [ %.3, %293 ]
-  %295 = trunc nuw i8 %.436 to i1
-  %296 = trunc nuw i8 %.441 to i1
+  %.239 = phi i8 [ 1, %281 ], [ %.037277, %agxbuse.exit ], [ %.138244, %111 ], [ %.138244, %.loopexit54.i ], [ %.138244, %svg_units_convert.exit ], [ %.441, %svg_units_convert.exit91 ], [ %.340, %293 ]
+  %.234 = phi i8 [ 1, %281 ], [ %.032278, %agxbuse.exit ], [ %.133245, %111 ], [ %.133245, %.loopexit54.i ], [ %.335, %svg_units_convert.exit ], [ %.133245, %svg_units_convert.exit91 ], [ %.436, %293 ]
+  %.226 = phi i32 [ %291, %281 ], [ %.024280, %agxbuse.exit ], [ %.125247, %111 ], [ %.125247, %.loopexit54.i ], [ %.125247, %svg_units_convert.exit ], [ %.428, %svg_units_convert.exit91 ], [ %.327, %293 ]
+  %.2 = phi i32 [ %286, %281 ], [ %.0281, %agxbuse.exit ], [ %.1248, %111 ], [ %.1248, %.loopexit54.i ], [ %.3, %svg_units_convert.exit ], [ %.1248, %svg_units_convert.exit91 ], [ %.4, %293 ]
+  %295 = trunc nuw i8 %.234 to i1
+  %296 = trunc nuw i8 %.239 to i1
   %297 = select i1 %295, i1 %296, i1 false
   %or.cond = select i1 %.130, i1 true, i1 %297
   br i1 %or.cond, label %.critedge, label %.preheader
@@ -1898,9 +1898,9 @@ find_attribute.exit.thread:                       ; preds = %svg_units_convert.e
   %298 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %298, align 8
   %299 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %.4, ptr %299, align 8
+  store i32 %.2, ptr %299, align 8
   %300 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %.428, ptr %300, align 4
+  store i32 %.226, ptr %300, align 4
   %.val45 = load i8, ptr %12, align 1
   %301 = icmp eq i8 %.val45, -1
   br i1 %301, label %302, label %agxbfree.exit
@@ -2004,8 +2004,8 @@ nxtc.exit.i.i:                                    ; preds = %nxtc.exit.thread9.i
 
 .preheader.i:                                     ; preds = %nxtc.exit.i.i, %.preheader.i.backedge
   %.pn.i = phi ptr [ %35, %.preheader.i.backedge ], [ %30, %nxtc.exit.i.i ]
-  %.sroa.0.1.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
-  %31 = load i8, ptr %.sroa.0.1.i, align 1
+  %.sroa.0.18.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %31 = load i8, ptr %.sroa.0.18.i, align 1
   %.not.i.i60.i = icmp eq i8 %31, 0
   br i1 %.not.i.i60.i, label %32, label %nxtc.exit.thread9.i.i61.i
 
@@ -2020,7 +2020,7 @@ nxtc.exit.i.i75.i:                                ; preds = %32
   br i1 %.not5.i.i76.i, label %skipWS.exit.i63.i.preheader, label %nxtc.exit.thread9.i.i61.i
 
 nxtc.exit.thread9.i.i61.i:                        ; preds = %nxtc.exit.i.i75.i, %.preheader.i
-  %35 = phi ptr [ %7, %nxtc.exit.i.i75.i ], [ %.sroa.0.1.i, %.preheader.i ]
+  %35 = phi ptr [ %7, %nxtc.exit.i.i75.i ], [ %.sroa.0.18.i, %.preheader.i ]
   %.in12.i.i62.i = phi i8 [ %34, %nxtc.exit.i.i75.i ], [ %31, %.preheader.i ]
   switch i8 %.in12.i.i62.i, label %skipWS.exit.i63.i.preheader [
     i8 9, label %.preheader.i.backedge
@@ -2035,13 +2035,13 @@ nxtc.exit.thread9.i.i61.i:                        ; preds = %nxtc.exit.i.i75.i, 
   br label %.preheader.i
 
 skipWS.exit.i63.i.preheader:                      ; preds = %nxtc.exit.thread9.i.i61.i, %nxtc.exit.i.i75.i, %32
-  %.sroa.0.4.i.ph = phi ptr [ %.sroa.0.1.i, %32 ], [ %35, %nxtc.exit.thread9.i.i61.i ], [ %7, %nxtc.exit.i.i75.i ]
+  %.sroa.0.21.i.ph = phi ptr [ %.sroa.0.18.i, %32 ], [ %35, %nxtc.exit.thread9.i.i61.i ], [ %7, %nxtc.exit.i.i75.i ]
   br label %skipWS.exit.i63.i
 
 skipWS.exit.i63.i:                                ; preds = %skipWS.exit.i63.i.preheader, %45
-  %.sroa.0.4.i = phi ptr [ %47, %45 ], [ %.sroa.0.4.i.ph, %skipWS.exit.i63.i.preheader ]
+  %.sroa.0.21.i = phi ptr [ %47, %45 ], [ %.sroa.0.21.i.ph, %skipWS.exit.i63.i.preheader ]
   %indvars.iv.i65.i = phi i64 [ %indvars.iv.next.i70.i, %45 ], [ 0, %skipWS.exit.i63.i.preheader ]
-  %36 = load i8, ptr %.sroa.0.4.i, align 1
+  %36 = load i8, ptr %.sroa.0.21.i, align 1
   %.not.i66.i = icmp eq i8 %36, 0
   br i1 %.not.i66.i, label %37, label %nxtc.exit.thread20.i67.i
 
@@ -2056,7 +2056,7 @@ nxtc.exit.i72.i:                                  ; preds = %37
   br i1 %.not16.i73.i, label %getNum.exit79.i, label %nxtc.exit.thread20.i67.i
 
 nxtc.exit.thread20.i67.i:                         ; preds = %nxtc.exit.i72.i, %skipWS.exit.i63.i
-  %.sroa.0.5.i = phi ptr [ %7, %nxtc.exit.i72.i ], [ %.sroa.0.4.i, %skipWS.exit.i63.i ]
+  %.sroa.0.22.i = phi ptr [ %7, %nxtc.exit.i72.i ], [ %.sroa.0.21.i, %skipWS.exit.i63.i ]
   %.in23.i68.i = phi i8 [ %39, %nxtc.exit.i72.i ], [ %36, %skipWS.exit.i63.i ]
   %40 = sext i8 %.in23.i68.i to i32
   %41 = add nsw i32 %40, -48
@@ -2069,12 +2069,12 @@ nxtc.exit.thread20.i67.i:                         ; preds = %nxtc.exit.i72.i, %s
   %indvars.iv.next.i70.i = add nuw nsw i64 %indvars.iv.i65.i, 1
   %46 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i65.i
   store i8 %.in23.i68.i, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.5.i, i64 1
+  %47 = getelementptr inbounds i8, ptr %.sroa.0.22.i, i64 1
   %48 = icmp eq i64 %indvars.iv.next.i70.i, 8191
   br i1 %48, label %getNum.exit79.i, label %skipWS.exit.i63.i
 
 getNum.exit79.i:                                  ; preds = %45, %nxtc.exit.thread20.i67.i, %nxtc.exit.i72.i, %37
-  %.sroa.0.6.i = phi ptr [ %.sroa.0.4.i, %37 ], [ %7, %nxtc.exit.i72.i ], [ %47, %45 ], [ %.sroa.0.5.i, %nxtc.exit.thread20.i67.i ]
+  %.sroa.0.23.i = phi ptr [ %.sroa.0.21.i, %37 ], [ %7, %nxtc.exit.i72.i ], [ %47, %45 ], [ %.sroa.0.22.i, %nxtc.exit.thread20.i67.i ]
   %.1.i69.i = phi i64 [ %indvars.iv.i65.i, %37 ], [ %indvars.iv.i65.i, %nxtc.exit.i72.i ], [ 8191, %45 ], [ %indvars.iv.i65.i, %nxtc.exit.thread20.i67.i ]
   %49 = and i64 %.1.i69.i, 4294967295
   %50 = getelementptr inbounds i8, ptr %6, i64 %49
@@ -2087,8 +2087,8 @@ getNum.exit79.i:                                  ; preds = %45, %nxtc.exit.thre
   br i1 %53, label %bboxPDF.exit.thread15, label %.preheader32
 
 .preheader32:                                     ; preds = %getNum.exit79.i, %59
-  %.sroa.0.7.i = phi ptr [ %60, %59 ], [ %.sroa.0.6.i, %getNum.exit79.i ]
-  %54 = load i8, ptr %.sroa.0.7.i, align 1
+  %.sroa.0.12.i = phi ptr [ %60, %59 ], [ %.sroa.0.23.i, %getNum.exit79.i ]
+  %54 = load i8, ptr %.sroa.0.12.i, align 1
   %.not.i.i39.i = icmp eq i8 %54, 0
   br i1 %.not.i.i39.i, label %55, label %nxtc.exit.thread9.i.i40.i
 
@@ -2098,7 +2098,7 @@ getNum.exit79.i:                                  ; preds = %45, %nxtc.exit.thre
   br i1 %.not.i.i.i53.i, label %skipWS.exit.i42.i.preheader, label %nxtc.exit.i.i54.i
 
 skipWS.exit.i42.i.preheader:                      ; preds = %nxtc.exit.thread9.i.i40.i, %nxtc.exit.i.i54.i, %55
-  %.sroa.0.10.i.ph = phi ptr [ %.sroa.0.7.i, %55 ], [ %58, %nxtc.exit.thread9.i.i40.i ], [ %7, %nxtc.exit.i.i54.i ]
+  %.sroa.0.15.i.ph = phi ptr [ %.sroa.0.12.i, %55 ], [ %58, %nxtc.exit.thread9.i.i40.i ], [ %7, %nxtc.exit.i.i54.i ]
   br label %skipWS.exit.i42.i
 
 nxtc.exit.i.i54.i:                                ; preds = %55
@@ -2107,7 +2107,7 @@ nxtc.exit.i.i54.i:                                ; preds = %55
   br i1 %.not5.i.i55.i, label %skipWS.exit.i42.i.preheader, label %nxtc.exit.thread9.i.i40.i
 
 nxtc.exit.thread9.i.i40.i:                        ; preds = %nxtc.exit.i.i54.i, %.preheader32
-  %58 = phi ptr [ %7, %nxtc.exit.i.i54.i ], [ %.sroa.0.7.i, %.preheader32 ]
+  %58 = phi ptr [ %7, %nxtc.exit.i.i54.i ], [ %.sroa.0.12.i, %.preheader32 ]
   %.in12.i.i41.i = phi i8 [ %57, %nxtc.exit.i.i54.i ], [ %54, %.preheader32 ]
   switch i8 %.in12.i.i41.i, label %skipWS.exit.i42.i.preheader [
     i8 9, label %59
@@ -2123,9 +2123,9 @@ nxtc.exit.thread9.i.i40.i:                        ; preds = %nxtc.exit.i.i54.i, 
   br label %.preheader32
 
 skipWS.exit.i42.i:                                ; preds = %skipWS.exit.i42.i.preheader, %70
-  %.sroa.0.10.i = phi ptr [ %72, %70 ], [ %.sroa.0.10.i.ph, %skipWS.exit.i42.i.preheader ]
+  %.sroa.0.15.i = phi ptr [ %72, %70 ], [ %.sroa.0.15.i.ph, %skipWS.exit.i42.i.preheader ]
   %indvars.iv.i44.i = phi i64 [ %indvars.iv.next.i49.i, %70 ], [ 0, %skipWS.exit.i42.i.preheader ]
-  %61 = load i8, ptr %.sroa.0.10.i, align 1
+  %61 = load i8, ptr %.sroa.0.15.i, align 1
   %.not.i45.i = icmp eq i8 %61, 0
   br i1 %.not.i45.i, label %62, label %nxtc.exit.thread20.i46.i
 
@@ -2140,7 +2140,7 @@ nxtc.exit.i51.i:                                  ; preds = %62
   br i1 %.not16.i52.i, label %getNum.exit58.i, label %nxtc.exit.thread20.i46.i
 
 nxtc.exit.thread20.i46.i:                         ; preds = %nxtc.exit.i51.i, %skipWS.exit.i42.i
-  %.sroa.0.11.i = phi ptr [ %7, %nxtc.exit.i51.i ], [ %.sroa.0.10.i, %skipWS.exit.i42.i ]
+  %.sroa.0.16.i = phi ptr [ %7, %nxtc.exit.i51.i ], [ %.sroa.0.15.i, %skipWS.exit.i42.i ]
   %.in23.i47.i = phi i8 [ %64, %nxtc.exit.i51.i ], [ %61, %skipWS.exit.i42.i ]
   %65 = sext i8 %.in23.i47.i to i32
   %66 = add nsw i32 %65, -48
@@ -2153,12 +2153,12 @@ nxtc.exit.thread20.i46.i:                         ; preds = %nxtc.exit.i51.i, %s
   %indvars.iv.next.i49.i = add nuw nsw i64 %indvars.iv.i44.i, 1
   %71 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i44.i
   store i8 %.in23.i47.i, ptr %71, align 1
-  %72 = getelementptr inbounds i8, ptr %.sroa.0.11.i, i64 1
+  %72 = getelementptr inbounds i8, ptr %.sroa.0.16.i, i64 1
   %73 = icmp eq i64 %indvars.iv.next.i49.i, 8191
   br i1 %73, label %getNum.exit58.i, label %skipWS.exit.i42.i
 
 getNum.exit58.i:                                  ; preds = %70, %nxtc.exit.thread20.i46.i, %nxtc.exit.i51.i, %62
-  %.sroa.0.12.i = phi ptr [ %.sroa.0.10.i, %62 ], [ %7, %nxtc.exit.i51.i ], [ %72, %70 ], [ %.sroa.0.11.i, %nxtc.exit.thread20.i46.i ]
+  %.sroa.0.17.i = phi ptr [ %.sroa.0.15.i, %62 ], [ %7, %nxtc.exit.i51.i ], [ %72, %70 ], [ %.sroa.0.16.i, %nxtc.exit.thread20.i46.i ]
   %.1.i48.i = phi i64 [ %indvars.iv.i44.i, %62 ], [ %indvars.iv.i44.i, %nxtc.exit.i51.i ], [ 8191, %70 ], [ %indvars.iv.i44.i, %nxtc.exit.thread20.i46.i ]
   %74 = and i64 %.1.i48.i, 4294967295
   %75 = getelementptr inbounds i8, ptr %6, i64 %74
@@ -2171,8 +2171,8 @@ getNum.exit58.i:                                  ; preds = %70, %nxtc.exit.thre
   br i1 %78, label %bboxPDF.exit.thread15, label %.preheader31
 
 .preheader31:                                     ; preds = %getNum.exit58.i, %84
-  %.sroa.0.13.i = phi ptr [ %85, %84 ], [ %.sroa.0.12.i, %getNum.exit58.i ]
-  %79 = load i8, ptr %.sroa.0.13.i, align 1
+  %.sroa.0.6.i = phi ptr [ %85, %84 ], [ %.sroa.0.17.i, %getNum.exit58.i ]
+  %79 = load i8, ptr %.sroa.0.6.i, align 1
   %.not.i.i18.i = icmp eq i8 %79, 0
   br i1 %.not.i.i18.i, label %80, label %nxtc.exit.thread9.i.i19.i
 
@@ -2182,7 +2182,7 @@ getNum.exit58.i:                                  ; preds = %70, %nxtc.exit.thre
   br i1 %.not.i.i.i32.i, label %skipWS.exit.i21.i.preheader, label %nxtc.exit.i.i33.i
 
 skipWS.exit.i21.i.preheader:                      ; preds = %nxtc.exit.thread9.i.i19.i, %nxtc.exit.i.i33.i, %80
-  %.sroa.0.16.i.ph = phi ptr [ %.sroa.0.13.i, %80 ], [ %83, %nxtc.exit.thread9.i.i19.i ], [ %7, %nxtc.exit.i.i33.i ]
+  %.sroa.0.9.i.ph = phi ptr [ %.sroa.0.6.i, %80 ], [ %83, %nxtc.exit.thread9.i.i19.i ], [ %7, %nxtc.exit.i.i33.i ]
   br label %skipWS.exit.i21.i
 
 nxtc.exit.i.i33.i:                                ; preds = %80
@@ -2191,7 +2191,7 @@ nxtc.exit.i.i33.i:                                ; preds = %80
   br i1 %.not5.i.i34.i, label %skipWS.exit.i21.i.preheader, label %nxtc.exit.thread9.i.i19.i
 
 nxtc.exit.thread9.i.i19.i:                        ; preds = %nxtc.exit.i.i33.i, %.preheader31
-  %83 = phi ptr [ %7, %nxtc.exit.i.i33.i ], [ %.sroa.0.13.i, %.preheader31 ]
+  %83 = phi ptr [ %7, %nxtc.exit.i.i33.i ], [ %.sroa.0.6.i, %.preheader31 ]
   %.in12.i.i20.i = phi i8 [ %82, %nxtc.exit.i.i33.i ], [ %79, %.preheader31 ]
   switch i8 %.in12.i.i20.i, label %skipWS.exit.i21.i.preheader [
     i8 9, label %84
@@ -2207,9 +2207,9 @@ nxtc.exit.thread9.i.i19.i:                        ; preds = %nxtc.exit.i.i33.i, 
   br label %.preheader31
 
 skipWS.exit.i21.i:                                ; preds = %skipWS.exit.i21.i.preheader, %95
-  %.sroa.0.16.i = phi ptr [ %97, %95 ], [ %.sroa.0.16.i.ph, %skipWS.exit.i21.i.preheader ]
+  %.sroa.0.9.i = phi ptr [ %97, %95 ], [ %.sroa.0.9.i.ph, %skipWS.exit.i21.i.preheader ]
   %indvars.iv.i23.i = phi i64 [ %indvars.iv.next.i28.i, %95 ], [ 0, %skipWS.exit.i21.i.preheader ]
-  %86 = load i8, ptr %.sroa.0.16.i, align 1
+  %86 = load i8, ptr %.sroa.0.9.i, align 1
   %.not.i24.i = icmp eq i8 %86, 0
   br i1 %.not.i24.i, label %87, label %nxtc.exit.thread20.i25.i
 
@@ -2224,7 +2224,7 @@ nxtc.exit.i30.i:                                  ; preds = %87
   br i1 %.not16.i31.i, label %getNum.exit37.i, label %nxtc.exit.thread20.i25.i
 
 nxtc.exit.thread20.i25.i:                         ; preds = %nxtc.exit.i30.i, %skipWS.exit.i21.i
-  %.sroa.0.17.i = phi ptr [ %7, %nxtc.exit.i30.i ], [ %.sroa.0.16.i, %skipWS.exit.i21.i ]
+  %.sroa.0.10.i = phi ptr [ %7, %nxtc.exit.i30.i ], [ %.sroa.0.9.i, %skipWS.exit.i21.i ]
   %.in23.i26.i = phi i8 [ %89, %nxtc.exit.i30.i ], [ %86, %skipWS.exit.i21.i ]
   %90 = sext i8 %.in23.i26.i to i32
   %91 = add nsw i32 %90, -48
@@ -2237,12 +2237,12 @@ nxtc.exit.thread20.i25.i:                         ; preds = %nxtc.exit.i30.i, %s
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i23.i, 1
   %96 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i23.i
   store i8 %.in23.i26.i, ptr %96, align 1
-  %97 = getelementptr inbounds i8, ptr %.sroa.0.17.i, i64 1
+  %97 = getelementptr inbounds i8, ptr %.sroa.0.10.i, i64 1
   %98 = icmp eq i64 %indvars.iv.next.i28.i, 8191
   br i1 %98, label %getNum.exit37.i, label %skipWS.exit.i21.i
 
 getNum.exit37.i:                                  ; preds = %95, %nxtc.exit.thread20.i25.i, %nxtc.exit.i30.i, %87
-  %.sroa.0.18.i = phi ptr [ %.sroa.0.16.i, %87 ], [ %7, %nxtc.exit.i30.i ], [ %97, %95 ], [ %.sroa.0.17.i, %nxtc.exit.thread20.i25.i ]
+  %.sroa.0.11.i = phi ptr [ %.sroa.0.9.i, %87 ], [ %7, %nxtc.exit.i30.i ], [ %97, %95 ], [ %.sroa.0.10.i, %nxtc.exit.thread20.i25.i ]
   %.1.i27.i = phi i64 [ %indvars.iv.i23.i, %87 ], [ %indvars.iv.i23.i, %nxtc.exit.i30.i ], [ 8191, %95 ], [ %indvars.iv.i23.i, %nxtc.exit.thread20.i25.i ]
   %99 = and i64 %.1.i27.i, 4294967295
   %100 = getelementptr inbounds i8, ptr %6, i64 %99
@@ -2255,8 +2255,8 @@ getNum.exit37.i:                                  ; preds = %95, %nxtc.exit.thre
   br i1 %103, label %bboxPDF.exit.thread15, label %.preheader
 
 .preheader:                                       ; preds = %getNum.exit37.i, %109
-  %.sroa.0.19.i = phi ptr [ %110, %109 ], [ %.sroa.0.18.i, %getNum.exit37.i ]
-  %104 = load i8, ptr %.sroa.0.19.i, align 1
+  %.sroa.0.1.i = phi ptr [ %110, %109 ], [ %.sroa.0.11.i, %getNum.exit37.i ]
+  %104 = load i8, ptr %.sroa.0.1.i, align 1
   %.not.i.i7.i = icmp eq i8 %104, 0
   br i1 %.not.i.i7.i, label %105, label %nxtc.exit.thread9.i.i8.i
 
@@ -2266,7 +2266,7 @@ getNum.exit37.i:                                  ; preds = %95, %nxtc.exit.thre
   br i1 %.not.i.i.i14.i, label %skipWS.exit.i10.i.preheader, label %nxtc.exit.i.i15.i
 
 skipWS.exit.i10.i.preheader:                      ; preds = %nxtc.exit.thread9.i.i8.i, %nxtc.exit.i.i15.i, %105
-  %.sroa.0.22.i.ph = phi ptr [ %.sroa.0.19.i, %105 ], [ %108, %nxtc.exit.thread9.i.i8.i ], [ %7, %nxtc.exit.i.i15.i ]
+  %.sroa.0.4.i.ph = phi ptr [ %.sroa.0.1.i, %105 ], [ %108, %nxtc.exit.thread9.i.i8.i ], [ %7, %nxtc.exit.i.i15.i ]
   br label %skipWS.exit.i10.i
 
 nxtc.exit.i.i15.i:                                ; preds = %105
@@ -2275,7 +2275,7 @@ nxtc.exit.i.i15.i:                                ; preds = %105
   br i1 %.not5.i.i16.i, label %skipWS.exit.i10.i.preheader, label %nxtc.exit.thread9.i.i8.i
 
 nxtc.exit.thread9.i.i8.i:                         ; preds = %nxtc.exit.i.i15.i, %.preheader
-  %108 = phi ptr [ %7, %nxtc.exit.i.i15.i ], [ %.sroa.0.19.i, %.preheader ]
+  %108 = phi ptr [ %7, %nxtc.exit.i.i15.i ], [ %.sroa.0.1.i, %.preheader ]
   %.in12.i.i9.i = phi i8 [ %107, %nxtc.exit.i.i15.i ], [ %104, %.preheader ]
   switch i8 %.in12.i.i9.i, label %skipWS.exit.i10.i.preheader [
     i8 9, label %109
@@ -2291,9 +2291,9 @@ nxtc.exit.thread9.i.i8.i:                         ; preds = %nxtc.exit.i.i15.i, 
   br label %.preheader
 
 skipWS.exit.i10.i:                                ; preds = %skipWS.exit.i10.i.preheader, %120
-  %.sroa.0.22.i = phi ptr [ %122, %120 ], [ %.sroa.0.22.i.ph, %skipWS.exit.i10.i.preheader ]
+  %.sroa.0.4.i = phi ptr [ %122, %120 ], [ %.sroa.0.4.i.ph, %skipWS.exit.i10.i.preheader ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %120 ], [ 0, %skipWS.exit.i10.i.preheader ]
-  %111 = load i8, ptr %.sroa.0.22.i, align 1
+  %111 = load i8, ptr %.sroa.0.4.i, align 1
   %.not.i12.i = icmp eq i8 %111, 0
   br i1 %.not.i12.i, label %112, label %nxtc.exit.thread20.i.i
 
@@ -2306,7 +2306,7 @@ skipWS.exit.i10.i:                                ; preds = %skipWS.exit.i10.i.p
   br i1 %or.cond.i, label %getNum.exit.i, label %nxtc.exit.thread20.i.i
 
 nxtc.exit.thread20.i.i:                           ; preds = %112, %skipWS.exit.i10.i
-  %.sroa.0.23.i = phi ptr [ %.sroa.0.22.i, %skipWS.exit.i10.i ], [ %7, %112 ]
+  %.sroa.0.5.i = phi ptr [ %.sroa.0.4.i, %skipWS.exit.i10.i ], [ %7, %112 ]
   %.in23.i.i = phi i8 [ %111, %skipWS.exit.i10.i ], [ %114, %112 ]
   %115 = sext i8 %.in23.i.i to i32
   %116 = add nsw i32 %115, -48
@@ -2319,7 +2319,7 @@ nxtc.exit.thread20.i.i:                           ; preds = %112, %skipWS.exit.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %121 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i.i
   store i8 %.in23.i.i, ptr %121, align 1
-  %122 = getelementptr inbounds i8, ptr %.sroa.0.23.i, i64 1
+  %122 = getelementptr inbounds i8, ptr %.sroa.0.5.i, i64 1
   %123 = icmp eq i64 %indvars.iv.next.i.i, 8191
   br i1 %123, label %getNum.exit.i, label %skipWS.exit.i10.i
 

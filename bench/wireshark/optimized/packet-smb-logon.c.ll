@@ -487,15 +487,15 @@ display_LMNT_token.exit:                          ; preds = %24, %27
   br label %32
 
 32:                                               ; preds = %display_LMNT_token.exit, %4
-  %.1 = phi i32 [ %31, %display_LMNT_token.exit ], [ %12, %4 ]
-  %33 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.1) #2
+  %.0 = phi i32 [ %31, %display_LMNT_token.exit ], [ %12, %4 ]
+  %33 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0) #2
   %34 = zext i16 %33 to i32
   %35 = and i32 %34, 1
   %.not.i = icmp eq i32 %35, 0
   %36 = load i32, ptr @hf_lm_token, align 4
   %.str.195..str.194.i = select i1 %.not.i, ptr @.str.195, ptr @.str.194
-  %37 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef %34, ptr noundef nonnull %.str.195..str.194.i, i32 noundef %34) #2
-  %38 = add i32 %.1, 2
+  %37 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef %34, ptr noundef nonnull %.str.195..str.194.i, i32 noundef %34) #2
+  %38 = add i32 %.0, 2
   ret i32 %38
 }
 
@@ -573,8 +573,8 @@ display_LMNT_token.exit:                          ; preds = %31, %34
   br label %45
 
 45:                                               ; preds = %display_LMNT_token.exit, %4
-  %.2 = phi i32 [ %44, %display_LMNT_token.exit ], [ %7, %4 ]
-  ret i32 %.2
+  %.0 = phi i32 [ %44, %display_LMNT_token.exit ], [ %7, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -630,17 +630,17 @@ define internal noundef i32 @dissect_announce_change(ptr noundef %0, ptr noundef
   br i1 %.not8688, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
-  %.190 = phi i32 [ %43, %.lr.ph ], [ %32, %24 ]
+  %.290 = phi i32 [ %43, %.lr.ph ], [ %32, %24 ]
   %.08589 = phi i32 [ %44, %.lr.ph ], [ %29, %24 ]
-  %33 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.190) #2
+  %33 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.290) #2
   %34 = load i32, ptr @ett_smb_db_info, align 4
-  %35 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.190, i32 noundef 20, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.201, i32 noundef %33) #2
+  %35 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.290, i32 noundef 20, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.201, i32 noundef %33) #2
   %36 = load i32, ptr @hf_db_index, align 4
-  %37 = tail call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %.190, i32 noundef 4, i32 noundef %33) #2
-  %38 = add i32 %.190, 4
+  %37 = tail call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %.290, i32 noundef 4, i32 noundef %33) #2
+  %38 = add i32 %.290, 4
   %39 = load i32, ptr @hf_large_serial, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 8, i32 noundef -2147483648) #2
-  %41 = add i32 %.190, 12
+  %41 = add i32 %.290, 12
   %42 = load i32, ptr @hf_nt_date_time, align 4
   %43 = tail call i32 @dissect_nt_64bit_time(ptr noundef %0, ptr noundef %35, i32 noundef %41, i32 noundef %42) #2
   %44 = add i32 %.08589, -1
@@ -648,26 +648,26 @@ define internal noundef i32 @dissect_announce_change(ptr noundef %0, ptr noundef
   br i1 %.not86, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
-  %.1.lcssa = phi i32 [ %32, %24 ], [ %43, %.lr.ph ]
-  %45 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.1.lcssa) #2
+  %.2.lcssa = phi i32 [ %32, %24 ], [ %43, %.lr.ph ]
+  %45 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.2.lcssa) #2
   %46 = load i32, ptr @hf_domain_sid_size, align 4
-  %47 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %.1.lcssa, i32 noundef 4, i32 noundef %45) #2
-  %48 = add i32 %.1.lcssa, 4
+  %47 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %.2.lcssa, i32 noundef 4, i32 noundef %45) #2
+  %48 = add i32 %.2.lcssa, 4
   %.not87 = icmp eq i32 %45, 0
   br i1 %.not87, label %54, label %49
 
 49:                                               ; preds = %._crit_edge
-  %50 = add i32 %.1.lcssa, 7
+  %50 = add i32 %.2.lcssa, 7
   %51 = sdiv i32 %50, 4
   %52 = shl nsw i32 %51, 2
   %53 = tail call i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef nonnull @.str.202, ptr noundef null, i32 noundef -1) #2
   br label %54
 
 54:                                               ; preds = %49, %._crit_edge
-  %.2 = phi i32 [ %53, %49 ], [ %48, %._crit_edge ]
+  %.3 = phi i32 [ %53, %49 ], [ %48, %._crit_edge ]
   %55 = load i32, ptr @hf_nt_version, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef -2147483648) #2
-  %57 = add i32 %.2, 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef -2147483648) #2
+  %57 = add i32 %.3, 4
   %58 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %57) #2
   %59 = icmp eq i16 %58, -1
   br i1 %59, label %60, label %63
@@ -684,19 +684,19 @@ define internal noundef i32 @dissect_announce_change(ptr noundef %0, ptr noundef
   br label %display_LMNT_token.exit
 
 display_LMNT_token.exit:                          ; preds = %60, %63
-  %67 = add i32 %.2, 6
+  %67 = add i32 %.3, 6
   br label %68
 
 68:                                               ; preds = %display_LMNT_token.exit, %4
-  %.3 = phi i32 [ %67, %display_LMNT_token.exit ], [ %spec.select, %4 ]
-  %69 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.3) #2
+  %.1 = phi i32 [ %67, %display_LMNT_token.exit ], [ %spec.select, %4 ]
+  %69 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.1) #2
   %70 = zext i16 %69 to i32
   %71 = and i32 %70, 1
   %.not.i = icmp eq i32 %71, 0
   %72 = load i32, ptr @hf_lm_token, align 4
   %.str.195..str.194.i = select i1 %.not.i, ptr @.str.195, ptr @.str.194
-  %73 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %72, ptr noundef %0, i32 noundef %.3, i32 noundef 2, i32 noundef %70, ptr noundef nonnull %.str.195..str.194.i, i32 noundef %70) #2
-  %74 = add i32 %.3, 2
+  %73 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %72, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef %70, ptr noundef nonnull %.str.195..str.194.i, i32 noundef %70) #2
+  %74 = add i32 %.1, 2
   ret i32 %74
 }
 

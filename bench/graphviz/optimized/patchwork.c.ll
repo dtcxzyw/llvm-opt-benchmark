@@ -110,7 +110,7 @@ gv_alloc.exit:                                    ; preds = %4
   %.188 = phi i64 [ %.2, %57 ], [ %.0.lcssa, %._crit_edge ]
   %.15387 = phi double [ %.254, %57 ], [ %.052.lcssa, %._crit_edge ]
   %.15786 = phi ptr [ %.258, %57 ], [ %.056.lcssa, %._crit_edge ]
-  %.26185 = phi ptr [ %.4, %57 ], [ %.059.lcssa, %._crit_edge ]
+  %.26185 = phi ptr [ %.3, %57 ], [ %.059.lcssa, %._crit_edge ]
   %.06284 = phi ptr [ %58, %57 ], [ %31, %._crit_edge ]
   %32 = getelementptr inbounds i8, ptr %.06284, i64 16
   %33 = load ptr, ptr %32, align 8
@@ -161,7 +161,7 @@ mkTreeNode.exit:                                  ; preds = %37
   br label %57
 
 57:                                               ; preds = %.lr.ph90, %53
-  %.4 = phi ptr [ %.26185, %.lr.ph90 ], [ %spec.select70, %53 ]
+  %.3 = phi ptr [ %.26185, %.lr.ph90 ], [ %spec.select70, %53 ]
   %.258 = phi ptr [ %.15786, %.lr.ph90 ], [ %38, %53 ]
   %.254 = phi double [ %.15387, %.lr.ph90 ], [ %50, %53 ]
   %.2 = phi i64 [ %.188, %.lr.ph90 ], [ %49, %53 ]
@@ -170,7 +170,7 @@ mkTreeNode.exit:                                  ; preds = %37
   br i1 %.not63, label %._crit_edge91, label %.lr.ph90
 
 ._crit_edge91:                                    ; preds = %57, %._crit_edge
-  %.261.lcssa = phi ptr [ %.059.lcssa, %._crit_edge ], [ %.4, %57 ]
+  %.261.lcssa = phi ptr [ %.059.lcssa, %._crit_edge ], [ %.3, %57 ]
   %.153.lcssa = phi double [ %.052.lcssa, %._crit_edge ], [ %.254, %57 ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.2, %57 ]
   %59 = getelementptr inbounds i8, ptr %5, i64 80

@@ -216,7 +216,7 @@ if.end51:                                         ; preds = %if.then35, %for.bod
   br i1 %cmp54, label %if.end61, label %for.inc
 
 for.inc:                                          ; preds = %if.end51, %if.then39
-  %ret.1 = phi i32 [ %call53, %if.end51 ], [ %call36, %if.then39 ]
+  %ret.2 = phi i32 [ %call53, %if.end51 ], [ %call36, %if.then39 ]
   %inc = add nuw nsw i32 %attempts.062, 1
   %exitcond.not = icmp eq i32 %inc, 5
   br i1 %exitcond.not, label %if.then129, label %for.body, !llvm.loop !5
@@ -324,7 +324,7 @@ if.then116:                                       ; preds = %if.end110
   br label %if.end145
 
 if.then129:                                       ; preds = %for.inc, %if.then.i.i, %if.then.i, %if.then64, %if.end91
-  %ret.4.ph = phi i32 [ %call94, %if.end91 ], [ %call66, %if.then64 ], [ -22, %if.then.i ], [ -22, %if.then.i.i ], [ %ret.1, %for.inc ]
+  %ret.3.ph = phi i32 [ %call94, %if.end91 ], [ %call66, %if.then64 ], [ -22, %if.then.i ], [ -22, %if.then.i.i ], [ %ret.2, %for.inc ]
   %sbp130 = getelementptr inbounds i8, ptr %io_hdr, i64 32
   %30 = load ptr, ptr %sbp130, align 8
   %sense_code_LUN_COMM_FAILURE.coerce.0.copyload = load i24, ptr @sense_code_LUN_COMM_FAILURE, align 1
@@ -343,12 +343,12 @@ if.then129:                                       ; preds = %for.inc, %if.then.i
   br label %if.end145
 
 if.end145:                                        ; preds = %if.then116, %if.end110, %if.then129
-  %ret.459 = phi i32 [ %ret.4.ph, %if.then129 ], [ 0, %if.then116 ], [ 0, %if.end110 ]
+  %ret.359 = phi i32 [ %ret.3.ph, %if.then129 ], [ 0, %if.then116 ], [ 0, %if.end110 ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 247) #7
   br label %return
 
 return:                                           ; preds = %if.end22, %if.end14, %entry, %if.end145
-  %retval.0 = phi i32 [ %ret.459, %if.end145 ], [ -22, %entry ], [ -22, %if.end14 ], [ -22, %if.end22 ]
+  %retval.0 = phi i32 [ %ret.359, %if.end145 ], [ -22, %entry ], [ -22, %if.end14 ], [ -22, %if.end22 ]
   ret i32 %retval.0
 }
 

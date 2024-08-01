@@ -662,20 +662,20 @@ if.end31.loopexit:                                ; preds = %do.body.i68
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end31.loopexit, %if.end17
-  %ctr32.1 = phi i32 [ %add21, %if.end17 ], [ 0, %if.end31.loopexit ]
-  %buflen.1 = phi i32 [ %conv, %if.end17 ], [ %spec.select41, %if.end31.loopexit ]
-  %9 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %ctr32.1) #8, !srcloc !12
+  %ctr32.0 = phi i32 [ %add21, %if.end17 ], [ 0, %if.end31.loopexit ]
+  %buflen.0 = phi i32 [ %conv, %if.end17 ], [ %spec.select41, %if.end31.loopexit ]
+  %9 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %ctr32.0) #8, !srcloc !12
   store i32 %9, ptr %add.ptr, align 4
   %10 = load ptr, ptr %ctx_ctr, align 8
-  %call38 = call i32 @EVP_CipherUpdate(ptr noundef %10, ptr noundef %out.addr.0, ptr noundef nonnull %outl, ptr noundef %out.addr.0, i32 noundef %buflen.1) #7
+  %call38 = call i32 @EVP_CipherUpdate(ptr noundef %10, ptr noundef %out.addr.0, ptr noundef nonnull %outl, ptr noundef %out.addr.0, i32 noundef %buflen.0) #7
   %tobool39.not = icmp ne i32 %call38, 0
   %11 = load i32, ptr %outl, align 4
-  %cmp40.not = icmp eq i32 %11, %buflen.1
+  %cmp40.not = icmp eq i32 %11, %buflen.0
   %or.cond42 = select i1 %tobool39.not, i1 %cmp40.not, i1 false
   br i1 %or.cond42, label %if.end43, label %return
 
 if.end43:                                         ; preds = %if.end31
-  %idx.ext = sext i32 %buflen.1 to i64
+  %idx.ext = sext i32 %buflen.0 to i64
   %add.ptr44 = getelementptr inbounds i8, ptr %out.addr.0, i64 %idx.ext
   %sub46 = sub i64 %outlen.addr.0, %idx.ext
   %tobool47.not = icmp eq i64 %sub46, 0

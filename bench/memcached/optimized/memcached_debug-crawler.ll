@@ -678,7 +678,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not71, label %while.end143, label %while.body
 
 while.body:                                       ; preds = %if.end, %if.end142
-  %crawls_persleep.072 = phi i32 [ %crawls_persleep.4, %if.end142 ], [ %0, %if.end ]
+  %crawls_persleep.072 = phi i32 [ %crawls_persleep.1, %if.end142 ], [ %0, %if.end ]
   %call3 = call i32 @pthread_cond_wait(ptr noundef nonnull @lru_crawler_cond, ptr noundef nonnull @lru_crawler_lock) #17
   %5 = load i32, ptr @crawler_count, align 4
   switch i32 %5, label %for.body [
@@ -817,7 +817,7 @@ while.cond6thread-pre-split:                      ; preds = %for.inc
 
 for.body:                                         ; preds = %while.body, %for.body.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %for.body.backedge ], [ 1, %while.body ]
-  %crawls_persleep.262 = phi i32 [ %crawls_persleep.3, %for.body.backedge ], [ %crawls_persleep.072, %while.body ]
+  %crawls_persleep.362 = phi i32 [ %crawls_persleep.4, %for.body.backedge ], [ %crawls_persleep.072, %while.body ]
   %arrayidx = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %indvars.iv
   %it_flags = getelementptr inbounds i8, ptr %arrayidx, i64 38
   %22 = load i16, ptr %it_flags, align 2
@@ -1028,8 +1028,8 @@ if.then94:                                        ; preds = %if.end88
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then94, %if.end88
-  %dec99 = add nsw i32 %crawls_persleep.262, -1
-  %cmp100 = icmp sgt i32 %crawls_persleep.262, 0
+  %dec99 = add nsw i32 %crawls_persleep.362, -1
+  %cmp100 = icmp sgt i32 %crawls_persleep.362, 0
   %66 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 192), align 8
   %tobool103.not = icmp eq i32 %66, 0
   %or.cond = select i1 %cmp100, i1 true, i1 %tobool103.not
@@ -1052,7 +1052,7 @@ if.then110:                                       ; preds = %if.else108
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i57, %if.end52, %if.then.i44, %if.then28, %if.then.i32, %if.then23, %if.then104, %if.then110, %if.else108, %for.body, %if.then70, %if.then62
-  %crawls_persleep.3 = phi i32 [ %crawls_persleep.262, %for.body ], [ %crawls_persleep.262, %if.then62 ], [ %crawls_persleep.262, %if.then70 ], [ %68, %if.then104 ], [ %dec99, %if.else108 ], [ %dec99, %if.then110 ], [ %crawls_persleep.262, %if.then23 ], [ %crawls_persleep.262, %if.then.i32 ], [ %crawls_persleep.262, %if.then28 ], [ %crawls_persleep.262, %if.then.i44 ], [ %crawls_persleep.262, %if.end52 ], [ %crawls_persleep.262, %if.then.i57 ]
+  %crawls_persleep.4 = phi i32 [ %crawls_persleep.362, %for.body ], [ %crawls_persleep.362, %if.then62 ], [ %crawls_persleep.362, %if.then70 ], [ %68, %if.then104 ], [ %dec99, %if.else108 ], [ %dec99, %if.then110 ], [ %crawls_persleep.362, %if.then23 ], [ %crawls_persleep.362, %if.then.i32 ], [ %crawls_persleep.362, %if.then28 ], [ %crawls_persleep.362, %if.then.i44 ], [ %crawls_persleep.362, %if.end52 ], [ %crawls_persleep.362, %if.then.i57 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %while.cond6thread-pre-split, label %for.body.backedge
@@ -1062,7 +1062,7 @@ for.body.backedge:                                ; preds = %for.inc, %while.con
   br label %for.body, !llvm.loop !9
 
 if.end116:                                        ; preds = %while.cond6thread-pre-split, %while.body, %item_crawl_hash.exit
-  %crawls_persleep.4 = phi i32 [ %crawls_persleep.072, %item_crawl_hash.exit ], [ %crawls_persleep.072, %while.body ], [ %crawls_persleep.3, %while.cond6thread-pre-split ]
+  %crawls_persleep.1 = phi i32 [ %crawls_persleep.072, %item_crawl_hash.exit ], [ %crawls_persleep.072, %while.body ], [ %crawls_persleep.4, %while.cond6thread-pre-split ]
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @active_crawler_mod, i64 40), align 8
   %cmp117.not = icmp eq ptr %69, null
   br i1 %cmp117.not, label %if.end137, label %if.then119
@@ -1219,7 +1219,7 @@ for.cond.preheader:                               ; preds = %if.end43, %lru_craw
 
 for.body.us:                                      ; preds = %for.cond.preheader, %for.inc.us
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %for.inc.us ], [ 1, %for.cond.preheader ]
-  %starts.034.us = phi i32 [ %starts.1.us, %for.inc.us ], [ 0, %for.cond.preheader ]
+  %starts.134.us = phi i32 [ %starts.2.us, %for.inc.us ], [ 0, %for.cond.preheader ]
   %arrayidx48.us = getelementptr inbounds i8, ptr %ids, i64 %indvars.iv39
   %8 = load i8, ptr %arrayidx48.us, align 1
   %tobool49.not.us = icmp eq i8 %8, 0
@@ -1279,11 +1279,11 @@ if.end.i20.us:                                    ; preds = %if.then.i.us.if.end
 do_lru_crawler_start.exit.us:                     ; preds = %if.end.i20.us, %if.then50.us
   %starts.0.i.us = phi i32 [ 1, %if.end.i20.us ], [ 0, %if.then50.us ]
   %call47.i.us = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx.i.us) #17
-  %add52.us = add nsw i32 %starts.0.i.us, %starts.034.us
+  %add52.us = add nsw i32 %starts.0.i.us, %starts.134.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %do_lru_crawler_start.exit.us, %for.body.us
-  %starts.1.us = phi i32 [ %add52.us, %do_lru_crawler_start.exit.us ], [ %starts.034.us, %for.body.us ]
+  %starts.2.us = phi i32 [ %add52.us, %do_lru_crawler_start.exit.us ], [ %starts.134.us, %for.body.us ]
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 256
   br i1 %exitcond42.not, label %if.end54, label %for.body.us, !llvm.loop !12
@@ -1358,7 +1358,7 @@ if.end54.thread:                                  ; preds = %if.end43, %lru_craw
 
 for.body:                                         ; preds = %for.cond.preheader.split, %for.inc
   %indvars.iv = phi i64 [ 1, %for.cond.preheader.split ], [ %indvars.iv.next, %for.inc ]
-  %starts.034 = phi i32 [ 0, %for.cond.preheader.split ], [ %starts.1, %for.inc ]
+  %starts.134 = phi i32 [ 0, %for.cond.preheader.split ], [ %starts.2, %for.inc ]
   %arrayidx48 = getelementptr inbounds i8, ptr %ids, i64 %indvars.iv
   %19 = load i8, ptr %arrayidx48, align 1
   %tobool49.not = icmp eq i8 %19, 0
@@ -1414,22 +1414,22 @@ if.end.i20:                                       ; preds = %if.then.i.if.end.i2
 do_lru_crawler_start.exit:                        ; preds = %if.then50, %if.end.i20
   %starts.0.i = phi i32 [ 1, %if.end.i20 ], [ 0, %if.then50 ]
   %call47.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx.i) #17
-  %add52 = add nsw i32 %starts.0.i, %starts.034
+  %add52 = add nsw i32 %starts.0.i, %starts.134
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %do_lru_crawler_start.exit
-  %starts.1 = phi i32 [ %add52, %do_lru_crawler_start.exit ], [ %starts.034, %for.body ]
+  %starts.2 = phi i32 [ %add52, %do_lru_crawler_start.exit ], [ %starts.134, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %if.end54, label %for.body, !llvm.loop !12
 
 if.end54:                                         ; preds = %for.inc, %for.inc.us
-  %.us-phi = phi i32 [ %starts.1.us, %for.inc.us ], [ %starts.1, %for.inc ]
+  %.us-phi = phi i32 [ %starts.2.us, %for.inc.us ], [ %starts.2, %for.inc ]
   %tobool55.not = icmp eq i32 %.us-phi, 0
   br i1 %tobool55.not, label %if.end59, label %if.then56
 
 if.then56:                                        ; preds = %if.end54.thread, %if.end54
-  %starts.232 = phi i32 [ 1, %if.end54.thread ], [ %.us-phi, %if.end54 ]
+  %starts.032 = phi i32 [ 1, %if.end54.thread ], [ %.us-phi, %if.end54 ]
   tail call void @STATS_LOCK() #17
   store i8 1, ptr getelementptr inbounds (i8, ptr @stats_state, i64 51), align 1
   %25 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 96), align 8
@@ -1440,12 +1440,12 @@ if.then56:                                        ; preds = %if.end54.thread, %i
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then56, %if.end54
-  %starts.233 = phi i32 [ %starts.232, %if.then56 ], [ 0, %if.end54 ]
+  %starts.033 = phi i32 [ %starts.032, %if.then56 ], [ 0, %if.end54 ]
   %call60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_crawler_lock) #17
   br label %return
 
 return:                                           ; preds = %if.end59, %if.then39, %if.then34, %if.then20, %if.then12, %if.then6, %if.then
-  %retval.0 = phi i32 [ -2, %if.then ], [ -1, %if.then12 ], [ -2, %if.then20 ], [ %starts.233, %if.end59 ], [ -2, %if.then34 ], [ -2, %if.then39 ], [ -1, %if.then6 ]
+  %retval.0 = phi i32 [ -2, %if.then ], [ -1, %if.then12 ], [ -2, %if.then20 ], [ %starts.033, %if.end59 ], [ -2, %if.then34 ], [ -2, %if.then39 ], [ -1, %if.then6 ]
   ret i32 %retval.0
 }
 

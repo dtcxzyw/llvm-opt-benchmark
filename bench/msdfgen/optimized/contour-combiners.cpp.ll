@@ -632,7 +632,7 @@ for.body72.lr.ph:                                 ; preds = %for.cond70.preheade
 
 for.body72:                                       ; preds = %for.body72.lr.ph, %for.inc92
   %indvars.iv82 = phi i64 [ 0, %for.body72.lr.ph ], [ %indvars.iv.next83, %for.inc92 ]
-  %distance.268 = phi double [ %call33, %for.body72.lr.ph ], [ %distance.3, %for.inc92 ]
+  %distance.368 = phi double [ %call33, %for.body72.lr.ph ], [ %distance.4, %for.inc92 ]
   %17 = load ptr, ptr %windings73, align 8
   %add.ptr.i49 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv82
   %18 = load i32, ptr %add.ptr.i49, align 4
@@ -645,7 +645,7 @@ if.then77:                                        ; preds = %for.body72
   %call82 = call noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i50)
   %20 = call double @llvm.fabs.f64(double %call82)
   %cmp84 = fcmp olt double %20, %16
-  %cmp88 = fcmp olt double %call82, %distance.268
+  %cmp88 = fcmp olt double %call82, %distance.368
   %or.cond60 = select i1 %cmp84, i1 %cmp88, i1 false
   br i1 %or.cond60, label %if.then89, label %for.inc92
 
@@ -653,13 +653,13 @@ if.then89:                                        ; preds = %if.then77
   br label %for.inc92
 
 for.inc92:                                        ; preds = %for.body72, %if.then89, %if.then77
-  %distance.3 = phi double [ %call82, %if.then89 ], [ %distance.268, %if.then77 ], [ %distance.268, %for.body72 ]
+  %distance.4 = phi double [ %call82, %if.then89 ], [ %distance.368, %if.then77 ], [ %distance.368, %for.body72 ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
   br i1 %exitcond86.not, label %if.end97, label %for.body72, !llvm.loop !10
 
 if.end97:                                         ; preds = %for.inc62, %for.inc92
-  %distance.4 = phi double [ %distance.3, %for.inc92 ], [ %distance.1, %for.inc62 ]
+  %distance.2 = phi double [ %distance.4, %for.inc92 ], [ %distance.1, %for.inc62 ]
   %winding.0 = phi i32 [ -1, %for.inc92 ], [ 1, %for.inc62 ]
   br i1 %cmp62, label %for.body101.lr.ph, label %for.end124
 
@@ -670,7 +670,7 @@ for.body101.lr.ph:                                ; preds = %if.end97
 
 for.body101:                                      ; preds = %for.body101.lr.ph, %for.inc122
   %indvars.iv87 = phi i64 [ 0, %for.body101.lr.ph ], [ %indvars.iv.next88, %for.inc122 ]
-  %distance.572 = phi double [ %distance.4, %for.body101.lr.ph ], [ %distance.6, %for.inc122 ]
+  %distance.572 = phi double [ %distance.2, %for.body101.lr.ph ], [ %distance.6, %for.inc122 ]
   %21 = load ptr, ptr %windings102, align 8
   %add.ptr.i51 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv87
   %22 = load i32, ptr %add.ptr.i51, align 4
@@ -701,7 +701,7 @@ for.inc122:                                       ; preds = %for.body101, %if.th
   br i1 %exitcond91.not, label %for.end124, label %for.body101, !llvm.loop !11
 
 for.end124:                                       ; preds = %for.inc122, %for.cond70.preheader, %for.cond41.preheader, %if.end97
-  %distance.5.lcssa = phi double [ %distance.4, %if.end97 ], [ %call32, %for.cond41.preheader ], [ %call33, %for.cond70.preheader ], [ %distance.6, %for.inc122 ]
+  %distance.5.lcssa = phi double [ %distance.2, %if.end97 ], [ %call32, %for.cond41.preheader ], [ %call33, %for.cond70.preheader ], [ %distance.6, %for.inc122 ]
   %cmp127 = fcmp oeq double %distance.5.lcssa, %call31
   br i1 %cmp127, label %if.then128, label %return
 
@@ -1105,7 +1105,7 @@ for.body72.lr.ph:                                 ; preds = %for.cond70.preheade
 
 for.body72:                                       ; preds = %for.body72.lr.ph, %for.inc92
   %indvars.iv80 = phi i64 [ 0, %for.body72.lr.ph ], [ %indvars.iv.next81, %for.inc92 ]
-  %distance.266 = phi double [ %call33, %for.body72.lr.ph ], [ %distance.3, %for.inc92 ]
+  %distance.366 = phi double [ %call33, %for.body72.lr.ph ], [ %distance.4, %for.inc92 ]
   %17 = load ptr, ptr %windings73, align 8
   %add.ptr.i47 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv80
   %18 = load i32, ptr %add.ptr.i47, align 4
@@ -1118,7 +1118,7 @@ if.then77:                                        ; preds = %for.body72
   %call82 = call noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i48)
   %20 = call double @llvm.fabs.f64(double %call82)
   %cmp84 = fcmp olt double %20, %16
-  %cmp88 = fcmp olt double %call82, %distance.266
+  %cmp88 = fcmp olt double %call82, %distance.366
   %or.cond58 = select i1 %cmp84, i1 %cmp88, i1 false
   br i1 %or.cond58, label %if.then89, label %for.inc92
 
@@ -1126,13 +1126,13 @@ if.then89:                                        ; preds = %if.then77
   br label %for.inc92
 
 for.inc92:                                        ; preds = %for.body72, %if.then89, %if.then77
-  %distance.3 = phi double [ %call82, %if.then89 ], [ %distance.266, %if.then77 ], [ %distance.266, %for.body72 ]
+  %distance.4 = phi double [ %call82, %if.then89 ], [ %distance.366, %if.then77 ], [ %distance.366, %for.body72 ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %if.end97, label %for.body72, !llvm.loop !16
 
 if.end97:                                         ; preds = %for.inc62, %for.inc92
-  %distance.4 = phi double [ %distance.3, %for.inc92 ], [ %distance.1, %for.inc62 ]
+  %distance.2 = phi double [ %distance.4, %for.inc92 ], [ %distance.1, %for.inc62 ]
   %winding.0 = phi i32 [ -1, %for.inc92 ], [ 1, %for.inc62 ]
   br i1 %cmp60, label %for.body101.lr.ph, label %for.end124
 
@@ -1143,7 +1143,7 @@ for.body101.lr.ph:                                ; preds = %if.end97
 
 for.body101:                                      ; preds = %for.body101.lr.ph, %for.inc122
   %indvars.iv85 = phi i64 [ 0, %for.body101.lr.ph ], [ %indvars.iv.next86, %for.inc122 ]
-  %distance.570 = phi double [ %distance.4, %for.body101.lr.ph ], [ %distance.6, %for.inc122 ]
+  %distance.570 = phi double [ %distance.2, %for.body101.lr.ph ], [ %distance.6, %for.inc122 ]
   %21 = load ptr, ptr %windings102, align 8
   %add.ptr.i49 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv85
   %22 = load i32, ptr %add.ptr.i49, align 4
@@ -1174,7 +1174,7 @@ for.inc122:                                       ; preds = %for.body101, %if.th
   br i1 %exitcond89.not, label %for.end124, label %for.body101, !llvm.loop !17
 
 for.end124:                                       ; preds = %for.inc122, %for.cond70.preheader, %for.cond41.preheader, %if.end97
-  %distance.5.lcssa = phi double [ %distance.4, %if.end97 ], [ %call32, %for.cond41.preheader ], [ %call33, %for.cond70.preheader ], [ %distance.6, %for.inc122 ]
+  %distance.5.lcssa = phi double [ %distance.2, %if.end97 ], [ %call32, %for.cond41.preheader ], [ %call33, %for.cond70.preheader ], [ %distance.6, %for.inc122 ]
   %cmp127 = fcmp oeq double %distance.5.lcssa, %call31
   br i1 %cmp127, label %if.then128, label %return
 
@@ -1680,9 +1680,9 @@ for.body67.lr.ph:                                 ; preds = %for.cond65.preheade
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc86
   %indvars.iv261 = phi i64 [ 0, %for.body67.lr.ph ], [ %indvars.iv.next262, %for.inc86 ]
-  %distance.sroa.0.2241 = phi double [ %30, %for.body67.lr.ph ], [ %distance.sroa.0.3, %for.inc86 ]
-  %distance.sroa.13.2240 = phi double [ %31, %for.body67.lr.ph ], [ %distance.sroa.13.3, %for.inc86 ]
-  %distance.sroa.19.2239 = phi double [ %32, %for.body67.lr.ph ], [ %distance.sroa.19.3, %for.inc86 ]
+  %distance.sroa.0.3241 = phi double [ %30, %for.body67.lr.ph ], [ %distance.sroa.0.4, %for.inc86 ]
+  %distance.sroa.13.3240 = phi double [ %31, %for.body67.lr.ph ], [ %distance.sroa.13.4, %for.inc86 ]
+  %distance.sroa.19.3239 = phi double [ %32, %for.body67.lr.ph ], [ %distance.sroa.19.4, %for.inc86 ]
   %44 = load ptr, ptr %windings68, align 8
   %add.ptr.i104 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv261
   %45 = load i32, ptr %add.ptr.i104, align 4
@@ -1709,12 +1709,12 @@ if.then72:                                        ; preds = %for.body67
   br i1 %cmp78, label %land.lhs.true79, label %for.inc86
 
 land.lhs.true79:                                  ; preds = %if.then72
-  %cmp.i.i.i128 = fcmp olt double %distance.sroa.13.2240, %distance.sroa.0.2241
-  %cond.i.i.i129 = select i1 %cmp.i.i.i128, double %distance.sroa.13.2240, double %distance.sroa.0.2241
-  %cmp.i3.i.i130 = fcmp olt double %distance.sroa.0.2241, %distance.sroa.13.2240
-  %cond.i4.i.i131 = select i1 %cmp.i3.i.i130, double %distance.sroa.13.2240, double %distance.sroa.0.2241
-  %cmp.i5.i.i132 = fcmp ogt double %cond.i4.i.i131, %distance.sroa.19.2239
-  %cond.i6.i.i133 = select i1 %cmp.i5.i.i132, double %distance.sroa.19.2239, double %cond.i4.i.i131
+  %cmp.i.i.i128 = fcmp olt double %distance.sroa.13.3240, %distance.sroa.0.3241
+  %cond.i.i.i129 = select i1 %cmp.i.i.i128, double %distance.sroa.13.3240, double %distance.sroa.0.3241
+  %cmp.i3.i.i130 = fcmp olt double %distance.sroa.0.3241, %distance.sroa.13.3240
+  %cond.i4.i.i131 = select i1 %cmp.i3.i.i130, double %distance.sroa.13.3240, double %distance.sroa.0.3241
+  %cmp.i5.i.i132 = fcmp ogt double %cond.i4.i.i131, %distance.sroa.19.3239
+  %cond.i6.i.i133 = select i1 %cmp.i5.i.i132, double %distance.sroa.19.3239, double %cond.i4.i.i131
   %cmp.i7.i.i134 = fcmp olt double %cond.i.i.i129, %cond.i6.i.i133
   %cond.i8.i.i135 = select i1 %cmp.i7.i.i134, double %cond.i6.i.i133, double %cond.i.i.i129
   %cmp82 = fcmp olt double %cond.i8.i.i115, %cond.i8.i.i135
@@ -1724,9 +1724,9 @@ if.then83:                                        ; preds = %land.lhs.true79
   br label %for.inc86
 
 for.inc86:                                        ; preds = %for.body67, %if.then83, %land.lhs.true79, %if.then72
-  %distance.sroa.19.3 = phi double [ %49, %if.then83 ], [ %distance.sroa.19.2239, %land.lhs.true79 ], [ %distance.sroa.19.2239, %if.then72 ], [ %distance.sroa.19.2239, %for.body67 ]
-  %distance.sroa.13.3 = phi double [ %48, %if.then83 ], [ %distance.sroa.13.2240, %land.lhs.true79 ], [ %distance.sroa.13.2240, %if.then72 ], [ %distance.sroa.13.2240, %for.body67 ]
-  %distance.sroa.0.3 = phi double [ %47, %if.then83 ], [ %distance.sroa.0.2241, %land.lhs.true79 ], [ %distance.sroa.0.2241, %if.then72 ], [ %distance.sroa.0.2241, %for.body67 ]
+  %distance.sroa.19.4 = phi double [ %49, %if.then83 ], [ %distance.sroa.19.3239, %land.lhs.true79 ], [ %distance.sroa.19.3239, %if.then72 ], [ %distance.sroa.19.3239, %for.body67 ]
+  %distance.sroa.13.4 = phi double [ %48, %if.then83 ], [ %distance.sroa.13.3240, %land.lhs.true79 ], [ %distance.sroa.13.3240, %if.then72 ], [ %distance.sroa.13.3240, %for.body67 ]
+  %distance.sroa.0.4 = phi double [ %47, %if.then83 ], [ %distance.sroa.0.3241, %land.lhs.true79 ], [ %distance.sroa.0.3241, %if.then72 ], [ %distance.sroa.0.3241, %for.body67 ]
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count264
   br i1 %exitcond265.not, label %if.end91, label %for.body67, !llvm.loop !22
@@ -1736,9 +1736,9 @@ if.else89:                                        ; preds = %land.lhs.true61, %i
   br label %return
 
 if.end91:                                         ; preds = %for.inc57, %for.inc86
-  %distance.sroa.19.4 = phi double [ %distance.sroa.19.3, %for.inc86 ], [ %distance.sroa.19.1, %for.inc57 ]
-  %distance.sroa.13.4 = phi double [ %distance.sroa.13.3, %for.inc86 ], [ %distance.sroa.13.1, %for.inc57 ]
-  %distance.sroa.0.4 = phi double [ %distance.sroa.0.3, %for.inc86 ], [ %distance.sroa.0.1, %for.inc57 ]
+  %distance.sroa.19.2 = phi double [ %distance.sroa.19.4, %for.inc86 ], [ %distance.sroa.19.1, %for.inc57 ]
+  %distance.sroa.13.2 = phi double [ %distance.sroa.13.4, %for.inc86 ], [ %distance.sroa.13.1, %for.inc57 ]
+  %distance.sroa.0.2 = phi double [ %distance.sroa.0.4, %for.inc86 ], [ %distance.sroa.0.1, %for.inc57 ]
   %winding.0 = phi i32 [ -1, %for.inc86 ], [ 1, %for.inc57 ]
   br i1 %cmp229, label %for.body95.lr.ph, label %for.end117
 
@@ -1751,9 +1751,9 @@ for.body95.lr.ph:                                 ; preds = %if.end91
 
 for.body95:                                       ; preds = %for.body95.lr.ph, %for.inc115
   %indvars.iv266 = phi i64 [ 0, %for.body95.lr.ph ], [ %indvars.iv.next267, %for.inc115 ]
-  %distance.sroa.0.5249 = phi double [ %distance.sroa.0.4, %for.body95.lr.ph ], [ %distance.sroa.0.6, %for.inc115 ]
-  %distance.sroa.13.5248 = phi double [ %distance.sroa.13.4, %for.body95.lr.ph ], [ %distance.sroa.13.6, %for.inc115 ]
-  %distance.sroa.19.5247 = phi double [ %distance.sroa.19.4, %for.body95.lr.ph ], [ %distance.sroa.19.6, %for.inc115 ]
+  %distance.sroa.0.5249 = phi double [ %distance.sroa.0.2, %for.body95.lr.ph ], [ %distance.sroa.0.6, %for.inc115 ]
+  %distance.sroa.13.5248 = phi double [ %distance.sroa.13.2, %for.body95.lr.ph ], [ %distance.sroa.13.6, %for.inc115 ]
+  %distance.sroa.19.5247 = phi double [ %distance.sroa.19.2, %for.body95.lr.ph ], [ %distance.sroa.19.6, %for.inc115 ]
   %51 = load ptr, ptr %windings96, align 8
   %add.ptr.i136 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv266
   %52 = load i32, ptr %add.ptr.i136, align 4
@@ -1804,9 +1804,9 @@ for.inc115:                                       ; preds = %for.body95, %if.the
   br i1 %exitcond270.not, label %for.end117, label %for.body95, !llvm.loop !23
 
 for.end117:                                       ; preds = %for.inc115, %for.cond65.preheader, %for.cond37.preheader, %if.end91
-  %distance.sroa.19.5.lcssa = phi double [ %distance.sroa.19.4, %if.end91 ], [ %29, %for.cond37.preheader ], [ %32, %for.cond65.preheader ], [ %distance.sroa.19.6, %for.inc115 ]
-  %distance.sroa.13.5.lcssa = phi double [ %distance.sroa.13.4, %if.end91 ], [ %28, %for.cond37.preheader ], [ %31, %for.cond65.preheader ], [ %distance.sroa.13.6, %for.inc115 ]
-  %distance.sroa.0.5.lcssa = phi double [ %distance.sroa.0.4, %if.end91 ], [ %27, %for.cond37.preheader ], [ %30, %for.cond65.preheader ], [ %distance.sroa.0.6, %for.inc115 ]
+  %distance.sroa.19.5.lcssa = phi double [ %distance.sroa.19.2, %if.end91 ], [ %29, %for.cond37.preheader ], [ %32, %for.cond65.preheader ], [ %distance.sroa.19.6, %for.inc115 ]
+  %distance.sroa.13.5.lcssa = phi double [ %distance.sroa.13.2, %if.end91 ], [ %28, %for.cond37.preheader ], [ %31, %for.cond65.preheader ], [ %distance.sroa.13.6, %for.inc115 ]
+  %distance.sroa.0.5.lcssa = phi double [ %distance.sroa.0.2, %if.end91 ], [ %27, %for.cond37.preheader ], [ %30, %for.cond65.preheader ], [ %distance.sroa.0.6, %for.inc115 ]
   %75 = load double, ptr %shapeDistance, align 8
   %g.i188 = getelementptr inbounds i8, ptr %shapeDistance, i64 8
   %76 = load double, ptr %g.i188, align 8
@@ -2346,10 +2346,10 @@ for.body67.lr.ph:                                 ; preds = %if.then63
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc86
   %indvars.iv271 = phi i64 [ 0, %for.body67.lr.ph ], [ %indvars.iv.next272, %for.inc86 ]
-  %distance.sroa.0.2248 = phi double [ %30, %for.body67.lr.ph ], [ %distance.sroa.0.3, %for.inc86 ]
-  %distance.sroa.13.2247 = phi double [ %31, %for.body67.lr.ph ], [ %distance.sroa.13.3, %for.inc86 ]
-  %distance.sroa.19.2246 = phi double [ %32, %for.body67.lr.ph ], [ %distance.sroa.19.3, %for.inc86 ]
-  %distance.sroa.25.2245 = phi double [ %distance.sroa.25.0.copyload227, %for.body67.lr.ph ], [ %distance.sroa.25.3, %for.inc86 ]
+  %distance.sroa.0.3248 = phi double [ %30, %for.body67.lr.ph ], [ %distance.sroa.0.4, %for.inc86 ]
+  %distance.sroa.13.3247 = phi double [ %31, %for.body67.lr.ph ], [ %distance.sroa.13.4, %for.inc86 ]
+  %distance.sroa.19.3246 = phi double [ %32, %for.body67.lr.ph ], [ %distance.sroa.19.4, %for.inc86 ]
+  %distance.sroa.25.3245 = phi double [ %distance.sroa.25.0.copyload227, %for.body67.lr.ph ], [ %distance.sroa.25.4, %for.inc86 ]
   %44 = load ptr, ptr %windings68, align 8
   %add.ptr.i102 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv271
   %45 = load i32, ptr %add.ptr.i102, align 4
@@ -2376,12 +2376,12 @@ if.then72:                                        ; preds = %for.body67
   br i1 %cmp78, label %land.lhs.true79, label %for.inc86
 
 land.lhs.true79:                                  ; preds = %if.then72
-  %cmp.i.i.i126 = fcmp olt double %distance.sroa.13.2247, %distance.sroa.0.2248
-  %cond.i.i.i127 = select i1 %cmp.i.i.i126, double %distance.sroa.13.2247, double %distance.sroa.0.2248
-  %cmp.i3.i.i128 = fcmp olt double %distance.sroa.0.2248, %distance.sroa.13.2247
-  %cond.i4.i.i129 = select i1 %cmp.i3.i.i128, double %distance.sroa.13.2247, double %distance.sroa.0.2248
-  %cmp.i5.i.i130 = fcmp ogt double %cond.i4.i.i129, %distance.sroa.19.2246
-  %cond.i6.i.i131 = select i1 %cmp.i5.i.i130, double %distance.sroa.19.2246, double %cond.i4.i.i129
+  %cmp.i.i.i126 = fcmp olt double %distance.sroa.13.3247, %distance.sroa.0.3248
+  %cond.i.i.i127 = select i1 %cmp.i.i.i126, double %distance.sroa.13.3247, double %distance.sroa.0.3248
+  %cmp.i3.i.i128 = fcmp olt double %distance.sroa.0.3248, %distance.sroa.13.3247
+  %cond.i4.i.i129 = select i1 %cmp.i3.i.i128, double %distance.sroa.13.3247, double %distance.sroa.0.3248
+  %cmp.i5.i.i130 = fcmp ogt double %cond.i4.i.i129, %distance.sroa.19.3246
+  %cond.i6.i.i131 = select i1 %cmp.i5.i.i130, double %distance.sroa.19.3246, double %cond.i4.i.i129
   %cmp.i7.i.i132 = fcmp olt double %cond.i.i.i127, %cond.i6.i.i131
   %cond.i8.i.i133 = select i1 %cmp.i7.i.i132, double %cond.i6.i.i131, double %cond.i.i.i127
   %cmp82 = fcmp olt double %cond.i8.i.i113, %cond.i8.i.i133
@@ -2392,10 +2392,10 @@ if.then83:                                        ; preds = %land.lhs.true79
   br label %for.inc86
 
 for.inc86:                                        ; preds = %for.body67, %if.then83, %land.lhs.true79, %if.then72
-  %distance.sroa.25.3 = phi double [ %distance.sroa.25.0.copyload228, %if.then83 ], [ %distance.sroa.25.2245, %land.lhs.true79 ], [ %distance.sroa.25.2245, %if.then72 ], [ %distance.sroa.25.2245, %for.body67 ]
-  %distance.sroa.19.3 = phi double [ %49, %if.then83 ], [ %distance.sroa.19.2246, %land.lhs.true79 ], [ %distance.sroa.19.2246, %if.then72 ], [ %distance.sroa.19.2246, %for.body67 ]
-  %distance.sroa.13.3 = phi double [ %48, %if.then83 ], [ %distance.sroa.13.2247, %land.lhs.true79 ], [ %distance.sroa.13.2247, %if.then72 ], [ %distance.sroa.13.2247, %for.body67 ]
-  %distance.sroa.0.3 = phi double [ %47, %if.then83 ], [ %distance.sroa.0.2248, %land.lhs.true79 ], [ %distance.sroa.0.2248, %if.then72 ], [ %distance.sroa.0.2248, %for.body67 ]
+  %distance.sroa.25.4 = phi double [ %distance.sroa.25.0.copyload228, %if.then83 ], [ %distance.sroa.25.3245, %land.lhs.true79 ], [ %distance.sroa.25.3245, %if.then72 ], [ %distance.sroa.25.3245, %for.body67 ]
+  %distance.sroa.19.4 = phi double [ %49, %if.then83 ], [ %distance.sroa.19.3246, %land.lhs.true79 ], [ %distance.sroa.19.3246, %if.then72 ], [ %distance.sroa.19.3246, %for.body67 ]
+  %distance.sroa.13.4 = phi double [ %48, %if.then83 ], [ %distance.sroa.13.3247, %land.lhs.true79 ], [ %distance.sroa.13.3247, %if.then72 ], [ %distance.sroa.13.3247, %for.body67 ]
+  %distance.sroa.0.4 = phi double [ %47, %if.then83 ], [ %distance.sroa.0.3248, %land.lhs.true79 ], [ %distance.sroa.0.3248, %if.then72 ], [ %distance.sroa.0.3248, %for.body67 ]
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
   br i1 %exitcond275.not, label %if.end91, label %for.body67, !llvm.loop !28
@@ -2405,10 +2405,10 @@ if.else89:                                        ; preds = %land.lhs.true61, %i
   br label %return
 
 if.end91:                                         ; preds = %for.inc57, %for.inc86
-  %distance.sroa.25.4 = phi double [ %distance.sroa.25.3, %for.inc86 ], [ %distance.sroa.25.1, %for.inc57 ]
-  %distance.sroa.19.4 = phi double [ %distance.sroa.19.3, %for.inc86 ], [ %distance.sroa.19.1, %for.inc57 ]
-  %distance.sroa.13.4 = phi double [ %distance.sroa.13.3, %for.inc86 ], [ %distance.sroa.13.1, %for.inc57 ]
-  %distance.sroa.0.4 = phi double [ %distance.sroa.0.3, %for.inc86 ], [ %distance.sroa.0.1, %for.inc57 ]
+  %distance.sroa.25.2 = phi double [ %distance.sroa.25.4, %for.inc86 ], [ %distance.sroa.25.1, %for.inc57 ]
+  %distance.sroa.19.2 = phi double [ %distance.sroa.19.4, %for.inc86 ], [ %distance.sroa.19.1, %for.inc57 ]
+  %distance.sroa.13.2 = phi double [ %distance.sroa.13.4, %for.inc86 ], [ %distance.sroa.13.1, %for.inc57 ]
+  %distance.sroa.0.2 = phi double [ %distance.sroa.0.4, %for.inc86 ], [ %distance.sroa.0.1, %for.inc57 ]
   %winding.0 = phi i32 [ -1, %for.inc86 ], [ 1, %for.inc57 ]
   br i1 %cmp233, label %for.body95.lr.ph, label %for.end117
 
@@ -2422,10 +2422,10 @@ for.body95.lr.ph:                                 ; preds = %if.end91
 
 for.body95:                                       ; preds = %for.body95.lr.ph, %for.inc115
   %indvars.iv276 = phi i64 [ 0, %for.body95.lr.ph ], [ %indvars.iv.next277, %for.inc115 ]
-  %distance.sroa.0.5258 = phi double [ %distance.sroa.0.4, %for.body95.lr.ph ], [ %distance.sroa.0.6, %for.inc115 ]
-  %distance.sroa.13.5257 = phi double [ %distance.sroa.13.4, %for.body95.lr.ph ], [ %distance.sroa.13.6, %for.inc115 ]
-  %distance.sroa.19.5256 = phi double [ %distance.sroa.19.4, %for.body95.lr.ph ], [ %distance.sroa.19.6, %for.inc115 ]
-  %distance.sroa.25.5255 = phi double [ %distance.sroa.25.4, %for.body95.lr.ph ], [ %distance.sroa.25.6, %for.inc115 ]
+  %distance.sroa.0.5258 = phi double [ %distance.sroa.0.2, %for.body95.lr.ph ], [ %distance.sroa.0.6, %for.inc115 ]
+  %distance.sroa.13.5257 = phi double [ %distance.sroa.13.2, %for.body95.lr.ph ], [ %distance.sroa.13.6, %for.inc115 ]
+  %distance.sroa.19.5256 = phi double [ %distance.sroa.19.2, %for.body95.lr.ph ], [ %distance.sroa.19.6, %for.inc115 ]
+  %distance.sroa.25.5255 = phi double [ %distance.sroa.25.2, %for.body95.lr.ph ], [ %distance.sroa.25.6, %for.inc115 ]
   %51 = load ptr, ptr %windings96, align 8
   %add.ptr.i134 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv276
   %52 = load i32, ptr %add.ptr.i134, align 4
@@ -2478,10 +2478,10 @@ for.inc115:                                       ; preds = %for.body95, %if.the
   br i1 %exitcond280.not, label %for.end117, label %for.body95, !llvm.loop !29
 
 for.end117:                                       ; preds = %for.inc115, %if.then63, %if.then35, %if.end91
-  %distance.sroa.25.5.lcssa = phi double [ %distance.sroa.25.4, %if.end91 ], [ %distance.sroa.25.0.copyload, %if.then35 ], [ %distance.sroa.25.0.copyload227, %if.then63 ], [ %distance.sroa.25.6, %for.inc115 ]
-  %distance.sroa.19.5.lcssa = phi double [ %distance.sroa.19.4, %if.end91 ], [ %29, %if.then35 ], [ %32, %if.then63 ], [ %distance.sroa.19.6, %for.inc115 ]
-  %distance.sroa.13.5.lcssa = phi double [ %distance.sroa.13.4, %if.end91 ], [ %28, %if.then35 ], [ %31, %if.then63 ], [ %distance.sroa.13.6, %for.inc115 ]
-  %distance.sroa.0.5.lcssa = phi double [ %distance.sroa.0.4, %if.end91 ], [ %27, %if.then35 ], [ %30, %if.then63 ], [ %distance.sroa.0.6, %for.inc115 ]
+  %distance.sroa.25.5.lcssa = phi double [ %distance.sroa.25.2, %if.end91 ], [ %distance.sroa.25.0.copyload, %if.then35 ], [ %distance.sroa.25.0.copyload227, %if.then63 ], [ %distance.sroa.25.6, %for.inc115 ]
+  %distance.sroa.19.5.lcssa = phi double [ %distance.sroa.19.2, %if.end91 ], [ %29, %if.then35 ], [ %32, %if.then63 ], [ %distance.sroa.19.6, %for.inc115 ]
+  %distance.sroa.13.5.lcssa = phi double [ %distance.sroa.13.2, %if.end91 ], [ %28, %if.then35 ], [ %31, %if.then63 ], [ %distance.sroa.13.6, %for.inc115 ]
+  %distance.sroa.0.5.lcssa = phi double [ %distance.sroa.0.2, %if.end91 ], [ %27, %if.then35 ], [ %30, %if.then63 ], [ %distance.sroa.0.6, %for.inc115 ]
   %75 = load double, ptr %shapeDistance, align 8
   %g.i186 = getelementptr inbounds i8, ptr %shapeDistance, i64 8
   %76 = load double, ptr %g.i186, align 8

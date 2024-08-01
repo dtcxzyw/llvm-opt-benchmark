@@ -743,7 +743,7 @@ define void @_ZN18ConversationDialog10tabChangedEi(ptr noundef nonnull align 8 d
   br label %28
 
 20:                                               ; preds = %16, %11
-  %.0 = phi i1 [ false, %11 ], [ %17, %16 ]
+  %.1 = phi i1 [ false, %11 ], [ %17, %16 ]
   %21 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
           to label %22 unwind label %18
 
@@ -773,14 +773,14 @@ define void @_ZN18ConversationDialog10tabChangedEi(ptr noundef nonnull align 8 d
   resume { ptr, i32 } %.pn
 
 29:                                               ; preds = %25, %2
-  %.18 = phi i1 [ false, %2 ], [ %cond, %25 ]
-  %.1 = phi i1 [ false, %2 ], [ %.0, %25 ]
+  %.07 = phi i1 [ false, %2 ], [ %cond, %25 ]
+  %.0 = phi i1 [ false, %2 ], [ %.1, %25 ]
   %30 = getelementptr inbounds i8, ptr %0, i64 152
   %31 = load ptr, ptr %30, align 8
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %31, i1 noundef zeroext %.1)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %31, i1 noundef zeroext %.0)
   %32 = getelementptr inbounds i8, ptr %0, i64 160
   %33 = load ptr, ptr %32, align 8
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %33, i1 noundef zeroext %.18)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %33, i1 noundef zeroext %.07)
   call void @_ZN18TrafficTableDialog17currentTabChangedEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
   ret void
 }

@@ -157,35 +157,35 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   br label %16
 
 14:                                               ; preds = %539, %78
-  %.0355 = phi ptr [ %518, %539 ], [ %.2357, %78 ]
-  %.0345 = phi ptr [ %519, %539 ], [ %79, %78 ]
-  %.0327 = phi i32 [ %540, %539 ], [ %74, %78 ]
-  %.0322 = phi i32 [ %.5, %539 ], [ -2, %78 ]
-  %15 = getelementptr inbounds i8, ptr %.0355, i64 1
+  %.1356 = phi ptr [ %518, %539 ], [ %.2357, %78 ]
+  %.1346 = phi ptr [ %519, %539 ], [ %79, %78 ]
+  %.1328 = phi i32 [ %540, %539 ], [ %74, %78 ]
+  %.1 = phi i32 [ %.8, %539 ], [ -2, %78 ]
+  %15 = getelementptr inbounds i8, ptr %.1356, i64 1
   br label %16
 
 16:                                               ; preds = %14, %0
-  %.1356 = phi ptr [ %6, %0 ], [ %15, %14 ]
+  %.0355 = phi ptr [ %6, %0 ], [ %15, %14 ]
   %.0353 = phi ptr [ %7, %0 ], [ %.1354, %14 ]
-  %.1346 = phi ptr [ %7, %0 ], [ %.0345, %14 ]
+  %.0345 = phi ptr [ %7, %0 ], [ %.1346, %14 ]
   %.0335 = phi ptr [ %6, %0 ], [ %.1336, %14 ]
   %.0333 = phi i64 [ 200, %0 ], [ %.1334, %14 ]
-  %.1328 = phi i32 [ 0, %0 ], [ %.0327, %14 ]
-  %.1 = phi i32 [ -2, %0 ], [ %.0322, %14 ]
-  %17 = trunc nsw i32 %.1328 to i8
-  store i8 %17, ptr %.1356, align 1
+  %.0327 = phi i32 [ 0, %0 ], [ %.1328, %14 ]
+  %.0322 = phi i32 [ -2, %0 ], [ %.1, %14 ]
+  %17 = trunc nsw i32 %.0327 to i8
+  store i8 %17, ptr %.0355, align 1
   %18 = getelementptr inbounds i8, ptr %.0335, i64 %.0333
   %19 = getelementptr inbounds i8, ptr %18, i64 -1
-  %.not = icmp ugt ptr %19, %.1356
+  %.not = icmp ugt ptr %19, %.0355
   br i1 %.not, label %41, label %20
 
 20:                                               ; preds = %16
-  %21 = ptrtoint ptr %.1356 to i64
+  %21 = ptrtoint ptr %.0355 to i64
   %22 = ptrtoint ptr %.0335 to i64
   %23 = sub i64 %21, %22
   %24 = add nsw i64 %23, 1
   %25 = icmp sgt i64 %.0333, 9999
-  br i1 %25, label %.loopexit501, label %26
+  br i1 %25, label %.loopexit500, label %26
 
 26:                                               ; preds = %20
   %27 = shl nsw i64 %.0333, 1
@@ -194,7 +194,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   %29 = add nsw i64 %28, 15
   %30 = call noalias ptr @malloc(i64 noundef %29) #18
   %.not379 = icmp eq ptr %30, null
-  br i1 %.not379, label %.loopexit501, label %31
+  br i1 %.not379, label %.loopexit500, label %31
 
 31:                                               ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr align 1 %.0335, i64 %24, i1 false)
@@ -218,16 +218,16 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   br i1 %.not381, label %41, label %.loopexit
 
 41:                                               ; preds = %37, %16
-  %.2357 = phi ptr [ %38, %37 ], [ %.1356, %16 ]
+  %.2357 = phi ptr [ %38, %37 ], [ %.0355, %16 ]
   %.1354 = phi ptr [ %34, %37 ], [ %.0353, %16 ]
-  %.2347 = phi ptr [ %40, %37 ], [ %.1346, %16 ]
+  %.2347 = phi ptr [ %40, %37 ], [ %.0345, %16 ]
   %.1336 = phi ptr [ %30, %37 ], [ %.0335, %16 ]
   %.1334 = phi i64 [ %spec.store.select, %37 ], [ %.0333, %16 ]
-  %42 = icmp eq i32 %.1328, 2
+  %42 = icmp eq i32 %.0327, 2
   br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %41
-  %44 = sext i32 %.1328 to i64
+  %44 = sext i32 %.0327 to i64
   %45 = getelementptr inbounds [76 x i8], ptr @yypact, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = sext i8 %46 to i32
@@ -235,7 +235,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   br i1 %48, label %80, label %49
 
 49:                                               ; preds = %43
-  %50 = icmp eq i32 %.1, -2
+  %50 = icmp eq i32 %.0322, -2
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
@@ -243,20 +243,20 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   br label %53
 
 53:                                               ; preds = %51, %49
-  %.2 = phi i32 [ %52, %51 ], [ %.1, %49 ]
-  %54 = icmp slt i32 %.2, 1
+  %.5 = phi i32 [ %52, %51 ], [ %.0322, %49 ]
+  %54 = icmp slt i32 %.5, 1
   br i1 %54, label %64, label %55
 
 55:                                               ; preds = %53
-  %56 = icmp eq i32 %.2, 256
-  br i1 %56, label %.loopexit503, label %57
+  %56 = icmp eq i32 %.5, 256
+  br i1 %56, label %.loopexit502, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ult i32 %.2, 274
+  %58 = icmp ult i32 %.5, 274
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %57
-  %60 = zext nneg i32 %.2 to i64
+  %60 = zext nneg i32 %.5 to i64
   %61 = getelementptr inbounds [274 x i8], ptr @yytranslate, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = sext i8 %62 to i32
@@ -264,7 +264,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
 
 64:                                               ; preds = %59, %57, %53
   %.0342 = phi i32 [ 0, %53 ], [ %63, %59 ], [ 2, %57 ]
-  %.3 = phi i32 [ 0, %53 ], [ %.2, %59 ], [ %.2, %57 ]
+  %.6 = phi i32 [ 0, %53 ], [ %.5, %59 ], [ %.5, %57 ]
   %65 = add nsw i32 %.0342, %47
   %or.cond3 = icmp ugt i32 %65, 143
   br i1 %or.cond3, label %80, label %66
@@ -294,7 +294,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   br label %14
 
 80:                                               ; preds = %64, %66, %43
-  %.4 = phi i32 [ %.1, %43 ], [ %.3, %64 ], [ %.3, %66 ]
+  %.4 = phi i32 [ %.0322, %43 ], [ %.6, %64 ], [ %.6, %66 ]
   %81 = getelementptr inbounds [76 x i8], ptr @yydefact, i64 0, i64 %44
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i32
@@ -303,7 +303,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
 
 85:                                               ; preds = %80, %76
   %.0344 = phi i32 [ %83, %80 ], [ %77, %76 ]
-  %.5 = phi i32 [ %.4, %80 ], [ %.3, %76 ]
+  %.8 = phi i32 [ %.4, %80 ], [ %.6, %76 ]
   %86 = sext i32 %.0344 to i64
   %87 = getelementptr inbounds [54 x i8], ptr @yyr2, i64 0, i64 %86
   %88 = load i8, ptr %87, align 1
@@ -1409,13 +1409,13 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   %550 = phi i32 [ -2, %541 ], [ %548, %544 ], [ 2, %543 ]
   %551 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %10, ptr nonnull %9, ptr %.2357, i32 %550)
   switch i32 %551, label %.thread [
-    i32 0, label %.thread458
+    i32 0, label %.thread457
     i32 -1, label %552
   ]
 
-.thread458:                                       ; preds = %549
+.thread457:                                       ; preds = %549
   call fastcc void @ini_error(ptr noundef nonnull %9)
-  br label %.loopexit503
+  br label %.loopexit502
 
 552:                                              ; preds = %549
   %553 = load i64, ptr %10, align 8
@@ -1429,90 +1429,90 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
 
 .thread:                                          ; preds = %555, %549
   call fastcc void @ini_error(ptr noundef nonnull @.str)
-  br label %.loopexit501
+  br label %.loopexit500
 
 556:                                              ; preds = %552
   %557 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %10, ptr nonnull %554, ptr %.2357, i32 %550)
   call fastcc void @ini_error(ptr noundef nonnull %554)
   %558 = icmp eq i32 %557, -2
-  br i1 %558, label %.loopexit501, label %.loopexit503
+  br i1 %558, label %.loopexit500, label %.loopexit502
 
-.loopexit503:                                     ; preds = %55, %556, %.thread458
-  %.2452 = phi ptr [ %9, %.thread458 ], [ %554, %556 ], [ %9, %55 ]
-  %.6 = phi i32 [ %.4, %.thread458 ], [ %.4, %556 ], [ 257, %55 ]
+.loopexit502:                                     ; preds = %55, %556, %.thread457
+  %.1451 = phi ptr [ %9, %.thread457 ], [ %554, %556 ], [ %9, %55 ]
+  %.7 = phi i32 [ %.4, %.thread457 ], [ %.4, %556 ], [ 257, %55 ]
   %559 = icmp eq ptr %.2357, %.1336
   br i1 %559, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit503, %.lr.ph
-  %.2329531 = phi i32 [ %567, %.lr.ph ], [ %.1328, %.loopexit503 ]
-  %.3348530 = phi ptr [ %564, %.lr.ph ], [ %.2347, %.loopexit503 ]
-  %.3358529 = phi ptr [ %565, %.lr.ph ], [ %.2357, %.loopexit503 ]
-  %560 = sext i32 %.2329531 to i64
+.lr.ph:                                           ; preds = %.loopexit502, %.lr.ph
+  %.2329530 = phi i32 [ %567, %.lr.ph ], [ %.0327, %.loopexit502 ]
+  %.5350529 = phi ptr [ %564, %.lr.ph ], [ %.2347, %.loopexit502 ]
+  %.5360528 = phi ptr [ %565, %.lr.ph ], [ %.2357, %.loopexit502 ]
+  %560 = sext i32 %.2329530 to i64
   %561 = getelementptr inbounds [76 x i8], ptr @yystos, i64 0, i64 %560
   %562 = load i8, ptr %561, align 1
   %563 = sext i8 %562 to i32
-  call fastcc void @yydestruct(i32 noundef %563, ptr noundef nonnull %.3348530)
-  %564 = getelementptr inbounds i8, ptr %.3348530, i64 -16
-  %565 = getelementptr inbounds i8, ptr %.3358529, i64 -1
+  call fastcc void @yydestruct(i32 noundef %563, ptr noundef nonnull %.5350529)
+  %564 = getelementptr inbounds i8, ptr %.5350529, i64 -16
+  %565 = getelementptr inbounds i8, ptr %.5360528, i64 -1
   %566 = load i8, ptr %565, align 1
   %567 = sext i8 %566 to i32
   %568 = icmp eq ptr %565, %.1336
   br i1 %568, label %.loopexit, label %.lr.ph
 
-.loopexit501:                                     ; preds = %26, %20, %.thread, %556
-  %.3453 = phi ptr [ %554, %556 ], [ %9, %.thread ], [ %9, %20 ], [ %9, %26 ]
-  %.5360 = phi ptr [ %.2357, %556 ], [ %.2357, %.thread ], [ %.1356, %20 ], [ %.1356, %26 ]
-  %.5350 = phi ptr [ %.2347, %556 ], [ %.2347, %.thread ], [ %.1346, %20 ], [ %.1346, %26 ]
-  %.3338 = phi ptr [ %.1336, %556 ], [ %.1336, %.thread ], [ %.0335, %20 ], [ %.0335, %26 ]
-  %.8 = phi i32 [ %.4, %556 ], [ %.4, %.thread ], [ %.1, %20 ], [ %.1, %26 ]
+.loopexit500:                                     ; preds = %26, %20, %.thread, %556
+  %.0450 = phi ptr [ %554, %556 ], [ %9, %.thread ], [ %9, %20 ], [ %9, %26 ]
+  %.3358 = phi ptr [ %.2357, %556 ], [ %.2357, %.thread ], [ %.0355, %20 ], [ %.0355, %26 ]
+  %.3348 = phi ptr [ %.2347, %556 ], [ %.2347, %.thread ], [ %.0345, %20 ], [ %.0345, %26 ]
+  %.2337 = phi ptr [ %.1336, %556 ], [ %.1336, %.thread ], [ %.0335, %20 ], [ %.0335, %26 ]
+  %.2 = phi i32 [ %.4, %556 ], [ %.4, %.thread ], [ %.0322, %20 ], [ %.0322, %26 ]
   call fastcc void @ini_error(ptr noundef nonnull @.str.3)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %37, %41, %.lr.ph, %.loopexit503, %.loopexit501
-  %.4454 = phi ptr [ %.3453, %.loopexit501 ], [ %.2452, %.loopexit503 ], [ %.2452, %.lr.ph ], [ %9, %41 ], [ %9, %37 ]
-  %.6361 = phi ptr [ %.5360, %.loopexit501 ], [ %.2357, %.loopexit503 ], [ %565, %.lr.ph ], [ %38, %37 ], [ %.2357, %41 ]
-  %.6351 = phi ptr [ %.5350, %.loopexit501 ], [ %.2347, %.loopexit503 ], [ %564, %.lr.ph ], [ %40, %37 ], [ %.2347, %41 ]
-  %.0343 = phi i32 [ 2, %.loopexit501 ], [ 1, %.loopexit503 ], [ 1, %.lr.ph ], [ 1, %37 ], [ 0, %41 ]
-  %.4339 = phi ptr [ %.3338, %.loopexit501 ], [ %.1336, %.loopexit503 ], [ %.1336, %.lr.ph ], [ %30, %37 ], [ %.1336, %41 ]
-  %.9 = phi i32 [ %.8, %.loopexit501 ], [ %.6, %.loopexit503 ], [ %.6, %.lr.ph ], [ %.1, %41 ], [ %.1, %37 ]
+.loopexit:                                        ; preds = %37, %41, %.lr.ph, %.loopexit502, %.loopexit500
+  %.4453 = phi ptr [ %.0450, %.loopexit500 ], [ %.1451, %.loopexit502 ], [ %.1451, %.lr.ph ], [ %9, %41 ], [ %9, %37 ]
+  %.6361 = phi ptr [ %.3358, %.loopexit500 ], [ %.2357, %.loopexit502 ], [ %565, %.lr.ph ], [ %38, %37 ], [ %.2357, %41 ]
+  %.6351 = phi ptr [ %.3348, %.loopexit500 ], [ %.2347, %.loopexit502 ], [ %564, %.lr.ph ], [ %40, %37 ], [ %.2347, %41 ]
+  %.0343 = phi i32 [ 2, %.loopexit500 ], [ 1, %.loopexit502 ], [ 1, %.lr.ph ], [ 1, %37 ], [ 0, %41 ]
+  %.4339 = phi ptr [ %.2337, %.loopexit500 ], [ %.1336, %.loopexit502 ], [ %.1336, %.lr.ph ], [ %30, %37 ], [ %.1336, %41 ]
+  %.9 = phi i32 [ %.2, %.loopexit500 ], [ %.7, %.loopexit502 ], [ %.7, %.lr.ph ], [ %.0322, %41 ], [ %.0322, %37 ]
   %.not417 = icmp eq i32 %.9, -2
   br i1 %.not417, label %576, label %569
 
 569:                                              ; preds = %.loopexit
   %or.cond11 = icmp ult i32 %.9, 274
-  br i1 %or.cond11, label %.thread482, label %574
+  br i1 %or.cond11, label %.thread481, label %574
 
-.thread482:                                       ; preds = %569
+.thread481:                                       ; preds = %569
   %570 = zext nneg i32 %.9 to i64
   %571 = getelementptr inbounds [274 x i8], ptr @yytranslate, i64 0, i64 %570
   %572 = load i8, ptr %571, align 1
   %573 = sext i8 %572 to i32
   br label %574
 
-574:                                              ; preds = %569, %.thread482
-  %575 = phi i32 [ %573, %.thread482 ], [ 2, %569 ]
+574:                                              ; preds = %569, %.thread481
+  %575 = phi i32 [ %573, %.thread481 ], [ 2, %569 ]
   call fastcc void @yydestruct(i32 noundef %575, ptr noundef nonnull %5)
   br label %576
 
 576:                                              ; preds = %574, %.loopexit
-  %.not418533 = icmp eq ptr %.6361, %.4339
-  br i1 %.not418533, label %._crit_edge, label %.lr.ph536
+  %.not418532 = icmp eq ptr %.6361, %.4339
+  br i1 %.not418532, label %._crit_edge, label %.lr.ph535
 
-.lr.ph536:                                        ; preds = %576, %.lr.ph536
-  %.7352535 = phi ptr [ %582, %.lr.ph536 ], [ %.6351, %576 ]
-  %.7362534 = phi ptr [ %583, %.lr.ph536 ], [ %.6361, %576 ]
-  %577 = load i8, ptr %.7362534, align 1
+.lr.ph535:                                        ; preds = %576, %.lr.ph535
+  %.7352534 = phi ptr [ %582, %.lr.ph535 ], [ %.6351, %576 ]
+  %.7362533 = phi ptr [ %583, %.lr.ph535 ], [ %.6361, %576 ]
+  %577 = load i8, ptr %.7362533, align 1
   %578 = sext i8 %577 to i64
   %579 = getelementptr inbounds [76 x i8], ptr @yystos, i64 0, i64 %578
   %580 = load i8, ptr %579, align 1
   %581 = sext i8 %580 to i32
-  call fastcc void @yydestruct(i32 noundef %581, ptr noundef nonnull %.7352535)
-  %582 = getelementptr inbounds i8, ptr %.7352535, i64 -16
-  %583 = getelementptr inbounds i8, ptr %.7362534, i64 -1
+  call fastcc void @yydestruct(i32 noundef %581, ptr noundef nonnull %.7352534)
+  %582 = getelementptr inbounds i8, ptr %.7352534, i64 -16
+  %583 = getelementptr inbounds i8, ptr %.7362533, i64 -1
   %.not418 = icmp eq ptr %583, %.4339
-  br i1 %.not418, label %._crit_edge, label %.lr.ph536
+  br i1 %.not418, label %._crit_edge, label %.lr.ph535
 
-._crit_edge:                                      ; preds = %.lr.ph536, %576
+._crit_edge:                                      ; preds = %.lr.ph535, %576
   %.not419 = icmp eq ptr %.4339, %6
   br i1 %.not419, label %585, label %584
 
@@ -1521,11 +1521,11 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   br label %585
 
 585:                                              ; preds = %584, %._crit_edge
-  %.not420 = icmp eq ptr %.4454, %9
+  %.not420 = icmp eq ptr %.4453, %9
   br i1 %.not420, label %587, label %586
 
 586:                                              ; preds = %585
-  call void @free(ptr noundef %.4454) #17
+  call void @free(ptr noundef %.4453) #17
   br label %587
 
 587:                                              ; preds = %586, %585
@@ -2151,7 +2151,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %33
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %33 ], [ %17, %.lr.ph.i.i ]
-  %.0333.i.i = phi i32 [ %.2.i.fr.i, %33 ], [ 0, %.lr.ph.i.i ]
+  %.13.i.i = phi i32 [ %.033.i.fr.i, %33 ], [ 0, %.lr.ph.i.i ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
   %21 = getelementptr inbounds [144 x i8], ptr @yycheck, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
@@ -2163,25 +2163,25 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br i1 %or.cond.i.i, label %27, label %33
 
 27:                                               ; preds = %.lr.ph.split.i.i
-  %28 = icmp eq i32 %.0333.i.i, 4
+  %28 = icmp eq i32 %.13.i.i, 4
   br i1 %28, label %yy_syntax_error_arguments.exit.thread8, label %29
 
 29:                                               ; preds = %27
-  %30 = add nsw i32 %.0333.i.i, 1
-  %31 = sext i32 %.0333.i.i to i64
+  %30 = add nsw i32 %.13.i.i, 1
+  %31 = sext i32 %.13.i.i to i64
   %32 = getelementptr inbounds i32, ptr %4, i64 %31
   store i32 %23, ptr %32, align 4
   br label %33
 
 33:                                               ; preds = %29, %.lr.ph.split.i.i
-  %.1.i.i = phi i32 [ %30, %29 ], [ %.0333.i.i, %.lr.ph.split.i.i ]
-  %.2.i.fr.i = freeze i32 %.1.i.i
+  %.2.i.i = phi i32 [ %30, %29 ], [ %.13.i.i, %.lr.ph.split.i.i ]
+  %.033.i.fr.i = freeze i32 %.2.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next.i.i, %19
   br i1 %exitcond24.not.i, label %.loopexit.i.i, label %.lr.ph.split.i.i
 
 .loopexit.i.i:                                    ; preds = %33
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit [
+  switch i32 %.033.i.fr.i, label %yy_syntax_error_arguments.exit [
     i32 0, label %.loopexit.i.i.thread
     i32 -2, label %yy_syntax_error_arguments.exit.thread10
   ]
@@ -2191,8 +2191,8 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br label %yy_syntax_error_arguments.exit.thread8
 
 yy_syntax_error_arguments.exit:                   ; preds = %.loopexit.i.i
-  %34 = add nsw i32 %.2.i.fr.i, 1
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit.thread8 [
+  %34 = add nsw i32 %.033.i.fr.i, 1
+  switch i32 %.033.i.fr.i, label %yy_syntax_error_arguments.exit.thread8 [
     i32 -3, label %yy_syntax_error_arguments.exit.thread10
     i32 4, label %38
     i32 3, label %37
@@ -2364,7 +2364,7 @@ yytnamerr.exit58:                                 ; preds = %65, %.preheader, %.
   br label %.preheader
 
 yy_syntax_error_arguments.exit.thread10:          ; preds = %yytnamerr.exit, %.preheader, %.loopexit.i.i, %62, %yy_syntax_error_arguments.exit
-  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %62 ], [ %.2.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
+  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %62 ], [ %.033.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
   ret i32 %.038
 }
 

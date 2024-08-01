@@ -724,7 +724,7 @@ _ZN18SafepointMechanism14should_processEP10JavaThreadb.exit: ; preds = %166, %_Z
   br i1 %168, label %._crit_edge, label %71, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit, %71, %54
-  %.2 = phi i32 [ 0, %54 ], [ %spec.select, %71 ], [ %spec.select, %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit ]
+  %.1 = phi i32 [ 0, %54 ], [ %spec.select, %71 ], [ %spec.select, %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %169 = load ptr, ptr %9, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 8
@@ -741,7 +741,7 @@ _ZN18SafepointMechanism14should_processEP10JavaThreadb.exit: ; preds = %166, %_Z
 
 176:                                              ; preds = %173
   %177 = sub nsw i64 %174, %13
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.43, ptr noundef %171, i32 noundef 1, i32 noundef %.2, i64 noundef %177, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.45)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.43, ptr noundef %171, i32 noundef 1, i32 noundef %.1, i64 noundef %177, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.45)
   br label %_ZL18log_handshake_infolPKciiS0_.exit
 
 _ZL18log_handshake_infolPKciiS0_.exit:            ; preds = %176, %173, %._crit_edge, %44, %41, %34
@@ -2954,8 +2954,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %5, %9
   br label %10
 
 10:                                               ; preds = %1, %_ZN11MutexLockerD2Ev.exit
-  %.1 = phi i1 [ %8, %_ZN11MutexLockerD2Ev.exit ], [ false, %1 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %8, %_ZN11MutexLockerD2Ev.exit ], [ false, %1 ]
+  ret i1 %.0
 }
 
 declare void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1

@@ -5914,9 +5914,9 @@ define void @_Z21searchResidueDatabaseRKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %15
 
 15:                                               ; preds = %.lr.ph, %98
-  %.0102 = phi i32 [ 0, %.lr.ph ], [ %.2, %98 ]
+  %.0102 = phi i32 [ 0, %.lr.ph ], [ %.3, %98 ]
   %.031101 = phi i32 [ 1, %.lr.ph ], [ %.132, %98 ]
-  %.033100 = phi i32 [ -1, %.lr.ph ], [ %.134, %98 ]
+  %.033100 = phi i32 [ -1, %.lr.ph ], [ %.235, %98 ]
   %.sroa.048.099 = phi ptr [ %2, %.lr.ph ], [ %99, %98 ]
   %16 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.099)
           to label %17 unwind label %.loopexit
@@ -6158,24 +6158,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38.i: 
           to label %92 unwind label %.loopexit
 
 92:                                               ; preds = %90, %87, %79
-  %.1 = phi i32 [ %.0102, %90 ], [ %.0102, %87 ], [ 0, %79 ]
+  %.2 = phi i32 [ %.0102, %90 ], [ %.0102, %87 ], [ 0, %79 ]
   %93 = ptrtoint ptr %.sroa.048.099 to i64
   %94 = sub i64 %93, %14
   %95 = sdiv exact i64 %94, 344
   %96 = trunc i64 %95 to i32
-  %97 = add nsw i32 %.1, 1
+  %97 = add nsw i32 %.2, 1
   br label %98
 
 98:                                               ; preds = %92, %77, %73, %71
-  %.134 = phi i32 [ %96, %92 ], [ %.033100, %77 ], [ %.033100, %73 ], [ %.033100, %71 ]
+  %.235 = phi i32 [ %96, %92 ], [ %.033100, %77 ], [ %.033100, %73 ], [ %.033100, %71 ]
   %.132 = phi i32 [ %72, %92 ], [ %.031101, %77 ], [ %.031101, %73 ], [ %.031101, %71 ]
-  %.2 = phi i32 [ %97, %92 ], [ %.0102, %77 ], [ %.0102, %73 ], [ %.0102, %71 ]
+  %.3 = phi i32 [ %97, %92 ], [ %.0102, %77 ], [ %.0102, %73 ], [ %.0102, %71 ]
   %99 = getelementptr inbounds i8, ptr %.sroa.048.099, i64 344
   %.not60 = icmp eq ptr %99, %3
   br i1 %.not60, label %._crit_edge, label %15, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %98
-  %100 = icmp sgt i32 %.2, 1
+  %100 = icmp sgt i32 %.3, 1
   br i1 %100, label %101, label %108
 
 101:                                              ; preds = %._crit_edge
@@ -6198,8 +6198,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38.i: 
   br label %.body
 
 108:                                              ; preds = %.thread56, %._crit_edge
-  %.23559 = phi i32 [ %21, %.thread56 ], [ %.134, %._crit_edge ]
-  %109 = icmp eq i32 %.23559, -1
+  %.13459 = phi i32 [ %21, %.thread56 ], [ %.235, %._crit_edge ]
+  %109 = icmp eq i32 %.13459, -1
   br i1 %109, label %.thread115, label %115
 
 .thread115:                                       ; preds = %5, %108
@@ -6221,7 +6221,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38.i: 
   br label %.body
 
 115:                                              ; preds = %108
-  %116 = sext i32 %.23559 to i64
+  %116 = sext i32 %.13459 to i64
   %117 = getelementptr inbounds %struct.PreprocessResidue, ptr %2, i64 %116
   %118 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %119 unwind label %.loopexit.split-lp

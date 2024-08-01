@@ -1075,7 +1075,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br label %361
 
 361:                                              ; preds = %.lr.ph645, %.thread624
-  %.0485644 = phi i1 [ true, %.lr.ph645 ], [ %.2487, %.thread624 ]
+  %.0485644 = phi i1 [ true, %.lr.ph645 ], [ %.1486, %.thread624 ]
   %.1489642 = phi i64 [ 0, %.lr.ph645 ], [ %429, %.thread624 ]
   %362 = phi i64 [ %.promoted, %.lr.ph645 ], [ %428, %.thread624 ]
   %363 = load ptr, ptr %23, align 8
@@ -1190,7 +1190,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
 
 .thread624:                                       ; preds = %427, %390, %391, %422, %393, %404, %407, %374, %364, %368
   %428 = phi i64 [ %362, %368 ], [ %362, %374 ], [ %397, %393 ], [ %397, %404 ], [ %397, %407 ], [ %397, %422 ], [ %362, %364 ], [ %362, %390 ], [ %362, %391 ], [ %397, %427 ]
-  %.2487 = phi i1 [ %.0485644, %368 ], [ %.0485644, %374 ], [ %.0485644, %393 ], [ %.0485644, %404 ], [ %.0485644, %407 ], [ %.0485644, %422 ], [ %.0485644, %364 ], [ false, %390 ], [ false, %391 ], [ %.0485644, %427 ]
+  %.1486 = phi i1 [ %.0485644, %368 ], [ %.0485644, %374 ], [ %.0485644, %393 ], [ %.0485644, %404 ], [ %.0485644, %407 ], [ %.0485644, %422 ], [ %.0485644, %364 ], [ false, %390 ], [ false, %391 ], [ %.0485644, %427 ]
   %429 = add nuw nsw i64 %.1489642, 1
   %430 = load i16, ptr %355, align 8
   %431 = zext i16 %430 to i64
@@ -1911,7 +1911,7 @@ define dso_local i32 @gres_ctld_job_alloc_whole_node(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %33 = phi ptr [ %21, %.lr.ph.lr.ph ], [ %114, %.outer ]
-  %.064.ph103 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %.3, %.outer ]
+  %.064.ph103 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %.1, %.outer ]
   br label %34
 
 34:                                               ; preds = %.lr.ph, %.backedge
@@ -2031,7 +2031,7 @@ _job_alloc_whole_node_internal.exit:              ; preds = %75
 
 86:                                               ; preds = %.lr.ph100, %109
   %indvars.iv = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next, %109 ]
-  %.198 = phi i32 [ %.064.ph103, %.lr.ph100 ], [ %110, %109 ]
+  %.298 = phi i32 [ %.064.ph103, %.lr.ph100 ], [ %110, %109 ]
   %87 = load ptr, ptr %68, align 8
   %88 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8
@@ -2071,7 +2071,7 @@ _job_alloc_whole_node_internal.exit82:            ; preds = %96
   %108 = call fastcc i32 @_job_alloc(ptr noundef nonnull %97, ptr noundef %107, ptr noundef nonnull %35, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9)
   %.fr = freeze i32 %108
   %.not77 = icmp eq i32 %.fr, 0
-  %spec.select90 = select i1 %.not77, i32 %.198, i32 -1
+  %spec.select90 = select i1 %.not77, i32 %.298, i32 -1
   br label %109
 
 109:                                              ; preds = %_job_alloc_whole_node_internal.exit82, %_job_alloc_whole_node_internal.exit82.thread
@@ -2083,13 +2083,13 @@ _job_alloc_whole_node_internal.exit82:            ; preds = %96
   br i1 %113, label %86, label %.outer, !llvm.loop !26
 
 .outer:                                           ; preds = %109, %_job_alloc_whole_node_internal.exit, %_job_alloc_whole_node_internal.exit.thread
-  %.3 = phi i32 [ -1, %_job_alloc_whole_node_internal.exit.thread ], [ %spec.select, %_job_alloc_whole_node_internal.exit ], [ %110, %109 ]
+  %.1 = phi i32 [ -1, %_job_alloc_whole_node_internal.exit.thread ], [ %spec.select, %_job_alloc_whole_node_internal.exit ], [ %110, %109 ]
   %114 = call ptr @list_next(ptr noundef %20) #8
   %.not96 = icmp eq ptr %114, null
   br i1 %.not96, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %19
-  %.064.ph.lcssa = phi i32 [ -1, %19 ], [ %.064.ph103, %.backedge ], [ %.3, %.outer ]
+  %.064.ph.lcssa = phi i32 [ -1, %19 ], [ %.064.ph103, %.backedge ], [ %.1, %.outer ]
   call void @list_iterator_destroy(ptr noundef %20) #8
   br label %115
 
@@ -3113,7 +3113,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   br label %95
 
 95:                                               ; preds = %._crit_edge245, %.thread231
-  %.0169 = phi ptr [ %94, %.thread231 ], [ %2, %._crit_edge245 ]
+  %.1170 = phi ptr [ %94, %.thread231 ], [ %2, %._crit_edge245 ]
   %96 = call ptr @list_iterator_create(ptr noundef nonnull %0) #8
   %97 = call ptr @list_next(ptr noundef %96) #8
   %.not203252 = icmp eq ptr %97, null
@@ -3137,7 +3137,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   %104 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %103, i64 4
-  %107 = call ptr @list_find_first(ptr noundef %.0169, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %106) #8
+  %107 = call ptr @list_find_first(ptr noundef %.1170, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %106) #8
   %.not205 = icmp eq ptr %107, null
   br i1 %.not205, label %111, label %108
 
@@ -3187,7 +3187,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   %139 = getelementptr inbounds i8, ptr %112, i64 160
   store ptr %138, ptr %139, align 8
   %140 = call ptr @gres_create_state(ptr noundef nonnull %103, i32 noundef 0, i32 noundef 2, ptr noundef %112) #8
-  call void @list_append(ptr noundef %.0169, ptr noundef %140) #8
+  call void @list_append(ptr noundef %.1170, ptr noundef %140) #8
   br label %141
 
 141:                                              ; preds = %111, %108
@@ -3331,12 +3331,12 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
 
 ._crit_edge255:                                   ; preds = %.loopexit, %95
   call void @list_iterator_destroy(ptr noundef %96) #8
-  %.not204 = icmp eq ptr %.0169, null
+  %.not204 = icmp eq ptr %.1170, null
   %or.cond = select i1 %.not200, i1 true, i1 %.not204
   br i1 %or.cond, label %.thread232, label %198
 
 198:                                              ; preds = %._crit_edge255
-  call void @list_destroy(ptr noundef nonnull %.0169) #8
+  call void @list_destroy(ptr noundef nonnull %.1170) #8
   br label %.thread232
 
 .thread232:                                       ; preds = %.thread, %._crit_edge245, %198, %._crit_edge255, %29
@@ -5928,12 +5928,12 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.thread110.i, %51, %102, %.thread.i, %67, %13, %.thread116.i, %63, %60, %56
-  %.2 = phi i64 [ 0, %56 ], [ 0, %60 ], [ 0, %63 ], [ 0, %.thread116.i ], [ -2, %13 ], [ 0, %67 ], [ 0, %.thread.i ], [ 0, %102 ], [ -2, %51 ], [ %148, %.thread110.i ]
+  %.1 = phi i64 [ 0, %56 ], [ 0, %60 ], [ 0, %63 ], [ 0, %.thread116.i ], [ -2, %13 ], [ 0, %67 ], [ 0, %.thread.i ], [ 0, %102 ], [ -2, %51 ], [ %148, %.thread110.i ]
   call void @list_iterator_destroy(ptr noundef %29) #8
   br label %150
 
 150:                                              ; preds = %9, %1, %.loopexit
-  %.0 = phi i64 [ %.2, %.loopexit ], [ -2, %1 ], [ 0, %9 ]
+  %.0 = phi i64 [ %.1, %.loopexit ], [ -2, %1 ], [ 0, %9 ]
   ret i64 %.0
 }
 
@@ -6344,9 +6344,9 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
   br label %101
 
 101:                                              ; preds = %100, %94
-  %.260 = phi i32 [ %99, %94 ], [ %.15982, %100 ]
-  %.154 = phi i32 [ %.05383, %94 ], [ %spec.select, %100 ]
-  %102 = icmp slt i32 %.260, 1
+  %.4 = phi i32 [ %99, %94 ], [ %.15982, %100 ]
+  %.3 = phi i32 [ %.05383, %94 ], [ %spec.select, %100 ]
+  %102 = icmp slt i32 %.4, 1
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %101
@@ -6361,8 +6361,8 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
   br label %._crit_edge
 
 107:                                              ; preds = %101, %103, %73, %76, %71
-  %.361 = phi i32 [ %.15982, %76 ], [ %.260, %103 ], [ %.260, %101 ], [ %.15982, %73 ], [ %.15982, %71 ]
-  %.2 = phi i32 [ %.05383, %76 ], [ %.154, %103 ], [ %.154, %101 ], [ %.05383, %73 ], [ %.05383, %71 ]
+  %.361 = phi i32 [ %.15982, %76 ], [ %.4, %103 ], [ %.4, %101 ], [ %.15982, %73 ], [ %.15982, %71 ]
+  %.2 = phi i32 [ %.05383, %76 ], [ %.3, %103 ], [ %.3, %101 ], [ %.05383, %73 ], [ %.05383, %71 ]
   %.1 = phi i32 [ %74, %76 ], [ %74, %103 ], [ %74, %101 ], [ %74, %73 ], [ %.085, %71 ]
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next98 to i32

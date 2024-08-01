@@ -768,8 +768,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49: ; 
   br label %65
 
 65:                                               ; preds = %56, %3, %58
-  %.1 = phi i32 [ -1, %56 ], [ 0, %58 ], [ -1, %3 ]
-  ret i32 %.1
+  %.018 = phi i32 [ -1, %56 ], [ 0, %58 ], [ -1, %3 ]
+  ret i32 %.018
 
 66:                                               ; preds = %57, %.body41
   %.pn32.pn.pn = phi { ptr, i32 } [ %.pn32.pn, %57 ], [ %eh.lpad-body42, %.body41 ]
@@ -1110,13 +1110,13 @@ _ZN12colvarscript18get_colvar_cmd_argEiiPKPh.exit.thread: ; preds = %14, %_ZN12c
 
 .sink.split:                                      ; preds = %_ZN12colvarscript18get_colvar_cmd_argEiiPKPh.exit.thread, %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit41
   %.sink = phi ptr [ %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit41 ], [ %4, %33 ], [ %7, %_ZN12colvarscript18get_colvar_cmd_argEiiPKPh.exit.thread ]
-  %.1.ph = phi i32 [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit41 ], [ %34, %33 ], [ 0, %_ZN12colvarscript18get_colvar_cmd_argEiiPKPh.exit.thread ]
+  %.0.ph = phi i32 [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit41 ], [ %34, %33 ], [ 0, %_ZN12colvarscript18get_colvar_cmd_argEiiPKPh.exit.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #9
   br label %45
 
 45:                                               ; preds = %.sink.split, %3
-  %.1 = phi i32 [ -1, %3 ], [ %.1.ph, %.sink.split ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %3 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 
 46:                                               ; preds = %43, %41, %.body39
   %.pn31.pn = phi { ptr, i32 } [ %.pn31, %41 ], [ %eh.lpad-body40, %.body39 ], [ %44, %43 ]

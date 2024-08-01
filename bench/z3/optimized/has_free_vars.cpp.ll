@@ -469,7 +469,7 @@ while.body.lr.ph:                                 ; preds = %sw.bb9
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN13contains_vars3imp5visitEP4exprjRb.exit
   %indvars.iv = phi i64 [ %3, %while.body.lr.ph ], [ %4, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
-  %visited.039 = phi i1 [ true, %while.body.lr.ph ], [ %visited.1, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
+  %visited.139 = phi i1 [ true, %while.body.lr.ph ], [ %visited.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
   %4 = add nsw i64 %indvars.iv, -1
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %4
   %5 = load ptr, ptr %arrayidx.i, align 8
@@ -514,7 +514,7 @@ _ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i: ; preds = %if.then.i.
   br label %_ZN13contains_vars3imp5visitEP4exprjRb.exit
 
 _ZN13contains_vars3imp5visitEP4exprjRb.exit:      ; preds = %while.body, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i
-  %visited.1 = phi i1 [ false, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i ], [ %visited.039, %while.body ]
+  %visited.2 = phi i1 [ false, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i ], [ %visited.139, %while.body ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %e.i)
   %cmp12.not.wide = icmp eq i64 %4, 0
   br i1 %cmp12.not.wide, label %sw.epilog, label %while.body, !llvm.loop !7
@@ -577,8 +577,8 @@ _ZN13contains_vars3imp5visitEP4exprjRb.exit37:    ; preds = %if.then20, %_ZN6vec
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN13contains_vars3imp5visitEP4exprjRb.exit, %sw.bb9, %entry, %sw.bb15, %_ZN13contains_vars3imp5visitEP4exprjRb.exit37, %sw.bb, %if.then
-  %visited.3 = phi i1 [ true, %entry ], [ true, %sw.bb15 ], [ %cmp.i.not.i20, %_ZN13contains_vars3imp5visitEP4exprjRb.exit37 ], [ true, %sw.bb ], [ true, %if.then ], [ true, %sw.bb9 ], [ %visited.1, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
-  ret i1 %visited.3
+  %visited.0 = phi i1 [ true, %entry ], [ true, %sw.bb15 ], [ %cmp.i.not.i20, %_ZN13contains_vars3imp5visitEP4exprjRb.exit37 ], [ true, %sw.bb ], [ true, %if.then ], [ true, %sw.bb9 ], [ %visited.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
+  ret i1 %visited.0
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -2092,8 +2092,8 @@ dissect_request_parameters.exit:                  ; preds = %99
 
 327:                                              ; preds = %.lr.ph, %327
   %.0158219 = phi i32 [ 0, %.lr.ph ], [ %329, %327 ]
-  %.0163218 = phi i32 [ %322, %.lr.ph ], [ %328, %327 ]
-  %328 = call fastcc i32 @dissect_transact_data(ptr noundef nonnull %2, i32 noundef %.0163218, i32 noundef -1, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef nonnull %.0159, ptr noundef %326, ptr noundef null, ptr noundef %5)
+  %.1218 = phi i32 [ %322, %.lr.ph ], [ %328, %327 ]
+  %328 = call fastcc i32 @dissect_transact_data(ptr noundef nonnull %2, i32 noundef %.1218, i32 noundef -1, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef nonnull %.0159, ptr noundef %326, ptr noundef null, ptr noundef %5)
   %329 = add nuw nsw i32 %.0158219, 1
   %330 = load i16, ptr %8, align 2
   %331 = zext i16 %330 to i32
@@ -2101,12 +2101,12 @@ dissect_request_parameters.exit:                  ; preds = %99
   br i1 %332, label %327, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %327, %319
-  %.1 = phi i32 [ %322, %319 ], [ %328, %327 ]
+  %.0163 = phi i32 [ %322, %319 ], [ %328, %327 ]
   %.not185 = icmp eq ptr %.0157, null
   br i1 %.not185, label %517, label %333
 
 333:                                              ; preds = %.loopexit
-  call void @proto_item_set_len(ptr noundef nonnull %.0157, i32 noundef %.1) #8
+  call void @proto_item_set_len(ptr noundef nonnull %.0157, i32 noundef %.0163) #8
   br label %517
 
 334:                                              ; preds = %30
@@ -2525,7 +2525,7 @@ define internal fastcc i32 @dissect_transact_data(ptr noundef %0, i32 noundef %1
   ]
 
 .backedge:                                        ; preds = %14, %256, %262, %add_bytes_pointer_param.exit, %251, %236, %170, %196, %get_stringz_pointer_value.exit, %155, %164, %add_bytes_param.exit, %148, %138, %75, %93, %82, %34, %53, %41
-  %.0251.be = phi i32 [ %.0251, %14 ], [ %.0251, %256 ], [ %.0251, %262 ], [ %.0251, %add_bytes_pointer_param.exit ], [ %.0251, %251 ], [ %.0251, %236 ], [ %.0251, %170 ], [ %.0251, %196 ], [ %.1252, %get_stringz_pointer_value.exit ], [ %.0251, %155 ], [ %.0251, %164 ], [ %.0251, %add_bytes_param.exit ], [ %.0251, %148 ], [ %.0251, %138 ], [ %.0251, %75 ], [ %.0251, %93 ], [ %.0251, %82 ], [ %.0251, %34 ], [ %.0251, %53 ], [ %.0251, %41 ]
+  %.0251.be = phi i32 [ %.0251, %14 ], [ %.0251, %256 ], [ %.0251, %262 ], [ %.0251, %add_bytes_pointer_param.exit ], [ %.0251, %251 ], [ %.0251, %236 ], [ %.0251, %170 ], [ %.0251, %196 ], [ %.2, %get_stringz_pointer_value.exit ], [ %.0251, %155 ], [ %.0251, %164 ], [ %.0251, %add_bytes_param.exit ], [ %.0251, %148 ], [ %.0251, %138 ], [ %.0251, %75 ], [ %.0251, %93 ], [ %.0251, %82 ], [ %.0251, %34 ], [ %.0251, %53 ], [ %.0251, %41 ]
   %.0181.be = phi ptr [ %.0181, %14 ], [ %.0181, %256 ], [ %.0181, %262 ], [ %.0181, %add_bytes_pointer_param.exit ], [ %255, %251 ], [ %250, %236 ], [ %.0181, %170 ], [ %200, %196 ], [ %195, %get_stringz_pointer_value.exit ], [ %.0181, %155 ], [ %165, %164 ], [ %.0181, %add_bytes_param.exit ], [ %150, %148 ], [ %147, %138 ], [ %.0181, %75 ], [ %97, %93 ], [ %92, %82 ], [ %.0181, %34 ], [ %57, %53 ], [ %52, %41 ]
   %.0179.be = phi ptr [ %15, %14 ], [ %15, %256 ], [ %15, %262 ], [ %.0.i237, %add_bytes_pointer_param.exit ], [ %.0.i237, %251 ], [ %.0.i237, %236 ], [ %15, %170 ], [ %15, %196 ], [ %15, %get_stringz_pointer_value.exit ], [ %15, %155 ], [ %15, %164 ], [ %.0.i224258261, %add_bytes_param.exit ], [ %.0.i224257, %148 ], [ %.0.i224257, %138 ], [ %.0.i213, %75 ], [ %.0.i213, %93 ], [ %.0.i213, %82 ], [ %.0.i, %34 ], [ %.0.i, %53 ], [ %.0.i, %41 ]
   %.0.be = phi i32 [ %.0, %14 ], [ %261, %256 ], [ %261, %262 ], [ %232, %add_bytes_pointer_param.exit ], [ %254, %251 ], [ %240, %236 ], [ %171, %170 ], [ %199, %196 ], [ %186, %get_stringz_pointer_value.exit ], [ %.0, %155 ], [ %.0, %164 ], [ %131, %add_bytes_param.exit ], [ %149, %148 ], [ %146, %138 ], [ %78, %75 ], [ %96, %93 ], [ %91, %82 ], [ %37, %34 ], [ %56, %53 ], [ %51, %41 ]
@@ -2830,7 +2830,7 @@ add_bytes_param.exit:                             ; preds = %.thread271, %.threa
   br label %get_stringz_pointer_value.exit
 
 get_stringz_pointer_value.exit:                   ; preds = %175, %180, %182
-  %.1252 = phi i32 [ %.0251, %175 ], [ %.0251, %180 ], [ %183, %182 ]
+  %.2 = phi i32 [ %.0251, %175 ], [ %.0251, %180 ], [ %183, %182 ]
   %.0.i227 = phi ptr [ null, %175 ], [ null, %180 ], [ %185, %182 ]
   %186 = add i32 %.0, 4
   %187 = load ptr, ptr %.0181, align 8
@@ -2841,7 +2841,7 @@ get_stringz_pointer_value.exit:                   ; preds = %175, %180, %182
   %192 = tail call ptr @proto_registrar_get_name(i32 noundef %191) #8
   %.not200 = icmp eq ptr %.0.i227, null
   %193 = select i1 %.not200, ptr @.str.680, ptr %.0.i227
-  %194 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %3, ptr noundef nonnull @ei_smb_pipe_bad_type, ptr noundef %0, i32 noundef %178, i32 noundef %.1252, ptr noundef nonnull @.str.676, ptr noundef %192, ptr noundef nonnull %193) #8
+  %194 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %3, ptr noundef nonnull @ei_smb_pipe_bad_type, ptr noundef %0, i32 noundef %178, i32 noundef %.2, ptr noundef nonnull @.str.676, ptr noundef %192, ptr noundef nonnull %193) #8
   %195 = getelementptr i8, ptr %.0181, i64 24
   br label %.backedge
 
@@ -3060,13 +3060,13 @@ define internal fastcc void @dissect_response_data(ptr noundef %0, ptr noundef %
 
 .lr.ph96.split.us:                                ; preds = %.lr.ph96, %78
   %.06494.us = phi i32 [ %79, %78 ], [ 0, %.lr.ph96 ]
-  %.07193.us = phi i32 [ %.2.us, %78 ], [ 0, %.lr.ph96 ]
+  %.193.us = phi i32 [ %.2.us, %78 ], [ 0, %.lr.ph96 ]
   %57 = load ptr, ptr %53, align 8
   %.not79.us = icmp eq ptr %57, null
   br i1 %.not79.us, label %63, label %58
 
 58:                                               ; preds = %.lr.ph96.split.us
-  %59 = call ptr %57(ptr noundef %0, ptr noundef %.067, i32 noundef %.07193.us) #8
+  %59 = call ptr %57(ptr noundef %0, ptr noundef %.067, i32 noundef %.193.us) #8
   %60 = load ptr, ptr %54, align 8
   %61 = load i32, ptr %60, align 4
   %62 = call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %61) #8
@@ -3076,7 +3076,7 @@ define internal fastcc void @dissect_response_data(ptr noundef %0, ptr noundef %
   %.066.us = phi ptr [ %59, %58 ], [ null, %.lr.ph96.split.us ]
   %.065.us = phi ptr [ %62, %58 ], [ %.067, %.lr.ph96.split.us ]
   %64 = load ptr, ptr %38, align 8
-  %65 = call fastcc i32 @dissect_transact_data(ptr noundef %0, i32 noundef %.07193.us, i32 noundef %2, ptr noundef %1, ptr noundef %.065.us, ptr noundef %64, ptr noundef %27, ptr noundef nonnull %10, ptr noundef %4)
+  %65 = call fastcc i32 @dissect_transact_data(ptr noundef %0, i32 noundef %.193.us, i32 noundef %2, ptr noundef %1, ptr noundef %.065.us, ptr noundef %64, ptr noundef %27, ptr noundef nonnull %10, ptr noundef %4)
   %66 = load ptr, ptr %55, align 8
   %.not80.us = icmp ne ptr %66, null
   %67 = load i16, ptr %10, align 2
@@ -3086,10 +3086,10 @@ define internal fastcc void @dissect_response_data(ptr noundef %0, ptr noundef %
 
 .lr.ph91.us:                                      ; preds = %63, %.lr.ph91.us
   %.090.us = phi i32 [ %72, %.lr.ph91.us ], [ 0, %63 ]
-  %.189.us = phi i32 [ %71, %.lr.ph91.us ], [ %65, %63 ]
+  %.389.us = phi i32 [ %71, %.lr.ph91.us ], [ %65, %63 ]
   %69 = load ptr, ptr %38, align 8
   %70 = load ptr, ptr %56, align 8
-  %71 = call fastcc i32 @dissect_transact_data(ptr noundef %0, i32 noundef %.189.us, i32 noundef %2, ptr noundef %1, ptr noundef %.065.us, ptr noundef %69, ptr noundef %70, ptr noundef null, ptr noundef %4)
+  %71 = call fastcc i32 @dissect_transact_data(ptr noundef %0, i32 noundef %.389.us, i32 noundef %2, ptr noundef %1, ptr noundef %.065.us, ptr noundef %69, ptr noundef %70, ptr noundef null, ptr noundef %4)
   %72 = add nuw nsw i32 %.090.us, 1
   %73 = load i16, ptr %10, align 2
   %74 = zext i16 %73 to i32
@@ -3102,7 +3102,7 @@ define internal fastcc void @dissect_response_data(ptr noundef %0, ptr noundef %
   br i1 %.not81.us, label %78, label %76
 
 76:                                               ; preds = %.loopexit.us
-  %77 = sub i32 %.2.us, %.07193.us
+  %77 = sub i32 %.2.us, %.193.us
   call void @proto_item_set_len(ptr noundef nonnull %.066.us, i32 noundef %77) #8
   br label %78
 
@@ -3113,9 +3113,9 @@ define internal fastcc void @dissect_response_data(ptr noundef %0, ptr noundef %
 
 .lr.ph96.split:                                   ; preds = %.lr.ph96, %.loopexit
   %.06494 = phi i32 [ %92, %.loopexit ], [ 0, %.lr.ph96 ]
-  %.07193 = phi i32 [ %.2, %.loopexit ], [ 0, %.lr.ph96 ]
+  %.193 = phi i32 [ %.2, %.loopexit ], [ 0, %.lr.ph96 ]
   %80 = load ptr, ptr %38, align 8
-  %81 = call fastcc i32 @dissect_transact_data(ptr noundef %0, i32 noundef %.07193, i32 noundef %2, ptr noundef %1, ptr noundef %.067, ptr noundef %80, ptr noundef %27, ptr noundef nonnull %10, ptr noundef %4)
+  %81 = call fastcc i32 @dissect_transact_data(ptr noundef %0, i32 noundef %.193, i32 noundef %2, ptr noundef %1, ptr noundef %.067, ptr noundef %80, ptr noundef %27, ptr noundef nonnull %10, ptr noundef %4)
   %82 = load ptr, ptr %55, align 8
   %.not80 = icmp ne ptr %82, null
   %83 = load i16, ptr %10, align 2
@@ -3125,10 +3125,10 @@ define internal fastcc void @dissect_response_data(ptr noundef %0, ptr noundef %
 
 .lr.ph91:                                         ; preds = %.lr.ph96.split, %.lr.ph91
   %.090 = phi i32 [ %88, %.lr.ph91 ], [ 0, %.lr.ph96.split ]
-  %.189 = phi i32 [ %87, %.lr.ph91 ], [ %81, %.lr.ph96.split ]
+  %.389 = phi i32 [ %87, %.lr.ph91 ], [ %81, %.lr.ph96.split ]
   %85 = load ptr, ptr %38, align 8
   %86 = load ptr, ptr %56, align 8
-  %87 = call fastcc i32 @dissect_transact_data(ptr noundef %0, i32 noundef %.189, i32 noundef %2, ptr noundef %1, ptr noundef %.067, ptr noundef %85, ptr noundef %86, ptr noundef null, ptr noundef %4)
+  %87 = call fastcc i32 @dissect_transact_data(ptr noundef %0, i32 noundef %.389, i32 noundef %2, ptr noundef %1, ptr noundef %.067, ptr noundef %85, ptr noundef %86, ptr noundef null, ptr noundef %4)
   %88 = add nuw nsw i32 %.090, 1
   %89 = load i16, ptr %10, align 2
   %90 = zext i16 %89 to i32
@@ -3142,13 +3142,13 @@ define internal fastcc void @dissect_response_data(ptr noundef %0, ptr noundef %
   br i1 %exitcond.not, label %.loopexit84, label %.lr.ph96.split, !llvm.loop !14
 
 .loopexit84:                                      ; preds = %.loopexit, %78, %50, %48
-  %.3 = phi i32 [ %49, %48 ], [ 0, %50 ], [ %.2.us, %78 ], [ %.2, %.loopexit ]
+  %.071 = phi i32 [ %49, %48 ], [ 0, %50 ], [ %.2.us, %78 ], [ %.2, %.loopexit ]
   %93 = load ptr, ptr %9, align 8
   %.not83 = icmp eq ptr %93, null
   br i1 %.not83, label %95, label %94
 
 94:                                               ; preds = %.loopexit84
-  call void @proto_item_set_len(ptr noundef nonnull %93, i32 noundef %.3) #8
+  call void @proto_item_set_len(ptr noundef nonnull %93, i32 noundef %.071) #8
   br label %95
 
 95:                                               ; preds = %94, %.loopexit84

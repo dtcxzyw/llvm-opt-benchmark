@@ -4107,9 +4107,9 @@ if.then.i:                                        ; preds = %sw.epilog
   unreachable
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %sw.epilog
-  %imports.sroa.0.04309 = phi ptr [ null, %if.end.i.lr.ph ], [ %imports.sroa.0.3, %sw.epilog ]
-  %imports.sroa.6.04308 = phi ptr [ null, %if.end.i.lr.ph ], [ %imports.sroa.6.3, %sw.epilog ]
-  %imports.sroa.11.04307 = phi ptr [ null, %if.end.i.lr.ph ], [ %imports.sroa.11.3, %sw.epilog ]
+  %imports.sroa.0.04309 = phi ptr [ null, %if.end.i.lr.ph ], [ %imports.sroa.0.4, %sw.epilog ]
+  %imports.sroa.6.04308 = phi ptr [ null, %if.end.i.lr.ph ], [ %imports.sroa.6.1, %sw.epilog ]
+  %imports.sroa.11.04307 = phi ptr [ null, %if.end.i.lr.ph ], [ %imports.sroa.11.1, %sw.epilog ]
   %19 = load ptr, ptr %_M_invoker4.i.i, align 8, !noalias !19
   invoke void %19(ptr nonnull sret(%"class.pstd::optional") align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(16) %nextToken, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i)
           to label %invoke.cont27 unwind label %lpad26.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4219,7 +4219,7 @@ lpad26.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %ehcleanup1384
 
 lpad26.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %land.rhs.i.i182.invoke, %if.then.i157.invoke, %land.rhs1375, %invoke.cont128, %if.then.i, %if.then.i804, %if.then.i922
-  %imports.sroa.0.04063 = phi ptr [ %imports.sroa.0.04309, %land.rhs1375 ], [ %imports.sroa.0.04309, %invoke.cont128 ], [ %imports.sroa.0.3, %if.then.i ], [ %imports.sroa.0.04309, %if.then.i804 ], [ %imports.sroa.0.04309, %if.then.i922 ], [ %imports.sroa.0.04309, %if.then.i157.invoke ], [ %imports.sroa.0.04309, %land.rhs.i.i182.invoke ]
+  %imports.sroa.0.04063 = phi ptr [ %imports.sroa.0.04309, %land.rhs1375 ], [ %imports.sroa.0.04309, %invoke.cont128 ], [ %imports.sroa.0.4, %if.then.i ], [ %imports.sroa.0.04309, %if.then.i804 ], [ %imports.sroa.0.04309, %if.then.i922 ], [ %imports.sroa.0.04309, %if.then.i157.invoke ], [ %imports.sroa.0.04309, %land.rhs.i.i182.invoke ]
   %lpad.loopexit.split-lp2859 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup1384
@@ -8723,16 +8723,16 @@ sw.epilog.unreachable:                            ; preds = %invoke.cont128
 
 sw.epilog.sink.split:                             ; preds = %invoke.cont850, %invoke.cont806, %invoke.cont772, %invoke.cont481, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit986, %if.then.i.i1001, %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i, %invoke.cont397, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit, %invoke.cont306, %invoke.cont277, %invoke.cont248, %invoke.cont892, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit2552
   %name1264.sink = phi ptr [ %name1264, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit2552 ], [ %name, %invoke.cont892 ], [ %ref.tmp243, %invoke.cont248 ], [ %ref.tmp272, %invoke.cont277 ], [ %ref.tmp301, %invoke.cont306 ], [ %filename383, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit ], [ %filename383, %invoke.cont397 ], [ %filename467, %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i ], [ %filename467, %if.then.i.i1001 ], [ %filename467, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit986 ], [ %filename467, %invoke.cont481 ], [ %ref.tmp767, %invoke.cont772 ], [ %ref.tmp801, %invoke.cont806 ], [ %ref.tmp845, %invoke.cont850 ]
-  %imports.sroa.11.3.ph = phi ptr [ %imports.sroa.11.04307, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit2552 ], [ %imports.sroa.11.04307, %invoke.cont892 ], [ %imports.sroa.11.04307, %invoke.cont248 ], [ %imports.sroa.11.04307, %invoke.cont277 ], [ %imports.sroa.11.04307, %invoke.cont306 ], [ %imports.sroa.11.04307, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit ], [ %imports.sroa.11.04307, %invoke.cont397 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i ], [ %imports.sroa.11.04307, %if.then.i.i1001 ], [ %imports.sroa.11.04307, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit986 ], [ %imports.sroa.11.04307, %invoke.cont481 ], [ %imports.sroa.11.04307, %invoke.cont772 ], [ %imports.sroa.11.04307, %invoke.cont806 ], [ %imports.sroa.11.04307, %invoke.cont850 ]
-  %imports.sroa.6.3.ph = phi ptr [ %imports.sroa.6.04308, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit2552 ], [ %imports.sroa.6.04308, %invoke.cont892 ], [ %imports.sroa.6.04308, %invoke.cont248 ], [ %imports.sroa.6.04308, %invoke.cont277 ], [ %imports.sroa.6.04308, %invoke.cont306 ], [ %imports.sroa.6.04308, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit ], [ %imports.sroa.6.04308, %invoke.cont397 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i1002, %if.then.i.i1001 ], [ %imports.sroa.6.04308, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit986 ], [ %imports.sroa.6.04308, %invoke.cont481 ], [ %imports.sroa.6.04308, %invoke.cont772 ], [ %imports.sroa.6.04308, %invoke.cont806 ], [ %imports.sroa.6.04308, %invoke.cont850 ]
-  %imports.sroa.0.3.ph = phi ptr [ %imports.sroa.0.04309, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit2552 ], [ %imports.sroa.0.04309, %invoke.cont892 ], [ %imports.sroa.0.04309, %invoke.cont248 ], [ %imports.sroa.0.04309, %invoke.cont277 ], [ %imports.sroa.0.04309, %invoke.cont306 ], [ %imports.sroa.0.04309, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit ], [ %imports.sroa.0.04309, %invoke.cont397 ], [ %cond.i10.i.i.i, %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i ], [ %imports.sroa.0.04309, %if.then.i.i1001 ], [ %imports.sroa.0.04309, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit986 ], [ %imports.sroa.0.04309, %invoke.cont481 ], [ %imports.sroa.0.04309, %invoke.cont772 ], [ %imports.sroa.0.04309, %invoke.cont806 ], [ %imports.sroa.0.04309, %invoke.cont850 ]
+  %imports.sroa.11.1.ph = phi ptr [ %imports.sroa.11.04307, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit2552 ], [ %imports.sroa.11.04307, %invoke.cont892 ], [ %imports.sroa.11.04307, %invoke.cont248 ], [ %imports.sroa.11.04307, %invoke.cont277 ], [ %imports.sroa.11.04307, %invoke.cont306 ], [ %imports.sroa.11.04307, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit ], [ %imports.sroa.11.04307, %invoke.cont397 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i ], [ %imports.sroa.11.04307, %if.then.i.i1001 ], [ %imports.sroa.11.04307, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit986 ], [ %imports.sroa.11.04307, %invoke.cont481 ], [ %imports.sroa.11.04307, %invoke.cont772 ], [ %imports.sroa.11.04307, %invoke.cont806 ], [ %imports.sroa.11.04307, %invoke.cont850 ]
+  %imports.sroa.6.1.ph = phi ptr [ %imports.sroa.6.04308, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit2552 ], [ %imports.sroa.6.04308, %invoke.cont892 ], [ %imports.sroa.6.04308, %invoke.cont248 ], [ %imports.sroa.6.04308, %invoke.cont277 ], [ %imports.sroa.6.04308, %invoke.cont306 ], [ %imports.sroa.6.04308, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit ], [ %imports.sroa.6.04308, %invoke.cont397 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i1002, %if.then.i.i1001 ], [ %imports.sroa.6.04308, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit986 ], [ %imports.sroa.6.04308, %invoke.cont481 ], [ %imports.sroa.6.04308, %invoke.cont772 ], [ %imports.sroa.6.04308, %invoke.cont806 ], [ %imports.sroa.6.04308, %invoke.cont850 ]
+  %imports.sroa.0.4.ph = phi ptr [ %imports.sroa.0.04309, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit2552 ], [ %imports.sroa.0.04309, %invoke.cont892 ], [ %imports.sroa.0.04309, %invoke.cont248 ], [ %imports.sroa.0.04309, %invoke.cont277 ], [ %imports.sroa.0.04309, %invoke.cont306 ], [ %imports.sroa.0.04309, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit ], [ %imports.sroa.0.04309, %invoke.cont397 ], [ %cond.i10.i.i.i, %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i ], [ %imports.sroa.0.04309, %if.then.i.i1001 ], [ %imports.sroa.0.04309, %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit986 ], [ %imports.sroa.0.04309, %invoke.cont481 ], [ %imports.sroa.0.04309, %invoke.cont772 ], [ %imports.sroa.0.04309, %invoke.cont806 ], [ %imports.sroa.0.04309, %invoke.cont850 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name1264.sink) #32
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %arraydestroy.body, %invoke.cont71.invoke, %sw.epilog.sink.split, %invoke.cont1040.invoke, %invoke.cont221.invoke, %invoke.cont44.invoke, %land.lhs.true, %invoke.cont1064, %invoke.cont1241, %invoke.cont1096, %invoke.cont969, %invoke.cont609
-  %imports.sroa.11.3 = phi ptr [ %imports.sroa.11.04307, %land.lhs.true ], [ %imports.sroa.11.04307, %invoke.cont1064 ], [ %imports.sroa.11.04307, %invoke.cont1096 ], [ %imports.sroa.11.04307, %invoke.cont1241 ], [ %imports.sroa.11.04307, %invoke.cont969 ], [ %imports.sroa.11.04307, %invoke.cont609 ], [ %imports.sroa.11.04307, %invoke.cont44.invoke ], [ %imports.sroa.11.04307, %invoke.cont71.invoke ], [ %imports.sroa.11.04307, %invoke.cont221.invoke ], [ %imports.sroa.11.04307, %invoke.cont1040.invoke ], [ %imports.sroa.11.3.ph, %sw.epilog.sink.split ], [ %imports.sroa.11.04307, %arraydestroy.body ]
-  %imports.sroa.6.3 = phi ptr [ %imports.sroa.6.04308, %land.lhs.true ], [ %imports.sroa.6.04308, %invoke.cont1064 ], [ %imports.sroa.6.04308, %invoke.cont1096 ], [ %imports.sroa.6.04308, %invoke.cont1241 ], [ %imports.sroa.6.04308, %invoke.cont969 ], [ %imports.sroa.6.04308, %invoke.cont609 ], [ %imports.sroa.6.04308, %invoke.cont44.invoke ], [ %imports.sroa.6.04308, %invoke.cont71.invoke ], [ %imports.sroa.6.04308, %invoke.cont221.invoke ], [ %imports.sroa.6.04308, %invoke.cont1040.invoke ], [ %imports.sroa.6.3.ph, %sw.epilog.sink.split ], [ %imports.sroa.6.04308, %arraydestroy.body ]
-  %imports.sroa.0.3 = phi ptr [ %imports.sroa.0.04309, %land.lhs.true ], [ %imports.sroa.0.04309, %invoke.cont1064 ], [ %imports.sroa.0.04309, %invoke.cont1096 ], [ %imports.sroa.0.04309, %invoke.cont1241 ], [ %imports.sroa.0.04309, %invoke.cont969 ], [ %imports.sroa.0.04309, %invoke.cont609 ], [ %imports.sroa.0.04309, %invoke.cont44.invoke ], [ %imports.sroa.0.04309, %invoke.cont71.invoke ], [ %imports.sroa.0.04309, %invoke.cont221.invoke ], [ %imports.sroa.0.04309, %invoke.cont1040.invoke ], [ %imports.sroa.0.3.ph, %sw.epilog.sink.split ], [ %imports.sroa.0.04309, %arraydestroy.body ]
+  %imports.sroa.11.1 = phi ptr [ %imports.sroa.11.04307, %land.lhs.true ], [ %imports.sroa.11.04307, %invoke.cont1064 ], [ %imports.sroa.11.04307, %invoke.cont1096 ], [ %imports.sroa.11.04307, %invoke.cont1241 ], [ %imports.sroa.11.04307, %invoke.cont969 ], [ %imports.sroa.11.04307, %invoke.cont609 ], [ %imports.sroa.11.04307, %invoke.cont44.invoke ], [ %imports.sroa.11.04307, %invoke.cont71.invoke ], [ %imports.sroa.11.04307, %invoke.cont221.invoke ], [ %imports.sroa.11.04307, %invoke.cont1040.invoke ], [ %imports.sroa.11.1.ph, %sw.epilog.sink.split ], [ %imports.sroa.11.04307, %arraydestroy.body ]
+  %imports.sroa.6.1 = phi ptr [ %imports.sroa.6.04308, %land.lhs.true ], [ %imports.sroa.6.04308, %invoke.cont1064 ], [ %imports.sroa.6.04308, %invoke.cont1096 ], [ %imports.sroa.6.04308, %invoke.cont1241 ], [ %imports.sroa.6.04308, %invoke.cont969 ], [ %imports.sroa.6.04308, %invoke.cont609 ], [ %imports.sroa.6.04308, %invoke.cont44.invoke ], [ %imports.sroa.6.04308, %invoke.cont71.invoke ], [ %imports.sroa.6.04308, %invoke.cont221.invoke ], [ %imports.sroa.6.04308, %invoke.cont1040.invoke ], [ %imports.sroa.6.1.ph, %sw.epilog.sink.split ], [ %imports.sroa.6.04308, %arraydestroy.body ]
+  %imports.sroa.0.4 = phi ptr [ %imports.sroa.0.04309, %land.lhs.true ], [ %imports.sroa.0.04309, %invoke.cont1064 ], [ %imports.sroa.0.04309, %invoke.cont1096 ], [ %imports.sroa.0.04309, %invoke.cont1241 ], [ %imports.sroa.0.04309, %invoke.cont969 ], [ %imports.sroa.0.04309, %invoke.cont609 ], [ %imports.sroa.0.04309, %invoke.cont44.invoke ], [ %imports.sroa.0.04309, %invoke.cont71.invoke ], [ %imports.sroa.0.04309, %invoke.cont221.invoke ], [ %imports.sroa.0.04309, %invoke.cont1040.invoke ], [ %imports.sroa.0.4.ph, %sw.epilog.sink.split ], [ %imports.sroa.0.04309, %arraydestroy.body ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
   store i32 0, ptr %__args.addr.i, align 4, !noalias !19
   %435 = load ptr, ptr %_M_manager3.i.i, align 8, !noalias !19
@@ -8870,7 +8870,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i2713: ; preds = %ehcleanup1384
   br label %ehcleanup1385
 
 ehcleanup1385:                                    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i2713, %ehcleanup1384, %lpad22
-  %imports.sroa.0.4 = phi ptr [ null, %lpad22 ], [ %imports.sroa.0.04044, %ehcleanup1384 ], [ %imports.sroa.0.04044, %_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i2713 ]
+  %imports.sroa.0.3 = phi ptr [ null, %lpad22 ], [ %imports.sroa.0.04044, %ehcleanup1384 ], [ %imports.sroa.0.04044, %_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i2713 ]
   %.pn49.pn = phi { ptr, i32 } [ %25, %lpad22 ], [ %.pn49, %ehcleanup1384 ], [ %.pn49, %_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i2713 ]
   %_M_manager.i.i2715 = getelementptr inbounds i8, ptr %nextToken, i64 16
   %451 = load ptr, ptr %_M_manager.i.i2715, align 8
@@ -8899,11 +8899,11 @@ _ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i2725: ; preds = %_ZNSt8function
 
 ehcleanup1388:                                    ; preds = %_ZNSt8functionIFN4pstd8optionalIN4pbrt5TokenEEEiEED2Ev.exit2721, %_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i2725
   call void @_ZNSt6vectorISt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %fileStack) #32
-  %tobool.not.i.i.i2728 = icmp eq ptr %imports.sroa.0.4, null
+  %tobool.not.i.i.i2728 = icmp eq ptr %imports.sroa.0.3, null
   br i1 %tobool.not.i.i.i2728, label %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EED2Ev.exit2730, label %if.then.i.i.i2729
 
 if.then.i.i.i2729:                                ; preds = %ehcleanup1388
-  call void @_ZdlPv(ptr noundef nonnull %imports.sroa.0.4) #35
+  call void @_ZdlPv(ptr noundef nonnull %imports.sroa.0.3) #35
   br label %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EED2Ev.exit2730
 
 _ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EED2Ev.exit2730: ; preds = %ehcleanup1388.thread2813, %ehcleanup1388.thread, %ehcleanup1388, %if.then.i.i.i2729
@@ -9373,7 +9373,7 @@ if.then27:                                        ; preds = %init.end
           to label %invoke.cont41 unwind label %lpad32
 
 lpad32:                                           ; preds = %if.then27, %if.then60, %if.else
-  %allocBuf.sroa.0.0 = phi ptr [ %allocBuf.sroa.0.15068, %if.then60 ], [ %allocBuf.sroa.0.14980, %if.else ], [ null, %if.then27 ]
+  %allocBuf.sroa.0.2 = phi ptr [ %allocBuf.sroa.0.15068, %if.then60 ], [ %allocBuf.sroa.0.14980, %if.else ], [ null, %if.then27 ]
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -9485,13 +9485,13 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %return
 
 ehcleanup:                                        ; preds = %lpad66, %lpad32
-  %allocBuf.sroa.0.2 = phi ptr [ %allocBuf.sroa.0.15068, %lpad66 ], [ %allocBuf.sroa.0.0, %lpad32 ]
+  %allocBuf.sroa.0.0 = phi ptr [ %allocBuf.sroa.0.15068, %lpad66 ], [ %allocBuf.sroa.0.2, %lpad32 ]
   %.pn = phi { ptr, i32 } [ %21, %lpad66 ], [ %13, %lpad32 ]
-  %cmp.not.i31 = icmp eq ptr %allocBuf.sroa.0.2, null
+  %cmp.not.i31 = icmp eq ptr %allocBuf.sroa.0.0, null
   br i1 %cmp.not.i31, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit33, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i32
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i32: ; preds = %ehcleanup
-  call void @_ZdaPv(ptr noundef nonnull %allocBuf.sroa.0.2) #35
+  call void @_ZdaPv(ptr noundef nonnull %allocBuf.sroa.0.0) #35
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit33
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit33: ; preds = %ehcleanup.thread, %ehcleanup, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i32
@@ -22053,7 +22053,7 @@ lpad35:                                           ; preds = %invoke.cont34
 
 cleanup:                                          ; preds = %invoke.cont9, %invoke.cont17, %invoke.cont36
   %16 = phi i8 [ %.pre, %invoke.cont36 ], [ %6, %invoke.cont17 ], [ %6, %invoke.cont9 ]
-  %retval.0 = phi i1 [ true, %invoke.cont36 ], [ false, %invoke.cont17 ], [ false, %invoke.cont9 ]
+  %retval.1 = phi i1 [ true, %invoke.cont36 ], [ false, %invoke.cont17 ], [ false, %invoke.cont9 ]
   %tobool.i.i60 = trunc i8 %16 to i1
   br i1 %tobool.i.i60, label %_ZN4pstd8optionalIN4pbrt3RGBEE5valueEv.exit.i.i, label %cleanup40thread-pre-split
 
@@ -22078,7 +22078,7 @@ cleanup40thread-pre-split:                        ; preds = %cleanup, %_ZN4pstd8
 
 cleanup40:                                        ; preds = %cleanup40thread-pre-split, %invoke.cont3
   %18 = phi ptr [ %.pr, %cleanup40thread-pre-split ], [ %1, %invoke.cont3 ]
-  %retval.1 = phi i1 [ %retval.0, %cleanup40thread-pre-split ], [ true, %invoke.cont3 ]
+  %retval.0 = phi i1 [ %retval.1, %cleanup40thread-pre-split ], [ true, %invoke.cont3 ]
   %tobool.not.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4pbrt8SpectrumESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -22087,7 +22087,7 @@ if.then.i.i.i:                                    ; preds = %cleanup40
   br label %_ZNSt6vectorIN4pbrt8SpectrumESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt8SpectrumESaIS1_EED2Ev.exit:   ; preds = %cleanup40, %if.then.i.i.i
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup41:                                      ; preds = %_ZN4pstd8optionalIN4pbrt3RGBEE5valueEv.exit.i.i65, %ehcleanup39, %ehcleanup11
   %.pn8.pn.pn = phi { ptr, i32 } [ %.pn6, %ehcleanup11 ], [ %.pn8, %ehcleanup39 ], [ %.pn8, %_ZN4pstd8optionalIN4pbrt3RGBEE5valueEv.exit.i.i65 ]

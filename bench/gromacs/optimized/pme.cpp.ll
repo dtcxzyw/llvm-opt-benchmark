@@ -8219,12 +8219,12 @@ _ZNSt6vectorIfSaIfEE6assignIN3gmx12ArrayRefIterIKfEEvEEvT_S7_.exit.invoke: ; pre
   %538 = load ptr, ptr %497, align 8
   %.399 = select i1 %switch188, ptr %9, ptr %10
   %.400 = select i1 %switch188, ptr %7, ptr %8
-  %.sroa.0342.1 = load ptr, ptr %.400, align 8
-  %.sroa.4344.1.in = getelementptr inbounds i8, ptr %.400, i64 8
-  %.sroa.4344.1 = load ptr, ptr %.sroa.4344.1.in, align 8
-  %.sroa.0337.1 = load ptr, ptr %.399, align 8
-  %.sroa.4339.1.in = getelementptr inbounds i8, ptr %.399, i64 8
-  %.sroa.4339.1 = load ptr, ptr %.sroa.4339.1.in, align 8
+  %.sroa.0342.2 = load ptr, ptr %.400, align 8
+  %.sroa.4344.2.in = getelementptr inbounds i8, ptr %.400, i64 8
+  %.sroa.4344.2 = load ptr, ptr %.sroa.4344.2.in, align 8
+  %.sroa.0337.2 = load ptr, ptr %.399, align 8
+  %.sroa.4339.2.in = getelementptr inbounds i8, ptr %.399, i64 8
+  %.sroa.4339.2 = load ptr, ptr %.sroa.4339.2.in, align 8
   %539 = load ptr, ptr %32, align 8
   %540 = icmp eq ptr %539, null
   br i1 %540, label %576, label %541
@@ -8281,11 +8281,11 @@ _ZNSt6vectorIfSaIfEE6assignIN3gmx12ArrayRefIterIKfEEvEEvT_S7_.exit.invoke: ; pre
 576:                                              ; preds = %560, %555, %.noexc, %536
   %577 = load ptr, ptr %30, align 8
   %578 = trunc i8 %.1174439 to i1
-  store ptr %.sroa.0342.1, ptr %43, align 8
-  %579 = ptrtoint ptr %.sroa.4344.1 to i64
-  %580 = ptrtoint ptr %.sroa.0342.1 to i64
+  store ptr %.sroa.0342.2, ptr %43, align 8
+  %579 = ptrtoint ptr %.sroa.4344.2 to i64
+  %580 = ptrtoint ptr %.sroa.0342.2 to i64
   %581 = sub i64 %579, %580
-  %582 = getelementptr inbounds i8, ptr %.sroa.0342.1, i64 %581
+  %582 = getelementptr inbounds i8, ptr %.sroa.0342.2, i64 %581
   store ptr %582, ptr %502, align 8
   invoke void @_Z20do_redist_pos_coeffsP9gmx_pme_tPK9t_commrecbN3gmx8ArrayRefIKNS4_11BasicVectorIfEEEENS5_IKfEE(ptr noundef %577, ptr noundef %12, i1 noundef zeroext %578, ptr %1, ptr %501, ptr noundef nonnull byval(%"class.gmx::ArrayRef.149") align 8 %43)
           to label %583 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -8435,11 +8435,11 @@ _ZNSt6vectorIfSaIfEE6assignIN9__gnu_cxx17__normal_iteratorIPfS_IfN3gmx30DefaultI
 
 ._crit_edge423:                                   ; preds = %.lr.ph422, %_ZNSt6vectorIfSaIfEE6assignIN9__gnu_cxx17__normal_iteratorIPfS_IfN3gmx30DefaultInitializationAllocatorIfS0_EEEEEvEEvT_SB_.exit
   %641 = load ptr, ptr %30, align 8
-  store ptr %.sroa.0337.1, ptr %44, align 8
-  %642 = ptrtoint ptr %.sroa.4339.1 to i64
-  %643 = ptrtoint ptr %.sroa.0337.1 to i64
+  store ptr %.sroa.0337.2, ptr %44, align 8
+  %642 = ptrtoint ptr %.sroa.4339.2 to i64
+  %643 = ptrtoint ptr %.sroa.0337.2 to i64
   %644 = sub i64 %642, %643
-  %645 = getelementptr inbounds i8, ptr %.sroa.0337.1, i64 %644
+  %645 = getelementptr inbounds i8, ptr %.sroa.0337.2, i64 %644
   store ptr %645, ptr %507, align 8
   invoke void @_Z20do_redist_pos_coeffsP9gmx_pme_tPK9t_commrecbN3gmx8ArrayRefIKNS4_11BasicVectorIfEEEENS5_IKfEE(ptr noundef %641, ptr noundef %12, i1 noundef zeroext false, ptr %1, ptr %501, ptr noundef nonnull byval(%"class.gmx::ArrayRef.149") align 8 %44)
           to label %646 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit

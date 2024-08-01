@@ -542,9 +542,9 @@ if.then12.i:                                      ; preds = %if.end10.i
   br label %ts_compute_imprint.exit.thread
 
 if.end14.i:                                       ; preds = %if.end10.i, %if.end.i
-  %md.03.i = phi ptr [ %call9.i, %if.end10.i ], [ %call5.i, %if.end.i ]
+  %md.13.i = phi ptr [ %call9.i, %if.end10.i ], [ %call5.i, %if.end.i ]
   %call15.i = call i32 @ERR_pop_to_mark() #7
-  %call16.i = call i32 @EVP_MD_get_size(ptr noundef nonnull %md.03.i) #7
+  %call16.i = call i32 @EVP_MD_get_size(ptr noundef nonnull %md.13.i) #7
   %cmp17.i = icmp slt i32 %call16.i, 0
   br i1 %cmp17.i, label %ts_compute_imprint.exit.thread, label %if.end19.i
 
@@ -566,12 +566,12 @@ if.then28.i:                                      ; preds = %if.end24.i
   br label %ts_compute_imprint.exit.thread
 
 if.end29.i:                                       ; preds = %if.end24.i
-  %call30.i = call i32 @EVP_DigestInit(ptr noundef nonnull %call25.i, ptr noundef nonnull %md.03.i) #7
+  %call30.i = call i32 @EVP_DigestInit(ptr noundef nonnull %call25.i, ptr noundef nonnull %md.13.i) #7
   %tobool.not.i = icmp eq i32 %call30.i, 0
   br i1 %tobool.not.i, label %ts_compute_imprint.exit.thread, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end29.i
-  call void @EVP_MD_free(ptr noundef nonnull %md.03.i) #7
+  call void @EVP_MD_free(ptr noundef nonnull %md.13.i) #7
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.end32.i
@@ -591,13 +591,13 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %tobool44.not.i, label %ts_compute_imprint.exit.thread, label %lor.lhs.false39
 
 ts_compute_imprint.exit.thread:                   ; preds = %while.body.i, %land.lhs.true36, %if.then12.i, %if.end14.i, %if.end19.i, %if.then28.i, %if.end29.i, %while.end.i
-  %imprint.0 = phi ptr [ null, %land.lhs.true36 ], [ null, %if.then12.i ], [ null, %if.end14.i ], [ null, %if.end19.i ], [ %call20.i, %if.then28.i ], [ %call20.i, %if.end29.i ], [ %call20.i, %while.end.i ], [ %call20.i, %while.body.i ]
-  %md.1.i = phi ptr [ null, %land.lhs.true36 ], [ null, %if.then12.i ], [ %md.03.i, %if.end14.i ], [ %md.03.i, %if.end19.i ], [ %md.03.i, %if.then28.i ], [ %md.03.i, %if.end29.i ], [ null, %while.end.i ], [ null, %while.body.i ]
+  %imprint.2 = phi ptr [ null, %land.lhs.true36 ], [ null, %if.then12.i ], [ null, %if.end14.i ], [ null, %if.end19.i ], [ %call20.i, %if.then28.i ], [ %call20.i, %if.end29.i ], [ %call20.i, %while.end.i ], [ %call20.i, %while.body.i ]
+  %md.0.i = phi ptr [ null, %land.lhs.true36 ], [ null, %if.then12.i ], [ %md.13.i, %if.end14.i ], [ %md.13.i, %if.end19.i ], [ %md.13.i, %if.then28.i ], [ %md.13.i, %if.end29.i ], [ null, %while.end.i ], [ null, %while.body.i ]
   %md_ctx.0.i = phi ptr [ null, %land.lhs.true36 ], [ null, %if.then12.i ], [ null, %if.end14.i ], [ null, %if.end19.i ], [ null, %if.then28.i ], [ %call25.i, %if.end29.i ], [ %call25.i, %while.end.i ], [ %call25.i, %while.body.i ]
   call void @EVP_MD_CTX_free(ptr noundef %md_ctx.0.i) #7
-  call void @EVP_MD_free(ptr noundef %md.1.i) #7
+  call void @EVP_MD_free(ptr noundef %md.0.i) #7
   call void @X509_ALGOR_free(ptr noundef %call.i34) #7
-  call void @CRYPTO_free(ptr noundef %imprint.0, ptr noundef nonnull @.str, i32 noundef 480) #7
+  call void @CRYPTO_free(ptr noundef %imprint.2, ptr noundef nonnull @.str, i32 noundef 480) #7
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %name.i)
   br label %err
@@ -613,7 +613,7 @@ lor.lhs.false39:                                  ; preds = %while.end.i
 
 if.end43:                                         ; preds = %lor.lhs.false39, %if.end33
   %md_alg.1 = phi ptr [ null, %if.end33 ], [ %call.i34, %lor.lhs.false39 ]
-  %imprint.2 = phi ptr [ null, %if.end33 ], [ %call20.i, %lor.lhs.false39 ]
+  %imprint.1 = phi ptr [ null, %if.end33 ], [ %call20.i, %lor.lhs.false39 ]
   %and44 = and i32 %1, 32
   %tobool45.not = icmp eq i32 %and44, 0
   br i1 %tobool45.not, label %if.end50, label %land.lhs.true46
@@ -673,13 +673,13 @@ if.then66:                                        ; preds = %land.lhs.true62
   br label %err
 
 err:                                              ; preds = %ts_check_nonces.exit.thread, %ts_compute_imprint.exit.thread, %ts_check_policy.exit.thread, %if.end59, %land.lhs.true62, %lor.lhs.false39, %land.lhs.true26, %land.lhs.true6, %if.then66, %if.then58, %if.then15
-  %md_alg.2 = phi ptr [ %md_alg.1, %if.then58 ], [ %md_alg.1, %if.end59 ], [ %md_alg.1, %if.then66 ], [ %md_alg.1, %land.lhs.true62 ], [ %call.i34, %lor.lhs.false39 ], [ null, %land.lhs.true26 ], [ null, %if.then15 ], [ null, %land.lhs.true6 ], [ null, %ts_check_policy.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %md_alg.1, %ts_check_nonces.exit.thread ]
-  %imprint.3 = phi ptr [ %imprint.2, %if.then58 ], [ %imprint.2, %if.end59 ], [ %imprint.2, %if.then66 ], [ %imprint.2, %land.lhs.true62 ], [ %call20.i, %lor.lhs.false39 ], [ null, %land.lhs.true26 ], [ null, %if.then15 ], [ null, %land.lhs.true6 ], [ null, %ts_check_policy.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %imprint.2, %ts_check_nonces.exit.thread ]
+  %md_alg.0 = phi ptr [ %md_alg.1, %if.then58 ], [ %md_alg.1, %if.end59 ], [ %md_alg.1, %if.then66 ], [ %md_alg.1, %land.lhs.true62 ], [ %call.i34, %lor.lhs.false39 ], [ null, %land.lhs.true26 ], [ null, %if.then15 ], [ null, %land.lhs.true6 ], [ null, %ts_check_policy.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %md_alg.1, %ts_check_nonces.exit.thread ]
+  %imprint.0 = phi ptr [ %imprint.1, %if.then58 ], [ %imprint.1, %if.end59 ], [ %imprint.1, %if.then66 ], [ %imprint.1, %land.lhs.true62 ], [ %call20.i, %lor.lhs.false39 ], [ null, %land.lhs.true26 ], [ null, %if.then15 ], [ null, %land.lhs.true6 ], [ null, %ts_check_policy.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %imprint.1, %ts_check_nonces.exit.thread ]
   %ret.0 = phi i32 [ 0, %if.then58 ], [ 1, %if.end59 ], [ 0, %if.then66 ], [ 1, %land.lhs.true62 ], [ 0, %lor.lhs.false39 ], [ 0, %land.lhs.true26 ], [ 0, %if.then15 ], [ 0, %land.lhs.true6 ], [ 0, %ts_check_policy.exit.thread ], [ 0, %ts_compute_imprint.exit.thread ], [ 0, %ts_check_nonces.exit.thread ]
   %19 = load ptr, ptr %signer, align 8
   call void @X509_free(ptr noundef %19) #7
-  call void @X509_ALGOR_free(ptr noundef %md_alg.2) #7
-  call void @CRYPTO_free(ptr noundef %imprint.3, ptr noundef nonnull @.str, i32 noundef 347) #7
+  call void @X509_ALGOR_free(ptr noundef %md_alg.0) #7
+  call void @CRYPTO_free(ptr noundef %imprint.0, ptr noundef nonnull @.str, i32 noundef 347) #7
   ret i32 %ret.0
 }
 

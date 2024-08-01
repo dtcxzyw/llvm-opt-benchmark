@@ -1538,7 +1538,7 @@ if.else89:                                        ; preds = %if.end61
   br i1 %cmp91, label %err, label %if.end94
 
 if.end94:                                         ; preds = %if.else89, %if.then77, %if.else83
-  %maskHash.0 = phi ptr [ %call75, %if.then77 ], [ null, %if.else83 ], [ null, %if.else89 ]
+  %maskHash.1 = phi ptr [ %call75, %if.then77 ], [ null, %if.else83 ], [ null, %if.else89 ]
   %call95 = tail call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.25) #6
   %call96 = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %spec.select, i32 noundef 128) #6
   %tobool97.not = icmp eq i32 %call96, 0
@@ -1599,8 +1599,8 @@ if.end139:                                        ; preds = %if.else134, %if.the
 
 err:                                              ; preds = %if.else134, %if.then128, %if.end122, %if.end117, %if.else112, %if.then106, %if.end99, %if.end94, %if.else89, %if.else83, %if.then77, %if.end69, %if.then63, %if.end57, %if.end53, %if.end49, %if.else44, %if.then38, %if.end32, %if.end25, %if.end21, %entry, %if.end139
   %rv.0 = phi i32 [ 0, %if.end21 ], [ 0, %if.end32 ], [ 0, %if.then38 ], [ 0, %if.end49 ], [ 0, %if.end57 ], [ 0, %if.then63 ], [ 0, %if.end69 ], [ 0, %if.then77 ], [ 0, %if.end99 ], [ 0, %if.then106 ], [ 0, %if.end122 ], [ 0, %if.then128 ], [ 1, %if.end139 ], [ 0, %if.else134 ], [ 0, %if.end117 ], [ 0, %if.else112 ], [ 0, %if.end94 ], [ 0, %if.else83 ], [ 0, %if.else89 ], [ 0, %if.end53 ], [ 0, %if.else44 ], [ 0, %if.end25 ], [ 0, %entry ]
-  %maskHash.1 = phi ptr [ null, %if.end21 ], [ null, %if.end32 ], [ null, %if.then38 ], [ null, %if.end49 ], [ null, %if.end57 ], [ null, %if.then63 ], [ null, %if.end69 ], [ %call75, %if.then77 ], [ %maskHash.0, %if.end99 ], [ %maskHash.0, %if.then106 ], [ %maskHash.0, %if.end122 ], [ %maskHash.0, %if.then128 ], [ %maskHash.0, %if.end139 ], [ %maskHash.0, %if.else134 ], [ %maskHash.0, %if.end117 ], [ %maskHash.0, %if.else112 ], [ %maskHash.0, %if.end94 ], [ null, %if.else83 ], [ null, %if.else89 ], [ null, %if.end53 ], [ null, %if.else44 ], [ null, %if.end25 ], [ null, %entry ]
-  tail call void @X509_ALGOR_free(ptr noundef %maskHash.1) #6
+  %maskHash.0 = phi ptr [ null, %if.end21 ], [ null, %if.end32 ], [ null, %if.then38 ], [ null, %if.end49 ], [ null, %if.end57 ], [ null, %if.then63 ], [ null, %if.end69 ], [ %call75, %if.then77 ], [ %maskHash.1, %if.end99 ], [ %maskHash.1, %if.then106 ], [ %maskHash.1, %if.end122 ], [ %maskHash.1, %if.then128 ], [ %maskHash.1, %if.end139 ], [ %maskHash.1, %if.else134 ], [ %maskHash.1, %if.end117 ], [ %maskHash.1, %if.else112 ], [ %maskHash.1, %if.end94 ], [ null, %if.else83 ], [ null, %if.else89 ], [ null, %if.end53 ], [ null, %if.else44 ], [ null, %if.end25 ], [ null, %entry ]
+  tail call void @X509_ALGOR_free(ptr noundef %maskHash.0) #6
   br label %return
 
 return:                                           ; preds = %if.then15, %if.else, %if.then3, %err

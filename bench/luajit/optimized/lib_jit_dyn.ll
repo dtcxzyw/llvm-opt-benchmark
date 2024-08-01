@@ -198,7 +198,7 @@ if.end20.fold.split.i:                            ; preds = %if.else.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end20.fold.split.i, %if.else.i, %if.else.i
-  %idx.0.i = phi i32 [ 1, %if.else.i ], [ 1, %if.else.i ], [ 0, %if.end20.fold.split.i ]
+  %idx.1.i = phi i32 [ 1, %if.else.i ], [ 1, %if.else.i ], [ 0, %if.end20.fold.split.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %cmp23.i = icmp ult ptr %add.ptr.i, %1
   br i1 %cmp23.i, label %land.lhs.true.i, label %if.end47.i
@@ -218,8 +218,8 @@ if.then38.i:                                      ; preds = %land.lhs.true.i
 
 if.end47.i:                                       ; preds = %if.end20.i, %land.lhs.true.i, %if.then38.i, %lor.lhs.false.i, %entry
   %mode.addr.0.i = phi i32 [ %or43.i, %if.then38.i ], [ 256, %lor.lhs.false.i ], [ 256, %entry ], [ 258, %land.lhs.true.i ], [ 258, %if.end20.i ]
-  %idx.1.i = phi i32 [ %idx.0.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ %idx.0.i, %land.lhs.true.i ], [ %idx.0.i, %if.end20.i ]
-  %call.i = tail call i32 @luaJIT_setmode(ptr noundef nonnull %L, i32 noundef %idx.1.i, i32 noundef %mode.addr.0.i) #8
+  %idx.0.i = phi i32 [ %idx.1.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ %idx.1.i, %land.lhs.true.i ], [ %idx.1.i, %if.end20.i ]
+  %call.i = tail call i32 @luaJIT_setmode(ptr noundef nonnull %L, i32 noundef %idx.0.i, i32 noundef %mode.addr.0.i) #8
   %cmp48.not.i = icmp eq i32 %call.i, 1
   br i1 %cmp48.not.i, label %setjitmode.exit, label %if.then50.i
 
@@ -267,7 +267,7 @@ if.end20.fold.split.i:                            ; preds = %if.else.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end20.fold.split.i, %if.else.i, %if.else.i
-  %idx.0.i = phi i32 [ 1, %if.else.i ], [ 1, %if.else.i ], [ 0, %if.end20.fold.split.i ]
+  %idx.1.i = phi i32 [ 1, %if.else.i ], [ 1, %if.else.i ], [ 0, %if.end20.fold.split.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %cmp23.i = icmp ult ptr %add.ptr.i, %1
   br i1 %cmp23.i, label %land.lhs.true.i, label %if.end47.i
@@ -287,8 +287,8 @@ if.then38.i:                                      ; preds = %land.lhs.true.i
 
 if.end47.i:                                       ; preds = %if.end20.i, %land.lhs.true.i, %if.then38.i, %lor.lhs.false.i, %entry
   %mode.addr.0.i = phi i32 [ %cond.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 2, %land.lhs.true.i ], [ 2, %if.end20.i ]
-  %idx.1.i = phi i32 [ %idx.0.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ %idx.0.i, %land.lhs.true.i ], [ %idx.0.i, %if.end20.i ]
-  %call.i = tail call i32 @luaJIT_setmode(ptr noundef nonnull %L, i32 noundef %idx.1.i, i32 noundef %mode.addr.0.i) #8
+  %idx.0.i = phi i32 [ %idx.1.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ %idx.1.i, %land.lhs.true.i ], [ %idx.1.i, %if.end20.i ]
+  %call.i = tail call i32 @luaJIT_setmode(ptr noundef nonnull %L, i32 noundef %idx.0.i, i32 noundef %mode.addr.0.i) #8
   %cmp48.not.i = icmp eq i32 %call.i, 1
   br i1 %cmp48.not.i, label %setjitmode.exit, label %if.then50.i
 
@@ -349,7 +349,7 @@ if.end20.fold.split.i:                            ; preds = %if.else.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end20.fold.split.i, %if.else.i, %if.else.i
-  %idx.0.i = phi i32 [ 1, %if.else.i ], [ 1, %if.else.i ], [ 0, %if.end20.fold.split.i ]
+  %idx.1.i = phi i32 [ 1, %if.else.i ], [ 1, %if.else.i ], [ 0, %if.end20.fold.split.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %cmp23.i = icmp ult ptr %add.ptr.i, %1
   br i1 %cmp23.i, label %land.lhs.true.i, label %if.end47.i
@@ -369,8 +369,8 @@ if.then38.i:                                      ; preds = %land.lhs.true.i
 
 if.end47.i:                                       ; preds = %if.end20.i, %land.lhs.true.i, %if.then38.i, %lor.lhs.false.i, %if.end
   %mode.addr.0.i = phi i32 [ %or43.i, %if.then38.i ], [ 512, %lor.lhs.false.i ], [ 512, %if.end ], [ 514, %land.lhs.true.i ], [ 514, %if.end20.i ]
-  %idx.1.i = phi i32 [ %idx.0.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end ], [ %idx.0.i, %land.lhs.true.i ], [ %idx.0.i, %if.end20.i ]
-  %call.i = tail call i32 @luaJIT_setmode(ptr noundef nonnull %L, i32 noundef %idx.1.i, i32 noundef %mode.addr.0.i) #8
+  %idx.0.i = phi i32 [ %idx.1.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end ], [ %idx.1.i, %land.lhs.true.i ], [ %idx.1.i, %if.end20.i ]
+  %call.i = tail call i32 @luaJIT_setmode(ptr noundef nonnull %L, i32 noundef %idx.0.i, i32 noundef %mode.addr.0.i) #8
   %cmp48.not.i = icmp eq i32 %call.i, 1
   br i1 %cmp48.not.i, label %return, label %if.then50.i
 

@@ -137,7 +137,7 @@ define range(i32 -1, 1) i32 @H5HF_size(ptr nocapture noundef readonly %0, ptr no
   br label %62
 
 47:                                               ; preds = %41, %29
-  %.030 = phi ptr [ %35, %41 ], [ null, %29 ]
+  %.131 = phi ptr [ %35, %41 ], [ null, %29 ]
   %48 = getelementptr inbounds i8, ptr %4, i64 384
   %49 = load i64, ptr %48, align 8
   %.not39 = icmp eq i64 %49, -1
@@ -163,13 +163,13 @@ define range(i32 -1, 1) i32 @H5HF_size(ptr nocapture noundef readonly %0, ptr no
 
 61:                                               ; preds = %47, %57, %53
   %.0 = phi i32 [ -1, %53 ], [ 0, %57 ], [ 0, %47 ]
-  %.not40 = icmp eq ptr %.030, null
+  %.not40 = icmp eq ptr %.131, null
   br i1 %.not40, label %.thread, label %62
 
 62:                                               ; preds = %.thread44, %61
   %.049 = phi i32 [ -1, %.thread44 ], [ %.0, %61 ]
-  %.13148 = phi ptr [ %35, %.thread44 ], [ %.030, %61 ]
-  %63 = call i32 @H5B2_close(ptr noundef nonnull %.13148) #3
+  %.03048 = phi ptr [ %35, %.thread44 ], [ %.131, %61 ]
+  %63 = call i32 @H5B2_close(ptr noundef nonnull %.03048) #3
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %.thread
 

@@ -11389,8 +11389,8 @@ for.body.i41.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i41.i.i.i.
 
 invoke.cont53.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont9.i.i.i.i.i.i.i.i.i, %invoke.cont98.i.i.i.i.i.i.i.i.i
   %tMin39.0.i.i.i.i.i.i.i.i.i = phi float [ %add.i.i.i.i.i52.i.i.i.i, %invoke.cont98.i.i.i.i.i.i.i.i.i ], [ %seg.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %invoke.cont9.i.i.i.i.i.i.i.i.i ]
-  %u.addr.1.i.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, %invoke.cont98.i.i.i.i.i.i.i.i.i ], [ %u.addr.0297.i20.i.i.i.i.i.i.i.i, %invoke.cont9.i.i.i.i.i.i.i.i.i ]
-  %sub.i.i.i.i.i.i.i.i.i.i = fsub float 1.000000e+00, %u.addr.1.i.i.i.i.i.i.i.i.i
+  %u.addr.2.i.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, %invoke.cont98.i.i.i.i.i.i.i.i.i ], [ %u.addr.0297.i20.i.i.i.i.i.i.i.i, %invoke.cont9.i.i.i.i.i.i.i.i.i ]
+  %sub.i.i.i.i.i.i.i.i.i.i = fsub float 1.000000e+00, %u.addr.2.i.i.i.i.i.i.i.i.i
   %call.i.i.i.i.i.i.i.i.i.i.i = call noundef float @logf(float noundef %sub.i.i.i.i.i.i.i.i.i.i) #25
   %122 = fdiv float %call.i.i.i.i.i.i.i.i.i.i.i, %seg.sroa.7.8.vec.extract.i.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i52.i.i.i.i = fsub float %tMin39.0.i.i.i.i.i.i.i.i.i, %122
@@ -11713,8 +11713,8 @@ for.body.i.i.i.i54.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i54.
   br i1 %exitcond.not.i.i.i.i58.i.i.i.i.i.i.i, label %while.cond.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i54.i.i.i.i.i.i.i, !llvm.loop !103
 
 while.cond.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i54.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i.i.i.i.i
-  %done.0.i.i.i.i.i.i.i.i.i = phi i1 [ %done.2.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i54.i.i.i.i.i.i.i ]
-  %u.addr.0.i.i.i.i.i.i.i.i.i = phi float [ %u.addr.2.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %for.body.i.i.i.i54.i.i.i.i.i.i.i ]
+  %done.0.i.i.i.i.i.i.i.i.i = phi i1 [ %done.1.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i54.i.i.i.i.i.i.i ]
+  %u.addr.0.i.i.i.i.i.i.i.i.i = phi float [ %u.addr.1.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %for.body.i.i.i.i54.i.i.i.i.i.i.i ]
   br i1 %done.0.i.i.i.i.i.i.i.i.i, label %while.end125.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.cond.i.i.i.i.i.i.i.i.i
@@ -11834,10 +11834,10 @@ land.rhs.i.i52.invoke.i.i.i.i.i.i.invoke.i.i.i:   ; preds = %if.end54.i.i.i.i, %
   unreachable
 
 invoke.cont48.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont97.i.i.i.i.i.i.i.i.i, %invoke.cont48.preheader.i.i.i.i.i.i.i.i.i
-  %u.addr.1243.i.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i81.i.i.i.i.i.i.i, %invoke.cont97.i.i.i.i.i.i.i.i.i ], [ %u.addr.0.i.i.i.i.i.i.i.i.i, %invoke.cont48.preheader.i.i.i.i.i.i.i.i.i ]
+  %u.addr.2243.i.i.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i81.i.i.i.i.i.i.i, %invoke.cont97.i.i.i.i.i.i.i.i.i ], [ %u.addr.0.i.i.i.i.i.i.i.i.i, %invoke.cont48.preheader.i.i.i.i.i.i.i.i.i ]
   %tMin38.0242.i.i.i.i.i.i.i.i.i = phi float [ %add.i.i75.i.i.i.i.i.i.i, %invoke.cont97.i.i.i.i.i.i.i.i.i ], [ %176, %invoke.cont48.preheader.i.i.i.i.i.i.i.i.i ]
   %177 = load float, ptr %sigma_maj.i.i.i.i.i.i.i.i.i, align 4
-  %sub.i.i.i73.i.i.i.i.i.i.i = fsub float 1.000000e+00, %u.addr.1243.i.i.i.i.i.i.i.i.i
+  %sub.i.i.i73.i.i.i.i.i.i.i = fsub float 1.000000e+00, %u.addr.2243.i.i.i.i.i.i.i.i.i
   %call.i.i.i.i74.i.i.i.i.i.i.i = call noundef float @logf(float noundef %sub.i.i.i73.i.i.i.i.i.i.i) #25
   %178 = fdiv float %call.i.i.i.i74.i.i.i.i.i.i.i, %177
   %add.i.i75.i.i.i.i.i.i.i = fsub float %tMin38.0242.i.i.i.i.i.i.i.i.i, %178
@@ -12087,8 +12087,8 @@ cleanup.loopexit245.i.i.i.i.i.i.i.i.i:            ; preds = %invoke.cont88.i.i.i
 
 cleanup.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i201.i.i.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i.i.i.i.i.i.i.i, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %214 = phi i8 [ %160, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i.i.i.i.i.i ], [ %160, %if.then.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i.i.i.i.i.i.i.i ], [ %183, %for.body.i201.i.i.i.i.i.i.i.i.i ]
-  %done.2.i.i.i.i.i.i.i.i.i = phi i1 [ false, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i.i.i.i.i.i.i ], [ true, %cleanup.loopexit245.i.i.i.i.i.i.i.i.i ], [ false, %for.body.i201.i.i.i.i.i.i.i.i.i ]
-  %u.addr.2.i.i.i.i.i.i.i.i.i = phi float [ %u.addr.0.i.i.i.i.i.i.i.i.i, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i.i.i.i.i.i ], [ %u.addr.0.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i81.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i81.i.i.i.i.i.i.i, %for.body.i201.i.i.i.i.i.i.i.i.i ]
+  %done.1.i.i.i.i.i.i.i.i.i = phi i1 [ false, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i.i.i.i.i.i.i ], [ true, %cleanup.loopexit245.i.i.i.i.i.i.i.i.i ], [ false, %for.body.i201.i.i.i.i.i.i.i.i.i ]
+  %u.addr.1.i.i.i.i.i.i.i.i.i = phi float [ %u.addr.0.i.i.i.i.i.i.i.i.i, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i.i.i.i.i.i.i.i ], [ %u.addr.0.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i81.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i81.i.i.i.i.i.i.i, %for.body.i201.i.i.i.i.i.i.i.i.i ]
   %tobool.i.i210.i.i.i.i.i.i.i.i.i = trunc i8 %214 to i1
   br i1 %tobool.i.i210.i.i.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i.i.i.i.i
 
@@ -12183,8 +12183,8 @@ for.body.i.i.i.i171.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i171
   br i1 %exitcond.not.i.i.i.i175.i.i.i.i.i.i.i, label %while.cond.i.i193.i.i.i.i.i.i.i, label %for.body.i.i.i.i171.i.i.i.i.i.i.i, !llvm.loop !103
 
 while.cond.i.i193.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i171.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i203.i.i.i.i.i.i.i
-  %done.0.i.i194.i.i.i.i.i.i.i = phi i1 [ %done.2.i.i200.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i203.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i171.i.i.i.i.i.i.i ]
-  %u.addr.0.i.i195.i.i.i.i.i.i.i = phi float [ %u.addr.2.i.i201.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i203.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %for.body.i.i.i.i171.i.i.i.i.i.i.i ]
+  %done.0.i.i194.i.i.i.i.i.i.i = phi i1 [ %done.1.i.i200.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i203.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i171.i.i.i.i.i.i.i ]
+  %u.addr.0.i.i195.i.i.i.i.i.i.i = phi float [ %u.addr.1.i.i201.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i203.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %for.body.i.i.i.i171.i.i.i.i.i.i.i ]
   br i1 %done.0.i.i194.i.i.i.i.i.i.i, label %while.end125.i.i395.i.i.i.i.i.i.i, label %while.body.i.i196.i.i.i.i.i.i.i
 
 while.body.i.i196.i.i.i.i.i.i.i:                  ; preds = %while.cond.i.i193.i.i.i.i.i.i.i
@@ -12300,10 +12300,10 @@ invoke.cont48.preheader.i.i212.i.i.i.i.i.i.i:     ; preds = %invoke.cont.i.i210.
   br label %invoke.cont48.i.i213.i.i.i.i.i.i.i
 
 invoke.cont48.i.i213.i.i.i.i.i.i.i:               ; preds = %invoke.cont97.i.i347.i.i.i.i.i.i.i, %invoke.cont48.preheader.i.i212.i.i.i.i.i.i.i
-  %u.addr.1243.i.i214.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i229.i.i.i.i.i.i.i, %invoke.cont97.i.i347.i.i.i.i.i.i.i ], [ %u.addr.0.i.i195.i.i.i.i.i.i.i, %invoke.cont48.preheader.i.i212.i.i.i.i.i.i.i ]
+  %u.addr.2243.i.i214.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i229.i.i.i.i.i.i.i, %invoke.cont97.i.i347.i.i.i.i.i.i.i ], [ %u.addr.0.i.i195.i.i.i.i.i.i.i, %invoke.cont48.preheader.i.i212.i.i.i.i.i.i.i ]
   %tMin38.0242.i.i215.i.i.i.i.i.i.i = phi float [ %add.i.i218.i.i.i.i.i.i.i, %invoke.cont97.i.i347.i.i.i.i.i.i.i ], [ %237, %invoke.cont48.preheader.i.i212.i.i.i.i.i.i.i ]
   %238 = load float, ptr %sigma_maj.i.i178.i.i.i.i.i.i.i, align 4
-  %sub.i.i.i216.i.i.i.i.i.i.i = fsub float 1.000000e+00, %u.addr.1243.i.i214.i.i.i.i.i.i.i
+  %sub.i.i.i216.i.i.i.i.i.i.i = fsub float 1.000000e+00, %u.addr.2243.i.i214.i.i.i.i.i.i.i
   %call.i.i.i.i217.i.i.i.i.i.i.i = call noundef float @logf(float noundef %sub.i.i.i216.i.i.i.i.i.i.i) #25
   %239 = fdiv float %call.i.i.i.i217.i.i.i.i.i.i.i, %238
   %add.i.i218.i.i.i.i.i.i.i = fsub float %tMin38.0242.i.i215.i.i.i.i.i.i.i, %239
@@ -12553,8 +12553,8 @@ cleanup.loopexit245.i.i339.i.i.i.i.i.i.i:         ; preds = %invoke.cont88.i.i33
 
 cleanup.i.i199.i.i.i.i.i.i.i:                     ; preds = %for.body.i201.i.i272.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i339.i.i.i.i.i.i.i, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i394.i.i.i.i.i.i.i, %if.then.i.i198.i.i.i.i.i.i.i
   %275 = phi i8 [ %221, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i394.i.i.i.i.i.i.i ], [ %221, %if.then.i.i198.i.i.i.i.i.i.i ], [ %.pre.i.i340.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i339.i.i.i.i.i.i.i ], [ %244, %for.body.i201.i.i272.i.i.i.i.i.i.i ]
-  %done.2.i.i200.i.i.i.i.i.i.i = phi i1 [ false, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i394.i.i.i.i.i.i.i ], [ false, %if.then.i.i198.i.i.i.i.i.i.i ], [ true, %cleanup.loopexit245.i.i339.i.i.i.i.i.i.i ], [ false, %for.body.i201.i.i272.i.i.i.i.i.i.i ]
-  %u.addr.2.i.i201.i.i.i.i.i.i.i = phi float [ %u.addr.0.i.i195.i.i.i.i.i.i.i, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i394.i.i.i.i.i.i.i ], [ %u.addr.0.i.i195.i.i.i.i.i.i.i, %if.then.i.i198.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i229.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i339.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i229.i.i.i.i.i.i.i, %for.body.i201.i.i272.i.i.i.i.i.i.i ]
+  %done.1.i.i200.i.i.i.i.i.i.i = phi i1 [ false, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i394.i.i.i.i.i.i.i ], [ false, %if.then.i.i198.i.i.i.i.i.i.i ], [ true, %cleanup.loopexit245.i.i339.i.i.i.i.i.i.i ], [ false, %for.body.i201.i.i272.i.i.i.i.i.i.i ]
+  %u.addr.1.i.i201.i.i.i.i.i.i.i = phi float [ %u.addr.0.i.i195.i.i.i.i.i.i.i, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i394.i.i.i.i.i.i.i ], [ %u.addr.0.i.i195.i.i.i.i.i.i.i, %if.then.i.i198.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i229.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i339.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i229.i.i.i.i.i.i.i, %for.body.i201.i.i272.i.i.i.i.i.i.i ]
   %tobool.i.i210.i.i202.i.i.i.i.i.i.i = trunc i8 %275 to i1
   br i1 %tobool.i.i210.i.i202.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i209.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i203.i.i.i.i.i.i.i
 
@@ -12754,8 +12754,8 @@ for.body.i41.i.i663.i.i.i.i.i.i.i:                ; preds = %for.body.i41.i.i663
 
 invoke.cont52.i.i485.i.i.i.i.i.i.i:               ; preds = %invoke.cont.i.i477.i.i.i.i.i.i.i, %invoke.cont97.i.i624.i.i.i.i.i.i.i
   %tMin38.0.i.i.i.i.i.i.i.i.i = phi float [ %add.i.i489.i.i.i.i.i.i.i, %invoke.cont97.i.i624.i.i.i.i.i.i.i ], [ %seg.sroa.0.0.copyload.i.i479.i.i.i.i.i.i.i, %invoke.cont.i.i477.i.i.i.i.i.i.i ]
-  %u.addr.1.i.i486.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i500.i.i.i.i.i.i.i, %invoke.cont97.i.i624.i.i.i.i.i.i.i ], [ %u.addr.0297.i20.i478.i.i.i.i.i.i.i, %invoke.cont.i.i477.i.i.i.i.i.i.i ]
-  %sub.i.i.i487.i.i.i.i.i.i.i = fsub float 1.000000e+00, %u.addr.1.i.i486.i.i.i.i.i.i.i
+  %u.addr.2.i.i486.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i500.i.i.i.i.i.i.i, %invoke.cont97.i.i624.i.i.i.i.i.i.i ], [ %u.addr.0297.i20.i478.i.i.i.i.i.i.i, %invoke.cont.i.i477.i.i.i.i.i.i.i ]
+  %sub.i.i.i487.i.i.i.i.i.i.i = fsub float 1.000000e+00, %u.addr.2.i.i486.i.i.i.i.i.i.i
   %call.i.i.i.i488.i.i.i.i.i.i.i = call noundef float @logf(float noundef %sub.i.i.i487.i.i.i.i.i.i.i) #25
   %295 = fdiv float %call.i.i.i.i488.i.i.i.i.i.i.i, %seg.sroa.7.8.vec.extract.i.i483.i.i.i.i.i.i.i
   %add.i.i489.i.i.i.i.i.i.i = fsub float %tMin38.0.i.i.i.i.i.i.i.i.i, %295
@@ -13078,8 +13078,8 @@ for.body.i.i.i.i724.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i724
   br i1 %exitcond.not.i.i.i.i728.i.i.i.i.i.i.i, label %while.cond.i.i746.i.i.i.i.i.i.i, label %for.body.i.i.i.i724.i.i.i.i.i.i.i, !llvm.loop !103
 
 while.cond.i.i746.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i724.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i756.i.i.i.i.i.i.i
-  %done.0.i.i747.i.i.i.i.i.i.i = phi i1 [ %done.2.i.i753.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i756.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i724.i.i.i.i.i.i.i ]
-  %u.addr.0.i.i748.i.i.i.i.i.i.i = phi float [ %u.addr.2.i.i754.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i756.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %for.body.i.i.i.i724.i.i.i.i.i.i.i ]
+  %done.0.i.i747.i.i.i.i.i.i.i = phi i1 [ %done.1.i.i753.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i756.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i724.i.i.i.i.i.i.i ]
+  %u.addr.0.i.i748.i.i.i.i.i.i.i = phi float [ %u.addr.1.i.i754.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i756.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %for.body.i.i.i.i724.i.i.i.i.i.i.i ]
   br i1 %done.0.i.i747.i.i.i.i.i.i.i, label %while.end125.i.i948.i.i.i.i.i.i.i, label %while.body.i.i749.i.i.i.i.i.i.i
 
 while.body.i.i749.i.i.i.i.i.i.i:                  ; preds = %while.cond.i.i746.i.i.i.i.i.i.i
@@ -13195,10 +13195,10 @@ invoke.cont48.preheader.i.i765.i.i.i.i.i.i.i:     ; preds = %invoke.cont.i.i763.
   br label %invoke.cont48.i.i766.i.i.i.i.i.i.i
 
 invoke.cont48.i.i766.i.i.i.i.i.i.i:               ; preds = %invoke.cont97.i.i900.i.i.i.i.i.i.i, %invoke.cont48.preheader.i.i765.i.i.i.i.i.i.i
-  %u.addr.1243.i.i767.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i782.i.i.i.i.i.i.i, %invoke.cont97.i.i900.i.i.i.i.i.i.i ], [ %u.addr.0.i.i748.i.i.i.i.i.i.i, %invoke.cont48.preheader.i.i765.i.i.i.i.i.i.i ]
+  %u.addr.2243.i.i767.i.i.i.i.i.i.i = phi float [ %.sroa.speculated.i.i.i782.i.i.i.i.i.i.i, %invoke.cont97.i.i900.i.i.i.i.i.i.i ], [ %u.addr.0.i.i748.i.i.i.i.i.i.i, %invoke.cont48.preheader.i.i765.i.i.i.i.i.i.i ]
   %tMin38.0242.i.i768.i.i.i.i.i.i.i = phi float [ %add.i.i771.i.i.i.i.i.i.i, %invoke.cont97.i.i900.i.i.i.i.i.i.i ], [ %349, %invoke.cont48.preheader.i.i765.i.i.i.i.i.i.i ]
   %350 = load float, ptr %sigma_maj.i.i731.i.i.i.i.i.i.i, align 4
-  %sub.i.i.i769.i.i.i.i.i.i.i = fsub float 1.000000e+00, %u.addr.1243.i.i767.i.i.i.i.i.i.i
+  %sub.i.i.i769.i.i.i.i.i.i.i = fsub float 1.000000e+00, %u.addr.2243.i.i767.i.i.i.i.i.i.i
   %call.i.i.i.i770.i.i.i.i.i.i.i = call noundef float @logf(float noundef %sub.i.i.i769.i.i.i.i.i.i.i) #25
   %351 = fdiv float %call.i.i.i.i770.i.i.i.i.i.i.i, %350
   %add.i.i771.i.i.i.i.i.i.i = fsub float %tMin38.0242.i.i768.i.i.i.i.i.i.i, %351
@@ -13448,8 +13448,8 @@ cleanup.loopexit245.i.i892.i.i.i.i.i.i.i:         ; preds = %invoke.cont88.i.i88
 
 cleanup.i.i752.i.i.i.i.i.i.i:                     ; preds = %for.body.i201.i.i825.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i892.i.i.i.i.i.i.i, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i947.i.i.i.i.i.i.i, %if.then.i.i751.i.i.i.i.i.i.i
   %387 = phi i8 [ %333, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i947.i.i.i.i.i.i.i ], [ %333, %if.then.i.i751.i.i.i.i.i.i.i ], [ %.pre.i.i893.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i892.i.i.i.i.i.i.i ], [ %356, %for.body.i201.i.i825.i.i.i.i.i.i.i ]
-  %done.2.i.i753.i.i.i.i.i.i.i = phi i1 [ false, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i947.i.i.i.i.i.i.i ], [ false, %if.then.i.i751.i.i.i.i.i.i.i ], [ true, %cleanup.loopexit245.i.i892.i.i.i.i.i.i.i ], [ false, %for.body.i201.i.i825.i.i.i.i.i.i.i ]
-  %u.addr.2.i.i754.i.i.i.i.i.i.i = phi float [ %u.addr.0.i.i748.i.i.i.i.i.i.i, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i947.i.i.i.i.i.i.i ], [ %u.addr.0.i.i748.i.i.i.i.i.i.i, %if.then.i.i751.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i782.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i892.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i782.i.i.i.i.i.i.i, %for.body.i201.i.i825.i.i.i.i.i.i.i ]
+  %done.1.i.i753.i.i.i.i.i.i.i = phi i1 [ false, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i947.i.i.i.i.i.i.i ], [ false, %if.then.i.i751.i.i.i.i.i.i.i ], [ true, %cleanup.loopexit245.i.i892.i.i.i.i.i.i.i ], [ false, %for.body.i201.i.i825.i.i.i.i.i.i.i ]
+  %u.addr.1.i.i754.i.i.i.i.i.i.i = phi float [ %u.addr.0.i.i748.i.i.i.i.i.i.i, %_ZN4pbrt15SampledSpectrummLERKS0_.exit.i.i947.i.i.i.i.i.i.i ], [ %u.addr.0.i.i748.i.i.i.i.i.i.i, %if.then.i.i751.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i782.i.i.i.i.i.i.i, %cleanup.loopexit245.i.i892.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i782.i.i.i.i.i.i.i, %for.body.i201.i.i825.i.i.i.i.i.i.i ]
   %tobool.i.i210.i.i755.i.i.i.i.i.i.i = trunc i8 %387 to i1
   br i1 %tobool.i.i210.i.i755.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i762.i.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i756.i.i.i.i.i.i.i
 
@@ -20913,12 +20913,12 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %vomega.052.i = phi float [ %mul.i, %if.then.i ], [ %mul18.i, %for.body.i ]
   %vlambda.051.i = phi float [ 1.000000e+01, %if.then.i ], [ %mul19.i, %for.body.i ]
   %cmp3.i = phi i1 [ true, %if.then.i ], [ false, %for.body.i ]
-  %pp.sroa.7.049.i = phi float [ %mul3.i.i.i, %if.then.i ], [ %add6.i.i, %for.body.i ]
-  %pp.sroa.0.048.i = phi <2 x float> [ %3, %if.then.i ], [ %11, %for.body.i ]
+  %pp.sroa.7.149.i = phi float [ %mul3.i.i.i, %if.then.i ], [ %add6.i.i, %for.body.i ]
+  %pp.sroa.0.148.i = phi <2 x float> [ %3, %if.then.i ], [ %11, %for.body.i ]
   %5 = insertelement <2 x float> poison, float %vlambda.051.i, i64 0
   %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
-  %7 = fmul <2 x float> %6, %pp.sroa.0.048.i
-  %mul3.i.i16.i = fmul float %vlambda.051.i, %pp.sroa.7.049.i
+  %7 = fmul <2 x float> %6, %pp.sroa.0.148.i
+  %mul3.i.i16.i = fmul float %vlambda.051.i, %pp.sroa.7.149.i
   %call11.i = tail call { <2 x float>, float } @_ZN4pbrt6DNoiseENS_6Point3IfEE(<2 x float> %7, float %mul3.i.i16.i)
   %call11.fca.0.extract.i = extractvalue { <2 x float>, float } %call11.i, 0
   %call11.fca.1.extract.i = extractvalue { <2 x float>, float } %call11.i, 1
@@ -20926,15 +20926,15 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %8 = insertelement <2 x float> poison, float %vomega.052.i, i64 0
   %9 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> zeroinitializer
   %10 = fmul <2 x float> %9, %call11.fca.0.extract.i
-  %11 = fadd <2 x float> %pp.sroa.0.048.i, %10
-  %add6.i.i = fadd float %pp.sroa.7.049.i, %mul3.i.i25.i
+  %11 = fadd <2 x float> %pp.sroa.0.148.i, %10
+  %add6.i.i = fadd float %pp.sroa.7.149.i, %mul3.i.i25.i
   %mul18.i = fmul float %vomega.052.i, 5.000000e-01
   %mul19.i = fmul float %vlambda.051.i, 0x3FFFD70A40000000
   br i1 %cmp3.i, label %for.body.i, label %if.end.i, !llvm.loop !154
 
 if.end.i:                                         ; preds = %for.body.i, %entry
-  %pp.sroa.0.1.i = phi <2 x float> [ %3, %entry ], [ %11, %for.body.i ]
-  %pp.sroa.7.1.i = phi float [ %mul3.i.i.i, %entry ], [ %add6.i.i, %for.body.i ]
+  %pp.sroa.0.0.i = phi <2 x float> [ %3, %entry ], [ %11, %for.body.i ]
+  %pp.sroa.7.0.i = phi float [ %mul3.i.i.i, %entry ], [ %add6.i.i, %for.body.i ]
   br label %for.body23.i
 
 for.body23.i:                                     ; preds = %for.body23.i, %if.end.i
@@ -20944,8 +20944,8 @@ for.body23.i:                                     ; preds = %for.body23.i, %if.e
   %i20.053.i = phi i32 [ 0, %if.end.i ], [ %inc34.i, %for.body23.i ]
   %12 = insertelement <2 x float> poison, float %lambda.054.i, i64 0
   %13 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
-  %14 = fmul <2 x float> %pp.sroa.0.1.i, %13
-  %mul3.i.i34.i = fmul float %pp.sroa.7.1.i, %lambda.054.i
+  %14 = fmul <2 x float> %pp.sroa.0.0.i, %13
+  %mul3.i.i34.i = fmul float %pp.sroa.7.0.i, %lambda.054.i
   %call29.i = tail call noundef float @_ZN4pbrt5NoiseENS_6Point3IfEE(<2 x float> %14, float %mul3.i.i34.i)
   %mul30.i = fmul float %omega.055.i, %call29.i
   %add.i = fadd float %d.056.i, %mul30.i
@@ -22186,7 +22186,7 @@ while.body.i.i.i:                                 ; preds = %_ZN4pstd8optionalIN
   %wrs.sroa.14.0.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt4HashIJNS_6Point3IfEES2_EEEmDpT_.exit.i.i.i ], [ %wrs.sroa.14.2.ph.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i ]
   %wrs.sroa.12.0.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt4HashIJNS_6Point3IfEES2_EEEmDpT_.exit.i.i.i ], [ %wrs.sroa.12.2.ph.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i ]
   %wrs.sroa.10.0.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt4HashIJNS_6Point3IfEES2_EEEmDpT_.exit.i.i.i ], [ %wrs.sroa.10.2.ph.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i ]
-  %wrs.sroa.5.0.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt4HashIJNS_6Point3IfEES2_EEEmDpT_.exit.i.i.i ], [ %wrs.sroa.5.1.ph.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i ]
+  %wrs.sroa.5.0.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt4HashIJNS_6Point3IfEES2_EEEmDpT_.exit.i.i.i ], [ %wrs.sroa.5.2.ph.i.i.i, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i ]
   %5 = phi <2 x float> [ %agg.tmp.sroa.0.0.copyload.i.i.i, %_ZN4pbrt4HashIJNS_6Point3IfEES2_EEEmDpT_.exit.i.i.i ], [ %27, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i ]
   %6 = phi <2 x float> [ %agg.tmp.sroa.0.0.copyload.i.i.i, %_ZN4pbrt4HashIJNS_6Point3IfEES2_EEEmDpT_.exit.i.i.i ], [ %28, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
@@ -22326,7 +22326,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit30.i.i.i: ; preds = %if.th
   %wrs.sroa.14.2.ph.i.i.i = phi float [ %wrs.sroa.14.0.i.i.i, %invoke.cont26.i.i.i ], [ %ref.tmp25.sroa.2.0.copyload.i.i.i, %if.then.i.i.i.i ], [ %wrs.sroa.14.0.i.i.i, %invoke.cont18.i.i.i ]
   %wrs.sroa.12.2.ph.i.i.i = phi float [ %wrs.sroa.12.0.i.i.i, %invoke.cont26.i.i.i ], [ %ref.tmp25.sroa.0.0.copyload.i.i.i, %if.then.i.i.i.i ], [ %wrs.sroa.12.0.i.i.i, %invoke.cont18.i.i.i ]
   %wrs.sroa.10.2.ph.i.i.i = phi float [ %wrs.sroa.10.0.i.i.i, %invoke.cont26.i.i.i ], [ 1.000000e+00, %if.then.i.i.i.i ], [ %wrs.sroa.10.0.i.i.i, %invoke.cont18.i.i.i ]
-  %wrs.sroa.5.1.ph.i.i.i = phi float [ %add.i.i.i.i, %invoke.cont26.i.i.i ], [ %add.i.i.i.i, %if.then.i.i.i.i ], [ %wrs.sroa.5.0.i.i.i, %invoke.cont18.i.i.i ]
+  %wrs.sroa.5.2.ph.i.i.i = phi float [ %add.i.i.i.i, %invoke.cont26.i.i.i ], [ %add.i.i.i.i, %if.then.i.i.i.i ], [ %wrs.sroa.5.0.i.i.i, %invoke.cont18.i.i.i ]
   store i8 0, ptr %set.i.i.i.i, align 8
   %agg.tmp8.sroa.0.0.copyload.pre.i.i.i = load <2 x float>, ptr %p1.i.i.i, align 4
   %agg.tmp8.sroa.2.0.copyload.pre.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.p1.sroa_idx.i.i.i, align 4

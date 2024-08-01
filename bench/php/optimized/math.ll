@@ -2259,12 +2259,12 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br label %.thread105
 
 .thread105:                                       ; preds = %34, %35, %41, %38, %43, %49, %46, %54, %51, %57, %.critedge2
-  %.3 = phi ptr [ %58, %57 ], [ %.087.lcssa, %51 ], [ %.087.lcssa, %.critedge2 ], [ %.087.lcssa, %54 ], [ %.087.lcssa, %46 ], [ %.087.lcssa, %43 ], [ %50, %49 ], [ %.087.lcssa, %38 ], [ %.087.lcssa, %35 ], [ %42, %41 ], [ %.087.lcssa, %34 ]
+  %.188 = phi ptr [ %58, %57 ], [ %.087.lcssa, %51 ], [ %.087.lcssa, %.critedge2 ], [ %.087.lcssa, %54 ], [ %.087.lcssa, %46 ], [ %.087.lcssa, %43 ], [ %50, %49 ], [ %.087.lcssa, %38 ], [ %.087.lcssa, %35 ], [ %42, %41 ], [ %.087.lcssa, %34 ]
   %59 = sext i32 %1 to i64
   %60 = sdiv i64 9223372036854775807, %59
   %61 = srem i64 9223372036854775807, %59
   %62 = trunc nuw nsw i64 %61 to i32
-  %63 = icmp ult ptr %.3, %.086
+  %63 = icmp ult ptr %.188, %.086
   br i1 %63, label %.lr.ph114.lr.ph, label %.thread
 
 .lr.ph114.lr.ph:                                  ; preds = %.thread105
@@ -2273,10 +2273,10 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
 
 .lr.ph114:                                        ; preds = %.lr.ph114.lr.ph, %.outer
   %.0.ph127 = phi i64 [ 0, %.lr.ph114.lr.ph ], [ %.1, %.outer ]
-  %.079.ph126 = phi double [ 0.000000e+00, %.lr.ph114.lr.ph ], [ %.2, %.outer ]
+  %.079.ph126 = phi double [ 0.000000e+00, %.lr.ph114.lr.ph ], [ %.180, %.outer ]
   %.081.ph125 = phi i32 [ 0, %.lr.ph114.lr.ph ], [ %.081113, %.outer ]
-  %.082.ph124 = phi i32 [ 0, %.lr.ph114.lr.ph ], [ %.284, %.outer ]
-  %.4.ph123 = phi ptr [ %.3, %.lr.ph114.lr.ph ], [ %66, %.outer ]
+  %.082.ph124 = phi i32 [ 0, %.lr.ph114.lr.ph ], [ %.183, %.outer ]
+  %.4.ph123 = phi ptr [ %.188, %.lr.ph114.lr.ph ], [ %66, %.outer ]
   br label %65
 
 65:                                               ; preds = %.lr.ph114, %.backedge
@@ -2342,21 +2342,21 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br label %91
 
 91:                                               ; preds = %80, %89
-  %.180 = phi double [ %.079.ph126, %80 ], [ %90, %89 ]
+  %.2 = phi double [ %.079.ph126, %80 ], [ %90, %89 ]
   %92 = uitofp nneg i8 %.085 to double
-  %93 = tail call double @llvm.fmuladd.f64(double %.180, double %64, double %92)
+  %93 = tail call double @llvm.fmuladd.f64(double %.2, double %64, double %92)
   br label %.outer
 
 .outer:                                           ; preds = %91, %85
-  %.284 = phi i32 [ 1, %91 ], [ 0, %85 ]
-  %.2 = phi double [ %93, %91 ], [ %.079.ph126, %85 ]
+  %.183 = phi i32 [ 1, %91 ], [ 0, %85 ]
+  %.180 = phi double [ %93, %91 ], [ %.079.ph126, %85 ]
   %.1 = phi i64 [ %.0.ph127, %91 ], [ %88, %85 ]
   %94 = icmp ult ptr %66, %.086
   br i1 %94, label %.lr.ph114, label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
-  %.082.ph.lcssa = phi i32 [ %.082.ph124, %.backedge ], [ %.284, %.outer ]
-  %.079.ph.lcssa = phi double [ %.079.ph126, %.backedge ], [ %.2, %.outer ]
+  %.082.ph.lcssa = phi i32 [ %.082.ph124, %.backedge ], [ %.183, %.outer ]
+  %.079.ph.lcssa = phi double [ %.079.ph126, %.backedge ], [ %.180, %.outer ]
   %.0.ph.lcssa = phi i64 [ %.0.ph127, %.backedge ], [ %.1, %.outer ]
   %.081.lcssa = phi i32 [ %.081.be, %.backedge ], [ %.081113, %.outer ]
   %95 = icmp sgt i32 %.081.lcssa, 0
@@ -3339,36 +3339,36 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %57
-  %.0190.lcssa = phi ptr [ %56, %57 ], [ %scevgep257, %.lr.ph.preheader ]
+  %.1191.lcssa = phi ptr [ %56, %57 ], [ %scevgep257, %.lr.ph.preheader ]
   br i1 %.not215241, label %75, label %69
 
 69:                                               ; preds = %._crit_edge
   %70 = xor i64 %60, -1
   %.add230 = add nsw i64 %.add229, %70
   %71 = sub i64 0, %60
-  %72 = getelementptr inbounds i8, ptr %.0190.lcssa, i64 %71
+  %72 = getelementptr inbounds i8, ptr %.1191.lcssa, i64 %71
   %73 = getelementptr inbounds i8, ptr %72, i64 1
   %74 = getelementptr inbounds i8, ptr %.0189239, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %74, i64 %60, i1 false)
   br label %75
 
 75:                                               ; preds = %69, %._crit_edge
-  %.0192.idx = phi i64 [ %.add230, %69 ], [ %.add229, %._crit_edge ]
-  %.1191 = phi ptr [ %72, %69 ], [ %.0190.lcssa, %._crit_edge ]
+  %.1193.idx = phi i64 [ %.add230, %69 ], [ %.add229, %._crit_edge ]
+  %.2 = phi ptr [ %72, %69 ], [ %.1191.lcssa, %._crit_edge ]
   %.not227 = icmp eq ptr %2, null
   br i1 %.not227, label %80, label %76
 
 76:                                               ; preds = %75
   %77 = sub i64 0, %3
-  %78 = getelementptr inbounds i8, ptr %.1191, i64 %77
+  %78 = getelementptr inbounds i8, ptr %.2, i64 %77
   %79 = getelementptr inbounds i8, ptr %78, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull align 1 %2, i64 %3, i1 false)
   br label %80
 
 80:                                               ; preds = %75, %76, %44
-  %.1193.idx = phi i64 [ %.0192.idx, %76 ], [ %.0192.idx, %75 ], [ %.add229, %44 ]
-  %.2 = phi ptr [ %78, %76 ], [ %.1191, %75 ], [ %56, %44 ]
-  %.not228246 = icmp slt i64 %.1193.idx, 24
+  %.0192.idx = phi i64 [ %.1193.idx, %76 ], [ %.1193.idx, %75 ], [ %.add229, %44 ]
+  %.0190 = phi ptr [ %78, %76 ], [ %.2, %75 ], [ %56, %44 ]
+  %.not228246 = icmp slt i64 %.0192.idx, 24
   br i1 %.not228246, label %._crit_edge252, label %.lr.ph251
 
 .lr.ph251:                                        ; preds = %80
@@ -3376,8 +3376,8 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
   br i1 %.not216, label %.lr.ph251.split.us, label %.lr.ph251.split
 
 .lr.ph251.split.us:                               ; preds = %.lr.ph251, %.lr.ph251.split.us
-  %.3248.us = phi ptr [ %83, %.lr.ph251.split.us ], [ %.2, %.lr.ph251 ]
-  %.2194.idx247.us = phi i64 [ %.2194.add.us, %.lr.ph251.split.us ], [ %.1193.idx, %.lr.ph251 ]
+  %.3248.us = phi ptr [ %83, %.lr.ph251.split.us ], [ %.0190, %.lr.ph251 ]
+  %.2194.idx247.us = phi i64 [ %.2194.add.us, %.lr.ph251.split.us ], [ %.0192.idx, %.lr.ph251 ]
   %.2194.ptr.us = getelementptr inbounds i8, ptr %11, i64 %.2194.idx247.us
   %.2194.add.us = add nsw i64 %.2194.idx247.us, -1
   %82 = load i8, ptr %.2194.ptr.us, align 1
@@ -3388,8 +3388,8 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
 
 .lr.ph251.split:                                  ; preds = %.lr.ph251, %92
   %.0184249 = phi i32 [ %86, %92 ], [ 0, %.lr.ph251 ]
-  %.3248 = phi ptr [ %.4, %92 ], [ %.2, %.lr.ph251 ]
-  %.2194.idx247 = phi i64 [ %.2194.add, %92 ], [ %.1193.idx, %.lr.ph251 ]
+  %.3248 = phi ptr [ %.4, %92 ], [ %.0190, %.lr.ph251 ]
+  %.2194.idx247 = phi i64 [ %.2194.add, %92 ], [ %.0192.idx, %.lr.ph251 ]
   %.2194.ptr = getelementptr inbounds i8, ptr %11, i64 %.2194.idx247
   %.2194.add = add nsw i64 %.2194.idx247, -1
   %84 = load i8, ptr %.2194.ptr, align 1
@@ -3414,7 +3414,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
   br i1 %.not228, label %._crit_edge252, label %.lr.ph251.split
 
 ._crit_edge252:                                   ; preds = %92, %.lr.ph251.split.us, %80
-  %.3.lcssa = phi ptr [ %.2, %80 ], [ %83, %.lr.ph251.split.us ], [ %.4, %92 ]
+  %.3.lcssa = phi ptr [ %.0190, %80 ], [ %83, %.lr.ph251.split.us ], [ %.4, %92 ]
   br i1 %.not223.not, label %93, label %94
 
 93:                                               ; preds = %._crit_edge252
@@ -3477,16 +3477,16 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
   %.not = icmp uge i64 %15, %14
   %17 = zext i1 %.not to i64
   %.pn218 = add nuw i64 %16, %17
-  %.1178 = mul i64 %.pn218, %13
-  %.1178.fr = freeze i64 %.1178
-  %18 = icmp eq i64 %.1178.fr, 0
+  %.2179 = mul i64 %.pn218, %13
+  %.2179.fr = freeze i64 %.2179
+  %18 = icmp eq i64 %.2179.fr, 0
   %spec.select = select i1 %18, i32 0, i32 %.0180
   br label %.thread
 
 .thread:                                          ; preds = %10, %8, %6
   %.1181 = phi i32 [ %.0180, %6 ], [ 0, %8 ], [ %spec.select, %10 ]
-  %.2179 = phi i64 [ %.0177, %6 ], [ 0, %8 ], [ %.1178.fr, %10 ]
-  %19 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %.2179) #15
+  %.1178 = phi i64 [ %.0177, %6 ], [ 0, %8 ], [ %.2179.fr, %10 ]
+  %19 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %.1178) #15
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
   %.not195 = icmp eq ptr %4, null
@@ -3566,7 +3566,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
   br label %55
 
 55:                                               ; preds = %.preheader.preheader, %51, %36
-  %.1168 = phi ptr [ %53, %51 ], [ %scevgep227, %.preheader.preheader ], [ %46, %36 ]
+  %.0167 = phi ptr [ %53, %51 ], [ %scevgep227, %.preheader.preheader ], [ %46, %36 ]
   %.not204221 = icmp slt i64 %43, 1
   br i1 %.not204221, label %._crit_edge, label %.lr.ph
 
@@ -3575,7 +3575,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
   br i1 %.not195, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.2223.us = phi ptr [ %58, %.lr.ph.split.us ], [ %.1168, %.lr.ph ]
+  %.2223.us = phi ptr [ %58, %.lr.ph.split.us ], [ %.0167, %.lr.ph ]
   %.0169.idx222.us = phi i64 [ %.0169.add.us, %.lr.ph.split.us ], [ %.add205, %.lr.ph ]
   %.0169.ptr.us = getelementptr inbounds i8, ptr %19, i64 %.0169.idx222.us
   %.0169.add.us = add nsw i64 %.0169.idx222.us, -1
@@ -3587,7 +3587,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %67
   %.0166224 = phi i32 [ %61, %67 ], [ 0, %.lr.ph ]
-  %.2223 = phi ptr [ %.3, %67 ], [ %.1168, %.lr.ph ]
+  %.2223 = phi ptr [ %.3, %67 ], [ %.0167, %.lr.ph ]
   %.0169.idx222 = phi i64 [ %.0169.add, %67 ], [ %.add205, %.lr.ph ]
   %.0169.ptr = getelementptr inbounds i8, ptr %19, i64 %.0169.idx222
   %.0169.add = add nsw i64 %.0169.idx222, -1
@@ -3613,7 +3613,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
   br i1 %.not204, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %67, %.lr.ph.split.us, %55
-  %.2.lcssa = phi ptr [ %.1168, %55 ], [ %58, %.lr.ph.split.us ], [ %.3, %67 ]
+  %.2.lcssa = phi ptr [ %.0167, %55 ], [ %58, %.lr.ph.split.us ], [ %.3, %67 ]
   %.not209 = icmp eq i32 %.1181, 0
   br i1 %.not209, label %69, label %68
 
@@ -3798,16 +3798,16 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   br label %105
 
 .thread269:                                       ; preds = %46, %28, %18, %62
-  %.2282 = phi ptr [ %.1, %62 ], [ %.1, %46 ], [ null, %28 ], [ null, %18 ]
-  %.2213281 = phi i64 [ %.1212, %62 ], [ %.1212, %46 ], [ 0, %28 ], [ 0, %18 ]
-  %.2217280 = phi ptr [ %.1216, %62 ], [ null, %46 ], [ null, %28 ], [ null, %18 ]
-  %.2221279 = phi i64 [ %.1220, %62 ], [ 0, %46 ], [ 0, %28 ], [ 0, %18 ]
-  %63 = icmp eq ptr %.2282, null
-  %spec.select = select i1 %63, i64 1, i64 %.2213281
-  %spec.select245 = select i1 %63, ptr @.str.11, ptr %.2282
-  %64 = icmp eq ptr %.2217280, null
-  %.3222 = select i1 %64, i64 1, i64 %.2221279
-  %.3218 = select i1 %64, ptr @.str.12, ptr %.2217280
+  %.0210282 = phi ptr [ %.1, %62 ], [ %.1, %46 ], [ null, %28 ], [ null, %18 ]
+  %.0211281 = phi i64 [ %.1212, %62 ], [ %.1212, %46 ], [ 0, %28 ], [ 0, %18 ]
+  %.0215280 = phi ptr [ %.1216, %62 ], [ null, %46 ], [ null, %28 ], [ null, %18 ]
+  %.0219279 = phi i64 [ %.1220, %62 ], [ 0, %46 ], [ 0, %28 ], [ 0, %18 ]
+  %63 = icmp eq ptr %.0210282, null
+  %spec.select = select i1 %63, i64 1, i64 %.0211281
+  %spec.select245 = select i1 %63, ptr @.str.11, ptr %.0210282
+  %64 = icmp eq ptr %.0215280, null
+  %.3222 = select i1 %64, i64 1, i64 %.0219279
+  %.3218 = select i1 %64, ptr @.str.12, ptr %.0215280
   %65 = load ptr, ptr %5, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load i8, ptr %66, align 8

@@ -52,12 +52,12 @@ define dso_local ptr @module_create_object_file_name(ptr nocapture noundef reado
 
 .sink.split:                                      ; preds = %5, %13, %8
   %.sink = phi i8 [ 46, %8 ], [ 46, %13 ], [ %7, %5 ]
-  %.3.ph = phi ptr [ %spec.select, %8 ], [ %spec.select12, %13 ], [ %6, %5 ]
+  %.2.ph = phi ptr [ %spec.select, %8 ], [ %spec.select12, %13 ], [ %6, %5 ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #2
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %13, %8
-  %.0.be = phi ptr [ %spec.select12, %13 ], [ %spec.select, %8 ], [ %.3.ph, %.sink.split ]
+  %.0.be = phi ptr [ %spec.select12, %13 ], [ %spec.select, %8 ], [ %.2.ph, %.sink.split ]
   br label %5, !llvm.loop !7
 
 18:                                               ; preds = %5

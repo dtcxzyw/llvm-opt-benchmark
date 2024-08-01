@@ -1180,7 +1180,7 @@ if.end47:                                         ; preds = %land.lhs.true, %if.
   br label %if.end99
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end92
-  %nResult.1 = phi i32 [ %nResult.4.lcssa, %if.end92 ], [ -1, %for.cond.preheader ]
+  %nResult.2 = phi i32 [ %nResult.5.lcssa, %if.end92 ], [ -1, %for.cond.preheader ]
   %call54 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex53, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %19 = load ptr, ptr %mpNodeHead.i30, align 8, !noalias !30
   %20 = load ptr, ptr %mpNodeTail.i32, align 8, !noalias !33
@@ -1191,12 +1191,12 @@ for.cond:                                         ; preds = %for.cond.preheader,
 
 for.body:                                         ; preds = %for.cond, %for.body
   %it.sroa.0.067 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.063, %for.cond ]
-  %nResult.266 = phi i32 [ %spec.select9, %for.body ], [ %nResult.1, %for.cond ]
+  %nResult.366 = phi i32 [ %spec.select9, %for.body ], [ %nResult.2, %for.cond ]
   %bJobExists.065 = phi i1 [ %spec.select, %for.body ], [ false, %for.cond ]
   %21 = load i32, ptr %it.sroa.0.067, align 8
   %cmp62 = icmp eq i32 %21, %nJob
   %spec.select = select i1 %cmp62, i1 true, i1 %bJobExists.065
-  %spec.select9 = select i1 %cmp62, i32 -2, i32 %nResult.266
+  %spec.select9 = select i1 %cmp62, i32 -2, i32 %nResult.366
   %it.sroa.0.0.in = getelementptr inbounds i8, ptr %it.sroa.0.067, i64 40
   %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0.in, align 8
   %cmp.i33.not = icmp eq ptr %20, %it.sroa.0.0
@@ -1204,7 +1204,7 @@ for.body:                                         ; preds = %for.cond, %for.body
 
 for.end:                                          ; preds = %for.body, %for.cond
   %bJobExists.0.lcssa = phi i1 [ false, %for.cond ], [ %spec.select, %for.body ]
-  %nResult.2.lcssa = phi i32 [ %nResult.1, %for.cond ], [ %spec.select9, %for.body ]
+  %nResult.3.lcssa = phi i32 [ %nResult.2, %for.cond ], [ %spec.select9, %for.body ]
   %22 = load ptr, ptr %mpNodeHead.i34, align 8, !noalias !37
   %23 = load ptr, ptr %mpNodeTail.i36, align 8, !noalias !40
   %it66.sroa.0.0.in69 = getelementptr inbounds i8, ptr %22, i64 16
@@ -1214,7 +1214,7 @@ for.end:                                          ; preds = %for.body, %for.cond
 
 for.body72:                                       ; preds = %for.end, %for.inc81
   %it66.sroa.0.074 = phi ptr [ %it66.sroa.0.0, %for.inc81 ], [ %it66.sroa.0.070, %for.end ]
-  %nResult.473 = phi i32 [ %nResult.5, %for.inc81 ], [ %nResult.2.lcssa, %for.end ]
+  %nResult.573 = phi i32 [ %nResult.6, %for.inc81 ], [ %nResult.3.lcssa, %for.end ]
   %bJobExists.272 = phi i1 [ %bJobExists.3, %for.inc81 ], [ %bJobExists.0.lcssa, %for.end ]
   %24 = load ptr, ptr %it66.sroa.0.074, align 8
   %25 = load volatile i8, ptr %24, align 8
@@ -1226,12 +1226,12 @@ land.lhs.true76:                                  ; preds = %for.body72
   %26 = load i32, ptr %mCurrentJob, align 8
   %cmp78 = icmp eq i32 %26, %nJob
   %spec.select10 = select i1 %cmp78, i1 true, i1 %bJobExists.272
-  %spec.select11 = select i1 %cmp78, i32 -2, i32 %nResult.473
+  %spec.select11 = select i1 %cmp78, i32 -2, i32 %nResult.573
   br label %for.inc81
 
 for.inc81:                                        ; preds = %land.lhs.true76, %for.body72
   %bJobExists.3 = phi i1 [ %bJobExists.272, %for.body72 ], [ %spec.select10, %land.lhs.true76 ]
-  %nResult.5 = phi i32 [ %nResult.473, %for.body72 ], [ %spec.select11, %land.lhs.true76 ]
+  %nResult.6 = phi i32 [ %nResult.573, %for.body72 ], [ %spec.select11, %land.lhs.true76 ]
   %it66.sroa.0.0.in = getelementptr inbounds i8, ptr %it66.sroa.0.074, i64 16
   %it66.sroa.0.0 = load ptr, ptr %it66.sroa.0.0.in, align 8
   %cmp.i37.not = icmp eq ptr %23, %it66.sroa.0.0
@@ -1239,7 +1239,7 @@ for.inc81:                                        ; preds = %land.lhs.true76, %f
 
 for.end83:                                        ; preds = %for.inc81, %for.end
   %bJobExists.2.lcssa = phi i1 [ %bJobExists.0.lcssa, %for.end ], [ %bJobExists.3, %for.inc81 ]
-  %nResult.4.lcssa = phi i32 [ %nResult.2.lcssa, %for.end ], [ %nResult.5, %for.inc81 ]
+  %nResult.5.lcssa = phi i32 [ %nResult.3.lcssa, %for.end ], [ %nResult.6, %for.inc81 ]
   %call85 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex53)
   br i1 %bJobExists.2.lcssa, label %lor.rhs, label %if.end99
 
@@ -1262,8 +1262,8 @@ if.end92:                                         ; preds = %lor.rhs
   br label %for.cond, !llvm.loop !44
 
 if.end99:                                         ; preds = %lor.rhs, %for.end83, %while.end, %if.then, %if.end47
-  %nResult.6 = phi i32 [ %nResult.0, %if.end47 ], [ %jobWait, %if.then ], [ %., %while.end ], [ %nResult.4.lcssa, %lor.rhs ], [ 0, %for.end83 ]
-  ret i32 %nResult.6
+  %nResult.1 = phi i32 [ %nResult.0, %if.end47 ], [ %jobWait, %if.then ], [ %., %while.end ], [ %nResult.5.lcssa, %lor.rhs ], [ 0, %for.end83 ]
+  ret i32 %nResult.1
 }
 
 declare noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1

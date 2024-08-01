@@ -266,15 +266,15 @@ define dso_local void @appendStringLiteral(ptr noundef %0, ptr noundef %1, i32 n
 .lr.ph.us:                                        ; preds = %15, %20
   %.156.us = phi ptr [ %21, %20 ], [ %.0.ph61.us, %15 ]
   %.04055.us = phi i32 [ %23, %20 ], [ 0, %15 ]
-  %.254.us = phi ptr [ %22, %20 ], [ %.042.ph60.us, %15 ]
+  %.354.us = phi ptr [ %22, %20 ], [ %.042.ph60.us, %15 ]
   %18 = load i8, ptr %.156.us, align 1
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.split.us, label %20
 
 20:                                               ; preds = %.lr.ph.us
   %21 = getelementptr i8, ptr %.156.us, i64 1
-  %22 = getelementptr i8, ptr %.254.us, i64 1
-  store i8 %18, ptr %.254.us, align 1
+  %22 = getelementptr i8, ptr %.354.us, i64 1
+  store i8 %18, ptr %.354.us, align 1
   %23 = add nuw nsw i32 %.04055.us, 1
   %exitcond87.not = icmp eq i32 %23, %16
   br i1 %exitcond87.not, label %.critedge.backedge.us, label %.lr.ph.us, !llvm.loop !8
@@ -289,9 +289,9 @@ define dso_local void @appendStringLiteral(ptr noundef %0, ptr noundef %1, i32 n
   br label %27
 
 27:                                               ; preds = %24, %25
-  %.143.us = phi ptr [ %26, %25 ], [ %.042.ph60.us, %24 ]
-  %28 = getelementptr i8, ptr %.143.us, i64 1
-  store i8 %.pr62.us, ptr %.143.us, align 1
+  %.2.us = phi ptr [ %26, %25 ], [ %.042.ph60.us, %24 ]
+  %28 = getelementptr i8, ptr %.2.us, i64 1
+  store i8 %.pr62.us, ptr %.2.us, align 1
   %29 = getelementptr i8, ptr %.0.ph61.us, i64 1
   br label %.critedge.backedge.us
 
@@ -321,9 +321,9 @@ define dso_local void @appendStringLiteral(ptr noundef %0, ptr noundef %1, i32 n
   br label %33
 
 33:                                               ; preds = %30, %31
-  %.143 = phi ptr [ %32, %31 ], [ %.042.ph60, %30 ]
-  %34 = getelementptr i8, ptr %.143, i64 1
-  store i8 %.pr62, ptr %.143, align 1
+  %.2 = phi ptr [ %32, %31 ], [ %.042.ph60, %30 ]
+  %34 = getelementptr i8, ptr %.2, i64 1
+  store i8 %.pr62, ptr %.2, align 1
   %35 = getelementptr i8, ptr %.0.ph61, i64 1
   br label %.critedge.backedge
 
@@ -342,22 +342,22 @@ define dso_local void @appendStringLiteral(ptr noundef %0, ptr noundef %1, i32 n
 .lr.ph:                                           ; preds = %36, %41
   %.156 = phi ptr [ %42, %41 ], [ %.0.ph61, %36 ]
   %.04055 = phi i32 [ %44, %41 ], [ 0, %36 ]
-  %.254 = phi ptr [ %43, %41 ], [ %.042.ph60, %36 ]
+  %.354 = phi ptr [ %43, %41 ], [ %.042.ph60, %36 ]
   %39 = load i8, ptr %.156, align 1
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %.split.us, label %41
 
 41:                                               ; preds = %.lr.ph
   %42 = getelementptr i8, ptr %.156, i64 1
-  %43 = getelementptr i8, ptr %.254, i64 1
-  store i8 %39, ptr %.254, align 1
+  %43 = getelementptr i8, ptr %.354, i64 1
+  store i8 %39, ptr %.354, align 1
   %44 = add nuw nsw i32 %.04055, 1
   %exitcond.not = icmp eq i32 %44, %37
   br i1 %exitcond.not, label %.critedge.backedge, label %.lr.ph, !llvm.loop !8
 
 .split.us:                                        ; preds = %.lr.ph, %.lr.ph.us
   %.us-phi = phi i32 [ %16, %.lr.ph.us ], [ %37, %.lr.ph ]
-  %.us-phi65 = phi ptr [ %.254.us, %.lr.ph.us ], [ %.254, %.lr.ph ]
+  %.us-phi65 = phi ptr [ %.354.us, %.lr.ph.us ], [ %.354, %.lr.ph ]
   %.us-phi66 = phi i32 [ %.04055.us, %.lr.ph.us ], [ %.04055, %.lr.ph ]
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 16
@@ -386,9 +386,9 @@ define dso_local void @appendStringLiteral(ptr noundef %0, ptr noundef %1, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.backedge, %.critedge.backedge.us, %.lr.ph72.preheader, %9, %.split.us
-  %.4 = phi ptr [ %.us-phi65, %.split.us ], [ %14, %9 ], [ %scevgep, %.lr.ph72.preheader ], [ %.042.ph.be.us, %.critedge.backedge.us ], [ %.042.ph.be, %.critedge.backedge ]
-  %60 = getelementptr i8, ptr %.4, i64 1
-  store i8 39, ptr %.4, align 1
+  %.143 = phi ptr [ %.us-phi65, %.split.us ], [ %14, %9 ], [ %scevgep, %.lr.ph72.preheader ], [ %.042.ph.be.us, %.critedge.backedge.us ], [ %.042.ph.be, %.critedge.backedge ]
+  %60 = getelementptr i8, ptr %.143, i64 1
+  store i8 39, ptr %.143, align 1
   store i8 0, ptr %60, align 1
   %61 = load ptr, ptr %0, align 8
   %62 = ptrtoint ptr %60 to i64
@@ -876,10 +876,10 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr nocapture noundef readonly
   br label %.backedge
 
 .preheader:                                       ; preds = %27, %37
-  %.144.pn = phi ptr [ %.346, %37 ], [ %.144, %27 ]
-  %.2 = phi ptr [ %39, %37 ], [ %.1, %27 ]
-  %.245 = getelementptr i8, ptr %.144.pn, i64 1
-  %32 = load i8, ptr %.245, align 1
+  %.144.pn = phi ptr [ %.4, %37 ], [ %.144, %27 ]
+  %.3 = phi ptr [ %39, %37 ], [ %.1, %27 ]
+  %.346 = getelementptr i8, ptr %.144.pn, i64 1
+  %32 = load i8, ptr %.346, align 1
   switch i8 %32, label %37 [
     i8 34, label %40
     i8 0, label %.loopexit
@@ -894,9 +894,9 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr nocapture noundef readonly
 
 37:                                               ; preds = %.preheader, %33
   %38 = phi i8 [ %35, %33 ], [ %32, %.preheader ]
-  %.346 = phi ptr [ %34, %33 ], [ %.245, %.preheader ]
-  %39 = getelementptr i8, ptr %.2, i64 1
-  store i8 %38, ptr %.2, align 1
+  %.4 = phi ptr [ %34, %33 ], [ %.346, %.preheader ]
+  %39 = getelementptr i8, ptr %.3, i64 1
+  store i8 %38, ptr %.3, align 1
   br label %.preheader, !llvm.loop !16
 
 40:                                               ; preds = %.preheader
@@ -905,7 +905,7 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr nocapture noundef readonly
 
 .backedge:                                        ; preds = %40, %29
   %.144.be = phi ptr [ %30, %29 ], [ %41, %40 ]
-  %.1.be = phi ptr [ %31, %29 ], [ %.2, %40 ]
+  %.1.be = phi ptr [ %31, %29 ], [ %.3, %40 ]
   br label %27, !llvm.loop !17
 
 .critedge:                                        ; preds = %27, %27
@@ -1268,7 +1268,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
 .lr.ph138:                                        ; preds = %13, %.loopexit
   %15 = phi i8 [ %94, %.loopexit ], [ %14, %13 ]
   %.0136 = phi ptr [ %.1, %.loopexit ], [ %9, %13 ]
-  %.0100135 = phi ptr [ %.3103, %.loopexit ], [ %4, %13 ]
+  %.0100135 = phi ptr [ %.2102, %.loopexit ], [ %4, %13 ]
   %.1105134 = phi i8 [ %.2106, %.loopexit ], [ %.0104, %13 ]
   %.0107133 = phi i8 [ %.2109, %.loopexit ], [ 0, %13 ]
   %16 = sext i8 %15 to i32
@@ -1439,11 +1439,11 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %85 = phi i32 [ %89, %.lr.ph.split.us ], [ %83, %.lr.ph ]
-  %.2102131.us = phi ptr [ %87, %.lr.ph.split.us ], [ %.0100135, %.lr.ph ]
-  %86 = load i8, ptr %.2102131.us, align 1
+  %.3103131.us = phi ptr [ %87, %.lr.ph.split.us ], [ %.0100135, %.lr.ph ]
+  %86 = load i8, ptr %.3103131.us, align 1
   call void @appendPQExpBufferChar(ptr noundef nonnull %10, i8 noundef signext %86) #11
-  %87 = getelementptr i8, ptr %.2102131.us, i64 1
-  %88 = load i8, ptr %.2102131.us, align 1
+  %87 = getelementptr i8, ptr %.3103131.us, i64 1
+  %88 = load i8, ptr %.3103131.us, align 1
   call void @appendPQExpBufferChar(ptr noundef %.0136, i8 noundef signext %88) #11
   %89 = add i32 %85, -1
   %.not124.us = icmp eq i32 %85, 0
@@ -1451,9 +1451,9 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %90 = phi i32 [ %93, %.lr.ph.split ], [ %83, %.lr.ph ]
-  %.2102131 = phi ptr [ %91, %.lr.ph.split ], [ %.0100135, %.lr.ph ]
-  %91 = getelementptr i8, ptr %.2102131, i64 1
-  %92 = load i8, ptr %.2102131, align 1
+  %.3103131 = phi ptr [ %91, %.lr.ph.split ], [ %.0100135, %.lr.ph ]
+  %91 = getelementptr i8, ptr %.3103131, i64 1
+  %92 = load i8, ptr %.3103131, align 1
   call void @appendPQExpBufferChar(ptr noundef %.0136, i8 noundef signext %92) #11
   %93 = add i32 %90, -1
   %.not124 = icmp eq i32 %90, 0
@@ -1462,9 +1462,9 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %81, %44, %55, %71, %61, %64, %50, %29
   %.2109 = phi i8 [ %.1108, %29 ], [ %.0107133, %50 ], [ %.0107133, %55 ], [ %.0107133, %61 ], [ %.0107133, %64 ], [ %.0107133, %71 ], [ %.0107133, %44 ], [ %.0107133, %81 ], [ %.0107133, %.lr.ph.split.us ], [ %.0107133, %.lr.ph.split ]
   %.2106 = phi i8 [ %.1105134, %29 ], [ %.1105134, %50 ], [ %.1105134, %55 ], [ 0, %61 ], [ 0, %64 ], [ %.1105134, %71 ], [ %.1105134, %44 ], [ %.1105134, %81 ], [ %.1105134, %.lr.ph.split.us ], [ %.1105134, %.lr.ph.split ]
-  %.3103 = phi ptr [ %30, %29 ], [ %51, %50 ], [ %56, %55 ], [ %63, %61 ], [ %65, %64 ], [ %72, %71 ], [ %45, %44 ], [ %.0100135, %81 ], [ %87, %.lr.ph.split.us ], [ %91, %.lr.ph.split ]
+  %.2102 = phi ptr [ %30, %29 ], [ %51, %50 ], [ %56, %55 ], [ %63, %61 ], [ %65, %64 ], [ %72, %71 ], [ %45, %44 ], [ %.0100135, %81 ], [ %87, %.lr.ph.split.us ], [ %91, %.lr.ph.split ]
   %.1 = phi ptr [ %.0136, %29 ], [ %.0136, %50 ], [ %.0136, %55 ], [ %62, %61 ], [ %.0136, %64 ], [ %.0136, %71 ], [ %.0136, %44 ], [ %.0136, %81 ], [ %.0136, %.lr.ph.split.us ], [ %.0136, %.lr.ph.split ]
-  %94 = load i8, ptr %.3103, align 1
+  %94 = load i8, ptr %.2102, align 1
   %.not118 = icmp eq i8 %94, 0
   br i1 %.not118, label %._crit_edge, label %.lr.ph138, !llvm.loop !23
 

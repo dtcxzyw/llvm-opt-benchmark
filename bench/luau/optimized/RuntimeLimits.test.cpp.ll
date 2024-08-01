@@ -1743,8 +1743,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 86:                                               ; preds = %83, %81
   %.pn8.i = phi { ptr, i32 } [ %84, %83 ], [ %82, %81 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn8.i, 0
-  %87 = call ptr @__cxa_begin_catch(ptr %.1.i) #13
+  %.3.i = extractvalue { ptr, i32 } %.pn8.i, 0
+  %87 = call ptr @__cxa_begin_catch(ptr %.3.i) #13
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %4)
           to label %88 unwind label %93
 

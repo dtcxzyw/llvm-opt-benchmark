@@ -79,10 +79,10 @@ gv_calloc.exit:                                   ; preds = %10
   br i1 %.not7281, label %._crit_edge88, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %._crit_edge, %40
-  %.05685 = phi i8 [ %.258, %40 ], [ 0, %._crit_edge ]
+  %.05685 = phi i8 [ %.157, %40 ], [ 0, %._crit_edge ]
   %.16384 = phi ptr [ %41, %40 ], [ %23, %._crit_edge ]
-  %.06583 = phi ptr [ %.267, %40 ], [ null, %._crit_edge ]
-  %.06882 = phi i64 [ %.270, %40 ], [ 0, %._crit_edge ]
+  %.06583 = phi ptr [ %.166, %40 ], [ null, %._crit_edge ]
+  %.06882 = phi i64 [ %.169, %40 ], [ 0, %._crit_edge ]
   %.val75 = load ptr, ptr %17, align 8
   %24 = call zeroext i1 %.val75(ptr noundef nonnull %.16384, i32 noundef -1) #16
   br i1 %24, label %40, label %25
@@ -111,34 +111,34 @@ gv_calloc.exit:                                   ; preds = %10
   br label %38
 
 38:                                               ; preds = %32, %31
-  %.169 = phi i64 [ %.06882, %31 ], [ %37, %32 ]
-  %.166 = phi ptr [ %.06583, %31 ], [ %34, %32 ]
-  %.157 = phi i8 [ %.05685, %31 ], [ 1, %32 ]
-  %39 = call fastcc i64 @dfs(ptr noundef %0, ptr noundef nonnull %.16384, ptr noundef %.166, ptr noundef nonnull %6)
+  %.270 = phi i64 [ %.06882, %31 ], [ %37, %32 ]
+  %.267 = phi ptr [ %.06583, %31 ], [ %34, %32 ]
+  %.258 = phi i8 [ %.05685, %31 ], [ 1, %32 ]
+  %39 = call fastcc i64 @dfs(ptr noundef %0, ptr noundef nonnull %.16384, ptr noundef %.267, ptr noundef nonnull %6)
   br label %40
 
 40:                                               ; preds = %.lr.ph87, %25, %38
-  %.270 = phi i64 [ %.06882, %.lr.ph87 ], [ %.169, %38 ], [ %.06882, %25 ]
-  %.267 = phi ptr [ %.06583, %.lr.ph87 ], [ %.166, %38 ], [ %.06583, %25 ]
-  %.258 = phi i8 [ %.05685, %.lr.ph87 ], [ %.157, %38 ], [ %.05685, %25 ]
+  %.169 = phi i64 [ %.06882, %.lr.ph87 ], [ %.270, %38 ], [ %.06882, %25 ]
+  %.166 = phi ptr [ %.06583, %.lr.ph87 ], [ %.267, %38 ], [ %.06583, %25 ]
+  %.157 = phi i8 [ %.05685, %.lr.ph87 ], [ %.258, %38 ], [ %.05685, %25 ]
   %41 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.16384) #16
   %.not72 = icmp eq ptr %41, null
   br i1 %.not72, label %._crit_edge88.loopexit, label %.lr.ph87
 
 ._crit_edge88.loopexit:                           ; preds = %40
-  %42 = and i8 %.258, 1
+  %42 = and i8 %.157, 1
   br label %._crit_edge88
 
 ._crit_edge88:                                    ; preds = %._crit_edge88.loopexit, %._crit_edge
-  %.068.lcssa = phi i64 [ 0, %._crit_edge ], [ %.270, %._crit_edge88.loopexit ]
+  %.068.lcssa = phi i64 [ 0, %._crit_edge ], [ %.169, %._crit_edge88.loopexit ]
   %.056.lcssa = phi i8 [ 0, %._crit_edge ], [ %42, %._crit_edge88.loopexit ]
   %43 = call ptr @agfstnode(ptr noundef %0) #16
   %.not7390 = icmp eq ptr %43, null
   br i1 %.not7390, label %._crit_edge97, label %.lr.ph96
 
 .lr.ph96:                                         ; preds = %._crit_edge88, %57
-  %.094 = phi ptr [ %.2, %57 ], [ %11, %._crit_edge88 ]
-  %.05993 = phi i64 [ %.261, %57 ], [ 10, %._crit_edge88 ]
+  %.094 = phi ptr [ %.1, %57 ], [ %11, %._crit_edge88 ]
+  %.05993 = phi i64 [ %.160, %57 ], [ 10, %._crit_edge88 ]
   %.26492 = phi ptr [ %58, %57 ], [ %43, %._crit_edge88 ]
   %.391 = phi i64 [ %.4, %57 ], [ %.068.lcssa, %._crit_edge88 ]
   %.val76 = load ptr, ptr %17, align 8
@@ -161,25 +161,25 @@ gv_calloc.exit:                                   ; preds = %10
   br label %54
 
 54:                                               ; preds = %51, %45
-  %.160 = phi i64 [ %52, %51 ], [ %.05993, %45 ]
-  %.1 = phi ptr [ %53, %51 ], [ %.094, %45 ]
-  %55 = getelementptr inbounds ptr, ptr %.1, i64 %.391
+  %.261 = phi i64 [ %52, %51 ], [ %.05993, %45 ]
+  %.2 = phi ptr [ %53, %51 ], [ %.094, %45 ]
+  %55 = getelementptr inbounds ptr, ptr %.2, i64 %.391
   store ptr %47, ptr %55, align 8
   %56 = add i64 %.391, 1
   br label %57
 
 57:                                               ; preds = %.lr.ph96, %54
   %.4 = phi i64 [ %.391, %.lr.ph96 ], [ %56, %54 ]
-  %.261 = phi i64 [ %.05993, %.lr.ph96 ], [ %.160, %54 ]
-  %.2 = phi ptr [ %.094, %.lr.ph96 ], [ %.1, %54 ]
+  %.160 = phi i64 [ %.05993, %.lr.ph96 ], [ %.261, %54 ]
+  %.1 = phi ptr [ %.094, %.lr.ph96 ], [ %.2, %54 ]
   %58 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.26492) #16
   %.not73 = icmp eq ptr %58, null
   br i1 %.not73, label %._crit_edge97, label %.lr.ph96
 
 ._crit_edge97:                                    ; preds = %57, %._crit_edge88
   %.3.lcssa = phi i64 [ %.068.lcssa, %._crit_edge88 ], [ %.4, %57 ]
-  %.059.lcssa = phi i64 [ 10, %._crit_edge88 ], [ %.261, %57 ]
-  %.0.lcssa = phi ptr [ %11, %._crit_edge88 ], [ %.2, %57 ]
+  %.059.lcssa = phi i64 [ 10, %._crit_edge88 ], [ %.160, %57 ]
+  %.0.lcssa = phi ptr [ %11, %._crit_edge88 ], [ %.1, %57 ]
   %59 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %59, align 8
   %60 = load ptr, ptr %6, align 8
@@ -828,8 +828,8 @@ gv_calloc.exit:                                   ; preds = %8
   br i1 %.not4658, label %._crit_edge65, label %.lr.ph64
 
 .lr.ph64:                                         ; preds = %._crit_edge, %42
-  %.062 = phi ptr [ %.2, %42 ], [ %9, %._crit_edge ]
-  %.03861 = phi i64 [ %.240, %42 ], [ 10, %._crit_edge ]
+  %.062 = phi ptr [ %.1, %42 ], [ %9, %._crit_edge ]
+  %.03861 = phi i64 [ %.139, %42 ], [ 10, %._crit_edge ]
   %.14260 = phi ptr [ %43, %42 ], [ %21, %._crit_edge ]
   %.04459 = phi i64 [ %.145, %42 ], [ 0, %._crit_edge ]
   %.val47 = load ptr, ptr %15, align 8
@@ -868,17 +868,17 @@ gv_calloc.exit:                                   ; preds = %8
   br label %39
 
 39:                                               ; preds = %36, %34
-  %.139 = phi i64 [ %37, %36 ], [ %.03861, %34 ]
-  %.1 = phi ptr [ %38, %36 ], [ %.062, %34 ]
-  %40 = getelementptr inbounds ptr, ptr %.1, i64 %.04459
+  %.240 = phi i64 [ %37, %36 ], [ %.03861, %34 ]
+  %.2 = phi ptr [ %38, %36 ], [ %.062, %34 ]
+  %40 = getelementptr inbounds ptr, ptr %.2, i64 %.04459
   store ptr %25, ptr %40, align 8
   %41 = add i64 %.04459, 1
   br label %42
 
 42:                                               ; preds = %.lr.ph64, %39
   %.145 = phi i64 [ %.04459, %.lr.ph64 ], [ %41, %39 ]
-  %.240 = phi i64 [ %.03861, %.lr.ph64 ], [ %.139, %39 ]
-  %.2 = phi ptr [ %.062, %.lr.ph64 ], [ %.1, %39 ]
+  %.139 = phi i64 [ %.03861, %.lr.ph64 ], [ %.240, %39 ]
+  %.1 = phi ptr [ %.062, %.lr.ph64 ], [ %.2, %39 ]
   %43 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.14260) #16
   %.not46 = icmp eq ptr %43, null
   br i1 %.not46, label %._crit_edge65.loopexit, label %.lr.ph64
@@ -890,8 +890,8 @@ gv_calloc.exit:                                   ; preds = %8
 ._crit_edge65:                                    ; preds = %._crit_edge65.loopexit, %._crit_edge
   %44 = phi ptr [ null, %._crit_edge ], [ %.pre, %._crit_edge65.loopexit ]
   %.044.lcssa = phi i64 [ 0, %._crit_edge ], [ %.145, %._crit_edge65.loopexit ]
-  %.038.lcssa = phi i64 [ 10, %._crit_edge ], [ %.240, %._crit_edge65.loopexit ]
-  %.0.lcssa = phi ptr [ %9, %._crit_edge ], [ %.2, %._crit_edge65.loopexit ]
+  %.038.lcssa = phi i64 [ 10, %._crit_edge ], [ %.139, %._crit_edge65.loopexit ]
+  %.0.lcssa = phi ptr [ %9, %._crit_edge ], [ %.1, %._crit_edge65.loopexit ]
   call void @free(ptr noundef %44) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %45 = call fastcc ptr @gv_recalloc(ptr noundef %.0.lcssa, i64 noundef %.038.lcssa, i64 noundef %.044.lcssa, i64 noundef 8)

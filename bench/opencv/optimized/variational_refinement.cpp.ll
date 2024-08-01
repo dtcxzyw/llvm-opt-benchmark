@@ -901,14 +901,14 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17splitCheckerboardERNS0_14
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader88
-  %.186.lcssa = phi i32 [ 0, %.preheader88 ], [ %76, %._crit_edge.loopexit ]
+  %.2.lcssa = phi i32 [ 0, %.preheader88 ], [ %76, %._crit_edge.loopexit ]
   %.1.lcssa = phi i64 [ 1, %.preheader88 ], [ %indvars.iv.next, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %41, %.preheader88 ], [ %72, %._crit_edge.loopexit ]
-  %77 = icmp slt i32 %.186.lcssa, %.lcssa
+  %77 = icmp slt i32 %.2.lcssa, %.lcssa
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %._crit_edge
-  %79 = zext nneg i32 %.186.lcssa to i64
+  %79 = zext nneg i32 %.2.lcssa to i64
   %80 = getelementptr inbounds float, ptr %27, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = and i64 %.1.lcssa, 4294967295
@@ -919,12 +919,12 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17splitCheckerboardERNS0_14
   br label %87
 
 85:                                               ; preds = %._crit_edge
-  %86 = add nsw i32 %.186.lcssa, -1
+  %86 = add nsw i32 %.2.lcssa, -1
   br label %87
 
 87:                                               ; preds = %78, %85, %56, %63
-  %.2 = phi i32 [ %.085.lcssa, %56 ], [ %64, %63 ], [ %.186.lcssa, %78 ], [ %86, %85 ]
-  %88 = sext i32 %.2 to i64
+  %.186 = phi i32 [ %.085.lcssa, %56 ], [ %64, %63 ], [ %.2.lcssa, %78 ], [ %86, %85 ]
+  %88 = sext i32 %.186 to i64
   %89 = getelementptr inbounds float, ptr %27, i64 %88
   %90 = load float, ptr %89, align 4
   %91 = getelementptr inbounds float, ptr %37, i64 %21
@@ -2929,7 +2929,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIPvSaIS
   br label %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit496.thread
 
 _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit496.thread836: ; preds = %_ZNSt16allocator_traitsISaIMN2cv25VariationalRefinementImplEFvPvS2_S2_EEE8allocateERS5_m.exit.i.i.i.i, %_ZNKSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE12_M_check_lenEmPKc.exit.i.i534
-  %.sroa.0792.2.ph = phi ptr [ %136, %_ZNKSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE12_M_check_lenEmPKc.exit.i.i534 ], [ %137, %_ZNSt16allocator_traitsISaIMN2cv25VariationalRefinementImplEFvPvS2_S2_EEE8allocateERS5_m.exit.i.i.i.i ]
+  %.sroa.0792.0.ph = phi ptr [ %136, %_ZNKSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE12_M_check_lenEmPKc.exit.i.i534 ], [ %137, %_ZNSt16allocator_traitsISaIMN2cv25VariationalRefinementImplEFvPvS2_S2_EEE8allocateERS5_m.exit.i.i.i.i ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit496.thread
@@ -2941,8 +2941,8 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit498.th
 
 _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit496.thread: ; preds = %331, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit496.thread836
   %.pn.pn833 = phi { ptr, i32 } [ %lpad.thr_comm, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit496.thread836 ], [ %.pn, %331 ]
-  %.sroa.0792.3832 = phi ptr [ %.sroa.0792.2.ph, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit496.thread836 ], [ %137, %331 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0792.3832) #18
+  %.sroa.0792.1832 = phi ptr [ %.sroa.0792.0.ph, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit496.thread836 ], [ %137, %331 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0792.1832) #18
   %.pre871 = load ptr, ptr %17, align 8
   br label %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit498
 
@@ -3016,7 +3016,7 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit502:              ; preds = %336, %_ZNSt6vectorI
   br label %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit506.thread
 
 _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit506.thread849: ; preds = %_ZNSt16allocator_traitsISaIMN2cv25VariationalRefinementImplEFvPvS2_S2_EEE8allocateERS5_m.exit.i.i.i.i341, %_ZNSt12_Vector_baseIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE11_M_allocateEm.exit.i.i575, %_ZNKSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE12_M_check_lenEmPKc.exit.i.i572
-  %.sroa.0740.4.ph = phi ptr [ %205, %_ZNKSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE12_M_check_lenEmPKc.exit.i.i572 ], [ %206, %_ZNSt12_Vector_baseIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE11_M_allocateEm.exit.i.i575 ], [ %208, %_ZNSt16allocator_traitsISaIMN2cv25VariationalRefinementImplEFvPvS2_S2_EEE8allocateERS5_m.exit.i.i.i.i341 ]
+  %.sroa.0740.0.ph = phi ptr [ %205, %_ZNKSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE12_M_check_lenEmPKc.exit.i.i572 ], [ %206, %_ZNSt12_Vector_baseIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE11_M_allocateEm.exit.i.i575 ], [ %208, %_ZNSt16allocator_traitsISaIMN2cv25VariationalRefinementImplEFvPvS2_S2_EEE8allocateERS5_m.exit.i.i.i.i341 ]
   %lpad.thr_comm847 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit506.thread
@@ -3028,8 +3028,8 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit508.th
 
 _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit506.thread: ; preds = %352, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit506.thread849
   %.pn106.pn844 = phi { ptr, i32 } [ %lpad.thr_comm847, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit506.thread849 ], [ %.pn106, %352 ]
-  %.sroa.0740.5843 = phi ptr [ %.sroa.0740.4.ph, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit506.thread849 ], [ %208, %352 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0740.5843) #18
+  %.sroa.0740.1843 = phi ptr [ %.sroa.0740.0.ph, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit506.thread849 ], [ %208, %352 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0740.1843) #18
   %.pre870 = load ptr, ptr %23, align 8
   br label %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit508
 
@@ -3098,7 +3098,7 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit512:              ; preds = %357, %_ZNSt6vectorI
   br label %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit516.thread
 
 _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit516.thread862: ; preds = %_ZNSt16allocator_traitsISaIMN2cv25VariationalRefinementImplEFvPvS2_S2_EEE8allocateERS5_m.exit.i.i.i.i471, %_ZNSt12_Vector_baseIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE11_M_allocateEm.exit.i.i651, %_ZNKSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE12_M_check_lenEmPKc.exit.i.i648
-  %.sroa.0691.3.ph = phi ptr [ %275, %_ZNKSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE12_M_check_lenEmPKc.exit.i.i648 ], [ %276, %_ZNSt12_Vector_baseIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE11_M_allocateEm.exit.i.i651 ], [ %278, %_ZNSt16allocator_traitsISaIMN2cv25VariationalRefinementImplEFvPvS2_S2_EEE8allocateERS5_m.exit.i.i.i.i471 ]
+  %.sroa.0691.0.ph = phi ptr [ %275, %_ZNKSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE12_M_check_lenEmPKc.exit.i.i648 ], [ %276, %_ZNSt12_Vector_baseIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EE11_M_allocateEm.exit.i.i651 ], [ %278, %_ZNSt16allocator_traitsISaIMN2cv25VariationalRefinementImplEFvPvS2_S2_EEE8allocateERS5_m.exit.i.i.i.i471 ]
   %lpad.thr_comm860 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit516.thread
@@ -3110,8 +3110,8 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit518.th
 
 _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit516.thread: ; preds = %371, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit516.thread862
   %.pn112.pn857 = phi { ptr, i32 } [ %lpad.thr_comm860, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit516.thread862 ], [ %.pn112, %371 ]
-  %.sroa.0691.4856 = phi ptr [ %.sroa.0691.3.ph, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit516.thread862 ], [ %278, %371 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0691.4856) #18
+  %.sroa.0691.1856 = phi ptr [ %.sroa.0691.0.ph, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit516.thread862 ], [ %278, %371 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0691.1856) #18
   %.pre869 = load ptr, ptr %29, align 8
   br label %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit518
 

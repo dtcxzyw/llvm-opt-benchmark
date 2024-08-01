@@ -869,8 +869,8 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 .thread:                                          ; preds = %..thread_crit_edge, %193, %189
   %212 = phi i16 [ %.pre866, %..thread_crit_edge ], [ %191, %189 ], [ %191, %193 ]
-  %.1795 = phi float [ %.0, %..thread_crit_edge ], [ %.0, %189 ], [ %209, %193 ]
-  %.1584793 = phi i32 [ %.0583, %..thread_crit_edge ], [ %.0583, %189 ], [ 1, %193 ]
+  %.2795 = phi float [ %.0, %..thread_crit_edge ], [ %.0, %189 ], [ %209, %193 ]
+  %.2585793 = phi i32 [ %.0583, %..thread_crit_edge ], [ %.0583, %189 ], [ 1, %193 ]
   %213 = load i32, ptr @hf_wlan_radio_11n_mcs_index, align 4
   %214 = zext i16 %212 to i32
   %215 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %213, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %214) #9
@@ -879,8 +879,8 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 216:                                              ; preds = %.thread, %210
   %217 = phi i8 [ %.pre867, %.thread ], [ %187, %210 ]
-  %.1796 = phi float [ %.1795, %.thread ], [ %.0, %210 ]
-  %.1584794 = phi i32 [ %.1584793, %.thread ], [ %.0583, %210 ]
+  %.2796 = phi float [ %.2795, %.thread ], [ %.0, %210 ]
+  %.2585794 = phi i32 [ %.2585793, %.thread ], [ %.0583, %210 ]
   %218 = and i8 %217, 2
   %.not686 = icmp eq i8 %218, 0
   br i1 %.not686, label %224, label %219
@@ -1097,8 +1097,8 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 349:                                              ; preds = %343, %430
   %indvars.iv = phi i64 [ 0, %343 ], [ %indvars.iv.next, %430 ]
-  %.2857 = phi float [ %.0, %343 ], [ %.3, %430 ]
-  %.2585856 = phi i32 [ %.0583, %343 ], [ %.3586, %430 ]
+  %.3857 = phi float [ %.0, %343 ], [ %.4, %430 ]
+  %.3586856 = phi i32 [ %.0583, %343 ], [ %.4587, %430 ]
   %350 = getelementptr [4 x i8], ptr %344, i64 0, i64 %indvars.iv
   %351 = load i8, ptr %350, align 1
   %.not676 = icmp eq i8 %351, 0
@@ -1218,8 +1218,8 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br label %430
 
 430:                                              ; preds = %349, %413, %429, %406, %403, %400, %399
-  %.3586 = phi i32 [ 1, %429 ], [ %.2585856, %413 ], [ %.2585856, %406 ], [ %.2585856, %403 ], [ %.2585856, %400 ], [ %.2585856, %399 ], [ %.2585856, %349 ]
-  %.3 = phi float [ %427, %429 ], [ %427, %413 ], [ %.2857, %406 ], [ %.2857, %403 ], [ %.2857, %400 ], [ %.2857, %399 ], [ %.2857, %349 ]
+  %.4587 = phi i32 [ 1, %429 ], [ %.3586856, %413 ], [ %.3586856, %406 ], [ %.3586856, %403 ], [ %.3586856, %400 ], [ %.3586856, %399 ], [ %.3586856, %349 ]
+  %.4 = phi float [ %427, %429 ], [ %427, %413 ], [ %.3857, %406 ], [ %.3857, %403 ], [ %.3857, %400 ], [ %.3857, %399 ], [ %.3857, %349 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %431, label %349, !llvm.loop !4
@@ -1310,33 +1310,33 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br label %ieee80211_he_ofdm_rate.exit
 
 ieee80211_he_ofdm_rate.exit:                      ; preds = %481, %470
-  %.4.in = phi ptr [ %475, %470 ], [ %486, %481 ]
-  %.4 = load float, ptr %.4.in, align 4
-  %487 = fcmp une float %.4, 0.000000e+00
+  %.5.in = phi ptr [ %475, %470 ], [ %486, %481 ]
+  %.5 = load float, ptr %.5.in, align 4
+  %487 = fcmp une float %.5, 0.000000e+00
   br i1 %487, label %.thread798, label %ieee80211_he_ofdm_rate.exit.thread
 
 ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %121, %145, %142, %156, %151, %172, %169, %181, %178, %270, %267, %443, %440, %ieee80211_he_ofdm_rate.exit, %449, %116
   %.0589 = phi i32 [ 1, %121 ], [ 1, %ieee80211_he_ofdm_rate.exit ], [ 1, %449 ], [ 1, %443 ], [ 1, %440 ], [ 1, %270 ], [ 1, %267 ], [ 1, %181 ], [ 1, %178 ], [ 1, %172 ], [ 1, %169 ], [ %155, %156 ], [ %155, %151 ], [ 1, %145 ], [ 1, %142 ], [ 1, %116 ], [ 1, %468 ], [ 1, %477 ], [ 1, %476 ]
   %488 = phi i1 [ true, %121 ], [ true, %ieee80211_he_ofdm_rate.exit ], [ true, %449 ], [ true, %443 ], [ true, %440 ], [ true, %270 ], [ true, %267 ], [ true, %181 ], [ true, %178 ], [ true, %172 ], [ true, %169 ], [ false, %156 ], [ true, %151 ], [ true, %145 ], [ true, %142 ], [ true, %116 ], [ true, %468 ], [ true, %477 ], [ true, %476 ]
-  %.4587 = phi i32 [ %.0583, %121 ], [ %.0583, %ieee80211_he_ofdm_rate.exit ], [ %.0583, %449 ], [ %.3586, %443 ], [ %.3586, %440 ], [ %.1584794, %270 ], [ %.1584794, %267 ], [ %.0583, %181 ], [ %.0583, %178 ], [ %.0583, %172 ], [ %.0583, %169 ], [ %.0583, %156 ], [ %.0583, %151 ], [ %.0583, %145 ], [ %.0583, %142 ], [ %.0583, %116 ], [ %.0583, %468 ], [ %.0583, %477 ], [ %.0583, %476 ]
-  %.5 = phi float [ %.0, %121 ], [ %.4, %ieee80211_he_ofdm_rate.exit ], [ %.0, %449 ], [ %.3, %443 ], [ %.3, %440 ], [ %.1796, %270 ], [ %.1796, %267 ], [ %.0, %181 ], [ %.0, %178 ], [ %.0, %172 ], [ %.0, %169 ], [ %.0, %156 ], [ %.0, %151 ], [ %.0, %145 ], [ %.0, %142 ], [ %.0, %116 ], [ 0.000000e+00, %468 ], [ 0.000000e+00, %477 ], [ 0.000000e+00, %476 ]
-  %.not850 = icmp eq i32 %.4587, 0
+  %.1584 = phi i32 [ %.0583, %121 ], [ %.0583, %ieee80211_he_ofdm_rate.exit ], [ %.0583, %449 ], [ %.4587, %443 ], [ %.4587, %440 ], [ %.2585794, %270 ], [ %.2585794, %267 ], [ %.0583, %181 ], [ %.0583, %178 ], [ %.0583, %172 ], [ %.0583, %169 ], [ %.0583, %156 ], [ %.0583, %151 ], [ %.0583, %145 ], [ %.0583, %142 ], [ %.0583, %116 ], [ %.0583, %468 ], [ %.0583, %477 ], [ %.0583, %476 ]
+  %.1 = phi float [ %.0, %121 ], [ %.5, %ieee80211_he_ofdm_rate.exit ], [ %.0, %449 ], [ %.4, %443 ], [ %.4, %440 ], [ %.2796, %270 ], [ %.2796, %267 ], [ %.0, %181 ], [ %.0, %178 ], [ %.0, %172 ], [ %.0, %169 ], [ %.0, %156 ], [ %.0, %151 ], [ %.0, %145 ], [ %.0, %142 ], [ %.0, %116 ], [ 0.000000e+00, %468 ], [ 0.000000e+00, %477 ], [ 0.000000e+00, %476 ]
+  %.not850 = icmp eq i32 %.1584, 0
   br i1 %.not850, label %494, label %.thread798
 
 .thread798:                                       ; preds = %ieee80211_he_ofdm_rate.exit, %ieee80211_he_ofdm_rate.exit.thread
-  %.5804 = phi float [ %.5, %ieee80211_he_ofdm_rate.exit.thread ], [ %.4, %ieee80211_he_ofdm_rate.exit ]
+  %.1804 = phi float [ %.1, %ieee80211_he_ofdm_rate.exit.thread ], [ %.5, %ieee80211_he_ofdm_rate.exit ]
   %489 = phi i1 [ %488, %ieee80211_he_ofdm_rate.exit.thread ], [ true, %ieee80211_he_ofdm_rate.exit ]
   %.0589803 = phi i32 [ %.0589, %ieee80211_he_ofdm_rate.exit.thread ], [ 1, %ieee80211_he_ofdm_rate.exit ]
   %490 = load ptr, ptr %10, align 8
-  %491 = fpext float %.5804 to double
+  %491 = fpext float %.1804 to double
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %490, i32 noundef 23, ptr noundef nonnull @.str.201, double noundef %491) #9
   %492 = load i32, ptr @hf_wlan_radio_data_rate, align 4
-  %493 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %120, i32 noundef %492, ptr noundef %0, i32 noundef 0, i32 noundef 0, float noundef %.5804, ptr noundef nonnull @.str.202, double noundef %491) #9
+  %493 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %120, i32 noundef %492, ptr noundef %0, i32 noundef 0, i32 noundef 0, float noundef %.1804, ptr noundef nonnull @.str.202, double noundef %491) #9
   br label %494
 
 494:                                              ; preds = %.thread798, %ieee80211_he_ofdm_rate.exit.thread
   %495 = phi i1 [ true, %.thread798 ], [ false, %ieee80211_he_ofdm_rate.exit.thread ]
-  %.5805 = phi float [ %.5804, %.thread798 ], [ %.5, %ieee80211_he_ofdm_rate.exit.thread ]
+  %.1805 = phi float [ %.1804, %.thread798 ], [ %.1, %ieee80211_he_ofdm_rate.exit.thread ]
   %496 = phi i1 [ %489, %.thread798 ], [ %488, %ieee80211_he_ofdm_rate.exit.thread ]
   %.0589802 = phi i32 [ %.0589803, %.thread798 ], [ %.0589, %ieee80211_he_ofdm_rate.exit.thread ]
   %497 = load i16, ptr %13, align 4
@@ -1538,7 +1538,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   %623 = icmp eq i32 %622, 0
   %624 = add i32 %6, 4
   %spec.select = select i1 %623, i32 %624, i32 %6
-  %625 = fcmp ogt float %.5805, 0.000000e+00
+  %625 = fcmp ogt float %.1805, 0.000000e+00
   %or.cond10 = select i1 %495, i1 %625, i1 false
   br i1 %or.cond10, label %626, label %proto_item_set_generated.exit790
 
@@ -1547,11 +1547,11 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   br i1 %627, label %628, label %636
 
 628:                                              ; preds = %626
-  %629 = insertelement <4 x float> poison, float %.5805, i64 0
+  %629 = insertelement <4 x float> poison, float %.1805, i64 0
   %630 = shufflevector <4 x float> %629, <4 x float> poison, <4 x i32> zeroinitializer
   %631 = fcmp oeq <4 x float> %630, <float 1.000000e+00, float 2.000000e+00, float 5.500000e+00, float 1.100000e+01>
-  %632 = fcmp oeq float %.5805, 2.200000e+01
-  %633 = fcmp oeq float %.5805, 3.300000e+01
+  %632 = fcmp oeq float %.1805, 2.200000e+01
+  %633 = fcmp oeq float %.1805, 3.300000e+01
   %634 = bitcast <4 x i1> %631 to i4
   %635 = icmp ne i4 %634, 0
   %op.rdx = or i1 %635, %632
@@ -1562,11 +1562,11 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   br i1 %.not663, label %637, label %.critedge
 
 637:                                              ; preds = %636
-  %638 = insertelement <4 x float> poison, float %.5805, i64 0
+  %638 = insertelement <4 x float> poison, float %.1805, i64 0
   %639 = shufflevector <4 x float> %638, <4 x float> poison, <4 x i32> zeroinitializer
   %640 = fcmp oeq <4 x float> %639, <float 1.000000e+00, float 2.000000e+00, float 5.500000e+00, float 1.100000e+01>
-  %641 = fcmp oeq float %.5805, 2.200000e+01
-  %642 = fcmp oeq float %.5805, 3.300000e+01
+  %641 = fcmp oeq float %.1805, 2.200000e+01
+  %642 = fcmp oeq float %.1805, 3.300000e+01
   %643 = bitcast <4 x i1> %640 to i4
   %644 = icmp ne i4 %643, 0
   %op.rdx891 = or i1 %644, %641
@@ -1574,7 +1574,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   br i1 %op.rdx892, label %.critedge.thread810, label %645
 
 645:                                              ; preds = %637
-  %646 = insertelement <8 x float> poison, float %.5805, i64 0
+  %646 = insertelement <8 x float> poison, float %.1805, i64 0
   %647 = shufflevector <8 x float> %646, <8 x float> poison, <8 x i32> zeroinitializer
   %648 = fcmp oeq <8 x float> %647, <float 6.000000e+00, float 9.000000e+00, float 1.200000e+01, float 1.800000e+01, float 2.400000e+01, float 3.600000e+01, float 4.800000e+01, float 5.400000e+01>
   %649 = bitcast <8 x i1> %648 to i8
@@ -1600,7 +1600,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   %653 = uitofp nneg i32 %652 to float
   %654 = shl i32 %spec.select, 3
   %655 = uitofp i32 %654 to float
-  %656 = fdiv float %655, %.5805
+  %656 = fdiv float %655, %.1805
   %657 = fadd float %656, %653
   %658 = tail call float @llvm.ceil.f32(float %657)
   %659 = fptoui float %658 to i32
@@ -1610,7 +1610,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   %660 = shl i32 %spec.select, 3
   %661 = add i32 %660, 22
   %662 = uitofp i32 %661 to float
-  %663 = fmul float %.5805, 4.000000e+00
+  %663 = fmul float %.1805, 4.000000e+00
   %664 = fdiv float %662, %663
   %665 = tail call float @llvm.ceil.f32(float %664)
   %666 = fptoui float %665 to i32
@@ -1647,8 +1647,8 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   br label %685
 
 685:                                              ; preds = %678, %680
-  %.0612 = phi i32 [ 0, %680 ], [ 1, %678 ]
-  %.0598 = phi i32 [ %684, %680 ], [ 32, %678 ]
+  %.1613 = phi i32 [ 0, %680 ], [ 1, %678 ]
+  %.1599 = phi i32 [ %684, %680 ], [ 32, %678 ]
   %686 = and i8 %670, 32
   %.not716 = icmp eq i8 %686, 0
   br i1 %.not716, label %693, label %687
@@ -1662,7 +1662,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   br label %693
 
 693:                                              ; preds = %685, %687
-  %.0608 = phi i32 [ 0, %687 ], [ 1, %685 ]
+  %.1609 = phi i32 [ 0, %687 ], [ 1, %685 ]
   %.0595 = phi i32 [ %692, %687 ], [ 0, %685 ]
   %694 = and i8 %670, 64
   %.not717 = icmp eq i8 %694, 0
@@ -1699,7 +1699,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   %715 = load i32, ptr %714, align 4
   %716 = add i32 %715, %712
   %717 = shl i32 %716, 2
-  %718 = add i32 %717, %.0598
+  %718 = add i32 %717, %.1599
   br i1 %.not716, label %725, label %719
 
 719:                                              ; preds = %709
@@ -1711,7 +1711,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   br label %725
 
 725:                                              ; preds = %709, %719
-  %.1609 = phi i32 [ %.0608, %719 ], [ 1, %709 ]
+  %.2610 = phi i32 [ %.1609, %719 ], [ 1, %709 ]
   %.1596 = phi i32 [ %724, %719 ], [ 0, %709 ]
   %726 = and i8 %670, 16
   %.not720 = icmp eq i8 %726, 0
@@ -1773,13 +1773,13 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   %758 = shl i32 %757, 3
   %759 = add i32 %758, 16
   %760 = uitofp i32 %759 to float
-  %761 = fdiv float %760, %.5805
+  %761 = fdiv float %760, %.1805
   %762 = fptoui float %761 to i32
   %763 = add i32 %757, %spec.select
   %764 = shl i32 %763, 3
   %765 = add i32 %764, 16
   %766 = uitofp i32 %765 to float
-  %767 = fdiv float %766, %.5805
+  %767 = fdiv float %766, %.1805
   %768 = fptoui float %767 to i32
   %769 = sub i32 %spec.select768, %762
   %770 = add i32 %769, %768
@@ -1789,7 +1789,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   %772 = shl i32 %spec.select, 3
   %773 = add i32 %772, 16
   %774 = uitofp i32 %773 to float
-  %775 = fdiv float %774, %.5805
+  %775 = fdiv float %774, %.1805
   %776 = fptoui float %775 to i32
   %777 = add i32 %752, %776
   br label %778
@@ -1797,13 +1797,13 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
 778:                                              ; preds = %755, %771, %729, %737, %.critedge.thread, %.critedge.thread810
   %.0620 = phi i32 [ %732, %729 ], [ 0, %737 ], [ 0, %.critedge.thread ], [ 0, %.critedge.thread810 ], [ %762, %755 ], [ 0, %771 ]
   %.0618 = phi i32 [ %736, %729 ], [ %739, %737 ], [ %668, %.critedge.thread ], [ %659, %.critedge.thread810 ], [ %770, %755 ], [ %777, %771 ]
-  %.1615 = phi i32 [ 0, %729 ], [ 0, %737 ], [ 0, %.critedge.thread ], [ %spec.select761, %.critedge.thread810 ], [ 0, %755 ], [ 0, %771 ]
-  %.1613 = phi i32 [ %.0612, %729 ], [ %.0612, %737 ], [ 0, %.critedge.thread ], [ 0, %.critedge.thread810 ], [ 0, %755 ], [ 0, %771 ]
-  %.3611 = phi i32 [ %.1609, %729 ], [ %.1609, %737 ], [ 0, %.critedge.thread ], [ 0, %.critedge.thread810 ], [ %spec.select767, %755 ], [ %spec.select767, %771 ]
-  %.2607 = phi i32 [ %spec.select765, %729 ], [ %spec.select765, %737 ], [ 0, %.critedge.thread ], [ 0, %.critedge.thread810 ], [ 0, %755 ], [ 0, %771 ]
-  %.1604.shrunk = phi i1 [ %.not720, %729 ], [ %.not720, %737 ], [ false, %.critedge.thread ], [ false, %.critedge.thread810 ], [ false, %755 ], [ false, %771 ]
+  %.0614 = phi i32 [ 0, %729 ], [ 0, %737 ], [ 0, %.critedge.thread ], [ %spec.select761, %.critedge.thread810 ], [ 0, %755 ], [ 0, %771 ]
+  %.0612 = phi i32 [ %.1613, %729 ], [ %.1613, %737 ], [ 0, %.critedge.thread ], [ 0, %.critedge.thread810 ], [ 0, %755 ], [ 0, %771 ]
+  %.0608 = phi i32 [ %.2610, %729 ], [ %.2610, %737 ], [ 0, %.critedge.thread ], [ 0, %.critedge.thread810 ], [ %spec.select767, %755 ], [ %spec.select767, %771 ]
+  %.0605 = phi i32 [ %spec.select765, %729 ], [ %spec.select765, %737 ], [ 0, %.critedge.thread ], [ 0, %.critedge.thread810 ], [ 0, %755 ], [ 0, %771 ]
+  %.0603.shrunk = phi i1 [ %.not720, %729 ], [ %.not720, %737 ], [ false, %.critedge.thread ], [ false, %.critedge.thread810 ], [ false, %755 ], [ false, %771 ]
   %.0602 = phi i32 [ %718, %729 ], [ 0, %737 ], [ 0, %.critedge.thread ], [ 0, %.critedge.thread810 ], [ %752, %755 ], [ 0, %771 ]
-  %.3601 = phi i32 [ %spec.select766, %729 ], [ %718, %737 ], [ 20, %.critedge.thread ], [ %652, %.critedge.thread810 ], [ %spec.select768, %755 ], [ %752, %771 ]
+  %.0598 = phi i32 [ %spec.select766, %729 ], [ %718, %737 ], [ 20, %.critedge.thread ], [ %652, %.critedge.thread810 ], [ %spec.select768, %755 ], [ %752, %771 ]
   %779 = load ptr, ptr %22, align 8
   %780 = getelementptr inbounds i8, ptr %779, i64 50
   %781 = load i16, ptr %780, align 2
@@ -1919,7 +1919,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
 
 842:                                              ; preds = %835
   %843 = zext i32 %.0620 to i64
-  %844 = zext i32 %.3601 to i64
+  %844 = zext i32 %.0598 to i64
   %845 = sub nsw i64 %843, %844
   %846 = add i64 %845, %801
   %847 = getelementptr inbounds i8, ptr %.0621, i64 16
@@ -2009,7 +2009,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %885, %890, %893
-  %.not739 = icmp eq i32 %.1615, 0
+  %.not739 = icmp eq i32 %.0614, 0
   br i1 %.not739, label %899, label %897
 
 897:                                              ; preds = %proto_item_set_generated.exit
@@ -2017,7 +2017,7 @@ proto_item_set_generated.exit:                    ; preds = %885, %890, %893
   br label %899
 
 899:                                              ; preds = %897, %proto_item_set_generated.exit
-  %.not740 = icmp eq i32 %.1613, 0
+  %.not740 = icmp eq i32 %.0612, 0
   br i1 %.not740, label %902, label %900
 
 900:                                              ; preds = %899
@@ -2025,7 +2025,7 @@ proto_item_set_generated.exit:                    ; preds = %885, %890, %893
   br label %902
 
 902:                                              ; preds = %900, %899
-  %.not741 = icmp eq i32 %.3611, 0
+  %.not741 = icmp eq i32 %.0608, 0
   br i1 %.not741, label %905, label %903
 
 903:                                              ; preds = %902
@@ -2033,7 +2033,7 @@ proto_item_set_generated.exit:                    ; preds = %885, %890, %893
   br label %905
 
 905:                                              ; preds = %903, %902
-  %.not742 = icmp eq i32 %.2607, 0
+  %.not742 = icmp eq i32 %.0605, 0
   br i1 %.not742, label %908, label %906
 
 906:                                              ; preds = %905
@@ -2041,19 +2041,19 @@ proto_item_set_generated.exit:                    ; preds = %885, %890, %893
   br label %908
 
 908:                                              ; preds = %906, %905
-  br i1 %.1604.shrunk, label %909, label %911
+  br i1 %.0603.shrunk, label %909, label %911
 
 909:                                              ; preds = %908
   %910 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %887, ptr noundef nonnull @ei_wlan_radio_assumed_bcc_fec) #9
   br label %911
 
 911:                                              ; preds = %909, %908
-  %.not744 = icmp eq i32 %.3601, 0
+  %.not744 = icmp eq i32 %.0598, 0
   br i1 %.not744, label %proto_item_set_generated.exit775, label %912
 
 912:                                              ; preds = %911
   %913 = load i32, ptr @hf_wlan_radio_preamble, align 4
-  %914 = call ptr @proto_tree_add_uint(ptr noundef %889, i32 noundef %913, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.3601) #9
+  %914 = call ptr @proto_tree_add_uint(ptr noundef %889, i32 noundef %913, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0598) #9
   %.not.i773 = icmp eq ptr %914, null
   br i1 %.not.i773, label %proto_item_set_generated.exit775, label %915
 

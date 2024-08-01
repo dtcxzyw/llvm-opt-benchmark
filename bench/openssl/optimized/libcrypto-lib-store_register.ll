@@ -165,21 +165,21 @@ while.cond.preheader:                             ; preds = %entry
 
 land.rhs:                                         ; preds = %while.cond.preheader, %while.body
   %2 = phi i8 [ %7, %while.body ], [ %.pr.pre, %while.cond.preheader ]
-  %scheme.022 = phi ptr [ %incdec.ptr, %while.body ], [ %0, %while.cond.preheader ]
+  %scheme.122 = phi ptr [ %incdec.ptr, %while.body ], [ %0, %while.cond.preheader ]
   %conv2 = sext i8 %2 to i32
   %call5 = tail call i32 @ossl_ctype_check(i32 noundef %conv2, i32 noundef 3) #7
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %lor.lhs.false, label %while.body
 
 lor.lhs.false:                                    ; preds = %land.rhs
-  %3 = load i8, ptr %scheme.022, align 1
+  %3 = load i8, ptr %scheme.122, align 1
   %conv7 = sext i8 %3 to i32
   %call8 = tail call i32 @ossl_isdigit(i32 noundef %conv7) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %lor.rhs, label %while.body
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %4 = load i8, ptr %scheme.022, align 1
+  %4 = load i8, ptr %scheme.122, align 1
   %conv10 = zext nneg i8 %4 to i64
   %memchr.bounds = icmp ugt i8 %4, 63
   %5 = shl nuw i64 1, %conv10
@@ -189,7 +189,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   br i1 %memchr14.not, label %if.end, label %while.body
 
 while.body:                                       ; preds = %lor.lhs.false, %land.rhs, %lor.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %scheme.022, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %scheme.122, i64 1
   %7 = load i8, ptr %incdec.ptr, align 1
   %cmp.not = icmp eq i8 %7, 0
   br i1 %cmp.not, label %if.end19, label %land.rhs, !llvm.loop !4

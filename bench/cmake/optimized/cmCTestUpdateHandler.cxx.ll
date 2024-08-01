@@ -501,9 +501,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58: ; 
 
 .thread:                                          ; preds = %.thread.sink.split, %117, %115, %113, %111, %100, %76, %74, %72, %70, %54
   %.sink = phi ptr [ %8, %54 ], [ %8, %70 ], [ %8, %72 ], [ %8, %74 ], [ %8, %76 ], [ %13, %100 ], [ %13, %111 ], [ %13, %113 ], [ %13, %115 ], [ %13, %117 ], [ %.sink70, %.thread.sink.split ]
-  %.223 = phi i32 [ 1, %54 ], [ 2, %70 ], [ 3, %72 ], [ 4, %74 ], [ 5, %76 ], [ 1, %100 ], [ 2, %111 ], [ 3, %113 ], [ 4, %115 ], [ 5, %117 ], [ %spec.select68, %.thread.sink.split ]
+  %.122 = phi i32 [ 1, %54 ], [ 2, %70 ], [ 3, %72 ], [ 4, %74 ], [ 5, %76 ], [ 1, %100 ], [ 2, %111 ], [ 3, %113 ], [ 4, %115 ], [ 5, %117 ], [ %spec.select68, %.thread.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #13
-  ret i32 %.223
+  ret i32 %.122
 
 120:                                              ; preds = %.body56, %106, %.body, %65, %60
   %.pn39.pn = phi { ptr, i32 } [ %.pn39, %.body ], [ %.pn37, %65 ], [ %.pn29, %.body56 ], [ %.pn27, %106 ], [ %.pn, %60 ]
@@ -991,17 +991,17 @@ _ZL34cmCTestUpdateHandlerUpdateToStringi.exit:    ; preds = %159, %162
   br label %_ZNSt10unique_ptrI9cmCTestVCSt14default_deleteIS0_EED2Ev.exit374
 
 _ZNSt10unique_ptrI10cmCTestCVSSt14default_deleteIS0_EED2Ev.exit: ; preds = %.noexc178, %.noexc172, %.noexc166, %.noexc160, %.noexc154, %.noexc148, %.noexc145
-  %.sroa.0394.8 = phi ptr [ %185, %.noexc145 ], [ %190, %.noexc148 ], [ %195, %.noexc154 ], [ %200, %.noexc160 ], [ %205, %.noexc166 ], [ %210, %.noexc172 ], [ %215, %.noexc178 ]
+  %.sroa.0394.1 = phi ptr [ %185, %.noexc145 ], [ %190, %.noexc148 ], [ %195, %.noexc154 ], [ %200, %.noexc160 ], [ %205, %.noexc166 ], [ %210, %.noexc172 ], [ %215, %.noexc178 ]
   %219 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke void @_ZN9cmCTestVC18SetCommandLineToolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.8, ptr noundef nonnull align 8 dereferenceable(32) %219)
+  invoke void @_ZN9cmCTestVC18SetCommandLineToolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.1, ptr noundef nonnull align 8 dereferenceable(32) %219)
           to label %220 unwind label %.body146
 
 220:                                              ; preds = %_ZNSt10unique_ptrI10cmCTestCVSSt14default_deleteIS0_EED2Ev.exit
-  invoke void @_ZN9cmCTestVC18SetSourceDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.8, ptr noundef nonnull align 8 dereferenceable(32) %100)
+  invoke void @_ZN9cmCTestVC18SetSourceDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.1, ptr noundef nonnull align 8 dereferenceable(32) %100)
           to label %221 unwind label %.body146
 
 221:                                              ; preds = %220
-  invoke void @_ZN9cmCTestVC7CleanupEv(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.8)
+  invoke void @_ZN9cmCTestVC7CleanupEv(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.1)
           to label %222 unwind label %.body146
 
 222:                                              ; preds = %221
@@ -1071,7 +1071,7 @@ _ZNSt10unique_ptrI10cmCTestCVSSt14default_deleteIS0_EED2Ev.exit: ; preds = %.noe
 245:                                              ; preds = %243
   %246 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #13
   %247 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
-  %248 = invoke noundef zeroext i1 @_ZN9cmCTestVC6UpdateEv(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.8)
+  %248 = invoke noundef zeroext i1 @_ZN9cmCTestVC6UpdateEv(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.1)
           to label %249 unwind label %365
 
 249:                                              ; preds = %245
@@ -1555,7 +1555,7 @@ _ZN11cmXMLWriter7ElementINSt6chrono10time_pointINS1_3_V212system_clockENS1_8dura
   br label %.body279
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit281: ; preds = %.noexc278
-  %337 = getelementptr inbounds i8, ptr %.sroa.0394.8, i64 88
+  %337 = getelementptr inbounds i8, ptr %.sroa.0394.1, i64 88
   invoke void @_ZN11cmXMLWriter12StartElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(83) %44, ptr noundef nonnull align 8 dereferenceable(32) %67)
           to label %.noexc282 unwind label %428
 
@@ -2023,11 +2023,11 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br label %628
 
 442:                                              ; preds = %_ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS6_RKT_.exit319, %356
-  %443 = invoke noundef zeroext i1 @_ZN9cmCTestVC8WriteXMLER11cmXMLWriter(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.8, ptr noundef nonnull align 8 dereferenceable(83) %44)
+  %443 = invoke noundef zeroext i1 @_ZN9cmCTestVC8WriteXMLER11cmXMLWriter(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.1, ptr noundef nonnull align 8 dereferenceable(83) %44)
           to label %444 unwind label %461
 
 444:                                              ; preds = %442
-  %445 = getelementptr inbounds i8, ptr %.sroa.0394.8, i64 376
+  %445 = getelementptr inbounds i8, ptr %.sroa.0394.1, i64 376
   %446 = load i32, ptr %445, align 4
   %.not = icmp eq i32 %446, 0
   br i1 %.not, label %468, label %447
@@ -2087,7 +2087,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br label %628
 
 468:                                              ; preds = %460, %444
-  %469 = getelementptr inbounds i8, ptr %.sroa.0394.8, i64 380
+  %469 = getelementptr inbounds i8, ptr %.sroa.0394.1, i64 380
   %470 = load i32, ptr %469, align 4
   %.not113 = icmp eq i32 %470, 0
   br i1 %.not113, label %490, label %471
@@ -2142,7 +2142,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br label %628
 
 490:                                              ; preds = %484, %468
-  %491 = getelementptr inbounds i8, ptr %.sroa.0394.8, i64 384
+  %491 = getelementptr inbounds i8, ptr %.sroa.0394.1, i64 384
   %492 = load i32, ptr %491, align 4
   %.not116 = icmp eq i32 %492, 0
   br i1 %.not116, label %513, label %493
@@ -2682,12 +2682,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit356: ;
   br label %.body146.thread421
 
 _ZNSt10unique_ptrI9cmCTestVCSt14default_deleteIS0_EED2Ev.exit371: ; preds = %624, %235
-  %.0 = phi i32 [ %626, %624 ], [ -1, %235 ]
+  %.2 = phi i32 [ %626, %624 ], [ -1, %235 ]
   call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %36) #13
-  %632 = load ptr, ptr %.sroa.0394.8, align 8
+  %632 = load ptr, ptr %.sroa.0394.1, align 8
   %633 = getelementptr inbounds i8, ptr %632, i64 8
   %634 = load ptr, ptr %633, align 8
-  call void %634(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.8) #13
+  call void %634(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.1) #13
   br label %638
 
 .body146.thread421:                               ; preds = %236, %242, %631
@@ -2707,14 +2707,14 @@ _ZNSt10unique_ptrI9cmCTestVCSt14default_deleteIS0_EED2Ev.exit371: ; preds = %624
 
 _ZNKSt14default_deleteI9cmCTestVCEclEPS0_.exit.i373: ; preds = %.body146, %.body146.thread421
   %.pn134.pn.pn.pn.pn.pn.pn426 = phi { ptr, i32 } [ %.pn134.pn.pn.pn.pn.pn, %.body146.thread421 ], [ %lpad.thr_comm.split-lp, %.body146 ]
-  %635 = load ptr, ptr %.sroa.0394.8, align 8
+  %635 = load ptr, ptr %.sroa.0394.1, align 8
   %636 = getelementptr inbounds i8, ptr %635, i64 8
   %637 = load ptr, ptr %636, align 8
-  call void %637(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.8) #13
+  call void %637(ptr noundef nonnull align 8 dereferenceable(388) %.sroa.0394.1) #13
   br label %_ZNSt10unique_ptrI9cmCTestVCSt14default_deleteIS0_EED2Ev.exit374
 
 638:                                              ; preds = %150, %_ZNSt10unique_ptrI9cmCTestVCSt14default_deleteIS0_EED2Ev.exit371
-  %.1 = phi i32 [ %.0, %_ZNSt10unique_ptrI9cmCTestVCSt14default_deleteIS0_EED2Ev.exit371 ], [ -1, %150 ]
+  %.1 = phi i32 [ %.2, %_ZNSt10unique_ptrI9cmCTestVCSt14default_deleteIS0_EED2Ev.exit371 ], [ -1, %150 ]
   call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %31) #13
   br label %639
 
@@ -2724,9 +2724,9 @@ _ZNSt10unique_ptrI9cmCTestVCSt14default_deleteIS0_EED2Ev.exit374: ; preds = %217
   br label %640
 
 639:                                              ; preds = %638, %112
-  %.2 = phi i32 [ %.1, %638 ], [ -1, %112 ]
+  %.0 = phi i32 [ %.1, %638 ], [ -1, %112 ]
   call void @_ZN25cmCLocaleEnvironmentScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %26) #13
-  ret i32 %.2
+  ret i32 %.0
 
 640:                                              ; preds = %_ZNSt10unique_ptrI9cmCTestVCSt14default_deleteIS0_EED2Ev.exit374, %123, %117, %.body
   %.pn134.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn134.pn.pn.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrI9cmCTestVCSt14default_deleteIS0_EED2Ev.exit374 ], [ %118, %117 ], [ %.pn71, %123 ], [ %.pn, %.body ]

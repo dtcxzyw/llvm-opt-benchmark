@@ -444,11 +444,11 @@ opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %.pre
   br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %opal_argv_count.exit.i.i, %13
-  %.1 = phi ptr [ %calloc.i.i, %13 ], [ %22, %opal_argv_count.exit.i.i ]
+  %.2 = phi ptr [ %calloc.i.i, %13 ], [ %22, %opal_argv_count.exit.i.i ]
   %.0.i.i = phi i32 [ 0, %13 ], [ %.07.i.i.i, %opal_argv_count.exit.i.i ]
   %25 = call noalias ptr @strdup(ptr noundef nonnull readonly %4) #13
   %26 = sext i32 %.0.i.i to i64
-  %27 = getelementptr inbounds ptr, ptr %.1, i64 %26
+  %27 = getelementptr inbounds ptr, ptr %.2, i64 %26
   store ptr %25, ptr %27, align 8
   %28 = icmp eq ptr %25, null
   br i1 %28, label %.critedge, label %.preheader.i.i
@@ -494,11 +494,11 @@ opal_argv_count.exit.i.i50:                       ; preds = %.lr.ph.i.i.i46, %.p
   br i1 %42, label %.critedge, label %43
 
 43:                                               ; preds = %opal_argv_count.exit.i.i50, %32
-  %.3 = phi ptr [ %calloc.i.i62, %32 ], [ %41, %opal_argv_count.exit.i.i50 ]
+  %.4 = phi ptr [ %calloc.i.i62, %32 ], [ %41, %opal_argv_count.exit.i.i50 ]
   %.0.i.i52 = phi i32 [ 0, %32 ], [ %.07.i.i.i51, %opal_argv_count.exit.i.i50 ]
   %44 = call noalias ptr @strdup(ptr noundef nonnull readonly %.033133194) #13
   %45 = sext i32 %.0.i.i52 to i64
-  %46 = getelementptr inbounds ptr, ptr %.3, i64 %45
+  %46 = getelementptr inbounds ptr, ptr %.4, i64 %45
   store ptr %44, ptr %46, align 8
   %47 = icmp eq ptr %44, null
   br i1 %47, label %.critedge, label %.preheader.i.i53
@@ -554,11 +554,11 @@ opal_argv_count.exit.i.i70:                       ; preds = %.lr.ph.i.i.i66, %.p
   br i1 %68, label %75, label %69
 
 69:                                               ; preds = %opal_argv_count.exit.i.i70, %58
-  %.5 = phi ptr [ %calloc.i.i82, %58 ], [ %67, %opal_argv_count.exit.i.i70 ]
+  %.6 = phi ptr [ %calloc.i.i82, %58 ], [ %67, %opal_argv_count.exit.i.i70 ]
   %.0.i.i72 = phi i32 [ 0, %58 ], [ %.07.i.i.i71, %opal_argv_count.exit.i.i70 ]
   %70 = call noalias ptr @strdup(ptr noundef nonnull readonly %53) #13
   %71 = sext i32 %.0.i.i72 to i64
-  %72 = getelementptr inbounds ptr, ptr %.5, i64 %71
+  %72 = getelementptr inbounds ptr, ptr %.6, i64 %71
   store ptr %70, ptr %72, align 8
   %73 = icmp eq ptr %70, null
   br i1 %73, label %75, label %.preheader.i.i73
@@ -609,11 +609,11 @@ opal_argv_count.exit.i.i90:                       ; preds = %.lr.ph.i.i.i86, %.p
   br i1 %89, label %.critedge, label %90
 
 90:                                               ; preds = %opal_argv_count.exit.i.i90, %79
-  %.7 = phi ptr [ %calloc.i.i102, %79 ], [ %88, %opal_argv_count.exit.i.i90 ]
+  %.8 = phi ptr [ %calloc.i.i102, %79 ], [ %88, %opal_argv_count.exit.i.i90 ]
   %.0.i.i92 = phi i32 [ 0, %79 ], [ %.07.i.i.i91, %opal_argv_count.exit.i.i90 ]
   %91 = call noalias ptr @strdup(ptr noundef nonnull readonly %4) #13
   %92 = sext i32 %.0.i.i92 to i64
-  %93 = getelementptr inbounds ptr, ptr %.7, i64 %92
+  %93 = getelementptr inbounds ptr, ptr %.8, i64 %92
   store ptr %91, ptr %93, align 8
   %94 = icmp eq ptr %91, null
   br i1 %94, label %.critedge, label %.preheader.i.i93
@@ -625,12 +625,12 @@ opal_argv_count.exit.i.i90:                       ; preds = %.lr.ph.i.i.i86, %.p
 
 opal_argv_append.exit:                            ; preds = %.preheader.i.i93, %.preheader.i.i, %.preheader.i.i73, %.critedge2.thread
   %.032.lcssa166 = phi ptr [ %.033133194, %.critedge2.thread ], [ %8, %.preheader.i.i73 ], [ %.033133194, %.preheader.i.i ], [ %8, %.preheader.i.i93 ]
-  %.9 = phi ptr [ %.0108132195, %.critedge2.thread ], [ %.5, %.preheader.i.i73 ], [ %.1, %.preheader.i.i ], [ %.7, %.preheader.i.i93 ]
+  %.1 = phi ptr [ %.0108132195, %.critedge2.thread ], [ %.6, %.preheader.i.i73 ], [ %.2, %.preheader.i.i ], [ %.8, %.preheader.i.i93 ]
   %96 = getelementptr inbounds i8, ptr %.032.lcssa166, i64 1
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader.i.i53, %opal_argv_append.exit
-  %.0108.be = phi ptr [ %.9, %opal_argv_append.exit ], [ %.3, %.preheader.i.i53 ]
+  %.0108.be = phi ptr [ %.1, %opal_argv_append.exit ], [ %.4, %.preheader.i.i53 ]
   %.033.be = phi ptr [ %96, %opal_argv_append.exit ], [ %8, %.preheader.i.i53 ]
   %97 = load i8, ptr %.033.be, align 1
   %.not36 = icmp eq i8 %97, 0

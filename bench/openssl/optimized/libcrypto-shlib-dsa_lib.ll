@@ -67,8 +67,8 @@ if.then18:                                        ; preds = %if.end15
   br i1 %cmp21, label %err, label %if.end24
 
 if.end24:                                         ; preds = %if.then18, %if.end15
-  %priv_key.0 = phi ptr [ %call20, %if.then18 ], [ null, %if.end15 ]
-  %call25 = tail call i32 @DH_set0_key(ptr noundef nonnull %call, ptr noundef nonnull %call12, ptr noundef %priv_key.0) #7
+  %priv_key.1 = phi ptr [ %call20, %if.then18 ], [ null, %if.end15 ]
+  %call25 = tail call i32 @DH_set0_key(ptr noundef nonnull %call, ptr noundef nonnull %call12, ptr noundef %priv_key.1) #7
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %err, label %return
 
@@ -81,9 +81,9 @@ if.else:                                          ; preds = %if.end7
 err:                                              ; preds = %if.else, %if.end24, %if.then18, %if.then10, %if.end3, %if.end, %entry
   %ret.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %call, %if.then10 ], [ %call, %if.then18 ], [ %call, %if.end24 ], [ %call, %if.else ], [ %call, %if.end3 ]
   %pub_key.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.then10 ], [ %call12, %if.then18 ], [ %call12, %if.end24 ], [ null, %if.else ], [ null, %if.end3 ]
-  %priv_key.1 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.then10 ], [ null, %if.then18 ], [ %priv_key.0, %if.end24 ], [ null, %if.else ], [ null, %if.end3 ]
+  %priv_key.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.then10 ], [ null, %if.then18 ], [ %priv_key.1, %if.end24 ], [ null, %if.else ], [ null, %if.end3 ]
   tail call void @BN_free(ptr noundef %pub_key.0) #7
-  tail call void @BN_free(ptr noundef %priv_key.1) #7
+  tail call void @BN_free(ptr noundef %priv_key.0) #7
   tail call void @DH_free(ptr noundef %ret.0) #7
   br label %return
 

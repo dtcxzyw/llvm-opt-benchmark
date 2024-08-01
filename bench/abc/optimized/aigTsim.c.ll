@@ -1052,11 +1052,11 @@ Aig_TsiStateOrAll.exit.thread:                    ; preds = %.lr.ph17.i
 
 .lr.ph328:                                        ; preds = %.lr.ph328.preheader, %.lr.ph328
   %indvars.iv364 = phi i64 [ 0, %.lr.ph328.preheader ], [ %indvars.iv.next365, %.lr.ph328 ]
-  %.2327 = phi i32 [ 0, %.lr.ph328.preheader ], [ %spec.select178, %.lr.ph328 ]
+  %.3327 = phi i32 [ 0, %.lr.ph328.preheader ], [ %spec.select178, %.lr.ph328 ]
   %256 = getelementptr inbounds i32, ptr %233, i64 %indvars.iv364
   %257 = load i32, ptr %256, align 4
   %.not172 = icmp eq i32 %257, -1
-  %spec.select178 = select i1 %.not172, i32 %.2327, i32 1
+  %spec.select178 = select i1 %.not172, i32 %.3327, i32 1
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next365, %wide.trip.count
   br i1 %exitcond367.not, label %._crit_edge.loopexit, label %.lr.ph328, !llvm.loop !22
@@ -1071,7 +1071,7 @@ Aig_TsiStateOrAll.exit.thread:                    ; preds = %.lr.ph17.i
   %260 = phi i32 [ %246, %.preheader292 ], [ %246, %._crit_edge.loopexit ], [ %249, %Aig_TsiStateOrAll.exit.thread ]
   %261 = phi i32 [ %247, %.preheader292 ], [ %247, %._crit_edge.loopexit ], [ %250, %Aig_TsiStateOrAll.exit.thread ]
   %.7.lcssa = phi i64 [ 0, %.preheader292 ], [ %259, %._crit_edge.loopexit ], [ 0, %Aig_TsiStateOrAll.exit.thread ]
-  %.2.lcssa = phi i32 [ 0, %.preheader292 ], [ %spec.select178, %._crit_edge.loopexit ], [ 0, %Aig_TsiStateOrAll.exit.thread ]
+  %.3.lcssa = phi i32 [ 0, %.preheader292 ], [ %spec.select178, %._crit_edge.loopexit ], [ 0, %Aig_TsiStateOrAll.exit.thread ]
   %262 = getelementptr inbounds i32, ptr %233, i64 %.7.lcssa
   %263 = load i32, ptr %262, align 4
   %264 = sub i32 %261, %260
@@ -1081,8 +1081,8 @@ Aig_TsiStateOrAll.exit.thread:                    ; preds = %.lr.ph17.i
 
 select.unfold:                                    ; preds = %.lr.ph333, %._crit_edge
   %.val182381 = phi i32 [ %.val182382388, %._crit_edge ], [ %.val182, %.lr.ph333 ]
-  %.4 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %spec.select, %.lr.ph333 ]
-  %266 = icmp eq i32 %.4, 0
+  %.2 = phi i32 [ %.3.lcssa, %._crit_edge ], [ %spec.select, %.lr.ph333 ]
+  %266 = icmp eq i32 %.2, 0
   br i1 %266, label %select.unfold.thread, label %.thread
 
 select.unfold.thread:                             ; preds = %Aig_TsiStateOrAll.exit.thread, %.preheader, %select.unfold

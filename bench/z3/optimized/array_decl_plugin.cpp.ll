@@ -1401,7 +1401,7 @@ lpad166:                                          ; preds = %if.else.i327, %if.t
   br label %ehcleanup
 
 cleanup:                                          ; preds = %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i348, %invoke.cont167, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i317, %invoke.cont155
-  %retval.0 = phi ptr [ %retval.0.i297, %invoke.cont155 ], [ %retval.0.i297, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i317 ], [ %retval.0.i328, %invoke.cont167 ], [ %retval.0.i328, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i348 ]
+  %retval.1 = phi ptr [ %retval.0.i297, %invoke.cont155 ], [ %retval.0.i297, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i317 ], [ %retval.0.i328, %invoke.cont167 ], [ %retval.0.i328, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i348 ]
   %141 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %141, ptr noundef nonnull align 8 dereferenceable(16) %num_elements)
           to label %.noexc.i353 unwind label %terminate.lpad.i352
@@ -1440,8 +1440,8 @@ ehcleanup:                                        ; preds = %lpad101.loopexit, %
   br label %eh.resume
 
 return:                                           ; preds = %arraydestroy.body11, %.noexc.i357, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i124, %invoke.cont88, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i97, %invoke.cont77, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i, %invoke.cont51
-  %retval.1 = phi ptr [ %retval.0.i, %invoke.cont51 ], [ %retval.0.i, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i ], [ %retval.0.i77, %invoke.cont77 ], [ %retval.0.i77, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i97 ], [ %retval.0.i104, %invoke.cont88 ], [ %retval.0.i104, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i124 ], [ %retval.0, %.noexc.i357 ], [ %call10, %arraydestroy.body11 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.0.i, %invoke.cont51 ], [ %retval.0.i, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i ], [ %retval.0.i77, %invoke.cont77 ], [ %retval.0.i77, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i97 ], [ %retval.0.i104, %invoke.cont88 ], [ %retval.0.i104, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i124 ], [ %retval.1, %.noexc.i357 ], [ %call10, %arraydestroy.body11 ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %arraydestroy.body17, %ehcleanup, %lpad87, %lpad76, %lpad50
   %.pn34 = phi { ptr, i32 } [ %38, %lpad76 ], [ %47, %lpad87 ], [ %.pn, %ehcleanup ], [ %24, %lpad50 ], [ %5, %arraydestroy.body17 ]

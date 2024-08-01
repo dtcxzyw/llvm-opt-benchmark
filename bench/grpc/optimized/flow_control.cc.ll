@@ -1397,8 +1397,8 @@ if.end.i:                                         ; preds = %if.then5.i23, %if.t
   br label %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit
 
 _ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit: ; preds = %if.end14, %if.end.i
-  %action.sroa.2.0 = phi i8 [ 0, %if.end14 ], [ %spec.store.select.i, %if.end.i ]
-  %action.sroa.571.0 = phi i32 [ 0, %if.end14 ], [ %retval.0.i.i, %if.end.i ]
+  %action.sroa.2.1 = phi i8 [ 0, %if.end14 ], [ %spec.store.select.i, %if.end.i ]
+  %action.sroa.571.1 = phi i32 [ 0, %if.end14 ], [ %retval.0.i.i, %if.end.i ]
   %target_frame_size_ = getelementptr inbounds i8, ptr %this, i64 208
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 140), align 4
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 144), align 16
@@ -1431,8 +1431,8 @@ if.end.i32:                                       ; preds = %if.then5.i38, %if.t
   br label %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40
 
 _ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40: ; preds = %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit, %if.end.i32
-  %action.sroa.3.0 = phi i8 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit ], [ %spec.store.select.i36, %if.end.i32 ]
-  %action.sroa.7.0 = phi i32 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit ], [ %retval.0.i.i27, %if.end.i32 ]
+  %action.sroa.3.1 = phi i8 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit ], [ %spec.store.select.i36, %if.end.i32 ]
+  %action.sroa.7.1 = phi i32 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit ], [ %retval.0.i.i27, %if.end.i32 ]
   %call.i41 = call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 29)
   br i1 %call.i41, label %if.then18, label %if.end24
 
@@ -1474,12 +1474,12 @@ if.end.i52:                                       ; preds = %if.then5.i58, %if.t
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end.i52, %if.then18, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40, %entry
-  %action.sroa.2.1 = phi i8 [ %action.sroa.2.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.2.0, %if.then18 ], [ %action.sroa.2.0, %if.end.i52 ]
-  %action.sroa.3.1 = phi i8 [ %action.sroa.3.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.3.0, %if.then18 ], [ %action.sroa.3.0, %if.end.i52 ]
-  %action.sroa.4.1 = phi i8 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ 0, %if.then18 ], [ %spec.store.select.i56, %if.end.i52 ]
-  %action.sroa.9.1 = phi i32 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ 0, %if.then18 ], [ %retval.0.i.i47, %if.end.i52 ]
-  %action.sroa.7.1 = phi i32 [ %action.sroa.7.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.7.0, %if.then18 ], [ %action.sroa.7.0, %if.end.i52 ]
-  %action.sroa.571.1 = phi i32 [ %action.sroa.571.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.571.0, %if.then18 ], [ %action.sroa.571.0, %if.end.i52 ]
+  %action.sroa.2.0 = phi i8 [ %action.sroa.2.1, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.2.1, %if.then18 ], [ %action.sroa.2.1, %if.end.i52 ]
+  %action.sroa.3.0 = phi i8 [ %action.sroa.3.1, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.3.1, %if.then18 ], [ %action.sroa.3.1, %if.end.i52 ]
+  %action.sroa.4.0 = phi i8 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ 0, %if.then18 ], [ %spec.store.select.i56, %if.end.i52 ]
+  %action.sroa.9.0 = phi i32 [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ 0, %if.then18 ], [ %retval.0.i.i47, %if.end.i52 ]
+  %action.sroa.7.0 = phi i32 [ %action.sroa.7.1, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.7.1, %if.then18 ], [ %action.sroa.7.1, %if.end.i52 ]
+  %action.sroa.571.0 = phi i32 [ %action.sroa.571.1, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %entry ], [ %action.sroa.571.1, %if.then18 ], [ %action.sroa.571.1, %if.end.i52 ]
   %announced_stream_total_over_incoming_window_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %38 = load i64, ptr %announced_stream_total_over_incoming_window_.i.i, align 8, !noalias !37
   %target_initial_window_size_.i.i = getelementptr inbounds i8, ptr %this, i64 200
@@ -1498,17 +1498,17 @@ if.end24:                                         ; preds = %if.end.i52, %if.the
   %agg.tmp61.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %spec.select, ptr %agg.tmp61.sroa.4.0.agg.result.sroa_idx, align 1
   %agg.tmp61.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 2
-  store i8 %action.sroa.2.1, ptr %agg.tmp61.sroa.5.0.agg.result.sroa_idx, align 2
+  store i8 %action.sroa.2.0, ptr %agg.tmp61.sroa.5.0.agg.result.sroa_idx, align 2
   %agg.tmp61.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 3
-  store i8 %action.sroa.3.1, ptr %agg.tmp61.sroa.6.0.agg.result.sroa_idx, align 1
+  store i8 %action.sroa.3.0, ptr %agg.tmp61.sroa.6.0.agg.result.sroa_idx, align 1
   %agg.tmp61.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store i8 %action.sroa.4.1, ptr %agg.tmp61.sroa.7.0.agg.result.sroa_idx, align 4
+  store i8 %action.sroa.4.0, ptr %agg.tmp61.sroa.7.0.agg.result.sroa_idx, align 4
   %agg.tmp61.sroa.9.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i32 %action.sroa.571.1, ptr %agg.tmp61.sroa.9.0.agg.result.sroa_idx, align 4
+  store i32 %action.sroa.571.0, ptr %agg.tmp61.sroa.9.0.agg.result.sroa_idx, align 4
   %agg.tmp61.sroa.10.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store i32 %action.sroa.7.1, ptr %agg.tmp61.sroa.10.0.agg.result.sroa_idx, align 4
+  store i32 %action.sroa.7.0, ptr %agg.tmp61.sroa.10.0.agg.result.sroa_idx, align 4
   %agg.tmp61.sroa.11.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i32 %action.sroa.9.1, ptr %agg.tmp61.sroa.11.0.agg.result.sroa_idx, align 4
+  store i32 %action.sroa.9.0, ptr %agg.tmp61.sroa.11.0.agg.result.sroa_idx, align 4
   ret void
 }
 

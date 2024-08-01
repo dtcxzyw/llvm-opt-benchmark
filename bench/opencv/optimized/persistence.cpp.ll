@@ -6378,7 +6378,7 @@ _ZN2cv16FileNodeIteratorppEv.exit:                ; preds = %_ZNSt6vectorIN2cv8F
           to label %1373 unwind label %1374
 
 .loopexit486:                                     ; preds = %_ZN2cv16FileNodeIteratorppEv.exit, %_ZNK2cv8FileNode5beginEv.exit.preheader, %_ZN2cv3PtrINS_17FileStorageParserEED2Ev.exit, %1271
-  %.0126.shrunk = phi i1 [ true, %_ZN2cv3PtrINS_17FileStorageParserEED2Ev.exit ], [ false, %1271 ], [ true, %_ZNK2cv8FileNode5beginEv.exit.preheader ], [ true, %_ZN2cv16FileNodeIteratorppEv.exit ]
+  %.1.shrunk = phi i1 [ true, %_ZN2cv3PtrINS_17FileStorageParserEED2Ev.exit ], [ false, %1271 ], [ true, %_ZNK2cv8FileNode5beginEv.exit.preheader ], [ true, %_ZN2cv16FileNodeIteratorppEv.exit ]
   %1357 = load ptr, ptr %0, align 8
   %1358 = getelementptr inbounds i8, ptr %1357, i64 56
   %1359 = load ptr, ptr %1358, align 8
@@ -6409,7 +6409,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1360, %1366
   br label %1367
 
 1367:                                             ; preds = %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit, %_ZNSt6vectorIcSaIcEED2Ev.exit, %247, %226, %204, %177
-  %.0 = phi i1 [ false, %177 ], [ false, %204 ], [ false, %226 ], [ false, %247 ], [ true, %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit ], [ %.0126.shrunk, %_ZNSt6vectorIcSaIcEED2Ev.exit ]
+  %.0 = phi i1 [ false, %177 ], [ false, %204 ], [ false, %226 ], [ false, %247 ], [ true, %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit ], [ %.1.shrunk, %_ZNSt6vectorIcSaIcEED2Ev.exit ]
   %1368 = load ptr, ptr %7, align 8
   %1369 = load ptr, ptr %75, align 8
   %.not4.i.i.i.i = icmp eq ptr %1368, %1369
@@ -11828,9 +11828,9 @@ _ZN2cv8FileNode3ptrEv.exit.thread:                ; preds = %4, %_ZN2cv8FileNode
   br label %49
 
 49:                                               ; preds = %46, %44
-  %.0 = phi i32 [ %48, %46 ], [ %3, %44 ]
+  %.1 = phi i32 [ %48, %46 ], [ %3, %44 ]
   %50 = add nuw nsw i32 %spec.select, 5
-  %51 = add i32 %50, %.0
+  %51 = add i32 %50, %.1
   br label %59
 
 52:                                               ; preds = %41
@@ -11858,7 +11858,7 @@ _ZN2cv8FileNode3ptrEv.exit.thread:                ; preds = %4, %_ZN2cv8FileNode
 
 59:                                               ; preds = %42, %49, %39
   %.146 = phi i32 [ %40, %39 ], [ %43, %42 ], [ %51, %49 ]
-  %.1 = phi i32 [ %3, %39 ], [ %3, %42 ], [ %.0, %49 ]
+  %.0 = phi i32 [ %3, %39 ], [ %3, %42 ], [ %.1, %49 ]
   %60 = load ptr, ptr %0, align 8
   %61 = sext i32 %.146 to i64
   %62 = tail call noundef ptr @_ZN2cv11FileStorage4Impl16reserveNodeSpaceERNS_8FileNodeEm(ptr noundef nonnull align 8 dereferenceable(700) %60, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %61)
@@ -11884,10 +11884,10 @@ _ZN2cv8FileNode3ptrEv.exit.thread:                ; preds = %4, %_ZN2cv8FileNode
   br label %76
 
 70:                                               ; preds = %67
-  %71 = add nsw i32 %.1, 1
+  %71 = add nsw i32 %.0, 1
   store i32 %71, ptr %spec.select63, align 1
   %72 = getelementptr inbounds i8, ptr %spec.select63, i64 4
-  %73 = sext i32 %.1 to i64
+  %73 = sext i32 %.0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr align 1 %2, i64 %73, i1 false)
   %74 = getelementptr i8, ptr %spec.select63, i64 %73
   %75 = getelementptr i8, ptr %74, i64 4
@@ -11985,22 +11985,22 @@ _ZN2cv8FileNode3ptrEv.exit:                       ; preds = %_ZNK2cv8FileNode5is
 
 45:                                               ; preds = %.lr.ph, %45
   %.02236 = phi i64 [ %32, %.lr.ph ], [ %50, %45 ]
-  %.02335 = phi i64 [ 4, %.lr.ph ], [ %49, %45 ]
-  %.02434 = phi i64 [ %29, %.lr.ph ], [ 0, %45 ]
+  %.135 = phi i64 [ 4, %.lr.ph ], [ %49, %45 ]
+  %.12534 = phi i64 [ %29, %.lr.ph ], [ 0, %45 ]
   %46 = getelementptr inbounds i64, ptr %44, i64 %.02236
   %47 = load i64, ptr %46, align 8
-  %48 = sub i64 %.02335, %.02434
+  %48 = sub i64 %.135, %.12534
   %49 = add i64 %48, %47
   %50 = add nuw i64 %.02236, 1
   %exitcond.not = icmp eq i64 %50, %41
   br i1 %exitcond.not, label %.loopexit, label %45, !llvm.loop !87
 
 .loopexit:                                        ; preds = %45, %31, %_ZN2cv8FileNode3ptrEv.exit
-  %.125 = phi i64 [ %29, %_ZN2cv8FileNode3ptrEv.exit ], [ %29, %31 ], [ 0, %45 ]
-  %.1 = phi i64 [ 4, %_ZN2cv8FileNode3ptrEv.exit ], [ 4, %31 ], [ %49, %45 ]
+  %.024 = phi i64 [ %29, %_ZN2cv8FileNode3ptrEv.exit ], [ %29, %31 ], [ 0, %45 ]
+  %.023 = phi i64 [ 4, %_ZN2cv8FileNode3ptrEv.exit ], [ 4, %31 ], [ %49, %45 ]
   %51 = getelementptr inbounds i8, ptr %0, i64 560
   %52 = load i64, ptr %51, align 8
-  %53 = sub i64 %.1, %.125
+  %53 = sub i64 %.023, %.024
   %54 = add i64 %53, %52
   %55 = trunc i64 %54 to i32
   store i32 %55, ptr %spec.select, align 1
@@ -12926,8 +12926,8 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit94:         ; preds = %238, %_ZNSt6vectorI
   br label %.thread
 
 .thread:                                          ; preds = %276, %.threadcondstore.split, %.preheader, %.loopexit, %._crit_edge118
-  %.159104 = phi i32 [ %262, %._crit_edge118 ], [ 0, %.loopexit ], [ 0, %.preheader ], [ %262, %.threadcondstore.split ], [ %262, %276 ]
-  %277 = sub nsw i32 %150, %.159104
+  %.058104 = phi i32 [ %262, %._crit_edge118 ], [ 0, %.loopexit ], [ 0, %.preheader ], [ %262, %.threadcondstore.split ], [ %262, %276 ]
+  %277 = sub nsw i32 %150, %.058104
   %278 = icmp sgt i32 %277, 0
   br i1 %278, label %.lr.ph120.preheader, label %.thread.._crit_edge121_crit_edge
 
@@ -12936,7 +12936,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit94:         ; preds = %238, %_ZNSt6vectorI
   br label %._crit_edge121
 
 .lr.ph120.preheader:                              ; preds = %.thread
-  %279 = zext i32 %.159104 to i64
+  %279 = zext i32 %.058104 to i64
   %280 = zext nneg i32 %277 to i64
   br label %.lr.ph120
 
@@ -16017,14 +16017,14 @@ _ZNSt5dequeIN2cv11FStructDataESaIS1_EE4backEv.exit100: ; preds = %83, %87
   br label %152
 
 152:                                              ; preds = %151, %149
-  %.0 = phi i1 [ true, %149 ], [ false, %151 ]
+  %.1 = phi i1 [ true, %149 ], [ false, %151 ]
   %153 = load ptr, ptr %21, align 8
   invoke void @_ZN2cv11FileStorage4Impl5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(700) %153, ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit unwind label %159
 
 _ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit: ; preds = %152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #38
-  br i1 %.0, label %154, label %155
+  br i1 %.1, label %154, label %155
 
 154:                                              ; preds = %_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #38
@@ -16043,7 +16043,7 @@ _ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %160 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #38
-  br i1 %.0, label %161, label %171
+  br i1 %.1, label %161, label %171
 
 161:                                              ; preds = %.thread, %159
   %.pn91101 = phi { ptr, i32 } [ %160, %159 ], [ %150, %.thread ]

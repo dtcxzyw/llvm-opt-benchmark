@@ -1540,15 +1540,15 @@ define hidden void @_ZN8Rewriter26maybe_rewrite_invokehandleEPhiib(ptr noundef n
   br label %49
 
 49:                                               ; preds = %.sink.split, %29, %34
-  %.0 = phi i32 [ -1, %34 ], [ -1, %29 ], [ 1, %.sink.split ]
+  %.1 = phi i32 [ -1, %34 ], [ -1, %29 ], [ 1, %.sink.split ]
   %50 = load ptr, ptr %12, align 8
   %51 = getelementptr inbounds i32, ptr %50, i64 %14
-  store i32 %.0, ptr %51, align 4
+  store i32 %.1, ptr %51, align 4
   br label %52
 
 52:                                               ; preds = %49, %11
-  %.1 = phi i32 [ %.0, %49 ], [ %16, %11 ]
-  %53 = icmp sgt i32 %.1, 0
+  %.0 = phi i32 [ %.1, %49 ], [ %16, %11 ]
+  %53 = icmp sgt i32 %.0, 0
   br i1 %53, label %.sink.split40, label %56
 
 54:                                               ; preds = %5

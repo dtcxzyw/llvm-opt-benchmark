@@ -4049,8 +4049,8 @@ if.then8:                                         ; preds = %trace_migration_rat
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %trace_migration_rate_limit_pre.exit
-  %urgent.0 = phi i8 [ 1, %if.then8 ], [ 0, %trace_migration_rate_limit_pre.exit ]
-  %tobool11 = zext nneg i8 %urgent.0 to i32
+  %urgent.1 = phi i8 [ 1, %if.then8 ], [ 0, %trace_migration_rate_limit_pre.exit ]
+  %tobool11 = zext nneg i8 %urgent.1 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i9)
   %11 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i10 = icmp ne i32 %11, 0
@@ -4085,7 +4085,7 @@ if.else.i.i18:                                    ; preds = %if.then.i.i16
 
 trace_migration_rate_limit_post.exit:             ; preds = %if.end10, %land.lhs.true5.i.i13, %if.then8.i.i19, %if.else.i.i18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i9)
-  %17 = trunc nuw i8 %urgent.0 to i1
+  %17 = trunc nuw i8 %urgent.1 to i1
   br label %return
 
 return:                                           ; preds = %migrate_get_current.exit, %trace_migration_rate_limit_post.exit, %if.then
@@ -7094,8 +7094,8 @@ if.then70:                                        ; preds = %sw.bb66
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then70, %sw.bb66
-  %start.1 = phi i64 [ %34, %if.then70 ], [ %start.0.ph, %sw.bb66 ]
-  %len.1 = phi i64 [ %conv76, %if.then70 ], [ %len.0.ph, %sw.bb66 ]
+  %start.2 = phi i64 [ %34, %if.then70 ], [ %start.0.ph, %sw.bb66 ]
+  %len.2 = phi i64 [ %conv76, %if.then70 ], [ %len.0.ph, %sw.bb66 ]
   %expected_len.0 = phi i64 [ %add, %if.then70 ], [ 13, %sw.bb66 ]
   %cmp85.not = icmp eq i64 %expected_len.0, %conv37.pre-phi
   br i1 %cmp85.not, label %if.end89, label %if.then87
@@ -7105,14 +7105,14 @@ if.then87:                                        ; preds = %if.end83
   br label %out
 
 if.end89:                                         ; preds = %if.end83
-  call fastcc void @migrate_handle_rp_req_pages(ptr noundef nonnull %arrayidx90, i64 noundef %start.1, i64 noundef %len.1, ptr noundef nonnull %err)
+  call fastcc void @migrate_handle_rp_req_pages(ptr noundef nonnull %arrayidx90, i64 noundef %start.2, i64 noundef %len.2, ptr noundef nonnull %err)
   %37 = load ptr, ptr %err, align 8
   %tobool91.not = icmp eq ptr %37, null
   br i1 %tobool91.not, label %while.cond.outer.backedge, label %if.then118
 
 while.cond.outer.backedge:                        ; preds = %if.end89, %sw.bb57
-  %start.0.ph.be = phi i64 [ %31, %sw.bb57 ], [ %start.1, %if.end89 ]
-  %len.0.ph.be = phi i64 [ %conv62, %sw.bb57 ], [ %len.1, %if.end89 ]
+  %start.0.ph.be = phi i64 [ %31, %sw.bb57 ], [ %start.2, %if.end89 ]
+  %len.0.ph.be = phi i64 [ %conv62, %sw.bb57 ], [ %len.2, %if.end89 ]
   br label %while.cond.outer, !llvm.loop !12
 
 sw.bb94:                                          ; preds = %if.end46

@@ -578,7 +578,7 @@ for.body.lr.ph:                                   ; preds = %if.end9
   br i1 %tobool1.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %found_ex.037.us = phi ptr [ %found_ex.1.us, %for.inc.us ], [ null, %for.body.lr.ph ]
+  %found_ex.037.us = phi ptr [ %found_ex.2.us, %for.inc.us ], [ null, %for.body.lr.ph ]
   %i.036.us = phi i64 [ %inc.us, %for.inc.us ], [ %conv, %for.body.lr.ph ]
   %call14.us = tail call ptr @sk_value(ptr noundef nonnull %x, i64 noundef %i.036.us) #10
   %1 = load ptr, ptr %call14.us, align 8
@@ -591,7 +591,7 @@ if.then18.us:                                     ; preds = %for.body.us
   br i1 %tobool23.not.us, label %for.inc.us, label %if.then24
 
 for.inc.us:                                       ; preds = %if.then18.us, %for.body.us
-  %found_ex.1.us = phi ptr [ %found_ex.037.us, %for.body.us ], [ %call14.us, %if.then18.us ]
+  %found_ex.2.us = phi ptr [ %found_ex.037.us, %for.body.us ], [ %call14.us, %if.then18.us ]
   %inc.us = add nuw i64 %i.036.us, 1
   %call.us = tail call i64 @sk_num(ptr noundef nonnull %x) #10
   %cmp12.us = icmp ult i64 %inc.us, %call.us
@@ -625,21 +625,21 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp12, label %for.body, label %if.end38, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc.us
-  %tobool31.not = icmp eq ptr %found_ex.1.us, null
+  %tobool31.not = icmp eq ptr %found_ex.2.us, null
   br i1 %tobool31.not, label %if.end38, label %if.then32
 
 if.then32:                                        ; preds = %for.end.thread, %for.end
-  %found_ex.228 = phi ptr [ %call14, %for.end.thread ], [ %found_ex.1.us, %for.end ]
+  %found_ex.128 = phi ptr [ %call14, %for.end.thread ], [ %found_ex.2.us, %for.end ]
   %tobool33.not = icmp eq ptr %crit, null
   br i1 %tobool33.not, label %if.end36, label %if.then34
 
 if.then34:                                        ; preds = %if.then32
-  %call35 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef nonnull %found_ex.228) #10
+  %call35 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef nonnull %found_ex.128) #10
   store i32 %call35, ptr %crit, align 4
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %if.then32
-  %call37 = tail call ptr @X509V3_EXT_d2i(ptr noundef nonnull %found_ex.228)
+  %call37 = tail call ptr @X509V3_EXT_d2i(ptr noundef nonnull %found_ex.128)
   br label %return
 
 if.end38:                                         ; preds = %for.inc, %if.end9, %for.end

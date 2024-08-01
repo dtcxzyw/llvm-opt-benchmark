@@ -247,10 +247,10 @@ get_canonical_class.exit93:                       ; preds = %.lr.ph127, %61
   br i1 %exitcond.not.i, label %recompose_code.exit, label %84, !llvm.loop !9
 
 104:                                              ; preds = %101, %82, %70
-  %.195.ph = phi i32 [ %74, %70 ], [ %83, %82 ], [ %102, %101 ]
+  %.3.ph = phi i32 [ %74, %70 ], [ %83, %82 ], [ %102, %101 ]
   %105 = sext i32 %.072123 to i64
   %106 = getelementptr i32, ptr %54, i64 %105
-  store i32 %.195.ph, ptr %106, align 4
+  store i32 %.3.ph, ptr %106, align 4
   br label %111
 
 recompose_code.exit:                              ; preds = %103, %get_canonical_class.exit93
@@ -265,7 +265,7 @@ recompose_code.exit:                              ; preds = %103, %get_canonical
   br label %111
 
 111:                                              ; preds = %recompose_code.exit, %104
-  %.177 = phi i32 [ %.195.ph, %104 ], [ %..076121, %recompose_code.exit ]
+  %.177 = phi i32 [ %.3.ph, %104 ], [ %..076121, %recompose_code.exit ]
   %.175 = phi i32 [ %.074122, %104 ], [ %108, %recompose_code.exit ]
   %.173 = phi i32 [ %.072123, %104 ], [ %.074122..072123, %recompose_code.exit ]
   %.171 = phi i32 [ %.070124, %104 ], [ %., %recompose_code.exit ]

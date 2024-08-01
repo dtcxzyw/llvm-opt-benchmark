@@ -1713,9 +1713,9 @@ _ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread: ; preds = %._ZN11FactP
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit27
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit27:      ; preds = %114, %.loopexit31, %21
-  %.1 = phi i1 [ false, %21 ], [ %112, %.loopexit31 ], [ %112, %114 ]
+  %.0 = phi i1 [ false, %21 ], [ %112, %.loopexit31 ], [ %112, %114 ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #18
-  ret i1 %.1
+  ret i1 %.0
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit25:      ; preds = %85, %.loopexit.split-lp, %22
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi, %85 ]
@@ -2060,9 +2060,9 @@ _ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread: ; preds = %._ZN11FactP
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit32
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit32:      ; preds = %136, %.loopexit36, %15
-  %.1 = phi i1 [ false, %15 ], [ %134, %.loopexit36 ], [ %134, %136 ]
+  %.022 = phi i1 [ false, %15 ], [ %134, %.loopexit36 ], [ %134, %136 ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #18
-  ret i1 %.1
+  ret i1 %.022
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit30:      ; preds = %85, %.loopexit35, %16
   %.pn = phi { ptr, i32 } [ %17, %16 ], [ %lpad.phi, %.loopexit35 ], [ %lpad.phi, %85 ]
@@ -2476,8 +2476,8 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17:         ; preds = %19, %25
 
 _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread:  ; preds = %80, %77, %58, %55, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread52, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17
   %.pn49 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %lpad.thr_comm, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread52 ], [ %78, %80 ], [ %78, %77 ], [ %56, %58 ], [ %56, %55 ]
-  %.sroa.0.248 = phi ptr [ %17, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %28, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread52 ], [ %28, %80 ], [ %28, %77 ], [ %28, %58 ], [ %28, %55 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.248) #17
+  %.sroa.0.148 = phi ptr [ %17, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %28, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread52 ], [ %28, %80 ], [ %28, %77 ], [ %28, %58 ], [ %28, %55 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.148) #17
   br label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit32
 
 _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit32:         ; preds = %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread

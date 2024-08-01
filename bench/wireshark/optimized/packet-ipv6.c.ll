@@ -5226,7 +5226,7 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
   unreachable
 
 81:                                               ; preds = %76, %72, %64, %56, %48, %44
-  %.094 = phi i32 [ %79, %76 ], [ %75, %72 ], [ %71, %64 ], [ %63, %56 ], [ %55, %48 ], [ %47, %44 ]
+  %.195 = phi i32 [ %79, %76 ], [ %75, %72 ], [ %71, %64 ], [ %63, %56 ], [ %55, %48 ], [ %47, %44 ]
   %82 = load ptr, ptr @nat64_prefix_uats, align 8
   %83 = getelementptr %struct.nat64_prefix_data, ptr %82, i64 %.090129, i32 1
   %84 = load i8, ptr %83, align 8
@@ -5243,9 +5243,9 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
   br i1 %90, label %.lr.ph, label %proto_item_set_generated.exit115, !llvm.loop !19
 
 91:                                               ; preds = %10, %81
-  %.195.ph = phi i32 [ %.094, %81 ], [ %13, %10 ]
+  %.094.ph = phi i32 [ %.195, %81 ], [ %13, %10 ]
   %.093.ph = phi i32 [ %85, %81 ], [ 96, %10 ]
-  %.1.ph = phi i32 [ %., %81 ], [ 96, %10 ]
+  %.092.ph = phi i32 [ %., %81 ], [ 96, %10 ]
   %92 = load i32, ptr @hf_ipv6_embed_ipv4_prefix, align 4
   %.zext = lshr i32 %.093.ph, 3
   %93 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %92, ptr noundef %2, i32 noundef %3, i32 noundef %.zext, i32 noundef 0) #13
@@ -5309,10 +5309,10 @@ proto_item_set_generated.exit103:                 ; preds = %.proto_item_set_gen
   br label %118
 
 118:                                              ; preds = %proto_item_set_generated.exit103, %116, %proto_item_set_generated.exit
-  %119 = call i32 @llvm.bswap.i32(i32 %.195.ph)
-  %120 = lshr i32 %.1.ph, 3
+  %119 = call i32 @llvm.bswap.i32(i32 %.094.ph)
+  %120 = lshr i32 %.092.ph, 3
   %121 = add nsw i32 %120, %3
-  %122 = add nsw i32 %.1.ph, -33
+  %122 = add nsw i32 %.092.ph, -33
   %123 = icmp ult i32 %122, 31
   %124 = select i1 %123, i32 5, i32 4
   %125 = call ptr @proto_tree_add_ipv4(ptr noundef %1, i32 noundef %4, ptr noundef %2, i32 noundef %121, i32 noundef %124, i32 noundef %119) #13

@@ -476,7 +476,7 @@ entry:
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end43, %entry
-  %reclaim_list.sroa.0.0.ph = phi ptr [ %reclaim_list.sroa.0.1, %if.end43 ], [ null, %entry ]
+  %reclaim_list.sroa.0.0.ph = phi ptr [ %reclaim_list.sroa.0.2, %if.end43 ], [ null, %entry ]
   %reclaim_count.0.ph = phi i32 [ %reclaim_count.1, %if.end43 ], [ 0, %entry ]
   %call22 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef nonnull %fid, ptr noundef nonnull %f) #23
   %tobool.not23 = icmp eq i32 %call22, 0
@@ -552,19 +552,19 @@ if.then25:                                        ; preds = %if.then22
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end10, %if.then25, %if.then22, %if.then11, %if.then13
-  %reclaim_list.sroa.0.1 = phi ptr [ %2, %if.then13 ], [ %reclaim_list.sroa.0.0.ph, %if.then11 ], [ %2, %if.then25 ], [ %reclaim_list.sroa.0.0.ph, %if.then22 ], [ %reclaim_list.sroa.0.0.ph, %if.end10 ]
+  %reclaim_list.sroa.0.2 = phi ptr [ %2, %if.then13 ], [ %reclaim_list.sroa.0.0.ph, %if.then11 ], [ %2, %if.then25 ], [ %reclaim_list.sroa.0.0.ph, %if.then22 ], [ %reclaim_list.sroa.0.0.ph, %if.end10 ]
   %reclaim_count.1 = phi i32 [ %inc18, %if.then13 ], [ %reclaim_count.0.ph, %if.then11 ], [ %inc40, %if.then25 ], [ %reclaim_count.0.ph, %if.then22 ], [ %reclaim_count.0.ph, %if.end10 ]
   %8 = load i32, ptr @open_fd_rc, align 4
   %cmp44.not = icmp slt i32 %reclaim_count.1, %8
   br i1 %cmp44.not, label %while.cond.outer, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end43, %while.cond.outer, %while.cond.backedge
-  %reclaim_list.sroa.0.2 = phi ptr [ %reclaim_list.sroa.0.0.ph, %while.cond.backedge ], [ %reclaim_list.sroa.0.0.ph, %while.cond.outer ], [ %reclaim_list.sroa.0.1, %if.end43 ]
-  %cmp49.not25 = icmp eq ptr %reclaim_list.sroa.0.2, null
+  %reclaim_list.sroa.0.1 = phi ptr [ %reclaim_list.sroa.0.0.ph, %while.cond.backedge ], [ %reclaim_list.sroa.0.0.ph, %while.cond.outer ], [ %reclaim_list.sroa.0.2, %if.end43 ]
+  %cmp49.not25 = icmp eq ptr %reclaim_list.sroa.0.1, null
   br i1 %cmp49.not25, label %while.end98, label %while.body50
 
 while.body50:                                     ; preds = %while.end, %put_fid.exit
-  %reclaim_list.sroa.0.326 = phi ptr [ %9, %put_fid.exit ], [ %reclaim_list.sroa.0.2, %while.end ]
+  %reclaim_list.sroa.0.326 = phi ptr [ %9, %put_fid.exit ], [ %reclaim_list.sroa.0.1, %while.end ]
   store ptr %reclaim_list.sroa.0.326, ptr %f, align 8
   %reclaim_next58 = getelementptr inbounds i8, ptr %reclaim_list.sroa.0.326, i64 280
   %9 = load ptr, ptr %reclaim_next58, align 8
@@ -1369,20 +1369,20 @@ if.else.i:                                        ; preds = %if.end5.i
   br label %free_out.i
 
 free_out.i:                                       ; preds = %if.else.i, %if.then9.i, %if.end.i
-  %retval1.0.i = phi i32 [ %call.i, %if.then9.i ], [ %call18.i, %if.else.i ], [ -22, %if.end.i ]
+  %retval1.1.i = phi i32 [ %call.i, %if.then9.i ], [ %call18.i, %if.else.i ], [ -22, %if.end.i ]
   %name21.i = getelementptr inbounds i8, ptr %fidp, i64 48
   tail call void @v9fs_string_free(ptr noundef nonnull %name21.i) #23
   br label %v9fs_xattr_fid_clunk.exit
 
 v9fs_xattr_fid_clunk.exit:                        ; preds = %if.then17, %free_out.i
-  %retval1.1.i = phi i32 [ 0, %if.then17 ], [ %retval1.0.i, %free_out.i ]
+  %retval1.0.i = phi i32 [ 0, %if.then17 ], [ %retval1.1.i, %free_out.i ]
   %value23.i = getelementptr inbounds i8, ptr %fidp, i64 40
   %8 = load ptr, ptr %value23.i, align 8
   tail call void @g_free(ptr noundef %8) #23
   br label %if.end21
 
 if.end21:                                         ; preds = %entry, %if.then10, %if.then7, %v9fs_xattr_fid_clunk.exit, %if.then, %if.then3
-  %retval1.0 = phi i32 [ %call, %if.then3 ], [ 0, %if.then ], [ %call12, %if.then10 ], [ 0, %if.then7 ], [ %retval1.1.i, %v9fs_xattr_fid_clunk.exit ], [ 0, %entry ]
+  %retval1.0 = phi i32 [ %call, %if.then3 ], [ 0, %if.then ], [ %call12, %if.then10 ], [ 0, %if.then7 ], [ %retval1.0.i, %v9fs_xattr_fid_clunk.exit ], [ 0, %entry ]
   %path = getelementptr inbounds i8, ptr %fidp, i64 8
   %data.i = getelementptr inbounds i8, ptr %fidp, i64 16
   %9 = load ptr, ptr %data.i, align 8
@@ -1428,17 +1428,17 @@ if.else:                                          ; preds = %if.end5
   br label %free_out
 
 free_out:                                         ; preds = %if.end, %if.then9, %if.else
-  %retval1.0 = phi i32 [ %call, %if.then9 ], [ %call18, %if.else ], [ -22, %if.end ]
+  %retval1.1 = phi i32 [ %call, %if.then9 ], [ %call18, %if.else ], [ -22, %if.end ]
   %name21 = getelementptr inbounds i8, ptr %fidp, i64 48
   tail call void @v9fs_string_free(ptr noundef nonnull %name21) #23
   br label %free_value
 
 free_value:                                       ; preds = %entry, %free_out
-  %retval1.1 = phi i32 [ 0, %entry ], [ %retval1.0, %free_out ]
+  %retval1.0 = phi i32 [ 0, %entry ], [ %retval1.1, %free_out ]
   %value23 = getelementptr inbounds i8, ptr %fidp, i64 40
   %5 = load ptr, ptr %value23, align 8
   tail call void @g_free(ptr noundef %5) #23
-  ret i32 %retval1.1
+  ret i32 %retval1.0
 }
 
 declare i32 @v9fs_co_lsetxattr(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
@@ -1520,7 +1520,7 @@ if.end10:                                         ; preds = %if.end5
   br label %out
 
 out:                                              ; preds = %if.end10, %if.end5
-  %retval.0 = phi i64 [ %conv, %if.end5 ], [ %spec.select, %if.end10 ]
+  %retval.1 = phi i64 [ %conv, %if.end5 ], [ %spec.select, %if.end10 ]
   %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
   %14 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %14, 0
@@ -1561,8 +1561,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end, %entry
-  %retval.1 = phi i64 [ %call, %entry ], [ -2, %if.end ], [ %retval.0, %if.end.i ], [ %retval.0, %land.lhs.true.i ], [ %retval.0, %if.end8.i ]
-  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %retval.1)
+  %retval.0 = phi i64 [ %call, %entry ], [ -2, %if.end ], [ %retval.1, %if.end.i ], [ %retval.1, %land.lhs.true.i ], [ %retval.1, %if.end8.i ]
+  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %retval.0)
   ret void
 }
 
@@ -1773,9 +1773,9 @@ if.end78:                                         ; preds = %if.then76, %if.end7
   br i1 %cmp82, label %out, label %if.end87
 
 if.end87:                                         ; preds = %if.end78, %if.end36
-  %err.1.in = phi i64 [ %call38, %if.end36 ], [ %call81, %if.end78 ]
+  %err.3.in = phi i64 [ %call38, %if.end36 ], [ %call81, %if.end78 ]
   %iounit.0 = phi i32 [ 0, %if.end36 ], [ %call80, %if.end78 ]
-  %err.1 = add nuw i64 %err.1.in, 7
+  %err.3 = add nuw i64 %err.3.in, 7
   %26 = load i16, ptr %tag, align 4
   %27 = load i8, ptr %id, align 2
   %28 = load i8, ptr %qid, align 8
@@ -1787,7 +1787,7 @@ if.end87:                                         ; preds = %if.end78, %if.end36
   br label %out
 
 out:                                              ; preds = %if.end52, %if.end11, %if.end78, %if.end66, %if.end36, %if.then30, %if.end21, %if.end15, %if.end87
-  %err.2 = phi i64 [ %conv17, %if.end15 ], [ %conv23, %if.end21 ], [ %conv32, %if.then30 ], [ %call38, %if.end36 ], [ %err.1, %if.end87 ], [ %conv68, %if.end66 ], [ %call81, %if.end78 ], [ -22, %if.end11 ], [ -30, %if.end52 ]
+  %err.2 = phi i64 [ %conv17, %if.end15 ], [ %conv23, %if.end21 ], [ %conv32, %if.then30 ], [ %call38, %if.end36 ], [ %err.3, %if.end87 ], [ %conv68, %if.end66 ], [ %call81, %if.end78 ], [ -22, %if.end11 ], [ -30, %if.end52 ]
   %ref.i = getelementptr inbounds i8, ptr %call7, i64 260
   %31 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %31, 0
@@ -1828,8 +1828,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %trace_v9fs_open.exit, %if.end
-  %err.3 = phi i64 [ %err.0, %if.end ], [ -2, %trace_v9fs_open.exit ], [ %err.2, %if.end.i ], [ %err.2, %land.lhs.true.i ], [ %err.2, %if.end8.i ]
-  call void @pdu_complete(ptr noundef %opaque, i64 noundef %err.3)
+  %err.1 = phi i64 [ %err.0, %if.end ], [ -2, %trace_v9fs_open.exit ], [ %err.2, %if.end.i ], [ %err.2, %land.lhs.true.i ], [ %err.2, %if.end8.i ]
+  call void @pdu_complete(ptr noundef %opaque, i64 noundef %err.1)
   ret void
 }
 
@@ -2033,7 +2033,7 @@ if.end41:                                         ; preds = %if.end36
   br label %out
 
 out:                                              ; preds = %if.end14, %if.end36, %if.end29, %get_dotl_openflags.exit, %if.end41
-  %err.0 = phi i64 [ %conv, %get_dotl_openflags.exit ], [ %conv32, %if.end29 ], [ %call37, %if.end36 ], [ %add, %if.end41 ], [ -22, %if.end14 ]
+  %err.1 = phi i64 [ %conv, %get_dotl_openflags.exit ], [ %conv32, %if.end29 ], [ %call37, %if.end36 ], [ %add, %if.end41 ], [ -22, %if.end14 ]
   %ref.i = getelementptr inbounds i8, ptr %call11, i64 260
   %41 = load i32, ptr %ref.i, align 4
   %tobool.not.i29 = icmp eq i32 %41, 0
@@ -2075,8 +2075,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %trace_v9fs_lcreate.exit, %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end10, %if.end3.tail, %lor.lhs.false.tail, %name_is_illegal.exit, %entry
-  %err.1 = phi i64 [ %call, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end3.tail ], [ -2, %if.end10 ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ], [ -2, %trace_v9fs_lcreate.exit ]
-  call void @pdu_complete(ptr noundef %opaque, i64 noundef %err.1)
+  %err.0 = phi i64 [ %call, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end3.tail ], [ -2, %if.end10 ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ], [ -2, %trace_v9fs_lcreate.exit ]
+  call void @pdu_complete(ptr noundef %opaque, i64 noundef %err.0)
   call void @v9fs_string_free(ptr noundef nonnull %name) #23
   ret void
 }
@@ -2231,7 +2231,7 @@ if.end35:                                         ; preds = %if.end29
   br label %out
 
 out:                                              ; preds = %if.end29, %if.end24, %if.end18, %if.end35
-  %err.0 = phi i32 [ %call20, %if.end18 ], [ %call25, %if.end24 ], [ %conv31, %if.end29 ], [ %conv37, %if.end35 ]
+  %err.1 = phi i32 [ %call20, %if.end18 ], [ %call25, %if.end24 ], [ %conv31, %if.end29 ], [ %conv37, %if.end35 ]
   %ref.i = getelementptr inbounds i8, ptr %call14, i64 260
   %35 = load i32, ptr %ref.i, align 4
   %tobool.not.i21 = icmp eq i32 %35, 0
@@ -2273,8 +2273,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %trace_v9fs_symlink.exit, %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end13, %if.end6.tail, %lor.lhs.false.tail, %name_is_illegal.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end6.tail ], [ -22, %if.end13 ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ], [ -2, %trace_v9fs_symlink.exit ]
-  %conv41 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end6.tail ], [ -22, %if.end13 ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ], [ -2, %trace_v9fs_symlink.exit ]
+  %conv41 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv41)
   call void @v9fs_string_free(ptr noundef nonnull %name) #23
   call void @v9fs_string_free(ptr noundef nonnull %symname) #23
@@ -2435,7 +2435,7 @@ if.end33:                                         ; preds = %if.end27
   br label %out
 
 out:                                              ; preds = %if.end27, %if.end22, %if.end16, %if.end33
-  %err.0 = phi i32 [ %call18, %if.end16 ], [ %call23, %if.end22 ], [ %conv29, %if.end27 ], [ %conv35, %if.end33 ]
+  %err.1 = phi i32 [ %call18, %if.end16 ], [ %call23, %if.end22 ], [ %conv29, %if.end27 ], [ %conv35, %if.end33 ]
   %ref.i = getelementptr inbounds i8, ptr %call12, i64 260
   %38 = load i32, ptr %ref.i, align 4
   %tobool.not.i21 = icmp eq i32 %38, 0
@@ -2477,8 +2477,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %trace_v9fs_mknod.exit, %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end11, %if.end4.tail, %lor.lhs.false.tail, %name_is_illegal.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end4.tail ], [ -2, %if.end11 ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ], [ -2, %trace_v9fs_mknod.exit ]
-  %conv39 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end4.tail ], [ -2, %if.end11 ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ], [ -2, %trace_v9fs_mknod.exit ]
+  %conv39 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv39)
   call void @v9fs_string_free(ptr noundef nonnull %name) #23
   ret void
@@ -2596,7 +2596,7 @@ v9fs_path_unlock.exit:                            ; preds = %v9fs_path_write_loc
   br label %out
 
 out:                                              ; preds = %v9fs_path_unlock.exit, %if.end18, %if.end15
-  %err.0 = phi i64 [ -22, %if.end15 ], [ -95, %if.end18 ], [ %spec.select, %v9fs_path_unlock.exit ]
+  %err.1 = phi i64 [ -22, %if.end15 ], [ -95, %if.end18 ], [ %spec.select, %v9fs_path_unlock.exit ]
   %ref.i = getelementptr inbounds i8, ptr %call12, i64 260
   %23 = load i32, ptr %ref.i, align 4
   %tobool.not.i20 = icmp eq i32 %23, 0
@@ -2637,8 +2637,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end, %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end11, %if.end4.tail, %lor.lhs.false.tail, %name_is_illegal.exit, %entry
-  %err.1 = phi i64 [ %call, %entry ], [ -2, %name_is_illegal.exit ], [ -21, %lor.lhs.false.tail ], [ -21, %if.end4.tail ], [ -2, %if.end11 ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ], [ -2, %if.end ]
-  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %err.1)
+  %err.0 = phi i64 [ %call, %entry ], [ -2, %name_is_illegal.exit ], [ -21, %lor.lhs.false.tail ], [ -21, %if.end4.tail ], [ -2, %if.end11 ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ], [ -2, %if.end ]
+  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %err.0)
   call void @v9fs_string_free(ptr noundef nonnull %name) #23
   ret void
 }
@@ -2765,12 +2765,12 @@ trace_v9fs_readlink_return.exit:                  ; preds = %if.end17, %land.lhs
   br label %out.sink.split
 
 out.sink.split:                                   ; preds = %if.end11, %trace_v9fs_readlink_return.exit
-  %err.0.ph = phi i32 [ %conv19, %trace_v9fs_readlink_return.exit ], [ %conv13, %if.end11 ]
+  %err.1.ph = phi i32 [ %conv19, %trace_v9fs_readlink_return.exit ], [ %conv13, %if.end11 ]
   call void @v9fs_string_free(ptr noundef nonnull %target) #23
   br label %out
 
 out:                                              ; preds = %out.sink.split, %if.end6
-  %err.0 = phi i32 [ %call7, %if.end6 ], [ %err.0.ph, %out.sink.split ]
+  %err.1 = phi i32 [ %call7, %if.end6 ], [ %err.1.ph, %out.sink.split ]
   %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
   %19 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %19, 0
@@ -2812,8 +2812,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %trace_v9fs_readlink.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -2, %trace_v9fs_readlink.exit ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ]
-  %conv23 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ -2, %trace_v9fs_readlink.exit ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
+  %conv23 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv23)
   ret void
 }
@@ -3029,7 +3029,7 @@ trace_v9fs_getattr_return.exit:                   ; preds = %if.end26, %land.lhs
   br label %out
 
 out:                                              ; preds = %if.end21, %if.then16, %stat_to_v9stat_dotl.exit, %if.end4, %trace_v9fs_getattr_return.exit
-  %retval.0 = phi i64 [ %conv, %if.end4 ], [ %conv11, %stat_to_v9stat_dotl.exit ], [ %call22, %if.end21 ], [ %add, %trace_v9fs_getattr_return.exit ], [ -4, %if.then16 ]
+  %retval.1 = phi i64 [ %conv, %if.end4 ], [ %conv11, %stat_to_v9stat_dotl.exit ], [ %call22, %if.end21 ], [ %add, %trace_v9fs_getattr_return.exit ], [ -4, %if.then16 ]
   %ref.i = getelementptr inbounds i8, ptr %call1, i64 260
   %39 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %39, 0
@@ -3071,8 +3071,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %trace_v9fs_getattr.exit, %entry
-  %retval.1 = phi i64 [ %call, %entry ], [ -2, %trace_v9fs_getattr.exit ], [ %retval.0, %if.end.i ], [ %retval.0, %land.lhs.true.i ], [ %retval.0, %if.end8.i ]
-  call void @pdu_complete(ptr noundef %opaque, i64 noundef %retval.1)
+  %retval.0 = phi i64 [ %call, %entry ], [ -2, %trace_v9fs_getattr.exit ], [ %retval.1, %if.end.i ], [ %retval.1, %land.lhs.true.i ], [ %retval.1, %if.end8.i ]
+  call void @pdu_complete(ptr noundef %opaque, i64 noundef %retval.0)
   ret void
 }
 
@@ -3325,7 +3325,7 @@ trace_v9fs_setattr_return.exit:                   ; preds = %if.end108, %land.lh
   br label %out
 
 out:                                              ; preds = %if.then100, %if.end87, %if.end57, %if.then8, %trace_v9fs_setattr_return.exit
-  %err.0 = phi i32 [ %call10, %if.then8 ], [ %call59, %if.end57 ], [ %call91, %if.end87 ], [ %call103, %if.then100 ], [ 7, %trace_v9fs_setattr_return.exit ]
+  %err.1 = phi i32 [ %call10, %if.then8 ], [ %call59, %if.end57 ], [ %call91, %if.end87 ], [ %call103, %if.then100 ], [ 7, %trace_v9fs_setattr_return.exit ]
   %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
   %38 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %38, 0
@@ -3367,8 +3367,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %trace_v9fs_setattr.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -22, %trace_v9fs_setattr.exit ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ]
-  %conv113 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ -22, %trace_v9fs_setattr.exit ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
+  %conv113 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv113)
   ret void
 }
@@ -3589,9 +3589,9 @@ if.end77:                                         ; preds = %if.then63, %if.end5
   br i1 %cmp79, label %out, label %if.end84
 
 if.end84:                                         ; preds = %if.end77, %if.end39
-  %err.0.in = phi i64 [ %call4069, %if.end39 ], [ %call7871, %if.end77 ]
+  %err.2.in = phi i64 [ %call4069, %if.end39 ], [ %call7871, %if.end77 ]
   %size.0 = phi i64 [ %conv, %if.end39 ], [ %conv47, %if.end77 ]
-  %err.0 = add nuw i64 %err.0.in, 7
+  %err.2 = add nuw i64 %err.2.in, 7
   %32 = load i16, ptr %tag, align 4
   %33 = load i8, ptr %id, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i93)
@@ -3635,7 +3635,7 @@ trace_v9fs_xattrwalk_return.exit:                 ; preds = %if.end84, %land.lhs
   br label %out
 
 out:                                              ; preds = %if.then.i89, %if.then73, %if.then.i81, %if.then50, %if.then.i, %if.then17, %if.end5, %if.end77, %if.end39, %trace_v9fs_xattrwalk_return.exit, %if.then35
-  %err.1 = phi i64 [ %call7871, %if.end77 ], [ %err.0, %trace_v9fs_xattrwalk_return.exit ], [ %conv32, %if.then35 ], [ %call4069, %if.end39 ], [ -22, %if.end5 ], [ %conv, %if.then17 ], [ %conv, %if.then.i ], [ %conv47, %if.then50 ], [ %conv47, %if.then.i81 ], [ %conv70, %if.then73 ], [ %conv70, %if.then.i89 ]
+  %err.1 = phi i64 [ %call7871, %if.end77 ], [ %err.2, %trace_v9fs_xattrwalk_return.exit ], [ %conv32, %if.then35 ], [ %call4069, %if.end39 ], [ -22, %if.end5 ], [ %conv, %if.then17 ], [ %conv, %if.then.i ], [ %conv47, %if.then50 ], [ %conv47, %if.then.i81 ], [ %conv70, %if.then73 ], [ %conv70, %if.then.i89 ]
   %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
   %40 = load i32, ptr %ref.i, align 4
   %tobool.not.i111 = icmp eq i32 %40, 0
@@ -3719,8 +3719,8 @@ if.end8.i128:                                     ; preds = %if.then6.i130, %if.
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i128, %land.lhs.true.i120, %if.end.i116, %trace_v9fs_xattrwalk.exit, %put_fid.exit, %entry
-  %err.2 = phi i64 [ %call, %entry ], [ %err.1, %put_fid.exit ], [ -2, %trace_v9fs_xattrwalk.exit ], [ %err.1, %if.end.i116 ], [ %err.1, %land.lhs.true.i120 ], [ %err.1, %if.end8.i128 ]
-  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %err.2)
+  %err.0 = phi i64 [ %call, %entry ], [ %err.1, %put_fid.exit ], [ -2, %trace_v9fs_xattrwalk.exit ], [ %err.1, %if.end.i116 ], [ %err.1, %land.lhs.true.i120 ], [ %err.1, %if.end8.i128 ]
+  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %err.0)
   call void @v9fs_string_free(ptr noundef nonnull %name) #23
   ret void
 }
@@ -3834,7 +3834,7 @@ if.end21:                                         ; preds = %if.end18
   br label %out_put_fid
 
 out_put_fid:                                      ; preds = %if.end18, %if.end21
-  %err.0 = phi i64 [ 7, %if.end21 ], [ -22, %if.end18 ]
+  %err.1 = phi i64 [ 7, %if.end21 ], [ -22, %if.end18 ]
   %ref.i = getelementptr inbounds i8, ptr %call15, i64 260
   %18 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %18, 0
@@ -3876,8 +3876,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end14, %if.end2, %trace_v9fs_xattrcreate.exit, %entry
-  %err.1 = phi i64 [ %call, %entry ], [ -22, %trace_v9fs_xattrcreate.exit ], [ -7, %if.end2 ], [ -22, %if.end14 ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ]
-  call void @pdu_complete(ptr noundef %opaque, i64 noundef %err.1)
+  %err.0 = phi i64 [ %call, %entry ], [ -22, %trace_v9fs_xattrcreate.exit ], [ -7, %if.end2 ], [ -22, %if.end14 ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
+  call void @pdu_complete(ptr noundef %opaque, i64 noundef %err.0)
   call void @v9fs_string_free(ptr noundef nonnull %name) #23
   ret void
 }
@@ -4039,7 +4039,7 @@ trace_v9fs_readdir_return.exit:                   ; preds = %if.end30, %land.lhs
   br label %out
 
 out:                                              ; preds = %if.end11, %if.end25, %trace_v9fs_readdir_return.exit, %if.then24, %if.then16
-  %retval.0 = phi i64 [ -95, %if.then16 ], [ %conv, %if.then24 ], [ %call26, %if.end25 ], [ %add32, %trace_v9fs_readdir_return.exit ], [ -22, %if.end11 ]
+  %retval.1 = phi i64 [ -95, %if.then16 ], [ %conv, %if.then24 ], [ %call26, %if.end25 ], [ %add32, %trace_v9fs_readdir_return.exit ], [ -22, %if.end11 ]
   %ref.i = getelementptr inbounds i8, ptr %call8, i64 260
   %27 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %27, 0
@@ -4080,8 +4080,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end7, %entry
-  %retval.1 = phi i64 [ %call, %entry ], [ -22, %if.end7 ], [ %retval.0, %if.end.i ], [ %retval.0, %land.lhs.true.i ], [ %retval.0, %if.end8.i ]
-  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %retval.1)
+  %retval.0 = phi i64 [ %call, %entry ], [ -22, %if.end7 ], [ %retval.1, %if.end.i ], [ %retval.1, %land.lhs.true.i ], [ %retval.1, %if.end8.i ]
+  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %retval.0)
   ret void
 }
 
@@ -4192,8 +4192,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %trace_v9fs_fsync.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -2, %trace_v9fs_fsync.exit ], [ %spec.select, %if.end.i ], [ %spec.select, %land.lhs.true.i ], [ %spec.select, %if.end8.i ]
-  %conv12 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ -2, %trace_v9fs_fsync.exit ], [ %spec.select, %if.end.i ], [ %spec.select, %land.lhs.true.i ], [ %spec.select, %if.end8.i ]
+  %conv12 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv12)
   ret void
 }
@@ -4334,7 +4334,7 @@ trace_v9fs_lock_return.exit:                      ; preds = %if.end24, %land.lhs
   br label %out
 
 out:                                              ; preds = %if.end18, %if.end13, %trace_v9fs_lock_return.exit
-  %err.0 = phi i32 [ %call14, %if.end13 ], [ %conv20, %if.end18 ], [ %conv26, %trace_v9fs_lock_return.exit ]
+  %err.1 = phi i32 [ %call14, %if.end13 ], [ %conv20, %if.end18 ], [ %conv26, %trace_v9fs_lock_return.exit ]
   %ref.i = getelementptr inbounds i8, ptr %call9, i64 260
   %22 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %22, 0
@@ -4376,8 +4376,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end8, %trace_v9fs_lock.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -22, %trace_v9fs_lock.exit ], [ -2, %if.end8 ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ]
-  %conv30 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ -22, %trace_v9fs_lock.exit ], [ -2, %if.end8 ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
+  %conv30 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv30)
   call void @v9fs_string_free(ptr noundef nonnull %client_id) #23
   ret void
@@ -4523,7 +4523,7 @@ trace_v9fs_getlock_return.exit:                   ; preds = %if.end28, %land.lhs
   br label %out
 
 out:                                              ; preds = %if.end15, %if.end10, %trace_v9fs_getlock_return.exit
-  %err.0 = phi i32 [ %call11, %if.end10 ], [ %conv24, %if.end15 ], [ %conv30, %trace_v9fs_getlock_return.exit ]
+  %err.1 = phi i32 [ %call11, %if.end10 ], [ %conv24, %if.end15 ], [ %conv30, %trace_v9fs_getlock_return.exit ]
   %ref.i = getelementptr inbounds i8, ptr %call6, i64 260
   %28 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %28, 0
@@ -4565,8 +4565,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %trace_v9fs_getlock.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -2, %trace_v9fs_getlock.exit ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ]
-  %conv38 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ -2, %trace_v9fs_getlock.exit ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
+  %conv38 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv38)
   call void @v9fs_string_free(ptr noundef nonnull %client_id) #23
   ret void
@@ -4777,9 +4777,9 @@ if.end8.i33:                                      ; preds = %if.then6.i35, %if.t
   br label %out_nofid
 
 out_nofid:                                        ; preds = %trace_v9fs_link.exit, %if.end8.i33, %land.lhs.true.i25, %if.end.i21, %if.end12, %if.end5.tail, %lor.lhs.false.tail, %name_is_illegal.exit, %entry
-  %err.2 = phi i32 [ %conv, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end5.tail ], [ -2, %if.end12 ], [ %err.1, %if.end.i21 ], [ %err.1, %land.lhs.true.i25 ], [ %err.1, %if.end8.i33 ], [ -2, %trace_v9fs_link.exit ]
+  %err.0 = phi i32 [ %conv, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end5.tail ], [ -2, %if.end12 ], [ %err.1, %if.end.i21 ], [ %err.1, %land.lhs.true.i25 ], [ %err.1, %if.end8.i33 ], [ -2, %trace_v9fs_link.exit ]
   call void @v9fs_string_free(ptr noundef nonnull %name) #23
-  %conv30 = sext i32 %err.2 to i64
+  %conv30 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv30)
   ret void
 }
@@ -4933,7 +4933,7 @@ if.end33:                                         ; preds = %if.end27
   br label %out
 
 out:                                              ; preds = %if.end27, %if.end22, %if.end17, %if.end33
-  %err.0 = phi i32 [ %call18, %if.end17 ], [ %call23, %if.end22 ], [ %conv29, %if.end27 ], [ %conv35, %if.end33 ]
+  %err.1 = phi i32 [ %call18, %if.end17 ], [ %call23, %if.end22 ], [ %conv29, %if.end27 ], [ %conv35, %if.end33 ]
   %ref.i = getelementptr inbounds i8, ptr %call13, i64 260
   %36 = load i32, ptr %ref.i, align 4
   %tobool.not.i22 = icmp eq i32 %36, 0
@@ -4975,8 +4975,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %trace_v9fs_mkdir.exit, %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end12, %if.end5.tail, %lor.lhs.false.tail, %name_is_illegal.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end5.tail ], [ -2, %if.end12 ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ], [ -2, %trace_v9fs_mkdir.exit ]
-  %conv39 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end5.tail ], [ -2, %if.end12 ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ], [ -2, %trace_v9fs_mkdir.exit ]
+  %conv39 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv39)
   call void @v9fs_string_free(ptr noundef nonnull %name) #23
   ret void
@@ -5230,7 +5230,7 @@ if.end37:                                         ; preds = %if.end32
   br label %out_err
 
 out_err:                                          ; preds = %if.end37, %if.end32, %if.end25
-  %err.0 = phi i32 [ %call28, %if.end25 ], [ %call33, %if.end32 ], [ %spec.select16, %if.end37 ]
+  %err.1 = phi i32 [ %call28, %if.end25 ], [ %call33, %if.end32 ], [ %spec.select16, %if.end37 ]
   %ref.i = getelementptr inbounds i8, ptr %call21, i64 260
   %18 = load i32, ptr %ref.i, align 4
   %tobool.not.i18 = icmp eq i32 %18, 0
@@ -5279,8 +5279,8 @@ put_fid.exit:                                     ; preds = %if.end.i, %land.lhs
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end, %if.end16, %if.end13, %if.end8.tail, %if.end4.tail, %name_is_illegal.exit, %entry, %put_fid.exit
-  %err.1 = phi i32 [ %conv, %entry ], [ %err.0, %put_fid.exit ], [ -2, %name_is_illegal.exit ], [ -22, %if.end4.tail ], [ -39, %if.end8.tail ], [ -22, %if.end13 ], [ -22, %if.end16 ], [ -2, %if.end ]
-  %conv45 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ %err.1, %put_fid.exit ], [ -2, %name_is_illegal.exit ], [ -22, %if.end4.tail ], [ -39, %if.end8.tail ], [ -22, %if.end13 ], [ -22, %if.end16 ], [ -2, %if.end ]
+  %conv45 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv45)
   call void @v9fs_string_free(ptr noundef nonnull %name) #23
   ret void
@@ -5700,7 +5700,7 @@ trace_v9fs_attach_return.exit:                    ; preds = %if.end48, %land.lhs
   br label %out
 
 out:                                              ; preds = %if.then.i59, %if.then46, %if.then.i51, %if.then25, %if.then.i43, %if.then18, %if.then.i, %if.then10, %trace_v9fs_attach_return.exit, %if.then39
-  %err.0 = phi i64 [ %add, %trace_v9fs_attach_return.exit ], [ %conv36, %if.then39 ], [ -22, %if.then10 ], [ -22, %if.then.i ], [ -22, %if.then18 ], [ -22, %if.then.i43 ], [ -22, %if.then25 ], [ -22, %if.then.i51 ], [ %call43, %if.then46 ], [ %call43, %if.then.i59 ]
+  %err.1 = phi i64 [ %add, %trace_v9fs_attach_return.exit ], [ %conv36, %if.then39 ], [ -22, %if.then10 ], [ -22, %if.then.i ], [ -22, %if.then18 ], [ -22, %if.then.i43 ], [ -22, %if.then25 ], [ -22, %if.then.i51 ], [ %call43, %if.then46 ], [ %call43, %if.then.i59 ]
   %ref.i = getelementptr inbounds i8, ptr %call3, i64 260
   %47 = load i32, ptr %ref.i, align 4
   %tobool.not.i81 = icmp eq i32 %47, 0
@@ -5741,8 +5741,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %trace_v9fs_attach.exit, %entry
-  %err.1 = phi i64 [ %call, %entry ], [ -22, %trace_v9fs_attach.exit ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ]
-  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %err.1)
+  %err.0 = phi i64 [ %call, %entry ], [ -22, %trace_v9fs_attach.exit ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
+  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %err.0)
   call void @v9fs_string_free(ptr noundef nonnull %uname) #23
   call void @v9fs_string_free(ptr noundef nonnull %aname) #23
   ret void
@@ -5822,40 +5822,40 @@ if.then7:                                         ; preds = %trace_v9fs_flush.ex
 
 if.else:                                          ; preds = %trace_v9fs_flush.exit
   %active_list = getelementptr inbounds i8, ptr %0, i64 8
-  %cancel_pdu.019 = load ptr, ptr %active_list, align 8
-  %tobool.not20 = icmp eq ptr %cancel_pdu.019, null
+  %cancel_pdu.119 = load ptr, ptr %active_list, align 8
+  %tobool.not20 = icmp eq ptr %cancel_pdu.119, null
   br i1 %tobool.not20, label %if.end24, label %for.body
 
 for.body:                                         ; preds = %if.else, %for.inc
-  %cancel_pdu.021 = phi ptr [ %cancel_pdu.0, %for.inc ], [ %cancel_pdu.019, %if.else ]
-  %tag8 = getelementptr inbounds i8, ptr %cancel_pdu.021, i64 4
+  %cancel_pdu.121 = phi ptr [ %cancel_pdu.1, %for.inc ], [ %cancel_pdu.119, %if.else ]
+  %tag8 = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 4
   %12 = load i16, ptr %tag8, align 4
   %conv9 = zext i16 %12 to i32
   %cmp11 = icmp eq i32 %conv9, %conv4
   br i1 %cmp11, label %if.then17, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %cancel_pdu.021, i64 32
-  %cancel_pdu.0 = load ptr, ptr %next, align 8
-  %tobool.not = icmp eq ptr %cancel_pdu.0, null
+  %next = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 32
+  %cancel_pdu.1 = load ptr, ptr %next, align 8
+  %tobool.not = icmp eq ptr %cancel_pdu.1, null
   br i1 %tobool.not, label %if.end24, label %for.body, !llvm.loop !13
 
 if.then17:                                        ; preds = %for.body
-  %cancelled = getelementptr inbounds i8, ptr %cancel_pdu.021, i64 7
+  %cancelled = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 7
   store i8 1, ptr %cancelled, align 1
-  %complete = getelementptr inbounds i8, ptr %cancel_pdu.021, i64 8
+  %complete = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %complete, ptr noundef null, i32 noundef 0) #23
   %call20 = call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %complete) #23
   br i1 %call20, label %if.end24, label %do.body2.i
 
 do.body2.i:                                       ; preds = %if.then17
   store i8 0, ptr %cancelled, align 1
-  %s1.i = getelementptr inbounds i8, ptr %cancel_pdu.021, i64 24
+  %s1.i = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 24
   %13 = load ptr, ptr %s1.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %cancel_pdu.021, i64 32
+  %next.i = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 32
   %14 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %14, null
-  %le_prev13.phi.trans.insert.i = getelementptr inbounds i8, ptr %cancel_pdu.021, i64 40
+  %le_prev13.phi.trans.insert.i = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 40
   %.pre16.i = load ptr, ptr %le_prev13.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end9.i, label %if.then3.i
 
@@ -5880,7 +5880,7 @@ if.then23.i:                                      ; preds = %if.end9.i
   br label %pdu_free.exit
 
 pdu_free.exit:                                    ; preds = %if.end9.i, %if.then23.i
-  store ptr %cancel_pdu.021, ptr %13, align 8
+  store ptr %cancel_pdu.121, ptr %13, align 8
   store ptr %13, ptr %le_prev13.phi.trans.insert.i, align 8
   br label %if.end24
 
@@ -6034,9 +6034,9 @@ if.end30:                                         ; preds = %name_is_illegal.exi
   br i1 %cmp18, label %for.body, label %if.end33, !llvm.loop !14
 
 if.end33:                                         ; preds = %if.end30, %p9array_new_V9fsPath.exit, %if.end9
-  %qids.0 = phi ptr [ null, %if.end9 ], [ %call13, %p9array_new_V9fsPath.exit ], [ %call13, %if.end30 ]
-  %pathes.0 = phi ptr [ null, %if.end9 ], [ %first.i, %p9array_new_V9fsPath.exit ], [ %first.i, %if.end30 ]
-  %stbufs.0 = phi ptr [ null, %if.end9 ], [ %call15, %p9array_new_V9fsPath.exit ], [ %call15, %if.end30 ]
+  %qids.2 = phi ptr [ null, %if.end9 ], [ %call13, %p9array_new_V9fsPath.exit ], [ %call13, %if.end30 ]
+  %pathes.2 = phi ptr [ null, %if.end9 ], [ %first.i, %p9array_new_V9fsPath.exit ], [ %first.i, %if.end30 ]
+  %stbufs.2 = phi ptr [ null, %if.end9 ], [ %call15, %p9array_new_V9fsPath.exit ], [ %call15, %if.end30 ]
   %24 = load i32, ptr %fid, align 4
   %call34 = call ptr @get_fid(ptr noundef %opaque, i32 noundef %24)
   %cmp35 = icmp eq ptr %call34, null
@@ -6103,7 +6103,7 @@ for.body59.lr.ph:                                 ; preds = %if.end54
 for.body59:                                       ; preds = %for.body59.lr.ph, %for.inc111
   %35 = phi i16 [ %33, %for.body59.lr.ph ], [ %65, %for.inc111 ]
   %indvars.iv213 = phi i64 [ 0, %for.body59.lr.ph ], [ %indvars.iv.next214, %for.inc111 ]
-  %err.0182 = phi i32 [ %call48, %for.body59.lr.ph ], [ %err.1, %for.inc111 ]
+  %err.2182 = phi i32 [ %call48, %for.body59.lr.ph ], [ %err.3, %for.inc111 ]
   %opaque.val88 = load i8, ptr %29, align 1
   %tobool61.not = icmp eq i8 %opaque.val88, 0
   br i1 %tobool61.not, label %if.end64, label %do.end.loopexit
@@ -6164,7 +6164,7 @@ if.then72:                                        ; preds = %if.end64.if.then72_
   %54 = load ptr, ptr %name_to_path, align 8
   %data77 = getelementptr %struct.V9fsString, ptr %52, i64 %indvars.iv213, i32 1
   %55 = load ptr, ptr %data77, align 8
-  %arrayidx79 = getelementptr %struct.V9fsPath, ptr %pathes.0, i64 %indvars.iv213
+  %arrayidx79 = getelementptr %struct.V9fsPath, ptr %pathes.2, i64 %indvars.iv213
   %call80 = call i32 %54(ptr noundef nonnull %ctx, ptr noundef nonnull %dpath, ptr noundef %55, ptr noundef %arrayidx79) #23
   %cmp81 = icmp slt i32 %call80, 0
   br i1 %cmp81, label %if.then83, label %if.end87
@@ -6197,7 +6197,7 @@ if.then101:                                       ; preds = %if.end92
   br label %do.end
 
 if.end105:                                        ; preds = %if.end92
-  %arrayidx107 = getelementptr %struct.stat, ptr %stbufs.0, i64 %indvars.iv213
+  %arrayidx107 = getelementptr %struct.stat, ptr %stbufs.2, i64 %indvars.iv213
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %arrayidx107, ptr noundef nonnull align 8 dereferenceable(144) %stbuf, i64 144, i1 false)
   %62 = load ptr, ptr %data.i, align 8
   call void @g_free(ptr noundef %62) #23
@@ -6214,7 +6214,7 @@ if.end105:                                        ; preds = %if.end92
 
 for.inc111:                                       ; preds = %lor.lhs.false.tail, %if.end105
   %65 = phi i16 [ %.pre220, %if.end105 ], [ %35, %lor.lhs.false.tail ]
-  %err.1 = phi i32 [ %call98, %if.end105 ], [ %err.0182, %lor.lhs.false.tail ]
+  %err.3 = phi i32 [ %call98, %if.end105 ], [ %err.2182, %lor.lhs.false.tail ]
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %66 = zext i16 %65 to i64
   %cmp57 = icmp ult i64 %indvars.iv.next214, %66
@@ -6223,19 +6223,19 @@ for.inc111:                                       ; preds = %lor.lhs.false.tail,
 do.end.loopexit:                                  ; preds = %for.inc111, %for.body59, %if.end87
   %indvars.iv.next214.lcssa.sink = phi i64 [ %indvars.iv213, %if.end87 ], [ %indvars.iv213, %for.body59 ], [ %indvars.iv.next214, %for.inc111 ]
   %any_err.0.ph = phi i32 [ -4, %if.end87 ], [ -4, %for.body59 ], [ 0, %for.inc111 ]
-  %err.2.ph = phi i32 [ -4, %if.end87 ], [ -4, %for.body59 ], [ %err.1, %for.inc111 ]
+  %err.1.ph = phi i32 [ -4, %if.end87 ], [ -4, %for.body59 ], [ %err.3, %for.inc111 ]
   %indvars.le = trunc i64 %indvars.iv.next214.lcssa.sink to i32
   br label %do.end
 
 do.end:                                           ; preds = %do.end.loopexit, %if.end54, %if.end38, %if.then101, %if.then83, %if.then51
   %any_err.0 = phi i32 [ %sub, %if.then51 ], [ %sub85, %if.then83 ], [ %sub103, %if.then101 ], [ -4, %if.end38 ], [ 0, %if.end54 ], [ %any_err.0.ph, %do.end.loopexit ]
-  %err.2 = phi i32 [ %sub, %if.then51 ], [ %sub85, %if.then83 ], [ %sub103, %if.then101 ], [ -4, %if.end38 ], [ %call48, %if.end54 ], [ %err.2.ph, %do.end.loopexit ]
-  %nwalked.1 = phi i32 [ 0, %if.then51 ], [ %56, %if.then83 ], [ %60, %if.then101 ], [ 0, %if.end38 ], [ 0, %if.end54 ], [ %indvars.le, %do.end.loopexit ]
+  %err.1 = phi i32 [ %sub, %if.then51 ], [ %sub85, %if.then83 ], [ %sub103, %if.then101 ], [ -4, %if.end38 ], [ %call48, %if.end54 ], [ %err.1.ph, %do.end.loopexit ]
+  %nwalked.0 = phi i32 [ 0, %if.then51 ], [ %56, %if.then83 ], [ %60, %if.then101 ], [ 0, %if.end38 ], [ 0, %if.end54 ], [ %indvars.le, %do.end.loopexit ]
   call void @qemu_coroutine_yield() #23
-  %cmp116 = icmp sgt i32 %err.2, -1
-  %tobool118 = icmp ne i32 %nwalked.1, 0
+  %cmp116 = icmp sgt i32 %err.1, -1
+  %tobool118 = icmp ne i32 %nwalked.0, 0
   %or.cond = or i1 %cmp116, %tobool118
-  %cmp120 = icmp ne i32 %err.2, -4
+  %cmp120 = icmp ne i32 %err.1, -4
   %or.cond1.not = and i1 %cmp120, %or.cond
   br i1 %or.cond1.not, label %if.end123, label %out
 
@@ -6265,18 +6265,18 @@ if.end131:                                        ; preds = %if.end123
   %conv.i112 = zext i16 %71 to i32
   %call.i113 = call ptr @g_memdup(ptr noundef %72, i32 noundef %conv.i112) #25
   store ptr %call.i113, ptr %data.i94, align 8
-  %cmp135193 = icmp sgt i32 %nwalked.1, 0
+  %cmp135193 = icmp sgt i32 %nwalked.0, 0
   br i1 %cmp135193, label %for.body137.lr.ph, label %for.end163.thread
 
 for.body137.lr.ph:                                ; preds = %if.end131
   %73 = getelementptr inbounds i8, ptr %stbuf, i64 8
-  %wide.trip.count = zext nneg i32 %nwalked.1 to i64
+  %wide.trip.count = zext nneg i32 %nwalked.0 to i64
   br label %for.body137
 
 for.body137:                                      ; preds = %for.body137.lr.ph, %if.end158
   %indvars.iv216 = phi i64 [ 0, %for.body137.lr.ph ], [ %indvars.iv.next217, %if.end158 ]
-  %err.3195 = phi i32 [ %call124, %for.body137.lr.ph ], [ %err.4, %if.end158 ]
-  %any_err.1194 = phi i32 [ %or125, %for.body137.lr.ph ], [ %any_err.2, %if.end158 ]
+  %err.5195 = phi i32 [ %call124, %for.body137.lr.ph ], [ %err.7, %if.end158 ]
+  %any_err.1194 = phi i32 [ %or125, %for.body137.lr.ph ], [ %any_err.3, %if.end158 ]
   %74 = phi ptr [ %call.i113, %for.body137.lr.ph ], [ %97, %if.end158 ]
   %75 = phi i16 [ %71, %for.body137.lr.ph ], [ %96, %if.end158 ]
   %76 = load ptr, ptr %s1, align 8
@@ -6324,7 +6324,7 @@ lor.lhs.false141.tail:                            ; preds = %lor.lhs.false141, %
   br i1 %tobool146.not, label %if.end158, label %if.then147
 
 if.then147:                                       ; preds = %for.body137, %lor.lhs.false141.tail, %same_stat_id.exit118
-  %arrayidx149 = getelementptr %struct.stat, ptr %stbufs.0, i64 %indvars.iv216
+  %arrayidx149 = getelementptr %struct.stat, ptr %stbufs.2, i64 %indvars.iv216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %stbuf, ptr noundef nonnull align 8 dereferenceable(144) %arrayidx149, i64 144, i1 false)
   %call150 = call fastcc i32 @stat_to_qid(ptr noundef nonnull %opaque, ptr noundef nonnull %stbuf, ptr noundef nonnull %qid)
   %or151 = or i32 %call150, %any_err.1194
@@ -6332,7 +6332,7 @@ if.then147:                                       ; preds = %for.body137, %lor.l
   br i1 %cmp152, label %for.end163.split.loop.exit248, label %if.end155
 
 if.end155:                                        ; preds = %if.then147
-  %arrayidx157 = getelementptr %struct.V9fsPath, ptr %pathes.0, i64 %indvars.iv216
+  %arrayidx157 = getelementptr %struct.V9fsPath, ptr %pathes.2, i64 %indvars.iv216
   call void @g_free(ptr noundef %74) #23
   %93 = load i16, ptr %arrayidx157, align 8
   %data.i120 = getelementptr inbounds i8, ptr %arrayidx157, i64 8
@@ -6350,9 +6350,9 @@ if.end155:                                        ; preds = %if.then147
 if.end158:                                        ; preds = %if.end155, %lor.lhs.false141.tail
   %96 = phi i16 [ %93, %if.end155 ], [ %75, %lor.lhs.false141.tail ]
   %97 = phi ptr [ %call.i122, %if.end155 ], [ %74, %lor.lhs.false141.tail ]
-  %any_err.2 = phi i32 [ %or151, %if.end155 ], [ %any_err.1194, %lor.lhs.false141.tail ]
-  %err.4 = phi i32 [ %call150, %if.end155 ], [ %err.3195, %lor.lhs.false141.tail ]
-  %arrayidx160 = getelementptr %struct.V9fsQID, ptr %qids.0, i64 %indvars.iv216
+  %any_err.3 = phi i32 [ %or151, %if.end155 ], [ %any_err.1194, %lor.lhs.false141.tail ]
+  %err.7 = phi i32 [ %call150, %if.end155 ], [ %err.5195, %lor.lhs.false141.tail ]
+  %arrayidx160 = getelementptr %struct.V9fsQID, ptr %qids.2, i64 %indvars.iv216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx160, ptr noundef nonnull align 8 dereferenceable(16) %qid, i64 16, i1 false)
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count
@@ -6365,12 +6365,12 @@ for.end163.split.loop.exit248:                    ; preds = %if.then147
 for.end163:                                       ; preds = %if.end158, %for.end163.split.loop.exit248
   %.lcssa192 = phi i16 [ %75, %for.end163.split.loop.exit248 ], [ %96, %if.end158 ]
   %.lcssa = phi ptr [ %74, %for.end163.split.loop.exit248 ], [ %97, %if.end158 ]
-  %name_idx.0.lcssa = phi i32 [ %98, %for.end163.split.loop.exit248 ], [ %nwalked.1, %if.end158 ]
-  %any_err.3 = phi i32 [ %or151, %for.end163.split.loop.exit248 ], [ %any_err.2, %if.end158 ]
-  %err.5 = phi i32 [ %call150, %for.end163.split.loop.exit248 ], [ %err.4, %if.end158 ]
+  %name_idx.0.lcssa = phi i32 [ %98, %for.end163.split.loop.exit248 ], [ %nwalked.0, %if.end158 ]
+  %any_err.2 = phi i32 [ %or151, %for.end163.split.loop.exit248 ], [ %any_err.3, %if.end158 ]
+  %err.6 = phi i32 [ %call150, %for.end163.split.loop.exit248 ], [ %err.7, %if.end158 ]
   store ptr %.lcssa, ptr %data.i94, align 8
   store i16 %.lcssa192, ptr %path, align 8
-  %cmp164 = icmp slt i32 %any_err.3, 0
+  %cmp164 = icmp slt i32 %any_err.2, 0
   br i1 %cmp164, label %if.then166, label %if.end169
 
 for.end163.thread:                                ; preds = %if.end131
@@ -6435,17 +6435,17 @@ if.end183:                                        ; preds = %if.else178
 
 send_qids:                                        ; preds = %if.then.i131, %v9fs_path_write_lock.exit, %if.end183, %if.then166
   %name_idx.0.lcssa227 = phi i32 [ %name_idx.0.lcssa, %if.then166 ], [ %name_idx.0.lcssa228, %if.end183 ], [ %name_idx.0.lcssa228, %v9fs_path_write_lock.exit ], [ %name_idx.0.lcssa228, %if.then.i131 ]
-  %newfidp.0 = phi ptr [ null, %if.then166 ], [ %call179, %if.end183 ], [ null, %v9fs_path_write_lock.exit ], [ null, %if.then.i131 ]
+  %newfidp.1 = phi ptr [ null, %if.then166 ], [ %call179, %if.end183 ], [ null, %v9fs_path_write_lock.exit ], [ null, %if.then.i131 ]
   %conv187 = trunc i32 %name_idx.0.lcssa227 to i16
-  %call188 = call fastcc i32 @v9fs_walk_marshal(ptr noundef nonnull %opaque, i16 noundef zeroext %conv187, ptr noundef %qids.0)
+  %call188 = call fastcc i32 @v9fs_walk_marshal(ptr noundef nonnull %opaque, i16 noundef zeroext %conv187, ptr noundef %qids.2)
   %105 = load i16, ptr %tag, align 4
   %106 = load i8, ptr %id, align 2
-  call fastcc void @trace_v9fs_walk_return(i16 noundef zeroext %105, i8 noundef zeroext %106, i16 noundef zeroext %conv187, ptr noundef %qids.0)
+  call fastcc void @trace_v9fs_walk_return(i16 noundef zeroext %105, i8 noundef zeroext %106, i16 noundef zeroext %conv187, ptr noundef %qids.2)
   br label %out
 
 out:                                              ; preds = %for.end163.thread, %if.else178, %if.then172, %if.then166, %if.end123, %do.end, %send_qids
-  %err.6 = phi i32 [ %err.2, %do.end ], [ %call188, %send_qids ], [ %err.5, %if.then166 ], [ %call124, %if.end123 ], [ -22, %if.then172 ], [ -22, %if.else178 ], [ %call124, %for.end163.thread ]
-  %newfidp.1 = phi ptr [ null, %do.end ], [ %newfidp.0, %send_qids ], [ null, %if.then166 ], [ null, %if.end123 ], [ null, %if.then172 ], [ null, %if.else178 ], [ null, %for.end163.thread ]
+  %err.4 = phi i32 [ %err.1, %do.end ], [ %call188, %send_qids ], [ %err.6, %if.then166 ], [ %call124, %if.end123 ], [ -22, %if.then172 ], [ -22, %if.else178 ], [ %call124, %for.end163.thread ]
+  %newfidp.0 = phi ptr [ null, %do.end ], [ %newfidp.1, %send_qids ], [ null, %if.then166 ], [ null, %if.end123 ], [ null, %if.then172 ], [ null, %if.else178 ], [ null, %for.end163.thread ]
   %ref.i = getelementptr inbounds i8, ptr %call34, i64 260
   %107 = load i32, ptr %ref.i, align 4
   %tobool.not.i133 = icmp eq i32 %107, 0
@@ -6486,11 +6486,11 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %put_fid.exit
 
 put_fid.exit:                                     ; preds = %if.end.i, %land.lhs.true.i, %if.end8.i
-  %tobool193.not = icmp eq ptr %newfidp.1, null
+  %tobool193.not = icmp eq ptr %newfidp.0, null
   br i1 %tobool193.not, label %if.end196, label %if.then194
 
 if.then194:                                       ; preds = %put_fid.exit
-  %ref.i136 = getelementptr inbounds i8, ptr %newfidp.1, i64 260
+  %ref.i136 = getelementptr inbounds i8, ptr %newfidp.0, i64 260
   %112 = load i32, ptr %ref.i136, align 4
   %tobool.not.i137 = icmp eq i32 %112, 0
   br i1 %tobool.not.i137, label %if.else.i154, label %if.end.i138
@@ -6506,13 +6506,13 @@ if.end.i138:                                      ; preds = %if.then194
   br i1 %tobool3.not.i140, label %land.lhs.true.i142, label %if.end196
 
 land.lhs.true.i142:                               ; preds = %if.end.i138
-  %clunked.i143 = getelementptr inbounds i8, ptr %newfidp.1, i64 264
+  %clunked.i143 = getelementptr inbounds i8, ptr %newfidp.0, i64 264
   %113 = load i8, ptr %clunked.i143, align 8
   %tobool4.i144 = trunc i8 %113 to i1
   br i1 %tobool4.i144, label %if.then5.i145, label %if.end196
 
 if.then5.i145:                                    ; preds = %land.lhs.true.i142
-  %fid.i146 = getelementptr inbounds i8, ptr %newfidp.1, i64 4
+  %fid.i146 = getelementptr inbounds i8, ptr %newfidp.0, i64 4
   %114 = load i32, ptr %fid.i146, align 4
   %115 = load ptr, ptr %s1, align 8
   %root_fid.i148 = getelementptr inbounds i8, ptr %115, i64 7360
@@ -6526,7 +6526,7 @@ if.then6.i152:                                    ; preds = %if.then5.i145
   br label %if.end8.i150
 
 if.end8.i150:                                     ; preds = %if.then6.i152, %if.then5.i145
-  %call.i151 = call i32 @free_fid(ptr noundef nonnull %opaque, ptr noundef nonnull %newfidp.1)
+  %call.i151 = call i32 @free_fid(ptr noundef nonnull %opaque, ptr noundef nonnull %newfidp.0)
   br label %if.end196
 
 if.end196:                                        ; preds = %if.end8.i150, %land.lhs.true.i142, %if.end.i138, %put_fid.exit
@@ -6541,32 +6541,32 @@ if.end196:                                        ; preds = %if.end8.i150, %land
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end25, %name_is_illegal.exit, %for.body, %if.end33, %trace_v9fs_walk.exit, %if.end196
-  %qids.1 = phi ptr [ null, %trace_v9fs_walk.exit ], [ %qids.0, %if.end33 ], [ %qids.0, %if.end196 ], [ %call13, %for.body ], [ %call13, %name_is_illegal.exit ], [ %call13, %if.end25 ]
-  %pathes.1 = phi ptr [ null, %trace_v9fs_walk.exit ], [ %pathes.0, %if.end33 ], [ %pathes.0, %if.end196 ], [ %first.i, %for.body ], [ %first.i, %name_is_illegal.exit ], [ %first.i, %if.end25 ]
-  %stbufs.1 = phi ptr [ null, %trace_v9fs_walk.exit ], [ %stbufs.0, %if.end33 ], [ %stbufs.0, %if.end196 ], [ %call15, %for.body ], [ %call15, %name_is_illegal.exit ], [ %call15, %if.end25 ]
-  %err.7 = phi i32 [ -22, %trace_v9fs_walk.exit ], [ -2, %if.end33 ], [ %err.6, %if.end196 ], [ -2, %if.end25 ], [ -2, %name_is_illegal.exit ], [ %conv21, %for.body ]
-  %conv197 = sext i32 %err.7 to i64
+  %qids.1 = phi ptr [ null, %trace_v9fs_walk.exit ], [ %qids.2, %if.end33 ], [ %qids.2, %if.end196 ], [ %call13, %for.body ], [ %call13, %name_is_illegal.exit ], [ %call13, %if.end25 ]
+  %pathes.1 = phi ptr [ null, %trace_v9fs_walk.exit ], [ %pathes.2, %if.end33 ], [ %pathes.2, %if.end196 ], [ %first.i, %for.body ], [ %first.i, %name_is_illegal.exit ], [ %first.i, %if.end25 ]
+  %stbufs.1 = phi ptr [ null, %trace_v9fs_walk.exit ], [ %stbufs.2, %if.end33 ], [ %stbufs.2, %if.end196 ], [ %call15, %for.body ], [ %call15, %name_is_illegal.exit ], [ %call15, %if.end25 ]
+  %err.0 = phi i32 [ -22, %trace_v9fs_walk.exit ], [ -2, %if.end33 ], [ %err.4, %if.end196 ], [ -2, %if.end25 ], [ -2, %name_is_illegal.exit ], [ %conv21, %for.body ]
+  %conv197 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv197)
   br label %cleanup
 
 cleanup:                                          ; preds = %out_nofid, %if.then
-  %qids.2 = phi ptr [ %qids.1, %out_nofid ], [ null, %if.then ]
-  %pathes.2 = phi ptr [ %pathes.1, %out_nofid ], [ null, %if.then ]
-  %stbufs.2 = phi ptr [ %stbufs.1, %out_nofid ], [ null, %if.then ]
+  %qids.0 = phi ptr [ %qids.1, %out_nofid ], [ null, %if.then ]
+  %pathes.0 = phi ptr [ %pathes.1, %out_nofid ], [ null, %if.then ]
+  %stbufs.0 = phi ptr [ %stbufs.1, %out_nofid ], [ null, %if.then ]
   call void @p9array_auto_free_V9fsString(ptr noundef nonnull %wnames) #23
-  call void @g_free(ptr noundef %stbufs.2) #23
-  %tobool.not.i158 = icmp eq ptr %pathes.2, null
+  call void @g_free(ptr noundef %stbufs.0) #23
+  %tobool.not.i158 = icmp eq ptr %pathes.0, null
   br i1 %tobool.not.i158, label %p9array_auto_free_V9fsPath.exit, label %if.end.i159
 
 if.end.i159:                                      ; preds = %cleanup
-  %add.ptr.i = getelementptr i8, ptr %pathes.2, i64 -8
+  %add.ptr.i = getelementptr i8, ptr %pathes.0, i64 -8
   %119 = load i64, ptr %add.ptr.i, align 8
   %cmp6.not.i = icmp eq i64 %119, 0
   br i1 %cmp6.not.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i159, %for.body.i
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end.i159 ]
-  %arrayidx.i = getelementptr [0 x %struct.V9fsPath], ptr %pathes.2, i64 0, i64 %i.07.i
+  %arrayidx.i = getelementptr [0 x %struct.V9fsPath], ptr %pathes.0, i64 0, i64 %i.07.i
   %data.i.i160 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %120 = load ptr, ptr %data.i.i160, align 8
   call void @g_free(ptr noundef %120) #23
@@ -6582,7 +6582,7 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
   br label %p9array_auto_free_V9fsPath.exit
 
 p9array_auto_free_V9fsPath.exit:                  ; preds = %cleanup, %for.end.i
-  call void @g_free(ptr noundef %qids.2) #23
+  call void @g_free(ptr noundef %qids.0) #23
   ret void
 }
 
@@ -7110,7 +7110,7 @@ if.end198:                                        ; preds = %if.end192
   br label %out
 
 out:                                              ; preds = %if.end105, %if.then65, %if.end18, %if.end192, %if.end185, %if.else164, %if.end155, %if.then147, %if.end135, %if.then127, %if.end115, %sw.epilog, %if.end72, %if.end53, %if.then47, %v9fs_path_unlock.exit, %if.end30, %if.then24, %if.end198, %if.then103, %if.then92, %if.then84
-  %err.0 = phi i32 [ %call26, %if.then24 ], [ %call33, %if.end30 ], [ %call39, %v9fs_path_unlock.exit ], [ %call188, %if.end185 ], [ %conv194, %if.end192 ], [ %conv200, %if.end198 ], [ %call49, %if.then47 ], [ %call56, %if.end53 ], [ %call73, %if.end72 ], [ %call81, %if.then84 ], [ %call89, %if.then92 ], [ %sub, %if.then103 ], [ %call111, %sw.epilog ], [ %call118, %if.end115 ], [ %call131, %if.then127 ], [ %call138, %if.end135 ], [ %call151, %if.then147 ], [ %call158, %if.end155 ], [ %call167, %if.else164 ], [ -22, %if.end18 ], [ -22, %if.then65 ], [ -5, %if.end105 ]
+  %err.1 = phi i32 [ %call26, %if.then24 ], [ %call33, %if.end30 ], [ %call39, %v9fs_path_unlock.exit ], [ %call188, %if.end185 ], [ %conv194, %if.end192 ], [ %conv200, %if.end198 ], [ %call49, %if.then47 ], [ %call56, %if.end53 ], [ %call73, %if.end72 ], [ %call81, %if.then84 ], [ %call89, %if.then92 ], [ %sub, %if.then103 ], [ %call111, %sw.epilog ], [ %call118, %if.end115 ], [ %call131, %if.then127 ], [ %call138, %if.end135 ], [ %call151, %if.then147 ], [ %call158, %if.end155 ], [ %call167, %if.else164 ], [ -22, %if.end18 ], [ -22, %if.then65 ], [ -5, %if.end105 ]
   %ref.i = getelementptr inbounds i8, ptr %call14, i64 260
   %77 = load i32, ptr %ref.i, align 4
   %tobool.not.i179 = icmp eq i32 %77, 0
@@ -7151,8 +7151,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %trace_v9fs_create.exit, %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end13, %if.end6.tail, %lor.lhs.false.tail, %name_is_illegal.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end6.tail ], [ -22, %if.end13 ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ], [ -2, %trace_v9fs_create.exit ]
-  %conv205 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ -2, %name_is_illegal.exit ], [ -17, %lor.lhs.false.tail ], [ -17, %if.end6.tail ], [ -22, %if.end13 ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ], [ -2, %trace_v9fs_create.exit ]
+  %conv205 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %conv205)
   call void @v9fs_string_free(ptr noundef nonnull %name) #23
   call void @v9fs_string_free(ptr noundef nonnull %extension) #23
@@ -7314,9 +7314,9 @@ if.then29:                                        ; preds = %if.end5
   br label %do.body
 
 do.body:                                          ; preds = %do.cond52, %if.then29
-  %count.0 = phi i32 [ 0, %if.then29 ], [ %add42, %do.cond52 ]
+  %count.1 = phi i32 [ 0, %if.then29 ], [ %add42, %do.cond52 ]
   call void @qemu_iovec_reset(ptr noundef nonnull %qiov) #23
-  %conv32 = sext i32 %count.0 to i64
+  %conv32 = sext i32 %count.1 to i64
   %25 = load i64, ptr %size, align 8
   %sub = sub i64 %25, %conv32
   call void @qemu_iovec_concat(ptr noundef nonnull %qiov, ptr noundef nonnull %qiov_full, i64 noundef %conv32, i64 noundef %sub) #23
@@ -7348,7 +7348,7 @@ do.cond52:                                        ; preds = %do.body34
   %30 = load i64, ptr %off, align 8
   %add41 = add i64 %30, %conv40
   store i64 %add41, ptr %off, align 8
-  %add42 = add i32 %call36, %count.0
+  %add42 = add i32 %call36, %count.1
   %31 = load i32, ptr %max_count, align 4
   %cmp53 = icmp ult i32 %add42, %31
   %cmp56 = icmp ne i32 %call36, 0
@@ -7367,8 +7367,8 @@ if.end64:                                         ; preds = %do.end59
   br label %out_free_iovec
 
 out_free_iovec:                                   ; preds = %do.end59, %if.end64, %if.then49
-  %count.27881 = phi i32 [ %count.0, %if.then49 ], [ %add42, %do.end59 ], [ %add42, %if.end64 ]
-  %err.0 = phi i64 [ %conv50, %if.then49 ], [ %call60, %do.end59 ], [ %add67, %if.end64 ]
+  %count.37881 = phi i32 [ %count.1, %if.then49 ], [ %add42, %do.end59 ], [ %add42, %if.end64 ]
+  %err.3 = phi i64 [ %conv50, %if.then49 ], [ %call60, %do.end59 ], [ %add67, %if.end64 ]
   call void @qemu_iovec_destroy(ptr noundef nonnull %qiov) #23
   call void @qemu_iovec_destroy(ptr noundef nonnull %qiov_full) #23
   br label %if.end78
@@ -7428,8 +7428,8 @@ v9fs_xattr_read.exit:                             ; preds = %if.then72, %if.end1
   br label %if.end78
 
 if.end78:                                         ; preds = %if.end5, %out_free_iovec, %v9fs_xattr_read.exit, %if.end23
-  %count.3 = phi i32 [ %call15, %if.end23 ], [ %count.27881, %out_free_iovec ], [ 0, %v9fs_xattr_read.exit ], [ 0, %if.end5 ]
-  %err.1 = phi i64 [ %add25, %if.end23 ], [ %err.0, %out_free_iovec ], [ %conv74, %v9fs_xattr_read.exit ], [ -22, %if.end5 ]
+  %count.0 = phi i32 [ %call15, %if.end23 ], [ %count.37881, %out_free_iovec ], [ 0, %v9fs_xattr_read.exit ], [ 0, %if.end5 ]
+  %err.2 = phi i64 [ %add25, %if.end23 ], [ %err.3, %out_free_iovec ], [ %conv74, %v9fs_xattr_read.exit ], [ -22, %if.end5 ]
   %45 = load i16, ptr %tag, align 4
   %46 = load i8, ptr %id, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i55)
@@ -7459,13 +7459,13 @@ if.then8.i.i67:                                   ; preds = %if.then.i.i62
   %52 = load i64, ptr %tv_usec.i.i70, align 8
   %conv11.i.i71 = zext i16 %45 to i32
   %conv12.i.i72 = zext i8 %46 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.151, i32 noundef %call10.i.i69, i64 noundef %51, i64 noundef %52, i32 noundef %conv11.i.i71, i32 noundef %conv12.i.i72, i32 noundef %count.3, i64 noundef %err.1) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.151, i32 noundef %call10.i.i69, i64 noundef %51, i64 noundef %52, i32 noundef %conv11.i.i71, i32 noundef %conv12.i.i72, i32 noundef %count.0, i64 noundef %err.2) #23
   br label %trace_v9fs_read_return.exit
 
 if.else.i.i64:                                    ; preds = %if.then.i.i62
   %conv13.i.i65 = zext i16 %45 to i32
   %conv14.i.i66 = zext i8 %46 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.152, i32 noundef %conv13.i.i65, i32 noundef %conv14.i.i66, i32 noundef %count.3, i64 noundef %err.1) #23
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.152, i32 noundef %conv13.i.i65, i32 noundef %conv14.i.i66, i32 noundef %count.0, i64 noundef %err.2) #23
   br label %trace_v9fs_read_return.exit
 
 trace_v9fs_read_return.exit:                      ; preds = %if.end78, %land.lhs.true5.i.i59, %if.then8.i.i67, %if.else.i.i64
@@ -7473,7 +7473,7 @@ trace_v9fs_read_return.exit:                      ; preds = %if.end78, %land.lhs
   br label %out
 
 out:                                              ; preds = %if.end18, %trace_v9fs_read_return.exit, %if.then17, %if.then9
-  %err.2 = phi i64 [ -95, %if.then9 ], [ %conv, %if.then17 ], [ %call19, %if.end18 ], [ %err.1, %trace_v9fs_read_return.exit ]
+  %err.1 = phi i64 [ -95, %if.then9 ], [ %conv, %if.then17 ], [ %call19, %if.end18 ], [ %err.2, %trace_v9fs_read_return.exit ]
   %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
   %53 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %53, 0
@@ -7514,8 +7514,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %trace_v9fs_read.exit, %entry
-  %err.3 = phi i64 [ %call, %entry ], [ -22, %trace_v9fs_read.exit ], [ %err.2, %if.end.i ], [ %err.2, %land.lhs.true.i ], [ %err.2, %if.end8.i ]
-  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %err.3)
+  %err.0 = phi i64 [ %call, %entry ], [ -22, %trace_v9fs_read.exit ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
+  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %err.0)
   ret void
 }
 
@@ -7786,12 +7786,12 @@ trace_v9fs_write_return.exit:                     ; preds = %if.end56, %land.lhs
   br label %out_qiov
 
 out_qiov:                                         ; preds = %do.end51, %trace_v9fs_write_return.exit, %if.then41
-  %err.0 = phi i64 [ %conv42, %if.then41 ], [ %call52, %do.end51 ], [ %add57, %trace_v9fs_write_return.exit ]
+  %err.2 = phi i64 [ %conv42, %if.then41 ], [ %call52, %do.end51 ], [ %add57, %trace_v9fs_write_return.exit ]
   call void @qemu_iovec_destroy(ptr noundef nonnull %qiov) #23
   br label %out
 
 out:                                              ; preds = %if.end6, %if.then9, %out_qiov, %v9fs_xattr_write.exit
-  %err.1 = phi i64 [ %err.0, %out_qiov ], [ %conv20, %v9fs_xattr_write.exit ], [ -22, %if.then9 ], [ -22, %if.end6 ]
+  %err.1 = phi i64 [ %err.2, %out_qiov ], [ %conv20, %v9fs_xattr_write.exit ], [ -22, %if.then9 ], [ -22, %if.end6 ]
   %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
   %48 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %48, 0
@@ -7832,13 +7832,13 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i60, %trace_v9fs_write.exit
-  %err.2 = phi i64 [ -22, %trace_v9fs_write.exit ], [ %err.1, %if.end.i60 ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
+  %err.0 = phi i64 [ -22, %trace_v9fs_write.exit ], [ %err.1, %if.end.i60 ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
   call void @qemu_iovec_destroy(ptr noundef nonnull %qiov_full) #23
   br label %return
 
 return:                                           ; preds = %entry, %out_nofid
-  %err.2.sink = phi i64 [ %err.2, %out_nofid ], [ %call, %entry ]
-  call void @pdu_complete(ptr noundef %opaque, i64 noundef %err.2.sink)
+  %err.0.sink = phi i64 [ %err.0, %out_nofid ], [ %call, %entry ]
+  call void @pdu_complete(ptr noundef %opaque, i64 noundef %err.0.sink)
   ret void
 }
 
@@ -8039,7 +8039,7 @@ if.end13:                                         ; preds = %if.end8
   br label %out_err
 
 out_err:                                          ; preds = %if.end13, %if.end6, %if.end8
-  %err.0 = phi i32 [ %call9, %if.end8 ], [ -95, %if.end6 ], [ %spec.select, %if.end13 ]
+  %err.1 = phi i32 [ %call9, %if.end8 ], [ -95, %if.end6 ], [ %spec.select, %if.end13 ]
   %12 = load ptr, ptr %s, align 8
   %fid21 = getelementptr inbounds i8, ptr %call2, i64 4
   %13 = load i32, ptr %fid21, align 4
@@ -8098,8 +8098,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %trace_v9fs_remove.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -22, %trace_v9fs_remove.exit ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ]
-  %conv24 = sext i32 %err.1 to i64
+  %err.0 = phi i32 [ %conv, %entry ], [ -22, %trace_v9fs_remove.exit ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
+  %conv24 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv24)
   ret void
 }
@@ -8240,7 +8240,7 @@ trace_v9fs_stat_return.exit:                      ; preds = %if.end23, %land.lhs
   br label %out.sink.split
 
 out.sink.split:                                   ; preds = %if.end18, %trace_v9fs_stat_return.exit
-  %err.0.ph = phi i64 [ %add, %trace_v9fs_stat_return.exit ], [ %call19, %if.end18 ]
+  %err.1.ph = phi i64 [ %add, %trace_v9fs_stat_return.exit ], [ %call19, %if.end18 ]
   %name.i41 = getelementptr inbounds i8, ptr %v9stat, i64 48
   call void @v9fs_string_free(ptr noundef nonnull %name.i41) #23
   %uid.i42 = getelementptr inbounds i8, ptr %v9stat, i64 64
@@ -8254,7 +8254,7 @@ out.sink.split:                                   ; preds = %if.end18, %trace_v9
   br label %out
 
 out:                                              ; preds = %out.sink.split, %if.end9, %if.end4
-  %err.0 = phi i64 [ %conv, %if.end4 ], [ %conv14, %if.end9 ], [ %err.0.ph, %out.sink.split ]
+  %err.1 = phi i64 [ %conv, %if.end4 ], [ %conv14, %if.end9 ], [ %err.1.ph, %out.sink.split ]
   %ref.i = getelementptr inbounds i8, ptr %call1, i64 260
   %23 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %23, 0
@@ -8296,8 +8296,8 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %trace_v9fs_stat.exit, %entry
-  %err.1 = phi i64 [ %call, %entry ], [ -2, %trace_v9fs_stat.exit ], [ %err.0, %if.end.i ], [ %err.0, %land.lhs.true.i ], [ %err.0, %if.end8.i ]
-  call void @pdu_complete(ptr noundef %opaque, i64 noundef %err.1)
+  %err.0 = phi i64 [ %call, %entry ], [ -2, %trace_v9fs_stat.exit ], [ %err.1, %if.end.i ], [ %err.1, %land.lhs.true.i ], [ %err.1, %if.end8.i ]
+  call void @pdu_complete(ptr noundef %opaque, i64 noundef %err.0)
   ret void
 }
 
@@ -8662,7 +8662,7 @@ if.end111:                                        ; preds = %if.then103, %if.end
   br label %out
 
 out:                                              ; preds = %stat_to_v9mode.exit, %if.then103, %v9fs_path_unlock.exit, %if.then80, %if.end67, %v9mode_to_mode.exit, %if.then15, %if.end111, %if.then9
-  %err.0 = phi i32 [ %call10, %if.then9 ], [ %call16, %if.then15 ], [ %call31, %v9mode_to_mode.exit ], [ %call69, %if.end67 ], [ %call84, %if.then80 ], [ %call95, %v9fs_path_unlock.exit ], [ %call106, %if.then103 ], [ 7, %if.end111 ], [ -5, %stat_to_v9mode.exit ]
+  %err.1 = phi i32 [ %call10, %if.then9 ], [ %call16, %if.then15 ], [ %call31, %v9mode_to_mode.exit ], [ %call69, %if.end67 ], [ %call84, %if.then80 ], [ %call95, %v9fs_path_unlock.exit ], [ %call106, %if.then103 ], [ 7, %if.end111 ], [ -5, %stat_to_v9mode.exit ]
   %ref.i = getelementptr inbounds i8, ptr %call3, i64 260
   %49 = load i32, ptr %ref.i, align 4
   %tobool.not.i55 = icmp eq i32 %49, 0
@@ -8703,13 +8703,13 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %out_nofid
 
 out_nofid:                                        ; preds = %if.end8.i, %land.lhs.true.i59, %if.end.i56, %trace_v9fs_wstat.exit, %entry
-  %err.1 = phi i32 [ %conv, %entry ], [ -22, %trace_v9fs_wstat.exit ], [ %err.0, %if.end.i56 ], [ %err.0, %land.lhs.true.i59 ], [ %err.0, %if.end8.i ]
+  %err.0 = phi i32 [ %conv, %entry ], [ -22, %trace_v9fs_wstat.exit ], [ %err.1, %if.end.i56 ], [ %err.1, %land.lhs.true.i59 ], [ %err.1, %if.end8.i ]
   call void @v9fs_string_free(ptr noundef nonnull %name.i) #23
   call void @v9fs_string_free(ptr noundef nonnull %uid.i) #23
   call void @v9fs_string_free(ptr noundef nonnull %gid.i) #23
   call void @v9fs_string_free(ptr noundef nonnull %muid.i) #23
   call void @v9fs_string_free(ptr noundef nonnull %extension.i) #23
-  %conv114 = sext i32 %err.1 to i64
+  %conv114 = sext i32 %err.0 to i64
   call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %conv114)
   ret void
 }
@@ -8923,19 +8923,19 @@ if.end24:                                         ; preds = %if.then14
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then10, %if.end24
-  %id.0 = phi i8 [ 107, %if.end24 ], [ %add, %if.then10 ]
-  %len.addr.0 = phi i64 [ %add26, %if.end24 ], [ 7, %if.then10 ]
-  %call29 = call i64 (ptr, i64, ptr, ...) @pdu_marshal(ptr noundef nonnull %pdu, i64 noundef %len.addr.0, ptr noundef nonnull @.str.14, i32 noundef %conv11)
+  %id.1 = phi i8 [ 107, %if.end24 ], [ %add, %if.then10 ]
+  %len.addr.1 = phi i64 [ %add26, %if.end24 ], [ 7, %if.then10 ]
+  %call29 = call i64 (ptr, i64, ptr, ...) @pdu_marshal(ptr noundef nonnull %pdu, i64 noundef %len.addr.1, ptr noundef nonnull @.str.14, i32 noundef %conv11)
   %14 = and i64 %call29, 2147483648
   %cmp31.not = icmp eq i64 %14, 0
   br i1 %cmp31.not, label %if.end34, label %out_notify
 
 if.end34:                                         ; preds = %if.end28
   %conv35 = and i64 %call29, 2147483647
-  %add36 = add nuw nsw i64 %conv35, %len.addr.0
+  %add36 = add nuw nsw i64 %conv35, %len.addr.1
   %15 = load i32, ptr %proto_version, align 8
   %cmp38 = icmp eq i32 %15, 2
-  %spec.select = select i1 %cmp38, i8 7, i8 %id.0
+  %spec.select = select i1 %cmp38, i8 7, i8 %id.1
   %tag42 = getelementptr inbounds i8, ptr %pdu, i64 4
   %16 = load i16, ptr %tag42, align 4
   %17 = load i8, ptr %id1, align 2
@@ -8980,10 +8980,10 @@ trace_v9fs_rerror.exit:                           ; preds = %if.end34, %land.lhs
   br label %if.end44
 
 if.end44:                                         ; preds = %trace_v9fs_rerror.exit, %if.end
-  %id.2 = phi i8 [ %spec.select, %trace_v9fs_rerror.exit ], [ %add, %if.end ]
-  %len.addr.1 = phi i64 [ %add36, %trace_v9fs_rerror.exit ], [ %len, %if.end ]
-  %conv45 = trunc i64 %len.addr.1 to i32
-  %conv46 = sext i8 %id.2 to i32
+  %id.0 = phi i8 [ %spec.select, %trace_v9fs_rerror.exit ], [ %add, %if.end ]
+  %len.addr.0 = phi i64 [ %add36, %trace_v9fs_rerror.exit ], [ %len, %if.end ]
+  %conv45 = trunc i64 %len.addr.0 to i32
+  %conv46 = sext i8 %id.0 to i32
   %tag47 = getelementptr inbounds i8, ptr %pdu, i64 4
   %24 = load i16, ptr %tag47, align 4
   %conv48 = zext i16 %24 to i32
@@ -8993,7 +8993,7 @@ if.end44:                                         ; preds = %trace_v9fs_rerror.e
 
 if.end53:                                         ; preds = %if.end44
   store i32 %conv45, ptr %pdu, align 8
-  store i8 %id.2, ptr %id1, align 2
+  store i8 %id.0, ptr %id1, align 2
   br label %out_notify
 
 out_notify:                                       ; preds = %if.end44, %if.end28, %if.then14, %if.end53, %trace_v9fs_rcancel.exit
@@ -9808,7 +9808,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp16, label %if.end39, label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.end6
-  %dirfidp.0 = phi ptr [ %call, %if.end6 ], [ null, %if.else ]
+  %dirfidp.1 = phi ptr [ %call, %if.end6 ], [ null, %if.else ]
   %path20 = getelementptr inbounds i8, ptr %fidp, i64 8
   %call21 = call i32 @v9fs_co_rename(ptr noundef nonnull %pdu, ptr noundef nonnull %path20, ptr noundef nonnull %new_path) #23
   %cmp22 = icmp slt i32 %call21, 0
@@ -9868,13 +9868,13 @@ if.end35:                                         ; preds = %v9fs_path_is_ancest
   br i1 %tobool.not, label %out, label %while.body, !llvm.loop !34
 
 out:                                              ; preds = %if.end35, %if.end24, %if.end19
-  %tobool36.not = icmp eq ptr %dirfidp.0, null
+  %tobool36.not = icmp eq ptr %dirfidp.1, null
   br i1 %tobool36.not, label %if.end39, label %if.then37
 
 if.then37:                                        ; preds = %if.end, %if.end6, %out
-  %dirfidp.134 = phi ptr [ %dirfidp.0, %out ], [ %call, %if.end6 ], [ %call, %if.end ]
+  %dirfidp.034 = phi ptr [ %dirfidp.1, %out ], [ %call, %if.end6 ], [ %call, %if.end ]
   %err.032 = phi i32 [ %call21, %out ], [ %call7, %if.end6 ], [ -22, %if.end ]
-  %ref.i = getelementptr inbounds i8, ptr %dirfidp.134, i64 260
+  %ref.i = getelementptr inbounds i8, ptr %dirfidp.034, i64 260
   %14 = load i32, ptr %ref.i, align 4
   %tobool.not.i23 = icmp eq i32 %14, 0
   br i1 %tobool.not.i23, label %if.else.i, label %if.end.i
@@ -9890,13 +9890,13 @@ if.end.i:                                         ; preds = %if.then37
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %if.end39
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %dirfidp.134, i64 264
+  %clunked.i = getelementptr inbounds i8, ptr %dirfidp.034, i64 264
   %15 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %15 to i1
   br i1 %tobool4.i, label %if.then5.i, label %if.end39
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %dirfidp.134, i64 4
+  %fid.i = getelementptr inbounds i8, ptr %dirfidp.034, i64 4
   %16 = load i32, ptr %fid.i, align 4
   %17 = load ptr, ptr %s1, align 8
   %root_fid.i = getelementptr inbounds i8, ptr %17, i64 7360
@@ -9910,7 +9910,7 @@ if.then6.i:                                       ; preds = %if.then5.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then6.i, %if.then5.i
-  %call.i25 = call i32 @free_fid(ptr noundef nonnull %pdu, ptr noundef nonnull %dirfidp.134)
+  %call.i25 = call i32 @free_fid(ptr noundef nonnull %pdu, ptr noundef nonnull %dirfidp.034)
   br label %if.end39
 
 if.end39:                                         ; preds = %if.else, %if.end8.i, %land.lhs.true.i, %if.end.i, %out
@@ -10106,8 +10106,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end27
   %e.026 = phi ptr [ %.pre34, %for.body.lr.ph ], [ %e.0, %if.end27 ]
-  %err.025 = phi i32 [ 0, %for.body.lr.ph ], [ %err.1, %if.end27 ]
-  %count.024 = phi i32 [ 0, %for.body.lr.ph ], [ %add28, %if.end27 ]
+  %err.125 = phi i32 [ 0, %for.body.lr.ph ], [ %err.2, %if.end27 ]
+  %count.124 = phi i32 [ 0, %for.body.lr.ph ], [ %add28, %if.end27 ]
   %2 = load ptr, ptr %e.026, align 8
   %3 = load ptr, ptr %s, align 8
   %export_flags6 = getelementptr inbounds i8, ptr %3, i64 48
@@ -10135,14 +10135,14 @@ if.else:                                          ; preds = %for.body
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end13, %if.else
-  %err.1 = phi i32 [ %call14, %if.end13 ], [ %err.025, %if.else ]
+  %err.2 = phi i32 [ %call14, %if.end13 ], [ %err.125, %if.else ]
   %7 = getelementptr i8, ptr %2, i64 8
   %.val = load i64, ptr %7, align 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
   %d_name = getelementptr inbounds i8, ptr %2, i64 19
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %name, ptr noundef nonnull @.str.54, ptr noundef nonnull %d_name) #23
-  %add = add i32 %count.024, 11
+  %add = add i32 %count.124, 11
   %conv = sext i32 %add to i64
   %d_type = getelementptr inbounds i8, ptr %2, i64 18
   %8 = load i8, ptr %d_type, align 2
@@ -10154,23 +10154,23 @@ if.end19:                                         ; preds = %if.end13, %if.else
   br i1 %cmp24, label %out.loopexit, label %if.end27
 
 if.end27:                                         ; preds = %if.end19
-  %add28 = add i32 %count.024, %conv23
+  %add28 = add i32 %count.124, %conv23
   %next = getelementptr inbounds i8, ptr %e.026, i64 16
   %e.0 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %e.0, null
   br i1 %tobool2.not, label %out.loopexit, label %for.body, !llvm.loop !35
 
 out.loopexit:                                     ; preds = %if.end19, %if.then9, %if.end27, %if.end13
-  %count.1.ph = phi i32 [ %count.024, %if.end19 ], [ %count.024, %if.then9 ], [ %add28, %if.end27 ], [ %count.024, %if.end13 ]
-  %err.2.ph = phi i32 [ %conv23, %if.end19 ], [ -1, %if.then9 ], [ %err.1, %if.end27 ], [ %call14, %if.end13 ]
+  %count.0.ph = phi i32 [ %count.124, %if.end19 ], [ %count.124, %if.then9 ], [ %add28, %if.end27 ], [ %count.124, %if.end13 ]
+  %err.0.ph = phi i32 [ %conv23, %if.end19 ], [ -1, %if.then9 ], [ %err.2, %if.end27 ], [ %call14, %if.end13 ]
   %.pre = load ptr, ptr %entries, align 8
   br label %out
 
 out:                                              ; preds = %out.loopexit, %entry
   %9 = phi ptr [ %.pre34, %entry ], [ %.pre, %out.loopexit ]
-  %count.1 = phi i32 [ 0, %entry ], [ %count.1.ph, %out.loopexit ]
-  %err.2 = phi i32 [ %call, %entry ], [ %err.2.ph, %out.loopexit ]
-  %err.2.fr = freeze i32 %err.2
+  %count.0 = phi i32 [ 0, %entry ], [ %count.0.ph, %out.loopexit ]
+  %err.0 = phi i32 [ %call, %entry ], [ %err.0.ph, %out.loopexit ]
+  %err.0.fr = freeze i32 %err.0
   %tobool.not5.i = icmp eq ptr %9, null
   br i1 %tobool.not5.i, label %v9fs_free_dirents.exit, label %for.body.i
 
@@ -10188,8 +10188,8 @@ for.body.i:                                       ; preds = %out, %for.body.i
   br i1 %tobool.not.i, label %v9fs_free_dirents.exit, label %for.body.i, !llvm.loop !36
 
 v9fs_free_dirents.exit:                           ; preds = %for.body.i, %out
-  %cmp29 = icmp slt i32 %err.2.fr, 0
-  %spec.select = select i1 %cmp29, i32 %err.2.fr, i32 %count.1
+  %cmp29 = icmp slt i32 %err.0.fr, 0
+  %spec.select = select i1 %cmp29, i32 %err.0.fr, i32 %count.0
   br label %v9fs_free_dirents.exit.thread
 
 v9fs_free_dirents.exit.thread:                    ; preds = %v9fs_free_dirents.exit, %for.cond.preheader
@@ -10279,9 +10279,9 @@ if.else:                                          ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then3, %if.else
-  %newdirfidp.0 = phi ptr [ %call4, %if.then3 ], [ %call8, %if.else ]
+  %newdirfidp.1 = phi ptr [ %call4, %if.then3 ], [ %call8, %if.else ]
   %path = getelementptr inbounds i8, ptr %call, i64 8
-  %path10 = getelementptr inbounds i8, ptr %newdirfidp.0, i64 8
+  %path10 = getelementptr inbounds i8, ptr %newdirfidp.1, i64 8
   %call11 = tail call i32 @v9fs_co_renameat(ptr noundef nonnull %pdu, ptr noundef nonnull %path, ptr noundef %old_name, ptr noundef nonnull %path10, ptr noundef %new_name) #23
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then21, label %if.end14
@@ -10299,7 +10299,7 @@ if.then15:                                        ; preds = %if.end14
 
 if.then21:                                        ; preds = %if.then3, %if.end14, %if.then15, %if.end9
   %err.0.ph = phi i32 [ -2, %if.then3 ], [ %call11, %if.end14 ], [ %call18, %if.then15 ], [ %call11, %if.end9 ]
-  %newdirfidp.1.ph = phi ptr [ null, %if.then3 ], [ %newdirfidp.0, %if.end14 ], [ %newdirfidp.0, %if.then15 ], [ %newdirfidp.0, %if.end9 ]
+  %newdirfidp.0.ph = phi ptr [ null, %if.then3 ], [ %newdirfidp.1, %if.end14 ], [ %newdirfidp.1, %if.then15 ], [ %newdirfidp.1, %if.end9 ]
   %ref.i = getelementptr inbounds i8, ptr %call, i64 260
   %2 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
@@ -10340,11 +10340,11 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i
-  %tobool24.not = icmp eq ptr %newdirfidp.1.ph, null
+  %tobool24.not = icmp eq ptr %newdirfidp.0.ph, null
   br i1 %tobool24.not, label %if.end27, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  %ref.i21 = getelementptr inbounds i8, ptr %newdirfidp.1.ph, i64 260
+  %ref.i21 = getelementptr inbounds i8, ptr %newdirfidp.0.ph, i64 260
   %7 = load i32, ptr %ref.i21, align 4
   %tobool.not.i22 = icmp eq i32 %7, 0
   br i1 %tobool.not.i22, label %if.else.i39, label %if.end.i23
@@ -10360,13 +10360,13 @@ if.end.i23:                                       ; preds = %if.then25
   br i1 %tobool3.not.i25, label %land.lhs.true.i27, label %if.end27
 
 land.lhs.true.i27:                                ; preds = %if.end.i23
-  %clunked.i28 = getelementptr inbounds i8, ptr %newdirfidp.1.ph, i64 264
+  %clunked.i28 = getelementptr inbounds i8, ptr %newdirfidp.0.ph, i64 264
   %8 = load i8, ptr %clunked.i28, align 8
   %tobool4.i29 = trunc i8 %8 to i1
   br i1 %tobool4.i29, label %if.then5.i30, label %if.end27
 
 if.then5.i30:                                     ; preds = %land.lhs.true.i27
-  %fid.i31 = getelementptr inbounds i8, ptr %newdirfidp.1.ph, i64 4
+  %fid.i31 = getelementptr inbounds i8, ptr %newdirfidp.0.ph, i64 4
   %9 = load i32, ptr %fid.i31, align 4
   %10 = load ptr, ptr %s1, align 8
   %root_fid.i33 = getelementptr inbounds i8, ptr %10, i64 7360
@@ -10380,7 +10380,7 @@ if.then6.i37:                                     ; preds = %if.then5.i30
   br label %if.end8.i35
 
 if.end8.i35:                                      ; preds = %if.then6.i37, %if.then5.i30
-  %call.i36 = tail call i32 @free_fid(ptr noundef nonnull %pdu, ptr noundef nonnull %newdirfidp.1.ph)
+  %call.i36 = tail call i32 @free_fid(ptr noundef nonnull %pdu, ptr noundef nonnull %newdirfidp.0.ph)
   br label %if.end27
 
 if.end27:                                         ; preds = %entry, %if.end8.i35, %land.lhs.true.i27, %if.end.i23, %if.end23

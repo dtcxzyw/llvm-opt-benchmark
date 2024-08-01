@@ -1034,7 +1034,7 @@ for.inc:                                          ; preds = %invoke.cont111, %in
   br i1 %cmp96, label %for.body, label %cleanup, !llvm.loop !14
 
 cleanup:                                          ; preds = %invoke.cont119, %invoke.cont125, %for.inc, %call.i.i.i.noexc, %call.i.i85.noexc, %for.cond.preheader, %invoke.cont79, %invoke.cont90, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %retval.0 = phi i1 [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ false, %invoke.cont90 ], [ false, %invoke.cont79 ], [ true, %for.cond.preheader ], [ false, %invoke.cont119 ], [ false, %invoke.cont125 ], [ true, %for.inc ], [ false, %call.i.i.i.noexc ], [ false, %call.i.i85.noexc ]
+  %retval.2 = phi i1 [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ false, %invoke.cont90 ], [ false, %invoke.cont79 ], [ true, %for.cond.preheader ], [ false, %invoke.cont119 ], [ false, %invoke.cont125 ], [ true, %for.inc ], [ false, %call.i.i.i.noexc ], [ false, %call.i.i85.noexc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %actualTypeName) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %typeName) #22
   br label %cleanup132
@@ -1045,7 +1045,7 @@ ehcleanup131:                                     ; preds = %lpad83.body, %ehcle
   br label %ehcleanup133
 
 cleanup132:                                       ; preds = %if.end9.i.i.i, %invoke.cont61, %invoke.cont56, %invoke.cont46, %_ZNK8facebook5velox4exec17SignatureVariable14knownTypesOnlyEv.exit, %invoke.cont26, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ %call31, %invoke.cont26 ], [ false, %_ZNK8facebook5velox4exec17SignatureVariable14knownTypesOnlyEv.exit ], [ false, %invoke.cont46 ], [ false, %invoke.cont56 ], [ true, %invoke.cont61 ], [ true, %if.end9.i.i.i ]
+  %retval.1 = phi i1 [ %retval.2, %cleanup ], [ %call31, %invoke.cont26 ], [ false, %_ZNK8facebook5velox4exec17SignatureVariable14knownTypesOnlyEv.exit ], [ false, %invoke.cont46 ], [ false, %invoke.cont56 ], [ true, %invoke.cont61 ], [ true, %if.end9.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %baseName) #22
   br label %return
 
@@ -1055,8 +1055,8 @@ ehcleanup133:                                     ; preds = %ehcleanup131, %lpad
   resume { ptr, i32 } %.pn30
 
 return:                                           ; preds = %entry, %cleanup132
-  %retval.2 = phi i1 [ %retval.1, %cleanup132 ], [ true, %entry ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %retval.1, %cleanup132 ], [ true, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2202,8 +2202,8 @@ _ZNSt6vectorIN8facebook5velox13TypeParameterESaIS2_EED2Ev.exit: ; preds = %invok
   br label %cleanup74
 
 ehcleanup71:                                      ; preds = %lpad49, %lpad45, %lpad35, %lpad24.body
-  %ehselector.slot.0 = phi i32 [ %55, %lpad35 ], [ %52, %lpad24.body ], [ %106, %lpad45 ], [ %110, %lpad49 ]
-  %exn.slot.0 = phi ptr [ %54, %lpad35 ], [ %51, %lpad24.body ], [ %105, %lpad45 ], [ %109, %lpad49 ]
+  %ehselector.slot.1 = phi i32 [ %55, %lpad35 ], [ %52, %lpad24.body ], [ %106, %lpad45 ], [ %110, %lpad49 ]
+  %exn.slot.1 = phi ptr [ %54, %lpad35 ], [ %51, %lpad24.body ], [ %105, %lpad45 ], [ %109, %lpad49 ]
   call void @_ZNSt6vectorIN8facebook5velox13TypeParameterESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %typeParameters) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %typeName) #22
   br label %ehcleanup75
@@ -2213,11 +2213,11 @@ cleanup74:                                        ; preds = %if.else.i.i.i.i.i, 
   ret void
 
 ehcleanup75:                                      ; preds = %ehcleanup71, %lpad13, %lpad
-  %ehselector.slot.1 = phi i32 [ %2, %lpad ], [ %ehselector.slot.0, %ehcleanup71 ], [ %50, %lpad13 ]
-  %exn.slot.1 = phi ptr [ %1, %lpad ], [ %exn.slot.0, %ehcleanup71 ], [ %49, %lpad13 ]
+  %ehselector.slot.0 = phi i32 [ %2, %lpad ], [ %ehselector.slot.1, %ehcleanup71 ], [ %50, %lpad13 ]
+  %exn.slot.0 = phi ptr [ %1, %lpad ], [ %exn.slot.1, %ehcleanup71 ], [ %49, %lpad13 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %baseName) #22
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.1, 0
-  %lpad.val78 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.1, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val78 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val78
 }
 

@@ -767,7 +767,7 @@ Abc_UtilStrsav.exit96:                            ; preds = %Abc_UtilStrsav.exit
 56:                                               ; preds = %.lr.ph108, %119
   %57 = phi ptr [ %51, %.lr.ph108 ], [ %120, %119 ]
   %indvars.iv113 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next114, %119 ]
-  %.0107 = phi ptr [ null, %.lr.ph108 ], [ %.2, %119 ]
+  %.0107 = phi ptr [ null, %.lr.ph108 ], [ %.1, %119 ]
   %58 = getelementptr i8, ptr %57, i64 8
   %.val81 = load ptr, ptr %58, align 8
   %59 = getelementptr inbounds ptr, ptr %.val81, i64 %indvars.iv113
@@ -879,15 +879,15 @@ Abc_UtilStrsav.exit96:                            ; preds = %Abc_UtilStrsav.exit
   br label %117
 
 117:                                              ; preds = %92, %94, %112, %96, %._crit_edge
-  %.1 = phi ptr [ %80, %._crit_edge ], [ %95, %94 ], [ %97, %96 ], [ %113, %112 ], [ %.0107, %92 ]
+  %.2 = phi ptr [ %80, %._crit_edge ], [ %95, %94 ], [ %97, %96 ], [ %113, %112 ], [ %.0107, %92 ]
   %118 = getelementptr inbounds i8, ptr %60, i64 40
-  store ptr %.1, ptr %118, align 8
+  store ptr %.2, ptr %118, align 8
   %.pre = load ptr, ptr %14, align 8
   br label %119
 
 119:                                              ; preds = %117, %56, %68
   %120 = phi ptr [ %57, %56 ], [ %.pre, %117 ], [ %57, %68 ]
-  %.2 = phi ptr [ %.0107, %56 ], [ %.1, %117 ], [ %.0107, %68 ]
+  %.1 = phi ptr [ %.0107, %56 ], [ %.2, %117 ], [ %.0107, %68 ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %121 = getelementptr i8, ptr %120, i64 4
   %.val = load i32, ptr %121, align 4

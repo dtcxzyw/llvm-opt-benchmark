@@ -6182,7 +6182,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc100
   %indvars.iv155 = phi i64 [ 0, %entry ], [ %indvars.iv.next156, %for.inc100 ]
-  %max_bus.0147 = phi i8 [ %conv, %entry ], [ %max_bus.2, %for.inc100 ]
+  %max_bus.0147 = phi i8 [ %conv, %entry ], [ %max_bus.1, %for.inc100 ]
   %2 = load ptr, ptr %bus, align 8
   %devices = getelementptr inbounds i8, ptr %2, i64 184
   %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %indvars.iv155
@@ -6316,7 +6316,7 @@ if.then84:                                        ; preds = %if.end77
   br label %for.inc100
 
 for.inc100:                                       ; preds = %if.then84, %for.end, %if.end77, %for.body
-  %max_bus.2 = phi i8 [ %spec.select, %if.end77 ], [ %max_bus.0147, %for.end ], [ %max_bus.0147, %for.body ], [ %spec.select, %if.then84 ]
+  %max_bus.1 = phi i8 [ %spec.select, %if.end77 ], [ %max_bus.0147, %for.end ], [ %max_bus.0147, %for.body ], [ %spec.select, %if.then84 ]
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next156, 256
   br i1 %exitcond157.not, label %for.end102, label %for.body, !llvm.loop !23
@@ -6444,8 +6444,8 @@ for.end189:                                       ; preds = %for.body172, %for.e
   %46 = load ptr, ptr %bus, align 8
   %call191 = tail call i32 @pci_bus_num(ptr noundef %46) #14
   %conv192 = trunc i32 %call191 to i16
-  %conv193 = zext i8 %max_bus.2 to i16
-  %conv194 = zext i8 %max_bus.2 to i32
+  %conv193 = zext i8 %max_bus.1 to i16
+  %conv194 = zext i8 %max_bus.1 to i32
   %47 = load ptr, ptr %bus, align 8
   %call196 = tail call i32 @pci_bus_num(ptr noundef %47) #14
   %sub197 = sub i32 %conv194, %call196
@@ -6756,8 +6756,8 @@ sw.bb14:                                          ; preds = %if.else4
 
 sw.bb16:                                          ; preds = %if.end10.thread42, %sw.bb14
   %length_bytes.039 = phi i32 [ 448, %sw.bb14 ], [ 384, %if.end10.thread42 ]
-  %length.addr.1 = phi i32 [ %spec.select37, %sw.bb14 ], [ %spec.select45, %if.end10.thread42 ]
-  %shr17 = lshr i32 %length.addr.1, 12
+  %length.addr.2 = phi i32 [ %spec.select37, %sw.bb14 ], [ %spec.select45, %if.end10.thread42 ]
+  %shr17 = lshr i32 %length.addr.2, 12
   %conv18 = trunc i32 %shr17 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i24)
   store i8 %conv18, ptr %val.addr.i24, align 1
@@ -6767,14 +6767,14 @@ sw.bb16:                                          ; preds = %if.end10.thread42, 
 
 sw.bb20:                                          ; preds = %if.end10, %sw.bb16
   %length_bytes.038 = phi i32 [ 320, %if.end10 ], [ %length_bytes.039, %sw.bb16 ]
-  %length.addr.2 = phi i32 [ %spec.select, %if.end10 ], [ %length.addr.1, %sw.bb16 ]
-  %shr21 = lshr i32 %length.addr.2, 4
+  %length.addr.3 = phi i32 [ %spec.select, %if.end10 ], [ %length.addr.2, %sw.bb16 ]
+  %shr21 = lshr i32 %length.addr.3, 4
   %conv22 = trunc i32 %shr21 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i26)
   store i8 %conv22, ptr %val.addr.i26, align 1
   %call.i27 = call ptr @g_array_prepend_vals(ptr noundef %package, ptr noundef nonnull %val.addr.i26, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i26)
-  %and23 = and i32 %length.addr.2, 15
+  %and23 = and i32 %length.addr.3, 15
   %or = or i32 %and23, %length_bytes.038
   %conv24 = trunc i32 %or to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i28)

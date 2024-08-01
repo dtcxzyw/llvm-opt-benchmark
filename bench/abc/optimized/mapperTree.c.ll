@@ -189,23 +189,23 @@ define noundef ptr @Map_LibraryReadGateTree(ptr nocapture noundef readonly %0, p
   br label %.loopexit
 
 .lr.ph80:                                         ; preds = %77, %.lr.ph80
-  %.179 = phi ptr [ %82, %.lr.ph80 ], [ %78, %77 ]
-  %82 = getelementptr inbounds i8, ptr %.179, i64 1
+  %.279 = phi ptr [ %82, %.lr.ph80 ], [ %78, %77 ]
+  %82 = getelementptr inbounds i8, ptr %.279, i64 1
   %.pr = load i8, ptr %82, align 1
   %83 = icmp eq i8 %.pr, 32
   br i1 %83, label %.lr.ph80, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph80, %77, %80
-  %.2 = phi ptr [ %81, %80 ], [ %78, %77 ], [ %82, %.lr.ph80 ]
+  %.1 = phi ptr [ %81, %80 ], [ %78, %77 ], [ %82, %.lr.ph80 ]
   %84 = getelementptr inbounds i8, ptr %0, i64 176
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #17
+  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #17
   %87 = trunc i64 %86 to i32
   %88 = add i32 %87, 1
   %89 = tail call ptr @Extra_MmFlexEntryFetch(ptr noundef %85, i32 noundef %88) #16
   %90 = getelementptr inbounds i8, ptr %7, i64 240
   store ptr %89, ptr %90, align 8
-  %91 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %.2) #16
+  %91 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %.1) #16
   br label %92
 
 92:                                               ; preds = %.loopexit, %74, %73
@@ -426,7 +426,7 @@ define range(i32 0, 2) i32 @Map_LibraryReadFileTreeStr(ptr noundef %0, ptr nound
 
 .preheader.i:                                     ; preds = %4, %31
   %11 = phi ptr [ %33, %31 ], [ %.val.i238, %4 ]
-  %.0181240 = phi i32 [ %.1182, %31 ], [ 0, %4 ]
+  %.0181240 = phi i32 [ %.2, %31 ], [ 0, %4 ]
   %12 = icmp slt i32 %.0181240, %.val36.i239
   br i1 %12, label %.lr.ph.i, label %Vec_StrGets.exit.thread
 
@@ -468,7 +468,7 @@ define range(i32 0, 2) i32 @Map_LibraryReadFileTreeStr(ptr noundef %0, ptr nound
   br i1 %27, label %14, label %Vec_StrGets.exit.thread, !llvm.loop !7
 
 Vec_StrGets.exit:                                 ; preds = %16, %23
-  %.1182 = phi i32 [ %24, %23 ], [ %21, %16 ]
+  %.2 = phi i32 [ %24, %23 ], [ %21, %16 ]
   %.ptr367 = getelementptr inbounds i8, ptr %5, i64 %.02944.i.add
   store i8 0, ptr %.ptr367, align 1
   br label %28
@@ -489,9 +489,9 @@ Vec_StrGets.exit:                                 ; preds = %16, %23
   br label %28, !llvm.loop !10
 
 31:                                               ; preds = %28, %28
-  %32 = sext i32 %.1182 to i64
+  %32 = sext i32 %.2 to i64
   %33 = getelementptr inbounds i8, ptr %.val.i238, i64 %32
-  %34 = icmp eq i32 %.1182, %.val36.i239
+  %34 = icmp eq i32 %.2, %.val36.i239
   br i1 %34, label %Vec_StrGets.exit.thread, label %.preheader.i
 
 35:                                               ; preds = %28
@@ -516,11 +516,11 @@ Vec_StrGets.exit:                                 ; preds = %16, %23
   %.val36.i131 = load i32, ptr %7, align 4
   %45 = sext i32 %.val36.i131 to i64
   %46 = getelementptr inbounds i8, ptr %.val.i130, i64 %45
-  %47 = icmp slt i32 %.1182, %.val36.i131
+  %47 = icmp slt i32 %.2, %.val36.i131
   br i1 %47, label %.lr.ph.i134, label %Vec_StrGets.exit.thread
 
 .lr.ph.i134:                                      ; preds = %44
-  %48 = sext i32 %.1182 to i64
+  %48 = sext i32 %.2 to i64
   %49 = getelementptr inbounds i8, ptr %.val.i130, i64 %48
   %50 = ptrtoint ptr %49 to i64
   br label %51
@@ -541,7 +541,7 @@ Vec_StrGets.exit:                                 ; preds = %16, %23
   %54 = ptrtoint ptr %.03043.i136 to i64
   %55 = sub i64 %54, %50
   %56 = trunc i64 %55 to i32
-  %57 = add i32 %.1182, 1
+  %57 = add i32 %.2, 1
   %58 = add i32 %57, %56
   br label %Vec_StrGets.exit137
 
@@ -550,7 +550,7 @@ Vec_StrGets.exit:                                 ; preds = %16, %23
   br i1 %exitcond310, label %60, label %62
 
 60:                                               ; preds = %59
-  %61 = add i32 %.1182, 5000
+  %61 = add i32 %.2, 5000
   br label %Vec_StrGets.exit137
 
 62:                                               ; preds = %59
@@ -559,7 +559,7 @@ Vec_StrGets.exit:                                 ; preds = %16, %23
   br i1 %64, label %51, label %Vec_StrGets.exit.thread, !llvm.loop !7
 
 Vec_StrGets.exit137:                              ; preds = %60, %53
-  %.2 = phi i32 [ %61, %60 ], [ %58, %53 ]
+  %.3 = phi i32 [ %61, %60 ], [ %58, %53 ]
   %.ptr327362 = getelementptr inbounds i8, ptr %5, i64 %.02944.i135.add
   store i8 0, ptr %.ptr327362, align 1
   %65 = getelementptr inbounds i8, ptr %0, i64 16
@@ -578,11 +578,11 @@ Vec_StrGets.exit137:                              ; preds = %60, %53
   %.val36.i139 = load i32, ptr %7, align 4
   %72 = sext i32 %.val36.i139 to i64
   %73 = getelementptr inbounds i8, ptr %.val.i138, i64 %72
-  %74 = icmp slt i32 %.2, %.val36.i139
+  %74 = icmp slt i32 %.3, %.val36.i139
   br i1 %74, label %.lr.ph.i142, label %Vec_StrGets.exit.thread
 
 .lr.ph.i142:                                      ; preds = %71
-  %75 = sext i32 %.2 to i64
+  %75 = sext i32 %.3 to i64
   %76 = getelementptr inbounds i8, ptr %.val.i138, i64 %75
   %77 = ptrtoint ptr %76 to i64
   br label %78
@@ -603,7 +603,7 @@ Vec_StrGets.exit137:                              ; preds = %60, %53
   %81 = ptrtoint ptr %.03043.i144 to i64
   %82 = sub i64 %81, %77
   %83 = trunc i64 %82 to i32
-  %84 = add i32 %.2, 1
+  %84 = add i32 %.3, 1
   %85 = add i32 %84, %83
   br label %Vec_StrGets.exit145
 
@@ -612,7 +612,7 @@ Vec_StrGets.exit137:                              ; preds = %60, %53
   br i1 %exitcond311, label %87, label %89
 
 87:                                               ; preds = %86
-  %88 = add i32 %.2, 5000
+  %88 = add i32 %.3, 5000
   br label %Vec_StrGets.exit145
 
 89:                                               ; preds = %86
@@ -621,7 +621,7 @@ Vec_StrGets.exit137:                              ; preds = %60, %53
   br i1 %91, label %78, label %Vec_StrGets.exit.thread, !llvm.loop !7
 
 Vec_StrGets.exit145:                              ; preds = %87, %80
-  %.3 = phi i32 [ %88, %87 ], [ %85, %80 ]
+  %.4 = phi i32 [ %88, %87 ], [ %85, %80 ]
   %.ptr328357 = getelementptr inbounds i8, ptr %5, i64 %.02944.i143.add
   store i8 0, ptr %.ptr328357, align 1
   %92 = getelementptr inbounds i8, ptr %0, i64 24
@@ -640,11 +640,11 @@ Vec_StrGets.exit145:                              ; preds = %87, %80
   %.val36.i147 = load i32, ptr %7, align 4
   %99 = sext i32 %.val36.i147 to i64
   %100 = getelementptr inbounds i8, ptr %.val.i146, i64 %99
-  %101 = icmp slt i32 %.3, %.val36.i147
+  %101 = icmp slt i32 %.4, %.val36.i147
   br i1 %101, label %.lr.ph.i150, label %Vec_StrGets.exit.thread
 
 .lr.ph.i150:                                      ; preds = %98
-  %102 = sext i32 %.3 to i64
+  %102 = sext i32 %.4 to i64
   %103 = getelementptr inbounds i8, ptr %.val.i146, i64 %102
   %104 = ptrtoint ptr %103 to i64
   br label %105
@@ -665,7 +665,7 @@ Vec_StrGets.exit145:                              ; preds = %87, %80
   %108 = ptrtoint ptr %.03043.i152 to i64
   %109 = sub i64 %108, %104
   %110 = trunc i64 %109 to i32
-  %111 = add i32 %.3, 1
+  %111 = add i32 %.4, 1
   %112 = add i32 %111, %110
   br label %Vec_StrGets.exit153
 
@@ -674,7 +674,7 @@ Vec_StrGets.exit145:                              ; preds = %87, %80
   br i1 %exitcond312, label %114, label %116
 
 114:                                              ; preds = %113
-  %115 = add i32 %.3, 5000
+  %115 = add i32 %.4, 5000
   br label %Vec_StrGets.exit153
 
 116:                                              ; preds = %113
@@ -683,7 +683,7 @@ Vec_StrGets.exit145:                              ; preds = %87, %80
   br i1 %118, label %105, label %Vec_StrGets.exit.thread, !llvm.loop !7
 
 Vec_StrGets.exit153:                              ; preds = %114, %107
-  %.4 = phi i32 [ %115, %114 ], [ %112, %107 ]
+  %.5 = phi i32 [ %115, %114 ], [ %112, %107 ]
   %.ptr329352 = getelementptr inbounds i8, ptr %5, i64 %.02944.i151.add
   store i8 0, ptr %.ptr329352, align 1
   %119 = getelementptr inbounds i8, ptr %0, i64 28
@@ -775,14 +775,14 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   %165 = load ptr, ptr @stdout, align 8
   %166 = call ptr @Extra_ProgressBarStart(ptr noundef %165, i32 noundef %164) #16
   %.val36.i155250257 = load i32, ptr %7, align 4
-  %167 = icmp eq i32 %.4, %.val36.i155250257
+  %167 = icmp eq i32 %.5, %.val36.i155250257
   br i1 %167, label %.outer._crit_edge, label %.preheader.i156.lr.ph.lr.ph
 
 .preheader.i156.lr.ph.lr.ph:                      ; preds = %._crit_edge248
   %.val.i154249256 = load ptr, ptr %6, align 8
   %168 = sext i32 %.val36.i155250257 to i64
   %169 = getelementptr inbounds i8, ptr %.val.i154249256, i64 %168
-  %170 = sext i32 %.4 to i64
+  %170 = sext i32 %.5 to i64
   %171 = getelementptr inbounds i8, ptr %.val.i154249256, i64 %170
   %.not.i = icmp eq ptr %166, null
   %172 = sext i32 %.lcssa to i64
@@ -794,7 +794,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   %173 = phi ptr [ %169, %.preheader.i156.lr.ph.lr.ph ], [ %220, %Extra_ProgressBarUpdate.exit ]
   %.val36.i155 = phi i32 [ %.val36.i155250257, %.preheader.i156.lr.ph.lr.ph ], [ %.val36.i155250, %Extra_ProgressBarUpdate.exit ]
   %174 = phi ptr [ %171, %.preheader.i156.lr.ph.lr.ph ], [ %218, %Extra_ProgressBarUpdate.exit ]
-  %.5.ph258 = phi i32 [ %.4, %.preheader.i156.lr.ph.lr.ph ], [ %.6, %Extra_ProgressBarUpdate.exit ]
+  %.1182.ph258 = phi i32 [ %.5, %.preheader.i156.lr.ph.lr.ph ], [ %.6, %Extra_ProgressBarUpdate.exit ]
   %175 = trunc nsw i64 %indvars.iv318 to i32
   %176 = sext i32 %.val36.i155 to i64
   %177 = getelementptr inbounds i8, ptr %.val.i154, i64 %176
@@ -809,8 +809,8 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
 .preheader.i156:                                  ; preds = %.preheader.i156.lr.ph, %.loopexit
   %181 = phi ptr [ %173, %.preheader.i156.lr.ph ], [ %177, %.loopexit ]
   %182 = phi ptr [ %174, %.preheader.i156.lr.ph ], [ %179, %.loopexit ]
-  %.5251 = phi i32 [ %.5.ph258, %.preheader.i156.lr.ph ], [ %.6, %.loopexit ]
-  %183 = icmp slt i32 %.5251, %.val36.i155
+  %.1182251 = phi i32 [ %.1182.ph258, %.preheader.i156.lr.ph ], [ %.6, %.loopexit ]
+  %183 = icmp slt i32 %.1182251, %.val36.i155
   br i1 %183, label %.lr.ph.i158, label %.loopexit194
 
 .lr.ph.i158:                                      ; preds = %.preheader.i156
@@ -842,7 +842,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   %189 = ptrtoint ptr %.03043.i160 to i64
   %190 = sub i64 %189, %184
   %191 = trunc i64 %190 to i32
-  %192 = add nsw i32 %.5251, 1
+  %192 = add nsw i32 %.1182251, 1
   %193 = add i32 %192, %191
   br label %Vec_StrGets.exit161
 
@@ -851,7 +851,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   br i1 %exitcond317, label %195, label %197
 
 195:                                              ; preds = %194
-  %196 = add i32 %.5251, 5000
+  %196 = add i32 %.1182251, 5000
   br label %Vec_StrGets.exit161
 
 197:                                              ; preds = %194

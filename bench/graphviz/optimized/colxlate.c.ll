@@ -2763,8 +2763,8 @@ define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly %1
   br label %84
 
 84:                                               ; preds = %81, %79, %76, %72
-  %.044.i = phi double [ %73, %72 ], [ %78, %76 ], [ %83, %81 ], [ 0.000000e+00, %79 ]
-  %85 = fmul double %.044.i, 6.000000e+01
+  %.1.i = phi double [ %73, %72 ], [ %78, %76 ], [ %83, %81 ], [ 0.000000e+00, %79 ]
+  %85 = fmul double %.1.i, 6.000000e+01
   %86 = fcmp olt double %85, 0.000000e+00
   br i1 %86, label %87, label %rgb2hsv.exit
 
@@ -2773,8 +2773,8 @@ define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly %1
   br label %rgb2hsv.exit
 
 rgb2hsv.exit:                                     ; preds = %43, %84, %87
-  %.1.i = phi double [ %88, %87 ], [ %85, %84 ], [ 0.000000e+00, %43 ]
-  %89 = fdiv double %.1.i, 3.600000e+02
+  %.044.i = phi double [ %88, %87 ], [ %85, %84 ], [ 0.000000e+00, %43 ]
+  %89 = fdiv double %.044.i, 3.600000e+02
   store double %89, ptr %1, align 8
   %90 = getelementptr inbounds i8, ptr %1, i64 8
   store double %.0.i, ptr %90, align 8

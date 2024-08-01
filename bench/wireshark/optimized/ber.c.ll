@@ -66,13 +66,13 @@ define hidden range(i32 -1, 2) i32 @ber_open(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.069 = phi i32 [ %25, %.lr.ph ], [ %24, %.lr.ph.preheader ]
   %.05268 = phi i32 [ %26, %.lr.ph ], [ 2, %.lr.ph.preheader ]
-  %.05467 = phi i32 [ %32, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.167 = phi i32 [ %32, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %25 = add i32 %.069, -1
   %26 = add i32 %.05268, 1
   %27 = sext i32 %.05268 to i64
   %28 = getelementptr [8 x i8], ptr %4, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
-  %30 = shl i32 %.05467, 8
+  %30 = shl i32 %.167, 8
   %31 = zext i8 %29 to i32
   %32 = or disjoint i32 %30, %31
   %.not62 = icmp eq i32 %25, 0
@@ -80,10 +80,10 @@ define hidden range(i32 -1, 2) i32 @ber_open(ptr noundef %0, ptr noundef %1, ptr
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %21
   %.055 = phi i8 [ %22, %21 ], [ 0, %19 ], [ %22, %.lr.ph ]
-  %.1 = phi i32 [ 0, %21 ], [ %20, %19 ], [ %32, %.lr.ph ]
+  %.054 = phi i32 [ 0, %21 ], [ %20, %19 ], [ %32, %.lr.ph ]
   %narrow = add nuw i8 %.055, 2
   %33 = zext i8 %narrow to i32
-  %34 = add i32 %.1, %33
+  %34 = add i32 %.054, %33
   %35 = call i64 @wtap_file_size(ptr noundef nonnull %0, ptr noundef %1) #2
   %36 = sext i32 %34 to i64
   %.not63 = icmp eq i64 %35, %36
