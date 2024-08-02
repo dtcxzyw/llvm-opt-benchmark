@@ -4027,14 +4027,9 @@ if.then:                                          ; preds = %land.lhs.true
   store <2 x float> %13, ptr %clr, align 16
   %ref.tmp.sroa.2.0.clr.sroa_idx = getelementptr inbounds i8, ptr %clr, i64 8
   store <2 x float> %14, ptr %ref.tmp.sroa.2.0.clr.sroa_idx, align 8
-  %bc = bitcast <2 x float> %13 to <2 x i32>
-  %15 = extractelement <2 x i32> %bc, i64 0
-  %16 = and i32 %15, 2139095040
-  %cmp.i.i = icmp ne i32 %16, 2139095040
-  %bf.clear2.i.i = and i32 %15, 8388607
-  %tobool.i.i = icmp eq i32 %bf.clear2.i.i, 0
-  %.not.i = or i1 %cmp.i.i, %tobool.i.i
-  br i1 %.not.i, label %if.then15, label %if.else
+  %15 = extractelement <2 x float> %13, i64 0
+  %16 = fcmp ord float %15, 0.000000e+00
+  br i1 %16, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.then
   %17 = load ptr, ptr %pScene, align 8

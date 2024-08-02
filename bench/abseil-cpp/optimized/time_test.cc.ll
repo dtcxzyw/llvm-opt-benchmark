@@ -29969,35 +29969,28 @@ entry:
   %expected_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load double, ptr %expected_, align 8
   %2 = bitcast double %0 to i64
-  %and.i.i = and i64 %2, 9218868437227405312
-  %cmp.i = icmp eq i64 %and.i.i, 9218868437227405312
-  %and.i1.i = and i64 %2, 4503599627370495
-  %cmp3.i = icmp ne i64 %and.i1.i, 0
-  %3 = and i1 %cmp.i, %cmp3.i
-  %4 = bitcast double %1 to i64
-  %and.i.i13 = and i64 %4, 9218868437227405312
-  %cmp.i14 = icmp eq i64 %and.i.i13, 9218868437227405312
-  %and.i1.i15 = and i64 %4, 4503599627370495
-  %cmp3.i16 = icmp ne i64 %and.i1.i15, 0
-  %5 = and i1 %cmp.i14, %cmp3.i16
+  %3 = fcmp uno double %0, 0.000000e+00
   br i1 %3, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
+  %4 = bitcast double %1 to i64
+  %5 = fcmp uno double %1, 0.000000e+00
   br i1 %5, label %return, label %if.end6
 
 land.lhs.true:                                    ; preds = %entry
-  br i1 %5, label %if.then5, label %return
+  %6 = fcmp uno double %1, 0.000000e+00
+  br i1 %6, label %if.then5, label %return
 
 if.then5:                                         ; preds = %land.lhs.true
   %nan_eq_nan_ = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i8, ptr %nan_eq_nan_, align 8
-  %tobool = trunc i8 %6 to i1
+  %7 = load i8, ptr %nan_eq_nan_, align 8
+  %tobool = trunc i8 %7 to i1
   br label %return
 
 if.end6:                                          ; preds = %lor.lhs.false
   %max_abs_error_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load double, ptr %max_abs_error_.i, align 8
-  %cmp.i17 = fcmp ult double %7, 0.000000e+00
+  %8 = load double, ptr %max_abs_error_.i, align 8
+  %cmp.i17 = fcmp ult double %8, 0.000000e+00
   br i1 %cmp.i17, label %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
@@ -30006,24 +29999,24 @@ if.then8:                                         ; preds = %if.end6
 
 if.end11:                                         ; preds = %if.then8
   %sub = fsub double %0, %1
-  %8 = tail call double @llvm.fabs.f64(double %sub)
-  %cmp13 = fcmp ugt double %8, %7
+  %9 = tail call double @llvm.fabs.f64(double %sub)
+  %cmp13 = fcmp ugt double %9, %8
   br i1 %cmp13, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end11
   %stream_.i = getelementptr inbounds i8, ptr %listener, i64 8
-  %9 = load ptr, ptr %stream_.i, align 8
-  %cmp.i18.not = icmp eq ptr %9, null
+  %10 = load ptr, ptr %stream_.i, align 8
+  %cmp.i18.not = icmp eq ptr %10, null
   br i1 %cmp.i18.not, label %return, label %_ZN7testing19MatchResultListenerlsIA10_cEERS0_RKT_.exit
 
 _ZN7testing19MatchResultListenerlsIA10_cEERS0_RKT_.exit: ; preds = %if.end15
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.269)
-  %10 = load ptr, ptr %stream_.i, align 8
-  %cmp.not.i21 = icmp eq ptr %10, null
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.269)
+  %11 = load ptr, ptr %stream_.i, align 8
+  %cmp.not.i21 = icmp eq ptr %11, null
   br i1 %cmp.not.i21, label %return, label %_ZN7testing19MatchResultListenerlsIdEERS0_RKT_.exit
 
 _ZN7testing19MatchResultListenerlsIdEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIA10_cEERS0_RKT_.exit
-  %call.i23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %10, double noundef %sub)
+  %call.i23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %11, double noundef %sub)
   %.pr = load ptr, ptr %stream_.i, align 8
   %cmp.not.i25 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i25, label %return, label %_ZN7testing19MatchResultListenerlsIA7_cEERS0_RKT_.exit
@@ -30035,21 +30028,21 @@ _ZN7testing19MatchResultListenerlsIA7_cEERS0_RKT_.exit: ; preds = %_ZN7testing19
   br i1 %cmp.not.i29, label %return, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZN7testing19MatchResultListenerlsIA7_cEERS0_RKT_.exit
-  %11 = load double, ptr %expected_, align 8
-  %call.i31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %.pr39, double noundef %11)
+  %12 = load double, ptr %expected_, align 8
+  %call.i31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %.pr39, double noundef %12)
   br label %return
 
 _ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit: ; preds = %if.end6
   %add.i.i.i = sub i64 0, %2
-  %12 = tail call double @llvm.fabs.f64(double %0)
-  %13 = fneg double %12
-  %or.i.i.i = bitcast double %13 to i64
+  %13 = tail call double @llvm.fabs.f64(double %0)
+  %14 = fneg double %13
+  %or.i.i.i = bitcast double %14 to i64
   %tobool.not3.i.i.i = icmp slt i64 %2, 0
   %retval.0.i.i.i = select i1 %tobool.not3.i.i.i, i64 %add.i.i.i, i64 %or.i.i.i
   %add.i5.i.i = sub i64 0, %4
-  %14 = tail call double @llvm.fabs.f64(double %1)
-  %15 = fneg double %14
-  %or.i6.i.i = bitcast double %15 to i64
+  %15 = tail call double @llvm.fabs.f64(double %1)
+  %16 = fneg double %15
+  %or.i6.i.i = bitcast double %16 to i64
   %tobool.not3.i7.i.i = icmp slt i64 %4, 0
   %retval.0.i8.i.i = select i1 %tobool.not3.i7.i.i, i64 %add.i5.i.i, i64 %or.i6.i.i
   %cmp.not.i.i = icmp ult i64 %retval.0.i.i.i, %retval.0.i8.i.i

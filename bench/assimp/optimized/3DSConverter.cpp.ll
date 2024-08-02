@@ -1090,13 +1090,9 @@ if.end.i:                                         ; preds = %entry
 
 _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %entry, %if.end.i
   %call = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %mat, ptr noundef nonnull %tex, ptr noundef nonnull @.str.6, i32 noundef %type, i32 noundef 0)
-  %0 = load i32, ptr %texture, align 8
-  %1 = and i32 %0, 2139095040
-  %cmp.i.i = icmp ne i32 %1, 2139095040
-  %bf.clear2.i.i = and i32 %0, 8388607
-  %tobool.i.i = icmp eq i32 %bf.clear2.i.i, 0
-  %.not.i = or i1 %cmp.i.i, %tobool.i.i
-  br i1 %.not.i, label %if.then, label %if.end
+  %0 = load float, ptr %texture, align 8
+  %1 = fcmp ord float %0, 0.000000e+00
+  br i1 %1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %call.i19 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %mat, ptr noundef nonnull %texture, i32 noundef 4, ptr noundef nonnull @.str.7, i32 noundef %type, i32 noundef 0, i32 noundef 1)

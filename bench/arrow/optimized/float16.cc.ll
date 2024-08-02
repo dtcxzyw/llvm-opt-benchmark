@@ -79,9 +79,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end26.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp10.i = icmp eq i32 %and1.i, 2139095040
-  %cmp11.i = icmp ne i32 %and8.i, 0
-  %or.cond.i = and i1 %cmp10.i, %cmp11.i
+  %or.cond.i = fcmp uno float %f, 0.000000e+00
   br i1 %or.cond.i, label %if.then12.i, label %if.end22.i
 
 if.then12.i:                                      ; preds = %if.then.i
@@ -221,9 +219,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end26.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp10.i = icmp eq i64 %and1.i, 9218868437227405312
-  %cmp11.i = icmp ne i64 %and8.i, 0
-  %or.cond.i = and i1 %cmp10.i, %cmp11.i
+  %or.cond.i = fcmp uno double %d, 0.000000e+00
   br i1 %or.cond.i, label %if.then12.i, label %if.end22.i
 
 if.then12.i:                                      ; preds = %if.then.i
