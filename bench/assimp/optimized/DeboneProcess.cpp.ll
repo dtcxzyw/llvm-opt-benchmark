@@ -2991,8 +2991,8 @@ for.body19.preheader:                             ; preds = %if.then10
   %75 = insertelement <2 x float> %74, float %63, i64 1
   br label %for.body19
 
-for.body19:                                       ; preds = %for.body19.preheader, %for.body19
-  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %for.body19 ], [ 0, %for.body19.preheader ]
+for.body19:                                       ; preds = %for.body19.preheader, %_ZN10aiVector3tIfE9NormalizeEv.exit
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ 0, %for.body19.preheader ]
   %76 = load ptr, ptr %mNormals.i, align 8
   %arrayidx22 = getelementptr inbounds %class.aiVector3t, ptr %76, i64 %indvars.iv168
   %77 = load float, ptr %arrayidx22, align 4
@@ -3017,15 +3017,21 @@ for.body19:                                       ; preds = %for.body19.preheade
   %92 = extractelement <2 x float> %88, i64 0
   %93 = call float @llvm.fmuladd.f32(float %92, float %92, float %mul4.i.i.i)
   %94 = call noundef float @llvm.fmuladd.f32(float %90, float %90, float %93)
+  %cmp.i = fcmp oeq float %94, 0.000000e+00
+  br i1 %cmp.i, label %_ZN10aiVector3tIfE9NormalizeEv.exit, label %_ZN10aiVector3tIfEdVEf.exit.i
+
+_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %for.body19
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %94)
-  %cmp.i = fcmp oeq float %sqrt.i.i, 0.000000e+00
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %95 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %96 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> zeroinitializer
   %97 = fmul <2 x float> %88, %96
   %mul3.i.i = fmul float %90, %div.i.i
-  %ref.tmp20.sroa.6.0 = select i1 %cmp.i, float %90, float %mul3.i.i
-  %ref.tmp20.sroa.0.0 = select i1 %cmp.i, <2 x float> %88, <2 x float> %97
+  br label %_ZN10aiVector3tIfE9NormalizeEv.exit
+
+_ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %for.body19, %_ZN10aiVector3tIfEdVEf.exit.i
+  %ref.tmp20.sroa.6.0 = phi float [ %90, %for.body19 ], [ %mul3.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %ref.tmp20.sroa.0.0 = phi <2 x float> [ %88, %for.body19 ], [ %97, %_ZN10aiVector3tIfEdVEf.exit.i ]
   store <2 x float> %ref.tmp20.sroa.0.0, ptr %arrayidx22, align 4
   store float %ref.tmp20.sroa.6.0, ptr %z.i59, align 4
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
@@ -3034,8 +3040,8 @@ for.body19:                                       ; preds = %for.body19.preheade
   %cmp18 = icmp ult i64 %indvars.iv.next169, %99
   br i1 %cmp18, label %for.body19, label %if.end32, !llvm.loop !53
 
-if.end32:                                         ; preds = %for.body19, %if.then10
-  %100 = phi i32 [ %68, %if.then10 ], [ %98, %for.body19 ]
+if.end32:                                         ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit, %if.then10
+  %100 = phi i32 [ %68, %if.then10 ], [ %98, %_ZN10aiVector3tIfE9NormalizeEv.exit ]
   %mTangents.i71 = getelementptr inbounds i8, ptr %mesh, i64 32
   %101 = load ptr, ptr %mTangents.i71, align 8
   %cmp.not.i72 = icmp eq ptr %101, null
@@ -3056,8 +3062,8 @@ for.body39.preheader:                             ; preds = %if.end32
   %108 = insertelement <2 x float> %107, float %63, i64 1
   br label %for.body39
 
-for.body39:                                       ; preds = %for.body39.preheader, %for.body39
-  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %for.body39 ], [ 0, %for.body39.preheader ]
+for.body39:                                       ; preds = %for.body39.preheader, %_ZN10aiVector3tIfE9NormalizeEv.exit135
+  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %_ZN10aiVector3tIfE9NormalizeEv.exit135 ], [ 0, %for.body39.preheader ]
   %109 = load ptr, ptr %mTangents.i71, align 8
   %arrayidx42 = getelementptr inbounds %class.aiVector3t, ptr %109, i64 %indvars.iv171
   %110 = load float, ptr %arrayidx42, align 4
@@ -3082,15 +3088,21 @@ for.body39:                                       ; preds = %for.body39.preheade
   %125 = extractelement <2 x float> %121, i64 0
   %126 = call float @llvm.fmuladd.f32(float %125, float %125, float %mul4.i.i.i98)
   %127 = call noundef float @llvm.fmuladd.f32(float %123, float %123, float %126)
-  %sqrt.i.i100 = call noundef float @llvm.sqrt.f32(float %127)
-  %cmp.i101 = fcmp oeq float %sqrt.i.i100, 0.000000e+00
-  %div.i.i103 = fdiv float 1.000000e+00, %sqrt.i.i100
+  %cmp.i100 = fcmp oeq float %127, 0.000000e+00
+  br i1 %cmp.i100, label %_ZN10aiVector3tIfE9NormalizeEv.exit107, label %_ZN10aiVector3tIfEdVEf.exit.i101
+
+_ZN10aiVector3tIfEdVEf.exit.i101:                 ; preds = %for.body39
+  %sqrt.i.i102 = call noundef float @llvm.sqrt.f32(float %127)
+  %div.i.i103 = fdiv float 1.000000e+00, %sqrt.i.i102
   %128 = insertelement <2 x float> poison, float %div.i.i103, i64 0
   %129 = shufflevector <2 x float> %128, <2 x float> poison, <2 x i32> zeroinitializer
   %130 = fmul <2 x float> %121, %129
   %mul3.i.i106 = fmul float %123, %div.i.i103
-  %ref.tmp40.sroa.6.0 = select i1 %cmp.i101, float %123, float %mul3.i.i106
-  %ref.tmp40.sroa.0.0 = select i1 %cmp.i101, <2 x float> %121, <2 x float> %130
+  br label %_ZN10aiVector3tIfE9NormalizeEv.exit107
+
+_ZN10aiVector3tIfE9NormalizeEv.exit107:           ; preds = %for.body39, %_ZN10aiVector3tIfEdVEf.exit.i101
+  %ref.tmp40.sroa.6.0 = phi float [ %123, %for.body39 ], [ %mul3.i.i106, %_ZN10aiVector3tIfEdVEf.exit.i101 ]
+  %ref.tmp40.sroa.0.0 = phi <2 x float> [ %121, %for.body39 ], [ %130, %_ZN10aiVector3tIfEdVEf.exit.i101 ]
   store <2 x float> %ref.tmp40.sroa.0.0, ptr %arrayidx42, align 4
   store float %ref.tmp40.sroa.6.0, ptr %z.i84, align 4
   %131 = load ptr, ptr %mBitangents.i73, align 8
@@ -3117,15 +3129,21 @@ for.body39:                                       ; preds = %for.body39.preheade
   %147 = extractelement <2 x float> %143, i64 0
   %148 = call float @llvm.fmuladd.f32(float %147, float %147, float %mul4.i.i.i126)
   %149 = call noundef float @llvm.fmuladd.f32(float %145, float %145, float %148)
-  %sqrt.i.i128 = call noundef float @llvm.sqrt.f32(float %149)
-  %cmp.i129 = fcmp oeq float %sqrt.i.i128, 0.000000e+00
-  %div.i.i131 = fdiv float 1.000000e+00, %sqrt.i.i128
+  %cmp.i128 = fcmp oeq float %149, 0.000000e+00
+  br i1 %cmp.i128, label %_ZN10aiVector3tIfE9NormalizeEv.exit135, label %_ZN10aiVector3tIfEdVEf.exit.i129
+
+_ZN10aiVector3tIfEdVEf.exit.i129:                 ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit107
+  %sqrt.i.i130 = call noundef float @llvm.sqrt.f32(float %149)
+  %div.i.i131 = fdiv float 1.000000e+00, %sqrt.i.i130
   %150 = insertelement <2 x float> poison, float %div.i.i131, i64 0
   %151 = shufflevector <2 x float> %150, <2 x float> poison, <2 x i32> zeroinitializer
   %152 = fmul <2 x float> %143, %151
   %mul3.i.i134 = fmul float %145, %div.i.i131
-  %ref.tmp49.sroa.6.0 = select i1 %cmp.i129, float %145, float %mul3.i.i134
-  %ref.tmp49.sroa.0.0 = select i1 %cmp.i129, <2 x float> %143, <2 x float> %152
+  br label %_ZN10aiVector3tIfE9NormalizeEv.exit135
+
+_ZN10aiVector3tIfE9NormalizeEv.exit135:           ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit107, %_ZN10aiVector3tIfEdVEf.exit.i129
+  %ref.tmp49.sroa.6.0 = phi float [ %145, %_ZN10aiVector3tIfE9NormalizeEv.exit107 ], [ %mul3.i.i134, %_ZN10aiVector3tIfEdVEf.exit.i129 ]
+  %ref.tmp49.sroa.0.0 = phi <2 x float> [ %143, %_ZN10aiVector3tIfE9NormalizeEv.exit107 ], [ %152, %_ZN10aiVector3tIfEdVEf.exit.i129 ]
   store <2 x float> %ref.tmp49.sroa.0.0, ptr %arrayidx51, align 4
   store float %ref.tmp49.sroa.6.0, ptr %z.i112, align 4
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
@@ -3134,7 +3152,7 @@ for.body39:                                       ; preds = %for.body39.preheade
   %cmp38 = icmp ult i64 %indvars.iv.next172, %154
   br i1 %cmp38, label %for.body39, label %if.end63, !llvm.loop !54
 
-if.end63:                                         ; preds = %for.body39, %lor.lhs.false, %if.end32, %entry
+if.end63:                                         ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit135, %lor.lhs.false, %if.end32, %entry
   ret void
 }
 

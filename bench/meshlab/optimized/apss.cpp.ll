@@ -606,8 +606,8 @@ _ZN3vcg6Point3IdE9NormalizeEv.exit:               ; preds = %44
   %53 = extractelement <2 x double> %50, i64 0
   %54 = call double @llvm.fmuladd.f64(double %53, double %53, double %52)
   %55 = call double @llvm.fmuladd.f64(double %47, double %47, double %54)
+  %56 = fcmp ogt double %55, 0.000000e+00
   %sqrt.i = call double @llvm.sqrt.f64(double %55)
-  %56 = fcmp ogt double %sqrt.i, 0.000000e+00
   %57 = insertelement <2 x double> poison, double %sqrt.i, i64 0
   %58 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> zeroinitializer
   %59 = fdiv <2 x double> %50, %58
@@ -639,11 +639,11 @@ _ZN3vcg6Point3IdE9NormalizeEv.exit:               ; preds = %44
   %83 = extractelement <2 x double> %78, i64 0
   %84 = call double @llvm.fmuladd.f64(double %83, double %83, double %82)
   %85 = call double @llvm.fmuladd.f64(double %80, double %80, double %84)
-  %sqrt.i41 = call double @llvm.sqrt.f64(double %85)
-  %86 = fcmp ogt double %sqrt.i41, 0.000000e+00
+  %86 = fcmp ogt double %85, 0.000000e+00
   br i1 %86, label %87, label %_ZN3vcg6Point3IdE9NormalizeEv.exit42
 
 87:                                               ; preds = %_ZN3vcg6Point3IdE9NormalizeEv.exit
+  %sqrt.i41 = call double @llvm.sqrt.f64(double %85)
   %88 = insertelement <2 x double> poison, double %sqrt.i41, i64 0
   %89 = shufflevector <2 x double> %88, <2 x double> poison, <2 x i32> zeroinitializer
   %90 = fdiv <2 x double> %78, %89
@@ -766,11 +766,11 @@ _ZN3vcg6Point3IdE9NormalizeEv.exit:               ; preds = %44
   %189 = extractelement <2 x double> %185, i64 0
   %190 = call double @llvm.fmuladd.f64(double %189, double %189, double %188)
   %191 = call double @llvm.fmuladd.f64(double %186, double %186, double %190)
-  %sqrt.i45 = call double @llvm.sqrt.f64(double %191)
-  %192 = fcmp ogt double %sqrt.i45, 0.000000e+00
+  %192 = fcmp ogt double %191, 0.000000e+00
   br i1 %192, label %193, label %_ZN3vcg6Point3IdE9NormalizeEv.exit42
 
 193:                                              ; preds = %182
+  %sqrt.i45 = call double @llvm.sqrt.f64(double %191)
   %194 = insertelement <2 x double> poison, double %sqrt.i45, i64 0
   %195 = shufflevector <2 x double> %194, <2 x double> poison, <2 x i32> zeroinitializer
   %196 = fdiv <2 x double> %185, %195
@@ -825,11 +825,11 @@ _ZN3vcg6Point3IdE9NormalizeEv.exit42:             ; preds = %193, %182, %87, %_Z
   %225 = getelementptr inbounds i8, ptr %7, i64 8
   %226 = load float, ptr %225, align 8
   %227 = call float @llvm.fmuladd.f32(float %226, float %226, float %224)
-  %sqrt.i47 = call float @llvm.sqrt.f32(float %227)
-  %228 = fcmp ogt float %sqrt.i47, 0.000000e+00
+  %228 = fcmp ogt float %227, 0.000000e+00
   br i1 %228, label %229, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
 229:                                              ; preds = %216
+  %sqrt.i47 = call float @llvm.sqrt.f32(float %227)
   %230 = insertelement <2 x float> poison, float %sqrt.i47, i64 0
   %231 = shufflevector <2 x float> %230, <2 x float> poison, <2 x i32> zeroinitializer
   %232 = fdiv <2 x float> %220, %231

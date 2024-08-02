@@ -1593,7 +1593,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %22 = extractelement <2 x float> %20, i64 0
   %23 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %mul4.i)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %23)
-  %cmp16 = fcmp oeq float %sqrt.i, 0.000000e+00
+  %cmp16 = fcmp oeq float %23, 0.000000e+00
   br i1 %cmp16, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body

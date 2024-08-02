@@ -3490,8 +3490,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
   %27 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %mul4.i.i)
   %28 = load float, ptr %z.i.i, align 4
   %29 = tail call noundef float @llvm.fmuladd.f32(float %28, float %28, float %27)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %29)
-  %tobool = fcmp une float %sqrt.i, 0.000000e+00
+  %tobool = fcmp une float %29, 0.000000e+00
   %30 = load <4 x float>, ptr %scale, align 4
   %.fr = freeze <4 x float> %30
   %31 = fcmp une <4 x float> %.fr, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>
@@ -3507,8 +3506,7 @@ invoke.cont43:                                    ; preds = %invoke.cont31
   %mul4.i.i29 = fmul float %.pre467, %.pre467
   %34 = tail call float @llvm.fmuladd.f32(float %.pre466, float %.pre466, float %mul4.i.i29)
   %35 = tail call noundef float @llvm.fmuladd.f32(float %.pre468, float %.pre468, float %34)
-  %sqrt.i31 = tail call noundef float @llvm.sqrt.f32(float %35)
-  %tobool45 = fcmp une float %sqrt.i31, 0.000000e+00
+  %tobool45 = fcmp une float %35, 0.000000e+00
   br i1 %tobool45, label %invoke.cont61, label %if.end82
 
 invoke.cont61:                                    ; preds = %invoke.cont31, %invoke.cont43
@@ -12413,9 +12411,6 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19

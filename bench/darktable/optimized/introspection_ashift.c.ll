@@ -4573,7 +4573,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %0, float
   %183 = fmul reassoc nsz arcp contract afn <4 x float> %179, %179
   %184 = fadd reassoc nsz arcp contract afn <4 x float> %182, %183
   %185 = call reassoc nsz arcp contract afn <4 x float> @llvm.sqrt.v4f32(<4 x float> %184)
-  %186 = fcmp reassoc nsz arcp contract afn ogt <4 x float> %185, zeroinitializer
+  %186 = fcmp reassoc nsz arcp contract afn ogt <4 x float> %184, zeroinitializer
   %187 = fdiv reassoc nsz arcp contract afn <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %185
   %188 = select <4 x i1> %186, <4 x float> %187, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %189 = shufflevector <4 x float> %188, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 3>
@@ -4614,7 +4614,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %0, float
   %220 = fmul reassoc nsz arcp contract afn float %216, %216
   %221 = fadd reassoc nsz arcp contract afn float %220, %219
   %222 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %221)
-  %223 = fcmp reassoc nsz arcp contract afn ogt float %222, 0.000000e+00
+  %223 = fcmp reassoc nsz arcp contract afn ogt float %221, 0.000000e+00
   %224 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %222
   %225 = select reassoc nsz arcp contract afn i1 %223, float %224, float 1.000000e+00
   %226 = fmul reassoc nsz arcp contract afn float %213, %225
@@ -4625,7 +4625,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %0, float
   %231 = fmul reassoc nsz arcp contract afn float %230, %230
   %232 = fadd reassoc nsz arcp contract afn float %231, %219
   %233 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %232)
-  %234 = fcmp reassoc nsz arcp contract afn ogt float %233, 0.000000e+00
+  %234 = fcmp reassoc nsz arcp contract afn ogt float %232, 0.000000e+00
   %235 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %233
   %236 = select reassoc nsz arcp contract afn i1 %234, float %235, float 1.000000e+00
   %237 = fmul reassoc nsz arcp contract afn float %236, %205
@@ -4663,7 +4663,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %0, float
   %267 = fmul reassoc nsz arcp contract afn float %263, %263
   %268 = fadd reassoc nsz arcp contract afn float %266, %267
   %269 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %268)
-  %270 = fcmp reassoc nsz arcp contract afn ogt float %269, 0.000000e+00
+  %270 = fcmp reassoc nsz arcp contract afn ogt float %268, 0.000000e+00
   %271 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %269
   %272 = select reassoc nsz arcp contract afn i1 %270, float %271, float 1.000000e+00
   %273 = fmul reassoc nsz arcp contract afn float %272, %257
@@ -4725,7 +4725,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %0, float
   %321 = extractelement <2 x float> %320, i64 0
   %322 = fadd reassoc nsz arcp contract afn float %321, %316
   %323 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %322)
-  %324 = fcmp reassoc nsz arcp contract afn ogt float %323, 0.000000e+00
+  %324 = fcmp reassoc nsz arcp contract afn ogt float %322, 0.000000e+00
   %325 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %323
   %326 = select reassoc nsz arcp contract afn i1 %324, float %325, float 1.000000e+00
   %327 = insertelement <2 x float> poison, float %326, i64 0
@@ -6924,7 +6924,7 @@ define internal fastcc void @_draw_basic_line(ptr nocapture noundef writeonly %0
   %21 = fmul reassoc nsz arcp contract afn float %17, %17
   %22 = fadd reassoc nsz arcp contract afn float %20, %21
   %23 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %22)
-  %24 = fcmp reassoc nsz arcp contract afn ogt float %23, 0.000000e+00
+  %24 = fcmp reassoc nsz arcp contract afn ogt float %22, 0.000000e+00
   %25 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %23
   %26 = select reassoc nsz arcp contract afn i1 %24, float %25, float 1.000000e+00
   %27 = fmul reassoc nsz arcp contract afn float %26, %13
@@ -6936,7 +6936,7 @@ define internal fastcc void @_draw_basic_line(ptr nocapture noundef writeonly %0
   %33 = fmul reassoc nsz arcp contract afn float %28, %28
   %34 = fadd reassoc nsz arcp contract afn float %33, %32
   %35 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %34)
-  %36 = fcmp reassoc nsz arcp contract afn ogt float %35, 0.000000e+00
+  %36 = fcmp reassoc nsz arcp contract afn ogt float %34, 0.000000e+00
   %37 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %35
   %38 = select reassoc nsz arcp contract afn i1 %36, float %37, float 1.000000e+00
   %39 = fmul reassoc nsz arcp contract afn float %38, %27
@@ -8201,7 +8201,7 @@ define internal fastcc void @do_crop(ptr nocapture %0, ptr nocapture noundef %1)
   %145 = fmul reassoc nsz arcp contract afn <4 x float> %141, %141
   %146 = fadd reassoc nsz arcp contract afn <4 x float> %144, %145
   %147 = call reassoc nsz arcp contract afn <4 x float> @llvm.sqrt.v4f32(<4 x float> %146)
-  %148 = fcmp reassoc nsz arcp contract afn ogt <4 x float> %147, zeroinitializer
+  %148 = fcmp reassoc nsz arcp contract afn ogt <4 x float> %146, zeroinitializer
   %149 = fdiv reassoc nsz arcp contract afn <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %147
   %150 = select <4 x i1> %148, <4 x float> %149, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %151 = shufflevector <4 x float> %150, <4 x float> poison, <8 x i32> <i32 1, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 0>
@@ -11760,7 +11760,7 @@ define internal double @crop_fitness(ptr nocapture noundef readonly %0, ptr noca
   %85 = fmul reassoc nsz arcp contract afn float %81, %81
   %86 = fadd reassoc nsz arcp contract afn float %85, %84
   %87 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %86)
-  %88 = fcmp reassoc nsz arcp contract afn ogt float %87, 0.000000e+00
+  %88 = fcmp reassoc nsz arcp contract afn ogt float %86, 0.000000e+00
   %89 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %87
   %90 = select reassoc nsz arcp contract afn i1 %88, float %89, float 1.000000e+00
   %91 = fmul reassoc nsz arcp contract afn float %78, %90
@@ -11771,7 +11771,7 @@ define internal double @crop_fitness(ptr nocapture noundef readonly %0, ptr noca
   %96 = fmul reassoc nsz arcp contract afn float %95, %95
   %97 = fadd reassoc nsz arcp contract afn float %96, %84
   %98 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %97)
-  %99 = fcmp reassoc nsz arcp contract afn ogt float %98, 0.000000e+00
+  %99 = fcmp reassoc nsz arcp contract afn ogt float %97, 0.000000e+00
   %100 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %98
   %101 = select reassoc nsz arcp contract afn i1 %99, float %100, float 1.000000e+00
   %102 = fmul reassoc nsz arcp contract afn float %101, %70
@@ -11810,7 +11810,7 @@ define internal double @crop_fitness(ptr nocapture noundef readonly %0, ptr noca
   %133 = fmul reassoc nsz arcp contract afn float %129, %129
   %134 = fadd reassoc nsz arcp contract afn float %132, %133
   %135 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %134)
-  %136 = fcmp reassoc nsz arcp contract afn ogt float %135, 0.000000e+00
+  %136 = fcmp reassoc nsz arcp contract afn ogt float %134, 0.000000e+00
   %137 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %135
   %138 = select reassoc nsz arcp contract afn i1 %136, float %137, float 1.000000e+00
   %139 = fmul reassoc nsz arcp contract afn float %138, %123
@@ -11868,7 +11868,7 @@ define internal double @crop_fitness(ptr nocapture noundef readonly %0, ptr noca
   %183 = extractelement <2 x float> %182, i64 0
   %184 = fadd reassoc nsz arcp contract afn float %183, %178
   %185 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %184)
-  %186 = fcmp reassoc nsz arcp contract afn ogt float %185, 0.000000e+00
+  %186 = fcmp reassoc nsz arcp contract afn ogt float %184, 0.000000e+00
   %187 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %185
   %188 = select reassoc nsz arcp contract afn i1 %186, float %187, float 1.000000e+00
   %189 = insertelement <2 x float> poison, float %188, i64 0
@@ -16047,7 +16047,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2301 = fmul reassoc nsz arcp contract afn float %2296, %2296
   %2302 = fadd reassoc nsz arcp contract afn float %2300, %2301
   %2303 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %2302)
-  %2304 = fcmp reassoc nsz arcp contract afn ogt float %2303, 0.000000e+00
+  %2304 = fcmp reassoc nsz arcp contract afn ogt float %2302, 0.000000e+00
   %2305 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2303
   %2306 = select reassoc nsz arcp contract afn i1 %2304, float %2305, float 1.000000e+00
   %2307 = fmul reassoc nsz arcp contract afn float %2306, %2289
@@ -16059,7 +16059,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %2313 = fmul reassoc nsz arcp contract afn float %2308, %2308
   %2314 = fadd reassoc nsz arcp contract afn float %2313, %2312
   %2315 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %2314)
-  %2316 = fcmp reassoc nsz arcp contract afn ogt float %2315, 0.000000e+00
+  %2316 = fcmp reassoc nsz arcp contract afn ogt float %2314, 0.000000e+00
   %2317 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2315
   %2318 = select reassoc nsz arcp contract afn i1 %2316, float %2317, float 1.000000e+00
   %2319 = fmul reassoc nsz arcp contract afn float %2318, %2307
@@ -19457,7 +19457,7 @@ define internal fastcc void @ransac(ptr nocapture noundef readonly %0, ptr nocap
   %151 = fmul reassoc nsz arcp contract afn float %146, %146
   %152 = fadd reassoc nsz arcp contract afn float %150, %151
   %153 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %152)
-  %154 = fcmp reassoc nsz arcp contract afn ogt float %153, 0.000000e+00
+  %154 = fcmp reassoc nsz arcp contract afn ogt float %152, 0.000000e+00
   %155 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %153
   %156 = select reassoc nsz arcp contract afn i1 %154, float %155, float 1.000000e+00
   %157 = insertelement <2 x float> poison, float %156, i64 0
@@ -19502,7 +19502,7 @@ define internal fastcc void @ransac(ptr nocapture noundef readonly %0, ptr nocap
   %188 = fmul reassoc nsz arcp contract afn float %160, %160
   %189 = fadd reassoc nsz arcp contract afn float %187, %188
   %190 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %189)
-  %191 = fcmp reassoc nsz arcp contract afn ogt float %190, 0.000000e+00
+  %191 = fcmp reassoc nsz arcp contract afn ogt float %189, 0.000000e+00
   %192 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %190
   %193 = select reassoc nsz arcp contract afn i1 %191, float %192, float 1.000000e+00
   store i32 1, ptr %43, align 4, !tbaa !37
@@ -20008,7 +20008,7 @@ define internal double @model_fitness(ptr nocapture noundef readonly %0, ptr noc
   %228 = fmul reassoc nsz arcp contract afn <4 x float> %224, %224
   %229 = fadd reassoc nsz arcp contract afn <4 x float> %227, %228
   %230 = call reassoc nsz arcp contract afn <4 x float> @llvm.sqrt.v4f32(<4 x float> %229)
-  %231 = fcmp reassoc nsz arcp contract afn ogt <4 x float> %230, zeroinitializer
+  %231 = fcmp reassoc nsz arcp contract afn ogt <4 x float> %229, zeroinitializer
   %232 = fdiv reassoc nsz arcp contract afn <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %230
   %233 = select <4 x i1> %231, <4 x float> %232, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %234 = fmul reassoc nsz arcp contract afn <4 x float> %233, %218
@@ -20017,7 +20017,7 @@ define internal double @model_fitness(ptr nocapture noundef readonly %0, ptr noc
   %237 = fmul reassoc nsz arcp contract afn <4 x float> %235, %235
   %238 = fadd reassoc nsz arcp contract afn <4 x float> %237, %236
   %239 = call reassoc nsz arcp contract afn <4 x float> @llvm.sqrt.v4f32(<4 x float> %238)
-  %240 = fcmp reassoc nsz arcp contract afn ogt <4 x float> %239, zeroinitializer
+  %240 = fcmp reassoc nsz arcp contract afn ogt <4 x float> %238, zeroinitializer
   %241 = fdiv reassoc nsz arcp contract afn <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %239
   %242 = select <4 x i1> %240, <4 x float> %241, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %243 = select <4 x i1> %174, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> zeroinitializer
@@ -20168,7 +20168,7 @@ define internal double @model_fitness(ptr nocapture noundef readonly %0, ptr noc
   %379 = fmul reassoc nsz arcp contract afn float %375, %375
   %380 = fadd reassoc nsz arcp contract afn float %378, %379
   %381 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %380)
-  %382 = fcmp reassoc nsz arcp contract afn ogt float %381, 0.000000e+00
+  %382 = fcmp reassoc nsz arcp contract afn ogt float %380, 0.000000e+00
   %383 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %381
   %384 = select reassoc nsz arcp contract afn i1 %382, float %383, float 1.000000e+00
   %385 = fmul reassoc nsz arcp contract afn float %384, %369
@@ -20177,7 +20177,7 @@ define internal double @model_fitness(ptr nocapture noundef readonly %0, ptr noc
   %388 = fmul reassoc nsz arcp contract afn float %386, %386
   %389 = fadd reassoc nsz arcp contract afn float %388, %387
   %390 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %389)
-  %391 = fcmp reassoc nsz arcp contract afn ogt float %390, 0.000000e+00
+  %391 = fcmp reassoc nsz arcp contract afn ogt float %389, 0.000000e+00
   %392 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %390
   %393 = select reassoc nsz arcp contract afn i1 %391, float %392, float 1.000000e+00
   %394 = select i1 %325, float 1.000000e+00, float 0.000000e+00
@@ -20413,7 +20413,7 @@ define internal fastcc void @_do_get_structure_quad(ptr noundef %0) unnamed_addr
   %104 = fmul reassoc nsz arcp contract afn float %99, %99
   %105 = fadd reassoc nsz arcp contract afn float %103, %104
   %106 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %105)
-  %107 = fcmp reassoc nsz arcp contract afn ogt float %106, 0.000000e+00
+  %107 = fcmp reassoc nsz arcp contract afn ogt float %105, 0.000000e+00
   %108 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %106
   %109 = select reassoc nsz arcp contract afn i1 %107, float %108, float 1.000000e+00
   %110 = fmul reassoc nsz arcp contract afn float %109, %92
@@ -20425,7 +20425,7 @@ define internal fastcc void @_do_get_structure_quad(ptr noundef %0) unnamed_addr
   %116 = fmul reassoc nsz arcp contract afn float %111, %111
   %117 = fadd reassoc nsz arcp contract afn float %116, %115
   %118 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %117)
-  %119 = fcmp reassoc nsz arcp contract afn ogt float %118, 0.000000e+00
+  %119 = fcmp reassoc nsz arcp contract afn ogt float %117, 0.000000e+00
   %120 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %118
   %121 = select reassoc nsz arcp contract afn i1 %119, float %120, float 1.000000e+00
   %122 = fmul reassoc nsz arcp contract afn float %121, %110
@@ -20471,7 +20471,7 @@ define internal fastcc void @_do_get_structure_quad(ptr noundef %0) unnamed_addr
   %153 = fmul reassoc nsz arcp contract afn float %148, %148
   %154 = fadd reassoc nsz arcp contract afn float %152, %153
   %155 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %154)
-  %156 = fcmp reassoc nsz arcp contract afn ogt float %155, 0.000000e+00
+  %156 = fcmp reassoc nsz arcp contract afn ogt float %154, 0.000000e+00
   %157 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %155
   %158 = select reassoc nsz arcp contract afn i1 %156, float %157, float 1.000000e+00
   %159 = fmul reassoc nsz arcp contract afn float %158, %141
@@ -20483,7 +20483,7 @@ define internal fastcc void @_do_get_structure_quad(ptr noundef %0) unnamed_addr
   %165 = fmul reassoc nsz arcp contract afn float %160, %160
   %166 = fadd reassoc nsz arcp contract afn float %165, %164
   %167 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %166)
-  %168 = fcmp reassoc nsz arcp contract afn ogt float %167, 0.000000e+00
+  %168 = fcmp reassoc nsz arcp contract afn ogt float %166, 0.000000e+00
   %169 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %167
   %170 = select reassoc nsz arcp contract afn i1 %168, float %169, float 1.000000e+00
   %171 = fmul reassoc nsz arcp contract afn float %170, %159
@@ -20522,7 +20522,7 @@ define internal fastcc void @_do_get_structure_quad(ptr noundef %0) unnamed_addr
   %195 = fmul reassoc nsz arcp contract afn float %190, %190
   %196 = fadd reassoc nsz arcp contract afn float %194, %195
   %197 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %196)
-  %198 = fcmp reassoc nsz arcp contract afn ogt float %197, 0.000000e+00
+  %198 = fcmp reassoc nsz arcp contract afn ogt float %196, 0.000000e+00
   %199 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %197
   %200 = select reassoc nsz arcp contract afn i1 %198, float %199, float 1.000000e+00
   %201 = fmul reassoc nsz arcp contract afn float %200, %185
@@ -20534,7 +20534,7 @@ define internal fastcc void @_do_get_structure_quad(ptr noundef %0) unnamed_addr
   %207 = fmul reassoc nsz arcp contract afn float %202, %202
   %208 = fadd reassoc nsz arcp contract afn float %207, %206
   %209 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %208)
-  %210 = fcmp reassoc nsz arcp contract afn ogt float %209, 0.000000e+00
+  %210 = fcmp reassoc nsz arcp contract afn ogt float %208, 0.000000e+00
   %211 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %209
   %212 = select reassoc nsz arcp contract afn i1 %210, float %211, float 1.000000e+00
   %213 = fmul reassoc nsz arcp contract afn float %212, %201
@@ -20607,7 +20607,7 @@ define internal fastcc void @_do_get_structure_quad(ptr noundef %0) unnamed_addr
   %266 = fadd reassoc nsz arcp contract afn float %265, %233
   %267 = fadd reassoc nsz arcp contract afn float %266, %234
   %268 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %267)
-  %269 = fcmp reassoc nsz arcp contract afn ogt float %268, 0.000000e+00
+  %269 = fcmp reassoc nsz arcp contract afn ogt float %267, 0.000000e+00
   %270 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %268
   %271 = select reassoc nsz arcp contract afn i1 %269, float %270, float 1.000000e+00
   %272 = fmul reassoc nsz arcp contract afn float %271, %264
@@ -20617,7 +20617,7 @@ define internal fastcc void @_do_get_structure_quad(ptr noundef %0) unnamed_addr
   %276 = fmul reassoc nsz arcp contract afn float %273, %273
   %277 = fadd reassoc nsz arcp contract afn float %276, %275
   %278 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %277)
-  %279 = fcmp reassoc nsz arcp contract afn ogt float %278, 0.000000e+00
+  %279 = fcmp reassoc nsz arcp contract afn ogt float %277, 0.000000e+00
   %280 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %278
   %281 = select reassoc nsz arcp contract afn i1 %279, float %280, float 1.000000e+00
   %282 = fmul reassoc nsz arcp contract afn float %281, %272
@@ -20956,7 +20956,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_draw_retrieve_lines_from_pa
   %193 = fmul reassoc nsz arcp contract afn <8 x float> %189, %189
   %194 = fadd reassoc nsz arcp contract afn <8 x float> %192, %193
   %195 = call reassoc nsz arcp contract afn <8 x float> @llvm.sqrt.v8f32(<8 x float> %194)
-  %196 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %195, zeroinitializer
+  %196 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %194, zeroinitializer
   %197 = fdiv reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %195
   %198 = select <8 x i1> %196, <8 x float> %197, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %199 = fmul reassoc nsz arcp contract afn <8 x float> %198, %175
@@ -20968,7 +20968,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_draw_retrieve_lines_from_pa
   %205 = fmul reassoc nsz arcp contract afn <8 x float> %200, %200
   %206 = fadd reassoc nsz arcp contract afn <8 x float> %205, %204
   %207 = call reassoc nsz arcp contract afn <8 x float> @llvm.sqrt.v8f32(<8 x float> %206)
-  %208 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %207, zeroinitializer
+  %208 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %206, zeroinitializer
   %209 = fdiv reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %207
   %210 = select <8 x i1> %208, <8 x float> %209, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %211 = fmul reassoc nsz arcp contract afn <8 x float> %210, %199
@@ -21071,7 +21071,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_draw_retrieve_lines_from_pa
   %282 = fmul reassoc nsz arcp contract afn float %276, %276
   %283 = fadd reassoc nsz arcp contract afn float %281, %282
   %284 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %283)
-  %285 = fcmp reassoc nsz arcp contract afn ogt float %284, 0.000000e+00
+  %285 = fcmp reassoc nsz arcp contract afn ogt float %283, 0.000000e+00
   %286 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %284
   %287 = select reassoc nsz arcp contract afn i1 %285, float %286, float 1.000000e+00
   %288 = fmul reassoc nsz arcp contract afn float %287, %277
@@ -21083,7 +21083,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_draw_retrieve_lines_from_pa
   %294 = fmul reassoc nsz arcp contract afn float %289, %289
   %295 = fadd reassoc nsz arcp contract afn float %294, %293
   %296 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %295)
-  %297 = fcmp reassoc nsz arcp contract afn ogt float %296, 0.000000e+00
+  %297 = fcmp reassoc nsz arcp contract afn ogt float %295, 0.000000e+00
   %298 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %296
   %299 = select reassoc nsz arcp contract afn i1 %297, float %298, float 1.000000e+00
   %300 = fmul reassoc nsz arcp contract afn float %299, %288

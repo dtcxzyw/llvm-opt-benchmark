@@ -3822,15 +3822,21 @@ invoke.cont879:                                   ; preds = %if.then856
   %477 = extractelement <2 x float> %473, i64 0
   %478 = call float @llvm.fmuladd.f32(float %477, float %477, float %mul4.i.i.i)
   %479 = call noundef float @llvm.fmuladd.f32(float %sub5.i1365, float %sub5.i1365, float %478)
+  %cmp.i1370 = fcmp oeq float %479, 0.000000e+00
+  br i1 %cmp.i1370, label %invoke.cont884, label %_ZN10aiVector3tIfEdVEf.exit.i
+
+_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %invoke.cont879
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %479)
-  %cmp.i1370 = fcmp oeq float %sqrt.i.i, 0.000000e+00
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %480 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %481 = shufflevector <2 x float> %480, <2 x float> poison, <2 x i32> zeroinitializer
   %482 = fmul <2 x float> %473, %481
   %mul3.i.i = fmul float %sub5.i1365, %div.i.i
-  %ref.tmp878.sroa.7.0 = select i1 %cmp.i1370, float %sub5.i1365, float %mul3.i.i
-  %ref.tmp878.sroa.0.0 = select i1 %cmp.i1370, <2 x float> %473, <2 x float> %482
+  br label %invoke.cont884
+
+invoke.cont884:                                   ; preds = %invoke.cont879, %_ZN10aiVector3tIfEdVEf.exit.i
+  %ref.tmp878.sroa.7.0 = phi float [ %sub5.i1365, %invoke.cont879 ], [ %mul3.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %ref.tmp878.sroa.0.0 = phi <2 x float> [ %473, %invoke.cont879 ], [ %482, %_ZN10aiVector3tIfEdVEf.exit.i ]
   %ref.tmp878.sroa.0.4.vec.extract1524 = extractelement <2 x float> %ref.tmp878.sroa.0.0, i64 1
   %483 = shufflevector <2 x float> %469, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %484 = insertelement <2 x float> %483, float %sub.i1356, i64 1
@@ -3847,9 +3853,9 @@ invoke.cont879:                                   ; preds = %if.then856
   %493 = call float @llvm.fmuladd.f32(float %sub.i1356, float %ref.tmp878.sroa.0.4.vec.extract1524, float %neg14.i)
   br label %if.end887
 
-if.end887:                                        ; preds = %invoke.cont879, %if.then856
-  %faceNormal.sroa.4.1 = phi float [ %faceNormal.sroa.4.01751, %if.then856 ], [ %493, %invoke.cont879 ]
-  %faceNormal.sroa.0.4 = phi <2 x float> [ %faceNormal.sroa.0.31752, %if.then856 ], [ %490, %invoke.cont879 ]
+if.end887:                                        ; preds = %invoke.cont884, %if.then856
+  %faceNormal.sroa.4.1 = phi float [ %faceNormal.sroa.4.01751, %if.then856 ], [ %493, %invoke.cont884 ]
+  %faceNormal.sroa.0.4 = phi <2 x float> [ %faceNormal.sroa.0.31752, %if.then856 ], [ %490, %invoke.cont884 ]
   store <2 x float> %faceNormal.sroa.0.4, ptr %norms.11754, align 4
   %faceNormal.sroa.4.0.norms.1.sroa_idx = getelementptr inbounds i8, ptr %norms.11754, i64 8
   store float %faceNormal.sroa.4.1, ptr %faceNormal.sroa.4.0.norms.1.sroa_idx, align 4

@@ -686,7 +686,7 @@ _ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentE
   %40 = insertelement <2 x double> %39, double %34, i64 1
   %41 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %40, <2 x double> %40, <2 x double> %38)
   %42 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %41)
-  %43 = fcmp une <2 x double> %42, zeroinitializer
+  %43 = fcmp une <2 x double> %41, zeroinitializer
   %44 = fdiv <2 x double> %40, %42
   %45 = fdiv <2 x double> %37, %42
   %46 = select <2 x i1> %43, <2 x double> %45, <2 x double> zeroinitializer
@@ -704,7 +704,7 @@ _ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentE
   %55 = insertelement <2 x double> %54, double %49, i64 1
   %56 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %55, <2 x double> %55, <2 x double> %53)
   %57 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %56)
-  %58 = fcmp une <2 x double> %57, zeroinitializer
+  %58 = fcmp une <2 x double> %56, zeroinitializer
   %59 = fdiv <2 x double> %55, %57
   %60 = fdiv <2 x double> %52, %57
   %61 = select <2 x i1> %58, <2 x double> %60, <2 x double> zeroinitializer
@@ -717,58 +717,59 @@ _ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentE
   %68 = fadd <2 x double> %66, %67
   %69 = fmul <2 x double> %68, %68
   %70 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %65, <2 x double> %65, <2 x double> %69)
-  %71 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %70)
-  %72 = extractelement <2 x double> %71, i64 1
-  %73 = extractelement <2 x double> %65, i64 1
-  %div.i66 = fdiv double %73, %72
-  %74 = extractelement <2 x double> %68, i64 1
-  %div2.i67 = fdiv double %74, %72
-  %75 = fcmp une <2 x double> %71, zeroinitializer
-  %76 = extractelement <2 x i1> %75, i64 1
-  %retval.sroa.3.0.i68 = select i1 %76, double %div2.i67, double 0.000000e+00
-  %retval.sroa.0.0.i69 = select i1 %76, double %div.i66, double 0.000000e+00
+  %71 = extractelement <2 x double> %70, i64 1
+  %sqrt.i.i64 = call noundef double @llvm.sqrt.f64(double %71)
+  %72 = extractelement <2 x double> %65, i64 1
+  %div.i66 = fdiv double %72, %sqrt.i.i64
+  %73 = extractelement <2 x double> %68, i64 1
+  %div2.i67 = fdiv double %73, %sqrt.i.i64
+  %74 = fcmp une <2 x double> %70, zeroinitializer
+  %75 = extractelement <2 x i1> %74, i64 1
+  %retval.sroa.3.0.i68 = select i1 %75, double %div2.i67, double 0.000000e+00
+  %retval.sroa.0.0.i69 = select i1 %75, double %div.i66, double 0.000000e+00
   %mul3.i = fmul double %sub3.i, %retval.sroa.3.0.i68
-  %77 = call noundef double @llvm.fmuladd.f64(double %sub.i20, double %retval.sroa.0.0.i69, double %mul3.i)
-  %78 = extractelement <2 x double> %71, i64 0
-  %79 = extractelement <2 x double> %65, i64 0
-  %div.i80 = fdiv double %79, %78
-  %80 = extractelement <2 x double> %68, i64 0
-  %div2.i81 = fdiv double %80, %78
-  %81 = extractelement <2 x i1> %75, i64 0
-  %retval.sroa.3.0.i82 = select i1 %81, double %div2.i81, double 0.000000e+00
-  %retval.sroa.0.0.i83 = select i1 %81, double %div.i80, double 0.000000e+00
+  %76 = call noundef double @llvm.fmuladd.f64(double %sub.i20, double %retval.sroa.0.0.i69, double %mul3.i)
+  %77 = extractelement <2 x double> %70, i64 0
+  %sqrt.i.i78 = call noundef double @llvm.sqrt.f64(double %77)
+  %78 = extractelement <2 x double> %65, i64 0
+  %div.i80 = fdiv double %78, %sqrt.i.i78
+  %79 = extractelement <2 x double> %68, i64 0
+  %div2.i81 = fdiv double %79, %sqrt.i.i78
+  %80 = extractelement <2 x i1> %74, i64 0
+  %retval.sroa.3.0.i82 = select i1 %80, double %div2.i81, double 0.000000e+00
+  %retval.sroa.0.0.i83 = select i1 %80, double %div.i80, double 0.000000e+00
   %mul3.i86 = fmul double %sub3.i22, %retval.sroa.3.0.i82
-  %82 = call noundef double @llvm.fmuladd.f64(double %sub.i21, double %retval.sroa.0.0.i83, double %mul3.i86)
-  %fneg = fneg double %82
-  %cmp = fcmp ogt double %77, 0.000000e+00
+  %81 = call noundef double @llvm.fmuladd.f64(double %sub.i21, double %retval.sroa.0.0.i83, double %mul3.i86)
+  %fneg = fneg double %81
+  %cmp = fcmp ogt double %76, 0.000000e+00
   br i1 %cmp, label %if.then55, label %if.end63
 
 if.then55:                                        ; preds = %_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd.exit
-  %83 = extractelement <2 x double> %47, i64 0
-  %fneg.i = fneg double %83
-  %84 = extractelement <2 x double> %46, i64 0
-  %fneg1.i = fneg double %84
+  %82 = extractelement <2 x double> %47, i64 0
+  %fneg.i = fneg double %82
+  %83 = extractelement <2 x double> %46, i64 0
+  %fneg1.i = fneg double %83
   %mul3.i.i = fmul double %sub3.i, %fneg1.i
-  %85 = call noundef double @llvm.fmuladd.f64(double %sub.i20, double %fneg.i, double %mul3.i.i)
-  %cmp.i92 = fcmp ogt double %85, 0.000000e+00
+  %84 = call noundef double @llvm.fmuladd.f64(double %sub.i20, double %fneg.i, double %mul3.i.i)
+  %cmp.i92 = fcmp ogt double %84, 0.000000e+00
   br i1 %cmp.i92, label %if.then.i93, label %if.end
 
 if.then.i93:                                      ; preds = %if.then55
-  %neg.i.i = fmul double %sub3.i, %83
-  %86 = call noundef double @llvm.fmuladd.f64(double %sub.i20, double %fneg1.i, double %neg.i.i)
-  %87 = call double @llvm.fabs.f64(double %86)
-  %cmp5.i = fcmp olt double %87, %18
+  %neg.i.i = fmul double %sub3.i, %82
+  %85 = call noundef double @llvm.fmuladd.f64(double %sub.i20, double %fneg1.i, double %neg.i.i)
+  %86 = call double @llvm.fabs.f64(double %85)
+  %cmp5.i = fcmp olt double %86, %18
   br i1 %cmp5.i, label %if.then61, label %if.end
 
 if.then61:                                        ; preds = %if.then.i93
-  %fneg62 = fneg double %86
-  %cmp.i94 = fcmp ult double %86, 0.000000e+00
+  %fneg62 = fneg double %85
+  %cmp.i94 = fcmp ult double %85, 0.000000e+00
   br i1 %cmp.i94, label %if.end.i, label %land.lhs.true.i95
 
 land.lhs.true.i95:                                ; preds = %if.then61
   %minNegativePseudoDistance.i96 = getelementptr inbounds i8, ptr %this, i64 16
-  %88 = load double, ptr %minNegativePseudoDistance.i96, align 8
-  %cmp2.i = fcmp olt double %88, %fneg62
+  %87 = load double, ptr %minNegativePseudoDistance.i96, align 8
+  %cmp2.i = fcmp olt double %87, %fneg62
   br i1 %cmp2.i, label %if.then.i100, label %if.end.i
 
 if.then.i100:                                     ; preds = %land.lhs.true.i95
@@ -776,13 +777,13 @@ if.then.i100:                                     ; preds = %land.lhs.true.i95
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i100, %land.lhs.true.i95, %if.then61
-  %cmp4.i97 = fcmp ugt double %86, 0.000000e+00
+  %cmp4.i97 = fcmp ugt double %85, 0.000000e+00
   br i1 %cmp4.i97, label %if.end, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %if.end.i
   %minPositivePseudoDistance.i98 = getelementptr inbounds i8, ptr %this, i64 24
-  %89 = load double, ptr %minPositivePseudoDistance.i98, align 8
-  %cmp6.i99 = fcmp ogt double %89, %fneg62
+  %88 = load double, ptr %minPositivePseudoDistance.i98, align 8
+  %cmp6.i99 = fcmp ogt double %88, %fneg62
   br i1 %cmp6.i99, label %if.then7.i, label %if.end
 
 if.then7.i:                                       ; preds = %land.lhs.true5.i
@@ -796,62 +797,62 @@ if.end:                                           ; preds = %if.then55, %if.then
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end, %_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd.exit
-  %cmp64 = fcmp olt double %82, 0.000000e+00
+  %cmp64 = fcmp olt double %81, 0.000000e+00
   br i1 %cmp64, label %if.then65, label %if.end71
 
 if.then65:                                        ; preds = %if.end63
-  %90 = extractelement <2 x double> %61, i64 0
-  %mul3.i.i107 = fmul double %sub3.i22, %90
-  %91 = extractelement <2 x double> %62, i64 0
-  %92 = call noundef double @llvm.fmuladd.f64(double %sub.i21, double %91, double %mul3.i.i107)
-  %cmp.i108 = fcmp ogt double %92, 0.000000e+00
+  %89 = extractelement <2 x double> %61, i64 0
+  %mul3.i.i107 = fmul double %sub3.i22, %89
+  %90 = extractelement <2 x double> %62, i64 0
+  %91 = call noundef double @llvm.fmuladd.f64(double %sub.i21, double %90, double %mul3.i.i107)
+  %cmp.i108 = fcmp ogt double %91, 0.000000e+00
   br i1 %cmp.i108, label %if.then.i110, label %if.end70
 
 if.then.i110:                                     ; preds = %if.then65
-  %93 = fneg double %sub3.i22
-  %neg.i.i111 = fmul double %91, %93
-  %94 = call noundef double @llvm.fmuladd.f64(double %sub.i21, double %90, double %neg.i.i111)
-  %95 = call double @llvm.fabs.f64(double %94)
-  %cmp5.i112 = fcmp olt double %95, %18
+  %92 = fneg double %sub3.i22
+  %neg.i.i111 = fmul double %90, %92
+  %93 = call noundef double @llvm.fmuladd.f64(double %sub.i21, double %89, double %neg.i.i111)
+  %94 = call double @llvm.fabs.f64(double %93)
+  %cmp5.i112 = fcmp olt double %94, %18
   br i1 %cmp5.i112, label %if.then69, label %if.end70
 
 if.then69:                                        ; preds = %if.then.i110
-  %cmp.i115 = fcmp ugt double %94, 0.000000e+00
+  %cmp.i115 = fcmp ugt double %93, 0.000000e+00
   br i1 %cmp.i115, label %if.end.i119, label %land.lhs.true.i116
 
 land.lhs.true.i116:                               ; preds = %if.then69
   %minNegativePseudoDistance.i117 = getelementptr inbounds i8, ptr %this, i64 16
-  %96 = load double, ptr %minNegativePseudoDistance.i117, align 8
-  %cmp2.i118 = fcmp olt double %96, %94
+  %95 = load double, ptr %minNegativePseudoDistance.i117, align 8
+  %cmp2.i118 = fcmp olt double %95, %93
   br i1 %cmp2.i118, label %if.then.i125, label %if.end.i119
 
 if.then.i125:                                     ; preds = %land.lhs.true.i116
-  store double %94, ptr %minNegativePseudoDistance.i117, align 8
+  store double %93, ptr %minNegativePseudoDistance.i117, align 8
   br label %if.end.i119
 
 if.end.i119:                                      ; preds = %if.then.i125, %land.lhs.true.i116, %if.then69
-  %cmp4.i120 = fcmp ult double %94, 0.000000e+00
+  %cmp4.i120 = fcmp ult double %93, 0.000000e+00
   br i1 %cmp4.i120, label %if.end70, label %land.lhs.true5.i121
 
 land.lhs.true5.i121:                              ; preds = %if.end.i119
   %minPositivePseudoDistance.i122 = getelementptr inbounds i8, ptr %this, i64 24
-  %97 = load double, ptr %minPositivePseudoDistance.i122, align 8
-  %cmp6.i123 = fcmp ogt double %97, %94
+  %96 = load double, ptr %minPositivePseudoDistance.i122, align 8
+  %cmp6.i123 = fcmp ogt double %96, %93
   br i1 %cmp6.i123, label %if.then7.i124, label %if.end70
 
 if.then7.i124:                                    ; preds = %land.lhs.true5.i121
-  store double %94, ptr %minPositivePseudoDistance.i122, align 8
+  store double %93, ptr %minPositivePseudoDistance.i122, align 8
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then65, %if.then.i110, %if.then7.i124, %land.lhs.true5.i121, %if.end.i119
-  %pd66.0138 = phi double [ %94, %if.end.i119 ], [ %94, %land.lhs.true5.i121 ], [ %94, %if.then7.i124 ], [ %15, %if.then.i110 ], [ %15, %if.then65 ]
+  %pd66.0138 = phi double [ %93, %if.end.i119 ], [ %93, %land.lhs.true5.i121 ], [ %93, %if.then7.i124 ], [ %15, %if.then.i110 ], [ %15, %if.then65 ]
   %bPseudoDistance = getelementptr inbounds i8, ptr %cache, i64 48
   store double %pd66.0138, ptr %bPseudoDistance, align 8
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end70, %if.end63
   %aDomainDistance = getelementptr inbounds i8, ptr %cache, i64 24
-  store double %77, ptr %aDomainDistance, align 8
+  store double %76, ptr %aDomainDistance, align 8
   %bDomainDistance = getelementptr inbounds i8, ptr %cache, i64 32
   store double %fneg, ptr %bDomainDistance, align 8
   br label %if.end72
@@ -1399,7 +1400,7 @@ if.end33:                                         ; preds = %if.end27.if.end33_c
   %80 = insertelement <2 x double> %79, double %74, i64 1
   %81 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %80, <2 x double> %80, <2 x double> %78)
   %82 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %81)
-  %83 = fcmp une <2 x double> %82, zeroinitializer
+  %83 = fcmp une <2 x double> %81, zeroinitializer
   %84 = fdiv <2 x double> %80, %82
   %85 = fdiv <2 x double> %77, %82
   %86 = select <2 x i1> %83, <2 x double> %85, <2 x double> zeroinitializer
@@ -1417,7 +1418,7 @@ if.end33:                                         ; preds = %if.end27.if.end33_c
   %95 = insertelement <2 x double> %94, double %89, i64 1
   %96 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %95, <2 x double> %95, <2 x double> %93)
   %97 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %96)
-  %98 = fcmp une <2 x double> %97, zeroinitializer
+  %98 = fcmp une <2 x double> %96, zeroinitializer
   %99 = fdiv <2 x double> %95, %97
   %100 = fdiv <2 x double> %92, %97
   %101 = select <2 x i1> %98, <2 x double> %100, <2 x double> zeroinitializer
@@ -1430,64 +1431,65 @@ if.end33:                                         ; preds = %if.end27.if.end33_c
   %108 = fadd <2 x double> %106, %107
   %109 = fmul <2 x double> %108, %108
   %110 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %105, <2 x double> %105, <2 x double> %109)
-  %111 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %110)
-  %112 = extractelement <2 x double> %111, i64 1
-  %113 = extractelement <2 x double> %105, i64 1
-  %div.i206 = fdiv double %113, %112
-  %114 = extractelement <2 x double> %108, i64 1
-  %div2.i207 = fdiv double %114, %112
-  %115 = fcmp une <2 x double> %111, zeroinitializer
-  %116 = extractelement <2 x i1> %115, i64 1
-  %retval.sroa.3.0.i208 = select i1 %116, double %div2.i207, double 0.000000e+00
-  %retval.sroa.0.0.i209 = select i1 %116, double %div.i206, double 0.000000e+00
+  %111 = extractelement <2 x double> %110, i64 1
+  %sqrt.i.i204 = call noundef double @llvm.sqrt.f64(double %111)
+  %112 = extractelement <2 x double> %105, i64 1
+  %div.i206 = fdiv double %112, %sqrt.i.i204
+  %113 = extractelement <2 x double> %108, i64 1
+  %div2.i207 = fdiv double %113, %sqrt.i.i204
+  %114 = fcmp une <2 x double> %110, zeroinitializer
+  %115 = extractelement <2 x i1> %114, i64 1
+  %retval.sroa.3.0.i208 = select i1 %115, double %div2.i207, double 0.000000e+00
+  %retval.sroa.0.0.i209 = select i1 %115, double %div.i206, double 0.000000e+00
   %mul3.i = fmul double %sub3.i, %retval.sroa.3.0.i208
-  %117 = call noundef double @llvm.fmuladd.f64(double %sub.i160, double %retval.sroa.0.0.i209, double %mul3.i)
-  %118 = extractelement <2 x double> %111, i64 0
-  %119 = extractelement <2 x double> %105, i64 0
-  %div.i220 = fdiv double %119, %118
-  %120 = extractelement <2 x double> %108, i64 0
-  %div2.i221 = fdiv double %120, %118
-  %121 = extractelement <2 x i1> %115, i64 0
-  %retval.sroa.3.0.i222 = select i1 %121, double %div2.i221, double 0.000000e+00
-  %retval.sroa.0.0.i223 = select i1 %121, double %div.i220, double 0.000000e+00
+  %116 = call noundef double @llvm.fmuladd.f64(double %sub.i160, double %retval.sroa.0.0.i209, double %mul3.i)
+  %117 = extractelement <2 x double> %110, i64 0
+  %sqrt.i.i218 = call noundef double @llvm.sqrt.f64(double %117)
+  %118 = extractelement <2 x double> %105, i64 0
+  %div.i220 = fdiv double %118, %sqrt.i.i218
+  %119 = extractelement <2 x double> %108, i64 0
+  %div2.i221 = fdiv double %119, %sqrt.i.i218
+  %120 = extractelement <2 x i1> %114, i64 0
+  %retval.sroa.3.0.i222 = select i1 %120, double %div2.i221, double 0.000000e+00
+  %retval.sroa.0.0.i223 = select i1 %120, double %div.i220, double 0.000000e+00
   %mul3.i226 = fmul double %sub3.i162, %retval.sroa.3.0.i222
-  %122 = call noundef double @llvm.fmuladd.f64(double %sub.i161, double %retval.sroa.0.0.i223, double %mul3.i226)
-  %fneg = fneg double %122
-  %cmp = fcmp ogt double %117, 0.000000e+00
+  %121 = call noundef double @llvm.fmuladd.f64(double %sub.i161, double %retval.sroa.0.0.i223, double %mul3.i226)
+  %fneg = fneg double %121
+  %cmp = fcmp ogt double %116, 0.000000e+00
   br i1 %cmp, label %if.then85, label %if.end112
 
 if.then85:                                        ; preds = %if.end33
-  %123 = extractelement <2 x double> %87, i64 0
-  %fneg.i = fneg double %123
-  %124 = extractelement <2 x double> %86, i64 0
-  %fneg1.i = fneg double %124
+  %122 = extractelement <2 x double> %87, i64 0
+  %fneg.i = fneg double %122
+  %123 = extractelement <2 x double> %86, i64 0
+  %fneg1.i = fneg double %123
   %mul3.i.i = fmul double %sub3.i, %fneg1.i
-  %125 = call noundef double @llvm.fmuladd.f64(double %sub.i160, double %fneg.i, double %mul3.i.i)
-  %cmp.i232 = fcmp ogt double %125, 0.000000e+00
+  %124 = call noundef double @llvm.fmuladd.f64(double %sub.i160, double %fneg.i, double %mul3.i.i)
+  %cmp.i232 = fcmp ogt double %124, 0.000000e+00
   br i1 %cmp.i232, label %if.then.i233, label %if.end111
 
 if.then.i233:                                     ; preds = %if.then85
-  %neg.i.i = fmul double %sub3.i, %123
-  %126 = call noundef double @llvm.fmuladd.f64(double %sub.i160, double %fneg1.i, double %neg.i.i)
-  %127 = call double @llvm.fabs.f64(double %126)
-  %cmp5.i = fcmp olt double %127, %.pre-phi
+  %neg.i.i = fmul double %sub3.i, %122
+  %125 = call noundef double @llvm.fmuladd.f64(double %sub.i160, double %fneg1.i, double %neg.i.i)
+  %126 = call double @llvm.fabs.f64(double %125)
+  %cmp5.i = fcmp olt double %126, %.pre-phi
   br i1 %cmp5.i, label %if.then91, label %if.end111
 
 if.then91:                                        ; preds = %if.then.i233
-  %fneg92 = fneg double %126
-  %128 = load i32, ptr %color, align 8
-  %and94 = and i32 %128, 1
+  %fneg92 = fneg double %125
+  %127 = load i32, ptr %color, align 8
+  %and94 = and i32 %127, 1
   %tobool95.not = icmp eq i32 %and94, 0
   br i1 %tobool95.not, label %if.end98, label %if.then96
 
 if.then96:                                        ; preds = %if.then91
-  %cmp.i234 = fcmp ult double %126, 0.000000e+00
+  %cmp.i234 = fcmp ult double %125, 0.000000e+00
   br i1 %cmp.i234, label %if.end.i, label %land.lhs.true.i235
 
 land.lhs.true.i235:                               ; preds = %if.then96
   %minNegativePseudoDistance.i236 = getelementptr inbounds i8, ptr %this, i64 32
-  %129 = load double, ptr %minNegativePseudoDistance.i236, align 8
-  %cmp2.i = fcmp olt double %129, %fneg92
+  %128 = load double, ptr %minNegativePseudoDistance.i236, align 8
+  %cmp2.i = fcmp olt double %128, %fneg92
   br i1 %cmp2.i, label %if.then.i240, label %if.end.i
 
 if.then.i240:                                     ; preds = %land.lhs.true.i235
@@ -1495,13 +1497,13 @@ if.then.i240:                                     ; preds = %land.lhs.true.i235
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i240, %land.lhs.true.i235, %if.then96
-  %cmp4.i237 = fcmp ugt double %126, 0.000000e+00
+  %cmp4.i237 = fcmp ugt double %125, 0.000000e+00
   br i1 %cmp4.i237, label %if.end98, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %if.end.i
   %minPositivePseudoDistance.i238 = getelementptr inbounds i8, ptr %this, i64 40
-  %130 = load double, ptr %minPositivePseudoDistance.i238, align 8
-  %cmp6.i239 = fcmp ogt double %130, %fneg92
+  %129 = load double, ptr %minPositivePseudoDistance.i238, align 8
+  %cmp6.i239 = fcmp ogt double %129, %fneg92
   br i1 %cmp6.i239, label %if.then7.i, label %if.end98
 
 if.then7.i:                                       ; preds = %land.lhs.true5.i
@@ -1509,19 +1511,19 @@ if.then7.i:                                       ; preds = %land.lhs.true5.i
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then7.i, %land.lhs.true5.i, %if.end.i, %if.then91
-  %131 = load i32, ptr %color, align 8
-  %and100 = and i32 %131, 2
+  %130 = load i32, ptr %color, align 8
+  %and100 = and i32 %130, 2
   %tobool101.not = icmp eq i32 %and100, 0
   br i1 %tobool101.not, label %if.end104, label %if.then102
 
 if.then102:                                       ; preds = %if.end98
-  %cmp.i241 = fcmp ult double %126, 0.000000e+00
+  %cmp.i241 = fcmp ult double %125, 0.000000e+00
   br i1 %cmp.i241, label %if.end.i245, label %land.lhs.true.i242
 
 land.lhs.true.i242:                               ; preds = %if.then102
   %minNegativePseudoDistance.i243 = getelementptr inbounds i8, ptr %this, i64 80
-  %132 = load double, ptr %minNegativePseudoDistance.i243, align 8
-  %cmp2.i244 = fcmp olt double %132, %fneg92
+  %131 = load double, ptr %minNegativePseudoDistance.i243, align 8
+  %cmp2.i244 = fcmp olt double %131, %fneg92
   br i1 %cmp2.i244, label %if.then.i251, label %if.end.i245
 
 if.then.i251:                                     ; preds = %land.lhs.true.i242
@@ -1529,13 +1531,13 @@ if.then.i251:                                     ; preds = %land.lhs.true.i242
   br label %if.end.i245
 
 if.end.i245:                                      ; preds = %if.then.i251, %land.lhs.true.i242, %if.then102
-  %cmp4.i246 = fcmp ugt double %126, 0.000000e+00
+  %cmp4.i246 = fcmp ugt double %125, 0.000000e+00
   br i1 %cmp4.i246, label %if.end104, label %land.lhs.true5.i247
 
 land.lhs.true5.i247:                              ; preds = %if.end.i245
   %minPositivePseudoDistance.i248 = getelementptr inbounds i8, ptr %this, i64 88
-  %133 = load double, ptr %minPositivePseudoDistance.i248, align 8
-  %cmp6.i249 = fcmp ogt double %133, %fneg92
+  %132 = load double, ptr %minPositivePseudoDistance.i248, align 8
+  %cmp6.i249 = fcmp ogt double %132, %fneg92
   br i1 %cmp6.i249, label %if.then7.i250, label %if.end104
 
 if.then7.i250:                                    ; preds = %land.lhs.true5.i247
@@ -1543,19 +1545,19 @@ if.then7.i250:                                    ; preds = %land.lhs.true5.i247
   br label %if.end104
 
 if.end104:                                        ; preds = %if.then7.i250, %land.lhs.true5.i247, %if.end.i245, %if.end98
-  %134 = load i32, ptr %color, align 8
-  %and106 = and i32 %134, 4
+  %133 = load i32, ptr %color, align 8
+  %and106 = and i32 %133, 4
   %tobool107.not = icmp eq i32 %and106, 0
   br i1 %tobool107.not, label %if.end111, label %if.then108
 
 if.then108:                                       ; preds = %if.end104
-  %cmp.i253 = fcmp ult double %126, 0.000000e+00
+  %cmp.i253 = fcmp ult double %125, 0.000000e+00
   br i1 %cmp.i253, label %if.end.i257, label %land.lhs.true.i254
 
 land.lhs.true.i254:                               ; preds = %if.then108
   %minNegativePseudoDistance.i255 = getelementptr inbounds i8, ptr %this, i64 128
-  %135 = load double, ptr %minNegativePseudoDistance.i255, align 8
-  %cmp2.i256 = fcmp olt double %135, %fneg92
+  %134 = load double, ptr %minNegativePseudoDistance.i255, align 8
+  %cmp2.i256 = fcmp olt double %134, %fneg92
   br i1 %cmp2.i256, label %if.then.i263, label %if.end.i257
 
 if.then.i263:                                     ; preds = %land.lhs.true.i254
@@ -1563,13 +1565,13 @@ if.then.i263:                                     ; preds = %land.lhs.true.i254
   br label %if.end.i257
 
 if.end.i257:                                      ; preds = %if.then.i263, %land.lhs.true.i254, %if.then108
-  %cmp4.i258 = fcmp ugt double %126, 0.000000e+00
+  %cmp4.i258 = fcmp ugt double %125, 0.000000e+00
   br i1 %cmp4.i258, label %if.end111, label %land.lhs.true5.i259
 
 land.lhs.true5.i259:                              ; preds = %if.end.i257
   %minPositivePseudoDistance.i260 = getelementptr inbounds i8, ptr %this, i64 136
-  %136 = load double, ptr %minPositivePseudoDistance.i260, align 8
-  %cmp6.i261 = fcmp ogt double %136, %fneg92
+  %135 = load double, ptr %minPositivePseudoDistance.i260, align 8
+  %cmp6.i261 = fcmp ogt double %135, %fneg92
   br i1 %cmp6.i261, label %if.then7.i262, label %if.end111
 
 if.then7.i262:                                    ; preds = %land.lhs.true5.i259
@@ -1583,136 +1585,136 @@ if.end111:                                        ; preds = %if.then85, %if.then
   br label %if.end112
 
 if.end112:                                        ; preds = %if.end111, %if.end33
-  %cmp113 = fcmp olt double %122, 0.000000e+00
+  %cmp113 = fcmp olt double %121, 0.000000e+00
   br i1 %cmp113, label %if.then114, label %if.end138
 
 if.then114:                                       ; preds = %if.end112
-  %137 = extractelement <2 x double> %101, i64 0
-  %mul3.i.i271 = fmul double %sub3.i162, %137
-  %138 = extractelement <2 x double> %102, i64 0
-  %139 = call noundef double @llvm.fmuladd.f64(double %sub.i161, double %138, double %mul3.i.i271)
-  %cmp.i272 = fcmp ogt double %139, 0.000000e+00
+  %136 = extractelement <2 x double> %101, i64 0
+  %mul3.i.i271 = fmul double %sub3.i162, %136
+  %137 = extractelement <2 x double> %102, i64 0
+  %138 = call noundef double @llvm.fmuladd.f64(double %sub.i161, double %137, double %mul3.i.i271)
+  %cmp.i272 = fcmp ogt double %138, 0.000000e+00
   br i1 %cmp.i272, label %if.then.i274, label %if.end137
 
 if.then.i274:                                     ; preds = %if.then114
-  %140 = fneg double %sub3.i162
-  %neg.i.i275 = fmul double %138, %140
-  %141 = call noundef double @llvm.fmuladd.f64(double %sub.i161, double %137, double %neg.i.i275)
-  %142 = call double @llvm.fabs.f64(double %141)
-  %cmp5.i276 = fcmp olt double %142, %.pre-phi
+  %139 = fneg double %sub3.i162
+  %neg.i.i275 = fmul double %137, %139
+  %140 = call noundef double @llvm.fmuladd.f64(double %sub.i161, double %136, double %neg.i.i275)
+  %141 = call double @llvm.fabs.f64(double %140)
+  %cmp5.i276 = fcmp olt double %141, %.pre-phi
   br i1 %cmp5.i276, label %if.then118, label %if.end137
 
 if.then118:                                       ; preds = %if.then.i274
-  %143 = load i32, ptr %color, align 8
-  %and120 = and i32 %143, 1
+  %142 = load i32, ptr %color, align 8
+  %and120 = and i32 %142, 1
   %tobool121.not = icmp eq i32 %and120, 0
   br i1 %tobool121.not, label %if.end124, label %if.then122
 
 if.then122:                                       ; preds = %if.then118
-  %cmp.i279 = fcmp ugt double %141, 0.000000e+00
+  %cmp.i279 = fcmp ugt double %140, 0.000000e+00
   br i1 %cmp.i279, label %if.end.i283, label %land.lhs.true.i280
 
 land.lhs.true.i280:                               ; preds = %if.then122
   %minNegativePseudoDistance.i281 = getelementptr inbounds i8, ptr %this, i64 32
-  %144 = load double, ptr %minNegativePseudoDistance.i281, align 8
-  %cmp2.i282 = fcmp olt double %144, %141
+  %143 = load double, ptr %minNegativePseudoDistance.i281, align 8
+  %cmp2.i282 = fcmp olt double %143, %140
   br i1 %cmp2.i282, label %if.then.i289, label %if.end.i283
 
 if.then.i289:                                     ; preds = %land.lhs.true.i280
-  store double %141, ptr %minNegativePseudoDistance.i281, align 8
+  store double %140, ptr %minNegativePseudoDistance.i281, align 8
   br label %if.end.i283
 
 if.end.i283:                                      ; preds = %if.then.i289, %land.lhs.true.i280, %if.then122
-  %cmp4.i284 = fcmp ult double %141, 0.000000e+00
+  %cmp4.i284 = fcmp ult double %140, 0.000000e+00
   br i1 %cmp4.i284, label %if.end124, label %land.lhs.true5.i285
 
 land.lhs.true5.i285:                              ; preds = %if.end.i283
   %minPositivePseudoDistance.i286 = getelementptr inbounds i8, ptr %this, i64 40
-  %145 = load double, ptr %minPositivePseudoDistance.i286, align 8
-  %cmp6.i287 = fcmp ogt double %145, %141
+  %144 = load double, ptr %minPositivePseudoDistance.i286, align 8
+  %cmp6.i287 = fcmp ogt double %144, %140
   br i1 %cmp6.i287, label %if.then7.i288, label %if.end124
 
 if.then7.i288:                                    ; preds = %land.lhs.true5.i285
-  store double %141, ptr %minPositivePseudoDistance.i286, align 8
+  store double %140, ptr %minPositivePseudoDistance.i286, align 8
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then7.i288, %land.lhs.true5.i285, %if.end.i283, %if.then118
-  %146 = load i32, ptr %color, align 8
-  %and126 = and i32 %146, 2
+  %145 = load i32, ptr %color, align 8
+  %and126 = and i32 %145, 2
   %tobool127.not = icmp eq i32 %and126, 0
   br i1 %tobool127.not, label %if.end130, label %if.then128
 
 if.then128:                                       ; preds = %if.end124
-  %cmp.i291 = fcmp ugt double %141, 0.000000e+00
+  %cmp.i291 = fcmp ugt double %140, 0.000000e+00
   br i1 %cmp.i291, label %if.end.i295, label %land.lhs.true.i292
 
 land.lhs.true.i292:                               ; preds = %if.then128
   %minNegativePseudoDistance.i293 = getelementptr inbounds i8, ptr %this, i64 80
-  %147 = load double, ptr %minNegativePseudoDistance.i293, align 8
-  %cmp2.i294 = fcmp olt double %147, %141
+  %146 = load double, ptr %minNegativePseudoDistance.i293, align 8
+  %cmp2.i294 = fcmp olt double %146, %140
   br i1 %cmp2.i294, label %if.then.i301, label %if.end.i295
 
 if.then.i301:                                     ; preds = %land.lhs.true.i292
-  store double %141, ptr %minNegativePseudoDistance.i293, align 8
+  store double %140, ptr %minNegativePseudoDistance.i293, align 8
   br label %if.end.i295
 
 if.end.i295:                                      ; preds = %if.then.i301, %land.lhs.true.i292, %if.then128
-  %cmp4.i296 = fcmp ult double %141, 0.000000e+00
+  %cmp4.i296 = fcmp ult double %140, 0.000000e+00
   br i1 %cmp4.i296, label %if.end130, label %land.lhs.true5.i297
 
 land.lhs.true5.i297:                              ; preds = %if.end.i295
   %minPositivePseudoDistance.i298 = getelementptr inbounds i8, ptr %this, i64 88
-  %148 = load double, ptr %minPositivePseudoDistance.i298, align 8
-  %cmp6.i299 = fcmp ogt double %148, %141
+  %147 = load double, ptr %minPositivePseudoDistance.i298, align 8
+  %cmp6.i299 = fcmp ogt double %147, %140
   br i1 %cmp6.i299, label %if.then7.i300, label %if.end130
 
 if.then7.i300:                                    ; preds = %land.lhs.true5.i297
-  store double %141, ptr %minPositivePseudoDistance.i298, align 8
+  store double %140, ptr %minPositivePseudoDistance.i298, align 8
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then7.i300, %land.lhs.true5.i297, %if.end.i295, %if.end124
-  %149 = load i32, ptr %color, align 8
-  %and132 = and i32 %149, 4
+  %148 = load i32, ptr %color, align 8
+  %and132 = and i32 %148, 4
   %tobool133.not = icmp eq i32 %and132, 0
   br i1 %tobool133.not, label %if.end137, label %if.then134
 
 if.then134:                                       ; preds = %if.end130
-  %cmp.i303 = fcmp ugt double %141, 0.000000e+00
+  %cmp.i303 = fcmp ugt double %140, 0.000000e+00
   br i1 %cmp.i303, label %if.end.i307, label %land.lhs.true.i304
 
 land.lhs.true.i304:                               ; preds = %if.then134
   %minNegativePseudoDistance.i305 = getelementptr inbounds i8, ptr %this, i64 128
-  %150 = load double, ptr %minNegativePseudoDistance.i305, align 8
-  %cmp2.i306 = fcmp olt double %150, %141
+  %149 = load double, ptr %minNegativePseudoDistance.i305, align 8
+  %cmp2.i306 = fcmp olt double %149, %140
   br i1 %cmp2.i306, label %if.then.i313, label %if.end.i307
 
 if.then.i313:                                     ; preds = %land.lhs.true.i304
-  store double %141, ptr %minNegativePseudoDistance.i305, align 8
+  store double %140, ptr %minNegativePseudoDistance.i305, align 8
   br label %if.end.i307
 
 if.end.i307:                                      ; preds = %if.then.i313, %land.lhs.true.i304, %if.then134
-  %cmp4.i308 = fcmp ult double %141, 0.000000e+00
+  %cmp4.i308 = fcmp ult double %140, 0.000000e+00
   br i1 %cmp4.i308, label %if.end137, label %land.lhs.true5.i309
 
 land.lhs.true5.i309:                              ; preds = %if.end.i307
   %minPositivePseudoDistance.i310 = getelementptr inbounds i8, ptr %this, i64 136
-  %151 = load double, ptr %minPositivePseudoDistance.i310, align 8
-  %cmp6.i311 = fcmp ogt double %151, %141
+  %150 = load double, ptr %minPositivePseudoDistance.i310, align 8
+  %cmp6.i311 = fcmp ogt double %150, %140
   br i1 %cmp6.i311, label %if.then7.i312, label %if.end137
 
 if.then7.i312:                                    ; preds = %land.lhs.true5.i309
-  store double %141, ptr %minPositivePseudoDistance.i310, align 8
+  store double %140, ptr %minPositivePseudoDistance.i310, align 8
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then114, %if.then.i274, %if.then7.i312, %land.lhs.true5.i309, %if.end.i307, %if.end130
-  %pd115.0336 = phi double [ %141, %if.end130 ], [ %141, %if.end.i307 ], [ %141, %land.lhs.true5.i309 ], [ %141, %if.then7.i312 ], [ %44, %if.then.i274 ], [ %44, %if.then114 ]
+  %pd115.0336 = phi double [ %140, %if.end130 ], [ %140, %if.end.i307 ], [ %140, %land.lhs.true5.i309 ], [ %140, %if.then7.i312 ], [ %44, %if.then.i274 ], [ %44, %if.then114 ]
   %bPseudoDistance = getelementptr inbounds i8, ptr %cache, i64 48
   store double %pd115.0336, ptr %bPseudoDistance, align 8
   br label %if.end138
 
 if.end138:                                        ; preds = %if.end137, %if.end112
   %aDomainDistance = getelementptr inbounds i8, ptr %cache, i64 24
-  store double %117, ptr %aDomainDistance, align 8
+  store double %116, ptr %aDomainDistance, align 8
   %bDomainDistance = getelementptr inbounds i8, ptr %cache, i64 32
   store double %fneg, ptr %bDomainDistance, align 8
   br label %if.end139

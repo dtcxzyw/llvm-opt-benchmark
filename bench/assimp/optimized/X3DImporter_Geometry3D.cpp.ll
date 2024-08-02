@@ -5318,19 +5318,25 @@ if.end28.i:                                       ; preds = %if.else21.i, %if.el
   %142 = extractelement <2 x float> %139, i64 0
   %143 = call float @llvm.fmuladd.f32(float %142, float %142, float %mul4.i.i.i.i)
   %144 = call noundef float @llvm.fmuladd.f32(float %sub5.i.i, float %sub5.i.i, float %143)
+  %cmp.i.i715 = fcmp oeq float %144, 0.000000e+00
+  br i1 %cmp.i.i715, label %invoke.cont158, label %_ZN10aiVector3tIfEdVEf.exit.i.i
+
+_ZN10aiVector3tIfEdVEf.exit.i.i:                  ; preds = %if.end28.i
   %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %144)
-  %cmp.i.i715 = fcmp oeq float %sqrt.i.i.i, 0.000000e+00
   %div.i.i.i = fdiv float 1.000000e+00, %sqrt.i.i.i
   %145 = insertelement <2 x float> poison, float %div.i.i.i, i64 0
   %146 = shufflevector <2 x float> %145, <2 x float> poison, <2 x i32> zeroinitializer
   %147 = fmul <2 x float> %139, %146
   %mul3.i.i.i = fmul float %sub5.i.i, %div.i.i.i
-  %tvec.sroa.11.1.i = select i1 %cmp.i.i715, float %sub5.i.i, float %mul3.i.i.i
-  %tvec.sroa.0.1.i = select i1 %cmp.i.i715, <2 x float> %139, <2 x float> %147
+  br label %invoke.cont158
+
+invoke.cont158:                                   ; preds = %_ZN10aiVector3tIfEdVEf.exit.i.i, %if.end28.i
+  %tvec.sroa.11.1.i = phi float [ %sub5.i.i, %if.end28.i ], [ %mul3.i.i.i, %_ZN10aiVector3tIfEdVEf.exit.i.i ]
+  %tvec.sroa.0.1.i = phi <2 x float> [ %139, %if.end28.i ], [ %147, %_ZN10aiVector3tIfEdVEf.exit.i.i ]
   %cmp.i728 = icmp ult i64 %sub.ptr.div.i.i712, 3
   br i1 %cmp.i728, label %if.end85.i, label %if.else.i729
 
-if.else.i729:                                     ; preds = %if.end28.i
+if.else.i729:                                     ; preds = %invoke.cont158
   br i1 %cmp.i714, label %if.then3.i, label %if.else41.i
 
 if.then3.i:                                       ; preds = %if.else.i729
@@ -5534,9 +5540,9 @@ if.else65.i:                                      ; preds = %if.else41.i
 if.then81.i:                                      ; preds = %if.else65.i
   br label %if.end85.i
 
-if.end85.i:                                       ; preds = %for.body.i740, %if.then81.i, %if.else65.i, %if.then61.i, %if.then45.i, %if.then43.i, %if.then39.i, %for.end.i, %if.then4.i, %if.end28.i
-  %tvec.sroa.0.1.i730 = phi <2 x float> [ %168, %if.then4.i ], [ %193, %for.end.i ], [ zeroinitializer, %if.then39.i ], [ %vecZ.sroa.0.02112, %if.then61.i ], [ %vecZ.sroa.0.02112, %if.then81.i ], [ zeroinitializer, %if.end28.i ], [ %vecZ.sroa.0.02112, %if.then43.i ], [ %223, %if.then45.i ], [ %254, %if.else65.i ], [ %193, %for.body.i740 ]
-  %tvec.sroa.29.1.i = phi float [ %172, %if.then4.i ], [ %197, %for.end.i ], [ 1.000000e+00, %if.then39.i ], [ %vecZ.sroa.7.02113, %if.then61.i ], [ %vecZ.sroa.7.02113, %if.then81.i ], [ 1.000000e+00, %if.end28.i ], [ %vecZ.sroa.7.02113, %if.then43.i ], [ %227, %if.then45.i ], [ %258, %if.else65.i ], [ %197, %for.body.i740 ]
+if.end85.i:                                       ; preds = %for.body.i740, %if.then81.i, %if.else65.i, %if.then61.i, %if.then45.i, %if.then43.i, %if.then39.i, %for.end.i, %if.then4.i, %invoke.cont158
+  %tvec.sroa.0.1.i730 = phi <2 x float> [ %168, %if.then4.i ], [ %193, %for.end.i ], [ zeroinitializer, %if.then39.i ], [ %vecZ.sroa.0.02112, %if.then61.i ], [ %vecZ.sroa.0.02112, %if.then81.i ], [ zeroinitializer, %invoke.cont158 ], [ %vecZ.sroa.0.02112, %if.then43.i ], [ %223, %if.then45.i ], [ %254, %if.else65.i ], [ %193, %for.body.i740 ]
+  %tvec.sroa.29.1.i = phi float [ %172, %if.then4.i ], [ %197, %for.end.i ], [ 1.000000e+00, %if.then39.i ], [ %vecZ.sroa.7.02113, %if.then61.i ], [ %vecZ.sroa.7.02113, %if.then81.i ], [ 1.000000e+00, %invoke.cont158 ], [ %vecZ.sroa.7.02113, %if.then43.i ], [ %227, %if.then45.i ], [ %258, %if.else65.i ], [ %197, %for.body.i740 ]
   %pVecZ_Prev.sroa.0.0.vec.extract.i = extractelement <2 x float> %vecZ.sroa.0.02112, i64 0
   %264 = fmul <2 x float> %vecZ.sroa.0.02112, %tvec.sroa.0.1.i730
   %mul3.i.i = extractelement <2 x float> %264, i64 1
@@ -5553,15 +5559,21 @@ if.end85.i:                                       ; preds = %for.body.i740, %if.
   %271 = extractelement <2 x float> %269, i64 0
   %272 = call float @llvm.fmuladd.f32(float %271, float %271, float %mul4.i.i.i.i731)
   %273 = call noundef float @llvm.fmuladd.f32(float %tvec.sroa.29.2.i, float %tvec.sroa.29.2.i, float %272)
-  %sqrt.i.i.i732 = call noundef float @llvm.sqrt.f32(float %273)
-  %cmp.i219.i = fcmp oeq float %sqrt.i.i.i732, 0.000000e+00
-  %div.i.i.i734 = fdiv float 1.000000e+00, %sqrt.i.i.i732
+  %cmp.i219.i = fcmp oeq float %273, 0.000000e+00
+  br i1 %cmp.i219.i, label %invoke.cont166, label %_ZN10aiVector3tIfEdVEf.exit.i.i732
+
+_ZN10aiVector3tIfEdVEf.exit.i.i732:               ; preds = %if.end85.i
+  %sqrt.i.i.i733 = call noundef float @llvm.sqrt.f32(float %273)
+  %div.i.i.i734 = fdiv float 1.000000e+00, %sqrt.i.i.i733
   %274 = insertelement <2 x float> poison, float %div.i.i.i734, i64 0
   %275 = shufflevector <2 x float> %274, <2 x float> poison, <2 x i32> zeroinitializer
   %276 = fmul <2 x float> %269, %275
   %mul3.i.i.i737 = fmul float %tvec.sroa.29.2.i, %div.i.i.i734
-  %tvec.sroa.0.3.i = select i1 %cmp.i219.i, <2 x float> %269, <2 x float> %276
-  %tvec.sroa.29.3.i = select i1 %cmp.i219.i, float %tvec.sroa.29.2.i, float %mul3.i.i.i737
+  br label %invoke.cont166
+
+invoke.cont166:                                   ; preds = %if.end85.i, %_ZN10aiVector3tIfEdVEf.exit.i.i732
+  %tvec.sroa.0.3.i = phi <2 x float> [ %269, %if.end85.i ], [ %276, %_ZN10aiVector3tIfEdVEf.exit.i.i732 ]
+  %tvec.sroa.29.3.i = phi float [ %tvec.sroa.29.2.i, %if.end85.i ], [ %mul3.i.i.i737, %_ZN10aiVector3tIfEdVEf.exit.i.i732 ]
   %vecY.sroa.0.4.vec.extract = extractelement <2 x float> %tvec.sroa.0.1.i, i64 1
   %vecZ.sroa.0.4.vec.extract = extractelement <2 x float> %tvec.sroa.0.3.i, i64 1
   %277 = fneg float %tvec.sroa.11.1.i
@@ -5580,11 +5592,11 @@ if.end85.i:                                       ; preds = %for.body.i740, %if.
   %mul4.i.i.i = fmul float %280, %280
   %283 = call float @llvm.fmuladd.f32(float %278, float %278, float %mul4.i.i.i)
   %284 = call noundef float @llvm.fmuladd.f32(float %282, float %282, float %283)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %284)
-  %cmp.i755 = fcmp oeq float %sqrt.i.i, 0.000000e+00
+  %cmp.i755 = fcmp oeq float %284, 0.000000e+00
   br i1 %cmp.i755, label %invoke.cont198, label %_ZN10aiVector3tIfEdVEf.exit.i
 
-_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %if.end85.i
+_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %invoke.cont166
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %284)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %mul.i.i = fmul float %278, %div.i.i
   %ref.tmp165.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul.i.i, i64 0
@@ -5593,9 +5605,9 @@ _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %if.end85.i
   %mul3.i.i756 = fmul float %282, %div.i.i
   br label %invoke.cont198
 
-invoke.cont198:                                   ; preds = %_ZN10aiVector3tIfEdVEf.exit.i, %if.end85.i
-  %ref.tmp165.sroa.6.0 = phi float [ %282, %if.end85.i ], [ %mul3.i.i756, %_ZN10aiVector3tIfEdVEf.exit.i ]
-  %ref.tmp165.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %if.end85.i ], [ %ref.tmp165.sroa.0.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i ]
+invoke.cont198:                                   ; preds = %_ZN10aiVector3tIfEdVEf.exit.i, %invoke.cont166
+  %ref.tmp165.sroa.6.0 = phi float [ %282, %invoke.cont166 ], [ %mul3.i.i756, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %ref.tmp165.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %invoke.cont166 ], [ %ref.tmp165.sroa.0.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i ]
   %mul171 = shl i64 %i151.02114, 2
   %add = or disjoint i64 %mul171, 3
   %285 = load ptr, ptr %orientation, align 8

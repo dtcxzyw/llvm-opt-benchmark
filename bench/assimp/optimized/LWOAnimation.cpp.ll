@@ -2278,8 +2278,8 @@ arrayctor.loop110:                                ; preds = %arrayctor.loop110, 
 
 arrayctor.cont114:                                ; preds = %arrayctor.loop110, %invoke.cont105
   store ptr %call106, ptr %mRotationKeys.i, align 8
-  %cmp119184.not = icmp eq i32 %conv103, 0
-  br i1 %cmp119184.not, label %for.end, label %invoke.cont144
+  %cmp119188.not = icmp eq i32 %conv103, 0
+  br i1 %cmp119188.not, label %for.end, label %invoke.cont144
 
 invoke.cont144:                                   ; preds = %arrayctor.cont114, %invoke.cont144
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont144 ], [ 0, %arrayctor.cont114 ]
@@ -2295,28 +2295,28 @@ invoke.cont144:                                   ; preds = %arrayctor.cont114, 
   %call.i4.i = tail call noundef float @cosf(float noundef %div.i) #18
   %y = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   %54 = load float, ptr %y, align 4
-  %div.i103 = fmul float %54, 5.000000e-01
-  %call.i.i104 = tail call noundef float @sinf(float noundef %div.i103) #18
-  %call.i4.i105 = tail call noundef float @cosf(float noundef %div.i103) #18
+  %div.i104 = fmul float %54, 5.000000e-01
+  %call.i.i105 = tail call noundef float @sinf(float noundef %div.i104) #18
+  %call.i4.i106 = tail call noundef float @cosf(float noundef %div.i104) #18
   %neg6.i = fneg float %call.i.i
   %z = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %55 = load float, ptr %z, align 8
-  %div.i127 = fmul float %55, 5.000000e-01
-  %call.i.i128 = tail call noundef float @sinf(float noundef %div.i127) #18
-  %call.i4.i129 = tail call noundef float @cosf(float noundef %div.i127) #18
-  %mul.i130 = fmul float %call.i.i128, 0.000000e+00
+  %div.i130 = fmul float %55, 5.000000e-01
+  %call.i.i131 = tail call noundef float @sinf(float noundef %div.i130) #18
+  %call.i4.i132 = tail call noundef float @cosf(float noundef %div.i130) #18
+  %mul.i133 = fmul float %call.i.i131, 0.000000e+00
   %56 = insertelement <2 x float> poison, float %call.i.i, i64 0
-  %57 = insertelement <2 x float> %56, float %call.i.i104, i64 1
+  %57 = insertelement <2 x float> %56, float %call.i.i105, i64 1
   %58 = fmul <2 x float> %57, zeroinitializer
   %59 = extractelement <2 x float> %58, i64 0
   %60 = fneg float %59
-  %neg.i = fmul float %call.i.i104, %60
-  %61 = tail call float @llvm.fmuladd.f32(float %call.i4.i, float %call.i4.i105, float %neg.i)
+  %neg.i = fmul float %call.i.i105, %60
+  %61 = tail call float @llvm.fmuladd.f32(float %call.i4.i, float %call.i4.i106, float %neg.i)
   %62 = extractelement <2 x float> %58, i64 1
   %63 = tail call float @llvm.fmuladd.f32(float %neg6.i, float %62, float %61)
   %64 = tail call float @llvm.fmuladd.f32(float %60, float %62, float %63)
   %65 = shufflevector <2 x float> %56, <2 x float> %58, <2 x i32> <i32 0, i32 2>
-  %66 = insertelement <2 x float> poison, float %call.i4.i105, i64 0
+  %66 = insertelement <2 x float> poison, float %call.i4.i106, i64 0
   %67 = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> zeroinitializer
   %68 = fmul <2 x float> %65, %67
   %69 = insertelement <2 x float> poison, float %call.i4.i, i64 0
@@ -2332,11 +2332,11 @@ invoke.cont144:                                   ; preds = %arrayctor.cont114, 
   %79 = extractelement <2 x float> %68, i64 1
   %80 = tail call float @llvm.fmuladd.f32(float %call.i4.i, float %62, float %79)
   %81 = tail call float @llvm.fmuladd.f32(float %59, float %62, float %80)
-  %82 = tail call float @llvm.fmuladd.f32(float %neg6.i, float %call.i.i104, float %81)
+  %82 = tail call float @llvm.fmuladd.f32(float %neg6.i, float %call.i.i105, float %81)
   %83 = fneg <2 x float> %78
-  %neg8.i144 = fneg float %82
-  %84 = insertelement <2 x float> poison, float %call.i4.i129, i64 0
-  %85 = insertelement <2 x float> %84, float %mul.i130, i64 1
+  %neg8.i148 = fneg float %82
+  %84 = insertelement <2 x float> poison, float %call.i4.i132, i64 0
+  %85 = insertelement <2 x float> %84, float %mul.i133, i64 1
   %86 = shufflevector <2 x float> %78, <2 x float> %83, <2 x i32> <i32 1, i32 3>
   %87 = fmul <2 x float> %85, %86
   %88 = insertelement <2 x float> poison, float %64, i64 0
@@ -2344,10 +2344,10 @@ invoke.cont144:                                   ; preds = %arrayctor.cont114, 
   %90 = shufflevector <2 x float> %85, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %91 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %89, <2 x float> %90, <2 x float> %87)
   %92 = shufflevector <2 x float> %78, <2 x float> %83, <2 x i32> <i32 0, i32 2>
-  %93 = insertelement <2 x float> poison, float %call.i.i128, i64 0
-  %94 = insertelement <2 x float> %93, float %mul.i130, i64 1
+  %93 = insertelement <2 x float> poison, float %call.i.i131, i64 0
+  %94 = insertelement <2 x float> %93, float %mul.i133, i64 1
   %95 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %92, <2 x float> %94, <2 x float> %91)
-  %96 = insertelement <2 x float> poison, float %neg8.i144, i64 0
+  %96 = insertelement <2 x float> poison, float %neg8.i148, i64 0
   %97 = shufflevector <2 x float> %96, <2 x float> poison, <2 x i32> zeroinitializer
   %98 = shufflevector <2 x float> %94, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %99 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %97, <2 x float> %98, <2 x float> %95)
@@ -2355,8 +2355,8 @@ invoke.cont144:                                   ; preds = %arrayctor.cont114, 
   %101 = shufflevector <2 x float> %78, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %102 = insertelement <2 x float> %101, float %82, i64 0
   %103 = fmul <2 x float> %100, %102
-  %104 = insertelement <2 x float> poison, float %call.i.i128, i64 0
-  %105 = insertelement <2 x float> %104, float %mul.i130, i64 1
+  %104 = insertelement <2 x float> poison, float %call.i.i131, i64 0
+  %105 = insertelement <2 x float> %104, float %mul.i133, i64 1
   %106 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %89, <2 x float> %105, <2 x float> %103)
   %107 = shufflevector <2 x float> %78, <2 x float> %102, <2 x i32> <i32 1, i32 2>
   %108 = shufflevector <2 x float> %105, <2 x float> poison, <2 x i32> <i32 1, i32 1>
@@ -2373,24 +2373,24 @@ invoke.cont144:                                   ; preds = %arrayctor.cont114, 
   %114 = load i32, ptr %mNumRotationKeys, align 8
   %115 = zext i32 %114 to i64
   %cmp119 = icmp ult i64 %indvars.iv.next, %115
-  br i1 %cmp119, label %invoke.cont144, label %if.then.i.i.i158, !llvm.loop !34
+  br i1 %cmp119, label %invoke.cont144, label %if.then.i.i.i162, !llvm.loop !34
 
 lpad100:                                          ; preds = %invoke.cont101, %if.then94
   %116 = landingpad { ptr, i32 }
           cleanup
   %117 = load ptr, ptr %keys95, align 8
-  %tobool.not.i.i.i154 = icmp eq ptr %117, null
-  br i1 %tobool.not.i.i.i154, label %eh.resume, label %eh.resume.sink.split
+  %tobool.not.i.i.i158 = icmp eq ptr %117, null
+  br i1 %tobool.not.i.i.i158, label %eh.resume, label %eh.resume.sink.split
 
 for.end:                                          ; preds = %arrayctor.cont114
-  %tobool.not.i.i.i157 = icmp eq ptr %49, null
-  br i1 %tobool.not.i.i.i157, label %if.end147, label %if.then.i.i.i158
+  %tobool.not.i.i.i161 = icmp eq ptr %49, null
+  br i1 %tobool.not.i.i.i161, label %if.end147, label %if.then.i.i.i162
 
-if.then.i.i.i158:                                 ; preds = %invoke.cont144, %for.end
+if.then.i.i.i162:                                 ; preds = %invoke.cont144, %for.end
   tail call void @_ZdlPv(ptr noundef nonnull %49) #20
   br label %if.end147
 
-if.end147:                                        ; preds = %if.then.i.i.i158, %for.end, %if.end92
+if.end147:                                        ; preds = %if.then.i.i.i162, %for.end, %if.end92
   br i1 %33, label %if.then149, label %if.end181
 
 if.then149:                                       ; preds = %if.end147
@@ -2406,16 +2406,16 @@ if.then149:                                       ; preds = %if.end147
           to label %invoke.cont156 unwind label %lpad155
 
 invoke.cont156:                                   ; preds = %if.then149
-  %_M_finish.i160 = getelementptr inbounds i8, ptr %keys150, i64 8
-  %122 = load ptr, ptr %_M_finish.i160, align 8
+  %_M_finish.i164 = getelementptr inbounds i8, ptr %keys150, i64 8
+  %122 = load ptr, ptr %_M_finish.i164, align 8
   %123 = load ptr, ptr %keys150, align 8
-  %sub.ptr.lhs.cast.i161 = ptrtoint ptr %122 to i64
-  %sub.ptr.rhs.cast.i162 = ptrtoint ptr %123 to i64
-  %sub.ptr.sub.i163 = sub i64 %sub.ptr.lhs.cast.i161, %sub.ptr.rhs.cast.i162
-  %sub.ptr.div.i164 = sdiv exact i64 %sub.ptr.sub.i163, 24
-  %conv158 = trunc i64 %sub.ptr.div.i164 to i32
+  %sub.ptr.lhs.cast.i165 = ptrtoint ptr %122 to i64
+  %sub.ptr.rhs.cast.i166 = ptrtoint ptr %123 to i64
+  %sub.ptr.sub.i167 = sub i64 %sub.ptr.lhs.cast.i165, %sub.ptr.rhs.cast.i166
+  %sub.ptr.div.i168 = sdiv exact i64 %sub.ptr.sub.i167, 24
+  %conv158 = trunc i64 %sub.ptr.div.i168 to i32
   store i32 %conv158, ptr %mNumScalingKeys.i, align 8
-  %conv159 = and i64 %sub.ptr.div.i164, 4294967295
+  %conv159 = and i64 %sub.ptr.div.i168, 4294967295
   %124 = mul nuw nsw i64 %conv159, 24
   %call161 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %124) #19
           to label %invoke.cont160 unwind label %lpad155
@@ -2437,18 +2437,18 @@ arrayctor.loop165:                                ; preds = %arrayctor.loop165, 
 
 arrayctor.cont169:                                ; preds = %arrayctor.loop165, %invoke.cont160
   store ptr %call161, ptr %mScalingKeys.i, align 8
-  %tobool.not.i.i.i.i.i169 = icmp eq ptr %122, %123
-  br i1 %tobool.not.i.i.i.i.i169, label %invoke.cont179, label %if.then.i.i.i.i.i170
+  %tobool.not.i.i.i.i.i173 = icmp eq ptr %122, %123
+  br i1 %tobool.not.i.i.i.i.i173, label %invoke.cont179, label %if.then.i.i.i.i.i174
 
-if.then.i.i.i.i.i170:                             ; preds = %arrayctor.cont169
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call161, ptr align 8 %123, i64 %sub.ptr.sub.i163, i1 false)
+if.then.i.i.i.i.i174:                             ; preds = %arrayctor.cont169
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call161, ptr align 8 %123, i64 %sub.ptr.sub.i167, i1 false)
   br label %invoke.cont179
 
-invoke.cont179:                                   ; preds = %if.then.i.i.i.i.i170, %arrayctor.cont169
-  %tobool.not.i.i.i173 = icmp eq ptr %123, null
-  br i1 %tobool.not.i.i.i173, label %if.end181, label %if.then.i.i.i174
+invoke.cont179:                                   ; preds = %if.then.i.i.i.i.i174, %arrayctor.cont169
+  %tobool.not.i.i.i177 = icmp eq ptr %123, null
+  br i1 %tobool.not.i.i.i177, label %if.end181, label %if.then.i.i.i178
 
-if.then.i.i.i174:                                 ; preds = %invoke.cont179
+if.then.i.i.i178:                                 ; preds = %invoke.cont179
   tail call void @_ZdlPv(ptr noundef nonnull %123) #20
   br label %if.end181
 
@@ -2456,10 +2456,10 @@ lpad155:                                          ; preds = %invoke.cont156, %if
   %125 = landingpad { ptr, i32 }
           cleanup
   %126 = load ptr, ptr %keys150, align 8
-  %tobool.not.i.i.i176 = icmp eq ptr %126, null
-  br i1 %tobool.not.i.i.i176, label %eh.resume, label %eh.resume.sink.split
+  %tobool.not.i.i.i180 = icmp eq ptr %126, null
+  br i1 %tobool.not.i.i.i180, label %eh.resume, label %eh.resume.sink.split
 
-if.end181:                                        ; preds = %if.then.i.i.i174, %invoke.cont179, %lor.end59, %entry, %if.end147
+if.end181:                                        ; preds = %if.then.i.i.i178, %invoke.cont179, %lor.end59, %entry, %if.end147
   ret void
 
 eh.resume.sink.split:                             ; preds = %lpad155, %lpad100, %lpad

@@ -9865,11 +9865,11 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE16PerVertexPerFaceERS2_.exit: ; preds = %53, %
   %71 = getelementptr inbounds i8, ptr %.sroa.03.010.i, i64 32
   %72 = load float, ptr %71, align 4
   %73 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %70)
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %73)
-  %74 = fcmp ogt float %sqrt.i.i, 0.000000e+00
+  %74 = fcmp ogt float %73, 0.000000e+00
   br i1 %74, label %75, label %_ZN3vcg6Point3IfE9NormalizeEv.exit.i
 
 75:                                               ; preds = %64
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %73)
   %76 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
   %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> zeroinitializer
   %78 = fdiv <2 x float> %66, %77
@@ -26595,7 +26595,7 @@ define linkonce_odr noundef float @_ZN3vcg3tri14PlanarEdgeFlipI6CMeshO6QEFlipXad
   %63 = tail call float @llvm.fmuladd.f32(float %55, float %55, float %62)
   %64 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %63)
   %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %64)
-  %65 = fcmp oeq float %sqrt.i.i.i, 0.000000e+00
+  %65 = fcmp oeq float %64, 0.000000e+00
   br i1 %65, label %_ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit, label %66
 
 66:                                               ; preds = %2
@@ -26640,7 +26640,7 @@ _ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit: ; preds = %2, %66, %71
   %97 = tail call float @llvm.fmuladd.f32(float %89, float %89, float %96)
   %98 = tail call float @llvm.fmuladd.f32(float %95, float %95, float %97)
   %sqrt.i.i.i9 = tail call noundef float @llvm.sqrt.f32(float %98)
-  %99 = fcmp oeq float %sqrt.i.i.i9, 0.000000e+00
+  %99 = fcmp oeq float %98, 0.000000e+00
   br i1 %99, label %_ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit13, label %100
 
 100:                                              ; preds = %_ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit
@@ -26685,7 +26685,7 @@ _ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit13: ; preds = %_ZN3vcg7Quality
   %131 = tail call float @llvm.fmuladd.f32(float %123, float %123, float %130)
   %132 = tail call float @llvm.fmuladd.f32(float %129, float %129, float %131)
   %sqrt.i.i.i14 = tail call noundef float @llvm.sqrt.f32(float %132)
-  %133 = fcmp oeq float %sqrt.i.i.i14, 0.000000e+00
+  %133 = fcmp oeq float %132, 0.000000e+00
   br i1 %133, label %_ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit18, label %134
 
 134:                                              ; preds = %_ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit13
@@ -26724,7 +26724,7 @@ _ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit18: ; preds = %_ZN3vcg7Quality
   %159 = tail call float @llvm.fmuladd.f32(float %153, float %153, float %158)
   %160 = tail call float @llvm.fmuladd.f32(float %157, float %157, float %159)
   %sqrt.i.i.i19 = tail call noundef float @llvm.sqrt.f32(float %160)
-  %161 = fcmp oeq float %sqrt.i.i.i19, 0.000000e+00
+  %161 = fcmp oeq float %160, 0.000000e+00
   br i1 %161, label %_ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit23, label %162
 
 162:                                              ; preds = %_ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit18

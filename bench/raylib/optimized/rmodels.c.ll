@@ -23816,11 +23816,11 @@ define hidden void @par_shapes_compute_normals(ptr nocapture noundef %0) local_u
   %155 = getelementptr inbounds i8, ptr %.03788, i64 8
   %156 = load float, ptr %155, align 4
   %157 = tail call float @llvm.fmuladd.f32(float %156, float %156, float %154)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %157)
-  %158 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %158 = fcmp ogt float %157, 0.000000e+00
   br i1 %158, label %159, label %par_shapes__normalize3.exit
 
 159:                                              ; preds = %.lr.ph91
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %157)
   %160 = fdiv float 1.000000e+00, %sqrt.i
   %161 = insertelement <2 x float> poison, float %160, i64 0
   %162 = shufflevector <2 x float> %161, <2 x float> poison, <2 x i32> zeroinitializer
@@ -24412,11 +24412,11 @@ define hidden noalias noundef ptr @par_shapes_create_parametric_disk(i32 noundef
   %22 = extractelement <2 x float> %17, i64 0
   %23 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %21)
   %24 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %23)
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %24)
-  %25 = fcmp ogt float %sqrt.i.i, 0.000000e+00
+  %25 = fcmp ogt float %24, 0.000000e+00
   br i1 %25, label %26, label %par_shapes__normalize3.exit.i
 
 26:                                               ; preds = %.lr.ph67.i
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %24)
   %27 = fdiv float 1.000000e+00, %sqrt.i.i
   %28 = insertelement <2 x float> poison, float %27, i64 0
   %29 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> zeroinitializer
@@ -24535,11 +24535,11 @@ define hidden void @par_shapes_scale(ptr nocapture noundef readonly %0, float no
   %61 = extractelement <2 x float> %55, i64 0
   %62 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %60)
   %63 = tail call float @llvm.fmuladd.f32(float %58, float %58, float %62)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %63)
-  %64 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %64 = fcmp ogt float %63, 0.000000e+00
   br i1 %64, label %65, label %par_shapes__normalize3.exit
 
 65:                                               ; preds = %.lr.ph67
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %63)
   %66 = fdiv float 1.000000e+00, %sqrt.i
   %67 = insertelement <2 x float> poison, float %66, i64 0
   %68 = shufflevector <2 x float> %67, <2 x float> poison, <2 x i32> zeroinitializer
@@ -25373,9 +25373,7 @@ define hidden noundef ptr @par_shapes_create_trefoil_knot(i32 noundef %0, i32 no
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal void @par_shapes__trefoil(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #27 {
-par_shapes__normalize3.exit:
-  %3 = load float, ptr %2, align 4
-  %4 = fmul float %3, 0x3FB99999A0000000
+  %4 = load float, ptr %2, align 4
   %5 = load float, ptr %0, align 4
   %6 = fsub float 1.000000e+00, %5
   %7 = fmul float %6, 4.000000e+00
@@ -25384,111 +25382,124 @@ par_shapes__normalize3.exit:
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   %12 = load float, ptr %11, align 4
-  %13 = fmul float %12, 2.000000e+00
+  %13 = fmul float %10, 1.500000e+00
   %14 = fpext float %13 to double
-  %15 = fmul double %14, 0x400921FB54442EEA
-  %16 = fptrunc double %15 to float
-  %17 = fmul float %10, 1.500000e+00
-  %18 = fpext float %17 to double
-  %19 = tail call double @cos(double noundef %18) #53
-  %20 = tail call double @llvm.fmuladd.f64(double %19, double 0x3FD3333340000000, double 5.000000e-01)
-  %21 = fptrunc double %20 to float
-  %22 = fpext float %21 to double
-  %23 = fpext float %10 to double
-  %24 = tail call double @cos(double noundef %23) #53
-  %25 = fmul double %24, %22
-  %26 = fptrunc double %25 to float
-  %27 = tail call double @sin(double noundef %23) #53
-  %28 = fmul double %27, %22
+  %15 = tail call double @cos(double noundef %14) #53
+  %16 = fpext float %10 to double
+  %17 = tail call double @cos(double noundef %16) #53
+  %18 = tail call double @sin(double noundef %16) #53
+  %19 = tail call double @sin(double noundef %14) #53
+  %20 = tail call double @sin(double noundef %14) #53
+  %21 = fmul double %20, 0xBFDCCCCCE0000000
+  %22 = tail call double @cos(double noundef %16) #53
+  %23 = tail call double @cos(double noundef %14) #53
+  %24 = tail call double @llvm.fmuladd.f64(double %23, double 0x3FD3333340000000, double 5.000000e-01)
+  %25 = tail call double @sin(double noundef %16) #53
+  %26 = fneg double %24
+  %27 = fmul double %25, %26
+  %28 = tail call double @llvm.fmuladd.f64(double %21, double %22, double %27)
   %29 = fptrunc double %28 to float
-  %30 = tail call double @sin(double noundef %18) #53
-  %31 = fmul double %30, 5.000000e-01
-  %32 = fptrunc double %31 to float
-  %33 = tail call double @sin(double noundef %18) #53
-  %34 = fmul double %33, 0xBFDCCCCCE0000000
-  %35 = tail call double @cos(double noundef %23) #53
-  %36 = tail call double @cos(double noundef %18) #53
-  %37 = tail call double @llvm.fmuladd.f64(double %36, double 0x3FD3333340000000, double 5.000000e-01)
-  %38 = tail call double @sin(double noundef %23) #53
-  %39 = fneg double %37
-  %40 = fmul double %38, %39
-  %41 = tail call double @llvm.fmuladd.f64(double %34, double %35, double %40)
-  %42 = fptrunc double %41 to float
-  %43 = tail call double @sin(double noundef %18) #53
-  %44 = fmul double %43, 0xBFDCCCCCE0000000
-  %45 = tail call double @sin(double noundef %23) #53
-  %46 = tail call double @cos(double noundef %18) #53
-  %47 = tail call double @llvm.fmuladd.f64(double %46, double 0x3FD3333340000000, double 5.000000e-01)
-  %48 = tail call double @cos(double noundef %23) #53
-  %49 = fmul double %47, %48
-  %50 = tail call double @llvm.fmuladd.f64(double %44, double %45, double %49)
-  %51 = fptrunc double %50 to float
-  %52 = tail call double @cos(double noundef %18) #53
-  %53 = fmul double %52, 7.500000e-01
-  %54 = fptrunc double %53 to float
-  %55 = fmul float %51, %51
-  %56 = tail call float @llvm.fmuladd.f32(float %42, float %42, float %55)
-  %57 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %56)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %57)
-  %58 = fcmp ogt float %sqrt.i, 0.000000e+00
-  %59 = fdiv float 1.000000e+00, %sqrt.i
-  %60 = fmul float %59, %42
-  %61 = fmul float %59, %51
-  %62 = fmul float %59, %54
-  %.sroa.041.0 = select i1 %58, float %60, float %42
-  %.sroa.544.0 = select i1 %58, float %61, float %51
-  %.sroa.1047.0 = select i1 %58, float %62, float %54
-  %63 = fneg float %.sroa.041.0
-  %64 = fmul float %.sroa.041.0, %.sroa.041.0
-  %65 = tail call float @llvm.fmuladd.f32(float %.sroa.544.0, float %.sroa.544.0, float %64)
-  %sqrt.i33 = tail call float @llvm.sqrt.f32(float %65)
-  %66 = fcmp ogt float %sqrt.i33, 0.000000e+00
-  %67 = fdiv float 1.000000e+00, %sqrt.i33
-  %68 = fmul float %.sroa.544.0, %67
-  %69 = fmul float %67, %63
-  %70 = fmul float %67, 0.000000e+00
-  %.sroa.10.0 = select i1 %66, float %70, float 0.000000e+00
-  %.sroa.5.0 = select i1 %66, float %69, float %63
-  %.sroa.035.0 = select i1 %66, float %68, float %.sroa.544.0
-  %71 = fneg float %.sroa.1047.0
-  %72 = fmul float %.sroa.5.0, %71
-  %73 = tail call float @llvm.fmuladd.f32(float %.sroa.544.0, float %.sroa.10.0, float %72)
-  %74 = fmul float %.sroa.10.0, %63
-  %75 = tail call float @llvm.fmuladd.f32(float %.sroa.1047.0, float %.sroa.035.0, float %74)
-  %76 = fneg float %.sroa.544.0
-  %77 = fmul float %.sroa.035.0, %76
-  %78 = tail call float @llvm.fmuladd.f32(float %.sroa.041.0, float %.sroa.5.0, float %77)
-  %79 = fpext float %26 to double
-  %80 = fpext float %4 to double
-  %81 = fpext float %.sroa.035.0 to double
-  %82 = fpext float %16 to double
-  %83 = tail call double @cos(double noundef %82) #53
-  %84 = fpext float %73 to double
-  %85 = tail call double @sin(double noundef %82) #53
-  %86 = fmul double %85, %84
-  %87 = tail call double @llvm.fmuladd.f64(double %81, double %83, double %86)
-  %88 = tail call double @llvm.fmuladd.f64(double %80, double %87, double %79)
-  %89 = fptrunc double %88 to float
-  store float %89, ptr %1, align 4
-  %90 = fpext float %29 to double
-  %91 = fpext float %.sroa.5.0 to double
-  %92 = tail call double @cos(double noundef %82) #53
-  %93 = fpext float %75 to double
-  %94 = tail call double @sin(double noundef %82) #53
-  %95 = fmul double %94, %93
-  %96 = tail call double @llvm.fmuladd.f64(double %91, double %92, double %95)
-  %97 = tail call double @llvm.fmuladd.f64(double %80, double %96, double %90)
-  %98 = fptrunc double %97 to float
-  %99 = getelementptr inbounds i8, ptr %1, i64 4
-  store float %98, ptr %99, align 4
-  %100 = fpext float %32 to double
-  %101 = fmul float %4, %78
-  %102 = fpext float %101 to double
-  %103 = tail call double @sin(double noundef %82) #53
-  %104 = tail call double @llvm.fmuladd.f64(double %102, double %103, double %100)
-  %105 = fptrunc double %104 to float
-  %106 = getelementptr inbounds i8, ptr %1, i64 8
-  store float %105, ptr %106, align 4
+  %30 = tail call double @sin(double noundef %14) #53
+  %31 = fmul double %30, 0xBFDCCCCCE0000000
+  %32 = tail call double @sin(double noundef %16) #53
+  %33 = tail call double @cos(double noundef %14) #53
+  %34 = tail call double @llvm.fmuladd.f64(double %33, double 0x3FD3333340000000, double 5.000000e-01)
+  %35 = tail call double @cos(double noundef %16) #53
+  %36 = fmul double %34, %35
+  %37 = tail call double @llvm.fmuladd.f64(double %31, double %32, double %36)
+  %38 = fptrunc double %37 to float
+  %39 = tail call double @cos(double noundef %14) #53
+  %40 = fmul double %39, 7.500000e-01
+  %41 = fptrunc double %40 to float
+  %42 = fmul float %38, %38
+  %43 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %42)
+  %44 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %43)
+  %45 = fcmp ogt float %44, 0.000000e+00
+  br i1 %45, label %46, label %par_shapes__normalize3.exit
+
+46:                                               ; preds = %3
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %44)
+  %47 = fdiv float 1.000000e+00, %sqrt.i
+  %48 = fmul float %47, %29
+  %49 = fmul float %47, %38
+  %50 = fmul float %47, %41
+  br label %par_shapes__normalize3.exit
+
+par_shapes__normalize3.exit:                      ; preds = %3, %46
+  %.sroa.041.0 = phi float [ %48, %46 ], [ %29, %3 ]
+  %.sroa.544.0 = phi float [ %49, %46 ], [ %38, %3 ]
+  %.sroa.1047.0 = phi float [ %50, %46 ], [ %41, %3 ]
+  %51 = fneg float %.sroa.041.0
+  %52 = fmul float %.sroa.041.0, %.sroa.041.0
+  %53 = tail call float @llvm.fmuladd.f32(float %.sroa.544.0, float %.sroa.544.0, float %52)
+  %54 = fcmp ogt float %53, 0.000000e+00
+  br i1 %54, label %55, label %par_shapes__normalize3.exit34
+
+55:                                               ; preds = %par_shapes__normalize3.exit
+  %sqrt.i33 = tail call float @llvm.sqrt.f32(float %53)
+  %56 = fdiv float 1.000000e+00, %sqrt.i33
+  %57 = fmul float %.sroa.544.0, %56
+  %58 = fmul float %56, %51
+  %59 = fmul float %56, 0.000000e+00
+  br label %par_shapes__normalize3.exit34
+
+par_shapes__normalize3.exit34:                    ; preds = %par_shapes__normalize3.exit, %55
+  %.sroa.10.0 = phi float [ %59, %55 ], [ 0.000000e+00, %par_shapes__normalize3.exit ]
+  %.sroa.5.0 = phi float [ %58, %55 ], [ %51, %par_shapes__normalize3.exit ]
+  %.sroa.035.0 = phi float [ %57, %55 ], [ %.sroa.544.0, %par_shapes__normalize3.exit ]
+  %60 = fmul double %19, 5.000000e-01
+  %61 = fptrunc double %60 to float
+  %62 = tail call double @llvm.fmuladd.f64(double %15, double 0x3FD3333340000000, double 5.000000e-01)
+  %63 = fptrunc double %62 to float
+  %64 = fpext float %63 to double
+  %65 = fmul double %18, %64
+  %66 = fptrunc double %65 to float
+  %67 = fmul double %17, %64
+  %68 = fptrunc double %67 to float
+  %69 = fmul float %12, 2.000000e+00
+  %70 = fpext float %69 to double
+  %71 = fmul double %70, 0x400921FB54442EEA
+  %72 = fptrunc double %71 to float
+  %73 = fmul float %4, 0x3FB99999A0000000
+  %74 = fneg float %.sroa.1047.0
+  %75 = fmul float %.sroa.5.0, %74
+  %76 = tail call float @llvm.fmuladd.f32(float %.sroa.544.0, float %.sroa.10.0, float %75)
+  %77 = fmul float %.sroa.10.0, %51
+  %78 = tail call float @llvm.fmuladd.f32(float %.sroa.1047.0, float %.sroa.035.0, float %77)
+  %79 = fneg float %.sroa.544.0
+  %80 = fmul float %.sroa.035.0, %79
+  %81 = tail call float @llvm.fmuladd.f32(float %.sroa.041.0, float %.sroa.5.0, float %80)
+  %82 = fpext float %68 to double
+  %83 = fpext float %73 to double
+  %84 = fpext float %.sroa.035.0 to double
+  %85 = fpext float %72 to double
+  %86 = tail call double @cos(double noundef %85) #53
+  %87 = fpext float %76 to double
+  %88 = tail call double @sin(double noundef %85) #53
+  %89 = fmul double %88, %87
+  %90 = tail call double @llvm.fmuladd.f64(double %84, double %86, double %89)
+  %91 = tail call double @llvm.fmuladd.f64(double %83, double %90, double %82)
+  %92 = fptrunc double %91 to float
+  store float %92, ptr %1, align 4
+  %93 = fpext float %66 to double
+  %94 = fpext float %.sroa.5.0 to double
+  %95 = tail call double @cos(double noundef %85) #53
+  %96 = fpext float %78 to double
+  %97 = tail call double @sin(double noundef %85) #53
+  %98 = fmul double %97, %96
+  %99 = tail call double @llvm.fmuladd.f64(double %94, double %95, double %98)
+  %100 = tail call double @llvm.fmuladd.f64(double %83, double %99, double %93)
+  %101 = fptrunc double %100 to float
+  %102 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %101, ptr %102, align 4
+  %103 = fpext float %61 to double
+  %104 = fmul float %73, %81
+  %105 = fpext float %104 to double
+  %106 = tail call double @sin(double noundef %85) #53
+  %107 = tail call double @llvm.fmuladd.f64(double %105, double %106, double %103)
+  %108 = fptrunc double %107 to float
+  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  store float %108, ptr %109, align 4
   ret void
 }
 
@@ -26076,7 +26087,7 @@ define hidden noalias noundef ptr @par_shapes_create_disk(float noundef %0, i32 
   store <2 x float> zeroinitializer, ptr %12, align 4
   store float 0.000000e+00, ptr %13, align 4
   %14 = icmp sgt i32 %1, 0
-  br i1 %14, label %.lr.ph, label %par_shapes__normalize3.exit
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
   %15 = uitofp nneg i32 %1 to double
@@ -26106,131 +26117,135 @@ define hidden noalias noundef ptr @par_shapes_create_disk(float noundef %0, i32 
   store float 0.000000e+00, ptr %31, align 4
   %32 = add nuw nsw i32 %.05567, 1
   %exitcond.not = icmp eq i32 %32, %1
-  br i1 %exitcond.not, label %par_shapes__normalize3.exit, label %17
+  br i1 %exitcond.not, label %._crit_edge, label %17
 
-par_shapes__normalize3.exit:                      ; preds = %17, %4
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
-  %34 = load float, ptr %33, align 4
-  %35 = load <2 x float>, ptr %3, align 4
-  %36 = fmul <2 x float> %35, %35
+._crit_edge:                                      ; preds = %17, %4
+  %33 = load <2 x float>, ptr %3, align 4
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = load float, ptr %34, align 4
+  %36 = fmul <2 x float> %33, %33
   %37 = extractelement <2 x float> %36, i64 1
-  %38 = extractelement <2 x float> %35, i64 0
+  %38 = extractelement <2 x float> %33, i64 0
   %39 = tail call float @llvm.fmuladd.f32(float %38, float %38, float %37)
-  %40 = tail call float @llvm.fmuladd.f32(float %34, float %34, float %39)
+  %40 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %39)
+  %41 = fcmp ogt float %40, 0.000000e+00
+  br i1 %41, label %42, label %par_shapes__normalize3.exit
+
+42:                                               ; preds = %._crit_edge
   %sqrt.i = tail call float @llvm.sqrt.f32(float %40)
-  %41 = fcmp ogt float %sqrt.i, 0.000000e+00
-  %42 = fdiv float 1.000000e+00, %sqrt.i
-  %43 = insertelement <2 x float> poison, float %42, i64 0
-  %44 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> zeroinitializer
-  %45 = fmul <2 x float> %35, %44
-  %46 = fmul float %34, %42
-  %47 = insertelement <2 x i1> poison, i1 %41, i64 0
-  %48 = shufflevector <2 x i1> %47, <2 x i1> poison, <2 x i32> zeroinitializer
-  %49 = select <2 x i1> %48, <2 x float> %45, <2 x float> %35
-  %.sroa.10.0 = select i1 %41, float %46, float %34
-  %50 = tail call noalias ptr @malloc(i64 noundef %11) #55
-  %51 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %50, ptr %51, align 8
+  %43 = fdiv float 1.000000e+00, %sqrt.i
+  %44 = insertelement <2 x float> poison, float %43, i64 0
+  %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
+  %46 = fmul <2 x float> %33, %45
+  %47 = fmul float %35, %43
+  br label %par_shapes__normalize3.exit
+
+par_shapes__normalize3.exit:                      ; preds = %._crit_edge, %42
+  %.sroa.10.0 = phi float [ %47, %42 ], [ %35, %._crit_edge ]
+  %48 = phi <2 x float> [ %46, %42 ], [ %33, %._crit_edge ]
+  %49 = tail call noalias ptr @malloc(i64 noundef %11) #55
+  %50 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %49, ptr %50, align 8
   %.not69 = icmp slt i32 %1, 0
-  br i1 %.not69, label %._crit_edge, label %.lr.ph72
+  br i1 %.not69, label %._crit_edge73, label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %par_shapes__normalize3.exit, %.lr.ph72
-  %.05271 = phi i32 [ %54, %.lr.ph72 ], [ 0, %par_shapes__normalize3.exit ]
-  %.05370 = phi ptr [ %53, %.lr.ph72 ], [ %50, %par_shapes__normalize3.exit ]
-  %52 = getelementptr inbounds i8, ptr %.05370, i64 8
-  store <2 x float> %49, ptr %.05370, align 4
-  %53 = getelementptr inbounds i8, ptr %.05370, i64 12
-  store float %.sroa.10.0, ptr %52, align 4
-  %54 = add nuw i32 %.05271, 1
-  %exitcond78.not = icmp eq i32 %.05271, %1
-  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph72
+  %.05271 = phi i32 [ %53, %.lr.ph72 ], [ 0, %par_shapes__normalize3.exit ]
+  %.05370 = phi ptr [ %52, %.lr.ph72 ], [ %49, %par_shapes__normalize3.exit ]
+  %51 = getelementptr inbounds i8, ptr %.05370, i64 8
+  store <2 x float> %48, ptr %.05370, align 4
+  %52 = getelementptr inbounds i8, ptr %.05370, i64 12
+  store float %.sroa.10.0, ptr %51, align 4
+  %53 = add nuw i32 %.05271, 1
+  %exitcond79.not = icmp eq i32 %.05271, %1
+  br i1 %exitcond79.not, label %._crit_edge73, label %.lr.ph72
 
-._crit_edge:                                      ; preds = %.lr.ph72, %par_shapes__normalize3.exit
-  %55 = getelementptr inbounds i8, ptr %6, i64 24
-  store i32 %1, ptr %55, align 8
-  %56 = mul nsw i32 %1, 3
-  %57 = sext i32 %56 to i64
-  %58 = shl nsw i64 %57, 1
-  %59 = tail call noalias ptr @malloc(i64 noundef %58) #55
-  %60 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %59, ptr %60, align 8
-  br i1 %14, label %.lr.ph76, label %._crit_edge77
+._crit_edge73:                                    ; preds = %.lr.ph72, %par_shapes__normalize3.exit
+  %54 = getelementptr inbounds i8, ptr %6, i64 24
+  store i32 %1, ptr %54, align 8
+  %55 = mul nsw i32 %1, 3
+  %56 = sext i32 %55 to i64
+  %57 = shl nsw i64 %56, 1
+  %58 = tail call noalias ptr @malloc(i64 noundef %57) #55
+  %59 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %58, ptr %59, align 8
+  br i1 %14, label %.lr.ph77, label %._crit_edge78
 
-.lr.ph76:                                         ; preds = %._crit_edge, %.lr.ph76
-  %.074 = phi i32 [ %62, %.lr.ph76 ], [ 0, %._crit_edge ]
-  %.05173 = phi ptr [ %69, %.lr.ph76 ], [ %59, %._crit_edge ]
-  %61 = getelementptr inbounds i8, ptr %.05173, i64 2
-  store i16 0, ptr %.05173, align 2
-  %62 = add nuw nsw i32 %.074, 1
-  %63 = trunc i32 %62 to i16
-  %64 = getelementptr inbounds i8, ptr %.05173, i64 4
-  store i16 %63, ptr %61, align 2
-  %65 = icmp eq i32 %62, %1
-  %66 = trunc i32 %62 to i16
-  %67 = add i16 %66, 1
-  %68 = select i1 %65, i16 1, i16 %67
-  %69 = getelementptr inbounds i8, ptr %.05173, i64 6
-  store i16 %68, ptr %64, align 2
-  %exitcond79.not = icmp eq i32 %62, %1
-  br i1 %exitcond79.not, label %._crit_edge77, label %.lr.ph76
+.lr.ph77:                                         ; preds = %._crit_edge73, %.lr.ph77
+  %.075 = phi i32 [ %61, %.lr.ph77 ], [ 0, %._crit_edge73 ]
+  %.05174 = phi ptr [ %68, %.lr.ph77 ], [ %58, %._crit_edge73 ]
+  %60 = getelementptr inbounds i8, ptr %.05174, i64 2
+  store i16 0, ptr %.05174, align 2
+  %61 = add nuw nsw i32 %.075, 1
+  %62 = trunc i32 %61 to i16
+  %63 = getelementptr inbounds i8, ptr %.05174, i64 4
+  store i16 %62, ptr %60, align 2
+  %64 = icmp eq i32 %61, %1
+  %65 = trunc i32 %61 to i16
+  %66 = add i16 %65, 1
+  %67 = select i1 %64, i16 1, i16 %66
+  %68 = getelementptr inbounds i8, ptr %.05174, i64 6
+  store i16 %67, ptr %63, align 2
+  %exitcond80.not = icmp eq i32 %61, %1
+  br i1 %exitcond80.not, label %._crit_edge78, label %.lr.ph77
 
-._crit_edge77:                                    ; preds = %.lr.ph76, %._crit_edge
-  %70 = fmul float %.sroa.10.0, -0.000000e+00
-  %71 = extractelement <2 x float> %49, i64 1
-  %72 = fsub float %70, %71
-  %73 = extractelement <2 x float> %49, i64 0
-  %74 = tail call float @llvm.fmuladd.f32(float %.sroa.10.0, float 0.000000e+00, float %73)
-  %75 = fmul float %71, -0.000000e+00
-  %76 = tail call float @llvm.fmuladd.f32(float %73, float 0.000000e+00, float %75)
-  store float %72, ptr %5, align 8
-  %77 = getelementptr inbounds i8, ptr %5, i64 4
-  store float %74, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %5, i64 8
-  store float %76, ptr %78, align 8
-  %79 = fmul float %74, %74
-  %80 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %79)
-  %81 = tail call float @llvm.fmuladd.f32(float %76, float %76, float %80)
-  %sqrt.i57 = tail call float @llvm.sqrt.f32(float %81)
-  %82 = fcmp ogt float %sqrt.i57, 0.000000e+00
-  br i1 %82, label %83, label %par_shapes__normalize3.exit58
+._crit_edge78:                                    ; preds = %.lr.ph77, %._crit_edge73
+  %69 = fmul float %.sroa.10.0, -0.000000e+00
+  %70 = extractelement <2 x float> %48, i64 1
+  %71 = fsub float %69, %70
+  %72 = extractelement <2 x float> %48, i64 0
+  %73 = tail call float @llvm.fmuladd.f32(float %.sroa.10.0, float 0.000000e+00, float %72)
+  %74 = fmul float %70, -0.000000e+00
+  %75 = tail call float @llvm.fmuladd.f32(float %72, float 0.000000e+00, float %74)
+  store float %71, ptr %5, align 8
+  %76 = getelementptr inbounds i8, ptr %5, i64 4
+  store float %73, ptr %76, align 4
+  %77 = getelementptr inbounds i8, ptr %5, i64 8
+  store float %75, ptr %77, align 8
+  %78 = fmul float %73, %73
+  %79 = tail call float @llvm.fmuladd.f32(float %71, float %71, float %78)
+  %80 = tail call float @llvm.fmuladd.f32(float %75, float %75, float %79)
+  %81 = fcmp ogt float %80, 0.000000e+00
+  br i1 %81, label %82, label %par_shapes__normalize3.exit58
 
-83:                                               ; preds = %._crit_edge77
-  %84 = fdiv float 1.000000e+00, %sqrt.i57
-  %85 = insertelement <2 x float> poison, float %72, i64 0
-  %86 = insertelement <2 x float> %85, float %74, i64 1
-  %87 = insertelement <2 x float> poison, float %84, i64 0
-  %88 = shufflevector <2 x float> %87, <2 x float> poison, <2 x i32> zeroinitializer
-  %89 = fmul <2 x float> %86, %88
-  store <2 x float> %89, ptr %5, align 8
-  %90 = fmul float %76, %84
-  store float %90, ptr %78, align 8
+82:                                               ; preds = %._crit_edge78
+  %sqrt.i57 = tail call float @llvm.sqrt.f32(float %80)
+  %83 = fdiv float 1.000000e+00, %sqrt.i57
+  %84 = insertelement <2 x float> poison, float %71, i64 0
+  %85 = insertelement <2 x float> %84, float %73, i64 1
+  %86 = insertelement <2 x float> poison, float %83, i64 0
+  %87 = shufflevector <2 x float> %86, <2 x float> poison, <2 x i32> zeroinitializer
+  %88 = fmul <2 x float> %85, %87
+  store <2 x float> %88, ptr %5, align 8
+  %89 = fmul float %75, %83
+  store float %89, ptr %77, align 8
   br label %par_shapes__normalize3.exit58
 
-par_shapes__normalize3.exit58:                    ; preds = %._crit_edge77, %83
-  %91 = fpext float %.sroa.10.0 to double
-  %92 = tail call double @acos(double noundef %91) #53
-  %93 = fptrunc double %92 to float
-  call void @par_shapes_rotate(ptr noundef nonnull %6, float noundef %93, ptr noundef nonnull %5)
-  %94 = load <2 x float>, ptr %2, align 4
-  %95 = getelementptr inbounds i8, ptr %2, i64 8
-  %96 = load float, ptr %95, align 4
-  %97 = icmp sgt i32 %1, -1
-  br i1 %97, label %.lr.ph.i, label %par_shapes_translate.exit
+par_shapes__normalize3.exit58:                    ; preds = %._crit_edge78, %82
+  %90 = fpext float %.sroa.10.0 to double
+  %91 = tail call double @acos(double noundef %90) #53
+  %92 = fptrunc double %91 to float
+  call void @par_shapes_rotate(ptr noundef nonnull %6, float noundef %92, ptr noundef nonnull %5)
+  %93 = load <2 x float>, ptr %2, align 4
+  %94 = getelementptr inbounds i8, ptr %2, i64 8
+  %95 = load float, ptr %94, align 4
+  %96 = icmp sgt i32 %1, -1
+  br i1 %96, label %.lr.ph.i, label %par_shapes_translate.exit
 
 .lr.ph.i:                                         ; preds = %par_shapes__normalize3.exit58, %.lr.ph.i
-  %.011.i = phi i32 [ %104, %.lr.ph.i ], [ 0, %par_shapes__normalize3.exit58 ]
-  %.0910.i = phi ptr [ %101, %.lr.ph.i ], [ %12, %par_shapes__normalize3.exit58 ]
-  %98 = getelementptr inbounds i8, ptr %.0910.i, i64 8
-  %99 = load <2 x float>, ptr %.0910.i, align 4
-  %100 = fadd <2 x float> %94, %99
-  store <2 x float> %100, ptr %.0910.i, align 4
-  %101 = getelementptr inbounds i8, ptr %.0910.i, i64 12
-  %102 = load float, ptr %98, align 4
-  %103 = fadd float %96, %102
-  store float %103, ptr %98, align 4
-  %104 = add nuw i32 %.011.i, 1
-  %exitcond80.not = icmp eq i32 %.011.i, %1
-  br i1 %exitcond80.not, label %par_shapes_translate.exit, label %.lr.ph.i
+  %.011.i = phi i32 [ %103, %.lr.ph.i ], [ 0, %par_shapes__normalize3.exit58 ]
+  %.0910.i = phi ptr [ %100, %.lr.ph.i ], [ %12, %par_shapes__normalize3.exit58 ]
+  %97 = getelementptr inbounds i8, ptr %.0910.i, i64 8
+  %98 = load <2 x float>, ptr %.0910.i, align 4
+  %99 = fadd <2 x float> %93, %98
+  store <2 x float> %99, ptr %.0910.i, align 4
+  %100 = getelementptr inbounds i8, ptr %.0910.i, i64 12
+  %101 = load float, ptr %97, align 4
+  %102 = fadd float %95, %101
+  store float %102, ptr %97, align 4
+  %103 = add nuw i32 %.011.i, 1
+  %exitcond81.not = icmp eq i32 %.011.i, %1
+  br i1 %exitcond81.not, label %par_shapes_translate.exit, label %.lr.ph.i
 
 par_shapes_translate.exit:                        ; preds = %.lr.ph.i, %par_shapes__normalize3.exit58
   ret ptr %6
@@ -27963,11 +27978,11 @@ par_shapes__subdivide.exit:                       ; preds = %.lr.ph.i24, %.lr.ph
   %140 = getelementptr inbounds i8, ptr %134, i64 8
   %141 = load float, ptr %140, align 4
   %142 = tail call float @llvm.fmuladd.f32(float %141, float %141, float %139)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %142)
-  %143 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %143 = fcmp ogt float %142, 0.000000e+00
   br i1 %143, label %144, label %par_shapes__normalize3.exit
 
 144:                                              ; preds = %133
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %142)
   %145 = fdiv float 1.000000e+00, %sqrt.i
   %146 = insertelement <2 x float> poison, float %145, i64 0
   %147 = shufflevector <2 x float> %146, <2 x float> poison, <2 x i32> zeroinitializer
